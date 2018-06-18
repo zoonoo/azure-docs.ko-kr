@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: 90261e090f87a5ca0d92b86c33addce2449cfd24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361974"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627026"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -62,7 +62,7 @@ HDInsight 클러스터를 만들 때 Azure 구독을 지정해야 합니다. 클
     1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
     2. 왼쪽 메뉴에서 **구독**을 클릭합니다. 노란색 키 아이콘이 있습니다. 구독의 목록이 표시됩니다.
     3. 클러스터를 만드는 데 사용할 구독을 클릭합니다. 
-    4. **내 사용 권한**을 클릭합니다.  구독에 [역할](../role-based-access-control/overview.md#built-in-roles)이 표시됩니다. HDInsight 클러스터를 만들기 위해서는 참여자 액세스 권한 이상이 필요합니다.
+    4. **내 사용 권한**을 클릭합니다.  구독에 [역할](../role-based-access-control/built-in-roles.md)이 표시됩니다. HDInsight 클러스터를 만들기 위해서는 참여자 액세스 권한 이상이 필요합니다.
 
 - 기존 리소스 그룹을 사용하려면 다음을 수행합니다.
 

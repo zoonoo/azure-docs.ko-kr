@@ -4,7 +4,7 @@ description: Azure 앱 서비스로 논리 앱을 만듭니다. Trello는 회사
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: 6773ddd1da5c013b7a0ca7d2855806d606720469
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8f7fefde5f35c65d707ad96a475935dd0d791259
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296189"
 ---
 # <a name="get-started-with-the-trello-connector"></a>Trello 커넥터 시작
 Trello는 회사 및 집에서 모든 프로젝트를 통해 큐브 뷰를 제공합니다.  쉽고 무료로 유연하며 시각적인 방법으로 프로젝트를 관리하고 무엇이든 구성할 수 있습니다.  Trello에 연결하여 보드, 목록 및 카드를 관리합니다.

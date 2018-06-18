@@ -13,11 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/06/2018
   ms.author: spelluru
-  ms.openlocfilehash: f06102399cac6ef1b6b31155dff32999a923e173
-  ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+  ms.openlocfilehash: 1b37824b113fd9b1aaf225c5cb24b2dd27f1b47f
+  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/07/2018
+  ms.lasthandoff: 06/01/2018
+  ms.locfileid: "34636701"
 abstract:
   description: Azure Lab Services를 사용하여 클라우드에 팀 또는 학생들을 위한 개발, 테스트, 해커톤(hackathon) 또는 클래스룸 랩을 빠르게 설정하는 방법을 알아봅니다. Azure 자습서, 샘플 등에서는 랩을 만들고, 관리하고, 보호하는 방법을 보여 줍니다.
 sections:
@@ -28,16 +29,16 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-setup-lab-account">랩 계정 설정</a>
-    - html: <a href="/azure/lab-services/tutorial-setup-classroom-lab">클래스룸 랩 설정</a>
-    - html: <a href="/azure/lab-services/tutorial-connect-virtual-machine-classroom-lab">클래스룸 랩 액세스</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-lab-account">랩 계정 설정</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-setup-classroom-lab">클래스룸 랩 설정</a>
+    - html: <a href="/azure/lab-services/classroom-labs/tutorial-connect-virtual-machine-classroom-lab">클래스룸 랩 액세스</a>
   - type: paragraph
-    text: Azure Lab Services를 사용하여 <b>사용자 지정 랩</b>을 만들고 사용하는 방법을 알아봅니다.
+    text: Azure DevTest Labs를 사용하여 <b>랩</b>을 만들고 사용하는 방법에 대해 알아보세요.
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">사용자 지정 랩 설정</a>
-    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">사용자 지정 랩 액세스</a>
+    - html: <a href="/azure/lab-services/tutorial-create-custom-lab">랩 설정</a>
+    - html: <a href="/azure/lab-services/tutorial-use-custom-lab">랩 액세스</a>
 - title: 샘플
   items:
   - type: paragraph

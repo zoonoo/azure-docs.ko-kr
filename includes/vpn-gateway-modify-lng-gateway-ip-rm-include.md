@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30326552"
 ---
 ### <a name="gwipnoconnection"></a> 로컬 네트워크 게이트웨이 'GatewayIpAddress'를 수정하려면 - 게이트웨이 연결 없음
 

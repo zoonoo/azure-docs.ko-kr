@@ -1,25 +1,20 @@
 ---
-title: "Azure Backup에 대한 보고서 구성"
-description: "이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup에 대한 Power BI 보고서를 구성하는 방법을 설명합니다."
+title: Azure Backup에 대한 보고서 구성
+description: 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup에 대한 Power BI 보고서를 구성하는 방법을 설명합니다.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 86e465f1-8996-4a40-b582-ccf75c58ab87
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f51d85da1bda0d9483883301b71c20e405724b9b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: b645d12255ab2bd6c3747eb966b2a6ecc3e284b3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605232"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup에 대한 보고서를 구성하고 Power BI를 사용하여 이러한 보고서에 액세스하는 단계를 설명합니다. 이러한 단계를 수행한 후 Power BI로 직접 이동하여 모든 보고서를 확인하고, 보고서를 사용자 지정 및 생성할 수 있습니다. 
@@ -137,7 +132,7 @@ Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저�
 
 4. **저장소 계정을 구성하면 보고서에서 내 데이터를 모두 볼 수 있나요?**
 
-   **"저장소 계정을 구성"**한 후 생성된 모든 데이터는 저장소 계정에 푸시되며 보고서에서 확인할 수 있습니다. 그러나 **진행 중인 작업은 보고를 위해 푸시되지 않습니다**. 작업이 완료되거나 실패하면 보고서에 전송됩니다.
+   **"저장소 계정을 구성"** 한 후 생성된 모든 데이터는 저장소 계정에 푸시되며 보고서에서 확인할 수 있습니다. 그러나 **진행 중인 작업은 보고를 위해 푸시되지 않습니다**. 작업이 완료되거나 실패하면 보고서에 전송됩니다.
 
 5. **보고서를 보는 데 사용할 저장소 계정을 이미 구성한 경우 다른 저장소 계정을 사용하도록 구성을 변경할 수 있나요?** 
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781572"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs의 랩에서 VM 다시 시작
 이 문서의 단계에 따라 DevTest Labs에서 가상 머신을 빠르고 쉽게 다시 시작할 수 있습니다. VM을 다시 시작하기 전에 다음을 고려하세요.

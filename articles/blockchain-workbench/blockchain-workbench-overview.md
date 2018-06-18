@@ -10,11 +10,12 @@ ms.topic: overview
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 1f1aa6b5a81285f2f6b3a298917f3d7c48853e29
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9cd8ef3977d12364759838b46632ba32e0de6e70
+ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/12/2018
+ms.locfileid: "34075672"
 ---
 # <a name="what-is-azure-blockchain-workbench"></a>Azure Blockchain Workbench란?
 
@@ -22,7 +23,7 @@ Azure Blockchain Workbench는 비즈니스 프로세스 및 데이터를 다른 
 
 ## <a name="create-blockchain-applications"></a>블록체인 응용 프로그램 만들기
 
-Blockchain Workbench를 사용하면 구성 및 스마트 계약 코드 작성을 통해 블록체인 응용 프로그램을 정의할 수 있습니다. 블록체인 응용 프로그램 개발에 착수하고, 스캐폴딩 및 설정 지원 서비스를 작성하는 대신 계약을 정의하고 비즈니스 논리를 작성하는 데 집중할 수 있습니다.
+Blockchain Workbench를 통해 구성 및 스마트 계약 코드 작성을 사용하여 블록체인 응용 프로그램을 정의할 수 있습니다. 블록체인 응용 프로그램 개발에 착수하고, 스캐폴딩 및 설정 지원 서비스를 작성하는 대신 계약을 정의하고 비즈니스 논리를 작성하는 데 집중할 수 있습니다.
 
 ## <a name="manage-applications-and-users"></a>응용 프로그램 및 사용자 관리
 
@@ -50,4 +51,5 @@ Azure Blockchain Workbench를 사용하면 블록체인의 데이터를 오프 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Blockchain Workbench 배포](blockchain-workbench-deploy.md)
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench 아키텍처](blockchain-workbench-architecture.md)

@@ -1,25 +1,26 @@
 ---
-title: "복사 마법사를 사용하여 데이터를 쉽게 복사 - Azure | Microsoft Docs"
-description: "Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요."
+title: 복사 마법사를 사용하여 데이터를 쉽게 복사 - Azure | Microsoft Docs
+description: Data Factory 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요.
 services: data-factory
-documentationcenter: 
+documentationcenter: ''
 author: linda33wj
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.assetid: f904972f-cd33-48db-9755-2b3196ae4168
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8f618c6efd96fd74e88f56a378b9d73cfa47b8da
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 1ef94f5cfa91422dddf9c684c2dc1b6eada754f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621295"
 ---
 # <a name="copy-or-move-data-easily-with-azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사를 사용하여 데이터를 쉽게 복사 또는 이동
 > [!NOTE]
@@ -63,7 +64,7 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
 ![식 유효성 검사](./media/data-factory-copy-wizard/validate-expressions.png)
 
 ### <a name="filtering-of-data-in-an-azure-blob-folder"></a>Azure Blob 폴더의 데이터 필터링
-폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}**입니다. 예: inputfolder/{year}/{month}/{day}.
+폴더 경로의 변수를 사용하여 [시스템 변수](data-factory-functions-variables.md#data-factory-system-variables)를 기반으로 런타임 시 결정되는 폴더의 데이터를 복사할 수 있습니다. 지원되는 변수는 **{year}**, **{month}**, **{day}**, **{hour}**, **{minute}** 및 **{custom}** 입니다. 예: inputfolder/{year}/{month}/{day}.
 
 다음과 같은 형식의 입력 폴더가 있다고 가정하겠습니다.
 
@@ -72,11 +73,11 @@ Azure Data Factory Copy Wizard는 일반적으로 종단 간 데이터 통합 �
     2016/03/01/03
     ...
 
-**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016**을 **{year}**로, **03**을 **{month}**로, **01**을 **{day}**로, **02**를 **{hour}**로 바꾸고 탭을 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
+**파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 `2016/03/01/02`가 표시됩니다. 이제 **2016**을 **{year}** 로, **03**을 **{month}** 로, **01**을 **{day}** 로, **02**를 **{hour}** 로 바꾸고 탭을 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
 
 ![시스템 변수 사용](./media/data-factory-copy-wizard/blob-standard-variables-in-folder-path.png)   
 
-다음 스크린샷에 표시된 것처럼 **사용자 지정** 변수 및 모든 [지원되는 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)도 사용할 수 있습니다. 해당 구조의 폴더를 선택하려면 먼저 **찾아보기** 단추를 사용합니다. 그런 다음 값을 **{custom}**으로 바꾸고, 탭을 누르면 형식 문자열을 입력할 수 있는 텍스트 상자가 표시됩니다.     
+다음 스크린샷에 표시된 것처럼 **사용자 지정** 변수 및 모든 [지원되는 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)도 사용할 수 있습니다. 해당 구조의 폴더를 선택하려면 먼저 **찾아보기** 단추를 사용합니다. 그런 다음 값을 **{custom}** 으로 바꾸고, 탭을 누르면 형식 문자열을 입력할 수 있는 텍스트 상자가 표시됩니다.     
 
 ![사용자 지정 변수 사용](./media/data-factory-copy-wizard/blob-custom-variables-in-folder-path.png)
 

@@ -1,6 +1,6 @@
 ---
-title: "SQL Server Virtual Machine에 연결(리소스 관리자) | Microsoft Docs"
-description: "Azure의 Virtual Machine에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다."
+title: SQL Server Virtual Machine에 연결(리소스 관리자) | Microsoft Docs
+description: Azure의 Virtual Machine에서 실행되는 SQL Server에 연결하는 방법을 알아봅니다. 이 항목에서는 클래식 배포 모드를 사용합니다. 시나리오는 네트워킹 구성 및 클라이언트의 위치에 따라 다릅니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400242"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 

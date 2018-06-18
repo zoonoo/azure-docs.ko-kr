@@ -1,11 +1,11 @@
 ---
-title: "스키마 버전 2015-08-01-미리 보기에 논리 앱을 마이그레이션하는 방법 | Microsoft 문서"
-description: "논리 앱을 쉽게 최신 스키마 버전에 마이그레이션할 수 있습니다. 다음 단계를 수행합니다."
+title: 스키마 버전 2015-08-01-미리 보기에 논리 앱을 마이그레이션하는 방법 | Microsoft 문서
+description: 논리 앱을 쉽게 최신 스키마 버전에 마이그레이션할 수 있습니다. 다음 단계를 수행합니다.
 services: logic-apps
-documentationcenter: 
+documentationcenter: ''
 author: MSFTMAN
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22707127"
 ---
 # <a name="how-to-migrate-logic-apps-to-schema-version-2015-08-01-preview"></a>스키마 버전 2015-08-01-미리 보기에 논리 앱을 마이그레이션하는 방법
 기존 논리 앱을 새 스키마로 이동하려면 다음을 수행합니다.  

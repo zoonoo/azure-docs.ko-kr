@@ -1,6 +1,6 @@
 ---
-title: "Azure 관리되는 응용 프로그램 샘플 프로젝트 | Microsoft Docs"
-description: "Azure 관리되는 응용 프로그램에 사용할 수 있는 샘플 프로젝트 요약"
+title: Azure 관리되는 응용 프로그램 샘플 프로젝트 | Microsoft Docs
+description: Azure 관리되는 응용 프로그램에 사용할 수 있는 샘플 프로젝트 요약
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "26753063"
 ---
 # <a name="sample-projects-for-azure-managed-applications"></a>Azure 관리되는 응용 프로그램의 샘플 프로젝트
 

@@ -1,11 +1,11 @@
 ---
-title: "셀프 서비스 응용 프로그램 액세스를 사용할 때 발생하는 문제 | Microsoft Docs"
-description: "셀프 서비스 응용 프로그램 액세스와 관련된 문제 해결"
+title: 셀프 서비스 응용 프로그램 액세스를 사용할 때 발생하는 문제 | Microsoft Docs
+description: 셀프 서비스 응용 프로그램 액세스와 관련된 문제 해결
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382358"
 ---
 # <a name="problem-using-self-service-application-access"></a>셀프 서비스 응용 프로그램 액세스를 사용할 때 발생하는 문제
 

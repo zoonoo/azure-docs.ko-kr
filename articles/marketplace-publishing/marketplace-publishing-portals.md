@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29938647"
 ---
 # <a name="portals-you-will-need"></a>필요한 포털
 제품 게시 프로세스를 시작하기 전에 필요한 다양한 포털을 소개하겠습니다. 아래에 포털에 대한 간략한 요약이 있습니다. 이용하는 순서대로 개발자 센터, Azure 게시 포털 및 Azure Portal이 나와 있습니다.                                                                            

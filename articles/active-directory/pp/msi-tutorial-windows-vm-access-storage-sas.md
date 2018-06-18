@@ -1,8 +1,8 @@
 ---
-title: "Windows VM MSI를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스"
-description: "Windows VM MSI(관리 서비스 ID)를 사용하여 저장소 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여 주는 자습서입니다."
+title: Windows VM MSI를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
+description: Windows VM MSI(관리 서비스 ID)를 사용하여 저장소 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여 주는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/03/2018
+ms.locfileid: "28979989"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Windows VM 관리 서비스 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 

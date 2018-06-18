@@ -1,11 +1,11 @@
 ---
-title: "ExpressRoute 회로 수정: PowerShell: Azure 클래식 | Microsoft Docs"
-description: "이 문서에서는 ExpressRoute 클래식 배포 모델 회로 상태를 확인하고, 업데이트 또는 삭제하고, 프로비전을 해제하는 단계를 설명합니다."
+title: 'ExpressRoute 회로 수정: PowerShell: Azure 클래식 | Microsoft Docs'
+description: 이 문서에서는 ExpressRoute 클래식 배포 모델 회로 상태를 확인하고, 업데이트 또는 삭제하고, 프로비전을 해제하는 단계를 설명합니다.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24102837"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로 수정(클래식)
 

@@ -1,11 +1,11 @@
 ---
-title: "고객의 요금 청구서 주소와 Azure 스택의 비용 정산 | Microsoft Docs"
-description: "스택에서 Azure 리소스 사용 정보를 검색 하는 방법을 알아봅니다."
+title: 고객의 요금 청구서 주소와 Azure 스택의 비용 정산 | Microsoft Docs
+description: 스택에서 Azure 리소스 사용 정보를 검색 하는 방법을 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877486"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>사용 및 청구 Azure 스택
 

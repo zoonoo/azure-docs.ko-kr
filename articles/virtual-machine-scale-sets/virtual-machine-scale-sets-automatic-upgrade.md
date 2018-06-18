@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30838226"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Azure 가상 머신 확장 집합 자동 OS 업그레이드
 

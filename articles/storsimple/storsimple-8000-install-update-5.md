@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치에 업데이트 5 설치 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 업데이트 5를 설치하는 방법에 대해 설명합니다."
+title: StorSimple 8000 시리즈 장치에 업데이트 5 설치 | Microsoft Docs
+description: StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 업데이트 5를 설치하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 99d29d0aa8ec15ec96b3b057629d00c70d30cfec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28108723"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 5 설치
 
@@ -46,7 +47,7 @@ ms.lasthandoff: 01/25/2018
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update5-via-portal.md)]
 
-장치가 **StorSimple 8000 시리즈 업데이트 5(6.3.9600.17845)**를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜**를 수정해야 합니다.
+장치가 **StorSimple 8000 시리즈 업데이트 5(6.3.9600.17845)** 를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜**를 수정해야 합니다.
 
 이제 유지 관리 모드 업데이트가 사용 가능하다고 표시됩니다(이 메시지는 업데이트를 설치한 후 최대 24시간 동안 계속 표시될 수 있음). 유지 관리 모드 업데이트를 설치하는 단계는 다음 섹션에 자세히 설명되어 있습니다.
 

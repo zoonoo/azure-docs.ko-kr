@@ -1,11 +1,11 @@
 ---
-title: "응용 프로그램에 대한 사용자 액세스를 제거하는 방법 | Microsoft Docs"
-description: "응용 프로그램에 대한 사용자 액세스를 제거하는 방법 이해"
+title: 응용 프로그램에 대한 사용자 액세스를 제거하는 방법 | Microsoft Docs
+description: 응용 프로그램에 대한 사용자 액세스를 제거하는 방법 이해
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.openlocfilehash: aec49b108c21b97646e622c47bf69728a81d6d33
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 3731049d2bc42c7fac492f7609f54b5d4a1443b6
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292323"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>응용 프로그램에 대한 사용자 액세스를 제거하는 방법
 
@@ -71,4 +72,4 @@ ms.lasthandoff: 02/21/2018
 
 
 # <a name="next-steps"></a>다음 단계
-[앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md)
+[앱에 대한 액세스 관리](manage-apps/what-is-access-management.md)

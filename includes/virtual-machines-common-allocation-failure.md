@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33901332"
 ---
 VM(가상 머신)을 만들거나 중지된(할당이 취소된) VM을 재시작하거나 VM의 크기를 조정하는 경우 Microsoft Azure에서 구독에 계산 리소스를 할당합니다. 당사는 고객의 요구를 지원할 수 있는 모든 VM 유형을 항상 제공할 수 있도록 추가 인프라와 기능에 지속적으로 투자하고 있습니다. 하지만 Azure 서비스에 대한 수요가 특정 지역에서 전례 없이 증가하여 리소스 할당 오류가 때때로 발생할 수 있습니다. VM이 다음 오류 코드 및 메시지를 표시하는 동안 해당 지역에서 VM을 만들거나 시작하려고 하면 이런 문제가 발생할 수 있습니다.
 

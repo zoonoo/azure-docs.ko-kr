@@ -1,4 +1,4 @@
-[Azure Portal](https://portal.azure.com)에서 **리소스 그룹** > **cloud-shell-storage-\<your_region>** > **\<storage_account_name>**을 클릭합니다.
+[Azure Portal](https://portal.azure.com)에서 **리소스 그룹** > **cloud-shell-storage-\<your_region>** > **\<storage_account_name>** 을 클릭합니다.
 
 ![Cloud Shell 저장소 계정 찾기](../articles/app-service/media/app-service-deploy-zip/upload-choose-storage-account.png)
 

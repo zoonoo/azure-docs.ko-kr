@@ -1,6 +1,6 @@
 ---
-title: "ARP 테이블 가져오기: Resource Manager: Azure ExpressRoute 문제 해결 | Microsoft Docs"
-description: "이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다."
+title: 'ARP 테이블 가져오기: Resource Manager: Azure ExpressRoute 문제 해결 | Microsoft Docs'
+description: 이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다.
 documentationcenter: na
 services: expressroute
 author: ganesr
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013138"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]

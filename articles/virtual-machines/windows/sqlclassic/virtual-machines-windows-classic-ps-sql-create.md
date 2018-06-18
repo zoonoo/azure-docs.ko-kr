@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell에서 SQL Server Virtual Machine 만들기(클래식) | Microsoft Docs"
-description: "SQL Server 가상 컴퓨터 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 스크립트를 제공합니다. 이 항목에서는 클래식 배포 모드를 사용합니다."
+title: Azure PowerShell에서 SQL Server Virtual Machine 만들기(클래식) | Microsoft Docs
+description: SQL Server 가상 컴퓨터 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 스크립트를 제공합니다. 이 항목에서는 클래식 배포 모드를 사용합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399664"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Azure PowerShell을 사용하여 SQL Server 가상 컴퓨터 프로비전(클래식)
 

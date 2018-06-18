@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33942237"
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Azure에서 실행되는 Linux 가상 머신 캡처하기
 Resource Manager 배포 모델에서 Azure Linux 가상 머신(VM)을 일반화하고 캡처하려면 이 문서의 단계를 따릅니다. VM을 일반화하는 경우 개인 계정 정보를 제거하고 VM이 이미지로 사용되도록 준비합니다. 그런 다음 OS용 일반화된 VHD(가상 하드 디스크) 이미지, 연결된 데이터 디스크용 VHD, 새 VM 배포용 [Resource Manager 템플릿](../../azure-resource-manager/resource-group-overview.md)을 캡처합니다. 이 문서에서는 VM에 대해 Azure CLI 1.0으로 관리되지 않는 디스크를 사용하여 VM 이미지를 캡처하는 방법을 자세히 설명합니다. [Azure CLI 2.0으로 Azure Managed Disks를 사용하여 VM을 캡처](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)할 수도 있습니다. 관리되는 디스크는 Azure 플랫폼을 통해 처리되며 디스크를 저장할 위치나 준비가 필요하지 않습니다. 자세한 내용은 [Azure Managed Disks 개요](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 

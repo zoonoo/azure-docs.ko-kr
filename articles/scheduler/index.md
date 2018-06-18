@@ -1,11 +1,11 @@
 ---
-title: "Azure Scheduler 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "스케줄러를 사용하여 응용 프로그램 작업 반복 및 일상적인 유지 관리와 같은 작업을 예약하고 호출하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다."
+title: Azure Scheduler 설명서 - 자습서, API 참조 | Microsoft Docs
+description: 스케줄러를 사용하여 응용 프로그램 작업 반복 및 일상적인 유지 관리와 같은 작업을 예약하고 호출하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
 services: scheduler
 author: carolz
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: scheduler
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23071350"
 ---
 # <a name="scheduler-documentation"></a>Scheduler 설명서
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31399034"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure 스택 대 한 id의 개요
 

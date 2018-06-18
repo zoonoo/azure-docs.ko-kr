@@ -1,26 +1,28 @@
 ---
-title: "Microsoft Flow에서 Azure 함수 호출 | Microsoft Docs"
-description: "사용자 지정 커넥터를 만든 후 해당 커넥터를 사용하여 함수를 호출합니다."
+title: Microsoft Flow에서 Azure 함수 호출 | Microsoft Docs
+description: 사용자 지정 커넥터를 만든 후 해당 커넥터를 사용하여 함수를 호출합니다.
 services: functions
-keywords: "클라우드 앱, 클라우드 서비스, Microsoft Flow, 비즈니스 프로세스, 비즈니스 응용 프로그램"
-documentationcenter: 
-author: mgblythe
+keywords: 클라우드 앱, 클라우드 서비스, Microsoft Flow, 비즈니스 프로세스, 비즈니스 응용 프로그램
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234804"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Microsoft Flow에서 함수 호출
 

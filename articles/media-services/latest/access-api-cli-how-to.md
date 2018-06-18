@@ -12,11 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: a4a7c59e93b860245d67695de90fbae2becac3e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639778"
 ---
 # <a name="access-azure-media-services-api-with-cli-20"></a>CLI 2.0을 사용하여 Azure Media Services API에 액세스
  
@@ -47,3 +48,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 > [!div class="nextstepaction"]
 > [파일 스트리밍](stream-files-dotnet-quickstart.md)
+
+## <a name="see-also"></a>참고 항목
+
+[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center의 보안 연락처 세부 정보 제공 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터에서 보안 연락처 세부 정보를 제공하는 방법을 보여 줍니다."
+title: Azure Security Center의 보안 연락처 세부 정보 제공 | Microsoft Docs
+description: 이 문서에서는 Azure 보안 센터에서 보안 연락처 세부 정보를 제공하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040708"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Azure 보안 센터의 보안 연락처 세부 정보 제공
 Azure 보안 센터는 아직 없는 경우 Azure 구독에 대한 보안 연락처 세부 정보를 제공하는 것을 권장합니다. 이 정보는 MSRC(Microsoft 보안 대응 센터)에서 불법적인 또는 권한 없는 당사자가 고객 데이터에 액세스한 것을 발견하는 경우 사용자에게 연락하기 위해 Microsoft에서 사용됩니다. MSRC는 Azure 네트워크 및 인프라의 선택 보안 모니터링을 수행하고 타사에서 위협 인텔리전스 및 남용 불만 사항을 받습니다.

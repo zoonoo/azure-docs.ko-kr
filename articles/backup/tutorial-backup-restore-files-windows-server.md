@@ -1,26 +1,21 @@
 ---
-title: "Azure에서 Windows Server로 파일 복구 | Microsoft Docs"
-description: "이 자습서에서는 Azure에서 Windows Server로의 항목 복구에 대해 자세히 설명합니다."
+title: Azure에서 Windows Server로 파일 복구
+description: 이 자습서에서는 Azure에서 Windows Server로의 항목 복구에 대해 자세히 설명합니다.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-keywords: "Windows Server 백업; Windows Server 파일 복원; 백업 및 재해 복구"
-ms.assetid: 
+keywords: Windows Server 백업; Windows Server 파일 복원; 백업 및 재해 복구
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 2/14/2018
-ms.author: saurabhsensharma;markgal;
+ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 3bda261bae8155ccb48196a980b14afc56004da8
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: e05c80e52605e051bdd6815608ca8c12e1393727
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607024"
 ---
 # <a name="recover-files-from-azure-to-a-windows-server"></a>Azure에서 Windows Server로 파일 복구
 
@@ -45,7 +40,7 @@ Microsoft Azure Backup이라는 유용한 사용자 인터페이스 마법사가
 
     ![보류 중인 Backup](./media/tutorial-backup-restore-files-windows-server/mars-recover-data.png)
 
-3. **시작** 페이지에서 **이 서버(서버 이름)**를 클릭하고 **다음**을 클릭합니다.
+3. **시작** 페이지에서 **이 서버(서버 이름)** 를 클릭하고 **다음**을 클릭합니다.
 
 4. **복구 모드 선택** 페이지에서 **개별 파일 및 폴더**를 선택하고 **다음**을 클릭하여 복구 지점 선택 프로세스를 시작합니다.
  

@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 | Microsoft Docs"
-description: "Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포"
+title: Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포 | Microsoft Docs
+description: Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 626c1523-1026-478f-bd8a-22c83b869231
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.openlocfilehash: 91eed294077ff72d0760018b10c98f32db88f3be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1895fb1910c5f30cbcff1c16ca66057d31a580b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656485"
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Azure에서 SAP IDES EHP7 SP3 for SAP ERP 6.0 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 SQL Server 및 Windows OS와 함께 실행되는 SAP IDES 시스템을 배포하는 방법을 설명합니다. 스크린샷은 단계별 프로세스를 보여 줍니다. 다른 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -43,16 +44,16 @@ SAP CAL에 로그인한 후 첫 번째 페이지는 일반적으로 **솔루션*
 
     b. Azure 구독을 입력합니다. SAP CAL 계정은 하나의 구독에만 할당될 수 있습니다. 둘 이상의 구독이 필요한 경우 다른 SAP CAL 계정을 만들어야 합니다.
     
-    c. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
+    다. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
 
     > [!NOTE]
     다음 단계에서는 리소스 관리자 배포를 위한 SAP CAL 계정을 만드는 방법을 보여 줍니다. 클래식 배포 모델에 연결된 SAP CAL 계정이 이미 있는 경우 다음 단계를 따라 새 SAP CAL 계정을 *만들어야* 합니다. 새 SAP CAL 계정을 리소스 관리자 모델에 배포해야 합니다.
 
 2. 새 SAP CAL 계정을 만들기 위해 **계정** 페이지는 Azure에 대한 두 가지 선택 항목을 표시합니다. 
 
-    a. **Microsoft Azure(클래식)**는 클래식 배포 모델이며 더 이상 선호하지 않습니다.
+    a. **Microsoft Azure(클래식)** 는 클래식 배포 모델이며 더 이상 선호하지 않습니다.
 
-    b. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
+    나. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
 
     ![SAP CAL 계정](./media/cal-ides-erp6-ehp7-sp3-sql/s4h-pic-2a.PNG)
 
@@ -99,9 +100,9 @@ Windows 및 SQL Server를 기반으로 SAP IDE 솔루션을 배포하려면 먼�
 
     a. 인스턴스 **이름**을 입력합니다.
 
-    b. Azure **지역**을 선택합니다. 제공된 여러 Azure 지역을 가져오려면 SAP CAL 구독이 필요할 수 있습니다.
+    나. Azure **지역**을 선택합니다. 제공된 여러 Azure 지역을 가져오려면 SAP CAL 구독이 필요할 수 있습니다.
 
-    c.  표시된 것처럼 솔루션에 대한 마스터 **암호**를 입력합니다.
+    다.  표시된 것처럼 솔루션에 대한 마스터 **암호**를 입력합니다.
 
     ![SAP CAL 기본 모드: 인스턴스 만들기](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic10a.png)
 
@@ -109,7 +110,7 @@ Windows 및 SQL Server를 기반으로 SAP IDE 솔루션을 배포하려면 먼�
 
     ![SAP CAL 인스턴스](./media/cal-ides-erp6-ehp7-sp3-sql/ides-pic12a.png)
 
-4. 리소스 그룹 및 SAP CAL에서 생성된 모든 해당 개체를 찾으려면 Azure Portal로 이동합니다. 가상 컴퓨터가 SAP CAL에 지정된 것과 동일한 인스턴스 이름으로 시작하는 것을 확인할 수 있습니다.
+4. 리소스 그룹 및 SAP CAL에서 생성된 모든 해당 개체를 찾으려면 Azure Portal로 이동합니다. 가상 머신이 SAP CAL에 지정된 것과 동일한 인스턴스 이름으로 시작하는 것을 확인할 수 있습니다.
 
     ![리소스 그룹 개체](./media/cal-ides-erp6-ehp7-sp3-sql/ides_resource_group.PNG)
 

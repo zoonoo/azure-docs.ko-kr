@@ -19,6 +19,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30292155"
 ---
 # <a name="testing-the-performance-of-a-cloud-service"></a>클라우드 서비스의 성능 테스트
 ## <a name="overview"></a>개요

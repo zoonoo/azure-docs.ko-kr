@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34358220"
 ---
 # <a name="azure-cloud-services-config-schema-cscfg-file"></a>Azure Cloud Services 구성 스키마(.cscfg 파일)
 서비스 구성 파일은 서비스의 각 역할에 대해 배포할 역할 인스턴스의 수, 구성 설정의 값 및 역할에 연결된 인증서의 지문을 지정합니다. 서비스가 Virtual Network의 일부인 경우, 가상 네트워킹 구성 파일 뿐 아니라 서비스 구성 파일에도 네트워크에 대한 구성 정보를 제공해야 합니다. 서비스 구성 파일의 기본 확장명은 .cscfg입니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이 빌드"
-description: "Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이를 빌드하는 방법을 알아봅니다."
+title: Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이 빌드
+description: Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이를 빌드하는 방법을 알아봅니다.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692337"
 ---
 # <a name="build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Azure Scheduler를 사용하여 복잡한 일정 및 고급 되풀이 빌드
 
@@ -130,7 +131,7 @@ Scheduler 작업의 날짜-시간 참조는 [ISO 8601 사양](http://en.wikipedi
 | **minutes** |작업이 실행되는 시간(분)입니다. |정수 배열입니다. |
 | **hours** |작업이 실행되는 일의 시간(시)입니다. |정수 배열입니다. |
 | **weekDays** |작업이 실행되는 요일입니다. 주 단위 빈도로만 지정할 수 있습니다. |다음 값 중 하나의 배열입니다(최대 배열 크기: 7).<br />- "Monday"<br />- "Tuesday"<br />- "Wednesday"<br />- "Thursday"<br />- "Friday"<br />- "Saturday"<br />- "Sunday"<br /><br />대/소문자를 구분하지 않습니다. |
-| **monthlyOccurrences** |작업이 실행되는 월의 일을 결정합니다. 월 단위 빈도로만 지정할 수 있습니다. |**monthlyOccurrences** 개체의 배열입니다.<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day**는 작업이 실행되는 주의 요일입니다. 예를 들어 *{Sunday}*는 월의 매주 일요일입니다. 필수 사항입니다.<br /><br />**occurrence**는 월 중 일의 되풀이 항목입니다. 예를 들어 *{Sunday, -1}*은 월의 마지막 일요일입니다. 선택 사항입니다. |
+| **monthlyOccurrences** |작업이 실행되는 월의 일을 결정합니다. 월 단위 빈도로만 지정할 수 있습니다. |**monthlyOccurrences** 개체의 배열입니다.<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **day**는 작업이 실행되는 주의 요일입니다. 예를 들어 *{Sunday}* 는 월의 매주 일요일입니다. 필수 사항입니다.<br /><br />**occurrence**는 월 중 일의 되풀이 항목입니다. 예를 들어 *{Sunday, -1}* 은 월의 마지막 일요일입니다. 선택 사항입니다. |
 | **monthDays** |작업이 실행되는 월의 일입니다. 월 단위 빈도로만 지정할 수 있습니다. |다음 값의 배열입니다.<br />- 1 이상 및 31 이하의 모든 값<br />- 1 이하 및 31 이상의 모든 값|
 
 ## <a name="examples-recurrence-schedules"></a>예제: 되풀이 일정

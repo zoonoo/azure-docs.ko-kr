@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 10GbE 인터페이스에 대한 하드웨어 | Microsoft Docs"
-description: "StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 SFP(Small Form Factor Pluggable) 트랜시버, 케이블 및 스위치에 대해 설명합니다."
+title: StorSimple 10GbE 인터페이스에 대한 하드웨어 | Microsoft Docs
+description: StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 SFP(Small Form Factor Pluggable) 트랜시버, 케이블 및 스위치에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: df8d40c7-f5ad-4f84-93eb-779fbd5f7243
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23110571"
 ---
 # <a name="supported-hardware-for-the-10-gbe-network-interfaces-on-your-storsimple-device"></a>StorSimple 장치의 10GbE 네트워크 인터페이스에 대해 지원되는 하드웨어
 ## <a name="overview"></a>개요

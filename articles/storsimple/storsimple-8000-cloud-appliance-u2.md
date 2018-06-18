@@ -1,12 +1,12 @@
 ---
-title: "StorSimple Cloud Appliance 업데이트 3 | Microsoft Docs"
-description: "Microsoft Azure Virtual Network에서 StorSimple Cloud Appliance를 만들고 배포 및 관리하는 방법을 알아봅니다. StorSimple 업데이트 3 이상에 적용됩니다."
+title: StorSimple Cloud Appliance 업데이트 3 | Microsoft Docs
+description: Microsoft Azure Virtual Network에서 StorSimple Cloud Appliance를 만들고 배포 및 관리하는 방법을 알아봅니다. StorSimple 업데이트 3 이상에 적용됩니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: hero-article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852339"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Azure에서 StorSimple Cloud Appliance 배포 및 관리(업데이트 3 이상)
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067950"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용을 지불하기 위한 요청 제출
 

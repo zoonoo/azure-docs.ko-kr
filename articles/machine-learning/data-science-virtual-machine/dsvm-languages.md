@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31418318"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>데이터 과학 Virtual Machine에서 지원되는 언어 
 
@@ -63,7 +64,7 @@ Visual Studio Community Edition에 설치된 PTVS(Visual Studio용 Python Tools)
 
 * Jupyter에서 사용
 
-Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 Python 3.6의 경우는 _Python [Conda Root]_를, Python 2.7 환경의 경우는 _Python [Conda env:python2]_를 선택할 수 있습니다. 
+Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 Python 3.6의 경우는 _Python [Conda Root]_ 를, Python 2.7 환경의 경우는 _Python [Conda env:python2]_ 를 선택할 수 있습니다. 
 
 * Python 패키지 설치
 
@@ -101,7 +102,7 @@ Visual Studio Community Edition에 설치된 PyCharm을 사용합니다.
 
 * Jupyter에서 사용
 
-Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 Python 2.7의 경우는 _Python [Conda Root]_를, Python 3.5 환경의 경우는 _Python [Conda env:py35]_를 선택할 수 있습니다. 
+Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 Python 2.7의 경우는 _Python [Conda Root]_ 를, Python 3.5 환경의 경우는 _Python [Conda env:py35]_ 를 선택할 수 있습니다. 
 
 * Python 패키지 설치
 
@@ -130,7 +131,7 @@ Visual Studio Community Edition에 설치된 PTVS(Visual Studio용 Python Tools)
 
 * Jupyter에서 사용
 
-Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 Python 2.7의 경우는 _Python [Conda Root]_를, Python 3.5 환경의 경우는 _Python [Conda env:py35]_를 선택할 수 있습니다. 
+Jupyter를 열고 `New` 단추를 클릭하여 새 노트북을 만듭니다. 이때 커널 유형으로 Python 2.7의 경우는 _Python [Conda Root]_ 를, Python 3.5 환경의 경우는 _Python [Conda env:py35]_ 를 선택할 수 있습니다. 
 
 * Python 패키지 설치
 

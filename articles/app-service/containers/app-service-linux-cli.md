@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 2.0을 사용하여 Web App for Containers 관리 | Microsoft Docs"
-description: "Azure CLI를 사용하여 Web App for Containers 관리"
-keywords: "azure app service, 웹앱, cli, linux, oss"
+title: Azure CLI 2.0을 사용하여 Web App for Containers 관리 | Microsoft Docs
+description: Azure CLI를 사용하여 Web App for Containers 관리
+keywords: azure app service, 웹앱, cli, linux, oss
 services: app-service
-documentationCenter: 
+documentationCenter: ''
 author: ahmedelnably
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24105392"
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Azure CLI를 사용하여 Web App for Containers 관리
 

@@ -8,15 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 8bf5cd802198cba48a99c029d0c75c25dd5f6d84
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "31606522"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850174"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 이미지 분류
 
@@ -243,15 +244,20 @@ Azure Machine Learning Workbench는 각 실행의 기록을 Azure에 저장하�
 
 
 ### <a name="parameter-tuning"></a>매개 변수 튜닝
+
 대부분의 기계 학습 프로젝트와 마찬가지로 새 데이터 집합에 대해 좋은 결과를 얻으려면 신중한 매개 변수 튜닝과 다양한 설계 결정에 대한 평가가 필요합니다. 이러한 작업을 지원하기 위해 지정된 모든 중요한 매개 변수와 간단한 설명이 한 곳(`PARAMETERS.py` 파일)에서 제공됩니다.
 
 기능 향상을 위해 가장 가능성 있는 방법은 다음과 같습니다.
 
 - 데이터 품질: 학습 및 테스트 집합의 품질이 우수해야 합니다. 즉 이미지에 정확하게 주석을 달고 모호한 이미지(예: 줄 무늬와 점 무늬 모두가 있는 의류 품목)를 제거하고, 특성은 함께 사용할 수 없으므로 각 이미지가 정확히 하나의 특성에만 속하도록 선택합니다.
+
 - 이미지에서 관심 있는 개체가 작으면 이미지 분류 방법이 제대로 작동하지 않은 것으로 알려져 있습니다. 이 경우 이 [자습서](https://github.com/Azure/ObjectDetectionUsingCntk)에서 설명한 대로 개체 검색 방법을 사용하는 것이 좋습니다.
 - DNN 구체화: 바로 가져올 수 있는 가장 중요한 매개 변수는 `rf_lrPerMb` 학습 속도입니다. 학습 집합의 정확도(2부의 첫 번째 그림)가 0-5%에 가깝지 않으면 학습 속도가 잘못되었을 가능성이 큽니다. `rf_`로 시작하는 다른 매개 변수는 덜 중요합니다. 일반적으로 학습 오류는 학습 후 기하급수적으로 감소하고 0%에 가까워야 합니다.
+
 - 입력 해상도: 기본 이미지 해상도는 224x224 픽셀입니다. 예를 들어 448x448 또는 896x896 픽셀의 더 높은 이미지 해상도(매개 변수: `rf_inputResoluton`)를 사용하면 종종 정확도는 향상되지만 DNN 구체화 속도는 떨어집니다. **더 높은 이미지 해상도를 사용하는 경우 비용이 거의 추가되지 않으며 정확도도 거의 항상 향상됩니다**.
+
 - DNN 과잉 맞춤: DNN 구체화 중 학습 및 테스트 정확도 간의 큰 차이(2부의 첫 번째 그림)를 방지합니다. 이 차이를 줄이려면 `rf_dropoutRate` 드롭아웃 속도를 0.5 이상으로 사용하고 `rf_l2RegWeight`regularizer(정규화기) 가중치를 늘립니다. DNN 입력 이미지 해상도가 높을 경우에 높은 드롭아웃 속도를 사용하면 특히 유용할 수 있습니다.
+
 - `rf_pretrainedModelFilename`을 `ResNet_18.model`에서 `ResNet_34.model` 또는 `ResNet_50.model`로 변경하여 더 깊은 DNN을 사용해 봅니다. Resnet-50 모델은 더 깊을 뿐만 아니라 끝에서 두 번째 계층의 출력의 크기가 2,048개 부동 소수점 수입니다(ResNet-18 및 ResNet-34 모델의 경우 512개 부동 소수점 수). 이 증가된 차원은 SVM 분류자를 학습할 때 특히 유용할 수 있습니다.
 
 ## <a name="part-3---custom-dataset"></a>3부 - 사용자 지정 데이터 집합

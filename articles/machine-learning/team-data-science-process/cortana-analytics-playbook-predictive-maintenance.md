@@ -2,10 +2,9 @@
 title: 예측 유지 관리 솔루션에 대한 Azure AI 가이드 | Microsoft Docs
 description: 여러 수직 산업 분야에서 예측 유지 관리 솔루션을 구동하는 데이터 과학에 대해 포괄적으로 설명합니다.
 services: machine-learning
-documentationcenter: ''
 author: fboylu
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
+editor: ''
 ms.assetid: 2e8b66db-91eb-432b-b305-6abccca25620
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -15,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 581e9d586f007fe0cd28d60b5558594777656ca8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248540"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 

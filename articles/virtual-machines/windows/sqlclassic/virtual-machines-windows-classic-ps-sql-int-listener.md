@@ -20,6 +20,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30240751"
 ---
 # <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성
 > [!div class="op_single_selector"]
@@ -104,7 +105,7 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 끝점�
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -LBSetName "ListenerEndpointLB" -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName $ILBName -DirectServerReturn $true | Update-AzureVM
         }
 
-13. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 PowerShell 세션에 복사하여 실행합니다. 프롬프트에 **>>**가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
+13. 변수를 설정한 후에는 텍스트 편집기에서 해당 스크립트를 PowerShell 세션에 복사하여 실행합니다. 프롬프트에 **>>** 가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
 
 ## <a name="verify-that-kb2854082-is-installed-if-necessary"></a>필요한 경우 KB2854082가 설치되었는지 확인합니다.
 [!INCLUDE [kb2854082](../../../../includes/virtual-machines-ag-listener-kb2854082.md)]
@@ -150,7 +151,7 @@ Azure 복제본을 호스트하는 각 VM에 대해 부하가 분산된 끝점�
 
         cluster res $IPResourceName /priv enabledhcp=0 address=$ILBIP probeport=59999  subnetmask=255.255.255.255
 
-3. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 PowerShell 세션에 붙여넣어 실행합니다. 프롬프트에 **>>**가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
+3. 변수를 설정한 후에는 앞으로 온 Windows PowerShell 창을 열고 텍스트 편집기의 스크립트를 복사하여 PowerShell 세션에 붙여넣어 실행합니다. 프롬프트에 **>>** 가 계속 표시되면 Enter를 다시 입력하여 스크립트 실행이 시작되도록 합니다.
 
 4. 각 VM에 대해 이전 단계를 반복합니다.  
     이 스크립트는 클라우드 서비스의 IP 주소로 IP 주소 리소스를 구성하고 프로브 포트 등의 다른 매개 변수를 설정합니다. IP 주소 리소스를 온라인으로 불러올 때 앞 부분에서 부하가 분산된 끝점으로부터 프로브 포트에 대한 폴링에 응답할 수 있습니다.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198097"
 ---
 ### <a name="gwipnoconnection"></a> 로컬 네트워크 게이트웨이 IP 주소를 수정하려면 - 게이트웨이 연결 없음
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 03/23/2018
 #### <a name="1-remove-the-connection"></a>1. 연결을 제거합니다.
 
 1. 로컬 네트워크 게이트웨이 리소스의 **설정** 섹션에서 **연결**을 클릭합니다.
-2. 연결의 줄에서 **...**를 클릭하고 **삭제**를 클릭합니다.
+2. 연결의 줄에서 **...** 를 클릭하고 **삭제**를 클릭합니다.
 3. **Save** 를 클릭하여 설정을 저장합니다.
 
 #### <a name="2-modify-the-ip-address"></a>2. IP 주소를 수정합니다.

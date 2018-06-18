@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 04/28/2018
+  ms.locfileid: "32180796"
 abstract:
   description: Azure Key Vault를 사용하여 클라우드 응용 프로그램 및 서비스에서 사용하는 암호화 키 및 암호를 보호하고 관리하는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 리소스 및 솔루션에 액세스하고 암호화하는 키를 만들고 유지 관리하는 방법을 보여 줍니다.
 sections:

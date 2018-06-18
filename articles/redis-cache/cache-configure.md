@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31420734"
 ---
 # <a name="how-to-configure-azure-redis-cache"></a>Azure Redis 캐시 구성 방법
 이 항목에서는 Azure Redis Cache 인스턴스에 대해 사용할 수 있는 구성을 설명합니다. 또한 Azure Redis Cache 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.

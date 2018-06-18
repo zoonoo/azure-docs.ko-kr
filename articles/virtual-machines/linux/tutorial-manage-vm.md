@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192206"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli-20"></a>자습서 - Azure CLI 2.0으로 Linux VM 만들기 및 관리
 

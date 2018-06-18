@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34054329"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>응용 프로그램이 액세스 패널에 표시되는 방식
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 전송, 잠금 및 확인 | Microsoft Docs"
-description: "Service Bus 메시지 전송 및 확인 작업 개요"
+title: Azure Service Bus 전송, 잠금 및 확인 | Microsoft Docs
+description: Service Bus 메시지 전송 및 확인 작업 개요
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28199035"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>메시지 전송, 잠금 및 확인
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525168"
 ---
 # <a name="migrate-your-schemas-to-sql-data-warehouse"></a>SQL Data Warehouse로 스키마 마이그레이션
 SQL Data Warehouse에 SQL 스키마를 마이그레이션하기 위한 지침입니다. 

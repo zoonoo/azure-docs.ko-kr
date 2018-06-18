@@ -1,6 +1,6 @@
 ---
-title: "포함 파일"
-description: "포함 파일"
+title: 포함 파일
+description: 포함 파일
 services: app-service
 author: cephalin
 ms.service: app-service
@@ -13,8 +13,9 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29821048"
 ---
-_로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _&lt;deploymentLocalGitUrl-from-create-step>_을 [웹앱 만들기](#create)에 저장된 Git 원격의 URL로 바꿉니다.
+_로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _&lt;deploymentLocalGitUrl-from-create-step>_ 을 [웹앱 만들기](#create)에 저장된 Git 원격의 URL로 바꿉니다.
 
 ```bash
 git remote add azure <deploymentLocalGitUrl-from-create-step>

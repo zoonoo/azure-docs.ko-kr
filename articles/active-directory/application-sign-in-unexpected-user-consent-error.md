@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "26617079"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>응용 프로그램에 대한 동의를 수행할 때 예기치 않은 오류
 

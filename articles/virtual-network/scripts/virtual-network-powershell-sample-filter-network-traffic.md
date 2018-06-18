@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31604000"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>인바운드 및 아웃바운드 VM 네트워크 트래픽 필터링 스크립트 샘플
 

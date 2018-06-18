@@ -1,8 +1,8 @@
 ---
-title: "Azure CLI에서 첫 번째 함수 만들기 | Microsoft Docs"
-description: "Azure CLI를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다."
+title: Azure CLI에서 첫 번째 함수 만들기 | Microsoft Docs
+description: Azure CLI를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29118774"
 ---
 # <a name="create-your-first-function-using-the-azure-cli"></a>Azure CLI를 사용하여 첫 번째 함수 만들기
 

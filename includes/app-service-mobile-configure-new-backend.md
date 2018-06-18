@@ -1,4 +1,20 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: app-service\mobile
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 05/25/2018
+ms.author: crdun
+ms.custom: include file
+ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34664011"
+---
 1. **App Services** 단추를 클릭하고, Mobile Apps 백 엔드를 선택하고, **빠른 시작**을 선택한 후 클라이언트 플랫폼(iOS, Android, Xamarin, Cordova)을 선택합니다.
 
     ![Mobile Apps 빠른 시작이 강조 표시된 Azure Portal][quickstart]
@@ -11,18 +27,18 @@
 
     ![Mobile Apps가 있는 Azure Portal 새 데이터베이스 및 서버 만들기][server]
 
-    b. 데이터 연결을 성공적으로 만들 때까지 기다립니다.
+    나. 데이터 연결을 성공적으로 만들 때까지 기다립니다.
 
     ![데이터 연결을 성공적으로 만들는 경우 Azure Portal 알림][notification]
 
-    c. 데이터 연결이 성공해야 합니다.
+    다. 데이터 연결이 성공해야 합니다.
 
     ![Azure Portal 알림, "이미 데이터가 연결되었습니다."][already-connection]
 
-3. **2. 테이블 API 만들기** 아래에서 **백 엔드 언어**를 Node.js로 선택합니다. 
- 
-4. 승인을 허용하고 **TodoItem 테이블 만들기**를 선택합니다.  
-    이 작업을 통해 데이터베이스의 테이블에 새 할 일 목록을 만듭니다. 
+3. **2. 테이블 API 만들기** 아래에서 **백 엔드 언어**를 Node.js로 선택합니다.
+
+4. 승인을 허용하고 **TodoItem 테이블 만들기**를 선택합니다.
+    이 작업을 통해 데이터베이스의 테이블에 새 할 일 목록을 만듭니다.
 
     >[!IMPORTANT]
     > 기존 백 엔드를 Node.js로 전환하면 모든 내용을 덮어씁니다. 대신 .NET 백 엔드를 만들려면 [Mobile Apps에 대한 .NET 백 엔드 서버 SDK 사용][instructions]을 참조하세요.

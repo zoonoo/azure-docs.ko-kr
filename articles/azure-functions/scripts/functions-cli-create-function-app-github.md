@@ -1,8 +1,8 @@
 ---
-title: "함수 앱 만들기 및 GitHub의 함수 코드 배포 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - 함수 앱 만들기 및 GitHub의 함수 코드 배포"
+title: 함수 앱 만들기 및 GitHub의 함수 코드 배포 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 함수 앱 만들기 및 GitHub의 함수 코드 배포
 services: functions
-keywords: 
+keywords: ''
 author: syntaxc4
 ms.author: cfowler
 ms.date: 04/27/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29842663"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-github"></a>함수 앱 만들기 및 GitHub의 함수 코드 배포
 

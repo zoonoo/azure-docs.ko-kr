@@ -18,6 +18,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32770324"
 ---
 # <a name="configure-app-service-web-apps-with-application-gateway"></a>Application Gateway를 사용하여 App Service Web Apps 구성 
 

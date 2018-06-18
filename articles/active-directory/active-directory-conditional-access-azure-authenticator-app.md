@@ -8,6 +8,7 @@ manager: swadhwa
 editor: ''
 ms.assetid: b7ceca0d-5c9d-45c4-942c-b3a9b6bad36c
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5c34219d01c8670102df40d9157cb0deff74b8e4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724288"
 ---
 # <a name="azure-authenticator-for-android"></a>Android용 Azure Authenticator
 IT 관리자가 Microsoft Azure Authenticator로 로그인하여 회사 리소스에 액세스하도록 권장했을 수도 있습니다. 이 응용 프로그램은 다음 두 가지 로그인 옵션을 제공합니다.

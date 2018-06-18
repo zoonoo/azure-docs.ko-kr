@@ -1,6 +1,6 @@
 ---
-title: "Azure DC/OS 컨테이너 앱에 대한 액세스 허용"
-description: "Azure Container Service에서 DC/OS 컨테이너에 대해 공용 액세스를 사용하도록 설정하는 방법입니다."
+title: Azure DC/OS 컨테이너 앱에 대한 액세스 허용
+description: Azure Container Service에서 DC/OS 컨테이너에 대해 공용 액세스를 사용하도록 설정하는 방법입니다.
 services: container-service
 author: sauryadas
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26332282"
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Azure Container Service 응용 프로그램에 공용 액세스를 사용하도록 설정
 

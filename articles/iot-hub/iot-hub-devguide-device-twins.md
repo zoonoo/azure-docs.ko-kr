@@ -1,25 +1,19 @@
 ---
 title: Azure IoT Hub 장치 쌍 이해 | Microsoft Docs
 description: 개발자 가이드 - 장치 쌍을 사용하여 IoT Hub와 장치 간의 상태 및 구성 데이터 동기화
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+manager: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef048967bc08fed1a108872d2d7eecc2a66993fa
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c002685dfd3b8f86a8657b5d30dee29641cef932
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632879"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>IoT Hub의 장치 쌍 이해 및 사용
 

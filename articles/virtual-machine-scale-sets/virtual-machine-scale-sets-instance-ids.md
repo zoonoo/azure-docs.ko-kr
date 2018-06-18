@@ -1,11 +1,11 @@
 ---
-title: "Azure VM 확장 집합 VM의 인스턴스 ID 이해 | Microsoft Docs"
-description: "Azure VM 확장 집합 VM의 인스턴스 ID 이해"
+title: Azure VM 확장 집합 VM의 인스턴스 ID 이해 | Microsoft Docs
+description: Azure VM 확장 집합 VM의 인스턴스 ID 이해
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29742894"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Azure VM 확장 집합 VM의 인스턴스 ID 이해
 이 문서에서는 확장 집합의 인스턴스 ID와 이것이 노출되는 다양한 방식을 설명합니다.

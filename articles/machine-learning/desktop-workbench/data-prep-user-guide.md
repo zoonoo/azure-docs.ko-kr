@@ -7,16 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 9fc0ae8929f12447123321a5c64ac89309c68dca
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: f0ba579ab204e6636a986b054555ff431438d0a5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830676"
 ---
 # <a name="data-preparations-user-guide"></a>데이터 준비 사용자 가이드 
 Azure Machine Learning 데이터 준비 경험은 다양한 기능을 제공합니다. 이 문서는 환경의 심층 부분에 대해 설명합니다.

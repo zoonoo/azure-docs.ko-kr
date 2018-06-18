@@ -12,17 +12,19 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: ramical
-ms.openlocfilehash: 54e661284c539b835089e858ba7b5e0016e89a83
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5ceb3d1ef99189e5b0cfcc48b38906ed28c07730
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588960"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
-[Azure AD(Active Directory) Reporting API](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview)는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 다양한 프로그래밍 언어 및 도구에서 이러한 API를 호출할 수 있습니다.
+[Azure AD(Azure Active Directory) Reporting API](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-reports-and-events-preview)는 일련의 REST 기반 API를 통해 데이터에 프로그래밍 방식으로 액세스합니다. 다양한 프로그래밍 언어 및 도구에서 이러한 API를 호출할 수 있습니다.
 
 사용자 개입 없이 Azure AD Reporting API에 액세스하려면 인증서를 사용하도록 액세스를 구성하면 됩니다.
 
@@ -107,7 +109,7 @@ Azure AD PowerShell V2 및 AzureADUtils 모듈을 설치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Reporting API의 첫 느낌 살펴보기](active-directory-reporting-api-getting-started-azure-portal.md#explore)
+- [reporting API의 첫 인상 살펴보기](active-directory-reporting-api-getting-started-azure-portal.md#explore)
 
 - [고유의 솔루션 만들기](active-directory-reporting-api-getting-started-azure-portal.md#customize)
 

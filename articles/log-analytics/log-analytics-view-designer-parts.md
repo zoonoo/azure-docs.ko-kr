@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949534"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics의 뷰 디자이너 시각화 요소에 대한 참조 가이드
 Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 다양한 데이터 시각화를 나타내는 사용자 지정 보기를 만들 수 있습니다. 이 문서는 사용자 지정 보기에서 사용할 수 있는 시각화 요소 설정에 대한 참조 가이드입니다.
@@ -329,7 +330,7 @@ Azure Log Analytics에서 뷰 디자이너를 사용하면 Azure Portal에서 Lo
 | 설정           | 설명 |
 |:--|:--|
 | 로그 검색(자동) | 헤더 항목을 선택할 때 실행할 로그 검색입니다.  항목을 기반으로 하는 동일한 로그 검색입니다.
-| 로그 검색        | 목록에서 항목을 선택할 때 실행할 로그 검색입니다.  **탐색 쿼리** 상자에 쿼리를 입력합니다.   *{selected item}*을 사용하면 사용자가 선택한 항목의 구문의 포함됩니다.  예를 들어 쿼리에 *Computer*라는 열이 있고 탐색 쿼리가 *{selected item}*인 경우 컴퓨터를 선택하면 *Computer="MyComputer"*와 같은 쿼리가 실행됩니다. 탐색 쿼리가 *Type=Event {selected item}*이면 *Type=Event Computer="MyComputer"* 쿼리가 실행됩니다. |
+| 로그 검색        | 목록에서 항목을 선택할 때 실행할 로그 검색입니다.  **탐색 쿼리** 상자에 쿼리를 입력합니다.   *{selected item}* 을 사용하면 사용자가 선택한 항목의 구문의 포함됩니다.  예를 들어 쿼리에 *Computer*라는 열이 있고 탐색 쿼리가 *{selected item}* 인 경우 컴퓨터를 선택하면 *Computer="MyComputer"* 와 같은 쿼리가 실행됩니다. 탐색 쿼리가 *Type=Event {selected item}* 이면 *Type=Event Computer="MyComputer"* 쿼리가 실행됩니다. |
 | 보기              | 헤더 항목 또는 목록의 항목을 선택할 때 열 보기입니다.  **보기 이름** 상자의 작업 영역에서 보기의 이름을 선택합니다. |
 
 

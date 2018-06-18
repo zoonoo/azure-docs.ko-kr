@@ -13,6 +13,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894643"
 ---
 # <a name="failover-in-site-recovery"></a>사이트 복구에서 장애 조치
 이 문서에서는 Site Recovery에서 보호하는 가상 머신 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.

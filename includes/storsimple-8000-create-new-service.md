@@ -9,7 +9,7 @@
 
     ![StorSimple 장치 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman1.png)
 
-    _StorSimple 실제_를 검색합니다. **StorSimple 실제 장치 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+**를 클릭한 다음 **저장소** 아래에서 **StorSimple 실제 장치 시리즈**를 클릭합니다.
+    _StorSimple 실제_를 검색합니다. **StorSimple 실제 장치 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Azure Portal에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 실제 장치 시리즈**를 클릭합니다.
 
     ![StorSimple 장치 관리자 만들기](./media/storsimple-8000-create-new-service/createssdevman11.png)
 

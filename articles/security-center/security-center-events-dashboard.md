@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 보안 이벤트 모니터링 및 처리 | Microsoft Docs"
-description: "Security Center의 이벤트 대시보드를 사용하여 Azure VM 및 비 Azure 컴퓨터에서 보안 이벤트를 확인하는 방법을 알아봅니다."
+title: Azure Security Center에서 보안 이벤트 모니터링 및 처리 | Microsoft Docs
+description: Security Center의 이벤트 대시보드를 사용하여 Azure VM 및 비 Azure 컴퓨터에서 보안 이벤트를 확인하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040658"
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Azure Security Center에서 보안 이벤트 모니터링 및 처리
 이벤트 대시보드에서는 시간별로 수집된 보안 이벤트 수의 개요와, 확인해야 할 수 있는 주목할 만한 이벤트의 목록이 제공됩니다.  

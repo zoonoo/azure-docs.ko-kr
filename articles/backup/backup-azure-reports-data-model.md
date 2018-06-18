@@ -1,25 +1,20 @@
 ---
-title: "Azure Backup용 데이터 모델"
-description: "이 문서는 Azure Backup 보고서에 대한 Power BI 데이터 모델 정보에 대해 설명합니다."
+title: Azure Backup용 데이터 모델
+description: 이 문서는 Azure Backup 보고서에 대한 Power BI 데이터 모델 정보에 대해 설명합니다.
 services: backup
-documentationcenter: 
 author: JPallavi
 manager: vijayts
-editor: 
-ms.assetid: 0767c330-690d-474d-85a6-aa8ddc410bb2
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: efecbc9f1c410744f49795889c4ec3cc618f07e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17e011452f9b87c1201cea12f394a9cdd18e54b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606225"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure Backup 보고서용 데이터 모델
 이 문서에서는 Azure Backup 보고서를 만드는 데 사용되는 Power BI 데이터 모델을 설명합니다. 이 데이터 모델을 사용하여 관련 필드를 기반으로 하는 기존 보고서를 필터링할 수 있으며 무엇보다도 모델의 테이블 및 필드를 사용하여 사용자 고유의 보고서를 만들 수 있습니다. 
@@ -41,13 +36,13 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 | AlertOccurenceDate |Date |경고를 만든 날짜 |
 | AlertSeverity |텍스트 |경고의 심각도(예: 위험) |
 | AlertStatus |텍스트 |경고의 상태(예:활성) |
-| AlertType |텍스트 |생성된 경고의 형식(예: 백업) |
+| AlertType |텍스트 |생성된 경고의 형식(예: Backup) |
 | AlertUniqueId |텍스트 |생성된 경고의 고유 ID |
 | AsOnDateTime |날짜/시간 |선택한 행에 대한 최신 새로 고침 시간 |
 | AvgResolutionTimeInMinsForAlertsCreatedInPeriod |10진수 |선택한 기간 동안 경고를 해결하는 평균 시간(분) |
 | EntityState |텍스트 |경고 개체의 현재 상태(예: 활성, 삭제됨) |
 
-### <a name="backup-item"></a>백업 항목
+### <a name="backup-item"></a>Backup 항목
 이 표에서는 다양한 백업 항목 관련 필드를 통해 기본 필드 및 집계를 제공합니다.
 
 | 필드 | 데이터 형식 | 설명 |
@@ -96,7 +91,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 | BackupStorageDestination |텍스트 |백업 저장소의 대상(예: 클라우드, 디스크)  |
 | EntityState |텍스트 |작업 개체의 현재 상태(예: 활성, 삭제됨) |
 | JobFailureCode |텍스트 |발생한 작업 실패로 인한 오류 코드 문자열 |
-| JobOperation |텍스트 |실행되는 작업에 대한 동작(예: 백업, 복원, 백업 구성) |
+| JobOperation |텍스트 |실행되는 작업에 대한 동작(예: Backup, 복원, Backup 구성) |
 | JobStartDate |Date |작업 실행이 시작된 날짜 |
 | JobStartTime |Time |작업 실행이 시작된 시간 |
 | JobStatus |텍스트 |완료된 작업의 상태(예: 완료됨, 실패) |
@@ -155,7 +150,7 @@ Power BI는 [데이터 모델을 사용하여 보고서를 만들](https://power
 | ProtectedServerName |텍스트 |백업 항목이 속한 보호된 서버의 이름 |
 | RegisteredContainerId |텍스트 |백업에 대해 등록된 컨테이너의 ID |
 
-### <a name="storage"></a>저장소
+### <a name="storage"></a>Storage
 이 표에서는 다양한 저장소 관련 필드를 통해 기본 필드 및 집계를 제공합니다.
 
 | 필드 | 데이터 형식 | 설명 |

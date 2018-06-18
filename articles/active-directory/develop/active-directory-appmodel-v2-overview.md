@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34155343"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>단일 응용 프로그램의 로그인 Microsoft 계정 및 Azure Active Directory 사용자
 과거 Azure Active Directory에서 Microsoft 개인 계정과 회사 계정을 모두 지원하려는 응용 프로그램 개발자는 별도의 두 시스템과 통합해야 했습니다. Azure AD(Azure Active Directory) v 2.0 끝점에서는 이 프로세스를 간소화하는 새 인증 API 버전을 도입합니다. Azure AD v2.0 끝점에서는 단일 통합을 사용하여 두 가지 유형의 계정에서 로그인할 수 있도록 합니다. 또한 Azure AD v2.0 끝점을 사용하는 응용 프로그램은 두 가지 계정 유형 중 하나를 사용하여 [Microsoft Graph API](https://graph.microsoft.io)의 REST API를 사용할 수 있습니다.

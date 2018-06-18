@@ -15,6 +15,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33781562"
 ---
 # <a name="what-happened-to-my-aspnet-project-visual-studio-key-vault-connected-service"></a>ASP.NET 프로젝트에서 무엇이 변경되나요(Visual Studio Key Vault 연결된 서비스)?
 

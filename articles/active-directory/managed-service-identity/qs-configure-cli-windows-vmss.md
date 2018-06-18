@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: faf526082a9a38d5d98443ff2b74eac4eef1ca08
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a0e05543734ae0604149d18564ae1bc1eff1892b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157458"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714632"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-azure-cli"></a>Azure CLI를 사용하여 가상 머신 확장 집합 MSI(관리 서비스 ID) 구성
 
@@ -65,7 +65,7 @@ CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 �
    az group create --name myResourceGroup --location westus
    ```
 
-3. [az vmss create](/cli/azure/vmss/#az_vmss_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수에서 요청한 대로 시스템 할당 ID를 사용하여 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. `--admin-username`및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
+3. [az vmss create](/cli/azure/vmss/#az_vmss_create)를 사용하여 가상 머신 확장 집합을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수에서 요청한 대로 시스템 할당 ID를 사용하여 *myVMSS*라는 가상 머신 확장 집합을 만듭니다. `--admin-username` 및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
 
    ```azurecli-interactive 
    az vmss create --resource-group myResourceGroup --name myVMSS --image win2016datacenter --upgrade-policy-mode automatic --custom-data cloud-init.txt --admin-username azureuser --admin-password myPassword12 --assign-identity --generate-ssh-keys
@@ -120,8 +120,7 @@ MSI VM 확장을 제거하려면 [az vmss identity remove](/cli/azure/vmss/ident
 
 2. [az identity create](/cli/azure/identity#az-identity-create)를 사용하여 사용자 할당 ID를 만듭니다.  `-g` 매개 변수는 사용자 할당 ID가 만들어진 리소스 그룹을 지정하고 `-n` 매개 변수는 그 이름을 지정합니다. `<RESOURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>` 매개 변수 값을 원하는 값으로 바꾸세요.
 
-    > [!IMPORTANT]
-    > 사용자 할당 ID 만들기는 영숫자와 하이픈(0-9 또는 a-z 또는 A-Z 또는 -) 문자만 지원합니다. 또한 VM/VMSS에 대한 할당이 제대로 작동하려면 이름의 길이가 24자로 제한되어야 합니다. 업데이트를 다시 확인하세요. 자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
     ```azurecli-interactive
@@ -177,10 +176,10 @@ MSI VM 확장을 제거하려면 [az vmss identity remove](/cli/azure/vmss/ident
    }
    ```
 
-2. [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity)을 사용하여 VMSS에 사용자 할당 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY ID>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `id` 속성입니다.
+2. [az vmss identity assign](/cli/azure/vmss/identity#az_vm_assign_identity)을 사용하여 VMSS에 사용자 할당 ID를 할당합니다. `<RESOURCE GROUP>` 및 `<VMSS NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<USER ASSIGNED IDENTITY ID>`는 이전 단계에서 만든 대로 사용자 할당 ID의 리소스 `id` 속성입니다.
 
     ```azurecli-interactive
-    az vmss identity assign -g <RESOURCE GROUP> -n <VM NAME> --identities <USER ASSIGNED IDENTITY ID>
+    az vmss identity assign -g <RESOURCE GROUP> -n <VMSS NAME> --identities <USER ASSIGNED IDENTITY ID>
     ```
 
 ### <a name="remove-a-user-assigned-identity-from-an-azure-vmss"></a>Azure VMSS에서 사용자 할당 ID 제거
@@ -188,21 +187,21 @@ MSI VM 확장을 제거하려면 [az vmss identity remove](/cli/azure/vmss/ident
 > [!NOTE]
 >  시스템 할당 ID가 없다면, 가상 머신 확장 집합에서 모든 사용자 할당 ID를 제거하는 것은 현재 지원되지 않습니다. 
 
-VMSS에 여러 사용자 할당 ID가 있는 경우 [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove)를 사용하여 마지막 ID만 남기고 모두 제거할 수 있습니다. `<RESOURCE GROUP>` 및 `<VM NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<MSI NAME>`은 사용자 할당 ID의 이름 속성이며 `az vm show`를 사용하여 VM의 ID 섹션에서 찾을 수 있습니다.
+VMSS에 여러 사용자 할당 ID가 있는 경우 [az vmss identity remove](/cli/azure/vmss/identity#az-vmss-identity-remove)를 사용하여 마지막 ID만 남기고 모두 제거할 수 있습니다. `<RESOURCE GROUP>` 및 `<VMSS NAME>` 매개 변수 값을 원하는 값으로 바꾸세요. `<MSI NAME>`은 사용자 할당 ID의 이름 속성이며 `az vm show`를 사용하여 VM의 ID 섹션에서 찾을 수 있습니다.
 
 ```azurecli-interactive
-az vmss identity remove -g <RESOURCE GROUP> -n <VM NAME> --identities <MSI NAME>
+az vmss identity remove -g <RESOURCE GROUP> -n <VMSS NAME> --identities <MSI NAME>
 ```
 VMSS에 시스템 할당 및 사용자 할당 ID가 모두 있는 경우 시스템 할당만 사용하도록 전환하여 모든 사용자 할당 ID를 제거할 수 있습니다. 다음 명령을 사용합니다. 
 
 ```azurecli-interactive
-az vmss update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' identity.identityIds=null
+az vmss update -n <VMSS NAME> -g <RESOURCE GROUP> --set identity.type='SystemAssigned' identity.identityIds=null
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 - [관리 서비스 ID 개요](overview.md)
-- Azure 가상 머신 확장 집합 만들기 빠른 시작은 다음을 참조하세요. 
+- Azure 가상 머신 확장 집합 만들기에 대한 빠른 시작은 다음을 참조하세요. 
 
   - [CLI를 사용하여 가상 머신 확장 집합 만들기](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)
 

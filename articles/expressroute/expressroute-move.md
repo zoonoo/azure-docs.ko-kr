@@ -1,11 +1,11 @@
 ---
-title: "클래식에서 Resource Manager로 ExpressRoute 회로 이동 | Microsoft Docs"
-description: "이 페이지는 클래식 및 리소스 관리자 배포 모델 연결에 대해 알아야 할 내용을 간략히 설명합니다."
+title: 클래식에서 Resource Manager로 ExpressRoute 회로 이동 | Microsoft Docs
+description: 이 페이지는 클래식 및 리소스 관리자 배포 모델 연결에 대해 알아야 할 내용을 간략히 설명합니다.
 documentationcenter: na
 services: expressroute
 author: ganesr
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22710068"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>클래식에서 리소스 관리자 배포 모델로 Express 경로 회로 이동
 이 문서에서는 Azure Express 경로 회로를 클래식에서 Azure Resource Manager 배포 모델로 이동하는 것에 대해 간략히 설명합니다.

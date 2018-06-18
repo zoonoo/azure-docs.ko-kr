@@ -1,25 +1,27 @@
 ---
-title: "문제 해결: Azure Active Directory 활동 로그의 누락된 데이터 | Microsoft Docs"
-description: "Azure Active Directory 보고에 사용할 수 있는 다양한 보고서 나열"
+title: '문제 해결: Azure Active Directory 활동 로그의 누락된 데이터 | Microsoft Docs'
+description: Azure Active Directory 보고에 사용할 수 있는 다양한 보고서 나열
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 7cbe4337-bb77-4ee0-b254-3e368be06db7
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 55587fb4ff6d8a2130eb838782a65788fb2dd2b3
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 1568a7c508dbbb42143d8badf39833af90fcc376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589545"
 ---
 # <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>Azure Active Directory 활동 로그에서 수행한 일부 작업을 찾을 수 없습니다.
 

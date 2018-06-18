@@ -15,6 +15,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790273"
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Azure Search를 사용하는 사람: 사례 연구 및 고객 사례
 풍부한 Azure Search 경험을 다음과 같은 조직의 온라인 응용 프로그램에 통합하여 해당 조직이 비즈니스를 발전시키도록 도운 방법에 대해 알아봅니다.

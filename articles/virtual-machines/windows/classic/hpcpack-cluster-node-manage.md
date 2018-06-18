@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914938"
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC 팩 클러스터에 있는 계산 노드의 수 및 가용성 관리
 Azure VM에 HPC Pack 2012 R2 클러스터를 만든 경우 클러스터에서 일부 계산 노드 VM을 손쉽게 추가, 제거, 시작(프로비전), 중지(프로비전 해제)할 수 있어야 합니다. 이러한 작업을 하려면 헤드 노드 VM에 설치된 Azure PowerShell 스크립트를 실행합니다. 이러한 스크립트로 HPC 팩 클러스터 리소스의 수와 가용성을 관리하여 비용을 관리할 수 있습니다.
@@ -99,7 +100,7 @@ Remove-HPCIaaSNode.ps1 -Node <Object> [-DeleteVHD] [-Force] [-Confirm] [<CommonP
 * **WhatIf**: 실제로 명령을 실행하지 않고 명령을 실행할 경우에 상황에 대해 설명하는 설정입니다.
 
 ### <a name="example"></a>예
-다음 예제는 이름이 *HPCNode-CN-*으로 시작하는 노드를 오프라인으로 강제 전환한 다음 노드와 관련 디스크를 제거합니다.
+다음 예제는 이름이 *HPCNode-CN-* 으로 시작하는 노드를 오프라인으로 강제 전환한 다음 노드와 관련 디스크를 제거합니다.
 
 ```PowerShell
 Remove-HPCIaaSNode.ps1 –Name HPCNodeCN-* –DeleteVHD -Force
@@ -119,7 +120,7 @@ Start-HPCIaaSNode.ps1 -Node <Object> [<CommonParameters>]
 * **Node**- 시작할 노드의 HpcNode 개체로 HPC PowerShell cmdlet [Get-HpcNode](https://technet.microsoft.com/library/dn887927.aspx)를 통해 얻을 수 있습니다. 매개 변수 설정 이름은 Node입니다. **Name** 및 **Node** 매개 변수를 모두 지정할 수 없습니다.
 
 ### <a name="example"></a>예
-다음 예제는 이름이 *HPCNode-CN-*로 시작하는 노드를 시작합니다.
+다음 예제는 이름이 *HPCNode-CN-* 로 시작하는 노드를 시작합니다.
 
 ```PowerShell
 Start-HPCIaaSNode.ps1 –Name HPCNodeCN-*

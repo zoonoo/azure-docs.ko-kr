@@ -1,8 +1,8 @@
 ---
-title: "OMS(Operations Management Suite) 아키텍처 | Microsoft Docs"
-description: "OMS(Microsoft Operations Management Suite)는 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서는 OMS에 포함된 다양한 서비스를 식별하고 자세한 내용에 대한 링크를 제공합니다."
+title: OMS(Operations Management Suite) 아키텍처 | Microsoft Docs
+description: OMS(Microsoft Operations Management Suite)는 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  이 문서는 OMS에 포함된 다양한 서비스를 식별하고 자세한 내용에 대한 링크를 제공합니다.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/13/2017
+ms.locfileid: "26683268"
 ---
 # <a name="oms-architecture"></a>OMS 아키텍처
 [OMS(Operations Management Suite)](https://azure.microsoft.com/documentation/services/operations-management-suite/)는 온-프레미스 및 클라우드 환경을 관리하기 위한 클라우드 기반 서비스의 모음입니다.  이 문서는 OMS의 다양한 온-프레미스 및 클라우드 구성 요소와 개략적인 클라우드 컴퓨팅 아키텍처에 대해 설명합니다.  자세한 내용은 각 서비스의 설명서를 참조하세요.

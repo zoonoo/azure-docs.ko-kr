@@ -14,12 +14,12 @@ ms.date: 09/11/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: b185f53f8f13ebbe1efc57a99b7d65269f5559c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3f1225b71d16419a3dd100bfaccfbfa1e1c1c41c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354533"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292894"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
@@ -59,7 +59,7 @@ Azure AD는 응용 프로그램에 로그인하는 세 가지 방법을 지원�
 
 Azure AD는 SAML 2.0, WS-Federation 또는 OpenID Connect 프로토콜을 지원하는 응용 프로그램에 페더레이션된 Single Sign-On을 지원합니다. 
 
-참고 항목: [페더레이션된 Single Sign-On에 대한 인증서 관리](../active-directory-sso-certs.md)
+참고 항목: [페더레이션된 Single Sign-On에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md)
 
 ### <a name="password-based-single-sign-on"></a>암호 기반 Single Sign-On
 암호 기반 Single Sign-On을 구성하면 조직의 사용자가 타사 SaaS 응용 프로그램의 사용자 계정 정보를 사용하여, Azure AD에서 타사 SaaS 응용 프로그램에 자동으로 로그인할 수 있습니다. 이 기능을 사용하면 Azure AD가 사용자 계정 정보 및 관련된 암호를 수집하고 안전하게 저장합니다. 
@@ -194,7 +194,7 @@ Azure AD는 암호 기반 Single Sign-On, 기존 Single Sign-On 및 모든 형�
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../active-directory-saas-tutorial-list.md)
 * [클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기](cloud-app-discovery.md)
-* [앱에 대한 액세스 관리 소개](../active-directory-managing-access-to-apps.md)
+* [앱에 대한 액세스 관리 소개](what-is-access-management.md)
 * [Azure AD에서 외부 ID 관리 기능 비교](../active-directory-b2b-compare-b2c.md)
 
 

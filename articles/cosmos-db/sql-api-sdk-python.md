@@ -2,24 +2,22 @@
 title: 'Azure Cosmos DB: SQL Python API, SDK 및 리소스 | Microsoft Docs'
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB Python SDK의 각 버전 간 변경 내용을 포함하여 SQL Python API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
-documentationcenter: python
 author: rnagpal
 manager: kfile
 editor: cgronlun
-ms.assetid: 3ac344a9-b2fa-4a3f-a4cc-02d287e05469
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: reference
 ms.date: 5/8/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa5ac4d95d11a2dfec1b2c6394b7e2e9cf747f5a
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9a79c1951fb8cfbfc208942835ee87b91b763c44
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798188"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]

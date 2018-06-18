@@ -1,12 +1,12 @@
 ---
-title: "고급 Azure 스택 평가 작업 | Microsoft Docs"
-description: "이 문서에서는 고급 Azure 스택 평가 작업을 설명 합니다."
+title: 고급 Azure 스택 평가 작업 | Microsoft Docs
+description: 이 문서에서는 고급 Azure 스택 평가 작업을 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29976351"
 ---
 # <a name="advanced-azure-stack-development-kit-evaluation-tasks"></a>Azure 스택 개발 키트의 고급 평가 작업
 기본 Azure 스택 개발 키트 (ASDK) 서비스 기능 및 기능에 익숙한 나면 더 고급 시나리오를 테스트 하 여 Azure 스택 추가 대 한 이해를 향상 시킬 수 있습니다. 이러한 고급 평가 작업은 Azure 스택 연산자 설명서에서 완벽 하 게 설명 되어 있습니다.

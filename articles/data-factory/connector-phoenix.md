@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 8cc6fa994c750f4718e6cc065819763d8be4f18c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d17af33a3cfa0720649c8c4c7cffd5c4b0a8f272
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618082"
 ---
 # <a name="copy-data-from-phoenix-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Phoenix에서 데이터 복사 
 
@@ -46,11 +47,11 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 |:--- |:--- |:--- |
 | 형식 | type 속성은 **Phoenix**로 설정해야 합니다. | 예 |
 | host | Phoenix 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 예 |
-| 포트 | Phoenix 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8765입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 아니요 |
+| 포트 | Phoenix 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8765입니다. Azure HDInsights에 연결하는 경우 포트를 443으로 지정합니다. | 아니오 |
 | httpPath | Phoenix 서버에 해당하는 부분 URL입니다. 즉, /gateway/sandbox/phoenix/version입니다. WindowsAzureHDInsightService를 사용하는 경우 기본값은 `hbasephoenix`입니다.  | 아니오 |
 | authenticationType | Phoenix 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService**입니다. | 예 |
 | 사용자 이름 | Phoenix 서버에 연결하는 데 사용되는 사용자 이름입니다.  | 아니오 |
-| 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| 암호 | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니오 |
 | enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |
 | trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니오 |
 | useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니오 |

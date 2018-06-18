@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31597285"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>다중 계층 응용 프로그램을 위한 네트워크 만들기
 

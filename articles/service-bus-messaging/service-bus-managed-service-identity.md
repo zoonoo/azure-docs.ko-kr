@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus 미리 보기를 사용하는 관리 서비스 ID | Microsoft Docs"
-description: "Azure Service Bus에서 관리 서비스 ID 사용"
+title: Azure Service Bus 미리 보기를 사용하는 관리 서비스 ID | Microsoft Docs
+description: Azure Service Bus에서 관리 서비스 ID 사용
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874655"
 ---
 # <a name="managed-service-identity-preview"></a>관리 서비스 ID(미리 보기)
 

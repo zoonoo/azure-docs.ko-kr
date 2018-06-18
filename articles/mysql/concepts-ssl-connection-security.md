@@ -1,19 +1,20 @@
 ---
-title: "Azure Database for MySQL에 대한 SSL 연결"
-description: "SSL 연결을 올바르게 사용하도록 MySQL용 Azure 데이터베이스 및 연결된 응용 프로그램을 구성하는 방법에 대한 정보"
+title: Azure Database for MySQL에 대한 SSL 연결
+description: SSL 연결을 올바르게 사용하도록 MySQL용 Azure 데이터베이스 및 연결된 응용 프로그램을 구성하는 방법에 대한 정보
 services: mysql
 author: JasonMAnderson
 ms.author: janders
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f59d5eab9772515a3c59f887a48d597d27bab135
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: ee7e0ec8524d66ee89cf7b2c4d44b70efa784f8f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265064"
 ---
 # <a name="ssl-connectivity-in-azure-database-for-mysql"></a>MySQL용 Azure 데이터베이스의 SSL 연결
 MySQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용하여 데이터베이스 서버를 클라이언트 응용 프로그램에 연결하도록 지원합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.

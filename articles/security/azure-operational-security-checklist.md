@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894752"
 ---
 # <a name="azure-operational-security-checklist"></a>Azure 운영 보안 검사 목록
 Azure에 응용 프로그램을 배포하는 것이 빠르고, 쉽고, 비용 효율적입니다. 프로덕션 환경에 클라우드 응용 프로그램을 배포하기 전에 고려해야 하는 필수 및 권장 운영 보안 작업 목록과 대조하여 응용 프로그램을 평가하는 데 도움이 되는 검사 목록이 있으면 유용합니다.

@@ -1,12 +1,12 @@
 ---
-title: "개요 - Azure Logic Apps를 사용한 엔터프라이즈 통합 | Microsoft Docs"
-description: "기업 및 조직의 데이터, 서비스, 앱 및 시스템을 통합하는 자동화 워크플로 및 비즈니스 프로세스를 빌드합니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다."
-keywords: "자동화, 워크플로, 엔터프라이즈 응용 프로그램 통합, EAI, 시스템 통합, 데이터 통합, 오케스트레이션, 통합 서비스, iPaaS"
+title: 개요 - Azure Logic Apps를 사용한 엔터프라이즈 통합 | Microsoft Docs
+description: 기업 및 조직의 데이터, 서비스, 앱 및 시스템을 통합하는 자동화 워크플로 및 비즈니스 프로세스를 빌드합니다. 데이터 통합, 시스템 통합, EAI(엔터프라이즈 응용 프로그램 통합) 및 오케스트레이션 시나리오에 대한 솔루션을 만듭니다.
+keywords: 자동화, 워크플로, 엔터프라이즈 응용 프로그램 통합, EAI, 시스템 통합, 데이터 통합, 오케스트레이션, 통합 서비스, iPaaS
 services: logic-apps
 author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: 07765c05-72a6-4169-a8ab-f6420bfbaf07
 ms.service: logic-apps
 ms.workload: na
@@ -16,11 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6c88c51eb4def92164e221efa5c6293f9b2247e4
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: c575ae1f9c801072fb1f6f32a13f111b9edd18ce
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299242"
 ---
 # <a name="what-is-azure-logic-apps"></a>Azure Logic Apps란?
 

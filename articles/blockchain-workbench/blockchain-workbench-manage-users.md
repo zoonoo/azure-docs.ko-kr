@@ -10,11 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: c17a406a0fd6f1172599ac0379c6afc139403148
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 80f20e438b1d923e688aeef9e6b353642bd74c27
+ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34158938"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench의 사용자 관리
 
@@ -68,20 +69,18 @@ Azure AD 디렉터리에서 **관리자** 그룹에 사용자를 추가하려면
 
 Blockchain Workbench 응용 프로그램을 사용하여 사용자 컨소시엄의 일부인 사용자 및 조직을 관리합니다. 응용 프로그램 및 역할에 사용자를 추가하거나 제거할 수 있습니다.
 
-브라우저에서 [Blockchain Workbench를 열고](blockchain-workbench-deploy.md#blockchain-workbench-web-url) 관리자로 로그인합니다.
+1. 브라우저에서 [Blockchain Workbench를 열고](blockchain-workbench-deploy.md#blockchain-workbench-web-url) 관리자로 로그인합니다.
 
-![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
+    ![Blockchain Workbench](media/blockchain-workbench-manage-users/blockchain-workbench-applications.png)
 
-### <a name="managing-members-in-applications"></a>응용 프로그램의 구성원 관리
+    구성원은 각 응용 프로그램에 추가됩니다. 구성원은 계약을 시작하거나 작업을 수행하는 응용 프로그램 역할을 하나 이상 가질 수 있습니다.
 
-구성원은 각 응용 프로그램에 추가됩니다. 구성원은 계약을 시작하거나 작업을 수행하는 응용 프로그램 역할을 하나 이상 가질 수 있습니다.
+2. 응용 프로그램의 구성원을 관리하려면 **응용 프로그램** 창에서 응용 프로그램 타일을 선택합니다.
 
-응용 프로그램에 구성원을 추가하려면 **응용 프로그램** 창에서 응용 프로그램 타일을 선택합니다.
+    선택한 응용 프로그램에 연결된 구성원의 수는 구성원 타일에 반영됩니다.
 
-![응용 프로그램 선택](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
+    ![응용 프로그램 선택](media/blockchain-workbench-manage-users/blockchain-workbench-select-application.png)
 
-> [!NOTE]
-> 선택한 응용 프로그램에 연결된 구성원의 수는 구성원 타일에 반영됩니다.
 
 #### <a name="add-member-to-application"></a>응용 프로그램에 구성원 추가
 
@@ -116,4 +115,7 @@ Blockchain Workbench 응용 프로그램을 사용하여 사용자 컨소시엄�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기](blockchain-workbench-create-app.md)
+이 사용법 문서에서는 Azure Blockchain Workbench에 대한 사용자 관리 방법을 배웠습니다. 블록 체인 응용 프로그램을 만드는 방법을 알아보려면 다음 사용법 문서를 계속 진행합니다.
+
+> [!div class="nextstepaction"]
+> [Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기](blockchain-workbench-create-app.md)

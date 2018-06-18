@@ -14,6 +14,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885122"
 ---
 # <a name="quickstart-create-an-azure-container-registry-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Container Registry 만들기
 

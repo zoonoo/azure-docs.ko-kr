@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31394393"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Azure 스택에 대 한 유효성 검사 테스트를 실행 합니다.
 

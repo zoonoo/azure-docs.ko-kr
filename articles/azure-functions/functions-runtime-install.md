@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions 런타임 설치 | Microsoft Docs"
-description: "Azure Functions 런타임 미리 보기 2를 설치하는 방법"
+title: Azure Functions 런타임 설치 | Microsoft Docs
+description: Azure Functions 런타임 미리 보기 2를 설치하는 방법
 services: functions
-documentationcenter: 
+documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/05/2017
+ms.locfileid: "26290660"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Azure Functions 런타임 미리 보기 2 설치
 

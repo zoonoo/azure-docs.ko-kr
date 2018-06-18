@@ -3,7 +3,7 @@ title: Azure PIM 리소스 RBAC 개요 | Microsoft Docs
 description: 용어 및 알림을 포함하여 PIM의 RBAC 기능에 대한 개요를 살펴봅니다.
 services: active-directory
 documentationcenter: ''
-author: barclayn
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -12,13 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
-ms.openlocfilehash: edf22ea0cfe60cb734b4339363d50af050466000
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rolyon
+ms.openlocfilehash: f8eb574a98294b2858edd2ae36293c2857a50403
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261035"
 ---
 # <a name="pim-for-azure-resources"></a>Azure Resource용 PIM
 
@@ -38,7 +40,7 @@ Azure AD PIM에서는 기본 제공 Azure 리소스 역할뿐만 아니라 사�
 
 - 소유자
 - 사용자 액세스 관리자
-- 참가자
+- 기여자
 - 보안 관리자
 - 보안 관리자 등
 

@@ -1,22 +1,19 @@
 ---
-title: "Azure IoT Hub 및 Azure Event Grid | Microsoft Docs"
-description: "IoT Hub에서 발생하는 작업을 기반으로 프로세스를 트리거하려면 Azure Event Grid를 사용합니다."
-services: iot-hub
-documentationcenter: 
+title: Azure IoT Hub 및 Azure Event Grid | Microsoft Docs
+description: IoT Hub에서 발생하는 작업을 기반으로 프로세스를 트리거하려면 Azure Event Grid를 사용합니다.
 author: kgremban
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c75a65714898f27ab0008ad5a30a5714d7174f4
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: f187aa81ca519f2597657f01c2d7a630740b5348
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634314"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions---preview"></a>작업-미리 보기를 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 

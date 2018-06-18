@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33762519"
 ---
 # <a name="understand-how-multiple-azure-active-directory-tenants-interact"></a>여러 Azure Active Directory 테넌트 간의 상호 작용 방식 이해
 

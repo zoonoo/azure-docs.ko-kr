@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 지정 정책을 사용하여 Salesforce SAML 공급자 추가 | Microsoft Docs'
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Salesforce SAML 공급자 추가 | Microsoft Docs
 description: Azure Active Directory B2C 사용자 지정 정책을 만들고 관리하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: davidmu
-ms.openlocfilehash: 1ccf5c58eab9df9016224a91ddda952a05457e2a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: f4399730755c15fe5e171bf7fd5826c2b7ffea0a
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709651"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: SAML을 통해 Salesforce 계정을 사용하여 로그인
 
@@ -115,7 +115,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
     3. 인증서를 선택하려면 **업로드 파일 제어**를 선택합니다. 
     4. PowerShell 스크립트에서 설정한 인증서 암호를 입력합니다.
 3. **만들기**를 클릭합니다.
-4. 키를 만들었는지 확인합니다(예: B2C_1A_SAMLSigningCert). 전체 이름을 기록해둡니다(*B2C_1A_*를 포함). 정책에서 나중에 이 키를 참조합니다.
+4. 키를 만들었는지 확인합니다(예: B2C_1A_SAMLSigningCert). 전체 이름을 기록해둡니다(*B2C_1A_* 를 포함). 정책에서 나중에 이 키를 참조합니다.
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>기본 정책에서 Salesforce SAML 클레임 공급자 만들기
 

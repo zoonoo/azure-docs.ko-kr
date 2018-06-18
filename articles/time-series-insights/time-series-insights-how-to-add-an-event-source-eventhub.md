@@ -1,21 +1,21 @@
 ---
-title: "Azure Time Series Insights에 이벤트 허브 이벤트 원본을 추가하는 방법 | Microsoft Docs"
-description: "이 문서에서는 이벤트 허브에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다."
-services: time-series-insights
+title: Azure Time Series Insights에 이벤트 허브 이벤트 원본을 추가하는 방법 | Microsoft Docs
+description: 이 문서에서는 이벤트 허브에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다.
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: ed151160bd8bd0f0241e1a728fab53570e33a201
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656020"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 이벤트 허브 이벤트 원본을 추가하는 방법
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 11/22/2017
 - Time Series Insights에서 사용할 이벤트 허브의 전용 소비자 그룹을 만듭니다. 각 Time Series Insights 이벤트 원본에는 다른 소비자와 공유되지 않은 전용 소비자 그룹 자체가 있어야 합니다. 같은 소비자 그룹에서 여러 읽기 권한자가 이벤트를 소비하는 경우 모든 읽기 권한자에게 오류가 표시될 수 있습니다. 또한 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 자세한 내용은 [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)를 참조하세요.
 
 ## <a name="add-a-new-event-source"></a>새 이벤트 원본 추가
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 기존 Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 클릭합니다. Time Series Insights 환경을 선택합니다.
 
@@ -52,7 +52,7 @@ ms.lasthandoff: 11/22/2017
 
    ![구독 및 이벤트 허브 정보](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
 
-   | 속성 | 설명 |
+   | 자산 | 설명 |
    | --- | --- |
    | 구독 ID | 이 이벤트 허브가 만들어진 구독을 선택합니다.
    | Service Bus 네임스페이스 | 이벤트 허브를 포함하는 Service Bus 네임스페이스를 선택합니다.
@@ -66,7 +66,7 @@ ms.lasthandoff: 11/22/2017
 
 9. **이벤트 허브 설정 수동으로 제공** 옵션을 선택한 경우 다음 표에 나오는 각 필수 속성에 대한 설명을 참조하세요.
 
-   | 속성 | 설명 |
+   | 자산 | 설명 |
    | --- | --- |
    | 구독 ID | 이 이벤트 허브가 만들어진 구독입니다.
    | 리소스 그룹 | 이 이벤트 허브가 만들어진 리소스 그룹입니다.

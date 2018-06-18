@@ -1,11 +1,11 @@
 ---
-title: "Azure WCF Relay 하이브리드 온-프레미스/클라우드 응용 프로그램(.NET) | Microsoft Docs"
-description: "Azure WCF 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다."
+title: Azure WCF Relay 하이브리드 온-프레미스/클라우드 응용 프로그램(.NET) | Microsoft Docs
+description: Azure WCF 릴레이를 사용하여 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램을 만드는 방법에 대해 알아봅니다.
 services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
 ms.service: service-bus-relay
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/14/2018
+ms.locfileid: "29346444"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Azure WCF 릴레이를 사용하는 .NET 온-프레미스/클라우드 하이브리드 응용 프로그램
 
@@ -70,7 +71,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
 1. 관리자 권한을 사용하여 Microsoft Visual Studio를 시작합니다. 이렇게 하려면 Visual Studio 프로그램 아이콘을 마우스 오른쪽 단추로 클릭하고 **관리자 권한으로 실행**을 클릭합니다.
 2. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-3. **설치된 템플릿**의 **Visual C#**에 있는 **콘솔 앱(.NET Framework)**을 클릭합니다. **이름** 상자에서 이름을 **ProductsServer**로 입력합니다.
+3. **설치된 템플릿**의 **Visual C#** 에 있는 **콘솔 앱(.NET Framework)** 을 클릭합니다. **이름** 상자에서 이름을 **ProductsServer**로 입력합니다.
 
    ![][11]
 4. **확인**을 클릭하여 **ProductsServer** 프로젝트를 만듭니다.
@@ -218,7 +219,7 @@ Azure에서 릴레이 기능 사용을 시작하려면 먼저 서비스 네임�
 
 1. 관리자 권한으로 Visual Studio 2013을 실행 중인지 확인합니다.
 2. Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-3. **설치된 템플릿**에서 **Visual C#** 아래에 있는 **ASP.NET 웹 응용 프로그램(.NET Framework)**을 클릭합니다. 프로젝트의 이름을 **ProductsPortal**로 지정합니다. 그런 후 **OK**를 클릭합니다.
+3. **설치된 템플릿**에서 **Visual C#** 아래에 있는 **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 클릭합니다. 프로젝트의 이름을 **ProductsPortal**로 지정합니다. 그런 후 **OK**를 클릭합니다.
 
    ![][15]
 

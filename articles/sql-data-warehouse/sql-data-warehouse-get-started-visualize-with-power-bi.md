@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31601580"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 이 자습서에서는 Power BI를 사용하여 SQL Data Warehouse에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.

@@ -1,11 +1,11 @@
 ---
-title: ".NET을 사용하여 Azure Files 개발 | Microsoft Docs"
-description: "Azure Files를 사용하여 파일 데이터를 저장하는 .NET 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다."
+title: .NET을 사용하여 Azure Files 개발 | Microsoft Docs
+description: Azure Files를 사용하여 파일 데이터를 저장하는 .NET 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다.
 services: storage
 documentationcenter: .net
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: 6a889ee1-1e60-46ec-a592-ae854f9fb8b6
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
-ms.openlocfilehash: 11bc2418e439f86a228ff7d5c845caef683d9018
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 95f890ccbe03fc734b54ac8c5edee2ec7b56d9c6
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737632"
 ---
 # <a name="develop-for-azure-files-with-net"></a>.NET을 사용하여 Azure Files 개발
 
@@ -41,7 +42,7 @@ Azure Files에 대한 자세한 내용은 [Azure Files 소개](storage-files-int
 
 Azure Files는 클라이언트 응용 프로그램에 SMB(서버 메시지 블록) 및 REST라는 광범위한 두 가지 방법을 제공합니다. .NET 내에서 `System.IO` 및 `WindowsAzure.Storage` API별로 이러한 접근 방식을 추상화합니다.
 
-API | 사용하는 경우 | 참고 사항
+API | 사용하는 경우 | 메모
 ----|-------------|------
 [System.IO](https://docs.microsoft.com/dotnet/api/system.io) | 사용자 응용 프로그램의 경우: <ul><li>SMB를 통해 파일을 읽고 써야 합니다.</li><li>포트 445를 통해 Azure Files 계정에 대한 액세스 권한이 있는 장치에서 실행됩니다.</li><li>파일 공유의 관리 설정을 관리할 필요가 없습니다.</li></ul> | SMB를 통한 Azure Files를 사용하여 파일 I/O를 코딩하는 작업은 일반적으로 네트워크 파일 공유 또는 로컬 저장소 장치를 사용하여 I/O를 코딩하는 작업과 동일합니다. 파일 I/O를 비롯한 다양한 .NET 기능에 대한 소개는 [이 자습서](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter)를 참조하세요.
 [WindowsAzure.Storage](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet#client-library) | 사용자 응용 프로그램의 경우: <ul><li>방화벽이나 ISP 제약 조건으로 인해 SMB를 통해 포트 445에서 Azure Files에 액세스할 수 없습니다.</li><li>파일 공유 할당량을 설정하거나 공유 액세스 서명을 만들 수 있는 기능 등 관리 기능이 필요합니다.</li></ul> | 이 문서는 (SMB 대신) REST 및 파일 공유의 관리를 사용하여 파일 I/O에서 `WindowsAzure.Storage`를 사용하는 방법을 보여줍니다.
@@ -51,7 +52,7 @@ Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다
 
 1. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 2. **설치됨** > **템플릿** > **Visual C#** > **Windows 기본 바탕 화면**을 선택합니다.
-3. **콘솔 앱(.NET Framework)**를 선택합니다.
+3. **콘솔 앱(.NET Framework)** 를 선택합니다.
 4. **이름:** 필드에서 응용 프로그램의 이름을 입력합니다.
 5. **확인**을 선택합니다.
 
@@ -473,7 +474,7 @@ Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
 * [Azure Storage에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Azure Files 문제 해결](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
-### <a name="reference"></a>참조
+### <a name="reference"></a>참고 자료
 * [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
 * [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)
 

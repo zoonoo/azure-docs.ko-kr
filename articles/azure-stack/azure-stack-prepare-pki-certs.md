@@ -20,6 +20,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203479"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>Azure 스택 PKI 인증서 배포 준비
 인증서 파일 [선택한 해당 CA에서 가져온](azure-stack-get-pki-certs.md) 가져오고 Azure 스택 인증서 요구 사항 일치 하는 속성을 사용 하 여 내보낸 해야 합니다.

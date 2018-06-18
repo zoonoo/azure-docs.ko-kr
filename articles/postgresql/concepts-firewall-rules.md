@@ -1,6 +1,6 @@
 ---
-title: "PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙"
-description: "이 문서에서는 Azure Database for PostgreSQL 서버의 방화벽 규칙에 대해 설명합니다."
+title: PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙
+description: 이 문서에서는 Azure Database for PostgreSQL 서버의 방화벽 규칙에 대해 설명합니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29689890"
 ---
 # <a name="azure-database-for-postgresql-server-firewall-rules"></a>PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙
 Azure Database for PostgreSQL 서버 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.

@@ -1,11 +1,11 @@
 ---
-title: "App Service Environment에서 내부 부하 분산 장치 생성 및 사용 | Microsoft Docs"
-description: "ILB를 사용하여 ASE 만들기 및 사용"
+title: App Service Environment에서 내부 부하 분산 장치 생성 및 사용 | Microsoft Docs
+description: ILB를 사용하여 ASE 만들기 및 사용
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
-editor: 
+editor: ''
 ms.assetid: ad9a1e00-d5e5-413e-be47-e21e5b285dbf
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29388818"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>App Service Environment에서 내부 부하 분산 장치 사용
 

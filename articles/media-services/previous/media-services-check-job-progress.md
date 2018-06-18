@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782882"
 ---
 # <a name="monitor-job-progress-using-net"></a>.NET을 사용하여 작업 진행 상태 모니터링
 > [!div class="op_single_selector"]

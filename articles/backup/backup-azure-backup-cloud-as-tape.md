@@ -1,36 +1,31 @@
 ---
-title: "Azure 백업을 사용하여 테이프 인프라 대체ㅣMicrosoft Docs"
-description: "Azure 백업이 Azure에서 데이터를 백업하고 복원할 수 있도록 하는 테이프와 같은 의미 체계를 제공하는 방법을 알아봅니다."
+title: Azure Backup을 사용하여 테이프 인프라 대체
+description: Azure Backup이 Azure에서 데이터를 백업하고 복원할 수 있도록 하는 테이프와 같은 의미 체계를 제공하는 방법을 알아봅니다.
 services: backup
-documentationcenter: 
 author: trinadhk
 manager: vijayts
-editor: 
-ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 1/10/2017
-ms.author: saurse;trinadhk;markgal
+ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0f3152daf5f91f7c9e540797bf09b21969d2d33
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606497"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>장기 저장소를 테이프에서 Azure 클라우드로 이동
-Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다.
+Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다.
 
 * 해당 조직의 요구에 가장 적합한 일정으로 데이터를 백업합니다.
 * 백업 데이터를 더 오랜 기간 동안 보존
 * 장기 보존 시 (테이프 대신) Azure를 사용해 보세요.
 
-이 문서에서는 고객이 백업 및 보존 정책을 사용 하도록 설정하는 방법을 설명합니다. 테이프를 사용하여 장기 보존 요구 사항을 해결하는 고객들은 이제 이 기능을 사용하여 강력하고 실행 가능한 대안을 마련할 수 있습니다. 이 기능은 Azure 백업의 최신 릴리스( [여기](http://aka.ms/azurebackup_agent)에서 사용 가능)에서 사용할 수 있습니다. System Center DPM 고객은 DPM을 Azure Backup 서비스에 사용하려면 먼저 DPM 2012 R2 UR5 이상으로 업데이트해야 합니다.
+이 문서에서는 고객이 백업 및 보존 정책을 사용 하도록 설정하는 방법을 설명합니다. 테이프를 사용하여 장기 보존 요구 사항을 해결하는 고객들은 이제 이 기능을 사용하여 강력하고 실행 가능한 대안을 마련할 수 있습니다. 이 기능은 Azure Backup의 최신 릴리스( [여기](http://aka.ms/azurebackup_agent)에서 사용 가능)에서 사용할 수 있습니다. System Center DPM 고객은 DPM을 Azure Backup 서비스에 사용하려면 먼저 DPM 2012 R2 UR5 이상으로 업데이트해야 합니다.
 
-## <a name="what-is-the-backup-schedule"></a>백업 일정은 무엇입니까?
+## <a name="what-is-the-backup-schedule"></a>Backup 일정은 무엇입니까?
 백업 일정은 백업 작업의 빈도를 나타냅니다. 예를 들어, 다음 화면의 설정은 백업이 매일 오후 6시와 자정에 수행되는 것을 나타냅니다.
 
 ![일별 일정](./media/backup-azure-backup-cloud-as-tape/dailybackupschedule.png)
@@ -74,7 +69,7 @@ Azure 백업 및 System Center Data Protection Manager 고객은 다음을 수�
 ![수정](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
 ## <a name="next-steps"></a>다음 단계
-Azure 백업에 대한 자세한 내용은 다음을 참조하세요.
+Azure Backup에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure 백업 소개](backup-introduction-to-azure-backup.md)
-* [Azure 백업 시도](backup-try-azure-backup-in-10-mins.md)
+* [Azure Backup 소개](backup-introduction-to-azure-backup.md)
+* [Azure Backup 시도](backup-try-azure-backup-in-10-mins.md)

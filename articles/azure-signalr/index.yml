@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 05/08/2018
+  ms.locfileid: "33867286"
 abstract:
   description: Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 응용 프로그램을 빌드할 수 있게 하는 Azure 관리 서비스입니다. 이 서비스는 실시간 웹 기능을 응용 프로그램에 추가하는 프로세스를 간소화하는 오픈 소스 라이브러리인 ASP.NET Core를 기반으로 합니다.
 sections:

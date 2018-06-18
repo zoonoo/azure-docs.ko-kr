@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus RBAC(역할 기반 액세스 제어) 미리 보기 | Microsoft Docs"
-description: "Azure Service Bus 역할 기반 액세스 제어"
+title: Azure Service Bus RBAC(역할 기반 액세스 제어) 미리 보기 | Microsoft Docs
+description: Azure Service Bus 역할 기반 액세스 제어
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783382"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -68,7 +69,7 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 - `tenantId`: **TenantId** 값으로 설정합니다.
 - `clientId`: **ApplicationId** 값으로 설정합니다. 
-- `clientSecret`: 클라이언트 암호를 사용하여 로그온하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)**에 추가합니다.
+- `clientSecret`: 클라이언트 암호를 사용하여 로그온하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
 - `serviceBusNamespaceFQDN`: 새로 만든 Service Bus 네임스페이스의 전체 DNS 이름으로 설정합니다(예: `example.servicebus.windows.net`).
 - `queueName`: 만든 큐의 이름으로 설정합니다.
 - 이전 단계에서 앱에 지정된 리디렉션 URI입니다.

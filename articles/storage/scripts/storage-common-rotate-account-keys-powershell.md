@@ -1,12 +1,12 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - 저장소 계정 액세스 키 회전 | Microsoft Docs"
-description: "Azure Storage 계정을 만들고 나서 해당 계정 액세스 키 중 하나를 검색 및 회전합니다."
+title: Azure PowerShell 스크립트 샘플 - 저장소 계정 액세스 키 회전 | Microsoft Docs
+description: Azure Storage 계정을 만들고 나서 해당 계정 액세스 키 중 하나를 검색 및 회전합니다.
 services: storage
 documentationcenter: na
 author: tamram
 manager: timlt
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.custom: mvc
 ms.service: storage
 ms.workload: storage
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/29/2017
+ms.locfileid: "25984166"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>저장소 계정 만들기 및 계정 액세스 키 회전
 

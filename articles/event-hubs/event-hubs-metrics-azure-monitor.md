@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31405143"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Event Hubs 메트릭(미리 보기)
 
@@ -38,7 +39,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ![][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭(미리 보기)**을 클릭합니다. Event Hub의 범위에 대해 필터링된 메트릭을 표시하려면 Event Hub를 선택한 다음 **메트릭(미리 보기)**을 클릭합니다.
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다. Event Hub의 범위에 대해 필터링된 메트릭을 표시하려면 Event Hub를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다.
 
 다음 예제와 같이 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다.
 

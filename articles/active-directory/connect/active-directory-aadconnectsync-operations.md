@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect Sync: 운영 작업 및 고려 사항 | Microsoft Docs"
-description: "이 항목에서는 Azure AD Connect Sync 및 이 구성 요소를 운영하기 위한 준비 방법에 대한 운영 작업을 설명합니다."
+title: 'Azure AD Connect Sync: 운영 작업 및 고려 사항 | Microsoft Docs'
+description: 이 항목에서는 Azure AD Connect Sync 및 이 구성 요소를 운영하기 위한 준비 방법에 대한 운영 작업을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0dfdae45ef7508337a1233c651d355d83b9f0430
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 6e35dc0ad8493d2f92b7e81fc66f444048482bd9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592945"
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect Sync: 운영 작업 및 고려 사항
 이 항목은 Azure AD Connect Sync에 대한 관리 작업을 설명하는 것을 목표로 합니다.
@@ -64,9 +66,9 @@ ms.lasthandoff: 01/18/2018
 
 #### <a name="import-and-synchronize"></a>가져오기 및 동기화
 1. **커넥터**를 선택하고 **Active Directory Domain Services** 형식을 가진 첫 번째 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다. 이 형식인 모든 커넥터에 해당 단계를 수행합니다.
-2. **Azure Active Directory(Microsoft)**형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다.
+2. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **전체 가져오기** 및 **확인**을 선택합니다.
 3. 탭 커넥터가 여전히 선택되어있는지 확인합니다. **Active Directory Domain Services** 형식인 각 커넥터의 경우 **실행**을 클릭하고 **델타 동기화** 및 **확인**을 선택합니다.
-4. **Azure Active Directory(Microsoft)**형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 **확인**을 차례로 선택합니다.
+4. **Azure Active Directory(Microsoft)** 형식이 있는 커넥터를 선택합니다. **실행**을 클릭하고 **델타 동기화** 및 **확인**을 차례로 선택합니다.
 
 이제 Azure AD 및 온-프레미스 AD에 스테이징된 내보내기 변경 사항이 있습니다.(Exchange 하이브리드 배포를 사용하는 경우) 다음 단계를 사용하면 디렉터리에 실제로 내보내기를 시작하기 전에 무엇이 변경될지를 검사할 수 있습니다.
 

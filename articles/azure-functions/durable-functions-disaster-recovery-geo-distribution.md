@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33206510"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>재해 복구 및 지역 배포
 

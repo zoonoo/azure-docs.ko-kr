@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치 구성 수정 | Microsoft Docs"
-description: "이미 배포된 StorSimple 장치를 다시 구성하기 위해 StorSimple 장치 관리자 서비스를 사용하는 방법에 대해 설명합니다."
+title: StorSimple 8000 시리즈 장치 구성 수정 | Microsoft Docs
+description: 이미 배포된 StorSimple 장치를 다시 구성하기 위해 StorSimple 장치 관리자 서비스를 사용하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108761"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>StorSimple 장치 관리자 서비스를 사용하여 StorSimple 장치 구성 수정
 

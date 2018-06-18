@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager 및 볼륨 | Microsoft Docs"
-description: "StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하고 백업을 구성하는 방법을 설명합니다."
+title: StorSimple Snapshot Manager 및 볼륨 | Microsoft Docs
+description: StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 볼륨을 보고 관리하고 백업을 구성하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111721"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>StorSimple 스냅숏 관리자를 사용하여 볼륨 보기 및 관리
 ## <a name="overview"></a>개요

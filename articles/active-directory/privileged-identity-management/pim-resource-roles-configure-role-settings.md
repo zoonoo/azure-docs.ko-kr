@@ -3,22 +3,23 @@ title: Privileged Identity Management를 사용하여 Azure 리소스에 대해 
 description: PIM의 역할 설정을 구성하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 05546be87aec3ec2f44b876a97eeab2121383d61
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3789a679111e700066a12029036ff579969653ad
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32148814"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233151"
 ---
 # <a name="configure-role-settings-by-using-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스에 대해 사용하여 역할 설정 구성 
 

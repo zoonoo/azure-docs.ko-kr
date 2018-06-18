@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909754"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 이러한 단계에서는 Azure CLI(명령줄 인터페이스) 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다. 이 문서는 [Azure CLI 1.0](../../cli-install-nodejs.md)이 필요합니다. Azure CLI 2.0은 Azure Resource Manager 리소스에만 적용할 수 있으므로 이 마이그레이션에 사용할 수 없습니다.
@@ -145,7 +146,7 @@ CLI 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구성을 
 
 ![전체 가상 네트워크 이름이 강조 표시된 명령줄의 스크린샷.](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-위의 예제에서 **virtualNetworkName**은 전체 이름 **"Group classicubuntu16 classicubuntu16"**입니다.
+위의 예제에서 **virtualNetworkName**은 전체 이름 **"Group classicubuntu16 classicubuntu16"** 입니다.
 
 먼저 다음 명령을 사용하여 가상 네트워크를 마이그레이션할 수 있는지 유효성을 검사합니다.
 

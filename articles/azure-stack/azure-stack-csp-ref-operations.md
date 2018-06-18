@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32159114"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure 스택의 테 넌 트 등록 관리
 

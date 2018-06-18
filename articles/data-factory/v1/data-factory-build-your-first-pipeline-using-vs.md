@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31404874"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>자습서: Visual Studio를 사용하여 데이터 팩터리 만들기
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -322,7 +323,7 @@ Azure Storage 연결된 서비스는 연결 정보를 제공하여 Azure Storage
 
 염두해 둘 중요한 사항은 다음과 같습니다.
 
-- **구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.**라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
+- **구독이 Microsoft.DataFactory 네임스페이스를 사용하도록 등록되어 있지 않습니다.** 라는 오류를 수신하는 경우 다음 중 하나를 수행하고 다시 게시하세요.
     - Azure PowerShell에서 다음 명령을 실행하여 Data Factory 공급자를 등록합니다.
         ```PowerShell   
         Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory

@@ -1,6 +1,6 @@
 ---
-title: "Azure Cloud Storage에서 구조화되지 않은 데이터 검색"
-description: "Azure Search를 사용하여 구조화되지 않은 데이터 검색"
+title: Azure Cloud Storage에서 구조화되지 않은 데이터 검색
+description: Azure Search를 사용하여 구조화되지 않은 데이터 검색
 author: roygara
 manager: timlt
 services: storage
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2017
+ms.locfileid: "23451640"
 ---
 # <a name="search-unstructured-data-in-cloud-storage"></a>클라우드 저장소의 구조화되지 않은 데이터 검색
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 10/17/2017
 
 3. **배포 모델**에 **리소스 관리자**를 선택하고 **계정 종류** 드롭다운에서 **범용**을 선택합니다.
 
-4. **복제** 드롭다운에서 **로컬 중복 저장소(LRS)**를 선택합니다.
+4. **복제** 드롭다운에서 **로컬 중복 저장소(LRS)** 를 선택합니다.
 
 5. **리소스 그룹**에서 **새로 만들기**를 선택하고 고유한 이름을 입력합니다.
 

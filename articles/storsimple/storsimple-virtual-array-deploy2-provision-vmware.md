@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972343"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>StorSimple 가상 배열 배포 - VMware에서 프로비전
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -130,7 +131,7 @@ VMware ESXi 5.0, 5.5 또는 6.0을 실행하는 호스트 시스템에 가상 �
 18. **Virtual Machine 버전** 페이지에서 **Virtual Machine 버전: 8**을 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
-19. **게스트 운영 체제** 페이지에서 **게스트 운영 체제**를 **Windows**로 선택합니다. **버전**은 드롭다운 목록에서 **Microsoft Windows Server 2012(64비트)**를 선택합니다.
+19. **게스트 운영 체제** 페이지에서 **게스트 운영 체제**를 **Windows**로 선택합니다. **버전**은 드롭다운 목록에서 **Microsoft Windows Server 2012(64비트)** 를 선택합니다.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
 20. **CPU** 페이지에서 **총 코어 수**가 4(또는 그 이상)가 되도록 **가상 소켓의 수** 및 **가상 소켓 당 코어의 수**를 조정합니다. **다음**을 클릭합니다.

@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783292"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
 이 섹션에서는 Azure Media Clipper를 시작하는 기본 단계를 보여 줍니다. 이후 섹션에서는 Azure Media Clipper 구성 방법에 대한 세부 정보를 제공합니다.

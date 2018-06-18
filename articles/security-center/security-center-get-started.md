@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center 빠른 시작 - Security Center 표준에 Azure 구독 온보딩 | Microsoft Docs"
-description: "이 빠른 시작에서는 보안 강화를 위해 Security Center의 표준 가격 책정 계층으로 업그레이드하는 방법을 보여 줍니다."
+title: Azure Security Center 빠른 시작 - Security Center 표준에 Azure 구독 온보딩 | Microsoft Docs
+description: 이 빠른 시작에서는 보안 강화를 위해 Security Center의 표준 가격 책정 계층으로 업그레이드하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29531675"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>빠른 시작: Security Center 표준에 Azure 구독 온보딩
 Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 위협 방지 기능을 제공합니다. 체험 계층은 Azure 리소스에 대한 제한된 보안만 제공하지만 표준 계층은 이러한 기능을 온-프레미스 및 기타 클라우드로 확장합니다. Security Center 표준을 사용하면 보안 취약성을 찾아서 수정하고, 액세스 및 응용 프로그램 제어를 적용하여 악성 활동을 차단하고, 분석 및 인텔리전스를 사용하여 위협을 검색하고, 공격을 받을 때 신속하게 대응할 수 있습니다. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.

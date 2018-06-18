@@ -11,6 +11,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30184584"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware에서 Azure로 복제 아키텍처
 

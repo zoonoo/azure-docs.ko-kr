@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Virtual Array를 위한 포털 준비 | Microsoft Docs"
-description: "StorSimple 가상 배열을 배포하는 첫 번째 자습서에는 Azure 포털 준비가 포함됩니다."
+title: StorSimple Virtual Array를 위한 포털 준비 | Microsoft Docs
+description: StorSimple 가상 배열을 배포하는 첫 번째 자습서에는 Azure 포털 준비가 포함됩니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2017
+ms.locfileid: "24526556"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 

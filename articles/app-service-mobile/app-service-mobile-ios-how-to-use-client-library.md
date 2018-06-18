@@ -1,11 +1,11 @@
 ---
-title: "Azure Mobile Apps에 iOS SDK를 사용하는 방법"
-description: "Azure Mobile Apps에 iOS SDK를 사용하는 방법"
+title: Azure Mobile Apps에 iOS SDK를 사용하는 방법
+description: Azure Mobile Apps에 iOS SDK를 사용하는 방법
 services: app-service\mobile
 documentationcenter: ios
 author: ysxu
 manager: yochayk
-editor: 
+editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/12/2017
+ms.locfileid: "26660143"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 iOS 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]

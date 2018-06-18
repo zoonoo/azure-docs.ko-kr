@@ -1,13 +1,13 @@
 ---
-title: "DC/OS CLI 설치 | Microsoft 문서"
-description: "DC/OS CLI를 설치합니다."
+title: DC/OS CLI 설치 | Microsoft 문서
+description: DC/OS CLI를 설치합니다.
 services: container-service
-documentationcenter: 
+documentationcenter: ''
 author: rgardler
 manager: timlt
-editor: 
+editor: ''
 tags: acs, azure-container-service
-keywords: "컨테이너, 마이크로 서비스, DC/OS, Azure"
+keywords: 컨테이너, 마이크로 서비스, DC/OS, Azure
 ms.service: container-service
 ms.devlang: na
 ms.topic: get-started-article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22877258"
 ---
 > [!NOTE]
 > DC/OS 기반 ACS 클러스터와 함께 작업하기 위한 것입니다. Swarm 기반 ACS 클러스터에 대해 이 작업을 수행하지 않아도 됩니다.

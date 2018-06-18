@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 2e838e9c94d5b19565bea3d02890fe6164bb37d0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0e074e93ecbe80c3acf3481c0d33917fbe5090c6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786792"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640909"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>인식 검색 기술 집합의 주석 참조하는 방법
 
@@ -125,5 +125,5 @@ Azure Blob 저장소에는 명명된 엔터티 인식을 사용하여 추출하�
 ## <a name="see-also"></a>참고 항목
 + [사용자 지정 기술을 보강 파이프라인으로 통합하는 방법](cognitive-search-custom-skill-interface.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [기술 집합 만들기(REST)](ref-create-skillset.md)
++ [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [인덱스에 보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

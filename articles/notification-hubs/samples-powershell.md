@@ -17,6 +17,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786752"
 ---
 # <a name="azure-powershell-samples-for-azure-notification-hubs"></a>Azure Notification Hubs용 Azure PowerShell 샘플
 

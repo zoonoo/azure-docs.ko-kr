@@ -2,7 +2,7 @@
 title: 논리 앱 정의를 위한 JSON 만들기, 편집 또는 확장 - Azure Logic Apps | Microsoft Docs
 description: JSON에서 논리 앱 정의 작성 및 사용자 지정
 author: ecfan
-manager: SyntaxC4
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2018
 ms.author: estfan; LADocs
-ms.openlocfilehash: f37f600d001b110775d8ca0e78950e3b8743df82
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9793fdf2bd351bd1f15bcb88ffd25d6b19485303
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297855"
 ---
 # <a name="create-edit-or-customize-json-for-logic-app-definitions"></a>논리 앱 정의를 위한 JSON 만들기, 편집 또는 사용자 지정
 

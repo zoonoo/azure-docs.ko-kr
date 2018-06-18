@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33937852"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>Azure 스택 PKI 인증서에 대 한 일반적인 문제 해결
 이 문서의 정보에는 이해 하 고 Azure 스택 PKI 인증서에 대 한 일반적인 문제를 해결할 수 있습니다. Azure 스택 준비 검사기 도구를 사용 하면 문제를 검색할 수 있습니다 [Azure 스택 PKI 인증서의 유효성을 검사](azure-stack-validate-pki-certs.md)합니다. 확인 인증서 Azure 스택 배포 및 Azure 스택 비밀 회전 PKI 요구 사항을 충족 하 고 결과 로그인 한 [report.json 파일](azure-stack-validation-report.md)합니다.  

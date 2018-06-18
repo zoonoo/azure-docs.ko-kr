@@ -1,11 +1,11 @@
 ---
-title: "Azure Stack의 상태 및 경고 모니터링 | Microsoft Docs"
-description: "Azure Stack에서 상태 및 경고를 모니터링하는 방법을 알아봅니다."
+title: Azure Stack의 상태 및 경고 모니터링 | Microsoft Docs
+description: Azure Stack에서 상태 및 경고를 모니터링하는 방법을 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 69901c7b-4673-4bd8-acf2-8c6bdd9d1546
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26640381"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Azure Stack의 상태 및 경고 모니터링
 

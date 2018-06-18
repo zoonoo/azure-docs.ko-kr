@@ -6,19 +6,20 @@ author: MichaelHauss
 manager: vamshik
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/31/2018
 ms.author: mihauss
-ms.openlocfilehash: 0e728f9f9754d76d893b12309bb52201d772efbf
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 93b60f8957a6ae225dbc5beb33a7de817ffc5bc2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34701686"
 ---
-# <a name="soft-delete-for-azure-storage-blobs-preview"></a>Azure Storage Blob에 대한 일시 삭제(미리 보기)
+# <a name="soft-delete-for-azure-storage-blobs"></a>Azure Storage Blob에 대한 일시 삭제
 
 ## <a name="overview"></a>개요
 
-Azure Storage는 이제 응용 프로그램 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제(미리 보기)를 제공합니다.
+Azure Storage는 이제 응용 프로그램 또는 다른 저장소 계정 사용자에 의해 잘못 수정되거나 삭제될 때 데이터를 보다 쉽게 복구할 수 있도록 Blob 개체에 대한 일시 삭제를 제공합니다.
 
 ## <a name="how-does-it-work"></a>작동 원리
 
@@ -29,10 +30,6 @@ Azure Storage는 이제 응용 프로그램 또는 다른 저장소 계정 사�
 
 일시 삭제는 이전 버전과 호환됩니다. 이 기능에서 제공하는 보호를 활용하기 위해 응용 프로그램을 변경할 필요가 없습니다. 그러나 [데이터 복구](#recovery)는 새로운 **삭제 취소 Blob** API를 도입합니다.
 
-> [!NOTE]
-> 공개 미리 보기 동안 스냅숏으로 Blob에서 Blob 계층 설정 호출은 허용되지 않습니다.
-일시 삭제는 덮어쓰는 경우 데이터를 보호하는 스냅숏을 생성합니다. 스냅숏으로 Blob의 계층화를 활성화하도록 솔루션을 적극적으로 작업 중입니다.
-
 ### <a name="configuration-settings"></a>구성 설정
 
 새 계정을 만드는 경우 일시 삭제는 기본적으로 해제되어 있습니다. 일시 삭제는 기존 저장소 계정에 대해서도 기본적으로 해제되어 있습니다. 저장소 계정의 수명 동안 언제든지 기능의 설정 및 해제를 전환할 수 있습니다.
@@ -41,7 +38,7 @@ Azure Storage는 이제 응용 프로그램 또는 다른 저장소 계정 사�
 
 보존 기간은 일시 삭제된 데이터가 저장되고 복구에 사용할 수 있는 기간을 나타냅니다. 명시적으로 삭제된 Blob 및 Blob 스냅숏의 경우 데이터가 삭제되면 보존 기간 시계가 시작됩니다. 데이터가 덮어쓰여지는 경우 일시 삭제 기능에서 생성되는 일시 삭제된 스냅숏의 경우 스냅숏이 생성될 때 시계가 시작됩니다. 현재 1일에서 365일 동안 일시 삭제된 데이터를 유지할 수 있습니다.
 
-언제든지 일시 삭제 보존 기간을 변경할 수 있습니다. 업데이트된 보존 기간은 새로 삭제된 데이터에만 적용됩니다. 이전에 삭제된 데이터는 해당 데이터가 삭제될 때 구성된 보존 기간에 따라 만료됩니다.
+언제든지 일시 삭제 보존 기간을 변경할 수 있습니다. 업데이트된 보존 기간은 새로 삭제된 데이터에만 적용됩니다. 이전에 삭제된 데이터는 해당 데이터가 삭제될 때 구성된 보존 기간에 따라 만료됩니다. 일시 삭제된 개체를 삭제하는 시도는 만료 시간에 영향을 주지 않습니다.
 
 ### <a name="saving-deleted-data"></a>삭제된 데이터 저장
 
@@ -140,7 +137,7 @@ Copy a snapshot over the base blob:
 - HelloWorld (is soft deleted: False, is snapshot: False)
 ```
 
-이 출력을 생성한 응용 프로그램에 대한 포인터는 [다음 단계](#Next steps) 섹션을 참조하세요.
+이 출력을 생성한 응용 프로그램에 대한 포인터는 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 
@@ -204,6 +201,19 @@ $Blobs.ICloudBlob.Properties
 # Undelete the blobs
 $Blobs.ICloudBlob.Undelete()
 ```
+### <a name="azure-cli"></a>Azure CLI 
+일시 삭제를 활성화하려면 Blob 클라이언트의 서비스 속성을 업데이트합니다.
+
+```azurecli-interactive
+az storage blob service-properties delete-policy update --days-retained 7  --account-name mystorageaccount --enable true
+```
+
+일시 삭제를 켰는지 확인하려면 다음 명령을 사용합니다. 
+
+```azurecli-interactive
+az storage blob service-properties delete-policy show --account-name mystorageaccount 
+```
+
 ### <a name="python-client-library"></a>Python 클라이언트 라이브러리
 
 일시 삭제를 활성화하려면 Blob 클라이언트의 서비스 속성을 업데이트합니다.
@@ -276,11 +286,15 @@ blockBlob.StartCopy(copySource);
 
 **일시 삭제는 모든 저장소 계정 형식에 사용할 수 있나요?**
 
-예, 일시 삭제는 Blob 저장소 계정 및 범용 저장소 계정의 Blob에 사용할 수 있습니다. 이는 표준 및 프리미엄 계정 모두에 적용됩니다. 일시 삭제는 관리 디스크에 사용할 수 없습니다.
+예, 일시 삭제는 Blob 저장소 계정 및 범용(GPv1 및 GPv2 모두) 저장소 계정의 Blob에 사용할 수 있습니다. 이는 표준 및 프리미엄 계정 모두에 적용됩니다. 일시 삭제는 관리 디스크에 사용할 수 없습니다.
 
 **일시 삭제는 모든 저장소 계층에 사용할 수 있나요?**
 
 예, 일시 삭제는 핫, 쿨 및 보관을 포함하여 모든 저장소 계층에 사용할 수 있습니다. 그러나 일시 삭제는 보관 계층의 Blob에 대한 덮어쓰기 보호를 제공하지 않습니다.
+
+**Blob 계층 API 설정을 사용하여 일시 삭제된 스냅숏과 함께 Blob의 계층을 설정할 수 있습니까?**
+
+예. 일시 삭제된 스냅숏은 원본 계층에 유지되지만 기본 Blob은 새 계층으로 이동합니다. 
 
 **프리미엄 저장소 계정은 Blob당 100개로 스냅숏을 제한합니다. 일시 삭제된 스냅숏은 이 제한에 포함되나요?**
 

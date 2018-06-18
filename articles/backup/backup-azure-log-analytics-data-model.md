@@ -2,24 +2,19 @@
 title: Azure Backup용 Log Analytics 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터에 대한 Log Analytics 데이터 모델 세부 정보에 대해 설명합니다.
 services: backup
-documentationcenter: ''
 author: JPallavi
 manager: vijayts
-editor: ''
-ms.assetid: dfd5c73d-0d34-4d48-959e-1936986f9fc0
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d55ec8ac4416fe0a082812584552462292b6dbb7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5a2ba1d523e7a6364420302eee095f24fd08eadb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605776"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 이 문서에서는 보고 데이터를 Log Analytics로 푸시하는 데 사용되는 데이터 모델에 대해 설명합니다. 이 데이터 모델을 사용하면 사용자 지정 쿼리, 대시보드를 만들고 Log Analytics에서 이를 활용할 수 있습니다. 

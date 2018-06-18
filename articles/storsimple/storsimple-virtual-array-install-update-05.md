@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 가상 배열에 업데이트 0.5 설치 | Microsoft Docs"
-description: "StorSimple 가상 배열 웹 UI를 사용하여 Azure Portal 및 핫픽스 방법을 사용하는 업데이트를 적용하는 방법을 설명합니다."
+title: StorSimple 가상 배열에 업데이트 0.5 설치 | Microsoft Docs
+description: StorSimple 가상 배열 웹 UI를 사용하여 Azure Portal 및 핫픽스 방법을 사용하는 업데이트를 적용하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109591"
 ---
 # <a name="install-update-05-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.5 설치
 

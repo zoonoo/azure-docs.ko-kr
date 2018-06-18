@@ -1,24 +1,26 @@
 ---
-title: "Azure Active Directory Domain Services: 문의 | Microsoft Docs"
-description: "Azure AD 도메인 서비스 제품 팀에 문의"
+title: 'Azure Active Directory Domain Services: 문의 | Microsoft Docs'
+description: Azure AD 도메인 서비스 제품 팀에 문의
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 662362c3-1a5e-4e94-ae09-8e4254443697
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: maheshu
-ms.openlocfilehash: c342d34c66af334bfb7cccffd2e1ee700dd46bef
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ec74ac2823532b6eef7bf88b4dbf21487d509217
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34586990"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services - 문의
 ## <a name="contact-the-product-team"></a>제품팀에 문의
@@ -32,6 +34,6 @@ ms.lasthandoff: 12/11/2017
 * AAD 도메인 서비스 관리되는 도메인에 대해 사용자가 구성한 **DNS 도메인 이름** 입니다.
 
 ## <a name="provide-feedback"></a>피드백 제공
-**[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/)**을 통한 Azure AD 도메인 서비스에 대한 여러분의 피드백을 환영합니다.
+**[Azure Active Directory 사용자 의견 채널](https://feedback.azure.com/forums/169401-azure-active-directory/)** 을 통한 Azure AD 도메인 서비스에 대한 여러분의 피드백을 환영합니다.
 
-문의하시려면 **'AADDS'**라는 단어로 질문 또는 피드백을 시작해 주세요.
+문의하시려면 **'AADDS'** 라는 단어로 질문 또는 피드백을 시작해 주세요.

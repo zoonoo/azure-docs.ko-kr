@@ -1,22 +1,20 @@
 ---
 title: Azure Maps를 사용하여 검색 | Microsoft Docs
 description: Azure Maps를 사용하여 주변 관심 지점 검색
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: tutorial
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a4479ceebd4c8aad477b5f13a5bcc06d24c1202d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4a414b5b865d31dd99b54ef9693abafb5490a50f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601788"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -69,7 +67,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 <a id="createmap"></a>
 
 ## <a name="create-a-new-map"></a>새 지도 만들기 
-지도 컨트롤 API는 Maps를 웹 응용 프로그램에 쉽게 통합할 수 있도록 하는 편리한 클라이언트 라이브러리입니다. 기본 REST 서비스 호출의 복잡성을 숨기고 스타일 지정 및 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여 줍니다. 
+지도 컨트롤 API는 Maps를 웹 응용 프로그램에 쉽게 통합할 수 있도록 하는 편리한 클라이언트 라이브러리입니다. 기본 REST 서비스 호출의 복잡성을 숨기고 스타일 지정 및 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다. 
 
 1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html**로 지정합니다. 
 2. 다음 HTML 구성 요소를 파일에 추가합니다.

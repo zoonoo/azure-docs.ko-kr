@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 백업 자습서 | Microsoft Docs"
-description: "StorSimple 가상 배열 공유 및 볼륨을 백업하는 방법을 설명합니다."
+title: Microsoft Azure StorSimple 가상 배열 백업 자습서 | Microsoft Docs
+description: StorSimple 가상 배열 공유 및 볼륨을 백업하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e3cdcd9e-33b1-424d-82aa-b369d934067e
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109571"
 ---
 # <a name="back-up-shares-or-volumes-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에서 공유 또는 볼륨 백업
 
@@ -65,7 +66,7 @@ StorSimple 가상 배열에는 하루 중 지정된 시간(22:30)에 시작하�
 
 #### <a name="to-create-a-manual-backup"></a>수동 백업을 만들려면
 
-1. **장치**로 이동합니다. 장치를 선택하고 선택한 행의 오른쪽 끝에 있는 **...**를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **백업 수행**을 선택합니다.
+1. **장치**로 이동합니다. 장치를 선택하고 선택한 행의 오른쪽 끝에 있는 **...** 를 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **백업 수행**을 선택합니다.
    
     ![백업 수행으로 이동](./media/storsimple-virtual-array-backup/takebackup1m.png)
 

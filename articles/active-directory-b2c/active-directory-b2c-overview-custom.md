@@ -1,22 +1,20 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 지정 정책 | Microsoft Docs'
-description: Azure Active Directory B2C 사용자 지정 정책에 대한 항목
+title: Azure Active Directory B2C 사용자 지정 정책 | Microsoft Docs
+description: Azure Active Directory B2C 사용자 지정 정책에 대해 알아봅니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 22d34ac4128da1d1a9f20619aec2aaccc2425a21
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 0d507c2116aa9e420ddc0dec4999ea21d28e60fc
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32138920"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709260"
 ---
 # <a name="azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책
 
@@ -40,7 +38,7 @@ ms.locfileid: "32138920"
 
 ## <a name="policy-files"></a>정책 파일
 
-사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. XML 요소는 다른 요소 간에 클레임 스키마, 클레임 변환, 콘텐츠 정의, 클레임 공급자/기술 프로필 및 Userjourney 오케스트레이션 단계를 정의합니다.
+사용자 지정 정책은 계층 구조 체인에서 서로를 참조하는 하나 또는 여러 XML 형식 파일로 표시됩니다. XML 요소는 다른 요소 간에 클레임 스키마, 클레임 변환, 콘텐츠 정의, 클레임 공급자/기술 프로필 및 사용자 경험 오케스트레이션 단계를 정의합니다.
 
 세 가지 종류의 정책 파일을 사용하는 것이 좋습니다.
 
@@ -76,7 +74,7 @@ OpenIDConnect, OAuth, SAML, WSFed 및 일부 비표준 형식(예: REST API 기�
 
 Azure AD B2C 테넌트에서 ID 경험 프레임워크의 동작을 정의하는 구성 파일입니다. 사용자 지정 정책은 신뢰 당사자(예: 응용 프로그램)에서 호출할 때 ID 경험 프레임워크에서 실행하는 하나 이상의 XML 파일(정책 파일 정의 참조)로 액세스할 수 있습니다. 사용자 지정 정책은 ID 개발자가 직접 편집하여 거의 무제한의 작업을 완료할 수 있습니다. 사용자 지정 정책을 구성하는 개발자는 신뢰할 수 있는 관계를 세부적으로 신중하게 정의하여 메타데이터 끝점, 정확한 클레임 정의 교환을 포함하고 ID 공급자 각각의 필요에 따라 암호, 키 및 인증서를 구성해야 합니다.
 
-## <a name="policy-file-definitions-for-identity-experience-framework-trustframeworks"></a>Trustframeworks ID 경험 프레임워크에 대한 정책 파일 정의
+## <a name="policy-file-definitions-for-identity-experience-framework-trust-frameworks"></a>ID 경험 프레임워크 보안 프레임워크에 대한 정책 파일 정의
 
 ### <a name="policy-files"></a>정책 파일
 

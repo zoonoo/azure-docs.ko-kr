@@ -1,17 +1,17 @@
 ---
-title: "Azure CLI 스크립트 샘플 - 2개 가상 네트워크 피어링 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - 2개 가상 네트워크 피어링"
+title: Azure CLI 스크립트 샘플 - 2개 가상 네트워크 피어링 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 2개 가상 네트워크 피어링
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
 manager: timlt
 editor: tysonn
-tags: 
-ms.assetid: 
+tags: ''
+ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: 
+ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852373"
 ---
 # <a name="peer-two-virtual-networks"></a>2개 가상 네트워크 피어링
 

@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈용 지원 티켓 또는 사례 만들기 | Microsoft 문서"
-description: "StorSimple 8000 시리즈 장치에서 지원 요청을 로깅하고 지원 세션을 시작하는 방법을 알아봅니다."
+title: StorSimple 8000 시리즈용 지원 티켓 또는 사례 만들기 | Microsoft 문서
+description: StorSimple 8000 시리즈 장치에서 지원 요청을 로깅하고 지원 세션을 시작하는 방법을 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743054"
 ---
 # <a name="contact-microsoft-support"></a>Microsoft 지원에 문의
 

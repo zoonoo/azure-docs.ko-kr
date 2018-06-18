@@ -1,24 +1,26 @@
 ---
-title: "Azure AD Connect: Azure AD가 이미 있는 경우 | Microsoft Docs"
-description: "이 문서에서는 기존 Azure AD 테넌트가 있을 때 Connect를 사용하는 방법에 대해 설명합니다."
+title: 'Azure AD Connect: Azure AD가 이미 있는 경우 | Microsoft Docs'
+description: 이 문서에서는 기존 Azure AD 테넌트가 있을 때 Connect를 사용하는 방법에 대해 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa264487c68ea5403300d9b5b9978934a639a2a4
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725210"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: 기존 테넌트가 있는 경우
 Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Azure AD 테넌트로 시작하고 여기에는 사용자 또는 다른 개체가 없다고 가정하고 있습니다. 그러나 이미 Azure AD 테넌트로 시작하여 사용자와 다른 개체를 제공한 후에 Connect를 사용하려는 경우 이 문서가 도움이 됩니다.
@@ -31,7 +33,7 @@ Azure AD의 개체는 클라우드(Azure AD) 또는 온-프레미스에서 마�
 Azure AD와 온-프레미스에 있는 사용자를 관리하기 시작했으며 나중에 Connect를 사용하려는 경우 고려해야 할 몇 가지 추가 사항이 있습니다.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Azure AD의 기존 사용자와 동기화
-Azure AD Connect를 설치하고 동기화를 시작할 때 Azure AD 동기화 서비스(Azure AD에서)는 새 개체를 모두 검사하여 일치하는 기존 개체를 찾으려고 합니다. 이 프로세스에는 **userPrincipalName**, **proxyAddresses** 및 **sourceAnchor**/**immutableID**의 세 가지 특성이 사용됩니다. **userPrincipalName** 및 **proxyAddresses**에 대한 일치를 **소프트 일치**라고 하며, **sourceAnchor**에 대한 일치는 **하드 일치**라고 합니다. 기본 전자 메일 주소인 **proxyAddresses** 특성의 경우 **SMTP:**가 있는 값만 평가에 사용됩니다.
+Azure AD Connect를 설치하고 동기화를 시작할 때 Azure AD 동기화 서비스(Azure AD에서)는 새 개체를 모두 검사하여 일치하는 기존 개체를 찾으려고 합니다. 이 프로세스에는 **userPrincipalName**, **proxyAddresses** 및 **sourceAnchor**/**immutableID**의 세 가지 특성이 사용됩니다. **userPrincipalName** 및 **proxyAddresses**에 대한 일치를 **소프트 일치**라고 하며, **sourceAnchor**에 대한 일치는 **하드 일치**라고 합니다. 기본 전자 메일 주소인 **proxyAddresses** 특성의 경우 **SMTP:** 가 있는 값만 평가에 사용됩니다.
 
 일치는 Connect에서 나오는 새 개체에 대해서만 평가됩니다. 이러한 특성 중 하나와 일치하도록 기존 개체를 변경하는 경우 오류가 대신 표시됩니다.
 
@@ -56,7 +58,7 @@ Connect를 새로 설치하는 경우 소프트 일치와 하드 일치 사이�
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Azure AD의 데이터에서 새로운 온-프레미스 Active Directory 만들기
 일부 고객은 Azure AD를 사용하는 클라우드 전용 솔루션으로 시작하고 온-프레미스 AD를 사용하지 않습니다. 나중에 온-프레미스 리소스를 사용하지만 Azure AD 데이터를 기반으로 하는 온-프레미스 AD를 구축하려고 합니다. 이 시나리오에서는 Azure AD Connect가 도움이 되지 않습니다. 온-프레미스 사용자를 만들지 않으며 온-프레미스 암호를 Azure AD에서와 동일하게 설정할 수 있는 기능이 없습니다.
 
-온-프레미스 AD를 추가하려는 유일한 이유가 LOB(기간 업무 앱)를 지원하는 것이라면 [Azure AD 도메인 서비스](../../active-directory-domain-services/index.md)를 대신 사용해야 합니다.
+온-프레미스 AD를 추가하려는 유일한 이유가 LOB(기간 업무 앱)를 지원하는 것이라면 [Azure AD 도메인 서비스](../../active-directory-domain-services/index.yml)를 대신 사용해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.

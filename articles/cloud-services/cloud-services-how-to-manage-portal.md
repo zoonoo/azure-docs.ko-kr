@@ -1,11 +1,11 @@
 ---
-title: "일반적인 클라우드 서비스 관리 작업 | Microsoft Docs"
-description: "Azure Portal에서 Cloud Services를 관리하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다."
+title: 일반적인 클라우드 서비스 관리 작업 | Microsoft Docs
+description: Azure Portal에서 Cloud Services를 관리하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29121198"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure Portal에서 Cloud Services 관리
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.

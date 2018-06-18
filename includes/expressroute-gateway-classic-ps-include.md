@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198080"
 ---
 다음 작업을 수행하기 전에 VNet과 게이트웨이 서브넷을 먼저 만들어야 합니다.
 

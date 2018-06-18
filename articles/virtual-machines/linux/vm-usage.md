@@ -1,15 +1,15 @@
 ---
-title: "Azure Virtual Machine 사용 이해 | Microsoft Docs"
-description: "가상 머신 사용 세부 정보 이해"
+title: Azure Virtual Machine 사용 이해 | Microsoft Docs
+description: 가상 머신 사용 세부 정보 이해
 services: virtual-machines
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-virtual-machine
-ms.assetid: 
-ms.service: 
-ms.devlang: 
+ms.assetid: ''
+ms.service: ''
+ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26345403"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Azure Virtual Machine 사용 이해 
 Azure 사용 데이터를 분석하면 조직 전체의 비용 관리와 할당을 개선할 수 있는 강력한 소비 통찰력을 확보할 수 있습니다. 이 문서에서는 Azure Compute 소비에 대한 심층적인 세부 정보를 제공합니다. 일반 Azure 사용에 대한 자세한 내용은 [청구서 이해](/billing/billing-understand-your-bill.md)로 이동합니다.

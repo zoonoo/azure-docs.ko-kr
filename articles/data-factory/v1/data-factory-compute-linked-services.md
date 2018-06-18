@@ -9,15 +9,16 @@ ms.assetid: 6877a7e8-1a58-4cfb-bbd3-252ac72e4145
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 09568dcbbec90bcba2f2782072b83cc04d9e8a87
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621754"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 > [!NOTE]
@@ -129,7 +130,7 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 | linkedServiceName            | 데이터를 저장 및 처리하기 위해 주문형 클러스터에서 사용하는 Azure Storage 연결된 서비스입니다. HDInsight 클러스터는 저장소 계정과 동일한 지역에 생성됩니다.<p>현재 Azure Data Lake Store를 저장소로 사용하는 주문형 HDInsight 클러스터를 만들 수 없습니다. HDInsight 처리의 결과 데이터를 Data Lake Store에 저장하려면 활동 복사를 사용하여 Blob 저장소의 데이터를 Data Lake Store로 복사합니다. </p> | 예      |
 | additionalLinkedServiceNames | HDInsight 연결된 서비스에 대한 추가 저장소 계정을 지정합니다. Data Factory는 사용자 대신 저장소 계정을 등록합니다. 이러한 저장소 계정은 HDInsight 클러스터와 동일한 지역에 있어야 합니다. HDInsight 클러스터는 **linkedServiceName** 속성에 지정된 저장소 계정과 동일한 지역에 만들어집니다. | 아니오       |
 | osType                       | 운영 체제 유형입니다. 허용되는 값은 **Linux** 및 **Windows**입니다. 값을 지정하지 않으면 **Linux**가 사용됩니다.  <br /><br />Linux 기반 HDInsight 클러스터를 사용하는 것이 좋습니다. Windows HDInsight의 사용 중지 날짜는 2018년 7월 31일입니다. | 아니오       |
-| hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 SQL Database를 metastore로 사용하여 만들어집니다. | 아니요       |
+| hcatalogLinkedServiceName    | HCatalog 데이터베이스를 가리키는 Azure SQL 연결된 서비스 이름입니다. 주문형 HDInsight 클러스터는 SQL Database를 metastore로 사용하여 만들어집니다. | 아니오       |
 
 #### <a name="example-linkedservicenames-json"></a>예: LinkedServiceNames JSON
 
@@ -145,11 +146,11 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 
 | 자산               | 설명                              | 필수 |
 | :--------------------- | :--------------------------------------- | :------- |
-| coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml)를 지정합니다. | 아니요       |
+| coreConfiguration      | 만들어지는 HDInsight 클러스터에 대한 핵심 구성 매개 변수(core-site.xml)를 지정합니다. | 아니오       |
 | hBaseConfiguration     | HDInsight 클러스터에 대한 HBase 구성 매개 변수(hbase-site.xml)를 지정합니다. | 아니오       |
 | hdfsConfiguration      | HDInsight 클러스터에 대한 HDFS 구성 매개 변수(hdfs-site.xml)를 지정합니다. | 아니오       |
 | hiveConfiguration      | HDInsight 클러스터에 대한 Hive 구성 매개 변수(hive-site.xml)를 지정합니다. | 아니오       |
-| mapReduceConfiguration | HDInsight 클러스터에 대한 MapReduce 구성 매개 변수(mapred-site.xml)를 지정합니다. | 아니요       |
+| mapReduceConfiguration | HDInsight 클러스터에 대한 MapReduce 구성 매개 변수(mapred-site.xml)를 지정합니다. | 아니오       |
 | oozieConfiguration     | HDInsight 클러스터에 대한 Oozie 구성 매개 변수(oozie-site.xml)를 지정합니다. | 아니오       |
 | stormConfiguration     | HDInsight 클러스터에 대한 Storm 구성 매개 변수(storm-site.xml)를 지정합니다. | 아니오       |
 | yarnConfiguration      | HDInsight 클러스터에 대한 YARN 구성 매개 변수(yarn-site.xml)를 지정합니다. | 아니오       |
@@ -199,8 +200,8 @@ Data Factory는 데이터 처리를 위해 Windows 기반 또는 Linux 기반 �
 | 자산          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
 | headNodeSize      | 헤드 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. 자세한 내용은 [노드 크기 지정](#specify-node-sizes)을 참조하세요. | 아니오       |
-| dataNodeSize      | 데이터 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. | 아니요       |
-| zookeeperNodeSize | ZooKeeper 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. | 아니요       |
+| dataNodeSize      | 데이터 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. | 아니오       |
+| zookeeperNodeSize | ZooKeeper 노드의 크기를 설정합니다. 기본값은 **Standard_D3**입니다. | 아니오       |
 
 #### <a name="specify-node-sizes"></a>노드 크기 지정
 이전 섹션에 설명된 속성에 대해 지정해야 하는 문자열 값은 [가상 머신 크기](../../virtual-machines/linux/sizes.md)를 참조하세요. 값은 [가상 머신 크기](../../virtual-machines/linux/sizes.md)에서 참조되는 cmdlet 및 API를 준수해야 합니다. 큰(기본값) 데이터 노드의 크기에는 7GB의 메모리가 포함됩니다. 이 시나리오에는 충분하지 않을 수 있습니다. 
@@ -290,7 +291,7 @@ Batch 서비스를 처음 사용하는 경우:
 }
 ```
 
-**accountName** 속성의 경우 일괄 처리 계정의 이름에 **.\<region name\>**을 추가합니다. 예: 
+**accountName** 속성의 경우 일괄 처리 계정의 이름에 **.\<region name\>** 을 추가합니다. 예: 
 
 ```json
 "accountName": "mybatchaccount.eastus"
@@ -333,7 +334,7 @@ Machine Learning 연결된 서비스를 만들어서 Machine Learning 일괄 처
 ### <a name="properties"></a>properties
 | 자산   | 설명                              | 필수 |
 | ---------- | ---------------------------------------- | -------- |
-| 유형       | type 속성을 **AzureML**로 설정합니다. | 예      |
+| type       | type 속성을 **AzureML**로 설정합니다. | 예      |
 | mlEndpoint | 일괄 처리 점수 매기기 URL입니다.                   | 예      |
 | apiKey     | 게시된 작업 영역 모델의 API입니다.     | 예      |
 
@@ -347,7 +348,7 @@ Data Lake Analytics 연결된 서비스를 만들어서 Data Lake Analytics 연�
 | 형식                 | type 속성을 **AzureDataLakeAnalytics**로 설정합니다. | 예                                      |
 | accountName          | Data Lake Analytics 계정 이름입니다.  | 예                                      |
 | dataLakeAnalyticsUri | Data Lake Analytics URI입니다.           | 아니오                                       |
-| subscriptionId       | Azure 구독 ID입니다.                    | 아니요<br /><br />(지정하지 않으면 데이터 팩터리 구독이 사용됩니다.) |
+| subscriptionId       | Azure 구독 ID입니다.                    | 아니오<br /><br />(지정하지 않으면 데이터 팩터리 구독이 사용됩니다.) |
 | resourceGroupName    | Azure 리소스 그룹 이름입니다.                | 아니오<br /><br /> (지정하지 않으면 데이터 팩터리 리소스 그룹이 사용됩니다.) |
 
 ### <a name="authentication-options"></a>인증 옵션

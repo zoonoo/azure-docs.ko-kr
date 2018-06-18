@@ -1,13 +1,13 @@
 ---
-title: "Azure App Service Mobile Apps에서 Cordova 앱 만들기 | Microsoft Docs"
-description: "이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 Apache Cordova 개발을 시작할 수 있습니다."
+title: Azure App Service Mobile Apps에서 Cordova 앱 만들기 | Microsoft Docs
+description: 이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 Apache Cordova 개발을 시작할 수 있습니다.
 services: app-service\mobile
 documentationcenter: javascript
 author: conceptdev
 manager: crdun
-editor: 
-tags: 
-keywords: "cordova,javascript,모바일,클라이언트"
+editor: ''
+tags: ''
+keywords: cordova,javascript,모바일,클라이언트
 ms.assetid: 0b08fc12-0a80-42d3-9cc1-9b3f8d3e3a3f
 ms.service: app-service-mobile
 ms.workload: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595179"
 ---
 # <a name="create-an-apache-cordova-app"></a>Apache Cordova 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

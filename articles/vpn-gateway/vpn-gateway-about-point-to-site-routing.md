@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2018
 ms.author: anzaman
-ms.openlocfilehash: d25709fb4abb1b8a35596c3dc246f7419a99419b
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: a0576e00d22b731f7ee9de3a9b021c0f52fc8ef9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34702179"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>지점 및 사이트 간 VPN 라우팅 정보
 
@@ -228,7 +229,7 @@ Windows 클라이언트는 VNet 및 지점(Site1)에 액세스할 수 있지만,
 
 ## <a name="multivnets2sbranchbgp"></a>S2S와 지점(BGP)을 사용하여 여러 VNet 연결
 
-이 예의 지점 및 사이트 간 VPN 게이트웨이 연결은 VNet1에 대한 연결입니다. VNet1은 사이트 간 VPN 연결을 사용하여 VNet2에 연결됩니다. VNet2는 사이트 간 VPN 연결을 사용하여 VNet3에 연결됩니다. VNet1 및 VNet3 네트워크 간에는 직접 피어링 또는 사이트 간 VPN 터널이 없습니다. VNet3은 사이트 간 VPN 연결을 사용하여 지점(Site1)에 연결됩니다. 모든 VPN 연결에서 BGP를 실행하지 않습니다. 모든 VPN 연결에서 BGP를 실행합니다.
+이 예의 지점 및 사이트 간 VPN 게이트웨이 연결은 VNet1에 대한 연결입니다. VNet1은 사이트 간 VPN 연결을 사용하여 VNet2에 연결됩니다. VNet2는 사이트 간 VPN 연결을 사용하여 VNet3에 연결됩니다. VNet1 및 VNet3 네트워크 간에는 직접 피어링 또는 사이트 간 VPN 터널이 없습니다. VNet3은 사이트 간 VPN 연결을 사용하여 지점(Site1)에 연결됩니다. 모든 VPN 연결에서 BGP를 실행합니다.
 
 Windows를 사용하는 클라이언트는 사이트 간 VPN 연결을 사용하여 연결된 VNet 및 사이트에 액세스할 수 있지만, VNet2, VNet3 및 Site1에 대한 경로를 클라이언트에 수동으로 추가해야 합니다. 비Windows 클라이언트는 수동 개입 없이 사이트 간 VPN 연결을 사용하여 연결된 VNet 및 사이트에 액세스할 수 있습니다. 액세스는 전이되며, 클라이언트는 연결된 모든 VNet 및 사이트(온-프레미스)의 리소스에 액세스할 수 있습니다.
 

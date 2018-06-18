@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery에서 Azure로 테스트 장애 조치(failover) | Microsoft Docs"
-description: "Azure Site Recovery 서비스를 사용하여 온-프레미스에서 Azure로 테스트 장애 조치(failover)를 실행하는 방법에 대해 알아봅니다."
+title: Azure Site Recovery에서 Azure로 테스트 장애 조치(failover) | Microsoft Docs
+description: Azure Site Recovery 서비스를 사용하여 온-프레미스에서 Azure로 테스트 장애 조치(failover)를 실행하는 방법에 대해 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -8,11 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: raynew
-ms.openlocfilehash: bfc9df3c1190d9b94f5e8d726665acb7f999311f
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: bdbeee0e0caaa0e6db7249c2f4aeaa19d5d2ed0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643654"
 ---
 # <a name="test-failover-to-azure-in-site-recovery"></a>Site Recovery에서 Azure로 테스트 장애 조치(failover)
 
@@ -28,7 +29,7 @@ ms.lasthandoff: 03/02/2018
 ![테스트 장애 조치(Failover)](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
-1. Azure Portal의 Site Recovery에서 **복구 계획** > *recoveryplan_name* > **테스트 장애 조치(Failover)**를 클릭합니다.
+1. Azure Portal의 Site Recovery에서 **복구 계획** > *recoveryplan_name* > **테스트 장애 조치(Failover)** 를 클릭합니다.
 2. 장애 조치(failover)할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
     - **가장 최근에 처리됨**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
     - **최신 앱 일치**: 이 옵션은 계획의 모든 VM을 Site Recovery에서 처리된 최신 응용 프로그램 일치 복구 지점으로 장애 조치합니다. 특정 VM에 대한 최신 복구 지점을 보려면 VM 설정에서 **최신 복구 지점**을 선택하세요. 
@@ -40,7 +41,7 @@ ms.lasthandoff: 03/02/2018
 
     - Site Recovery는 VM의 **Compute 및 네트워크** 설정에서 제공한 것과 동일한 이름 및 IP 주소를 사용하여 서브넷에 테스트 VM을 만들려고 시도합니다.
     - 동일한 이름의 서브넷을 테스트 장애 조치(Failover)에 사용된 Azure Virtual Network에서 사용할 수 없는 경우 사전순으로 첫 번째 서브넷에 테스트 VM이 만들어집니다.
-    - 해당 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 VM은 서브넷의 사용 가능한 다른 IP 주소를 받습니다. [자세히 알아보기](#creating-a-network-for-test-failover).
+    - 해당 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 VM은 서브넷의 사용 가능한 다른 IP 주소를 받습니다. [자세히 알아보기](#create-a-network-for-test-failover).
 4. Azure에 장애 조치(Failover)하고 데이터 암호화를 사용하는 경우 **암호화 키**에서 공급자 설치 중에 암호화를 사용하도록 설정할 때 발행된 인증서를 선택합니다. 암호화를 사용하지 않도록 설정한 경우에는 이 단계를 무시해도 됩니다.
 5. **작업** 탭에서 장애 조치 진행 상황을 추적합니다. Azure 포털에서 테스트 복제본 컴퓨터가 표시되어야 합니다.
 6. Azure VM에서 RDP 연결을 시작하려면 장애 조치(Failover)된 VM의 네트워크 인터페이스에서 [공용 IP를 추가](https://aka.ms/addpublicip)해야 합니다. 

@@ -3,7 +3,7 @@ title: Azure Active Directory Reporting 알림
 description: 의심스러운 로그인에 Azure Active Directory Reporting 알림을 사용하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: rolyon
 manager: mtillman
 editor: ''
 ms.assetid: ae6d4b0e-5931-4cb3-98bf-9be91b381c92
@@ -12,15 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: compliance-reports
 ms.date: 01/03/2018
-ms.author: dhanyahk;markvi
+ms.author: dhanyahk;rolyon
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c279b923ed4e63d810861c579dd54b3a2b7f415e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8f4beece9d1d351c91f2bb055eedc0ae9851f532
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588191"
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Azure Active Directory Reporting 알림
 ## <a name="what-reports-generate-email-notifications"></a>어떤 보고서가 전자 메일 알림을 생성하나요?

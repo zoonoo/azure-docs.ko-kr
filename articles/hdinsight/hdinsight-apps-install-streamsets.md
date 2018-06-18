@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31401026"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>게시된 응용 프로그램 설치 - StreamSets 데이터 수집기
 

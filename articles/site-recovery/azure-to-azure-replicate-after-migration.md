@@ -5,18 +5,17 @@ services: site-recovery
 author: ponatara
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: ponatara
-ms.openlocfilehash: f64d61134f61476bcdd803f92019830b7cecf867
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c42a997560ee40eb0a587b81a6f191f372e0dd26
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716009"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 
 
->[!NOTE]
-> Azure Site Recovery를 사용한 Azure VM의 재해 복구는 현재 미리 보기로 제공됩니다.
 
 [Site Recovery](site-recovery-overview.md) 서비스를 사용하여 [온-프레미스 컴퓨터를 Azure VM으로 마이그레이션](tutorial-migrate-on-premises-to-azure.md)한 후 이 문서를 사용합니다. 이 문서는 Site Recovery를 사용하여 보조 Azure 지역으로 재해 복구를 설정하기 위해 Azure VM을 준비하는 데 도움이 됩니다.
 

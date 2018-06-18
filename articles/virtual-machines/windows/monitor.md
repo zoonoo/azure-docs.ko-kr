@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30190374"
 ---
 # <a name="how-to-monitor-virtual-machines-in-azure"></a>Azure에서 가상 머신을 모니터링하는 방법
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067489"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>클라우드 서비스를 위한 인터넷 연결 부하 분산 장치 만들기 시작
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0460d595bc70ec09d492221485749ece32ec07df
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9f186e682ef8f4606c50452f2e26b0d11580933
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209711"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715992"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 마이그레이션
 
@@ -28,9 +28,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 이 자습서에서는 이미 Azure 구독이 있다고 가정합니다. Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
->[!NOTE]
->
-> Azure VM에 대한 Site Recovery 복제는 현재 미리 보기로 제공됩니다.
+
 
 
 

@@ -2,23 +2,21 @@
 title: Node.js를 사용하여 Azure Cosmos DB에 MongoDB 앱 연결 | Microsoft Docs
 description: Azure Cosmos DB에 기존 Node.js MongoDB 앱을 연결하는 자세한 방법
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: ''
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom: quick start connect, mvc, devcenter
-ms.workload: ''
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/19/2017
 ms.author: sngun
-ms.openlocfilehash: 69302a0291b267bd4d46ab9387d296673da17025
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ff6712a70138a2178a2bddb4af467371192fdea3
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795621"
 ---
 # <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB: 기존 Node.js MongoDB 웹앱 마이그레이션 
 
@@ -36,7 +34,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 Azure CLI 외에도 `npm` 및 `git` 명령을 실행하려면 [Node.js](https://nodejs.org/) 및 [Git](http://www.git-scm.com/downloads)가 로컬로 설치되어 있어야 합니다.
@@ -200,7 +198,7 @@ npm start
 
 이제 콘솔 메시지에서는 개발 환경이 실행된다고 알려 주어야 합니다. 
 
-브라우저에서 `http://localhost:3000`으로 이동합니다. 맨 위 메뉴에서 **등록**을 클릭하여 두 개의 더미 사용자를 만듭니다. 
+브라우저에서 `http://localhost:3000` 으로 이동합니다. 맨 위 메뉴에서 **등록**을 클릭하여 두 개의 더미 사용자를 만듭니다. 
 
 MEAN.js 샘플 응용 프로그램은 데이터베이스에 사용자 데이터를 저장합니다. 성공해서 MEAN.js가 생성된 사용자로 자동 로그인하면 Azure Cosmos DB 연결이 작동합니다. 
 

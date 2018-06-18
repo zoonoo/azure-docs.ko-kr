@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30842016"
 ---
 # <a name="run-namd-with-microsoft-hpc-pack-on-linux-compute-nodes-in-azure"></a>Azure의 Linux 계산 노드에서 Microsoft HPC 팩을 사용하여 NAMD 실행
 이 문서는 Azure Virtual Machines에서 Linux HPC(고성능 컴퓨팅) 워크로드를 실행하는 한 가지 방법을 보여줍니다. 여기서는 Linux 계산 노드를 사용하여 Azure에 [Microsoft HPC 팩](https://technet.microsoft.com/library/cc514029) 클러스터를 설정하고 [NAMD](http://www.ks.uiuc.edu/Research/namd/) 시뮬레이션을 실행하여 규모가 큰 생체 분자 시스템을 계산하고 시각화합니다.  

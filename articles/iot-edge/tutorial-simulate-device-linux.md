@@ -1,20 +1,21 @@
 ---
 title: Linux에서 Azure IoT Edge 시뮬레이트 | Microsoft Docs
 description: Linux에서 시뮬레이션트된 장치에 Azure IoT Edge 런타임을 설치하고 첫 번째 모듈 배포
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
 ms.date: 01/11/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: b7f0aa514cfffb8fb2ca76238a6a65a8e6443e56
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.custom: mvc
+ms.openlocfilehash: 0b8b2658af9173cea6a7cdcb0147c7b0dc13a455
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630999"
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux-or-macos---preview"></a>Linux 또는 MacOS에서 시뮬레이션된 장치에 Azure IoT Edge 배포 - 미리 보기
 

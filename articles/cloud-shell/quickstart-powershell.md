@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: damaerte
-ms.openlocfilehash: e3e59395b7066169b8a7863f45a446051b830a71
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a85d718d1c524a240f4b59b4db5004595fe1902f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32159275"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608613"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell에 대한 빠른 시작(미리 보기)
 
@@ -95,7 +95,7 @@ Azure 리소스를 보려면 `AllResources` 디렉터리 아래에 `dir`을 입�
 
 ### <a name="explore-resource-groups"></a>리소스 그룹 탐색
 
- ph x="1" /> 디렉터리로 가서 특정 리소스 그룹 안에서 가상 컴퓨터를 찾을 수 있습니다.
+ `ResourceGroups` 디렉터리로 가서 특정 리소스 그룹 안에서 가상 컴퓨터를 찾을 수 있습니다.
 
 ``` PowerShell
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
@@ -163,7 +163,7 @@ Mode  Name
 
 ### <a name="interact-with-virtual-machines"></a>가상 머신과 상호 작용
 
-ph x="1" /> 디렉터리를 통해 현재 구독에서 모든 가상 머신을 찾을 수 있습니다.
+`VirtualMachines` 디렉터리를 통해 현재 구독에서 모든 가상 머신을 찾을 수 있습니다.
     
 ``` PowerShell
 PS Azure:\MySubscriptionName\VirtualMachines> dir
@@ -194,7 +194,7 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
 
   ``` PowerShell
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
-  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock{Get-ComputerInfo}
+  PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
   ```
   그러면 다음과 같은 출력이 표시됩니다.
 

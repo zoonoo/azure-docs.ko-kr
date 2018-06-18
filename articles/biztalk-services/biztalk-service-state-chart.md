@@ -1,11 +1,11 @@
 ---
-title: "BizTalk Services의 여러 상태에서 허용되는 작업 | Microsoft Docs"
-description: "중지, 시작, 다시 시작, 일시 중단, 계속, 삭제, 크기 조정, 업데이트 구성 및 백업 등 여러 MABS 상태에서 허용되는 작업"
+title: BizTalk Services의 여러 상태에서 허용되는 작업 | Microsoft Docs
+description: 중지, 시작, 다시 시작, 일시 중단, 계속, 삭제, 크기 조정, 업데이트 구성 및 백업 등 여러 MABS 상태에서 허용되는 작업
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: aea738f3-ec76-4099-a41b-e17fea9e252f
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102745"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>BizTalk 서비스 상태를 사용하여 수행할 수 있는 작업과 수행할 수 없는 작업
 

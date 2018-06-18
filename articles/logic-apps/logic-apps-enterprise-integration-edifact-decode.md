@@ -1,11 +1,11 @@
 ---
-title: "EDIFACT 메시지 디코딩 - Azure Logic Apps | Microsoft Docs"
-description: "Azure Logic Apps의 엔터프라이즈 통합 팩에서 EDIFACT 메시지 디코더를 사용하여 EDI 유효성 검사 및 승인 생성"
+title: EDIFACT 메시지 디코딩 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps의 엔터프라이즈 통합 팩에서 EDIFACT 메시지 디코더를 사용하여 EDI 유효성 검사 및 승인 생성
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 ms.assetid: 0e61501d-21a2-4419-8c6c-88724d346e81
 ms.service: logic-apps
 ms.workload: integration
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 41bd0291f3ff8f5dd61a21d1ba4ecb3b60a3cbfb
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: bfb64b4abfca6e2a113489b79405b5df2b53c049
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299157"
 ---
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에 대한 EDIFACT 메시지 디코딩
 

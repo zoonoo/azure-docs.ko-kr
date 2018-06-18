@@ -1,8 +1,8 @@
 ---
-title: "Azure CLI(미리 보기)를 사용하여 Linux에서 첫 번째 함수 만들기 | Microsoft Docs"
-description: "Azure CLI를 사용하여 기본 Linux 이미지에서 실행되는 첫 번째 Azure Function을 만드는 방법에 대해 알아봅니다."
+title: Azure CLI(미리 보기)를 사용하여 Linux에서 첫 번째 함수 만들기 | Microsoft Docs
+description: Azure CLI를 사용하여 기본 Linux 이미지에서 실행되는 첫 번째 Azure Function을 만드는 방법에 대해 알아봅니다.
 services: functions
-keywords: 
+keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.date: 11/15/2017
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28919392"
 ---
 # <a name="create-your-first-function-running-on-linux-using-the-azure-cli-preview"></a>Azure CLI(미리 보기)를 사용하여 Linux에서 실행되는 첫 번째 함수 만들기
 

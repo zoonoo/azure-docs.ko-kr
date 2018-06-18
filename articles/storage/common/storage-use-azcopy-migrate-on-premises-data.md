@@ -10,11 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 1e7292cf4d647b38a6fe8ceb270ba161e548a537
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267446"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 
@@ -22,8 +23,8 @@ AzCopy는 간단한 명령을 사용하여 Azure Blob 저장소, Azure Files 및
 
 두 가지 버전의 AzCopy를 다운로드할 수 있습니다.
 
-* [Linux의 AzCopy](storage-use-azcopy.md)는 .NET Core Framework로 작성됩니다. POSIX 스타일 명령줄 옵션을 제공하여 Linux 플랫폼을 대상으로 합니다. 
-* [Windows의 AzCopy](../storage-use-azcopy.md)는 .NET Framework로 작성됩니다. Windows 스타일 명령줄 옵션을 제공합니다. 
+* [Linux의 AzCopy](storage-use-azcopy-linux.md)는 .NET Core Framework로 작성됩니다. POSIX 스타일 명령줄 옵션을 제공하여 Linux 플랫폼을 대상으로 합니다. 
+* [Windows의 AzCopy](storage-use-azcopy.md)는 .NET Framework로 작성됩니다. Windows 스타일 명령줄 옵션을 제공합니다. 
  
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

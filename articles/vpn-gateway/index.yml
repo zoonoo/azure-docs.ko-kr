@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 05/03/2018
+  ms.locfileid: "32779495"
 abstract:
   description: Azure VPN 게이트웨이를 구성하고, 만들고, 관리하는 방법을 알아봅니다. 온-프레미스 위치에서 가상 네트워크에 대한 암호화된 프레미스 간 연결을 만들거나 VNet 간에 암호화된 연결을 만듭니다.
 sections:

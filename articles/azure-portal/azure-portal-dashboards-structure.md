@@ -18,6 +18,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165182"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.

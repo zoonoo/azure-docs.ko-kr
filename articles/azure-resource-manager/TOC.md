@@ -47,7 +47,8 @@
 ### [Azure Portal](resource-group-portal.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
-### [EA 구독을 프로그래밍 방식으로 만들기](programmatically-create-subscription.md)
+### [EA 구독 만들기](programmatically-create-subscription.md)
+### [EA 구독을 만드는 액세스 권한 부여](grant-access-to-create-subscription.md)
 ### [관리 그룹 만들기](management-groups-create.md)
 ### [관리 그룹 관리](management-groups-manage.md)
 

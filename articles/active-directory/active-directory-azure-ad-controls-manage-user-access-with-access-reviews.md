@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
+ms.component: compliance-reports
 ms.date: 05/16/2018
-ms.author: billmath
-ms.openlocfilehash: 2b80a09bc84166b65a731f1bd544e1cb40ff2eef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: rolyon
+ms.openlocfilehash: 22cb517435777074390321de64daf98c8d12d0fb
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192492"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35232968"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 사용자 액세스 관리
 
@@ -33,10 +34,6 @@ Azure AD(Azure Active Directory)를 사용하면 사용자에게 적절한 액�
 
 
 액세스 검토는 Microsoft Enterprise Mobility + Security, E5에 포함된 Azure AD의 Premium P2 버전에서 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-editions.md)을 참조하세요. 이 기능과 상호 작용하여 검토를 만들거나 검토를 채우거나 검토를 확인하는 각 사용자에게는 라이선스가 필요합니다. 
-
-액세스 검토는 Microsoft Enterprise Mobility + Security, E5에 포함된 Azure AD의 Premium P2 버전에서 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 버전](active-directory-whatis.md)을 참조하세요. 이 기능과 상호 작용하여 검토를 만들거나 검토에 액세스하거나 검토를 적용하는 각 사용자에게는 라이선스가 필요합니다.
-
-
 
 ## <a name="create-and-perform-an-access-review"></a>액세스 검토 만들기 및 수행
 

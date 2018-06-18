@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526875"
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Azure SQL Data Warehouse 복원(포털)
 > [!div class="op_single_selector"]

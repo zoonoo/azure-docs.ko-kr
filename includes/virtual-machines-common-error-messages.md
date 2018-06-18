@@ -13,6 +13,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34013939"
 ---
 >[!NOTE]
 > 이 페이지에 의견을 남기거나 #azerrormessage 태그를 사용하여 [Azure 피드백](https://feedback.azure.com/forums/216843-virtual-machines)을 통해 의견을 남겨주세요.

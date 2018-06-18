@@ -1,11 +1,11 @@
 ---
-title: "요청 및 응답 작업 사용 | Microsoft Docs"
-description: "Azure 논리 앱의 요청, 응답 트리거 및 작업에 대한 개요"
-services: 
-documentationcenter: 
+title: 요청 및 응답 작업 사용 | Microsoft Docs
+description: Azure 논리 앱의 요청, 응답 트리거 및 작업에 대한 개요
+services: ''
+documentationcenter: ''
 author: jeffhollan
 manager: erikre
-editor: 
+editor: ''
 tags: connectors
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
 ms.service: logic-apps
@@ -20,6 +20,7 @@ ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27960564"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>요청 및 응답 구성 요소 시작
 논리 앱의 요청 및 응답 구성 요소를 사용하여 이벤트에 실시간으로 응답할 수 있습니다.

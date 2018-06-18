@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 276ee051cf927197c026b0fb0850239a048ace41
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b2090b39991363ee2a5b2e12945d97dc0fa9f2b2
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835507"
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>프로그래밍 방식으로 Machine Learning 모델 다시 학습
 이 연습에서는 C# 및 Machine Learning Batch Execution 서비스를 사용하여 Azure Machine Learning 웹 서비스를 프로그래밍 방식으로 다시 학습하는 방법을 배웁니다.
@@ -55,7 +57,7 @@ ms.lasthandoff: 03/23/2018
 
 1. 실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **예측 웹 서비스**를 선택합니다. 모델을 학습된 모델로 저장한 다음 웹 서비스 입력 및 출력 모듈을 추가합니다. 
 2. **실행**을 클릭합니다. 
-3. 실험 실행이 완료된 후 **웹 서비스 배포[기존]**을 클릭하고 **웹 서비스 배포[신규]**를 선택합니다.
+3. 실험 실행이 완료된 후 **웹 서비스 배포[기존]** 을 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다.
 
 > [!NOTE] 
 > 새 웹 서비스를 배포하려면 웹 서비스를 배포하려는 구독에 충분한 권한이 있어야 합니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 포털에서 웹 서비스 관리](manage-new-webservice.md)를 참조하세요. 
@@ -73,11 +75,11 @@ ms.lasthandoff: 03/23/2018
 
 **기존 웹 서비스**
 
-실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[기존]**을 선택합니다. 웹 서비스 **대시보드**가 Batch 실행을 위한 API 키 및 API 도움말 페이지와 함께 표시됩니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
+실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[기존]** 을 선택합니다. 웹 서비스 **대시보드**가 Batch 실행을 위한 API 키 및 API 도움말 페이지와 함께 표시됩니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
 
 **새 웹 서비스**
 
-실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. Web Service Azure Machine Learning Web Services 포털은 웹 서비스 배포 페이지에 열립니다. 웹 서비스의 이름을 입력하고 결제 방식을 선택한 다음 **배포**를 클릭합니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
+실험 캔버스 맨 아래에서 **웹 서비스 설정**을 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다. Web Service Azure Machine Learning Web Services 포털은 웹 서비스 배포 페이지에 열립니다. 웹 서비스의 이름을 입력하고 결제 방식을 선택한 다음 **배포**를 클릭합니다. 학습된 모델을 만들 때는 Batch 실행 방법만 사용할 수 있습니다.
 
 어느 경우든 실험 실행이 완료된 후 결과 워크플로는 다음과 같이 표시됩니다.
 
@@ -168,9 +170,9 @@ BES 샘플 코드는 로컬 드라이브에서(예: "C:\temp\CensusIpnput.csv") 
 출력 결과에서 *BaseLocation*, *RelativeLocation* 및 *SasBlobToken*을 복사합니다. 이는 재학습 프로세스 중에 사용하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-**웹 서비스 배포[기존]**를 클릭하여 예측 웹 서비스를 배포한 경우 [기존 웹 서비스 재학습](retrain-a-classic-web-service.md)을 참조하세요.
+**웹 서비스 배포[기존]** 를 클릭하여 예측 웹 서비스를 배포한 경우 [기존 웹 서비스 재학습](retrain-a-classic-web-service.md)을 참조하세요.
 
-**웹 서비스 배포[신규]**를 클릭하여 예측 웹 서비스를 배포한 경우 [Machine Learning Management cmdlet을 사용하여 새 웹 서비스 재학습](retrain-new-web-service-using-powershell.md)을 참조하세요.
+**웹 서비스 배포[신규]** 를 클릭하여 예측 웹 서비스를 배포한 경우 [Machine Learning Management cmdlet을 사용하여 새 웹 서비스 재학습](retrain-new-web-service-using-powershell.md)을 참조하세요.
 
 <!-- Retrain a New web service using the Machine Learning Management REST API -->
 

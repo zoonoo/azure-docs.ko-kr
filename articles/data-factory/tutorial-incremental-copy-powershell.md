@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30182904"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Azure SQL 데이터베이스에서 Azure Blob 저장소로 데이터 증분 로드
 이 자습서에서는 Azure SQL 데이터베이스의 테이블에서 Azure Blob 저장소로 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다. 
@@ -526,7 +527,7 @@ END
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. **Get-AzureRmDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"*를 사용합니다.
+2. **Get-AzureRmDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"* 를 사용합니다.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
@@ -646,7 +647,7 @@ END
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. **Get-AzureRmDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"*를 사용합니다.
+3. **Get-AzureRmDataFactoryV2ActivityRun** cmdlet을 실행하여 모든 작업이 성공적으로 실행되었다고 표시될 때까지 파이프라인 상태를 확인합니다. 자리 표시자를 *RunStartedAfter* 및 *RunStartedBefore* 매개 변수에 대한 사용자 고유의 적절한 시간으로 바꿉니다. 이 자습서에서는 *-RunStartedAfter "2017/09/14"* 및 *-RunStartedBefore "2017/09/15"* 를 사용합니다.
 
     ```powershell
     Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"

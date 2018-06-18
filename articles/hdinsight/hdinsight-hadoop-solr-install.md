@@ -19,6 +19,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34272151"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Solr 설치 및 사용
 

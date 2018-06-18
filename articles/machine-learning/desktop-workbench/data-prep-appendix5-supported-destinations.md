@@ -7,16 +7,18 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 5451a5f525da845f97141a97241efb53ec42ff58
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4aee24150524c270084ae8ec22f09df94b6e9f36
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831713"
 ---
 # <a name="supported-data-exports-for-this-preview"></a>이 미리 보기에 대해 지원되는 데이터 내보내기 
 여러 다른 형식으로 내보내는 것이 가능합니다. 이러한 형식을 이용하여 데이터 준비 결과를 Machine Learning 워크플로의 나머지 부분에 통합하기 전에 데이터 준비 중간 결과를 유지할 수 있습니다.

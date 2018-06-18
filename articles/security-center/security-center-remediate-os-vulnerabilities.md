@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 보안 구성 수정 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center 권장 사항 \"보안 구성 수정\"을 구현하는 방법을 보여 줍니다."
+title: Azure Security Center에서 보안 구성 수정 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center 권장 사항 "보안 구성 수정"을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103934"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Security Center에서 보안 구성 수정
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center에서는 OS 구성이 권장 보안 구성 규칙과 일치하지 않을 경우 취약성을 해결하도록 권장하며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.

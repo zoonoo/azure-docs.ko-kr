@@ -1,24 +1,19 @@
 ---
-title: "Azure IoT 배포 보안 유지 | Microsoft Docs"
-description: "IoT 배포 보안 유지 방법 장치 프로비전, 연결 및 IoT Hub 서비스에 대 한 액세스를 보호하기 위한 지침을 포함합니다."
-services: iot-hub
-documentationcenter: 
+title: Azure IoT 배포 보안 유지 | Microsoft Docs
+description: IoT 배포 보안 유지 방법 장치 프로비전, 연결 및 IoT Hub 서비스에 대 한 액세스를 보호하기 위한 지침을 포함합니다.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: dfddaf86-2733-44fe-804c-586a5a7364cc
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: c7857d7bc9059609e9fa9fed3e6f665376f4d144
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 8e4ac736d5938cc3cfd81d80ed7bfc95893fc5c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635528"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 

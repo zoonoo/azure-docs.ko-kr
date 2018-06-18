@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 26dffa7e57da2ef383f078c7c5cbb7b9664923ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7457a820d9179248eab976ceec64f6b7a4a38563
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643341"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>메트릭을 사용하여 Service Fabric에서 리소스 부하 및 소비 관리
 *메트릭*은 서비스에서 관심을 갖고 클러스터의 노드에서 제공하는 리소스입니다. 메트릭은 서비스 성능을 향상시키거나 모니터링하기 위해 관리하려는 모든 항목입니다. 예를 들어 메모리 사용량을 조사하여 서비스가 오버로드 상태인지 여부를 확인할 수 있습니다. 또 다른 용도는 더 나은 성능을 얻기 위해 메모리 제약이 심하지 않은 위치로 서비스를 이동할 수 있는지 여부를 파악하는 것입니다.
@@ -32,11 +33,12 @@ ms.lasthandoff: 05/16/2018
   - ReplicaCount - 노드의 총 상태 저장 복제본 수
   - Count - 노드의 모든 서비스 개체(상태 비저장 및 상태 저장) 수
 
-| 메트릭 | 상태 비저장 인스턴스 부하 | 상태 저장 보조 부하 | 상태 저장 기본 부하 |
-| --- | --- | --- | --- |
-| PrimaryCount |0 |0 |1 |
-| ReplicaCount |0 |1 |1 |
-| 개수 |1 |1 |1 |
+| 메트릭 | 상태 비저장 인스턴스 부하 | 상태 저장 보조 부하 | 상태 저장 기본 부하 | 무게 |
+| --- | --- | --- | --- | --- |
+| PrimaryCount |0 |0 |1 |0 |
+| ReplicaCount |0 |1 |1 |0 |
+| 개수 |1 |1 |1 |0 |
+
 
 기본 워크로드의 경우 기본 메트릭은 클러스터에서 적절한 작업 분산을 제공합니다. 다음 예에서는 두 서비스를 만들고 분산에 대해 기본 메트릭을 사용할 때 어떤 상황이 발생하는지 확인해 보겠습니다. 첫 번째 서비스는 3개의 파티션과 3개의 대상 복제본 세트 크기가 있는 상태 저장 서비스입니다. 두 번째는 하나의 파티션과 3개의 인스턴스 수가 있는 상태 비저장 서비스입니다.
 

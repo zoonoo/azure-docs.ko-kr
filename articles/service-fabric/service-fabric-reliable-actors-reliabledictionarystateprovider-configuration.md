@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34213115"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors 구성--ReliableDictionaryActorStateProvider
 ReliableDictionaryActorStateProvider의 기본 구성은 지정된 행위자에 대해 Visual Studio 패키지 루트의 Config 폴더에 생성된 settings.xml 파일을 변경하여 수정할 수 있습니다.

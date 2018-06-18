@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: e36e1961-9e8b-4801-80ef-46d80b140452
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: d0c40d952008f58f9b99c1c44d06e971a1e60c3b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6fc03865185b97fb1f34028239f647f97d5bd315
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836877"
 ---
 # <a name="retrain-a-classic-web-service"></a>기존 웹 서비스 재학습
 배포한 예측 웹 서비스는 기본 점수 매기기 끝점입니다. 기본 끝점은 원래 학습 및 점수 매기기 실험과 동기화 상태를 유지하므로 기본 끝점에 대한 학습된 모델을 바꿀 수 없습니다. 웹 서비스를 다시 학습하려면 웹 서비스에 새 끝점을 추가해야 합니다. 
@@ -119,7 +121,7 @@ ms.lasthandoff: 03/23/2018
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **Machine Learning**을 클릭합니다.
 3. 이름 아래에서 작업 영역을 클릭한 다음 **웹 서비스**를 클릭합니다.
-4. 이름 아래에서 **Census Model[예측 exp.]**을 클릭합니다.
+4. 이름 아래에서 **Census Model[예측 exp.]** 을 클릭합니다.
 5. 추가한 새 끝점을 클릭합니다.
 6. 끝점 대시보드에서 **업데이트 리소스**를 클릭합니다.
 7. 웹 서비스에 대한 업데이트 리소스 API 설명서 페이지에서 **업데이트할 수 있는 리소스** 아래에 **리소스 이름**이 있습니다.

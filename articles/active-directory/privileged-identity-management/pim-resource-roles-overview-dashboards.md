@@ -3,23 +3,24 @@ title: '개요: Azure 리소스에 대한 Privileged Identity Management에서 �
 description: 이 문서에서는 Azure 리소스에 대한 PIM에서 액세스 검토를 수행하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 61be9873cac462c096599680a6e071e104f3a54c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 2f96f9c70d6a12aeddd51602bccd7f03f89ec7d1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200623"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260871"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>리소스 대시보드를 사용하여 액세스 검토 수행
 

@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 지정 정책 시작 | Microsoft Docs'
+title: Azure Active Directory B2C에서 사용자 지정 정책 시작 | Microsoft Docs
 description: Azure Active Directory B2C 사용자 지정 정책을 시작하는 방법
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 502f88bd08c05f71988763fedeba4d596aa409b6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8ff69942971950e2d4a274e7d3502379a26326c7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34709294"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책 시작
 

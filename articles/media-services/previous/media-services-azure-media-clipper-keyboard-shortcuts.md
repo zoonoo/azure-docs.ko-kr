@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782582"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Azure Media Clipper 바로 가기 키 구성
 Azure Media Clipper는 선택적인 `keymap` JSON 매개 변수를 제공하여 기본 바로 가기 키를 사용자 지정할 수 있도록 지원합니다.

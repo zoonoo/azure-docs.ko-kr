@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics로 Surface Hub 모니터링 | Microsoft Docs"
-description: "Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다."
+title: Azure Log Analytics로 Surface Hub 모니터링 | Microsoft Docs
+description: Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2018
+ms.locfileid: "29179228"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Log Analytics로 Surface Hub를 모니터링하여 상태 추적
 

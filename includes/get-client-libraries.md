@@ -8,7 +8,7 @@
       }
     }
     ```
-2. 프로젝트 루트에 **[composer.phar][composer-phar]**을 다운로드합니다.
+2. 프로젝트 루트에 **[composer.phar][composer-phar]** 을 다운로드합니다.
 3. 명령 프롬프트를 열고 프로젝트 루트에서 다음 명령을 실행합니다.
    
     ```

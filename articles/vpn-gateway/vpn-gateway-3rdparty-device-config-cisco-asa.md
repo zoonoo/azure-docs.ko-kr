@@ -1,12 +1,12 @@
 ---
-title: "Azure VPN Gateway에 Cisco ASA 장치를 연결하는 샘플 구성 | Microsoft Docs"
-description: "이 문서에서는 Azure VPN Gateway에 Cisco ASA 장치를 연결하는 샘플 구성을 제공합니다."
+title: Azure VPN Gateway에 Cisco ASA 장치를 연결하는 샘플 구성 | Microsoft Docs
+description: 이 문서에서는 Azure VPN Gateway에 Cisco ASA 장치를 연결하는 샘플 구성을 제공합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27910761"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>샘플 구성: Cisco ASA 장치(IKEv2/BGP 아님)
 이 문서에서는 Azure VPN Gateway에 Cisco ASA(적응 보안 어플라이언스) 장치를 연결하는 샘플 구성을 제공합니다. 이 예제는 BGP(경계 게이트웨이 프로토콜) 없이 IKEv2를 실행하는 Cisco ASA 장치에 적용됩니다. 

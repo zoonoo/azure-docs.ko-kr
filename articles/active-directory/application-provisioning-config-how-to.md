@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전을 구성하는 방법 | Microsoft Docs"
-description: "Azure AD 응용 프로그램 갤러리에 이미 나열된 응용 프로그램에 대해 다양한 사용자 계정 프로비전 및 프로비전 해제를 빠르게 구성하는 방법"
+title: Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전을 구성하는 방법 | Microsoft Docs
+description: Azure AD 응용 프로그램 갤러리에 이미 나열된 응용 프로그램에 대해 다양한 사용자 계정 프로비전 및 프로비전 해제를 빠르게 구성하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29464428"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 사용자 프로비전을 구성하는 방법
 

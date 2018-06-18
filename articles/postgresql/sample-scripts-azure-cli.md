@@ -1,6 +1,6 @@
 ---
-title: "PostgreSQL용 Azure Database에 대한 Azure CLI 샘플"
-description: "이 문서는 Azure Database for PostgreSQL 서버와 상호 작용하는 데 사용할 수 있는 몇 가지 Azure CLI 코드 샘플을 나열합니다."
+title: PostgreSQL용 Azure Database에 대한 Azure CLI 샘플
+description: 이 문서는 Azure Database for PostgreSQL 서버와 상호 작용하는 데 사용할 수 있는 몇 가지 Azure CLI 코드 샘플을 나열합니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -16,6 +16,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29688125"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database에 대한 Azure CLI 샘플 
 다음 테이블은 PostgreSQL용 Azure Database의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다.

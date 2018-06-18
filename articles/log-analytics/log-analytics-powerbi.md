@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30236151"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Azure Log Analytics 데이터를 Power BI로 가져오기
 
@@ -34,7 +35,7 @@ Log Analytics 작업 영역에서 Power BI로 데이터를 가져오려면 Log A
 Log Analytics에서 Power BI 데이터 집합을 채우고 싶은 데이터를 반환하는 [로그 검색](log-analytics-log-search-new.md)부터 만듭니다.  그런 다음 해당 쿼리를 [파워 쿼리(M) 언어](https://msdn.microsoft.com/library/mt807488.aspx)로 내보내면 Power BI Desktop에서 사용할 수 있습니다.
 
 1. Log Analytics에서 데이터 집합에 대한 데이터를 추출하는 로그 검색을 만듭니다.
-2. 로그 검색 포털을 사용하는 경우 **Power BI**를 클릭합니다.  Analytics 포털을 사용하는 경우 **내보내기** > **Power BI 쿼리(M)**를 선택합니다.  두 옵션 모두 **PowerBIQuery.txt**라고 하는 텍스트 파일로 쿼리를 내보냅니다. 
+2. 로그 검색 포털을 사용하는 경우 **Power BI**를 클릭합니다.  Analytics 포털을 사용하는 경우 **내보내기** > **Power BI 쿼리(M)** 를 선택합니다.  두 옵션 모두 **PowerBIQuery.txt**라고 하는 텍스트 파일로 쿼리를 내보냅니다. 
 
     ![로그 검색 내보내기](media/log-analytics-powerbi/export-logsearch.png) ![로그 검색 내보내기](media/log-analytics-powerbi/export-analytics.png)
 

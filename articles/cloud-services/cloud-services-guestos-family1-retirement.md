@@ -1,11 +1,11 @@
 ---
-title: "게스트 OS 제품군 1 사용 중지 알림 | Microsoft Docs"
-description: "Azure 게스트 OS 제품군 1 사용 중지가 발생한 시기 및 적용되는 지를 확인하는 방법에 대한 정보를 제공합니다."
+title: 게스트 OS 제품군 1 사용 중지 알림 | Microsoft Docs
+description: Azure 게스트 OS 제품군 1 사용 중지가 발생한 시기 및 적용되는 지를 확인하는 방법에 대한 정보를 제공합니다.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 37b422e9-0713-4a81-a942-f553ef478064
 ms.service: cloud-services
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998298"
 ---
 # <a name="guest-os-family-1-retirement-notice"></a>게스트 OS 제품군 1 사용 중지 확인
 OS 제품군 1의 사용 중지가 2013 년 6월 1일에 처음 발표되었습니다.

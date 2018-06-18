@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30907890"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm-using-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 Linux VM에 MongoDB를 설치하고 구성하는 방법
 [MongoDB](http://www.mongodb.org)는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서는 리소스 관리자 배포 모델을 사용하여 Azure에서 Linux VM에 MongoDB를 설치하고 구성하는 방법을 보여줍니다. 표시된 예제는 다음과 같은 방법을 자세히 보여줍니다.

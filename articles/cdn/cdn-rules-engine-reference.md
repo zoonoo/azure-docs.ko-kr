@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 규칙 엔진 참조 | Microsoft Docs"
-description: "Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서"
+title: Azure CDN 규칙 엔진 참조 | Microsoft Docs
+description: Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/02/2018
+ms.locfileid: "29733682"
 ---
 # <a name="azure-cdn-rules-engine-reference"></a>Azure CDN 규칙 엔진 참조
 이 아티클에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 제공되는 일치 조건 및 기능에 대해 자세히 설명합니다.

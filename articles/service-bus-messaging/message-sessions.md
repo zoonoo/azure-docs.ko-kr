@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30181642"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 

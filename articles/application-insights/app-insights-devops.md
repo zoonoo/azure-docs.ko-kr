@@ -1,8 +1,8 @@
 ---
-title: "웹 응용 프로그램 성능 모니터링 - Azure Application Insights | Microsoft Docs"
-description: "devOps 주기에 Application Insights를 적용하는 방법"
+title: 웹 응용 프로그램 성능 모니터링 - Azure Application Insights | Microsoft Docs
+description: devOps 주기에 Application Insights를 적용하는 방법
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 479522a9-ff5c-471e-a405-b8fa221aedb3
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 24e249bb515c509f2fba1f943ac5e23a1ea9965e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294914"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -133,7 +134,7 @@ Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 �
 * 특정 사용자의 세션 및 응답 시간을 추적하여 지원 팀과 운영 팀이 즉시 고객 지원을 제공하도록 합니다.
 * 자주 사용되는 앱 기능을 파악하여 기능 우선순위 질문에 답합니다.
 
-DNN 고객은 다음과 같이 말했습니다. "Application Insights는 필요에 따라 데이터를 결합, 분류, 쿼리, 필터링하는 데 빠져 있는 부분을 채워주었습니다. 우리 팀은 자신의 창의력과 경험을 활용하여 강력한 쿼리 언어로 데이터를 찾아낼 수 있었고, 그 덕분에 통찰력을 얻고 미처 알지 못했던 문제를 찾아서 해결하였습니다. *'만약...'*이라는 질문에서 흥미로운 답이 수없이 나올 수 있습니다."
+DNN 고객은 다음과 같이 말했습니다. "Application Insights는 필요에 따라 데이터를 결합, 분류, 쿼리, 필터링하는 데 빠져 있는 부분을 채워주었습니다. 우리 팀은 자신의 창의력과 경험을 활용하여 강력한 쿼리 언어로 데이터를 찾아낼 수 있었고, 그 덕분에 통찰력을 얻고 미처 알지 못했던 문제를 찾아서 해결하였습니다. *'만약...'* 이라는 질문에서 흥미로운 답이 수없이 나올 수 있습니다."
 
 ## <a name="development-tools-integration"></a>개발 도구 통합
 ### <a name="configuring-application-insights"></a>Application Insights 구성

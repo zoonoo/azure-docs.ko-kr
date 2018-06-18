@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계 | Microsoft Docs"
-description: "하이브리드 ID 디자인 고려 사항 가이드를 읽은 후 개요 및 다음 단계"
-documentationcenter: 
+title: Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계 | Microsoft Docs
+description: 하이브리드 ID 디자인 고려 사항 가이드를 읽은 후 개요 및 다음 단계
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 02d48768-ea9e-4bfe-ae54-b54c4bd0a789
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29c045af81134847321d9ef69943f0154e9ee5a0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801493"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
 요구 사항을 정의하고 모바일 장치 관리 솔루션에 대한 모든 옵션을 검토했으므로 사용자와 조직에 적합한 지원 인프라 배포에 대한 다음 단계를 수행할 준비가 되었습니다.

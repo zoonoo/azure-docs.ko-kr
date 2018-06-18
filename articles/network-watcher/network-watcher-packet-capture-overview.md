@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher에서 패킷 캡처 소개 | Microsoft Docs"
-description: "이 페이지는 Network Watcher 패킷 캡처 기능에 대한 개요를 제공합니다."
+title: Azure Network Watcher에서 패킷 캡처 소개 | Microsoft Docs
+description: 이 페이지는 Network Watcher 패킷 캡처 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23036838"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure Network Watcher에서 변수 패킷 캡처 소개
 

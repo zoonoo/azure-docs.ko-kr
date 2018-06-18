@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30840163"
 ---
 # <a name="how-to-schedule-planned-maintenance-on-azure-vms"></a>Azure VM에 계획된 유지 관리 예약 방법
 > [!IMPORTANT]

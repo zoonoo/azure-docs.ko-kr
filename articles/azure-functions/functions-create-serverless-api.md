@@ -1,6 +1,6 @@
 ---
-title: "Azure Functions를 사용하여 서버 없는 API 만들기 | Microsoft Docs"
-description: "Azure Functions를 사용하여 서버 없는 API를 만드는 방법"
+title: Azure Functions를 사용하여 서버 없는 API 만들기 | Microsoft Docs
+description: Azure Functions를 사용하여 서버 없는 API를 만드는 방법
 services: functions
 author: mattchenderson
 manager: cfowler
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24811603"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Azure Functions를 사용하여 서버 없는 API 만들기
 
@@ -178,7 +179,7 @@ Azure Portal을 엽니다. 이 작업을 수행하려면 사용자의 Azure 계�
 
 이렇게 하면 backendUri 속성을 제외한 새 프록시 "GetUserByName"이 추가됩니다. 다른 리소스를 호출하지 않고 응답 재정의를 사용하여 프록시의 기본 응답을 수정합니다. 요청 및 응답 재정의를 백 엔드 URL과 함께 사용할 수도 있습니다. 레거시 시스템으로 프록시할 때, 헤더를 수정하거나 매개 변수를 쿼리하는 등의 작업이 필요할 때 특히 유용합니다. 요청 및 응답 재정의에 대한 자세한 내용은 [프록시에서 요청 및 응답 수정](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses)을 참조하세요.
 
-브라우저 또는 자주 사용하는 REST 클라이언트를 통해 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 끝점을 호출하여 모의 API를 테스트합니다. _{username}_을 사용자 이름을 나타내는 문자열 값으로 바꿉니다.
+브라우저 또는 자주 사용하는 REST 클라이언트를 통해 `<YourProxyApp>.azurewebsites.net/api/users/{username}` 끝점을 호출하여 모의 API를 테스트합니다. _{username}_ 을 사용자 이름을 나타내는 문자열 값으로 바꿉니다.
 
 ## <a name="next-steps"></a>다음 단계
 

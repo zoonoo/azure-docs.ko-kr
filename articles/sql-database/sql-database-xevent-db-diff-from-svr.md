@@ -7,14 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.workload: On Demand
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 4a1a8a332628e79972e7c03dbc2ac839f244a002
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 446c1f3af3f00fb70a230dfec5f5c533b45a285f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650046"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -87,7 +88,7 @@ Azure SQL Database 및 Microsoft SQL Server용 확장 이벤트에 대한 추가
 | **sys.database_event_session_targets** |이벤트 세션의 각 이벤트 대상에 대한 행을 반환합니다. |
 | **sys.database_event_sessions** |SQL Database의 각 이벤트 세션에 대한 행을 반환합니다. |
 
-Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database\_*가 아닌 *.server\_*가 포함됩니다. 이름 패턴은 **sys.server_event_%**와 같습니다.
+Microsoft SQL Server에서 유사한 카탈로그 뷰의 이름에는 *.database\_* 가 아닌 *.server\_* 가 포함됩니다. 이름 패턴은 **sys.server_event_%** 와 같습니다.
 
 ## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>새로운 [DMV](http://msdn.microsoft.com/library/ms188754.aspx)
 

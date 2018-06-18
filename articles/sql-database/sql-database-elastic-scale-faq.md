@@ -7,21 +7,22 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 57a5ef07aa8ca6d35085f9b2425cbc1c08c23b36
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 94ae9549bb5e09c80703a7db316675bff1272372
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34647479"
 ---
 # <a name="elastic-database-tools-faq"></a>탄력적 데이터베이스 도구 FAQ
 #### <a name="if-i-have-a-single-tenant-per-shard-and-no-sharding-key-how-do-i-populate-the-sharding-key-for-the-schema-info"></a>분할 및 분할 안 함 키당 단일 테넌트가 있는 경우 스키마 정보에 대한 분할 키를 채우려면 어떻게 해야 하나요?
 스키마 정보 개체는 시나리오를 분할 병합하는 데만 사용됩니다. 응용 프로그램이 기본적으로 단일 테넌트인 경우에는 분할 병합 도구가 필요하지 않으므로 스키마 정보 개체를 채울 필요가 없습니다.
 
 #### <a name="ive-provisioned-a-database-and-i-already-have-a-shard-map-manager-how-do-i-register-this-new-database-as-a-shard"></a>데이터베이스를 프로비전했으며 분할된 데이터베이스 맵 관리자가 이미 있습니다. 이 새로운 데이터베이스를 분할로 등록하려면 어떻게 해야 하나요?
-**[탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 응용 프로그램에 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md)**를 참조하세요. 
+**[탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 응용 프로그램에 분할된 데이터베이스 추가](sql-database-elastic-scale-add-a-shard.md)** 를 참조하세요. 
 
 #### <a name="how-much-do-elastic-database-tools-cost"></a>탄력적 데이터베이스 도구의 비용은 얼마인가요?
 탄력적 데이터베이스 클라이언트 라이브러리 사용에는 비용이 발생하지 않습니다. 분할된 데이터베이스 및 분할된 데이터베이스 맵 관리자에 사용하는 Azure SQL 데이터베이스와 분할 병합 도구에 대해 프로비전된 웹/작업자 역할과 관련된 비용만 발생합니다.

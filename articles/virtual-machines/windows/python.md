@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31528344"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -38,14 +39,14 @@ ms.lasthandoff: 04/18/2018
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
-1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)**가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
+1. [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)를 아직 설치하지 않았으면 설치합니다. 작업 페이지에서 **Python 개발**을 선택한 다음 **설치**를 클릭합니다. 요약하자면, **Python 3 64비트(3.6.0)** 가 자동으로 선택되는 것을 확인할 수 있습니다. Visual Studio를 이미 설치한 경우 Visual Studio 시작 관리자를 사용하여 Python 워크로드를 추가할 수 있습니다.
 2. Visual Studio를 설치하고 시작한 후 **파일** > **신규** > **프로젝트**를 클릭합니다.
 3. **템플릿** > **Python** > **Python 응용 프로그램**을 클릭하고, 프로젝트의 이름에 사용할 *myPythonProject*를 입력한 후, 프로젝트의 위치를 선택하고, **확인**을 클릭합니다.
 
 ## <a name="install-packages"></a>패키지 설치
 
 1. 솔루션 탐색기에서 *myPythonProject* 아래에 있는 **Python 환경**을 마우스 오른쪽 단추로 클릭한 다음, **가상 환경 추가**를 선택합니다.
-2. 가상 환경 추가 화면에서 기본 이름 *env*를 수락하고, *Python 3.6(64비트)*이 기본 인터프리터로 선택되어 있는지 확인한 후 **만들기**를 클릭합니다.
+2. 가상 환경 추가 화면에서 기본 이름 *env*를 수락하고, *Python 3.6(64비트)* 이 기본 인터프리터로 선택되어 있는지 확인한 후 **만들기**를 클릭합니다.
 3. 만든 *env* 환경을 마우스 오른쪽 단추로 클릭하고, **Python 패키지 설치**를 클릭한 후, 검색 상자에 *azure*를 입력한 다음, Enter 키를 누릅니다.
 
 azure 패키지가 성공적으로 설치되었음이 출력 창에 표시됩니다. 

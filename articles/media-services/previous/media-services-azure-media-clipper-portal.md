@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782792"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>포털에서 Azure Media Clipper를 사용하여 클립 만들기
 포털에서 Azure Media Clipper를 사용하여 미디어 서비스 계정의 자산에서 클립을 만들 수 있습니다. 시작하려면 포털의 미디어 서비스 계정으로 이동합니다. 그런 다음 **서브클립** 탭을 선택합니다.

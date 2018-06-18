@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager MMC 메뉴 작업 | Microsoft Docs"
-description: "StorSimple 스냅숏 관리자에서 표준 Microsoft Management Console(MMC) 메뉴 작업을 사용하는 방법에 대해 설명합니다."
+title: StorSimple Snapshot Manager MMC 메뉴 작업 | Microsoft Docs
+description: StorSimple 스냅숏 관리자에서 표준 Microsoft Management Console(MMC) 메뉴 작업을 사용하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109971"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>StorSimple 스냅숏 관리자에서 MMC 메뉴 작업 사용
 

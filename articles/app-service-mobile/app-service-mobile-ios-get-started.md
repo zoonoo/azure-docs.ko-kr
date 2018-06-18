@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service Mobile Apps에서 iOS 앱 만들기 | Microsoft Docs"
-description: "이 자습서에 따라 Objective-C 또는 Swift로 iOS용 Azure 모바일 앱 백 엔드 사용을 시작합니다."
+title: Azure App Service Mobile Apps에서 iOS 앱 만들기 | Microsoft Docs
+description: 이 자습서에 따라 Objective-C 또는 Swift로 iOS용 Azure 모바일 앱 백 엔드 사용을 시작합니다.
 services: app-service\mobile
 documentationcenter: ios
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.service: app-service-mobile
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27595317"
 ---
 # <a name="create-an-ios-app"></a>iOS 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

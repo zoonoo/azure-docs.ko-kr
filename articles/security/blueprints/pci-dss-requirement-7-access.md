@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895041"
 ---
 # <a name="access-requirements-for-pci-dss-compliant-environments"></a>PCI DSS 규격 환경에 대한 액세스 요구 사항 
 ## <a name="pci-dss-requirement-7"></a>PCI DSS 요구 사항 7

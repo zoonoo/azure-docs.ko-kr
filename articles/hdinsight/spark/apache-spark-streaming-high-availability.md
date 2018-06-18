@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165318"
 ---
 # <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>YARN을 사용하여 고가용성 Spark Streaming 작업 만들기
 

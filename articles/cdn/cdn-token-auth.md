@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30905149"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>보안 토큰 인증을 사용하여 Azure CDN 자산 보안 유지
 
@@ -172,7 +173,7 @@ ms.lasthandoff: 04/06/2018
 3. **HTTP Large**에서 **규칙 엔진**을 선택합니다. 규칙 엔진을 사용하여 기능을 적용할 경로를 정의하고, 토큰 인증 기능을 사용하도록 설정하고, 기능과 관련된 추가 토큰 인증을 사용하도록 설정합니다. 자세한 내용은 [규칙 엔진 참조](cdn-rules-engine-reference.md)를 참조하세요.
 
     1. 기존 규칙을 선택하거나 새 규칙을 만들어 토큰 인증을 적용할 자산 또는 경로를 정의합니다. 
-    2. 규칙에서 토큰 인증을 사용하도록 설정하려면 **기능** 목록에서 **[토큰 인증](cdn-rules-engine-reference-features.md#token-auth)**을 선택한 다음 **사용**을 선택합니다. 규칙을 업데이트하는 경우 **업데이트**를 선택하고, 규칙을 만드는 경우 **추가**를 선택합니다.
+    2. 규칙에서 토큰 인증을 사용하도록 설정하려면 **기능** 목록에서 **[토큰 인증](cdn-rules-engine-reference-features.md#token-auth)** 을 선택한 다음 **사용**을 선택합니다. 규칙을 업데이트하는 경우 **업데이트**를 선택하고, 규칙을 만드는 경우 **추가**를 선택합니다.
         
     ![CDN 규칙 엔진 토큰 인증 사용 예제](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 

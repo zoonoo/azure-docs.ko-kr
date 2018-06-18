@@ -7,14 +7,15 @@ author: MightyPen
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 1e3ecd27ce7ec2e2763a7249428875e51872bf63
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6c352298c701c827cd01c0ed7f427b7ed6015e29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646680"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Wingtip Tickets 샘플 SaaS 앱을 사용하기 위한 일반적인 지침
 
@@ -87,7 +88,7 @@ PowerShell 스크립트 탐색 및 단계별 실행에 대한 팁
     - **독립 실행형 응용 프로그램:** 개별 테넌트의 서버(예: *contosoconcerthall-&lt;User&gt;.database.windows.net*) 
     - **테넌트당 데이터베이스:** *tenants1-dpt-&lt;User&gt;.database.windows.net*
     - **다중 테넌트 데이터베이스:** *tenants1-mt-&lt;User&gt;.database.windows.net* 
-2. **연결** > **데이터베이스 엔진...**을 클릭합니다.
+2. **연결** > **데이터베이스 엔진...** 을 클릭합니다.
 
    ![카탈로그 서버](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 

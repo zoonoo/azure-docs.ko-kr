@@ -1,36 +1,38 @@
 ---
-title: "Azure Active Directory Domain Services: 배포 시나리오 | Microsoft Docs"
-description: "Azure AD 도메인 서비스용 배포 시나리오"
+title: 'Azure Active Directory Domain Services: 배포 시나리오 | Microsoft Docs'
+description: Azure AD 도메인 서비스용 배포 시나리오
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: maheshu
-ms.openlocfilehash: 11844fb8fabada9d863fe4adf0839ae6fa2ed101
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ae8485f94a8a86862f09c1776222cb6603967614
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587561"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>배포 시나리오 및 사용 사례
 이 섹션에서는 Azure AD(Active Directory) 도메인 서비스에서 이익이 되는 몇 가지 시나리오 및 사용 사례를 살펴보겠습니다.
 
-## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Azure 가상 컴퓨터의 안전하고 손쉬운 관리
-Azure Active Directory Domain Services를 사용하여 효율적인 방식으로 Azure 가상 컴퓨터를 관리할 수 있습니다. Azure 가상 컴퓨터를 관리되는 도메인에 가입할 수 있으므로 회사 AD 자격 증명을 사용하여 로그인 할 수 있습니다. 이 방법은 각 Azure 가상 컴퓨터에서 로컬 관리자 계정 유지 관리와 같은 복잡한 자격 증명 관리 과정을 방지하도록 돕습니다.
+## <a name="secure-easy-administration-of-azure-virtual-machines"></a>Azure 가상 머신의 안전하고 손쉬운 관리
+Azure Active Directory Domain Services를 사용하여 효율적인 방식으로 Azure 가상 머신을 관리할 수 있습니다. Azure 가상 머신을 관리되는 도메인에 가입할 수 있으므로 회사 AD 자격 증명을 사용하여 로그인 할 수 있습니다. 이 방법은 각 Azure 가상 머신에서 로컬 관리자 계정 유지 관리와 같은 복잡한 자격 증명 관리 과정을 방지하도록 돕습니다.
 
-그룹 정책을 사용하여 관리되는 도메인에 가입된 서버 가상 컴퓨터를 관리하고 보호할 수 있습니다. Azure 가상 컴퓨터에 필요한 보안 기준을 적용할 수 있으며 회사 보안 지침에 따라 잠글 수 있습니다. 예를 들어 그룹 정책 관리 기능을 사용하여 이러한 가상 컴퓨터에서 시작될 수 있는 응용 프로그램 종류를 제한할 수 있습니다.
+그룹 정책을 사용하여 관리되는 도메인에 가입된 서버 가상 머신을 관리하고 보호할 수 있습니다. Azure 가상 머신에 필요한 보안 기준을 적용할 수 있으며 회사 보안 지침에 따라 잠글 수 있습니다. 예를 들어 그룹 정책 관리 기능을 사용하여 이러한 가상 머신에서 시작될 수 있는 응용 프로그램 종류를 제한할 수 있습니다.
 
-![Azure 가상 컴퓨터의 간소화된 관리](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
+![Azure 가상 머신의 간소화된 관리](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-서버 및 기타 인프라가 수명 종료에 도달하면 Contoso는 현재 호스팅되는 온-프레미스에서 클라우드로 응용 프로그램 다수를 이동시킵니다. 현재 해당 IT 표준은 기업 응용 프로그램을 호스팅하는 서버가 그룹 정책을 사용하여 도메인에 가입하고 관리되어야 한다고 규정합니다. Contoso의 IT 관리자는 보다 쉽게 관리하기 위해 Azure에 배포된 도메인 가입 가상 컴퓨터를 선호합니다. 결과적으로, 관리자 및 사용자는 회사 자격 증명을 사용하여 로그인할 수 있습니다. 동시에 그룹 정책을 사용하여 필요한 보안 기준을 준수하도록 컴퓨터를 구성할 수 있습니다. Contoso는 Azure 가상 컴퓨터를 보호하기 위해 Azure에서 도메인 컨트롤러를 배포, 모니터링 및 관리하지 않는 편을 선호합니다. 따라서 Azure AD 도메인 서비스는 이 사용 사례에 대한 최적의 선택입니다.
+서버 및 기타 인프라가 수명 종료에 도달하면 Contoso는 현재 호스팅되는 온-프레미스에서 클라우드로 응용 프로그램 다수를 이동시킵니다. 현재 해당 IT 표준은 기업 응용 프로그램을 호스팅하는 서버가 그룹 정책을 사용하여 도메인에 가입하고 관리되어야 한다고 규정합니다. Contoso의 IT 관리자는 보다 쉽게 관리하기 위해 Azure에 배포된 도메인 가입 가상 머신을 선호합니다. 결과적으로, 관리자 및 사용자는 회사 자격 증명을 사용하여 로그인할 수 있습니다. 동시에 그룹 정책을 사용하여 필요한 보안 기준을 준수하도록 컴퓨터를 구성할 수 있습니다. Contoso는 Azure 가상 머신을 보호하기 위해 Azure에서 도메인 컨트롤러를 배포, 모니터링 및 관리하지 않는 편을 선호합니다. 따라서 Azure AD 도메인 서비스는 이 사용 사례에 대한 최적의 선택입니다.
 
 **배포 참고 사항**
 
@@ -67,7 +69,7 @@ Contoso에는 거의 10년 전에 개발된 온-프레미스 LOB(기간 업무) 
 
 ![WIA를 사용하는 서비스 계정](./media/active-directory-domain-services-scenarios/wia-service-account.png)
 
-Contoso에는 웹 프런트 엔드, SQL server 및 백 엔드 FTP 서버를 포함하는 사용자 지정 소프트웨어 자격 증명 모음 응용 프로그램이 있습니다. FTP 서버에 웹 프런트 엔드를 인증하는 데 서비스 계정의 Windows 통합된 인증이 사용됩니다. 웹 프런트 엔드는 서비스 계정으로 실행되도록 설정됩니다. 백 엔드 서버는 웹 프런트 엔드에 대한 서비스 계정에서 액세스 권한을 부여하도록 구성됩니다. Contoso는 이 응용 프로그램을 Azure 인프라 서비스로 이동하기 위해 클라우드에서 도메인 컨트롤러 가상 컴퓨터를 배포하지 않아도 되는 것을 선호합니다. Contoso의 IT 관리자는 Azure 가상 컴퓨터에 웹 프런트 엔드, SQL Server 및 FTP 서버를 호스팅하는 서버를 배포할 수 있습니다. 그런 다음 이러한 컴퓨터는 Azure AD 도메인 서비스 관리되는 도메인에 가입됩니다. 그런 다음 앱의 인증을 위해 해당 온-프레미스 디렉터리에 동일한 서비스 계정을 사용할 수 있습니다. 이 서비스 계정은 Azure AD 도메인 서비스 관리되는 도메인으로 동기화되고 사용할 수 있습니다.
+Contoso에는 웹 프런트 엔드, SQL server 및 백 엔드 FTP 서버를 포함하는 사용자 지정 소프트웨어 자격 증명 모음 응용 프로그램이 있습니다. FTP 서버에 웹 프런트 엔드를 인증하는 데 서비스 계정의 Windows 통합된 인증이 사용됩니다. 웹 프런트 엔드는 서비스 계정으로 실행되도록 설정됩니다. 백 엔드 서버는 웹 프런트 엔드에 대한 서비스 계정에서 액세스 권한을 부여하도록 구성됩니다. Contoso는 이 응용 프로그램을 Azure 인프라 서비스로 이동하기 위해 클라우드에서 도메인 컨트롤러 가상 머신을 배포하지 않아도 되는 것을 선호합니다. Contoso의 IT 관리자는 Azure 가상 머신에 웹 프런트 엔드, SQL Server 및 FTP 서버를 호스팅하는 서버를 배포할 수 있습니다. 그런 다음 이러한 컴퓨터는 Azure AD 도메인 서비스 관리되는 도메인에 가입됩니다. 그런 다음 앱의 인증을 위해 해당 온-프레미스 디렉터리에 동일한 서비스 계정을 사용할 수 있습니다. 이 서비스 계정은 Azure AD 도메인 서비스 관리되는 도메인으로 동기화되고 사용할 수 있습니다.
 
 **배포 참고 사항**
 

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937838"
 ---
 # <a name="test-your-solution-template-offer-in-staging"></a>준비 단계에서 솔루션 템플릿 제품 테스트
 준비 단계에서는 제품을 프로덕션에 게시하기 전에 개인 "샌드박스"에 배포하여 기능을 테스트 및 확인할 수 있습니다. 그러면 제안은 배포한 고객에게 표시되는 것처럼 스테이징으로 표시됩니다. 제품이 준비 단계에 푸시되려면 인증되어야 합니다.

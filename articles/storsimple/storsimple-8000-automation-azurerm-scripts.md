@@ -1,12 +1,12 @@
 ---
-title: "Azure Resource Manager 스크립트를 사용하여 StorSimple 장치 관리 | Microsoft Docs"
-description: "Azure Resource Manager 스크립트를 사용하여 StorSimple 작업을 자동화하는 방법 알아보기"
+title: Azure Resource Manager 스크립트를 사용하여 StorSimple 장치 관리 | Microsoft Docs
+description: Azure Resource Manager 스크립트를 사용하여 StorSimple 작업을 자동화하는 방법 알아보기
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26373944"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Azure Resource Manager SDK 기반 스크립트를 사용하여 StorSimple 장치 관리
 

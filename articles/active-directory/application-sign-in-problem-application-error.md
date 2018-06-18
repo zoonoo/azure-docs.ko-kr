@@ -1,11 +1,11 @@
 ---
-title: "로그인한 후 응용 프로그램 페이지의 오류 | Microsoft Docs"
-description: "응용 프로그램 자체에서 오류를 내보내는 경우 Azure AD 로그인에서 발생한 문제를 해결하는 방법"
+title: 로그인한 후 응용 프로그램 페이지의 오류 | Microsoft Docs
+description: 응용 프로그램 자체에서 오류를 내보내는 경우 Azure AD 로그인에서 발생한 문제를 해결하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384908"
 ---
 # <a name="error-on-an-applications-page-after-signing-in"></a>로그인한 후 응용 프로그램 페이지의 오류
 

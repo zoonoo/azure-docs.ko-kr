@@ -1,12 +1,12 @@
 ---
-title: "Azure Cloud Shell 포함 | Microsoft Docs"
-description: "Azure Cloud Shell을 포함하는 방법을 알아봅니다."
+title: Azure Cloud Shell 포함 | Microsoft Docs
+description: Azure Cloud Shell을 포함하는 방법을 알아봅니다.
 services: cloud-shell
-documentationcenter: 
+documentationcenter: ''
 author: jluk
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27864887"
 ---
 # <a name="embed-azure-cloud-shell"></a>Azure Cloud Shell 포함
 

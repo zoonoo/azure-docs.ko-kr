@@ -1,11 +1,11 @@
 ---
-title: "Azure Log Analytics에서 이벤트에 대해 IIS와 Table Storage에 Blob Storage 사용 | Microsoft Docs"
-description: "Log Analytics는 Table Storage에 진단을 쓰는 Azure 서비스 또는 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다."
+title: Azure Log Analytics에서 이벤트에 대해 IIS와 Table Storage에 Blob Storage 사용 | Microsoft Docs
+description: Log Analytics는 Table Storage에 진단을 쓰는 Azure 서비스 또는 Blob Storage에 기록된 IIS 로그에 대해 로그를 읽을 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: MGoedtel
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23021348"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Log Analytics에서 이벤트에 대해 IIS와 Azure Table Storage에 Azure Blob Storage 사용
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34076930"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Azure 스택에서 저장소 계정을 관리합니다
 찾아를 복구 하 고 비즈니스 요구에 따라 저장소 용량을 회수 스택 Azure에서에서 저장소 계정을 관리 하는 방법을 알아봅니다.

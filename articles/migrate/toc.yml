@@ -14,7 +14,7 @@
       href: concepts-collector.md
     - name: 평가 계산
       href: concepts-assessment-calculation.md
-    - name: 종속성 시각화
+    - name: 종속성 시각화 정보
       href: concepts-dependency-visualization.md
 - name: 방법 가이드
   items:
@@ -25,9 +25,17 @@
         - name: 2. Contoso-Azure 인프라 설정
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso-Azure로 마이그레이션할 온-프레미스 리소스 평가
-          href: migrate-scenarios-assessment.md
-        - name: 4. Contoso-Azure VM 및 Azure SQL 관리되는 인스턴스에서 다시 호스트
-          href: migrate-scenarios-lift-and-shift.md
+          href: contoso-migration-assessment.md
+        - name: 4. Contoso-Azure VM 및 Azure SQL 관리되는 인스턴스에서 앱 다시 호스트
+          href: contoso-migration-rehost-vm-sql-managed-instance.md
+        - name: 5. Contoso-Azure VM에서 앱 다시 호스트
+          href: contoso-migration-rehost-vm.md
+        - name: 6. Contoso-Azure VM 및 Azure SQL AlwaysOn에서 앱 다시 호스트
+          href: contoso-migration-rehost-vm-sql-ag.md
+        - name: 7. Contoso-Azure VM에서 Linux 앱 다시 호스트
+          href: contoso-migration-rehost-linux-vm.md
+        - name: 8. Contoso-Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트
+          href: contoso-migration-rehost-linux-vm-mysql.md
     - name: 대규모 환경 검색 및 평가
       href: how-to-scale-assessment.md
     - name: 컴퓨터 그룹화
@@ -48,3 +56,5 @@
       href: 'https://azure.microsoft.com/migrate'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
+    - name: FAQ
+      href: resources-faq.md

@@ -1,12 +1,12 @@
 ---
-title: "Azure 스택에 대 한 연결 된 azure 배포 결정 통합 시스템 | Microsoft Docs"
-description: "배포 계획 다중 노드 배포 Azure 스택 Azure 연결에 대 한 결정을 확인 합니다."
+title: Azure 스택에 대 한 연결 된 azure 배포 결정 통합 시스템 | Microsoft Docs
+description: 배포 계획 다중 노드 배포 Azure 스택 Azure 연결에 대 한 결정을 확인 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120389"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure 스택에 대 한 결정을 계획 하는 azure 연결 된 배포 시스템을 통합
 결정 한 다음 [Azure 스택 하이브리드 클라우드 환경으로 통합 됩니다는 어떻게](azure-stack-connection-models.md), Azure 스택 배포 결정 사항 마무리 다음 수 있습니다.

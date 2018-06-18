@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525998"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 뷰
 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 뷰 사용을 위한 팁입니다. 

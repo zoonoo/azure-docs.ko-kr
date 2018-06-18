@@ -2,18 +2,19 @@
 title: Azure Stream Analytics에 입력으로 데이터 스트리밍
 description: Azure Stream Analytics에서 데이터 연결을 설정하는 방법을 알아보세요. 입력에는 이벤트의 데이터 스트림과 참조 데이터가 포함되어 있습니다.
 services: stream-analytics
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 2b2ef68622f96d87a25d203d3d67aa0877397072
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: d993a29f5a7224c2346469b42309c11e55317756
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808828"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -27,22 +28,15 @@ Stream Analytics는 세 종류 리소스의 입력으로 Azure 데이터 스트�
 ### <a name="compression"></a>압축
 Stream Analytics는 모든 데이터 스트림 입력 원본에서 압축을 지원합니다. 현재 지원되는 참조 형식은 None, GZip 및 Deflate 압축입니다. 참조 데이터에는 압축이 지원되지 않습니다. 입력 형식이 압축된 Avro 데이터인 경우 투명하게 처리됩니다. Avro serialization에서는 압축 형식을 지정할 필요가 없습니다. 
 
-## <a name="create-or-edit-inputs"></a>입력 만들기 또는 편집
-새 입력을 만들고 스트리밍 작업에서 기존 입력을 나열하거나 편집하려면 Azure Portal을 사용할 수 있습니다.
-1. [Azure Portal](https://portal.azure.com)을 열어 Stream Analytics 작업을 찾아 선택합니다.
-2. **SETTINGS** 제목 아래에서 **입력** 옵션을 선택합니다. 
-4. **입력** 페이지에는 기존 입력이 나열됩니다. 
-5. **입력** 페이지에서 **스트림 입력 추가** 또는 **참조 입력 추가**을 선택하여 세부 정보 페이지를 엽니다.
-6. 기존 입력을 선택하여 세부 사항을 편집하고 **저장**을 선택하여 기존 입력을 편집합니다.
-7. 입력 세부 사항 페이지에서 **테스트**를 선택하여 연결 옵션이 유효하고 작동하는지 확인합니다. 
-8. 기존 입력의 이름을 마우스 오른쪽 단추로 클릭하고 추가 테스트를 위해 필요에 따라 **입력의 예제 데이터**를 선택합니다.
+## <a name="create-edit-or-test-inputs"></a>입력 만들기, 편집 또는 테스트
+[Azure Portal](https://portal.azure.com)을 사용하여 [새 입력을 만들고](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) 스트리밍 작업에서 기존 입력을 보거나 편집할 수 있습니다. 입력 연결을 테스트하고 샘플 데이터에서 [쿼리를 테스트](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job#test-your-query)할 수도 있습니다. 쿼리를 작성할 때 FROM 절에 입력이 나열됩니다. 포털의 **쿼리** 페이지에서 사용 가능한 입력 목록을 가져올 수 있습니다. 여러 입력을 사용하려는 경우 `JOIN`하거나 여러 `SELECT` 쿼리를 작성할 수 있습니다.
 
 
 ## <a name="stream-data-from-event-hubs"></a>이벤트 허브에서 데이터 스트리밍
 
-Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공합니다. 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있으므로 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. 이벤트 허브 및 Stream Analytics는 실시간 분석을 위한 종단간 솔루션을 함께 제공합니다. 이벤트 허브를 사용하면 이벤트를 실시간으로 Azure에 공급할 수 있으며 Stream Analytics 작업은 해당 이벤트를 실시간으로 처리할 수 있습니다. 예를 들어 Event Hubs에 웹 클릭, 센서 판독값 또는 온라인 로그 이벤트를 보낼 수 있습니다. 그런 다음 실시간 필터링, 집계 및 상관 관계에 대한 입력 데이터 스트림으로 Event Hubs를 사용하도록 Stream Analytics 작업을 만들 수 있습니다.
+Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공합니다. 이벤트 허브는 초당 수백만 개의 이벤트를 수집할 수 있으므로 연결된 장치와 응용 프로그램이 생성하는 대량의 데이터를 처리하고 분석할 수 있습니다. Event Hubs 및 Stream Analytics는 실시간 분석을 위한 종단간 솔루션을 함께 제공합니다. Event Hubs를 사용하면 이벤트를 실시간으로 Azure에 공급할 수 있으며 Stream Analytics 작업은 해당 이벤트를 실시간으로 처리할 수 있습니다. 예를 들어 Event Hubs에 웹 클릭, 센서 판독값 또는 온라인 로그 이벤트를 보낼 수 있습니다. 그런 다음 실시간 필터링, 집계 및 상관 관계에 대한 입력 데이터 스트림으로 Event Hubs를 사용하도록 Stream Analytics 작업을 만들 수 있습니다.
 
-Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프가 `EventEnqueuedUtcTime`인 이벤트 허브에 이벤트가 도착한 타임스탬프입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
+`EventEnqueuedUtcTime`은 이벤트 허브에서 이벤트 도착의 타임스탬프이며 Stream Analytics의 Event Hubs에서 오는 이벤트의 기본 타임스탬프입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
 
 ### <a name="consumer-groups"></a>소비자 그룹
 각 Stream Analytics 이벤트 허브 입력마다 고유한 소비자 그룹이 있도록 구성해야 합니다. 작업에 셀프 조인이 포함되거나 입력이 여러 개인 경우 둘 이상의 판독기 다운스트림으로 일부 입력을 읽을 수 있습니다. 이러한 상황은 단일 소비자 그룹의 판독기 수에 영향을 줍니다. 파티션당 소비자 그룹마다 5개 판독기의 Event Hubs 한도 초과를 방지하려면 각 Stream Analytics 작업에 대한 소비자 그룹을 지정하는 것이 좋습니다. 또한 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 자세한 내용은 [이벤트 허브 수신기로 Azure Stream Analytics 문제 해결](stream-analytics-event-hub-consumer-groups.md)을 참조하세요.
@@ -89,10 +83,6 @@ Azure Iot 허브는 IoT 시나리오에 최적화된, 확장성이 뛰어난 게
 
 Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 이벤트가 IoT Hub에 도착한 타임스탬프이며, 이는 `EventEnqueuedUtcTime`입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
 
-> [!NOTE]
-> `DeviceClient` 속성으로 전송된 메시지만 처리할 수 있습니다.
-> 
-
 ### <a name="consumer-groups"></a>소비자 그룹
 각 Stream Analytics IoT Hub 입력마다 고유한 소비자 그룹이 있도록 구성해야 합니다. 작업에 셀프 조인이 포함되거나 입력이 여러 개인 경우 둘 이상의 판독기 다운스트림으로 일부 입력을 읽을 수 있습니다. 이러한 상황은 단일 소비자 그룹의 판독기 수에 영향을 줍니다. 파티션당 소비자 그룹마다 5개 판독기의 Azure IoT Hub 한도 초과를 방지하려면 각 Stream Analytics 작업에 대한 소비자 그룹을 지정하는 것이 좋습니다.
 
@@ -129,7 +119,7 @@ IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리
 
 
 ## <a name="stream-data-from-blob-storage"></a>Blob Storage에서 데이터 스트리밍
-클라우드에 저장할 구조화되지 않은 대량 데이터가 있는 시나리오에서 Azure Blob Storage는 비용 효과적이고 확장성 있는 솔루션을 제공합니다. 일반적으로 Blob Storage의 데이터는 미사용 데이터로 간주됩니다. 그러나 Blob 데이터는 Stream Analytics에서 데이터 스트림으로 처리될 수 있습니다. 
+클라우드에 저장할 구조화되지 않은 대량 데이터가 있는 시나리오에서 Azure Blob Storage는 비용 효과적이고 확장성 있는 솔루션을 제공합니다. Blob 저장소의 데이터는 일반적으로 미사용 데이터로 간주되지만 Blob 데이터는 Stream Analytics로 데이터 스트림으로 처리될 수 있습니다. 
 
 로그 처리는 Stream Analytics와 함께 Blob Storage 입력을 사용하기 위해 일반적으로 사용되는 시나리오입니다. 이 시나리오에서는 시스템에서 원격 분석 데이터 파일이 캡처되고 유의미한 데이터를 추출하기 위해 구문 분석 및 처리되어야 합니다.
 

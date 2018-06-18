@@ -6,14 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: reference
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 55734dc0889ae6d1b03fab073586fa2fab32ec3c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 6a82c57f3540aaf160a61fd5fe3b01919dd9109e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34649128"
 ---
 # <a name="with-azure-snelstart-has-rapidly-expanded-its-business-services-at-a-rate-of-1000-new-azure-sql-databases-per-month"></a>Azure를 사용하여 SnelStart는 매월 1,000개의 새 Azure SQL Database 규모로 비즈니스 서비스를 빠르게 확장했습니다.
 ![SnelStart 로고](./media/sql-database-implementation-snelstart/snelstartlogo.png)

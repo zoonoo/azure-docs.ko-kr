@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30323656"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>가져오기/내보내기 작업에 대한 지원 티켓 열기
 

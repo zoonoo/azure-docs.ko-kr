@@ -1,6 +1,6 @@
 ---
-title: "감사 및 로깅 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "위협 모델링 도구에 노출되는 위협 완화"
+title: 감사 및 로깅 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044408"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
 | 제품/서비스 | 문서 |

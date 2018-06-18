@@ -17,6 +17,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34197038"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에 저장된 데이터 보호
 Azure 데이터 레이크 저장소의 데이터를 보호하는 것은 3단계로 이루어진 방법입니다.  사용자 및 보안 그룹의 데이터에 대한 액세스를 완전히 가능하게 하려면 RBAC(역할 기반 액세스 제어) 및 ACL(액세스 제어 목록) 모두를 설정해야 합니다.

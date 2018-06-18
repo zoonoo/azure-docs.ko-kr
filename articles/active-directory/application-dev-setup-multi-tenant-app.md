@@ -1,11 +1,11 @@
 ---
-title: "새 다중 테넌트 응용 프로그램을 구성하는 방법 | Microsoft Docs"
-description: "응용 프로그램을 다중 테넌트로 구성하는 방법과 다중 테넌트 응용 프로그램이 작동하는 방식 알아보기"
+title: 새 다중 테넌트 응용 프로그램을 구성하는 방법 | Microsoft Docs
+description: 응용 프로그램을 다중 테넌트로 구성하는 방법과 다중 테넌트 응용 프로그램이 작동하는 방식 알아보기
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614805"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>새 다중 테넌트 응용 프로그램을 구성하는 방법
 

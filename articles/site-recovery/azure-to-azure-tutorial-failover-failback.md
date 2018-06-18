@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4a27142f9110fd26daa8ea0ebd151a67769e6568
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cb9bfd000c377f63e99350d0615a7e92ba8bb8ef
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209276"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716247"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 조치(Failover) 및 장애 복구
 
@@ -28,7 +28,7 @@ ms.locfileid: "34209276"
 > * 보조 VM 장애 복구(failback)
 > * 보조 지역으로 주 VM 다시 보호
 
-Azure에서 Azure로의 복제는 현재 미리 보기에 있습니다.
+
 
 ## <a name="prerequisites"></a>필수 조건
 

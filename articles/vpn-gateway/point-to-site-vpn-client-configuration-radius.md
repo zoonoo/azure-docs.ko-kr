@@ -1,31 +1,36 @@
 ---
-title: "P2S RADIUS 연결용 VPN 클라이언트 구성 파일 만들기 및 설치: PowerShell: Azure | Microsoft Docs"
-description: "RADIUS 인증을 사용하는 Windows, Mac OS X 및 Linux VPN 클라이언트 구성 파일을 만듭니다."
+title: 'P2S RADIUS 연결용 VPN 클라이언트 구성 파일 만들기 및 설치: PowerShell: Azure | Microsoft Docs'
+description: RADIUS 인증을 사용하는 Windows, Mac OS X 및 Linux VPN 클라이언트 구성 파일을 만듭니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 1d57537428f5ac1085b6cbae93be6f77c71b12e7
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 19b1090a37ae1f97537fcabe128e7958fc26a96a
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235892"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>P2S RADIUS 인증용 VPN 클라이언트 구성 파일 만들기 및 설치
 
 P2S(지점 및 사이트 간) 연결을 통해 가상 네트워크에 연결하려면 연결할 클라이언트 장치를 구성해야 합니다. Windows, Mac OS X 및 Linux 클라이언트 장치에서 P2S VPN 연결을 만들 수 있습니다. 
 
 RADIUS 인증을 사용할 경우 사용자 이름/암호 인증, 인증서 인증 및 기타 인증 유형과 같은 여러 인증 옵션이 있습니다. VPN 클라이언트 구성은 각 인증 유형마다 다릅니다. VPN 클라이언트를 구성하려면 필요한 설정을 포함하는 클라이언트 구성 파일을 사용합니다. 이 아티클에서는 사용하려는 RADIUS 인증 유형에 대한 VPN 클라이언트 구성을 만들고 설치하는 데 도움이 됩니다.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 P2S RADIUS 인증에 대한 구성 워크플로는 다음과 같습니다.
 
@@ -135,7 +140,7 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 3. **추가** 단추를 선택하여 새 연결을 만듭니다.
 
    ![연결에 대한 "추가" 버튼](./media/point-to-site-vpn-client-configuration-radius/AddConnection.png)
-4. 드롭다운 메뉴에서 **IPsec/IKEv2(strongswan)**를 선택한 후 **만들기**를 선택합니다. 이 단계에서 연결의 이름을 바꿀 수 있습니다.
+4. 드롭다운 메뉴에서 **IPsec/IKEv2(strongswan)** 를 선택한 후 **만들기**를 선택합니다. 이 단계에서 연결의 이름을 바꿀 수 있습니다.
 
    ![연결 형식 선택](./media/point-to-site-vpn-client-configuration-radius/AddIKEv2.png)
 5. 다운로드한 클라이언트 구성 파일의 **일반** 폴더에서 **VpnSettings.xml** 파일을 엽니다. `VpnServer`라는 태그를 찾아서 `azuregateway`로 시작하여 `.cloudapp.net`으로 끝나는 이름을 복사합니다.
@@ -152,6 +157,10 @@ Get-AzureRmVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW"
 ## <a name="certeap"></a>인증서 인증
  
 EAP-TLS 프로토콜을 사용하는 RADIUS 인증서 인증을 위해 VPN 클라이언트 구성 파일을 만들 수 있습니다. 일반적으로 VPN에 대해 사용자를 인증할 때는 엔터프라이즈에서 발급한 인증서를 사용합니다. 연결하는 모든 사용자의 장치에 인증서가 설치되어 있고 RADIUS 서버가 인증서의 유효성을 검사할 수 있는지 확인합니다.
+
+>[!NOTE]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 명령에서 `-AuthenticationMethod`는 `EapTls`입니다. 인증서를 인증하는 동안 클라이언트가 인증서의 유효성을 검사하여 RADIUS 서버의 유효성을 검사합니다. `-RadiusRootCert`는 RADIUS 서버의 유효성을 검사하는 데 사용하는 루트 인증서를 포함하는 .cer 파일입니다.
 
@@ -210,7 +219,7 @@ Azure 가상 네트워크에 연결하는 모든 Mac 장치에 별도의 프로�
 
    ![RadiusServerRoot 인증서 추가](./media/point-to-site-vpn-client-configuration-radius/radiusrootcert.png)
 2. 인증을 위해 각 클라이언트에 클라이언트 인증서가 필요합니다. 클라이언트 장치에 클라이언트 인증서를 설치합니다.
-3. **네트워크 기본 설정**에서 **네트워크** 대화 상자를 엽니다. **+**를 선택하여 Azure 가상 네트워크에 P2S 연결을 위해 새 VPN 클라이언트 연결 프로필을 만듭니다.
+3. **네트워크 기본 설정**에서 **네트워크** 대화 상자를 엽니다. **+** 를 선택하여 Azure 가상 네트워크에 P2S 연결을 위해 새 VPN 클라이언트 연결 프로필을 만듭니다.
 
    **인터페이스** 값은 **VPN**이고, **VPN 유형** 값은 **IKEv2**입니다. **서비스 이름** 상자에 프로필 이름을 지정한 다음, **만들기**를 선택하여 VPN 클라이언트 연결 프로필을 만듭니다.
 

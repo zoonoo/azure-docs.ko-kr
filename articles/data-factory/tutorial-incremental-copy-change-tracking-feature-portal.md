@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30189871"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -169,7 +170,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
         리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2(미리 보기)**를 선택합니다.
+4. **버전**에 **V2(미리 보기)** 를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.      
@@ -240,7 +241,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
     
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다. 
-    2. **테이블**에 대해 **[dbo].[data_source_table]**을 선택합니다. 
+    2. **테이블**에 대해 **[dbo].[data_source_table]** 을 선택합니다. 
 
    ![원본 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
 
@@ -260,7 +261,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     1. **연결된 서비스**에 대해 **AzureStorageLinkedService**를 선택합니다.
     2. **파일 경로**의 **폴더** 부분에 대해 **adftutorial/incchgtracking**을 입력합니다.
-    3. **파일 경로**의 **파일** 부분에 대해 **@CONCAT('Incremental-', pipeline().RunId, '.txt')**를 입력합니다.  
+    3. **파일 경로**의 **파일** 부분에 대해 **@CONCAT('Incremental-', pipeline().RunId, '.txt')** 를 입력합니다.  
 
        ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -273,7 +274,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
     
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다. 
-    2. **테이블**에 대해 **[dbo].[table_store_ChangeTracking_version]**을 선택합니다. 
+    2. **테이블**에 대해 **[dbo].[table_store_ChangeTracking_version]** 을 선택합니다. 
 
 ## <a name="create-a-pipeline-for-the-full-copy"></a>전체 복사본에 대한 파이프라인 만들기
 이 단계에서는 원본 데이터 저장소(Azure SQL Database)에서 대상 데이터 저장소(Azure Blob Storage)로 전체 데이터를 복사하는 복사 작업이 있는 파이프라인을 만듭니다.
@@ -293,7 +294,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 5. **싱크** 탭으로 전환하고, **싱크 데이터 집합** 필드에 대해 **SinkDataset**를 선택합니다. 
 
     ![복사 활동 - 싱크](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. 파이프라인 정의에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>**를 클릭하여 **파이프라인 유효성 검사 보고서**를 닫습니다. 
+6. 파이프라인 정의에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서**를 닫습니다. 
 
     ![파이프라인 유효성 검사](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 게시하려면 **게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
@@ -422,7 +423,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 14. **복사 활동을 저장 프로시저 활동에 연결합니다**. 복사 활동에 붙어 있는 **녹색** 단추를 저장 프로시저 활동으로 끌어서 놓습니다. 
 
     ![복사 활동 및 저장 프로시저 활동 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>**를 클릭하여 **파이프라인 유효성 검사 보고서** 창을 닫습니다. 
+15. 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서** 창을 닫습니다. 
 
     ![유효성 검사 단추](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16.  **모두 게시** 단추를 클릭하여 엔터티(연결된 서비스, 데이터 집합 및 파이프라인)를 Data Factory 서비스에 게시합니다. **게시 성공** 메시지가 표시될 때까지 기다립니다. 

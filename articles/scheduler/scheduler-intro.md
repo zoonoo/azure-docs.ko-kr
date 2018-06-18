@@ -1,11 +1,11 @@
 ---
-title: "Azure 스케줄러 정의 | Microsoft Docs"
-description: "Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다."
+title: Azure 스케줄러 정의 | Microsoft Docs
+description: Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다.
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 52aa6ae1-4c3d-43fb-81b0-6792c84bcfae
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22715117"
 ---
 # <a name="what-is-azure-scheduler"></a>Azure 스케줄러 정의
 Azure 스케줄러를 사용하면 클라우드에서 실행할 작업을 선언적으로 설명할 수 있습니다. 그런 다음 해당 작업을 예약하고 자동으로 실행합니다.  스케줄러에서는 [Azure 포털](scheduler-get-started-portal.md), 코드, [REST API](https://msdn.microsoft.com/library/mt629143.aspx) 또는 Azure PowerShell을 사용하여 이를 수행합니다.

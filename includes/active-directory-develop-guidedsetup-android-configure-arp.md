@@ -3,7 +3,7 @@
 
 이 단계에서는 프로젝트에 클라이언트 ID를 추가해야 합니다.
 
-1.  (`app` > `java` > *`{host}.{namespace}`*에서) `MainActivity`를 엽니다.
+1.  (`app` > `java` > *`{host}.{namespace}`* 에서) `MainActivity`를 엽니다.
 2.  `final static String CLIENT_ID`로 시작하는 줄을 다음으로 바꿉니다.
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";

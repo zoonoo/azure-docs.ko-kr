@@ -1,6 +1,6 @@
 ---
-title: "Azure Virtual Machines에서 SQL Server 가용성 그룹 수신기 만들기 | Microsoft Docs"
-description: "Azure Virtual Machines에서 SQL Server에 대한 Always On 가용성 그룹용 수신기를 만드는 단계별 지침"
+title: Azure Virtual Machines에서 SQL Server 가용성 그룹 수신기 만들기 | Microsoft Docs
+description: Azure Virtual Machines에서 SQL Server에 대한 Always On 가용성 그룹용 수신기를 만드는 단계별 지침
 services: virtual-machines
 documentationcenter: na
 author: MikeRayMSFT
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29400633"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 머신에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
@@ -139,7 +140,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
    | **Name** |부하 분산 규칙을 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointListener**입니다. |
    | **프로토콜** |**TCP** |
    | **포트** |*1433* |
-   | **백 엔드 포트** |*1433*. 이 규칙은 **부동 IP(Direct Server Return)**를 사용하므로 이 값은 무시됩니다. |
+   | **백 엔드 포트** |*1433*. 이 규칙은 **부동 IP(Direct Server Return)** 를 사용하므로 이 값은 무시됩니다. |
    | **프로브** |이 부하 분산 장치에 대해 만든 프로브의 이름을 사용합니다. |
    | **세션 지속성** |**없음** |
    | **유휴 제한 시간(분)** |*4* |

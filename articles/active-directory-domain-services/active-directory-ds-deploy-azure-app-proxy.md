@@ -7,18 +7,20 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: eee20271c27f596ee6aefd0b7280c7862c53b289
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ac3ea6d696eaf5ba4b2554f416118718271526a8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292469"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리되는 도메인에서 Azure AD 응용 프로그램 프록시 배포
 Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터넷을 통해 액세스할 수 있는 온-프레미스 응용 프로그램을 게시하여 원격 작업자를 지원할 수 있습니다. 이제 Azure AD Domain Services를 통해 온-프레미스를 운영 중인 레거시 응용 프로그램을 Azure Infrastructure Services로 전환할 수 있습니다. 그러면 Azure AD 응용 프로그램 프록시를 사용하는 이러한 응용 프로그램을 게시하여 조직 내 사용자에게 안전한 원격 액세스를 제공할 수 있습니다.
@@ -75,7 +77,7 @@ Azure AD Domain Services 관리되는 도메인을 사용할 수 있는 동일�
     * **Azure AD 전역 관리자 자격 증명**을 제공합니다. 전역 관리자 테넌트는 Microsoft Azure 자격 증명과 다를 수 있습니다.
     * 커넥터를 등록하는 데 사용되는 관리자 계정은 응용 프로그램 프록시 서비스를 사용할 수 있는 동일한 디렉터리에 있어야 합니다. 예를 들어, 테넌트 도메인이 contoso.com이면 관리자는 admin@contoso.com 또는 해당 도메인에 있는 다른 유효한 별칭이어야 합니다.
     * 커넥터를 설치하는 서버에 IE 보안 강화 구성이 켜져 있으면 등록 화면이 차단될 수 있습니다. 액세스를 허용하려면 오류 메시지의 지침에 따릅니다. Internet Explorer 보안 강화가 해제되어 있는지 확인하세요.
-    * 커넥터 등록에 실패한 경우 [응용 프로그램 프록시 문제 해결](../active-directory/active-directory-application-proxy-troubleshoot.md)을 참조하세요.
+    * 커넥터 등록에 실패한 경우 [응용 프로그램 프록시 문제 해결](../active-directory/manage-apps/application-proxy-troubleshoot.md)을 참조하세요.
 
     ![커넥터 설치됨](./media/app-proxy/app-proxy-connector-installed.png)
 4. 커넥터가 제대로 작동하는지 확인하려면 Azure AD 응용 프로그램 프록시 커넥터 문제 해결사를 실행합니다. 문제 해결사를 실행한 후 성공적인 보고서가 표시됩니다.

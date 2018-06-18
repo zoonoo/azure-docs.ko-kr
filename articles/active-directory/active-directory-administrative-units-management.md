@@ -19,6 +19,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34157485"
 ---
 # <a name="administrative-units-management-in-azure-ad---public-preview"></a>Azure AD의 관리 단위 관리 - 공용 미리 보기
 이 문서에서는 사용자의 하위 집합에 대해 관리 권한을 위임하고 사용자의 하위 집합에 정책을 적용하는 데 사용할 수 있는 리소스의 새로운 Azure Active Directory 컨테이너인 관리 단위에 대해 설명합니다. Azure Active Directory에서 관리 단위를 통해 중앙 관리자는 지역 관리자에게 권한을 위임하거나 세부적인 수준에서 정책을 설정할 수 있습니다.

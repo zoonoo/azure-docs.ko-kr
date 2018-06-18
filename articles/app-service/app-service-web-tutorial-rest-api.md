@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30902312"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 
@@ -149,7 +150,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 로컬 리포지토리에서 _wwwroot/index.html_을 엽니다.
 
-51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_을 App Service의 앱 이름으로 바꿉니다.
+51번 줄에서 `apiEndpoint` 변수를 배포된 API의 URL(`http://<app_name>.azurewebsites.net`)로 설정합니다. _\<appname>_ 을 App Service의 앱 이름으로 바꿉니다.
 
 로컬 터미널 창에서 샘플 앱을 다시 실행합니다.
 

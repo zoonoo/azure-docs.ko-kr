@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 574b11f9ba38bda775610f2f9e90fbb2d2b05868
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 5ffb758fe5fa42be6323de06afbfb38068ae1926
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296172"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Application Insights에서 .NET 추적 로그 탐색
 ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Azure Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 응용 프로그램에서 들어오는 다른 원격 분석과 병합됩니다.
@@ -48,7 +49,7 @@ System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가�
    </configuration>
 ```
 ## <a name="configure-application-insights-to-collect-logs"></a>로그를 수집하도록 Application Insights 구성
-**[프로젝트에 Application Insights를 추가](app-insights-asp-net.md)**하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
+**[프로젝트에 Application Insights를 추가](app-insights-asp-net.md)** 하지 않은 경우 지금 추가합니다. 로그 수집기를 포함하는 옵션이 나타납니다.
 
 또는 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하여 **Application Insights를 구성** 합니다. 옵션을 **추적 컬렉션 구성**으로 선택합니다.
 

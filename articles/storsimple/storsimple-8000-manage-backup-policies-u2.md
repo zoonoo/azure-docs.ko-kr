@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 백업 정책 관리 | Microsoft Docs"
-description: "StorSimple 장치 관리자 서비스를 사용하여 StorSimple 8000 시리즈 장치에서 수동 백업, 백업 일정 및 백업 보존을 만들고 관리하는 방법을 설명합니다."
+title: StorSimple 8000 시리즈 백업 정책 관리 | Microsoft Docs
+description: StorSimple 장치 관리자 서비스를 사용하여 StorSimple 8000 시리즈 장치에서 수동 백업, 백업 일정 및 백업 보존을 만들고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108281"
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-manage-backup-policies"></a>Azure Portal에서 StorSimple 장치 관리자 서비스를 사용하여 백업 정책 관리
 

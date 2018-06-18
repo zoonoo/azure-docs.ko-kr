@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager 백업 카탈로그 | Microsoft Docs"
-description: "StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 백업 카탈로그를 보고 관리하는 방법을 설명합니다."
+title: StorSimple Snapshot Manager 백업 카탈로그 | Microsoft Docs
+description: StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 백업 카탈로그를 보고 관리하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 6abdbfd2-22ce-45a5-aa15-38fae4c8f4ec
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111291"
 ---
 # <a name="use-storsimple-snapshot-manager-to-manage-the-backup-catalog"></a>StorSimple 스냅숏 관리자를 사용하여 백업 카탈로그 관리
 
@@ -91,7 +92,7 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
    
    1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름이 **볼륨** 노드에 나타납니다. 
    2. (선택 사항) **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다.
-   3. (선택 사항) **폴더(NTFS)**를 선택하고 폴더 경로를 입력하거나 찾아보기를 클릭하고 폴더 위치를 선택합니다. 
+   3. (선택 사항) **폴더(NTFS)** 를 선택하고 폴더 경로를 입력하거나 찾아보기를 클릭하고 폴더 위치를 선택합니다. 
    4. **만들기**를 클릭합니다.
 5. 복제 프로세스가 완료되면 복제된 볼륨을 초기화해야 합니다. 서버 관리자를 시작한 다음 디스크 관리를 시작합니다. 자세한 지침은 [볼륨 탑재](storsimple-snapshot-manager-manage-volumes.md#mount-volumes)를 참조하세요. 초기화 후 볼륨이 **범위** 창의 **볼륨** 노드 아래에 나열됩니다. 나열된 볼륨이 보이지 않으면 볼륨 목록을 새로 고칩니다(**볼륨** 노드를 마우스 오른쪽 단추로 클릭한 다음 **새로 고침** 클릭).
 
@@ -124,7 +125,7 @@ StorSimple 스냅숏 관리자는 예비 백업이 생성되는 동안 다음 �
    
    1. **이름** 텍스트 상자에 복제된 볼륨의 이름을 입력합니다. 이 이름이 **볼륨** 노드에 나타납니다. 
    2. (선택 사항) **드라이브**를 선택한 다음 드롭다운 목록에서 드라이브 문자를 선택합니다. 
-   3. (선택 사항) **폴더(NTFS)**를 선택하고 폴더 경로를 입력하거나 **찾아보기**를 클릭하고 폴더 위치를 선택합니다. 
+   3. (선택 사항) **폴더(NTFS)** 를 선택하고 폴더 경로를 입력하거나 **찾아보기**를 클릭하고 폴더 위치를 선택합니다. 
    4. **만들기**를 클릭합니다. 
 5. 복제 프로세스가 완료되면 복제된 볼륨을 초기화해야 합니다. 서버 관리자를 시작한 다음 디스크 관리를 시작합니다. 자세한 지침은 [볼륨 탑재](storsimple-snapshot-manager-manage-volumes.md#mount-volumes)를 참조하세요. 초기화 후 볼륨이 **범위** 창의 **볼륨** 노드 아래에 나열됩니다. 
    

@@ -20,6 +20,7 @@ ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/12/2018
+ms.locfileid: "34077414"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Azure 스택에 대 한 저장소 용량 관리
 

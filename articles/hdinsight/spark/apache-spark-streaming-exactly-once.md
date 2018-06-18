@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164865"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기
 

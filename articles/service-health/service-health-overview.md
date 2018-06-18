@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/07/2017
+ms.date: 03/27/2018
 ms.author: robb
-ms.openlocfilehash: af6871264029c3037ed4b7f1f0581433735563a6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: f0efe96684d77fb83b69a4da12d312872da2f768
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262877"
 ---
 # <a name="service-health"></a>서비스 상태
 서비스 상태에서는 사용하는 영역에 있는 Azure 서비스의 상태를 추적하는 사용자 지정 가능한 대시보드를 제공합니다. 이 대시보드에서 지속적인 서비스 문제, 계획된 향후 유지 보수 또는 관련 상태 권고와 같은 활성 이벤트를 추적할 수 있습니다. 이벤트가 비활성화되면, 최대 90일 동안 상태 기록에 배치됩니다. 마지막으로 Service Health 대시보드를 사용하여 서비스 문제로 인해 영향이 발생할 경우 사전에 알리는 서비스 상태 경고를 만들고 관리할 수 있습니다.

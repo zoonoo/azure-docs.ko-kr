@@ -79,7 +79,7 @@
 
 **Swift**:
 
-1. 다음과 같은 내용으로 **ClientManager.swift** 파일을 추가합니다. *%AppUrl%*을 Azure 모바일 앱 백 엔드의 URL로 바꿉니다.
+1. 다음과 같은 내용으로 **ClientManager.swift** 파일을 추가합니다. *%AppUrl%* 을 Azure 모바일 앱 백 엔드의 URL로 바꿉니다.
    
         class ClientManager {
             static let sharedClient = MSClient(applicationURLString: "%AppUrl%")

@@ -1,5 +1,5 @@
 ---
-title: "Azure 아키텍처 디자인으로 보안 통합 | Microsoft Docs"
+title: Azure 아키텍처 디자인으로 보안 통합 | Microsoft Docs
 description: " 이 문서는 Azure에서 응용 프로그램 및 서비스 아키텍처를 이해하고 디자인 및 구현으로 보안을 손쉽게 통합하는 데 도움이 됩니다. "
 services: security
 documentationcenter: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/23/2017
+ms.locfileid: "25549436"
 ---
 # <a name="application-architecture-on-azure"></a>Azure 상의 응용 프로그램 아키텍처
 Microsoft Azure에서 클라우드 기반 솔루션의 보안을 유지하려면 견고한 아키텍처 기초가 중요합니다. 설계자, 디자이너 및 구현자는 모두 응용 프로그램 및 서비스 아키텍처의 풍부한 지식을 활용합니다. 이러한 기본 지식은 모든 클라우드 기반 솔루션의 구성 요소를 이해하고 디자인 및 구현의 모든 측면으로 보안을 손쉽게 통합하는 데 도움이 됩니다.

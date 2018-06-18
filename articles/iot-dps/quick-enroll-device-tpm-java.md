@@ -1,22 +1,21 @@
 ---
-title: "Java를 사용하여 Azure Device Provisioning Service에 TPM 장치 등록 | Microsoft Docs"
-description: "Azure 빠른 시작 - Java 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 장치 등록"
-services: iot-dps
-keywords: 
+title: Java를 사용하여 Azure Device Provisioning Service에 TPM 장치 등록 | Microsoft Docs
+description: Azure 빠른 시작 - Java 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 장치 등록
 author: dsk-2015
 ms.author: dkshir
 ms.date: 12/20/2017
-ms.topic: hero-article
+ms.topic: quickstatrt
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
+ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 79b12c276dae3cf1e480ec8d3f12d2d4b3d8fea7
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 5e40f8c72d3e95d13405190d8aec9fa52a9ed951
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630683"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 장치 등록
 
@@ -58,7 +57,7 @@ ms.lasthandoff: 02/09/2018
 
 이 섹션에서는 TPM 장치에 대한 프로비전 세부 정보를 샘플 코드에 추가하는 방법을 보여 줍니다. 
 
-1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 장치 등록 샘플 코드에 대한 GitHub 리포지토리를 복제합니다.
+1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 장치 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -81,7 +80,7 @@ ms.lasthandoff: 02/09/2018
 
     2. TPM 장치 세부 정보를 추가합니다.
         1. [TPM 장치 시뮬레이션](quick-create-simulated-device.md#simulatetpm) 섹션으로 이어지는 단계에 따라 TPM 장치 시뮬레이션에 대한 *등록 ID* 및 *TPM 인증 키*를 가져옵니다.
-        2. 이전 단계 출력의 **_등록 ID_**와 **_인증 키_**를 사용하여 **_ServiceEnrollmentSample.java_** 샘플 코드 파일의 `[RegistrationId]` 및 `[TPM Endorsement Key]`를 바꿉니다.
+        2. 이전 단계 출력의 **_등록 ID_** 와 **_인증 키_** 를 사용하여 **_ServiceEnrollmentSample.java_** 샘플 코드 파일의 `[RegistrationId]` 및 `[TPM Endorsement Key]`를 바꿉니다.
         
             ```Java
             private static final String REGISTRATION_ID = "[RegistrationId]";

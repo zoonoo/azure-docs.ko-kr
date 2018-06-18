@@ -3,21 +3,36 @@ title: AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH 연결 �
 description: AKS(Azure Kubernetes Service) 클러스터 노드를 사용하는 SSH 연결을 만듭니다.
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/06/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c2b77e558db0e323370c24b87a75357235677f7e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 95b385e9847a7809492bbb74bd1eba616df90d72
+ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164325"
 ---
 # <a name="ssh-into-azure-kubernetes-service-aks-cluster-nodes"></a>AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH 연결 만들기
 
-경우에 따라 유지 관리, 로그 수집 또는 기타 문제 해결 작업을 위해 AKS(Azure Kubernetes Service) 노드에 액세스해야 할 수도 있습니다. AKS(Azure Kubernetes Service) 노드는 인터넷에 노출되지 않습니다. 이 문서에서 설명하는 단계를 사용하여 AKS 노드를 사용하는 SSH 연결을 만듭니다.
+경우에 따라 유지 관리, 로그 수집 또는 기타 문제 해결 작업을 위해 AKS(Azure Kubernetes Service) 노드에 액세스해야 할 수도 있습니다. AKS 노드는 인터넷에 노출되지 않습니다. 이 문서에서 설명하는 단계를 사용하여 AKS 노드를 사용하는 SSH 연결을 만듭니다.
+
+## <a name="reset-ssh-keys"></a>SSH 키 다시 설정
+
+SSH 키 없이 AKS를 배포했거나 올바른 SSH 키에 액세스할 수 없는 경우 Azure Portal을 사용하여 재설정 할 수 있습니다.
+
+AKS 클러스터을 탐색하여 AKS 노드(가상 머신)를 선택하고 **비밀번호 재설정**을 선택하여 SSH 공개 키를 재설정합니다.
+
+![암호 다시 설정 단추가 있는 AKS VM](media/aks-ssh/reset-password.png)
+
+**SSH 공개 키 재설정**을 선택하고, 기본적으로 **azueruser**인 AKS 클러스터 사용자 이름을 입력하고 SSH 공용 키로 복사합니다. 완료가 되면 **업데이트**를 선택합니다.
+
+![암호 재설정 단추가 있는 AKS Portal VM](media/aks-ssh/reset-password-2.png)
+
+SSH 키가 재설정되면 해당 개인 키를 사용하여 SSH 연결을 만들 수 있습니다.
 
 ## <a name="get-aks-node-address"></a>AKS 노드 주소 가져오기
 
@@ -56,7 +71,7 @@ NAME                       READY     STATUS    RESTARTS   AGE
 aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
 ```
 
-SSH 키를 Pod에 복사하고, Pod 이름을 적절한 값으로 바꿉니다.
+개인 SSH 키를 Pod에 복사하고 Pod 이름을 적절한 값으로 바꿉니다.
 
 ```console
 kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa

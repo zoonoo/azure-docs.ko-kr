@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949840"
 ---
 # <a name="tutorial-set-up-a-jenkins-environment-with-service-fabric"></a>자습서: Service Fabric을 사용하여 Jenkins 환경 설정
 이 자습서는 시리즈의 5부입니다. 여기서는 Jenkins를 사용하여 응용 프로그램에 업그레이드를 배포하는 방법을 설명합니다. 이 자습서에서는 Service Fabric Jenkins 플러그 인이 클러스터에 응답 응용 프로그램을 배포하기 위해 Voting 응용프로그램을 호스팅하는 Github 리포지토리와 결합하는 데 사용됩니다. 

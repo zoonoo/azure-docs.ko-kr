@@ -1,16 +1,16 @@
 ---
-title: "가상 네트워크 게이트웨이 삭제: Azure portal: Resource Manager | Microsoft Docs"
-description: "Resource Manager 배포 모델에서 Azure Portal을 사용하여 가상 네트워크 게이트웨이를 삭제합니다."
+title: '가상 네트워크 게이트웨이 삭제: Azure portal: Resource Manager | Microsoft Docs'
+description: Resource Manager 배포 모델에서 Azure Portal을 사용하여 가상 네트워크 게이트웨이를 삭제합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: ''
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
@@ -20,6 +20,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593459"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>포털을 사용하여 가상 네트워크 게이트웨이 삭제
 

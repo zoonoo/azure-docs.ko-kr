@@ -1,14 +1,14 @@
 ---
-title: "Azure Service Fabric에 대한 컨테이너 이미지 만들기 | Microsoft Docs"
-description: "이 자습서에서는 다중 컨테이너 Service Fabric 응용 프로그램에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다."
+title: Azure Service Fabric에 대한 컨테이너 이미지 만들기 | Microsoft Docs
+description: 이 자습서에서는 다중 컨테이너 Service Fabric 응용 프로그램에 대한 컨테이너 이미지를 만드는 방법을 알아봅니다.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29558188"
 ---
 # <a name="tutorial-create-container-images-for-service-fabric"></a>자습서: Service Fabric에 대한 컨테이너 이미지 만들기
 

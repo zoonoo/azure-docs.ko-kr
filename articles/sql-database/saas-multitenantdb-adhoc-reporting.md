@@ -10,14 +10,15 @@ ms.custom: scale out apps
 ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: AyoOlubeko
-ms.openlocfilehash: 88831534ffb8efe32ad3fe53a7aebb9fa67d8904
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 95ea5f2a40bd629384e1bc1f7d707eb30d9eaf5f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644276"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL Database에 대해 임시 분석 쿼리 실행
 
@@ -96,7 +97,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 응용 프로그램에�
 
     ![외부 데이터 원본 만들기](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
-   테넌트 테이블을 참조하는 외부 테이블은 **DISTRIBUTION = SHARDED(VenueId)**로 정의합니다. 이 경우 특정 *VenueId*에 대한 쿼리 경로가 해당 데이터베이스로 지정되어 다음 섹션에 표시되는 것처럼 많은 시나리오에서 성능이 향상됩니다.
+   테넌트 테이블을 참조하는 외부 테이블은 **DISTRIBUTION = SHARDED(VenueId)** 로 정의합니다. 이 경우 특정 *VenueId*에 대한 쿼리 경로가 해당 데이터베이스로 지정되어 다음 섹션에 표시되는 것처럼 많은 시나리오에서 성능이 향상됩니다.
 
     ![외부 테이블 만들기](media/saas-multitenantdb-adhoc-reporting/external-tables.png)
 

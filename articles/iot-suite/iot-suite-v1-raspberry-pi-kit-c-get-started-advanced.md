@@ -1,12 +1,12 @@
 ---
-title: "펌웨어 업데이트를 지원하도록 C를 사용하여 Azure IoT Suite에 Raspberry Pi 연결 | Microsoft Docs"
-description: "Raspberry Pi 3 및 Azure IoT Suite에 Microsoft Azure IoT 스타터 키트를 사용합니다. C를 사용하여 Raspberry Pi를 원격 모니터링 솔루션에 연결하고, 센서의 원격 분석을 클라우드로 전송하고, 원격 펌웨어 업데이트를 수행합니다."
-services: 
+title: 펌웨어 업데이트를 지원하도록 C를 사용하여 Azure IoT Suite에 Raspberry Pi 연결 | Microsoft Docs
+description: Raspberry Pi 3 및 Azure IoT Suite에 Microsoft Azure IoT 스타터 키트를 사용합니다. C를 사용하여 Raspberry Pi를 원격 모니터링 솔루션에 연결하고, 센서의 원격 분석을 클라우드로 전송하고, 원격 펌웨어 업데이트를 수행합니다.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: c
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010806"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Raspberry Pi 3를 원격 모니터링 솔루션에 연결하고 C를 사용하여 원격 펌웨어 업데이트를 사용하도록 설정
 

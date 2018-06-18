@@ -1,6 +1,6 @@
 ---
-title: "Windows 가상 컴퓨터 도움말 문서 | Microsoft Docs"
-description: "Azure Portal에 있는 Windows 가상 컴퓨터의 도움말 콘텐츠 개요"
+title: Windows 가상 컴퓨터 도움말 문서 | Microsoft Docs
+description: Azure Portal에 있는 Windows 가상 컴퓨터의 도움말 콘텐츠 개요
 services: virtual-machines-windows
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/09/2017
+ms.locfileid: "24057691"
 ---
 # <a name="windows-virtual-machines-documentation"></a>Windows 가상 컴퓨터 설명서
 

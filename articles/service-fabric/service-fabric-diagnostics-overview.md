@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: srrengar
-ms.openlocfilehash: 4fcf8c514cb785dbb0a149e5b3073fc72937b68a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f7fe07500f877cf34626e53361c9c68dd459a5e4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643178"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 모니터링 및 진단
 
@@ -46,9 +47,6 @@ Service Fabric은 구입 즉시 포괄적인 이벤트 집합을 제공합니다
 신속한 분석을 EventStore를 사용하여 클러스터가 어떤 방식으로 작동하는지, 동작이 예상대로 발생하는지 파악하는 것이 좋습니다. 클러스터에서 생성되는 로그 및 이벤트 수집에는 일반적으로 [Azure 진단 확장](service-fabric-diagnostics-event-aggregation-wad.md)을 사용하는 것이 좋습니다. OMS Log Analytics의 Service Fabric 전용 솔루션인 Service Fabric 분석과 통합되어 Service Fabric 클러스터 모니터링을 위한 사용자 지정 대시보드를 제공하며 클러스터 이벤트를 쿼리하고 경고를 설정할 수 있습니다. 자세한 내용은 [OMS를 사용한 이벤트 분석](service-fabric-diagnostics-event-analysis-oms.md)을 참조하세요. 
 
  클러스터 모니터링에 대한 자세한 내용은 [플랫폼 수준 이벤트 및 로그 생성](service-fabric-diagnostics-event-generation-infra.md)을 참조하세요.
-
-
- ![OMS SF 솔루션](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-solution.png)
 
 ## <a name="performance-monitoring"></a>성능 모니터링
 기본 인프라 모니터링은 클러스터 상태 및 리소스 사용률을 이해하는 데 중요한 부분입니다. 시스템 성능 측정은 여러 요인에 따라 달라지며, 각 요인은 일반적으로 KPI(핵심 성과 지표)를 통해 측정됩니다. 클러스터의 노드에서 성능 카운터로 수집할 수 있는 메트릭에 Service Fabric 관련 KPI를 매핑할 수 있습니다.

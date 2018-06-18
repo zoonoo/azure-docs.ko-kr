@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 43bac88a7ab6320c5fdcc9dc0fb6b5209bdbcaa3
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 22a3c5b2c7c4676c9c05c7cc67f30108a5dfbe5b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644684"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -137,7 +138,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 상위 차트에서 증가한 데이터베이스 DTU 사용량을 모니터링합니다. 더 높은 새 부하를 시작하려면 몇 분 걸리지만 데이터베이스가 최대 사용률에 도달하기 시작하는 것을 보고 바로 알 수 있으며 부하가 새로운 패턴으로 안정됨에 따라 데이터베이스에 빠르게 과부하가 걸립니다.
 
-1. 데이터베이스를 확장하려면 설정 블레이드에서 **가격 책정 계층(배율 DTU)**을 클릭합니다.
+1. 데이터베이스를 확장하려면 설정 블레이드에서 **가격 책정 계층(배율 DTU)** 을 클릭합니다.
 1. **DTU** 설정을 **100**으로 조정합니다. 
 1. **적용**을 클릭하여 데이터베이스 크기 조정 요청을 제출합니다.
 
@@ -152,7 +153,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 자체 데이터베이스에서 새 테넌트를 프로비전했다면 아래의 단계를 건너뜁니다.
 
 1. **PowerShell ISE**에서 …\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*을 엽니다. 
-1. **$TenantName = “Salix Sals”** 및 **$VenueType  = “dance”**로 수정합니다.
+1. **$TenantName = “Salix Sals”** 및 **$VenueType  = “dance”** 로 수정합니다.
 1. **$Scenario** = **2**, _새 단일 테넌트 데이터베이스에서 테넌트 프로비전_을 설정합니다.
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 

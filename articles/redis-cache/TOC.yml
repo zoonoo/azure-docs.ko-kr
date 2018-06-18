@@ -10,6 +10,8 @@
       href: cache-web-app-howto.md
     - name: .NET 앱 만들기
       href: cache-dotnet-how-to-use-azure-redis-cache.md
+    - name: .NET Core 앱 만들기
+      href: cache-dotnet-core-quickstart.md
     - name: Node.js 앱 만들기
       href: cache-nodejs-get-started.md
     - name: Java 앱 만들기
@@ -48,6 +50,8 @@
           href: cache-how-to-premium-vnet.md
         - name: 클러스터링을 통해 캐시 배포
           href: cache-how-to-premium-clustering.md
+        - name: Managed Cache Service에서 마이그레이션
+          href: cache-migrate-to-redis.md
     - name: 자동화
       items:
         - name: Azure Powershell을 사용하여 배포 및 관리

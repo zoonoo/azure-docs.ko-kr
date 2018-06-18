@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31403035"
 ---
 # <a name="run-custom-mapreduce-programs"></a>사용자 지정 MapReduce 프로그램 실행
 

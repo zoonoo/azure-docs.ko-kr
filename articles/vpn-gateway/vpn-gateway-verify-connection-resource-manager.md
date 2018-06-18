@@ -1,11 +1,11 @@
 ---
-title: "VPN Gateway 연결 확인 | Microsoft Docs"
-description: "이 문서에서는 가상 네트워크 VPN Gateway 연결을 확인하는 방법을 보여 줍니다."
+title: VPN Gateway 연결 확인 | Microsoft Docs
+description: 이 문서에서는 가상 네트워크 VPN Gateway 연결을 확인하는 방법을 보여 줍니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 7e3d1043-caa9-4472-96d3-832f4e2c91ee
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124951"
 ---
 # <a name="verify-a-vpn-gateway-connection"></a>VPN Gateway 연결 확인
 

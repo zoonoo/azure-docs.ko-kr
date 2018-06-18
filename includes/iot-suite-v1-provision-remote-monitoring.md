@@ -1,8 +1,25 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34670169"
+---
 ## <a name="provision-the-solution"></a>솔루션 프로비전
 
 계정에서 미리 구성된 원격 모니터링 솔루션을 미리 프로비전하지 않은 경우 다음 작업을 수행합니다.
 
-1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com][lnk-azureiotsuite]에 로그온한 다음 **+**를 클릭하여 솔루션을 만듭니다.
+1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com][lnk-azureiotsuite]에 로그온한 다음 **+** 를 클릭하여 솔루션을 만듭니다.
 2. **원격 모니터링** 타일에서 **선택**을 클릭합니다.
 3. 미리 구성된 원격 모니터링 솔루션에 **솔루션 이름** 을 입력합니다.
 4. 솔루션을 프로비전하는 데 사용할 **지역** 및 **구독**을 선택합니다.
@@ -21,7 +38,7 @@
 
 목록에는 없지만 솔루션에 대해 참조하고 싶은 세부 정보가 있나요? [사용자 의견](https://feedback.azure.com/forums/321918-azure-iot)에 기능 제안을 보내주세요.
 
-[lnk-azureiotsuite]: https://www.azureiotsuite.com
+[lnk-azureiotsuite]: https://www.azureiotsolutions.com
 [lnk-permissions]: ../articles/iot-suite/iot-suite-v1-permissions.md
 [lnk-portal]: http://portal.azure.com/
 [lnk-faq]: ../articles/iot-suite/iot-suite-v1-faq.md

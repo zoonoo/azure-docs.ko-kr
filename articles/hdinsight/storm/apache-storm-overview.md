@@ -1,13 +1,13 @@
 ---
-title: "Apache Storm이란? - Azure HDInsight | Microsoft Docs"
-description: "Apache Storm을 사용하면 데이터 스트림을 실시간으로 처리할 수 있습니다. Azure HDInsight를 사용하면 Azure 클라우드에 Storm 클러스터를 쉽게 만들 수 있습니다. Visual Studio를 사용하면 C#을 사용하여 Storm 솔루션을 만든 다음 HDInsight Storm 클러스터에 배포할 수 있습니다."
+title: Apache Storm이란? - Azure HDInsight | Microsoft Docs
+description: Apache Storm을 사용하면 데이터 스트림을 실시간으로 처리할 수 있습니다. Azure HDInsight를 사용하면 Azure 클라우드에 Storm 클러스터를 쉽게 만들 수 있습니다. Visual Studio를 사용하면 C#을 사용하여 Storm 솔루션을 만든 다음 HDInsight Storm 클러스터에 배포할 수 있습니다.
 services: hdinsight
-documentationcenter: 
+documentationcenter: ''
 author: Blackmist
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
-keywords: "Apache Storm 사용 사례, Storm 클러스터, Apache Storm이란?"
+keywords: Apache Storm 사용 사례, Storm 클러스터, Apache Storm이란?
 ms.assetid: 72d54080-1e48-4a5e-aa50-cce4ffc85077
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
@@ -22,6 +22,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29686526"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 

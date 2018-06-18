@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 StorSimple 8000 장치 관리자 서비스에 새 인증 사용 | Microsoft Docs"
-description: "서비스에 AAD 기반 인증을 사용하고, 새 등록 키를 생성하고, 장치의 수동 등록을 수행하는 방법을 설명합니다."
+title: Azure에서 StorSimple 8000 장치 관리자 서비스에 새 인증 사용 | Microsoft Docs
+description: 서비스에 AAD 기반 인증을 사용하고, 새 등록 키를 생성하고, 장치의 수동 등록을 수행하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28031044"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple에 새 인증 사용
 

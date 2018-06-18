@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30909278"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Azure Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기 조정
 Stream Analytics 작업을 설정하고 이를 통해 몇 가지 샘플 데이터를 실행하는 작업은 간단합니다. 더 큰 데이터 볼륨으로 같은 작업을 실행해야 할 때 어떻게 해야 할까요? 크기를 조정할 수 있도록 Stream Analytics 작업을 구성하는 방법을 이해해야 합니다. 이 문서에서는 Machine Learning 함수를 사용하여 Stream Analytics 작업의 크기를 조정하는 방법을 집중적으로 다루겠습니다. Stream Analytics 작업의 크기를 조정하는 일반적인 방법은 [작업 크기 조정](stream-analytics-scale-jobs.md)을 참조하세요.

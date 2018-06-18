@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34363127"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>끝점 액세스 제어 목록이란?
 

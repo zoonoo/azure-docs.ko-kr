@@ -1,13 +1,13 @@
 ---
-title: "Azure App Service 로컬 캐시 개요 | Microsoft Docs"
-description: "이 문서에서는 Azure 앱 서비스 로컬 캐시 기능을 사용하도록 설정하고, 크기를 조정하고, 상태를 쿼리하는 방법을 설명합니다."
+title: Azure App Service 로컬 캐시 개요 | Microsoft Docs
+description: 이 문서에서는 Azure 앱 서비스 로컬 캐시 기능을 사용하도록 설정하고, 크기를 조정하고, 상태를 쿼리하는 방법을 설명합니다.
 services: app-service
 documentationcenter: app-service
 author: SyntaxC4
 manager: yochayk
-editor: 
+editor: ''
 tags: optional
-keywords: 
+keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.service: app-service
 ms.devlang: multiple
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985948"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure 앱 서비스 로컬 캐시 개요
 Azure 웹앱의 콘텐츠는 Azure 저장소에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31406894"
 ---
 # <a name="introduction-to-the-deep-learning-virtual-machine"></a>Deep Learning Virtual Machine 소개
 

@@ -1,8 +1,8 @@
 ---
-title: "범위 지정 필터를 사용하여 앱 프로비전 | Microsoft Docs"
-description: "개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다."
+title: 범위 지정 필터를 사용하여 앱 프로비전 | Microsoft Docs
+description: 개체가 비즈니스 요구 사항을 충족하지 못하는 경우 프로비전하는 자동화된 사용자를 지원하는 앱의 개체가 실제로 프로비전되지 않도록 하기 위한 지정 범위 필터 사용 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 10/31/2017
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7a2322239945a529a544054c2273e37a3d65abf
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293078"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 응용 프로그램에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/11/2017
 
 프로비전 커넥터 유형에 따라 범위 지정 필터를 다르게 사용할 수 있습니다.
 
-* **Azure AD에서 SaaS 응용 프로그램으로 아웃바운드 프로비전** Azure AD가 원본 시스템일 때 [사용자 및 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md)이 프로비전 범위에 포함될 사용자를 결정하는 가장 일반적인 방법입니다. 이러한 할당은 Single Sign-On 활성화에도 사용되며 액세스 및 프로비전을 관리하는 단일 방법을 제공합니다. 범위 지정 필터는 할당과 함께 또는 할당을 대체하여 선택적으로 사용하여 특성 값에 따라 사용자를 필터링할 수 있습니다.
+* **Azure AD에서 SaaS 응용 프로그램으로 아웃바운드 프로비전** Azure AD가 원본 시스템일 때 [사용자 및 그룹 할당](manage-apps/assign-user-or-group-access-portal.md)이 프로비전 범위에 포함될 사용자를 결정하는 가장 일반적인 방법입니다. 이러한 할당은 Single Sign-On 활성화에도 사용되며 액세스 및 프로비전을 관리하는 단일 방법을 제공합니다. 범위 지정 필터는 할당과 함께 또는 할당을 대체하여 선택적으로 사용하여 특성 값에 따라 사용자를 필터링할 수 있습니다.
 
     >[!TIP]
     > 프로비전 설정 아래에 있는 [범위](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) 메뉴의 설정을 **모든 사용자 및 그룹 동기화**로 변경하여 엔터프라이즈 응용 프로그램에 대한 할당을 기준으로 프로비전을 사용하지 않을 수 있습니다. 이 옵션을 특성 기준 범위 지정 필터와 함께 사용하면 그룹 기반 할당에서보다 더 빠른 성능을 제공합니다.  
@@ -79,9 +80,9 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    a. **EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   b. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
+   나. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   c. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   다. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
    d. **IS FALSE** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
@@ -115,6 +116,6 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](active-directory-saas-customizing-attribute-mappings.md)
 * [특성 매핑을 위한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
-* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
+* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
 

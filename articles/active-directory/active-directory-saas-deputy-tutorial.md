@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34340848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>자습서: Deputy와 Azure Active Directory 통합
 

@@ -2,17 +2,17 @@
 title: 서비스 사용자를 사용하여 Azure Analysis Services 작업 자동화 | Microsoft Docs
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2b49b85d39f55052e112fd9f4f0e28bdc6c91637
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 931a45fdbb04d15f3080ee0a2c0546ab6e924b59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213282"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595719"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -25,7 +25,7 @@ Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화�
 서비스 사용자는 Azure Portal에서 또는 PowerShell을 사용하여 만들 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 [서비스 사용자 만들기 - Azure Portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[서비스 주체 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[서비스 사용자 만들기 - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Azure Automation에서 자격 증명 및 인증서 자산 저장
 

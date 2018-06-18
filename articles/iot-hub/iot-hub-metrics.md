@@ -1,25 +1,19 @@
 ---
-title: "메트릭을 사용하여 Azure IoT Hub 모니터링 | Microsoft Docs"
-description: "Azure IoT Hub 메트릭을 사용하여 IoT Hub의 전반적인 상태를 평가하고 모니터링하는 방법입니다."
-services: iot-hub
-documentationcenter: 
+title: 메트릭을 사용하여 Azure IoT Hub 모니터링 | Microsoft Docs
+description: Azure IoT Hub 메트릭을 사용하여 IoT Hub의 전반적인 상태를 평가하고 모니터링하는 방법입니다.
 author: nberdy
-manager: timlt
-editor: 
-ms.assetid: a47108fd-f994-4105-b21d-5b8f697b699c
+manager: briz
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cafe5009b8e96b147b5bbed1957024f6d96feb58
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 754901bb9c851f66708771346cbb7fe2e42688cd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634066"
 ---
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
 IoT Hub 메트릭은 Azure 구독의 Azure IoT 리소스 상태에 대한 더 나은 데이터를 제공합니다. IoT Hub 메트릭을 통해 IoT Hub 서비스와 연결된 장치의 전반적인 상태를 평가할 수 있습니다. 사용자 측 통계는 Azure 지원 센터에 문의할 필요 없이 IoT Hub의 상황을 파악하고 근본 원인을 해결할 수 있기 때문에 중요합니다.

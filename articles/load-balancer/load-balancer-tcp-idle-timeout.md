@@ -1,6 +1,6 @@
 ---
-title: "부하 분산 장치 TCP 유휴 시간 제한 구성 | Microsoft Docs"
-description: "분산 장치 TCP 유휴 시간 제한 구성"
+title: 부하 분산 장치 TCP 유휴 시간 제한 구성 | Microsoft Docs
+description: 분산 장치 TCP 유휴 시간 제한 구성
 services: load-balancer
 documentationcenter: na
 author: kumudd
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23020908"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure Load Balancer에 대한 TCP 유휴 시간 제한 설정 구성
 

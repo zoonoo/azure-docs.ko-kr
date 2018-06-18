@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31513638"
 ---
 # <a name="add-a-java-application-to-azure-app-service-web-apps"></a>Azure App Service Web Apps에 Java 응용 프로그램 추가
 [Azure 앱 서비스에서 Java 웹 앱 만들기](app-service-web-get-started-java.md)에 설명된 대로 [Azure App Service][Azure App Service]에서 Java 웹 앱을 초기화하면, **webapps** 폴더에 WAR을 배치하여 응용 프로그램을 업로드할 수 있습니다.

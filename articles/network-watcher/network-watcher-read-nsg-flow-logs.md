@@ -1,11 +1,11 @@
 ---
-title: "NSG 흐름 로그 읽기 | Microsoft 문서"
-description: "이 문서에서는 NSG 흐름 로그를 구문 분석하는 방법을 설명합니다."
+title: NSG 흐름 로그 읽기 | Microsoft 문서
+description: 이 문서에서는 NSG 흐름 로그를 구문 분석하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29149637"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG 흐름 로그 읽기
 

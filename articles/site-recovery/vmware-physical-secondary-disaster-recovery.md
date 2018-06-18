@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 물리적 서버의 재해 복구 설정 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 Windows 및 Linux 물리적 서버의 재해 복구를 설정하는 방법을 알아봅니다."
+title: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 물리적 서버의 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 보조 사이트에 VMware VM 또는 Windows 및 Linux 물리적 서버의 재해 복구를 설정하는 방법을 알아봅니다.
 services: site-recovery
 author: nsoneji
 manager: gauarvd
@@ -15,6 +15,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852220"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>보조 사이트에 온-프레미스 VMware 가상 머신 또는 물리적 서버의 재해 복구 설정
 
@@ -38,7 +39,7 @@ ms.lasthandoff: 03/09/2018
 복제할 항목 및 복제 대상 위치를 선택합니다.
 
 1. **Site Recovery** > **인프라 준비** > **보호 목표**를 차례로 클릭합니다.
-2. **To recovery site(대상 복구 사이트)** > **Yes, with VMware vSphere Hypervisor(예, VMware vSphere 하이퍼바이저 포함)**를 차례로 선택합니다. 그런 후 **OK**를 클릭합니다.
+2. **To recovery site(대상 복구 사이트)** > **Yes, with VMware vSphere Hypervisor(예, VMware vSphere 하이퍼바이저 포함)** 를 차례로 선택합니다. 그런 후 **OK**를 클릭합니다.
 3. **Scout 설치**에서 InMage Scout 8.0.1 GA 소프트웨어 및 등록 키를 다운로드합니다. 모든 구성 요소에 대한 설치 파일은 다운로드한 zip 파일에 포함되어 있습니다.
 
 ## <a name="download-and-install-component-updates"></a>구성 요소 업데이트 다운로드 및 설치

@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32771874"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Azure DNS Private Zones 시나리오
 Azure DNS Private Zones는 가상 네트워크 간뿐 아니라 가상 네트워크 내에서의 이름 확인을 제공합니다. 이 문서에서는 이 기능을 사용하여 실현할 수 있는 몇 가지 일반적인 시나리오를 살펴봅니다. 

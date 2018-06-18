@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30171199"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Azure 스택 개발 키트 (ASDK) 설치
 후 [ASDK 호스트 컴퓨터를 준비 하 고](asdk-prepare-host.md),이 문서의 다음 단계를 사용 하 여 CloudBuilder.vhdx 이미지에는 ASDK를 배포할 수 있습니다.
@@ -80,7 +81,7 @@ ms.lasthandoff: 03/23/2018
 
     ![](media/asdk-install/7.PNG)
 
-11. 배포 프로세스는 몇 시간,이 기간 동안 호스트 컴퓨터는 자동으로 다시 부팅 한 번 걸립니다. 배포 진행률을 모니터링 하려는 경우 로그인 azurestack\AzureStackAdmin로 개발 키트 호스트를 다시 시작 합니다. 배포에 성공 하면 PowerShell 콘솔에 표시 됩니다: **완료: 작업 '배포'**합니다. 
+11. 배포 프로세스는 몇 시간,이 기간 동안 호스트 컴퓨터는 자동으로 다시 부팅 한 번 걸립니다. 배포 진행률을 모니터링 하려는 경우 로그인 azurestack\AzureStackAdmin로 개발 키트 호스트를 다시 시작 합니다. 배포에 성공 하면 PowerShell 콘솔에 표시 됩니다: **완료: 작업 '배포'** 합니다. 
     > [!IMPORTANT]
     > 로그인 되 면 로컬 관리자로 컴퓨터를 도메인에 가입 된 후에 배포 진행률을 볼 수 없습니다. 대신 실행 중인 유효성을 검사 하려면 azurestack\AzureStackAdmin로 로그인, 배포 다시 실행 하지 마십시오.
 

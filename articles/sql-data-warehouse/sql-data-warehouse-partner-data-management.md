@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32187371"
 ---
 # <a name="sql-data-warehouse-data-management-partners"></a>SQL Data Warehouse 데이터 관리 파트너
 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL Data Warehouse를 지원하는 데이터 관리 도구 및 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.

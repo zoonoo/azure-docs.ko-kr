@@ -1,13 +1,13 @@
 ---
-title: "Azure VPN Gateway에서 BGP 구성: Resource Manager 및 CLI | Microsoft Docs"
-description: "이 문서에서는 Azure Resource Manager 및 CLI를 사용하여 Azure VPN Gateway와의 BGP 구성하는 방법을 안내합니다."
+title: 'Azure VPN Gateway에서 BGP 구성: Resource Manager 및 CLI | Microsoft Docs'
+description: 이 문서에서는 Azure Resource Manager 및 CLI를 사용하여 Azure VPN Gateway와의 BGP 구성하는 방법을 안내합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124791"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>CLI를 사용하여 Azure VPN Gateway에서 BGP를 구성하는 방법
 

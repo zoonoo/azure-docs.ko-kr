@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service에 대한 모범 사례"
-description: "Azure App Service에 대한 모범 사례 및 문제 해결에 대해 알아봅니다."
+title: Azure App Service에 대한 모범 사례
+description: Azure App Service에 대한 모범 사례 및 문제 해결에 대해 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: dariagrigoriu
 manager: erikre
 editor: mollybos
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/18/2018
+ms.locfileid: "27868321"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
 이 문서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 

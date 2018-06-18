@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics의 사용자 지정 필드 | Microsoft Docs"
-description: "Log Analytics의 사용자 지정 필드를 사용하면 수집된 레코드의 속성에 추가하는 Log Analytics 레코드에서 자체 검색 가능한 필드를 만들 수 있습니다.  이 문서는 사용자 지정 필드를 만드는 프로세스를 설명하고 샘플 이벤트에 대한 자세한 연습을 제공합니다."
+title: Azure Log Analytics의 사용자 지정 필드 | Microsoft Docs
+description: Log Analytics의 사용자 지정 필드를 사용하면 수집된 레코드의 속성에 추가하는 Log Analytics 레코드에서 자체 검색 가능한 필드를 만들 수 있습니다.  이 문서는 사용자 지정 필드를 만드는 프로세스를 설명하고 샘플 이벤트에 대한 자세한 연습을 제공합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28030707"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드
 Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으로 검색 가능한 필드를 추가하여 Log Analytics의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.

@@ -1,6 +1,6 @@
 ---
-title: SQL 데이터베이스를 사용 하 여 Azure 스택에 | Microsoft Docs
-description: SQL 데이터베이스에서 SQL Server 리소스 공급자 어댑터를 배포 하는 Azure 스택 및 빠른 단계 서비스로 배포 하는 방법을 알아봅니다.
+title: Azure 스택 SQL 리소스 공급자 업데이트 | Microsoft Docs
+description: Azure 스택 SQL 리소스 공급자를 업데이트 하는 방법을 알아봅니다.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 06/11/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fd1c2241fe22dc35ceb09e0ba3650fa0000a77b1
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 3a7656e54181c8e8e7b6b1bd39f80ce8ed01c807
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603619"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294863"
 ---
-# <a name="update-the-sql-resource-provider-adapter"></a>SQL 리소스 공급자 어댑터 업데이트
-Azure 스택 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 업데이트를 순서 대로 설치 해야: 버전을 건너뛸 수 없습니다 (에서 버전 목록을 보려면 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
+# <a name="update-the-sql-resource-provider"></a>SQL 리소스 공급자 업데이트
+Azure 스택 빌드를 업데이트할 때 새 SQL 리소스 공급자를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 최대한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 업데이트를 순서 대로 설치 해야: 버전을 건너뛸 수 없습니다 (에서 버전 목록을 보려면 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)).
 
 사용 하는 리소스 공급자의 업데이트는 *UpdateSQLProvider.ps1* 스크립트입니다. 프로세스에 설명 된 대로 리소스 공급자를 설치 하는 데 사용 하는 프로세스와 비슷합니다는 [리소스 공급자를 배포](.\azure-stack-sql-resource-provider-deploy.md) 문서. 이 스크립트는 리소스 공급자의 다운로드에 포함 합니다.
 

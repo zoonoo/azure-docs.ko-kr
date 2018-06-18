@@ -2,23 +2,21 @@
 title: Azure Cosmos DB에 대한 C++ 자습서 | Microsoft Docs
 description: C++용 Azure Cosmos DB 인증 SDK를 사용하여 C++ 데이터베이스 및 콘솔 응용 프로그램을 만드는 C++ 자습서입니다. Azure Cosmos DB는 전 세계적인 규모의 데이터베이스 서비스입니다.
 services: cosmos-db
-documentationcenter: cpp
-author: asthana86
+author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: b8756b60-8d41-4231-ba4f-6cfcfe3b4bab
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: cpp
-ms.topic: article
-ms.date: 12/25/2016
-ms.author: aasthan
-ms.openlocfilehash: e04723a8fa37d32851dd91cdc45293a549c9ee64
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.topic: tutorial
+ms.date: 06/05/2018
+ms.author: sngun
+ms.openlocfilehash: 0e142eaf4182331e0a5803c54d2cc1284e21b221
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807178"
 ---
 # <a name="azure-cosmos-db-c-console-application-tutorial-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 C++ 콘솔 응용 프로그램 자습서
 > [!div class="op_single_selector"]
@@ -45,14 +43,14 @@ C++용 Azure Cosmos DB SQL API 인증 SDK에 대한 C++ 자습서를 시작합�
 * 문서 삭제
 * C++ Azure Cosmos DB 데이터베이스 삭제
 
-시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/stalker314314/sql-apiCpp)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution) 를 참조하세요.
+시간이 없으십니까? 염려하지 마십시오. [GitHub](https://github.com/stalker314314/DocumentDBCpp)에서 전체 솔루션을 사용할 수 있습니다. 빠른 지침은 [전체 솔루션 다운로드](#GetSolution) 를 참조하세요.
 
 이제 시작하겠습니다.
 
 ## <a name="prerequisites-for-the-c-tutorial"></a>C++ 자습서의 필수 구성 요소
 다음 리소스가 있는지 확인합니다.
 
-* 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+* 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -65,7 +63,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 
 ## <a id="SetupC++"></a>2단계: C++ 응용 프로그램 설정
 1. Visual Studio를 열고 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다. 
-2. **새 프로젝트** 창의 **설치됨** 창에서 **Visual C++**를 확장하고 **Win32**, **Win32 콘솔 응용 프로그램**을 차례로 클릭합니다. 프로젝트 이름을 hellodocumentdb로 지정한 다음 **확인**을 클릭합니다. 
+2. **새 프로젝트** 창의 **설치됨** 창에서 **Visual C++** 를 확장하고 **Win32**, **Win32 콘솔 응용 프로그램**을 차례로 클릭합니다. 프로젝트 이름을 hellodocumentdb로 지정한 다음 **확인**을 클릭합니다. 
    
     ![새 프로젝트 마법사의 스크린샷](media/sql-api-cpp-get-started/hello.png)
 3. Win32 응용 프로그램 마법사가 시작되면 **마침**을 클릭합니다.

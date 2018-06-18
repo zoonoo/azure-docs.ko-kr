@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32179336"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 이 문서에서는 Azure Marketplace에서 승인된 Microsoft 개발자가 되기 위해 필요한 계정 만들기 및 등록 과정을 안내합니다.

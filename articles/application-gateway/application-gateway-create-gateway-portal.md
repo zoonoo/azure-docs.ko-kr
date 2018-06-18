@@ -16,6 +16,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33202391"
 ---
 # <a name="create-an-application-gateway-using-the-azure-portal"></a>Azure Portal을 사용하여 응용 프로그램 게이트웨이 만들기
 

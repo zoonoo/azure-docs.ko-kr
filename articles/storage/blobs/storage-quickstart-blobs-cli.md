@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31415693"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 BLOB 업로드, 다운로드 및 나열
 

@@ -1,11 +1,11 @@
 ---
-title: "공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결 구성: 클래식: Azure | Microsoft Docs"
-description: "이 문서에서는 클래식 배포 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다."
+title: '공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결 구성: 클래식: Azure | Microsoft Docs'
+description: 이 문서에서는 클래식 배포 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
 documentationcenter: na
 services: expressroute
 author: charwen
 manager: carmonm
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/18/2017
+ms.locfileid: "22710136"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
 > [!div class="op_single_selector"]

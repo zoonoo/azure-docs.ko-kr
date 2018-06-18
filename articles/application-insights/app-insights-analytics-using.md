@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2017
-ms.author: danha; mbullwin
-ms.openlocfilehash: 5a49d38ddc9d2181f9b35ac948c44df70bad831b
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: danha
+ms.author: mbullwin
+ms.openlocfilehash: 7f8f49cf88bda8e485d2365281c13680ef796196
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869889"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295522"
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights에서 Analytics 사용
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.

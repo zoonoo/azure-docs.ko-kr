@@ -1,22 +1,20 @@
 ---
-title: "Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 IoT Hub 간 장치 프로비전 | Microsoft Docs"
-description: "Azure Portal에서 부하가 분산된 IoT Hub 간 DPS 자동 장치 프로비전"
-services: iot-dps
-keywords: 
+title: Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 IoT Hub 간 장치 프로비전 | Microsoft Docs
+description: Azure Portal에서 부하가 분산된 IoT Hub 간 DPS 자동 장치 프로비전
 author: sethmanheim
 ms.author: sethm
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: 
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 4842944cd0d980fb7e817165da23b9c3c4037e94
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d0a3720fe729d5e260bbe5b0902460c8c7cfc7cb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629629"
 ---
 # <a name="provision-devices-across-load-balanced-iot-hubs"></a>부하가 분산된 IoT Hub 간 장치 프로비전
 
@@ -28,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 > * DPS 할당 정책을 **균등하게 배포**하도록 설정
 > * DPS에 새 IoT Hub 연결
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -58,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. 할당 정책을 설정하려면 DPS 페이지에서 **할당 정책 관리**를 클릭합니다.
 2. 할당 정책을 **균등 가중치 배포**로 설정합니다.
-3. **Save**를 클릭합니다.
+3. **저장**을 클릭합니다.
 
 ## <a name="link-the-new-iot-hub-to-dps"></a>DPS에 새 IoT Hub 연결
 
@@ -68,7 +66,7 @@ DPS가 해당 허브에 장치를 등록할 수 있도록 DPS와 IoT Hub를 연�
 2. DPS 페이지에서 **연결된 IoT Hub**를 클릭합니다.
 3. **추가**를 클릭합니다.
 4. **IoT Hub에 링크 추가** 페이지에서 라디오 단추를 사용하여 연결된 IoT Hub가 현재 구독 또는 다른 구독 중 어디에 있는지를 지정합니다. 그런 다음 IoT Hub 이름을 **IoT Hub** 상자에서 선택합니다.
-5. **Save**를 클릭합니다.
+5. **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

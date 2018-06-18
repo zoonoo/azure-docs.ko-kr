@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 로컬로 고정된 볼륨 FAQ | Microsoft Docs"
-description: "StorSimple 로컬로 고정된 볼륨에 대한 질문과 대답에 대한 답변을 제공합니다."
+title: StorSimple 로컬로 고정된 볼륨 FAQ | Microsoft Docs
+description: StorSimple 로컬로 고정된 볼륨에 대한 질문과 대답에 대한 답변을 제공합니다.
 services: storsimple
 documentationcenter: NA
 author: manuaery
 manager: syadav
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109471"
 ---
 # <a name="storsimple-locally-pinned-volumes-frequently-asked-questions-faq"></a>StorSimple 로컬로 고정된 볼륨: 질문과 대답(FAQ)
 ## <a name="overview"></a>개요
@@ -161,7 +162,7 @@ StorSimple 장치 관리자 서비스의 **작업** 블레이드에서 이러한
 
 **Q.** 복원하는 동안 볼륨의 유형을 변경할 수 있나요?
 
-**A.**아니요, 복원하는 동안 볼륨의 유형을 변경할 수 없습니다.
+**A.** 아니요, 복원하는 동안 볼륨의 유형을 변경할 수 없습니다.
 
 * 삭제된 볼륨은 스냅숏에 저장된 형식으로 복원됩니다.
 * 기존 볼륨은 스냅숏에 저장된 형식에 관계없이 해당하는 현재 유형을 기반으로 복원됩니다(이전의 두 질문 참조).

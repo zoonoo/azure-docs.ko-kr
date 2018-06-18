@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 장치 관리를 위한 PowerShell | Microsoft Docs"
-description: "StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다."
+title: StorSimple 장치 관리를 위한 PowerShell | Microsoft Docs
+description: StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치를 관리하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743725"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>StorSimple용 Windows PowerShell을 사용하여 장치 관리
 

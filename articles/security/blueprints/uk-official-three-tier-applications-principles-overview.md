@@ -1,6 +1,6 @@
 ---
-title: "영국 공식 3계층 웹 응용 프로그램 자동화-개요"
-description: "영국 공식 3계층 웹 응용 프로그램 자동화-개요"
+title: 영국 공식 3계층 웹 응용 프로그램 자동화-개요
+description: 영국 공식 3계층 웹 응용 프로그램 자동화-개요
 services: security
 documentationcenter: na
 author: jomolesk
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4723859f545bccc38a515192cf86dcf7ba0c0a67
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2018
+ms.locfileid: "29151381"
 ---
 # <a name="national-cyber-security-centre-cloud-security-principles-overview"></a>National Cyber Security Centre 클라우드 보안 원칙 개요
 

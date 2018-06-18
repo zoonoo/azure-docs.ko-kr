@@ -1,6 +1,6 @@
 ---
-title: "위협 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "Microsoft 위협 모델링 도구에 대한 위협 범주 페이지로, 생성되는 모든 노출 위협에 대한 범주를 포함합니다."
+title: 위협 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: Microsoft 위협 모델링 도구에 대한 위협 범주 페이지로, 생성되는 모든 노출 위협에 대한 범주를 포함합니다.
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,12 +19,13 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043308"
 ---
 # <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft 위협 모델링 도구 위협
 
 위협 모델링 도구는 Microsoft SDL(Security Development Lifecycle)의 핵심 요소입니다. 소프트웨어 설계자는 이 도구를 사용하여 비교적 쉽고 비용 효과적으로 문제를 해결할 수 있는 조기에 잠재적인 보안 문제를 식별하고 완화할 수 있습니다. 결과적으로 전체 개발 비용이 크게 절감됩니다. 또한 보안 전문가가 아닌 사용자를 염두에 두고 개발되었으므로 위협 모델을 만들고 분석하기 위한 정확한 지침을 제공하여 모든 개발자가 쉽게 위협 모델링을 수행할 수 있도록 합니다.
 
-> 지금 바로 시작하려면 **[위협 모델링 도구](./azure-security-threat-modeling-tool.md)**를 방문하세요!
+> 지금 바로 시작하려면 **[위협 모델링 도구](./azure-security-threat-modeling-tool.md)** 를 방문하세요!
 
 위협 모델링 도구를 사용하면 아래와 같은 특정 질문에 답할 수 있습니다.
 
@@ -47,4 +48,4 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="next-steps"></a>다음 단계
 
-**[위협 모델링 도구 해결 방법](./azure-security-threat-modeling-tool-mitigations.md)**으로 진행하여 Azure를 사용하여 이러한 위협을 완화할 수 있는 다양한 방법을 알아봅니다.
+**[위협 모델링 도구 해결 방법](./azure-security-threat-modeling-tool-mitigations.md)** 으로 진행하여 Azure를 사용하여 이러한 위협을 완화할 수 있는 다양한 방법을 알아봅니다.

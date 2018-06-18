@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2018
 ms.author: kumud
-ms.openlocfilehash: 14dc28bdca9b1c3cfa78c8120a68f7e2a16fbea1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2e6b8dd5e0ec0ae73fff4a25ad79045e3414e9cc
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361950"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34825002"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -141,7 +141,7 @@ Azure는 포트 가장 SNAT([PAT](#pat))을 사용할 때 백 엔드 풀의 크�
 >[!IMPORTANT]
 >표준 SKU SNAT 프로그래밍은 IP 전송 프로토콜별로 사용되며 부하 분산 규칙에서 파생됩니다.  TCP 부하 분산 규칙만 존재하는 경우, TCP에만 SNAT를 사용할 수 있습니다. TCP 부하 분산 규칙만 있고 UDP에 대한 아웃바운드 SNAT가 필요한 경우, 동일한 프런트 엔드 풀에서 동일한 백 엔드 풀로의 UDP 부하 분산 규칙을 만듭니다.  이렇게 하면 UDP에 대한 SNAT 프로그래밍이 트리거됩니다.  작업 규칙 또는 상태 프로브는 필요하지 않습니다.  기본 SKU SNAT는 부하 분산 규칙에 지정된 전송 프로토콜과 관계없이 항상 IP 전송 프로토콜 둘 다에 대해 SNAT를 프로그래밍합니다.
 
-Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀에 IP 구성이 추가되면 백 엔드 풀 크기에 따라 이 IP 구성에 대한 SNAT 포트가 미리 할당됩니다. 아웃바운드 흐름이 생성되면 [PAT](#pat)는 흐름이 닫히거나 [유휴 제한 시간](#ideltimeout)에 도달하는 경우 이러한 포트를 동적으로 소비(미리 할당된 제한까지)하거나 해제합니다.
+Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀에 IP 구성이 추가되면 백 엔드 풀 크기에 따라 이 IP 구성에 대한 SNAT 포트가 미리 할당됩니다. 아웃바운드 흐름이 생성되면 [PAT](#pat)는 흐름이 닫히거나 [유휴 제한 시간](#idletimeout)에 도달하는 경우 이러한 포트를 동적으로 소비(미리 할당된 제한까지)하거나 해제합니다.
 
 다음 표는 백 엔드 풀 크기 계층의 SNAT 포트 미리 할당을 보여줍니다.
 

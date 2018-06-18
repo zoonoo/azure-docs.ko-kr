@@ -1,11 +1,11 @@
 ---
-title: "BizTalk 서비스에 BizTalk 서버 EDI 솔루션 마이그레이션 기술 가이드 | Microsoft Docs"
-description: "MABS(Microsoft Azure BizTalk 서비스)에 EDI를 마이그레이션 "
+title: BizTalk 서비스에 BizTalk 서버 EDI 솔루션 마이그레이션 기술 가이드 | Microsoft Docs
+description: 'MABS(Microsoft Azure BizTalk 서비스)에 EDI를 마이그레이션 '
 services: biztalk-services
 documentationcenter: na
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998848"
 ---
 # <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk 서비스에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
 

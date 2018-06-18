@@ -14,6 +14,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31790368"
 ---
 # <a name="upgrading-to-the-azure-search-net-management-sdk-version-2"></a>Azure Search .NET Management SDK 버전 2로 업그레이드
 버전 1.0.2 또는 이전 버전의 [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk)를 사용하는 경우 이 문서를 통해 버전 2로 응용 프로그램을 업그레이드할 수 있습니다.

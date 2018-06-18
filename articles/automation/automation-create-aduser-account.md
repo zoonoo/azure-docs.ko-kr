@@ -15,6 +15,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34195508"
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Azure 클래식 배포 및 Resource Manager를 사용하여 Runbook 인증
 이 문서에서는 Azure 클래식 배포 모델 또는 Azure Resource Manager 리소스에 대해 실행되는 Azure Automation Runbook에 대한 Azure AD 사용자 계정을 구성하기 위해 수행해야 하는 단계를 설명합니다. Azure Resource Manager 기반 Runbook에 대해 이 인증 ID가 계속 지원되겠지만 Azure 실행 계정을 사용할 것을 권장합니다.       

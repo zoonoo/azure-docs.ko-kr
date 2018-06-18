@@ -2,7 +2,7 @@
 title: B2B 모니터링을 위한 X12 추적 스키마 - Azure Logic Apps | Microsoft Docs
 description: X12 추적 스키마를 사용하여 Azure 통합 계정의 트랜잭션에서 B2B 메시지를 모니터링합니다.
 author: padmavc
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -15,11 +15,12 @@ ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5a43b9bdf522b6b26f27c082f5cb623f7a76a8b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 385ff73d780f62f19af2face591cd0b2291ef396
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300976"
 ---
 # <a name="start-or-enable-tracking-of-x12-messages-to-monitor-success-errors-and-message-properties"></a>X12 메시지의 추적을 시작 또는 사용하여 성공, 오류 및 메시지 속성을 모니터링합니다.
 기업 간(B2B) 트랜잭션을 모니터링하기 위해 Azure 통합 계정에서 이러한 X12 추적 스키마를 사용할 수 있습니다.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30837441"
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Azure Scheduler의 버전 및 요금 청구
 ## <a name="job-collection-plans"></a>작업 컬렉션 버전

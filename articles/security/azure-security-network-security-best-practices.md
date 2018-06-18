@@ -19,6 +19,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34367327"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 네트워크 보안 모범 사례
 Microsoft Azure는 가상 머신 및 어플라이언스를 Azure Virtual Network에 배치하여 네트워크에 연결된 기타 장치에 연결할 수 있습니다. Azure Virtual Network는 가상 네트워크 인터페이스 카드를 가상 네트워크에 연결하여 네트워크 지원 장치 간에 TCP/IP 통신을 허용하는 구조입니다. Azure Virtual Network에 연결된 Azure Virtual Machines는 동일한 Azure Virtual Network, 다른 Azure Virtual Network, 인터넷 또는 고객의 자체 온-프레미스 네트워크에 있는 장치에 연결할 수 있습니다.

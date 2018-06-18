@@ -22,6 +22,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31423180"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -195,7 +196,7 @@ VM을 만드는 데 몇 분이 걸립니다. VM을 만든 후에는 반환된 �
 
 ## <a name="test-traffic-filters"></a>트래픽 필터 테스트
 
-다음 명령을 사용하여 *myVmMgmt* VM으로 SSH 세션을 만듭니다. *<publicIpAddress>*를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
+다음 명령을 사용하여 *myVmMgmt* VM으로 SSH 세션을 만듭니다. *<publicIpAddress>* 를 VM의 공용 IP 주소로 바꿉니다. 위의 예제에서 IP 주소는 *13.90.242.231*입니다.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

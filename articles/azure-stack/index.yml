@@ -19,6 +19,7 @@ metadata:
   ms.translationtype: MT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 04/23/2018
+  ms.locfileid: "31786539"
 abstract:
   description: Microsoft Azure Stack은 데이터 센터에서 Azure 서비스를 제공할 수 있게 해주는 하이브리드 클라우드 플랫폼 제품입니다. Azure 스택 통합형된 시스템 인프라를 관리 하는 방법 및 서비스 퀵 스타트 및 자습서를 제공 하는 방법에 알아봅니다.<br/><br/>Azure 스택에 대 한 앱을 빌드에 사용되는지와 서비스를 사용 하는 Azure 스택 사용자 인 경우 참조 우리의 <a href="/azure/azure-stack/user">사용자 용 설명 문서</a>합니다.<br/><br/>Azure 스택 연산자에는 Azure 스택 개발 키트 (ASDK)를 다운로드 하 고 무료로 사용할 수 있는 Azure 스택의 단일 노드 배포 관심 있는 경우 참조 우리의 <a href="/azure/azure-stack/asdk">ASDK 설명서</a>합니다.
 sections:

@@ -1,11 +1,11 @@
 ---
-title: "Service Bus 비동기 메시징 | Microsoft Docs"
-description: "Azure Service Bus 비동기 메시지에 대한 설명입니다."
+title: Service Bus 비동기 메시징 | Microsoft Docs
+description: Azure Service Bus 비동기 메시지에 대한 설명입니다.
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28929989"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>비동기 메시징 패턴 및 고가용성
 

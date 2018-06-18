@@ -1,4 +1,20 @@
-
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-suite
+author: dominicbetts
+ms.service: iot-suite
+ms.topic: include
+ms.date: 04/25/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: f27dbf20eab5866ac3061d888c17e970a1d197f7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666758"
+---
 # <a name="azure-and-the-internet-of-things"></a>Azure 및 사물 인터넷
 
 Microsoft Azure 및 IoT(사물 인터넷)를 시작합니다. 이 문서에서는 클라우드에 있는 IoT 솔루션의 일반적인 특징에 대해 설명합니다. IoT 솔루션은 수백만 대에 이르는 장치 및 솔루션 백 엔드 사이의 안전한, 양방향 통신을 필요로 합니다. 예를 들어 장치-클라우드 이벤트 스트림에서 새 정보를 발견하기 위하여 솔루션에서 자동화된 예측 분석을 사용할 수 있습니다.
@@ -58,14 +74,14 @@ IoT 솔루션 아키텍처에서 장치는 일반적으로 저장 및 처리를 
 
 ### <a name="presentation-and-business-connectivity"></a>프레젠테이션 및 Business Connectivity
 
-프레젠테이션 및 Business Connectivity 계층을 통해 최종 사용자가 IoT 솔루션 및 장치를 조작할 수 있습니다. 이를 통해 사용자가 해당 장치에서 수집된 데이터를 보고 분석할 수 있습니다. 이러한 보기는 기록 데이터와 거의 실시간 데이터를 모두 표시할 수 있는 대시보드 또는 BI 보고서 형식일 수 있습니다. 예를 들어 운영자는 특정 펌핑 스테이션의 상태를 검사하고 시스템에서 발생한 경고를 확인할 수 있습니다. 또한 이 계층을 통해 IoT 솔루션 백 엔드와 기존 기간 업무 응용 프로그램을 통합하여 엔터프라이즈 비즈니스 프로세스 또는 워크플로와 연결할 수 있습니다. 예를 들어 예측 유지 관리 솔루션은 유지 관리가 필요한 펌프를 식별한 경우 엔지니어가 펌핑 스테이션을 방문하는 일정을 예약하는 예약 시스템과 통합될 수 있습니다.
+프레젠테이션 및 Business Connectivity 계층을 통해 최종 사용자가 IoT 솔루션 및 장치를 조작할 수 있습니다. 이를 통해 사용자가 해당 장치에서 수집된 데이터를 보고 분석할 수 있습니다. 이러한 보기는 기록 데이터와 거의 실시간 데이터를 모두 표시할 수 있는 대시보드 또는 BI 보고서 형식일 수 있습니다. 예를 들어 운영자는 특정 펌핑 스테이션의 상태를 검사하고 시스템에서 발생한 경고를 확인할 수 있습니다. 또한 이 계층을 통해 IoT 솔루션 백 엔드와 기존 기간 업무 응용 프로그램을 통합하여 엔터프라이즈 비즈니스 프로세스 또는 워크플로와 연결할 수 있습니다. 예를 들어 예측 유지 관리 솔루션 가속기는 유지 관리가 필요한 펌프를 발견하면 예약 시스템과 통합되어 엔지니어의 펌핑 스테이션 방문 일정을 예약할 수 있습니다.
 
 [img-solution-architecture]: ./media/iot-azure-and-iot/iot-reference-architecture.png
 [img-dashboard]: ./media/iot-azure-and-iot/iot-suite.png
 
 [lnk-iot-hub]: ../articles/iot-hub/iot-hub-what-is-iot-hub.md
-[lnk-iot-suite]: ../articles/iot-suite/iot-suite-overview.md
+[lnk-iot-suite]: ../articles/iot-accelerators/iot-accelerators-what-are-solution-accelerators.md
 [lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT Suite]: http://azure.microsoft.com/solutions/iot
+[Azure IoT solution accelerators]: http://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

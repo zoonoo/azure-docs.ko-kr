@@ -20,6 +20,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34068544"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>다른 제품으로 종량제 구독 변경
 

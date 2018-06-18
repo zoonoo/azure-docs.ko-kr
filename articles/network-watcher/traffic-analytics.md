@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: jdial
-ms.openlocfilehash: ba7589b0fcbb987ef4e7225ea5a4cceda9ad1179
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f7603d56a56e45771fa170c05ec62a0725ba367a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715825"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -70,7 +71,7 @@ Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
 
 ### <a name="select-a-network-security-group"></a>네트워크 보안 그룹 선택 
 
-NSG 흐름 로깅을 활성화하려면 흐름을 기록할 네트워크 보안 그룹이 있어야 합니다. 네트워크 보안 그룹이 없는 경우 [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)를 참조하여 새로 만듭니다.
+NSG 흐름 로깅을 활성화하려면 흐름을 기록할 네트워크 보안 그룹이 있어야 합니다. 네트워크 보안 그룹이 없는 경우 [네트워크 보안 그룹 만들기](../virtual-network/manage-network-security-group.md#create-a-network-security-group)를 참조하여 새로 만듭니다.
 
 Azure Portal의 왼쪽에서 **모니터**, **Network Watcher**, **NSG 흐름 로그**를 차례로 선택합니다. 다음 그림과 같이 NSG 흐름 로그를 사용하도록 설정할 네트워크 보안 그룹을 선택합니다.
 

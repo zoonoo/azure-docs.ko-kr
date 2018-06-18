@@ -1,13 +1,13 @@
 ---
-title: "그룹 또는 컬렉션으로 EDI 메시지를 일괄 처리 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱에서의 일괄 처리를 위해 EDI 메시지 보내기"
-keywords: "일괄 처리, 일괄 처리 프로세스, 일괄 처리 인코딩"
+title: 그룹 또는 컬렉션으로 EDI 메시지를 일괄 처리 - Azure Logic Apps | Microsoft Docs
+description: 논리 앱에서의 일괄 처리를 위해 EDI 메시지 보내기
+keywords: 일괄 처리, 일괄 처리 프로세스, 일괄 처리 인코딩
 author: divswa
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: LADocs; estfan; divswa
-ms.openlocfilehash: 837cb0d9595da5b5bd4f01fb4576f75e98ab8912
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 6340d1fc409b64c5e681f9f69e4e2d0895ede61f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299293"
 ---
 # <a name="send-x12-messages-in-batch-to-trading-partners"></a>거래 업체에 X12 메시지를 일괄 전송
 
@@ -84,7 +85,7 @@ X12 메시지에 대한 일괄 처리는 다른 메시지와 마찬가지로 일
 
    a. **+ 다음 단계** > **작업 추가**를 선택합니다.
 
-   b. 검색 상자에 "X12 일괄 처리"를 필터로 입력하고 **X12 - 일괄 처리 인코딩**에 대한 작업을 선택합니다. X12 인코딩 커넥터와 마찬가지로 일괄 처리 인코딩 작업에는 여러 가지 변형이 있습니다. 둘 중 하나를 선택할 수 있습니다.
+   나. 검색 상자에 "X12 일괄 처리"를 필터로 입력하고 **X12 - 일괄 처리 인코딩**에 대한 작업을 선택합니다. X12 인코딩 커넥터와 마찬가지로 일괄 처리 인코딩 작업에는 여러 가지 변형이 있습니다. 둘 중 하나를 선택할 수 있습니다.
 
    ![X12 일괄 처리 인코딩 작업 선택](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
    
@@ -136,7 +137,7 @@ X12 메시지에 대한 일괄 처리는 다른 메시지와 마찬가지로 일
 
    2. 검색 상자에서 필터로 “일괄 처리”를 입력합니다. 
 
-3. **일괄 처리로 메시지 보내기 – 일괄 처리 트리거를 사용하여 논리 앱 워크플로 선택** 작업을 선택합니다.
+3. **일괄 처리로 메시지 보내기 – 일괄 처리 트리거를 사용하여 Logic Apps 워크플로 선택** 작업을 선택합니다.
 
    ![“일괄 처리로 메시지 보내기” 선택](./media/logic-apps-scenario-EDI-send-batch-messages/send-messages-batch-action.png)
 

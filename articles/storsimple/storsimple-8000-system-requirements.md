@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 시스템 요구 사항 | Microsoft Docs"
-description: "Microsoft Azure StorSimple 솔루션에 대한 모범 사례와 소프트웨어, 네트워킹, 고가용성 요구 사항을 설명합니다."
+title: StorSimple 8000 시리즈 시스템 요구 사항 | Microsoft Docs
+description: Microsoft Azure StorSimple 솔루션에 대한 모범 사례와 소프트웨어, 네트워킹, 고가용성 요구 사항을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/23/2018
+ms.locfileid: "28011064"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>StorSimple 8000 시리즈 소프트웨어, 높은 가용성 및 네트워킹 요구 사항
 

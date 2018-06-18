@@ -1,12 +1,12 @@
 ---
-title: "Azure Active Directory PoC 플레이 북 소개 | Microsoft Docs"
-description: "ID 및 액세스 관리 시나리오를 탐색하고 신속하게 구현"
+title: Azure Active Directory PoC 플레이 북 소개 | Microsoft Docs
+description: ID 및 액세스 관리 시나리오를 탐색하고 신속하게 구현
 services: active-directory
-keywords: "Azure Active Directory, 플레이 북, 개념 증명, PoC"
-documentationcenter: 
+keywords: Azure Active Directory, 플레이 북, 개념 증명, PoC
+documentationcenter: ''
 author: dstefanMSFT
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26601211"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-introduction"></a>Azure Active Directory 개념 증명 플레이 북 구성: 소개
 

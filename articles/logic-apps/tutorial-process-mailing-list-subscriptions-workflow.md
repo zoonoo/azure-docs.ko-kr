@@ -1,12 +1,12 @@
 ---
-title: "메일 그룹 요청을 처리하는 승인 워크플로 만들기 - Azure Logic Apps | Microsoft Docs"
-description: "이 자습서에서는 Azure Logic Apps로 메일 그룹 구독을 처리하는 자동화된 승인 워크플로를 만드는 방법을 보여줍니다."
+title: 메일 그룹 요청을 처리하는 승인 워크플로 만들기 - Azure Logic Apps | Microsoft Docs
+description: 이 자습서에서는 Azure Logic Apps로 메일 그룹 구독을 처리하는 자동화된 승인 워크플로를 만드는 방법을 보여줍니다.
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4765a38689d5476331c593b89e54f94d4bd310c3
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300677"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>논리 앱으로 메일 그룹 요청 관리
 
@@ -49,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 <a href="https://azure.
 
 * 승인 워크플로를 지원하는 이메일 계정과 Office 365 Outlook 또는 Outlook.com. 이 문서에서는 Office 365 Outlook을 사용합니다. 다른 이메일 계정을 사용하는 경우 일반적인 단계는 동일하지만 UI가 약간 다르게 표시될 수 있습니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 

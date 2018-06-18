@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택 개요에서 업데이트를 관리 | Microsoft Docs"
-description: "Azure 스택 통합 시스템에 대 한 업데이트 관리에 알아봅니다."
+title: Azure 스택 개요에서 업데이트를 관리 | Microsoft Docs
+description: Azure 스택 통합 시스템에 대 한 업데이트 관리에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 9b0781f4-2cd5-4619-a9b1-59182b4a6e43
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27620926"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure 스택 개요에 대 한 업데이트 관리
 

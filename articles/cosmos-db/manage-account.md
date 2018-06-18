@@ -3,23 +3,20 @@ title: Azure Portal을 통해 Azure Cosmos DB 계정 관리 | Microsoft Docs
 description: Azure Portal을 통해 Azure Cosmos DB 계정을 관리하는 방법을 알아봅니다. Azure Portal을 사용하여 계정을 보기, 복사, 삭제 및 액세스하는 방법에 대한 지침을 찾습니다.
 keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: kirillg
 manager: kfile
 editor: cgronlun
-ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 9c8126c7f902beec348419c0362722a692cb393e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8b28143dc92fa526b631baf6d47e4a9f2367ee0e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612159"
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정을 관리하는 방법
 Azure Portal에서 전역 일관성을 설정하고, 키로 작업하고, Azure Cosmos DB 계정을 삭제하는 방법에 대해 알아봅니다.

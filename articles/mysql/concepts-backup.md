@@ -1,19 +1,20 @@
 ---
-title: "Azure Database for MySQL의 백업 및 복원"
-description: "Azure Database for MySQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다."
+title: Azure Database for MySQL의 백업 및 복원
+description: Azure Database for MySQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
 services: mysql
 author: kamathsun
 ms.author: sukamat
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 1cc2c6ccb4459c5c942297cab46378502b63c5bc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bdc9a0ef393b55563691d7a52f8fa074eacc4594
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264479"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -79,4 +80,4 @@ Azure Database for MySQL에서 복원을 수행하면 원래 서버의 백업에
 
 - 비즈니스 연속성에 대한 자세한 내용은  [비즈니스 연속성 개요](concepts-business-continuity.md)를 참조하세요.
 - Azure Portal을 사용하여 특정 시점으로 복원하려면  [Azure Portal을 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-portal.md)을 참조하세요.
-- Azure CLI를 사용하여 특정 시점으로 복원하려면  [Azure CLI를 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-cli.md)을 참조하세요.
+- Azure CLI를 사용하여 특정 시점으로 복원하려면  [CLI를 사용하여 특정 시점으로 데이터베이스 복원](howto-restore-server-cli.md)을 참조하세요.

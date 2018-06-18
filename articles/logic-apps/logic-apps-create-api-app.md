@@ -1,12 +1,12 @@
 ---
-title: "Azure Logic Apps용 웹 API 및 REST API 만들기 | Microsoft Docs"
-description: "시스템 통합을 위해 논리 앱 워크플로에서 API, 서비스 또는 시스템을 호출하는 웹 API 및 REST API를 만듭니다."
-keywords: "웹 API, REST API, 워크플로, 시스템 통합"
+title: Azure Logic Apps용 웹 API 및 REST API 만들기 | Microsoft Docs
+description: 시스템 통합을 위해 논리 앱 워크플로에서 API, 서비스 또는 시스템을 호출하는 웹 API 및 REST API를 만듭니다.
+keywords: 웹 API, REST API, 워크플로, 시스템 통합
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
 ms.workload: integration
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/26/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: ec7fe2adfb89edd635adcf247eea0b98f7007b1b
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 3ca55bb0a9f4719bd2229aca626d20c53af9fd1e
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299531"
 ---
 # <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>논리 앱 워크플로에서 호출할 수 있는 사용자 지정 API 만들기
 
@@ -178,7 +179,7 @@ API의 관점에서 설명하는 폴링 트리거의 구체적인 단계는 다�
 
 | 요청에 `triggerState`가 있습니까? | API 응답 | 
 | -------------------------------- | -------------| 
-| 아니요 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
+| 아니오 | HTTP `202 ACCEPTED` 상태 및 현재 시간으로 설정된 `triggerState`와 15초로 설정된 `retry-after` 간격이 포함된 `location` 헤더를 반환합니다. | 
 | 예 | `triggerState`에 대한 `DateTime` 이후에 추가된 파일에 대한 서비스를 확인합니다. | 
 ||| 
 

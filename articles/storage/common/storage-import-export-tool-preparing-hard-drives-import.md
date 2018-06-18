@@ -1,12 +1,12 @@
 ---
-title: "Azure Import/Export 가져오기 작업을 위한 하드 드라이브 준비 | Microsoft Docs"
-description: "WAImportExport 도구로 하드 드라이브를 준비하여 Azure Import/Export 서비스의 가져오기 작업을 만드는 방법에 대해 알아봅니다."
+title: Azure Import/Export 가져오기 작업을 위한 하드 드라이브 준비 | Microsoft Docs
+description: WAImportExport 도구로 하드 드라이브를 준비하여 Azure Import/Export 서비스의 가져오기 작업을 만드는 방법에 대해 알아봅니다.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/19/2017
+ms.locfileid: "23469242"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 

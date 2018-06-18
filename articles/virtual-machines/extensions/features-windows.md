@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 88852fe7843e24fde50749e2f994bcfeb596305d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33945115"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809729"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -59,7 +59,7 @@ Azure VM 에이전트는 Azure VM과 Azure 패브릭 컨트롤러 간 상호 작
 
 Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레임워크는 OS 확장에 대한 제한이 있습니다. 자세한 내용은 [이 아티클](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems)을 참조하세요.
 
-일부 확장은 모든 OS에서 지원되지 않으며 *오류 코드 51, '지원되지 않는 OS'* 를 내보낼 수 있습니다. 지원 가능성에 대한 개별 확장 설명서를 확인합니다.
+일부 확장은 모든 OS에서 지원되지 않으며 *오류 코드 51, ‘지원되지 않는 OS’* 를 내보낼 수 있습니다. 지원 가능성에 대한 개별 확장 설명서를 확인합니다.
 
 #### <a name="network-access"></a>네트워크 액세스
 
@@ -68,7 +68,7 @@ Windows 게스트 에이전트는 여러 OS에서 실행되지만 확장 프레�
 > [!IMPORTANT]
 > 게스트 방화벽을 사용하여 *168.63.129.1*에 대한 액세스를 차단한 경우 확장은 위와 관계 없이 실패합니다.
 
-에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 응용 프로그램이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
+에이전트는 확장 패키지 및 보고 상태를 다운로드하는 데 사용할 수 있습니다. 예를 들어 확장을 설치하는 데 GitHub에서 스크립트(사용자 지정 스크립트)를 다운로드해야 하거나 Azure Storage(Azure Backup)에 대한 액세스 권한이 필요한 경우 방화벽/네트워크 보안 그룹 포트를 열어야 합니다. 확장마다 고유한 권한의 응용 프로그램이므로 요구 사항이 다릅니다. Azure Storage에 대한 액세스 권한이 필요한 확장의 경우 [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)에 Azure NSG 서비스 태그를 사용하여 액세스할 수 있습니다.
 
 Windows 게스트 에이전트는 에이전트 트래픽 요청을 리디렉션하는 프록시 서버를 지원하지 않습니다.
 
@@ -135,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzureRmVMExtension 참조](https://msdn.microsoft.com/en-us/library/mt603745.aspx)를 참조하세요.
+`Set-AzureRmVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzureRmVMExtension 참조](https://msdn.microsoft.com/library/mt603745.aspx)를 참조하세요.
 
 
 ### <a name="azure-portal"></a>Azure portal
@@ -420,7 +420,7 @@ Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -N
 | Windows용 사용자 지정 스크립트 확장 |Azure Virtual Machine에 대해 스크립트 실행 |[Windows용 사용자 지정 스크립트 확장](custom-script-windows.md) |
 | Windows용 DSC 확장 |PowerShell DSC(Desired State Configuration) 확장 |[Windows용 DSC 확장](dsc-overview.md) |
 | Azure 진단 확장 |Azure 진단 관리 |[Azure 진단 확장](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM 액세스 확장 |사용자 및 자격 증명 관리 |[Linux용 VM 액세스 확장](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>다음 단계
 

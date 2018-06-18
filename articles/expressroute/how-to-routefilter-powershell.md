@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31593494"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft 피어링에 대한 경로 필터 구성: PowerShell
 > [!div class="op_single_selector"]

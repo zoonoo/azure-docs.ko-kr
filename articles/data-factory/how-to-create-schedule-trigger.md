@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 6466d6cb535bbe0042d7c4c3e828e576e23d5d07
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618925"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 이 문서에서는 일정 트리거 및 일정 트리거를 만들고 시작 및 모니터링하는 단계에 대한 정보를 제공합니다. 다른 트리거 유형의 경우 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
@@ -41,13 +42,13 @@ ms.lasthandoff: 03/23/2018
 1. 메뉴에서 **트리거**를 클릭하고 **새로 만들기/편집**을 클릭합니다. 
 
     ![새 트리거 메뉴](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
-2. **트리거 추가** 페이지에서 **트리거 선택...**을 클릭하고 **새로 만들기**를 클릭합니다. 
+2. **트리거 추가** 페이지에서 **트리거 선택...** 을 클릭하고 **새로 만들기**를 클릭합니다. 
 
     ![트리거 추가 - 새 트리거](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
 3. **새 트리거** 페이지에서 다음 단계를 수행합니다. 
 
     1. **형식**에 대해 **일정**이 선택되었는지 확인합니다. 
-    2. **날짜 시작(UTC)**에 대한 트리거의 시작 날짜/시간을 지정합니다. 기본적으로 현재 날짜/시간으로 설정됩니다. 
+    2. **날짜 시작(UTC)** 에 대한 트리거의 시작 날짜/시간을 지정합니다. 기본적으로 현재 날짜/시간으로 설정됩니다. 
     3. 트리거에 대한 **되풀이**를 지정합니다. 드롭다운 목록에서 값 중 하나를 선택합니다(매분, 매시간, 매일, 매주 및 매월). 텍스트 상자에서 승수를 입력합니다. 예를 들어 트리거를 15분마다 한 번 실행하려는 경우 **매분**을 선택하고, 텍스트 상자에 **15**를 입력합니다. 
     4. **종료** 필드에서 트리거에 대한 종료 날짜/시간을 지정하지 않은 경우 **종료 없음**을 선택합니다. 종료 날짜/시간을 지정하려면 **날짜에**를 선택하고, 종료 날짜/시간을 지정하고, **적용**을 클릭합니다. 각 파이프라인 실행과 관련된 비용이 있습니다. 테스트하는 경우 파이프라인을 몇 번만 트리거하도록 합니다. 그러나 게시 시간과 종료 시간 사이에 파이프라인이 실행되는 데 충분한 시간이 있는지 확인합니다. 트리거는 UI에 트리거를 저장할 때가 아니라 Data Factory에 솔루션을 게시한 후에만 적용됩니다.
 
@@ -325,7 +326,7 @@ Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 유형 | 필수 | 기본값 | 유효한 값 | 예 |
+| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **startTime** | 문자열 | 예 | 없음 | ISO-8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
 | **recurrence** | Object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |

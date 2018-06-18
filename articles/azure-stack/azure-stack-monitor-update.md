@@ -1,11 +1,11 @@
 ---
-title: "업데이트 권한이 있는 끝점을 사용 하 여 Azure 스택의 모니터링 | Microsoft Docs"
-description: "Azure 스택 통합 시스템에 대 한 업데이트 상태를 모니터링 하는 권한 있는 끝점을 사용 하는 방법에 알아봅니다."
+title: 업데이트 권한이 있는 끝점을 사용 하 여 Azure 스택의 모니터링 | Microsoft Docs
+description: Azure 스택 통합 시스템에 대 한 업데이트 상태를 모니터링 하는 권한 있는 끝점을 사용 하는 방법에 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/06/2018
+ms.locfileid: "27621864"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>권한 있는 끝점을 사용 하 여 Azure 스택의 업데이트 모니터링
 

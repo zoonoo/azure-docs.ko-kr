@@ -1,25 +1,19 @@
 ---
-title: Resource Manager 템플릿을 사용하여 로그 경고 만들기 | Microsoft Docs
+title: Resource Manager 템플릿을 사용하여 로그 경고 만들기
 description: Azure Resource Manager 템플릿 및 API를 사용하여 로그 경고를 만드는 방법을 알아봅니다.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 14a2560d91fd0f8dcc729b32c7155c4b74aa8aa1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204161"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263204"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 로그 경고 만들기
 이 문서에서는 [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) 및 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)를 통해 [Azure Resource Manager 템플릿](..//azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure의 규모에서 프로그래밍 방식으로 [로그 경고](monitor-alerts-unified-log.md)를 관리하는 방법을 보여줍니다. 현재 Azure Alerts는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)와 [Azure Application Insights](../application-insights/app-insights-analytics-tour.md)에서 쿼리에 대한 로그 경고를 지원합니다.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206485"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>응용 프로그램을 마이그레이션하기 전에 Cloud Services와 서비스 패브릭 간의 차이점에 대해 알아봅니다.
 Microsoft Azure 서비스 패브릭은 확장성이 뛰어난 매우 안정적인 분산된 응용 프로그램을 위한 차세대 클라우드 응용 프로그램 플랫폼입니다. 분산된 클라우드 응용 프로그램을 패키징, 배포, 업그레이드 및 관리하 위한 여러 가지 새로운 기능을 소개합니다. 

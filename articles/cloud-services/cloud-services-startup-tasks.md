@@ -1,11 +1,11 @@
 ---
-title: "Azure 클라우드 서비스에서 시작 작업 실행 | Microsoft Docs"
-description: "시작 작업을 통해 응용 프로그램에 대한 클라우드 서비스 환경을 준비합니다. 시작 작업의 작동 방법 및 만드는 방법을 배웁니다."
+title: Azure 클라우드 서비스에서 시작 작업 실행 | Microsoft Docs
+description: 시작 작업을 통해 응용 프로그램에 대한 클라우드 서비스 환경을 준비합니다. 시작 작업의 작동 방법 및 만드는 방법을 배웁니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 886939be-4b5b-49cc-9a6e-2172e3c133e9
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999138"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>클라우드 서비스에 대한 시작 작업 구성 및 실행 방법
 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다.

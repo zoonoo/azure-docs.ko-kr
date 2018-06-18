@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34206439"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 재해 복구
 고가용성 전달의 중요한 부분은 서비스가 다른 모든 유형의 오류를 감당할 수 있는지 확인하는 것입니다. 계획되지 않으며 사용자 통제 하에 있지 않은 오류의 경우 특히 이러한 과정이 중요합니다. 이 문서에서는 올바르게 모델링 및 관리되지 않는 경우 재해가 될 수 있는 몇 가지 일반적인 오류 모드에 대해 설명합니다. 또한 재해가 발생할 경우 수행할 완화 및 작업에 대해서도 설명합니다. 목표는 계획 여부에 관계없이 오류가 발생할 때 가동 중지 시간 또는 데이터 손실의 위험을 없애거나 제한하는 것입니다.

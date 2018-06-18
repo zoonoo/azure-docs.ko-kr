@@ -4,7 +4,7 @@ description: Azure Logic Apps를 사용하여 엔터프라이즈 통합 및 B2B 
 services: logic-apps
 documentationcenter: ''
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: d3ad9e99-a9ee-477b-81bf-0881e11e632f
 ms.service: logic-apps
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: e661920974c2b0d28200d4c3d82bd644a7a55395
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 2a1fe501386884e02657d4b6cbef58ffc533fa33
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166242"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297991"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-solutions-with-logic-apps"></a>논리 앱을 사용하여 B2B 솔루션에 대한 통합 계정 만들기 및 관리
 
@@ -58,7 +58,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
    | 구독 | 예 | <*Azure-subscription-name*> | 사용할 Azure 구독의 이름입니다. | 
    | 리소스 그룹 | 예 | test-integration-account-rg | 관련 리소스를 구성하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름입니다. 여기서는 지정된 이름으로 새 리소스 그룹을 만듭니다. | 
    | 가격 책정 계층 | 예 | 무료 | 사용하려는 가격 책정 계층입니다. 여기서는 **체험**을 선택하지만, 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md) 및 [Logic Apps 가격](https://azure.microsoft.com/pricing/details/logic-apps/)을 참조하세요. | 
-   | 위치 | 예 | 미국 서부 | 통합 계정 정보를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 예: | 
+   | 위치 | 예 | 미국 서부 | 통합 계정 정보를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. | 
    | Log Analytics | 아니오 | 꺼짐 | 진단 로깅에 대한 설정을 **끄기**로 유지합니다. | 
    ||||| 
 

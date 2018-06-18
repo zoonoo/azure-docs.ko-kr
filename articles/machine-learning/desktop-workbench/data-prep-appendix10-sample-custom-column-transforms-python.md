@@ -7,19 +7,21 @@ ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 02670fa4506237ac391e467e5c7a1187b1131ece
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: babe7b8dd1ea459fd3478d20dd7d69138c9ca163
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830098"
 ---
 # <a name="sample-of-custom-column-transforms-python"></a>사용자 지정 열 변환 샘플(Python) 
-메뉴에서 이 변환의 이름은 **Add Column(스크립트)**입니다.
+메뉴에서 이 변환의 이름은 **Add Column(스크립트)** 입니다.
 
 이 부록을 읽기 전에 [Python 확장성 개요](data-prep-python-extensibility-overview.md)를 참조하세요.
 

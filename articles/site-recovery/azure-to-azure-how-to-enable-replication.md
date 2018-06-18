@@ -6,21 +6,18 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 05/31/2018
 ms.author: asgang
-ms.openlocfilehash: 5e1361e681c17d4106b9c79fee56efa06be2a745
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 175b71488b429b3fd69d23db6cc9318d8db20568
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209460"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715975"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>다른 Azure 지역으로 Azure 가상 머신 복제
 
 
->[!NOTE]
->
-> Azure 가상 머신에 대한 Site Recovery 복제는 현재 미리 보기로 제공됩니다.
 
 이 문서에서는 한 Azure 지역에서 다른 Azure 지역으로 Azure VM 복제를 사용하는 방법을 설명합니다.
 

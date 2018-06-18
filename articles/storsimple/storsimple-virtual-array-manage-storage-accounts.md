@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Virtual Array의 저장소 계정 공유 자격 증명 관리 | Microsoft Docs"
-description: "StorSimple 장치 관리자 구성 페이지를 사용하여 StorSimple Virtual Array과 연결된 저장소 계정 자격 증명의 보안 키를 추가, 편집, 삭제 또는 회전하는 방법을 설명합니다."
+title: StorSimple Virtual Array의 저장소 계정 공유 자격 증명 관리 | Microsoft Docs
+description: StorSimple 장치 관리자 구성 페이지를 사용하여 StorSimple Virtual Array과 연결된 저장소 계정 자격 증명의 보안 키를 추가, 편집, 삭제 또는 회전하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 234bf8bb-d5fe-40be-9d25-721d7482bc3b
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111711"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>StorSimple 장치 관리자를 사용하여 StorSimple 가상 배열의 저장소 계정 자격 증명 관리
 

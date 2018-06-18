@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594378"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>자습서: 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터 복사
 이 자습서에서는 Azure PowerShell을 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 Data Factory 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다. 
@@ -421,8 +422,8 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     > [!IMPORTANT]
     > - SQL Server 인스턴스에 연결하는 데 사용한 인증에 기반한 섹션을 선택합니다.
-    > - **\<integration runtime 이름>**을 사용자의 Integration Runtime 이름으로 바꿉니다.
-    > - 파일을 저장하기 전에 **\<servername>**, **\<databasename>**, **\<username>** 및 **\<password>**를 Microsoft SQL Server 인스턴스의 값으로 바꿉니다.
+    > - **\<integration runtime 이름>** 을 사용자의 Integration Runtime 이름으로 바꿉니다.
+    > - 파일을 저장하기 전에 **\<servername>**, **\<databasename>**, **\<username>** 및 **\<password>** 를 Microsoft SQL Server 인스턴스의 값으로 바꿉니다.
     > - 백슬래시(\\)를 사용자 계정 또는 서버 이름에 사용해야 하는 경우 앞에 이스케이프 문자(\\)를 사용합니다. 예를 들어 *mydomain\\\\myuser*를 사용합니다. 
 
 2. 중요한 데이터(사용자 이름, 암호 등)를 암호화하려면 `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential` cmdlet을 실행합니다.  

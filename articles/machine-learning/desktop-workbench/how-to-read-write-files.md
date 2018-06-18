@@ -7,14 +7,16 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 099ff69b396c35730471d684b59115f03ccf67d9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 3e7436c4b69a27931238ea80304231394074ffe3
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831097"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>변경 내용을 유지하고 큰 파일 사용
 Azure Machine Learning 실험 서비스를 사용하여 다양한 실행 대상을 구성할 수 있습니다. 로컬 컴퓨터 또는 로컬 컴퓨터의 Docker 컨테이너처럼 로컬인 대상도 있고, 원격 컴퓨터 또는 HDInsight 클러스터의 Docker 컨테이너처럼 원격인 대상도 있습니다. 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experimentation-service-configuration.md)를 참조하세요. 
@@ -126,7 +128,7 @@ nativeSharedDirectory: ~/.azureml/share
 >[!IMPORTANT]
 >`AZUREML_NATIVE_SHARE_DIRECTORY` 환경 변수를 사용하여 공유 폴더에 액세스하는 경우 **sharedVolumes** 속성을 *true*로 설정해야 합니다. 그렇지 않으면 실행이 실패합니다.
 
-Docker 컨테이너에서 실행되는 코드는 이 공유 폴더가 항상 */azureml-share/*로 표시됩니다. Docker 컨테이너에 표시되는 이 폴더 경로는 구성할 수 없습니다. 코드에서 이 폴더 이름은 사용하지 마세요. 대신 항상 환경 변수 이름 `AZUREML_NATIVE_SHARE_DIRECTORY`를 사용하여 이 폴더를 나타냅니다. 이 경로는 Docker 호스트 컴퓨터 또는 계산 컨텍스트의 로컬 폴더에 매핑됩니다. 이 로컬 폴더의 기본 디렉터리는 *.compute* 파일에서 구성 가능한 `nativeSharedDirectory` 설정 값입니다. 기본값을 사용하는 경우 호스트 컴퓨터의 공유 폴더 로컬 경로는 다음과 같습니다.
+Docker 컨테이너에서 실행되는 코드는 이 공유 폴더가 항상 */azureml-share/* 로 표시됩니다. Docker 컨테이너에 표시되는 이 폴더 경로는 구성할 수 없습니다. 코드에서 이 폴더 이름은 사용하지 마세요. 대신 항상 환경 변수 이름 `AZUREML_NATIVE_SHARE_DIRECTORY`를 사용하여 이 폴더를 나타냅니다. 이 경로는 Docker 호스트 컴퓨터 또는 계산 컨텍스트의 로컬 폴더에 매핑됩니다. 이 로컬 폴더의 기본 디렉터리는 *.compute* 파일에서 구성 가능한 `nativeSharedDirectory` 설정 값입니다. 기본값을 사용하는 경우 호스트 컴퓨터의 공유 폴더 로컬 경로는 다음과 같습니다.
 ```
 # Windows
 C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\

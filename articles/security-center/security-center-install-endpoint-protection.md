@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center를 사용하여 Endpoint Protection 문제 관리 | Microsoft Docs"
-description: "Azure Security Center에서 Endpoint Protection 문제를 관리하는 방법에 대해 알아봅니다."
+title: Azure Security Center를 사용하여 Endpoint Protection 문제 관리 | Microsoft Docs
+description: Azure Security Center에서 Endpoint Protection 문제를 관리하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 1599ad5f-d810-421d-aafc-892e831b403f
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/24/2017
+ms.locfileid: "23497351"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Azure Security Center를 사용하여 Endpoint Protection 문제 관리
 Azure Security Center는 맬웨어 방지 보호의 상태를 모니터링하여 Endpoint Protection 문제 블레이드 아래에서 해당 내용을 보고합니다. Security Center에서는 VM(가상 컴퓨터) 및 컴퓨터를 맬웨어 방지 위협에 취약하게 만들 수 있는 검색된 위협, 불충분한 보호 수준 등의 문제가 강조 표시됩니다. **Endpoint Protection 문제** 아래의 정보를 사용하면 확인된 문제를 해결하기 위한 계획을 파악할 수 있습니다.

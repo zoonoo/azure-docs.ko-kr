@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Virtual Array를 파일 서버로 설정 | Microsoft Docs"
-description: "StorSimple 가상 배열 배포의 세 번째 자습서는 가상 장치를 파일 서버로 설정하는 방법을 설명합니다."
+title: StorSimple Virtual Array를 파일 서버로 설정 | Microsoft Docs
+description: StorSimple 가상 배열 배포의 세 번째 자습서는 가상 장치를 파일 서버로 설정하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: f609f6ff-0927-48bb-a68a-6d8985d2fe34
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111851"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>StorSimple 가상 배열 배포 - Azure Portal을 통해 파일 서버로 설정
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -169,7 +170,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 공유를 만들려면 [Azure Portal](https://portal.azure.com/)에서 다음 단계를 수행합니다.
 
 #### <a name="to-create-a-share"></a>공유를 만들려면
-1. 이전 단계에서 구성한 파일 서버 장치를 선택하고 **...**를 클릭(하거나 마우스 오른쪽 단추로 클릭)합니다. 상황에 맞는 메뉴에서 **공유 추가**를 선택합니다. 또는 장치 명령 모음에서 **+공유 추가**를 클릭할 수 있습니다.
+1. 이전 단계에서 구성한 파일 서버 장치를 선택하고 **...** 를 클릭(하거나 마우스 오른쪽 단추로 클릭)합니다. 상황에 맞는 메뉴에서 **공유 추가**를 선택합니다. 또는 장치 명령 모음에서 **+공유 추가**를 클릭할 수 있습니다.
    
    ![공유 추가](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. 다음 공유 설정을 지정합니다.
@@ -199,7 +200,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 이전 단계에서 만든 하나 이상의 공유에 연결해야 합니다. StorSimple 가상 배열에 연결된 Windows Server 호스트에서 이러한 단계를 수행합니다.
 
 #### <a name="to-connect-to-the-share"></a>공유에 연결하려면
-1. ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 키를 누릅니다. 실행 창에서 *&#92;&#92;&lt;파일 서버 이름&gt;*으로 경로를 지정하고, *파일 서버 이름*을 파일 서버에 할당한 장치 이름으로 변경합니다. **확인**을 클릭합니다.
+1. ![](./media/storsimple-virtual-array-deploy3-fs-setup/image22.png) + R 키를 누릅니다. 실행 창에서 *&#92;&#92;&lt;파일 서버 이름&gt;* 으로 경로를 지정하고, *파일 서버 이름*을 파일 서버에 할당한 장치 이름으로 변경합니다. **확인**을 클릭합니다.
    
    ![](./media/storsimple-virtual-array-deploy3-fs-setup/image23.png)
 2. 그러면 파일 탐색기가 열립니다. 폴더로 만든 공유가 표시됩니다. 공유(폴더)를 선택하고 두 번 클릭하여 콘텐츠를 봅니다.

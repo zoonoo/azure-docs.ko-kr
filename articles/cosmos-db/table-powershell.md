@@ -2,28 +2,26 @@
 title: PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행 | Microsoft Docs
 description: PowerShell을 사용하여 Azure Cosmos DB Table API 작업을 수행하는 방법
 services: storage
-documentationcenter: storage
-author: robinsh
-manager: timlt
+author: SnehaGunda
+manager: kfile
 editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: d40a56ca3c07bfadcf6e24d407b059a39522ca2b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: sngun
+ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798647"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행 
 
 >[!NOTE]
->Azure Cosmos DB Table API는 턴키 전역 배포, 짧은 읽기 및 쓰기 대기 시간, 자동 보조 인덱싱 및 전용 처리량 등 테이블 저장소에 대한 프리미엄 기능을 제공합니다. 대부분의 경우 이 문서의 PowerShell 명령은 Azure Cosmos DB Table API와 Azure Table Storage에 모두 작동하지만 이 문서는 Azure Cosmos DB Table API에만 국한됩니다. Azure Table Storage를 사용하는 경우 [Azure PowerShell을 사용하여 Azure Table Storage 작업 수행](table-storage-how-to-use-powershell.md)을 참조하세요.
+>Azure Cosmos DB Table API는 턴키 전역 배포, 짧은 읽기 및 쓰기 대기 시간, 자동 보조 인덱싱 및 전용 처리량 등 테이블 저장소에 대한 프리미엄 기능을 제공합니다. 대부분의 경우 이 문서의 PowerShell 명령은 Azure Cosmos DB Table API와 Azure Table Storage에 모두 작동하지만 이 문서는 Azure Cosmos DB Table API에만 국한됩니다. Azure Table Storage를 사용하는 경우 [Azure PowerShell을 사용하여 Azure Table Storage 작업 수행](../storage/tables/table-storage-how-to-use-powershell.md)을 참조하세요.
 >
 
 Azure Cosmos DB Table API를 사용하면 방대한 구조화된 비관계형 데이터 집합을 저장 및 쿼리할 수 있습니다. 서비스의 주요 구성 요소로는 테이블, 엔터티 및 속성이 있습니다. 테이블은 엔터티 컬렉션입니다. 엔터티는 속성의 집합입니다. 각 엔터티는 모두 이름 값 쌍으로 구성된 속성을 최대 252개 가질 수 있습니다. 이 문서에서는 Azure Cosmos DB Table API 개념에 이미 익숙하다고 가정합니다. 자세한 내용은 [Azure Cosmos DB Table API 소개](table-introduction.md) 및 [Table API를 사용하여 .NET 응용 프로그램 빌드](create-table-dotnet.md)를 참조하세요.

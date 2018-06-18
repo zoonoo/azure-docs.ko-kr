@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션| Microsoft Docs"
-description: "마이그레이션 기능의 개요와 필수 구성 요소를 설명합니다."
+title: StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션| Microsoft Docs
+description: 마이그레이션 기능의 개요와 필수 구성 요소를 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-ms.assetid: 
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -18,6 +18,7 @@ ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26639871"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>StorSimple 5000-7000 시리즈에서 8000 시리즈 장치로 데이터 마이그레이션
 

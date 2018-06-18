@@ -7,14 +7,15 @@ manager: craigg
 author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: mlandzic
-ms.openlocfilehash: dd2219c01f194dad658d08a01f5f525640ef1c7c
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: fcb498542a496e4a887c825808642d3f586ef1d9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646357"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 ![분할된 데이터베이스에 대한 쿼리][1]
@@ -48,7 +49,7 @@ ms.lasthandoff: 04/06/2018
     [;]
 
 > [!NOTE]
-> *"\<username\>"*에 *"@servername"* 접미사가 포함되지 않아야 합니다. 
+> *"\<username\>"* 에 *"@servername"* 접미사가 포함되지 않아야 합니다. 
 > 
 > 
 

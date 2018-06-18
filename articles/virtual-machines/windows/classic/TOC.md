@@ -33,7 +33,6 @@
 ### [Azure PowerShell을 사용하여 VM 관리](manage-psh-classic.md)
 ### [VM 에이전트 및 확장 정보](agents-and-extensions-classic.md)
 ### [VM 확장 관리](manage-extensions-classic.md)
-### [VM용 사용자 지정 스크립트 확장](extensions-customscript-classic.md)
 
 ## 워크로드 관리
 ### [HPC(고성능 컴퓨팅)](../../virtual-machines-windows-hpcpack-cluster-options.md)
@@ -53,7 +52,7 @@
 ### [RDP 암호 재설정](reset-rdp.md)
 ### [VM 문제 해결에 가상 하드 디스크 연결](troubleshoot-recovery-disks-portal.md)
 
-# 참조
+# 참고 자료
 ## [Azure PowerShell](/powershell/azure/overview)
 ## [Azure CLI](/cli/azure/vm)
 ## [Java](/java/api)

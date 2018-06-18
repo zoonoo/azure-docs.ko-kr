@@ -1,12 +1,12 @@
 ---
-title: "Azure Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성 | Microsoft Docs"
-description: "이 문서에서는 Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 방법을 구성하는 방법을 설명합니다."
+title: Azure Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성 | Microsoft Docs
+description: 이 문서에서는 Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397806"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 02/21/2018
 5. 이 끝점을 인식하는 기준으로 사용할 **이름**을 제공합니다.
 6. 이 페이지의 특정 필드는 사용자가 추가하는 끝점의 형식에 따라 달라집니다.
     1. Azure 끝점을 추가하는 경우 트래픽을 보낼 리소스에 따라 **대상 리소스 형식** 및 **대상**을 선택합니다.
-    2. **외부** 끝점을 추가하는 경우 사용자의 끝점에 사용할 **FQDN(정규화된 도메인 이름)**을 제공합니다.
+    2. **외부** 끝점을 추가하는 경우 사용자의 끝점에 사용할 **FQDN(정규화된 도메인 이름)** 을 제공합니다.
     3. **중첩 끝점**을 추가하는 경우 사용할 자식 프로필에 해당하는 **대상 리소스**를 선택하고 **최소 자식 끝점 수**를 지정합니다.
 7. 지역 매핑 섹션에서 드롭다운을 사용하여 이 끝점으로 전송할 트래픽이 발생되는 지역을 추가합니다. 하나 이상의 영역을 추가해야 하며 여러 지역을 매핑할 수 있습니다.
 8. 이 프로필에서 추가하려는 모든 끝점에 대해 이 단계를 반복합니다.

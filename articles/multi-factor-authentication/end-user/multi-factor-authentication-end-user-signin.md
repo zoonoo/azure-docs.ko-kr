@@ -1,9 +1,9 @@
 ---
-title: "2단계 인증을 통한 Azure MFA 로그인 | Microsoft Docs"
-description: "이 페이지에서는 Azure MFA에서 사용할 수 있는 다양한 로그인 방법을 확인할 수 있는 위치에 대한 지침을 제공합니다."
-keywords: "사용자 인증, 로그인 환경, 휴대폰으로 로그인, 사무실 전화로 로그인"
+title: 2단계 인증을 통한 Azure MFA 로그인 | Microsoft Docs
+description: 이 페이지에서는 Azure MFA에서 사용할 수 있는 다양한 로그인 방법을 확인할 수 있는 위치에 대한 지침을 제공합니다.
+keywords: 사용자 인증, 로그인 환경, 휴대폰으로 로그인, 사무실 전화로 로그인
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
@@ -21,6 +21,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26628416"
 ---
 # <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication의 로그인 환경
 > [!NOTE]

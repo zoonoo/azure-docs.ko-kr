@@ -19,6 +19,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914921"
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Azure VM에 MATLAB 분산 컴퓨팅 서버 클러스터 만들기
 Microsoft Azure 가상 머신을 사용하여 계산 집약적인 병렬 MATLAB 작업을 실행하기 위한 MATLAB 분산 컴퓨팅 서버 클러스터를 하나 이상 만듭니다. MATLAB 분산 컴퓨팅 서버 소프트웨어를 VM에 설치하여 기본 이미지로 사용하고, Azure 빠른 시작 템플릿 또는 Azure PowerShell 스크립트( [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)에 제공됨)를 사용하여 클러스터를 배포하고 관리합니다. 배포 후에 클러스터에 연결하여 작업을 실행합니다.

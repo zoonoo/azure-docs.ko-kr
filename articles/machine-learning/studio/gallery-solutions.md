@@ -9,22 +9,24 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: c0be3f10-9e54-4fc1-b5df-725c2e919f65
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: a07c517ac3bfeabc1fe87ead07083c9b8b61dc7f
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 19861955dcf82d0ffae674400552ca1f0c439a81
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834888"
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 솔루션 검색
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="solutions"></a>솔루션
-갤러리의 **[솔루션](https://gallery.cortanaintelligence.com/solutions)**은 미리 구성된 솔루션, 참조 아키텍처, 디자인 패턴을 통해 Cortana Intelligence 솔루션을 신속하게 구축하도록 솔루션을 제공합니다.
+갤러리의 **[솔루션](https://gallery.cortanaintelligence.com/solutions)** 은 미리 구성된 솔루션, 참조 아키텍처, 디자인 패턴을 통해 Cortana Intelligence 솔루션을 신속하게 구축하도록 솔루션을 제공합니다.
 포함된 지침을 사용하여 또는 전문 파트너와 함께 자신만의 솔루션을 만들 수 있습니다.  
 
 ## <a name="discover"></a>검색

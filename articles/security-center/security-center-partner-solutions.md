@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 연결된 파트너 솔루션 관리 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터에서, Azure 구독에 통합된 파트너 솔ㄹ션의 보안 상태를 한 눈에 모니터링하는 방법을 살펴봅니다."
+title: Azure Security Center에서 연결된 파트너 솔루션 관리 | Microsoft Docs
+description: 이 문서에서는 Azure 보안 센터에서, Azure 구독에 통합된 파트너 솔ㄹ션의 보안 상태를 한 눈에 모니터링하는 방법을 살펴봅니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/18/2017
+ms.locfileid: "23454983"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>Azure Security Center에서 연결된 파트너 솔루션 관리
 이 문서에서는 Azure Security Center에서 연결된 보안 솔루션을 관리 및 모니터링하는 방법을 안내합니다.

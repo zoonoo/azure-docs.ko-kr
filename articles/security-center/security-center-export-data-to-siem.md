@@ -1,12 +1,12 @@
 ---
-title: "SIEM-파이프라인 구성에 Azure 보안 데이터 내보내기 [미리 보기] | Microsoft Docs"
-description: "이 아티클은 Azure 보안 센터 로그를 SIEM으로 보낼 때 생성되는 결과를 기록합니다."
+title: SIEM-파이프라인 구성에 Azure 보안 데이터 내보내기 [미리 보기] | Microsoft Docs
+description: 이 아티클은 Azure 보안 센터 로그를 SIEM으로 보낼 때 생성되는 결과를 기록합니다.
 services: security-center
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29124836"
 ---
 # <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>SIEM-파이프라인 구성에 Azure 보안 데이터 내보내기 [미리 보기]
 

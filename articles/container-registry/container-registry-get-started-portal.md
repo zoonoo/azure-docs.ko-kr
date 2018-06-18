@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32169808"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 컨테이너 레지스트리 만들기
 

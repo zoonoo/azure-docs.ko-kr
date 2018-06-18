@@ -1,14 +1,14 @@
 ---
-title: "Azure Service Fabric 컨테이너 앱 장애 조치(failover) 및 크기 조정 | Microsoft Docs"
-description: "아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다."
+title: Azure Service Fabric 컨테이너 앱 장애 조치(failover) 및 크기 조정 | Microsoft Docs
+description: 아 자습서에서는 장애 조치(failover)가 Azure Service Fabric 컨테이너 응용 프로그램에서 처리되는 방법을 알아봅니다.  또한 클러스터에서 실행되는 컨테이너 및 서비스의 크기를 조정하는 방법을 알아봅니다.
 services: service-fabric
-documentationcenter: 
+documentationcenter: ''
 author: suhuruli
 manager: timlt
 editor: suhuruli
 tags: servicefabric
-keywords: "Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure"
-ms.assetid: 
+keywords: Docker, 컨테이너, 마이크로 서비스, Service Fabric, Azure
+ms.assetid: ''
 ms.service: service-fabric
 ms.topic: tutorial
 ms.tgt_pltfrm: na
@@ -21,6 +21,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29555487"
 ---
 # <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>자습서: Service Fabric을 통한 컨테이너 서비스의 장애 조치(failover) 및 크기 조정 시연
 

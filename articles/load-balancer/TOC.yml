@@ -74,6 +74,8 @@
       href: load-balancer-standard-public-zone-redundant-cli.md
     - name: 영역 내에 VM 부하 분산(CLI)
       href: load-balancer-standard-public-zonal-cli.md
+    - name: REST API를 사용하여 Azure Load Balancer 만들기
+      href: create-load-balancer-rest-api.md
     - name: 기본 부하 분산 장치 만들기(템플릿)
       href: load-balancer-get-started-internet-arm-template.md
     - name: IPv6를 사용하는 공용 부하 분산 장치 만들기
@@ -106,6 +108,8 @@
           href: load-balancer-multiple-ip-powershell.md
     - name: Azure 부하 분산 장치에 대한 로그 분석
       href: load-balancer-monitor-log.md
+    - name: REST를 사용하여 부하 분산 장치 메트릭 가져오기
+      href: load-balancer-query-metrics-rest-api.md
     - name: 내부 부하 분산 장치에 대해 고가용성 포트 구성
       href: load-balancer-configure-ha-ports.md
     - name: 문제 해결

@@ -17,6 +17,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30266192"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 파일 서버 보호 
 
@@ -174,7 +175,7 @@ Active Directory 및 DNS에 대한 테스트 장애 조치(failover) 수행에 �
 
 1. Azure Portal로 이동하고, Recovery Services 자격 증명 모음을 선택합니다.
 2. 파일 서버 환경에서 만든 복구 계획을 선택합니다.
-3. **장애 조치(failover)**를 선택합니다.
+3. **장애 조치(failover)** 를 선택합니다.
 4. 복구 지점을 선택하여 장애 조치(failover) 프로세스를 시작합니다.
 
 장애 조치(failover)를 수행하는 방법에 대한 자세한 내용은 [Site Recovery에서 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.

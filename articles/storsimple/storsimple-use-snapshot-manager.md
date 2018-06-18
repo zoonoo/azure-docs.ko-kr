@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager 사용자 인터페이스 | Microsoft Docs"
-description: "StorSimple 스냅숏 관리자 사용자 인터페이스와, 해당 인터페이스를 백업 작업 및 백업 카탈로그 관리에 사용하는 방법을 설명합니다."
+title: StorSimple Snapshot Manager 사용자 인터페이스 | Microsoft Docs
+description: StorSimple 스냅숏 관리자 사용자 인터페이스와, 해당 인터페이스를 백업 작업 및 백업 카탈로그 관리에 사용하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c7d91892-2881-41a2-a7a2-908dc3646493
 ms.service: storsimple
 ms.devlang: NA
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.custom: 
+ms.custom: ''
 ms.openlocfilehash: b48c507e38eb7cadff56259f617e336e4efe5708
 ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23113531"
 ---
 # <a name="use-storsimple-snapshot-manager-user-interface-to-manage-backup-jobs-and-backup-catalog"></a>StorSimple Snapshot Manager 사용자 인터페이스를 사용하여 백업 작업 및 백업 카탈로그 관리
 

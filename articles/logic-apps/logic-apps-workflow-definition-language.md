@@ -3,7 +3,7 @@ title: 워크플로 정의 언어 스키마 - Azure Logic Apps | Microsoft Docs
 description: 워크플로 정의 언어로 Azure Logic Apps에 대한 사용자 지정 워크플로 정의 작성
 services: logic-apps
 author: ecfan
-manager: cfowler
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: efbfffec10b665ebab230375e774e476199c4ad5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33886811"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300184"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>워크플로 정의 언어 스키마로 Logic Apps 워크플로 정의
 
@@ -154,7 +154,7 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 |------------|--------| 
 | "Sophia Owen" | 이러한 문자 'Sophia Owen'을 반환 |
 | "배열[1]" | 이러한 문자 '배열[1]'을 반환 |
-| "\@@\" | 이러한 문자를 한 문자열 ' @'로 반환 |   
+| "\@\@\" | 이러한 문자를 한 문자열 \' \@\'로 반환 |   
 | \" \@\" | 이러한 문자를 두 문자열 '@'로 반환 |
 |||
 

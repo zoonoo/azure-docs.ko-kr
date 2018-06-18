@@ -1,6 +1,6 @@
 ---
-title: "Channel 9의 Azure 보안 동영상 | Microsoft Docs"
-description: "이 문서는 Channel 9의 엄선된 Azure 보안 프레젠테이션 목록을 제공합니다. Channel 9은 제품 뒤 사용자와 제품을 사용하는 사용자를 연결하는 커뮤니티입니다."
+title: Channel 9의 Azure 보안 동영상 | Microsoft Docs
+description: 이 문서는 Channel 9의 엄선된 Azure 보안 프레젠테이션 목록을 제공합니다. Channel 9은 제품 뒤 사용자와 제품을 사용하는 사용자를 연결하는 커뮤니티입니다.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25540138"
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Channel 9의 Azure 보안 동영상
 [Channel 9](https://channel9.msdn.com/) 은 제품 뒤 사용자를 앞으로 내보내 고객과 연결하는 커뮤니티입니다.

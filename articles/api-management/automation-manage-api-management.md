@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30161849"
 ---
 # <a name="managing-azure-api-management-using-azure-automation"></a>Azure Automation을 사용하여 Azure API Management를 관리
 이 가이드에서는 Azure Automation 서비스 및 이를 사용하여 Azure API Management의 관리를 간소화하는 방법에 대해 소개합니다.

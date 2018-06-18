@@ -1,24 +1,19 @@
 ---
-title: "Azure IoT 프로토콜 게이트웨이 | Microsoft Docs"
-description: "Azure IoT 프로토콜 게이트웨이를 사용하여 IoT Hub 기능과 프로토콜 지원을 확장하여 IoT Hub에서 기본적으로 지원되지 않는 프로토콜을 사용하여 사용자 허브에 장치를 연결할 수 있게 하는 방법입니다."
-services: iot-hub
-documentationcenter: 
+title: Azure IoT 프로토콜 게이트웨이 | Microsoft Docs
+description: Azure IoT 프로토콜 게이트웨이를 사용하여 IoT Hub 기능과 프로토콜 지원을 확장하여 IoT Hub에서 기본적으로 지원되지 않는 프로토콜을 사용하여 사용자 허브에 장치를 연결할 수 있게 하는 방법입니다.
 author: fsautomata
-manager: timlt
-editor: 
-ms.assetid: 555e59ae-3136-4533-8ba8-f3a3b6acf648
+manager: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: elioda
-ms.openlocfilehash: 1ed8ec28b95bbc91b731fd7bb7b3f1f6654e7fcf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 2c90ee899d0002d41ca21ed4a4927470ee53b2e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635307"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>IoT Hub에 대한 추가 프로토콜 지원
 Azure IoT Hub는 MQTT, AMQP, HTTPS 프로토콜을 통한 통신을 기본적으로 지원합니다. 일부 경우 장치 또는 필드 게이트웨이에서 이러한 표준 프로토콜 중 하나를 사용하지 못할 수 있으므로 프로토콜 적응이 필요합니다. 이러한 경우 사용자 지정 게이트웨이를 사용할 수 있습니다. 사용자 지정 게이트웨이에서 IoT Hub로(부터)의 트래픽을 브리징하여 IoT Hub 끝점에 대한 프로토콜 적응을 사용할 수 있습니다. [Azure IoT 프로토콜 게이트웨이](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) 를 사용자 지정 게이트웨이로 사용하여 IoT Hub에 대한 프로토콜 적응을 사용할 수 있습니다.

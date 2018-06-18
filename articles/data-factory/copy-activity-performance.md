@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: c43973a7e5070676fc0f32a4c8923d57a479f884
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619255"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +83,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 ## <a name="cloud-data-movement-units"></a>클라우드 데이터 이동 단위
 
-**클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. **DMU는 [자체 호스팅 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)이 아닌 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**에만 적용됩니다.
+**클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. **DMU는 [자체 호스팅 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)이 아닌 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** 에만 적용됩니다.
 
 **복사 작업 실행을 위한 최소 클라우드 데이터 이동 단위는 2입니다.** 지정하지 않은 경우 다음 표의 다양한 복사 시나리오에서 사용되는 기본 DMU의 목록을 참조하세요.
 

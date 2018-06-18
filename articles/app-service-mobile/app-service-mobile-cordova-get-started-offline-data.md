@@ -1,10 +1,10 @@
 ---
-title: "Azure 모바일 앱에 대해 오프라인 동기화 사용(Cordova) | Microsoft Docs"
-description: "App Service 모바일 앱을 사용하여 Cordova 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
+title: Azure 모바일 앱에 대해 오프라인 동기화 사용(Cordova) | Microsoft Docs
+description: App Service 모바일 앱을 사용하여 Cordova 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
 documentationcenter: cordova
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27593717"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -127,7 +128,7 @@ ms.lasthandoff: 01/04/2018
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    **syncContext.push()**를 호출하여 모바일 앱 백 엔드에 대한 변경 내용을 푸시할 시점을 결정합니다. 예를 들어 동기화 단추에 연결된 단추 이벤트 처리기에서 **syncBackend**를 호출할 수 있습니다.
+    **syncContext.push()** 를 호출하여 모바일 앱 백 엔드에 대한 변경 내용을 푸시할 시점을 결정합니다. 예를 들어 동기화 단추에 연결된 단추 이벤트 처리기에서 **syncBackend**를 호출할 수 있습니다.
 
 ## <a name="offline-sync-considerations"></a>오프라인 동기화 고려 사항
 

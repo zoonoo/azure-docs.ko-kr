@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34067659"
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>빠른 시작: CLI를 사용하여 Azure Key Vault 만들기
 

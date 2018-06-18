@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31400676"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -84,7 +85,7 @@ HDInsight의 일부로서, 대량 데이터 집합 및 모델과 함께 사용�
 
 ### <a name="spark-and-deep-learning"></a>Spark 및 딥 러닝
 
-[딥 러닝](https://www.microsoft.com/research/group/dltc/)은 인간 두뇌의 생물학적 프로세스에서 영감을 얻은 *DNN(딥 신경망)*을 사용하는 기계 학습의 한 분야입니다. 많은 연구자들은 딥 러닝이 인공 지능에 대한 유망한 접근 방식이라고 봅니다. 딥 러닝의 예로 언어 변환기, 이미지 인식 시스템 및 컴퓨터 추론이 있습니다. 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신 알고리즘 및 기술에 관심이 있는 학생들이 광범위하게 사용하고 있습니다. 
+[딥 러닝](https://www.microsoft.com/research/group/dltc/)은 인간 두뇌의 생물학적 프로세스에서 영감을 얻은 *DNN(딥 신경망)* 을 사용하는 기계 학습의 한 분야입니다. 많은 연구자들은 딥 러닝이 인공 지능에 대한 유망한 접근 방식이라고 봅니다. 딥 러닝의 예로 언어 변환기, 이미지 인식 시스템 및 컴퓨터 추론이 있습니다. 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신 알고리즘 및 기술에 관심이 있는 학생들이 광범위하게 사용하고 있습니다. 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>시나리오 - 도시 개발 패턴을 식별하기 위한 이미지 점수 매기기
 

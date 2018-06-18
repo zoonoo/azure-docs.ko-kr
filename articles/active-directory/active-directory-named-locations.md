@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2018
+ms.date: 05/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3b7bd6f4bea111815f647af09ebaa868696b25bc
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 4c8aba8faf4ce91445209eb46abea17423f57a77
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34589334"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Azure Active Directory의 명명된 위치 구성
 
@@ -79,7 +80,7 @@ ms.lasthandoff: 03/16/2018
 
 6. **새로 만들기** 페이지에서 다음을 확인할 수 있습니다.
 
-    ![새로 만들기 블레이드](./media/active-directory-named-locations/56.png)
+    ![새로 만들기 블레이드](./media/active-directory-named-locations/61.png)
 
     a. **이름** 상자에 명명된 위치의 이름을 입력합니다.
 

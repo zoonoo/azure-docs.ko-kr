@@ -13,6 +13,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33768331"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Azure Portal의 컨테이너 레지스트리 리포지토리 보기
 

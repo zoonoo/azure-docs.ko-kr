@@ -1,6 +1,6 @@
 ---
-title: "포함 파일"
-description: "포함 파일"
+title: 포함 파일
+description: 포함 파일
 services: logic-apps
 author: MandiOhlinger
 ms.service: logic-apps
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29764180"
 ---
 1. [Azure Portal](https://portal.azure.com)에서 빈 논리 앱을 만듭니다. 
 

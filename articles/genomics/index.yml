@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: "Microsoft Genomics 설명서"
+title: Microsoft Genomics 설명서
 metadata:
-  title: "Microsoft Genomics 설명서"
+  title: Microsoft Genomics 설명서
   meta.description: Learn how to use the Microsoft Genomics service.
   services: microsoft-genomics
   author: grhuynh
@@ -18,17 +18,18 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 12/13/2017
+  ms.locfileid: "26684588"
 abstract:
-  description: "Microsoft Genomics에서 보조 분석을 위해 BWA(Burrows-Wheeler Aligner) 및 GATK(Genome Analysis Toolkit)의 클라우드 구현을 사용하여 게놈 시퀀싱을 사용할 수 있는 방법을 알아봅니다."
+  description: Microsoft Genomics에서 보조 분석을 위해 BWA(Burrows-Wheeler Aligner) 및 GATK(Genome Analysis Toolkit)의 클라우드 구현을 사용하여 게놈 시퀀싱을 사용할 수 있는 방법을 알아봅니다.
 sections:
-- title: "5분 빠른 시작"
+- title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: "Microsoft Genomics 서비스를 통해 워크플로를 제출합니다."
+    text: Microsoft Genomics 서비스를 통해 워크플로를 제출합니다.
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/helix-blue-orange.svg
-      text: "워크플로 제출"
+      text: 워크플로 제출
       href: quickstart-run-genomics-workflow-portal

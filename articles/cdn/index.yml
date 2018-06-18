@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure CDN 설명서
 metadata:
   title: Azure CDN 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Azure CDN(Content Delivery Network)는 고대역폭 컨텐츠를 제공하는 글로벌 CDN 솔루션입니다. Azure 또는 다른 위치에서 호스팅할 수 있습니다. Azure CDN을 사용하면 가장 가까운 POP(Point of Presence) 서버를 사용하여 Azure Blob Storage, 웹 응용 프로그램 또는 공개적으로 액세스 가능한 웹 서버에서 로드된 정적 개체를 캐시할 수 있습니다. Azure CDN은 CDN POP를 사용하는 다양한 네트워크 최적화를 활용하여 캐싱할 수 없는 동적 콘텐츠를 가속화할 수 있습니다. 예를 들어 Azure CDN은 BGP(Border Gateway Protocol)를 우회하는 경로 최적화를 사용할 수 있습니다.
+  description: Azure CDN(Content Delivery Network)는 고대역폭 컨텐츠를 제공하는 글로벌 CDN 솔루션입니다. Azure 또는 다른 위치에서 호스팅할 수 있습니다. Azure CDN을 사용하면 가장 가까운 POP(Point of Presence) 서버를 사용하여 Azure Blob Storage, 웹 응용 프로그램 또는 공개적으로 액세스 가능한 웹 서버에서 로드된 정적 개체를 캐시할 수 있습니다. Azure CDN은 다양한 네트워크를 활용하고 최적화를 라우팅하여 캐싱할 수 없는 동적 콘텐츠를 가속화할 수 있습니다.
   services: cdn
   author: czeumault
   manager: carolz
@@ -11,15 +11,16 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/03/2018
+  ms.date: 06/08/2018
   ms.author: carolz
-  ms.openlocfilehash: 42d08e9a5893bf58ecf405cc5caf750ee3e1daf7
-  ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+  ms.openlocfilehash: 37250873e61b4fa1db95e5f4846f2cf054395b4a
+  ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/11/2018
+  ms.lasthandoff: 06/11/2018
+  ms.locfileid: "35260026"
 abstract:
-  description: Azure CDN(Content Delivery Network)는 고대역폭 컨텐츠를 제공하는 글로벌 CDN 솔루션입니다. Azure 또는 다른 위치에서 호스팅할 수 있습니다. Azure CDN을 사용하면 가장 가까운 POP(Point of Presence) 서버를 사용하여 Azure Blob Storage, 웹 응용 프로그램 또는 공개적으로 액세스 가능한 웹 서버에서 로드된 정적 개체를 캐시할 수 있습니다. Azure CDN은 CDN POP를 사용하는 다양한 네트워크 최적화를 활용하여 캐싱할 수 없는 동적 콘텐츠를 가속화할 수 있습니다. 예를 들어 Azure CDN은 BGP(Border Gateway Protocol)를 우회하는 경로 최적화를 사용할 수 있습니다.
+  description: Azure CDN(Content Delivery Network)는 고대역폭 컨텐츠를 제공하는 글로벌 CDN 솔루션입니다. Azure 또는 다른 위치에서 호스팅할 수 있습니다. Azure CDN을 사용하면 가장 가까운 POP(Point of Presence) 서버를 사용하여 Azure Blob Storage, 웹 응용 프로그램 또는 공개적으로 액세스 가능한 웹 서버에서 로드된 정적 개체를 캐시할 수 있습니다. Azure CDN은 다양한 네트워크를 활용하고 최적화를 라우팅하여 캐싱할 수 없는 동적 콘텐츠를 가속화할 수 있습니다.
 sections:
 - title: 
   items:

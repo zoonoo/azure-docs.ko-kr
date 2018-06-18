@@ -18,6 +18,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31586377"
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Azure AD 암호 보호에 대한 다중 계층 접근 방법
 

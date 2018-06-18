@@ -1,17 +1,19 @@
 ---
 title: Azure Maps 검색 서비스를 사용하여 주소를 검색하는 방법 | Microsoft Docs
 description: Azure Maps 검색 서비스를 사용하여 주소를 검색하는 방법을 알아봅니다.
-services: azure-maps
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-ms.openlocfilehash: 4a87c0d0a487706209acc1c6a4ded92e6aab8f9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: timlt
+ms.openlocfilehash: 1acb95af7b62641c371627d6250067f9c2eac99c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600309"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Azure Maps 검색 서비스를 사용하여 주소를 찾는 방법
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Service Bus 관리 라이브러리 | Microsoft Docs"
-description: ".NET에서 Service Bus 네임스페이스 및 메시징 엔터티 관리"
+title: Azure Service Bus 관리 라이브러리 | Microsoft Docs
+description: .NET에서 Service Bus 네임스페이스 및 메시징 엔터티 관리
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29120899"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 

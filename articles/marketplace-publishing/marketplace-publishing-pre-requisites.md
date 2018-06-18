@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29940044"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>Azure Marketplace용 제품을 만들기 위한 일반적인 필수 조건
 제품 만들기 프로세스를 진행하는 데 필요한 일반적인 비즈니스 프로세스 중심 필수 조건을 이해합니다.

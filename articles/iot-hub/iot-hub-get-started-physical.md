@@ -1,24 +1,20 @@
 ---
-title: "Azure IoT Hub에 실제 장치 연결 시작 | Microsoft Docs"
-description: "물리적 장치와 보드를 Azure IoT Hub에 연결하는 방법을 알아봅니다. 장치는 원격 분석을 IoT Hub로 전송할 수 있고 Iot Hub는 사용자 장치를 모니터링하고 관리할 수 있습니다."
-services: iot-hub
-documentationcenter: 
+title: Azure IoT Hub에 실제 장치 연결 시작 | Microsoft Docs
+description: 물리적 장치와 보드를 Azure IoT Hub에 연결하는 방법을 알아봅니다. 장치는 원격 분석을 IoT Hub로 전송할 수 있고 Iot Hub는 사용자 장치를 모니터링하고 관리할 수 있습니다.
 author: dominicbetts
 manager: timlt
-editor: 
-keywords: "Azure IoT Hub 자습서"
+keywords: Azure IoT Hub 자습서
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: dobett
-ms.openlocfilehash: 26a2d63aef21bd470d65d79e1abf8cefd2828419
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: e7911c190ded59f758eff868add6440f5add6579
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633998"
 ---
 # <a name="azure-iot-hub-get-started-with-physical-devices-tutorials"></a>실제 장치로 시작하는 Azure IoT Hub 자습서
 

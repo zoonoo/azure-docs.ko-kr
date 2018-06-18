@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
-ms.openlocfilehash: d23f5b91e08c169975ac5d0bb8d9f048828c2910
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 94cabb73406619b95147595127e97a27aed762f9
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849752"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure 스택에 대 한 VPN 게이트웨이 구성 설정
 
@@ -157,7 +158,10 @@ Azure 스택에서 VPN 연결을 설정 하면 양쪽 끝에서 연결을 구성
 |IKE 버전 |IKEv2 |
 |암호화 및 해시 알고리즘 (암호화)     | GCMAES256|
 |암호화 및 해시 알고리즘 (인증) | GCMAES256|
-|SA 수명(시간)  | 27,000초 |
-|SA 수명(바이트) | 819,200       |
+|SA 수명(시간)  | 27,000 초<sup>참고 1 참조</sup> |
+|SA 수명(바이트) | 33,553,408<sup>참고 2 참조</sup>     |
 |PFS(Perfect Forward Secrecy) |PFS2048 |
 |작동하지 않는 피어 검색 | 지원됨|  
+
+*참고 1:* 1803 버전 이전의 Azure 스택 SA 수명 (시간)에 대 한 14400의 값을 사용 합니다. 
+*참고 2:* 1803 버전 이전의 Azure 스택 SA 수명 (바이트)에 대 한 819,200의 값을 사용 합니다.

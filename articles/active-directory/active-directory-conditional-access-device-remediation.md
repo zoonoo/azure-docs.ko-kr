@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: get-started-article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5ad9b01d3821b481fe3255c821e8674dcb26b322
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 664909fa78f2034c0750492e529b21cebc087e5c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34723799"
 ---
 # <a name="you-cant-get-there-from-here-on-a-windows-device"></a>Windows 장치 상에서 '여기에서 가져올 수 없습니다'
 
@@ -40,7 +42,7 @@ ms.lasthandoff: 01/16/2018
 
 ## <a name="supported-browser"></a>지원되는 브라우저
 
-관리자가 조건부 액세스 정책을 구성한 경우, 지원되는 브라우저를 사용하여 조직의 리소스를 액세스할 수 있습니다. Windows 장치에서는 **Internet Explorer** 및 **Microsoft Edge**만 지원됩니다.
+관리자가 조건부 액세스 정책을 구성한 경우, 지원되는 브라우저를 사용하여 조직의 리소스를 액세스할 수 있습니다. Windows 장치에서는 **Internet Explorer** 및 **Edge**만 지원됩니다.
 
 오류 페이지의 세부 정보 섹션을 보면 리소스에 액세스할 수 없는 이유가 지원되지 않는 브라우저 때문인지 여부를 쉽게 알 수 있습니다.
 

@@ -1,12 +1,12 @@
 ---
-title: "Azure ExpressRoute에서 Microsoft 피어링을 통해 사이트 간 VPN 구성 | Microsoft Docs"
-description: "사이트 간 VPN Gateway를 사용하여 ExpressRoute Microsoft 피어링 회로를 통해 Azure에 대한 IPsec/IKE 연결을 구성합니다."
+title: Azure ExpressRoute에서 Microsoft 피어링을 통해 사이트 간 VPN 구성 | Microsoft Docs
+description: 사이트 간 VPN Gateway를 사용하여 ExpressRoute Microsoft 피어링 회로를 통해 Azure에 대한 IPsec/IKE 연결을 구성합니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26357667"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 

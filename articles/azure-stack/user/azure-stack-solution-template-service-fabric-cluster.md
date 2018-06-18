@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33883024"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>서비스 패브릭 클러스터를 Azure 스택 배포
 

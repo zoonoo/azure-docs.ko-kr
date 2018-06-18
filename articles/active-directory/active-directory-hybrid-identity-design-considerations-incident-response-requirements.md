@@ -1,11 +1,11 @@
 ---
-title: "Azure의 하이브리드 ID 디자인 - 인시던트 대응 요구 사항 | Microsoft Docs"
-description: "IT에서 활용할 수 있는 하이브리드 ID 솔루션에 대한 모니터링 및 보고 기능을 확인하여 잠재적인 위협을 식별하고 완화하는 작업을 수행합니다."
-documentationcenter: 
+title: Azure의 하이브리드 ID 디자인 - 인시던트 대응 요구 사항 | Microsoft Docs
+description: IT에서 활용할 수 있는 하이브리드 ID 솔루션에 대한 모니터링 및 보고 기능을 확인하여 잠재적인 위협을 식별하고 완화하는 작업을 수행합니다.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a3d2a459-599b-4b67-8e51-7369ee25082d
 ms.service: active-directory
 ms.devlang: na
@@ -13,13 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 1521c3c7353d206df8a95b2cce1f3358c22fc438
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 09dfa0bd01a7de95ba6ce3093ddf589595116aa6
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801061"
 ---
 # <a name="determine-incident-response-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 인시던트 대응 요구 사항 확인
 대규모 또는 중간 규모 조직에서는 대개 [보안 인시던트 대응](https://technet.microsoft.com/library/cc700825.aspx) 을 준비하여 IT가 인시던트의 수준에 따라 동작을 취합니다. ID 관리 시스템은 대상에 대해 특정 동작을 수행한 사용자를 식별하는 데 사용될 수 있기 때문에 인시던트 대응 프로세스에서 중요한 구성 요소입니다. 하이브리드 ID 솔루션은 IT에서 활용할 수 있는 모니터링 및 보고 기능을 제공하여 잠재적인 위협을 식별하고 완화하는 작업을 수행해야 합니다. 일반적인 인시던트 대응 계획에서 계획의 일부를 다음과 같은 단계로 해야 합니다.

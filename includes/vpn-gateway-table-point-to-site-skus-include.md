@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197672"
 ---
 | **SKU** | **P2S 연결**| **집계 처리량 벤치마크** | **RADIUS 인증** | **IKEv2 P2S VPN** |
 |---|---|---|---| --- |

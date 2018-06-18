@@ -7,14 +7,16 @@ ms.author: svankam
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 8a4bb8d825f89b08e9b7514d67ae2d2512cceec9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 1b43671b40e3244690371669fb60796f75174df0
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834909"
 ---
 # <a name="how-to-configure-azure-machine-learning-workbench-to-work-with-an-ide"></a>IDE와 함께 실행되도록 Azure Machine Learning Workbench를 구성하는 방법 
 
@@ -41,7 +43,7 @@ ms.lasthandoff: 04/19/2018
 * macOS - .app 경로(예: “/Applications/PyCharm CE.app”)를 선택하면 앱에서 나머지 경로를 자동으로 추가합니다. 실행 파일의 전체 경로는 기본적으로 `/Applications/PyCharm CE.app/Contents/MacOS/pycharm`입니다. bin 폴더 `/usr/local/bin/charm`에서도 PyCharm을 찾을 수 있습니다.
 
 ## <a name="open-project-in-ide"></a>IDE에서 프로젝트 열기 
-구성이 완료되면 Azure Machine Learning Workbench에서 **파일** 메뉴를 열고 **프로젝트 열기(<IDE_Name>)**를 클릭하여 Azure Machine Learning 프로젝트를 열 수 있습니다. 이 작업은 구성된 IDE에서 현재 활성 프로젝트를 엽니다. _참고: 프로젝트에 없는 경우 **프로젝트 열기(<IDE_Name>)**가 비활성화됩니다._
+구성이 완료되면 Azure Machine Learning Workbench에서 **파일** 메뉴를 열고 **프로젝트 열기(<IDE_Name>)** 를 클릭하여 Azure Machine Learning 프로젝트를 열 수 있습니다. 이 작업은 구성된 IDE에서 현재 활성 프로젝트를 엽니다. _참고: 프로젝트에 없는 경우 **프로젝트 열기(<IDE_Name>)** 가 비활성화됩니다._
 
 ## <a name="configuring-the-integrated-terminal-in-visual-studio-code"></a>Visual Studio Code에서 통합 터미널 구성
 

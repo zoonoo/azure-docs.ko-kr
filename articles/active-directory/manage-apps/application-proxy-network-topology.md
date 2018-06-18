@@ -15,11 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c3f07aa0ef4fea773e214e3e161a61e9337dc617
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 673f41e368d54aeed903400179a818e534845860
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35292741"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 응용 프로그램 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -175,4 +176,4 @@ ExpressRoute 개인 피어링을 통해 회사 네트워크에 연결된 Azure �
 - [응용 프로그램 프록시 사용](application-proxy-enable.md)
 - [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
 - [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
-- [응용 프로그램 프록시에서 발생한 문제 해결](../active-directory-application-proxy-troubleshoot.md)
+- [응용 프로그램 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)

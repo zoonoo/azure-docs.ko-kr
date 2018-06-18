@@ -1,10 +1,10 @@
 ---
-title: "Mobile Apps를 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 오프라인 동기화 사용 | Microsoft Docs"
-description: "Azure 모바일 앱을 사용하여 UWP(유니버설 Windows 플랫폼) 앱에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다."
+title: Mobile Apps를 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 오프라인 동기화 사용 | Microsoft Docs
+description: Azure 모바일 앱을 사용하여 UWP(유니버설 Windows 플랫폼) 앱에서 오프라인 데이터를 캐시 및 동기화하는 방법에 대해 알아봅니다.
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: 8fe51773-90de-4014-8a38-41544446d9b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594482"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Windows 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

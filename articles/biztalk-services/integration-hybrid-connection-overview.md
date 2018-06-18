@@ -1,11 +1,11 @@
 ---
-title: "하이브리드 연결 개요 | Microsoft Docs"
-description: "하이브리드 연결, 보안, TCP 포트 및 지원되는 구성에 대해 알아봅니다. MABS, WABS"
+title: 하이브리드 연결 개요 | Microsoft Docs
+description: 하이브리드 연결, 보안, TCP 포트 및 지원되는 구성에 대해 알아봅니다. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 216e4927-6863-46e7-aa7c-77fec575c8a6
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26629689"
 ---
 # <a name="hybrid-connections-overview"></a>하이브리드 연결 개요
 

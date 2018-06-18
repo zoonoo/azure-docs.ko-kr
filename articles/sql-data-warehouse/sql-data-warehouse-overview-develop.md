@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31601807"
 ---
 # <a name="design-decisions-and-coding-techniques-for-sql-data-warehouse"></a>SQL Data Warehouse에 대한 디자인 결정 및 코딩 기술
 SQL Data Warehouse에 대한 주요 디자인 결정, 권장 사항 및 코딩 기술을 더 잘 이해하려면 다음 개발 문서를 살펴보세요.

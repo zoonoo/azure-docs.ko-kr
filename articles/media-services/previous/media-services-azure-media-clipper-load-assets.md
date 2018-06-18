@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782902"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Azure Media Clipper에 자산 로드
 다음 두 가지 방법으로 Azure Media Clipper에 자산을 로드할 수 있습니다.

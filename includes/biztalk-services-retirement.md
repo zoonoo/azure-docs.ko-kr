@@ -1,6 +1,6 @@
 ---
-title: "포함 파일"
-description: "포함 파일"
+title: 포함 파일
+description: 포함 파일
 services: biztalk-services
 author: MandiOhlinger
 ms.service: biztalk-services
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29765937"
 ---
 > [!IMPORTANT]
 > MABS(Microsoft Azure BizTalk Services)는 사용 중지되어 Azure Logic Apps로 대체되었습니다.

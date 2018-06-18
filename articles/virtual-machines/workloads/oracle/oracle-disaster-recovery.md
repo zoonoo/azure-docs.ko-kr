@@ -1,13 +1,13 @@
 ---
-title: "Azure 환경의 Oracle 재해 복구 시나리오 개요 | Microsoft Docs"
-description: "Azure 환경의 Oracle Database 12c 데이터베이스에 대한 재해 복구 시나리오입니다."
+title: Azure 환경의 Oracle 재해 복구 시나리오 개요 | Microsoft Docs
+description: Azure 환경의 Oracle Database 12c 데이터베이스에 대한 재해 복구 시나리오입니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: v-shiuma
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.openlocfilehash: aede44d964994bd2ef9b46a133b1f1ee303ef309
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: bb319c4ba9bbfba584803b35a0db0763fcf97b86
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657864"
 ---
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구
 

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598747"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 변수 할당
 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 변수 할당을 위한 팁

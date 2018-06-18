@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31792803"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>Azure Search의 결과를 한정하기 위한 보안 필터
 

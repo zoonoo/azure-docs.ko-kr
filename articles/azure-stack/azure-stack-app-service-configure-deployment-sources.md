@@ -20,6 +20,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359597"
 ---
 # <a name="configure-deployment-sources"></a>배포 원본 구성
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*

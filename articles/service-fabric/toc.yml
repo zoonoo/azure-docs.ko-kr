@@ -163,6 +163,13 @@
           href: service-fabric-application-model.md
         - name: 응용 프로그램 및 서비스 매니페스트
           href: service-fabric-application-and-service-manifests.md
+        - name: 응용 프로그램 및 서비스 매니페스트 예제
+          href: service-fabric-manifest-examples.md
+          items:
+            - name: Reliable Services 응용 프로그램 및 서비스 매니페스트 예제
+              href: service-fabric-manifest-example-reliable-services-app.md
+            - name: 다중 컨테이너 응용 프로그램 및 서비스 매니페스트 예제
+              href: service-fabric-manifest-example-container-app.md
         - name: 호스팅 모델
           href: service-fabric-hosting-model.md
         - name: 응용 프로그램 보안
@@ -399,6 +406,8 @@
               href: service-fabric-reliable-actors-reliabledictionarystateprovider-configuration.md
         - name: ASP.NET Core 서비스 빌드
           href: service-fabric-add-a-web-frontend.md
+        - name: Linux에서 Apache Tomcat 서버 컨테이너 빌드
+          href: service-fabric-get-started-tomcat.md
         - name: 보안 구성
           items:
             - name: 응용 프로그램 비밀 관리
@@ -623,6 +632,10 @@
           href: service-fabric-troubleshoot-local-cluster-setup.md
         - name: 일반적인 시나리오 진단
           href: service-fabric-diagnostics-common-scenarios.md
+    - name: 모범 사례
+      items:
+        - name: 프로덕션 준비 검사 목록
+          href: service-fabric-production-readiness-checklist.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

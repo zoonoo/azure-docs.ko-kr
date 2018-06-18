@@ -3,16 +3,17 @@ title: 'Azure Analysis Services 자습서 추가 단원: 동적 보안 | Microso
 description: Azure Analysis Services 자습서의 행 필터를 사용하여 동적 보안을 사용하는 방법에 대해 설명합니다.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5084bb0785e22a4b38f7f80f4c3b29a0ad92dadb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2a9a6c36863f7e30c803eecfe793c879d72eb249
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596943"
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>추가 단원 - 동적 보안
 
@@ -116,7 +117,7 @@ FactInternetSales, DimGeography 및 DimSalesTerritory 테이블은 모두 SalesT
   
     권한이 없는 새 역할이 목록에 추가됩니다.  
   
-3.  새 역할을 클릭한 후 **이름** 열에서 역할의 이름을 **Sales Employees by Territory(지역별 영업 직원)**로 변경합니다.  
+3.  새 역할을 클릭한 후 **이름** 열에서 역할의 이름을 **Sales Employees by Territory(지역별 영업 직원)** 로 변경합니다.  
   
 4.  **사용 권한** 열에서 드롭다운 목록을 클릭한 후 **읽기** 권한을 선택합니다.  
   

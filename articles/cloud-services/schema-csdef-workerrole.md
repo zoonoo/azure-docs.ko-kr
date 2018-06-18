@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34360260"
 ---
 # <a name="azure-cloud-services-definition-workerrole-schema"></a>Azure Cloud Services 정의 WorkerRole 스키마
 Azure 작업자 역할은 일반화된 개발에 유용하고 웹 역할에 대한 백그라운드 처리를 수행할 수 있는 역할입니다.

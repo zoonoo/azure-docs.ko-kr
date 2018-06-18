@@ -1,25 +1,27 @@
 ---
-title: "기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치 | Microsoft Docs"
-description: "이 토픽에서는 기존 ADSync 데이터베이스를 사용하는 방법을 설명합니다."
+title: 기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치 | Microsoft Docs
+description: 이 토픽에서는 기존 ADSync 데이터베이스를 사용하는 방법을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.reviewer: cychua
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d65e12350e6302b0f95091f48f71cdc7d4610e2c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b28d4cc6b10b0fd47a67cfefa7cf1022921a5d96
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591772"
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>기존 ADSync 데이터베이스를 사용하여 Azure AD Connect 설치
 Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. Azure AD Connect로 설치된 기본 SQL Server 2012 Express LocalDB를 사용하거나 사용자 고유의 전체 버전 SQL을 사용할 수 있습니다. 이전에 Azure AD Connect를 설치할 때 ADSync라는 새 데이터베이스가 항상 만들어졌습니다. Azure AD Connect 버전 1.1.613.0(이상)을 사용하면 기존 ADSync 데이터베이스에 연결하여 Azure AD Connect를 설치하는 옵션도 있습니다.
@@ -60,7 +62,7 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
 ![PowerShell](media/active-directory-aadconnect-existing-database/db2.png)
 4.  Azure AD Connect 시작 화면이 표시됩니다. 사용 조건 및 개인 정보 취급 방침에 동의하면 **계속**을 클릭합니다.
 ![시작](media/active-directory-aadconnect-existing-database/db3.png)
-5.  **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예:         
+5.  **필수 구성 요소 설치** 화면에서 **기존 SQL Server 사용** 옵션을 사용할 수 있습니다. ADSync 데이터베이스를 호스팅하는 SQL Server의 이름을 지정합니다. ADSync 데이터베이스를 호스팅하는 데 사용되는 SQL 엔진 인스턴스가 SQL Server에 있는 기본 인스턴스가 아닌 경우 SQL 엔진 인스턴스 이름을 지정해야 합니다. 또한 SQL 검색을 사용하지 않는 경우 SQL 엔진 인스턴스 포트 번호를 지정해야 합니다. 예:          
 ![시작](media/active-directory-aadconnect-existing-database/db4.png)           
 
 6.  **Azure AD에 연결** 화면에서 Azure AD 디렉터리의 전역 관리자의 자격 증명을 제공해야 합니다. 기본 onmicrosoft.com 도메인의 계정을 사용하는 것이 좋습니다. 이 계정은 Azure AD에서 서비스 계정을 만드는 데에만 사용되며 마법사를 완료한 후에는 사용되지 않습니다.
@@ -74,7 +76,7 @@ Azure AD Connect는 데이터를 저장하기 위한 SQL Server 데이터베이�
 ![시작](media/active-directory-aadconnect-existing-database/db7.png)
  
  
-9.  자격 증명이 제공되면 빨간색 십자가 아이콘이 녹색 체크 표시 아이콘으로 바뀝니다. **다음**을 누릅니다.
+9.  자격 증명이 제공되면 빨간색 십자가 아이콘이 녹색 체크 표시 아이콘으로 바뀝니다. **다음**을 클릭합니다.
 ![시작](media/active-directory-aadconnect-existing-database/db8.png)
  
  

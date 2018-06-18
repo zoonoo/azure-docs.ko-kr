@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 스크립트 예제 - Batch의 Windows 풀 | Microsoft Docs"
-description: "Azure CLI 스크립트 예제 - Batch에서 Windows 풀 만들기 및 관리"
+title: Azure CLI 스크립트 예제 - Batch의 Windows 풀 | Microsoft Docs
+description: Azure CLI 스크립트 예제 - Batch에서 Windows 풀 만들기 및 관리
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843060"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 예제: Azure Batch에서 Windows 풀 만들기 및 관리
 

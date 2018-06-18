@@ -1,5 +1,7 @@
 - name: 데이터 팩터리 V1 설명서
   href: null
+- name: 현재 버전 설명서로 전환
+  href: ../index.yml
 - name: 개요
   items:
     - name: Azure Data Factory 소개
@@ -20,7 +22,7 @@
       items:
         - name: 복사 마법사
           href: data-factory-copy-data-wizard-tutorial.md
-        - name: Azure Portal
+        - name: Azure portal
           href: data-factory-copy-activity-tutorial-using-azure-portal.md
         - name: Visual Studio
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
@@ -33,7 +35,7 @@
     - name: 데이터를 변환하기 위해 파이프라인 생성
       href: data-factory-build-your-first-pipeline.md
       items:
-        - name: Azure 포털
+        - name: Azure portal
           href: data-factory-build-your-first-pipeline-using-editor.md
         - name: Visual Studio
           href: data-factory-build-your-first-pipeline-using-vs.md
@@ -181,7 +183,7 @@
           href: data-factory-troubleshoot-gateway-issues.md
     - name: 저장 프로시저 작업을 사용하여 SSIS 패키지 호출
       href: how-to-invoke-ssis-package-stored-procedure-activity.md
-- name: 참조
+- name: 참고 자료
   items:
     - name: 코드 샘플
       href: 'https://azure.microsoft.com/en-us/resources/samples/?service=data-factory'
@@ -215,7 +217,7 @@
       href: 'https://azure.microsoft.com/updates/?product=data-factory'
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-data-factory'
-    - name: 비디오
+    - name: 동영상
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=data-factory'
     - name: 데이터 팩터리 및 Batch를 사용하여 대규모 데이터 집합 처리
       href: data-factory-data-processing-using-batch.md

@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156894"
 ---
 # <a name="permissions-in-azure-ad"></a>Azure AD의 권한
 Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 토큰은 앱이 특정 리소스에 대해 가지는 권한(일명 범위)을 설명하는 클레임을 포함합니다. 따라서 토큰이 호출하는 API에 적절한 권한만 포함하는지 확인하기만 하면 되므로 리소스 인증이 쉬워집니다. 

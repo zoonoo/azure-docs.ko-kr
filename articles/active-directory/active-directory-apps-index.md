@@ -14,11 +14,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 71c2463a38f2115bd3aeff82b100e3f2c20e7708
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293095"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -32,7 +33,7 @@ ms.lasthandoff: 05/20/2018
 |:---:| --- |
 | Azure AD가 해결하는 응용 프로그램 관리 문제 소개 |[Azure Active Directory(AD)와 응용 프로그램 관리](manage-apps/what-is-application-management.md) |
 | Single Sign-On 사용, 앱에 액세스하는 사용자 정의 및 사용자가 앱을 시작하는 방법과 관련된 Azure AD의 다양한 기능 개요 |[Azure Active Directory에서 응용 프로그램 액세스 및 Single Sign-On](manage-apps/what-is-single-sign-on.md) |
-| Azure AD에 앱을 통합하는 경우 관련된 여러 단계 살펴보기 |[Azure Active Directory와 응용 프로그램 통합](manage-apps/plan-an-application-integration.md)<br /><br />[Single Sign-On SaaS 앱 사용](active-directory-enterprise-apps-manage-sso.md)<br /><br />[앱에 대한 액세스 관리](active-directory-managing-access-to-apps.md) |
+| Azure AD에 앱을 통합하는 경우 관련된 여러 단계 살펴보기 |[Azure Active Directory와 응용 프로그램 통합](manage-apps/plan-an-application-integration.md)<br /><br />[Single Sign-On SaaS 앱 사용](manage-apps/configure-single-sign-on-portal.md)<br /><br />[앱에 대한 액세스 관리](manage-apps/what-is-access-management.md) |
 | 앱이 Azure AD에서 나타나는 방법에 대한 기술 정보 |[응용 프로그램을 Azure AD에 추가하는 방법 및 이유](active-directory-how-applications-are-added.md) |
 
 ## <a name="troubleshooting-articles"></a>문제 해결 문서
@@ -42,7 +43,7 @@ ms.lasthandoff: 05/20/2018
 |:---:| --- |
 | 페더레이션된 Single Sign-On |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
-| 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](active-directory-application-proxy-troubleshoot.md) |
+| 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](manage-apps/application-proxy-troubleshoot.md) |
 | 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 해시 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | 동적 그룹 멤버 자격 |[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
 
@@ -57,7 +58,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) 등과 같이 앱에 Single Sign-On을 구성하는 방법에 대한 150개 이상의 앱 자습서 |[Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md) |
 | Single Sign-On 구성을 수동으로 설정하고 사용자 지정하는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 없는 앱에 대한 Single Sign-On을 구성하는 방법](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md) |
 | SAML 프로토콜을 사용하는 페더레이션된 앱에 대한 문제 해결 가이드 |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
-| 앱 인증서의 만료 날짜를 구성하는 방법 및 인증서를 갱신하는 방법 |[Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](active-directory-sso-certs.md) |
+| 앱 인증서의 만료 날짜를 구성하는 방법 및 인증서를 갱신하는 방법 |[Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 페더레이션된 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 페더레이션된 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다.
 
@@ -82,7 +83,7 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 응용 프로그램 프록시를 구성하는 방법 및 첫 번째 앱을 게시하는 방법에 대한 자습서 |[Azure AD 앱 프록시를 설정하는 방법](manage-apps/application-proxy-enable.md)<br /><br />[앱 프록시 커넥터를 자동으로 설치하는 방법](manage-apps/application-proxy-register-connector-powershell.md)<br /><br />[앱 프록시를 사용하여 응용 프로그램을 게시하는 방법](manage-apps/application-proxy-publish-azure-portal.md)<br /><br />[고유한 도메인 이름을 사용하는 방법](manage-apps/application-proxy-configure-custom-domain.md) |
 | 앱 프록시로 게시된 앱에 Single Sign-On 및 조건부 액세스를 사용하는 방법 |[앱 프록시를 사용하는 Single-Sign-On](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)<br /><br />[조건부 액세스 및 응용 프로그램 프록시](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | 다음 시나리오에 응용 프로그램 프록시를 사용하는 방법에 대한 지침 |[네이티브 클라이언트 응용 프로그램을 지원하는 방법](manage-apps/application-proxy-configure-native-client-application.md)<br /><br />[클레임 인식 응용 프로그램을 지원하는 방법](manage-apps/application-proxy-configure-for-claims-aware-applications.md)<br /><br />[별도 네트워크 및 위치에 게시된 응용 프로그램을 지원하는 방법](manage-apps/application-proxy-connector-groups.md) |
-| 응용 프로그램 프록시에 대한 문제 해결 가이드 |[앱 프록시 문제 해결 가이드](active-directory-application-proxy-troubleshoot.md) |
+| 응용 프로그램 프록시에 대한 문제 해결 가이드 |[앱 프록시 문제 해결 가이드](manage-apps/application-proxy-troubleshoot.md) |
 
 응용 프로그램 프록시는 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다.
 
@@ -136,7 +137,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 |:---:| --- |
 | 작동 방법에 대해 알아보고 일반적인 질문에 대한 답 찾기 |[SaaS 앱에 자동화된 사용자 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md) |
 | Azure AD와 SaaS 앱 간에 매핑되는 정보 방식 구성 |[특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)<br><br>[특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
-| SCIM 프로토콜을 지원하는 앱에 자동화된 프로비전을 사용하는 방법 |[SCIM 사용한 앱에 자동화된 사용자 프로비전 설정](active-directory-scim-provisioning.md) |
+| SCIM 프로토콜을 지원하는 앱에 자동화된 프로비전을 사용하는 방법 |[SCIM 사용한 앱에 자동화된 사용자 프로비전 설정](manage-apps/use-scim-to-provision-users-and-groups.md) |
 | 사용자 프로비전에 대해 보고하고 문제를 해결하는 방법 |[자동 사용자 프로비전 보고](active-directory-saas-provisioning-reporting.md)<br><br>[사용자 프로비전 문제 해결](active-directory-application-provisioning-content-map.md) |
 | 특성 값에 따라 응용 프로그램에 프로비전된 제한 |[범위 지정 필터](active-directory-saas-scoping-filters.md) |
 
@@ -159,7 +160,7 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 
 | 문서 가이드 |  |
 |:---:| --- |
-| Azure AD 액세스 관리 기능의 개요 |[앱에 대한 액세스 관리 소개](active-directory-managing-access-to-apps.md)<br /><br />[Azure AD에서 액세스 관리가 작동하는 방식](active-directory-manage-groups.md)<br /><br />[그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스를 관리하는 방법](active-directory-accessmanagement-group-saasapps.md) |
+| Azure AD 액세스 관리 기능의 개요 |[앱에 대한 액세스 관리 소개](manage-apps/what-is-access-management.md)<br /><br />[Azure AD에서 액세스 관리가 작동하는 방식](active-directory-manage-groups.md)<br /><br />[그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스를 관리하는 방법](active-directory-accessmanagement-group-saasapps.md) |
 | 앱 및 그룹의 셀프 서비스 관리 사용 |[셀프 서비스 응용 프로그램 관리](active-directory-self-service-application-access.md)<br /><br />[셀프 서비스 그룹 관리](active-directory-accessmanagement-self-service-group-management.md) |
 | Azure AD에서 그룹을 설정하기 위한 지침 |[보안 그룹을 만드는 방법](active-directory-groups-create-azure-portal.md)<br /><br />[그룹의 소유자를 지정하는 방법](active-directory-accessmanagement-managing-group-owners.md)<br /><br />["모든 사용자" 그룹을 사용하는 방법](active-directory-accessmanagement-dedicated-groups.md) |
 | 동적 그룹을 사용하여 자동으로 특성 기반 멤버 자격 규칙을 사용하는 그룹 멤버 자격 채우기 |[동적 그룹 구성원: 고급 규칙](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |

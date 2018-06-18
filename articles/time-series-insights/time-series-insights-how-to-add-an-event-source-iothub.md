@@ -1,21 +1,21 @@
 ---
-title: "Azure Time Series Insights에 IoT Hub 이벤트 원본을 추가하는 방법 | Microsoft Docs"
-description: "이 문서에서는 IoT Hub에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다."
-services: time-series-insights
+title: Azure Time Series Insights에 IoT Hub 이벤트 원본을 추가하는 방법 | Microsoft Docs
+description: 이 문서에서는 IoT Hub에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다.
 ms.service: time-series-insights
+services: time-series-insights
 author: sandshadow
 ms.author: edett
 manager: jhubbard
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 0469c35056d1d02457c162b8540af472b84f1e92
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652528"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본을 추가하는 방법
 이 문서에서는 Azure Portal을 사용하여 IoT Hub에서 데이터를 읽는 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 다룹니다.
@@ -27,7 +27,7 @@ ms.lasthandoff: 11/22/2017
 - Time Series Insights에서 사용할 IoT Hub의 전용 소비자 그룹을 만듭니다. 각 Time Series Insights 이벤트 원본에는 다른 소비자와 공유되지 않은 전용 소비자 그룹 자체가 있어야 합니다. 같은 소비자 그룹에서 여러 읽기 권한자가 이벤트를 소비하는 경우 모든 읽기 권한자에게 오류가 표시될 수 있습니다. 자세한 내용은 [IoT Hub 개발자 가이드](../iot-hub/iot-hub-devguide.md)를 참조하세요.
 
 ## <a name="add-a-new-event-source"></a>새 이벤트 원본 추가
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 기존 Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 클릭합니다. Time Series Insights 환경을 선택합니다.
 
@@ -50,7 +50,7 @@ ms.lasthandoff: 11/22/2017
 
    ![구독 및 이벤트 허브 정보](media/time-series-insights-how-to-add-an-event-source-iothub/3-new-event-source.png)
 
-   | 속성 | 설명 |
+   | 자산 | 설명 |
    | --- | --- |
    | 구독 ID | 이 IoT Hub가 만들어진 구독을 선택합니다.
    | IoT Hub 이름 | IoT Hub 이름을 선택합니다.
@@ -62,7 +62,7 @@ ms.lasthandoff: 11/22/2017
 
 9. **IoT Hub 설정 수동으로 제공** 옵션을 선택한 경우 다음 표에 나오는 각 필수 속성에 대한 설명을 참조하세요.
 
-   | 속성 | 설명 |
+   | 자산 | 설명 |
    | --- | --- |
    | 구독 ID | 이 IoT Hub가 만들어진 구독입니다.
    | 리소스 그룹 | 이 IoT Hub가 만들어진 리소스 그룹 이름입니다.

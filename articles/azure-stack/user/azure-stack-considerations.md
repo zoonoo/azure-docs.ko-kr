@@ -19,6 +19,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31512931"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>주요 고려 사항: Azure 스택에 대 한 앱을 빌드 또는 서비스를 사용 하 여
 

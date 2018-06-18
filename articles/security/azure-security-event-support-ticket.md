@@ -1,6 +1,6 @@
 ---
-title: "보안 이벤트 지원 티켓을 로그하는 방법 - Azure | Microsoft Docs"
-description: "잠재적인 보안 이벤트를 확인한 Azure Marketplace의 판매자로서, 적절한 티켓을 기록하는 방법을 알아야 합니다."
+title: 보안 이벤트 지원 티켓을 로그하는 방법 - Azure | Microsoft Docs
+description: 잠재적인 보안 이벤트를 확인한 Azure Marketplace의 판매자로서, 적절한 티켓을 기록하는 방법을 알아야 합니다.
 services: security
 documentationcenter: na
 author: DavidBosland
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/04/2017
+ms.locfileid: "26129943"
 ---
 # <a name="how-to-log-a-security-event-support-ticket"></a>보안 이벤트 지원 티켓을 로그하는 방법
 

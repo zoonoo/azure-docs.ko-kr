@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export 로그 파일 형식 | Microsoft Docs"
-description: "Import/Export 서비스 작업에 대한 단계를 실행할 때 만든 로그 파일의 형식에 대해 알아보기"
+title: Azure Import/Export 로그 파일 형식 | Microsoft Docs
+description: Import/Export 서비스 작업에 대한 단계를 실행할 때 만든 로그 파일의 형식에 대해 알아보기
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060008"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export 서비스 로그 파일 형식
 Microsoft Azure Import/Export 서비스가 드라이브에서 가져오기 작업 또는 내보내기 작업의 일부로 작업을 수행하는 경우 로그는 해당 작업과 연결된 저장소 계정의 블록 Blob에 작성됩니다.  

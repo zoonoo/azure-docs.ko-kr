@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32196562"
 ---
 ### <a name="retrieve-host-name-ports-and-access-keys-using-the-azure-portal"></a>Azure Portal을 사용하여 호스트 이름, 포트 및 액세스 키를 검색합니다.
 

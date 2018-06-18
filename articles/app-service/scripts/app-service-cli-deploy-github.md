@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30280912"
 ---
 # <a name="create-a-web-app-with-deployment-from-github"></a>GitHub의 배포를 사용하여 웹앱 만들기
 

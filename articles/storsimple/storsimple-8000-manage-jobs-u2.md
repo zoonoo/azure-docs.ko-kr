@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈에 대한 작업 보기 및 관리 | Microsoft Docs"
-description: "StorSimple 장치 관리자 서비스 작업 블레이드에 대해 설명하고 이 페이지를 사용하여 최근, 현재 및 예약된 백업 작업을 추적하는 방법을 설명합니다."
+title: StorSimple 8000 시리즈에 대한 작업 보기 및 관리 | Microsoft Docs
+description: StorSimple 장치 관리자 서비스 작업 블레이드에 대해 설명하고 이 페이지를 사용하여 최근, 현재 및 예약된 백업 작업을 추적하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108191"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-jobs-update-3-and-later"></a>StorSimple 장치 관리자 서비스를 사용하여 작업 보기 및 관리(업데이트 3 이상)
 

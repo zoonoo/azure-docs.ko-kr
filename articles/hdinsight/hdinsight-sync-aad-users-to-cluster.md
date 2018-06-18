@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409284"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
@@ -132,7 +133,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="verify-the-newly-added-azure-ad-user"></a>새로 추가된 Azure AD 사용자 확인
 
-[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)를 열어 새 Azure AD 사용자가 추가되었는지 확인합니다. **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**으로 이동하여 Ambari 웹 UI에 액세스합니다. 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
+[Ambari 웹 UI](hdinsight-hadoop-manage-ambari.md)를 열어 새 Azure AD 사용자가 추가되었는지 확인합니다. **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`** 으로 이동하여 Ambari 웹 UI에 액세스합니다. 클러스터 관리자 사용자 이름 및 암호를 입력합니다.
 
 1. Ambari 대시보드의 **관리자** 메뉴 아래에서 **Ambari 관리**를 선택합니다
 

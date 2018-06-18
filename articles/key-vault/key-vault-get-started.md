@@ -19,6 +19,7 @@ ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34070354"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Key Vault 시작
 이 문서는 PowerShell을 사용하여 Azure Key Vault를 시작할 수 있도록 하고 다음 활동을 따르는 과정을 안내합니다.

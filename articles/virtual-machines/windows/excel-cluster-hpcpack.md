@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917407"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Azure의 HPC Pack 클러스터에서 Excel 및 SOA 작업 실행 시작
 이 문서에서는 Azure 빠른 시작 템플릿 또는 Azure PowerShell 배포 스크립트(선택 사항)를 사용하여 Azure 가상 머신에 Microsoft HPC Pack 2012 R2 클러스터를 배포하는 방법을 설명합니다. 이 클러스터는 HPC Pack을 사용하여 Microsoft Excel 또는 SOA(서비스 지향 아키텍처) 작업을 실행하도록 설계된 Azure Marketplace VM 이미지를 사용합니다. 클러스터를 사용하여 온-프레미스 클라이언트 컴퓨터에서 Excel HPC 및 SOA 서비스를 실행할 수 있습니다. Excel HPC 서비스에는 Excel 통합 문서 오프로딩 및 Excel 사용자 정의 함수, 즉 UDF가 포함됩니다.
@@ -257,7 +258,7 @@ Azure의 HPC Pack 클러스터에서 실행되도록 다음 단계에 따라 Exc
 Excel UDF를 실행하려면 앞의 1-3단계에 따라 클라이언트 컴퓨터를 설정합니다. Excel UDF의 경우 컴퓨터 노드에 Excel 응용 프로그램을 설치할 필요가 없습니다. 따라서 클러스터 컴퓨터 노드를 만들 때 Excel이 포함된 컴퓨터 노드 이미지가 아닌 일반 컴퓨터 노드 이미지를 선택합니다.
 
 > [!NOTE]
-> Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 이 대화 상자를 사용하여 UDF를 실행하는 클러스터를 지정합니다. 전체 클러스터 이름이 hpcexcelhn01.southeastasia.cloudapp.azure.com과 같이 제한보다 더 긴 경우에는 대화 상자에서 입력할 수 없습니다. 이러한 문제를 해결하려면 긴 클러스터 이름의 값을 사용해 *CCP_IAASHN*과 같은 컴퓨터 전체 변수를 설정합니다. 그런 다음 대화 상자에 *%CCP_IAASHN%*를 클러스터 헤드 노드 이름으로 입력합니다. 
+> Excel 2010 및 2013 클러스터 커넥터 대화 상자에는 34자 제한이 있습니다. 이 대화 상자를 사용하여 UDF를 실행하는 클러스터를 지정합니다. 전체 클러스터 이름이 hpcexcelhn01.southeastasia.cloudapp.azure.com과 같이 제한보다 더 긴 경우에는 대화 상자에서 입력할 수 없습니다. 이러한 문제를 해결하려면 긴 클러스터 이름의 값을 사용해 *CCP_IAASHN*과 같은 컴퓨터 전체 변수를 설정합니다. 그런 다음 대화 상자에 *%CCP_IAASHN%* 를 클러스터 헤드 노드 이름으로 입력합니다. 
 > 
 > 
 

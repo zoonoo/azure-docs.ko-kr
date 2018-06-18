@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31805158"
 ---
 시스템 경로를 사용하면 자동으로 트래픽을 쉽게 배포할 수 있지만 가상 어플라이언스를 통해 패킷 라우팅을 제어하고자 하는 경우도 있습니다. 이러한 경우, 특정 서브넷으로 흐르는 패킷이 가상 어플라이언스로 가도록 한 다음 홉을 지정하는 사용자 정의 경로를 생성하고 가상 어플라이언스로 실행되는 VM에서 IP를 전달하도록 설정하면 됩니다.
 

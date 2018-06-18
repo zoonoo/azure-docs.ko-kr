@@ -3,23 +3,21 @@ title: Azure Cosmos DB 리소스 모델 및 개념 | Microsoft Docs
 description: 데이터베이스, 컬렉션, UDF(사용자 정의 함수), 문서, 리소스 관리 권한 등으로 구성된 Azure Cosmos DB의 계층적 모델에 대해 알아봅니다.
 keywords: 계층적 모델, cosmosdb, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: ef9d5c0c-0867-4317-bb1b-98e219799fd5
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rafats
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 69ee7baeda524647dd259ea22bb948b0168fd913
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 21b1e69573d2ddd31979e6c23dd7f3bd130cadbe
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798019"
 ---
 # <a name="azure-cosmos-db-hierarchical-resource-model-and-core-concepts"></a>Azure Cosmos DB 계층적 리소스 모델 및 핵심 개념
 

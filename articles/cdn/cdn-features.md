@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3368a8a14a3d1314e4c7ecae9256071f1fe646f9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 6c93d995d7270a194bf654e69183807ba1422c10
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257872"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608037"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN 제품 기능 비교
 
@@ -41,7 +41,6 @@ Azure CDN(Content Delivery Network)은 **Microsoft의 Azure CDN 표준**(미리 
 | 캐시/헤더 설정([캐싱 규칙](cdn-caching-rules.md)사용)  |  |**&#x2713;** |**&#x2713;** | |
 | 캐시/헤더 설정( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
 | [쿼리 문자열 캐싱](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
-| 지역 캐싱  |**&#x2713;** |  |  |  |
 | IPv4/IPv6 이중 스택 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 지원](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 ||||

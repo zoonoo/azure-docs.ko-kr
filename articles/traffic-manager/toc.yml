@@ -41,6 +41,10 @@
       href: traffic-manager-rum-overview.md
     - name: 트래픽 보기
       href: traffic-manager-traffic-view-overview.md
+    - name: 메트릭 및 경고
+      href: traffic-manager-metrics-alerts.md
+    - name: Azure DNS 및 Traffic Manager를 사용하여 재해 복구
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
     - name: FAQ
       href: traffic-manager-FAQs.md
 - name: 방법

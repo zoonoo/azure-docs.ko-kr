@@ -19,6 +19,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30238395"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure Key Vault Analytics 솔루션
 
@@ -29,7 +30,7 @@ Log Analytics에서 Azure Key Vault 솔루션을 사용하여 Azure Key Vault Au
 솔루션을 사용하려면 Azure Key Vault 진단 로깅을 사용하도록 설정하고 진단을 Log Analytics 작업 영역으로 보내야 합니다. Azure Blob Storage에 로그를 작성할 필요는 없습니다.
 
 > [!NOTE]
-> 2017년 1월 Key Vault에서 Log Analytics로 로그를 보내도록 지원하는 방법이 변경되었습니다. 사용 중인 Key Vault 솔루션에서 제목에 *(사용되지 않음)*을 표시하는 경우 수행해야 할 단계는 [이전 Key Vault 솔루션에서 마이그레이션](#migrating-from-the-old-key-vault-solution)을 참조하세요.
+> 2017년 1월 Key Vault에서 Log Analytics로 로그를 보내도록 지원하는 방법이 변경되었습니다. 사용 중인 Key Vault 솔루션에서 제목에 *(사용되지 않음)* 을 표시하는 경우 수행해야 할 단계는 [이전 Key Vault 솔루션에서 마이그레이션](#migrating-from-the-old-key-vault-solution)을 참조하세요.
 >
 >
 

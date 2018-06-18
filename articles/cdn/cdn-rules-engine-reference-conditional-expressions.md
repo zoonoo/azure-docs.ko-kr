@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 규칙 엔진 조건식 | Microsoft Docs"
-description: "Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서"
+title: Azure CDN 규칙 엔진 조건식 | Microsoft Docs
+description: Azure CDN 규칙 엔진 일치 조건 및 기능에 대한 참조 설명서
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: Lichard
 manager: akucer
-editor: 
+editor: ''
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: cdn
 ms.workload: media
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997978"
 ---
 # <a name="azure-cdn-rules-engine-conditional-expressions"></a>Azure CDN 규칙 엔진 조건식
 이 항목에서는 Azure CDN(Content Delivery Network) [규칙 엔진](cdn-rules-engine.md)에 대한 조건식에 대해 자세히 설명합니다.

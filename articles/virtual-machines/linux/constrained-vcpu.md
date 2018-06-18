@@ -1,13 +1,13 @@
 ---
-title: "Azure 제한 vCPU 크기 - Linux | Microsoft Docs"
-description: "제한된 vCPU 수를 지원할 수 있는 VM 크기를 나열합니다."
+title: Azure 제한 vCPU 크기 - Linux | Microsoft Docs
+description: 제한된 vCPU 수를 지원할 수 있는 VM 크기를 나열합니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: jonbeck7
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874092"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>제한된 vCPU 지원 VM 크기
 

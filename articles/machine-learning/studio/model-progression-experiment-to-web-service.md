@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: f36c8cf68c707e4472fd1779044a64e7f9f4c004
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7b9aec2815f836b3b220de37fe6428c54d39c3e5
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34835575"
 ---
 # <a name="how-a-machine-learning-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning 모델을 통한 실험에서 조작 가능한 웹 서비스까지의 진행 과정
 Azure Machine Learning Studio는 예측 분석 모델을 대신하는 ***실험***을 개발, 실행, 테스트 및 반복할 수 있는 대화형 캔버스를 제공합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
@@ -70,7 +72,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 > 
 
 ### <a name="the-web-service"></a>웹 서비스
-예측 실험이 준비되었으면 서비스를 기존 웹 서비스 또는 Azure Resource Manager에 기반한 새 웹 서비스로 배포할 수 있습니다. 모델을 *기존 Machine Learning 웹 서비스*로 배포하여 조작하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]**를 선택합니다. *새 Machine Learning 웹 서비스*를 배포하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]**를 선택합니다. 이제 사용자가 웹 서비스 REST API를 통해 데이터를 모델로 전송하고 그 결과를 다시 받을 수 있습니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
+예측 실험이 준비되었으면 서비스를 기존 웹 서비스 또는 Azure Resource Manager에 기반한 새 웹 서비스로 배포할 수 있습니다. 모델을 *기존 Machine Learning 웹 서비스*로 배포하여 조작하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 를 선택합니다. *새 Machine Learning 웹 서비스*를 배포하려면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다. 이제 사용자가 웹 서비스 REST API를 통해 데이터를 모델로 전송하고 그 결과를 다시 받을 수 있습니다. 자세한 내용은 [Azure Machine Learning 웹 서비스 사용 방법](consume-web-services.md)을 참조하세요.
 
 ## <a name="the-non-typical-case-creating-a-non-predictive-web-service"></a>비일반적 경우: 비예측 웹 서비스 만들기
 실험에서 예측 분석 모델을 학습하지 않은 경우 학습 실험 및 점수 매기기 실험을 모두 만들 필요가 없습니다. 하나의 실험만 있으며 이 실험을 웹 서비스로 배포할 수 있습니다. Machine Learning Studio에서는 사용한 모듈을 분석하여 예측 모델이 실험에 포함되는지를 감지합니다.
@@ -79,7 +81,7 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 
 1. **웹 서비스 설정**을 클릭하고 **재학습 웹 서비스**를 선택합니다. 입력 및 출력 노드가 자동으로 추가됩니다.
 2. **실행**을 클릭합니다.
-3. **웹 서비스 배포**를 클릭하고 배포하려는 환경에 따라 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]**를 선택합니다.
+3. **웹 서비스 배포**를 클릭하고 배포하려는 환경에 따라 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택합니다.
 
 이제 웹 서비스가 배포되고 예측 웹 서비스처럼 액세스하고 관리할 수 있습니다.
 
@@ -90,9 +92,9 @@ Azure Machine Learning Studio는 *예측 분석 모델*을 개발 및 배포하�
 
 **입력 또는 출력을 변경하거나 웹 서비스에서 데이터를 조작하는 방법을 수정하려고 합니다.**
 
-모델을 변경하지 않는 대신 웹 서비스에서 데이터를 처리하는 방법만 변경하는 경우에는 예측 실험을 편집한 후 또다시 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]**를 선택합니다. 웹 서비스를 중지한 다음 업데이트된 예측 실험을 배포하고서 웹 서비스를 다시 시작합니다.
+모델을 변경하지 않는 대신 웹 서비스에서 데이터를 처리하는 방법만 변경하는 경우에는 예측 실험을 편집한 후 또다시 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택합니다. 웹 서비스를 중지한 다음 업데이트된 예측 실험을 배포하고서 웹 서비스를 다시 시작합니다.
 
-다음 예제에서는 예측 실험이 예측된 결과와 함께 입력 데이터의 전체 행을 반환한다고 가정합니다. 웹 서비스에서 결과만 반환하도록 결정할 수 있습니다. 따라서 예측 실험에서 출력 포트 바로 앞에 **프로젝트 열** 모듈을 추가하여 결과 이외의 열을 제외할 수 있습니다. 또다시 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]**를 선택하면 해당 웹 서비스가 업데이트됩니다.
+다음 예제에서는 예측 실험이 예측된 결과와 함께 입력 데이터의 전체 행을 반환한다고 가정합니다. 웹 서비스에서 결과만 반환하도록 결정할 수 있습니다. 따라서 예측 실험에서 출력 포트 바로 앞에 **프로젝트 열** 모듈을 추가하여 결과 이외의 열을 제외할 수 있습니다. 또다시 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 또는 **웹 서비스 배포[신규]** 를 선택하면 해당 웹 서비스가 업데이트됩니다.
 
 **새 데이터로 모델을 재학습하려고 합니다.**
 

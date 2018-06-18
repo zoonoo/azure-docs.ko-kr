@@ -3,18 +3,18 @@ title: Azure Machine Learning Package for Forecasting을 사용하여 예측 모
 description: Azure Machine Learning Package for Forecasting을 사용하여 예측 모델 모델을 작성, 학습, 테스트 및 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.component: service
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 160ea82177368ce9b47f298cca661c40599b3bbe
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886564"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833532"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning으로 예측 모델 작성 및 배포
 
@@ -29,7 +29,7 @@ ms.locfileid: "33886564"
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 1. 다음 계정 및 응용 프로그램을 설정하고 설치해야 합니다.
    - Azure Machine Learning 실험 계정 

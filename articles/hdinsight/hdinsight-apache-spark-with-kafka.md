@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31402382"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>HDInsight의 Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "29345705"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>MakeCert를 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 
@@ -76,7 +77,7 @@ exported.cer 파일을 Azure에 업로드해야 합니다. 자세한 내용은 [
  
 1. 자체 서명된 인증서를 만드는 데 사용한 동일한 컴퓨터에서 관리자로 명령 프롬프트를 엽니다.
 2. 샘플을 수정 및 실행하여 클라이언트 인증서를 생성합니다.
-  * *"P2SRootCert"*는 클라이언트 인증서를 생성 중인 자체 서명된 루트의 이름으로 변경합니다. 루트 인증서의 이름을 사용하고 있는지 확인합니다. 이 경우에 'CN=' 값은 자체 서명된 루트를 만들 때 지정한 값입니다.
+  * *"P2SRootCert"* 는 클라이언트 인증서를 생성 중인 자체 서명된 루트의 이름으로 변경합니다. 루트 인증서의 이름을 사용하고 있는지 확인합니다. 이 경우에 'CN=' 값은 자체 서명된 루트를 만들 때 지정한 값입니다.
   * *P2SChildCert*는 생성하는 클라이언트 인증서에 사용할 이름으로 변경합니다.
 
   다음 예제를 수정하지 않고 실행하면 루트 인증서 P2SRootCert에서 생성된 클라이언트 인증서 P2SChildcert가 개인 인증서 저장소에 저장됩니다.

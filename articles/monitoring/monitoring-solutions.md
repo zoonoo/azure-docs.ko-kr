@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33885271"
 ---
 # <a name="management-solutions-in-azure"></a>Azure의 관리 솔루션
 관리 솔루션은 Azure의 서비스를 활용하여 특정 응용 프로그램이나 서비스의 작업에 대한 추가 인사이트를 제공합니다. 이 문서에서는 Azure 관리 솔루션에 대해 간략하게 설명하고 관리 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다.

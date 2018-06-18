@@ -1,6 +1,6 @@
 ---
-title: "Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "도구를 시작하는 정보 및 위협 모델링 프로세스를 포함하는 Microsoft 위협 모델링 도구에 대한 기본 페이지"
+title: Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: 도구를 시작하는 정보 및 위협 모델링 프로세스를 포함하는 Microsoft 위협 모델링 도구에 대한 기본 페이지
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043358"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft 위협 모델링 도구
 

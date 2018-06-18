@@ -1,11 +1,11 @@
 ---
-title: "Azure SDK for .NET 2.5.1 릴리스 정보"
-description: "Azure SDK for .NET 2.5.1 릴리스 정보"
+title: Azure SDK for .NET 2.5.1 릴리스 정보
+description: Azure SDK for .NET 2.5.1 릴리스 정보
 services: app-service
 documentationcenter: .net,nodejs,java
 author: Juliako
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 8d3d815f-bb58-447e-8ff0-f9b9603c7b00
 ms.service: app-service
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/03/2017
+ms.locfileid: "23957418"
 ---
 # <a name="azure-sdk-for-net-251-release-notes"></a>Azure SDK for .NET 2.5.1 릴리스 정보
 이 문서에는 Azure SDK for .NET 2.5.1 릴리스의 릴리스 정보가 포함되어 있습니다. 

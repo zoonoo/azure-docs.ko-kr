@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30237504"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>저장소 계정에 대한 처리량 및 대기 시간 메트릭 확인
 
@@ -31,7 +32,7 @@ ms.lasthandoff: 03/28/2018
 
 ## <a name="configure-metrics"></a>메트릭 구성
 
-저장소 계정의 **설정** 아래에 있는 **메트릭(미리 보기)**으로 이동합니다.
+저장소 계정의 **설정** 아래에 있는 **메트릭(미리 보기)** 으로 이동합니다.
 
 **하위 서비스** 드롭다운에서 Blob을 선택합니다.
 
@@ -47,7 +48,7 @@ ms.lasthandoff: 03/28/2018
 |**수신**|수신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다. |
 |**송신**|송신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다. |
 
-**시간** 옆의 **최근 24시간(자동)**을 선택합니다. **시간 단위**에 대해 **지난 1시간** 및 **분**을 선택하고 **적용**을 클릭합니다.
+**시간** 옆의 **최근 24시간(자동)** 을 선택합니다. **시간 단위**에 대해 **지난 1시간** 및 **분**을 선택하고 **적용**을 클릭합니다.
 
 ![저장소 계정 메트릭](./media/storage-blob-scalable-app-verify-metrics/figure1.png)
 

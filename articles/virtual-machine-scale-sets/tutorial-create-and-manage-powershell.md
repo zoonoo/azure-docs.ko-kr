@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 91174f14cb6a49e560504e01ba47e7121f869080
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7531ddce37b2f6d140cb277727d6168d8d98ba1e
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366259"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802387"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 가상 머신 확장 집합의 수명 주기 동안 하나 이상의 관리 작업을 실행해야 합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -146,7 +146,7 @@ VM 인스턴스에 로그인한 후 필요에 따라 일부 구성 변경을 수
 
 
 ## <a name="understand-vm-instance-images"></a>VM 인스턴스 이미지 이해
-이전 단계에서 [Set-AzureRmVmssStorageProfile](/powershell/module/AzureRM.Compute/Set-AzureRmVmssStorageProfile)을 사용하여 확장 집합 구성을 정의한 경우 Windows Server 2016 Datacenter 이미지를 사용했습니다. Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 VM 이미지가 포함되어 있습니다. 사용 가능한 게시자 목록을 보려면 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 명령을 사용합니다.
+Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 많은 VM 이미지가 포함되어 있습니다. 사용 가능한 게시자 목록을 보려면 [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) 명령을 사용합니다.
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "EastUS"

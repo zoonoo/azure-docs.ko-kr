@@ -18,6 +18,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31514733"
 ---
 # <a name="web-application-firewall-waf"></a>WAF(웹 응용 프로그램 방화벽)
 
