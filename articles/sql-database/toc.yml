@@ -343,7 +343,7 @@
         - name: BCP를 사용하여 데이터 로드
           href: sql-database-load-from-csv-with-bcp.md
         - name: ADF를 사용하여 데이터 로드
-          href: ../data-factory/connector-azure-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
         - name: 데이터 동기화
           href: sql-database-get-started-sql-data-sync.md
     - name: 모니터링 및 튜닝

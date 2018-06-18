@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 스크립트 샘플 - 사용자 지정 랩에서 가상 머신 시작 | Microsoft Docs
-description: 이 Azure CLI 스크립트는 사용자 지정 랩에서 가상 머신을 시작합니다.
+title: Azure CLI 스크립트 샘플 - 랩에서 가상 머신 시작 | Microsoft Docs
+description: 이 Azure CLI 스크립트는 Azure DevTest Labs의 랩에서 가상 머신을 시작합니다.
 services: lab-services
 author: spelluru
 manager: ''
@@ -14,15 +14,16 @@ ms.workload: na
 ms.date: 04/12/2018
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: c14328904f29f8160a1ccc1130fe6d2cfa629822
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a635766c1a7fb9ae10a651d09ecd7da9a5f01e51
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763139"
 ---
-# <a name="use-azure-cli-to-start-a-virtual-machine-in-a-custom-lab"></a>Azure CLI를 사용하여 사용자 지정 랩에서 가상 머신 시작
+# <a name="use-azure-cli-to-start-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Azure CLI를 사용하여 Azure DevTest Labs의 랩에서 가상 머신 시작
 
-이 Azure CLI 스크립트는 사용자 지정 랩에서 VM(가상 머신)을 시작합니다. 
+이 Azure CLI 스크립트는 랩에서 VM(가상 머신)을 시작합니다. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -39,10 +40,10 @@ ms.lasthandoff: 05/07/2018
 
 | 명령 | 메모 |
 |---|---|
-| [az lab vm start ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-start) | 사용자 지정 랩에서 VM(가상 머신)을 시작합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
+| [az lab vm start ](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-start) | 랩에서 VM(가상 머신)을 시작합니다. 이 작업은 완료하는 데 시간이 걸릴 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
-추가 Azure Lab Services PowerShell 스크립트 샘플은 [Azure Lab Services CLI 샘플](../samples-cli.md)에서 확인할 수 있습니다.
+추가 Azure Lab Services CLI 스크립트 샘플은 [Azure Lab Services CLI 샘플](../samples-cli.md)에서 확인할 수 있습니다.

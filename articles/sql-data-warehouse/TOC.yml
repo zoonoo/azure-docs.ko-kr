@@ -49,8 +49,6 @@
           href: sql-data-warehouse-manage-compute-overview.md
         - name: Backup 및 복원
           href: backup-and-restore.md
-        - name: 감사
-          href: sql-data-warehouse-auditing-overview.md
         - name: 용량 제한
           href: sql-data-warehouse-service-capacity-limits.md
         - name: 유지 관리
@@ -61,8 +59,22 @@
       items:
         - name: 개요
           href: sql-data-warehouse-overview-manage-security.md
+        - name: Access Control
+          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 방화벽 규칙
+          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 방화벽 가상 네트워크 규칙
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: 인증
-          href: sql-data-warehouse-authentication.md
+          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Azure AD
+          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 로그인 및 사용자
+          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Multi-Factor Auth
+          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 감사
+          href: sql-data-warehouse-auditing-overview.md
         - name: 열 수준 보안
           href: column-level-security.md
     - name: SQL Data Warehouse로 마이그레이션
@@ -181,6 +193,12 @@
           href: sql-data-warehouse-restore-database-rest-api.md
     - name: 보안
       items:
+        - name: Azure AD 인증 구성
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: 조건부 액세스
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: PowerShell에서 가상 네트워크 규칙
+          href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
         - name: 암호화 사용 - 포털
           href: sql-data-warehouse-encryption-tde.md
         - name: 암호화 사용 - T-SQL

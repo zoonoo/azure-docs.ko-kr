@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/09/2018
 ms.author: juliako
-ms.openlocfilehash: 0fdc8c6dc9fae96a79e2ab2b05b7db3012834c1e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: e81544d263bea3f367eaf2100ddb36a2835034c4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362297"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637915"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>자습서: Azure Media Services로 비디오 분석 
 
@@ -26,11 +26,10 @@ ms.locfileid: "34362297"
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.    
 
 > [!div class="checklist"]
-> * Azure Cloud Shell 시작
 > * Media Services 계정 만들기
 > * Media Services API 액세스
 > * 샘플 앱 구성
-> * 샘플 코드 자세히 검사
+> * 지정된 비디오를 분석하는 코드 검사
 > * 앱 실행
 > * 출력 내용 검사
 > * 리소스 정리
@@ -49,23 +48,48 @@ Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
 
+샘플은 [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) 폴더에 있습니다.
+
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
-## <a name="examine-the-sample-code-in-detail"></a>샘플 코드 자세히 검사
+## <a name="examine-the-code-that-analyzes-the-specified-video"></a>지정된 비디오를 분석하는 코드 검사
 
 이 섹션에서는 *AnalyzeVideos* 프로젝트의 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/AnalyzeVideos/Program.cs) 파일에 정의된 함수를 살펴봅니다.
 
+샘플은 다음 작업을 수행합니다.
+
+1. 비디오를 분석하는 변환 및 작업을 만듭니다.
+2. 입력 자산을 만들고 비디오를 업로드합니다. 자산은 작업의 입력으로 사용됩니다.
+3. 작업의 출력을 저장하는 출력 자산을 만듭니다. 
+4. 작업을 제출합니다.
+5. 작업의 상태를 확인합니다.
+6. 작업 실행에서 생성된 파일을 다운로드합니다. 
+
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>.NET SDK로 Media Services API 사용하기
 
-.NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 먼저 토큰을 가져온 다음, 반환된 토큰에서 **ClientCredential** 개체를 만들어야 합니다. 문서의 시작 부분에서 복제한 코드에서 **ArmClientCredential** 개체가 토큰을 가져오는 데 사용됩니다.  
+.NET으로 Media Services API를 사용하려면 **AzureMediaServicesClient** 개체를 만들어야 합니다. 개체를 만들려면 Azure AD를 사용하여 클라이언트가 Azure에 연결하는 데 필요한 자격 증명을 제공해야 합니다. 아티클의 시작 부분에서 복제한 코드에서 **GetCredentialsAsync** 함수는 로컬 구성 파일에 제공된 자격 증명에 따라 ServiceClientCredentials 개체를 만듭니다. 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateMediaServicesClient)]
 
-### <a name="create-an-output-asset-to-store-the-result-of-a-job"></a>작업 결과를 저장할 출력 자산 만들기 
+### <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>입력 자산을 만들고 여기에 로컬 파일 업로드 
+
+**CreateInputAsset** 함수는 새로운 입력 [Asset](https://docs.microsoft.com/rest/api/media/assets)을 만들고 이 자산에 지정된 로컬 비디오 파일을 업로드합니다. 이 Asset은 인코딩 Job에 대한 입력으로 사용됩니다. Media Services v3에서 Job에 대한 입력은 Asset이거나 HTTPS URL을 통해 Media Services 계정에서 사용할 수 있는 콘텐츠일 수도 있습니다. HTTPS URL에서 인코딩하는 방법을 알아보려면 [이](job-input-from-http-how-to.md) 문서를 참조하세요.  
+
+Media Services v3에서는 Azure Storage API를 사용하여 파일을 업로드합니다. 다음 .NET 코드 조각에서 방법을 참조하세요.
+
+다음 함수는 아래와 같은 작업을 수행합니다.
+
+* Asset 만들기 
+* [저장소에 있는 자산 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)에 대해 쓰기가 가능한 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 가져오기
+* SAS URL을 사용하여 저장소의 컨테이너에 파일 업로드
+
+[!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]
+
+### <a name="create-an-output-asset-to-store-the-result-of-the-job"></a>작업 결과를 저장할 출력 자산 만들기 
 
 출력 [Asset](https://docs.microsoft.com/rest/api/media/assets)은 작업의 결과를 저장합니다. 프로젝트는 출력 자산의 결과를 "output" 폴더로 저장하는 **DownloadResults** 함수를 정의합니다. 따라서 무엇을 다운로드했는지 볼 수 있습니다.
 
@@ -111,7 +135,7 @@ Event Grid는 고가용성, 일관된 성능 및 동적 확장을 위해 설계�
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Media Services 계정의 리소스 정리
 
-일반적으로 재사용할 개체를 제외하고 모두 정리해야 합니다. (일반적으로 Transform를 재사용하고 StreamingLocator 등을 유지합니다.) 실험 후 계정이 정리되도록 하려면 재사용하지 않을 리소스는 삭제해야 합니다. 예를 들어 다음 코드는 Job을 삭제합니다.
+일반적으로 재사용할 개체를 제외하고 모두 정리해야 합니다. (일반적으로 Transform을 재사용하고 StreamingLocator를 유지합니다.) 실험 후 계정이 정리되도록 하려면 재사용하지 않을 리소스는 삭제해야 합니다. 예를 들어 다음 코드는 Job을 삭제합니다.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 

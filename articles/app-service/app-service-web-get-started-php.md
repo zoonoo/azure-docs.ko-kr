@@ -15,11 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: aaac2fa4d62fb02bf17342a0db27fad79e495693
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597759"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -104,7 +105,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 }
 ```
 
-새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_을 고유한 앱 이름으로 바꿉니다.
+새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_ 을 이전 단계에서 만든 고유한 앱 이름으로 바꿉니다.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -170,7 +171,7 @@ git commit -am "updated output"
 git push azure master
 ```
 
-배포가 완료되면 **앱으로 이동** 단계에서 열린 브라우저 창으로 다시 전환하고 페이지를 새로 고칩니다.
+배포가 완료되면 **앱으로 이동** 단계 중 열린 브라우저 창으로 돌아가서 페이지를 새로 고칩니다.
 
 ![Azure에서 실행되는 업데이트된 샘플 앱](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
@@ -186,7 +187,7 @@ git push azure master
 
 ![Azure Portal의 App Service 페이지](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
+왼쪽 메뉴는 앱 구성을 위한 서로 다른 옵션을 제공합니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

@@ -2,24 +2,21 @@
 title: Azure Cosmos DB 에뮬레이터를 사용하여 로컬로 개발 | Microsoft Docs
 description: Azure Cosmos DB 에뮬레이터를 사용하여 Azure 구독을 구입하지 않고도 무료로 로컬에서 응용 프로그램을 개발하고 테스트할 수 있습니다.
 services: cosmos-db
-documentationcenter: ''
 keywords: Azure Cosmos DB 에뮬레이터
 author: David-Noble-at-work
 manager: kfile
 editor: ''
-ms.assetid: 90b379a6-426b-4915-9635-822f1a138656
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: 109bd61963b918f2a20c48a5bf7bd89dc353db96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6869698f2e6dca321d371bb22ded316f32cdeb51
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824097"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos DB 에뮬레이터 사용
 
@@ -69,6 +66,7 @@ Azure Cosmos DB 에뮬레이터는 신뢰도 있는 Azure Cosmos DB 서비스의
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이 
 Azure Cosmos DB 에뮬레이터는 로컬 개발자 워크스테이션에서 실행되는 에뮬레이트된 환경을 제공하기 때문에 클라우드의 Azure Cosmos DB 계정과 기능 면에서 몇 가지 차이가 있습니다.
 
+* 현재 에뮬레이터의 데이터 탐색기는 SQL API 컬렉션 및 MongoDB 컬렉션만 지원합니다. Table, Graph 및 Cassandra API는 아직 지원되지 않습니다.  
 * Azure Cosmos DB 에뮬레이터는 단일 고정 계정과 알려진 마스터 키만 지원합니다.  Azure Cosmos DB 에뮬레이터에서는 키를 다시 생성할 수 없습니다.
 * Azure Cosmos DB 에뮬레이터는 확장 가능한 서비스가 아니며 많은 컬렉션을 지원하지 않습니다.
 * Azure Cosmos DB 에뮬레이터는 여러 [Azure Cosmos DB 일관성 수준](consistency-levels.md)을 시뮬레이션하지 않습니다.
@@ -305,7 +303,7 @@ Python 및 Node.js SDK에서 에뮬레이터에 연결하면 SSL 확인이 비�
 
 ## <a id="set-partitioncount"></a>컬렉션 수 변경
 
-기본적으로 Azure Cosmos DB 에뮬레이터를 사용하여 최대 25개의 단일 파티션의 컬렉션 또는 분할된 컬렉션 하나를 만들 수 있습니다. **PartitionCount** 값을 수정하여는 최대 250개의 단일 파티션 컬렉션 또는 10개의 분할된 컬렉션을 만들거나, 합쳐서 250개의 단일 파티션을 초과하지 않는 두 컬렉션 조합을 만들 수 있습니다(분할된 컬렉션 1개 = 단일 파티션 컬렉션 25개).
+기본적으로 Azure Cosmos DB 에뮬레이터를 사용하여 최대 25개의 단일 파티션의 컬렉션 또는 분할된 컬렉션 하나를 만들 수 있습니다. **PartitionCount** 값을 수정하여 최대 250개의 단일 파티션 컬렉션 또는 10개의 분할된 컬렉션을 만들거나, 합쳐서 250개의 단일 파티션을 초과하지 않는 두 컬렉션 조합을 만들 수 있습니다(분할된 컬렉션 1개 = 단일 파티션 컬렉션 25개).
 
 현재 파티션 수가 초과된 후에 컬렉션을 만들려고 하면 에뮬레이터에서 다음 메시지와 함께 ServiceUnavailable 예외를 throw합니다.
 
@@ -420,7 +418,7 @@ powershell .\importcert.ps1
 Starting interactive shell
 ``` 
 
-이제 클라이언트의 응답에서 끝점 및 마스터 키를 사용하고 SSL 인증서를 호스트로 가져옵니다. SSL 인증서를 가져오려면 관리자 명령 프롬프트에서 다음을 수행합니다.
+이제 클라이언트의 응답에서 엔드포인트 및 마스터 키를 사용하고 SSL 인증서를 호스트로 가져옵니다. SSL 인증서를 가져오려면 관리자 명령 프롬프트에서 다음을 수행합니다.
 
 명령줄에서:
 ```cmd 

@@ -13,7 +13,7 @@
 
 # 시작하기
 ## [Azure AD 시작](fundamentals/get-started-azure-ad.md)
-## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
+## [Azure AD Premium에 등록](fundamentals/active-directory-get-started-premium.md)
 ## [사용자 지정 도메인 이름 추가](fundamentals/add-custom-domain.md)
 ## [회사 브랜딩 구성](fundamentals/customize-branding.md)
 ## [Azure AD에 사용자 추가](fundamentals/add-users-azure-active-directory.md)
@@ -82,10 +82,10 @@
 
 ## [그룹 및 구성원 관리](fundamentals/active-directory-manage-groups.md)
 ### 그룹 관리
-#### [Azure Portal](active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph(v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
-### [그룹 구성원 관리](active-directory-groups-members-azure-portal.md)
+### [그룹 구성원 관리](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [그룹 소유자 관리](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [그룹 멤버 자격 관리](fundamentals/active-directory-groups-membership-azure-portal.md)
 ### [그룹을 사용하여 라이선스 할당](fundamentals/active-directory-licensing-whatis-azure-portal.md)
