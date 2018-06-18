@@ -13,6 +13,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31796963"
 ---
 # <a name="indexing-in-azure-search"></a>Azure Search의 인덱싱
 > [!div class="op_single_selector"]

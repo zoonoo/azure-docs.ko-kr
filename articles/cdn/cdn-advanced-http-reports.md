@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석 | Microsoft Docs"
-description: "Microsoft Azure CDN에서 고급 HTTP 보고서를 만드는 방법 알아보기 이러한 보고서는 CDN 활동에 대한 자세한 정보를 제공합니다."
+title: Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석 | Microsoft Docs
+description: Microsoft Azure CDN에서 고급 HTTP 보고서를 만드는 방법 알아보기 이러한 보고서는 CDN 활동에 대한 자세한 정보를 제공합니다.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: ef90adc1-580e-4955-8ff1-bde3f3cafc5d
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22999038"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Azure CDN 고급 HTTP 보고서를 사용하여 사용 현황 통계 분석
 ## <a name="overview"></a>개요

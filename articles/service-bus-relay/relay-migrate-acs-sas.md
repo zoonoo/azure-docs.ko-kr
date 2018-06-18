@@ -1,11 +1,11 @@
 ---
-title: "Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션 | Microsoft Docs"
-description: "Access Control Service에서 SAS로 응용 프로그램 마이그레이션"
+title: Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션 | Microsoft Docs
+description: Access Control Service에서 SAS로 응용 프로그램 마이그레이션
 services: service-bus-relay
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855385"
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Active Directory Access Control Service에서 공유 액세스 서명 권한 부여로 마이그레이션
 

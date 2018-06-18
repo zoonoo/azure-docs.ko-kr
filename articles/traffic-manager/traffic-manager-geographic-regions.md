@@ -1,12 +1,12 @@
 ---
-title: "Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조 | Microsoft Docs"
-description: "이 문서에서는 Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조를 나열합니다."
+title: Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조 | Microsoft Docs
+description: 이 문서에서는 Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조를 나열합니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201499"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 

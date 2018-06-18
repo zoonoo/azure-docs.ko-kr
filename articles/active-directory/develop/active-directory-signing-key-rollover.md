@@ -16,11 +16,12 @@ ms.date: 07/18/2016
 ms.author: celested
 ms.reviewer: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 29ac254bf3b0e8decb26452fc36112af0a3970af
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 02d7cb28411e0baec20d334994b385dcd3b06451
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293384"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory에서 서명 키 롤오버
 이 문서에서는 보안 토큰을 서명하기 위해 Azure AD(Azure Active Directory)에 사용되는 공개 키에 대해 알아야 할 내용을 설명합니다. 이러한 키 롤오버가 정기적으로 있으며, 비상 시에는 곧바로 롤오버될 수 있습니다. Azure AD를 사용하는 모든 응용 프로그램은 키 롤오버 프로세스를 프로그래밍 방식으로 처리하거나 정기적인 수동 롤오버 프로세스를 설정할 수 있어야 합니다. 키의 작동 방식과 롤오버가 응용 프로그램에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 응용 프로그램을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
@@ -50,7 +51,7 @@ OpenID Connect discovery 문서와 페더레이션 메타데이터 문서에는 
 
 이 설명서는 다음에 적용할 수 **없습니다** .
 
-* Azure AD 응용 프로그램 갤러리에서 추가된 응용 프로그램(사용자 지정 포함)에는 서명 키와 관련하여 별도 설명서가 있습니다. [자세한 정보](../active-directory-sso-certs.md)
+* Azure AD 응용 프로그램 갤러리에서 추가된 응용 프로그램(사용자 지정 포함)에는 서명 키와 관련하여 별도 설명서가 있습니다. [자세한 정보](../manage-apps/manage-certificates-for-federated-single-sign-on.md)
 * 응용 프로그램 프록시를 통해 게시된 온-프레미스 응용 프로그램은 서명 키에 대해 걱정할 필요가 없습니다.
 
 ### <a name="nativeclient"></a>리소스에 액세스하는 네이티브 클라이언트 응용 프로그램

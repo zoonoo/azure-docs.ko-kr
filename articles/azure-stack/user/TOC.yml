@@ -27,6 +27,10 @@
       href: azure-stack-solution-hybrid-identity.md
     - name: 하이브리드 클라우드 연결 구성
       href: azure-stack-solution-hybrid-connectivity.md
+    - name: 제품 구독
+      href: azure-stack-subscribe-services.md
+    - name: 서식 파일에서 VM 만들기
+      href: azure-stack-create-vm-template.md
 - name: 방법 가이드
   items:
     - name: Azure Stack 포털 사용

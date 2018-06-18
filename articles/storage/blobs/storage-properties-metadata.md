@@ -1,8 +1,8 @@
 ---
-title: "Azure Storage에서 개체 속성 및 메타데이터를 설정 및 검색 | Microsoft Docs"
-description: "Azure 저장소의 개체에 사용자 지정 메타데이터를 저장하고 시스템 속성을 설정 및 검색합니다."
+title: Azure Storage에서 개체 속성 및 메타데이터를 설정 및 검색 | Microsoft Docs
+description: Azure 저장소의 개체에 사용자 지정 메타데이터를 저장하고 시스템 속성을 설정 및 검색합니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: tamram
 manager: timlt
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23056058"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>속성 및 메타데이터 설정 및 검색
 

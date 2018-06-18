@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple Virtual Array 요구 사항 | Microsoft Docs"
-description: "StorSimple 가상 배열의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다."
+title: Microsoft Azure StorSimple Virtual Array 요구 사항 | Microsoft Docs
+description: StorSimple 가상 배열의 소프트웨어 및 네트워킹 요구 사항에 대해 알아봅니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/15/2017
+ms.locfileid: "24815231"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>StorSimple 가상 배열 시스템 요구 사항
 ## <a name="overview"></a>개요

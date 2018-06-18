@@ -7,15 +7,16 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: articles
+ms.topic: conceptuals
 ms.date: 04/01/2018
 ms.author: billgib
 ms.reviewer: sstein; AyoOlubeko
-ms.openlocfilehash: 9ea308cb933948d22c7b9b14b031b9fa15af9c88
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 4738f20ad647e65abffdb65ef350c3c0ad4d2f8f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646105"
 ---
 # <a name="cross-tenant-reporting-using-distributed-queries"></a>분산 쿼리를 사용한 교차 테넌트 보고
 
@@ -126,7 +127,7 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
     ![외부 데이터 원본 만들기](media/saas-tenancy-cross-tenant-reporting/create-external-data-source.png)
 
-   이전 섹션에서 설명한 전역 뷰를 참조하고 **DISTRIBUTION = SHARDED(VenueId)**로 정의되는 외부 테이블입니다. 각 *VenueId*가 단일 데이터베이스에 매핑되기 때문에 다음 섹션에 표시된 대로 다양한 시나리오의 성능이 향상됩니다.
+   이전 섹션에서 설명한 전역 뷰를 참조하고 **DISTRIBUTION = SHARDED(VenueId)** 로 정의되는 외부 테이블입니다. 각 *VenueId*가 단일 데이터베이스에 매핑되기 때문에 다음 섹션에 표시된 대로 다양한 시나리오의 성능이 향상됩니다.
 
     ![외부 테이블 만들기](media/saas-tenancy-cross-tenant-reporting/external-tables.png)
 
@@ -146,7 +147,7 @@ Wingtip Tickets SaaS Database Per Tenant 응용 프로그램에서는 각각의 
 
 실행 계획을 검사할 때 자세한 내용을 보려면 계획 아이콘 위로 마우스를 가져갑니다. 
 
-기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)**를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *VenueId*가 단일 데이터베이스에 매핑하기 때문에 쉽게 원격으로 필터링할 수 있으며 필요한 데이터만 반환합니다.
+기억할 점으로, 외부 데이터 원본이 정의되었을 때 **DISTRIBUTION = SHARDED(VenueId)** 를 설정하면 여러 시나리오의 성능이 향상됩니다. 각 *VenueId*가 단일 데이터베이스에 매핑하기 때문에 쉽게 원격으로 필터링할 수 있으며 필요한 데이터만 반환합니다.
 
 1. SSMS에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReportingQueries.sql*을 엽니다.
 2. **adhocreporting** 데이터베이스에 연결되었는지 확인합니다.

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29811070"
 ---
 # <a name="prepare-the-target-environment-for-vmware-replication-to-azure"></a>Azure에 대한 VMware 복제를 위한 대상 환경 준비
 

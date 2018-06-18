@@ -2,24 +2,22 @@
 title: 'Azure Cosmos DB: SQL API .NET Core 시작 자습서 | Microsoft Docs'
 description: Azure Cosmos DB SQL API .NET Core SDK를 사용하여 온라인 데이터베이스 및 C# 콘솔 응용 프로그램을 만드는 자습서입니다.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: 9f93e276-9936-4efb-a534-a9889fa7c7d2
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 81c7767852b25c6e075c48feb245227643799316
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2d1f93e839d4ad2d7c857916996f2ad5d09626c5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796590"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: SQL API 및 .NET Core 시작
 > [!div class="op_single_selector"]
@@ -71,11 +69,11 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 계정이 이미 있는 경
 ## <a id="SetupVS"></a>2단계: Visual Studio 솔루션 설치
 1. 컴퓨터에서 **Visual Studio 2017**을 엽니다.
 2. **파일** 메뉴에서 **새로 만들기**와 **프로젝트**를 차례로 선택합니다.
-3. **새 프로젝트** 대화 상자에서 **템플릿** / **Visual C#** / **.NET Core**/**콘솔 응용 프로그램(.NET Core)**을 선택하고 프로젝트 이름을 **DocumentDBGettingStarted**라고 지정한 후 **확인**을 클릭합니다.
+3. **새 프로젝트** 대화 상자에서 **템플릿** / **Visual C#** / **.NET Core**/**콘솔 응용 프로그램(.NET Core)** 을 선택하고 프로젝트 이름을 **DocumentDBGettingStarted**라고 지정한 후 **확인**을 클릭합니다.
 
    ![새 프로젝트 창의 스크린샷](./media/sql-api-dotnetcore-get-started/nosql-tutorial-new-project-2.png)
 4. **솔루션 탐색기**에서 **DocumentDBGettingStarted**를 마우스 오른쪽 단추로 클릭합니다.
-5. 그런 다음 메뉴를 벗어나지 않은 상태에서 **NuGet 패키지 관리...**를 클릭합니다.
+5. 그런 다음 메뉴를 벗어나지 않은 상태에서 **NuGet 패키지 관리...** 를 클릭합니다.
 
    ![프로젝트의 마우스 오른쪽 단추 클릭 메뉴의 스크린샷](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 6. **NuGet** 탭에서 창의 맨 위에 있는 **찾아보기**를 클릭하고 검색 상자에 **azure documentdb**를 입력합니다.

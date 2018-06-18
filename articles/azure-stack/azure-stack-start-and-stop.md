@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31391136"
 ---
 # <a name="start-and-stop-azure-stack"></a>시작 및 중지 Azure 스택
 올바르게 종료 하 고 Azure 스택 서비스를 다시 시작이 문서의 절차를 따라야 합니다. 

@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs 관리 라이브러리 | Microsoft Docs"
-description: ".NET에서 Event Hubs 네임스페이스 및 엔터티 관리"
+title: Azure Event Hubs 관리 라이브러리 | Microsoft Docs
+description: .NET에서 Event Hubs 네임스페이스 및 엔터티 관리
 services: event-hubs
 cloud: na
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-ms.assetid: 
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26780976"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs 관리 라이브러리
 

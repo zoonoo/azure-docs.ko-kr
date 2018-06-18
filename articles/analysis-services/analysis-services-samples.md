@@ -3,16 +3,17 @@ title: Azure Analysis Services 코드, 프로젝트 및 데이터베이스 샘�
 description: Azure Analysis Services에 대한 코드, 프로젝트 및 데이터베이스 샘플에 대해 알아봅니다.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 55f350f21111e8937fa1687c890d4f7bb4ab07ed
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 54913fa7940ac83f5de87ad9f35d6dcee07d29d0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598432"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 다음 예제 리소스를 사용하여 사용자 환경의 Analysis Services를 알아보고 테스트하는 데 도움을 얻을 수 있습니다.

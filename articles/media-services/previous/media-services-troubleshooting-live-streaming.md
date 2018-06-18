@@ -19,6 +19,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33940927"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>라이브 스트리밍 문제 해결 가이드
 이 문서에서는 일부 라이브 스트리밍 문제를 해결하는 방법에 대한 제안을 제공합니다.

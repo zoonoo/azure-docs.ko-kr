@@ -1,11 +1,11 @@
 ---
-title: "Microsoft Azure StorSimple 가상 배열 iSCSI 서버 설정 | Microsoft Docs"
-description: "초기 설정을 수행하고, StorSimple iSCSI 서버를 등록하고, 장치 설정을 완료하는 방법을 설명합니다."
+title: Microsoft Azure StorSimple 가상 배열 iSCSI 서버 설정 | Microsoft Docs
+description: 초기 설정을 수행하고, StorSimple iSCSI 서버를 등록하고, 장치 설정을 완료하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 4db116d1-978b-48e8-b572-a719a8425dbc
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23112281"
 ---
 # <a name="deploy-storsimple-virtual-array--set-up-as-an-iscsi-server-via-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal을 통해 iSCSI 서버로 설정
 
@@ -153,7 +154,7 @@ StorSimple 가상 배열을 구성하고 설정하기 전에 다음 사항을 �
 
 ## <a name="step-3-add-a-volume"></a>3단계: 볼륨 추가
 
-1. **장치** 블레이드에서 iSCSI 서버로 구성한 장치를 선택합니다. 또는 행에서 마우스 오른쪽 버튼으로 **...**을 클릭하고 상황에 맞는 메뉴에서 **볼륨 추가**를 선택합니다. 명령 모음에서 **+볼륨 추가**를 클릭할 수도 있습니다. 그려면 **볼륨 추가** 블레이드가 열립니다.
+1. **장치** 블레이드에서 iSCSI 서버로 구성한 장치를 선택합니다. 또는 행에서 마우스 오른쪽 버튼으로 **...** 을 클릭하고 상황에 맞는 메뉴에서 **볼륨 추가**를 선택합니다. 명령 모음에서 **+볼륨 추가**를 클릭할 수도 있습니다. 그려면 **볼륨 추가** 블레이드가 열립니다.
    
     ![볼륨 추가](./media/storsimple-virtual-array-deploy3-iscsi-setup/deployis10m.png)
 2. **볼륨 추가** 블레이드에서 다음을 수행합니다.

@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 22dbaa3d10d09456a972a7991583dc29b7941db1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dbfbafccc1bc735927535a5ee0f8d232be355dca
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618626"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
 이 문서에서는 Azure Data Factory 복사 작업에서 데이터 복사를 수행할 때 원본 데이터의 스키마 매핑과 데이터 형식을 싱크 데이터에 매핑하는 방법을 설명합니다. 
@@ -46,7 +47,7 @@ ms.lasthandoff: 03/23/2018
 
 ### <a name="explicit-column-mapping"></a>명시적 열 매핑
 
-복사 작업의 **typeProperties** 섹션에 **columnMappings**를 지정하여 명시적 열 매핑을 수행할 수 있습니다. 이 시나리오에서는 "structure" 섹션이 입력과 출력 데이터 집합 모두에 필요합니다. 열 매핑은 **원본 데이터 집합 "structure"의 전체 열 또는 하위 집합을 싱크 데이터 집합 "structure"**의 모든 열에 매핑하는 것을 지원합니다. 다음은 예외가 발생하는 오류 조건입니다.
+복사 작업의 **typeProperties** 섹션에 **columnMappings**를 지정하여 명시적 열 매핑을 수행할 수 있습니다. 이 시나리오에서는 "structure" 섹션이 입력과 출력 데이터 집합 모두에 필요합니다. 열 매핑은 **원본 데이터 집합 "structure"의 전체 열 또는 하위 집합을 싱크 데이터 집합 "structure"** 의 모든 열에 매핑하는 것을 지원합니다. 다음은 예외가 발생하는 오류 조건입니다.
 
 * 원본 데이터 저장소 쿼리 결과에 입력 데이터 집합 "structure" 섹션에서 지정한 열 이름이 없습니다.
 * 싱크 데이터 저장소(미리 정의된 스키마가 있는 경우)에 출력 데이터 집합 "structure" 섹션에서 지정한 열 이름이 없습니다.

@@ -1,11 +1,11 @@
 ---
-title: "프레미스 간 연결을 위한 계획 및 설계: Azure VPN Gateway | Microsoft Docs"
-description: "크로스-프레미스, 하이브리드, VNet 간 연결에 대한 VPN Gateway 계획 및 설계에 대해 알아보세요."
+title: '프레미스 간 연결을 위한 계획 및 설계: Azure VPN Gateway | Microsoft Docs'
+description: 크로스-프레미스, 하이브리드, VNet 간 연결에 대한 VPN Gateway 계획 및 설계에 대해 알아보세요.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: d5aaab83-4e74-4484-8bf0-cc465811e757
 ms.service: vpn-gateway
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23125481"
 ---
 # <a name="planning-and-design-for-vpn-gateway"></a>VPN Gateway 계획 및 설계
 

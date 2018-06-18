@@ -1,12 +1,12 @@
 ---
-title: "Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포 | Microsoft Docs"
-description: "이 문서에서는 고가용성을 위해 Azure에서 AD FS를 배포하는 방법을 알아봅니다."
-keywords: "Azure Traffic Manager를 포함한 AD FS, Azure Traffic Manager를 포함한 ADFS, 지리적, 다중 데이터 센터, 지리적 데이터 센터, 다중 지리적 데이터 센터, Azure에서 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS,ADFS 배포, AD FS 배포, Azure에서 ADFS, Azure에서 ADFS 배포, Azure에서 AD FS 배포, ADFS Azure, AD FS 소개, Azure, Azure에서 AD FS, IaaS, ADFS, Azure에 ADFS 이동"
+title: Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포 | Microsoft Docs
+description: 이 문서에서는 고가용성을 위해 Azure에서 AD FS를 배포하는 방법을 알아봅니다.
+keywords: Azure Traffic Manager를 포함한 AD FS, Azure Traffic Manager를 포함한 ADFS, 지리적, 다중 데이터 센터, 지리적 데이터 센터, 다중 지리적 데이터 센터, Azure에서 AD FS 배포, Azure ADFS 배포, Azure ADFS, Azure AD FS,ADFS 배포, AD FS 배포, Azure에서 ADFS, Azure에서 ADFS 배포, Azure에서 AD FS 배포, ADFS Azure, AD FS 소개, Azure, Azure에서 AD FS, IaaS, ADFS, Azure에 ADFS 이동
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: anandyadavmsft
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: a14bc870-9fad-45ed-acd5-a90ccd432e54
 ms.service: active-directory
 ms.workload: identity
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26604782"
 ---
 # <a name="high-availability-cross-geographic-ad-fs-deployment-in-azure-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure에서 고가용성 교차 지리적 AD FS 배포
 [Azure에서 AD FS 배포](active-directory-aadconnect-azure-adfs.md) 는 Azure의 조직에 대한 간단한 AD FS 인프라를 배포할 수 있는 방법으로 단계별 지침을 제공합니다. 이 문서에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 Azure AD FS에서 교차 지리적 배포를 만드는 다음 단계를 제공합니다. Azure Traffic Manager는 인프라에서 서로 다른 요구 사항에 맞게 사용할 수 있는 라우팅 방법의 범위를 사용하여 조직에 대해 지리적으로 분배된 고가용성 및 고성능 AD FS 인프라를 만들 수 있도록 합니다.

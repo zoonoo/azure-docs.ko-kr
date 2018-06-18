@@ -1,6 +1,6 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - 관리되는 리소스 그룹 가져오기 및 VM 크기 조정 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - 관리되는 리소스 그룹 가져오기 및 VM 크기 조정"
+title: Azure PowerShell 스크립트 샘플 - 관리되는 리소스 그룹 가져오기 및 VM 크기 조정 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 관리되는 리소스 그룹 가져오기 및 VM 크기 조정
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2017
+ms.locfileid: "23636973"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-powershell"></a>PowerShell을 사용하여 관리되는 리소스 그룹에서 리소스를 가져오고 VM 크기를 조정합니다.
 

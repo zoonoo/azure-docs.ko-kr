@@ -18,6 +18,7 @@ ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/20/2018
+ms.locfileid: "34359427"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 내부 Vm에서 SQL 인스턴스를 사용할 수 있습니다 프로그램 [Azure 스택](azure-stack-poc.md), 또는 리소스 공급자를 제공 하 여 Azure 스택 환경 외부에서 인스턴스 데이터베이스에 연결할 수 있습니다. 일반 요구 사항은 같습니다.

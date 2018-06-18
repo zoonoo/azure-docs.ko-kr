@@ -1,12 +1,12 @@
 ---
-title: "StorSimple Cloud Appliance로 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs"
-description: "클라우드 어플라이언스로 StorSimple 8000 시리즈 물리적 장치를 장애 조치(failover)하는 방법에 대해 알아봅니다."
+title: StorSimple Cloud Appliance로 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs
+description: 클라우드 어플라이언스로 StorSimple 8000 시리즈 물리적 장치를 장애 조치(failover)하는 방법에 대해 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108331"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance로 장애 조치(failover)
 
@@ -57,7 +58,7 @@ StorSimple 물리적 장치를 다른 물리적 장치로 장애 조치(failover
 
 6. 다른 장치에 장애 조치하려는 모든 볼륨 컨테이너에 이전 단계를 반복합니다.
 
-7. **장치** 블레이드로 다시 이동합니다. 명령 모음에서 **장애 조치(failover)**를 클릭합니다.
+7. **장치** 블레이드로 다시 이동합니다. 명령 모음에서 **장애 조치(failover)** 를 클릭합니다.
 
     ![장애 조치(failover) 클릭](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev8.png)
 8. **장애 조치(failover)** 블레이드에서 다음 단계를 수행합니다.

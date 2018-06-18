@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs .NET Framework API 개요 | Microsoft Docs"
-description: "핵심 Event Hubs .NET Framework 클라이언트 API 일부를 요약한 것입니다."
+title: Azure Event Hubs .NET Framework API 개요 | Microsoft Docs
+description: 핵심 Event Hubs .NET Framework 클라이언트 API 일부를 요약한 것입니다.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26781897"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Event Hubs .NET Framework API 개요
 

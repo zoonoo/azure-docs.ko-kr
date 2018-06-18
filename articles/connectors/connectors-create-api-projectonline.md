@@ -4,7 +4,7 @@ description: Azure 앱 서비스로 논리 앱을 만듭니다. Project Online�
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: ecfan
-manager: anneta
+manager: jeconnoc
 editor: ''
 tags: connectors
 ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/18/2016
 ms.author: estfan; ladocs
-ms.openlocfilehash: d1fe1707fc71e91436e51ad29c20500dab88957d
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: aaf357b1fe2c0b9b5874ee296c9141cf757e2300
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295359"
 ---
 # <a name="get-started-with-the-projectonline-connector"></a>ProjectOnline 커넥터 시작
 Project Online은 PPM(프로젝트 포트폴리오 관리) 및 Microsoft의 일상 업무를 위한 유연한 온라인 솔루션입니다. 조직에서는 Office 365를 통해 지원되는 Project Online을 통해 강력한 프로젝트 관리 기능을 신속하게 시작하여 어디서든지 모든 장치의 프로젝트와 프로젝트 포트폴리오 투자를 계획하고 우선 순위를 정하며 관리할 수 있습니다.

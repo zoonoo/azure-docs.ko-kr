@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI 샘플 - Azure Managed Applications | Microsoft Docs"
-description: "Azure CLI 샘플 - Azure Managed Applications"
+title: Azure CLI 샘플 - Azure Managed Applications | Microsoft Docs
+description: Azure CLI 샘플 - Azure Managed Applications
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/27/2017
+ms.locfileid: "23632554"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure의 Docker"
-description: "Docker 배포 및 Azure와 통합"
+title: Azure의 Docker
+description: Docker 배포 및 Azure와 통합
 services: multiple
 author: czeumault
 manager: carolz
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23069106"
 ---
 <div class="content">
    <h1>Azure의 Docker</h1>   

@@ -5,20 +5,17 @@ keywords: 데이터베이스 질문, 질문과 대답, Documentdb, Azure, Micros
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: b68d1831-35f9-443d-a0ac-dad0c89f245b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: fe192fb83c8bf29af0d02f47da366d8551dd6af6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e20e360fc1bfb839476a1f4dccf6acf0f25174d2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735167"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -61,6 +58,9 @@ Azure Cosmos DB에는 개발자로부터 스키마 또는 보조 인덱스를 �
 
 ### <a name="what-are-the-throughput-limits-of-azure-cosmos-db"></a>Azure Cosmos DB의 처리량 한도는 어느 정도인가요?
 하나의 컨테이너가 Azure Cosmos DB에서 지원할 수 있는 총 처리량에 대한 한도는 없습니다. 이는 대다수 파티션 키 간에 워크로드를 거의 균등하게 분산시키기 위한 것입니다.
+
+### <a name="are-direct-and-gateway-connectivity-modes-encrypted-"></a>직접 및 게이트웨이 연결 모드를 암호화하나요? 
+예, 두 모드는 항상 완벽하게 암호화됩니다. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Azure Cosmos DB 비용은 얼마인가요?
 자세한 내용은 [Azure Cosmos DB 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cosmos-db/) 페이지를 참조하세요. Azure Cosmos DB 사용 요금은 프로비전된 컨테이너 수, 컨테이너가 온라인이었던 시간 및 각 컨테이너의 프로비전된 처리량에 따라 결정됩니다. 여기서 *컨테이너*라는 용어는 SQL API 컬렉션, Graph API 그래프, MongoDB API 컬렉션 및 테이블 API 테이블을 의미합니다. 
@@ -164,6 +164,10 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 * [Azure Cosmos DB용 데이터베이스 마이그레이션 도구](import-data.md)에 설명된 대로 데이터 마그레이션 도구를 사용합니다.
 * [Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍](programming.md)에 설명된 대로 저장 프로시저를 사용합니다.
 
+### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>지연 인덱싱을 사용하도록 내 컬렉션을 설정했습니다. 내 쿼리가 예상된 결과를 반환하지 않습니다. 
+인덱싱 섹션에서 설명했듯이 지연 인덱싱으로 이 동작이 발생할 수 있습니다. 항상 모든 응용 프로그램에 일관된 인덱싱을 사용해야 합니다. 
+
+
 ### <a name="does-the-sql-api-support-resource-link-caching"></a>SQL API에서 리소스 링크 캐싱을 지원하나요?
 예, Azure Cosmos DB는 RESTful 서비스이므로 리소스 링크가 제한되며 캐시될 수 있습니다. SQL API 클라이언트는 문서 또는 컬렉션과 같은 모든 리소스 읽기에 대해 “If-None-Match” 헤더를 지정하고, 서버 버전이 변경된 후 로컬 복사본을 업데이트할 수 있습니다.
 
@@ -171,7 +175,12 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 예. [Azure Cosmos DB 에뮬레이터](local-emulator.md)는 신뢰도 있는 Cosmos DB 서비스의 에뮬레이션을 제공합니다. JSON 문서 만들기 및 쿼리, 컬렉션 프로비전 및 확장, 저장 프로시저 및 트리거 실행을 비롯하여 Azure Cosmos DB와 동일한 기능을 지원합니다. Azure Cosmos DB 에뮬레이터를 사용하여 응용 프로그램을 개발 및 테스트하고 Azure Cosmos DB에 대한 연결 끝점에 대한 단일 구성을 변경하여 글로벌 규모로 Azure에 배포할 수 있습니다.
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>이유는 포털의 데이터 탐색기에서 볼 때 반올림되는 문서에서 긴 부동 소수점 값이기 때문입니다. 
-이는 JavaScript의 제한 사항입니다. JavaScript는 IEEE 754에 지정된 배정밀도 부동 소수점 형식 숫자를 사용하고 -(253 - 1)과 253 – 1 사이의 숫자(즉, 9007199254740991)를 안전하게 나타낼 수 있습니다.
+이는 JavaScript의 제한 사항입니다. JavaScript는 IEEE 754에 지정된 배정밀도 부동 소수점 형식 숫자를 사용하고 -(253 - 1)과 253-1 사이의 숫자(즉, 9007199254740991)를 안전하게 나타낼 수 있습니다.
+
+### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>개체 계층 구조에서 사용 권한이 허용되나요?
+
+ResourceTokens를 사용한 사용 권한 만들기는 컬렉션 수준 및 해당 하위 항목에서 허용됩니다(예: 문서, 첨부 파일). 이는 데이터베이스에서 권한을 생성하려고 하거나 계정 수준이 현재 허용되지 않음을 의미합니다.
+
 
 ## <a name="develop-against-the-api-for-mongodb"></a>API for MongoDB에 대해 개발
 ### <a name="what-is-the-azure-cosmos-db-api-for-mongodb"></a>Azure Cosmos DB API for MongoDB란 무엇인가요?
@@ -213,7 +222,7 @@ Azure Cosmos DB Table API를 사용하여 테이블을 만들려는 Azure Table 
 * CORS는 현재 지원되지 않습니다.
 * Azure Table Storage의 테이블 이름은 대/소문자를 구분하지 않지만 Azure Cosmos DB Table API에 위치합니다.
 * 이진 필드 같은 정보 인코딩을 위한 일부 Azure Cosmos DB의 내부 형식은 현재 생각만큼 효율이 좋지는 않습니다. 따라서 데이터 크기에 예기치 않은 제한이 발생할 수 있습니다. 예를 들어 데이터를 인코딩하면 데이터 크기가 커지기 때문에 현재는 테이블 엔터티 1Meg를 이진 데이터 저장에 모두 사용할 수 없습니다.
-* 엔터티 속성 이름 “Id”는 현재 지원되지 않습니다.
+* 엔터티 속성 이름 'Id'는 현재 지원되지 않습니다.
 * TableQuery TakeCount는 1000으로 제한됩니다.
 
 REST API를 기준으로 Azure Cosmos DB Table API에서 지원하지 않는 많은 끝점/쿼리 옵션이 있습니다.
@@ -389,7 +398,7 @@ Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 
 * 백 엔드의 컨테이너 또는 컨테이너 집합에서 추가 처리량이 필요합니다. 예를 들어 사용되는 처리량이 프로비전된 처리량보다 많은 경우 제한에 이르게 됩니다. 자세한 내용은 [Azure Cosmos DB 컨테이너에 대한 처리량 설정](set-throughput.md)을 참조하세요.
 
 ### <a name="can-i-scale-up-or-scale-down-the-throughput-of-my-table-api-table"></a>내 Table API 테이블의 처리량을 늘리거나 줄일 수 있나요? 
-예, Azure Cosmos DB Azure 포털의 배율 창을 사용하여 처리량의 크기를 조정할 수 있습니다. 자세한 내용은 [처리량 설정](set-throughput.md)을 참조하세요.
+예, Azure Cosmos DB 포털의 배율 창을 사용하여 처리량의 크기를 조정할 수 있습니다. 자세한 내용은 [처리량 설정](set-throughput.md)을 참조하세요.
 
 ### <a name="is-a-default-tablethroughput-set-for-newly-provisioned-tables"></a>새로 프로비전된 테이블에 대해 기본 TableThroughput이 설정되나요?
 예, app.config를 통해 TableThroughput을 재정의하지 않고 Azure Cosmos DB에서 미리 만든 컨테이너를 사용하지 않으면 서비스에서 처리량이 400인 테이블을 만듭니다.
@@ -414,7 +423,7 @@ Azure Cosmos DB는 작업에 대한 상한을 사용하여 성능 및 대기 시
 
 Azure Cosmos DB는 전역적으로 분산된 SLA 기반 시스템으로, 가용성, 대기 시간 및 처리량을 보장하도록 설계되었습니다. Azure Cosmos DB에서 처리량을 예약하는 경우 다른 시스템과 달리 처리량이 보장됩니다. Azure Cosmos DB는 보조 인덱스 및 글로벌 배포와 같이 고객이 요청할 수 있는 추가 기능을 제공합니다.  
 
-### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Azure Table Storage에 데이터를 수집할 때 파티션이 가득 찼음을 나타내는 "할당량 가득 참" 알림을 받은 적이 없는데, Table API를 사용하면 이 메시지가 나타냅니다. 이 제품이 현재 사용자를 제한하거나 기존 응용 프로그램을 변경하도록 강제하나요?
+### <a name="i-never-get-a-quota-full-notification-indicating-that-a-partition-is-full-when-i-ingest-data-into-azure-table-storage-with-the-table-api-i-do-get-this-message-is-this-offering-limiting-me-and-forcing-me-to-change-my-existing-application"></a>Azure Table 저장소에 데이터를 수집할 때 파티션이 가득 찼음을 나타내는 "할당량 가득 참" 알림을 받은 적이 없는데, Table API를 사용하면 이 메시지가 나타냅니다. 이 제품이 현재 사용자를 제한하거나 기존 응용 프로그램을 변경하도록 강제하나요?
 
 Azure Cosmos DB는 SLA 기반 시스템으로, 대기 시간, 처리량, 가용성 및 일관성을 보장할 뿐만 아니라 무제한 확장을 제공합니다. 보장된 최고의 성능을 얻기 위해서는 데이터 크기 및 인덱스가 관리 및 확장 가능해야 합니다. 파티션 키당 엔터티 또는 항목 수에 대한 10GB 한도는 뛰어난 조회 및 쿼리 성능을 제공하도록 보장합니다. Azure Storage에 대해서도 응용 프로그램이 원활하게 확장할 수 있도록 하려면 단일 파티션에 대한 모든 정보를 저장 및 쿼리하여 핫 파티션을 만들지 *않는* 것이 좋습니다. 
 

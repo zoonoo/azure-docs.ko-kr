@@ -1,8 +1,8 @@
 ---
-title: "Azure Log Analytics의 성능 카운터 수집 및 분석 | Microsoft Docs"
-description: "성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Log Analytics에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, 작업 영역에 저장하는 방식에 대한 자세한 내용과, Azure Portal에서 분석하는 방법을 설명합니다."
+title: Azure Log Analytics의 성능 카운터 수집 및 분석 | Microsoft Docs
+description: 성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Log Analytics에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, 작업 영역에 저장하는 방식에 대한 자세한 내용과, Azure Portal에서 분석하는 방법을 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: mgoedtel
 manager: carmonm
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783165"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Log Analytics의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 응용 프로그램의 성능에 대한 정보를 자세히 제공합니다.  Log Analytics는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -46,9 +47,9 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 
 1. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  *object\counter*를 지정하면 특정 카운터에 대한 모든 인스턴스를 반환할 수도 있습니다.  
 
-    명명된 인스턴스에서 SQL Server 성능 카운터를 수집할 때 모든 명명된 인스턴스 카운터는 *MSSQL$*로 시작하며 인스턴스 이름이 이어집니다.  예를 들어 명명된 SQL 인스턴스 INST2의 경우 데이터베이스 성능 개체에서 모든 데이터베이스에 대한 로그 캐시 적중률 카운터를 수집하려면 `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`를 지정합니다.
+    명명된 인스턴스에서 SQL Server 성능 카운터를 수집할 때 모든 명명된 인스턴스 카운터는 *MSSQL$* 로 시작하며 인스턴스 이름이 이어집니다.  예를 들어 명명된 SQL 인스턴스 INST2의 경우 데이터베이스 성능 개체에서 모든 데이터베이스에 대한 로그 캐시 적중률 카운터를 수집하려면 `MSSQL$INST2:Databases(*)\Log Cache Hit Ratio`를 지정합니다.
 
-2. **+**를 클릭하거나 **Enter**를 눌러서 카운터를 목록에 추가합니다.
+2. **+** 를 클릭하거나 **Enter**를 눌러서 카운터를 목록에 추가합니다.
 3. 카운터를 추가할 때에는 해당 **샘플 간격**에 기본적으로 10초가 사용됩니다.  수집된 성능 데이터의 저장소 요구 사항을 줄이려면 높은 값으로, 최대 1800초(30분)까지 값을 변경할 수 있습니다.
 4. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
 
@@ -60,7 +61,7 @@ Windows 성능 카운터의 경우, 각 성능 카운터에 대해 특정 인스
 
 1. 기본적으로, 모든 구성 변경은 모든 에이전트로 자동 푸시됩니다.  Linux 에이전트에서, 구성 파일은 Fluentd 데이터 수집기로 전송됩니다.  각 Linux 에이전트에서 이 파일을 수동으로 수정하려면, *Apply below configuration to my Linux machines*(아래 구성을 내 Linux 컴퓨터에 적용) 확인란 선택을 해제하고 아래 지침을 따릅니다.
 2. 텍스트 상자에 *object(instance)\counter* 형식으로 카운트 이름을 입력합니다.  입력을 시작하면 일치하는 공용 카운터 목록이 나타납니다.  목록에서 카운터를 선택하거나 원하는 항목을 입력할 수 있습니다.  
-3. **+**를 클릭하거나 **Enter**를 눌러서 카운터를 개체의 다른 카운터 목록에 추가합니다.
+3. **+** 를 클릭하거나 **Enter**를 눌러서 카운터를 개체의 다른 카운터 목록에 추가합니다.
 4. 개체에 대한 모든 카운터에는 동일한 **샘플 간격**이 사용됩니다.  기본값은 10초입니다.  수집된 성능 데이터의 저장소 요구 사항을 줄이려면 이 값을 최대 1800초(30분)까지 변경할 수 있습니다.
 5. 카운터 추가를 완료했으면 화면 맨 위에서 **저장** 단추를 눌러서 구성을 저장합니다.
 

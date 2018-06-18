@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212894"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>행위자 서비스에서 서비스 수준 기능 구현
 [서비스 계층](service-fabric-reliable-actors-platform.md#service-layering)에 설명된 대로 행위자 서비스 자체는 신뢰할 수 있는 서비스입니다.  `ActorService`에서 파생된 고유한 서비스를 작성할 수 있고 다음과 같이 StatefulService를 상속하는 경우와 동일한 방식으로 서비스 수준 기능을 구현할 수 있습니다.

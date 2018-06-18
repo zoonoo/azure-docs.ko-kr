@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33766107"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>404 상태 코드를 반환하는 Azure CDN 끝점 문제 해결
 이 문서에서는 404 HTTP 응답 상태 코드를 반환하는 Azure CDN(Content Delivery Network) 끝점의 문제를 해결할 수 있습니다.

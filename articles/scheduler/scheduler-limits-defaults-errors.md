@@ -1,11 +1,11 @@
 ---
-title: "스케줄러 제한 및 기본값"
-description: "스케줄러 제한 및 기본값"
+title: 스케줄러 제한 및 기본값
+description: 스케줄러 제한 및 기본값
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 88f4a3e9-6dbd-4943-8543-f0649d423061
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23043168"
 ---
 # <a name="scheduler-limits-and-defaults"></a>스케줄러 제한 및 기본값
 ## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>스케줄러 할당량, 제한, 기본값 및 한계

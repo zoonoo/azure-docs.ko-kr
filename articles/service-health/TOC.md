@@ -11,6 +11,7 @@
 ### [ServiceNow를 사용하여 구성](service-health-alert-webhook-servicenow.md)
 ### [PagerDuty를 사용하여 구성](service-health-alert-webhook-pagerduty.md)
 ### [OpsGenie를 사용하여 구성](service-health-alert-webhook-opsgenie.md)
+### [REST를 사용하여 상태 이벤트 검색](service-health-rest.md)
 # 리소스
 ## [질문과 대답](resource-health-faq.md)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)

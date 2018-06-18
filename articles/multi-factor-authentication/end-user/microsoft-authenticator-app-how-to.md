@@ -20,6 +20,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28201000"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 시작
 Microsoft Authenticator 앱은 회사 또는 학교 계정(예: bsimon@contoso.com) 또는 Microsoft 계정(예: bsimon@outlook.com)의 추가 보안 수준을 제공합니다.
@@ -60,7 +61,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
     QR 코드가 있는 화면이 표시됩니다.
 
     ![QR 코드를 제공하는 화면](./media/authenticator-app-how-to/barcode2.png)
-3. Microsoft Authenticator 앱을 엽니다. **계정** 화면에서 **+**를 선택한 다음 회사 또는 학교 계정을 추가할지 지정합니다.
+3. Microsoft Authenticator 앱을 엽니다. **계정** 화면에서 **+** 를 선택한 다음 회사 또는 학교 계정을 추가할지 지정합니다.
 4. 카메라를 사용하여 QR 코드를 스캔한 다음 **완료** 를 선택하여 QR 코드 화면을 닫습니다.
 
     카메라가 올바르게 작동하지 않으면 [QR 코드 및 URL을 수동](#add-an-account-to-the-app-manually)으로 입력할 수 있습니다.
@@ -78,7 +79,7 @@ Microsoft Authenticator 앱에 추가하려는 각 계정에 대해 다음 절�
     QR 코드가 있는 화면이 표시됩니다.  코드와 URL을 기록합니다.
 
     ![QR 코드와 URL을 제공하는 화면](./media/authenticator-app-how-to/barcode2.png)
-3. Microsoft Authenticator 앱을 엽니다. **계정** 화면에서 **+**를 선택한 다음 회사 또는 학교 계정을 추가할지 지정합니다.
+3. Microsoft Authenticator 앱을 엽니다. **계정** 화면에서 **+** 를 선택한 다음 회사 또는 학교 계정을 추가할지 지정합니다.
 
 4. 스캐너에서 **수동으로 코드 입력**을 선택합니다.
 

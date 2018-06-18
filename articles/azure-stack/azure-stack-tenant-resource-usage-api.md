@@ -1,11 +1,11 @@
 ---
-title: "리소스 사용량 API 테 넌 트 | Microsoft Docs"
-description: "Azure 스택 사용 정보를 검색 하는 리소스 사용량 API에 대 한 참조입니다."
+title: 리소스 사용량 API 테 넌 트 | Microsoft Docs
+description: Azure 스택 사용 정보를 검색 하는 리소스 사용량 API에 대 한 참조입니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: b9d7c7ee-e906-4978-92a3-a2c52df16c36
 ms.service: azure-stack
 ms.workload: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29873490"
 ---
 # <a name="tenant-resource-usage-api"></a>테 넌 트 리소스 사용량 API
 

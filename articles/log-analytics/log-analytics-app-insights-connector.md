@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30186236"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기)
 
@@ -140,7 +141,7 @@ Application Insights 커넥터 블레이드는 사용자가 *OMS 포털을 사�
 
 ### <a name="sample-corrected-data"></a>샘플 수정 데이터
 
-Application Insights는 *[샘플링 수정](../application-insights/app-insights-sampling.md)*을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 Log Analytics 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
+Application Insights는 *[샘플링 수정](../application-insights/app-insights-sampling.md)* 을 제공하므로 원격 분석 트래픽을 줄이는 데 도움이 됩니다. Application Insights 앱에서 샘플링을 사용하도록 설정하는 경우 Application Insights 및 Log Analytics 모두에서 저장되는 항목의 수가 감소됩니다. **Application Insights 커넥터** 페이지 및 큐브 뷰에서 데이터 일관성이 유지되지만 사용자 지정 쿼리를 위해 샘플링된 데이터는 수동으로 수정해야 합니다.
 
 다음은 로그 검색 쿼리의 샘플링 수정 예입니다.
 

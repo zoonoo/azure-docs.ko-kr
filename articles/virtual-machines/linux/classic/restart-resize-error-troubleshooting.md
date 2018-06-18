@@ -1,11 +1,11 @@
 ---
-title: "VM 재시작 또는 크기 조정 문제 | Microsoft Docs"
-description: "Azure의 기존 Linux Virtual Machine 재시작 또는 크기 조정 관련 클래식 배포 문제 해결"
+title: VM 재시작 또는 크기 조정 문제 | Microsoft Docs
+description: Azure의 기존 Linux Virtual Machine 재시작 또는 크기 조정 관련 클래식 배포 문제 해결
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: Deland-Han
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: 73f2672c-602e-4766-8948-2b180115d299
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "24051616"
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-restarting-or-resizing-an-existing-linux-virtual-machine-in-azure"></a>Azure의 기존 Linux Virtual Machine 재시작 또는 크기 조정 관련 클래식 배포 문제 해결
 > [!div class="op_single_selector"]

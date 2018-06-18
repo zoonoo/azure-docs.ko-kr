@@ -1,11 +1,11 @@
 ---
-title: "공급자 리소스 사용량 API | Microsoft Docs"
-description: "Azure 스택 사용 정보를 검색 하는 API에서 리소스 사용량에 대 한 참조"
+title: 공급자 리소스 사용량 API | Microsoft Docs
+description: Azure 스택 사용 정보를 검색 하는 API에서 리소스 사용량에 대 한 참조
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29877282"
 ---
 # <a name="provider-resource-usage-api"></a>공급자 리소스 사용 API
 용어 *공급자* 서비스 관리자와 위임 된 모든 공급자 적용 됩니다. Azure 스택 연산자 및 위임 된 공급자 API 공급자 사용을 사용 하 여 직접 테 넌 트의 사용량을 볼 수 있습니다. 예를 들어 다이어그램에 나와 있는 것 처럼 P0 수 p 1의에서 사용 정보를 보려면 API 공급자 호출 하 고 P1 및 p 2의 직접 사용 수 P3 및 P4 대 한 사용 정보에 대 한 합니다.

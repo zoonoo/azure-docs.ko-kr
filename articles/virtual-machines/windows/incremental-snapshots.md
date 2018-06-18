@@ -1,6 +1,6 @@
 ---
-title: "관리되지 않는 Azure Windows VM 디스크의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs"
-description: "증분 스냅숏을 사용하여 Azure Windows 가상 컴퓨터 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다."
+title: 관리되지 않는 Azure Windows VM 디스크의 백업 및 복구에 대해 증분 스냅숏 사용 | Microsoft Docs
+description: 증분 스냅숏을 사용하여 Azure Windows 가상 컴퓨터 디스크의 백업 및 복구에 대한 사용자 지정 솔루션을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: aungoo-msft
@@ -19,5 +19,6 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23116881"
 ---
 [!INCLUDE [virtual-machines-incremental-snapshots](../../../includes/virtual-machines-incremental-snapshots.md)]

@@ -1,11 +1,11 @@
 ---
-title: "사용자 지정 개발 응용 프로그램에 대한 토큰 수명 기본값을 변경하는 방법 | Microsoft Docs"
-description: "Azure AD에서 개발 중인 응용 프로그램에 대한 토큰 수명 정책을 업데이트하는 방법"
+title: 사용자 지정 개발 응용 프로그램에 대한 토큰 수명 기본값을 변경하는 방법 | Microsoft Docs
+description: Azure AD에서 개발 중인 응용 프로그램에 대한 토큰 수명 정책을 업데이트하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614379"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 대한 토큰 수명 기본값을 변경하는 방법
 

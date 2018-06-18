@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 가상 배열 웹 UI 관리 | Microsoft Docs"
-description: "StorSimple 가상 배열 웹 UI를 통해 기본적인 장치 관리 작업을 수행하는 방법을 설명합니다."
+title: StorSimple 가상 배열 웹 UI 관리 | Microsoft Docs
+description: StorSimple 가상 배열 웹 UI를 통해 기본적인 장치 관리 작업을 수행하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: ea65b4c7-a478-43e6-83df-1d9ea62916a6
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109961"
 ---
 # <a name="use-the-web-ui-to-administer-your-storsimple-virtual-array"></a>웹 UI를 사용하여 StorSimple 가상 배열 관리
 ![설정 프로세스 흐름](./media/storsimple-ova-web-ui-admin/manage4.png)

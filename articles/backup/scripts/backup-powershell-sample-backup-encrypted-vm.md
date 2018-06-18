@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - Azure 가상 컴퓨터 백업 | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - Azure 가상 컴퓨터 백업"
+title: Azure PowerShell 스크립트 샘플 - Azure 가상 컴퓨터 백업 | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - Azure 가상 컴퓨터 백업
 services: backup
-documentationcenter: 
+documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: 
-tags: 
-ms.assetid: 
+editor: ''
+tags: ''
+ms.assetid: ''
 ms.service: backup
 ms.devlang: na
 ms.topic: sample
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997528"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell을 사용하여 암호화된 Azure 가상 컴퓨터 백업
 

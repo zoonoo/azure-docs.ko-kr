@@ -1,11 +1,11 @@
 ---
-title: "DMZ 예제 - 방화벽, UDR, NSG를 사용하여 응용 프로그램을 보호하는 DMZ 빌드 | Microsoft Docs"
-description: "방화벽, UDR(사용자 정의 라우팅), NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드"
+title: DMZ 예제 - 방화벽, UDR, NSG를 사용하여 응용 프로그램을 보호하는 DMZ 빌드 | Microsoft Docs
+description: 방화벽, UDR(사용자 정의 라우팅), NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: dc01ccfb-27b0-4887-8f0b-2792f770ffff
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23127161"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>예제 3 - 방화벽, UDR, NSG로 네트워크를 보호하는 DMZ 구축
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]

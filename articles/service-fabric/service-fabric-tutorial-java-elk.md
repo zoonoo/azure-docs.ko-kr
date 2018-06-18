@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29949823"
 ---
 # <a name="tutorial-monitor-your-service-fabric-applications-using-elk"></a>자습서: ELK를 사용한 Service Fabric 응용 프로그램 모니터링 
 이 자습서는 시리즈의 4부입니다. 여기서는 ELK(Elasticsearch, Logstash 및 Kibana)를 사용하여 Azure에서 실행하는 Service Fabric 응용 프로그램을 모니터링하는 방법을 설명합니다. 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 SQL Database에 대한 감사 및 위협 감지 사용 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center 권장 사항 **SQL 데이터베이스에 감사 및 위협 감지 사용**을 구현하는 방법을 보여 줍니다."
+title: Azure Security Center에서 SQL Database에 대한 감사 및 위협 감지 사용 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center 권장 사항 **SQL 데이터베이스에 감사 및 위협 감지 사용**을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 224b6755-2b36-4ecd-9af8-139a198e0df1
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040108"
 ---
 # <a name="enable-auditing-and-threat-detection-on-sql-databases-in-azure-security-center"></a>Azure Security Center에서 SQL Database에 대한 감사 및 위협 감지 사용
 감사 및 위협 감지를 아직 사용하도록 설정하지 않은 경우 모든 SQL 데이터베이스에 대한 감사 및 위협 감지를 켜는 것이 좋습니다. 감사 및 위협 감지는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.

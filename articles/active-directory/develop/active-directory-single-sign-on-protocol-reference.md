@@ -21,6 +21,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156707"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Single Sign-On SAML 프로토콜
 이 문서에서는 Azure AD(Azure Active Directory)에서 Single Sign-On에 대해 지원하는 SAML 2.0 인증 요청 및 응답에 대해 설명합니다.

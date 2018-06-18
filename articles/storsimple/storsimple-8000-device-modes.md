@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 장치 모드 변경 | Microsoft Docs"
-description: "StorSimple 장치 모드 및 StorSimple용 Windows PowerShell을 사용하여 장치 모드를 변경하는 방법을 설명합니다."
+title: StorSimple 장치 모드 변경 | Microsoft Docs
+description: StorSimple 장치 모드 및 StorSimple용 Windows PowerShell을 사용하여 장치 모드를 변경하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108541"
 ---
 # <a name="change-the-device-mode-on-your-storsimple-device"></a>StorSimple 장치에서 장치 모드 변경
 

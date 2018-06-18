@@ -6,14 +6,14 @@
       href: azure-stack-poc.md
     - name: 릴리스 정보
       items:
+        - name: 1805 업데이트
+          href: azure-stack-update-1805.md
         - name: 1804 업데이트
           href: azure-stack-update-1804.md
         - name: 1803 업데이트
           href: azure-stack-update-1803.md
         - name: 1802 업데이트
           href: azure-stack-update-1802.md
-        - name: 1712 업데이트
-          href: azure-stack-update-1712.md
 - name: 빠른 시작
   expanded: true
   items:
@@ -52,6 +52,12 @@
               items:
                 - name: 끝점 게시
                   href: azure-stack-integrate-endpoints.md
+        - name: Id 통합
+          items:
+            - name: Id 공급자를 선택 합니다.
+              href: azure-stack-integrate-identity.md
+            - name: Azure id 유효성 검사
+              href: azure-stack-validate-identity.md
         - name: Azure 스택 배포 PKI 요구 사항
           href: azure-stack-pki-certs.md
           items:
@@ -63,20 +69,17 @@
               href: azure-stack-validate-pki-certs.md
             - name: PKI 인증서를 수정 합니다.
               href: azure-stack-remediate-certs.md
-            - name: 배포 리소스
-              items:
-                - name: 시작 AzsReadiness cmdlet 참조
-                  href: azure-stack-azsreadiness-cmdlet.md
-                - name: 준비 보고서 보기
-                  href: azure-stack-validation-report.md
-            - name: Id 통합
-              items:
-                - name: Id 공급자를 선택 합니다.
-                  href: azure-stack-integrate-identity.md
-                - name: Azure id 유효성 검사
-                  href: azure-stack-validate-identity.md
+        - name: 배포 리소스
+          items:
+            - name: 배포 네트워킹에 대 한
+              href: deployment-networking.md
         - name: Azure 등록 유효성 검사
           href: azure-stack-validate-registration.md
+          items:
+            - name: 시작 AzsReadiness cmdlet 참조
+              href: azure-stack-azsreadiness-cmdlet.md
+            - name: 준비 보고서 보기
+              href: azure-stack-validation-report.md
         - name: 외부 모니터링
           href: azure-stack-integrate-monitor.md
         - name: 보안 통합
@@ -125,8 +128,8 @@
           href: azure-stack-monitor-health.md
         - name: 네트워크 리소스 관리
           href: azure-stack-viewing-public-ip-address-consumption.md
-        - name: Windows Azure 팩 VM 관리
-          href: azure-stack-manage-windows-azure-pack.md
+        - name: 사용자 구독 소유자 변경
+          href: azure-stack-change-subscription-owner.md
         - name: 시작 및 중지 Azure 스택
           href: azure-stack-start-and-stop.md
         - name: 용량 관리
@@ -156,7 +159,7 @@
               href: azure-stack-backup-enable-backup-powershell.md
             - name: Azure 스택 백업
               href: azure-stack-backup-back-up-azure-stack.md
-            - name: Azure 스택 파일 및 응용 프로그램을 백업 합니다.
+            - name: Azure Stack의 파일 및 응용 프로그램 백업
               href: ..\backup\backup-mabs-files-applications-azure-stack.md?toc=%2fazure%2fazure-stack%2ftoc.json
             - name: 치명적인 데이터 손실 로부터 복구
               href: azure-stack-backup-recover-data.md
@@ -186,6 +189,8 @@
               href: azure-stack-enable-multitenancy.md
         - name: 암호를 회전
           href: azure-stack-rotate-secrets.md
+        - name: 바이러스 백신 업데이트
+          href: azure-stack-security-av.md
     - name: 서비스 제공
       items:
         - name: 서비스 제공 개요
@@ -196,6 +201,8 @@
               href: azure-stack-plan-offer-quota-overview.md
             - name: 계획 만들기
               href: azure-stack-create-plan.md
+            - name: 추가 기능 계획 만들기
+              href: create-add-on-plan.md
             - name: 제품 만들기
               href: azure-stack-create-offer.md
             - name: 제품 구독
@@ -211,7 +218,7 @@
           items:
             - name: SQL Server 리소스 공급자를 배포 합니다.
               href: azure-stack-sql-resource-provider-deploy.md
-            - name: 호스팅 서버 추가
+            - name: SQL 호스팅 서버 추가
               href: azure-stack-sql-resource-provider-hosting-servers.md
             - name: SQL 데이터베이스 만들기
               href: azure-stack-sql-resource-provider-databases.md
@@ -222,7 +229,20 @@
             - name: SQL Server 리소스 공급자를 제거 합니다.
               href: azure-stack-sql-resource-provider-remove.md
         - name: PaaS로 MySQL을 제공 합니다.
-          href: azure-stack-mysql-resource-provider-deploy.md
+          href: azure-stack-mysql-resource-provider.md
+          items:
+            - name: MySQL Server 리소스 공급자를 배포 합니다.
+              href: azure-stack-mysql-resource-provider-deploy.md
+            - name: MySQL 호스팅 서버를 추가 합니다.
+              href: azure-stack-mysql-resource-provider-hosting-servers.md
+            - name: MySQL 데이터베이스 만들기
+              href: azure-stack-mysql-resource-provider-databases.md
+            - name: MySQL Server 리소스 공급자 업데이트
+              href: azure-stack-mysql-resource-provider-update.md
+            - name: MySQL Server 리소스 공급자를 유지 관리
+              href: azure-stack-mysql-resource-provider-maintain.md
+            - name: MySQL Server 리소스 공급자를 제거 합니다.
+              href: azure-stack-mysql-resource-provider-remove.md
         - name: App Service를 PaaS로 제공
           items:
             - name: Azure Stack 개요에 대한 App Service

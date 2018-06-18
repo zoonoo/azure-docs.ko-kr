@@ -1,11 +1,11 @@
 ---
-title: "SKU 시리즈 사용할 수 없음 | Microsoft Docs"
-description: "이 지역의 선택한 구독에 대해 일부 SKU 시리즈를 사용할 수 없습니다."
+title: SKU 시리즈 사용할 수 없음 | Microsoft Docs
+description: 이 지역의 선택한 구독에 대해 일부 SKU 시리즈를 사용할 수 없습니다.
 services: Azure Supportability
-documentationcenter: 
+documentationcenter: ''
 author: stevendotwang
 manager: rajatk
-editor: 
+editor: ''
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24870581"
 ---
 # <a name="region-or-sku-unavailable"></a>지역 또는 SKU 사용할 수 없음
 이 문서에서는 Azure 구독에 지역 또는 VM SKU에 대한 액세스 권한이 없는 문제를 해결하는 방법을 설명합니다.

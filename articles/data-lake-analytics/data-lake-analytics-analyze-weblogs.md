@@ -1,24 +1,21 @@
 ---
-title: "Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석 | Microsoft Docs"
-description: "데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법에 대해 알아봅니다. "
+title: Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
+description: 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
 manager: saveenr
-editor: cgronlun
+editor: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 12/05/2016
 ms.author: saveenr
-ms.openlocfilehash: 52d19297ae5c34f9daf5e42250a53a78e0168192
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623369"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Azure Data Lake Analytics를 사용하여 웹 사이트 로그 분석
 데이터 레이크 분석을 사용하여 웹 사이트 로그를 분석하는 방법, 특히 웹 사이트를 방문하려고 할 때 참조 페이지에 오류가 발생한 경우에 대해 알아봅니다.
@@ -167,7 +164,7 @@ U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대
 
 **작업 출력 보기**
 
-1. **서버 탐색기**에서 **Azure**, **Data Lake Analytics**, Data Lake Analytics 계정, **저장소 계정**을 차례로 확장하고 기본 Data Lake 저장소 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기**를 클릭합니다.
+1. **서버 탐색기**에서 **Azure**, **Data Lake Analytics**, Data Lake Analytics 계정, **Storage 계정**을 차례로 확장하고 기본 Data Lake Storage 계정을 마우스 오른쪽 단추로 클릭한 다음 **탐색기**를 클릭합니다.
 2. **샘플**을 두 번 클릭하여 해당 폴더를 연 다음 **출력**을 두 번 클릭합니다.
 3. **UnsuccessfulResponsees.log**를 두 번 클릭합니다.
 4. 출력 작업을 직접 탐색하기 위해 해당 작업의 그래프 뷰 내부에 있는 출력 파일을 두 번 클릭할 수도 있습니다.
@@ -175,6 +172,6 @@ U-SQL 응용 프로그램은 대부분 U-SQL 스크립트입니다. U-SQL에 대
 ## <a name="see-also"></a>참고 항목
 다른 도구를 사용하여 데이터 레이크 분석을 시작하려면 다음을 참조하십시오.
 
-* [Azure 포털을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
-* [Azure PowerShell을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-powershell.md)
+* [Azure Portal을 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-portal.md)
+* [Azure PowerShell을 사용하여 Data Lake Analytics 시작](data-lake-analytics-get-started-powershell.md)
 * [.NET SDK를 사용하여 데이터 레이크 분석 시작](data-lake-analytics-get-started-net-sdk.md)

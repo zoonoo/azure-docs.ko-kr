@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/23/2018
+ms.locfileid: "31794874"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안 유지
 

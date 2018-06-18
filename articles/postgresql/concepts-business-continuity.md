@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for PostgreSQL의 비즈니스 연속성 개요"
-description: "Azure Database for PostgreSQL의 비즈니스 연속성 개요입니다."
+title: Azure Database for PostgreSQL의 비즈니스 연속성 개요
+description: Azure Database for PostgreSQL의 비즈니스 연속성 개요입니다.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693121"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 비즈니스 연속성 개요
 

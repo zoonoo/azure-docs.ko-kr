@@ -1,0 +1,275 @@
+- name: 개요
+  href: active-directory-developers-guide.md
+  items:
+    - name: Azure AD가 적합한 이유
+      href: 'https://azure.microsoft.com/develop/identity/signin/'
+    - name: 인증 기본 사항
+      href: active-directory-authentication-scenarios.md
+    - name: 앱 형식
+      href: 'active-directory-authentication-scenarios.md#application-types-and-scenarios'
+- name: 시작
+  items:
+    - name: 모바일 및 데스크톱 앱
+      items:
+        - name: 개요
+          href: 'active-directory-authentication-scenarios.md#native-application-to-web-api'
+        - name: iOS
+          href: active-directory-devquickstarts-ios.md
+        - name: Android
+          href: active-directory-devquickstarts-android.md
+        - name: .NET(Windows 데스크톱)
+          href: active-directory-devquickstarts-dotnet.md
+        - name: .NET(Xamarin)
+          href: active-directory-devquickstarts-xamarin.md
+        - name: Cordova
+          href: active-directory-devquickstarts-cordova.md
+        - name: OAuth 2.0
+          href: active-directory-protocols-oauth-code.md
+    - name: 웹 앱
+      items:
+        - name: 개요
+          href: 'active-directory-authentication-scenarios.md#web-browser-to-web-application'
+        - name: ASP.NET
+          href: GuidedSetups/active-directory-aspnetwebapp-v1.md
+        - name: ASP.NET Core
+          href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapp-openidconnect-aspnetcore'
+        - name: 자바
+          href: 'https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect'
+        - name: 파이썬
+          href: 'https://github.com/Azure-Samples/active-directory-python-webapp-graphapi'
+        - name: NodeJS
+          href: active-directory-devquickstarts-openidconnect-nodejs.md
+        - name: OpenID Connect
+          href: active-directory-protocols-openid-connect-code.md
+    - name: 단일 페이지 앱
+      items:
+        - name: 개요
+          href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
+        - name: Angular JS
+          href: active-directory-devquickstarts-angular.md
+        - name: JavaScript
+          href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
+    - name: Web API
+      items:
+        - name: 개요
+          href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
+        - name: ASP.NET
+          href: active-directory-devquickstarts-webapi-dotnet.md
+        - name: NodeJS
+          href: active-directory-devquickstarts-webapi-nodejs.md
+    - name: 서비스-서비스
+      items:
+        - name: 개요
+          href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
+        - name: .NET
+          href: 'active-directory-code-samples.md#server-or-daemon-application-to-web-api'
+        - name: OAuth 2.0 클라이언트 자격 증명
+          href: active-directory-protocols-oauth-service-to-service.md
+- name: 가이드
+  items:
+    - name: 응용 프로그램 등록
+      href: active-directory-integrating-applications.md
+    - name: 다중 테넌트 앱
+      href: active-directory-devhowto-multi-tenant-overview.md
+    - name: 조건부 액세스
+      href: active-directory-conditional-access-developer.md
+    - name: 권한
+      href: active-directory-permissions.md
+    - name: OAuth 및 OpenID Connect
+      items:
+        - name: OpenID Connect 프로토콜
+          href: active-directory-protocols-openid-connect-code.md
+        - name: OAuth 2.0 인증 코드 부여
+          href: active-directory-protocols-oauth-code.md
+        - name: OAuth 2.0 암시적 허용
+          href: active-directory-dev-understanding-oauth2-implicit-grant.md
+    - name: SAML 2.0
+      href: active-directory-saml-protocol-reference.md
+      items:
+        - name: 역할 클레임 구성
+          href: ../active-directory-enterprise-app-role-management.md
+        - name: 클레임 사용자 지정
+          href: active-directory-saml-claims-customization.md
+        - name: SAML 기반 SSO 디버그
+          href: active-directory-saml-debugging.md
+        - name: Single Sign-On SAML 프로토콜
+          href: active-directory-single-sign-on-protocol-reference.md
+        - name: Single Sign-Out SAML 프로토콜
+          href: active-directory-single-sign-out-protocol-reference.md
+    - name: 테넌트 만들기
+      href: active-directory-howto-tenant.md
+    - name: 서비스 및 개인정보처리방침 약관
+      href: active-directory-app-terms-service-privacy-statement.md
+    - name: 브랜딩 지침
+      href: active-directory-branding-guidelines.md
+    - name: 모바일 및 데스크톱 SSO
+      items:
+        - name: Android에서 SSO 사용
+          href: active-directory-sso-android.md
+        - name: iOS에서 SSO 사용
+          href: active-directory-sso-ios.md
+    - name: Azure AD B2B
+      href: ../active-directory-b2b-what-is-azure-ad-b2b.md
+    - name: SCIM으로 사용자 프로비전
+      href: ../active-directory-scim-provisioning.md
+    - name: Azure AD Graph API
+      href: active-directory-graph-api.md
+      items:
+        - name: AAD Graph 시작
+          href: active-directory-graph-api-quickstart.md
+    - name: AppSource 인증
+      href: active-directory-devhowto-appsource-certified.md
+    - name: Azure AD 앱 갤러리
+      href: active-directory-app-gallery-listing.md
+    - name: Office 365 판매자 대시보드
+      href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
+    - name: Visual Studio 사용
+      items:
+        - name: Active Directory 연결된 서비스 사용
+          href: vs-active-directory-add-connected-service.md
+        - name: .NET MVC 프로젝트 시작
+          href: vs-active-directory-dotnet-getting-started.md
+        - name: 내 .NET MVC 프로젝트는 어떻게 되었나요?
+          href: vs-active-directory-dotnet-what-happened.md
+        - name: WebAPI 프로젝트 시작
+          href: vs-active-directory-webapi-getting-started.md
+        - name: 내 WebAPI 프로젝트는 어떻게 되었나요?
+          href: vs-active-directory-webapi-what-happened.md
+        - name: 인증 검색 중 오류 발생
+          href: vs-active-directory-error.md
+    - name: Windows Server ADFS
+      href: 'https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers'
+    - name: ACS 마이그레이션
+      href: active-directory-acs-migration.md
+    - name: ADAL에 대한 모범 사례 오류 처리
+      href: active-directory-devhowto-adal-error-handling.md
+- name: 참고 자료
+  items:
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
+    - name: 인증 라이브러리(ADAL)
+      href: active-directory-authentication-libraries.md
+    - name: 시나리오별 코드 샘플
+      href: active-directory-code-samples.md
+    - name: 용어
+      href: active-directory-dev-glossary.md
+    - name: 인증 프로토콜
+      href: active-directory-authentication-protocols.md
+      items:
+        - name: OpenID Connect
+          href: active-directory-protocols-openid-connect-code.md
+        - name: Oauth
+          href: active-directory-protocols-oauth-code.md
+        - name: 서비스-서비스 호출
+          href: active-directory-protocols-oauth-service-to-service.md
+        - name: On-Behalf-Of 흐름
+          href: active-directory-protocols-oauth-on-behalf-of.md
+        - name: 지원되는 토큰 및 클레임 유형
+          href: active-directory-token-and-claims.md
+        - name: 응용 프로그램 선택 사항 및 사용자 지정 클레임 구성
+          href: active-directory-optional-claims.md
+        - name: 서명 키 롤오버
+          href: active-directory-signing-key-rollover.md
+        - name: 페더레이션 메타데이터
+          href: active-directory-federation-metadata.md
+        - name: 인증서 자격 증명
+          href: active-directory-certificate-credentials.md
+    - name: 응용 프로그램 개체
+      href: active-directory-application-objects.md
+      items:
+        - name: 앱 및 Azure AD
+          href: active-directory-how-applications-are-added.md
+    - name: 응용 프로그램 매니페스트.
+      href: active-directory-application-manifest.md
+    - name: 토큰 수명
+      href: ../active-directory-configurable-token-lifetimes.md
+    - name: 서비스 제한
+      href: ../active-directory-service-limits-restrictions.md
+- name: v2.0 끝점
+  items:
+    - name: 개요
+      href: active-directory-appmodel-v2-overview.md
+      items:
+        - name: 앱 형식
+          href: active-directory-v2-flows.md
+        - name: 제한 사항
+          href: active-directory-v2-limitations.md
+        - name: v1-v2 비교
+          href: active-directory-v2-compare.md
+    - name: 시작
+      items:
+        - name: 모바일 및 데스크톱 앱
+          items:
+            - name: iOS
+              href: guidedsetups/active-directory-ios.md
+            - name: Android
+              href: guidedsetups/active-directory-android.md
+            - name: Windows 데스크톱 .NET
+              href: guidedsetups/active-directory-windesktop.md
+            - name: 범용 Windows 플랫폼
+              href: guidedsetups/active-directory-uwp-v2.md
+        - name: 웹 앱
+          items:
+            - name: ASP.NET
+              href: guidedsetups/active-directory-aspnetwebapp.md
+            - name: ASP.NET Core
+              href: 'https://azure.microsoft.com/resources/samples/active-directory-aspnetcore-webapp-openidconnect-v2'
+            - name: NodeJS
+              href: 'https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs'
+        - name: Web API
+          items:
+            - name: ASP.NET
+              href: 'https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet'
+            - name: ASP.NET Core
+              href: 'https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore-v2'
+            - name: NodeJS
+              href: 'https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2'
+        - name: 단일 페이지 앱
+          items:
+            - name: JavaScript
+              href: guidedsetups/active-directory-javascriptspa.md
+        - name: 서비스-서비스
+          items:
+            - name: ASP.NET
+              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
+    - name: 가이드
+      items:
+        - name: 앱 등록
+          href: active-directory-v2-app-registration.md
+        - name: 앱 등록 참조
+          href: active-directory-v2-registration-portal.md
+    - name: 참고 자료
+      items:
+        - name: 인증 라이브러리
+          href: active-directory-v2-libraries.md
+        - name: 시나리오별 v2.0 코드 샘플
+          href: active-directory-v2-code-samples.md
+        - name: v2.0 인증 프로토콜
+          href: active-directory-v2-protocols.md
+          items:
+            - name: OpenID Connect
+              href: active-directory-v2-protocols-oidc.md
+            - name: OAuth 2.0 인증 코드 부여
+              href: active-directory-v2-protocols-oauth-code.md
+            - name: OAuth 2.0 암시적 허용
+              href: active-directory-v2-protocols-implicit.md
+            - name: OAuth 2.0 클라이언트 자격 증명 부여
+              href: active-directory-v2-protocols-oauth-client-creds.md
+            - name: OAuth 2.0 On-Behalf-Of 흐름
+              href: active-directory-v2-protocols-oauth-on-behalf-of.md
+            - name: 인증서 자격 증명
+              href: active-directory-certificate-credentials.md
+            - name: Oauth 2.0 샘플 코드
+              href: active-directory-protocols-oauth-get-jwt-token.md
+        - name: 토큰
+          href: active-directory-v2-tokens.md
+        - name: 범위 및 동의
+          href: active-directory-v2-scopes.md
+- name: 리소스
+  items:
+    - name: 도움말 보기
+      href: active-directory-develop-help-support.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'

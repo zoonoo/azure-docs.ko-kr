@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 Azure에 VMware 복제를 위한 용량 및 크기 조정 계획 | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하는 경우 용량 및 크기 조정을 계획하려면 이 문서를 사용합니다."
+title: Azure Site Recovery를 사용하여 Azure에 VMware 복제를 위한 용량 및 크기 조정 계획 | Microsoft Docs
+description: Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하는 경우 용량 및 크기 조정을 계획하려면 이 문서를 사용합니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -13,6 +13,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29692201"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VMware 복제를 위한 용량 및 크기 조정 계획
 
@@ -112,7 +113,7 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 1. **Site Recovery 서버**에서 구성 서버를 클릭한 다음 **프로세스 서버**를 클릭합니다.
 
     ![프로세스 서버를 추가하는 Site Recovery 서버 옵션의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. **서버 형식**에서 **프로세스 서버(온-프레미스)**를 클릭합니다.
+2. **서버 형식**에서 **프로세스 서버(온-프레미스)** 를 클릭합니다.
 
     ![프로세스 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
 3. Site Recovery 통합 설치 프로그램 파일을 다운로드하고 실행하여 프로세스 서버를 설치합니다. 이렇게 하면 자격 증명 모음에도 등록됩니다.

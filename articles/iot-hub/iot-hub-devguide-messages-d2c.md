@@ -1,23 +1,19 @@
 ---
 title: Azure IoT Hub 장치-클라우드 메시징 이해 | Microsoft Docs
 description: 개발자 가이드 - IoT Hub를 사용하여 장치-클라우드 메시징을 사용하는 방법입니다. 원격 분석 및 비원격 분석 데이터를 전송하고 라우팅을 사용하여 메시지를 전송하는 방법에 대한 정보가 포함됩니다.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 54b2961713f529438f5508bb0615824ec6bec214
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6096d726d7a00a4ddf8047edeebb74ab3f151e51
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808260"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>IoT Hub에 장치-클라우드 메시지 보내기
 
@@ -65,8 +61,8 @@ IoT Hub와 Event Hubs의 차이점에 대한 자세한 내용은 [Azure IoT Hub 
 
 ```json
 {
-  "scope": "{ hub | device}",
-  "type": "{ symkey | sas}",
+  "scope": "{ hub | device }",
+  "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
 ```
@@ -90,4 +86,4 @@ IoT Hub와 Event Hubs의 차이점에 대한 자세한 내용은 [Azure IoT Hub 
 [lnk-compatible-endpoint]: iot-hub-devguide-messages-read-builtin.md
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-devguide-security]: iot-hub-devguide-security.md
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md

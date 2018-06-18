@@ -124,7 +124,7 @@ function showError(endpoint, error, errorDesc) {
 -   응용 프로그램이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있습니다.
 -   2단계 인증이 필요합니다.
 
-*acquireTokenRedirect(scope)*를 호출하면 사용자가 Azure Active Directory v2 끝점(또는 팝업 창의 *acquireTokenPopup(scope)* 결과)으로 리디렉션되며 여기에서 사용자는 자격 증명을 확인하거나 필요한 리소스에 동의하거나 2단계 인증을 완료하여 상호 작용해야 합니다.
+*acquireTokenRedirect(scope)* 를 호출하면 사용자가 Azure Active Directory v2 끝점(또는 팝업 창의 *acquireTokenPopup(scope)* 결과)으로 리디렉션되며 여기에서 사용자는 자격 증명을 확인하거나 필요한 리소스에 동의하거나 2단계 인증을 완료하여 상호 작용해야 합니다.
 
 #### <a name="getting-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 ` acquireTokenSilent` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. `loginRedirect`(또는 `loginPopup`)가 처음으로 실행된 후 일반적으로 `acquireTokenSilent` 메서드를 사용하여 후속 호출 시 보호되는 리소스에 액세스하는 데 사용되는 토큰을 가져옵니다. 즉, 토큰을 요청하거나 갱신하기 위한 호출이 자동으로 수행됩니다.

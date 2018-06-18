@@ -20,6 +20,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29933071"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Web Apps용 Azure Resource Manager 템플릿
 

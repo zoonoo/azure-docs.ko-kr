@@ -27,7 +27,7 @@
       href: quickstart-create-data-factory-resource-manager-template.md
 - name: 자습서
   items:
-    - name: 1 - Azure에 SSIS 패키지 배포
+    - name: 1 - Azure-SSIS 통합 런타임 프로비전
       items:
         - name: 사용자 인터페이스(UI)
           href: tutorial-deploy-ssis-packages-azure.md
@@ -362,7 +362,7 @@
           href: monitor-integration-runtime.md
         - name: Azure-SSIS 통합 런타임 모니터링
           href: 'monitor-integration-runtime.md#azure-ssis-integration-runtime'
-        - name: Azure SSIS 통합 런타임 관리
+        - name: Azure-SSIS 통합 런타임 다시 구성
           href: manage-azure-ssis-integration-runtime.md
     - name: 통합 런타임 만들기
       items:
@@ -374,7 +374,7 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure에서 SSIS 패키지 실행
       items:
-        - name: Azure-SSIS IR을 VNET에 조인
+        - name: Azure-SSIS IR을 가상 네트워크에 조인
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Azure-SSIS IR에 Azure AD 인증 사용
           href: enable-aad-authentication-azure-ssis-ir.md

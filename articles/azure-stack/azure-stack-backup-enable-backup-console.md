@@ -19,6 +19,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34302259"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>관리 포털에서 Azure 스택에 대 한 백업을 사용 하도록 설정
 Azure 스택 백업을 생성할 수 있도록 관리 포털을 통해 인프라 백업 서비스를 활성화 합니다. 이러한 백업을 사용 하 여의 경우 클라우드 복구를 사용 하 여 환경을 복원할 수 [치명적인 오류](.\azure-stack-backup-recover-data.md)합니다. 클라우드 복구의 목적은 연산자 및 사용자가 로그인 수 있는지 포털에 복구가 완료 된 후 확인 하는 것입니다. 사용자 역할 기반 액세스 권한 및 역할, 원본 계획가 제공 하 고 이전에 정의 된 계산, 저장소 및 네트워크 할당량을 비롯 하 여 복원 구독 해야 합니다.

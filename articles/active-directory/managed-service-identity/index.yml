@@ -20,6 +20,7 @@ metadata:
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 05/20/2018
+  ms.locfileid: "34354285"
 abstract:
   description: MSI(관리 서비스 ID)는 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 어떤 자격 증명도 포함할 필요가 없습니다.  빠른 시작 및 자습서를 사용하여 관리 서비스 ID를 만들고 관리하는 방법을 알아봅니다.
 sections:

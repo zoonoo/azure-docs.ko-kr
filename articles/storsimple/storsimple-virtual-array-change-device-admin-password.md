@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Virtual Array 장치 관리자 암호 변경 | Microsoft Docs"
-description: "Azure Portal 또는 StorSimple 가상 배열 웹 UI를 사용하여 장치 관리자 암호를 변경하는 방법을 설명합니다."
+title: StorSimple Virtual Array 장치 관리자 암호 변경 | Microsoft Docs
+description: Azure Portal 또는 StorSimple 가상 배열 웹 UI를 사용하여 장치 관리자 암호를 변경하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 11490814-d9fd-4dc7-9c3b-55dd2c23eaf1
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109431"
 ---
 # <a name="change-the-storsimple-virtual-array-device-administrator-password-via-storsimple-device-manager"></a>StorSimple 장치 관리자를 통해 StorSimple 가상 배열 장치 관리자 암호 변경
 

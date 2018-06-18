@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29943176"
 ---
 > [!NOTE]
 > 이 설명서는 최신 정보가 아니며 정확하지 않습니다. Azure Marketplace에 제품을 게시하는 방법에 대한 지침을 보려면 Azure Marketplace [판매자 가이드](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)로 이동하세요.

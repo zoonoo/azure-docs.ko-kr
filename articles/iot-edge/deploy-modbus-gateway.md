@@ -1,25 +1,19 @@
 ---
-title: "Azure IoT Edge에 Modbus 배포 | Microsoft Docs"
-description: "Modbus TCP를 사용하는 장치에서 IoT Edge 게이트웨이 장치를 만들어 Azure IoT Hub와 통신할 수 있도록 합니다."
-services: iot-Edge
-documentationcenter: 
+title: Azure IoT Edge에 Modbus 배포 | Microsoft Docs
+description: Modbus TCP를 사용하는 장치에서 IoT Edge 게이트웨이 장치를 만들어 Azure IoT Hub와 통신할 수 있도록 합니다.
 author: kgremban
 manager: timlt
-editor: chrisgmsft
-ms.assetid: 
-ms.service: iot-hub
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: kgremban
-ms.custom: 
-ms.openlocfilehash: e239bde48c3da0d899e3c78bdd39f520c4128b95
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: d6e831cdd7cd18305beb617693ee1026bb6429e9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631471"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway---preview"></a>IoT Edge 장치 게이트웨이를 통해 Modbus TCP 장치 연결 - 미리 보기
 
@@ -31,7 +25,7 @@ Modbus TCP 또는 RTU 프로토콜을 사용하는 IoT 장치를 Azure IoT Hub�
 
 이 문서에서는 Modbus TCP 프로토콜을 사용한다고 가정합니다. Modbus RTU를 지원하도록 모듈을 구성하는 방법에 대한 자세한 내용은 GitHub의 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * Azure IoT Edge 장치 설정하는 방법에 대한 연습은 [Windows](tutorial-simulate-device-windows.md) 또는 [Linux에서 시뮬레이션된 장치에 Azure IoT Edge 배포](tutorial-simulate-device-linux.md)를 참조하세요. 
 * IoT Edge 장치에 대한 기본 키 연결 문자열입니다.
 * Modbus TCP를 지원하는 물리적 또는 시뮬레이션된 Modbus 장치
@@ -49,7 +43,7 @@ microsoft/azureiotedge-modbus-tcp:1.0-preview
 
 ## <a name="run-the-solution"></a>솔루션 실행
 1. [Azure Portal](https://portal.azure.com/)에서 IoT Hub로 이동합니다.
-2. **IoT Edge(미리 보기)**로 이동하여 IoT Edge 장치를 선택합니다.
+2. **IoT Edge(미리 보기)** 로 이동하여 IoT Edge 장치를 선택합니다.
 3. **모듈 설정**을 선택합니다.
 4. Modbus 모듈을 추가합니다.
    1. **IoT Edge 모듈 추가**를 선택합니다.

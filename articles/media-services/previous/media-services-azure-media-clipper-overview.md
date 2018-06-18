@@ -14,6 +14,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33782652"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
 Azure Media Clipper는 웹 개발자가 사용자에게 미디어 클립을 만들기 위한 인터페이스를 제공할 수 있는 무료 JavaScript 라이브러리입니다. 이 도구는 모든 웹 페이지에 통합할 수 있으며 자산 로드 및 클리핑 작업 제출을 위한 API를 제공합니다.

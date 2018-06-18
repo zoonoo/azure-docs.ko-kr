@@ -1,12 +1,12 @@
 ---
-title: "Azure 스택 개발 키트 아키텍처 | Microsoft Docs"
-description: "Azure 스택 개발 키트 (ASDK) 아키텍처에 설명 합니다."
+title: Azure 스택 개발 키트 아키텍처 | Microsoft Docs
+description: Azure 스택 개발 키트 (ASDK) 아키텍처에 설명 합니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: jeffgilb
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29976411"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure 스택 개발 키트 아키텍처
 Azure 스택 개발 키트 (ASDK)은 Azure 스택의 단일 노드 배포를 수행 합니다. 모든 구성 요소는 단일 호스트 컴퓨터에서 실행 중인 가상 컴퓨터에 설치 됩니다. 

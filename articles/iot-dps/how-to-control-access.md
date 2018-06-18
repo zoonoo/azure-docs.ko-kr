@@ -1,23 +1,19 @@
 ---
-title: "IoT Device Provisioning 서비스의 보안 끝점 | Microsoft Docs"
-description: "개념 - 백 엔드 앱용 IoT Device Provisioning 서비스에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다."
-services: iot-dps
-documentationcenter: .net
+title: IoT Device Provisioning 서비스의 보안 끝점 | Microsoft Docs
+description: 개념 - 백 엔드 앱용 IoT Device Provisioning 서비스에 대한 액세스를 제어하는 방법 보안 토큰에 대한 정보가 포함됩니다.
 author: dsk-2015
 manager: timlt
-editor: 
 ms.service: iot-dps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-dps
+ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: dkshir,rajeevmv
-ms.openlocfilehash: 718fe9b3ca449f8f7b1420080ea75716e8badcf5
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.author: dkshir
+ms.openlocfilehash: e33f6b61f757c9d7f6a773141ad0deea363be2b7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629391"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning 서비스에 대한 액세스 제어
 
@@ -54,7 +50,7 @@ Azure IoT Hub Device Provisioning 서비스는 공유 액세스 정책에 대한
 
 HTTP는 유일하게 지원되는 프로토콜이며 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 인증을 구현합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
 
 > [!NOTE]
@@ -79,7 +75,7 @@ Device Provisioning 서비스는 네트워크에서 키가 전송되는 것을 �
 | --- | --- |
 | {signature} |형식의 HMAC-SHA256 서명 문자열은 `{URL-encoded-resourceURI} + "\n" + expiry`입니다. **중요**: 키는 base64에서 디코딩되며 HMAC-SHA256 계산을 수행하는 데 키로 사용됩니다.|
 | {expiry} |1970년 1월 1일 epoch 0시 UTC 이후의 초 수에 대한 UTF8 문자열입니다. |
-| {URL-encoded-resourceURI} | 소문자 리소스 URI의 소문자 URL 인코딩. 이 토큰으로 액세스할 수 있는 끝점의 URI 접두사(세그먼트별)이며 IoT Device Provisioning 서비스의 호스트 이름으로 시작합니다(프로토콜 없음). 예: `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | 소문자 리소스 URI의 소문자 URL 인코딩. 이 토큰으로 액세스할 수 있는 끝점의 URI 접두사(세그먼트별)이며 IoT Device Provisioning 서비스의 호스트 이름으로 시작합니다(프로토콜 없음). 예: `mydps.azure-devices-provisioning.net` |
 | {policyName} |이 토큰을 참조하는 공유 액세스 정책의 이름입니다. |
 
 **접두사에 대한 참고**: 문자가 아니라 세그먼트에 의해 계산된 URI 접두사입니다. 예를 들어 `/a/b`는 `/a/b/c`에 대한 접두사이지만 `/a/bc`에 대한 접두사는 아닙니다.
@@ -178,7 +174,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 다음 테이블에는 IoT Device Provisioning 서비스에 대한 액세스를 제어하는 데 사용할 수 있는 권한이 나열되어 있습니다.
 
-| 사용 권한 | 참고 사항 |
+| 사용 권한 | 메모 |
 | --- | --- |
 | **ServiceConfig** |서비스 구성을 변경하기 위한 액세스 권한을 부여합니다. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |
 | **EnrollmentRead** |장치 등록 및 등록 그룹에 대한 읽기 권한을 부여합니다. <br/>이 사용 권한은 백 엔드 클라우드 서비스에서 사용됩니다. |

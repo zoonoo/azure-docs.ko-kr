@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 업데이트 5 릴리스 정보 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 업데이트 5의 새로운 기능, 문제 및 해결 방법을 설명합니다."
+title: StorSimple 8000 시리즈 업데이트 5 릴리스 정보 | Microsoft Docs
+description: StorSimple 8000 시리즈 업데이트 5의 새로운 기능, 문제 및 해결 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518922"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>StorSimple 8000 시리즈 업데이트 5 릴리스 정보
 

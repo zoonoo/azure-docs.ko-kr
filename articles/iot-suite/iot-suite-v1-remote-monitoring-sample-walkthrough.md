@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 3aa9bb9c785bb69c80d9bb33e595393a5a1d220a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 871098642f586a123d056e2da22d2fceae9bdfe5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638078"
 ---
 # <a name="remote-monitoring-preconfigured-solution-walkthrough"></a>미리 구성된 원격 모니터링 솔루션 연습
 
@@ -35,7 +36,7 @@ ms.lasthandoff: 05/07/2018
 
 다음 다이어그램에서는 미리 구성된 솔루션의 논리적 구성 요소를 간략히 보여줍니다.
 
-![논리 아키텍처](media/iot-suite-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
+![논리 아키텍처](media/iot-suite-v1-remote-monitoring-sample-walkthrough/remote-monitoring-architecture-updated.png)
 
 ## <a name="microservices--docker-containers"></a>마이크로 서비스 및 Docker 컨테이너
 원격 모니터링은 마이크로 서비스 아키텍처를 활용하도록 미리 구성된 첫 번째 솔루션입니다. 솔루션은 [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) 및 [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) 모두에서 사용할 수 있습니다.

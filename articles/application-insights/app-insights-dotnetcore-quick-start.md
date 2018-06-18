@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights로 빠른 시작 | Microsoft Docs"
-description: "Application Insights를 사용하여 모니터링하도록 ASP.NET Core 웹앱을 빠르게 설정하는 지침을 제공합니다."
+title: Azure Application Insights로 빠른 시작 | Microsoft Docs
+description: Application Insights를 사용하여 모니터링하도록 ASP.NET Core 웹앱을 빠르게 설정하는 지침을 제공합니다.
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
@@ -15,6 +15,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386387"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 응용 프로그램 모니터링 시작
 

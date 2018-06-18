@@ -8,11 +8,12 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 2762466c0130ead36372a93f4c3b852cb378a02a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: db062fc36478d6ba2cf0f00544793f635ccdbb06
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650131"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Blob 저장소 이벤트에 대응
 
@@ -118,7 +119,7 @@ Blob 이름 접두사를 공유하는 특정 컨테이너에서 생성된 Blob�
 
 Blob 접미사를 공유하는 특정 컨테이너에서 생성된 Blob의 이벤트와 일치하는 항목을 찾으려면 `subjectEndsWith` 필터(예: “.log” 또는 “.jpg”)를 사용합니다.
 
-자세한 내용은 [Event Grid 개념](../../event-grid/concepts.md#filters)을 참조하세요.
+자세한 내용은 [Event Grid 개념](../../event-grid/concepts.md#event-subscriptions)을 참조하세요.
 
 ## <a name="practices-for-consuming-events"></a>이벤트 사용에 관한 지침
 Blob Storage 이벤트를 처리하는 응용 프로그램은 아래 권장되는 몇 가지 지침을 따라야 합니다.

@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 가상 배열 제한 | Microsoft Docs"
-description: "Microsoft Azure StorSimple 가상 배열 구성 요소 및 연결에 대한 시스템 제한 및 권장 크기에 대해 설명합니다."
+title: StorSimple 가상 배열 제한 | Microsoft Docs
+description: Microsoft Azure StorSimple 가상 배열 구성 요소 및 연결에 대한 시스템 제한 및 권장 크기에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 429e9f83-5699-4f18-b519-500c125946f6
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108591"
 ---
 # <a name="what-are-storsimple-virtual-array-limits"></a>StorSimple 가상 배열 제한이란?
 

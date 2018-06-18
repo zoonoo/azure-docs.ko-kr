@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34057845"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>StorSimple 8000 시리즈 업데이트 2.2 릴리스 정보
 

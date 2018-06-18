@@ -16,6 +16,7 @@ ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/28/2018
+ms.locfileid: "30235403"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용한 Azure SQL DB 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지
 이 아티클에서는 온-프레미스 SQL Server에서 Azure SQL Database 관리되는 인스턴스로의 원활한 마이그레이션 환경을 제공하기 위해 Azure Database Migration Service가 작동할 수 있는 다양한 네트워크 토폴로지에 대해 알아봅니다.

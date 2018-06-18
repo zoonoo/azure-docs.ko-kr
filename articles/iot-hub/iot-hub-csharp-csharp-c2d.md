@@ -1,34 +1,30 @@
 ---
 title: Azure IoT Hub(.NET)를 사용한 클라우드-장치 메시지 | Microsoft Docs
 description: .NET용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 장치로 클라우드-장치 메시지를 보내는 방법입니다. 클라우드-장치 메시지를 수신하도록 장치 앱을 수정하고 클라우드-장치 메시지를 보내도록 백 엔드 앱을 수정합니다.
-services: iot-hub
-documentationcenter: .net
 author: fsautomata
-manager: timlt
-editor: ''
-ms.assetid: a31c05ed-6ec0-40f3-99ab-8fdd28b1a89a
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: elioda
-ms.openlocfilehash: b867976c637cdd4dd9b696382103c63f1af2e8b3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e4bec631550d6ca3dc2c702b3b3f56bd29c59f03
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631890"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>IoT Hub(.NET)를 사용하여 클라우드에서 장치에 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 장치 앱을 코딩하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 장치 앱을 코딩하는 방법을 보여 줍니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서는 [IoT Hub 시작하기]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
+이 자습서는 [IoT Hub 시작]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
 
 * 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지를 단일 장치로 보냅니다.
 * 장치에서 클라우드-장치 메시지를 받습니다.
@@ -38,7 +34,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 
 이 자습서의 끝 부분에서 다음의 두 .NET 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice** - [IoT Hub 시작하기]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
+* **SimulatedDevice** - [IoT Hub 시작]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
 * **SendCloudToDevice** - IoT Hub를 통해 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
 
 > [!NOTE]
@@ -52,7 +48,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 ## <a name="receive-messages-in-the-device-app"></a>장치 앱에서 메시지 수신
-이 섹션에서는 [IoT Hub 시작하기]에서 만든 장치 앱을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
+이 섹션에서는 [IoT Hub 시작]에서 만든 장치 앱을 수정하여 IoT Hub로부터 클라우드-장치 메시지를 수신합니다.
 
 1. Visual Studio에서 **SimulatedDevice** 프로젝트의 **Program** 클래스에 다음 메서드를 추가합니다.
    
@@ -105,7 +101,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 4. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.Devices;
-5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 [IoT Hub 시작하기]에서 만든 IoT Hub 연결 문자열로 대체합니다.
+5. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 값을 [IoT Hub 시작]에서 만든 IoT Hub 연결 문자열로 대체합니다.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -117,7 +113,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
             await serviceClient.SendAsync("myFirstDevice", commandMessage);
         }
    
-    이 메서드는 새 클라우드-장치 메시지를 ID `myFirstDevice`를 사용하여 장치에 보냅니다. 이 매개 변수를 [IoT Hub 시작하기]에서 사용한 값으로 수정한 경우에만 변경합니다.
+    이 메서드는 새 클라우드-장치 메시지를 ID `myFirstDevice`를 사용하여 장치에 보냅니다. 이 매개 변수를 [IoT Hub 시작]에서 사용한 값으로 수정한 경우에만 변경합니다.
 7. 마지막으로 **Main** 메서드에 다음 줄을 추가합니다.
    
         Console.WriteLine("Send Cloud-to-Device message\n");
@@ -193,7 +189,7 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
-[IoT Hub 시작하기]: iot-hub-csharp-csharp-getstarted.md
+[IoT Hub 시작]: iot-hub-csharp-csharp-getstarted.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [Azure IoT 원격 모니터링 솔루션 가속기]: https://docs.microsoft.com/azure/iot-suite/
 [Azure IoT 장치 SDK]: iot-hub-devguide-sdks.md

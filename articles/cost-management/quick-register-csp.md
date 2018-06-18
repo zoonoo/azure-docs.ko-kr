@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b9dc2064a4d90b924730e2615378892b17340baf
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302535"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297185"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
@@ -31,9 +31,9 @@ CSP 파트너인 사용자는 Azure Cost Management에 등록할 수 있습니�
 >
 >Cloudyn 액세스는 CSP 간접 공급자가 Cloudyn에 등록한 후 CSP 간접 대리점에 제공될 수 있습니다. 그러면 CSP 간접 대리점이 Azure 고객 및 구독에 Cloudyn 액세스를 제공할 수 있습니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
+- http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="register-with-azure-cost-management"></a>Azure Cost Management에 등록
 

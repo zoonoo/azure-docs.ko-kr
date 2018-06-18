@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31409468"
 ---
 # <a name="azure-storage-solutions-for-r-server-on-azure-hdinsight"></a>Azure HDInsight의 R Server에 대한 Azure Storage 솔루션
 
@@ -124,7 +125,7 @@ HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 �
 
 ### <a name="how-to-access-the-data-lake-store-from-r-server-on-hdinsight"></a>HDInsight의 R Server에서 Data Lake Store에 액세스하는 방법
 
-Data Lake Store에 대한 액세스 권한을 부여했으면 보조 Azure Storage 계정과 동일한 방식으로 HDInsight의 R Server 클러스터에서 저장소를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasb://** 접두사가 **adl://**로 변경된다는 것입니다.
+Data Lake Store에 대한 액세스 권한을 부여했으면 보조 Azure Storage 계정과 동일한 방식으로 HDInsight의 R Server 클러스터에서 저장소를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasb://** 접두사가 **adl://** 로 변경된다는 것입니다.
 
 
     # Point to the ADL store (e.g. ADLtest)

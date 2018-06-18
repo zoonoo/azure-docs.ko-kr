@@ -15,11 +15,12 @@ ms.date: 10/12/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 16f008c6a6f97a791122a3b441c4c09eaf7eadde
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293010"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -164,6 +165,6 @@ Register-AppProxyConnector
 
 * [커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 응용 프로그램 게시](application-proxy-connector-groups.md)
 * [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)
-* [응용 프로그램 프록시 및 커넥터 오류 문제 해결](../active-directory-application-proxy-troubleshoot.md)
+* [응용 프로그램 프록시 및 커넥터 오류 문제 해결](application-proxy-troubleshoot.md)
 * [Azure AD 응용 프로그램 프록시 커넥터를 자동으로 설치하는 방법](application-proxy-register-connector-powershell.md)
 

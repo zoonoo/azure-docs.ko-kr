@@ -1,8 +1,8 @@
 ---
-title: "OMS(Operations Management Suite)와 통합 | Microsoft Docs"
-description: "OMS의 표준 기능을 사용할 수 있을 뿐 아니라 다른 관리 응용 프로그램 및 서비스와 통합하여 하이브리드 관리 환경을 제공하고, 사용자 환경에 고유한 사용자 지정 관리 시나리오를 제공하고, 고객에게 사용자 지정 관리 환경을 제공할 수 있습니다.  이 문서에서는 OMS와 통합하는 여러 옵션을 개략적으로 설명하고 구체적인 기술 정보를 제공하는 문서 링크를 안내합니다."
+title: OMS(Operations Management Suite)와 통합 | Microsoft Docs
+description: OMS의 표준 기능을 사용할 수 있을 뿐 아니라 다른 관리 응용 프로그램 및 서비스와 통합하여 하이브리드 관리 환경을 제공하고, 사용자 환경에 고유한 사용자 지정 관리 시나리오를 제공하고, 고객에게 사용자 지정 관리 환경을 제공할 수 있습니다.  이 문서에서는 OMS와 통합하는 여러 옵션을 개략적으로 설명하고 구체적인 기술 정보를 제공하는 문서 링크를 안내합니다.
 services: operations-management-suite
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: jwhit
 editor: tysonn
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039468"
 ---
 # <a name="integrating-with-operations-management-suite-oms"></a>OMS(Operations Management Suite)와 통합
 Operations Management Suite란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다.  OMS의 표준 기능을 사용할 수 있을 뿐 아니라 다른 관리 응용 프로그램 및 서비스와 통합하여 하이브리드 관리 환경을 제공하고, 사용자 환경에 고유한 사용자 지정 관리 시나리오를 제공하고, 고객에게 사용자 지정 관리 환경을 제공할 수 있습니다.  이 문서에서는 OMS 서비스와 통합하는 여러 옵션을 개략적으로 설명하고 구체적인 기술 정보를 제공하는 문서 링크를 안내합니다. 

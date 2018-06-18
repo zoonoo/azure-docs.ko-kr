@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407965"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Azure HDInsight에서 직접 쿼리를 사용하여 Microsoft Power BI에서 대화형 쿼리 Hive 데이터 시각화
 
@@ -42,8 +43,8 @@ hivesampletable Hive 테이블은 모든 HDInsight 클러스터와 함께 제공
 2. **홈** 탭을 클릭하고 **외부 데이터** 리본에서 **데이터 가져오기**를 선택한 후 **자세히**를 선택합니다.
 
     ![HDInsight Power BI 데이터 열기](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
-3. **데이터 가져오기** 창에서 검색 상자에 **hdinsight**를 입력합니다. **HDInsight 대화형 쿼리(베타)**가 표시되지 않으면 Power BI Desktop을 최신 버전으로 업데이트해야 합니다.
-4. **HDInsight 대화형 쿼리(베타)**를 클릭하고 **연결**을 클릭합니다.
+3. **데이터 가져오기** 창에서 검색 상자에 **hdinsight**를 입력합니다. **HDInsight 대화형 쿼리(베타)** 가 표시되지 않으면 Power BI Desktop을 최신 버전으로 업데이트해야 합니다.
+4. **HDInsight 대화형 쿼리(베타)** 를 클릭하고 **연결**을 클릭합니다.
 5. **계속**을 클릭하여 **커넥터 미리 보기** 경고 대화 상자를 닫습니다.
 6. **HDInsight 대화형 쿼리**에서 다음 정보를 선택하거나 입력합니다.
 

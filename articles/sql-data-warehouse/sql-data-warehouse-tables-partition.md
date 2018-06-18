@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31526780"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 분할
 Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제

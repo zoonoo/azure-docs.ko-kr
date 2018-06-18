@@ -1,6 +1,6 @@
 ---
-title: "Azure DC/OS 클러스터에 ACR 사용"
-description: "Azure Container Service에서 DC/OS 클러스터에 Azure Container Registry 사용"
+title: Azure DC/OS 클러스터에 ACR 사용
+description: Azure Container Service에서 DC/OS 클러스터에 Azure Container Registry 사용
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28922895"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>DC/OS 클러스터에 ACR을 사용하여 응용 프로그램 배포
 

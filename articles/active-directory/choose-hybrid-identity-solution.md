@@ -1,23 +1,24 @@
 ---
-title: "Azure 하이브리드 ID 솔루션 선택 | Microsoft Docs"
-description: "조직에 가장 효율적인 ID 거버넌스 결정을 내리기 위해 사용 가능한 하이브리드 ID 솔루션 및 권장 사항을 기본적으로 이해합니다."
-keywords: 
+title: Azure 하이브리드 ID 솔루션 선택 | Microsoft Docs
+description: 조직에 가장 효율적인 ID 거버넌스 결정을 내리기 위해 사용 가능한 하이브리드 ID 솔루션 및 권장 사항을 기본적으로 이해합니다.
+keywords: ''
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
 ms.author: billmath
 ms.date: 03/02/2018
 ms.topic: article
-ms.prod: 
+ms.prod: ''
 ms.service: azure
-ms.technology: 
-ms.assetid: 
+ms.technology: ''
+ms.assetid: ''
 ms.custom: it-pro
 ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
 ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29800740"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft 하이브리드 ID 솔루션
 [Microsoft Azure AD(Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 하이브리드 ID 솔루션을 사용하면 온-프레미스의 사용자를 계속 관리하면서 온-프레미스 디렉터리 개체를 Azure AD와 동기화할 수 있습니다. 온-프레미스 Windows Server Active Directory와 Azure AD와의 동기화를 계획할 때는 맨 먼저 동기화된 ID를 사용할지 또는 페더레이션 ID를 사용할지를 결정해야 합니다. 동기화된 ID 및 선택적으로 암호 해시를 사용하여 사용자는 같은 암호로 온-프레미스 및 클라우드 기반 조직 리소스에 모두 액세스할 수 있습니다. SSO(Single Sign-On) 또는 온-프레미스 MFA와 같은 고급 시나리오 요구 사항의 경우 AD FS(Active Directory Federation Services)를 배포하여 ID를 페더레이션해야 합니다. 

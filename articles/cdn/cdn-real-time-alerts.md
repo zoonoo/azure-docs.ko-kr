@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 실시간 경고 | Microsoft Docs"
-description: "Microsoft Azure CDN의 실시간 경고입니다. 실시간 경고는 CDN 프로필에서 끝점의 성능에 대한 알림을 제공합니다."
+title: Azure CDN 실시간 경고 | Microsoft Docs
+description: Microsoft Azure CDN의 실시간 경고입니다. 실시간 경고는 CDN 프로필에서 끝점의 성능에 대한 알림을 제공합니다.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: zhangmanling
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
 ms.service: cdn
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998328"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Microsoft Azure CDN의 실시간 경고
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -54,12 +55,12 @@ ms.lasthandoff: 10/11/2017
     ![새 경고 양식](./media/cdn-real-time-alerts/cdn-new-alert.png)
 5. **저장**을 클릭할 때 이 경고를 활성화하려면 **경고 사용** 확인란을 선택합니다.
 6. **이름** 필드에 경고에 대한 설명이 포함된 이름을 입력합니다.
-7. **미디어 유형** 드롭다운에서 **HTTP LOB(Large Object)**를 선택합니다.
+7. **미디어 유형** 드롭다운에서 **HTTP LOB(Large Object)** 를 선택합니다.
    
     ![HTTP LOB(Large Object)를 선택한 미디어 유형](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > **HTTP LOB(Large Object)**를 **미디어 형식**으로 선택해야 합니다.  다른 옵션은 **Verizon의 Azure CDN**에서 사용하지 않습니다.  **HTTP LOB(Large Object)**를 선택하지 않으면 경고가 절대로 트리거되지 않게 됩니다.
+   > **HTTP LOB(Large Object)** 를 **미디어 형식**으로 선택해야 합니다.  다른 옵션은 **Verizon의 Azure CDN**에서 사용하지 않습니다.  **HTTP LOB(Large Object)** 를 선택하지 않으면 경고가 절대로 트리거되지 않게 됩니다.
    > 
    > 
 8. **메트릭**, **연산자** 및 **트리거 값**을 선택하여 모니터링하기 위해 **식**을 만듭니다.

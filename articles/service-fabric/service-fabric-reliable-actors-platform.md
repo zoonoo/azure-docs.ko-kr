@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 3/9/2018
 ms.author: vturecek
-ms.openlocfilehash: b2369f9468c54f10d01203841b6d7ba44b7ba2de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f8e6ad4b23eeaf46cccac9c8ff9d41f71511129d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642855"
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>신뢰할 수 있는 행위자가 서비스 패브릭 플랫폼을 사용하는 방법
 이 문서에서는 Azure Service Fabric 플랫폼에서 Reliable Actors가 작동하는 방법을 설명합니다. Reliable Actors는 *행위자 서비스*라는 상태 저장 신뢰할 수 있는 서비스의 구현에서 호스트되는 프레임워크에서 실행됩니다. 행위자 서비스는 행위자에게 발송되는 수명 주기 및 메시지를 관리하는 데 필요한 모든 구성 요소를 포함합니다.
@@ -41,9 +42,6 @@ Reliable Services에서 서비스는 `StatefulService` 클래스를 상속합니
 * 서비스 백업 및 복원
 * 모든 행위자에 대한 공유 기능(예: 회로 차단기)
 * 행위자 서비스 자체 및 각 개별 행위자에서의 원격 프로시저 호출
-
-> [!NOTE]
-> 상태 저장 서비스는 현재 Java/Linux에서 지원되지 않습니다.
 
 자세한 내용은 [행위자 서비스에서 서비스 수준 기능 구현](service-fabric-reliable-actors-using.md)을 참조하세요.
 

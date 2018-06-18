@@ -1,11 +1,11 @@
 ---
-title: "클라우드 서비스 배포 문제 해결 | Microsoft Docs"
-description: "Azure에 클라우드 서비스를 배포할 때 발생할 수 있는 몇 가지 일반적인 문제가 있습니다. 이 문서에서는 그 중 일부에 대한 솔루션을 제공합니다."
+title: 클라우드 서비스 배포 문제 해결 | Microsoft Docs
+description: Azure에 클라우드 서비스를 배포할 때 발생할 수 있는 몇 가지 일반적인 문제가 있습니다. 이 문서에서는 그 중 일부에 대한 솔루션을 제공합니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: simonxjx
 manager: felixwu
-editor: 
+editor: ''
 tags: top-support-issue
 ms.assetid: a18ae415-0d1c-4bc4-ab6c-c1ddea02c870
 ms.service: cloud-services
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26408182"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>클라우드 서비스 배포 문제 해결
 Azure에 클라우드 서비스 응용 프로그램 패키지를 배포할 때 Azure 포털의 **속성** 창에서 배포에 대한 정보를 얻을 수 있습니다. 클라우드 서비스에 발생한 문제를 해결하기 위해 이 창에서 세부 정보를 사용할 수 있고 새로운 지원 요청을 할 때 Azure 지원 센터에 이 정보를 제공할 수 있습니다.

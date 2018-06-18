@@ -1,23 +1,24 @@
 ---
-title: "Azure Application Insights의 Analytics로 데이터 가져오기 | Microsoft Docs"
-description: "앱 원격 분석에 연결할 정적 데이터를 가져오거나 Analytics로 쿼리할 별도 데이터 스트림을 가져옵니다."
+title: Azure Application Insights의 Analytics로 데이터 가져오기 | Microsoft Docs
+description: 앱 원격 분석에 연결할 정적 데이터를 가져오거나 Analytics로 쿼리할 별도 데이터 스트림을 가져옵니다.
 services: application-insights
-keywords: "개방형 스키마, 데이터 가져오기"
-documentationcenter: 
+keywords: 개방형 스키마, 데이터 가져오기
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 963e5cfd929f57b34dcb045df82b64f870e897e2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293624"
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 

@@ -3,22 +3,23 @@ title: 응용 프로그램 페이지가 응용 프로그램 프록시 응용 프
 description: 페이지에서 Azure AD와 통합한 응용 프로그램 프록시 응용 프로그램을 제대로 표시하지 않는 경우 가이드입니다.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2018
-ms.author: asteen
-ms.openlocfilehash: d15c02d86dc4a61e7e92b4c896cfc13dd0218c61
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.date: 05/21/2018
+ms.author: barbkess
+ms.reviewer: harshja
+ms.openlocfilehash: d30f836dd729ea5aaf9cb8e502ab65d2521cf6ab
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070535"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34591537"
 ---
 # <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>응용 프로그램 페이지가 응용 프로그램 프록시 응용 프로그램에 올바르게 표시되지 않음
 

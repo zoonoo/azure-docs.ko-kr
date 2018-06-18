@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34208287"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>클러스터 리소스 관리자와 서비스 패브릭 클러스터 관리 통합
 Service Fabric 클러스터 리소스 관리자는 Service Fabric에서 업그레이드를 수행하지는 않지만 관련되어 있습니다. Cluster Resource Manager에서 관리에 유용하게 사용할 수 있는 첫 번째 방법은 내부에 있는 서비스와 클러스터의 필요한 상태를 추적하는 것입니다. Cluster Resource Manager는 원하는 구성에 클러스터를 배치할 수 없는 경우 상태 보고서를 보냅니다. 예를 들어 용량이 부족하면 클러스터 리소스 관리자에서 문제를 나타내는 상태 경고 및 오류를 보냅니다. 통합의 다른 부분은 업그레이드 작동 방법와 관련이 있습니다. 클러스터 리소스 관리자는 업그레이드 중에 해당 동작을 약간 변경합니다.  

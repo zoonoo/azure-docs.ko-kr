@@ -1,6 +1,6 @@
 ---
-title: "Site Recovery를 사용하여 복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback) | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 VMware VM을 Azure로 장애 조치(failover)하고, 온-프레미스 사이트로 장애 복구(failback)하는 방법을 알아봅니다."
+title: Site Recovery를 사용하여 복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback) | Microsoft Docs
+description: Azure Site Recovery를 사용하여 VMware VM을 Azure로 장애 조치(failover)하고, 온-프레미스 사이트로 장애 복구(failback)하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -12,6 +12,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852900"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
@@ -55,9 +56,9 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](hyper-v-azure-support-matr
 
 ## <a name="fail-over-to-azure"></a>Azure로 장애 조치(failover)
 
-1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)**를 클릭합니다.
-2. **장애 조치(failover)**에서 **최신** 복구 지점을 선택합니다. 
-3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM 종료를 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)** 를 클릭합니다.
+2. **장애 조치(failover)** 에서 **최신** 복구 지점을 선택합니다. 
+3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM 종료를 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. 장애 조치(failover)를 확인하고 **커밋**을 클릭합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.
 
 > [!WARNING]
@@ -76,9 +77,9 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](hyper-v-azure-support-matr
 
 Azure에서 온-프레미스 사이트로 장애 조치(failover)한 후 온-프레미스 사이트에서 Azure로 VM을 복제하기 시작합니다.
 
-1. **설정** > **복제된 항목**에서 VM > **계획된 장애 조치(failover)**를 클릭합니다.
+1. **설정** > **복제된 항목**에서 VM > **계획된 장애 조치(failover)** 를 클릭합니다.
 2. **계획된 장애 조치(Failover) 확인**에서 장애 조치(failover) 방향(Azure에서)을 확인하고 원본 위치와 대상 위치를 선택합니다.
-3. **장애 조치(failover) 전 데이터 동기화(델타 변경 내용만 동기화)**를 선택합니다. 이 옵션은 VM을 종료하지 않고 동기화하므로 VM 가동 중지 시간을 최소화합니다.
+3. **장애 조치(failover) 전 데이터 동기화(델타 변경 내용만 동기화)** 를 선택합니다. 이 옵션은 VM을 종료하지 않고 동기화하므로 VM 가동 중지 시간을 최소화합니다.
 4. 장애 조치를 시작합니다. **작업** 탭에서 장애 조치 진행 상황을 따를 수 있습니다.
 5. 초기 데이터 동기화가 완료되고 Azure VM을 종료할 준비가 되면 **작업** > 계획된 장애 조치(failover) 작업 이름 > **장애 조치(failover) 완료**를 차례로 클릭합니다. 그러면 Azure VM이 종료되고, 온-프레미스로 최신 변경 내용이 전송되며, 온-프레미스 VM이 시작됩니다.
 6. 온-프레미스 VM에 로그온하여 예상대로 사용 가능한지 확인합니다.

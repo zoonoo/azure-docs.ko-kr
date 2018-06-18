@@ -1,24 +1,25 @@
 ---
-title: "Azure Privileged Identity Management 승인 워크플로 | Microsoft Docs"
-description: "PIM(Privileged Identity Management)의 승인 워크플로에 대해 알아봅니다."
+title: Azure Privileged Identity Management 승인 워크플로 | Microsoft Docs
+description: PIM(Privileged Identity Management)의 승인 워크플로에 대해 알아봅니다.
 services: active-directory
-documentationcenter: 
-author: barclayn
+documentationcenter: ''
+author: rolyon
 manager: mtillman
-editor: 
+editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
-ms.author: barclayn
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f30dd06417d9ce4d71c88ba170a4f3169b5fccd7
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6e14d91eae367ef62d1ff2e4cb6ddeb47c9fbbea
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261018"
 ---
 # <a name="approvals"></a>승인
 

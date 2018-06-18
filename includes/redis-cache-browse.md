@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32297606"
 ---
 캐시를 대시보드에 고정하지 않은 경우 **모든 서비스**를 사용하여 [Azure Portal](https://portal.azure.com)에서 캐시를 찾습니다.
 

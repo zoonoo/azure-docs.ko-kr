@@ -1,12 +1,12 @@
 ---
-title: "Azure에서 Traffic Manager 프로필 만들기 | Microsoft Docs"
-description: "이 문서는 Traffic Manager 프로필을 만드는 방법을 설명합니다."
+title: Azure에서 Traffic Manager 프로필 만들기 | Microsoft Docs
+description: 이 문서는 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29397573"
 ---
 # <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
 

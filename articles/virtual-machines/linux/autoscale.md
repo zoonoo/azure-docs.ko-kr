@@ -18,6 +18,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30176077"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>Azure에서 가상 머신의 크기를 자동으로 조정
 

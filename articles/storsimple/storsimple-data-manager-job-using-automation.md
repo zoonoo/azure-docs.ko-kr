@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 데이터 관리자에서 Azure Automation을 사용하여 작업 시작 | Microsoft Docs"
-description: "Azure Automation을 사용하여 StorSimple 데이터 관리자 작업을 트리거하는 방법에 대해 알아보기"
+title: StorSimple 데이터 관리자에서 Azure Automation을 사용하여 작업 시작 | Microsoft Docs
+description: Azure Automation을 사용하여 StorSimple 데이터 관리자 작업을 트리거하는 방법에 대해 알아보기
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/17/2018
+ms.locfileid: "27862199"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Azure Automation을 사용하여 작업 트리거
 

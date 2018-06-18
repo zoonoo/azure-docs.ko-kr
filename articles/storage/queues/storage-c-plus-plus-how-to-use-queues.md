@@ -1,6 +1,6 @@
 ---
-title: "큐 저장소 사용 방법(C++) | Microsoft Docs"
-description: "Azure에서 큐 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다."
+title: 큐 저장소 사용 방법(C++) | Microsoft Docs
+description: Azure에서 큐 저장소 서비스를 사용하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다.
 services: storage
 documentationcenter: .net
 author: cbrooksmsft
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059948"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>C++에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

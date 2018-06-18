@@ -1,7 +1,7 @@
 ---
-title: "Azure Application Insights에서 경고 보내기 | Microsoft Docs"
-description: "Azure Application Insights를 사용하여 응용 프로그램에서 오류에 대한 응답으로 경고를 보내는 자습서입니다."
-keywords: 
+title: Azure Application Insights에서 경고 보내기 | Microsoft Docs
+description: Azure Application Insights를 사용하여 응용 프로그램에서 오류에 대한 응답으로 경고를 보내는 자습서입니다.
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
@@ -14,6 +14,7 @@ ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23659346"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 응용 프로그램 상태에 대한 모니터링 및 경고
 

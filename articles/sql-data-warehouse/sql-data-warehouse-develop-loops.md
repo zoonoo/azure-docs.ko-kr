@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31598968"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>SQL Data Warehouse의 T-SQL 루프 사용
 솔루션을 개발하기 위해 Azure SQL Data Warehouse에서 Transact-SQL 루프를 사용하여 커서를 대체하는 방법에 대한 팁입니다.

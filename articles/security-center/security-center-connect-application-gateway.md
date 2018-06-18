@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29854285"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Azure Security Center에 Microsoft Azure Application Gateway 연결
 이 문서는 Application Gateway WAF(웹 응용 프로그램 방화벽)와 Security Center의 통합을 구성하는 데 도움을 줍니다.

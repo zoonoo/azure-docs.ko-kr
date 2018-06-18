@@ -1,11 +1,11 @@
 ---
-title: "Azure Site Recovery에서 복구 계획에 스크립트 추가 | Microsoft Docs"
-description: "Azure에서 복구 계획에 새 System Center Virtual Machine Manager(VMM) 스크립트를 추가하기 위한 사전 요건을 알아봅니다."
+title: Azure Site Recovery에서 복구 계획에 스크립트 추가 | Microsoft Docs
+description: Azure에서 복구 계획에 새 System Center Virtual Machine Manager(VMM) 스크립트를 추가하기 위한 사전 요건을 알아봅니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: ruturaj
 manager: shons
-editor: 
+editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29402074"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 

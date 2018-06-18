@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 부하 분산 서비스 사용 | Microsoft Docs"
-description: "이 자습서에서는 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 시나리오를 만드는 방법을 보여 줍니다."
+title: Azure에서 부하 분산 서비스 사용 | Microsoft Docs
+description: 이 자습서에서는 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 시나리오를 만드는 방법을 보여 줍니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: liumichelle
 manager: vitinnan
-editor: 
+editor: ''
 ms.assetid: f89be3be-a16f-4d47-bcae-db2ab72ade17
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401109"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 

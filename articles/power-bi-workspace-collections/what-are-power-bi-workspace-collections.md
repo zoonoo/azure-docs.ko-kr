@@ -21,6 +21,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31412580"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션이란?
 
@@ -65,11 +66,11 @@ Azure의 다른 서비스와 같이 Power BI 작업 영역 컬렉션의 리소�
 
 ## <a name="authentication-and-authorization-with-app-tokens"></a>앱 토큰으로 인증 및 권한 부여
 
-**Microsoft Power BI 작업 영역 컬렉션**은 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 응용 프로그램은 **Microsoft Power BI 작업 영역 컬렉션** 권한 부여에서 **응용 프로그램 인증 토큰(앱 토큰)**을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
+**Microsoft Power BI 작업 영역 컬렉션**은 응용 프로그램에 따라 필요한 모든 사용자 인증 및 권한 부여를 수행합니다. 최종 사용자가 Azure AD(Azure Active Directory)의 고객이어야 한다는 명시적인 요구 사항은 없습니다.  대신, 응용 프로그램은 **Microsoft Power BI 작업 영역 컬렉션** 권한 부여에서 **응용 프로그램 인증 토큰(앱 토큰)** 을 사용하여 Power BI 보고서를 렌더링하도록 지시합니다.  이러한 **앱 토큰** 은 앱에서 보고서를 렌더링하려고 할 때 필요한 경우에 만들어집니다.
 
 ![앱 토큰 사용 다이어그램](media/what-are-power-bi-workspace-collections/app-tokens.png)
 
-**응용 프로그램 인증 토큰(앱 토큰)**은 **Microsoft Power BI 작업 영역 컬렉션**에 대한 인증에 사용됩니다.  다음과 같은 세 가지 형식의 **앱 토큰**이 있습니다.
+**응용 프로그램 인증 토큰(앱 토큰)** 은 **Microsoft Power BI 작업 영역 컬렉션**에 대한 인증에 사용됩니다.  다음과 같은 세 가지 형식의 **앱 토큰**이 있습니다.
 
 1. 프로비전 토큰 - 새 **작업 영역**을 **작업 영역 컬렉션**에 프로비전할 때 사용
 2. 개발 토큰 - **Power BI REST API**

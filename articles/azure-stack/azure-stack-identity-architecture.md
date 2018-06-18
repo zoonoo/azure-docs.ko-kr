@@ -20,6 +20,7 @@ ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/17/2018
+ms.locfileid: "34257491"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure 스택에 대 한 id 아키텍처
 Azure 스택을 사용 하는 id 공급자를 선택 하기 전에 Azure Active Directory (Azure AD)의 옵션 및 Active Directory Federation Services (AD FS) 중요 한 차이점을 이해 합니다. 

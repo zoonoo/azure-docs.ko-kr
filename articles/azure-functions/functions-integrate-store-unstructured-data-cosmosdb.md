@@ -1,14 +1,14 @@
 ---
-title: "Azure Cosmos DB 및 Functions를 사용하여 구조화되지 않은 데이터 저장 | Microsoft Docs"
-description: "Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장"
+title: Azure Cosmos DB 및 Functions를 사용하여 구조화되지 않은 데이터 저장 | Microsoft Docs
+description: Azure Functions 및 Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 services: functions
 documentationcenter: functions
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
-keywords: "Azure Functions, Functions, 이벤트 처리, Cosmos DB, 동적 계산, 서버가 없는 아키텍처"
-ms.assetid: 
+editor: ''
+tags: ''
+keywords: Azure Functions, Functions, 이벤트 처리, Cosmos DB, 동적 계산, 서버가 없는 아키텍처
+ms.assetid: ''
 ms.service: functions
 ms.devlang: csharp
 ms.topic: quickstart
@@ -22,6 +22,7 @@ ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/11/2018
+ms.locfileid: "27767556"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Azure Functions 및 Azure Cosmos DB를 사용하여 구조화되지 않은 데이터 저장
 

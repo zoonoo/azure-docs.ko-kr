@@ -63,6 +63,8 @@
               href: deploy-with-resource-manager-template.md
             - name: 다른 지역에서 만들기
               href: multi-geo.md
+            - name: Studio 계정 데이터 보기 및 삭제
+              href: export-delete-personal-data-dsr.md
     - name: 데이터 획득 및 이해
       items:
         - name: 학습 데이터 가져오기
@@ -215,6 +217,8 @@
           href: gallery-collections.md
         - name: 사용자 지정 모듈
           href: gallery-custom-modules.md
+        - name: 계정 데이터 보기 및 삭제
+          href: ai-gallery-control-personal-data-dsr.md
 - name: 리소스
   items:
     - name: Azure 로드맵

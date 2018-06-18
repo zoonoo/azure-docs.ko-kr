@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: f3462bfda5437ed66f58025deb98e4dbb3860f1d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8ceecdefe644cb5dd1b6038636960cbb5dd9167e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34618966"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Azure Data Factory의 Until 작업
 Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 작업과 관련된 조건이 참으로 평가될 때까지 일단의 반복 작업을 실행합니다. Data Factory에서 until 작업의 시간 제한 값을 지정할 수 있습니다. 
@@ -60,7 +61,7 @@ Until 작업은 do-until 반복 구조에서 프로그래밍 언어로 제공하
 이름 | `Until` 작업의 이름입니다. | 문자열 | 예
 형식 | **Until**로 설정해야 합니다. | 문자열 | 예
 식 | true 또는 false로 평가되어야 하는 식입니다. | 식  | 예
-시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니요
+시간 제한 | 지정한 시간이 지나면 do-until 반복 작업이 시간 초과됩니다. | 문자열입니다. `d.hh:mm:ss` 또는 `hh:mm:ss`입니다. 기본값은 7일입니다. 최대값은 90일입니다. | 아니오
 활동 | 식이 `true`로 평가될 때까지 실행되는 작업 집합입니다. | 작업의 배열 |  예
 
 ## <a name="example-1"></a>예 1

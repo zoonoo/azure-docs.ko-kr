@@ -1,11 +1,11 @@
 ---
-title: "앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법"
-description: "앱 서비스 환경으로의 인바운드 트래픽을 제어하도록 네트워크 보안 규칙을 구성하는 방법에 알아봅니다."
+title: 앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법
+description: 앱 서비스 환경으로의 인바운드 트래픽을 제어하도록 네트워크 보안 규칙을 구성하는 방법에 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987008"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>앱 서비스 환경으로의 인바운드 트래픽을 제어하는 방법
 ## <a name="overview"></a>개요

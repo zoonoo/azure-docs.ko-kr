@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33785712"
 ---
 # <a name="quotas-and-limitations"></a>할당량 및 제한 사항
 이 문서에서는 Microsoft Azure Media Services와 관련된 할당량 및 제한 사항에 대해 설명합니다.

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31407108"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>HDInsight에서 대화형 쿼리 사용
 Interactive Query(Hive LLAP 또는 [Live Long and Process](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다.

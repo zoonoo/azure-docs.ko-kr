@@ -1,9 +1,9 @@
 ---
-title: "Azure AD Connect: 통과 인증 문제 해결 | Microsoft 문서"
-description: "이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 문제를 해결하는 방법에 대해 설명합니다."
+title: 'Azure AD Connect: 통과 인증 문제 해결 | Microsoft 문서'
+description: 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 문제를 해결하는 방법에 대해 설명합니다.
 services: active-directory
-keywords: "Azure AD Connect 통과 인증 문제 해결, Active Directory 설치, Azure AD에 필요한 구성 요소, SSO, Single Sign-on"
-documentationcenter: 
+keywords: Azure AD Connect 통과 인증 문제 해결, Active Directory 설치, Azure AD에 필요한 구성 요소, SSO, Single Sign-on
+documentationcenter: ''
 author: swkrish
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: 3296ee114d3e285e77070995156ef6a242c1fc87
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592200"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 

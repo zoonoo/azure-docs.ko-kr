@@ -1,12 +1,12 @@
 ---
-title: "Verizon의 사용자 지정 보고서 | Microsoft Docs"
-description: "대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPV4/IPV6 데이터와 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다."
+title: Verizon의 사용자 지정 보고서 | Microsoft Docs
+description: 대역폭, 전송되는 데이터, 적중 횟수, 캐시 상태, 캐시 적중률, 전송되는 IPV4/IPV6 데이터와 같은 보고서를 사용하여 CDN 사용 패턴을 볼 수 있습니다.
 services: cdn
-documentationcenter: 
+documentationcenter: ''
 author: dksimpson
-manager: 
-editor: 
-ms.assetid: 
+manager: ''
+editor: ''
+ms.assetid: ''
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26343891"
 ---
 # <a name="custom-reports-from-verizon"></a>Verizon의 사용자 지정 보고서
 

@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for PostgreSQL에서 모니터링"
-description: "이 문서에서는 Azure Database for PostgreSQL을 모니터링하고 경고하는 CPU, 저장소 및 연결 통계를 비롯한 메트릭을 설명합니다."
+title: Azure Database for PostgreSQL에서 모니터링
+description: 이 문서에서는 Azure Database for PostgreSQL을 모니터링하고 경고하는 CPU, 저장소 및 연결 통계를 비롯한 메트릭을 설명합니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29687611"
 ---
 # <a name="monitoring-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 모니터링
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for PostgreSQL은 PostgreSQL 서버를 지원하는 리소스의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다. 

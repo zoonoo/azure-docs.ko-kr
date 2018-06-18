@@ -1,11 +1,11 @@
 ---
-title: "Java Service Bus API와 함께 AMQP 1.0을 사용하는 방법 | Microsoft Docs"
-description: "Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법."
+title: Java Service Bus API와 함께 AMQP 1.0을 사용하는 방법 | Microsoft Docs
+description: Azure 서비스 버스 및 AMQP(Advanced Message Queuing Protocol) 1.0과 함께 JMS(Java Message Service)를 사용하는 방법.
 services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044178"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>서비스 버스 및 AMQP 1.0과 함께 JMS(Java Message Service) API를 사용하는 방법
 AMQP(Advanced Message Queuing Protocol) 1.0은 강력한 크로스 플랫폼 메시징 응용 프로그램을 빌드하는 데 사용할 수 있는 효율성과 안정성이 뛰어난 유선 수준 메시징 프로토콜입니다.
@@ -69,7 +70,7 @@ Qpid 속성 파일 JNDI 공급자에서 **ConnectionFactory**를 정의하는 �
 connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 
-여기서 **[jndi_name]** 및 **[ConnectionURL]**의 의미는 다음과 같습니다.
+여기서 **[jndi_name]** 및 **[ConnectionURL]** 의 의미는 다음과 같습니다.
 
 * **[jndi_name]**: ConnectionFactory의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
 * **[ConnectionURL]**: AMQP broker에 필요한 정보를 JMS 라이브러리에 제공하는 URL입니다.
@@ -79,7 +80,7 @@ connectionfactory.[jndi_name] = [ConnectionURL]
 ```
 amqps://[SASPolicyName]:[SASPolicyKey]@[namespace].servicebus.windows.net
 ```
-여기서 **[namespace]**, **[SASPolicyName]** 및 **[SASPolicyKey]**의 의미는 다음과 같습니다.
+여기서 **[namespace]**, **[SASPolicyName]** 및 **[SASPolicyKey]** 의 의미는 다음과 같습니다.
 
 * **[namespace]**: Service Bus 네임스페이스입니다.
 * **[SASPolicyName]**: 큐 공유 액세스 서명 정책 이름입니다.
@@ -103,7 +104,7 @@ queue.[jndi_name] = [physical_name]
 topic.[jndi_name] = [physical_name]
 ```
 
-여기서 **[jndi\_name]**과 **[physical\_name]**의 의미는 다음과 같습니다.
+여기서 **[jndi\_name]** 과 **[physical\_name]** 의 의미는 다음과 같습니다.
 
 * **[jndi_name]**: 대상의 논리적 이름입니다. JNDI IntialContext.lookup() 메서드를 사용하여 Java 응용 프로그램에서 확인되는 이름입니다.
 * **[physical_name]**: 응용 프로그램이 메시지를 보내거나 받는 Service Bus 엔터티의 이름입니다.

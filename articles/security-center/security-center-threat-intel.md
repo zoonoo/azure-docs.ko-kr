@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32774576"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Azure Security Center의 위협 인텔리전스
 이 문서를 통해 Azure Security Center 위협 인텔리전스를 사용하여 보안 관련 문제를 해결할 수 있습니다.

@@ -1,27 +1,22 @@
 ---
-title: 이벤트 허브로 Azure 진단 로그 스트림 | Microsoft Docs
+title: 이벤트 허브로 Azure 진단 로그 스트림
 description: 이벤트 허브로 Azure 진단 로그를 스트리밍하는 방법을 알아봅니다.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 42bc4845-c564-4568-b72d-0614591ebd80
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.openlocfilehash: 1f5a97f5af47a3c5731d5c5d4d5e8cf17097ae60
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 18b385edc7efed20d940be96670b8c40ce66ddfd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264326"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
-포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI 2.0을 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)**를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
+포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI 2.0을 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)** 를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>진단 로그 및 Event Hubs에서 수행할 수 있는 작업
 진단 로그의 스트리밍 기능을 사용할 수 있는 몇 가지 방법은 다음과 같습니다.
@@ -29,7 +24,7 @@ ms.lasthandoff: 04/06/2018
 * **타사 로깅 및 원격 분석 시스템으로 로그 스트림** – 모든 진단 로그를 단일 이벤트 허브로 스트리밍하여 로그 데이터를 타사 SIEM 또는 로그 분석 도구로 파이프할 수 있습니다.
 * **“실행 부하 과다 경로” 데이터를 PowerBI로 스트리밍하여 서비스 상태 보기** – Event Hubs, Stream Analytics 및 PowerBI를 사용하여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. [이 설명서 문서는 Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 PowerBI를 사용하는 방법에 대한 훌륭한 개요를 제공합니다](../stream-analytics/stream-analytics-power-bi-dashboard.md). 다음은 진단 로그로 설정하는 방법에 대한 몇 가지 팁입니다.
 
-  * 진단 로그의 범주에 대한 이벤트 허브는 포털에서 해당 옵션을 선택하거나 PowerShell을 통해 사용하도록 설정하면 자동으로 생성되므로 **insights-**로 시작하는 이름의 네임스페이스에서 이벤트 허브를 선택할 수 있습니다.
+  * 진단 로그의 범주에 대한 이벤트 허브는 포털에서 해당 옵션을 선택하거나 PowerShell을 통해 사용하도록 설정하면 자동으로 생성되므로 **insights-** 로 시작하는 이름의 네임스페이스에서 이벤트 허브를 선택할 수 있습니다.
   * 다음 SQL 코드는 모든 로그 데이터를 PowerBI 테이블로 간단히 구문 분석하는 데 사용할 수 있는 샘플 Stream Analytics 쿼리입니다.
 
     ```sql
@@ -56,7 +51,7 @@ ms.lasthandoff: 04/06/2018
 > [!NOTE]
 > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
 >
-> *예*: Event Hub의 ‘들어오는 메시지’ 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+> *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
 >
 >
 

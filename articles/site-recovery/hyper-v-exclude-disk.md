@@ -1,6 +1,6 @@
 ---
-title: "Azure Site Recovery를 사용하여 보호에서 디스크 제외 | Microsoft Docs"
-description: "Hyper-V에서 Azure로의 복제에서 VM 디스크를 제외하는 이유와 방법에 대해 설명합니다."
+title: Azure Site Recovery를 사용하여 보호에서 디스크 제외 | Microsoft Docs
+description: Hyper-V에서 Azure로의 복제에서 VM 디스크를 제외하는 이유와 방법에 대해 설명합니다.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -13,6 +13,7 @@ ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/22/2018
+ms.locfileid: "29466839"
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다.

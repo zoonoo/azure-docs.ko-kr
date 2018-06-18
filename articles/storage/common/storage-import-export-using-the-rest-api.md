@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export 서비스 REST API 사용 | Microsoft Docs"
-description: "방법 및 참조 자료를 비롯하여 Azure Import/Export 서비스 REST API 사용에 대한 리소스를 찾을 수 있는 위치를 알아봅니다."
+title: Azure Import/Export 서비스 REST API 사용 | Microsoft Docs
+description: 방법 및 참조 자료를 비롯하여 Azure Import/Export 서비스 REST API 사용에 대한 리소스를 찾을 수 있는 위치를 알아봅니다.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 233f80e9-2e7f-48e0-9639-5c7785e7d743
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26690179"
 ---
 # <a name="using-the-azure-importexport-service-rest-api"></a>Azure Import/Export 서비스 REST API 사용
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/18/2018
+ms.locfileid: "34301838"
 ---
 # <a name="enable-multi-tenancy-in-azure-stack"></a>Azure 스택에서 다중 테 넌 트를 사용 하도록 설정
 

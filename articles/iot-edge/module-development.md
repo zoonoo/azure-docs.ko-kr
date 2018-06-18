@@ -1,19 +1,19 @@
 ---
-title: "Azure IoT Edge용 모듈 개발 | Microsoft Docs"
-description: "Azure IoT Edge용 사용자 지정 모듈을 만드는 방법을 알아봅니다."
-services: iot-edge
-keywords: 
+title: Azure IoT Edge용 모듈 개발 | Microsoft Docs
+description: Azure IoT Edge용 사용자 지정 모듈을 만드는 방법을 알아봅니다.
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 95b1d5d4e5e11f96b6abb17f0aeba935cc65512d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+services: iot-edge
+ms.openlocfilehash: bf6a14020f26691195963a210d668912705f3b8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631720"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules---preview"></a>IoT Edge 모듈 개발을 위한 요구 사항 및 도구 이해 - 미리 보기
 
@@ -52,7 +52,7 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 '입력' 및 '출�
 
 마지막으로 Edge 허브에서 처리하는 장치-클라우드 메시지는 다음 시스템 속성으로 스탬프 처리됩니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 | -------- | ----------- |
 | $connectionDeviceId | 메시지를 보낸 클라이언트의 장치 ID입니다. |
 | $connectionModuleId | 메시지를 보낸 모듈의 모듈 ID입니다. |

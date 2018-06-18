@@ -15,6 +15,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32186014"
 ---
 # <a name="azure-sql-database-connect-and-query-quickstarts"></a>Azure SQL 데이터베이스 연결 및 쿼리 빠른 시작
 

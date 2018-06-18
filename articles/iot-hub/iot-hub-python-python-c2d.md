@@ -1,35 +1,31 @@
 ---
 title: Azure IoT Hub(Python)를 사용한 클라우드-장치 메시지 | Microsoft Docs
 description: Python용 Azure IoT SDK를 사용하여 Azure IoT Hub에서 장치로 클라우드-장치 메시지를 보내는 방법입니다. 클라우드-장치 메시지를 수신하도록 시뮬레이션된 장치 앱을 수정하고 클라우드-장치 메시지를 보내도록 백 엔드 앱을 수정합니다.
-services: iot-hub
-documentationcenter: python
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: 3ca8a78f-ade2-46e8-8a49-d5d599cdf1f1
 ms.service: iot-hub
-ms.devlang: javascript
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: python
+ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: v-masebo;kgremban
-ms.openlocfilehash: 236758f1ff83ec37c39a44068879bea80f2ffdb0
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: kgremban
+ms.openlocfilehash: ac57af167948ad0ca2a658953ba39fc188e2e800
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635392"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>IoT Hub(Python)를 사용하여 클라우드-장치 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
 ## <a name="introduction"></a>소개
-Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작하기] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
+Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정적이고 안전한 양방향 통신이 가능하도록 지원하는 완전히 관리되는 서비스입니다. [IoT Hub 시작] 자습서에서는 IoT Hub를 만들고 그 안에 장치 ID를 프로비전하고 장치-클라우드 메시지를 보내는 시뮬레이션된 장치 앱을 코딩하는 방법을 보여 줍니다.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-이 자습서는 [IoT Hub 시작하기]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
+이 자습서는 [IoT Hub 시작]를 토대로 작성되었습니다. 이 항목에서는 다음 방법을 설명합니다.
 
 * 솔루션 백 엔드에서 IoT Hub를 통해 클라우드-장치 메시지를 단일 장치로 보냅니다.
 * 장치에서 클라우드-장치 메시지를 받습니다.
@@ -39,7 +35,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 
 이 자습서의 끝 부분에서 다음의 두 Python 콘솔 앱을 실행합니다.
 
-* **SimulatedDevice.py** - [IoT Hub 시작하기]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
+* **SimulatedDevice.py** - [IoT Hub 시작]에서 만든 앱의 수정된 버전으로서 IoT Hub에 연결하고 클라우드-장치 메시지를 수신합니다.
 * **SendCloudToDeviceMessage.py** - IoT Hub를 통해 시뮬레이션된 장치 앱에 클라우드-장치 메시지를 보낸 다음 배달 승인을 수신합니다.
 
 > [!NOTE]
@@ -77,7 +73,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
     RECEIVE_CALLBACKS = 0
     ```
 
-1. 다음 코드를 **SimulatedDevice.py** 파일에 추가합니다. "{deviceConnectionString}" 자리 표시자 값을 [IoT Hub 시작하기] 자습서에서 만든 장치에 대한 장치 연결 문자열로 대체합니다.
+1. 다음 코드를 **SimulatedDevice.py** 파일에 추가합니다. "{deviceConnectionString}" 자리 표시자 값을 [IoT Hub 시작] 자습서에서 만든 장치에 대한 장치 연결 문자열로 대체합니다.
    
     ```python
     # choose AMQP or AMQP_WS as transport protocol
@@ -169,7 +165,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 
 
 ## <a name="send-a-cloud-to-device-message"></a>클라우드-장치 메시지 보내기
-이 섹션에서는 클라우드-장치 메시지를 시뮬레이션된 장치 앱으로 보내는 Python 콘솔 응용 프로그램을 만듭니다. [IoT Hub 시작하기] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 허브에 대한 IoT Hub 연결 문자열도 필요합니다.
+이 섹션에서는 클라우드-장치 메시지를 시뮬레이션된 장치 앱으로 보내는 Python 콘솔 응용 프로그램을 만듭니다. [IoT Hub 시작] 자습서에서 추가한 장치의 장치 ID가 필요합니다. [Azure Portal]에서 찾을 수 있는 허브에 대한 IoT Hub 연결 문자열도 필요합니다.
 
 1. 텍스트 편집기를 사용하여 **SendCloudToDeviceMessage.py** 파일을 만듭니다.
 
@@ -188,7 +184,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. **SendCloudToDeviceMessage.py** 파일에 다음 코드를 추가합니다. “{IoTHubConnectionString}” 자리 표시자 값을 [IoT Hub 시작하기] 자습서에서 만든 허브에 대한 IoT Hub 연결 문자열로 바꿉니다. “{deviceId}” 자리 표시자 값을 [IoT Hub 시작하기] 자습서에서 추가한 장치의 장치 ID로 바꿉니다.
+1. **SendCloudToDeviceMessage.py** 파일에 다음 코드를 추가합니다. “{IoTHubConnectionString}” 자리 표시자 값을 [IoT Hub 시작] 자습서에서 만든 허브에 대한 IoT Hub 연결 문자열로 바꿉니다. “{deviceId}” 자리 표시자 값을 [IoT Hub 시작] 자습서에서 추가한 장치의 장치 ID로 바꿉니다.
    
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -301,7 +297,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서 클라우드-장치 메시지를 보내고 받는 방법을 알아보았습니다. 
 
-IoT Hub를 사용하는 전체 종단 간 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기]를 참조하세요.
+IoT Hub를 사용하는 완전한 종단 간 솔루션의 예를 보려면 [Azure IoT 원격 모니터링 솔루션 가속기]를 참조하세요.
 
 IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내용은 [IoT Hub 개발자 가이드]를 참조하세요.
 
@@ -315,7 +311,7 @@ IoT Hub를 사용하여 솔루션을 개발하는 방법에 대한 자세한 내
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[IoT Hub 시작하기]: iot-hub-node-node-getstarted.md
+[IoT Hub 시작]: iot-hub-node-node-getstarted.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT Hub 개발자 가이드]: iot-hub-devguide.md
 [Azure IoT 개발자 센터]: http://www.azure.com/develop/iot

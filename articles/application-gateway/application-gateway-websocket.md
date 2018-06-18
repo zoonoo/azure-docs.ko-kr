@@ -1,6 +1,6 @@
 ---
-title: "Azure Application Gateway의 WebSocket 지원 | Microsoft Docs"
-description: "이 페이지에서는 Application Gateway WebSocket 지원에 대한 개요를 제공합니다."
+title: Azure Application Gateway의 WebSocket 지원 | Microsoft Docs
+description: 이 페이지에서는 Application Gateway WebSocket 지원에 대한 개요를 제공합니다.
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986728"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Application Gateway의 WebSocket 지원 개요
 

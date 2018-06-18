@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33786322"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>주문형 스트리밍 작업으로 Postman 컬렉션 가져오기
 

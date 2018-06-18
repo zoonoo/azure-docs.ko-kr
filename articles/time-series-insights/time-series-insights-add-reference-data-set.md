@@ -1,21 +1,21 @@
 ---
-title: "Azure Time Series Insights 환경에 참조 데이터 집합을 추가하는 방법"
-description: "이 문서에서는 Azure Time Series Insights 환경에서 참조 데이터 집합을 추가하여 데이터를 확장하는 방법을 설명합니다."
-services: time-series-insights
+title: Azure Time Series Insights 환경에 참조 데이터 집합을 추가하는 방법
+description: 이 문서에서는 Azure Time Series Insights 환경에서 참조 데이터 집합을 추가하여 데이터를 확장하는 방법을 설명합니다.
 ms.service: time-series-insights
+services: time-series-insights
 author: jasonwhowell
 ms.author: jasonh
 manager: kfile
-editor: MicrosoftDocs/tsidocs
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: e0d11f253d5aa143ff636c4dc8dff7665a80360e
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 7da2393bb5114de20747581e366a8f416c9ff9a4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653640"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -63,7 +63,7 @@ ms.lasthandoff: 02/24/2018
 
    ![참조 데이터 추가](media/add-reference-data-set/parse_data.png)
 
-9. 각 열을 검토하여 예상되는 데이터 형식을 확인한 후, 필요에 따라 데이터 형식을 변경합니다.  열 머리글에서 데이터 형식 기호를 선택합니다. 예를 들어 double(숫자 데이터)의 경우 **#**을 선택하고, 부울의 경우 **T|F**를 선택하고, 문자열의 경우 **Abc**를 선택합니다.
+9. 각 열을 검토하여 예상되는 데이터 형식을 확인한 후, 필요에 따라 데이터 형식을 변경합니다.  열 머리글에서 데이터 형식 기호를 선택합니다. 예를 들어 double(숫자 데이터)의 경우 **#** 을 선택하고, 부울의 경우 **T|F**를 선택하고, 문자열의 경우 **Abc**를 선택합니다.
 
    ![열 머리글에 대한 데이터 형식을 선택합니다.](media/add-reference-data-set/choose_datatypes.png)
 

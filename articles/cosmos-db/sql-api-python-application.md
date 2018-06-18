@@ -3,23 +3,21 @@ title: Azure Cosmos DB의 Python Flask 웹 응용 프로그램 자습서 | Micro
 description: Azure Cosmos DB를 사용하여 Azure에 호스트된 Python Flask 웹 응용 프로그램에서 데이터를 저장하고 액세스하는 방법에 대한 데이터베이스 자습서를 검토합니다. 응용 프로그램 개발 솔루션을 찾습니다.
 keywords: 응용 프로그램 개발, Python flask, Python 웹 응용 프로그램, Python 웹 개발
 services: cosmos-db
-documentationcenter: python
 author: SnehaGunda
 manager: kfile
-ms.assetid: 20ebec18-67c2-4988-a760-be7c30cfb745
 ms.service: cosmos-db
-ms.workload: data-management
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: python
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3746a8f3d565d06dd81077efe84c8a9173a68dd7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a1a6ef61934c765eced259ddc535c018acf52fb
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824220"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
@@ -368,9 +366,9 @@ def vote():
 6. Shift+F5를 눌러 프로젝트의 디버깅을 중지합니다.
 
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>5단계: Azure에 웹 응용 프로그램 배포
-이제 Azure Cosmos DB에 대해 로컬로 올바르게 작동하는 응용 프로그램을 완료했으므로 이제 web.config 파일을 만들고, 서버에서 파일을 로컬 환경에 맞게 업데이트한 다음 Azure에서 완성된 앱을 확인합니다. 이 절차는 Visual Studio 2017에 특정합니다. 다른 버전의 Visual Studio를 사용하는 경우 [Azure App Service에 게시](/visualstudio/python/publishing-to-azure.md)를 참조하세요.
+이제 Azure Cosmos DB에 대해 로컬로 올바르게 작동하는 응용 프로그램을 완료했으므로 이제 web.config 파일을 만들고, 서버에서 파일을 로컬 환경에 맞게 업데이트한 다음 Azure에서 완성된 앱을 확인합니다. 이 절차는 Visual Studio 2017에 특정합니다. 다른 버전의 Visual Studio를 사용하는 경우 [Azure App Service에 게시](/visualstudio/python/publishing-to-azure)를 참조하세요.
 
-1. Visual Studio **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 항목...**을 선택합니다. 나타나는 대화 상자에서 **Azure web.config (Fast CGI)** 템플릿을 선택하고 **확인**을 선택합니다. 그러면 프로젝트 루트에 `web.config` 파일이 생깁니다. 
+1. Visual Studio **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가 > 새 항목...** 을 선택합니다. 나타나는 대화 상자에서 **Azure web.config (Fast CGI)** 템플릿을 선택하고 **확인**을 선택합니다. 그러면 프로젝트 루트에 `web.config` 파일이 생깁니다. 
 
 2. 경로가 Python 설치에 부합하게 `web.config`에서 `<system.webServer>` 섹션을 수정합니다. 예를 들어 Python 2.7 x64의 경우 이 항목은 다음처럼 표시됩니다.
     
@@ -406,7 +404,7 @@ def vote():
 
 10. **확장 선택** 페이지에서 가장 최근의 Python 2.7 설치까지 스크롤한 다음 x86 또는 x64 비트 옵션을 선택하고 **확인**을 클릭하여 약관에 동의합니다.  
    
-11. `https://<your app service name>.scm.azurewebsites.net/DebugConsole`에서 탐색할 수 있는 Kudu 콘솔을 사용하여 앱의 `requirements.txt` 파일에 나열된 패키지를 설치합니다. 이를 위해 Kudu Diagnostic Console에서 해당 Python 폴더 `D:\home\Python27`로 이동하고[Kudu 콘솔](/visual-studio/python/managing-python-on-azure-app-service.md#azure-app-service-kudu-console) 섹션에서 설명한 대로 다음 명령을 실행합니다.
+11. `https://<your app service name>.scm.azurewebsites.net/DebugConsole`에서 탐색할 수 있는 Kudu 콘솔을 사용하여 앱의 `requirements.txt` 파일에 나열된 패키지를 설치합니다. 이를 위해 Kudu Diagnostic Console에서 해당 Python 폴더 `D:\home\Python27`로 이동하고[Kudu 콘솔](/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console) 섹션에서 설명한 대로 다음 명령을 실행합니다.
 
     ```
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
@@ -439,9 +437,3 @@ def vote():
 Azure, Visual Studio 및 Python에 대한 자세한 내용은 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요. 
 
 추가 Python Flask 자습서는 [Flask Mega-자습서 1부: Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)를 참조하세요. 
-
-[Visual Studio Express]: http://www.visualstudio.com/products/visual-studio-express-vs.aspx
-[2]: https://www.python.org/downloads/windows/
-[3]: https://www.microsoft.com/download/details.aspx?id=44266
-[Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
-[Azure portal]: http://portal.azure.com

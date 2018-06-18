@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32162775"
 ---
 # <a name="run-applications-in-kubernetes"></a>Kubernetes에서 응용 프로그램 실행
 

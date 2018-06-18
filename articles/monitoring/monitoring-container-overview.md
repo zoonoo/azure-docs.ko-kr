@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33207530"
 ---
 # <a name="overview-of-monitoring-containers-in-azure"></a>Azure의 컨테이너 모니터링 개요
 Azure를 사용하면 Kubernetes 또는 Docker를 실행하는 Azure 컨테이너에 배포된 작업을 효과적으로 모니터링하고 관리할 수 있습니다. 안정적인 서비스를 규모에 맞게 제공하고 모니터링 계획을 지원하기 위해 여러 마이크로 서비스 응용 프로그램이 있는 컨테이너를 수행하는 방법을 이해해야 합니다. 이 문서에서는 요구 사항에 따라 적절한 각 기능을 이해할 수 있도록 Azure의 관리 및 모니터링 기능에 대해 간략히 설명합니다.

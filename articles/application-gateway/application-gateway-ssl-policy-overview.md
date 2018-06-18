@@ -1,11 +1,11 @@
 ---
-title: "Azure Application Gateway의 SSL 정책 개요 | Microsoft Docs"
-description: "Azure Application Gateway에 대해 자세히 알게 되면 SSL 정책을 구성할 수 있습니다."
+title: Azure Application Gateway의 SSL 정책 개요 | Microsoft Docs
+description: Azure Application Gateway에 대해 자세히 알게 되면 SSL 정책을 구성할 수 있습니다.
 services: application gateway
 documentationcenter: na
 author: amsriva
-manager: 
-editor: 
+manager: ''
+editor: ''
 tags: azure resource manager
 ms.service: application gateway
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987078"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Application Gateway SSL 정책 개요
 

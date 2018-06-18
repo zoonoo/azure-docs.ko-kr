@@ -1,10 +1,10 @@
 ---
-title: "Azure Mobile App(Xamarin.Forms)에 대해 오프라인 동기화 사용 | Microsoft Docs"
-description: "App Service 모바일 앱을 사용하여 Xamarin.Forms 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다."
+title: Azure Mobile App(Xamarin.Forms)에 대해 오프라인 동기화 사용 | Microsoft Docs
+description: App Service 모바일 앱을 사용하여 Xamarin.Forms 응용 프로그램에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
 documentationcenter: xamarin
 author: conceptdev
 manager: yochayk
-editor: 
+editor: ''
 services: app-service\mobile
 ms.assetid: acf0f874-3ea5-4410-bd22-b0e72140f3b5
 ms.service: app-service-mobile
@@ -19,6 +19,7 @@ ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/04/2018
+ms.locfileid: "27594720"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>Xamarin.Forms 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -33,7 +34,7 @@ ms.lasthandoff: 01/04/2018
 ## <a name="enable-offline-sync-functionality-in-the-quickstart-solution"></a>빠른 시작 솔루션에서 오프라인 동기화 기능 사용
 오프라인 동기화 코드는 C# 전처리기 지시문을 사용하여 프로젝트에 포함됩니다. **OFFLINE\_SYNC\_ENABLED** 기호가 정의된 경우 이러한 코드 경로는 빌드에 포함됩니다. Windows 앱의 경우 SQLite 플랫폼도 설치해야 합니다.
 
-1. Visual Studio에서 솔루션 > **솔루션에 대한 NuGet 패키지 관리...**를 마우스 오른쪽 단추로 클릭한 후 솔루션의 모든 프로젝트에서 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
+1. Visual Studio에서 솔루션 > **솔루션에 대한 NuGet 패키지 관리...** 를 마우스 오른쪽 단추로 클릭한 후 솔루션의 모든 프로젝트에서 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
 2. 솔루션 탐색기에서 이름에 **이식 가능** 이 있는 프로젝트(이식 가능한 클래스 라이브러리 프로젝트)에서 TodoItemManager.cs 파일을 연 후 다음 전처리기 지시문의 주석 처리를 제거합니다.
 
         #define OFFLINE_SYNC_ENABLED
@@ -44,7 +45,7 @@ ms.lasthandoff: 01/04/2018
    * **유니버설 Windows 플랫폼:** [유니버설 Windows 플랫폼용 SQLite][5]를 설치합니다.
 
      빠른 시작이 유니버설 Windows 프로젝트를 포함하지 않으면 유니버설 Windows 플랫폼은 Xamarin Forms으로 지원됩니다.
-4. (선택 사항) 각 Windows 앱 프로젝트에서 마우스 오른쪽 단추로 **참조** > **참조 추가...**를 클릭하고 **Windows** 폴더 > **확장**을 확장합니다.
+4. (선택 사항) 각 Windows 앱 프로젝트에서 마우스 오른쪽 단추로 **참조** > **참조 추가...** 를 클릭하고 **Windows** 폴더 > **확장**을 확장합니다.
     **Windows용 Visual C++ 2013 런타임** SDK와 함께 적절한 **Windows용 SQLite**를 사용하도록 설정합니다.
     SQLite SDK 이름은 Windows 플랫폼마다 약간 다릅니다.
 

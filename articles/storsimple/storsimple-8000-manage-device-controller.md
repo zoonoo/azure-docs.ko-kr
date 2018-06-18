@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치 컨트롤러 관리 | Microsoft Docs"
-description: "StorSimple 장치 컨트롤러를 중지, 다시 시작, 종료 또는 다시 설정하는 방법을 알아봅니다."
+title: StorSimple 8000 시리즈 장치 컨트롤러 관리 | Microsoft Docs
+description: StorSimple 장치 컨트롤러를 중지, 다시 시작, 종료 또는 다시 설정하는 방법을 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108681"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>StorSimple 장치 컨트롤러 관리
 

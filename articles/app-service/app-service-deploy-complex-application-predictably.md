@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포"
-description: "PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 Azure 앱 서비스 내에서 마이크로 서비스로 구성된 응용 프로그램을 배포하는 방법을 배워봅시다."
+title: Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
+description: PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 Azure 앱 서비스 내에서 마이크로 서비스로 구성된 응용 프로그램을 배포하는 방법을 배워봅시다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22987458"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 응용 프로그램의 프로비전 및 배포하는 방법을 보여줍니다. 

@@ -1,24 +1,19 @@
 ---
-title: "리소스 관리자 템플릿을 사용하여 활동 로그 경고 만들기 | Microsoft Docs"
-description: "Azure 리소스가 만들어질 때 알림을 받습니다."
+title: 리소스 관리자 템플릿을 사용하여 활동 로그 경고 만들기
+description: Azure 리소스가 만들어질 때 알림을 받습니다.
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/06/2017
 ms.author: ancav
-ms.openlocfilehash: b30912c44bd66f8c6fca548dc905f750e05c8621
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.component: alerts
+ms.openlocfilehash: a1e28f08231ae1fbef3e0d0306e986c1dc9d1d1c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262993"
 ---
 # <a name="create-an-activity-log-alert-with-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용하여 활동 로그 경고 만들기
 이 문서에서는 [Azure 리소스 관리자 템플릿](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)을 사용하여 활동 로그 경고를 구성하는 방법을 설명합니다. 템플릿을 사용하면 자동화된 배포 프로세스의 일부로 특정 활동 로그 이벤트 조건에 따라 많은 활성화하는 많은 경고를 쉽게 설정할 수 있습니다.

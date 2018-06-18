@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치 컨트롤러 교체 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 장치에서 하나 또는 두 개의 컨트롤러 모듈을 모두 꺼내고 교체하는 방법을 설명합니다."
+title: StorSimple 8000 시리즈 장치 컨트롤러 교체 | Microsoft Docs
+description: StorSimple 8000 시리즈 장치에서 하나 또는 두 개의 컨트롤러 모듈을 모두 꺼내고 교체하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23109131"
 ---
 # <a name="replace-a-controller-module-on-your-storsimple-device"></a>StorSimple 장치의 컨트롤러 모듈 교체
 ## <a name="overview"></a>개요

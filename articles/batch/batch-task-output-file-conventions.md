@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/20/2018
+ms.locfileid: "30314149"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net-to-persist"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지 
 
@@ -60,7 +61,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 
 1. Azure Portal에서 Batch 계정으로 이동합니다. 
 2. **설정**에서 **Storage 계정**을 선택합니다.
-3. Batch 계정과 연결된 Storage 계정이 아직 없으면 **Storage 계정(없음)**을 클릭합니다.
+3. Batch 계정과 연결된 Storage 계정이 아직 없으면 **Storage 계정(없음)** 을 클릭합니다.
 4. 구독 목록에서 Storage 계정을 선택합니다. 최상의 성능을 위해 태스크가 실행되는 Batch 계정과 동일한 지역에 있는 Azure Storage 계정을 사용합니다.
 
 ## <a name="persist-output-data"></a>출력 데이터 유지

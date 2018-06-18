@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 07/05/2017
+ms.date: 03/27/2018
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 5155faac6051f5a586255148f77a52a90745673e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2a0758f5db381f721120cbc1c018a491c018aa8d
+ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 03/29/2018
+ms.locfileid: "30264237"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health FAQ
 Azure Resource Health에 대해 자주 묻는 질문과 답변에 대해 알아보세요.
@@ -70,7 +71,7 @@ Resource Health API를 사용하여 리소스 상태에 대한 정보를 얻을 
 Resource Health를 통해 지원되는 상태 검사 및 리소스 유형 목록은 [여기](resource-health-checks-resource-types.md)에서 확인할 수 있습니다.
 
 ## <a name="what-should-i-do-if-my-resource-is-showing-available-but-i-believe-it-is-not"></a>내 리소스가 사용 가능으로 표시되지만 그렇지 않다고 생각되면 어떻게 해야 하나요?
-리소스 상태를 검사할 때는 상태 오른쪽 아래에서 **Report incorrect health status(잘못된 상태 보고)**를 클릭하면 됩니다. 보고서를 제출하기 전에 현재 상태가 잘못되었다고 생각하는 이유에 대해 자세히 입력하는 옵션이 제공됩니다.
+리소스 상태를 검사할 때는 상태 오른쪽 아래에서 **Report incorrect health status(잘못된 상태 보고)** 를 클릭하면 됩니다. 보고서를 제출하기 전에 현재 상태가 잘못되었다고 생각하는 이유에 대해 자세히 입력하는 옵션이 제공됩니다.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>모든 Azure 지역에서 Resource Health가 제공되나요? 
 리소스 상태는 다음 지역을 제외한 모든 Azure 지역 간에 제공됩니다.

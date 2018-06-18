@@ -1,24 +1,25 @@
 ---
 title: Azure를 사용하여 항공 예측 유지 관리 - Cortana 인텔리전스 솔루션 기술 가이드 | Microsoft Docs
 description: 항공, 유틸리티 및 운송에서 예측 유지 관리를 위한 Microsoft Cortana Intelligence를 사용한 솔루션 템플릿에 대한 기술 지침
-services: cortana-analytics
+services: machine-learning
 documentationcenter: ''
 author: fboylu
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 2c4d2147-0f05-4705-8748-9527c2c1f033
-ms.service: cortana-analytics
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248387"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
@@ -173,24 +174,24 @@ Power BI는 예측 결과가 저장되는 해당 데이터 원본으로 Azure SQ
    
    다음 단계로 이동하기 전에 **데이터베이스 서버 이름, 데이터베이스 이름, 사용자 이름 및 암호** 가 필요합니다. 찾는 방법을 안내하는 단계는 다음과 같습니다.
    
-   * 솔루션 템플릿 다이어그램의 **"Azure SQL Database"**가 녹색으로 바뀌면 클릭한 다음 **"열기"**를 클릭합니다.
+   * 솔루션 템플릿 다이어그램의 **"Azure SQL Database"** 가 녹색으로 바뀌면 클릭한 다음 **"열기"** 를 클릭합니다.
    * Azure 포털 페이지를 표시하는 새로운 브라우저 탭/창이 표시됩니다. 왼쪽 패널에서 **'리소스 그룹'** 을 클릭합니다.
-   * 솔루션 배포에 사용 중인 구독을 선택한 다음 **'YourSolutionName\_ResourceGroup'**을 선택합니다.
+   * 솔루션 배포에 사용 중인 구독을 선택한 다음 **'YourSolutionName\_ResourceGroup'** 을 선택합니다.
    * 새 팝업 패널에서 ![SQL 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-sql.png) 아이콘을 클릭하여 데이터베이스에 액세스합니다. 데이터베이스 이름은 이 아이콘 옆에 있으며(예: **'pmaintenancedb'**) **데이터베이스 서버 이름**은 서버 이름 속성 아래에 나열되고 **YourSoutionName.database.windows.net**과 유사하게 보입니다.
    * 데이터베이스 **사용자 이름** 및 **암호**는 솔루션 배포 중 이전에 기록된 사용자 이름 및 암호와 동일합니다.
 2. Power BI 데스크톱을 사용하여 콜드 경로 보고서 파일의 데이터 원본을 업데이트합니다.
    
-   * 생성기 파일을 다운로드하고 압축을 푼 폴더에서 **PowerBI\\PredictiveMaintenanceAerospace.pbix** 파일을 두 번 클릭합니다. 파일을 열 때 경고 메시지가 표시되는 경우 무시합니다. 파일의 맨 위에서 **'쿼리 편집'**을 클릭합니다.
+   * 생성기 파일을 다운로드하고 압축을 푼 폴더에서 **PowerBI\\PredictiveMaintenanceAerospace.pbix** 파일을 두 번 클릭합니다. 파일을 열 때 경고 메시지가 표시되는 경우 무시합니다. 파일의 맨 위에서 **'쿼리 편집'** 을 클릭합니다.
      
      ![쿼리 편집](./media/cortana-analytics-technical-guide-predictive-maintenance/edit-queries.png)
    * 두 개의 테이블, **RemainingUsefulLife** 및 **PMResult**가 표시됩니다. 첫 번째 테이블을 선택하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래에서 **'원본'** 옆의 ![쿼리 설정 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-query-settings.png)을 클릭합니다. 표시되는 경고 메시지를 무시합니다.
-   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"**를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"**을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSoutionName.database.windows.net, 1433**). 데이터베이스 필드를 **pmaintenancedb**로 남겨 둡니다. 화면에 나타나는 경고 메시지를 무시합니다.
-   * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **‘데이터베이스’**를 클릭하고 **‘사용자 이름’** 및 **암호’**를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **'연결'**을 클릭합니다.
+   * 팝 아웃 창에서 **"서버"** 및 **"데이터베이스"** 를 사용자 고유 서버 및 데이터베이스 이름으로 바꾼 다음 **"확인"** 을 클릭합니다. 서버 이름의 경우 포트 1433을 지정했는지 확인합니다(**YourSoutionName.database.windows.net, 1433**). 데이터베이스 필드를 **pmaintenancedb**로 남겨 둡니다. 화면에 나타나는 경고 메시지를 무시합니다.
+   * 다음 팝 아웃 창에서 왼쪽 창에 두 가지 옵션이 표시됩니다(**Windows** 및 **데이터베이스**). **‘데이터베이스’** 를 클릭하고 **‘사용자 이름’** 및 **암호’** 를 입력합니다(처음으로 솔루션을 배포하고 Azure SQL 데이터베이스를 만들 때 입력한 사용자 이름 및 암호). ***이러한 설정을 적용할 수준 선택***에서 데이터베이스 수준 옵션을 선택합니다. 그런 다음 **'연결'** 을 클릭합니다.
    * 두 번째 테이블 **PMResult**를 클릭하고 오른쪽 **'쿼리 설정'** 패널의 **'적용된 단계'** 아래 **'원본'** 옆에 있는 ![탐색 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-navigation.png)을 클릭한 다음 위 단계와 마찬가지로 서버 및 데이터베이스 이름을 업데이트하고 확인을 클릭합니다.
    * 이전 페이지로 안내된 후 창을 닫습니다. 메시지가 표시되면 **적용**을 클릭합니다. 마지막으로 **저장** 단추를 클릭하여 변경 내용을 저장합니다. Power BI 파일은 이제 서버에 대한 연결을 설정합니다. 시각화가 비어 있는 경우 범례의 오른쪽 위 모퉁이의 지우개 아이콘을 클릭하여 모든 데이터를 시각화하도록 시각화의 선택 항목을 해제해야 합니다. 새로 고침 단추를 사용하여 시각화에 새 데이터를 반영합니다. 처음에 데이터 팩터리는 3시간마다 새로 고치도록 예약되어 있으므로 시각화에는 시드 데이터만 나타납니다. 3시간 후 데이터를 새로 고치면 시각화에 적용된 새 예측이 표시됩니다.
 3. (선택 사항) 콜드 경로 대시보드를 [Power BI 온라인](http://www.powerbi.com/)에 게시합니다. 이 단계는 Power BI 계정(또는 Office 365 계정)이 필요합니다.
    
-   * **‘게시’**를 클릭하고 몇 초 후 녹색 확인 표시로 "Power BI에 게시 성공!"을 표시하는 창이 나타납니다. 아래 링크 "Power BI에서 PredictiveMaintenanceAerospace.pbix 열기"를 클릭합니다. 자세한 지침을 찾으려면 [Power BI 데스크톱에서 게시](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)를 참조하세요.
+   * **‘게시’** 를 클릭하고 몇 초 후 녹색 확인 표시로 "Power BI에 게시 성공!"을 표시하는 창이 나타납니다. 아래 링크 "Power BI에서 PredictiveMaintenanceAerospace.pbix 열기"를 클릭합니다. 자세한 지침을 찾으려면 [Power BI 데스크톱에서 게시](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)를 참조하세요.
    * 새 대시보드를 만들려면 왼쪽 창의 **대시보드** 섹션 옆의 **+** 기호를 클릭합니다. 이 새 대시보드에 대해 이름 "예측 유지 관리 데모"를 입력합니다.
    * 보고서를 열면 ![PIN 아이콘](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-pin.png)을 클릭하여 모든 시각화를 대시보드에 고정합니다. 자세한 지침을 찾으려면 [보고서에서 Power BI 대시보드에 타일 고정](https://support.powerbi.com/knowledgebase/articles/430323-pin-a-tile-to-a-power-bi-dashboard-from-a-report)을 참조하세요.
      대시보드 페이지로 이동하고 시각화의 크기 및 위치를 조정하고 제목을 편집합니다. 타일을 편집하는 방법에 자세한 지침을 찾으려면 [타일 편집 - 하이퍼링크 크기 조정, 이동, 이름 바꾸기, 고정, 삭제, 추가](https://powerbi.microsoft.com/documentation/powerbi-service-edit-a-tile-in-a-dashboard/#rename)를 참조하세요. 다음은 고정된 몇 가지 콜드 경로 시각화를 사용한 예제 대시보드입니다.  데이터 생성기의 실행 시간에 따라 시각화에 대한 숫자가 달라질 수 있습니다.

@@ -19,6 +19,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33783662"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
 Azure Media Services는 현재 PlayReady 라이선스를 배달하는 서비스를 제공합니다. 플레이어(예: Silverlight)가 PlayReady로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청을 보내 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용되는 라이선스가 발급됩니다.

@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: b11cffcb006ba4f0598bd7f5cf6ed13daad2db42
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 06bbcadeda2187a521daecde2b386c936e8217f0
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763598"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Log Analytics에 Operations Manager 연결
 System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 Log Analytics 작업 영역으로 Operations Manager를 통합할 수 있습니다.  이렇게 하면 Log Analytics의 기회를 활용하면서도 Operations Manager를 계속 사용하여 다음 작업을 할 수 있습니다.
@@ -77,7 +78,9 @@ Operations Manager 관리 그룹을 구성하도록 다음과 같은 일련의 �
 Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 등록하고 관리 서버가 프록시 또는 OMS 게이트웨이 서버를 통해 서비스와 통신해야 하는 경우에는 관리 그룹에 대한 프록시 구성을 지정하는 옵션을 운영 콘솔에서 사용할 수 없습니다.  이 옵션을 사용하려면 관리 그룹이 서비스에 등록되어 있어야 합니다.  운영 콘솔을 실행하는 시스템에서 Netsh를 사용하여 관리 그룹의 통합 및 모든 관리 서버를 구성하여 시스템 프록시 구성을 업데이트해야 합니다.  
 
 1. 관리자 권한 명령 프롬프트를 엽니다.
-1. 다음 명령을 입력하고 **Enter** 키를 누릅니다.
+   a. **시작**으로 이동하여 **cmd**를 입력합니다.
+   나. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭하고 관리자 권한으로 실행**을 선택합니다.
+2. 다음 명령을 입력하고 **Enter** 키를 누릅니다.
 
     `netsh winhttp set proxy <proxy>:<port>`
 
@@ -197,9 +200,9 @@ Operations Manager와 통합하도록 활성화한 솔루션용 관리 팩 및 L
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
-1. Azure Portal에서 Log Analytics 작업 영역에 대한 **고급 설정** 메뉴를 엽니다.
-1. **연결된 원본**을 선택한 다음, **System Center**를 선택합니다.
-1. 작업 영역에서 제거하려는 관리 그룹의 이름이 표시되어야 합니다.  **마지막 데이터** 열 아래에서 **제거**를 클릭합니다.  
+7. OMS 포털에서 **설정** 타일을 클릭합니다.
+8. **연결된 원본**을 선택합니다.
+9. System Center Operations Manager 섹션 아래의 표에 작업 영역에서 제거하려는 관리 그룹의 이름이 표시됩니다.  **마지막 데이터** 열 아래에서 **제거**를 클릭합니다.  
    
     > [!NOTE]
     > 14일간 연결된 관리 그룹에서 감지된 활동이 없을 경우 그 후에는 **제거** 링크를 사용할 수 없습니다.  
@@ -210,7 +213,7 @@ Operations Manager와 통합하도록 활성화한 솔루션용 관리 팩 및 L
 두 커넥터(Microsoft.SystemCenter.Advisor.DataConnector 및 Advisor 커넥터)를 삭제하려면 PowerShell 스크립트를 컴퓨터에 저장하고 다음 예제를 사용하여 실행합니다.
 
 ```
-    .\OM2012_DeleteConnector.ps1 “Advisor Connector” <ManagementServerName>
+    .\OM2012_DeleteConnectors.ps1 “Advisor Connector” <ManagementServerName>
     .\OM2012_DeleteConnectors.ps1 “Microsoft.SytemCenter.Advisor.DataConnector” <ManagementServerName>
 ```
 

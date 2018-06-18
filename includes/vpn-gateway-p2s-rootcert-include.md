@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30197076"
 ---
 엔터프라이즈 솔루션을 사용하여 생성되는 루트 인증서를 사용하거나(권장됨) 자체 서명된 인증서를 생성할 수 있습니다. 루트 인증서를 만든 후 Base-64 인코딩된 X.509 .cer 파일로 공용 인증서 데이터(개인 키 아님)를 내보내고 공용 인증서 데이터를 Azure로 업로드합니다.
 

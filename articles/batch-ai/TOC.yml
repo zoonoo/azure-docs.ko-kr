@@ -11,6 +11,10 @@
       href: quickstart-cli.md
     - name: 학습 작업 실행 - Python
       href: quickstart-python.md
+- name: 방법 가이드
+  items:
+    - name: 업데이트된 API로 마이그레이션
+      href: migrate-to-new-api.md
 - name: 참고 자료
   items:
     - name: Azure CLI
@@ -21,7 +25,7 @@
       href: /java/api/overview/azure/batchai
     - name: Node.js
       href: /javascript/api/overview/azure/batchai
-    - name: Python
+    - name: 파이썬
       href: /python/api/overview/azure/batchai
     - name: REST (영문)
       href: /rest/api/batchai

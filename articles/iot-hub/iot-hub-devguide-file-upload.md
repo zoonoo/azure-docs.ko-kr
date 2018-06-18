@@ -1,24 +1,19 @@
 ---
-title: "Azure IoT Hub 파일 업로드 이해 | Microsoft Docs"
-description: "개발자 가이드 - IoT Hub의 파일 업로드 기능을 사용하여 장치에서 Azure Storage blob 컨테이너로 파일 업로드를 관리합니다."
-services: iot-hub
-documentationcenter: .net
+title: Azure IoT Hub 파일 업로드 이해 | Microsoft Docs
+description: 개발자 가이드 - IoT Hub의 파일 업로드 기능을 사용하여 장치에서 Azure Storage blob 컨테이너로 파일 업로드를 관리합니다.
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: a0427925-3e40-4fcd-96c1-2a31d1ddc14b
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 7bf1ba333f36dcfa8959320566bcb771f37cfe22
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: e16d32bdba1374540c03d1034a94192a54e6a109
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34634899"
 ---
 # <a name="upload-files-with-iot-hub"></a>IoT Hub를 사용하여 파일 업로드
 

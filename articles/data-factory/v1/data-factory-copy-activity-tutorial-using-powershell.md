@@ -20,6 +20,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31594520"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 데이터를 이동하는 Data Factory 파이프라인 만들기
 > [!div class="op_single_selector"]
@@ -220,7 +221,7 @@ AzureSqlLinkedService는 Azure SQL 데이터베이스를 데이터 팩터리에 
    SQL Database Server에 대해 **Azure 서비스 방문 허용** 설정이 켜져 있는지 확인합니다. 이 설정을 확인하고 켜려면 다음 단계를 수행합니다.
 
     1. [Azure Portal](https://portal.azure.com)에 로그인
-    2. 왼쪽에 있는 **더 많은 서비스 >**를 클릭하고 **데이터베이스** 범주에서 **SQL 서버**를 클릭합니다.
+    2. 왼쪽에 있는 **더 많은 서비스 >** 를 클릭하고 **데이터베이스** 범주에서 **SQL 서버**를 클릭합니다.
     3. SQL 서버 목록에서 서버를 선택합니다.
     4. SQL 서버 블레이드에서 **방화벽 설정 표시** 링크를 클릭합니다.
     5. **방화벽 설정** 블레이드에서 **Azure 서비스에 대한 액세스 허용**에 대해 **켜기**를 클릭합니다.
@@ -280,7 +281,7 @@ Azure 저장소 연결된 서비스는 런타임에 Data Factory 서비스에서
     | folderPath | 입력 Blob이 포함된 Blob **컨테이너**와 **폴더**를 지정합니다. 이 자습서에서 adftutorial은 Blob 컨테이너이며, 폴더는 루트 폴더입니다. | 
     | fileName | 이 속성은 선택 사항입니다. 이 속성을 생략하면 folderPath의 모든 파일이 선택됩니다. 이 자습서에서는 fileName에 대해 **emp.txt**를 지정하므로 해당 파일만 처리를 위해 선택됩니다. |
     | format -> type |입력 파일은 텍스트 형식이므로 **TextFormat**을 사용합니다. |
-    | columnDelimiter | 입력 파일의 열은 **쉼표(`,`)**로 구분됩니다. |
+    | columnDelimiter | 입력 파일의 열은 **쉼표(`,`)** 로 구분됩니다. |
     | frequency/interval | frequency는 **Hour**로 설정되고, interval은 **1**로 설정됩니다. 즉 입력 조각이 **매시간** 사용될 수 있습니다. 다시 말하면, Data Factory 서비스가 지정한 Blob 컨테이너(**adftutorial**)의 루트 폴더에서 매 시간마다 입력 데이터를 찾습니다. 이러한 시간 이전 또는 이후가 아니라 파이프라인의 시작 시간과 종료 시간 내에 있는 데이터를 찾습니다.  |
     | external | 이 파이프라인에 의해 데이터가 생성되지 않는 경우 이 속성은 **true**로 설정됩니다. 이 자습서의 입력 데이터는 이 파이프라인에 의해 생성되지 않는 emp.txt 파일에 있으므로 이 속성을 true로 설정합니다. |
 

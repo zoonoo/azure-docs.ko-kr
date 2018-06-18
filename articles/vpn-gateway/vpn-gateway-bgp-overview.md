@@ -1,12 +1,12 @@
 ---
-title: "Azure VPN Gateway에서의 BGP 개요| Microsoft Azure"
-description: "이 문서는 Azure VPN Gateway와 BGP에 대한 개요를 제공합니다."
+title: Azure VPN Gateway에서의 BGP 개요| Microsoft Azure
+description: 이 문서는 Azure VPN Gateway와 BGP에 대한 개요를 제공합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 manager: rossort
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: f8c3985c-c128-4f34-835c-0e88742bf36e
 ms.service: vpn-gateway
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23123801"
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Azure VPN Gateway에서의 BGP 개요
 이 문서에서는 Azure VPN Gateway에서의 BGP(경계 게이트웨이 프로토콜) 지원에 대한 개요를 제공합니다.

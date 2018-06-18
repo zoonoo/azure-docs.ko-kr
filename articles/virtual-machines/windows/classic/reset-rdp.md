@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917652"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Windows VM에서 원격 데스크톱 서비스 또는 해당 로그인 암호를 다시 설정하는 방법
 > [!IMPORTANT]
@@ -36,11 +37,11 @@ Windows 가상 컴퓨터에 연결할 수 없는 경우 로컬 관리자 암호�
 - [Azure PowerShell을 사용하여 재설정](#vmaccess-extension-and-powershell)
 
 ## <a name="azure-portal"></a>Azure portal
-[Azure Portal](https://portal.azure.com)을 사용하여 원격 데스크톱 서비스를 초기화할 수 있습니다. 포털 메뉴를 확장하려면 왼쪽 위 구석에 있는 세 개의 막대를 클릭한 다음 **가상 머신(클래식)**를 클릭합니다.
+[Azure Portal](https://portal.azure.com)을 사용하여 원격 데스크톱 서비스를 초기화할 수 있습니다. 포털 메뉴를 확장하려면 왼쪽 위 구석에 있는 세 개의 막대를 클릭한 다음 **가상 머신(클래식)** 를 클릭합니다.
 
 ![Azure VM 찾아보기](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
-Windows 가상 머신을 선택하고 **원격으로 다시 설정...**을 클릭합니다. 원격 데스크톱 구성을 재설정하도록 다음 대화 상자가 나타납니다.
+Windows 가상 머신을 선택하고 **원격으로 다시 설정...** 을 클릭합니다. 원격 데스크톱 구성을 재설정하도록 다음 대화 상자가 나타납니다.
 
 ![RDP 구성 다시 설정 페이지](./media/reset-rdp/Portal-RDP-Reset-Windows.png)
 

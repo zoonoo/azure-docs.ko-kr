@@ -1,25 +1,19 @@
 ---
-title: Azure 응용 프로그램 및 리소스 모니터링 | Microsoft Docs
+title: Azure 응용 프로그램 및 리소스 모니터링
 description: Azure 서비스 및 응용 프로그램에 대한 전체 모니터링 전략에 작용하는 Microsoft 서비스 및 기능을 대략적으로 설명합니다.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: overview
 ms.date: 03/05/2018
 ms.author: robb,bwren
-ms.openlocfilehash: 27d3835b5574492fdb62df0131ca3a542dd21ec3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: ''
+ms.openlocfilehash: e6adcc136c273210cc40d23ed2cb177287654005
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777555"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265135"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure 응용 프로그램 및 리소스 모니터링
 
@@ -118,9 +112,9 @@ Azure 또는 온-프레미스에서 네트워크의 다양한 측면을 모니�
 
 [Network Watcher](../network-watcher/network-watcher-monitoring-overview.md)는 Azure의 여러 다른 네트워크 시나리오에 대한 시나리오 기반 모니터링 및 진단을 제공합니다. 추가 분석을 위해 Azure 메트릭 및 진단에 데이터를 저장합니다. 네트워크의 다양한 측면을 모니터링하기 위해 다음 솔루션과 함께 작동합니다.
 
-[NPM(네트워크 성능 모니터)](https://blogs.msdn.microsoft.com/azuregov/2017/09/05/network-performance-monitor-general-availability/)은 공용 클라우드, 데이터 센터 및 온-프레미스 환경에서 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다.
+[NPM(네트워크 성능 모니터)](../log-analytics/log-analytics-network-performance-monitor.md)은 공용 클라우드, 데이터 센터 및 온-프레미스 환경에서 연결을 모니터링하는 클라우드 기반 네트워크 모니터링 솔루션입니다.
 
-[ExpressRoute 모니터](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/)는 Azure ExpressRoute 회로를 통해 종단 간 연결 및 성능을 모니터링하는 NPM 기능입니다.
+[ExpressRoute 모니터](../expressroute/how-to-npm.md)는 Azure ExpressRoute 회로를 통해 종단 간 연결 및 성능을 모니터링하는 NPM 기능입니다.
 
 [DNS 분석](../log-analytics/log-analytics-dns.md)은 DNS 서버를 기반으로 보안, 성능 및 작업 관련 자세한 정보를 제공하는 솔루션입니다.
 

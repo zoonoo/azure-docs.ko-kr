@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212809"
 ---
 # <a name="reconfiguration-in-azure-service-fabric"></a>Azure Service Fabric의 재구성
 *구성*은 상태 저장 서비스의 파티션에 대한 복제본과 그 역할로 정의됩니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs 메시징 예외 | Microsoft Docs"
-description: "Azure Event Hubs 메시징 예외 및 제안 조치의 목록입니다."
+title: Azure Event Hubs 메시징 예외 | Microsoft Docs
+description: Azure Event Hubs 메시징 예외 및 제안 조치의 목록입니다.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783131"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs 메시징 예외
 

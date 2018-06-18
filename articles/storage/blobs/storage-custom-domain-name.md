@@ -1,6 +1,6 @@
 ---
-title: "Azure Blob Storage 끝점에 대한 사용자 지정 도메인 이름 구성 | Microsoft Docs"
-description: "Azure Portal을 사용하여 고유한 CNAME(정식 이름)을 Azure Storage 계정의 Blob Storage 끝점에 매핑합니다."
+title: Azure Blob Storage 끝점에 대한 사용자 지정 도메인 이름 구성 | Microsoft Docs
+description: Azure Portal을 사용하여 고유한 CNAME(정식 이름)을 Azure Storage 계정의 Blob Storage 끝점에 매핑합니다.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/24/2018
+ms.locfileid: "29559930"
 ---
 # <a name="configure-a-custom-domain-name-for-your-blob-storage-endpoint"></a>Blob 저장소 끝점에 대한 사용자 지정 도메인 이름 구성
 

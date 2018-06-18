@@ -1,6 +1,6 @@
 ---
-title: "Azure Storage 코드 샘플 | Microsoft Docs"
-description: "Azure 저장소에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. .NET, Java, Node.js 및 C++ 저장소 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다."
+title: Azure Storage 코드 샘플 | Microsoft Docs
+description: Azure 저장소에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. .NET, Java, Node.js 및 C++ 저장소 클라이언트 라이브러리를 사용하여 blob, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 services: storage
 documentationcenter: na
 author: tamram
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059688"
 ---
 # <a name="azure-storage-samples"></a>Azure 저장소 샘플
 

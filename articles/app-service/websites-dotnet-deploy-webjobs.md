@@ -19,6 +19,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30161526"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -64,7 +65,7 @@ Visual Studio 2017을 사용하는 경우 [Azure 개발 워크로드](https://do
 
 ### <a id="convertlink"></a> 웹 프로젝트와 함께 자동 WebJob 배포 사용
 
-1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Existing Project as Azure WebJob(기존 프로젝트를 Azure WebJob으로)**을 클릭합니다.
+1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **Existing Project as Azure WebJob(기존 프로젝트를 Azure WebJob으로)** 을 클릭합니다.
    
     ![Existing Project as Azure WebJob(기존 프로젝트를 Azure WebJob으로)](./media/websites-dotnet-deploy-webjobs/eawj.png)
    
@@ -75,7 +76,7 @@ Visual Studio 2017을 사용하는 경우 [Azure 개발 워크로드](https://do
 3. [Add Azure WebJob(Azure WebJob 추가)](#configure) 대화 상자를 완료하고 **확인**을 클릭합니다. 
 
 ### <a id="convertnolink"></a> 웹 프로젝트를 제외한 WebJob 배포 사용
-1. **솔루션 탐색기**에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Azure WebJob 게시...**를 클릭합니다. 
+1. **솔루션 탐색기**에서 콘솔 응용 프로그램 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **Azure WebJob 게시...** 를 클릭합니다. 
    
     ![Publish as Azure WebJob(Azure WebJob으로 게시)](./media/websites-dotnet-deploy-webjobs/paw.png)
    
@@ -100,13 +101,13 @@ Visual Studio 2017을 사용하는 경우 [Azure 개발 워크로드](https://do
 > 
 
 ### <a id="createnolink"></a> 독립 WebJob을 위해 WebJob new-project 템플릿 사용
-1. **파일** > **새 프로젝트**를 클릭한 다음 **새 프로젝트** 대화 상자에서 **클라우드** > **Azure WebJob(.NET Framework)**을 클릭합니다.
+1. **파일** > **새 프로젝트**를 클릭한 다음 **새 프로젝트** 대화 상자에서 **클라우드** > **Azure WebJob(.NET Framework)** 을 클릭합니다.
    
     ![WebJob 템플릿을 표시하는 새 프로젝트 대화 상자](./media/websites-dotnet-deploy-webjobs/np.png)
 2. 앞에 표시된 지침에 따라 [콘솔 응용 프로그램 프로젝트를 독립 WebJob 프로젝트로 만듭니다](#convertnolink).
 
 ### <a id="createlink"></a> 웹 프로젝트에 연결된 WebJob을 위해 WebJob new-project 템플릿 사용
-1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **New Azure WebJob Project(새 Azure WebJob 프로젝트)**를 클릭합니다.
+1. **솔루션 탐색기**에서 웹 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **New Azure WebJob Project(새 Azure WebJob 프로젝트)** 를 클릭합니다.
    
     ![New Azure WebJob Project(새 Azure WebJob 프로젝트) 메뉴 항목](./media/websites-dotnet-deploy-webjobs/nawj.png)
    
@@ -162,7 +163,7 @@ WebJob 지원 프로젝트를 웹 프로젝트에 연결하면 Visual Studio는 
 ## <a id="deploy"></a>WebJob 프로젝트 배포
 웹 프로젝트에 연결한 WebJob 프로젝트는 웹 프로젝트와 함께 자동으로 배포됩니다. 웹 프로젝트 배포에 대한 자세한 내용은 **방법 가이드** > **앱 배포**를 참조하세요.
 
-WebJob 프로젝트 자체적으로 배포하려면 **솔루션 탐색기**에서 이 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure WebJob 게시...**를 클릭합니다. 
+WebJob 프로젝트 자체적으로 배포하려면 **솔루션 탐색기**에서 이 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Azure WebJob 게시...** 를 클릭합니다. 
 
 ![Publish as Azure WebJob(Azure WebJob으로 게시)](./media/websites-dotnet-deploy-webjobs/paw.png)
 

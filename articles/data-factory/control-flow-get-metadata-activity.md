@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: shlo
-ms.openlocfilehash: 4698f2e4c75456de7387ee7fe3bfa9b2ab4dd406
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 56128a7fe28f1599b74ba9f1475ef636e0e8718c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011393"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34617983"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타데이터 가져오기 작업
 GetMetadata 작업은 Azure Data Factory에서 모든 데이터의 **메타데이터**를 검색하는 데 사용할 수 있습니다. 이 작업은 Data Factory 버전 2에만 지원됩니다. 다음과 같은 시나리오에서 사용할 수 있습니다.

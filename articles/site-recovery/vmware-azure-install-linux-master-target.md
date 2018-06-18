@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: nisoneji
-ms.openlocfilehash: a18bc242d10c9eb287d0f3645490acb9ca9fec2a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072439"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802513"
 ---
 # <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -243,7 +243,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
 2. **multipath -ll** 명령을 사용하여 보존 디스크의 다중 경로 ID를 확인합니다. **multipath -ll**
 
-    ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. 드라이브를 포맷한 다음, 새 드라이브에서 파일 시스템을 만듭니다. **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**
     

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30197451"
 ---
 |  | **초당 메가비트** | **초당 패킷** | **초당 연결** | **VPN Gateway 및 ExpressRoute 공존** |
 | --- | --- | --- | --- | --- |

@@ -1,26 +1,28 @@
 ---
-title: "PowerApps에서 함수 호출 | Microsoft Docs"
-description: "사용자 지정 커넥터를 만든 후 해당 커넥터를 사용하여 함수를 호출합니다."
+title: PowerApps에서 함수 호출 | Microsoft Docs
+description: 사용자 지정 커넥터를 만든 후 해당 커넥터를 사용하여 함수를 호출합니다.
 services: functions
-keywords: "클라우드 앱, 클라우드 서비스, PowerApps, 비즈니스 프로세스, 비즈니스 응용 프로그램"
-documentationcenter: 
-author: mgblythe
+keywords: 클라우드 앱, 클라우드 서비스, PowerApps, 비즈니스 프로세스, 비즈니스 응용 프로그램
+documentationcenter: ''
+author: ggailey777
 manager: cfowler
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
-ms.author: mblythe
-ms.custom: 
-ms.openlocfilehash: 28c2fc8246851807e1f65911d6a5d56322c5ea16
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.author: glenga
+ms.reviewer: sunayv
+ms.custom: ''
+ms.openlocfilehash: 02cd491be5336abe708cce0f6e268b38514d4e88
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234957"
 ---
 # <a name="call-a-function-from-powerapps"></a>PowerApps에서 함수 호출
 [PowerApps](https://powerapps.microsoft.com) 플랫폼은 비즈니스 전문가가 기존 응용 프로그램 코드 없이도 앱을 빌드할 수 있도록 디자인되었습니다. 전문 개발자는 Azure Functions를 사용하여 PowerApps 앱 작성자에게 기술적 세부 사항은 숨기면서 PowerApps의 기능을 확장할 수 있습니다.
@@ -161,7 +163,7 @@ Microsoft Flow에서 동일한 함수 호출에 대한 내용은 [Microsoft Flow
 
     ![선택한 항목](media/functions-powerapps-scenario/selected-item.png)
 
-1. 앱에서 원래 화면은 필요하지 않습니다. 왼쪽 창에서 **Screen1**으로 마우스를 가져간 후 **. . .**를 클릭하고 **삭제**를 클릭합니다.
+1. 앱에서 원래 화면은 필요하지 않습니다. 왼쪽 창에서 **Screen1**으로 마우스를 가져간 후 **. . .** 를 클릭하고 **삭제**를 클릭합니다.
 
     ![삭제 화면](media/functions-powerapps-scenario/delete-screen.png)
 

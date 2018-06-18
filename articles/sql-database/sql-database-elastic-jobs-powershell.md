@@ -6,14 +6,15 @@ manager: craigg
 author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 425213f66a4b9960cf68a40c935fedff12f9f75d
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: d1869dd689ef090978c3835e0a16fec82dfb5c05
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648689"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>PowerShell을 사용하여 SQL Database 탄력적 작업 만들기 및 관리(미리 보기)
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 04/06/2018
 * **Elastic Database 작업** PowerShell 패키지: [Installing Elastic Database 작업](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>Azure 구독 선택
-구독을 선택하려면 구독 ID**-SubscriptionId** 또는 구독 이름(**-SubscriptionName**이 필요합니다. 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독 정보가 준비되면 다음 commandlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
+구독을 선택하려면 구독 ID **-SubscriptionId** 또는 구독 이름(**-SubscriptionName**이 필요합니다. 구독이 여러 개일 경우 **Get-AzureRmSubscription** cmdlet을 실행하고 결과 집합에서 원하는 구독 정보를 복사할 수 있습니다. 구독 정보가 준비되면 다음 commandlet을 실행하여 이 구독을 기본값, 즉 작업을 만들고 관리하기 위한 대상으로 설정합니다.
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 

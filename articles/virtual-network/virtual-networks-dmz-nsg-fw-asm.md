@@ -1,11 +1,11 @@
 ---
-title: "DMZ 예제 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드 | Microsoft Docs"
-description: "방화벽 및 NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드"
+title: DMZ 예제 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드 | Microsoft Docs
+description: 방화벽 및 NSG(네트워크 보안 그룹)를 사용하여 DMZ 빌드
 services: virtual-network
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
+editor: ''
 ms.assetid: c78491c7-54ac-4469-851c-b35bfed0f528
 ms.service: virtual-network
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23126931"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>예 2 - 방화벽 및 NSG로 응용 프로그램을 보호하는 DMZ 빌드
 [보안 경계 모범 사례 페이지로 돌아가기][HOME]

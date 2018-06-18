@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 가상 머신 보호 | Microsoft Docs"
-description: "이 문서에서는 가상 머신을 보호하고 보안 정책을 준수하는 데 도움이 되는 Azure Security Center의 권장 사항에 대해 설명합니다."
+title: Azure Security Center에서 가상 머신 보호 | Microsoft Docs
+description: 이 문서에서는 가상 머신을 보호하고 보안 정책을 준수하는 데 도움이 되는 Azure Security Center의 권장 사항에 대해 설명합니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27623501"
 ---
 # <a name="protecting-your-virtual-machines-in-azure-security-center"></a>Azure Security Center에서 가상 머신 보호
 Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.  이러한 권장 사항은 가상 머신(VM), 네트워킹, SQL, 응용 프로그램 등의 Azure 리소스 유형에 적용됩니다.

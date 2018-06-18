@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 투명한 데이터 암호화 사용 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **투명한 데이터 암호화 사용**을 구현하는 방법을 보여 줍니다."
+title: Azure Security Center에서 투명한 데이터 암호화 사용 | Microsoft Docs
+description: 이 문서에서는 Azure 보안 센터 권장 사항 **투명한 데이터 암호화 사용**을 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040268"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Azure 보안 센터에서 투명한 데이터 암호화 사용
 아직 TDE(투명한 데이터 암호화)를 사용하도록 설정하지 않은 경우 SQL 데이터베이스에서 TDE를 사용하도록 설정하는 것이 좋습니다. TDE는 데이터를 보호하며, 응용 프로그램을 변경할 필요 없이 휴지 상태의 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일을 암호화하여 준수 요구를 충족하도록 도와줍니다. 자세한 내용은 [Azure SQL 데이터베이스를 사용한 투명한 데이터 암호화](https://msdn.microsoft.com/library/dn948096)를 참조하세요.

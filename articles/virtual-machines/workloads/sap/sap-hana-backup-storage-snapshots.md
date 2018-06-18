@@ -1,11 +1,11 @@
 ---
-title: "저장소 스냅숏에 기반한 SAP HANA Azure 백업 | Microsoft Docs"
-description: "Azure 가상 컴퓨터에는 SAP HANA에 대한 두 가지 주요 백업 방법이 있습니다. 이 문서에서는 저장소 스냅숏에 기반한 SAP HANA 백업에 대해 설명합니다"
+title: 저장소 스냅숏에 기반한 SAP HANA Azure 백업 | Microsoft Docs
+description: Azure 가상 머신에는 SAP HANA에 대한 두 가지 주요 백업 방법이 있습니다. 이 문서에서는 저장소 스냅숏에 기반한 SAP HANA 백업에 대해 설명합니다
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -13,11 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 3/13/2017
 ms.author: rclaus
-ms.openlocfilehash: f332b8ac091b75a23489ac27f15ad1fd10d24ec6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 819888800b9663f9b920fbaf11b30ad28287a0b5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658726"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>저장소 스냅숏에 기반한 SAP HANA 백업
 
@@ -25,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 이 문서는 3부로 구성된 SAP HANA 백업 관련 문서 시리즈의 일부입니다. [Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md)에서 시작에 대한 개요와 정보를 제공하고, [파일 수준의 SAP HANA Azure Backup](sap-hana-backup-file-level.md)에서 파일 기반 백업 옵션을 설명합니다.
 
-단일 인스턴스 통합(all-in-one) 데모 시스템에 VM 백업 기능을 사용하는 경우 OS 수준에서 HANA 백업을 관리하는 대신 VM 백업을 수행하는 것이 좋습니다. 다른 방법으로는 Azure Blob 스냅숏을 만들어 가상 컴퓨터에 연결된 개별 가상 디스크의 복사본을 만들고 HANA 데이터 파일을 유지하는 것입니다. 그러나 중요한 점은 시스템 가동 중에 VM 백업 또는 디스크 스냅숏을 만들 때 앱 일관성을 유지하는 것입니다. [Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요. SAP HANA에는 이러한 종류의 저장소 스냅숏을 지원하는 기능이 있습니다.
+단일 인스턴스 통합(all-in-one) 데모 시스템에 VM 백업 기능을 사용하는 경우 OS 수준에서 HANA 백업을 관리하는 대신 VM 백업을 수행하는 것이 좋습니다. 다른 방법으로는 Azure Blob 스냅숏을 만들어 가상 머신에 연결된 개별 가상 디스크의 복사본을 만들고 HANA 데이터 파일을 유지하는 것입니다. 그러나 중요한 점은 시스템 가동 중에 VM 백업 또는 디스크 스냅숏을 만들 때 앱 일관성을 유지하는 것입니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요. SAP HANA에는 이러한 종류의 저장소 스냅숏을 지원하는 기능이 있습니다.
 
 ## <a name="sap-hana-snapshots"></a>SAP HANA 스냅숏
 
@@ -49,9 +50,9 @@ ms.lasthandoff: 10/11/2017
 
 스냅숏은 디스크의 SAP HANA 데이터 디렉터리에 표시됩니다.
 
-SAP HANA가 스냅숏 준비 모드에 있는 동안 저장소 스냅숏을 실행하기 전에 파일 시스템 일관성도 보장되는지 확인해야 합니다. [Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요.
+SAP HANA가 스냅숏 준비 모드에 있는 동안 저장소 스냅숏을 실행하기 전에 파일 시스템 일관성도 보장되는지 확인해야 합니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요.
 
-저장소 스냅숏이 완료되면 SAP HANA 스냅숏을 확인하는 것이 중요합니다. 실행할 SQL 문은 BACKUP DATA CLOSE SNAPSHOT입니다([BACKUP DATA CLOSE SNAPSHOT 문(백업 및 복구)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)(영문) 참조).
+저장소 스냅숏이 완료되면 SAP HANA 스냅숏을 확인하는 것이 중요합니다. 실행할 SQL 문은 BACKUP DATA CLOSE SNAPSHOT입니다([BACKUP DATA CLOSE SNAPSHOT 문(Backup 및 복구)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/c3/9739966f7f4bd5818769ad4ce6a7f8/content.htm)(영문) 참조).
 
 > [!IMPORTANT]
 > HANA 스냅숏을 확인합니다. &quot;Copy-on-Write&quot;로 인해 SAP HANA에는 스냅숏 준비 모드에서 추가 디스크 공간이 필요할 수 있으며, 먼저 SAP HANA 스냅숏이 확인되어야 새 백업을 시작할 수 있습니다.
@@ -152,7 +153,7 @@ Azure Backup 서비스를 사용하는 대신 Azure VHD의 Blob 스냅숏을 Pow
 
 - 테스트를 위해 두 개의 Azure 데이터 디스크를 VM에 연결하고 그 위에 소프트웨어 RAID를 정의했습니다. 
 - SAP HANA 스냅숏 기능을 통해 SAP HANA가 일관된 상태에 있음을 확인했습니다.
-- 파일 시스템을 고정했습니다([Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_ 참조).
+- 파일 시스템을 고정했습니다([Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_ 참조).
 - 두 데이터 디스크에서 Blob 스냅숏을 만들었습니다.
 - 파일 시스템을 고정 취소했습니다.
 - SAP HANA 스냅숏을 확인했습니다.
@@ -162,9 +163,9 @@ Azure Backup 서비스를 사용하는 대신 Azure VHD의 Blob 스냅숏을 Pow
 - VM을 시작한 후 소프트웨어 RAID의 모든 파일이 잘 작동하고 Blob 스냅숏 시간으로 다시 설정했습니다.
 - HANA를 HANA 스냅숏으로 다시 설정했습니다.
 
-Blob 스냅숏 이전에 SAP HANA를 종료할 수 있다면 절차가 덜 복잡하게 됩니다. 이 경우 HANA 스냅숏을 건너뛸 수 있으며, 시스템에서 다른 작업이 수행되고 있지 않으면 파일 시스템 고정도 건너뛸 수 있습니다. 모든 것이 온라인 상태인 동안에 스냅숏을 만들어야 하는 경우 더 복잡하게 됩니다. [Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요.
+Blob 스냅숏 이전에 SAP HANA를 종료할 수 있다면 절차가 덜 복잡하게 됩니다. 이 경우 HANA 스냅숏을 건너뛸 수 있으며, 시스템에서 다른 작업이 수행되고 있지 않으면 파일 시스템 고정도 건너뛸 수 있습니다. 모든 것이 온라인 상태인 동안에 스냅숏을 만들어야 하는 경우 더 복잡하게 됩니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure Virtual Machines의 SAP HANA 백업 가이드](sap-hana-backup-guide.md) - 시작에 대한 개요 및 정보를 제공합니다.
+* [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) - 시작에 대한 개요 및 정보를 제공합니다.
 * [파일 수준 기반 SAP HANA 백업](sap-hana-backup-file-level.md)에서는 파일 기반 백업 옵션에 대해 다룹니다.
 * [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md) - Azure의 SAP HANA(큰 인스턴스)에 대한 고가용성 및 재해 복구 계획을 설정하는 방법을 알아봅니다.

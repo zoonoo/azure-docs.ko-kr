@@ -1,8 +1,8 @@
 ---
-title: "Windows VM MSI를 사용하여 Azure Resource Manager 액세스"
-description: "Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다."
+title: Windows VM MSI를 사용하여 Azure Resource Manager 액세스
+description: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: daveba
 manager: mtillman
 editor: daveba
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29382562"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Resource Manager 액세스
 
@@ -72,7 +73,7 @@ VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure A
 
 1.  **리소스 그룹**의 탭으로 이동합니다. 
 2.  **Windows VM**용으로 만든 특정 **리소스 그룹**을 선택합니다. 
-3.  왼쪽 패널의 **액세스 제어(IAM)**로 이동합니다. 
+3.  왼쪽 패널의 **액세스 제어(IAM)** 로 이동합니다. 
 4.  그런 다음 **Windows VM**용 새 역할 할당을 **추가**합니다.  **역할**로 **독자**를 선택합니다. 
 5.  다음 드롭다운에서 **Virtual Machine** 리소스에 대한 **액세스를 할당**합니다. 
 6.  그런 다음 **구독** 드롭다운에 적절한 구독이 나열되어 있는지 확인합니다. 그리고 **리소스 그룹**에서는 **모든 리소스 그룹**을 선택합니다. 

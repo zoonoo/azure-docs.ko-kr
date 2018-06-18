@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management에서 백업 및 복원을 사용하여 재해 복구 구현 | Microsoft Docs"
-description: "Azure API Management에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다."
+title: Azure API Management에서 백업 및 복원을 사용하여 재해 복구 구현 | Microsoft Docs
+description: Azure API Management에서 백업 및 복원을 사용하여 재해 복구를 수행하는 방법에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019282"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -73,7 +74,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
     ![권한 추가](./media/api-management-howto-disaster-recovery-backup-restore/add-app.png)
 
-7. 새로 추가된 응용 프로그램 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)**에서 상자를 선택합니다.
+7. 새로 추가된 응용 프로그램 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
 8. **선택**을 누릅니다.
 
 ### <a name="configuring-your-app"></a>앱 구성

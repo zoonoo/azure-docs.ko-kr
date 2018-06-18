@@ -1,11 +1,11 @@
 ---
-title: "Cloud Services 역할에 대한 통신 | Microsoft Docs"
-description: "Cloud Services의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 끝점(http, https, tcp, udp)이 있을 수 있습니다."
+title: Cloud Services 역할에 대한 통신 | Microsoft Docs
+description: Cloud Services의 역할 인스턴스에는 다른 역할 인스턴스의 외부 또는 그 사이에서 통신하도록 정의된 끝점(http, https, tcp, udp)이 있을 수 있습니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 7008a083-acbe-4fb8-ae60-b837ef971ca1
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27701893"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Azure에서 역할 인스턴스에 통신 사용
 클라우드 서비스 역할은 내부 및 외부 연결을 통해 통신합니다. 외부 연결을 **입력 끝점**이라고 하고, 내부 연결을 **내부 끝점**이라고 합니다. 이 항목은 [서비스 정의](cloud-services-model-and-package.md#csdef) 를 수정하는 방법을 설명하여 끝점을 만듭니다.

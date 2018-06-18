@@ -2,7 +2,7 @@
 title: Log Analytics를 사용한 논리 앱 실행에 관한 모니터링 및 유용한 정보 얻기 - Azure Logic Apps | Microsoft Docs
 description: Log Analytics를 사용한 논리 앱 실행을 모니터링하여 문제 해결과 진단을 위한 정보 및 더 다양한 디버깅 세부 정보를 활용합니다.
 author: divyaswarnkar
-manager: anneta
+manager: jeconnoc
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: d484aaf7d7582bd474d7437a7a62f41880690dbc
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299946"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Log Analytics를 사용한 논리 앱 실행에 관한 모니터링 및 유용한 정보 얻기
 

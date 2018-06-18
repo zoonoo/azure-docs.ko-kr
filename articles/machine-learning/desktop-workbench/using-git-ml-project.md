@@ -7,14 +7,16 @@ ms.author: haining
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/18/2017
-ms.openlocfilehash: 6d244e990552ac4899361360efb44be140b06fe8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 134e02f976f1ed0084e24ddbda06ba70b237edad
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833243"
 ---
 # <a name="use-a-git-repo-with-a-machine-learning-workbench-project"></a>Machine Learning Workbench 프로젝트와 함께 Git 리포지토리 사용
 Azure Machine Learning Workbench가 Git을 사용하여 데이터 과학 실험에서 버전 제어 기능을 제공하고 재현 가능성을 보장하는 방법을 알아봅니다. 프로젝트를 클라우드 Git 리포지토리(repo)와 연결하는 방법도 알아봅니다.
@@ -44,7 +46,7 @@ Machine Learning 실험 계정을 만들고 Azure Machine Learning Workbench 앱
 
 ## <a name="step-2-create-a-team-project-or-use-an-existing-team-project"></a>2단계. 팀 프로젝트를 만들거나 기존 팀 프로젝트 사용
 [Azure Portal](https://portal.azure.com/)에서 새 팀 프로젝트를 만듭니다.
-1. **+**를 선택합니다.
+1. **+** 를 선택합니다.
 2. **팀 프로젝트**를 검색합니다.
 3. 필요한 정보를 입력합니다.
     - **이름**: 팀 이름입니다.

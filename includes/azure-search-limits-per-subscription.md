@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30844095"
 ---
 단일 구독 내에서 각각 특정 계층에 프로비전되고 각 계층에서 허용되는 서비스 수로만 제한되는 여러 서비스를 만들 수 있습니다. 예를 들어, 기본 계층에 최대 12개의 서비스를 만들고, 동일한 구독 내의 S1 계층에 12개의 다른 서비스를 만들 수 있습니다. 계층에 대한 자세한 내용은 [Azure Search에 대한 SKU 또는 계층 선택](../articles/search/search-sku-tier.md)을 참조하세요.
 

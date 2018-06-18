@@ -19,6 +19,7 @@ ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/11/2018
+ms.locfileid: "34058220"
 ---
 # <a name="create-cloud-app-discovery-snapshot-reports"></a>Cloud App Discovery 스냅숏 보고서 만들기
 

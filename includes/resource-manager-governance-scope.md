@@ -1,6 +1,6 @@
 ---
-title: "포함 파일"
-description: "포함 파일"
+title: 포함 파일
+description: 포함 파일
 services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29817042"
 ---
 항목을 만들기 전에 범위 개념을 검토해 보겠습니다. Azure는 네 가지 관리 수준인 관리 그룹, 구독, 리소스 그룹 및 리소스를 제공합니다. [관리 그룹](../articles/billing/billing-enterprise-mgmt-group-overview.md)은 미리 보기 릴리스에 포함되어 있습니다. 다음 그림은 세 가지 계층의 예를 보여 줍니다.
 

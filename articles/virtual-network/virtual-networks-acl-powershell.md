@@ -1,6 +1,6 @@
 ---
-title: "Azure 끝점 액세스 제어 목록 관리 | PowerShell | 클래식 | Microsoft Docs"
-description: "PowerShell을 사용하여 ACL을 관리하는 방법을 알아봅니다."
+title: Azure 끝점 액세스 제어 목록 관리 | PowerShell | 클래식 | Microsoft Docs
+description: PowerShell을 사용하여 ACL을 관리하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23124891"
 ---
 # <a name="manage-endpoint-access-control-lists-using-powershell-in-the-classic-deployment-model"></a>클래식 배포 모델에서 PowerShell을 사용하여 끝점 액세스 제어 목록 관리
 Azure PowerShell을 사용하거나 관리 포털에서 끝점에 대한 네트워크 ACL(액세스 제어 목록)을 생성 및 관리할 수 있습니다. 이 항목에서는 PowerShell을 사용하여 완료할 수 있는 ACL 공통 작업의 절차에 대해 알아봅니다. Azure PowerShell cmdlet 목록은 [Azure 관리 Cmdlet](http://go.microsoft.com/fwlink/?LinkId=317721)을 참조하세요. ACL에 대한 자세한 내용은 [네트워크 ACL(액세스 제어 목록)이란?](virtual-networks-acl.md)을 참조하세요. 관리 포털을 사용하여 ACL을 관리하려는 경우 [가상 컴퓨터에 끝점을 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.

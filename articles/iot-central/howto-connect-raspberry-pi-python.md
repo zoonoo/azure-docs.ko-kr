@@ -1,19 +1,19 @@
 ---
 title: Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결(Python) | Microsoft Docs
 description: 장치 개발자로서 Python을 사용하여 Raspberry Pi를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아봅니다.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 01/23/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
 manager: timlt
-ms.openlocfilehash: 23ab31d6d2357bfcb184e5b3022155bef5ace658
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e9c2d18a518bd5c98fcc35efdb0dff36970a49b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199880"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629068"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-python"></a>Azure IoT Central 응용 프로그램에 Raspberry Pi 연결(Python)
 

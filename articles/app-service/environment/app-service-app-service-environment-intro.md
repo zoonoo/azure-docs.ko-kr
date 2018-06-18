@@ -1,11 +1,11 @@
 ---
-title: "App Service Environment v1 소개"
-description: "모든 앱을 실행하기 위한 안전한 VNet 가입 전용 배율 단위를 제공하는 App Service Environment v1 기능을 알아봅니다."
+title: App Service Environment v1 소개
+description: 모든 앱을 실행하기 위한 안전한 VNet 가입 전용 배율 단위를 제공하는 App Service Environment v1 기능을 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986698"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 

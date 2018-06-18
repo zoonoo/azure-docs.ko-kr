@@ -47,6 +47,8 @@
           href: cdn-dynamic-site-acceleration.md
     - name: 관리
       items:
+        - name: 끝점 만들기
+          href: cdn-create-endpoint-how-to.md
         - name: Azure PowerShell로 관리
           href: cdn-manage-powershell.md
         - name: 국가별 액세스 제한
@@ -116,6 +118,8 @@
           href: cdn-troubleshoot-endpoint.md
         - name: 파일 압축
           href: cdn-troubleshoot-compression.md
+        - name: 허용된 인증 기관
+          href: cdn-troubleshoot-allowed-ca.md
 - name: 참고 자료
   items:
     - name: 규칙 엔진 참조

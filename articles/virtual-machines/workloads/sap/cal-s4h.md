@@ -1,13 +1,13 @@
 ---
-title: "Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포 | Microsoft Docs"
-description: "Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포"
+title: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포 | Microsoft Docs
+description: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: hermanndms
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: virtual-machines-linux
 ms.devlang: na
@@ -16,11 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 10c5116afa46817a42834e0350937fde7ae0b927
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657345"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Azure에서 SAP S/4HANA 또는 BW/4HANA 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 S/4HANA를 배포하는 방법을 설명합니다. BW/4HANA와 같은 다른 SAP HANA 기반 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -46,18 +47,18 @@ SAP CAL에 대한 자세한 내용은 [SAP 클라우드 어플라이언스 라�
 
     b. Azure 구독을 입력합니다. SAP CAL 계정은 하나의 구독에만 할당될 수 있습니다. 둘 이상의 구독이 필요한 경우 다른 SAP CAL 계정을 만들어야 합니다.
 
-    c. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
+    다. Azure 구독에 배포하도록 SAP CAL 권한을 부여 합니다.
 
     > [!NOTE]
     다음 단계에서는 리소스 관리자 배포를 위한 SAP CAL 계정을 만드는 방법을 보여 줍니다. 클래식 배포 모델에 연결된 SAP CAL 계정이 이미 있는 경우 다음 단계를 따라 새 SAP CAL 계정을 *만들어야* 합니다. 새 SAP CAL 계정을 리소스 관리자 모델에 배포해야 합니다.
 
 2. 새 SAP CAL 계정을 만듭니다. **계정** 페이지는 Azure에 대한 세 가지 선택 항목을 보여 줍니다. 
 
-    a. **Microsoft Azure(클래식)**는 클래식 배포 모델이며 더 이상 선호하지 않습니다.
+    a. **Microsoft Azure(클래식)** 는 클래식 배포 모델이며 더 이상 선호하지 않습니다.
 
-    b. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
+    나. **Microsoft Azure**는 새 리소스 관리자 배포 모델입니다.
 
-    c. **21Vianet에서 운영하는 Windows Azure**는 클래식 배포 모델을 사용하는 중국의 옵션입니다.
+    다. **21Vianet에서 운영하는 Windows Azure**는 클래식 배포 모델을 사용하는 중국의 옵션입니다.
 
     리소스 관리자 모델을 배포하려면 **Microsoft Azure**를 선택합니다.
 
@@ -113,9 +114,9 @@ SAP CAL의 **솔루션** 페이지에서 솔루션을 배포해 보겠습니다.
 
     a. SAP CAL 계정을 선택합니다. (리소스 관리자 배포 모델을 사용하여 배포하도록 연결된 계정을 사용합니다.)
 
-    b. 인스턴스 **이름**을 입력합니다.
+    나. 인스턴스 **이름**을 입력합니다.
 
-    c. Azure **지역**을 선택합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
+    다. Azure **지역**을 선택합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
 
     d. 8자 또는 9자로 솔루션에 대한 마스터 **암호**를 입력합니다. 암호는 다양한 구성 요소의 관리자에서 사용됩니다.
 
@@ -135,7 +136,7 @@ SAP CAL의 **솔루션** 페이지에서 솔루션을 배포해 보겠습니다.
 
     이제 배포가 수행됩니다. 솔루션의 크기 및 복잡성에 따라 잠시 후에(SAP CAL에서 예측값 제공) 상태가 활성으로 표시되고 사용할 준비가 됩니다.
 
-5. 하나의 리소스 그룹에서 다른 연결된 리소스를 사용하여 수집된 가상 컴퓨터를 찾으려면 Azure Portal로 이동합니다. 
+5. 하나의 리소스 그룹에서 다른 연결된 리소스를 사용하여 수집된 가상 머신을 찾으려면 Azure Portal로 이동합니다. 
 
    ![새 포털에 배포된 SAP CAL 개체](./media/cal-s4h/sapcaldeplyment_portalview.png)
 

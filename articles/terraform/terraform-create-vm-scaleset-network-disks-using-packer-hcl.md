@@ -1,7 +1,7 @@
 ---
-title: "Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합 만들기"
-description: "Terraform을 사용하여 Packer에서 생성한 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합을 구성하고 버전을 지정합니다(가상 네트워크 및 관리되는 연결 디스크로 완성)."
-keywords: "terraform, devops, 확장 집합, 가상 컴퓨터, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer"
+title: Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합 만들기
+description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합을 구성하고 버전을 지정합니다(가상 네트워크 및 관리되는 연결 디스크로 완성).
+keywords: terraform, devops, 확장 집합, 가상 컴퓨터, 네트워크, 저장소, 모듈, 사용자 지정 이미지, packer
 author: VaijanathB
 ms.author: tarcher
 ms.date: 10/29/2017
@@ -11,6 +11,7 @@ ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/01/2017
+ms.locfileid: "23655395"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 컴퓨터 확장 집합 만들기
 

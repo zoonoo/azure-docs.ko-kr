@@ -22,6 +22,7 @@ ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34156809"
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>v2.0 끝점의 달라진 점
 Azure Active Directory에 익숙하거나 이전에 Azure AD와 앱을 통합했다면 v2.0 끝점에서 예상하지 못한 몇 가지 차이를 느낄 수 있을 것입니다. 이 문서는 이러한 차이의 이해를 돕기 위해 작성되었습니다.

@@ -1,11 +1,11 @@
 ---
-title: "Microsoft 응용 프로그램에 로그인하는 문제 | Microsoft Docs"
-description: "Office 365와 같은 Azure AD를 사용하여 자사 Microsoft 응용 프로그램에 로그인할 때 직면하는 일반적인 문제 해결"
+title: Microsoft 응용 프로그램에 로그인하는 문제 | Microsoft Docs
+description: Office 365와 같은 Azure AD를 사용하여 자사 Microsoft 응용 프로그램에 로그인할 때 직면하는 일반적인 문제 해결
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29384228"
 ---
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Microsoft 응용 프로그램에 로그인하는 문제
 

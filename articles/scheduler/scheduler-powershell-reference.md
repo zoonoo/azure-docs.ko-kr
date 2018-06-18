@@ -1,11 +1,11 @@
 ---
-title: "스케줄러 PowerShell Cmdlet 참조"
-description: "스케줄러 PowerShell Cmdlet 참조"
+title: 스케줄러 PowerShell Cmdlet 참조
+description: 스케줄러 PowerShell Cmdlet 참조
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
 manager: kevinlam1
-editor: 
+editor: ''
 ms.assetid: 9a26c457-d7a1-4e4a-bc79-f26592155218
 ms.service: scheduler
 ms.workload: infrastructure-services
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23039838"
 ---
 # <a name="scheduler-powershell-cmdlets-reference"></a>스케줄러 PowerShell Cmdlet 참조
 다음 표에서는 Azure 스케줄러의 주요 cmdlet을 설명하고 참조 페이지에 연결합니다.

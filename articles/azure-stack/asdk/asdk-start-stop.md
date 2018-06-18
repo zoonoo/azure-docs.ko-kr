@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31427337"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>시작 및 중지 Azure 스택 개발 키트 (ASDK)
 단순히 ASDK 호스트 컴퓨터를 다시 시작 하는 권장 되지 않습니다. 대신, 제대로 종료 하 고 ASDK 서비스를 다시 시작이 문서의 절차 따라야 합니다. 

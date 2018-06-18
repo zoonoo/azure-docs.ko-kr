@@ -11,7 +11,7 @@
 
     ![StorSimple Cloud Appliance 가상 컴퓨터](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
-4. VM을 중지하면 할당 취소됩니다. 클라우드 어플라이언스를 중지하는 동안에는 상태가 **할당 취소 중**입니다. 클라우드 어플라이언스를 중지한 후에는 상태가 **중지됨(할당 취소됨)**입니다.
+4. VM을 중지하면 할당 취소됩니다. 클라우드 어플라이언스를 중지하는 동안에는 상태가 **할당 취소 중**입니다. 클라우드 어플라이언스를 중지한 후에는 상태가 **중지됨(할당 취소됨)** 입니다.
 
     ![StorSimple Cloud Appliance 가상 컴퓨터](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 

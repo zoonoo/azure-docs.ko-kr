@@ -3,22 +3,23 @@ title: Azure 리소스에 대한 Privileged Identity Management - 구독 관리 
 description: 전역 관리자가 테넌트에서 구독을 관리할 수 있는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: protection
 ms.date: 03/27/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e164d8adaf5df63dba31bb6aa8e56f768741479c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 628ee70f7eb59673d4229441e3c4242e1ef8e0d3
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200878"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234275"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>테넌트에서 구독 관리 사용
 

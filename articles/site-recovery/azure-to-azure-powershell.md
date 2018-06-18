@@ -7,14 +7,14 @@ manager: abhemraj
 editor: raynew
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 05/31/2018
 ms.author: bsiva
-ms.openlocfilehash: e12d19612e10885f97d4a8023967fb9ba2d1f8cb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3fa9ee27a1b9717d8011b7b46a1116f1f1ac1df5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209868"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716332"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "34209868"
 > - 복구 지역으로 장애 조치(failover)합니다.
 
 > [!NOTE]
-> “*Azure Virtual Machines에 대한 재해 복구*”를 위한 Azure Site Recovery PowerShell 지원 시나리오는 현재 미리 보기 상태입니다. 포털을 통해 사용할 수 있는 일부 시나리오 기능은 Azure PowerShell을 통해 사용할 수 있습니다. 현재 Azure PowerShell을 통해 지원되지 않는 일부 시나리오 기능은 다음과 같습니다.
+> 포털을 통해 사용할 수 있는 일부 시나리오 기능은 Azure PowerShell을 통해 사용할 수 있습니다. 현재 Azure PowerShell을 통해 지원되지 않는 일부 시나리오 기능은 다음과 같습니다.
 > - 관리 디스크를 사용하는 Azure Virtual Machines를 복제하는 기능.
 > - 가상 머신의 모든 디스크는 가상 머신의 각 디스크를 명시적으로 지정할 필요 없이 복제되어야 함을 지정하는 기능입니다.  
 

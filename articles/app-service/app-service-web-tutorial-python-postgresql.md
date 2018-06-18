@@ -17,6 +17,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33203513"
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>자습서: Azure에서 Python 및 PostgreSQL 웹앱 빌드
 
@@ -112,7 +113,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 `http://localhost:5000`으로 이동합니다. **Register!** 를 클릭하고 테스트 사용자를 만듭니다.
+브라우저에서 `http://localhost:5000` 으로 이동합니다. **Register!** 를 클릭하고 테스트 사용자를 만듭니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -226,7 +227,7 @@ INFO  [alembic.runtime.migration] Running upgrade  -> 791cd7d80402, empty messag
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
 
-브라우저에서 http://localhost:5000으로 이동합니다. **Register!** 를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
+브라우저에서 http://localhost:5000 으로 이동합니다. **Register!** 를 클릭하고 테스트 등록을 만듭니다. 이제 Azure에서 데이터베이스에 데이터를 쓰고 있습니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/app-service-web-tutorial-python-postgresql/local-app.png)
 
@@ -345,7 +346,7 @@ FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" 
 FLASK_APP=app.py DBHOST="localhost" DBUSER="manager" DBNAME="eventregistration" DBPASS="supersecretpass" flask run
 ```
 
-브라우저에서 http://localhost:5000으로 이동하여 변경 내용을 확인합니다. 테스트 등록을 만듭니다.
+브라우저에서 http://localhost:5000 으로 이동하여 변경 내용을 확인합니다. 테스트 등록을 만듭니다.
 
 ![로컬로 Python Flask 응용 프로그램 실행](./media/app-service-web-tutorial-python-postgresql/local-app-v2.png)
 

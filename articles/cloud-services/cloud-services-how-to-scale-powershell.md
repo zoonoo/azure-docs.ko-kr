@@ -1,11 +1,11 @@
 ---
-title: "Windows PowerShell에서 Azure 클라우드 서비스 크기 조정 | Microsoft Docs"
-description: "(클래식) PowerShell을 사용하여 Azure에서 웹 역할 또는 작업자 역할을 축소 또는 확장하는 방법을 알아봅니다."
+title: Windows PowerShell에서 Azure 클라우드 서비스 크기 조정 | Microsoft Docs
+description: (클래식) PowerShell을 사용하여 Azure에서 웹 역할 또는 작업자 역할을 축소 또는 확장하는 방법을 알아봅니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: mmccrory
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22998008"
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>PowerShell에서 클라우드 서비스 크기를 조정하는 방법
 

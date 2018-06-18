@@ -7,30 +7,6 @@
       href: asdk-what-is.md
     - name: ASDK 릴리스 정보
       href: asdk-release-notes.md
-- name: 자습서
-  items:
-    - name: 1. ASDK 배포
-      items:
-        - name: '-ASDK 설치 관리자 배포'
-          href: asdk-deploy.md
-        - name: 배포 ASDK-PowerShell
-          href: asdk-deploy-powershell.md
-        - name: ASDK 다시 배포
-          href: asdk-redeploy.md
-    - name: 2. 마켓플레이스 항목을 추가 합니다.
-      items:
-        - name: Azure에서 다운로드
-          href: asdk-marketplace-item.md
-        - name: 로컬 소스에서 추가
-          href: asdk-marketplace-item-offline.md
-    - name: 3. IaaS에 서비스 제공
-      href: asdk-offer-services.md
-    - name: 4. 제품 구독
-      href: asdk-subscribe-services.md
-    - name: 5. 계획 및 업데이트 제공
-      href: asdk-update-offers.md
-    - name: 6. 서식 파일에서 VM 만들기
-      href: asdk-create-vm-template.md
 - name: 개념
   items:
     - name: 배포 계획 고려 사항
@@ -49,10 +25,14 @@
           href: asdk-download.md
         - name: ASDK 호스트 컴퓨터를 준비 합니다.
           href: asdk-prepare-host.md
-        - name: ASDK 설치
+        - name: '-ASDK 설치 관리자 배포'
           href: asdk-install.md
+        - name: 배포 ASDK-PowerShell
+          href: asdk-deploy-powershell.md
         - name: 배포 후 구성
           href: asdk-post-deploy.md
+        - name: ASDK 다시 배포
+          href: asdk-redeploy.md
     - name: ASDK 등록
       href: asdk-register.md
     - name: Azure 스택 원격 분석 설정 구성

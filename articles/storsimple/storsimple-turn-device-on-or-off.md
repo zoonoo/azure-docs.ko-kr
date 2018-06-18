@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 8000 시리즈 장치 켜기 또는 끄기 | Microsoft Docs"
-description: "새 StorSimple 장치를 켜고, 종료되었거나 전원이 손실된 장치를 켜고, 실행 중인 장치를 끄는 방법을 설명합니다."
+title: StorSimple 8000 시리즈 장치 켜기 또는 끄기 | Microsoft Docs
+description: 새 StorSimple 장치를 켜고, 종료되었거나 전원이 손실된 장치를 켜고, 실행 중인 장치를 끄는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
+editor: ''
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
 ms.devlang: NA
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/12/2018
+ms.locfileid: "27779451"
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 켜기 또는 끄기
 

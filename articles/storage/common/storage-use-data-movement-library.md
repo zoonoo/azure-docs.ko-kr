@@ -1,12 +1,12 @@
 ---
-title: "Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송 | Microsoft Docs"
-description: "데이터 이동 라이브러리를 사용하여 Blob과 파일 콘텐츠간에 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다."
+title: Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송 | Microsoft Docs
+description: 데이터 이동 라이브러리를 사용하여 Blob과 파일 콘텐츠간에 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: seguler
 manager: jahogg
 editor: tysonn
-ms.assetid: 
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/02/2018
+ms.locfileid: "27564742"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Microsoft Azure Storage 데이터 이동 라이브러리를 사용하여 데이터 전송
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Virtual Machines 설명서 - 자습서, API 참조 | Microsoft Docs"
-description: "Windows 또는 Linux 가상 컴퓨터를 만들기, 배포 및 관리하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다."
+title: Azure Virtual Machines 설명서 - 자습서, API 참조 | Microsoft Docs
+description: Windows 또는 Linux 가상 컴퓨터를 만들기, 배포 및 관리하는 방법에 대해 알아봅니다. 자습서, API, 참조 및 기타 설명서입니다.
 services: virtual-machines
 author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23072863"
 ---
 # <a name="virtual-machines-documentation"></a>Virtual Machines 설명서
 

@@ -6,14 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: c97aa3aba9b705eeb0e3f40f289af389e6f380b0
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 7d1fa8d05de11ed68bedbc91fbe22aa64b25372e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650386"
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지능형 튜닝 작업 및 권장 사항을 제공하여 워크로드 성능을 높일 수 있는 작업을 권장합니다.
@@ -35,10 +36,10 @@ Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지
 
 ![성능](./media/sql-database-performance/performance.png)
 
-* **권장 사항** 타일은 데이터베이스에 대한 튜닝 권장 사항을 분석하여 제공합니다(표시되는 내용이 많은 경우 상위 3가지 권장 사항이 표시됨). 이 타일을 클릭하면  **[성능 권장 사항](#performance-recommendations)**으로 이동합니다. 
+* **권장 사항** 타일은 데이터베이스에 대한 튜닝 권장 사항을 분석하여 제공합니다(표시되는 내용이 많은 경우 상위 3가지 권장 사항이 표시됨). 이 타일을 클릭하면  **[성능 권장 사항](#performance-recommendations)** 으로 이동합니다. 
 * **튜닝 활동** 타일은 데이터베이스에 대해 진행 중이고 완료된 튜닝 작업을 제공하여 튜닝 활동의 기록을 간략히 볼 수 있습니다. 이 타일을 클릭하면 데이터베이스에 대한 전체 튜닝 기록 보기로 이동합니다.
 * **자동 튜닝** 타일은 데이터베이스에 대한 [자동 튜닝 구성](sql-database-automatic-tuning-enable.md)을 보여 줍니다(데이터베이스에 자동으로 적용되는 튜닝 옵션). 이 타일을 클릭하면 자동화 구성 대화 상자가 열립니다.
-* **데이터베이스 쿼리** 타일은 데이터베이스에 대한 쿼리 성능 요약을 보여 줍니다(전체 DTU 사용량 및 최상위 리소스 사용 쿼리). 이 타일을 클릭하면 **[Query Performance Insight](#query-performance-insight)**로 이동합니다.
+* **데이터베이스 쿼리** 타일은 데이터베이스에 대한 쿼리 성능 요약을 보여 줍니다(전체 DTU 사용량 및 최상위 리소스 사용 쿼리). 이 타일을 클릭하면 **[Query Performance Insight](#query-performance-insight)** 로 이동합니다.
 
 ## <a name="performance-recommendations"></a>성능 권장 사항
 이 페이지는 데이터베이스의 성능을 향상시킬 수 있는 지능형 [튜닝 권장 사항](sql-database-advisor.md)을 제공합니다. 다음과 같은 유형의 권장 사항이 이 페이지에 표시됩니다.

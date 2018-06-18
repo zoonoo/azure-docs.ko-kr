@@ -19,6 +19,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34164682"
 ---
 # <a name="overview-of-spark-structured-streaming"></a>Spark 구조적 스트리밍 개요
 

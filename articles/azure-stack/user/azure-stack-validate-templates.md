@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 1800db8cd25aa37bffb76adf00901e11c75d49fe
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 61c893848176a89b4b6ed8d7a46f27bdeff5cec1
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604083"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294493"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>서식 파일 유효성 검사 도구와 함께 Azure 스택에 대 한 템플릿을 확인 하십시오.
 
@@ -32,8 +32,8 @@ ms.locfileid: "34604083"
 
 서식 파일의 유효성을 검사할 클라우드 기능을 구축 해야 첫 번째 파일을 다음 유효성 검사 도구를 실행 합니다. Azure 스택 도구에서 다음 PowerShell 모듈을 사용 하는 경우:
 
-- 에 **TemplateValidator** 폴더:<br>         AzureRM.CloudCapabilities.psm1은 서비스 및 Azure 스택 클라우드에서 버전을 나타내는 클라우드 기능 JSON 파일을 만듭니다.
-- 에 **CloudCapabilities** 폴더:<br>
+- 에 **CloudCapabilities** 폴더:<br>         AzureRM.CloudCapabilities.psm1은 서비스 및 Azure 스택 클라우드에서 버전을 나타내는 클라우드 기능 JSON 파일을 만듭니다.
+- 에 **TemplateValidator** 폴더:<br>
 AzureRM.TemplateValidator.psm1은 Azure 스택에서 배포에 대 한 서식 파일을 테스트 하려면 클라우드 기능 JSON 파일을 사용 합니다.
 
 ## <a name="build-the-cloud-capabilities-file"></a>클라우드 기능 파일 빌드

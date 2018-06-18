@@ -1,8 +1,8 @@
 ---
-title: "Azure MFA에서 앱 암호를 사용하는 방법 | Microsoft Docs"
-description: "이 페이지는 사용자가 앱 암호란 무엇이며 Azure MFA와 관련해서 암호가 어떤 용도로 사용되는지를 이해하는 데 도움이 됩니다."
+title: Azure MFA에서 앱 암호를 사용하는 방법 | Microsoft Docs
+description: 이 페이지는 사용자가 앱 암호란 무엇이며 Azure MFA와 관련해서 암호가 어떤 용도로 사용되는지를 이해하는 데 도움이 됩니다.
 services: multi-factor-authentication
-documentationcenter: 
+documentationcenter: ''
 author: barlanmsft
 manager: mtillman
 ms.reviewer: richagi
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/08/2018
+ms.locfileid: "27700353"
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Azure Multi-factor Authentication에서 앱 암호란 무엇인가요?
 Exchange Active Sync를 사용하는 Apple 네이티브 메일 클라이언트와 같은 특정 비브라우저 앱은 현재 다단계 인증을 지원하지 않습니다. 다단계 인증은 사용자 기준으로 사용되도록 설정됩니다. 즉, 다단계 인증을 사용할 수 있도록 설정된 사용자는 비브라우저 앱을 사용할 수 없습니다. 그렇지만 앱 암호를 사용하면 가능해집니다. 사용자별 MFA를 통하지 않고 조건부 액세스 정책을 통해 Multi-Factor Authentication을 적용하는 경우 앱 암호를 만들 수 없습니다. 조건부 액세스 정책을 사용하여 액세스를 제어하는 응용 프로그램은 앱 암호가 필요하지 않습니다.

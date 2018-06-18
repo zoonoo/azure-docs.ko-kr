@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33927919"
 ---
 # <a name="problems-adding-or-configuring-applications"></a>응용 프로그램을 추가 또는 구성하는 문제
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31414105"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Power BI 작업 영역 컬렉션으로 행 수준 보안
 
@@ -54,7 +55,7 @@ RLS는 Power BI Desktop으로 작성됩니다. 데이터 집합 및 보고서가
 
 * **Total Sales**와 같은 모든 측정값은 **Sales** 팩트 테이블에 저장됩니다.
 * **Item**, **Time**, **Store** 및 **District**의 추가 관련 차원 테이블이 있습니다.
-* 관계선의 화살표는 테이블 간에 필터가 흐를 수 있는 방향을 나타냅니다. 예를 들어, 필터가 **Time[Date]**에 배치되면 현재 스키마에서 **Sales** 테이블의 값만 필터링합니다. 관계선에서 모든 화살표가 sales 테이블만 가리키므로 이 필터에 다른 테이블은 영향을 받지 않습니다.
+* 관계선의 화살표는 테이블 간에 필터가 흐를 수 있는 방향을 나타냅니다. 예를 들어, 필터가 **Time[Date]** 에 배치되면 현재 스키마에서 **Sales** 테이블의 값만 필터링합니다. 관계선에서 모든 화살표가 sales 테이블만 가리키므로 이 필터에 다른 테이블은 영향을 받지 않습니다.
 * **District** 테이블은 각 지역에 대한 관리자가 누구인지를 나타냅니다.
   
   ![District 테이블 행](media/row-level-security/district-table-4.png)

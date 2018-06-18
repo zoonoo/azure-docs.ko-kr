@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 메시지 수 | Microsoft Docs"
-description: "Azure Service Bus 메시지 수를 검색합니다."
+title: Azure Service Bus 메시지 수 | Microsoft Docs
+description: Azure Service Bus 메시지 수를 검색합니다.
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28197734"
 ---
 # <a name="message-counters"></a>메시지 카운터
 

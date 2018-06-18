@@ -18,6 +18,7 @@ ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/07/2018
+ms.locfileid: "33764845"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Azure CDN에서 HTTP/2 지원
 

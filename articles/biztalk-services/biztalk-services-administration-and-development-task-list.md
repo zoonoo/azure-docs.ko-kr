@@ -1,11 +1,11 @@
 ---
-title: "BizTalk Services의 관리 및 개발 작업 목록 | Microsoft Docs"
-description: "계획 및 작업은 Azure BizTalk Services를 배포하는 데 도움을 줍니다."
+title: BizTalk Services의 관리 및 개발 작업 목록 | Microsoft Docs
+description: 계획 및 작업은 Azure BizTalk Services를 배포하는 데 도움을 줍니다.
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: msftman
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: 0ab70b5b-1a88-4ba5-b329-ec51b785010e
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26626590"
 ---
 # <a name="administration-and-development-task-list-in-biztalk-services"></a>BizTalk Services의 관리 및 개발 작업 목록
 

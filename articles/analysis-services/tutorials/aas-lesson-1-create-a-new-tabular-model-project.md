@@ -3,16 +3,17 @@ title: 'Azure Analysis Services 자습서 단원 1: 새 테이블 형식 모델 
 description: 새 Azure Analysis Services 자습서 프로젝트를 만드는 방법을 설명합니다.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/12/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 73764e7595d5b0bbc55ee9242e86ba19d5f80254
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 12e090996df4b8b1ee364e5dae9349cedd045c4a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596069"
 ---
 # <a name="create-a-tabular-model-project"></a>테이블 형식 모델 프로젝트 만들기
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 04/16/2018
   
     작업 영역은 모델을 작성하는 동안 프로젝트와 동일한 이름을 가진 테이블 형식 모델 데이터베이스를 호스팅합니다. 통합된 작업 영역은 Visual Studio에서 기본 제공 인스턴스를 사용하므로 모델 작성만을 위해 별도의 Analysis Services 서버 인스턴스를 설치할 필요가 없음을 의미합니다.
       
-6.  **호환성 수준**에서 **SQL Server 2017 / Azure Analysis Services(1400)**를 선택합니다.   
+6.  **호환성 수준**에서 **SQL Server 2017 / Azure Analysis Services(1400)** 를 선택합니다.   
  
     ![aas-lesson1-tmd](../tutorials/media/aas-lesson1-tmd.png)
       

@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export 내보내기 작업에 대한 드라이브 사용량 미리 보기 - v1 | Microsoft Docs"
-description: "Azure Import/Export 서비스에서 내보내기 작업을 위해 선택한 Blob의 목록을 미리 보는 방법을 알아봅니다."
+title: Azure Import/Export 내보내기 작업에 대한 드라이브 사용량 미리 보기 - v1 | Microsoft Docs
+description: Azure Import/Export 서비스에서 내보내기 작업을 위해 선택한 Blob의 목록을 미리 보는 방법을 알아봅니다.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059298"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>내보내기 작업에 대한 드라이브 사용량 미리 보기
 내보내기 작업을 만들기 전에 내보낼 Blob 집합을 선택해야 합니다. Microsoft Azure Import/Export 서비스를 사용하면 Blob 경로 또는 Blob 접두사 목록을 사용하여 선택한 Blob을 나타낼 수 있습니다.  

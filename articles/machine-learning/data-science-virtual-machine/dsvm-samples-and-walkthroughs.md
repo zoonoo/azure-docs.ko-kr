@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31419979"
 ---
 # <a name="samples-on-the-data-science-virtual-machines-dsvm"></a>데이터 과학 Virtual Machine(DSVM)의 샘플
 
@@ -47,22 +48,22 @@ DSVM은 Jupyter 노트북 형식의 아주 잘 작동하는 샘플과 Jupyter �
 
 ## <a name="access-jupyter"></a>액세스 Jupyter 
 
-Windows에서 **`https://localhost:9999`**로 또는 Ubuntu에서 **`https://localhost:8000`**로 이동하여 Jupyter 홈을 방문합니다.
+Windows에서 **`https://localhost:9999`** 로 또는 Ubuntu에서 **`https://localhost:8000`** 로 이동하여 Jupyter 홈을 방문합니다.
 
 
 ### <a name="enabling-jupyter-access-from-browser"></a>브라우저에서 Jupyter를 액세스할 수 있도록 설정
 
 **Windows DSVM**
 
-바탕 화면 바로 가기에서 **`Jupyter SetPassword`**을 실행하고 프롬프트에 따라 Jupyter에 대한 암호를 설정/재설정하고 Jupyter 프로세스를 시작합니다. 
+바탕 화면 바로 가기에서 **`Jupyter SetPassword`** 을 실행하고 프롬프트에 따라 Jupyter에 대한 암호를 설정/재설정하고 Jupyter 프로세스를 시작합니다. 
 <br/>![Jupyter 예외 활성화](./media/jupyter-setpassword.png)<br/>
-브라우저에서 **`https://localhost:9999`**을 방문하여 VM에서 Jupyter 프로세스를 성공적으로 시작하면 Jupyter 홈에 액세스할 수 있습니다. 브라우저를 통해 예외를 추가하고 Jupyter 액세스를 활성화하려면 스크린샷을 참조하세요.
+브라우저에서 **`https://localhost:9999`** 을 방문하여 VM에서 Jupyter 프로세스를 성공적으로 시작하면 Jupyter 홈에 액세스할 수 있습니다. 브라우저를 통해 예외를 추가하고 Jupyter 액세스를 활성화하려면 스크린샷을 참조하세요.
 <br/>![Jupyter 예외 활성화](./media/windows-jupyter-exception.png)<br/>
 방금 설정한 새 암호를 사용하여 로그인합니다.
 <br/>
 **Linux DSVM**
 
-브라우저에서 **`https://localhost:8000`**을 방문하여 VM에서 Jupyter 홈에 액세스할 수 있습니다. 브라우저를 통해 예외를 추가하고 Jupyter 액세스를 활성화하려면 스크린샷을 참조하세요.
+브라우저에서 **`https://localhost:8000`** 을 방문하여 VM에서 Jupyter 홈에 액세스할 수 있습니다. 브라우저를 통해 예외를 추가하고 Jupyter 액세스를 활성화하려면 스크린샷을 참조하세요.
 <br/>![Jupyter 예외 활성화](./media/ubuntu-jupyter-exception.png)<br/>
 DSVM에 로그인할 때와 동일한 암호를 사용하여 로그인합니다.
 <br/>

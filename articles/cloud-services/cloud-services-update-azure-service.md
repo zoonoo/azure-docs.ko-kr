@@ -1,11 +1,11 @@
 ---
-title: "클라우드 서비스를 업데이트하는 방법 | Microsoft Docs"
-description: "Azure에서 클라우드 서비스를 업데이트하는 방법에 대해 알아봅니다. 가용성을 보장하도록 클라우드 서비스에서 업데이트가 진행되는 방법에 대해 알아봅니다."
+title: 클라우드 서비스를 업데이트하는 방법 | Microsoft Docs
+description: Azure에서 클라우드 서비스를 업데이트하는 방법에 대해 알아봅니다. 가용성을 보장하도록 클라우드 서비스에서 업데이트가 진행되는 방법에 대해 알아봅니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: Thraka
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
 ms.service: cloud-services
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/16/2017
+ms.locfileid: "24860674"
 ---
 # <a name="how-to-update-a-cloud-service"></a>클라우드 서비스를 업데이트하는 방법
 

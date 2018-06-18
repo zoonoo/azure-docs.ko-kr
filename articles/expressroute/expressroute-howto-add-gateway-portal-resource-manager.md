@@ -1,13 +1,13 @@
 ---
-title: "ExpressRoute: Portal: Azure용 VNet에 가상 네트워크 게이트웨이 추가 | Microsoft Docs"
-description: "이 문서에서는 ExpressRoute에 대해 이미 만들어진 Resource Manager VNet에 가상 네트워크 게이트웨이를 추가하는 과정을 안내합니다."
+title: 'ExpressRoute: Portal: Azure용 VNet에 가상 네트워크 게이트웨이 추가 | Microsoft Docs'
+description: 이 문서에서는 ExpressRoute에 대해 이미 만들어진 Resource Manager VNet에 가상 네트워크 게이트웨이를 추가하는 과정을 안내합니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013268"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Azure Portal을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]
@@ -69,7 +70,7 @@ ms.lasthandoff: 12/21/2017
 
 ## <a name="create-the-virtual-network-gateway"></a>가상 네트워크 게이트웨이 만들기
 
-1. 포털의 왼쪽에서 **+**를 클릭하고 검색에서 'Virtual Network 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 블레이드의 아래쪽에서 **만들기**를 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 블레이드가 열립니다.
+1. 포털의 왼쪽에서 **+** 를 클릭하고 검색에서 'Virtual Network 게이트웨이'를 입력합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 블레이드의 아래쪽에서 **만들기**를 클릭합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 블레이드가 열립니다.
 2. **가상 네트워크 게이트웨이 만들기** 블레이드에서 가상 네트워크 게이트웨이의 값을 채웁니다.
 
     ![가상 네트워크 게이트웨이 만들기 블레이드의 필드](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "가상 네트워크 게이트웨이 만들기 블레이드의 필드")

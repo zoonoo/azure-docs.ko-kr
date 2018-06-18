@@ -1,8 +1,8 @@
 ---
-title: "Azure의 Windows VM 디스크에 대한 표준 저장소 | Microsoft Docs"
-description: "비용 효율적인 Standard Storage와 관리되지 않는 Windows VM 디스크 및 관리 VM 디스크를 설명합니다."
+title: Azure의 Windows VM 디스크에 대한 표준 저장소 | Microsoft Docs
+description: 비용 효율적인 Standard Storage와 관리되지 않는 Windows VM 디스크 및 관리 VM 디스크를 설명합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: yuemlu
 manager: aungoo-msft
 editor: tysonn
@@ -20,5 +20,6 @@ ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/02/2017
+ms.locfileid: "23667165"
 ---
 [!INCLUDE [virtual-machines-common-standard-storage.md](../../../includes/virtual-machines-common-standard-storage.md)]

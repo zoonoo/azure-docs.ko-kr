@@ -1,12 +1,12 @@
 ---
-title: "Azure Event Hubs 미리 보기를 사용하는 관리 서비스 ID | Microsoft Docs"
-description: "Azure Event Hubs에서 관리 서비스 ID 사용"
+title: Azure Event Hubs 미리 보기를 사용하는 관리 서비스 ID | Microsoft Docs
+description: Azure Event Hubs에서 관리 서비스 ID 사용
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/20/2017
+ms.locfileid: "26783377"
 ---
 # <a name="managed-service-identity-preview"></a>관리 서비스 ID(미리 보기)
 

@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30913628"
 ---
 # <a name="resize-a-windows-vm-created-in-the-classic-deployment-model"></a>클래식 배포 모델에서 만든 Windows VM 크기 조정
 이 문서에서는 Azure Powershell을 사용하여 클래식 배포 모델에서 만든 Windows VM의 크기를 조정하는 방법을 보여 줍니다.

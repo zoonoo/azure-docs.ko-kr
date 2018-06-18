@@ -1,12 +1,12 @@
 ---
-title: "8000 시리즈 장치에 대한 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs"
-description: "StorSimple 장치를 동일한 장치로 장애 조치(failover)하는 방법을 알아봅니다."
+title: 8000 시리즈 장치에 대한 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs
+description: StorSimple 장치를 동일한 장치로 장애 조치(failover)하는 방법을 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108201"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>StorSimple 물리적 장치를 동일한 장치로 장애 조치(failover)
 
@@ -56,7 +57,7 @@ ms.lasthandoff: 10/11/2017
 
     ![온라인 상태의 새로 등록된 장치](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev7.png)
 
-6. 이전 장치(오프라인 상태)를 선택하고 명령 모음에서 **장애 조치(failover)**를 클릭합니다. **장애 조치(failover)** 블레이드에서 이전 장치를 원본으로 선택하고 대상 장치를 새로 등록된 장치로 지정합니다.
+6. 이전 장치(오프라인 상태)를 선택하고 명령 모음에서 **장애 조치(failover)** 를 클릭합니다. **장애 조치(failover)** 블레이드에서 이전 장치를 원본으로 선택하고 대상 장치를 새로 등록된 장치로 지정합니다.
 
     ![장애 조치(failover) 요약](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev11.png)
 

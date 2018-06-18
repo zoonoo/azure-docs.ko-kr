@@ -129,6 +129,8 @@
           href: monitoring-rest-api-walkthrough.md
         - name: Azure PowerShell 샘플
           href: insights-powershell-samples.md
+        - name: Azure CLI 샘플
+          href: insights-cli-samples.md
     - name: Azure 진단 확장 사용
       items:
         - name: Azure Storage에 보내기

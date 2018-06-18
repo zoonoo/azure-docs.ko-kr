@@ -15,6 +15,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31524427"
 ---
 # <a name="restore-an-azure-sql-data-warehouse-with-rest-apis"></a>REST API로 Azure SQL Data Warehouse 복원
 REST API를 사용하여 Azure SQL Data Warehouse를 복원합니다.

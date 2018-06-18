@@ -1,12 +1,12 @@
 ---
-title: "Azure Relay 인증 및 권한 부여 | Microsoft Docs"
-description: "Azure Relay의 SAS(공유 액세스 서명) 인증 개요"
+title: Azure Relay 인증 및 권한 부여 | Microsoft Docs
+description: Azure Relay의 SAS(공유 액세스 서명) 인증 개요
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28018120"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Azure Relay 인증 및 권한 부여
 

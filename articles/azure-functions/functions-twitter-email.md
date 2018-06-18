@@ -21,6 +21,7 @@ ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/30/2018
+ms.locfileid: "30284104"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -84,11 +85,11 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
 
     ![Azure Portal에서 함수 빨리 시작하기 페이지](media/functions-twitter-email/add-first-function.png)
 
-2. 검색 필드에 `http`를 입력한 다음, HTTP 트리거 템플릿에 대해 **C#**을 선택합니다. 
+2. 검색 필드에 `http`를 입력한 다음, HTTP 트리거 템플릿에 대해 **C#** 을 선택합니다. 
 
     ![HTTP 트리거 선택](./media/functions-twitter-email/select-http-trigger-portal.png)
 
-3. 함수의 **이름**을 입력하고 **[인증 수준](functions-bindings-http-webhook.md#http-auth)**에 대해 `Function`을 선택한 후 **만들기**를 선택합니다. 
+3. 함수의 **이름**을 입력하고 **[인증 수준](functions-bindings-http-webhook.md#http-auth)** 에 대해 `Function`을 선택한 후 **만들기**를 선택합니다. 
 
     ![HTTP 트리거 함수 만들기](./media/functions-twitter-email/select-http-trigger-portal-2.png)
 

@@ -21,9 +21,9 @@ Azure에서는 가상 머신에 대한 호스트 인프라의 안정성, 성능 
 
 - 유지 관리를 다시 부팅해야 하는 경우 유지 관리가 계획된 시기에 대해 알림을 받을 수 있습니다. 이러한 경우에 사용자가 원하는 시점에 스스로 유지 관리를 시작할 수 있는 기간도 지정됩니다.
 
-이 페이지에서는 Microsoft Azure에서 모든 종류의 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은 [Windows](... / articles/virtual-machines/windows/manage-availability.md) 또는 [Linux](../articles/virtual-machines/linux/manage-availability.md)에서 가상 머신의 가용성 관리를 참조하세요.
+이 페이지에서는 Microsoft Azure에서 모든 종류의 유지 관리를 수행하는 방법을 설명합니다. 계획되지 않은 이벤트(중단)에 대한 자세한 내용은 [Windows] (../articles/virtual-machines/windows/manage-availability.md) 또는 [Linux](../articles/virtual-machines/linux/manage-availability.md)에서 가상 머신의 가용성 관리를 참조하세요.
 
-가상 머신에서 실행 중인 응용 프로그램은 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 또는 [Linux](... / articles/virtual-machines/linux/instance-metadata-service.md)에서 Azure 메타데이터 서비스를 사용하여 예정된 업데이트에 대한 정보를 수집할 수 있습니다.
+가상 머신에서 실행 중인 응용 프로그램은 [Windows](../articles/virtual-machines/windows/instance-metadata-service.md) 또는 [Linux] (../articles/virtual-machines/linux/instance-metadata-service.md) 에서 Azure 메타데이터 서비스를 사용하여 예정된 업데이트에 대한 정보를 수집할 수 있습니다.
 
 계획된 유지 보수의 관리에 대한 "방법" 정보는 [Linux](../articles/virtual-machines/linux/maintenance-notifications.md) 또는 [Windows](../articles/virtual-machines/windows/maintenance-notifications.md)용 "계획된 유지 관리 알림 처리"를 참조하세요.
 

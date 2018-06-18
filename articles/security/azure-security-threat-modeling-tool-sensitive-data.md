@@ -1,6 +1,6 @@
 ---
-title: "중요한 데이터 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "위협 모델링 도구에 노출되는 위협 완화"
+title: 중요한 데이터 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019418"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 문서 |

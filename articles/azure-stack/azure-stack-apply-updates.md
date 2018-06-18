@@ -1,11 +1,11 @@
 ---
-title: "Azure 스택에서 업데이트 적용 | Microsoft Docs"
-description: "가져올 통합 Azure 스택 시스템에 대 한 Microsoft 업데이트 패키지를 설치 하는 방법을 알아봅니다."
+title: Azure 스택에서 업데이트 적용 | Microsoft Docs
+description: 가져올 통합 Azure 스택 시스템에 대 한 Microsoft 업데이트 패키지를 설치 하는 방법을 알아봅니다.
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/08/2018
+ms.locfileid: "29802654"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Azure 스택에서 업데이트 적용
 

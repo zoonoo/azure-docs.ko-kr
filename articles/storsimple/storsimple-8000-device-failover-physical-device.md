@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 실제 장치로 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs"
-description: "다른 실제 장치로 StorSimple 8000 시리즈 실제 장치를 장애 조치(failover)하는 방법에 대해 알아봅니다."
+title: StorSimple 8000 시리즈 실제 장치로 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs
+description: 다른 실제 장치로 StorSimple 8000 시리즈 실제 장치를 장애 조치(failover)하는 방법에 대해 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108271"
 ---
 # <a name="fail-over-to-a-storsimple-8000-series-physical-device"></a>StorSimple 8000 시리즈 실제 장치에 장애 조치
 
@@ -48,7 +49,7 @@ StorSimple 물리적 장치를 StorSimple Cloud Appliance로 장애 조치(failo
 3. 원본 장치를 선택하고 클릭합니다. 원본 장치에는 장애 조치(failover)하려는 볼륨 컨테이너가 있습니다. **설정 > 볼륨 컨테이너**로 이동합니다.
 4. 다른 장치에 장애 조치하려는 볼륨 컨테이너를 선택합니다. 볼륨 컨테이너를 클릭하여 이 컨테이너 내에 볼륨의 목록을 표시합니다. 볼륨을 선택하고 마우스 오른쪽 단추를 클릭한 다음, **오프라인으로 전환**을 클릭하여 볼륨을 오프라인으로 전환합니다. 볼륨 컨테이너의 모든 볼륨에 이 프로세스를 반복합니다.
 5. 다른 장치에 장애 조치하려는 모든 볼륨 컨테이너에 이전 단계를 반복합니다.
-6. **장치** 블레이드로 다시 이동합니다. 명령 모음에서 **장애 조치(failover)**를 클릭합니다.
+6. **장치** 블레이드로 다시 이동합니다. 명령 모음에서 **장애 조치(failover)** 를 클릭합니다.
     ![장애 조치(failover) 클릭](./media/storsimple-8000-device-failover-disaster-recovery/failover-phy-dev2.png)
     
 7. **장애 조치(failover)** 블레이드에서 다음 단계를 수행합니다.

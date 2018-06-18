@@ -1,13 +1,13 @@
 ---
-title: "Azure PowerShell 스크립트 샘플 - 같은 구독 또는 다른 구독으로 관리 디스크 복사(이동) | Microsoft Docs"
-description: "Azure PowerShell 스크립트 샘플 - 같은 구독 또는 다른 구독으로 관리 디스크 복사(이동)"
+title: Azure PowerShell 스크립트 샘플 - 같은 구독 또는 다른 구독으로 관리 디스크 복사(이동) | Microsoft Docs
+description: Azure PowerShell 스크립트 샘플 - 같은 구독 또는 다른 구독으로 관리 디스크 복사(이동)
 services: virtual-machines-windows
 documentationcenter: storage
 author: ramankumarlive
 manager: kavithag
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: sample
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23116461"
 ---
 # <a name="copy-managed-disks-in-the-same-subscription-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크 복사
 

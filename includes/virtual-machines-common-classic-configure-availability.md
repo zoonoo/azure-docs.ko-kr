@@ -40,7 +40,7 @@ Azure PowerShell 명령을 사용하여 Azure 가상 머신을 만들고 새로�
 Azure 포털에서 기존 클래식 가상 머신을 기존 가용성 집합에 추가하거나 가상 머신용으로 새 가용성 집합을 만들 수 있습니다. 동일한 가용성 집합의 가상 머신은 같은 클라우드 서비스에 속해야 합니다. 이 옵션에서도 단계는 거의 동일합니다. Azure PowerShell에서 기존 가용성 집합에 가상 머신을 추가할 수 있습니다.
 
 1. 아직 로그인하지 않은 경우 [Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 메뉴에서 **Virtual Machines(클래식)**를 클릭합니다.
+2. 왼쪽 메뉴에서 **Virtual Machines(클래식)** 를 클릭합니다.
    
     ![대체 이미지 텍스트](./media/virtual-machines-common-classic-configure-availability/ChooseClassicVM.png)
 3. 가상 머신 목록에서 집합에 추가할 가상 머신 이름을 선택합니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 97a77de2fe1111f0a65b5325a5db96ad30f40f15
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157702"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293112"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -141,7 +141,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 사용 가능한 SaaS 응용 프로그램의 테스트 환경. 이 가이드에서는 ServiceNow를 예제로 사용합니다.<br/>테스트 인스턴스를 사용하여 기존 데이터 품질 및 매핑을 탐색할 때 마찰을 최소화하는 것이 좋습니다. | 테스트 인스턴스를 가져오는 과정을 시작하려면 https://developer.servicenow.com/app.do#!/home으로 이동 |
 | ServiceNow 관리 콘솔에 대한 관리자 권한 | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
-| 응용 프로그램을 할당할 대상 사용자 집합. PoC 사용자가 포함된 보안 그룹을 사용하는 것이 좋습니다. <br/>그룹을 만들 수 없는 경우 사용자를 PoC에 대한 응용 프로그램에 직접 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
+| 응용 프로그램을 할당할 대상 사용자 집합. PoC 사용자가 포함된 보안 그룹을 사용하는 것이 좋습니다. <br/>그룹을 만들 수 없는 경우 사용자를 PoC에 대한 응용 프로그램에 직접 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>단계
 
@@ -149,13 +149,13 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | Microsoft 문서에서 모든 행위자에게 자습서를 공유합니다.  | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
 | 작업 모임을 설정하고 각 행위자와 함께 자습서 단계를 따릅니다. | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
-| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. POC의 범위에 조건부 액세스가 있으면 나중에 다시 방문하여 MFA 등을 추가할 수 있습니다. <br/>이 작업은 프로비전 프로세스에서 시작됩니다(구성된 경우). |  [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
+| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. POC의 범위에 조건부 액세스가 있으면 나중에 다시 방문하여 MFA 등을 추가할 수 있습니다. <br/>이 작업은 프로비전 프로세스에서 시작됩니다(구성된 경우). |  [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
 | Azure AD 관리 포털을 사용하여 갤러리에서 ServiceNow 응용 프로그램을 추가합니다.| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview)(Azure AD 관리 포털: 엔터프라이즈 응용 프로그램) <br/>[Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | ServiceNow 앱의 "Single Sign-On" 블레이드에서 "SAML 기반 로그인"을 사용하도록 설정합니다. |  |
 | ServiceNow URL을 통해 “로그온 URL” 및 “식별자” 필드를 입력합니다.<br/>“새 인증서 활성화” 상자를 선택하고<br/>설정을 저장합니다. |  |
 | 패널 아래쪽에서 “ServiceNow 구성” 블레이드를 열어 ServiceNow를 구성하기 위한 사용자 지정된 지침을 확인합니다. |  |
 | 지침에 따라 ServiceNow를 구성합니다. |  |
-| ServiceNow 앱의 “프로비전” 블레이드에서 “자동” 프로비전을 사용하도록 설정합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](active-directory-enterprise-apps-manage-provisioning.md) |
+| ServiceNow 앱의 “프로비전” 블레이드에서 “자동” 프로비전을 사용하도록 설정합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | 프로비전이 완료되는 동안 몇 분 정도 기다립니다.  그 사이에 프로비전 보고서를 확인할 수 있습니다. |  |
 | 액세스할 수 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
 | 방금 만든 응용 프로그램의 타일을 클릭합니다. 액세스 권한을 확인합니다. |  |
@@ -176,7 +176,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | SaaS 응용 프로그램에 대한 테스트 환경. 암호 SSO의 예로는 HipChat 및 Twitter가 있습니다. 다른 응용 프로그램의 경우 HTML 로그인 폼이 포함된 페이지의 정확한 URL이 필요합니다. | [Microsoft Azure Marketplace의 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Microsoft Azure Marketplace의 HipChat](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | 응용 프로그램에 대한 테스트 계정. | [Twitter 가입](https://twitter.com/signup?lang=en)<br/>[Sign Up for Free: HipChat](https://www.hipchat.com/sign_up)(무료 가입: HipChat) |
-| 응용 프로그램을 할당할 대상 사용자 집합. 사용자가 포함된 보안 그룹을 사용하는 것이 좋습니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
+| 응용 프로그램을 할당할 대상 사용자 집합. 사용자가 포함된 보안 그룹을 사용하는 것이 좋습니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 | Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Firefox용 액세스 패널 확장](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>단계
@@ -185,8 +185,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 브라우저 확장을 설치합니다. | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
 | 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
+| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 | 액세스할 수 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인 |  |
 | 방금 만든 응용 프로그램의 타일을 클릭합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 응용 프로그램 자격 증명을 제공합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -211,7 +211,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 사전에 대상 응용 프로그램 및 정확한 로그인 URL 목록 제공. 예를 들어 Twitter를 사용할 수 있습니다. | [Microsoft Azure Marketplace의 Twitter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Sign up for Twitter](https://twitter.com/signup?lang=en)(Twitter 가입) |
 | 이 SaaS 응용 프로그램에 대한 공유 자격 증명. | [Azure AD를 사용한 계정 공유](active-directory-sharing-accounts.md)<br/>[이제 미리 보기에서 Facebook, Twitter 및 LinkedIn에 대해 Azure AD 자동화된 암호 롤오버! - Enterprise Mobility 및 Security 블로그](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
-| 같은 계정에 액세스할 두 명 이상의 팀원에 대한 자격 증명. 이 팀원은 보안 그룹에 속해야 합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
+| 같은 계정에 액세스할 두 명 이상의 팀원에 대한 자격 증명. 이 팀원은 보안 그룹에 속해야 합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 | Internet Explorer, Chrome 또는 Firefox용 액세스 패널 확장을 배포할 컴퓨터에 대한 로컬 관리자 권한 | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Firefox용 액세스 패널 확장](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 
 ### <a name="steps"></a>단계
@@ -220,8 +220,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 브라우저 확장을 설치합니다. | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
 | 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](active-directory-enterprise-apps-manage-sso.md#password-based-sign-on) |
-| 필수 구성 요소에서 식별된 그룹에게 자격 증명을 할당할 때 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md) |
+| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 필수 구성 요소에서 식별된 그룹에게 자격 증명을 할당할 때 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 | **같은 공유 계정**으로 앱에 액세스하는 서로 다른 사용자로 로그인합니다.  |  |
 | 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md) |
 

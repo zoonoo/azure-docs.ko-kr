@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33894255"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Azure Security Center 감지 기능
 이 문서에서는 Microsoft Azure 리소스를 대상으로 하는 활성 위협을 식별하는 데 도움을 주고 신속하게 응답하는 데 필요한 정보를 제공하는 Azure Security Center의 고급 감지 기능을 설명합니다.

@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for PostgreSQL의 백업 및 복원"
-description: "Azure Database for PostgreSQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다."
+title: Azure Database for PostgreSQL의 백업 및 복원
+description: Azure Database for PostgreSQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
 services: postgresql
 author: kamathsun
 ms.author: sukamat
@@ -14,6 +14,7 @@ ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29693051"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 백업 및 복원
 

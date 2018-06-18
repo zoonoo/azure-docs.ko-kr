@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal에서 Azure BizTalk Services 만들기 | Microsoft 문서"
-description: "Azure Portal에서 Azure BizTalk Services(MABS, WABS)를 프로비전하거나 만드는 방법인 대해 알아봅니다."
+title: Azure Portal에서 Azure BizTalk Services 만들기 | Microsoft 문서
+description: Azure Portal에서 Azure BizTalk Services(MABS, WABS)를 프로비전하거나 만드는 방법인 대해 알아봅니다.
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 3ad18876-a649-40d6-9aa0-1509c1d62c43
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26632723"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Azure Portal을 사용하여 BizTalk Services 만들기
 

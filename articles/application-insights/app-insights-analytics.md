@@ -1,8 +1,8 @@
 ---
-title: "Analytics - Azure Application Insights의 강력한 검색 및 쿼리 도구 | Microsoft Docs"
-description: "Application Insights의 강력한 진단 검색 도구인 분석의 개요입니다. "
+title: Analytics - Azure Application Insights의 강력한 검색 및 쿼리 도구 | Microsoft Docs
+description: 'Application Insights의 강력한 진단 검색 도구인 분석의 개요입니다. '
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5f324051a2eeedd35a22f77c771793af9c90c434
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294203"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights의 분석
 Analytics는 [Application Insights](app-insights-overview.md)의 강력한 검색 및 쿼리 도구입니다. Analytics는 웹 도구이므로 설치가 필요하지 않습니다. 앱 중 하나에 대해 Application Insights를 이미 구성한 경우 앱의 [개요 블레이드](app-insights-dashboards.md)에서 Analytics를 열어 앱의 데이터를 분석할 수 있습니다.

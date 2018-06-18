@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 지원 패키지 만들기 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 장치용 지원 패키지를 만들고, 암호 해독 및 편집하는 방법을 알아봅니다."
+title: StorSimple 8000 시리즈 지원 패키지 만들기 | Microsoft Docs
+description: StorSimple 8000 시리즈 장치용 지원 패키지를 만들고, 암호 해독 및 편집하는 방법을 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/10/2018
+ms.locfileid: "27743581"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>StorSimple 8000 시리즈용 지원 패키지 만들기 및 관리
 

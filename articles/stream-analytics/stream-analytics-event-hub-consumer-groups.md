@@ -14,6 +14,7 @@ ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/01/2018
+ms.locfileid: "32312959"
 ---
 # <a name="troubleshoot-event-hub-receivers-in-azure-stream-analytics"></a>Azure Stream Analytics에서 이벤트 허브 수신기 문제 해결
 

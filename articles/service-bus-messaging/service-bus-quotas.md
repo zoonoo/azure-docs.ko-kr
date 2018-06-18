@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "28979210"
 ---
 # <a name="service-bus-quotas"></a>Service Bus 할당량
 이 섹션에는 Azure Service Bus 메시징의 기본 할당량 및 제한 임계값이 나열됩니다.

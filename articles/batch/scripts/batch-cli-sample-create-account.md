@@ -1,12 +1,12 @@
 ---
-title: "Azure CLI 스크립트 예제 - Batch 계정 만들기 - Batch 서비스 | Microsoft Docs"
-description: "Azure CLI 스크립트 예제 - Batch 서비스 모드에서 Batch 계정 만들기"
+title: Azure CLI 스크립트 예제 - Batch 계정 만들기 - Batch 서비스 | Microsoft Docs
+description: Azure CLI 스크립트 예제 - Batch 서비스 모드에서 Batch 계정 만들기
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: sample
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29843955"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI 예제: Batch 서비스 모드에서 Batch 계정 만들기
 

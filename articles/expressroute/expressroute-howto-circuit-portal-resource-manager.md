@@ -1,11 +1,11 @@
 ---
-title: "ExpressRoute 회로 만들기 및 수정: Azure Portal | Microsoft Docs"
-description: "이 문서에서는 ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다."
+title: 'ExpressRoute 회로 만들기 및 수정: Azure Portal | Microsoft Docs'
+description: 이 문서에서는 ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제하는 방법을 설명합니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29389515"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]

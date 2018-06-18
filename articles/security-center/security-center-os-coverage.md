@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 지원되는 플랫폼 | Microsoft Docs"
-description: "이 문서에서는 Azure Security Center에서 지원되는 Windows 및 Linux 운영 체제의 목록을 제공합니다."
+title: Azure Security Center에서 지원되는 플랫폼 | Microsoft Docs
+description: 이 문서에서는 Azure Security Center에서 지원되는 Windows 및 Linux 운영 체제의 목록을 제공합니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2018
 ms.author: terrylan
-ms.openlocfilehash: 3b57cacec729bd2f2dd4acdbb9c15e69ab9f5c85
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756904"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure Security Center에서 지원되는 플랫폼
 클래식 및 리소스 관리자 배포 모델을 둘 다 사용하여 생성된 VM(가상 머신) 및 컴퓨터에 대해 보안 상태 모니터링과 권장 사항이 제공됩니다.
@@ -59,6 +60,6 @@ ms.lasthandoff: 03/13/2018
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Security Center의 계획 및 운영 가이드](security-center-planning-and-operations-guide.md) — 디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택하는 방법을 알아봅니다.
-- [Azure Security Center에서 유형별 보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Security Center에서 가상 컴퓨터 동작 분석 및 크래시 덤프 메모리 분석에 대해 자세히 알아봅니다.
+- [Azure Security Center에서 유형별 보안 경고](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - Security Center에서 가상 컴퓨터 동작 분석 및 크래시 덤프 메모리 분석에 대해 자세히 알아봅니다.
 - [Azure Security Center FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 - [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

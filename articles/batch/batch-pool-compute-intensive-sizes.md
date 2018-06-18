@@ -1,12 +1,12 @@
 ---
-title: "Batch에서 계산 집약적인 Azure VM 사용 | Microsoft Docs"
-description: "Azure Batch 풀에서 RDMA 가능 또는 GPU 가능 VM 크기를 활용하는 방법"
+title: Batch에서 계산 집약적인 Azure VM 사용 | Microsoft Docs
+description: Azure Batch 풀에서 RDMA 가능 또는 GPU 가능 VM 크기를 활용하는 방법
 services: batch
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29762444"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Batch 풀에서 RDMA 가능 또는 GPU 가능 인스턴스 사용
 

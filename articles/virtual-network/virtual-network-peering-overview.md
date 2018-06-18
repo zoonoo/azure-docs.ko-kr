@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: f2dddb6e9a933c1dc1eb4ccbf7ace6757d546fc8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34367109"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267131"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -53,7 +53,7 @@ ms.locfileid: "34367109"
 
 허브 가상 네트워크가 네트워크 가상 어플라이언스 또는 VPN 게이트웨이와 같은 인프라 구성 요소를 호스트할 수 있는 허브 및 스포크 네트워크를 배포할 수 있습니다. 모든 스포크 가상 네트워크는 허브 가상 네트워크와 피어링할 수 있습니다. 트래픽은 허브 가상 네트워크의 네트워크 가상 어플라이언스 또는 VPN 게이트웨이를 통해 이동할 수 있습니다. 
 
-가상 네트워크 피어링을 사용하면 사용자 정의 경로의 다음 홉이 피어링된 가상 네트워크 또는 VPN 게이트웨이에 있는 가상 머신의 IP 주소가 될 수 있습니다. 단 ExpressRoute 게이트웨이를 다음 홉 형식으로 지정하는 사용자 정의 경로를 사용하여 가상 네트워크 사이에 라우팅할 수 없습니다. 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 개요](virtual-networks-udr-overview.md#user-defined)를 참조하세요. 허브 및 스포크 네트워크 토폴로지를 만드는 방법에 대한 자세한 내용은 [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)를 참조하세요.
+가상 네트워크 피어링을 사용하면 사용자 정의 경로의 다음 홉이 피어링된 가상 네트워크 또는 VPN 게이트웨이에 있는 가상 머신의 IP 주소가 될 수 있습니다. 단 ExpressRoute 게이트웨이를 다음 홉 형식으로 지정하는 사용자 정의 경로를 사용하여 가상 네트워크 사이에 라우팅할 수 없습니다. 사용자 정의 경로에 대한 자세한 내용은 [사용자 정의 경로 개요](virtual-networks-udr-overview.md#user-defined)를 참조하세요. 허브 및 스포크 네트워크 토폴로지를 만드는 방법에 대한 자세한 내용은 [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="gateways-and-on-premises-connectivity"></a>게이트웨이 및 온-프레미스 연결
 
@@ -71,7 +71,7 @@ ms.locfileid: "34367109"
 
 ## <a name="troubleshoot"></a>문제 해결
 
-가상 네트워크 피어링을 확인하려면 가상 네트워크의 서브넷에서 네트워크 인터페이스의 [유효 경로를 확인](virtual-network-routes-troubleshoot-portal.md)합니다. 가상 네트워크 피어링이 존재하는 경우에는 가상 네트워크 내의 모든 서브넷에는 피어링된 각 가상 네트워크의 각 주소 공간에 대해 다음 홉 형식의 *VNet 피어링*을 사용하는 경로가 있습니다.
+가상 네트워크 피어링을 확인하려면 가상 네트워크의 서브넷에서 네트워크 인터페이스의 [유효 경로를 확인](diagnose-network-routing-problem.md)합니다. 가상 네트워크 피어링이 존재하는 경우에는 가상 네트워크 내의 모든 서브넷에는 피어링된 각 가상 네트워크의 각 주소 공간에 대해 다음 홉 형식의 *VNet 피어링*을 사용하는 경로가 있습니다.
 
 Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 사용하여 피어링된 가상 네트워크에서 가상 머신에 대한 연결 문제를 해결할 수 있습니다. 연결 확인을 통해 원본 가상 머신의 네트워크 인터페이스에서 대상 가상 머신의 네트워크 인터페이스로 트래픽이 라우팅되는 방식을 확인할 수 있습니다.
 
@@ -98,5 +98,5 @@ Network Watcher의 [연결 확인](../network-watcher/network-watcher-connectivi
     |하나는 Resource Manager, 다른 하나는 클래식  |[동일](create-peering-different-deployment-models.md)|
     |                                   |[다름](create-peering-different-deployment-models-subscriptions.md)|
 
-* [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)를 만드는 방법을 알아봅니다.
+* [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)를 만드는 방법을 알아봅니다.
 * 모든 [가상 네트워크 피어링 설정 및 변경 방법](virtual-network-manage-peering.md)에 대해 자세히 알아봅니다.

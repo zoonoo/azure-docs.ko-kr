@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: adegeo
-ms.openlocfilehash: 0139c42334b53364aee8cfd29cfa771d47e2ccc8
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b5d706f82dd41f0c271aa5f67676bba08cceb3b1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011318"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608596"
 ---
 # <a name="build-a-nodejs-chat-application-with-socketio-on-an-azure-cloud-service"></a>Azure 클라우드 서비스에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드
 
@@ -152,9 +152,9 @@ Azure 에뮬레이터에서 응용 프로그램을 테스트하기 전에 몇 �
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 Azure 클라우드 서비스에 호스팅된 기본 채팅 응용 프로그램을 만드는 방법을 학습했습니다. 이 응용 프로그램을 Azure 웹 사이트에 호스트하는 방법을 학습하려면 [Azure 웹 사이트에서 Socket.IO를 사용하여 Node.js 채팅 응용 프로그램 빌드][chatwebsite]를 참조하세요.
 
-자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)도 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/javascript/azure/?view=azure-node-latest)도 참조하세요.
 
-[chatwebsite]: /develop/nodejs/tutorials/website-using-socketio/
+[chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
 [Azure SLA]: http://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node

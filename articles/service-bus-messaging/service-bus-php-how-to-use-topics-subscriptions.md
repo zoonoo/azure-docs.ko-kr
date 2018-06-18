@@ -1,11 +1,11 @@
 ---
-title: "PHP와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs"
-description: "Azure에서 PHP와 함께 Service Bus 토픽을 사용하는 방법에 대해 알아봅니다."
+title: PHP와 함께 Service Bus 토픽을 사용하는 방법 | Microsoft Docs
+description: Azure에서 PHP와 함께 Service Bus 토픽을 사용하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus-messaging
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23044588"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
 

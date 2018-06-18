@@ -1,11 +1,11 @@
 ---
-title: "Azure Traffic Manager에서 끝점 관리 | Microsoft Docs"
-description: "이 문서는 Azure Traffic Manager에서 끝점을 추가, 제거 및 사용하거나 사용하지 않도록 설정하는 데 도움이 됩니다."
+title: Azure Traffic Manager에서 끝점 관리 | Microsoft Docs
+description: 이 문서는 Azure Traffic Manager에서 끝점을 추가, 제거 및 사용하거나 사용하지 않도록 설정하는 데 도움이 됩니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: ade2bbc2-35a7-43c5-8001-4698f7254526
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26577382"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>끝점 추가, 사용 안 함, 사용 또는 삭제
 

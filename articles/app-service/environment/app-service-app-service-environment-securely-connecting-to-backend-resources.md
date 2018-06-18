@@ -1,11 +1,11 @@
 ---
-title: "앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결"
-description: "앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결하는 방법에 대해 알아봅니다."
+title: 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결
+description: 앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결하는 방법에 대해 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: erikre
-editor: 
+editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986268"
 ---
 # <a name="securely-connecting-to-backend-resources-from-an-app-service-environment"></a>앱 서비스 환경에서 백 엔드 리소스에 안전하게 연결
 ## <a name="overview"></a>개요

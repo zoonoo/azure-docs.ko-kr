@@ -1,8 +1,8 @@
 ---
-title: "앱 서비스 환경에서 앱을 확장하는 방법"
-description: "앱 서비스 환경에서 앱 확장"
+title: 앱 서비스 환경에서 앱을 확장하는 방법
+description: 앱 서비스 환경에서 앱 확장
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: ccompy
 manager: stefsch
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986318"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>앱 서비스 환경에서 앱 확장
 Azure 앱 서비스에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 7a244a5dbb86b076f99975ad477d4062699270b5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894252"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658675"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -66,7 +66,7 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹 수에
 ### <a name="view-details-of-a-network-security-group"></a>네트워크 보안 그룹 세부 정보 보기
 
 1. 포털 맨 위에 있는 검색 상자에 *네트워크 보안 그룹*를 입력합니다. 검색 결과에 표시된 **네트워크 보안 그룹**을 선택합니다.
-2. 목록에서 세부 정보를 볼 네트워크 보안 그룹을 선택합니다. **설정**에서 **인바운드 보안 규칙** 및 **아웃바운드 보안 규칙**, **네트워크 인터페이스** 및 네트워크 보안 그룹이 연결된 **서브넷**을 볼 수 있습니다. 또한 **진단 로그**를 사용하거나 사용하지 않도록 설정하고 **효과적인 보안 규칙**을 볼 수 있습니다. 자세한 정보는 [진단 로그](virtual-network-nsg-manage-log.md) 및 [효과적인 보안 규칙](virtual-network-nsg-troubleshoot-portal.md)을 참조합니다.
+2. 목록에서 세부 정보를 볼 네트워크 보안 그룹을 선택합니다. **설정**에서 **인바운드 보안 규칙** 및 **아웃바운드 보안 규칙**, **네트워크 인터페이스** 및 네트워크 보안 그룹이 연결된 **서브넷**을 볼 수 있습니다. 또한 **진단 로그**를 사용하거나 사용하지 않도록 설정하고 **효과적인 보안 규칙**을 볼 수 있습니다. 자세한 정보는 [진단 로그](virtual-network-nsg-manage-log.md) 및 [효과적인 보안 규칙](diagnose-network-traffic-filter-problem.md)을 참조합니다.
 3. 나열된 일반적인 Azure 설정에 대한 자세한 내용은 다음 문서를 참조하세요.
     *   [활동 로그](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#activity-logs)
     *   [액세스 제어(IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)

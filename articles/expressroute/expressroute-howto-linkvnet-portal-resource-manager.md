@@ -20,6 +20,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29874555"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>포털을 사용하여 ExpressRoute 회로에 가상 네트워크 연결
 > [!div class="op_single_selector"]
@@ -115,7 +116,7 @@ ms.lasthandoff: 03/12/2018
 1. **+새로 만들기** 단추를 클릭합니다.
 
   ![새로 만들기 클릭](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection1.png)
-2. Marketplace에서 **“연결”**을 검색하고 선택한 후 **만들기**를 클릭합니다.
+2. Marketplace에서 **“연결”** 을 검색하고 선택한 후 **만들기**를 클릭합니다.
 
   ![연결 검색](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection2.png)
 3. **연결 유형**이 "ExpressRoute"로 설정되어 있는지 확인합니다.

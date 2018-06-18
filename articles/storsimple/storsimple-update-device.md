@@ -1,11 +1,11 @@
 ---
-title: "StorSimple 장치 업데이트 | Microsoft Docs"
-description: "StorSimple 업데이트 기능을 사용하여 일반 및 유지 관리 모드 업데이트 및 핫픽스를 설치하는 방법을 설명합니다."
+title: StorSimple 장치 업데이트 | Microsoft Docs
+description: StorSimple 업데이트 기능을 사용하여 일반 및 유지 관리 모드 업데이트 및 핫픽스를 설치하는 방법을 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: SharS
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 786059f5-2a38-4105-941d-0860ce4ac515
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103611"
 ---
 # <a name="update-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치 업데이트
 > [!NOTE]

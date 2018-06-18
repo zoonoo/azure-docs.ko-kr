@@ -13,6 +13,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32182092"
 ---
 # <a name="synonym-c-tutorial-for-azure-search"></a>Azure Search에 대한 동의어 C# 자습서
 

@@ -469,6 +469,9 @@
     - name: 복원력
       tocHref: /azure/resiliency/
       topicHref: /azure/resiliency/
+    - name: 역할 기반 액세스 제어
+      tocHref: /azure/role-based-access-control/
+      topicHref: /azure/role-based-access-control/
     - name: 서비스 상태
       tocHref: /azure/service-health/
       topicHref: /azure/service-health/

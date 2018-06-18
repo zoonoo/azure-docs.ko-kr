@@ -1,11 +1,11 @@
 ---
-title: "Azure에서 Windows VM 배포 문제 해결 | Microsoft Docs"
-description: "Azure에서 새 Windows 가상 머신 생성 시 Resource Manager 배포 문제 해결"
+title: Azure에서 Windows VM 배포 문제 해결 | Microsoft Docs
+description: Azure에서 새 Windows 가상 머신 생성 시 Resource Manager 배포 문제 해결
 services: virtual-machines-windows, azure-resource-manager
-documentationcenter: 
+documentationcenter: ''
 author: JiangChen79
 manager: willchen
-editor: 
+editor: ''
 tags: top-support-issue, azure-resource-manager
 ms.assetid: afc6c1a4-2769-41f6-bbf9-76f9f23bcdf4
 ms.service: virtual-machines-windows
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27580374"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]

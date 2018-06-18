@@ -1,11 +1,11 @@
 ---
-title: "SQL Server에 대한 고가용성 및 재해 복구 | Microsoft Docs"
-description: "Azure Virtual Machines에서 실행되는 SQL Server에 대한 다양한 형식의 HADR 전략을 설명합니다."
+title: SQL Server에 대한 고가용성 및 재해 복구 | Microsoft Docs
+description: Azure Virtual Machines에서 실행되는 SQL Server에 대한 다양한 형식의 HADR 전략을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 53981f7e-8370-4979-b26a-93a5988d905f
 ms.service: virtual-machines-sql
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401262"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구
 

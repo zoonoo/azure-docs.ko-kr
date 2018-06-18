@@ -10,16 +10,18 @@ manager: hjerez
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 019f3a94e81d0ae581414f62c5e0389c9c2b6813
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ad1b8369358f7811a02d344fdc0306662413a404
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833828"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>단순 모델을 사용하여 답변 예측
 ## <a name="video-4-data-science-for-beginners-series"></a>비디오 4: 초급자를 위한 데이터 과학 시리즈
@@ -91,7 +93,7 @@ ms.lasthandoff: 03/23/2018
 
 모든 점이 정확히 선을 지나가지 않아도 괜찮습니다. 데이터 과학자들은 이제 선에 해당하는 모델이 형성되었고 각 점에는 이와 연관된 *노이즈* 또는 *분산*이 있다고 설명합니다. 기본적인 완벽한 관계가 있으며, 또한 노이즈와 불확실성이 적용되는 단호한 실제 세계가 있는 것입니다.
 
-여기서는 *가격은 얼마일까요?*라는 질문에 답변하려고 하기 때문에 이를 *회귀*라고 합니다. 또한 직선을 사용하므로 *선형 회귀*에 해당합니다.
+여기서는 *가격은 얼마일까요?* 라는 질문에 답변하려고 하기 때문에 이를 *회귀*라고 합니다. 또한 직선을 사용하므로 *선형 회귀*에 해당합니다.
 
 ## <a name="use-the-model-to-find-the-answer"></a>모델을 사용하여 해답 찾기
 이제 우리에게는 모델이 있고 “1.35 캐럿의 다이아몬드 가격은 얼마나 될까요?”라는 질문을 해보겠습니다.

@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export 작업의 상태 정보 검색 | Microsoft Docs"
-description: "Microsoft Azure Import/Export 서비스 작업에 대한 상태 정보를 얻는 방법에 대해 알아봅니다."
+title: Azure Import/Export 작업의 상태 정보 검색 | Microsoft Docs
+description: Microsoft Azure Import/Export 서비스 작업에 대한 상태 정보를 얻는 방법에 대해 알아봅니다.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059908"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Import/Export 작업에 대한 상태 정보 검색
 [작업 가져오기](/rest/api/storageimportexport/jobs#Jobs_Get)(Get Job) 작업을 호출하여 가져오기 및 내보내기 작업에 대한 정보를 검색할 수 있습니다. 반환되는 정보는 다음과 같습니다.

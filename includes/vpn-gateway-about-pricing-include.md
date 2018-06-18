@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30196712"
 ---
 가상 네트워크 게이트웨이에 대한 시간당 계산 비용 및 가상 네트워크 게이트웨이에서 송신 데이터 전송 등 두 가지에 대한 비용을 지불합니다. 가격 책정 정보는 [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway) 페이지에 있습니다.
 

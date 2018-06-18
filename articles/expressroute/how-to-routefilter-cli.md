@@ -1,13 +1,13 @@
 ---
-title: "Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: CLI | Microsoft Docs"
-description: "이 문서에서는 Azure CLI를 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다."
+title: 'Azure ExpressRoute Microsoft 피어링에 대한 경로 필터 구성: CLI | Microsoft Docs'
+description: 이 문서에서는 Azure CLI를 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다.
 documentationcenter: na
 services: expressroute
 author: anzaman
 manager: ganesr
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "23013198"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Microsoft 피어링에 대한 경로 필터 구성: Azure CLI
 

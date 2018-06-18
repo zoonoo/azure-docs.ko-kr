@@ -1,6 +1,6 @@
 ---
-title: "Linux Virtual Machines 개요 | Microsoft Docs"
-description: "Azure Portal 내에 있는 Linux 가상 컴퓨터의 도움말 콘텐츠 개요"
+title: Linux Virtual Machines 개요 | Microsoft Docs
+description: Azure Portal 내에 있는 Linux 가상 컴퓨터의 도움말 콘텐츠 개요
 services: virtual-machines-linux
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073914"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Linux Virtual Machines 설명서
 

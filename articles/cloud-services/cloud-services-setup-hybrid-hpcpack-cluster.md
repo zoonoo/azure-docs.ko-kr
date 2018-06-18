@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 하이브리드 HPC Pack 클러스터 설정 | Microsoft Docs"
-description: "Microsoft HPC Pack 및 Azure를 사용하여 소규모 하이브리드 HPC(고성능 컴퓨팅) 클러스터를 설정하는 방법에 대해 알아봅니다."
+title: Azure에서 하이브리드 HPC Pack 클러스터 설정 | Microsoft Docs
+description: Microsoft HPC Pack 및 Azure를 사용하여 소규모 하이브리드 HPC(고성능 컴퓨팅) 클러스터를 설정하는 방법에 대해 알아봅니다.
 services: cloud-services
-documentationcenter: 
+documentationcenter: ''
 author: dlepow
 manager: timlt
-editor: 
+editor: ''
 tags: hpc-pack
-ms.assetid: 
+ms.assetid: ''
 ms.service: cloud-services
 ms.workload: big-compute
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2017
+ms.locfileid: "23985309"
 ---
 # <a name="set-up-a-hybrid-high-performance-computing-hpc-cluster-with-microsoft-hpc-pack-and-on-demand-azure-compute-nodes"></a>Microsoft HPC(고성능 컴퓨팅) Pack 및 주문형 Azure 계산 노드를 사용하여 하이브리드 HPC 클러스터 설정
 Microsoft HPC Pack 2012 R2 및 Azure를 사용하여 소규모 하이브리드 HPC(고성능 컴퓨팅) 클러스터를 설정합니다. 이 문서에 표시된 클러스터는 온-프레미스 HPC Pack 헤드 노드와 Azure Cloud Service에서 주문형으로 배포되는 일부 계산 노드로 구성됩니다. 그런 다음 하이브리드 클러스터에서 계산 작업을 실행할 수 있습니다.
@@ -230,7 +231,7 @@ Azure에서 클러스터 리소스를 사용하려면 HPC Cluster Manager를 통
 ## <a name="run-a-test-job"></a>테스트 작업 실행
 이제 하이브리드 클러스터에서 실행되는 테스트 작업을 제출합니다. 이 예제는 간단한 매개 변수 스윕 작업(본질적으로 병렬 계산 형식)입니다. 이 예제는 **set/a** 명령을 사용하여 자체적으로 정수를 추가하는 하위 작업을 실행합니다. 클러스터의 모든 노드는 1에서 100까지 정수의 하위 작업을 마치는 데 사용됩니다.
 
-1. HPC 클러스터 관리자에서 **작업 관리** > **New Parametric Sweep Job(새 매개 변수 스윕 작업)**을 클릭합니다.
+1. HPC 클러스터 관리자에서 **작업 관리** > **New Parametric Sweep Job(새 매개 변수 스윕 작업)** 을 클릭합니다.
    
     ![새 작업][test_job1]
 

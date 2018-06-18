@@ -20,6 +20,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33938695"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Azure Portal에서 Azure Log Analytics 작업 영역 삭제
 이 문서에서는 Azure Portal을 사용하여 더 이상 필요하지 않을 수 있는 Log Analytics 작업 영역을 삭제하는 방법을 보여 줍니다. 

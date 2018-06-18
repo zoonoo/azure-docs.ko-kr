@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34212326"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>서비스 패브릭 응용 프로그램 업그레이드: 고급 항목
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>응용 프로그램을 업그레이드하는 동안 서비스 유형 추가 또는 제거

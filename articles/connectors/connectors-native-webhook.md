@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps용 웹후크 커넥터 | Microsoft Docs"
-description: "웹후크 동작 및 트리거를 사용하여 Logic Apps에서 필터 배열과 같은 동작을 수행하는 방법"
+title: Azure Logic Apps용 웹후크 커넥터 | Microsoft Docs
+description: 웹후크 동작 및 트리거를 사용하여 Logic Apps에서 필터 배열과 같은 동작을 수행하는 방법
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: ec407d72f90cf3616214d27c378dee0ff42f4c6f
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 647dcebdd8d66ca49e14b51633e6a4a3ce6cb32b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296563"
 ---
 # <a name="get-started-with-the-webhook-connector"></a>웹후크 커넥터 시작
 

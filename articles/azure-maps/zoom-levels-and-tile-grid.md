@@ -1,22 +1,19 @@
 ---
 title: Azure Maps에서 확대/축소 수준 및 타일 그리드 | Microsoft Docs
 description: Azure Maps에서 확대/축소 수준 및 타일 그리드에 대해 알아봅니다.
-services: azure-maps
-keywords: ''
 author: jinzh-azureiot
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: 330333569f094fe3cec7f73ee3b20107ec70f5b5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+services: azure-maps
+manager: ''
+ms.openlocfilehash: 55441cda7a6fc65ac8103d19510823a7c84a9cbf
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599928"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>확대/축소 수준 및 타일 그리드
 Azure Maps에서는 구면 메르카토르 도법 구면좌표계를 사용합니다(EPSG: 3857).

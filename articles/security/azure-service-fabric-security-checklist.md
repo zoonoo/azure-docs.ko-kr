@@ -19,6 +19,7 @@ ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/08/2018
+ms.locfileid: "33895877"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Azure Service Fabric 보안 검사 목록
 이 문서에서는 Azure Service Fabric 환경을 보호하는 데 도움이 되는 사용하기 쉬운 검사 목록을 제공합니다.

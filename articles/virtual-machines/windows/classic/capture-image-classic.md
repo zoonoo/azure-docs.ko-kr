@@ -21,6 +21,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30914058"
 ---
 # <a name="capture-an-image-of-an-azure-windows-virtual-machine-created-with-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 만든 Azure Windows 가상 머신의 이미지 캡처
 > [!IMPORTANT]
@@ -57,7 +58,7 @@ Azure Virtual Machine의 이미지를 캡처하기 전에 대상 가상 머신�
 
    ![Sysprep 실행](./media/capture-image/SysprepGeneral.png)
 5. Sysprep을 실행하면 가상 머신이 종료되고 Azure Portal의 가상 머신 상태가 **중지됨**으로 변경됩니다.
-6. Azure Portal에서 **Virtual Machines(클래식)**를 클릭한 후 캡처하려는 Virtual Machines를 선택합니다. **VM 이미지(클래식)** 그룹은 **모든 서비스**를 볼 때 **Compute** 아래에 나열됩니다.
+6. Azure Portal에서 **Virtual Machines(클래식)** 를 클릭한 후 캡처하려는 Virtual Machines를 선택합니다. **VM 이미지(클래식)** 그룹은 **모든 서비스**를 볼 때 **Compute** 아래에 나열됩니다.
 
 7. 명령 모음에서 **캡처**를 클릭합니다.
 
@@ -74,7 +75,7 @@ Azure Virtual Machine의 이미지를 캡처하기 전에 대상 가상 머신�
     ![이미지 캡처 성공](./media/capture-image/VMCapturedImageAvailable.png)
 
 ## <a name="next-steps"></a>다음 단계
-이제 이미지를 사용하여 가상 머신을 만들 수 있습니다. 이를 위해 서비스 메뉴의 아래쪽에 있는 **모든 서비스** 메뉴 항목 및 **Compute** 그룹에서 **VM 이미지(클래식)**를 선택하여 가상 머신을 만들 수 있습니다. 지침에 대해서는 [이미지에서 가상 머신 만들기](createportal.md)를 참조하세요.
+이제 이미지를 사용하여 가상 머신을 만들 수 있습니다. 이를 위해 서비스 메뉴의 아래쪽에 있는 **모든 서비스** 메뉴 항목 및 **Compute** 그룹에서 **VM 이미지(클래식)** 를 선택하여 가상 머신을 만들 수 있습니다. 지침에 대해서는 [이미지에서 가상 머신 만들기](createportal.md)를 참조하세요.
 
 [How to sign in to a virtual machine running Windows Server]:connect-logon.md
 [How to Use Sysprep: An Introduction]: http://technet.microsoft.com/library/bb457073.aspx

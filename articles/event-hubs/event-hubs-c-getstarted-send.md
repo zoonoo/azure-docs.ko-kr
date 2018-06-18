@@ -14,18 +14,19 @@ ms.devlang: csharp
 ms.topic: article
 ms.date: 12/4/2017
 ms.author: sethm
-ms.openlocfilehash: 430135113f4b26db6690feb6bc6ddcc0700c6d11
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: e3267b54fa0c8593e0f9366c009656f36e4094ef
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807818"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>C를 사용하여 Azure Event Hubs로 이벤트 전송
 
 ## <a name="introduction"></a>소개
 Event Hubs는 연결된 장치와 응용 프로그램에서 생성되는 엄청난 양의 데이터를 처리 및 분석할 수 있도록 초당 수백만 개의 이벤트를 수용할 수 있는 확장성이 뛰어난 수집 시스템입니다. 이벤트 허브로 수집된 데이터는 실시간 분석 공급자나 저장소 클러스터를 사용하여 변환하고 저장할 수 있습니다.
 
-자세한 내용은 [Event Hubs 개요](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-overview)를 참조하세요.
+자세한 내용은 [Event Hubs 개요](https://docs.microsoft.com/azure/event-hubs/event-hubs-overview)를 참조하세요.
 
 이 자습서에서는 C 언어의 콘솔 응용 프로그램을 사용하여 이벤트를 이벤트 허브로 전송하는 방법을 설명합니다. 이벤트 수신에 대해 알아보려면 왼쪽의 목차에서 해당 수신 언어를 클릭합니다.
 

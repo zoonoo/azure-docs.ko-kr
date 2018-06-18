@@ -1,11 +1,11 @@
 ---
-title: "BizTalk Services의 발급자 이름 및 발급자 키 | Microsoft Docs"
-description: "BizTalk Services에서 Service Bus 또는 Access Control(ACS)에 대한 발급자 이름 및 발급자 키를 검색하는 방법에 대해 알아봅니다. MABS, WABS"
+title: BizTalk Services의 발급자 이름 및 발급자 키 | Microsoft Docs
+description: BizTalk Services에서 Service Bus 또는 Access Control(ACS)에 대한 발급자 이름 및 발급자 키를 검색하는 방법에 대해 알아봅니다. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 067fe356-d1aa-420f-b2f2-1a418686470a
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24103432"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: 발급자 이름 및 발급자 키
 

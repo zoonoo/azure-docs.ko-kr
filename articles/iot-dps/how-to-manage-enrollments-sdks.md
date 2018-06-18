@@ -1,22 +1,19 @@
 ---
 title: Azure 장치 프로비전 서비스 SDK를 사용하여 장치 등록 관리 | Microsoft Docs
 description: IoT Hub Device Provisioning 서비스에서 서비스 SDK를 사용하여 장치 등록을 관리하는 방법
-services: iot-dps
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 04/04/18
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 1ec86d319f529fe63b0924f4cfa0c2be178cd4d8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+services: iot-dps
+manager: arjmands
+ms.openlocfilehash: 9a68d928c70e1e233f6de7df13441a1f688f456a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34629850"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Azure 장치 프로비전 서비스 SDK로 장치 등록을 관리하는 방법
 *장치 등록*은 특정 시점에 장치 프로비전 서비스에 등록할 수 있는 단일 장치 또는 장치 그룹의 레코드를 만듭니다. 등록 레코드에는 원하는 IoT Hub를 포함하여 해당 등록의 일부로 해당 장치에 대한 초기 원하는 구성을 포함합니다. 이 문서에서는 Azure IoT 프로비전 서비스 SDK를 사용하여 프로그래밍 방식으로 프로비전 서비스에 대한 장치 등록을 관리하는 방법을 보여 줍니다.  SDK는 Azure IoT SDK와 같은 리포지토리의 GitHub에서 사용할 수 있습니다.

@@ -15,6 +15,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31596928"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁

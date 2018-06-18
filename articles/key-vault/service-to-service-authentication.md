@@ -17,6 +17,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31417578"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>.NET을 사용하여 Azure Key Vault에 서비스 간 인증
 
@@ -191,7 +192,7 @@ Azure App Service 또는 활성화된 MSI를 사용하는 Azure VM에서 코드�
           CertificateStoreLocation={LocalMachine or CurrentUser}.
     ```
  
-    _{AppId}_, _{TenantId}_ 및 _{Thumbprint}_를 1단계에서 생성된 값으로 바꿉니다.
+    _{AppId}_, _{TenantId}_ 및 _{Thumbprint}_ 를 1단계에서 생성된 값으로 바꿉니다.
 
     **CertificateStoreLocation**은 배포 계획에 따라 _CurrentUser_ 또는 _LocalMachine_이어야 합니다.
 
@@ -207,7 +208,7 @@ Azure AD 공유 암호 자격 증명을 사용하여 로그인하려면:
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}. 
     ```
 
-    _{AppId}_, _{TenantId}_ 및 _{ClientSecret}_을 1단계에서 생성된 값으로 바꿉니다.
+    _{AppId}_, _{TenantId}_ 및 _{ClientSecret}_ 을 1단계에서 생성된 값으로 바꿉니다.
 
 3. 응용 프로그램을 실행합니다. 
 

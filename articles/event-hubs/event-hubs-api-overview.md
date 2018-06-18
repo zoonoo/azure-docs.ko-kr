@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs API 개요 | Microsoft Docs"
-description: "사용할 수 있는 Azure Event Hubs API의 개요"
+title: Azure Event Hubs API 개요 | Microsoft Docs
+description: 사용할 수 있는 Azure Event Hubs API의 개요
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 3f221a0c-182d-4e39-9f3d-3a3c16c5c6ed
 ms.service: event-hubs
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/28/2017
+ms.locfileid: "25957530"
 ---
 # <a name="available-event-hubs-apis"></a>사용할 수 있는 Event Hubs API
 

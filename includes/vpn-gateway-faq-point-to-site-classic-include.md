@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198182"
 ---
 이 FAQ는 클래식 배포 모델을 사용하는 P2S 연결에 적용됩니다.
 

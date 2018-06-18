@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30165673"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>ASDK 호스트 컴퓨터를 준비 합니다.
 호스트 컴퓨터에는 ASDK를 설치할 수 있습니다, 전에 ASDK 환경 설치에 대 한 준비 되어야 합니다. 개발 키트 호스트 컴퓨터를 준비 하는 경우 ASDK 배포를 시작 하는 CloudBuilder.vhdx 가상 컴퓨터 하드 드라이브에서 부팅 됩니다.

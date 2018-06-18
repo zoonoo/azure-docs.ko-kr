@@ -1,12 +1,12 @@
 ---
-title: "Azure Relay 포트 설정 | Microsoft Docs"
-description: "Azure Relay 포트 값에 대한 세부 정보입니다."
+title: Azure Relay 포트 설정 | Microsoft Docs
+description: Azure Relay 포트 값에 대한 세부 정보입니다.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28017378"
 ---
 # <a name="azure-relay-port-settings"></a>Azure Relay 포트 설정
 

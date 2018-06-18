@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center에서 OS 버전 업데이트 | Microsoft Docs"
-description: "이 문서에서는 Azure 보안 센터 권장 사항 **OS 버전 업데이트**를 구현하는 방법을 보여 줍니다."
+title: Azure Security Center에서 OS 버전 업데이트 | Microsoft Docs
+description: 이 문서에서는 Azure 보안 센터 권장 사항 **OS 버전 업데이트**를 구현하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
 ms.service: security-center
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23040668"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure 보안 센터에서 OS 버전 업데이트
 클라우드 서비스의 가상 컴퓨터(VM)의 경우 Azure 보안 센터는 사용 가능한 최신 버전이 있는 경우 운영 체제(OS) 업데이트를 권장합니다.  프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다.

@@ -3,23 +3,24 @@ title: Azure 리소스에 대한 Privileged Identity Management에서 액세스 
 description: 이 문서에서는 리소스 역할에 따라 Azure 리소스에 대한 PIM에서 액세스 검토를 수행하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
-editor: mwahl
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
+ms.component: protection
 ms.date: 03/30/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 47d981ce8034d725fe2b119392334a156852698d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 10da40cf83dd39251033403a6a6913eb2e3b8b1d
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201592"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260854"
 ---
 # <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>리소스 역할에 따라 PIM에서 액세스 검토 수행
 Azure 리소스에 대한 PIM(Privileged Identity Management)에서는 기업이 Azure에서 리소스에 대해 권한 있는 액세스를 관리하는 방법을 간소화합니다. 

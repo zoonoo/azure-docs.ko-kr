@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export 드라이브 매니페스트 백업 | Microsoft Docs"
-description: "Microsoft Azure Import/Export 서비스에 대한 드라이브 매니페스트를가 자동으로 백업하도록 하는 방법을 알아봅니다."
+title: Azure Import/Export 드라이브 매니페스트 백업 | Microsoft Docs
+description: Microsoft Azure Import/Export 서비스에 대한 드라이브 매니페스트를가 자동으로 백업하도록 하는 방법을 알아봅니다.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 594abd80-b834-4077-a474-d8a0f4b7928a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23059328"
 ---
 # <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>Azure Import/Export 작업에 대한 드라이브 배니페스트 백업
 

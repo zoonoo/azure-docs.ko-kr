@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(클래식) | Microsoft Docs"
-description: "Azure Key Vault와 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure Key Vault 통합을 클래식 배포 모델에서 만든 SQL Server 가상 머신과 함께 사용하는 방법에 대해 설명합니다."
+title: Azure의 Windows VM에서 Key Vault를 SQL Server에 통합(클래식) | Microsoft Docs
+description: Azure Key Vault와 함께 사용하도록 SQL Server 암호화 구성을 자동화하는 방법에 대해 알아보세요. 이 항목에서는 Azure Key Vault 통합을 클래식 배포 모델에서 만든 SQL Server 가상 머신과 함께 사용하는 방법에 대해 설명합니다.
 services: virtual-machines-windows
-documentationcenter: 
+documentationcenter: ''
 author: rothja
 manager: craigg
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: ab8d41a7-1971-4032-ab71-eb435c455dc1
 ms.service: virtual-machines-sql
@@ -21,6 +21,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29399732"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Azure Virtual Machines에서 SQL Server에 대한 Azure Key Vault 통합 구성(클래식)
 > [!div class="op_single_selector"]

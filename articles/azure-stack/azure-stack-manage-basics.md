@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: mabrigg
-ms.openlocfilehash: df4a5a17ad034ae5d6ab82791c020634a8758b71
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850306"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure 스택 관리 기본 사항
 처음 사용 Azure 스택 관리 하는 경우 알아야 할 몇 가지 있습니다. 이 지침은 Azure 스택 운영자 사용자 역할에 대 한 개요 및 생산성을 높이려는 신속 하 게 해당 항목에 대 한 사용자에 게 알릴 사항 제공 합니다.
@@ -31,7 +32,7 @@ Azure 스택 통합 시스템을 사용 하는 경우 업데이트 된 버전의
  
 ### <a name="development-kit"></a>개발 키트
 
-Azure 스택 개발 키트를 사용 하는 경우 참조는 [Azure 스택 란?](.\asdk\asdk-what-is.md) 문서를 개발 키트 및 제한 사항의 용도 이해 하 고 있는지 확인 합니다. "샌드박스" 수 계산 Azure 스택 및 개발 하 고 있는 비-프로덕션 환경에서 앱을 테스트 개발 키트를 사용 해야 합니다. (배포 정보에 대 한 참조는 [Azure 스택 개발 키트 배포](.\asdk\asdk-deploy.md) 자습서입니다.)
+Azure 스택 개발 키트를 사용 하는 경우 참조는 [Azure 스택 란?](.\asdk\asdk-what-is.md) 문서를 개발 키트 및 제한 사항의 용도 이해 하 고 있는지 확인 합니다. "샌드박스" 수 계산 Azure 스택 및 개발 하 고 있는 비-프로덕션 환경에서 앱을 테스트 개발 키트를 사용 해야 합니다. (배포 정보에 대 한 참조는 [Azure 스택 개발 키트 배포](.\asdk\asdk-install.md) 문서입니다.)
 
 Azure와 같은 우리 혁신 신속 하 게 합니다. 새 빌드를 정기적으로 릴리스 합니다 했습니다. 개발 키트를 실행 하는 경우 수행 해야 최신 빌드를 이동 하려면 [Azure 스택 재배포](.\asdk\asdk-redeploy.md)합니다. 업데이트 패키지를 적용할 수 없습니다. 이 프로세스는 시간이 소요 되지만 기능은 최신 기능을 사용해 시도할 수 있습니다. 개발 키트 설명서 웹 사이트에서 최신 릴리스 빌드를 반영합니다.
 

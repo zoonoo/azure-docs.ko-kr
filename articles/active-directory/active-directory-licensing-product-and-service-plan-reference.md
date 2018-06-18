@@ -1,13 +1,13 @@
 ---
-title: "Azure Active Directory의 라이선스에 대한 제품 이름 및 서비스 계획 식별자 | Microsoft Docs"
-description: "Azure Portal, Office 365 포털, PowerShell 또는 Microsoft Graph에서 Azure AD 라이선스를 관리하기 위한 식별자 맵"
+title: Azure Active Directory의 라이선스에 대한 제품 이름 및 서비스 계획 식별자 | Microsoft Docs
+description: Azure Portal, Office 365 포털, PowerShell 또는 Microsoft Graph에서 Azure AD 라이선스를 관리하기 위한 식별자 맵
 services: active-directory
-keywords: "Azure Active Directory 라이선싱 서비스 계획"
-documentationcenter: 
+keywords: Azure Active Directory 라이선싱 서비스 계획
+documentationcenter: ''
 author: piotrci
 manager: mtillman
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26609330"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>라이선스에 대한 제품 이름 및 서비스 계획 식별자
 

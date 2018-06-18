@@ -1,6 +1,6 @@
 ---
-title: "Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용 | Microsoft Docs"
-description: "이 자습서에서는 Jenkins 연속 통합 솔루션을 사용하여 만든 아티팩트용 리포지토리로 Azure Blob 서비스를 사용하는 방법을 보여 줍니다."
+title: Jenkins 연속 통합 솔루션과 함께 Azure Storage 사용 | Microsoft Docs
+description: 이 자습서에서는 Jenkins 연속 통합 솔루션을 사용하여 만든 아티팩트용 리포지토리로 Azure Blob 서비스를 사용하는 방법을 보여 줍니다.
 services: storage
 documentationcenter: java
 author: seguler
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23060068"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Jenkins 연속 통합 솔루션과 함께 Azure 저장소 사용
 ## <a name="overview"></a>개요
@@ -98,7 +99,7 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
 
 5. 작업 구성의 **Post-build Actions** 섹션에서 **Add post-build action**을 클릭하고 **Upload artifacts to Azure Blob storage**를 선택합니다.
 6. **Storage account name**에서는 사용할 저장소 계정을 선택합니다.
-7. **Container name**에서 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 **${JOB_NAME}**를 입력합니다.
+7. **Container name**에서 컨테이너 이름을 지정합니다. (컨테이너는 빌드 아티팩트가 업로드될 때 없으면 만들어집니다.) 환경 변수를 사용할 수 있으며, 이 예제에서는 컨테이너 이름으로 **${JOB_NAME}** 를 입력합니다.
    
     **팁**
    
@@ -106,7 +107,7 @@ Blob 서비스를 Jenkins와 함께 사용하려면 Azure 저장소 플러그인
 8. 이 예의 경우 **Make new container public by default** 를 클릭합니다. (개인 컨테이너를 사용하려는 경우 액세스를 허용하려면 공유 액세스 서명을 만들어야 합니다. 이에 관한 내용은 이 항목의 범위를 벗어납니다. [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)에서 공유 액세스 서명에 대한 자세한 내용을 알아볼 수 있습니다.)
 9. [선택 사항] 빌드 아티팩트를 업로드하기 전에 컨테이너에서 내용을 지우려면 **업로드 전에 컨테이너 정리**를 클릭합니다. 컨테이너의 내용을 지우지 않으려면 선택 취소한 상태로 둡니다.
 10. **업로드할 아티팩트 목록**에 **text/*.txt**를 입력합니다.
-11. **Common virtual path for uploaded artifacts**에는 이 자습서에서 사용할 **${BUILD\_ID}/${BUILD\_NUMBER}**를 입력합니다.
+11. **Common virtual path for uploaded artifacts**에는 이 자습서에서 사용할 **${BUILD\_ID}/${BUILD\_NUMBER}** 를 입력합니다.
 12. **Save** 를 클릭하여 설정을 저장합니다.
 13. Jenkins 대시보드에서 **Build Now**를 클릭하여 **MyJob**을 실행합니다. 콘솔 출력을 점검하여 상태를 확인합니다. 빌드 후 작업이 빌드 아티팩트를 업로드하기 시작하면 Azure 저장소 상태 메시지가 콘솔 출력에 포함됩니다.
 14. 작업이 성공적으로 완료되었을 때 공용 Blob을 열어 빌드 아티팩트를 검사할 수 있습니다.
@@ -143,7 +144,7 @@ Azure Blob 저장소에서 다운로드할 추가 항목이 있는 경우에는 
   
     위의 형식은 공용 Azure 클라우드에 적용됩니다. 다른 Azure 클라우드를 사용 중이면 [Azure 포털](https://portal.azure.com) 내의 끝점을 사용하여 URL 끝점을 확인합니다.)
   
-    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/**에서 찾을 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}**는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
+    위 형식에서 `storageaccount`은(는) 저장소 계정 이름을 나타내고, `container_name`은(는) 컨테이너 이름을 나타내고, `blob_name`은(는) Blob 이름을 각각 나타냅니다. 컨테이너 이름 내에 슬래시( **/** 에서 찾을 수 있습니다. 이 자습서에서 컨테이너 이름의 예는 **MyJob**이었고 **${BUILD\_ID}/${BUILD\_NUMBER}** 는 일반 가상 경로에 사용되었으므로 Blob의 URL 형식은 다음과 같습니다.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 

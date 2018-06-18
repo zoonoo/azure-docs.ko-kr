@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7db5795132f5ca61c65a3cbd2caec1bccbf9a080
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34620564"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
@@ -103,7 +104,7 @@ ms.lasthandoff: 03/23/2018
 *  게이트웨이 구성 관리자를 사용하여 게이트웨이의 HTTP 프록시를 설정할 수 있습니다. Azure Blob, Azure 테이블, Azure Data Lake 및 DocumentDB가 구성되어 있는 경우 HTTP 프록시를 통해 액세스할 수 있습니다.
 *  Azure Blob, Azure Data Lake Store, 온-프레미스 파일 시스템 및 온-프레미스 HDFS를 원본/대상으로 사용하여 데이터를 복사할 때 TextFormat의 헤더 처리가 지원됩니다.
 *  이미 복사가 지원되는 블록 Blob는 물론 추가 Blob 및 페이지 Blob에서도 데이터를 복사할 수 있습니다.
-*  새로운 게이트웨이 상태인 **온라인(제한됨)**이 도입되었습니다. 이 상태는 복사 마법사의 대화형 작업 지원을 제외한 게이트웨이의 기본 기능이 작동함을 나타냅니다.
+*  새로운 게이트웨이 상태인 **온라인(제한됨)** 이 도입되었습니다. 이 상태는 복사 마법사의 대화형 작업 지원을 제외한 게이트웨이의 기본 기능이 작동함을 나타냅니다.
 *  등록 키를 사용하여 게이트웨이를 보다 안정적으로 등록할 수 있습니다.
 
 ## <a name="216040"></a>2.1.6040.

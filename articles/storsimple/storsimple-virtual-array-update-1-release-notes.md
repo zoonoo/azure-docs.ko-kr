@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 가상 배열 업데이트 1.0 릴리스 정보| Microsoft Docs"
-description: "업데이트 1.0을 실행하는 StorSimple 가상 배열에 대한 중대한 미해결 문제 및 해결 방법을 설명합니다."
+title: StorSimple 가상 배열 업데이트 1.0 릴리스 정보| Microsoft Docs
+description: 업데이트 1.0을 실행하는 StorSimple 가상 배열에 대한 중대한 미해결 문제 및 해결 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010866"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>StorSimple 가상 배열 업데이트 1.0 릴리스 정보
 

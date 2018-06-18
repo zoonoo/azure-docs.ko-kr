@@ -2,22 +2,21 @@
 title: 'Azure Cosmos DB: BulkExecutor Java API, SDK 및 리소스 | Microsoft Docs'
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB BulkExecutor Java SDK의 각 버전 간 변경 내용을 포함하여 BulkExecutor Java API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
-documentationcenter: .net
 author: tknandu
 manager: kfile
 editor: cgronlun
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: java
+ms.topic: reference
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 446b323e13c3726be36e2b9ae0ab018de77b62fc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e1e43abd3d0cfceb1713be6cdd02642833283508
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797654"
 ---
 # <a name="java-bulkexecutor-library-download-information"></a>Java BulkExecutor 라이브러리: 다운로드 정보
 
@@ -43,7 +42,7 @@ ms.lasthandoff: 05/07/2018
 
 <tr><td>**GitHub의 BulkExecutor 라이브러리**</td><td>[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)</td></tr>
 
-<tr><td>**API 설명서**</td><td>[.NET API 참조 설명서]()</td></tr>
+<tr><td>**API 설명서**</td><td>[.NET API 참조 설명서](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)</td></tr>
 
 <tr><td>**시작**</td><td>[BulkExecutor 라이브러리 Java SDK 시작](bulk-executor-java.md)</td></tr>
 

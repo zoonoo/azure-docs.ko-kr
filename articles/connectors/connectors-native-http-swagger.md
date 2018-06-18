@@ -1,11 +1,11 @@
 ---
-title: "Azure Logic Apps용 HTTP + Swagger 커넥터를 사용하여 REST 끝점 호출 | Microsoft Docs"
-description: "HTTP + Swagger 커넥터를 통해 Logic Apps에서 REST 끝점에 연결"
+title: Azure Logic Apps용 HTTP + Swagger 커넥터를 사용하여 REST 끝점 호출 | Microsoft Docs
+description: HTTP + Swagger 커넥터를 통해 Logic Apps에서 REST 끝점에 연결
 services: logic-apps
 author: jeffhollan
-manager: anneta
-editor: 
-documentationcenter: 
+manager: jeconnoc
+editor: ''
+documentationcenter: ''
 tags: connectors
 ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 ms.service: logic-apps
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan; LADocs
-ms.openlocfilehash: 0487dbedddee684c75420bd66effe2c963a18624
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 4e4421b0dfe0f29c3d50764b9ca04471c73a1450
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296522"
 ---
 # <a name="get-started-with-the-http--swagger-action"></a>HTTP + Swagger 동작 시작
 

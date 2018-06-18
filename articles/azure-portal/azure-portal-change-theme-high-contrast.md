@@ -15,6 +15,7 @@ ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/14/2018
+ms.locfileid: "34165403"
 ---
 # <a name="turn-on-high-contrast-or-change-the-theme-in-the-azure-portal"></a>Azure Portal에서 고대비 켜기 또는 테마 변경
 Azure Portal에서 더 많은 대비가 필요하거나 색 구성표를 변경하려면 포털 설정으로 이동하여 변경합니다. 

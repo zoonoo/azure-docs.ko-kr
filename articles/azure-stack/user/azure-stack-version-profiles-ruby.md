@@ -20,6 +20,7 @@ ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "34011217"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Azure 스택에서 Ruby API 버전 프로필 사용
 

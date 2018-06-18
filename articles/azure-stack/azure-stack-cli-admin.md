@@ -1,24 +1,25 @@
 ---
-title: "Azure 스택 사용자에 대 한 Azure CLI를 사용 하도록 설정 | Microsoft Docs"
-description: "크로스 플랫폼 명령줄 인터페이스 (CLI)를 사용 하 여 관리 하 고 스택에서 Azure 리소스를 배포 하는 방법을 알아봅니다"
+title: Azure 스택 사용자에 대 한 Azure CLI를 사용 하도록 설정 | Microsoft Docs
+description: 크로스 플랫폼 명령줄 인터페이스 (CLI)를 사용 하 여 관리 하 고 스택에서 Azure 리소스를 배포 하는 방법을 알아봅니다
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: 
+editor: ''
 ms.assetid: f576079c-5384-4c23-b5a4-9ae165d1e3c3
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 06/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: e2483bda5a0c6a6b270759946f146c37c5dad5b1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d0103d211608514848da7d789d32d37d8385f33f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247859"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>Azure 스택 사용자에 대 한 Azure CLI를 사용 하도록 설정
 
@@ -58,19 +59,17 @@ certutil -encode root.cer root.pem
 Azure 스택 운영자 별칭 가상 컴퓨터 파일을 호스팅하는 공개적으로 액세스할 수 있는 끝점을 설정 해야 합니다. 가상 컴퓨터 별칭 파일이 이미지에 대 한 일반 이름을 제공 하는 JSON 파일입니다. Azure CLI 매개 변수는 VM을 배포 하는 경우에 이후에 해당 이름이 지정 됩니다.  
 
 별칭 파일에 항목을 추가 하기 전에 확인 하면 [Azure 마켓플레이스의 이미지 다운로드](azure-stack-download-azure-marketplace-item.md), 수도 있고 [사용자 지정 이미지를 게시](azure-stack-add-vm-image.md)합니다. 사용자 지정 이미지를 게시 하는 경우 확인 게시 중에 지정 된 게시자, 제품, SKU 및 버전 정보를 기록 합니다. 마켓플레이스의 이미지 경우 사용 하 여 정보를 볼 수 있습니다는 ```Get-AzureVMImage``` cmdlet.  
-   
+
 A [샘플 별칭 파일](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) 많은 일반적인 이미지 별칭을 사용할 수 있습니다. 시작 지점으로 사용할 수 있습니다. CLI 클라이언트가 연결할 수 있는 공간에이 파일을 호스트 합니다. 한 가지 방법은 blob 저장소 계정에 파일을 호스트 URL을 사용자와 공유할:
 
 1. 다운로드는 [샘플 파일](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json) GitHub에서 합니다.
 2. Azure 스택에서 새 저장소 계정을 만듭니다. 완료 되 면 새 blob 컨테이너를 만듭니다. "공개 합니다."로 액세스 정책 설정  
-3. 새 컨테이너에는 JSON 파일을 업로드 합니다. 완료 되 면 blob 이름을 클릭 하 고 다음 blob 속성에서 URL을 선택 하 여 blob의 URL을 볼 수 있습니다.
-
+3. 새 컨테이너에는 JSON 파일을 업로드 합니다. 완료 되 면 blob 이름을 선택 하 고 다음 blob 속성에서 URL을 선택 하 여 blob의 URL을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
+- [Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
 
-[PowerShell로 연결](azure-stack-connect-powershell.md)
+- [PowerShell로 연결](azure-stack-connect-powershell.md)
 
-[사용자 권한 관리](azure-stack-manage-permissions.md)
-
+- [사용자 권한 관리](azure-stack-manage-permissions.md)

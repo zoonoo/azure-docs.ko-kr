@@ -5,6 +5,7 @@
     - name: 가상 머신 크기 집합이란?
       href: overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: Azure Portal에서 만들기
       href: quick-create-portal.md
@@ -64,6 +65,102 @@
       href: cli-samples.md
     - name: PowerShell
       href: powershell-samples.md
+- name: 개념
+  items:
+    - name: Azure 리소스 관리자
+      href: ../azure-resource-manager/resource-group-overview.md
+      maintainContext: true
+    - name: 지역 및 가용성
+      href: ../virtual-machines/windows/regions-and-availability.md
+      maintainContext: true
+    - name: VM 유형 및 크기
+      href: ../virtual-machines/windows/sizes.md
+      maintainContext: true
+      items:
+        - name: 범용 가상 컴퓨터
+          href: ../virtual-machines/windows/sizes-general.md
+          maintainContext: true
+          items:
+            - name: B-시리즈 버스터블
+              href: ../virtual-machines/windows/b-series-burstable.md
+              maintainContext: true
+        - name: Compute에 최적화
+          href: ../virtual-machines/windows/sizes-compute.md
+          maintainContext: true
+        - name: 메모리에 최적화
+          href: ../virtual-machines/windows/sizes-memory.md
+          maintainContext: true
+          items:
+            - name: 제한된 vCPU
+              href: ../virtual-machines/windows/constrained-vcpu.md
+              maintainContext: true
+        - name: Storage에 최적화
+          href: ../virtual-machines/windows/sizes-storage.md
+          maintainContext: true
+        - name: GPU에 최적화
+          href: ../virtual-machines/windows/sizes-gpu.md
+          maintainContext: true
+          items:
+            - name: GPU 드라이버 설정
+              href: ../virtual-machines/windows/n-series-driver-setup.md
+              maintainContext: true
+        - name: 고성능 계산
+          href: ../virtual-machines/windows/sizes-hpc.md
+          maintainContext: true
+        - name: Azure 계산 단위(ACU)
+          href: ../virtual-machines/windows/acu.md
+          maintainContext: true
+        - name: 벤치마크 점수
+          href: ../virtual-machines/windows/compute-benchmark-scores.md
+          maintainContext: true
+    - name: Linux 보증 배포판
+      href: ../virtual-machines/linux/endorsed-distros.md
+      maintainContext: true
+    - name: 유지 관리 및 업데이트
+      href: ../virtual-machines/windows/maintenance-and-updates.md
+      maintainContext: true
+    - name: 디스크 저장소
+      href: ../virtual-machines/windows/about-disks-and-vhds.md
+      maintainContext: true
+      items:
+        - name: Managed Disks
+          href: ../virtual-machines/windows/managed-disks-overview.md
+          maintainContext: true
+        - name: Premium Storage
+          href: ../virtual-machines/windows/premium-storage.md
+          maintainContext: true
+        - name: 프리미엄 저장소 성능
+          href: ../virtual-machines/windows/premium-storage-performance.md
+          maintainContext: true
+        - name: Standard Storage
+          href: ../virtual-machines/windows/standard-storage.md
+          maintainContext: true
+        - name: 디스크에 대한 확장성 목표
+          href: ../virtual-machines/windows/disk-scalability-targets.md
+          maintainContext: true
+        - name: 디스크의 복구 및 재해 복구
+          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+          maintainContext: true
+    - name: 네트워킹
+      href: ../virtual-machines/windows/network-overview.md
+      maintainContext: true
+    - name: 인프라 자동화
+      href: ../virtual-machines/windows/infrastructure-automation.md
+      maintainContext: true
+    - name: 보안 및 정책
+      href: ../virtual-machines/windows/security-policy.md
+      maintainContext: true
+    - name: 모니터링
+      href: ../virtual-machines/windows/monitor.md
+      maintainContext: true
+    - name: 고성능 컴퓨팅
+      href: ../virtual-machines/windows/high-performance-computing.md
+      maintainContext: true
+    - name: 배포 고려 사항
+      items:
+        - name: vCPU 할당량
+          href: ../virtual-machines/windows/quotas.md
+          maintainContext: true
 - name: 방법
   items:
     - name: 계획 및 디자인

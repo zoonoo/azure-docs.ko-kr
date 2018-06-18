@@ -1,12 +1,12 @@
 ---
-title: "스케줄러 기반 자동화 워크플로 빌드 - Azure Logic Apps | Microsoft Docs"
-description: "이 자습서에서는 Azure Logic Apps를 사용하여 스케줄러 기반의 되풀이 자동화 워크플로를 만드는 방법을 보여줍니다."
+title: 스케줄러 기반 자동화 워크플로 빌드 - Azure Logic Apps | Microsoft Docs
+description: 이 자습서에서는 Azure Logic Apps를 사용하여 스케줄러 기반의 되풀이 자동화 워크플로를 만드는 방법을 보여줍니다.
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -15,11 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4360249367632a01e4357c527f595f8416c7cc38
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300772"
 ---
 # <a name="check-traffic-with-a-scheduler-based-logic-app"></a>스케줄러 기반 논리 앱으로 트래픽 확인
 
@@ -47,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 <a href="https://azure.
 
 * 경로의 이동 시간 정보를 가져오려면 Bing 지도 API에 대한 액세스 키가 필요합니다. 이 키를 가져오려면 <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Bing 지도 키를 가져오는 방법</a>의 단계를 수행합니다. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 

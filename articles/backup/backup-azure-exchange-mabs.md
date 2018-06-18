@@ -1,24 +1,19 @@
 ---
-title: "Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버 백업 | Microsoft Docs"
-description: "Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버를 백업하는 방법을 알아봅니다."
+title: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버 백업
+description: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버를 백업하는 방법을 알아봅니다.
 services: backup
-documentationcenter: 
 author: pvrk
 manager: shivamg
-editor: 
-ms.assetid: e46557e8-2eaf-4ee0-99ea-00fbb8687dca
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: pullabhk
-ms.openlocfilehash: 60b784fd00013c2b9504f8635c6b5c4c592563be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d64c273a189b1fe2337c4430b156874e0adf54b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605963"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버 백업
 이 문서에서는 Microsoft Azure Backup Server(MABS)를 구성하여 Azure에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
@@ -52,7 +47,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 
    * 디스크를 사용하여 단기 보호를 하려고 합니다.
    * 온라인 보호를 사용하려고 합니다.
-6. **다음**을 누릅니다.
+6. **다음**을 클릭합니다.
 7. Exchange Server 데이터베이스의 무결성을 확인하려는 경우 **Eseutil 실행하여 데이터 무결성 확인** 옵션을 선택합니다.
 
     이 옵션을 선택한 후에 Exchange 서버에서 **eseutil** 명령을 실행하여 생성되는 I/O 트래픽을 방지하기 위해 백업 일관성 확인 작업이 MABS에서 실행됩니다.
@@ -62,8 +57,8 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
    > ![eseutil 오류](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. **다음**을 누릅니다.
-9. **복사 백업**에 대한 데이터베이스를 선택하고 **다음**을 클릭합니다.
+8. **다음**을 클릭합니다.
+9. **복사 Backup**에 대한 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
    > [!NOTE]
    > 데이터베이스의 DAG 복사본 하나 이상에 대한 "전체 백업"을 선택하지 않으면 로그는 잘리지 않습니다.
@@ -73,10 +68,10 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. MAB 서버가 초기 복제를 만들 시기를 선택하고 **다음**을 클릭합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예:
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예: 
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure 백업**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예:
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예: 
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -84,7 +79,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
     > 온라인 복구 지점은 Express 전체 복구 지점을 기반으로 합니다. 따라서 Express 전체 복구 지점에 지정된 시간 후에 온라인 복구 지점을 예약해야 합니다.
     >
     >
-16. **Azure 백업**에 대한 보존 정책을 구성하고 **다음**을 클릭합니다.
+16. **Azure Backup**에 대한 보존 정책을 구성하고 **다음**을 클릭합니다.
 17. 온라인 복제 옵션을 선택하고 **다음**을 클릭합니다.
 
     큰 데이터베이스를 가지고 있다면 네트워크를 통해 만들 초기 백업에 시간이 오래 걸릴 수 있습니다. 이 문제를 방지하려면 오프라인 백업을 만들 수 있습니다.  
@@ -110,4 +105,4 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
     ![온라인 복제 선택](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure 백업 - FAQ](backup-azure-backup-faq.md)
+* [Azure Backup - FAQ](backup-azure-backup-faq.md)

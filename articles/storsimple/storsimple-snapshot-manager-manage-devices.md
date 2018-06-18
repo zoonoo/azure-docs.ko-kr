@@ -1,11 +1,11 @@
 ---
-title: "StorSimple Snapshot Manager에서 장치 관리 | Microsoft Docs"
-description: "StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 StorSimple 장치를 연결하고 관리하는 방법을 설명합니다."
+title: StorSimple Snapshot Manager에서 장치 관리 | Microsoft Docs
+description: StorSimple 스냅숏 관리자 MMC 스냅인을 사용하여 StorSimple 장치를 연결하고 관리하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: SharS
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 966ecbe3-a7fa-4752-825f-6694dd949946
 ms.service: storsimple
 ms.devlang: NA
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111441"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>StorSimple 스냅숏 관리자를 사용하여 StorSimple 장치 연결 및 관리
 ## <a name="overview"></a>개요

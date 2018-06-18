@@ -19,6 +19,7 @@ ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/19/2018
+ms.locfileid: "31593052"
 ---
 # <a name="log-analytics-features-for-service-providers"></a>서비스 공급자에 대한 Log Analytics 기능
 Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다. 
@@ -30,7 +31,7 @@ Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Soft
 
 Log Analytics의 경우 다음 기능을 *클라우드 솔루션 공급자* 구독에서 사용할 수 있습니다.
 
-*CSP(클라우드 솔루션 공급자)*는 다음을 수행할 수 있습니다.
+*CSP(클라우드 솔루션 공급자)* 는 다음을 수행할 수 있습니다.
 
 * 테넌트(고객) 구독에 Log Analytics 작업 영역을 만듭니다.
 * 테넌트에서 만든 작업 영역에 액세스합니다. 

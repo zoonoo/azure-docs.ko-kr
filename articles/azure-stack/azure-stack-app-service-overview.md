@@ -1,12 +1,12 @@
 ---
-title: "응용 프로그램 서비스 개요: Azure 스택 | Microsoft Docs"
-description: "Azure 스택 앱 서비스의 개요"
+title: '응용 프로그램 서비스 개요: Azure 스택 | Microsoft Docs'
+description: Azure 스택 앱 서비스의 개요
 services: azure-stack
-documentationcenter: 
+documentationcenter: ''
 author: brenduns
 manager: femila
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: azure-stack
 ms.workload: app-service
 ms.tgt_pltfrm: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29386081"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 개요에 대한 App Service
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*

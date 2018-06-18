@@ -30,12 +30,14 @@
       href: render-coverage.md
     - name: 라우팅 검사
       href: routing-coverage.md
-    - name: 검색 범주
-      href: search-categories.md
+    - name: 지원되는 검색 범주
+      href: supported-search-categories.md
     - name: 지원되는 언어
       href: supported-languages.md
     - name: 소비 모델
       href: consumption-model.md
+    - name: geoJSON 확장
+      href: extend-geojson.md
 - name: 방법 가이드
   items:
     - name: Maps 계정 관리
@@ -70,17 +72,33 @@
           href: map-show-traffic.md
         - name: 마우스 이벤트와 상호 작용
           href: map-events.md
+        - name: 액세스할 수 있는 맵 응용 프로그램
+          href: map-accessibility.md
 - name: 참고 자료
   items:
-    - name: 서비스 API - REST
-      href: 'https://docs.microsoft.com/rest/api/maps/'
-    - name: 맵 컨트롤 API - Javascript
-      href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
+    - name: REST (영문)
+      items:
+        - name: Render Service
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/renderservice'
+        - name: Route Service
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/routeservice'
+        - name: Search 서비스
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/searchservice'
+        - name: Timezone Service
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/timezoneservice'
+        - name: Traffic Service
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps/trafficservice'
+        - name: Maps 계정 관리
+          href: 'https://docs.microsoft.com/en-us/rest/api/maps-management'
+    - name: JavaScript
+      items:
+        - name: 지도 컨트롤
+          href: 'https://docs.microsoft.com/javascript/api/azure-maps-javascript/'
 - name: 관련 항목
   items:
     - name: 솔루션
       items:
-        - name: IoT Suite 미리 구성된 솔루션
+        - name: IoT 솔루션 가속기
           href: /azure/iot-suite
         - name: IoT Central
           href: 'https://docs.microsoft.com/microsoft-iot-central/'

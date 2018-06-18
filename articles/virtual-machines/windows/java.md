@@ -20,6 +20,7 @@ ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/18/2018
+ms.locfileid: "31525233"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
@@ -133,7 +134,7 @@ ms.lasthandoff: 04/18/2018
     graphURL=https://graph.windows.net/
     ```
 
-    **&lt;subscription-id&gt;**를 구독 식별자, **&lt;application-id&gt;**를 Active Directory 응용 프로그램 식별자, **&lt;authentication-key&gt;**를 응용 프로그램 키, **&lt;tenant-id&gt;**를 테넌트 식별자로 바꿉니다.
+    **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 응용 프로그램 식별자, **&lt;authentication-key&gt;** 를 응용 프로그램 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
 
 2. 파일을 저장합니다.
 3. 인증 파일에 전체 경로로 프로그램 셸의 AZURE_AUTH_LOCATION이라는 환경 변수를 설정합니다.

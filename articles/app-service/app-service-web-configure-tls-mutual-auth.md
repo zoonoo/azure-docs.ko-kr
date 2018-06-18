@@ -1,8 +1,8 @@
 ---
-title: "웹앱에 대 한 TLS 상호 인증을 구성하는 방법"
-description: "TLS에 클라이언트 인증서 인증을 사용 하 여 웹앱을 구성하는 방법에 알아봅니다."
+title: 웹앱에 대 한 TLS 상호 인증을 구성하는 방법
+description: TLS에 클라이언트 인증서 인증을 사용 하 여 웹앱을 구성하는 방법에 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: naziml
 manager: erikre
 editor: jimbe
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22985768"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>웹앱에 대 한 TLS 상호 인증을 구성하는 방법
 ## <a name="overview"></a>개요

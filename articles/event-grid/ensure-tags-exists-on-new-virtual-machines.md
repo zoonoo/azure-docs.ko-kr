@@ -1,12 +1,12 @@
 ---
-title: "Azure Automation과 Event Grid 통합 | Microsoft Docs"
-description: "새 VM을 만들 때 자동으로 태그를 추가하고 Microsoft Teams에 알림을 보내는 방법을 알아봅니다."
-keywords: "자동화, runbook, 팀, 이벤트 그리드, 가상 머신, VM"
+title: Azure Automation과 Event Grid 통합 | Microsoft Docs
+description: 새 VM을 만들 때 자동으로 태그를 추가하고 Microsoft Teams에 알림을 보내는 방법을 알아봅니다.
+keywords: 자동화, runbook, 팀, 이벤트 그리드, 가상 머신, VM
 services: automation
-documentationcenter: 
+documentationcenter: ''
 author: eamonoreilly
-manager: 
-editor: 
+manager: ''
+editor: ''
 ms.service: automation
 ms.devlang: na
 ms.topic: tutorial
@@ -19,6 +19,7 @@ ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/07/2017
+ms.locfileid: "26349072"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation과 Event Grid 통합
 

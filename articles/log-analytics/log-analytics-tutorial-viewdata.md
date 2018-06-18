@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30834421"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics 로그 검색을 사용하여 수집한 데이터를 보고 분석합니다.
 
@@ -83,7 +84,7 @@ Syslog | where (SeverityLevel == "err")
 
 이름이 파란색인 속성의 경우에는 마우스를 위로 가져가면 **필터** 옵션만 표시됩니다.  이러한 필드는 검색 조건에 대해 인덱싱되는 *검색 가능* 필드입니다.  회색 필드는 **참조 표시** 옵션만 포함하는 *자유 텍스트 검색 가능* 필드입니다.  이 옵션은 속성에 해당 값이 포함된 레코드를 반환합니다.
 
-레코드 메뉴의 **필터링 기준** 옵션을 선택하면 단일 속성에 대한 결과를 그룹화할 수 있습니다.  이렇게 하면 차트에 결과를 표시하는 [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 연산자가 쿼리에 추가됩니다.  둘 이상의 속성을 그룹화할 수는 있지만 이렇게 하려면 쿼리를 직접 편집해야 합니다.  **Computer** 속성 옆의 레코드 메뉴를 선택하고 **묶는 방법 'Computer'**를 선택합니다.  
+레코드 메뉴의 **필터링 기준** 옵션을 선택하면 단일 속성에 대한 결과를 그룹화할 수 있습니다.  이렇게 하면 차트에 결과를 표시하는 [summarize](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator) 연산자가 쿼리에 추가됩니다.  둘 이상의 속성을 그룹화할 수는 있지만 이렇게 하려면 쿼리를 직접 편집해야 합니다.  **Computer** 속성 옆의 레코드 메뉴를 선택하고 **묶는 방법 'Computer'** 를 선택합니다.  
 
 ![컴퓨터를 기준으로 그룹화](media/log-analytics-tutorial-viewdata/log-analytics-portal-eventlist-04.png)
 

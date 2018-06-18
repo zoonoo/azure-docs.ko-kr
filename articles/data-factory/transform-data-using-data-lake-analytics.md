@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: abnarain
-ms.openlocfilehash: 7e55249ed187ad9fa74a39634bbb254c9b0b8b8e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1bf030d7eaba5c8aa608c504f65c5ebf291eab3d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34619697"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +42,7 @@ Azure 데이터 레이크 분석 계산 서비스와 Azure Data Factory에 연�
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
 | **accountName**          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
-| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
+| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 아니오                                       |
 | **subscriptionId**       | Azure 구독 ID입니다.                    | 아니요(지정하지 않으면 Data Factory의 구독이 사용됨). |
 | **resourceGroupName**    | Azure 리소스 그룹 이름                | 아니요(지정하지 않으면 Data Factory의 리소스 그룹이 사용됨). |
 
@@ -123,14 +124,14 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 | 자산            | 설명                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
 | 이름                | 파이프라인의 작업 이름입니다.     | 예      |
-| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
+| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니오       |
 | 형식                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | 예      |
 | linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.  |예       |
 | scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
 | scriptLinkedService | 스크립트가 포함된 저장소를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | 예      |
-| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요       |
-| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요       |
-| 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아니요       |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니오       |
+| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니오       |
+| 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아니오       |
 | runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아니오       |
 | compilationMode     | <p>U-SQL의 컴파일 모드 다음과 같은 값 중 하나여야 합니다. **의미 체계:** 의미 체계 확인 및 필요한 온전성 검사만을 수행합니다 **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** SingleBox에 TargetType 설정을 사용하여 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아니오 |
 

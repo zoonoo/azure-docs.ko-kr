@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30841387"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>2개 가상 네트워크 피어링 스크립트 샘플
 

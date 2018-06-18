@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치 비활성화 및 삭제 | Microsoft Docs"
-description: "먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다."
+title: StorSimple 8000 시리즈 장치 비활성화 및 삭제 | Microsoft Docs
+description: 먼저 StorSimple 장치를 비활성화한 후 삭제하여 서비스에서 제거하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108461"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>StorSimple 장치 비활성화 및 삭제
 

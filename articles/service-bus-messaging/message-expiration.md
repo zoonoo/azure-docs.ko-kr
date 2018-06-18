@@ -1,11 +1,11 @@
 ---
-title: "Azure Service Bus 메시지 만료 | Microsoft Docs"
-description: "Azure Service Bus 메시지의 만료 및 TTL(Time to Live)"
+title: Azure Service Bus 메시지 만료 | Microsoft Docs
+description: Azure Service Bus 메시지의 만료 및 TTL(Time to Live)
 services: service-bus-messaging
-documentationcenter: 
+documentationcenter: ''
 author: clemensv
 manager: timlt
-editor: 
+editor: ''
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2018
+ms.locfileid: "28196771"
 ---
 # <a name="message-expiration-time-to-live"></a>메시지 만료(TTL(Time To Live))
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Portal을 사용하여 Log Analytics로 Service Fabric 응용 프로그램 평가 | Microsoft Docs"
-description: "Azure Portal에서 Log Analytics의 Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다."
+title: Azure Portal을 사용하여 Log Analytics로 Service Fabric 응용 프로그램 평가 | Microsoft Docs
+description: Azure Portal에서 Log Analytics의 Service Fabric 솔루션을 사용하여 Service Fabric 응용 프로그램, 마이크로 서비스, 노드 및 클러스터의 위험과 상태를 평가할 수 있습니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: niniikhena
 manager: jochan
-editor: 
+editor: ''
 ms.assetid: 9c91aacb-c48e-466c-b792-261f25940c0c
 ms.service: log-analytics
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28932684"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 
@@ -157,7 +158,7 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 | Windows |  |  | &#8226; |  |  |10분 |
 
 > [!NOTE]
-> 대시보드 맨 위에서 **Data based on last 7 days(최근 7일에 따른 데이터)**를 클릭하여 Service Fabric 솔루션에서 이러한 이벤트 범위를 변경할 수 있습니다. 최근 7일, 1일 또는 6시간 내에 생성된 이벤트를 보여 줄 수 있습니다. 또는 **사용자 지정**을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
+> 대시보드 맨 위에서 **Data based on last 7 days(최근 7일에 따른 데이터)** 를 클릭하여 Service Fabric 솔루션에서 이러한 이벤트 범위를 변경할 수 있습니다. 최근 7일, 1일 또는 6시간 내에 생성된 이벤트를 보여 줄 수 있습니다. 또는 **사용자 지정**을 선택하고 사용자 지정 날짜 범위를 지정할 수 있습니다.
 >
 >
 

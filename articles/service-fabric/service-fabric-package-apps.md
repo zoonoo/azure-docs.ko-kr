@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34205813"
 ---
 # <a name="package-an-application"></a>응용 프로그램 패키지 작성
 이 문서에서는 Service Fabric 응용 프로그램을 패키지하고 배포를 준비하는 방법에 대해 설명합니다.

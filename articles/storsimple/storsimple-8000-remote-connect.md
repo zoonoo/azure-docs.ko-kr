@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 장치에 원격으로 연결 | Microsoft Docs"
-description: "원격 관리를 위해 장치를 구성하는 방법 및 HTTP 또는 HTTPS를 통해 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다."
+title: StorSimple 장치에 원격으로 연결 | Microsoft Docs
+description: 원격 관리를 위해 장치를 구성하는 방법 및 HTTP 또는 HTTPS를 통해 StorSimple용 Windows PowerShell에 연결하는 방법을 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: jeconnoc
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/25/2018
+ms.locfileid: "28103958"
 ---
 # <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에 원격으로 연결
 
@@ -174,7 +175,7 @@ Azure Portal에서 다음 단계를 수행하여 HTTPS를 통한 원격 관리�
     다음과 유사한 인증서가 나타납니다.
    
     ![원격 관리 인증서 가져오기](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
-6. **-----BEGIN CERTIFICATE-----**에서 **-----END CERTIFICATE-----**까지 인증서 정보를 메모장 등의 텍스트 편집기에 복사하고 .cer 파일로 저장합니다. 호스트를 준비할 때 이 파일을 원격 호스트에 복사합니다.
+6. **-----BEGIN CERTIFICATE-----** 에서 **-----END CERTIFICATE-----** 까지 인증서 정보를 메모장 등의 텍스트 편집기에 복사하고 .cer 파일로 저장합니다. 호스트를 준비할 때 이 파일을 원격 호스트에 복사합니다.
    
    > [!NOTE]
    > 새 인증서를 생성하려면 `Set-HcsRemoteManagementCert` cmdlet을 사용합니다.

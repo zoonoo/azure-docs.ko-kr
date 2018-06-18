@@ -1,12 +1,12 @@
 ---
-title: "포털을 통해 Azure Event Hubs를 사용하도록 설정 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Event Hubs 캡처 기능을 사용하도록 설정합니다."
+title: 포털을 통해 Azure Event Hubs를 사용하도록 설정 | Microsoft Docs
+description: Azure Portal을 사용하여 Event Hubs 캡처 기능을 사용하도록 설정합니다.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/21/2017
+ms.locfileid: "26855014"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정
 

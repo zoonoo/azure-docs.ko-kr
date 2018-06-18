@@ -1,11 +1,11 @@
 ---
-title: "Azure API Management 개요 및 키 개념 | Microsoft Docs"
-description: "API, 제품, 역할, 그룹 및 기타 API Management의 주요 개념에 대해 알아봅니다."
+title: Azure API Management 개요 및 키 개념 | Microsoft Docs
+description: API, 제품, 역할, 그룹 및 기타 API Management의 주요 개념에 대해 알아봅니다.
 services: api-management
-documentationcenter: 
+documentationcenter: ''
 author: vladvino
 manager: erikre
-editor: 
+editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/28/2018
+ms.locfileid: "29712375"
 ---
 # <a name="what-is-api-management"></a>API Management란?
 

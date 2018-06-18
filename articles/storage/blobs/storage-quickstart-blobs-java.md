@@ -14,6 +14,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32192012"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java"></a>빠른 시작: Java를 사용하여 BLOB 업로드, 다운로드 및 나열
 

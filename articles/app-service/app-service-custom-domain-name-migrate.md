@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service로 활성 DNS 이름 마이그레이션 | Microsoft Docs"
-description: "가동 중지 시간 없이 라이브 사이트에 이미 할당된 사용자 지정 DNS 도메인 이름을 Azure App Service로 마이그레이션하는 방법을 알아봅니다."
+title: Azure App Service로 활성 DNS 이름 마이그레이션 | Microsoft Docs
+description: 가동 중지 시간 없이 라이브 사이트에 이미 할당된 사용자 지정 DNS 도메인 이름을 Azure App Service로 마이그레이션하는 방법을 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: jimbe
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/03/2018
+ms.locfileid: "27566494"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -48,7 +49,7 @@ DNS 확인의 중단을 염려하지 않는 경우에는 [Azure Web Apps에 기�
 
 ### <a name="create-domain-verification-record"></a>도메인 확인 레코드 만들기
 
-도메인 소유권을 확인하려면 TXT 레코드를 추가합니다. TXT 레코드는 _awverify.&lt;subdomain>_에서 _&lt;appname>.azurewebsites.net_으로 매핑합니다. 
+도메인 소유권을 확인하려면 TXT 레코드를 추가합니다. TXT 레코드는 _awverify.&lt;subdomain>_ 에서 _&lt;appname>.azurewebsites.net_으로 매핑합니다. 
 
 필요한 TXT 레코드는 마이그레이션할 DNS 레코드에 따라 달라집니다. 예제를 보려면 다음 표를 참조하세요(`@`은 일반적으로 루트 도메인을 나타냄).
 

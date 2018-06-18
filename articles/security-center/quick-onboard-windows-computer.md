@@ -20,6 +20,7 @@ ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30922776"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Windows 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Microsoft Monitoring Agent를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -39,7 +40,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
  ![Security Center 개요][2]
 
 3. Security Center 주 메뉴에서 **고급 보안으로 온보딩**을 선택합니다.
-4. **비 Azure 컴퓨터를 추가할까요?**를 선택합니다.
+4. **비 Azure 컴퓨터를 추가할까요?** 를 선택합니다.
 
    ![고급 보안으로 온보딩][3]
 

@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31431723"
 ---
 Azure Cosmos DB 프로그램 관리자 Andrew Liu가 글로벌 배포 기능에 대해 설명하는 다음 비디오를 통해 Azure Cosmos DB 글로벌 배포에 대해 배울 수 있습니다.
 

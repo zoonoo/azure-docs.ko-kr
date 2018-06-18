@@ -1,19 +1,20 @@
 ---
-title: "MySQL용 Azure 데이터베이스 서버 방화벽 규칙"
-description: "MySQL용 Azure데이터베이스 서버의 방화벽 규칙에 대해 설명합니다."
+title: MySQL용 Azure 데이터베이스 서버 방화벽 규칙
+description: MySQL용 Azure데이터베이스 서버의 방화벽 규칙에 대해 설명합니다.
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: a1ebbc088b54112ed625412a347b054fd3361782
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bd075a98e75c6fcb609103eefe260f4d7fc216b1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264656"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>MySQL용 Azure 데이터베이스 서버 방화벽 규칙
 방화벽은 권한이 있는 컴퓨터를 지정할 때까지 데이터베이스 서버에 대한 모든 액세스를 금지합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.

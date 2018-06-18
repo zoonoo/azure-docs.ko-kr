@@ -11,20 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 12a176a6eba3b6dd83ef7fb97f89ecfe99083059
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213322"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637364"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault 고객 데이터 기능
 
 Azure Key Vault는 자격 증명 모음, 키, 비밀, 인증서 및 관리되는 저장소 계정의 만들기 또는 업데이트 중 고객 데이터를 수신합니다. 이 고객 데이터는 Azure Portal과 REST API를 통해 직접 표시됩니다. 고객 데이터는 데이터를 포함하는 개체를 업데이트하거나 삭제하여 편집 또는 삭제될 수 있습니다.
 
 사용자 또는 응용 프로그램에서 Key Vault에 액세스하는 경우 시스템 액세스 로그가 생성됩니다. 고객은 Azure Insights를 통해 자세한 액세스 로그를 사용할 수 있습니다.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="identifying-customer-data"></a>고객 데이터 식별
 

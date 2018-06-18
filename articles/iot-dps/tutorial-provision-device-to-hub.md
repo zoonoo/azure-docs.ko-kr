@@ -1,22 +1,20 @@
 ---
 title: Azure IoT Hub Device Provisioning Service를 사용하여 장치 프로비전 | Microsoft Docs
 description: Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT Hub에 장치를 프로비전
-services: iot-dps
-keywords: ''
 author: dsk-2015
 ms.author: dkshir
 ms.date: 04/12/2018
 ms.topic: tutorial
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 9f151a8fbcdc20124467a1db290f6a05f574e4fe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 453159e51473b76d8a95b98237796ac490f8ed6a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630139"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 장치를 프로비전
 
@@ -47,7 +45,7 @@ ms.lasthandoff: 04/16/2018
 - X.509 기반 장치의 경우 다음과 같은 항목이 필요합니다.
     - [X.509에 발급된 인증서](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) 칩 또는 시뮬레이션입니다. 형식은 *.pem* 또는 *.cer* 파일 중 하나입니다. 개별 등록은 X.509 시스템에 대한 장치별 *서명자 인증서*를, 등록 그룹의 경우 *루트 인증서*를 사용해야 합니다. 
 
-    [![포털에 X.509 증명에 대한 개별 등록 추가](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
+    [![포털에서 X.509 증명에 대한 개별 등록 추가](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 
 Device Provisioning Service에 장치를 등록하는 방법은 두 가지가 있습니다.
 

@@ -1,24 +1,19 @@
 ---
-title: Azure Backup Server 문제 해결 | Microsoft Docs
+title: Azure Backup Server 문제 해결
 description: Azure Backup Server 설치, 등록 및 응용 프로그램 워크로드의 백업 및 복원 문제를 해결합니다.
 services: backup
-documentationcenter: ''
 author: pvrk
 manager: shreeshd
-editor: ''
-ms.assetid: 2d73c349-0fc8-4ca8-afd8-8c9029cb8524
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/24/2017
-ms.author: pullabhk;markgal;
-ms.openlocfilehash: db0d3d9ff2b27ac0be86b73926563d226d0e5d59
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: pullabhk
+ms.openlocfilehash: 2b4c2f8b4c8311580692619cfb6a72fe8bcad6de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605069"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 

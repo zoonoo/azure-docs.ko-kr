@@ -18,6 +18,7 @@ ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/10/2018
+ms.locfileid: "33928849"
 ---
 # <a name="problems-configuring-or-registering-my-application"></a>내 응용 프로그램을 구성 또는 등록하는 문제
 

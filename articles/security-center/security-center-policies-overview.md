@@ -19,6 +19,7 @@ ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/03/2018
+ms.locfileid: "32776128"
 ---
 # <a name="security-policies-overview"></a>보안 정책 개요
 이 문서에서는 Security Center의 보안 정책에 대한 개요를 제공합니다.

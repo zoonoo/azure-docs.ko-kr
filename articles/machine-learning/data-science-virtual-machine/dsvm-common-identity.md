@@ -8,17 +8,19 @@ author: gopitk
 manager: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 431d3079c0d942c15ccbc8352261ccfe1f5f6e47
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 70c6b8cd147cefaa3128bc1e6a414a6fa61dba6d
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830897"
 ---
 # <a name="setup-common-identity-on-the-data-science-vm"></a>데이터 과학 VM에서 일반적인 ID 설정
 
@@ -65,7 +67,7 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
 
     a. [Azure 파일 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)
     
-    b. Linux DSVM에 탑재합니다. Azure Portal의 저장소 계정에서 Azure Files에 대해 "연결" 단추를 클릭하면 Linux DSVM의 bash 셸에서 실행할 명령이 표시됩니다. 명령은 다음과 같습니다.
+    나. Linux DSVM에 탑재합니다. Azure Portal의 저장소 계정에서 Azure Files에 대해 "연결" 단추를 클릭하면 Linux DSVM의 bash 셸에서 실행할 명령이 표시됩니다. 명령은 다음과 같습니다.
 ```
 sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
 ```

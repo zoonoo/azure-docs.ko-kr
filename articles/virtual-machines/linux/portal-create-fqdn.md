@@ -1,8 +1,8 @@
 ---
-title: "Azure Portal에서 Linux VM에 대한 FQDN 만들기 | Microsoft Docs"
-description: "Azure Portal에서 가상 머신을 기반으로 한 Resource Manager에 대한 정규화된 도메인 이름 또는 FQDN을 만드는 방법에 대해 알아봅니다."
+title: Azure Portal에서 Linux VM에 대한 FQDN 만들기 | Microsoft Docs
+description: Azure Portal에서 가상 머신을 기반으로 한 Resource Manager에 대한 정규화된 도메인 이름 또는 FQDN을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: iainfoulds
 manager: jeconnoc
 editor: tysonn
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26707290"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>Linux VM용 Azure Portal에서 정규화된 도메인 이름 만들기
 

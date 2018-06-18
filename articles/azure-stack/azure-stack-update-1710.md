@@ -19,6 +19,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30311926"
 ---
 # <a name="azure-stack-1710-update-build-201710201"></a>Azure 스택 1710 업데이트 (빌드 20171020.1)
 

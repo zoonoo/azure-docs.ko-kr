@@ -1,9 +1,9 @@
 ---
-title: "엔터프라이즈 상태 로밍 개요 | Microsoft Docs"
-description: "Windows 장치의 엔터프라이즈 상태 로밍 설정에 대한 정보를 제공합니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다."
+title: 엔터프라이즈 상태 로밍 개요 | Microsoft Docs
+description: Windows 장치의 엔터프라이즈 상태 로밍 설정에 대한 정보를 제공합니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다.
 services: active-directory
-keywords: "엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드"
-documentationcenter: 
+keywords: 엔터프라이즈 상태 로밍이란, 엔터프라이즈 동기화, windows 클라우드
+documentationcenter: ''
 author: tanning
 manager: mtillman
 editor: curtand
@@ -20,6 +20,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26614952"
 ---
 # <a name="enterprise-state-roaming-overview"></a>엔터프라이즈 상태 로밍 개요
 Windows 10에서는 [Azure Active Directory(Azure AD)](active-directory-whatis.md) 사용자가 사용자 설정 및 응용 프로그램 설정 데이터를 클라우드와 안전하게 동기화할 수 있습니다. 엔터프라이즈 상태 로밍은 사용자의 모든 Windows 장치에 통합된 환경을 제공하고 새 장치 구성에 드는 시간을 줄여 줍니다. 엔터프라이즈 상태 로밍은 Windows 8에서 처음 도입된 표준 [소비자 설정 동기화](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) 와 비슷한 방식으로 작동합니다. 뿐만 아니라 엔터프라이즈 상태 로밍은 다음 기능을 제공합니다.

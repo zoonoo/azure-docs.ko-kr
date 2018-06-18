@@ -1,11 +1,11 @@
 ---
-title: "Azure CDN 리소스의 상태 모니터링 | Microsoft Docs"
-description: "Azure 리소스 상태를 사용하여 Azure CDN 리소스의 상태를 모니터링하는 방법을 알아봅니다."
+title: Azure CDN 리소스의 상태 모니터링 | Microsoft Docs
+description: Azure 리소스 상태를 사용하여 Azure CDN 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
 manager: zhangmanling
-editor: 
+editor: ''
 ms.assetid: bf23bd89-35b2-4aca-ac7f-68ee02953f31
 ms.service: cdn
 ms.devlang: multiple
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22997928"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Azure CDN 리소스의 상태 모니터링
   
@@ -42,7 +43,7 @@ Azure CDN 리소스 상태는 [Azure 리소스 상태](../resource-health/resour
     ![CDN 리소스 상태](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->*도움말 + 지원* 블레이드의 *리소스 상태* 타일에 나열된 CDN 리소스를 찾을 수도 있습니다.  포털 오른쪽 위에 있는 원 안에 표시된 **?**를 클릭하여 *도움말 + 지원*으로 신속하게 이동할 수 있습니다.
+>*도움말 + 지원* 블레이드의 *리소스 상태* 타일에 나열된 CDN 리소스를 찾을 수도 있습니다.  포털 오른쪽 위에 있는 원 안에 표시된 **?** 를 클릭하여 *도움말 + 지원*으로 신속하게 이동할 수 있습니다.
 >
 > ![도움말 + 지원](./media/cdn-resource-health/cdn-help-support.png)
 

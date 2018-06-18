@@ -2,17 +2,19 @@
 title: Azure AD userPrincipalName 채우기
 description: 다음 문서에서는 UserPrincipalName 특성이 채워지는 방법을 설명합니다.
 author: billmath
+ms.component: hybrid
 ms.author: billmath
 ms.date: 02/02/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 96b12fbddd4293c55e9029b194416541ca44c622
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 73238b1f79e639f832499eed15ac1e4499eb6e84
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593403"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -25,7 +27,7 @@ UserPrincipalName 특성 값은 사용자 계정에 대한 Azure AD 사용자 �
 |용어|설명|
 |-----|-----|
 |초기 도메인|Azure AD 테넌트의 기본 도메인(onmicrosoft.com)입니다. 예: contoso.onmicrosoft.com.|
-|MOERA(Microsoft 온라인 전자 메일 라우팅 주소)|Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 계산합니다.|
+|MOERA(Microsoft 온라인 전자 메일 라우팅 주소)|Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;& #64;&lt; 초기 도메인&gt;으로 계산합니다.|
 |온-프레미스 mailNickName 특성|Active Directory의 특성으로, Exchange 조직에서 사용자의 별칭을 나타냅니다.|
 |온-프레미스 mail 특성|Active Directory의 특성으로, 사용자의 전자 메일 주소를 나타냅니다.|
 |기본 SMTP 주소|Exchange 받는 사람 개체의 기본 전자 메일 주소입니다. 예: SMTP:user@contoso.com|
@@ -56,7 +58,7 @@ Azure AD에서 대체 로그인 ID를 사용하도록 설정하기 위해 Azure 
 자세한 내용은 [대체 로그인 ID 구성](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id) 및 [Azure AD 로그인 구성](active-directory-aadconnect-get-started-custom.md#azure-ad-sign-in-configuration)을 참조하세요.
 
 ## <a name="non-verified-upn-suffix"></a>확인되지 않은 UPN 접미사
-온-프레미스 UserPrincipalName 특성/대체 로그인 ID 접미사가 Azure AD 테넌트에서 확인되지 않을 경우 Azure AD UserPrincipalName 특성 값은 MOERA로 설정됩니다. Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 계산합니다.
+온-프레미스 UserPrincipalName 특성/대체 로그인 ID 접미사가 Azure AD 테넌트에서 확인되지 않을 경우 Azure AD UserPrincipalName 특성 값은 MOERA로 설정됩니다. Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;& #64;&lt; 초기 도메인&gt;으로 계산합니다.
 
 ## <a name="verified-upn-suffix"></a>확인된 UPN 접미사
 온-프레미스 UserPrincipalName 특성/대체 로그인 ID 접미사가 Azure AD 테넌트에서 확인될 경우 Azure AD UserPrincipalName 특성 값은 온-프레미스 UserPrincipalName 특성/대체 로그인 ID 값과 같아집니다.
@@ -92,7 +94,7 @@ Azure AD UserPrincipalName 특성 값이 MOERA로 설정될 수 있으므로 MOE
 
 사용자 개체를 처음으로 Azure AD 테넌트와 동기화
 - Azure AD MailNickName 특성을 기본 SMTP 주소 접두사로 설정합니다.
-- MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 설정합니다.
+- MOERA를 &lt;MailNickName&gt;& #64;&lt; 초기 도메인&gt;으로 설정합니다.
 - Azure AD UserPrincipalName 특성을 MOERA로 설정합니다.
 
 Azure AD 테넌트 사용자 개체:
@@ -126,7 +128,7 @@ Azure AD 테넌트 사용자 개체:
 
 온-프레미스 userPrincipalName 특성에 대한 업데이트를 Azure AD 테넌트와 동기화
 - 온-프레미스 userPrincipalName 특성에 대한 업데이트는 MOERA 및 Azure AD UserPrincipalName 특성의 다시 계산을 트리거합니다.
-- MOERA를 &lt;MailNickName&gt;&#64;&lt; 초기 도메인&gt;으로 설정합니다.
+- MOERA를 &lt;MailNickName&gt;& #64;&lt; 초기 도메인&gt;으로 설정합니다.
 - Azure AD UserPrincipalName 특성을 MOERA로 설정합니다.
 
 Azure AD 테넌트 사용자 개체:

@@ -6,7 +6,7 @@
       href: dns-overview.md
 - name: 빠른 시작
   items:
-    - name: DNS 영역 및 레코드 만들기 - 포털
+    - name: 이름 확인 - 포털
       href: dns-getstarted-portal.md
     - name: DNS 영역 및 레코드 만들기 - PowerShell
       href: dns-getstarted-powershell.md
@@ -14,12 +14,12 @@
       href: dns-getstarted-cli.md
 - name: 자습서
   items:
-    - name: 개인 DNS 영역 및 레코드 만들기
-      href: private-dns-getstarted-powershell.md
-    - name: Azure DNS에 도메인 위임
+    - name: Azure DNS에서 도메인 호스트
       href: dns-delegate-domain-azure-dns.md
     - name: 웹앱에 대한 사용자 지정 DNS 레코드 만들기
       href: dns-web-sites-custom-domain.md
+    - name: 개인 DNS 영역 및 레코드 만들기
+      href: private-dns-getstarted-powershell.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -40,6 +40,8 @@
       href: dns-alerts-metrics.md
     - name: 역방향 DNS
       href: dns-reverse-dns-overview.md
+    - name: Azure DNS 및 Traffic Manager를 사용하여 재해 복구
+      href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 방법
   items:
     - name: 사용자 지정 DNS 영역 및 레코드 만들기 - Azure CLI

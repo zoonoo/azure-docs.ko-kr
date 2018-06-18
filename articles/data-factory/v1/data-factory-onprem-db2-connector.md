@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 0e597574c1993e2f2a5421d24063cf9f42a7e57b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34622026"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,7 +85,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **type** |이 속성을 **OnPremisesDb2**로 설정해야 합니다. |예 |
 | **server** |DB2 서버의 이름입니다. |예 |
 | **database** |DB2 데이터베이스의 이름입니다. |예 |
-| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
+| **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니오 |
 | **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
 | **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니오 |
 | **암호** |사용자 계정의 암호입니다. |아니오 |

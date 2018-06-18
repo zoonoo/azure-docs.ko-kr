@@ -13,6 +13,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30198148"
 ---
 ### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>1단계: 가상 네트워크 게이트웨이로 이동
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 03/23/2018
 ### <a name="step-2-delete-connections"></a>2단계: 연결 삭제
 
 1. 가상 네트워크 게이트웨이에 대한 페이지에서 **연결**을 클릭하여 게이트웨이에 대한 모든 연결을 봅니다.
-2. 연결 이름 행의 **'...'**을 클릭하고 드롭다운에서 **삭제**를 선택합니다.
+2. 연결 이름 행의 **'...'** 을 클릭하고 드롭다운에서 **삭제**를 선택합니다.
 3. **예**를 클릭하여 연결 삭제를 확인합니다. 연결이 여러 개인 경우 각 연결을 삭제합니다.
 
 ### <a name="step-3-delete-the-virtual-network-gateway"></a>3단계: 가상 네트워크 게이트웨이 삭제

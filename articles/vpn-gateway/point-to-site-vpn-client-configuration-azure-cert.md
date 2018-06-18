@@ -13,17 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 06/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9b9528aba0be8fd46087d97bc294552db608f1c1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 2ae16d76dce01488403e9f13684e719f92eb80c5
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235834"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Azure 기본 인증서 인증 Point-to-Site 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
 VPN 클라이언트 구성 파일은 zip 파일에 포함되어 있습니다. 구성 파일은 Windows, Mac IKEv2 VPN 또는 Linux 클라이언트에서 Azure 기본 인증서 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet에 연결하는 데 필요한 설정을 제공합니다.
+
+>[!IMPORTANT]
+>[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
+>
 
 ### <a name="workflow"></a>P2S 워크플로
 
@@ -97,7 +102,7 @@ Azure는 원시 Azure 인증서 인증을 위해 mobileconfig 파일을 제공�
     >인증서를 두 번 클릭해도 **추가** 대화 상자가 표시되지 않을 수 있지만 인증서는 올바른 저장소에 설치되어 있습니다. 인증서 범주 아래의 로그인 키 집합에서 인증서를 확인할 수 있습니다.
   
 2. P2S 설정을 구성할 때 Azure로 업로드한 루트 인증서에 의해 발행된 클라이언트 인증서가 설치되어 있는지 확인합니다. 이 인증서는 이전 단계에서 설치한 VPNServerRoot와 다른 인증서입니다. 클라이언트 인증서는 인증에 사용되므로 반드시 필요합니다. 인증서 생성에 대한 자세한 내용은 [인증서 생성](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)을 참조하세요. 클라이언트 인증서를 설치하는 방법은 [클라이언트 인증서 설치](point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
-3. **네트워크 기본 설정** 아래에서 **네트워크** 대화 상자를 열고 **'+'**를 클릭하여 Azure VNet에 대한 P2S 연결용 새 VPN 클라이언트 연결 프로필을 만듭니다.
+3. **네트워크 기본 설정** 아래에서 **네트워크** 대화 상자를 열고 **'+'** 를 클릭하여 Azure VNet에 대한 P2S 연결용 새 VPN 클라이언트 연결 프로필을 만듭니다.
 
   **인터페이스** 값은 'VPN'이고, **VPN 유형** 값은 'IKEv2'입니다. **서비스 이름** 필드에 프로필 이름을 지정한 다음 **만들기**를 클릭하여 VPN 클라이언트 연결 프로필을 만듭니다.
 
@@ -108,7 +113,7 @@ Azure는 원시 Azure 인증서 인증을 위해 mobileconfig 파일을 제공�
 5. **인증 설정**을 클릭하고 **인증서**를 선택합니다. 
 
   ![인증 설정](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
-6. **선택...**을 클릭합니다. 인증에 사용하려는 클라이언트 인증서를 선택합니다. 이 인증서는 2단계에서 설치한 인증서입니다.
+6. **선택...** 을 클릭합니다. 인증에 사용하려는 클라이언트 인증서를 선택합니다. 이 인증서는 2단계에서 설치한 인증서입니다.
 
   ![인증서](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **ID 선택**은 선택할 수 있는 인증서의 목록을 표시합니다. 적절한 인증서를 선택한 다음 **계속**을 클릭합니다.
@@ -154,7 +159,7 @@ strongSwan의 경우 클라이언트 인증서(.pfx 파일)에서 키와 인증�
 3. **추가** 단추를 클릭하여 새 연결을 만듭니다.
 
   ![연결 추가](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
-4. 드롭다운 메뉴에서 **IPsec/IKEv2(strongswan)**를 선택한 다음, **만들기**를 클릭합니다. 이 단계에서 연결의 이름을 바꿀 수 있습니다.
+4. 드롭다운 메뉴에서 **IPsec/IKEv2(strongswan)** 를 선택한 다음, **만들기**를 클릭합니다. 이 단계에서 연결의 이름을 바꿀 수 있습니다.
 
   ![연결 형식 선택](./media/point-to-site-vpn-client-configuration-azure-cert/choosetype.png)
 5. 다운로드한 클라이언트 구성 파일에 포함된 **일반** 폴더에서 **VpnSettings.xml** 파일을 엽니다. **VpnServer**라는 태그를 찾아 'azuregateway'로 시작하고 '.cloudapp.net'으로 끝나는 이름을 복사합니다.

@@ -8,11 +8,12 @@ ms.service: storage
 ms.topic: get-started-article
 ms.date: 04/05/2018
 ms.author: tamram
-ms.openlocfilehash: 8fc94db3e44fc5388063b507cf240863fcc26a3c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653657"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -31,7 +32,7 @@ Azure Storage는 이러한 데이터 서비스를 포함합니다.
 - [Azure Blob](../blobs/storage-blobs-introduction.md): 텍스트 및 이진 데이터에 대한 확장성이 뛰어난 개체 저장소입니다.
 - [Azure Files](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리되는 파일 공유입니다.
 - [Azure 큐](../queues/storage-queues-introduction.md): 응용 프로그램 구성 요소 간에 안정적인 메시징을 위한 메시징 저장소입니다. 
-- [Azure 테이블](../../cosmos-db/table-storage-overview.md): 구조화된 데이터의 스키마 없는 저장소를 위한 NoSQL 저장소입니다.
+- [Azure 테이블](../tables/table-storage-overview.md): 구조화된 데이터의 스키마 없는 저장소를 위한 NoSQL 저장소입니다.
 
 각 서비스는 저장소 계정을 통해 액세스됩니다. 시작하려면 [저장소 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
@@ -78,13 +79,13 @@ Azure 큐에 대한 자세한 내용은 [큐 소개](../queues/storage-queues-in
 
 ## <a name="table-storage"></a>테이블 저장소
 
-Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table Storage 설명서를 보려면 [Azure Table Storage 개요](../../cosmos-db/table-storage-overview.md)를 참조하세요. 기존 Azure Table Storage 서비스 외에도 처리량 최적화 테이블, 전역 분산 및 자동 보조 인덱스를 제공하는 새로운 Azure Cosmos DB 테이블 API가 있습니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
+Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table Storage 설명서를 보려면 [Azure Table Storage 개요](../tables/table-storage-overview.md)를 참조하세요. 기존 Azure Table Storage 서비스 외에도 처리량 최적화 테이블, 전역 분산 및 자동 보조 인덱스를 제공하는 새로운 Azure Cosmos DB 테이블 API가 있습니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
 
-Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../../cosmos-db/table-storage-overview.md)를 참조하세요.
+Table 저장소에 대한 자세한 내용은 [Azure Table 저장소 개요](../tables/table-storage-overview.md)를 참조하세요.
 
 ## <a name="disk-storage"></a>디스크 저장소
 
-또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)를 참조하세요.
+또한 Azure Storage는 가상 머신에서 사용하는 관리되는 디스크 및 관리되지 않는 디스크 기능을 포함합니다. 이러한 기능에 대한 자세한 내용은 [Compute Service 설명서](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute)를 참조하세요.
 
 ## <a name="types-of-storage-accounts"></a>저장소 계정 유형
 

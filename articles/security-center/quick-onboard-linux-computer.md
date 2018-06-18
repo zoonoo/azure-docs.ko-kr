@@ -1,11 +1,11 @@
 ---
-title: "Azure Security Center 빠른 시작 - Security Center에 Linux 컴퓨터 온보딩 | Microsoft Docs"
-description: "이 빠른 시작에서는 Security Center에 Linux 컴퓨터를 온보딩하는 방법을 보여 줍니다."
+title: Azure Security Center 빠른 시작 - Security Center에 Linux 컴퓨터 온보딩 | Microsoft Docs
+description: 이 빠른 시작에서는 Security Center에 Linux 컴퓨터를 온보딩하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
 manager: MBaldwin
-editor: 
+editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/23/2018
+ms.locfileid: "29530169"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 Linux 에이전트를 프로비전하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다.
@@ -39,7 +40,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
  ![Security Center 개요][2]
 
 3. Security Center 주 메뉴에서 **고급 보안으로 온보딩**을 선택합니다.
-4. **비 Azure 컴퓨터를 추가할까요?**를 선택합니다.
+4. **비 Azure 컴퓨터를 추가할까요?** 를 선택합니다.
    ![고급 보안으로 온보딩][3]
 
 5. **새 비 Azure 컴퓨터 추가**에 Log Analytics 작업 영역 목록이 표시됩니다. 이 목록에는 자동 프로비저닝을 사용하는 경우 Security Center에서 자동으로 생성되는 기본 작업 영역이 포함됩니다(해당하는 경우). 이 작업 영역이나 사용할 다른 작업 영역을 선택합니다.
@@ -57,7 +58,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 
   ![에이전트 설치][5]
 
-Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/omsagent/<workspace id>/log/*에서 확인할 수 있습니다.
+Linux용 Security Center 에이전트에 대한 로그는 */var/opt/microsoft/omsagent/<workspace id>/log/* 에서 확인할 수 있습니다.
 
   ![에이전트에 대한 로그][6]
 

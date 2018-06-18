@@ -18,6 +18,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30833101"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 응용 프로그램 할당을 구성하는 방법
 

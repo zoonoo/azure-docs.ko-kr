@@ -13,6 +13,7 @@ ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/03/2018
+ms.locfileid: "30326541"
 ---
 '-디버그'를 사용하거나 사용하지 않고 'Get-AzureRmVirtualNetworkGatewayConnection' cmdlet을 사용하여 연결이 성공했는지 확인할 수 있습니다. 
 

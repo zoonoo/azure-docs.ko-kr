@@ -1,13 +1,13 @@
 ---
-title: "온-프레미스 네트워크를 Azure Virtual Network에 연결: 사이트 간 VPN(Classic): Portal | Microsoft Docs"
-description: "공용 인터넷을 통해 온-프레미스 네트워크에서 클래식 Azure 가상 네트워크에 IPsec을 만듭니다."
+title: '온-프레미스 네트워크를 Azure Virtual Network에 연결: 사이트 간 VPN(Classic): Portal | Microsoft Docs'
+description: 공용 인터넷을 통해 온-프레미스 네트워크에서 클래식 Azure 가상 네트워크에 IPsec을 만듭니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: hero-article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29401075"
 ---
 # <a name="create-a-site-to-site-connection-using-the-azure-portal-classic"></a>Azure Portal(클래식)을 사용하여 사이트 간 연결 만들기
 
@@ -78,7 +79,7 @@ S2S 연결에 사용할 가상 네트워크를 만들 때 지정한 주소 공�
 ### <a name="to-create-a-virtual-network"></a>가상 네트워크를 만들려면
 
 1. 브라우저에서 [Azure Portal](http://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
-2. 페이지 맨 아래에 있는 **+**를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다. **마켓플레이스 검색** 필드에 ‘Virtual Network’를 입력합니다. 반환된 목록에서 **Virtual Network**를 찾아서 클릭하여 **Virtual Network** 페이지를 엽니다.
+2. 페이지 맨 아래에 있는 **+** 를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다. **마켓플레이스 검색** 필드에 ‘Virtual Network’를 입력합니다. 반환된 목록에서 **Virtual Network**를 찾아서 클릭하여 **Virtual Network** 페이지를 엽니다.
 
   ![가상 네트워크 검색 페이지](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
 3. Virtual Network 페이지의 아래쪽 근처에 있는 **배포 모델 선택** 드롭다운 목록에서 **클래식**을 선택한 다음 **만들기**를 클릭합니다.

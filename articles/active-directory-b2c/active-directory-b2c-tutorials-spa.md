@@ -2,18 +2,20 @@
 title: 자습서 - Azure Active Directory B2C를 사용하여 단일 페이지 앱으로 계정 인증하도록 설정 | Microsoft Docs
 description: Azure Active Directory B2C를 사용하여 단일 페이지 응용 프로그램(JavaScript)에 대한 사용자 로그인을 제공하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: paraj
+author: davidmu1
+manager: mtillman
+ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
-ms.service: active-directory-b2c
-ms.openlocfilehash: 9f5f98ae5798cabd90c453221fe36f17052f77aa
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.service: active-directory
+ms.component: B2C
+ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712524"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱으로 계정을 인증하도록 설정
 
@@ -57,7 +59,7 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | **웹앱/웹 API 포함** | 예 | 단일 페이지 앱에 대해 **예**를 선택합니다. |
     | **암시적 흐름 허용** | 예 | 앱에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `http://localhost:6420` | 회신 URL은 Azure AD B2C에서 앱이 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서의 샘플은 로컬에서 실행되고(로컬 호스트) 6420 포트에서 수신 대기합니다. |
-    | **네이티브 클라이언트 포함** | 아니요 | 이 앱은 단일 페이지 앱이지만 네이티브 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    | **네이티브 클라이언트 포함** | 아니오 | 이 앱은 단일 페이지 앱이지만 네이티브 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
 3. **만들기** 를 클릭하여 앱을 등록합니다.
 

@@ -18,6 +18,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34196528"
 ---
 # <a name="using-dns-in-azure-stack"></a>Azure 스택에 DNS를 사용 하 여
 

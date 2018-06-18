@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치에 업데이트 4 설치 | Microsoft Docs"
-description: "StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 업데이트 4를 설치하는 방법에 대해 설명합니다."
+title: StorSimple 8000 시리즈 장치에 업데이트 4 설치 | Microsoft Docs
+description: StorSimple 8000 시리즈 장치에서 StorSimple 8000 시리즈 업데이트 4를 설치하는 방법에 대해 설명합니다.
 services: storsimple
 documentationcenter: NA
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108391"
 ---
 # <a name="install-update-4-on-your-storsimple-device"></a>StorSimple 장치에 업데이트 4 설치
 
@@ -44,7 +45,7 @@ ms.lasthandoff: 10/11/2017
 
 [!INCLUDE [storsimple-8000-install-update4-via-portal](../../includes/storsimple-8000-install-update4-via-portal.md)]
 
-장치가 **StorSimple 8000 시리즈 업데이트 4(6.3.9600.17820)**를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜** 도 수정해야 합니다.
+장치가 **StorSimple 8000 시리즈 업데이트 4(6.3.9600.17820)** 를 실행하고 있는지 확인합니다. **마지막 업데이트 날짜** 도 수정해야 합니다.
 
 * 이제 유지 관리 모드 업데이트가 사용 가능하다고 표시됩니다(이 메시지는 업데이트를 설치한 후 최대 24시간 동안 계속 표시될 수 있음). 유지 관리 모드 업데이트는 작업 중단 업데이트이므로 장치 가동 중지 시간이 발생할 수 있으며, 장치의 Windows PowerShell 인터페이스를 통해서만 적용할 수 있습니다.
 

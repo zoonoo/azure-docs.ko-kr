@@ -1,6 +1,6 @@
 ---
-title: "SQL Database 개요 | Microsoft Docs"
-description: "Azure Portal 내에 있는 SQL Database의 도움말 콘텐츠 개요"
+title: SQL Database 개요 | Microsoft Docs
+description: Azure Portal 내에 있는 SQL Database의 도움말 콘텐츠 개요
 services: sql-database
 author: sewatson
 manager: lwelicki
@@ -13,6 +13,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23073931"
 ---
 # <a name="sql-database-documentation"></a>SQL Database 설명서
 

@@ -1,7 +1,7 @@
 ---
-title: "Terraform 및 HCL을 사용하여 VM 클러스터 만들기"
-description: "Terraform 및 HCL(HashiCorp Configuration Language)을 사용하여 Azure에서 부하 분산 장치가 있는 Linux 가상 머신 클러스터 만들기"
-keywords: "terraform, devops, 가상 컴퓨터, 네트워크, 모듈"
+title: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
+description: Terraform 및 HCL(HashiCorp Configuration Language)을 사용하여 Azure에서 부하 분산 장치가 있는 Linux 가상 머신 클러스터 만들기
+keywords: terraform, devops, 가상 컴퓨터, 네트워크, 모듈
 author: tomarcher
 manager: routlaw
 ms.service: virtual-machines-linux
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2017
+ms.locfileid: "24518803"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Terraform 및 HCL을 사용하여 VM 클러스터 만들기
 

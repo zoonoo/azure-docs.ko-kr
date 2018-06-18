@@ -1,19 +1,20 @@
 ---
-title: "Azure Database for MySQL 서버에서 사용자 만들기"
-description: "이 문서에서는 Azure Database for MySQL 서버와 상호 작용할 새로운 사용자 계정을 만드는 방법을 설명합니다."
+title: Azure Database for MySQL 서버에서 사용자 만들기
+description: 이 문서에서는 Azure Database for MySQL 서버와 상호 작용할 새로운 사용자 계정을 만드는 방법을 설명합니다.
 services: mysql
 author: jasonwhowell
 ms.author: jasonh
 editor: jasonwhowell
 manager: kfile
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 9fd592efe48adefc6aca7a6caea24f546da23fa5
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: ee74ea9e114f6401bfcafe44ca3caedfcd0005c5
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265621"
 ---
 # <a name="create-users-in-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버에서 사용자 만들기 
 이 문서에서는 Azure Database for MySQL 서버에서 사용자를 만드는 방법을 설명합니다.

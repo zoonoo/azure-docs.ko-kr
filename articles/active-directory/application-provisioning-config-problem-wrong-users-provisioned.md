@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 갤러리 응용 프로그램에 잘못된 사용자 집합이 프로비전됨 | Microsoft Docs"
-description: "예상한 것과 다른 사용자 집합이 응용 프로그램에 프로비전되는 이유를 파악하는 방법 알아보기"
+title: Azure AD 갤러리 응용 프로그램에 잘못된 사용자 집합이 프로비전됨 | Microsoft Docs
+description: 예상한 것과 다른 사용자 집합이 응용 프로그램에 프로비전되는 이유를 파악하는 방법 알아보기
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29383140"
 ---
 # <a name="wrong-set-of-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 잘못된 사용자 집합이 프로비전됨
 

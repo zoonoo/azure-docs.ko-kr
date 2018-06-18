@@ -1,11 +1,11 @@
 ---
-title: "Traffic Manager란 | Microsoft Docs"
-description: "이 문서는 Traffic Manager란 무엇이며 응용 프로그램에 대한 올바른 트래픽 라우팅 선택인지를 이해하도록 도움을 줍니다."
+title: Traffic Manager란 | Microsoft Docs
+description: 이 문서는 Traffic Manager란 무엇이며 응용 프로그램에 대한 올바른 트래픽 라우팅 선택인지를 이해하도록 도움을 줍니다.
 services: traffic-manager
-documentationcenter: 
+documentationcenter: ''
 author: kumudd
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23111831"
 ---
 # <a name="overview-of-traffic-manager"></a>Traffic Manager 개요
 

@@ -1,11 +1,11 @@
 ---
-title: "Azure Import/Export 가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로 - v1 | Microsoft Docs"
-description: "Azure Import/Export 서비스에서 가져오기 작업을 위해 드라이브를 준비하는 전체 과정에 대한 연습을 참조하세요."
+title: Azure Import/Export 가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로 - v1 | Microsoft Docs
+description: Azure Import/Export 서비스에서 가져오기 작업을 위해 드라이브를 준비하는 전체 과정에 대한 연습을 참조하세요.
 author: muralikk
 manager: syadav
 editor: tysonn
 services: storage
-documentationcenter: 
+documentationcenter: ''
 ms.assetid: 6eb1b1b7-c69f-4365-b5ef-3cd5e05eb72a
 ms.service: storage
 ms.workload: storage
@@ -19,6 +19,7 @@ ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/14/2017
+ms.locfileid: "26692026"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>가져오기 작업을 위해 하드 드라이브를 준비하는 샘플 워크플로
 이 항목에서는 가져오기 작업을 위해 드라이브를 준비하는 전체 과정을 설명합니다.  

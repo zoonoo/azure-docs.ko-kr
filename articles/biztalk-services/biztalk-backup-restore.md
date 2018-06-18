@@ -1,11 +1,11 @@
 ---
-title: "BizTalk Services에서 백업 만들기 및 복원 | Microsoft Docs"
-description: "BizTalk Services에는 Backup 및 복원이 포함되어 있습니다. 백업을 만들고 복원하며 백업 대상을 결정하는 방법에 대해 알아봅니다. MABS, WABS"
+title: BizTalk Services에서 백업 만들기 및 복원 | Microsoft Docs
+description: BizTalk Services에는 Backup 및 복원이 포함되어 있습니다. 백업을 만들고 복원하며 백업 대상을 결정하는 방법에 대해 알아봅니다. MABS, WABS
 services: biztalk-services
-documentationcenter: 
+documentationcenter: ''
 author: MandiOhlinger
 manager: anneta
-editor: 
+editor: ''
 ms.assetid: 59f91173-4683-48df-abd5-41262bfce6df
 ms.service: biztalk-services
 ms.workload: integration
@@ -19,6 +19,7 @@ ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/10/2017
+ms.locfileid: "24102344"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Backup 및 복원
 

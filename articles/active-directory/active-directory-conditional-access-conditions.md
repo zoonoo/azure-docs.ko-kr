@@ -9,19 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3cb8e598864bccfbea24a2aec5d9387ff903e51c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770624"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34735144"
 ---
 # <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건 
 
@@ -149,7 +150,7 @@ ms.locfileid: "32770624"
 - 웹 사이트 및 서비스
 - 모바일 앱 및 데스크톱 응용 프로그램. 
 
-![조건](./media/active-directory-conditional-access-conditions/04.png)
+
 
 응용 프로그램이 다음과 같이 분류됩니다.
 
@@ -157,7 +158,7 @@ ms.locfileid: "32770624"
 
 - 네이티브 클라이언트에 모바일 앱 OpenID Connect를 사용하는 경우 모바일 앱 또는 데스크톱 응용 프로그램으로 분류됩니다.
 
-조건부 액세스 정책에서 사용할 수 있는 클라이언트 앱의 전체 목록은 [Azure Active Directory 조건부 액세스 기술 참조](active-directory-conditional-access-technical-reference.md#client-apps-condition)를 참조하세요.
+조건부 액세스 정책에서 사용할 수 있는 클라이언트 앱의 전체 목록은 Azure Active Directory 조건부 액세스 기술 참조의 [클라이언트 앱 조건](active-directory-conditional-access-technical-reference.md#client-apps-condition)을 참조하세요.
 
 이 조건의 일반적인 사용 사례는 다음과 같은 정책입니다.
 
@@ -167,6 +168,20 @@ ms.locfileid: "32770624"
 
 웹 SSO 및 최신 인증 프로토콜 사용 외에도, 대부분의 스마트폰에 기본적으로 제공되는 메일 앱처럼 Exchange ActiveSync를 사용하는 메일 응용 프로그램에 이 조건을 적용할 수 있습니다. 현재 레거시 프로토콜을 사용하는 클라이언트 앱은 AD FS를 사용하여 보호해야 합니다.
 
+**Office 365 Exchange Online**이 선택한 유일한 클라우드 앱인 경우에만 이 조건을 선택할 수 있습니다.
+
+![클라우드 앱](./media/active-directory-conditional-access-conditions/32.png)
+
+구성된 정책에 다른 조건이 없는 경우 클라이언트 앱 조건으로 **Exchange ActiveSync** 선택만 지원됩니다. 그러나 지원되는 플랫폼에만 적용하도록 이 조건의 범위를 좁힐 수 있습니다.
+
+ 
+![지원되는 플랫폼](./media/active-directory-conditional-access-conditions/33.png)
+
+지원되는 플랫폼에만 이 조건을 적용하는 것은 [장치 플랫폼 조건](active-directory-conditional-access-conditions.md#device-platforms)에서 모든 장치 플랫폼에 해당합니다.
+
+![지원되는 플랫폼](./media/active-directory-conditional-access-conditions/34.png)
+
+
  자세한 내용은 다음을 참조하세요.
 
 - [Azure Active Directory 조건부 액세스를 위한 SharePoint Online 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
@@ -174,9 +189,53 @@ ms.locfileid: "32770624"
 - [Azure Active Directory 앱 기반 조건부 액세스](active-directory-conditional-access-mam.md) 
 
 
+### <a name="legacy-authentication"></a>레거시 인증  
+
+조건부 액세스는 이제 POP, IMAP, SMTP 등과 같은 메일 프로토콜을 사용하는 클라이언트 뿐만 아니라 최신 인증을 지원하지 않는 오래된 Office 클라이언트에 적용됩니다. 이를 통해 **기타 클라이언트의 블록 액세스**와 같은 정책을 구성할 수 있습니다.
+
+
+![레거시 인증](./media/active-directory-conditional-access-conditions/160.png)
+ 
 
 
 
+#### <a name="known-issues"></a>알려진 문제
+
+- **기타 클라이언트**에 대한 정책 구성은 SPConnect와 같은 특정 클라이언트에서 전체 조직을 차단합니다. 이는 예기치 않은 방법으로 인증하는 이러한 오래된 클라이언트 때문입니다. 이 문제는 이전 버전의 Office 클라이언트와 같은 주요 Office 응용 프로그램에 적용되지 않습니다. 
+
+- 정책이 적용되려면 최대 24시간까지 걸릴 수 있습니다. 
+
+
+#### <a name="frequently-asked-questions"></a>질문과 대답
+
+**EWS(Exchange Web Services)를 차단하나요?**
+
+EWS가 사용하는 인증 프로토콜에 따라 다릅니다. EWS 응용 프로그램이 최신 인증을 사용하는 경우 "모바일 앱 및 데스크톱 클라이언트" 클라이언트 앱에서 다룹니다. EWS 응용 프로그램이 기본 인증을 사용하는 경우 "기타 클라이언트" 클라이언트 앱에서 다룹니다.
+
+
+**기타 클라이언트에 대해 어떤 컨트롤을 사용할 수 있나요?**
+
+"기타 클라이언트"에 대해 모든 컨트롤을 구성할 수 있습니다. 그러나 최종 사용자 환경은 모든 경우에 대한 블록 액세스가 됩니다. "기타 클라이언트"는 MFA, 준수 장치, 도메인 가입 등과 같은 컨트롤을 지원하지 않습니다. 
+ 
+**기타 클라이언트에 대해 어떤 조건을 사용할 수 있나요?**
+
+"기타 클라이언트"에 대해 모든 조건을 구성할 수 있습니다.
+
+**Exchange ActiveSync는 모든 조건 및 컨트롤을 지원하나요?**
+
+번호 다음은 Exchange ActiveSync(EAS) 지원에 대한 요약입니다.
+
+- EAS는 사용자 및 그룹 대상 지정만을 지원합니다. 게스트, 역할을 지원하지 않습니다. 게스트/역할 조건이 구성된 경우 정책을 사용자에게 적용해야 하는지 여부를 확인할 수 없기 때문에 모든 사용자가 차단됩니다.
+
+- EAS는 클라우드 앱으로 Exchange와만 작동합니다. 
+
+- EAS는 클라이언트 앱 자체를 제외한 모든 조건을 지원하지 않습니다.
+
+- EAS는 모든 컨트롤에 대해 구성될 수 있습니다(장치 규정 준수를 제외한 모든 사항은 차단됨).
+
+**정책은 앞으로 모든 클라이언트 앱에 기본적으로 적용되나요?**
+
+번호 기본 정책 동작에 변경 내용이 없습니다. 정책은 기본적으로 브라우저 및 모바일 응용 프로그램/데스크톱 클라이언트에 계속해서 적용됩니다.
 
 
 

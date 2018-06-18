@@ -20,6 +20,7 @@ ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/23/2018
+ms.locfileid: "30164970"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure 스택 배포 계획 고려 사항
 Azure 스택 개발 키트 (ASDK)를 배포 하기 전에 개발 키트 호스트 컴퓨터에이 문서에 설명 된 요구 사항을 충족 하는지 확인 합니다.

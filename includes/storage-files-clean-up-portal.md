@@ -13,6 +13,7 @@ ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/16/2018
+ms.locfileid: "31433337"
 ---
 작업을 완료한 후에는 리소스 그룹을 삭제할 수 있습니다. 리소스 그룹을 삭제하면 저장소 계정, Azure 파일 공유 및 리소스 그룹 내부에 배포한 다른 리소스가 삭제됩니다.
 

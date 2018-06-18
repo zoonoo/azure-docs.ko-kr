@@ -1,6 +1,6 @@
 ---
-title: "인증 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs"
-description: "위협 모델링 도구에 노출되는 위협 완화"
+title: 인증 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
 author: RodSan
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2018
+ms.locfileid: "28019673"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화 
 | 제품/서비스 | 문서 |
@@ -134,7 +135,7 @@ ms.lasthandoff: 01/24/2018
 | **적용 가능한 기술** | SQL Azure |
 | **특성**              | SQL 버전 - V12 |
 | **참조**              | [Azure Active Directory 인증을 사용하여 SQL Database에 연결](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
-| **단계** | **최소 버전:**Azure SQL Database V12에서는 Azure SQL Database가 Microsoft Directory에 대해 AAD 인증을 사용하도록 합니다. |
+| **단계** | **최소 버전:** Azure SQL Database V12에서는 Azure SQL Database가 Microsoft Directory에 대해 AAD 인증을 사용하도록 합니다. |
 
 ## <a id="authn-account-pword"></a>SQL 인증 모드가 사용되는 경우 계정 및 암호 정책이 SQL Server에 적용되어야 함
 

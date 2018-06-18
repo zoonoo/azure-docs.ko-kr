@@ -3,17 +3,18 @@ title: Azure의 Kubernetes 자습서 - 응용 프로그램 업데이트
 description: AKS 자습서 - 응용 프로그램 업데이트
 services: container-service
 author: neilpeterson
-manager: timlt
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: df118a2b5bd8e31bd3fe6101d1d3f631092b6f24
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
+ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 05/10/2018
+ms.locfileid: "33934059"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 업데이트
 
@@ -164,10 +165,10 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
 > * 업데이트된 응용 프로그램 배포
 
-다음 자습서로 이동하여 Log Analytics로 Kubernetes를 모니터링하는 방법에 대해 알아봅니다.
+다음 자습서로 이동하여 Kubernetes를 새 버전으로 업그레이드 하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Log Analytics를 사용하여 Kubernetes 모니터링][aks-tutorial-monitor]
+> [Kubernetes 업그레이드][aks-tutorial-upgrade]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/
@@ -178,5 +179,5 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[aks-tutorial-monitor]: ./tutorial-kubernetes-monitor.md
+[aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login

@@ -19,6 +19,7 @@ ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/17/2018
+ms.locfileid: "29972843"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple 가상 배열 모범 사례
 ## <a name="overview"></a>개요

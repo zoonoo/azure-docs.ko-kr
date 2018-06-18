@@ -18,6 +18,7 @@ ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/29/2018
+ms.locfileid: "30262520"
 ---
 # <a name="configure-a-load-balancer-for-sql-server-always-on"></a>SQL Server Always On에 대해 부하 분산 장치 구성
 

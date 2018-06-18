@@ -75,6 +75,8 @@
           href: concepts-firewall-rules.md
         - name: SSL 구성
           href: concepts-ssl-connection-security.md
+        - name: VNet
+          href: concepts-data-access-and-security-vnet.md
     - name: 비즈니스 연속성
       items:
         - name: 개요
@@ -89,6 +91,10 @@
           href: concepts-compatibility.md
         - name: 응용 프로그램 개발
           href: concepts-database-application-development.md
+    - name: 복제
+      items:
+        - name: 데이터 내부 복제
+          href: concepts-data-in-replication.md
 - name: 방법 가이드
   items:
     - name: 서버 관리
@@ -141,18 +147,30 @@
       items:
         - name: 메트릭에 대한 경고 만들기
           href: howto-alert-on-metric.md
+    - name: 복제
+      items:
+        - name: 데이터 내부 복제 구성
+          href: howto-data-in-replication.md
     - name: 문제 해결
       items:
         - name: 쿼리 성능 문제 해결
           href: howto-troubleshoot-query-performance.md
         - name: sys 스키마에서 보기를 사용하는 방법
           href: howto-troubleshoot-sys-schema.md
+    - name: Virtual Network
+      items:
+        - name: Azure portal
+          href: howto-manage-vnet-using-portal.md
+        - name: Azure CLI
+          href: howto-manage-vnet-using-cli.md
 - name: 참고 자료
   items:
     - name: Azure CLI
       href: /cli/azure/mysql
     - name: REST API
       href: /rest/api/mysql
+    - name: 데이터 내부 복제 저장 프로시저
+      href: reference-data-in-stored-procedures.md
 - name: 리소스
   items:
     - name: 배포 템플릿

@@ -1,11 +1,11 @@
 ---
-title: "Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 배포 복제 | Microsoft Docs"
-description: "이 문서는 Azure Site Recovery를 사용하여 Dynamics AX를 복제 및 보호하는 방법에 대해 설명합니다."
+title: Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 배포 복제 | Microsoft Docs
+description: 이 문서는 Azure Site Recovery를 사용하여 Dynamics AX를 복제 및 보호하는 방법에 대해 설명합니다.
 services: site-recovery
-documentationcenter: 
+documentationcenter: ''
 author: asgang
 manager: rochakm
-editor: 
+editor: ''
 ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/12/2018
+ms.locfileid: "29876959"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 응용 프로그램 복제
 

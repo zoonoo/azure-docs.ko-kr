@@ -15,11 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: f00c22a5a7bde69136c674c1362e3a9d65dd7934
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 37b5e5d05559088d7f5aac796f452f2ed83447fc
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294634"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -182,4 +183,4 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 
 - [Azure AD에 대한 PingAccess 구성(영문)](https://docs.pingidentity.com/bundle/paaad_m_ConfigurePAforMSAzureADSolution_paaad43/page/pa_c_PAAzureSolutionOverview.html)
 - [Azure AD 응용 프로그램 프록시에서 Single Sign-On을 제공하는 방법](application-proxy-single-sign-on.md)
-- [응용 프로그램 프록시 문제 해결](../active-directory-application-proxy-troubleshoot.md)
+- [응용 프로그램 프록시 문제 해결](application-proxy-troubleshoot.md)

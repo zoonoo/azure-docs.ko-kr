@@ -9,6 +9,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,11 +17,12 @@ ms.workload: identity
 ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: b35aed3583307c34eadbed3dd13d1ffd51494927
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ef801b1ae2b1043e44c39f7df0d57fe4dc1aa341
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724064"
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Azure Active Directory 앱 기반 조건부 액세스  
 
@@ -122,7 +124,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/04.png)
 
-5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)**를 선택해야 합니다.
+5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/05.png)
  
@@ -148,7 +150,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/08.png)
 
-    나. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)**를 선택해야 합니다.
+    나. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/05.png)
 
@@ -203,7 +205,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/04.png)
 
-5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)**를 선택해야 합니다.
+5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/05.png)
 
@@ -230,7 +232,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/08.png)
 
-    나. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)**를 선택해야 합니다.
+    나. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/05.png)
 
@@ -319,7 +321,7 @@ Azure Active Directory 앱 기반 조건부 액세스를 통해 클라우드 앱
 
     ![조건부 액세스](./media/active-directory-conditional-access-mam/08.png)
 
-5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)**를 선택해야 합니다.
+5. **액세스 제어**로 **승인된 클라이언트 앱 필요(미리 보기)** 를 선택해야 합니다.
  
     ![조건부 액세스](./media/active-directory-conditional-access-mam/11.png)
 

@@ -1,23 +1,19 @@
 ---
-title: "Azure IoT Hub 기본 제공 끝점 이해 | Microsoft Docs"
-description: "개발자 가이드에서는 기본 제공 이벤트 허브 호환 끝점을 사용하여 장치-클라우드 메시지를 읽는 방법을 설명합니다."
-services: iot-hub
-documentationcenter: .net
+title: Azure IoT Hub 기본 제공 끝점 이해 | Microsoft Docs
+description: 개발자 가이드에서는 기본 제공 이벤트 허브 호환 끝점을 사용하여 장치-클라우드 메시지를 읽는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
-editor: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 82681214e9e42819bfc698aa670755467d250fa7
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a09cc42763787890a4dabf17b1a1a87e7427ba37
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808539"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 끝점에서 장치-클라우드 메시지 읽기
 
@@ -51,7 +47,7 @@ IoT Hub를 인식하지 않는 SDK(또는 제품 통합)를 사용하는 경우 
 
 IoT Hub SDK에는 **끝점**에서 보여 주듯이 IoT Hub 끝점 이름으로 **messages/events**가 필요합니다.
 
-사용 중인 SDK에 **호스트 이름** 또는 **네임스페이스** 값이 필요한 경우 **Event Hub 호환 끝점**에서 스키마를 제거합니다. 예를 들어 Event Hubs 호환 끝점이 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/**인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이 됩니다. **네임스페이스**는 **iothub-ns-myiothub-1234**가 됩니다.
+사용 중인 SDK에 **호스트 이름** 또는 **네임스페이스** 값이 필요한 경우 **Event Hub 호환 끝점**에서 스키마를 제거합니다. 예를 들어 Event Hubs 호환 끝점이 **sb://iothub-ns-myiothub-1234.servicebus.windows.net/** 인 경우 **호스트 이름**은 **iothub-ns-myiothub-1234.servicebus.windows.net**이 됩니다. **네임스페이스**는 **iothub-ns-myiothub-1234**가 됩니다.
 
 지정된 Event Hubs에 연결할 수 있는 **ServiceConnect** 권한이 있는 공유 액세스 정책을 사용할 수 있습니다.
 
@@ -81,7 +77,7 @@ IoT Hub 끝점에 대한 자세한 내용은 [IoT Hub 끝점][lnk-endpoints]을 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-management-portal]: https://portal.azure.com
-[lnk-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-d2c-tutorial]: tutorial-routing.md
 [lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
 [lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
 [lnk-eventprocessorhost]: http://blogs.msdn.com/b/servicebus/archive/2015/01/16/event-processor-host-best-practices-part-1.aspx

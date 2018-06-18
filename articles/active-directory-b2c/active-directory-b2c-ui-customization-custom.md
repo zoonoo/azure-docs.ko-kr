@@ -1,22 +1,21 @@
 ---
-title: 사용자 지정 정책을 사용하여 UI 사용자 지정 - Azure AD B2C | Microsoft Docs
+title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 UI 사용자 지정 | Microsoft Docs
 description: Azure AD B2C에서 사용자 지정 정책을 사용하는 동안 UI(사용자 인터페이스)를 사용자 지정하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 41b756855ea91db291f4fdb5a963993de4b9cd7e
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 3a8d797793b0e54df112ec44cdb37cbb1b40ce86
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200861"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34710144"
 ---
 # <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C: 사용자 지정 정책에서 UI 사용자 지정 구성
 

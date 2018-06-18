@@ -1,11 +1,11 @@
 ---
-title: "Azure Network Watcher를 사용하여 VPN 게이트웨이를 통한 온-프레미스 연결 진단 | Microsoft Docs"
-description: "이 문서에서는 Azure Network Watcher 리소스 문제 해결을 사용하여 VPN 게이트웨이를 통해 온-프레미스 연결을 진단하는 방법을 설명합니다."
+title: Azure Network Watcher를 사용하여 VPN 게이트웨이를 통한 온-프레미스 연결 진단 | Microsoft Docs
+description: 이 문서에서는 Azure Network Watcher 리소스 문제 해결을 사용하여 VPN 게이트웨이를 통해 온-프레미스 연결을 진단하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
 author: jimdial
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/08/2017
+ms.locfileid: "26374205"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 

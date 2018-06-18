@@ -1,7 +1,7 @@
 ---
-title: "빠른 시작: 여러 입력을 사용하여 워크플로 제출 | Microsoft Docs"
+title: '빠른 시작: 여러 입력을 사용하여 워크플로 제출 | Microsoft Docs'
 titleSuffix: Azure
-description: "빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다."
+description: 빠른 시작은 msgen 클라이언트가 설치되어 있고 서비스를 통해 샘플 데이터를 성공적으로 실행했다고 가정합니다.
 services: microsoft-genomics
 author: grhuynh
 manager: jhubbard
@@ -16,6 +16,7 @@ ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/09/2018
+ms.locfileid: "29119998"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>동일한 샘플의 여러 입력을 사용하여 워크플로 제출
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 02/09/2018
 ## <a name="multiple-bam-files"></a>여러 개의 BAM 파일
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>입력 파일을 Azure 저장소에 업로드
-입력 파일로서 *reads.bam*, *additional_reads.bam*, *yet_more_reads.bam* 등 BAM 파일이 여러 개 있고 Azure의 개인 저장소 계정인 *myaccount*에 업로드했다고 가정해보겠습니다. API URL과 액세스 키를 보유하고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**에 출력하려 합니다.
+입력 파일로서 *reads.bam*, *additional_reads.bam*, *yet_more_reads.bam* 등 BAM 파일이 여러 개 있고 Azure의 개인 저장소 계정인 *myaccount*에 업로드했다고 가정해보겠습니다. API URL과 액세스 키를 보유하고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>`msgen` 클라이언트에게 작업을 제출합니다. 
@@ -92,7 +93,7 @@ output_storage_account_container: outputs
 ## <a name="multiple-paired-fastq-files"></a>쌍으로 연결된 여러 개의 FASTQ 파일
 
 ### <a name="upload-your-input-files-to-azure-storage"></a>입력 파일을 Azure 저장소에 업로드
-입력 파일로서 *reads_1.fq.gz* 및 *reads_2.fq.gz*, *additional_reads_1.fq.gz* 및 *additional_reads_2.fq.gz*, *yet_more_reads_1.fq.gz* 및 *yet_more_reads_2.fq.gz* 등 쌍으로 연결된 FASTQ 파일이 여러 개 있다고 가정해보겠습니다. Azure의 개인 저장소 계정인 *myaccount*에 업로드했으며 API URL과 액세스 키를 가지고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**에 출력하려 합니다.
+입력 파일로서 *reads_1.fq.gz* 및 *reads_2.fq.gz*, *additional_reads_1.fq.gz* 및 *additional_reads_2.fq.gz*, *yet_more_reads_1.fq.gz* 및 *yet_more_reads_2.fq.gz* 등 쌍으로 연결된 FASTQ 파일이 여러 개 있다고 가정해보겠습니다. Azure의 개인 저장소 계정인 *myaccount*에 업로드했으며 API URL과 액세스 키를 가지고 있습니다. **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** 에 출력하려 합니다.
 
 
 ### <a name="submit-your-job-to-the-msgen-client"></a>`msgen` 클라이언트에게 작업을 제출합니다. 

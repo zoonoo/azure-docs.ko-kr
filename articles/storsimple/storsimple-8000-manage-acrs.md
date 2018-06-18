@@ -1,12 +1,12 @@
 ---
-title: "StorSimple에서 액세스 제어 레코드 관리 | Microsoft Docs"
-description: "ACR(액세스 제어 레코드)을 사용하여 어떤 호스트가 StorSimple 장치의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다."
+title: StorSimple에서 액세스 제어 레코드 관리 | Microsoft Docs
+description: ACR(액세스 제어 레코드)을 사용하여 어떤 호스트가 StorSimple 장치의 볼륨에 연결할 수 있는지 지정하는 방법에 대해 설명합니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108341"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>StorSimple 관리자 서비스를 사용하여 액세스 제어 레코드 관리
 
@@ -58,7 +59,7 @@ ACR을 추가하려면 다음 단계를 수행합니다.
 
     1. ACR의 이름을 지정합니다.
     
-    2. **IQN(iSCSI 초기자 이름)**에서 Windows Server 호스트의 IQN 이름을 제공합니다.
+    2. **IQN(iSCSI 초기자 이름)** 에서 Windows Server 호스트의 IQN 이름을 제공합니다.
 
     3. **추가**를 클릭하여 ACR을 만듭니다.
 

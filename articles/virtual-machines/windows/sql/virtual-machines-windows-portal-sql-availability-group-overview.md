@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 가용성 그룹 - Azure Virtual Machines - 개요 | Microsoft Docs"
-description: "이 문서에서는 Azure Virtual Machines의 SQL Server 가용성 그룹을 소개합니다."
+title: SQL Server 가용성 그룹 - Azure Virtual Machines - 개요 | Microsoft Docs
+description: 이 문서에서는 Azure Virtual Machines의 SQL Server 가용성 그룹을 소개합니다.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -20,6 +20,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29396434"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Always On 가용성 그룹 소개 #
 

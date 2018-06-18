@@ -1,11 +1,11 @@
 ---
-title: ".NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs"
-description: ".NET Framework를 사용하여 Azure Event Hubs에서 이벤트를 수신하려면 이 자습서를 따르세요."
+title: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신 | Microsoft Docs
+description: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트를 수신하려면 이 자습서를 따르세요.
 services: event-hubs
-documentationcenter: 
+documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
 ms.service: event-hubs
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2018
+ms.locfileid: "29393221"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 02/21/2018
 
 Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
 
-이 자습서에서는 **[이벤트 프로세서 호스트][EventProcessorHost]**를 사용하여 Event Hub에서 메시지를 수신하는 .NET Framework 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. .NET Framework를 사용하여 이벤트를 전송하려면 [.NET Framework를 사용하여 Azure Event Hubs로 이벤트 전송](event-hubs-dotnet-framework-getstarted-send.md) 문서를 참조하거나 목차 왼쪽에서 해당하는 전송 언어를 클릭합니다.
+이 자습서에서는 **[이벤트 프로세서 호스트][EventProcessorHost]** 를 사용하여 Event Hub에서 메시지를 수신하는 .NET Framework 콘솔 응용 프로그램을 작성하는 방법을 보여 줍니다. .NET Framework를 사용하여 이벤트를 전송하려면 [.NET Framework를 사용하여 Azure Event Hubs로 이벤트 전송](event-hubs-dotnet-framework-getstarted-send.md) 문서를 참조하거나 목차 왼쪽에서 해당하는 전송 언어를 클릭합니다.
 
 [이벤트 프로세서 호스트][EventProcessorHost]는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. [이벤트 프로세서 호스트][Event Processor Host]를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 이 예제에서는 단일 수신기에 대해 [이벤트 프로세서 호스트][EventProcessorHost]를 사용하는 방법을 보여 줍니다. [확장된 이벤트 처리][Scale out Event Processing with Event Hubs] 샘플에서는 여러 수신기에서 [이벤트 프로세서 호스트][EventProcessorHost]를 사용하는 방법을 보여 줍니다.
 

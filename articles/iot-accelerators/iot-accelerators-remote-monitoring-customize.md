@@ -1,22 +1,19 @@
 ---
 title: 원격 모니터링 솔루션 UI 사용자 지정 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션 가속기 UI에 대한 소스 코드에 액세스하고 일부 사용자 지정을 수행하는 방법에 대한 정보를 제공합니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/17/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 94bd864215ad80b299db09b6237f2cebe63feb88
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 6e791051fb82197a770bff05f636159c638e3b9a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627854"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 

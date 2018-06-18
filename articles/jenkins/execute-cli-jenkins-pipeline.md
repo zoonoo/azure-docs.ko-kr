@@ -1,12 +1,12 @@
 ---
-title: "Jenkins로 Azure CLI 실행 | Microsoft Docs"
-description: "Azure CLI를 사용하여 Jenkins 파이프라인을 통해 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다."
+title: Jenkins로 Azure CLI 실행 | Microsoft Docs
+description: Azure CLI를 사용하여 Jenkins 파이프라인을 통해 Azure에 Java 웹앱을 배포하는 방법을 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: mlearned
 manager: douge
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: jenkins
 ms.devlang: na
 ms.topic: article
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/01/2018
+ms.locfileid: "28926933"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
@@ -42,7 +43,7 @@ Jenkins 마스터가 아직 없는 경우 [솔루션 템플릿](install-jenkins-
 Azure 자격 증명 플러그 인을 사용하면 Microsoft Azure 서비스 주체 자격 증명을 Jenkins에 저장할 수 있습니다. 버전 1.2에서는 Jenkins 파이프라인이 Azure 자격 증명을 얻을 수 있도록 지원이 추가되었습니다. 
 
 버전 1.2 이상이 있는지 확인합니다.
-* Jenkins 대시보드 내에서 **Jenkins 관리->플러그 인 관리자->**를 클릭하고 **Azure 자격 증명**을 검색합니다. 
+* Jenkins 대시보드 내에서 **Jenkins 관리->플러그 인 관리자->** 를 클릭하고 **Azure 자격 증명**을 검색합니다. 
 * 버전이 1.2보다 이전이면 플러그 인을 업데이트합니다.
 
 Java JDK 및 Maven도 Jenkins 마스터에 필요합니다. 설치하려면 SSH를 사용하여 Jenkins 마스터에 로그인하고 다음 명령을 실행합니다.
@@ -55,7 +56,7 @@ sudo apt-get install -y maven
 
 Azure CLI를 실행하려면 Azure 자격 증명이 필요합니다.
 
-* Jenkins 대시보드 내에서 **자격 증명->시스템->**을 클릭합니다. **전역 자격 증명(제한 없음)**을 클릭합니다.
+* Jenkins 대시보드 내에서 **자격 증명->시스템->** 을 클릭합니다. **전역 자격 증명(제한 없음)** 을 클릭합니다.
 * **자격 증명 추가**를 클릭한 다음 구독 ID, 클라이언트 ID, 클라이언트 암호 및 OAuth 2.0 토큰 끝점을 입력하여 [Microsoft Azure 서비스 주체](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)를 추가합니다. 이후 단계에서 사용할 ID를 제공합니다.
 
 ![자격 증명 추가](./media/execute-cli-jenkins-pipeline/add-credentials.png)

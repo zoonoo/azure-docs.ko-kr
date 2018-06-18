@@ -19,6 +19,7 @@ ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/04/2018
+ms.locfileid: "33201048"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>매핑을 계산하는 무료 서비스 이해
 

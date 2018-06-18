@@ -1,12 +1,12 @@
 ---
-title: "Azure Virtual Network 성능 문제 해결 | Microsoft Docs"
-description: "이 페이지는 Azure 네트워크 링크 성능을 테스트하는 표준화된 방법을 제공합니다."
+title: Azure Virtual Network 성능 문제 해결 | Microsoft Docs
+description: 이 페이지는 Azure 네트워크 링크 성능을 테스트하는 표준화된 방법을 제공합니다.
 services: expressroute
 documentationcenter: na
 author: tracsman
 manager: rossort
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: expressroute
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/22/2017
+ms.locfileid: "27318894"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
 ## <a name="overview"></a>개요

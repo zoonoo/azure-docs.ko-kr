@@ -1,11 +1,11 @@
 ---
-title: "ExpressRoute로 회로를 구성하기 위한 워크플로 | Microsoft 문서"
-description: "이 페이지는 Express 경로 회로 및 피어링을 구성하기 위한 워크플로를 안내합니다."
+title: ExpressRoute로 회로를 구성하기 위한 워크플로 | Microsoft 문서
+description: 이 페이지는 Express 경로 회로 및 피어링을 구성하기 위한 워크플로를 안내합니다.
 documentationcenter: na
 services: expressroute
 author: cherylmc
 manager: carmonm
-editor: 
+editor: ''
 ms.assetid: 55e0418c-e0bf-44a7-9aa1-720076df9297
 ms.service: expressroute
 ms.devlang: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23013128"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>회로에 대한 Express 경로 워크플로 프로비전 및 회로 상태
 이 페이지에서는 높은 수준에서 구성 워크플로 프로비전 및 라우팅 서비스를 안내합니다.

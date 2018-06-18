@@ -19,6 +19,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32153221"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>ExpressRoute를 사용하는 App Service Environment에 대한 네트워크 구성 세부 정보
 ## <a name="overview"></a>개요

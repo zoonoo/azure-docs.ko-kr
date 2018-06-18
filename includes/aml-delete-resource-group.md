@@ -1,6 +1,6 @@
 ---
-title: "포함 파일"
-description: "포함 파일"
+title: 포함 파일
+description: 포함 파일
 services: machine-learning
 author: j-martens
 ms.service: machine-learning
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/27/2018
+ms.locfileid: "29574990"
 ---
 이 앱을 계속 사용하지 않으려면 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제하세요. 요금은 발생되지 않습니다.
 

@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30906276"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Stream Analytics 도구를 사용하여 지속적으로 통합 및 개발
 이 문서에서는 Visual Studio용 Azure Stream Analytics 도구를 사용하여 지속적인 통합 및 배포 프로세스를 설정하는 방법에 대해 알아봅니다.

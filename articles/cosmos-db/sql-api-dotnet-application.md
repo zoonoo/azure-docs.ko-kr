@@ -3,23 +3,21 @@ title: 'Azure Cosmos DB용 ASP.NET MVC 자습서: 웹 응용 프로그램 개발
 description: Azure Cosmos DB를 사용하여 MVC 웹 응용 프로그램을 만드는 ASP.NET MVC 자습서 JSON을 저장하고 Azure Websites - ASP NET MVC 단계별 자습서에서 호스팅하는 todo 앱에서 데이터에 액세스합니다.
 keywords: ASP.NET MVC 자습서, 웹 응용 프로그램 개발, MVC 웹 응용 프로그램, ASP NET MVC 단계별 자습서
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: 52532d89-a40e-4fdf-9b38-aadb3a4cccbc
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 1193ef84f8edf701f98e50d92a67426e36c40218
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 193f0f74d7a8ebaee72105698c646b55a8159a3b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796998"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발
 > [!div class="op_single_selector"]
@@ -44,7 +42,7 @@ Azure Cosmos DB를 효율적으로 활용하여 JSON 문서를 저장 및 쿼리
 ## <a name="_Toc395637760"></a>이 데이터베이스 자습서의 필수 조건
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-* 활성 Azure 계정.  Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+* 활성 Azure 계정.  Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -186,7 +184,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***인덱스***를 입력합니다.
    * **템플릿** 상자에서 ***목록***을 선택합니다.
-   * **모델 클래스** 상자에서 ***항목(todo.Models)***을 선택합니다.
+   * **모델 클래스** 상자에서 ***항목(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
      
    ![뷰 추가 대화 상자를 보여주는 스크린샷](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
@@ -200,7 +198,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***Create***를 입력합니다.
    * **템플릿** 상자에서 ***Create***를 선택합니다.
-   * **모델 클래스** 상자에서 ***항목(todo.Models)***을 선택합니다.
+   * **모델 클래스** 상자에서 ***항목(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
    
@@ -212,7 +210,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
    
    * **뷰 이름** 상자에 ***Edit***를 입력합니다.
    * **템플릿** 상자에서 ***Edit***를 선택합니다.
-   * **모델 클래스** 상자에서 ***항목(todo.Models)***을 선택합니다.
+   * **모델 클래스** 상자에서 ***항목(todo.Models)*** 을 선택합니다.
    * 레이아웃 페이지 상자에 ***~/Views/Shared/_Layout.cshtml***을 입력합니다.
    * **추가**를 클릭합니다.
 

@@ -1,24 +1,20 @@
 ---
-title: "Azure 진단 1.0 구성 스키마 | Microsoft Docs"
-description: "Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 또는 Cloud Services에서 Azure SDK 2.4 이하를 사용하는 경우에만 해당됩니다."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Azure 진단 1.0 구성 스키마
+description: Azure Virtual Machines, Virtual Machine Scale Sets, Service Fabric 또는 Cloud Services에서 Azure SDK 2.4 이하를 사용하는 경우에만 해당됩니다.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: a8fdfb52d5091d3fc9779657737c7430fcfada51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: diagnostic-extension
+ms.openlocfilehash: 916e2123262402e23f35778e66683ecce2cec4b7
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262588"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 진단 1.0 구성 스키마
 > [!NOTE]
@@ -105,7 +101,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:
 
-|특성  |유형   |필수| 기본값 | 설명|  
+|특성  |type   |필수| 기본값 | 설명|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|옵션 | PT1M| 진단 모니터가 진단 구성 변경을 폴링하는 간격을 지정합니다.|  
 |**overallQuotaInMB**|unsignedInt|옵션| 4000MB 값을 제공하는 경우 이 크기를 초과하지 않아야 합니다. |모든 로깅 버퍼에 할당된 파일 시스템 저장소의 총 크기입니다.|  
@@ -117,7 +113,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
@@ -130,7 +126,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
@@ -144,7 +140,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
@@ -156,7 +152,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -168,7 +164,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -180,7 +176,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -197,7 +193,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**container**|string|디렉터리의 내용이 전송될 컨테이너의 이름입니다.|  
 |**directoryQuotaInMB**|unsignedInt|선택 사항입니다. 디렉터리의 최대 크기(MB)를 지정합니다.<br /><br /> 기본값은 0입니다.|  
@@ -209,10 +205,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
-|**path**|string|필수입니다. 모니터링할 디렉터리의 절대 경로입니다.|  
-|**expandEnvironment**|부울|필수입니다. **true**로 설정하면 경로의 환경 변수가 확장됩니다.|  
+|**path**|string|필수 사항입니다. 모니터링할 디렉터리의 절대 경로입니다.|  
+|**expandEnvironment**|부울|필수 사항입니다. **true**로 설정하면 경로의 환경 변수가 확장됩니다.|  
 
 ## <a name="localresource-element"></a>LocalResource 요소  
  서비스 정의에 정의된 로컬 리소스의 상대 경로를 정의합니다.
@@ -221,10 +217,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
-|**name**|string|필수입니다. 모니터링할 디렉터리를 포함하는 로컬 리소스의 이름입니다.|  
-|**relativePath**|string|필수입니다. 모니터링할 로컬 리소스의 상대 경로입니다.|  
+|**name**|string|필수 사항입니다. 모니터링할 디렉터리를 포함하는 로컬 리소스의 이름입니다.|  
+|**relativePath**|string|필수 사항입니다. 모니터링할 로컬 리소스의 상대 경로입니다.|  
 
 ## <a name="performancecounters-element"></a>PerformanceCounters 요소  
  수집할 성능 카운터의 경로를 정의합니다.
@@ -234,7 +230,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferPeriod**|duration|선택 사항입니다. 예약된 데이터 전송 사이의 간격(가장 가까운 시간(분)으로 반올림)을 지정합니다.<br /><br /> 기본값은 PT0S입니다.|  
@@ -246,10 +242,10 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  특성:  
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|string|필수입니다. 수집할 성능 카운터의 경로입니다.|  
-|**sampleRate**|duration|필수입니다. 성능 카운터를 수집할 속도입니다.|  
+|**counterSpecifier**|string|필수 사항입니다. 수집할 성능 카운터의 경로입니다.|  
+|**sampleRate**|duration|필수 사항입니다. 성능 카운터를 수집할 속도입니다.|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog 요소  
  모니터링할 이벤트 로그를 정의합니다.
@@ -258,7 +254,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
   특성:
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|string|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**입니다. 사용 가능한 다른 값은 **Verbose**, **Information**, **Warning**, **Error**, 및 **Critical**입니다.|  
@@ -271,6 +267,6 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  특성:
 
-|특성|형식|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
-|**name**|string|필수입니다. 수집할 로그를 지정하는 XPath 식입니다.|  
+|**name**|string|필수 사항입니다. 수집할 로그를 지정하는 XPath 식입니다.|  

@@ -1,6 +1,6 @@
 ---
-title: "Azure DC/OS 클러스터용 파일 공유"
-description: "Azure Container Service에서 DC/OS 클러스터에 파일 공유 만들기 및 탑재"
+title: Azure DC/OS 클러스터용 파일 공유
+description: Azure Container Service에서 DC/OS 클러스터에 파일 공유 만들기 및 탑재
 services: container-service
 author: julienstroheker
 manager: dcaro
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331205"
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>DC/OS 클러스터에 파일 공유 만들기 및 탑재
 

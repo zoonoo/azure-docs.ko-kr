@@ -1,22 +1,19 @@
 ---
 title: 장치 시뮬레이션 솔루션 배포 - Azure | Microsoft Docs
 description: 이 자습서는 azureiotsuite.com에서 장치 시뮬레이션 솔루션을 프로비전하는 방법을 보여 줍니다.
-services: iot device simulation
-suite: iot-suite
 author: troyhopwood
-manager: timlt
+manager: ''
 ms.author: troyhop
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 12/18/2017
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 4d468c527c658707da2b5f35f43676626baf5ca2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e96c0f16ca4b69d103674b7f895c52d197280ca5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627009"
 ---
 # <a name="deploy-the-azure-iot-device-simulation-solution"></a>Azure IoT 장치 시뮬레이션 솔루션 배포
 
@@ -39,7 +36,7 @@ ms.lasthandoff: 05/20/2018
 
 Azure 구독에 솔루션을 배포하기 전에 일부 구성 옵션을 선택해야 합니다.
 
-1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com](https://www.azureiotsuite.com)에 로그인한 다음 **+** 를 클릭하여 새 솔루션을 만듭니다.
+1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com](https://www.azureiotsolutions.com)에 로그인한 다음 **+** 를 클릭하여 새 솔루션을 만듭니다.
 
     ![새 솔루션 만들기](./media/iot-accelerators-device-simulation-deploy/createnewsolution.png)
 

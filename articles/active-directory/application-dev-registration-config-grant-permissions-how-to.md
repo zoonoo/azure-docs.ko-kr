@@ -1,11 +1,11 @@
 ---
-title: "사용자 지정 개발 응용 프로그램에 권한을 부여하는 방법 | Microsoft Docs"
-description: "Azure AD 포털 또는 URL 매개 변수를 사용하여 사용자 지정 개발 응용 프로그램에 대한 권한을 부여하는 방법"
+title: 사용자 지정 개발 응용 프로그램에 권한을 부여하는 방법 | Microsoft Docs
+description: Azure AD 포털 또는 URL 매개 변수를 사용하여 사용자 지정 개발 응용 프로그램에 대한 권한을 부여하는 방법
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26611664"
 ---
 # <a name="how-to-grant-permissions-to-a-custom-developed-application"></a>사용자 지정 개발 응용 프로그램에 권한을 부여하는 방법
 

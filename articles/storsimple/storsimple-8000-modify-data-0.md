@@ -1,12 +1,12 @@
 ---
-title: "StorSimple 8000 시리즈 장치의 DATA 0 설정 수정 | Microsoft Docs"
-description: "StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에서 DATA 0 네트워크 인터페이스를 다시 구성하는 방법을 알아봅니다."
+title: StorSimple 8000 시리즈 장치의 DATA 0 설정 수정 | Microsoft Docs
+description: StorSimple용 Windows PowerShell을 사용하여 StorSimple 장치에서 DATA 0 네트워크 인터페이스를 다시 구성하는 방법을 알아봅니다.
 services: storsimple
-documentationcenter: 
+documentationcenter: ''
 author: alkohli
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "23108301"
 ---
 # <a name="modify-the-data-0-network-interface-settings-on-your-storsimple-8000-series-device"></a>StorSimple 8000 시리즈 장치에서 DATA 0 네트워크 인터페이스 설정 수정
 

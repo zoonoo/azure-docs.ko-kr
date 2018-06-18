@@ -1,11 +1,11 @@
 ---
-title: "Azure App Service의 응용 프로그램 코드에서 업로드된 SSL 인증서 사용 | Microsoft Docs"
-description: 
+title: Azure App Service의 응용 프로그램 코드에서 업로드된 SSL 인증서 사용 | Microsoft Docs
+description: ''
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/01/2017
+ms.locfileid: "26047604"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Azure App Service의 응용 프로그램 코드에서 SSL 인증서 사용
 

@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central 응용 프로그램에 DevKit 장치 연결 | Microsoft Docs
 description: 장치 개발자로서 Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치를 연결하는 방법을 알아봅니다.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 4c7074e5e7d3858919f3fc17005fea4f8dce1560
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200744"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261579"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결
 
@@ -28,7 +28,9 @@ ms.locfileid: "34200744"
 
 **샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **MXChip** 장치가 포함됩니다.
 
-### <a name="telemetry-measurements"></a>원격 분석 측정값
+### <a name="measurements"></a>측정값
+
+#### <a name="telemetry"></a>원격 분석 
 
 | 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
 | -------------- | ------ | ------- | ------- | -------------- |
@@ -44,6 +46,20 @@ ms.locfileid: "34200744"
 | gyroscopeX     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeY     | mdps   | -2000   | 2000    | 0              |
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+#### <a name="states"></a>상태 
+
+| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | 장치 상태   | 녹색  | 주황색  | 빨강    | 
+
+#### <a name="events"></a>이벤트 
+
+| Name             | 표시 이름      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | 단추 B 누름  | 
+
+
 
 ### <a name="settings"></a>설정
 
@@ -68,17 +84,6 @@ ms.locfileid: "34200744"
 | 장치 속성 | 다이 번호   | dieNumber  | number    |
 | 텍스트            | 위치     | location   | 해당 없음       |
 
-### <a name="states"></a>상태 
-
-| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 장치 상태   | 녹색  | 주황색  | 빨강    | 
-
-### <a name="events"></a>이벤트 
-
-| Name             | 표시 이름      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | 단추 B 누름  | 
 
 ### <a name="add-a-real-device"></a>실제 장치 추가
 

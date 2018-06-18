@@ -10,16 +10,18 @@ editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
+ms.component: studio
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 12/18/2017
-ms.openlocfilehash: e1c7030a5f0c6e13653b302fcb48e7d4efa232c7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 79b2cc3951fa8a48282f42f7180ec831050508f8
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34834385"
 ---
 # <a name="how-to-choose-algorithms-for-microsoft-azure-machine-learning"></a>Microsoft Azure Machine Learning을 위한 알고리즘 선택 방법
 "어떤 기계 학습 알고리즘을 사용해야 하나요?"라는 질문에 대한 대답은 항상 "상황마다 다릅니다."입니다. 데이터의 크기, 품질 및 특성에 따라 다릅니다. 얻은 답변으로 무슨 작업을 수행할지에 따라 다릅니다.
@@ -39,7 +41,7 @@ ms.lasthandoff: 04/20/2018
 이러한 권장 사항은 많은 데이터 과학자 및 기계 학습 전문가로부터 수집한 피드백 및 팁입니다. 우리는 모든 내용에 동의한 것은 아니지만 부분적으로나마 합의에 도달하기 위해 의견을 조율하는 데 노력해왔습니다. 대부분의 의견 충돌은 "상황에 따라 다릅니다…"라는 문구로 시작됩니다.
 
 ### <a name="how-to-use-the-cheat-sheet"></a>치트 시트를 사용하는 방법
-"*&lt;경로 레이블&gt;*의 경우 *&lt;알고리즘&gt;*을 사용하세요."대로 차트에 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "*속도*의 경우 *두 개의 클래스 로지스틱 회귀*를 사용하세요."와 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다.
+"*&lt;경로 레이블&gt;* 의 경우 *&lt;알고리즘&gt;* 을 사용하세요."대로 차트에 표시된 경로와 알고리즘 레이블을 확인합니다. 예를 들어, "*속도*의 경우 *두 개의 클래스 로지스틱 회귀*를 사용하세요."와 같습니다. 경우에 따라 두 개 이상의 분기가 적용됩니다.
 완벽하게 맞는 것이 없는 경우도 있습니다. 경험에 기반한 권장 방법으로 제공되는 것이므로 정확하지 않은 것에 대해 걱정하지 않아도 됩니다.
 수많은 데이터 과학자가 최적의 알고리즘을 찾는 가장 확실한 방법은 모든 알고리즘을 시도해보는 것이라고 말합니다.
 

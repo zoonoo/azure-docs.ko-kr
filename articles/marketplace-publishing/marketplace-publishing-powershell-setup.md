@@ -19,6 +19,7 @@ ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/16/2018
+ms.locfileid: "29937402"
 ---
 # <a name="set-up-azure-powershell-to-create-an-offer-for-the-azure-marketplace"></a>Azure Marketplace에 대한 제품을 만들기 위한 Azure PowerShell 설정
 Azure에서 PowerShell을 설정하는 방법에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. 간단한 방법은 인증 방법을 사용하는 것으로, 인증에 필요한 인증서를 다운로드하고 가져옵니다. 필요한 인증서를 가져오려면 **Get-AzurePublishSettingsFile** cmdlet을 사용합니다. 메시지가 나타나면 파일을 저장합니다. 인증서를 PowerShell 세션으로 가져오려면 **Import-AzurePublishSettingsFile** cmdlet을 사용합니다.

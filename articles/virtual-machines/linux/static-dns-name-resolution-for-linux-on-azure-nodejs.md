@@ -20,6 +20,7 @@ ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/06/2018
+ms.locfileid: "30917281"
 ---
 # <a name="using-internal-dns-for-vm-name-resolution-on-azure"></a>Azure에서 VM 이름 확인을 위해 내부 DNS 사용
 

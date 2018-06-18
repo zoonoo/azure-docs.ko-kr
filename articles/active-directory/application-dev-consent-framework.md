@@ -1,11 +1,11 @@
 ---
-title: "응용 프로그램 동의 작동 원리 | Microsoft Docs"
-description: "Azure AD 동의 프레임워크 작동 원리를 이해하여 Azure AD에서 응용 프로그램을 개발할 때 이러한 프레임워크를 사용하는 방법 알아보기"
+title: 응용 프로그램 동의 작동 원리 | Microsoft Docs
+description: Azure AD 동의 프레임워크 작동 원리를 이해하여 Azure AD에서 응용 프로그램을 개발할 때 이러한 프레임워크를 사용하는 방법 알아보기
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: ajamess
 manager: mtillman
-ms.assetid: 
+ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -18,6 +18,7 @@ ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/11/2017
+ms.locfileid: "26612112"
 ---
 # <a name="how-application-consent-works"></a>응용 프로그램 동의 작동 원리
 

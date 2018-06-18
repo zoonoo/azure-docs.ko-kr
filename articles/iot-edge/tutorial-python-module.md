@@ -1,20 +1,19 @@
 ---
 title: Azure IoT Edge Python 모듈 | Microsoft Docs
 description: Python 코드로 IoT Edge 모듈을 만들어서 Edge 장치에 배포
-services: iot-edge
-keywords: ''
 author: shizn
-manager: timlt
+manager: ''
 ms.author: xshi
 ms.date: 03/18/2018
-ms.topic: article
+ms.topic: tutorial
 ms.service: iot-edge
-ms.openlocfilehash: 3c46df85f95377f5740526542ac1baf5a8fd77c0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+services: iot-edge
+ms.openlocfilehash: 88d772306cb9e67216b380aa885284ebedc77b5f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177838"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632111"
 ---
 # <a name="develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device---preview"></a>Python IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포 - 미리 보기
 

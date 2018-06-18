@@ -1,6 +1,6 @@
 ---
-title: "자습서: Azure Key Vault를 사용하여 Azure Storage에서 Blob 암호화 및 해독 | Microsoft Docs"
-description: "Azure Key Vault를 사용하여 Microsoft Azure Storage에 대한 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법입니다."
+title: '자습서: Azure Key Vault를 사용하여 Azure Storage에서 Blob 암호화 및 해독 | Microsoft Docs'
+description: Azure Key Vault를 사용하여 Microsoft Azure Storage에 대한 클라이언트 쪽 암호화를 사용하여 Blob을 암호화하고 해독하는 방법입니다.
 services: storage
 author: tamram
 manager: jeconnoc
@@ -13,6 +13,7 @@ ms.sourcegitcommit: a0d2423f1f277516ab2a15fe26afbc3db2f66e33
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/16/2018
+ms.locfileid: "27815816"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>자습서: Microsoft Azure Storage에서 Azure Key Vault를 사용하여 Blob 암호화 및 해독
 ## <a name="introduction"></a>소개

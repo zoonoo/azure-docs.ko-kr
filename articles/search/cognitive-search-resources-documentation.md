@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: a96b66f61b19d218c5708a0ce967e0033ba26627
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cee479b81cb5d8b6cd3306e3735d72c9e64e6045
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786682"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640356"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>인식 검색 작업에 대한 설명서 리소스
 
@@ -51,8 +51,8 @@ ms.locfileid: "33786682"
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + [미리 보기 REST API](search-api-2017-11-11-preview.md)
-  + [기술 집합 만들기(api-version=2017-11-11-Preview)](ref-create-skillset.md)
-  + [인덱서 만들기(api-version=2017-11-11-Preview)](ref-create-indexer.md)
+  + [기술 집합 만들기(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+  + [인덱서 만들기(api-version=2017-11-11-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>참고 항목
 

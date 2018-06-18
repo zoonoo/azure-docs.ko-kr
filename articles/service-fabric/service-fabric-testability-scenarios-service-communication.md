@@ -19,6 +19,7 @@ ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 05/16/2018
+ms.locfileid: "34211228"
 ---
 # <a name="service-fabric-testability-scenarios-service-communication"></a>서비스 패브릭 테스트 용이성 시나리오: 서비스 통신
 Azure 서비스 패브릭에서 마이크로 서비스 및 서비스 지향 아키텍처 스타일이 자연스럽게 드러납니다. 이러한 유형의 분산 아키텍처에서 구성 요소화된 마이크로 서비스 응용 프로그램은 서로 통신이 필요한 여러 서비스로 구성됩니다. 가장 간단한 경우에도 일반적으로 상태 비저장 웹 서비스 그리고 통신이 필요한 상태 저장 데이터 저장소 서비스가 있습니다.

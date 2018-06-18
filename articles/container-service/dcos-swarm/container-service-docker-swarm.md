@@ -1,6 +1,6 @@
 ---
-title: "Docker API를 사용하여 Azure Swarm 클러스터 관리"
-description: "Azure Container Service에서 Docker Swarm 클러스터에 컨테이너 배포"
+title: Docker API를 사용하여 Azure Swarm 클러스터 관리
+description: Azure Container Service에서 Docker Swarm 클러스터에 컨테이너 배포
 services: container-service
 author: rgardler
 manager: madhana
@@ -14,6 +14,7 @@ ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/06/2017
+ms.locfileid: "26331548"
 ---
 # <a name="container-management-with-docker-swarm"></a>Docker Swarm을 통한 컨테이너 관리
 

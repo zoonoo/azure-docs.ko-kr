@@ -1,11 +1,11 @@
 ---
-title: "Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법 | Microsoft Docs"
-description: "Azure Resource Manager 템플릿을 사용하여 내부 부하 분산 장치 ASE를 만드는 방법을 알아봅니다."
+title: Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법 | Microsoft Docs
+description: Azure Resource Manager 템플릿을 사용하여 내부 부하 분산 장치 ASE를 만드는 방법을 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: stefsch
 manager: nirma
-editor: 
+editor: ''
 ms.assetid: 091decb6-b0de-42a1-9f2f-c18d9b2e67df
 ms.service: app-service
 ms.workload: na
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/11/2017
+ms.locfileid: "22986838"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 ILB ASE를 만드는 방법
 

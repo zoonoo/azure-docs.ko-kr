@@ -1,6 +1,6 @@
 ---
-title: "SQL Server 가용성 그룹 - Azure Virtual Machines - 재해 복구 | Microsoft Docs"
-description: "이 문서에서는 다른 지역의 복제본으로 Azure Virtual Machines의 SQL Server 가용성 그룹을 구성하는 방법을 설명합니다."
+title: SQL Server 가용성 그룹 - Azure Virtual Machines - 재해 복구 | Microsoft Docs
+description: 이 문서에서는 다른 지역의 복제본으로 Azure Virtual Machines의 SQL Server 가용성 그룹을 구성하는 방법을 설명합니다.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -21,6 +21,7 @@ ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/09/2018
+ms.locfileid: "29852832"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
 
@@ -156,7 +157,7 @@ ms.lasthandoff: 03/09/2018
 1. 확인을 클릭합니다.
 1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시**를 클릭합니다.
 1. 대시보드에서 DR 사이트의 복제본이 동기화되었는지 확인합니다.
-1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **장애 조치...**를 클릭합니다. SQL Server Management Studio는 SQL Server를 장애 조치하는 마법사를 엽니다.  
+1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **장애 조치...** 를 클릭합니다. SQL Server Management Studio는 SQL Server를 장애 조치하는 마법사를 엽니다.  
 1. **다음**을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. 다시 **다음**을 클릭합니다.
 1. DR 사이트에서 SQL Server 인스턴스에 연결하고 **다음**을 클릭합니다.
 1. **요약** 페이지에서 설정을 확인한 다음 **마침**을 클릭합니다.

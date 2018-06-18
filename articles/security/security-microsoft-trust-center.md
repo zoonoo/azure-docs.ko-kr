@@ -1,6 +1,6 @@
 ---
-title: "Microsoft 보안 센터 및 Azure 보안 정보 | Microsoft Docs"
-description: "Microsoft 보안 센터는 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 제공합니다."
+title: Microsoft 보안 센터 및 Azure 보안 정보 | Microsoft Docs
+description: Microsoft 보안 센터는 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 제공합니다.
 services: security
 documentationcenter: na
 author: TomShinder
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2017
+ms.locfileid: "25541573"
 ---
 # <a name="microsoft-trust-center"></a>Microsoft 보안 센터
 Azure.com의 Azure 보안 정보 사이트는 클라우드 솔루션을 안전하게 계획, 설계, 배포, 구성 및 관리하는 데 필요한 정보를 제공합니다. Microsoft 보안 센터를 통해 사용자의 서비스를 실행하는 Azure 플랫폼이 안전하다는 것을 확신하는 데 필요한 정보를 얻게 됩니다.

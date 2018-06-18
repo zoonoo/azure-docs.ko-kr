@@ -1,11 +1,11 @@
 ---
-title: "Azure Redis Cache에 대해 지역에서 복제를 구성하는 방법 | Microsoft Docs"
-description: "지역 간에 Azure Redis Cache 인스턴스를 복제하는 방법을 알아봅니다."
+title: Azure Redis Cache에 대해 지역에서 복제를 구성하는 방법 | Microsoft Docs
+description: 지역 간에 Azure Redis Cache 인스턴스를 복제하는 방법을 알아봅니다.
 services: redis-cache
-documentationcenter: 
+documentationcenter: ''
 author: wesmc7777
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 375643dc-dbac-4bab-8004-d9ae9570440d
 ms.service: cache
 ms.workload: tbd
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/19/2018
+ms.locfileid: "27911373"
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Azure Redis Cache에 대해 지역에서 복제를 구성하는 방법
 

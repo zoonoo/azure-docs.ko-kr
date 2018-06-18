@@ -1,12 +1,12 @@
 ---
-title: "Raspberry Pi를 Azure IoT Suite에 연결 | Microsoft Docs"
-description: "Node.js 또는 C를 사용하여 Raspberry Pi 3용 Microsoft Azure IoT 스타터 키트 및 IoT Suite 원격 모니터링 솔루션을 사용하는 방법을 배우도록 도와주는 자습서입니다. 원격 분석을 시뮬레이트하거나, 실제 센서를 사용하거나, 원격 펌웨어 업데이트를 사용하도록 설정하는 자습서를 선택할 수 있습니다."
-services: 
+title: Raspberry Pi를 Azure IoT Suite에 연결 | Microsoft Docs
+description: Node.js 또는 C를 사용하여 Raspberry Pi 3용 Microsoft Azure IoT 스타터 키트 및 IoT Suite 원격 모니터링 솔루션을 사용하는 방법을 배우도록 도와주는 자습서입니다. 원격 분석을 시뮬레이트하거나, 실제 센서를 사용하거나, 원격 펌웨어 업데이트를 사용하도록 설정하는 자습서를 선택할 수 있습니다.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.service: iot-suite
 ms.devlang: na
 ms.topic: article
@@ -19,6 +19,7 @@ ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/06/2017
+ms.locfileid: "24010426"
 ---
 # <a name="connect-your-microsoft-azure-iot-raspberry-pi-3-starter-kit-to-the-remote-monitoring-solution"></a>Microsoft Azure IoT Raspberry Pi 3 스타터 키트를 원격 모니터링 솔루션에 연결
 

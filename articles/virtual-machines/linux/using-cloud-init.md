@@ -1,11 +1,11 @@
 ---
-title: "Azure의 Linux 가상 머신에 대한 cloud-init 지원 개요 | Microsoft Docs"
-description: "Microsoft Azure의 cloud-init 기능 개요"
+title: Azure의 Linux 가상 머신에 대한 cloud-init 지원 개요 | Microsoft Docs
+description: Microsoft Azure의 cloud-init 기능 개요
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: rickstercdn
 manager: jeconnoc
-editor: 
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 195c22cd-4629-4582-9ee3-9749493f1d72
 ms.service: virtual-machines-linux
@@ -20,6 +20,7 @@ ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 03/05/2018
+ms.locfileid: "29763148"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상 머신에 대한 Cloud-init 지원
 이 문서에서는 Azure에서 프로비전할 때 VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)을 구성할 수 있도록 [cloud-init](https://cloudinit.readthedocs.io)를 위해 존재하는 지원에 대해 설명합니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다.  
