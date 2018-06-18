@@ -1,51 +1,57 @@
 - name: 액세스 관리 개요
   href: manage-access-to-azure-resources.md
-- name: Azure의 리소스 액세스
-  href: rbac-and-directory-admin-roles.md
-- name: RBAC(역할 기반 액세스 제어)
-  href: overview.md
+  items: null
+- name: 개요
   items:
-    - name: 빠른 시작
-      items:
-        - name: 사용자에 대한 액세스 권한 부여 - 포털
-          href: quickstart-assign-role-user-portal.md
-    - name: 자습서
-      items:
-        - name: 사용자에 대한 액세스 권한 부여 - PowerShell
-          href: tutorial-role-assignments-user-powershell.md
-        - name: 그룹에 대한 액세스 권한 부여 - PowerShell
-          href: tutorial-role-assignments-group-powershell.md
-        - name: 사용자 지정 역할 만들기 - PowerShell
-          href: tutorial-custom-role-powershell.md
-        - name: 사용자 지정 역할 만들기 - CLI
-          href: tutorial-custom-role-cli.md
-    - name: 역할 할당 관리
-      items:
-        - name: 포털
-          href: role-assignments-portal.md?toc=%2fazure%2factive-directory%2ftoc.json
-        - name: Azure CLI
-          href: role-assignments-cli.md
-        - name: PowerShell
-          href: role-assignments-powershell.md
-        - name: REST (영문)
-          href: role-assignments-rest.md
+    - name: RBAC란?
+      href: overview.md
+    - name: 다른 역할 이해
+      href: rbac-and-directory-admin-roles.md
+- name: 빠른 시작
+  items:
+    - name: 사용자에 대한 액세스 권한 부여
+      href: quickstart-assign-role-user-portal.md
+- name: 자습서
+  items:
+    - name: 사용자에 대한 액세스 권한 부여 - PowerShell
+      href: tutorial-role-assignments-user-powershell.md
+    - name: 그룹에 대한 액세스 권한 부여 - PowerShell
+      href: tutorial-role-assignments-group-powershell.md
+    - name: 사용자 지정 역할 만들기 - PowerShell
+      href: tutorial-custom-role-powershell.md
+    - name: 사용자 지정 역할 만들기 - CLI
+      href: tutorial-custom-role-cli.md
+- name: 개념
+  items:
     - name: 역할 정의 이해
       href: role-definitions.md
     - name: 기본 제공 역할
       href: built-in-roles.md
     - name: 사용자 지정 역할
       href: custom-roles.md
-    - name: 외부 사용자를 위한 역할 할당 관리
-      href: role-assignments-external-users.md
+    - name: 리소스 공급자 작업
+      href: resource-provider-operations.md
+    - name: RBAC용 PIM(Privileged Identity Management)
+      href: pim-azure-resource.md
+    - name: Azure 관리에 대한 조건부 액세스
+      href: conditional-access-azure-management.md
+- name: 방법 가이드
+  items:
+    - name: 액세스 관리
+      items:
+        - name: 포털
+          href: role-assignments-portal.md
+        - name: Azure CLI
+          href: role-assignments-cli.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: REST (영문)
+          href: role-assignments-rest.md
     - name: 활동 로그
       href: change-history-report.md
     - name: 전역 관리자를 위한 액세스 권한 상승
       href: elevate-access-global-admin.md
+    - name: 외부 사용자를 위한 액세스 관리
+      href: role-assignments-external-users.md
     - name: 문제 해결
       href: troubleshooting.md
-    - name: 리소스 공급자 작업
-      href: resource-provider-operations.md
-- name: RBAC용 PIM(Privileged Identity Management)
-  href: pim-azure-resource.md
-- name: Azure 관리에 대한 조건부 액세스
-  href: conditional-access-azure-management.md

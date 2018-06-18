@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.date: 06/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802054"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 데이터 사용을 검토하고 분석할 수 있습니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
@@ -116,7 +117,7 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 
 다음으로 *사용* 대시보드로 돌아가서 *솔루션별 데이터 볼륨* 차트를 확인합니다. 솔루션에 가장 많은 데이터를 전송하는 컴퓨터를 보려면 목록에서 솔루션의 이름을 클릭합니다. 목록에서 첫 번째 솔루션의 이름을 클릭합니다. 
 
-다음 스크린샷에서 *acmetomcat* 컴퓨터가 로그 관리 솔루션에 가장 많은 데이터를 보내는지 확인합니다.<br><br> ![솔루션의 데이터 볼륨](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+다음 스크린샷에서 *mycon* 컴퓨터가 로그 관리 솔루션에 가장 많은 데이터를 보내는지 확인합니다.<br><br> ![솔루션의 데이터 볼륨](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 필요한 경우 솔루션이나 데이터 형식 내에서 큰 볼륨을 식별하려면 추가 분석을 수행합니다. 예제 쿼리는 다음과 같습니다.
 
@@ -150,7 +151,7 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>예상보다 더 많은 노드가 있는지 확인합니다.
 *노드당(OMS)* 가격 책정 계층에 있는 경우 사용한 노드 및 솔루션의 수에 따라 요금이 청구됩니다. 사용 대시보드의 *제품* 섹션에서 사용 중인 각 제품의 노드 수를 볼 수 있습니다.<br><br> ![사용량 대시보드](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
-**모두 표시...**를 클릭하여 선택한 제품에 데이터를 전송하는 컴퓨터의 전체 목록을 볼 수 있습니다.
+**모두 표시...** 를 클릭하여 선택한 제품에 데이터를 전송하는 컴퓨터의 전체 목록을 볼 수 있습니다.
 
 [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 

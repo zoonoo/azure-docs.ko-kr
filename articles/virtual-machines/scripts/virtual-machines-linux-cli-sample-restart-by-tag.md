@@ -1,13 +1,13 @@
 ---
-title: "Azure CLI 스크립트 샘플 - VM 다시 시작 | Microsoft Docs"
-description: "Azure CLI 스크립트 샘플 - 태그 및 ID로 VM 다시 시작"
+title: Azure CLI 스크립트 샘플 - VM 다시 시작 | Microsoft Docs
+description: Azure CLI 스크립트 샘플 - 태그 및 ID로 VM 다시 시작
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: allclark
 manager: douge
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
@@ -16,11 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: a9f7cf8ba492004cb6d9e359bfb392448dfbe813
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 4c409dfcfba14093d5e2cf28df4bb6c5d1bd9533
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725975"
 ---
 # <a name="restart-vms"></a>VM 다시 시작
 
@@ -42,7 +43,7 @@ az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-이 샘플은 Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../windows/cli-options.md)을 참조하세요.
+이 샘플은 Bash 셸에서 작동합니다. Windows 클라이언트에서 Azure CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 설치](/cli/azure/install-azure-cli-windows)를 참조하세요.
 
 
 ## <a name="sample-script"></a>샘플 스크립트

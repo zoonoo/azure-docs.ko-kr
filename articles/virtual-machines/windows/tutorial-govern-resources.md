@@ -11,22 +11,23 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/21/2018
+ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 154ba47881c65d963729f9074d93c7bb61020389
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657243"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Linux 가상 머신 제어에 대해 알아보기
+# <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신 거버넌스에 대해 알아보기
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다. 로컬 설치의 경우 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)하여 새 Azure Active Directory 그룹을 만들어야 합니다.
+이 문서의 예제에는 Azure PowerShell 6.0 이상이 필요합니다. PowerShell을 로컬로 실행하고 6.0 버전 이상이 없는 경우 [해당 버전을 업데이트](/powershell/azure/install-azurerm-ps)하세요. 또한 `Connect-AzureRmAccount`을 실행하여 Azure와 연결해야 합니다. 로컬 설치의 경우 [Azure AD PowerShell 모듈을 다운로드](https://www.powershellgallery.com/packages/AzureAD/)하여 새 Azure Active Directory 그룹을 만들어야 합니다.
 
 ## <a name="understand-scope"></a>범위 이해
 
@@ -196,13 +197,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 태그 이름 및 값을 사용하여 리소스를 찾으려면 [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) 명령을 사용합니다.
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Get-AzureRmResource -Tag @{ Environment="Test"}).Name
 ```
 
 태그 값으로 모든 가상 머신 중지와 같은 관리 작업에 대한 반환 값을 사용할 수 있습니다.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Get-AzureRmResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>태그 값으로 비용 보기

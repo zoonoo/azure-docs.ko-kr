@@ -1,18 +1,19 @@
 ---
-title: "Azure Site Recovery를 통한 온-프레미스 Hyper-V VM(VMM 없음)에서 Azure로의 재해 복구 설정 | Microsoft Docs"
-description: "Azure Site Recovery 서비스를 통한 온-프레미스 Hyper-V VM(VMM 없음)에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다."
+title: Azure Site Recovery를 통한 온-프레미스 Hyper-V VM(VMM 없음)에서 Azure로의 재해 복구 설정 | Microsoft Docs
+description: Azure Site Recovery 서비스를 통한 온-프레미스 Hyper-V VM(VMM 없음)에서 Azure로의 재해 복구를 설정하는 방법을 알아봅니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/14/2018
+ms.date: 05/21/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e7ddb3046b0725b3afcea2ed6a533388a89cf306
-ms.sourcegitcommit: fbba5027fa76674b64294f47baef85b669de04b7
+ms.openlocfilehash: 9ee5478412b02615efec983dd0b99c12fc2d9213
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/24/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643586"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM의 Azure로의 재해 복구 설정
 
@@ -39,20 +40,32 @@ ms.lasthandoff: 02/24/2018
 1. **모든 서비스** > **Recovery Services 자격 증명 모음**에서 이전 자습서에서 준비한 자격 증명 모음인 **ContosoVMVault**를 선택합니다.
 2. **시작**에서**Site Recovery**를 클릭합니다. 그런 다음 **인프라 준비**를 클릭합니다.
 3. **보호 목표** > **컴퓨터가 있는 위치**에서 **온-프레미스**를 선택합니다.
-4. **컴퓨터를 복제할 위치를 선택하세요.**에서 **Azure**를 선택합니다.
-5. **컴퓨터가 가상화되어 있습니까?**에서 **아니요**를 선택합니다. 그런 후 **OK**를 클릭합니다.
+4. **컴퓨터를 복제할 위치를 선택하세요.** 에서 **Azure**를 선택합니다.
+5. **System Center VMM을 사용하여 Hyper-V 호스트를 관리하나요**에서 **아니요**를 선택합니다. 그런 후 **OK**를 클릭합니다.
 
     ![복제 목표](./media/hyper-v-azure-tutorial/replication-goal.png)
 
+## <a name="confirm-deployment-planning"></a>배포 계획 확인
+
+큰 배포를 계획하는 경우 [Hyper-V 복제에 대한 배포 계획](hyper-v-deployment-planner-overview.md)을 완료했는지 확인해야 합니다. 이 자습서의 목적은 **배포 계획을 완료했나요?** 의 드롭다운 목록에서 **나중에 수행**을 선택합니다.
+
+![배포 계획](./media/hyper-v-azure-tutorial/deployment-planning.png)
+
 ## <a name="set-up-the-source-environment"></a>원본 환경 설정
 
-원본 환경을 설정하려면 Hyper-V 사이트에 Hyper-V 호스트를 추가하고, Azure Site Recovery 공급자와 Azure Recovery Services 에이전트를 다운로드하여 설치하고, 자격 증명 모음에 Hyper-V 사이트를 등록합니다. 
+원본 환경을 설정하려면 Hyper-V 사이트를 만들고, 사이트에 Hyper-V 호스트를 추가합니다. 그런 다음, 각 호스트에 Azure Site Recovery 공급자와 Azure Recovery Services 에이전트를 다운로드 및 설치하고, 자격 증명 모음에 Hyper-V 사이트를 등록합니다. 
 
 1. **인프라 준비**에서 **원본**을 클릭합니다.
 2. **+Hyper-V 사이트**를 클릭하고 이전 자습서에서 만든 사이트의 이름인 **ContosoHyperVSite**를 지정합니다.
-3. **+Hyper-V Server**를 클릭합니다.
+
+    ![Hyper-V 사이트](./media/hyper-v-azure-tutorial/hyperv-site.png)
+
+3. 사이트를 만든 후 **+Hyper-V 서버**를 클릭합니다.
+
+    ![Hyper-V 서버](./media/hyper-v-azure-tutorial/hyperv-server.png)
+
 4. Provider 설치 파일을 다운로드합니다.
-5. 자격 증명 모음 등록 키를 다운로드합니다. 공급자 설정을 실행하려면 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
+6. 자격 증명 모음 등록 키를 다운로드합니다. 공급자 설정을 실행하려면 이 키가 필요합니다. 이 키는 생성된 날로부터 5일간 유효합니다.
 
     ![Provider 다운로드](./media/hyper-v-azure-tutorial/download.png)
     

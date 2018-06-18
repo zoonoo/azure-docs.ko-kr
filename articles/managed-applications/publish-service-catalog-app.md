@@ -8,18 +8,18 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: b7f8bbcad39000e7e71149824535a6a82b26c758
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39d2979aad3aee80ba010d5fc3cf83ad486baf2d
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305313"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35247883"
 ---
 # <a name="publish-a-managed-application-for-internal-consumption"></a>내부 사용을 위한 관리되는 응용 프로그램 게시
 
-조직의 구성원을 위한 Azure [관리되는 응용 프로그램](overview.md)을 만들고 게시할 수 있습니다. 예를 들어 조직 표준을 준수하도록 하는 IT 부서에서 관리되는 응용 프로그램을 게시할 수 있습니다. 이러한 관리되는 응용 프로그램은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
+조직의 구성원을 위한 Azure [관리되는 응용 프로그램](overview.md)을 만들고 게시할 수 있습니다. 예를 들어 IT 부서에서는 조직 표준을 충족하는 관리되는 응용 프로그램을 게시할 수 있습니다. 이러한 관리되는 응용 프로그램은 Azure Marketplace가 아닌 서비스 카탈로그를 통해 사용할 수 있습니다.
 
 서비스 카탈로그에 대한 관리되는 응용 프로그램을 게시하려면 다음을 수행해야 합니다.
 
@@ -29,11 +29,13 @@ ms.locfileid: "34305313"
 * 사용자의 구독에 속한 리소스 그룹에 액세스해야 하는 사용자, 그룹 또는 응용 프로그램을 결정합니다.
 * .zip 패키지를 나타내고 ID에 대한 액세스를 요청하는 관리되는 응용 프로그램 정의를 만듭니다.
 
-이 문서에서는 관리되는 응용 프로그램에는 하나의 저장소 계정만 포함됩니다. 관리되는 응용 프로그램을 게시하는 단계를 설명하기 위한 것입니다. 전체 예제는 [Azure 관리되는 응용 프로그램의 샘플 프로젝트](sample-projects.md)를 참조하세요.
+이 문서에서는 관리되는 응용 프로그램에는 하나의 저장소 계정만이 포함됩니다. 관리되는 응용 프로그램을 게시하는 단계를 설명하기 위한 것입니다. 전체 예제는 [Azure 관리되는 응용 프로그램의 샘플 프로젝트](sample-projects.md)를 참조하세요.
+
+이 아티클의 PowerShell 예제에는 Azure PowerShell 6.2 이상이 필요합니다. 필요에 따라 [버전을 업데이트합니다](/powershell/azure/install-azurerm-ps).
 
 ## <a name="create-the-resource-template"></a>리소스 템플릿 만들기
 
-모든 관리되는 응용 프로그램 정의는 이름이 **mainTemplate.json**인 파일을 포함합니다. 이 안에서 프로비전할 Azure 리소스를 정의합니다. 템플릿은 일반 Resource Manager 템플릿과 차이가 없습니다.
+모든 관리되는 응용 프로그램 정의에는 **mainTemplate.json**이라는 파일이 포함됩니다. 여기에서 표시할 Azure 리소스를 정의합니다. 템플릿은 일반 Resource Manager 템플릿과 차이가 없습니다.
 
 이름이 **mainTemplate.json**인 파일을 만듭니다. 이름은 대/소문자를 구분합니다.
 
@@ -209,6 +211,10 @@ New-AzureRmManagedApplicationDefinition `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
 
+### <a name="make-sure-users-can-see-your-definition"></a>사용자가 정의를 볼 수 있는지 확인합니다.
+
+사용자가 관리되는 응용 프로그램 정의에 액세스할 수 있지만 조직의 다른 사용자도 액세스할 수 있는 것이 좋습니다. 정의에서 최소한 읽기 역할을 부여합니다. 구독 또는 리소스 그룹에서 이 수준의 액세스를 상속받을 수 있습니다. 정의에 대한 액세스 권한이 있고 사용자나 그룹을 추가하려면 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+
 ## <a name="create-the-managed-application"></a>관리되는 응용 프로그램 만들기
 
 포털, PowerShell 또는 Azure CLI를 통해 관리되는 응용 프로그램을 배포할 수 있습니다.
@@ -256,6 +262,16 @@ New-AzureRmManagedApplication `
 1. 사용 가능한 솔루션의 목록에서 만들려는 관리되는 응용 프로그램을 찾아 선택합니다. **만들기**를 선택합니다.
 
    ![관리되는 응용 프로그램 찾기](./media/publish-service-catalog-app/find-application.png)
+
+   포털을 통해 관리되는 응용 프로그램 정의를 볼 수 없는 경우 포털 설정을 변경해야 합니다. **디렉터리 및 구독 필터**를 선택합니다.
+
+   ![구독 필터 선택](./media/publish-service-catalog-app/select-filter.png)
+
+   관리되는 응용 프로그램 정의를 포함하는 구독이 전역 구독 필터에 포함되어 있는지 확인합니다.
+
+   ![구독 필터 확인](./media/publish-service-catalog-app/check-global-filter.png)
+
+   구독을 선택한 후에 서비스 카탈로그 관리 응용 프로그램을 만드는 것부터 다시 시작합니다. 이제 표시되어야 합니다.
 
 1. 관리되는 응용 프로그램에 필요한 기본 정보를 제공합니다. 관리되는 응용 프로그램을 포함할 구독 및 새 리소스 그룹을 지정합니다. 위치에 **미국 중서부**를 선택합니다. 완료되면 **확인**을 선택합니다.
 

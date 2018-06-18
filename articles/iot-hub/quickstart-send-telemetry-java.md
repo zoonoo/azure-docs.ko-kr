@@ -1,23 +1,21 @@
 ---
 title: Azure IoT Hub에 원격 분석 데이터 보내기 빠른 시작(Java) | Microsoft Docs
 description: 이 빠른 시작에서는 두 개의 Java 응용 프로그램 샘플을 실행하여 시뮬레이션된 원격 분석을 IoT Hub에 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: d887c690a5f0bc8120daa74d6076083634da08f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fd610af3d1b29b78ef89b8f523ef880696031bf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637653"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-java"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석 데이터 보내기 및 백 엔드 응용 프로그램으로 허브에서 원격 분석 읽기(Java)
 
@@ -65,8 +63,10 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
+
+    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
 1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 
@@ -92,7 +92,7 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치 관련 엔드포인트에 연결하고 시뮬레이션된 온도 및 습도 원격 분석을 전송합니다.
 
-1. 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\simulated-device** 폴더로 이동합니다.
+1. 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
 
 1. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 파일을 엽니다.
 
@@ -118,7 +118,7 @@ https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip에서
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 응용 프로그램은 시뮬레이션된 장치에서 전송하는 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
 
-1. 다른 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\read-d2c-messages** 폴더로 이동합니다.
+1. 다른 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\read-d2c-messages** 폴더로 이동합니다.
 
 1. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** 파일을 엽니다.
 

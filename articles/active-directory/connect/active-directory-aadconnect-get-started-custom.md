@@ -12,13 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7d1beff419ed2bf4c58f0646cd6c8aacf8e5e7b
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849994"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -214,12 +216,11 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 1.  그룹 정책 관리 도구를 엽니다.
 2.  모든 사용자에게 표시될 그룹 정책을 편집합니다. 예를 들어 기본 도메인 정책은 다음과 같습니다.
 3.  **User Configuration\Administrative Templates\Windows Components\Internet Explorer\Internet Control Panel\Security Page**로 이동하고 아래 이미지에 따라 **영역에 대한 사이트 할당 목록**을 선택합니다.
-4.  정책을 사용하도록 설정하고 대화 상자에서 다음 두 항목을 입력합니다.
+4.  정책을 사용하도록 설정하고 대화 상자에서 다음과 같은 항목을 입력합니다.
 
         Value: `https://autologon.microsoftazuread-sso.com`  
         Data: 1  
-        Value: `https://aadg.windows.net.nsatc.net`  
-        Data: 1
+    
 
 5.  다음과 유사하게 나타납니다.  
 ![인트라넷 영역](./media/active-directory-aadconnect-get-started-custom/sitezone.png)
@@ -227,7 +228,7 @@ Azure AD Connect 도구에서 추가한 각 포리스트에 대해 도메인 관
 6.  **확인**을 두 번 클릭합니다.
 
 ## <a name="configuring-federation-with-ad-fs"></a>AD FS로 페더레이션 구성
-Azure AD Connect를 사용하여 AD FS를 구성하는 것은 단 몇 번의 클릭으로 간단합니다. 구성하기 전에 다음 사항이 필요합니다.
+Azure AD Connect에서 AD FS를 구성하는 것은 간단히 몇 번의 클릭으로 가능합니다. 구성하기 전에 다음 사항이 필요합니다.
 
 * 원격 관리가 사용 가능한 페더레이션 서버용 Windows Server 2012 R2 이상 서버
 * 원격 관리가 사용 가능한 웹 응용 프로그램 프록시 서버용 Windows Server 2012 R2 이상 서버
@@ -303,7 +304,7 @@ AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 �
 >
 
 ## <a name="configuring-federation-with-pingfederate"></a>PingFederate로 페더레이션 구성
-Azure AD Connect를 사용하여 PingFederate를 구성하는 방법은 클릭 몇 번으로 간단하게 처리할 수 있습니다. 구성하기 전에 다음 사항이 필요합니다.  하지만 다음과 같은 필수 구성 요소가 필요합니다.
+Azure AD Connect에서 PingFederate를 구성하는 것은 간단히 몇 번의 클릭으로 가능합니다. 하지만 다음과 같은 필수 구성 요소가 필요합니다.
 - PingFederate 8.4 이상.  자세한 내용은 [Azure Active Directory 및 Office 365와 PingFederate 통합](https://docs.pingidentity.com/bundle/O365IG20_sm_integrationGuide/page/O365IG_c_integrationGuide.html)을 참조하세요.
 - 사용할 페더레이션 서비스 이름에 대한 SSL 인증서(예: sts.contoso.com)
 

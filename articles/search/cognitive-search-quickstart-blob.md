@@ -7,11 +7,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 278fbd5d7f5925b802303910222c5a13379bfad6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640264"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>빠른 시작: 기술 및 샘플 데이터를 사용하여 인식 검색 파이프라인 만들기
 
@@ -29,7 +30,7 @@ ms.lasthandoff: 05/07/2018
 * 미국 중남부
 * 서유럽
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -95,6 +96,8 @@ Azure Search 서비스 대시보드 페이지로 돌아가서 명령 모음에�
 ### <a name="step-2-add-cognitive-skills"></a>2단계: 인식 기술 추가
 
 다음으로, 인덱싱 파이프라인에 보강 단계를 추가합니다. 포털은 이미지 분석 및 텍스트 분석을 위해 미리 정의된 인식 기술을 제공합니다. 포털에서 한 기술 집합은 한 원본 필드에 대해 작동합니다. 작은 대상처럼 보일 수 있지만, Azure BLOB의 경우 `content` 필드에 대부분의 BLOB 문서가 포함됩니다(예: Word 문서 또는 PowerPoint 데크). BLOB의 모든 콘텐츠가 이 필드에 있기 때문에 이 필드는 가장 이상적인 입력입니다.
+
+경우에 따라 스캐너에서 생성되는 PDF와 같은 대부분 스캔된 이미지로 구성된 파일에서 텍스트 표현을 추출하려고 합니다. Azure Search는 문서의 포함된 이미지에서 자동으로 콘텐츠를 추출할 수 있습니다. 이렇게 하려면 **OCR을 활성화하고 모든 텍스트를 merged_content 필드로 병합** 옵션을 선택합니다. 이렇게 하면 문서에서 추출된 텍스트 및 문서에 포함된 이미지의 텍스트 표현을 포함하는 `merged_content` 필드를 자동으로 만듭니다. 이 옵션을 선택하는 경우 `Source data field`는 `merged_content`로 설정됩니다.
 
 **인식 기술 추가**에서 자연어 처리를 수행하는 기술을 선택합니다. 이 빠른 시작에서는 사람, 조직 및 위치에 대한 엔터티 인식을 선택합니다.
 

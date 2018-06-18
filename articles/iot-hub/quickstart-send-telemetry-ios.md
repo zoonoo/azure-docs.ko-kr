@@ -1,25 +1,24 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작 | Microsoft Docs
 description: 이 빠른 시작에서는 샘플 iOS 응용 프로그램을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
-services: iot-hub
 author: kgremban
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: ''
+services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/20//2018
+ms.date: 04/20/2018
 ms.author: kgremban
-ms.openlocfilehash: 0f1d3a5f714a2202836f477e78a30aa080947239
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 7b7f8e1805850861b30eb2a54991e5ab7fa96335
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808182"
 ---
-# <a name="send-telemetry-from-a-device-to-an-iot-hub-swift"></a>장치에서 IoT Hub(Swift)로 원격 분석 전송
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>빠른 시작: 원격 분석을 장치에서 IoT 허브로 전송(iOS)
+
+[!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
 IoT Hub는 저장 또는 처리를 위해 IoT 장치에서 클라우드로 다량의 원격 분석 데이터를 수집할 수 있게 해주는 Azure 서비스입니다. 이 아티클에서는 시뮬레이션된 장치 응용 프로그램에서 IoT Hub로 원격 분석을 보냅니다. 그런 다음, 백 엔드 응용 프로그램에서 데이터를 볼 수 있습니다. 
 
@@ -42,32 +41,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-첫 번째 단계는 Azure Portal을 사용하여 구독에 IoT Hub를 만드는 것입니다. IoT Hub를 사용하면 다양한 장치에서 클라우드로 다량의 원격 분석을 수집할 수 있습니다. 그런 다음, 허브는 클라우드에서 실행 중인 하나 이상의 백 엔드 서비스가 원격 분석을 읽고 처리할 수 있게 합니다.
+[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
 
-1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
-
-1. **리소스 만들기** > **사물 인터넷** > **IoT Hub**를 선택합니다. 
-
-   ![IoT Hub를 설치하도록 선택](media/quickstart-send-telemetry-ios/selectiothub.png)
-
-1. IoT Hub를 만들려면 다음 표의 값을 사용합니다.
-
-    | 설정 | 값 |
-    | ------- | ----- |
-    | Name | 허브의 고유한 이름 |
-    | 가격 책정 및 규모 계층 | F1 무료 |
-    | IoT Hub 단위 | 1 |
-    | 장치-클라우드 파티션 | 2개 파티션 |
-    | 구독 | Azure 구독. |
-    | 리소스 그룹 | 새로 만듭니다. 리소스 그룹의 이름을 입력합니다. |
-    | 위치 | 가장 가까운 위치입니다. |
-    | 대시보드에 고정 | 예 |
-
-1. **만들기**를 클릭합니다.  
-
-   ![허브 설정](media/quickstart-send-telemetry-ios/hubdefinition.png)
-
-1. IoT Hub 및 리소스 그룹 이름을 기록해 둡니다. 이러한 값은 이 빠른 시작의 뒷부분에서 사용합니다.
 
 ## <a name="register-a-device"></a>장치 등록
 
@@ -168,10 +143,13 @@ Iothub-explorer 명령을 실행할 때 오류가 나타나면 IoT 장치의 *�
 
 이 아티클에서는 IoT Hub를 설정하고, 장치를 등록하고, 시뮬레이션된 원격 분석을 iOS 장치에서 허브로 전송하고, 허브에서 원격 분석을 읽었습니다. 
 
-iOS 장치가 IoT Hub와 함께 작동하는 방법에 대해 계속 알아보려면 [iOS(Swift)로 클라우드-장치 메시지 보내기](iot-hub-ios-swift-c2d.md)를 참조하세요.
+백 엔드 응용 프로그램에서 시뮬레이션된 장치를 제어하는 방법을 알아보려면 다음 빠른 시작을 계속합니다.
+
+> [!div class="nextstepaction"]
+> [빠른 시작: IoT 허브에 연결된 장치 제어](quickstart-control-device-node.md)
 
 <!-- Links -->
-[lnk-process-d2c-tutorial]: iot-hub-csharp-csharp-process-d2c.md
+[lnk-process-d2c-tutorial]: tutorial-routing.md
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 06/04/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: fa6a232c657d9d96943f241eb05221e42f0f599b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302562"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763343"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
@@ -71,7 +71,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
    ![함수 만들기](./media/custom-event-quickstart-portal/create-function.png)
 
-1. Azure 함수에 사용할 고유한 이름을 입력합니다. 이미지에 표시된 이름은 사용하지 마십시오. 이 문서에서 만든 리소스 그룹을 선택합니다. 호스팅 계획의 경우 **소비 계획**을 사용합니다. 제안된 새 저장소 계정을 사용합니다. 값을 입력한 후 **만들기**를 선택합니다.
+1. Azure 함수에 사용할 고유한 이름을 입력합니다. 이미지에 표시된 이름은 사용하지 마십시오. 이 문서에서 만든 리소스 그룹을 선택합니다. 호스팅 계획의 경우 **소비 계획**을 사용합니다. 제안된 새 저장소 계정을 사용합니다. Application Insights를 끌 수 있습니다. 값을 입력한 후 **만들기**를 선택합니다.
 
    ![함수 값 입력](./media/custom-event-quickstart-portal/provide-function-values.png)
 

@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d78dbc9a32e804e37eb76047edcc050482df5761
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b868ac82951a831013d66fc0ca0a420cb94968d5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642066"
 ---
 # <a name="quickstart-deploy-a-service-fabric-windows-container-application-on-azure"></a>빠른 시작: Azure에서 Service Fabric Windows 컨테이너 응용 프로그램 배포
 Azure Service Fabric은 확장성 있고 안정성이 뛰어난 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -57,6 +58,26 @@ Service Fabric SDK 및 도구는 컨테이너를 Service Fabric 클러스터에 
 "MyContainerService" 서비스 이름을 지정하고 **확인**을 클릭합니다.
 
 ![새 서비스 대화 상자][new-service]
+
+## <a name="specify-the-os-build-for-your-container-image"></a>컨테이너 이미지에 대한 OS 빌드 지정
+특정 버전의 Windows Server를 사용하여 빌드한 컨테이너는 다른 버전의 Windows Server를 실행하는 호스트에서 실행되지 않을 수 있습니다. 예를 들어 Windows Server 버전 1709를 사용하여 빌드한 컨테이너는 Windows Server 2016을 실행하는 호스트에서 실행되지 않습니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 
+
+Service Fabric 런타임 버전 6.1 이상을 사용하여 컨테이너당 여러 OS 이미지를 지정하고 각각을 배포되어야 하는 OS의 빌드 버전으로 태그 지정할 수 있습니다. 이렇게 하면 응용 프로그램이 서로 다른 버전의 Windows OS를 실행하는 호스트에서 실행되는지 확인할 수 있습니다. 자세히 알아보려면 [OS 빌드 관련 컨테이너 이미지 지정](service-fabric-get-started-containers.md#specify-os-build-specific-container-images)을 참조하세요. 
+
+Microsoft는 다른 버전의 Windows Server에서 빌드한 IIS 버전에 대한 서로 다른 이미지를 게시합니다. Service Fabric이 응용 프로그램을 배포하는 클러스터 노드에서 실행 중인 Windows Server의 버전과 호환되는 컨테이너를 배포하는지 확인하려면 *ApplicationManifest.xml* 파일에 다음 줄을 추가합니다. Windows Server 2016에 대한 빌드 버전은 14393이며 Windows Server 버전 1709의 빌드 버전은 16299입니다. 
+
+```xml
+    <ContainerHostPolicies CodePackageRef="Code"> 
+      <ImageOverrides> 
+        ...
+          <Image Name="microsoft/iis:nanoserverDefault" /> 
+          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
+          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+      </ImageOverrides> 
+    </ContainerHostPolicies> 
+```
+
+서비스 매니페스트는 nanoserver, `microsoft/iis:nanoserver`에 대한 하나의 이미지만을 계속해서 지정합니다. 
 
 ## <a name="create-a-cluster"></a>클러스터 만들기
 응용 프로그램을 Azure의 클러스터에 배포하려면 Party 클러스터에 조인할 수 있습니다. Party 클러스터는 평가판으로, Azure에서 호스트되고 Service Fabric 팀이 실행하는 제한 시간 Service Fabric 클러스터입니다. 여기서 누구나 응용 프로그램을 배포하고 플랫폼에 대해 알아볼 수 있습니다.  클러스터는 노드-노드뿐만 아니라 클라이언트-노드 보안에도 단일 자체 서명 인증서를 사용합니다. 파티 클러스터가 컨테이너를 지원합니다. 자체 클러스터를 설정하고 사용하려는 경우 컨테이너를 지원하는 SKU에서 클러스터가 실행되어야 합니다(예: 컨테이너가 있는 Windows Server 2016 데이터 센터).

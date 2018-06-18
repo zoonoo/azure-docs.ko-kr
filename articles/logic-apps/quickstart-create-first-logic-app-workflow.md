@@ -1,30 +1,26 @@
 ---
-title: 첫 번째 자동화 워크플로 만들기 - Azure Logic Apps | Microsoft Docs
-description: 이 빠른 시작에서는 시스템과 클라우드 서비스를 통합하는 시스템 통합 및 EAI(엔터프라이즈 응용 프로그램 통합) 시나리오를 위한 Azure Logic Apps를 사용하여 첫 번째 워크플로를 자동화하는 방법을 보여줍니다.
-author: ecfan
-manager: anneta
-editor: ''
+title: 첫 번째 워크플로 만들기 및 자동화 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로를 자동화하는 첫 번째 논리 앱을 만드는 방법에 대한 빠른 시작입니다. 시스템 및 클라우드 서비스에서 시스템 통합 및 EAI(Enterprise Application Integration) 솔루션에 대한 논리 앱 만들기
 services: logic-apps
-keywords: 워크플로, 클라우드 서비스, 시스템 통합, 엔터프라이즈 응용 프로그램 통합, EAI
-documentationcenter: ''
-ms.assetid: ce3582b5-9c58-4637-9379-75ff99878dcd
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 1/12/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 1/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: ccd00fbb3c5dc0f78a31adcaed31bbe6e4a6e785
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 0a629deec0cc18f65dfe5e88a3eaea528636dd0f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300942"
 ---
-# <a name="quickstart-build-your-first-logic-app-workflow---azure-portal"></a>빠른 시작: 첫 번째 논리 앱 워크플로 빌드 - Azure Portal
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 만들기 - Azure Portal
 
-이 빠른 시작에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 첫 번째 자동화 워크플로를 만드는 방법을 소개합니다. 이 문서에서는 새 항목에 대한 웹 사이트의 RSS 피드를 주기적으로 확인하는 논리 앱을 만듭니다. 새 항목이 있으면 논리 앱에서 각 항목에 대한 이메일을 보냅니다. 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
+이 빠른 시작에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 첫 번째 자동화 워크플로를 빌드하는 방법을 소개합니다. 이 문서에서는 새 항목에 대한 웹 사이트의 RSS 피드를 주기적으로 확인하는 논리 앱을 만듭니다. 새 항목이 있으면 논리 앱에서 각 항목에 대한 이메일을 보냅니다. 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
 
 ![개요 - 논리 앱 예제](./media/quickstart-create-first-logic-app-workflow/overview.png)
 
@@ -32,7 +28,7 @@ ms.lasthandoff: 03/16/2018
 
 또한 Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">Azure 체험 계정에 등록</a>합니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다.
 

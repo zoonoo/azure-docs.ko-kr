@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 97c2f68356a6a589f48224d297493509786ceff1
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 91225136926427fb22c80bc2e198c153c60614eb
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298137"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다.
@@ -91,7 +92,7 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 기존 SSIS 워크로드를 올리고 이동하려면 SSIS 패키지를 고유하게 실행하는 Azure-SSIS IR을 만들 수 있습니다.
 
 ### <a name="network-environment"></a>네트워크 환경
-Azure SSIS IR은 공용 네트워크 또는 개인 네트워크에서 프로비전할 수 있습니다.  온-프레미스 데이터 액세스는 Azure-SSIS IR을 온-프레미스 네트워크에 연결된 VNet(가상 네트워크)에 조인하면 지원됩니다.  
+Azure SSIS IR은 공용 네트워크 또는 개인 네트워크에서 프로비전할 수 있습니다.  Azure-SSIS IR을 온-프레미스 네트워크에 연결된 Virtual Network에 조인하여 온-프레미스 데이터 액세스를 지원합니다.  
 
 ### <a name="compute-resource-and-scaling"></a>계산 리소스 및 크기 조정
 Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Azure VM 클러스터입니다. 자기만의 Azure SQL Database 또는 관리되는 인스턴스(미리 보기) 서버를 해당 서버에 연결할 SSIS 프로젝트/패키지(SSISDB)의 카탈로그를 호스팅하게 만들 수 있습니다. 노드 크기를 지정하여 계산 능력을 확장하고 클러스터의 노드 수를 지정하여 확장할 수 있습니다. Azure-SSIS 통합 런타임을 중단하고 적합해 보일 때 시작하여 그 실행 비용을 관리할 수 있습니다.
@@ -101,10 +102,10 @@ Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Az
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
-- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
+- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 이 아티클에서는 자습서를 확장하여 Azure SQL 관리되는 인스턴스(미리 보기)를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
-- [Azure-SSIS IR을 VNet에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서는 Azure-SSIS IR을 Azure 가상 네트워크(VNet)에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 VNet에 조인할 수 있도록 VNet을 구성하는 단계도 제공합니다. 
+- [Azure-SSIS IR을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 아티클에서는 Azure-SSIS IR을 Azure 가상 네트워크에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 가상 네트워크에 조인할 수 있도록 가상 네트워크를 구성하는 단계도 제공합니다. 
 
 ## <a name="determining-which-ir-to-use"></a>사용할 IR 결정
 각 변환 작업에는 통합 런타임을 가리키는 대상 계산 연결된 서비스가 있습니다. 이 통합 런타임 인스턴스는 변환 작업이 디스패치되는 곳입니다.
@@ -179,12 +180,12 @@ Data Factory는 데이터를 이동하는 것과 같은 지리적 위치의 싱�
 Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플로에서 고성능을 달성하기 위해 필수적입니다.  6개의 위치는 처음에 미리 보기할 수 있습니다(미국 동부, 미국 동부 2, 미국 중부, 오스트레일리아 동부, 북유럽 및 유럽 서부).
 
 - Azure SSIS IR의 위치가 데이터 팩터리의 위치와 같을 필요는 없지만, SSISDB를 호스팅할 사용자 자신의 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버의 위치와 같아야 합니다. 이러한 방식으로 Azure SSIS 통합 런타임은 서로 다른 위치 간에 과도한 트래픽을 초래하지 않고 SSISDB에 쉽게 액세스할 수 있습니다.
-- SSISDB를 호스팅할 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버는 없지만 온-프레미스 데이터 소스/대상이 있는 경우 온-프레미스 네트워크에 연결된 VNet의 같은 위치에 새 Azure SQL Database/관리되는 인스턴스(미리 보기)를 만들어야 합니다.  이러한 방식으로 새 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버를 사용하여 모두 같은 위치에 있는 VNet이 서로 다른 위치 간에 데이터 이동을 효과적으로 최소화하도록 조인하여 Azure SSIS IR을 만들 수 있습니다.
-- SSISDB를 호스팅하는 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버의 위치가 온-프레미스 네트워크에 연결된 VNet의 위치와 같지 않은 경우 먼저 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버를 사용하여 같은 위치에 다른 VNet을 조인하여 Azure-SSIS IR을 만든 다음, 서로 다른 위치 간에 VNet 대 VNet 연결을 구성합니다.
+- SSISDB를 호스팅할 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버는 없지만 온-프레미스 데이터 소스/대상이 있는 경우 온-프레미스 네트워크에 연결된 가상 네트워크의 같은 위치에 새 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버를 만들어야 합니다.  이러한 방식으로 새 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버를 사용하여 모두 같은 위치에 있는 가상 네트워크가 서로 다른 위치 간에 데이터 이동을 효과적으로 최소화하도록 조인하여 Azure SSIS IR을 만들 수 있습니다.
+- SSISDB를 호스팅하는 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버의 위치가 온-프레미스 네트워크에 연결된 가상 네트워크의 위치와 같지 않은 경우 먼저 기존 Azure SQL Database/관리되는 인스턴스(미리 보기) 서버를 사용하여 같은 위치에 다른 가상 네트워크를 조인하여 Azure-SSIS IR을 만든 다음, 서로 다른 위치 사이에 가상 네트워크 간 연결을 구성합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 
 - [자체 호스팅 통합 런타임 만들기](create-self-hosted-integration-runtime.md)
-- [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 이 문서는 자습서를 확장하고 Azure SQL 관리되는 인스턴스(미리 보기)를 사용하고 IR을 VNet에 조인하는 지침을 제공합니다. 
+- [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 이 아티클에서는 자습서를 확장하여 Azure SQL 관리되는 인스턴스(미리 보기)를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 

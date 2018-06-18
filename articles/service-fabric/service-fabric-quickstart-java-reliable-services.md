@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cc5f685efdf3ed680acf4d95185c58b4c43f5ac5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642396"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>빠른 시작: Azure에 Java Service Fabric 안정적인 서비스 응용 프로그램 배포
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -65,7 +66,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Eclipse Import 대화 상자](./media/service-fabric-quickstart-java/eclipseimport.png)
     
 5. 이제 Eclipse용 Package Explorer에 `Voting` 프로젝트가 있습니다. 
-6. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application...**을 클릭합니다. **PublishProfiles/Local.json**을 Target Profile로 선택하고 Publish를 클릭합니다. 
+6. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application...** 을 클릭합니다. **PublishProfiles/Local.json**을 Target Profile로 선택하고 Publish를 클릭합니다. 
 
     ![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
     
@@ -150,7 +151,7 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
     }
     ```
 
-2. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application...**을 클릭합니다. **PublishProfiles/Cloud.json**을 Target Profile로 선택하고 Publish를 클릭합니다. 
+2. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **Service Fabric** 드롭다운 아래에서 **Publish Application...** 을 클릭합니다. **PublishProfiles/Cloud.json**을 Target Profile로 선택하고 Publish를 클릭합니다. 
 
     ![Publish Dialog Cloud](./media/service-fabric-quickstart-java/cloudjson.png)
 

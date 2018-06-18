@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dfc75a64e8bd28d7aba9984e5a1d5720330f1da3
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 93698df0e1684b469b6e2a03e6681499949aab6d
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414606"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP가 모든 Azure VPN Gateway SKU를 지원하나요?
 아니요. BGP는 Azure **VpnGw1**, **VpnGw2**, **VpnGw3**, **Standard** 및 **HighPerformance** VPN 게이트웨이에서 지원됩니다. **기본** SKU는 지원되지 않습니다.
@@ -81,7 +82,7 @@ Azure VPN 게이트웨이는 온-프레미스 BGP 장치에 다음 경로를 알
 Azure VPN 게이트웨이는 가상 네트워크에 대해 정의된 게이트웨이 서브넷 범위로부터 단일 IP 주소를 할당합니다. 기본적으로 이 값은 범위 마지막에서 두 번째의 값입니다. 예를 들어 GatewaySubnet이 10.12.255.0/27이고 범위가 10.12.255.0~10.12.255.31이면 Azure VPN 게이트웨이의 BGP 피어 IP 주소는 10.12.255.30이 됩니다. Azure VPN 게이트웨이 정보를 열거할 때 이 정보를 확인할 수 있습니다.
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>VPN 장치에서 BGP 피어 IP 주소에 대 한 요구 사항은 무엇인가요?
-사용자의 온-프레미스 BGP 피어 주소는 VPN 장치의 공용 IP 주소와 **같을 수 없습니다** . VPN 장치에서 BGP 피어 IP에 다른 IP 주소를 사용합니다. 장치에서 루프백 인터페이스에 할당한 주소가 될 수 있습니다. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서 이 주소를 지정합니다.
+사용자의 온-프레미스 BGP 피어 주소는 VPN 장치의 공용 IP 주소와 **같을 수 없습니다** . VPN 장치에서 BGP 피어 IP에 다른 IP 주소를 사용합니다. 장치에서 루프백 인터페이스에 할당된 주소를 사용할 수 있지만 APIPA(169.254.x.x) 주소는 사용할 수 없습니다. 위치를 나타내는 해당 로컬 네트워크 게이트웨이에서 이 주소를 지정합니다.
 
 ### <a name="what-should-i-specify-as-my-address-prefixes-for-the-local-network-gateway-when-i-use-bgp"></a>BGP를 사용할 때 로컬 네트워크 게이트웨이에 대해 내 주소 접두어로 무엇을 지정해야 하나요?
 Azure 로컬 네트워크 게이트웨이는 온-프레미스 네트워크에 대해 초기 주소 접두어를 지정합니다. BGP를 사용할 때는 BGP 피어 IP 주소의 호스트 접두어(/32 접두어)를 온-프레미스 네트워크의 주소 공간으로 할당해야 합니다. BGP 피어 IP가 10.52.255.254라면 이 온-프레미스 네트워크를 나타내는 로컬 네트워크 게이트웨이의 localNetworkAddressSpace로 "10.52.255.254/32"를 지정해야 합니다. 이것은 Azure VPN 게이트웨이가 S2S VPN 터널을 통해 BGP 세션을 수립하도록 하기 위한 것입니다.

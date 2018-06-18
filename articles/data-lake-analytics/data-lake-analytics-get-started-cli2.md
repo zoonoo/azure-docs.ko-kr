@@ -1,31 +1,28 @@
 ---
-title: Azure CLI 2.0을 사용하여 Azure Data Lake Analytics 시작 | Microsoft Docs
-description: 'Azure 명령줄 인터페이스 2.0을 사용하여 Data Lake Analytics 계정을 만들고, U-SQL을 사용하여 Data Lake Analytics 작업을 만들고, 작업을 제출하는 방법에 대해 알아봅니다. '
-services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-editor: cgronlun
+title: Azure CLI 2.0를 사용하여 Azure Data Lake Analytics 시작
+description: Azure 명령줄 인터페이스 2.0을 사용하여 Azure Data Lake Analytics 계정을 만들고 U-SQL 작업을 제출하는 방법을 알아봅니다.
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+services: data-lake-analytics
+author: saveenr
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
+ms.topic: get-started-article
 ms.date: 06/18/2017
-ms.author: jgao
-ms.openlocfilehash: e7ce65446a6af49f15b3ce1881757b16f8fcaa35
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3095c3281e1797c8103e0c229c62aca1aae3444f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625104"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli-20"></a>Azure CLI 2.0를 사용하여 Azure Data Lake Analytics 시작
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-이 자습서에서는 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환하는 작업을 개발합니다. 지원되는 다른 도구를 사용하여 같은 자습서를 진행하려면 이 섹션의 맨 위에 있는 드롭다운 목록을 사용하세요.
+이 문서에서는 Azure CLI 2.0 명령줄 인터페이스를 사용하여 Azure Data Lake Analytics 계정을 만들고, USQL 작업 및 카탈로그를 제출하는 방법을 설명합니다. 작업은 TSV(탭 분리 값) 파일을 읽고 CSV(쉼표로 구분된 값) 파일로 변환합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 시작하기 전에 다음 항목이 있어야 합니다.
+이 작업을 시작하려면 다음 항목이 필요합니다.
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure CLI 2.0**. [Azure CLI 설치 및 구성](https://docs.microsoft.com/cli/azure/install-azure-cli)을 참조하세요.

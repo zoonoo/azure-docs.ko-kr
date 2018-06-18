@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 447445ace41bb6b4677a75f5324368b269f938ea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 688f8da809a40f333aeb7b4ef959deb69ff94121
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355239"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808382"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  
@@ -43,10 +43,11 @@ ASE(App Service Environment)는 다음을 필요로 하는 응용 프로그램 �
 
 ASE는 단일 고객의 응용 프로그램만을 실행하도록 격리되며 항상 가상 네트워크에 배포됩니다. 고객은 인바운드 및 아웃바운드 응용 프로그램 네트워크 트래픽을 세부적으로 제어할 수 있습니다. 응용 프로그램은 온-프레미스 회사 리소스에 VPN을 통한 고속 보안 연결을 설정할 수도 있습니다.
 
-* ASE를 통해 보안 네트워크 액세스 권한이 있는 확장성이 뛰어난 앱 호스팅을 사용할 수 있습니다. 자세한 내용은 ASE의 [AzureCon 심층 분석](https://azure.microsoft.com/documentation/videos/azurecon-2015-deploying-highly-scalable-and-secure-web-and-mobile-apps/)을 참조하세요.
+* ASE에는 고유한 가격 책정 계층이 있습니다. [격리 솔루션](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment)이 하이퍼스케일 및 보안을 구현하는 데 어떻게 도움이 되는지 알아보세요.
+* [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment)는 네트워크의 서브넷에서 앱을 보호하는 환경을 제공하고, Azure App Service의 자체 비공개 배포를 지원합니다.
 * 여러 ASE를 수평적 크기 조정에 사용할 수 있습니다. 자세한 내용은 [지리적으로 분산된 앱 설치 공간 설정 방법](app-service-app-service-environment-geo-distributed-scale.md)을 참조하세요.
 * AzureCon 심층 분석에 표시된 대로 ASE는 보안 아키텍처를 구성하는 데 사용할 수 있습니다. AzureCon 심층 분석에 표시된 보안 아키텍처가 어떻게 구성되었는지 확인하려면 App Service Environment를 사용하여 [계층화된 보안 아키텍처를 구현하는 방법에 대한 문서](app-service-app-service-environment-layered-security.md)를 참조하세요.
-* ASE에서 실행 중인 앱은 WAF(웹 응용 프로그램 방화벽) 등의 업스트림 장치에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [ILB App Service Environment와 Azure Application Gateway 통합][AppGW]을 참조하세요.
+* ASE에서 실행 중인 앱은 WAF(웹 응용 프로그램 방화벽) 등의 업스트림 장치에서 제어된 액세스를 가질 수 있습니다. 자세한 내용은 [웹 응용 프로그램 방화벽(WAF)][AppGW]을 참조하세요.
 
 ## <a name="dedicated-environment"></a>전용 환경 ##
 
@@ -87,6 +88,8 @@ ASEv1에서는 모든 리소스를 수동으로 관리해야 합니다. 여기�
 ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서는 할당된 각 vCPU에 대한 비용을 지불합니다. 여기에는 워크로드를 호스트하지 않는 프런트 엔드 또는 작업자에 사용된 vCPU가 포함됩니다. ASEv1에서 ASE의 기본 최대 규모 크기는 총 55개의 호스트입니다. 여기에는 작업자 및 프런트 엔드가 포함됩니다. ASEv1의 한 가지 장점은 클래식 가상 네트워크 및 Resource Manager 가상 네트워크에 배포할 수 있다는 것입니다. ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요.
 
 <!--Links-->
+[App Service Environments v2]: https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment
+[Isolated offering]: https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment
 [Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
 [MakeASEfromTemplate]: ./create-from-template.md
@@ -105,4 +108,4 @@ ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
 [Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../application-gateway/waf-overview.md

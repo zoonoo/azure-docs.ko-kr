@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: a57118feb85a010e38d73b758ebfb84d1cc463fa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bd42268c36f44dc20b88d27d19cbf378e848b82f
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361254"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823149"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Azure Dev Spaces에서 .NET Core를 사용하여 시작
 
@@ -32,7 +32,7 @@ ms.locfileid: "34361254"
 Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다. 
 
 > [!IMPORTANT]
-> Azure CLI가 이미 설치되어 있는 경우 2.0.32 이상 버전을 사용하고 있는지 확인합니다.
+> Azure CLI가 이미 설치되어 있는 경우 2.0.33 이상 버전을 사용하고 있는지 확인합니다.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -42,7 +42,11 @@ Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 
 
 클러스터가 생성되기를 기다리는 동안 코드 개발을 시작할 수 있습니다.
 
-## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
+## <a name="create-a-web-app-running-in-a-container"></a>컨테이너에서 실행되는 웹앱 만들기
+
+이 섹션에서는 ASP.NET Core 웹앱을 만들어 Kubernetes의 컨테이너에서 실행합니다.
+
+### <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 [.NET Core](https://www.microsoft.com/net)가 설치되어 있는 경우 `webfrontend` 폴더에 ASP.NET Core 웹앱을 신속하게 만들 수 있습니다.
     
 ```cmd
@@ -55,7 +59,7 @@ dotnet new mvc --name webfrontend
 
 [!INCLUDE[](includes/build-run-k8s-cli.md)]
 
-## <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
+### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
 Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아니라, 클라우드의 Kubernetes 환경에서 코드 변경 내용을 신속하고 반복적으로 확인할 수 있게 해주는 것입니다.
 
 1. `./Views/Home/Index.cshtml` 파일을 찾고 이 HTML 파일을 편집합니다. 예를 들어 `<h2>Application uses</h2>`를 읽는 행 70을 `<h2>Hello k8s in Azure!</h2>`로 변경합니다.
@@ -64,7 +68,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 
 어떻게 된 건가요? HTML 및 CSS와 같은 콘텐츠 파일을 편집하는 경우 .NET Core 웹앱에서 다시 컴파일을 수행할 필요가 없기 때문에 활성 `azds up` 명령은 수정된 콘텐츠 파일을 Azure의 실행 중인 컨테이너에 자동으로 동기화하므로 콘텐츠 편집 내용을 바로 볼 수 있습니다.
 
-## <a name="update-a-code-file"></a>코드 파일 업데이트
+### <a name="update-a-code-file"></a>코드 파일 업데이트
 .NET Core 앱이 업데이트된 응용 프로그램 이진 파일을 다시 빌드하고 생성해야 하기 때문에 코드 파일을 업데이트하려면 작업이 좀 더 필요합니다.
 
 1. 터미널 창에서 `Ctrl+C`(`azds up` 중지)를 누릅니다.
@@ -152,23 +156,25 @@ public IActionResult About()
     {
         ViewData["Message"] = "Hello from webfrontend";
         
-        // Use HeaderPropagatingHttpClient instead of HttpClient so we can propagate
-        // headers in the incoming request to any outgoing requests
-        using (var client = new HeaderPropagatingHttpClient(this.Request))
-        {
-            // Call *mywebapi*, and display its response in the page
-            var response = await client.GetAsync("http://mywebapi/api/values/1");
-            ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
-        }
+        using (var client = new System.Net.Http.HttpClient())
+            {
+                // Call *mywebapi*, and display its response in the page
+                var request = new System.Net.Http.HttpRequestMessage();
+                request.RequestUri = new Uri("http://mywebapi/api/values/1");
+                if (this.Request.Headers.ContainsKey("azds-route-as"))
+                {
+                    // Propagate the dev space routing header
+                    request.Headers.Add("azds-route-as", this.Request.Headers["azds-route-as"] as IEnumerable<string>);
+                }
+                var response = await client.SendAsync(request);
+                ViewData["Message"] += " and " + await response.Content.ReadAsStringAsync();
+            }
 
         return View();
     }
     ```
 
-Kubernetes의 DNS 서비스 검색을 사용하여 서비스를 `http://mywebapi`로 참조하는 방법에 주의합니다. **개발 환경의 코드는 프로덕션 환경에서 실행되는 것과 동일한 방식으로 실행됩니다**.
-
-위의 코드 예제에서도 `HeaderPropagatingHttpClient` 클래스를 사용합니다. 이 도우미 클래스는 `azds prep`을 실행했을 때 코드 폴더에 추가되었습니다. `HeaderPropagatingHttpClient`는 잘 알려진 `HttpClient` 클래스에서 파생되었으며, 기존 ASP.NET HttpRequest 개체의 특정 헤더를 나가는 HttpRequestMessage 개체로 전파하는 기능을 추가합니다. 나중에 팀 시나리오에서 이 파생된 클래스를 사용하여 더 생산적인 개발 환경을 용이하게 하는 방법을 살펴보겠습니다.
-
+위의 코드 예제는 `azds-route-as` 헤더를 수신 요청에서 발신 요청으로 전달합니다. 나중에 이를 통해 공동 작업 개발 팀에 어떻게 도움이 되는지 살펴보겠습니다.
 
 ### <a name="debug-across-multiple-services"></a>여러 서비스에서 디버깅
 1. 이 시점에서 `mywebapi`는 디버거가 연결된 상태로 계속 실행되고 있습니다. 그렇지 않으면 `mywebapi` 프로젝트에서 F5 키를 누릅니다.

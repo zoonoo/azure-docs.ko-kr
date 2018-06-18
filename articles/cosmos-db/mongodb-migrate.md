@@ -5,27 +5,26 @@ keywords: mongoimport, mongorestore
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 352c5fb9-8772-4c5f-87ac-74885e63ecac
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 36d098a76e57b65ba82c24ed81ebbe3d21489a9f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cacda277082f62c9d98a7459cb5dbf74375bfd87
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795349"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB 데이터 가져오기 
 
 MongoDB API와 함께 사용하기 위해 MongoDB에서 Azure Cosmos DB 계정으로 데이터를 마이그레이션하려면 다음을 수행해야 합니다.
 
-* [MongoDB Download Center](https://www.mongodb.com/download-center)에서 *mongoimport.exe* 또는 *mongorestore.exe*를 다운로드합니다.
+* [MongoDB 다운로드 센터](https://www.mongodb.com/download-center)에서 커뮤니티 서버를 다운로드하고 설치합니다.
+* "설치 폴더/bin" 디렉터리에 설치되어 있는 mongoimport.exe 또는 mongorestore.exe 파일을 사용합니다. 
 * [MongoDB API 연결 문자열](connect-mongodb-account.md)을 가져옵니다.
 
 MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 경우 [데이터 마이그레이션 도구](import-data.md)를 사용해서 데이터를 가져와야 합니다.
@@ -63,7 +62,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 
 예:  
 
-    mongoimport.exe --host anhoh-host.documents.azure.com:10255 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
+    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\admin\Desktop\*.json
 
 ## <a name="import-data-to-the-api-for-mongodb-by-using-mongorestore"></a>mongorestore를 사용하여 MongoDB API로 데이터 가져오기
 
@@ -75,13 +74,13 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 
 예:
 
-    mongorestore.exe --host anhoh-host.documents.azure.com:10255 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
+    mongorestore.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
     
 ## <a name="guide-for-a-successful-migration"></a>성공적인 마이그레이션 가이드
 
 1. 컬렉션을 미리 만들어 크기 조정:
         
-    * 기본적으로 Azure Cosmos DB는 1,000RU(요청 단위/초)로 새 MongoDB 컬렉션을 프로비전합니다. mongoimport, mongorestore 또는 mongomirror를 사용하여 마이그레이션을 시작하기 전에 [Azure Portal](https://portal.azure.com) 또는 MongoDB 드라이버 및 도구에서 모든 컬렉션을 미리 만듭니다. 컬렉션이 10GB보다 큰 경우 적절한 분할 키로 [분할/파티션된 컬렉션](partition-data.md)을 만들어야 합니다.
+    * 기본적으로 Azure Cosmos DB는 1,000RU(요청 단위)/초로 새 MongoDB 컬렉션을 프로비전합니다. mongoimport, mongorestore 또는 mongomirror를 사용하여 마이그레이션을 시작하기 전에 [Azure Portal](https://portal.azure.com) 또는 MongoDB 드라이버 및 도구에서 모든 컬렉션을 미리 만듭니다. 컬렉션이 10GB보다 큰 경우 적절한 분할 키로 [분할/파티션된 컬렉션](partition-data.md)을 만들어야 합니다.
 
     * [Azure Portal](https://portal.azure.com)에서 단일 파티션 컬렉션에 대해 1,000RU/초 및 분할된 컬렉션에 대해 2,500RU/초부터 컬렉션의 처리량을 증가시킵니다. 처리량이 높을수록 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. Azure Cosmos DB에서는 시간당 청구되므로 마이그레이션 후 바로 처리량을 줄여 비용을 절감할 수 있습니다.
 
@@ -161,7 +160,12 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 6. 최종 마이그레이션 명령을 실행합니다.
 
    ```
-   mongoimport.exe --host anhoh-mongodb.documents.azure.com:10255 -u anhoh-mongodb -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+   mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24
+   ```
+   또는 mongorestore 사용(모든 컬렉션에 이전 계산에서 사용된 RU 규모 이상의 처리량이 설정되어 있어야 함):
+   
+   ```
+   mongorestore.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07 --numInsertionWorkersPerCollection 4 --batchSize 24
    ```
 
 ## <a name="next-steps"></a>다음 단계

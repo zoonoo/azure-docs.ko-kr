@@ -1,26 +1,23 @@
 ---
-title: Microsoft Azure Data Lake Analytics 개요 | Microsoft Docs
+title: Azure Data Lake Analytics 개요
 description: Data Lake Analytics를 통해 모든 규모의 클라우드 데이터에서 얻는 정보를 사용하여 비즈니스를 이끌 수 있습니다.
 services: data-lake-analytics
-documentationcenter: ''
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: overview
 ms.date: 06/23/2017
-ms.author: saveenr
-ms.openlocfilehash: 8a70311825d0ef548660f8ce4d12b5100b530170
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623624"
 ---
-# <a name="welcome-to-azure-data-lake-analytics"></a>Azure Data Lake Analytics 시작
+# <a name="what-is-azure-data-lake-analytics"></a>Azure Data Lake Analytics이란?
 
 Azure Data Lake Analytics는 빅 데이터를 간소화하는 주문형 분석 작업 서비스입니다. 하드웨어를 배포, 구성 및 조정하는 대신, 데이터를 변형하고 귀중한 통찰력을 얻기 위한 쿼리를 작성합니다. 이 분석 서비스는 필요한 전력 크기만큼 다이얼을 설정하여 어떤 크기의 작업도 즉시 처리할 수 있습니다. 실행할 때 작업 기준으로 비용이 부과되므로 비용 효과적일 수 있습니다. 
 

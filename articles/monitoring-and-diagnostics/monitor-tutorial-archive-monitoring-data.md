@@ -1,20 +1,20 @@
 ---
-title: Azure 모니터링 데이터 보관 | Microsoft Docs
+title: Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 description: Azure 내의 로그 및 메트릭 데이터를 저장소 계정에 보관합니다.
 author: johnkemnetz
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: b44bbd9cb2f54107d2593b1ab7f07f07fcc41e57
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263153"
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure 모니터링 데이터 보관
 
@@ -97,7 +97,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!NOTE]
 > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
 >
-> *예*: 이벤트 허브의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 이벤트 허브의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
+> *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
 >
 >
 

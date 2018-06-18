@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f612eb9647bf64a9435b1c667700bf717d445931
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824689"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -31,6 +32,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 - **Azure SQL Database**: 모든 Azure 지역에서 일반 공급됩니다.
 - **Azure Cosmos DB**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다. 
 - **Azure SQL Data Warehouse**: 모든 Azure 공용 클라우드 지역에서 미리 보기로 제공됩니다.
+- **PostgreSQL 및 MySQL용 Azure 데이터베이스 서비스**: 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 미리 보기로 제공됩니다.
 
 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
@@ -98,7 +100,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
   - 강제 터널링 경로에 비해 서비스에 대한 직접 연결이 더 효과적임을 나타냅니다.
 
 >[!NOTE]
-> 서비스 끝점 경로는 Azure 서비스의 주소 접두사에 대한 BGP 또는 UDR 경로를 재정의합니다. [유효 경로 관련 문제 해결](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)에 대해 자세히 알아봅니다.
+> 서비스 끝점 경로는 Azure 서비스의 주소 접두사에 대한 BGP 또는 UDR 경로를 재정의합니다. [유효 경로 관련 문제 해결](diagnose-network-routing-problem.md)에 대해 자세히 알아봅니다.
 
 ## <a name="provisioning"></a>프로비전
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: b9b9e08676228ddbdea8be91253b41dac8ef8fb8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 85e6efcc4e213da4d6c650f7543403dd52e8337c
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211738"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248438"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
@@ -69,7 +69,7 @@ zip 파일을 선택하고 바로 가기 메뉴를 열고 **모두 추출** > **
 mkdir \\172.31.27.1\c$\DiagnosticsStore
 ```
 
-마지막으로 `nodeTypes` 섹션에서 구성을 추가하고, Windows에서 사용할 임시 포트를 매핑하는 새 섹션을 추가합니다.  구성 파일은 다음과 같이 표시됩니다.
+마지막으로 구성의 `nodeTypes` 섹션에 Windows에서 사용할 임시 포트를 매핑하는 새 섹션을 추가합니다.  구성 파일은 다음과 같이 표시됩니다.
 
 ```json
 "applicationPorts": {

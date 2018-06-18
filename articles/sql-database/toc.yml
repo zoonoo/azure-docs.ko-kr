@@ -202,6 +202,30 @@
           href: sql-database-xevent-db-diff-from-svr.md
         - name: 메모리 내 모니터링
           href: sql-database-in-memory-oltp-monitoring.md
+    - name: 탄력적 데이터베이스 작업
+      items:
+        - name: 개요
+          href: elastic-jobs-overview.md
+        - name: 만들기 및 관리(PowerShell)
+          href: elastic-jobs-powershell.md
+        - name: 만들기 및 관리(T-SQL)
+          href: elastic-jobs-tsql.md
+        - name: 마이그레이션(오래된 탄력적 작업부터)
+          href: elastic-jobs-migrate.md
+        - name: 탄력적 작업(사용되지 않음)
+          items:
+            - name: 개요(사용되지 않음)
+              href: sql-database-elastic-jobs-overview.md
+            - name: 탄력적 작업 설치(사용되지 않음)
+              href: sql-database-elastic-jobs-service-installation.md
+            - name: 작업 만들기 - 포털(사용되지 않음)
+              href: sql-database-elastic-jobs-create-and-manage.md
+            - name: 작업 만들기 - Azure PowerShell(사용되지 않음)
+              href: sql-database-elastic-jobs-powershell.md
+            - name: 작업 만들기 - 샘플 앱(사용되지 않음)
+              href: sql-database-elastic-jobs-getting-started.md
+            - name: 탄력적 작업 제거(사용되지 않음)
+              href: sql-database-elastic-jobs-uninstall.md
     - name: 확장
       items:
         - name: 개요
@@ -212,8 +236,6 @@
           href: sql-database-elastic-query-overview.md
         - name: 탄력적 트랜잭션
           href: sql-database-elastic-transactions-overview.md
-        - name: 탄력적 작업
-          href: sql-database-elastic-jobs-overview.md
         - name: 분할된 맵
           href: sql-database-elastic-scale-shard-map-management.md
         - name: 쿼리 라우팅
@@ -276,16 +298,6 @@
       items:
         - name: 탄력적 데이터베이스 클라이언트 라이브러리 업그레이드
           href: sql-database-elastic-scale-upgrade-client-library.md
-        - name: 탄력적 작업 설치
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: 작업 만들기 - 포털
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: 작업 만들기 - Azure PowerShell
-          href: sql-database-elastic-jobs-powershell.md
-        - name: 작업 만들기 - 샘플 앱
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: 탄력적 작업 제거
-          href: sql-database-elastic-jobs-uninstall.md
         - name: 수직 분할된 데이터 쿼리
           href: sql-database-elastic-query-getting-started-vertical.md
         - name: 확장된 데이터 계층에 대한 보고
@@ -454,8 +466,6 @@
   items:
     - name: Azure PowerShell
       href: '/powershell/module/azurerm.sql/#sql'
-    - name: PowerShell(탄력적 DB)
-      href: '/powershell/module/elasticdatabasejobs/#elasticdatabasejobs'
     - name: Azure CLI 2.0
       href: /cli/azure/sql
     - name: .NET

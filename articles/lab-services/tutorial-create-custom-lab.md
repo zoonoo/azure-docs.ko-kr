@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs를 사용하여 사용자 지정 랩 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 Azure DevTest Labs를 사용하여 사용자 지정 랩을 만듭니다.
+title: Azure DevTest Labs를 사용하여 랩 만들기 | Microsoft Docs
+description: 이 빠른 시작에서는 Azure DevTest Labs를 사용하여 랩을 만듭니다.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -14,26 +14,26 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 3a4f964fe4f103e970a6edb3e9ba716fd72b8c79
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362246"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636990"
 ---
-# <a name="tutorial-set-up-a-custom-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 사용자 지정 랩 설정
-이 자습서에서는 Azure 포털을 사용하여 사용자 지정 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>자습서: Azure DevTest Labs를 사용하여 랩 설정
+이 자습서에서는 Azure Portal을 사용하여 랩을 만듭니다. 랩 관리자는 조직에 랩을 설정하고, 랩에 VM을 만들고, 정책을 구성합니다. 랩 사용자(예: 개발자 및 테스터)는 랩에서 VM을 클레임하고 연결하여 사용합니다. 
 
 이 자습서에서는 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
-> * 사용자 지정 랩을 만듭니다.
+> * 랩 만들기
 > * 가상 머신을 랩에 추가합니다.
 > * 사용자를 Lab User에 추가
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="create-a-custom-lab"></a>사용자 지정 랩을 만듭니다.
+## <a name="create-a-lab"></a>랩 만들기
 다음 단계는 Azure Portal을 사용하여 Azure DevTest Labs에서 랩을 만드는 방법을 설명합니다. 
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -97,8 +97,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 4. `<your resource group name><random numbers>`이란 이름으로 만들어진 추가 리소스 그룹을 삭제하려면 이 단계를 반복합니다. 예: `splab3988722144001` VM은 랩이 존재하는 리소스 그룹이 아니라 이 리소스 그룹에서 만들어집니다. 
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 VM을 사용하여 사용자 지정 랩을 만들고 사용자에게 랩에 액세스할 수 있는 권한을 부여합니다. 랩 사용자로 랩에 액세스하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
+이 자습서에서는 VM을 사용하여 랩을 만들고 사용자에게 랩에 액세스할 수 있는 권한을 부여합니다. 랩 사용자로 랩에 액세스하는 방법에 대해 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 사용자 지정 랩에 액세스](tutorial-use-custom-lab.md)
+> [자습서: 랩에 액세스](tutorial-use-custom-lab.md)
 

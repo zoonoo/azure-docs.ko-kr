@@ -12,14 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/20/2017
+ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9024036c5340e9afb2369feedde140d84e880265
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248244"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>자습서: Log Analytics를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
@@ -212,18 +213,14 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>성능 카운터를 수집하도록 OMS 에이전트 구성
 
-OMS 에이전트를 사용하는 또 다른 이점은 Azure 진단 에이전트를 구성하고 Resource Manager 템플릿 기반 업그레이드를 매번 수행하는 대신 OMS UI 환경을 통해 수집할 성능 카운터를 변경하는 기능입니다. 이 작업을 수행하려면 컨테이너 모니터링(또는 Service Fabric) 솔루션의 방문 페이지에서 **OMS 포털**을 클릭합니다.
+OMS 에이전트를 사용하는 또 다른 이점은 Azure 진단 에이전트를 구성하고 Resource Manager 템플릿 기반 업그레이드를 매번 수행하는 대신 OMS UI 환경을 통해 수집할 성능 카운터를 변경하는 기능입니다. 이 작업을 수행하려면 컨테이너 모니터링(또는 Service Fabric) 솔루션의 방문 페이지에서 **OMS 작업 영역**을 클릭합니다.
 
-![OMS 포털](./media/service-fabric-tutorial-monitoring-wincontainers/oms-portal.png)
-
-OMS 포털의 해당 작업 영역으로 이동되며, 여기서 솔루션을 보고, 사용자 지정 대시보드를 만들고, OMS 에이전트를 구성할 수 있습니다. 
-* 화면의 오른쪽 위에서 **톱니바퀴 휠**을 클릭하여 *설정* 메뉴를 엽니다.
+OMS 작업 영역으로 이동되며, 여기서 솔루션을 보고, 사용자 지정 대시보드를 만들고, OMS 에이전트를 구성할 수 있습니다. 
+* **고급 설정**을 클릭하여 고급 설정 메뉴를 엽니다.
 * **연결된 원본** > **Windows 서버**를 클릭하여 *5대의 Windows 컴퓨터가 연결*되어 있는지 확인합니다.
-* **데이터** > **Windows 성능 카운터**를 클릭하여 새 성능 카운터를 검색하고 추가합니다. 여기에는 수집할 수 있는 성능 카운터에 대한 Log Analytics의 권장 사항 목록과 다른 카운터를 검색하는 옵션이 표시됩니다. **선택한 성능 카운터 추가**를 클릭하여 제안된 메트릭 수집을 시작합니다.
+* **데이터** > **Windows 성능 카운터**를 클릭하여 새 성능 카운터를 검색하고 추가합니다. 여기에는 수집할 수 있는 성능 카운터에 대한 Log Analytics의 권장 사항 목록과 다른 카운터를 검색하는 옵션이 표시됩니다. **Processor(_Total)\% Processor Time** 및 **Memory(*)\Available MBytes** 카운터를 수집했는지 확인합니다.
 
-    ![성능 카운터](./media/service-fabric-tutorial-monitoring-wincontainers/perf-counters.png)
-
-Azure Portal로 돌아가서 컨테이너 모니터링 솔루션을 몇 분 내에 **새로 고침**하면 *컴퓨터 성능* 데이터가 들어오는 것이 표시되기 시작해야 합니다. 이 정보를 통해 리소스가 사용되는 방식을 이해할 수 있습니다. 이러한 메트릭을 사용하여 클러스터 크기 조정에 대한 적절한 결정을 내리거나 클러스터가 예상대로 부하 균형을 조정하는지 확인할 수도 있습니다.
+컨테이너 모니터링 솔루션을 몇 분 내에 **새로 고침**하면 *컴퓨터 성능* 데이터가 들어오는 것이 표시되기 시작해야 합니다. 이 정보를 통해 리소스가 사용되는 방식을 이해할 수 있습니다. 이러한 메트릭을 사용하여 클러스터 크기 조정에 대한 적절한 결정을 내리거나 클러스터가 예상대로 부하 균형을 조정하는지 확인할 수도 있습니다.
 
 *참고: 시간 필터가 이러한 메트릭을 사용하도록 적절하게 설정되었는지 확인합니다.* 
 

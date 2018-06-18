@@ -12,19 +12,19 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
-ms.date: 12/06/2017
+ms.date: 04/13/2018
 ms.author: adegeo
 ms.custom: ''
-ms.openlocfilehash: be7464cab4f9a1014fa129314c332bc41b2f499c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2a58a9d534116dbdd486f1319f3d87e1d2ba24ef
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212945"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642770"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 실행 중인 응용 프로그램 목록
 
-이 샘플 스크립트는 Service Fabric 클러스터에 연결되고 모든 프로비전된 응용 프로그램을 나열합니다.
+이 샘플 스크립트는 Service Fabric 클러스터에 연결된 다음, 모든 프로비전된 응용 프로그램을 나열합니다.
 
 [!INCLUDE [links to azure cli and service fabric cli](../../../includes/service-fabric-sfctl.md)]
 

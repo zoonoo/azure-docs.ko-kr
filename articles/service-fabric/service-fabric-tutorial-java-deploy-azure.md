@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 92445ffa7954d42ec1a864264fbfc7555986ad58
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 370cb367a90c8c1a4f8051e79d3858d78c8c3b75
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644045"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 응용 프로그램 배포
 이 자습서는 시리즈의 3부로, Azure에서 클러스터에 Service Fabric 응용 프로그램을 배포하는 방법을 보여줍니다.
@@ -198,7 +199,7 @@ ms.lasthandoff: 03/23/2018
     </Certificates>
     ```
 
-2. 이 클러스터에 응용 프로그램을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일을 필요로 하며 그 결과 다음 명령을 실행해 공용 및 개인 키가 있는 PEM 파일을 생산합니다. 
+2. 이 클러스터에 응용 프로그램을 배포하려면 클러스터에 연결을 설정할 SFCTL을 사용해야 합니다. SFCTL은 클러스터에 연결하기 위해 공용 및 개인 키가 있는 PEM 파일이 필요합니다. 다음 명령을 실행하여 공용 및 개인 키가 있는 PEM 파일을 생성합니다. 
 
     ```bash
     openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>

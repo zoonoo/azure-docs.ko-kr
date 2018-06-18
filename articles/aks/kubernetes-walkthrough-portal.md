@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.date: 04/29/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: cd17d2732bf44e3f4b46878d6a416579b9e2f970
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8b9a9eddc6876451a75f0deae911d73b57198827
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597283"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -31,7 +32,7 @@ http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-**리소스 만들기**를 선택하고 **Kubernetes**를 검색한 후 **Azure Kubernetes Service(미리 보기)** > **만들기**를 선택합니다.
+**리소스 만들기**를 선택하고 **Kubernetes**를 검색한 후 **Kubernetes Service** > **만들기**를 선택합니다.
 
 AKS 클러스터 만들기 양식의 각 머리글 아래에 있는 다음 단계를 완료합니다.
 
@@ -61,7 +62,7 @@ AKS 클러스터를 배포할 때 AKS 클러스터 및 클러스터에서 실행
 
 ![AKS 클러스터 1 만들기](media/container-service-walkthrough-portal/aks-portal-3.png)
 
-잠시 기다리면 ASK 클러스터가 배포되고 사용할 준비가 됩니다. AKS 클러스터 리소스 그룹으로 이동한 후 AKS 리소스를 선택하면 AKS 클러스터 대시보드가 표시됩니다.
+잠시 기다리면 AKS 클러스터가 배포되고 사용할 준비가 됩니다. AKS 클러스터 리소스 그룹으로 이동한 후 AKS 리소스를 선택하면 AKS 클러스터 대시보드가 표시됩니다.
 
 ![AKS 클러스터 1 만들기](media/container-service-walkthrough-portal/aks-portal-5.png)
 
@@ -163,10 +164,10 @@ spec:
     app: azure-vote-front
 ```
 
-응용 프로그램을 실행하려면 [kubectl create][kubectl-create] 명령을 사용합니다.
+응용 프로그램을 실행하려면 [kubectl apply][kubectl-apply] 명령을 사용합니다.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 출력
@@ -244,7 +245,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
-[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [kubernetes-deployment]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/
@@ -254,7 +255,7 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 <!-- LINKS - internal -->
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
 [az-aks-delete]: /cli/azure/aks#az-aks-delete
-[aks-monitor]: ../log-analytics/log-analytics-containers.md
+[aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./networking-overview.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
 [http-routing]: ./http-application-routing.md

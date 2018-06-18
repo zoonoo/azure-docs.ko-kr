@@ -4,12 +4,14 @@
   items:
     - name: Power BI Embedded란?
       href: what-is-power-bi-embedded.md
-- name: 시작하기
+- name: 자습서
+  items:
+    - name: 고객 샘플을 위한 콘텐츠 포함
+      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
+- name: 개념
   items:
     - name: Power BI Embedded 시작
       href: get-started.md
-    - name: 샘플 시작
-      href: 'https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/'
 - name: 방법
   items:
     - name: 용량 관리

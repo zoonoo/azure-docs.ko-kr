@@ -15,11 +15,12 @@ ms.workload: NA
 ms.date: 02/06/2018
 ms.author: adegeo
 ms.custom: mvc
-ms.openlocfilehash: e80fad4d0bddff89ff4dda7feed90fc622369ee9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 678ca45d12fd10a02d967cd32743b4d7b6ea26af
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642702"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 크기 조정
 
@@ -85,7 +86,7 @@ sfctl cluster select --endpoint https://aztestcluster.southcentralus.cloudapp.az
 --pem ./aztestcluster201709151446.pem --no-verify
 ```
 
-이제 연결되었으며 명령을 사용하여 클러스터에 있는 각 노드의 상태를 가져올 수 있습니다. PowerShell의 경우 `Get-ServiceFabricClusterHealth` 명령을 사용하고, **sfctl**의 경우 `sfctl cluster select` 명령을 사용합니다.
+이제 연결되었으며 명령을 사용하여 클러스터에 있는 각 노드의 상태를 가져올 수 있습니다. **PowerShell**의 경우 `Get-ServiceFabricClusterHealth` 명령을 사용하고, **sfctl**의 경우 `sfctl cluster select` 명령을 사용합니다.
 
 ## <a name="scale-out"></a>확장
 
@@ -131,15 +132,15 @@ sfctl node list --query "sort_by(items[*], &name)[-1]"
 
 1. 더 이상 데이터가 복제되지 않도록 노드를 사용하지 않도록 설정합니다.  
 PowerShell: `Disable-ServiceFabricNode`  
-sfcli: `sfctl node disable`
+sfctl: `sfctl node disable`
 
 2. 노드를 중지하여 서비스 패브릭 런타임이 완전히 종료되고 앱이 종료 요청을 받도록 하십시오.  
 PowerShell: `Start-ServiceFabricNodeTransition -Stop`  
-sfcli: `sfctl node transition --node-transition-type Stop`
+sfctl: `sfctl node transition --node-transition-type Stop`
 
 2. 클러스터에서 노드를 제거합니다.  
 PowerShell: `Remove-ServiceFabricNodeState`  
-sfcli: `sfctl node remove-state`
+sfctl: `sfctl node remove-state`
 
 이 세 단계가 노드에 적용된 후에는 확장 집합에서 제거할 수 있습니다. [bronze][durability] 외의 내구성 계층을 사용하는 경우 확장 집합 인스턴스가 제거될 때 이러한 단계가 완료됩니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Files을 Azure로 백업
+title: Azure 파일 공유 백업
 description: 이 문서에서는 Azure 파일 공유를 백업 및 복원하는 방법과 관리 작업에 대해 설명합니다.
 services: backup
 author: markgalioto
@@ -8,11 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 40c57a00363d3952f85a053724ab7dbec257670d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606463"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
@@ -46,7 +47,7 @@ Azure 파일 공유를 위한 백업은 미리 보기에 있습니다. 미리 �
 
     ![Backup 목표로 Azure 파일 공유 선택](./media/backup-file-shares/overview-backup-page.png)
 
-2. [Backup 목표] 메뉴의 **무엇을 백업하시겠습니까?**에서 Azure 파일 공유를 선택합니다.
+2. [Backup 목표] 메뉴의 **무엇을 백업하시겠습니까?** 에서 Azure 파일 공유를 선택합니다.
 
     ![Backup 목표로 Azure 파일 공유 선택](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -79,7 +80,7 @@ Azure 파일 공유를 위한 백업은 미리 보기에 있습니다. 미리 �
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png)
 
-2. 목록에서 **Azure Storage(Azure Files)**를 선택합니다. Azure 파일 공유 목록이 나타납니다.
+2. 목록에서 **Azure Storage(Azure Files)** 를 선택합니다. Azure 파일 공유 목록이 나타납니다.
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -158,7 +159,7 @@ Azure 파일 공유 보호를 중지하려면:
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png) 
 
-2. **Backup 관리 유형** 목록에서 **Azure Storage(Azure 파일)**를 선택합니다. (Azure Storage(Azure Files))에 대한 Backup 항목 목록이 표시됩니다.
+2. **Backup 관리 유형** 목록에서 **Azure Storage(Azure 파일)** 를 선택합니다. (Azure Storage(Azure Files))에 대한 Backup 항목 목록이 표시됩니다.
 
    ![추가 메뉴를 열려면 항목 클릭](./media/backup-file-shares/azure-file-share-backup-items.png) 
 

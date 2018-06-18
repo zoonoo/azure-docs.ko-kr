@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 04/02/2018
+ms.date: 05/15/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 9cf1d485f32c861ac5b5720cd77a988eee624f4d
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: f9b8046e0fb730f55dbdacf567869ae88df2a524
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34600598"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Java 및 Maven을 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
 
@@ -43,23 +44,9 @@ Java 통해 함수 앱을 개발하려면 다음을 설치해야 합니다.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
-[Azure Functions Core Tools 2.0](https://www.npmjs.com/package/azure-functions-core-tools)는 Azure Functions의 작성, 실행 및 디버그를 위한 로컬 개발 환경을 제공합니다. 
+Azure Functions Core Tools는 터미널 또는 명령 프롬프트에서 Azure Functions의 작성, 실행 및 디버그를 위한 로컬 개발 환경을 제공합니다. 
 
-설치하려면 Azure Functions 핵심 도구 프로젝트의 [설치](https://github.com/azure/azure-functions-core-tools#installing) 섹션으로 이동하여 해당 운영 체제에 대한 지침을 찾아보세요.
-
-다음과 같은 요구 사항을 설치한 후 [Node.js](https://nodejs.org/)에 포함된 [npm](https://www.npmjs.com/)을 사용하여 수동으로 설치할 수도 있습니다.
-
--  [.NET Core](https://www.microsoft.com/net/core) 최신 버전
--  [Node.js](https://nodejs.org/download/) 버전 8.6 이상
-
-npm 기반 설치를 계속 진행하려면 다음을 실행합니다.
-
-```
-npm install -g azure-functions-core-tools@core
-```
-
-> [!NOTE]
-> Azure Functions Core Tools 버전 2.0 설치에 문제가 있으면 [버전 2.x 런타임](/azure/azure-functions/functions-run-local#version-2x-runtime)을 참조하세요.
+계속하기 전에 로컬 컴퓨터에 [Core Tools의 버전 2](functions-run-local.md#v2)를 설치합니다.
 
 ## <a name="generate-a-new-functions-project"></a>새 Functions 프로젝트 생성
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fc589b79cf91dcbe24e6d99da44aeee883b58e5f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b98c1995aa9051029049711ece18aeb23c444f1a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365388"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642797"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application"></a>자습서: Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
@@ -237,7 +237,7 @@ openssl pkcs12 -in party-cluster-1277863181-client-cert.pfx -out party-cluster-1
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>응용 프로그램 빌드 및 클러스터에 배포
 Service Fabric CLI를 사용하여 Azure 클러스터에 응용 프로그램을 배포할 수 있습니다. Service Fabric CLI가 컴퓨터에 설치되어 있지 않으면 [여기](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli)의 지침에 따라 설치합니다. 
 
-Azure에서 Service Fabric 클러스터에 연결합니다. 자리 표시자 엔드포인트를 고유한 값으로 대체합니다. 엔드포인트는 아래와 비슷한 전체 URL이어야 합니다.
+Azure에서 Service Fabric 클러스터에 연결합니다. 샘플 엔드포인트를 고유한 값으로 대체합니다. 엔드포인트는 아래와 비슷한 전체 URL이어야 합니다.
 
 ```bash
 sfctl cluster select --endpoint https://linh1x87d1d.westus.cloudapp.azure.com:19080 --pem party-cluster-1277863181-client-cert.pem --no-verify

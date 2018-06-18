@@ -14,11 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3493c726b600c1fd70e0c6041ec57c8f0ba01c38
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 851f788adee46436bd4286c803427f49ce0ed89a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724101"
 ---
 #  <a name="what-is-managed-service-identity-msi-for-azure-resources"></a>Azure 리소스용 MSI(관리 서비스 ID)란?
 
@@ -26,12 +27,14 @@ ms.lasthandoff: 05/10/2018
 
 클라우드 응용 프로그램을 빌드할 때 일반적으로 발생하는 문제 중 하나는 클라우드 서비스에 인증하기 위해 코드에 포함해야 하는 자격 증명을 관리하는 방법입니다. 즉, 이러한 자격 증명의 보안을 유지하는 것이 중요합니다. 이러한 자격 증명은 개발자 워크스테이션에 표시되거나 소스 컨트롤에 체크 인되지 않는 것이 가장 좋습니다. Azure Key Vault를 사용하면 자격 증명과 기타 키 및 비밀을 안전하게 저장할 수 있습니다. 하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. MSI(관리 서비스 ID)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다.
 
+관리 서비스 ID는 Azure 구독에 기본적으로 포함된 Azure Active Directory Free와 함께 제공됩니다. 즉, 관리 서비스 ID에 대한 추가 비용은 없습니다.
+
 ## <a name="how-does-it-work"></a>작동 원리
 
 사용 가능한 관리 서비스 ID 형식은 **시스템 할당** 및 **사용자 할당**의 두 가지입니다.
 
 - **시스템 할당 ID**는 Azure 서비스 인스턴스에서 직접 사용하도록 설정됩니다. 사용하도록 설정하면 Azure는 서비스 인스턴스의 구독에서 신뢰하는 Azure AD 테넌트에 서비스 인스턴스의 ID를 만듭니다. ID가 만들어지면 해당 자격 증명이 서비스 인스턴스에 프로비전됩니다. 시스템 할당 ID의 수명 주기는 MSI가 사용하도록 설정된 Azure 서비스 인스턴스와 직접적으로 연관됩니다. 서비스 인스턴스가 삭제되면 Azure는 Azure AD에서 ID와 자격 증명을 자동으로 정리합니다.
-- **사용자 할당 ID**(공개 미리 보기)는 독립 실행형 Azure 리소스로 생성됩니다. 만들기 프로세스를 통해 Azure는 사용 중인 구독에서 신뢰하는 Azure AD 테넌트에 ID를 만듭니다. 생성된 ID는 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다. 사용자 할당 ID의 수명 주기는 할당된 Azure 서비스 인스턴스의 수명 주기와 별도로 관리됩니다.
+- **사용자 할당 ID**는 독립 실행형 Azure 리소스로 생성됩니다. 만들기 프로세스를 통해 Azure는 사용 중인 구독에서 신뢰하는 Azure AD 테넌트에 ID를 만듭니다. 생성된 ID는 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다. 사용자 할당 ID의 수명 주기는 할당된 Azure 서비스 인스턴스의 수명 주기와 별도로 관리됩니다.
 
 결과적으로, 코드에 시스템 할당 ID 또는 사용자 할당 ID를 사용하여 Azure AD 인증을 지원하는 서비스에 대한 액세스 토큰을 요청할 수 있습니다. 이러한 모든 작업이 수행되는 동안 Azure는 서비스 인스턴스에 사용되는 자격 증명 롤링을 처리합니다.
 
@@ -103,17 +106,6 @@ ms.lasthandoff: 05/10/2018
 
 관리 ID는 Azure AD 인증을 지원하는 서비스를 인증하는 데 사용할 수 있습니다. 관리 서비스 ID를 지원하는 Azure 서비스 목록은 다음 문서를 참조하세요.
 - [관리 서비스 ID를 지원하는 서비스](services-support-msi.md)
-
-## <a name="how-much-does-managed-service-identity-cost"></a>관리 서비스 ID의 비용은 어느 정도인가요?
-
-관리 서비스 ID는 Azure 구독에 기본적으로 포함된 Azure Active Directory Free와 함께 제공됩니다. 즉, 관리 서비스 ID에 대한 추가 비용은 없습니다.
-
-## <a name="support-and-feedback"></a>지원 및 피드백
-
-많은 의견 부탁드립니다!
-
-* Stack Overflow 관련 작업 방법 질문은 [azure-msi](http://stackoverflow.com/questions/tagged/azure-msi) 태그를 포함하여 작성해 주세요.
-* [개발자용 Azure AD 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)에서 기능을 요청하거나 피드백을 보내 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

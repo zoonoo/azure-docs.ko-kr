@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 정책 설정 | Microsoft Docs
 description: 이 문서를 통해 Azure Security Center에서 보안 정책을 구성할 수 있습니다.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/05/2018
-ms.author: yurid
-ms.openlocfilehash: fed4a587d2258cdab35d09f5e3947a8cacade157
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.date: 06/05/2018
+ms.author: terrylan
+ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364389"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756994"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Azure Security Center에서 보안 정책 설정
 이 문서를 통해 Security Center에서 보안 정책을 구성할 수 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "34364389"
 Security Center는 각 Azure 구독에 대한 기본 보안 정책을 자동으로 만듭니다. Security Center에서 정책을 편집하고 정책 준수를 모니터링할 수 있습니다.
 
 > [!NOTE]
-> 이제 제한된 미리 보기 상태인 Azure Policy를 사용하여 Security Center 정책을 확장할 수 있습니다. 미리 보기에 조인하려면 [Azure Policy 등록](https://aka.ms/getpolicy)으로 이동합니다. 자세한 내용은 [Azure Policy를 사용하여 Security Center 보안 정책 통합](security-center-azure-policy.md)을 참조하세요.
+> [Azure Policy](../azure-policy/azure-policy-introduction.md)를 사용하여 Security Center 정책을 확장할 수 있습니다. 자세한 내용은 [Azure Policy를 사용하여 Security Center 보안 정책 통합](security-center-azure-policy.md)을 참조하세요.
 
 개발 또는 테스트에 사용되는 리소스에 대한 보안 요구 사항은 프로덕션 응용 프로그램에 사용되는 리소스에 대한 요구 사항과 다를 수 있습니다. 개인 식별 정보와 같은 규제된 데이터를 가진 응용 프로그램에는 더 높은 수준의 보안이 필요할 수 있습니다. Azure Security Center에서 활성화된 보안 정책에 따라 잠재적 취약점을 파악하고 위험을 완화하는 데 도움이 되는 보안 권장 사항과 모니터링이 결정됩니다. 더 적절한 옵션을 결정하는 방법에 대한 자세한 내용은 [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)를 참조하세요.
 
@@ -75,3 +75,5 @@ Security Center에서 각 Azure 구독에 대한 기본 보안 정책을 편집�
 * [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답을 가져옵니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+
+Azure Policy에 대해 자세히 알아보려면 [Azure Policy란?](../azure-policy/azure-policy-introduction.md)을 참조하세요.

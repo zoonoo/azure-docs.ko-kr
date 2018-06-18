@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9ebdbb8958779e074195623aec90b7a6f6de2bb4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236198"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -166,13 +167,13 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 다른 소프트웨어 VPN 솔루션은 업계 표준 IPsec 구현을 따르는 경우에만 Microsoft 게이트웨이에 사용할 수 있습니다. 구성 및 지원 지침은 소프트웨어 공급 업체에 문의하세요.
 
-## <a name="P2S"></a>지점 및 사이트 간 - 네이티브 Azure 인증서 인증
+## <a name="P2S"></a>네이티브 Azure 인증서 인증을 사용하는 지점 및 사이트 간 연결
 
 이 섹션은 Resource Manager 배포 모델에 적용됩니다.
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS"></a>지점 및 사이트 간 - RADIUS 인증
+## <a name="P2SRADIUS">RADIUS 인증을 사용하는 지점 및 사이트 간 연결</a>
 
 이 섹션은 Resource Manager 배포 모델에 적용됩니다.
 

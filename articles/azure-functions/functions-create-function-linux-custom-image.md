@@ -11,11 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: 758906126b42c103853e0047bb19d2e96a84fae6
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261324"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 
@@ -43,7 +44,7 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 
 * [Git](https://git-scm.com/downloads)
 * 활성 [Azure 구독](https://azure.microsoft.com/pricing/free-trial/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-* [Docker](https://docs.docker.com/get-started/#setup)
+* [Docker](https://docs.docker.com/install/)
 * [Docker 허브 계정](https://docs.docker.com/docker-id/)
 
 [!INCLUDE [Free trial note](../../includes/quickstarts-free-trial-note.md)]
@@ -226,7 +227,7 @@ AzureWebJobsStorage=$storageConnectionString
 > * Docker 허브에서 함수 앱 배포
 > * 함수 앱에 응용 프로그램 설정 추가
 
-Azure Functions 핵심 도구를 사용하여 Azure Functions를 로컬로 개발하는 방법에 대해 자세히 알아봅니다.
+핵심 App Service 플랫폼에 기본 제공된 연속 통합 기능을 사용하는 방법을 알아봅니다. Docker 허브에서 이미지를 업데이트할 때 컨테이너가 다시 배포되도록 함수 앱을 구성할 수 있습니다.
 
 > [!div class="nextstepaction"] 
-> [Azure Functions를 로컬에서 코딩 및 테스트](functions-run-local.md)
+> [Web App for Containers를 사용한 연속 배포](../app-service/containers/app-service-linux-ci-cd.md)

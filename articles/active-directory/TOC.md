@@ -1,22 +1,22 @@
 # [Azure Active Directory 설명서](index.md)
 
 # 개요
-## [Azure Active Directory란?](active-directory-whatis.md)
+## [Azure Active Directory란?](fundamentals/active-directory-whatis.md)
 ## [Azure ID 관리 정보](fundamentals/identity-fundamentals.md)
 ## [Azure ID 솔루션 이해](fundamentals/understand-azure-identity-solutions.md)
 ## [하이브리드 ID 솔루션 선택](choose-hybrid-identity-solution.md)
-## [Azure 구독 연결](active-directory-how-subscriptions-associated-directory.md)
+## [Azure 구독 연결](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 ## [보존 및 데이터 고려 사항](fundamentals/active-directory-data-storage-eu.md)
 ## [FAQ](fundamentals/active-directory-faq.md)
 ## [새로운 기능](fundamentals/whats-new.md)
 
 
 # 시작하기
-## [Azure AD 시작](get-started-azure-ad.md)
+## [Azure AD 시작](fundamentals/get-started-azure-ad.md)
 ## [Azure AD Premium에 등록](active-directory-get-started-premium.md)
-## [사용자 지정 도메인 이름 추가](add-custom-domain.md)
-## [회사 브랜딩 구성](customize-branding.md)
-## [Azure AD에 사용자 추가](add-users-azure-active-directory.md)
+## [사용자 지정 도메인 이름 추가](fundamentals/add-custom-domain.md)
+## [회사 브랜딩 구성](fundamentals/customize-branding.md)
+## [Azure AD에 사용자 추가](fundamentals/add-users-azure-active-directory.md)
 ## [사용자에게 라이선스 할당](fundamentals/license-users-groups.md)
 ## [셀프 서비스 암호 재설정 구성](authentication/quickstart-sspr.md)
 ## [Azure AD에 조직의 개인 정보 추가](active-directory-properties-area.md)
@@ -44,11 +44,11 @@
 #### [도구 비교](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## 사용자 관리
-### [Azure AD에 새 사용자 추가](add-users-azure-active-directory.md)
-### [사용자 프로필 관리](active-directory-users-profile-azure-portal.md)
+### [Azure AD에 새 사용자 추가](fundamentals/add-users-azure-active-directory.md)
+### [사용자 프로필 관리](fundamentals/active-directory-users-profile-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
-### [관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)
-### [삭제된 사용자 복원](active-directory-users-restore.md)
+### [관리자 역할에 사용자 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
+### [삭제된 사용자 복원](fundamentals/active-directory-users-restore.md)
 ### [다른 디렉터리(B2B)에서 게스트 사용자 추가](b2b/what-is-b2b.md)
 #### [B2B 사용자를 추가하는 관리자](b2b/add-users-administrator.md)
 #### [B2B 사용자를 추가하는 지식 근로자](b2b/add-users-information-worker.md)
@@ -80,15 +80,15 @@
 #### [B2B 공동 작업 및 B2C 비교](b2b/compare-with-b2c.md)
 #### [B2B에 대한 지원 받기](b2b/get-support.md)
 
-## [그룹 및 구성원 관리](active-directory-manage-groups.md)
+## [그룹 및 구성원 관리](fundamentals/active-directory-manage-groups.md)
 ### 그룹 관리
 #### [Azure Portal](active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph(v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
 ### [그룹 구성원 관리](active-directory-groups-members-azure-portal.md)
-### [그룹 소유자 관리](active-directory-accessmanagement-managing-group-owners.md)
+### [그룹 소유자 관리](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [그룹 멤버 자격 관리](fundamentals/active-directory-groups-membership-azure-portal.md)
-### [그룹을 사용하여 라이선스 할당](active-directory-licensing-whatis-azure-portal.md)
+### [그룹을 사용하여 라이선스 할당](fundamentals/active-directory-licensing-whatis-azure-portal.md)
 #### [그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md)
 #### [그룹에서 라이선스 문제 식별 및 해결](active-directory-licensing-group-problem-resolution-azure-portal.md)
 #### [개별 라이선스 사용자를 그룹 기반 라이선스로 마이그레이션](active-directory-licensing-group-migration-azure-portal.md)
@@ -98,10 +98,10 @@
 #### [Azure AD의 제품 및 서비스 계획을 위한 참조](active-directory-licensing-product-and-service-plan-reference.md)
 ### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
 ### [그룹에 대한 명명 정책 강제 적용](groups-naming-policy.md)
-### [모든 그룹 보기](active-directory-groups-view-azure-portal.md)
+### [모든 그룹 보기](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [그룹 설정 관리](active-directory-groups-settings-azure-portal.md) 
+### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### 고급 규칙 만들기
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
 ### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
@@ -153,7 +153,7 @@
 ### [SSPR 데이터 요구 사항](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR 보고](authentication/howto-sspr-reporting.md)
 ### IT 관리자: 암호 재설정
-#### [Azure Portal](active-directory-users-reset-password-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [라이선스 SSPR](authentication/concept-sspr-licensing.md)
 ### [비밀번호 쓰기 저장](authentication/howto-sspr-writeback.md)
 ### [문제 해결](authentication/active-directory-passwords-troubleshoot.md)
@@ -277,7 +277,7 @@
 ## 디렉터리 관리
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 사용자 지정 도메인 이름
-#### [빠른 시작](add-custom-domain.md)
+#### [빠른 시작](fundamentals/add-custom-domain.md)
 #### [사용자 지정 도메인 이름 추가](active-directory-domains-manage-azure-portal.md)
 ### [디렉터리 관리](fundamentals/active-directory-administer.md)
 ### [디렉터리 삭제](directory-delete-howto.md)
@@ -294,11 +294,9 @@
 
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
 
-## [Azure에 대한 액세스 관리](../role-based-access-control/toc.yml)
-
 ## 리소스에 대한 액세스 위임
 ### [관리자 역할](active-directory-assign-admin-roles-azure-portal.md)
-#### [사용자에게 관리자 역할 할당](active-directory-users-assign-role-azure-portal.md) 
+#### [사용자에게 관리자 역할 할당](fundamentals/active-directory-users-assign-role-azure-portal.md) 
 #### [멤버 및 게스트 사용자 권한 비교](fundamentals/users-default-permissions.md) 
 ### [권한 있는 액세스 보안](admin-roles-best-practices.md)  
 ### [긴급 액세스 관리 계정 만들기](active-directory-admin-manage-emergency-access-accounts.md) 
@@ -325,6 +323,7 @@
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### 빠른 시작
 ##### [클라우드 앱 MFA별 구성](active-directory-conditional-access-app-based-mfa.md)
+##### [허용할 사용 약관 필요](active-directory-conditional-access-tou.md)
 #### 자습서
 ##### [클래식 MFA 정책 마이그레이션](active-directory-conditional-access-migration-mfa.md)
 #### 개념
@@ -371,7 +370,7 @@
 ### [고가용성](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [서명 해시 알고리즘 변경](active-directory-federation-sha256-guidance.md)
 
-## [문제 해결](active-directory-troubleshooting-support-howto.md)
+## [문제 해결](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## Azure AD 개념 증명(PoC) 배포
 ### [PoC 플레이 북: 소개](active-directory-playbook-intro.md)

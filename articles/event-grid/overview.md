@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 04/27/2018
+ms.date: 06/01/2018
 ms.author: babanisa
-ms.openlocfilehash: f1d235fe431cfe14019ffef7c043dfbc367bb2bc
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303980"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725244"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Azure Event Grid 소개
 
@@ -71,8 +71,6 @@ Azure Event Grid를 사용하면 이벤트 기반 아키텍처를 가진 응용 
 * Queue Storage
 * 웹후크
 
-Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Event Grid 트리거를 사용합니다. Event Grid는 Event Grid Function 트리거의 유효성을 자동으로 검사합니다. 일반 HTTP 트리거를 사용하면 [유효성 검사 응답](security-authentication.md#webhook-event-delivery)을 구현해야 합니다.
-
 각 이벤트 처리기를 사용하는 방법을 보여 주는 문서에 대한 링크를 보려면 [Azure Event Grid의 이벤트 처리기](event-handlers.md)를 참조하세요.
 
 ## <a name="concepts"></a>개념
@@ -80,7 +78,7 @@ Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Ev
 이제부터 살펴볼 Azure Event Grid의 5가지 개념은 다음과 같습니다.
 
 * **이벤트** - 발생한 내용입니다.
-* **이벤트 원본/게시자** - 이벤트가 발생한 곳입니다.
+* **이벤트 원본** - 이벤트가 발생한 곳입니다.
 * **토픽** - 게시자가 이벤트를 보낸 끝점입니다.
 * **이벤트 구독** - 때때로 여러 처리기에 이벤트를 라우팅하는 끝점 또는 기본 제공 메커니즘입니다. 구독도 처리기가 지능적으로 들어오는 이벤트를 필터링하는 데 사용됩니다.
 * **이벤트 처리기** - 이벤트에 반응하는 앱 또는 서비스입니다.
@@ -126,7 +124,7 @@ Event Grid는 앱을 다른 서비스와 연결합니다. 예를 들어 앱의 �
 
 ## <a name="how-much-does-event-grid-cost"></a>Event Grid의 비용은 얼마입니까?
 
-Azure Event Grid는 이벤트별 요금 가격 책정 모델을 사용하므로 사용한 것에 대해서만 지불하면 됩니다. 매월 처음 100,000개 작업은 무료입니다. 작업은 이벤트 수신, 고급 일치, 배달 시도 및 관리 호출로 정의됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/event-grid/)를 참조하세요.
+Azure Event Grid는 이벤트별 요금 가격 책정 모델을 사용하므로 사용한 것에 대해서만 지불하면 됩니다. 매월 처음 100,000개 작업은 무료입니다. 작업은 이벤트 수신, 구독 배달 시도, 관리 호출 및 주체 접미사 기준 필터링으로 정의됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/event-grid/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

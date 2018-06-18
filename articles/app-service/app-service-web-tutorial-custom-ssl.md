@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: b9adae07bc95e385e9932250f7eb91115396f275
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193457"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714581"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -84,17 +84,17 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 ![강화 메뉴](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
 
-웹앱이 **무료** 또는 **공유** 계층에 있지 않은지 확인합니다. 웹앱의 현재 계층이 진한 파란색 상자로 강조 표시됩니다.
+웹앱이 **F1** 또는 **D1** 계층이 아닌지 확인합니다. 웹앱의 현재 계층이 진한 파란색 상자로 강조 표시됩니다.
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
 
-사용자 지정 SSL은 **무료** 또는 **공유** 계층에서 지원되지 않습니다. 강화해야 하는 경우 다음 섹션의 단계를 수행합니다. 그렇지 않은 경우 **가격 책정 계층 선택** 페이지를 닫고 [SSL 인증서 업로드 및 바인딩](#upload)으로 건너뜁니다.
+사용자 지정 SSL은 **F1** 또는 **D1** 계층에서 지원되지 않습니다. 강화해야 하는 경우 다음 섹션의 단계를 수행합니다. 그렇지 않은 경우 **스케일업** 페이지를 닫고 [SSL 인증서 업로드 및 바인딩](#upload)으로 건너뜁니다.
 
 ### <a name="scale-up-your-app-service-plan"></a>App Service 계획 강화
 
-**기본**, **표준** 또는 **프리미엄** 계층 중 하나를 선택합니다.
+유료 계층(**B1**, **B2**, **B3**, 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**선택**을 클릭합니다.
+**Apply**를 클릭합니다.
 
 ![가격 책정 계층 선택](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 

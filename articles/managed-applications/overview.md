@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 04/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 643998921ec2ae4ec6737dc4ab88160e85007867
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d87b27101b5bbb3fb589987865649e102d7835de
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305000"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639210"
 ---
 # <a name="azure-managed-applications-overview"></a>Azure 관리되는 응용 프로그램 개요
 
@@ -53,7 +53,9 @@ IT 팀은 관리되는 응용 프로그램을 통해 사전 승인된 솔루션�
 
 ## <a name="resource-groups-for-managed-applications"></a>관리되는 응용 프로그램에 대한 리소스 그룹
 
-일반적으로 관리되는 응용 프로그램의 리소스는 두 리소스 그룹에 있습니다. 소비자가 한 리소스 그룹을 관리하고 게시자가 다른 리소스 그룹을 관리합니다. 관리되는 응용 프로그램을 정의할 때는 게시자가 액세스 수준을 지정합니다. 다음 이미지는 게시자가 관리되는 리소스 그룹에 대한 소유자 역할을 요청하는 시나리오를 보여 줍니다. 게시자는 소비자에 대해 이 리소스 그룹에 대한 읽기 전용 잠금을 적용했습니다. 관리되는 리소스 그룹에 대한 액세스 권한이 부여된 게시자 ID는 잠금에서 제외됩니다.
+일반적으로 관리되는 응용 프로그램의 리소스는 두 리소스 그룹에 있습니다. 소비자가 한 리소스 그룹을 관리하고 게시자가 다른 리소스 그룹을 관리합니다. 관리되는 응용 프로그램을 정의할 때는 게시자가 액세스 수준을 지정합니다. [데이터 작업](../role-based-access-control/role-definitions.md)에 대한 액세스 제한은 현재 Azure의 모든 데이터 공급자에 대해 지원되지 않습니다.
+
+다음 이미지는 게시자가 관리되는 리소스 그룹에 대한 소유자 역할을 요청하는 시나리오를 보여 줍니다. 게시자는 소비자에 대해 이 리소스 그룹에 대한 읽기 전용 잠금을 적용했습니다. 관리되는 리소스 그룹에 대한 액세스 권한이 부여된 게시자 ID는 잠금에서 제외됩니다.
 
 ![리소스 그룹 액세스](./media/overview/access.png)
 

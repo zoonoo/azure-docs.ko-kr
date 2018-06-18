@@ -16,11 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3508631336ac322268f12ff97e35827767ae1bb9
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 27b8c9391de4014f45257e3808647b3e49c250b2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651950"
 ---
 # <a name="azure-powershell-samples-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대한 Azure PowerShell 샘플
 
@@ -29,7 +30,8 @@ ms.lasthandoff: 03/28/2018
 | | |
 |---|---|
 |**확장 집합 만들기 및 관리**||
-| [가상 머신 확장 집합 만들기](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 최소한의 구성으로 가상 머신 확장 집합을 만듭니다. |
+| [간단한 가상 머신 확장 집합 만들기](scripts/powershell-sample-create-simple-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 최소한의 구성으로 가상 머신 확장 집합을 만듭니다. |
+| [완전한 가상 머신 확장 집합 만들기](scripts/powershell-sample-create-complete-scale-set.md?toc=%2fpowershell%2fazure%2ftoc.json) | 구성 파일을 사용하여 가상 머신 확장 집합 및 관련 리소스를 만듭니다. |
 | [사용자 지정 VM 이미지에서 확장 집합 만들기](scripts/powershell-sample-create-scale-set-from-custom-image.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 사용자 지정 VM 이미지를 사용하는 가상 머신 확장 집합을 만듭니다. |
 | [확장 집합에 응용 프로그램 설치](scripts/powershell-sample-install-apps.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Azure 사용자 지정 스크립트 확장을 사용하여 기본 웹 응용 프로그램을 확장 집합에 설치합니다. |
 |**저장소 관리**||

@@ -1,23 +1,25 @@
 ---
-title: "Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서 | Microsoft Docs"
-description: "Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서에 대해 알아보기"
+title: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서 | Microsoft Docs
+description: Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서에 대해 알아보기
 services: active-directory
-author: MarkusVi
-manager: femila
+author: rolyon
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2017
-ms.author: markvi
+ms.component: compliance-reports
+ms.date: 05/23/2018
+ms.author: rolyon
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ed6201e9edcef39b14b948b6b2f6e0b5da01ec60
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 030a45335f06c4f15a5136842a7f6477bac8253b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34588712"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 위험 플래그가 지정된 사용자 수정
 
@@ -29,12 +31,20 @@ Microsoft는 환경을 안전하게 유지하기 위해 최선을 다하고 있�
 일부 사용자 계정에 대한 무단 액세스를 나타낼 수 있는 비정상적인 활동이 검색되면 사용자가 조치를 취할 수 있도록 하는 알림을 받습니다. 알림을 제공한다고 해서 Microsoft의 자체 시스템이 어떤 방식으로든 손상된 것은 아닙니다.
  
 
-## <a name="azure-active-directory-report-access"></a>Azure Active Directory 보고서 액세스
+## <a name="access-the-users-flagged-for-risk-report"></a>위험 플래그가 지정된 사용자 보고서에 액세스
 
-온라인 Azure Active Directory 보고서를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure에 대한 구독자가 아닌 경우 [http://aka.ms/AccessAAD](http://aka.ms/AccessAAD)에서 구독 프로세스를 추가 비용 없이 살펴볼 수 있습니다.  
-완료되면 Office 365 자격 증명을 사용하여 Azure 관리 센터에 액세스할 수 있습니다. 기본 구독 수준에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다. 자세한 내용은 [Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서](active-directory-reporting-security-user-at-risk.md)를 참조하세요.
+Azure AD(Active Directory)에서 관련된 [보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk)를 통해 위험 플래그가 지정된 사용자를 검토할 수 있습니다. Azure AD에 대한 구독자가 아닌 경우 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD)에서 일회성 구독 프로세스를 추가 비용 없이 살펴볼 수 있습니다. 이 보고서에서 다음과 같은 다양한 작업을 수행할 수 있습니다.
 
-Azure AD에 대한 액세스가 활성화되면 [Azure AD 포털](https://portal.azure.com)으로 리디렉션됩니다. 보고서로 직접 이동하려면 [https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk)로 이동합니다.
+- 임시 암호 생성
+- 사용자에게 다음에 로그인할 암호를 안전하게 다시 설정하도록 요구
+- 업데이트 관리 작업을 수행하지 않고 사용자 위험을 해제합니다.
+
+자세한 내용은 [Azure Active Directory 포털의 위험에 대한 플래그가 지정된 사용자 보안 보고서](active-directory-reporting-security-user-at-risk.md)를 참조하세요.
+
+### <a name="azure-ad-subscription-for-office-365-customers"></a>Office 365 고객에 대한 Azure AD 구독
+
+완료되면 Office 365 자격 증명을 사용하여 Azure 관리 센터에 액세스할 수 있습니다. Azure AD에 대한 액세스가 활성화되면 Azure AD 포털로 리디렉션됩니다. 기본 구독 수준에서 보고서에서 제공되는 세부 정보의 양은 제한됩니다. Azure Premium 구독자에 대한 추가 데이터 및 분석을 사용할 수 있습니다.
+
 
 **Office 365 관리 센터에서 위험 플래그가 지정된 사용자 보고서에 액세스하려면**
 
@@ -45,7 +55,7 @@ Azure AD에 대한 액세스가 활성화되면 [Azure AD 포털](https://portal
 4.  왼쪽의 탐색 메뉴에서 **Azure Active Directory**를 클릭합니다. 
 5.  탐색 창의 **보안** 아래에서 **위험 플래그가 지정된 사용자**를 클릭합니다.
 
-여기에 표시된 정보를 검토합니다. 여기에 나열된 계정에 대한 암호를 다시 설정해야 합니다. 
+여기에 표시된 정보를 검토합니다. 나열된 계정에 대한 암호를 다시 설정해야 합니다. 
 
 ## <a name="remediation-actions"></a>수정 작업
 

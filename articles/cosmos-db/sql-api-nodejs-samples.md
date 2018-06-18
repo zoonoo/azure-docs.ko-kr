@@ -6,24 +6,24 @@ services: cosmos-db
 author: moderakh
 manager: kfile
 editor: monicar
-documentationcenter: nodejs
-ms.assetid: d87d97be-47a5-4928-8d46-a541fbb33213
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 05/23/2017
 ms.author: moderakh
-ms.openlocfilehash: 3d18e9bde7c8e5a5b8c3f192678f62eedf5fb693
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4d7f16fd62d8d46c1c802dfeb1f226d023349adc
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833147"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 예제
 > [!div class="op_single_selector"]
 > * [.NET 예제](sql-api-dotnet-samples.md)
+> * [Java 예제](sql-api-java-samples.md)
+> * [비동기 Java 예제](sql-api-async-java-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)
 > * [Python 예제](sql-api-python-samples.md)
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

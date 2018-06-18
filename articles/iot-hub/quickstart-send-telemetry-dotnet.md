@@ -1,23 +1,21 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작(C#) | Microsoft Docs
 description: 이 빠른 시작에서는 두 가지 샘플 C# 응용 프로그램을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 9feade4407f800312556a1db39ce6c315c9330c2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3fe783f8b5a7955ebe117df02edcdc6aafeff4f8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636854"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(C#)으로 허브에서 원격 분석을 읽습니다.
 
@@ -86,7 +84,7 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치 관련 엔드포인트에 연결하고 시뮬레이션된 온도 및 습도 원격 분석을 전송합니다.
 
-1. 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\simulated-device** 폴더로 이동합니다.
+1. 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
 
 1. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
 
@@ -112,7 +110,7 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 응용 프로그램은 시뮬레이션된 장치에서 전송하는 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
 
-1. 또 다른 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\read-d2c-messages** 폴더로 이동합니다.
+1. 또 다른 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\read-d2c-messages** 폴더로 이동합니다.
 
 1. 원하는 텍스트 편집기에서 **ReadDeviceToCloudMessages.cs** 파일을 엽니다.
 

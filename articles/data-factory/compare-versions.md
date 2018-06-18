@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: e78051c4eb0cd79d636a6af31db8ffb6cd7e6aef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7d7fcaded1f088961fb139b1fba6b1944b383435
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616514"
 ---
 # <a name="compare-azure-data-factory-v1-and-v2"></a>Azure Data Factory V1과 V2 비교
 이 문서에서는 Azure Data Factory V1과 V2를 비교합니다. V1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. V2에 대한 소개는 [Data Factory(V2 - 미리 보기) 소개](introduction.md)를 참조하세요.
@@ -139,7 +140,7 @@ V2용으로 업데이트된 SDK는 V1 클라이언트와 호환되지 않습니�
 
 ## <a name="roles-and-permissions"></a>역할 및 권한
 
-Data Factory 버전 1 참가자 역할을 Data Factory v2 리소스를 만들고 관리하는 데 사용할 수 있습니다.
+Data Factory 버전 1 참가자 역할을 Data Factory v2 리소스를 만들고 관리하는 데 사용할 수 있습니다. 자세한 내용은 [Data Factory 기여자](../role-based-access-control/built-in-roles.md#data-factory-contributor)를 참조하세요.
 
 ## <a name="monitoring-experience"></a>모니터링 환경
 V2에서는 [Azure Monitor](monitor-using-azure-monitor.md)를 사용하여 데이터 팩터리를 모니터링할 수도 있습니다. 새로운 PowerShell cmdlet은 [통합 런타임](monitor-integration-runtime.md)에 대한 모니터링을 지원합니다. V1과 V2 모두 Azure Portal에서 시작할 수 있는 모니터링 응용 프로그램을 통해 시각적인 모니터링을 지원합니다.

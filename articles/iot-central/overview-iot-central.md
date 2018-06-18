@@ -1,19 +1,20 @@
 ---
 title: Azure IoT Central이란? | Microsoft Docs
 description: Azure IoT Central은 사용자 지정 IoT 솔루션을 구축하고 관리하는 데 사용할 수 있는 종단 간 SaaS 솔루션입니다. 이 문서에서는 Azure IoT Central의 기능에 대한 개요를 제공합니다.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 41eb9049b45c6835dd866c988af486a4975c4831
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201169"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628779"
 ---
 <!---
 Purpose of an Overview article: 
@@ -109,7 +110,7 @@ Azure IoT Central 응용 프로그램은 Microsoft에서 완벽하게 호스트�
 
 이제 Azure IoT Central에 대한 개요를 살펴보았으니, 권장되는 다음 단계는 아래와 같습니다.
 
-- [Azure IoT Central과 Azure IoT Suite](overview-iot-options.md)의 차이점을 이해합니다.
+- [Azure IoT Central과 Azure IoT 솔루션 가속기](overview-iot-options.md)의 차이점을 이해합니다.
 - [Azure IoT Central UI](overview-iot-central-tour.md)를 숙지합니다.
 - [Azure IoT Central 응용 프로그램을 생성](quick-deploy-iot-central.md)하여 시작합니다.
 - 다음과 같은 방법을 보여주는 일련의 자습서를 따릅니다.

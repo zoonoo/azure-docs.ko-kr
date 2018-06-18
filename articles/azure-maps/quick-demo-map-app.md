@@ -1,28 +1,26 @@
 ---
 title: Azure Maps를 사용한 대화형 지도 검색 | Microsoft Docs
 description: Azure 빠른 시작 - Azure Maps를 사용하여 데모 대화형 맵 검색 시작
-services: azure-maps
-keywords: ''
 author: kgremban
 ms.author: kgremban
 ms.date: 05/07/2018
 ms.topic: quickstart
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 8dedaf95289d9637f5f3d1e80a763b5fb400c617
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8765b634b81742acf9fb4d40be8864800025351d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599765"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Azure Maps를 사용하여 대화형 검색 맵 시작
 
 이 문서에서는 사용자에게 대화형 검색 환경을 제공하는 지도를 만드는 Azure Maps의 기능을 보여 줍니다. 자체 Maps 계정을 만들고 데모 웹 응용 프로그램에 사용할 계정 키를 가져오는 방법도 안내합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
@@ -77,3 +75,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 > [!div class="nextstepaction"]
 > [Maps를 사용하여 관심 지점 검색](./tutorial-search-location.md)
+
+더 많은 코드 예제 및 대화형 코딩 환경은 아래 방법 가이드를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST API를 사용하여 주소를 검색하는 방법](./how-to-search-for-address.md)
+
+> [!div class="nextstepaction"]
+> [Azure Maps 맵 컨트롤을 사용하는 방법](./how-to-use-map-control.md)

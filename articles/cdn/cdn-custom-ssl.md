@@ -15,19 +15,19 @@ ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 86b20e0f317a14db415feff68b17aa99e1e42cb4
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258442"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235501"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
 > [!IMPORTANT]
-> 이 기능은 **Akamai의 Azure CDN 표준** 제품에서 사용할 수 없습니다. CDN 기능을 비교하려면 [Azure CDN 개요](cdn-features.md)를 참조하세요.
+> 이 기능은 **Akamai의 Azure CDN 표준** 제품에서 사용할 수 없습니다. Azure CDN(Content Delivery Network) 기능의 비교는 [Azure CDN 제품 기능 비교](cdn-features.md)를 참조하세요.
 
-이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 연결된 사용자 지정 도메인에 HTTPS 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 SSL 암호화를 통해 안전하게 보호됩니다. HTTPS는 신뢰할 수 있는 인증을 제공하며 공격으로부터 웹 응용 프로그램을 보호합니다. 
+이 자습서에서는 Azure CDN 엔드포인트에 연결된 사용자 지정 도메인에 HTTPS 프로토콜을 사용하도록 설정하는 방법을 보여줍니다. 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하면(예: https:\//www.contoso.com) 인터넷을 통해 중요한 데이터를 보낼 때 TLS/SSL 암호화를 통해 안전하게 보호됩니다. 웹 브라우저가 HTTPS를 통해 웹 사이트에 연결되면 웹 사이트 보안 인증서의 유효성을 검사하고 합법적인 인증 기관에서 발급되었는지를 확인합니다. 이 프로세스는 보안을 제공하며 공격으로부터 웹 응용 프로그램을 보호합니다.
 
 Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다. 예를 들어 CDN 엔드포인트를 만드는 경우(예: https:\//contoso.azureedge.net) HTTPS가 자동으로 사용하도록 설정됩니다.  
 
@@ -94,13 +94,13 @@ CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기
 > 이 옵션은 **Microsoft의 Azure CDN 표준** 프로필에서만 사용할 수 있습니다. 
 >
  
-사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다.
+사용자 고유의 인증서를 사용하여 HTTPS 기능을 활성화합니다. 이 프로세스는 인증서를 안전하게 저장할 수 있도록 하는 Azure Key Vault와의 통합을 통해 수행됩니다. Azure CDN은 이 보안 메커니즘을 사용하여 인증서를 가져오며 몇 가지 추가 단계를 수행해야 합니다. SSL 인증서를 만들 때 허용된 CA(인증 기관)에서 만들어야 합니다. 그렇지 않고 허용되지 않는 CA를 사용하는 경우 요청이 거부됩니다. 허용되는 CA 목록은 [Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관](cdn-troubleshoot-allowed-ca.md)을 참조하세요.
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Azure 키 자격 증명 모음 계정 및 인증서 준비
  
 1. Azure Key Vault: 사용자 지정 HTTPS를 활성화하려는 Azure CDN 프로필 및 CDN 엔드포인트와 동일한 구독에서 Azure Key Vault 계정을 실행해야 합니다. 아직 Azure Key Vault 계정이 없는 경우 새로 하나 만듭니다.
  
-2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA(Certificate Authorities) 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 
+2. Azure Key Vault 인증서: 인증서가 이미 있는 경우 Azure Key Vault 계정에 직접 업로드하거나 Azure Key Vault와 통합하는 파트너 CA 중 하나에서 Azure Key Vault를 통해 직접 새 인증서를 만들 수 있습니다. 
 
 ### <a name="register-azure-cdn"></a>Azure CDN 등록
 
@@ -123,9 +123,9 @@ Azure Key Vault 계정에서 인증서(비밀)에 액세스하려면 Azure CDN �
 
     ![새 액세스 정책 만들기](./media/cdn-custom-ssl/cdn-new-access-policy.png)
 
-    ![액세스 정책 설정](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
+2. **보안 주체 선택**에서 **205478c0-bd83-4e1b-a9d6-db63a3e1e1c8**을 검색하고, **Microsoft.Azure.Cdn**을 선택합니다. **선택**을 클릭합니다.
 
-2. **보안 주체 선택**에서 검색하고, **Azure CDN**을 선택합니다.
+    ![액세스 정책 설정](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
 3. **비밀 권한**에서 **가져오기**를 선택하여 CDN에서 인증서를 가져오고 나열하는 이러한 권한을 수행하도록 허용합니다. 
 
@@ -165,7 +165,7 @@ CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는
 
 ### <a name="custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record"></a>CNAME 레코드를 통해 사용자 지정 도메인이 CDN 엔드포인트에 매핑됨
 
-엔드포인트에 사용자 지정 도메인을 추가한 경우 도메인 등록 기관의 DNS 테이블에 CDN 엔드포인트 호스트 이름에 매핑할 CNAME 레코드를 만들었습니다. 해당 CNAME 레코드가 여전히 있고 cdnverify 하위 도메인을 포함하지 않는 경우 DigiCert CA(인증 기관)는 이 레코드를 사용하여 사용자 지정 도메인의 소유권을 자동으로 확인합니다. 
+엔드포인트에 사용자 지정 도메인을 추가한 경우 도메인 등록 기관의 DNS 테이블에 CDN 엔드포인트 호스트 이름에 매핑할 CNAME 레코드를 만들었습니다. 해당 CNAME 레코드가 여전히 있고 cdnverify 하위 도메인을 포함하지 않는 경우 DigiCert CA는 이 레코드를 사용하여 사용자 지정 도메인의 소유권을 자동으로 확인합니다. 
 
 사용자 고유의 인증서를 사용 중인 경우 도메인 유효성 검사가 필요하지 않습니다.
 
@@ -188,7 +188,7 @@ CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인
 
 끝점에 대한 CNAME 레코드 항목이 더 이상 없거나 cdnverify 하위 도메인을 포함하는 경우 이 단계의 나머지 지침을 따르세요.
 
-사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA(인증 기관)에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
+사용자 지정 도메인에서 HTTPS를 활성화한 후에 DigiCert CA에서 도메인의 [WHOIS](http://whois.domaintools.com/) 등록자 정보에 따라 등록자에게 연락하여 도메인 소유권에 대한 유효성을 검사합니다. 기본적으로 WHOIS에 등록된 전자 메일 주소 또는 전화 번호를 통해 연락합니다. 사용자 지정 도메인에서 HTTPS를 활성화하기 전에 도메인 유효성 검사를 완료해야 합니다. 업무일 기준 6일 이내 도메인이 승인되어야 합니다. 6 영업일 이내에 승인되지 않은 요청은 자동으로 취소됩니다. 
 
 ![WHOIS 레코드](./media/cdn-custom-ssl/whois-record.png)
 

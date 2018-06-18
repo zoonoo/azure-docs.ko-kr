@@ -15,17 +15,17 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 6c84b60018ec03b7f9bc572db9181b8a47a0c595
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 860d28cb6726a86194460977b822197a37ab7279
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365409"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642872"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-azure"></a>빠른 시작 Azure에 Java Spring Boot 응용 프로그램 배포
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
-이 빠른 시작에서는 Mac 또는 Linux 개발자 컴퓨터를 사용하여 Service Fabric에 Spring Boot 응용 프로그램을 배포하는 방법을 보여줍니다. 이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 응용 프로그램으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다. 
+친숙한 명령줄 도구를 사용하여 이 빠른 시작은 Spring 웹 사이트에서 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용하여 Mac 또는 Linux 개발자 컴퓨터의 Service Fabric에 기능 Spring Boot 응용 프로그램을 배포하는 방법을 단계별로 안내합니다.
 
 ![응용 프로그램 스크린샷](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -246,7 +246,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
 
     # Run Bash command to scale instance count for your service
-    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted` --instance-count 3 --stateless 
+    sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
 4. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.

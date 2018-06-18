@@ -4,15 +4,15 @@ description: Azure Migrate 서비스를 사용하여 Azure로의 마이그레이
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 695298be6cb9f56de26b8682c556285aba22d4a6
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e8d4380087e826a4f1332c0a39670c2309a10861
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272066"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236147"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -118,29 +118,6 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-    OVA 버전 1.0.8.59의 경우
-
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | 71139e24a532ca67669260b3062c3dad
-    SHA1 | 1bdf0666b3c9c9a97a07255743d7c4a2f06d665e
-    SHA256 | 6b886d23b24c543f8fc92ff8426cd782a77efb37750afac397591bda1eab8656  
-
-    OVA 버전 1.0.8.49의 경우
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | cefd96394198b92870d650c975dbf3b8
-    SHA1 | 4367a1801cf79104b8cd801e4d17b70596481d6f
-    SHA256 | fda59f076f1d7bd3ebf53c53d1691cc140c7ed54261d0dc4ed0b14d7efef0ed9
-
-    OVA 버전 1.0.8.40의 경우:
-
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | afbae5a2e7142829659c21fd8a9def3f
-    SHA1 | 1751849c1d709cdaef0b02a7350834a754b0e71d
-    SHA256 | d093a940aebf6afdc6f616626049e97b1f9f70742a094511277c5f59eacc41ad
-
 ## <a name="create-the-collector-vm"></a>수집기 VM을 만듭니다.
 
 다운로드한 파일을 vCenter Server에 가져옵니다.
@@ -162,7 +139,8 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 1. vSphere Client 콘솔에서 VM > **Open Console**을 마우스 오른쪽 단추로 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 기본 암호를 제공합니다.
 3. 바탕 화면에서 **수집기 실행** 바로 가기를 클릭합니다.
-4. Azure Migrate Collector에서 **필수 조건 설정**을 엽니다.
+4. 수집기 UI의 위쪽 표시줄에서 **업데이트 확인**을 클릭하고 수집기가 최신 버전에서 실행되는지를 확인합니다. 그렇지 않으면 링크에서 최신 업그레이드 패키지를 다운로드하고 수집기를 업데이트하도록 선택할 수 있습니다.
+5. Azure Migrate Collector에서 **필수 조건 설정**을 엽니다.
     - 사용 조건에 동의하고 타사 정보를 읽습니다.
     - 수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
     - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다. 인터넷 연결 요구 사항 및 수집기가 액세스하는 URL 목록에 대해 [자세히 알아보세요](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity).
@@ -173,13 +151,13 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - 수집기는 collectorservice가 실행 중인지 확인합니다. 서비스는 수집기 VM에 기본적으로 설치됩니다.
     - VMware PowerCLI를 다운로드하여 설치합니다.
 
-5. **vCenter Server 세부 정보 지정**에서 다음을 수행합니다.
+6. **vCenter Server 세부 정보 지정**에서 다음을 수행합니다.
     - vCenter 서버의 이름(FQDN) 또는 IP 주소를 지정합니다.
     - **사용자 이름** 및 **암호**에서, 수집기가 vCenter 서버에서 VM을 검색하기 위해 사용할 읽기 전용 계정 자격 증명을 지정합니다.
     - **컬렉션 범위**에서 VM 검색에 대한 범위를 선택합니다. 수집기는 지정된 범위 내의 VM만 검색할 수 있습니다. 범위를 특정 폴더, 데이터 센터 또는 클러스터로 설정할 수 있습니다. VM은 1500대 미만이어야 합니다. 더 큰 환경을 검색하는 방법을 [자세히 알아보세요](how-to-scale-assessment.md).
 
-6. **마이그레이션 프로젝트 지정**에서 Azure Migrate 프로젝트 ID를 지정하고 포털에서 복사한 키를 지정합니다. 해당 항목을 복사하지 않은 경우 수집기 VM에서 Azure Portal을 엽니다. 프로젝트 **개요** 페이지에서 **컴퓨터 검색**을 클릭하고 값을 복사합니다.  
-7. **컬렉션 진행률 보기**에서 검색을 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다. Azure Migrate Collector가 어떤 데이터를 수집하는지 [자세히 알아보세요](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected).
+7. **마이그레이션 프로젝트 지정**에서 Azure Migrate 프로젝트 ID를 지정하고 포털에서 복사한 키를 지정합니다. 해당 항목을 복사하지 않은 경우 수집기 VM에서 Azure Portal을 엽니다. 프로젝트 **개요** 페이지에서 **컴퓨터 검색**을 클릭하고 값을 복사합니다.  
+8. **컬렉션 진행률 보기**에서 검색을 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다. Azure Migrate Collector가 어떤 데이터를 수집하는지 [자세히 알아보세요](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected).
 
 > [!NOTE]
 > 수집기는 "영어(미국)"만을 운영 체제 언어와 수집기 인터페이스 언어로 지원합니다. 더 많은 언어에 대한 지원이 곧 제공될 예정입니다.
@@ -219,7 +197,7 @@ VM을 검색한 후 그룹화하여 평가를 만듭니다.
 - Azure를 사용할 준비 안 됨
 - 준비 상태 알 수 없음
 
-준비된 VM의 경우 Azure Migrate는 Azure에서의 VM 크기를 권장합니다. Azure Migrate에서 권장하는 크기는 평가 속성에 지정된 크기 조정 기준에 따라 달라집니다. 크기 조정 기준이 성능 기반이면 VM의 성능 기록을 고려하여 권장 크기가 결정됩니다. 크기 조정 기준이 '온-프레미스로'이면 Azure의 VM 권장 크기는 VM 온-프레미스 크기(있는 그대로 크기 조정)를 살펴보고 결정됩니다. VM의 CPU 및 메모리 사용률 데이터는 VM 크기 조정 시 고려 사항이 아닙니다. 그러나 디스크는 온-프레미스 크기 조정 시 성능 데이터를 살펴보고 크기가 결정됩니다.  Azure Migrate의 크기 조정 방식에 대해 [자세히 알아보세요](concepts-assessment-calculation.md).
+준비된 VM의 경우 Azure Migrate는 Azure에서의 VM 크기를 권장합니다. Azure Migrate에서 권장하는 크기는 평가 속성에 지정된 크기 조정 기준에 따라 달라집니다. 크기 조정 기준이 성능 기반인 경우 VM(CPU 및 메모리) 및 디스크(IOPS 및 처리량)의 성능 기록을 고려하여 권장 크기가 결정됩니다. 크기 조정 조건이 '온-프레미스 그대로'인 경우 Azure Migrate는 VM 및 디스크에 대해 성능 데이터를 사용하지 않습니다. Azure에서 VM 크기의 권장 사항은 VM 온-프레미스의 크기를 확인하여 수행됩니다. 디스크 크기 조정은 평가 속성에 지정된 저장소 형식에 따라 수행됩니다(기본값은 프리미엄 디스크임). Azure Migrate의 크기 조정 방식에 대해 [자세히 알아보세요](concepts-assessment-calculation.md).
 
 VM 상태가 Azure 준비 완료 또는 조건부 Azure 준비 완료인 경우 Azure Migrate는 준비 상태 문제를 설명하고 수정 단계를 제공합니다.
 
@@ -244,7 +222,7 @@ Azure 준비 상태 및 크기 조정 외에도, Azure Migrate는 VM 마이그�
 
 Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결됩니다(별 1개가 가장 낮고 5개가 가장 높음). 신뢰 등급은 평가 계산에 필요한 데이터 요소의 가용성에 따라 평가에 할당됩니다. 평가의 신뢰 등급은 Azure Migrate에서 제공하는 권장 크기의 신뢰성을 추정하는 데 도움이 됩니다.
 
-VM의 성능 기반 크기 조정의 경우 Azure Migrate에 CPU 및 메모리 사용률 데이터가 필요합니다. 또한, VM에 연결된 각 디스크의 크기 조정 시 읽기/쓰기 IOPS 및 처리량이 필요합니다. 마찬가지로, VM에 연결된 각 네트워크 어댑터에 대해 성능 기반 크기 조정을 수행하려면 Azure Migrate에 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 아래와 같이 평가의 신뢰 등급이 제공됩니다.
+평가의 신뢰 등급은 성능 기반인 크기 조정 조건을 사용하는 평가에서 더 유용합니다. 성능 기반 크기 조정의 경우 Azure Migrate에는 VM의 CPU 및 메모리 사용률 데이터가 필요합니다. 또한 VM에 연결된 각 디스크에는 디스크 IOPS 및 처리량 데이터가 필요합니다. 마찬가지로 VM에 연결된 각 네트워크 어댑터의 경우 성능 기반 크기 조정을 수행하려면 Azure Migrate에는 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 아래와 같이 평가의 신뢰 등급이 제공됩니다.
 
    **데이터 요소 가용성** | **신뢰 등급**
    --- | ---
@@ -269,3 +247,4 @@ VM의 성능 기반 크기 조정의 경우 Azure Migrate에 CPU 및 메모리 �
 - [컴퓨터 종속성 매핑](how-to-create-group-machine-dependencies.md)을 사용하여 정확도 높은 평가 그룹을 만드는 방법을 알아봅니다.
 - 평가를 계산하는 방법에 대해 [자세히 알아봅니다](concepts-assessment-calculation.md).
 - 대규모 VMware 환경을 검색하고 평가하는 방법을 [알아봅니다](how-to-scale-assessment.md).
+- Azure Migrate의 FAQ에 대한 [자세한 내용](resources-faq.md)

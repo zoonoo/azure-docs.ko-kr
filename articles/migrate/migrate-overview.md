@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 05/15/2018
+ms.date: 06/08/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5c63d74158087d2011478d038d41fc1bae44190e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202850"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236368"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -48,8 +48,8 @@ Azure Migrate의 기능:
 **속성** | **세부 정보**
 --- | ---
 **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>Azure Migrate는 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, US Gov 애리조나, US Gov 텍사스, US Gov 버지니아, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. 기본적으로 대상 위치는 미국 서부 2로 설정되어 있습니다.
-**저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 [저장소 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 유형입니다. 기본값은 LRS(로컬 중복 저장소)입니다. Azure Migrate는 관리 디스크 기반 평가만 지원하고 관리 디스크는 LRS만 지원하므로 현재는 속성에 LRS 옵션만 있습니다.
-**크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. 온-프레미스 VM의 *성능 기록*에 따라 크기를 조정할 수도 있고, 성능 기록을 고려하지 않고 *온-프레미스로* VM의 크기를 조정할 수도 있습니다. 기본값은 성능 기반 크기 조정입니다.
+**저장소 유형** | Azure에서 할당할 디스크의 형식을 지정할 수 있습니다. 크기 조정 조건이 온-프레미스 크기 조정인 경우에 이 속성을 적용합니다. 대상 디스크 형식을 프리미엄 관리 디스크 또는 표준 관리 디스크로 지정할 수 있습니다. 기본값은 프리미엄 관리 디스크입니다. 성능 기반 크기 조정의 경우 디스크 권장 사항은 VM의 성능 데이터에 따라 자동으로 수행됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다.
+**크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. 온-프레미스 VM의 *성능 기록*에 따라 크기를 조정할 수도 있고, 성능 기록을 고려하지 않고 *온-프레미스로* VM의 크기를 조정할 수도 있습니다. 기본값은 온-프레미스 크기 조정입니다.
 **가격 책정 계획** | 비용을 계산하기 위해 평가 시 소프트웨어 보험이 있는지, [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/) 자격이 되는지 여부를 고려합니다. 또한 개발자가 등록할 수 있는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 고려하고, 해당 제품에서 받을 구독별 할인율(%)을 지정할 수 있습니다.
 **가격 책정 계층** | 대상 Azure VM의 [가격 책정 계층(기본/표준)](../virtual-machines/windows/sizes-general.md)을 지정할 수 있습니다. 예를 들어 프로덕션 환경을 마이그레이션할 계획이라면 VM 대기 시간이 짧은 대신 더 많은 비용이 발생할 수 있는 표준 계층을 고려하는 것이 좋습니다. 반면, 개발-테스트 환경을 사용하는 경우 VM 대기 시간이 긴 대신 비용이 저렴한 기본 계층을 고려하는 것이 좋습니다. 기본적으로 [표준](../virtual-machines/windows/sizes-general.md) 계층이 사용됩니다.
 **성능 기록** | 기본적으로 Azure Migrate는 마지막 날의 성능 기록을 온-프레미스 컴퓨터의 성능을 평가하며, 백분위 값은 95%입니다. 평가 속성에서 이러한 값을 수정할 수 있습니다.
@@ -100,4 +100,6 @@ Azure Migrate 서비스를 사용하여 온-프레미스 컴퓨터 마이그레�
 
 
 ## <a name="next-steps"></a>다음 단계
-[자습서를 따라 하여](tutorial-assessment-vmware.md) 온-프레미스 VMware VM에 대한 평가를 만듭니다.
+
+- [자습서를 따라 하여](tutorial-assessment-vmware.md) 온-프레미스 VMware VM에 대한 평가를 만듭니다.
+- Azure Migrate의 FAQ에 대한 [자세한 내용](resources-faq.md)

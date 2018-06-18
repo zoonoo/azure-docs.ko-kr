@@ -16,11 +16,12 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 431268082b24d23289188f5422cd596dc5f37d30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: a9f1e66a4c55d866d9f174528eb4912c3b9391c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714518"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 DNS 이름 매핑
 
@@ -81,19 +82,19 @@ App Service 앱의 관리 페이지가 표시됩니다.
 
 ![강화 메뉴](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-앱의 현재 계층은 파란색 테두리로 강조 표시됩니다. 앱이 **무료** 계층에 속해 있지 않은지 확인합니다. 사용자 지정 DNS는 **무료** 계층에서는 지원되지 않습니다. 
+앱의 현재 계층은 파란색 테두리로 강조 표시됩니다. 앱이 **F1** 계층에 속해 있지 않은지 확인합니다. 사용자 지정 DNS는 **F1** 계층에서는 지원되지 않습니다. 
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-App Service 계획이 **무료** 계층이 아닌 경우 **가격 책정 계층 선택** 페이지를 닫고 [CNAME 레코드 매핑](#cname)으로 건너뜁니다.
+App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지를 닫고 [CNAME 레코드 매핑](#cname)으로 건너뜁니다.
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
 
-무료가 아닌 계층(**공유**, **기본**, **표준** 또는 **프리미엄**) 중에서 선택합니다. 
+유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**선택**을 클릭합니다.
+**Apply**를 클릭합니다.
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 

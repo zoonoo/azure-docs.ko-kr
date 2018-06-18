@@ -3,25 +3,24 @@ title: Azure Cosmos DB용 SQL API에 대한 Node.js 자습서 | Microsoft Docs
 description: SQL API를 사용하여 Cosmos DB를 만드는 Node.js 자습서입니다.
 keywords: node.js 자습서, 노드 데이터베이스
 services: cosmos-db
-documentationcenter: node.js
-author: AndrewHoh
+author: SnehaGunda
 manager: kfile
 editor: monicar
-ms.assetid: 14d52110-1dce-4ac0-9dd9-f936afccd550
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: node
-ms.topic: article
+ms.component: cosmosdb-sql
+ms.devlang: nodejs
+ms.topic: tutorial
 ms.date: 08/14/2017
-ms.author: anhoh
-ms.openlocfilehash: d8e5ef9da0d884d3120f71b7b06b079b2bdfbded
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: sngun
+ms.openlocfilehash: 70bedfc26c900521dba8c6b211a4d4e4eda24e9c
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823693"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 자습서: Azure Cosmos DB에서 SQL API를 사용하여 Node.js 콘솔 응용 프로그램 만들기
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
@@ -29,8 +28,6 @@ ms.lasthandoff: 04/16/2018
 > * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
 > * [C++](sql-api-cpp-get-started.md)
->  
-> 
 
 Azure Cosmos DB Node.js SDK용 Node.js 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.
 
@@ -53,6 +50,7 @@ Node.js 자습서를 완료한 후에 이 페이지 위쪽 및 아래쪽에 있�
 이제 시작하겠습니다.
 
 ## <a name="prerequisites-for-the-nodejs-tutorial"></a>Node.js 자습서의 필수 조건
+
 다음 항목이 있는지 확인합니다.
 
 * 활성 Azure 계정. 아직 구독하지 않은 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다. 
@@ -62,11 +60,13 @@ Node.js 자습서를 완료한 후에 이 페이지 위쪽 및 아래쪽에 있�
 * [Node.js](https://nodejs.org/) 버전 v0.10.29 이상
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
+
 Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 이미 있는 경우 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뛸 수 있습니다. Azure Cosmos DB 에뮬레이터를 사용하는 경우 [Azure Cosmos DB 에뮬레이터](local-emulator.md)의 단계에 따라 에뮬레이터를 설치하고 [Node.js 응용 프로그램 설치](#SetupNode)로 건너뜁니다.
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 ## <a id="SetupNode"></a>2단계: Node.js 응용 프로그램 설치
+
 1. 자주 사용하는 터미널을 엽니다.
 2. Node.js 응용 프로그램을 저장하려는 폴더 또는 디렉터리를 찾습니다.
 3. 다음 명령을 사용하여 두 개의 빈 JavaScript 파일을 만듭니다.
@@ -82,6 +82,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 잘하셨습니다. 설치를 완료했으므로 코드를 작성해 보겠습니다.
 
 ## <a id="Config"></a>3단계: 앱의 구성 설정
+
 원하는 텍스트 편집기에서 ```config.js```을 엽니다.
 
 그런 다음 아래 코드 조각을 복사하고 붙여넣은 다음 속성 ```config.endpoint``` 및 ```config.primaryKey```를 Azure Cosmos DB 끝점 URI 및 기본 키로 설정합니다. 이러한 구성은 모두 [Azure Portal](https://portal.azure.com)에서 찾을 수 있습니다.
@@ -165,7 +166,6 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
         }
     };
 
-
 데이터베이스, 컬렉션 및 문서 정의는 Azure Cosmos DB ```database id```, ```collection id``` 및 문서 데이터의 역할을 합니다.
 
 마지막으로 ```config``` 개체를 내보내므로 ```app.js``` 파일 내에서 참조할 수 있습니다.
@@ -179,19 +179,19 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
     module.exports = config;
 
 ## <a id="Connect"></a>4단계: Azure Cosmos DB 계정에 연결
+
 텍스트 편집기에서 빈 ```app.js``` 파일을 엽니다. 다음 코드를 복사하고 붙여넣어서 ```documentdb``` 모듈 및 새로 만든 ```config``` 모듈을 가져옵니다.
 
     // ADD THIS PART TO YOUR CODE
     "use strict";
 
     var documentClient = require("documentdb").DocumentClient;
+    const uriFactory = require('documentdb').UriFactory;
     var config = require("./config");
-    var url = require('url');
 
 이전에 저장된 ```config.endpoint``` 및 ```config.primaryKey```를 사용하는 코드를 복사하고 붙여넣어서 새 DocumentClient를 만듭니다.
 
     var config = require("./config");
-    var url = require('url');
 
     // ADD THIS PART TO YOUR CODE
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
@@ -199,30 +199,29 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos DB 리소스와 함께 작동하는지 살펴보겠습니다.
 
 ## <a name="step-5-create-a-node-database"></a>5단계: 노드 데이터베이스 만들기
-다음 코드를 복사하고 붙여넣어서 찾을 수 없음, 데이터베이스 URL 및 컬렉션 URL에 대한 HTTP 상태를 설정합니다. 이러한 URL을 통해 Azure Cosmos DB 클라이언트가 올바른 데이터베이스 및 컬렉션을 찾을 수 있습니다.
+
+다음 코드를 복사하고 붙여넣어서 찾을 수 없음, 데이터베이스 ID 및 컬렉션 ID에 대한 HTTP 상태를 설정합니다. 이러한 ID를 통해 Azure Cosmos DB 클라이언트가 올바른 데이터베이스 및 컬렉션을 찾을 수 있습니다.
 
     var client = new documentClient(config.endpoint, { "masterKey": config.primaryKey });
 
     // ADD THIS PART TO YOUR CODE
     var HttpStatusCodes = { NOTFOUND: 404 };
-    var databaseUrl = `dbs/${config.database.id}`;
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+    var databaseId = config.database.id;
+    var collectionId = config.collection.id;
 
-**DocumentClient** 클래스의 [createDatabase](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [데이터베이스](sql-api-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 문서 저장소의 논리적 컨테이너입니다.
+**DocumentClient** 클래스의 [createDatabase](/javascript/api/documentdb/documentclient) 함수를 사용하여 [데이터베이스](sql-api-resources.md#databases)를 만들 수 있습니다. 데이터베이스는 여러 컬렉션으로 분할된 문서 저장소의 논리적 컨테이너입니다.
 
-```config``` 개체에 지정된 ```id```를 사용하여 app.js 파일에서 새 데이터베이스를 만들기 위해 **getDatabase** 함수를 복사하고 붙여넣습니다. 함수는 동일한 ```FamilyRegistry``` ID를 가진 데이터베이스가 이미 있는지 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 데이터베이스를 반환합니다.
-
-    var collectionUrl = `${databaseUrl}/colls/${config.collection.id}`;
+```config``` 개체에 지정된 ```databaseId```를 사용하여 app.js 파일에서 새 데이터베이스를 만들기 위해 **getDatabase** 함수를 복사하고 붙여넣습니다. 함수는 동일한 ```FamilyRegistry``` ID를 가진 데이터베이스가 이미 있는지 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 데이터베이스를 반환합니다.
 
     // ADD THIS PART TO YOUR CODE
     function getDatabase() {
-        console.log(`Getting database:\n${config.database.id}\n`);
-
+        console.log(`Getting database:\n${databaseId}\n`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.readDatabase(databaseUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createDatabase(config.database, (err, created) => {
+                        client.createDatabase({ id: databaseId }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -234,7 +233,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
                 }
             });
         });
-    }
+    };
 
 **getDatabase** 함수를 설정한 아래 코드를 복사하고 붙여넣어서 종료 메시지를 인쇄하고 **getDatabase** 함수를 호출하는 도우미 함수 **종료**를 추가합니다.
 
@@ -252,7 +251,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
         process.stdin.setRawMode(true);
         process.stdin.resume();
         process.stdin.on('data', process.exit.bind(process, 0));
-    }
+    };
 
     getDatabase()
     .then(() => { exit(`Completed successfully`); })
@@ -263,31 +262,31 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
 축하합니다! Azure Cosmos DB 데이터베이스를 성공적으로 만들었습니다.
 
 ## <a id="CreateColl"></a>6단계: 컬렉션 만들기
+
 > [!WARNING]
 > **createCollection**은 가격 책정 의미가 포함된 새 컬렉션을 만듭니다. 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)를 참조하세요.
-> 
-> 
 
-**DocumentClient** 클래스의 [createCollection](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [컬렉션](sql-api-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
+**DocumentClient** 클래스의 [createCollection](/javascript/api/documentdb/documentclient) 함수를 사용하여 [컬렉션](sql-api-resources.md#collections)을 만들 수 있습니다. 컬렉션은 JSON 문서 및 관련 JavaScript 응용 프로그램 논리의 컨테이너입니다.
 
-**getCollection** 함수를 복사하여 app.js 파일의 **getDatabase** 함수 아래에 붙여넣어 ```config``` 개체에 지정된 ```id```를 포함한 새 컬렉션을 만듭니다. 다시 동일한 ```FamilyCollection``` ID를 가진 컬렉션이 이미 있는지 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 컬렉션을 반환합니다.
+**getCollection** 함수를 복사하여 app.js 파일의 **getDatabase** 함수 아래에 붙여넣어 ```config``` 개체에서 지정된 ```collectionId```를 포함한 새 컬렉션을 만듭니다. 다시 동일한 ```FamilyCollection``` ID를 가진 컬렉션이 이미 있는지 확인합니다. 파일이 존재하는 경우 새로 만드는 대신 해당 컬렉션을 반환합니다.
 
                 } else {
                     resolve(result);
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getCollection() {
-        console.log(`Getting collection:\n${config.collection.id}\n`);
-
+        console.log(`Getting collection:\n${collectionId}\n`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.readCollection(collectionUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
-                        client.createCollection(databaseUrl, config.collection, { offerThroughput: 400 }, (err, created) => {
+                        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
+                        client.createCollection(databaseUrl, { id: collectionId }, { offerThroughput: 400 }, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
                         });
@@ -299,7 +298,7 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
                 }
             });
         });
-    }
+    };
 
 **getDatabase**에 대한 호출 아래에 코드를 복사하고 붙여넣어서 **getCollection** 함수를 실행합니다.
 
@@ -317,7 +316,8 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
 축하합니다! Azure Cosmos DB 컬렉션을 성공적으로 만들었습니다.
 
 ## <a id="CreateDoc"></a>7단계: 문서 만들기
-**DocumentClient** 클래스의 [createDocument](https://azure.github.io/azure-documentdb-node/DocumentClient.html) 함수를 사용하여 [문서](sql-api-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos DB에 문서를 삽입할 수 있습니다.
+
+**DocumentClient** 클래스의 [createDocument](/javascript/api/documentdb/documentclient) 함수를 사용하여 [문서](sql-api-resources.md#documents)를 만들 수 있습니다. 문서는 사용자 정의(임의) JSON 콘텐츠입니다. 이제 Azure Cosmos DB에 문서를 삽입할 수 있습니다.
 
 ```config``` 체에 저장된 JSON 데이터를 포함하는 문서를 만들기 위해 **getCollection** 함수 아래에 있는 **getFamilyDocument** 함수를 복사하고 붙여넣습니다. 다시 동일한 ID를 가진 문서가 이미 있는지 확인합니다.
 
@@ -326,17 +326,17 @@ Azure Cosmos DB 클라이언트를 시작하는 코드가 있다면 Azure Cosmos
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function getFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Getting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.readDocument(documentUrl, (err, result) => {
                 if (err) {
                     if (err.code == HttpStatusCodes.NOTFOUND) {
+                        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
                         client.createDocument(collectionUrl, document, (err, created) => {
                             if (err) reject(err)
                             else resolve(created);
@@ -380,12 +380,12 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function queryCollection() {
-        console.log(`Querying collection through index:\n${config.collection.id}`);
-
+        console.log(`Querying collection through index:\n${collectionId}`);
+        let collectionUrl = uriFactory.createDocumentCollectionUri(databaseId, collectionId);
         return new Promise((resolve, reject) => {
             client.queryDocuments(
                 collectionUrl,
@@ -403,7 +403,6 @@ Azure Cosmos DB는 각 컬렉션에 저장된 JSON 문서에 대해 [다양한 �
             });
         });
     };
-
 
 다음 다이어그램에서는 만든 컬렉션에 대해 Azure Cosmos DB SQL 쿼리 구문을 호출하는 방법을 보여 줍니다.
 
@@ -438,14 +437,13 @@ Azure Cosmos DB는 JSON 문서 바꾸기를 지원합니다.
                 }
             });
         });
-    }
+    };
 
     // ADD THIS PART TO YOUR CODE
     function replaceFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Replacing document:\n${document.id}\n`);
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         document.children[0].grade = 6;
-
         return new Promise((resolve, reject) => {
             client.replaceDocument(documentUrl, document, (err, result) => {
                 if (err) reject(err);
@@ -475,6 +473,7 @@ Azure Cosmos DB는 JSON 문서 바꾸기를 지원합니다.
 축하합니다! Azure Cosmos DB 문서를 성공적으로 대체했습니다.
 
 ## <a id="DeleteDocument"></a>10단계: 문서 삭제
+
 Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 
 **deleteFamilyDocument** 함수를 복사하여 **replaceFamilyDocument** 함수 아래에 붙여넣습니다.
@@ -488,9 +487,8 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 
     // ADD THIS PART TO YOUR CODE
     function deleteFamilyDocument(document) {
-        let documentUrl = `${collectionUrl}/docs/${document.id}`;
         console.log(`Deleting document:\n${document.id}\n`);
-
+        let documentUrl = uriFactory.createDocumentUri(databaseId, collectionId, document.id);
         return new Promise((resolve, reject) => {
             client.deleteDocument(documentUrl, (err, result) => {
                 if (err) reject(err);
@@ -519,6 +517,7 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 축하합니다! Azure Cosmos DB 문서를 성공적으로 삭제했습니다.
 
 ## <a id="DeleteDatabase"></a>11단계: 노드 데이터베이스 삭제
+
 만든 데이터베이스를 삭제하면 데이터베이스와 모든 자식 리소스(컬렉션, 문서 등)가 제거됩니다.
 
 **cleanup** 함수를 복사하여 **deleteFamilyDocument** 함수 아래에 붙여넣어 데이터베이스와 모든 자식 리소스를 제거합니다.
@@ -532,15 +531,15 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 
     // ADD THIS PART TO YOUR CODE
     function cleanup() {
-        console.log(`Cleaning up by deleting database ${config.database.id}`);
-
+        console.log(`Cleaning up by deleting database ${databaseId}`);
+        let databaseUrl = uriFactory.createDatabaseUri(databaseId);
         return new Promise((resolve, reject) => {
             client.deleteDatabase(databaseUrl, (err) => {
                 if (err) reject(err)
                 else resolve(null);
             });
         });
-    }
+    };
 
 **deleteFamilyDocument**에 대한 호출 아래의 코드를 복사하여 붙여넣어 **cleanup** 함수를 실행합니다.
 
@@ -554,6 +553,7 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
 
 ## <a id="Run"></a>12단계: Node.js 응용 프로그램 모두 함께 실행
+
 함수를 호출는 시퀀스는 모두 다음과 같아야 합니다.
 
     getDatabase()
@@ -605,6 +605,7 @@ Azure Cosmos DB는 JSON 문서 삭제를 지원합니다.
 축하합니다! Node.js 자습서를 만들고 완료했으며 첫 번째 Azure Cosmos DB 콘솔 응용 프로그램이 있습니다.
 
 ## <a id="GetSolution"></a>전체 Node.js 자습서 솔루션 다운로드
+
 이 자습서의 단계를 완료할 시간이 없거나 코드를 다운로드하려는 경우 [GitHub](https://github.com/Azure-Samples/documentdb-node-getting-started)에서 가져올 수 있습니다.
 
 이 문서의 모든 샘플을 포함하는 GetStarted 솔루션을 실행하려면 다음이 필요합니다.

@@ -3,24 +3,21 @@ title: Azure Cosmos DB용 데이터베이스 마이그레이션 도구 | Microso
 description: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 저장소, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.
 keywords: csv에서 json으로, 데이터베이스 마이그레이션 도구, csv에서 json으로 변환
 services: cosmos-db
-author: andrewhoh
+author: SnehaGunda
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: d173581d-782a-445c-98d9-5e3c49b00e25
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/30/2018
-ms.author: anhoh
+ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: a14dbaffe6bfa68e7606d117823195144250c230
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 07c41bb02863cc32372722cbcbac4be2c5071860
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611469"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: 데이터 마이그레이션 도구
 
@@ -58,7 +55,7 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 * HBase
 * Azure Cosmos DB 컬렉션
 
-가져오기 도구는 그래픽 사용자 인터페이스(dtui.exe)를 포함하지만 명령줄(dt.exe)에서 구동할 수도 있습니다. 실제로 UI를 통해 가져오기를 설정한 후 관련 명령을 출력하는 옵션이 있습니다. 가져오는 동안 계층 관계(하위 문서)를 만들 수 있도록 테이블 형식 원본 데이터(예: SQL Server 또는 CSV 파일)를 변환할 수 있습니다. 원본 옵션, 각 원본에서 가져오는 샘플 명령줄, 대상 옵션 및 가져오기 결과 보기에 대해 자세히 알아보려면 계속 진행하세요.
+가져오기 도구는 그래픽 사용자 인터페이스(dtui.exe)를 포함하지만 명령줄(dt.exe)에서 구동할 수도 있습니다. 실제로 UI를 통해 가져오기를 설정한 후 관련 명령을 출력하는 옵션이 있습니다. 가져오는 동안 계층 관계(하위 문서)를 만들 수 있도록 테이블 형식 원본 데이터(예: SQL Server 또는 CSV 파일)를 변환할 수 있습니다. 원본 옵션, 각 원본에서 가져오는 샘플 명령, 대상 옵션 및 가져오기 결과 보기에 대해 자세히 알아보려면 계속 진행하세요.
 
 ## <a id="Install"></a>설치
 마이그레이션 도구 소스 코드는 GitHub의 [이 리포지토리](https://github.com/azure/azure-documentdb-datamigrationtool)에서 사용할 수 있습니다. 솔루션을 로컬로 다운로드하여 컴파일하거나 [미리 컴파일된 이진 파일을 다운로드](https://cosmosdbportalstorage.blob.core.windows.net/datamigrationtool/2018.02.28-1.8.1/dt-1.8.1.zip)한 후 다음 중 하나를 실행할 수 있습니다.

@@ -201,7 +201,13 @@
         - name: 원격 데스크톱 사용
           href: use-remote-desktop.md
         - name: VM을 Azure Active Directory에 가입시키기
-          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+          items:
+            - name: Red Hat Enterprise Linux
+              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+            - name: CentOS
+              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+            - name: Ubuntu
+              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
         - name: Azure Active Directory 자격 증명으로 로그인
           href: login-using-aad.md
         - name: 업데이트 및 패치
