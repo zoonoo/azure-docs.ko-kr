@@ -17,6 +17,7 @@
 ### [템플릿 섹션](resource-group-authoring-templates.md)
 #### [매개 변수](resource-manager-templates-parameters.md)
 #### [변수](resource-manager-templates-variables.md)
+#### [함수](resource-group-authoring-templates.md#functions)
 #### [리소스](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [연결된 템플릿 및 중첩된 템플릿](resource-group-linked-templates.md)

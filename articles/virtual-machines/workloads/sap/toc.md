@@ -51,12 +51,12 @@
 ## [DBMS 배포 가이드](dbms-guide.md)
 ## [SAP 재해 복구를 위한 Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP ID 통합 및 Single-Sign-On
-## [SAP 클라우드와 통합](../../../active-directory/active-directory-saas-sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP 클라우드 플랫폼 ID 인증 통합](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [SAP 클라우드 플랫폼에 Single-Sign-On 설정](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP NetWeaver 통합](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP Business ByDesign 통합](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP HANA DBMS 통합](../../../active-directory/active-directory-saas-saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP 클라우드와 통합](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP 클라우드 플랫폼 ID 인증 통합](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP 클라우드 플랫폼에 Single-Sign-On 설정](../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP NetWeaver 통합](../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP Business ByDesign 통합](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP HANA DBMS 통합](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ##[Azure AD로 SAP Fiori Launchpad SAML Single Sign-On](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

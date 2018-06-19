@@ -1,4 +1,4 @@
-# [Azure IoT 기본 사항](../iot-fundamentals/index.yml)
+# [Azure IoT 기본 사항](/azure/iot-fundamentals)
 # [IoT Hub 설명서](index.yml)
 
 # 개요
@@ -84,10 +84,10 @@
 ### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
 ### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
 
-## [처음부터 보안을 고려](iot-hub-security-ground-up.md)
-## [보안 모범 사례](iot-hub-security-best-practices.md)
-## [보안 아키텍처](iot-hub-security-architecture.md)
-## [IoT 배포 보안 유지](iot-hub-security-deployment.md)
+## [처음부터 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc)
+## [보안 모범 사례](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc)
+## [보안 아키텍처](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc)
+## [IoT 배포 보안 유지](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc)
 ## X.509 CA 인증서를 사용한 보안
 ### [X.509 CA 인증서 보안 개요](iot-hub-x509ca-overview.md)
 #### [X.509 CA 인증서 보안 개념](iot-hub-x509ca-concept.md)

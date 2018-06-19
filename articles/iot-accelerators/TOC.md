@@ -1,4 +1,4 @@
-# [Azure IoT 기본 사항](../iot-fundamentals/index.yml)
+# [Azure IoT 기본 사항](/azure/iot-fundamentals)
 # [IoT 솔루션 가속기 설명서](index.md)
 
 # 개요
@@ -94,10 +94,10 @@
 # 참고 자료
 ## [개발자 참조 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 ## [개발자 문제 해결 가이드](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-## [보안 아키텍처](iot-security-architecture.md)
-## [보안 모범 사례](iot-security-best-practices.md)
-## [IoT 배포 보안 유지](iot-accelerators-security-deployment.md)
-## [처음부터 보안을 고려](securing-iot-ground-up.md)
+## [처음부터 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-accelerators/rc/rc)
+## [보안 모범 사례](/azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-accelerators/rc/rc)
+## [보안 아키텍처](/azure/iot-fundamentals/iot-security-architecture?context=azure/iot-accelerators/rc/rc)
+## [IoT 배포 보안 유지](/azure/iot-fundamentals/iot-security-deployment?context=azure/iot-accelerators/rc/rc)
 
 # 관련 항목
 ## 솔루션 
