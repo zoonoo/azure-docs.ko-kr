@@ -1,5 +1,5 @@
-- name: 액세스 관리 개요
-  href: manage-access-to-azure-resources.md
+- name: 역할 기반 액세스 제어 설명서
+  href: index.yml
   items: null
 - name: 개요
   items:
@@ -36,6 +36,7 @@
     - name: Azure 관리에 대한 조건부 액세스
       href: conditional-access-azure-management.md
 - name: 방법 가이드
+  expanded: true
   items:
     - name: 액세스 관리
       items:

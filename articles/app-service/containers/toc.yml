@@ -29,13 +29,13 @@
       items:
         - name: SQL DB를 사용한 .NET Core
           href: tutorial-dotnetcore-sqldb-app.md
-        - name: MySQL을 사용하는 Ruby
-          href: tutorial-ruby-mysql-app.md
+        - name: Postgres를 사용하는 Ruby
+          href: tutorial-ruby-postgres-app.md
         - name: MySQL을 사용하는 PHP
           href: tutorial-php-mysql-app.md
         - name: MongoDB를 사용하는 Node.js
           href: tutorial-nodejs-mongodb-app.md
-        - name: PostgreSQL 사용하는 사용자 지정 컨테이너 Python
+        - name: Postgres를 사용하는 사용자 지정 컨테이너 Python
           href: tutorial-docker-python-postgresql-app.md
     - name: 다중 컨테이너 앱
       href: tutorial-multi-container-app.md

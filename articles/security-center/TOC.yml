@@ -53,7 +53,7 @@
     - name: 보안 상태 모니터링
       href: security-center-monitoring.md
       items:
-        - name: 보안 계산
+        - name: 계산 및 앱 보안
           href: security-center-virtual-machine-recommendations.md
           items:
             - name: 디스크 암호화 적용
@@ -74,6 +74,10 @@
               href: security-center-update-os-version.md
             - name: 취약성 평가 설치되지 않음
               href: security-center-vulnerability-assessment-recommendations.md
+            - name: 웹 응용 프로그램 방화벽 추가
+              href: security-center-add-web-application-firewall.md
+            - name: 응용 프로그램 보호 완료
+              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: 네트워크 보안
           href: security-center-network-recommendations.md
           items:
@@ -94,13 +98,6 @@
               href: security-center-enable-auditing-on-sql-servers.md
             - name: 투명한 데이터 암호화 활성화
               href: security-center-enable-transparent-data-encryption.md
-        - name: 응용 프로그램 보안
-          href: security-center-application-recommendations.md
-          items:
-            - name: 웹 응용 프로그램 방화벽 추가
-              href: security-center-add-web-application-firewall.md
-            - name: 응용 프로그램 보호 완료
-              href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
         - name: ID 및 액세스
           href: security-center-identity-access.md
     - name: 클라우드 방어 적용

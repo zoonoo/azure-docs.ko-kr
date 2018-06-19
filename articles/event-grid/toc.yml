@@ -69,6 +69,8 @@
       href: post-to-custom-topic.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
+    - name: 이벤트 전달 관리
+      href: manage-event-delivery.md
     - name: 이벤트 전달 모니터링
       href: monitor-event-delivery.md
     - name: 이벤트 구독 쿼리

@@ -97,6 +97,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: 상호 인증서 인증
           href: api-management-howto-mutual-certificates.md
+        - name: 프로토콜 및 암호 관리
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: 개발자 환경 사용자 지정
       items:
         - name: 페이지 콘텐츠 및 레이아웃 수정

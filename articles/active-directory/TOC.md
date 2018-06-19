@@ -122,7 +122,6 @@
 ### 참고 자료
 #### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
-#### [Notifications](active-directory-reporting-notifications.md)
 #### [감사 활동 참조](active-directory-reporting-activity-audit-reference.md)
 #### [로그인 작업 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
@@ -152,6 +151,12 @@
 ### [SSPR 사용자 지정](authentication/concept-sspr-customization.md)
 ### [SSPR 데이터 요구 사항](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR 보고](authentication/howto-sspr-reporting.md)
+### [취약한 암호 제거](authentication/concept-password-ban-bad.md)
+### [금지된 암호 목록 구성](authentication/howto-password-ban-bad.md)
+### [온-프레미스 통합](authentication/concept-password-ban-bad-on-premises.md)
+### [Azure AD 암호 보호 배포](authentication/howto-password-ban-bad-on-premises.md)
+### [Azure AD 암호 보호 구성](authentication/howto-password-ban-bad-on-premises-operations.md)
+### [Azure AD 암호 보호 모니터링](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT 관리자: 암호 재설정
 #### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [라이선스 SSPR](authentication/concept-sspr-licensing.md)
@@ -178,14 +183,14 @@
 ## 앱 관리
 ### [개요](manage-apps/what-is-application-management.md)
 ### [시작](manage-apps/plan-an-application-integration.md)
-### [SaaS 앱 통합 자습서](active-directory-saas-tutorial-list.md)
+### [SaaS 앱 통합 자습서](saas-apps/tutorial-list.md)
 ### [클라우드 앱 검색](manage-apps/cloud-app-discovery.md)
 #### [스냅숏 보고서 만들기](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 #### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
 
 ### [SaaS 앱에 대한 사용자 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md) 
-#### [앱 통합 자습서](active-directory-saas-tutorial-list.md) 
+#### [앱 통합 자습서](saas-apps/tutorial-list.md) 
 #### [SCIM 사용 앱에 대한 프로비전 자동화](manage-apps/use-scim-to-provision-users-and-groups.md) 
 #### [특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md) 
 #### [특성 매핑을 위한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md) 
