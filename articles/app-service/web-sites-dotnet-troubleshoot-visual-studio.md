@@ -76,7 +76,7 @@ Visual Studio를 사용하면 [Azure Portal](http://go.microsoft.com/fwlink/?Lin
     이 창에서 지원하지 않는 웹앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기** 를 클릭하여 브라우저 창에서 Azure 포털을 엽니다.
 
 ## <a name="remoteview"></a>서버 탐색기에서 웹 앱 파일 액세스
-일반적으로 Web.config 파일에서 `customErrors` 플래그를 `On` 또는 `RemoteOnly`로 설정한 상태로 웹 프로젝트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 모두 다음 중 하나와 유사합니다.
+일반적으로 Web.config 파일에서 `customErrors` 플래그를 `On` 또는 `RemoteOnly`로 설정한 상태로 웹 프로젝트가 배포되기 때문에 문제가 발생한 경우 유용한 오류 메시지를 받지 못합니다. 받을 수 있는 대부분의 오류는 다음 중 하나와 유사합니다.
 
 **'/' 응용 프로그램의 서버 오류:**
 
