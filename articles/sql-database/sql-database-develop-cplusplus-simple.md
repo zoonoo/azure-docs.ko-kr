@@ -87,7 +87,7 @@ Visual Studio에서 빌드한 [이 샘플을 사용하여 Windows에서 ODBC를 
     apt-get install msodbcsql
     apt-get install unixodbc-dev-utf16 #this step is optional but recommended*
 
-Visual Studio를 시작합니다. [도구] -> [옵션] -> [플랫폼 간] -> [연결 관리자]에서 Linux 상자에 연결을 추가합니다. 
+Visual Studio를 시작합니다. [도구] -> [옵션] -> [크로스 플랫폼] -> [연결 관리자]에서 Linux 상자에 연결을 추가합니다. 
 
 ![도구 옵션](./media/sql-database-develop-cplusplus-simple/tools.png)
 
