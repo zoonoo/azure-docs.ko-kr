@@ -136,7 +136,7 @@ ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표�
 
 축하합니다. ASP.NET Core 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 
-## <a name="update-the-app-and-redeploy"></a>앱 업데이트 및 다시 배포
+## <a name="update-the-app-and-redeploy"></a>앱 업데이트 및 재배포
 
 **솔루션 탐색기**에서 _Pages/Index.cshtml_을 엽니다.
 
