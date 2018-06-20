@@ -169,7 +169,7 @@ Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebA
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
+왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
