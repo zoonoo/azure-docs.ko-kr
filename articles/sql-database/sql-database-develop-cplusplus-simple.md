@@ -28,7 +28,7 @@ ms.locfileid: "34644701"
 * [Visual Studio Linux 개발](https://visualstudiogallery.msdn.microsoft.com/725025cf-7067-45c2-8d01-1e0fd359ae6e). Linux에서 개발하는 경우에 Visual Studio Linux 확장도 설치해야 합니다. 
 
 ## <a id="AzureSQL"></a>가상 컴퓨터에서 Azure SQL Database 및 SQL Server
-Azure SQL은 Microsoft SQL Server에서 빌드되고 가용성이 높고 성능과 확장성이 뛰어난 서비스를 제공하도록 설계되었습니다. 온-프레미스에서 실행되는 전용 데이터베이스를 통해 SQL Azure를 사용하는 많은 이점이 있습니다. SQL Azure에서는 데이터베이스를 설치, 설정, 유지 또는 관리할 필요가 없이 데이터베이스의 콘텐츠와 구조만 관리하면 됩니다. 내결함성과 중복성처럼 데이터 베이스에 대해 일반적으로 걱정하는 것이 모두 기본 제공됩니다. 
+Azure SQL은 Microsoft SQL Server에서 빌드되고 가용성이 높고 성능과 확장성이 뛰어난 서비스를 제공하도록 설계되었습니다. SQL Azure를 사용하는것은 온-프레미스에서 실행되는 전용 데이터베이스를 사용하는것보다 많은 이점이 있습니다. SQL Azure에서는 데이터베이스를 설치, 설정, 유지 또는 관리할 필요가 없이 데이터베이스의 콘텐츠와 구조만 관리하면 됩니다. 내결함성과 중복성처럼 데이터 베이스에 대해 일반적으로 걱정하는 것이 모두 기본 제공됩니다. 
 
 Azure에는 현재 Azure SQL server 작업 부하를 호스팅하기 위한 두 가지 옵션, 즉 서비스로서 데이터베이스인 Azure SQL Database와 Virtual Machines(VM)의 SQL server가 있습니다. Azure SQL Database가 새로운 클라우드 기반 응용 프로그램을 위해 클라우드 서비스가 제공하는 비용 절감과 성능 최적화를 활용하는 최선의 방법이라는 점을 제외하고 이 두 옵션간에 차이점을 찾을 수 없습니다. 클라우드로 온-프레미스 응용 프로그램을 마이그레이션 또는 확장하려는 경우 Azure 가상 컴퓨터에서 SQL server가 더 적합할 수 있습니다. 이 문서에서 작업을 더 간단하게 유지하기 위해, Azure SQL Database를 만들어 보겠습니다. 
 
