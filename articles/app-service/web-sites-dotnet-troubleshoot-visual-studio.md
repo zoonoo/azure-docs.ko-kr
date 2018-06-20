@@ -379,7 +379,7 @@ public ActionResult Contact()
 
     ![출력 창의 오류 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
-    로그 모니터링 서비스를 사용하도록 설정하는 경우 오류 수준의 추적이 기본 설정이므로 Visual Studio에는 오류 수준의 추적만 표시됩니다. 새 Azure 웹 앱을 만드는 경우 이전에 사이트 설정 페이지를 열고 확인한 것처럼 모든 로깅은 기본적으로 사용하지 않도록 설정됩니다.
+    로그 모니터링 서비스를 사용하도록 설정하는 경우 오류 수준의 추적이 기본 설정이므로 Visual Studio에는 오류 수준의 추적만 표시됩니다. 새 Azure 웹 앱을 만드는 경우 사이트 설정에서 확인한 것처럼 모든 로깅은 기본적으로 사용하지 않도록 설정됩니다.
 
     ![응용 프로그램 로깅 끄기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 
