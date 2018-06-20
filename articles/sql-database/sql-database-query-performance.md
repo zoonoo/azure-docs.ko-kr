@@ -132,7 +132,7 @@ Query Performance Insight의 최신 업데이트에는 잠재적인 병목 상�
    
     ![쿼리 실행 횟수][5]
 
-## <a name="understanding-performance-tuning-annotations"></a>성능 튜닝 주석 이해
+## <a name="understanding-performance-tuning-annotations"></a>운영 튜닝 주석 이해
 Query Performance Insight에서 워크로드를 살펴보는 동안 차트 맨 위에 세로줄이 있는 아이콘이 표시될 수 있습니다.<br>
 
 이러한 아이콘은 주석으로, [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)가 수행한 작업에 영향을 미치는 성능을 나타냅니다. 주석에 마우스를 가져가면 해당 작업에 대한 기본 정보가 표시됩니다.
