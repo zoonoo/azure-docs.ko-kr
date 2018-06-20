@@ -46,7 +46,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 #### <a name="known-issues"></a>알려진 문제
 
-- Azure .NET SDK 2.9.6에는 지원되지 않는 .NET framework(예: .NET 4.6)를 사용하여 프로젝트를 OS 제품군 5 미만으로 배포하는 것을 차단하는 제한 사항이 도입되었습니다. 해결 방법이 [여기](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)에 제공됩니다.
+- Azure .NET SDK 2.9.6부터는 .NET framework(예: .NET 4.6)를 사용하는 프로젝트가 OS 제품군 5 미만으로 배포되는 것을 차단하는 기능이 도입되었습니다. 해결 방법이 [여기](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)에 제공됩니다.
 
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
