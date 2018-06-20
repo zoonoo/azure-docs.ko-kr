@@ -36,7 +36,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체합니다. Azure
 
 Microsoft Authenticator 앱은 자체적으로 작동하지 않습니다. 사용자 이름 및 암호로 로그인한 후 두 번째 확인 방법에 대해 묻도록 각 계정을 구성합니다.
 
-회사 또는 학교 계정의 경우 일반적으로 이 기능에 대해 선택하지 않습니다. 대신 보안 관리자는 사용자를 대신해서 옵트인한 다음 계정에 대해 확인 메서드를 등록하라고 알립니다. 이 시나리오에 해당하는 경우 [Azure Multi-Factor Authentication은 무엇을 의미하나요](multi-factor-authentication-end-user.md)에서 자세히 알아봅니다.
+회사 또는 학교 계정의 경우 일반적으로 이 기능을 선택하지 않습니다. 대신 보안 관리자는 사용자를 대신해서 옵트인한 다음 계정에 대해 확인 메서드를 등록하라고 알립니다. 이 시나리오에 해당하는 경우 [Azure Multi-Factor Authentication은 무엇을 의미하나요](multi-factor-authentication-end-user.md)에서 자세히 알아봅니다.
 
 개인 계정의 경우 2단계 인증을 설정해야 합니다. Microsoft 계정이 있는 경우 이러한 단계는 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)에서 사용할 수 있습니다.
 
