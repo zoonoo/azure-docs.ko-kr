@@ -420,7 +420,7 @@ public ActionResult Contact()
 1. **서버 탐색기**에서 열었던 **Azure Web App 구성** 탭에서 웹 서버 로깅을 **켜기**로 변경하고 **저장**을 클릭합니다.
 
     ![웹 서버 로깅 사용](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-webserverloggingon.png)
-2. **출력** 창에서 **모니터링할 Microsoft Azure 로그 지정** 단추를 클릭합니다.
+2. **출력** 창에서 **모니터링할 Microsoft Azure 로그 지정** 버튼을 클릭합니다.
 
     ![Specify which Azure logs to monitor](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-specifylogs.png)
 3. **Microsoft Azure 로깅 옵션** 대화 상자에서 **웹 서버 로그**를 선택한 후 **확인**을 클릭합니다.
@@ -443,7 +443,7 @@ public ActionResult Contact()
 
     ![자세한 오류 메시지 사용](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-detailedlogson.png)
 
-2. **출력** 창에서 **모니터링할 Microsoft Azure 로그 지정** 단추를 클릭합니다.
+2. **출력** 창에서 **모니터링할 Microsoft Azure 로그 지정** 버튼을 클릭합니다.
 
 3. **Microsoft Azure 로깅 옵션** 대화 상자에서 **모든 로그**를 클릭한 후 **확인**을 클릭합니다.
 
