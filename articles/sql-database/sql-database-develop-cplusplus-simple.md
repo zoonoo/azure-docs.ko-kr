@@ -95,7 +95,7 @@ SSH 통해 연결이 설정된 후에 빈 프로젝트(Linux) 템플릿을 만�
 
 ![새 프로젝트 템플릿](./media/sql-database-develop-cplusplus-simple/template.png)
 
-그런 다음 [새 C 소스 파일을 추가하고 다음 내용으로 교체](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)할 수 있습니다. ODBC Api SQLAllocHandle, SQLSetConnectAttr 및 SQLDriverConnect를 사용하여 초기화하고 데이터베이스에 연결할 수 있어야 합니다. Windows ODBC 샘플과 마찬가지로 SQLDriverConnect 호출을 Azure Portal에서 이전에 복사한 데이터베이스 연결 문자열 매개 변수의 세부 정보로 교체해야 합니다. 
+그런 다음 [새 C 소스 파일을 추가하고 다음 내용으로 교체](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)할 수 있습니다. ODBC Api SQLAllocHandle, SQLSetConnectAttr 및 SQLDriverConnect를 사용하여 데이터베이스에 연결을 만들고 초기화 할 수 있습니다. Windows ODBC 샘플과 마찬가지로 SQLDriverConnect 호출을 Azure Portal에서 이전에 복사한 데이터베이스 연결 문자열 매개 변수의 세부 정보로 교체해야 합니다. 
 
      retcode = SQLDriverConnect(
         hdbc, NULL, "Driver=ODBC Driver 13 for SQL"
