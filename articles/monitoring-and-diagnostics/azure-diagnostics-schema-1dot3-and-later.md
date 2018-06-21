@@ -1,24 +1,20 @@
 ---
-title: Azure 진단 확장 1.3 이상 구성 스키마 | Microsoft Docs
+title: Azure 진단 확장 1.3 이상 구성 스키마
 description: Azure 진단용 스키마 버전 1.3 이상은 Microsoft Azure SDK 2.4 이상의 일부로 제공됩니다.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.openlocfilehash: 02656c5bb4d2acd944f565d1397984ce94ced0bd
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4fba492a57471df737896956e0b37e3da772cce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262378"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 진단 1.3 이상 구성 스키마
 > [!NOTE]
@@ -524,7 +520,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다.  
 
- **resourceId** 특성이 필요합니다.  Azure 진단을 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>**을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
+ **resourceId** 특성이 필요합니다.  Azure 진단을 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** -> **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
@@ -569,7 +565,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
-|특성|유형|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 저장소의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilterr**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
@@ -601,11 +597,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|유형|설명|  
+|특성|type|설명|  
 |---------------|----------|-----------------|  
 |**name**|string|sinkname을 식별하는 문자열입니다.|  
 
-|요소|유형|설명|  
+|요소|type|설명|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
 |**Channels**|string|스트림하는 각 추가 필터링에 대한|  
@@ -617,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  싱크를 통해 전달되는 로그 데이터의 스트림에 대한 필터를 정의합니다.  
 
-|요소|유형|설명|  
+|요소|type|설명|  
 |-------------|----------|-----------------|  
 |**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -628,7 +624,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|유형|설명|  
+|특성|type|설명|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**name**|**string**|참조 하는 채널의 고유 이름|  

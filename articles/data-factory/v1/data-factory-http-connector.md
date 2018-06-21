@@ -9,15 +9,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/10/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 9820ed9b4c0abbb79c6f92e62f294fb7fbd4c87e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 16b181631d8d91ad8137e57564792789903bccf2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621621"
 ---
 # <a name="move-data-from-an-http-source-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 소스에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +53,7 @@ ms.lasthandoff: 03/23/2018
 | 형식 | type 속성을 `Http`로 설정해야 합니다. | 예 |
 | URL | 웹 서버에 대한 기본 URL입니다. | 예 |
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
-| enableServerCertificateValidation | 소스가 HTTPS 웹 서버인 경우 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. | 아니요. 기본값은 True입니다. |
+| enableServerCertificateValidation | 소스가 HTTPS 웹 서버인 경우 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 false로 설정합니다. | 아니요. 기본값은 True입니다. |
 | gatewayName | 온-프레미스 HTTP 소스에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 HTTP 소스에서 데이터를 복사하는 경우에는 필수입니다. |
 | encryptedCredential | HTTP 끝점 액세스를 위한 암호화된 자격 증명입니다. 복사 마법사 또는 ClickOnce 팝업 대화 상자에서 인증 정보를 구성할 때 자동 생성됩니다. | 번호 온-프레미스 HTTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 
@@ -100,7 +101,7 @@ ms.lasthandoff: 03/23/2018
 
 1. MMC(Microsoft Management Console)를 시작합니다. **로컬 컴퓨터**를 대상으로 하는 **인증서** 스냅인을 추가합니다.
 2. **인증서**, **개인**을 확장하고 **인증서**를 클릭합니다.
-3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**->**개인 키 관리...**를 선택합니다.
+3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업**->**개인 키 관리...** 를 선택합니다.
 3. **보안** 탭에서 인증서에 대한 읽기 권한으로 데이터 관리 게이트웨이 호스트 서비스를 실행 중인 사용자 계정을 추가합니다.  
 
 #### <a name="example-using-client-certificate"></a>예제: 클라이언트 인증서 사용
@@ -152,10 +153,10 @@ ms.lasthandoff: 03/23/2018
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 형식을 지정했습니다. `Http`로 설정해야 합니다. | 예 |
-| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 생성하려면 [데이터 팩터리 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다(예: "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"). | 아니요 |
+| relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 경로를 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. <br><br> 동적 URL을 생성하려면 [데이터 팩터리 함수 및 시스템 변수](data-factory-functions-variables.md)를 사용할 수 있습니다(예: "relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"). | 아니오 |
 | requestMethod | HTTP 메서드입니다. 허용되는 값은 **GET** 또는 **POST**입니다. | 번호 기본값은 `GET`입니다. |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니오 |
-| requestBody | HTTP 요청의 본문입니다. | 아니요 |
+| requestBody | HTTP 요청의 본문입니다. | 아니오 |
 | format | 데이터를 구문 분석하지 않고 **HTTP 끝점에서 데이터를 그대로 검색**하려면 이 서식 설정을 건너뜁니다. <br><br> 복사 중에 HTTP 응답 내용을 구문 분석하려면 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. |아니오 |
 | 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니오 |
 

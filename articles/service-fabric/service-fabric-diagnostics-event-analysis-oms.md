@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 05/29/2018
 ms.author: srrengar
-ms.openlocfilehash: b51f7dc43f390152b2b0be223541e381bbddd3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 184faa0f6171ff00ab3c2398f693e9c7ad015d33
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839591"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>Log Analytics를 사용하여 이벤트 분석 및 시각화
 
@@ -36,17 +37,15 @@ Log Analytics가 데이터를 수신한 후 Azure는 들어오는 데이터를 �
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>Service Fabric 분석 솔루션에 액세스
 
-1. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>** 리소스를 선택하고 개요 페이지로 이동합니다.
+1. Azure Portal에서 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다.
 
-2. 개요 페이지에서 위쪽의 링크를 클릭하여 OMS 포털로 이동합니다.
+2. **ServiceFabric\<nameOfOMSWorkspace\>** 리소스를 선택합니다.
 
-    ![OMS 포털 링크](media/service-fabric-diagnostics-event-analysis-oms/oms-portal-link.png)
+2. 요약에서 Service Fabric용 타일을 포함하여 활성화된 각 솔루션에 대해 그래프 형태의 타일이 표시됩니다. **Service Fabric** 그래프(아래 첫 번째 이미지)를 클릭하여 Service Fabric 분석 솔루션(아래 두 번째 이미지)을 계속합니다.
 
-3. 이제 OMS 포털에서 사용하도록 설정한 솔루션을 볼 수 있습니다. Service Fabric이라는 그래프(아래 첫 번째 이미지)를 클릭하면 Service Fabric 솔루션(아래 두 번째 이미지)으로 이동합니다.
+    ![OMS SF 솔루션](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-    ![OMS SF 솔루션](media/service-fabric-diagnostics-event-analysis-oms/oms-workspace-all-solutions.png)
-
-    ![OMS SF 솔루션](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new.png)
+    ![OMS SF 솔루션](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
 위 이미지는 Service Fabric 분석 솔루션의 홈 페이지입니다. 클러스터에서 수행되는 작업의 스냅샷 보기입니다. 클러스터를 만들 때 진단을 활성화하면 다음에 대한 이벤트를 볼 수 있습니다. 
 
@@ -57,15 +56,15 @@ Log Analytics가 데이터를 수신한 후 Azure는 들어오는 데이터를 �
 >[!NOTE]
 >작동 채널 외에도, [진단 확장 프로그램의 구성을 업데이트](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)하여 자세한 시스템 이벤트를 수집할 수 있습니다.
 
-### <a name="view-operational-events-including-actions-on-nodes"></a>노드에 대한 작업을 비롯한 운영 이벤트 보기
+### <a name="view-service-fabric-events-including-actions-on-nodes"></a>노드에 대한 작업을 비롯한 Service Fabric 이벤트 보기
 
-1. OMS 포털의 Service Fabric 분석 페이지에서 작동 채널 그래프를 클릭합니다.
+1. Service Fabric 분석 페이지에서 **Service Fabric 이벤트**에 대한 그래프를 클릭합니다.
 
-    ![OMS SF 솔루션 작동 채널](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-new-operational.png)
+    ![OMS SF 솔루션 작동 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-2. 테이블을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참고로, 이러한 항목은 Azure Storage 계정의 WADServiceFabricSystemEventsTable에서 가져오고 이와 유사하게 다음에 표시되는 Reliable Services 및 Actors 이벤트는 해당 테이블에서 가져옵니다.
+2. **목록**을 클릭하여 목록에서 이벤트를 봅니다. 일단 여기에 수집된 모든 시스템 이벤트가 표시됩니다. 참고로, 이러한 항목은 Azure Storage 계정의 WADServiceFabricSystemEventsTable에서 가져오고 이와 유사하게 다음에 표시되는 Reliable Services 및 Actors 이벤트는 해당 테이블에서 가져옵니다.
     
-    ![OMS 쿼리 작동 채널](media/service-fabric-diagnostics-event-analysis-oms/oms-query-operational-channel.png)
+    ![OMS 쿼리 작동 채널](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
 또는 왼쪽에 있는 돋보기를 클릭하고 Kusto 쿼리 언어를 사용하여 원하는 항목을 찾을 수 있습니다. 예를 들어 클러스터의 노드에서 수행된 모든 작업을 찾으려면 다음 쿼리를 사용하면 됩니다. 아래에 사용된 이벤트 ID는 [운영 채널 이벤트 참조](service-fabric-diagnostics-event-generation-operational.md)에서 찾을 수 있습니다.
 
@@ -78,13 +77,13 @@ ServiceFabricOperationalEvent
 
 ### <a name="view-service-fabric-reliable-service-and-actor-events"></a>Service Fabric Reliable Service 및 Actor 이벤트 보기
 
-1. OMS 포털의 Service Fabric 분석 페이지에서 Reliable Services에 대한 그래프를 클릭합니다.
+1. Service Fabric 분석 페이지에서 **Reliable Services**에 대한 그래프를 클릭합니다.
 
-    ![OMS SF 솔루션 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics-reliable-services.png)
+    ![OMS SF 솔루션 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_services_events_selection.png)
 
-2. 테이블을 클릭하여 목록에서 이벤트를 봅니다. 여기에서 Reliable Services의 이벤트를 볼 수 있습니다. 일반적으로 배포 및 업그레이드에서 발생하는 서비스 RunAsync가 언제 시작되고 완료되는지에 대한 다양한 이벤트를 볼 수 있습니다. 
+2. **목록**을 클릭하여 목록에서 이벤트를 봅니다. 여기에서 Reliable Services의 이벤트를 볼 수 있습니다. 일반적으로 배포 및 업그레이드에서 발생하는 서비스 RunAsync가 언제 시작되고 완료되는지에 대한 다양한 이벤트를 볼 수 있습니다. 
 
-    ![OMS 쿼리 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms-query-reliable-services.png)
+    ![OMS 쿼리 Reliable Services](media/service-fabric-diagnostics-event-analysis-oms/oms_reliable_service_events.png)
 
 Reliable Actors 이벤트는 비슷한 방식으로 볼 수 있습니다. Reliable Actors에 대한 자세한 이벤트를 구성하려면 진단 확장(아래 참조)에 대한 구성에서 `scheduledTransferKeywordFilter`를 변경해야 합니다. 이러한 값에 대한 세부 정보는 [Reliable Actors 이벤트 참조](service-fabric-reliable-actors-diagnostics.md#keywords)를 참조하세요.
 
@@ -100,9 +99,9 @@ Reliable Actors 이벤트는 비슷한 방식으로 볼 수 있습니다. Reliab
                 },
 ```
 
-Kusto 쿼리 언어는 강력합니다. 실행 가능한 또 다른 중요한 쿼리는 가장 많은 이벤트를 생성하는 노드를 확인하는 것입니다. 아래 스크린샷의 쿼리는 특정 서비스 및 노드와 통합된 Reliable Services 이벤트를 보여줍니다.
+Kusto 쿼리 언어는 강력합니다. 실행 가능한 또 다른 중요한 쿼리는 가장 많은 이벤트를 생성하는 노드를 확인하는 것입니다. 아래 스크린샷의 쿼리는 특정 서비스 및 노드와 통합된 Service Fabric 운영 이벤트를 보여 줍니다.
 
-![노드당 OMS 쿼리 이벤트](media/service-fabric-diagnostics-event-analysis-oms/oms-query-events-per-node.png)
+![노드당 OMS 쿼리 이벤트](media/service-fabric-diagnostics-event-analysis-oms/oms_kusto_query.png)
 
 ## <a name="next-steps"></a>다음 단계
 

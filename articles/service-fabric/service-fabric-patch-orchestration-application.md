@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/07/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: d36fcac4cbbdf8127e60e23df4ff2d52e68b6689
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69806520f3d57cb1d383999ba53fefb7e0bd56b4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642814"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -316,6 +317,10 @@ a. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같�
 Q. **REST API를 통해 가져온 Windows Update 결과에 표시된 일부 업데이트가 컴퓨터에서 Windows Update 기록에서 표시되지 않는 이유는 무엇인가요?**
 
 a. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서만 나타납니다. 예를 들어 Windows Defender 업데이트는 Windows Server 2016의 Windows Update 기록에 표시되지 않습니다.
+
+Q. **패치 오케스트레이션 앱을 사용하여 개발자 클러스터(1노드 클러스터)에 패치를 적용할 수 있나요?**
+
+a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스터에 패치를 적용할 수 없습니다. 이 제한은 기본적으로 [Service Fabric 시스템 서비스](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) 또는 고객 앱이 가동 중지되고 패치에 대한 모든 복구 작업이 복구 관리자에서 승인되지 않으므로 이 제한은 기본적으로 적용됩니다.
 
 ## <a name="disclaimers"></a>고지 사항
 

@@ -1,23 +1,19 @@
 ---
-title: Event Hubs로 Azure 모니터링 데이터 스트리밍 | Microsoft Docs
+title: Event Hubs로 Azure 모니터링 데이터 스트리밍
 description: 모든 Azure 모니터링 데이터를 이벤트 허브에 스트리밍하여 파트너 SIEM 또는 분석 도구로 데이터를 가져오는 방법을 알아봅니다.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/05/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: 091076a86c7f1c3f83f20a47b8f351d050350c9a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263466"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -97,7 +93,7 @@ Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니�
 
 1. 저장소 계정에 Application Insights 데이터의 [연속 내보내기를 설정](../application-insights/app-insights-export-telemetry.md)합니다.
 
-2. [Blob 저장소에서 데이터를 가져오고](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) [이를 메시지로 이벤트 허브에 푸시하는](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app) 타이머 트리거 논리 앱을 설정합니다.
+2. [Blob 저장소에서 데이터를 가져오고](../connectors/connectors-create-api-azureblobstorage.md#add-action) [이를 메시지로 이벤트 허브에 푸시하는](../connectors/connectors-create-api-azure-event-hubs.md#add-action) 타이머 트리거 논리 앱을 설정합니다.
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>내 이벤트 허브로 보내지는 모니터링 데이터를 사용하여 수행할 수 있는 작업은 무엇인가요?
 

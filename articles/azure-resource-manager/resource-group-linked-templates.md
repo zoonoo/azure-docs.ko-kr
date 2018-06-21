@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: b01df5d89784c9982ebbf2351ae61a5d9f79aee8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 17f40790343181c592eca7bf6337b0f37d3ec20c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359444"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602818"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Azure 리소스를 배포할 때 연결 및 중첩된 템플릿 사용
 
-솔루션을 배포하려면 단일 템플릿 또는 여러 개의 관련 템플릿이 있는 주 템플릿 중 하나를 사용할 수 있습니다. 관련 템플릿은 주 템플릿에 연결된 별도 파일이거나 주 템플릿 내에 중첩된 템플릿일 수 있습니다.
+솔루션을 배포하려면 단일 템플릿 또는 많은 관련 템플릿이 있는 주 템플릿 중 하나를 사용할 수 있습니다. 관련 템플릿은 주 템플릿에 연결된 별도 파일이거나 주 템플릿 내에 중첩된 템플릿일 수 있습니다.
 
 중소기업에게는 단일 템플릿이 더 간편하게 이해하고 유지 관리할 수 있습니다. 모든 리소스 및 값을 단일 파일에서 볼 수 있습니다. 고급 시나리오의 경우 연결된 템플릿을 통해 솔루션을 대상 구상 요소로 분리하고 템플릿을 재사용할 수 있습니다.
 
@@ -86,6 +86,8 @@ ms.locfileid: "34359444"
 >
 > `reference` 함수는 중첩된 템플릿의 출력 섹션에 사용할 수 없습니다. 중첩된 템플릿에서 배포된 리소스의 값을 반환하려면 중첩된 템플릿을 연결된 템플릿으로 변환합니다.
 
+중첩된 템플릿에는 표준 템플릿과 [동일한 속성](resource-group-authoring-templates.md)이 필요합니다.
+
 ### <a name="external-template-and-external-parameters"></a>외부 템플릿 및 외부 매개 변수
 
 외부 템플릿과 매개 변수 파일에 연결하려면 **templateLink** 및 **parametersLink**를 사용합니다. 템플릿에 연결할 때 Resource Manager 서비스가 해당 템플릿에 액세스할 수 있어야 합니다. 로컬 네트워크에서만 사용 가능한 파일이나 로컬 파일은 지정할 수 없습니다. **http** 또는 **https** 중 하나를 포함하는 URI 값만 제공할 수 있습니다. 한 가지 옵션은 연결된 템플릿을 저장소 계정에 배치하고 해당 항목의 URI를 사용하는 것입니다.
@@ -110,6 +112,8 @@ ms.locfileid: "34359444"
   }
 ]
 ```
+
+템플릿 또는 매개 변수에 대한 `contentVersion` 속성을 제공하지 않아도 됩니다. 콘텐츠 버전 값을 제공하지 않으면 현재 버전의 템플릿이 배포됩니다. 콘텐츠 버전 값을 제공하는 경우에는 연결된 템플릿의 버전과 일치해야 합니다. 그렇지 않으면 오류와 함께 배포에 실패합니다.
 
 ### <a name="external-template-and-inline-parameters"></a>외부 템플릿 및 인라인 매개 변수
 
@@ -149,7 +153,7 @@ ms.locfileid: "34359444"
 }
 ```
 
-또한 [deployment()](resource-group-template-functions-deployment.md#deployment) 를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이 방법은 템플릿 위치가 변경되거나(아마도 버전 관리로 인해) 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다. templateLink 속성은 URL을 사용하여 원격 템플릿을 연결할 때만 반환됩니다. 로컬 템플릿을 사용하는 경우 이 속성을 사용할 수 없습니다.
+또한 [deployment()](resource-group-template-functions-deployment.md#deployment) 를 사용하여 현재 템플릿에 대한 기본 URL을 가져올 수 있으며 동일한 위치에 있는 다른 템플릿에 대한 URL를 가져올 수 있습니다. 이 방법은 템플릿 위치가 변경되거나 템플릿 파일에서 URL 하드 코딩을 방지하려는 경우 유용합니다. templateLink 속성은 URL을 사용하여 원격 템플릿을 연결할 때만 반환됩니다. 로컬 템플릿을 사용하는 경우 이 속성을 사용할 수 없습니다.
 
 ```json
 "variables": {

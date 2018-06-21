@@ -4,7 +4,7 @@ description: SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 356e44b063fbd65de23d3aab313f58b5572840ea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366361"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656196"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -540,9 +540,10 @@ SAP는 현재 Premium Managed Disks만 지원합니다. 자세한 내용은 SAP 
 Managed Disks를 사용하는 경우 다음 방법으로 Premium Storage로 마이그레이션이 가능합니다.
 
 1. 가상 머신 할당 취소
-2. 필요한 경우 Premium Storage를 지원하도록 가상 머신을 크기 조정합니다(예: DS 또는 GS).
-3. Managed Disk 계정 유형을 Premium(SSD)으로 변경
-4. 가상 컴퓨터 시작
+1. 필요한 경우 Premium Storage를 지원하도록 가상 머신을 크기 조정합니다(예: DS 또는 GS).
+1. Managed Disk 계정 유형을 Premium(SSD)으로 변경
+1. [VM 및 데이터 디스크에 대한 캐싱][dbms-guide-2.1] 챕터에서 권장하는 대로 데이터 디스크 캐싱
+1. 가상 머신 시작
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Azure의 SAP용 VM 배포
 Microsoft Azure는 VM 및 관련 디스크를 배포하기 위한 여러 가지 방법을 제공합니다. 따라서 배포 방법에 따라 VM 준비가 달라질 수 있으므로 차이점을 이해해야 합니다. 일반적으로 다음 챕터에서 설명하는 시나리오를 살펴봅니다.

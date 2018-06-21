@@ -1,26 +1,20 @@
 ---
-title: 'Azure Backup 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음 | Microsoft Docs'
+title: 'Azure Backup 오류 문제 해결: 게스트 에이전트 상태 사용할 수 없음'
 description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오류의 증상, 원인 및 해결 방법
 services: backup
-documentationcenter: ''
 author: genlin
 manager: cshepard
-editor: ''
 keywords: Azure 백업; VM 에이전트; 네트워크 연결;
-ms.assetid: 4b02ffa4-c48e-45f6-8363-73d536be4639
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/09/2018
-ms.author: genli;markgal;sogup;
-ms.openlocfilehash: 17f4f832af0177ad588058833672c0986adeb3fa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: genli
+ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196766"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606361"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -64,7 +58,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ## <a name="backup-fails-because-the-vm-agent-is-unresponsive"></a>VM 에이전트가 응답하지 않으므로 백업이 실패합니다.
 
-오류 메시지: “VM 에이전트가 응답하지 않으므로 작업을 수행할 수 없습니다.” <br>
+오류 메시지: “스냅숏 상태에 대해 VM 에이전트와 통신할 수 없습니다.” <br>
 오류 코드: "GuestAgentSnapshotTaskStatusError"
 
 Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM 백업 확장과 통신함으로써 작업을 시작하여 지정 시간 스냅숏을 수행합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅숏이 트리거되지 않을 수 있습니다. 스냅숏이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
@@ -92,6 +86,16 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 제대로 작동하려면 Backup 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 끝점(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
 
+프록시 서버를 배포하여 VM 트래픽을 라우팅할 수 있습니다.
+##### <a name="create-a-path-for-http-traffic"></a>HTTP 트래픽에 대한 경로 만들기
+
+1. 네트워크 제한이 있는 경우(예를 들어 네트워크 보안 그룹) 트래픽을 라우트하도록 HTTP 프록시 서버를 배포합니다.
+2. HTTP 프록시 서버에서 인터넷에 액세스하도록 허용하려면 네트워크 보안 그룹이 있는 경우 규칙을 추가합니다.
+
+VM 백업에 대한 HTTP 프록시를 설정하는 방법을 알아보려면 [Azure Virtual Machines를 백업하기 위한 환경 준비](backup-azure-arm-vms-prepare.md#establish-network-connectivity)를 참조하세요.
+
+백업된 VM 또는 트래픽을 라우팅하는 프록시 서버에서 Azure 공용 IP 주소에 액세스할 수 있어야 합니다.
+
 ####  <a name="solution"></a>해결 방법
 이 문제를 해결하려면 다음 방법 중 하나를 사용해 보세요.
 
@@ -105,13 +109,6 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 > [!WARNING]
 > 저장소 서비스 태그는 미리 보기 상태입니다. 따라서 특정 지역에서만 사용할 수 있습니다. 지역 목록은 [저장소의 서비스 태그](../virtual-network/security-overview.md#service-tags)를 참조하세요.
-
-##### <a name="create-a-path-for-http-traffic"></a>HTTP 트래픽에 대한 경로 만들기
-
-1. 네트워크 제한이 있는 경우(예를 들어 네트워크 보안 그룹) 트래픽을 라우트하도록 HTTP 프록시 서버를 배포합니다.
-2. HTTP 프록시 서버에서 인터넷에 액세스하도록 허용하려면 네트워크 보안 그룹이 있는 경우 규칙을 추가합니다.
-
-VM 백업에 대한 HTTP 프록시를 설정하는 방법을 알아보려면 [Azure Virtual Machines를 백업하기 위한 환경 준비](backup-azure-arm-vms-prepare.md#establish-network-connectivity)를 참조하세요.
 
 Azure Managed Disks를 사용하는 경우 방화벽에서 열려 있는 추가 포트(포트 8443)가 필요할 수 있습니다.
 
@@ -195,6 +192,19 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 #### <a name="solution"></a>해결 방법
 
-문제를 해결하려면 리소스 그룹에서 잠금을 제거하고 Azure Backup 서비스에서 복구 지점 컬렉션 및 다음 백업의 기본 스냅숏을 지우도록 합니다.
-완료되면 VM 리소스 그룹에 잠금을 다시 넣을 수 있습니다. 
+이 문제를 해결하려면 리소스 그룹에서 잠금을 제거하고 다음 단계를 완료하여 복원 지점 컬렉션을 제거하세요. 
+ 
+1. VM이 있는 리소스 그룹에서 잠금을 제거합니다. 
+2. Chocolatey를 사용하여 ARMClient를 설치합니다. <br>
+   https://github.com/projectkudu/ARMClient
+3. ARMClient에 로그인합니다. <br>
+    `.\armclient.exe login`
+4. VM에 해당하는 복원 지점 컬렉션을 가져옵니다. <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
 
+    예제: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+5. 복원 지점 컬렉션을 삭제합니다. <br>
+    `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+6. 예약된 다음 백업은 복원 지점 컬렉션 및 새 복원 지점을 자동으로 만듭니다.
+
+완료되면 VM 리소스 그룹에 잠금을 다시 넣을 수 있습니다. 

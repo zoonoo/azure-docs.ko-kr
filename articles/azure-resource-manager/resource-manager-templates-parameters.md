@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 193e74d94017cf0ca8ec0600c7e5a3dc4b7a6dea
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6d09a057d9b8a02c7f8313161e64aa3a42eb6db2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359206"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604338"
 ---
 # <a name="parameters-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 매개 변수 섹션
 템플릿의 매개 변수 섹션에서는 리소스를 배포할 때 입력할 수 있는 값을 지정합니다. 이러한 매개 변수 값을 사용하여 개발, 테스트 및 프로덕션 등의 특정 환경에 맞게 조정되는 값을 제공함으로써 배포를 사용자 지정할 수 있습니다. 템플릿에서 매개 변수를 제공할 필요는 없지만 매개 변수가 없으면 템플릿이 항상 이름, 위치 및 속성이 같은 동일한 리소스를 배포합니다.

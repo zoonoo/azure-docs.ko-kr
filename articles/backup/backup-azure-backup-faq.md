@@ -1,26 +1,20 @@
 ---
-title: Azure Backup FAQ | Microsoft 문서
+title: Azure Backup FAQ
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 백업 및 재해 복구; 백업 서비스
-ms.assetid: 1011bdd6-7a64-434f-abd7-2783436668d7
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/9/2018
-ms.author: markgal;arunak;trinadhk;sogup;
-ms.openlocfilehash: d16991d15d76caa496b2923c8d0210b6ccb10a9a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939201"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605827"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.

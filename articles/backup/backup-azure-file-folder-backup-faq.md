@@ -1,25 +1,20 @@
 ---
-title: Azure Backup 에이전트 FAQ | Microsoft Docs
+title: Azure Backup 에이전트 FAQ
 description: Azure Backup 에이전트 작동 방식, 백업 및 보존 제한과 관련된 일반적인 질문에 대한 대답입니다.
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
 keywords: 백업 및 재해 복구; 백업 서비스
-ms.assetid: 778c6ccf-3e57-4103-a022-367cc60c411a
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 7/18/2017
-ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 8777b2265666a4505a3432aca6683e2510519cac
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: trinadhk
+ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605534"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
 이 문서에서는 Azure Backup 에이전트 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -112,7 +107,7 @@ Backup 데이터는 등록된 자격 증명 모음의 데이터 센터로 전송
 캐시 폴더와 메타데이터 VHD에는 모두 Azure Backup 에이전트에 필요한 특성이 없습니다.
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-by-the-backup-servicebr"></a>Backup 서비스에서 사용되는 대역폭의 양을 조정하는 방법이 있나요?<br/>
-  예, Backup 에이전트에서 **속성 변경** 옵션을 사용하여 대역폭을 조정합니다. 대역폭을 사용하는 경우 시간과 대역폭의 양을 조정할 수 있습니다. 단계별 지침은 **[네트워크 제한 사용](backup-configure-vault.md#enable-network-throttling)**을 참조하세요.
+  예, Backup 에이전트에서 **속성 변경** 옵션을 사용하여 대역폭을 조정합니다. 대역폭을 사용하는 경우 시간과 대역폭의 양을 조정할 수 있습니다. 단계별 지침은 **[네트워크 제한 사용](backup-configure-vault.md#enable-network-throttling)** 을 참조하세요.
 
 ## <a name="manage-backups"></a>백업 관리
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Azure에 데이터를 백업하는 Windows 서버 이름을 바꾸면 어떻게 되나요?<br/>

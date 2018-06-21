@@ -5,19 +5,20 @@ services: cosmos-db
 author: rimman
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: rimman
-ms.openlocfilehash: 12306b7868fa7fb2321f26657aab81beabb9db35
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cc66b2f506d81a7ba10b26c3b24287472e890682
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724910"
 ---
 # <a name="multi-master-at-global-scale-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 전역 규모의 다중 마스터 
  
-전 세계 데이터의 일관된 보기를 유지 관리하는 동안 로컬 대기 시간으로 응답하는 전역으로 배포된 응용 프로그램 개발은 어려운 문제입니다. 고객은 (4) 비즈니스 요구 사항을 충족하기 위해 데이터 액세스 대기 시간을 개선하고, 높은 데이터 가용성을 달성하고, 보장된 재해 복구를 확보해야 하므로 전역으로 분산된 데이터베이스를 사용합니다. Azure Cosmos DB의 다중 마스터는 기본 제공된 포괄적이고 유연한 충돌 해결 지원을 사용하여 높은 수준의 가용성(99.999%), 쓰기 데이터에 대한 단일 자리 숫자 밀리초 대기 시간 및 확장성을 제공합니다. 이러한 기능은 전역으로 분산된 응용 프로그램의 개발을 크게 간소화합니다. 전역으로 분산된 응용 프로그램의 경우 다중 마스터 지원은 매우 중요합니다. 
+전 세계 데이터의 일관된 보기를 유지 관리하는 동안 로컬 대기 시간으로 응답하는 전역으로 배포된 응용 프로그램 개발은 어려운 문제입니다. 고객은 비즈니스 요구 사항을 충족하기 위해 데이터 액세스 대기 시간을 개선하고, 높은 데이터 가용성을 달성하고, 보장된 재해 복구를 확보해야 하므로 전역으로 분산된 데이터베이스를 사용합니다. Azure Cosmos DB의 다중 마스터는 기본 제공된 포괄적이고 유연한 충돌 해결 지원을 사용하여 높은 수준의 가용성(99.999%), 쓰기 데이터에 대한 단일 자리 숫자 밀리초 대기 시간 및 확장성을 제공합니다. 이러한 기능은 전역적으로 분산된 응용 프로그램 개발을 크게 간소화합니다. 전역으로 분산된 응용 프로그램의 경우 다중 마스터 지원은 매우 중요합니다. 
 
 ![다중 마스터 아키텍처](./media/multi-region-writers/multi-master-architecture.png)
 

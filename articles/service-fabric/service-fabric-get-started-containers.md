@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5fcd42a2453bddbfc1c1d1939dd9e63e7e09bdb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366531"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643212"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -29,14 +29,21 @@ ms.locfileid: "34366531"
 Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로그램을 실행하더라도 응용 프로그램을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램을 포함하는 Docker 이미지를 만들어 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 응용 프로그램을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-다음을 실행하는 개발 컴퓨터
-* Visual Studio 2015 또는 Visual Studio 2017.
-* [Service Fabric SDK 및 도구](service-fabric-get-started.md)
-*  Windows용 Docker [Windows용 Docker CE 가져오기(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
+* 다음을 실행하는 개발 컴퓨터
+  * Visual Studio 2015 또는 Visual Studio 2017.
+  * [Service Fabric SDK 및 도구](service-fabric-get-started.md)
+  *  Windows용 Docker [Windows용 Docker CE 가져오기(안정화)](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) Docker를 설치하고 시작한 후에 트레이 아이콘을 마우스 오른쪽 단추로 클릭하고 **Windows 컨테이너로 전환**을 선택합니다. 이 단계는 Windows 기반의 Docker 이미지를 실행하는 데 필요합니다.
 
-컨테이너를 사용하여 Windows Server 2016에서 실행되는 3개 이상의 노드가 있는 Windows 클러스터 - [클러스터를 만들](service-fabric-cluster-creation-via-portal.md)거나 [체험판으로 Service Fabric을 사용](https://aka.ms/tryservicefabric)하세요.
+* 3개 이상의 노드가 있는 Windows 클러스터는 컨테이너가 포함된 Windows Server에서 실행됩니다. 
 
-Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
+  이 문서의 경우 클러스터 노드에서 실행되는 컨테이너가 포함된 Windows Server의 버전은 개발 컴퓨터와 일치해야 합니다. 이는 개발 컴퓨터에 docker 이미지를 작성하고 컨테이너 OS 버전과 해당 OS가 배포된 호스트 OS 버전 간의 호환성 제약 조건이 있기 때문입니다. 자세한 내용은 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 
+  
+  클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
+
+  * 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들어](service-fabric-cluster-creation-via-portal.md) 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택하거나, 파티 클러스터가 있는 [Service Fabric 무료 평가판](https://aka.ms/tryservicefabric)을 사용합니다.
+  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들어](service-fabric-cluster-creation-via-portal.md) 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 만듭니다. 파티 클러스터를 사용할 수 없습니다.
+
+* Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
 > [!NOTE]
 > Windows 10에서 또는 Docker CE를 사용한 클러스터에서 Service Fabric 클러스터에 대한 컨테이너 배포는 아직 지원되지 않습니다. 이 연습에서는 Windows 10에서 Docker 엔진을 사용하여 로컬로 테스트하고, 마지막으로 컨테이너 서비스를 Docker EE를 실행하는 Azure에서 Windows Server 클러스터로 배포합니다. 
@@ -316,7 +323,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 ```
 
 ## <a name="configure-isolation-mode"></a>격리 모드 구성
-Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 프로세스 격리 모드를 사용하여 동일한 호스트 컴퓨터에서 실행되는 모든 컨테이너는 호스트와 커널을 공유합니다. Hyper-V 격리 모드를 사용하여 커널은 각 Hyper-V 컨테이너와 컨테이너 호스트 간에 격리됩니다. 격리 모드는 응용 프로그램 매니페스트 파일의 `ContainerHostPolicies` 요소에 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본 격리 모드의 기본값은 Windows Server 호스트의 경우 `process`이며, Windows 10 호스트의 경우 `hyperv`입니다. 다음 코드 조각은 격리 모드가 응용 프로그램 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
+Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격리 모드를 지원합니다. 프로세스 격리 모드를 사용하여 동일한 호스트 컴퓨터에서 실행되는 모든 컨테이너는 호스트와 커널을 공유합니다. Hyper-V 격리 모드를 사용하여 커널은 각 Hyper-V 컨테이너와 컨테이너 호스트 간에 격리됩니다. 격리 모드는 응용 프로그램 매니페스트 파일의 `ContainerHostPolicies` 요소에 지정됩니다. 지정될 수 있는 격리 모드는 `process`, `hyperv` 및 `default`입니다. 기본값은 Windows Server 호스트에서 프로세스 격리 모드입니다. Windows 10 호스트에서는 Hyper-V 격리 모드만 지원되므로 격리 모드 설정에 관계없이 컨테이너가 Hyper-V 격리 모드로 실행됩니다. 다음 코드 조각은 격리 모드가 응용 프로그램 매니페스트 파일에서 지정되는 방법을 보여 줍니다.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
@@ -387,19 +394,44 @@ docker rmi helloworldapp
 docker rmi myregistry.azurecr.io/samples/helloworldapp
 ```
 
+## <a name="windows-server-container-os-and-host-os-compatibility"></a>Windows Server 컨테이너 OS 및 호스트 OS 호환성
+
+Windows Server 컨테이너는 일부 버전의 호스트 OS에서 호환되지 않습니다. 예: 
+ 
+- Windows Server 버전 1709를 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 2016을 실행하는 호스트에서 작동하지 않습니다. 
+- Windows Server 버전 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709를 실행하는 호스트에서 HyperV 격리 모드로만 작동합니다. 
+- Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 2016을 실행하는 호스트에서 프로세스 격리 모드로 실행할 때 컨테이너 OS와 호스트 OS의 수정 버전이 동일한지 확인해야 할 수 있습니다.
+ 
+자세한 내용은 [Windows 컨테이너 버전 호환성](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/version-compatibility)을 참조하세요.
+
+Service Fabric 클러스터에 컨테이너를 배포할 때 호스트 OS와 컨테이너 OS의 호환성을 고려해야 합니다. 예: 
+
+- OS가 클러스터 노드의 OS와 호환되는 컨테이너를 배포해야 합니다.
+- 컨테이너 앱에 대해 지정된 격리 모드가 배포 중인 노드의 컨테이너 OS에 대한 지원과 일치하는지 확인합니다.
+- 클러스터 노드 또는 컨테이너에 대한 OS 업그레이드가 호환성에 영향을 미칠 수 있는 방법을 고려합니다. 
+
+다음 연습을 Service Fabric 클러스터에서 컨테이너가 올바르게 배포되는지 확인하는 것이 좋습니다.
+
+- Docker 이미지와 함께 명시적 이미지 태그 지정을 사용하여 컨테이너가 빌드된 Windows Server OS의 버전을 지정합니다. 
+- 응용 프로그램 매니페스트 파일에서 [OS 태그 지정](#specify-os-build-specific-container-images)을 사용하여 응용 프로그램이 여러 Windows Server 버전 및 업그레이드에서 호환되는지 확인합니다.
+
+> [!NOTE]
+> Service Fabric 버전 6.2 이상의 경우 Windows 10 호스트에서 로컬로 Windows Server 2016 기반의 컨테이너를 배포할 수 있습니다. Windows 10에서 컨테이너는 응용 프로그램 매니페스트에 설정된 격리 모드에 관계없이 Hyper-V 격리 모드로 실행됩니다. 자세한 내용은 [격리 모드 구성](#configure-isolation-mode)을 참조하세요.   
+>
+ 
 ## <a name="specify-os-build-specific-container-images"></a>OS 빌드 관련 컨테이너 이미지 지정 
 
-Windows Server 컨테이너(프로세스 격리 모드)는 새로운 OS 버전과 호환되지 않을 수도 있습니다. 예를 들어 Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709에서 작동하지 않습니다. 따라서 클러스터 노드가 최신 버전으로 업데이트되는 경우 OS의 이전 버전을 사용하여 빌드된 컨테이너 서비스는 실패할 수 있습니다. 런타임의 버전 6.1 및 새로운 버전으로 이 문제를 우회하기 위해 Service Fabric은 컨테이너당 여러 OS 이미지를 지정하고, OS의 빌드 버전으로 태그를 지정하는 것을 지원합니다(Windows 명령 프롬프트에서 `winver` 실행으로 가져옴). 노드에서 OS를 업데이트하기 전에 응용 프로그램 매니페스트를 업데이트하고 OS 버전별로 이미지 재정의를 지정합니다. 다음 코드 조각에서는 응용 프로그램 매니페스트 **ApplicationManifest.xml**에 여러 컨테이너 이미지를 지정하는 방법을 보여 줍니다.
+Windows Server 컨테이너는 여러 OS 버전에서 호환되지 않을 수 있습니다. 예를 들어 Windows Server 2016을 사용하여 빌드된 Windows Server 컨테이너는 Windows Server 버전 1709에서 프로세스 격리 모드로 작동하지 않습니다. 따라서 클러스터 노드가 최신 버전으로 업데이트되는 경우 OS의 이전 버전을 사용하여 빌드된 컨테이너 서비스는 실패할 수 있습니다. 런타임의 버전 6.1 및 새로운 버전으로 이 문제를 우회하기 위해 Service Fabric은 컨테이너당 여러 OS 이미지를 지정하고, 응용 프로그램 매니페스트에서 OS의 빌드 버전으로 태그를 지정하는 것을 지원합니다. Windows 명령 프롬프트에서 `winver`를 실행하여 OS 빌드 버전을 가져올 수 있습니다. 노드에서 OS를 업데이트하기 전에 응용 프로그램 매니페스트를 업데이트하고 OS 버전별로 이미지 재정의를 지정합니다. 다음 코드 조각에서는 응용 프로그램 매니페스트 **ApplicationManifest.xml**에 여러 컨테이너 이미지를 지정하는 방법을 보여 줍니다.
 
 
 ```xml
-<ContainerHostPolicies> 
+      <ContainerHostPolicies> 
          <ImageOverrides> 
            <Image Name="myregistry.azurecr.io/samples/helloworldappDefault" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1701" Os="14393" /> 
                <Image Name="myregistry.azurecr.io/samples/helloworldapp1709" Os="16299" /> 
          </ImageOverrides> 
-     </ContainerHostPolicies> 
+      </ContainerHostPolicies> 
 ```
 WIndows Server 2016에 대한 빌드 버전은 14393이며 Windows Server 버전 1709의 빌드 버전은 16299입니다. 서비스 매니페스트는 다음과 같이 컨테이너 서비스당 하나의 이미지만 계속 지정합니다.
 

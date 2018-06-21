@@ -1,30 +1,31 @@
 ---
-title: "독립 실행형 Azure Service Fabric 클러스터 설정 | Microsoft Docs"
-description: "동일한 컴퓨터에서 실행되는 3개의 노드가 있는 독립 실행형 개발 클러스터를 만듭니다. 이 설정을 마치면 다중 컴퓨터 클러스터를 만들 수 있습니다."
+title: 독립 실행형 Azure Service Fabric 클러스터 설정 | Microsoft Docs
+description: 동일한 컴퓨터에서 실행되는 3개의 노드가 있는 독립 실행형 개발 클러스터를 만듭니다. 이 설정을 마치면 다중 컴퓨터 클러스터를 만들 수 있습니다.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
 manager: timlt
-editor: 
-ms.assetid: 
+editor: ''
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5438d8d366ef989d5ae29581477513f8c884c4b3
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 93c921e54c69693ed02c122a2491b0942f550126
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643467"
 ---
 # <a name="create-your-first-service-fabric-standalone-cluster"></a>첫 번째 Service Fabric 독립 실행형 클러스터 만들기
-온-프레미스 또는 클라우드에 Windows Server 2012 R2 또는 Windows Server 2016을 실행하는 컴퓨터나 가상 컴퓨터에 Service Fabric 독립 실행형 클러스터를 만들 수 있습니다. 이 빠른 시작을 통해 몇 분만에 독립 실행형 개발 클러스터를 만들 수 있습니다.  작업을 완료하면 앱을 배포할 수 있는 단일 컴퓨터에 3개 노드 클러스터가 실행 중입니다.
+온-프레미스 또는 클라우드에 Windows Server 2012 R2 또는 Windows Server 2016을 실행하는 컴퓨터나 가상 머신에 Service Fabric 독립 실행형 클러스터를 만들 수 있습니다. 이 빠른 시작을 통해 몇 분만에 독립 실행형 개발 클러스터를 만들 수 있습니다.  작업을 완료하면 앱을 배포할 수 있는 단일 컴퓨터에 3개 노드 클러스터가 실행 중입니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  [설치 패키지를 다운로드합니다](http://go.microsoft.com/fwlink/?LinkId=730690).  개발 클러스터를 설정한 컴퓨터 또는 가상 컴퓨터의 폴더에 설치 패키지의 압축을 풉니다.  설치 패키지의 내용은 [여기](service-fabric-cluster-standalone-package-contents.md)에서 자세히 설명합니다.
+Service Fabric은 독립 실행형 Service Fabric 클러스터를 만드는 설치 패키지를 제공합니다.  [설치 패키지를 다운로드합니다](http://go.microsoft.com/fwlink/?LinkId=730690).  개발 클러스터를 설정한 컴퓨터 또는 가상 머신의 폴더에 설치 패키지의 압축을 풉니다.  설치 패키지의 내용은 [여기](service-fabric-cluster-standalone-package-contents.md)에서 자세히 설명합니다.
 
 클러스터를 배포하고 구성하는 클러스터 관리자는 컴퓨터에서 관리자 권한이 있어야 합니다. 도메인 컨트롤러에 Service Fabric을 설치할 수 없습니다.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 6f2f5eae8a4512595457d92d17832cf462b4bec4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ebe1f67c7c662af6d9e1888580149834a007200
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012600"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657474"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "34012600"
 
 ## <a name="generalize-the-source-vm-using-sysprep"></a>Sysprep을 사용하여 원본 VM 일반화
 
-Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 사용 방법: 소개](http://technet.microsoft.com/library/bb457073.aspx)를 참조하세요.
+Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 이미지로 사용할 컴퓨터를 준비합니다. Sysprep에 대한 자세한 내용은 [Sysprep 개요](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview)를 참조하세요.
 
 가상 컴퓨터에서 실행되는 서버 역할이 Sysprep에서 지원되는지 확인합니다. 자세한 내용은 [서버 역할에 대한 Sysprep 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 

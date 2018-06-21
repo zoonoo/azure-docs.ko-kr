@@ -12,22 +12,34 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 05/17/2018
 ms.author: seguler
-ms.openlocfilehash: 13e09a3081c9dfa2d88625489a82c687d6722f20
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 430979cf197138a9e239eba74e50e9f97d96cbf6
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757607"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
 
-두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Windows에서 AzCopy는 .NET Framework를 기반으로 하며 Windows 스타일 명령줄 옵션을 제공합니다. [Linux에서 AzCopy](storage-use-azcopy-linux.md)는 POSIX 스타일 명령줄 옵션을 제공하는 Linux 플랫폼을 대상으로 하는 .NET Core Framework를 기반으로 합니다. 이 문서에서는 Windows에서 AzCopy를 설명합니다.
+두 가지 버전의 AzCopy를 다운로드할 수 있습니다. Windows의 AzCopy는 Windows 스타일 명령줄 옵션을 제공합니다. [Linux의 AzCopy](storage-use-azcopy-linux.md)는 Linux 플랫폼을 대상으로 POSIX 스타일 명령줄 옵션을 제공합니다. 이 문서에서는 Windows에서 AzCopy를 설명합니다.
 
 ## <a name="download-and-install-azcopy-on-windows"></a>Windows에서 AzCopy 다운로드 및 설치
 
-[최신 버전의 Windows에서 AzCopy](http://aka.ms/downloadazcopy)를 다운로드합니다.
+### <a name="latest-preview-version-v800"></a>최신 미리 보기 버전(v8.0.0)
+[Windows에서 AzCopy의 최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 이 미리 보기 버전은 뛰어난 성능 개선을 제공하고 설치에서 .NET Core를 패키징합니다.
+
+#### <a name="azcopy-on-windows-80-preview-release-notes"></a>Windows의 AzCopy 8.0 미리 보기 릴리스 정보
+- Table service는 최신 버전에서 더 이상 지원되지 않습니다. 테이블 내보내기 기능을 사용하는 경우 안정적 버전을 다운로드합니다.
+- .NET Core 2.1을 사용하여 빌드한 모든 .NET Core 종속성은 이제 설치에서 패키징됩니다.
+- 업로드 및 다운로드 시나리오 모두에 대한 뛰어난 성능 개선
+
+### <a name="latest-stable-version-v710"></a>안정적인 최신 버전(v7.1.0)
+[Windows에서 AzCopy의 안정적인 최신 버전](http://aka.ms/downloadazcopy)을 다운로드합니다.
+
+### <a name="post-installation-step"></a>설치 후 단계
 
 설치 관리자를 사용하여 Windows에 AzCopy를 설치한 후에는 명령 창을 열고 컴퓨터의 AzCopy 설치 디렉터리로 이동합니다. 이 디렉터리에 `AzCopy.exe` 실행 파일이 있습니다. 원할 경우 시스템 경로에 AzCopy 설치 위치를 추가할 수 있습니다. 기본적으로 AzCopy는 `%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy` 또는 `%ProgramFiles%\Microsoft SDKs\Azure\AzCopy`에 설치됩니다.
 
@@ -288,7 +300,7 @@ AzCopy를 사용하여 파일을 다운로드하는 여러 방법을 살펴보�
 AzCopy /Source:https://myaccount.file.core.windows.net/myfileshare/myfolder1/ /Dest:C:\myfolder /SourceKey:key /Pattern:abc.txt
 ```
 
-지정된 소스가 Azure File 공유이면 단일 파일을 다운로드할 정확한 파일 이름(*예:* `abc.txt`)을 지정하거나 `/S` 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 다운로드해야 합니다. 파일 패턴과 `/S` 옵션을 함께 지정하려고 하면 오류가 발생합니다.
+지정된 소스가 Azure 파일 공유이면 단일 파일을 다운로드할 정확한 파일 이름(*예:* `abc.txt`)을 지정하거나 `/S` 옵션을 지정하여 공유의 모든 파일을 재귀 방식으로 다운로드해야 합니다. 파일 패턴과 `/S` 옵션을 함께 지정하려고 하면 오류가 발생합니다.
 
 ### <a name="download-all-files-in-a-directory"></a>디렉터리에서 모든 파일 다운로드
 
@@ -324,7 +336,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.file.core.windows.net/myfiles
 
 ## <a name="copy-files-in-file-storage"></a>파일 저장소에서 파일 복사
 
-AzCopy를 사용하여 Azure File 공유에서 파일을 복사하는 여러 방법을 살펴보겠습니다.
+AzCopy를 사용하여 Azure 파일 공유에서 파일을 복사하는 여러 방법을 살펴보겠습니다.
 
 ### <a name="copy-from-one-file-share-to-another"></a>파일 공유 간에 복사
 
@@ -333,7 +345,7 @@ AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare1/ /Dest:http
 ```
 파일 공유에 파일을 복사할 때는 [서버 쪽 복사](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) 작업이 수행됩니다.
 
-### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Azure File 공유에서 Blob 저장소로 복사
+### <a name="copy-from-an-azure-file-share-to-blob-storage"></a>Azure 파일 공유에서 Blob 저장소로 복사
 
 ```azcopy
 AzCopy /Source:https://myaccount1.file.core.windows.net/myfileshare/ /Dest:https://myaccount2.blob.core.windows.net/mycontainer/ /SourceKey:key1 /DestKey:key2 /S
@@ -609,6 +621,20 @@ AzCopy /Source:https://127.0.0.1:10000/myaccount/mycontainer/ /Dest:C:\myfolder 
 ```azcopy
 AzCopy /Source:https://127.0.0.1:10002/myaccount/mytable/ /Dest:C:\myfolder /SourceKey:key /SourceType:Table
 ```
+
+### <a name="automatically-determine-content-type-of-a-blob"></a>Blob의 콘텐츠 형식을 자동으로 결정
+
+AzCopy는 파일 확장 매핑에 콘텐츠 형식을 저장하는 JSON 파일에 따라 Blob의 콘텐츠 형식을 결정합니다. 이 JSON 파일은 AzCopyConfig.json으로 이름이 지정되고, AzCopy 디렉터리에 위치합니다. 목록에 없는 파일 형식이 있는 경우 JSON 파일에 매핑을 추가할 수 있습니다.
+
+```
+{
+  "MIMETypeMapping": {
+    ".myext": "text/mycustomtype",
+    .
+    .
+  }
+}
+```     
 
 ## <a name="azcopy-parameters"></a>AzCopy 매개 변수
 
@@ -942,10 +968,6 @@ Blob 저장소 내에서, 파일 저장소 내에서 또는 Blob 저장소에서
 AzCopy를 사용하여 Blob 또는 파일을 복사할 때는 복사하는 동안 다른 응용 프로그램이 데이터를 수정할 수 있다는 사실을 유의해야 합니다. 가능한 경우 복사 중인 데이터가 복사 작업 중에 수정되지 않도록 합니다. 예를 들어 Azure 가상 머신과 연결된 VHD를 복사할 때는 다른 응용 프로그램이 현재 VHD에 쓰고 있지 않은지 확인합니다. 이렇게 하려면 복사할 리소스를 임대하는 것이 좋습니다. 또는 먼저 VHD의 스냅샷을 만든 후 스냅샷을 복사할 수 있습니다.
 
 다른 응용 프로그램이 복사 중인 Blob 또는 파일에 쓰지 못하게 할 수 없으면 작업이 완료될 때까지 복사된 리소스가 소스 리소스와 더 이상 완전히 동일하지 않을 수 있습니다.
-
-### <a name="run-one-azcopy-instance-on-one-machine"></a>한 컴퓨터에서 AzCopy 인스턴스 하나를 실행합니다.
-
-AzCopy는 데이터 전송 속도를 높이기 위해 컴퓨터 리소스를 최대한 활용할 수 있도록 설계되었습니다. 따라서 컴퓨터 한 대에서 AzCopy 인스턴스를 하나만 실행하는 것이 좋으며 더 많은 동시 작업을 수행해야 하는 경우에는 `/NC` 옵션을 지정해야 합니다. 자세한 내용을 확인하려면 명령줄에 `AzCopy /?:NC` 를 입력하세요.
 
 ### <a name="enable-fips-compliant-md5-algorithms-for-azcopy-when-you-use-fips-compliant-algorithms-for-encryption-hashing-and-signing"></a>"암호화, 해시 및 서명에 FIPS 호환 알고리즘을 사용"할 경우 AzCopy에 대해 FIPS 규격 MD5 알고리즘을 사용하도록 설정합니다.
 

@@ -1,24 +1,19 @@
 ---
-title: Azure 서비스에 대한 경고 만들기 - Azure portal | Microsoft Docs
+title: Azure 서비스에 대한 클래식 경고 만들기 - Azure Portal
 description: 지정한 조건이 충족될 경우 전자 메일, 알림, 웹 사이트 URL 호출(webhook) 또는 자동화를 트리거합니다.
 author: rboucher
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/23/2016
 ms.author: robb
-ms.openlocfilehash: b0d938112aaea4d86dd539b53a1749cc800607a7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: alerts
+ms.openlocfilehash: d2ae4d9e1d0ef89fad4098a926fc689b84d1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262184"
 ---
 # <a name="create-classic-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Azure 서비스에 대한 Azure Monitor에서 클래식 메트릭 경고 만들기 - Azure Portal
 > [!div class="op_single_selector"]
@@ -59,7 +54,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Azure 포털에서 메트릭에 대한 경고 규칙 만들기
 1. [포털](https://portal.azure.com/)에서 모니터링하려는 리소스를 찾아 선택합니다.
 
-2. 모니터링 섹션에서 **경고(클래식)**를 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다. **경고(클래식)**를 찾을 수 없는 경우 **경고** 또는 **경고 규칙** 아래에서 찾을 수 있습니다.
+2. 모니터링 섹션에서 **경고(클래식)** 를 선택합니다. 텍스트와 아이콘은 리소스마다 약간씩 다를 수 있습니다. **경고(클래식)** 를 찾을 수 없는 경우 **경고** 또는 **경고 규칙** 아래에서 찾을 수 있습니다.
 
     ![모니터링](./media/insights-alerts-portal/AlertRulesButton.png)
 

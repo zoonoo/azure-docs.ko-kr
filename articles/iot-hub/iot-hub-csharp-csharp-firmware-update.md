@@ -1,24 +1,20 @@
 ---
 title: Azure IoT Hub를 사용하여 장치 펌웨어 업데이트(.NET/.NET) | Microsoft Docs
 description: 장치 펌웨어 업데이트를 시작하려면 Azure IoT Hub에서 장치 관리를 사용하는 방법입니다. .NET용 Azure IoT 장치 SDK를 사용하여 시뮬레이션된 장치 앱을 구현하고 .NET용 Azure IoT 서비스 SDK를 사용하여 펌웨어 업데이트를 트리거하는 서비스 앱을 구현합니다.
-services: iot-hub
-documentationcenter: .net
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 10/19/2017
-ms.author: v-jamebr;dobett
-ms.openlocfilehash: 50bb2ada9cf848bdcfb4f958272ff918996bf411
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: dobett
+ms.openlocfilehash: cd669a9585ac5aecf935202a04065a828a2174be
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736758"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-netnet"></a>장치 관리를 사용하여 장치 펌웨어 업데이트(.NET/.NET)를 시작합니다.
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
@@ -345,7 +341,7 @@ IoT hub 허브를 만들고 IoT Hub 연결 문자열을 확보하려면 [장치 
 > [!NOTE]
 > 이 메서드는 시뮬레이션된 업데이트를 트리거하여 **작업**으로 실행하고 메서드 호출에 즉시 응답하고 펌웨어 업데이트가 시작되었음을 서비스에 알립니다. 업데이트 상태 및 완료는 장치 쌍의 보고 속성을 통해 서비스에 전송됩니다. 다음과 같은 이유로 해당 작업이 완료된 후가 아니라 업데이트를 시작할 때에 메서드 호출에 응답합니다.
 > * 실제 업데이트 프로세스가 메서드 호출 제한 시간보다 오래 걸리기 때문입니다.
-> * 실제 업데이트 프로세스에 다시 부팅이 필요하기 때문입니다. 이로 인해 **MetodRequest** 개체를 사용할 수 없도록 만든 이 앱을 다시 시작합니다. (하지만 다시 부팅한 후에도 보고된 속성을 업데이트할 수 있습니다.) 
+> * 실제 업데이트 프로세스에 다시 부팅이 필요하기 때문입니다. 이로 인해 **MethodRequest** 개체를 사용할 수 없도록 만든 이 앱을 다시 시작합니다. (하지만 다시 부팅한 후에도 보고된 속성을 업데이트할 수 있습니다.) 
 
 14. 마지막으로 **Main** 메서드에 다음 코드를 추가하여 IoT Hub에 대한 연결을 열고 메서드 수신기를 초기화합니다.
    

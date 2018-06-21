@@ -1,24 +1,20 @@
 ---
-title: Azure 진단 확장 구성 스키마 버전 및 기록 | Microsoft Docs
+title: Azure 진단 확장 구성 스키마 버전 기록
 description: Azure Virtual Machines, VM Scale Sets, Service Fabric 및 Cloud Services에서 성능 카운터 수집과 관련됩니다.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 05/16/2017
 ms.author: robb
-ms.openlocfilehash: 45a092452bc702a6a593cd6c21a8d2eaf4ff44bd
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.component: diagnostic-extension
+ms.openlocfilehash: 47fb598e9a0e722d51493fda1ff5180d4b022524
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262201"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 진단 확장 구성 스키마 버전 및 기록
 이 페이지는 Microsoft Azure SDK의 일부로 제공되는 Azure 진단 확장 스키마 버전을 인덱스합니다.  

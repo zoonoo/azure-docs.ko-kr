@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: b2e2e7dcc26bece79ae0423d55b08416065d599e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 73b5356f63199c7530fe5eef0c4b4b7ee617ff5f
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236123"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기)
 > [!div class="op_single_selector"]
@@ -117,13 +118,13 @@ Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 �
 
 첫 번째 단계는 백업 일정, 백업 데이터의 대상 저장소, 정책 이름 및 전체 백업을 트리거하기 전에 허용할 최대 증분 백업을 설명하는 백업 정책을 만드는 것입니다. 
 
-백업 저장소의 경우 위에서 만든 Azure Storage 계정을 사용합니다. 이 예에서는 이름이 `sfbackupstore`인 Azure Storage 계정을 가정합니다. 컨테이너 `backup-container`가 백업을 저장하도록 구성되어 있으면 백업 업로드 중이 이 이름의 컨테이너가 생성됩니다(아직 없는 경우). Azure Storage 계정에 유효한 연결 문자열로 `ConnectionString`을 채웁니다.
+백업 저장소의 경우 위에서 만든 Azure Storage 계정을 사용합니다. `backup-container` 컨테이너는 백업을 저장하기 위해 구성됩니다. 백업 업로드 중이 이 이름의 컨테이너가 만들어집니다(아직 없는 경우). Azure Storage 계정에 유효한 연결 문자열로 `ConnectionString`을 채우고 `account-name`을 저장소 계정 이름으로 바꾸며 `account-key`를 저장소 계정 키로 바꿉니다.
 
-필요한 REST API를 호출하여 새 정책을 만들려면 다음 PowerShell 스크립트를 실행합니다.
+필요한 REST API를 호출하여 새 정책을 만들려면 다음 PowerShell 스크립트를 실행합니다. `account-name`을 저장소 계정의 이름으로 바꾸고 `account-key`를 저장소 계정 키로 바꿉니다.
 
 ```powershell
 $StorageInfo = @{
-    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=sfbackupstore;AccountKey=64S+3ykBgOuKhd2DK1qHJJtDml3NtRzgaZUa+8iwwBAH4EzuGt95JmOm7mp/HOe8V3l645iv5l8oBfnhhc7dJA==;EndpointSuffix=core.windows.net'
+    ConnectionString = 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net'
     ContainerName = 'backup-container'
     StorageKind = 'AzureBlobStore'
 }

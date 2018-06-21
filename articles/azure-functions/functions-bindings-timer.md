@@ -17,11 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: a8844ea44bf604944c5980b0d41ab5d01a30b876
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725448"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -29,13 +30,17 @@ ms.lasthandoff: 05/18/2018
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>패키지
+## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-타이머 트리거는 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 리포지토리에 있습니다.
+타이머 트리거는 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+
+타이머 트리거는 [Microsoft.Azure.WebJobs.Extensions](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 리포지토리에 있습니다.
+
+[!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="example"></a>예
 
@@ -213,6 +218,8 @@ Azure Functions 타이머 트리거의 CRON 식에는 다음과 같은 6개의 �
 |범위(`-` 연산자)|<nobr>"5-7 * * * * *"</nobr>|hh:mm:05,hh:mm:06 및 hh:mm:07에서 hh:mm은 매시간의 매분임(분당 3번)|  
 |값 집합(`,` 연산자)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08 및 hh:mm:10에서 hh:mm은 매시간의 매분임(분당 3번)|
 |간격 값(`/` 연산자)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00부터 hh:55:00까지에서 hh는 매시간임(시간당 12번)|
+
+월 또는 일을 지정하려면 숫자 값 대신 3자 약어를 사용할 수 있습니다. 예를 들어 1월에는 Jan을 사용하고 일요일에는 Sun을 사용합니다.
 
 ### <a name="cron-examples"></a>CRON 예제
 

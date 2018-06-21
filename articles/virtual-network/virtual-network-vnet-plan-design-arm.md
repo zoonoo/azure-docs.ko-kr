@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 83558b9d8d47ac5e6bd15dd54db38125376d11bd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fd290420c2c755e07f6949750e3a88bcb64682f3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365045"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656910"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -27,7 +27,7 @@ ms.locfileid: "34365045"
 
 ## <a name="naming"></a>이름 지정
 
-모든 Azure 리소스에는 이름이 있습니다. 이름은 각 리소스 종류에 따라 다를 수 있는 범위 내에서 고유해야 합니다. 예를 들어 가상 네트워크의 이름은 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 내에서 고유해야 하지만 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 또는 Azure [지역](https://azure.microsoft.com/regions/#services) 내에서는 중복될 수 있습니다. 리소스 이름을 지정할 때 일관적으로 사용할 수 있는 명명 규칙을 정의하면 시간이 지남에 따라 여러 네트워크 리소스를 관리할 때 유용합니다. 권장 사항은 [명명 규칙](/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
+모든 Azure 리소스에는 이름이 있습니다. 이름은 각 리소스 종류에 따라 다를 수 있는 범위 내에서 고유해야 합니다. 예를 들어 가상 네트워크의 이름은 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 내에서 고유해야 하지만 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 또는 Azure [지역](https://azure.microsoft.com/regions/#services) 내에서는 중복될 수 있습니다. 리소스 이름을 지정할 때 일관적으로 사용할 수 있는 명명 규칙을 정의하면 시간이 지남에 따라 여러 네트워크 리소스를 관리할 때 유용합니다. 권장 사항은 [명명 규칙](/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#networking)을 참조하세요.
 
 ## <a name="regions"></a>영역
 
@@ -39,7 +39,7 @@ ms.locfileid: "34365045"
 
 ## <a name="subscriptions"></a>구독
 
-각 구독 내에서 [한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](../azure-resource-manager/resource-manager-subscription-governance.md?toc=%2fazure%2fvirtual-network%2ftoc.json#define-your-hierarchy)를 참조하세요.
+각 구독 내에서 [한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)를 참조하세요.
 
 ## <a name="segmentation"></a>조각화
 
@@ -82,7 +82,7 @@ ms.locfileid: "34365045"
 ### <a name="traffic-routing"></a>트래픽 라우팅
 
 Azure에서는 서브넷의 아웃바운드 트래픽에 대한 여러 기본 경로를 만듭니다. 경로 테이블을 만들고 서브넷에 연결하여 Azure의 기본 라우팅을 재정의할 수 있습니다. Azure의 기본 라우팅을 재정의하는 일반적인 이유
-- 서브넷 간의 트래픽이 NVA를 통과하도록 하기 위해 [트래픽이 NVA를 통과하도록 경로 테이블을 구성](tutorial-create-route-table-portal.md)하는 방법에 대한 자세한 정보
+- 서브넷 간의 트래픽이 NVA를 통과하도록 하기 위해 [트래픽이 NVA를 통과하도록 경로 테이블을 구성](tutorial-create-route-table-portal.md)하는 방법에 대해 자세히 알아보기 위해
 - 모든 인터넷 바인딩된 트래픽이 NVA를 통과하거나 온-프레미스에서 Azure VPN 게이트웨이를 통과하도록 하기 위해 검사 및 로깅을 위해 온-프레미스에서 인터넷 트래픽을 강제로 설정하는 것을 강제 터널링이라고도 합니다. [강제 터널링](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)을 구성하는 방법에 대한 자세한 정보
 
 사용자 지정 라우팅을 구현해야 하는 경우 [Azure의라우팅](virtual-networks-udr-overview.md)을 이해하는 것이 좋습니다.
@@ -93,7 +93,7 @@ Azure에서는 서브넷의 아웃바운드 트래픽에 대한 여러 기본 �
 
 ### <a name="peering"></a>피어링
 
-[가상 네트워크 피어링](virtual-network-peering-overview.md)을 사용하는 경우 가상 네트워크는 지원되는 동일하거나 다른 Azure 지역에 있을 수 있습니다. 가상 네트워크는 동일하거나 다른(두 구독 모두 동일한 Azure Active Directory 테넌트에 할당된 경우) Azure 구독에 있을 수 있습니다. 피어링을 만들기 전에 모든 피어링 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다. 리소스가 같은 가상 네트워크에 있는 것처럼 피어링된 가상 네트워크의 리소스 간 대역폭은 동일합니다.
+[가상 네트워크 피어링](virtual-network-peering-overview.md)을 사용하는 경우 가상 네트워크는 지원되는 동일하거나 다른 Azure 지역에 있을 수 있습니다. 가상 네트워크는 동일하거나 다른(두 구독 모두 동일한 Azure Active Directory 테넌트에 할당된 경우) Azure 구독에 있을 수 있습니다. 피어링을 만들기 전에 모든 피어링 [요구 사항 및 제약 조건](virtual-network-manage-peering.md#requirements-and-constraints)을 이해하는 것이 좋습니다. 리소스가 같은 가상 네트워크에 있는 것처럼 동일한 지역에서 피어링된 가상 네트워크의 리소스 간 대역폭은 동일합니다.
 
 ### <a name="vpn-gateway"></a>VPN 게이트웨이
 
@@ -107,10 +107,14 @@ Azure [VPN 게이트웨이](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2
 
 ## <a name="permissions"></a>권한
 
-Azure에서는 리소스에 대한 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 활용합니다. 사용 권한은 구독, 관리 그룹, 리소스 그룹 및 개별 리소스 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-hierarchy-and-access-inheritance)에 할당됩니다. 계층에 대한 자세한 내용은 [리소스 구성](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 끝점 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 끝점](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 응용 프로그램 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
+Azure에서는 리소스에 대한 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 활용합니다. 사용 권한은 구독, 관리 그룹, 리소스 그룹 및 개별 리소스 계층의 [범위](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope)에 할당됩니다. 계층에 대한 자세한 내용은 [리소스 구성](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure 가상 네트워크 및 모든 관련 기능(예: 피어링, 네트워크 보안 그룹, 서비스 끝점 및 경로 테이블)을 사용하기 위해 조직의 구성원을 기본 제공 [소유자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner), [참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor) 또는 [네트워크 참가자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할에 할당한 다음 역할을 적절한 범위에 할당할 수 있습니다. 가상 네트워크의 하위 집합에 특정 사용 권한을 할당하려는 경우 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들고 [가상 네트워크](manage-virtual-network.md#permissions), [ 서브넷 및 서비스 끝점](virtual-network-manage-subnet.md#permissions), [네트워크 인터페이스](virtual-network-network-interface.md#permissions), [피어링](virtual-network-manage-peering.md#permissions), [네트워크 및 응용 프로그램 보안 그룹](manage-network-security-group.md#permissions) 또는 [경로 테이블](manage-route-table.md#permissions)에 필요한 특정 사용 권한을 할당합니다.
 
 ## <a name="policy"></a>정책
 
-Azure Policy를 사용하여 정책 정의를 만들고, 할당하고, 관리할 수 있습니다. 정책 정의는 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스를 조직의 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 리소스 평가를 실행하여 사용자의 정책 정의를 준수하지 않는 리소스를 검색합니다. 예를 들어 특정 리소스 그룹에서만 가상 네트워크를 만들도록 허용하는 정책이 있을 수 있습니다. 또 다른 정책은 모든 서브넷에 연결된 네트워크 보안 그룹을 필요로 할 수 있습니다. 이러한 정책은 리소스를 만들고 업데이트할 때 평가됩니다.
+Azure Policy를 사용하여 정책 정의를 만들고, 할당하고, 관리할 수 있습니다. 정책 정의는 리소스에 대해 다양한 규칙을 적용하여 리소스를 조직의 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 리소스 평가를 실행하여 사용자의 정책 정의를 준수하지 않는 리소스를 검색합니다. 예를 들어 특정 리소스 그룹 또는 지역에서만 가상 네트워크를 만들도록 허용하는 정책을 정의하고 적용할 수 있습니다. 또 다른 정책은 모든 서브넷에 연결된 네트워크 보안 그룹을 필요로 할 수 있습니다. 이러한 정책은 리소스를 만들고 업데이트할 때 평가됩니다.
 
 정책은 구독, 관리 그룹 및 리소스 그룹 계층에 적용됩니다. [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대해 자세히 알아보거나 일부 가상 네트워크 [정책 템플릿](policy-samples.md) 샘플을 배포하세요.
+
+## <a name="next-steps"></a>다음 단계
+
+[가상 네트워크](manage-virtual-network.md), [서브넷 및 서비스 끝점](virtual-network-manage-subnet.md), [네트워크 인터페이스](virtual-network-network-interface.md), [피어 링](virtual-network-manage-peering.md), [네트워크 및 응용 프로그램 보안 그룹](manage-network-security-group.md) 또는 [경로 테이블](manage-route-table.md)에 대한 모든 작업, 설정 및 옵션을 알아봅니다.

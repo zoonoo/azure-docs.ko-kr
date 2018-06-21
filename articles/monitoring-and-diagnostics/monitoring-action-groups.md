@@ -1,31 +1,25 @@
 ---
-title: Azure Portal에서 작업 그룹 만들기 및 관리 | Microsoft Docs
+title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/20/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/1/2018
 ms.author: dukek
-ms.openlocfilehash: 07e3c1a95aa223121117f3deba0269fb6cc280c2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: alerts
+ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170379"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263068"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
-이 문서에서는 Azure Portal에서 작업 그룹을 만들고 관리하는 방법을 보여 줍니다.
+작업 그룹은 사용자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 경고가 트리거되면 특정 작업 그룹을 사용하도록 구성됩니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다.
 
-작업 그룹을 사용하여 작업 목록을 구성할 수 있습니다. 이러한 그룹은 사용자가 정의한 각 경고에서 다시 사용할 수 있습니다. 이를 통해 경고가 트리거될 때마다 동일한 작업이 수행되도록 합니다.
+이 문서에서는 Azure Portal에서 작업 그룹을 만들고 관리하는 방법을 보여 줍니다.
 
 각 작업은 다음과 같은 속성으로 구성됩니다.
 
@@ -70,7 +64,14 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 <dd>현재, Azure 앱 작업은 ServiceHealth 알림만 지원합니다. 다른 경고 시간은 무시됩니다. [서비스 상태 알림이 게시될 때마다 경고 구성](monitoring-activity-log-alerts-on-service-notifications.md)을 참조하세요.</dd>
 
 <dt>전자 메일</dt>
-<dd>하나의 작업 그룹에 최대 50개의 전자 메일 작업이 포함될 수 있습니다.</dd>
+<dd>다음 이메일 주소에서 이메일이 전송됩니다. 이메일 필터링이 적절하게 구성되었는지 확인합니다.
+
+    - azure-noreply@microsoft.com
+    - azureemail-noreply@microsoft.com
+    - alerts-noreply@mail.windowsazure.com
+    
+</dd>
+<dd>한 작업 그룹에 최대 1000개의 이메일 작업이 허용됩니다.</dd>
 <dd>[속도 제한 정보](./monitoring-alerts-rate-limiting.md) 문서를 참조하세요.</dd>
 
 <dt>ITSM</dt>

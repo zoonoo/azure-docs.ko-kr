@@ -3,22 +3,19 @@ title: Azure Cosmos DB로 온라인 백업 및 복원 | Microsoft Docs
 description: Azure Cosmos DB 데이터베이스에서 자동 백업 및 복원을 수행하는 방법을 알아봅니다.
 keywords: 백업 및 복원, 온라인 백업
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 98eade4a-7ef4-4667-b167-6603ecd80b79
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: multiple
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 5f8ddc9c57df878137ee1ff1b6431e40acfd5eb4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615039"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Azure Cosmos DB로 자동 온라인 백업 및 복원
 Azure Cosmos DB는 자동으로 모든 데이터의 백업을 정기적으로 수행합니다. 자동 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. 모든 백업은 다른 저장소 서비스에 개별적으로 저장되고 이러한 백업은 지역 재해에 대한 복원을 위해 전역적으로 복제됩니다. 자동 백업은 Cosmos DB 컨테이너를 실수로 삭제했다가 나중에 데이터 복구 또는 재해 복구 솔루션이 필요한 시나리오를 위한 것입니다.  
@@ -37,7 +34,7 @@ Cosmos DB는 [전역으로 분산](distribute-data-globally.md)되도록 설계�
 ![높은 수준의 Cosmos DB와의 중복성](./media/online-backup-and-restore/global-distribution.png)
 
 ## <a name="full-automatic-online-backups"></a>전체, 자동, 온라인 백업
-이런, 내 컨테이너 또는 데이터베이스를 삭제했습니다! Cosmos DB를 사용하면 데이터뿐만 아니라 데이터 백업이 지역 재해에 대한 높은 수준의 복원력 및 중복으로 만들어집니다. 이러한 자동화된 백업은 현재 약 4시간마다 수행되고 항상 최근 2개의 백업이 저장됩니다. 데이터가 실수로 삭제되거나 손상되면 8시간 이내에 [Azure 지원에 문의](https://azure.microsoft.com/support/options/)하세요. 
+이런, 내 컨테이너 또는 데이터베이스를 삭제했습니다! Cosmos DB를 사용하면 데이터뿐만 아니라 데이터 백업이 지역 재해에 대한 높은 수준의 복원력 및 중복으로 만들어집니다. 이러한 자동화된 백업은 현재 약 4시간마다 수행되고 항상 최근 2개의 백업이 저장됩니다. 데이터가 실수로 삭제되거나 손상되면 8시간 이내에 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
 
 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. Cosmos DB는 프로비전된 RU를 사용하거나 성능에 영향을 주지 않을 뿐 아니라 데이터베이스 가용성에도 영향을 주지 않고 백그라운드에서 백업을 수행합니다. 
 
@@ -57,7 +54,7 @@ SQL API의 경우 사용자 고유의 스냅숏을 유지하려는 경우 Azure 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>온라인 백업에서 데이터베이스 복원
-데이터베이스 또는 컬렉션을 실수로 삭제한 경우 [지원 티켓](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출하거나 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하여 마지막 자동 백업에서 데이터를 복원할 수 있습니다. 데이터 손상 문제로 인해 데이터베이스를 복원해야 하는 경우(컬렉션 내 문서가 삭제된 경우 포함) 손상된 데이터가 기존 백업에 덮어쓰이는 것을 방지하기 위해 추가 단계를 수행해야 할 때는 [데이터 손상 처리](#handling-data-corruption)를 참조하세요. 백업의 특정 스냅숏을 복원하려면 Cosmos DB에서 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
+데이터베이스 또는 컬렉션을 실수로 삭제한 경우 [지원 티켓](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출하거나 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하여 마지막 자동 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 Standard 및 Developer와 같은 지정된 요금제에만 사용할 수 있으며, Basic 요금제에는 사용할 수 없습니다. 여러 지원 계획에 대한 자세한 내용은 [Azure 지원 계획](https://azure.microsoft.com/en-us/support/plans/) 페이지를 참조하세요. 데이터 손상 문제로 인해 데이터베이스를 복원해야 하는 경우(컬렉션 내 문서가 삭제된 경우 포함) 손상된 데이터가 기존 백업에 덮어쓰이는 것을 방지하기 위해 추가 단계를 수행해야 할 때는 [데이터 손상 처리](#handling-data-corruption)를 참조하세요. 백업의 특정 스냅숏을 복원하려면 Cosmos DB에서 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
 
 ## <a name="handling-data-corruption"></a>데이터 손상 처리
 Azure Cosmos DB는 데이터베이스 계정에서 모든 파티션의 마지막 두 개 백업을 유지합니다. 이 모델은 마지막 버전 중 하나를 복원할 수 있으므로 컨테이너(문서, 그래프, 테이블의 컬렉션) 또는 데이터베이스가 실수로 삭제될 경우에 매우 잘 작동합니다. 그러나 사용자가 데이터 손상 문제를 일으킬 수 있는 경우 Azure Cosmos DB에서 데이터 손상을 인식하지 못할 수 있으며 손상이 기존 백업에 덮어쓰여질 가능성이 있습니다. 손상이 발견되는 즉시 사용자는 백업이 손상된 데이터로 덮어 쓰이지 않도록 보호하기 위해 손상된 컨테이너(컬렉션/그래프/테이블)를 삭제해야 합니다.

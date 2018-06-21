@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/18/2017
+ms.date: 05/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 22b580e74ec412763b9c34a7fa2fea97c8a277d0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d3514b57b5dc3541dd0a3c0f584fd689749ada7c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33896183"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34716461"
 ---
 # <a name="create-a-complete-linux-virtual-machine-environment-in-azure-with-ansible"></a>Azure에서 Ansible을 사용하여 전체 Linux 가상 컴퓨터 환경 만들기
 Ansible을 사용하면 사용자 환경에서 리소스의 배포 및 구성을 자동화할 수 있습니다. Azure에서 Ansible을 사용하여 다른 리소스와 동일한 방식으로 VM(가상 머신)을 관리할 수 있습니다. 이 문서에서는 Ansible을 사용하여 전체 Linux 환경 및 지원 리소스를 만드는 방법을 보여 줍니다. 또한 [Ansible을 사용하여 기본 VM을 만드는](ansible-create-vm.md) 방법을 배울 수 있습니다.
@@ -38,6 +38,8 @@ Ansible을 사용하여 Azure 리소스를 관리하려면 다음이 필요합�
 
 
 ## <a name="create-virtual-network"></a>가상 네트워크 만들기
+Ansible 플레이북의 각 섹션을 참조하고 개별 Azure 리소스를 만들어 보겠습니다. 전체 플레이북은 [아티클의 이 섹션](#complete-ansible-playbook)을 참조하세요.
+
 Ansible Playbook의 다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVnet*이라는 가상 네트워크를 만듭니다.
 
 ```yaml
@@ -116,14 +118,14 @@ Ansible Playbook의 다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVne
     vm_size: Standard_DS1_v2
     admin_username: azureuser
     ssh_password_enabled: false
-    ssh_public_keys: 
+    ssh_public_keys:
       - path: /home/azureuser/.ssh/authorized_keys
         key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
     network_interfaces: myNIC
     image:
       offer: CentOS
       publisher: OpenLogic
-      sku: '7.3'
+      sku: '7.5'
       version: latest
 ```
 
@@ -177,18 +179,18 @@ Ansible Playbook의 다음 섹션에서는 *10.0.0.0/16* 주소 공간에 *myVne
       vm_size: Standard_DS1_v2
       admin_username: azureuser
       ssh_password_enabled: false
-      ssh_public_keys: 
+      ssh_public_keys:
         - path: /home/azureuser/.ssh/authorized_keys
           key_data: "ssh-rsa AAAAB3Nz{snip}hwhqT9h"
       network_interfaces: myNIC
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.3'
+        sku: '7.5'
         version: latest
 ```
 
-Ansible에는 모든 리소스를 배포할 리소스 그룹이 필요합니다. [az group create](/cli/azure/vm#az_vm_create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+Ansible에는 모든 리소스를 배포할 리소스 그룹이 필요합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

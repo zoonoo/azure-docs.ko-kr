@@ -1,24 +1,19 @@
 ---
-title: "Azure 활동 로그 경고에 대한 웹후크 호출 | Microsoft Docs"
-description: "활동 로그 이벤트를 사용자 지정 작업에 대한 다른 서비스로 라우팅하는 방법을 알아봅니다. 예를 들어 SMS 메시지를 전송하거나, 버그를 기록하거나, 채팅/메시징 서비스를 통해 팀에 알릴 수 있습니다."
+title: Azure 활동 로그 경고에 대한 웹후크 호출(클래식)
+description: 활동 로그 이벤트를 사용자 지정 작업에 대한 다른 서비스로 라우팅하는 방법을 알아봅니다. 예를 들어 SMS 메시지를 전송하거나, 버그를 기록하거나, 채팅/메시징 서비스를 통해 팀에 알릴 수 있습니다.
 author: johnkemnetz
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 64d333d1-7f37-4a00-9d16-dda6e69a113b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: johnkem
-ms.openlocfilehash: 9872c30d123f0a7443e28dc58ee0d4e16572a390
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: e825d0f2487c20c8c7f3d210d7180b07742d7173
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262463"
 ---
 # <a name="call-a-webhook-on-an-azure-activity-log-alert"></a>Azure 활동 로그 경고에 대한 웹후크 호출
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 또한 경고가 활성화될 때 이메일을 보내도록 활동 로그 경고를 설정할 수도 있습니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: f4fe93078246bc25eb41a7f8e685d75f8dcb6b7c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bec02b3f3bde9f9cfab615d75cc6f05976ce981a
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012627"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726223"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 같은 구독
 
@@ -90,7 +90,7 @@ ms.locfileid: "34012627"
     azure network vnet create --vnet myVnet2 --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
 
-5. 리소스 그룹 및 가상 네트워크(리소스 관리자)를 만듭니다. CLI 1.0 또는 2.0을 사용할 수 있습니다([설치](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). 피어링을 만들 때는 CLI 2.0을 사용해야 하기 때문에 이 자습서에서는 2.0을 사용하여 가상 네트워크(리소스 관리자)를 만듭니다. CLI 2.0.4 이상을 설치한 로컬 컴퓨터에서 다음 Bash CLI 스크립트를 실행합니다. Windows 클라이언트에서의 Bash CLI 스크립트 실행과 관련한 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. Azure Cloud Shell을 사용하여 스크립트를 실행할 수도 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 클릭하면 Azure 계정 로그인 가능성을 기록하는 Cloud Shell이 호출됩니다. 스크립트를 실행하려면 **복사** 단추를 클릭하여 내용을 Cloud Shell에 붙여 넣고 `Enter`를 누릅니다.
+5. 리소스 그룹 및 가상 네트워크(리소스 관리자)를 만듭니다. CLI 1.0 또는 2.0을 사용할 수 있습니다([설치](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json)). 피어링을 만들 때는 CLI 2.0을 사용해야 하기 때문에 이 자습서에서는 2.0을 사용하여 가상 네트워크(리소스 관리자)를 만듭니다. CLI 2.0.4 이상을 설치한 로컬 컴퓨터에서 다음 Bash CLI 스크립트를 실행합니다. Windows 클라이언트에서 bash CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 설치](/cli/azure/install-azure-cli-windows)를 참조하세요. Azure Cloud Shell을 사용하여 스크립트를 실행할 수도 있습니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 클릭하면 Azure 계정 로그인 가능성을 기록하는 Cloud Shell이 호출됩니다. 스크립트를 실행하려면 **복사** 단추를 클릭하여 내용을 Cloud Shell에 붙여 넣고 `Enter`를 누릅니다.
 
     ```azurecli-interactive
     #!/bin/bash

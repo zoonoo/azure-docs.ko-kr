@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: 0e060e67d615f0d6aa8ca6cbe305670956ac3faf
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849933"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 회로 및 라우팅 도메인
  연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하려면 *ExpressRoute 회로* 를 주문해야 합니다. 다음 그림은 WAN 및 Microsoft 간 연결의 논리적 표현을 보여 줍니다.
@@ -86,6 +87,11 @@ Microsoft 피어링을 통해 Microsoft 온라인 서비스(Office 365, Dynamics
 자신의 ExpressRoute 회로의 일부로 하나 이상의 라우팅 도메인을 사용하도록 선택할 수 있습니다. 단일 라우팅 도메인으로 결합하려는 경우 모든 라우팅 도메인을 동일 VPN에 넣도록 선택할 수 있습니다. 위의 도표와 유사한 다른 라우팅 도메인에도 넣습니다. 개인 피어링이 직접 핵심 네트워크에 연결되고 공용 및 Microsoft 피어링 링크가 DMZ에 연결되는 것이 권장 구성입니다.
 
 3개의 모든 피어링 세션을 선택하는 경우, 3쌍의 BGP 세션(각 피어링 형식에 대해 한 쌍)이 있어야 합니다. BGP 세션 쌍은 항상 사용 가능한 링크를 제공합니다. 계층 2 연결 공급자를 통해 연결하는 경우, 사용자가 라우팅을 구성하고 관리합니다. ExpressRoute를 설정하기 위한 [워크플로](expressroute-workflows.md) 를 검토하여 자세히 알아볼 수 있습니다.
+
+## <a name="expressroute-health"></a>ExpressRoute 상태
+ExpressRoute 회로는 NPM([네트워크 성능 모니터](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview))을 사용하여 가용성, VNet에 대한 연결성 및 대역폭 사용률에 대해 모니터링할 수 있습니다.
+
+NPM은 Azure 개인 피어링 및 Microsoft 피어링의 상태를 모니터링합니다.  자세한 내용은 [포스트](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 서비스 공급자를 찾습니다. [ExpressRoute 서비스 공급자 및 위치](expressroute-locations.md)를 참조하세요.

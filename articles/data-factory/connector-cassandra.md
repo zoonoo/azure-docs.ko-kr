@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/02/2018
+ms.topic: conceptual
+ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: fe68797090926f2e0e0e2fbb66ba2bb7f6d940e7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 94312edaa97a5d9a7502eed4c0551151ce2a06cc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770964"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235280"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Cassandra에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -37,8 +37,11 @@ Cassandra 데이터베이스에서 지원되는 모든 싱크 데이터 저장�
 
 특히 이 Cassandra 커넥터는 다음을 지원합니다.
 
-- Cassandra **버전 2.X**
+- Cassandra **버전 2.x 및 3.x**.
 - **Basic** 또는 **Anonymous** 인증을 사용하여 데이터를 복사합니다.
+
+>[!NOTE]
+>자체 호스팅 Integration Runtime에서 활동 실행의 경우 Cassandra 3.x는 IR 버전 3.7 이상에서 지원됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -63,6 +66,9 @@ Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | 암호 |사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+
+>[!NOTE]
+>현재 연결에 SSL을 사용한 Cassandra 연결은 지원되지 않습니다.
 
 **예제:**
 

@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3cddfb918f98dfd41e84a6cc5473df6e26d1a482
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795563"
 ---
 # <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Eclipse에서 Java를 사용하여 Application Insights 시작하기
 Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 전송하므로 사용량 및 성능을 분석할 수 있습니다. Application Insights용 Eclipse 플러그인이 프로젝트에 SDK를 자동으로 설치하므로 기본 원격 분석을 이용할 수 있을 뿐 아니라 사용자 지정 원격 분석 작성에 사용할 수 있습니다.   
@@ -32,6 +33,8 @@ Application Insights SDK가 Java 웹 응용 프로그램에서 원격 분석을 
 * [Microsoft Azure](https://azure.microsoft.com/)구독.
 * [Java EE Developers용 Eclipse IDE](http://www.eclipse.org/downloads/), Indigo 이상.
 * Windows 7 이상 또는 Windows Server 2008 이상
+
+Spring 프레임워크를 선호하는 경우 [Application Insights 가이드를 사용하도록 Spring Boot 이니셜라이저 앱을 구성](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)해 보세요.
 
 ## <a name="install-the-sdk-on-eclipse-one-time"></a>Eclipse에 SDK를 설치합니다(한 번).
 컴퓨터당 한 번씩만 수행해야 합니다. 이 단계는 SDK를 각 동적 웹 프로젝트에 추가할 수 있는 도구 키트를 설치합니다.

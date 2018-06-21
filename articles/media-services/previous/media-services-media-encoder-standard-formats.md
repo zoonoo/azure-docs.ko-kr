@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 5e71714f94cf148895585e8de88eaf995f0791fb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 181a1b8ad6403045264ddc0bd502273f36df3eff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638333"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>미디어 인코더 표준 형식 및 코덱
 이 문서에는 미디어 인코더 표준에서 사용할 수 있는 가장 일반적인 가져오기 및 내보내기 파일 형식 목록이 포함되어 있습니다.
@@ -75,6 +76,7 @@ ms.lasthandoff: 05/07/2018
 | Apple ProRes Proxy |예 |
 | Apple ProRes 4444 |예 |
 | Apple ProRes 4444 XQ |예 |
+| HEVC/H.265| 기본 프로필|
 
 ## <a name="input-audio-codecs"></a>입력 오디오 코덱
 | 입력 오디오 코덱 | 지원됨 |

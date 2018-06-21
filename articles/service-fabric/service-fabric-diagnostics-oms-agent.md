@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: a3ce72e51477c1eda99461b3910bfeeac207be55
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 74a738f85a969e3c3451dc326de9b4284c0984c8
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34809576"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Log Analytics로 성능 모니터링
 
@@ -73,19 +74,27 @@ Azure Log Analytics 작업 영역을 배포하고 각 노드에 에이전트를 
 
 OMS 에이전트를 추가했으니, Log Analytics 포털로 이동하여 수집하려는 성능 카운터를 선택합니다. 
 
-1. Azure Portal에서 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 맨 위에서 링크를 클릭하여 OMS 포털로 이동합니다.
+1. Azure Portal에서 Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfOMSWorkspace\>** 를 선택합니다.
 
-2. 포털로 이동하고 나면 Service Fabric용 타일을 포함하여 활성화된 각 솔루션에 대해 그래프 형태의 타일이 표시됩니다. 이것을 클릭하여 Service Fabric 분석 솔루션으로 이동합니다. 
+2. **OMS 작업 영역**을 클릭합니다.
 
-3. 이제 작동 채널 및 Reliable Services 이벤트에 대한 그래프가 있는 타일이 몇 개 표시됩니다. 오른쪽에서 기어 아이콘을 클릭하여 설정 페이지로 이동합니다.
+3. **고급 설정**을 클릭합니다.
 
-    ![OMS 설정](media/service-fabric-diagnostics-oms-agent/oms-solutions-settings.png)
+4. **데이터**를 클릭한 다음, **Windows 또는 Linux 성능 카운터**를 클릭합니다. 사용하도록 선택할 수 있는 기본 카운터의 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx) 설명되어 있습니다.
 
-4. 설정 페이지에서 데이터를 클릭하고 Windows 또는 Linux 성능 카운터를 선택합니다. 사용하도록 선택할 수 있는 기본 목록이 있고 컬렉션 간격도 설정할 수 있습니다. 수집할 [성능 카운터를 더 추가](service-fabric-diagnostics-event-generation-perf.md)할 수도 있습니다. 올바른 형식은 이 [문서에](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85).aspx) 설명되어 있습니다.
+5. **저장**을 클릭한 다음, **확인**을 클릭합니다.
 
-카운터가 구성된 후 솔루션 페이지로 돌아가면 **노드 메트릭** 아래에 데이터 흐름이 그래프로 표시됩니다. 성능 카운터 데이터를 클러스터 이벤트와 유사하게 쿼리하고 Kusto 쿼리 언어를 사용하여 노드, 성능 카운터 이름 및 값을 필터링할 수도 있습니다. 
+6. 고급 설정 블레이드를 닫습니다.
 
-![OMS 성능 카운터 쿼리](media/service-fabric-diagnostics-oms-agent/oms-perf-counter-query.png)
+7. 일반 제목 아래에서 **개요**를 클릭합니다.
+
+8. Service Fabric용 타일을 포함하여 활성화된 각 솔루션에 대해 그래프 형태의 타일이 표시됩니다. **Service Fabric** 그래프를 클릭하여 Service Fabric 분석 솔루션으로 이동합니다.
+
+9. 작동 채널 및 Reliable Services 이벤트에 대한 그래프가 있는 타일이 몇 개 표시됩니다. 선택한 카운터에 대한 데이터 흐름의 그래픽 표현이 노드 메트릭 아래에 표시됩니다. 
+
+10. 컨테이너 메트릭 그래프를 클릭하여 추가 정보를 확인합니다. 성능 카운터 데이터를 클러스터 이벤트와 유사하게 쿼리하고 Kusto 쿼리 언어를 사용하여 노드, 성능 카운터 이름 및 값을 필터링할 수도 있습니다.
+
+![OMS 성능 카운터 쿼리](media/service-fabric-diagnostics-event-analysis-oms/oms_node_metrics_table.PNG)
 
 ## <a name="next-steps"></a>다음 단계
 

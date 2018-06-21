@@ -6,13 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 05/23/2018
 ms.author: bikang
-ms.openlocfilehash: 7b62631bd386a2feaa675b0ebd234768bec2f5e1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763360"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -32,7 +33,8 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 | CLI 버전   | 지원되는 런타임 버전 |
 |---------------|---------------------------|
-| 최신(~=4)  | 최신(~=6.1)            |
+| 최신(~=5)  | 최신(~=6.2)            |
+| 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
 
@@ -69,7 +71,7 @@ python --version
 pip --version
 ```
 
-그러면 다음 명령을 실행하여 Service Fabric CLI를 설치합니다.
+그런 다음, 다음 명령을 실행하여 Azure Service Fabric CLI(sfctl)를 설치하고 CLI 도움말 페이지를 봅니다.
 
 ```bat
 pip install sfctl
@@ -231,13 +233,13 @@ openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certif
 
 일부 작업은 다음과 같은 메시지를 생성할 수 있습니다.
 
-`Failed to establish a new connection: [Errno 8] nodename nor servname provided, or not known`
+`Failed to establish a new connection`
 
 지정된 클러스터 끝점을 사용 가능하고 수신 대기하는지를 확인합니다. Service Fabric Explorer UI가 해당 호스트 및 포트에서 사용 가능한지도 확인합니다. 끝점을 업데이트하려면 `sfctl cluster select`를 사용합니다.
 
 ### <a name="detailed-logs"></a>자세한 로그
 
-자세한 로그는 종종 문제를 디버그하거나 보고할 때 유용합니다. `--debug` 전역 플래그는 로그 파일의 자세한 표시 수준을 늘립니다.
+자세한 로그는 종종 문제를 디버그하거나 보고할 때 유용합니다. `--debug` 플래그는 출력의 자세한 표시 수준을 늘립니다.
 
 ### <a name="command-help-and-syntax"></a>명령 도움말 및 구문
 

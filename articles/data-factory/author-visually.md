@@ -10,14 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: a226402f16f98c830c1e1cf34653b8f6513f06b4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725145"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드를 작성할 필요 없이 데이터 팩터리에 대한 리소스를 시각적으로 작성하고 배포할 수 있습니다. 파이프라인 캔버스에 작업을 끌어다 놓고, 테스트 실행을 수행하고, 반복적으로 디버그하고, 파이프라인 실행을 배포 및 모니터링할 수 있습니다. 시각적 작성을 수행하기 위해 UX를 사용하는 두 가지 방법이 있습니다.
@@ -46,8 +47,8 @@ VSTS Git 통합을 통한 시각적 작성은 데이터 팩터리 파이프라�
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Azure Data Factory를 통한 VSTS Git 리포지토리 구성
 두 가지 방법으로 데이터 팩터리를 사용해서 VSTS GIT 리포지토리를 구성할 수 있습니다.
 
-<a name="method1"></a>
-#### <a name="configuration-method-1-lets-get-started-page"></a>구성 방법 1: 시작하기 페이지
+#### <a name="method1"></a> 구성 방법 1: 시작하기 페이지
+
 Azure Data Factory에서 **시작하기** 페이지로 이동합니다. **코드 리포지토리 구성**을 선택합니다.
 
 ![VSTS 코드 리포지토리 구성](media/author-visually/configure-repo.png)
@@ -75,6 +76,14 @@ Azure Data Factory UX **제작 캔버스**에서 사용자의 데이터 팩터�
 구성 창이 나타납니다. 구성 설정에 대한 자세한 내용은 <a href="#method1">구성 방법 1</a>의 설명을 참조하세요.
 
 ![UX 제작을 위한 코드 리포지토리 설정 구성](media/author-visually/configure-repo-2.png)
+
+#### <a name="switch-to-a-different-git-repo"></a>다른 Git 리포지토리로 전환
+
+다른 Git 리포지토리로 전환하려면 다음 스크린샷에 표시된 대로 Data Factory 개요 페이지의 위쪽 오른쪽 모서리에서 아이콘을 찾습니다. 아이콘이 표시되지 않으면 로컬 브라우저 캐시의 선택을 취소합니다. 아이콘을 선택하여 현재 리포지토리와 연결을 제거합니다.
+
+현재 리포지토리와 연결을 제거한 후에 다른 리포지토리를 사용하도록 Git 설정을 구성할 수 있습니다. 그러면 새로운 리포지토리로 기존 Data Factory 리소스를 가져올 수 있습니다.
+
+![현재 Git 리포지토리와 연결을 제거합니다.](media/author-visually/remove-repo.png)
 
 ### <a name="use-version-control"></a>사용자 버전 제어
 _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 코드에 대해 공동 작업을 수행하고, 코드 베이스의 변경 내용을 추적할 수 있습니다. 소스 제어는 개발자가 여러 명인 프로젝트에 반드시 필요한 도구입니다.

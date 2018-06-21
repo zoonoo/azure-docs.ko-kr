@@ -1,24 +1,19 @@
 ---
-title: "Azure에서 Windows Server 또는 Windows 컴퓨터로 데이터 복원 | Microsoft Docs"
-description: "Azure에 저장된 데이터를 Windows Server 또는 Windows 컴퓨터로 복원하는 방법에 대해 알아봅니다."
+title: Azure에서 Windows Server 또는 Windows 컴퓨터로 데이터 복원
+description: Azure에 저장된 데이터를 Windows Server 또는 Windows 컴퓨터로 복원하는 방법에 대해 알아봅니다.
 services: backup
-documentationcenter: 
 author: saurabhsensharma
 manager: shivamg
-editor: 
-ms.assetid: 742f4b9e-c0ab-4eeb-8e22-ee29b83c22c4
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/4/2018
-ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 3444b13972ab9e5c435fc009e8ddb51bcafb1a41
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.author: saurse
+ms.openlocfilehash: 16f0460dea75b0dc52c3852d9947db0ad15f8fbe
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606327"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
 
@@ -49,7 +44,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
     ![데이터 복구](./media/backup-azure-restore-windows-server/recover.png)
 
-3. **시작** 창에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)**를 선택하고 **다음**을 클릭합니다.
+3. **시작** 창에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)** 를 선택하고 **다음**을 클릭합니다.
 
     ![같은 컴퓨터에 데이터를 복원하려면 이 서버 옵션을 선택합니다.](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
@@ -123,7 +118,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 
 7. **복구 모드 선택** 창에서 **개별 파일 및 폴더**를 선택하고 **다음**을 클릭합니다.
 
-    ![Search](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![검색](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. **볼륨 및 날짜 선택** 창에서 복원할 파일 및/또는 폴더가 들어있는 볼륨을 선택합니다.
 

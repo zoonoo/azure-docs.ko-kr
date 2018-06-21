@@ -1,22 +1,19 @@
 ---
 title: Azure IoT Hub로 크기 조정 시 IoT 장치 구성 및 모니터링 | Microsoft Docs
 description: Azure IoT Hub 자동 장치 구성을 사용하여 여러 장치에 구성을 할당합니다
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 7146fba69857c3a612ce1b3dbb83387c1f3068d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fe5ce960663f39d4f2c87a7bbffa091d327e9559
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34632451"
 ---
 # <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>크기 조정 시 IoT 장치 구성 및 모니터링 - 미리 보기
 
@@ -31,6 +28,9 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 * **대상 콘텐츠**는 대상으로 지정된 장치 쌍에 추가하거나 업데이트할 원하는 속성을 정의합니다. 콘텐츠에는 변경할 원하는 속성의 섹션에 대한 경로가 포함됩니다.
 
 * **메트릭**은 **성공**, **진행 중** 및 **오류**와 같은 다양한 구성 상태의 요약 횟수를 정의합니다. 사용자 지정 메트릭은 보고된 장치 쌍 속성에서 쿼리로 지정됩니다.  시스템 메트릭은 대상으로 지정된 장치 쌍의 수 및 성공적으로 업데이트된 쌍의 수와 같은 쌍 업데이트 상태를 측정하는 기본 메트릭입니다. 
+
+> [!Note]
+> 미리 보기 동안 미국 동부, 미국 서부, 북유럽 및 서유럽 지역의 IoT 허브에는 이 기능을 사용할 수 없습니다.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>장치 쌍 구현으로 장치를 구성
 
@@ -52,7 +52,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 ## <a name="create-a-configuration"></a>구성 만들기
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다.
+1. **IoT 장치 구성(미리 보기)** 을 선택합니다.
 1. **구성 추가**를 선택합니다.
 
 구성을 만드는 데에는 5단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다. 
@@ -86,7 +86,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 예: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-구성이 적용된 절을 포함할 수 있습니다(예: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`).
+구성이 적용된 절을 포함할 수 있습니다(예: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'`, 이중 괄호 포함).
 
 
 ### <a name="step-4-target-devices"></a>4단계: 대상 장치
@@ -108,7 +108,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 구성의 세부 정보를 확인하고 이를 실행하는 장치를 모니터링하려면 다음 단계를 사용합니다.
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다.
+1. **IoT 장치 구성(미리 보기)** 을 선택합니다.
 1. 구성 목록을 검사합니다. 각 구성의 경우 다음 세부 정보를 볼 수 있습니다.
    * **ID** - 구성의 이름입니다.
    * **대상 조건** - 대상으로 지정된 장치를 정의하는 데 사용되는 태그입니다.
@@ -136,7 +136,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 구성을 수정하려면 다음 단계를 사용합니다. 
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다. 
+1. **IoT 장치 구성(미리 보기)** 을 선택합니다. 
 1. 수정하려는 구성을 선택합니다. 
 1. 다음 필드를 업데이트합니다. 
    * 대상 조건 
@@ -151,7 +151,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 구성을 삭제하면 모든 장치 쌍은 다음으로 가장 높은 우선 순위 구성을 적용합니다. 장치 쌍이 다른 구성의 대상 조건을 충족하지 않는 경우에는 다른 설정이 적용됩니다. 
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다. 
+1. **IoT 장치 구성(미리 보기)** 을 선택합니다. 
 1. 확인란을 사용하여 삭제하려는 구성을 선택합니다. 
 1. **삭제**를 선택합니다.
 1. 메시지에서 확인을 요청합니다.

@@ -3,22 +3,19 @@ title: Azure Cosmos DB 인덱싱 정책 | Microsoft Docs
 description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고 자동 인덱싱 및 성능 향상을 위해 인덱싱 정책을 구성 및 변경하는 방법에 대해 알아봅니다.
 keywords: 인덱싱 작동 방식, 자동 인덱싱, 데이터베이스 인덱싱
 services: cosmos-db
-documentationcenter: ''
 author: rafats
 manager: kfile
-ms.assetid: d5e8f338-605d-4dff-8a61-7505d5fc46d7
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 277ddd5777ff8edf5195e79885929e3a8c758d7c
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298300"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
 
@@ -79,9 +76,9 @@ Azure Cosmos DB는 Azure Cosmos DB 컬렉션의 인덱싱 정책을 통해 구�
 
 일관된 인덱싱은 일관된 쿼리를 지원하지만 쓰기 처리량이 줄 수 있습니다. 이와 같이 감소하는 정도는 인덱싱해야 하는 고유한 경로와 “일관성 수준”에 따라 달라집니다. 일관성 인덱싱 모드는 "신속하게 쿼리를 즉시 쓰기" 워크로드를 위해 설계되었습니다.
 
-**지연**: Azure Cosmos DB 컬렉션이 정지 상태 즉, 사용자 요청을 처리할 만큼 컬렉션의 처리량 용량이 충분히 활용되지 않은 경우 인덱스가 비동기적으로 업데이트됩니다. 지연 인덱싱 모드는 문서 수집을 필요로 하는 “지금 수집, 나중에 쿼리” 작업에 적합할 수 있습니다. 데이터가 천천히 수집되고 인덱싱되기 때문에 결과가 일관되지 않을 수 있습니다. 즉, COUNT 쿼리 또는 특정 쿼리 결과가 지정된 시간에 일관되지 않거나 반복될 수 있습니다. 
+**지연**: Azure Cosmos DB 컬렉션이 정지 상태 즉, 사용자 요청을 처리할 만큼 컬렉션의 처리량 용량이 충분히 활용되지 않은 경우 인덱스가 비동기적으로 업데이트됩니다.  데이터가 천천히 수집되고 인덱싱되기 때문에 결과가 일관되지 않을 수 있습니다. 즉, COUNT 쿼리 또는 특정 쿼리 결과가 지정된 시간에 일관되지 않거나 반복될 수 있습니다. 
 
-인덱스는 일반적으로 수집된 데이터를 사용하는 캐치업 모드입니다. 지연 인덱싱에서는 TTL(Time to Live)을 변경하면 인덱스가 삭제되고 다시 생성됩니다. 이로 인해 COUNT 및 쿼리 결과가 일정 기간 동안 일관되지 않습니다. 따라서 대부분의 Azure Cosmos DB 계정은 일관성 인덱싱 모드를 사용해야 합니다.
+인덱스는 일반적으로 수집된 데이터를 사용하는 캐치업 모드입니다. 지연 인덱싱에서는 TTL(Time to Live)을 변경하면 인덱스가 삭제되고 다시 생성됩니다. 이로 인해 COUNT 및 쿼리 결과가 일정 기간 동안 일관되지 않습니다. 대부분의 Azure Cosmos DB 계정은 일관성 인덱싱 모드를 사용해야 합니다.
 
 **없음**: 없음 인덱싱 모드를 사용하는 컬렉션에는 연관된 인덱스가 없습니다. 이 모드는 Azure Cosmos DB를 키-값 저장소로 이용하고 해당 ID 속성에 의해서만 문서에 액세스하는 경우에 흔히 사용됩니다. 
 
@@ -229,11 +226,11 @@ Azure Cosmos DB는 모든 경로에 대해 점, 다각형 또는 LineString 데�
 
 마찬가지로 인덱싱에서 경로를 완전히 제외할 수 있습니다. 다음 예제는 \* 와일드카드 연산자를 사용하여 인덱싱에서 문서의 전체 섹션(‘하위 트리’라고도 함)을 제외하는 방법을 보여 줍니다.
 
-    var collection = new DocumentCollection { Id = "excludedPathCollection" };
-    collection.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
-    collection.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
+    var excluded = new DocumentCollection { Id = "excludedPathCollection" };
+    excluded.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
+    excluded.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/nonIndexedContent/*" });
 
-    collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
+    await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), excluded);
 
 
 
@@ -367,7 +364,7 @@ SQL API는 사용된 인덱스 저장소와 같은 성능 메트릭에 대한 �
 * 인덱싱 정책에서 문자열에 대한 범위 인덱스 지원
 * 각 경로는 각 데이터 형식에 하나씩 여러 인덱스 정의를 가질 수 있음
 * 인덱싱 전체 자릿수는 숫자의 경우 1-8, 문자열의 경우 1-100을 지원하며 -1의 최대 전체 자릿수 지원
-* 경로 세그먼트에서 각 경로를 이스케이프하기 위해 큰따옴표를 사용할 필요가 없음 예를 들어 **/"title"/?** 대신 **/title/?**에 대한 경로를 추가할 수 있습니다.
+* 경로 세그먼트에서 각 경로를 이스케이프하기 위해 큰따옴표를 사용할 필요가 없음 예를 들어 **/"title"/?** 대신 **/title/?** 에 대한 경로를 추가할 수 있습니다.
 * “모든 경로”를 나타내는 루트 경로는 **/\*** (및 **/**)로 표시
 
 버전 1.1.0 이하의 .NET SDK로 작성된 사용자 지정 인덱싱 정책을 사용하여 컬렉션을 프로비전하는 코드가 있는 경우 SDK 버전 1.2.0으로 이동하려면 응용 프로그램 코드를 변경하여 이러한 변경 내용을 처리해야 합니다. 인덱싱 정책을 구성하는 코드가 없거나 이전 SDK 버전을 계속 사용하려는 경우에는 변경하지 않아도 됩니다.

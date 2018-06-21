@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/03/2018
 ms.author: glenga
-ms.openlocfilehash: 523ef25fe0d3227d526acbdee2c7cf2660fc4f25
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5613b6b30d97b88bdfa6b00f90e334f1756ad614
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294499"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Azure Functions를 로컬에서 코딩 및 테스트
 
@@ -63,9 +64,9 @@ npm install -g azure-functions-core-tools
 
 3. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
-  ```bash
-  npm install -g azure-functions-core-tools@core
-  ```
+    ```bash
+    npm install -g azure-functions-core-tools@core
+    ```
 
 #### <a name="brew"></a>Homebrew가 있는 MacOS
 
@@ -73,9 +74,9 @@ npm install -g azure-functions-core-tools
 
 1. [macOS용 .NET Core 2.0](https://www.microsoft.com/net/download/macos)을 설치합니다.
 
-1. 아직 설치되지 않은 경우 [Homebrew](https://brew.sh/)를 설치합니다.
+2. 아직 설치되지 않은 경우 [Homebrew](https://brew.sh/)를 설치합니다.
 
-2. 다음과 같이 핵심 도구 패키지를 설치합니다.
+3. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
     ```bash
     brew tap azure/functions
@@ -88,42 +89,43 @@ npm install -g azure-functions-core-tools
 
 1. [Linux용 .NET Core 2.0](https://www.microsoft.com/net/download/linux)을 설치합니다.
 
-1. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
+2. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
 
-  ```bash
-  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-  sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-  ```
+    ```bash
+    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+    sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+    ```
 
-2.  패키지 피드를 설정하고, 다음 명령의 `<version>`을 다음 표의 해당 버전 이름으로 바꿉니다.
+3. Ubuntu 서버가 아래 표에서 적절한 버전 중 하나를 실행하고 있는지 확인합니다. Apt 원본을 추가하려면 다음을 실행합니다.
 
-  ```bash
-  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-<version>-prod <version> main" > /etc/apt/sources.list.d/dotnetdev.list'
-  sudo apt-get update
-  ```
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo apt-get update
+    ```
 
-  | Linux 배포 | `<version>` |
-  | --------------- | ----------- |
-  | Ubuntu 17.10    | `artful`    |
-  | Ubuntu 17.04    | `zesty`     |
-  | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+    | Linux 배포 | 버전 |
+    | --------------- | ----------- |
+    | Ubuntu 17.10    | `artful`    |
+    | Ubuntu 17.04    | `zesty`     |
+    | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
 
-3. 다음과 같이 핵심 도구 패키지를 설치합니다.
+4. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
-  ```bash
-  sudo apt-get install azure-functions-core-tools
-  ```
+    ```bash
+    sudo apt-get install azure-functions-core-tools
+    ```
 
 ## <a name="run-azure-functions-core-tools"></a>Azure Functions 핵심 도구 실행
- 
+
 Azure Functions 핵심 도구는 다음 명령 별칭을 추가합니다.
-* **func**
-* **azfun**
-* **azurefunctions**
+
++ **func**
++ **azfun**
++ **azurefunctions**
 
 이러한 별칭은 예제에서 `func`가 표시된 곳에 사용할 수 있습니다.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
@@ -133,13 +135,13 @@ func init MyFunctionProj
 
 터미널 창이나 명령 프롬프트에서 다음 명령을 실행하여 프로젝트 및 로컬 Git 리포지토리를 만듭니다.
 
-```
+```bash
 func init MyFunctionProj
 ```
 
 출력은 다음 예제와 유사합니다.
 
-```
+```output
 Writing .gitignore
 Writing host.json
 Writing local.settings.json
@@ -151,7 +153,7 @@ Initialized empty Git repository in D:/Code/Playground/MyFunctionProj/.git/
 
 ## <a name="register-extensions"></a>확장 등록
 
-Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 [바인딩 확장](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)을 명시적으로 등록해야 합니다. 
+Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 바인딩 확장(바인딩 형식)을 명시적으로 등록해야 합니다.
 
 [!INCLUDE [Register extensions](../../includes/functions-core-tools-install-extension.md)]
 
@@ -165,8 +167,9 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 {
   "IsEncrypted": false,   
   "Values": {
-    "AzureWebJobsStorage": "<connection string>", 
-    "AzureWebJobsDashboard": "<connection string>" 
+    "AzureWebJobsStorage": "<connection-string>", 
+    "AzureWebJobsDashboard": "<connection-string>",
+    "MyBindingConnection": "<binding-connection-string>"
   },
   "Host": {
     "LocalHttpPort": 7071, 
@@ -177,16 +180,17 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
   }
 }
 ```
+
 | 설정      | 설명                            |
 | ------------ | -------------------------------------- |
 | **IsEncrypted** | **true**로 설정하면 모든 값은 로컬 컴퓨터 키를 사용하여 암호화됩니다. `func settings` 명령과 함께 사용됩니다. 기본값은 **false**입니다. |
-| **값** | 로컬에서 실행될 때 사용되는 응용 프로그램 설정의 컬렉션입니다. **AzureWebJobsStorage** 및 **AzureWebJobsDashboard**는 예입니다. 전체 목록은 [app settings reference](functions-app-settings.md)를 참조하세요. 많은 트리거와 바인딩에는 Blob 저장소 트리거에 대한 **Connection**과 같은 앱 설정을 참조하는 속성이 있습니다. 이러한 속성의 경우 **Values** 배열에 정의된 응용 프로그램 설정이 필요합니다. 또한 백분율 기호로 값을 래핑하여(예: `%AppSettingName%`) 앱 설정 이름으로 설정한 모든 바인딩 속성에도 적용됩니다. |
-| **호스트** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. | 
+| **값** | 로컬에서 실행될 때 사용되는 연결 문자열 및 응용 프로그램 설정의 컬렉션입니다. **AzureWebJobsStorage** 및 **AzureWebJobsDashboard** 같은 Azure의 함수 앱에서 앱 설정에 해당합니다. 많은 트리거와 바인딩에는 [Blob 저장소 트리거](functions-bindings-storage-blob.md#trigger---configuration)에 대한 **Connection**과 같은 연결 문자열 앱 설정을 참조하는 속성이 있습니다. 이러한 속성의 경우 **Values** 배열에 정의된 응용 프로그램 설정이 필요합니다. <br/>**AzureWebJobsStorage**는 HTTP 이외의 트리거에 대한 필수 앱 설정입니다. [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md)를 로컬로 설치한 경우 **AzureWebJobsStorage**를 `UseDevelopmentStorage=true`에 설정할 수 있으며 이 에뮬레이터는 핵심 도구가 사용합니다. 개발 중에 유용하지만 배포 전에 실제 저장소 연결을 테스트해야 합니다. |
+| **호스트** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. |
 | **LocalHttpPort** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |
 | **CORS** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
-| **ConnectionStrings** | 함수에 대한 데이터베이스 연결 문자열을 포함합니다. 이 개체의 연결 문자열은 공급자 유형이 **System.Data.SqlClient**인 환경에 추가됩니다.  | 
+| **ConnectionStrings** | 함수 바인딩에서 사용하는 연결 문자열에 대해 이 컬렉션을 사용하지 마십시오. 이 컬렉션은 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx) 같은 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져와야 하는 프레임 워크에서만 사용합니다. 이 개체의 연결 문자열은 공급자 유형이 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)인 환경에 추가됩니다. 이 컬렉션의 항목은 다른 앱 설정을 사용하여 Azure에 게시되지 않습니다. 이러한 값을 함수 앱에 대한 **응용 프로그램 설정**의 **연결 문자열** 섹션에 명시적으로 추가해야 합니다. |
 
-이러한 설정은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
+이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
 
 + [미리 컴파일된 C#](functions-dotnet-class-library.md#environment-variables)
 + [C# 스크립트(.csx)](functions-reference-csharp.md#environment-variables)
@@ -194,26 +198,37 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 + [Java](functions-reference-java.md#environment-variables) 
 + [JavaScript](functions-reference-node.md#environment-variables)
 
-local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도구에서만 사용됩니다. 기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다.
+local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도구에서만 사용됩니다. 기본적으로 이러한 설정은 프로젝트가 Azure에 게시될 때 자동으로 마이그레이션되지 않습니다. [게시할 때](#publish) `--publish-local-settings` 스위치를 사용하여 이러한 설정이 Azure의 함수 앱에 추가되었는지 확인합니다. **ConnectionStrings**의 값은 절대 게시되지 않습니다.
 
-**AzureWebJobsStorage**에 유효한 저장소 연결 문자열이 설정되어 있지 않으면 다음 오류 메시지가 표시됩니다.  
+**AzureWebJobsStorage**에 유효한 저장소 연결 문자열이 설정되어 있지 않고 에뮬레이터가 사용되지 않으면 다음 오류 메시지가 표시됩니다.  
 
 >local.settings.json에 AzureWebJobsStorage 값이 없습니다. 이 값은 HTTP 이외의 모든 트리거에 필요합니다. 'func azure functionapp fetch-app-settings <functionAppName>'를 실행하거나 local.settings.json에서 연결 문자열을 지정할 수 있습니다. 
-  
-[!INCLUDE [Note to not use local storage](../../includes/functions-local-settings-note.md)]
 
-### <a name="configure-app-settings"></a>앱 설정 구성
+### <a name="get-your-storage-connection-strings"></a>저장소 연결 문자열 가져오기
 
-연결 문자열 값을 설정하려면 다음 옵션 중 하나를 수행합니다.
-* [Azure Storage 탐색기](http://storageexplorer.com/)에서 연결 문자열을 입력합니다.
-* 다음 중 하나의 명령을 사용합니다.
+개발을 위해 저장소 에뮬레이터를 사용하는 경우라도 실제 저장소 연결을 테스트하고 싶을 수 있습니다. 이미 [저장소 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 저장소 연결 문자열을 가져올 수 있습니다.
 
-    ```
++ [Azure Portal] 저장소 계정으로 이동하여 **설정**에서 **액세스 키**를 선택한 다음, **연결 문자열** 값 중 하나를 복사합니다.
+
+  ![Azure Portal에서 연결 문자열 복사](./media/functions-run-local/copy-storage-connection-portal.png)
+
++ [Azure Storage 탐색기](http://storageexplorer.com/)를 사용하여 Azure 계정에 연결합니다. **탐색기**에서 구독을 확장하고, 저장소 계정을 선택하고, 기본 또는 보조 연결 문자열을 복사합니다. 
+
+  ![Storage 탐색기에서 연결 문자열 복사](./media/functions-run-local/storage-explorer.png)
+
++ 다음 중 한 명령을 사용하여 Azure에서 연결 문자열을 다운로드하려면 핵심 도구를 사용합니다.
+
+    + 기존 함수 앱에서 모든 설정을 다운로드합니다.
+
+    ```bash
     func azure functionapp fetch-app-settings <FunctionAppName>
     ```
-    ```
+    + 특정 저장소 계정에 대한 연결 문자열을 가져옵니다.
+
+    ```bash
     func azure storage fetch-connection-string <StorageAccountName>
     ```
+    
     두 명령을 사용하려면 모두 Azure에 먼저 로그인해야 합니다.
 
 <a name="create-func"></a>
@@ -221,7 +236,7 @@ local.settings.json 파일의 설정은 로컬에서 실행할 때 Functions 도
 
 함수를 만들려면 다음 명령을 실행합니다.
 
-```
+```bash
 func new
 ``` 
 `func new`는 다음 선택적 인수를 지원합니다.
@@ -234,25 +249,25 @@ func new
 
 예를 들어 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
 
-```
+```bash
 func new --language JavaScript --template "Http Trigger" --name MyHttpTrigger
 ```
 
 큐 트리거 함수를 만들려면 다음을 실행합니다.
 
-```
+```bash
 func new --language JavaScript --template "Queue Trigger" --name QueueTriggerJS
-```
+```bash
 <a name="start"></a>
-## <a name="run-functions-locally"></a>로컬로 함수 실행
+## Run functions locally
 
-Functions 프로젝트를 실행하려면 Functions 호스트를 실행합니다. 이 호스트는 프로젝트의 모든 함수에 대한 트리거를 활성화합니다.
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
 
-```
+```bash
 func host start
 ```
 
-`func host start`는 다음 옵션을 지원합니다.
+`func host start`은 다음 옵션을 지원합니다.
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
@@ -267,7 +282,7 @@ func host start
 
 Functions 호스트가 시작되면 HTTP 트리거 함수의 URL이 출력됩니다.
 
-```
+```bash
 Found the following functions:
 Host.Functions.MyHttpTrigger
 
@@ -275,7 +290,7 @@ Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
 
-### <a name="debug-in-vs-code-or-visual-studio"></a>VS 코드 또는 Visual Studio에서 디버그
+### <a name="vs-debug"></a>VS 코드 또는 Visual Studio에서 디버그
 
 디버거를 연결하려면 `--debug` 인수를 전달합니다. JavaScript 함수를 디버그하려면 Visual Studio Code를 사용합니다. C# 함수의 경우 Visual Studio를 사용합니다.
 
@@ -283,7 +298,7 @@ C# 함수를 디버그하려면 `--debug vs`를 사용합니다. [Azure Function
 
 호스트를 시작하고 JavaScript 디버깅을 설정하려면 다음을 실행합니다.
 
-```
+```bash
 func host start --debug vscode
 ```
 
@@ -313,12 +328,12 @@ Functions 호스트가 수신 대기 중인 동일한 서버 이름 및 포트�
 
 다음 cURL 명령은 _이름_ 매개 변수를 쿼리 문자열에 전달한 GET 요청에서 `MyHttpTrigger` 빠른 시작 함수를 트리거합니다. 
 
-```
+```bash
 curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
 ```
 다음 예제는 요청 본문에서 _이름_을 전달하는 POST 요청에서 호출되는 동일한 함수입니다.
 
-```
+```bash
 curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
 ```
 
@@ -340,7 +355,7 @@ HTTP 트리거와 웹후크가 아닌 다른 모든 종류의 함수에서 관�
 ```` 
 `<trigger_input>` 값에는 함수에 필요한 형식의 데이터가 포함됩니다. 다음 cURL 예제는 `QueueTriggerJS` 함수에 대한 POST 요청입니다. 이 경우에 입력은 큐에 위치해야 하는 메시지에 해당하는 문자열입니다.      
 
-```
+```bash
 curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
 ```
 
@@ -363,7 +378,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 예를 들어 HTTP 트리거 함수를 호출하고 콘텐츠 본문을 전달하려면 다음 명령을 실행합니다.
 
-```
+```bash
 func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ```
 
@@ -375,7 +390,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Azure의 함수 앱에 Functions 프로젝트를 게시하려면 `publish` 명령을 사용합니다.
 
-```
+```bash
 func azure functionapp publish <FunctionAppName>
 ```
 
@@ -383,7 +398,7 @@ func azure functionapp publish <FunctionAppName>
 
 | 옵션     | 설명                            |
 | ------------ | -------------------------------------- |
-| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다.|
+| **`--publish-local-settings -i`** |  local.settings.json의 설정을 Azure에 게시하고, 설정이 이미 있는 경우 덮어쓸지 묻습니다. 저장소 에뮬레이터를 사용하는 경우 앱 설정을 [실제 저장소 연결](#get-your-storage-connection-strings)로 변경합니다. |
 | **`--overwrite-settings -y`** | `-i`와 함께 사용해야 합니다. Azure의 AppSettings을 로컬 값으로 덮어씁니다(서로 다른 경우). 기본값은 프롬프트입니다.|
 
 이 명령은 Azure에서 기존 함수 앱에 게시합니다. `<FunctionAppName>`이 구독에 없으면 오류가 발생합니다. Azure CLI를 사용하여 명령 프롬프트 또는 터미널 창에서 함수 앱을 만드는 방법을 알아보려면 [서버를 사용하지 않고 실행하기 위한 함수 앱 만들기](./scripts/functions-cli-create-serverless.md)를 참조하세요.

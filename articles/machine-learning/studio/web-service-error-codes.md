@@ -10,16 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 0ba44b2a93bcd542db1350def2d0554c8c44233c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: fbedf355c6b1c45d581408a962b875544838087f
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836092"
 ---
 # <a name="machine-learning-rest-api-error-codes"></a>Machine Learning REST API 오류 코드
  
@@ -39,7 +41,7 @@ ms.lasthandoff: 03/23/2018
 | BatchJobInputsNotSpecified | 다음 필수 입력이 요청에 지정되지 않았습니다. {0}. 입력 데이터를 모두 지정하고 다시 시도하세요. |
 | BatchJobInputsTooManySpecified | 서비스에 정의된 것보다 많은 입력이 요청에 지정되었습니다. 허용된 입력 목록: {0}. 입력 데이터를 모두 올바르게 지정하고 다시 시도하세요. |
 | BlobNameTooLong | 진단 출력을 위해 제공된 Azure Blob Storage 경로가 너무 깁니다. {0}. 경고를 줄이고 다시 시도하세요. |
-| BlobNotFound | 제공된 Azure BLOB - {0}에 액세스할 수 없습니다.  Azure 오류 메시지: {1}. |
+| BlobNotFound | 제공된 Azure Blob - {0}에 액세스할 수 없습니다.  Azure 오류 메시지: {1}. |
 | ContainerIsEmpty | Azure Storage 컨테이너 이름이 제공되지 않았습니다. 유효한 컨테이너 이름을 제공하고 다시 시도하세요. |
 | ContainerSegmentInvalid | 컨테이너 이름이 잘못되었습니다. 유효한 컨테이너 이름을 제공하고 다시 시도하세요. |
 | ContainerValidationFailed | Blob 컨테이너 유효성 검사가 {0} 오류로 인해 실패했습니다. |
@@ -50,10 +52,10 @@ ms.lasthandoff: 03/23/2018
 | InputBlobRelativeLocationInvalid | Azure Storage Blob 이름이 제공되지 않았습니다. 유효한 Blob 이름을 제공하고 다시 시도하세요. |
 | InvalidBlob | Blob {0}에 대한 Blob 사양이 잘못되었습니다. 연결 문자열/상대 경로 또는 SAS 토큰 사양이 올바른지 확인하고 다시 시도하세요. |
 | InvalidBlobConnectionString | 입력/출력 Blob 중 하나에 지정된 연결 문자열이 잘못되었습니다. {0}. 잘못된 내용을 수정하고 다시 시도하세요. |
-| InvalidBlobExtension | Blob 참조 {0}에 잘못되거나 누락된 파일 확장명이 있습니다. 이 출력 형식에 지원되는 파일 확장명은 "{1}"입니다. |
+| InvalidBlobExtension | Blob 참조 {0}에 잘못되거나 누락된 파일 확장명이 있습니다. 이 출력 형식에 지원되는 파일 확장명은 “{1}”입니다. |
 | InvalidInputNames | 잘못된 서비스 입력 이름이 요청에 지정되었습니다. {0}. 입력 데이터를 올바른 서비스 입력에 매핑하고 다시 시도하세요. |
 | InvalidOutputOverrideName | 잘못된 출력 재정의 이름: {0}. 서비스에 이름이 같은 출력 노드가 없습니다. 재정의를 위해 올바른 출력 노드 이름을 전달하세요(대/소문자 구분 적용됨). |
-| InvalidQueryParameter | 잘못된 쿼리 매개 변수 '{0}'. {1} |
+| InvalidQueryParameter | 잘못된 쿼리 매개 변수 ‘{0}’. {1} |
 | MissingInputBlobInformation | Azure Storage Blob 정보가 누락되었습니다. 유효한 연결 문자열 및 상대 경로 또는 URI를 제공하고 다시 시도하세요. |
 | MissingJobId | 작업 ID가 제공되지 않았습니다. 작업 ID는 작업이 처음 제출될 때 반환됩니다. 작업 ID가 올바른지 확인하고 다시 시도하세요. |
 | MissingKeys | 키가 제공되지 않았거나 기본 또는 보조 키 중 하나가 제공되지 않았습니다. |
@@ -239,7 +241,7 @@ ms.lasthandoff: 03/23/2018
 | 오류 코드 | 사용자 메시지 |
 | ---------- |--------------|
 | NoMoreResources | 요청에 사용할 수 있는 리소스가 없습니다. |
-| RequestThrottled | 요청이 {0} 끝점에 대해 제한되었습니다. 끝점에 대한 최대 동시성은 {1}입니다. |
+| RequestThrottled | 요청이 {0} 엔드포인트에 대해 제한되었습니다. 엔드포인트에 대한 최대 동시성은 {1}입니다. |
 | TooManyConcurrentRequests | 동시 요청을 너무 많이 보냈습니다. |
 | TooManyHostsBeingInitialized | 동시에 초기화되는 호스트가 너무 많습니다. 제한/다시 시도하는 것이 좋습니다. |
 | TooManyHostsBeingInitializedPerModel | 동시에 초기화되는 호스트가 너무 많습니다. 제한/다시 시도하는 것이 좋습니다. |

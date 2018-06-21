@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/29/2018
+ms.date: 5/21/2018
 ms.author: victorh
-ms.openlocfilehash: 37d069b1be86d59d0b1f79c382dc494b067cb934
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32309473"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699906"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -83,6 +83,11 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 **Q. Application Gateway가 게이트웨이에서 여러 공용 IP를 지원하나요?**
 
 Application Gateway에서는 하나의 공용 IP 주소만 지원됩니다.
+
+**Q. Application Gateway에 대해 얼마나 큰 서브넷을 만들어야 하나요?**
+
+Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하고 개인 프런트엔드 IP 구성이 구성된 경우 또 다른 개인 IP 주소를 사용합니다. 또한 Azure에서는 내부 사용을 위해 각 서브넷에서 처음 4개 및 마지막 IP 주소를 예약합니다.
+예를 들어 Application Gateway가 세 개의 인스턴스로 설정되고 개인 프런트엔드 IP가 없는 경우 /29 서브넷 크기 이상이 필요합니다. 이 경우에 Application Gateway는 세 개의 IP 주소를 사용합니다. 개인 프런트엔드 IP 구성에 세 개의 인스턴스 및 하나의 IP 주소가 있는 경우 네 개의 IP 주소가 필요하므로 /28 서브넷 크기 이상이 필요합니다.
 
 **Q. Application Gateway에서 x-forwarded-for 헤더를 지원하나요?**
 
@@ -156,7 +161,7 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 * [백 엔드 상태 통신](application-gateway-diagnostics.md)을 위해 모든 원본에서 포트 65503-65534로 들어오는 요청을 허용합니다.
 
-* [NSG](../virtual-network/virtual-networks-nsg.md)에 대한 들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그) 및 인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
+* [NSG](../virtual-network/security-overview.md)에 대한 들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그) 및 인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
 
 * 모두 거부 규칙을 사용하여 다른 모든 들어오는 트래픽을 차단합니다.
 
@@ -184,6 +189,21 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 예. 중지 없이 백 엔드 풀 내에서 멤버를 변경하도록 연결 드레이닝을 구성할 수 있습니다. 이렇게 하면 해당 연결이 닫히거나 구성 가능한 제한 시간이 만료될 때까지 기존 연결을 이전 목적지로 계속 보낼 수 있습니다. 연결 드레이닝은 현재 처리 중인 연결이 완료될 때까지만 대기합니다. Application Gateway는 응용 프로그램 세션 상태를 인식하지 못합니다.
 
+**Q. Application Gateway 크기란?**
+
+Application Gateway는 현재 **소형**, **중형** 및 **대형**의 3가지 크기를 제공합니다. 소규모 인스턴스 크기는 개발 및 테스트 시나리오를 위해 사용 됩니다.
+
+구독당 최대 50개의 응용 프로그램 게이트웨이를 만들 수 있으며 각 응용 프로그램 게이트웨이에는 최대 10개의 인스턴스가 있을 수 있습니다. 각 Application Gateway는 http 수신기 20개로 구성할 수 있습니다. Application Gateway의 전체 목록은 [Application Gateway 서비스 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits)을 참조하세요.
+
+다음 표에서는 활성화된 SSL 오프로드로 각 응용 프로그램 게이트웨이 인스턴스의 평균 성능 처리량을 보여 줍니다.
+
+| 평균 백 엔드 페이지 응답 크기 | 작음 | 중간 | 큰 |
+| --- | --- | --- | --- |
+| 6KB |7.5Mbps |13Mbps |50Mbps |
+| 100KB |35Mbps |100Mbps |200Mbps |
+
+> [!NOTE]
+> 이러한 값은 응용 프로그램 게이트웨이 처리량에 대한 대략적인 값입니다. 실제 처리량은 평균 페이지 크기, 백 엔드 인스턴스의 위치 및 페이지 처리 시간 등 다양한 환경 세부 사항에 따라 달라집니다. 정확한 성능 수치를 얻으려면 자체 테스트를 실행해야 합니다. 이러한 값은 용량 계획 지침에 대해서만 제공됩니다.
 
 **Q. 중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?**
 

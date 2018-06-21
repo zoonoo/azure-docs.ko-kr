@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/20/2018
+ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fb0eb3dd3349bd901850d6b9dd0f3e33ee2e0d7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b802c7b96bd8d0cfa56347d45542495caf69d7e4
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365664"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824713"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS Protection: 모범 사례 및 참조 아키텍처
 
@@ -292,18 +292,9 @@ Azure Traffic Manager는 들어오는 요청을 한 지역의 Application Gatewa
 
 이 참조 아키텍처에 대한 자세한 내용은 [Azure Virtual Network를 사용하여 Azure HDInsight 확장](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network?toc=%2fazure%2fvirtual-network%2ftoc.json) 설명서를 참조하세요.
 
-### <a name="azure-api-management"></a>Azure API Management
-
-이 참조 아키텍처를 통해 API를 조직 외부 고객에게 게시하는 [Azure API Management](../api-management/api-management-key-concepts.md) 리소스의 공용 엔드포인트를 보호할 수 있습니다. DDoS Protection을 사용할 수 있도록 API Management를 외부 가상 네트워크에 배포합니다.
-
-![API Management에 대한 참조 아키텍처 다이어그램](media/azure-ddos-best-practices/image15.png)
-
-외부 가상 네트워크를 구성할 때 공용 부하 분산 장치를 통해 공용 인터넷에서 API Management 게이트웨이 및 개발자 포털에 액세스할 수 있습니다. 이 아키텍처에서 DDoS Protection Standard는 API Management의 외부 가상 네트워크에 사용됩니다. 트래픽은 인터넷에서 레이어3 및 4의 네트워크 공격으로부터 보호되는 API Management의 공용 IP 주소로 라우팅됩니다. 레이어 7 HTTP/HTTPS 공격을 방어하려면 WAF 모드에서 Application Gateway를 구성하면 됩니다.
-
-가상 네트워크에 배포되고 DDoS Protection 표준에 대해 구성할 수 있는 추가 서비스 목록은 [이 아티클](../virtual-network/virtual-network-for-azure-services.md)을 참조하세요. DDoS Protection 표준은 Azure Resource Manager 리소스만 지원합니다. 
 
 > [!NOTE]
-> 공용 IP를 사용하여 가상 네트워크에서 PowerApps에 삽입된 App Service 환경을 배포하는 작업은 기본적으로 지원되지 않습니다. App Service 환경을 보호하는 방법에 대한 자세한 내용은 이 섹션을 참조하세요.
+> 공용 IP를 사용한 가상 네트워크에서의 PowerApps 또는 API를 위한 Azure App Service 환경은 기본적으로 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

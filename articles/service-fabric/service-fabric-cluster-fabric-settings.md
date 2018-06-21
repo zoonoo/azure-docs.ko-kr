@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: aljo
-ms.openlocfilehash: 29afb683b579d6b59d9a8002351a57dc6e42fad0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642651"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -75,6 +76,15 @@ ms.lasthandoff: 05/16/2018
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, 기본값: None|동적|  |
+
+## <a name="backuprestoreservice"></a>BackupRestoreService
+| **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int, 기본값: 0|공용|BackupRestoreService의 MinReplicaSetSize입니다. |
+|PlacementConstraints|wstring, 기본값: L""|공용| BackupRestore 서비스의 PlacementConstraints입니다. |
+|SecretEncryptionCertThumbprint|wstring, 기본값: L""|동적|비밀 암호화 X509 인증서의 지문 |
+|SecretEncryptionCertX509StoreName|wstring, 기본값: L"My"|  동적|    백업/복원 서비스에서 사용하는 저장소 자격 증명을 암호화 및 암호 해독하는 데 사용되는 X.509 인증서 저장소의 자격 증명 이름 암호화 및 암호 해독용 인증서를 나타냅니다. |
+|TargetReplicaSetSize|int, 기본값: 0|공용| BackupRestoreService의 TargetReplicaSetSize입니다. |
 
 ## <a name="clustermanager"></a>ClusterManager
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -299,6 +309,7 @@ ms.lasthandoff: 05/16/2018
 |ActivationTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(180)|동적| 시간 간격은 초 단위로 지정합니다. 응용 프로그램 활성화, 비활성화 및 업그레이드에 대한 시간 제한입니다. |
 |ApplicationHostCloseTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 자체 활성화된 프로세스에서 Fabric 종료가 감지되면 FabricRuntime에서 사용자의 호스트(applicationhost) 프로세스에서 모든 복제본을 닫습니다. 닫기 작업에 대한 시간 제한입니다. |
 |ApplicationUpgradeTimeout| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(360)|동적| 시간 간격은 초 단위로 지정합니다. 응용 프로그램 업그레이드에 대한 시간 제한입니다. 시간 제한이 "ActivationTimeout"보다 작으면 배포자가 실패합니다. |
+|ContainerServiceArguments|wstring, 기본값: L"-H localhost:2375 -H npipe://"|공용|SF(서비스 패브릭)는 docker 디먼을 관리합니다(Win10 같은 Windows 클라이언트 컴퓨터는 제외). 이 구성을 통해 사용자는 시작할 때 docker 디먼에 전달되어야 하는 사용자 지정 인수를 지정할 수 있습니다. 사용자 지정 인수가 지정되면 Service Fabric은 Docker 엔진에 '--pidfile' 인수를 제외한 다른 인수를 전달하지 않습니다. 따라서 사용자는 '-pidfile' 인수를 자신의 고객 인수의 일부로 지정할 수 없습니다. 또한 사용자 지정 인수는 Service Fabric이 디먼과 통신할 수 있도록 docker 디먼이 Windows의 기본 이름 파이프(또는 Linux의 UNIX 도메인 소켓)를 수신 대기하도록 해야 합니다.|
 |CreateFabricRuntimeTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적| 시간 간격은 초 단위로 지정합니다. 동기화 FabricCreateRuntime 호출에 대한 시간 제한 값입니다. |
 |DeploymentMaxFailureCount|int, 기본값: 20| 동적|노드에서 응용 프로그램의 배포가 실패하기 전에 DeploymentMaxFailureCount 시간 동안 해당 응용 프로그램의 배포가 다시 시도됩니다.| 
 |DeploymentMaxRetryInterval| TimeSpan, 기본값: Common::TimeSpan::FromSeconds(3600)|동적| 시간 간격은 초 단위로 지정합니다. 배포에 대한 최대 다시 시도 간격입니다. 모든 연속 실패에서 다시 시도 간격은 Min(DeploymentMaxRetryInterval, 연속 실패 횟수 * DeploymentRetryBackoffInterval)으로 계산됩니다. |
@@ -311,6 +322,7 @@ ms.lasthandoff: 05/16/2018
 |FirewallPolicyEnabled|bool, 기본값: FALSE|공용| ServiceManifest에 지정된 명시적 포트가 있는 끝점 리소스에 대한 방화벽 포트를 열 수 있습니다. |
 |GetCodePackageActivationContextTimeout|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(120)|동적|시간 간격은 초 단위로 지정합니다. CodePackageActivationContext 호출에 대한 시간 제한 값입니다. 임시 서비스에는 적용되지 않습니다. |
 |IPProviderEnabled|bool, 기본값: FALSE|공용|IP 주소를 관리할 수 있습니다. |
+|LinuxExternalExecutablePath|wstring, 기본값: L"/usr/bin/" |공용|노드의 외부 실행 명령에 대한 기본 디렉터리입니다.|
 |NTLMAuthenticationEnabled|bool, 기본값: FALSE|공용| 다른 사용자로 실행되는 코드 패키지에서 NTLM을 사용하여 컴퓨터 간 프로세스에서 안전하게 통신할 수 있도록 지원할 수 있습니다. |
 |NTLMAuthenticationPasswordSecret|SecureString, 기본값: Common::SecureString(L"")|공용|NTLM 사용자의 암호를 생성하는 데 사용되는 암호화된 비밀입니다. NTLMAuthenticationEnabled가 true이면 설정해야 합니다. 배포자에서 유효성을 검사합니다. |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan, 기본값: Common::TimeSpan::FromMinutes(3)|동적|시간 간격은 초 단위로 지정합니다. 환경 관련 설정이며, FileStoreService NTLM 구성에 사용할 새 인증서를 Hosting에서 검색하는 주기적인 간격입니다. |
@@ -322,6 +334,7 @@ ms.lasthandoff: 05/16/2018
 |ServiceTypeDisableFailureThreshold |정수, 기본값: 1 |동적|해당 노드에서 서비스 유형을 사용하지 않도록 설정하고 다른 노드에 배치를 시도하도록 FM(FailoverManager)에 알리기까지 허용되는 실패 횟수에 대한 임계값입니다. |
 |ServiceTypeDisableGraceInterval|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(30)|동적|시간 간격은 초 단위로 지정합니다. 서비스 유형을 사용 해제할 수 있는 시간 간격입니다. |
 |ServiceTypeRegistrationTimeout |시간(초), 기본값: 300 |동적|ServiceType을 패브릭에 등록하는 데 허용되는 최대 시간 |
+|UseContainerServiceArguments|bool, 기본값: TRUE|공용|이 구성은 호스팅에 docker 디먼으로의 인수(ContainerServiceArguments 구성에 지정된) 전달을 건너뛰도록 지시합니다.|
 
 ## <a name="httpgateway"></a>HttpGateway
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -368,6 +381,7 @@ ms.lasthandoff: 05/16/2018
 |AzureStorageMaxConnections | int, 기본값: 5000 |동적|Azure Storage에 동시에 연결할 수 있는 최대 수 |
 |AzureStorageMaxWorkerThreads | int, 기본값: 25 |동적|병렬 작업자 스레드의 최대 수 |
 |AzureStorageOperationTimeout | time(초), 기본값: 6000 |동적|시간 간격은 초 단위로 지정합니다. xstore 작업을 완료하는 걸리는 시간 제한입니다. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, 기본값: FALSE |동적|이 구성은 성공적인 프로비전에서 응용 프로그램 패키지의 자동 정리를 사용하거나 사용하지 않도록 설정합니다. |
 |DisableChecksumValidation | bool, 기본값: false |공용| 이 구성을 사용하면 응용 프로그램 프로비전 중에 체크섬 유효성 검사를 사용하거나 사용하지 않도록 설정할 수 있습니다. |
 |DisableServerSideCopy | bool, 기본값: false |공용|응용 프로그램 프로비전 중에 ImageStore에서 응용 프로그램 패키지의 서버 쪽 복사본을 사용하거나 사용하지 않도록 설정하는 구성입니다. |
 |ImageCachingEnabled | bool, 기본값: true |공용|이 구성을 사용하면 캐싱을 사용하거나 사용하지 않도록 설정할 수 있습니다. |
@@ -526,6 +540,11 @@ ms.lasthandoff: 05/16/2018
 |ReplicatorPublishAddress|string, 기본값: L"localhost:0"|공용|Windows Fabric 복제자에서 다른 복제본으로 작업을 보내는 데 사용하는 문자열 형식의 끝점입니다(예: 'IP:Port').|
 |RetryInterval|TimeSpan, 기본값: Common::TimeSpan::FromSeconds(5)|공용|시간 간격은 초 단위로 지정합니다. 작업이 손실되거나 거부되면 이 타이머에서 복제자가 작업 전송을 다시 시도하는 빈도를 결정합니다.|
 
+## <a name="resourcemonitorservice"></a>ResourceMonitorService
+| **매개 변수** | **허용되는 값** | **업그레이드 정책**| **지침 또는 간단한 설명** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, 기본값: FALSE |공용|클러스터에서 서비스가 사용되는지 여부를 제어합니다. |
+
 ## <a name="runas"></a>RunAs
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
@@ -586,6 +605,7 @@ ms.lasthandoff: 05/16/2018
 |ServerAuthCredentialType|string, 기본값: L"None"|공용|FabricClient와 클러스터 간의 통신을 보호하는 데 사용할 보안 자격 증명 유형을 나타냅니다. 유효한 값: "None / X509 / Windows" |
 |ServerCertThumbprints|string, 기본값: L""|동적|클러스터에서 클라이언트와 통신하는 데 사용하는 서버 인증서의 지문이며, 클라이언트에서 이 지문을 사용하여 클러스터를 인증합니다. 쉼표로 구분된 이름 목록입니다. |
 |SettingsX509StoreName| string, 기본값: L"MY"| 동적|패브릭에서 구성을 보호하는 데 사용하는 X509 인증서 저장소 |
+|UseClusterCertForIpcServerTlsSecurity|bool, 기본값: FALSE|공용|클러스터 인증서를 사용하여 IPC 서버 TLS 전송 단위의 보안을 유지하는지 여부 |
 |X509Folder|string, 기본값: /var/lib/waagent|공용|X509 인증서와 개인 키가 있는 폴더 |
 
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
@@ -632,6 +652,7 @@ ms.lasthandoff: 05/16/2018
 |GetUpgradesPendingApproval |string, 기본값: "Admin" |동적| 파티션에 GetUpgradesPendingApproval을 유도합니다. |
 |GetUpgradeStatus |string, 기본값: "Admin\|\|User" |동적| 응용 프로그램 업그레이드 상태 폴링에 대한 보안 구성 |
 |InternalList |string, 기본값: "Admin" | 동적|이미지 저장소 클라이언트 파일 목록 작업(내부)에 대한 보안 구성 |
+|InvokeContainerApi|wstring, 기본값: L"Admin"|동적|컨테이너 API 호출 |
 |InvokeInfrastructureCommand |string, 기본값: "Admin" |동적| 인프라 작업 관리 명령에 대한 보안 구성 |
 |InvokeInfrastructureQuery |string, 기본값: "Admin\|\|User" | 동적|인프라 작업 쿼리에 대한 보안 구성 |
 |나열 |string, 기본값: "Admin\|\|User" | 동적|이미지 저장소 클라이언트 파일 목록 작업에 대한 보안 구성 |
@@ -741,25 +762,13 @@ ms.lasthandoff: 05/16/2018
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval | time(초), 기본값: 0.015 | 공용 | 시간 간격은 초 단위로 지정합니다. 복제자에서 작업을 받은 후 승인을 다시 보내기 전에 대기하는 시간을 결정합니다. 이 기간 동안 받은 다른 작업은 승인을 단일 메시지로 다시 보내어 네트워크 트래픽을 줄이지만 잠재적으로 복제자의 처리량을 줄입니다. |
-|CheckpointThresholdInMB |int, 기본값: 50 |공용|로그 사용량이 이 값을 초과하면 검사점이 시작됩니다. |
-|InitialPrimaryReplicationQueueSize |uint, 기본값: 64 | 공용 |주 복제 작업을 유지하는 큐의 초기 크기를 정의합니다. 2의 거듭제곱이어야 합니다.|
-|InitialSecondaryReplicationQueueSize |uint, 기본값: 64 | 공용 |보조 복제자에서 복제 작업을 유지하는 큐의 초기 크기를 정의합니다. 2의 거듭제곱이어야 합니다. |
-|MaxAccumulatedBackupLogSizeInMB |int, 기본값: 800 |공용|지정된 백업 로그 체인 내 백업 로그의 최대 누적 크기(MB)입니다. 증분 백업에서 누적된 백업 로그를 초래하는 백업 로그가 생성되는 경우 관련 전체 백업이 이 크기보다 크기 때문에 증분 백업 요청이 실패합니다. 이러한 경우 사용자는 전체 백업을 수행해야 합니다. |
 |MaxCopyQueueSize |uint, 기본값: 16384 | 공용 |복제 작업을 유지하는 큐의 초기 크기를 정의하는 최대 값입니다. 2의 거듭제곱이어야 합니다. 런타임 동안 큐가 이 크기로 증가하면 주 복제자와 보조 복제자 간에 작업이 제한됩니다. |
-|MaxMetadataSizeInKB |int, 기본값: 4 |허용되지 않음|로그 스트림 메타데이터의 최대 크기 |
 |MaxPrimaryReplicationQueueMemorySize |uint, 기본값: 0 | 공용 |주 복제 큐의 최대 값(바이트) |
 |MaxPrimaryReplicationQueueSize |uint, 기본값: 8192 | 공용 |주 복제 큐에 존재할 수 있는 작업의 최대 수. 2의 거듭제곱이어야 합니다. |
-|MaxRecordSizeInKB |uint, 기본값: 1024 |허용되지 않음| 로그 스트림 레코드의 최대 크기 |
 |MaxReplicationMessageSize |uint, 기본값: 52428800 | 공용 | 복제 작업의 최대 메시지 크기. 기본값은 50MB입니다. |
 |MaxSecondaryReplicationQueueMemorySize |uint, 기본값: 0 | 공용 |보조 복제 큐의 최대 값(바이트) |
 |MaxSecondaryReplicationQueueSize |uint, 기본값: 16384 | 공용 |보조 복제 큐에 존재할 수 있는 작업의 최대 수. 2의 거듭제곱이어야 합니다. |
-|MaxWriteQueueDepthInKB |int, 기본값: 0 |허용되지 않음| 이 복제본과 연결되는 로그에 대해 지정하여 코어 로거에서 사용할 수 있는 최대 쓰기 큐 깊이의 정수 값. 코어 로거에서 업데이트하는 중에 처리하지 않을 수 있는 최대 바이트 수입니다. 코어 로거가 해당 값 또는 4의 배수를 계산하는 경우 0이 될 수 있습니다. |
-|MinLogSizeInMB |int, 기본값: 0 |공용|트랜잭션 로그의 최소 크기입니다. 로그를 이 설정보다 작은 크기로 자를 수 없습니다. 0은 복제자에서 다른 설정에 따라 최소 로그 크기를 결정 함을 나타냅니다. 이 값을 늘리면 관련 로그 레코드가 잘리는 확률이 낮아지므로 부분 복사 및 증분 백업을 수행할 가능성이 높아집니다. |
 |ReplicatorAddress |string, 기본값: "localhost:0" | 공용 | Windows Fabric 복제자에서 작업을 보내거나 받기 위해 다른 복제본과의 연결을 설정하는 데 사용되는 문자열 형식의 끝점입니다(예: 'IP:Port'). |
-|SecondaryClearAcknowledgedOperations |bool, 기본값: false | 공용 |보조 복제자의 작업이 디스크에 플러시된 후 주 복제에 승인되면 해당 작업을 지우는지 여부를 제어하는 부울 값. True로 설정하면 장애 조치 후 복제본을 따라 잡는 동안 새 주 디스크에서 추가 디스크 읽기가 발생할 수 있습니다. |
-|SharedLogId |문자열 |허용되지 않음|공유 로그 식별자. GUID이며 각 공유 로그마다 고유해야 합니다. |
-|SharedLogPath |문자열 |허용되지 않음|공유 로그에 대한 경로. 빈 값인 경우 기본 공유 로그가 사용됩니다. |
-|SlowApiMonitoringDuration |시간(초), 기본값: 300 |공용| 경고 상태 이벤트가 발생하기 전에 API 지속 시간을 지정합니다.|
 
 ## <a name="transport"></a>전송
 | **매개 변수** | **허용되는 값** |**업그레이드 정책** |**지침 또는 간단한 설명** |

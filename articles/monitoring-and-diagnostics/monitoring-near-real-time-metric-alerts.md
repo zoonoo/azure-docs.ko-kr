@@ -1,39 +1,22 @@
 ---
-title: Azure Monitor 지원 리소스의 최신 메트릭 경고 | Microsoft Docs
+title: 최신 Azure Monitor 메트릭 경고에 지원되는 리소스
 description: 최신 Azure 근 실시간 메트릭 경고에서 지원 메트릭 및 로그에 대한 참조입니다.
 author: snehithm
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/27/2018
-ms.author: snmuvva, vinagara
-ms.custom: ''
-ms.openlocfilehash: c4a4a82eedc41b7690af005faecc1505257183ab
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: snmuvva
+ms.component: alerts
+ms.openlocfilehash: d5eaa4dafc9c155d3e6f85bc67c578c8a12da7cf
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778116"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264513"
 ---
-# <a name="newer-metric-alerts-for-azure-services-in-the-azure-portal"></a>Azure Portal에서 Azure 서비스에 대한 최신 메트릭 경고
-Azure Monitor는 이제 새로운 메트릭 경고 형식을 지원합니다. 최신 경고는 몇 가지 점에서 [클래식 메트릭 경고](insights-alerts-portal.md)와 다릅니다.
-
-- **개선된 대기 시간**: 최신 메트릭 경고는 1분 간격으로 자주 실행할 수 있습니다. 이전 메트릭 경고는 항상 5분 주기로 실행됩니다. 로그를 수집 하는 데 걸리는 시간으로 인해 경고 로그는 1분 이상 지연됩니다. 
-- **다차원 메트릭에 대한 지원**: 메트릭의 흥미로운 세그먼트만 모니터링할 수 있도록 차원이 포함된 메트릭에서 경고를 수행할 수 있습니다. 
-- **메트릭 조건 세부 제어**: 경고 규칙을 다양하게 정의할 수 있습니다. 최신 경고는 메트릭의 최대, 최소, 평균 및 전체 값을 모니터링하도록 지원합니다. 
-- **여러 가지 메트릭의 결합 모니터링**: 단일 규칙을 사용하여 다중 메트릭(현재 최대 2개)을 모니터링할 수 있습니다. 두 메트릭이 지정된 기간 동안 해당 임계값을 위반하면 경고가 트리거됩니다. 
-- **향상된 알림 시스템**: 모든 최신 경고는 여러 경고에서 다시 사용할 수 있는 알림 및 작업으로 명명된 그룹인 [작업 그룹](monitoring-action-groups.md)을 사용합니다. 클래식 메트릭 경고 및 이전 Log Analytics 경고는 작업 그룹을 사용하지 않습니다. 
-- **로그의 메트릭**(제한된 공용 미리 보기): 이제 Log Analytics로 이동하는 로그 데이터를 추출하고 Azure Monitor 메트릭으로 변환한 다음, 다른 메트릭과 마찬가지로 경고할 수 있습니다. 
-
-Azure Portal에서 새로운 메트릭 경고를 만드는 방법은 [Azure Portal에서 경고 규칙 만들기](monitor-alerts-unified-usage.md#create-an-alert-rule-with-the-azure-portal)를 참조하세요. 생성 후에 [Azure Portal에서 경고 관리](monitor-alerts-unified-usage.md#managing-your-alerts-in-azure-portal)에 설명된 단계에 따라 경고를 관리할 수 있습니다.
-
+# <a name="supported-metrics-and-creation-methods-for-new-metric-alerts"></a>새 메트릭 경고에 지원되는 메트릭 및 생성 방법
+이제 Azure Monitor는 기존의 [클래식 메트릭 경고](insights-alerts-portal.md)에 비해 상당한 장점이 있는 [새 메트릭 경고 형식](monitoring-overview-unified-alerts.md)을 지원합니다. 기존 경고는 [대형 메트릭 목록](monitoring-supported-metrics.md)을 지원합니다. 새 경고는 이 대형 목록의 (점점 커지고 있는) 하위 집합을 지원합니다. 이 문서에서는 이러한 하위 집합이 나열되어 있습니다. 
 
 ## <a name="portal-powershell-cli-rest-support"></a>포털, PowerShell, CLI, REST 지원
 현재는 Azure Portal, [REST API](https://docs.microsoft.com/en-us/rest/api/monitor/metricalerts/createorupdate) 또는 [Resource Manager 템플릿](monitoring-create-metric-alerts-with-templates.md)에서만 최신 메트릭 경고를 만들 수 있습니다. PowerShell을 사용한 최신 경고 구성이 지원되며, Azure CLI(Azure 명령줄 인터페이스) 2.0이 지원될 예정입니다.
@@ -57,7 +40,7 @@ Azure Portal에서 새로운 메트릭 경고를 만드는 방법은 [Azure Port
 |Microsoft.DBforMySQL/servers     |   해당 없음      |[MySQL용 DB](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    해당 없음     | [PostgreSQL용 DB](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
 |Microsoft.EventHub/namespaces     |  예      |[Event Hubs](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
-|Microsoft.KeyVault/vaults| 아니오 | [VAULTS](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
+|Microsoft.KeyVault/vaults| 아니오 | [자격 증명 모음](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     해당 없음    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    해당 없음     | [Application Gateway](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |
 |Microsoft.Network/dnsZones | 해당 없음| [DNS 영역](monitoring-supported-metrics.md#microsoftnetworkdnszones) |

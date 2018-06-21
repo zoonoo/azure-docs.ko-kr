@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 778810001952daf9ac63a7f1f880b05234549965
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637415"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -33,7 +34,7 @@ Log Analytics를 사용하여 로컬 데이터 센터 또는 기타 클라우드
 * PowerShell 스크립트.
 * Azure Stack에서 온-프레미스로 Windows를 실행하는 가상 머신용 Resource Manager 템플릿.  
 
-Windows 에이전트를 배포하기 위한 네트워크 및 시스템 요구 사항을 이해하려면 [Windows 컴퓨터에 대한 필수 구성 요소](log-analytics-concept-hybrid.md#prerequisites)를 검토하세요.
+지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-concept-hybrid.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-concept-hybrid.md#network-firewall-requirements)을 검토합니다.
 
 ## <a name="obtain-workspace-id-and-key"></a>작업 영역 ID 및 키 가져오기
 Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작업 영역에 대한 작업 영역 ID 및 키가 필요합니다.  이 정보는 에이전트를 적절히 구성하고 Azure 상용 및 미국 정부 클라우드에서 Log Analytics와 성공적으로 통신할 수 있는지 확인하기 위해 각 설치 방법에서 설치하는 동안 필요합니다.  
@@ -54,7 +55,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지하고 **다음**을 클릭합니다.
 5. **에이전트 설치 옵션** 페이지에서 Azure Log Analytics(OMS)에 에이전트를 연결하도록 선택한 후 **다음**을 클릭합니다.   
 6. **Azure Log Analytics** 페이지에서 다음을 수행합니다.
-   1. 앞에서 복사한 **작업 영역 ID** 및 **작업 영역 키(기본 키)**를 붙여넣습니다.  컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 **Azure 클라우드** 드롭다운 목록에서 **Azure 미국 정부**를 선택합니다.  
+   1. 앞에서 복사한 **작업 영역 ID** 및 **작업 영역 키(기본 키)** 를 붙여넣습니다.  컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 **Azure 클라우드** 드롭다운 목록에서 **Azure 미국 정부**를 선택합니다.  
    2. 컴퓨터가 프록시 서버를 통해 Log Analytics 서비스와 통신해야 하는 경우 **고급**을 클릭하고 프록시 서버의 URL 및 포트 번호를 제공합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력하여 프록시 서버로 인증한 후 **다음**을 클릭합니다.  
 7. 필요한 구성 설정 제공을 완료한 후 **다음**을 클릭합니다.<br><br> ![작업 영역 ID 및 기본 키 붙여넣기](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
@@ -158,7 +159,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
 
 에이전트 설치가 완료되면 두 가지 방법으로 성공적으로 연결되었는지 확인하고 보고할 수 있습니다.  
 
-**제어판**의 컴퓨터에서 **Microsoft Monitoring Agent** 항목을 찾습니다.  해당 항목을 선택하고 **Azure Log Analytics(OMS)** 탭에서 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.**와 같은 메시지가 표시됩니다.<br><br> ![Log Analytics에 대한 MMA 연결 상태](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+**제어판**의 컴퓨터에서 **Microsoft Monitoring Agent** 항목을 찾습니다.  해당 항목을 선택하고 **Azure Log Analytics(OMS)** 탭에서 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.<br><br> ![Log Analytics에 대한 MMA 연결 상태](media/log-analytics-quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
 
 Azure Portal에서 단순 로그 검색을 수행할 수도 있습니다.  
 

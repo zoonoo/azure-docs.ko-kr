@@ -1,23 +1,20 @@
 ---
-title: Azure VM을 만드는 동안 백업 사용 | Microsoft Docs
+title: Azure VM을 만드는 동안 백업 사용
 description: Azure Virtual Machine을 만드는 동안 백업을 사용하도록 설정하는 단계를 참조하세요.
 services: backup, virtual-machines
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
 tags: azure-resource-manager, virtual-machine-backup
-ms.assetid: ''
 ms.service: backup, virtual-machines
-ms.devlang: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: trinadhk
-ms.openlocfilehash: e16714eee697d9dc8102b5f29d9639d650517562
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 928481f07875286a21f68dae6556f04eb2b6ae5c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606123"
 ---
 # <a name="enable-backup-during-azure-virtual-machine-creation"></a>Azure Virtual Machine을 만드는 동안 백업 사용 
 

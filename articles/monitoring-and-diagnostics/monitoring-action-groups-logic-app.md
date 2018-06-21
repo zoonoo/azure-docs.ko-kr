@@ -1,25 +1,19 @@
 ---
-title: Azure Monitor 경고 및 동작 그룹을 사용하여 복잡한 동작을 트리거하는 방법 | Microsoft Docs
+title: Azure Monitor 경고 및 작업 그룹을 사용하여 복잡한 작업을 트리거하는 방법
 description: Azure Monitor 경고를 처리하기 위해 논리 앱 작업을 만드는 방법에 대해 알아봅니다.
 author: dkamstra
-manager: chrad
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
-ms.openlocfilehash: 0020f1475d52d01897320062edbd3a66c8acf751
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: eafb2bcf0175190748c9dd020051cbebfcaee1fd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887453"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263887"
 ---
 # <a name="create-a-logic-app-action"></a>논리 앱 작업 만들기
 ## <a name="overview"></a>개요 ##

@@ -1,24 +1,19 @@
 ---
-title: Azure에서 모니터링 데이터 사용 | Microsoft Docs
+title: Azure의 모니터링 데이터 원본
 description: 현재 Azure에서 사용할 수 있는 모든 모니터링 데이터 원본을 알아봅니다.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 3/27/2017
 ms.author: johnkem
-ms.openlocfilehash: b10e95cd6b335468201b4cd123b3a29fb5d1bcdb
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: ''
+ms.openlocfilehash: 7b3cb869f3c220c20db53216c96449d01c16eaf6
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263180"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure에서 모니터링 데이터 사용
 

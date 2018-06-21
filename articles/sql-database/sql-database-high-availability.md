@@ -5,16 +5,16 @@ services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: e541513890d357587e5c1e792165123c2beb5d96
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 27f0c49913b424a6bd77b7cb6f7d6e97598c2157
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777022"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839812"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 Azure SQL Database PaaS 제품을 출시한 이후, Microsoft는 HA(고가용성)를 서비스에 기본적으로 제공하고, 고객이 HA를 운영하거나 HA에 특별한 논리를 추가하거나 HA 관련 의사 결정을 내릴 필요가 없도록 하겠다고 고객에게 약속한 바 있습니다. Microsoft는 고객에게 SLA를 제공하여 HA 시스템 구성 및 운영에 대한 완전한 제어를 유지 관리합니다. HA SLA는 지역에 있는 SQL 데이터베이스에 적용되며, Microsoft의 합리적인 제어 이외의 요인으로 인해 전체 지역에 장애가 발생하는 경우 보호를 제공하지 않습니다. 이러한 요인으로, 자연 재해, 전쟁, 테러 행위, 폭동, 정부 조치 또는 Microsoft의 데이터 센터 외부(고객 사이트 또는 고객 사이트와 Microsoft 데이터 센터 간 포함)의 네트워크 또는 장치 오류가 있습니다.
@@ -79,7 +79,7 @@ SQL Database의 고가용성 솔루션은 SQL Server의 [Always ON 가용성 그
 영역 중복 쿼럼 집합에서는 복제본이 서로 간에 약간 떨어져 있는 서로 다른 데이터 센터에 있기 때문에, 네트워크 대기 시간이 늘어나면 커밋 시간이 늘어나고, 이에 따라 일부 OLTP 작업의 성능에 영향을 줄 수 있습니다. 언제든지 영역 중복 설정을 사용하지 않도록 설정하여 단일 영역 구성으로 돌아갈 수 있습니다. 이 프로세스는 데이터 작업의 크기이며 일반 SLO(서비스 수준 목표) 업데이트와 비슷합니다. 프로세스가 완료되면 데이터베이스 또는 풀이 영역 중복 링에서 단일 영역 링으로 또는 그 반대로 마이그레이션됩니다.
 
 > [!IMPORTANT]
-> 영역 중복 데이터베이스 및 탄력적 풀은 프리미엄 및 중요 비즈니스용(미리 보기) 서비스 계층에서만 지원됩니다. 공개 미리 보기로 있는 동안 백업 및 감사 레코드는 RA-GRS 저장소에 저장되므로 전체 영역 중단 시 자동으로 사용되지 않을 수 있습니다. 
+> 영역 중복 데이터베이스 및 탄력적 풀은 현재 프리미엄 서비스 계층에서만 지원됩니다. 공개 미리 보기로 있는 동안 백업 및 감사 레코드는 RA-GRS 저장소에 저장되므로 전체 영역 중단 시 자동으로 사용되지 않을 수 있습니다. 
 
 다음 다이어그램에서는 고가용성 아키텍처의 영역 중복 버전을 보여 줍니다.
  
@@ -92,7 +92,7 @@ SQL Database의 고가용성 솔루션은 SQL Server의 [Always ON 가용성 그
 
 데이터베이스에 대해 읽기 확장을 사용하도록 설정하면, 응용 프로그램의 연결 문자열에 구성된 `ApplicationIntent` 속성에 따라 해당 데이터베이스에 연결하는 응용 프로그램이 해당 데이터베이스의 읽기-쓰기 복제본 또는 읽기 전용 복제본으로 전달됩니다. `ApplicationIntent` 속성에 대한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조하세요. 
 
-읽기 확장을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.  
+읽기 스케일 아웃을 사용할 수 없거나 지원되지 않는 서비스 계층에서 ReadScale 속성을 설정한 경우 모든 연결은 `ApplicationIntent` 속성과 독립적으로 읽기/쓰기 복제본으로 이동됩니다.  
 
 > [!NOTE]
 > 표준 또는 범용 데이터베이스에서 읽기 확장을 활성화할 수는 있지만 이러한 데이터는 읽기 전용 세션을 별도의 복제본으로 라우팅하지 않습니다. 표준/범용 및 프리미엄/중요 비즈니스용 계층에서 수직 확장/축소되는 기존 응용 프로그램을 지원하기 위해서입니다.  

@@ -1,24 +1,19 @@
 ---
-title: "Azure 메트릭 경고에 대한 webhook 구성 | Microsoft 문서"
-description: "Azure 경고를 다른 비Azure 시스템으로 바꾸는 방법을 알아봅니다."
+title: 웹후크를 사용하여 비 Azure 시스템을 알리도록 클래식 메트릭 경고 설정
+description: Azure 메트릭 경고를 다른 비 Azure 시스템으로 다시 라우팅하는 방법을 알아봅니다.
 author: johnkemnetz
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 8b3ae540-1d19-4f3d-a635-376042f8a5bb
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: johnkem
-ms.openlocfilehash: 049803e7701c68559103d9b1fa5dfacf820d0548
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.component: alerts
+ms.openlocfilehash: 9cc017aad7fbdc740ab3fa3af5603223e5b844ce
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262354"
 ---
 # <a name="configure-a-webhook-on-an-azure-metric-alert"></a>Azure 활동 메트릭 경고에 대한 웹후크 구성
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 

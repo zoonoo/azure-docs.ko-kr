@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: a558a5f4f1e19be7b15721c8f99dc5a2d7b396bc
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: b9bdc3f4a0f7eb20b1c0cbc33fb257577da08c26
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598490"
 ---
-# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb-by-using-azure-resource-manager"></a>Azure 리소스 관리자를 사용하여 ILB(내부 부하 분산 장치)에서 응용 프로그램 게이트웨이 만들기
-
-> [!div class="op_single_selector"]
-> * [Azure 클래식 PowerShell](application-gateway-ilb.md)
-> * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
+# <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
 Azure Application Gateway는 인터넷 연결 VIP 또는 ILB(내부 부하 분산 장치) 끝점이라고 알려진 인터넷에 노출되지 않은 내부 끝점을 사용하여 구성할 수 있습니다. ILB를 사용하여 게이트웨이를 구성하는 것은 인터넷에 노출되지 않은 비즈니스 응용 프로그램의 내부 라인에 대해 유용합니다. 또한 인터넷에 노출되지 않은 보안 경계에 앉아 있는 다중 계층 응용 프로그램 내에 포함된 서비스 및 계층에 유용하지만 여전히 라운드 로빈 부하 분산, 세션 인력 또는 SSL(Secure Sockets Layer) 종료가 필요합니다.
 

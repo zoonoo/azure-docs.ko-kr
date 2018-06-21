@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 6adde6a76a7675ef4d8b63757fc9419500872dd9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 66d3ee76308573bb5672ffa8eeedcc4aca4c0cc5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638350"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -528,7 +529,7 @@ Service Fabric에서 실행 중인 Windows 컨테이너를 모니터링할 수 �
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
-Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에이전트와 함께 다음 관리 팩이 각 컴퓨터에 설치되어 있습니다. 관리 팩에는 구성 또는 유지 관리가 필요하지 않습니다.
+OMS 포털에서 *솔루션 갤러리*로 이동하여 **컨테이너 모니터링 솔루션**을 추가합니다. Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에이전트와 함께 다음 관리 팩이 각 컴퓨터에 설치되어 있습니다. 관리 팩에는 구성 또는 유지 관리가 필요하지 않습니다.
 
 - C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs에 설치된 *ContainerManagement.xxx*
 
@@ -563,6 +564,7 @@ Windows 에이전트를 사용하는 경우 이 솔루션을 추가할 때 에�
 
 ## <a name="monitor-containers"></a>모니터 컨테이너
 Log Analytics 포털에서 솔루션을 사용하도록 설정한 후에는 **컨테이너** 타일에 컨테이너 호스트와 호스트에서 실행 중인 컨테이너에 대한 요약 정보가 표시됩니다.
+
 
 ![컨테이너 타일](./media/log-analytics-containers/containers-title.png)
 

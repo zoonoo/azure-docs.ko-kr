@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 2597b434bc6db0d5639709a9ce869462c3e47f56
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235943"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집
 
@@ -40,12 +41,9 @@ Linux 및 Windows용 에이전트는 TCP 포트 443을 통해 Log Analytics 서�
 
 System Center 2016 - Operations Manager 또는 Operations Manager 2012 R2를 사용하여 컴퓨터를 모니터링하는 경우 Log Analytics 서비스와 멀티홈으로 구성되어 데이터를 수집하고 서비스로 전달할 수 있고 [Operations Manager](log-analytics-om-agents.md)에서 계속 모니터링될 수도 있습니다. Log Analytics와 통합된 Operations Manager 관리 그룹에서 모니터링되는 Linux 컴퓨터는 데이터 원본에 대한 구성을 수신하거나 관리 그룹을 통해 수집된 데이터를 전달하지 않습니다. Windows 에이전트는 최대 4개의 작업 영역을 보고할 수 있는 반면 Linux 에이전트는 단일 작업 영역에 대한 보고만 지원합니다.  
 
-Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라, 변경 내용 추적 및 업데이트 관리와 같은 Hybrid Runbook Worker 역할 및 관리 솔루션을 호스트하도록 Azure Automation도 지원합니다.  Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md)를 참조하세요.
+Linux 및 Windows용 에이전트는 Log Analytics에 연결할 뿐만 아니라, 변경 내용 추적 및 업데이트 관리와 같은 Hybrid Runbook Worker 역할 및 관리 솔루션을 호스트하도록 Azure Automation도 지원합니다.  Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
-## <a name="prerequisites"></a>필수 조건
-시작하기 전에 다음 세부 정보를 검토하여 최소 시스템 요구 사항을 충족하는지 확인합니다.
-
-### <a name="windows-operating-system"></a>Windows 운영 체제
+## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
 
 * Windows Server 2008 SP1(서비스 팩 1) 이상
@@ -54,17 +52,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 > [!NOTE]
 > Windows용 에이전트는 TLS(전송 계층 보안) 1.0 및 1.1만 지원합니다.  
 
-#### <a name="network-configuration"></a>네트워크 구성
-아래 정보는 Windows 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다. 트래픽은 네트워크에서 Log Analytics 서비스로 아웃바운드됩니다. 
-
-| 에이전트 리소스 | 포트 | HTTPS 검사 무시|
-|----------------|-------|------------------------|
-|*.ods.opinsights.azure.com |443 | 예 |
-|*.oms.opinsights.azure.com | 443 | 예 | 
-|\*.blob.core.windows.net | 443 | 예 | 
-|*.azure-automation.net | 443 | 예 | 
-
-### <a name="linux-operating-systems"></a>Linux 운영 체제
+## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 다음 Linux 배포판이 공식적으로 지원됩니다.  하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다.  다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.  
 
 * Amazon Linux 2012.09 ~ 2015.09(x86/x64)
@@ -75,19 +63,22 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS(x86/x64)
 * SUSE Linux Enterprise Server 11 및 12(x86/x64)
 
-#### <a name="network-configuration"></a>네트워크 구성
-아래 정보는 Linux 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다.  
+## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
+아래 정보는 Linux 및 Windows 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다.  
 
-|에이전트 리소스| 포트 | 방향 |  
-|------|---------|--------|  
-|*.ods.opinsights.azure.com | 포트 443 | 인바운드 및 아웃바운드|  
-|*.oms.opinsights.azure.com | 포트 443 | 인바운드 및 아웃바운드|  
-|\*.blob.core.windows.net | 포트 443 | 인바운드 및 아웃바운드|  
-|* .azure-automation.net | 포트 443 | 인바운드 및 아웃바운드|  
+|에이전트 리소스|포트 |방향 |HTTPS 검사 무시|
+|------|---------|--------|--------|   
+|*.ods.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|예 |  
+|*.oms.opinsights.azure.com |포트 443 |인바운드 및 아웃바운드|예 |  
+|\*.blob.core.windows.net |포트 443 |인바운드 및 아웃바운드|예 |  
+|* .azure-automation.net |포트 443 |인바운드 및 아웃바운드|예 |  
 
-Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 Log Analytics 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  설치 중에 또는 설치 후에 proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.  
 
-프록시 구성 값은 다음 구문을 갖습니다.
+Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
+
+Windows 및 Linux 에이전트는 HTTPS 프로토콜을 사용하여 프록시 서버 또는 OMS 게이트웨이를 통해 Log Analytics 서비스와 통신하도록 지원합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  서비스에 직접 연결된 Windows 에이전트의 경우, 프록시 구성은 설치 중이나 제어판 또는 PowerShell을 사용하여 [배포 후](log-analytics-agent-manage.md#update-proxy-settings)에 지정됩니다.  
+
+Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](/log-analytics-agent-manage.md#update-proxy-settings) proxy.conf 구성 파일을 수정하여 프록시 서버를 지정할 수 있습니다.  Linux 에이전트 프록시 구성 값은 다음 구문을 포함합니다.
 
 `[protocol://][user:password@]proxyhost[:port]`
 

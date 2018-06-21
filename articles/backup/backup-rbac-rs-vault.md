@@ -1,24 +1,19 @@
 ---
-title: 역할 기반 Access Control을 사용하여 Backup 관리 | Microsoft Docs
+title: Azure 역할 기반 액세스 제어를 사용하여 백업 관리
 description: 역할 기반 Access Control을 사용하여 Recovery Services 자격 증명 모음의 백업 관리 작업에 대한 액세스를 관리합니다.
 services: backup
-documentationcenter: ''
 author: trinadhk
 manager: shreeshd
-editor: ''
-ms.assetid: 3bd46b97-4b29-47a5-b5ac-ac174dd36760
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/22/2017
-ms.author: trinadhk;markgal
-ms.openlocfilehash: 442d998d8898dc40ee23ca541d35c340edf64dbd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: trinadhk
+ms.openlocfilehash: 37240b211e055682c4ce93c9057c4b266bba49e3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607449"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당 작업을 수행하는 데 필요한 만큼의 권한만 부여할 수 있습니다.

@@ -1,25 +1,20 @@
 ---
-title: Azure(Resource Manager)에 Windows 파일 및 폴더 백업 | Microsoft Docs
+title: Azure(Resource Manager)에 Windows 파일 및 폴더 백업
 description: Resource Manager 배포를 통해 Windows 파일 및 폴더를 Azure로 백업하는 방법을 알아봅니다.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 백업 방법; 백업 방법; 파일 및 폴더 백업
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 8/15/2017
-ms.author: markgal;
-ms.openlocfilehash: 55f83bda1a9de9274194ec220fa9a4a5c8b7f0fb
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: markgal
+ms.openlocfilehash: 7abdf06d1b5a4361da9ddb75cec01d6fd1630d08
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606973"
 ---
 # <a name="first-look-back-up-files-and-folders-in-resource-manager-deployment"></a>먼저 보기: Resource Manager 배포에서 파일 및 폴더 백업
 이 문서는 Resource Manager 배포를 사용하여 Windows Server(또는 Windows 컴퓨터) 파일 및 폴더를 Azure에 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다. Azure Backup을 시작하려는 분들은 여기서 시작하시면 됩니다.

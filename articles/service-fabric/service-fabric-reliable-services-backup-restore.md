@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/6/2017
 ms.author: mcoskun
-ms.openlocfilehash: c90231d58ca8eb562aadb916c8667e2bee700b3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643035"
 ---
 # <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>Reliable Services 및 Reliable Actors 백업 및 복원
 Azure 서비스 패브릭은 여러 노드에 걸쳐 상태를 복제하여 고가용성을 유지하는 고가용성 플랫폼입니다.  따라서 클러스터의 한 노드에서 오류가 발생해도 서비스를 지속적으로 사용할 수 있습니다. 많은 경우 플랫폼에서 제공하는 이러한 기본 제공 중복성으로 충분하지만 어떤 경우에는 서비스를 위해 (외부 저장소에) 데이터를 백업하는 것이 바람직합니다.
@@ -153,7 +154,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
 > 
 
 ## <a name="deleted-or-lost-service"></a>서비스 삭제 또는 손상
-서비스가 제거된 경우 데이터 복원에 앞서 서비스를 다시 만들어야 합니다.  데이터의 원활한 복원을 위해 파티션 구성표 등과 같은 동일한 구성의 서비스를 만드는 것이 좋습니다.  서비스가 작동되면 이 서비스의 모든 파티션에서 데이터를 복원하는 API(위의`OnDataLossAsync`)를 호출해야 합니다. 이를 달성하는 한 가지 방법은 모든 파티션에서 `[FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)`를 사용하는 것입니다.  
+서비스가 제거된 경우 데이터 복원에 앞서 서비스를 다시 만들어야 합니다.  데이터의 원활한 복원을 위해 파티션 구성표 등과 같은 동일한 구성의 서비스를 만드는 것이 좋습니다.  서비스가 작동되면 이 서비스의 모든 파티션에서 데이터를 복원하는 API(위의`OnDataLossAsync`)를 호출해야 합니다. 이를 수행하기 위한 한 가지 방법은 모든 파티션에서 [FabricClient.TestManagementClient.StartPartitionDataLossAsync](https://msdn.microsoft.com/library/mt693569.aspx)를 사용하는 것입니다.  
 
 이 시점부터는 앞의 시나리오와 같은 방식으로 구현됩니다. 각 파티션이 외부 저장소로부터 최신 관련 백업을 복원해야 합니다. 한 가지 주의할 점은 런타임이 동적으로 파티션 ID를 생성하기 대문에 파티션 ID가 변경될 수 있다는 사실입니다. 따라서 서비스가 각 파티션에서 복원할 정확한 최신 백업을 식별할 수 있게 적합한 파티션 정보 및 서비스 이름을 저장해야 합니다.
 

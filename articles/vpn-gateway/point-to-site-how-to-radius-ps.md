@@ -1,13 +1,13 @@
 ---
-title: "지점 및 사이트 간 연결과 RADIUS 인증을 사용하여 가상 네트워크에 컴퓨터 연결: PowerShell | Azure"
-description: "P2S 및 RADIUS 인증을 사용하여 Windows 및 Mac OS X 클라이언트를 가상 네트워크에 안전하게 연결합니다."
+title: '지점 및 사이트 간 연결과 RADIUS 인증을 사용하여 가상 네트워크에 컴퓨터 연결: PowerShell | Azure'
+description: P2S 및 RADIUS 인증을 사용하여 Windows 및 Mac OS X 클라이언트를 가상 네트워크에 안전하게 연결합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: jpconnock
-editor: 
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2018
 ms.author: anzaman
-ms.openlocfilehash: 3b7315aaa57d1387e3cea31e8b306131a59a7006
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: df7afe9324831ffb8e79d7320f2c716ed18a7b4f
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267352"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>RADIUS 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: PowerShell
 

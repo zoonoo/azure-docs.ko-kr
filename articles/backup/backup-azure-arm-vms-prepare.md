@@ -1,26 +1,20 @@
 ---
-title: 'Azure Backup: 가상 머신 백업 준비 | Microsoft Docs'
+title: 'Azure Backup: 가상 머신 백업 준비'
 description: 환경이 Azure의 가상 머신을 백업할 준비가 되었는지 확인합니다.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 백업; 백업;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: markgal
+ms.openlocfilehash: 3727fab8f5d19e8f9178c9029177a2c1479422ae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940573"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606639"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -60,6 +54,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 * 선택한 네트워크에 대해 저장소 계정에 대한 방화벽 및 가상 네트워크 설정을 구성한 다음, Azure Backup 서비스가 네트워크 제한 저장소 계정에 액세스할 수 있도록 **신뢰할 수 있는 Microsoft 서비스가 이 저장소 계정에 액세스하도록 허용합니다.** 를 예외적으로 선택합니다. 네트워크 제한 저장소 계정에는 항목 수준 복구가 지원되지 않습니다.
 * Azure의 모든 공영 지역에 있는 가상 머신을 백업할 수 있습니다. (지원되는 지역의 [검사 목록](https://azure.microsoft.com/regions/#services)을 참조하세요.) 찾는 지역이 현재 지원되지 않는 경우 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. 대해 자세히 알아보려면 [다중 DC 도메인 컨트롤러 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조하세요.
+* Write Accelerator를 사용하도록 설정된 디스크의 스냅숏은 지원되지 않습니다. 이 제한 사항은 가상 머신의 모든 디스크에 대해 응용 프로그램 일치 스냅숏을 수행하는 Azure Backup 서비스 기능을 차단합니다.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 머신 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 통해 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)을 참조하세요.
   * 부하 분산 장치 구성에서의 가상 머신(내부 및 외부)
   * 다중의 예약된 IP 주소가 있는 가상 머신
@@ -175,7 +170,9 @@ Recovery Services 자격 증명 모음에 가상 머신을 등록하기 전에 �
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 머신에 VM 에이전트 설치
 사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
 
-Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. 예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.
+Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. **예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.**
+
+**참고**: VM 에이전트를 설치한 후에는 Azure에서 VM에 에이전트가 설치되었음을 알 수 있도록 Azure PowerShell을 사용하여 ProvisionGuestAgent 속성을 업데이트해야 합니다. 
 
 Azure VM을 백업하는 데 문제가 있는 경우 다음 표를 사용하여 Azure VM 에이전트가 가상 머신에 올바르게 설치되었는지 확인합니다. 표에서는 Windows 및 Linux VM용 VM 에이전트에 대한 추가 정보를 제공합니다.
 

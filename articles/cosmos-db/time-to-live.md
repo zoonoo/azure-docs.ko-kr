@@ -2,30 +2,27 @@
 title: TTL(Time To Live)을 사용하여 Azure Cosmos DB의 데이터 만료 | Microsoft Docs
 description: TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 시스템에서 문서를 자동으로 삭제하는 기능을 제공합니다.
 services: cosmos-db
-documentationcenter: ''
 keywords: TTL(Time to live)
 author: SnehaGunda
 manager: kfile
-ms.assetid: 25fcbbda-71f7-414a-bf57-d8671358ca3f
 ms.service: cosmos-db
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 13f2caa631817a5745f39b44faccb11252a2d549
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34615124"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
 응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
 
 "time to live" 또는 TTL을 사용하여 Microsoft Azure Cosmos DB는 일정 기간 후에 데이터베이스에서 문서를 자동으로 삭제하는 기능을 제공합니다. 기본 TTL(Time to live)을 컬렉션 수준에서 설정할 수 있고 문서별로 재정의할 수 있습니다. TTL을 컬렉션 기본값으로 설정하거나 문서 수준에서 설정하면 Cosmos DB는 마지막으로 수정된 이후 해당 기간(초) 후에 존재하는 문서를 자동으로 제거합니다.
 
-Cosmos DB의 TTL(Time To Live)은 문서가 마지막으로 수정된 시간을 기준으로 오프셋을 사용합니다. 이렇게 하려면 모든 문서에 있는 `_ts` 필드를 사용합니다. _ts 필드는 날짜 및 시간을 나타내는 Unix 스타일 Epoch 타임스탬프입니다. `_ts` 필드는 문서가 수정될 때마다 업데이트됩니다. 
+Azure Cosmos DB의 TTL(Time To Live)은 문서가 마지막으로 수정된 시간을 기준으로 오프셋을 사용합니다. 이렇게 하려면 모든 문서에 있는 `_ts` 필드를 사용합니다. _ts 필드는 날짜 및 시간을 나타내는 Unix 스타일 Epoch 타임스탬프입니다. `_ts` 필드는 문서가 수정될 때마다 업데이트됩니다. 
 
 ## <a name="ttl-behavior"></a>TTL 동작
 TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL 속성에 의해 제어됩니다. 값은 초 단위로 설정되고 문서가 마지막으로 수정되는 `_ts` 필드에서 델타로 처리됩니다.
@@ -33,8 +30,8 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
 1. 컬렉션에 대한 DefaultTTL
    
    * 누락(또는 null로 설정)된 경우 문서는 자동으로 삭제되지 않습니다.
-   * 표시되고 현재 값이 "-1" = 무한인 경우 문서는 기본적으로 만료되지 않습니다.
-   * 표시되고 현재 값이 숫자("n")인 경우 문서는 마지막으로 수정되고 "n"초 후에 만료됩니다.
+   * 표시되고 현재 값이 "-1" = 무한으로 설정된 경우 문서는 기본적으로 만료되지 않습니다.
+   * 표시되고 현재 값이 숫자("n")로 설정된 경우 문서는 마지막으로 수정되고 "n"초 후에 만료됩니다.
 2. 문서에 대한 TTL: 
    
    * 속성은 DefaultTTL이 상위 컬렉션에 있는 경우에 적용할 수 있습니다.

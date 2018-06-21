@@ -1,25 +1,20 @@
 ---
-title: 'Azure 백업: Azure Portal을 사용하여 가상 머신 복원 | Microsoft Docs'
+title: 'Azure 백업: Azure Portal을 사용하여 가상 머신 복원'
 description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Machine 복원
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 백업 복원; 복원하는 방법; 복구 지점;
-ms.assetid: 372b87c6-3544-4dc5-bbc9-c742ca502159
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 9a25a2f40e93c291d4c69ee726c732468005d2cd
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.author: markgal
+ms.openlocfilehash: 52ca7cf4a04ace2a43f15433c05a2db26bde3602
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605596"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
 정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.

@@ -5,20 +5,17 @@ keywords: odbc, odbc 드라이버
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: ''
-ms.assetid: 9967f4e5-4b71-4cd7-8324-221a8c789e6b
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: rest-api
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 360161ec0485259029be0bbd5194911e484a57e5
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725094"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -123,7 +120,7 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 연결된 서버 연결을 설정하여 SSMS(SQL Server Management Studio)에서 Azure Cosmos DB를 쿼리할 수 있습니다.
 
 1. 예를 들어 `SDS Name`으로 명명된 [2단계](#connect)에서 설명된 대로 시스템 데이터 원본을 만듭니다.
-2. [SQL Server Management Studio 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+2. [SQL Server Management Studio를 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)하고 서버에 연결합니다. 
 3. SSMS 쿼리 편집기에서 다음 명령을 사용하여 데이터 원본에 대한 연결된 서버 개체 `DEMOCOSMOS`을 만듭니다. `DEMOCOSMOS`을 연결된 서버의 이름으로, `SDS Name`는 시스템 데이터 원본 이름으로 바꿉니다.
 
     ```sql

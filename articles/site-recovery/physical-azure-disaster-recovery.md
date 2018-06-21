@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/23/2018
 ms.author: raynew
-ms.openlocfilehash: 207ff17f7b113bf4a94bb6c157cf53e7b1c46b45
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643314"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -27,18 +28,25 @@ ms.lasthandoff: 04/16/2018
 > * 복제 정책 만들기
 > * 서버에 대해 복제 사용
 
+이 재해 복구 시나리오용 [아키텍처를 검토](concepts-hyper-v-to-azure-architecture.md)합니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-- [시나리오 아키텍처 및 구성 요소](physical-azure-architecture.md)를 이해해야 합니다.
+- 이 시나리오에 대한 [아키텍처 및 구성 요소](physical-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](vmware-physical-secondary-support-matrix.md)을 검토합니다.
 - 복제할 서버가 [Azure VM 요구 사항](vmware-physical-secondary-support-matrix.md#replicated-vm-support)을 준수해야 합니다.
 - Azure를 준비합니다. Azure 구독, Azure Virtual Network 및 저장소 계정이 필요합니다.
 - 복제하려는 각 서버에서 모바일 서비스를 자동으로 설치하기 위해 계정을 준비합니다.
 
-> [!NOTE]
-> 시작하기 전에 Azure로 장애 조치한 후에는 물리적 서버를 온-프레미스 물리적 컴퓨터에 장애 복구할 수 없습니다. VMware VM에만 장애 복구할 수 있습니다. 
+시작하기 전에 다음 사항을 확인합니다.
+
+- Azure로 장애 조치한 후에는 물리적 서버를 온-프레미스 물리적 컴퓨터에 장애 복구할 수 없습니다. VMware VM에만 장애 복구할 수 있습니다. 
+- 이 자습서는 가장 간단한 설정을 사용하여 Azure에 대한 물리적 서버 재해 복구를 설정합니다. 다른 옵션에 대해 알아보려면 방법 가이드를 읽어보시기 바랍니다.
+    - Site Recovery 구성 서버를 포함하여 [복제 원본](physical-azure-set-up-source.md)을 설정합니다.
+    - [복제 대상](physical-azure-set-up-target.md)을 설정합니다.
+    - [복제 정책](vmware-azure-set-up-replication.md) 및 [복제 사용](vmware-azure-enable-replication.md)을 구성합니다.
 
 
 ### <a name="set-up-an-azure-account"></a>Azure 계정 설정

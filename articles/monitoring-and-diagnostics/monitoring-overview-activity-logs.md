@@ -1,24 +1,19 @@
 ---
-title: Azure 활동 로그 개요 | Microsoft Docs
+title: Azure 활동 로그 개요
 description: Azure 활동 로그란 무엇이고 Azure 구독 내에서 발생하는 이벤트를 파악하는 데 어떻게 사용할 수 있는지 알아봅니다.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: c274782f-039d-4c28-9ddb-f89ce21052c7
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/04/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/30/2018
 ms.author: johnkem
-ms.openlocfilehash: 9768fd96b8023ac97d8c5711e0c02f2c147e28f6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: activitylog
+ms.openlocfilehash: 6fc4fefe6eaaf48061ea05bdbc087288ada35838
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264571"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Azure 활동 로그로 구독 활동 모니터링
 
@@ -50,7 +45,7 @@ Azure Portal, CLI, PowerShell cmdlet 및 Azure Monitor REST API를 사용하여 
 * **서비스 상태** - 이 범주에는 Azure에서 발생한 모든 서비스 상태 관련 인시던트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "미국 동부의 SQL Azure가 가동 중지 상태입니다." 등이 있습니다. 서비스 상태 이벤트는 작업 필요, 복구 지원, 인시던트, 유지 관리, 정보 또는 보안의 5가지 중 하나이며 구독에 이벤트의 영향을 받는 리소스가 있는 경우에만 표시됩니다.
 * **경고** - 이 범주에는 모든 Azure 경고 활성화의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "지난 5분 동안 myVM의 CPU 사용률이 80%를 초과했습니다." 등이 있습니다. 다수의 Azure 시스템에서 경고 개념이 사용됩니다. 일종의 규칙을 정의하여 조건이 해당 규칙과 일치하면 알림을 수신할 수 있습니다. 지원되는 Azure 경고 유형이 '활성화'되거나 알림 생성을 위한 조건이 충족될 때마다 활성화 레코드도 이 활동 로그 범주로 푸시됩니다.
 * **자동 크기 조정** - 이 범주에는 구독에서 정의한 자동 크기 조정 설정을 기준으로 하는 자동 크기 조정 엔진 작업 관련 이벤트의 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "자동 크기 조정 강화 동작이 실패했습니다." 등이 있습니다 자동 크기 조정을 사용하면 자동 크기 조정 설정을 사용하여 시간 및/또는 로드(메트릭) 데이터를 기준으로 지원되는 리소스 종류의 인스턴스 수를 자동으로 규모 확장하거나 규모 감축할 수 있습니다. 강화 또는 규모 축소 조건이 충족되면 시작 이벤트와 성공 또는 실패 이벤트가 이 범주에 기록됩니다.
-* **권장 사항** - 이 범주에는 웹 사이트 및 SQL Server와 같은 특정 리소스 종류의 권장 이벤트가 포함됩니다. 이러한 이벤트는 리소스를 보다 효율적으로 사용하는 권장 방법을 제공합니다. 권장 사항을 내보내는 리소스가 있는 경우에만 이러한 형식의 이벤트가 수신됩니다.
+* **권장 사항** - 이 범주에는 Azure Advisor의 권장 사항 이벤트가 포함됩니다.
 * **보안** - 이 범주에는 Azure Security Center에서 경고가 생성한 모든 레코드가 포함됩니다. 이 범주에 표시되는 이벤트 유형의 예로는 "의심스러운 이중 확장 파일이 실행되었습니다." 등이 있습니다.
 * **정책 및 리소스 상태** - 이러한 범주는 이벤트를 포함하지 않으며 나중에 사용하도록 예약됩니다.
 
@@ -103,9 +98,12 @@ Azure Portal에서 이러한 필드에 의해 활동 로그를 필터링할 수 
 * 활동 로그를 Storage 계정에 유지해야 하는 기간
     - 보존이 0일이라는 것은 로그가 영원히 보관된다는 의미입니다. 그렇지 않은 경우 값은 1에서 2147483647 사이의 숫자일 수 있습니다.
     - 보존 정책이 설정되었지만 저장소 계정에 로그를 저장할 수 없는 경우(예: Event Hubs 또는 Log Analytics 옵션만 선택한 경우) 보존 정책은 적용되지 않습니다.
-    - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다.
+    - 보존 정책은 매일 적용되므로 하루의 마지막에(UTC) 보존 정책이 지난 날의 로그가 삭제됩니다. 예를 들어, 하루의 보존 정책이 있는 경우 오늘 날짜가 시작될 때 하루 전의 로그가 삭제됩니다. 삭제 프로세스는 자정(UTC)에 시작되지만, 저장소 계정에서 로그가 삭제될 때까지 최대 24시간이 걸릴 수 있습니다.
 
 로그를 내보내는 것과 동일한 구독에 위치하지 않는 저장소 계정 또는 Event Hub 네임스페이스를 사용할 수 있습니다. 설정을 구성하는 사용자에게는 두 구독에 대한 적절한 RBAC 액세스가 있어야 합니다.
+
+> [!NOTE]
+>  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 데이터를 보관할 수 없습니다.
 
 이러한 설정은 포털의 활동 로그 블레이드에서 "내보내기" 옵션을 통해 구성할 수 있습니다. [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlet 또는 CLI를 사용하여 프로그래밍 방식으로 구성할 수도 있습니다. 하나의 구독에는 하나의 로그 프로필만 포함할 수 있습니다.
 
@@ -148,7 +146,7 @@ Add-AzureRmLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/r
 | serviceBusRuleId |아니오 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}` 형식의 문자열입니다. |
 | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
 | RetentionInDays |예 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한(영원히) 저장합니다. |
-| 범주 |아니요 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+| 범주 |아니오 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 #### <a name="remove-a-log-profile"></a>로그 프로필 제거
 ```

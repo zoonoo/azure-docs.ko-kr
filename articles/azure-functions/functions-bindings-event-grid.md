@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/26/2018
 ms.author: tdykstra
-ms.openlocfilehash: 9228b1e80c8c46780a24d33e13fcedbd8da63ac3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34724733"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -33,17 +34,17 @@ Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages"></a>패키지
+## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 패키지에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension) GitHub 리포지토리에 있습니다.
-
-<!--
-If you want to bind to the `Microsoft.Azure.EventGrid.Models.EventGridEvent` type instead of `JObject`, install the [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) package.
--->
+Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 패키지 버전 1.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-[!INCLUDE [functions-package-versions](../../includes/functions-package-versions.md)]
+## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+
+Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet 패키지 버전 2.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub 리포지토리에 있습니다.
+
+[!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="example"></a>예
 
@@ -57,12 +58,12 @@ HTTP 트리거 예제에 대해서는 이 문서 뒷부분에 나오는 [HTTP �
 
 ### <a name="c-example"></a>C# 예제
 
-다음 예제에서는 `JObject`에 바인딩되는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+다음 예제에서는 `JObject`에 바인딩되는 Functions 1.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```cs
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -79,30 +80,26 @@ namespace Company.Function
 }
 ```
 
-<!--
-The following example shows a [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+다음 예제에서는 `EventGridEvent`에 바인딩되는 Functions 2.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
 ```cs
+using Microsoft.Azure.EventGrid.Models;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
 
 namespace Company.Function
 {
     public static class EventGridTriggerCSharp
     {
         [FunctionName("EventGridTest")]
-            public static void EventGridTest([EventGridTrigger] Microsoft.Azure.EventGrid.Models.EventGridEvent eventGridEvent, TraceWriter log)
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, TraceWriter log)
         {
-            log.Info("C# Event Grid function processed a request.");
-            log.Info($"Subject: {eventGridEvent.Subject}");
-            log.Info($"Time: {eventGridEvent.EventTime}");
-            log.Info($"Data: {eventGridEvent.Data.ToString()}");
+            log.Info(eventGridEvent.Data.ToString());
         }
     }
 }
 ```
--->
 
 자세한 내용은 [패키지](#packages), [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
@@ -125,7 +122,7 @@ namespace Company.Function
 }
 ```
 
-다음은 `JObject`에 바인딩하는 C# 스크립트 코드입니다.
+`JObject`에 바인딩하는 Functions 1.x C# 스크립트 코드는 다음과 같습니다.
 
 ```cs
 #r "Newtonsoft.Json"
@@ -139,26 +136,17 @@ public static void Run(JObject eventGridEvent, TraceWriter log)
 }
 ```
 
-<!--
-Here's C# script code that binds to `EventGridEvent`:
+`EventGridEvent`에 바인딩하는 Functions 2.x C# 스크립트 코드는 다음과 같습니다.
 
 ```csharp
-#r "Newtonsoft.Json"
-#r "Microsoft.Azure.WebJobs.Extensions.EventGrid"
 #r "Microsoft.Azure.EventGrid"
-
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-Using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.EventGrid.Models;
 
 public static void Run(EventGridEvent eventGridEvent, TraceWriter log)
 {
-    log.Info("C# Event Grid function processed a request.");
-    log.Info($"Subject: {eventGridEvent.Subject}");
-    log.Info($"Time: {eventGridEvent.EventTime}");
-    log.Info($"Data: {eventGridEvent.Data.ToString()}");
+    log.Info(eventGridEvent.Data.ToString());
 }
 ```
--->
 
 자세한 내용은 [패키지](#packages), [특성](#attributes), [구성](#configuration) 및 [사용](#usage)을 참조하세요.
 
@@ -221,11 +209,17 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, Trac
 
 ## <a name="usage"></a>사용 현황
 
-C# 및 C# 함수의 경우, Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
+Azure Functions 1.x의 C# 및 C# 함수의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
 * `JObject`
 * `string`
-* `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다. **이 유형은 더 이상 지원되지 않지만** 대체 유형이 NuGet에 아직 게시되지 않았습니다.
+
+Azure Functions 2.x의 C# 및 C# 함수의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용하는 옵션도 있습니다.
+
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
+
+> [!NOTE]
+> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
 JavaScript 함수의 경우 *function.json* `name` 속성에 따라 명명되는 매개 변수가 이벤트 개체를 참조합니다.
 

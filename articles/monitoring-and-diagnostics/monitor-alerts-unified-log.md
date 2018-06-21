@@ -1,25 +1,19 @@
 ---
-title: Azure Monitor의 로그 경고 - 경고 | Microsoft Docs
+title: Azure Monitor의 로그 경고
 description: Azure Alerts에 대해 지정한 분석 쿼리 조건이 충족될 경우 이메일, 알림, 웹 사이트 URL 호출(웹후크) 또는 자동화를 트리거합니다.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: f7457655-ced6-4102-a9dd-7ddf2265c0e2
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 8bf534177e8236a7d72d6dfdd4612b5f6f492b17
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.component: alerts
+ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057324"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264377"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Azure Monitor의 로그 경고 - 경고 
 이 아티클에서는 로그 경고의 세부 정보를 제공합니다. 즉, 새 [Azure 경고](monitoring-overview-unified-alerts.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 경고의 기준으로 Azure의 분석 플랫폼을 사용할 수 있도록 합니다. 로그를 사용하는 메트릭 경고에 대한 자세한 내용은 [거의 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 참조하세요.
@@ -36,7 +30,7 @@ ms.locfileid: "34057324"
 - **로그 쿼리**  경고 규칙이 실행될 때마다 실행되는 쿼리입니다.  이 쿼리에서 반환된 레코드는 경고를 생성할지 여부를 결정하는 데 사용됩니다. *Azure Application Insights* 쿼리는 [응용 프로그램 간 호출](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery)을 포함할 수 있으며 사용자에게 외부 응용 프로그램에 대한 액세스 권한을 제공합니다. 
 
     > [!IMPORTANT]
-    > [Application Insights에 대한 응용 프로그램 간 쿼리](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) 지원은 미리 보기 상태이며 기능 및 사용자 환경은 변경될 수 있습니다. [작업 영역 간 쿼리](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) 및 [Log Analytics에 대한 리소스 간 쿼리](../log-analytics/log-analytics-cross-workspace-search.md)의 사용은 현재 Azure 경고에서 **지원되지 않습니다**.
+    > [Application Insights에 대한 응용 프로그램 간 쿼리](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery) 지원은 미리 보기로, 기능은 2개 이상의 앱으로 제한되고 사용자 환경은 변경될 수 있습니다. [작업 영역 간 쿼리](https://dev.loganalytics.io/oms/documentation/3-Using-the-API/CrossResourceQuery) 및 [Log Analytics에 대한 리소스 간 쿼리](../log-analytics/log-analytics-cross-workspace-search.md)의 사용은 현재 Azure 경고에서 **지원되지 않습니다**.
 
 - **기간**  쿼리에 대한 시간 범위를 지정합니다. 쿼리에서는 현재 시간의 이 범위 내에서 생성된 레코드만 반환합니다. 기간은 남용을 방지하고 쿼리 로그에 사용되는 시간 명령(ago 등)을 회피하도록 로그 쿼리에 대해 인출된 데이터를 제한합니다. <br>*예를 들어 기간을 60분으로 설정했는데 오후 1시 15분에 쿼리를 실행하면 로그 쿼리를 실행하기 위해 오후 12시 15분부터 오후 1시 15분 사이의 레코드만 반환됩니다. 이제 로그 쿼리가 ago(7d)와 같은 명령을 사용하는 경우 데이터가 지난 60분 동안만 존재하는 것처럼 로그 쿼리는 오후 12시 15분에서 1시 15분 사이의 데이터에 대해서만 실행됩니다. 쿼리 로그에서 지정된 대로 7일 동안의 데이터에 대해서는 실행되지 않습니다.*
 - **빈도**.  쿼리를 실행해야 하는 빈도를 지정합니다. 5 분에서 24 시간 사이의 임의 값일 수 있습니다. 기간 이하여야 합니다.  값이 기간을 초과하는 경우 레코드가 누락될 위험이 있습니다.<br>*예를 들어 30분의 기간과 60분의 빈도를 사용하는 것이 좋습니다.  쿼리가 1:00에 실행되면 오후 12:30 및 1:00 사이의 레코드를 반환합니다.  1:30 및 2:00 사이의 레코드를 반환하게 된다면 다음으로 쿼리가 실행되는 시간은 2:00입니다.  1:00 및 1:30 사이에 생성된 레코드는 평가되지 않습니다.*
@@ -126,7 +120,7 @@ ms.locfileid: "34057324"
 
 세부 정보뿐만 아니라 REST API를 사용하는 예제는 다음을 참조하세요.
 - [Log Analytics 경고 REST API](../log-analytics/log-analytics-api-alerts.md) - Azure Log Analytics에 대한 로그 검색 경고 규칙을 만들고 관리합니다.
-- [Azure Monitor 예약 쿼리 규칙 REST API](https://docs.microsoft.com/en-us/rest/api/monitorr/scheduledqueryrules/) - Azure Application Insights에 대한 로그 검색 경고 규칙을 만들고 관리합니다.
+- [Azure Monitor 예약 쿼리 규칙 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - Azure Application Insights에 대한 로그 검색 경고 규칙을 만들고 관리합니다.
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 사용자는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)에서 제공한 유연성을 사용하여 로그 경고를 만들거나 업데이트하기 위해 리소스를 만들고 업데이트할 수 있습니다.

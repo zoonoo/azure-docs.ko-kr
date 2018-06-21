@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 63f079f6c8e584ff3a89503104060daf056763ed
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34836303"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets
@@ -203,7 +205,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <p></p>
 <b>관련 조사:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
-[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 사용 가능: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos 및 J. Machado Eds., 인공 지능의 새로운 추세, 13회 EPIA 2007 - 인공 지능에 관한 포르투갈 컨퍼런스, 12월, 포르투갈 기마랑이스, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 사용 가능: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 

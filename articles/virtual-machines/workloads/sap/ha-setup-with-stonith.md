@@ -1,11 +1,11 @@
 ---
-title: "STONITH를 사용하여 Azure(대규모 인스턴스)의 SAP HANA에 대한 고가용성 설정 | Microsoft Docs"
-description: "STONITH를 사용하여 SUSE에서 Azure(대규머 인스턴스)의 SAP HANA에 대한 고가용성 설정"
+title: STONITH를 사용하여 Azure(대규모 인스턴스)의 SAP HANA에 대한 고가용성 설정 | Microsoft Docs
+description: STONITH를 사용하여 SUSE에서 Azure(대규머 인스턴스)의 SAP HANA에 대한 고가용성 설정
 services: virtual-machines-linux
-documentationcenter: 
+documentationcenter: ''
 author: saghorpa
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
@@ -14,11 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d710fe24673c6ddc581d36e4f0cacdb750ff74f9
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34656366"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 장치를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
@@ -34,8 +35,8 @@ SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필�
 - NTP(시간 서버) 설정
 - HA 설정에 관한 SUSE 설명서의 최신 버전을 읽고 이해
 
-### <a name="set-up-details"></a>설정 세부 정보
-- 이 가이드에서는 다음 설정을 사용했습니다.
+### <a name="setup-details"></a>설정 정보
+이 가이드에서 사용하는 설정은 다음과 같습니다.
 - 운영 체제: SAP용 SLES 12 SP1
 - HANA 대규모 인스턴스: 2xS192(4개 소켓, 2TB)
 - HANA 버전: HANA 2.0 SP1
@@ -50,7 +51,7 @@ HSR을 사용하여 HANA 대규모 인스턴스를 설정하는 경우 Microsoft
 - 고객 이름(예: Microsoft)
 - SID - HANA 시스템 식별자(예: H11)
 
-STONITH 장치를 구성한 후 Microsoft 서비스 관리 팀이 STONITH 설정을 구성하는 데 사용할 수 있는 SBD 장치 이름 및 iSCSI 저장소의 IP 주소를 제공합니다. 
+STONITH 장치가 구성되면 Microsoft 서비스 관리 팀에서 STONITH 설정을 구성하는 데 사용할 수 있는 iSCSI 저장소의 SBD 장치 이름과 IP 주소를 제공합니다. 
 
 STONITH를 사용하여 종단 간 HA를 설정하려면 다음 단계를 따라야 합니다.
 
@@ -134,12 +135,12 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 클러스터 설치
-3.2.1   *ha-cluster-init* 명령을 사용하거나 yast2 마법사를 사용하여 클러스터를 설치할 수 있습니다. 이 경우 yast2 마법사를 사용했습니다. **주 노드에 대해서만** 이 단계를 수행합니다.
+3.2.1   *ha-cluster-init* 명령을 사용하거나 yast2 마법사를 사용하여 클러스터를 설치할 수 있습니다. 여기서는 yast2 마법사를 사용합니다. **주 노드에 대해서만** 이 단계를 수행합니다.
 
 yast2> 고가용성 > 클러스터 ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)를 수행합니다.
 
-halk2 패키지를 이미 설치했으므로 **취소**를 클릭합니다.
+halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 ![yast-hawk-continue.png](media/HowToHLI/HASetupWithStonith/yast-hawk-continue.png)
 
@@ -261,7 +262,7 @@ crm_mon
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. 클러스터 속성 및 리소스 구성 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
-이 예제에서는 다음 리소스를 설정하였으며 나머지는 SUSE HA 가이드를 참조하여 구성할 수 있습니다(필요한 경우). **노드 중 한 개**에서만 이 구성을 수행합니다. 주 노드에서 수행합니다.
+이 예제에서는 다음 리소스를 설정하였으며, 나머지는 SUSE HA 가이드를 참조하여 구성할 수 있습니다(필요한 경우). **노드 중 한 개**에서만 이 구성을 수행합니다. 주 노드에서 수행합니다.
 
 - 클러스터 부트스트랩
 - STONITH 장치
@@ -369,7 +370,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>시나리오 2: yast2가 그래픽 보기에 표시되지 않는 경우
-여기서는 yast2 화면을 사용하여 이 문서의 고가용성 클러스터를 설정했습니다. yast2가 그림과 같은 그래픽 창과 함께 열리지 않고 Qt 오류를 throw하면 다음과 같이 단계를 수행합니다. 그래픽 창과 함께 열리면 이 단계를 건너뛸 수 있습니다.
+yast2 그래픽 화면이 이 문서의 고가용성 클러스터를 설정하는 데 사용됩니다. yast2가 그림과 같은 그래픽 창과 함께 열리지 않고 Qt 오류를 throw하면 다음과 같이 단계를 수행합니다. 그래픽 창과 함께 열리면 이 단계를 건너뛸 수 있습니다.
 
 **오류**
 

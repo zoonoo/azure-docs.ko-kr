@@ -10,18 +10,24 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: douglasl
-ms.openlocfilehash: dfb54aeeff1b1f1640609be708e1b9d767a18c3a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7bffc7aed0c06267a39e2b0a2ee178806c071ab8
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360328"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297797"
 ---
-# <a name="how-to-schedule-starting-and-stopping-of-an-azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임의 시작 및 중지를 예약하는 방법 
-Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다. 이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. 이 문서에서 설명하는 개략적인 단계는 다음과 같습니다.
+# <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>일정에 따라 Azure SSIS 통합 런타임을 시작하고 중지하는 방법
+이 문서에서는 Azure Automation 및 Azure Data Factory를 사용하여 Azure SSIS IR(통합 런타임)의 시작 및 중지를 예약하는 방법을 설명합니다. Azure SSIS(SQL Server Integration Services) IR(통합 런타임)을 실행할 때는 비용이 발생합니다. 따라서 보통 Azure에서 SSIS 패키지를 실행해야 할 때만 IR을 실행하고 필요하지 않을 때는 중지할 수 있습니다. Data Factory UI 또는 Azure PowerShell을 사용하여 [Azure SSIS IR을 수동으로 시작 또는 중지 ](manage-azure-ssis-integration-runtime.md)할 수 있습니다.
+
+예를 들어 Azure Automation PowerShell Runbook을 사용하여 웹 작업을 만들고 웹 작업 간에 SSIS 패키지 실행 활동을 연결할 수 있습니다. 웹 작업은 패키지 실행 전후에 정확하게 Azure SSIS IR을 시작하고 중지할 수 있습니다. SSIS 패키지 실행 작업에 대한 자세한 내용은 [Azure Data Factory에서 SSIS 작업을 사용하여 SSIS 패키지 실행](how-to-invoke-ssis-package-ssis-activity.md)을 참조하십시오.
+
+## <a name="overview-of-the-steps"></a>단계의 개요
+
+이 문서에서 설명하는 개략적인 단계는 다음과 같습니다.
 
 1. **Azure Automation Runbook 만들기 및 테스트.** 이 단계에서는 Azure SSIS IR을 시작하거나 중지하는 스크립트를 사용하여 PowerShell Runbook을 만듭니다. 그런 다음 START 및 STOP 시나리오에서 Runbook을 테스트하고 IR이 시작 또는 중지되는지 확인합니다. 
 2. **Runbook에 대한 2가지 일정 만들기.** 첫 번째 일정에서는 작업으로 START를 사용해서 Runbook을 구성합니다. 두 번째 일정에서는 작업으로 STOP을 사용해서 Runbook을 구성합니다. 두 일정에 대해 Runbook이 실행되는 케이던스를 지정합니다. 예를 들어, 첫 번째 Runbook은 매일 오전 8시에 실행되고, 두 번째 Runbook은 매일 오후 11시에 실행되도록 예약할 수 있습니다. 첫 번째 Runbook이 실행될 때 Azure SSIS IR이 시작됩니다. 두 번째 Runbook이 실행될 때 Azure SSIS IR이 중지됩니다. 
@@ -74,11 +80,11 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
 
     ![필요한 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  [AzureRM.DataFactoryV2 0.5.2 모듈](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/0.5.2)에 대해 PowerShell 갤러리로 이동하여 **Azure Automation에 배포** 및 Automation 계정을 차례로 선택한 다음, **확인**을 선택합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈**을 보려면 돌아가서 **AzureRM.DataFactoryV2 0.5.2** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
+2.  [AzureRM.DataFactoryV2 모듈](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/)에 대해 PowerShell 갤러리로 이동하여 **Azure Automation에 배포** 및 Automation 계정을 차례로 선택한 다음, **확인**을 선택합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈**을 보려면 돌아가서 **AzureRM.DataFactoryV2** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
 
     ![데이터 팩터리 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  [AzureRM.Profile 4.5.0 모듈](https://www.powershellgallery.com/packages/AzureRM.profile/4.5.0)에 대해 PowerShell 갤러리로 이동하여 **Azure Automation에 배포**를 클릭하고 Automation 계정을 선택한 다음, **확인**을 선택합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈**을 보려면 돌아가서 **AzureRM.Profile 4.5.0** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
+3.  [AzureRM.Profile 모듈](https://www.powershellgallery.com/packages/AzureRM.profile/)에 대해 PowerShell 갤러리로 이동하여 **Azure Automation에 배포**를 클릭하고 Automation 계정을 선택한 다음, **확인**을 선택합니다. 왼쪽 메뉴에서 **공유 리소스** 섹션의 **모듈**을 보려면 돌아가서 **AzureRM.Profile** 모듈의 **상태**가 **사용 가능**으로 변경될 때까지 대기합니다.
 
     ![프로필 모듈 확인](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 
@@ -240,7 +246,7 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
  
    Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameMyAzureSsisDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+       `Data factory name �MyAzureSsisDataFactory� is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 수행합니다.
      
@@ -382,6 +388,9 @@ Azure Automation 계정이 없는 경우 이 단계의 지침에 따라 하나 �
     ![트리거 실행](./media/how-to-schedule-azure-ssis-integration-runtime/trigger-runs.png)
 
 ## <a name="next-steps"></a>다음 단계
+다음 블로그 게시물을 참조하십시오.
+-   [ADF 파이프라인에서 SSIS 작업을 사용하여 ETL/ELT 워크플로 현대화 및 확장](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+
 SSIS 설명서에서 다음 문서를 참조하세요. 
 
 - [Azure에서 SSIS 패키지 배포, 실행 및 모니터링](/sql/integration-services/lift-shift/ssis-azure-deploy-run-monitor-tutorial)   

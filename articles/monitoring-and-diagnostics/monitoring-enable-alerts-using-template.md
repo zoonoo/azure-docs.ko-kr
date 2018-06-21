@@ -1,25 +1,19 @@
 ---
-title: Resource Manager 템플릿을 사용하여 Azure에서 클래식 메트릭 경고 만들기 | Microsoft Docs
+title: Resource Manager 템플릿을 사용하여 Azure에서 클래식 메트릭 경고 만들기
 description: Resource Manager 템플릿을 사용하여 이메일 또는 Webhook으로 알림을 받는 클래식 메트릭 경고를 만드는 방법을 알아봅니다.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 41d62044-6bc5-4674-b277-45b919f58efe
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.openlocfilehash: c83eeaf6c26aca3acdd43a767aa11357fa502544
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: metric
+ms.openlocfilehash: 67dac4f8d9b66f4b5f2654ffb16d9829387fc060
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177302"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263299"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 클래식 메트릭 경고 만들기
 이 문서에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md) 을 사용하여 Azure 메트릭 경고를 구성하는 방법을 설명합니다. 이를 통해 만든 리소스에 대한 경고를 자동으로 설정하여 모든 리소스가 정확하게 모니터링되도록 할 수 있습니다.

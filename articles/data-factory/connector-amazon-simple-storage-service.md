@@ -7,29 +7,29 @@ manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/25/2018
 ms.author: jingwang
-ms.openlocfilehash: b2f87c965a7c69614d476f0d931802587f0f1297
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 18276b5706caad854c0160044b7e0efff10bc280
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011251"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34616171"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 저장소 서비스에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1 - GA](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [버전 2 - 미리 보기](connector-amazon-simple-storage-service.md)
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Blob Storage 간에 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon S3에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 Amazon S3 커넥터](v1/data-factory-amazon-simple-storage-service-connector.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-모든 지원되는 원본 데이터 저장소에서 Azure Data Lake Store로 데이터를 복사하거나 Azure Data Lake Store에서 모든 지원되는 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+Amazon S3에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본 또는 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
 특히, Amazon S3 커넥터는 이 파일을 있는 그대로 복사 또는 [지원되는 파일 형식 및 압축 코덱](supported-file-formats-and-compression-codecs.md)을 사용하여 파일 붙여넣기를 지원합니다.
 
@@ -163,7 +163,7 @@ Amazon S3에서 데이터를 복사하려면 데이터 집합의 type 속성을 
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
-작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 Azure Data Lake 원본 및 싱크에서 지원하는 속성 목록을 제공합니다.
+작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인](concepts-pipelines-activities.md) 문서를 참조하세요. 이 섹션에서는 Amazon S3 원본에서 지원하는 속성의 목록을 제공합니다.
 
 ### <a name="amazon-s3-as-source"></a>원본으로 Amazon S3
 

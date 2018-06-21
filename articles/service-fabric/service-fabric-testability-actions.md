@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 087a0f12f765b55c2e2976abd93d791409ff6d44
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 27c6671c170f4c03c63270772651051830d8e4ec
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757624"
 ---
 # <a name="testability-actions"></a>테스트 용이성 작업
 불안정한 인프라를 시뮬레이트할 수 있도록 Azure 서비스 패브릭에서는 개발자에게 다양한 실제 오류 및 상태 전환을 시뮬레이트할 수 있는 방법을 제공합니다. 이러한 작업을 테스트 용이성 작업이라고 합니다. 이러한 작업은 특정 오류 주입, 상태 전환 또는 유효성 검사를 발생시키는 저수준 API입니다. 이러한 작업을 결합하여 서비스에 대한 포괄적인 테스트 시나리오를 작성할 수 있습니다.
@@ -41,8 +42,8 @@ C#으로 구현한 작업은 System.Fabric.dll 어셈블리에 있습니다. 시
 | CleanTestState |테스트 드라이버가 비정상적으로 종료될 경우 클러스터에서 모든 테스트 상태를 제거합니다. |CleanTestStateAsync |Remove-ServiceFabricTestState |해당 없음 |
 | InvokeDataLoss |서비스 파티션으로 데이터 손실을 유도합니다. |InvokeDataLossAsync |Invoke-ServiceFabricPartitionDataLoss |정상 |
 | InvokeQuorumLoss |지정된 상태 저장 서비스 파티션을 쿼럼 손실에 배치합니다. |InvokeQuorumLossAsync |Invoke-ServiceFabricQuorumLoss |정상 |
-| Move Primary |상태 저장 서비스의 지정된 주 복제본을 지정된 클러스터 노드로 이동합니다. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |정상 |
-| Move Secondary |상태 저장 서비스의 현재 보조 복제본을 다른 클러스터 노드로 이동합니다. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |정상 |
+| MovePrimary |상태 저장 서비스의 지정된 주 복제본을 지정된 클러스터 노드로 이동합니다. |MovePrimaryAsync |Move-ServiceFabricPrimaryReplica |정상 |
+| MoveSecondary |상태 저장 서비스의 현재 보조 복제본을 다른 클러스터 노드로 이동합니다. |MoveSecondaryAsync |Move-ServiceFabricSecondaryReplica |정상 |
 | RemoveReplica |클러스터에서 복제본을 제거하여 복제 오류를 시뮬레이션합니다. 그러면 복제본이 닫히고 역할 '없음'으로 전환되어 클러스터에서 해당 복제본의 모든 상태가 제거됩니다. |RemoveReplicaAsync |Remove-ServiceFabricReplica |정상 |
 | RestartDeployedCodePackage |클러스터의 노드에 배포된 코드 패키지를 다시 시작하여 코드 패키지 프로세스 오류를 시뮬레이션합니다. 그러면 코드 패키지 프로세스가 취소되고 해당 프로세스에서 호스팅되는 모든 사용자 서비스 복제본이 다시 시작됩니다. |RestartDeployedCodePackageAsync |Restart-ServiceFabricDeployedCodePackage |비정상 |
 | RestartNode |노드를 다시 시작하여 서비스 패브릭 클러스터 노드 오류를 시뮬레이션합니다. |RestartNodeAsync |Restart-ServiceFabricNode |비정상 |

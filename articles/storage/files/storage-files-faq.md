@@ -5,23 +5,23 @@ services: storage
 documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 67884df9e38906ba7dc426b63275941dba2b8130
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210534"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737812"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
-[Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(일반 인터넷 파일 시스템 또는 CIFS라고도 함)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync(미리 보기)를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
+[Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync(미리 보기)를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
 
 이 문서는 Azure Files와 Azure File Sync 사용을 비롯하여 Azure Files 기능에 대한 일반적인 질문에 대답합니다. 질문에 대한 답을 찾지 못한 경우 다음 채널을 통해 (제시된 채널 순서에 따라) 문의할 수 있습니다.
 
@@ -189,6 +189,14 @@ ms.locfileid: "34210534"
 * <a id="afs-os-support"></a>
 **Windows Server 2008 R2, Linux 또는 NAS(Network Attached Storage) 장치와 함께 Azure File Sync를 사용할 수 있습니까?**  
     현재, Azure File Sync는 Windows Server 2016 및 Windows Server 2012 R2만 지원합니다. 지금은 알려드릴 수 있는 다른 계획이 없지만 고객의 요구에 따라 얼마든지 추가 플랫폼을 지원할 수도 있습니다. 지원받고 싶은 플랫폼이 있으면 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files)에서 알려주세요.
+
+* <a id="afs-tiered-files-out-of-endpoint"></a>
+**계층화된 파일이 서버 엔드포인트 네임스페이스 외부에 존재하는 이유는 무엇인가요?**  
+    Azure File Sync 에이전트 버전 3 이전에 Azure File Sync는 서버 엔드포인트인 동일한 볼륨이 아닌 서버 엔드포인트 외부에서 계층화된 파일의 이동을 차단합니다. 복사 작업, 계층화되지 않은 파일의 이동 및 다른 볼륨에 계층화된 파일의 이동은 영향을 받지 않았습니다. 이 동작은 동일한 볼륨에서 작업을 이동하는 파일 탐색기 및 기타 Windows API가 비슷한 순간적인 이름 바꾸기 작업이라고 암시적으로 가정합니다. 즉, 이동하면 Azure File Sync가 클라우드의 데이터를 다시 호출하는 동안 파일 탐색기 또는 다른 이동 방법(예: 명령줄 또는 PowerShell)이 응답하지 않는다고 표시됩니다. [Azure File Sync 에이전트 버전 3.0.12.0](storage-files-release-notes.md#agent-version-30120)부터 Azure File Sync를 사용하면 외부 서버 엔드포인트에서 계층화된 파일을 이동할 수 있습니다. 계층화된 파일을 서버 엔드포인트 외부에서 계층화된 파일로 유지한 다음, 백그라운드에서 파일을 회수하여 앞에서 언급한 부정적인 영향을 방지합니다. 즉, 동일한 볼륨의 이동은 순간적이므로 이동을 완료한 후에 디스크로 파일을 회수하는 모든 작업을 수행합니다. 
+
+* <a id="afs-do-not-delete-server-endpoint"></a>
+**서버의 Azure File Sync에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?**  
+    [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="security-authentication-and-access-control"></a>보안, 인증 및 액세스 제어
 * <a id="ad-support"></a>

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 25db5075e2099dee354c4c5ef999b26c8e0c50c9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642668"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>클러스터에 대해 Log Analytics 설정
 
@@ -50,7 +51,7 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics 작업 영역을 클러스터에 연결 
 
-1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 포털에 액세스할 수 있습니다.
+1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 작업 영역에 액세스할 수 있습니다.
 
 2. 왼쪽 탐색 메뉴의 **작업 영역 데이터 원본**에서 **저장소 계정 로그**를 선택합니다.
 

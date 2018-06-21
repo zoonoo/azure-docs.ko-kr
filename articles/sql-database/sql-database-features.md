@@ -1,35 +1,35 @@
 ---
 title: Azure SQL Database 기능 비교 | Microsoft Docs
-description: 이 문서는 Azure SQL Database 및 관리되는 인스턴스의 기능을 서로 비교하고 SQL Server와 비교합니다.
+description: 이 문서에서는 다양한 Azure SQL Database 버전에서 제공하는 SQL Server 기능을 비교합니다.
 services: sql-database
 author: jovanpop-msft
 ms.reviewer: bonova, carlrab
 ms.service: sql-database
-ms.topic: article
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 8144f70737e5f78f568a8a6dd35ddc7d43ced0fd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 09595c19622eaabe0838c52bc1226fcdfe60d4ba
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210058"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248812"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>기능 비교: Azure SQL Database 및 SQL Server 
 
-Azure SQL Database는 SQL Server와 공용 코드 베이스를 공유합니다. Azure SQL Database에서 지원하는 SQL Server의 기능은 만드는 Azure SQL Database의 유형에 따라 달라집니다. Azure SQL Database를 사용하면 [관리되는 인스턴스](sql-database-managed-instance.md)(현재 공개 미리 보기로 제공)의 일부로 데이터베이스를 만들거나, 단일 데이터베이스 또는 탄력적 풀에 속하는 데이터베이스를 만들 수 있습니다. 
+Azure SQL Database는 SQL Server와 공용 코드 베이스를 공유합니다. Azure SQL Database에서 지원하는 SQL Server의 기능은 사용자가 만드는 Azure SQL Database 형식에 따라 달라집니다. Azure SQL Database를 사용하면 [관리되는 인스턴스](sql-database-managed-instance.md)(현재 공개 미리 보기로 제공)의 일부로 데이터베이스를 만들거나, 논리 서버의 일부인 데이터베이스를 만들고 필요에 따라 탄력적 풀에 배치할 수 있습니다. 
 
 Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니다. Azure용 서비스 업데이트 웹 페이지에서 다음 필터를 사용하여 최신 업데이트를 확인하세요.
 
 * [SQL Database 서비스](https://azure.microsoft.com/updates/?service=sql-database)에 대해 필터링되었습니다.
 * SQL Database 기능의 [GA(General Availability) 공지](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) 에 대해 필터링되었습니다.
 
-## <a name="sql-server-and-sql-database-feature-support"></a>SQL Server 및 SQL Database 기능 지원
+## <a name="sql-server-feature-support-in-azure-sql-database"></a>Azure SQL Database에서 지원되는 SQL Server 기능
 
 다음 표에서는 SQL Server의 주요 기능을 나열하고, 기능이 부분적으로 지원되는지 또는 완전히 지원되는지에 대한 정보 및 기능에 대한 자세한 정보로 링크를 제공합니다. 
 
-| **SQL 기능** | **Azure SQL Database에서 지원** | **관리되는 인스턴스(미리 보기)** |
+| **SQL 기능** | **Azure SQL Database/논리 서버에서 지원됨** | **Azure SQL Database/관리되는 인스턴스(미리 보기)에서 지원됨** |
 | --- | --- | --- |
 | [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 | 예 - [인증서 저장소](sql-database-always-encrypted.md) 및 [키 자격 증명 모음](sql-database-always-encrypted-azure-key-vault.md) 참조 |
 | [AlwaysOn 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
@@ -40,7 +40,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 | [자동 조정(강제 진행 계획)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [예](sql-database-automatic-tuning.md)| [예](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning) |
 | [자동 조정(인덱스)](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning)| [예](sql-database-automatic-tuning.md)| 아니오 |
 | [BACPAC 파일(내보내기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | 예 - [SQL Database 내보내기](sql-database-export.md) 참조 | 예 |
-| [BACPAC 파일(가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 예 - [SQL Database 가져오기](sql-database-import.md) 참조 | 예 |
+| [BACPAC 파일(가져오기)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | 예 - [SQL Database 가져오기](sql-database-import.md) 참조 | 아니오 |
 | [BACKUP 명령](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | 아니요. 시스템에서 시작한 자동 백업만 - [자동 백업](sql-database-automated-backups.md) 참조 | 시스템 시작 자동 백업 및 사용자 시작 복사 전용 백업 - [백업 차이점](sql-database-managed-instance-transact-sql-information.md#backup) 참조 |
 | [기본 제공 함수](https://docs.microsoft.com/sql/t-sql/functions/functions) | 대부분 - 개별 함수 참조 | 예- [저장 프로시저, 함수, 트리거 차이점](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) 참조 |
 | [변경 데이터 캡처](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | 아니오 | 예 |
@@ -137,7 +137,7 @@ Microsoft는 Azure SQL Database에 계속해서 기능을 추가하고 있습니
 |위협 감지|  [예](sql-database-threat-detection.md)|[예](sql-database-managed-instance-threat-detection.md)|
 | [추적 플래그](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | 아니오 | 아니오 |
 | [변수](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | 예 | 예 |
-| [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 예 | 현재, 공개 미리 보기로 제공되지 않습니다. |
+| [TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | 예 | 서비스에서 관리하는 암호화에만 부분적으로 |
 [VNet](../virtual-network/virtual-networks-overview.md) | 부분 - [VNET 끝점](sql-database-vnet-service-endpoint-rule-overview.md) 참조 | 예. Resource Manager 모델만 |
 | [Windows Server 장애 조치(failover) 클러스터링](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. | [고가용성](sql-database-high-availability.md)은 모든 데이터베이스에 포함됩니다. 재해 복구는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md)에서 설명합니다. |
 | [XML 인덱스](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | 예 | 예 |

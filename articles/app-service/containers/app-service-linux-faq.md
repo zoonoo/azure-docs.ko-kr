@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 05/25/2018
+ms.author: msangapu
+ms.openlocfilehash: 162f9e4a6ad18cc95ccc0b14ce5d8c6318b86ba5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294014"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -35,7 +36,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 **런타임 스택을 구성할 때 시작 파일 섹션에 대해 예상되는 값은 무엇인가요?**
 
-Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니다. .Net Core의 경우 컴파일된 DLL 이름을 지정해야 합니다. Ruby의 경우 앱을 초기화하려면 Ruby 스크립트를 지정할 수 있습니다.
+Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니다. .Net Core의 경우 컴파일된 DLL 이름을 `dotnet <myapp>.dll`로 지정합니다. Ruby의 경우 앱을 초기화하려면 Ruby 스크립트를 지정할 수 있습니다.
 
 ## <a name="management"></a>관리
 
@@ -47,7 +48,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 예. SCM(원본 제어 관리) 사이트를 통해 수행할 수 있습니다.
 
-> [!NOTE] 
+> [!NOTE]
 > SSH, SFTP 또는 Visual Studio Code를 사용하여 로컬 개발 컴퓨터에서 직접 앱 컨테이너에 연결할 수도 있습니다(Node.js 앱 라이브 디버깅을 위해). 자세한 내용은 [Linux App Service의 원격 디버깅 및 SSH](https://aka.ms/linux-debug)를 참조하세요.
 >
 
@@ -113,7 +114,7 @@ var io = require('socket.io')(server,{
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 
-컨테이너를 다시 시작하기 전에 플랫폼이 대기할 시간을 구성할 수 있습니다. 이를 수행하려면 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 설정을 원하는 값으로 설정합니다. 기본값은 230초이고 최대값은 600초입니다.
+컨테이너를 다시 시작하기 전에 플랫폼이 대기할 시간을 구성할 수 있습니다. 이를 수행하려면 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 설정을 원하는 값으로 설정합니다. 기본값은 230초이고 최댓값은 1800초입니다.
 
 **개인 레지스트리 서버 URL의 형식은 무엇인가요?**
 

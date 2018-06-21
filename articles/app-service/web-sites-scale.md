@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 앱 강화 | Microsoft Docs"
-description: "Azure App Service에서 앱을 강화하여 용량 및 기능을 추가하는 방법을 알아봅니다."
+title: Azure에서 앱 강화 | Microsoft Docs
+description: Azure App Service에서 앱을 강화하여 용량 및 기능을 추가하는 방법을 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714938"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Azure에서 앱 강화
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 02/14/2018
 2. App Service 앱 페이지에서 **모든 설정**을 클릭한 다음 **강화**를 클릭합니다.
    
     ![Azure 앱을 강화하기 위해 이동합니다.][ChooseWHP]
-3. 사용자 계층을 선택한 다음 **선택**을 클릭합니다.
+3. 사용자 계층을 선택한 다음, **적용**을 클릭합니다.
    
     작업이 완료되면 **알림** 탭에 **성공**이 녹색으로 깜박입니다.
 

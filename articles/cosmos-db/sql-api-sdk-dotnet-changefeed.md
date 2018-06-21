@@ -2,23 +2,20 @@
 title: 'Azure Cosmos DB: .NET 변경 피드 프로세서 API, SDK 및 리소스 | Microsoft Docs'
 description: 릴리스 날짜, 사용 중지 날짜 및 .NET 변경 피드 프로세서 SDK의 각 버전 간 변경 내용을 포함하여 변경 피드 프로세서 API 및 SDK에 대한 모든 것을 알아봅니다.
 services: cosmos-db
-documentationcenter: .net
 author: ealsur
 manager: kfile
-ms.assetid: f2dd9438-8879-4f74-bb6c-e1efc2cd0157
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
-ms.date: 04/19/2018
+ms.topic: reference
+ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: 7ed5772df4d8677fe878d7ced831dc15bbe8cac0
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885139"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798870"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -45,6 +42,10 @@ ms.locfileid: "33885139"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="stable-builds"></a>안정적인 빌드
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* 자세한 로깅을 추가했습니다.
+* 보류 중인 작업 예측을 여러 번 호출할 때 DocumentClient 누수를 수정했습니다.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
 * 보류 중인 작업 예측에서 해결합니다.
@@ -108,6 +109,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.3.3](#1.3.3) |2018년 5월 8일 |--- |
 | [1.3.2](#1.3.2) |2018년 4월 18일 |--- |
 | [1.3.1](#1.3.1) |2018년 3월 13일 |--- |
 | [1.2.0](#1.2.0) |2017년 10월 31일 |--- |

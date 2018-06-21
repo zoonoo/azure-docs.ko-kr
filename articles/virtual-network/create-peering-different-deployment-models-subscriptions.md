@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: dcc733308f4c0441545dc0d03cca2ca1112812ac
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 045b433fdea2cfb97f3002fbe692ea8e4988fbb4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012920"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726417"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>가상 네트워크 피어링 만들기 - 서로 다른 배포 모델 및 구독
 
@@ -107,7 +107,7 @@ ms.locfileid: "34012920"
     ```azurecli
     azure network vnet create --vnet myVnetB --address-space 10.1.0.0 --cidr 16 --location "East US"
     ```
-5. 나머지 단계는 Azure CLI 2.0.4 이상이 [설치된](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) Bash 셸이나 Azure Cloud Shell을 사용하여 완료해야 합니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 클릭하면 Azure 계정에 로그인하는 Cloud Shell이 열립니다. Windows 클라이언트에서 Bash CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 실행](../virtual-machines/windows/cli-options.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요. 
+5. 나머지 단계는 Azure CLI 2.0.4 이상이 [설치된](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) Bash 셸이나 Azure Cloud Shell을 사용하여 완료해야 합니다. Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Bash 셸입니다. Azure CLI가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 다음 스크립트에서 **사용해보기** 단추를 클릭하면 Azure 계정에 로그인하는 Cloud Shell이 열립니다. Windows 클라이언트에서 bash CLI 스크립트 실행과 관련된 옵션은 [Windows에서 Azure CLI 설치](/cli/azure/install-azure-cli-windows)를 참조하세요. 
 6. PC의 텍스트 편집기에 다음 스크립트를 복사합니다. `<SubscriptionB-Id>`는 구독 ID로 바꿉니다. 구독 ID를 모르는 경우 `az account show` 명령을 입력합니다. 출력에 표시되는 **id** 값이 구독 ID입니다. 수정된 스크립트를 복사하여 CLI 2.0 세션에 붙여 넣고 `Enter`를 누릅니다. 
 
     ```azurecli-interactive

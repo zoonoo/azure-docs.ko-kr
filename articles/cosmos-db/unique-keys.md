@@ -6,20 +6,17 @@ keywords: 고유 키 제약 조건, 고유 키 제약 조건 위반
 author: rafats
 manager: kfile
 editor: monicar
-documentationcenter: ''
-ms.assetid: b15d5041-22dd-491e-a8d5-a3d18fa6517d
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: rafats
-ms.openlocfilehash: dd23f24fd817bfc443457dee30d2f3091c0d9f6b
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261103"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키
 
@@ -34,7 +31,7 @@ ms.lasthandoff: 04/19/2018
 
 이메일 주소에 고유 키 정책을 적용하면 [소셜 응용 프로그램](use-cases.md#web-and-mobile-applications)과 연결된 사용자 데이터베이스에 어떤 이점이 있는지 예를 통해 알아보겠습니다. 사용자의 이메일 주소를 고유 키로 만들면 각 레코드가 고유한 이메일 주소를 갖게 되고, 중복되는 이메일 주소로는 새 레코드를 만들 수 없습니다. 
 
-사용자가 같은 이메일 주소를 사용하여 여러 레코드를 만들 수 있지만 이름, 성 및 이메일 주소가 같은 경우에는 만들 수 없도록 하려면 고유 키 정책에 다른 경로를 추가하면 됩니다. 따라서 단순히 이메일 주소를 기반으로 고유 키를 만드는 대신 이름, 성, 전자 메일의 조합으로 고유 키를 만들 수 있습니다. 이 경우 세 경로의 고유한 조합이 가능하므로 데이터베이스에 다음 경로 값을 가진 항목이 포함될 수 있습니다. 이러한 각 레코드는 고유 키 정책을 전달합니다.  
+사용자가 같은 이메일 주소를 사용하여 여러 레코드를 만들 수 있지만 이름, 성 및 이메일 주소가 같은 경우에는 만들 수 없도록 하려면 고유 키 정책에 다른 경로를 추가하면 됩니다. 따라서 이메일 주소를 기반으로 고유 키를 만드는 대신 이름, 성, 이메일의 조합으로 고유 키를 만들 수 있습니다. 이 경우 세 경로의 고유한 조합이 가능하므로 데이터베이스에 다음 경로 값을 가진 항목이 포함될 수 있습니다. 이러한 각 레코드는 고유 키 정책을 전달합니다.  
 
 **고유 키 이름, 성, 전자 메일에 허용되는 값**
 
@@ -90,9 +87,8 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
                 new Collection<UniqueKey>
                 {
                     new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipCode" } },
-
-                }
+                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
+          }
             };
             await client.CreateDocumentCollectionAsync(
                 UriFactory.CreateDatabaseUri(dataBase),
@@ -115,17 +111,20 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
     "firstName": "Gaby",
     "lastName": "Duperre",
     "email": "gaby@contoso.com",
-    "address": [
+    "address": 
         {            
             "line1": "100 Some Street",
             "line2": "Unit 1",
             "city": "Seattle",
             "state": "WA",
-            "zipCode": 98012
+            "zipcode": 98012
         }
-    ],
+    
 }
 ```
+> [!NOTE]
+> 고유 키 이름은 대/소문자를 구분합니다. 위의 예제와 같이 /주소/우편 번호에 대한 고유 이름이 설정됩니다. 데이터에 ZipCode가 포함되는 경우 우편 번호가 ZipCode와 같지 않으므로 고유 키에 "null"이 삽입됩니다. 그리고 대/소문자를 구분하므로 ZipCode가 포함된 다른 모든 레코드를 삽입할 수 없습니다. 중복되는 "null"이 고유 키 제약 조건을 위반하기 때문입니다.
+
 ## <a name="mongodb-api-sample"></a>MongoDB API 샘플
 
 다음 명령 샘플은 MongoDB API에 대한 사용자 컬렉션의 이름, 성 및 전자 메일 필드에 대한 고유 인덱스를 만드는 방법을 보여 줍니다. 이렇게 하면 컬렉션의 모든 문서에서 세 필드 조합의 고유성이 보장됩니다. MongoDB API 컬렉션의 경우 고유 인덱스는 컬렉션이 생성되었지만 아직 컬렉션을 채우지는 않은 시점에 생성됩니다.
@@ -133,6 +132,20 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
 ```
+## <a name="configure-unique-keys-by-using-azure-portal"></a>Azure Portal을 사용하여 고유 키 구성
+
+위의 섹션에 나오는 코드 샘플은 SQL API 또는 MongoDB API를 사용하여 컬렉션을 만들 때 고유 키 제약 조건을 정의하는 방법을 보여줍니다. 하지만 Azure Portal에서 웹 UI 통해 컬렉션을 만들 때 고유 키를 정의할 수도 있습니다. 
+
+- Cosmos DB 계정에서 **데이터 탐색기**로 이동
+- 갤러리 헤더에서 **새 컬렉션**
+- 고유 키 섹션에서** **고유 키 추가**를 클릭하여 원하는 고유 키 제약 조건을 추가할 수 있습니다.
+
+![데이터 탐색기에서 고유 키 정의](./media/unique-keys/unique-keys-azure-portal.png)
+
+- lastName 경로에서 고유 키 제약 조건을 만들려면 `/lastName`을 추가합니다.
+- lastName firstName 조합에 대한 고유 키 제약 조건을 만들려면 `/lastName,/firstName`을 추가합니다.
+
+마쳤으면 **확인**을 클릭하여 컬렉션을 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 

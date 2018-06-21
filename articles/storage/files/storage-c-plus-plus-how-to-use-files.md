@@ -1,11 +1,11 @@
 ---
-title: "C++를 사용하여 Azure Files 개발 | Microsoft Docs"
-description: "Azure Files를 사용하여 파일 데이터를 저장하는 C++ 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다."
+title: C++를 사용하여 Azure Files 개발 | Microsoft Docs
+description: Azure Files를 사용하여 파일 데이터를 저장하는 C++ 응용 프로그램 및 서비스를 개발하는 방법을 알아봅니다.
 services: storage
 documentationcenter: .net
 author: renashahmsft
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: a1e8c99e-47a6-43a9-9541-c9262eb00b38
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renashahmsft
-ms.openlocfilehash: d2f55b5ca6348ba8e190c65ec9a72c6f730d869e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b5974780813eb4f3d67c42781db4d95829814d
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737574"
 ---
 # <a name="develop-for-azure-files-with-c"></a>C++를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -26,9 +27,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
 ## <a name="about-this-tutorial"></a>이 자습서 정보
-
 이 자습서는 Azure Files에서 기본 작업을 수행하는 방법을 알려줍니다. C++로 작성된 샘플을 통해 공유 및 디렉터리 만들기, 업로드, 목록 및 파일을 삭제하는 방법을 배웁니다. Azure Files를 처음 접하는 경우 다음 섹션에 있는 개념들을 살펴보면 샘플에 대한 이해를 높이는 데 유용할 것입니다.
-
 
 * Azure 파일 공유 만들기 및 삭제
 * 디렉터리 만들기 및 삭제
@@ -70,7 +69,7 @@ storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_sto
 ```
 
 ## <a name="connecting-to-an-azure-storage-account"></a>Azure 저장소 계정에 연결
-**cloud_storage_account** 클래스를 사용하여 저장소 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
+**cloud_storage_account** 클래스를 사용하여 Storage 계정 정보를 나타낼 수 있습니다. 저장소 연결 문자열에서 저장소 계정 정보를 검색하려면 **구문 분석** 메서드를 사용할 수 있습니다.
 
 ```cpp
 // Retrieve storage account from connection string.    
@@ -354,9 +353,9 @@ if (share.exists())
 }
 ```
 ## <a name="next-steps"></a>다음 단계
-Azure 저장소에 대한 자세한 내용은 다음 리소스를 살펴보세요.
+Azure Storage에 대한 자세한 내용은 다음 리소스를 살펴보세요.
 
 * [Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp)
-* [C++로 작성된 Azure Storage File 서비스 샘플] (https://github.com/Azure-Samples/storage-file-cpp-getting-started)
-* [Azure 저장소 탐색기](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
-* [Azure 저장소 설명서](https://azure.microsoft.com/documentation/services/storage/)
+* [C++ 형식의 Azure Storage 파일 서비스 샘플](https://github.com/Azure-Samples/storage-file-cpp-getting-started)
+* [Azure Storage 탐색기](http://go.microsoft.com/fwlink/?LinkID=822673&clcid=0x409)
+* [Azure Storage 설명서](https://azure.microsoft.com/documentation/services/storage/)

@@ -1,5 +1,5 @@
 ---
-title: 이벤트 중심 백그라운드 처리를 위한 WebJobs SDK 사용 방법 - Azure
+title: Azure WebJobs SDK 사용 방법
 description: WebJobs SDK에 대한 코드 작성 방법을 알아봅니다. Azure 서비스 및 타사 서비스의 데이터에 액세스하는 이벤트 중심 백그라운드 처리 작업을 만듭니다.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,15 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3adf725f76f744fd1d321668fe892b9703de25de
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234653"
 ---
-# <a name="how-to-use-the-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 WebJobs SDK 사용 방법
+# <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
-이 문서에서는 [WebJobs SDK](webjobs-sdk-get-started.md)에 대한 코드 작성 방법을 안내합니다. 별도로 명시되지 않는 한 이 설명서는 2.x 및 3.x 버전에 적용됩니다. 3.x 버전에 도입된 주요 변경 내용은 .NET Framework 대신 .NET Core를 사용하는 것입니다.
+이 문서에서는 [Azure WebJobs SDK](webjobs-sdk-get-started.md)에 대한 코드 작성 방법을 안내합니다. 별도로 명시되지 않는 한 이 설명서는 2.x 및 3.x 버전에 적용됩니다. 3.x 버전에 도입된 주요 변경 내용은 .NET Framework 대신 .NET Core를 사용하는 것입니다.
 
 >[!NOTE]
 > [Azure Functions](../azure-functions/functions-overview.md)는 WebJobs SDK를 기반으로 하며, 이 문서는 일부 항목에 대한 Azure Functions 설명서로 연결됩니다. 다음은 Functions와 WebJobs SDK의 차이점입니다.
@@ -322,7 +323,7 @@ public static void CreateQueueMessage(
 
 각 바인딩 형식에 대한 참조 정보는 Azure Functions 설명서에 제공됩니다. Storage 큐를 예제로 사용하여 각 바인딩 참조 문서에서 다음 정보를 확인할 수 있습니다.
 
-* [패키지](../azure-functions/functions-bindings-storage-queue.md#packages) - WebJobs SDK 프로젝트에 바인딩 지원을 포함하기 위해 설치해야 하는 패키지.
+* [패키지](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x) - WebJobs SDK 프로젝트에 바인딩 지원을 포함하기 위해 설치해야 하는 패키지.
 * [예제](../azure-functions/functions-bindings-storage-queue.md#trigger---example) - C# 클래스 라이브러리 예제는 WebJobs SDK에 적용됩니다. `FunctionName` 특성을 생략하세요.
 * [특성](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes) - 바인딩 형식에 사용할 특성.
 * [구성](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration) - 특성 속성 및 생성자 매개 변수에 대한 설명.
@@ -390,6 +391,26 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 * **FileTrigger** - `FileProcessor.MaxDegreeOfParallelism`을 1로 설정합니다.
 
 이러한 설정을 사용하여 함수가 단일 인스턴스에서 싱글톤으로 실행되도록 할 수 있습니다. 웹앱이 여러 인스턴스로 규모 확장될 때 함수의 단일 인스턴스만 실행되게 하려면 함수에서 수신기 수준 싱글톤 잠금을 적용합니다(`[Singleton(Mode = SingletonMode.Listener)]`). 수신기 잠금은 JobHost 시작 시 획득합니다. 확장된 인스턴스 3개가 동시에 시작되면 인스턴스 중 하나만 잠금을 획득하고 하나의 수신기만 시작됩니다.
+
+### <a name="scope-values"></a>범위 값
+
+싱글톤에서 **식/값의 범위**를 지정하여 해당 범위에서 함수의 모든 실행이 직렬화될 것을 보장할 수 있습니다. 요구 사항에 따라 다른 호출을 직렬화하는 동안 사용자 함수에 대한 병렬 처리의 일정 수준에서 이러한 방식으로 더 세분화된 잠금을 구현할 수 있습니다. 예를 들어 다음 예제에서 범위 식은 들어오는 메시지의 `Region` 값에 바인딩합니다. 큐에 각 “East”, “East” 및 “West” 영역의 메시지 3개가 포함된 경우 “West” 영역이 있는 메시지가 병렬로 실행되는 동안 “East” 영역이 있는 메시지가 직렬로 실행됩니다.
+
+```csharp
+[Singleton("{Region}")]
+public static async Task ProcessWorkItem([QueueTrigger("workitems")] WorkItem workItem)
+{
+     // Process the work item
+}
+
+public class WorkItem
+{
+     public int ID { get; set; }
+     public string Region { get; set; }
+     public int Category { get; set; }
+     public string Description { get; set; }
+}
+```
 
 ### <a name="singletonscopehost"></a>SingletonScope.Host
 

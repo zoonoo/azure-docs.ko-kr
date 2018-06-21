@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 배포 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버를 관리하는 방법을 설명합니다.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 2389ff6824a005db46c04bd1b45eabfd5ce50481
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 05/06/2018
+ms.author: raynew
+ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188483"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267512"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -21,11 +21,19 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 ## <a name="prerequisites"></a>필수 조건
 
-항상 사용 가능한 VMware VM으로 구성 서버를 배포하는 것이 좋습니다. 최소 하드웨어 요구 사항이 다음 표에 요약되어 있습니다.
+항상 사용 가능한 VMware VM으로 구성 서버를 배포하는 것이 좋습니다. 구성 서버 요구 사항이 다음 표에 요약되어 있습니다.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+
+### <a name="prepare-for-mysql-installation"></a>MySQL 설치 준비
+
+MySQL은 기본적으로 구성 서버에 설치돼야 합니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
+
+- 구성 서버 관리 마법사가 실행될 때 Site Recovery가 MySQL을 다운로드하고 설치하게 합시다. 특정 조치를 취할 필요가 없습니다.
+- 수동으로 MySQL을 다운로드하고 C:\Temp\ASRSetup 폴더에 넣습니다. 그런 다음, 설치를 실행합니다. Site Recovery는 마법사가 실행되는 경우 MySQL이 설치된 것을 인식합니다.
+- 수동으로 MySQL을 다운로드하고 C:\Temp\ASRSetup 폴더에 넣습니다. 마법사가 실행되는 경우 설치 파일을 찾아 이 위치에서 설치합니다. 
 
 
 ## <a name="capacity-planning"></a>용량 계획
@@ -101,7 +109,7 @@ Site Recovery는 구성 서버를 고가용성 VMware VM으로 설정하기 위�
 
 1. 구성 서버 관리 마법사에서 **연결 설정**을 선택합니다. 복제 트래픽을 수신하도록 NIC를 선택한 다음, **저장**을 선택합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
 2. **Recovery Services 자격 증명 모음 선택**에서 Azure 구독을 선택한 다음, 관련 리소스 그룹 및 자격 증명 모음을 선택합니다.
-3. **타사 소프트웨어 설치**에서 사용권 계약에 동의합니다. **다운로드 및 설치**를 선택하여 MySQL 서버를 설치합니다.
+3. **타사 소프트웨어 설치**에서 사용권 계약에 동의합니다. [MySQL을 설치하는 데 사용하는 방법](#prepare-for-mysql-installation)에 따라 MySQL을 설치합니다.
 4. **VMware PowerCLI 설치**를 선택합니다. 이 단계를 수행하기 전에 모든 브라우저 창을 닫아야 합니다. 그런 다음, **계속**을 선택합니다.
 5. 계속하기 전에 **어플라이언스 구성 유효성 검사**에서 필수 구성 요소가 확인됩니다.
 6. **vCenter Server/vSphere ESXi 서버 구성**에 복제하려는 VM이 있는 vCenter 서버 또는 vSphere 호스트의 FQDN 또는 IP 주소를 입력합니다. 서버가 수신 대기하는 포트 및 자격 증명 모음에 있는 VMware 서버에 사용할 이름을 입력합니다.

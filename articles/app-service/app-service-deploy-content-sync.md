@@ -1,49 +1,73 @@
 ---
-title: "클라우드 폴더에서 Azure App Service로 콘텐츠 동기화"
-description: "클라우드 폴더에서 콘텐츠 동기화를 통해 Azure App Service에 앱을 배포하는 방법에 대해 알아봅니다."
+title: 클라우드 폴더에서 Azure App Service로 콘텐츠 동기화
+description: 클라우드 폴더에서 콘텐츠 동기화를 통해 Azure App Service에 앱을 배포하는 방법에 대해 알아봅니다.
 services: app-service
-documentationcenter: 
-author: dariagrigoriu
-manager: erikre
-editor: mollybos
+documentationcenter: ''
+author: cephalin
+manager: cfowler
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/14/2016
-ms.author: dariagrigoriu
-ms.openlocfilehash: 8e132e4d4a65588d57e3cfb969e785f5a164206c
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.date: 06/05/2018
+ms.author: cephalin;dariagrigoriu
+ms.openlocfilehash: 3781010c74daa51c92813db85ee03eaa4c02a4cf
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233590"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>클라우드 폴더에서 Azure App Service로 콘텐츠 동기화
-이 자습서에서는 Dropbox 및 OneDrive와 같은 인기 있는 클라우드 저장소 서비스에서 콘텐츠를 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)와 동기화하는 방법을 보여 줍니다. 
+이 문서에서는 Dropbox 및 OneDrive에서 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)로 사용자 콘텐츠를 동기화하는 방법을 보여 줍니다. 
 
-## <a name="overview"></a>콘텐츠 동기화 배포 개요
-주문형 콘텐츠 동기화 배포는 App Service와 통합된 [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki) 에서 제공됩니다. [Azure Portal](https://portal.azure.com)에서 클라우드 저장소의 폴더를 지정하고 해당 폴더에서 앱 코드 및 콘텐츠 작업을 수행한 다음 단추를 클릭하여 App Service를 동기화할 수 있습니다. 콘텐츠 동기화는 빌드 및 배포에 Kudu 프로세스를 활용합니다. 
+주문형 콘텐츠 동기화 배포는 App Service [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki)에서 제공됩니다. 지정된 클라우드 폴더의 콘텐츠 및 사용자 앱 코드로 작업할 수 있습니다. 그런 다음, 단추를 클릭하여 App Service로 동기화할 수 있습니다. 콘텐츠 동기화는 Kudu 빌드 서버를 사용합니다. 
 
-## <a name="contentsync"></a>콘텐츠 동기화 배포를 사용하는 방법
-[Azure Portal](https://portal.azure.com)에서 콘텐츠 동기화를 사용하려면 다음 단계를 따릅니다.
+## <a name="enable-content-sync-deployment"></a>콘텐츠 동기화 배포를 사용하도록 설정
 
-1. Azure Portal의 앱 페이지에서 **설정** > **배포 원본**을 클릭합니다. **원본 선택**을 클릭한 다음 배포 원본으로 **OneDrive** 또는 **Dropbox**를 선택합니다. 
+콘텐츠 동기화를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
+
+왼쪽 메뉴에서 **배포 센터** > **OneDrive** 또는 **Dropbox** > **인증**을 클릭합니다. 표시되는 인증 메시지를 따릅니다. 
+
+![](media/app-service-deploy-content-sync/choose-source.png)
+
+한 번 OneDrive 또는 Dropbox로 인증해야 합니다. 이미 인증된 경우 **계속**을 클릭합니다. **계정 변경**을 클릭하여 인증된 OneDrive 또는 Dropbox 계정을 변경할 수 있습니다.
+
+![](media/app-service-deploy-content-sync/continue.png)
+
+**구성** 페이지에서 동기화할 폴더를 선택합니다. 이 폴더는 OneDrive 또는 Dropbox에서 다음과 같은 지정된 콘텐츠 경로 아래에 생성됩니다. 
    
-    ![콘텐츠 동기화](./media/app-service-deploy-content-sync/deployment_source.png)
+* **OneDrive**: `Apps\Azure Web Apps`
+* **Dropbox**: `Apps\Azure`
+
+작업을 마쳤으면 **계속**을 클릭합니다.
+
+**요약** 페이지에서 옵션을 확인하고 **마침**을 클릭합니다.
+
+## <a name="synchronize-content"></a>콘텐츠 동기화
+
+클라우드 폴더에 있는 콘텐츠를 App Service와 동기화하려는 경우 **배포 센터** 페이지로 돌아가서 **동기화**를 클릭합니다.
+
+![](media/app-service-deploy-content-sync/synchronize.png)
    
    > [!NOTE]
    > API의 기본적인 차이 때문에 **비즈니스용 OneDrive**는 지원되지 않습니다. 
    > 
    > 
-2. 모든 App Service 콘텐츠가 저장될 OneDrive 또는 Dropbox에 대해 미리 정의된 특정 지정 경로에 액세스하도록 App Service를 설정하여 권한 부여 워크플로를 완료합니다. 권한 부여 후에 App Service 플랫폼은 지정된 콘텐츠 경로에 콘텐츠 폴더를 만드는 옵션 또는 이 지정된 콘텐츠 경로에서 기존 콘텐츠 폴더를 선택하는 옵션을 제공합니다. App Service 동기화에 사용된 클라우드 저장소 계정에 지정된 콘텐츠 경로는 다음과 같습니다.  
-   
-   * **OneDrive**: `Apps\Azure Web Apps` 
-   * **Dropbox**: `Dropbox\Apps\Azure`
-3. 초기 콘텐츠 동기화 후 Azure Portal에서 필요에 따라 콘텐츠 동기화를 시작할 수 있습니다. 배포 기록은 **배포** 페이지에서 확인할 수 있습니다.
-   
-    ![배포 기록](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
-Dropbox 배포에 대한 자세한 내용은 [Dropbox에서 배포](https://azure.microsoft.com/en-in/blog/new-deploy-to-windows-azure-web-sites-from-dropbox/)를 참조하세요.
+## <a name="disable-content-sync-deployment"></a>콘텐츠 동기화 배포를 사용하지 않도록 설정
 
+콘텐츠 동기화를 사용하지 않도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 App Service 앱 페이지로 이동합니다.
+
+왼쪽 메뉴에서 **배포 센터** > **OneDrive** 또는 **Dropbox** > **연결 해제**를 클릭합니다.
+
+![](media/app-service-deploy-content-sync/disable.png)
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [로컬 Git 리포지토리에서 배포](app-service-deploy-local-git.md)

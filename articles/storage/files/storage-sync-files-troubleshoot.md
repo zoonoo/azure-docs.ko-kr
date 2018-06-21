@@ -4,22 +4,21 @@ description: Azure File Sync와 관련된 일반적인 문제를 해결합니다
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 7f3d9672e9fc152580f49cf06b431ced890d9f08
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: ea05c29bb40b595ad32304df55a79a9cf82acc18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010927"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738441"
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Azure 파일 동기화(미리 보기) 문제 해결
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -30,6 +29,9 @@ Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의
 2. [Azure Storage 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) 
 4. Microsoft 지원 새 지원 요청을 만들려면 Azure Portal의 **도움말** 탭에서 **도움말 + 지원** 단추를 선택한 다음 **새 지원 요청**을 선택합니다.
+
+## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>서버의 Azure File Sync에 문제가 발생했습니다(동기화, 클라우드 계층화 등). 서버 엔드포인트를 제거하고 다시 만들어야 하나요?
+[!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
 
 ## <a name="storage-sync-service-object-management"></a>저장소 동기화 서비스 개체 관리
 한 구독에서 다른 구독으로 리소스를 이동하는 경우, 파일 동기화(저장소 동기화 서비스) 리소스가 이동되지 않도록 차단됩니다. 
@@ -155,7 +157,7 @@ Set-AzureRmStorageSyncServerEndpoint -Id serverendpointid -CloudTiering true -Vo
     2. 서버에서 Azure File Sync 서비스가 실행 중인지 확인합니다. 이렇게 하려면 서비스 MMC 스냅인을 열고 Storage 동기화 에이전트 서비스(FileSyncSvc)가 실행 중인지 확인합니다.
 
 <a id="replica-not-ready"></a>**"0x80c8300f - 복제본이 해당 작업을 수행할 준비가 되지 않았습니다." 오류로 인해 동기화 실패**   
-클라우드 엔드포인트를 만들고 데이터가 포함된 Azure 파일 공유를 사용하는 경우 이 문제가 발생할 수 있습니다. Azure 파일 공유에서 변경 검색 작업 실행이 완료되면(최대 24시간이 걸릴 수 있음) 동기화가 올바르게 작동되기 시작합니다.
+클라우드 엔드포인트를 만들고 데이터가 포함된 Azure 파일 공유를 사용하는 경우 이 문제가 발생할 수 있습니다. Azure 파일 공유에서 변경 내용을 검색하는 변경 검색 작업은 24시간마다 한 번으로 예약됩니다.  완료 시간은 Azure 파일 공유의 네임스페이스 크기에 따라 달라집니다.  이 오류는 완료되면 사라집니다.
 
 
     > [!NOTE]

@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 0c1cea1646c71698318e94932248e08955359b9e
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234527"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
 
@@ -67,6 +68,8 @@ ms.lasthandoff: 03/12/2018
 * .NET 앱의 경우, 이 설정은 런타임 시 .NET 구성 `AppSettings`으로 주입되어 기존 설정을 재정의합니다. 
 * PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 환경 변수로 이러한 설정에 액세스할 수 있습니다. 각 앱 설정에 대해 두 개의 환경 변수가 만들어집니다. 하나는 앱 설정 항목에 의해 이름이 지정되고, 다른 하나는 이름에 APPSETTING_ 접두사가 붙습니다. 둘 다 같은 값을 포함합니다.
 
+앱 설정은 저장될 때 항상 암호화됩니다(미사용 암호화).
+
 ### <a name="connection-strings"></a>연결 문자열
 연결된 리소스의 연결 문자열입니다. 
 
@@ -80,6 +83,8 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 사용자 지정: `CUSTOMCONNSTR_`
 
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
+
+연결 문자열은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
 ### <a name="default-documents"></a>기본 문서
 기본 문서는 웹 사이트의 루트 URL에 표시되는 웹 페이지입니다.  목록에서 첫 번째로 일치되는 파일이 사용됩니다. 
@@ -150,7 +155,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 자세한 내용은 [방법: 웹 끝점 모니터링]을 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험]으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가]으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -171,7 +176,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 [Azure App Service에서 Web Apps에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure App Service에서 웹앱 크기 조정]: ./web-sites-scale.md
-[App Service 체험]: https://azure.microsoft.com/try/app-service/
+[App Service 평가]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

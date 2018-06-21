@@ -1,32 +1,26 @@
 ---
-title: Azure Monitor CLI 2.0 빠른 시작 샘플. | Microsoft Docs
+title: Azure Monitor CLI 빠른 시작 샘플
 description: Azure Monitor 기능에 대한 샘플 CLI 2.0 명령입니다. Azure Monitor는 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있는 Microsoft Azure 서비스입니다.
-author: kamathashwin
-manager: ''
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 1653aa81-0ee6-4622-9c65-d4801ed9006f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: ashwink
-ms.openlocfilehash: a9c6cc0fb81b094e1c980e4c209184a0c0ebd428
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+author: rboucher
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: robb
+ms.component: ''
+ms.openlocfilehash: 0b98cc29325310cfc0c7a62de693c309b6731447
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34009761"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262405"
 ---
 # <a name="azure-monitor-cli-20-quick-start-samples"></a>Azure Monitor CLI 2.0 빠른 시작 샘플
 이 문서에서는 Azure Monitor 기능에 액세스하는 데 유용한 샘플 CLI(명령줄 인터페이스) 명령을 보여 줍니다. Azure Monitor를 통해 Cloud Services, Virtual Machines 및 Web Apps의 크기를 자동으로 조정하고, 구성된 원격 분석 데이터의 값을 기반으로 경고 알림을 보내거나 웹 URL을 호출할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)에 관한 지침을 따릅니다. 또한 [Azure Cloud Shell](/azure/cloud-shell)을 사용하여 브라우저에서 CLI를 대화형 환경으로 실행할 수 있습니다. 
+아직 Azure CLI를 설치하지 않은 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)에 관한 지침을 따릅니다. 또한 [Azure Cloud Shell](/azure/cloud-shell)을 사용하여 브라우저에서 CLI를 대화형 환경으로 실행할 수 있습니다. [Azure Monitor CLI 참조](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest)에서 사용 가능한 모든 명령의 전체 참조를 확인하세요. 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 첫 번째 단계에서는 Azure 계정에 로그인합니다.
@@ -91,7 +85,8 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 ```
 
 ## <a name="work-with-alerts"></a>경고 작업 
-[!NOTE] 이번에 CLI에서 경고(클래식)만이 지원됩니다. 
+> [!NOTE]
+> 이번에 CLI에서 경고(클래식)만이 지원됩니다. 
 
 ### <a name="get-alert-classic-rules-in-a-resource-group"></a>리소스 그룹의 경고(클래식) 규칙 가져오기
 

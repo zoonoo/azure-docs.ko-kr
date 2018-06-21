@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 데이터 보존 및 저장소 | Microsoft Docs"
-description: "보존 및 개인 정보 취급 방침"
+title: Azure Application Insights 데이터 보존 및 저장소 | Microsoft Docs
+description: 보존 및 개인 정보 취급 방침
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1818e564acb0e9b5fa620d6f38db141811ca9777
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 0ee712b24478b52dfc5864e59e885e3b9dd6137b
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294069"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 저장소
 
@@ -190,13 +191,13 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | 충돌 |프로세스 ID, 부모 프로세스 ID, 충돌 스레드 ID; 응용 프로그램 패치, ID, 빌드; 예외 유형, 주소, 이유; 난독 처리된 기호 및 레지스터, 이진 시작 및 끝 주소, 이진 이름 및 경로, CPU 종류 |
 | 추적 |**메시지** 및 심각도 수준 |
 | 성능 카운터 |프로세서 시간, 사용 가능한 메모리, 요청 속도, 예외 속도, 프로세스 전용 바이트, IO 속도, 요청 기간, 요청 큐 길이 |
-| Availability |웹 테스트 응답 코드, 각 테스트 단계, 테스트 이름, 타임 스탬프, 성공, 응답 시간, 테스트 위치의 기간 |
+| 가용성 |웹 테스트 응답 코드, 각 테스트 단계, 테스트 이름, 타임 스탬프, 성공, 응답 시간, 테스트 위치의 기간 |
 | SDK 진단 |추적 메시지 또는 예외 |
 
 [ApplicationInsights.config를 편집하여 일부 데이터를 해제][config]할 수 있습니다.
 
 ## <a name="credits"></a>크레딧
-이 제품에는 MaxMind에서 작성된 GeoLite2 데이터를 포함하며 [http://www.maxmind.com](http://www.maxmind.com)에 있습니다.
+이 제품은 [http://www.maxmind.com](http://www.maxmind.com)에 있는 MaxMind에서 작성된 GeoLite2 데이터를 포함합니다.
 
 
 

@@ -1,25 +1,20 @@
 ---
-title: Azure 진단 확장 개요 | Microsoft Docs
+title: Azure 진단 확장 개요
 description: 클라우드 서비스, 가상 머신 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용
-services: multiple
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: ''
-editor: ''
-ms.assetid: baad40d8-c915-4f93-b486-8b160bf33463
-ms.service: multiple
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: robb
-ms.openlocfilehash: daeaddefa461e71fcc62af4efc4fb7084b237cf9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: diagnostic-extension
+ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33886398"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267682"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure 진단 확장이란?
 Azure 진단 확장은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, 가상 머신 확장 집합 및 Service Fabric에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](monitoring-overview.md)를 참조하세요. 

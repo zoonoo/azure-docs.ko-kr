@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행 | Microsoft Docs
+title: 저장 프로시저 작업으로 SSIS 패키지 실행 - Azure | Microsoft Docs
 description: 이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS(SQL Server Integration Services) 패키지를 실행하는 방법에 대해 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -10,17 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 283e1022abda083d73e8e4e5bca7872791cb4861
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: df4e5002d637c4d280686642156309c85bd89773
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297688"
 ---
-# <a name="run-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
-이 문서에서는 Azure Data Factory 파이프라인에서 저장 프로시저 작업을 사용하여 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
+# <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Azure Data Factory에서 저장 프로시저 작업을 사용하여 SSIS 패키지 실행
+이 문서에서는 저장 프로시저 작업을 사용하여 Azure Data Factory 파이프라인에서 SSIS 패키지를 실행하는 방법에 대해 설명합니다. 
 
 > [!NOTE]
 > 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [버전 1에서 저장 프로시저 작업을 사용하여 SSIS 패키지 호출](v1/how-to-invoke-ssis-package-stored-procedure-activity.md)을 참조하세요.

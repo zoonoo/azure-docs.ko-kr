@@ -5,16 +5,16 @@ services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/09/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 6e282291a6e6e219bb275dd4da91f3815590adc1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 075e04db27006719ec7d6e08eb2696436d1010f4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32196006"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34648652"
 ---
 # <a name="dtu-based-purchasing-model-for-azure-sql-database"></a>Azure SQL Database에 대한 DTU 기반 구매 모델 
 
@@ -81,9 +81,9 @@ DTU(데이터베이스 처리량 단위)는 CPU, 메모리, 읽기 및 쓰기의
 ||||||
 
 > [!IMPORTANT]
-> -  포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
-> -  프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
-
+> - 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
+> - 프리미엄 계층에 제공되는 1TB 이상의 저장소는 영국 북부, 미국 중서부, 영국 남부2, 중국 동부, US DoD 중부, 독일 중부, US DoD 동부, US Gov 남서부, US Gov 중남부, 독일 북동부, 중국 북부, US Gov 동부를 제외한 모든 지역에서 사용할 수 있습니다. 더 광범위한 지역에 제공될 예정입니다. 다른 지역에서 프리미엄 계층의 최대 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](sql-database-dtu-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> 
 탄력적 풀에 사용할 수 있는 특정 성능 수준 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.
 
 

@@ -4,29 +4,29 @@ description: Azure(큰 인스턴스)에서 SAP HANA를 설치하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0747bd5dc147639167f352dea46f7e4a1d43227d
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778599"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763455"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
-다음은 이 지침을 읽기 전에 알아야 할 중요한 정의입니다. [Azure(큰 인스턴스)에서 SAP HANA 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 가지 다른 클래스를 도입했습니다.
+다음은 이 지침을 읽기 전에 알아야 할 중요한 정의입니다. [SAP HANA (큰 인스턴스) 개요 및 Azure 상의 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 다른 클래스를 도입했습니다.
 
-- SKU의 'Type I 클래스'인 S72, S72m, S144, S144m, S192 및 S192m.
-- SKU의 'Type II 클래스'인 S384, S384m, S384xm, S576m, S768m 및 S960m.
+- SKU의 '유형 I 클래스'인 S72, S72m, S144, S144m, S192, S192m 및 S192xm.
+- SKU의 '유형 II 클래스'인 S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm 및 S960m.
 
 클래스 지정자는 HANA 큰 인스턴스 설명서 전반에서 HANA 큰 인스턴스 SKU를 기반으로 하는 다양한 기능과 요구 사항을 언급하는 데 사용됩니다.
 

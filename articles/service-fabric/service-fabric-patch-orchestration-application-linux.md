@@ -12,13 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: f5d9b39a91567dd04b4e8ca0cd580c58024bb2f2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643127"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 
@@ -61,9 +62,9 @@ ms.lasthandoff: 05/16/2018
 ### <a name="ensure-that-your-azure-vms-are-running-ubuntu-1604"></a>Azure VM에서 Ubuntu 16.04를 실행하고 있는지 확인합니다.
 이 문서 작성 당시 Ubuntu 16.04(`Xenial Xerus`)가 지원되는 유일한 버전입니다.
 
-### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-61x-and-above"></a>서비스 패브릭 linux 클러스터가 버전 6.1.x 이상인지 확인합니다.
+### <a name="ensure-that-the-service-fabric-linux-cluster-is-version-62x-and-above"></a>Service Fabric Linux 클러스터가 버전 6.2.x 이상인지 확인합니다.
 
-패치 오케스트레이션 앱 linux는 서비스 패브릭 런타임 버전 6.1.x 이상에만 제공되는 런타임의 특정 기능을 사용합니다.
+패치 오케스트레이션 앱 linux는 서비스 패브릭 런타임 버전 6.2.x 이상에만 제공되는 런타임의 특정 기능을 사용합니다.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>복구 관리자 서비스 사용(아직 실행되지 않은 경우)
 
@@ -118,7 +119,9 @@ Ubuntu의 경우 [무인 업그레이드](https://help.ubuntu.com/community/Auto
 
 ## <a name="download-the-app-package"></a>앱 패키지 다운로드
 
-[다운로드 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 응용 프로그램을 다운로드합니다.
+설치 스크립트와 함께 응용 프로그램을 [보관 링크](https://go.microsoft.com/fwlink/?linkid=867984)에서 다운로드할 수 있습니다.
+
+sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg)에서 다운로드할 수 있습니다. 이 링크를 통해 [Azure Resource Manager 기반 응용 프로그램을 쉽게 배포](service-fabric-application-arm-resource.md)할 수 있습니다.
 
 ## <a name="configure-the-app"></a>앱 구성
 
@@ -319,6 +322,10 @@ Q. **업그레이드 후 패치 오케스트레이션 앱은 사용되지 않는
 
 a. 예, 정리는 설치 후 단계의 일부로 발생합니다. 
 
+Q. **패치 오케스트레이션 앱을 사용하여 개발자 클러스터(1노드 클러스터)에 패치를 적용할 수 있나요?**
+
+a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스터에 패치를 적용할 수 없습니다. 이 제한은 기본적으로 [Service Fabric 시스템 서비스](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) 또는 고객 앱이 가동 중지되고 패치에 대한 모든 복구 작업이 복구 관리자에서 승인되지 않으므로 이 제한은 기본적으로 적용됩니다.
+
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="a-node-is-not-coming-back-to-up-state"></a>노드가 활성 상태로 전환되지 않음
@@ -360,5 +367,8 @@ a. 예, 정리는 설치 후 단계의 일부로 발생합니다.
 ### <a name="version-010"></a>버전 0.1.0
 - 비공개 미리 보기 릴리스
 
-### <a name="version-200-latest"></a>버전 2.0.0(최신 버전)
+### <a name="version-200"></a>버전 2.0.0
 - 공개 릴리스
+
+### <a name="version-201-latest"></a>버전 2.0.1(최신)
+- 최신 Service Fabric SDK를 사용하여 앱을 다시 컴파일함

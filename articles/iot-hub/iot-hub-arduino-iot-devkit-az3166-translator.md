@@ -1,24 +1,20 @@
 ---
 title: Azure Function 및 Cognitive Services를 사용하는 IoT DevKit 번역기 | Microsoft Docs
 description: IoT DevKit에서 마이크를 사용하여 영어로 번역된 텍스트로 처리하기 위해 음성 메시지 및 Azure Cognitive Services를 수신합니다.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
-ms.service: iot-hube
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeffya
+ms.service: iot-hub
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: 20e5a5f4fb381dedc42d698464819a6098c3579b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b65888ced67ba3c236c31678cf452d40489bf028
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631781"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Azure Function 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 

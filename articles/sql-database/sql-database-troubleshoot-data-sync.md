@@ -3,17 +3,18 @@ title: Azure SQL Data Sync(미리 보기) 문제 해결 | Microsoft Docs
 description: Azure SQL 데이터 동기화(미리 보기)와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다.
 services: sql-database
 ms.date: 04/01/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: sql-database
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 8c3476a81c10c9e1754302da4ac5c703ce7375bc
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757539"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 문제 해결
 
@@ -240,9 +241,8 @@ SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니�
 
 -   SQL 데이터 동기화(미리 보기) Windows 서비스가 실행 중입니다.  
 -   SQL 데이터 동기화(미리 보기) 미리 보기 Windows 서비스에 대한 서비스 계정에 네트워크 액세스 권한이 있습니다.    
--   클라이언트 에이전트가 로케이터 서비스에 연결할 수 있습니다. 다음 레지스트리 키에 값 https://locator.sync.azure.com/LocatorServiceApi.svc:가 있는지 확인합니다.  
-    -   x86 컴퓨터: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   x64 컴퓨터: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   아웃바운드 1433 포트가 로컬 방화벽 규칙에서 열립니다.
+-   로컬 IP는 메타데이터 데이터베이스 동기화에 대한 서버 또는 데이터베이스 방화벽 규칙에 추가됩니다.
 
 #### <a name="cause"></a>원인
 

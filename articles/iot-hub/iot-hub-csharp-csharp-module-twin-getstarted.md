@@ -1,28 +1,22 @@
 ---
 title: Azure IoT Hub 모듈 ID 및 모듈 쌍 시작(.NET) | Microsoft Docs
 description: .NET용 IoT SDK를 사용하여 모듈 ID를 만들고 모듈 쌍을 업데이트하는 방법을 알아봅니다.
-services: iot-hub
-documentationcenter: .net
 author: chrissie926
-manager: timlt
-editor: ''
-ms.assetid: f40604ff-8fd6-4969-9e99-8574fbcf036c
+manager: ''
 ms.service: iot-hub
-ms.devlang: dotnet
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.devlang: csharp
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f71ac333aeb73df00856dde279b56f94464127b5
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5855396fc87b7d8de17be65a66af40963c59fc71
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361123"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34633481"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-backup-and-net-device"></a>.NET 백업 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>.NET 백 엔드 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
 > [!NOTE]
 > [모듈 ID 및 모듈 쌍](iot-hub-devguide-module-twins.md)은 Azure IoT Hub 장치 ID 및 장치 쌍과 비슷하지만 더 자세한 세분성을 제공합니다. Azure IoT Hub 장치 ID와 장치 쌍은 백 엔드 응용 프로그램에서 장치를 구성할 수 있도록 하고 장치 상태에 대한 가시성을 제공하지만, 모듈 ID와 모듈 쌍은 장치의 개별 구성 요소에 대해 이러한 기능을 제공합니다. 운영 체제 기반 장치 또는 펌웨어 장치와 같이 여러 구성 요소가 있는 가능한 장치에서 각 구성 요소에 대해 격리된 구성과 조건을 허용합니다.
@@ -57,7 +51,7 @@ ms.locfileid: "34361123"
 
     ![Visual Studio 프로젝트 만들기][13]
 
-2. **Azure IoT Hub .NET 장치 SDK V1.16.0-preview-005 설치** - 모듈 ID 및 모듈 쌍은 공개 미리 보기로 있습니다. IoT Hub 시험판 장치 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. V1.16.0-preview-005 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
+2. **최신 Azure IoT Hub .NET 장치 SDK 설치** - 모듈 ID 및 모듈 쌍은 공개 미리 보기로 있습니다. IoT Hub 시험판 장치 SDK에서만 사용할 수 있습니다. Visual Studio에서 도구 > Nuget 패키지 관리자 > 솔루션용 Nuget 패키지 관리를 차례로 엽니다. Microsoft.Azure.Devices.Client를 검색합니다. 시험판 포함 확인란이 선택되었는지 확인합니다. 최신 버전을 선택하고 설치합니다. 이제 모든 모듈 기능에 액세스할 수 있습니다. 
 
     ![Azure IoT Hub .NET 서비스 SDK V1.16.0-preview-005 설치][14]
 
@@ -119,7 +113,7 @@ ms.locfileid: "34361123"
             var twinTask = Client.GetTwinAsync();
             twinTask.Wait();
             var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin));
+            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
             Console.WriteLine("Sending app start time as reported property");
             TwinCollection reportedProperties = new TwinCollection();

@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성 | Microsoft Docs"
-description: "Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성"
+title: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성 | Microsoft Docs
+description: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3522e7ef0e3d49ce1bd8bed750b239fa384af8b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 604179ec856d21dce51101fdafa5d51eed08f89f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657216"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -323,7 +324,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>다른 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-두 번째 SOFS를 구성할 수 있습니다(예를 들어 두 번째 **\<SID2>**에 대해 **\<SAPGlobalHost2>** 및 다른 **Volume2**를 사용하여 두 번째 SOFS 클러스터 역할 구성).
+두 번째 SOFS를 구성할 수 있습니다(예를 들어 두 번째 **\<SID2>** 에 대해 **\<SAPGlobalHost2>** 및 다른 **Volume2**를 사용하여 두 번째 SOFS 클러스터 역할 구성).
 
 ![그림 4: 다중 SID SOFS가 SAP 글로벌 호스트 이름 2와 같음][sap-ha-guide-figure-8015]
 
@@ -421,7 +422,7 @@ _**그림 10:** 모든 설정 사용 안 함_
 <br>
 다음에 대해 *모든 권한*을 파일 및 sapmnt 공유에 할당합니다.
 * **SAP_\<SID>_GlobalAdmin** 도메인 사용자 그룹
-* ASCS/SCS 클러스터 노드 **ascs-1$** 및 **ascs-2$**의 컴퓨터 개체
+* ASCS/SCS 클러스터 노드 **ascs-1$** 및 **ascs-2$** 의 컴퓨터 개체
 
 ![그림 11: 사용자 그룹 및 컴퓨터 계정에 대한 모든 권한 할당][sap-ha-guide-figure-8022]
 

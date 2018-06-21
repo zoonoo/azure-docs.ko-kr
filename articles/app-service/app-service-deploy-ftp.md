@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/06/2016
+ms.date: 06/05/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 561f317cd7afd740b83709efc8a75ed515626192
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 2ec08b45fab9987e9271c1ff3101eaf321dc84be
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35234226"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -26,29 +27,23 @@ ms.lasthandoff: 05/07/2018
 
 앱에 대한 FTP/S 끝점은 이미 활성화되어 있습니다. FTP/S 배포를 사용하도록 설정하는 데 필요한 구성은 없습니다.
 
-<a name="step1"></a>
-## <a name="step-1-set-deployment-credentials"></a>1단계: 배포 자격 증명 설정
+## <a name="open-ftp-dashboard"></a>FTP 대시보드 열기
 
-앱에 대한 FTP 서버에 액세스하려면 먼저 배포 자격 증명이 필요합니다. 
+[Azure Portal](https://portal.azure.com)에서 앱의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)를 엽니다.
 
-배포 자격 증명을 설정하거나 다시 설정하려면 [Azure App Service 배포 자격 증명](app-service-deployment-credentials.md)을 참조하세요. 이 자습서는 사용자 수준의 자격 증명 사용 방법을 보여 줍니다.
+FTP 대시보드를 열려면 **지속적인 업데이트(미리 보기)** > **FTP** > **대시보드**를 클릭합니다.
 
-## <a name="step-2-get-ftp-connection-information"></a>2단계: FTP 연결 정보 가져오기
+![FTP 대시보드 열기](./media/app-service-deploy-ftp/open-dashboard.png)
 
-1. [Azure Portal](https://portal.azure.com)에서 앱의 [리소스 페이지](../azure-resource-manager/resource-group-portal.md#manage-resources)를 엽니다.
-2. 왼쪽 탐색 메뉴에서 **개요**를 선택하고 **P/배포 사용자**, **FTP 호스트 이름** 및 **FTPS 호스트 이름** 값을 적어둡니다. 
+## <a name="get-ftp-connection-information"></a>FTP 연결 정보 가져오기
 
-    ![FTP 연결 정보](./media/app-service-deploy-ftp/FTP-Connection-Info.PNG)
+FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 자격 증명을 복사합니다.
 
-    > [!NOTE]
-    > FTP 서버에 올바른 컨텍스트를 제공하기 위해 Azure Portal에 표시된 **FTP/배포 사용자** 값에는 앱 이름이 포함됩니다.
-    > 왼쪽 탐색 메뉴에서 **속성**을 선택하면 같은 정보를 찾을 수 있습니다. 
-    >
-    > 또한 배포 암호는 표시되지 않습니다. 배포 암호를 잊은 경우 [1단계](#step1)로 이동한 후 배포 암호를 다시 설정합니다.
-    >
-    >
+![FTP 정보 복사](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
-## <a name="step-3-deploy-files-to-azure"></a>3단계: Azure에 파일 배포
+각 앱에 고유하기 때문에 사용자 앱에 배포하려면 **앱 자격 증명**을 사용하는 것이 좋습니다. 단, **사용자 자격 증명**을 클릭하는 경우 구독에서 모든 App Service 앱에 대한 FTP/S 로그인에 사용할 수 있는 사용자 수준의 자격 증명을 설정할 수 있습니다.
+
+## <a name="deploy-files-to-azure"></a>Azure에 파일 배포
 
 1. FTP 클라이언트([Visual Studio](https://www.visualstudio.com/vs/community/) 또는 [FileZilla](https://filezilla-project.org/download.php?type=client))에서 수집한 연결 정보를 사용하여 앱에 연결합니다.
 3. 파일 및 해당 디렉터리 구조를 Azure의 [**/site/wwwroot** 디렉터리](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure)(또는 WebJobs의 경우 **/site/wwwroot/App_Data/Jobs/** 디렉터리)에 복사합니다.
@@ -75,6 +70,14 @@ ms.lasthandoff: 05/07/2018
 
 ![FTP/S 사용 안 함](./media/app-service-deploy-ftp/disable-ftp.png)
 
+## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
+
+[Azure CLI](/cli/azure)를 사용한 FTP 배포의 경우 [웹앱 만들기 및 FTP를 사용하여 파일 배포(Azure CLI)](./scripts/app-service-cli-deploy-ftp.md)를 참조하세요.
+
+[Azure PowerShell](/cli/azure)을 사용한 FTP 배포의 경우 [FTP를 사용하여 웹앱에 파일 업로드(PowerShell)](./scripts/app-service-powershell-deploy-ftp.md)를 참조하세요.
+
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
 ## <a name="troubleshoot-ftp-deployment"></a>FTP 배포 문제 해결
 
 - [FTP 배포 문제를 어떻게 해결할 수 있나요?](#how-can-i-troubleshoot-ftp-deployment)
@@ -85,13 +88,12 @@ ms.lasthandoff: 05/07/2018
 
 FTP 배포 문제를 해결하는 첫 번째 단계는 런타임 응용 프로그램 문제에서 배포 문제를 격리하는 것입니다.
 
-배포 문제가 발생하면 일반적으로 앱에 파일이 배포되지 않거나 잘못된 파일이 배포됩니다. 이 문제는 FTP 배포를 조사하거나 대체 배포 경로(예: 소스 제어)를 선택하여 해결할 수 있습니다.
+배포 문제가 발생하면 일반적으로 앱에 파일이 배포되지 않거나 잘못된 파일이 배포됩니다. FTP 배포를 조사하거나 대체 배포 경로(예: 소스 제어)를 선택하여 문제를 해결할 수 있습니다.
 
 런타임 응용 프로그램 문제가 발생하면 일반적으로 앱에 올바른 파일 집합이 배포되기는 하지만 앱이 올바르지 않게 동작합니다. 런타임의 코드 동작에 중점을 두고 구체적인 실패 경로를 조사하여 문제를 해결할 수 있습니다.
 
 배포 또는 런타임 문제를 확인하려면 [배포 문제 및 런타임 문제](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues)를 참조하세요.
 
- 
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>FTP를 수행할 수 없으며 코드를 게시할 수 없습니다. 이 문제는 어떻게 해결할 수 있나요?
 올바른 호스트 이름 및 [자격 증명](#step-1--set-deployment-credentials)을 입력했는지 확인합니다. 또한 컴퓨터의 다음 FTP 포트가 방화벽에 의해 차단되지 않는지 확인합니다.
 

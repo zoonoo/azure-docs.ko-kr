@@ -10,12 +10,12 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: e95b5a6037c791f501a04ebe468b1c781805f693
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4323f4fd9b94c38d99557f1d4426682a8c16dd9b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "32313514"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267097"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Azure Windows VM용 디스크 저장소 정보
 다른 컴퓨터와 마찬가지로, Azure에서 가상 머신은 운영 체제, 응용 프로그램 및 데이터를 저장하는 장소로 디스크를 사용합니다. 모든 Azure 가상 머신은 Windows 운영 체제 디스크와 임시 디스크라는 적어도 2개의 디스크를 갖습니다. 운영 체제 디스크는 이미지에서 만들어지며, 운영 체제 디스크 및 이미지 모두는 Azure 저장소 계정에 저장된 VHD(가상 하드 디스크)입니다. 가상 머신에도 데이터 디스크가 있을 수 있으며 이러한 디스크도 VHD로 저장됩니다. 
@@ -32,7 +32,7 @@ VM에서 디스크를 사용하는 방법에 대해 살펴보겠습니다.
 모든 가상 머신은 하나의 연결된 운영 체제 디스크를 갖습니다. 이 디스크는 SATA 드라이브로 등록되며 기본적으로 C 드라이브로 레이블이 지정됩니다. 이 디스크의 최대 용량은 2048기가바이트(GB)입니다. 
 
 ### <a name="temporary-disk"></a>임시 디스크
-각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM의 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지되어야 합니다.
+각 VM에는 임시 디스크가 포함되어 있습니다. 이러한 임시 디스크는 응용 프로그램 및 프로세스에 대한 단기 저장소를 제공하며 페이지 또는 스왑 파일과 같은 데이터 저장에 사용됩니다. 임시 디스크의 데이터는 [유지 관리 이벤트](manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) 또는 [VM을 다시 배포](redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 때 손실될 수 있습니다. VM의 성공적인 표준 다시 부팅 동안 임시 드라이브의 데이터가 유지됩니다. 
 
 이 디스크는 일시적으로 D: 드라이브로 레이블이 지정되며 pagefile.sys를 저장하는 데 사용됩니다. 이 디스크를 다른 드라이브 문자로 다시 매핑하려면 [Windows 임시 디스크의 드라이브 문자 변경](change-drive-letter.md)을 참조하세요. 임시 디스크의 크기는 가상 머신의 크기에 따라 달라집니다. 자세한 내용은 [Windows 가상 머신 크기](sizes.md)를 참조하세요.
 

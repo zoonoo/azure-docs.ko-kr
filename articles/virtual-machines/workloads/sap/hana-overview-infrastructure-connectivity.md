@@ -4,29 +4,29 @@ description: Azure(큰 인스턴스)의 SAP HANA를 사용하도록 필수 연�
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 51089ffa05168d2309bd2a96ec44b2ce0fed75f9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4741cf306aed1c86be1bc4b54fb961383e2f70bd
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778293"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34763768"
 ---
 # <a name="sap-hana-large-instances-infrastructure-and-connectivity-on-azure"></a>Azure(큰 인스턴스)의 SAP HANA 인프라 및 연결 
 
 이 가이드를 읽기에 앞서 일부 사전 정의. [SAP HANA (큰 인스턴스) 개요 및 Azure 상의 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 다른 클래스를 도입했습니다.
 
-- SKU의 'Type I 클래스'인 S72, S72m, S144, S144m, S192 및 S192m.
-- SKU의 'Type II 클래스'인 S384, S384m, S384xm, S576m, S768m 및 S960m.
+- SKU의 '유형 I 클래스'인 S72, S72m, S144, S144m, S192, S192m 및 S192xm.
+- SKU의 '유형 II 클래스'인 S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm 및 S960m.
 
 HANA 큰 인스턴스 설명서 전반에 걸쳐 HANA 큰 인스턴스 SKU를 기반으로 하여 궁극적으로 다양한 기능 및 요구를 참조하는 데 클래스 지정자가 사용될 것입니다.
 
@@ -214,7 +214,7 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 이 예제에서는 HighPerformance 게이트웨이 SKU를 사용했습니다. 옵션은 Azure(큰 인스턴스)의 SAP HANA에 지원되는 유일한 게이트웨이 SKU인 HighPerformance 또는 UltraPerformance입니다.
 
 > [!IMPORTANT]
-> SKU 유형 S384, S384m, S384xm, S576m, S768m 및 S960m(Type II 클래스 SKU) HANA 큰 인스턴스의 경우 UltraPerformance 게이트웨이 SKU 사용은 필수입니다.
+> Type II classs SKU의 HANA 큰 인스턴스의 경우, UltraPerformance 게이트웨이 SKU 사용은 필수적입니다.
 
 ### <a name="linking-vnets"></a>VNet 연결
 

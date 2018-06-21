@@ -13,13 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/07/2018
+ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 56b0f8e24dfc38b542f4bbfc7975f1704d70f22c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c5211b43a85383c7c9f42a1d56271addae6d956e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725346"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -45,38 +46,39 @@ Azure Portal을 사용하여 함수를 개발하는 경우 트리거 및 바인�
 
 ## <a name="register-binding-extensions"></a>바인딩 확장 등록
 
-Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 [바인딩 확장](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/README.md)을 명시적으로 등록해야 합니다. 
+Azure Functions 런타임의 2.x 버전에서는 함수 앱에서 사용하는 바인딩 확장(바인딩 형식)을 명시적으로 등록해야 합니다. 
 
-확장은 패키지 이름이 일반적으로 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)로 시작하는 NuGet 패키지로 제공됩니다.  바인딩 확장을 설치하고 등록하는 방법은 함수를 개발하는 방법에 따라 달라집니다. 
+Functions 런타임의 버전 2.x는 현재 미리 보기로 제공됩니다. 2.x 버전의 Functions 런타임을 사용하도록 함수 앱을 설정하는 방법에 대한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요.
+
+자동으로 등록되는 버전 2.x의 바인딩 핵심 집합이 있으므로 HTTP, 타이머 및 Azure Storage(Blob, 큐 및 테이블)를 명시적으로 등록할 필요가 없습니다. 
+
+확장은 패키지 이름이 일반적으로 [microsoft.azure.webjobs.extensions](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)로 시작하는 NuGet 패키지로 제공됩니다.  바인딩 확장을 등록하는 방법은 함수를 개발하는 방법에 따라 달라집니다. 
 
 + [Visual Studio 또는 VS Code를 사용하여 C#에서 로컬로](#local-c-development-using-visual-studio-or-vs-code)
 + [Azure Functions 핵심 도구를 사용하여 로컬로](#local-development-azure-functions-core-tools)
 + [Azure Portal에서](#azure-portal-development) 
 
-2.x 버전에는 확장으로 제공되지 않는 바인딩 확장 핵심 집합이 있습니다. HTTP, 타이머 및 Azure Storage와 같은 트리거 및 바인딩에 대한 확장을 등록할 필요가 없습니다. 
-
-2.x 버전의 Functions 런타임을 사용하도록 함수 앱을 설정하는 방법에 대한 내용은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)을 참조하세요. Functions 런타임의 버전 2.x는 현재 미리 보기로 제공됩니다. 
-
 이 섹션에 표시된 패키지 버전은 예제로만 제공됩니다. 함수 앱의 다른 종속성에 필요한 지정된 확장 버전은 [NuGet.org 사이트](https://www.nuget.org/packages?q=microsoft.azure.webjobs.extensions)에서 확인하세요.    
 
-###  <a name="local-c-development-using-visual-studio-or-vs-code"></a>Visual Studio 또는 VS Code를 사용한 로컬 C# 개발 
+### <a name="local-csharp"></a>Visual Studio 또는 VS Code를 사용한 로컬 C# 개발
 
-Visual Studio 또는 Visual Studio Code를 사용하여 C#에서 로컬로 함수를 개발하려면 확장을 위한 NuGet 패키지를 추가하기만 하면 됩니다. 
+Visual Studio 또는 Visual Studio Code를 사용하여 C#에서 로컬로 함수를 개발하려면 확장을 위한 NuGet 패키지를 설치합니다. 
 
 + **Visual Studio**: NuGet 패키지 관리자 도구를 사용합니다. 다음 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령은 패키지 관리자 콘솔에서 Azure Cosmos DB 확장 프로그램을 설치합니다.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.WebJobs.Extensions.CosmosDB -Version 3.0.0-beta6 
     ```
+
 + **Visual Studio Code**: 다음과 같이 .NET CLI에서 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용하여 명령 프롬프트에서 패키지를 설치할 수 있습니다.
 
-    ```
+    ```terminal
     dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB --version 3.0.0-beta6 
     ```
 
 ### <a name="local-development-azure-functions-core-tools"></a>Azure Functions 핵심 도구 로컬 개발
 
-[!INCLUDE [Full bindings table](../../includes/functions-core-tools-install-extension.md)]
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 ### <a name="azure-portal-development"></a>Azure Portal 개발
 

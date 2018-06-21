@@ -6,15 +6,15 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.topic: article
-ms.date: 04/04/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: carlrab
-ms.openlocfilehash: fb5c2e16e696ba9eecf4346a0c4e7bc05aacf39f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a6d347b707f9b58c5667c5d03d6374288e74267
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194757"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34645126"
 ---
 # <a name="azure-sql-database-dtu-based-resource-model-limits"></a>Azure SQL Database DTU 기반 리소스 모델 제한
 
@@ -73,9 +73,8 @@ ms.locfileid: "32194757"
 > [!IMPORTANT]
 > - 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 
 >
-> - 프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
-> 
-
+> - 프리미엄 계층에서 1TB 이상의 저장소를 다음을 제외한 모든 지역에서 사용할 수 있습니다. 영국 북부, 미국 중서부, 영국 남부2, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, US Gov 중남부, 독일 북동부, 중국 북부, US Gov 동부 더 광범위한 지역에 제공될 예정입니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+>
 
 ## <a name="single-database-change-storage-size"></a>단일 데이터베이스: 저장소 크기 변경
 
@@ -204,9 +203,9 @@ ms.locfileid: "32194757"
 ||||||||
 
 > [!IMPORTANT]
-> -  포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요. 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
+> - 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요. 포함된 저장소보다 큰 저장소 크기는 미리 보기로 있으며 추가 비용이 적용됩니다. 자세한 내용은 [SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.
 >
-> -  프리미엄 계층의 경우 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 미국 중부, 프랑스 중부, 독일 중부, 일본 동부, 일본 서부, 한국 중부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 영국 서부, 미국 동부 2, 미국 서부, 미국 버지니아 주 정부 및 유럽 서부에서 1TB 이상의 저장소를 사용할 수 있습니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
+> - 프리미엄 계층에서 1TB 이상의 저장소를 다음을 제외한 모든 지역에서 사용할 수 있습니다. 영국 북부, 미국 중서부, 영국 남부2, 중국 동부, USDoDCentral, 독일 중부, USDoDEast, US Gov 남서부, US Gov 중남부, 독일 북동부, 중국 북부, US Gov 동부 더 광범위한 지역에 제공될 예정입니다. 다른 지역에서 프리미엄 계층 저장소 크기는 1TB로 제한됩니다. [P11-P15 현재 제한 사항](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb)을 참조하세요.  
 >
 
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 계산 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.

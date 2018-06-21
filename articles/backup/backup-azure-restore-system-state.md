@@ -1,24 +1,19 @@
 ---
-title: 'Azure Backup: Windows Server에 시스템 상태 복원 | Microsoft Docs'
+title: 'Azure Backup: Windows Server에 시스템 상태 복원'
 description: Azure의 백업에서 Windows Server 시스템 상태를 복원하기 위한 단계별 설명입니다.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: c673cca6a35cfdc0edaecdc69a797f48772d847c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: saurse
+ms.openlocfilehash: f8011fb3e7e1c5267f259a43f06d605690ffd281
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606157"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 

@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 387b5e944b0fd198e37a35d7bf1c54f7795c9f21
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 12422a1123673feac1977fa5f52f49b2cdfda777
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34621349"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
@@ -40,7 +41,7 @@ Azure 데이터 팩터리에 대한 가격 정보는 [데이터 팩터리 가격
 * 복사 작업을 사용하여 **데이터를 이동/복사**하는 방법에 대한 자습서는 [Azure Blob Storage에서 Azure SQL Database로 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 * HDInsight Hive 작업을 사용하여 **데이터를 변환**하는 방법에 대한 자습서는 [Process data by running Hive script on Hadoop cluster](data-factory-build-your-first-pipeline.md)(Hadoop 클러스터에서 Hive 스크립트를 실행하여 데이터 처리)를 참조하세요.
 
-### <a name="what-is-the-data-factorys-region-availability"></a>데이터 팩터리의 지역 가용성은 얼마나 되나요?
+### <a name="what-is-the-data-factorys-region-availability"></a>Data Factory의 지역 가용성은 어떻게 되나요?
 Data Factory는 **미국 서부** 및 **북유럽**에서 사용할 수 있습니다. 데이터 팩터리에서 사용되는 계산 및 저장소 서비스는 다른 지역에 있을 수 있습니다. [지원되는 지역](data-factory-introduction.md#supported-regions)을 참조하세요.
 
 ### <a name="what-are-the-limits-on-number-of-data-factoriespipelinesactivitiesdatasets"></a>데이터 팩터리/파이프라인/작업/데이터 집합의 수에 대한 제한은 어떻게 되나요?

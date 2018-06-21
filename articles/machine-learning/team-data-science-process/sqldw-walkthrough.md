@@ -8,17 +8,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: deguhath
-ms.openlocfilehash: b6b78c5ae4506c1405428b60887567f272d6e268
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 12eb182c859617139fce6553496c6aa6e9bcdc98
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839064"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 집합인 [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) 데이터 집합에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.

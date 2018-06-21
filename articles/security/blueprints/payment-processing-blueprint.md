@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1b77aee3bceef13128ada34fb325240dda98bc41
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895489"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301374"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
 
@@ -44,7 +44,7 @@ PCI DSS 규격 환경에 대한 Payment Processing에서는 중요한 결제 카
 - **배포 템플릿**. 이 배포에서는 설정 중 구성 매개 변수를 지정하여 아키텍처 구성 요소를 Microsoft Azure에 자동으로 설치하는 데 [Azure Resource Manager 템플릿](/azure/azure-resource-manager/resource-group-overview#template-deployment)을 사용합니다.
 - **자동화된 배포 스크립트**. 이 스크립트는 종단 간 솔루션 배포를 지원합니다. 스크립트는 다음으로 구성됩니다.
     - 모듈 설치 및 [전역 관리자](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) 설치 스크립트는 필요한 PowerShell 모듈을 설치하고 전역 관리자 역할이 올바르게 구성되어 있는지 확인하는 데 사용됩니다.
-    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 [SQL Database 샘플](https://github.com/Microsoft/azure-sql-security-sample) 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. 이 솔루션의 소스 코드는 [Blueprint 코드 리포지토리][code-repo] 검토에 사용할 수 있습니다. 
+    - 설치 PowerShell 스크립트는 종단 간 솔루션을 배포하는 데 사용되며, 미리 작성된 데모 웹 응용 프로그램과 [SQL Database 샘플](https://github.com/Microsoft/azure-sql-security-sample) 콘텐츠가 담긴 .zip 파일 및 .bacpac 파일을 통해 제공됩니다. 이 솔루션에 대한 소스 코드는 [GitHub](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms)에서 평가할 수 있습니다. 
 
 ## <a name="architectural-diagram"></a>아키텍처 다이어그램
 
@@ -169,8 +169,6 @@ Edna Benson은 리셉셔니스트이자 비즈니스 관리자입니다. 고객 
 - 방화벽 및 Application Gateway WAF에 대한 DMZ 네트워크 보안 그룹
 - 관리 점프 박스에 대한 NSG(요새 호스트)
 - 앱 서비스 환경에 대한 NSG:
-
-각 NSG에는 안전하고 정확한 솔루션 운영을 위해 열린 특정 포트와 프로토콜이 있습니다. 자세한 내용은 [PCI 지침 - 네트워크 보안 그룹](#network-security-groups)을 참조하세요.
 
 각 NSG에는 안전하고 정확한 솔루션 작업을 위해 열린 특정 포트와 프로토콜이 있습니다. 또한 각 NSG에 대해 다음과 같은 구성을 사용합니다.
 - 활성화된 [진단 로그 및 이벤트](/azure/virtual-network/virtual-network-nsg-manage-log)는 저장소 계정에 저장 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6c0e9c96840995c7d5a067e60264c66ce987af93
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360090"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34602723"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -92,6 +92,8 @@ ms.locfileid: "34360090"
 
    * 원본 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**
    * 대상 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/write**
+
+5. 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에서 800개가 넘는 리소스를 이동하려고 하면 Resource Manager가 즉시 실패합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
 
 ## <a name="when-to-call-support"></a>지원을 호출해야 하는 경우
 

@@ -6,15 +6,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 3361519c260fe842ae362814cbee62aa9257b9f8
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d52838aa65ade8e2dfac75089ee82b4b1bae5257
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364355"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644198"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -102,8 +102,10 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
     ![권장된 인덱스](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> 현재 **DROP_INDEX** 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않으므로 이러한 경우에는 설정해서는 안 됩니다.
+> 현재 **DROP_INDEX** 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 응용 프로그램과 호환되지 않으므로 이러한 경우에는 사용하도록 설정해서는 안 됩니다.
 >
+
+원하는 구성을 선택한 후 적용을 클릭합니다.
 
 ### <a name="manually-run-the-recommended-t-sql-script"></a>권장 T-SQL 스크립트를 수동으로 실행
 권장 사항을 선택한 다음 **스크립트 보기**를 클릭합니다. 권장 구성을 수동으로 적용하도록 데이터베이스에 대해 이 스크립트를 실행합니다.
