@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/01/2018
 ms.author: shlo
-ms.openlocfilehash: b588fd4b67dbed1e0dc3d4ad2cbd75b462ce311f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7efe75507fad8e0391f9ad433ba416ed771063b
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725145"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265291"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 Azure Data Factory UX(사용자 인터페이스 환경)을 사용하면 코드를 작성할 필요 없이 데이터 팩터리에 대한 리소스를 시각적으로 작성하고 배포할 수 있습니다. 파이프라인 캔버스에 작업을 끌어다 놓고, 테스트 실행을 수행하고, 반복적으로 디버그하고, 파이프라인 실행을 배포 및 모니터링할 수 있습니다. 시각적 작성을 수행하기 위해 UX를 사용하는 두 가지 방법이 있습니다.
@@ -63,11 +63,11 @@ Azure Data Factory에서 **시작하기** 페이지로 이동합니다. **코드
 |:--- |:--- |:--- |
 | **리포지토리 유형** | VSTS 코드 리포지토리의 유형입니다.<br/>**참고**: GitHub는 현재 지원되지 않습니다. | Visual Studio Team Services Git |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | <your tenant name> |
-| **Visual Studio Team Services 계정** | VSTS 계정 이름입니다. VSTS 계정 이름은 `https://{account name}.visualstudio.com`에서 찾을 수 있습니다. [VSTS 계정으로 로그인](https://www.visualstudio.com/team-services/git/)하여 Visual Studio 프로필에 액세스하고 리포지토리 및 프로젝트를 확인할 수 있습니다. | \<계정 이름> |
-| **ProjectName** | VSTS 프로젝트 이름입니다. VSTS 프로젝트 이름은 `https://{account name}.visualstudio.com/{project name}`에서 찾을 수 있습니다. | \<VSTS 프로젝트 이름> |
-| **RepositoryName** | VSTS 코드 리포지토리 이름입니다. VSTS 프로젝트는 프로젝트 확장에 따라 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 프로젝트에 이미 있는 기존 리포지토리를 사용할 수 있습니다. | \<VSTS 코드 리포지토리 이름> |
-| **공동 작업 분기** | 게시하기 위해 사용할 VSTS 공동 작업 분기입니다. 기본값은 `master`입니다. 다른 분기에서 리소스를 게시하려는 경우에 변경합니다. | \<공동 작업 분기 이름> |
-| **루트 폴더** | VSTS 공동 작업 분기의 루트 폴더입니다. | \<루트 폴더 이름> |
+| **Visual Studio Team Services 계정** | VSTS 계정 이름입니다. VSTS 계정 이름은 `https://{account name}.visualstudio.com`에서 찾을 수 있습니다. [VSTS 계정으로 로그인](https://www.visualstudio.com/team-services/git/)하여 Visual Studio 프로필에 액세스하고 리포지토리 및 프로젝트를 확인할 수 있습니다. | <your account name> |
+| **ProjectName** | VSTS 프로젝트 이름입니다. VSTS 프로젝트 이름은 `https://{account name}.visualstudio.com/{project name}`에서 찾을 수 있습니다. | <your VSTS project name> |
+| **RepositoryName** | VSTS 코드 리포지토리 이름입니다. VSTS 프로젝트는 프로젝트 확장에 따라 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 프로젝트에 이미 있는 기존 리포지토리를 사용할 수 있습니다. | <your VSTS code repository name> |
+| **공동 작업 분기** | 게시하기 위해 사용할 VSTS 공동 작업 분기입니다. 기본값은 `master`입니다. 다른 분기에서 리소스를 게시하려는 경우에 변경합니다. | <your collaboration branch name> |
+| **루트 폴더** | VSTS 공동 작업 분기의 루트 폴더입니다. | <your root folder name> |
 | **리포지토리로 기존 Data Factory 리소스 가져오기** | UX **제작 캔버스**에서 기존 데이터 팩터리 리소스를 VSTS Git 리포지토리로 가져올 것인지를 지정합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 집합을 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 
 #### <a name="configuration-method-2-ux-authoring-canvas"></a>구성 방법 2: UX 제작 캔버스

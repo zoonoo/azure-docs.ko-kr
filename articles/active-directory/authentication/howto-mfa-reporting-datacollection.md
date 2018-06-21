@@ -10,12 +10,12 @@ ms.service: multi-factor-authentication
 ms.workload: identity
 ms.topic: article
 ms.date: 05/01/2018
-ms.openlocfilehash: d28bb4b8e171ef6189f81acc337088b3c5499ccf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2281a35d1616aa88b0c646fb96cb9f95c3272536
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608271"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264371"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
 
@@ -151,39 +151,39 @@ MFA 서버 명령줄에서 해당 설치에 따라 경로를 변경하여 `C:\Pr
 
 ## <a name="gather-data-from-nps-extension"></a>NPS 확장에서 데이터 수집
 
-[Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)에서 내보내기에 대한 요청을 수행합니다.
+[Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 내보내기에 대한 요청을 수행합니다.
 
 - 내보내기에 포함된 MFA 정보는 완료하는 데 몇 시간 또는 며칠이 걸릴 수 있습니다.
 - AzureMfa/AuthN/AuthNOptCh, AzureMfa/AuthZ/AuthZAdminCh 및 AzureMfa/AuthZ/AuthZOptCh 이벤트 로그에서 사용자 이름의 항목은 내보내기에 제공된 정보에 대한 작동 및 중복 항목으로 간주됩니다.
 
 ## <a name="delete-data-from-nps-extension"></a>NPS 확장에서 데이터 삭제
 
-이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)에서 계정 닫기를 요청합니다.
+이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 계정 닫기를 요청합니다.
 
 - 데이터를 완전히 제거하는 데 최대 30일까지 걸릴 수 있습니다.
 
 ## <a name="gather-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure MFA AD FS 어댑터에서 데이터 수집
 
-[Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)에서 내보내기에 대한 요청을 수행합니다. 
+[Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 내보내기에 대한 요청을 수행합니다. 
 
 - 내보내기에 포함된 MFA 정보는 완료하는 데 몇 시간 또는 며칠이 걸릴 수 있습니다.
 - AD FS 추적/디버그 이벤트 로그(사용하도록 설정된 경우)에서 사용자 이름의 항목은 내보내기에 제공된 정보에 대한 작동 및 중복 항목으로 간주됩니다.
 
 ## <a name="delete-data-from-windows-server-2016-azure-mfa-ad-fs-adapter"></a>Windows Server 2016 Azure MFA AD FS 어댑터에서 데이터 삭제
 
-이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)에서 계정 닫기를 요청합니다.
+이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 계정 닫기를 요청합니다.
 
 - 데이터를 완전히 제거하는 데 최대 30일까지 걸릴 수 있습니다.
 
 ## <a name="gather-data-for-azure-mfa"></a>Azure MFA용 데이터 수집
 
-[Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)에서 내보내기에 대한 요청을 수행합니다.
+[Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 내보내기에 대한 요청을 수행합니다.
 
 - 내보내기에 포함된 MFA 정보는 완료하는 데 몇 시간 또는 며칠이 걸릴 수 있습니다.
 
 ## <a name="delete-data-for-azure-mfa"></a>Azure MFA용 데이터 삭제
 
-이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview.)에서 계정 닫기를 요청합니다.
+이 사용자에 대해 수집된 모든 MFA 클라우드 서비스 정보를 삭제하려면 [Microsoft 개인 정보 포털](https://portal.azure.com/#blade/Microsoft_Azure_Policy/UserPrivacyMenuBlade/Overview)에서 계정 닫기를 요청합니다.
 
 - 데이터를 완전히 제거하는 데 최대 30일까지 걸릴 수 있습니다.
 

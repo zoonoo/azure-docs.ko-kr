@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 309bd35eabe1d5c4af9a35d5f2b879bce225a402
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604372"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287707"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 컴퓨터 이미지에서에서 사용할 수 있도록 Azure 스택
 
@@ -207,7 +207,7 @@ Azure 스택에서 만들면 가상 컴퓨터 이미지 사용할 수 있는 사
     예: `1.0.0`  
     사용자가 VM 이미지를 배포할 때 사용 되는 VM 이미지의 버전입니다. 이 버전은 형식에서  *\#.\#합니다. \#*. 예로 **1.0.0**합니다. 이 필드에는 공백이 나 다른 특수 문자를 포함 하지 마십시오.  
     
-    TheRemove AzsPlatformImage cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [Azure 스택 연산자 모듈 문서](https://docs.microsoft.com/powershell/module/)합니다.
+    제거 AzsPlatformImage cmdlet에 대 한 자세한 내용은 참조는 Microsoft PowerShell [Azure 스택 연산자 모듈 문서](https://docs.microsoft.com/powershell/module/)합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

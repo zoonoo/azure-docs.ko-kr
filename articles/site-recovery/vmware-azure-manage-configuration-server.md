@@ -1,18 +1,17 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
 description: 이 아티클에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 06/04/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 64f5f2105a9048d649503b0790231676182a4c4f
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 753e123c660b1aacea1157157f0e580e15c47536
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737506"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287408"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware VM에 대해 구성 서버 관리
 
