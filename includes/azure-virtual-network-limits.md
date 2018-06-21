@@ -1,4 +1,21 @@
-<a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다.
+---
+title: 포함 파일
+description: 포함 파일
+services: networking
+author: jimdial
+ms.service: networking
+ms.topic: include
+ms.date: 06/12/2018
+ms.author: jdial
+ms.custom: include file
+ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568129"
+---
+<a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -18,7 +35,7 @@
 | 끝점 ACL(Access Control 목록) |50 |50 |
 
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
-다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다.
+다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
@@ -58,7 +75,10 @@
 | 프런트 엔드 IP 구성 수, 표준 | 10 | 600 |
 | 백 엔드 풀 수, 기본 | 100, 단일 가용성 집합 | 100, 단일 가용성 집합 |
 | 백 엔드 풀 수, 표준 | 1000, 단일 VNet | 1000, 단일 VNet |
+| Load Balancer당 백 엔드 리소스, 표준 &ast; | 50 | 150 |
 | HA 포트 수, 표준 | 내부 프런트 엔드당 1 | 내부 프런트 엔드당 1 |
+
+&ast; 독립 실행형 가상 머신, 가용성 집합 및 가상 머신 확장 집합의 임의 조합으로 이루어진 최대 150개의 리소스
 
 기본값에서 제한을 늘려야 하는 경우 [지원에 문의하세요](../articles/azure-supportability/resource-manager-core-quotas-request.md ).
 

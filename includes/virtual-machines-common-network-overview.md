@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: da24c0e616bbd5961edd4cfcb72040f66627c982
+ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/13/2018
+ms.locfileid: "35568112"
 ---
 Azure VM(가상 머신)을 만들 때 [VNet(가상 네트워크)](../articles/virtual-network/virtual-networks-overview.md)을 만들거나 기존 VNet을 사용해야 합니다. 또한 VNet에서 VM을 액세스하는 방법도 결정해야 합니다. [리소스를 만들기 전에 계획을 수립](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)하고 [네트워킹 리소스의 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 이해해야 합니다.
 
@@ -170,4 +171,4 @@ VM용 Azure 가상 네트워크를 관리하는 방법에 대한 VM별 단계는
 
 - [사용자 정의 경로 및 IP 전달](../articles/virtual-network/virtual-networks-udr-overview.md)을 구성하는 방법에 대해 알아봅니다. 
 - [VNet 간 연결](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 구성하는 방법에 대해 알아봅니다.
-- [경로 문제 해결](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md) 방법에 대해 알아봅니다.
+- [경로 문제 해결](../articles/virtual-network/diagnose-network-routing-problem.md) 방법에 대해 알아봅니다.

@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: a173b77d969697f85eab0d5976e5bc0a1796fe75
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 8d771fb17019e39da93995d0244c8089ea4a08b7
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808573"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36286548"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>빠른 시작: IoT 허브(Node.js)에 연결된 장치 제어
 
@@ -131,9 +131,8 @@ node --version
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서로 진행하려는 경우 나중에 다시 사용하기 위해 리소스 그룹과 IoT 허브를 그대로 둡니다.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT Hub가 포함된 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

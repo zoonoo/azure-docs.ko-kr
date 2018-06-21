@@ -8,19 +8,19 @@ manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: f8a6e73420f1b53b8c253842001e8227e48e7d4a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 362d7226434733ffeaa5be6f988afa4016a7c827
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589528"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213875"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure CSP(클라우드 솔루션 공급자)의 Azure AD(Active Directory) Domain Services
 이 문서에서는 Azure CSP 구독에서 Azure AD Domain Services를 사용하는 방법을 설명합니다.

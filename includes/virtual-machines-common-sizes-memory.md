@@ -5,22 +5,22 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 05/22/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fcbeb6bbd090fc31febb326d3cbef90187d3e7e3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: d3e0f2680cbe703edc553ddff310fba2d1ddf77f
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35323819"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 저장소 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
 * M 시리즈는 클라우드의 VM 중에서 가장 높은 vCPU 수(최대 128개의 vCPU) 및 가장 큰 메모리(최대 3.8TiB)를 제공합니다.  높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 응용 프로그램에 이상적입니다.
 
-* Dv2 시리즈, D 시리즈, G 시리즈 및 DS/GS는 더 빠른 vCPU와 더 좋은 임시 저장소 성능을 요구하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 이상적입니다.  이들은 많은 엔터프라이즈급 응용 프로그램을 위한 강력한 조합을 제공합니다.
+* Dv2 시리즈, G 시리즈 및 DSv2/GS는 더 빠른 vCPU와 더 좋은 임시 저장소 성능을 요구하거나 더 높은 메모리 요구량을 가진 응용 프로그램에 이상적입니다.  이들은 많은 엔터프라이즈급 응용 프로그램을 위한 강력한 조합을 제공합니다.
 
-* D 시리즈 VM은 높은 계산 능력과 임시 디스크 성능이 필요한 응용 프로그램을 실행하도록 설계되었습니다. D 시리즈 VM은 임시 저장소를 위해 더 빠른 프로세서, 더 높은 메모리-vCPU 비율 및 SSD(반도체 드라이브)를 제공합니다. 자세한 내용은 Azure 블로그, [새로운 D 시리즈 Virtual Machine 크기](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/)의 발표를 참조하세요.
 
 * 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최신 출시된 2.4GHz Intel Xeon® E5-2673 v3 2.4GHz(Haswell) 또는 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0과 함께 사용하면 최대 3.1GHz까지 확장할 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
@@ -86,7 +86,7 @@ ACU: 160-180 <sup>1</sup>
 | Standard_M64s  | 64   | 1024        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000/1,000                            | 8 / 16000          |
 | Standard_M64ms  | 64   | 1792        | 2048           | 64             | 80,000 / 800 (6348)       | 40,000/1,000                            | 8 / 16000          |
 | Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000/2,000                            | 8 / 30000          |
-| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000/2,000                            | 8 / 30000          |
+| Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3892        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80,000/2,000                            | 8 / 30000          |
 
 <sup>1</sup> M 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 
@@ -176,31 +176,5 @@ ACU: 210-250
 
 <br>
 
-## <a name="ds-series"></a>DS 시리즈 
 
-ACU: 160 <sup>1</sup>
-
-| 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS11 |2 |14 |28 |8 |8,000/64(72) |6,400/64 |2 / 1000 |
-| Standard_DS12 |4 |28 |56 |16 |16,000/128(144) |12,800/128 |4 / 2000 |
-| Standard_DS13 |8 |56 |112 |32 |32,000/256(288) |25,600/256 |8 / 4000 |
-| Standard_DS14 |16 |112 |224 |64 |64,000/512(576) |51,200/512 |8 / 8000 |
-
-<sup>1</sup> DS 시리즈 VM에서 제공 가능한 최대 디스크 처리량(IOPS 또는 MBps)은 연결된 디스크의 수, 크기 및 스트라이핑에 따라 제한될 수 있습니다.  자세한 내용은 [Premium Storage: Azure 가상 머신 작업을 위한 고성능 저장소](../articles/virtual-machines/windows/premium-storage.md)를 참조하세요.
-
-
-
-## <a name="d-series"></a>D 시리즈
-
-ACU: 160
-
-| 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
-|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
-| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
-| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
-| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
-| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
-
-<br>
 

@@ -1,25 +1,17 @@
 ---
 title: Azure 가상 머신을 다른 Azure 지역으로 장애 조치(failover)하는 경우 IP 주소 유지 | Microsoft Docs
 description: Azure Site Recovery로 Azure 장애 조치(failover) 시나리오에 Azure의 IP 주소를 유지하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+author: mayanknayar
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: manayar
-ms.openlocfilehash: 9a9c18bfe9073e5af94c7bd8f0fbb91651387731
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ec15456dcb80478e36560cde7ac0710ca8e6ca3b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071667"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285110"
 ---
 # <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Azure 가상 머신 장애 조치(failover)를 위한 IP 주소 보존
 

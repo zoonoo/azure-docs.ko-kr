@@ -1,6 +1,23 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines
+author: rogara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 06/03/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 812f11a1ced3bac765441bf66f402abb4da4bc3f
+ms.sourcegitcommit: caebf2bb2fc6574aeee1b46d694a61f8b9243198
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/12/2018
+ms.locfileid: "35414572"
+---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
-이 문서에서는 Azure Managed Disks 및 Azure Premium Storage에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
+이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
 ## <a name="managed-disks"></a>Managed Disks
 
@@ -28,13 +45,9 @@ Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한
 
 예. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Managed Disks의 저장소 계정 형식을 변경할 수 있습니다.
 
-**개인 저장소 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
-
-예. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 Managed Disks를 내보낼 수 있습니다.
-
 **Azure Storage 계정에서 VHD 파일을 사용하여 다른 구독에 Managed Disk를 만들 수 있나요?**
 
-번호
+예.
 
 **Azure Storage 계정에서 VHD 파일을 사용하여 다른 지역에 관리 디스크를 만들 수 있나요?**
 
@@ -42,11 +55,11 @@ Managed Disks는 저장소 계정 관리를 처리하여 Azure IaaS VM을 위한
 
 **고객이 Managed Disks를 사용하는 경우 규모 제한이 있나요?**
 
-Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나 최대 한도 및 기본 제한은 하나의 구독에 대해 지역당 및 디스크 형식당 10,000개의 관리 디스크입니다.
+Managed Disks는 저장소 계정과 관련된 한도를 없앱니다. 그러나 최대 한도는 하나의 구독에 대해 지역당 및 디스크 형식당 50,000개의 관리 디스크입니다.
 
 **관리 디스크의 증분 스냅숏을 가져올 수 있나요?**
 
-번호 현재 스냅숏 기능은 Managed Disk의 전체 복사본을 만듭니다. 그러나 나중에는 증분 스냅숏을 지원하도록 할 계획입니다.
+번호 현재 스냅숏 기능은 Managed Disk의 전체 복사본을 만듭니다.
 
 **관리 및 관리되지 않는 디스크를 조합하여 가용성 집합의 VM을 구성할 수 있나요?**
 
@@ -66,7 +79,7 @@ Managed Disks를 사용하는 가용성 집합이 위치한 지역에 따라 지
 
 **진단을 위한 표준 저장소 계정은 어떤 방식으로 설정되나요?**
 
-VM 진단을 위한 개인 저장소 계정을 설정할 수 있습니다. 향후에는 진단 역시 Managed Disks로 전환할 계획입니다.
+VM 진단을 위한 개인 저장소 계정을 설정할 수 있습니다.
 
 **어떤 종류의 역할 기반 Access Control 지원을 Managed Disks에 사용할 수 있나요?**
 
@@ -78,7 +91,7 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 **개인 저장소 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
 
-관리 디스크에 대한 읽기 전용 공유 액세스 서명 URI를 가져온 후 이를 사용하여 개인 저장소 계정 또는 온-프레미스 저장소에 콘텐츠를 복사할 수 있습니다.
+관리 디스크에 대한 읽기 전용 SAS(공유 액세스 서명) URI를 생성한 후 이를 사용하여 개인 저장소 계정 또는 온-프레미스 저장소에 콘텐츠를 복사할 수 있습니다. Azure Portal, Azure PowerShell, Azure CLI 또는 [AzCopy](../articles/storage/common/storage-use-azcopy.md)에서 SAS URI를 사용할 수 있습니다.
 
 **내 관리 디스크의 복사본을 만들 수 있나요?**
 
@@ -86,7 +99,7 @@ Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
 **관리되지 않는 디스크도 계속 지원되나요?**
 
-예. 관리되지 않는 디스크 및 Managed Disks가 모두 지원됩니다. 새 워크로드에 대해 Managed Disks를 사용하고 현재 워크로드를 Managed Disks로 마이그레이션하는 것이 좋습니다.
+예. 관리되지 않는 디스크와 Managed Disks가 모두 지원됩니다. 새 워크로드에 대해 Managed Disks를 사용하고 현재 워크로드를 Managed Disks로 마이그레이션하는 것이 좋습니다.
 
 
 **128GB 디스크를 만든 후 130GB로 크기를 증가시키려는 경우 다음 디스크 크기(512GB)에 대한 요금이 부과되나요?**
@@ -113,6 +126,39 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 * [Managed Disks를 사용하는 템플릿 목록](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
 
+## <a name="standard-ssd-disks-preview"></a>표준 SSD 디스크(미리 보기)
+
+**Azure 표준 SSD 디스크란?**
+표준 SSD 디스크는 반도체 미디어에서 지원되며 더 낮은 IOPS 수준에서 일관된 성능을 필요로 하는 워크로드에 대해 비용 효율적인 저장소로 최적화된 표준 디스크입니다. 미리 보기에서는 제한된 수의 지역에서 제한된 관리 효율성으로 사용할 수 있습니다(Resource Manager 템플릿을 통해 사용 가능).
+
+<a id="standard-ssds-azure-regions"></a>**현재 표준 SSD 디스크(미리 보기)가 지원되는 지역**
+* 북유럽
+
+**표준 SSD 디스크를 만드는 방법**
+현재, Azure Resource Manager 템플릿을 사용하여 표준 SSD 디스크를 만들 수 있습니다. 다음은 Resource Manager 템플릿에서 표준 SSD 디스크를 만드는 데 필요한 매개 변수입니다.
+
+* Microsoft.Compute에 대한 *apiVersion*은 `2018-04-01` 이상으로 설정해야 합니다.
+* *managedDisk.storageAccountType*을 `StandardSSD_LRS`로 지정합니다.
+
+다음 예제에서는 표준 SSD 디스크를 사용하는 VM에 대한 *properties.storageProfile.osDisk* 섹션을 보여 줍니다.
+
+```json
+"osDisk": {
+    "osType": "Windows",
+    "name": "myOsDisk",
+    "caching": "ReadWrite",
+    "createOption": "FromImage",
+    "managedDisk": {
+        "storageAccountType": "StandardSSD_LRS"
+    }
+}
+```
+
+템플릿을 사용하여 표준 SSD 디스크를 만드는 방법에 대한 전체 템플릿 예제를 보려면 [표준 SSD 데이터 디스크를 사용하여 Windows 이미지에서 VM 만들기](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)를 참조하세요.
+
+**표준 SSD를 관리되지 않는 디스크로 사용할 수 있나요?**
+아니요. 표준 SSD 디스크는 Managed Disks로만 사용할 수 있습니다.
+
 ## <a name="migrate-to-managed-disks"></a>Managed Disks로 마이그레이션 
 
 **Managed Disks로 마이그레이션하기 전/후에 기존 Azure Backup 서비스 구성에 어떤 변경이 필요한가요?**
@@ -127,9 +173,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 변경할 필요가 없습니다. 
 
-**기존 VMSS(VM Scale Sets)를 관리되지 않는 디스크에서 Managed Disks로 자동으로 마이그레이션할 수 있게 지원되나요?**
+**기존 VM Scale Sets가 관리되지 않는 디스크에서 Managed Disks로 자동으로 마이그레이션되도록 지원되나요?**
 
-번호 관리되지 않는 디스크에서 이전 VMSS의 이미지를 사용하여 Managed Disks로 새 VMSS를 만들 수 있습니다. 
+번호 관리되지 않는 디스크에서 이전 확장 집합의 이미지를 사용하여 Managed Disks로 새 확장 집합을 만들 수 있습니다. 
 
 **Managed Disks로 마이그레이션하기 전에 페이지 Blob 스냅숏에서 Managed Disks를 만들 수 있나요?**
 
@@ -139,9 +185,9 @@ Azure Managed Disks에서는 현재 로컬 중복 저장소 Managed Disks만 지
 
 예. Managed Disks가 있는 VM으로 장애 조치(Failover)하도록 선택할 수 있습니다.
 
-**마이그레이션을 수행할 경우 Azure 간 복제를 통해 ASR(Azure Site Recovery)에 의해 보호되는 Azure VM에 영향을 미치나요?**
+**마이그레이션을 수행할 경우 Azure 간 복제를 통해 Azure Site Recovery에 의해 보호되는 Azure VM에 영향을 미치나요?**
 
-예. 현재 Managed Disks가 있는 VM에 대한 ASR Azure 간 보호는 공개 미리 보기 서비스로만 제공됩니다.
+예. 현재 Managed Disks가 있는 VM에 대한 Azure Site Recovery Azure 간 보호는 공개 미리 보기 서비스로만 제공됩니다.
 
 **Managed Disks에 이전에 암호화된 저장소 계정에 있는 관리되지 않는 디스크가 있는 VM을 마이그레이션할 수 있나요?**
 
@@ -190,19 +236,19 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리 및 관리되지 않는 디스크
 
-**VM에서 DSv2와 같이 Premium Storage를 지원하는 크기를 사용하는 경우 프리미엄 및 표준 데이터 디스크를 모두 연결할 수 있나요?** 
+**VM에서 DSv2와 같이 프리미엄 SD 디스크를 지원하는 크기를 사용하는 경우 프리미엄 및 표준 데이터 디스크를 모두 연결할 수 있나요?** 
 
 예.
 
-**프리미엄 및 표준 데이터 디스크를 모두 D, Dv2, G 또는 F 시리즈와 같이 Premium Storage를 지원하지 않는 크기에 연결할 수 있나요?**
+**프리미엄 및 표준 데이터 디스크를 모두 D, Dv2, G 또는 F 시리즈와 같이 프리미엄 SD 디스크를 지원하지 않는 크기에 연결할 수 있나요?**
 
-번호 Premium Storage를 지원하는 크기를 사용하지 않는 VM에는 표준 데이터 디스크만 연결할 수 있습니다.
+번호 프리미엄 SD 디스크를 지원하는 크기를 사용하지 않는 VM에는 표준 데이터 디스크만 연결할 수 있습니다.
 
 **80GB인 기존 VHD로 프리미엄 데이터 디스크를 만들 경우 비용은 얼마가 드나요?**
 
 80GB VHD에서 만든 프리미엄 데이터 디스크는 그 다음 프리미엄 디스크 크기인 P10으로 취급됩니다. P10 디스크 가격 책정에 따라 요금이 부과됩니다.
 
-**Premium Storage를 사용하면 트랜잭션 비용이 있나요?**
+**프리미엄 SD 디스크를 사용하면 트랜잭션 비용이 있나요?**
 
 특정 한도의 IOPS 및 처리량이 프로비전되는 디스크 크기마다 고정 비용이 있습니다. 기타 비용은 아웃바운드 대역폭 및 스냅숏 용량입니다(해당하는 경우). 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage)를 참조하세요.
 
@@ -226,7 +272,7 @@ Azure에서 운영 체제 디스크에 지원하는 파티션 형식은 MBR(마�
 
 **지원되는 가장 큰 페이지 Blob 크기는 무엇인가요?**
 
-Azure에서 지원하는 페이지 Blob 크기는 최대 8TB(8,191GB)입니다. 데이터 또는 운영 체제 디스크로 VM에 연결된 4TB(4,095GB)를 초과하는 페이지 blob는 지원되지 않습니다.
+Azure에서 지원하는 페이지 Blob 크기는 최대 8TB(8,191GB)입니다. VM에 데이터 또는 운영 체제 디스크로 연결될 경우의 최대 페이지 Blob 크기는 4TB(4,095GB)입니다.
 
 **새 버전의 Azure 도구를 사용하여 1TB를 초과하는 디스크를 생성, 연결, 크기 조정 및 업로드해야 하나요?**
 

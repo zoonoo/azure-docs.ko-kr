@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 6871127ac138fb0113af73ca5222e3e2c2f99d7e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0aadfd809fefa73af6869d496f6d88d6dc9df59e
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202548"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269581"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 응용 프로그램)에서 Microsoft Graph API 호출
 
@@ -31,14 +31,14 @@ ms.locfileid: "32202548"
 ![이 가이드에서 생성된 샘플 앱의 작동 원리](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.png)
 
 <!--start-collapse-->
-## <a name="more-information"></a>추가 정보
+### <a name="more-information"></a>추가 정보
 
 이 가이드에서 만든 샘플 응용 프로그램은 JavaScript SPA가 Azure Active Directory v2 끝점에서 토큰을 수락하는 Microsoft Graph API 또는 Web API를 쿼리하도록 합니다. 이 시나리오에서는 사용자가 로그인한 후에 액세스 토큰이 요청되고 권한 부여 헤더를 통해 HTTP 요청에 추가됩니다. 토큰 획득 및 갱신은 MSAL(Microsoft 인증 라이브러리)에서 처리합니다.
 
 <!--end-collapse-->
 
 <!--start-collapse-->
-## <a name="libraries"></a>라이브러리
+### <a name="libraries"></a>라이브러리
 
 이 가이드에서는 다음 라이브러리를 사용합니다.
 

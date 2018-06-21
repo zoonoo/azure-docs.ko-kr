@@ -1,24 +1,19 @@
 ---
-title: " Azure에서 Recovery Services 자격 증명 모음 삭제 | Microsoft Docs "
-description: "이 문서는 Recovery Services 자격 증명 모음을 삭제하는 방법을 설명합니다. 문서에는 자격 증명 모음을 삭제하려고 하나 할 수 없는 경우의 문제 해결 단계가 포함되어 있습니다."
+title: Azure에서 Recovery Services 자격 증명 모음 삭제
+description: 이 문서는 Recovery Services 자격 증명 모음을 삭제하는 방법을 설명합니다. 문서에는 자격 증명 모음을 삭제하려고 하나 할 수 없는 경우의 문제 해결 단계가 포함되어 있습니다.
 services: service-name
-documentationcenter: dev-center-name
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 5fa08157-2612-4020-bd90-f9e3c3bc1806
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: markgal;trinadhk
-ms.openlocfilehash: 4f4a92159b01b197984130c15195419e1b166fd3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal
+ms.openlocfilehash: 844a70aa6fe003c6ad5816aaec9c32db9104c620
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605343"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 이 문서는 Azure Portal에서 Recovery Services 자격 증명 모음을 삭제하는 방법을 설명합니다. 백업 자격 증명 모음이 있는 경우 Recovery Services 자격 증명 모음으로 변환되었을 것입니다.   

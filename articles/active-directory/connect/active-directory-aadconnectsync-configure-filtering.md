@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f54f0fb16838b245ac09c08c7afd9e6a53449afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59bc6652a61e0c61188bbfd09251161411923628
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594230"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287580"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect 동기화 구성 필터링
 필터링을 사용하여 온-프레미스 디렉터리에서 Azure Active Directory(Azure AD)에 표시할 개체를 제어할 수 있습니다. 기본 구성은 모든 도메인에 구성된 포리스트의 모든 개체를 사용합니다. 일반적으로 권장되는 구성입니다. Exchange Online 및 비즈니스용 Skype 등의 Office 365 워크로드를 사용하면 완전한 전체 주소 목록이 도움이 되므로 모든 사람에게 메일을 보내거나 호출할 수 있습니다. 기본 구성을 사용하여 Exchange 또는 Lync의 온-프레미스 구현과 같은 환경을 가져올 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "34594230"
 ## <a name="basics-and-important-notes"></a>기본 사항 및 중요 참고 사항
 Azure AD Connect 동기화에서 언제든지 필터링을 사용할 수 있습니다. 디렉터리 동기화의 기본 구성으로 시작하고 필터링을 구성하는 경우 필터링된 개체는 Azure AD에 더 이상 동기화되지 않습니다. 이 변경으로 인해 Azure AD에서 이전에 동기화되었지만 그 후에 필터링된 개체는 Azure AD에서 삭제됩니다.
 
-필터링 변경을 시작하기 전에 [예약된 작업을 사용하지 않도록 설정](#disable-scheduled-task)했는지 확인하여 아직 올바른 것으로 확인되지 않은 변경 사항을 실수로 내보내지 않도록 합니다.
+필터링 변경을 시작하기 전에 [예약된 작업을 사용하지 않도록 설정](#disable-the-scheduled-task)했는지 확인하여 아직 올바른 것으로 확인되지 않은 변경 사항을 실수로 내보내지 않도록 합니다.
 
 필터링은 동시에 많은 개체를 제거할 수 있으므로 모든 변경 사항을 Azure AD로 내보내기 전에 새 필터가 올바른지 확인하려고 합니다. 구성 단계를 완료한 후 변경 사항을 Azure AD로 내보내 적용하기 전에 [확인 단계](#apply-and-verify-changes)를 수행하는 것이 좋습니다.
 

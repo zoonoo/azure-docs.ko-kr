@@ -184,6 +184,8 @@
 ### [개요](manage-apps/what-is-application-management.md)
 ### [시작](manage-apps/plan-an-application-integration.md)
 ### [SaaS 앱 통합 자습서](saas-apps/tutorial-list.md)
+
+
 ### [클라우드 앱 검색](manage-apps/cloud-app-discovery.md)
 #### [스냅숏 보고서 만들기](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
 #### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
@@ -255,27 +257,110 @@
 #### [테넌트 제한 사항](manage-apps/tenant-restrictions.md)
 #### [SCIM 프로비전 사용자 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
 
-### [문제 해결](active-directory-application-troubleshoot-content-map.md)
-#### [응용 프로그램 개발](active-directory-application-dev-troubleshoot-content-map.md)
-##### [구성 및 등록](active-directory-application-dev-config-content-map.md)
-##### [개발](active-directory-application-dev-development-content-map.md)
-#### [응용 프로그램 관리](active-directory-application-management-troubleshoot-content-map.md)
-##### [구성](active-directory-application-config-content-map.md)
-##### [로그인](active-directory-application-sign-in-content-map.md)
-##### [프로비전](active-directory-application-provisioning-content-map.md)
 
-###### [프로비전된 사용자 확인](application-provisioning-when-will-provisioning-finish-specific-user.md) 
-###### [긴 프로비전 시간](application-provisioning-when-will-provisioning-finish.md) 
-###### [사용자 프로비전을 구성하는 방법](application-provisioning-config-how-to.md) 
-###### [프로비전 구성 문제](application-provisioning-config-problem.md) 
-###### [관리자 자격 증명 저장 문제](application-provisioning-config-problem-storage-limit.md) 
-###### [프로비전된 사용자 없음](application-provisioning-config-problem-no-users-provisioned.md) 
-###### [잘못 프로비전된 사용자](application-provisioning-config-problem-wrong-users-provisioned.md) 
+### 문제 해결
 
-##### [액세스 관리](active-directory-application-access-content-map.md)
-##### [액세스 패널](active-directory-application-access-panel-content-map.md)
-##### [응용 프로그램 프록시](active-directory-application-proxy-content-map.md)
-##### [조건부 액세스](active-directory-application-conditional-access-content-map.md)
+
+
+#### 액세스 패널
+##### [표시되지 않는 앱](application-access-panel-unexpected-application-not-appearing.md)
+##### [예기치 않은 앱 표시](application-access-panel-unexpected-application-appears.md)
+##### [로그인 할 수 없음](application-access-panel-web-sign-in-problem.md)
+##### [브라우저 확장 설치 시 오류](application-access-panel-extension-problem-installing.md)
+##### [셀프 서비스 앱 액세스 사용 방법](application-access-panel-self-service-applications-how-to.md)
+##### [셀프 서비스 앱 액세스 사용 시 오류](application-access-panel-self-service-applications-problem.md)
+
+#### 앱 추가
+##### [앱 유형 선택](application-config-add-app-problem-how-to-choose-application-type.md)
+##### [일반적인 문제 - 갤러리 앱](application-config-add-app-problem-problem-adding-gallery-app.md)
+##### [일반적인 문제 - 비갤러리 앱](application-config-add-app-problem-problem-adding-non-gallery-app.md)
+
+#### 응용 프로그램 프록시
+##### [앱 페이지를 표시할 때 문제](application-proxy-page-appearance-broken-problem.md)
+##### [너무 긴 응용 프로그램 로드](application-proxy-page-load-speed-problem.md)
+##### [응용 프로그램 페이지에서 링크가 작동하지 않음](application-proxy-page-links-broken-problem.md)
+##### [내 앱에 대한 포트 열기 작업](application-proxy-connectivity-ports-how-to.md)
+##### [내 앱에 대한 커넥터 그룹에서 작동하지 않는 커넥터](application-proxy-connectivity-no-working-connector.md)
+##### [관리자 포털에서 구성](application-proxy-config-how-to.md)
+##### [내 앱에 Single Sign-On 구성](application-proxy-config-sso-how-to.md)
+##### [관리 포털에서 앱을 만들 때 문제](application-proxy-config-problem.md)
+##### [Kerberos 제한 위임 구성](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+##### [PingAccess로 구성](application-proxy-back-end-ping-access-how-to.md)
+##### ["Can't Access this Corporate Application"(회사 응용 프로그램에 액세스할 수 없음) 오류](application-proxy-sign-in-bad-gateway-timeout-error.md)
+##### [응용 프로그램 프록시 에이전트 커넥터 설치 시 문제](application-proxy-connector-installation-problem.md)
+
+
+#### 응용 프로그램 등록
+##### [응용 프로그램 개체에 대한 필드 입력](application-dev-registration-config-specific-application-property-how-to.md)
+##### [토큰 수명 기본값 변경](application-dev-registration-config-change-token-lifetime-how-to.md)
+
+#### 인증
+##### [엔드포인트 구성](application-dev-registration-config-how-to.md)
+
+#### 조건부 액세스
+##### [고객이 장치 등록 사전 요구 사항을 충족시키지 못함](active-directory-conditional-access.md)
+##### [조건부 액세스 정책의 잘못된 설정으로 인해 테넌트가 차단됨](active-directory-conditional-access-device-remediation.md)
+##### [회사 네트워크 규칙이 적용되는 방법 및 시기](https://aka.ms/calocation)
+##### [사용자가 Azure AD에 등록할 수 있는 장치 수를 늘리는 방법](active-directory-azureadjoin-setup.md)
+##### [Exchange Online에 대한 조건부 액세스를 설정하는 방법](https://aka.ms/csforexchange)
+##### [Windows 7 장치에 대한 조건부 액세스를 설정하는 방법](active-directory-conditional-access.md#device-based-conditional-access)
+##### [조건부 액세스가 지원되는 응용 프로그램](active-directory-conditional-access-supported-apps.md)
+
+#### API 찾기
+##### [API 찾기](application-dev-api-find-an-api-how-to.md)
+
+#### 액세스 관리
+##### [사용자 및 그룹을 앱에 할당](application-access-assignment-how-to-add-assignment.md)
+##### [앱에 대한 사용자 액세스 권한 제거](application-access-assignment-how-to-remove-assignment.md)
+##### [셀프 서비스 앱 할당 구성](application-access-self-service-how-to.md)
+##### [할당된 예기치 않은 사용자](application-access-unexpected-user-assignment.md)
+##### [응용 프로그램 목록의 예기치 않은 앱](application-access-unexpected-application.md)
+
+#### 다중 테넌트 앱
+##### [새 앱 구성](application-dev-setup-multi-tenant-app.md)
+##### [앱 갤러리에 추가](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+
+#### 권한
+##### [API에 대한 사용 권한 선택](application-dev-perms-for-given-api.md)
+##### [내 앱에 권한 부여](application-dev-registration-config-grant-permissions-how-to.md)
+##### [위임된 권한 대 응용 프로그램 권한](application-dev-delegated-and-app-perms.md)
+##### [응용 프로그램 동의](application-dev-consent-framework.md)
+
+#### 프로비전
+##### [소요되는 시간](application-provisioning-when-will-provisioning-finish-specific-user.md)
+##### [소요 시간 - 갤러리 앱](application-provisioning-when-will-provisioning-finish.md)
+##### [사용자 프로비저닝 구성 - 갤러리 앱](application-provisioning-config-how-to.md)
+##### [사용자 프로비저닝 구성 시 문제 - 갤러리 앱](application-provisioning-config-problem.md)
+##### [사용자가 갤러리 앱에 프로비전을 구성하는 동안 관리자 자격 증명 저장 시 문제](application-provisioning-config-problem-storage-limit.md)
+##### [프로비전되지 않은 사용자 - 갤러리 앱](application-provisioning-config-problem-no-users-provisioned.md)
+##### [잘못 프로비전된 사용자 - 갤러리 앱](application-provisioning-config-problem-wrong-users-provisioned.md)
+
+#### SSO(Single sign-on)
+##### [메서드 선택](application-config-sso-how-to-choose-sign-on-method.md)
+##### [구성](application-dev-registration-config-sso-how-to.md)
+##### [페더레이션 구성 - 갤러리 앱](application-config-sso-how-to-configure-federated-sso-gallery.md)
+##### [페더레이션된 일반적인 문제 구성 - 갤러리 앱](application-config-sso-problem-configure-federated-sso-gallery.md)
+##### [페더레이션된 구성 - 비갤러리 앱](application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+##### [페더레이션된 일반적인 문제 구성 - 비갤러리 앱](application-config-sso-problem-configure-federated-sso-non-gallery.md)
+##### [암호 구성 - 갤러리 앱](application-config-sso-how-to-configure-password-sso-gallery.md)
+##### [암호 구성 일반적인 문제 - 갤러리 앱](application-config-sso-problem-configure-password-sso-gallery.md)
+##### [암호 구성 - 비갤러리 앱](application-config-sso-how-to-configure-password-sso-non-gallery.md)
+##### [암호 구성 일반적인 문제 - 비갤러리 앱](application-config-sso-problem-configure-password-sso-non-gallery.md)
+
+#### 사용자 로그인 문제
+##### [예기치 않은 동의 확인 프롬프트](application-sign-in-unexpected-user-consent-prompt.md)
+##### [사용자 동의 오류](application-sign-in-unexpected-user-consent-error.md)
+##### [사용자 지정 포털에서 로그인 시 문제](application-sign-in-other-problem-deeplink.md)
+##### [액세스 패널에서 로그인 시 문제](application-sign-in-other-problem-access-panel.md)
+##### [응용 프로그램 로그인 페이지에서의 오류](application-sign-in-problem-application-error.md)
+##### [암호 Single Sign-On의 문제 - 비 갤러리 앱](application-sign-in-problem-password-sso-non-gallery.md)
+##### [암호 Single Sign-On의 문제 - 갤러리 앱](application-sign-in-problem-password-sso-gallery.md)
+##### [Microsoft 앱에 로그인 시 문제](application-sign-in-problem-first-party-microsoft.md)
+##### [페더레이션된 Single Sign-On의 문제 - 비갤러리 앱](application-sign-in-problem-federated-sso-non-gallery.md)
+##### [페더레이션된 Single Sign-On의 문제 - 갤러리 앱](application-sign-in-problem-federated-sso-gallery.md)
+##### [사용자 지정 개발 앱의 문제](application-sign-in-problem-custom-dev.md)
+##### [온-프레미스 앱의 문제 - 응용 프로그램 프록시](application-sign-in-problem-on-premises-application-proxy.md)
+
 ### [앱 개발](active-directory-applications-guiding-developers-for-lob-applications.md)
 ### [문서 라이브러리](active-directory-apps-index.md)
 

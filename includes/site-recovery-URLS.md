@@ -5,5 +5,7 @@
 ``dc.services.visualstudio.com`` - 원격 분석에 사용됩니다. <br>
 ``time.nist.gov`` 및 ``time.windows.com`` 시스템 시간과 글로벌 시간 사이의 시간 동기화를 확인하는 데 사용됩니다.
 <br/><br/>
-Azure Government 클라우드의 URL:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>- https://login-us.microsoftonline.com<br/>- https://login.microsoftonline.us<br/>- https://login.microsoftonline.com<br/>
+Azure Government 클라우드의 URL:<br/>- .ugv.hypervrecoverymanager.windowsazure.us<br/>- .ugv.backup.windowsazure.us<br/>- .ugi.hypervrecoverymanager.windowsazure.us<br/>- .ugi.backup.windowsazure.us<br/>-
+https://login.microsoftonline.us<br/>-
+https://login.microsoftonline.com<br/>
 

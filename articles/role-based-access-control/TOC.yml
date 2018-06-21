@@ -48,7 +48,7 @@
           href: role-assignments-powershell.md
         - name: REST (영문)
           href: role-assignments-rest.md
-    - name: 활동 로그
+    - name: 활동 로그 보기
       href: change-history-report.md
     - name: 전역 관리자를 위한 액세스 권한 상승
       href: elevate-access-global-admin.md

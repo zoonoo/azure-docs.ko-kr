@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 500e335d0b2eddc56cdfb9828236bc4676d9b6aa
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 28290718d15a893c5d676c887b9f810449075746
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666013"
 ---
 > [!div class="op_single_selector"]
 > * [Windows에서 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -43,7 +44,7 @@ ms.lasthandoff: 05/20/2018
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 배포
 
-이 자습서에서 만드는 **냉각기** 장치는 [원격 모니터링](../articles/iot-suite/iot-suite-remote-monitoring-explore.md) 솔루션 가속기의 인스턴스에 데이터를 전송합니다. Azure 계정에서 원격 모니터링 솔루션 가속기를 미리 프로비전하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)를 참조하세요.
+이 자습서에서 만드는 **냉각기** 장치는 [원격 모니터링](../articles/iot-accelerators/iot-accelerators-remote-monitoring-explore.md) 솔루션 가속기의 인스턴스에 데이터를 전송합니다. Azure 계정에서 원격 모니터링 솔루션 가속기를 미리 프로비전하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../articles/iot-accelerators/iot-accelerators-remote-monitoring-deploy.md)를 참조하세요.
 
 원격 모니터링 솔루션의 배포 프로세스가 완료되면 **시작** 을 클릭하여 브라우저에서 솔루션 대시보드를 엽니다.
 

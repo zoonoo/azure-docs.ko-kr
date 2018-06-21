@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9522e1f56c7aa8ce8fbe2b5b7b04f5482738342c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: f18e94b6f788609dc5a0466e9d8ffa0c02056b1e
+ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236707"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35678058"
 ---
 ### <a name="supportedclientos"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇인가요?
 
@@ -21,7 +21,6 @@ ms.locfileid: "35236707"
 
 * Windows 7(32비트 및 64비트)
 * Windows Server 2008 R2(64비트 전용)
-* Windows 8(32비트 및 64비트)
 * Windows 8.1(32비트 및 64비트)
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)

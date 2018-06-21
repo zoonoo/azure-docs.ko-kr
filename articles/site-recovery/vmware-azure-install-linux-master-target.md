@@ -1,20 +1,17 @@
 ---
 title: Azure에서 온-프레미스로 장애 조치(failover)하기 위해 Linux 마스터 대상 서버 설치 | Microsoft Docs
 description: Linux 가상 머신을 다시 보호하려면 Linux 마스터 대상 서버가 필요합니다. 설치 방법에 대해 알아봅니다.
-services: site-recovery
-documentationcenter: ''
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/08/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 4d28a9a840b25ea415021da149ab145836cbed28
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 338a104de6fadeff842e6e135db395758c8f8dce
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802513"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285936"
 ---
 # <a name="install-a-linux-master-target-server"></a>Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 

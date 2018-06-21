@@ -1,19 +1,19 @@
 ---
 title: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 description: Azure Time Series Insights JavaScript 클라이언트 라이브러리 및 관련 프로그래밍 모델에 대해 알아봅니다.
-author: BryanLa
+author: ashannon7
 manager: timlt
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 6bd8b10100f8cdabca5f87addfea1690dc5fac6c
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 70e29b1a6b8a4443ae6545ec7960f1d2370218e3
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809501"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295396"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>자습서: Azure Time Series Insights JavaScript 클라이언트 라이브러리
 

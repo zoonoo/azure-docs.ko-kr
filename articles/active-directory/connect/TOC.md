@@ -18,6 +18,7 @@
 ### [이전 버전에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)
 ### [기존 ADSync 데이터베이스를 사용하여 설치](active-directory-aadconnect-existing-database.md)
 ### [SQL 위임된 관리자 권한을 사용하여 설치](active-directory-aadconnect-sql-delegation.md)
+### [원격 SQL Server로 Azure AD Connect 데이터베이스 이동](active-directory-aadconnect-move-db.md)
 
 # 방법
 ## 계획 및 디자인

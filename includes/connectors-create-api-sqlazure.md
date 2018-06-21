@@ -1,42 +1,113 @@
-### <a name="prerequisites"></a>필수 조건
-* Azure 계정의 경우 [무료 계정](https://azure.microsoft.com/free)
-* [Azure SQL Database](../articles/sql-database/sql-database-get-started.md)는 서버 이름, 데이터베이스 이름 및 사용자 이름/암호를 비롯한 해당 연결 정보를 포함합니다. 이 정보는 SQL 데이터베이스 연결 문자열에 포함됩니다.
-  
-    Server=tcp:*yoursqlservername*.database.windows.net,1433;Initial Catalog=*yourqldbname*;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  
-    [Azure SQL Databases](https://azure.microsoft.com/services/sql-database)에 대해 자세히 알아봅니다.
+---
+title: 포함 파일
+description: 포함 파일
+services: logic-apps
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 05/15/2018
+ms.author: estfan
+ms.custom: include file
+ms.openlocfilehash: 013e230aa7e096f6a90ed7cf9e93a44fbdeb3bd6
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34678269"
+---
+* Azure SQL Database를 사용하는 경우 [Azure SQL Database에 연결](#connect-azure-sql-db)의 단계를 따릅니다. 
 
-> [!NOTE]
-> Azure SQL 데이터베이스를 만들 때 SQL에 포함된 샘플 데이터베이스도 만들 수 있습니다. 
-> 
-> 
+* SQL Server를 사용하는 경우 [SQL Server에 연결](#connect-sql-server)의 단계를 따릅니다.
 
-논리 앱에서 Azure SQL 데이터베이스를 사용하기 전에 SQL 데이터베이스에 연결합니다. Azure 포털의 논리 앱 내에서 이 작업을 쉽게 수행할 수 있습니다.  
+<a name="connect-azure-sql-db"></a>
 
-다음 단계를 사용하여 Azure SQL 데이터베이스에 연결합니다.  
+### <a name="connect-to-azure-sql-database"></a>Azure SQL Database에 연결
 
-1. 논리 앱을 만듭니다. 논리 앱 디자이너에서 트리거를 추가하고 동작을 추가합니다. 드롭다운 목록에서 **Microsoft 관리 API 표시**를 선택한 다음 검색 상자에 "sql"을 입력합니다. 다음 동작 중 하나를 선택합니다.  
-   
-    ![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sqlazure/sql-actions.png)
-2. 이전에 SQL 데이터베이스에 대한 연결을 만들지 않은 경우 연결 세부 정보를 지정하라는 메시지가 표시됩니다.  
-   
-    ![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sqlazure/connection-details.png) 
-3. SQL 데이터베이스 세부 정보를 입력합니다. 별표가 있는 속성은 필수 사항입니다.
-   
-   | 속성 | 세부 정보 |
-   | --- | --- |
-   | 게이트웨이를 통해 연결 |선택 취소된 상태로 둡니다. 온-프레미스 SQL Server에 연결할 때 사용됩니다. |
-   | 연결 이름 * |연결의 이름을 입력합니다. |
-   | SQL Server 이름 * |서버 이름을 입력합니다(예: *servername.database.windows.net*). 서버 이름은 Azure 포털의 SQL 데이터베이스 속성에 표시되고 연결 문자열에도 표시됩니다. |
-   | SQL 데이터베이스 이름 * |SQL 데이터베이스에 지정한 이름을 입력합니다. 이 이름은 연결 문자열의 SQL Database 속성, Initial Catalog=*yoursqldbname*에 표시됩니다. |
-   | 사용자 이름 * |SQL 데이터베이스를 만들 때 만든 사용자 이름을 입력합니다. 이 이름은 Azure 포털의 SQL 데이터베이스 속성에 표시됩니다. |
-   | 암호 * |SQL 데이터베이스를 만들 때 만든 암호를 입력합니다. |
-   
-    이러한 자격 증명을 사용하여 SQL 데이터에 연결하도록 논리 앱에 권한을 부여하고 해당 데이터에 액세스할 수 있습니다. 완료되면 연결 정보가 다음과 비슷하게 표시됩니다.  
-   
-    ![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sqlazure/sample-connection.png) 
-4. **만들기**를 선택합니다. 
-5. 연결이 만들어졌는지 확인합니다. 이제 논리 앱의 다른 단계를 진행합니다. 
-   
-    ![SQL Azure 연결 만들기 단계](./media/connectors-create-api-sqlazure/table.png)
+1. SQL 트리거 또는 작업이 연결 정보를 요구하는 경우 다음 단계를 따릅니다.
 
+   1. 연결의 이름을 만듭니다.
+
+   2. SQL Server를 선택한 다음, 데이터베이스를 선택합니다. 
+
+      SQL Server를 선택한 후에만 데이터베이스 목록이 나타납니다.
+ 
+   3. 서버에 대한 사용자 이름 및 암호를 제공합니다.
+
+      Azure Portal의 SQL Database 속성 또는 연결 문자열에서 이 정보를 찾을 수 있습니다. 
+      
+      "사용자 ID=<*yourUserName*>"
+      <br>
+      "암호=<*yourPassword*>"
+
+   이 예제에서는 트리거에 대한 연결 정보를 표시하지만, 다음 작업의 경우에도 이러한 단계가 진행됩니다.
+
+   ![Azure SQL Database 연결 만들기](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   <br>
+   별표(*)는 필수 값을 나타냅니다.
+
+   | 자산 | 값 | 세부 정보 | 
+   |----------|-------|---------| 
+   | 연결 이름 | <*my-sql-connection*> | 연결의 이름 | 
+   | SQL Server 이름 | <*my-sql-server*> | SQL Server의 이름 |
+   | SQL Database 이름 | <*my-sql-database*>  | SQL Database의 이름 | 
+   | 사용자 이름 | <*my-sql-username*> | 데이터베이스에 액세스하기 위한 사용자 이름 |
+   | 암호 | <*my-sql-password*> | 데이터베이스에 액세스하기 위한 암호 | 
+   |||| 
+
+2. 작업을 완료하면 **만들기**를 선택합니다.
+
+3. 연결을 만든 후 [SQL 트리거 추가](#add-sql-trigger) 또는 [SQL 작업 추가](#add-sql-action)를 계속 진행합니다.
+
+<a name="connect-sql-server"></a>
+
+### <a name="connect-to-sql-server"></a>SQL Server에 연결
+
+게이트웨이를 선택하려면 먼저 [데이터 게이트웨이를 설정](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)해야 합니다. 따라서 연결을 만들 때 게이트웨이 목록에 게이트웨이가 표시됩니다.
+
+1. SQL 트리거 또는 작업이 연결 정보를 요구하는 경우 다음 단계를 따릅니다.
+
+   1. 트리거 또는 작업에서 **온-프레미스 데이터 게이트웨이를 통해 연결**을 선택하여 SQL Server 옵션을 표시합니다.
+
+   2. 연결의 이름을 만듭니다.
+
+   3. SQL Server의 주소를 제공하고 데이터베이스의 이름을 제공합니다.
+   
+      연결 문자열에서 이 정보를 찾을 수 있습니다. 
+      
+      * "서버=<*yourServerAddress*>"
+      * "데이터베이스=<*yourDatabaseName*>"
+
+   4. 서버에 대한 사용자 이름 및 암호를 제공합니다.
+
+      연결 문자열에서 이 정보를 찾을 수 있습니다. 
+      
+      * "사용자 ID=<*yourUserName*>"
+      * "암호=<*yourPassword*>"
+
+   5. SQL Server에서 Windows 또는 기본 인증을 사용하는 경우 인증 유형을 선택합니다.
+
+   6. 이전에 만든 온-프레미스 데이터 게이트웨이의 이름을 선택합니다.
+   
+      게이트웨이가 목록에 나타나지 않으면 올바르게 [게이트웨이를 설정](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)했는지 확인합니다.
+
+   이 예제에서는 트리거에 대한 연결 정보를 표시하지만, 다음 작업의 경우에도 이러한 단계가 진행됩니다.
+
+   ![SQL Server 연결 만들기](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   <br>
+   별표(*)는 필수 값을 나타냅니다.
+
+   | 자산 | 값 | 세부 정보 | 
+   |----------|-------|---------| 
+   | 온-프레미스 게이트웨이를 통해 연결 | 먼저 SQL Server 설정에 대해 이 옵션을 선택합니다. | | 
+   | 연결 이름 | <*my-sql-connection*> | 연결의 이름 | 
+   | SQL Server 이름 | <*my-sql-server*> | SQL Server의 이름 |
+   | SQL Database 이름 | <*my-sql-database*>  | SQL Database의 이름 |
+   | 사용자 이름 | <*my-sql-username*> | 데이터베이스에 액세스하기 위한 사용자 이름 |
+   | 암호 | <*my-sql-password*> | 데이터베이스에 액세스하기 위한 암호 | 
+   | 인증 유형 | Windows 또는 Basic | 선택 사항: SQL Server에서 사용되는 인증 유형 | 
+   | 게이트웨이 | <*my-data-gateway*> | 온-프레미스 데이터 게이트웨이의 이름 | 
+   |||| 
+
+2. 작업을 완료하면 **만들기**를 선택합니다. 
+
+3. 연결을 만든 후 [SQL 트리거 추가](#add-sql-trigger) 또는 [SQL 작업 추가](#add-sql-action)를 계속 진행합니다.

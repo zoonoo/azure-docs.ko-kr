@@ -13,19 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 4b7e794cb08647dde6fe59b6d4b06a9cbfab06e1
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: cb5b68e7bd0a1b247327e7147fe38eae19395f50
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726536"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>PowerShell을 사용하여 AWS(Amazon Web Services)에서 Azure로 Windows VM 이동
 
 워크로드를 호스팅하기 위해 Azure 가상 머신을 평가하는 경우 기존 AWS(Amazon Web Services) EC2 Windows VM 인스턴스를 내보낸 다음 VHD(가상 하드 디스크)를 Azure로 업로드할 수 있습니다. VHD를 업로드하면 VHD에서 Azure로 새 VM을 만들 수 있습니다. 
 
-이 항목에서는 단일 VM을 AWS에서 Azure로 이동하는 방법에 대해 설명합니다. VM을 AWS에서 Azure로 대규모로 이동하려면 [Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 가상 머신을 Azure로 마이그레이션](../../site-recovery/site-recovery-migrate-aws-to-azure.md)을 참조하세요.
+이 문서에서는 단일 VM을 AWS에서 Azure로 이동하는 방법에 대해 설명합니다. VM을 AWS에서 Azure로 대규모로 이동하려면 [Azure Site Recovery를 사용하여 AWS(Amazon Web Services)의 가상 머신을 Azure로 마이그레이션](../../site-recovery/site-recovery-migrate-aws-to-azure.md)을 참조하세요.
 
 ## <a name="prepare-the-vm"></a>VM 준비 
  
@@ -45,7 +46,7 @@ ms.lasthandoff: 04/06/2018
 
 ## <a name="export-and-download-the-vhd"></a>VHD 내보내기 및 다운로드 
 
-EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. Amazon 설명서의 [VM Import/Export를 사용하여 인스턴스를 VM으로 내보내기](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html)(영문) 항목에서 설명하는 단계를 수행하고, [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 명령을 실행하여 EC2 인스턴스를 VHD 파일로 내보냅니다. 
+EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. Amazon 설명서 [VM Import/Export를 사용하여 인스턴스를 VM으로 내보내기](http://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) 항목의 단계를 수행하고, [create-instance-export-task](http://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 명령을 실행하여 EC2 인스턴스를 VHD 파일로 내보냅니다. 
 
 내보낸 VHD 파일은 지정한 Amazon S3 버킷에 저장됩니다. VHD를 내보내기 위한 기본 구문은 다음과 같으며, 여기서 <brackets>의 자리 표시자 텍스트를 사용자의 정보로 바꿉니다.
 

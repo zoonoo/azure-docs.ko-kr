@@ -3,17 +3,18 @@ title: 인식 검색 파이프라인에서 기술 집합 만들기(Azure Search)
 description: Azure Search에서 사용을 위해 데이터에서 구조화된 정보를 추출하고 보강하기 위한 데이터 추출, 자연어 처리 또는 이미지 분석 단계입니다.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 816951ac128fb76d748262cfbc5f064a44e6376c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640929"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36268025"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>보강 파이프라인에서 기술 집합을 만드는 방법
 
@@ -106,11 +107,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       },
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -210,11 +211,11 @@ Content-Type: application/json
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
       }
-      "context": "/document/content/organizations/*",
+      "context": "/document/organizations/*",
       "inputs": [
         {
           "name": "query",
-          "source": "/document/content/organizations/*"
+          "source": "/document/organizations/*"
         }
       ],
       "outputs": [
@@ -228,9 +229,9 @@ Content-Type: application/json
 
 이 정의는 웹 API를 보강 절차의 일부로서 호출하는 사용자 지정 기술입니다. 명명된 엔터티 인식에서 식별한 각 조직의 경우 이 기술은 웹 API가 해당 조직에 대한 설명을 찾도록 호출합니다. 웹 API를 호출할 때 및 받은 정보를 이동하는 방법의 오케스트레이션은 보강 엔진에서 내부적으로 처리합니다. 그러나 이 사용자 지정 API를 호출하는 데 필요한 초기화는 JSON(예: uri, httpHeaders 및 예상 입력)에서 제공되어야 합니다. 보강 파이프라인에 대한 사용자 지정 웹 API를 만드는 지침은 [사용자 지정 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)을 참조합니다.
 
-별표를 사용하여 "컨텍스트" 필드가 ```"/document/content/organizations/*"```로 설정되는 것은 보강 단계가 ```"/document/content/organizations"```에서 *각 조직에 대해* 호출된다는 의미입니다. 
+별표를 사용하여 "컨텍스트" 필드가 ```"/document/organizations/*"```로 설정되는 것은 보강 단계가 ```"/document/organizations"```에서 *각 조직에 대해* 호출된다는 의미입니다. 
 
-회사 설명의 경우 출력은 식별된 각 조직에 대해 생성됩니다. 다운스트림 단계에서 설명을 언급할 때(예: 핵심 구문 추출) 그렇게 하려면 경로 ```"/document/content/organizations/*/description"```을 사용합니다. 
+회사 설명의 경우 출력은 식별된 각 조직에 대해 생성됩니다. 다운스트림 단계에서 설명을 언급할 때(예: 핵심 구문 추출) 그렇게 하려면 경로 ```"/document/organizations/*/description"```을 사용합니다. 
 
 ## <a name="enrichments-create-structure-out-of-unstructured-information"></a>보강은 구조화되지 않은 정보에서 구조를 만듬
 

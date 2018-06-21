@@ -3,19 +3,19 @@ title: Azure Time Series Insights에 이벤트 허브 이벤트 원본을 추가
 description: 이 문서에서는 이벤트 허브에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: sandshadow
+author: ashannon7
 ms.author: edett
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: ed151160bd8bd0f0241e1a728fab53570e33a201
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 780a7cb3035dbe19c45b5fe9c6dfae54fccafd03
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656020"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293651"
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 이벤트 허브 이벤트 원본을 추가하는 방법
 

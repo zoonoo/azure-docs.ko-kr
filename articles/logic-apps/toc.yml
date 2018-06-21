@@ -290,6 +290,13 @@
           href: logic-apps-enterprise-integration-b2b.md
 - name: 참고 자료
   items:
+    - name: 아키텍처 패턴
+      href: logic-apps-architectures-simple-enterprise-integration.md
+      items:
+        - name: 간단한 엔터프라이즈 통합
+          href: logic-apps-architectures-simple-enterprise-integration.md
+        - name: 큐 및 이벤트와 엔터프라이즈 통합
+          href: logic-apps-architectures-enterprise-integration-with-queues-events.md
     - name: 커넥터 - 자세한 내용
       href: 'https://docs.microsoft.com/connectors/'
     - name: 한도 및 구성

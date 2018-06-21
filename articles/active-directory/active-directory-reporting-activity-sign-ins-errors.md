@@ -3,25 +3,25 @@ title: Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
 description: 로그인 활동 보고서 오류 코드에 대한 참조입니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/31/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cb636db4e6e2097f494fcbc7a6584f0172514b95
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34698512"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232130"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
 
@@ -65,13 +65,13 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |40008|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
 |40009|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
 |40014|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
-|50000|로그인 서비스에 문제가 있습니다. 이 문제를 해결하려면 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md).|
+|50000|로그인 서비스에 문제가 있습니다. 이 문제를 해결하려면 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50001|서비스 사용자 이름이 이 테넌트에 없습니다. 테넌트의 관리자가 응용 프로그램을 설치하지 않은 경우에 이 오류가 발생할 수 있습니다. 또는 리소스 보안 주체가 디렉터리에 없거나 잘못되었습니다.|
 |50002|테넌트의 제한된 프록시 액세스로 인해 로그인하지 못했습니다. 사용자 고유의 테넌트 정책인 경우 제한된 테넌트 설정을 변경하여 이 문제를 해결할 수 있습니다|
 |50003|서명 키 또는 인증서의 누락으로 인해 로그인하지 못했습니다. 이 오류는 응용 프로그램에 구성된 서명 키가 없기 때문일 수 있습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured)에 설명된 해결 방법을 확인하세요. 그래도 문제가 계속되면 응용 프로그램 소유자 또는 응용 프로그램 관리자에게 문의하세요.|
 |50005|사용자가 현재 조건부 액세스 정책을 통해 지원되지 않는 플랫폼에서 장치에 로그인하려고 했습니다.|
 |50006| 잘못된 서명으로 인해 서명을 확인하지 못했습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery)에 설명된 해결 방법을 확인하세요. 그래도 문제가 계속되면 응용 프로그램 소유자 또는 응용 프로그램 관리자에게 문의하세요.|
-|50007|이 응용 프로그램에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 [Microsoft에서 지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md).|
+|50007|이 응용 프로그램에 대한 파트너 암호화 인증서를 찾을 수 없습니다. 이 문제를 해결하려면 [Microsoft에서 지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50008|토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요.|
 |50010|토큰 대상 그룹이 구성되지 않았으므로 응용 프로그램에 대한 대상 그룹 URI 유효성 검사가 실패했습니다. 응용 프로그램 소유자에게 문의하세요.|
 |50011|회신 주소가 누락되었거나, 잘못 구성되었거나, 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)에 나열된 해결 방법을 사용해 보세요. 그래도 문제가 계속되면 응용 프로그램 소유자 또는 응용 프로그램 관리자에게 문의하세요.|
@@ -114,8 +114,8 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |50133|만료 또는 최근 암호 변경으로 인해 세션이 잘못되었습니다.|
 |50135|계정이 위험하므로 암호를 변경해야 합니다.|
 |50136|msa 세션을 응용 프로그램으로 리디렉션했습니다. 단일 MSA 세션이 검색되었습니다. |
-|50140|사용자가 로그인할 때 "로그인 유지" 인터럽트로 인해 이 오류가 발생했습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md). |
-|50143|세션이 일치하지 않습니다. 사용자 테넌트가 다른 리소스로 인해 도메인 힌트와 일치하지 않기 때문에 세션이 유효하지 않습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md).|
+|50140|사용자가 로그인할 때 "로그인 유지" 인터럽트로 인해 이 오류가 발생했습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md). |
+|50143|세션이 일치하지 않습니다. 사용자 테넌트가 다른 리소스로 인해 도메인 힌트와 일치하지 않기 때문에 세션이 유효하지 않습니다. 자세한 내용을 확인하려면 상관 ID, 요청 ID 및 오류 코드가 있는 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |50144|사용자의 Active Directory 암호가 만료되었습니다. 사용자에 대한 새 암호를 생성하거나 셀프 서비스 재설정 도구를 사용하여 최종 사용자에게 제공합니다.|
 |50146|이 응용 프로그램은 응용 프로그램별 서명 키로 구성해야 합니다. 응용 프로그램이 키로 구성되지 않았거나, 키가 만료되었거나 아직 유효하지 않습니다. 응용 프로그램 소유자에게 문의하세요.|
 |50148|code_verifier가 PKCE에 대한 권한 부여 요청에 제공된 code_challenge와 일치하지 않습니다. 응용 프로그램 개발자에게 문의하세요. |
@@ -150,7 +150,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |70007|응용 프로그램에서 토큰을 요청할 때 지원되지 않는 'response_mode' 값을 반환했습니다. 응용 프로그램 소유자에게 문의하세요.|
 |70008|제공된 인증 코드 또는 새로 고침 토큰이 만료되었거나 철회되었습니다. 사용자가 로그인을 다시 시도해야 합니다.|
 |70011|응용 프로그램에서 요청한 범위가 잘못되었습니다. 응용 프로그램 소유자에게 문의하세요.|
-|70012|MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md). |
+|70012|MSA(소비자) 사용자를 인증하는 동안 서버 오류가 발생했습니다. 다시 시도하세요. 오류가 계속되면 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md). |
 |70018|사용자가 장치 코드 흐름에 대해 잘못된 사용자 코드를 입력했기 때문에 확인 코드가 잘못되었습니다. 권한 부여가 승인되지 않았습니다.|
 |70019|확인 코드가 만료되었습니다. 사용자가 로그인을 다시 시도해야 합니다.|
 |70037|잘못된 시도 응답이 제공되었습니다. 원격 인증 세션이 거부되었습니다.|
@@ -161,15 +161,15 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |75011|사용자가 서비스를 통해 인증하는 인증 방법이 요청한 인증 방법과 일치하지 않습니다. 응용 프로그램 소유자에게 문의하세요.|
 |75016|SAML2 인증 요청에 잘못된 NameIdPolicy가 있습니다. 응용 프로그램 소유자에게 문의하세요.|
 |80001|인증 에이전트에서 Active Directory에 연결할 수 없습니다. 사용자의 로그인 요청을 처리할 수 있는 DC를 확인하는 도메인 가입 컴퓨터에 인증 에이전트가 설치되어 있는지 확인하세요.|
-|80002|내부 오류입니다. 암호 유효성 검사 요청 시간이 초과되었습니다. 인증 요청은 내부 하이브리드 ID 서비스에 보낼 수 없었습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md).|
-|80003|인증 에이전트에서 받은 응답이 잘못되었습니다. Active Directory 온-프레미스에 대한 인증을 시도하는 동안 알 수 없는 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md).|
-|80005|인증 에이전트: 인증 에이전트에서 응답을 처리하는 동안 알 수 없는 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md).|
+|80002|내부 오류입니다. 암호 유효성 검사 요청 시간이 초과되었습니다. 인증 요청은 내부 하이브리드 ID 서비스에 보낼 수 없었습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md).|
+|80003|인증 에이전트에서 받은 응답이 잘못되었습니다. Active Directory 온-프레미스에 대한 인증을 시도하는 동안 알 수 없는 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md).|
+|80005|인증 에이전트: 인증 에이전트에서 응답을 처리하는 동안 알 수 없는 오류가 발생했습니다. 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |80007|인증 에이전트에서 사용자의 암호에 대한 유효성을 검사할 수 없습니다.|
 |80010|인증 에이전트에서 암호를 해독할 수 없습니다. |
 |80011|인증 에이전트에서 암호화 키를 검색할 수 없습니다.|
 |80012|사용자가 허용되는 시간(AD에서 지정됨)이 아닌 시간에 로그온하려고 했습니다.|
 |80013|인증 에이전트를 실행하는 컴퓨터와 AD 사이의 시간차로 인해 인증 시도를 완료할 수 없습니다. 시간 동기화 문제를 해결하세요.|
-|80014|인증 에이전트 시간이 초과되었습니다. 이 오류에 대한 자세한 내용을 확인하려면 오류 코드, 상관 ID 및 날짜/시간이 있는 [지원 티켓을 여세요](active-directory-troubleshooting-support-howto.md).|
+|80014|인증 에이전트 시간이 초과되었습니다. 이 오류에 대한 자세한 내용을 확인하려면 오류 코드, 상관 ID 및 날짜/시간이 있는 [지원 티켓을 여세요](fundamentals/active-directory-troubleshooting-support-howto.md).|
 |81001|사용자의 Kerberos 티켓이 너무 큽니다. 사용자가 너무 많은 그룹에 속해 있고 Kerberos 티켓에 너무 많은 그룹 멤버 자격이 포함된 경우 이 오류가 발생할 수 있습니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도합니다.|
 |81005|인증 패키지가 지원되지 않습니다|
 |81007|Seamless SSO에 대한 테넌트를 사용할 수 없습니다.|

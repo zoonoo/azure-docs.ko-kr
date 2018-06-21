@@ -11,14 +11,14 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 12/08/2017
+  ms.date: 06/18/2018
   ms.author: tamram
-  ms.openlocfilehash: de0672c3f4f06dd20081e401121f1cbbe2d77c9f
-  ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
+  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/05/2018
-  ms.locfileid: "34763173"
+  ms.lasthandoff: 06/19/2018
+  ms.locfileid: "36266674"
 abstract:
   description: Microsoft Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage는 Blob Storage, File Storage 및 Queue Storage로 구성됩니다.  빠른 시작 및 자습서를 통해 응용 프로그램에서 Azure Storage를 활용하는 방법을 알아보세요.
 sections:
@@ -101,8 +101,7 @@ sections:
     - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blob</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">파일</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">큐</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
-- title: >
-    무료 Pluralsight 동영상 교육
+- title: 무료 Pluralsight 동영상 교육
   items:
   - type: list
     style: cards
@@ -127,6 +126,6 @@ sections:
     - title: 명령줄
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure CLI</a></p>
     - title: 언어
-      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST (영문)
-      html: <p><a href="/rest/api/storageservices">Blob, 큐, 테이블 및 파일</a></p><p><a href="/rest/api/storagerp">리소스 공급자</a></p><p><a href="/rest/api/storageimportexport">Import/Export</a></p>
+      html: <p><a href="/rest/api/storageservices">Blob, 큐, 테이블 및 파일 API</a></p><p><a href="/rest/api/storagerp">저장소 리소스 공급자 API</a></p><p><a href="/rest/api/storageimportexport">Import/Export 서비스 API</a></p>
