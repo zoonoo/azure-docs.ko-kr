@@ -20,6 +20,7 @@ ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 04/05/2018
+ms.locfileid: "30838369"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -136,7 +137,7 @@ ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표�
 
 축하합니다. ASP.NET Core 웹앱이 Azure App Service에서 실시간으로 실행 중입니다.
 
-## <a name="update-the-app-and-redeploy"></a>앱 업데이트 및 다시 배포
+## <a name="update-the-app-and-redeploy"></a>앱 업데이트 및 재배포
 
 **솔루션 탐색기**에서 _Pages/Index.cshtml_을 엽니다.
 
@@ -169,7 +170,7 @@ Azure에 다시 배포하려면 **솔루션 탐색기**에서 **myFirstAzureWebA
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-dotnet/web-app-blade.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
+왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
