@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3ab06b624d1e433641d190d9621592ef83df3344
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 99b1e39b764f27d4638e8bb0f0d210043fde8643
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236402"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -29,7 +30,14 @@ ms.lasthandoff: 04/18/2018
     - 모니터링할 NSG에 대해 설정된 NSG 흐름 로그
     - 원시 흐름 로그를 저장할 Azure Storage 계정
     - Log Analytics(OMS) 작업 영역과 읽기 및 쓰기 권한
-    - 계정은 Microsoft.Network 공급자에서 다음 작업을 할당받습니다.
+    - 구독 수준에서 다음 역할 중 하나를 사용자에게 할당해야 합니다.
+    
+            All permissions *
+            All Read permissions */read
+            All network permissions Microsoft.Network/*
+            All network read permissions Microsoft.Network/*/read
+
+    또는 구독 수준에서 다음 모든 역할을 사용자에게 할당해야 합니다. 
 
         - Microsoft.Network/applicationGateways/read
         - Microsoft.Network/connections/read
@@ -41,6 +49,19 @@ ms.lasthandoff: 04/18/2018
         - Microsoft.Network/routeTables/read
         - Microsoft.Network/virtualNetworkGateways/read 
         - Microsoft.Network/virtualNetworks/read
+        
+구독에 대해 사용자에게 할당된 역할을 확인하려면 다음 단계를 따르세요.
+
+Login-AzureRmAccount를 사용하여 Azure에 로그인 
+
+Select-AzureRmSubscription을 사용하여 필요한 구독 선택 
+
+지정된 사용자에게 할당된 모든 역할을 나열하려면 Get-AzureRmRoleAssignment -SignInName <user email> -IncludeClassicAdministrators 사용 
+
+명령을 실행한 후 출력이 표시되지 않으면 각 구독 관리자에게 문의하여 명령을 실행할 권한을 얻으세요.  
+
+자세한 내용은 [Azure PowerShell을 사용하여 역할 기반 액세스 제어 관리](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell)를 참조하세요.
+
 
 2.  트래픽 분석을 사용할 수 있는 Azure 지역은 어디인가요?
 
@@ -106,11 +127,11 @@ ms.lasthandoff: 04/18/2018
 
 14. PowerShell 또는 Azure Resource Manager 템플릿을 사용하여 트래픽 분석을 구성할 수 있나요?
 
-    아니요, 트래픽 분석은 Azure Portal을 통해서만 구성할 수 있습니다.
+예. Windows Powershell을 사용하는 트래픽 분석 구성은 버전 6.2.1부터 지원되지만, Azure Resource Manager 템플릿 지원은 현재 사용할 수 없습니다. PowerShell을 사용하여 트래픽 분석을 구성하는 방법에 대한 자세한 내용은 다음 [문서](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.2.0)를 참조하세요. 
 
 15.  트래픽 분석의 비용은 얼마인가요?
 
-        트래픽 분석은 축소된 로그를 향상시키고 Log Analytics 작업 영역에서 향상된 로그를 저장하기 위해 요금이 측정됩니다. 미리 보기 상태에서 축소된 로그를 향상시키기 위해 트래픽 분석의 요금이 부과되지 않습니다. 하지만 작업 영역에서 데이터의 보존은 게시된 요금제로 청구됩니다. 트래픽 분석에 가격 책정을 사용할 수 있게 되면 이 응답이 업데이트됩니다.
+트래픽 분석은 서비스에서 처리된 흐름 로그 데이터에 대해, 그리고 Log Analytics 작업 영역에서 생성된 향상된 로그를 저장하기 위해 요금이 측정됩니다. 가격 플랜에 대해 자세히 알아보려면 [여기를 클릭](https://azure.microsoft.com/en-us/pricing/details/network-watcher/)하세요. 
 
 16.  지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 

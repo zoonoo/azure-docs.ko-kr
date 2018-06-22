@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: 프로비전 및 비율 크기 조정
       items:
+        - name: 용량 메트릭
+          href: api-management-capacity.md
         - name: 업그레이드 및 크기 조정
           href: upgrade-and-scale.md
         - name: 사용자 지정 도메인 구성

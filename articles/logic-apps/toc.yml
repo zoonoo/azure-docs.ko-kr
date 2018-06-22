@@ -268,14 +268,14 @@
       items:
         - name: 논리 앱 상태 모니터링
           href: logic-apps-monitor-your-logic-apps.md
-        - name: Log Analytics로 OMS에서 논리 앱 상태 모니터링
+        - name: Azure Log Analytics를 사용하여 논리 앱 상태 모니터링
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: B2B 메시지 모니터링
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: OMS에서 B2B 메시지 추적
+            - name: Azure Log Analytics에서 B2B 메시지 추적
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: B2B 메시지에 대한 OMS 쿼리
+            - name: B2B 메시지에 대한 Azure Log Analytics 쿼리
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: '예제, 시나리오 및 연습'
       href: logic-apps-examples-and-scenarios.md

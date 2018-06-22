@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: 자습서
   items:
-    - name: 1 - 응용 프로그램 등록
-      href: tutorial-register-applications.md
+    - name: 1 - B2C 테넌트 만들기
+      href: tutorial-create-tenant.md
     - name: 2 - 계정 인증
       items:
         - name: ASP.NET

@@ -161,12 +161,8 @@
               href: virtual-networks-dmz-nsg.md
     - name: 구성
       items:
-        - name: 가상 머신
-          items:
-            - name: 네트워크 인터페이스 추가 또는 제거
-              href: virtual-network-network-interface-vm.md
-            - name: VM 및 클라우드 서비스의 이름 확인
-              href: virtual-networks-name-resolution-for-vms-and-role-instances.md
+        - name: VM 및 클라우드 서비스의 이름 확인
+          href: virtual-networks-name-resolution-for-vms-and-role-instances.md
         - name: 고유한 DNS 서버에서 동적 DNS 사용
           href: virtual-networks-name-resolution-ddns.md
         - name: 네트워크 처리량 최적화
@@ -191,17 +187,16 @@
               href: virtual-network-nsg-manage-log.md
         - name: 경로 테이블
           href: manage-route-table.md
-        - name: 네트워크 인터페이스
-          href: virtual-network-network-interface.md
+        - name: 가상 머신 네트워킹
           items:
-            - name: IP 주소
+            - name: 네트워크 인터페이스 만들기 또는 삭제
+              href: virtual-network-network-interface.md
+            - name: 네트워크 인터페이스 추가 또는 제거
+              href: virtual-network-network-interface-vm.md
+            - name: IP 주소 추가 또는 제거
               href: virtual-network-network-interface-addresses.md
         - name: 공용 IP 주소
           href: virtual-network-public-ip-address.md
-        - name: 가상 머신
-          items:
-            - name: 다른 서브넷으로 VM 이동
-              href: virtual-networks-move-vm-role-to-subnet.md
     - name: 문제 해결
       items:
         - name: 네트워크 보안 그룹
@@ -277,6 +272,8 @@
                       href: ../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json
                     - name: Azure PowerShell
                       href: virtual-networks-acl-powershell.md
+                - name: 다른 서브넷으로 VM 이동
+                  href: virtual-networks-move-vm-role-to-subnet.md
         - name: 클라우드 서비스 및 네트워크 보안
           href: ../best-practices-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json
           items:

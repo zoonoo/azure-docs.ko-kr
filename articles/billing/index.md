@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 313d6cfd69fbf63066add46c7a467c5090604067
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807257"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285851"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 청구 및 비용 관리 설명서
 
@@ -133,7 +133,7 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
                     <div class="cardText">
                         <h3>예약 VM 인스턴스로 비용 절감</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">예약 인스턴스란?</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">예약 인스턴스란?</a> <br/>
                         <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">예약 인스턴스 구입</a><br/>
                         <a href="/azure/billing/billing-understand-vm-reservation-charges">할인 적용 방식</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">소프트웨어 비용 미포함</a>
@@ -165,12 +165,18 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>문제 해결</h3>
+                        <h3>엔터프라이즈 구독: EA 포털 액세스 필요</h3>
+                        <style>.p-test:after { font-family: docons; content: "\E9D0";}</style>
                         <p>
-                        <a href="/azure/billing/billing-no-subscriptions-found">'구독을 찾을 수 없음'</a><br/>
-                        <a href="https://support.microsoft.com/help/4042960/troubleshoot-why-your-debit-card-or-credit-card-is-declined-at-azure-s">거부된 카드</a><br/>
-                        <a href="https://support.microsoft.com/help/4042959/troubleshoot-why-you-can-t-sign-up-for-azure">등록 문제</a><br/>
-                        <a href="https://support.microsoft.com/help/4042961/troubleshoot-why-you-can-t-sign-in-to-manage-your-azure-subscription">로그인 문제</a>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createADepartment" data-linktype="external">부서 관리<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/addNewAccount" data-linktype="external">계정 관리<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/createANewSubscription" data-linktype="external">구독 만들기<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/viewPriceSheet" data-linktype="external">가격표 보기<span class="docon docon-navigate-external"></span></a>
+                        <br>
+                        <a class="p-test" href="https://ea.azure.com/helpdocs/usageDetailReport" data-linktype="external">사용량 세부 정보 보기<span class="docon docon-navigate-external"></span></a>
                         </p>
                     </div>
                 </div>
