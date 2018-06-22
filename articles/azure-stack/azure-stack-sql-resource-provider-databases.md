@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: a82db16f2012672f6e2669f2fd8198b177f501f3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 56d21b76268f94f4254985a6924c4ca2d778a9cd
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264185"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300825"
 ---
 # <a name="create-sql-databases"></a>SQL 데이터베이스 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "36264185"
 
 1. 에 로그인 하 고 [Azure 스택](azure-stack-poc.md) 사용자 포털입니다.
 
-2. 선택 **새 +** &gt; **데이터 + 저장소 "** &gt; **SQL Server 데이터베이스** &gt; **추가**합니다.
+2. 선택 **새 +** &gt; **데이터 + 저장소** &gt; **SQL Server 데이터베이스** &gt; **추가**합니다.
 
 3. 아래 **Create Database**, 필요한 정보를 같은 입력 **데이터베이스 이름** 및 **최대 크기 (MB)** 합니다.
 

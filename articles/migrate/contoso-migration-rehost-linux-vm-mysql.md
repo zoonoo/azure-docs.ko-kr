@@ -1,19 +1,17 @@
 ---
 title: Contoso Linux 서비스 데스크 앱을 Azure 및 Azure MySQL에 다시 호스트 | Microsoft Docs
 description: Contoso가 Azure VM 및 Azure MySQL로 마이그레이션하여 온-프레미스 Linux 앱을 다시 호스트하는 방법을 알아봅니다.
-services: site-recovery
 author: rayne-wiselman
-manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 4367bf7cb02bb6a1e343dc3fb171be731e15c32b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 15a429c033cfd1598dd01b5c8cd2743c397dacdb
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300714"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36225520"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso 마이그레이션: 온-프레미스 Linux 앱을 Azure VM 및 Azure MySQL에 다시 호스트
 
