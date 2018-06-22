@@ -610,13 +610,13 @@
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure 진단
               href: service-fabric-diagnostics-event-aggregation-lad.md
-            - name: OMS Log Analytics 설정
+            - name: Log Analytics 설정
               href: service-fabric-diagnostics-oms-setup.md
-            - name: OMS로 모니터링
+            - name: Log Analytics로 모니터링
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: 인프라 모니터
           items:
-            - name: OMS 에이전트를 사용한 성능 모니터링
+            - name: Log Analytics 에이전트를 사용하여 성능 모니터링
               href: service-fabric-diagnostics-oms-agent.md
             - name: WAD를 사용하여 성능 모니터링
               href: service-fabric-diagnostics-perf-wad.md

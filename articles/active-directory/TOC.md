@@ -417,6 +417,7 @@
 #### 자습서
 ##### [클래식 MFA 정책 마이그레이션](active-directory-conditional-access-migration-mfa.md)
 #### 개념
+##### [기준 보호](active-directory-conditional-access-baseline-protection.md)
 ##### [조건](active-directory-conditional-access-conditions.md)
 ##### [위치 조건](active-directory-conditional-access-locations.md)
 ##### [컨트롤](active-directory-conditional-access-controls.md)

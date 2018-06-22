@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2017
+ms.date: 06/07/2018
 ms.author: asmalser
-ms.openlocfilehash: 72f796f0a4522b66feb55b827b02a83dcfdd3a01
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069896"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293299"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 앱을 위한 자동 사용자 프로비저닝이란?
 Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램의 사용자 ID 생성, 관리 및 제거를 자동화할 수 있습니다.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
 **다음은 이 기능을 어떻게 활용할 수 있는지에 대한 몇 가지 예입니다.**
 
@@ -69,7 +71,7 @@ Azure AD는 SCIM 2.0 표준의 특정 부분을 구현하는 앱에 대한 일�
 
 Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 응용 프로그램 목록을 보려면 [사용자 프로비저닝에 대한 응용 프로그램 자습서 목록](active-directory-saas-tutorial-list.md)을 참조하세요.
 
-Azure AD 사용자 프로비저닝 지원을 응용 프로그램에 추가하는 방법에 대한 자세한 내용은 [도메인 간 ID 관리용 시스템을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전](active-directory-scim-provisioning.md)을 참조하세요.
+Azure AD 사용자 프로비저닝 지원을 응용 프로그램에 추가하는 방법에 대한 자세한 내용은 [도메인 간 ID 관리용 시스템을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전](manage-apps/use-scim-to-provision-users-and-groups.md)을 참조하세요.
 
 Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.    
 
@@ -78,6 +80,8 @@ Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대�
     
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>응용 프로그램에 자동 프로비전을 설정하려면 어떻게 합니까?
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 선택한 응용 프로그램에 대한 Azure AD 프로비전 서비스의 구성은 **[Azure Portal](https://portal.azure.com)** 에서 시작됩니다. **Azure Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 **추가**, **모두**를 차례로 선택한 다음, 시나리오에 따라 다음 중 하나를 추가합니다.
 
@@ -102,7 +106,7 @@ Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대�
 
     * **Filter on attribute values(특성 값 기준 필터링)** - 특성 매핑의 "원본 개체 범위" 메뉴를 사용하면 특정 특성 값에 따라 필터링할 수 있습니다. 예를 들어 "Department" 특성이 "Sales"인 사용자만 프로비전 범위에 속해야 한다고 지정할 수 있습니다. 자세한 내용은 [범위 지정 필터 사용](active-directory-saas-scoping-filters.md)을 참조하세요.
 
-    * **Filter on assignments(할당 기준 필터링)** - 포털의 프로비전 > 설정 섹션에 있는 "범위" 메뉴를 사용하면, "할당된" 사용자 및 그룹만 프로비전 범위에 속해야 하는지 또는 Azure AD 디렉터리의 모든 사용자가 프로비전되어야 하는지를 지정할 수 있습니다. 사용자 및 그룹 "할당"에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](active-directory-coreapps-assign-user-azure-portal.md)을 참조하세요.
+    * **Filter on assignments(할당 기준 필터링)** - 포털의 프로비전 > 설정 섹션에 있는 "범위" 메뉴를 사용하면, "할당된" 사용자 및 그룹만 프로비전 범위에 속해야 하는지 또는 Azure AD 디렉터리의 모든 사용자가 프로비전되어야 하는지를 지정할 수 있습니다. 사용자 및 그룹 "할당"에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md)을 참조하세요.
     
 * **설정**은 현재 실행 중인지 여부를 포함하여 응용 프로그램에 대한 프로비전 서비스 작업을 제어합니다.
 
@@ -122,7 +126,7 @@ Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Gr
 프로비저닝 서비스를 시작하면 첫 번째 동기화에서 다음을 수행합니다.
 
 1. [특성 매핑](active-directory-saas-customizing-attribute-mappings.md)에 정의된 모든 특성을 검색하여 소스 시스템에서 모든 사용자와 그룹을 쿼리합니다.
-2. 구성된 [할당](active-directory-coreapps-assign-user-azure-portal.md) 또는 [특성 기반 범위 지정 필터](active-directory-saas-scoping-filters.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
+2. 구성된 [할당](manage-apps/assign-user-or-group-access-portal.md) 또는 [특성 기반 범위 지정 필터](active-directory-saas-scoping-filters.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
 3. 사용자가 할당되었거나 프로비저닝 범위에 있는 경우 서비스는 지정된 [일치 특성](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties)을 사용하여 대상 시스템에서 일치하는 사용자를 쿼리합니다. 예: 소스 시스템의 userPrincipal 이름이 일치하는 특성이고 대상 시스템의 userName에 매핑되는 경우 프로비저닝 서비스는 대상 시스템에서 소스 시스템의 userPrincipal 이름 값과 일치하는 userNames를 쿼리합니다.
 4. 대상 시스템에 일치하는 사용자가 없으면 소스 시스템에서 반환된 특성을 사용하여 생성됩니다.
 5. 일치하는 사용자가 있으면 소스 시스템에서 제공하는 특성을 사용하여 업데이트됩니다.
@@ -135,7 +139,7 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 초기 동기화 후 모든 후속 동기화는 다음을 수행합니다.
 
 1. 소스 시스템에서 마지막 워터마크가 저장된 이후 업데이트된 사용자 및 그룹을 쿼리합니다.
-2. 구성된 [할당](active-directory-coreapps-assign-user-azure-portal.md) 또는 [특성 기반 범위 지정 필터](active-directory-saas-scoping-filters.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
+2. 구성된 [할당](manage-apps/assign-user-or-group-access-portal.md) 또는 [특성 기반 범위 지정 필터](active-directory-saas-scoping-filters.md)를 사용하여 반환된 사용자 및 그룹을 필터링합니다.
 3. 사용자가 할당되었거나 프로비저닝 범위에 있는 경우 서비스는 지정된 [일치 특성](active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-properties)을 사용하여 대상 시스템에서 일치하는 사용자를 쿼리합니다.
 4. 대상 시스템에 일치하는 사용자가 없으면 소스 시스템에서 반환된 특성을 사용하여 생성됩니다.
 5. 일치하는 사용자가 있으면 소스 시스템에서 제공하는 특성을 사용하여 업데이트됩니다.
@@ -171,31 +175,50 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 위반 오류를 모두 수정하고 다음 동기화 주기가 시작되면 프로비저닝 작업이 격리에서 제거됩니다. 프로비저닝 작업이 4주 넘게 격리 상태로 유지되면 프로비저닝 작업을 사용할 수 없게 됩니다.
 
 
+## <a name="how-long-will-it-take-to-provision-users"></a>사용자를 프로비전하는 데 걸리는 시간은 어느 정도인가요?
+
+성능은 이전 섹션에서 설명한 대로 프로비저닝 작업이 초기 동기화 또는 증분 동기화를 수행하는지에 따라 다릅니다.
+
+**초기 동기화**의 경우, 작업 시간은 프로비저닝 범위에 속하는 사용자 및 그룹 수와 원본 시스템에 있는 사용자 및 그룹의 총 수를 포함하여 다양한 요인에 따라 달라집니다. 초기 동기화 성능에 영향을 주는 포괄적인 요인 목록은 이 섹션의 뒷부분에 요약되어 있습니다.
+
+**증분 동기화**의 경우, 작업 시간은 해당 동기화 주기에서 검색된 변경 수에 따라 달라집니다. 사용자 또는 그룹 멤버 자격 변경이 5,000개 미만인 경우, 단일 증분 동기화 주기 내에 작업이 완료될 수 있습니다. 
+
+다음 표에는 일반적인 프로비저닝 시나리오의 동기화 시간이 요약되어 있습니다. 이러한 시나리오에서 원본 시스템은 Azure AD이고, 대상 시스템은 SaaS 응용 프로그램입니다. 동기화 시간은 SaaS 응용 프로그램인 ServiceNow, Workplace, Salesforce 및 Google Apps에 대한 동기화 작업의 통계 분석에서 파생된 것입니다.
+
+
+| 범위 구성 | 범위 내 사용자, 그룹 및 멤버 | 초기 동기화 시간 | 증분 동기화 시간 |
+| -------- | -------- | -------- | -------- |
+| 할당된 사용자 및 그룹만 동기화 |  1,000 미만 |  30분 미만 | 30분 미만 |
+| 할당된 사용자 및 그룹만 동기화 |  1,000 - 10,000 | 142 - 708분 | 30분 미만 |
+| 할당된 사용자 및 그룹만 동기화 |   10,000 - 100,000 | 1,170 - 2,340분 | 30분 미만 |
+| Azure AD의 모든 사용자 및 그룹 동기화 |  1,000 미만 | 30분 미만  | 30분 미만 |
+| Azure AD의 모든 사용자 및 그룹 동기화 |  1,000 - 10,000 | 30 - 120분 | 30분 미만 |
+| Azure AD의 모든 사용자 및 그룹 동기화 |  10,000 - 100,000  | 713 - 1,425분 | 30분 미만 |
+| Azure AD의 모든 사용자 동기화|  1,000 미만  | 30분 미만 | 30분 미만 |
+| Azure AD의 모든 사용자 동기화 | 1,000 - 10,000  | 43 - 86분 | 30분 미만 |
+
+
+**할당된 사용자 및 그룹만 동기화** 구성의 경우, 다음 공식을 사용하여 대략적인 최소 및 최대 예상 **초기 동기화** 시간을 확인할 수 있습니다.
+
+    Minimum minutes =  0.01 x [Number of assigned users, groups, and group members]
+    Maximum minutes = 0.08 x [Number of assigned users, groups, and group members] 
+    
+**초기 동기화**를 완료하는 데 걸리는 시간에 영향을 주는 요인 요약:
+
+* 프로비저닝 범위에 속하는 사용자 및 그룹의 총 수
+
+* 원본 시스템(Azure AD)에 있는 사용자, 그룹 및 그룹 멤버의 총 수
+
+* 프로비저닝 범위 내 사용자가 대상 응용 프로그램의 기존 사용자와 일치하는지 여부 또는 처음 생성해야 하는지 여부. 모든 사용자가 처음 생성되는 동기화 작업이 모든 사용자가 기존 사용자와 일치하는 동기화 작업보다 대략 *두 배* 정도 오래 걸립니다.
+
+* [감사 로그](active-directory-saas-provisioning-reporting.md)의 오류 수. 많은 오류가 있고 프로비저닝 서비스가 격리 상태로 전환된 경우 성능이 저하됩니다.   
+
+* 대상 시스템에서 구현된 요청 비율 한도 및 제한. 일부 대상 시스템은 큰 동기화 작업 중 성능에 영향을 줄 수 있는 요청 비율 한도 및 제한을 구현합니다. 이러한 조건에서 너무 많은 요청을 너무 빠르게 받는 앱은 응답 속도가 느려지거나 연결을 닫을 수도 있습니다. 성능을 개선하려면 커넥터가 앱이 처리할 수 있는 속도보다 빠르게 앱 요청이 전송되지 않도록 조정해야 합니다. Microsoft에서 빌드한 프로비저닝 커넥터는 이러한 조정 작업을 수행합니다. 
+
+* 할당된 그룹 수 및 크기. 할당된 그룹 동기화가 사용자 동기화보다 시간이 오래 걸립니다. 할당된 그룹 수와 크기는 둘 다 성능에 영향을 줍니다. 응용 프로그램에 [그룹 개체 동기화가 사용되는 매핑](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings)이 있는 경우 그룹 이름 및 멤버 자격과 같은 그룹 속성이 사용자와 함께 동기화됩니다. 이러한 추가 동기화 때문에 사용자 객체만 동기화하는 것보다 시간이 오래 걸립니다.
+ 
+
 ## <a name="frequently-asked-questions"></a>질문과 대답
-
-**사용자를 프로비저닝 하는 데 얼마나 걸립니까?**
-
-프로비저닝 작업이 초기 동기화를 수행하는지 또는 증분 동기화를 수행하는지에 따라 성능이 달라집니다.
-
-초기 동기화의 경우 완료하는 데 걸리는 시간은 소스 시스템에 있는 사용자, 그룹 및 그룹 멤버 수에 따라 직접적인 영향을 받습니다. 수백 개의 개체를 포함하는 매우 작은 소스 시스템은 수분 내에 초기 동기화를 완료할 수 있습니다. 그러나 수십만 또는 수백만 개의 결합된 개체를 포함하는 소스 시스템은 더 오래 걸립니다.
-
-증분 동기화의 경우 소요 시간은 해당 동기화 주기에서 검색된 변경 수에 따라 달라집니다. 검색된 사용자 또는 그룹 멤버 자격 변경이 5,000개 미만이면 대체로 40분 주기 내에 동기화할 수 있습니다. 
-
-전반적인 성능은 소스 및 대상 시스템 둘 다에 따라 달라집니다. 일부 대상 시스템은 대규모 동기화 작업 중 성능에 영향을 줄 수 있는 요청 속도 제한을 구현하며, 이러한 시스템용으로 사전 빌드된 Azure AD 프로비저닝 커넥터는 이 사실을 고려합니다.
-
-또한 많은 오류가 있고([감사 로그](active-directory-saas-provisioning-reporting.md)에 기록됨) 프로비전 서비스가 "격리" 상태에 들어갔으면 성능이 저하됩니다.
-
-**동기화 성능을 개선하려면 어떻게 하나요?**
-
-대부분의 성능 문제는 다수의 그룹 및 그룹 멤버가 있는 시스템의 초기 동기화 중에 발생합니다.
-
-그룹 또는 그룹 멤버 자격을 동기화할 필요가 없는 경우 다음을 수행하면 동기화 성능을 훨씬 개선할 수 있습니다.
-
-1. 할당된 사용자 및 그룹을 동기화하는 대신 **프로비저닝 > 설정 > 범위** 메뉴를 **모두 동기화**로 설정합니다.
-2. 할당 대신 [범위 지정 필터](active-directory-saas-scoping-filters.md)를 사용하여 프로비전되는 사용자 목록을 필터링합니다.
-
-> [!NOTE]
-> 그룹 이름 및 그룹 속성(예: ServiceNow 및 Google Apps)의 프로비저닝을 지원하는 응용 프로그램의 경우 이 기능을 사용하지 않도록 설정해도 초기 동기화를 완료하는 데 걸리는 시간이 줄어듭니다. 응용 프로그램에 그룹 이름 및 그룹 구성원 자격을 제공하지 않으려면 프로비전 구성의 [특성 매핑](active-directory-saas-customizing-attribute-mappings.md)에서 이 기능을 사용하지 않도록 설정할 수 있습니다.
 
 **현재 프로비저닝 작업의 진행률을 어떻게 확인할 수 있습니까?**
 
@@ -219,7 +242,7 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 * [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
 * [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
-* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](active-directory-scim-provisioning.md)
+* [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 * [응용 프로그램의 아웃바운드 사용자 프로비전에 대한 단계별 배포 계획](https://aka.ms/userprovisioningdeploymentplan)
 
