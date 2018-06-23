@@ -98,22 +98,22 @@
           href: sql-database-dtu-resource-limits-single-databases.md
         - name: 단일 DB 리소스 크기 조정
           href: sql-database-single-database-scale.md
-        - name: 탄력적 풀 및 풀링된 DB
-          items:
-            - name: 탄력적 풀 및 풀링된 DB
-              href: sql-database-elastic-pool.md
-            - name: 풀 및 풀링된 DB 관리
-              href: sql-database-elastic-pool-manage.md
-            - name: vCore 기반 리소스 제한
-              href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: DTU 기반 리소스 제한
-              href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: 탄력적 풀 리소스 크기 조정
-          href: sql-database-elastic-pool-scale.md
         - name: 연결 아키텍처
           href: sql-database-connectivity-architecture.md
         - name: T-SQL 차이점
           href: sql-database-transact-sql-information.md
+    - name: 탄력적 풀 및 풀링된 DB
+      items:
+        - name: 탄력적 풀 및 풀링된 DB
+          href: sql-database-elastic-pool.md
+        - name: 풀 및 풀링된 DB 관리
+          href: sql-database-elastic-pool-manage.md
+        - name: vCore 기반 리소스 제한
+          href: sql-database-vcore-resource-limits-elastic-pools.md
+        - name: DTU 기반 리소스 제한
+          href: sql-database-dtu-resource-limits-elastic-pools.md
+        - name: 탄력적 풀 리소스 크기 조정
+          href: sql-database-elastic-pool-scale.md
     - name: 관리되는 인스턴스
       items:
         - name: 관리되는 인스턴스
