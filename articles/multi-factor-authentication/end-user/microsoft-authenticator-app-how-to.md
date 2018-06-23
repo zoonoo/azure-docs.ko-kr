@@ -27,7 +27,7 @@ Microsoft Authenticator 앱은 회사 또는 학교 계정(예: bsimon@contoso.c
 
 이 앱은 두 가지 방법 중 하나로 작동합니다.
 
-* **알림**. 이 앱을 사용하면 스마트폰 또는 태블릿에 알림을 푸시하여 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지할 수 있습니다. 알림을 확인한 후 올바르면 **확인**을 선택합니다. 그렇지 않으면 **거부**를 선택합니다.
+* **알림**. 이 앱을 사용하면 스마트폰 또는 태블릿에 알림을 표시하여 계정에 대한 무단 액세스를 방지하고 사기성 트랜잭션을 중지할 수 있습니다. 알림을 확인한 후 올바르면 **확인**을 선택합니다. 그렇지 않으면 **거부**를 선택합니다.
 * **확인 코드**. 이 앱을 소프트웨어 토큰으로 사용하여 OATH 확인 코드를 생성할 수 있습니다. 사용자 이름 및 암호를 입력한 후 앱에서 제공한 코드를 로그인 화면에 입력합니다. 확인 코드는 두 번째 인증 형식을 제공합니다.
 
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체합니다. Azure Authenticator 앱은 여전히 작동하지만 새 Microsoft Authenticator 앱으로 전환할 것인지 결정해야 하며 이 문서에서 방법을 설명합니다.  
@@ -36,11 +36,11 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대체합니다. Azure
 
 Microsoft Authenticator 앱은 자체적으로 작동하지 않습니다. 사용자 이름 및 암호로 로그인한 후 두 번째 확인 방법에 대해 묻도록 각 계정을 구성합니다.
 
-회사 또는 학교 계정의 경우 일반적으로 이 기능에 대해 선택하지 않습니다. 대신 보안 관리자는 사용자를 대신해서 옵트인한 다음 계정에 대해 확인 메서드를 등록하라고 알립니다. 이 시나리오에 해당하는 경우 [Azure Multi-Factor Authentication은 무엇을 의미하나요](multi-factor-authentication-end-user.md)에서 자세히 알아봅니다.
+회사 또는 학교 계정의 경우 일반적으로 이 기능을 선택하지 않습니다. 대신 보안 관리자는 사용자를 대신해서 옵트인한 다음 계정에 대해 확인 메서드를 등록하라고 알립니다. 이 시나리오에 해당하는 경우 [Azure Multi-Factor Authentication은 무엇을 의미하나요](multi-factor-authentication-end-user.md)에서 자세히 알아봅니다.
 
 개인 계정의 경우 2단계 인증을 설정해야 합니다. Microsoft 계정이 있는 경우 이러한 단계는 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)에서 사용할 수 있습니다.
 
-또한 Microsoft가 아닌 계정으로 Microsoft Authenticator를 사용할 수 있습니다. 2단계 인증 이외의 기능을 호출할 수 있지만 보안 또는 로그인 설정에서 찾을 수 있어야 합니다.
+또한 Microsoft가 아닌 계정으로 Microsoft Authenticator를 사용할 수 있습니다. 2단계 인증 이외의 기능을 사용할 수 있지만 보안 또는 로그인 설정에서 찾을 수 있어야 합니다.
 
 ## <a name="install-the-app"></a>앱 설치
 Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다.
@@ -105,6 +105,6 @@ Microsoft Authenticator에 Touch ID를 설정하려면 PIN을 사용하여 일�
 
 ## <a name="use-the-app-when-you-sign-in"></a>로그인할 때 앱 사용
 
-앱에 계정이 추가되면 모두 제대로 구성되었는지 확인하는 테스트 확인을 수행하라는 메시지가 표시될 수 있습니다. 그런 다음 완료됩니다. 다음에 로그인할 때까지 다른 작업을 수행할 필요가 없습니다.
+앱에 계정이 추가되면 모두 제대로 구성되었는지 확인하는 테스트를 수행하라는 메시지가 표시될 수 있습니다. 그런 다음 완료됩니다. 다음에 로그인할 때까지 다른 작업을 수행할 필요가 없습니다.
 
 앱에서 확인 코드를 사용하도록 선택한 경우 홈페이지에 표시됩니다. 필요한 경우에 항상 새 코드를 갖도록 30초마다 변경됩니다. 하지만 로그인하고 확인 코드를 입력하라는 메시지가 나타날 때까지 아무것도 할 필요가 없습니다.  
