@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/15/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: dd43d567a9839ae38c5b5eb4cdb851f8b80dcfff
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b505e0fa215b04a5b05ca1b4c3fa9548d8deb71f
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824573"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321273"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Azure Stack에 대한 액세스를 응용 프로그램에 제공합니다.
 
@@ -45,7 +45,7 @@ Azure AD id 저장소로 사용 하 여 Azure 스택을 배포한 경우에 Azur
 ### <a name="create-service-principal"></a>서비스 주체 만들기
 이 섹션에서는 Azure ad 응용 프로그램을 나타내는 응용 프로그램 (서비스 주체)을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
+1. 통해 Azure 계정에 로그인 된 [Azure 포털](https://portal.azure.com)합니다.
 2. 선택 **Azure Active Directory** > **앱 등록** > **추가**   
 3. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
 
@@ -132,7 +132,7 @@ Requirements:
 Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
  -ServicePrincipal `
  -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId ` 
+ -ApplicationId $servicePrincipal.ClientId ` 
  -TenantId $directoryTenantId
 ```
 

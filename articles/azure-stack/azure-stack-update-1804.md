@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c2813a7f2d909a23c8f5d4f5ac0280b3f932ba6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 9fc58d971db18db63e4dc76123ff1311b77e0191
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "34700127"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316436"
 ---
 # <a name="azure-stack-1804-update"></a>Azure 스택 1804 업데이트
 
@@ -89,7 +89,9 @@ Azure 스택 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 
 
 ### <a name="post-update-steps"></a>업데이트 후 단계
-*1804 업데이트에 대 한 업데이트 후 단계가 없습니다.*
+1804 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.  
+ - [KB 4341392-Azure 스택 핫픽스 1.0.180523.11](https://support.microsoft.com/en-us/help/4341392)합니다.
+
 
 
 

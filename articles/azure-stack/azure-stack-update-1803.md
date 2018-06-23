@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 06/22/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: f7f459404b5a759bef9eb8f37141bbd4c9eae3e5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a74e77f84aa70519015a589cbc6e7478c0c41592
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849627"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318812"
 ---
 # <a name="azure-stack-1803-update"></a>Azure 스택 1803 업데이트
 
@@ -54,45 +54,40 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
   
   Azure 스택 업데이트를와 달리이 업데이트를 설치 하는 Azure 스택의 버전을 변경 되지 않습니다. 이 업데이트가 설치를 확인 하려면 목록을 보려면 **설치 된 업데이트**합니다.
 
-### <a name="post-update-steps"></a>업데이트 후 단계
-- 1803 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.
 
-  - [KB 4294441-리소스 실패 하는 테 넌 트 및 예기치 않은 공유에 대 한 작업은 동일한 테 넌 트 또는 인프라 볼륨에 생성 됩니다.](https://support.microsoft.com/en-us/help/4294441)
-
-- 이 업데이트를 설치한 후 되도록 방화벽 구성을 검토 [필요한 포트가](azure-stack-integrate-endpoints.md) 열려 있습니다. 예를 들어이 업데이트 작업 로그에 감사 로그의 변경 사항이 포함 되어 있는 Azure 모니터를 소개 합니다. 이러한 변경으로 인해 포트 13012는 이제 사용 및도 열려 있어야 합니다.  
 
 ### <a name="new-features"></a>새로운 기능 
 이 업데이트 Azure 스택에 대 한 다음과 같은 향상 된 기능 및 수정 프로그램을 포함합니다.
 
 - **Azure 스택 암호 업데이트** -(계정 및 인증서). 암호를 관리 하는 방법에 대 한 자세한 내용은 참조 [Azure 스택의 암호를 회전](azure-stack-rotate-secrets.md)합니다. 
 
-- <!-- 1914853 --> **Automatic redirect to HTTPS** when you use HTTP to access the administrator and user portals. This improvement was made based on [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) feedback for Azure Stack. 
+- <!-- 1914853 --> **HTTPS로 자동 리디렉션** 관리자 및 사용자 포털에 액세스 HTTP를 사용 합니다. 이러한 향상에 따라 만들어진 [UserVoice](https://feedback.azure.com/forums/344565-azure-stack/suggestions/32205385-it-would-be-great-if-there-was-a-automatic-redirec) Azure 스택에 대 한 피드백 합니다. 
 
-- <!-- 2202621  --> **Access the Marketplace** – You can now open the Azure Stack Marketplace by using the [+New](https://ms.portal.azure.com/#create/hub) option from within the admin and user portals the same way you do in the Azure portals.
+- <!-- 2202621  --> **마켓플레이스 액세스** – Azure 스택 Marketplace를 사용 하 여 이제 열 수 있습니다는 [+ 새로 만들기](https://ms.portal.azure.com/#create/hub) Azure 포털에서 작업을 수행 하는 동일한 방식으로 관리자 및 사용자 포털 내에서 옵션입니다.
  
-- <!-- 2202621 --> **Azure Monitor** - Azure Stack adds [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) to the admin and user portals. This includes new explorers for metrics and activity logs. To access this Azure Monitor from external networks, port **13012** must be open in firewall configurations. For more information about ports required by Azure Stack, see [Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md).
+- <!-- 2202621 --> **Azure 모니터** -Azure 스택에서 추가 [Azure 모니터](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) 관리자 및 사용자 포털에 있습니다. 메트릭 및 활동 로그에 대 한 새 탐색기 포함 됩니다. 이 Azure 모니터에서 외부 네트워크에 액세스 하려면 포트 **13012** 구성 방화벽에서에서 열려 있어야 합니다. Azure 스택에 필요한 포트에 대 한 자세한 내용은 참조 [스택 Azure 데이터 센터 통합-끝점 게시](azure-stack-integrate-endpoints.md)합니다.
 
    이 검토의 일환으로, 테이블 변경 아래 **더 많은 서비스**, *감사 로그* 으로 이제 나타납니다 *활동 로그*합니다. 기능은 이제 Azure 포털와 일치 합니다. 
 
-- <!-- 1664791 --> **Sparse files** -  When you add a New image to Azure Stack, or add an image through marketplace syndication, the image is converted to a sparse file. Images that were added prior to using Azure Stack version 1803 cannot be converted. Instead, you must use marketplace syndication to resubmit those images to take advantage of this feature. 
+- <!-- 1664791 --> **스파스 파일** -Azure 스택에 새 이미지를 추가 하거나 마켓플레이스 배포를 통해 이미지를 추가할 때 이미지가 스파스 파일에 변환 됩니다. Azure 스택 버전 1803 사용 하기 전에 추가 된 이미지를 변환할 수 없습니다. 대신,이 기능을 활용 하려면 해당 이미지를 다시 전송 해 마켓플레이스 배포를 사용 해야 합니다. 
  
    스파스 파일은 저장소 공간 사용을 줄이고 I/O를 향상 시키기 위해 하는 데 사용 하는 효율적인 파일 형식입니다.  자세한 내용은 참조 [Fsutil 스파스](https://docs.microsoft.com/windows-server/administration/windows-commands/fsutil-sparse) Windows 서버에 대 한 합니다. 
 
 ### <a name="fixed-issues"></a>해결된 문제
 
-- <!-- 1739988 --> Internal Load Balancing (ILB) now properly handles MAC addresses for back-end VMs, which causes ILB to drop packets to the back-end network when using Linux instances on the back-end network. ILB works fine with Windows instances on the back-end network. 
+- <!-- 1739988 --> 부하 분산 ILB (내부) 이제 제대로 처리 MAC 주소 백 엔드 Vm에 대 한 백 엔드 네트워크에 Linux 인스턴스를 사용 하는 경우 백 엔드 네트워크 패킷을 삭제 하는 ILB에 이르게 합니다. ILB 백 엔드 네트워크에 Windows 인스턴스와 제대로 작동합니다. 
 
-- <!-- 1805496 --> An issue where VPN Connections between Azure Stack would become disconnected due to Azure Stack using different settings for the IKE policy than Azure. The values for SALifetime (Time) and SALiftetime (Bytes) were not compatible with Azure and have changed in 1803 to match the Azure settings. The value for SALifetime (Seconds) prior to 1803 was 14,400 and now changes to 27,000 in 1803. The value for SALifetime (Bytes) prior to 1803 was 819,200 and changes to 33,553,408 in 1803.
+- <!-- 1805496 --> Azure 보다 IKE 정책에 대 한 다른 설정을 사용 하 여 Azure 스택 인해 Azure 스택 간에 VPN 연결을 분리 되는 위치에 문제가 있습니다. SALifetime (시간) 및 SALiftetime (바이트)의 값을 Azure와 호환 였으며 Azure 설정에 맞게 1803에서 변경 되었습니다. 1803 이전의 SALifetime (초)에 대 한 값 1803 14400, 27,000 코드 변경 내용 이제 했습니다. 1803 전에 SALifetime (바이트)에 대 한 값이 819,200, 33,553,408 1803에서 코드 변경 내용입니다.
 
-- <!-- 2209262 --> The IP issue where VPN Connections was previously visible in the portal; however enabling or toggling IP Forwarding has no effect. The feature is turned on by default and the ability to change this not yet supported.  The control has been removed from the portal. 
+- <!-- 2209262 --> VPN 연결 포털;에서 이전에 볼 수 있었던 IP 문제 그러나 IP 전달 설정/해제 하거나 설정에 영향을 주지 않습니다. 기능 및 변경 아직 지원 하지 않는이 기능은 기본적으로 켜져 있습니다.  컨트롤 포털에서 제거 되었습니다. 
 
-- <!-- 1766332 --> Azure Stack does not support Policy Based VPN Gateways, even though the option appears in the Portal.  The option has been removed from the Portal. 
+- <!-- 1766332 --> Azure 스택 옵션이 포털에 표시 되는 경우에 정책 기반 VPN 게이트웨이 지원 하지 않습니다.  포털에서는 옵션이 제거 되었습니다. 
 
-- <!-- 1868283 --> Azure Stack now prevents resizing of a virtual machine that is created with dynamic disks. 
+- <!-- 1868283 --> Azure 스택 이제 동적 디스크를 사용 하 여 만든 가상 컴퓨터의 크기를 조정할 수 없습니다. 
 
-- <!-- 1756324 --> Usage data for virtual machines is now separated at hourly intervals. This is consistent with Azure. 
+- <!-- 1756324 --> 이제 가상 컴퓨터에 대 한 사용 현황 데이터는 시간별으로 분리 됩니다. 이 Azure와 일치 합니다. 
 
-- <!--  2253274 --> The issue where in the admin and user portals, the Settings blade for vNet Subnets fails to load. As a workaround, use PowerShell and the [Get-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet to view and manage this information.
+- <!--  2253274 --> 이 문제를 관리자 및 사용자 포털에서 vNet 서브넷에 대 한 설정 블레이드에서 로드 되지 않습니다. 이 문제를 해결 PowerShell을 사용 하 여 및 [Get AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworksubnetconfig?view=azurermps-5.5.0) cmdlet를 보고 하 여이 정보를 관리 합니다.
 
 - 가상 컴퓨터, 메시지를 만들 때 *가격 책정을 표시할 수 없습니다* 더 이상 VM 크기에 대 한 크기를 선택할 때 나타납니다.
 
@@ -104,20 +99,29 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스의 알려진된 문제    
-<!-- 2328416 --> During installation of the 1803 update, there can be downtime of the blob service and internal services that use blob service. This includes some virtual machine operations. This down time can cause failures of tenant operations or alerts from services that can’t access data. This issue resolves itself when the update completes installation. 
+<!-- 2328416 --> 1803 업데이트를 설치 하는 동안에 blob 서비스 및 blob 서비스를 사용 하는 내부 서비스의 가동 중지 시간이 있을 수 있습니다. 일부 가상 컴퓨터 작업이 포함 됩니다. 이 작동 중단 시간 수로 인해 실패할 테 넌 트의 작업 또는 경고 데이터를 액세스할 수 없는 서비스에서 합니다. 업데이트 설치를 완료 하는 경우이 문제는 자체 해결 합니다. 
+
+
+
+### <a name="post-update-steps"></a>업데이트 후 단계
+- 1803 설치가 끝나면 모든 적용 가능한 핫픽스를 설치 합니다. 자세한 내용은 다음 기술 자료 문서를 보려면 뿐 우리 [서비스 정책](azure-stack-servicing-policy.md)합니다.
+
+  - [KB 4341390-Azure 스택 핫픽스 1.0.180424.12](https://support.microsoft.com/en-us/help/4341390)합니다.
+
+- 이 업데이트를 설치한 후 되도록 방화벽 구성을 검토 [필요한 포트가](azure-stack-integrate-endpoints.md) 열려 있습니다. 이 업데이트는 제공 하는 예를 들어 *Azure 모니터* 활동 로그에 감사 로그의 변경을 포함 합니다. 이러한 변경으로 인해 포트 13012는 이제 사용 및도 열려 있어야 합니다.  
 
 
 ### <a name="known-issues-post-installation"></a>알려진된 문제 (설치 후)
 빌드에 대 한 설치 후 알려진된 문제는 다음과 같은 **20180323.2**합니다.
 
 #### <a name="portal"></a>포털
-- <!-- 2332636 - IS -->  When you use AD FS for your Azure Stack identity system and update to this version of Azure Stack, the default owner of the default provider subscription is reset to the built-in **CloudAdmin** user.  
+- <!-- 2332636 - IS -->  Azure 스택 id 시스템 및이 버전의 Azure 스택을 업데이트에 대 한 AD FS를 사용 하는 경우 기본 공급자 구독의 기본 소유자는 기본 제공으로 다시 설정 **CloudAdmin** 사용자입니다.  
   해결 방법:이 업데이트를 설치한 후이 문제를 해결 하려면 사용에서 3 단계는 [트리거를 구성 하는 자동화 클레임 공급자 트러스트 Azure 스택의](azure-stack-integrate-identity.md#trigger-automation-to-configure-claims-provider-trust-in-azure-stack-1) 프로시저는 구독 소유자의 기본 공급자를 다시 설정 합니다.   
 
 - 기능 [새 지원 요청을 드롭다운 목록에서 열려는](azure-stack-manage-portals.md#quick-access-to-help-and-support) 에서 관리자 내에서 포털 사용할 수 없습니다. 대신, 다음 링크를 사용 합니다.     
     - Azure 스택 통합된 시스템을 사용 하 여 https://aka.ms/newsupportrequest합니다.
 
-- <!-- 2050709 --> In the admin portal, it is not possible to edit storage metrics for Blob service, Table service, or Queue service. When you go to Storage, and then select the blob, table, or queue service tile, a new blade opens that displays a metrics chart for that service. If you then select Edit from the top of the metrics chart tile, the Edit Chart blade opens but does not display options to edit metrics.
+- <!-- 2050709 --> 관리 포털에서 Blob 서비스, 테이블 서비스 또는 큐 서비스에 대 한 저장소 메트릭을 편집할 수 없으면입니다. 저장소를 이동 해야 하 고 다음 blob, 테이블 또는 큐 서비스 타일을 선택 하는 경우 해당 서비스에 대 한 메트릭 차트를 표시 하는 새 블레이드가 열립니다. 메트릭 차트 타일의 맨 위에서 다음 편집을 선택 하는 경우 차트 편집 블레이드 열리지만 메트릭을 편집 하는 옵션이 표시 되지 않습니다.
 
 - 관리자 포털에서 계산 또는 저장소 리소스를 보려면 하지 못할 수도 있습니다. 이 문제의 원인은 잘못 보고 될 성공으로를 업데이트 하는 업데이트를 설치 하는 동안 오류입니다. 이 문제가 발생 한 경우 Microsoft 고객 지원 서비스에 문의 하십시오.
 
@@ -136,7 +140,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 
 #### <a name="health-and-monitoring"></a>상태 및 모니터링
-- <!-- 1264761 - IS ASDK -->  You might see alerts for the *Health controller* component that have the following details:  
+- <!-- 1264761 - IS ASDK -->  에 대 한 경고가 표시 될 수 있습니다는 *상태 컨트롤러* 다음 정보를 포함 하는 구성 요소:  
 
    #1 경고:
    - 이름: 인프라 역할 비정상
@@ -173,7 +177,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 -  VM 배포에 확장을 프로 비전 하지 않는 것이 걸리면, 사용자가 할당을 취소 하거나 VM을 삭제 하는 프로세스를 중지 하는 것이 아니라 프로 비전 제한 시간을 알려야 합니다.  
 
-- <!-- 1662991 --> Linux VM diagnostics is not supported in Azure Stack. When you deploy a Linux VM with VM diagnostics enabled, the deployment fails. The deployment also fails if you enable the Linux VM basic metrics through diagnostic settings.  
+- <!-- 1662991 --> Linux VM 진단 Azure 스택에서 지원 되지 않습니다. VM 진단을 사용 하는 Linux VM을 배포 하는 경우 배포에 실패 합니다. 진단 설정을 통해 Linux VM 기본 메트릭을 사용 하도록 설정 하는 경우에 배포 실패 합니다.  
 
 
 #### <a name="networking"></a>네트워킹
@@ -191,7 +195,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 - Azure 스택 VM을 배포한 후 VM 인스턴스를 추가 네트워크 인터페이스를 추가 하는 것을 지원 하지 않습니다. VM에서 둘 이상의 네트워크 인터페이스를 필요로 하는 경우 배포 시에 정의 되어야 합니다.
 
-- <!-- 2096388 --> You cannot use the admin portal to update rules for a network security group. 
+- <!-- 2096388 --> 네트워크 보안 그룹에 대 한 규칙을 업데이트 하는 관리 포털을 사용할 수 없습니다. 
 
     응용 프로그램 서비스에 대 한 해결 방법: PowerShell 사용한 네트워크 보안 그룹 내에서 보안 규칙을 수정 컨트롤러 인스턴스를 원격 데스크톱을 해야 하는 경우.  다음은 하는 방법의 예 *허용*, 다음 구성을 사용 하 여 복원 *거부*:  
     
@@ -262,7 +266,7 @@ Azure 스택 1803 업데이트 빌드 번호는 **20180329.1**합니다.
 
 - 항목을 만드는 서버에서 해당 호스트 SQL 또는 MySQL 리소스 공급자에만 사용할 수 있습니다. 리소스 공급자가 생성 되지 않은 호스트 서버에 만든 항목 일치 하지 않는 상태가 될 수 있습니다.  
 
-- <!-- IS, ASDK --> Special characters, including spaces and periods, are not supported in the **Family** name when you create a SKU for the SQL and MySQL resource providers.
+- <!-- IS, ASDK --> 특수 문자, 공백 및 마침표를 포함 하 여에서 지원 되지 않습니다는 **제품군** SQL 및 MySQL 리소스 공급자에 대 한 SKU를 만들 때 이름을 지정 합니다.
 
 > [!NOTE]  
 > Azure 스택 1803를 업데이트 한 후 이전에 배포 하는 SQL 및 MySQL 리소스 공급자를 사용 하도록 계속 수 있습니다.  새 릴리스는 사용할 수 있을 때 SQL 및 MySQL를 업데이트 하는 것이 좋습니다. Azure 스택과 마찬가지로 SQL 및 MySQL 리소스 공급자에 업데이트를 순서 대로 적용 합니다.  예를 들어 1711 버전을 사용 하는 경우 먼저 1712, 다음 1802, 버전을 적용 하 고 1803으로 업데이트 합니다.      
