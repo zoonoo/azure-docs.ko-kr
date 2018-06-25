@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: skwan
-ms.openlocfilehash: b84426ad28dbc2264bd9b28fe0697a88390bb58d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c395851fbcc3e46357b390d9dfa20bd9ac944716
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304133"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594434"
 ---
 # <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>자습서: Linux VM MSI를 사용하여 Azure Cosmos DB 액세스 
 
@@ -255,5 +255,8 @@ az cosmosdb collection show -c <COLLECTION ID> -d <DATABASE ID> --url-connection
 
 ## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [Azure 리소스용 MSI(관리 서비스 ID)](overview.md)를 참조하세요.
+이 자습서에서는 Linux 가상 머신에서 관리 서비스 ID를 사용하여 Cosmos DB에 액세스하는 방법을 학습했습니다.  Cosmos DB에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+>[Azure Cosmos DB 개요](/azure/cosmos-db/introduction)
 

@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central 응용 프로그램에서 장치 템플릿 설정 | Microsoft Docs
 description: 측정값, 설정, 속성, 규칙 및 대시보드로 장치 템플릿을 설정하는 방법을 알아봅니다.
-services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 52c6c8fe4375354d650f92b73bffc288c9a2ccfe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: bda056a75ae9d696dab389b85fe1bfb2935ee1a8
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201512"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261987"
 ---
 # <a name="set-up-a-device-template"></a>장치 템플릿 설정
 
@@ -161,6 +161,59 @@ ms.locfileid: "34201512"
 > [!NOTE]
 > 새 타일을 만든 후에는 속성 값을 변경할 수 있습니다. 먼저 화면의 오른쪽 위에서 디자인 모드를 끕니다.
 
+### <a name="create-a-location-property-powered-by-azure-maps"></a>Azure Maps에서 제공하는 위치 속성 만들기
+Azure IoT Central에서 위치 데이터에 지리적 컨텍스트를 제공할 수 있으며, 거리 주소의 모든 위도 및 경도 좌표 또는 단순한 위도 및 경도 좌표를 매핑할 수 있습니다. Azure IoT Central의 이 기능은 Azure Maps에서 제공합니다.
+
+추가할 수 있는 두 유형의 위치 속성이 있습니다.
+- 단순히 응용 프로그램에 저장되는 **응용 프로그램 속성으로 위치**입니다. 장치는 응용 프로그램 속성을 알지 못합니다.
+- 장치에서 보고하게 되는 **장치 속성으로 위치**입니다.
+
+####<a name="adding-location-as-an-application-property"></a>응용 프로그램 속성으로 위치 추가 
+Azure IoT Central 응용 프로그램에서 Azure Maps를 사용하여 응용 프로그램 속성으로 위치 속성을 만들 수 있습니다. 예를 들어 장치 설치 주소를 추가할 수 있습니다. 
+
+1. 장치 속성 탭으로 이동하여 디자인 모드가 켜져 있는지 확인합니다.
+
+![위치 속성](./media/howto-set-up-template/locationcloudproperty1.png)
+
+2. 속성 탭에서 위치를 클릭합니다.
+3. 표시 이름, 필드 이름 및 위치의 초기 값을 선택적으로 구성합니다. 
+
+![위치 속성 양식](./media/howto-set-up-template/locationcloudproperty2.png)
+
+위치를 추가하려면 지원되는 두 가지 형식이 있습니다.
+- **주소로서 위치**
+- **좌표로서 위치** 
+
+4. 저장을 클릭합니다. 
+
+![위치 속성 필드](./media/howto-set-up-template/locationcloudproperty3.png)
+
+이제 연산자는 위치 필드 양식에서 위치 값을 업데이트할 수 있습니다. 
+
+####<a name="adding-location-as-a-device-property"></a>장치 속성으로 위치 추가 
+
+장치에서 보고하는 장치 속성으로 위치 속성을 만들 수 있습니다.
+예를 들어 장치 위치를 추적하려 합니다.
+
+1.  장치 속성 탭으로 이동하여 디자인 모드가 켜져 있는지 확인합니다.
+2.  라이브러리에서 장치 속성을 클릭합니다.
+
+![위치 속성 필드](./media/howto-set-up-template/locationdeviceproperty1.png)
+
+3.  표시 이름 및 필드 이름을 구성하고 데이터 형식으로 "위치"를 선택합니다. 
+
+> [!NOTE]
+필드 이름이 장치가 보고하는 속성의 이름과 정확히 일치해야 합니다. 
+
+![위치 속성 필드](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+![위치 속성 연산자 보기](./media/howto-set-up-template/locationdeviceproperty2.png)
+
+위치 속성을 구성했으므로 장치 대시보드에서 위치를 시각화하려면 지도를 추가할 수 있습니다. [대시보드의 Azure Map에 위치 추가](howto-set-up-template.md) 방법을 참조합니다.
+
+
+
+
 ## <a name="rules"></a>규칙
 
 운영자는 규칙을 사용하여 거의 실시간으로 장치를 모니터링할 수 있습니다. 규칙은 규칙이 트리거될 때 이메일 보내기 같은 **작업**을 자동으로 호출합니다. 현재는 한 가지 종류의 규칙을 사용할 수 있습니다.
@@ -178,6 +231,31 @@ ms.locfileid: "34201512"
 이제 운영자는 대시보드를 볼 때 장치의 속성 및 설정을 표시하는 이 타일을 볼 수 있습니다.
 
 ![대시보드 타일](./media/howto-set-up-template/dashboardtile.png)
+
+### <a name="add-location-azure-map-in-dashboard"></a>대시보드의 Azure Map에 위치 추가
+
+단계에 따라 위치 속성을 구성한 경우[Azure Maps에서 제공하는 위치 속성 만들기]((howto-set-up-template.md), 장치 대시보드에서 지도를 사용하여 위치를 시각화할 수 있습니다.
+
+1.  장치 대시보드 탭으로 이동하여 디자인 모드가 켜져 있는지 확인합니다.
+2.  장치 대시보드의 라이브러리에서 Map을 선택합니다. 
+
+![대시보드 위치 Azure Map 선택](./media/howto-set-up-template/locationcloudproperty4map.png)
+
+3.  제목을 지정하고 전에 장치 속성의 일부로 구성한 위치 속성을 선택합니다.
+
+![대시보드 위치 Azure Map 구성](./media/howto-set-up-template/locationcloudproperty5map.png)
+
+4.  저장하면 선택한 위치를 표시하는 지도 타일이 표시됩니다. 
+
+![대시보드 위치 Azure Map 시각화](./media/howto-set-up-template/locationcloudproperty6map.png) 
+
+지도를 원하는 크기로 크기를 조정할 수 있습니다.
+
+이제 연산자가 대시보드를 볼 때 위치 Map을 포함하여 구성한 모든 대시보드 타일을 볼 수 있습니다!
+
+![대시보드 위치 Azure Map 대시보드](./media/howto-set-up-template/locationcloudproperty7map.png) 
+
+
 
 ## <a name="next-steps"></a>다음 단계
 
