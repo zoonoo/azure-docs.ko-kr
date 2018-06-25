@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/08/2018
+ms.date: 06/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 68f335762e1fdd68296d7056ef5826f69c868d70
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236368"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285800"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -31,7 +31,7 @@ Azure Migrate의 기능:
 
 - 현재 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0 또는 6.5)에서 관리되어야 합니다.
 - Hyper-V에 대한 지원은 로드맵에 있습니다. 그동안 [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc)를 사용하여 Hyper-V 워크로드의 마이그레이션을 계획하는 것이 좋습니다.
-- 단일 검색에서 최대 1500대의 VM을 검색하고, 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 1500대의 VM을 평가할 수 있습니다.
+- 단일 검색에서 최대 1500대의 VM을 검색하고, 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 1500대의 VM을 평가할 수 있습니다. 더 큰 환경을 검색하려면 검색을 분할하고 여러 프로젝트를 만들면 됩니다. [자세히 알아보세요](how-to-scale-assessment.md). Azure Migrate는 구독당 최대 20개의 프로젝트를 지원합니다.
 - 미국 중서부 또는 미국 동부 지역에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 다른 대상 Azure 위치에 대한 마이그레이션을 계획하는 기능에는 영향이 없습니다. 마이그레이션 프로젝트의 위치는 온-프레미스 환경에서 발견된 메타데이터를 저장하는 용도로만 사용됩니다.
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.
 
@@ -50,7 +50,10 @@ Azure Migrate의 기능:
 **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/>Azure Migrate는 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, US Gov 애리조나, US Gov 텍사스, US Gov 버지니아, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. 기본적으로 대상 위치는 미국 서부 2로 설정되어 있습니다.
 **저장소 유형** | Azure에서 할당할 디스크의 형식을 지정할 수 있습니다. 크기 조정 조건이 온-프레미스 크기 조정인 경우에 이 속성을 적용합니다. 대상 디스크 형식을 프리미엄 관리 디스크 또는 표준 관리 디스크로 지정할 수 있습니다. 기본값은 프리미엄 관리 디스크입니다. 성능 기반 크기 조정의 경우 디스크 권장 사항은 VM의 성능 데이터에 따라 자동으로 수행됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다.
 **크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. 온-프레미스 VM의 *성능 기록*에 따라 크기를 조정할 수도 있고, 성능 기록을 고려하지 않고 *온-프레미스로* VM의 크기를 조정할 수도 있습니다. 기본값은 온-프레미스 크기 조정입니다.
-**가격 책정 계획** | 비용을 계산하기 위해 평가 시 소프트웨어 보험이 있는지, [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/) 자격이 되는지 여부를 고려합니다. 또한 개발자가 등록할 수 있는 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 고려하고, 해당 제품에서 받을 구독별 할인율(%)을 지정할 수 있습니다.
+**Azure 제품** | 등록된 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)을 지정하면 Azure Migrate가 그에 따라 비용을 계산합니다.
+**Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)에 따라 가격 할인을 받을 수 있는지 지정할 수 있습니다.
+**예약 인스턴스** |  또한 Azure에 [예약 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/)가 있는지 지정하면 Azure Migrate가 그에 따라 비용을 계산합니다.
+**VM 작동 시간** | VM이 Azure에서 24x7 실행되지 않는 경우 VM이 Azure에서 실행될 기간을 지정하면 그에 따라 비용이 계산됩니다.
 **가격 책정 계층** | 대상 Azure VM의 [가격 책정 계층(기본/표준)](../virtual-machines/windows/sizes-general.md)을 지정할 수 있습니다. 예를 들어 프로덕션 환경을 마이그레이션할 계획이라면 VM 대기 시간이 짧은 대신 더 많은 비용이 발생할 수 있는 표준 계층을 고려하는 것이 좋습니다. 반면, 개발-테스트 환경을 사용하는 경우 VM 대기 시간이 긴 대신 비용이 저렴한 기본 계층을 고려하는 것이 좋습니다. 기본적으로 [표준](../virtual-machines/windows/sizes-general.md) 계층이 사용됩니다.
 **성능 기록** | 기본적으로 Azure Migrate는 마지막 날의 성능 기록을 온-프레미스 컴퓨터의 성능을 평가하며, 백분위 값은 95%입니다. 평가 속성에서 이러한 값을 수정할 수 있습니다.
 **VM 시리즈** | 크기 조정 시 고려할 VM 시리즈를 지정할 수 있습니다. 예를 들어 Azure에서 A 시리즈 VM으로 마이그레이션하지 않으려는 프로덕션 환경이 있는 경우 목록 또는 시리즈에서 A 시리즈를 제외하고 선택한 시리즈에서만 크기 조정을 수행할 수 있습니다.  

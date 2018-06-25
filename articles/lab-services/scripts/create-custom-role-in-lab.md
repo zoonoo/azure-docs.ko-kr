@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell 스크립트 : Azure Lab Services의 사용자 지정 랩에서 사용자 지정 역할 만들기 | Microsoft Docs'
-description: 이 PowerShell 스크립트는 Azure Lab Services의 사용자 지정 랩에 외부 사용자를 추가합니다.
+title: 'PowerShell 스크립트 : Azure DevTest Labs의 랩에 사용자 지정 역할 만들기 | Microsoft Docs'
+description: 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 외부 사용자를 추가합니다.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: df91c9f842d338e1725fec2734129f2f1f3d3721
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 295f742342fba7d77b556724c8005f3ac4816482
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636718"
 ---
-# <a name="use-powershell-to-create-a-custom-role-in-a-custom-lab-in-azure-lab-services"></a>PowerShell을 사용하여 Azure Lab Services의 사용자 지정 랩에서 사용자 지정 역할 만들기
+# <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 사용자 지정 역할 만들기
 
-이 샘플 PowerShell 스크립트는 Azure Lab Services의 사용자 지정 랩에서 사용할 사용자 지정 역할을 만듭니다. 
+이 샘플 PowerShell 스크립트는 Azure DevTest Labs의 랩에서 사용할 사용자 지정 역할을 만듭니다. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-* **사용자 지정 랩**. 스크립트를 사용하려면 기존 사용자 지정 랩이 있어야 합니다. 
+* **랩**. 스크립트를 사용하려면 기존 랩이 있어야 합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-role-in-lab/create-custom-role-in-lab.ps1 "Add external user to a lab")]
 
 ## <a name="script-explanation"></a>스크립트 설명
 

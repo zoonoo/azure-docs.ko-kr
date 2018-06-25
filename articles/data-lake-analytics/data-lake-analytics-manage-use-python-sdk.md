@@ -1,32 +1,31 @@
 ---
-title: Python을 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs
-description: 'Python을 사용하여 Data Lake Store 계정을 만들고 작업을 제출하는 방법을 알아봅니다. '
+title: Python을 사용하여 Azure Data Lake Analytics 관리
+description: 이 문서에서는 Python을 사용하여 Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
 services: data-lake-analytics
-documentationcenter: ''
-author: matt1883
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/18/2017
+author: matt1883
 ms.author: saveenr
-ms.custom: devcenter
-ms.openlocfilehash: 0182a14979550c880904ec829f6b59dee016cad2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
+ms.topic: conceptual
+ms.date: 06/08/2018
+ms.openlocfilehash: 2f3912069b54b3ad761493f02336d8d58866f53a
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261463"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Python을 사용하여 Azure Data Lake Analytics 관리
+[!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-## <a name="python-versions"></a>Python 버전
+이 문서에서는 Python을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
+
+## <a name="supported-python-versions"></a>지원되는 Python 버전
 
 * Python의 64비트 버전을 사용합니다.
-* **[Python.org 다운로드](https://www.python.org/downloads/)**에서 찾을 수 있는 표준 Python 배포를 사용할 수 있습니다. 
+* **[Python.org 다운로드](https://www.python.org/downloads/)** 에서 찾을 수 있는 표준 Python 배포를 사용할 수 있습니다. 
 * 대부분의 개발자는 **[Anaconda Python 배포](https://www.continuum.io/downloads)** 사용을 편리하게 여깁니다.  
 * 이 문서는 표준 Python 배포의 Python 버전 3.6을 사용하여 작성되었습니다.
 
@@ -35,9 +34,9 @@ ms.lasthandoff: 04/05/2018
 다음 모듈을 설치합니다.
 
 * **azure-mgmt-resource** 모듈에는 Active Directory에 대한 다른 Azure 모듈이 포함됩니다.
-* **azure-mgmt-datalake-store** 모듈에는 Azure Data Lake Store 계정 관리 작업이 포함됩니다.
 * **azure-datalake-store** 모듈에는 Azure Data Lake Store 파일 시스템 작업이 포함됩니다. 
-* **azure-datalake-analytics** 모듈에는 Azure Data Lake Analytics 작업이 포함됩니다. 
+* **azure-mgmt-datalake-store** 모듈에는 Azure Data Lake Store 계정 관리 작업이 포함됩니다.
+* **azure-mgmt-datalake-analytics** 모듈에는 Azure Data Lake Analytics 작업이 포함됩니다. 
 
 먼저 다음 명령을 실행하여 최신 `pip`가 있는지 확인합니다.
 

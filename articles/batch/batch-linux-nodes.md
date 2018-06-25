@@ -12,14 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
-ms.date: 05/22/2017
+ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9aa896bfc4c860c87757f9379fc44cc5ee8d18a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: abb822483253fc5fce0e76afc2628806fe4485d8
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801765"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 계산 노드 프로비전
 
@@ -38,7 +39,7 @@ Batch에서 계산 노드 풀을 만드는 경우 노드 크기와 운영 체제
 **Virtual Machine 구성**은 계산 노드에 대한 Linux와 Windows 이미지를 제공합니다. 사용 가능한 계산 노드 크기는 [Azure에서 가상 머신에 대한 크기](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)(Linux) 및 [Azure에서 가상 머신에 대한 크기](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Windows)에 나열되어 있습니다. Virtual Machine 구성 노드를 포함하는 풀을 만들 때 노드 크기, 가상 머신 이미지 참조 및 노드에 설치할 Batch 노드 에이전트 SKU도 지정해야 합니다.
 
 ### <a name="virtual-machine-image-reference"></a>가상 머신 이미지 참조
-Batch 서비스는 [가상 머신 크기 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 Linux 계산 노드를 제공합니다. [Azure Marketplace][vm_marketplace]의 이미지를 지정하거나 준비한 사용자 지정 이미지를 제공할 수 있습니다. 사용자 지정 이미지에 대한 자세한 내용은 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md#pool)을 참조하세요.
+Batch 서비스는 [가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)을 사용하여 가상 머신 구성에서 계산 노드를 제공합니다. [Azure Marketplace][vm_marketplace]의 이미지를 지정하거나 준비한 사용자 지정 이미지를 제공할 수 있습니다. 사용자 지정 이미지에 대한 자세한 내용은 [사용자 지정 이미지로 풀 만들기](batch-custom-images.md)를 참조하세요.
 
 가상 머신 이미지 참조를 구성할 때 가상 머신 이미지의 속성을 지정합니다. 가상 머신 이미지 참조를 만들 때 다음 속성이 필요합니다.
 
@@ -145,7 +146,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
 ```
 
 ## <a name="create-a-linux-pool-batch-net"></a>Linux 풀 만들기: Batch .NET
-다음 코드 조각은 [Batch .NET][nuget_batch_net] 클라이언트 라이브러리를 사용하여 Ubuntu Server 계산 노드의 풀을 만드는 방법의 예를 보여 줍니다. MSDN에서 [Batch .NET 참조 설명서][api_net]를 찾을 수 있습니다.
+다음 코드 조각은 [Batch .NET][nuget_batch_net] 클라이언트 라이브러리를 사용하여 Ubuntu Server 계산 노드의 풀을 만드는 방법의 예를 보여 줍니다. docs.microsoft.com에서 [Batch .NET 참조 설명서][api_net]를 찾을 수 있습니다.
 
 다음 코드 조각에서는 [PoolOperations][net_pool_ops].[ListNodeAgentSkus][net_list_skus] 메서드를 사용하여 현재 지원되는 Marketplace 이미지 및 노드 에이전트 SKU 조합의 목록에서 선택합니다. 지원되는 조합 목록이 언제든지 바뀔 수 있으므로 이 기술이 바람직합니다. 가장 일반적으로 지원되는 조합을 추가합니다.
 
@@ -206,7 +207,7 @@ ImageReference imageReference = new ImageReference(
 ```
 
 ## <a name="list-of-virtual-machine-images"></a>가상 머신 이미지 목록
-다음 표에는 이 문서가 마지막으로 업데이트되었을 때 사용 가능한 Batch 노드 에이전트와 호환되는 Marketplace 가상 머신 이미지가 나열되어 있습니다. 이미지와 노드 에이전트는 언제든지 추가 또는 제거될 수 있기 때문에 이 목록은 확정적이지 않습니다. Batch 응용 프로그램 및 서비스에서는 현재 사용 가능한 SKU를 확인하고 선택하는[list_node_agent_skus][py_list_skus] (Python) and [ListNodeAgentSkus][net_list_skus] (Batch .NET)를 항상 사용하는 것이 좋습니다.
+다음 표에는 이 문서가 마지막으로 업데이트되었을 때 사용 가능한 Batch 노드 에이전트와 호환되는 Marketplace 가상 머신 이미지가 나열되어 있습니다. 이미지와 노드 에이전트는 언제든지 추가 또는 제거될 수 있기 때문에 이 목록은 확정적이지 않습니다. Batch 응용 프로그램 및 서비스에서는 현재 사용 가능한 SKU를 확인하고 선택하는[list_node_agent_skus][py_list_skus](Python) 또는 [ListNodeAgentSkus][net_list_skus](Batch .NET)를 항상 사용하는 것이 좋습니다.
 
 > [!WARNING]
 > 다음 목록은 언제든지 변경될 수 있습니다. 항상 Batch API에서 사용 가능한 **list node agent SKU** 메서드를 사용하여 Batch 작업 실행 시 호환되는 가상 머신 및 노드 에이전트 SKU를 나열합니다.
@@ -215,26 +216,33 @@ ImageReference imageReference = new ImageReference(
 
 | **게시자** | **제안** | **이미지 SKU** | **버전** | **노드 에이전트 SKU ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
+| 일괄 처리 | rendering-centos73 | 렌더링 | 최신 | batch.node.centos 7 |
+| 일괄 처리 | rendering-windows2016 | 렌더링 | 최신 | batch.node.windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | 최신 | batch.node.ubuntu 16.04 |
 | Canonical | UbuntuServer | 14.04.5-LTS | 최신 | batch.node.ubuntu 14.04 |
-| Canonical | UbuntuServer | 16.04.0-LTS | 최신 | batch.node.ubuntu 16.04 |
+| Credativ | Debian | 9 | 최신 | batch.node.debian 9 |
 | Credativ | Debian | 8 | 최신 | batch.node.debian 8 |
-| OpenLogic | CentOS | 7.0 | 최신 | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.1 | 최신 | batch.node.centos 7 |
-| OpenLogic | CentOS-HPC | 7.1 | 최신 | batch.node.centos 7 |
-| OpenLogic | CentOS | 7.2 | 최신 | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.0 | 최신 | batch.node.centos 7 |
-| Oracle | Oracle-Linux | 7.2 | 최신 | batch.node.centos 7 |
-| SUSE | openSUSE | 13.2 | 최신 | batch.node.opensuse 13.2 |
-| SUSE | openSUSE-Leap | 42.1 | 최신 | batch.node.opensuse 42.1 |
-| SUSE | SLES | 12-SP1 | 최신 | batch.node.opensuse 42.1 |
-| SUSE | SLES-HPC | 12-SP1 | 최신 | batch.node.opensuse 42.1 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | 최신 | batch.node.centos 7 |
 | microsoft-ads | standard-data-science-vm | standard-data-science-vm | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 최신 | batch.node.windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 최신 | batch.node.windows amd64 |
+| microsoft-azure-batch | centos-container | 7-4 | 최신 | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | 최신 | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | 최신 | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | 최신 | batch.node.ubuntu 16.04 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | 최신 | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | 최신 | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-with-Containers | 최신 | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | 최신 | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | 최신 | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | 최신 | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | 최신 | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | 최신 | batch.node.windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | 최신 | batch.node.windows amd64 |
+| OpenLogic | CentOS | 7.4 | 최신 | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.4 | 최신 | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.3 | 최신 | batch.node.centos 7 |
+| OpenLogic | CentOS-HPC | 7.1 | 최신 | batch.node.centos 7 |
+| Oracle | Oracle-Linux | 7.4 | 최신 | batch.node.centos 7 |
+| SUSE | SLES-HPC | 12-SP2 | 최신 | batch.node.opensuse 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>SSH를 사용하여 Linux 노드에 연결
 개발 또는 문제 해결 동안 풀의 노드에 로그인할 필요가 있을 수 있습니다. Windows 계산 노드와 달리 Linux 노드에 연결하기 위해 RDP(원격 데스크톱 프로토콜)를 사용할 수 없습니다. 대신, Batch 서비스는 원격 연결을 위해 각 노드에서 SSH 액세스를 사용하도록 설정합니다.

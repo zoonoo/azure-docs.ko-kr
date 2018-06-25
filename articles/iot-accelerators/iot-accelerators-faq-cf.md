@@ -1,25 +1,19 @@
 ---
 title: 연결된 팩터리 솔루션 FAQ - Azure | Microsoft Docs
 description: 연결된 팩터리 솔루션 가속기에 대한 질문과 대답
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 4ed0cd413480e717e686f7e52123102e1a838f19
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627504"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
 
@@ -67,7 +61,7 @@ IP 주소를 제거하는 두 가지 옵션이 있습니다.
 
 [리포지토리](https://github.com/Azure/azure-iot-connected-factory)에서 PowerShell 스크립트 `build.ps1`을 사용하여 솔루션을 배포한 경우에만 시뮬레이션 VM에 대한 로그인이 지원됩니다.
 
-www.azureiotsuite.com에서 솔루션을 배포한 경우 VM에 로그인할 수 없습니다. 암호는 임의로 생성되고 다시 설정할 수 없으므로 로그인할 수 없습니다.
+www.azureiotsolutions.com에서 솔루션을 배포한 경우 VM에 로그인할 수 없습니다. 암호는 임의로 생성되고 다시 설정할 수 없으므로 로그인할 수 없습니다.
 
 1. VM에 공용 IP 주소를 추가합니다. [공용 IP 주소를 시뮬레이션 VM에 어떻게 추가하나요?](#how-do-i-remove-the-public-ip-address-to-the-simulation-vm)를 참조하세요.
 1. VM의 IP 주소를 사용하여 VM에 대한 SSH 세션을 만듭니다.
@@ -148,11 +142,11 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 연결된 팩터리 솔루션에서 대화형 맵을 사용하려면 엔터프라이즈용 Bing 지도 API가 있어야 합니다.
 
-[www.azureiotsuite.com](http://www.azureiotsuite.com)에서 배포할 경우, 배포 프로세스는 구독이 엔터프라이즈용 Bing 지도 API 계획을 사용하도록 설정했는지 확인하고, 연결된 팩터리에 대화형 지도를 자동으로 배포합니다. 이 경우가 아니면 다음과 같이 배포에서 대화형 지도를 사용하도록 설정할 수 있습니다.
+[www.azureiotsolutions.com](http://www.azureiotsolutions.com)에서 배포할 경우, 배포 프로세스는 구독이 엔터프라이즈용 Bing 지도 API 계획을 사용하도록 설정했는지 확인하고, 연결된 팩터리에 대화형 지도를 자동으로 배포합니다. 이 경우가 아니면 다음과 같이 배포에서 대화형 지도를 사용하도록 설정할 수 있습니다.
 
 연결된 팩터리 GitHub 리포지토리의 `build.ps1` 스크립트를 사용하여 배포하며, 엔터프라이즈용 Bing 지도 API 계획이 있는 경우 빌드 창에서 환경 변수 `$env:MapApiQueryKey`를 계획의 쿼리 키로 설정합니다. 그러면 대화형 지도가 자동으로 사용되도록 설정됩니다.
 
-엔터프라이즈용 Bing 지도 API 계획이 있는 경우 [www.azureiotsuite.com](http://www.azureiotsuite.com)에서 또는 `build.ps1` 스크립트를 사용하여 연결된 팩터리 솔루션을 배포합니다. 그런 후 [엔터프라이즈용 Bing 지도 API 계정을 만들려면 어떻게 할까요?](#how-do-i-create-a-bing-maps-api-for-enterprise-account)에 설명된 대로 엔터프라이즈용 Bing 지도 API 계획을 구독에 추가합니다. [엔터프라이즈용 Bing 지도 API QueryKey를 가져오는 방법](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey)에 설명된 대로 이 계정의 쿼리 키를 조회한 후 저장합니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **앱 설정** 섹션을 찾을 수 있는 **응용 프로그램 설정**으로 이동합니다. **MapApiQueryKey**를 가져온 쿼리 키로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
+엔터프라이즈용 Bing 지도 API 계획이 있는 경우 [www.azureiotsolutions.com](http://www.azureiotsolutions.com)에서 또는 `build.ps1` 스크립트를 사용하여 연결된 팩터리 솔루션을 배포합니다. 그런 후 [엔터프라이즈용 Bing 지도 API 계정을 만들려면 어떻게 할까요?](#how-do-i-create-a-bing-maps-api-for-enterprise-account)에 설명된 대로 엔터프라이즈용 Bing 지도 API 계획을 구독에 추가합니다. [엔터프라이즈용 Bing 지도 API QueryKey를 가져오는 방법](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey)에 설명된 대로 이 계정의 쿼리 키를 조회한 후 저장합니다. Azure Portal로 이동한 후 연결된 팩터리 배포의 App Service 리소스에 액세스합니다. **앱 설정** 섹션을 찾을 수 있는 **응용 프로그램 설정**으로 이동합니다. **MapApiQueryKey**를 가져온 쿼리 키로 설정합니다. 설정을 저장한 다음 **개요**로 이동하고 App Service를 다시 시작합니다.
 
 ### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>엔터프라이즈용 Bing 지도 API 계정을 만드는 방법
 
@@ -212,6 +206,6 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [예측 유지 관리 솔루션 가속기 개요](../iot-suite/iot-suite-predictive-overview.md)
+* [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리 솔루션 가속기 개요](iot-accelerators-connected-factory-overview.md)
-* [처음부터 IoT 보안을 고려](../iot-suite/securing-iot-ground-up.md)
+* [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)

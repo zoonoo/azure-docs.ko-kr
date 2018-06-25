@@ -1,13 +1,14 @@
 ---
-title: "첫 번째 실행 동안 Azure AD에 새 Windows 10 장치 조인 | Microsoft Docs"
-description: "첫 실행 경험 동안 사용자가 Azure AD 조인을 설정하는 방법에 대해 설명하는 항목입니다."
+title: 첫 번째 실행 동안 Azure AD에 새 Windows 10 장치 조인 | Microsoft Docs
+description: 첫 실행 경험 동안 사용자가 Azure AD 조인을 설정하는 방법에 대해 설명하는 항목입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 0e71df2333dee9c4eb9935d3397d343be246be65
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 0341c5b65816cf1c54fe3f2f7781dde46bf084ad
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757395"
 ---
 # <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>첫 번째 실행 동안 Azure AD에 새 Windows 10 장치 조인
 
@@ -37,6 +39,8 @@ Windows *기본 환경*에서 온-프레미스 AD(Active Directory) 도메인 �
 ## <a name="before-you-begin"></a>시작하기 전에
 
 Windows 10 장치를 조인하려면 장치를 등록할 수 있도록 장치 등록 서비스를 구성해야 합니다. Azure AD 테넌트에 장치를 조인할 수 있는 권한이 필요한 것 외에도, 구성된 장치 최대 수보다 적은 수의 장치를 등록해야 합니다. 자세한 내용은 [장치 설정 구성](device-management-azure-portal.md#configure-device-settings)을 참조하세요.
+
+또한 테넌트가 페더레이션된 경우 ID 공급자가 WS-Fed 및 WS-Trust 사용자 이름/암호 엔드포인트를 지원해야 합니다. 버전 1.3 또는 2005일 수 있습니다. Azure AD에 장치를 조인하고 암호를 사용하여 장치에 로그온하려면 이 프로토콜 지원이 필요합니다.
 
 ## <a name="joining-a-device"></a>장치 조인
 

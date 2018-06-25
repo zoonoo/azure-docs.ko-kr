@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/27/2018
+ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ee0534ab8bc3400854ddf550df9ca2f395f8d80d
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650940"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -204,6 +205,18 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
+## <a name="managing-personal-inforamation"></a>개인 정보 관리
+
+실제 및 가상 계열 모두에 대한 StorSimple 장치 관리자는 다음과 같은 키 인스턴스에서 개인 정보를 수집합니다.
+
+- 사용자의 이메일 주소가 구성된 사용자 설정을 변경합니다. 이 정보는 관리자가 볼 수 있고 지울 수 있습니다. StorSimple 8000 시리즈 장치 및 StorSimple 가상 배열 둘 다에 적용됩니다.
+ * StorSimple 8000 시리즈에 대한 설정을 보고 지우려면 [StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md#configure-alert-settings) 단계 수행
+ * StorSimple 가상 배열에 대한 설정을 보고 지우려면 [StorSimple 경고 보기 및 관리](storsimple-virtual-array-manage-alerts.md#configure-alert-settings) 단계 수행
+- 공유 폴더에 있는 데이터에 액세스할 수 있는 사용자입니다. 공유 데이터에 액세스할 수 있는 사용자의 목록을 표시하고 볼 수 있습니다. 공유가 삭제되는 경우 이 목록도 삭제됩니다. 이는 StorSimple 가상 배열에만 적용됩니다.
+ * 액세스할 수 있는 사용자 목록을 보거나 공유를 삭제하려면 [StorSimple 가상 배열에서 공유 관리](storsimple-virtual-array-manage-shares.md) 단계 수행
+
+자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
+
 ## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
 보안 및 Microsoft Azure StorSimple에 대한 질문과 답변은 다음과 같습니다.
@@ -268,19 +281,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **A:** 서비스에서 모든 데이터는 암호화되고 개인 키가 장치와 함께 유지되므로 정부 기관이 고객에게 데이터를 요청해야 합니다.
 
-## <a name="gdpr-compliance"></a>GDPR 규정 준수
 
-[GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 개인 정보를 수집, 저장 및 사용하는 방법에 대한 많은 요구 사항을 포함하고 있습니다. GDPR 규칙은 회사 및 정부 기관 그리고 EU에서 작동하고 EU 지역 거주자와 연결된 데이터를 수집하고 분석하는 다른 조직에 적용됩니다. 
-
-실제 및 가상 계열 모두에 대한 StorSimple 장치 관리자는 GDPR을 준수합니다. 개인 정보가 수집되고 서비스에 표시되는 두 개의 키 인스턴스가 있습니다.
-
-- 사용자의 이메일 주소가 구성된 사용자 설정을 변경합니다. 이 정보는 관리자가 볼 수 있고 지울 수 있습니다. StorSimple 8000 시리즈 장치 및 StorSimple 가상 배열 둘 다에 적용됩니다.
- * StorSimple 8000 시리즈에 대한 설정을 보고 지우려면 [StorSimple 경고 보기 및 관리](storsimple-8000-manage-alerts.md#configure-alert-settings) 단계 수행
- * StorSimple 가상 배열에 대한 설정을 보고 지우려면 [StorSimple 경고 보기 및 관리](storsimple-virtual-array-manage-alerts.md#configure-alert-settings) 단계 수행
-- 공유 폴더에 있는 데이터에 액세스할 수 있는 사용자입니다. 공유 데이터에 액세스할 수 있는 사용자의 목록을 표시하고 볼 수 있습니다. 공유가 삭제되는 경우 이 목록도 삭제됩니다. 이는 StorSimple 가상 배열에만 적용됩니다.
- * 액세스할 수 있는 사용자 목록을 보거나 공유를 삭제하려면 [StorSimple 가상 배열에서 공유 관리](storsimple-virtual-array-manage-shares.md) 단계 수행
-
-자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

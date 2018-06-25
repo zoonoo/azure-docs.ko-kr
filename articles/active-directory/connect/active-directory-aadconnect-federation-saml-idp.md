@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Connect: Single Sign On에 SAML 2.0 ID 공급자 사용 | Microsoft Docs'
-description: 이 항목에서는 Single Sign-On에 SAML 2.0 호환 Idp를 사용하는 방법을 설명합니다.
+description: 이 문서에서는 Single Sign-On에 SAML 2.0 호환 Idp를 사용하는 방법을 설명합니다.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 46c65e0efdc91b70c5d0d2afdf83d7205efc8057
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/13/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801782"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
-이 항목에서는 SAML 2.0 호환 SP-Lite 프로필 기반 ID 공급자를 기본 STS(보안 토큰 서비스)/ID 공급자로 사용하는 방법에 대한 정보를 제공합니다. 이 기능은 사용자 디렉터리 및 암호 저장소가 SAML 2.0을 사용하여 액세스할 수 있는 온-프레미스에 이미 있는 경우에 유용합니다. 이 기존 사용자 디렉터리는 Office 365 및 다른 Azure AD 보안 리소스에 로그온하는 데 사용할 수 있습니다. SAML 2.0 SP-Lite 프로필은 널리 사용되는 SAML(Security Assertion Markup Language ) 페더레이션 ID 표준을 기준으로 하여 로그온 및 특성 교환 프레임워크를 제공합니다.
+이 문서에서는 SAML 2.0 호환 SP-Lite 프로필 기반 ID 공급자를 기본 STS(보안 토큰 서비스)/ID 공급자로 사용하는 방법에 대한 정보를 제공합니다. 이 시나리오는 사용자 디렉터리 및 암호 저장소가 SAML 2.0을 사용하여 액세스할 수 있는 온-프레미스에 이미 있는 경우에 유용합니다. 이 기존 사용자 디렉터리는 Office 365 및 다른 Azure AD 보안 리소스에 로그온하는 데 사용할 수 있습니다. SAML 2.0 SP-Lite 프로필은 널리 사용되는 SAML(Security Assertion Markup Language ) 페더레이션 ID 표준을 기준으로 하여 로그온 및 특성 교환 프레임워크를 제공합니다.
 
 >[!NOTE]
 >테스트를 통해 Azure AD에서 사용할 수 있는 것으로 확인된 타사 Idp 목록을 보려면 [Azure AD 페더레이션 호환성 목록](active-directory-aadconnect-federation-compatibility.md)을 참조하세요.
@@ -41,7 +43,7 @@ Microsoft는 Office 365와 같은 Microsoft 클라우드 서비스를 올바르�
 다른 모든 클라이언트는 SAML 2.0 ID 공급자를 사용하는 이러한 로그온 시나리오에서 사용할 수 없습니다. 예를 들어 Lync 2010 데스크톱 클라이언트에서 Single Sign-On용으로 구성된 SAML 2.0 ID 공급자를 사용해서 서비스에 로그인할 수 없습니다.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 프로토콜 요구 사항
-이 항목에는 SAML 2.0 ID 공급자가 하나 이상의 Microsoft 클라우드 서비스(예: Office 365)에 대한 로그온을 위해 Azure AD와 페더레이션할 때 구현해야 하는 프로토콜 및 메시지 서식에 대한 자세한 요구 사항이 나와 있습니다. 이 시나리오에서 사용되는 Microsoft 클라우드 서비스용 SAML 2.0 신뢰 당사자(SP-STS)는 Azure AD입니다.
+이 문서에는 SAML 2.0 ID 공급자가 하나 이상의 Microsoft 클라우드 서비스(예: Office 365)에 대한 로그온을 위해 Azure AD와 페더레이션할 때 구현해야 하는 프로토콜 및 메시지 서식에 대한 자세한 요구 사항이 나와 있습니다. 이 시나리오에서 사용되는 Microsoft 클라우드 서비스용 SAML 2.0 신뢰 당사자(SP-STS)는 Azure AD입니다.
 
 SAML 2.0 ID 공급자 출력 메시지를 제공된 샘플 추적과 가능한 한 유사하게 유지하는 것이 좋습니다. 또한 가능한 경우 제공된 Azure AD 메타데이터의 특정 특성 값을 사용하도록 합니다. 출력 메시지가 적절하다고 생각되면 아래 설명된 대로 Microsoft 연결 분석기를 사용해서 테스트할 수 있습니다.
 
@@ -76,16 +78,16 @@ SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 �
  
 |특성|설명|
 | ----- | ----- |
-|NameID|이 어설션 값은 Azure AD 사용자의 ImmutableID와 같아야 합니다. 최대 64자의 영숫자일 수 있습니다. HTML이 아닌 모든 보안 문자를 인코딩해야 합니다. 예를 들어 "+" 문자는 ".2B"로 표시됩니다.|
+|NameID|이 어설션 값은 Azure AD 사용자의 ImmutableID와 같아야 합니다. 최대 64자의 영숫자일 수 있습니다. html이 아닌 모든 보안 문자를 인코딩해야 합니다. 예를 들어 "+" 문자는 ".2B"로 표시됩니다.|
 |IDPEmail|UPN(사용자 계정 이름)은 SAML 응답에 이름이 IDPEmail인 요소로 표시됩니다. 이 이름은 Azure AD/Office 365에서 UPN(사용자 계정 이름)입니다. UPN은 전자 메일 주소 형식입니다. Windows Office 365(Azure Active Directory)의 UPN 값입니다.|
-|발급자|ID 공급자의 URI여야 합니다. 샘플 메시지의 발급자를 다시 사용하면 안 됩니다. Azure AD 테넌트에 여러 개의 최상위 도메인이 있는 경우 발급자는 도메인별로 구성된 지정한 URI 설정과 일치해야 합니다.|
+|발급자|ID 공급자의 URI여야 합니다. 샘플 메시지의 발급자를 다시 사용하지 마십시오. Azure AD 테넌트에 여러 개의 최상위 도메인이 있는 경우 발급자는 도메인별로 구성된 지정한 URI 설정과 일치해야 합니다.|
 
 >[!IMPORTANT]
 >현재 Azure AD는 SAML 2.0에 대해 NameID 형식 URI urn:oasis:names:tc:SAML:2.0:nameid-format:persistent를 지원합니다.
 
 ## <a name="sample-saml-request-and-response-messages"></a>샘플 SAML 요청 및 응답 메시지
 요청 및 응답 메시지 쌍은 로그온 메시지 교환에 대해 표시됩니다.
-이것은 Azure AD에서 샘플 SAML 2.0 ID 공급자로 전송되는 샘플 요청 메시지입니다. 샘플 SAML 2.0 ID 공급자는 SAML-P 프로토콜을 사용하도록 구성된 AD FS(Active Directory Federation Services)입니다. 다른 SAML 2.0 ID 공급자와의 상호 운용성 테스트도 완료되었습니다.
+다음은 Azure AD에서 샘플 SAML 2.0 ID 공급자로 전송되는 샘플 요청 메시지입니다. 샘플 SAML 2.0 ID 공급자는 SAML-P 프로토콜을 사용하도록 구성된 AD FS(Active Directory Federation Services)입니다. 다른 SAML 2.0 ID 공급자와의 상호 운용성 테스트도 완료되었습니다.
 
     `<samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" ID="_7171b0b2-19f2-4ba2-8f94-24b5e56b7f1e" IssueInstant="2014-01-30T16:18:35Z" Version="2.0" AssertionConsumerServiceIndex="0" >
     <saml:Issuer>urn:federation:MicrosoftOnline</saml:Issuer>
@@ -146,12 +148,15 @@ SAML 응답 메시지 내에서 서명 노드에는 메시지 자체에 대한 �
     </samlp:Response>`
 
 ## <a name="configure-your-saml-20-compliant-identity-provider"></a>SAML 2.0 호환 ID 공급자 구성
-이 항목에는 SAML 2.0 프로토콜을 사용하여 하나 이상의 Microsoft 클라우드 서비스(예: Office 365)에 대한 Single Sign-On 액세스를 허용하기 위해 Azure AD와 페더레이션되도록 SAML 2.0 ID 공급자를 구성하는 방법에 대한 지침이 포함되어 있습니다. 이 시나리오에서 사용되는 Microsoft 클라우드 서비스용 SAML 2.0 신뢰 당사자는 Azure AD입니다.
+이 섹션에는 SAML 2.0 프로토콜을 사용하여 하나 이상의 Microsoft 클라우드 서비스(예: Office 365)에 대한 Single Sign-On 액세스를 허용하기 위해 Azure AD와 페더레이션되도록 SAML 2.0 ID 공급자를 구성하는 방법에 대한 지침이 포함되어 있습니다. 이 시나리오에서 사용되는 Microsoft 클라우드 서비스용 SAML 2.0 신뢰 당사자는 Azure AD입니다.
 
 ## <a name="add-azure-ad-metadata"></a>Azure AD 메타데이터 추가
 SAML 2.0 ID 공급자는 Azure AD 신뢰 당사자에 대한 정보를 준수해야 합니다. Azure AD는 https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml에 메타데이터를 게시합니다.
 
-SAML 2.0 ID 공급자를 구성할 때 항상 최신 Azure AD 메타데이터를 가져오는 것이 좋습니다. Azure AD는 ID 공급자에서 메타데이터를 읽지 않습니다.
+SAML 2.0 ID 공급자를 구성할 때 항상 최신 Azure AD 메타데이터를 가져오는 것이 좋습니다.
+
+>[!NOTE]
+>Azure AD는 ID 공급자에서 메타데이터를 읽지 않습니다.
 
 ## <a name="add-azure-ad-as-a-relying-party"></a>Azure AD를 신뢰 당사자로 추가
 SAML 2.0 ID 공급자와 Azure AD 간의 통신을 사용하도록 설정해야 합니다. 이 구성은 특정 ID 공급자에 종속됩니다. 해당 설명서를 참조하세요. 일반적으로 신뢰 당사자 ID를 Azure AD 메타데이터의 entityID와 동일하게 설정합니다.
@@ -170,7 +175,10 @@ Windows PowerShell 명령줄 인터페이스에서 일련의 cmdlet을 실행하
 
 SAML 2.0 ID 공급자를 사용하여 페더레이션하려는 각 Azure Active Directory 도메인을 Single Sign-On으로 추가하거나 표준 도메인에서 Single Sign-On 도메인으로 변환해야 합니다. 도메인을 추가하거나 변환하면 SAML 2.0 ID 공급자와 Azure AD 간에 트러스트가 설정됩니다.
 
-다음 절차에서는 SAML 2.0 SP-Lite를 사용하여 기존 표준 도메인을 페더레이션된 도메인으로 변환하는 과정을 안내합니다. 도메인에서는 이 단계를 수행한 후 최대 2시간 정도 작동이 중단되어 사용자에게 영향을 줄 수 있습니다.
+다음 절차에서는 SAML 2.0 SP-Lite를 사용하여 기존 표준 도메인을 페더레이션된 도메인으로 변환하는 과정을 안내합니다. 
+
+>[!NOTE]
+>도메인에서는 이 단계를 수행한 후 최대 2시간 정도 작동이 중단되어 사용자에게 영향을 줄 수 있습니다.
 
 ## <a name="configuring-a-domain-in-your-azure-ad-directory-for-federation"></a>Azure AD 디렉터리에서 페더레이션에 대한 도메인 구성
 
@@ -260,8 +268,8 @@ Single Sign-On이 올바르게 설정되어 있는지 확인하려면 다음 단
 
 
 1. 도메인에 가입된 컴퓨터에서 회사 자격 증명에 사용하는 것과 동일한 로그온 이름을 사용하여 클라우드 서비스에 로그인합니다.
-2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 <your company>에서 로그인해야 합니다." 메시지가 표시됩니다.
-3.  <your company> 링크에서 로그인을 클릭합니다. 로그인할 수 있으면 Single Sign-On이 설정된 것입니다.
+2.  암호 상자 내부를 클릭합니다. Single Sign-On이 설정되면 암호 상자가 음영 처리되며 "이제 &lt;회사&gt;에서 로그인해야 합니다." 메시지가 표시됩니다.
+3.  &lt;회사&gt; 링크에서 로그인을 클릭합니다. 로그인할 수 있으면 Single Sign-On이 설정된 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

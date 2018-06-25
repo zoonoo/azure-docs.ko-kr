@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: 27c4f35cbd8cc69e689b26078d5a07c8558d8e2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: 5805dbc0a4831f14a4f9a98943a7611fa49961eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303204"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594954"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-sql"></a>자습서: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure SQL 액세스
 
@@ -270,11 +270,9 @@ if (accessToken != null) {
 
 `$DataSet.Tables[0]` 값을 확인하여 쿼리의 결과를 검토합니다.  자격 증명을 제공하지 않고도 VM MSI를 사용하여 데이터베이스를 쿼리했습니다.
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [관리 서비스 ID 개요](overview.md)를 참조하세요.
-- [Azure AD 인증에 대한 Azure SQL 지원](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)에 대해 자세히 알아봅니다.
-- [Azure AD 인증에 대한 Azure SQL 지원 구성](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)에 대해 자세히 알아봅니다.
-- [SQL Server의 인증 및 액세스](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/getting-started-with-database-engine-permissions)에 대해 자세히 알아봅니다.
+이 자습서에서는 Azure SQL Server에 액세스하기 위한 관리 서비스 ID를 만드는 방법을 학습했습니다.  Azure SQL Server에 대한 자세한 내용은 다음 항목을 참조하세요.
 
-다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+> [!div class="nextstepaction"]
+>[Azure SQL Database 서비스](/azure/sql-database/sql-database-technical-overview)

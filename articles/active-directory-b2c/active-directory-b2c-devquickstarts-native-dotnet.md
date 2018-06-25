@@ -1,21 +1,21 @@
 ---
-title: .NET Azure Active Directory B2C 인증, 등록, 편집 프로필 | Microsoft Docs
+title: Azure Active Directory B2C에서 프로필 인증, 등록, 편집 | Microsoft Docs
 description: Azure Active Directory B2C를 사용하여 로그인, 등록 및 프로필 관리를 포함하는 Windows 데스크톱 응용 프로그램을 빌드하는 방법을 알아봅니다.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: ec679115259611eb05021a68a552d25777a73356
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 980d554d96796a673db13bb369337d90088e8a75
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711066"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Windows 데스크톱 앱 빌드
 Azure AD(Azure Active Directory) B2C를 사용하여 몇 가지 간단한 단계에서 강력한 셀프 서비스 ID 관리 기능을 데스크톱 앱에 추가할 수 있습니다. 이 문서에서는 사용자 등록, 로그인 및 프로필 관리를 포함하는 .NET WPF(Windows Presentation Foundation) "할 일 모음" 앱을 만드는 방법을 보여 줍니다. 이 앱에서는 사용자 이름 또는 전자 메일을 사용하여 등록 및 로그인할 수 있습니다. 또한 Facebook 및 Google과 같은 소셜 계정을 사용하여 등록 및 로그인하는 기능도 지원합니다.

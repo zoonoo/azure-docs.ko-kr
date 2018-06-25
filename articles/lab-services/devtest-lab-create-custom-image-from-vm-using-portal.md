@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c98918dcd08c2e8ec72cc995c633b8320da8057
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34635919"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>VM에서 사용자 지정 이미지 만들기
 
@@ -42,7 +43,7 @@ ms.lasthandoff: 05/07/2018
 
     ![사용자 지정 이미지 만들기 메뉴 항목](./media/devtest-lab-create-template/create-custom-image.png)
 
-1. **사용자 지정 이미지** 창에서 사용자 지정 이미지에 대한 이름 및 설명을 입력합니다. 이 정보는 VM을 만들 때 기본 목록에 표시됩니다.
+1. **사용자 지정 이미지** 창에서 사용자 지정 이미지에 대한 이름 및 설명을 입력합니다. 이 정보는 VM을 만들 때 기본 목록에 표시됩니다. 사용자 지정 이미지에는 OS 디스크 및 가상 머신에 연결된 모든 데이터 디스크가 포함됩니다.
 
     ![사용자 지정 이미지 만들기 창](./media/devtest-lab-create-template/create-custom-image-blade.png)
 

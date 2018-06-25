@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 시작 팩의 사용자 지정 정책 이해 | Microsoft Docs'
+title: Azure Active Directory B2C에서 시작 팩의 사용자 지정 정책 이해 | Microsoft Docs
 description: Azure Active Directory B2C 사용자 지정 정책에 대한 항목
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: davidmu
-ms.openlocfilehash: 12f63bc42f8450f086ed9f0e8d598c9c91a0c3d4
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: eb78e4c2f2e27d59d7925ac9eaffd1cef0924463
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711582"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Azure AD B2C 사용자 지정 정책 시작 팩의 사용자 지정 정책 이해
 
@@ -193,7 +193,7 @@ ms.lasthandoff: 04/05/2018
 | *SM-SocialLogin* | |
 | *SM-MFA* | |
 
-### <a name="technical-profiles-for-trustframework-policy-engine-technicalprofiles"></a>Trustframework Policy Engine TechnicalProfiles용 기술 프로필
+### <a name="technical-profiles-for-the-trust-framework-policy-engine"></a>보안 프레임워크 정책 엔진의 기술 프로필
 
 현재는 **Trustframework Policy Engine TechnicalProfiles** 클레임 공급자에 대해 정의된 기술 프로필이 없습니다.
 

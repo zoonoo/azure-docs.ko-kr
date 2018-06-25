@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 2fbf7bd736a59cbcd6231fa8325a084f54927467
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 3b7971fec0aa0c354476073b01699f516f9439cc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34261458"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637381"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -173,7 +173,7 @@ ms.locfileid: "34261458"
 
 각 웹 사이트(contoso.com 및 fabrikam.com)에 대한 부하 분산 규칙을 구성합니다.
     
-1. <a name="step6-1"></a>**설정** 아래에서 **부하 분산 규칙**을 선택합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다. 
+1. <a name="step6-1"></a>**설정**에서 **부하 분산 규칙**을 선택합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다. 
 
 2. **이름**에 부하 분산 규칙의 이름(예: contoso.com의 경우 **HTTPc** 또는 fabrikam.com의 경우 **HTTPf**)을 입력합니다.
 

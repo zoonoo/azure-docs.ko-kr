@@ -1,26 +1,19 @@
 ---
 title: Azure IoT 솔루션 가속기 개요 | Microsoft Docs
 description: Azure IoT 솔루션 가속기 및 추가 리소스에 대한 링크와 해당 아키텍처에 대한 설명입니다.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 59009f37-9ba0-4e17-a189-7ea354a858a2
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 17/01/2018
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
+ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: 80192b115f4c6c8f6961fdd4d9fb7f3876fda898
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b961217317cea65b05cd58d66e64f0e4f012131e
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34362127"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808556"
 ---
 # <a name="what-are-the-iot-solution-accelerators"></a>IoT 솔루션 가속기란?
 
@@ -54,7 +47,7 @@ Azure IoT _솔루션 가속기_는 다음과 같은 솔루션의 집합입니다
 세 가지 솔루션 가속기는 현재 다음을 사용할 수 있습니다.
 
 * [원격 모니터링](iot-accelerators-remote-monitoring-explore.md)
-* [예측 유지 관리](../iot-suite/iot-suite-predictive-overview.md)
+* [예측 유지 관리](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리](iot-accelerators-connected-factory-overview.md)
 
 다음 표에서 솔루션을 특정 IoT 기능에 매핑하는 방법을 보여 줍니다.
@@ -62,7 +55,7 @@ Azure IoT _솔루션 가속기_는 다음과 같은 솔루션의 집합입니다
 | 해결 방법 | 데이터 수집 | 장치 ID | 장치 관리 | 에지 처리 | 명령 및 컨트롤 | 규칙 및 동작 | 예측 분석 |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [원격 모니터링](iot-accelerators-remote-monitoring-explore.md)  |예 |예 |예 |-   |예 |예 |-   |
-| [예측 유지 관리](../iot-suite/iot-suite-predictive-overview.md)   |예 |예 |-   |-   |예 |예 |예 |
+| [예측 유지 관리](iot-accelerators-predictive-overview.md)   |예 |예 |-   |-   |예 |예 |예 |
 | [연결된 팩터리](iot-accelerators-connected-factory-overview.md) |예 |- |- |예 |예 |예 |-   |
 
 * *데이터 수집*: 클라우드에 대한 대규모 데이터의 수신입니다.
@@ -73,7 +66,7 @@ Azure IoT _솔루션 가속기_는 다음과 같은 솔루션의 집합입니다
 * *예측 분석*: 솔루션 백 엔드는 장치-클라우드 데이터를 분석하여 특정 작업이 수행될 때를 예측합니다. 예를 들어 항공기 엔진 원격 분석을 분석하여 엔진 유지 관리가 만료될 때를 확인합니다.
 
 > [!NOTE]
-> 솔루션 가속기를 배포하고 이를 사용자 지정하는 방법에 대해 자세히 알아보려면 [Microsoft Azure IoT 솔루션 가속기](https://www.azureiotsuite.com/)를 방문하세요.
+> 솔루션 가속기를 배포하고 이를 사용자 지정하는 방법에 대해 자세히 알아보려면 [Microsoft Azure IoT 솔루션 가속기](https://www.azureiotsolutions.com/)를 방문하세요.
 
 ## <a name="azure-services"></a>Azure 서비스
 
@@ -85,20 +78,20 @@ Azure IoT _솔루션 가속기_는 다음과 같은 솔루션의 집합입니다
 | Event Hubs           |                    | 예                    |                   |
 | Time Series Insights |                    |                        | 예               |
 | Container Services   | 예                |                        |                   |
-| Stream Analytics     |                    | 예                    |                   |
+| Stream Analytics     | 예                | 예                    |                   |
 | Web Apps             | 예                | 예                    | 예               |
 | Cosmos DB            | 예                | 예                    |                    |
 | Azure Storage         |                    | 예                    | 예               |
 
 > [!NOTE]
-> 원격 모니터링 솔루션 가속기에 배포된 리소스에 대한 자세한 내용은 GitHub에서 이 [문서](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments)를 참조하세요.
+> 원격 모니터링 솔루션 가속기에 배포된 리소스에 대한 자세한 내용은 이 [원격 모니터링 아키텍처 선택](iot-accelerators-remote-monitoring-architectural-choices.md)을 참조하세요.
 
 * [Azure IoT Hub](../iot-hub/index.yml) - 이 서비스는 장치-클라우드 및 클라우드-장치 메시징 기능을 제공하고 클라우드 및 다른 핵심 솔루션 가속기 서비스에 대한 게이트웨이의 역할을 합니다. 이 서비스를 사용하면 장치로부터 대규모 메시지를 수신하고 장치로 명령을 보낼 수 있습니다. 서비스를 통해 [장치를 관리](../iot-hub/iot-hub-device-management-overview.md)할 수도 있습니다. 예를 들어 허브에 연결된 하나 이상의 장치에서 공장 재설정을 구성, 다시 부팅 또는 수행할 수 있습니다.
-* [Azure Event Hubs](../active-directory-domain-services/index.md) - 클라우드에 대규모 이벤트 수집을 제공합니다. [Azure IoT Hub 및 Azure Event Hubs의 비교](../iot-hub/iot-hub-compare-event-hubs.md)를 참조하세요.
+* [Azure Event Hubs](../active-directory-domain-services/index.yml) - 클라우드에 대규모 이벤트 수집을 제공합니다. [Azure IoT Hub 및 Azure Event Hubs의 비교](../iot-hub/iot-hub-compare-event-hubs.md)를 참조하세요.
 * [Azure Time Series Insights](../time-series-insights/index.yml) - 솔루션 가속기에서 이 서비스를 사용하여 장치의 원격 분석 데이터를 분석하고 표시합니다.
 * [Azure Container Service](../container-service/index.yml) - 이 서비스는 솔루션 가속기에서 마이크로 서비스를 호스팅하고 관리합니다.
 * [Azure Cosmos DB](../cosmos-db/index.yml) 및 [Azure Storage](../storage/index.yml)(데이터 저장용)
-* [Azure Stream Analytics](../stream-analytics/index.yml) - 미리 구성된 예측 유지 관리 솔루션에서 이 서비스를 사용하여 들어오는 원격 분석을 처리하고, 집계를 수행하며, 이벤트를 검색합니다. 또한 미리 구성된 솔루션에서 Stream Analytics를 사용하여 장치의 메타데이터 또는 명령 응답과 같은 데이터가 포함된 정보 메시지를 처리합니다.
+* [Azure Stream Analytics](../stream-analytics/index.yml) - 예측 유지 관리 솔루션 가속기에서 이 서비스를 사용하여 들어오는 원격 분석을 처리하고, 집계를 수행하며, 이벤트를 검색합니다. 또한 미리 구성된 솔루션에서 Stream Analytics를 사용하여 장치의 메타데이터 또는 명령 응답과 같은 데이터가 포함된 정보 메시지를 처리합니다.
 * [Azure Web Apps](../app-service/index.yml) - 미리 구성된 솔루션에서 사용자 지정 응용 프로그램 코드를 호스팅합니다.
 
 일반적인 IoT 솔루션의 아키텍처에 대한 개요는 [Microsoft Azure 및 IoT(사물 인터넷)](iot-accelerators-what-is-azure-iot.md)를 참조하세요.
@@ -152,7 +145,7 @@ UI는 [React](https://facebook.github.io/react/) JavaScript 라이브러리를 �
 이제 IoT 솔루션 가속기의 개요를 살펴보았으므로 각 솔루션 가속기에 제안되는 단계는 다음과 같습니다.
 
 * [원격 모니터링 솔루션 탐색](iot-accelerators-remote-monitoring-explore.md).
-* [예측 유지 관리 솔루션 가속기 개요](../iot-suite/iot-suite-predictive-overview.md).
+* [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md).
 * [연결된 팩터리 가속화 솔루션 시작](iot-accelerators-connected-factory-overview.md).
 
-IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT 서비스: 참조 아키텍처](http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf)를 참조하세요.
+IoT 솔루션 아키텍처에 대한 자세한 내용은 [Microsoft Azure IoT 서비스: 참조 아키텍처](https://aka.ms/iotrefarchitecture)를 참조하세요.

@@ -5,20 +5,16 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: bfa10984-eb22-4671-861a-f377a90d9372
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/07/2018
 ms.author: sethm
-ms.openlocfilehash: 8a30b8cb92b98606ca3d859ada329b8301806b10
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 4c28f1ae5517e54fab259e680128d6c666c82fbe
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235314"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Event Hubs 질문과 대답
 
@@ -30,7 +26,7 @@ Azure Event Hubs의 표준 계층은 기본 계층에서 제공할 수 있는 �
 * 더 길어진 이벤트 보존 기간
 * 추가 조정된 연결, 포함된 수보다 많은 경우 초과분 요금 있음
 * 단일 소비자 그룹 이상
-* [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)
+* [캡처](event-hubs-capture-overview.md)
 
 전용 Event Hubs를 비롯한 가격 책정 계층에 대한 자세한 내용은 [Event Hubs 가격 책정 정보](https://azure.microsoft.com/pricing/details/event-hubs/)를 참조하세요.
 
@@ -58,9 +54,10 @@ Event Hubs 처리량 단위는 주어진 시간 동안 선택된 단위의 최�
 예, 모든 이벤트 허브가 동일한 네임스페이스에 있는 경우 가능합니다.
 
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>이벤트의 최대 보존 기간은 어떻게 되나요?
-Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. 이벤트 허브는 영구 데이터 저장소로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다. 7일 이상 메시지 보존이 필요할 경우 Event Hubs에서 [Event Hubs 캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)를 사용하도록 설정하면 Event Hubs의 데이터가 선택한 Storage 계정 또는 Azure Data Lake 서비스 계정으로 옮겨집니다. 캡처를 사용하도록 설정하면 구매한 처리량 단위에 따라 요금이 부과됩니다.
+Event Hubs 표준 계층은 현재 최대 7일의 보존 기간을 지원합니다. 이벤트 허브는 영구 데이터 저장소로 사용되지 않습니다. 24시간 이상의 보존 기간은 이벤트 스트림을 동일한 시스템으로 재생 하기에 편리한 시나리오를 위해 사용됩니다. 예를 들어, 기존 데이터에서 새 기계 학습 모델을 훈련하거나 확인하기 위해서입니다. 7일 이상 메시지 보존이 필요할 경우 Event Hubs에서 [Event Hubs 캡처](event-hubs-capture-overview.md)를 사용하도록 설정하면 Event Hubs의 데이터가 선택한 Storage 계정 또는 Azure Data Lake 서비스 계정으로 옮겨집니다. 캡처를 사용하도록 설정하면 구매한 처리량 단위에 따라 요금이 부과됩니다.
 
 ### <a name="where-is-azure-event-hubs-available"></a>어디에서 Azure Event Hubs를 사용할 수 있나요?
+
 Azure Event Hubs는 지원되는 모든 Azure 지역에서 사용할 수 있습니다. 목록은 [Azure 지역](https://azure.microsoft.com/regions/)를 참조하세요.  
 
 ## <a name="best-practices"></a>모범 사례
@@ -101,22 +98,27 @@ AMQP 프로토콜을 사용하는 경우에 연결 요금이 적용됩니다. �
 ## <a name="quotas"></a>할당량
 
 ### <a name="are-there-any-quotas-associated-with-event-hubs"></a>Event Hubs와 관련된 할당량이 있나요?
+
 Event Hubs 할당량의 목록은 [할당량](event-hubs-quotas.md)을 참조하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-event-hubs-and-their-suggested-actions"></a>Event Hubs에 의해 생성된 일부 예외 및 해당 제안된 작업은 무엇인가요?
+
 가능한 Event Hubs 예외의 목록은 [예외 개요](event-hubs-messaging-exceptions.md)를 참조하세요.
 
 ### <a name="diagnostic-logs"></a>진단 로그
+
 Event Hubs는 두 가지 유형의 [진단 로그](event-hubs-diagnostic-logs.md)인 캡처 오류 로그와 작업 로그를 지원합니다. 두 로그 모두 json으로 표시되며 Azure Portal을 통해 설정할 수 있습니다.
 
 ### <a name="support-and-sla"></a>지원 및 SLA
+
 Event Hubs에 대한 기술 지원은 [커뮤니티 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=servbus)을 통해 사용할 수 있습니다. 청구 및 구독 관리 지원은 무료로 제공됩니다.
 
 SLA에 대한 자세한 내용에 대해 알아보려면 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 페이지를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [Event Hubs 개요](event-hubs-what-is-event-hubs.md)

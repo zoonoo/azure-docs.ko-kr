@@ -3,22 +3,18 @@ title: Azure Monitor에서 Azure Service Bus 메트릭(미리 보기) | Microsof
 description: Azure 모니터링을 사용하여 Service Bus 엔터티 모니터링
 services: service-bus-messaging
 documentationcenter: .NET
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/05/2018
+ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: 3660f0a6794a2fd784ec8846177da7effe7fe681
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: bb0c9fcc33d6f5b54a8c2c8ad3e356a485d6ccbb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701297"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor에서 Azure Service Bus 메트릭(미리 보기)
 
@@ -38,7 +34,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ![][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭(미리 보기)**을 클릭합니다. 엔터티의 범위에 대해 필터링된 메트릭을 표시하려면 엔터티를 선택한 다음 **메트릭(미리 보기)**을 클릭합니다.
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다. 엔터티의 범위에 대해 필터링된 메트릭을 표시하려면 엔터티를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다.
 
 ![][2]
 
@@ -64,8 +60,16 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 무료입
 | 들어오는 요청(미리 보기) | 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |성공한 요청(미리 보기)|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |서버 오류(미리 보기)|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|사용자 오류(미리 보기)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|사용자 오류(미리 보기 - 다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 |제한된 요청(미리 보기)|사용 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+
+### <a name="user-errors"></a>사용자 오류
+
+다음 두 가지 유형의 오류는 사용자 오류로 분류됩니다.
+
+1. 클라이언트 쪽 오류(400 오류인 HTTP에서)입니다.
+2. [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception)과 같은 메시지를 처리하는 동안 발생하는 오류입니다.
+
 
 ## <a name="message-metrics"></a>메시지 메트릭
 

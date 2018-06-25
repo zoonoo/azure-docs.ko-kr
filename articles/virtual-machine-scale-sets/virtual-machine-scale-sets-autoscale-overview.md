@@ -13,17 +13,18 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 05/29/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 03053f8427fbd20b0a7288d930dca258ee3070b6
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 49ef3821ba5dd10d745649c6b4546ec04282714f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652307"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합을 사용한 자동 크기 조정 개요
-Azure 가상 머신 확장 집합은 응용 프로그램을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 응용 프로그램의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 최소한으로 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
+Azure 가상 머신 확장 집합은 응용 프로그램을 실행하는 VM 인스턴스의 수를 자동으로 늘리거나 줄입니다. 자동화되고 탄력적인 이 동작은 관리 오버헤드를 줄여 응용 프로그램의 성능을 모니터링하고 최적화합니다. 긍정적인 고객 만족을 위해 허용되는 성능을 정의하는 규칙을 만듭니다. 정의된 임계값이 충족되면 자동 크기 조정 규칙에 따라 확장 집합의 용량을 조정하는 작업을 수행합니다. 확정된 시간에 확장 집합의 용량을 자동으로 늘리거나 줄이도록 이벤트를 예약할 수도 있습니다. 이 문서에서는 사용 가능한 성능 메트릭과 자동 크기 조정에서 수행할 수 있는 작업에 대해 간략히 설명합니다.
 
 
 ## <a name="benefits-of-autoscale"></a>자동 크기 조정의 이점
@@ -115,7 +116,7 @@ Azure 진단 확장은 VM 인스턴스 내부에서 실행되는 에이전트입
 
 Azure 진단 확장을 사용하려면 VM 인스턴스에 대한 Azure 저장소 계정을 만들고, Azure 진단 에이전트를 설치한 다음, 특정 성능 카운터를 저장소 계정에 스트림하도록 VM을 구성해야 합니다.
 
-자세한 내용은 [Linux VM](../virtual-machines/linux/diagnostic-extension.md) 또는 [Windows VM](../virtual-machines/windows/ps-extensions-diagnostics.md)에서 Azure 진단 확장을 사용하도록 설정하는 방법에 대한 문서를 참조하세요.
+자세한 내용은 [Linux VM](../virtual-machines/extensions/diagnostics-linux.md) 또는 [Windows VM](../virtual-machines/extensions/diagnostics-windows.md)에서 Azure 진단 확장을 사용하도록 설정하는 방법에 대한 문서를 참조하세요.
 
 
 ## <a name="application-level-metrics-with-app-insights"></a>App Insights를 사용한 응용 프로그램 수준 메트릭

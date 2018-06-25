@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central 응용 프로그램에서 장치 집합 사용 | Microsoft Docs
 description: 운영자로서 Azure IoT Central 응용 프로그램에서 장치 집합을 사용하는 방법을 알아봅니다.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 932c8315b5af22c3adf18de50cf03deaf6b2a53e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpfr
+ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201152"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261681"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 장치 집합 사용
 
@@ -86,10 +86,40 @@ ms.locfileid: "34201152"
 
     > [!NOTE]
     > 여러 이미지, 링크 및 그리드를 추가할 수 있습니다.
-
-1. **디자인 모드**를 끕니다.
+  
+    1. **디자인 모드**를 끕니다.
 
     ![디자인 모드 끄기](media/howto-use-device-sets/image10.png)
+
+
+### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>장치 집합 대시보드에서 위치 맵 구성 
+맵에서 장치 집합 위치를 시각화하려면 위치 맵을 추가할 수 있습니다. 
+
+장치 템플릿에서 위치 속성을 구성한 장치 집합 대시보드에 위치 맵을 추가하려면 [Azure Maps에서 제공하는 위치 속성 만들기](howto-set-up-template.md)를 참조합니다.
+
+
+1. 장치 집합 대시보드의 라이브러리에서 Map을 선택합니다. 
+
+    ![장치 집합 대시보드 맵](media/howto-use-device-sets/LocationMaps1.png)
+
+
+2. 제목을 지정하고 전에 장치 속성의 일부로 구성한 위치 속성을 선택합니다.
+
+    ![대시보드 맵 구성](media/howto-use-device-sets/LocationMaps2.png)
+
+3. 저장하면 장치 집합에서 장치 위치를 표시하는 지도 타일이 표시됩니다.
+
+    ![대시보드 맵 저장](media/howto-use-device-sets/LocationMaps3.png)
+
+
+5. 이제 연산자가 장치 집합 대시보드를 볼 때 한 번에 모든 장치 위치를 시각화하려면 위치 맵을 포함해 지금까지 구성한 모든 타일을 볼 수 있습니다!
+
+    ![대시보드 맵 연산자 보기](media/howto-use-device-sets/LocationMaps4.png)
+
+    지도를 원하는 크기로 크기를 조정할 수 있습니다.
+
+
+
 
 ## <a name="configure-the-list-for-your-device-set"></a>장치 집합에 대한 목록 구성
 

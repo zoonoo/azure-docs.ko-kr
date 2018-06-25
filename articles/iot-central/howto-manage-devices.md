@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central 응용 프로그램에서 장치 관리 | Microsoft Docs
 description: 운영자로서 Azure IoT Central 응용 프로그램에서 장치를 관리하는 방법을 알아봅니다.
-services: iot-central
 author: ellenfosborne
 ms.author: elfarber
 ms.date: 01/21/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 75472d701160e7cfd331d01efcdc1a19ae20fb2d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303582"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807478"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 장치 관리
 
@@ -79,6 +79,31 @@ CSV 파일 요구 사항:
 
 장치 가져오기 작업이 실패하면 장치 그리드에 오류가 표시됩니다. 모든 오류를 캡처하는 로그 파일이 생성되며 오류 메시지를 클릭하여 다운로드할 수 있습니다.
 
+## <a name="export-devices"></a>내보내기 장치
+
+장치를 프로비전하여 IoT Central에 연결하려면 IoT Central에서 생성되는 장치의 연결 문자열이 필요합니다. 내보내기 기능을 사용하여 응용 프로그램에서 대량으로 장치의 연결 문자열 및 다른 속성을 가져올 수 있습니다. 내보내기를 수행하면 선택한 모든 장치에 대한 장치 ID, 장치 이름 및 기본 연결 문자열이 포함된 CSV 파일이 생성됩니다.
+
+응용 프로그램에서 장치를 대량으로 내보내려면 다음을 수행합니다.
+1. 왼쪽 탐색 메뉴에서 **Explorer**를 선택합니다.
+
+1. 왼쪽 패널에서 장치를 내보낼 장치 템플릿을 선택합니다.
+
+1. 내보낼 장치를 선택한 다음, **내보내기** 동작을 클릭합니다.
+
+    [![내보내기](./media/howto-manage-devices/Export1.png)](./media/howto-manage-devices/Export1.png#lightbox)
+
+1. 내보내기 프로세스가 시작되고 표의 맨 위에서 상태를 추적할 수 있습니다. 
+
+1. 내보내기가 완료되면 성공 메시지가 생성된 파일을 다운로드할 수 있는 링크와 함께 표시됩니다.
+
+1. 디스크의 로컬 폴더에 파일을 다운로드하려면 **성공 메시지**를 클릭합니다.
+
+    [![내보내기 성공](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
+
+1. 내보낸 CSV 파일에는 다음과 같은 정보가 포함됩니다.
+    1. Name
+    1. 장치 ID
+    1. 기본 연결 문자열
 
 
 ## <a name="delete-a-device"></a>장치 삭제

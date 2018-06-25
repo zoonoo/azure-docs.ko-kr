@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 지정 정책의 언어 사용자 지정 | Microsoft Docs'
+title: Azure Active Directory B2C 사용자 지정 정책의 언어 사용자 지정 | Microsoft Docs
 description: 사용자 지정 정책에서 여러 언어로 지역화된 콘텐츠를 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: davidmu
-ms.openlocfilehash: 45cfa152615da1447cc695e0dd201e5b8d046cf4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: c8deabd4d0a4126365b014875624525d5b1f3063
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711759"
 ---
 # <a name="language-customization-in-custom-policies"></a>사용자 지정 정책의 언어 사용자 지정
 

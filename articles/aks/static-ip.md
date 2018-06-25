@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 2/12/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: c250ef3520079f58eea2362212d861fdb134e1af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9f6c34bd09d022b2453869c048f5f3cda7580b91
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34596664"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소를 사용합니다.
 
@@ -21,12 +22,18 @@ AKS(Azure Kubernetes Service) 부하 분산 장치가 만들어지거나 LoadBal
 
 ## <a name="create-static-ip-address"></a>고정 IP 주소 만들기
 
-Kubernetes 서비스에 대한 공용 고정 IP 주소를 만듭니다. IP 주소는 클러스터를 배포할 때 자동으로 생성된 리소스 그룹에서 만들어야 합니다. 다른 AKS 리소스 그룹 및 자동으로 생성된 리소스 그룹을 식별하는 방법에 대한 내용은 [AKS FAQ][aks-faq-resource-group]를 참조하세요.
+Kubernetes 서비스에 대한 공용 고정 IP 주소를 만듭니다. IP 주소는 AKS **노드** 리소스 그룹에서 만들어야 합니다.  [az resource show][az-resource-show] 명령으로 리소스 그룹 이름을 가져옵니다.
+
+```azurecli-interactive
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
+
+MC_myResourceGroup_myAKSCluster_eastus
+```
 
 [az network public ip create][az-network-public-ip-create] 명령을 사용하여 IP 주소를 만듭니다.
 
 ```azurecli-interactive
-az network public-ip create --resource-group MC_myResourceGRoup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
 IP 주소를 기록해 둡니다.
@@ -60,7 +67,7 @@ IP 주소를 기록해 둡니다.
  필요한 경우 [az network public-ip list][az-network-public-ip-list] 명령을 사용하여 주소를 검색할 수 있습니다.
 
 ```azurecli-interactive
-az network public-ip list --resource-group MC_myResourceGRoup_myAKSCluster_eastus --query [0].ipAddress --output tsv
+az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
 ```
 
 ```console
@@ -122,3 +129,4 @@ Events:
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
 [az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

@@ -4,16 +4,16 @@ description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/07/2018
+ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1937792290d973f3aee7fa3c0714f4667c21e79a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194651"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260484"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -64,7 +64,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-모든 Azure Policy 템플릿 샘플은 [Azure Policy에 대한 템플릿](json-samples.md)에 있습니다.
+모든 Azure Policy 샘플은 [정책 샘플](json-samples.md)에 있습니다.
 
 ## <a name="mode"></a>Mode
 
@@ -192,7 +192,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드(*)를 제공할 수 있습니다.
+**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드(*)를 제공할 수 있습니다. 값에 와일드 카드(*)가 여러 개 있으면 안 됩니다.
 
 **match** 및 **notMatch** 조건을 사용하는 경우 자릿수 하나를 나타내려면 `#`를, 문자 하나를 나타내려면 `?`를, 해당 실제 문자를 나타내려면 다른 문자를 입력합니다. 예를 들어 [여러 이름 패턴 허용](scripts/allow-multiple-name-patterns.md)을 참조하세요.
 
@@ -204,7 +204,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 - `name`
 - `fullName`
-  - 부모(예: "myServer/myDatabase")를 비롯한 리소스의 전체 이름을 반환합니다.
+  - 리소스의 전체 이름을 반환합니다. 리소스의 전체 이름은 리소스 이름에 상위 리소스 이름을 접두어로 추가하여 만듭니다(예: "myServer/myDatabase").
 - `kind`
 - `type`
 - `location`
@@ -251,6 +251,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 **AuditIfNotExists** 및 **DeployIfNotExists**를 사용하면 관련 리소스의 존재 여부를 평가하고, 해당 리소스가 없을 경우 규칙과 그 결과를 적용할 수 있습니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다.
 가상 머신 확장이 배포되지 않은 경우의 감사 예제는 [확장이 존재하지 않을 경우 감사](scripts/audit-ext-not-exist.md)를 참조하세요.
+
+각 효과, 평가 순서, 속성 및 예제에 대한 자세한 내용은 [정책 효과 이해](policy-effects.md)를 참조하세요.
 
 ## <a name="aliases"></a>Aliases
 
@@ -392,4 +394,4 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy에 대한 템플릿](json-samples.md)에서 Azure Policy 템플릿 샘플을 검토합니다.
+- [Azure Policy 샘플](json-samples.md)에서 더 많은 예제를 검토합니다.

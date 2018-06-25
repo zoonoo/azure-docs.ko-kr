@@ -14,20 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: b33c95af94c436b1069658963692242d0f905554
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598473"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 ## <a name="about-this-list"></a>다음 목록 정보
 API를 가져올 때 성공하기 위해 먼저 해결해야 하는 몇 가지 제한 사항이나 문제가 있을 수 있습니다. 이 문서에서는 이러한 내용을 API의 가져오기 형식별로 구성하여 설명합니다.
 
-## <a name="open-api"> </a>Open API/Swagger
-Open API 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 디자이너를 사용하거나(Design - Front End - Open API Specification Editor) <a href="http://www.swagger.io">Swagger Editor</a>와 같은 타사 도구를 사용하여 유효성을 검사해야 합니다.
+## <a name="open-api"> </a>OpenAPI/Swagger
+OpenAPI 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 디자이너를 사용하거나(Design - Front End - OpenAPI Specification Editor) <a href="http://www.swagger.io">Swagger Editor</a>와 같은 타사 도구를 사용하여 유효성을 검사해야 합니다.
 
 * OpenAPI에 대해 JSON 형식만 지원됩니다.
+* 경로와 쿼리 간에 필수 매개 변수 이름은 고유해야 합니다. OpenAPI에서는 매개 변수 이름이 위치(예: 경로), 쿼리, 헤더 안에서만 고유하면 됩니다.  그러나 API Management에서는 경로와 쿼리 매개 변수 모두를 사용하여 작업을 구분할 수 있습니다(OpenAPI에서 지원하지 않는 기능). 따라서 전체 URL 템플릿 안에서 매개 변수 이름이 고유해야 합니다.
 * **$ref** 속성을 사용하여 참조된 스키마는 다른 **$ref** 속성을 포함할 수 없습니다.
 * **$ref** 포인터는 외부 파일을 참조할 수 없습니다.
 * **x-ms-paths** 및 **x-servers**는 지원되는 유일한 확장명입니다.

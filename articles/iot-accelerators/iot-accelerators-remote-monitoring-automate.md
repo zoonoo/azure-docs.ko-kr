@@ -1,26 +1,23 @@
 ---
 title: 원격 모니터링 솔루션에서 장치 문제 감지 - Azure | Microsoft Docs
-description: 이 자습서에서는 규칙 및 작업을 사용하여 원격 모니터링 솔루션에서 임계값 기반 장치 문제를 자동으로 감지하는 방법을 보여 줍니다.
-services: iot-suite
-suite: iot-suite
+description: 이 자습서에서는 규칙 및 작업을 사용하여 원격 모니터링 솔루션에서 임계값 기반 장치 문제를 자동으로 감지하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-suite
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: f3583b27b2fb9959e65a9c66a75c1174ebf3e238
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: df1ba7909c64e8ccc24bcf3584bd28b2629f49ff
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627316"
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>임계값 기반 규칙을 사용하여 문제 감지
 
-이 자습서는 원격 모니터링 솔루션에서 규칙 엔진의 기능을 보여 줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso IoT 응용 프로그램에서 시나리오를 사용합니다.
+이 자습서는 원격 모니터링 솔루션의 규칙 엔진 기능을 보여줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso IoT 응용 프로그램에서 시나리오를 사용합니다.
 
 Contoso에는 **냉각기** 장치에서 보고된 압력이 250PSI를 초과하는 경우 중요한 경보를 생성하는 규칙이 있습니다. 운영자로서 초기 압력 스파이크를 찾아 문제가 있는 센서가 있을 수 있는 **냉각기** 장치를 식별하려고 합니다. 이러한 장치를 식별하려면 압력이 150PSI를 초과할 때 경고를 생성하는 규칙을 만듭니다.
 

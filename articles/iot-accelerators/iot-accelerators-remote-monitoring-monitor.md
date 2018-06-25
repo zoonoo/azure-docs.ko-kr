@@ -1,26 +1,23 @@
 ---
 title: 원격 모니터링 솔루션에서 고급 모니터링 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션 대시보드를 사용하여 장치를 모니터링하는 방법을 보여 줍니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 02/22/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 0456594a4a7776175781968779b4540a98070b78
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 4d2dabd348d7fda4fa7ca3aac9975fd4179400c5
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627402"
 ---
 # <a name="perform-advanced-monitoring-using-the-remote-monitoring-solution"></a>원격 모니터링 솔루션을 사용하여 고급 모니터링 수행
 
-이 자습서에서는 원격 모니터링 대시보드의 기능을 보여 줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso IoT 응용 프로그램에서 시나리오를 사용합니다.
+이 자습서에서는 원격 모니터링 대시보드의 기능을 보여줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso IoT 응용 프로그램에서 시나리오를 사용합니다.
 
 이 자습서에서는 두 개의 시뮬레이트된 Contoso 트럭 장치를 사용하여 솔루션 가속기 대시보드에서 장치를 모니터링하는 방법을 알아봅니다. Contoso 운영자로서 필드에서 트럭의 위치 및 동작을 모니터링해야 합니다.
 
@@ -103,7 +100,7 @@ To view the device details, pan and zoom the map to locate the devices, then cli
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서는 **대시보드** 페이지를 사용하여 원격 모니터링 솔루션에서 프로비전된 시뮬레이트된 트럭을 필터링하고 모니터링하는 방법을 보여 줬습니다.
+이 자습서는 **대시보드** 페이지를 사용하여 원격 모니터링 솔루션에서 프로비전된 시뮬레이션된 트럭을 필터링하고 모니터링하는 방법을 보여줬습니다.
 
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]

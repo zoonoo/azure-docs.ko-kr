@@ -14,14 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 57cc8a63773cda5b66856ba7d6b3215d9c52162c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4555bc85489f557cf6b6b744df7063fc14b0602a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590381"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.
+
+## <a name="may-2018"></a>2018년 5월
+**에이전트 업데이트:**
+*   AD DS용 Azure AD Connect Health 에이전트(버전 3.0.244.0)
+ 1. 에이전트 개인 정보 보호 향상  
+ 2. 버그 수정 및 일반 개선 사항
+
+*   AD FS용 Azure AD Connect Health Agent(버전 3.0.244.0)
+ 1. 에이전트 진단 서비스 및 관련 PowerShell 모듈 향상
+ 2. 에이전트 개인 정보 보호 향상  
+ 3. 버그 수정 및 일반 개선 사항
+
+* 동기화용 Azure AD Connect Health 에이전트(버전 3.0.244.0)
+ 1. 에이전트 개인 정보 보호 향상  
+ 2. 버그 수정 및 일반 개선 사항
+
 
 ## <a name="march-2018"></a>2018년 3월
 **새로운 미리 보기 기능:**

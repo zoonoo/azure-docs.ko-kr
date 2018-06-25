@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Multi-Factor Authentication | Microsoft Docs'
-description: Azure Active Directory B2C에서 보호하는 소비자 지향 응용 프로그램에서 Multi-Factor Authentication을 사용하는 방법
+title: Azure Active Directory B2C의 Multi-Factor Authentication | Microsoft Docs
+description: Azure Active Directory B2C에서 보호하는 소비자 지향 응용 프로그램에서 Multi-Factor Authentication을 사용하는 방법입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: f439c65d9b4fbeb78623312c426767f89dfd9fab
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.component: B2C
+ms.openlocfilehash: 85592275c13719fec0f40eb76a9bce48890a59d2
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710195"
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: 소비자 지향 응용 프로그램에서 Multi-Factor Authentication 사용
 Azure Active Directory(Azure AD) B2C는 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) 에 직접 통합하여 소비자 지향 응용 프로그램에서 등록 및 로그인하는 데 두 번째 보안 계층을 추가할 수 있습니다. 이 작업을 한 줄의 코드도 작성하지 않고 수행할 수 있습니다. 현재 전화 통화 및 문자 메시지를 확인을 지원합니다. 이미 등록 및 로그인 정책을 만든 경우에도 다단계 인증을 사용할 수 있습니다.

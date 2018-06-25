@@ -1,21 +1,21 @@
 ---
-title: 셀프 서비스 암호 재설정 | Microsoft Docs
+title: Azure Active Directory B2C에서 셀프 서비스 암호 재설정 | Microsoft Docs
 description: Azure Active Directory B2C 미리 보기에서 고객을 위해 셀프 서비스 암호 재설정을 설정하는 방법 보여주기
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: davidmu
-ms.openlocfilehash: 5b75455ad604b594a5f85fea8299d35a7d02c848
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: ea8b23618b382f557340643afd62e56932bbfb2d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712099"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>고객을 위해 셀프 서비스 암호 재설정 구성
 셀프 서비스 암호 재설정 기능을 사용하면 로컬 계정에 등록된 고객은 자체적으로 암호를 재설정할 수 있습니다. 특히 정기적으로 응용 프로그램을 사용하는 수백 만 명의 고객 있는 경우 지원 담당자의 부담을 크게 줄여줍니다. 현재는 검증된 이메일 주소만 복구 방법으로 지원됩니다.

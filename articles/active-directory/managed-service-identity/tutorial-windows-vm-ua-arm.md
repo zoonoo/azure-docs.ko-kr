@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: arluca
-ms.openlocfilehash: a2225409e4cb50d91c09207ee70b76df12925192
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 57455c5abf8c566f3935ece73d0b7470863936f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301214"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699152"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>자습서: Windows VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스
 
@@ -41,7 +41,7 @@ ms.locfileid: "34301214"
 
 - 관리 서비스 ID를 잘 모르는 경우 [개요](overview.md) 섹션을 확인하세요. **[시스템 할당 ID와 사용자 할당 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- 이 자습서에서 필요한 리소스 만들기 및 역할 관리 단계를 수행하려면 적절한 범위(사용자 구독 또는 리소스 그룹)에서 계정에 "소유자" 권한이 필요합니다. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](/azure/role-based-access-control/role-assignments-portal)를 참조하세요.
+- 이 자습서에서 필요한 리소스 만들기 및 역할 관리 단계를 수행하려면 적절한 범위(사용자 구독 또는 리소스 그룹)에서 계정에 “소유자” 권한이 필요합니다. 역할 할당에 관한 도움이 필요한 경우 [역할 기반 액세스 제어를 사용하여 Azure 구독 리소스에 대한 액세스 관리](/azure/role-based-access-control/role-assignments-portal)를 참조하세요.
 
 PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.7 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Login-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
@@ -80,8 +80,7 @@ New-AzureRmVm `
 
 사용자 할당 ID는 독립 실행형 Azure 리소스로 생성됩니다. [New-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/get-azurermuserassignedidentity)를 사용하면 하나 이상의 Azure 서비스 인스턴스를 할당할 수 있는 Azure AD 테넌트에 ID가 만들어집니다.
 
-> [!IMPORTANT]
-> 사용자 할당 ID 만들기는 영숫자와 하이픈(0-9 또는 a-z 또는 A-Z 또는 -) 문자만 지원합니다. 또한 VM/VMSS에 대한 할당이 제대로 작동하려면 이름의 길이가 24자로 제한되어야 합니다. 업데이트를 다시 확인하십시오. 자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
+[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
 Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
@@ -172,4 +171,7 @@ CanDelegate: False
 
 ## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [관리 서비스 ID 개요](overview.md)를 참조하세요.
+이 자습서에서는 사용자 할당 ID를 만들고 이를 Azure Virtual Machine에 연결하여 Azure Resource Manager API에 액세스하는 방법을 설명합니다.  Azure Resource Manager에 대한 자세한 내용은 다음을 참조하세요.
+
+> [!div class="nextstepaction"]
+>[Azure 리소스 관리자](/azure/azure-resource-manager/resource-group-overview)

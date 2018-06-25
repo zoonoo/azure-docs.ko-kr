@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: damaerte
-ms.openlocfilehash: 209ca603a3826c6516444ea4f3f4fe592e3b3f2e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: f099c2dd9b5ab82852f86eb82fb4060321a3d419
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302610"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608800"
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Azure Cloud Shell의 PowerShell(미리 보기) 기능 및 도구
 
@@ -91,7 +91,7 @@ IntelliSense 지원은 [PowerShell 편집기 서비스](https://github.com/Power
 
 |**범주**    |**Name**                                 |
 |----------------|-----------------------------------------|
-|Azure 도구     |[Azure PowerShell(6.0.1)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI(2.0.32)](https://docs.microsoft.com/cli/azure)|
+|Azure 도구     |[Azure PowerShell(6.1.0)](https://docs.microsoft.com/powershell/azure/overview)<br> [Azure CLI(2.0.33)](https://docs.microsoft.com/cli/azure)|
 |텍스트 편집기    |vim<br> nano                             |
 |패키지 관리자 |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |소스 제어  |git                                      |

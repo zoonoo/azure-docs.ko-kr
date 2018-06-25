@@ -7,24 +7,26 @@ author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/30/2018
 ms.author: maheshu
-ms.openlocfilehash: 1cfd0570315d5a1c6587ade164edf0a837453406
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: aab6e893a6da1c5b877498f2bf6cbeaa6d0a5c2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34587786"
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: 자주 묻는 질문과 대답(FAQ)
 이 페이지는 Azure Active Directory Domain Services에 대한 자주 묻는 질문을 응답합니다. 업데이트를 계속 확인합니다.
 
 ## <a name="troubleshooting-guide"></a>문제 해결 가이드
-Azure AD Domain Services를 구성 또는 관리할 때 나타날 수 있는 일반적인 문제에 대한 해결책은 [문제 해결 가이드](active-directory-ds-troubleshooting.md)를 참조합니다.
+Azure AD Domain Services 구성 또는 관리에서 발생하는 일반적인 문제에 대한 솔루션은 [문제 해결 가이드](active-directory-ds-troubleshooting.md)를 참조하세요.
 
 ## <a name="configuration"></a>구성
 ### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>단일 Azure AD 디렉터리에 여러 관리되는 도메인을 만들 수 있나요?
@@ -65,13 +67,13 @@ Azure AD Domain Services를 구성 또는 관리할 때 나타날 수 있는 일
 관리 그룹 ‘AAD DC Administrators’의 멤버는 컴퓨터를 도메인에 가입시킬 수 있습니다. 또한 이 그룹의 멤버에게는 도메인에 가입 된 컴퓨터에 대한 원격 데스크톱 액세스가 부여됩니다.
 
 ### <a name="do-i-have-domain-administrator-privileges-for-the-managed-domain-provided-by-azure-ad-domain-services"></a>Azure AD Domain Services에서 제공하는 관리되는 도메인에 대한 도메인 관리자 권한이 부여됩니까?
-번호 관리되는 도메인에 대한 관리 권한이 부여되지 않았습니다. 사용자는 도메인 내에서 '도메인 관리자' 및 '엔터프라이즈 관리자' 권한을 모두 사용할 수 없습니다. 또한 Azure AD 디렉터리 내에서 기존 도메인 관리자 또는 엔터프라이즈 관리자 그룹에는 도메인에서 도메인/엔터프라이즈 관리자 권한이 부여되지 않습니다.
+번호 관리되는 도메인에 대한 관리 권한이 부여되지 않았습니다. 사용자는 도메인 내에서 '도메인 관리자' 및 '엔터프라이즈 관리자' 권한을 모두 사용할 수 없습니다. 또한 온-프레미스 Active Directory 내에서 기존 도메인 관리자 또는 엔터프라이즈 관리자 그룹 멤버에게는 관리되는 도메인에서 도메인/엔터프라이즈 관리자 권한이 부여되지 않습니다.
 
 ### <a name="can-i-modify-group-memberships-using-ldap-or-other-ad-administrative-tools-on-managed-domains"></a>관리되는 도메인에서 LDAP 또는 다른 AD 관리 도구를 사용하여 그룹 멤버 자격을 수정할 수 있습니까?
 번호 Azure AD 도메인 서비스에서 서비스를 제공하는 도메인에 그룹 멤버 자격을 수정할 수 없습니다. 사용자 특성에 대해서도 동일하게 적용됩니다. 그러나 Azure AD 또는 온-프레미스 도메인에서 그룹 구성원 자격 또는 사용자 특성을 변경할 수도 있습니다. 이러한 변경 내용은 Azure AD Domain Services에 자동으로 동기화됩니다.
 
 ### <a name="how-long-does-it-take-for-changes-i-make-to-my-azure-ad-directory-to-be-visible-in-my-managed-domain"></a>Azure AD 디렉터리에 적용한 변경 사항이 내 관리되는 도메인에 표시되는 데 얼마나 걸리나요?
-Azure AD UI 또는 PowerShell을 사용하여 Azure AD 디렉터리에 적용된 변경 사항은 관리되는 도메인에 동기화되어 있습니다. 이 동기화 프로세스는 백그라운드에서 실행됩니다. 디렉터리의 일회성 초기 동기화가 완료되면 Azure AD에 적용된 변경 사항이 관리되는 도메인에 반영되는 데 일반적으로 약 20분이 소요됩니다.
+Azure AD UI 또는 PowerShell을 사용하여 Azure AD 디렉터리에 적용된 변경 사항은 관리되는 도메인에 동기화되어 있습니다. 이 동기화 프로세스는 백그라운드에서 실행됩니다. 초기 동기화가 완료되면 Azure AD에 적용된 변경 사항이 관리되는 도메인에 반영되는 데 일반적으로 약 20분이 소요됩니다.
 
 ### <a name="can-i-extend-the-schema-of-the-managed-domain-provided-by-azure-ad-domain-services"></a>Azure AD Domain Services에서 제공하는 관리되는 도메인의 스키마를 확장할 수 있습니까?
 번호 스키마는 관리되는 도메인에 대해 Microsoft에서 관리합니다. 스키마 확장은 Azure AD 도메인 서비스에서 지원되지 않습니다.
@@ -81,6 +83,9 @@ Azure AD UI 또는 PowerShell을 사용하여 Azure AD 디렉터리에 적용된
 
 ### <a name="what-is-the-password-lifetime-policy-on-a-managed-domain"></a>관리되는 도메인에 대한 암호 수명 정책은 무엇인가요?
 Azure AD Domain Services 관리되는 도메인의 기본 암호 수명은 90일입니다. 이 암호 수명은 Azure AD에 구성된 암호 수명과 동기화되지 않습니다. 따라서 사용자의 암호가 관리되는 도메인에는 만료되지만 Azure AD에서는 여전히 유효한 상황이 발생할 수 있습니다. 이러한 시나리오에서 사용자는 Azure AD에서 자신의 암호를 변경해야 하며, 새 암호는 관리되는 도메인과 동기화됩니다. 또한 사용자 계정에 대한 'password-does-not-expire' 및 'user-must-change-password-at-next-logon' 특성은 관리되는 도메인과 동기화되지 않습니다.
+
+### <a name="does-azure-ad-domain-services-provide-ad-account-lockout-protection"></a>Azure AD Domain Services에서 AD 계정 잠금 보호를 제공하나요?
+예. 관리되는 도메인에서 2분 안에 5차례 암호를 잘못 입력하면 사용자 계정이 30분 동안 잠깁니다. 30분 후 사용자 계정이 자동으로 잠금 해제됩니다. 관리되는 도메인에 대해 암호를 잘못 입력해도 Azure AD의 사용자 계정이 잠기지 않습니다. 사용자 계정은 Azure AD Domain Services 관리되는 도메인 안에서만 잠깁니다.
 
 ## <a name="billing-and-availability"></a>요금 청구 및 가용성
 ### <a name="is-azure-ad-domain-services-a-paid-service"></a>Azure AD Domain Services는 유료 서비스인가요?

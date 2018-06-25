@@ -1,31 +1,25 @@
 ---
 title: C로 Linux 장치를 원격 모니터링에 프로비전 - Azure | Microsoft Docs
 description: C로 작성한 응용 프로그램을 Linux에서 실행하여 원격 모니터링 솔루션 가속기에 장치를 연결하는 방법을 설명합니다.
-services: iot-suite
-suite: iot-suite
-documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 0c7c8039-0bbf-4bb5-9e79-ed8cff433629
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
-ms.openlocfilehash: 9ccf2b185c5aa67b41aab650989ad0326aba0215
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5d7d6522dc663f13ce40cc638ba90ac4043d435c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626380"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>장치를 원격 모니터링 솔루션 가속기에 연결(Linux)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다.
+이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다.
 
 ## <a name="create-a-c-client-project-on-linux"></a>Linux에서 C 클라이언트 프로젝트 만들기
 

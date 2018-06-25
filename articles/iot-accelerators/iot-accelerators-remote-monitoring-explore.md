@@ -1,22 +1,19 @@
 ---
 title: 원격 모니터링 솔루션 시작 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션 가속기를 소개하기 위해 시뮬레이트된 시나리오를 사용합니다. 이러한 시나리오는 원격 모니터링 솔루션 가속기를 처음으로 배포할 때 생성됩니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c8a055dd0dc8e2d9a9a64b492fb134caaacda489
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: e354e110df8d168e153c50de6f7aad08dd416464
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627810"
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기의 기능 탐색
 
@@ -33,7 +30,7 @@ ms.lasthandoff: 05/20/2018
 > * 자산 구성
 > * 시뮬레이션된 장치 중지 및 시작
 
-다음 비디오에서는 원격 모니터링 솔루션 연습을 보여 줍니다.
+다음 비디오에서는 원격 모니터링 솔루션 연습을 보여줍니다.
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-28-An-introduction-to-Azure-IoT-through-the-new-Remote-Monitoring-Preconfigured-Solution/Player]
 
@@ -253,7 +250,7 @@ Contoso에는 필드 서비스 활동에 대한 두 개의 다른 팀이 있습�
 > * 자산 구성
 > * 시뮬레이션된 장치 중지 및 시작
 
-이제 원격 모니터링 솔루션을 탐색했으며 제안된 다음 단계는 원격 모니터링 솔루션의 고급 기능에 대해 자세히 알아보는 것입니다.
+원격 모니터링 솔루션을 탐색했으면, 다음 단계는 원격 모니터링 솔루션의 고급 기능에 대해 자세히 알아보는 것입니다.
 
 * [장치 모니터링](./iot-accelerators-remote-monitoring-monitor.md)
 * [장치 관리](./iot-accelerators-remote-monitoring-manage.md)

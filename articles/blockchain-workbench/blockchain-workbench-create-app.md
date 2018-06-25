@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e4e2866e18c508c0df7a9a9e85a22c98e4372661
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: a4b704f433f02afcff7b94f98c19a478caaa02b2
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302156"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808063"
 ---
 # <a name="create-a-blockchain-application-in-azure-blockchain-workbench"></a>Azure Blockchain Workbench에서 블록체인 응용 프로그램 만들기
 
@@ -238,7 +238,7 @@ Solidity의 스마트 계약은 개체 지향 언어의 클래스와 유사합�
 
 ### <a name="base-class"></a>기본 클래스
 
-**WorkbenchBase** 기본 클래스를 통해 Blockchain Workbench가 계약 업데이트를 만들 수 있습니다. 기본 클래스는 Blockchain Workbench 특정 스마트 계약 코드에 필요합니다. 계약은 **WorkbenchBase** 기본 클래스에서 상속받아야 합니다.
+**WorkbenchBase** 기본 클래스를 통해 Blockchain Workbench가 계약을 만들고 업데이트할 수 있습니다. 기본 클래스는 Blockchain Workbench 특정 스마트 계약 코드에 필요합니다. 계약은 **WorkbenchBase** 기본 클래스에서 상속받아야 합니다.
 
 `HelloBlockchain.sol` 스마트 계약 코드 파일에서 파일 시작 부분에 **WorkbenchBase** 클래스를 추가합니다. 
 
@@ -375,7 +375,7 @@ contract HelloBlockchain is WorkbenchBase('HelloBlockchain', 'HelloBlockchain') 
 Blockchain Workbench에 블록체인 응용 프로그램을 추가하려면 구성 및 스마트 계약 파일을 업로드하여 응용 프로그램을 정의합니다.
 
 1. 웹 브라우저에서 Blockchain Workbench 웹 주소로 이동합니다. 예를 들어 `https://{workbench URL}.azurewebsites.net/`입니다. Blockchain Workbench를 배포하면 웹 응용 프로그램이 생성됩니다. Blockchain Workbench 웹 주소를 찾는 방법에 대한 내용은 [Blockchain Workbench 웹 URL](blockchain-workbench-deploy.md#blockchain-workbench-web-url)을 참조하세요.
-2. Blockchain Workbench 관리자로 로그인합니다. 사용자 관리에 대한 자세한 내용은 [Azure Blockchain Workbench에서 사용자 관리](blockchain-workbench-manage-users.md)를 참조하세요.
+2. [Blockchain Workbench 관리자](blockchain-workbench-manage-users.md#manage-blockchain-workbench-administrators)로 로그인합니다.
 3. **응용 프로그램** > **새로 만들기**를 선택합니다. **새 응용 프로그램** 창이 표시됩니다.
 4. **계약 구성 업로드** > **찾아보기**를 선택하여 생성한 **HelloBlockchain.json** 구성 파일을 찾습니다. 구성 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 응용 프로그램을 배포하기 전에 유효성 검사 오류를 수정합니다.
 5. **계약 코드 업로드** > **찾아보기**를 선택하여 **HelloBlockchain.sol** 스마트 계약 코드 파일을 찾습니다. 코드 파일의 유효성이 자동으로 검사됩니다. 유효성 검사 오류를 표시하려면 **표시** 링크를 선택합니다. 응용 프로그램을 배포하기 전에 유효성 검사 오류를 수정합니다.

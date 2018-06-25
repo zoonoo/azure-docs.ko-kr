@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: d3e43d3484d321c93b4ac3b0e2b947b69af5d2c6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 30409794807618f082cf98de14e374d97a9b4519
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869957"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34592880"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -73,6 +73,8 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | 사용자는 하루에 너무 많이 암호를 재설정하려 할 수 없습니다. | 짧은 시간 동안에 너무 여러 번 자신의 암호를 다시 설정하려는 사용자를 차단하는 자동 제한 메커니즘을 구현합니다. 다음 경우에 제한이 발생합니다. <br><ul><li>사용자가 한 시간 동안 5회에 걸쳐 전화 번호의 유효성을 검사하려 합니다.</li><li>사용자가 한 시간 동안 5회에 걸쳐 보안 질문 게이트를 사용하려 합니다.</li><li>사용자가 한 시간 동안 5회에 걸쳐 동일한 사용자 계정에 대한 암호를 재설정하려 합니다.</li></ul>이 문제를 해결하려면 마지막 시도 후에 24시간 동안 대기하도록 사용자에게 지시합니다. 사용자는 그 후에 암호를 재설정해야 합니다. |
 | 사용자가 자신의 전화 번호의 유효성을 검사하는 경우 오류가 표시됩니다. | 이 오류는 입력한 휴대폰 번호와 파일에서 휴대폰 번호가 일치하지 않을 때 발생합니다. 사용자가 암호 재설정을 위해 전화 기반 방법을 사용하려고 할 때 영역 및 국가 코드를 포함하여 전체 전화 번호를 입력하는지 확인합니다. |
 | 요청을 처리하는 중 오류가 발생했습니다. | 많은 문제로 인해 발생할 수 있지만 일반적으로 서비스 중단 또는 구성 문제로 인해 이 오류가 발생합니다. 이 오류가 나타나고 비즈니스에 영향을 주는 경우 추가적인 도움이 필요하면 Microsoft 지원에 문의하세요. |
+| 온-프레미스 정책 위반 | 암호가 온-프레미스 Active Directory 암호 정책에 맞지 않습니다. |
+| 암호 퍼지 정책을 준수하지 않음 | 사용된 암호는 금지 암호 목록에 표시되고 사용할 수 없습니다. |
 
 ## <a name="troubleshoot-password-writeback"></a>비밀번호 쓰기 저장 문제 해결
 

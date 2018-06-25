@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: byvinyal
-ms.openlocfilehash: 8a8482fa93ca902746e4fc8ef6d67b274a926bdc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9e4ea16193824e63298b19d4401c110385fa7feb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939963"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700195"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -74,6 +74,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
 * [Log Analytics](#log-analytics-limits)
+* [관리 ID](#managed-identity-limits)
 * [Media Services](#media-services-limits)
 * [모바일 고객 관리](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
@@ -83,6 +84,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Network Watcher](#network-watcher-limits)
 * [알림 허브 서비스](#notification-hub-service-limits)
 * [리소스 그룹](#resource-group-limits)
+* [역할 기반 액세스 제어](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [이를 통해 검색](#search-limits)
 * [Service Bus](#service-bus-limits)
@@ -315,6 +317,12 @@ Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 �
 
 ### <a name="automation-limits"></a>Automation 한도
 [!INCLUDE [automation-limits](../includes/azure-automation-service-limits.md)]
+
+### <a name="managed-identity-limits"></a>관리 ID 한도
+[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
+
+### <a name="role-based-access-control-limits"></a>역할 기반 액세스 제어 한도
+[!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL Database 제한
 SQL Database 제한은 [SQL Database 리소스 제한](sql-database/sql-database-resource-limits.md)을 참조하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: skwan
-ms.openlocfilehash: 70dd61758b30c1c7a89374e708fe37c1443d3a2a
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4489f194329727160d770ab72d9cd36115f2e64d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303150"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594760"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>자습서: Linux VM용 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스
 
@@ -182,12 +182,9 @@ Data Lake Store 파일 시스템에 다른 API를 사용하여 파일에 추가,
 
 축하합니다! Linux VM용 MSI를 사용하여 Data Lake Store 파일 시스템을 인증받았습니다.
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [관리 서비스 ID 개요](overview.md)를 참조하세요.
-- 관리 작업을 위해 Data Lake Store는 Azure Resource Manager를 사용합니다.  MSI를 사용하여 Resource Manager를 인증받는 방법에 대한 자세한 내용은 [Linux VM MSI(관리 서비스 ID)를 사용하여 Resource Manager에 액세스](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm)를 참조하세요.
-- [Azure Active Directory를 사용하여 Data Lake Store인증](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)에 대해 자세히 알아봅니다.
-- [Azure Data Lake Store에서 REST API를 사용하여 파일 시스템 작업](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) 또는 [WebHDFS 파일 시스템 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis)에 대해 자세히 알아봅니다.
-- [Data Lake Store에서 액세스 제어](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control)에 대해 자세히 알아봅니다.
+이 자습서에서는 Linux 가상 머신에 대해 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 학습했습니다. Azure Data Lake Store에 대한 자세한 내용은 다음을 참조하세요.
 
-다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Storage](/azure/data-lake-store/data-lake-store-overview)

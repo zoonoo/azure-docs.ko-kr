@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: c4570e43c23ff7a23b5d6a97ebd6da0244ed6fb2
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 35391c8148246146eeb0c07bf57aea8a2a95d277
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34300729"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594937"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>자습서: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
 
@@ -139,8 +139,9 @@ PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다�
     
 Key Vault에서 비밀을 검색한 후에는 이름과 암호가 필요한 서비스에 인증하는 데 비밀을 사용할 수 있습니다. 
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [관리 서비스 ID 개요](overview.md)를 참조하세요.
+이 자습서에서는 Azure Key Vault 액세스를 위해 관리 서비스 ID를 만드는 방법을 학습했습니다.  Azure Key Vault에 대한 자세한 내용은 다음을 참조하세요.
 
-다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+> [!div class="nextstepaction"]
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)

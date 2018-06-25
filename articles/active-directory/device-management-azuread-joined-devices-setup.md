@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory 연결 장치 설정 | Microsoft Docs"
-description: "Azure Active Directory 연결 장치를 설정하는 방법을 알아봅니다."
+title: Azure Active Directory 연결 장치 설정 | Microsoft Docs
+description: Azure Active Directory 연결 장치를 설정하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ac6c9224925e5bfd3cb056c6c8d9cf2a96b0eb2b
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: 791181f11af38e4b78743ddb372207bd21893a6b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260932"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory 연결 장치 설정
 
@@ -47,10 +49,14 @@ Windows 10 장치를 조인하려면 장치를 등록할 수 있도록 장치 �
 
 - 페더레이션 사용자인 경우 자격 증명을 사용하여 로그인해야 합니다.
 
+- 페더레이션 사용자인 경우 ID 공급자가 WS-Fed 및 WS-Trust 사용자 이름/암호 엔드포인트를 지원해야 합니다. 버전 1.3 또는 2005일 수 있습니다. Azure AD에 장치를 조인하고 암호를 사용하여 장치에 로그온하려면 이 프로토콜 지원이 필요합니다. 
+
+
+
 
 ## <a name="joining-a-device"></a>장치 조인
 
-이 섹션에서는 Windows 10 장치를 Azure AD에 조인하는 단계를 제공합니다. Azure AD에 장치를 성공적으로 조인한 경우 **회사 또는 학교 액세스** 대화 상자에 해당 장치가 **\<Azure AD\>에 연결됨**으로 표시됩니다.
+이 섹션에서는 Windows 10 장치를 Azure AD에 조인하는 단계를 제공합니다. 성공적으로 조인된 장치는 **\<Azure AD\>에 연결됨**으로 표시됩니다.
 
 ![연결됨](./media/device-management-azuread-joined-devices-setup/13.png)
 

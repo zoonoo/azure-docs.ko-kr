@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: a724057981b5b389011ffc4c2fc93994c2b8be9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777494"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640339"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>인덱서를 사용해서 Cosmos DB를 Azure Search에 연결
 
@@ -97,7 +97,7 @@ Azure Cosmos DB 인덱서를 설정하려면 인덱스, 데이터 원본, 인덱
 * **형식**: `documentdb`여야 합니다.
 * **자격 증명**:
   
-  * **connectionString**: 필수입니다. Azure Cosmos DB 데이터베이스에 대한 연결 정보를 `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 형식으로 지정합니다. MongoDB 컬렉션의 경우 **ApiKind=MongoDB**를 연결 문자열에 추가합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDB` 
+  * **connectionString**: 필수입니다. Azure Cosmos DB 데이터베이스에 대한 연결 정보를 `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 형식으로 지정합니다. MongoDB 컬렉션의 경우 **ApiKind=MongoDb**를 연결 문자열에 추가합니다. `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
 * **컨테이너**:
   
   * **이름**: 필수입니다. 인덱싱할 데이터베이스 컬렉션의 ID를 지정합니다.

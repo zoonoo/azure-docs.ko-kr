@@ -1,13 +1,14 @@
 ---
-title: "Azure Active Directory ID 보호 용어집 | Microsoft Docs"
-description: "Azure Active Directory ID 보호 용어집"
+title: Azure Active Directory ID 보호 용어집 | Microsoft Docs
+description: Azure Active Directory ID 보호 용어집
 services: active-directory
-keywords: "Azure Active Directory ID 보호, Cloud App Discovery, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약성, 보안 정책, 용어집"
-documentationcenter: 
+keywords: Azure Active Directory ID 보호, Cloud App Discovery, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약성, 보안 정책, 용어집
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 30cf3911d0f22e2d9351fc606cd6697ef437e452
-ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
+ms.openlocfilehash: a9cc4a914091c91f4b2ae1c152644fe8e01747e8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713394"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory ID 보호 용어집
 ### <a name="at-risk-user"></a>위험(사용자)

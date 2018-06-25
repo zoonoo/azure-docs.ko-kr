@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: Weibo 구성 | Microsoft Docs'
+title: Azure Active Directory B2C에서 Weibo 구성 | Microsoft Docs
 description: 소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 Weibo 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 3/26/2017
 ms.author: davidmu
-ms.openlocfilehash: f2a7b6992e54f9804057f21e10ba68a9a723c6a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: c11931b0b1c568591a89277844722dceeac59039
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711470"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-weibo-accounts"></a>Azure Active Directory B2C: 고객에게 Weibo 계정으로 등록 및 로그인 제공
 

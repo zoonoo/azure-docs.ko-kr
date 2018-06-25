@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 417517cbbd187d32b84cc0a78f7b68a5fcf8eb23
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652249"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 
@@ -117,7 +118,7 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
         Make,
         TumblingWindow(second, 10)
 
-**설명**: **CASE** 절을 사용하면 일부 조건에 따른 다른 계산을 제공할 수 있습니다(이 경우에는 집계 창에 있는 자동차의 수).
+**설명**: **CASE** 식은 하나의 식을 일련의 간단한 식과 비교하여 결과를 결정합니다. 이 예제에서는 차량 수가 1인 경우 차량 수가 1이 아닌 경우와 다른 문자열 설명을 반환합니다. 
 
 ## <a name="query-example-send-data-to-multiple-outputs"></a>쿼리 예제: 데이터를 여러 출력으로 보내기
 **설명**: 데이터를 단일 작업에서 여러 출력 대상으로 보냅니다.
@@ -173,7 +174,7 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
         [Count] >= 3
 
 **설명**: **INTO** 절은 이 문의 데이터를 어떤 출력에 쓸 것인지에 대한 Stream Analytics을 알려줍니다.
-첫 번째 쿼리는 **ArchiveOutput**이라고 지정한 출력에 받은 통과한 데이터입니다.
+첫 번째 쿼리는 **ArchiveOutput**이라는 이름의 출력으로 수신된 데이터의 통과입니다.
 두 번째 쿼리는 일부 간단한 집계와 필터링을 하고 다운스트림 경고 시스템에 결과를 보냅니다.
 
 여러 출력 문에서 공통 테이블 식(CTE)(예: **WITH** 문)의 결과를 다시 사용할 수도 있습니다. 이 옵션에는 입력 원본에 대해 더 적은 독자를 여는 추가 이점이 있습니다.
@@ -418,7 +419,7 @@ GROUP BY
 
 ## <a name="query-example-detect-the-duration-of-a-condition"></a>쿼리 예제: 조건의 기간 감지
 **설명**: 조건이 발생한 기간을 알아봅니다.
-예를 들어 버그가 생겨서 모든 자동차의 중량이 정확하지 않은 경우(20,000파운드 이상) 를 가정합니다. 버그의 기간을 계산할 수 있습니다.
+예를 들어 버그로 인해 모든 자동차의 중량이 잘못되었고(20.000파운드 이상) 버그의 지속 시간을 계산해야 한다고 가정합니다.
 
 **입력**:
 
@@ -507,7 +508,7 @@ GROUP BY
 
 ## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>쿼리 예: 동일한 스트림 내에서 두 가지 이벤트 유형에 상관 관계 지정
 **설명**: 특정 시간대에 발생한 여러 이벤트 유형을 기반으로 알림을 생성해야 하는 경우가 있습니다.
-예를 들어 가정용 오븐의 IoT 시나리오에서 팬 온도가 40도 미만이고 지난 3분 동안 최대 전력이 10 미만이면 경보를 발생시키려고 합니다.
+예를 들어 가정용 오븐의 IoT 시나리오에서 팬 온도가 40도 미만이고 지난 3분 동안 최대 전력이 10 미만이면 경고가 생성되어야 합니다.
 
 **입력**:
 
@@ -577,6 +578,46 @@ WHERE
 ````
 
 **설명**: 첫 번째 쿼리 `max_power_during_last_3_mins`는 [슬라이딩 윈도우](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics)를 사용하여 지난 3분 동안 모든 장치에 대한 전력 센서의 최댓값을 찾습니다. 두 번째 쿼리는 첫 번째 쿼리에 조인되어 현재 이벤트와 관련된 가장 최근 윈도우의 파워 값을 찾습니다. 그런 다음, 조건이 충족되면 장치에 대한 경고가 생성됩니다.
+
+## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>쿼리 예제: 장치 클록 스큐(하위 스트림)와 무관한 이벤트 처리
+**설명**: 이벤트 생성자 간의 클록 스큐, 파티션 간 클럭 스큐 또는 네트워크 대기 시간으로 인해 이벤트가 늦게 도착하거나 순서대로 도착하지 못할 수 있습니다. 다음 예제에서 TollID 2의 장치 클록은 TollID 1보다 10초 늦고 TollID 3의 장치 클록은 TollID 1보다 5초 늦습니다. 
+
+
+**입력**:
+| LicensePlate | 계정을 | Time | TollId |
+| --- | --- | --- | --- |
+| DXE 5291 |Honda |2015-07-27T00:00:01.0000000Z | 1 |
+| YHN 6970 |Toyota |2015-07-27T00:오전 12:05.0000000Z | 1 |
+| QYF 9358 |Honda |2015-07-27T00:00:01.0000000Z | 2 |
+| GXF 9462 |BMW |2015-07-27T00:00:04.0000000Z | 2 |
+| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000Z | 1 |
+| RMV 8282 |Honda |2015-07-27T00:00:03.0000000Z | 3 |
+| MDR 6128 |BMW |2015-07-27T00:00:11.0000000Z | 2 |
+| YZK 5704 |Ford |2015-07-27T00:00:07.0000000Z | 3 |
+
+**출력**:
+| TollId | 개수 |
+| --- | --- |
+| 1 | 2 |
+| 2 | 2 |
+| 1 | 1 |
+| 3 | 1 |
+| 2 | 1 |
+| 3 | 1 |
+
+**솔루션**:
+
+````
+SELECT
+      TollId,
+      COUNT(*) AS Count
+FROM input
+      TIMESTAMP BY Time OVER TollId
+GROUP BY TUMBLINGWINDOW(second, 5), TollId
+
+````
+
+**설명**: [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 절은 하위 스트림을 사용하여 각 장치 타임라인을 개별적으로 살펴봅니다. 각 TollID에 대한 출력 이벤트는 계산될 때 생성됩니다. 즉 모든 장치가 동일한 시계를 사용하는 것처럼 순서가 재배열되는 대신 이벤트가 각 TollID에 관해 순서대로 처리됩니다.
 
 
 ## <a name="get-help"></a>도움말 보기

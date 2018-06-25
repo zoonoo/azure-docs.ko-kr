@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 11/30/2017
+ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: ec58b5ef2b9095ba420a4518b84c4e2e6200abc3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714581"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293332"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -32,9 +32,11 @@ Azure Web Apps는 확장성 있는 자체 패치 웹 호스팅 서비스를 제�
 
 > [!div class="checklist"]
 > * 앱의 가격 책정 계층 업그레이드
-> * App Service에 사용자 지정 SSL 인증서 바인딩
-> * 앱에 대해 HTTPS 적용
-> * 스크립트로 SSL 인증서 바인딩 자동화
+> * 사용자 지정 인증서를 App Service에 바인딩
+> * 인증서 갱신
+> * HTTPS 적용
+> * TLS 1.1/1.2 적용
+> * 스크립트를 사용하여 TLS 관리 자동화
 
 > [!NOTE]
 > 사용자 지정 SSL 인증서가 필요한 경우 Azure Portal에서 직접 SSL 인증서를 구매하고 웹앱에 바인딩할 수 있습니다. [App Service 인증서 자습서](web-sites-purchase-ssl-web-site.md)를 따르세요.
@@ -213,6 +215,14 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 
 <a name="bkmk_enforce"></a>
 
+## <a name="renew-certificates"></a>인증서 갱신
+
+바인딩이 IP 기반이라고 하더라도 바인딩을 삭제하면 인바운드 IP 주소가 변경될 수 있습니다. 이것은 IP 기반 바인딩에 이미 있는 인증서를 갱신할 때 특히 중요합니다. 앱의 IP 주소 변경을 방지하려면 다음 단계를 순서대로 수행합니다.
+
+1. 새 인증서 업로드
+2. 기존 인증서를 삭제하지 않고 원하는 사용자 지정 도메인에 새 인증서를 바인딩합니다. 이 작업은 기존 인증서를 제거하지 않고 바인딩을 바꿉니다.
+3. 기존 인증서를 삭제합니다. 
+
 ## <a name="enforce-https"></a>HTTPS 적용
 
 기본적으로 누구나 HTTP를 사용하여 웹앱에 액세스할 수 있습니다. HTTPS 포트에 모든 HTTP 요청을 리디렉션할 수 있습니다.
@@ -236,14 +246,6 @@ A 레코드를 웹앱에 매핑한 경우 이 새로운 전용 IP 주소로 도�
 ![TLS 1.1 또는 1.2 적용](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 
 작업이 완료되면 앱에서 더 낮은 TLS 버전과의 모든 연결을 거부합니다.
-
-## <a name="renew-certificates"></a>인증서 갱신
-
-바인딩이 IP 기반이라고 하더라도 바인딩을 삭제하면 인바운드 IP 주소가 변경될 수 있습니다. 이것은 IP 기반 바인딩에 이미 있는 인증서를 갱신할 때 특히 중요합니다. 앱의 IP 주소 변경을 방지하려면 다음 단계를 순서대로 수행합니다.
-
-1. 새 인증서 업로드
-2. 기존 인증서를 삭제하지 않고 원하는 사용자 지정 도메인에 새 인증서를 바인딩합니다. 이 작업은 기존 인증서를 제거하지 않고 바인딩을 바꿉니다.
-3. 기존 인증서를 삭제합니다. 
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 
@@ -273,6 +275,15 @@ az webapp config ssl bind \
     --ssl-type SNI \
 ```
 
+다음 명령은 최소 TLS 버전 1.2를 적용합니다.
+
+```bash
+az webapp config set \
+    --name <app_name> \
+    --resource-group <resource_group_name>
+    --min-tls-version 1.2
+```
+
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 다음 명령은 내보낸 PFX 파일을 업로드하고 SNI 기반 SSL 바인딩을 추가합니다.
@@ -297,9 +308,11 @@ New-AzureRmWebAppSSLBinding `
 
 > [!div class="checklist"]
 > * 앱의 가격 책정 계층 업그레이드
-> * App Service에 사용자 지정 SSL 인증서 바인딩
-> * 앱에 대해 HTTPS 적용
-> * 스크립트로 SSL 인증서 바인딩 자동화
+> * 사용자 지정 인증서를 App Service에 바인딩
+> * 인증서 갱신
+> * HTTPS 적용
+> * TLS 1.1/1.2 적용
+> * 스크립트를 사용하여 TLS 관리 자동화
 
 다음 자습서로 이동하여 Azure Content Delivery Network를 사용하는 방법을 알아봅니다.
 

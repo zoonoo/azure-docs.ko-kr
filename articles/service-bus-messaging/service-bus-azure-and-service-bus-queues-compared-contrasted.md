@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: b1919037e3a112659a81e9207c842c279734fb48
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0b9a79919a63056bbc17e44ef0da3697001d227f
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802359"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Azure 큐 및 Service Bus 큐 - 비교 및 대조
 이 문서는 현재 Microsoft Azure에서 제공하는 두 가지 유형의 큐인 Storage 큐와 Service Bus 큐 사이의 차이점과 유사점을 분석합니다. 이 정보를 사용하여 각각의 기술을 비교 및 대조하고 요구에 가장 적합한 솔루션이 어떤 것인지 더 합리적으로 결정할 수 있습니다.
@@ -47,7 +48,6 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 
 * 솔루션이 큐를 폴링하지 않고도 메시지를 수신할 수 있어야 하는 경우. Service Bus의 경우 Service Bus에서 지원하는 TCP 기반 프로토콜을 통해 장기 폴링 수신 작업을 사용하여 이를 달성할 수 있습니다.
 * 솔루션에서 큐가 보장된 FIFO(선입선출) 순차적 전달을 제공해야 하는 경우.
-* Azure 및 Windows Server(사설 클라우드)에서 대칭 환경을 사용하는 것이 좋습니다. 자세한 내용은 [Windows Server용 Service Bus](https://msdn.microsoft.com/library/dn282144.aspx)를 참조하세요.
 * 솔루션이 자동 중복 검색을 지원할 수 있어야 하는 경우.
 * 응용 프로그램이 메시지를 병렬 장기 실행 스트림(메시지의 [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) 속성을 사용하여 메시지가 스트림과 연결됨)으로 처리하는 것이 좋습니다. 이 모델에서는 소비 응용 프로그램의 각 노드가 메시지가 아니라 스트림에 대해 경쟁합니다. 소비 노드에 스트림이 전달되면 해당 노드는 트랜잭션을 사용하여 응용 프로그램 스트림 상태를 검사할 수 있습니다.
 * 큐에서 여러 메시지를 송신 또는 수신할 경우 솔루션에 트랜잭션 동작 및 원자성이 필요합니다.
@@ -138,7 +138,7 @@ Storage 큐와 Service Bus 큐는 모두 현재 Microsoft Azure에서 제공하�
 
 ### <a name="additional-information"></a>추가 정보
 * Service Bus의 경우 큐 크기 제한이 강제 적용됩니다. 최대 큐 크기는 큐 생성 시에 지정되며, 1GB ~ 80GB 사이의 값이 될 수 있습니다. 큐 생성 시에 설정된 큐 크기 값에 도달하면, 추가로 수신되는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. Service Bus의 할당량에 대한 자세한 내용은 [Service Bus 할당량](service-bus-quotas.md)을 참조하세요.
-* [표준 계층](service-bus-premium-messaging.md)에서 Service Bus 큐는 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 프리미엄 계층에서 최대 80GB의 큐를 만들 수 있습니다. 표준 계층에서 분할을 사용하는 경우(기본값) Service Bus는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure Portal][Azure portal]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다. 프리미엄 계층에서는 큐당 2개의 파티션만 생성됩니다.
+* 분할은 [프리미엄 계층](service-bus-premium-messaging.md)에서 지원되지 않습니다. 표준 계층에서 Service Bus 큐는 1, 2, 3, 4 또는 5GB 크기로 만들 수 있습니다(기본값은 1GB). 표준 계층에서 분할을 사용하는 경우(기본값) Service Bus는 사용자가 지정한 각 GB마다 16개의 파티션을 만듭니다. 따라서 크기가 5GB인 큐를 만들 경우 16개의 파티션에서 최대 큐 크기는 (5 * 16) = 80GB가 됩니다. [Azure Portal][Azure portal]에서 해당 항목을 보면 분할된 큐 또는 토픽의 최대 크기를 확인할 수 있습니다.
 * Storage 큐의 경우 메시지 콘텐츠가 XML-safe가 아니라면 **Base64**로 인코딩되어야 합니다. 메시지를 **Base64**로 인코딩하면 사용자 페이로드가 64KB가 아니라 최대 48KB가 될 수 있습니다.
 * Service Bus 큐의 경우 큐에 저장된 각 메시지가 헤더와 본문의 두 부분으로 구성됩니다. 메시지의 총 크기는 서비스 계층에서 지원하는 최대 메시지 크기를 초과할 수 없습니다.
 * 클라이언트가 TCP 프로토콜을 통해 Service Bus와 통신할 때, 단일 Service Bus 큐에 대한 최대 동시 연결 수가 100으로 제한됩니다. 이 숫자는 보낸 사람과 받는 사람 사이에 공유됩니다. 이 할당량에 도달하면 후속 추가 연결 요청이 거부되며 호출 코드에서 예외를 수신합니다. REST 기반 API를 사용하여 큐에 연결하는 클라이언트에게는 이 제한이 적용되지 않습니다.

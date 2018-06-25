@@ -4,7 +4,7 @@ description: Azure Log Analytics을 위한 Cloud Foundry Loggregator Nozzle 배�
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: b900a42196eedab89af8e55d71a336ed7adc45a4
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 687356b60ad0bbc469d67e071ce3bccc8b61ebd7
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34609004"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Cloud Foundry 시스템 모니터링용 Azure Log Analytics Nozzle 배포
 
@@ -55,9 +56,9 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
 
 ### <a name="3-create-a-log-analytics-workspace-in-azure"></a>3. Azure에서 Log Analytics 작업 영역 만들기
 
-수동으로 또는 템플릿을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다. Nozzle 배포를 완료한 후 미리 구성된 OMS 보기 및 경고를 로드합니다.
+수동으로 또는 템플릿을 사용하여 Log Analytics 작업 영역을 만들 수 있습니다. 이 템플릿은 OMS 콘솔에 대해 미리 구성된 OMS KPI 뷰와 경고의 설치를 배포합니다. 
 
-수동으로 작업 영역을 만들려면 다음을 수행합니다.
+#### <a name="to-create-the-workspace-manually"></a>수동으로 작업 영역을 만들려면 다음을 수행합니다.
 
 1. Azure Portal에서 Azure Marketplace의 서비스 목록을 검색한 다음, Log Analytics를 선택합니다.
 2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
@@ -70,7 +71,22 @@ UAA 명령줄 클라이언트를 설치하기 전에 Rubygems가 설치되어 �
 
 자세한 내용은 [Log Analytics 시작](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)을 참조하세요.
 
-또는 OMS 템플릿을 통해 Log Analytics 작업 영역을 만들 수 있습니다. 이 메서드를 사용하면 템플릿은 미리 구성된 OMS 보기 및 경고를 자동으로 로드합니다. 자세한 내용은 [Cloud Foundry에 대한 Azure Log Analytics 솔루션](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-cloudfoundry-solution)을 참조하세요.
+#### <a name="to-create-the-oms-workspace-through-the-oms-monitoring-template-from-azure-market-place"></a>Azure Marketplace에서 OMS 모니터링 템플릿을 통해 OMS 작업 영역을 만들려면
+
+1. Azure Portal을 엽니다.
+2. "+" 기호를 클릭하거나 왼쪽 위 모서리에서 "리소스 만들기"를 클릭합니다.
+3. 검색 창에 "Cloud Foundry"를 입력하 고 "OMS Cloud Foundry Monitoring Solution"을 선택합니다.
+4. OMS Cloud Foundry 모니터링 솔루션 템플릿 첫 페이지가 로드되며, "만들기"를 클릭하여 템플릿 블레이드를 실행합니다.
+5. 필수 매개 변수를 입력합니다.
+    * **구독**: OMS 작업 영역에 대한 Azure 구독을 선택합니다. 보통은 Cloud Foundry 배포와 동일합니다.
+    * **리소스 그룹**: OMS 작업 영역에 대해 기존 리소스 그룹을 선택하거나 새 리소스 그룹을 만듭니다.
+    * **리소스 그룹 위치**: 리소스 그룹의 위치를 선택합니다.
+    * **OMS_Workspace_Name**: 작업 영역 이름을 입력합니다. 작업 영역이 없는 경우 템플릿에서 새로 만듭니다.
+    * **OMS_Workspace_Region**: 작업 영역에 대한 위치를 선택합니다.
+    * **OMS_Workspace_Pricing_Tier**: OMS 작업 영역 SKU를 선택합니다. 참조는 [가격 책정 지침](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인하세요.
+    * **약관**: 약관을 클릭한 다음, "만들기"를 클릭하여 약관에 동의합니다.
+- 모든 매개 변수를 지정한 후 "만들기"를 클릭하여 템플릿을 배포합니다. 배포가 완료되면 상태가 알림 탭에 표시됩니다.
+
 
 ## <a name="deploy-the-nozzle"></a>Nozzle 배포
 
@@ -78,9 +94,9 @@ PCF 타일로 또는 CF 응용 프로그램과 같은 다양한 방법으로 Noz
 
 ### <a name="deploy-the-nozzle-as-a-pcf-ops-manager-tile"></a>PCF Ops Manager 타일로 Nozzle 배포
 
-Ops Manager를 사용하여 PCF를 배포한 경우 [PCF용 Nozzle 설치 및 구성](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html)에 대한 단계를 수행합니다. Nozzle은 Ops Manager를 통해 타일로 설치됩니다.
+단계에 따라 [Azure Log Analytics Nozzle for PCF를 설치하고 구성합니다](http://docs.pivotal.io/partners/azure-log-analytics-nozzle/installing.html). 이것은 간단한 방식이기 때문에 PCF Ops Manager 타일이 자동으로 노즐을 구성하여 푸시합니다. 
 
-### <a name="deploy-the-nozzle-as-a-cf-application"></a>CF 응용 프로그램으로 Nozzle 배포
+### <a name="deploy-the-nozzle-manually-as-a-cf-application"></a>자동으로 Nozzle을 CF 응용 프로그램으로 배포
 
 PCF Ops Manager를 사용하지 않는 경우 Nozzle을 응용 프로그램으로 배포합니다. 다음 섹션은 이 프로세스를 설명합니다.
 
@@ -163,13 +179,17 @@ OMS Nozzle 응용 프로그램이 실행되고 있는지 확인합니다.
 
 ## <a name="view-the-data-in-the-oms-portal"></a>OMS 포털에서 데이터 보기
 
+마켓플레이스를 통해 OMS 모니터링 솔루션을 배포한 경우 Azure Portal로 이동하고 OMS 솔루션을 찾습니다. 이 솔루션은 템플릿에서 지정한 리소스 그룹에 있습니다. 솔루션을 클릭하고 "OMS 콘솔"로 이동하면 주요 Cloud Foundry 시스템 KPI, 응용 프로그램 데이터, 경고 및 VM 상태 메트릭으로 미리 구성된 뷰가 나열됩니다.  
+
+OMS 작업 영역을 수동으로 만든 경우 다음 단계에 따라 뷰와 경고를 만듭니다.
+
 ### <a name="1-import-the-oms-view"></a>1. OMS 보기 가져오기
 
 OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 이동하고 omsview 파일 중 하나를 선택합니다. 예를 들어 *Cloud Foundry.omsview*를 선택하고 보기를 저장합니다. 이제 타일이 **개요** 페이지에 표시됩니다. 시각화된 메트릭을 보려면 이 항목을 선택합니다.
 
 **뷰 디자이너**를 통해 새 뷰를 만들거나 이러한 뷰를 사용자 지정할 수 있습니다.
 
-*“Cloud Foundry.omsview”*는 Cloud Foundry OMS 보기 템플릿의 미리 보기 버전입니다. 이것은 완전히 구성된 기본 템플릿입니다. 템플릿에 대한 제안 사항이나 의견이 있으시면 [문제 섹션](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues)으로 보내주세요.
+*“Cloud Foundry.omsview”* 는 Cloud Foundry OMS 보기 템플릿의 미리 보기 버전입니다. 이것은 완전히 구성된 기본 템플릿입니다. 템플릿에 대한 제안 사항이나 의견이 있으시면 [문제 섹션](https://github.com/Azure/oms-log-analytics-firehose-nozzle/issues)으로 보내주세요.
 
 ### <a name="2-create-alert-rules"></a>2. 경고 규칙 만들기
 
@@ -226,6 +246,6 @@ Azure Log Analytics Nozzle은 오픈 소스입니다. [GitHub 섹션](https://gi
 
 ## <a name="next-step"></a>다음 단계
 
-Nozzle에서 제공하는 Cloud Foundry 메트릭과 더불어 OMS 에이전트를 사용하여 VM 수준 작동 데이터(예: Syslog, 성능, 경고, 인벤토리)에 대한 정보도 파악할 수 있습니다. OMS 에이전트는 Bosh 추가 기능으로 CF VM에 설치됩니다.
+PCF2.0부터는 VM 성능 메트릭이 System Metrics Forwarder에 의해 Azure Log Analytics 노즐로 전달되며 OMS 작업 영역에 통합되었습니다. 이제 VM 성능 메트릭에 OMS 에이전트가 필요하지 않습니다. 그러나 OMS 에이전트를 사용하여 Syslog 정보를 계속 수집할 수 있습니다. OMS 에이전트는 Bosh 추가 기능으로 CF VM에 설치됩니다. 
 
 자세한 내용은 [Cloud Foundry 배포에 OMS 에이전트 배포](https://github.com/Azure/oms-agent-for-linux-boshrelease)를 참조하세요.

@@ -9,13 +9,14 @@ editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/25/2018
 ms.author: sachins
-ms.openlocfilehash: ac0a01ed7a067688732aa54eb1b76e0e299e4263
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625341"
 ---
 # <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store를 사용하는 모범 사례
 이 문서에서는 Azure Data Lake Store 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Store의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Store 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Store를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Store에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 
@@ -65,9 +66,9 @@ Data Lake Store의 POSIX 권한 및 감사에는 수많은 작은 파일을 사�
 * 더 빠른 복사/복제
 * Data Lake Store POSIX 권한을 업데이트할 때 더 적은 수의 파일 처리 
 
-데이터를 사용하는 서비스와 작업에 따라 파일 크기를 고려해야 할 적합한 범위는 256MB~1GB이며, 이상적으로는 100MB 미만이 아니거나 2GB를 초과하지 않아야 합니다. Data Lake Store에 연결될 때 파일 크기를 일괄 처리할 수 없는 경우 이러한 파일을 더 큰 파일로 결합하는 별도의 압축 작업을 수행할 수 있습니다. Data Lake Store의 파일 크기 및 데이터 구성에 대한 자세한 내용 및 권장 사항은 [데이터 집합 구성](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)을 참조하세요. 
+데이터를 사용하는 서비스 및 워크로드에 따라 파일에 고려해야 할 적절한 크기는 256MB 이상입니다. Data Lake Store에 연결될 때 파일 크기를 일괄 처리할 수 없는 경우 이러한 파일을 더 큰 파일로 결합하는 별도의 압축 작업을 수행할 수 있습니다. Data Lake Store의 파일 크기 및 데이터 구성에 대한 자세한 내용 및 권장 사항은 [데이터 집합 구성](data-lake-store-performance-tuning-guidance.md#structure-your-data-set)을 참조하세요.
 
-### <a name="large-file-sizes-and-potential-performance-impact"></a>큰 파일 크기 및 성능에 대한 잠재적 영향 
+### <a name="large-file-sizes-and-potential-performance-impact"></a>큰 파일 크기 및 성능에 대한 잠재적 영향
 
 Data Lake Store는 최대 페타바이트 크기의 큰 파일을 지원하지만 최적의 성능을 위해 데이터 읽기 프로세스에 따라 평균 2GB를 초과하지 않는 것이 좋을 수 있습니다. 예를 들어 **Distcp**를 사용하여 위치 또는 다른 저장소 계정 간에 데이터를 복사하는 경우 파일은 매핑 작업을 결정하는 데 사용되는 최상의 세분성 수준입니다. 따라서 각각 1TB인 파일 10개를 복사하는 경우 최대 10개의 매퍼가 할당됩니다. 또한 매퍼가 할당된 많은 파일이 있는 경우 처음에는 매퍼가 병렬로 작동하여 큰 파일을 이동합니다. 그러나 작업이 종료되기 시작하면 몇 개의 매퍼만 할당된 상태로 유지되고 큰 파일에 할당된 단일 매퍼를 사용하여 멈출 수 있습니다. Microsoft는 이후의 Hadoop 버전에서 이 문제를 해결하기 위해 Distcp에 대한 향상된 기능을 제출했습니다.  
 

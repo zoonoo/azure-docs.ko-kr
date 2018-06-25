@@ -4,7 +4,7 @@ description: Azure CDN은 개인 저장소 컨테이너에 제한된 액세스 �
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: ''
+manager: cfowler
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/11/2018
 ms.author: v-deasim
-ms.openlocfilehash: dcae29c49035775cd9ff983bbc99bab06c7f16dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261171"
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
 
@@ -70,7 +71,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
  
 이 옵션은 **Verizon의 Azure CDN Premium** 프로필에서만 사용할 수 있습니다. 이 옵션을 사용하여 원본 서버에서 Blob 저장소를 보호할 수 있습니다. 파일에 대한 특정 액세스 제한이 필요하지 않지만 사용자가 저장소 원본에 직접 액세스하지 못하게 하여 Azure CDN 오프로드 시간을 개선하려는 경우 이 옵션을 사용할 수 있습니다. 원본 서버의 지정된 컨테이너에서 파일에 액세스하는 모든 사용자에게 알려지지 않은 SAS 토큰이 필요합니다. 그러나 URL 다시 쓰기 규칙으로 인해 SAS 토큰은 CDN 엔드포인트에 필요하지 않습니다.
  
-1. [규칙 엔진](cdn-rules-engine.md)을 사용하여 URL 다시 쓰기 규칙을 만듭니다. 새 규칙이 전파되는 데 90분 정도 걸립니다.
+1. [규칙 엔진](cdn-rules-engine.md)을 사용하여 URL 다시 쓰기 규칙을 만듭니다. 새 규칙이 전파되는 데 10분 정도 걸립니다.
 
    ![CDN 관리 단추](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
@@ -112,7 +113,7 @@ Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium
        
    보안 토큰 인증에 대한 매개 변수 옵션은 SAS 토큰에 대한 매개 변수 옵션과 다릅니다. 보안 토큰을 만들 때 만료 시간을 사용하는 경우 SAS 토큰의 만료 시간과 같은 값으로 설정해야 합니다. 이렇게 하면 만료 시간을 예측할 수 있게 됩니다. 
  
-2. [규칙 엔진](cdn-rules-engine.md)으로 URL 다시 쓰기 규칙을 만들어 컨테이너의 모든 Blob에 대한 SAS 토큰 액세스를 사용하도록 설정합니다. 새 규칙이 전파되는 데 90분 정도 걸립니다.
+2. [규칙 엔진](cdn-rules-engine.md)으로 URL 다시 쓰기 규칙을 만들어 컨테이너의 모든 Blob에 대한 SAS 토큰 액세스를 사용하도록 설정합니다. 새 규칙이 전파되는 데 10분 정도 걸립니다.
 
    다음 샘플 URL 다시 쓰기 규칙은 캡처링 그룹 및 *storagedemo*라는 엔드포인트와 함께 정규식 패턴을 사용합니다.
    

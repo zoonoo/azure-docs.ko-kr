@@ -2,26 +2,20 @@
 title: 셀프 서비스 암호 재설정 작동 방법 - Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정 자세히 알아보기
 services: active-directory
-keywords: ''
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: sahenry
-ms.assetid: 618c5908-5bf6-4f0d-bf88-5168dfb28a88
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: authentication
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: joflore
-ms.custom: it-pro;seohack1
-ms.openlocfilehash: 602f4c9b7108c0116e83e302bd73838e0902a7f0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+author: MicrosoftGuyJFlo
+manager: mtillman
+ms.reviewer: sahenry
+ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157724"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593594"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
 
@@ -159,6 +153,8 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 사용자 지정 보안 질문은 여러 로캘로 지역화되지 않습니다. 모든 사용자 지정 질문은 사용자의 브라우저 로캘이 다른 경우에도 관리 사용자 인터페이스에 입력한 언어와 동일한 언어로 표시됩니다. 지역화된 질문이 필요한 경우 미리 정의된 질문을 사용해야 합니다.
 
 사용자 지정 보안 질문은 최대 200자입니다.
+
+다른 번역 언어로 암호 재설정 포털과 질문을 보려면 암호 재설정 URL 마지막에 "?mkt=<Locale>"을 첨부합니다. [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) 예에서는 스페인어로 번역됩니다.
 
 ### <a name="security-question-requirements"></a>보안 질문 요구 사항
 

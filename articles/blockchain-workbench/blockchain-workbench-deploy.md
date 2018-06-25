@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 484c7a17fec4ee94e3170e93eb1438af688d101e
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bcd08ac8563edfaf4297e26ad42ed8bc62d86918
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303946"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831638"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -73,7 +73,7 @@ Blockchain Workbench 배포에는 Azure AD 응용 프로그램의 등록이 필�
 다음으로 Blockchain Workbench 관리자를 지정하려면 Azure AD 내에서 응용 프로그램 역할을 사용하도록 응용 프로그램 매니페스트를 수정해야 합니다.  응용 프로그램 매니페스트에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](../active-directory/develop/active-directory-application-manifest.md)를 참조하세요.
 
 1. 등록한 응용 프로그램에 대해 등록된 응용 프로그램 세부 정보 창에서 **매니페스트**를 선택합니다.
-2. GUID를 생성합니다. PowerShell 명령 `[guid]::NewGuid()` 또는 온라인 도구를 사용하여 GUID를 생성할 수 있습니다. 
+2. GUID를 생성합니다. PowerShell 명령 [guid] :: NewGuid () 또는 New-GUID cmdlet을 사용하여 GUID를 생성할 수 있습니다. 다른 옵션은 GUID 생성기 웹 사이트를 사용하는 것입니다.
 3. 매니페스트의 **appRoles** 섹션을 업데이트하려고 합니다. 매니페스트 편집 창에서 **편집**을 선택하고 `"appRoles": []`를 제공된 JSON으로 바꿉니다. **id** 필드에 대한 값을 사용자가 생성한 GUID로 바꾸었는지 확인합니다. 
 
     ``` json

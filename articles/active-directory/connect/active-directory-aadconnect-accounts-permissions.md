@@ -13,14 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/06/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5a0574af04c118d466544d533561eb01639edfc6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30763f88a7d78678411abd7fe7cc6375e00cb6f6
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158995"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824271"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: 계정 및 사용 권한
 Azure AD Connect 설치 마법사는 두 가지 다른 경로를 제공합니다.
@@ -186,9 +187,9 @@ VSA는 동기화 엔진과 SQL이 동일한 서버에 있는 시나리오에서 
 ### <a name="azure-ad-service-account"></a>Azure AD 서비스 계정
 Azure AD의 계정은 동기화 서비스의 사용에 생성됩니다. 이 계정은 표시 이름으로 식별할 수 있습니다.
 
-![AD 계정](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount.png)
+![AD 계정](./media/active-directory-aadconnect-accounts-permissions/aadsyncserviceaccount2.png)
 
-계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 FABRIKAMCON입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다.
+계정을 사용하는 서버의 이름은 사용자 이름의 두 번째 부분에서 식별할 수 있습니다. 그림에서 서버 이름은 DC1입니다. 준비 서버가 있는 경우 각 서버는 고유한 계정을 포함합니다.
 
 서비스 계정은 만료되지 않은 길고 복잡한 암호를 사용하여 만들어집니다. 또한 디렉터리 동기화 작업을 수행할 수 있는 유일한 권한이 있는 특별한 역할인 **디렉터리 동기화 계정** 이 부여됩니다. 이 특별한 기본 제공 역할은 Azure AD Connect 마법사 외부에서 부여할 수 없습니다. Azure Portal은 **사용자** 역할에서만 이 계정을 표시합니다.
 

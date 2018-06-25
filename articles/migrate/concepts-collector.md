@@ -4,15 +4,15 @@ description: Collector 어플라이언스에 대한 개요 및 구성 방법을 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/22/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0dd310a1f6dff389a4d3dd41dc389b7117272fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32554b2f297c2079374a5edd7739af7320bc1234
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203685"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640230"
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -188,37 +188,37 @@ Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 �
 
 다시 한 번의 OVA를 다운로드하지 않고 수집기를 최신 버전으로 업그레이드할 수 있습니다.
 
-1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/latestupgrade)를 다운로드합니다.
+1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/upgrade_9_11)(버전 1.0.9.11)를 다운로드합니다.
 2. 다운로드한 핫픽스가 안전한지 확인하려면 관리자 권한 명령 창을 열고 다음 명령을 실행하여 Zip 파일에 대한 해시를 생성합니다. 생성된 해시는 특정 버전에 대해 언급된 해시와 일치해야 합니다.
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (예제 사용량 C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.5.zip SHA256)
+    (example usage C:\>CertUtil -HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
 3. Zip 파일을 Azure Migrate 수집기 가상 머신(수집기 어플라이언스)에 복사합니다.
 4. Zip 파일을 마우스 오른쪽 단추로 클릭하고 모두 압축 풀기를 선택합니다.
 5. Setup.ps1 단추를 마우스 오른쪽 단추로 클릭하고 PowerShell과 함께 실행을 선택하고 화면의 지시를 따라 업데이트를 설치합니다.
 
 ### <a name="list-of-updates"></a>업데이트 목록
 
+#### <a name="upgrade-to-version-10911"></a>버전 1.0.9.11로 업그레이드
+
+업그레이드 [패키지 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11)에 대한 해시 값
+
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | 0e36129ac5383b204720df7a56b95a60
+SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
+SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
+
 #### <a name="upgrade-to-version-1097"></a>버전 1.0.9.7로 업그레이드
 
-버전 1.0.9.7 다운로드 [패키지](https://aka.ms/migrate/col/upgrade_9_7)로 업그레이드하는 경우
+업그레이드 [패키지 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7)에 대한 해시 값
 
 **알고리즘** | **해시 값**
 --- | ---
 MD5 | 01ccd6bc0281f63f2a672952a2a25363
 SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
 SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-#### <a name="upgrade-to-version-1095"></a>버전 1.0.9.5로 업그레이드
-
-버전 1.0.9.5 다운로드 [패키지](https://aka.ms/migrate/col/upgrade_9_5)로 업그레이드하는 경우
-
-**알고리즘** | **해시 값**
---- | ---
-MD5 | d969ebf3bdacc3952df0310d8891ffdf
-SHA1 | f96cc428eaa49d597eb77e51721dec600af19d53
-SHA256 | 07c03abaac686faca1e82aef8b80e8ad8eca39067f1f80b4038967be1dc86fa1
 
 ## <a name="next-steps"></a>다음 단계
 

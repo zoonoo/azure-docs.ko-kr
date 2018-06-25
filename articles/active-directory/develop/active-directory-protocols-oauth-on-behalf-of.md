@@ -13,19 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 06/06/2017
 ms.author: celested
-ms.reviewer: nacanuma
+ms.reviewer: hirsin; nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 2f7566bc696d07ad3a8003b3493a382f494c4599
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2bb0d10fee04c4ee48344695769fa7768b0f3a85
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157217"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823869"
 ---
 # <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하여 서비스 간 호출
-OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
+OAuth 2.0 OBO(On-Behalf-Of) 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
+
+> [!IMPORTANT]
+> [OAuth 2.0 암시적 권한 부여](active-directory-dev-understanding-oauth2-implicit-grant.md)를 사용하는 공용 클라이언트는 OBO 흐름을 사용할 수 없습니다. 이러한 클라이언트는 OBO 흐름을 수행하는 중간 계층 기밀 클라이언트에 액세스 토큰을 전달해야 합니다. OBO 호출을 수행할 수 있는 클라이언트에 대한 자세한 내용은 [클라이언트 제한 사항](#client-limitations)을 참조하세요.
 
 ## <a name="on-behalf-of-flow-diagram"></a>On-Behalf-Of 흐름 다이어그램
 사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](active-directory-protocols-oauth-code.md)을 사용하여 응용 프로그램에 대해 인증되었다고 가정합니다. 이 시점에서 응용 프로그램은 사용자의 클레임이 있는 액세스 토큰(토큰 A)을 포함하고 중간 계층 웹 API(API A)에 액세스하는 데 동의합니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
@@ -198,6 +201,8 @@ GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
+## <a name="client-limitations"></a>클라이언트 제한 사항
+와일드카드 회신 URL이 있는 공용 클라이언트는 OBO 흐름에 대해 `id_token`을 사용할 수 없습니다. 그러나 기밀 클라이언트는 공용 클라이언트에 등록된 와일드카드 회신 URI가 있는 경우에도 암시적 권한 부여 흐름을 통해 획득한 액세스 토큰을 계속 회수할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하여 서비스 간 인증을 수행하는 다른 방법에 대해 자세히 알아보세요.

@@ -1,25 +1,22 @@
 ---
-title: Logic Apps에 Box 커넥터 추가 | Microsoft Docs
-description: REST API 매개 변수를 사용하는 Box 커넥터 개요
-services: ''
-documentationcenter: ''
+title: Box에 연결 - Azure Logic Apps | Microsoft Docs
+description: Box REST API 및 Azure Logic Apps를 사용하여 파일 만들기 및 관리
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: 949579cf-a81c-4790-9ef5-fe39b4fbd0c5
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+manager: jeconnoc
+ms.author: estfan
 ms.date: 11/07/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 43268653a507ee76778e8594c5d001e4148dd910
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: a8756e168a8d75cbe705ce2408b6d363f7435b5c
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295077"
 ---
 # <a name="get-started-with-the-box-connector"></a>Box 커넥터 시작
 Box에 연결하여 파일 만들기, 파일 삭제 등의 작업을 수행합니다. Box를 사용하여 다음을 수행할 수 있습니다.

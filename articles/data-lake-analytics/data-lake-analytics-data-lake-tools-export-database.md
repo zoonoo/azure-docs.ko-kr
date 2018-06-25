@@ -1,24 +1,21 @@
 ---
-title: "Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터를 내보내는 방법 | Microsoft Docs"
-description: "Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스를 내보내고 자동으로 로컬 계정으로 가져오는 방법을 알아봅니다."
+title: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스 내보내기
+description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL 데이터베이스를 내보내고 자동으로 로컬 계정으로 가져오는 방법을 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
 author: yanancai
-manager: 
-editor: 
+ms.author: yanacai
+manager: kfile
+editor: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: yanacai
-ms.openlocfilehash: 441606258f9541c9552925e7c0cbc9b3a9effb4d
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 1dbcf9b88af7777a1103876a429ccc26450e2f58
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623413"
 ---
 # <a name="export-a-u-sql-database"></a>U-SQL 데이터베이스 내보내기
 

@@ -8,19 +8,20 @@ manager: mtillman
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 06/07/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 07957d5ec843c414813d69b7084915bcd70a5a61
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1c21c915bc0a83cdafb221a2cd592890577437ee
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930860"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34849528"
 ---
 # <a name="configure-azure-active-directory-device-based-conditional-access-policies"></a>Azure Active Directory 장치 기반 조건부 액세스 정책 구성
 
@@ -51,7 +52,7 @@ Azure AD에 등록된 장치를 가져오는 데는 세 가지 옵션이 있습�
 
 - **[Azure AD 등록 장치](device-management-introduction.md#azure-ad-registered-devices)**  - Azure AD에 등록된 개인 장치를 가져옵니다.
 
-- **[Azure AD 조인 장치](device-management-introduction.md#azure-ad-joined-devices)**  - 등록된 Azure AD에 등록된 온-프레미스 AD에 조인되지 않은 조직의 Windows 10 장치를 가져옵니다. 
+- **[Azure AD 조인 장치](device-management-introduction.md#azure-ad-joined-devices)** - Azure AD에 등록된 온-프레미스 AD에 조인되지 않은 조직의 Windows 10 장치를 가져옵니다. 
 
 - **[Azure AD 조인 장치](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  - Azure AD에 등록된 온-프레미스 AD에 조인된 Windows 10 장치를 가져옵니다.
 
@@ -67,7 +68,7 @@ Azure AD에 등록된 장치를 가져오는 데는 세 가지 옵션이 있습�
 
 ![장치 기반 조건](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-이 설정은 온-프레미스 Azure AD에 조인된 Windows 10 장치에만 적용됩니다. 등록된 Windows 10 장치를 가져오기 위한 [자동화된 프로세스](device-management-hybrid-azuread-joined-devices-setup.md)인 하이브리드 Azure AD 조인을 사용하여 이러한 장치를 Azure AD에만 등록할 수 있습니다. 
+이 설정은 온-프레미스 AD에 조인된 Windows 10 장치에만 적용됩니다. 등록된 Windows 10 장치를 가져오기 위한 [자동화된 프로세스](device-management-hybrid-azuread-joined-devices-setup.md)인 하이브리드 Azure AD 조인을 사용하여 이러한 장치를 Azure AD에만 등록할 수 있습니다. 
 
 ![장치 기반 조건](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

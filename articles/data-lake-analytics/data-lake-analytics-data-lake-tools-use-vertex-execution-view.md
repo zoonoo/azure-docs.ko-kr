@@ -1,31 +1,25 @@
 ---
-title: "Data Lake Tools for Visual Studio에서 Vertex Execution View 사용 | Microsoft 문서"
-description: "Data Lake Analytics 작업을 검사하기 위해 Vertex Execution View를 사용하는 방법을 알아봅니다."
+title: Visual Studio용 Data Lake Tools의 Vertex Execution View 사용
+description: 이 문서에서는 Vertex Execution View를 사용하여 Data Lake Analytics 작업을 검사하는 방법을 설명합니다.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 10/13/2016
+author: mumian
 ms.author: jgao
-ms.openlocfilehash: b788e7bc8ded86ebd49cc0be73e5b4e1bcbeaba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
+ms.topic: conceptual
+ms.date: 10/13/2016
+ms.openlocfilehash: af15bb9fd1131f598dc87f13c4af481b63d023e3
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735444"
 ---
 # <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake Tools의 Vertex Execution View 사용
 Data Lake Analytics 작업을 검사하기 위해 Vertex Execution View를 사용하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
-
-Data Lake Tools for Visual Studio를 사용한 U-SQL 스크립트 개발에 대한 기본 지식이 필요합니다.  [자습서: Visual Studio용 Data Lake Tools를 사용하여 U-SQL 스크립트 개발](data-lake-analytics-data-lake-tools-get-started.md)을 참조하세요.
 
 ## <a name="open-the-vertex-execution-view"></a>Vertex Execution View 열기
 Data Lake Tools for Visual Studio에서 U-SQL 작업을 엽니다. 왼쪽 아래 모서리에서 **Vertex Execution View**를 클릭합니다. 먼저 프로필을 로드하라는 메시지가 나타날 것이며 네트워크 연결 상태에 따라 약간의 시간이 걸릴 수 있습니다.
@@ -59,5 +53,5 @@ Vertex Execution View는 다음 세 가지로 구성됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 진단 정보를 기록하려면 [Azure Data Lake Analytics에 대한 진단 로그에 액세스](data-lake-analytics-diagnostic-logs.md)
-* 더 복잡한 쿼리를 보려면 [Azure Data Lake Analytics을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
+* 더 복잡한 쿼리를 보려면 [Azure 데이터 레이크 분석을 사용하여 웹 사이트 로그 분석](data-lake-analytics-analyze-weblogs.md)을 참조하세요.
 * 작업 세부 정보를 보려면, [Azure Data lake Analytics 작업에 대한 작업 브라우저 및 작업 보기 사용하기](data-lake-analytics-data-lake-tools-view-jobs.md)를 참조하세요.

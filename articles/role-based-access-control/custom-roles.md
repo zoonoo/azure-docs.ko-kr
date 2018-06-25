@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/12/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9e2ea46ea1a6b5bd3f50d4d4c15492c16c5241c0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3baf616e448f1f6d5292161ae125502d72141940
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161059"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266597"
 ---
 # <a name="create-custom-roles-in-azure"></a>Azure에서 사용자 지정 역할 만들기
 
-[기본 제공 역할](built-in-roles.md)이 액세스 요구 사항을 충족하지 못하는 경우 자체적인 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 구독, 리소스 그룹 및 리소스 범위에서 사용자 지정 역할을 사용자, 그룹 및 서비스 주체에 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Active Directory) 테넌트에 저장되며 구독에서 공유할 수 있습니다. Azure PowerShell, Azure CLI 또는 REST API를 사용하여 사용자 지정 역할을 만들 수 있습니다. 이 문서에서는 PowerShell 및 Azure CLI를 사용하여 사용자 지정 역할 만들기를 시작하는 방법의 예를 설명합니다.
+[기본 제공 역할](built-in-roles.md)이 액세스 요구 사항을 충족하지 못하는 경우 자체적인 사용자 지정 역할을 만들 수 있습니다. 기본 제공 역할과 마찬가지로 구독, 리소스 그룹 및 리소스 범위에서 사용자 지정 역할을 사용자, 그룹 및 서비스 주체에 할당할 수 있습니다. 사용자 지정 역할은 Azure AD(Active Directory) 테넌트에 저장되며 구독에서 공유할 수 있습니다. 각 테넌트는 최대 2000개의 사용자 지정 역할을 가질 수 있습니다. Azure PowerShell, Azure CLI 또는 REST API를 사용하여 사용자 지정 역할을 만들 수 있습니다.
+
+이 문서에서는 PowerShell 및 Azure CLI를 사용하여 사용자 지정 역할 만들기를 시작하는 방법의 예를 설명합니다.
 
 ## <a name="create-a-custom-role-to-open-support-requests-using-powershell"></a>PowerShell을 사용하여 지원 요청을 여는 사용자 지정 역할 만들기
 

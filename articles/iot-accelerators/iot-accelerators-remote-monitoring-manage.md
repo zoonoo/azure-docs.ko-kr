@@ -1,28 +1,25 @@
 ---
 title: 원격 모니터링 솔루션에서 장치 관리 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션에 연결된 장치를 관리하는 방법을 보여 줍니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3ad6de2a0ebcd257ca90ea3c5c69988d4c1afd7a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 0f177c3a8746f801e52cdac6cb2189e9cc28e1e8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627282"
 ---
 # <a name="manage-and-configure-your-devices"></a>장치 관리 및 구성
 
-이 자습서에서는 원격 모니터링 솔루션의 장치 관리 기능을 보여 줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso IoT 응용 프로그램에서 시나리오를 사용합니다.
+이 자습서에서는 원격 모니터링 솔루션의 장치 관리 기능을 보여줍니다. 이러한 기능을 소개하기 위해 자습서에서는 Contoso IoT 응용 프로그램에서 시나리오를 사용합니다.
 
-Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 확인하는 시뮬레이션을 실행하려고 합니다. 운영자로서 원격 모니터링 솔루션에서 장치를 관리하고 구성하려고 합니다.
+Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 확인하는 시뮬레이션을 실행하려고 합니다. 운영자가 원격 모니터링 솔루션에서 장치를 관리하고 구성하려고 합니다.
 
 장치를 관리 및 구성하는 확장 가능한 방법을 제공하기 위해 원격 모니터링 솔루션은 [작업](../iot-hub/iot-hub-devguide-jobs.md) 및 [직접 메서드](../iot-hub/iot-hub-devguide-direct-methods.md)와 같은 IoT Hub 기능을 사용합니다. 장치 개발자가 물리적 장치에서 메서드를 구현하는 방법을 알아보려면 [원격 모니터링 솔루션 가속기 사용자 지정](iot-accelerators-remote-monitoring-customize.md)을 참조하세요.
 
@@ -50,7 +47,7 @@ Contoso는 출력 향상을 위해 해당 시설 중 하나를 확장하는 새�
 
 ![시뮬레이트된 엔진 장치 프로비전](./media/iot-accelerators-remote-monitoring-manage/devicesprovisionengine.png)
 
-*물리적* 장치를 프로비전하는 방법을 알아보려면 [원격 모니터링 솔루션 가속기에 장치 연결](iot-accelerators-connecting-devices-node.md)을 참조하세요.
+*물리적* 장치를 프로비전하는 방법을 알아보려면 [장치를 원격 모니터링 솔루션 가속기에 연결](iot-accelerators-connecting-devices-node.md)을 참조하세요.
 
 ## <a name="test-the-simulated-device"></a>시뮬레이트된 장치 테스트
 

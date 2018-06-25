@@ -1,29 +1,25 @@
 ---
-title: "그룹화된 작업 상태에 따라 단계 실행 - Azure Logic Apps | Microsoft Docs"
-description: "작업을 범위로 그룹화하고 그룹 상태에 따라 단계를 실행합니다."
+title: 그룹 상태에 따라 작업을 실행하는 범위 추가 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에서 그룹 작업 상태에 따라 워크플로 작업을 실행하는 범위를 만드는 방법입니다.
 services: logic-apps
-keywords: "분기, 병렬 처리"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 052af45962f442e96ca28f05ffaa1b9814b2588b
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298817"
 ---
-# <a name="scopes-run-steps-based-on-group-status-in-logic-apps"></a>범위: 논리 앱에서 그룹 상태에 따라 단계 실행
+# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Azure Logic Apps에서 그룹 작업 상태에 따라 워크플로 작업을 실행하는 범위 만들기
 
-다른 작업 그룹이 성공하거나 실패한 후에만 단계를 실행하려면 해당 그룹을 *범위* 내에 배치합니다. 이 구조는 작업을 논리 그룹으로 구성하고, 해당 그룹의 상태를 평가하고, 범위의 상태에 따라 작업을 수행하려는 경우에 유용합니다. 범위 내 모든 작업의 실행이 완료되면 범위에서 자체의 상태도 가져옵니다. 예를 들어 [예외 및 오류 처리](../logic-apps/logic-apps-exception-handling.md#scopes)를 구현하려는 경우 범위를 사용할 수 있습니다. 
+다른 작업 그룹이 성공하거나 실패한 후에만 작업을 실행하려면 해당 작업을 *범위* 내에 그룹화합니다. 이 구조는 작업을 논리 그룹으로 구성하고, 해당 그룹의 상태를 평가하고, 범위의 상태에 따라 작업을 수행하려는 경우에 유용합니다. 범위 내 모든 작업의 실행이 완료되면 범위에서 자체의 상태도 가져옵니다. 예를 들어 [예외 및 오류 처리](../logic-apps/logic-apps-exception-handling.md#scopes)를 구현하려는 경우 범위를 사용할 수 있습니다. 
 
 범위의 상태를 확인하려면 "성공", "실패", "취소됨" 등과 같이 논리 앱의 실행 상태를 결정하는 데 사용하는 것과 동일한 기준을 사용할 수 있습니다. 기본적으로 범위의 모든 작업이 성공하면 범위 상태가 "성공"으로 표시됩니다. 그러나 범위의 모든 작업이 실패하거나 취소되면 범위의 상태가 "실패"로 표시됩니다. 범위에 대한 제한은 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 

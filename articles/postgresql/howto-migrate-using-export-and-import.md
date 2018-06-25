@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for PostgreSQL에서 가져오기 및 내보내기를 사용하여 데이터베이스 마이그레이션"
-description: "PostgreSQL 데이터베이스를 스크립트 파일로 추출하고 데이터를 해당 파일에서 대상 데이터베이스로 가져오는 방법을 설명합니다."
+title: Azure Database for PostgreSQL에서 가져오기 및 내보내기를 사용하여 데이터베이스 마이그레이션
+description: PostgreSQL 데이터베이스를 스크립트 파일로 추출하고 데이터를 해당 파일에서 대상 데이터베이스로 가져오는 방법을 설명합니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 8726badde2214a0904336f5bc73310114bcf9e91
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 06/01/2018
+ms.openlocfilehash: 5250b10c2d9645e25c5b6f6f0f34daa50608e51b
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736647"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>내보내기 및 가져오기를 사용하여 PostgreSQL 데이터베이스 마이그레이션
 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html)를 사용하여 PostgreSQL 데이터베이스를 스크립트 파일로 추출하고, [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html)을 사용하여 데이터를 해당 파일에서 대상 데이터베이스로 가져올 수 있습니다.
@@ -48,3 +49,4 @@ psql --file=testdb.sql --host=mydemoserver.database.windows.net --port=5432 --us
 
 ## <a name="next-steps"></a>다음 단계
 - 덤프 및 복원을 사용하여 PostgreSQL 데이터베이스를 마이그레이션하려면 [덤프 및 복원을 사용하여 PostgreSQL 데이터베이스 마이그레이션](howto-migrate-using-dump-and-restore.md)을 참조하세요.
+- Azure Database for PostgreSQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](http://aka.ms/datamigration)를 참조하세요. 

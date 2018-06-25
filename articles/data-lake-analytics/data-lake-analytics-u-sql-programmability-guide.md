@@ -1,23 +1,21 @@
 ---
-title: Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드 | Microsoft Docs
-description: 클라우드 기반 빅 데이터 플랫폼을 만들 수 있는 Azure Data Lake의 서비스 집합에 대해 알아봅니다.
+title: Azure Data Lake에 대한 U-SQL 프로그래밍 기능 가이드
+description: 클라우드 기반 빅 데이터 플랫폼을 만들 수 있는 Azure Data Lake Analytics의 서비스 집합에 대해 알아봅니다.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: saveenr
-ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/30/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 400057b5ce79cdcf6c7651462e9f497bf647e930
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
+ms.topic: conceptual
+ms.date: 06/30/2017
+ms.openlocfilehash: 9ebbecc22acf4be007672f3b52d30f0fec32a47d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623675"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 

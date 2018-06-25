@@ -1,22 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 마이그레이션 방법'
+title: Azure Active Directory B2C에서 사용자 마이그레이션 방법 | Microsoft Docs
 description: Graph API를 사용하고 필요에 따라 Azure AD B2C 사용자 지정 정책을 사용하여 사용자 마이그레이션에 대한 주요 고급 개념을 설명합니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: davidmu
-ms.openlocfilehash: 47f813839a5495591356e5ecd461902fa8745c65
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: B2C
+ms.openlocfilehash: 7c78cb13f9028b2be527794751d5f8ced9bff171
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32140328"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711344"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 ID 공급자를 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션할 때 사용자 계정도 마이그레이션해야 할 수 있습니다. 이 문서에서는 기존 사용자 계정을 ID 공급자에서 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서에서는 규범적인 내용이 아니라 몇 가지 시나리오를 설명하려고 합니다. 개발자는 각 방식의 적합성에 대한 책임이 있습니다.

@@ -3,8 +3,8 @@ title: 국가별 Azure CDN 콘텐츠 제한 | Microsoft Docs
 description: 지역 필터링 기능을 사용하여 Azure CDN 콘텐츠에 대한 액세스를 제한하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
-author: lichard
-manager: akucer
+author: dksimpson
+manager: cfowler
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -12,13 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
-ms.author: rli
-ms.openlocfilehash: bb757ab115d03ab04dac4468d23f446696a971a9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 93321c4c8a7f8d79835d702ca07132eed94f6493
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260755"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>국가별 Azure CDN 콘텐츠 제한
 
@@ -26,7 +27,7 @@ ms.lasthandoff: 05/07/2018
 기본적으로 사용자가 콘텐츠를 요청하는 경우 사용자가 이 요청을 수행하는 위치에 관계 없이 콘텐츠 페이지가 제공됩니다. 경우에 따라 국가별로 콘텐츠에 액세스를 제한 할 수 있습니다. 이 문서에서는 국가별로 액세스를 허용하거나 차단하도록 서비스를 구성하기 위해 *지역 필터링* 기능을 사용하는 방법을 설명합니다.
 
 > [!IMPORTANT]
-> Azure CDN 제품은 모두 동일한 지역 필터링 기능을 제공하지만 지원하는 국가 코드가 약간 다릅니다. 차이점에 대한 링크는 3단계를 참조하세요.
+> Azure CDN 제품은 모두 동일한 지역 필터링 기능을 제공하지만 지원하는 국가 코드가 약간 다릅니다. 자세한 내용은 [Azure CDN 국가 코드](https://msdn.microsoft.com/library/mt761717.aspx)를 참조하세요.
 
 
 이 유형의 제한 구성에 적용되는 고려 사항에 대한 자세한 내용은 [고려 사항](cdn-restrict-access-by-country.md#considerations)을 참조하세요.  
@@ -71,8 +72,11 @@ ms.lasthandoff: 05/07/2018
 * 국가 필터링 구성에 대한 변경 내용은 즉시 적용되지 않습니다.
    * **Microsoft의 Azure CDN 표준** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
    * **Akamai의 Azure CDN Standard** 프로필의 경우, 일반적으로 1분 이내에 전파가 완료됩니다. 
-   * **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 90분 이내에 전파가 완료됩니다.  
+   * **Verizon의 Azure CDN 표준** 및 **Verizon의 Azure CDN 프리미엄** 프로필의 경우 일반적으로 10분 이내에 전파가 완료됩니다. 
+ 
 * 이 기능은 와일드카드 문자를 지원하지 않습니다 (예: '*').
+
 * 상대 경로와 관련된 지역 필터링 구성은 해당 경로에 재귀적으로 적용됩니다.
-* 동일한 상대 경로에 하나의 규칙만 적용할 수 있습니다. (동일한 상대 경로를 가리키는 여러 국가 필터를 만들 수 없습니다  그러나 폴더에는 여러 국가 필터가 있을 수 있습니다. 이는 국가 필터의 재귀적 특성 때문입니다. 즉, 이전에 구성된 폴더의 하위 폴더에 다른 국가 필터를 할당할 수 있습니다.
+
+* 동일한 상대 경로에는 한 가지 규칙만 적용할 수 있습니다. 즉, 동일한 상대 경로를 가리키는 국가 필터를 여러 개 만들 수 없습니다. 그러나 폴더는 국가 필터의 재귀 특성 때문에 여러 국가 필터를 가질 수 있습니다. 즉, 이전에 구성된 폴더의 하위 폴더에 다른 국가 필터를 할당할 수 있습니다.
 

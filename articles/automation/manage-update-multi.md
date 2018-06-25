@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1f34255bdbcc8761f1c68adbb2f1828521f789e4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 658686bec41fe1a6cfa8ca4ba6fe61d2e559297c
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194022"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833722"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -37,29 +37,14 @@ ms.locfileid: "34194022"
 
 업데이트 관리를 지원하는 운영 체제는 다음과 같습니다.
 
-### <a name="windows"></a>Windows
-
-- Windows Server 2008 이상 및 Windows Server 2008 R2 SP1 이상에 대한 업데이트 배포 Nano 서버는 지원되지 않습니다.
-
-  Windows Server 2008 R2 SP1에 대한 업데이트 배포를 지원하려면 .NET Framework 4.5 및 Windows Management Framework 5.0 이상이 필요합니다.
-
-- Windows 클라이언트 운영 체제는 지원되지 않습니다.
-
-Windows 에이전트는 WSUS(Windows Server Update Services) 서버와 통신하도록 구성되거나 Microsoft Update에 대한 액세스 권한이 있어야 합니다.
-
-> [!NOTE]
-> System Center Configuration Manager는 동시에 Windows 에이전트를 관리할 수 없습니다.
->
-
-### <a name="linux"></a>Linux
-
-- CentOS 6(x86/x64) 및 7(x64)
-
-- Red Hat Enterprise 6(x86/x64) 및 7(x64)
-
-- SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)
-
-- Ubuntu 12.04 LTS 이상(x86/x64)
+|운영 체제  |메모  |
+|---------|---------|
+|Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
+|Windows Server 2008 R2 SP1 이상     |Windows PowerShell 4.0 이상이 필요합니다([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855)).</br> Windows PowerShell 5.1([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))은 안정성 개선을 위해 필요합니다.         |
+|CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
+|Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
+|SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
+|Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS(x86/x64)      |Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.         |
 
 > [!NOTE]
 > Ubuntu에서 유지 관리 기간 외에 업데이트가 적용되지 않도록 방지하려면 자동 업데이트를 사용하지 않도록 Unattended-Upgrade 패키지를 다시 구성합니다. 자세한 내용은 [Ubuntu Server의 자동 업데이트 항목 가이드](https://help.ubuntu.com/lts/serverguide/automatic-updates.html)를 참조하세요.
@@ -152,6 +137,9 @@ Azure Portal에서 Automation 계정을 열고 **업데이트 관리**를 선택
   - 정의 업데이트
   - 도구
   - 업데이트
+
+- **제외할 업데이트** - **제외** 페이지가 열립니다. 제외할 KB 또는 패키지 이름을 입력합니다.
+
 - **일정 설정**: 현재 시간부터 30분 이후인 기본 날짜 및 시간을 그대로 적용할 수 있습니다. 또는 다른 시간을 지정할 수 있습니다.
    배포가 한 번만 수행될지 아니면 되풀이 일정으로 수행될지를 지정할 수도 있습니다. 되풀이 일정을 설정하려면 **되풀이**에서 **되풀이** 옵션을 선택합니다.
 

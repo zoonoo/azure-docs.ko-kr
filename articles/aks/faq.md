@@ -6,13 +6,14 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 6/08/2018
 ms.author: nepeters
-ms.openlocfilehash: 3152dc69bc8fb9a94111f85976e5d999c4b18261
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 79236ae7134a27b9a5b89ee8151803befa7b51e1
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260799"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -72,9 +73,13 @@ Windows Server 컨테이너를 실행하려면 Windows Server 기반 노드를 �
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 
-각 AKS 배포는 두 리소스 그룹에 걸쳐 있습니다. 첫 번째 리소스 그룹이 만들어지고 AKS 리소스만 포함됩니다. *MC_myResourceGRoup_myAKSCluster_eastus*와 같은 이름으로 배포되는 동안 AKS 리소스 공급자는 자동으로 두 번째 리소스 그룹을 만듭니다. 두 번째 리소스 그룹에는 VM, 네트워킹 및 저장소와 같이 클러스터와 연결된 인프라 리소스의 모든 항목이 포함됩니다. 이는 리소스 정리를 간소화하기 위해 생성됩니다.
+각 AKS 배포는 두 리소스 그룹에 걸쳐 있습니다. 첫 번째 리소스 그룹이 만들어지고 AKS 리소스만 포함됩니다. *MC_myResourceGroup_myAKSCluster_eastus*와 같은 이름으로 배포되는 동안 AKS 리소스 공급자는 자동으로 두 번째 리소스 그룹을 만듭니다. 두 번째 리소스 그룹에는 VM, 네트워킹 및 저장소와 같이 클러스터와 연결된 인프라 리소스의 모든 항목이 포함됩니다. 이는 리소스 정리를 간소화하기 위해 생성됩니다.
 
 저장소 계정 또는 예약된 공용 IP 주소와 같은 AKS 클러스터를 함께 사용될 리소스를 만드는 경우 자동으로 생성된 리소스 그룹에 배치해야 합니다.
+
+## <a name="does-aks-offer-a-service-level-agreement"></a>AKS는 서비스 수준 계약을 제공합니까?
+
+SLA(서비스 수준 계약)에서, 공급자는 게시된 서비스 수준이 충족되지 않을 경우 고객에게 서비스 비용을 배상하는 것에 동의합니다. AKS 자체는 무료이므로 배상할 비용이 없으며 따라서 공식 SLA가 없습니다. 그러나 Kubernetes API 서버의 가용성을 99.5% 이상으로 유지하기 위해 노력하고 있습니다.
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

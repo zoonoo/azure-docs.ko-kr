@@ -10,15 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 1cfd85eda9ef59a2265a991cabe5f1b6ee83563d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fb4f43dd85f887fa051aaa8050ddf6b37313e376
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594553"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Azure Active Directory에서 Office 365 그룹에 대한 명명 정책 적용(미리 보기)
 
@@ -189,7 +190,7 @@ SDS(학교 데이터 동기화) | SDS를 통해 만든 그룹은 명명 정책�
 OCM(Outlook Customer Manager) | Outlook Customer Manager는 Outlook Customer Manager에서 생성된 그룹에 자동으로 적용되는 이름 명명 정책을 준수합니다. 사용자 정의 차단 단어가 검색되면 OCM에서 그룹 생성이 차단되고 사용자의 OCM 애플리케이션 앱 사용이 차단됩니다.
 교실 앱 | 교실 앱에서 만든 그룹은 명명 정책을 준수하지만 명명 정책은 자동으로 적용되지 않으며 교실 그룹 이름을 입력하는 동안 명명 정책 미리 보기가 사용자에게 표시되지 않습니다. 사용자는 접두사 및 접미사와 함께 적용된 교실 그룹 이름을 입력해야 합니다. 그렇지 않으면 교실 그룹 생성 또는 편집 작업에 실패하고 오류가 발생합니다.
 Power BI | Power BI 작업 공간은 명명 정책을 준수합니다.    
-Yammer | Yammer 연결 그룹은 구성된 명명 정책을 적용하지 않습니다. 조직에서 명명 정책을 사용하도록 설정하기 위해 Yammer는 명명 정책을 따르지 않는 그룹의 Office 365에 연결되지 않은 레거시 Yammer 그룹을 만듭니다.
+Yammer | Azure Active Directory 계정을 사용하여 Yammer에 로그인한 사용자가 그룹을 만들거나 그룹 이름을 편집할 때는 그룹 이름이 이름 지정 정책을 준수해야 합니다. 이것은 Office 365 연결 그룹 및 다른 모든 Yammer 그룹에 적용됩니다.<br>Office 365 연결 그룹이 이름 지정 정책이 적용되기 이전에 생성된 경우 이 그룹 이름은 자동으로 이름 지정 규칙을 따르지 않습니다. 사용자가 해당 그룹 이름을 편집할 때 접두사와 접미사를 추가하라는 메시지가 표시됩니다.
 StaffHub  | StaffHub 팀은 명명 정책을 따르지 않지만 기본 Office 365 그룹은 명명 정책을 따릅니다. StaffHub 팀 이름은 접두사 및 접미사를 적용하지 않으며 사용자 정의 차단 단어를 확인하지 않습니다. 그러나 StaffHub는 접두사 및 접미사를 적용하고 기본 Office 365 그룹에서 차단된 단어를 제거합니다.
 Exchange PowerShell | Exchange PowerShell cmdlet은 명명 정책을 준수합니다. 그룹 이름 및 그룹 별칭(mailNickname)의 명명 정책을 따르지 않는 경우 제안되는 접두사 및 접미사와 함께 사용자 정의 차단 단어에 해당하는 오류 메시지가 표시됩니다.
 Azure Active Directory PowerShell cmdlet | Azure Active Directory PowerShell cmdlet은 명명 정책을 준수합니다. 그룹 이름 및 그룹 별칭의 명명 정책을 따르지 않는 경우 제안되는 접두사 및 접미사와 함께 사용자 정의 차단 단어에 해당하는 오류 메시지가 표시됩니다.

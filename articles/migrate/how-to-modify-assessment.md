@@ -4,14 +4,14 @@ description: Azure Migration Planner를 사용하여 VMware VM을 Azure에 마�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/03/2018
+ms.date: 05/31/2018
 ms.author: raynew
-ms.openlocfilehash: 5054da16a6a02dddb8539011d3baa18f2bb9914a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 73dab9c7eca53ecce44d43a9607fcc7426f9de8d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777048"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715509"
 ---
 # <a name="customize-an-assessment"></a>평가 사용자 지정
 
@@ -26,7 +26,7 @@ ms.locfileid: "33777048"
     **설정** | **세부 정보** | **기본값**
     --- | --- | ---
     **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/> Azure Migrate는 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, US Gov 애리조나, US Gov 텍사스, US Gov 버지니아, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. |  미국 서부 2가 기본 위치입니다.
-    **저장소 이중화** | 마이그레이션 후 Azure VM이 사용하게 될 저장소 중복 유형입니다. | 기본값은 [LRS(로컬 중복 저장소)](../storage/common/storage-redundancy-lrs.md)입니다. Azure Migrate는 관리 디스크 기반 평가만 지원하고 관리 디스크는 LRS만 지원하므로 현재는 속성에 LRS 옵션만 있습니다.
+    **저장소 유형** | Azure에서 할당할 디스크의 형식을 지정할 수 있습니다. 크기 조정 조건이 온-프레미스 크기 조정인 경우에 이 속성을 적용합니다. 대상 디스크 형식을 프리미엄 관리 디스크 또는 표준 관리 디스크로 지정할 수 있습니다. 성능 기반 크기 조정의 경우 디스크 권장 사항은 VM의 성능 데이터에 따라 자동으로 수행됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다. | 기본값은 프리미엄 관리 디스크(크기 조정 조건을 *온-프레미스 크기 조정*으로 지정).
     **크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. *성능 기반* 크기 조정을 수행하거나, 성능 기록을 고려하지 않고 *온-프레미스로* VM 크기를 조정할 수 있습니다. | 기본 옵션은 성능 기반 크기 조정입니다.
     **성능 기록** | VM의 성능을 평가하는 데 고려할 기간입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다. | 기본값은 1일입니다.
     **백분위 수 사용률** | 적정 크기를 산정하는 데 고려되는 성능 샘플 집합의 백분위수 값입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다.  | 기본값은 95번째 백분위수입니다.

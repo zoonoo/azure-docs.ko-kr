@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: nepeters
-ms.openlocfilehash: 858961db439b28a71d3475d2608073287e02f2fd
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3841222d08b23f43f69e77fa43c469793b70ce63
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801384"
 ---
 # <a name="persistent-volumes-with-azure-disks"></a>Azure 디스크가 포함된 영구적 볼륨
 
@@ -37,11 +38,14 @@ default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
+> [!NOTE]
+> 영구 볼륨 클레임은 GiB로 지정되지만 Azure 관리 디스크는 특정 크기에 대한 SKU로 청구됩니다. 이러한 SKU의 범위는 S4 또는 P4 디스크에 대한 32GiB에서 S50 또는 P50 디스크에 대한 4TiB입니다. 또한 프리미엄 관리 디스크의 처리량 및 IOPS 성능은 SKU 및 AKS 클러스터에서 노드의 인스턴스 크기에 따라 달라집니다. [Managed Disks의 가격 책정 및 성능][managed-disk-pricing-performance]을 참조하세요.
+
 ## <a name="create-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
 PVC(영구적 볼륨 클레임)을 사용하여 저장소 클래스를 기반으로 하는 저장소를 자동으로 프로비전합니다. 이 경우에 PVC는 미리 생성된 저장소 클래스 중 하나를 사용하여 표준 또는 프리미엄 Azure 관리 디스크를 만들 수 있습니다.
 
-파일 `azure-premimum.yaml`을 만들고 다음 매니페스트에 복사합니다.
+파일 `azure-premium.yaml`을 만들고 다음 매니페스트에 복사합니다.
 
 `managed-premium` 저장소 클래스를 주석에서 지정하고 클레임이 `ReadWriteOnce` 액세스 권한으로 크기가 `5GB`인 디스크를 요청합니다.
 
@@ -63,7 +67,7 @@ spec:
 [kubectl apply][kubectl-apply] 명령을 사용하여 영구 볼륨 클레임을 만듭니다.
 
 ```azurecli-interactive
-kubectl apply -f azure-premimum.yaml
+kubectl apply -f azure-premium.yaml
 ```
 
 ## <a name="using-the-persistent-volume"></a>영구적 볼륨 사용
@@ -103,16 +107,17 @@ kubectl apply -f azure-pvc-disk.yaml
 Azure 디스크를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure 디스크용 Kubernetes 플러그 인][kubernetes-disk]
+> [Azure 디스크용 Kubernetes 플러그 인][azure-disk-volume]
 
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[kubernetes-disk]: https://kubernetes.io/docs/concepts/storage/storage-classes/#new-azure-disk-storage-class-starting-from-v172
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
+[azure-disk-volume]: azure-disk-volume.md 
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/windows/premium-storage.md

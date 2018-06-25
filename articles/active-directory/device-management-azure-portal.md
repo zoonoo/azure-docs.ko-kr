@@ -8,25 +8,27 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
+ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 6947358c6c845ff2c2a35cb218c11294a2841dc8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714003"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치 관리
 
 
 Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 
 
-항목 내용:
+이 문서의 내용:
 
 - 사용자가 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 잘 숙지한 것으로 가정합니다.
 
@@ -185,10 +187,17 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 장치를 관리
 
 ### <a name="view-or-copy-bitlocker-keys"></a>BitLocker 키 확인 또는 복사
 
-관리자는 BitLocker 키를 보고 복사하여 사용자가 암호화된 드라이브를 복구하도록 지원할 수 있습니다. 이러한 키는 암호화되고 해당 키가 Azure AD에 저장된 Windows 장치에 대해서만 사용할 수 있습니다. 장치 세부 정보에 액세스할 때 이러한 키를 복사할 수 있습니다.
+BitLocker 키를 보고 복사하여 사용자가 암호화된 드라이브를 복구하도록 지원할 수 있습니다. 이러한 키는 암호화되고 해당 키가 Azure AD에 저장된 Windows 장치에 대해서만 사용할 수 있습니다. 장치 세부 정보에 액세스할 때 이러한 키를 복사할 수 있습니다.
  
 ![BitLocker 키 보기](./media/device-management-azure-portal/36.png)
 
+BitLocker 키를 보거나 복사하려면, 장치의 소유자 또는 다음 역할 중 하나 이상이 할당된 사용자여야 합니다.
+
+- 전역 관리자
+- 기술 지원팀 관리자
+- 보안 관리자
+- 보안 읽기 권한자
+- Intune 서비스 관리자
 
 
 ## <a name="audit-logs"></a>감사 로그

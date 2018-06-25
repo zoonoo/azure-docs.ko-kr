@@ -1,20 +1,19 @@
 ---
 title: Azure IoT Edge 모듈 배포 | Microsoft Docs
 description: 모듈을 Edge 장치에 배포하는 방법을 알아봅니다.
-services: iot-edge
-keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.date: 10/05/2017
-ms.topic: article
+ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: ffd3a8e6bde7310f6bdbed0e0f87419c73fcd6fc
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+services: iot-edge
+ms.openlocfilehash: 880a17b6029dafec9ed41e3a32802dc42b872e77
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166338"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34725329"
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>단일 장치 또는 대규모 IoT Edge 배포에 대한 이해 - 미리 보기
 
@@ -26,7 +25,7 @@ Azure IoT Edge 장치는 다른 유형의 IoT 장치와 비슷한 [장치 수명
 
 Azure IoT Edge는 IoT Edge 장치에서 실행되도록 모듈을 구성하는 두 가지 방법을 제공합니다. 하나는 Azure IoT Edge 자습서에서 사용되는 단일 장치에서 개발 및 빠른 반복을 위한 것이고, 다른 하나는 대규모 IoT Edge 장치를 관리하기 위한 것입니다. 이러한 두 가지 방법은 Azure Portal에서 프로그래밍 방식으로 사용할 수 있습니다.
 
-이 문서에서는 IoT Edge 배포라고 하는 대규모 장치에 대한 구성 및 모니터링 단계에 대해 집중적으로 설명합니다. 전체 배포 단계는 다음과 같습니다.   
+이 아티클에서는 IoT Edge 자동 배포라고 하는 대규모 장치에 대한 구성 및 모니터링 단계에 대해 집중적으로 설명합니다. 전체 배포 단계는 다음과 같습니다.   
 
 1. 운영자가 대상 장치뿐만 아니라 일단의 모듈을 설명하는 배포를 정의합니다. 각 배포에는 이 정보를 반영하는 배포 매니페스트가 있습니다. 
 1. IoT Hub 서비스는 모든 대상 장치와 통신하여 원하는 모듈로 구성합니다. 
@@ -37,7 +36,7 @@ Azure IoT Edge는 IoT Edge 장치에서 실행되도록 모듈을 구성하는 �
 
 ## <a name="deployment"></a>배포
 
-배포는 대상 IoT Edge 장치 집합에서 인스턴스로 실행되도록 IoT Edge 모듈 이미지를 할당합니다. 이는 해당 초기화 매개 변수가 있는 모듈의 목록을 포함하도록 IoT Edge 배포 매니페스트를 구성하여 작동합니다. 배포는 단일 장치(일반적으로 장치 ID 기반) 또는 장치 그룹(태그 기반)에 할당할 수 있습니다. IoT Edge 장치에서 배포 매니페스트를 받으면 해당 컨테이너 저장소에서 모듈 컨테이너 이미지를 다운로드, 설치 및 구성합니다. 배포가 만들어지면 운영자가 배포 상태를 모니터링하여 대상 장치가 제대로 구성되었는지 확인할 수 있습니다.   
+IoT Edge 자동 배포는 대상 IoT Edge 장치 집합에서 인스턴스로 실행되도록 IoT Edge 모듈 이미지를 할당합니다. 이는 해당 초기화 매개 변수가 있는 모듈의 목록을 포함하도록 IoT Edge 배포 매니페스트를 구성하여 작동합니다. 배포는 단일 장치(일반적으로 장치 ID 기반) 또는 장치 그룹(태그 기반)에 할당할 수 있습니다. IoT Edge 장치에서 배포 매니페스트를 받으면 해당 컨테이너 저장소에서 모듈 컨테이너 이미지를 다운로드, 설치 및 구성합니다. 배포가 만들어지면 운영자가 배포 상태를 모니터링하여 대상 장치가 제대로 구성되었는지 확인할 수 있습니다.   
 
 장치는 배포로 구성되는 IoT Edge 장치로 프로비전해야 합니다. 다음은 필수 구성 요소이며, 배포에는 포함되지 않습니다.
 * 기본 운영 체제

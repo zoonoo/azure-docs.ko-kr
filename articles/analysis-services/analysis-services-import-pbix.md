@@ -3,23 +3,24 @@ title: Azure Analysis Services로 Power BI Desktop 파일 가져오기 | Microso
 description: Azure Portal을 사용하여 Power BI Desktop 파일(pbix)을 가져오는 방법을 설명합니다.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 05/22/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35bf2ba85017de43788f802b6244d61ed2bb62df
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: aea6f3efcf3740527c43b75a30caadf6b2a8b623
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34601074"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Power BI Desktop 파일 가져오기
 
-Power BI Desktop 파일(pbix)을 가져와 Azure AS에서 새 모델을 만들 수 있습니다. 모델 메타데이터, 캐시된 데이터 및 데이터 원본 연결이 가져오기됩니다. 보고서 및 시각화는 가져오기되지 않습니다.
+Azure Analysis Services로 Power BI Desktop 파일(pbix)의 데이터 모델을 가져올 수 있습니다. 모델 메타데이터, 캐시된 데이터 및 데이터 원본 연결이 가져오기됩니다. 보고서 및 시각화는 가져오기되지 않습니다. Power BI Desktop에서 가져온 데이터 모델은 1400 호환성 수준만 적용됩니다.
 
 **제한 사항**   
-- pbix 모델은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터 원본에만 연결할 수 있습니다. 
+- pbix 모델은 **Azure SQL Database** 및 **Azure SQL Data Warehouse** 데이터 원본에만 연결할 수 있습니다. 
 - pbix 모델에는 라이브 연결이나 DirectQuery 연결이 불가능합니다. 
 - pbix 데이터 모델이 Analysis Services에서 지원되지 않는 메타데이터를 포함하는 경우 가져오기에 실패할 수 있습니다.
 

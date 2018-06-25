@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 평가 계산에 대한 개요를 제공
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 05/28/2018
 ms.author: raynew
-ms.openlocfilehash: be4fb15d96f5598d4b1ddbbaa4befe7f6530152c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203556"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639149"
 ---
 # <a name="assessment-calculations"></a>평가 계산
 
@@ -69,12 +69,12 @@ vCenter Server에서 *기타*로 지정된 OS | 이 경우 Azure Migrate가 OS�
 
 ## <a name="sizing"></a>크기 조정
 
-컴퓨터가 Azure 준비 완료로 표시되면 Azure Migrate는 VM 및 해당 디스크의 크기를 Azure에 맞게 조정합니다. 평가 속성에 지정된 크기 조정 기준이 성능 기반 크기 조정인 경우 Azure Migrate는 컴퓨터의 성능 기록을 고려하여 Azure의 VM 크기를 식별합니다. 이 방법은 온-프레미스 VM을 초과 할당했지만 사용률이 낮으며 비용을 절약하기 위해 Azure에서 VM을 적정 크기로 조정하려는 경우에 유용합니다.
+컴퓨터가 Azure 준비 완료로 표시되면 Azure Migrate는 VM 및 해당 디스크의 크기를 Azure에 맞게 조정합니다. 평가 속성에 지정된 크기 조정 기준이 성능 기반 크기 조정인 경우 Azure Migrate는 컴퓨터의 성능 기록을 고려하여 Azure에서 VM 크기와 디스크 형식을 식별합니다. 이 방법은 온-프레미스 VM을 초과 할당했지만 사용률이 낮으며 비용을 절약하기 위해 Azure에서 VM을 적정 크기로 조정하려는 경우에 유용합니다.
 
 > [!NOTE]
 > Azure Migrate는 vCenter Server에서 온-프레미스 VM의 성능 기록을 수집합니다. 정확한 적정 크기 조정을 위해 vCenter Server의 통계 설정을 수준 3으로 설정하고 하루 이상 기다린 후 온-프레미스 VM의 검색을 시작해야 합니다. vCenter Server의 통계 설정이 수준 3보다 낮으면 디스크 및 네트워크의 성능 데이터가 수집되지 않습니다.
 
-VM 크기 조정의 성능 기록을 고려하지 않고 현재 상태대로 VM을 Azure로 이동하려는 경우 크기 조정 기준을 *온-프레미스로*로 지정할 수 있습니다. 그러면 Azure Migrate는 사용률 데이터를 고려하지 않고 온-프레미스 구성을 기준으로 VM의 크기를 조정합니다. 이 예에서는 디스크 크기 조정이 여전히 성능 데이터를 기반으로 합니다.
+VM 크기 조정의 성능 기록을 고려하지 않고 현재 상태대로 VM을 Azure로 이동하려는 경우 크기 조정 기준을 *온-프레미스로*로 지정할 수 있습니다. 그러면 Azure Migrate는 사용률 데이터를 고려하지 않고 온-프레미스 구성을 기준으로 VM의 크기를 조정합니다. 이 경우 디스크 크기 조정은 평가 속성에 지정한 저장소 유형(표준 디스크 또는 프리미엄 디스크)을 기반으로 수행됩니다.
 
 ### <a name="performance-based-sizing"></a>성능 기반 크기 조정
 
@@ -103,25 +103,13 @@ VM 크기 조정의 성능 기록을 고려하지 않고 현재 상태대로 VM�
     - 적합한 Azure VM 크기가 여러 개인 경우 비용이 가장 낮은 크기가 권장됩니다.
 
 ### <a name="as-on-premises-sizing"></a>온-프레미스로 크기 조정
-크기 조정 기준이 *온-프레미스로 크기 조정*인 경우 Azure Migrate는 VM의 성능 기록을 고려하지 않고 온-프레미스로 할당된 크기에 따라 VM을 할당합니다. 그러나 디스크 크기 조정의 경우 표준 또는 프리미엄 디스크를 권장하기 위해 디스크의 성능 기록을 고려합니다.  
-- **저장소**: Azure Migrate는 컴퓨터에 연결된 모든 디스크를 Azure의 디스크에 매핑합니다.
-
-    > [!NOTE]
-    > Azure Migrate는 평가에 위해 관리 디스크만 지원합니다.
-
-    - 유효 디스크 IOPS(초당 I/O) 및 처리량(MBps)을 얻기 위해 Azure Migrate는 디스크 IOPS와 처리량에 쾌적 인자를 곱합니다. Azure Migrate는 유효 IOPS 및 처리량 값에 따라 디스크를 Azure의 표준 또는 프리미엄 디스크에 매핑할지를 식별합니다.
-    - Azure Migrate가 필요한 IOPS 및 처리량을 가진 디스크를 찾지 못하면 컴퓨터가 Azure에 적합하지 않은 것으로 표시됩니다. 디스크 및 VM당 Azure 제한에 대해 [자세히 알아보세요](../azure-subscription-service-limits.md#storage-limits).
-    - 적합한 디스크 집합을 찾으면 Azure Migrate는 저장소 중복 방법 및 평가 설정에 지정된 위치를 지원하는 디스크를 선택합니다.
-    - 적합한 디스크가 여러 개인 경우 비용이 가장 낮은 디스크를 선택합니다.
-    - 디스크의 성능 데이터를 사용할 수 없는 경우 모든 디스크가 Azure의 표준 디스크에 매핑됩니다.
-- **네트워크**: 각 네트워크 어댑터에 대해 Azure의 네트워크 어댑터가 권장됩니다.
-- **계산**: Azure Migrate가 온-프레미스 VM의 코어 수와 메모리 크기를 확인하고 동일한 구성을 사용하는 Azure VM을 권장합니다. 적합한 Azure VM 크기가 여러 개인 경우 비용이 가장 낮은 크기가 권장됩니다. 온-프레미스 크기 조정에는 CPU 및 메모리 사용률 데이터를 고려하지 않습니다.
+크기 조정 기준이 *온-프레미스로 크기 조정*인 경우 Azure Migrate는 VM과 디스크의 성능 기록을 고려하지 않고 온-프레미스에 할당된 크기에 따라 Azure에서 VM SKU를 할당합니다. 디스크 크기 조정과 유사하게 평가 속성에 지정된 저장소 유형을 확인하고(표준/프리미엄) 그에 따라 디스크 유형을 권장합니다. 기본 저장소 유형은 프리미엄 디스크입니다.
 
 ### <a name="confidence-rating"></a>신뢰 등급
 
 Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결됩니다(별 1개가 가장 낮고 5개가 가장 높음). 신뢰 등급은 평가 계산에 필요한 데이터 요소의 가용성에 따라 평가에 할당됩니다. 평가의 신뢰 등급은 Azure Migrate에서 제공하는 권장 크기의 신뢰성을 추정하는 데 도움이 됩니다.
 
-VM의 성능 기반 크기 조정의 경우 Azure Migrate에 CPU 및 메모리 사용률 데이터가 필요합니다. 또한, VM에 연결된 각 디스크의 크기 조정 시 읽기/쓰기 IOPS 및 처리량이 필요합니다. 마찬가지로, VM에 연결된 각 네트워크 어댑터에 대해 성능 기반 크기 조정을 수행하려면 Azure Migrate에 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 아래와 같이 평가의 신뢰 등급이 제공됩니다.
+평가의 신뢰 등급은 성능 기반인 크기 조정 조건을 사용하는 평가에서 더 유용합니다. 성능 기반 크기 조정의 경우 Azure Migrate에는 VM의 CPU 및 메모리 사용률 데이터가 필요합니다. 또한 VM에 연결된 각 디스크에는 디스크 IOPS 및 처리량 데이터가 필요합니다. 마찬가지로 VM에 연결된 각 네트워크 어댑터의 경우 성능 기반 크기 조정을 수행하려면 Azure Migrate에는 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 아래와 같이 평가의 신뢰 등급이 제공됩니다.
 
    **데이터 요소 가용성** | **신뢰 등급**
    --- | ---

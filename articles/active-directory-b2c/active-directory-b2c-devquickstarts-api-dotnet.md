@@ -1,21 +1,21 @@
 ---
-title: Web API 보호 - ASP.NET - Azure Active Directory B2C | Microsoft Docs
+title: Azure Active Directory B2C에서 ASP.NET 웹 API 보호 | Microsoft Docs
 description: Azure Active Directory B2C를 사용하여 .NET Web API를 빌드하는 방법이며 인증을 위해 OAuth 2.0 액세스 토큰을 사용하여 보호됩니다.
 services: active-directory-b2c
-documentationcenter: .net
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/14/2018
 ms.author: davidmu
-ms.openlocfilehash: c64ca3546c5c2d21b00b379c297c9265b264cb9a
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 8eb4045338476254fa9687a367d45b3646aeb9c1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712371"
 ---
 # <a name="azure-active-directory-b2c-build-a-net-web-api"></a>Azure Active Directory B2C: .NET Web API 빌드
 

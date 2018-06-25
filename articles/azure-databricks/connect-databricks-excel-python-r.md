@@ -1,8 +1,8 @@
 ---
-title: "Excel, Python 또는 R에서 Azure Databricks에 연결 | Microsoft Docs"
-description: "Simba 드라이버를 사용하여 Azure Databricks를 Excel, Python 또는 R에 연결하는 방법을 알아봅니다."
+title: Excel, Python 또는 R에서 Azure Databricks에 연결 | Microsoft Docs
+description: Simba 드라이버를 사용하여 Azure Databricks를 Excel, Python 또는 R에 연결하는 방법을 알아봅니다.
 services: azure-databricks
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: cgronlun
 editor: cgronlun
@@ -11,13 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/02/2018
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 9daa7d30036d0a0f98d079e03a69c29d11e49664
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598881"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
 

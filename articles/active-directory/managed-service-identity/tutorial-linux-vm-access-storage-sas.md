@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 57d4a3767d0ad02f136686d95703817055566c33
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e5e08985f88c7cf3018ecadce2cabac743e4bd37
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303392"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594855"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>자습서: Linux VM 관리 서비스 ID를 사용하여 SAS 자격 증명을 통해 Azure Storage에 액세스
 
@@ -254,10 +254,7 @@ az storage blob download --container-name
 
 ## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [관리 서비스 ID 개요](overview.md)를 참조하세요.
-- 저장소 계정 키를 사용하여 동일한 자습서를 수행하는 방법을 알아보려면 [Linux VM 관리 서비스 ID를 사용하여 Azure Storage에 액세스](tutorial-linux-vm-access-storage.md)를 참조하세요.
-- Azure Storage 계정 SAS 기능에 대한 자세한 내용은 다음을 참조하세요.
-  - [SAS(공유 액세스 서명) 사용](/azure/storage/common/storage-dotnet-shared-access-signature-part-1.md)
-  - [서비스 SAS 생성(영문)](/rest/api/storageservices/Constructing-a-Service-SAS.md)
+이 자습서에서는 Linux 가상 머신에서 관리 서비스 ID를 사용하여 SAS 자격 증명을 사용하는 Azure Storage에 액세스하는 방법을 학습했습니다.  Azure Storage SAS에 대한 자세한 내용은 다음을 참조하세요.
 
-다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+> [!div class="nextstepaction"]
+>[SAS(공유 액세스 서명) 사용](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

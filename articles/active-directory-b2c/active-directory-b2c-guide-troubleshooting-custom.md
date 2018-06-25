@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 사용자 지정 정책 문제 해결 | Microsoft Docs'
-description: Azure Active Directory에서 사용자 지정 정책을 사용하는 경우 오류를 해결하는 방법을 알아봅니다.
+title: Azure Active Directory B2C에서 사용자 지정 정책 문제 해결 | Microsoft Docs
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하는 경우 오류를 해결하는 방법을 알아봅니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: davidmu
-ms.openlocfilehash: e51990bd2e121b89e7260e0d745d08ecc82ff8a0
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 22e7bc7bd275769f78ac2e482cb1af11e9404222
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709617"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
 

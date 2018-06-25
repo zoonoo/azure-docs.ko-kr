@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 7a8807a580f1a7f1fe67e026a8fbd4cc0e96c41c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ade6ef996c00c0c06d5b8e44815520e6e4ab7e9f
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735870"
 ---
 # <a name="advisor-cost-recommendations"></a>Advisor 비용 권장 사항
 
@@ -33,6 +34,11 @@ Advisor에는 가상 머신을 계속 실행할 때의 예상 비용이 표시�
 
 ## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>프로비저닝되지 않은 ExpressRoute 회로를 제거하여 비용 절감
 Advisor는 공급자 상태가 1개월 이상 *프로비저닝되지 않음*인 ExpressRoute 회로를 식별하고, 연결 공급자로 회로를 프로비저닝할 계획이 아닌 경우 회로를 삭제할 것을 권장합니다.
+
+## <a name="buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs"></a>가상 머신 예약 인스턴스를 구매하여 종량제 비용보다 비용 절약
+Advisor는 지난 30일 동안 가상 머신 사용량을 검토하고 예약 인스턴스를 구매하여 비용을 절감할 수 있는지 확인합니다. Advisor는 잠재적으로 가장 절약할 수 있는 지역 및 크기를 보여주고, 예약 인스턴스 구매로 예상되는 절감을 보여줍니다. 
+
+예약 인스턴스를 사용하여 가상 머신에 대한 기본 비용을 미리 구입할 수 있습니다. 할인은 예약 인스턴스와 동일한 크기 및 지역이 있는 새로운 또는 기존 VM에 자동으로 적용됩니다. [Azure Reserved VM Instances에 대한 자세한 정보](https://azure.microsoft.com/pricing/reserved-vm-instances/)
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Azure Advisor에서 비용 권장 사항에 액세스하는 방법
 

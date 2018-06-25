@@ -1,10 +1,10 @@
 ---
-title: "Azure App Service의 Mobile Apps 기능를 사용하여 Apache Cordova 앱에 푸시 알림 추가 | Microsoft Docs"
-description: "Mobile Apps를 사용하여 Apache Cordova 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+title: Azure App Service의 Mobile Apps 기능를 사용하여 Apache Cordova 앱에 푸시 알림 추가 | Microsoft Docs
+description: Mobile Apps를 사용하여 Apache Cordova 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
 services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
-editor: 
+editor: ''
 author: conceptdev
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -14,11 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 6af5fa51f2e6553431b9f0aa2dbb368651e7e209
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 13c1a53cfa3f998c9e3fa3ee1ee2dcec37357095
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597997"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>Apache Cordova 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -33,13 +34,13 @@ ms.lasthandoff: 02/21/2018
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio Community 2015][2] 이상이 설치된 PC 
+* [Visual Studio Community 2015][2] 이상이 설치된 PC
 * [Visual Studio Tools for Apache Cordova][4]
 * [활성 Azure 계정][3]
 * 완료된 [Apache Cordova 빠른 시작][5] 프로젝트
 * (Android)검증된 메일 주소를 사용하는 [Google 계정][6]
 * (iOS)[Apple 개발자 프로그램 멤버 자격][7] 및 iOS 장치(iOS 시뮬레이터는 푸시 알림을 지원하지 않음)
-* (Windows)[Windows 스토어 개발자 계정][8] 및 Windows 10 장치
+* (Windows)[Microsoft Store 개발자 계정][8] 및 Windows 10 장치
 
 ## <a name="configure-hub"></a>알림 허브 구성
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -280,7 +281,7 @@ Apple 개발자 계정에서 만든 앱 ID가 config.xml 파일의 위젯 요소
    > [!NOTE]
    > 앱은 첫 번째 실행 동안 푸시 알림에 대한 확인을 요청합니다.
 
-3. 앱에서 작업을 입력하고 더하기**(+)** 아이콘을 선택합니다.
+3. 앱에서 작업을 입력하고 더하기 **(+)** 아이콘을 선택합니다.
 4. 알림을 받았는지 확인합니다. 그런 다음, **확인**을 선택해 알림을 해제합니다.
 
 ## <a name="optional-configure-and-run-on-windows"></a>(선택 사항) Windows에서 구성 및 실행
@@ -328,7 +329,7 @@ Visual Studio에서 Windows 플랫폼이 배포 대상(예: **Windows-x64** 또�
 
 1. **실행** 단추를 선택해 프로젝트를 빌드하고 앱을 시작합니다.
 
-2. 앱에서 새 todoitem에 대한 이름을 입력한 다음, 더하기**(+)** 아이콘을 선택하여 추가합니다.
+2. 앱에서 새 todoitem에 대한 이름을 입력한 다음, 더하기 **(+)** 아이콘을 선택하여 추가합니다.
 
 항목이 추가될 때 알림을 받았는지 확인합니다.
 

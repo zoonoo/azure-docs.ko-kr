@@ -8,18 +8,19 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: marsma
-ms.openlocfilehash: 47abb4c305b1997fa3f44c07aa85dd01e5a94f1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a030582c885dd0a5680bd23046ea2a9c0329701a
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830074"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure Container Instances에서 비밀 볼륨 탑재
 
 Container Instances에서 *비밀* 볼륨을 탑재하여 컨테이너 그룹의 컨테이너에서 중요한 정보를 저장하고 검색하는 방법을 알아봅니다.
 
 > [!NOTE]
-> *비밀* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
+> *비밀* 볼륨 탑재는 현재 Linux 컨테이너로 제한됩니다. [환경 변수 설정](container-instances-environment-variables.md)에서 Windows 및 Linux 컨테이너 모두에 대한 안전한 환경 변수를 전달하는 방법을 알아봅니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
 
 ## <a name="secret-volume"></a>비밀 볼륨
 

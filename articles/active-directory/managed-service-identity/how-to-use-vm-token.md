@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 2f24eaa65781eb56b641ed179536867ee514f668
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 6fcf0e9cf91354cacb2940faf30a9496919ed3d7
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165454"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796306"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>토큰 획득을 위해 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
@@ -313,6 +313,8 @@ Azure AD에 대한 실시간 호출은 다음과 같은 경우에만 호출됩�
 | 500 내부 서버 오류 | 알 수 없음 | Active directory에서 토큰을 검색하지 못했습니다. 자세한 내용은 *\<파일 경로\>* 에서 로그를 참조하세요. | MSI가 VM에서 설정되어 있는지 확인합니다. VM을 구성하는 데 도움이 필요한 경우 [Azure Portal을 사용하여 VM MSI(관리 서비스 ID) 구성](qs-configure-portal-windows-vm.md)을 참조하세요.<br><br>또한 HTTP GET 요청 URI의 형식, 특히 쿼리 문자열에서 지정된 리소스 URI가 올바르게 지정되었는지 확인합니다. 예제는 [이전 REST 섹션](#rest)에서 "샘플 요청"을 참조하세요. 또는 서비스 및 각 리소스 ID의 목록은 [Azure AD 인증을 지원하는 Azure 서비스](services-support-msi.md)를 참조하세요.
 
 ## <a name="retry-guidance"></a>다시 시도 지침 
+
+404, 429 또는 5xx 오류 코드가 표시되면 다시 시도하는 것이 좋습니다(위의 [오류 처리](#error-handling) 참조).
 
 제한 한도는 IMDS 엔드 포인트에 호출한 횟수에 적용됩니다. 제한 임계값을 초과하면 제한이 적용되는 동안 IMDS 엔드포인트에서 추가 요청을 제한합니다. 이 기간 동안 IMDS 엔드포인트는 429 HTTP 상태 코드("요청이 너무 많음")를 반환하고 요청이 실패합니다. 
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 1b23101de9a84da487e73558366cc574a22e849d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8abd4f0f597cf255be3c1bc2fdd78a121cfb6517
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594988"
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Resource Manager 액세스
 
@@ -117,9 +118,10 @@ VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure A
     {"id":"/subscriptions/98f51385-2edc-4b79-bed9-7718de4cb861/resourceGroups/DevTest","name":"DevTest","location":"westus","properties":{"provisioningState":"Succeeded"}}
     ```
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [관리 서비스 ID 개요](overview.md)를 참조하세요.
+이 자습서에서는 사용자 할당 ID를 만들고 이를 Azure Virtual Machine에 연결하여 Azure Resource Manager API에 액세스하는 방법을 설명합니다.  Azure Resource Manager에 대한 자세한 내용은 다음을 참조하세요.
 
-다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+> [!div class="nextstepaction"]
+>[Azure 리소스 관리자](/azure/azure-resource-manager/resource-group-overview)
 

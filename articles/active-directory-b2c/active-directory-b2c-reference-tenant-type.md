@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 지역 가용성 및 데이터 상주 | Microsoft Docs'
-description: Azure Active Directory B2C 테넌트 유형에 대한 항목
+title: Azure Active Directory B2C에 지역 가용성 및 데이터 상주 | Microsoft Docs
+description: Azure Active Directory B2C 테넌트 유형에 대한 항목입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: davidmu
-ms.openlocfilehash: b982a6b6e0068370ef7b5cb30ea689829e90d494
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: add7c49d8efaec0fddf057c454b4f01aec5df1ce
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709600"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 지역 가용성 및 데이터 상주는 나머지 Azure에서 Azure AD B2C에 다르게 적용되는 두 가지 매우 다른 개념입니다. 이 문서에서는 이러한 두 개념의 차이점을 설명하고 이러한 개념이 Azure 및 Azure AD B2C에 적용되는 방식을 비교합니다.

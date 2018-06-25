@@ -1,11 +1,11 @@
 ---
-title: "Azure AD Connect 동기화: 디렉터리 확장 | Microsoft Docs"
-description: "이 항목에서는 Azure AD Connect의 디렉터리 확장 기능을 설명합니다."
+title: 'Azure AD Connect 동기화: 디렉터리 확장 | Microsoft Docs'
+description: 이 항목에서는 Azure AD Connect의 디렉터리 확장 기능을 설명합니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
 ms.devlang: na
@@ -13,12 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4430f445a836f4baa90511c71bb734eda8674249
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34593635"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
 디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [Azure AD Graph API 디렉터리 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 또는 [Microsoft Graph](https://graph.microsoft.io/)를 통해 이용할 수 있습니다. 각각 [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) 및 [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)를 통해 사용할 수 있는 특성을 볼 수 있습니다.

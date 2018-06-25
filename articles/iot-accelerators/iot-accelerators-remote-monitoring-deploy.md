@@ -1,22 +1,19 @@
 ---
 title: 원격 모니터링 솔루션 배포 - Azure | Microsoft Docs
 description: 이 자습서는 azureiotsuite.com에서 원격 모니터링 솔루션 가속기를 프로비전하는 방법을 보여줍니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 8738fbfc29f6776a091cdc2b872eab88abd195cd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 42f6afcd3cb6880ba6c9cdd2a51e2a3e9ff2c2d4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626856"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 배포
 
@@ -45,7 +42,7 @@ Azure 구독에 솔루션 가속기를 배포하기 전에 일부 구성 옵션�
 
     ![원격 모니터링 선택](./media/iot-accelerators-remote-monitoring-deploy/remotemonitoring.png)
 
-1. **원격 모니터링 솔루션 만들기** 페이지에서 원격 모니터링 솔루션 가속기에 **솔루션 이름**을 입력합니다.
+1. **원격 모니터링 솔루션 만들기** 페이지에서 원격 모니터링 솔루션 가속기에 대한 **솔루션 이름**을 입력합니다.
 
 1. **기본** 또는 **표준** 배포를 선택합니다. 작동 방법을 알아보거나 데모 실행을 위해 솔루션을 배포하는 경우 **기본** 옵션을 선택하여 비용을 최소화합니다.
 
@@ -87,6 +84,6 @@ Azure 구독에 솔루션 가속기를 배포하기 전에 일부 구성 옵션�
 > * 솔루션 가속기 배포
 > * 솔루션 가속기에 로그인
 
-이제 원격 모니터링 솔루션을 배포했으며 다음 단계는 [솔루션 대시보드의 기능을 탐색](iot-accelerators-remote-monitoring-explore.md)하는 것입니다.
+원격 모니터링 솔루션을 배포했으면 다음 단계는 [솔루션 대시보드의 기능을 탐색](iot-accelerators-remote-monitoring-explore.md)하는 것입니다.
 
 <!-- Next tutorials in the sequence -->

@@ -1,25 +1,19 @@
 ---
 title: 원격 모니터링 솔루션 가속기 FAQ | Microsoft Docs
 description: 원격 모니터링 솔루션 가속기에 대한 질문과 대답
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: a65f2a90aedf5aa50016a6c5e5019094f202bf55
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 094bb4b781bb554d340580377ec343f33579299e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627657"
 ---
 # <a name="frequently-asked-questions-for-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 대한 질문과 대답
 
@@ -49,6 +43,6 @@ ms.lasthandoff: 05/20/2018
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
 * [원격 모니터링 솔루션 가속기의 기능 탐색](iot-accelerators-remote-monitoring-explore.md)
-* [예측 유지 관리 솔루션 가속기 개요](../iot-suite/iot-suite-predictive-overview.md)
+* [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리 솔루션 가속기 개요](iot-accelerators-connected-factory-overview.md)
-* [처음부터 IoT 보안을 고려](../iot-suite/securing-iot-ground-up.md)
+* [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)

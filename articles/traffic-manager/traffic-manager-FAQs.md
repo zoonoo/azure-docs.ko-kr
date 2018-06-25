@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 718a7eb1e6457c669456d88e5c6e80157b28066c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942359"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35301068"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -86,10 +86,18 @@ DNS 쿼리가 Traffic Manager에 도착하면 TTL(Time to Live)이라는 값을 
 
 프로필 수준별로 DNS TTL을 0초에서 2,147,483,647초 사이로 설정할 수 있습니다(최대 범위는 [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )에 따름). TTL이 0이면 다운스트림 DNS 확인자가 쿼리 응답을 캐시하지 않고 모든 쿼리가 확인을 위해 Traffic Manager DNS 서버에 도착합니다.
 
+### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>내 프로필로 들어오는 쿼리 볼륨을 파악하려면 어떻게 해야 할까요? 
+Traffic Manager에서 제공하는 메트릭 중 하나로 프로필에서 응답한 쿼리 수가 있습니다. 이 정보는 프로필 수준 집계에서 얻을 수 있거나 더 자세히 분할하여 특정 엔드포인트가 반환된 쿼리 볼륨을 확인할 수 있습니다. 또한 쿼리 응답 볼륨이 설정한 조건과 어긋나는 경우 알리도록 경고를 설정할 수 있습니다. 자세한 내용은 [Traffic Manager 메트릭 및 경고](traffic-manager-metrics-alerts.md)를 참조하세요.
+
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Traffic Manager 지리적 트래픽 라우팅 방법
 
 ### <a name="what-are-some-use-cases-where-geographic-routing-is-useful"></a>지리적 라우팅이 유용한 사용 사례에는 어떤 것이 있습니까? 
 지리적 라우팅 형식은 Azure 고객이 지리적 지역에 따라 사용자를 구분해야 하는 시나리오에서 사용할 수 있습니다. 예를 들어 지리적 트래픽 라우팅 방법을 사용하게 되면 특정 지역의 사용자에게 다른 지역의 사용자와는 다른 사용자 환경을 제공할 수 있습니다. 또 다른 예는 특정 지역의 해당 사용자들이 해당 지역의 끝점에서만 제공받도록 하는 로컬 데이터 독립성 지침을 준수하는 것입니다.
+
+### <a name="how-do-i-decide-if-i-should-use-performance-routing-method-or-geographic-routing-method"></a>성능 라우팅 방법 또는 지리적 라우팅 방법을 사용해야 하는지를 결정하려면 어떻게 할까요? 
+인기 있는 이 두 가지 라우팅 방법의 주요 차이점은 성능 라우팅 방법의 기본 목표가 호출자에 가장 짧은 대기 시간을 제공할 수 있는 엔드포인트에 트래픽을 보내는 것이지만, 지리적 라우팅의 기본 목표가 특정 엔드포인트로 의도적으로 라우팅할 수 있도록 호출자에 지리적 펜스를 적용하는 것에 있습니다. 지리적 인접성과 짧은 대기 시간 간의 상관 관계가 있으므로 서로 겹치지만 항상 그렇지는 않습니다. 호출자에게 더 나은 대기 시간 환경을 제공할 수 있는 다른 지역에 엔드포인트가 있을 수 있습니다. 이 경우 성능 라우팅은 사용자를 해당 엔드포인트로 보내지, 지리적 라우팅은 항상 사용자를 해당 지리적 영역에 매핑된 엔드포인트로 보냅니다. 더 명확히 하기 위해 다음 예제를 생각해 보겠습니다. 지리적 라우팅을 사용하면 아시아의 모든 트래픽을 미국의 엔드포인트로 보내고, 미국의 모든 트래픽을 아시아의 엔드포인트로 보내는 것과 같은 특수 매핑을 만들 수 있습니다. 이 경우 지리적 라우팅에서는 수행하도록 구성한 작업을 의도적으로 정확하게 수행하며 성능 최적화는 고려하지 않습니다. 
+>[!NOTE]
+>성능 및 지리적 라우팅 기능이 모두 필요한 시나리오가 있을 수 있습니다. 이러한 시나리오에서는 중첩된 프로필을 선택하는 것이 좋습니다. 예를 들어 북아메리카 지역의 모든 트래픽을 미국에 엔드포인트가 있는 중첩된 프로필로 보내고, 성능 라우팅을 사용하여 해당 트래픽을 해당 집합 내에서 가장 적합한 엔드포인트로 보내는 지리적 라우팅이 포함된 부모 프로필을 설정할 수 있습니다. 
 
 ### <a name="what-are-the-regions-that-are-supported-by-traffic-manager-for-geographic-routing"></a>지리적 라우팅에 대해 Traffic Manager에서 지원되는 지역은 어디입니까? 
 Traffic Manager에서 사용되는 국가/지역 계층 구조는 [여기](traffic-manager-geographic-regions.md)에서 확인할 수 있습니다. 이 페이지는 변경 내용으로 최신 상태를 유지하지만, [Azure Traffic Manager REST API](https://docs.microsoft.com/rest/api/trafficmanager/)를 사용하여 동일한 정보를 프로그래밍 방식으로 검색할 수도 있습니다. 
@@ -331,6 +339,9 @@ Traffic Manager는 HTTP 및 HTTPS 상태 검사에서 호스트 헤더를 사용
 끝점에 도착하는 Traffic Manager 상태 검사 수는 다음 요인에 따라 달라집니다.
 - 모니터링 간격에 대해 설정한 값(간격이 작을수록 주어진 기간 동안 더 많은 요청이 끝점에 도착함)
 - 상태 검사가 시작되는 위치 수(이러한 검사가 예상되는 IP 주소는 앞의 FAQ에 나와 있음)
+
+### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>내 엔드포인트 중 하나가 중단된 경우 알림을 받으려면 어떻게 해야 할까요? 
+Traffic Manager에서 제공하는 메트릭 중 하나로 프로필의 엔드포인트 상태가 있습니다. 이 상태는 프로필 내의 모든 엔드포인트에 대한 집계(예: 엔드포인트의 75%가 정상) 또는 엔드포인트 수준별 집계로 확인할 수 있습니다. Traffic Manager 메트릭은 Azure Monitor를 통해 공개되며, 엔드포인트 상태가 변경되면 알림을 받을 수 있도록 [경고 기능](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)을 사용할 수 있습니다. 자세한 내용은 [Traffic Manager 메트릭 및 경고](traffic-manager-metrics-alerts.md)를 참조하세요.  
 
 ## <a name="traffic-manager-nested-profiles"></a>Traffic Manager 중첩 프로필
 

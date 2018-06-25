@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 페이지 UI 사용자 지정 도우미 도구 | Microsoft Docs'
-description: Azure Active Directory B2C에서 페이지 UI 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
+title: Azure Active Directory B2C에서 페이지 UI 사용자 지정 도우미 도구 | Microsoft Docs
+description: Azure Active Directory B2C에서 페이지 UI 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: davidmu
-ms.openlocfilehash: de3d430ad984c9b173f77138417532badc3a7497
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: d57b8d43b2302a18b9df89eacc8ffd20d1742075
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34711997"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구
 이 문서는 Azure AD(Azure Active Directory) B2C의 [주요 UI 사용자 지정 문서](active-directory-b2c-reference-ui-customization.md) 에 동반됩니다. 다음 단계는 제공되는 샘플 HTML 및 CSS 콘텐츠를 사용하여 페이지 UI 사용자 지정 기능을 연습하는 방법을 설명합니다.

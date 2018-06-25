@@ -17,11 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8068e193ac267ef23bdaab1fc23bc7bf9b0d330b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 90c70837b3afb589e5a503681aa9cd7cf1dae930
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594118"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js 웹앱 시작
 여기서는 Passport를 통해 다음 작업을 수행합니다.
@@ -61,6 +62,10 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 
 6. 등록 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
 7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>` 형식(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
+8. 비밀 키를 만들려면 [웹 API에 액세스할 수 있는 응용 프로그램 자격 증명 또는 권한을 추가하려면](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)의 4단계를 따릅니다.
+
+   > [!IMPORTANT]
+   > 응용 프로그램 키 값을 복사합니다. 이것은 `clientSecret`에 대한 값으로, 아래 **3단계**에서 필요합니다. 
 
 ## <a name="step-2-add-prerequisites-to-your-directory"></a>2단계: 필수 구성 요소를 디렉터리에 추가
 1. 명령줄에서 루트 폴더가 없는 경우 디렉터리를 루트 폴더로 변경하고 다음 명령을 실행합니다.

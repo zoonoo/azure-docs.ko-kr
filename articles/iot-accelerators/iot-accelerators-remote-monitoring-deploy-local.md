@@ -1,30 +1,27 @@
 ---
 title: 로컬로 원격 모니터링 솔루션 배포 - Azure | Microsoft Docs
 description: 이 자습서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 03/07/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: a11df1dc17b4dcbacece85526eeac39502cbbe34
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.topic: conceptual
+ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627234"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>로컬로 원격 모니터링 솔루션 가속기 배포
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>로컬에 원격 모니터링 솔루션 가속기 배포
 
 이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. 이 방법은 마이크로 서비스를 로컬 Docker 컨테이너에 배포하고, 클라우드에서 IoT Hub, Cosmos DB 및 Azure 저장소 서비스를 사용합니다. PCS(솔루션 가속기) CLI를 사용하여 Azure 클라우드 서비스를 배포합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-원격 모니터링 솔루션 가속기에서 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
+원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](http://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -137,6 +134,6 @@ docker-compose up
 > * 솔루션 가속기 배포
 > * 솔루션 가속기에 로그인
 
-이제 원격 모니터링 솔루션을 배포했으며 다음 단계는 [솔루션 대시보드의 기능을 탐색](iot-accelerators-remote-monitoring-deploy.md)하는 것입니다.
+원격 모니터링 솔루션을 배포했으면 다음 단계는 [솔루션 대시보드의 기능을 탐색](iot-accelerators-remote-monitoring-deploy.md)하는 것입니다.
 
 <!-- Next tutorials in the sequence -->

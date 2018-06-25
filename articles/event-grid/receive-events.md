@@ -8,11 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: babanisa
-ms.openlocfilehash: 89d0f11ccfb9a359ca3e43bc1a370e0fb7514574
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 3f55abf9be382a040d7b5d4111ec689929b36918
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823472"
 ---
 # <a name="receive-events-to-an-http-endpoint"></a>HTTP 엔드포인트에서 이벤트 수신
 
@@ -36,7 +37,7 @@ Azure Function에서 "파일 보기" 링크를 클릭하고(Azure 함수 포털�
   "frameworks": {
     "net46":{
       "dependencies": {
-        "Microsoft.Azure.EventGrid": "1.1.0-preview"
+        "Microsoft.Azure.EventGrid": "1.3.0"
       }
     }
    }
@@ -51,7 +52,7 @@ Azure Function에서 "파일 보기" 링크를 클릭하고(Azure 함수 포털�
 
 수동 유효성 검사는 미리 보기 상태입니다. 이 기능을 사용하려면 [AZ CLI 2.0](/cli/azure/install-azure-cli)에 대한 [Event Grid 확장](/cli/azure/azure-cli-extensions-list)을 설치해야 합니다. `az extension add --name eventgrid`를 사용하여 설치할 수 있습니다. REST API를 사용하는 경우 `api-version=2018-05-01-preview`를 사용하고 있는지 확인합니다.
 
-프로그래밍 방식으로 유효성 검사 코드를 에코하려면 다음 코드를 사용합니다.
+프로그래밍 방식으로 유효성 검사 코드를 에코하려면 다음 코드를 사용합니다(https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridConsumer):에서 관련 샘플을 확인할 수 있음).
 
 ```csharp
 using System.Net;
@@ -59,16 +60,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
-
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
 
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
@@ -90,7 +81,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
@@ -157,16 +148,6 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
 
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
-
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
 {
     log.Info($"C# HTTP trigger function begun");
@@ -188,7 +169,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
 
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }
@@ -283,16 +264,6 @@ using Newtonsoft.Json.Linq;
 using Newtonsoft.Json.Serialization;
 using Microsoft.Azure.EventGrid.Models;
 
-class SubscriptionValidationEventData
-{
-    public string ValidationCode { get; set; }
-}
-
-class SubscriptionValidationResponseData
-{
-    public string ValidationResponse { get; set; }
-}
-
 class ContosoItemReceivedEventData
 {
     public string id { get; set; }
@@ -321,7 +292,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceW
             var eventData = dataObject.ToObject<SubscriptionValidationEventData>();
             log.Info($"Got SubscriptionValidation event data, validation code: {eventData.ValidationCode}, topic: {eventGridEvent.Topic}");
             // Do any additional validation (as required) and then return back the below response
-            var responseData = new SubscriptionValidationResponseData();
+            var responseData = new SubscriptionValidationResponse();
             responseData.ValidationResponse = eventData.ValidationCode;
             return req.CreateResponse(HttpStatusCode.OK, responseData);
         }

@@ -1,12 +1,12 @@
 ---
-title: "사용자 지정 API에 인증 추가 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱에서 사용자 지정 API 호출에 대한 인증 설정"
+title: 사용자 지정 API에 인증 추가 - Azure Logic Apps | Microsoft Docs
+description: 논리 앱에서 사용자 지정 API 호출에 대한 인증 설정
 author: ecfan
-manager: anneta
-editor: 
+manager: jeconnoc
+editor: ''
 services: logic-apps
-documentationcenter: 
-ms.assetid: 
+documentationcenter: ''
+ms.assetid: ''
 ms.service: logic-apps
 ms.workload: logic-apps
 ms.tgt_pltfrm: na
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 705abb2a3cc25c965bdce364eb169b4e3a814bff
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298552"
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>논리 앱에서 사용자 지정 API 호출에 대해 호출 보호
 
@@ -116,7 +117,7 @@ PowerShell과 함께 Azure Resource Manager를 통해 이 작업을 수행할 �
 
 **Azure Portal에서 배포된 앱의 응용 프로그램 ID 만들기 및 인증 설정**
 
-1. [Azure Portal](https://portal.azure.com "https://portal.azure.com")에서 웹앱 또는 API 앱을 찾아 선택합니다. 
+1. [Azure Portal](https://portal.azure.com "https://portal.azure.com")에서 웹앱 또는 API 앱을 찾고 선택합니다. 
 
 2. **설정**에서 **인증/권한 부여**를 선택합니다. **App Service 인증** 아래에서 인증을 **설정**으로 지정합니다. **인증 공급자** 아래에서 **Azure Active Directory**를 선택합니다.
 
@@ -196,10 +197,10 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 | audience | 예 | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
 | clientId | 예 | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 응용 프로그램 ID의 클라이언트 ID | 
 | secret | 예 | 액세스 토큰을 요청하는 클라이언트에 대한 응용 프로그램 ID의 키 또는 암호 | 
-| type | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| 형식 | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 
-예:
+예: 
 
 ``` json
 {
@@ -238,7 +239,7 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 
 | 요소 | 필수 | 설명 | 
 | ------- | -------- | ----------- | 
-| type | 예 | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. | 
+| 형식 | 예 | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. | 
 | 암호 | 예 | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 | 
 | pfx | 예 | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 | 
 |||| 
@@ -251,12 +252,12 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 
 **권한 부여** 섹션에서 다음 줄을 포함합니다.
 
-`{"type": "basic", "username": "username", "password": "password"}`.
+`{"type": "basic", "username": "username", "password": "password"}`
 
 | 요소 | 필수 | 설명 | 
 | ------- | -------- | ----------- | 
-| type | 예 | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
-| username | 예 | 인증에 사용할 사용자 이름 | 
+| 형식 | 예 | 사용할 인증 유형입니다. 기본 인증의 경우 값은 `Basic`이어야 합니다. | 
+| 사용자 이름 | 예 | 인증에 사용할 사용자 이름 | 
 | 암호 | 예 | 인증에 사용할 암호 | 
 |||| 
 

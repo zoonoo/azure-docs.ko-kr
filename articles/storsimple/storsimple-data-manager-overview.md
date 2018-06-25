@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 02/26/2018
+ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: 429f1edae15a98b3c38ae4980a630f23b3a85d23
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271907"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652011"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
@@ -82,10 +82,9 @@ StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으
 
 ![다른 지역의 서비스 및 작업 정의](./media/storsimple-data-manager-overview/data-manager-job-different-regions.png)
 
-## <a name="gdpr-compliance"></a>GDPR 규정 준수
+## <a name="managing-personal-information"></a>개인 정보 관리
 
-[GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 개인 정보를 수집, 저장 및 사용하는 방법에 대한 많은 요구 사항을 포함하고 있습니다. GDPR 규칙은 회사 및 정부 기관 그리고 EU에서 작동하고 EU 지역 거주자와 연결된 데이터를 수집하고 분석하는 다른 조직에 적용됩니다. StorSimple 데이터 관리자는 GDPR 규정을 준수합니다. 데이터 관리자 서비스는 개인 데이터를 수집하지 않습니다.
-자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
+StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습니다. 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

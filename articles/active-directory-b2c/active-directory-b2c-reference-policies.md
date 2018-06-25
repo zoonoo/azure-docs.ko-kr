@@ -1,22 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: 기본 제공 정책 | Microsoft Docs'
-description: Azure Active Directory B2C의 확장 가능한 정책 프레임워크 및 다양한 정책 형식을 만드는 방법에 대한 항목
+title: Azure Active Directory B2C의 기본 제공 정책 | Microsoft Docs
+description: Azure Active Directory B2C의 확장 가능한 정책 프레임워크 및 다양한 정책 형식을 만드는 방법에 대한 항목입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: davidmu
-ms.openlocfilehash: 424186a0acfe17cd7cb96f3ba7f8201e8b2b38ec
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 840de51f2aeff2c14cba0f90fe9072ba7ceb7fcf
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200351"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34712116"
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: 기본 제공 정책
 

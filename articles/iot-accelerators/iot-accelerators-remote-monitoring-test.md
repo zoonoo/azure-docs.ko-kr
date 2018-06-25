@@ -1,26 +1,23 @@
 ---
 title: 원격 모니터링 솔루션에서 장치 시뮬레이션 - Azure | Microsoft Docs
 description: 이 자습서는 원격 모니터링 솔루션 가속기에서 장치 시뮬레이터를 사용하는 방법을 보여줍니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/15/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: c10d983ea6b864d21f4589a3cbfdd5def39ac753
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628262"
 ---
 # <a name="create-a-new-simulated-device"></a>시뮬레이션된 새 장치 만들기
 
-이 자습서는 원격 모니터링 솔루션 가속기에서 장치 시뮬레이터 마이크로 서비스를 사용자 지정하는 방법을 보여 줍니다. 장치 시뮬레이터의 기능을 표시하기 위해 이 자습서에서는 Contoso IoT 응용 프로그램에서 두 가지 시나리오를 사용합니다.
+이 자습서는 원격 모니터링 솔루션 가속기에서 장치 시뮬레이터 마이크로 서비스를 사용자 지정하는 방법을 보여줍니다. 장치 시뮬레이터의 기능을 표시하기 위해 이 자습서에서는 Contoso IoT 응용 프로그램에서 두 가지 시나리오를 사용합니다.
 
 다음 비디오는 장치 시뮬레이터 마이크로 서비스를 사용자 지정하기 위한 옵션의 개요를 제공합니다.
 
@@ -82,7 +79,7 @@ ms.lasthandoff: 05/20/2018
 > * 대시보드에 새 장치 유형 추가
 > * 기존의 장치 유형에서 사용자 지정 원격 분석 보내기
 
-다음 비디오에서는 원격 모니터링 솔루션에 시뮬레이션 및 실제 장치를 연결하는 연습을 보여 줍니다.
+다음 비디오에서는 원격 모니터링 솔루션에 시뮬레이션된 장치 및 실제 장치를 연결하는 연습을 보여줍니다.
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Part-38-Customizing-Azure-IoT-Suite-solution-and-connect-a-real-device/Player]
 
@@ -106,7 +103,7 @@ ms.lasthandoff: 05/20/2018
 
 ### <a name="configure-ssh-access-to-the-solution-virtual-machine-in-azure"></a>Azure에서 솔루션 가상 머신에 대한 SSH 액세스 구성
 
-[www.azureiotsuite.com](https://www.azureiotsuite.com)에서 원격 모니터링 솔루션을 만들 때 솔루션 이름을 선택합니다. 솔루션 이름은 솔루션을 사용하는 다양한 배포된 리소스를 포함하는 Azure 리소스 그룹의 이름이 됩니다. 다음 명령은 **Contoso-01**이라는 리소스 그룹을 사용하므로, **Contoso-01**을 사용자의 리소스 그룹 이름으로 대체해야 합니다.
+[www.azureiotsolutions.com](https://www.azureiotsolutions.com)에서 원격 모니터링 솔루션을 만들 때 솔루션 이름을 선택합니다. 솔루션 이름은 솔루션을 사용하는 다양한 배포된 리소스를 포함하는 Azure 리소스 그룹의 이름이 됩니다. 다음 명령은 **Contoso-01**이라는 리소스 그룹을 사용하므로, **Contoso-01**을 사용자의 리소스 그룹 이름으로 대체해야 합니다.
 
 다음 명령은 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)의 `az` 명령을 사용합니다. 개발 컴퓨터에 Azure CLI 2.0을 설치하거나 [Azure Portal](http://portal.azure.com)에서 [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. Azure CLI 2.0은 Cloud Shell에 사전 설치됩니다.
 
@@ -220,7 +217,7 @@ ms.lasthandoff: 05/20/2018
     git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-    원격 모니터링 솔루션의 장치 시뮬레이션 서비스를 사용하면 시뮬레이트된 기본 제공 장치 유형을 변경하고 시뮬레이트된 새 장치 유형을 만들 수 있습니다. 물리적 장치를 연결하기 전에 사용자 지정 장치 유형을 사용하여 원격 모니터링 솔루션의 동작을 테스트할 수 있습니다.
+    원격 모니터링 솔루션의 장치 시뮬레이션 서비스를 사용하면 시뮬레이션된 기본 제공 장치 유형을 변경하고 시뮬레이션된 새 장치 유형을 만들 수 있습니다. 물리적 장치를 연결하기 전에 사용자 지정 장치 유형을 사용하여 원격 모니터링 솔루션의 동작을 테스트할 수 있습니다.
 
 1. **storage-adapter** 리포지토리의 .NET 버전을 복제하려면 다음 명령을 실행합니다.
 
@@ -678,7 +675,7 @@ ms.lasthandoff: 05/20/2018
 
 업데이트된 **냉각기** 장치 유형을 테스트하기 위해 먼저 **device-simulation** 서비스의 로컬 복사본을 실행하여 장치 유형이 예상대로 동작하는지 테스트합니다. 업데이트된 장치 유형을 로컬로 테스트 및 디버그하면 컨테이너를 다시 빌드하고 **장치-시뮬레이션** 서비스를 Azure로 다시 배포할 수 있습니다.
 
-**장치-시뮬레이션** 서비스를 로컬로 실행하는 경우 원격 분석 솔루션에 원격 분석을 보냅니다. **장치** 페이지에서 업데이트된 유형의 인스턴스를 프로비전할 수 있습니다.
+**장치-시뮬레이션** 서비스를 로컬에서 실행하는 경우 원격 분석 솔루션에 원격 분석 데이터를 보냅니다. **장치** 페이지에서 업데이트된 유형의 인스턴스를 프로비전할 수 있습니다.
 
 변경 내용을 로컬로 테스트 및 디버그하려면 이전 섹션인 [전구 장치 유형을 로컬로 테스트](#test-the-lightbulb-device-type-locally)를 참조하세요.
 

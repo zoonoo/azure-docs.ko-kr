@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 2aa1c33f138619283a8785aaf3772465df6c9aee
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8ee71a5c37357e0a92f794d7b808948f4e5b4ff0
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156826"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823931"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 및 OAuth 2.0 On-Behalf-Of 흐름
 OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호출하고 차례로 다른 서비스/웹 API를 호출해야 하는 사용 사례를 제공합니다. 요청 체인을 통해 위임된 사용자 ID 및 사용 권한을 전파하는 개념입니다. 중간 계층 서비스가 다운스트림 서비스에 대해 인증된 요청을 수행하도록 하려면 사용자를 대신하여 Azure AD(Azure Active Directory)에서 액세스 토큰을 보호해야 합니다.
@@ -30,13 +30,13 @@ OAuth 2.0 On-Behalf-Of 흐름은 응용 프로그램이 서비스/웹 API를 호
 > [!NOTE]
 > v2.0 끝점에서는 일부 Azure Active Directory 시나리오 및 기능만 지원합니다. v2.0 끝점을 사용해야 하는지 확인하려면 [v2.0 제한 사항](active-directory-v2-limitations.md)을 참조하세요.
 >
->
+
+
+> [!IMPORTANT]
+> 위임자 흐름에는 [암시적 권한 부여](active-directory-v2-protocols-implicit.md)를 사용할 수 없습니다. SPA는 해당하는 액세스 토큰(암시적 흐름)을 중간 계층 기밀 클라이언트에 전달해서 OBO 흐름을 수행해야 합니다.  클라이언트가 위임자 호출을 수행할 수 있는 데 관한 자세한 내용은 [제한](#client-limitations)을 참조하세요.  
 
 ## <a name="protocol-diagram"></a>프로토콜 다이어그램
 사용자가 [OAuth 2.0 권한 부여 코드 부여 흐름](active-directory-v2-protocols-oauth-code.md)을 사용하여 응용 프로그램에 대해 인증되었다고 가정합니다. 이 시점에서 응용 프로그램에는 사용자의 클레임 및 중간 계층 웹 API(API A) 액세스에 대한 동의가 있는 *API A용* 액세스 토큰(토큰 A)이 있습니다. 이제 API A는 다운스트림 웹 API(API B)에 대해 인증된 요청을 해야 합니다.
-
-> [!IMPORTANT]
-> [암시적 권한 부여](active-directory-v2-protocols-implicit.md)를 사용하여 획득한 토큰은 On-Behalf-Of 흐름에 사용할 수 없습니다. 암시적 흐름의 클라이언트는 클라이언트 비밀 등을 통해 인증되지 않으므로 다른 토큰, 아마도 더 강력한 토큰으로 부트스트랩할 수 없습니다.
 
 다음 단계는 On-Behalf-Of 흐름을 구성하며 다음 다이어그램을 통해 쉽게 이해할 수 있습니다.
 
@@ -179,6 +179,9 @@ GET /v1.0/me HTTP/1.1
 Host: graph.microsoft.com
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVGFlN0NkV1c3UWZkSzdNN0RyNXlvUUdLNmFEc19vdDF3cEQyZjNqRkxiNlVrcm9PcXA2cXBJclAxZVV0QktzMHEza29HN3RzXzJpSkYtQjY1UV8zVGgzSnktUHZsMjkxaFNBQSIsImFsZyI6IlJTMjU2IiwieDV0IjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIiwia2lkIjoiejAzOXpkc0Z1aXpwQmZCVksxVG4yNVFIWU8wIn0.eyJhdWQiOiJodHRwczovL2dyYXBoLm1pY3Jvc29mdC5jb20iLCJpc3MiOiJodHRwczovL3N0cy53aW5kb3dzLm5ldC83MmY5ODhiZi04NmYxLTQxYWYtOTFhYi0yZDdjZDAxMWRiNDcvIiwiaWF0IjoxNDkzOTMwMDE2LCJuYmYiOjE0OTM5MzAwMTYsImV4cCI6MTQ5MzkzMzg3NSwiYWNyIjoiMCIsImFpbyI6IkFTUUEyLzhEQUFBQUlzQjN5ZUljNkZ1aEhkd1YxckoxS1dlbzJPckZOUUQwN2FENTVjUVRtems9IiwiYW1yIjpbInB3ZCJdLCJhcHBfZGlzcGxheW5hbWUiOiJUb2RvRG90bmV0T2JvIiwiYXBwaWQiOiIyODQ2ZjcxYi1hN2E0LTQ5ODctYmFiMy03NjAwMzViMmYzODkiLCJhcHBpZGFjciI6IjEiLCJmYW1pbHlfbmFtZSI6IkNhbnVtYWxsYSIsImdpdmVuX25hbWUiOiJOYXZ5YSIsImlwYWRkciI6IjE2Ny4yMjAuMC4xOTkiLCJuYW1lIjoiTmF2eWEgQ2FudW1hbGxhIiwib2lkIjoiZDVlOTc5YzctM2QyZC00MmFmLThmMzAtNzI3ZGQ0YzJkMzgzIiwib25wcmVtX3NpZCI6IlMtMS01LTIxLTIxMjc1MjExODQtMTYwNDAxMjkyMC0xODg3OTI3NTI3LTI2MTE4NDg0IiwicGxhdGYiOiIxNCIsInB1aWQiOiIxMDAzM0ZGRkEwNkQxN0M5Iiwic2NwIjoiVXNlci5SZWFkIiwic3ViIjoibWtMMHBiLXlpMXQ1ckRGd2JTZ1JvTWxrZE52b3UzSjNWNm84UFE3alVCRSIsInRpZCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsInVuaXF1ZV9uYW1lIjoibmFjYW51bWFAbWljcm9zb2Z0LmNvbSIsInVwbiI6Im5hY2FudW1hQG1pY3Jvc29mdC5jb20iLCJ1dGkiOiJzUVlVekYxdUVVS0NQS0dRTVFVRkFBIiwidmVyIjoiMS4wIn0.Hrn__RGi-HMAzYRyCqX3kBGb6OS7z7y49XPVPpwK_7rJ6nik9E4s6PNY4XkIamJYn7tphpmsHdfM9lQ1gqeeFvFGhweIACsNBWhJ9Nx4dvQnGRkqZ17KnF_wf_QLcyOrOWpUxdSD_oPKcPS-Qr5AFkjw0t7GOKLY-Xw3QLJhzeKmYuuOkmMDJDAl0eNDbH0HiCh3g189a176BfyaR0MgK8wrXI_6MTnFSVfBePqklQeLhcr50YTBfWg3Svgl6MuK_g1hOuaO-XpjUxpdv5dZ0SvI47fAuVDdpCE48igCX5VMj4KUVytDIf6T78aIXMkYHGgW3-xAmuSyYH_Fr0yVAQ
 ```
+
+## <a name="client-limitations"></a>클라이언트 제한 사항
+클라이언트가 암시적 흐름을 사용하여 id_token을 가져오는 경우 해당 클라이언트에는 회신 URL에 와일드카드가 있어야 하며 id_token은 OBO 흐름에 사용할 수 없습니다.  그러나 암시적 권한 부여 흐름을 통해 획득한 액세스 토큰은 시작하는 클라이언트에 등록된 와일드카드 회신 URL이 경우에도 기밀 클라이언트에서 계속 회수될 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 OAuth 2.0 프로토콜 및 클라이언트 자격 증명을 사용하여 서비스 간 인증을 수행하는 다른 방법에 대해 자세히 알아보세요.

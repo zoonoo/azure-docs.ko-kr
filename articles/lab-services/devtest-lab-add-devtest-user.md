@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 0303f16de143247ac30a7dd4773b4da11f29c9d3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f9504458b1f332193e8457bcc9cf41e85fd6aca
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736190"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Azure DevTest Labs에 소유자 및 사용자 추가
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -60,25 +61,27 @@ Azure DevTest Labs의 액세스는 [Azure 역할 기반 Access Control(RBAC)](..
 > 
 
 ## <a name="add-an-owner-or-user-at-the-lab-level"></a>랩 수준에서 소유자 또는 사용자 추가
-Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수 있습니다. 여기에는 유효한 [MSA(Microsoft 계정)](devtest-lab-faq.md#what-is-a-microsoft-account)를 가진 외부 사용자도 포함됩니다.
+Azure Portal을 통해 랩 수준에서 소유자 및 사용자를 추가할 수 있습니다. 사용자는 유효한 [MSA(Microsoft 계정)](devtest-lab-faq.md#what-is-a-microsoft-account)를 가진 외부 사용자일 수 있습니다.
 다음 단계는 Azure DevTest Labs에서 랩에 소유자 또는 사용자를 추가하는 과정을 안내합니다.
 
 1. [Azure 포털](http://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 2. **모든 서비스**를 선택한 다음 목록에서 **DevTest Labs**를 선택합니다.
 3. 랩 목록에서 원하는 랩을 탭합니다.
-4. 랩의 블레이드에서 **구성**을 선택합니다. 
-5. **구성** 블레이드에서 **사용자**를 선택합니다.
-6. **사용자** 블레이드에서 **+ 추가**를 선택합니다.
-   
+4. 랩의 블레이드에서 **구성 및 정책**을 선택합니다. 
+5. **구성 및 정책** 페이지의 왼쪽 메뉴에서 **액세스 제어(IAM)** 를 선택합니다. 
+6. 도구 모음의 **추가**를 선택하여 역할에 사용자를 추가합니다.
+
     ![사용자 추가](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
-7. **역할 선택** 블레이드에서 원하는 역할을 선택합니다. [각 역할에서 수행할 수 있는 작업](#actions-that-can-be-performed-in-each-role) 섹션에서 소유자, DevTest 사용자 및 참여자 역할의 사용자가 수행할 수 있는 다양한 작업을 나열합니다.
-8. **사용자 추가** 블레이드에서 지정한 역할에 추가할 사용자의 메일 주소 또는 이름을 입력합니다. 사용자를 찾을 수 없는 경우 문제를 설명하는 오류 메시지가 표시됩니다. 사용자를 찾은 경우 해당 사용자가 나열되고 선택됩니다. 
-9. **선택**을 선택합니다.
-10. **확인**을 선택하여 **액세스 추가** 블레이드를 닫습니다.
+1. **권한 추가** 창에서 다음 작업을 수행합니다. 
+    1. 역할을 선택합니다(예: DevTest Labs 사용자). [각 역할에서 수행할 수 있는 작업](#actions-that-can-be-performed-in-each-role) 섹션에서 소유자, DevTest 사용자 및 참여자 역할의 사용자가 수행할 수 있는 다양한 작업을 나열합니다.
+    2. 역할에 추가할 사용자를 선택합니다. 
+    3. **저장**을 선택합니다. 
+
+        ![역할에 사용자 추가](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. **사용자** 블레이드로 돌아가면 사용자가 추가되어 있습니다.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>PowerShell을 사용하여 랩에 외부 사용자 추가
-Azure Portal에 사용자를 추가하는 것 외에도 PowerShell 스크립트를 사용하여 랩에 외부 사용자를 추가할 수 있습니다. 다음 예제에서 **변경할 값** 설명대로 매개 변수 값을 간단히 수정합니다.
+Azure Portal에 사용자를 추가하는 것 외에도 PowerShell 스크립트를 사용하여 랩에 외부 사용자를 추가할 수 있습니다. 다음 예제에서 **변경할 값** 설명 아래 매개 변수 값을 수정하세요.
 Azure Portal의 랩 블레이드에서 `subscriptionId`, `labResourceGroup` 및 `labName` 값을 검색할 수 있습니다.
 
 > [!NOTE]

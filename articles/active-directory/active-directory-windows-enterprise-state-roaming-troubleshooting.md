@@ -17,11 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: d9936da3ee1b0cfb4ee6e834a838798a35140620
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 25660eef50a0a18d4f404944daeb443133424897
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261154"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
@@ -79,7 +80,7 @@ ms.lasthandoff: 03/23/2018
 **잠재적인 문제**: 관리자가 Active Directory Federation Services Multi-Factor Authentication 조건부 액세스 정책을 구성하고 장치에 대한 액세스 토큰이 만료된 경우 동기화는 실패할 수 있습니다. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
 
 ### <a name="event-viewer"></a>이벤트 뷰어
-고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > 응용 프로그램 및 서비스 로그 > **Microsoft** > **Windows** > **SettingSync** 그리고 동기화와 ID 관련 문제는 **Microsoft** > **Windows** > **Azure AD**에서 찾을 수 있습니다.
+고급 문제 해결의 경우 이벤트 뷰어를 사용하여 특정 오류를 찾을 수 있습니다. 이는 아래 표에 설명되어 있습니다. 이벤트는 이벤트 뷰어 > 응용 프로그램 및 서비스 로그 > **Microsoft** > **Windows** > **SettingSync**에서, 그리고 동기화의 ID 관련 문제는 **Microsoft** > **Windows** > **AAD**에서 찾을 수 있습니다.
 
 
 ## <a name="known-issues"></a>알려진 문제

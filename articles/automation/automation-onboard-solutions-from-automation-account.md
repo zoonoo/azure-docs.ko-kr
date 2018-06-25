@@ -5,20 +5,20 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 2f5d664b660d43e61dba46d13aff1ced796de884
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0174e2a3c0b14c52b5750e343932a5df39d18976
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193355"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833383"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
-Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 내용을 추적하며, 컴퓨터에 설치된 항목을 재고 자산으로 처리(인벤토리)하기 위한 솔루션을 제공합니다. 컴퓨터를 등록하는 여러 가지 방법이 있으며, 가상 머신, [Automation 계정](automation-onboard-solutions-from-vm.md) 또는 [Runbook](automation-onboard-solutions.md)에서 솔루션을 등록할 수 있습니다. 이 문서에서는 Automation 계정에서 이러한 솔루션을 등록하는 방법에 대해 설명합니다.
+Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 내용을 추적하며, 컴퓨터에 설치된 항목을 재고 자산으로 처리(인벤토리)하기 위한 솔루션을 제공합니다. 컴퓨터를 등록하는 여러 가지 방법이 있으며, [가상 머신](automation-onboard-solutions-from-vm.md), [여러 컴퓨터 검색](automation-onboard-solutions-from-browse.md), Automation 계정 또는 [Runbook](automation-onboard-solutions.md)에서 솔루션을 등록할 수 있습니다. 이 문서에서는 Automation 계정에서 이러한 솔루션을 등록하는 방법에 대해 설명합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -69,29 +69,27 @@ Automation 계정 이동하고 **일반** 아래에서 **저장된 검색**을 �
 
 ![저장된 검색](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
-## <a name="onboard-an-azure-machine"></a>Azure 컴퓨터 등록
+## <a name="onboard-azure-vms"></a>Azure VM 등록
 
 Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-**+ Azure VM 추가**를 클릭하고 목록에서 VM을 선택합니다. **업데이트 관리** 페이지에서 **사용**을 클릭합니다. 그러면 솔루션에 대한 컴퓨터 그룹 저장된 검색에 현재 VM이 추가됩니다.
+**+ Azure VM 추가**를 클릭하고 목록에서 하나 이상의 VM을 선택합니다. 사용할 수 없는 가상 머신은 회색으로 표시되어 있으며 선택할 수 없습니다. **업데이트 관리 사용** 페이지에서 **사용**을 클릭합니다. 그러면 솔루션에 대해 저장된 컴퓨터 그룹에 선택한 VM이 추가됩니다.
+
+![Azure VM을 사용하도록 설정](media/automation-onboard-solutions-from-automation-account/enable-azure-vms.png)
 
 ## <a name="onboard-a-non-azure-machine"></a>비Azure 컴퓨터 등록
 
-Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
+Azure에 없는 컴퓨터는 수동으로 추가해야 합니다. Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
-**비Azure 컴퓨터 추가**를 클릭합니다. 그러면 컴퓨터에서 솔루션에 대한 보고를 시작할 수 있도록 컴퓨터에 Microsoft Monitoring Agent를 설치 및 구성하는 방법에 대한 지침이 포함된 새 브라우저 창이 열립니다. System Center Operations Manager에서 현재 관리하고 있는 컴퓨터를 등록하는 경우, 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
+**비Azure 컴퓨터 추가**를 클릭합니다. 그러면 컴퓨터에서 솔루션에 대한 보고를 시작할 수 있도록 [컴퓨터에 Microsoft Monitoring Agent를 설치 및 구성하는 방법에 대한 지침](../log-analytics/log-analytics-concept-hybrid.md)이 포함된 새 브라우저 창이 열립니다. System Center Operations Manager에서 현재 관리하고 있는 컴퓨터를 등록하는 경우, 새 에이전트가 필요하지 않으며 작업 영역 정보가 기존 에이전트에 입력됩니다.
 
 ## <a name="onboard-machines-in-the-workspace"></a>작업 영역에서 컴퓨터 등록
 
-Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
+이미 사용자의 작업 영역에 보고된 수동으로 설치된 컴퓨터는 솔루션을 사용하도록 설정하기 위해 Azure Automation에 추가해야 합니다. Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **업데이트 관리** 아래에서 **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
 **컴퓨터 관리**를 선택합니다. 이렇게 하면 **컴퓨터 관리** 페이지가 열립니다. 이 페이지에서는 선택한 컴퓨터 집합 또는 사용 가능한 모든 컴퓨터에서 솔루션을 사용하도록 설정하거나, 현재의 모든 컴퓨터 및 이후의 모든 컴퓨터에서 솔루션을 사용하도록 설정할 수 있습니다.
 
 ![저장된 검색](media/automation-onboard-solutions-from-automation-account/managemachines.png)
-
-### <a name="selected-machines"></a>선택한 컴퓨터
-
-하나 이상의 컴퓨터에서 솔루션을 사용하도록 설정하려면, **선택한 컴퓨터에서 사용**을 선택하고 솔루션에 추가하려는 각 컴퓨터 옆에 있는 **추가**를 클릭합니다. 이 작업은 선택한 컴퓨터의 이름을 솔루션에 대한 컴퓨터 그룹 저장된 검색 쿼리에 추가합니다.
 
 ### <a name="all-available-machines"></a>사용 가능한 모든 컴퓨터
 
@@ -100,6 +98,10 @@ Automation 계정에서 **업데이트 관리**의 **구성 관리** 또는 **�
 ### <a name="all-available-and-future-machines"></a>사용 가능한 모든 향후 컴퓨터
 
 사용 가능한 모든 컴퓨터 및 모든 향후 컴퓨터에서 솔루션을 사용하도록 설정하려면, **사용 가능한 모든 향후 컴퓨터에서 사용**을 선택합니다. 이 옵션은 작업 영역에서 저장된 검색 및 범위 구성을 삭제합니다. 그러면 작업 영역에 보고하는 모든 Azure 및 비Azure 컴퓨터에 대한 솔루션이 열립니다.
+
+### <a name="selected-machines"></a>선택한 컴퓨터
+
+하나 이상의 컴퓨터에서 솔루션을 사용하도록 설정하려면, **선택한 컴퓨터에서 사용**을 선택하고 솔루션에 추가하려는 각 컴퓨터 옆에 있는 **추가**를 클릭합니다. 이 작업은 선택한 컴퓨터의 이름을 솔루션에 대한 컴퓨터 그룹 저장된 검색 쿼리에 추가합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 author: rolyon
 manager: mtillman
-editor: rqureshi
+editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/11/2018
 ms.author: rolyon
-ms.openlocfilehash: b671ff6b473093e59bce18c7bf98b32e9849bbb0
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: bagovind
+ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077210"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266508"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승
 
@@ -33,6 +34,8 @@ ms.locfileid: "34077210"
 기본적으로 Azure AD 관리자 역할 및 Azure RBAC(역할 기반 액세스 제어) 역할은 Azure AD 및 Azure를 포함하지 않습니다. 그러나 사용자가 Azure AD에서 전역 관리자인 경우 Azure 구독 및 관리 그룹을 관리하는 액세스 권한을 상승시킬 수 있습니다. 사용자가 액세스 권한을 상승시킬 때 특정 테넌트에 대한 모든 구독에서 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 역할(RBAC 역할)을 부여합니다. 사용자 액세스 관리자 역할을 사용하면 사용자가 다른 사용자에게 루트 범위(`/`)의 Azure 리소스에 대한 액세스 권한을 부여할 수 있습니다.
 
 이러한 권한 상승은 임시로 필요할 때에만 수행되어야 합니다.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="elevate-access-for-a-global-administrator-using-the-azure-portal"></a>Azure Portal을 사용하여 전역 관리자에 대한 액세스 권한 상승
 
@@ -76,9 +79,9 @@ ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
 ```
 
-## <a name="delete-a-role-assignment-at-the-root-scope--using-powershell"></a>PowerShell을 사용하여 루트 범위(/)에서 역할 할당 삭제
+## <a name="remove-a-role-assignment-at-the-root-scope--using-powershell"></a>PowerShell을 사용하여 루트 범위(/)에서 역할 할당 제거
 
-루트 범위(`/`)에서 사용자에 대한 사용자 액세스 관리자 역할 할당을 삭제하려면 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용합니다.
+루트 범위(`/`)에서 사용자에 대한 사용자 액세스 관리자 역할 할당을 제거하려면 [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) 명령을 사용합니다.
 
 ```azurepowershell
 Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
@@ -110,14 +113,23 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
    }
    ```
 
-1. 사용자 액세스 관리자인 경우 루트 범위(`/`)에서 역할 할당을 삭제할 수도 있습니다.
+1. 사용자 액세스 관리자인 경우 루트 범위(`/`)에서 역할 할당을 제거할 수도 있습니다.
 
-1. 다시 필요할 때까지 사용자 액세스 관리자 권한을 취소합니다.
+1. 다시 필요할 때까지 사용자 액세스 관리자 권한을 제거합니다.
 
+## <a name="list-role-assignments-at-the-root-scope--using-the-rest-api"></a>REST API를 사용하여 루트 범위(/)에서 역할 할당 나열
 
-## <a name="how-to-undo-the-elevateaccess-action-with-the-rest-api"></a>REST API로 elevateAccess 작업을 취소하는 방법
+루트 범위(`/`)에서 사용자에 대한 역할 할당을 모두 나열할 수 있습니다.
 
-`elevateAccess`를 호출하는 경우 해당 권한을 취소하려면 할당을 삭제해야 하므로 스스로 역할 할당을 만듭니다.
+- `{objectIdOfUser}`가 역할 할당을 검색하려는 사용자의 개체 ID인 경우 [GET roleAssignments](/rest/api/authorization/roleassignments/listforscope)를 호출합니다.
+
+   ```http
+   GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
+   ```
+
+## <a name="remove-elevated-access-using-the-rest-api"></a>REST API를 사용하여 상승된 액세스 제거
+
+`elevateAccess`를 호출하는 경우 해당 권한을 취소하려면 할당을 제거해야 하므로 스스로 역할 할당을 만듭니다.
 
 1. `roleName`이 사용자 액세스 관리자인 [GET roleDefinitions](/rest/api/authorization/roledefinitions/get)를 호출하여 사용자 액세스 관리자 역할의 ID 이름을 확인합니다.
 
@@ -171,7 +183,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
     >[!NOTE] 
     >테넌트 관리자는 할당이 많지 않아야 합니다. 이전 쿼리에서 너무 많은 할당을 반환하는 경우, 테넌트 범위 수준의 모든 할당을 쿼리한 다음, 결과를 필터링할 수도 있습니다. `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. 이전 호출은 역할 할당 목록을 반환합니다. 범위가 "/"이고 `roleDefinitionId`가 1단계에서 찾은 역할 이름 ID로 끝나는 역할 할당을 찾고 `principalId`가 테넌트 관리자의 objectId와 일치합니다. 
+    2. 이전 호출은 역할 할당 목록을 반환합니다. 범위가 `"/"`이고 `roleDefinitionId`가 1단계에서 찾은 역할 이름 ID로 끝나는 역할 할당을 찾고 `principalId`가 테넌트 관리자의 objectId와 일치합니다. 
     
     샘플 역할 할당:
 
@@ -199,7 +211,7 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
         
     e7dd75bc-06f6-4e71-9014-ee96a929d099 같은 경우에 `name` 매개 변수에서 ID를 다시 저장합니다.
 
-    3. 마지막으로 역할 할당 ID를 사용하여 `elevateAccess`에 의해 추가된 할당을 삭제합니다.
+    3. 마지막으로 역할 할당 ID를 사용하여 `elevateAccess`에 의해 추가된 할당을 제거합니다.
 
     ```http
     DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01

@@ -13,21 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/13/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 179a669e4c9567950d22ed76a693ec6ab7a2db8d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801935"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
-이 항목에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 항목은 특정 영역을 심층 분석하고 이 개념을 다른 항목에서처럼 간단히 설명합니다.
+이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
 
 ## <a name="sourceanchor"></a>sourceAnchor
 sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으로 정의됩니다. 온-프레미스와 Azure AD의 동일한 개체처럼 개체를 고유하게 식별합니다. 이 특성은 **immutableId** 라고도 하며 두 이름을 서로 바꿔 사용할 수 있습니다.
 
-변경이 불가능한 말(즉, “변경할 수 없음”)은 이 항목에서 중요합니다. 이 특성의 값은 한번 설정된 후에는 변경할 수 없기 때문에 시나리오를 지원하는 설계를 선택하는 것이 중요합니다.
+변경이 불가능한 말(즉, “변경할 수 없음”)은 이 문서에서 중요합니다. 이 특성의 값은 한번 설정된 후에는 변경할 수 없기 때문에 시나리오를 지원하는 설계를 선택하는 것이 중요합니다.
 
 이 특성은 다음 시나리오에서 사용됩니다.
 
@@ -45,7 +47,7 @@ sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으�
 * &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
 * 전역적으로 고유해야 합니다.
 * 문자열, 정수 또는 이진이어야 합니다.
-* 사용자 이름을 기반으로 할 수 없습니다. 사용자 이름은 변경됩니다.
+* 사용자 이름은 변경되므로 이를 기반으로 할 수 없습니다.
 * 대/소문자를 구분할 수 없으며 대/소문자에 따라 달라질 수 있는 값을 사용하지 않도록 해야 합니다.
 * 개체를 만들 때 할당되어야 합니다.
 

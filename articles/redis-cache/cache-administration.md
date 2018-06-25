@@ -1,6 +1,6 @@
 ---
-title: "Azure Redis Cache를 관리하는 방법 | Microsoft Docs"
-description: "Azure Redis Cache 다시 부팅 및 업데이트 예약과 같은 관리 작업을 수행하는 방법을 알아봅니다."
+title: Azure Redis Cache를 관리하는 방법 | Microsoft Docs
+description: Azure Redis Cache 다시 부팅 및 업데이트 예약과 같은 관리 작업을 수행하는 방법을 알아봅니다.
 services: redis-cache
 documentationcenter: na
 author: wesmc7777
@@ -14,11 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: wesmc
-ms.openlocfilehash: 37e7395a26ead737009ad9e285e9f88372b25d26
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 3b62b41fb7b9d7ff6f40191c48d00c1f0a941e48
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639455"
 ---
 # <a name="how-to-administer-azure-redis-cache"></a>Azure Redis Cache를 관리하는 방법
 이 토픽에서는 [재부팅](#reboot) 및 Azure Redis Cache 인스턴스의 [업데이트 예약](#schedule-updates)과 같은 관리 작업을 수행하는 방법을 설명합니다.
@@ -91,10 +92,8 @@ ms.lasthandoff: 01/19/2018
 
 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 지정한 후 **확인**을 클릭합니다. 유지 관리 기간 시간은 UTC로 나타냅니다. 
 
-> [!NOTE]
-> 업데이트를 위한 기본 유지 관리 기간은 5시간입니다. 이 값은 Azure 포털에서는 구성할 수 없지만 PowerShell에서 [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 [PowerShell, CLI 또는 기타 관리 도구를 사용하여 예약된 업데이트를 관리할 수 있나요?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)를 참조하세요.
-> 
-> 
+업데이트를 위한 기본 및 최소 유지 관리 기간은 5시간입니다. 이 값은 Azure 포털에서는 구성할 수 없지만 PowerShell에서 [New-AzureRmRedisCacheScheduleEntry](/powershell/module/azurerm.rediscache/new-azurermrediscachescheduleentry) cmdlet의 `MaintenanceWindow` 매개 변수를 사용하여 구성할 수 있습니다. 자세한 내용은 [PowerShell, CLI 또는 기타 관리 도구를 사용하여 예약된 업데이트를 관리할 수 있나요?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)를 참조하세요.
+
 
 ## <a name="schedule-updates-faq"></a>업데이트 예약 FAQ
 * [일정 업데이트 기능을 사용하지 않으면 업데이트가 언제 발생하나요?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)

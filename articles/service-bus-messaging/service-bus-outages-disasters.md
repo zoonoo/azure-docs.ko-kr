@@ -1,24 +1,19 @@
 ---
-title: "가동 중단 및 재해로부터 Azure Service Bus 응용 프로그램 보호 | Microsoft Docs"
-description: "잠재적 Service Bus 가동 중단으로부터 응용 프로그램을 보호하는 기술."
+title: 가동 중단 및 재해로부터 Azure Service Bus 응용 프로그램 보호 | Microsoft Docs
+description: 잠재적 Service Bus 가동 중단으로부터 응용 프로그램을 보호하는 기술.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 38aaf6d7ddad1527e113efa502ae47b82165b079
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802309"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 응용 프로그램을 보호하기 위한 모범 사례
 
@@ -34,7 +29,9 @@ Service Bus는 여러 메시징 저장소를 사용하여 큐 또는 항목에 �
 모든 Service Bus 메시징 엔터티(큐, 항목, 릴레이)는 데이터센터와 연결된 서비스 네임스페이스에 상주합니다. 이제 Service Bus는 네임스페이스 수준에서 [*지역 재해 복구* 및 *지역 복제*](service-bus-geo-dr.md)를 지원합니다.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>메시지 저장소 오류로부터 큐와 항목 보호
-분할되지 않은 큐나 항목은 하나의 메시징 저장소에 할당됩니다. 이 메시지 저장소를 사용할 수 없게 되면 해당 큐 또는 항목의 모든 작업이 실패하게 됩니다. 반면에 분할된 큐는 여러 조각으로 구성됩니다. 각 조각은 서로 다른 메시징 저장소에 저장됩니다. 분할된 큐 또는 항목으로 메시지를 보내면 Service Bus는 메시지를 조각 중 하나에 할당합니다. 해당 메시징 저장소를 사용할 수 없는 경우, Service Bus는 가능한 다른 조각에 메시지를 씁니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시지 엔터티][Partitioned messaging entities]를 참조하세요.
+분할되지 않은 큐나 항목은 하나의 메시징 저장소에 할당됩니다. 이 메시지 저장소를 사용할 수 없게 되면 해당 큐 또는 항목의 모든 작업이 실패하게 됩니다. 반면에 분할된 큐는 여러 조각으로 구성됩니다. 각 조각은 서로 다른 메시징 저장소에 저장됩니다. 분할된 큐 또는 항목으로 메시지를 보내면 Service Bus는 메시지를 조각 중 하나에 할당합니다. 해당 메시징 저장소를 사용할 수 없는 경우, Service Bus는 가능한 다른 조각에 메시지를 씁니다. 분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
+
+분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>데이터센터 가동 중단 또는 재해로부터 보호
 두 데이터센터 간의 장애 조치(failover)를 허용하려면 각 데이터센터에 Service Bus 서비스 네임스페이스를 만들 수 있습니다. 예를 들어, Service Bus 서비스 네임스페이스 **contosoPrimary.servicebus.windows.net**은 미국(북부/중부) 하위 지역에 있고 **contosoSecondary.servicebus.windows.net**은 미국(남부/중부) 하위 지역에 있을 수 있습니다. 데이터센터가 가동 중단되어도 Service Bus 메시징 엔터티를 액세스할 수 있도록 하려면 이 엔터티를 두 네임스페이스 모두에 만들 수 있습니다.

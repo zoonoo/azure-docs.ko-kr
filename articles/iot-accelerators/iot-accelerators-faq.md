@@ -1,25 +1,19 @@
 ---
 title: Azure IoT 솔루션 가속기 FAQ | Microsoft Docs
 description: IoT 솔루션 가속기에 대한 질문과 대답
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 6c8c87dc4f7bb91ce227bbfbaf1cabf0c44d2e0b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: decae2fee0d040d0857950bec507df173e2820b9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627162"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -54,7 +48,7 @@ DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microso
 
 ### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsuitecom"></a>Azure Portal에서 리소스 그룹을 삭제하는 것과 azureiotsuite.com의 솔루션 가속기에서 삭제를 클릭하는 것의 차이는 무엇인가요?
 
-* [azureiotsuite.com](https://www.azureiotsuite.com/)에서 솔루션 가속기를 삭제하면 솔루션 가속기를 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
+* [azureiotsuite.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제하면 솔루션 가속기를 만들 때 프로비전된 모든 리소스가 삭제됩니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
 * [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 응용 프로그램을 삭제해야 합니다.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기에 대한 기존 투자를 계속 활용할 수 있나요?
@@ -71,7 +65,7 @@ DevKit 장치를 사용하는 경우 [IoT DevKit SDK](https://github.com/Microso
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>하나의 구독에 프로비전할 수 있는 무료 Bing 지도 API는 몇 개인가요?
 
-2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜젝션 Level 1 계획을 사용하여 기본으로 프로비전됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
+2개입니다. 두 개의 Enterprise용 내부 트랜잭션 Level 1 Bing Maps 계획을 Azure 구독에서 만들 수 있습니다. 원격 모니터링 솔루션이 내부 트랜잭션 Level 1 계획을 사용하여 기본으로 프로비전됩니다. 결과적으로 구독에 원격 모니터링 솔루션을 가감 없이 2개까지만 프로비전할 수 있습니다.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>DreamSpark용 Microsoft Azure가 있는 경우 솔루션 가속기를 만들 수 있나요?
 
@@ -93,6 +87,6 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](htt
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
 * [원격 모니터링 솔루션 가속기의 기능 탐색](iot-accelerators-remote-monitoring-explore.md)
-* [예측 유지 관리 솔루션 가속기 개요](../iot-suite/iot-suite-predictive-overview.md)
+* [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리 솔루션 가속기 개요](iot-accelerators-connected-factory-overview.md)
-* [처음부터 IoT 보안을 고려](../iot-suite/securing-iot-ground-up.md)
+* [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)
