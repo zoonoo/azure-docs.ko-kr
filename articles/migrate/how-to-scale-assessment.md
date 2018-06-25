@@ -3,15 +3,15 @@ title: Azure Migrate를 사용하여 검색 및 평가 크기 조정 | Microsoft
 description: Azure Migrate 서비스를 사용하여 많은 수의 온-프레미스 컴퓨터를 평가하는 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/04/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: 89c9cfd4bdc1c483764983c886ba9f96cc75c69e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736833"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214694"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 

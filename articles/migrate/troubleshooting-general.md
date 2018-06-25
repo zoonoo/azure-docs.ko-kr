@@ -3,15 +3,15 @@ title: Azure Migrate 문제 해결 | Microsoft Docs
 description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일반적인 오류 해결 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: troubleshooting
-ms.date: 06/08/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: c717cfdac83ec8d85b1fa0a874e5573a40dd4611
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 896e918f6031f3bc6b925a2ecdfa2a5c82f00e0b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235630"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228257"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
