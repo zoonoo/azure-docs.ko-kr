@@ -11,37 +11,45 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2017
+ms.date: 05/23/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e48ea2293c186bbc337f9d70464df374d64b5e61
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 03961de233861baf923402cc96ab8174b3233bd0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203906"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266660"
 ---
 # <a name="view-activity-logs-for-role-based-access-control-changes"></a>역할 기반 액세스 제어 변경 사항에 대한 활동 로그 보기
 
-구독 내에서 누군가가 역할 정의 또는 역할 할당을 변경할 때마다 변경 내용이 [Azure 활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)의 관리 범주에 기록됩니다. 활동 로그를 보고 지난 90일 동안의 RBAC(역할 기반 액세스 제어) 변경 사항을 모두 확인할 수 있습니다.
+때로는 감사 또는 문제 해결 목적과 같은 RBAC(역할 기반 액세스 제어) 변경에 대한 정보가 필요합니다. 구독 내에서 누군가가 역할 할당 또는 역할 정의를 변경할 때마다 변경 내용이 [Azure 활동 로그](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)에 기록됩니다. 활동 로그를 보고 지난 90일 동안의 RBAC 변경 사항을 모두 확인할 수 있습니다.
 
 ## <a name="operations-that-are-logged"></a>기록되는 작업
 
 다음은 활동 로그에 기록되는 RBAC 관련 작업입니다.
 
-- 사용자 지정 역할 정의 만들기 또는 업데이트
-- 사용자 지정 역할 정의 삭제
 - 역할 할당 만들기
 - 역할 할당 삭제
+- 사용자 지정 역할 정의 만들기 또는 업데이트
+- 사용자 지정 역할 정의 삭제
 
 ## <a name="azure-portal"></a>Azure portal
 
-가장 손쉽게 시작할 수 있는 방법은 Azure Portal을 사용하여 활동 로그를 보는 것입니다. 다음 스크린샷은 역할 정의 및 역할 할당 작업과 함께 **관리** 범주를 표시하도록 필터링된 활동 로그의 예를 보여 줍니다. 또한 로그를 CSV 파일로 다운로드하는 링크도 포함되어 있습니다.
+가장 손쉽게 시작할 수 있는 방법은 Azure Portal을 사용하여 활동 로그를 보는 것입니다. 다음 스크린샷은 역할 할당 및 역할 정의 작업을 표시하도록 필터링된 활동 로그의 예를 보여 줍니다. 또한 로그를 CSV 파일로 다운로드하는 링크도 포함되어 있습니다.
 
 ![포털을 사용한 활동 로그 - 스크린샷](./media/change-history-report/activity-log-portal.png)
 
-자세한 내용은 [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)를 참조하세요.
+포털에서 활동 로그에는 몇 가지 필터가 있습니다. 다음은 RBAC 관련 필터입니다.
+
+|Filter  |값  |
+|---------|---------|
+|이벤트 범주     | <ul><li>관리</li></ul>         |
+|작업     | <ul><li>역할 할당 만들기</li> <li>역할 할당 삭제</li> <li>사용자 지정 역할 정의 만들기 또는 업데이트</li> <li>사용자 지정 역할 정의 삭제</li></ul>      |
+
+
+활동 로그에 대한 자세한 내용은 [활동 로그의 이벤트 보기](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)를 참조하세요.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -100,7 +108,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
 ## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Azure Log Analytics](../log-analytics/log-analytics-overview.md)는 모든 Azure 리소스에 대해 역할 기반 액세스 제어 변경 내용을 수집하고 분석하는 데 사용할 수 있는 도구입니다. 로그 분석에는 다음과 같은 이점이 있습니다.
+[Azure Log Analytics](../log-analytics/log-analytics-overview.md)는 모든 Azure 리소스에 대해 RBAC 변경 내용을 수집하고 분석하는 데 사용할 수 있는 도구입니다. 로그 분석에는 다음과 같은 이점이 있습니다.
 
 - 복잡한 쿼리 및 로직 작성
 - 경고, Power BI 및 기타 도구와 통합

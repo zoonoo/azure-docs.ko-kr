@@ -13,14 +13,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: Python
 ms.topic: quickstart
-ms.date: 10/06/2017
-ms.author: lili
-ms.openlocfilehash: da5c1181f9c4d311bdeabe837435ae4e0eb3dc1a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.date: 06/18/2018
+ms.author: danlep
+ms.openlocfilehash: 6e80996cb0359e88d2a6d5fae231523a5c69c8ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31513251"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295264"
 ---
 # <a name="run-a-cntk-training-job-using-the-azure-python-sdk"></a>Azure Python SDK를 사용하여 CNTK 교육 작업 실행
 
@@ -32,7 +32,7 @@ ms.locfileid: "31513251"
 
 * Azure 구독 - Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-* Azure Python SDK - [설치 지침](/python/azure/python-sdk-azure-install) 참조
+* Azure Python SDK - [설치 지침](/python/azure/python-sdk-azure-install)을 참조하세요. 이 문서에는 azure-mgmt-batchai 패키지 버전 2.0.0 이상이 필요합니다.
 
 * Azure 저장소 계정 - [Azure 저장소 계정을 만드는 방법](../storage/common/storage-create-storage-account.md) 참조
 
@@ -61,6 +61,9 @@ storage_account_key = 'FILL-IN-HERE'
 # specify the credentials used to remote login your GPU node
 admin_user_name = 'FILL-IN-HERE'
 admin_user_password = 'FILL-IN-HERE'
+
+# specify the location in which to create Batch AI resources
+mylocation = 'eastus'
 ```
 
 소스 코드에 자격 증명을 배치하는 것은 좋은 방법이 아니지만, 여기서는 빠른 시작을 더 간단히 만들기 위해 이렇게 배치했습니다.
@@ -93,14 +96,14 @@ resource_group_name = 'myresourcegroup'
 resource_management_client = ResourceManagementClient(
         credentials=creds, subscription_id=subscription_id)
 resource = resource_management_client.resource_groups.create_or_update(
-        resource_group_name, {'location': 'eastus'})
+        resource_group_name, {'location': mylocation})
 ```
 
 
 ## <a name="prepare-azure-file-share"></a>Azure 파일 공유 준비
 이해를 돕기 위해 이 빠른 시작에서는 Azure 파일 공유를 사용하여 학습 작업을 위한 학습 데이터 및 스크립트를 호스팅합니다.
 
-1. `batchaiquickstart`이라는 파일 공유를 만듭니다.
+`batchaiquickstart`이라는 파일 공유를 만듭니다.
 
 ```Python
 from azure.storage.file import FileService
@@ -109,20 +112,28 @@ service = FileService(storage_account_name, storage_account_key)
 service.create_share(azure_file_share_name, fail_on_exist=False)
 ```
 
-2. 공유에 `mnistcntksample`이라는 디렉터리를 만듭니다.
+공유에 `mnistcntksample`이라는 디렉터리를 만듭니다.
 
 ```Python
 mnist_dataset_directory = 'mnistcntksample'
-service.create_directory(azure_file_share_name, mnist_dataset_directory,
-                         fail_on_exist=False)
+service.create_directory(azure_file_share_name, mnist_dataset_directory, fail_on_exist=False)
 ```
-3. [샘플 패키지](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D)를 다운로드하고 현재 디렉터리에 압축을 풉니다. 다음 코드는 필요한 파일을 Azure 파일 공유에 업로드합니다.
+[샘플 패키지](https://batchaisamples.blob.core.windows.net/samples/BatchAIQuickStart.zip?st=2017-09-29T18%3A29%3A00Z&se=2099-12-31T08%3A00%3A00Z&sp=rl&sv=2016-05-31&sr=b&sig=hrAZfbZC%2BQ%2FKccFQZ7OC4b%2FXSzCF5Myi4Cj%2BW3sVZDo%3D)를 다운로드하고 현재 디렉터리에 압축을 풉니다. 다음 코드는 필요한 파일을 Azure 파일 공유에 업로드합니다.
 
 ```Python
 for f in ['Train-28x28_cntk_text.txt', 'Test-28x28_cntk_text.txt',
           'ConvNet_MNIST.py']:
      service.create_file_from_path(
              azure_file_share_name, mnist_dataset_directory, f, f)
+```
+
+## <a name="create-batch-ai-workspace"></a>Batch AI 작업 영역 만들기
+
+작업 영역은 모든 Batch AI 리소스 유형 중 최상위 컬렉션입니다. 작업 영역에서 Batch AI 클러스터와 실험을 만듭니다.
+
+```Python
+workspace_name='myworkspace'
+batchai_client.workspaces.create(resource_group_name, workspace_name, mylocation)
 ```
 
 ## <a name="create-gpu-cluster"></a>GPU 클러스터 만들기
@@ -135,9 +146,7 @@ cluster_name = 'mycluster'
 relative_mount_point = 'azurefileshare'
 
 parameters = models.ClusterCreateParameters(
-    # Location where the cluster will physically be deployed
-    location='eastus',
-    # VM size. Use NC or NV series for GPU
+    # VM size. Use N-series for GPU
     vm_size='STANDARD_NC6',
     # Configure the ssh users
     user_account_settings=models.UserAccountSettings(
@@ -171,7 +180,7 @@ batchai_client.clusters.create(resource_group_name, cluster_name,
 다음 명령을 사용하여 클러스터 상태를 모니터링합니다.
 
 ```Python
-cluster = batchai_client.clusters.get(resource_group_name, cluster_name)
+cluster = batchai_client.clusters.get(resource_group_name, workspace_name, cluster_name)
 print('Cluster state: {0} Target: {1}; Allocated: {2}; Idle: {3}; '
       'Unusable: {4}; Running: {5}; Preparing: {6}; Leaving: {7}'.format(
     cluster.allocation_state,
@@ -192,16 +201,18 @@ Cluster state: AllocationState.steady Target: 1; Allocated: 1; Idle: 0; Unusable
 
 노드가 할당되고 준비가 완료되면 클러스터를 사용할 수 있습니다(`nodeStateCounts` 특성 참조). 잘못된 부분이 있으면 `errors` 특성에 오류 설명이 포함됩니다.
 
-## <a name="create-training-job"></a>교육 작업 만들기
+## <a name="create-experiment-and-training-job"></a>실험 및 교육 작업 만들기
 
-클러스터가 만들어지면 학습 작업을 구성하고 제출합니다.
+클러스터를 만든 후에는 실험(관련 작업 그룹에 대한 논리적 컨테이너)을 만듭니다. 그런 다음, 실험의 학습 작업을 구성하고 제출합니다.
 
 ```Python
+experiment_name='myexperiment'
+
+batchai_client.experiments.create(resource_group_name, workspace_name, experiment_name)
+
 job_name = 'myjob'
 
-parameters = models.job_create_parameters.JobCreateParameters(
-    # The job and cluster must be created in the same location
-    location=cluster.location,
+parameters = models.JobCreateParameters(
     # The cluster this job will run on
     cluster=models.ResourceId(id=cluster.id),
     # The number of VMs in the cluster to use
@@ -230,16 +241,16 @@ parameters = models.job_create_parameters.JobCreateParameters(
 )
 
 # Create the job
-batchai_client.jobs.create(resource_group_name, job_name, parameters).result()
+batchai_client.jobs.create(resource_group_name, workspace_name, experiment_name, job_name, parameters).result()
 ```
 
 ## <a name="monitor-job"></a>작업 모니터링
 다음 코드를 사용하여 작업 상태를 검사할 수 있습니다.
 
 ```Python
-job = batchai_client.jobs.get(resource_group_name, job_name)
+job = batchai_client.jobs.get(resource_group_name, workspace_name, experiment_name, job_name)
 
-print('Job state: {0} '.format(job.execution_state.name))
+print('Job state: {0} '.format(job.execution_state))
 ```
 
 출력은 `Job state: running`과 비슷합니다.
@@ -254,7 +265,7 @@ print('Job state: {0} '.format(job.execution_state.name))
 
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name, job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="stdouterr"))
 
 for file in (f for f in files if f.download_url):
@@ -265,7 +276,7 @@ for file in (f for f in files if f.download_url):
 생성된 모델 파일을 나열하려면 다음 코드를 사용합니다.
 ```Python
 files = batchai_client.jobs.list_output_files(
-    resource_group_name, job_name,
+    resource_group_name, workspace_name, experiment_name,job_name,
     models.JobsListOutputFilesOptions(outputdirectoryid="MODEL"))
 
 for file in (f for f in files if f.download_url):
@@ -276,12 +287,12 @@ for file in (f for f in files if f.download_url):
 
 작업을 삭제하려면 다음 코드를 사용합니다.
 ```Python
-batchai_client.jobs.delete(resource_group_name, job_name)
+batchai_client.jobs.delete(resource_group_name, workspace_name, experiment_name, job_name)
 ```
 
 클러스터를 삭제하려면 다음 코드를 사용합니다.
 ```Python
-batchai_client.clusters.delete(resource_group_name, cluster_name)
+batchai_client.clusters.delete(resource_group_name, workspace_name, cluster_name)
 ```
 
 할당된 모든 리소스를 삭제하려면 다음 코드를 사용합니다.

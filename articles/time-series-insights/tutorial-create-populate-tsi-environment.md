@@ -2,17 +2,17 @@
 title: Azure Time Series Insights 환경 만들기
 description: 시뮬레이션된 장치의 데이터로 채워진 Time Series Insights 환경을 만드는 방법에 대해 알아봅니다.
 services: time-series-insights
-author: BryanLa
+author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/04/2018
 ms.author: bryanla
-ms.openlocfilehash: 434f9f7890b909746fd1a0f72a2dea5d7bb27e92
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b57e688b5f830c8c7d34315a68be94e4e4c99466
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301357"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295850"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>자습서: Azure Time Series Insights 환경 만들기
 
@@ -230,9 +230,9 @@ Azure Portal의 왼쪽 메뉴에서:
 > * TSI 환경으로 데이터를 스트리밍하도록 장치 시뮬레이션 실행
 > * 시뮬레이션된 원격 분석 데이터 확인
 
-이제 사용자 고유의 TSI 환경을 만드는 방법을 알았으므로 다음 문서로 이동하여 계획 프로세스에 대해 자세히 알아보세요.
+고유한 TSI 환경을 만드는 방법을 배웠으므로, 이번에는 TSI 환경의 데이터를 사용하는 웹 응용 프로그램을 빌드하는 방법을 알아보겠습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Time Series Insights 환경 계획](time-series-insights-environment-planning.md)
+> [Azure Time Series Insights 단일 페이지 웹앱 만들기](tutorial-create-tsi-sample-spa.md)
 
 

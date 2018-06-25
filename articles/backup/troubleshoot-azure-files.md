@@ -8,31 +8,29 @@ ms.author: markgal
 ms.date: 2/21/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: bdb35cf47b339ff2089b3849283a71aa9d8fbc3d
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 797637fbaaeb0577d0437f32d4ce244a738be84b
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807417"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287331"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Azure 파일 공유 백업 문제 해결
 다음 표에 나열된 정보를 참조하여 Azure 파일 공유 백업을 사용하는 동안 발생하는 문제 및 오류를 해결할 수 있습니다.
 
-## <a name="preview-boundaries"></a>미리 보기 경계
+## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
 Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
-- 저장소 계정에서 RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제*를 사용하여 Azure 파일 공유 보호.
-- Virtual Network 또는 방화벽을 사용하도록 설정된 저장소 계정에서 Azure 파일 공유 보호.
-- PowerShell 또는 CLI를 사용하여 Azure 파일 공유 백업
+- 저장소 계정에서 RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제*를 사용하여 Azure 파일 공유를 보호할 수 없습니다.
+- Virtual Networks 또는 방화벽을 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
+- Azure Backup을 사용하여 Azure Files를 보호할 수 있는 PowerShell 또는 CLI가 없습니다.
+- 일별 최대 예약 백업의 수는 1개입니다.
+- 일별 최대 주문형 백업의 수는 4개입니다.
+- 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
+- Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
 
 \*RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제 기능을 GRS로 사용하고 GRS 가격이 청구되는 저장소 계정의 Azure 파일 공유
 
 ZRS([지역 중복 저장소](../storage/common/storage-redundancy-zrs.md)) 복제 기능을 지원하는 저장소 계정의 Azure 파일 공유 백업은 현재 CUS(미국 중부) 및 EUS2(미국 동부2)에서만 사용할 수 있습니다.
-
-### <a name="limitations"></a>제한 사항
-- 하루 최대 예약된 백업은 1입니다.
-- 하루 최대 요청 시 백업은 4입니다.
-- 저장소 계정에서 리소스 잠금을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
-- Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
 
 ## <a name="configuring-backup"></a>백업 구성
 다음은 백업 구성에 대한 표입니다.

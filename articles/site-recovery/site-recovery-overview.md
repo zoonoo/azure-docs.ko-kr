@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 05/02/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d3cda9bdc75709d46f952309375e82098b6ae0d3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 86a6a5aed731390dd27ecc329db2c687bb6ca9a3
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894418"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287646"
 ---
 # <a name="about-site-recovery"></a>Site Recovery란?
 
 Azure Site Recovery 서비스를 시작합니다. 이 문서에서는 빠른 서비스 개요를 제공합니다.
 
-조직에서는 계획에 있거나 예기치 못한 중단이 발생했을 때 데이터를 안전하게 유지하고 앱과 워크로드를 중단 없이 실행하는 BCDR(비즈니스 연속성 및 재해 복구) 전략을 도입해야 하합니다. 
+조직에서는 계획에 있거나 예기치 못한 중단이 발생했을 때 데이터를 안전하게 유지하고 앱과 워크로드를 중단 없이 실행하는 BCDR(비즈니스 연속성 및 재해 복구) 전략을 도입해야 합니다.
 
 Azure Recovery Services는 BCDR 전략에 기여합니다.
 

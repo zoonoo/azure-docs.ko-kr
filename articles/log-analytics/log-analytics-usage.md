@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/05/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: ed2e77553cc72caa6a7b48fe6fa6baab0ffafec5
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 2ceb350883bc6f2b40d88d5cf595b06b074013d1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802054"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36209819"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 데이터 사용을 검토하고 분석할 수 있습니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
@@ -59,7 +59,9 @@ Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다
 - 데이터 볼륨이 지정된 크기를 초과합니다.
 - 데이터 볼륨이 지정된 크기를 초과할 것으로 예측됩니다.
 
-Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사용합니다. 최근 24시간 내에 수집된 데이터가 100GB를 초과하는 경우 다음 쿼리에 결과가 표시됩니다.
+검색 쿼리를 사용하는 Azure 경고 지원 [경고 로그](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)입니다. 
+
+최근 24시간 내에 수집된 데이터가 100GB를 초과하는 경우 다음 쿼리에 결과가 표시됩니다.
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -69,27 +71,35 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 
 다른 크기의 데이터 볼륨에 대해 경고하려면 쿼리의 100GB를 원하는 수로 변경합니다.
 
-[경고 규칙 만들기](log-analytics-alerts-creating.md#create-an-alert-rule)에 설명한 단계를 사용하여 데이터 컬렉션이 예상보다 높은 경우 알림을 받을 수 있습니다.
+[새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 데이터 컬렉션이 예상보다 높은 경우 알림을 받을 수 있습니다.
 
 첫 번째 쿼리에 대한 경고를 만들 때 즉, 24시간 내에 데이터가 100GB를 초과하는 경우 다음을 설정합니다.  
-- **이름**을 *24시간 내에 100GB를 초과하는 데이터 볼륨*으로  
-- **심각도**를 *경고*로  
-- **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`으로   
-- **시간 창**을 *24시간*으로 설정합니다.
-- 사용량 데이터가 시간당 한 번만 업데이트되므로 **경고 빈도**를 1시간으로 설정합니다.
-- **경고 생성 기준**을 *결과의 수*로
-- **결과 수**를 *0보다 큼*으로
 
-[경고 규칙에 작업 추가](log-analytics-alerts-actions.md)에 설명한 단계를 사용하여 경고 규칙에 전자 메일, 웹후크 또는 Runbook 작업을 구성합니다.
+- **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
+- **경고 조건**은 다음을 지정합니다.
+   - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
+   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`으로
+   - **논리 경고**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값** 을 *초과*합니다.
+   - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *1440*분이고 **주파수 경고**는 *60*분마다입니다.
+- **경고 세부 정보 정의**는 다음을 지정합니다.
+   - **이름**을 *24시간 내에 100GB를 초과하는 데이터 볼륨*으로
+   - **심각도**를 *경고*로
+
+기존 또는 새 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 지정하거나 만들어서 로그 경고가 조건과 일치하는 경우 알려줍니다.
 
 두 번째 쿼리에 대한 경고를 만들 때 즉, 24시간 내에 100GB를 초과하는 데이터가 예측되는 경우 다음을 설정합니다.
-- **이름**을 *24시간 내에 100GB를 초과한다고 예측되는 데이터 볼륨*으로
-- **심각도**를 *경고*로
-- **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`으로
-- **시간 창**을 *3시간*으로 설정합니다.
-- 사용량 데이터가 시간당 한 번만 업데이트되므로 **경고 빈도**를 1시간으로 설정합니다.
-- **경고 생성 기준**을 *결과의 수*로
-- **결과 수**를 *0보다 큼*으로
+
+- **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
+- **경고 조건**은 다음을 지정합니다.
+   - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
+   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`으로
+   - **논리 경고**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값** 을 *초과*합니다.
+   - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *180*분이고 **주파수 경고**는 *60*분마다입니다.
+- **경고 세부 정보 정의**는 다음을 지정합니다.
+   - **이름**을 *24시간 내에 100GB를 초과한다고 예측되는 데이터 볼륨*으로
+   - **심각도**를 *경고*로
+
+기존 또는 새 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 지정하거나 만들어서 로그 경고가 조건과 일치하는 경우 알려줍니다.
 
 경고를 수신하는 경우 사용량이 예상보다 더 높은 원인을 해결하려면 다음 섹션의 단계를 사용합니다.
 
@@ -155,10 +165,9 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 
 [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 참조하여 검색 언어를 사용하는 방법을 배울 수 있습니다. 사용 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.
-* [경고 규칙 만들기](log-analytics-alerts-creating.md#create-an-alert-rule)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
+* [새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
 * [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 * 효과적인 보안 이벤트 컬렉션 정책을 구성하려면 [Azure Security Center 필터링 정책](../security-center/security-center-enable-data-collection.md)을 검토합니다.
 * [성능 카운터 구성](log-analytics-data-sources-performance-counters.md)을 변경합니다.

@@ -13,14 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2018
+ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c5c719d484684c0efff87671ba7e012d9bd7699e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36264097"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
 
@@ -49,7 +50,9 @@ Media Services를 사용하면 클라우드에서 다양한 미디어 워크플�
 
 ## <a name="v3-capabilities"></a>v3 기능
 
-v3는 **Azure Resource Manager**를 기반으로 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. 이 버전은 다음과 같은 기능을 제공합니다.  
+v3은 Azure Resource Manager에서 빌드된 관리 및 운영 기능을 모두 제공하는 통합된 API 화면을 기반으로 합니다. 
+
+이 버전은 다음과 같은 기능을 제공합니다.  
 
 * 미디어 처리 또는 분석 작업의 간단한 워크플로를 정의하는 데 도움이 되는 **변환**. 변환은 비디오 및 오디오 파일을 처리하는 방법입니다. 그런 다음 작업을 변환에 제출하여 콘텐츠 라이브러리에 있는 모든 파일을 처리하도록 이를 반복적으로 적용할 수 있습니다.
 * 비디오를 처리(인코딩 또는 분석)하는 **작업**. 입력 내용은 HTTP URL, SAS URL 또는 Azure BLOB 저장소에 있는 파일 경로를 사용하여 작업에 지정할 수 있습니다. 
@@ -58,34 +61,29 @@ v3는 **Azure Resource Manager**를 기반으로 빌드된 관리 및 운영 기
 * **역할 기반 액세스 제어**는 리소스 수준에서 설정할 수 있으므로 Transforms, Channels 등과 같은 특정 리소스에 대한 액세스를 잠글 수 있습니다.
 * 여러 언어로 된 **클라이언트 SDK**: .NET, .NET core, Python, Go, Java, 및 Node.js.
 
+## <a name="naming-conventions"></a>명명 규칙
+
+Azure Media Services v3 리소스 이름(예: 자산, 작업, 변환)은 Azure Resource Manager 명명 제약 조건에 따라 달라집니다. Azure Resource Manager에 따라 리소스 이름은 항상 고유합니다. 따라서 리소스 이름에 대해 고유 식별자 문자열(예: GUID)을 사용할 수 있습니다. 
+
+Media Services 리소스 이름에는 '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', 작은 따옴표 또는 제어 문자가 포함될 수 없습니다. 다른 문자를 모두 허용합니다. 리소스 이름의 최대 길이는 260자입니다. 
+
+Azure Resource Manager의 이름을 지정하는 방법에 대한 자세한 내용은 [명명 요구 사항](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) 및 [명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.
+
 ## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요?
 
-개발자인 경우 Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. Microsoft는 다음 클라이언트 라이브러리를 생성하고 지원합니다. 
+개발자인 경우 Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [여기](https://github.com/Azure-Samples/media-services-v3-rest-postman)에서 REST Postman 예제를 찾을 수 있습니다. [Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)를 사용할 수도 있습니다.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)(**.NET CLI** 탭 선택)
-* 자바
+Microsoft는 다음 클라이언트 라이브러리를 생성하고 지원합니다. 
 
-  프로젝트에 다음 종속성을 추가합니다.
-  
-  ```
-  <dependency>
-    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
-    <artifactId>azure-mgmt- media</artifactId>
-    <version>0.0.1-beta</version>
-  </dependency> 
-  ```
-* Node.js 
-
-  다음 명령을 사용합니다.
-  
-  ```
-  npm install azure-arm-mediaservices
-  ```
-  
-* [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
-* [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
+|클라이언트 라이브러리|샘플|
+|---|---|
+|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)|[Azure CLI 샘플](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
+|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
+|[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)(**.NET CLI** 탭 선택)|[.NET Core 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
+|[Java SDK](https://docs.microsoft.com/java/api/overview/azure/mediaservices)||
+|[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js 샘플](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
+|[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
+|[SDK로 이동](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
 
 Media Services는 기본 설정된 언어/기술에 대한 SDK를 생성하는 데 사용할 수있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media)을 제공합니다.  
 

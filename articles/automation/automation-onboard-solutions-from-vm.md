@@ -4,21 +4,21 @@ description: Azure Automation에 포함된 업데이트 관리, 변경 내용 �
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2fbfd733a57d0e2f91d119b614917abf172b8379
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 675aebf35a6bee6e4cc4fd884204edb5bae4b848
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193097"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34830564"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Azure Virtual Machine에서 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션 등록
 
-Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 내용을 추적하며, 컴퓨터에 설치된 항목을 재고 자산으로 처리(인벤토리)하기 위한 솔루션을 제공합니다. 컴퓨터를 등록하는 여러 가지 방법이 있으며, 가상 머신, [Automation 계정](automation-onboard-solutions-from-automation-account.md) 또는 [Runbook](automation-onboard-solutions.md)에서 솔루션을 등록할 수 있습니다. 이 문서에서는 Azure Virtual Machine에서 이러한 솔루션을 등록하는 방법에 대해 설명합니다.
+Azure Automation은 운영 체제 보안 업데이트를 관리하고, 변경 내용을 추적하며, 컴퓨터에 설치된 항목을 재고 자산으로 처리(인벤토리)하기 위한 솔루션을 제공합니다. 컴퓨터를 등록하는 여러 가지 방법이 있으며, 가상 머신, [Automation 계정](automation-onboard-solutions-from-automation-account.md), [여러 컴퓨터 검색](automation-onboard-solutions-from-browse.md) 또는 [Runbook](automation-onboard-solutions.md)에서 솔루션을 등록할 수 있습니다. 이 문서에서는 Azure Virtual Machine에서 이러한 솔루션을 등록하는 방법에 대해 설명합니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
@@ -28,13 +28,13 @@ https://portal.azure.com에서 Azure에 로그인
 
 기존 가상 머신으로 이동하고, **작업** 아래에서 **업데이트 관리**, **인벤토리** 또는 **변경 내용 추적**을 선택합니다.
 
+VM에 대한 솔루션을 사용하도록 설정하려면 **이 VM에 활성화** 라디오 단추를 선택되어 있는지 확인하고, 솔루션에 여러 컴퓨터를 등록하려면 **이 구독에서 VM에 활성화**을 선택하고 **클릭하여 활성화할 컴퓨터 선택**을 클릭합니다. 한 번에 여러 컴퓨터를 등록하는 방법에 대한 단계를 보려면 [온보드 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션](automation-onboard-solutions-from-automation-account.md)을 참조하세요.
+
 Log Analytics 작업 영역 및 Automation 계정을 선택하고, **사용**을 클릭하여 솔루션을 사용하도록 설정합니다. 솔루션을 사용하도록 설정하는 데 최대 15분이 걸립니다.
 
 ![업데이트 솔루션 등록](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
 다른 솔루션으로 이동하고 **사용**을 클릭하면, 이전에 사용하도록 설정된 솔루션과 동일한 작업 영역 및 Automation 계정을 사용하므로 Log Analytics 및 Automation 계정 드롭다운 상자가 비활성화됩니다.
-
-![업데이트 솔루션 등록](media/automation-onboard-solutions-from-vm/onboard-solutions2.png)
 
 > [!NOTE]
 > **변경 내용 추적** 및 **인벤토리**는 동일한 솔루션을 사용하며, 하나가 활성화되면 다른 솔루션도 활성화됩니다.

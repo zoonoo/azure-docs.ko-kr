@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: df455f46e5fbc6bc1a4a7f0c30eac1bb185dea3d
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: a1197277b97c14e95bdab67f7c3d00b75a841f22
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312698"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267577"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>자습서: ASP.NET Core Web API 프런트 엔드 서비스 및 상태 저장 백 엔드 서비스로 응용 프로그램 만들기 및 배포
 이 자습서는 시리즈의 1부입니다.  ASP.NET Core Web API 프런트 엔드 및 상태 저장 백 엔드 서비스에서 Azure Service Fabric 응용 프로그램을 만들어 데이터를 저장하는 방법을 알아봅니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 수동으로 투표 응용 프로그램을 만들지 않으려면 완성된 응용 프로그램에서 [소스 코드를 다운로드](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)하고 [투표 샘플 응용 프로그램을 설명](#walkthrough_anchor)하기 위해 바로 건너뛸 수 있습니다.  원하는 경우 이 자습서의 [비디오 연습](https://channel9.msdn.com/Events/Connect/2017/E100)도 시청할 수 있습니다.
@@ -74,9 +74,21 @@ ms.locfileid: "32312698"
    ![ASP.NET core Web API 서비스를 사용하여 응용 프로그램 만들기를 수행하는 솔루션 탐색기]( ./media/service-fabric-tutorial-create-dotnet-app/solution-explorer-aspnetcore-service.png)
 
 ### <a name="add-angularjs-to-the-votingweb-service"></a>VotingWeb 서비스에 AngularJS 추가
-[브라우저 지원](/aspnet/core/client-side/bower)을 사용하여 서비스에 [AngularJS](http://angularjs.org/)를 추가합니다. 먼저 프로젝트에 Bower 구성 파일을 추가합니다.  솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가->새 항목**을 선택합니다. **웹**을 선택한 다음, **Bower 구성 파일**을 선택합니다.  *bower.json* 파일이 생성됩니다.
+[브라우저 지원](/aspnet/core/client-side/bower)을 사용하여 서비스에 [AngularJS](http://angularjs.org/)를 추가합니다. 먼저 프로젝트에 *.bowerrc* 설정 파일을 추가합니다.  솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가->새 항목**을 선택합니다. **C#**, **JSON 파일**을 차례로 선택합니다.  *이름* 필드에 **.bowerrc**를 입력하고 **추가**를 클릭합니다.
 
-*bower.json*을 열고 각도 및 각도 부트스트랩에 항목을 추가한 후 변경 내용을 저장합니다.
+*.bowerrc*를 열고, 해당 콘텐츠를 Bower가 *wwwroot/lib* 디렉터리에 패키지 자산을 설치할 것을 나타내는 다음 콘텐츠로 바꿉니다.
+
+```json
+{
+ "directory": "wwwroot/lib"
+}
+```
+
+변경 내용을 *.bowerrc*에 저장합니다.  그러면 프로젝트에 *.bowerrc* 파일이 생깁니다.  
+
+다음으로 프로젝트에 Bower 구성 파일을 추가합니다.  솔루션 탐색기에서 **VotingWeb**을 마우스 오른쪽 단추로 클릭하고 **추가->새 항목**을 선택합니다. **C#**, **JSON 파일**을 차례로 선택합니다.  *이름* 필드에 **bower.json**을 입력하고 **추가**를 클릭합니다.
+
+*bower.json*을 열고, 해당 콘텐츠를 각도 및 각도 부트스트랩에 대한 다음 항목으로 바꾼 후 변경 내용을 저장합니다.
 
 ```json
 {
@@ -92,7 +104,8 @@ ms.locfileid: "32312698"
   }
 }
 ```
-*bower.json* 파일을 저장한 다음 각도가 프로젝트의 *wwwroot/lib* 폴더에 설치됩니다. 또한 *Dependencies/Bower* 폴더 내에서 나열됩니다.
+
+*bower.json* 파일을 저장하면 Visual Studio의 bower 지원이 프로젝트의 *wwwroot/lib* 폴더에 Angular를 설치합니다. 또한 *Dependencies/Bower* 폴더 내에서 나열됩니다.
 
 ### <a name="update-the-sitejs-file"></a>site.js 파일 업데이트
 *wwwroot/js/site.js* 파일을 엽니다.  홈 보기에서 사용한 JavaScript로 해당 내용을 바꿉니다.

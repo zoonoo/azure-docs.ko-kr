@@ -13,13 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2017
+ms.date: 05/29/2018
 ms.author: iainfou
-ms.openlocfilehash: e033439ba9f525307edb857a358d1f760a08aad0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bbbe677b0a0d47147ace41ff5a229282f80bbf1b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34839518"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 응용 프로그램 배포
 확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이 문서에서는 확장 집합의 인스턴스에 대한 사용자 지정 VM 이미지를 빌드하거나 기존 VM 인스턴스에 설치 스크립트를 자동으로 실행하는 방법을 소개합니다. 또한 확장 집합 전체에서 응용 프로그램 또는 OS 업데이트를 관리하는 방법도 알아봅니다.
@@ -39,6 +40,7 @@ Azure 플랫폼 이미지 중 하나를 사용하여 확장 집합에서 인스�
 
 - [Azure CLI 2.0](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
+- [Azure Resource Manager 템플릿](tutorial-install-apps-template.md)
 
 
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>PowerShell DSC를 사용하여 Windows VM에 앱 설치
@@ -112,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>OS 업데이트를 사용하여 응용 프로그램 설치
 새 OS 릴리스를 사용할 수 있는 경우 새 사용자 지정 이미지를 사용하거나 빌드하고 확장 집합에 [OS 업그레이드를 배포](virtual-machine-scale-sets-upgrade-scale-set.md)할 수 있습니다. 각 VM 인스턴스는 지정한 최신 이미지로 업그레이드됩니다. 미리 설치된 응용 프로그램이 있는 사용자 지정 이미지, 사용자 지정 스크립트 확장 또는 PowerShell DSC를 사용하여 업그레이드를 수행할 때 응용 프로그램을 자동으로 사용할 수 있습니다. 버전 호환성 문제가 없는지 확인하기 위해 이 프로세스를 수행할 때 응용 프로그램 유지 관리를 계획해야 합니다.
 
-미리 설치된 응용 프로그램이 있는 사용자 지정 VM 이미지를 사용하는 경우, 응용 프로그램 업데이트를 배포 파이프라인과 통합하여 새 이미지를 빌드하고 확장 집합 전체에 OS 업그레이드를 배포할 수 있습니다. 이 방법을 사용하면 파이프라인에서 최신 응용 프로그램 빌드를 선택하고, VM 이미지를 만들고 유효성을 검사한 다음, 확장 집합의 VM 인스턴스를 업그레이드할 수 있습니다. 사용자 지정 VM 이미지에서 응용 프로그램 업데이트를 빌드하고 배포하는 배포 파이프라인을 실행하려면 [Visual Studio Team Services](https://www.visualstudio.com/team-services/), [Spinnaker](https://www.spinnaker.io/) 또는 [Jenkins](https://jenkins.io/)를 사용할 수 있습니다.
+미리 설치된 응용 프로그램이 있는 사용자 지정 VM 이미지를 사용하는 경우, 응용 프로그램 업데이트를 배포 파이프라인과 통합하여 새 이미지를 빌드하고 확장 집합 전체에 OS 업그레이드를 배포할 수 있습니다. 이 방법을 사용하면 파이프라인에서 최신 응용 프로그램 빌드를 선택하고, VM 이미지를 만들고 유효성을 검사한 다음, 확장 집합의 VM 인스턴스를 업그레이드할 수 있습니다. 사용자 지정 VM 이미지에서 응용 프로그램 업데이트를 빌드하고 배포하는 배포 파이프라인을 실행하려면 [Packer 이미지를 만들어 Visual Studio Team Services를 사용하여 배포하거나](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), [Spinnaker](https://www.spinnaker.io/) 또는 [Jenkins](https://jenkins.io/)와 같은 다른 플랫폼을 사용할 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

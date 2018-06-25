@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9542eedecaf8dc6d689bf6192f74eee15287ae99
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178758"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295429"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -67,6 +67,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Microsoft 피어링에 사용된 IP 주소
 BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합니다. Microsoft은 라우팅 인터넷 레지스트리 및 인터넷 라우팅 레지스트리를 통해 IP 주소의 소유권을 확인할 수 있어야 합니다.
 
+* Microsoft 피어링을 위한 보급된 공용 접두사의 포털에 나열된 IP는 Microsoft 코어 라우터에 대한 ACL을 만들어서 이러한 IP의 인바운드 트래픽을 허용합니다. 
 * 고유한 /29 (IPv4) 또는 /125 (IPv6) 서브넷 또는 두 개의 /30 (IPv4) 또는 /126 (IPv6) 서브넷을 사용하여 ExpressRoute 회로당(하나 이상이 있는 경우) 각 피어링에 BGP를 설정해야 합니다.
 * /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다.
 * 첫 번째 /30 서브넷은 기본 링크에 사용되고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.

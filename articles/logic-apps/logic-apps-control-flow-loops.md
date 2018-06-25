@@ -1,29 +1,25 @@
 ---
-title: 루프 - 배열 처리 또는 반복 작업 - Azure Logic Apps | Microsoft Docs
-description: "\"for each\" 루프를 사용하여 배열을 처리하거나 논리 앱에서 특정 조건이 충족될 때까지 작업을 반복합니다."
+title: 작업을 반복하거나 배열을 처리하는 루프 추가 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만드는 방법입니다.
 services: logic-apps
-keywords: for each 루프
-documentationcenter: ''
-author: ecfan
-manager: anneta
-editor: ''
-ms.assetid: 75b52eeb-23a7-47dd-a42f-1351c6dfebdc
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 4029da2c7ad59b1e61dabe0af252834746a4c5c6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298188"
 ---
-# <a name="loops-process-arrays-or-repeat-actions-until-a-condition-is-met"></a>루프: 배열 처리 또는 조건이 충족될 때까지 작업 반복
+# <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 반복하거나 배열을 처리하는 루프를 만듭니다.
 
-논리 앱에서 배열을 반복하려면 ["Foreach" 루프](#foreach-loop) 또는 [순차적 "Foreach" 루프](#sequential-foreach-loop)를 사용할 수 있습니다. 표준 "Foreach" 루프의 주기는 병렬로 실행되지만, 순차적 "Foreach" 루프의 주기는 한 번에 하나씩 실행됩니다. "Foreach" 루프가 단일 논리 앱 실행에서 처리할 수 있는 최대 배열 항목 수는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
+논리 앱에서 배열을 반복하려면 ["Foreach" 루프](#foreach-loop) 또는 [순차적 "Foreach" 루프](#sequential-foreach-loop)를 사용할 수 있습니다. 표준 "Foreach" 루프의 반복은 병렬로 실행되지만, 순차적 "Foreach" 루프의 반복은 한 번에 하나씩 실행됩니다. "Foreach" 루프가 단일 논리 앱 실행에서 처리할 수 있는 최대 배열 항목 수는 [제한 및 구성](../logic-apps/logic-apps-limits-and-config.md)을 참조하세요. 
 
 > [!TIP] 
 > 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다. 

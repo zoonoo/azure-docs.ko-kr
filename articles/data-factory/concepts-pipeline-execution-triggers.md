@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/29/2018
+ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: e9fb1088110212a0971ea1af7bbfbecb7d150e21
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715040"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293482"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -142,6 +142,8 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 - 연속 창 트리거: 상태를 유지하면서 일정한 간격에 작동하는 트리거입니다. Azure Data Factory는 현재 이벤트 기반 트리거를 지원하지 않습니다. 예를 들어 파일 도착 이벤트에 응답하는 파이프라인 실행에 대한 트리거는 지원되지 않습니다.
 
+- 이벤트 기반 트리거: 이벤트에 응답하는 트리거.
+
 파이프라인 및 트리거는 다 대 다 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있고, 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. 다음 트리거 정의에서 **pipelines** 속성은 특정 트리거가 트리거한 파이프라인의 목록을 가리킵니다. 속성 정의는 파이프라인 매개 변수에 대한 값을 포함합니다.
 
 ### <a name="basic-trigger-definition"></a>기본 트리거 정의
@@ -175,11 +177,6 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 일정 트리거는 벽시계 일정에 따라 파이프라인을 실행합니다. 이 트리거는 정기적인 고급 일정 옵션을 지원합니다. 예를 들어 트리거는 "매주" 또는 "월요일 오후 5시 및 목요일 오후 9시"와 같은 간격을 지원합니다. 일정 트리거는 시계열 및 비시계열 데이터 간을 구분하지 않고 데이터 집합 패턴이 중립적이므로 유연성이 있습니다.
 
 일정 트리거에 대한 자세한 내용 및 예제는 [일정 트리거 만들기](how-to-create-schedule-trigger.md)를 참조하세요.
-
-## <a name="tumbling-window-trigger"></a>연속 창 트리거
-연속 창 트리거는 상태를 유지하면서 지정된 시작 시간부터 주기적 시간 간격으로 실행되는 트리거 유형입니다. 연속 창은 고정된 크기의 겹치지 않고 연속적인 일련의 시간 간격입니다.
-
-연속 창 트리거에 대한 자세한 내용 및 예제는 [연속 창 트리거 만들기](how-to-create-tumbling-window-trigger.md)를 참조하세요.
 
 ## <a name="schedule-trigger-definition"></a>일정 트리거 정의
 일정 트리거를 만들 때 JSON 정의를 사용하여 일정 및 되풀이를 지정합니다. 
@@ -322,6 +319,17 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **weekDays** | 트리거가 실행될 요일입니다. 값은 주 단위 빈도로만 지정할 수 있습니다.|<br />- Monday<br />- Tuesday<br />- Wednesday<br />- Thursday<br />- Friday<br />- Saturday<br />- Sunday<br />- 날짜 값의 배열(최대 배열 크기: 7)<br /><br />날짜 값은 대/소문자 구분 안 함|
 | **monthlyOccurrences** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. |- **monthlyOccurence** 개체의 배열: `{ "day": day,  "occurrence": occurence }`<br />- **day** 특성은 트리거가 실행되는 요일입니다. 예를 들어 `{Sunday}`의 **day** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 매주 일요일을 의미합니다. **day** 특성은 필수입니다.<br />- **occurrence** 특성은 월 중 지정된 **day**의 되풀이 항목입니다. 예를 들어 `{Sunday, -1}`의 **day** 및 **occurrence** 값을 가진 **monthlyOccurrences** 속성은 해당 월의 마지막 일요일을 의미합니다. **occurrence** 특성은 선택 사항입니다.|
 | **monthDays** | 트리거가 실행되는 날짜입니다. 값은 빈도가 월인 경우에만 지정될 수 있습니다. |- 1 이상 및 31 이하의 모든 값<br />- 1 이하 및 31 이상의 모든 값<br />- 값의 배열|
+
+## <a name="tumbling-window-trigger"></a>연속 창 트리거
+연속 창 트리거는 상태를 유지하면서 지정된 시작 시간부터 주기적 시간 간격으로 실행되는 트리거 유형입니다. 연속 창은 고정된 크기의 겹치지 않고 연속적인 일련의 시간 간격입니다.
+
+연속 창 트리거에 대한 자세한 내용 및 예제는 [연속 창 트리거 만들기](how-to-create-tumbling-window-trigger.md)를 참조하세요.
+
+## <a name="event-based-trigger"></a>이벤트 기반 트리거
+
+이벤트 기반 트리거는 파일 도착, 파일 삭제 등의 이벤트에 응답하여 Azure Blob Storage에서 실행 파이프라인을 트리거합니다.
+
+이벤트 기반 트리거에 대한 자세한 내용은 [이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기](how-to-create-event-trigger.md)를 참조하세요.
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>트리거 되풀이 일정의 예
 이 섹션에서는 되풀이 일정의 예제를 제공합니다. **schedule** 개체 및 해당 요소를 중점적으로 다루고 있 습니다.

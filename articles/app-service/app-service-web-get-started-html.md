@@ -3,8 +3,8 @@ title: Azure에서 정적 HTML 웹앱 만들기 | Microsoft Docs
 description: 정적 HTML 샘플 앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
@@ -12,91 +12,97 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/26/2017
-ms.author: cephalin
+ms.date: 06/15/2018
+ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: bca5757c971f15279ed6ee9b41f415cd347d91b3
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28918780"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294015"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 기본적인 HTML+CSS 사이트를 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 HTML 콘텐츠를 배포합니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 기본적인 HTML+CSS 사이트를 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다.
 
 ![샘플 앱의 홈 페이지](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
-Mac, Windows 또는 Linux 컴퓨터를 사용하여 아래 단계를 따르면 됩니다. 필수 구성 요소가 설치된 후 단계를 완료하는 데는 약 5분 정도 걸립니다.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell에 대한 웹앱 확장 설치
 
-- <a href="https://git-scm.com/" target="_blank">Git 설치</a>
+이 빠른 시작을 완료하려면 [az web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add)을 추가해야 합니다. 확장이 이미 설치되어 있는 경우 최신 버전으로 업데이트해야 합니다. 웹앱 확장을 업데이트하려면 `az extension update -n webapp`을 입력합니다.
+
+웹앱 확장을 설치하려면 다음 명령을 실행합니다.
+
+```bash
+az extension add -n webapp
+```
+
+확장이 설치되면 Cloud Shell은 다음 예제에 대한 정보를 표시합니다.
+
+```bash
+The installed extension 'webapp' is in preview.
+```
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-터미널 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
+Cloud Shell에서 빠른 시작 디렉터리를 만든 다음, 변경합니다.
+
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+다음으로 다음 명령을 실행하여 빠른 시작 디렉터리에 샘플 앱 리포지토리를 복제합니다.
 
 ```bash
 git clone https://github.com/Azure-Samples/html-docs-hello-world.git
 ```
 
-샘플 코드를 포함하는 디렉터리로 변경합니다.
+## <a name="create-a-web-app"></a>웹앱 만들기
+
+샘플 코드를 포함하는 디렉터리로 변경하고 `az webapp up` 명령을 실행합니다.
+
+다음 명령에서 <app_name>을 고유한 앱 이름으로 바꿉니다.
 
 ```bash
 cd html-docs-hello-world
+
+az webapp up -n <app_name>
 ```
 
-## <a name="view-the-html"></a>HTML 보기
+`az webapp up` 명령에는 다음 작업이 포함됩니다.
 
-샘플 HTML을 포함하는 디렉터리로 이동합니다. 브라우저에서 *index.html* 파일을 엽니다.
+- 기본 리소스 그룹 만들기
 
-![샘플 앱 홈 페이지](media/app-service-web-get-started-html/hello-world-in-browser.png)
+- 기본 앱 서비스 계획 만들기
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- 지정된 이름의 앱 만들기
 
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
+- 현재 작업 디렉터리에서 웹앱까지의 [Zip 배포](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) 파일
 
-[!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group.md)] 
+이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
 
-[!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan.md)] 
-
-[!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
-
-![빈 웹앱 페이지](media/app-service-web-get-started-html/app-service-web-service-created.png)
-
-[!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 13, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (11/11), done.
-Writing objects: 100% (13/13), 2.07 KiB | 0 bytes/s, done.
-Total 13 (delta 2), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'cc39b1e4cb'.
-remote: Generating deployment script.
-remote: Generating deployment script for Web Site
-remote: Generated deployment script files
-remote: Running deployment command...
-remote: Handling Basic Web Site deployment.
-remote: KuduSync.NET from: 'D:\home\site\repository' to: 'D:\home\site\wwwroot'
-remote: Deleting file: 'hostingstart.html'
-remote: Copying file: '.gitignore'
-remote: Copying file: 'LICENSE'
-remote: Copying file: 'README.md'
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+```json
+{
+  "app_url": "https://<app_name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app_name>",
+  "os": "Windows",
+  "resourcegroup": "appsvc_rg_Windows_CentralUS ",
+  "serverfarm": "appsvc_asp_Windows_CentralUS",
+  "sku": "FREE",
+  "src_path": "/home/username/quickstart/html-docs-hello-world ",
+  < JSON data removed for brevity. >
+}
 ```
+
+`resourceGroup` 값을 기록해 둡니다. [리소스 정리](#clean-up-resources) 섹션에서 필요합니다.
 
 ## <a name="browse-to-the-app"></a>앱으로 이동
 
@@ -110,16 +116,19 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 ## <a name="update-and-redeploy-the-app"></a>앱 업데이트 및 다시 배포
 
-텍스트 편집기에서 *index.html* 파일을 열고 태그를 변경합니다. 예를 들어 "Azure App Service - 샘플 정적 HTML 사이트"에서 H1 제목을 "Azure App Service'로 변경합니다.
+Cloud Shell에서 `nano index.html`을 입력하여 Nano 텍스트 편집기를 엽니다. 아래와 같이 H1 제목에서 "Azure App Service - 샘플 정적 HTML 사이트"를 "Azure App Service"로 변경합니다.
 
-로컬 터미널 창에서 Git의 변경 내용을 커밋한 다음 Azure에 코드 변경 내용을 푸시합니다.
+![Nano index.html](media/app-service-web-get-started-html/nano-index-html.png)
+
+변경 내용을 저장하고 Nano를 종료합니다. `^O` 명령을 사용하여 저장하고 `^X` 명령을 사용하여 종료합니다.
+
+이제 동일한 `az webapp up` 명령을 사용하여 앱을 다시 배포합니다.
 
 ```bash
-git commit -am "updated HTML"
-git push azure master
+az webapp up -n <app_name>
 ```
 
-배포가 완료되면 브라우저를 새로 고쳐 변경 내용을 확인합니다.
+배포가 완료되면 **앱으로 이동** 단계에서 열린 브라우저 창으로 다시 전환하고 페이지를 새로 고칩니다.
 
 ![업데이트된 샘플 앱 홈 페이지](media/app-service-web-get-started-html/hello-azure-in-browser-az.png)
 
@@ -131,13 +140,21 @@ git push azure master
 
 ![Azure 웹앱에 대한 포털 탐색](./media/app-service-web-get-started-html/portal1.png)
 
-웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 
+웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-html/portal2.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
+왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다.
 
-[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>리소스 정리
+
+이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 것 같으면 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다. 리소스 그룹 이름은 [웹앱 만들기](#create-a-web-app) 단계에서 자동으로 생성되었습니다.
+
+```bash
+az group delete --name appsvc_rg_Windows_CentralUS
+```
+
+이 명령을 실행하는 데 1분 정도 걸릴 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

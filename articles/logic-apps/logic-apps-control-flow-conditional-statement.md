@@ -1,29 +1,25 @@
 ---
-title: "조건문 - 조건에 따라 단계 실행 - Azure Logic Apps | Microsoft Docs"
-description: "조건이 충족된 후에만 논리 앱에서 단계를 실행합니다. 지정된 조건에 따라 워크플로를 실행하는 의사 결정 트리를 만듭니다."
+title: 워크플로에 조건문 추가 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에서 흐름의 작업을 제어하는 조건을 만드는 방법입니다.
 services: logic-apps
-keywords: "조건문, 의사 결정 트리"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 486c1053f42ed3becc2c4b60accc993db7f24baa
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e8d84944d44588602593c762c4f60c375e480343
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298171"
 ---
-# <a name="conditional-statements-run-steps-based-on-a-condition-in-logic-apps"></a>조건문: 논리 앱에서 조건에 따라 단계 실행
+# <a name="create-conditional-statements-that-control-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업을 제어하는 조건문 만들기
 
-지정된 조건을 전달한 후에만 단계를 수행하려면 *조건문*을 사용합니다. 이 구조는 워크플로의 데이터를 특정 값 또는 필드와 비교합니다. 그런 다음, 데이터가 조건을 충족하는 지 여부에 따라 실행할 다른 단계를 정의할 수 있습니다. 서로의 내부에 조건을 중첩할 수 있습니다.
+지정된 조건을 통과한 후에만 논리 앱에서 특정 동작을 실행하려면 *조건문*을 추가합니다. 이 구조는 워크플로의 데이터를 특정 값 또는 필드와 비교합니다. 그런 다음, 데이터에서 조건을 충족하는지 여부에 따라 실행되는 다양한 작업을 정의할 수 있습니다. 서로의 내부에 조건을 중첩할 수 있습니다.
 
 예를 들어 웹 사이트의 RSS 피드에 새 항목이 표시될 때 너무 많은 이메일을 보내는 논리 앱이 있다고 가정합니다. 새 항목에 특정 문자열이 포함된 경우에만 이메일을 보내는 조건문을 추가할 수 있습니다. 
 
