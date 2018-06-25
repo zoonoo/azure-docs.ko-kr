@@ -33,7 +33,7 @@ ms.locfileid: "30266141"
 * Visual Studio 원격 뷰를 사용하여 원격 웹 앱에서 빠르게 변경하는 방법
 * 웹 앱 및 WebJob에 대해 Azure에서 프로젝트를 실행하는 동안 원격으로 디버그 모드를 실행하는 방법
 * 응용 프로그램 추적 로그를 만드는 방법 및 해당 로그가 생성될 때 이를 보는 방법
-* 자세한 오류 메시지 및 실패한 요청 추적을 포함하여 웹 서버 로그를 보는 방법
+* 자세한 오류 메시지 및 실패한 요청 추적 등의 웹 서버 로그를 보는 방법
 * 진단 로그를 Azure Storage 계정으로 보내고 해당 위치에서 로그를 보는 방법
 
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
