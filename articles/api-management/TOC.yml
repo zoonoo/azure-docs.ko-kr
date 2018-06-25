@@ -177,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Azure Event Hubs에 이벤트 기록
           href: api-management-howto-log-event-hubs.md
+        - name: Azure Application Insights를 사용하여 로그 요청
+          href: api-management-howto-app-insights.md
         - name: 백업/복원을 사용하여 DR 설정
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: 사용자 계정 관리
