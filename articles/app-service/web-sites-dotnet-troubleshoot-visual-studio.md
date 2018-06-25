@@ -39,7 +39,7 @@ ms.locfileid: "30266141"
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱을 작업합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
+이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱에 적용됩니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
 
 이 자습서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
 
