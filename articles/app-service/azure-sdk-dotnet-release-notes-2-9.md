@@ -42,7 +42,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
  
 ### <a name="windows-server-2016-virtual-machines"></a>Windows Server 2016 가상 머신
 
-- 이제 Visual Studio에서는 OS 제품군 5(Windows Server 2016) 가상 머신에 Cloud Services를 배포하도록 지원합니다. 기존 클라우드 서비스의 경우, 새 OS 제품군을 대상으로 설정을 변경할 수 있습니다. 새 클라우드 서비스를 만들 때 .NET 4.6 이상을 사용하여 서비스를 만들려면 선택하는 경우 기본적으로 서비스는 OS 제품군 5를 사용하게 됩니다.  자세한 내용은 [게스트 OS 제품군 지원 테이블](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/)을 참조하세요.
+- 이제 Visual Studio에서는 OS 제품군 5(Windows Server 2016) 가상 머신에 Cloud Services를 배포하도록 지원합니다. 기존 클라우드 서비스의 경우, 새 OS 제품군을 대상으로 설정을 변경할 수 있습니다. 새 클라우드 서비스를 만들 때 .NET 4.6 이상을 사용하여 서비스를 만들 경우 기본적으로 서비스는 OS 제품군 5를 사용하게 됩니다.  자세한 내용은 [게스트 OS 제품군 지원 테이블](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/)을 참조하세요.
 
 #### <a name="known-issues"></a>알려진 문제
 
