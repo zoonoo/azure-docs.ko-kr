@@ -1,4 +1,4 @@
----
+﻿---
 title: C 및 C++를 사용하여 SQL Database에 연결 | Microsoft Docs
 description: 이 빠른 시작에 포함된 샘플 코드를 사용하여 C++으로 최신 응용 프로그램을 개발하고 Azure SQL Database로 클라우드에서 강력한 관계형 데이터베이스를 통해 지원할 수 있습니다.
 services: sql-database
@@ -57,7 +57,7 @@ Database 서버 방화벽으로 이동하고 [이 단계를 사용하여 방화�
 이 시점에서 Azure SQL DB를 구성하고 C++ 코드에서 연결할 준비가 되었습니다. 
 
 ## <a id="Windows"></a>4단계: Windows C/C++ 응용 프로그램에서 연결
-Visual Studio에서 빌드한 [이 샘플을 사용하여 Windows에서 ODBC를 사용하여 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29)에 쉽게 연결할 수 있습니다. 샘플에서는 Azure SQL DB에 연결하는 데 사용할 수 있는 ODBC 명령줄 인터프리터를 구현합니다. 이 샘플에는 명령줄 인수로서 데이터베이스 원본 이름(DSN) 파일 또는 Azure Portal에서 이전에 복사한 세부 정보 표시 연결 문자열을 사용합니다. 이 프로젝트에 대한 속성 페이지를 표시하고 다음과 같이 명령 인수로서 연결 문자열을 붙여 넣습니다. 
+Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용하는 Azure SQL DB](https://github.com/Microsoft/VCSamples/tree/master/VC2015Samples/ODBC%20database%20sample%20%28windows%29)에 쉽게 연결할 수 있습니다. 샘플에서는 Azure SQL DB에 연결하는 데 사용할 수 있는 ODBC 명령줄 인터프리터를 구현합니다. 이 샘플에는 명령줄 인수로서 데이터베이스 원본 이름(DSN) 파일 또는 Azure Portal에서 이전에 복사한 세부 정보 표시 연결 문자열을 사용합니다. 이 프로젝트에 대한 속성 페이지를 표시하고 다음과 같이 명령 인수로서 연결 문자열을 붙여 넣습니다. 
 
 ![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
 
