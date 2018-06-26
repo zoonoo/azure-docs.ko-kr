@@ -45,7 +45,7 @@ Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.micr
 
 이 자습서는 Visual Studio 2017을 사용하는 경우를 가정합니다. 
 
-로그 스트리밍 기능은 .NET Framework 4 이상 응용 프로그램에 서만 작동합니다.
+로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에서만 작동합니다.
 
 ## <a name="sitemanagement"></a>웹 앱 구성 및 관리
 Visual Studio를 사용하면 [Azure Portal](http://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 웹앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용하여 사용할 수 있는 기능에 대해 알아봅니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
