@@ -48,7 +48,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
     ![성능 대시보드](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> Query Performance Insight를 제공하는 SQL Database용 쿼리 저장소로 데이터를 캡처하는 데 몇 시간이 필요합니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였던 경우 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 실행하지 않는 경우 언제든지 쿼리 저장소를 활성화할 수 있습니다.   
+> Query Performance Insight를 제공하는 SQL Database용 쿼리 저장소로 데이터를 캡처하려면 몇 시간이 소요됩니다. 데이터베이스에 아무런 작업이 없거나 쿼리 저장소가 특정 기간 동안 비활성 상태였던 경우 해당 기간을 표시할 때 차트가 비어 있게 됩니다. 실행하지 않는 경우 언제든지 쿼리 저장소를 활성화할 수 있습니다.   
 > 
 > 
 
