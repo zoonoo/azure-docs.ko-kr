@@ -1,0 +1,69 @@
+- name: 텍스트 분석 API 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: 텍스트 분석 API란?
+      href: overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: 자바
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: 파이썬
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: 자습서
+  items:
+    - name: Power BI로 텍스트 분석
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: PowerApps에서 텍스트 분석
+      href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
+- name: 방법 가이드
+  items:
+    - name: 등록
+      href: How-tos/text-analytics-how-to-signup.md
+    - name: 선택키 가져오기
+      href: How-tos/text-analytics-how-to-access-key.md
+    - name: 텍스트 분석 API 호출
+      href: How-tos/text-analytics-how-to-call-api.md
+    - name: 언어 검색
+      href: How-tos/text-analytics-how-to-language-detection.md
+    - name: 감정 분석
+      href: How-tos/text-analytics-how-to-sentiment-analysis.md
+    - name: 핵심 구 추출
+      href: How-tos/text-analytics-how-to-keyword-extraction.md
+    - name: 연결된 엔터티 인식
+      href: How-tos/text-analytics-how-to-entity-linking.md
+    - name: Visual Studio 작업
+      items:
+        - name: 텍스트 분석 연결된 서비스 사용
+          href: vs-text-connected-service.md
+- name: 참고 자료
+  items:
+    - name: Text Analytics API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
+- name: 리소스
+  items:
+    - name: FAQ
+      href: text-analytics-resource-faq.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
+    - name: 지원되는 언어
+      href: text-analytics-supported-languages.md
+    - name: 구독 키
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
+    - name: 외부 및 커뮤니티 콘텐츠
+      href: text-analytics-resource-external-community.md
+    - name: 사용해 보세요.
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'

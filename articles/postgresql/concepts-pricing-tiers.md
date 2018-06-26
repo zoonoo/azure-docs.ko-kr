@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: aa8d92e86a40841ca46ff39f72ebf0ee24d332f8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.date: 05/18/2018
+ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272185"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34756639"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -24,7 +24,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 |:---|:----------|:--------------------|:---------------------|
 | 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| vCore 메모리 | 기초 | 2x 기본 | 2x 범용 |
+| vCore 메모리 | 2 GB | 5GB | 10 GB |
 | 저장소 크기 | 5GB-1TB | 5GB-2TB | 5GB-2TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
@@ -40,7 +40,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 서버가 만들어지면 vCore 수는 몇 초 이내에 늘리거나 줄일 수 있습니다(같은 가격 책정 계층 내에서). 또한 응용 프로그램 중단 시간 없이 독립적으로 저장소 용량을 늘리거나 백업 보존 기간을 늘리거나 줄일 수 있습니다. 서버가 만들어진 후 가격 책정 계층 또는 백업 저장소 유형은 변경할 수 없습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
 
 
-## <a name="compute-generations-vcores-and-memory"></a>세대, vCore 수 및 메모리 계산
+## <a name="compute-generations-and-vcores"></a>세대 및 vCore 수 계산
 
 계산 리소스는 기본 하드웨어의 논리적 CPU를 나타내는 vCore 수로 제공됩니다. 현재 두 개의 계산 세대, 4세대 및 5세대에서 선택할 수 있습니다. 4세대 논리적 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, 5세대 논리적 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. Gen 4 및 Gen 5는 다음 지역에서 사용할 수 있습니다(“X”는 사용할 수 있음을 나타냄). 
 
@@ -64,14 +64,12 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
 | 오스트레일리아 남동부 |  | X |
-| 인도 중부 | X |  |
-| 인도 서부 | X |  |
+| 인도 중부 | X | X |
+| 인도 서부 | X | X |
 | 인도 남부 |  | X |
 | 일본 동부 | X | X |
 | 일본 서부 | X | X |
 | 한국 남부 |  | X |
-
-가격 책정 계층에 따라 각 vCore는 특정 양의 메모리로 프로비전됩니다. 서버에 대한 vCore 수를 늘리거나 줄이면 이에 비례하여 메모리도 늘어나거나 줄어듭니다. 범용 계층은 기본 계층에 비해 vCore당 두 배의 메모리를 제공하고, 메모리 최적화 계층은 범용 계층에 비해 두 배의 메모리를 제공합니다.
 
 ## <a name="storage"></a>Storage
 

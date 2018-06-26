@@ -1,0 +1,11 @@
+- name: 프로젝트 개인 정보 채팅 설명서
+- name: 개요
+  expanded: true
+  items:
+    - name: 프로젝트 개인 정보 채팅이란?
+      href: overview.md
+- name: 리소스
+  expanded: true
+  items:
+    - name: FAQ
+      href: faq.md

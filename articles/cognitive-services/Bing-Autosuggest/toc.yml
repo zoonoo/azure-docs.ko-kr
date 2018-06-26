@@ -1,0 +1,65 @@
+- name: Bing Autosuggest 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Bing Autosuggest란?
+      href: get-suggested-search-terms.md
+- name: REST API 빠른 시작
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: 자바
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: 파이썬
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: 자습서
+  items:
+    - name: 단일 페이지 웹앱
+      href: tutorials/autosuggest.md
+    - name: 단일 페이지 웹앱(소스 코드)
+      href: tutorials/autosuggest-source.md
+- name: 방법 가이드
+  items:
+    - name: 사용 및 표시 요구 사항
+      href: UseAndDisplayRequirements.md
+    - name: v5에서 v7로 업그레이드
+      href: bing-autosuggest-upgrade-guide-v5-to-v7.md
+- name: 참고 자료
+  items:
+    - name: Bing Autosuggest API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference'
+    - name: Bing Autosuggest API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference'
+- name: 리소스
+  items:
+    - name: FAQ
+      href: bing-autosuggest-resource-faq.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/autosuggest-api/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598198-bing-autosuggest'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/search?q=bing+autosuggest'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 기술 자료
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API 키 가져오기
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=autosuggest-api'
+    - name: 사용해 보세요.
+      href: 'https://azure.microsoft.com/services/cognitive-services/autosuggest/'
+    - name: Bing Autosuggest 끝점
+      href: autosuggest-endpoint.md
+    - name: 지원되는 언어
+      href: bing-autosuggest-supported-languages.md
+    - name: Bing Autosuggest API에 대한 분석
+      href: bing-autosuggest-stats.md

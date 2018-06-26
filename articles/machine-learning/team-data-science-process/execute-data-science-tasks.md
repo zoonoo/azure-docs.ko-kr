@@ -7,17 +7,19 @@ manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: 5c617c60ff51d0b1e7717b28b0372efe63c1ee18
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: ed402f9730136fdb8a4d07dd291599c567637600
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34838384"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
@@ -92,14 +94,17 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
+> [!NOTE]
+> 배포 전에 모델 스코어링의 대기 시간이 프로덕션에 사용할 만큼 충분히 낮은지 확인해야 합니다.
 >
->
->참고: 배포 전에 모델 스코어링의 대기 시간이 프로덕션에 사용할 만큼 충분히 낮은지 확인해야 합니다.
 >
 
 **특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습에서 추가 예제를 사용할 수 있습니다. 이러한 단계는 [예제 연습](walkthroughs.md) 자료에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다.
 
-참고: Azure Machine Learning Studio를 사용하는 배포에 대해서는 [Azure Machine Learning 웹 서비스 배포](../studio/publish-a-machine-learning-web-service.md)를 참조하세요.
+> [!NOTE]
+> Azure Machine Learning Studio를 사용하는 배포에 대해서는 [Azure Machine Learning 웹 서비스 배포](../studio/publish-a-machine-learning-web-service.md)를 참조하세요.
+>
+>
 
 ### <a name="ab-testing"></a>A/B 테스트
 프로덕션에 복수의 모델이 있는 경우 [A/B 테스트](https://en.wikipedia.org/wiki/A/B_testing)를 수행하여 모델의 성능을 비교하면 유용할 수 있습니다. 
@@ -108,6 +113,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 ## <a name="next-steps"></a>다음 단계
 
 [데이터 과학 프로젝트의 진행률 추적](track-progress.md)에서는 데이터 과학자가 데이터 과학 프로젝트의 진행률을 추적할 수 있는 방법을 보여 줍니다.
- 
+
+[모델 작업 및 CI/CD](ci-cd-flask.md)에서는 개발된 모델로 CI/CD를 수행하는 방법을 보여줍니다.
 
 

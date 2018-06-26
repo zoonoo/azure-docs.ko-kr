@@ -1,0 +1,15 @@
+- name: Web Language Model API 설명서
+- name: 개요
+  items:
+    - name: Web Language Model API란?
+      href: Home.md
+- name: 참고 자료
+  items:
+    - name: Web Language Model API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/55de9ca4e597ed1fd4e2f104/operations/55de9ca4e597ed19b0de8a51'
+    - name: Windows SDK
+      href: 'https://github.com/Microsoft/Cognitive-WebLM-Windows'
+- name: 리소스
+  items:
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555943-web-language-model-api'

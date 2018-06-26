@@ -6,15 +6,20 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
-ms.openlocfilehash: e94b817e6e08fcf2aee6e3000842bc1b853d512e
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: a709c5716a861f6b8dca5a365b9ef51e1252f644
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726739"
 ---
-Azure Functions 버전 2.x에서 로컬로 개발하는 경우 패키지는 [바인딩 확장을 등록](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools)하는 데 사용됩니다. Functions 1.x 및 2.x에서 C# 클래스 라이브러리를 개발하는 경우 [패키지를 설치](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code)하면 바인딩에 대한 지원이 추가됩니다.
+다음 표에서는 각 개발 환경에서 이 바인딩에 대한 지원을 추가하는 방법을 보여줍니다.
 
-소스 코드는 WebJobs SDK 버전 번호 매기기를 따릅니다. WebJobs SDK 버전 2.x는 Azure Functions 1.x에 해당하므로 Functions 1.x 코드는 리포지토리의 v2.x 분기에 있습니다. master 및 Dev 분기에는 Functions 2.x와 동일한 WebJobs 3.x용 코드가 포함되어 있습니다.
+| 개발 환경               | 다음에서 지원을 추가하려면 <br>Functions 1.x  |
+|----------------------|----------------|---------------|
+|로컬 개발 - C# 클래스 라이브러리       | [패키지 설치](../articles/azure-functions/functions-triggers-bindings.md#local-csharp) | 
+|로컬 개발 - C# 스크립트, JavaScript, F # |자동         |
+|포털 개발|  자동    |

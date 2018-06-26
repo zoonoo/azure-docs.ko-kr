@@ -1,36 +1,37 @@
 ---
-title: "원격 Docker 호스트에 ASP.NET Core Linux Docker 컨테이너 배포 | Microsoft Docs"
-description: "Visual Studio Tools for Docker를 사용하여 Azure Docket 호스트 Linux VM에서 실행 중인 Docker 컨테이너에 ASP.NET Core 웹앱을 배포하는 방법에 대해 설명합니다."
+title: ACR(Azure Container Registry)에 ASP.NET Docker 컨테이너 배포 | Microsoft Docs
+description: Visual Studio Tools for Docker를 사용하여 컨테이너 레지스트리에 ASP.NET Core 웹앱을 배포하는 방법에 대해 설명합니다.
 services: azure-container-service
 documentationcenter: .net
 author: mlearned
 manager: douge
-editor: 
+editor: ''
 ms.assetid: e5e81c5e-dd18-4d5a-a24d-a932036e78b9
 ms.service: azure-container-service
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2016
+ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 60efffd9313f6972ae46fd1925d999597d3c6ba2
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34658474"
 ---
-# <a name="deploy-an-aspnet-container-to-a-remote-docker-host"></a>원격 Docker 호스트에 ASP.NET 컨테이너 배포
+# <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Visual Studio를 사용하여 컨테이너 레지스트리에 ASP.NET 컨테이너 배포
 ## <a name="overview"></a>개요
-Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로그램과 서비스를 호스트하는 데 사용할 수 있는 간단한 컨테이너 엔진입니다.
-이 자습서에서는 [Visual Studio Tools for Docker](https://docs.microsoft.com/dotnet/articles/core/docker/visual-studio-tools-for-docker) 확장을 사용하여 Azure에서 PowerShell을 사용하여 Docker 호스트에 ASP.NET Core 앱을 배포하는 단계에 대해 설명합니다.
+Docker는 가상 머신과 몇 가지 측면에서 비슷하며 응용 프로그램과 서비스를 호스트하는 데 사용할 수 있는 간단한 컨테이너 엔진입니다.
+이 자습서에서는 Visual Studio를 사용하여 컨테이너화된 응용 프로그램을 [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry)에 게시하는 방법을 설명합니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
+이 자습서를 완료하려면 다음이 필요합니다.
 
-* [Azure에서 docker-machine을 사용하는 방법](virtual-machines/linux/docker-machine.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명에 따라 Azure Docker 호스트 VM을 만듭니다.
-* 최신 버전의 [Visual Studio](https://www.visualstudio.com/downloads/)를 설치합니다.
-* [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)를 다운로드합니다.
+* "ASP.NET 및 웹 개발" 워크로드가 포함된 최신 버전의 [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/)을 설치합니다.
 * [Windows용 Docker](https://docs.docker.com/docker-for-windows/install/)를 설치합니다.
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. ASP.NET Core 웹앱 만들기
@@ -38,51 +39,22 @@ Docker는 가상 컴퓨터와 몇 가지 측면에서 비슷하며 응용 프로
 
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
-## <a name="2-add-docker-support"></a>2. Docker 지원 추가
-[!INCLUDE [create-aspnet5-app](../includes/vs-azure-tools-docker-add-docker-support.md)]
+## <a name="2-publish-your-container-to-azure-container-registry"></a>2. 컨테이너를 Azure Container Registry에 게시
+1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
+2. 게시 대상 대화 상자에서 **컨테이너 레지스트리** 탭을 선택합니다.
+3. **새 Azure Container Registry**를 선택하고 **게시**를 클릭합니다.
+4. **새 Azure Container Registry 만들기**에 원하는 값을 채웁니다.
 
-## <a name="3-use-the-dockertaskps1-powershell-script"></a>3. DockerTask.ps1 PowerShell 스크립트 사용
-1. 프로젝트의 루트 디렉터리에 대해 PowerShell 프롬프트를 엽니다. 
-   
-   ```
-   PS C:\Src\WebApplication1>
-   ```
-2. 실행 중인 원격 호스트의 유효성을 검사합니다. 상태 = 실행 중이 표시되어야 합니다. 
-   
-   ```
-   docker-machine ls
-   NAME         ACTIVE   DRIVER   STATE     URL                        SWARM   DOCKER    ERRORS
-   MyDockerHost -        azure    Running   tcp://xxx.xxx.xxx.xxx:2376         v1.10.3
-   ```
-   
-3. -Build 매개 변수를 사용하여 앱 빌드
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release -Machine mydockerhost
-   ```  
+    | 설정      | 제안 값  | 설명                                |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **DNS 접두사** | 전역적으로 고유한 이름 | 컨테이너 레지스트리를 고유하게 식별하는 이름입니다. |
+    | **구독** | 구독 선택 | 사용할 Azure 구독입니다. |
+    | **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  컨테이너 레지스트리를 만들 리소스 그룹의 이름입니다. **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
+    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standard | 컨테이너 레지스트리의 서비스 계층  |
+    | **레지스트리 위치** | 가까운 위치 | 사용자 또는 컨테이너 레지스트리를 사용할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 위치를 선택합니다. |
+    ![Visual Studio의 Azure Container Registry 만들기 대화 상자][0]
+5. **만들기**
 
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Build -Environment Release 
-   > ```  
-   > 
-   > 
-4. -Run 매개 변수를 사용하여 앱 실행
-   
-   ```
-   PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release -Machine mydockerhost
-   ```
-   
-   > ```
-   > PS C:\Src\WebApplication1> .\Docker\DockerTask.ps1 -Run -Environment Release 
-   > ```
-   > 
-   > 
-   
-   docker가 완료되면 다음 화면과 같은 결과가 표시되어야 합니다.
-   
-   ![앱 보기][3]
+이제 레지스트리에서 Docker 이미지를 실행할 수 있는 모든 호스트로 컨테이너를 끌어올 수 있습니다(예: [Azure Container Instances](./container-instances/container-instances-tutorial-deploy-app.md)).
 
-[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/docker-props-in-solution-explorer.png
-[1]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/change-docker-machine-name.png
-[2]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/launch-application.png
-[3]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/view-application.png
+[0]:./media/vs-azure-tools-docker-hosting-web-apps-in-docker/vs-acr-provisioning-dialog.png

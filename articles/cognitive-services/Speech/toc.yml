@@ -1,0 +1,49 @@
+- name: 개요
+  href: Home.md
+- name: 시작
+  expanded: true
+  href: GetStarted/GetStarted.md
+  items:
+    - name: REST (영문)
+      href: GetStarted/GetStartedREST.md
+    - name: 클라이언트 라이브러리
+      href: GetStarted/GetStartedClientLibraries.md
+      items:
+        - name: 'C# 데스크톱 라이브러리'
+          href: GetStarted/GetStartedCSharpDesktop.md
+        - name: 'C# 서비스 라이브러리'
+          href: GetStarted/GetStartedCSharpServiceLibrary.md
+        - name: JavaScript 라이브러리
+          href: GetStarted/GetStartedJSWebsockets.md
+        - name: Android용 Java 라이브러리
+          href: GetStarted/GetStartedJavaAndroid.md
+        - name: iOS용 Objective-C 라이브러리
+          href: GetStarted/Get-Started-ObjectiveC-iOS.md
+- name: 샘플
+  href: samples.md
+- name: 개념
+  href: concepts.md
+- name: 방법 가이드
+  items:
+    - name: 서비스 사용을 위한 인증
+      href: How-to/how-to-authentication.md
+    - name: 인식 모드 선택
+      href: How-to/how-to-choose-recognition-mode.md
+    - name: 오디오 스트림의 청크 분할 전송
+      href: How-to/how-to-chunked-transfer.md
+- name: 참고 자료
+  items:
+    - name: Microsoft 음성 WebSocket 프로토콜
+      href: API-Reference-REST/websocketprotocol.md
+    - name: 텍스트를 음성으로 변환 API 참조
+      href: API-Reference-REST/BingVoiceOutput.md
+    - name: 지원되는 언어
+      href: API-Reference-REST/supportedlanguages.md
+- name: 문제 해결
+  href: troubleshooting.md
+- name: 리소스
+  items:
+    - name: 지원
+      href: support.md
+    - name: 기술 자료
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127980-bing-speech'

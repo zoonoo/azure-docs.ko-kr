@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 컴퓨터 비전 설명서
+metadata:
+  title: Computer Vision 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  description: Computer Vision을 사용하여 이미지를 처리하고 정보를 반환하는 방법을 알아봅니다. 자습서에서는 API를 사용하는 앱을 작성하는 방법을 보여줍니다.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  ms.service: cognitive-services
+  ms.component: computer-vision
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/29/2018
+  ms.author: nolachar
+  ms.openlocfilehash: e19407db53c9964bcdeb5bd0d36814f52eaacad1
+  ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 06/07/2018
+  ms.locfileid: "35358272"
+abstract:
+  description: 클라우드 기반 Computer Vision API를 사용하면 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 이미지를 업로드하거나 이미지 URL을 지정하면 Microsoft Computer Vision 알고리즘이 입력 및 사용자의 선택에 기반한 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. 빠른 시작, 자습서, 샘플을 통해 여러 가지 방법으로 시각적 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 다음을 사용하여 이미지를 분석하고 썸네일을 생성하고 텍스트를 추출합니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_Csharp.svg
+      text: C&#35;
+      href: QuickStarts/CSharp-analyze
+    - image:
+        src: media/index/logo_java.svg
+      text: 자바
+      href: QuickStarts/java-analyze
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: QuickStarts/node-analyze
+    - image:
+        src: media/index/logo_python.svg
+      text: 파이썬
+      href: QuickStarts/python-analyze
+    - image:
+        src: media/index/logo_ruby.svg
+      text: Ruby
+      href: QuickStarts/ruby-analyze
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Computer Vision API v2.0</a></p><p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API v1.0</a></p>
+    - title: SDK
+      html: <p><a href="https://github.com/Microsoft/Cognitive-vision-android">Android</a></p><p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p><p><a href="https://github.com/Microsoft/Cognitive-vision-windows">Windows</a></p>

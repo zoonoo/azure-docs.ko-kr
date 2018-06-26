@@ -9,11 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: bd9f01e76c68fa41616818251b5b54553059cbcc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 72f5215bac9254c9e3295b2cade7b6d44d516af6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637738"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Azure Machine Learning으로 이미지 분류 모델 작성 및 배포
 
@@ -39,7 +40,7 @@ AMLPCV를 사용하여 이 모델을 구축하고 배포하는 경우 다음 단
 
 ## <a name="prerequisites"></a>필수 조건
 
-1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+1. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 1. 다음 계정 및 응용 프로그램을 설정하고 설치해야 합니다.
    - Azure Machine Learning 실험 계정 
@@ -227,7 +228,6 @@ else:
 ## <a name="define-dnn-models"></a>DNN 모델 정의
 
 이 패키지에는 아래와 같은 미리 학습된 심층 신경망 모델이 지원됩니다. 
-+ AlexNet
 + Resnet-18
 + Resnet-34
 + Resnet-50
@@ -444,13 +444,9 @@ display(pr_ui.ui)
 + 현재 모델 관리 계정을 보려면 아래 명령을 사용합니다.
   <br>`az ml account modelmanagement show`
 
-**배포 환경 만들기 및 설정**
+**클러스터 배포 환경 만들기 및 설정**
 
 배포 환경은 한 번만 설정하면 됩니다. 아직 환경이 없으면 [해당 지침](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup)을 사용하여 배포 환경을 설정합니다. 
-
-필요에 따라 로컬 또는 클러스터 배포 설정 단계를 적절하게 수행합니다.
-+ 로컬 배포는 Linux 및 Windows 10 컴퓨터에서 지원되지만 Windows 데이터 과학 VM 또는 딥 러닝 VM에서는 지원되지 않습니다. 
-+ 클러스터 환경 배포는 Linux 및 Windows 모두에서 지원됩니다. 
 
 활성 배포 환경을 보려면 다음 CLI 명령을 사용합니다.
 <br>`az ml env show`
