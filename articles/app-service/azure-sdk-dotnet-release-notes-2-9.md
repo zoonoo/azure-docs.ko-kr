@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SDK for .NET 2.9 릴리스 정보
 description: Azure SDK for .NET 2.9 릴리스 정보
 services: app-service\web
@@ -87,7 +87,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 Visual Studio용 **HDInsight 도구**는 Tez 그래프 표시 및 기타 언어 수정을 포함하여 HDInsight 버전 3.3을 지원합니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
-이 릴리스는 Resource Manager 템플릿에 대한 [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 지원을 추가했습니다.
+이 릴리스는 Resource Manager 템플릿을 위한 [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 지원을 추가했습니다.
 
 ## <a name="see-also"></a>참고 항목
 [Azure SDK 2.9 발표 게시물](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
