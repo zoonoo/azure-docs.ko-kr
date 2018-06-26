@@ -65,6 +65,8 @@
       items:
         - name: Azure AD 인증 선택
           href: azure-ad-choose-authn.md
+        - name: 보안 검사 목록
+          href: azure-ad-secure-steps.md
         - name: 모범 사례
           href: azure-security-identity-management-best-practices.md
         - name: 구독 관리자에서 MFA 적용

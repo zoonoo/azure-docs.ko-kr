@@ -1,7 +1,7 @@
 - name: 데이터 팩터리 V1 설명서
   href: null
 - name: 현재 버전 설명서로 전환
-  href: ../index.yml
+  href: ../introduction.md
 - name: 개요
   items:
     - name: Azure Data Factory 소개
