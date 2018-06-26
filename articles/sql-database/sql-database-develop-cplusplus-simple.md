@@ -71,7 +71,7 @@ Visual Studio에서 빌드한 [이 샘플을 사용하여 Windows에서 ODBC를 
 
 ![파일 DSN 만들기](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하는 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하는 읽기를 계속할 수 있습니다. 
+축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.
 
 ## <a id="Linux"></a>5 단계: Linux C/C++ 응용 프로그램에서 연결
 아직 새 소식을 듣지 못했다면 Visual Studio에서 이제 C++ Linux 응용 프로그램도 개발할 수 있습니다. [Linux 개발용 Visual C++](https://blogs.msdn.microsoft.com/vcblog/2016/03/30/visual-c-for-linux-development/) 블로그에서 이 새 시나리오에 대해 참고할 수 있습니다. Linux용으로 빌드하려면 Linux distro가 실행되고 있는 원격 컴퓨터가 필요합니다. 원격 컴퓨터가 없다면 [Linux Azure 가상 머신](../virtual-machines/linux/quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 신속하게 하나를 설정할 수 있습니다. 
