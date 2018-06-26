@@ -1,22 +1,20 @@
 ---
 title: Azure Maps로 방향 표시 | Microsoft Docs
 description: Javascript 맵에서 두 위치 간의 방향을 표시하는 방법
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
 ms.custom: codepen
-ms.openlocfilehash: 9007afd1bc4d2361addc2a554fab1330174e88e7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5e9ab73ddc16517e17894cddd9bc102f3941f00c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "35778803"
 ---
 # <a name="show-directions-from-a-to-b"></a>A에서 B로의 방향 표시 
 
@@ -45,3 +43,7 @@ ms.lasthandoff: 05/07/2018
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
     * [addLinestrings](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addlinestrings)
     * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpins)
+
+맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
+* [맵에 트래픽 표시](./map-show-traffic.md)
+* [맵 - 마우스 이벤트 상호 작용](./map-events.md)
