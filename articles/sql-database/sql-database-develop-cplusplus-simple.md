@@ -71,6 +71,7 @@ Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용
 
 ![파일 DSN 만들기](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
+
 축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요. 
 
 ## <a id="Linux"></a>5 단계: Linux C/C++ 응용 프로그램에서 연결
