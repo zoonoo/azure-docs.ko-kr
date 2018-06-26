@@ -40,7 +40,7 @@ Microsoft Authenticator 앱은 자체적으로 작동하지 않습니다. 사용
 
 개인 계정의 경우 2단계 인증을 설정해야 합니다. Microsoft 계정이 있는 경우 이러한 단계는 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)에서 사용할 수 있습니다.
 
-또한 Microsoft가 아닌 계정으로 Microsoft Authenticator를 사용할 수 있습니다. 2단계 인증 이외의 기능을 호출할 수 있지만 보안 또는 로그인 설정에서 찾을 수 있어야 합니다.
+또한 Microsoft가 아닌 계정으로 Microsoft Authenticator를 사용할 수 있습니다. 2단계 인증 이외의 기능을 사용할 수 있지만 보안 또는 로그인 설정에서 찾을 수 있어야 합니다.
 
 ## <a name="install-the-app"></a>앱 설치
 Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다.
