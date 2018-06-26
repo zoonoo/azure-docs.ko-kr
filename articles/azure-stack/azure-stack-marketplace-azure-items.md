@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8545b092adf939520e15d8118e60f906b59bf92f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ead3d9be5b23d53cdc0ae9ffa3baec4a3cd74b8b
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232621"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946111"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure 스택 사용할 수 있는 azure 마켓플레이스 항목
 
@@ -91,8 +91,8 @@ Microsoft Azure 스택 솔루션 템플릿과 다음 Azure 마켓플레이스 �
 | ![CentOS 기반 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 기반 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 이 배포의 Linux CentOS을 기반으로 하 고 Rogue 웨이브 소프트웨어에 의해 제공 됩니다. | 불량 웨이브 소프트웨어 (이전의 OpenLogic)  |
 | ![7.4 centOS 기반](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 centOS 기반](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | 이 배포의 Linux CentOS을 기반으로 하 고 Rogue 웨이브 소프트웨어에 의해 제공 됩니다. | 불량 웨이브 소프트웨어 (이전의 OpenLogic) |
 | ![7.4 LVM centOS 기반](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.4 LVM centOS 기반](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74LVM) | 이 배포의 Linux CentOS을 기반으로 하 고 Rogue 웨이브 소프트웨어에 의해 제공 됩니다. | 불량 웨이브 소프트웨어 (이전의 OpenLogic) |
-| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer11SP4BringYourOwnSubscription) | SUSE Linux Enterprise Server 11 s p 4입니다. | SUSE |
-| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSELinuxEnterpriseServer12SP3BringYourOwnSubscription) | SUSE Linux Enterprise Server 12 s p 3입니다. | SUSE |
+| ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 11 s p 4입니다. | SUSE |
+| ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS) ](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/SUSE.SLES?tab=PlansAndPrice) | SUSE Linux Enterprise Server 12 s p 3입니다. | SUSE |
 
 ## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>제 3 자 BYOL을 평가판 이미지와 솔루션 템플릿
 

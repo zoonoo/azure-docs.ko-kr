@@ -10,22 +10,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 3c80ce6e221acb8905c00e6178dd2fec1f8816af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: eb01d31d00177560aca3aa71750cd2d1ec096f8f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938551"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>API 버전 프로필을 사용 하 여 Azure 스택에서 Azure CLI 2.0
 
-이 문서에서는 우리 안내해 Azure CLI (명령줄 인터페이스) 리소스를 관리할 Azure 스택 개발 키트에서 Linux 및 Mac 클라이언트 플랫폼을 사용 하는 과정입니다. 
+설정 하려면이 문서의 단계를 수행할 수는 리소스를 관리할 Azure 스택 개발 키트 Linux, Mac 및 Windows 클라이언트 플랫폼에서 Azure 명령줄 인터페이스 (CLI).
 
 ## <a name="install-cli"></a>CLI 설치
 
-다음으로 개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure 스택 2.0 버전의 Azure CLI가 필요 합니다. 에 설명 된 단계를 사용 하 여를 설치 하는 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
+개발 워크스테이션에 로그인 하 고 CLI를 설치 합니다. Azure 스택 2.0 버전의 Azure CLI가 필요 합니다. 에 설명 된 단계를 사용 하 여를 설치 하는 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli) 문서. 설치가 성공 했는지 여부를 확인 하려면 터미널 또는 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
 
 ```azurecli
 az --version
@@ -35,27 +36,47 @@ az --version
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Azure 스택 CA 루트 인증서를 신뢰 합니다.
 
-Azure 스택 연산자에서 Azure 스택 CA 루트 인증서를 가져오고 신뢰 합니다. Azure 스택 CA 루트 인증서를 신뢰 하도록 기존 Python 인증서를 추가 합니다. Azure 스택 환경 내에서 만든 Linux 컴퓨터에서 CLI를 실행 하는 경우에 다음 bash 명령을 실행 합니다.
+1. Azure 스택 CA 루트 인증서에서 가져온 [Azure 스택 연산자](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) 신뢰 하 고 있습니다. Azure 스택 CA 루트 인증서를 신뢰 하도록 기존 Python 인증서를 추가 합니다.
+
+2. 컴퓨터의 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 가 필요 하면 [pip](https://pip.pypa.io) 및 [로](https://pypi.org/project/certifi/) 모듈을 설치 합니다. Bash 프롬프트에서 다음 Python 명령을 사용할 수 있습니다.
+
+  ```bash  
+    python -c "import certifi; print(certifi.where())"
+  ```
+
+  인증서 위치를 기록해 둡니다. 예: `~/lib/python3.5/site-packages/certifi/cacert.pem` 특정 경로는 OS 및 python 설치 된 버전에 따라 달라 집니다.
+
+### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>클라우드 내의 개발 컴퓨터에 대 한 경로 설정 합니다.
+
+Azure 스택 환경 내에서 만든 Linux 컴퓨터에서 CLI를 실행 하는 경우 인증서의 경로와 다음 bash 명령을 실행 합니다.
 
 ```bash
-sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 ```
 
-Azure Sack 환경 외부 컴퓨터에서 CLI를 실행 하는 경우 먼저 설정 해야 [Azure 스택에 VPN 연결](azure-stack-connect-azure-stack.md)합니다. 이제 개발 워크스테이션에 이전에 내보낸 PEM 인증서를 복사 하 고 개발 워크스테이션의 운영 체제에 따라 다음 명령을 실행 합니다.
+### <a name="set-the-path-for-a-development-machine-outside-the-cloud"></a>클라우드 외부 개발 컴퓨터에 대 한 경로 설정 합니다.
 
-### <a name="linux"></a>Linux
+컴퓨터에서 CLI를 실행 하는 경우 **외부** Azure 스택 환경:  
+
+1. 설정 해야 [Azure 스택에 VPN 연결](azure-stack-connect-azure-stack.md)합니다.
+
+2. Azure 스택 연산자에서 가져온 PEM 인증서를 복사 하 고 (PATH_TO_PEM_FILE) 파일의 위치를 기록 합니다.
+
+3. 끝 개발 워크스테이션의 운영 체제에 따라 다음 명령을 실행 합니다.
+
+#### <a name="linux"></a>Linux
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="macos"></a>macOS
+#### <a name="macos"></a>macOS
 
 ```bash
-sudo cat PATH_TO_PEM_FILE >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
+sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-### <a name="windows"></a>Windows
+#### <a name="windows"></a>Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -181,14 +202,14 @@ az group create \
 ## <a name="known-issues"></a>알려진 문제
 Azure 스택에서 CLI를 사용 하는 경우 주의 해야 하는 몇 가지 알려진된 문제가 있습니다.
 
-* CLI 대화형 모드 즉 `az interactive` Azure 스택 명령은 아직 지원 되지 않습니다.
-* Azure 스택에서 사용할 수 있는 가상 컴퓨터 이미지의 목록을 가져오려면를 사용 하 여는 `az vm images list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 하는 `--all` 옵션을 선택 하면 응답 Azure 스택 환경에서 사용할 수 있는 이미지에만 반환 하는지 확인 합니다. 
-* Azure에서 제공 되는 가상 컴퓨터 이미지 별칭 Azure 스택 적용할 수 없습니다. 전체 URN 매개 변수를 사용 해야 가상 컴퓨터 이미지를 사용할 때 (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) 이미지 별칭 대신 합니다. 파생 된이 URN이 이미지 사양과 일치 해야 합니다는 `az vm images list` 명령입니다.
-* 기본적으로 CLI 2.0 기본 가상 컴퓨터 이미지 크기도 "Standard_DS1_v2"를 사용합니다. 그러나이 크기는 없습니다 아직 Azure 스택에서 사용할 수 있는, 지정 하면는 `--size` 가상 컴퓨터를 만들 때에 명시적으로 매개 변수입니다. 사용 하 여 Azure 스택에서 사용할 수 있는 가상 컴퓨터 크기 목록을 가져올 수는 `az vm list-sizes --location <locationName>` 명령입니다.
-
+ - CLI 대화형 모드 즉 `az interactive` Azure 스택 명령은 아직 지원 되지 않습니다.
+ - Azure 스택에서 사용할 수 있는 가상 컴퓨터 이미지의 목록을 가져오려면를 사용 하 여는 `az vm images list --all` 대신 명령을 `az vm image list` 명령입니다. 지정 하는 `--all` 옵션을 선택 하면 응답 Azure 스택 환경에서 사용할 수 있는 이미지에만 반환 하는지 확인 합니다.
+ - Azure에서 제공 되는 가상 컴퓨터 이미지 별칭 Azure 스택 적용할 수 없습니다. 전체 URN 매개 변수를 사용 해야 가상 컴퓨터 이미지를 사용할 때 (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) 이미지 별칭 대신 합니다. 파생 된이 URN이 이미지 사양과 일치 해야 합니다는 `az vm images list` 명령입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 [Azure CLI을 사용하여 템플릿 배포](azure-stack-deploy-template-command-line.md)
+
+[Azure 스택 사용자 (연산자)에 대 한 Azure CLI를 사용 하도록 설정](..\azure-stack-cli-admin.md)
 
 [사용자 권한 관리](azure-stack-manage-permissions.md)

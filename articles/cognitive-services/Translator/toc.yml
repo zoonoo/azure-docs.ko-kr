@@ -35,6 +35,62 @@
           href: quickstart-java-languages.md
         - name: 텍스트의 문장 길이 가져오기
           href: quickstart-java-sentences.md
+    - name: Node.js
+      items:
+        - name: 텍스트 번역
+          href: quickstart-nodejs-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-nodejs-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-nodejs-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-nodejs-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-nodejs-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-nodejs-sentences.md
+    - name: PHP
+      items:
+        - name: 텍스트 번역
+          href: quickstart-php-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-php-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-php-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-php-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-php-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-php-sentences.md
+    - name: 파이썬
+      items:
+        - name: 텍스트 번역
+          href: quickstart-python-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-python-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-python-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-python-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-python-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-python-sentences.md
+    - name: Ruby
+      items:
+        - name: 텍스트 번역
+          href: quickstart-ruby-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-ruby-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-ruby-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-ruby-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-ruby-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-ruby-sentences.md
 - name: 개념
   items:
     - name: 지원되는 언어
@@ -55,18 +111,8 @@
       href: word-alignment.md
     - name: 동적 사전 기능 사용
       href: dynamic-dictionary.md
-    - name: Translator Text API 사용
-      items:
-        - name: Node.js
-          href: quickstarts/nodejs.md
-        - name: PHP
-          href: quickstarts/php.md
-        - name: 파이썬
-          href: quickstarts/python.md
-        - name: Ruby
-          href: quickstarts/ruby.md
-        - name: WPF로 Translator Text 앱 만들기
-          href: tutorial-wpf-translation-csharp.md
+    - name: WPF로 Translator Text 앱 만들기
+      href: tutorial-wpf-translation-csharp.md
 - name: 참고 자료
   items:
     - name: v3 Translator Text API 참조

@@ -10,10 +10,10 @@
       items:
         - name: 'C#'
           href: Quickstarts/create-new-kb-csharp.md
-        - name: 자바
-          href: Quickstarts/create-new-kb-java.md
         - name: Go
           href: Quickstarts/create-new-kb-go.md
+        - name: 자바
+          href: Quickstarts/create-new-kb-java.md
         - name: Node.js
           href: Quickstarts/create-new-kb-nodejs.md
         - name: 파이썬
@@ -22,14 +22,26 @@
       items:
         - name: 'C#'
           href: Quickstarts/update-kb-csharp.md
-        - name: 자바
-          href: Quickstarts/update-kb-java.md
         - name: Go
           href: Quickstarts/update-kb-go.md
+        - name: 자바
+          href: Quickstarts/update-kb-java.md
         - name: Node.js
           href: Quickstarts/update-kb-nodejs.md
         - name: 파이썬
           href: Quickstarts/update-kb-python.md
+    - name: 기술 자료 게시
+      items:
+        - name: 'C#'
+          href: Quickstarts/publish-kb-csharp.md
+        - name: Go
+          href: Quickstarts/publish-kb-go.md
+        - name: 자바
+          href: Quickstarts/publish-kb-java.md
+        - name: Node.js
+          href: Quickstarts/publish-kb-nodejs.md
+        - name: 파이썬
+          href: Quickstarts/publish-kb-python.md
 - name: 개념
   items:
     - name: 기술 자료
