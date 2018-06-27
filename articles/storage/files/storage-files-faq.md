@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: e93e55161d965210e260e1664b330f2d77ff75c6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737812"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294093"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync(미리 보기)를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -91,7 +91,7 @@ ms.locfileid: "34737812"
 
 * <a id="afs-region-availability"></a>
 **어떤 지역에서 Azure File Sync(미리 보기)가 지원되나요?**  
-    현재 Azure File Sync는 오스트레일리아 동부, 캐나다 중부, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서부에서 사용할 수 있습니다. 더 많은 지역에 대한 지원이 일반 공급으로 추가될 예정입니다. 자세한 내용은 [지역 가용성](storage-sync-files-planning.md#region-availability)을 참조하세요.
+    현재 Azure File Sync는 오스트레일리아 동부, 오스트레일리아 남동부, 캐나다 중부, 캐나다 동부, 미국 중부, 동아시아, 미국 동부, 미국 동부2, 북유럽, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부 및 미국 서부에서 사용할 수 있습니다. 더 많은 지역에 대한 지원이 일반 공급으로 추가될 예정입니다. 자세한 내용은 [지역 가용성](storage-sync-files-planning.md#region-availability)을 참조하세요.
 
 * <a id="cross-domain-sync"></a>
 **도메인에 가입된 서버와 도메인에 가입되지 않은 서버를 같은 동기화 그룹에 둘 수 있나요?**  

@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware VM에 대해 Azure로의 복제 설정 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 Azure에 대한 VMware VM 복제 설정 | Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware VM 복제를 설정하는 방법을 설명합니다.
 services: site-recovery
 author: asgang
-manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: asgang
-ms.openlocfilehash: 48d84f59a80ea14c2b40821d886fc410c7e3f2c3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 5a4f184d0edf42732f1671d123f885749ae188d9
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30243338"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287391"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>VMware VM에 대해 Azure로의 복제를 사용하도록 설정
 

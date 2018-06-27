@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/27/2017
+ms.date: 06/12/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 7b3cb869f3c220c20db53216c96449d01c16eaf6
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 97eca81a8ddc2726bf5de0f4ad7ba0bdf1df1d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263180"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36220087"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Azure에서 모니터링 데이터 사용
 
@@ -40,7 +40,7 @@ Azure 플랫폼 전반에 걸쳐 Azure Monitor 파이프라인을 사용하여 �
 | Azure Monitor 메트릭 경고 | 공지 | [여기에 나오는 목록 참조](monitoring-supported-metrics.md) | <ul><li>**웹후크:** [Azure 메트릭 경고](insights-webhooks-alerts.md)</li></ul> |
 | Azure Monitor 활동 로그 경고 | 공지 | 모든 Azure 서비스 | <ul><li>**웹후크:** Azure 활동 로그 경고</li></ul> |
 | 자동 크기 조정 알림 | 공지 | [여기에 나오는 목록 참조](monitoring-overview-autoscale.md#supported-services-for-autoscale) | <ul><li>**웹후크:** [크기 자동 조정 알림 웹후크 페이로드 스키마](insights-autoscale-to-webhook-email.md#autoscale-notification-webhook-payload-schema)</li></ul> |
-| 로그 검색 쿼리 경고 | 공지 | Log Analytics | <ul><li>**웹후크:** [Log Analytics 경고](../log-analytics/log-analytics-alerts-actions.md#webhook-actions)</li></ul> |
+| 로그 검색 쿼리 경고 | 공지 | Log Analytics | <ul><li>**웹후크:** [로그 경고 규칙에 대한 웹후크 작업](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)</li></ul> |
 | Application Insights 메트릭 경고 | 공지 | Application Insights | <ul><li>**웹후크:** [Application Insights 경고](../application-insights/app-insights-alerts.md)</li></ul> |
 | Application Insights 웹 테스트 | 공지 | Application Insights | <ul><li>**웹후크:** [Application Insights 경고](../application-insights/app-insights-alerts.md)</li></ul> |
 

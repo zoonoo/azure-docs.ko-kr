@@ -8,18 +8,24 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 4215795b7cd2a25427a3ce9b3cde16bfc69cb009
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32185946"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284984"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Azure Search 서비스에 대한 api-key 만들기 및 관리
 
-검색 서비스에 대한 모든 요청에는 해당 서비스용으로 특별히 생성된 api-key가 필요합니다. 이 api-key는 검색 서비스 끝점에 액세스하는 유일한 방법입니다. 
+검색 서비스에 대한 모든 요청에는 해당 서비스용으로 특별히 생성된 읽기 전용 api-key가 필요합니다. 이 api-key는 검색 서비스 엔드포인트에 대한 액세스를 인증하는 유일한 방법으로, 모든 요청에 포함되어야 합니다. [REST 솔루션](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key)에서 api-key는 일반적으로 요청 헤더에 지정됩니다. [.NET 솔루션](search-howto-dotnet-sdk.md#core-scenarios)에서 키는 종종 구성 설정으로 지정된 후 [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient)에서 [자격 증명](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials)(관리자 키) 또는 [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials)(쿼리 키)로 전달됩니다.
+
+키는 서비스를 프로비전하는 동안 검색 서비스를 사용하여 생성됩니다. [Azure Portal](https://portal.azure.com)에서 키 값을 살펴보고 얻을 수 있습니다.
+
+![포털 페이지, 설정, 키 섹션](media/search-manage/azure-search-view-keys.png)
+
+## <a name="what-is-an-api-key"></a>api-key란?
 
 api-key는 임의로 생성된 숫자 및 문자로 구성된 문자열입니다. [역할 기반 권한](search-security-rbac.md)을 통해 키를 삭제하거나 읽을 수 있지만 사용자 정의 암호로 키를 대체하거나 검색 작업에 액세스하기 위한 기본 인증 방법으로 Active Directory를 사용할 수 없습니다. 
 

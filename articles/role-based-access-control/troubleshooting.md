@@ -1,6 +1,6 @@
 ---
-title: Azure RBAC 역할 기반 액세스 제어 문제 해결 | Microsoft Docs
-description: 역할 기반 Access Control 리소스에 대해 발생하는 문제 또는 질문 사항에 대한 도움말을 봅니다.
+title: Azure의 RBAC 문제 해결 | Microsoft Docs
+description: Azure RBAC(역할 기반 액세스 제어) 관련 문제를 해결합니다.
 services: azure-portal
 documentationcenter: na
 author: rolyon
@@ -15,22 +15,22 @@ ms.date: 03/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5ca43fe3a8ff27ff4a811aeb26abf4a6f26d8b35
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 557d3330ef155181c050a18b14d31b65ba1f2dcf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267173"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295403"
 ---
-# <a name="troubleshooting-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어 문제 해결 
+# <a name="troubleshooting-rbac-in-azure"></a>Azure의 RBAC 문제 해결
 
-이 아티클에서는 역할과 함께 부여되는 특정 액세스 권한에 대한 일반적인 질문에 대한 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
+이 문서에서는 RBAC(역할 기반 액세스 제어)에 대한 일반적인 질문에 대해 답변을 제공합니다. 따라서 Azure Portal에서 역할을 사용할 때 예상되는 상황을 이해하고 액세스 문제를 해결하는 데 도움이 될 수 있습니다. 이러한 세 가지 역할이 모든 리소스 유형에 적용됩니다.
 
 * 소유자  
 * 기여자  
 * 판독기  
 
-소유자와 참여자 양쪽 모두 관리 환경에 대한 모든 권한을 가집니다. 하지만, 참여자의 경우 다른 사용자나 그룹에 액세스 권한을 부여할 수 없다는 것입니다. 읽기 권한자 역할은 좀 더 복잡하므로 자세히 파악해야 합니다. 액세스를 부여하는 방법에 대한 세부 정보는 [역할 기반 Access Control 시작 문서](role-assignments-portal.md)를 참조하세요.
+소유자와 기여자 모두 관리 환경에 대한 모든 권한을 갖지만, 기여자는 다른 사용자나 그룹에 액세스 권한을 부여할 수 없습니다. 독자 역할은 좀 더 복잡하므로 시간을 들여 파악해야 합니다. 액세스 부여 방법에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)를 참조하세요.
 
 ## <a name="app-service"></a>App Service
 ### <a name="write-access-capabilities"></a>쓰기 액세스 기능
@@ -97,9 +97,7 @@ ms.locfileid: "35267173"
 
 이러한 타일에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참가자 권한을 요청합니다.
 
-## <a name="see-more"></a>자세히 보기
-* [역할 기반 Access Control](role-assignments-portal.md): Azure Portal에서 RBAC를 통해 시작합니다.
-* [기본 제공 역할](built-in-roles.md): RBAC에서 표준이 되는 역할에 대한 세부 정보를 봅니다.
-* [Azure RBAC에서 사용자 지정 역할](custom-roles.md): 액세스 요구 사항에 맞게 사용자 지정 역할을 만드는 방법에 대해 알아봅니다.
-* [액세스 변경 기록 보고서 만들기](change-history-report.md): RBAC에서 역할 할당 변경을 추적합니다.
+## <a name="next-steps"></a>다음 단계
+* [RBAC 및 Azure Portal을 사용하여 액세스 관리](role-assignments-portal.md)
+* [RBAC 변경에 대한 활동 로그 보기](change-history-report.md)
 

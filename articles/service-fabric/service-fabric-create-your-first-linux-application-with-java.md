@@ -12,14 +12,14 @@ ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/27/2018
+ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 38412713d625fc3c44e29444138675b98129f1fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 16c99c2c5524a321616ac9f0975f0c9b4255ca94
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643603"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36215857"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Linux에서 첫 번째 Java Service Fabric Reliable Actors 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -221,6 +221,9 @@ Maven에서 Service Fabric Java 종속성을 가져옵니다. Service Fabric Jav
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>테스트 클라이언트 시작 및 장애 조치 수행
 행위자는 자체적으로 아무 작업도 수행하지 않습니다. 따라서 메시지를 보낼 다른 서비스 또는 클라이언트가 필요합니다. 행위자 템플릿은 행위자 서비스와 상호 작용하는 데 사용할 수 있는 간단한 테스트 스크립트를 포함합니다.
+
+> [!Note]
+> 테스트 클라이언트는 행위자 서비스와 동일한 클러스터 내에서 실행해야 하며 동일한 IP 주소 공간을 공유해야 하는 ActorProxy 클래스를 사용하여 행위자와 통신합니다.  로컬 개발 클러스터와 동일한 컴퓨터에 테스트 클라이언트를 실행할 수 있습니다.  원격 클러스터의 작업자와 통신하려면 행위자와의 외부 통신을 처리하는 클러스터에서 게이트웨이를 배포해야 합니다.
 
 1. 행위자 서비스의 출력을 확인하려면 조사식 유틸리티를 사용하여 스크립트를 실행합니다.  테스트 스크립트는 행위자의 `setCountAsync()` 메서드를 호출하여 카운터를 증가시키고 행위자의 `getCountAsync()` 메서드를 호출하여 새 카운터 값을 가져오고 해당 값을 콘솔에 표시합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 RBAC(역할 기반 Access Control) 관리 | Microsoft Docs
-description: Azure 명령줄 인터페이스에서 역할 및 역할 작업을 나열하고, 구독 및 응용 프로그램 범위에 역할을 할당하여 RBAC(역할 기반 Access Control)를 관리하는 방법을 알아봅니다.
+title: RBAC 및 Azure CLI를 사용하여 액세스 관리 | Microsoft Docs
+description: RBAC(역할 기반 액세스 제어) 및 Azure CLI를 사용하여 사용자, 그룹 및 응용 프로그램의 액세스 권한을 관리하는 방법을 알아봅니다. 여기에는 액세스 권한 나열, 액세스 권한 부여 및 액세스 권한 제거가 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,30 +14,24 @@ ms.workload: identity
 ms.date: 04/03/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8b50d04bcbd067059bf4816468585e5d56a63d41
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15ff519f5af7471d6adaae44e2af19422ad44fea
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266740"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294407"
 ---
-# <a name="manage-role-based-access-control-with-the-azure-command-line-interface"></a>Azure 명령줄 인터페이스를 사용하여 역할 기반 Access Control 관리
+# <a name="manage-access-using-rbac-and-azure-cli"></a>RBAC 및 Azure CLI를 사용하여 액세스 관리
 
-> [!div class="op_single_selector"]
-> * [PowerShell](role-assignments-powershell.md)
-> * [Azure CLI](role-assignments-cli.md)
-> * [REST API](role-assignments-rest.md)
-
-
-RBAC(역할 기반 액세스 제어)를 통해 특정 범위에서 역할을 할당하여 사용자, 그룹, 서비스 주체에 대한 액세스를 정의합니다. 이 문서에서는 Azure CLI(명령줄 인터페이스)를 사용하여 역할 할당을 관리하는 방법에 대해 알아봅니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure에서 리소스에 대한 액세스를 관리하는 방법입니다. 이 문서에서는 RBAC 및 Azure CLI를 사용하여 사용자, 그룹 및 응용 프로그램의 액세스 권한을 관리하는 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 Azure CLI를 사용하여 역할 할당을 관리하려면 먼저 다음 필수 조건이 필요합니다.
 
-* [Azure CLI 2.0](/cli/azure). [Azure Cloud Shell](../cloud-shell/overview.md)을 실행하는 브라우저에서 사용하거나 macOS, Linux 및 Windows에서 [설치](/cli/azure/install-azure-cli)하고 명령줄에서 실행할 수 있습니다.
+* [Azure CLI](/cli/azure). [Azure Cloud Shell](../cloud-shell/overview.md)을 실행하는 브라우저에서 사용하거나 macOS, Linux 및 Windows에서 [설치](/cli/azure/install-azure-cli)하고 명령줄에서 실행할 수 있습니다.
 
-## <a name="list-role-definitions"></a>역할 정의 나열
+## <a name="list-roles"></a>역할 나열
 
 사용 가능한 모든 역할 정의를 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
 
@@ -94,7 +88,7 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role-definition"></a>역할 정의의 작업 나열
+### <a name="list-actions-of-a-role"></a>역할의 작업 나열
 
 역할 정의의 작업을 나열하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용합니다.
 
@@ -182,7 +176,9 @@ az role definition list --name "Virtual Machine Contributor" --output json | jq 
 ]
 ```
 
-## <a name="list-role-assignments"></a>역할 할당 나열
+## <a name="list-access"></a>액세스 권한 나열
+
+RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다.
 
 ### <a name="list-role-assignments-for-a-user"></a>사용자에 대한 역할 할당 목록
 
@@ -240,7 +236,9 @@ az role assignment list --resource-group pharma-sales-projectforecast --output j
 ...
 ```
 
-## <a name="create-role-assignments"></a>역할 할당 만들기
+## <a name="grant-access"></a>액세스 권한 부여
+
+RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다.
 
 ### <a name="create-a-role-assignment-for-a-user"></a>사용자에 대한 역할 할당 만들기
 
@@ -290,9 +288,9 @@ az role assignment create --role <role> --assignee-object-id <assignee_object_id
 az role assignment create --role "Virtual Machine Contributor" --assignee-object-id 44444444-4444-4444-4444-444444444444 --resource-group pharma-sales-projectforecast
 ```
 
-## <a name="remove-a-role-assignment"></a>역할 할당 제거
+## <a name="remove-access"></a>액세스 권한 제거
 
-역할 할당을 제거하려면 [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)를 사용합니다.
+RBAC에서 액세스 권한을 제거하려면 [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete)를 사용하여 역할 할당을 제거합니다.
 
 ```azurecli
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>

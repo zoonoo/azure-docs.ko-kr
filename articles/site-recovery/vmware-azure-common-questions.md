@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/15/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 345b73db423c6e12b56bb3308f7700917a372dda
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30185223"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285970"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -29,7 +29,7 @@ ms.locfileid: "30185223"
 
 ### <a name="what-can-i-do-with-vmware-to-azure-replication"></a>Azure로 복제할 때 VMware를 사용하여 수행할 수 있는 작업은 무엇인가요?
 - **재해 복구**: 전체 재해 복구를 설정할 수 있습니다. 이 시나리오에서는 온-프레미스 VMware VM을 Azure 저장소에 복제합니다. 그런 다음, 온-프레미스 인프라를 사용할 수 없는 경우 Azure로 장애 조치할 수 있습니다. 장애 조치를 수행하면 복제된 데이터를 사용하여 Azure VM이 만들어집니다. 온-프레미스 데이터 센터를 다시 사용할 수 있을 때까지 Azure VM에서 응용 프로그램 및 작업에 액세스할 수 있습니다. 그런 다음, Azure에서 온-프레미스 사이트로 장애 복구할 수 있습니다.
-- **마이그레이션**: Site Recovery를 사용하여 온-프레미스 VMware VM을 Azure로 마이그레이션할 수 있습니다. 이 시나리오에서는 온-프레미스 VMware VM을 Azure 저장소에 복제합니다. 그런 다음, 온-프레미스에서 Azure로 장애 조치합니다. 장애 조치 후에는 Azure VM에서 응용 프로그램과 작업을 사용할 수 있으며 실행합니다.
+- **마이그레이션**: Site Recovery를 사용하여 온-프레미스 VMware VM을 Azure로 마이그레이션할 수 있습니다. 이 시나리오에서는 온-프레미스 VMware VM을 Azure 저장소에 복제합니다. 그런 다음, 온-프레미스에서 Azure로 장애 조치합니다. 장애 조치(failover) 후 Azure VM에서 앱과 워크로드가 실행되며 사용할 수 있습니다.
 
 
 
@@ -41,7 +41,7 @@ Azure 구독, Recovery Services 저장소, 저장소 계정 및 가상 네트워
 LRS 또는 GRS 저장소 계정이 필요합니다. 지역 정전이 발생하거나 주 지역을 복구할 수 없는 경우에 데이터를 복원할 수 있도록 GRS를 사용하는 것이 좋습니다. Premium Storage가 지원됩니다.
 
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>내 Azure 계정에 VM을 만들 수 있는 권한이 필요한가요?
-구독 관리자인 경우 필요한 복제 권한이 있습니다. 그렇지 않은 경우 Site Reocvery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에서 Azure VM을 만들고 선택한 저장소 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
+구독 관리자인 경우 필요한 복제 권한을 갖고 있습니다. 구독 관리자가 아닌 경우 Site Recovery를 구성할 때 지정한 리소스 그룹 및 가상 네트워크에 Azure VM을 만들 수 있는 권한과 선택한 저장소 계정에 쓸 수 있는 권한이 필요합니다. [자세히 알아보기](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
 
 

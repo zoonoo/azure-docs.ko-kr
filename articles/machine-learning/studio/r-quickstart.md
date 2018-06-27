@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 57c0030ac613167dc3ed567c2876b8e2e110d47a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 97107bb5ca1a598906cac9adbf508b2d15668e7d
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836378"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36227243"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning"></a>Azure Machine Learning에 대한 프로그래밍 언어는 R에 대한 빠른 시작 자습서
 
@@ -41,7 +41,7 @@ Microsoft Azure Machine Learning에는 강력한 기계 학습 및 데이터 조
 
 이 빠른 시작 가이드에서는 캘리포니아 유제품 생산 및 가격 데이터를 사용합니다. 이러한 데이터에는 기준 상품, 즉 몇몇 유제품 생산 및 유지방 가격에 대한 월별 정보가 포함됩니다.
 
-이 문서에 사용된 데이터 및 R 스크립트는 [여기서 다운로드][download]할 수 있습니다. 이 데이터는 원래 위스콘신 대학교의 http://future.aae.wisc.edu/tab/production.html에서 사용할 수 있는 정보에서 만들어졌습니다.
+이 문서에 사용된 데이터 및 R 스크립트는 [여기서 다운로드](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv)할 수 있습니다. 이 데이터는 원래 위스콘신 대학교의 https://dairymarkets.com에서 사용할 수 있는 정보에서 만들어졌습니다.
 
 ### <a name="organization"></a>조직
 몇몇 단계를 통해 Azure Machine Learning 환경에서 분석 및 데이터 조작 R 코드를 작성, 테스트 및 실행하는 방법을 배우게 됩니다.  

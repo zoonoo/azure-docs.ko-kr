@@ -5,15 +5,16 @@ services: cosmos-db
 author: kanshiG
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: na
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: b07a159e69a11656555a8550b807cce0b2c9ef6c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bd31270ca67dc993cc7ac72ab2bab9bf70005ca
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293998"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure Cosmos DB 계정에 보안 액세스
 
@@ -48,7 +49,7 @@ Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서�
    ![Virtual Network 및 서브넷 선택](./media/vnet-service-endpoint/choose-subnet-and-vnet.png)
 
    > [!NOTE]
-   > Azure Cosmos DB에 대한 서비스 엔드포인트가 선택한 Azure Virtual Network 및 서브넷에 대해 미리 구성되지 않은 경우 이 작업을 수행하면서 구성할 수 있습니다. 액세스 활성화는 완료하는 데 최대 15분이 걸릴 수 있습니다. 
+   > Azure Cosmos DB에 대한 서비스 엔드포인트가 선택한 Azure Virtual Network 및 서브넷에 대해 미리 구성되지 않은 경우 이 작업을 수행하면서 구성할 수 있습니다. 액세스 활성화는 완료하는 데 최대 15분이 걸릴 수 있습니다. 나중에 다시 활성화하려면 방화벽 ACL의 내용을 기록한 후 IP 방화벽을 비활성화하는 것이 매우 중요합니다. 
 
    ![성공적으로 구성된 가상 네트워크 및 서브넷](./media/vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -57,6 +58,9 @@ Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서�
 ### <a name="configure-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>새로운 Azure Virtual Network 및 서브넷에 대한 서비스 엔드포인트 구성
 
 1. **모든 리소스** 블레이드에서 보호할 Azure Cosmos DB 계정을 찾습니다.  
+
+> [!NOTE]
+> Azure Cosmos DB 계정에 대해 구성된 기존 IP 방화벽이 있는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트를 사용하도록 설정합니다. 방화벽을 비활성화하지 않고 서비스 엔드포인트를 활성화하면 해당 IP 범위의 트래픽에서 가상 IP ID가 손실되어 IP 필터 오류 메시지가 표시되면서 삭제됩니다. 따라서 이런 오류를 방지하려면 항상 방화벽 규칙을 비활성화하고 복사한 다음, 서브넷에서 서비스 엔드포인트를 활성화하고 마지막으로 Cosmos DB의 서브넷을 ACL해야 합니다. 서비스 엔드포인트를 구성하고 ACL을 추가한 후 필요하면 IP 방화벽을 다시 활성화할 수 있습니다.
 
 2. 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하기 전에 나중에 사용할 수 있도록 Azure Cosmos DB 계정과 연결된 IP 방화벽 정보를 복사합니다. 서비스 엔드포인트를 구성한 후 IP 방화벽을 다시 설정할 수 있습니다.  
 
@@ -76,7 +80,7 @@ Azure Cosmos DB 데이터베이스 계정에 대해 Azure Virtual Network 서비
 
 Azure Search와 같은 다른 Azure 서비스에서 Azure Cosmos DB 계정을 사용하거나 Stream 분석 또는 Power BI에서 액세스하는 경우 **Azure Services에 액세스 허용**을 선택하여 액세스를 허용합니다.
 
-포털에서 Azure Cosmos DB 메트릭에 대한 액세스 권한이 있는지 확인하려면 **Azure Portal에 액세스 허용** 옵션을 사용하도록 설정해야 합니다. 이러한 옵션에 대해 자세히 알아보려면 [Azure Portal에서 연결](firewall-support.md#connections-from-the-azure-portal) 및 [Azure PaaS 서비스의 연결](firewall-support.md#connections-from-other-azure-paas-services) 섹션을 참조하세요. 액세스를 선택한 후 **저장**을 선택하여 설정을 저장합니다.
+포털에서 Azure Cosmos DB 메트릭에 대한 액세스 권한이 있는지 확인하려면 **Azure Portal에 액세스 허용** 옵션을 사용하도록 설정해야 합니다. 이러한 옵션에 대해 자세히 알아보려면 [Azure Portal에서 연결](firewall-support.md#connections-from-the-azure-portal) 및 [Azure PaaS 서비스의 연결](firewall-support.md#connections-from-public-azure-datacenters-or-azure-paas-services) 섹션을 참조하세요. 액세스를 선택한 후 **저장**을 선택하여 설정을 저장합니다.
 
 ## <a name="remove-a-virtual-network-or-subnet"></a>가상 네트워크 또는 서브넷 제거 
 
@@ -95,6 +99,10 @@ Azure Search와 같은 다른 Azure 서비스에서 Azure Cosmos DB 계정을 �
 Azure PowerShell을 사용하여 Azure Cosmos DB 계정에 서비스 엔드포인트를 구성하려면 다음 단계를 사용합니다.  
 
 1. 최신 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 설치하고 [로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.  계정에 대한 서비스 엔드포인트를 활성화하기 전에 IP 방화벽 설정을 확인하고 IP 방화벽을 완전히 삭제합니다.
+
+
+> [!NOTE]
+> Azure Cosmos DB 계정에 대해 구성된 기존 IP 방화벽이 있는 경우 방화벽 구성에 대해 주의하고, IP 방화벽을 제거한 다음, 서비스 엔드포인트를 사용하도록 설정합니다. 방화벽을 비활성화하지 않고 서비스 엔드포인트를 활성화하면 해당 IP 범위의 트래픽에서 가상 IP ID가 손실되어 IP 필터 오류 메시지가 표시되면서 삭제됩니다. 따라서 이런 오류를 방지하려면 항상 방화벽 규칙을 비활성화하고 복사한 다음, 서브넷에서 서비스 엔드포인트를 활성화하고 마지막으로 Cosmos DB의 서브넷을 ACL해야 합니다. 서비스 엔드포인트를 구성하고 ACL을 추가한 후 필요하면 IP 방화벽을 다시 활성화할 수 있습니다.
 
 2. 가상 네트워크 서비스 엔드포인트를 사용하도록 설정하기 전에 나중에 사용할 수 있도록 Azure Cosmos DB 계정과 연결된 IP 방화벽 정보를 복사합니다. 서비스 엔드포인트를 구성한 후 IP 방화벽을 다시 설정할 수 있습니다.  
 
@@ -219,9 +227,13 @@ HTTP 404 오류가 반환됩니다.
 
 64개의 가상 네트워크 서비스 엔드포인트가 Azure Cosmos DB 계정에 허용됩니다.
 
-### <a name="what-is-the-relationship-of-service-endpoint-with-respect-to-network-security-group-nsg-rules"></a>NSG(네트워크 보안 그룹) 규칙에 대해 서비스 엔드포인트의 관계는 무엇입니까?  
+### <a name="what-is-the-relationship-between-service-endpoint-and-network-security-group-nsg-rules"></a>서비스 엔드포인트와 NSG(네트워크 보안 그룹) 규칙 간의 관계는 무엇인가요?  
 
-NSG의 Azure Cosmos DB 규칙은 Azure Cosmos DB IP 주소 범위에 대한 액세스만 제한할 수 있습니다.
+Azure Cosmos DB의 NSG 규칙을 사용하면 특정 Azure Cosmos DB IP 주소 범위에 대한 액세스를 제한할 수 있습니다. 특정 [지역](https://azure.microsoft.com/global-infrastructure/regions/)에 있는 Azure Cosmos DB 인스턴스에 대한 액세스를 허용하려면 다음 형식으로 지역을 지정하면 됩니다. 
+
+    AzureCosmosDB.<region name>
+
+NSG 태그에 대해 자세히 알아보려면 [가상 네트워크 서비스 태그](../virtual-network/security-overview.md#service-tags) 문서를 참조하세요. 
   
 ### <a name="what-is-relationship-between-an-ip-firewall-and-virtual-network-service-endpoint-capability"></a>IP 방화벽 및 Virtual Network 서비스 엔드포인트 기능 사이의 관계는 무엇입니까?  
 

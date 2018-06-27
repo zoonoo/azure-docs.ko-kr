@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 8796cd3224670c6d1c8b1b3c6da8d1c096b01d03
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716723"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287806"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
@@ -56,7 +56,7 @@ ms.locfileid: "34716723"
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
 
 <a name="CreateCluster"></a>
-## 클러스터 만들기
+## <a name="create-the-cluster"></a>클러스터 만들기
 
 필수 구성 요소를 완료한 후 첫 번째 단계는 두 개의 SQL Sever와 미러링 모니터 서버를 포함하는 Windows Server 장애 조치(Failover) 클러스터를 만드는 것입니다.
 
@@ -413,8 +413,8 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
    | **Name** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
    | **프로토콜** | TCP 선택 |TCP |
-   | **포트** | SQL Server 인스턴스에 대한 포트를 사용합니다. | 1433 |
-   | **백 엔드 포트** | 이 필드는 부동 IP가 직접 서버 반환에 대해 설정된 경우 사용하지 않습니다. | 1433 |
+   | **포트** | 가용성 그룹 수신기용 포트 사용 | 1435 |
+   | **백 엔드 포트** | 이 필드는 부동 IP가 직접 서버 반환에 대해 설정된 경우 사용하지 않습니다. | 1435 |
    | **프로브** |프로브에 대해 지정한 이름 | SQLAlwaysOnEndPointProbe |
    | **세션 지속성** | 드롭다운 목록 | **없음** |
    | **유휴 시간 제한** | TCP 연결을 열린 상태로 유지하는 시간(분) | 4 |

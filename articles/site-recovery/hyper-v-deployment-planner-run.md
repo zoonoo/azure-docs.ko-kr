@@ -1,24 +1,22 @@
 ---
 title: Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner | Microsoft Docs
-description: 이 문서는 Hyper-V에서 Azure로 이동할 때 Azure Site Recovery Deployment Planner를 실행하는 모드를 설명합니다.
-services: site-recovery
+description: 이 문서에서는 Hyper-V에서 Azure로 복제하기 위한 Site Recovery 배포 계획을 실행하는 방법을 설명합니다.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/14/2018
+ms.date: 06/20/2018
 ms.author: nisoneji
-ms.openlocfilehash: 49243eaa4d3413509e569a88e1d7a2f6359d7876
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0293ace13dbcd30988ce571c60f2d7c6a338e779
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236232"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287493"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Azure Site Recovery Deployment Planner 실행
 
-## <a name="modes-of-running-the-deployment-planner"></a>Deployment Planner 실행 모드
-다음 4가지 모드 중 원하는 모드에서 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다. 
+다음 4가지 모드 중 원하는 모드에서 Site Recovery Deployment Planner 명령줄 도구(ASRDeploymentPlanner.exe)를 실행할 수 있습니다. 
 -   [VM(가상 머신) 목록 가져오기](#get-vm-list-for-profiling-hyper-v-vms)
 -   [프로필](#profile-hyper-v-vms)
 -   [보고서 생성](#generate-report)
@@ -40,14 +38,14 @@ ASRDeploymentPlanner.exe -Operation GetVMList /?
 |---|---|
 | -Operation | GetVMList |
 | -User | Hyper-V 호스트 또는 Hyper-V 클러스터에 연결할 사용자 이름입니다. 사용자에게 관리 액세스 권한이 필요합니다.|
-|-ServerListFile | 프로파일링할 VM이 포함된 서버 목록이 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일의 각 행에 다음 중 하나를 포함해야 합니다.<ul><li>Hyper-V 호스트 이름 또는 IP 주소</li><li>Hyper-V 클러스터 이름 또는 IP 주소</li></ul><br>**예:** ServerList.txt에는 다음 서버가 포함됩니다.<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
+| -ServerListFile | 프로파일링할 VM이 포함된 서버 목록이 있는 파일입니다. 파일 경로는 절대 경로 또는 상대 경로일 수 있습니다. 이 파일의 각 행에 다음 중 하나를 포함해야 합니다.<ul><li>Hyper-V 호스트 이름 또는 IP 주소</li><li>Hyper-V 클러스터 이름 또는 IP 주소</li></ul><br>**예:** ServerList.txt에는 다음 서버가 포함됩니다.<ul><li>Host_1</li><li>10.8.59.27</li><li>Cluster_1</li><li>Host_2</li>|
 | -Directory|(선택 사항) 이 작업 중에 생성된 데이터를 저장하기 위한 UNC(범용 명명 규칙) 또는 로컬 디렉터리 경로입니다. 이름을 지정하지 않으면 현재 경로 아래에 ProfiledData라는 디렉터리가 기본 디렉터리로 사용됩니다.|
-|-OutputFile| (선택 사항) Hyper-V 서버에서 가져온 VM 목록이 저장된 파일입니다. 이름이 언급되지 않으면 세부 정보는 VMList.txt에 저장됩니다.  프로파일링할 필요가 없는 VM을 제거한 후 파일을 사용하여 프로파일링을 시작합니다.|
+|-OutputFile| (선택 사항) Hyper-V 서버에서 가져온 VM 목록이 들어 있는 파일이 저장됩니다. 이름이 언급되지 않으면 세부 정보는 VMList.txt에 저장됩니다.  프로파일링할 필요가 없는 VM을 제거한 후 파일을 사용하여 프로파일링을 시작합니다.|
 |-Password|(선택 사항) Hyper-V 호스트에 연결하기 위한 암호입니다. 매개 변수로 지정하지 않으면 명령을 실행하는 경우 메시지가 표시됩니다.|
 
 ### <a name="getvmlist-discovery"></a>GetVMList 검색
-**Hyper-V 클러스터**: Hyper-V 클러스터 이름이 서버 목록 파일에 주어지면 도구가 클러스터의 Hyper-V 노드를 모두 찾아서 각 Hyper-V 호스트에 있는 VM을 가져옵니다.
 
+- **Hyper-V 클러스터**: Hyper-V 클러스터 이름이 서버 목록 파일에 주어지면 도구가 클러스터의 Hyper-V 노드를 모두 찾아서 각 Hyper-V 호스트에 있는 VM을 가져옵니다.
 **Hyper-V 호스트**: Hyper-V 호스트 이름이 주어지면 도구는 우선 해당 이름이 클러스터에 속하는지 확인합니다. 속하는 경우 도구는 클러스터에 포함되는 노드를 페치합니다. 그런 다음 각 Hyper-V 호스트에서 VM을 가져옵니다. 
 
 수동으로 프로파일링하려는 VM의 이름이나 IP 주소를 파일에 나열하도록 선택할 수도 있습니다.
@@ -154,7 +152,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization Hyper-V -Dire
 
 저장소 계정 이름과 키가 전달되면 도구는 프로파일링의 마지막 단계에서 처리량을 측정합니다. 프로파일링을 완료하기 전에 도구가 닫히면 처리량이 계산되지 않습니다. 보고서를 생성하기 전에 처리량을 확인하려면 명령줄 콘솔에서GetThroughput 작업을 실행할 수 있습니다. 그렇지 않은 경우 생성된 보고서에 처리량 정보가 포함되지 않습니다.
 
-Azure Site Recovery는 iSCSI 및 통과 디스크가 있는 VM을 지원하지 않습니다. 하지만, 도구는 VM에 연결된 iSCSI 및 통과 디스크를 검색 및 프로파일링할 수 없습니다.
+Azure Site Recovery는 iSCSI 및 통과 디스크가 있는 VM을 지원하지 않습니다. 이 도구는 VM에 연결된 iSCSI 및 통과 디스크를 검색 및 프로파일링할 수 없습니다.
 
 ## <a name="generate-a-report"></a>보고서 생성
 이 도구는 보고서 출력으로 매크로가 사용하도록 설정된 Microsoft Excel 파일(XLSM 파일)을 생성합니다. 배포의 모든 권장 사항을 요약합니다. 이 보고서는 DeploymentPlannerReport_*고유 숫자 식별자*.xlsm으로 명명되어 지정된 디렉터리에 배치됩니다.

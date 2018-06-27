@@ -3,7 +3,7 @@ title: Azure 대시보드를 프로그래밍 방식으로 만들기 | Microsoft 
 description: 이 문서에서는 Azure 대시보드를 프로그래밍 방식으로 만다는 방법을 설명합니다.
 services: azure-portal
 documentationcenter: ''
-author: adamab
+author: adamabmsft
 manager: dougeby
 editor: tysonn
 ms.service: azure-portal
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 8670d25e10b58c40b9d0807de1db88c3296b193d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: dafada5cecbc6345da46bc3a32fc3b91eb72313a
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164387"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295514"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Azure 대시보드를 프로그래밍 방식으로 만들기
 
@@ -89,11 +89,11 @@ Azure는 여러 리소스의 배포를 오케스트레이션하는 기능을 제
 이 경우 템플릿의 매개 변수 구문을 사용하여 매개 변수화를 수행해야 합니다.  아래 표시된 것처럼 이전에 찾은 모든 리소스 ID 항목을 바꿉니다.
 
 ### <a name="example-json-property-with-hard-coded-resource-id"></a>하드 코드된 리소스 ID가 있는 JSON 속성 예제
-`id: “/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1”`
+`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
 
 ### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>템플릿 매개 변수를 기반으로 매개 변수화된 버전으로 변환된 JSON 속성 예제
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), ‘Microsoft.Compute/virtualMachines’, parameters('virtualMachineName'))]"`
+`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
 
 또한 다음과 같이 json 템플릿 맨 위에 일부 필요한 템플릿 메타데이터와 매개 변수를 선언해야 합니다.
 

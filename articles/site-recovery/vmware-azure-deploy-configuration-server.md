@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/06/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 3e7a9196d928fb8a5d12647e1916b046ebedd261
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4d944bec9d1cf73263d9deb54d0d9b3f6fc5532f
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267512"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285036"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -31,7 +31,7 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 MySQL은 기본적으로 구성 서버에 설치돼야 합니다. 다음 방법 중 하나를 사용하여 이 작업을 수행할 수 있습니다.
 
-- 구성 서버 관리 마법사가 실행될 때 Site Recovery가 MySQL을 다운로드하고 설치하게 합시다. 특정 조치를 취할 필요가 없습니다.
+- 구성 서버 관리 마법사가 실행될 때 Site Recovery가 MySQL을 다운로드하고 설치하게 합니다. 특정 조치를 취할 필요가 없습니다.
 - 수동으로 MySQL을 다운로드하고 C:\Temp\ASRSetup 폴더에 넣습니다. 그런 다음, 설치를 실행합니다. Site Recovery는 마법사가 실행되는 경우 MySQL이 설치된 것을 인식합니다.
 - 수동으로 MySQL을 다운로드하고 C:\Temp\ASRSetup 폴더에 넣습니다. 마법사가 실행되는 경우 설치 파일을 찾아 이 위치에서 설치합니다. 
 

@@ -9,12 +9,12 @@ ms.date: 02/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c90cc28956e4dd7730cc7ba09a173f505f056fc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30dc833edabfe3d13769bafc9fa0eb6bdd51bb23
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632403"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287210"
 ---
 # <a name="store-data-at-the-edge-with-sql-server-databases"></a>SQL Server 데이터베이스로 에지에 데이터 저장
 
@@ -33,7 +33,7 @@ Azure IoT Edge 장치를 사용하여 에지에서 생성된 데이터를 저장
 * [Visual Studio Code를 사용하여 Azure Functions 개발 및 Azure IoT Edge에 배포](how-to-vscode-develop-azure-function.md)
 
 필요한 자습서를 완료한 후에는 모든 필수 구성 요소가 컴퓨터에 준비되어야 합니다. 
-* 활성 Azure IoT Hub
+* 하나 이상의 IoT Edge 장치가 있는 활성 Azure IoT Hub.
 * RAM이 2GB 이상이고 디스크 드라이브가 2GB 이상인 IoT Edge 장치
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Visual Studio Code용 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
@@ -43,7 +43,6 @@ Azure IoT Edge 장치를 사용하여 에지에서 생성된 데이터를 저장
 * [Python 2.7](https://www.python.org/downloads/)
 * [IoT Edge 제어 스크립트](https://pypi.python.org/pypi/azure-iot-edge-runtime-ctl)
 * AzureIoTEdgeFunction 템플릿(`dotnet new -i Microsoft.Azure.IoT.Edge.Function`)
-* 하나 이상의 IoT Edge 장치가 있는 활성 IoT Hub.
 
 x64 프로세서 아키텍처의 Windows 및 Linux 컨테이너는 모두 이 자습서에 적합합니다. SQL Server는 ARM 프로세서를 지원하지 않습니다.
 

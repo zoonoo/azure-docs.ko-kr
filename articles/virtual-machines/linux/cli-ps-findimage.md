@@ -16,15 +16,17 @@ ms.workload: infrastructure
 ms.date: 02/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c65ebbc8a61c13b96364dadde45bd4bca828e337
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 53e5100023fb76b4daf468d3f2027f2b5c7f31d7
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29740886"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292962"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지를 찾는 방법
 이 항목에서는 Azure CLI 2.0을 사용하여 Azure Marketplace에서 VM 이미지를 찾는 방법을 설명합니다. CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 프로그래밍 방식으로 VM을 생성할 때 이 정보를 사용하여 Marketplace 이미지를 지정합니다.
+
+또한 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 상점, [Azure Portal](https://portal.azure.com) 또는 [Azure PowerShell](../windows/cli-ps-findimage.md)을 사용하여 사용 가능한 이미지와 제품을 찾아봅니다. 
 
 최신 Azure CLI 2.0을 [설치](/cli/azure/install-az-cli2)하고 Azure 계정(`az login`)에 로그인했는지 확인합니다.
 
@@ -177,7 +179,7 @@ westus      Ubuntu_Core
 westus      Ubuntu_Snappy_Core
 westus      Ubuntu_Snappy_Core_Docker
 ```
-미국 서부 지역에서 Canonical이 Azure에 *UbuntuServer* 제품을 게시한다는 것을 확인할 수 있습니다. 하지만 SKU는 무엇입니까? 이런 값을 얻으려면 `azure vm image list-skus`를 실행하고 검색한 위치, 게시자 및 제품을 설정합니다.
+미국 서부 지역에서 Canonical이 Azure에 *UbuntuServer* 제품을 게시한다는 것을 확인할 수 있습니다. 하지만 SKU는 무엇입니까? 이 값을 얻으려면 `azure vm image list-skus`를 실행하고 검색한 위치, 게시자 및 제안을 설정합니다.
 
 ```azurecli
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
@@ -255,8 +257,8 @@ Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageRefer
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>plan 속성 보기
-이미지의 구매 계획 정보를 보려면 [az vm image show](/cli/azure/image#az_image_show) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
+### <a name="view-plan-properties"></a>플랜 속성 보기
+이미지의 구매 플랜 정보를 보려면 [az vm image show](/cli/azure/image#az_image_show) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
 
 예를 들어, Canonical Ubuntu Server 16.04 LTS 이미지는 `plan` 정보가 `null`이기 때문에 추가 약관이 없습니다.
 
@@ -331,8 +333,8 @@ az vm image accept-terms --urn bitnami:rabbitmq:rabbitmq:latest
 }
 ```
 
-### <a name="deploy-using-purchase-plan-parameters"></a>구매 계획 매개 변수를 사용하여 배포
-이미지에 대한 약관에 동의한 후에는 구독에 VM을 배포할 수 있습니다. `az vm create` 명령을 사용하여 이미지를 배포하려면 이미지에 대한 URN 외에 구매 계획에 대한 매개 변수를 제공합니다. RabbitMQ Certified by Bitnami 이미지가 있는 VM을 배포하려면:
+### <a name="deploy-using-purchase-plan-parameters"></a>구매 플랜 매개 변수를 사용하여 배포
+이미지에 대한 약관에 동의한 후에는 구독에 VM을 배포할 수 있습니다. `az vm create` 명령을 사용하여 이미지를 배포하려면 이미지에 대한 URN 외에 구매 플랜에 대한 매개 변수를 제공합니다. 예를 들어 RabbitMQ Certified by Bitnami 이미지가 있는 VM을 배포하려면 다음 명령을 실행합니다.
 
 ```azurecli
 az group create --name myResourceGroupVM --location westus

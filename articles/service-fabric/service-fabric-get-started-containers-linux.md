@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: a38eb1f291d00d942ff0a1579b20bca7e012991a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f1d71db70bbaa6e569ad6f9a6f51bca4c5dc220
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642940"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36213127"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Linux에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -171,26 +171,12 @@ Service Fabric 컨테이너 응용 프로그램을 만들려면 터미널 창을
 
 "1"이라는 인스턴스 수를 지정합니다.
 
+적절한 형식의 포트 매핑을 지정합니다. 이 문서에서는 포트 매핑으로 ```80:4000```을 입력해야 합니다. 그러면 호스트 컴퓨터에서 포트 4000에 발생하는 모든 들어오는 요청은 컨테이너의 포트 80으로 리디렉션되도록 구성됩니다.
+
 ![컨테이너용 Service Fabric Yeoman 생성기][sf-yeoman]
 
-## <a name="configure-port-mapping-and-container-repository-authentication"></a>포트 매핑 및 컨테이너 리포지토리 인증 구성
-컨테이너화된 서비스에는 통신을 위한 끝점이 필요합니다. 이제 'Resources' 태그 아래의 ServiceManifest.xml 파일에서 프로토콜, 포트 및 형식을 `Endpoint`에 추가할 수 있습니다. 이 문서의 경우 컨테이너화된 서비스는 포트 4000에서 수신 대기합니다. 
-
-```xml
-
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myServiceTypeEndpoint" UriScheme="http" Port="4000" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- ```
- 
-`UriScheme`을 입력하면 이 컨테이너 끝점이 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 이 문서의 끝에서 전체 ServiceManifest.xml 예제 파일을 제공합니다. 
-
-ApplicationManifest.xml 파일의 `ContainerHostPolicies`에서 `PortBinding` 정책을 지정하여 컨테이너 포트 및 호스트 간 포트 매핑을 구성합니다. 이 문서에서 `ContainerPort`은 80(컨테이너가 Dockerfile에서 지정된 대로 포트 80을 노출함)이고 `EndpointRef`는 "myServiceTypeEndpoint"(서비스 매니페스트에서 정의된 끝점임)입니다. 포트 4000에서 서비스에 들어오는 요청은 컨테이너에 있는 포트 80에 매핑됩니다. 컨테이너가 개인 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다. 이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
+## <a name="configure-container-repository-authentication"></a>컨테이너 리포지토리 인증 구성
+ 컨테이너가 개인 리포지토리에 인증해야 하는 경우 `RepositoryCredentials`를 추가합니다. 이 문서에서는 myregistry.azurecr.io 컨테이너 레지스트리의 계정 이름 및 암호를 추가합니다. 정책이 올바른 서비스 패키지에 해당하는 'ServiceManifestImport' 태그 아래에 추가되었는지 확인합니다.
 
 ```xml
    <ServiceManifestImport>
@@ -227,14 +213,6 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
 기본적으로 *IncludeDockerHealthStatusInSystemHealthReport*는 **true**로 설정되고, *RestartContainerOnUnhealthyDockerHealthStatus*는 **false**로 설정됩니다. *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 
 전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
-
-## <a name="build-and-package-the-service-fabric-application"></a>Service Fabric 응용 프로그램 빌드 및 패키징
-Service Fabric Yeoman 템플릿은 [Gradle](https://gradle.org/)에 대한 빌드 스크립트를 포함하며 이것을 사용하여 터미널에서 응용 프로그램을 빌드할 수 있습니다. 응용 프로그램을 빌드하고 패키징하려면 다음을 실행합니다.
-
-```bash
-cd mycontainer
-gradle
-```
 
 ## <a name="deploy-the-application"></a>응용 프로그램 배포
 응용 프로그램이 빌드되면 Service Fabric CLI를 사용하여 로컬 클러스터에 배포할 수 있습니다.

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: sngun
-ms.openlocfilehash: f0cbbe147386aa5d50e207fdd9c86fd9571ec144
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0407d3c58fa63a11c8391f069039f7c35a15ceb7
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611741"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294740"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB 방화벽 지원
 Azure Cosmos DB 데이터베이스 계정에 저장된 데이터를 보호하기 위해 Azure Cosmos DB는 강력한 HMAC(해시 기반 메시지 인증 코드)를 활용하는 암호 기반 [권한 부여 모델](https://msdn.microsoft.com/library/azure/dn783368.aspx)을 지원했습니다. 이제 Azure Cosmos DB는 암호 기반 권한 부여 모델 외에도 인바운드 방화벽 지원에 대한 정책 중심 IP 기반 액세스 제어를 지원합니다. 이 모델은 기존 데이터베이스 시스템의 방화벽 규칙과 유사하며 Azure Cosmos DB 데이터베이스 계정에 추가 보안 수준을 제공합니다. 이제 이 모델에서는 승인된 컴퓨터 및/또는 클라우드 서비스에서만 액세스할 수 있도록 Azure Cosmos DB 데이터베이스 계정을 구성할 수 있습니다. 이러한 승인된 컴퓨터 및 서비스에서 Azure Cosmos DB 리소스에 액세스하려면 여전히 호출자가 유효한 권한 부여 토큰을 제공해야 합니다.
@@ -32,7 +32,7 @@ Azure Cosmos DB 데이터베이스 계정에 저장된 데이터를 보호하기
 ## <a id="configure-ip-policy"></a> IP 액세스 제어 정책 구성
 Azure Portal에서나, [Azure CLI](cli-samples.md), [Azure Powershell](powershell-samples.md)을 통해 프로그래밍 방식으로 또는 **ipRangeFilter** 속성을 업데이트하여 [REST API](/rest/api/cosmos-db/)를 통해 IP 액세스 제어 정책을 설정할 수 있습니다. 
 
-Azure Portal에서 IP 액세스 제어 정책을 설정하려면 Azure Cosmos DB 계정 페이지로 이동하고, 탐색 메뉴에서 **방화벽**을 클릭하고, **다음에서 액세스 허용** 값을 **선택한 네트워크**로 변경한 다음, **저장**을 클릭합니다. 
+Azure Portal에서 IP 액세스 제어 정책을 설정하려면 Azure Cosmos DB 계정 페이지로 이동하고, 탐색 메뉴에서 **방화벽 및 가상 네트워크**를 클릭하고, **다음에서 액세스 허용** 값을 **선택한 네트워크**로 변경한 다음, **저장**을 클릭합니다. 
 
 ![Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷](./media/firewall-support/azure-portal-firewall.png)
 
@@ -56,10 +56,10 @@ Azure Portal에서 방화벽 설정을 **선택한 네트워크**로 변경하�
 
 ![Azure Portal 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷](./media/firewall-support/enable-azure-portal.png)
 
-## <a name="connections-from-other-azure-paas-services"></a>다른 Azure PaaS 서비스에서 연결 
+## <a name="connections-from-public-azure-datacenters-or-azure-paas-services"></a>공용 Azure 데이터 센터 또는 Azure PaaS 서비스에서 연결
 Azure에서 Azure Stream Analytics, Azure Functions 및 Azure App Service 같은 PaaS 서비스는 Azure Cosmos DB와 함께 사용됩니다. IP 주소를 즉시 사용할 수 없는 서비스에서 Azure Cosmos DB 데이터베이스 계정에 액세스할 수 있게 하려면 Azure Cosmos DB 데이터베이스 계정과 프로그래밍 방식으로 연결된 허용되는 IP 주소 목록에 IP 주소 0.0.0.0을 추가해야 합니다. 
 
-Azure Portal에서 방화벽 설정을 **선택한 네트워크**로 변경하면 기본적으로 다른 Azure 서비스에 대한 액세스를 사용하도록 설정됩니다. 
+Azure Portal에서 방화벽 설정을 **선택한 네트워크**로 변경하면 기본적으로 공용 Azure 데이터 센터 내에서 연결에 대한 액세스를 사용하도록 설정됩니다. 
 
 ![Azure Portal에서 방화벽 페이지를 여는 방법을 보여 주는 스크린샷](./media/firewall-support/enable-azure-services.png)
 
@@ -91,8 +91,6 @@ Azure에서 클라우드 서비스는 Azure Cosmos DB를 사용하여 중간 계
 ## <a name="troubleshooting-the-ip-access-control-policy"></a>IP 액세스 제어 정책 문제 해결
 ### <a name="portal-operations"></a>포털 작업
 Azure Cosmos DB 데이터베이스 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 컴퓨터에서 시도하는 모든 Azure Cosmos DB 데이터베이스 계정 액세스가 차단됩니다. 따라서 컬렉션 탐색 및 문서 쿼리와 같은 포털 데이터 평면 작업을 사용하려면 포털의 **방화벽** 페이지를 사용하여 Azure Portal 액세스를 명시적으로 허용해야 합니다. 
-
-![Azure Portal에 대한 액세스를 사용하도록 설정하는 방법을 보여 주는 스크린샷](./media/firewall-support/azure-portal-firewall.png)
 
 ### <a name="sdk--rest-api"></a>SDK 및 Rest API
 보안상의 이유로 허용 목록에 없는 컴퓨터에서 SDK 또는 REST API를 통해 액세스를 시도하면 추가 정보 없이 일반적인 404 찾을 수 없음 응답이 반환됩니다. Azure Cosmos DB 데이터베이스 계정에 대해 구성된 IP 허용 목록을 확인하여 Azure Cosmos DB 데이터베이스 계정에 올바른 정책 구성이 적용되었는지 확인합니다.

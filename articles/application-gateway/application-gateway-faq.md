@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 5/21/2018
+ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: bf4e92636424e7d8f4a1bc2eb5ee9ba7e97667c6
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699906"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295531"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -115,7 +115,7 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 네트워크 보안 그룹은 Application Gateway 서브넷에서 지원되지만, 다음과 같은 제한 사항이 있습니다.
 
-* 백 엔드 상태가 올바르게 작동하도록 포트 65503-65534에 들어오는 트래픽에 대한 예외를 구현해야 합니다.
+* 포트 65503-65534에서 들어오는 트래픽에 대해 예외를 적용해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에서 변경을 시작할 수 없습니다.
 
 * 아웃바운드 인터넷 연결은 차단할 수 없습니다.
 
@@ -159,13 +159,17 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 
 * 원본 IP/IP 범위에서 들어오는 트래픽을 허용합니다.
 
-* [백 엔드 상태 통신](application-gateway-diagnostics.md)을 위해 모든 원본에서 포트 65503-65534로 들어오는 요청을 허용합니다.
+* [백 엔드 상태 통신](application-gateway-diagnostics.md)을 위해 모든 원본에서 포트 65503-65534로 들어오는 요청을 허용합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에서 변경을 시작할 수 없습니다.
 
 * [NSG](../virtual-network/security-overview.md)에 대한 들어오는 Azure Load Balancer 프로브(AzureLoadBalancer 태그) 및 인바운드 가상 네트워크 트래픽(VirtualNetwork 태그)을 허용합니다.
 
 * 모두 거부 규칙을 사용하여 다른 모든 들어오는 트래픽을 차단합니다.
 
 * 모든 대상에 대해 인터넷으로의 아웃바운드 트래픽을 허용합니다.
+
+**Q. 공용 및 개인 연결 수신기 모두에 대해 동일한 포트를 사용할 수 있나요?**
+
+아니요, 지원되지 않습니다.
 
 ## <a name="performance"></a>성능
 

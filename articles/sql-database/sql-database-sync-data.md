@@ -1,22 +1,23 @@
 ---
-title: Azure SQL 데이터 동기화(미리 보기) | Microsoft Docs
-description: 이 개요에서는 Azure SQL 데이터 동기화(미리 보기)를 소개합니다.
+title: Azure SQL 데이터 동기화 | Microsoft Docs
+description: 이 개요에서는 Azure SQL 데이터 동기화를 소개합니다.
 services: sql-database
 author: douglaslms
 manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 365a612b20ed91a6acde566dff12b07ff3b8b676
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c31735719e559a25b53acf0bfcf1efff0cee4d5e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296920"
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드와 온-프레미스 데이터베이스의 데이터 동기화
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
 SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다.
 
@@ -52,15 +53,15 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   **전역 분산 응용 프로그램:** 많은 비즈니스는 여러 지역 및 여러 국가 걸쳐 있습니다. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
 
-데이터 동기화가 적합하지 않은 시나리오는 다음과 같습니다.
+다음과 같은 시나리오에는 데이터 동기화가 최상의 솔루션이 아닙니다.
 
--   재해 복구
-
--   읽기 크기 조정
-
--   ETL(OLTP 및 OLAP 간)
-
--   온-프레미스 SQL Server에서 Azure SQL Database로 마이그레이션
+| 시나리오 | 권장되는 솔루션 |
+|----------|----------------------------|
+| 재해 복구 | [Azure 지역 중복 백업](sql-database-automated-backups.md) |
+| 읽기 크기 조정 | [읽기 전용 복제본을 사용하여 읽기 전용 쿼리 워크로드의 부하 분산(미리 보기)](sql-database-read-scale-out.md) |
+| ETL(OLTP 및 OLAP 간) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) 또는 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| 온-프레미스 SQL Server에서 Azure SQL Database로 마이그레이션 | [Azure Database Migration Service](https://azure.microsoft.com/services/database-migration/) |
+|||
 
 ## <a name="how-does-data-sync-work"></a>데이터 동기화는 어떻게 작동하나요? 
 
@@ -81,6 +82,8 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 #### <a name="performance-impact"></a>성능에 미치는 영향
 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용 추적을 위해 사용자 데이터베이스에 추가 테이블을 만듭니다. 이러한 변경 내용 추적 작업은 데이터베이스 워크로드에 영향을 줍니다. 서비스 계층을 평가하고 필요한 경우 업그레이드합니다.
+
+동기화 그룹 만들기 동안 프로비전 및 프로비전 해제, 업데이트 및 삭제는 데이터베이스 성능에 영향을 줄 수 있습니다. 
 
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -124,13 +127,13 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 ## <a name="faq-about-sql-data-sync"></a>SQL 데이터 동기화 FAQ
 
-### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>SQL 데이터 동기화(미리 보기) 서비스의 요금은 얼마인가요?
+### <a name="how-much-does-the-sql-data-sync-service-cost"></a>SQL 데이터 동기화 서비스의 요금은 얼마인가요?
 
-미리 보기 중에는 SQL 데이터 동기화(미리 보기) 서비스 자체에 부과되는 요금은 없습니다.  단, SQL Database 인스턴스에서 송수신되는 데이터에 대한 데이터 전송 요금은 부과됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
+SQL 데이터 동기화 서비스 자체에는 요금이 부과되지 않습니다.  단, SQL Database 인스턴스에서 송수신되는 데이터에 대한 데이터 전송 요금은 부과됩니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 ### <a name="what-regions-support-data-sync"></a>데이터 동기화를 지원하는 지역은 어디인가요?
 
-SQL 데이터 동기화(미리 보기)는 공용 클라우드가 지원되는 모든 지역에서 이용할 수 있습니다.
+SQL 데이터 동기화는 공용 클라우드가 지원되는 모든 지역에서 이용할 수 있습니다.
 
 ### <a name="is-a-sql-database-account-required"></a>SQL Database 계정이 필요하나요? 
 
@@ -149,7 +152,7 @@ SQL 데이터 동기화(미리 보기)는 공용 클라우드가 지원되는 �
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>내 데이터베이스를 백업 및 복원하는 데 SQL 데이터 동기화를 사용해야 할까요?
 
-SQL 데이터 동기화(미리 보기)를 사용하여 데이터의 백업을 만드는 것은 권장되지 않습니다. SQL 데이터 동기화(미리 보기) 동기화는 버전 관리가 되지 않기 때문에 특정 시점의 데이터를 백업 또는 복원할 수 없습니다. 또한, SQL 데이터 동기화(미리 보기)는 저장 프로시저와 같은 다른 SQL 개체를 백업하지 않고, 복원 작업과 동급의 작업을 빠르게 수행하지 못합니다.
+SQL 데이터 동기화를 사용하여 데이터의 백업을 만드는 것은 권장되지 않습니다. SQL 데이터 동기화 동기화는 버전 관리가 되지 않기 때문에 특정 시점의 데이터를 백업 또는 복원할 수 없습니다. 또한, SQL 데이터 동기화는 저장 프로시저와 같은 다른 SQL 개체를 백업하지 않고, 복원 작업과 동급의 작업을 빠르게 수행하지 못합니다.
 
 권장되는 백업 방법은 [Azure SQL 데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
@@ -169,7 +172,7 @@ SQL 데이터 동기화(미리 보기)를 사용하여 데이터의 백업을 �
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>SQL 데이터 동기화는 페더레이션을 지원하나요?
 
-SQL 데이터 동기화(미리 보기) 서비스에서는 Federation Root Database를 제한 없이 사용할 수 있습니다. 현재 버전의 SQL 데이터 동기화(미리 보기)에는 Federated Database 끝점을 추가할 수 없습니다.
+SQL 데이터 동기화 서비스에서는 Federation Root Database를 제한 없이 사용할 수 있습니다. 현재 버전의 SQL 데이터 동기화에는 Federated Database 엔드포인트를 추가할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

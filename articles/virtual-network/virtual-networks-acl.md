@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: f532ed9ad1254aa8082f212b8190f83bb71767e9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 6265a7f9f60b60d7b79e15a04feb0ec76dc59f6d
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363127"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293121"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>끝점 액세스 제어 목록이란?
 
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 작업하는 Resource Manager와 클래식이라는 두 가지 [배포 모델](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다. 
 
-끝점 ACL(액세스 제어 목록)은 Azure 배포에 사용할 수 있는 보안 향상 기능입니다. ACL은 가상 컴퓨터 끝점의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 끝점에 대해서만 네트워크 ACL을 지정할 수 있습니다. 가상 네트워크 또는 가상 네트워크에 포함된 특정 서브넷에 대해서는 ACL을 지정할 수 없습니다. 가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹 개요](security-overview.md)를 참조하세요.
+끝점 ACL(액세스 제어 목록)은 Azure 배포에 사용할 수 있는 보안 향상 기능입니다. ACL은 가상 컴퓨터 끝점의 트래픽을 선택적으로 허용하거나 거부하는 기능을 제공합니다. 이 패킷 필터링 기능을 통해 보안을 강화할 수 있습니다. 끝점에 대해서만 네트워크 ACL을 지정할 수 있습니다. 가상 네트워크 또는 가상 네트워크에 포함된 특정 서브넷에 대해서는 ACL을 지정할 수 없습니다. 가능하면 ACL 대신 NSG(네트워크 보안 그룹)를 사용하는 것이 좋습니다. NSG를 사용하면 엔드포인트 액세스 제어 목록이 대체되고 더 이상 적용되지 않습니다. NSG에 대해 자세히 알아보려면 [네트워크 보안 그룹 개요](security-overview.md)를 참조하세요.
 
 ACL은 PowerShell 또는 Azure Portal을 사용하여 구성할 수 있습니다. PowerShell을 사용하여 네트워크 ACL을 구성하려면 [PowerShell을 사용하여 끝점에 대한 액세스 제어 목록 관리](virtual-networks-acl-powershell.md)를 참조하세요. Azure Portal을 사용하여 네트워크 ACL을 구성하려면 [가상 머신에 끝점을 설정하는 방법](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
 

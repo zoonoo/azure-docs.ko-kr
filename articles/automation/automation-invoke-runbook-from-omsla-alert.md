@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a3b14bd8409226772d210f60dadd525960f7890
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0094362ee083511b05027f22b37ed62d56d68d41
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192665"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36217136"
 ---
 # <a name="call-an-azure-automation-runbook-from-a-log-analytics-alert"></a>Log Analytics 경고에서 Azure Automation Runbook 호출
 
@@ -33,7 +33,7 @@ Azure Log Analytics에서 경고를 구성하여 결과가 조건에 일치하�
 
 ## <a name="calling-a-runbook-by-using-a-webhook"></a>웹후크를 사용하여 Runbook 호출
 
-웹후크를 사용하여 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다. 웹후크를 경고 작업으로 사용하여 Runbook을 호출하도록 [Log Analytics 경고](../log-analytics/log-analytics-alerts.md#alert-rules)를 구성하기 전에 이 메서드를 통해 호출되는 Runbook에 대한 [웹후크를 만들어야](automation-webhooks.md#creating-a-webhook)합니다. 경고 규칙을 구성하는 동안 웹후크 URL을 참조할 수 있도록 웹후크 URL을 기록해야 합니다.   
+웹후크를 사용하여 단일 HTTP 요청을 통해 Azure Automation에서 특정 Runbook을 시작할 수 있습니다. 웹후크를 경고 작업으로 사용하여 Runbook을 호출하도록 [로그 경고에 대한 웹후크 작업](../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md)을 구성하기 전에 이 메서드를 통해 호출되는 Runbook에 대한 [웹후크를 만들어야](automation-webhooks.md#creating-a-webhook)합니다. 경고 규칙을 구성하는 동안 웹후크 URL을 참조할 수 있도록 웹후크 URL을 기록해야 합니다.   
 
 ## <a name="calling-a-runbook-directly"></a>Runbook 직접 호출
 
@@ -99,6 +99,6 @@ $SearchResult.SvcDisplayName_CF
 
 ## <a name="next-steps"></a>다음 단계
 
-* Log Analytics의 경고와 생성 방법에 대한 자세한 내용은 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md)를 참조하세요.
+* 로그 검색을 사용한 Azure Alert 만들기에 대해 자세히 알아보려면 [Azure의 로그 경고](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)를 참조하세요.
 
 * 웹후크를 사용하여 Runbook을 트리거하는 방법을 이해하려면 [Azure Automation 웹후크](automation-webhooks.md)를 참조하세요.

@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 520a1212eaccc48f8b8b423f7dede9c16409220b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 48cca9919bd09906bdcc3faaaef186ec109c9169
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300330"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294312"
 ---
 # <a name="query-for-as2-x12-and-edifact-messages-in-log-analytics"></a>Log Analytics에서 AS2, X12 및 EDIFACT 메시지 쿼리
 
@@ -53,41 +53,33 @@ ms.locfileid: "35300330"
 
    ![Log Analytics 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/selectla.png)
 
-3. **관리** 아래에서 **OMS 포털**을 선택합니다.
+3. **관리**에서 **로그 검색**을 선택합니다.
 
-   ![OMS 포털 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/omsportalpage.png)
+   ![로그 검색 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/azure-portal-page.png)
 
-4. 홈페이지에서 **로그 검색**을 선택합니다.
-
-   ![홈페이지에서 "로그 검색" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
-
-   또는
-
-   ![메뉴에서 "로그 검색" 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/logsearch-2.png)
-
-5. 검색 상자에 찾으려는 필드를 입력하고 **Enter** 키를 누릅니다. 입력을 시작할 때 Log Analytics는 사용할 수 있는 가능한 일치 및 작업을 보여 줍니다. [Log Analytics에서 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아봅니다.
+4. 검색 상자에 찾으려는 필드를 입력하고 **Enter** 키를 누릅니다. 입력을 시작할 때 Log Analytics는 사용할 수 있는 가능한 일치 및 작업을 보여 줍니다. [Log Analytics에서 데이터를 찾는 방법](../log-analytics/log-analytics-log-searches.md)에 대해 자세히 알아봅니다.
 
    이 예제에서는 **Type=AzureDiagnostics**로 이벤트를 검색합니다.
 
    ![쿼리 문자열 입력 시작](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-start-query.png)
 
-6. 왼쪽 모음에서 보려는 시간 프레임을 선택합니다. 쿼리에 필터를 추가하려면 **+추가**를 선택합니다.
+5. 왼쪽 모음에서 보려는 시간 프레임을 선택합니다. 쿼리에 필터를 추가하려면 **+추가**를 선택합니다.
 
    ![쿼리에 필터 추가](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-7. **필터 추가** 아래에서 원하는 필터를 찾을 수 있도록 필터 이름을 입력합니다. 필터를 선택하고 **+추가**를 선택합니다.
+6. **필터 추가** 아래에서 원하는 필터를 찾을 수 있도록 필터 이름을 입력합니다. 필터를 선택하고 **+추가**를 선택합니다.
 
    교환 컨트롤 번호를 찾기 위해 이 예제에서는 "교환"이라는 단어를 검색하고 필터로 **event_record_messageProperties_interchangeControlNumber_s**를 선택합니다.
 
    ![필터 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-add-filter.png)
 
-9. 왼쪽 모음에서 사용하려는 필터 값을 선택하고 **적용**을 선택합니다.
+7. 왼쪽 모음에서 사용하려는 필터 값을 선택하고 **적용**을 선택합니다.
 
    이 예제에서는 원하는 메시지에 대한 교환 컨트롤 번호를 선택합니다.
 
    ![필터 값 선택](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-select-filter-value.png)
 
-10. 이제 작성 중인 쿼리로 돌아갑니다. 선택한 필터 이벤트 및 값으로 쿼리가 업데이트되었습니다. 이제 이전 결과 또한 필터링되어 있습니다.
+8. 이제 작성 중인 쿼리로 돌아갑니다. 선택한 필터 이벤트 및 값으로 쿼리가 업데이트되었습니다. 이제 이전 결과 또한 필터링되어 있습니다.
 
     ![필터링된 결과와 함께 쿼리로 돌아가기](media/logic-apps-track-b2b-messages-omsportal-query-filter-control-number/oms-query-filtered-results.png)
 

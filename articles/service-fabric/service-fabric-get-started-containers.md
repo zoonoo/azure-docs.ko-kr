@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8511af935eb2427724ace1f39ec9948e3b0b5537
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f52861411a34d1fbff577fbbc37cf926151a97d8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643212"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294815"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 응용 프로그램 만들기
 > [!div class="op_single_selector"]
@@ -40,17 +40,17 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 응용 프로�
   
   클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
 
-  * 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들어](service-fabric-cluster-creation-via-portal.md) 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택하거나, 파티 클러스터가 있는 [Service Fabric 무료 평가판](https://aka.ms/tryservicefabric)을 사용합니다.
-  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들어](service-fabric-cluster-creation-via-portal.md) 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 만듭니다. 파티 클러스터를 사용할 수 없습니다.
+  * 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택합니다. 파티 클러스터를 [무료로 Service Fabric 평가판을 사용](https://aka.ms/tryservicefabric)해 볼 수도 있습니다.
+  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 선택합니다. 단, 파티 클러스터는 사용할 수 없습니다.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
 > [!NOTE]
-> Windows 10에서 또는 Docker CE를 사용한 클러스터에서 Service Fabric 클러스터에 대한 컨테이너 배포는 아직 지원되지 않습니다. 이 연습에서는 Windows 10에서 Docker 엔진을 사용하여 로컬로 테스트하고, 마지막으로 컨테이너 서비스를 Docker EE를 실행하는 Azure에서 Windows Server 클러스터로 배포합니다. 
+> Windows 10에서 실행 중인 Service Fabric 클러스터에 컨테이너 배포는 지원되지 않습니다.  Windows 컨테이너를 실행하도록 Windows 10을 구성하는 방법에 대한 정보는 [이 문서](service-fabric-how-to-debug-windows-containers.md)를 참조하세요.
 >   
 
 > [!NOTE]
-> Service Fabric 버전 6.1은 Windows Server 버전 1709에 대한 미리 보기 지원을 포함합니다. 오픈 네트워킹 및 Service Fabric DNS Service는 Windows Server 버전 1709와 작동하지 않습니다. 
+> Service Fabric 버전 6.2 이상은 Windows Server version 1709에서 실행 중인 클러스터에 컨테이너 배포를 지원합니다.  
 > 
 
 ## <a name="define-the-docker-container"></a>Docker 컨테이너 정의

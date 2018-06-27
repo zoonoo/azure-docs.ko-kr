@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: f831c046bcf8f633841f9dc4a0fce6d1e419e6c2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205657"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287631"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 컨테이너 네트워킹 모드
 
@@ -231,7 +231,23 @@ ms.locfileid: "34205657"
      </Endpoints>
    </Resources>
    ```
+   
+6. Windows의 경우 VM을 다시 부팅하면 개방형 네트워크가 다시 생성됩니다. 이는 네트워킹 스택의 기본 문제를 완화하기 위한 조치입니다. 기본 동작은 네트워크를 다시 만드는 것입니다. 이 동작을 해제해야 하는 경우 다음 구성을 사용한 후 구성 업그레이드를 사용하면 됩니다.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## <a name="next-steps"></a>다음 단계
 * [Service Fabric 응용 프로그램 모델 이해](service-fabric-application-model.md)
 * [Service Fabric 서비스 매니페스트 리소스에 대해 자세히 알아보기](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
