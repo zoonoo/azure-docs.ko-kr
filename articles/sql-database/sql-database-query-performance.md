@@ -68,7 +68,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
    
    * 쿼리 ID – 데이터베이스 내 쿼리의 고유 식별자입니다.
    * 예측 가능한 간격 동안 쿼리당 CPU입니다(집계 함수에 따라 다름).
-   * 쿼리당 기간입니다(집계 함수에 따라 다름).
+   * 쿼리당 시간입니다(집계 함수에 따라 다름).
    * 특정 쿼리에 대한 총 실행 횟수입니다.
      
      체크박스에서 개별 쿼리를 선택하거나 지워 차트에 추가시키거나 삭제할 수 있습니다.
@@ -132,7 +132,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
    
     ![쿼리 실행 횟수][5]
 
-## <a name="understanding-performance-tuning-annotations"></a>성능 튜닝 주석 이해
+## <a name="understanding-performance-tuning-annotations"></a>성능 조정 주석 이해
 Query Performance Insight에서 워크로드를 살펴보는 동안 차트 맨 위에 세로줄이 있는 아이콘이 표시될 수 있습니다.<br>
 
 이러한 아이콘은 주석으로, [SQL Azure 데이터베이스 관리자](sql-database-advisor.md)가 수행한 작업에 영향을 미치는 성능을 나타냅니다. 주석에 마우스를 가져가면 해당 작업에 대한 기본 정보가 표시됩니다.

@@ -452,7 +452,7 @@ ms.locfileid: "34631023"
 이 자습서에서는 VSTS 또는 TFS의 연속 통합 및 지속적인 배포 기능을 사용하는 방법을 설명합니다. 
 
 * [단일 장치 또는 대규모 IoT Edge 배포에 대한 이해](module-deployment-monitoring.md)를 통해 IoT Edge 배포 이해
-* [대규모 IoT Edge 모듈 배포 및 모니터링][how-to-deploy-monitor.md]에서 배포를 생성, 업데이트 또는 삭제하는 단계를 연습합니다.
+* [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md) 에서 배포를 생성, 업데이트 또는 삭제하는 단계를 연습합니다.
 
 
 
