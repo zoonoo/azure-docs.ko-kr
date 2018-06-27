@@ -15,12 +15,23 @@
       href: quickstarts/nodejs.md
     - name: Python의 첫 번째 쿼리
       href: quickstarts/python.md
+- name: SDK)
+  expanded: true
+  items:
+    - name: SDK 샘플 개요
+      href: sdk.md
+    - name: Python의 SDK
+      href: visual-search-sdk-python.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱
       href: tutorial-bing-visual-search-single-page-app.md
     - name: 단일 페이지 웹앱(소스 코드)
       href: tutorial-bing-visual-search-single-page-app-source.md
+    - name: Bing Visual Search SDK 이미지 자르기 영역 및 결과
+      href: tutorial-visual-search-crop-area-results.md
+    - name: Bing Visual Search SDK ImageInsightsToken 및 결과
+      href: tutorial-visual-search-insights-token.md
 - name: 샘플
   items:
     - name: 코드 샘플

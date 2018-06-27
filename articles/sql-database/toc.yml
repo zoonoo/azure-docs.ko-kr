@@ -74,9 +74,9 @@
       href: sql-database-powershell-samples.md
 - name: 개념
   items:
-    - name: 서비스 계층 및 리소스
+    - name: 구매 모델 및 리소스
       items:
-        - name: 서비스 계층
+        - name: 구매 모델
           href: sql-database-service-tiers.md
         - name: vCore 기반 모델
           href: sql-database-service-tiers-vcore.md

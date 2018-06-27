@@ -1,24 +1,26 @@
 ---
-title: Azure-SSIS Integration Runtime Enterprise 버전 | Microsoft Docs
-description: 이 문서에서는 Azure-SSIS Integration Runtime Enterprise 버전의 기능 및 구성에 대해 설명합니다.
+title: Azure-SSIS Integration Runtime Enterprise 버전 프로비전 | Microsoft Docs
+description: 이 문서에서는 Azure-SSIS Integration Runtime Enterprise 버전의 기능 및 프로비전하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: 42c0c000ef661a1a256ebf49cd099a4cae2185c0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 73997345895bc54f54db1d66c0c6c24c24153dd2
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267845"
 ---
-# <a name="enterprise-edition-of-the-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime Enterprise 버전
+# <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime Enterprise 버전 프로비전
 
 Azure-SSIS Integration Runtime Enterprise 버전에서는 다음과 같은 고급 및 프리미엄 기능을 사용할 수 있습니다.
 -   CDC(변경 데이터 캡처) 구성 요소

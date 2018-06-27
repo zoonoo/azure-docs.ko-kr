@@ -428,6 +428,8 @@
               href: service-fabric-securing-containers.md
             - name: Windows 컨테이너용 gMSA 설정
               href: service-fabric-setup-gmsa-for-windows-containers.md
+            - name: Linux에서 인증서 구성
+              href: service-fabric-configure-certificates-linux.md
         - name: 정기적으로 백업 구성(Azure의 클러스터)
           href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
         - name: 정기적으로 백업 구성(독립 실행형 클러스터)

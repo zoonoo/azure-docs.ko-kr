@@ -36,6 +36,8 @@
       href: cdn-china-delivery.md
     - name: HTTP/2 지원
       href: cdn-http2.md
+    - name: Verizon POP 목록 검색
+      href: cdn-pop-list-api.md
     - name: Standard Verizon에서 Premium Verizon으로 마이그레이션
       href: cdn-migrate.md
 - name: 방법 가이드

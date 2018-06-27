@@ -3,25 +3,25 @@ title: Azure Active Directory 포털의 로그인 작업 보고서 | Microsoft D
 description: Azure Active Directory 포털의 로그인 작업 보고서 소개
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 05/17/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6414be82e57741bf2af1de3650a3d9a28c4d6427
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d9c2f210204122947c24eb42f643450537f3b9a8
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588610"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232135"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -153,7 +153,7 @@ Azure Portal 외부에서 작업하려는 경우 로그인 활동 데이터를 �
 
 ![다운로드](./media/active-directory-reporting-activity-sign-ins/71.png "다운로드")
 
-**다운로드**를 클릭하면 가장 최근의 5K 레코드의 CSV 파일을 만듭니다. 더 많은 유연성이 필요한 경우 스크립트 솔루션을 사용할 수 있습니다. **스크립트**를 클릭하면 사용자가 설정한 모든 필터를 포함하는 스크립트를 만듭니다. 기술 구현 외에도 다운로드할 수 있는 레코드의 수는 [Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md)에 의해 제한됩니다.  
+**다운로드**를 클릭하면 가장 최근의 5K 레코드의 CSV 파일을 만듭니다. 더 많은 유연성이 필요한 경우 스크립트 솔루션을 사용할 수 있습니다. **스크립트**를 클릭하면 설정한 모든 필터가 포함된 PowerShell 스크립트를 만듭니다. **관리자 모드**에서 이 스크립트를 다운로드하고 실행하여 CSV 파일을 생성합니다. 기술 구현 외에도 다운로드할 수 있는 레코드의 수는 [Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md)에 의해 제한됩니다.  
 
 
 

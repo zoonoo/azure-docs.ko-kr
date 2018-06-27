@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 조건부 액세스의 조건 | Microsoft Docs
-description: Azure Active Directory 조건부 액세스에 할당을 사용하여 정책을 트리거하는 방법을 알아봅니다.
+title: Azure Active Directory 조건부 액세스의 조건이란? | Microsoft Docs
+description: Azure Active Directory 조건부 액세스에서 조건을 사용하여 정책을 트리거하는 방법을 알아봅니다.
 services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
 documentationcenter: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5f0ff092a7535448d48642e972d1d36652f1b83f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735144"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232177"
 ---
-# <a name="conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건 
+# <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란? 
 
 [Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유(“when this happens”)에 대한 응답(“do this”)을 정의합니다. 
 
@@ -140,7 +140,7 @@ ms.locfileid: "34735144"
 
 - 특정 국가 또는 지역에서 서비스에 액세스하는 사용자를 차단합니다. 
 
-자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건](active-directory-conditional-access-locations.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건이란?](active-directory-conditional-access-locations.md)을 참조하세요.
 
 
 ## <a name="client-apps"></a>클라이언트 앱
@@ -241,7 +241,7 @@ EWS가 사용하는 인증 프로토콜에 따라 다릅니다. EWS 응용 프�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
+- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](active-directory-conditional-access-app-based-mfa.md)를 참조하세요.
 
 - 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)를 참조하세요. 
 

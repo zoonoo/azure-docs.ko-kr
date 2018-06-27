@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 05/22/2018
+ms.date: 06/12/2018
 ms.author: juliako
-ms.openlocfilehash: 4e644db12a74d6ef132a0c8d64ef517a0c2253cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a382af644d30f9f0ebb586273c982ef1766f50b0
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660096"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292048"
 ---
 # <a name="migrate-from-media-services-v2-to-v3"></a>Media Services v2에서 v3으로 마이그레이션
 
@@ -50,6 +50,10 @@ ms.locfileid: "34660096"
 
 ## <a name="changes-from-v2"></a>v2에서 변경된 내용
 
+* Media Services v3에서 저장소 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 저장소 암호화된 자산과 작동하지만 새로 만들기를 허용하지는 않습니다.
+
+    v3로 만든 자산의 경우 Media Services는 [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 서버 쪽 저장소 암호화를 지원합니다.
+    
 * Media Services SDK가 Storage SDK에서 분리되어 사용되는 Storage SDK를 더 효율적으로 제어하고 버전 문제를 방지합니다. 
 * v3에서 모든 인코딩 비트 전송률은 비트/초입니다. 이는 REST v2 Media Encoder Standard 미리 설정과 다릅니다. 예를 들어 v2의 비트 전송률은 128로 지정되지만 v3에서는 128000이 됩니다. 
 * AssetFiles, AccessPolicies, IngestManifests는 v3에 없습니다.
@@ -141,7 +145,7 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 1. 콘텐츠 키 정책 만들기
 2. Asset 만들기
 3. 콘텐츠 업로드 또는 Asset을 JobOutput으로 사용
-4. Locator 만들기
+4. StreamingLocator 만들기
 
 ## <a name="next-steps"></a>다음 단계
 

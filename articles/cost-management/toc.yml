@@ -45,6 +45,8 @@
       href: use-reports.md
     - name: 대시보드 사용
       href: dashboards.md
+    - name: 예산 관리
+      href: manage-budgets.md
 - name: 리소스
   items:
     - name: 비용 관리 비디오

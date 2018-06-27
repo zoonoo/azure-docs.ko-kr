@@ -12,31 +12,33 @@
     - name: 'C#에서 음성 인식'
       href: quickstart-csharp-windows.md
     - name: Windows용 C++에서 음성 인식
-      href: cpp-windows.md
+      href: quickstart-cpp-windows.md
     - name: Linux용 C++에서 음성 인식
-      href: cpp-linux.md
+      href: quickstart-cpp-linux.md
     - name: 음성 장치 SDK 시작
       href: speech-devices-sdk-qsg.md
-- name: 방법 가이드
+- name: 사용자 지정
   items:
-    - name: 음성 인식
-      href: how-to-speech-to-text.md
     - name: 음성 모델 사용자 지정
       href: how-to-customize-speech-models.md
-    - name: 음성 합성
-      href: how-to-text-to-speech.md
     - name: 음성 글꼴 사용자 지정
       href: how-to-customize-voice-font.md
-    - name: 음성 번역
-      href: how-to-translate-speech.md
     - name: 대본 준비
       href: prepare-transcription.md
     - name: 사용자 지정 오디오 스트림 사용
       href: how-to-use-audio-input-streams.md
+    - name: 장치 절전 모드 해제 단어 사용자 지정(장치 SDK)
+      href: speech-devices-sdk-create-kws.md
+- name: 방법 가이드
+  items:
+    - name: 음성 인식
+      href: how-to-speech-to-text.md
+    - name: 음성 합성
+      href: how-to-text-to-speech.md
+    - name: 음성 번역
+      href: how-to-translate-speech.md
     - name: 음성 장치 SDK 가져오기
       href: get-speech-devices-sdk.md
-    - name: 장치 절전 모드 해제 단어 사용자 지정
-      href: speech-devices-sdk-create-kws.md
     - name: 일괄 기록(콜 센터)
       href: batch-transcription.md
 - name: 샘플
@@ -73,8 +75,14 @@
       href: speech-synthesis-markup.md
 - name: 리소스
   items:
-    - name: 음성 텍스트 변환 FAQ
-      href: faq-stt.md
+    - name: FAQ
+      items:
+        - name: 음성 텍스트 변환 FAQ
+          href: faq-stt.md
+        - name: 텍스트 음성 변환 FAQ
+          href: faq-text-to-speech.md
+        - name: 번역기 FAQ
+          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

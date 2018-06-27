@@ -17,6 +17,8 @@
           href: use-prediction-api.md
         - name: 모바일로 모델 내보내기
           href: export-your-model.md
+        - name: Windows ML를 사용한 ONNX 모델 사용
+          href: custom-vision-onnx-windows-ml.md
         - name: Python에서 TensorFlow 모델 실행
           href: export-model-python.md
     - name: 앱 빌드

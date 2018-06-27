@@ -1,11 +1,11 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 99eaa667e4c6a9d63b4cc43ada8c6e36f7365610
+ms.sourcegitcommit: 39f4911b5933f7062dcf5d57af94eab8a0740b2b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307569"
+ms.lasthandoff: 06/16/2018
+ms.locfileid: "35683052"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제
 
@@ -16,7 +16,14 @@ ms.locfileid: "34307569"
 -   Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 예약 인스턴스 구매가 활성화되어야 합니다.
 -   CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트만 예약 인스턴스를 구매할 수 있습니다.
 
-## <a name="buy-a-reserved-instance"></a>예약 인스턴스 구입
+[!IMPORTANT]
+예약 구매를 위한 적절한 VM 크기를 확인하려면 아래 설명된 방법 중 하나를 사용해야 합니다.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>구매하기 전에 적절한 VM 크기를 결정합니다.
+1. 예약 구매를 위한 적절한 VM 크기를 결정하려면 사용 파일 또는 사용량 API의 AdditionalInfo 필드를 참조하세요. 이러한 필드는 VM의 S 버전과 S 이외의 버전을 구분하지 않으므로 미터 하위 범주 또는 제품 필드의 값을 사용하지 마세요.
+2. Powershell, Azure Resource Manager 또는 Azure Portal의 VM 세부 정보를 사용하여 정확한 VM 크기 정보를 얻을 수도 있습니다.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>예약 가상 머신 인스턴스 구매
 1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
 3. **추가**를 선택하여 새 예약 인스턴스를 구입합니다.

@@ -3,6 +3,7 @@
 ## [인증서](sap-certifications.md)
 # Azure(큰 인스턴스)에서 SAP HANA 사용
 ## [개요 및 아키텍처](hana-overview-architecture.md)
+### [HLI 지원 시나리오](hana-supported-scenario.md)
 ## [인프라 및 연결](hana-overview-infrastructure-connectivity.md)
 ## [SAP HANA 설치](hana-installation.md)
 ## [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)

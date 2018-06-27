@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Language Understanding에 대해 알아보기
+    - name: Language Understanding이란?
       href: Home.md
     - name: 지원되는 언어
       href: luis-supported-languages.md
@@ -25,10 +25,10 @@
           href: luis-quickstart-primary-and-secondary-data.md
         - name: 계층적 엔터티
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: 목록 엔터티
-          href: luis-quickstart-intent-and-list-entity.md
         - name: 정규식 엔터티
           href: luis-quickstart-intents-regex-entity.md
+        - name: 목록 엔터티
+          href: luis-quickstart-intent-and-list-entity.md
         - name: KeyPhrase 엔터티
           href: luis-quickstart-intent-and-key-phrase.md
         - name: 정서 분석
@@ -238,7 +238,33 @@
     - name: 경계
       href: luis-boundaries.md
     - name: 미리 작성된 엔터티 참조
-      href: luis-reference-prebuilt-entities.md
+      items:
+        - name: 문화권당 엔터티
+          href: luis-reference-prebuilt-entities.md
+        - name: 연령 엔터티
+          href: luis-reference-prebuilt-age.md
+        - name: 통화 엔터티
+          href: luis-reference-prebuilt-currency.md
+        - name: DatetimeV2 엔터티
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: 차원 엔터티
+          href: luis-reference-prebuilt-dimension.md
+        - name: 사용되지 않는 엔터티
+          href: luis-reference-prebuilt-deprecated.md
+        - name: 이메일 엔터티
+          href: luis-reference-prebuilt-email.md
+        - name: 숫자 엔터티
+          href: luis-reference-prebuilt-number.md
+        - name: 서수 엔터티
+          href: luis-reference-prebuilt-ordinal.md
+        - name: 백분율 엔터티
+          href: luis-reference-prebuilt-percentage.md
+        - name: 전화번호 엔터티
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: 온도 엔터티
+          href: luis-reference-prebuilt-temperature.md
+        - name: URL 엔터티
+          href: luis-reference-prebuilt-url.md
     - name: 미리 작성된 도메인 참조
       href: luis-reference-prebuilt-domains.md
     - name: Cortana 미리 작성된 앱 참조

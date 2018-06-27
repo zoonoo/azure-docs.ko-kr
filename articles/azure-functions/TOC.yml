@@ -49,8 +49,8 @@
       href: functions-openapi-definition.md
     - name: Event Grid를 사용하여 이미지 크기 조정
       href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Functions를 API로 사용하여 서버를 사용하지 않는 웹 응용 프로그램 만들기
-      href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
+    - name: 서버를 사용하지 않는 웹앱 만들기
+      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
     - name: Linux에서 함수
       items:
         - name: 사용자 지정 이미지

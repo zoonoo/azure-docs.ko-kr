@@ -250,7 +250,7 @@
 #### [SAML 앱에 대한 고급 인증서 서명](manage-apps/certificate-signing-options.md)
 #### [사용자의 환경에서 응용 프로그램 숨기기](manage-apps/hide-application-from-user-portal.md)
 ### [HRD 정책을 사용하여 로그인 자동 가속 구성](manage-apps/configure-authentication-for-federated-users-portal.md)
-### [AD FS 앱을 Azure AD에 마이그레이션](migrate-adfs-apps-to-azure.md) 
+### [AD FS 앱을 Azure AD에 마이그레이션](manage-apps/migrate-adfs-apps-to-azure.md) 
 ### [앱에 대한 액세스 관리](manage-apps/what-is-access-management.md)
 #### [SSO 액세스](manage-apps/what-is-single-sign-on.md)
 #### [SSO 인증서](manage-apps/manage-certificates-for-federated-single-sign-on.md)
@@ -386,13 +386,10 @@
 
 ## 리소스에 대한 액세스 위임
 ### [관리자 역할](active-directory-assign-admin-roles-azure-portal.md)
-#### [사용자에게 관리자 역할 할당](fundamentals/active-directory-users-assign-role-azure-portal.md) 
-#### [멤버 및 게스트 사용자 권한 비교](fundamentals/users-default-permissions.md) 
-### [권한 있는 액세스 보안](admin-roles-best-practices.md)  
-### [긴급 액세스 관리 계정 만들기](active-directory-admin-manage-emergency-access-accounts.md) 
-
-
-#### [기본 사용자 권한](fundamentals/users-default-permissions.md)
+#### [사용자에게 관리자 역할 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
+#### [멤버 및 게스트 사용자 권한 비교](fundamentals/users-default-permissions.md)
+### [관리자 역할 보호](admin-roles-best-practices.md)  
+#### [긴급 액세스 관리자 계정 만들기](active-directory-admin-manage-emergency-access-accounts.md)
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 ### [권한 있는 역할 보안](admin-roles-best-practices.md)

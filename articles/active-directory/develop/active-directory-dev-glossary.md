@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 12c1a4b2b1f3e433721b9c8a335c6b55de746643
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: ab053e9b132630c19b6966286035d38c71c6b4d9
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158152"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267885"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 개발자 용어집
 이 문서에는 Azure AD에 대한 응용 프로그램 개발에 관해 알아보고자 할 때 유용한 핵심 Azure Active Directory(AD) 개발자 개념 함 합니다.
@@ -45,7 +45,7 @@ Azure AD가 응용 프로그램 등록 시 부여하는 고유 식별자로, 해
 ## <a name="application-object"></a>응용 프로그램 개체
 [Azure Portal][AZURE-portal]의 응용 프로그램을 등록/업데이트할 때, 포털은 응용 프로그램 개체와 그 테넌트에 대한 해당 [서비스 주체 개체](#service-principal-object)를 만들기/업데이트합니다. 응용 프로그램 개체는 응용 프로그램의 ID 구성을 전역으로(액세스하는 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿을 제공합니다.
 
-자세한 내용은 [응용 프로그램 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
+자세한 내용은 [응용 프로그램 및 서비스 사용자 개체][AAD-App-SP-Objects]를 참조하세요.
 
 ## <a name="application-registration"></a>응용 프로그램 등록
 응용 프로그램을 Azure AD와 통합하고 ID 및 액세스 관리 기능을 Azure AD에 위임할 수 있도록 허용하기 위해 Azure AD [테넌트](#tenant)를 사용하여 등록해야 합니다. Azure Ad를 사용하여 응용 프로그램을 등록할 때 응용 프로그램에 대한 ID 구성을 제공하여 Azure AD와 통합하고 다음과 같은 기능을 사용할 수 있도록 허용합니다.
@@ -132,7 +132,7 @@ Azure AD 응용 프로그램 통합의 경우 Azure AD는 예를 들어 [Microso
 
 역할은 리소스 정의 문자열(예: "비용 승인자", "읽기 전용", "Directory.ReadWrite.All")로, 리소스의 [응용 프로그램 매니페스트](#application-manifest)를 통해 [Azure Portal][AZURE-portal]에서 관리되며, 리소스의 [appRoles 속성][AAD-Graph-Sp-Entity]에 저장됩니다. Azure Portal은 "user" 역할에 사용자를 할당하고 클라이언트 [응용 프로그램 사용 권한](#permissions)을 구성하는 데 사용되어 "application" 역할에 액세스합니다.
 
-Azure AD Graph API에 의해 노출된 응용 프로그램 역할에 대한 자세한 내용은 [Graph API 사용 권한 범위][AAD-Graph-Perm-Scopes]를 참조하세요. 단계별 구현 예제는 [Azure AD를 사용하여 클라우드 응용 프로그램에서 역할 기반 액세스 제어][Duyshant-Role-Blog]를 참조하세요.
+Azure AD Graph API에 의해 노출된 응용 프로그램 역할에 대한 자세한 내용은 [Graph API 사용 권한 범위][AAD-Graph-Perm-Scopes]를 참조하세요. 단계별 구현 예제는 [RBAC 및 Azure Portal을 사용하여 액세스 관리][AAD-RBAC]를 참조하세요.
 
 ## <a name="scopes"></a>범위
 [역할](#roles)과 마찬가지로 범위는 [리소스 서버](#resource-server)에서 보호된 리소스에 대한 액세스를 제어하는 방법을 제공합니다. 범위는 해당 소유자가 리소스에 대해 위임한 액세스를 부여한 [클라이언트 응용 프로그램](#client-application)에 대해 [범위 기반][OAuth2-Access-Token-Scopes] 액세스 제어를 구현하는 데 사용됩니다.
@@ -147,7 +147,7 @@ OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명�
 ## <a name="service-principal-object"></a>서비스 주체 개체
 [Azure Portal][AZURE-portal]의 응용 프로그램을 등록/업데이트할 때, 포털은 [응용 프로그램 개체](#application-object)와 그 테넌트에 대한 해당 서비스 주체 개체를 만들기/업데이트합니다. 응용 프로그램 개체는 응용 프로그램의 ID 구성을 전역으로(액세스 권한이 관련된 응용 프로그램에 부여된 모든 테넌트에 걸쳐) *정의*하며, 해당 서비스 주체 개체가 런타임 시 로컬로(특정 테넌트에서) 사용되도록 *파생*되는 템플릿입니다.
 
-자세한 내용은 [응용 프로그램 및 서비스 주체 개체][AAD-App-SP-Objects]를 참조하세요.
+자세한 내용은 [응용 프로그램 및 서비스 사용자 개체][AAD-App-SP-Objects]를 참조하세요.
 
 ## <a name="sign-in"></a>로그인
 [보안 토큰](#security-token)을 획득하고 응용 프로그램 세션의 범위를 해당 상태로 지정할 목적으로 최종 사용자 인증을 시작하고 관련 상태를 캡처하는 [클라이언트 응용 프로그램](#client-application)의 프로세스. 상태는 사용자 프로필 정보, 토큰 클레임에서 파생된 정보 등과 같은 아티팩트를 포함할 수 있습니다.
@@ -155,7 +155,7 @@ OAuth2 토큰 또는 SAML 2.0 어설션과 같은 클레임을 포함한 서명�
 응용 프로그램의 로그인 기능은 일반적으로 Single Sign-On(SSO)을 구현하는 데 사용됩니다. (처음 로그인에 대해)응용 프로그램에 액세스 권한을 가진 최종 사용자에 대한 진입점으로 "등록" 함수로 시작될 수도 있습니다. 등록 기능은 사용자에게 특유한 추가 상태를 수집하고 유지하기 위해 사용되며, [사용자 동의](#consent)를 필요로 할 수 있습니다.
 
 ## <a name="sign-out"></a>로그 아웃
-[로그인](#sign-in) 시 [클라이언트 응용 프로그램](#client-application) 세션과 연결된 사용자 상태를 분리하여 최종 사용자의 인증을 무효화하는 프로세스
+[로그인](#sign-in) 중 [클라이언트 응용 프로그램](#client-application) 세션과 연결된 사용자 상태를 분리하여 최종 사용자의 인증을 무효화하는 프로세스
 
 ## <a name="tenant"></a>tenant
 Azure AD 디렉터리의 인스턴스는 Azure AD 테넌트라고 합니다. 다음과 같은 여러 기능을 제공합니다.
@@ -170,18 +170,18 @@ Azure AD 테넌트는 등록 시 Azure 및 Office 365 구독으로 생성/연결
 OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부여 서버](#authorization-server)에서 구현하는 끝점 중 하나. 권한 부여에 따라 [OpenID Connect][OpenIDConnect] 프로토콜과 함께 사용할 경우 [클라이언트](#client-application) 또는 [ID 토큰](#ID-token)에 대한 [액세스 토큰](#access-token)(및 관련된 "새로 고침" 토큰)을 얻기 위해 사용될 수 있습니다.
 
 ## <a name="user-agent-based-client"></a>사용자 에이전트 기반 클라이언트
-웹 서버에서 코드를 다운로드하고 단일 페이지 응용 프로그램(SPA)와 같은 사용자 에이전트(예: 웹 브라우저) 내에서 실행하는 [클라이언트 응용 프로그램](#client-application) 의 유형입니다. 모든 코드가 장치에서 실행되기 때문에 자격 증명을 비공개로/기밀로 저장할 수 없으므로 "공용" 클라이언트로 간주합니다. 더 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
+웹 서버에서 코드를 다운로드하고 단일 페이지 응용 프로그램(SPA)와 같은 사용자 에이전트(예: 웹 브라우저) 내에서 실행하는 [클라이언트 응용 프로그램](#client-application) 의 유형입니다. 모든 코드가 장치에서 실행되기 때문에 자격 증명을 비공개로/기밀로 저장할 수 없으므로 "공용" 클라이언트로 간주합니다. 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
 
 ## <a name="user-principal"></a>사용자 주체
 서비스 주체 개체가 응용 프로그램 인스턴스를 나타내는 데 사용되는 방식과 유사하게 사용자 계정 개체는 사용자를 나타내는 다른 유형의 보안 주체입니다. Azure AD Graph [사용자 엔터티][AAD-Graph-User-Entity]는 이름과 성, 사용자 주체 이름, 디렉터리 역할 멤버 자격 등 사용자 관련 속성을 포함하는 사용자 개체에 대한 스키마를 정의합니다. Azure AD에 대한 사용자 ID 구성을 제공하여 런타임 시 사용자 주체를 설정합니다. 사용자 주체는 Single Sign-On, [동의](#consent) 위임 기록, 액세스 제어 결정 등을 위해 인증된 사용자를 나타내는 데 사용됩니다.
 
 ## <a name="web-client"></a>웹 클라이언트
-웹 서버에 대한 모든 코드를 실행하고 서버에서 해당 자격 증명을 안전하게 저장하여 "기밀" 클라이언트로 작동하도록 하는 [클라이언트 응용 프로그램](#client-application) 유형입니다. 더 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
+웹 서버에 대한 모든 코드를 실행하고 서버에서 해당 자격 증명을 안전하게 저장하여 "기밀" 클라이언트로 작동하도록 하는 [클라이언트 응용 프로그램](#client-application) 유형입니다. 자세한 내용은 [OAuth2 클라이언트 형식 및 프로필][OAuth2-Client-Types]을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure AD 개발자 가이드][AAD-Dev-Guide]는 [응용 프로그램 통합][AAD-How-To-Integrate] 개요 및 [Azure AD 인증 및 지원되는 인증 시나리오][AAD-Auth-Scenarios]의 기본 사항을 포함하는, Azure AD 개발 관련 모든 항목에 대해 사용되는 랜딩 페이지입니다. [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)에서도 코드 샘플과 빠른 시작 자습서를 확인할 수 있습니다.
+[Azure AD 개발자 가이드][AAD-Dev-Guide]는 [응용 프로그램 통합][AAD-How-To-Integrate] 개요 및 [Azure AD 인증 및 지원되는 인증 시나리오][AAD-Auth-Scenarios]의 기본 사항을 포함하는 Azure AD 개발 관련 모든 항목에 대해 사용되는 랜딩 페이지입니다. [Github](https://github.com/azure-samples?utf8=%E2%9C%93&q=active%20directory&type=&language=)에서도 코드 샘플과 빠른 시작 자습서를 확인할 수 있습니다.
 
-다음 설명 섹션을 사용하여 피드백을 제공하고 새 정의 및 기존 정의 업데이트 요청을 포함하여 콘텐츠를 구체화하고 형성하는 데 도움을 주시기 바랍니다.
+다음 설명 섹션을 사용하여 피드백을 제공하고 새 정의 및 기존 정의 업데이트 요청을 포함하여 이 콘텐츠를 구체화하고 형성하는 데 도움을 줍니다.
 
 <!--Image references-->
 
@@ -194,7 +194,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 [AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
 [AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
 [AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
-[AAD-How-Subscriptions-Assoc]: ../active-directory-how-subscriptions-associated-directory.md
+[AAD-How-Subscriptions-Assoc]:../fundamentals/active-directory-how-subscriptions-associated-directory.md
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-How-To-Tenant]: active-directory-howto-tenant.md
 [AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
@@ -202,7 +202,7 @@ OAuth2 [권한 부여](#authorization-grant)를 지원하기 위해 [권한 부�
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]: ./active-directory-token-and-claims.md
 [AZURE-portal]: https://portal.azure.com
-[Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
+[AAD-RBAC]: ../../role-based-access-control/role-assignments-portal.md
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
 [Microsoft-Graph]: https://graph.microsoft.io
 [O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest

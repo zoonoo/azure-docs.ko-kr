@@ -10,30 +10,32 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 78d4d721f2821a8365185c0bad6d795c67a75292
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33864667"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292562"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
-Azure Active Directory(Azure AD) 암호 재설정이 올바르게 작동하기 위해서는 *조직에서 최소 하나의 라이선스가 할당되어 있어야 합니다*. 암호 재설정 환경에는 사용자당 라이선스가 적용되지 않습니다. 사용자가 해당 라이선스가 적용되는 모든 기능을 직간접적으로 활용하려면 적절한 라이선스가 필요합니다.
+Azure Active Directory(Azure AD) 암호 재설정이 올바르게 작동하려면 해당 사용자의 *조직에서 최소 하나의 라이선스가 할당되어 있어야 합니다*. 사용자가 해당 라이선스가 적용되는 모든 기능을 직간접적으로 활용하려면 적절한 라이선스가 필요합니다.
 
 * **클라우드 전용 사용자**: Office 365 유료 SKU 또는 Azure AD Basic
 * **클라우드** 또는 **온-프레미스 사용자**: Azure AD Premium P1 또는 P2, Enterprise Mobility + Security(EMS) 또는 Microsoft 365
 
-## <a name="licenses-required-for-password-writeback"></a>비밀번호 쓰기 저장에 필요한 라이선스
+## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
+
+**셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제는 Azure AD의 프리미엄 기능입니다**. 라이선스에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 비밀번호 쓰기 저장을 사용하려면 테넌트에 다음과 같은 라이선스 중 하나가 할당되어 있어야 합니다.
 
 * Azure AD Premium P1
 * Azure AD Premium P2
-* Enterprise Mobility + Security E3
-* Enterprise Mobility + Security E5
-* Microsoft 365 E3
-* Microsoft 365 E5
+* Enterprise Mobility + Security E3 또는 A3
+* Enterprise Mobility + Security E5 또는 A5
+* Microsoft 365 E3 또는 A3
+* Microsoft 365 E5 또는 A5
 * Microsoft 365 F1
 
 > [!WARNING]

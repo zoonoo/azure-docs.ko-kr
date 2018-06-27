@@ -48,6 +48,8 @@
           href: security-center-customize-os-security-config.md
         - name: Azure 정책을 사용한 보안 정책
           href: security-center-azure-policy.md
+        - name: 테넌트 수준 표시 유형
+          href: security-center-management-groups.md
     - name: 보안 권장 사항 구현
       href: security-center-recommendations.md
     - name: 보안 상태 모니터링
