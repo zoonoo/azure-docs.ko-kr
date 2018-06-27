@@ -173,7 +173,7 @@ IPsec/IKE 매개 변수는 [매개 변수](vpn-gateway-about-vpn-devices.md#ipse
 
 [!INCLUDE [P2S Azure cert](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]
 
-## <a name="P2SRADIUS">RADIUS 인증을 사용하는 지점 및 사이트 간 연결</a>
+## <a name="P2SRADIUS"></a>RADIUS 인증을 사용하는 지점 및 사이트 간 연결
 
 이 섹션은 Resource Manager 배포 모델에 적용됩니다.
 
