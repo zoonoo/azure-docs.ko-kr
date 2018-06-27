@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 51912bab0a038e99ecf77b8012c4087b029d4508
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264343"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287840"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 경고 만들기, 보기 및 관리  
 
@@ -148,7 +148,13 @@ Azure 경고는 또한 모든 경고 규칙에 대한 통합된 보기 및 확�
 2. **경고 대시보드**가 표시됩니다. 여기에서 모든 Azure Alerts가 통합되며 단일 보드 ![경고 대시보드](./media/monitoring-alerts-unified-usage/alerts-preview-overview.png)에 표시됩니다.
 3. 상단 왼쪽에서 오른쪽으로 대시보드는 나열된 세부 내용을 보기 위해 클릭할 수 있는 다음을 한눈에 보여 줍니다.
     - *발생한 경고*: 현재 논리를 충족하고 발생한 상태에 있는 경고의 수
-    - *총 경고 규칙*: 생성된 하위 텍스트에 있는 경고 규칙의 수, 현재 활성화된 수
+    - *총 경고 규칙*: 생성된 하위 텍스트에 있는 경고 규칙의 수, 현재 활성화된 수 
+    
+
+        > [!NOTE]
+        > 응용 프로그램 인사이트에 대한 로그 경고 및 로그 분석을 포함하여 발생한 모든 경고에 대한 세부 정보를 표시하는 일관적인 대시보드를 제공하려면 [향상된 통합 경고(미리 보기)](monitoring-overview-unified-alerts.md#enhanced-unified-alerts-public-preview)를 사용해야 합니다.
+  
+  
 4. 사용자가 클릭하여 세부 정보를 볼 수 있는 모든 발생한 경고의 목록이 표시됩니다.
 5. 경고를 구체적으로 명시하는 데 도움이 되도록 특정 *구독, 리소스 그룹 및/또는 리소스*를 필터링하기 위해 맨 위에서 드롭다운 옵션을 사용할 수 있습니다. 해결되지 않은 경고의 경우 *필터 경고* 옵션을 사용하여 제공된 키워드 - *이름, 경고 조건, 리소스 그룹 및 대상 리소스*와 일치하는 특정 경고를 찾을 수 있습니다.
 

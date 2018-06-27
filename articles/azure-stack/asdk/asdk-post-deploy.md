@@ -12,19 +12,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 06/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 4b58f3496b25e4fc04761b9df6e27f8313b35fe9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: ec5947bc68ba95a7b1e1588c444f4b28a7435f1c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801546"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 설치 후 구성 작업
-후 [설치는 ASDK](asdk-install.md), 몇 가지 권장된 설치 후 구성을 변경할 수 있습니다. 
 
-## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell 설치 
+후 [Azure 스택 개발 키트 (ASDK) 설치](asdk-install.md), 몇 가지 권장된 설치 후 구성을 변경 해야 합니다.
+
+## <a name="install-azure-stack-powershell"></a>Azure Stack PowerShell 설치
+
 Azure 스택 호환 Azure PowerShell 모듈은 Azure 스택이 작동 해야 합니다.
 
 Azure 스택에 대 한 PowerShell 명령이 PowerShell 갤러리를 통해 설치 됩니다. PSGallery 리포지토리를 등록 하려면 관리자 권한 PowerShell 세션을 열고 다음 명령을 실행 합니다.
@@ -35,9 +38,9 @@ Set-PSRepository `
   -InstallationPolicy Trusted
 ```
 
- Azure 스택 호환 AzureRM 모듈 API 버전 프로필을 통해 설치 됩니다. Azure 스택 AzureRM.Bootstrapper 모듈을 설치 하 여 액세스할 수 있는 2017-03-09-프로필 API 버전 프로필이 필요 합니다. 
- 
- 또는 ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure 스택 PowerShell 모듈을 설치할 수 있습니다.
+Azure 스택 호환 AzureRM 모듈을 지정 하려면 API 버전 프로필을 사용할 수 있습니다.  API 버전 프로필에는 Azure 및 Azure 스택 간에 버전 간 차이점을 관리 하는 방법을 제공 합니다. API 버전 프로필은는 특정 API 버전 AzureRM PowerShell 모듈의 집합입니다. **AzureRM.Bootstrapper** PowerShell 갤러리를 통해 사용할 수 있는 모듈 API 버전 프로필로 작업 하는 데 필요한 PowerShell cmdlet을 제공 합니다.
+
+또는 ASDK 호스트 컴퓨터에 인터넷 연결 없이 최신 Azure 스택 PowerShell 모듈을 설치할 수 있습니다.
 
 > [!IMPORTANT]
 > 필요한 버전을 설치 하기 전에 확인 하면 [기존 Azure PowerShell 모듈을 모두 제거](.\.\azure-stack-powershell-install.md#uninstall-existing-versions-of-powershell)합니다.
@@ -45,7 +48,7 @@ Set-PSRepository `
 - **인터넷에 연결 된** ASDK 호스트 컴퓨터에서 합니다. 개발 키트 설치에 이러한 모듈을 설치 하려면 다음 PowerShell 스크립트를 실행 합니다.
 
   ``` PowerShell
-  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet 
+  # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
   Install-Module `
     -Name AzureRm.BootStrapper
 
@@ -53,10 +56,11 @@ Set-PSRepository `
   Use-AzureRmProfile `
     -Profile 2017-03-09-profile -Force
 
-  Install-Module `
-    -Name AzureStack `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.
+  Install-Module -Name AzureStack -RequiredVersion 1.3.0 
+
   ```
+
   설치에 성공한 경우 AzureRM 및 AzureStack 모듈 출력에 표시 됩니다.
 
 - **인터넷 연결 없이** ASDK 호스트 컴퓨터에서 합니다. 연결이 끊긴된 경우에는 다음 PowerShell 명령을 사용 하 여 인터넷 연결 되어 있는 컴퓨터에 PowerShell 모듈을 먼저 다운로드 해야 합니다.
@@ -78,11 +82,13 @@ Set-PSRepository `
     -Name AzureStack `
     -Path $Path `
     -Force `
-    -RequiredVersion 1.2.11
+  # Install Azure Stack Module Version 1.3.0. If running a pre-1804 version of Azure Stack, change the -RequiredVersion value to 1.2.11.  
+    -RequiredVersion 1.3.0
   ```
+
   다음으로 ASDK 컴퓨터에 다운로드 한 패키지를 복사 하 고 위치를 기본 저장소로 등록 및이 리포지토리에서 AzureRM 및 AzureStack 모듈 설치:
 
-    ```PowerShell
+    ```PowerShell  
     $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
     $RepoName = "MyNuGetSource"
 
@@ -99,6 +105,7 @@ Set-PSRepository `
     ```
 
 ## <a name="download-the-azure-stack-tools"></a>Azure 스택 도구 다운로드
+
 [AzureStack 도구](https://github.com/Azure/AzureStack-Tools) 스택에 Azure 리소스를 배포 및 관리 하기 위한 PowerShell 모듈을 호스팅하는 GitHub 리포지토리 합니다. 이러한 도구를 얻으려면 GitHub 리포지토리 복제 하거나 AzureStack 도구 폴더에서 다음 스크립트를 실행 하 여 다운로드 합니다.
 
   ```PowerShell
@@ -123,7 +130,7 @@ Set-PSRepository `
 ## <a name="validate-the-asdk-installation"></a>ASDK 설치 유효성 검사
 ASDK 배포 성공적으로 수행 되었는지을 보장 하려면 다음이 단계를 수행 하 여 테스트 AzureStack cmdlet을 사용할 수 있습니다.
 
-1. AzureStack\CloudAdmin로 ASDK 호스트 컴퓨터에 로그인 합니다.
+1. AzureStack\AzureStackAdmin로 ASDK 호스트 컴퓨터에 로그인 합니다.
 2. (하지 PowerShell ISE) 관리자 권한으로 PowerShell을 엽니다.
 3. 실행: `Enter-PSSession -ComputerName AzS-ERCS01 -ConfigurationName PrivilegedEndpoint`
 4. 실행: `Test-AzureStack`

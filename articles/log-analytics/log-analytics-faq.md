@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 33998d72ae2a57ae5226c2ec7a1d5dbcebef155e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d34c06461ea5f264f762494d93d76f1dc1bcb3e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637177"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36221546"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -75,18 +75,21 @@ Log Analytics는 UTC 시간을 사용하고 매일 UTC 자정에 시작됩니다
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. 데이터 수집이 중지될 때 알림을 받을 수 있는 방법은 무엇인가요?
 
-A: [경고 규칙 만들기](log-analytics-alerts-creating.md#create-an-alert-rule)에 설명한 단계를 사용하여 데이터 수집이 중단되는 경우 알림을 받을 수 있습니다.
+A: [새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 데이터 수집이 중단되는 경우 알림을 받을 수 있습니다.
 
 데이터 수집이 중단되는 경우에 대한 경고를 만드는 시기는 다음을 설정합니다.
-- **이름**을 *데이터 수집 중지됨*으로
-- **심각도**를 *경고*로
-- **쿼리 검색**을 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`으로
-- **시간 창**을 *30분*으로.
-- **경고 빈도**를 매 *10*분으로.
-- **경고 생성 기준**을 *결과의 수*로
-- **결과 수**를 *0보다 큼*으로
 
-이 경고는 15분 이상에 하트비트가 누락된 경우에만 쿼리가 결과를 반환할 때 발생합니다.  [경고 규칙에 작업 추가](log-analytics-alerts-actions.md)에 설명한 단계를 사용하여 경고 규칙에 전자 메일, 웹후크 또는 Runbook 작업을 구성합니다.
+- **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
+- **경고 조건**은 다음을 지정합니다.
+   - **신호 이름**은 **사용자 지정 로그 검색**을 선택합니다.
+   - **쿼리 검색**을 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`으로
+   - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
+   - *30*분의 **시간 범위** 및 매 *10*분의 **경고 주기**
+- **경고 세부 정보 정의**는 다음을 지정합니다.
+   - **이름**을 *데이터 수집 중지됨*으로
+   - **심각도**를 *경고*로
+
+로그 경고가 조건과 일치하도록 기존 항목을 지정하거나 새 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 만들면 15분 초과 하트비트가 누락된 경우 사용자에게 알려줍니다.
 
 ## <a name="configuration"></a>구성
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. WAD(Azure 진단)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
@@ -107,7 +110,7 @@ Log Analytics에 대한 트래픽은 공용 피어링 ExpressRoute 회로를 사
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?
 
-a. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 자동화 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
+a. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 Automation 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
 
 이러한 변경은 Azure 포털에서 이루어집니다.
 

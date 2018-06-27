@@ -8,17 +8,17 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: f9517cb552130e340310abc4affdad8bdadc26fe
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/20/2018
+ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265754"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294424"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
-이 문서에서는 주 서버와 복제본 서버를 구성하여 Azure Database for MySQL 서비스에서 데이터 내부 복제를 설정하는 방법을 알아봅니다.
+이 문서에서는 주 서버와 복제본 서버를 구성하여 Azure Database for MySQL 서비스에서 데이터 내부 복제를 설정하는 방법을 알아봅니다. 데이터 내부 복제를 사용하면 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스를 실행하는 기본 MySQL 서버의 데이터를 Azure Database for MySQL 서비스에 있는 복제본으로 동기화할 수 있습니다. 
 
 이 문서에서는 이전에 MySQL 서버 및 데이터베이스를 사용한 경험이 몇 번이라도 있다고 가정합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "35265754"
    새 MySQL 서버(예: “replica.mysql.database.azure.com”)를 만듭니다. 서버를 만드는 방법은 [Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)를 참조하세요. 이 서버는 데이터 내부 복제의 “복제본” 서버입니다.
 
    > [!IMPORTANT]
-   > 이 서버는 범용 또는 메모리 최적화 가격 책정 계층에 생성되어야 합니다.
+   > Azure Database for MySQL 서버는 범용 또는 메모리 최적화 가격 책정 계층에 생성되어야 합니다.
    > 
 
 2. 동일한 사용자 계정 및 해당 권한 만들기
@@ -37,6 +37,7 @@ ms.locfileid: "35265754"
    사용자 계정은 주 서버에서 복제본 서버로 복제되지 않습니다. 복제본 서버에 대한 액세스 권한을 사용자에게 제공하려는 경우, 새로 만든 이 Azure Database for MySQL 서버에서 모든 계정과 해당 권한을 수동으로 만들어야 합니다.
 
 ## <a name="configure-the-primary-server"></a>주 서버 구성
+다음 단계에서는 데이터 내부 복제를 위해 다른 클라우드 공급자가 호스팅하는 가상 머신 또는 데이터베이스 서비스에서 온-프레미스 호스팅 MySQL 서버를 준비하고 구성합니다. 이 서버는 데이터 내부 복제의 "기본" 서버입니다. 
 
 1. 이진 로깅 켜기
 
@@ -226,3 +227,6 @@ CALL mysql.az_replication_remove_primary;
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
+
+## <a name="next-steps"></a>다음 단계
+- Azure Database for MySQL를 위한 [데이터 내부 복제](concepts-data-in-replication.md)에 대해 자세히 알아보세요. 

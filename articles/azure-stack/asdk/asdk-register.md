@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: bc17045106b2656cdeb5f51037b3138aeac9ee0f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 08a300d0e2d1565428f282a2073d91b5dd08c060
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757470"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017002"
 ---
 # <a name="azure-stack-registration"></a>Azure 스택 등록
 Azure에서 Azure 마켓플레이스 항목을 다운로드 하 고 상용 데이터를 Microsoft에 다시 보고를 설정 하 여 Azure 스택 개발 키트 (ASDK) 설치를 등록할 수 있습니다. 등록은 마켓플레이스 배포를 포함 하 여 전체 Azure 스택 기능을 지 원하는 데 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure 스택 기능을 테스트 하면 있기 때문에 등록을 사용 하는 것이 좋습니다. Azure 스택 등록 한 후 사용 Azure 상거래에 보고 됩니다. 등록에 사용 되는 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 사용에 대 한 요금이 청구 되지 않습니다.
@@ -83,4 +83,4 @@ Azure와 ASDK 등록에 성공 했음을 확인 하려면 다음이 단계를 �
     ![](media/asdk-register/3.PNG)
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 스택 마켓플레이스 항목 추가](asdk-marketplace-item.md)
+[Azure 스택 마켓플레이스 항목 추가](.\.\azure-stack-marketplace.md)

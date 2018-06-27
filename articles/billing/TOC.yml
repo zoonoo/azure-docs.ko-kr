@@ -41,12 +41,6 @@
           href: billing-understand-reserved-instance-usage-ea.md
         - name: 예약 인스턴스 관리
           href: billing-manage-reserved-vm-instance.md
-    - name: REST 예제
-      items:
-        - name: 엔터프라이즈 비용 검토
-          href: billing-review-enterprise-billing.md
-        - name: 구독 용도 검토
-          href: billing-review-subscription-billing.md
 - name: 계정 관리
   items:
     - name: 무료 계정

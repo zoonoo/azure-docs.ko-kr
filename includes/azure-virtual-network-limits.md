@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/12/2018
+ms.date: 06/20/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: ad76046a092a37a2dc1f59459ac3c3e48bc284e5
-ms.sourcegitcommit: 8659efc885be98f42edae0b516ca576e38940c97
+ms.openlocfilehash: b9e06865b4a401cd925cce564b9c30594c912bae
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2018
-ms.locfileid: "35568129"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36297969"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "35568129"
 | 가상 네트워크당 개인 IP 주소 |4096 |4096 |
 | 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500K |500K |
 | 네트워크 보안 그룹(NSG) |100 |200 |
-| NSG당 NSG 규칙 |200 |400 |
+| NSG당 NSG 규칙 |200 |1000 |
 | 사용자 정의 경로 테이블 |100 |200 |
 | 경로 테이블당 사용자 정의 경로 |100 |400 |
 | 공용 IP 주소(동적) |5 |지원에 문의 |
@@ -50,7 +50,7 @@ ms.locfileid: "35568129"
 | 네트워크 보안 그룹(NSG) |100 |5,000 |
 | NSG당 NSG 규칙 |1000** |1000 |
 | 보안 그룹에서 원본이나 대상에 지정된 IP 주소 및 범위 |2000 |4000 |
-| 응용 프로그램 보안 그룹 |200 |500 |
+| 응용 프로그램 보안 그룹 |500 |3000 |
 | IP 구성당, NIC당 응용 프로그램 보안 그룹 |10 |20 |
 | 응용 프로그램 보안 그룹당 IP 구성 |1000 |4000 |
 | 네트워크 보안 그룹의 모든 보안 규칙 내에서 지정할 수 있는 응용 프로그램 보안 그룹 |50 |100 |
@@ -64,6 +64,7 @@ ms.locfileid: "35568129"
 ** 이 기본값 제한은 이전에 지원을 통해 한도를 높이지 않은 구독에 적용
 
 #### <a name="load-balancer"></a>부하 분산 장치 제한
+다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |

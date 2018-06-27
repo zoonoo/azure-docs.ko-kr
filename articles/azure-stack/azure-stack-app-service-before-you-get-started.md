@@ -12,13 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: 95393df03ffc33748f0f14344d989d58ae52297c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796736"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 시작 하기 전에
 
@@ -330,7 +331,7 @@ Azure AD 서비스 사용자를 사용 하 여 다음 작업을 지 원하는를
 | AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
 | TenantARMEndpoint | 필수 | Null | 테 넌 트 Azure 리소스 관리자 끝점입니다. 예 management.local.azurestack.external입니다. |
 | AzureStackAdminCredential | 필수 | Null | Azure AD 서비스 관리자 자격 증명입니다. |
-| CertificateFilePath | 필수 | Null | 이전에 생성 identity 응용 프로그램 인증서 파일 경로입니다. |
+| CertificateFilePath | 필수 | Null | **전체 경로** identity 응용 프로그램 인증서 파일을 이전에 생성 합니다. |
 | CertificatePassword | 필수 | Null | 보호할 수 있는 인증서 개인 키 암호입니다. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federation Services 응용 프로그램 만들기
@@ -364,7 +365,7 @@ AD FS로 보호 되는 Azure 스택 환경에서는 다음 작업을 지원 하�
 | AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
 | PrivilegedEndpoint | 필수 | Null | 권한 있는 끝점입니다. 예는 AzS ERCS01입니다. |
 | CloudAdminCredential | 필수 | Null | Azure 스택 클라우드 관리자에 대 한 도메인 계정 자격 증명입니다. 예 Azurestack\CloudAdmin입니다. |
-| CertificateFilePath | 필수 | Null | Identity 응용 프로그램의 인증서 PFX 파일 경로입니다. |
+| CertificateFilePath | 필수 | Null | **전체 경로** identity 응용 프로그램의 인증서 PFX 파일에 있습니다. |
 | CertificatePassword | 필수 | Null | 보호할 수 있는 인증서 개인 키 암호입니다. |
 
 ## <a name="next-steps"></a>다음 단계
