@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 927a734b288f5bb0082e77be15ae540702fe4e8b
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808284"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959970"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -95,7 +95,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 > 
 
 > [!TIP]
-> Azure 테이블 저장소에 이미 친숙한 개발자는 과거에 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 패키지를 사용했을 수도 있습니다. 모든 새 테이블 응용 프로그램은 [Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 및 [Azure Cosmos DB 테이블 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 사용하는 것이 좋지만 WindowsAzure.Storage 패키지는 계속해서 지원됩니다. WindowsAzure.Storage 라이브러리를 사용하는 경우 using 문에 Microsoft.WindowsAzure.Storage.Table을 포함합니다.
+> Azure 테이블 저장소에 이미 친숙한 개발자는 과거에 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 패키지를 사용했을 수도 있습니다. 모든 새 테이블 응용 프로그램은 [Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) 및 [Azure Cosmos DB 테이블 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 사용하는 것이 좋지만 WindowsAzure.Storage 패키지는 계속해서 지원됩니다. WindowsAzure.Storage 라이브러리를 사용하는 경우 using 문에 Microsoft.WindowsAzure.Storage.Table을 포함합니다.
 >
 >
 

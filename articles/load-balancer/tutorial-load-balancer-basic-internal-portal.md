@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a16e9ad5b72d87614f5d3630e24e6aa36def8c51
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779548"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061848"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 기본 부하 분산 장치로 내부 트래픽을 여러 VM에 분산
 
@@ -30,7 +30,7 @@ ms.locfileid: "32779548"
 
 원하는 경우 [Azure CLI](load-balancer-get-started-ilb-arm-cli.md) 또는 [Azure PowerShell](load-balancer-get-started-ilb-arm-ps.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -42,6 +42,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - *myResourceGroupILB* - 기존 리소스 그룹의 이름입니다.
     - *myBackendSubnet* - 서브넷 이름입니다.
 2. **만들기**를 클릭하여 가상 네트워크를 만듭니다.
+
+![부하 분산 장치 만들기](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
 
 ## <a name="create-a-basic-load-balancer"></a>기본 부하 분산 장치 만들기
 포털을 사용하여 내부 기본 부하 분산 장치를 만듭니다.
@@ -57,10 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     - *myResourceGroupILB* - 새로 만드는 리소스 그룹의 이름입니다.
 3. **만들기**를 클릭하여 부하 분산 장치를 만듭니다.
    
-    ![부하 분산 장치 만들기](./media/tutorial-load-balancer-basic-internal-portal/1-load-balancer.png)
-
-
-## <a name="create-backend-servers"></a>백 엔드 서버 만들기
+    ## <a name="create-backend-servers"></a>백 엔드 서버 만들기
 
 이 섹션에서는 기본 부하 분산 장치의 백 엔드 풀에 사용되는 가상 머신 2개를 만든 다음, 부하 분산 장치를 테스트하기 위한 IIS를 가상 머신에 설치합니다.
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: dcfb43003e81bb51574b401c21202925b16305f8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 458d01d61872d13cee735c7098cce5dcc905c31c
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26614416"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960409"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>AD DS와 함께 Azure AD Connect Health 사용
 다음 문서는 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 중점을 둡니다. 지원되는 AD DS 버전은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016입니다.
 
 Azure AD Connect Health를 사용한 AD FS 모니터링에 대한 자세한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](active-directory-aadconnect-health-sync.md)을 참조하세요.
 
-![AD DS용 Azure AD Connect Health](./media/active-directory-aadconnect-health/aadconnect-health-adds-entry.png)
+![AD DS용 Azure AD Connect Health](./media/active-directory-aadconnect-health-adds/domainservicesnapshot.PNG)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-ad-ds"></a>AD DS용 Azure AD Connect Health에 대한 경고
 AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러와 관련된 활성 경고 및 해결된 경고의 목록을 제공합니다. 활성 경고 또는 해결된 경고를 선택하면 해결 단계 및 지원 설명서로의 링크와 함께 추가 정보가 포함된 새 블레이드가 열립니다. 각 경고 유형에는 하나 이상의 인스턴스가 있고 이 인스턴스는 해당 특정 경고의 영향을 받는 도메인 컨트롤러 각각에 해당합니다. 경고 블레이드 하단 근처에서 영향을 받는 도메인 컨트롤러를 두 번 클릭하면 해당 경고 인스턴스에 대한 자세한 내용을 포함하는 추가적인 블레이드가 열립니다.

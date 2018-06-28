@@ -3,22 +3,23 @@ title: 셀프 서비스 응용 프로그램 할당을 구성하는 방법 | Micr
 description: 셀프 서비스 응용 프로그램 액세스를 활성화하여 사용자가 자신의 응용 프로그램을 찾을 수 있도록 함
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
-ms.author: asteen
-ms.openlocfilehash: cf70da4933f5513b75f84aef01dec1ef902eab85
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: barbkess
+ms.openlocfilehash: 359640384891ebdf66345d3f5664db1cbefbde77
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833101"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333748"
 ---
 # <a name="how-to-configure-self-service-application-assignment"></a>셀프 서비스 응용 프로그램 할당을 구성하는 방법
 

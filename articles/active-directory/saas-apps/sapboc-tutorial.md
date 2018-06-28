@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: jeedes
-ms.openlocfilehash: 4848132254736aca12be5e31325d98a936754af2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42eb1c8332a29ff07c83b962aaa8f8e2f04fd07b
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220637"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-object-cloud"></a>자습서: SAP Business Object Cloud와 Azure Active Directory 통합
 
@@ -129,7 +129,7 @@ SAP Business Object Cloud에서 Azure AD Single Sign-On을 설정하려면:
     ![SAP Business Object Cloud 도메인 및 URL 페이지 URL](./media/sapboc-tutorial/tutorial_sapboc_url.png)
  
     > [!NOTE] 
-    > 이러한 URL의 값은 데모용으로만 사용합니다. 실제 로그온 URL 및 식별자 URL로 값을 업데이트합니다. 로그온 URL을 가져오려면 [SAP Business Object Cloud 클라이언트 지원팀](https://www.sap.com/product/analytics/cloud-analytics.support.html)에 연락하세요. 관리 콘솔에서 SAP Business Object Cloud 메타데이터를 다운로드하여 식별자 URL을 가져올 수 있습니다. 이것은 자습서의 뒷부분에 설명되어 있습니다. 
+    > 이러한 URL의 값은 데모용으로만 사용합니다. 실제 로그온 URL 및 식별자 URL로 값을 업데이트합니다. 로그온 URL을 가져오려면 [SAP Business Object Cloud 클라이언트 지원팀](https://help.sap.com/viewer/product/SAP_BusinessObjects_Cloud/release/en-US)에 연락하세요. 관리 콘솔에서 SAP Business Object Cloud 메타데이터를 다운로드하여 식별자 URL을 가져올 수 있습니다. 이것은 자습서의 뒷부분에 설명되어 있습니다. 
 
 4. **SAML 서명 인증서** 아래에서 **메타데이터 XML**을 선택합니다. 그런 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 

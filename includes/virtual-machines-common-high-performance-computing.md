@@ -9,10 +9,10 @@ ms.date: 05/11/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
+ms.lasthandoff: 06/27/2018
 ms.locfileid: "34152226"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
@@ -50,7 +50,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
 
 ## <a name="marketplace-solutions"></a>Marketplace 솔루션
 
-HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 방문하세요. 이러한 예로 다음이 포함됩니다.
+HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 방문하세요. 다음은 이러한 템플릿의 예입니다.
 
 * [RogueWave CentOS 기반 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 * [SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)

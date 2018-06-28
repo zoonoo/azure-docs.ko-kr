@@ -20,6 +20,10 @@
   items:
     - name: SDK 샘플 개요
       href: sdk.md
+    - name: 'C#의 SDK'
+      href: visual-search-sdk-c-sharp.md
+    - name: Node의 SDK
+      href: visual-search-sdk-node.md
     - name: Python의 SDK
       href: visual-search-sdk-python.md
 - name: 자습서

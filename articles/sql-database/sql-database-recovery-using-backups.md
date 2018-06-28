@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 027a10e687673bdeedf2858b4c23ff459df61b70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ad4725ff6871ef489c6a10656af9a76e588edfa1
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649111"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308424"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>자동화된 데이터베이스 백업을 사용하여 Azure SQL 데이터베이스 복구
 SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-backups.md) 및 [장기 보존에서 백업](sql-database-long-term-retention.md)을 사용한 데이터베이스 복구를 위해 다음 옵션을 제공합니다. 데이터베이스 백업에서 다음으로 복원할 수 있습니다.
@@ -32,7 +32,7 @@ SQL Database는 [자동화된 데이터베이스 백업](sql-database-automated-
 - 데이터베이스 최대 크기가 500GB보다 큰 경우 P11–P15에서 S4-S12 또는 P1–P6로의 복원
 - 데이터베이스 최대 크기가 250GB보다 큰 경우 P1–P6에서 S4-S12로의 복원
 
-추가 비용은 복원된 데이터베이스의 최대 크기가 성능 수준에 대해 포함된 저장소의 크기보다 크고, 포함된 크기 이상으로 프로비전된 추가 저장소에는 추가 요금이 부과되기 때문에 발생합니다.  추가 저장소에 대한 가격 책정 정보는 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.  실제 사용된 공간의 크기가 포함된 저장소의 크기보다 작은 경우 데이터베이스 최대 크기를 포함된 크기로 줄여 이러한 추가 비용을 방지할 수 있습니다. 데이터베이스 저장소 크기 및 데이터베이스 최대 크기 변경 방법에 대한 자세한 내용은 [단일 데이터베이스 DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md#single-database-storage-sizes-and-performance-levels) 및 [단일 데이터베이스 vCore 기반 리소스 제한](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels)을 참조하세요.  
+추가 비용은 복원된 데이터베이스의 최대 크기가 성능 수준에 대해 포함된 저장소의 크기보다 크고, 포함된 크기 이상으로 프로비전된 추가 저장소에는 추가 요금이 부과되기 때문에 발생합니다.  추가 저장소에 대한 가격 책정 정보는 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.  실제 사용된 공간의 크기가 포함된 저장소의 크기보다 작은 경우 데이터베이스 최대 크기를 포함된 크기로 줄여 이러한 추가 비용을 방지할 수 있습니다.  
 
 > [!NOTE]
 > [데이터베이스 사본](sql-database-copy.md)을 만들 때 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)이 사용됩니다. 

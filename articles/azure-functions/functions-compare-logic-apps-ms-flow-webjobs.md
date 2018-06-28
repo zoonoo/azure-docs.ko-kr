@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 04/09/2018
 ms.author: tdykstra
 ms.custom: mvc
-ms.openlocfilehash: 6df97a40be7bf1c437c5228006d114ace768f8ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157376"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028866"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 비교
 
@@ -50,7 +50,7 @@ Flow는 개발자나 IT를 통하지 않고 사무실 작업자가 간단히 통
 | 디자인 도구 |브라우저 및 모바일 앱에서 UI만 해당 |브라우저 내부 및 [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [코드 보기](../logic-apps/logic-apps-author-definitions.md) 사용 가능 |
 | 애플리케이션 수명 주기 관리(ALM) |비프로덕션 환경에서 디자인 및 테스트하고, 준비되면 프로덕션으로 승격합니다. |DevOps: [Azure Resource Management](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)에서 소스 제어, 테스트, 지원, 자동화 및 관리 효율성 |
 | 관리자 환경 |흐름 환경 및 DLP(데이터 손실 방지) 정책 관리, 라이선스 추적 [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |리소스 그룹, 연결, 액세스 관리 및 [https://portal.azure.com](https://portal.azure.com) 로깅에 대한 관리 |
-| 보안 |Office 365 보안 및 규정 준수 감사 로그, 데이터 손실 방지(DLP), 중요한 데이터에 대한 [휴지 시 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) 등. |Azure의 보안 보증: [Azure Security](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) 등 |
+| 보안 |Office 365 보안 및 규정 준수 감사 로그, 데이터 손실 방지(DLP), 중요한 데이터에 대한 [휴지 시 암호화](https://wikipedia.org/wiki/Data_at_rest#Encryption) 등. |Azure의 보안 보증: [Azure Security](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity), [Security Center](https://azure.microsoft.com/services/security-center/), [감사 로그](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) 등 |
 
 ## <a name="compare-azure-functions-and-azure-logic-apps"></a>Azure Functions 및 Azure Logic Apps 비교
 

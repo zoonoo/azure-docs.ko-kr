@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2017
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a4093926ea2ea2bb0e477372a1ceb2dfbf22e8f0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264475"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330971"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -47,7 +47,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -131,7 +131,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --source-address-prefix '*' \
     --source-port-range '*' \
     --destination-address-prefix '*' \
-    --destination-port-range 22 \
+    --destination-port-range 80 \
     --access allow \
     --priority 300
 ```
@@ -249,7 +249,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![부하 분산 장치 테스트](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

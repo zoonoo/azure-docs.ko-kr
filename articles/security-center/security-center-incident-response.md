@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: yurid
-ms.openlocfilehash: 2f3a9344b9bd383ea59ff3cb400faa90942c5b9f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 8564dd8a86cab1229f31e77e072ddd4e776947e7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894490"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029699"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>사고 대응에 Azure Security Center 사용
 대부분의 조직은 공격을 받은 후에 보안 사고에 대응하는 방법을 알아봅니다. 비용과 손상을 줄이려면 공격이 발생하기 전에 사고 대응 계획을 적절히 수립하는 것이 중요합니다. Azure Security Center는 사고에 대응하는 여러 단계에서 사용할 수 있습니다.
@@ -97,7 +97,7 @@ Sam은 Judy에게서 상황을 접수한 다음 Security Center에서 제안하�
 ![사고 대응 수명 주기](./media/security-center-incident-response/security-center-incident-response-fig6.png)
 
 ### <a name="additional-resources"></a>추가 리소스
-SIEM(보안 정보 및 이벤트 관리) 솔루션을 사용하는 회사의 경우 조사 과정에서 [SIEM 솔루션과 Security Center를 통합](security-center-integrating-alerts-with-log-integration.md)할 수도 있습니다. Azure 감사 로그와 VM 보안 이벤트는 [Azure 로그 통합 도구](https://blogs.msdn.microsoft.com/azuresecurity/2016/07/21/microsoft-azure-log-integration-preview/)를 통해 통합할 수도 있습니다. 이 정보는 Security Center에서 제공하는 정보와 함께 공격을 조사하는 데 사용할 수 있습니다. Security Center의 [조사](https://docs.microsoft.com/azure/security-center/security-center-investigation) 기능을 사용하여 인시던트의 근본 원인을 확인할 수도 있습니다.
+SIEM(보안 정보 및 이벤트 관리) 솔루션을 사용하는 회사의 경우 조사 과정에서 [SIEM 솔루션과 Security Center를 통합](security-center-integrating-alerts-with-log-integration.md)할 수도 있습니다. Azure 감사 로그와 VM 보안 이벤트는 [Azure 로그 통합 도구](https://azure.microsoft.com/blog/introducing-hdinsight-integration-with-azure-log-analytics/)를 통해 통합할 수도 있습니다. 이 정보는 Security Center에서 제공하는 정보와 함께 공격을 조사하는 데 사용할 수 있습니다. Security Center의 [조사](https://docs.microsoft.com/azure/security-center/security-center-investigation) 기능을 사용하여 인시던트의 근본 원인을 확인할 수도 있습니다.
 
 ## <a name="conclusion"></a>결론
 사고가 발생하기 전에 팀을 구성하는 것은 조직에 매우 중요하며 사고를 다루는 방식에 긍정적인 영향을 주게 됩니다. 리소스를 모니터링하는 적합한 도구가 있다면 팀이 보안 사고를 수정하는 정확한 단계를 수행하는 데 도움이 됩니다. Security Center [감지 기능](security-center-detection-capabilities.md)은 IT를 지원하여 신속하게 보안 사고에 대응하고 보안 문제를 해결할 수 있습니다.

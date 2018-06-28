@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: a29ef6535d1d4e64df7b97fc7519e55f511df222
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 759052a073103304f89096a43f0cbef88e0a1624
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212175"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308261"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>자습서: SimpleNexus와 Azure Active Directory 통합
 
@@ -117,7 +117,7 @@ SimpleNexus에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     나. **식별자** 텍스트 상자에서 `https://simplenexus.com/<companyname>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [SimpleNexus 클라이언트 지원 팀](https://simplenexus.com/site/contact)에 문의하세요. 
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [SimpleNexus 클라이언트 지원 팀](https://simplenexus.com/sn/contact-us/)에 문의하세요. 
  
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -127,7 +127,7 @@ SimpleNexus에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     ![Configure Single Sign-On](./media/simplenexus-tutorial/tutorial_general_400.png)
 
-6. **SimpleNexus** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [SimpleNexus 지원 팀](https://simplenexus.com/site/contact)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+6. **SimpleNexus** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [SimpleNexus 지원 팀](https://simplenexus.com/sn/contact-us/)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
