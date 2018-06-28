@@ -61,12 +61,14 @@
       href: speech-translation.md
     - name: 음성 SDK
       href: speech-sdk.md
-    - name: 음성 장치 SDK
+    - name: Speech Devices SDK
       href: speech-devices-sdk.md
 - name: 참고 자료
   items:
     - name: 지원되는 언어
       href: supported-languages.md
+    - name: 영역
+      href: regions.md
     - name: REST API
       href: rest-apis.md
     - name: 음성 SDK API

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 604af54d034b6b51a96ff098827e2352a163be18
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 693996595f1a1b963c96e5f59e72fe4c9ca80ff0
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23125821"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753043"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
@@ -75,7 +75,7 @@ Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 ### <a name="resetclassic"></a>클래식 배포 모델
 
-게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/install-azure-ps?view=azuresmps-3.7.0)이 있는지 확인합니다. 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 게이트웨이를 다시 설정합니다.
+게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureVNetGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [SM(Service Management) PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets)이 있는지 확인합니다. 다음 예제에서는 "ContosoVNet"이라는 가상 네트워크에 대한 게이트웨이를 다시 설정합니다.
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

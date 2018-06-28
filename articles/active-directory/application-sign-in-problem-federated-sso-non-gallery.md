@@ -3,22 +3,24 @@ title: 페더레이션된 Single Sign-On에 대해 구성된 비갤러리 응용
 description: Azure AD에서 SAML 기반 페더레이션된 Single Sign-On에 대해 구성된 응용 프로그램에 로그인할 때 직면할 수 있는 특정 문제에 대한 지침
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: cfd4e478850783983caa3042cbbb2b096a576292
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: d72fe88ef955dbe821a1fab55de8356ac14619a1
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/14/2018
-ms.locfileid: "29383466"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334169"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 비갤러리 응용 프로그램에 로그인하는 문제
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6933d9f9951925888c92e35f6b1e2962cc29b0ce
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 74051ae8ad4ca7065561607feb13a2b98094fffc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801782"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333185"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Single Sign-On에 SAML 2.0 IdP(ID 공급자) 사용
 
@@ -47,7 +47,7 @@ Microsoft는 Office 365와 같은 Microsoft 클라우드 서비스를 올바르�
 
 SAML 2.0 ID 공급자 출력 메시지를 제공된 샘플 추적과 가능한 한 유사하게 유지하는 것이 좋습니다. 또한 가능한 경우 제공된 Azure AD 메타데이터의 특정 특성 값을 사용하도록 합니다. 출력 메시지가 적절하다고 생각되면 아래 설명된 대로 Microsoft 연결 분석기를 사용해서 테스트할 수 있습니다.
 
-Azure AD 메타데이터는 URL [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](http://https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml)에서 다운로드할 수 있습니다.
+Azure AD 메타데이터는 URL [https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml](https://nexus.microsoftonline-p.com/federationmetadata/saml20/federationmetadata.xml)에서 다운로드할 수 있습니다.
 Office 365의 중국 특정 인스턴스를 사용하는 중국 고객의 경우 다음 페더레이션 끝점을 사용해야 합니다. [https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml](https://nexus.partner.microsoftonline-p.cn/federationmetadata/saml20/federationmetadata.xml)
 
 ## <a name="saml-protocol-requirements"></a>SAML 프로토콜 요구 사항

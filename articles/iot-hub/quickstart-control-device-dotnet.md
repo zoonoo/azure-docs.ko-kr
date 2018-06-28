@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: c24c311f6ee446122fea7fd7699b34ab2ae8510c
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 0bb27c23850384501afec733d24f824346b8416b
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292843"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335478"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT 허브(.NET)에 연결된 장치 제어
 
@@ -67,7 +67,7 @@ dotnet --version
 
     장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
-1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+2. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -91,17 +91,17 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device-2** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
 
-    `connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
+    `s_connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램에 필요한 패키지를 설치합니다.
+3. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램에 필요한 패키지를 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 빌드하고 실행합니다.
+4. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run
@@ -117,17 +117,17 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 1. 또 다른 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **BackEndApplication.cs** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **BackEndApplication.cs** 파일을 엽니다.
 
-    `connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **BackEndApplication.cs** 파일에 저장합니다.
+    `s_connectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **BackEndApplication.cs** 파일에 저장합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리 설치합니다.
+3. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
+4. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run

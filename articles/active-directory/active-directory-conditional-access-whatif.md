@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 조건부 액세스의 what if 도구란? - 미리 보기 | Microsoft Docs
+title: Azure Active Directory 조건부 액세스의 what if 도구란?
 description: 조건부 액세스 정책이 환경에 미치는 영향을 이해하는 방법을 알아봅니다.
 services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 661ada8de8821d489732e1f36dc2406eaa0ee4a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232074"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750085"
 ---
-# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access---preview"></a>Azure Active Directory 조건부 액세스의 what if 도구란? - 미리 보기
+# <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 what if 도구란?
 
 [조건부 액세스](active-directory-conditional-access-azure-portal.md)는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있게 해 주는 Azure AD(Azure Active Directory)의 기능입니다. 환경에서 조건부 액세스 정책을 통해 예상되는 결과를 어떻게 알 수 있나요? 이 질문에 답변하기 위해 **조건부 액세스 what if 도구**를 사용할 수 있습니다.
 

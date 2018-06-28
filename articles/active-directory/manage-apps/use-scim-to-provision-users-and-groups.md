@@ -3,7 +3,7 @@ title: Azure Active Directory에서 SCIM을 사용하여 앱 프로비전 자동
 description: Azure Active Directory는 SCIM 프로토콜 사양에 정의된 인터페이스를 가진 웹 서비스가 향하는 응용 프로그램 또는 ID 저장소에 사용자 및 그룹을 자동으로 프로비전할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
+author: barbkess
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
-ms.author: asmalser
+ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 2bbea8f082e482ec5f5a08ce9978940e05c2325b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 40fa7959fc27692489a6317df0eddb9208c57bd6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303105"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337331"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>SCIM(System for Cross-Domain Identity Management)을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전
 
@@ -697,7 +697,7 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 * [특성 매핑에 대한 식 작성](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](../active-directory-saas-scoping-filters.md)
 * [계정 프로비전 알림](../active-directory-saas-app-provisioning.md)
-* [SaaS App을 통합하는 방법에 대한 자습서 목록](../active-directory-saas-tutorial-list.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [0]: ./media/use-scim-to-provision-users-and-groups/scim-figure-1.png

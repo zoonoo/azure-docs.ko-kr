@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: cawa
-ms.openlocfilehash: a606c8e7d8b730b67bd8481656e099900eb39fbc
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 3ee2cc3ac5098ebf205331167faffa2b5f9b6d56
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2017
-ms.locfileid: "23452402"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937560"
 ---
 # <a name="optimizing-your-azure-code"></a>Azure 코드 최적화
 Microsoft Azure를 사용하는 앱을 프로그래밍할 경우 클라우드 환경에서 앱 안정성, 동작 및 성능 문제를 방지하기 위해 몇 가지 코딩 방법을 따라야 합니다. Microsoft는 이와 같이 자주 발생하는 문제를 인식 및 식별하고 해결해 주는 Azure 코드 분석 도구를 제공합니다. 이 도구는 Visual Studio에서 NuGet을 통해 다운로드할 수 있습니다.
@@ -89,17 +89,17 @@ public async Task RunAsync()
 }
 ```
 
-## <a name="use-service-bus-shared-access-signature-authentication"></a>서비스 버스 공유 액세스 서명 인증 사용
+## <a name="use-service-bus-shared-access-signature-authentication"></a>Service Bus 공유 액세스 서명 인증 사용
 ### <a name="id"></a>ID
 AP2000
 
 ### <a name="description"></a>설명
-인증에 SAS(공유 액세스 서명)를 사용합니다. 서비스 버스 인증에 ACS(액세스 제어 서비스)를 사용 중입니다.
+인증에 SAS(공유 액세스 서명)를 사용합니다. 서비스 버스 인증에 ACS(Access Control Service)를 사용 중입니다.
 
 [Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
 
 ### <a name="reason"></a>이유
-보안 강화를 위해 Azure Active Directory에서 ACS 인증을 SAS 인증으로 대체합니다. 전환 계획에 대한 자세한 내용은 [Azure Active Directory가 ACS의 미래](http://blogs.technet.com/b/ad/archive/2013/06/22/azure-active-directory-is-the-future-of-acs.aspx) 를 참조하세요.
+보안 강화를 위해 Azure Active Directory에서 ACS 인증을 SAS 인증으로 대체합니다. 전환 계획에 대한 자세한 내용은 [Azure Active Directory가 ACS의 미래](https://cloudblogs.microsoft.com/enterprisemobility/2013/06/22/azure-active-directory-is-the-future-of-acs/) 를 참조하세요.
 
 ### <a name="solution"></a>해결 방법
 앱에 SAS 인증을 사용합니다. 다음 예제는 기존 SAS 토큰을 사용하여 서비스 버스 네임스페이스 또는 엔터티에 액세스하는 방법을 보여 줍니다.
@@ -112,9 +112,9 @@ BrokeredMessage receivedMessage = sc.Receive();
 
 자세한 내용은 다음 항목을 참조하세요.
 
-* 개요를 보려면 [서비스 버스를 사용한 공유 액세스 서명 인증](https://msdn.microsoft.com/library/dn170477.aspx)
-* [서비스 버스를 사용한 공유 액세스 서명 인증을 사용하는 방법](https://msdn.microsoft.com/library/dn205161.aspx)
-* 샘플 프로젝트를 보려면 [서비스 버스를 사용한 SAS(공유 액세스 서명) 인증 사용](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
+* 개요를 보려면 [Service Bus를 사용한 공유 액세스 서명 인증](https://msdn.microsoft.com/library/dn170477.aspx)
+* [Service Bus를 사용한 공유 액세스 서명 인증을 사용하는 방법](https://msdn.microsoft.com/library/dn205161.aspx)
+* 샘플 프로젝트를 보려면 [Service Bus를 사용한 SAS(공유 액세스 서명) 인증 사용](http://code.msdn.microsoft.com/windowsazure/Using-Shared-Access-e605b37c)
 
 ## <a name="consider-using-onmessage-method-to-avoid-receive-loop"></a>OnMessage 메시지를 사용하여 "수신 루프"를 방지합니다.
 ### <a name="id"></a>ID
@@ -219,34 +219,34 @@ while (true)
    }
 }
 ```
-## <a name="consider-using-asynchronous-service-bus-methods"></a>비동기 서비스 버스 메서드 사용 고려
+## <a name="consider-using-asynchronous-service-bus-methods"></a>비동기 Service Bus 메서드 사용 고려
 ### <a name="id"></a>ID
 AP2003
 
 ### <a name="description"></a>설명
-조정된 메시지의 성능을 개선하려면 비동기 서비스 버스 메서드를 사용합니다.
+조정된 메시지의 성능을 개선하려면 비동기 Service Bus 메서드를 사용합니다.
 
 [Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
 
 ### <a name="reason"></a>이유
-비동기 메서드를 사용하면 호출을 실행할 때마다 메인 스레드가 차단되지 않으므로 응용 프로그램 동시성이 지원됩니다. 서비스 버스 메시징 메서드를 사용할 때 작업(보내기, 받기, 삭제 등)을 수행하면 다소 시간이 소요됩니다. 이 시간에는 요청 및 응답 지연 시간과 서비스 버스 서비스의 작업 처리가 포함됩니다. 시간당 작업 수를 늘리려면 작업이 동시에 실행되어야 합니다. 자세한 내용을 보려면 [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례](https://msdn.microsoft.com/library/azure/hh528527.aspx)를 참조하세요.
+비동기 메서드를 사용하면 호출을 실행할 때마다 메인 스레드가 차단되지 않으므로 응용 프로그램 동시성이 지원됩니다. Service Bus 메시징 메서드를 사용할 때 작업(보내기, 받기, 삭제 등)을 수행하면 다소 시간이 소요됩니다. 이 시간에는 요청 및 응답 지연 시간과 Service Bus 서비스의 작업 처리가 포함됩니다. 시간당 작업 수를 늘리려면 작업이 동시에 실행되어야 합니다. 자세한 내용을 보려면 [Service Bus 조정된 메시징을 사용한 성능 향상의 모범 사례](https://msdn.microsoft.com/library/azure/hh528527.aspx)를 참조하세요.
 
 ### <a name="solution"></a>해결 방법
 권장 비동기 메서드를 사용하는 방법은 [QueueClient 클래스(Microsoft.ServiceBus.Messaging)](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.queueclient.aspx) 를 참조하세요.
 
 Azure 메시징 인프라의 성능을 개선하려면 [Asynchronous Messaging Primer](https://msdn.microsoft.com/library/dn589781.aspx)디자인 패턴을 참조하세요.
 
-## <a name="consider-partitioning-service-bus-queues-and-topics"></a>서비스 버스 큐 및 토픽 분할 고려
+## <a name="consider-partitioning-service-bus-queues-and-topics"></a>Service Bus 큐 및 토픽 분할 고려
 ### <a name="id"></a>ID
 AP2004
 
 ### <a name="description"></a>설명
-서비스 버스 메시징에서 성능을 향상하려면 서비스 버스 큐와 토픽을 분할합니다.
+Service Bus 메시징에서 성능을 향상하려면 Service Bus 큐와 토픽을 분할합니다.
 
 [Azure 코드 분석 의견](http://go.microsoft.com/fwlink/?LinkId=403771)에서 아이디어와 의견을 공유해 주세요.
 
 ### <a name="reason"></a>이유
-서비스 버스 큐와 토픽을 분할하면 분할된 큐 또는 토픽이 더 이상 단일 메시지 브로커 또는 메시징 스토어의 성능으로 제한되지 않으므로 성능 처리량과 서비스 가용성이 향상됩니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 토픽을 계속 사용할 수 있습니다. 자세한 내용은 [메시징 엔터티 분할](https://msdn.microsoft.com/library/azure/dn520246.aspx)을 참조하세요.
+Service Bus 큐와 토픽을 분할하면 분할된 큐 또는 토픽이 더 이상 단일 메시지 브로커 또는 메시징 스토어의 성능으로 제한되지 않으므로 성능 처리량과 서비스 가용성이 향상됩니다. 또한 메시징 스토어가 일시적으로 중단된 경우에도 분할된 큐 또는 토픽을 계속 사용할 수 있습니다. 자세한 내용은 [메시징 엔터티 분할](https://msdn.microsoft.com/library/azure/dn520246.aspx)을 참조하세요.
 
 ### <a name="solution"></a>해결 방법
 다음 코드 조각은 메시징 엔터티를 분할하는 방법을 보여 줍니다.
@@ -273,7 +273,7 @@ AP3001
 ### <a name="reason"></a>이유
 클록 동기화는 데이터 센터 간 약간의 시간 차이를 발생시킵니다. 예를 들어 DateTime.Now 또는 유사한 메서드를 사용하여 저장소 SAS 정책의 시작 시간을 현재 시간으로 설정하면 SAS 정책이 즉시 적용된다고 생각하는 것이 일반적입니다. 하지만 데이터 센터 사이에는 약간의 시간 차이가 있으며 시작 시간보다 약간 빠르거나 느린 데이터 센터가 있을 수 있기 때문에 문제가 발생할 수 있습니다. 그 결과, 정책 수명을 너무 짧게 설정할 경우 SAS 정책이 빠르게 또는 즉시 만료될 수 있습니다.
 
-Azure 저장소에서 공유 액세스 서명을 사용하는 방법에 대한 지침은 [테이블 SAS(공유 액세스 서명), 큐 SAS, Blob SAS 업데이트 소개 - Microsoft Azure 저장소 팀 블로그 - 사이트 홈 - MSDN 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)를 참조하세요.
+Azure Storage에서 공유 액세스 서명을 사용하는 방법에 대한 지침은 [테이블 SAS(공유 액세스 서명), 큐 SAS, Blob SAS 업데이트 소개 - Microsoft Azure Storage 팀 블로그 - 사이트 홈 - MSDN 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)를 참조하세요.
 
 ### <a name="solution"></a>해결 방법
 공유 액세스 정책의 시작 시간을 설정하는 문을 제거합니다. Azure 코드 분석 도구는 이 문제에 대한 해결 방법을 제공합니다. 보안 관리에 대한 자세한 내용은 디자인 패턴 [Valet 주요 패턴](https://msdn.microsoft.com/library/dn568102.aspx)을 참조하세요.
@@ -305,7 +305,7 @@ AP3002
 ### <a name="reason"></a>이유
 전 세계 다른 위치에 있는 데이터 센터는 클록 신호를 기준으로 동기화됩니다. 클록 신호가 다른 위치로 이동하려면 시간이 소요되므로 모든 항목이 동기화된 상태가 정상인 것으로 가정할 경우에도 다양한 지리적 위치에서 데이터 센터 간 시간 차이가 발생할 수 있습니다. 이 시간 차이는 공유 액세스 정책 시작 시간 및 만료 간격에 영향을 미칠 수 있습니다. 따라서 공유 액세스 정책을 즉시 적용하기 위해서는 시작 시간을 지정하지 마십시오. 또한 시간 초과가 빨리 발생하지 않도록 만료 시간을 5분을 초과하도록 설정하십시오.
 
-Azure 저장소에서 공유 액세스 서명을 사용하는 방법은 [테이블 SAS(공유 액세스 서명), 큐 SAS, Blob SAS 업데이트 소개 - Microsoft Azure 저장소 팀 블로그 - 사이트 홈 - MSDN 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)를 참조하세요.
+Azure Storage에서 공유 액세스 서명을 사용하는 방법은 [테이블 SAS(공유 액세스 서명), 큐 SAS, Blob SAS 업데이트 소개 - Microsoft Azure Storage 팀 블로그 - 사이트 홈 - MSDN 블로그](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)를 참조하세요.
 
 ### <a name="solution"></a>해결 방법
 보안 관리에 대한 자세한 내용은 [Valet 주요 패턴](https://msdn.microsoft.com/library/dn568102.aspx)디자인 패턴을 참조하세요.
@@ -424,7 +424,7 @@ WAD 1.3(Azure SDK 2.5에 기본 제공)부터 코드를 사용하여 진단을 �
 
    ![진단 사용 옵션에 액세스](./media/vs-azure-tools-optimizing-azure-code-in-visual-studio/IC796660.png)
 
-   자세한 내용은 [Azure 클라우드 서비스 및 가상 컴퓨터에서 진단 구성](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 을 참조하세요.
+   자세한 내용은 [Azure Cloud Services 및 Virtual Machines에서 진단 구성](vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) 을 참조하세요.
 
 ## <a name="avoid-declaring-dbcontext-objects-as-static"></a>DbContext 개체를 정적으로 선언하지 마십시오
 ### <a name="id"></a>ID
