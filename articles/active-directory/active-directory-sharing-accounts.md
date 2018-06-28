@@ -14,12 +14,12 @@ ms.date: 11/13/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 1bdc7a4d50b81c615d9aca651c897796d9f60c00
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7a58fca716389f35db7312948674e86b3104fe62
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292279"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307999"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 ## <a name="overview"></a>개요
@@ -63,10 +63,10 @@ Azure AD는 모든 유형의 암호 Single Sign-on 응용 프로그램 전체에
 ## <a name="sharing-an-account"></a>계정 공유
 Azure AD를 사용하여 계정을 공유하려면 다음이 필요합니다.
 
-* 응용 프로그램 [앱 갤러리](https://azure.microsoft.com/marketplace/active-directory/)나 [사용자 지정 응용 프로그램](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx) 추가
+* 응용 프로그램 [앱 갤러리](https://azure.microsoft.com/marketplace/active-directory/)나 [사용자 지정 응용 프로그램](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/) 추가
 * 암호 SSO(Single Sign-On)에 대한 응용 프로그램 구성
 * [그룹 기반 할당](active-directory-accessmanagement-group-saasapps.md)을 사용하고 옵션을 선택하여 공유 자격 증명 입력
-* 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 응용 프로그램에서는 [Azure AD 자동 암호 롤오버](http://blogs.technet.com/b/ad/archive/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview.aspx)
+* 선택 사항: Facebook, Twitter 또는 LinkedIn 등의 일부 응용 프로그램에서는 [Azure AD 자동 암호 롤오버](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 또한 MFA(Multi-Factor Authentication)로 공유 계정의 보안을 강화하고([Azure AD를 통한 응용 프로그램 보호](authentication/concept-mfa-whichversion.md)에 대한 자세한 정보) [Azure AD 셀프 서비스](active-directory-accessmanagement-self-service-group-management.md) 그룹 관리를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 관리자에게 기능을 위임할 수 있습니다.
 

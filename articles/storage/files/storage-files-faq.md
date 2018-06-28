@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 05/31/2018
 ms.author: renash
-ms.openlocfilehash: 9121726cc8500da87cf71cb1ca3035e6cc5a303b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: c78138fa06da4d83774f9a2270263a48d404b17a
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294093"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751858"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure File Sync(미리 보기)를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -227,12 +227,12 @@ ms.locfileid: "36294093"
 
 * <a id="data-compliance-policies"></a>
 **Azure Files는 어떤 데이터 규정 준수 정책을 지원하나요?**  
-   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Microsoft Azure Data Protection 문서](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)를 다운로드하여 참조하고, [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/default.aspx)로 이동할 수 있습니다.
+   Azure Files는 Azure Storage의 다른 저장소 서비스에서 사용되는 동일한 저장소 아키텍처를 기반으로 하여 실행됩니다. Azure Files는 다른 Azure 저장소 서비스에서 사용되는 동일한 데이터 규정 준수 정책을 적용합니다. Azure Storage 데이터 규정 준수에 대한 자세한 내용은 [Microsoft Azure Data Protection 문서](http://go.microsoft.com/fwlink/?LinkID=398382&clcid=0x409)를 다운로드하여 참조하고, [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx)로 이동할 수 있습니다.
 
 ## <a name="on-premises-access"></a>온-프레미스 액세스
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure File Sync를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  
-    번호 ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure File Sync를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용*할 수 있습니다*.
+    아니요. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure File Sync를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용*할 수 있습니다*.
 
 * <a id="mount-locally"></a>
 **내 로컬 컴퓨터에서 Azure 파일 공유를 탑재하려면 어떻게 해야 하나요?**  
@@ -329,7 +329,7 @@ ms.locfileid: "36294093"
 
 * <a id="need-larger-share"></a>
 **현재 지원하는 Azure Files보다 큰 파일 공유가 필요합니다. 내 Azure 파일 공유 크기를 늘릴 수 있나요?**  
-    번호 Azure 파일 공유의 최대 크기는 5TiB입니다. 현재, 조정할 수 없는 하드 한도입니다. 공유 크기를 100TiB로 늘리기 위한 솔루션을 개발 중이지만 지금은 일정이 나와 있지 않습니다.
+    아니요. Azure 파일 공유의 최대 크기는 5TiB입니다. 현재, 조정할 수 없는 하드 한도입니다. 공유 크기를 100TiB로 늘리기 위한 솔루션을 개발 중이지만 지금은 일정이 나와 있지 않습니다.
 
 * <a id="open-handles-quota"></a>
 **동일한 파일에 동시에 액세스할 수 있는 클라이언트는 몇 개인가요?**   
@@ -358,7 +358,7 @@ ms.locfileid: "36294093"
 
 * <a id="nested-shares"></a>
 **중첩된 공유를 설정할 수 있나요? 즉, 공유 아래에 공유를 설정할 수 있나요?**  
-    번호 파일 공유*는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
+    아니요. 파일 공유*는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
 
 * <a id="ibm-mq"></a>
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  

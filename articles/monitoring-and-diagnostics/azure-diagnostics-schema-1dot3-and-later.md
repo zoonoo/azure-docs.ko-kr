@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4fba492a57471df737896956e0b37e3da772cce
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 501e28cf3d01385d65a2308db06702d2db0d91ee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262378"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937916"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 진단 1.3 이상 구성 스키마
 > [!NOTE]
@@ -362,7 +362,7 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
  다음 태그는 대략 앞의 예제에 표시된 순서를 따릅니다.  필요한 위치에 전체 설명이 표시되지 않으면 요소 또는 특성에 대한 페이지를 검색합니다.  
 
 ## <a name="common-attribute-types"></a>일반 특성 유형  
- **scheduledTransferPeriod** 특성이 몇 가지 요소에 나타납니다. 저장소에 예약된 전송 사이의 간격은 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/schema/schema_dtypes_date.asp)입니다.
+ **scheduledTransferPeriod** 특성이 몇 가지 요소에 나타납니다. 저장소에 예약된 전송 사이의 간격은 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다.
 
 
 ## <a name="diagnosticsconfiguration-element"></a>DiagnosticsConfiguration 요소  
@@ -415,7 +415,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |자식 요소|설명|  
 |--------------------|-----------------|  
 |**CrashDumps**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**DiagnosticInfrastructureLogs**|Azure 진단에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/schema/schema_dtypes_date.asp)입니다. |  
+|**DiagnosticInfrastructureLogs**|Azure 진단에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 |**Directories**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**EtwProviders**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**metrics**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
@@ -488,8 +488,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|[EventSource 클래스](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 필수 특성:<br /><br /> **provider** - EventSource 이벤트의 클래스 이름입니다.<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/schema/schema_dtypes_date.asp)입니다. |  
-|**EtwManifestProviderConfiguration**|필수 특성:<br /><br /> **provider** - 이벤트 공급자의 GUID<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/schema/schema_dtypes_date.asp)입니다. |  
+|**EtwEventSourceProviderConfiguration**|[EventSource 클래스](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx)에서 생성된 이벤트 컬렉션을 구성합니다. 필수 특성:<br /><br /> **provider** - EventSource 이벤트의 클래스 이름입니다.<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
+|**EtwManifestProviderConfiguration**|필수 특성:<br /><br /> **provider** - 이벤트 공급자의 GUID<br /><br /> 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 저장소 계정으로 전송할 최소 심각도 수준입니다.<br /><br /> - **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 
 
 
@@ -524,7 +524,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/schema/schema_dtypes_date.asp)입니다. |  
+|**MetricAggregation**|필수 특성:<br /><br /> **scheduledTransferPeriod** - 저장소에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](http://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 
 
 

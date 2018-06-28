@@ -3,22 +3,23 @@ title: 지정된 API에 대한 사용 권한을 선택하는 방법 | Microsoft 
 description: 개발 중이거나 Azure AD에 등록 중인 사용자 지정 응용 프로그램의 인증 끝점을 찾는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 6c8b8bb81e62747b7ab5eaca94d2820d2e0661d2
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 203ecc1dd83bebffadf0e85a08cb3ee383b0d412
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26612931"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332010"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>지정된 API에 대한 사용 권한을 선택하는 방법
 
