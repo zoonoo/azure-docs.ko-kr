@@ -17,12 +17,12 @@ ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 25660eef50a0a18d4f404944daeb443133424897
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b5ade0f3a6590832b6717bbb5f91a4d62cdc9e0c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261154"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309046"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 설정 문제 해결
 
@@ -178,7 +178,7 @@ AAD/Operational 로그에 있는 이벤트 뷰어에서 이벤트 1104: AAD 클�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 피드백을 제공하고 엔터프라이즈 상태 로밍을 개선하는 방법에 대해 제안하려면 [사용자 음성](https://feedback.azure.com/forums/169401-azure-active-directory/category/158658-enterprise-state-roaming) 포럼을 사용합니다.
+- 피드백을 제공하고 엔터프라이즈 상태 로밍을 개선하는 방법에 대해 제안하려면 [사용자 음성](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) 포럼을 사용합니다.
 
 - 자세한 내용은 [엔터프라이즈 상태 로밍 개요](active-directory-windows-enterprise-state-roaming-overview.md)를 참조하세요. 
 

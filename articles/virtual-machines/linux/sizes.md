@@ -3,7 +3,7 @@ title: Azure의 Linux VM 크기 | Microsoft Docs
 description: Azure의 Linux 가상 머신에 사용할 수 있는 다양한 크기를 나열합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: jonbeck7
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/01/2018
+ms.date: 05/22/2018
 ms.author: jonbeck
-ms.openlocfilehash: 2480a48670646d13f55b405d2594c5937d1b61ba
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3d5311bda4fd0133bea57fee245386d451deb5c4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34653895"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure에서 Linux 가상 머신에 대한 크기
 이 문서에서는 Linux 앱 및 워크로드를 실행하는 데 사용할 수 있는 Azure 가상 머신에 대한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 이 문서는 [Windows 가상 머신](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에도 적용됩니다.
@@ -27,12 +28,12 @@ ms.lasthandoff: 05/04/2018
 
 | type                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [범용](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
+| [범용](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [Compute에 최적화](sizes-compute.md)        | Fsv2, Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 응용 프로그램 서버에 적합합니다.        |
-| [메모리에 최적화](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
+| [메모리에 최적화](sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](sizes-storage.md)        | Ls                | 높은 디스크 처리량 및 IO 빅 데이터, SQL, NoSQL 데이터베이스에 적합합니다.                                                         |
 | [GPU](sizes-gpu.md)            | NV, NC, NCv2, NCv3, ND            | 고급 그래픽 렌더링 및 비디오 편집뿐만 아니라 딥 러닝을 통한 모델 학습 및 추론(ND)도 목표로 하는 특수화된 가상 머신입니다. 한 개 이상의 GPU를 사용할 수 있습니다.       |
-| [고성능 계산](sizes-hpc.md) | H, A8-11          | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
+| [고성능 계산](sizes-hpc.md) | H       | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. 
 
 <br>
 
@@ -46,10 +47,9 @@ ms.lasthandoff: 05/04/2018
 
 REST API를 사용하여 VM 크기에 대해 쿼리하는 방법은 다음을 참조하세요.
 
-- [크기 조정에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-for-resizing)
-- [구독에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region)
-- [가용성 집합에서 사용 가능한 가상 머신 크기 나열](
-https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list-sizes-availability-set)
+- [크기 조정에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
+- [구독에 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/virtualmachines/listall)
+- [가용성 집합에서 사용 가능한 가상 머신 크기 나열](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
 
 ## <a name="acu"></a>ACU
 
@@ -68,6 +68,7 @@ https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-list
 - [Storage에 최적화](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [고성능 계산](sizes-hpc.md)
+- 표준, Dv1(D1-4 및 D11-14 v1) 및 A8-A11 시리즈에 대한 [이전 세대](sizes-previous-gen.md) 페이지 참조
 
 
 
