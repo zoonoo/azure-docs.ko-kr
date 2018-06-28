@@ -11,12 +11,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: edfe6cc608a74b61777ce54eba3aa42c239b6090
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 8743905d6e415049a563bcd6b4736d6569f59b7f
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684685"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333260"
 ---
 # <a name="what-is-microsoft-genomics"></a>Microsoft Genomics란?
 Microsoft Genomics는 보조 분석을 위해 BWA(Burrows-Wheeler Aligner) 및 GATK(Genome Analysis Toolkit)의 클라우드 구현을 제공합니다. 이 서비스는 ISO 인증을 받고 HIPAA 규정을 준수하며 게놈 시퀀싱 요구 사항에 대한 가격 예측 가능성을 제공합니다. 빠른 시작, 자습서 및 설명서를 참조하여 Microsoft Genomics 서비스를 사용하고 API와 통합하는 방법을 알아봅니다.
@@ -30,12 +30,12 @@ Microsoft Genomics는 워크플로 요청 수신에 대한 99.99% 가용성 SLA(
 
 
 ## <a name="secure-your-data"></a>데이터 보호
-Microsoft Genomics 서비스는 ISO 27001, ISO 27018 및 ISO 9001 인증을 받았고 HIPAA 규정을 준수합니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/TrustCenter/Security/default.aspx)를 방문하세요.
+Microsoft Genomics 서비스는 ISO 27001, ISO 27018 및 ISO 9001 인증을 받았고 HIPAA 규정을 준수합니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/en-us/trustcenter/security)를 방문하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 Microsoft Genomics를 개략적으로 알아보았으므로 다음에 대한 준비가 되었습니다.
-- 비용 비교 및 계산기는 가격 책정 페이지를 참조하세요. [가격 책정](https://azure.microsoft.com/pricing/details/genomics/)
+- 비용 비교 및 계산기는 가격 책정 페이지를 참조하세요. [가격](https://azure.microsoft.com/pricing/details/genomics/)
 - 먼저 Microsoft Genomics 서비스를 통해 첫 번째 워크플로를 실행합니다. [Microsoft Genomics 서비스를 통해 워크플로 실행](quickstart-run-genomics-workflow-portal.md)
 - Microsoft Genomics 서비스에서 처리하도록 자체 데이터 제출: [연결된 FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [여러 FASTQ 또는 BAM](quickstart-input-multiple.md) 
 
