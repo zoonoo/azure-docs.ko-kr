@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2018
 ms.author: maheshu
-ms.openlocfilehash: bb69c217c1038a66333e65629023357e5854d242
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a91120e2592e6fdaa38334f36bfd9b67c0f1b50d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265047"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300998"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 도메인 서비스의 네트워킹 고려 사항
 ## <a name="how-to-select-an-azure-virtual-network"></a>Azure 가상 네트워크를 선택하는 방법
@@ -107,7 +107,7 @@ ms.locfileid: "36265047"
 
 ![인터넷을 통해 LDAPS 액세스를 보안하는 예제 NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
 
-**자세한 내용** - [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+**자세한 내용** - [네트워크 보안 그룹 만들기](../virtual-network/manage-network-security-group.md)
 
 
 ## <a name="network-connectivity"></a>네트워크 연결
@@ -145,4 +145,4 @@ Azure AD Domain Services 관리되는 도메인은 Azure의 단일 가상 네트
 * [Azure 가상 네트워크 피어링](../virtual-network/virtual-network-peering-overview.md)
 * [클래식 배포 모델에 대한 VNet 간 연결 구성](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md)
 * [Azure 네트워크 보안 그룹](../virtual-network/security-overview.md)
-* [네트워크 보안 그룹 만들기](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+* [네트워크 보안 그룹 만들기](../virtual-network/manage-network-security-group.md)

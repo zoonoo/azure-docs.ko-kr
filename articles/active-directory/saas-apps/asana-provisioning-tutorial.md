@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 2abd10f90d2e6d86d7f82aa43016a31bfdbd324b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231426"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332214"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Asana 구성
 
@@ -36,7 +36,7 @@ ms.locfileid: "36231426"
 *   관리자 권한이 있는 Asana의 사용자 계정 
 
 > [!NOTE] 
-> Azure AD 프로비전 통합에는 Asana에 제공되는 [Asana API](https://app.asana.com/api/1.0/scim/Users)가 사용됩니다.
+> Azure AD 프로비전 통합에는 Asana에 제공되는 [Asana API](https://asana.com/developers/api-reference/users)가 사용됩니다.
 
 ## <a name="assign-users-to-asana"></a>Asana에 사용자 할당
 

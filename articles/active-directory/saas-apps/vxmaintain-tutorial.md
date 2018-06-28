@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6d43e446d1ee1ed4dafc63481b4c874d994896d3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fc8918ed2901d2f443b94bac8587e24c3f04eeec
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230270"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308750"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>자습서: Azure Active Directory와 vxMaintain 통합
 
@@ -111,7 +111,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
     나. **회신 URL** 상자에 다음 `https://<company name>.verisae.com/DataNett/action/ssoConsume/mobile?_log=true` 구문이 있는 URL을 입력합니다.
 
     > [!NOTE] 
-    > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 값을 가져오려면 [vxMaintain 지원 팀](http://www.verisae.com/contact-us)에 문의하세요.
+    > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 값을 가져오려면 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 문의하세요.
  
 4. **SAML 서명 인증서** 아래에서 **메타데이터 XML**을 선택한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -121,7 +121,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     ![저장 단추](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. **vxMaintain** SSO를 구성하려면 다운로드한 **메타데이터 XML** 파일을 [vxMaintain 지원 팀](http://www.verisae.com/contact-us)에 보냅니다.
+6. **vxMaintain** SSO를 구성하려면 다운로드한 **메타데이터 XML** 파일을 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 보냅니다.
 
 > [!TIP]
 > 앱을 설정할 때 [Azure Portal](https://portal.azure.com)에서 이전 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 앱을 추가한 후 **Single Sign-On** 탭을 선택한 다음 **구성** 섹션에서 포함된 설명서에 액세스합니다. 
@@ -161,7 +161,7 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
  
 ### <a name="create-a-vxmaintain-test-user"></a>vxMaintain 테스트 사용자 만들기
 
-이 섹션에서는 vxMaintain에서 테스트 사용자인 Britta Simon을 만듭니다. vxMaintain 플랫폼에 사용자를 추가하려면 [vxMaintain 지원 팀](http://www.verisae.com/contact-us)에 문의하세요. SSO를 사용하기 전에 사용자를 만들고 활성화합니다.
+이 섹션에서는 vxMaintain에서 테스트 사용자인 Britta Simon을 만듭니다. vxMaintain 플랫폼에 사용자를 추가하려면 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 문의하세요. SSO를 사용하기 전에 사용자를 만들고 활성화합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

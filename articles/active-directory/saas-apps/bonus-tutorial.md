@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: adde08f7981e6e23ba5bf2601d2f019702d1d33c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d06f8e148e382c44b8858cc2f149f5851198d0d5
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231647"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>자습서: Bonusly와 Azure Active Directory 통합
 
@@ -112,7 +112,7 @@ Bonusly에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 값을 얻으려면 [Bonusly 지원 팀](https://Bonusly/contact)에 문의하세요.
+    > 이 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트합니다. 값을 얻으려면 [Bonusly 지원 팀](https://bonus.ly/contact)에 문의하세요.
  
 4. **SAML 서명 인증서** 섹션에서 인증서의 **지문** 값을 복사합니다.
 

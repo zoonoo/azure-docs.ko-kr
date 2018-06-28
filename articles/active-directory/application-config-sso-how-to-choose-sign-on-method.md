@@ -3,22 +3,23 @@ title: 사용할 Single Sign-On 방법을 결정하는 방법 | Microsoft Docs
 description: Azure AD에서 지원되는 Single Sign-On 모드 및 관심 있는 응용 프로그램에 대해 사용할 모드를 선택하는 방법을 이해합니다.
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 52f4045ebb30bf32989e9f7b946fd03d468a9de2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.author: barbkess
+ms.openlocfilehash: 79fe30fbe0baed9d62e6bc3328e754958516ef70
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34070671"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335410"
 ---
 # <a name="how-to-determine-what-single-sign-on-method-to-use"></a>사용할 Single Sign-On 방법을 결정하는 방법
 

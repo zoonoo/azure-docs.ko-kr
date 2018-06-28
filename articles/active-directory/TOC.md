@@ -388,11 +388,10 @@
 ### [관리자 역할](active-directory-assign-admin-roles-azure-portal.md)
 #### [사용자에게 관리자 역할 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [멤버 및 게스트 사용자 권한 비교](fundamentals/users-default-permissions.md)
-### [관리자 역할 보호](admin-roles-best-practices.md)  
+### [관리자 역할 보안 강화](admin-roles-best-practices.md)  
 #### [긴급 액세스 관리자 계정 만들기](active-directory-admin-manage-emergency-access-accounts.md)
 ### [관리 단위](active-directory-administrative-units-management.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
-### [권한 있는 역할 보안](admin-roles-best-practices.md)
 
 ## 액세스 검토
 ### [액세스 검토 개요](active-directory-azure-ad-controls-access-reviews-overview.md)

@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: 23c9056bbfa6ae0be0f7c73a34250a2fff77f4d2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5325f23a13a181d912bbc8b26042de72855dc41e
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266009"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319091"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL에서 서버를 백업 및 복원하는 방법
 
@@ -32,32 +32,6 @@ Azure Database for MySQL 서버는 정기적으로 백업되어 복원 기능을
 
 > [!IMPORTANT]
 > 이 방법 가이드에서는 Azure CLI 버전 2.0 이상을 사용해야 합니다. 버전을 확인하려면 Azure CLI 명령 프롬프트에서 `az --version`을 입력합니다. 설치하거나 업그레이드하려면 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-
-## <a name="add-the-extension"></a>확장 추가
-다음 명령을 사용하여 업데이트된 Azure Database for MySQL 관리 확장을 추가합니다.
-```azurecli-interactive
-az extension add --name rdbms
-``` 
-
-올바른 확장 버전이 설치되어 있는지 확인합니다. 
-```azurecli-interactive
-az extension list
-```
-
-반환된 JSON에는 다음이 포함되어야 합니다. 
-```json
-{
-    "extensionType": "whl",
-    "name": "rdbms",
-    "version": "0.0.5"
-}
-```
-
-0.0.5 버전이 반환되지 않으면 다음을 실행하여 확장을 업데이트합니다. 
-```azurecli-interactive
-az extension update --name rdbms
-```
-
 
 ## <a name="set-backup-configuration"></a>백업 구성 설정
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 601819756b78ffe8762bdfbfd5f802bc2d76e9c5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bc1beb53c5919914919e666ecf1836ec45d32ccf
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35268056"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319729"
 ---
 **구성/프로세스 서버 요구 사항**
 
@@ -36,7 +36,7 @@ IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대
 | 
 **네트워크 설정** | 
 IP 주소 유형 | 공용 
-인터넷 액세스 | 서버에서 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해). <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi(구성 서버를 설정하는 경우) <br> - time.nist.gov <br> - time.windows.com 
+인터넷 액세스 | 서버에서 이러한 URL에 액세스해야 합니다(직접 또는 프록시를 통해). <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi(구성 서버를 설정하는 경우) <br> - time.nist.gov <br> - time.windows.com 
 포트 | 443(컨트롤 채널 오케스트레이션)<br>9443(데이터 전송) 
 NIC 유형 | VMXNET3(구성 서버가 VMware VM인 경우)
  | 
