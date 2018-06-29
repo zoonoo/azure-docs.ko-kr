@@ -177,7 +177,7 @@ public ActionResult About()
 ## <a name="remotedebugwj"></a> 원격 디버깅 WebJob
 이 섹션에서는 [Azure WebJob SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)에서 만든 프로젝트 및 웹 앱을 사용하여 원격으로 디버그하는 방법을 보여 줍니다
 
-이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4에서만 사용할 수 있습니다.
+이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4 또는 그 이상의 버전에서만 사용할 수 있습니다. 
 
 연속 WebJobs에서 원격 디버깅만 작동합니다. 예약 및 주문형 WebJobs은 디버깅을 지원하지 않습니다.
 
