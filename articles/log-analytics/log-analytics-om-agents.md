@@ -115,7 +115,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 1. Operations Manager 콘솔을 열고 **관리** 작업 영역을 선택합니다.
 2. Operations Management Suite를 확장한 다음 **연결**을 클릭합니다.
 3. OMS 연결 보기에서 **프록시 서버 구성**을 클릭합니다.
-4. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80)한 다음, **마침**을 클릭합니다.
+4. **Operations Management Suite 마법사: 프록시 서버** 페이지에서 **프록시 서버를 사용하여 Operations Management Suite에 액세스**를 선택하고 포트 번호와 함께 URL을 입력(예: http://corpproxy:80 )한 다음, **마침**을 클릭합니다.
 
 프록시 서버에 인증이 필요한 경우 다음 단계를 수행하여 관리 그룹에서 OMS에 보고하는 관리되는 컴퓨터에 전파해야 하는 자격 증명 및 설정을 구성합니다.
 

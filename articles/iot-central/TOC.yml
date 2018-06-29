@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: 자습서
   items:
-    - name: 작성기
-      items:
-        - name: 1 - 새 장치 유형 정의
-          href: tutorial-define-device-type.md
-        - name: 2 - 규칙 구성
-          href: tutorial-configure-rules.md
-        - name: 3 - 연산자의 뷰 사용자 지정.
-          href: tutorial-customize-operator.md
-    - name: 연산자
-      items:
-        - name: 4 - 장치 모니터링
-          href: tutorial-monitor-devices.md
-        - name: 5 - 장치 추가
-          href: tutorial-add-device.md
+    - name: 1 - 새 장치 유형 정의
+      href: tutorial-define-device-type.md
+    - name: 2 - 규칙 구성
+      href: tutorial-configure-rules.md
+    - name: 3 - 연산자의 뷰 사용자 지정.
+      href: tutorial-customize-operator.md
+    - name: 4 - 장치 모니터링
+      href: tutorial-monitor-devices.md
+    - name: 5 - 장치 추가
+      href: tutorial-add-device.md
 - name: 개념
   items:
     - name: 아키텍처
