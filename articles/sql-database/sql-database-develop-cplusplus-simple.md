@@ -78,7 +78,7 @@ Visual Studio에서 빌드한 [이 샘플을 사용하여 Windows에서 ODBC를 
 
 이 자습서에서는 Ubuntu 16.04 Linux 배포판이 설치되어 있다고 가정합니다. 여기 나온 단계는 Ubuntu 15.10, Red Hat 6 및 Red Hat 7에도 적용 해야 합니다. 
 
-디스트로를 위해 SQL 및 ODBC에 필요한 라이브러리를 다음과 같이 설치합니다.
+다음 단계에서는 배포를 위해 SQL 및 ODBC에 필요한 라이브러리를 설치합니다.
 
     sudo su
     sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/mssql-ubuntu-test/ xenial main" > /etc/apt/sources.list.d/mssqlpreview.list'
