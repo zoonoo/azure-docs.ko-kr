@@ -3,24 +3,24 @@ documentType: LandingData
 title: Azure Storage 설명서
 metadata:
   title: Azure Storage 설명서 - 자습서, API 참조 | Microsoft Docs
-  description: Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage는 Blob Storage, File Storage 및 Queue Storage로 구성됩니다.
+  description: Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage에는 Azure Blob, Azure Data Lake Storage Gen2, Azure File, Azure Queue 및 Azure Table이 포함됩니다.
   services: storage
   author: tamram
-  manager: jeconnoc
+  manager: twooley
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 06/18/2018
+  ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: 0e8c2b7048ff9e59612e13a87506bf1209036ca6
-  ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
+  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/19/2018
-  ms.locfileid: "36266674"
+  ms.lasthandoff: 06/27/2018
+  ms.locfileid: "37030294"
 abstract:
-  description: Microsoft Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage는 Blob Storage, File Storage 및 Queue Storage로 구성됩니다.  빠른 시작 및 자습서를 통해 응용 프로그램에서 Azure Storage를 활용하는 방법을 알아보세요.
+  description: Azure Storage는 가용성, 보안, 내구성, 확장성 및 중복성이 높은 클라우드 저장소를 제공하는 Microsoft 관리 클라우드 서비스입니다. Azure Storage에는 Azure Blob(개체), Azure Data Lake Storage Gen2, Azure File, Azure Queue 및 Azure Table이 포함됩니다. 빠른 시작 및 자습서를 통해 응용 프로그램에서 Azure Storage를 활용하는 방법을 알아보세요.
 sections:
 - title: 5분 빠른 시작
   items:
@@ -65,30 +65,25 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-java
       - href: /azure/storage/blobs/storage-quickstart-blobs-python
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
+    - title: Data Lake Storage Gen2
+      values:
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli
+      - href: 
+      - href: 
+      - href: 
+      - href: 
 - title: 단계별 자습서
   items:
-  - type: paragraph
-    text: 클라우드에서 이미지 데이터를 업로드하고 처리하는 방법을 알아봅니다.
   - type: list
-    style: unordered
+    style: cards
+    className: cardsD
     items:
-    - html: <a href="/azure/storage/blobs/storage-upload-process-images">클라우드에서 이미지 데이터 업로드 및 검색</a>
-    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob을 처리하는 Azure Functions 트리거</a>
-    - html: <a href="/azure/storage/blobs/storage-secure-access-application">응용 프로그램 데이터 보호</a>
-    - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">저장소 모니터링 및 문제 해결</a>
-  - type: paragraph
-    text: Azure Storage에서 고가용성을 위해 응용 프로그램을 디자인하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-create-geo-redundant-storage">고가용성 응용 프로그램 데이터 만들기</a>
-    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">읽기 액세스 중복 저장소 액세스 오류 시뮬레이션</a>
-  - type: paragraph
-    text: Azure Storage에서 구조화되지 않은 데이터를 검색하는 방법을 알아봅니다.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/storage/blobs/storage-unstructured-search">클라우드 저장소에서 구조화되지 않은 데이터 검색</a>
+    - title: Blob
+      html: <p>클라우드에서 이미지 데이터 업로드 및 처리</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">클라우드에서 이미지 데이터 업로드 및 검색</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Blob을 처리하는 Azure Functions 트리거</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">응용 프로그램 데이터 보호</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">저장소 모니터링 및 문제 해결</a></li></ul><p>고가용성을 위해 응용 프로그램 디자인</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">고가용성 응용 프로그램 데이터 만들기</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">읽기 액세스 중복 저장소 액세스 오류 시뮬레이션</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Azure Storage에서 구조화되지 않은 데이터 검색</a></p>
+    - title: Data Lake Storage Gen2
+      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Azure Databricks를 사용하여 데이터 추출, 변환 및 로드</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Spark를 사용하여 DataBricks로 Azure Data Lake Storage Gen2에 액세스</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드</a></p>
 - title: 샘플
   items:
   - type: paragraph

@@ -151,6 +151,7 @@
 ### [SSPR 사용자 지정](authentication/concept-sspr-customization.md)
 ### [SSPR 데이터 요구 사항](authentication/howto-sspr-authenticationdata.md)
 ### [SSPR 보고](authentication/howto-sspr-reporting.md)
+### [스마트 잠금](authentication/howto-password-smart-lockout.md)
 ### [취약한 암호 제거](authentication/concept-password-ban-bad.md)
 ### [금지된 암호 목록 구성](authentication/howto-password-ban-bad.md)
 ### [온-프레미스 통합](authentication/concept-password-ban-bad-on-premises.md)

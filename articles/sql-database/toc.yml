@@ -50,7 +50,7 @@
       href: sql-database-design-first-database.md
     - name: 2 - .NET을 사용하여 DB 디자인
       href: sql-database-design-first-database-csharp.md
-    - name: 3 - DMS를 사용하여 SQL Server DB로 마이그레이션
+    - name: 3 - DMA를 사용하여 SQL Server DB로 마이그레이션
       href: sql-database-migrate-your-sql-server-database.md
     - name: 4 - SQL DB 보안
       href: sql-database-security-tutorial.md

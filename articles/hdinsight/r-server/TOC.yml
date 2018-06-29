@@ -1,6 +1,6 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 R Server
+- name: HDInsight의 ML 서비스
   items:
     - name: 개요
       href: r-server-overview.md
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: 시작하기
   items:
-    - name: R Server 시작
+    - name: ML 서비스 시작
       href: r-server-get-started.md
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
       maintainContext: true
 - name: 방법
   items:
-    - name: R 서버 사용
+    - name: ML 서비스 사용
       items:
-        - name: R Server 클러스터 관리
+        - name: ML 서비스 클러스터 관리
           href: r-server-hdinsight-manage.md
-        - name: R Server 클러스터 운영
+        - name: ML 서비스 클러스터 운영
           href: r-server-operationalize.md
         - name: 저장소 옵션
           href: r-server-storage.md

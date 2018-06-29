@@ -106,6 +106,8 @@
           href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
         - name: SAS(공유 액세스 서명)
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+        - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
+          href: ../common/storage-security-tls.md
     - name: 모니터링 및 문제 해결
       items:
         - name: Azure 파일 연결 문제 해결 - Windows

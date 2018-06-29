@@ -1,26 +1,28 @@
 ---
-title: Azure Data Lake Store 설명서 - 자습서, API 참조 | Microsoft Docs
+title: Azure Data Lake Storage Gen1 설명서 - 자습서, API 참조 | Microsoft Docs
 description: 모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 대규모의 Hadoop 호환 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법에 대해 알아봅니다.
 services: data-lake-store
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
 ms.assetid: ''
 ms.service: data-lake-store
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: carolz
-ms.openlocfilehash: d738676a0a9b16c32646734168546992d8595912
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: twooley
+ms.openlocfilehash: ba17c59169d00a8333bb9eb1c7bb0c1a56aaba83
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033436"
 ---
-# <a name="data-lake-store-documentation"></a>Data Lake Store 설명서
+# <a name="azure-data-lake-storage-gen1-documentation"></a>Azure Data Lake Storage Gen1 설명서
 
-모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 Data Lake Store를 사용하여 대규모의 Hadoop 호환 리포지토리를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 운영 및 예비 분석을 위해 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법을 보여 줍니다.
+모든 크기, 유형 및 수집 속도의 데이터를 분석하기 위해 Azure Data Lake Storage Gen1(이전의 Azure Data Lake Store)을 사용하여 대규모의 Hadoop 호환 리포지토리를 만드는 방법에 대해 알아봅니다. 자습서, API 참조 및 기타 설명서에서는 운영 및 예비 분석을 위해 Data Lake 리포지토리를 설정하고 관리하며 액세스하는 방법을 보여 줍니다.
+
+Data Lake Storage Gen2 미리 보기에 대해 자세히 알아보려면 [제품 페이지](https://aka.ms/adlsgen2-product)를 참조하세요.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -34,7 +36,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake Store에 대해 알아보기</h3>
+                        <h3>Data Lake Storage Gen1에 대해 알아보기</h3>
                     </div>
                 </div>
             </div>
@@ -52,7 +54,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Data Lake Store 비디오 라이브러리</h3>
+                        <h3>Data Lake Storage Gen1 비디오 라이브러리</h3>
                     </div>
                 </div>
             </div>
@@ -70,7 +72,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Portal을 사용하여 Azure Data Lake Store 시작</h3>
+                        <h3>Azure Portal을 사용하여 Data Lake Storage Gen1 시작</h3>
                     </div>
                 </div>
             </div>
@@ -88,7 +90,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>PowerShell을 사용하여 Azure Data Lake Store 시작</h3>
+                        <h3>PowerShell을 사용하여 Data Lake Storage Gen1 시작</h3>
                     </div>
                 </div>
             </div>
@@ -106,7 +108,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure CLI를 사용하여 Azure Data Lake Store 시작</h3>
+                        <h3>Azure CLI를 사용하여 Data Lake Storage Gen1 시작</h3>
                     </div>
                 </div>
             </div>
@@ -124,7 +126,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>.NET을 사용하여 Azure Data Lake Store 시작</h3>
+                        <h3>.NET을 사용하여 Data Lake Storage Gen1 시작</h3>
                     </div>
                 </div>
             </div>
@@ -142,7 +144,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Java를 사용하여 Azure Data Lake Store 시작</h3>
+                        <h3>Java를 사용하여 Data Lake Storage Gen1 시작</h3>
                     </div>
                 </div>
             </div>
@@ -160,7 +162,7 @@ ms.lasthandoff: 05/10/2018
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Node.js를 사용하여 Azure Data Lake Store 시작</h3>
+                        <h3>Node.js를 사용하여 Data Lake Storage Gen1 시작</h3>
                     </div>
                 </div>
             </div>

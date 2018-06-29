@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 05/24/2018
+ms.date: 06/27/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 714afa1da5d2c8c5695dfe33edd0257f69af149d
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 8dd77dd3431f1be2b8edd8b51929c21b1d5bcd88
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287707"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081353"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>가상 컴퓨터 이미지에서에서 사용할 수 있도록 Azure 스택
 
@@ -54,7 +54,7 @@ Azure 스택에서 만들면 가상 컴퓨터 이미지 사용할 수 있는 사
 
    ![Public에 대 한 집합 blob 액세스](./media/azure-stack-add-vm-image/image2.png)
 
-2. 연산자와 Azure 스택에 로그인 합니다. 메뉴에서 선택 **더 많은 서비스** > **리소스 공급자**합니다. 그런 다음 선택 **계산** > **VM 이미지** > **추가**합니다.
+2. 연산자와 Azure 스택에 로그인 합니다. 메뉴에서 선택 **더 많은 서비스**합니다. 그런 다음 선택 **계산** > **VM 이미지** > **추가**합니다.
 
 3. 아래 **VM 이미지를 추가할**, 게시자, 제품, SKU, 가상 컴퓨터 이미지의 버전을 입력 합니다. 이러한 이름 세그먼트는 리소스 관리자 템플릿에서 VM 이미지를 참조 하십시오. 선택 하는 **osType** 올바르게 값입니다. 에 대 한 **OS 디스크 Blob URI**를 이미지 업로드 된 Blob URI를 입력 합니다. 그런 다음 선택 **만들기** VM 이미지 만들기를 시작할 수 있습니다.
 

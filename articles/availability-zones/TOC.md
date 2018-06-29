@@ -43,6 +43,18 @@
 ### Storage
 #### [영역 중복 저장소](../storage/common/storage-redundancy-zrs.md)
 
+### Event Hubs
+#### [Event Hubs 지리적 재해 복구](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
+
+### Service Bus
+#### [Service Bus 지리적 재해 복구](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+
+### VPN Gateway
+#### [영역 중복 가상 네트워크 게이트웨이 만들기](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
+### ExpressRoute
+#### [영역 중복 가상 네트워크 게이트웨이 만들기](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+
 # 재해 복구
 ## [Azure Site Recovery 사용](https://docs.microsoft.com/azure/site-recovery/)
 

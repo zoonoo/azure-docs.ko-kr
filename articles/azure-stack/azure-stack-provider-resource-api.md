@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 03/22/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 763b0af9c258a70392e8c7ebbb4c107e94fce5b2
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 46e46cfea621f99e150446fcc75b71feb468fa49
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29877282"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052701"
 ---
 # <a name="provider-resource-usage-api"></a>공급자 리소스 사용 API
 용어 *공급자* 서비스 관리자와 위임 된 모든 공급자 적용 됩니다. Azure 스택 연산자 및 위임 된 공급자 API 공급자 사용을 사용 하 여 직접 테 넌 트의 사용량을 볼 수 있습니다. 예를 들어 다이어그램에 나와 있는 것 처럼 P0 수 p 1의에서 사용 정보를 보려면 API 공급자 호출 하 고 P1 및 p 2의 직접 사용 수 P3 및 P4 대 한 사용 정보에 대 한 합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "29877282"
 
 | **메서드** | **요청 URI** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId {sub1.1} = & api 버전 2015-06-01-미리 보기 = & continuationToken = {value 토큰} |
 
 ### <a name="arguments"></a>인수
 | **인수** | **설명** |
@@ -49,7 +49,7 @@ ms.locfileid: "29877282"
 | *continuationToken* |사용량 API 공급자에 대 한 마지막 호출에서 토큰이 검색 합니다. 이 토큰 응답 줄 1, 000 보다 크면 하 고 동작 하는 진행률에 대 한 책갈피가 필요 합니다. 토큰이 없는 경우 일의 시작 부분에서 데이터를 검색 또는 시간, 세분성에 따라 전달 합니다. |
 
 ### <a name="response"></a>response
-GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&subscriberId=sub1.1&api-version=1.0
+/Subscriptions/sub1/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 및 reportedendtime의 가져오기 2015-06-01T00% 3a00% 3a00% 2b00 %3a00 = & aggregationGranularity 매일 & subscriberId = = sub1.1 &에서 api-version = 1.0
 
 ```json
 {
@@ -57,11 +57,11 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/subscriberUsageAggregates?r
 {
 
 "id":
-"/subscriptions/sub1.1/providers/Microsoft.Commerce/UsageAggregate/sub1.1-
+"/subscriptions/sub1.1/providers/Microsoft.Commerce.Admin/UsageAggregate/sub1.1-
 
 meterID1",
 "name": "sub1.1-meterID1",
-"type": "Microsoft.Commerce/UsageAggregate",
+"type": "Microsoft.Commerce.Admin/UsageAggregate",
 
 "properties": {
 "subscriptionId":"sub1.1",

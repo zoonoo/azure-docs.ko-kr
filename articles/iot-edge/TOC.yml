@@ -5,62 +5,38 @@
 - name: 개요
   items:
     - name: About Azure IoT Edge
-      href: how-iot-edge-works.md
+      href: about-iot-edge.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 에지에 배포 - Linux/Mac
+    - name: Linux 장치에 코드 배포
       href: quickstart-linux.md
-    - name: 에지에 배포 - Windows
+    - name: Windows 장치에 코드 배포
       href: quickstart.md
 - name: 자습서
   items:
-    - name: Edge 장치 시뮬레이션 - Linux/Mac
-      href: tutorial-simulate-device-linux.md
-    - name: Edge 장치 시뮬레이션 - Windows
-      href: tutorial-simulate-device-windows.md
-    - name: 모듈로 코드 배포
+    - name: 에지에서 정보 찾기
       items:
-        - name: 'C#'
-          href: tutorial-csharp-module.md
-        - name: 파이썬
-          href: tutorial-python-module.md
-    - name: Azure Stream Analytics 배포
-      href: tutorial-deploy-stream-analytics.md
-    - name: Azure Machine Learning 배포
-      href: tutorial-deploy-machine-learning.md
-    - name: Azure Functions 배포
-      href: tutorial-deploy-function.md
-- name: 방법 가이드
-  items:
-    - name: 게이트웨이 만들기
-      items:
-        - name: 투명 게이트웨이 만들기
-          href: how-to-create-transparent-gateway.md
-        - name: Modbus 게이트웨이
-          href: deploy-modbus-gateway.md
-    - name: Azure CLI 2.0용 IoT 확장 사용
-      href: tutorial-create-deployment-with-cli-iot-extension.md
-    - name: 대규모 배포 및 모니터링
-      href: how-to-deploy-monitor.md
-    - name: IoT Core 장치 프로비전
-      href: how-to-install-iot-core.md
-    - name: VS Code를 사용하여 IoT Edge 솔루션 개발
-      items:
-        - name: 여러 모듈로 작업
-          href: tutorial-multiple-modules-in-vscode.md
-        - name: 'C# 모듈 디버그'
-          href: how-to-vscode-debug-csharp-module.md
-        - name: Azure Functions 디버그
-          href: how-to-vscode-debug-azure-function.md
-    - name: VSTS의 CI/CD
-      href: how-to-ci-cd.md
-    - name: 에지에 데이터 저장
-      href: sql-storage.md
-    - name: 문제 해결
-      href: troubleshoot.md
+        - name: Azure Functions를 사용하여 데이터 필터링
+          href: tutorial-deploy-function.md
+        - name: ASA를 사용하여 평균 찾기
+          href: tutorial-deploy-stream-analytics.md
+        - name: Azure ML을 사용하여 데이터 채점
+          href: tutorial-deploy-machine-learning.md
+        - name: 사용자 지정 코드를 사용하여 데이터 필터링
+          items:
+            - name: 'C#'
+              href: tutorial-csharp-module.md
+            - name: 파이썬
+              href: tutorial-python-module.md
+            - name: Node.js
+              href: tutorial-node-module.md
+    - name: SQL을 사용하여 데이터 로컬에 저장
+      href: tutorial-store-data-sql-server.md
 - name: 개념
   items:
+    - name: IoT Edge 런타임
+      href: iot-edge-runtime.md
     - name: IoT Edge 모듈
       href: iot-edge-modules.md
       items:
@@ -70,16 +46,76 @@
           href: module-composition.md
         - name: 에지 에이전트 및 허브 속성
           href: module-edgeagent-edgehub.md
-    - name: IoT Edge 런타임
-      href: iot-edge-runtime.md
     - name: 배포
       href: module-deployment-monitoring.md
     - name: IoT Edge 장치를 게이트웨이로
       href: iot-edge-as-gateway.md
     - name: 보안
       href: security.md
+    - name: 플랫폼 지원
+      href: support.md
     - name: IoT Edge 용어집
       href: iot-edge-glossary.md
+- name: 방법 가이드
+  items:
+    - name: Edge 장치 등록
+      items:
+        - name: Azure portal
+          href: how-to-register-device-portal.md
+        - name: Azure CLI
+          href: how-to-register-device-cli.md
+        - name: Visual Studio Code
+          href: how-to-register-device-vscode.md
+    - name: IoT Edge 런타임 설치
+      items:
+        - name: Linux X64 장치에서
+          href: how-to-install-iot-edge-linux.md
+        - name: Linux ARM32 장치에서
+          href: how-to-install-iot-edge-linux-arm.md
+        - name: Windows 컨테이너가 있는 Windows에서
+          href: how-to-install-iot-edge-windows-with-windows.md
+        - name: Linux 컨테이너가 있는 Windows에서
+          href: how-to-install-iot-edge-windows-with-linux.md
+    - name: 모듈 개발 및 디버깅
+      items:
+        - name: 'C#'
+          href: how-to-develop-csharp-module.md
+        - name: Node.js
+          href: how-to-develop-node-module.md
+        - name: Azure 기능
+          href: how-to-develop-csharp-function.md
+        - name: 여러 모듈 개발
+          href: how-to-develop-multiple-modules-vscode.md
+        - name: 여러 모듈 디버깅
+          href: how-to-debug-multiple-modules-vscode.md
+    - name: 모듈 배포
+      items:
+        - name: Azure portal
+          href: how-to-deploy-modules-portal.md
+        - name: Azure CLI
+          href: how-to-deploy-modules-cli.md
+        - name: Visual Studio Code
+          href: how-to-deploy-modules-vscode.md
+    - name: 대규모 배포 및 모니터링
+      items:
+        - name: Azure portal
+          href: how-to-deploy-monitor.md
+        - name: Azure CLI
+          href: how-to-deploy-monitor-cli.md
+    - name: Edge 장치를 게이트웨이로 사용
+      items:
+        - name: 투명 게이트웨이(Linux)
+          href: how-to-create-transparent-gateway-linux.md
+        - name: 투명 게이트웨이(Windows)
+          href: how-to-create-transparent-gateway-windows.md
+        - name: Modbus 프로토콜 게이트웨이
+          href: deploy-modbus-gateway.md
+    - name: IoT Core 장치 프로비전
+      href: how-to-install-iot-core.md
+    - name: VSTS의 CI/CD
+      href: how-to-ci-cd.md
+    - name: 문제 해결
+      href: troubleshoot.md
 - name: 관련 항목
   items:
     - name: 솔루션
@@ -114,6 +150,10 @@
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: VS Code용 Azure IoT Edge
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge'
+    - name: VS Code용 Azure IoT Toolkit
+      href: 'https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit'
     - name: DeviceExplorer 도구
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: iothub-diagnostics 도구

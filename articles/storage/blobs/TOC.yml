@@ -190,6 +190,8 @@
           href: storage-https-custom-domain-cdn.md
         - name: Azure Blob Storage(미리 보기)의 변경할 수 없는 저장소 기능
           href: storage-blob-immutable-storage.md
+        - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
+          href: ../common/storage-security-tls.md
     - name: 모니터링 및 문제 해결
       items:
         - name: 문제 해결 자습서

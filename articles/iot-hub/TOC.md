@@ -20,6 +20,7 @@
 <!-- These will all be replaced by the new MVC tutorials as we write them -->
 ## [메시지 라우팅](tutorial-routing.md)
 ## [장치 구성](tutorial-device-twins.md)
+## [펌웨어 업데이트 관리](tutorial-firmware-update.md)
 ## [장치 연결 테스트](tutorial-connectivity.md)
 ## 클라우드-장치 메시지 보내기
 ### [.NET](iot-hub-csharp-csharp-c2d.md)
@@ -111,6 +112,8 @@
 #### [Eclipse Paho API를 사용하여 MQTT 서버로 메시지 보내기](iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld.md)
 #### [Azure Functions로 자기 센서 모니터링 및 전자 메일 알림 보내기](iot-hub-arduino-iot-devkit-az3166-door-monitor.md)
 
+## [장치 구성 모범 사례](iot-hub-configuration-best-practices.md)
+
 # 방법 가이드
 ## 계획
 ### [IoT Hub와 Event Hubs 비교](iot-hub-compare-event-hubs.md)
@@ -169,6 +172,9 @@
 ### 모듈 트윈스 시작
 #### [포털](iot-hub-portal-csharp-module-twin-getstarted.md)
 #### [.NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+#### [Python](iot-hub-python-python-module-twin-getstarted.md)
+#### [C](iot-hub-c-c-module-twin-getstarted.md)
+#### [Node](iot-hub-node-node-module-twin-getstarted.md)
 ### 직접 메서드 사용
 #### [Node.js](iot-hub-node-node-direct-methods.md)
 #### [.NET](iot-hub-csharp-csharp-direct-methods.md)
@@ -221,7 +227,9 @@
 ## [IoT hub 업그레이드](iot-hub-upgrade.md)
 ## [사용 현황 메트릭](iot-hub-metrics.md)
 ## [IP 필터링 구성](iot-hub-ip-filtering.md)
-## [규모에 맞게 장치 구성](iot-hub-auto-device-config.md)
+## 규모에 맞게 장치 구성
+### [Azure Portal 사용](iot-hub-auto-device-config.md)
+### [Azure CLI 사용](iot-hub-auto-device-config-cli.md)
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=iot-hub)

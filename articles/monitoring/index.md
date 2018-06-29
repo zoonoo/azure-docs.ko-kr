@@ -1,6 +1,6 @@
 ---
-title: Azure Government - 모니터링 | Microsoft Docs
-description: Azure는 Azure에서 실행 중인 응용 프로그램뿐만 아니라 다른 클라우드 및 온-프레미스에 전체 관리를 제공하기 위해 작동하는 여러 서비스 및 도구입니다.  이 아티클에서는 관리의 다른 영역에 대한 높은 수준의 설명을 제공하고, 클라우드 응용 프로그램 및 리소스를 관리하는 Azure 도구의 콘텐츠에 연결합니다.
+title: Azure 관리 및 OMS(Operations Management Suite) | Microsoft Docs
+description: 이전에 OMS(Operations Management Suite)에 번들된 Azure 관리 도구의 콘텐츠에 대한 링크가 포함된 Azure 응용 프로그램 및 리소스 관리 영역에 대한 개요입니다.
 documentationcenter: ''
 author: bwren
 manager: carmonm
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: bwren
-ms.openlocfilehash: 36dd04be167d9e8e63ab38e4af80c5766ba55370
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8598e3528aa0a9fb171853e5f6554346ace937ef
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410297"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059953"
 ---
 # <a name="azure-management---monitoring"></a>Azure Government - 모니터링
 

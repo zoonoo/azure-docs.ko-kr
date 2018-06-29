@@ -1,4 +1,4 @@
-- name: Data Factory V2 설명서
+- name: Data Factory 설명서
   href: index.yml
 - name: 버전 1 문서로 전환
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Data Factory 소개
       href: introduction.md
-    - name: 버전 1과 2 비교
+    - name: 현재 버전을 버전 1과 비교합니다.
       href: compare-versions.md
 - name: 빠른 시작
   expanded: true
@@ -138,6 +138,8 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
+        - name: Azure Data Lake 저장소
+          href: connector-azure-data-lake-storage.md
         - name: Azure Data Lake Store
           href: connector-azure-data-lake-store.md
         - name: Azure Database for MySQL
@@ -275,6 +277,8 @@
         - name: 데이터 복사 도구
           href: copy-data-tool.md
           items: null
+        - name: Data Lake Storage 로드
+          href: load-azure-data-lake-storage-gen2.md
         - name: SQL Data Warehouse 로드
           href: load-azure-sql-data-warehouse.md
         - name: Data Lake Store 로드

@@ -38,6 +38,7 @@
 #### [작업 3: Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [관리되는 도메인에 OU 만들기](active-directory-ds-admin-guide-create-ou.md)
+### [관리되는 도메인에 그룹 관리 서비스 계정 만들기](active-directory-ds-create-gmsa.md)
 ### [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [가상 네트워크 선택](active-directory-ds-networking.md)
 ## 응용 프로그램 배포

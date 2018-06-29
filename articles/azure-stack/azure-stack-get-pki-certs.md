@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: cfac573bc9f1bdec3fd884f8090e11514f1e93b3
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: b5adc1bb5a5aae96f37cc312588aa71e57d8342e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604712"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083229"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure 스택 인증서 서명 요청 만들기
 
@@ -30,8 +30,6 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
 
  - **표준 인증서 요청**  
     요청에 따라 [Azure 스택 배포를 위한 PKI 인증서를 생성할](azure-stack-get-pki-certs.md)합니다.
- - **요청 유형**  
-    단일 요청 또는 여러 개의 요청에 인증서 서명 요청 될 것 여부를 지정 합니다.
  - **플랫폼-as a Service**  
     필요에 따라 플랫폼으로-서비스 (PaaS) 이름에 지정 된 대로 인증서를 요청 [Azure 스택 공개 키 인프라 인증서 요구 사항-옵션 PaaS 인증서](azure-stack-pki-certs.md#optional-paas-certificates)합니다.
 
@@ -98,22 +96,22 @@ Azure 스택 준비 검사기 도구 (AzsReadinessChecker) 다음과 같은 인�
     > [!note]  
     > `<regionName>.<externalFQDN>` 에 Azure 스택의 모든 외부 DNS 이름을 만들어지면이 예제의 기본을 형성, 포털 것 `portal.east.azurestack.contoso.com`합니다.  
 
-6. 에 단일 인증서 요청을 여러 개의 주체 대체 이름을 생성 합니다.
+6. 생성 하려면 각 DNS 이름에 대 한 요청을 서명 인증서:
+
+    ```PowerShell  
+    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
+    ````
+
+    PaaS 서비스를 포함 하도록 스위치를 지정 ```-IncludePaaS```
+
+7. 또는 개발/테스트 환경에 대 한 생성 하는 단일 인증서 요청을 여러 개의 주체 대체 이름을 추가할 **-RequestType SingleCSR** 매개 변수 및 값 (**하지** 프로덕션 환경에 권장):
 
     ```PowerShell  
     Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ````
 
     PaaS 서비스를 포함 하도록 스위치를 지정 ```-IncludePaaS```
-
-7. 생성 하려면 각 DNS 이름에 대 한 요청을 서명 하는 개별 인증서:
-
-    ```PowerShell  
-    Start-AzsReadinessChecker -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType MultipleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
-    ````
-
-    PaaS 서비스를 포함 하도록 스위치를 지정 ```-IncludePaaS```
-
+    
 8. 출력을 검토 합니다.
 
     ````PowerShell  

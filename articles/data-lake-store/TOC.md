@@ -1,11 +1,11 @@
-# [Data Lake Store 설명서](index.md)
+# [Data Lake Storage Gen1 설명서](index.md)
 
 # 개요
-## [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
-## [Azure Storage와 Azure Data Lake Store 비교](data-lake-store-comparison-with-blob-storage.md)
-## [빅 데이터 처리를 위한 Azure Data Lake Store](data-lake-store-data-scenarios.md)
-## [Azure Data Lake Store에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
-## [Data Lake Store를 사용하는 모범 사례](data-lake-store-best-practices.md)
+## [Data Lake Storage Gen1 개요](data-lake-store-overview.md)
+## [Data Lake Storage Gen1과 Azure Storage 비교](data-lake-store-comparison-with-blob-storage.md)
+## [빅 데이터 처리를 위한 Data Lake Storage Gen1](data-lake-store-data-scenarios.md)
+## [Data Lake Storage Gen1에서 작동하는 오픈 소스 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)
+## [Data Lake Storage Gen1을 사용하는 모범 사례](data-lake-store-best-practices.md)
 
 # 시작하기
 ## [포털 사용](data-lake-store-get-started-portal.md)
@@ -21,15 +21,15 @@
 ### [DistCp 사용](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop 사용](data-lake-store-data-transfer-sql-sqoop.md)
 ### [오프라인 소스에서 데이터 업로드](data-lake-store-offline-bulk-data-upload.md)
-### [지역 간 Azure Data Lake Store 마이그레이션](data-lake-store-migration-cross-region.md)
+### [지역 간 Data Lake Store 마이그레이션](data-lake-store-migration-cross-region.md)
 
 ## 데이터 보호
 ### [보안 개요](data-lake-store-security-overview.md)
-### [Data Lake Store에서 액세스 제어](data-lake-store-access-control.md)
-### [데이터 레이크 저장소의 데이터 보호](data-lake-store-secure-data.md)
+### [Data Lake Storage Gen1에서 액세스 제어](data-lake-store-access-control.md)
+### [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
 ### [암호화](data-lake-store-encryption.md)
 
-## Data Lake Store를 사용하여 인증
+## Data Lake Storage Gen1을 사용하여 인증
 ### [인증 옵션](data-lakes-store-authentication-using-azure-active-directory.md)
 ### [최종 사용자 인증](data-lake-store-end-user-authenticate-using-active-directory.md)
 #### [Java 사용](data-lake-store-end-user-authenticate-java-sdk.md)
@@ -42,7 +42,7 @@
 #### [REST API 사용](data-lake-store-service-to-service-authenticate-rest-api.md)
 #### [Python 사용](data-lake-store-service-to-service-authenticate-python.md)
 
-## Data Lake Store 사용
+## Data Lake Storage Gen1 사용
 ### 계정 관리 작업
 #### [.NET SDK 사용](data-lake-store-get-started-net-sdk.md)
 #### [REST API 사용](data-lake-store-get-started-rest-api.md)
@@ -54,12 +54,12 @@
 #### [Python 사용](data-lake-store-data-operations-python.md)
 
 ## 성능
-### [Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-guidance.md)
-### [Azure Data Lake Store에서 PowerShell을 사용하기 위한 성능 조정 지침](data-lake-store-performance-tuning-powershell.md)
-### [HDInsight의 Spark 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-spark.md)
-### [HDInsight의 Hive 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-hive.md)
-### [HDInsight의 MapReduce 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-mapreduce.md)
-### [HDInsight의 Storm 및 Azure Data Lake Store에 대한 성능 조정 지침](data-lake-store-performance-tuning-storm.md)
+### [Azure Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-guidance.md)
+### [Data Lake Storage Gen1에서 PowerShell을 사용하기 위한 성능 조정 지침](data-lake-store-performance-tuning-powershell.md)
+### [HDInsight의 Spark 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-spark.md)
+### [HDInsight의 Hive 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-hive.md)
+### [HDInsight의 MapReduce 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-mapreduce.md)
+### [HDInsight의 Storm 및 Data Lake Storage Gen1에 대한 성능 조정 지침](data-lake-store-performance-tuning-storm.md)
 
 ## Azure 서비스와의 통합
 ### HDInsight 사용
