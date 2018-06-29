@@ -27,7 +27,7 @@ ms.lasthandoff: 04/05/2018
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요.
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 플랜 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 플랜 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
 
 > [!NOTE]
 > ASP.NET Framework 웹앱을 빌드 및 배포하는 방법을 원할 경우 [여기](app-service-web-get-started-dotnet-framework.md)에서 관련 문서를 참조하세요. 
