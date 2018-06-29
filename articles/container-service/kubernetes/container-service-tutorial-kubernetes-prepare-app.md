@@ -100,7 +100,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
 
-http://localhost:8080으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
+http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](media/container-service-kubernetes-tutorials/azure-vote.png)
 
