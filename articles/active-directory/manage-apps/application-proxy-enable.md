@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58bcb3cbdf389393beb58a9f50b3e77aa2b3aae8
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 0ac14f792c63ea06a484eb5b522c4d33958538ed
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158424"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025515"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>응용 프로그램 프록시 시작 및 커넥터 설치
 이 문서에서는 Azure AD에서 클라우드 디렉터리에 Microsoft Azure AD 응용 프로그램 프록시를 사용하도록 설정하는 단계를 안내합니다.
@@ -30,7 +30,7 @@ ms.locfileid: "34158424"
 ## <a name="application-proxy-prerequisites"></a>응용 프로그램 프록시 필수 구성 요소
 응용 프로그램 프록시 서비스를 사용하도록 설정하고 사용하려면 다음이 필요합니다.
 
-* 사용자가 전역 관리자인 [Microsoft Azure AD 기본 또는 프리미엄 구독](../active-directory-whatis.md) 및 Azure AD 디렉터리입니다.
+* 사용자가 전역 관리자인 [Microsoft Azure AD 기본 또는 프리미엄 구독](../fundamentals/active-directory-whatis.md) 및 Azure AD 디렉터리입니다.
 * 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 2016을 실행하는 서버입니다. 서버는 클라우드의 응용 프로그램 프록시 서비스 및 게시 중인 온-프레미스 응용 프로그램에 연결할 수 있어야 합니다.
   * Kerberos 제한된 위임을 사용하는 게시된 응용 프로그램에 대한 Single Sign-On의 경우 이 컴퓨터는 게시하는 응용 프로그램과 동일한 AD 도메인에 가입되어야 합니다. 자세한 내용은 [응용 프로그램 프록시를 사용하는 Single Sign-On용 KCD](application-proxy-configure-single-sign-on-with-kcd.md)를 참조하세요.
 
@@ -64,7 +64,6 @@ Azure AD 응용 프로그램 프록시를 위한 환경을 준비하려면 먼�
 
 4. 커넥터는 등록 프로세스에 대한 login.windows.net 및 login.microsoftonline.com에 대한 액세스가 필요합니다.
 
-5. [Azure AD 응용 프로그램 프록시 커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 사용하여 커넥터가 응용 프로그램 프록시 서비스에 연결할 수 있는지 확인합니다. 최소한 미국 중부 하위 지역 및 사용자에게 가까운 지역에는 모두 녹색 확인 표시가 있는지 확인합니다. 그 외의 항목에도 녹색 확인 표시가 있으면 복원력이 더 뛰어난 것입니다.
 
 ## <a name="install-and-register-a-connector"></a>커넥터 설치 및 등록
 1. [Azure Portal](https://portal.azure.com/)에서 관리자로 로그인합니다.

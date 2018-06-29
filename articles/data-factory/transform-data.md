@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 90089c009d3515df3df2453c710bac143ee7d90f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 23471a4ae912ee4947a91f0aef7fb2557e6ebba3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619751"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050969"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
@@ -35,10 +35,6 @@ ms.locfileid: "34619751"
 이 문서에서는 원시 데이터를 예측 가능하고 통찰력 있는 정보로 변환하고 처리하는 데 사용할 수 있는 Azure Data Factory의 데이터 변환 작업을 설명합니다. 변환 작업은 Azure HDInsight 클러스터나 Azure Batch와 같은 컴퓨팅 환경에서 실행됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.
 
 Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인](concepts-pipelines-activities.md)에 추가할 수 있는 다음 데이터 변환 작업을 지원합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1의 변환 작업](v1/data-factory-data-transformation-activities.md)을 참조하세요.
- 
 
 ## <a name="hdinsight-hive-activity"></a>HDInsight Hive 작업
 Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 작업에 대한 자세한 내용은 [Hive 작업](transform-data-using-hadoop-hive.md) 문서를 참조하세요. 

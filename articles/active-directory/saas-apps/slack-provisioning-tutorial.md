@@ -57,7 +57,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 이 섹션에서는 사용자의 Azure AD를 Slack의 사용자 계정 프로비전 API에 연결하고, Azure AD의 사용자 및 그룹 할당을 기반으로 Slack에서 할당된 사용자 계정을 만들고, 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 방법을 안내합니다.
 
-**팁:**: (Azure Portal)[https://portal.azure.com]에 제공된 지침에 따라 Slack에 SAML 기반 Single Sign-On을 사용하도록 설정할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
+**팁:**: (Azure Portal)[https://portal.azure.com] 에 제공된 지침에 따라 Slack에 SAML 기반 Single Sign-On을 사용하도록 설정할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Azure AD에서 Slack에 자동 사용자 계정 프로비전을 구성하려면 다음을 수행합니다.

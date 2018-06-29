@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 1e48131ff784ba5bb8d5a7dfffe8afb5ce8bb4c1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364372"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752291"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 Azure는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다. 문서에는 각 문서에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.
@@ -39,7 +39,7 @@ RBAC(역할 기반 액세스 제어)는 Azure 리소스에 대한 세밀한 액�
 
 자세한 정보:
 
-* [RBAC의 Active Directory 팀 블로그](http://i1.blogs.technet.com/b/ad/archive/2015/10/12/azure-rbac-is-ga.aspx)
+* [RBAC의 Active Directory 팀 블로그](https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory)
 * [Azure 역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="antimalware"></a>맬웨어 방지

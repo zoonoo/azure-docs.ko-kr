@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1ac614156755b9b29db7c968c708a5cff706f7a8
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: d53ade1e5c31ca25636b95d4f8b9e0fe29f9d081
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019673"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031110"
 ---
 # <a name="security-frame-authentication--mitigations"></a>보안 프레임: 인증 | 완화 
 | 제품/서비스 | 문서 |
@@ -306,7 +306,7 @@ ms.locfileid: "28019673"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 클라이언트 자격 증명 유형 - 없음 |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 응용 프로그램을 구성합니다. message clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
 ### <a name="example"></a>예
@@ -322,7 +322,7 @@ ms.locfileid: "28019673"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 클라이언트 자격 증명 유형 - 없음 |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **단계** | 인증이 없다는 것은 모든 사람이 이 서비스에 액세스할 수 있음을 의미합니다. 해당 클라이언트를 인증하지 않는 서비스는 모든 사용자가 해당 기능에 액세스할 수 있습니다. 클라이언트 자격 증명에 대해 인증하도록 응용 프로그램을 구성합니다. transport clientCredentialType을 Windows 또는 Certificate로 설정하여 이 작업을 수행할 수 있습니다. |
 
 ### <a name="example"></a>예

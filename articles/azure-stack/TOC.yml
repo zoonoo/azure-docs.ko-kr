@@ -294,15 +294,15 @@
             - name: Kubernetes 클러스터를 제공 합니다.
               href: azure-stack-solution-template-kubernetes-cluster-add.md
         - name: 사용량 및 결제
+          href: azure-stack-billing-and-chargeback.md
           items:
-            - name: 개요
-              href: azure-stack-billing-and-chargeback.md
             - name: 사용을 관리 및 csp 청구
               href: azure-stack-add-manage-billing-as-a-csp.md
-            - name: 사용 및 청구에 대 한 테 넌 트를 추가 합니다.
-              href: azure-stack-csp-howto-register-tenants.md
-            - name: 테 넌 트 등록 관리
-              href: azure-stack-csp-ref-operations.md
+              items:
+                - name: 사용 및 청구에 대 한 테 넌 트를 추가 합니다.
+                  href: azure-stack-csp-howto-register-tenants.md
+                - name: 테 넌 트 등록 관리
+                  href: azure-stack-csp-ref-operations.md
             - name: 사용 및 청구 참조
               items:
                 - name: 사용량 데이터 보고

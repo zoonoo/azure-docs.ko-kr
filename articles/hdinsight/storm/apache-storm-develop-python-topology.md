@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: larryfr
-ms.openlocfilehash: 0a8930da2d44714573155477d791dd9cb78d872a
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 9ad6ab9e280762fbdb04ba0c1790cd6d01526556
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32311695"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063445"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 
@@ -38,7 +38,7 @@ Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방�
 
 * Maven 3
 
-* (선택 사항) 로컬 Storm 개발 환경 - 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html)(영문)을 참조하세요.
+* (선택 사항) 로컬 Storm 개발 환경 - 로컬 Storm 환경은 토폴로지를 로컬로 실행하려는 경우에만 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/1.1.2/Setting-up-development-environment.html)(영문)을 참조하세요.
 
 ## <a name="storm-multi-language-support"></a>Storm 다중 언어 지원
 
@@ -97,7 +97,7 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
 ```
 
 > [!NOTE]
-> 이 명령에는 로컬 Storm 개발 환경이 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/1.0.1/Setting-up-development-environment.html)(영문)을 참조하세요.
+> 이 명령에는 로컬 Storm 개발 환경이 필요합니다. 자세한 내용은 [개발 환경 설정](http://storm.apache.org/releases/1.0.6/Setting-up-development-environment.html)(영문)을 참조하세요.
 
 토폴로지가 시작되면 다음 텍스트와 비슷한 정보를 로컬 콘솔로 내보냅니다.
 

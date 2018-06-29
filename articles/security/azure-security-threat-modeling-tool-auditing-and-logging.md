@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8837dfaf156e5a4d07598f2c58694663a9ff5580
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23044408"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029984"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>보안 프레임: 감사 및 로깅 | 완화 
 | 제품/서비스 | 문서 |
@@ -27,7 +27,7 @@ ms.locfileid: "23044408"
 | **Dynamics CRM**    | <ul><li>[솔루션의 민감한 엔터티를 식별하고 변경 감사 구현](#sensitive-entities)</li></ul> |
 | **웹 응용 프로그램** | <ul><li>[응용 프로그램에 감사 및 로깅 적용](#auditing)</li><li>[로그 회전 및 분리가 작동하는지 확인](#log-rotation)</li><li>[응용 프로그램이 민감한 사용자 데이터를 기록하지 않도록 확인](#log-sensitive-data)</li><li>[감사 및 로그 파일의 액세스 제한](#log-restricted-access)</li><li>[사용자 관리 이벤트 기록](#user-management)</li><li>[시스템에 악용 방지 수단을 기본적으로 제공](#inbuilt-defenses)</li><li>[Azure App Service에서 웹앱에 대한 진단 로깅 설정](#diagnostics-logging)</li></ul> |
 | **데이터베이스** | <ul><li>[SQL Server에서 로그인 감사를 사용하도록 설정](#identify-sensitive-entities)</li><li>[Azure SQL에서 위협 감지 사용](#threat-detection)</li></ul> |
-| **Azure 저장소** | <ul><li>[Azure 저장소 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
+| **Azure Storage** | <ul><li>[Azure 저장소 분석을 사용하여 Azure Storage에 대한 액세스 감사](#analytics)</li></ul> |
 | **WCF** | <ul><li>[충분한 로깅 구현](#sufficient-logging)</li><li>[충분한 감사 실패 처리 구현](#audit-failure-handling)</li></ul> |
 | **앱 API** | <ul><li>[웹 API에 감사 및 로깅 적용](#logging-web-api)</li></ul> |
 | **IoT 필드 게이트웨이** | <ul><li>[필드 게이트웨이에 적절한 감사 및 로깅 적용](#logging-field-gateway)</li></ul> |
@@ -119,7 +119,7 @@ ms.locfileid: "23044408"
 | **적용 가능한 기술** | 일반 |
 | **특성**              | EnvironmentType - Azure |
 | **참조**              | 해당 없음  |
-| **단계** | <p>Azure는 App Service 웹앱을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. API 앱 및 모바일 앱에도 적용됩니다. 앱 서비스 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다.</p><p>이는 논리적으로 웹 서버 진단 및 응용 프로그램 진단으로 구분됩니다.</p>|
+| **단계** | <p>Azure는 App Service 웹앱을 디버그하는 데 도움이 되는 기본 제공 진단을 제공합니다. API 앱 및 모바일 앱에도 적용됩니다. App Service 웹앱은 웹 서버와 웹 응용 프로그램 모두의 정보를 로깅할 수 있도록 진단 기능을 제공합니다.</p><p>이는 논리적으로 웹 서버 진단 및 응용 프로그램 진단으로 구분됩니다.</p>|
 
 ## <a id="identify-sensitive-entities"></a>SQL Server에서 로그인 감사를 사용하도록 설정
 
@@ -147,12 +147,12 @@ ms.locfileid: "23044408"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Azure 저장소 | 
+| **구성 요소**               | Azure Storage | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음 |
 | **참조**              | [저장소 분석을 사용하여 인증 유형 모니터링](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
-| **단계** | <p>각 저장소 계정에 대해 Azure 저장소 분석을 사용하도록 설정하여 로깅을 수행하고 메트릭 데이터를 저장할 수 있습니다. 저장소 분석 로그는 누군가가 저장소에 액세스할 때 사용한 인증 방법 등의 중요한 정보를 제공합니다.</p><p>저장소에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob 저장소에서 모든 컨테이너를 개인으로 설정하고 응용 프로그램 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음 로그를 주기적으로 확인하여 저장소 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아볼 수 있습니다.</p>|
+| **단계** | <p>각 Storage 계정에 대해 Azure Storage 분석을 사용하도록 설정하여 로깅을 수행하고 메트릭 데이터를 저장할 수 있습니다. 저장소 분석 로그는 누군가가 저장소에 액세스할 때 사용한 인증 방법 등의 중요한 정보를 제공합니다.</p><p>저장소에 대한 액세스를 엄격히 관리하는 경우에는 이 방법이 도움이 될 수 있습니다. 예를 들어, Blob Storage에서 모든 컨테이너를 개인으로 설정하고 응용 프로그램 전체에서 SAS 서비스를 사용을 구현할 수 있습니다. 그런 다음 로그를 주기적으로 확인하여 저장소 계정 키를 사용하여 Blob에 액세스하는지(보안 위반을 의미할 수 있음) 또는 Blob이 공용이지만 공용이면 안 되는지 알아볼 수 있습니다.</p>|
 
 ## <a id="sufficient-logging"></a>충분한 로깅 구현
 
@@ -162,10 +162,10 @@ ms.locfileid: "23044408"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **단계** | <p>보안 문제가 발생한 후 적절한 감사 내역이 부족하면 범죄 수사가 제한될 수 있습니다. WCF(Windows Communication Foundation)는 성공한/실패한 인증 시도를 기록하는 기능을 제공합니다.</p><p>실패한 인증 시도를 기록하면 관리자에게 무차별 암호 대입 공격 가능성을 경고할 수 있습니다. 마찬가지로, 성공한 인증 이벤트를 기록하면 합법적 계정이 손상될 때 유용한 감사 추적을 제공할 수 있습니다. WCF의 서비스 보안 감사 기능을 사용하도록 설정 |
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 다음은 감사를 사용하도록 설정된 구성 예제입니다.
 ```
 <system.serviceModel>
@@ -191,10 +191,10 @@ ms.locfileid: "23044408"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **단계** | <p>개발된 솔루션은 감사 로그에 쓸 수 없는 경우 예외를 생성하지 않도록 구성됩니다. 감사 로그에 쓸 수 없는 경우 예외를 throw하지 않도록 WCF가 구성되면 프로그램에서는 실패에 대한 알림을 받지 못하고 중요한 보안 이벤트의 감사가 발생하지 않을 수 있습니다.</p>|
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 아래에 보이는 WCF 구성 파일의 `<behavior/>` 요소는 WCF가 감사 로그에 쓸 수 없는 경우 그 사실을 응용 프로그램에게 알리지 말라고 WCF에 지시합니다.
 ````
 <behaviors>

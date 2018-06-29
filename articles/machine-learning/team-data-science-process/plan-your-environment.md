@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16cc7c5841708b8b27cff4fcc7c93cdbb2fe0fa4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7754fccdfe8a2c4fad24f61fc22c722d2640ffa6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838336"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064621"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 데이터 집합에 대해 고급 분석 처리를 수행할 환경을 설정할 때 어떤 리소스를 포함하도록 계획해야 할까요? 이 문서는 시나리오에 적합한 작업과 리소스를 파악하는 데 도움이 될만한 것을 묻는 일련의 질문을 제시합니다. 예측 분석에 대한 고급 단계의 순서는 [TDSP(팀 데이터 과학 프로세스)란 무엇입니까?](overview.md)에 대략적으로 설명되어 있습니다. 각각의 단계에는 개별적인 시나리오에 관련된 작업을 위한 구체적인 리소스가 필요합니다. 시나리오를 파악하기 위한 주요 질문은 데이터 로지스틱, 특징, 데이터 집합의 품질, 분석에 사용할 도구 및 언어에 대한 것입니다.
@@ -97,9 +97,9 @@ Azure Machine Learning Studio 환경을 예로 들어 보겠습니다.
    
    * [Microsoft Azure Powershell](/powershell/azure/overview) – 스크립트 언어로 Azure 리소스를 관리하는 데 사용되는 스크립트 언어입니다.
    * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
-   * [Revolution Analytics](http://www.revolutionanalytics.com/revolution-r-open)
+   * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
    * [RStudio](http://www.rstudio.com)
-   * [Python Tools for Visual Studio](http://microsoft.github.io/PTVS/)
+   * [Python Tools for Visual Studio](http://aka.ms/ptvsdocs)
    * [Anaconda](https://www.continuum.io/why-anaconda)
    * [Jupyter 노트북](http://jupyter.org/)
    * [Microsoft Power BI](http://powerbi.microsoft.com)

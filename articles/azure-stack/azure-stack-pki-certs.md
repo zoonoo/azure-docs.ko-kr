@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f0c86f121fd65a06fb4d1a193f3e3bf724af505e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a43179998e8377dfbbb1a41ba7d46936d63aedd
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234844"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030158"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure 스택 공개 키 인프라 인증서 요구 사항
 
@@ -76,20 +76,6 @@ Azure 스택 소수의 Azure 스택 서비스 및 테 넌 트 Vm에 할당 된 �
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(와일드 카드 SSL 인증서 포함) |  내부 Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
-
-### <a name="for-azure-stack-environment-on-pre-1803-versions"></a>Azure 스택 환경 사전 1803 버전에 대 한
-
-|배포 폴더|필요한 인증서 주체 및 주체 대체 이름 (SAN)|범위 (지역) 당|하위 도메인 네임 스페이스|
-|-----|-----|-----|-----|
-|공용 포털|portal.*&lt;region>.&lt;fqdn>*|포털|*&lt;region>.&lt;fqdn>*|
-|관리 포털|adminportal.*&lt;region>.&lt;fqdn>*|포털|*&lt;region>.&lt;fqdn>*|
-|Azure 리소스 관리자 공개|management.*&lt;region>.&lt;fqdn>*|Azure 리소스 관리자|*&lt;region>.&lt;fqdn>*|
-|Azure 리소스 관리자 관리|adminmanagement.*&lt;region>.&lt;fqdn>*|Azure 리소스 관리자|*&lt;region>.&lt;fqdn>*|
-|ACS<sup>1</sup>|다중 하위 도메인 와일드 카드 인증서가 두 개에 대 한 주체 대체 이름:<br>&#42;.blob.*&lt;region>.&lt;fqdn>*<br>&#42;.queue.*&lt;region>.&lt;fqdn>*<br>&#42;.table.*&lt;region>.&lt;fqdn>*|Storage|blob.*&lt;region>.&lt;fqdn>*<br>table.*&lt;region>.&lt;fqdn>*<br>queue.*&lt;region>.&lt;fqdn>*|
-|KeyVault|&#42;.vault.*&lt;region>.&lt;fqdn>*<br>(와일드 카드 SSL 인증서 포함)|Key Vault|vault.*&lt;region>.&lt;fqdn>*|
-|KeyVaultInternal|&#42;.adminvault.*&lt;region>.&lt;fqdn>*<br>(와일드 카드 SSL 인증서 포함)|내부 Keyvault|adminvault.*&lt;region>.&lt;fqdn>*|
-|
-<sup>1</sup> ACS 인증서에는 단일 인증서에 와일드 카드 San 3 개 필요 합니다. 모든 공용 인증 기관 단일 인증서에 San 여러 와일드 카드를 지원 하지 수도 있습니다. 
 
 Azure 스택 Azure AD 배포 모드를 사용 하 여 배포 하는 경우 앞의 표에 나열 된 인증서를 요청 하기만 하면 됩니다. 그러나 Azure 스택 AD FS 배포 모드를 사용 하 여 배포 하는 경우 다음 표에 설명 된 인증서 요청 해야 합니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 1f3de9ba6615a9b2232cca237a822b308d89426d
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: cea96234083abd01cdf280129e6f75a1f69af9c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019826"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028985"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 문서 |
@@ -107,7 +107,7 @@ Example: var str="alert(1)"; eval(str);
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [OWASP 클릭재킹 방어 참고 자료](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IEInternals - X-Frame-Options로 클릭재킹 대응](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-click-jacking-with-x-frame-options/) |
+| **참조**              | [OWASP 클릭재킹 방어 참고 자료](https://www.owasp.org/index.php/Clickjacking_Defense_Cheat_Sheet), [IEInternals - X-Frame-Options로 클릭재킹 대응](https://blogs.msdn.microsoft.com/ieinternals/2010/03/30/combating-clickjacking-with-x-frame-options/) |
 | **단계** | <p>"UI 변조 공격"이라고도 하는 클릭재킹은 공격자가 여러 투명 레이어 또는 불투명 레이어를 사용하여 사용자가 최상위 수준 페이지를 클릭하려고 할 때 다른 페이지의 단추 또는 링크를 클릭하도록 속이는 경우입니다.</p><p>이러한 레이어는 iframe을 포함한 악의적인 페이지를 만들어 공격 대상 사용자의 페이지를 로드함으로써 수행됩니다. 따라서 공격자는 자신의 페이지에 대한 클릭을 "하이재킹"하고 다른 응용 프로그램, 도메인 또는 둘 모두가 소유하는 다른 페이지로 라우팅합니다. 클릭재킹 공격을 방지하려면 적절한 X-Frame-Options HTTP 응답 헤더를 설정하여 다른 도메인의 프레이밍을 허용하지 않도록 브라우저에 지시합니다.</p>|
 
 ### <a name="example"></a>예

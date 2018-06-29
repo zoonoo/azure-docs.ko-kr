@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 344a48ff82bd93bf8dc9924e09399e72b9f88e2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656366"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062023"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>STONITH를 사용하여 SUSE에서 고가용성 설정
 이 문서는 STONITH 장치를 사용하여 SUSE 운영 체제에서 고가용성을 설정하는 자세한 단계별 지침을 제공합니다.
@@ -538,6 +538,6 @@ cat /root/.ssh/id_rsa.pub >> /root/.ssh/authorized_keys
 다음 문서에서 SUSE HA 설정에 관한 추가 정보를 찾을 수 있습니다. 
 
 - [SAP HANA SR 성능 최적화된 시나리오](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
-- [저장소 기반 울타리](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)
+- [저장소 기반 울타리](https://www.suse.com/documentation/sle_ha/book_sleha/data/sec_ha_storage_protect_fencing.html)
 - [블로그 - SAP HANA에 Pacemaker 클러스터 사용- 1부](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-1-basics/)
 - [블로그 - SAP HANA에 Pacemaker 클러스터 사용- 2부](https://blogs.sap.com/2017/11/19/be-prepared-for-using-pacemaker-cluster-for-sap-hana-part-2-failure-of-both-nodes/)

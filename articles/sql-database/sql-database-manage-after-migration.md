@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 06/20/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: e0c849efa402bdfcf3ed6091cccf47ca722f23d7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650114"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061647"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -31,7 +31,6 @@ ms.locfileid: "34650114"
 - 보안 및 규정 준수
 - 지능형 데이터베이스 모니터링 및 유지 관리
 - 데이터 이동
-
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>비즈니스 연속성 및 재해 복구(BCDR)
 비즈니스 연속성 및 재해 복구 기능을 사용하면 재해가 발생한 경우에도 비즈니스를 평소처럼 계속할 수 있습니다. 데이터베이스 수준 이벤트(예를 들어 누군가가 실수로 중요 테이블을 삭제한 경우) 또는 데이터 센터 수준 이벤트(지역의 재해, 예: 쓰나미) 등의 재해가 있을 수 있습니다. 
@@ -171,7 +170,7 @@ Always Encrypted (클라이언트 쪽 암호화) 및 투명한 데이터 암호�
 - [워크플로](../expressroute/expressroute-workflows.md)
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>Microsoft Azure SQL Database는 모든 규격 요건을 준수하며, 그것이 나만의 조직 규정 준수에 어떤 도움이 됩니까?
-SQL Database는 다양한 규격을 준수합니다. 충족된 최신 규격 집합을 보려면 [Microsoft Trust Center](https://www.microsoft.com/trustcenter/compliance/complianceofferings)를 방문하여 SQL Database가 호환되는 Azure 서비스에 포함되어 있는지 확인하기 위해 조직에 중요한 규정 준수에 대해 드릴다운합니다. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
+SQL Database는 다양한 규격을 준수합니다. 충족된 최신 규격 집합을 보려면 [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/compliance/complianceofferings)를 방문하여 SQL Database가 호환되는 Azure 서비스에 포함되어 있는지 확인하기 위해 조직에 중요한 규정 준수에 대해 드릴다운합니다. SQL Database가 규격 서비스로 인증된다 하더라도, 조직 서비스의 준수를 지원하지만 자동으로 보장하지는 않는다는 점을 확인하는 것이 중요합니다.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>마이그레이션 후 지능형 데이터베이스 모니터링 및 유지 관리
 
@@ -235,7 +234,7 @@ SQL Database는 여러 가지 서비스 계층, 즉, Basic, Standard, Premium을
 
 정확한 성능 수준에 있는지 확인하려면 위의 “SQL Database에서 성능 및 리소스 사용률을 모니터링하려면 어떻게 해야 합니까?”에서 언급한 방법 중 하나를 통해 쿼리 및 데이터베이스 리소스 사용을 모니터링할 수 있습니다. 쿼리/데이터베이스가 일관되게 CPU/메모리 등에서 많이 실행되는 것을 발견한 경우 더 높은 성능 수준으로 확장을 고려할 수 있습니다. 마찬가지로 최고 사용률 시간 중에도 그러한 현상이 발견되는데 리소스를 그리 많이 사용하는 것처럼 보이지 않는 경우 현재 성능 수준에서 축소를 고려합니다. 
 
-SaaS 앱 패턴 또는 데이터베이스 통합 시나리오가 있는 경우 비용 최적화를 위해 탄력적 풀의 사용을 고려합니다. 탄력적 풀은 데이터베이스 통합 및 비용 최적화를 달성하는 훌륭한 방법입니다. 탄력적 풀을 사용한 다중 데이터베이스 관리에 대해 더 자세히 읽으려면 [풀 및 데이터베이스 관리](sql-database-elastic-pool.md#manage-elastic-pools-and-databases-using-the-azure-portal)를 참조하세요. 
+SaaS 앱 패턴 또는 데이터베이스 통합 시나리오가 있는 경우 비용 최적화를 위해 탄력적 풀의 사용을 고려합니다. 탄력적 풀은 데이터베이스 통합 및 비용 최적화를 달성하는 훌륭한 방법입니다. 탄력적 풀을 사용한 다중 데이터베이스 관리에 대해 더 자세히 읽으려면 [풀 및 데이터베이스 관리](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)를 참조하세요. 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>내 데이터베이스에 대해 데이터베이스 무결성 검사를 얼마나 자주 실행해야 합니까?
 SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손실 없이 처리할 수 있는 몇 가지 스마트 기술을 사용합니다. 이러한 기법은 서비스에 기본 제공되며 필요한 경우 서비스에 의해 활용됩니다. 정기적으로 서비스에 대한 데이터베이스 백업을 복원하고 그에 대해 DBCC CHECKDB를 실행하여 테스트합니다. 문제가 있으면 SQL Database가 미리 해결합니다. [자동 페이지 수리](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring)는 손상되거나 데이터 무결성 문제가 있는 페이지를 수정하기 위해 이용됩니다. 데이터베이스 페이지는 언제나 페이지의 무결성을 확인하는 기본 체크섬 설정을 사용하여 확인됩니다. SQL Database는 데이터베이스의 데이터 무결성을 사전에 모니터링하고 검토하며 문제가 발생하면 가장 높은 우선 순위로 해결합니다. 이에 더하여 원한다면 선택적으로 사용자 자신의 무결성 검사를 실행하도록 선택할 수 있습니다.  자세한 내용은 [SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) 참조

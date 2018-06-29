@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 7cb6927b8de07566428050e06a981c8f3afabb05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d6117b5b071e780841f4450a205287d005e11801
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227526"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752183"
 ---
 # <a name="azure-security-overview"></a>Azure 보안 개요
 
-Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다. Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있을 경우 [Microsoft 보안 센터](https://www.microsoft.com/en-us/TrustCenter/)를 방문하세요.
+Azure.com의 Microsoft Azure 보안 정보 사이트는 Azure 보안 질문에 대한 기술적 답변을 확인할 수 있는 곳입니다. Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있을 경우 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문하세요.
 
 보안은 클라우드의 작업이며 Azure 보안에 대한 정확하고 시기 적절한 정보를 찾는 것이 얼마나 중요한지 알고 있습니다. 응용 프로그램 및 서비스에 Azure를 사용하는 가장 좋은 이유 중 하나는 제공하는 광범위한 보안 도구 및 기능을 활용한다는 점입니다. 이러한 도구 및 기능을 통해 안전한 Azure 플랫폼에서 안전한 솔루션을 만들 수 있습니다.
 

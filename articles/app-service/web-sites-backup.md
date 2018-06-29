@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 66423fecce92cd933cc8680810aa2abe5e25a90d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b87838a80c7c7706b9af2bd4ea274335d04a5c52
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153585"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751516"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](app-service-web-overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅숏으로 복원할 수 있습니다. 
@@ -38,7 +38,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 백업 기능과 함께 지원되는 데이터베이스 솔루션은 다음과 같습니다. 
    - [SQL Database](https://azure.microsoft.com/services/sql-database/)
    - [Azure Database for MySQL(미리 보기)](https://azure.microsoft.com/services/mysql)
-   - [Azure Database for PostgreSQL(미리 보기)](https://azure.microsoft.com/services/postgres)
+   - [Azure Database for PostgreSQL(미리 보기)](https://azure.microsoft.com/services/postgresql)
    - [MySQL 인앱](https://blogs.msdn.microsoft.com/appserviceteam/2017/03/06/announcing-general-availability-for-mysql-in-app)
  
 

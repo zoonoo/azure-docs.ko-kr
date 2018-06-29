@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8363c49c4a52785fb5deacb3ac4998d38aca1430
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ee467769b9653a9952b6e41e66a8777a4bac5e56
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593883"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028883"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -36,7 +36,7 @@ ms.locfileid: "34593883"
 
 ## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>통과 인증은 [Microsoft Azure 독일 클라우드](http://www.microsoft.de/cloud-deutschland) 및 [Microsoft Azure Government 클라우드](https://azure.microsoft.com/features/gov/)에서 사용할 수 있나요?
 
-번호 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
+아니요. 통과 인증은 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
 ## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>[조건부 액세스](../active-directory-conditional-access-azure-portal.md)는 통과 인증에서 작동하나요?
 
@@ -48,7 +48,7 @@ ms.locfileid: "34593883"
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
-번호 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 응용 프로그램 프록시](../manage-apps/application-proxy.md)를 설치할 수 있나요?
 
@@ -66,7 +66,7 @@ ms.locfileid: "34593883"
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>통과 인증을 통해 무차별 암호 대입 공격으로부터 사용자를 보호하려면 어떻게 할까요?
 
-자세한 내용은[Azure Active Directory 통과 인증: 스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)을 참조하세요.
+자세한 내용은[Azure Active Directory 통과 인증: 스마트 잠금](../authentication/howto-password-smart-lockout.md)을 참조하세요.
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>통과 인증 에이전트가 포트 80 및 443을 통해 통신하는 것은 무엇인가요?
 
@@ -133,7 +133,7 @@ Azure AD Connect 마법사를 다시 실행하고 사용자 로그인 방법을 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
-- [스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
+- [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [기술 심층 분석](active-directory-aadconnect-pass-through-authentication-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
 - [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) - 통과 인증 기능에 대한 자세한 기술 정보를 가져옵니다.

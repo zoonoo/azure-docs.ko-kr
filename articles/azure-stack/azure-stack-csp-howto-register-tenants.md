@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredo
-ms.openlocfilehash: e982fa2bec3cbc4845ecebb45db76f019e2178ff
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 27473ce4057fdb06ab9faf0f46dede62b4ee2246
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157393"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048842"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>사용에 대 한 테 넌 트를 추가 하 고 Azure 스택에 청구
 
@@ -64,7 +64,7 @@ Csp는 종종 Azure 스택 배포에서 여러 고객 (테 넌 트)에 서비스
 3. PowerShell 세션에서 다음을 실행 합니다.
 
 ```powershell
-    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties
+    New-AzureRmResource -ResourceId "subscriptions/{registrationSubscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionId}" -ApiVersion 2017-06-01 -Properties <PSObject>
 ```
 ### <a name="new-azurermresource-powershell-parameters"></a>새 AzureRmResource PowerShell 매개 변수
 | 매개 변수 | 설명 |
@@ -73,6 +73,7 @@ Csp는 종종 Azure 스택 배포에서 여러 고객 (테 넌 트)에 서비스
 | customerSubscriptionID | Azure 구독 (Azure 스택 되지 않음) 등록할 수 있도록 고객에 속한입니다. 해야 CSP 제안;에 만든 실제로이 파트너 센터를 통해 의미합니다. 고객에 Azure Active Directory 테 넌 트를 여러 개 있는 경우이 구독은 Azure 스택에 로그인 하는 데 사용할 테 넌 트에 만들어야 합니다.
 | resourceGroup | 등록 저장 되어 있는 Azure의 리소스 그룹입니다. 
 | registrationName | Azure 스택 등록의 이름입니다. 이 Azure에 저장 된 개체입니다. | 
+| properties | 리소스 속성을 지정합니다. 이 매개 변수를 사용 하 여 리소스 종류에 관련 된 속성의 값을 지정 합니다.
 
 
 > [!Note]  

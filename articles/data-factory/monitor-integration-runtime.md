@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2017
 ms.author: douglasl
-ms.openlocfilehash: 956bd89a993a019d7a5a4dd28efec4116b174334
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297260"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045248"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링  
 **통합 런타임**은 서로 다른 네트워크 환경에서 다양한 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. Data Factory는 세 가지 유형의 통합 런타임을 제공합니다.
@@ -26,9 +26,6 @@ ms.locfileid: "35297260"
 - Azure 통합 런타임
 - 자체 호스팅 통합 런타임
 - Azure SSIS 통합 런타임
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 IR(통합 런타임) 인스턴스의 상태를 가져 오려면 다음 PowerShell 명령을 실행합니다. 
 

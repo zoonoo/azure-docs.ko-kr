@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: c07105a34f6778fcd62f6f1bc1d3930f6a8bf173
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: f8478a0aef52f8e573fa300a0b1328ea9ce5129f
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714938"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031001"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Azure에서 앱 강화
 
@@ -98,7 +98,7 @@ ms.locfileid: "34714938"
   
     [Microsoft Azure를 위한 Virtual Machine 및 클라우드 서비스 크기][vmsizes]
   
-* 확장성 있고 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure App Service 모범 사례에 대한 자세한 내용은 [모범 사례: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)를 참조하세요.
+* 확장성 있고 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure App Service 모범 사례에 대한 자세한 내용은 [모범 사례: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/)를 참조하세요.
 * App Service 앱 크기 조정에 대한 비디오는 다음 리소스를 참조하세요.
   
   * [Azure Websites 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)

@@ -13,19 +13,15 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 91887bad9c3ca976612522c161663fb0b35f587c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 248967f736fcd10cf398917d3cd1e2760537df7c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266926"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051987"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임 다시 구성
 이 문서는 기존 Azure-SSIS 통합 런타임을 다시 구성하는 방법을 설명합니다. Azure Data Factory에서 Azure-SSIS IR(통합 런타임) 만들려면 [Azure-SSIS IR 만들기](create-azure-ssis-integration-runtime.md)를 참조합니다.  
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
-
 
 ## <a name="data-factory-ui"></a>Data Factory UI 
 Data Factory UI를 사용하여 Azure-SSIS IR을 중지하거나, 편집/다시 구성하거나 삭제할 수 있습니다. 

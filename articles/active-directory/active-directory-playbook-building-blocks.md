@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293112"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754417"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -100,10 +100,10 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | Azure AD 관리 포털로 이동합니다. | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding)(Azure AD 관리 포털 - 회사 브랜딩) |
-| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](customize-branding.md) |
+| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](fundamentals/customize-branding.md) |
 | 변경 내용이 완전히 적용될 때까지 몇 분 정도 기다립니다. |  |
 | POC 사용자 자격 증명으로 https://myapps.microsoft.com에 로그인 |  |
-| 브라우저의 모양과 느낌을 확인합니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](customize-branding.md) |
+| 브라우저의 모양과 느낌을 확인합니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](fundamentals/customize-branding.md) |
 | 필요한 경우 다른 장치에서 모양과 느낌을 확인합니다. |  |
 
 ### <a name="considerations"></a>고려 사항
@@ -118,7 +118,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 모든 POC 사용자가 보안 그룹에 속함(클라우드 또는 온-프레미스) | [Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
+| 모든 POC 사용자가 보안 그룹에 속함(클라우드 또는 온-프레미스) | [Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>단계
 
@@ -140,16 +140,16 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 사용 가능한 SaaS 응용 프로그램의 테스트 환경. 이 가이드에서는 ServiceNow를 예제로 사용합니다.<br/>테스트 인스턴스를 사용하여 기존 데이터 품질 및 매핑을 탐색할 때 마찰을 최소화하는 것이 좋습니다. | 테스트 인스턴스를 가져오는 과정을 시작하려면 https://developer.servicenow.com/app.do#!/home으로 이동 |
-| ServiceNow 관리 콘솔에 대한 관리자 권한 | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
+| ServiceNow 관리 콘솔에 대한 관리자 권한 | [자습서: ServiceNow와 Azure Active Directory 통합](saas-apps/servicenow-tutorial.md) |
 | 응용 프로그램을 할당할 대상 사용자 집합. PoC 사용자가 포함된 보안 그룹을 사용하는 것이 좋습니다. <br/>그룹을 만들 수 없는 경우 사용자를 PoC에 대한 응용 프로그램에 직접 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
-| Microsoft 문서에서 모든 행위자에게 자습서를 공유합니다.  | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
-| 작업 모임을 설정하고 각 행위자와 함께 자습서 단계를 따릅니다. | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
-| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. POC의 범위에 조건부 액세스가 있으면 나중에 다시 방문하여 MFA 등을 추가할 수 있습니다. <br/>이 작업은 프로비전 프로세스에서 시작됩니다(구성된 경우). |  [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
+| Microsoft 문서에서 모든 행위자에게 자습서를 공유합니다.  | [자습서: ServiceNow와 Azure Active Directory 통합](saas-apps/servicenow-tutorial.md) |
+| 작업 모임을 설정하고 각 행위자와 함께 자습서 단계를 따릅니다. | [자습서: ServiceNow와 Azure Active Directory 통합](saas-apps/servicenow-tutorial.md) |
+| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. POC의 범위에 조건부 액세스가 있으면 나중에 다시 방문하여 MFA 등을 추가할 수 있습니다. <br/>이 작업은 프로비전 프로세스에서 시작됩니다(구성된 경우). |  [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Azure AD 관리 포털을 사용하여 갤러리에서 ServiceNow 응용 프로그램을 추가합니다.| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview)(Azure AD 관리 포털: 엔터프라이즈 응용 프로그램) <br/>[Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | ServiceNow 앱의 "Single Sign-On" 블레이드에서 "SAML 기반 로그인"을 사용하도록 설정합니다. |  |
 | ServiceNow URL을 통해 “로그온 URL” 및 “식별자” 필드를 입력합니다.<br/>“새 인증서 활성화” 상자를 선택하고<br/>설정을 저장합니다. |  |
@@ -163,7 +163,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 ### <a name="considerations"></a>고려 사항
 
-1. 위의 [자습서](active-directory-saas-servicenow-tutorial.md)는 이전 Azure AD 관리 환경을 참조합니다. 그러나 PoC는 [빠른 시작](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) 환경을 기반으로 합니다.
+1. 위의 [자습서](saas-apps/servicenow-tutorial.md)는 이전 Azure AD 관리 환경을 참조합니다. 그러나 PoC는 [빠른 시작](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) 환경을 기반으로 합니다.
 2. 대상 응용 프로그램이 갤러리에 없으면 “사용자 고유 앱 가져오기”를 사용할 수 있습니다. 참고 항목: [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 한 곳에서 사용자 지정 응용 프로그램 추가](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS 암호 SSO 구성
@@ -242,7 +242,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 사용자가 전역 관리자인 Microsoft Azure AD 기본 또는 프리미엄 구독 및 Azure AD 디렉터리 | [Azure Active Directory 버전](active-directory-whatis.md) |
+| 사용자가 전역 관리자인 Microsoft Azure AD 기본 또는 프리미엄 구독 및 Azure AD 디렉터리 | [Azure Active Directory 버전](fundamentals/active-directory-whatis.md) |
 | 원격 액세스를 사용하도록 구성할 온-프레미스에서 호스트된 웹 응용 프로그램 |  |
 | 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 Windows 8.1 이상을 실행하는 서버 | [Azure AD 응용 프로그램 프록시 커넥터 이해](manage-apps/application-proxy-connectors.md) |
 | 방화벽이 경로에 있는 경우 커넥터가 응용 프로그램 프록시에 HTTPS(TCP) 요청을 할 수 있도록 방화벽이 열려 있는지 확인합니다. | [Azure Portal에서 응용 프로그램 프록시 사용: 응용 프로그램 프록시 필수 구성 요소](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -306,8 +306,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | SaaS 응용 프로그램(페더레이션 SSO 또는 암호 SSO)이 이미 구성됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) |
-| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
-| 그룹 소유자에 대한 자격 증명을 사용할 수 있음 | [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md) |
+| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
+| 그룹 소유자에 대한 자격 증명을 사용할 수 있음 | [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](fundamentals/active-directory-manage-groups.md) |
 | 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -315,8 +315,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 단계 | 리소스 |
 | --- | --- |
-| 응용 프로그램에 대한 액세스 권한이 부여된 그룹을 식별하고 해당 그룹의 소유자를 구성합니다.| [Azure Active Directory에서 그룹의 설정 관리](active-directory-groups-settings-azure-portal.md) |
-| 그룹 소유자로 로그인하여 액세스 패널의 [그룹] 탭에서 그룹 멤버 자격을 확인합니다. | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r/#/groups)(Azure Active Directory 그룹 관리 페이지) |
+| 응용 프로그램에 대한 액세스 권한이 부여된 그룹을 식별하고 해당 그룹의 소유자를 구성합니다.| [Azure Active Directory에서 그룹의 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| 그룹 소유자로 로그인하여 액세스 패널의 [그룹] 탭에서 그룹 멤버 자격을 확인합니다. | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r#/groups)(Azure Active Directory 그룹 관리 페이지) |
 | 테스트할 정보 근로자를 추가합니다. |  |
 | 정보 근로자로 로그인하여 타일을 사용할 수 있는지 확인합니다. | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
 
@@ -331,7 +331,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | SaaS 응용 프로그램(페더레이션 SSO 또는 암호 SSO)이 이미 구성됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) |
-| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
+| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
 | 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -339,7 +339,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 단계 | 리소스 |
 | --- | --- |
-| 앱이 할당된 그룹에서 사용자를 제거합니다. | [Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리](active-directory-groups-members-azure-portal.md) |
+| 앱이 할당된 그룹에서 사용자를 제거합니다. | [Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리](fundamentals/active-directory-groups-members-azure-portal.md) |
 | 프로비전이 해제되는 동안 몇 분 정도 기다립니다. | [Azure AD에서 SaaS 앱 사용자를 자동으로 프로비전: 자동 프로비전은 어떻게 수행되나요?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | 별도의 브라우저 세션에서 정보 근로자로 My Apps 포털에 로그인하고 타일이 없는지 확인합니다. | http://myapps.microsoft.com |
 

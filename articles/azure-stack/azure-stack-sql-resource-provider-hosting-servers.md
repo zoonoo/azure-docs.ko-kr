@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 183d9479ae18e557b00d0867cad79600145da7bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265231"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060045"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -26,20 +26,24 @@ ms.locfileid: "36265231"
 
 ## <a name="overview"></a>개요
 
-SQL 호스팅 서버에 대 한 일반적인 요구 사항은 같습니다.
+SQL 호스팅 서버를 추가 하기 전에 다음 필수 및 일반 요구 사항을 검토 합니다.
 
-* 리소스 공급자 및 사용자 작업에 사용 하기 위해 SQL 인스턴스 전용 이어야 합니다. 다른 소비자에 의해 사용 되는 SQL 인스턴스를 사용할 수 없습니다. 이 제한은 응용 프로그램 서비스에도 적용 됩니다.
-* VM의 SQL 리소스 공급자 도메인에 가입 없고 SQL 인증을 사용 하 여 연결할 수 있습니다.
-* 리소스 공급자에서 사용 하기 위해 적절 한 권한이 있는 계정을 구성 해야 합니다.
-* 리소스 공급자와 같이 웹 응용 프로그램 사용자를이 네트워크에서 SQL 인스턴스 연결이 필요 하므로 사용자 네트워크를 사용 합니다. 이 요구 사항은 SQL 인스턴스에 대 한 IP는 공용 네트워크에 있어야 합니다. 일반적으로 의미 합니다.
-* SQL 인스턴스 및 해당 호스트의 관리 사용자의 책임입니다. 리소스 공급자 하지 않는 업데이트 적용, 백업, 처리 또는 처리 하는 예를 들어 자격 증명을 회전 합니다.
-* Sku를 지 원하는 다양 한 종류의 성능 및 AlwaysOn을 사용 하 여 고가용성과 같은 SQL 기능을 사용할 수 있습니다.
+**필수 요구 사항**
+
+* SQL Server 인스턴스에서 SQL 인증을 사용 하도록 설정 합니다. VM의 SQL 리소스 공급자가 도메인에 가입 아니어서 SQL 인증을 사용 하는 호스팅 서버에만 연결할 수 있습니다.
+* 공용으로 SQL 인스턴스에 대 한 IP 주소를 구성 합니다. 리소스 공급자 및 웹 응용 프로그램 등의 사용자는이 네트워크에서 SQL 인스턴스 연결이 필요 하므로 사용자 네트워크를 통해 통신 합니다.
+
+**일반 요구 사항**
+
+* 리소스 공급자 및 사용자 작업에 사용 하기 위해 SQL 인스턴스를 전담 합니다. 다른 소비자에 의해 사용 되는 SQL 인스턴스를 사용할 수 없습니다. 이 제한은 응용 프로그램 서비스에도 적용 됩니다.
+* 리소스 공급자에 대 한 적절 한 권한 수준이 있는 계정을 구성 합니다.
+* SQL 인스턴스 및 해당 호스트를 관리 하는 일을 담당 합니다.  리소스 공급자 하지 않는 업데이트 적용, 백업, 처리 또는 처리 하는 예를 들어 자격 증명을 회전 합니다.
 
 ### <a name="sql-server-virtual-machine-images"></a>SQL Server 가상 컴퓨터 이미지
 
 SQL IaaS 가상 컴퓨터 이미지는 마켓플레이스 관리 기능을 통해 사용할 수 있습니다. 이러한 이미지는 Azure에서 사용할 수 있는 SQL Vm와 동일 합니다.
 
-항상 최신 버전의를 다운로드할 수 있는지 확인은 **SQL IaaS 확장** 마켓플레이스 항목을 사용 하는 VM을 배포 하기 전에 합니다.  IaaS 확장 및 해당 포털 자동 패치 하는 등 추가 기능을 제공 하 고 백업 하는 향상 된 기능입니다.
+항상 최신 버전의를 다운로드할 수 있는지 확인은 **SQL IaaS 확장** 마켓플레이스 항목을 사용 하는 SQL VM을 배포 하기 전에 합니다. IaaS 확장 및 해당 포털 자동 패치 하는 등 추가 기능을 제공 하 고 백업 하는 향상 된 기능입니다. 이 확장에 대 한 자세한 내용은 참조 [SQL Server 에이전트 확장으로 Azure 가상 컴퓨터에서 관리 작업을 자동화](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)합니다.
 
 서식 파일을 비롯 한 SQL Vm을 배포 하기 위한 다른 옵션은는 [Azure 스택 퀵 스타트 갤러리](https://github.com/Azure/AzureStack-QuickStart-Templates)합니다.
 
@@ -48,12 +52,12 @@ SQL IaaS 가상 컴퓨터 이미지는 마켓플레이스 관리 기능을 통�
 
 ### <a name="required-privileges"></a>필요한 권한
 
-만들 수 있습니다 관리 사용자 권한이 낮은 사용 권한이 있는 SQL sysadmin입니다. 사용자는 다음 작업에 대 한 권한만 필요 합니다.
+SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다. 사용자는 다음 작업에 대 한 권한만 필요 합니다.
 
-- 데이터베이스: 만들기, 변경 포함 (에 대 한 유일한 Always On), 삭제, 백업
-- 가용성 그룹: 변경, 추가/제거 데이터베이스 조인
-- 로그인: 만들기, 선택, Alter, Drop, 해지
-- 작업 선택: \[마스터\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn) sys.availability_replicas (AlwaysOn), sys.databases \[마스터\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[마스터\].\[ sys\].\[ availability_groups\] (AlwaysOn) sys.master_files
+* 데이터베이스: 만들기, 변경 포함 (에 대 한 유일한 Always On), 삭제, 백업
+* 가용성 그룹: 변경, 추가/제거 데이터베이스 조인
+* 로그인: 만들기, 선택, Alter, Drop, 해지
+* 작업 선택: \[마스터\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn) sys.availability_replicas (AlwaysOn), sys.databases \[마스터\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[마스터\].\[ sys\].\[ availability_groups\] (AlwaysOn) sys.master_files
 
 ## <a name="provide-capacity-by-connecting-to-a-standalone-hosting-sql-server"></a>독립 실행형 SQL server를 호스트에 연결 하 여 용량을 제공 합니다.
 
@@ -71,36 +75,45 @@ SQL IaaS 가상 컴퓨터 이미지는 마켓플레이스 관리 기능을 통�
 
    ![SQL 어댑터 대시보드](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
 
-3. SQL Server 인스턴스의 연결 세부 정보도 폼을 채웁니다.
+3. **SQL 호스팅 서버 추가**, SQL Server 인스턴스에 대 한 연결 세부 정보를 제공 합니다.
 
    ![SQL 호스팅 서버를 추가 합니다.](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 
-    필요에 따라에 인스턴스 이름이 포함 하 고 인스턴스는 기본 포트 1433에 할당 되지 않은 경우 포트 번호를 지정 수 있습니다.
+    필요에 따라 인스턴스 이름을 제공 하 고 인스턴스는 기본 포트 1433에 할당 되지 않은 경우 포트 번호를 지정 합니다.
 
    > [!NOTE]
    > 사용자 및 관리자 Azure 리소스 관리자에서 SQL 인스턴스를 액세스할 수 있습니다,으로 리소스 공급자에 의해 제어 배치할 수 있습니다. SQL 인스턴스 __해야__ 리소스 공급자에만 할당할 수 있습니다.
 
-4. 서버를 추가 하면 서비스 제공을 구분 하는 새로운 또는 기존 SKU에 할당 해야 합니다. 예를 들어 제공 하는 SQL Enterprise 인스턴스를 가질 수 있습니다.
+4. 서버를 추가 하면 기존 SKU에 게 할당 하거나 새로운 SKU를 만들어 해야 합니다. 아래 **호스팅 서버 추가**선택, **Sku**합니다.
+
+   * 기존 SKU를 사용 하려면 사용 가능한 SKU를 선택 하 고 다음 선택 **만들기**합니다.
+   * SKU를 만들려면 선택 **만들 새로운 SKU +** 합니다. **만들 SKU**를 필요한 정보를 입력 한 다음 선택 **확인**합니다.
+
+     > [!IMPORTANT]
+     > 특수 문자, 공백 및 마침표를 포함 하 여에서 지원 되지 않습니다 **이름** 필드입니다. 다음 화면 캡처에는 예제를 사용 하 여 값을 입력 하 고 **제품군**, **계층**, 및 **버전** 필드입니다.
+
+     ![SKU 만들기](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
+
+      Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU 완전히 생성 될 때까지 사용자가 데이터베이스를 만들 수 없습니다.
+
+### <a name="sku-notes"></a>SKU 정보
+
+서비스 제공을 구분 하기 위해 Sku를 사용할 수 있습니다. 예를 들어 다음과 같은 특징이 SQL Enterprise 인스턴스를 가질 수 있습니다.
   
-   - 데이터베이스 용량
-   - 자동 백업
-   - 개별 부서에 대 한 고성능 서버 예약
+* 고용량
+* 성능 우선
+* 고가용성
 
-   SKU에 있는 모든 호스팅 서버와 동일한 기능 있어야 합니다. **이름** 사용자가 적절 한 SKU에 데이터베이스를 배포할 수 있도록 SKU의 속성을 반영 해야 합니다.
+고성능 데이터베이스를 필요로 하는 특정 그룹에 대 한 액세스 제한 앞의 예제에 대 한 SKU를 만들 수 있습니다.
 
-   > [!IMPORTANT]
-   > 특수 문자, 공백 및 마침표를 포함 하 여에서 지원 되지 않습니다는 **제품군** 또는 **계층** SQL 및 MySQL 리소스 공급자에 대 한 SKU를 만들 때 이름을 지정 합니다.
+>[!TIP]
+>반영 하는 SKU 이름을 사용 하 여 용량 및 성능과 같은 SKU의 서버 기능에 설명 합니다. 이름은은 사용자가 적절 한 SKU에 데이터베이스를 배포할 수 있도록 높이기 위해 사용 합니다.
 
-   예: 
-
-   ![SKU 만들기](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
-
-   >[!NOTE]
-   > Sku 포털에 표시 되도록 최대 한 시간이 걸릴 수 있습니다. SKU 완전히 생성 될 때까지 사용자가 데이터베이스를 만들 수 없습니다.
+모범 사례로, SKU에 대 한 모든 호스팅 서버가 동일한 리소스와 성능 특성 있어야 합니다.
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>SQL Always On 가용성 그룹을 사용 하 여 고가용성을 제공 합니다.
 
-추가 단계가 필요 합니다에 항상 SQL 인스턴스를 구성 하 고 최소 세 개의 Vm 또는 물리적 컴퓨터입니다. 이 문서는 Always On 가용성 그룹에 잘 알고 이미 있다고 가정 합니다. 자세한 내용은 다음을 참조하세요.
+단계가 더 필요 하 고 세 개의 Vm (또는 물리적 컴퓨터입니다.) 필요에 항상 SQL 인스턴스를 구성 이 문서는 Always On 가용성 그룹에 잘 알고 이미 있다고 가정 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [Azure 가상 컴퓨터에 SQL Server Always On 가용성 그룹을 소개](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
 * [Always On 가용성 그룹 (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
@@ -108,7 +121,7 @@ SQL IaaS 가상 컴퓨터 이미지는 마켓플레이스 관리 기능을 통�
 > [!NOTE]
 > SQL 어댑터 리소스 공급자 _만_ 나중에 Always On에 대 한 인스턴스 또는 SQL 2016 SP1 Enterprise를 지원 합니다. 이 어댑터 구성 자동 시드 같은 새로운 SQL 기능에 필요 합니다.
 
-앞의 요구 사항 목록 외에도 설정 해야 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server의 각 인스턴스에 대해 각 가용성 그룹에 있습니다.
+또한, 활성화 해야 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server의 각 인스턴스에 대해 각 가용성 그룹에 있습니다.
 
 모든 인스턴스에 대 한 자동 시드를 사용 하려면 편집 하며 각 인스턴스에 대해 다음 SQL 명령을 실행 합니다.
 
@@ -132,7 +145,7 @@ SQL IaaS 가상 컴퓨터 이미지는 마켓플레이스 관리 기능을 통�
 
 2. 선택 **찾아보기** &gt; **관리 리소스** &gt; **SQL 호스팅 서버** &gt; **+추가**.
 
-   아래 **SQL 호스팅 서버** 리소스 공급자의 백 엔드도 사용 되는 SQL Server의 실제 인스턴스를 SQL Server 리소스 공급자를 연결할 수 있습니다.
+   아래 **SQL 호스팅 서버**, 리소스 공급자의 백 엔드도 사용 되는 SQL Server의 실제 인스턴스를 SQL Server 리소스 공급자를 연결할 수 있습니다.
 
 3. SQL Server 인스턴스에 대 한 연결 세부 정보는 양식을 작성 합니다. 항상 수신기 (및 선택적 포트 번호입니다.)의 FQDN 주소를 사용 하 고 있는지 확인 Sysadmin 권한으로 구성 된 계정에 대 한 정보를 제공 합니다.
 

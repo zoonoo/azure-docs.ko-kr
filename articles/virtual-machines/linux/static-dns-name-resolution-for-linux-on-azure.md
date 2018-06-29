@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 8df9035cf4a5e62102353c701625526e211b7282
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: c1ca250d7255877cc811bf7c03034ecbb8f1f372
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915330"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936907"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
-이 문서에서는 Azure CLI 2.0으로 가상 네트워크 인터페이스 카드(vNic) 및 DNS 레이블 이름을 사용하여 Linux VM의 정적 내부 DNS 이름을 설정하는 방법을 보여 줍니다. [Azure CLI 1.0](static-dns-name-resolution-for-linux-on-azure-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다. 정적 DNS 이름은 이 문서에서 사용되는 Jenkins 빌드 서버 또는 Git 서버와 같은 영구 인프라 서비스에 사용됩니다.
+이 문서에서는 Azure CLI 2.0으로 가상 네트워크 인터페이스 카드(vNic) 및 DNS 레이블 이름을 사용하여 Linux VM의 정적 내부 DNS 이름을 설정하는 방법을 보여 줍니다. 정적 DNS 이름은 이 문서에서 사용되는 Jenkins 빌드 서버 또는 Git 서버와 같은 영구 인프라 서비스에 사용됩니다.
 
 요구 사항은 다음과 같습니다.
 
