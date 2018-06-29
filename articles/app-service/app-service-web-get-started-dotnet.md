@@ -27,7 +27,7 @@ ms.lasthandoff: 04/05/2018
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux의 App Service에서 .NET Core 웹앱 만들기](./containers/quickstart-dotnetcore.md)를 참조하세요.
 >
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 계획 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작은 첫 번째 ASP.NET Core 웹앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. 완료되면 배포된 웹 응용 프로그램으로 App Service 플랜 및 Azure 웹앱으로 구성된 리소스 그룹을 갖습니다.
 
 > [!NOTE]
 > ASP.NET Framework 웹앱을 빌드 및 배포하는 방법을 원할 경우 [여기](app-service-web-get-started-dotnet-framework.md)에서 관련 문서를 참조하세요. 
@@ -102,19 +102,19 @@ ASP.NET Core 프로젝트가 생성되면 ASP.NET Core 시작 페이지가 표�
 
 리소스 그룹의 이름을 **myResourceGroup**으로 지정하고 **확인**을 선택합니다.
 
-## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
+## <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-**App Service 계획** 옆에 있는 **새로 만들기**를 선택합니다. 
+**App Service 플랜** 옆에 있는 **새로 만들기**를 선택합니다. 
 
-**App Service 계획 구성** 대화 상자에서 스크린샷 다음에 나오는 테이블의 설정을 사용합니다.
+**App Service 플랜 구성** 대화 상자에서 스크린샷 다음에 나오는 테이블의 설정을 사용합니다.
 
-![App Service 계획 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
+![App Service 플랜 만들기](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
 | 설정 | 제안 값 | 설명 |
 |-|-|-|
-|App Service 계획| myAppServicePlan | App Service 계획의 이름입니다. |
+|App Service 플랜| myAppServicePlan | App Service 플랜의 이름입니다. |
 | 위치 | 서유럽 | 웹앱이 호스팅된 데이터 센터입니다. |
 | 크기 | 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)은 호스팅 기능을 결정합니다. |
 
