@@ -43,7 +43,7 @@ Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.micr
 
 이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
 
-이 사용설명서는 Visual Studio 2017을 사용하는 경우를 가정합니다. 
+이 사용설명서는 Visual Studio 2017을 사용한다고 가정합니다.
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에 대해서만 작동합니다.
 
@@ -69,7 +69,7 @@ Visual Studio를 사용하면 [Azure Portal](http://go.microsoft.com/fwlink/?Lin
 
     ![Azure 웹 앱 창](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-    이 사용설명서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 이를 사용하도록 설정하는 방법은 다른 방법을 사용하게 될 것입니다.
+    이 사용설명서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 다른 방법을 사용하여 이를 사용하도록 설정합니다.
 
     이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure Web Apps: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
 
