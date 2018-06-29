@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: c2beb67a27b667d31402b903f38dbf116e9425d0
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: bace90021d5a786f0b014e617bd0ae8e6043bb36
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301078"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060130"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -113,13 +113,13 @@ TCP 터널링을 사용하여 인증된 WebSocket 연결을 통해 개발 컴퓨
 [az 확장 추가](/cli/azure/extension?view=azure-cli-latest#az-extension-add)를 실행하여 최신 App Service 확장을 추가합니다.
 
 ```azurecli-interactive
-az extension add -–name webapp
+az extension add --name webapp
 ```
 
 이미 `az extension add`을 실행한 경우 대신 [az 확장 업데이트](/cli/azure/extension?view=azure-cli-latest#az-extension-update)을 실행합니다.
 
 ```azurecli-interactive
-az extension update -–name webapp
+az extension update --name webapp
 ```
 
 [az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대한 _\<그룹\_이름>_ 및 \_<앱\_이름>_을 지정하고 로컬 포트 번호로 \<포트>를 바꿉니다.

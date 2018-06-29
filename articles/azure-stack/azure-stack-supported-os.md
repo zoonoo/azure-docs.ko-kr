@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: Brenduns
 ms.reviewer: JeffGoldner
-ms.openlocfilehash: d90ac726ae689cf299ee41d4e7ff4c17769e7455
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 8d9337053c8905886ed4429d64f8ef5b4e2c7d14
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34074833"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060450"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure 스택 지 원하는 게스트 운영 체제
 
@@ -40,7 +40,7 @@ Azure 스택 다음 표에 나열 된 Windows 게스트 운영 체제를 지원 
 | Windows Server 2008 SP2 | 64비트 |  사용자 고유의 이미지 가져오기 |
 | Windows 10 *(참고 1 참조)* | 64 비트, Pro 및 Enterprise | 사용자 고유의 이미지 가져오기 |
 
-***참고 1:*** *Azure 스택에 Windows 10 클라이언트 운영 체제를 배포 하려면 있어야 [사용자 라이선스 Windows](https://www.microsoft.com/Licensing/product-licensing/windows10.aspx) 또는 정규화 된 다중 테 넌 트 호스팅 서비스 공급자를 통해 구매 ([QMTH](https://www.microsoft.com/CloudandHosting/licensing_sca.aspx)).*
+***참고 1:*** *Azure 스택에 Windows 10 클라이언트 운영 체제를 배포 하려면 있어야 [사용자 라이선스 Windows](https://www.microsoft.com/en-us/Licensing/product-licensing/windows10.aspx) 또는 정규화 된 다중 테 넌 트 호스팅 서비스 공급자를 통해 구매 ([QMTH](https://www.microsoft.com/en-us/CloudandHosting/licensing_sca.aspx)).*
 
 마켓플레이스 이미지는 사용량 기준 과금-으로--사용 또는 라이선스 BYOL EA/SPLA ()에 사용할 수입니다. 단일 Azure 스택 인스턴스에서 모두 사용 하 여 지원 되지 않습니다. 배포 하는 동안 Azure 스택 이미지에 적합 한 버전의 게스트 에이전트를 삽입합니다.
 

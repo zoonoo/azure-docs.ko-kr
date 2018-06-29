@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2016
 ms.author: bwren
-ms.openlocfilehash: b4201f105a87b0a41059c061eb37fb35d4514e02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6da876a0e6c1e98683caa864a4a2bcf85195cd10
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040298"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753322"
 ---
 # <a name="microsoft-monitoring-product-comparison"></a>Microsoft 모니터링 제품 비교
 이 문서는 OMS(Operations Management Suite)의 Log Analytics과 SCOM(System Center Operations Manager)의 차이를 아키텍처, 리소스 모니터링 방식의 논리, 수집한 데이터 분석 방식 측면에서 비교, 설명하며  각각의 차이와 상대적 강점에 대한 기본적 내용을 이해하기 위한 정보를 제공합니다.  
 
 ## <a name="basic-architecture"></a>기본 아키텍처
 ### <a name="system-center-operations-manager"></a>System Center Operations Manager
-모든 SCOM 구성 요소는 데이터 센터에 설치하며  [에이전트](http://technet.microsoft.com/library/hh551142.aspx)는 SCOM에서 관리하는 Windows 및 Linux 컴퓨터에 설치합니다.  에이전트는 SCOM 데이터베이스 및 데이터 웨어하우스와 통신하는 [관리 서버](https://technet.microsoft.com/library/hh301922.aspx)와 연결합니다.  에이전트는 도메인 인증에 의존하여 관리 서버에 연결합니다.  신뢰할 수 있는 도메인 밖에 있는 에이전트는 인증서 인증을 수행하거나 [게이트웨이 서버](https://technet.microsoft.com/library/hh212823.aspx)에 연결할 수 있습니다.
+모든 SCOM 구성 요소는 데이터 센터에 설치하며  [에이전트](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-console)는 SCOM에서 관리하는 Windows 및 Linux 컴퓨터에 설치합니다.  에이전트는 SCOM 데이터베이스 및 데이터 웨어하우스와 통신하는 [관리 서버](https://technet.microsoft.com/library/hh301922.aspx)와 연결합니다.  에이전트는 도메인 인증에 의존하여 관리 서버에 연결합니다.  신뢰할 수 있는 도메인 밖에 있는 에이전트는 인증서 인증을 수행하거나 [게이트웨이 서버](https://technet.microsoft.com/library/hh212823.aspx)에 연결할 수 있습니다.
 
 SCOM은 운영 데이터용 SQL 데이터베이스와 보고 및 데이터 분석을 지원하는 데이터 웨어하우스용 SQL 데이터베이스가 필요합니다.  [보고 서버](https://technet.microsoft.com/library/hh298611.aspx) 는 SQL Reporting Services를 실행하여 데이터 웨어하우스의 데이터에 대해 보고합니다. 
 
@@ -41,8 +41,8 @@ SCOM은 [Azure](https://www.microsoft.com/download/details.aspx?id=38414), [Offi
 
 Log Analytics는 다음 세 가지 원본 중 하나에서 데이터를 수집할 수 있습니다.
 
-* Windows 및 [MMA(Microsoft Management Agent)](https://technet.microsoft.com/library/mt484108.aspx) 또는 Linux 및 [Linux용 Operations Management Suite 에이전트](https://technet.microsoft.com/library/mt622052.aspx)를 실행하는 물리적 및 가상 컴퓨터.  이러한 컴퓨터는 Azure 또는 다른 클라우드에서 온-프레미스 또는 가상 컴퓨터일 수 있습니다.
-* Azure의 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 데이터를 수집하는 Azure 저장소 계정.
+* Windows 및 [MMA(Microsoft Management Agent)](https://technet.microsoft.com/library/mt484108.aspx) 또는 Linux 및 [Linux용 Operations Management Suite 에이전트](https://technet.microsoft.com/library/mt622052.aspx)를 실행하는 물리적 및 가상 머신.  이러한 컴퓨터는 Azure 또는 다른 클라우드에서 온-프레미스 또는 가상 머신일 수 있습니다.
+* Azure의 작업자 역할, 웹 역할 또는 가상 컴퓨터에서 [Azure 진단](../cloud-services/cloud-services-dotnet-diagnostics.md) 데이터를 수집하는 Azure Storage 계정.
 * [SCOM 관리 그룹에 연결](https://technet.microsoft.com/library/mt484104.aspx).  이 구성에서는 에이전트가 SCOM 데이터베이스에 데이터를 제공하는 SCOM 관리 서버와 통신합니다. 그런 다음 이 데이터는 OMS 데이터 저장소로 배달됩니다.
   관리자는 수집된 데이터를 분석하고 OMS 포털(Azure에 호스팅되어 있으며 모든 브라우저에서 액세스할 수 있음)을 사용하여 Log Analytics를 분석할 수 있습니다.  이 데이터에 액세스하는 모바일 앱은 표준 플랫폼에 사용할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: iainfou
-ms.openlocfilehash: aaab69f452db9d4f11af2b5cfd2cd9ff6ac79954
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: c1fdf3e95fe0026dcb1b47dd6537008921d461fe
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103679"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017537"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>개발/테스트 시나리오용으로 Azure에서 Windows 클라이언트 사용
 적절한 Visual Studio(이전의 MSDN) 구독이 있으면 Azure에서 개발/테스트 시나리오에 Windows 7, Windows 8 또는 Windows 10 Enterprise(x64)를 사용할 수 있습니다. 이 문서에서는 Azure에서 Windows 7, Windows 8.1, Windows 10 Enterprise를 실행하고 다음 Azure 갤러리 이미지를 사용하기 위한 적격성 요구 사항에 대해 대략적으로 설명합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "28103679"
 | [Visual Studio Premium with MSDN(혜택)](https://azure.microsoft.com/offers/ms-azr-0061p/) |0061P |윈도우 10 |
 | [Visual Studio Enterprise 구독자](https://azure.microsoft.com/offers/ms-azr-0063p/) |0063P |윈도우 10 |
 | [Visual Studio Enterprise(BizSpark) 구독자](https://azure.microsoft.com/offers/ms-azr-0064p/) |0064P |윈도우 10 |
-| [Enterprise 개발/테스트](https://azure.microsoft.com/ofers/ms-azr-0148p/) |0148P |윈도우 10 |
+| [Enterprise 개발/테스트](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) |0148P |윈도우 10 |
 
 ## <a name="check-your-azure-subscription"></a>Azure 구독 확인
 제품 ID를 모르는 경우 다음 두 방법 중 하나로 Azure Portal을 통해 얻을 수 있습니다.  

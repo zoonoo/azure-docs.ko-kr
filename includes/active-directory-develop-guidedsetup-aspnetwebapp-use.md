@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 98f3372b48b004c0067a085bbf130bc4e5144437
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 98bb86be1e1d0dccb5a76b91489e664ee4a30765
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205589"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943592"
 ---
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>로그인 및 로그아웃 요청을 처리하는 컨트롤러 추가
 
@@ -78,7 +78,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Guide</title>
+        <title>Sign in with Microsoft Guide</title>
     </head>
     <body>
     @if (!Request.IsAuthenticated)
@@ -172,7 +172,7 @@ Visual Studio에서 새 보기를 만들어 사용자의 클레임을 웹 페이
     <html>
     <head>
         <meta name="viewport" content="width=device-width" />
-        <title>Sign-In with Microsoft Sample</title>
+        <title>Sign in with Microsoft Sample</title>
         <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" type="text/css" />
     </head>
     <body style="padding:50px">

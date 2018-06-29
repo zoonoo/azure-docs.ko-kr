@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: cad7719eb077d7aca9c1db5741a5fe1e0ca910a2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 38ff1ee4c525d41e2a7446d5adc792c746504491
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191318"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754309"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>가상 네트워크에 대한 VPN 처리량의 유효성을 검사하는 방법
 
@@ -54,7 +54,7 @@ VPN Gateway 연결에는 다음 구성 요소가 포함됩니다.
 4.  ISP(인터넷 서비스 공급자) 대역폭을 결정합니다.
 5.  예상 처리량을 계산합니다((VM, Gateway, ISP)의 최소 대역폭 * 0.8).
 
-계산된 처리량이 응용 프로그램의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 머신의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/virtual-machines-windows-resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의해야 할 수도 있습니다.
+계산된 처리량이 응용 프로그램의 기준선 처리량 요구 사항을 충족하지 않을 경우 병목 현상으로 식별한 리소스의 대역폭을 늘려야 합니다. Azure VPN Gateway의 크기를 조정하려면 [Changing a gateway SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)(게이트웨이 SKU 변경)를 참조하세요. 가상 머신의 크기를 조정하려면 [VM 크기 조정](../virtual-machines/virtual-machines-windows-resize-vm.md)을 참조하세요. 예상 인터넷 대역폭을 사용할 수 없으면 ISP에 문의해야 할 수도 있습니다.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>성능 도구를 사용하여 네트워크 처리량의 유효성 검사
 

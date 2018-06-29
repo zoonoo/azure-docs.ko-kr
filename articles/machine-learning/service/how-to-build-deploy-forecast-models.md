@@ -3,18 +3,18 @@ title: Azure Machine Learning Package for Forecasting을 사용하여 예측 모
 description: Azure Machine Learning Package for Forecasting을 사용하여 예측 모델 모델을 작성, 학습, 테스트 및 배포하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
-ms.component: service
+ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
 ms.date: 05/07/2018
-ms.openlocfilehash: 0891f49da479b4209c305ebb532b053d85a7b2a6
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 320a7cf4a34657138c9096cdc4b573170be376e9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833532"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035575"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning으로 예측 모델 작성 및 배포
 
@@ -336,7 +336,7 @@ print('{} time series in the data frame.'.format(nseries))
 
 데이터에는 데이터 프레임에 약 250가지의 store와 brand 조합이 포함되어 있습니다. 각 조합은 자체 영업 시계열을 정의합니다. 
 
-[TimeSeriesDataFrame](https://docs.microsoft.com/python/api/ftk.dataframets.timeseriesdataframe) 클래스를 사용하면 입자(_grain_)를 통해 단일 데이터 구조에서 여러 계열을 편리하게 모델링할 수 있습니다. 입자(grain)는 `store` 및 `brand` 열에 의해 지정됩니다.
+[TimeSeriesDataFrame](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest) 클래스를 사용하면 입자(_grain_)를 통해 단일 데이터 구조에서 여러 계열을 편리하게 모델링할 수 있습니다. 입자(grain)는 `store` 및 `brand` 열에 의해 지정됩니다.
 
 입자(grain)는 현실 세계에서 물리적으로 항상 의미가 있지만 그룹은 그렇지 않아도 되는 것이 입자(_grain_)와 _그룹_의 차이입니다. 모델 성능을 향상시키는 데 그룹화가 도움이 된다고 사용자가 생각하는 경우, 내부 패키지 함수는 group을 사용하여 여러 시계열에서 단일 모델을 작성합니다. 기본적으로 그룹은 입자(grain)와 동일하게 설정되고 단일 모델은 각 입자(grain)에 대해 작성됩니다. 
 
@@ -498,7 +498,7 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 
-[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframets.timeseriesdataframe#ts-report) 함수는 시계열 데이터 프레임에 대한 포괄적인 보고서를 생성합니다. 보고서에는 일반 데이터 설명과 시계열 데이터 관련 통계가 모두 포함됩니다. 
+[TimeSeriesDataFrame.ts_report](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#ts-report) 함수는 시계열 데이터 프레임에 대한 포괄적인 보고서를 생성합니다. 보고서에는 일반 데이터 설명과 시계열 데이터 관련 통계가 모두 포함됩니다. 
 
 
 ```python
@@ -887,14 +887,14 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>데이터 전처리 및 누락 값 대체
 
-[ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/python/api/ftk.tsutils) 유틸리티 함수를 사용하여 학습 집합과 테스트 집합으로 데이터를 분할하는 것부터 시작합니다. 결과 집합에는 각 시계열의 최근 40개 관측이 포함됩니다. 
+[ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) 유틸리티 함수를 사용하여 학습 집합과 테스트 집합으로 데이터를 분할하는 것부터 시작합니다. 결과 집합에는 각 시계열의 최근 40개 관측이 포함됩니다. 
 
 
 ```python
 train_tsdf, test_tsdf = last_n_periods_split(whole_tsdf, 40)
 ```
 
-기본 시계열 모델에는 인접 시계열이 필요합니다. [check_regularity_by_grain](https://docs.microsoft.compython/api/ftk.dataframets.timeseriesdataframe) 함수를 사용하여 계열이 규칙적인지 즉, 일정한 간격으로 샘플링된 인덱스가 있는지 확인합니다.
+기본 시계열 모델에는 인접 시계열이 필요합니다. [check_regularity_by_grain](https://docs.microsoft.com/en-us/python/api/ftk.dataframe_ts.timeseriesdataframe?view=azure-ml-py-latest#check-regularity-by-grain) 함수를 사용하여 계열이 규칙적인지 즉, 일정한 간격으로 샘플링된 인덱스가 있는지 확인합니다.
 
 
 ```python
@@ -969,7 +969,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-대부분의 계열(249개 중 213개)이 불규칙한 것을 볼 수 있습니다. 누락된 판매 수량 값을 채우려면 [대체 변환](https://docs.microsoft.com/python/api/ftk.transforms.tsimputer.timeseriesimputer)이 필요합니다. 많은 대체 옵션이 있지만 다음 샘플 코드에서는 선형 보간을 사용합니다.
+대부분의 계열(249개 중 213개)이 불규칙한 것을 볼 수 있습니다. 누락된 판매 수량 값을 채우려면 [대체 변환](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest)이 필요합니다. 많은 대체 옵션이 있지만 다음 샘플 코드에서는 선형 보간을 사용합니다.
 
 
 ```python
@@ -1035,7 +1035,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>여러 모델 통합
 
-[ForecasterUnion](https://docs.microsoft.com/python/api/ftk.models.forecasterunion.forecasterunion) 추정을 통해 여러 추정을 결합하고 코드 한 줄로 맞춤/예측을 수행할 수 있습니다.
+[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) 추정을 통해 여러 추정을 결합하고 코드 한 줄로 맞춤/예측을 수행할 수 있습니다.
 
 
 ```python
@@ -1249,7 +1249,7 @@ print(train_feature_tsdf.head())
 
  **RegressionForecaster**
 
-[RegressionForecaster](https://docs.microsoft.com/python/api/ftk.models.regressionforecaster.regressionforecaster) 함수는 sklearn 회귀 추정을 래핑하여 TimeSeriesDataFrame에서 학습할 수 있도록 합니다. 래핑된 forecaster는 각 그룹을 동일한 모델(이 경우 store)에 배치합니다. forecaster는 비슷한 것으로 간주되어 함께 풀링할 수 있는 일련의 그룹에 대한 하나의 모델을 학습할 수 있습니다. 일련의 그룹에 대한 하나의 모델은 짧은 계열에 대한 예측을 개선하기 위해 긴 계열의 데이터를 사용하는 경우가 많습니다. 이러한 모델은 회귀를 지원하는 라이브러리의 다른 모델로 대체할 수 있습니다. 
+[RegressionForecaster](https://docs.microsoft.com/en-us/python/api/ftk.models.regression_forecaster.regressionforecaster?view=azure-ml-py-latest) 함수는 sklearn 회귀 추정을 래핑하여 TimeSeriesDataFrame에서 학습할 수 있도록 합니다. 래핑된 forecaster는 각 그룹을 동일한 모델(이 경우 store)에 배치합니다. forecaster는 비슷한 것으로 간주되어 함께 풀링할 수 있는 일련의 그룹에 대한 하나의 모델을 학습할 수 있습니다. 일련의 그룹에 대한 하나의 모델은 짧은 계열에 대한 예측을 개선하기 위해 긴 계열의 데이터를 사용하는 경우가 많습니다. 이러한 모델은 회귀를 지원하는 라이브러리의 다른 모델로 대체할 수 있습니다. 
 
 
 ```python

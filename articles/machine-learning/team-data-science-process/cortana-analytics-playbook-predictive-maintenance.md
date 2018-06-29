@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: 50338e05241be9ce573ff3dd3bb99711cbf15b28
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248540"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938012"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -434,7 +434,7 @@ Microsoft Azure에서는 일반적인 AI 개념 및 사례에 대한 무료 콘�
 |:-------------------|--------------|
 | [Azure의 AI 개발자](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | 공용 |
 | [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | 공용 |
-| [GitHub의 Azure AI 학습](http://azure.github.io/learnanalytics/public) | 공용 |
+| [GitHub의 Azure AI 학습](https://github.com/Azure/connectthedots/blob/master/readme.md) | 공용 |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | 공용 |
 | [Microsoft AI YouTube 웨비나](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | 공용 |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | 공용 |

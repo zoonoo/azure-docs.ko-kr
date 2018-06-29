@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 383c4a53913333a3e25006980dd7533b9e243a4a
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 9a17f34333503436d3da340670abdde154e45ef6
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236694"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336029"
 ---
 2018년 7월 1일부터 Azure VPN 게이트웨이에서 1.1 및 TLS 1.0에 대한 지원이 제거될 예정입니다. VPN Gateway는 TLS 1.2만 지원합니다. TLS를 사용하는 Windows 7 및 Windows 8 지점-사이트 간 클라이언트에 대한 TLS 지원 및 연결을 유지 관리하려면 다음 업데이트를 설치하는 것이 좋습니다.
 
@@ -27,4 +27,3 @@ ms.locfileid: "35236694"
 * DES(Data Encryption Algorithm)
 * 3DES(Triple Data Encryption Algorithm)
 * MD5(메시지 다이제스트 5)
-* SHA-1(보안 해시 알고리즘 1)

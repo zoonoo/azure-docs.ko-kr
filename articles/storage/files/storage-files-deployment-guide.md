@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
-ms.openlocfilehash: 193a403a64cea31a2e4cea21a5838be71af8dd53
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 38a0e64bf958ef6aebac41136ffcb9c213cc7ec0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737353"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029784"
 ---
 # <a name="how-to-deploy-azure-files"></a>Azure Files를 배포하는 방법
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. 이 문서에서는 조직 내에서 실제적으로 Azure Files를 배포하는 방법을 보여 줍니다.
@@ -83,7 +83,7 @@ Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 A
     
     자세한 내용은 [드라이브 집합 CSV 파일 준비](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file)를 참조하세요.
 
-6. [WAImportExport 도구](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
+6. [WAImportExport 도구](https://www.microsoft.com/en-us/download/details.aspx?id=55280)를 사용하여 하나 이상의 하드 드라이브에 데이터를 복사합니다.
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>

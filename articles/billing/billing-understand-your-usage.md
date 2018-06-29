@@ -1,5 +1,5 @@
 ---
-title: Azure 세부 사용량 이해
+title: Azure 세부 사용량 이해 | Microsoft Docs
 description: Azure 구독에 대한 세부 사용량 CSV 섹션을 읽고 이해하는 방법을 알아봅니다.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 0f698bff1506484e1dd4afe22f7c14e0a710937c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771141"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060803"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Microsoft Azure 세부 사용 요금 조건 이해 
 

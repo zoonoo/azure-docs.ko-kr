@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: 032b14051c5c2b06fa23ee67858706fada545967
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25ed439674fcf7136e29034eb97e0652ae9ba111
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618660"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055651"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -26,9 +26,6 @@ ADF 지원 데이터 원본 중 하나에서 데이터 집합을 검색하는 �
 - 개체 이름을 하드 코딩하는 대신 후속 작업에서 작동할 개체(파일, 테이블 등)를 동적으로 결정합니다.
 
 조회 작업은 구성 파일, 구성 테이블 또는 쿼리 또는 저장 프로시저를 실행한 결과의 내용을 읽거나 반환할 수 있습니다.  조회 작업에서 출력은 싱글톤 값인 경우 후속 복사 또는 변환 작업에서 사용될 수 있고 특성의 배열인 경우 ForEach 작업에서 사용될 수 있습니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -61,7 +58,7 @@ Name | 설명 | type | Required?
 ---- | ----------- | ---- | --------
 dataset | 조회를 위한 데이터 집합 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 "데이터 집합 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예
 원본 | 복사 작업 원본과 동일한 데이터 집합 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 "복사 작업 속성" 섹션에서 확인하세요. | 키/값 쌍 | 예
-firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN | 번호 기본값은 `true`입니다.
+firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | BOOLEAN | 아니요. 기본값은 `true`입니다.
 
 **주의 사항:**
 

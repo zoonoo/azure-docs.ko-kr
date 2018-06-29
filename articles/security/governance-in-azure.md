@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: a5f323b98fa30d2c4c89fa8fe8e75c1d89089b6e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c0794ebd953160c8569502db5d58c6d2b9ad892a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895279"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061499"
 ---
 # <a name="governance-in-azure"></a>Azure에서 거버넌스
 
@@ -413,7 +413,7 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-Log Analytics 소프트웨어 개발 및 서비스 팀의 정보 보안 및 [거버넌스 프로그램](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md)은 비즈니스 요구 사항을 지원하며 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/) 및 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)에 설명된 법률 및 규정을 준수합니다. 여기에는 Log Analytics가 보안 요구 사항을 설정하고 보안 컨트롤을 식별하며 위험을 관리 및 모니터링하는 방식도 설명되어 있습니다. 정책, 표준, 절차, 지침을 매년 검토합니다.
+Log Analytics 소프트웨어 개발 및 서비스 팀의 정보 보안 및 [거버넌스 프로그램](https://github.com/Microsoft/azure-docs/blob/master/articles/log-analytics/log-analytics-security.md)은 비즈니스 요구 사항을 지원하며 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/) 및 [Microsoft 보안 센터 규정 준수](https://microsoft.com/en-us/trustcenter/compliance)에 설명된 법률 및 규정을 준수합니다. 여기에는 Log Analytics가 보안 요구 사항을 설정하고 보안 컨트롤을 식별하며 위험을 관리 및 모니터링하는 방식도 설명되어 있습니다. 정책, 표준, 절차, 지침을 매년 검토합니다.
 
 각 Log Analytics 개발 팀 멤버는 공식적인 응용 프로그램 보안 교육을 이수합니다. 내부적으로는 소프트웨어 개발에 대한 버전 관리 시스템을 사용합니다. 각 소프트웨어 프로젝트는 버전 관리 시스템으로 보호됩니다.
 

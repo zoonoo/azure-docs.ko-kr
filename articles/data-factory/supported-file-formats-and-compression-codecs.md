@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: jingwang
-ms.openlocfilehash: c96d8b273a0e74ced5b121d19e1c3e5343a754b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 534df0dfef1f69297c5728ed892a5457944e4468
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621822"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052293"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory에서 지원되는 파일 형식 및 압축 코덱
 
@@ -27,9 +27,6 @@ ms.locfileid: "34621822"
 * [Avro 형식](#avro-format)
 * [ORC 형식](#orc-format)
 * [Parquet 형식](#parquet-format)
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1의 지원되는 파일 및 압축 형식](v1//data-factory-supported-file-and-compression-formats.md)을 참조하세요.
 
 > [!TIP]
 > 파일 형식 설정에 따라 메타데이터가 결정되는 방법과 [dataset `structure`](concepts-datasets-linked-services.md#dataset-structure) 섹션을 지정해야 하는 경우에 대한 팁을 비롯하여 복사 작업이 [복사 작업의 스키마 매핑](copy-activity-schema-and-type-mapping.md)에서 싱크로 원본 데이터를 매핑하는 방법을 알아봅니다.
