@@ -23,7 +23,7 @@ ms.locfileid: "30266141"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 웹앱 문제 해결
 ## <a name="overview"></a>개요
-이 자습서에서는 원격으로 [디버그 모드](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)를 실행하거나 응용 프로그램 로그 및 웹 서버 로그를 확인하여 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
+이 사용설명서에서는 원격으로 [디버그 모드](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx)를 실행하거나 응용 프로그램 로그 및 웹 서버 로그를 확인하여 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 웹앱을 디버그할 수 있는 Visual Studio 도구를 사용하는 방법을 보여줍니다.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -36,14 +36,14 @@ ms.locfileid: "30266141"
 * 자세한 오류 메시지 및 실패한 요청 추적 등의 웹 서버 로그를 보는 방법
 * 진단 로그를 Azure Storage 계정으로 보내고 해당 위치에서 로그를 보는 방법
 
-Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 자습서에서 다루지 않습니다.
+Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 사용설명서에서 다루지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 자습서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱에 적용됩니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
+이 사용설명서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱을 작업합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
 
-이 자습서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
+이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
 
-이 자습서는 Visual Studio 2017을 사용하는 경우를 가정합니다. 
+이 사용설명서는 Visual Studio 2017을 사용한다고 가정합니다.
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에서만 작동합니다.
 
@@ -69,7 +69,7 @@ Visual Studio를 사용하면 [Azure Portal](http://go.microsoft.com/fwlink/?Lin
 
     ![Azure 웹 앱 창](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-configtab.png)
 
-    이 자습서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 이를 사용하도록 설정하는 방법은 다른 방법을 사용하게 될 것입니다.
+    이 사용설명서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 다른 방법을 사용하여 이를 사용하도록 설정합니다.
 
     이 창에 있는 응용 프로그램 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure Web Apps: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
 
@@ -672,7 +672,7 @@ catch (Exception ex)
 ```
 
 * [Azure 명령줄에서 진단 추적 로깅 스트리밍(Glimpse 포함)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
-  이 자습서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 응용 프로그램을 디버그하는 데 사용하는 도구입니다.
+  이 사용설명서에서 설명한 Visual Studio 관련 작업을 명령줄로 수행하는 방법을 설명합니다. [Glimpse](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) 는 ASP.NET 응용 프로그램을 디버그하는 데 사용하는 도구입니다.
 * [David Ebbo와 함께 하는 Web Apps 로깅 및 진단](/documentation/videos/azure-web-site-logging-and-diagnostics/) 및 [David Ebbo와 함께 하는 Web Apps에서 로그 스트리밍](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   은 Scott Hanselman과 David Ebbo가 제작한 비디오입니다.
 
