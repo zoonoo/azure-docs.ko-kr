@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/26/2018
   ms.author: mimig
-  ms.openlocfilehash: 14908c33409684d070ef7aee26445bc7ca3a6d59
-  ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+  ms.openlocfilehash: 0feb26c11ad0a231067fc7b91b83df94e75febe4
+  ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/01/2018
-  ms.locfileid: "34612608"
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37111666"
 abstract:
   description: Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서비스입니다. 널리 사용되는 API 및 프로그래밍 모델을 사용하여 문서, 키-값, 전체-열 및 그래프 데이터베이스를 개발하기 위해 이 빠른 시작, 자습서 및 샘플을 사용합니다. 포괄적인 SLA를 사용하는 동안 여러 Azure 지역에 걸쳐 데이터를 복제하고 저장소에서 독립적으로 처리량의 크기를 조정하는 방법을 알아봅니다.
   aside:
@@ -114,7 +114,7 @@ sections:
       - href: /azure/cosmos-db/create-mongodb-flask
       - href: 
       - href: /azure/cosmos-db/create-mongodb-golang
-      - href: 
+      - href: /azure/cosmos-db/create-mongodb-xamarin
     - title: Gremlin API
       values:
       - href: /azure/cosmos-db/create-graph-java

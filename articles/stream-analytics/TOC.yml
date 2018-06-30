@@ -127,8 +127,6 @@
           href: stream-analytics-job-diagram-with-metrics.md
         - name: 진단 로그
           href: stream-analytics-job-diagnostic-logs.md
-        - name: 리소스 상태 확인
-          href: stream-analytics-resource-health.md
         - name: SELECT INTO 문
           href: stream-analytics-select-into.md
         - name: 이벤트 허브 수신기
