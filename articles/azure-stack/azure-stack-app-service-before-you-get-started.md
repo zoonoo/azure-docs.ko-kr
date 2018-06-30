@@ -14,62 +14,69 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: anwestg
-ms.openlocfilehash: ae21a7cc5c38fefd40a2676e15308b027c6f95d5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 37d6ee2f047768f08ea7a113b7d97911d58a46e2
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796736"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110578"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 시작 하기 전에
 
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
-> [!IMPORTANT]
-> Azure 스택 통합 시스템 1804 업데이트를 적용 하거나 Azure 앱 서비스 1.2를 배포 하기 전에 최신 Azure 스택 개발 키트를 배포 합니다.
->
->
+Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구성 요소 단계를 완료 해야 합니다.
 
-Azure 스택 Azure 앱 서비스를 배포 하기 전에이 문서의 필수 구성 요소를 완료 해야 합니다.
+> [!IMPORTANT]
+> Azure 스택 통합 시스템 1804 업데이트를 적용 하거나 Azure 앱 서비스 1.2를 배포 하기 전에 최신 Azure 스택 개발 키트 (ASDK)를 배포 합니다.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>설치 관리자 및 도우미 스크립트를 다운로드 합니다.
 
 1. 다운로드는 [Azure 스택 배포 도우미 스크립트에 대 한 앱 서비스](https://aka.ms/appsvconmashelpers)합니다.
 2. 다운로드는 [Azure 스택 설치 관리자에서 응용 프로그램 서비스](https://aka.ms/appsvconmasinstaller)합니다.
-3. 도우미 스크립트.zip 파일에서 파일을 추출 합니다. 다음 파일 및 폴더 구조를 표시 됩니다.
+3. 도우미 스크립트.zip 파일에서 파일을 추출 합니다. 다음 파일과 폴더가 추출 됩니다.
+
    - Common.ps1
    - Create-AADIdentityApp.ps1
    - Create-ADFSIdentityApp.ps1
    - Create-AppServiceCerts.ps1
    - Get-AzureStackRootCert.ps1
    - Remove-AppService.ps1
-   - 모듈
+   - 모듈 폴더
      - GraphAPI.psm1
 
 ## <a name="high-availability"></a>고가용성
 
-오류 도메인에 대 한 지원을 추가 하는 Azure 스택에서 1802 릴리스의 인해 Azure 스택 앱 서비스를 Azure의 새 배포 오류 도메인에 배포 되 고 내결함성을 제공 합니다.  Azure 스택, Azure 앱 서비스의 1802 업데이트 출시 되기 전에 배포 된 기존 배포에 대 한 참조는 [설명서](azure-stack-app-service-fault-domain-update.md) 배포 균형을 다시 조정 하는 방법에 대 한 합니다.
+Azure 스택 1802 업데이트가 오류 도메인에 대 한 지원을 추가 합니다. Azure 스택 앱 서비스를 Azure의 새 배포 오류 도메인에 배포 되 고 내결함성을 제공 합니다.
 
-또한 고가용성을 위해 Azure 스택에 Azure 앱 서비스에는 필요한 파일 서버 및 고가용성 구성에서 SQL Server 인스턴스에 배포 합니다.
+Azure 스택, Azure 앱 서비스의 1802 업데이트 전에 배포 된 기존 배포에 대 한 참조는 [앱 서비스 리소스 공급자 오류 도메인 간에 균형을 다시 조정](azure-stack-app-service-fault-domain-update.md) 문서.
+
+또한 필요한 파일 서버 및 항상 사용 가능한 구성의 SQL Server 인스턴스를 배포 합니다.
 
 ## <a name="get-certificates"></a>인증서 가져오기
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>Azure 리소스 관리자 루트 인증서에 대 한 Azure 스택
 
-Azure 스택 통합 시스템 또는 Azure 스택 개발 키트 호스트에 권한 있는 끝점에 연결할 수 있는 한 컴퓨터에 azurestack\CloudAdmin으로 실행 되는 PowerShell 세션에서 압축을 푼 폴더에서 Get AzureStackRootCert.ps1 스크립트를 실행 도우미 스크립트입니다. 스크립트 응용 프로그램 서비스 인증서를 만드는 스크립트와 같은 폴더에 루트 인증서를 만듭니다.
+Azure 스택 통합 시스템 또는 Azure 스택 개발 키트 호스트에 권한 있는 끝점에 도달할 수 있는 컴퓨터에서 관리자 권한 PowerShell 세션을 엽니다.
+
+실행 된 *Get AzureStackRootCert.ps1* 도우미 스크립트의 압축을 푼 폴더에서 스크립트입니다. 스크립트 응용 프로그램 서비스 인증서를 만드는 스크립트와 같은 폴더에 루트 인증서를 만듭니다.
+
+다음 PowerShell 명령을 실행 하면는 AzureStack\CloudAdmin에 대 한 권한 있는 끝점 및 자격 증명을 제공 해야 합니다.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
 ```
 
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get AzureStackRootCert.ps1 스크립트 매개 변수
+
 | 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| PrivilegedEndpoint | 필수 | AzS-ERCS01 | 권한 있는 끝점 |
-| CloudAdminCredential | 필수 | AzureStack\CloudAdmin | Azure 스택 클라우드 관리자에 대 한 도메인 계정 자격 증명 |
+| PrivilegedEndpoint | 필요 | AzS-ERCS01 | 권한 있는 끝점 |
+| CloudAdminCredential | 필요 | AzureStack\CloudAdmin | Azure 스택 클라우드 관리자에 대 한 도메인 계정 자격 증명 |
 
-### <a name="certificates-required-for-the-azure-stack-development-kit"></a>Azure 스택 개발 키트에 필요한 인증서
+### <a name="certificates-required-for-asdk-deployment-of-azure-app-service"></a>Azure 앱 서비스의 ASDK 배포에 필요한 인증서
 
-첫 번째 스크립트 응용 프로그램 서비스는 4 개의 인증서를 만드는 Azure 스택 인증 기관을 사용할 수 있습니다.
+*만들기 AppServiceCerts.ps1* 스크립트 응용 프로그램 서비스는 4 개의 인증서를 만드는 Azure 스택 인증 기관으로 작동 합니다.
 
 | 파일 이름 | 사용 |
 | --- | --- |
@@ -78,29 +85,32 @@ Azure 스택 통합 시스템 또는 Azure 스택 개발 키트 호스트에 권
 | ftp.appservice.local.azurestack.external.pfx | 응용 프로그램 서비스 게시자 SSL 인증서 |
 | sso.appservice.local.azurestack.external.pfx | 앱 서비스 id 응용 프로그램 인증서 |
 
-Azure 스택 개발 키트 호스트에서 스크립트를 실행 하 고 azurestack\CloudAdmin으로 PowerShell을 실행 중인지 확인 합니다.
+인증서를 만들려면 다음이 단계를 수행 합니다.
 
-1. Azurestack\AzureStackAdmin으로 실행 되는 PowerShell 세션에서 도우미 스크립트의 압축을 푼 폴더에서 AppServiceCerts.ps1 만들기 스크립트를 실행 합니다. 스크립트는 앱 서비스 인증서를 만드는 스크립트와 같은 폴더에 4 개의 인증서를 만듭니다.
-2. .Pfx 파일을 보호 하려면 암호를 입력 하 고는 기록 합니다. Azure 스택 설치 관리자에 앱 서비스에서 입력 해야 합니다.
+1. Azure 스택 개발 키트 호스트 AzureStack\AzureStackAdmin 계정을 사용 하 여에 로그인 합니다.
+2. 관리자 권한 PowerShell 세션을 엽니다.
+3. 실행 된 *만들기 AppServiceCerts.ps1* 도우미 스크립트의 압축을 푼 폴더에서 스크립트입니다. 이 스크립트는 앱 서비스 인증서를 만드는 스크립트와 같은 폴더에 4 개의 인증서를 만듭니다.
+4. .Pfx 파일을 보호 하려면 암호를 입력 하 고는 기록 합니다. Azure 스택 설치 관리자에서 응용 프로그램 서비스에 입력 해야 합니다.
 
-#### <a name="create-appservicecertsps1-parameters"></a>Create-AppServiceCerts.ps1 parameters
-
-```PowerShell
-    Create-AppServiceCerts.ps1
-```
+#### <a name="create-appservicecertsps1-script-parameters"></a>만들 AppServiceCerts.ps1 스크립트 매개 변수
 
 | 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| pfxPassword | 필수 | Null | 보호할 수 있는 인증서 개인 키 암호 |
-| DomainName | 필수 | local.azurestack.external | Azure 스택 지역 및 도메인 접미사 |
+| pfxPassword | 필요 | Null | 보호할 수 있는 인증서 개인 키 암호 |
+| DomainName | 필요 | local.azurestack.external | Azure 스택 지역 및 도메인 접미사 |
 
-### <a name="certificates-required-for-a-production-deployment-of-azure-app-service-on-azure-stack"></a>Azure 스택 앱 서비스를 Azure의 프로덕션 배포에 필요한 인증서
+### <a name="certificates-required-for-azure-stack-production-deployment-of-azure-app-service"></a>Azure 앱 서비스의 Azure 스택 프로덕션 배포에 필요한 인증서
 
-프로덕션 환경에서 리소스 공급자를 작동 하려면 다음과 같은 4 개의 인증서를 제공 해야 합니다.
+프로덕션 환경에서 리소스 공급자를 실행 하려면 다음과 같은 인증서를 제공 해야 합니다.
+
+- 기본 도메인 인증서
+- API 인증서
+- 게시 인증서
+- 인증서 확인
 
 #### <a name="default-domain-certificate"></a>기본 도메인 인증서
 
-기본 도메인 인증서는 프런트 엔드 역할에 배치 됩니다. Azure 앱 서비스에 대 한 와일드 카드 또는 기본 도메인 요청이 사용자 응용 프로그램은이 인증서를 사용 합니다. 인증서 (Kudu) 소스 제어 작업에도 사용 됩니다.
+기본 도메인 인증서는 프런트 엔드 역할에 배치 됩니다. Azure 앱 서비스에 와일드 카드 또는 기본 도메인 요청에 대 한 사용자 응용 프로그램은이 인증서를 사용 합니다. 인증서 (Kudu) 소스 제어 작업에도 사용 됩니다.
 
 인증서는.pfx 형식에서 이어야 하며 3 주체 와일드 카드 인증서 여야 합니다. 이 요구 소스 제어 작업에 대 한 SCM 끝점과 기본 도메인을 모두 포함 하는 하나의 인증서를 허용 합니다.
 
@@ -139,9 +149,9 @@ Id에 대 한 인증서는 다음 형식과 일치 하는 주체를 포함 해�
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-## <a name="virtual-network"></a>Virtual Network
+## <a name="virtual-network"></a>가상 네트워크
 
-Azure 스택 앱 서비스를 azure에 배포할 수 있습니다 리소스 공급자 중 하나에 기존 가상 네트워크 또는 앱 서비스 배포의 일환으로 하나 만듭니다.  기존 가상 네트워크를 사용 하 여 내부 ip 파일 서버와 Azure 스택에 Azure 앱 서비스에서 요구 하는 SQL server에 연결 하는 데 사용할 수 있습니다.  가상 네트워크 스택 Azure에 Azure 앱 서비스를 설치 하기 전에 다음 주소 범위 및 서브넷으로 구성 해야 합니다.
+Azure 스택 앱 서비스를 azure 리소스 공급자에 기존 가상 네트워크에 배포할 수 있습니다 또는 배포의 일부분으로 가상 네트워크를 만들 수 있습니다. 기존 가상 네트워크를 사용 하 여 내부 ip 파일 서버와 Azure 스택에 Azure 앱 서비스에서 요구 하는 SQL server에 연결 하는 데 사용할 수 있습니다. 가상 네트워크 스택 Azure에 Azure 앱 서비스를 설치 하기 전에 다음 주소 범위 및 서브넷으로 구성 해야 합니다.
 
 가상 네트워크-/ 16
 
@@ -161,43 +171,51 @@ Azure 스택 개발 키트 배포에 사용할 수 있습니다는 [예제에서
 
 >[!IMPORTANT]
 > 기존 가상 네트워크에 응용 프로그램 서비스를 배포 하도록 선택한 경우 파일 서버 응용 프로그램 서비스에서 별도 서브넷에 배포 되어야 합니다.
->
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Active Directory에서 그룹 및 계정 프로 비전
 
 1. 다음 Active Directory 글로벌 보안 그룹을 만듭니다.
+
    - FileShareOwners
    - FileShareUsers
+
 2. 서비스 계정으로 다음과 같은 Active Directory 계정을 만듭니다.
+
    - FileShareOwner
    - FileShareUser
 
-   보안 모범 사례로, 이러한 계정에 대 한 (및 모든 웹 역할에 대 한) 사용자는 서로 다를 수 하 고 강력한 사용자 이름 및 암호가 있어야 해야 합니다. 다음 조건에 따라 암호를 설정 합니다.
+   보안 모범 사례로, 이러한 계정에 대 한 (및 모든 웹 역할에 대 한) 사용자 고유와 강력한 사용자 이름 및 암호가 있어야 합니다. 다음 조건에 따라 암호를 설정 합니다.
+
    - 사용 하도록 설정 **암호 사용 기간 제한 없음**합니다.
    - 사용 하도록 설정 **사용자 암호를 변경할 수 없음**합니다.
    - 사용 안 함 **사용자 다음 로그온 할 때 암호를 변경 해야**합니다.
+
 3. 다음과 같이 그룹 멤버 자격에 계정을 추가:
+
    - 추가 **FileShareOwner** 에 **FileShareOwners** 그룹입니다.
    - 추가 **FileShareUser** 에 **Fileshareuser** 그룹입니다.
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>작업 그룹에서 그룹 및 계정 프로 비전
 
 >[!NOTE]
-> 파일 서버를 구성 하는 경우에 관리 명령 프롬프트 창에서 모든 다음 명령을 실행 합니다. *PowerShell을 사용 하지 마십시오.*
+> 모든 다음 명령을 실행 하는 파일 서버를 구성 하는 경우는 **관리자 명령 프롬프트**합니다. <br>***PowerShell을 사용 하지 마십시오.***
 
 Azure 리소스 관리자 템플릿을 사용 하면 사용자가 이미 생성 되어 있습니다.
 
 1. FileShareOwner 및 FileShareUser 계정을 만들려면 다음 명령을 실행 합니다. 대체 `<password>` 를 원하는 값으로.
+
     ``` DOS
     net user FileShareOwner <password> /add /expires:never /passwordchg:no
     net user FileShareUser <password> /add /expires:never /passwordchg:no
     ```
 2. 다음 WMIC 명령을 실행 하 여 만료 되지 않도록 하는 계정의 암호를 설정 합니다.
+
     ``` DOS
     WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
     WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
     ```
 3. 로컬 그룹, Fileshareowner 및 Fileshareuser 만들고 첫 번째 단계에 계정을 추가 합니다.
+
     ``` DOS
     net localgroup FileShareUsers /add
     net localgroup FileShareUsers FileShareUser /add
@@ -304,7 +322,7 @@ Azure AD 서비스 사용자를 사용 하 여 다음 작업을 지 원하는를
 - 응용 프로그램 서비스 (Kudu) 내에서 고급 개발자 도구를 사용 하도록 설정 합니다.
 - Azure 함수 포털 환경에서 사용 하도록 설정 합니다.
 
-다음 단계를 수행하세요.
+다음 단계를 수행하십시오.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
 2. 스크립트를 다운로드 하 고에서 추출의 위치로 이동 된 [필수 구성 요소 단계](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.
@@ -318,7 +336,7 @@ Azure AD 서비스 사용자를 사용 하 여 다음 작업을 지 원하는를
 10. 선택 **앱 등록**합니다.
 11. 7 단계의 일부로 반환 된 응용 프로그램 ID 검색 합니다. 앱 서비스 응용 프로그램 나열 됩니다.
 12. 선택 **응용 프로그램** 목록에 있습니다.
-13. **설정**을 클릭합니다.
+13. **설정**을 선택합니다.
 14. 선택 **필요한 권한** > **권한을 부여** > **예**합니다.
 
 ```PowerShell
@@ -327,12 +345,12 @@ Azure AD 서비스 사용자를 사용 하 여 다음 작업을 지 원하는를
 
 | 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| DirectoryTenantName | 필수 | Null | Microsoft Azure Active Directory 테넌트 ID. GUID 또는 문자열을 제공 합니다. 예 myazureaaddirectory.onmicrosoft.com입니다. |
-| AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
-| TenantARMEndpoint | 필수 | Null | 테 넌 트 Azure 리소스 관리자 끝점입니다. 예 management.local.azurestack.external입니다. |
-| AzureStackAdminCredential | 필수 | Null | Azure AD 서비스 관리자 자격 증명입니다. |
-| CertificateFilePath | 필수 | Null | **전체 경로** identity 응용 프로그램 인증서 파일을 이전에 생성 합니다. |
-| CertificatePassword | 필수 | Null | 보호할 수 있는 인증서 개인 키 암호입니다. |
+| DirectoryTenantName | 필요 | Null | Microsoft Azure Active Directory 테넌트 ID. GUID 또는 문자열을 제공 합니다. 예 myazureaaddirectory.onmicrosoft.com입니다. |
+| AdminArmEndpoint | 필요 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
+| TenantARMEndpoint | 필요 | Null | 테 넌 트 Azure 리소스 관리자 끝점입니다. 예 management.local.azurestack.external입니다. |
+| AzureStackAdminCredential | 필요 | Null | Azure AD 서비스 관리자 자격 증명입니다. |
+| CertificateFilePath | 필요 | Null | **전체 경로** identity 응용 프로그램 인증서 파일을 이전에 생성 합니다. |
+| CertificatePassword | 필요 | Null | 보호할 수 있는 인증서 개인 키 암호입니다. |
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Active Directory Federation Services 응용 프로그램 만들기
 
@@ -347,7 +365,7 @@ AD FS로 보호 되는 Azure 스택 환경에서는 다음 작업을 지원 하�
 - 응용 프로그램 서비스 (Kudu) 내에서 고급 개발자 도구를 사용 하도록 설정 합니다.
 - Azure 함수 포털 환경에서 사용 하도록 설정 합니다.
 
-다음 단계를 수행하세요.
+다음 단계를 수행하십시오.
 
 1. Azurestack\AzureStackAdmin로 PowerShell 인스턴스를 엽니다.
 2. 스크립트를 다운로드 하 고에서 추출의 위치로 이동 된 [필수 구성 요소 단계](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts)합니다.
@@ -362,11 +380,11 @@ AD FS로 보호 되는 Azure 스택 환경에서는 다음 작업을 지원 하�
 
 | 매개 변수 | 필수 또는 선택 | 기본값 | 설명 |
 | --- | --- | --- | --- |
-| AdminArmEndpoint | 필수 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
-| PrivilegedEndpoint | 필수 | Null | 권한 있는 끝점입니다. 예는 AzS ERCS01입니다. |
-| CloudAdminCredential | 필수 | Null | Azure 스택 클라우드 관리자에 대 한 도메인 계정 자격 증명입니다. 예 Azurestack\CloudAdmin입니다. |
-| CertificateFilePath | 필수 | Null | **전체 경로** identity 응용 프로그램의 인증서 PFX 파일에 있습니다. |
-| CertificatePassword | 필수 | Null | 보호할 수 있는 인증서 개인 키 암호입니다. |
+| AdminArmEndpoint | 필요 | Null | Azure 리소스 관리자 관리 끝점입니다. 예 adminmanagement.local.azurestack.external입니다. |
+| PrivilegedEndpoint | 필요 | Null | 권한 있는 끝점입니다. 예는 AzS ERCS01입니다. |
+| CloudAdminCredential | 필요 | Null | Azure 스택 클라우드 관리자에 대 한 도메인 계정 자격 증명입니다. 예 Azurestack\CloudAdmin입니다. |
+| CertificateFilePath | 필요 | Null | **전체 경로** identity 응용 프로그램의 인증서 PFX 파일에 있습니다. |
+| CertificatePassword | 필요 | Null | 보호할 수 있는 인증서 개인 키 암호입니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

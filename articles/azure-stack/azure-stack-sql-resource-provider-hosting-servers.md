@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
-ms.openlocfilehash: af820f90c5d8822dbdaa768b16360d534fd47828
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 74d888ffe28e5428b47bfc73122518c22d0f0918
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060045"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128710"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -121,7 +121,8 @@ SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다
 > [!NOTE]
 > SQL 어댑터 리소스 공급자 _만_ 나중에 Always On에 대 한 인스턴스 또는 SQL 2016 SP1 Enterprise를 지원 합니다. 이 어댑터 구성 자동 시드 같은 새로운 SQL 기능에 필요 합니다.
 
-또한, 활성화 해야 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server의 각 인스턴스에 대해 각 가용성 그룹에 있습니다.
+### <a name="automatic-seeding"></a>자동 시드
+사용 하도록 설정 해야 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server의 각 인스턴스에 대해 각 가용성 그룹에 있습니다.
 
 모든 인스턴스에 대 한 자동 시드를 사용 하려면 편집 하며 각 인스턴스에 대해 다음 SQL 명령을 실행 합니다.
 
@@ -136,6 +137,18 @@ SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다
 
   ```
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
+  GO
+  ```
+
+### <a name="configure-contained-database-authentication"></a>포함 된 데이터베이스 인증 구성
+포함된 된 데이터베이스를 가용성 그룹에 추가 하기 전에 포함 된 데이터베이스 인증 서버 옵션은 가용성 그룹에 대 한 가용성 복제본을 호스팅하는 모든 서버 인스턴스에서 1로 설정 되어 있는지를 확인 합니다. 자세한 내용은 참조 [contained database authentication 서버 구성 옵션](https://docs.microsoft.com/sql/database-engine/configure-windows/contained-database-authentication-server-configuration-option?view=sql-server-2017)합니다.
+
+각 인스턴스에 대 한 포함 된 데이터베이스 인증 서버 옵션을 설정 하려면 다음이 명령을 사용 합니다.
+
+  ```
+  EXEC sp_configure 'contained database authentication', 1
+  GO
+  RECONFIGURE
   GO
   ```
 

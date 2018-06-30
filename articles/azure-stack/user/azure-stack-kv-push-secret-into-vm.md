@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2018
+ms.date: 06/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3950c9dfc5ff5f7ea1d170da086b4f97048ed81c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 05278ee4b0dc1f2c22f40bfcff4f9d7342017c0f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069036"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37108759"
 ---
 # <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>가상 컴퓨터를 만들고는 스택 Azure 키 자격 증명 모음에서 검색 한 인증서를 설치 합니다.
 
@@ -43,10 +43,10 @@ ms.locfileid: "34069036"
 2. Azuredeploy.parameters.json 파일을 업데이트 합니다.
 3. 템플릿 배포
 
->[!NOTE]
->VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 외부 클라이언트에서 다음이 단계를 사용할 수 있습니다.
+> [!NOTE]
+> VPN을 통해 연결 되어 있는 경우 Azure 스택 개발 키트 또는 외부 클라이언트에서 다음이 단계를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 * 키 자격 증명 모음 서비스를 포함 하는 서비스를 구독 해야 합니다.
 * [Azure 스택에 대 한 PowerShell을 설치 합니다.](azure-stack-powershell-install.md)
@@ -56,8 +56,8 @@ ms.locfileid: "34069036"
 
 다음 스크립트는.pfx 형식으로 인증서를 만듭니다 주요 자격 증명 모음을 만들고는 암호로 키 자격 증명 모음에 인증서를 저장 합니다.
 
->[!IMPORTANT]
->사용 해야 합니다는 `-EnabledForDeployment` 키 오류를 만들 때 매개 변수입니다. 이 매개 변수를 사용 하면 키 자격 증명 모음에서 Azure 리소스 관리자 템플릿을 참조할 수 있습니다.
+> [!IMPORTANT]
+> 사용 해야 합니다는 `-EnabledForDeployment` 주요 자격 증명 모음을 만들 때 매개 변수입니다. 이 매개 변수를 사용 하면 키 자격 증명 모음에서 Azure 리소스 관리자 템플릿을 참조할 수 있습니다.
 
 ```powershell
 

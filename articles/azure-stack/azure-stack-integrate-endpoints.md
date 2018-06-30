@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 06/29/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: d7384d8d1d8c0378e1a9dd68a4f7b71196330b8e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 0992846416ce77bccd23fda73f61568eb61c33fb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736697"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127638"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure 데이터 센터 통합 스택-끝점 게시
 Azure 스택 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니다. 해당이 Vip는 공용 IP 주소 풀에서 할당 됩니다. 각 VIP 소프트웨어 정의 네트워크 계층에서 액세스 제어 목록 (ACL)로 보호 됩니다. Acl은 솔루션을 더욱 강화 하기 위해 각기 물리적 스위치 (될 수 있습니다 앞뒤 및 BMC)도 사용 됩니다. 배포 시에 지정 된 외부 DNS 영역에서 각 끝점에 대 한 DNS 항목이 생성 됩니다.
@@ -56,6 +56,8 @@ Azure 스택 인프라 역할에 대 한 가상 IP 주소 (Vip)를 설정합니�
 |  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
 |  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300 (azure 리소스 관리자)|
 |  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP, UDP|21, 1021, 10001-101000 (FTP)<br>990 (FTPS)|
+|VPN Gateway|     |     |[VPN 게이트웨이 FAQ 참조](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)합니다.|
+|     |     |     |     |
 
 ## <a name="ports-and-urls-outbound"></a>포트 및 Url (아웃 바운드)
 
@@ -68,8 +70,11 @@ Azure 스택 투명 프록시 서버만 지원합니다. 배포에서 여기서 
 |마켓플레이스에서 배포|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
 |패치 및 업데이트|https://&#42;.azureedge.net|HTTPS|443|
 |등록|https://management.azure.com|HTTPS|443|
-|사용 현황|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
+|사용량|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
 |Windows Defender|. wdcp.microsoft.com<br>. wdcpalt.microsoft.com<br>*. updates.microsoft.com<br>*. download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
+|NTP|     |UDP|123|
+|DNS|     |TCP<br>UDP|53|
+|     |     |     |     |
 
 
 
