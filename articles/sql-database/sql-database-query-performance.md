@@ -26,7 +26,7 @@ ms.locfileid: "34648737"
 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * Query Performance Insight를 위해서는 데이터베이스에서 [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx) 가 활성 상태여야 합니다. 쿼리 저장소가 실행되지 않는 경우 저장소를 켜라는 포털 메시지가 표시됩니다.
 
 ## <a name="permissions"></a>권한
@@ -43,7 +43,7 @@ Query Performance Insight는 쉽게 사용할 수 있습니다.
 * 첫 번째 탭에서 최상위 리소스 사용 쿼리의 목록을 검토합니다.
 * 해당하는 세부 정보를 보려면 개별 쿼리를 선택합니다.
 * [SQL Azure 데이터베이스 관리자](sql-database-advisor.md) 를 열고 권장 사항을 사용할 수 있는지 확인합니다.
-* 슬라이더를 또는 확대/축소 아이콘을 사용하여 관찰 간격을 변경합니다.
+* 슬라이더를 사용하거나 확대/축소 아이콘을 사용하여 관찰 간격을 변경합니다.
   
     ![성능 대시보드](./media/sql-database-query-performance/performance.png)
 
