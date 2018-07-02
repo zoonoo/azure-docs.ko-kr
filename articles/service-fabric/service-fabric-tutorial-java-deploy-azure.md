@@ -217,11 +217,11 @@ ms.locfileid: "34644045"
     ./install.sh
     ```
 
-5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080에 입력합니다. 이 끝점에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 응용 프로그램이 클러스터에 설치됐음을 알립니다. 
+5. Service Fabric Explorer에 액세스하려면 좋아하는 브라우저를 열고 https://testlinuxcluster.westus.cloudapp.azure.com:19080 에 입력합니다. 이 끝점에 연결하는 데 사용하려는 인증서 저장소에서 인증서를 선택합니다. Linux 컴퓨터를 사용하는 경우 Service Fabric Explorer를 보려면 *new-service-fabric-cluster-certificate.sh* 스크립트에서 생성한 인증서를 크롬으로 가져와야 합니다. Mac을 사용하는 경우 Keychain에 PFX 파일을 설치해야 합니다. 응용 프로그램이 클러스터에 설치됐음을 알립니다. 
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 
-6. 응용 프로그램에 액세스하려면 https://testlinuxcluster.westus.cloudapp.azure.com:8080에 입력 
+6. 응용 프로그램에 액세스하려면 https://testlinuxcluster.westus.cloudapp.azure.com:8080 에 입력 
 
     ![Voting App Java Azure](./media/service-fabric-tutorial-java-deploy-azure/votingappjavaazure.png)
 
