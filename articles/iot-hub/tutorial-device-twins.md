@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 05/14/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: b1e7fa441dc52a647828c7d3785f09533af06fd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42be14569215af7ee98a540c2a86cef2b2a028e4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651543"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37033883"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku S1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hub-name -o table
+az iot hub show-connection-string --hub-name $hubname -o table
 
 ```
 
@@ -260,14 +260,7 @@ az group delete --name tutorial-iot-hub-rg
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업을 수행하여 장치와 IoT 허브 간에 상태 정보를 동기화하는 방법을 알아보았습니다.
-
-> [!div class="checklist"]
-> * IoT 허브를 만들고 ID 레지스트리에 테스트 장치를 추가합니다.
-> * desired 속성을 사용하여 시뮬레이션된 장치에 상태 정보를 보냅니다.
-> * reported 속성을 사용하여 시뮬레이션된 장치에서 상태 정보를 받습니다.
-
-장치 쌍을 사용하여 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
+이 자습서에서는 장치와 IoT 허브 간에 상태 정보를 동기화하는 방법을 알아보았습니다. 장치 쌍을 사용하여 펌웨어 업데이트 프로세스를 구현하는 방법을 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-[시뮬레이션된 장치를 사용하여 IoT Hub와 연결 테스트](tutorial-connectivity.md)
+[장치 펌웨어 업데이트 프로세스 구현](tutorial-firmware-update.md)

@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 0507208e58323fd31bb7c6cdb3a293ec0179cabe
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: efd19393a661a48a566e85a058dad071c3bdb63c
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823914"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945992"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Azure Dev Spaces에서 Node.js를 사용하여 시작
 
@@ -32,7 +32,7 @@ ms.locfileid: "34823914"
 Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 개발 환경의 구성은 대부분 클라우드에 저장되며 다른 사용자와 공유할 수 있습니다. 먼저 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 다운로드하고 실행하여 시작합니다.
 
 > [!IMPORTANT]
-> Azure CLI가 이미 설치되어 있는 경우 2.0.33 이상 버전을 사용하고 있는지 확인합니다.
+> Azure CLI가 이미 설치되어 있는 경우 2.0.38 이상 버전을 사용하고 있는지 확인합니다.
 
 [!INCLUDE[](includes/sign-into-azure.md)]
 
@@ -68,7 +68,7 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 어떻게 된 건가요? HTML 및 CSS와 같은 콘텐츠 파일을 편집하면 Node.js 프로세스를 다시 시작할 필요가 없으므로, 활성 `azds up` 명령은 수정된 컨텐츠 파일을 Azure에서 실행 중인 컨테이너에 바로 자동으로 동기화합니다. 따라서 콘텐츠 편집 내용을 빠르게 볼 수 있습니다.
 
 ### <a name="test-from-a-mobile-device"></a>모바일 장치에서 테스트
-모바일 장치에서 웹앱을 열면 소형 장치에서 UI가 제대로 표시되지 않는 것을 알 수 있습니다.
+webfrontend에 대한 공용 URL을 사용하여 모바일 장치에서 웹앱을 엽니다. 긴 주소를 입력하지 않으려면 데스크탑에서 URL을 복사하여 장치로 보내고 싶을 수 있습니다. 웹앱이 모바일 장치에 로드되면 소형 장치에서 UI가 제대로 표시되지 않는 것을 알 수 있습니다.
 
 이 문제를 해결하려면 `viewport` 메타 태그를 추가합니다.
 1. `./public/index.html` 파일 열기
@@ -113,7 +113,7 @@ Node.js 앱을 다시 시작해야 하므로 서버 쪽 코드 파일을 업데�
 1. 디버그 보기를 열려면 VS Code 측면의 **활동 표시줄**에서 디버그 아이콘을 클릭합니다.
 1. 활성 디버그 구성으로 **시작 프로그램(AZDS)** 을 선택합니다.
 
-![](media/get-started-node/debug-configuration-nodejs.png)
+![](media/get-started-node/debug-configuration-nodejs2.png)
 
 > [!Note]
 > 명령 팔레트에 Azure Dev Spaces 명령이 표시되지 않으면 [Azure Dev Spaces용 VS Code 확장이 설치되었는지](get-started-nodejs.md#get-kubernetes-debugging-for-vs-code) 확인합니다.

@@ -1,6 +1,6 @@
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-`Connect-AzureRmAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+`Connect-AzureRmAccount` 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
 
 ```powershell
 Connect-AzureRmAccount

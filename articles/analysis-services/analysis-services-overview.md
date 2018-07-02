@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 06/05/2018
+ms.date: 06/21/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52695ba495b088d30a5ee039d3e24eb274957bff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 07768dbc8beb7a851d442e9e0c3e7538bf12b766
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234559"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937940"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -31,7 +31,7 @@ Azure Portal에서는 수분 내에 [서버를 만들 수 있습니다](analysis
 
 **비디오:** Azure Automation을 사용하여 서버 생성을 신속하게 할 수 있는 방법에 대한 자세한 내용을 알아보려면 [배포 자동화](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)를 확인합니다.
 
-Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다. 
+Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 분석 솔루션을 빌드할 수 있습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)와 통합되어 중요한 데이터에 안전한 역할 기반 액세스를 제공합니다. 모델에 데이터를 로드하는 활동을 포함하여 [Azure Data Factory](../data-factory/introduction.md) 파이프라인에 통합합니다. [Azure Automation](../automation/automation-intro.md) 및 [Azure Functions](../azure-functions/functions-overview.md)는 사용자 지정 코드를 사용하여 모델의 간단한 오케스트레이션을 수행하는 데 사용할 수 있습니다. 
 
 ## <a name="the-right-tier-when-you-need-it"></a>필요할 때 올바른 계층
 
@@ -72,39 +72,41 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ## <a name="availability-by-region"></a>지역별 가용성
 
-Azure Analysis Services는 전 세계 지역에서 지원됩니다. 여러 지역의 중복 서버에 모델을 배포하여 [고가용성](analysis-services-bcdr.md)을 보장합니다. 지원되는 계층 및 쿼리 복제본은 선택한 데이터베이스에 따라 다릅니다. 
+Azure Analysis Services는 전 세계 지역에서 지원됩니다. 지원되는 계획 및 쿼리 복제본 가용성은 선택한 지역에 따라 다릅니다. 계획 및 쿼리 복제본 가용성은 각 지역에 대해 사용 가능한 리소스 및 필요에 따라 변경될 수 있습니다. 
 
 ### <a name="americas"></a>아메리카
 
-|지역  | 지원되는 계층 | 쿼리 복제본 |
+|지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |브라질 남부     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |캐나다 중부    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |미국 동부     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|미국 동부 2     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
+|미국 동부 2     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
 |미국 중북부     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
-|미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    3     |
+|미국 중부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |미국 중남부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    7     |
-|미국 서부     |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    7     |
-|미국 서부2    |    B1, B2, S0, S1, S2, S4, S8, S9, D1     |    1     |
+|미국 중서부   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|미국 서부     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    7     |
+|미국 서부2    |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |    3     |
 
 ### <a name="europe"></a>유럽
 
-|지역  | 지원되는 계층 | 쿼리 복제본 |
+|지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
-|북유럽     |    B1, B2, S0, S1, S2, S4, D1      |    1     |
+|북유럽     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |영국 남부   |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|서유럽     |    B1, B2, S0, S1, S2, S4, S8, S9, D1      |    7     |
+|서유럽     |    B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1      |    7     |
 
 ### <a name="asia-pacific"></a>아시아 태평양 
 
-|지역  | 지원되는 계층 | 쿼리 복제본 |
+|지역  | 지원되는 계획 | 쿼리 복제본(표준 계획만) |
 |---------|---------|:---------:|
 |오스트레일리아 남동부     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |일본 동부  |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|동남아시아     |     B1, B2, S0, S1, S2, S4, S8, S9, D1     |   3      |
+|동남아시아     |     B1, B2, S0, S1, S2, S4, S8\*, S9\*, D1     |   1      |
 |인도 서부     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+
+\* 표준 계층에서 S8 및 S9 계획은 한 쿼리 복제본을 지원합니다.
 
 ## <a name="scale-to-your-needs"></a>사용자의 요구 사항에 맞게 규모 조정
 
@@ -116,7 +118,7 @@ Azure Analysis Services는 전 세계 지역에서 지원됩니다. 여러 지�
 
 스케일 아웃하면 클라이언트 쿼리가 쿼리 풀의 여러 *쿼리 복제본*에 배포됩니다. 쿼리 복제본은 테이블 형식 모델의 복사본을 동기화했습니다. 쿼리 작업을 확산하여 높은 쿼리 작업 동안 응답 시간을 줄일 수 있습니다. 모델 처리 작업은 클라이언트 쿼리가 작업 처리에 의해 부정적인 영향을 받지 않도록 쿼리 풀에서 구분될 수 있습니다. 
 
-최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 풀에 있을 수 있는 쿼리 복제본의 수는 선택한 지역에 따라 다릅니다. 쿼리 복제본은 서버의 지역 밖에 분배될 수 없습니다. 쿼리 복제본은 서버와 동일한 요금으로 청구됩니다.
+최대 7개의 추가 쿼리 복제본으로 쿼리 풀을 만들 수 있습니다(총 8개, 서버 포함). 풀에 있을 수 있는 쿼리 복제본의 수는 선택한 계획 및 지역에 따라 다릅니다. 쿼리 복제본은 서버의 지역 밖에 분배될 수 없습니다. 쿼리 복제본은 서버와 동일한 요금으로 청구됩니다.
 
 계층 변경과 마찬가지로 필요에 따라 쿼리 복제본을 스케일 아웃할 수 있습니다. 포털에서 또는 REST API를 사용하여 스케일 아웃을 구성합니다. 자세한 내용은 [Azure Analysis Services 스케일 아웃](analysis-services-scale-out.md)을 참조하세요.
 
@@ -148,7 +150,7 @@ Azure Analysis Services 방화벽은 규칙에 지정된 해다 IP 주소 이외
 
 ### <a name="authentication"></a>인증
 
-사용자 인증은 [AAD(Azure Active Directory)](../active-directory/active-directory-whatis.md)에 의해 처리됩니다. 로그인하면 사용자는 데이터베이스에 대한 역할 기반 액세스에서 조직 계정 ID를 사용합니다. 사용자 ID는 서버가 위치한 구독에 대한 기본 Azure Active Directory의 멤버여야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
+사용자 인증은 [AAD(Azure Active Directory)](../active-directory/fundamentals/active-directory-whatis.md)에 의해 처리됩니다. 로그인하면 사용자는 데이터베이스에 대한 역할 기반 액세스에서 조직 계정 ID를 사용합니다. 사용자 ID는 서버가 위치한 구독에 대한 기본 Azure Active Directory의 멤버여야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
 
 ### <a name="data-security"></a>데이터 보안
 

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 89f5391cfbfd85f9f0715a8c7d288cc3981cc618
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237008"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047278"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-introduction.md)
-> * [버전 2 - 미리 보기](introduction.md)
+> * [버전 1](v1/data-factory-introduction.md)
+> * [현재 버전](introduction.md)
 
 빅 데이터 세계에서 구성되지 않은 원시 데이터는 흔히 관계형, 비관계형 및 기타 저장소 시스템에 저장됩니다. 그러나 원시 데이터 자체는 분석자, 데이터 과학자 또는 비즈니스 의사 결정자에게 의미 있는 통찰력을 제공하는 적절한 컨텍스트나 의미를 가지고 있지 않습니다. 
 
@@ -40,9 +40,6 @@ Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼
 또한 사용할 BI(비즈니스 인텔리전스) 응용 프로그램용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수도 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
 
 ![데이터 팩터리의 최상위 수준 보기](media/introduction/big-picture.png)
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1 소개](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="how-does-it-work"></a>작동 원리
 Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반적으로 다음 네 단계를 수행합니다.
@@ -92,7 +89,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 - 활동의 실행을 호스팅할 수 있는 **계산 리소스** 를 나타내기 위해 사용됩니다. 예를 들어, HDInsightHive 활동은 HDInsight Hadoop 클러스터에서 실행됩니다. 변환 작업 및 지원되는 계산 환경 목록은 [데이터 변환](transform-data.md) 문서를 참조하세요.
 
 ### <a name="triggers"></a>트리거
-트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다. 미리 보기의 경우 Data Factory가 벽시계 스케줄러 트리거를 지원합니다. 
+트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 다양한 유형의 이벤트에 대한 다른 종류의 트리거가 있습니다.
 
 ### <a name="pipeline-runs"></a>파이프라인 실행
 파이프라인 실행은 파이프라인 실행의 인스턴스입니다. 파이프라인 실행은 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 인스턴스화합니다. 인수는 수동으로 또는 트리거 정의 내에서 전달될 수 있습니다.
@@ -124,8 +121,8 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데�
 
 예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 계산 환경이 유럽 서부 지역 외부에서 실행되고 있다고 가정해보겠습니다. 미국 동부 또는 미국 동부 2에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있으며, 이를 사용하여 유럽 서부의 계산 환경에서 작업을 예약할 수 있습니다. 데이터 팩터리가 계산 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 계산 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
 
-## <a name="compare-with-version-2"></a>버전 2와 비교
-Data Factory 서비스 버전 1과 버전 2 사이의 차이점 목록은 [버전 1과 비교](compare-versions.md)를 참조하세요. 
+## <a name="compare-with-version-1"></a>버전 1과 비교
+Data Factory 서비스 버전 1과 현재 버전 사이의 차이점 목록은 [버전 1과 비교](compare-versions.md)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 도구/SDK 중 하나를 사용하여 Data Factory 파이프라인을 만들기 시작합니다. 

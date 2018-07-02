@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
 ms.custom: mvc
-ms.openlocfilehash: 321f84e0d56a2bda57e1fbfa2cc562b65c6e1d30
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1e3f1d5edf12980cb0324bb130725ec2588aa220
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779160"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36957983"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>빠른 시작: PowerShell을 사용하여 HDInsight에서 Spark 클러스터 만들기
 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법과 Hive 테이블에 대해 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. HDInsight의 Spark에 대한 자세한 내용은 [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)를 참조하세요.
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 - Azure 리소스 그룹. Azure 리소스 그룹은 Azure 리소스에 대한 컨테이너입니다. 
 - Azure Storage 계정 또는 Azure Data Lake Store.  각 HDInsight 클러스터에는 종속 데이터 저장소가 필요합니다. 이 빠른 시작에서는 저장소 계정을 만듭니다.
-- 다른 클러스터 유형의 HDInsight 클러스터.  이 빠른 시작에서는 Spark 2.2 클러스터를 만듭니다.
+- 다른 클러스터 유형의 HDInsight 클러스터.  이 빠른 시작에서는 Spark 2.3 클러스터를 만듭니다.
 
 PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트를 실행하는 경우 다음 값을 입력하라는 메시지가 표시됩니다.
 
@@ -53,7 +53,7 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
 2. 다음 PowerShell 스크립트를 Cloud Shell에 복사하여 붙여넣습니다. 
 
     ```azurepowershell-interactive
-    ### Create a Spark 2.2 cluster in Azure HDInsight
+    ### Create a Spark 2.3 cluster in Azure HDInsight
         
     # Create the resource group
     $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -75,7 +75,7 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
                                     -StorageAccountName $defaultStorageAccountName `
                                     -StorageAccountKey $defaultStorageAccountKey
     
-    # Create a Spark 2.2 cluster
+    # Create a Spark 2.3 cluster
     $clusterName = Read-Host -Prompt "Enter the name of the HDInsight cluster"
     # Cluster login is used to secure HTTPS services hosted on the cluster
     $httpCredential = Get-Credential -Message "Enter Cluster login credentials" -UserName "admin"
@@ -96,7 +96,7 @@ PowerShell 스크립트를 사용하여 리소스를 만듭니다.  스크립트
         -Name $clusterName -Context $defaultStorageContext 
     
     $sparkConfig = New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]"
-    $sparkConfig.Add("spark", "2.2")
+    $sparkConfig.Add("spark", "2.3")
     
     # Create the HDInsight cluster
     New-AzureRmHDInsightCluster `

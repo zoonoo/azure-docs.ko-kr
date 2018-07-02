@@ -186,12 +186,6 @@
 ### [시작](manage-apps/plan-an-application-integration.md)
 ### [SaaS 앱 통합 자습서](saas-apps/tutorial-list.md)
 
-
-### [클라우드 앱 검색](manage-apps/cloud-app-discovery.md)
-#### [스냅숏 보고서 만들기](manage-apps/cloud-app-discovery-create-snapshot-reports.md)
-#### [연속 보고 구성](https://docs.microsoft.com/cloud-app-security/discovery-docker)
-#### [사용자 지정 로그 구문 분석기 사용](https://docs.microsoft.com/cloud-app-security/custom-log-parser)
-
 ### [SaaS 앱에 대한 사용자 프로비전 및 프로비전 해제](active-directory-saas-app-provisioning.md) 
 #### [앱 통합 자습서](saas-apps/tutorial-list.md) 
 #### [SCIM 사용 앱에 대한 프로비전 자동화](manage-apps/use-scim-to-provision-users-and-groups.md) 

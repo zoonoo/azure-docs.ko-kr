@@ -9,36 +9,8 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 앱 모델 빌드
-      items:
-        - name: 미리 작성된 도메인 사용
-          href: luis-get-started-create-app.md
-        - name: 사용자 지정 도메인 사용
-          href: luis-quickstart-intents-only.md
-- name: 자습서
-  items:
-    - name: 미리 작성된 의도 및 엔터티 추가
-      href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 엔터티에서 데이터 가져오기
-      items:
-        - name: 단순 엔터티
-          href: luis-quickstart-primary-and-secondary-data.md
-        - name: 계층적 엔터티
-          href: luis-quickstart-intent-and-hier-entity.md
-        - name: 정규식 엔터티
-          href: luis-quickstart-intents-regex-entity.md
-        - name: 목록 엔터티
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: KeyPhrase 엔터티
-          href: luis-quickstart-intent-and-key-phrase.md
-        - name: 정서 분석
-          href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: 예측 개선
-      items:
-        - name: 패턴 사용
-          href: luis-tutorial-pattern.md
-        - name: 문구 목록 사용
-          href: luis-tutorial-interchangeable-phrase-list.md
+    - name: 미리 빌드된 도메인 앱 빌드
+      href: luis-get-started-create-app.md
     - name: API 사용
       items:
         - name: 끝점 쿼리로 utterance 예측 가져오기
@@ -73,6 +45,32 @@
               href: luis-get-started-php-add-utterance.md
             - name: Ruby
               href: luis-get-started-ruby-add-utterance.md
+- name: 자습서
+  items:
+    - name: 앱 빌드
+      items:
+        - name: 1. 사용자 지정 도메인 사용
+          href: luis-quickstart-intents-only.md
+        - name: 2. 미리 작성된 의도 및 엔터티 추가
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. 정규식 엔터티 추가
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. 목록 엔터티 추가
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. 계층적 엔터티 추가
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. 단순 엔터티 및 문구 목록 추가
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 7. keyPhrase 엔터티 추가
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 8. 감정 분석 추가
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: 예측 개선
+      items:
+        - name: 패턴 사용
+          href: luis-tutorial-pattern.md
+        - name: 문구 목록 사용
+          href: luis-tutorial-interchangeable-phrase-list.md
 - name: 샘플
   items:
     - name: 코드 샘플

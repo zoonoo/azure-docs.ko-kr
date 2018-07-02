@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: 나이 게이팅 사용
           href: basic-age-gating.md
+        - name: 직접 로그인
+          href: direct-signin.md
     - name: ID 경험 프레임워크
       items:
         - name: 사용자 지정 정책

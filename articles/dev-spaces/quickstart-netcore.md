@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 3802e67503fd546ef71b9c26daddc8ef63cf4bd2
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 21b94544105f55cbb8cb77c28d8c546ffcf7f8c0
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823229"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945859"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 VS Code)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -40,7 +40,7 @@ ms.locfileid: "34823229"
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
-1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.0.33 이상)를 설치합니다.
+1. [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)(버전 2.0.38 이상)를 설치합니다.
 1. AKS 클러스터에 Dev Spaces 설치: `az aks use-dev-spaces -g MyResourceGroup -n MyAKS`
 1. VS Code용 [Azure Dev Spaces 확장](https://aka.ms/get-azds-code)을 다운로드합니다.
 1. 확장 설치: `code --install-extension path-to-downloaded-extension/azds-0.1.1.vsix`
@@ -50,12 +50,15 @@ ms.locfileid: "34823229"
 1. GitHub에서 샘플 코드 다운로드: [https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces) 
 1. webfrontend 폴더로 디렉터리 변경: `cd dev-spaces/samples/dotnetcore/getting-started/webfrontend`
 1. Docker 및 Helm 차트 자산 생성: `azds prep --public`
-1. AKS에서 코드를 빌드하고 실행합니다. 터미널 창의 **루트 코드 폴더**인 webfrontend에서 `azds up` 명령을 실행합니다.
+1. AKS에서 코드를 빌드하고 실행합니다. **webfrontend 폴더**의 터미널 창에서 `azds up` 명령을 실행합니다.
 1. 콘솔 출력에서 `up` 명령으로 생성된 URL에 대한 정보를 검색합니다. 다음과 같은 형식입니다. 
 
    `Service 'webfrontend' port 'http' is available at <url>` 
 
    브라우저 창에서 이 URL을 열고 웹앱 로드를 확인합니다. 
+   
+   > [!Note]
+   > 첫 번째 실행 시 공용 DNS를 준비하는 데 몇 분 정도 걸릴 수 있습니다. 공용 URL이 확인되지 않으면 콘솔 출력에 표시되는 http://localhost:<portnumber> URL을 대신 사용할 수 있습니다. localhost URL을 사용하는 경우 컨테이너가 로컬로 실행되는 것처럼 보이지만, 실제로는 AKS에서 실행되고 있습니다. 편의상 로컬 컴퓨터에서 서비스와 쉽게 상호 작용할 수 있도록 Azure Dev Spaces는 Azure에서 실행되는 컨테이너에 대한 임시 SSH 터널을 만듭니다. DNS 레코드 준비되면 돌아와서 나중에 공용 URL을 시도해볼 수 있습니다.
 
 ### <a name="update-a-content-file"></a>콘텐츠 파일 업데이트
 

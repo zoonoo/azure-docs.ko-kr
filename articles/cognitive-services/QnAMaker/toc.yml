@@ -1,7 +1,9 @@
-- name: QnA Maker란?
-  href: Overview/overview.md
+- name: QnA Maker 설명서
+  href: index.yml
 - name: 개요
   items:
+    - name: QnA Maker란?
+      href: Overview/overview.md
     - name: 지원되는 언어
       href: Overview/languages-supported.md
 - name: 빠른 시작

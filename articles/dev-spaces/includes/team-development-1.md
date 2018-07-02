@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 41418cb908f2bf149a3d0087728652b44cd6b19e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825534"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939181"
 ---
 지금까지 응용 프로그램에서 작업하는 유일한 개발자인 것처럼 응용 프로그램 코드를 실행했습니다. 이 섹션에서는 Azure Dev Spaces에서 팀 개발을 간소화하는 방법에 대해 알아봅니다.
 * 필요에 따라 공유 개발 공간 또는 고유한 개발 공간에서 작업하여 개발자 팀이 동일한 환경에서 작업하도록 설정합니다.
@@ -56,13 +56,15 @@ webfrontend  default  webfrontend-0.1.0  80/TCP  1m ago     http://webfrontend-c
 
 공간 열은 두 서비스 모두 `default`라는 공간에서 실행되고 있음을 보여 줍니다. 공용 URL을 열고 웹앱으로 이동하는 모든 사용자는 이전에 작성한 코드 경로를 호출하며, 이 코드는 두 서비스 모두를 통해 실행됩니다. 이제 `mywebapi` 개발을 계속하려는 경우를 가정해 보겠습니다. 개발 환경을 사용하는 다른 개발자에게 영향을 주지 않으면서 코드를 변경하고 이를 테스트하려면 어떻게 해야 할까요? 이렇게 하려면 자신만의 고유한 공간을 설정합니다.
 
-### <a name="create-a-space"></a>공간 만들기
+### <a name="create-a-dev-space"></a>개발 환경 만들기
 `default` 이외의 공간에서 고유한 버전의 `mywebapi`를 실행하려면 다음 명령을 사용하여 고유한 공간을 만들면 됩니다.
 
 ``` 
-azds space create --name scott
+azds space select --name scott
 ```
+
+메시지가 나타나면 **부모 개발 환경**으로 `default`을 선택합니다. 즉, 새 공간 `default/scott`는 `default` 공간에서 파생됩니다. 이것이 어떻게 도움이 되는지 테스트로 간략히 표시됩니다. 
 
 위 예제에서 제가 작업 중인 공간을 동료가 식별할 수 있도록 새 공간에 제 이름을 사용했지만 여러분은 'sprint4' 또는 'demo'와 같이 유연한 의미를 담아 원하는 대로 지칭할 수 있습니다.
 
-`azds space list` 명령을 실행하면 개발 환경의 모든 공간 목록이 표시됩니다. 현재 선택된 공간 옆에 별표(*)가 나타납니다. 여러분의 경우에는 'scott'라는 공간이 만들어질 때 자동으로 선택되었습니다. 언제든지 `azds space select` 명령을 사용하여 다른 공간을 선택할 수 있습니다.
+`azds space list` 명령을 실행하면 개발 환경의 모든 공간 목록이 표시됩니다. 현재 선택된 공간 옆에 별표(*)가 나타납니다. 여러분의 경우에는 'default/scott'라는 공간이 만들어질 때 자동으로 선택되었습니다. 언제든지 `azds space select` 명령을 사용하여 다른 공간을 선택할 수 있습니다.

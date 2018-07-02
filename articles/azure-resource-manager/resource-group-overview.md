@@ -12,17 +12,26 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 85dc16b07b72f2e8c1ed00fb5dd25288b985ae21
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603046"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958819"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 응용 프로그램에 대한 인프라는 일반적으로 가상 머신, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다. 
+
+## <a name="consistent-management-layer"></a>일관적인 관리 계층
+Resource Manager는 Azure PowerShell, Azure CLI, Azure Portal, REST API 및 클라이언트 SDK를 통해 작업을 수행하는 일관적인 관리 계층을 제공합니다. Azure Portal에서 사용할 수 있는 기능은 Azure PowerShell, Azure CLI, Azure REST API 및 클라이언트 SDK를 통해서만 사용 가능합니다. API를 통해 처음 릴리스된 기능은 처음 릴리스된 지 180일 이내에 포털에 표시됩니다.
+
+동일한 기능이 있고 일관된 결과를 제공하는 사용자에게 가장 잘 맞는 도구 및 API를 선택합니다.
+
+다음 그림에서는 모든 도구가 동일한 Azure Resource Manager API와 상호 작용하는 방법을 보여 줍니다. API는 요청을 인증하고 권한을 부여하는 리소스 관리자 서비스에 요청을 전달합니다. 그런 다음 리소스 관리자는 적절한 리소스 공급자에게 요청을 라우팅합니다.
+
+![리소스 관리자 요청 모델](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="terminology"></a>용어
 Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 수 있습니다.
@@ -45,13 +54,6 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 * 같은 태그를 공유하는 리소스 그룹에 대한 비용을 확인하여 조직의 청구를 명확히 할 수 있습니다.  
 
 리소스 관리자는 솔루션을 배포 및 관리하는 새로운 방식을 제공합니다. 이전의 배포 모델을 사용한 경우 변경 사항을 알아보려면 [리소스 관리자 배포 및 클래식 배포 이해](resource-manager-deployment-model.md)를 참조하세요.
-
-## <a name="consistent-management-layer"></a>일관적인 관리 계층
-리소스 관리자는 Azure PowerShell, Azure CLI, Azure 포털, REST API 및 개발 도구를 통해 수행하는 작업에 대한 일관적인 관리 계층을 제공합니다. 모든 도구는 작업의 공통 집합을 사용합니다. 가장 적합한 도구를 사용하며 혼동 없이 서로 교환해서 사용할 수 있습니다. 
-
-다음 그림에서는 모든 도구가 동일한 Azure Resource Manager API와 상호 작용하는 방법을 보여 줍니다. API는 요청을 인증하고 권한을 부여하는 리소스 관리자 서비스에 요청을 전달합니다. 그런 다음 리소스 관리자는 적절한 리소스 공급자에게 요청을 라우팅합니다.
-
-![리소스 관리자 요청 모델](./media/resource-group-overview/consistent-management-layer.png)
 
 ## <a name="guidance"></a>지침
 다음 제안으로 솔루션으로 작업할 때 Resource Manager를 완벽하게 활용할 수 있습니다.
@@ -142,7 +144,7 @@ REQUEST BODY
 
 또한 인프라의 업데이트에 대한 템플릿을 사용할 수 있습니다. 예를 들어 솔루션에 리소스를 추가할 수 있으며 이미 배포된 리소스에 대한 구성 규칙을 추가할 수 있습니다. 템플릿에서 리소스 만들기를 지정하지만 해당 리소스가 이미 존재하는 경우 Azure Resource Manager는 새 자산을 만드는 대신 업데이트를 수행합니다. Azure 리소스 관리자는 새 것과 동일한 상태로 기존 자산을 업데이트합니다.  
 
-리소스 관리자는 설치에 포함되지 않은 특정 소프트웨어를 설치하는 등의 추가 작업을 할 때 시나리오에 대한 확장을 제공합니다. DSC, Chef 또는 Puppet와 같은 구성 관리 서비스를 이미 사용 중인 경우 확장을 사용하여 해당 서비스로 작업을 계속할 수 있습니다. 가상 머신 확장에 대한 자세한 내용은 [가상 머신 확장 및 기능 정보](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
+Resource Manager는 설치에 포함되지 않은 특정 소프트웨어를 설치하는 등의 추가 작업을 할 때 시나리오에 대한 확장을 제공합니다. DSC, Chef 또는 Puppet와 같은 구성 관리 서비스를 이미 사용 중인 경우 확장을 사용하여 해당 서비스로 작업을 계속할 수 있습니다. 가상 머신 확장에 대한 자세한 내용은 [가상 머신 확장 및 기능 정보](../virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요. 
 
 마지막으로 템플릿은 앱에 대한 소스 코드의 일부가 됩니다. 소스 코드 리포지토리를 확인하고 앱이 발전하면 업데이트할 수 있습니다. Visual Studio를 통해 템플릿을 편집할 수 있습니다.
 
@@ -210,11 +212,11 @@ Azure는 다음 4개의 플랫폼 역할을 제공합니다.
 
 Azure는 몇 가지 리소스 특정 역할도 제공합니다. 몇 가지 일반적인 경우는 다음과 같습니다.
 
-1. Virtual Machine 참여자는 가상 머신을 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없고 연결된 가상 네트워크 또는 저장소 계정을 관리할 수 없음
+1. Virtual Machine 기여자는 가상 머신을 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없고 연결된 가상 네트워크 또는 저장소 계정을 관리할 수 없음
 2. 네트워크 참여자는 모든 네트워크 리소스를 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없음
 3. Storage 계정 참여자는 Storage 계정을 관리할 수 있지만 그에 대한 액세스 권한을 부여할 수 없음
 4. SQL Server 참여자는 해당 보안 관련 정책을 제외한 SQL 서버 및 데이터베이스를 관리할 수 있음
-5. 웹 사이트 참여자는 웹 사이트를 관리할 수 있으나 여기에 연결된 웹 계획은 관리할 수 없음
+5. 웹 사이트 기여자는 웹 사이트를 관리할 수 있으나 여기에 연결된 웹 계획은 관리할 수 없음
 
 역할 및 허용되는 작업의 전체 목록은 [RBAC: 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요. 역할 기반 Access Control에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md)를 참조하세요. 
 
@@ -227,7 +229,7 @@ Azure는 몇 가지 리소스 특정 역할도 제공합니다. 몇 가지 일�
 또한 사용자가 삭제 및 수정하는 것을 방지하기 위해 명시적으로 중요한 리소스를 잠글 수 있습니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](resource-group-lock-resources.md)를 참조하세요.
 
 ## <a name="activity-logs"></a>활동 로그
-Resource Manager는 리소스를 만들거나 수정 또는 삭제하는 모든 작업을 기록합니다. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다. 로그를 보려면 리소스 그룹에 대한 **설정** 블레이드에서 **활동 로그**를 선택합니다. 작업을 시작한 사용자를 포함하여 여러 다른 값으로 로그를 필터링할 수 있습니다. 활동 로그 작업에 대한 내용은 [Azure 리소스 관리를 위한 활동 로그 보기](resource-group-audit.md)를 참조하세요.
+Resource Manager는 리소스를 만들거나 수정 또는 삭제하는 모든 작업을 기록합니다. 활동 로그를 사용하여 문제를 해결할 때 오류를 찾거나 조직의 사용자가 리소스를 수정한 방법을 모니터링할 수 있습니다. 작업을 시작한 사용자를 포함하여 여러 다른 값으로 로그를 필터링할 수 있습니다. 활동 로그 작업에 대한 내용은 [Azure 리소스 관리를 위한 활동 로그 보기](resource-group-audit.md)를 참조하세요.
 
 ## <a name="customized-policies"></a>사용자 지정된 정책
 리소스 관리자를 사용하면 리소스를 관리하기 위해 사용자 지정된 정책을 만들 수 있습니다. 만든 정책의 유형에는 다양한 시나리오가 포함될 수 있습니다. 리소스에 대한 명명 규칙을 적용하거나 배포할 수 있는 리소스의 형식 및 인스턴스를 제한하거나 리소스 종류를 호스트할 수 있는 지역을 제한할 수 있습니다. 부서별로 청구를 구성하기 위해 리소스에 대한 태그 값이 필요할 수 있습니다. 구독에서 비용을 절감하고 일관성을 유지하는 데 도움이 되는 정책을 만들 수 있습니다. 
@@ -255,7 +257,7 @@ JSON을 사용하여 정책을 정의하고 구독 전체 또는 리소스 그�
 ## <a name="sdks"></a>SDK
 Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러한 언어 구현은 각각 해당 에코 시스템 패키지 관리자 및 GitHub를 통해 사용할 수 있습니다.
 
-다음은 오픈 소스 SDK 리포지토리입니다. 피드백, 문제 및 끌어오기 요청을 환영합니다.
+다음은 오픈 소스 SDK 리포지토리입니다.
 
 * [Azure SDK for .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Java용 Azure 관리 라이브러리](https://github.com/Azure/azure-sdk-for-java)

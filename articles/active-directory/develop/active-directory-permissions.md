@@ -1,6 +1,6 @@
 ---
-title: Azure AD의 권한 | Microsoft Docs
-description: Azure Active Directory의 범위와 권한 및 이들을 사용하는 방법 알아보기
+title: Azure Active Directory의 권한 | Microsoft Docs
+description: Azure Active Directory의 권한 및 사용 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,24 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 04/20/2017
+ms.date: 06/25/2018
 ms.author: celested
-ms.reviewer: justhu
+ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 749253d6a082bcdc2b80c5984f20c4b8c4039ad0
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 786757293e2ad2c47f80745f6bdd9bb5a65add80
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156894"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936958"
 ---
-# <a name="permissions-in-azure-ad"></a>Azure AD의 권한
-Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 토큰은 앱이 특정 리소스에 대해 가지는 권한(일명 범위)을 설명하는 클레임을 포함합니다. 따라서 토큰이 호출하는 API에 적절한 권한만 포함하는지 확인하기만 하면 되므로 리소스 인증이 쉬워집니다. 
+# <a name="permissions-in-azure-active-directory"></a>Azure Active Directory의 권한
+
+Azure AD(Azure Active Directory)는 OAuth 및 OpenID Connect(OIDC) 흐름을 위해 권한을 폭 넓게 사용합니다. 앱이 Azure AD에서 액세스 토큰을 받는 경우, 해당 액세스 토큰은 앱이 특정 리소스에 대해 가지는 권한을 설명하는 클레임을 포함합니다. 범위라고도 하는 권한은 리소스는 토큰에 앱이 호출하는 API에 적절한 권한이 포함되는지 확인하기만 하면 되므로 리소스 인증이 쉬워집니다. 
 
 ## <a name="types-of-permissions"></a>권한 형식
+
 Azure AD는 두 종류의 권한을 정의합니다. 
 * **위임된 권한** - 로그인한 사용자가 현재 있는 앱에서 사용합니다. 이 앱에 대해 사용자 또는 관리자는 앱이 요청하는 권한 및 앱이 API를 호출할 때 로그인한 사용자로 행동하도록 위임된 권한이라는 데 동의합니다. API에 따라 사용자는 API에 직접 동의할 수 없고 대신에 관리자에게 ["관리자 동의"](/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent)를 제공할 것을 요구할 수 있습니다.
-* **응용 프로그램 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 아주 강력하고 사용자 경계 간의 데이터 또는 다른 방법이라면 관리자로 제한될 수 있는 데이터에 액세스할 수 있도록 하므로 [관리자만이 동의](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)할 수 있습니다. 
+* **응용 프로그램 권한** - 로그인한 사용자가 없이 실행한 앱(예: 백그라운드 서비스 또는 디먼으로 실행한 앱)에서 사용합니다. 응용 프로그램 권한은 일반적으로 강력하고 사용자 경계 간의 데이터 또는 다른 방법이라면 관리자로 제한될 수 있는 데이터에 액세스할 수 있도록 하므로 [관리자만이 동의](/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant)할 수 있습니다. 
 
 효과적인 권한은 앱이 API를 요청할 때 갖게 될 권한입니다. 
 
@@ -55,14 +57,14 @@ Azure AD의 권한은 사용자, 관리자 또는 앱 개발자가 액세스할 
 
 | 속성 이름 | 설명 | 예 | 
 | --- | --- | --- |
-| ID | 이 권한을 고유하게 식별하는 GUID 값입니다. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
-| IsEnabled | 이 범위가 사용할 수 있는지 여부를 나타냅니다. | true | 
-| type | 이 권한이 사용자 동의 또는 관리자 동의를 요구하는지 여부를 나타냅니다. | 사용자 | 
-| AdminConsentDescription | 관리자 동의 환경에 있는 동안 관리자에게 표시되는 설명입니다. | 앱에서 사용자 사서함의 이메일을 읽을 수 있도록 허용합니다. | 
-| AdminConsentDisplayName | 관리자 동의 환경에 있는 동안 관리자에게 표시되는 친숙한 이름입니다. | 사용자 메일 읽기 | 
-| UserConsentDescription | 사용자 동의 환경에 있는 동안 사용자에게 표시되는 설명입니다. |  앱에서 사서함의 이메일을 읽을 수 있도록 허용합니다. | 
-| UserConsentDisplayName | 사용자 동의 환경에 있는 동안 사용자에게 표시되는 친숙한 이름입니다. | 메일 읽기 | 
-| 값 | OAuth 2.0 권한 흐름 중에 권한을 식별하는 데 사용되는 문자열입니다. 이 문자열을 앱 ID URI 문자열과 조합하여 정규화된 권한 이름을 형성할 수도 있습니다. | `Mail.Read` | 
+| `ID` | 이 권한을 고유하게 식별하는 GUID 값입니다. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca | 
+| `IsEnabled` | 이 권한이 사용할 수 있는지 여부를 나타냅니다. | true | 
+| `Type` | 이 권한이 사용자 동의 또는 관리자 동의를 요구하는지 여부를 나타냅니다. | 사용자 | 
+| `AdminConsentDescription` | 관리자 동의 환경에 있는 동안 관리자에게 표시되는 설명입니다. | 앱에서 사용자 사서함의 이메일을 읽을 수 있도록 허용합니다. | 
+| `AdminConsentDisplayName` | 관리자 동의 환경에 있는 동안 관리자에게 표시되는 친숙한 이름입니다. | 사용자 메일 읽기 | 
+| `UserConsentDescription` | 사용자 동의 환경에 있는 동안 사용자에게 표시되는 설명입니다. |  앱에서 사서함의 이메일을 읽을 수 있도록 허용합니다. | 
+| `UserConsentDisplayName` | 사용자 동의 환경에 있는 동안 사용자에게 표시되는 친숙한 이름입니다. | 메일 읽기 | 
+| `Value` | OAuth 2.0 권한 흐름 중에 권한을 식별하는 데 사용되는 문자열입니다. `Value`는 앱 ID URI 문자열과 조합하여 정규화된 권한 이름을 형성할 수도 있습니다. | `Mail.Read` | 
 
 ## <a name="types-of-consent"></a>동의 형식
 Azure AD의 응용 프로그램이 필요한 리소스 또는 API에 액세스하려면 동의가 필요합니다. 앱이 성공하기 위해 알아야 할 수 있는 여러 종류의 동의가 있습니다. 권한을 정의하는 경우 사용자가 앱 또는 API에 액세스 권한을 얻는 방법도 이해해야 합니다.
@@ -70,31 +72,38 @@ Azure AD의 응용 프로그램이 필요한 리소스 또는 API에 액세스�
 * **고정적인 사용자 동의** - 앱이 상호작용하려는 리소스를 지정하는 [OAuth 2.0 인증 흐름](/azure/active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) 중에 자동으로 이루어집니다. 고정적 사용자 동의 시나리오에서 앱은 Azure Portal의 앱 구성에 필요한 모든 권한을 이미 지정했어야 합니다. 사용자(또는 해당하는 경우 관리자)가 이 앱에 대한 동의를 받지 못한 경우, Azure AD는 사용자에게 지금 동의를 제공하라는 메시지를 표시합니다. 
 
     고정적 API 집합에 액세스를 요청하는 Azure AD 앱 등록에 대해 자세히 알아봅니다.
-* **동적 사용자 동의** - v2 Azure AD 앱 모델의 기능입니다. 이 시나리오에서 앱은 [v2 앱에 대한 OAuth 2.0 권한 흐름](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent)에서 필요한 범위 집합을 요청합니다. 사용자가 아직 동의하지 않은 경우 지금 동의하라는 메시지가 표시됩니다. [동적 동의에 대해 자세히 알아봅니다](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
+* **동적 사용자 동의** - v2 Azure AD 앱 모델의 기능입니다. 이 시나리오에서 앱은 [v2 앱에 대한 OAuth 2.0 권한 흐름](/azure/active-directory/develop/active-directory-v2-scopes#requesting-individual-user-consent)에서 필요한 권한 집합을 요청합니다. 사용자가 아직 동의하지 않은 경우 지금 동의하라는 메시지가 표시됩니다. [동적 동의에 대해 자세히 알아봅니다](/azure/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent).
 
     > [!NOTE]
-    > 동적 동의는 편리할 수 있지만 권한에 대해 관리자 동의가 필요한데 관리자 동의 환경은 동의 시간에 해당 권한에 대해 인식하지 못한다는 큰 문제가 있습니다. 관리자 권한 범위가 필요한 경우 앱이 Azure Portal에 해당 범위를 등록해야 합니다.
+    > 동적 동의는 편리할 수 있지만 권한에 대해 관리자 동의가 필요한데 관리자 동의 환경은 동의 시간에 해당 권한에 대해 인식하지 못한다는 큰 문제가 있습니다. 관리자 권한이 필요한 경우 앱이 Azure Portal에 해당 권위를 등록해야 합니다.
   
-* **관리자 동의** - 앱이 높은 권한의 특정 사용 권한에 액세스해야 하는 경우 필요합니다. 이 동의는 관리자가 몇몇 추가 제어를 포함해야 앱 또는 사용자가 조직의 높은 권한 데이터에 액세스하는 것을 인증합니다. [관리자 동의를 부여하는 방법에 대해 자세히 알아봅니다](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
+* **관리자 동의** - 앱이 높은 권한의 특정 사용 권한에 액세스해야 하는 경우 필요합니다. 관리자 동의는 관리자가 몇몇 추가 제어를 포함해야 앱 또는 사용자가 조직의 높은 권한 데이터에 액세스하는 것을 인증합니다. [관리자 동의를 부여하는 방법에 대해 자세히 알아봅니다](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
 ## <a name="best-practices"></a>모범 사례
 
-### <a name="resource-best-practices"></a>리소스 모범 사례
-API를 표시하는 리소스는 보호하는 데이터 또는 작업에 매우 특정적인 권한을 정의해야 합니다. 이렇게 하면 고객이 필요하지 않은 데이터에 액세스하는 권한을 갖지 않도록 하고 사용자가 동의하는 데이터에 관한 알림도 받도록 하는 데 도움이 됩니다.
-
-리소스는 `Read` 및 `ReadWrite` 권한을 명시적으로 따로 정의해야 합니다. 
-
-리소스는 `Admin` 권한 같은 사용자 경계 간의 데이터에 액세스를 허용하는 권한을 표시해야 합니다. 
-
-리소스는 `Subject`가 사용할 수 있는 데이터 형식에 해당하고 `Permission`이 사용자가 해당 데이터에 대해 실행하는 작업에 해당하고 `Modifier`가 다른 권한의 명세를 설명하기 위해 선택적으로 사용되는 다음 명명 패턴 `Subject.Permission[.Modifier]`를 따릅니다. 예:  
-* Mail.Read - 사용자가 메일을 읽도록 허용합니다. 
-* Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
-* Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.
-
 ### <a name="client-best-practices"></a>클라이언트 모범 사례
-앱에 필요한 범위에 대한 권한만 요청합니다. 너무 많은 권한을 가진 앱은 손상될 경우 사용자 데이터를 노출할 위험이 있습니다.
 
-고객은 동일한 앱에서 응용 프로그램 권한과 위임된 권한을 함께 요청하지 않아야 합니다. 그러한 요청은 권한 상승을 초래하여 사용자가 자신의 권한에서 허용하지 않는 데이터에 액세스하게 될 수 있습니다. 
+- 앱에서 필요한 권한에 대한 요청입니다. 너무 많은 권한을 가진 앱은 손상될 경우 사용자 데이터를 노출할 위험이 있습니다.
+- 앱에서 지원하는 시나리오에 따라 응용 프로그램 권한 및 위임된 권한 중에서 선택합니다. 
+    - 사용자를 대신해 호출이 이뤄지는 경우 항상 위임된 권한을 사용합니다.
+    - 앱이 비대화형이고 특정 사용자를 대신해 호출하지 않는 경우는 응용 프로그램 권한만 사용합니다. 응용 프로그램 권한은 상당히 높은 권한이므로 반드시 필요한 경우에만 사용해야 합니다.
+- v2.0 엔드포인트에 따라 앱을 사용할 경우 관리자 동의 같은 시나리오가 올바로 작동하도록 항상 정적 권한(응용 프로그램 등록에 지정된 권한)을 런타임 시 요청하는 동적 권한(코드에 지정되고 권한 요청에서 쿼리 매개 변수로 전송된 권한)의 상위 집합으로 설정합니다.
+
+### <a name="resourceapi-best-practices"></a>리소스/API 모범 사례
+
+- API를 표시하는 리소스는 보호하는 데이터 또는 작업에 특정한 권한을 정의해야 합니다. 이 모범 사례를 따르면 고객이 필요하지 않은 데이터에 액세스하는 권한을 갖지 않도록 하고 사용자가 동의하는 데이터에 관한 알림도 받도록 하는 데 도움이 됩니다.
+- 리소스는 `Read` 및 `ReadWrite` 권한을 명시적으로 따로 정의해야 합니다.
+- 리소스는 `Admin` 권한 같은 사용자 경계 간의 데이터에 액세스를 허용하는 권한을 표시해야 합니다.
+- 리소스는 다음의 경우 `Subject.Permission[.Modifier]` 명명 패턴을 따라야 합니다.
+    - `Subject`는 사용할 수 있는 데이터의 형식에 해당합니다.
+    - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다. 
+    - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다. 
+    
+    예:  
+    * Mail.Read - 사용자가 메일을 읽도록 허용합니다.
+    * Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
+    * Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.
+
 
 
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1e7245afe36d348b1cbd955900e34876b8e34511
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651729"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031433"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -40,7 +40,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
      "hmdt": 44
    }
    ```
-2. Azure 포털에 로그인합니다.  
+2. [Azure 포털](https://portal.azure.com/)에 로그인합니다.  
 
 3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다. **이름**이 "asaquickstartstorage"로, **위치**가 "미국 서부 2"로, **리소스 그룹**이 "asaquickstart-resourcegroup"으로 설정된 저장소 계정 작업 페이지를 작성합니다(성능 향상을 위해 스트리밍 작업과 동일한 리소스 그룹의 저장소 계정을 호스팅함). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
 
@@ -116,7 +116,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
    |---------|---------|---------|
    |출력 별칭 |   BlobOutput   |   작업의 출력을 식별하는 이름을 입력합니다. |
    |구독  |  \<사용자의 구독\>  |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
-   |Storage 계정 |  myasastorageaccount |   저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
+   |Storage 계정 |  asaquickstartstorage |   저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
    |컨테이너 |   container1  |  저장소 계정에서 만든 기존 컨테이너를 선택합니다.   |
    |경로 패턴 |   output  |  출력에 대한 기존 컨테이너 내의 경로로 사용할 이름을 입력합니다.   |
 

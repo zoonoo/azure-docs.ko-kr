@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 7e01915a63e0e260dc85893bdf65cf7b86000cef
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a18777694677ab4958c88b5610844726f80868cb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771221"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054003"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark란
 
@@ -43,8 +43,8 @@ HDInsight에서 Spark 클러스터는 완벽하게 관리되는 Spark 서비스�
 | REST API |HDInsight의 Spark 클러스터에는 원격으로 작업을 제출하고 모니터링하는 REST API 기반 Spark 작업 서버인 [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server)가 포함되어 있습니다. |
 | Azure Data Lake 저장소에 대한 지원 | HDInsight의 Spark 클러스터는 Azure Data Lake Store를 기본 저장소 또는 추가 저장소로 모두 사용할 수 있습니다. Data Lake 저장소에 대한 자세한 내용은 [Azure Data Lake 저장소 개요](../../data-lake-store/data-lake-store-overview.md)를 참조하세요. |
 | Azure 서비스와의 통합 |HDInsight에서 Spark 클러스터는 Azure Event Hubs에 대한 커넥터와 함께 제공됩니다. [Kafka](http://kafka.apache.org/)외에, 이미 Spark에서 제공하는 Event Hubs를 사용하여 스트리밍 응용 프로그램을 빌드할 수 있습니다. |
-| R 서버에 대한 지원 | Spark 클러스터와 약속된 속도로 분산된 R 계산을 실행하도록 HDInsight Spark 클러스터에서 R 서버를 설정할 수 있습니다. 자세한 내용은 [HDInsight에서 R 서버 시작](../r-server/r-server-get-started.md)을 참조하세요. |
-| 타사 IDE와의 통합 | HDInsight는 유용한 여러 IDE 플러그인을 제공하여 응용 프로그램을 만들고 HDInsight Spark 클러스터에 제출합니다. 자세한 내용은 [IntelliJ IDEA용 Azure 도구 키트 사용](apache-spark-intellij-tool-plugin.md) 및 [Eclipse용 Azure 도구 키트 사용](apache-spark-eclipse-tool-plugin.md)을 참조하세요.|
+| ML Server에 대한 지원 | HDInsight의 ML Server에 대한 지원은 **ML 서비스** 클러스터 형식으로 제공됩니다. Spark 클러스터와 약속된 속도로 분산된 R 계산을 실행하도록 ML 서비스 클러스터를 설정할 수 있습니다. 자세한 내용은 [HDInsight에서 ML Server를 사용하기 시작](../r-server/r-server-get-started.md)을 참조하세요. |
+| 타사 IDE와의 통합 | HDInsight는 유용한 여러 IDE 플러그인을 제공하여 응용 프로그램을 만들고 HDInsight Spark 클러스터에 제출합니다. 자세한 내용은 [Azure Toolkit for IntelliJ IDEA 사용](apache-spark-intellij-tool-plugin.md), [VSCode용 HDInsight 사용](../hdinsight-for-vscode.md) 및 [Azure Toolkit for Eclipse 사용](apache-spark-eclipse-tool-plugin.md)을 참조하세요.|
 | 동시 쿼리 |HDInsight의 Spark 클러스터는 동시 쿼리를 지원합니다. 이 기능을 통해 한 사용자의 여러 개 쿼리 또는 여러 사용자 및 응용 프로그램의 여러 개 쿼리에서 동일한 클러스터 리소스를 공유할 수 있습니다. |
 | SSD에서 캐시 |클러스터 노드에 연결된 메모리 또는 SSD에서 데이터를 캐시하도록 선택할 수 있습니다. 메모리에서 캐시하면 최고의 쿼리 성능을 제공하지만 리소스가 많이 들 수 있습니다. SSD에서 캐시하면 메모리에서 전체 데이터 집합에 맞게 필요한 크기의 클러스터를 만들 필요 없이 쿼리 성능 향상을 위한 훌륭한 옵션을 제공합니다. |
 | BI 도구와의 통합 |HDInsight에서 Spark 클러스터는 데이터 분석을 위해 [Power BI](http://www.powerbi.com/)와 같은 BI 도구용 커넥터를 제공합니다. |
@@ -109,3 +109,4 @@ HDInsight의 Spark 클러스터는 다음과 같은 주요 시나리오를 사�
 이 개요를 통해 Azure HDInsight의 Apache Spark에 대한 몇 가지 기본 사항을 이해할 수 있습니다. 다음 문서에서는 HDInsight Spark 클러스터를 만들고 일부 Spark SQL 쿼리를 실행하는 방법을 알아봅니다.
 
 - [HDInsight에서 Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql.md)
+

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 10/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 13d350950e91d771b7b4b2310a788537c4c36bd7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5ae6ba28ba448591d58cc3963f5df9a563997ab0
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642396"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959548"
 ---
 # <a name="quickstart-deploy-a-java-service-fabric-reliable-services-application-to-azure"></a>빠른 시작: Azure에 Java Service Fabric 안정적인 서비스 응용 프로그램 배포
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
@@ -120,13 +120,13 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 
 인증서 지문은 Service Fabric 프로그래밍 모델을 사용하므로 응용 프로그램에 추가해야 합니다. 
 
-1. 보안 클러스터에서 실행할 때 인증서의 지문이 ```Voting/VotingApplication/ApplicationManiest.xml``` 파일에 있어야 합니다. 다음 명령을 실행하여 인증서의 지문을 추출합니다.
+1. 보안 클러스터에서 실행할 때 인증서의 지문이 `Voting/VotingApplication/ApplicationManifest.xml` 파일에 있어야 합니다. 다음 명령을 실행하여 인증서의 지문을 추출합니다.
 
     ```bash
     openssl x509 -in [CERTIFICATE_PEM_FILE] -fingerprint -noout
     ```
 
-2. ```Voting/VotingApplication/ApplicationManiest.xml```에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음). 
+2. `Voting/VotingApplication/ApplicationManifest.xml` 파일에서 **ApplicationManifest** 태그 아래에 다음 코드 조각을 추가합니다. **X509FindValue**는 이전 단계의 지문이어야 합니다(세미콜론 없음). 
 
     ```xml
     <Certificates>

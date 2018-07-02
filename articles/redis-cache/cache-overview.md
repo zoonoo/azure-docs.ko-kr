@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195875"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062762"
 ---
 # <a name="what-is-azure-redis-cache"></a>Azure Redis Cache란?
 
@@ -77,6 +77,7 @@ Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB
 
 * [ASP.NET 웹앱 빠른 시작](cache-web-app-howto.md) Azure Redis Cache를 사용하는 간단한 ASP.NET 웹앱을 만듭니다.
 * [.NET 빠른 시작](cache-dotnet-how-to-use-azure-redis-cache.md) Azure Redis Cache를 사용하는 .NET 앱을 만듭니다.
+* [.NET Core 빠른 시작](cache-dotnet-core-quickstart.md) Azure Redis Cache를 사용하는 .NET Core 앱을 만듭니다.
 * [Node.js 빠른 시작](cache-nodejs-get-started.md) Azure Redis Cache를 사용하는 간단한 Node.js 앱을 만듭니다.
 * [Java 빠른 시작](cache-java-get-started.md) Azure Redis Cache를 사용하는 간단한 Java 앱을 만듭니다.
 * [Python 빠른 시작](cache-python-get-started.md) Azure Redis Cache를 사용하는 Python 앱을 만듭니다.

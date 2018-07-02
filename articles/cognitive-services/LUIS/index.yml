@@ -11,36 +11,68 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/25/2018
+  ms.date: 06/28/2018
   ms.author: kamrani
-  ms.openlocfilehash: 7d529825733025335f27ce0fe477c117aeaf5c41
-  ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+  ms.openlocfilehash: f3ccbb033354afc01fa840b3129d305f04942ffd
+  ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/08/2018
-  ms.locfileid: "35358288"
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37095573"
 abstract:
   description: LUIS(Language Understanding) 서비스를 사용하면 응용 프로그램에서 사람의 말을 통해 무엇을 원하는지 이해할 수 있습니다. LUIS는 기계 학습을 사용하여 사용자 입력을 자연어로 받아서 의미를 추출하는 응용 프로그램을 개발자가 작성할 수 있도록 합니다.
 sections:
 - title: 5분 빠른 시작
   items:
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="luis-get-started-create-app.md">미리 작성된 도메인용 앱 만들기</a>
-    - html: <a href="luis-quickstart-intents-only.md">사용자 지정 도메인용 앱 만들기</a>
+  - type: table
+    style: dataMatrix
+    columns:
+    - image:
+        src: media/index/logo_csharp.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_js.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_php.svg
+    - image:
+        src: media/index/logo_ruby.svg
+    rows:
+    - title: 끝점 API
+      values:
+      - href: luis-get-started-cs-get-intent
+      - href: luis-get-started-java-get-intent
+      - href: luis-get-started-js-get-intent
+      - href: luis-get-started-node-get-intent
+      - href: luis-get-started-python-get-intent
+      - href: luis-get-started-php-get-intent
+      - href: luis-get-started-ruby-get-intent
+    - title: API 작성
+      values:
+      - href: luis-get-started-cs-add-utterance
+      - href: luis-get-started-java-add-utterance
+      - href: luis-get-started-javascript-add-utterance
+      - href: luis-get-started-node-add-utterance
+      - href: luis-get-started-python-add-utterance
+      - href: luis-get-started-php-add-utterance
+      - href: luis-get-started-ruby-add-utterance
 - title: 단계별 자습서
   items:
   - type: list
     style: ordered
     items:
-    - html: <a href="luis-quickstart-primary-and-secondary-data">간단한 엔터티를 사용하여 음성에서 메시지 데이터 추출하기</a>
-    - html: <a href="luis-quickstart-intents-regex-entity">정규식 엔터티를 사용하여 음성에서 KB 문서 번호 추출하기</a>
-    - html: <a href="luis-quickstart-intent-and-list-entity">목록 엔터티를 사용하여 음성에서 음료 주문 정보 추출하기</a>
-    - html: <a href="luis-tutorial-pattern">패턴을 통해 의도 및 엔터티 예측 정확도 향상시키기</a>
-    - html: <a href="luis-tutorial-interchangeable-phrase-list">문구 목록으로 단어 의미 향상시키기</a>
-    - html: <a href="luis-get-started-cs-get-intent">LUIS에 음성을 보내고 엔드포인트 예측 응답 받기 - C#</a>
-    - html: <a href="luis-get-started-cs-add-utterance">의도에 예제 음성을 추가하여 LUIS 앱 학습시키기 - C#</a>
+    - html: <a href="luis-quickstart-intents-only">HR(인사 관리) 도메인에 대한 앱 빌드</a>
+    - html: <a href="luis-tutorial-prebuilt-intents-entities">미리 작성된 의도 및 엔터티 추가</a>
+    - html: <a href="luis-quickstart-intents-regex-entity">정규식 엔터티 추가</a>
+    - html: <a href="luis-quickstart-intent-and-list-entity">목록 엔터티 추가</a>
+    - html: <a href="luis-quickstart-intent-and-hier-entity">계층적 엔터티 추가</a>
+    - html: <a href="luis-quickstart-primary-and-secondary-data">단순 엔터티 및 문구 목록 추가</a>
+    - html: <a href="luis-quickstart-intent-and-key-phrase">keyPhrase 엔터티 추가</a>
+    - html: <a href="luis-quickstart-intent-and-sentiment-analysis">감정 분석 추가</a>
 - title: 동영상
   items:
   - type: list

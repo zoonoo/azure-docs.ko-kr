@@ -14,20 +14,20 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6747dc6ef482fecba7e9fb4fae5748de377051eb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179602"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049800"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](data-factory-introduction.md)
-> * [버전 2 - 미리 보기](../introduction.md)
+> * [버전 1](data-factory-introduction.md)
+> * [버전 2(현재 버전)](../introduction.md)
 
 > [!NOTE]
-> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [데이터 팩터리 V2 소개](../introduction.md)를 참조하세요.
+> 이 아티클은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory V2 소개](../introduction.md)를 참조하세요.
 
 
 ## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?

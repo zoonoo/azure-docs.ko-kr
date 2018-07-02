@@ -14,17 +14,17 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cff8be88e23d57545a9926df366289c6ba264886
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a3801573f3ffe3a0941f3941cf33e516f4f1b614
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30229951"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961641"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Azure AD Connect Health를 사용하여 Azure AD Connect 동기화 모니터링
 다음 문서는 Azure AD Connect Health와 함께 Azure AD Connect (동기화) 모니터링에 중점을 둡니다.  Azure AD Connect Health와 함께 AD FS 모니터링에 대한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 대한 정보는 [AD DS와 함께 Azure AD Connect Health 사용](active-directory-aadconnect-health-adds.md)을 참조하세요.
 
-![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/sync-blade.png)
+![동기화에 대한 Azure AD Connect Health](./media/active-directory-aadconnect-health-sync/syncsnapshot.png)
 
 ## <a name="alerts-for-azure-ad-connect-health-for-sync"></a>동기화에 대한 Azure AD Connect Health에 대한 경고
 동기화에 대한 Azure AD Connect Health 경고 섹션은 활성 경고 목록을 제공합니다. 각 경고에는 관련 정보, 해결 단계 및 관련된 설명서 링크가 포함됩니다. 활성 또는 해결된 경고를 선택하면 추가 정보는 물론, 경고를 해결하기 위해 수행할 수 있는 단계와 추가 설명서 링크가 포함된 새 블레이드가 표시됩니다. 과거에 해결된 경고에 대한 기록 데이터도 볼 수 있습니다.
@@ -98,15 +98,18 @@ Azure AD Connect가 기본 구성을 사용하지 않으면(예: 특성 필터�
 ### <a name="error-details"></a>오류 세부 정보
 다음 데이터를 각 오류에 대한 자세한 보기에 사용할 수 있음
 
+* 강조 표시된 충돌하는 특성
 * 관련된 *AD 개체*에 대한 식별자
 * 관련된 *Azure AD 개체*에 대한 식별자
 * 오류 설명 및 해결 방법
-* 관련 문서
 
-![동기화 오류 보고서 세부 정보](./media/active-directory-aadconnect-health-sync/errorreport04.png)
+![동기화 오류 보고서 세부 정보](./media/active-directory-aadconnect-health-sync/duplicateAttributeSyncError.png)
 
 ### <a name="download-the-error-report-as-csv"></a>CVS로 오류 보고서를 다운로드
 “내보내기” 단추를 선택하면 모든 오류에 대한 세부 정보를 모두 포함하는 CSV 파일을 다운로드할 수 있습니다.
+
+### <a name="diagnose-and-remediate-sync-errors"></a>동기화 오류 진단 및 수정 
+사용자 원본 앵커 업데이트와 관련된 특정 중복된 특성 동기화 오류 시나리오의 경우 포털에서 직접 수정할 수 있습니다. [중복된 특성 동기화 오류 진단 및 수정](active-directory-aadconnect-health-diagnose-sync-errors.md)에 대해 자세한 내용 읽기
 
 ## <a name="related-links"></a>관련 링크
 * [동기화 중 오류 문제 해결](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)

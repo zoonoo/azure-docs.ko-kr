@@ -1,11 +1,11 @@
 - name: 컴퓨터 비전 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Computer Vision이란?
       href: Home.md
-- name: 빠른 시작
-  expanded: true
+- name: API 빠른 시작
   items:
     - name: 요약
       href: QuickStarts/quickstart-summary.md
@@ -97,6 +97,16 @@
           href: QuickStarts/ruby-thumb.md
         - name: 인쇄된 텍스트 추출
           href: QuickStarts/ruby-print-text.md
+- name: SDK 빠른 시작
+  items:
+    - name: 'C#'
+      items:
+        - name: 이미지 분석
+          href: quickstarts-sdk/csharp-analyze-sdk.md
+        - name: 썸네일 생성
+          href: quickstarts-sdk/csharp-thumb-sdk.md
+        - name: 필기 텍스트 추출
+          href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: 방법 가이드
   items:
     - name: 첫 번째 Computer Vision 앱

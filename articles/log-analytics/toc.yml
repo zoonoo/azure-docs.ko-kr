@@ -39,6 +39,8 @@
       href: log-analytics-data-security.md
     - name: 액세스 관리
       href: log-analytics-manage-access.md
+    - name: 에이전트 개요
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: 하이브리드 환경 모니터링
       href: log-analytics-concept-hybrid.md
     - name: 서비스 공급자의 기능

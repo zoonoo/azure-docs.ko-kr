@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d0917894250c8cf907d721749be506d2c247111a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 17f7bc4d9325dd8040036e218c43e418f3c51b68
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626320"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021211"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Kafka 만들기
 
@@ -76,7 +76,7 @@ HDInsight 클러스터에 Kafka를 만들려면 다음 단계를 수행합니다
     | 설정 | 값 |
     | --- | --- |
     | 클러스터 유형 | Kafka |
-    | 버전 | Kafka 0.10.0 (HDI 3.6) |
+    | 버전 | Kafka 1.0.0(HDI 3.6) |
 
     **선택** 단추를 사용하여 클러스터 유형 설정을 저장하고 __기본__으로 돌아갑니다.
 

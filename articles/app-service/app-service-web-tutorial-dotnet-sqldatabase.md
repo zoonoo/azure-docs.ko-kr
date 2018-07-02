@@ -1,10 +1,10 @@
 ---
 title: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드 | Microsoft Docs
-description: SQL Database에 연결하여 Azure에서 ASP.NET 앱이 작동하도록 하는 방법에 대해 알아봅니다.
+description: SQL Server 데이터베이스를 사용하여 Azure에 C# ASP.NET 앱을 배포하는 방법을 알아봅니다.
 services: app-service\web
-documentationcenter: nodejs
+documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: cfowler
 editor: ''
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.service: app-service-web
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 06/09/2017
+ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 4fd1381594c77d8bba92027fee06c08376ee903b
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789251"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021326"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -44,19 +44,15 @@ ms.locfileid: "31789251"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* 다음 워크로드와 함께 [Visual Studio 2017](https://www.visualstudio.com/downloads/)을 설치합니다.
-  - **ASP.NET 및 웹 배포**
-  - **Azure 개발**
-
-  ![ASP.NET 및 웹 개발 및 Azure 개발(웹 & 클라우드에서)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+**ASP.NET 및 웹 개발** 워크로드가 있는 <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>을 설치합니다.
 
 Visual Studio가 이미 설치된 경우 **도구** > **도구 및 기능 가져오기**를 클릭하여 Visual Studio에서 워크로드를 추가합니다.
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-[샘플 프로젝트를 다운로드합니다](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
-
-*dotnet-sqldb-tutorial-master.zip* 파일을 추출(압축 해제)합니다.
+<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[샘플 프로젝트를 다운로드합니다](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+-
+-*dotnet-sqldb-tutorial-master.zip* 파일을 추출(압축 해제)합니다.
 
 샘플 프로젝트에는 [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application)를 사용하는 기본 [ASP.NET MVC](https://www.asp.net/mvc) CRUD(Create-Read-Update-Delete) 앱이 포함되어 있습니다.
 
@@ -86,20 +82,20 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭한 다음 Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다.
+**App Service 만들기** 대화 상자에서 **계정 추가**를 클릭한 다음 Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다. 
+
+> [!NOTE]
+> 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
+>
+>
    
 ![Azure에 로그인](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
-
-일단 로그인되면 이 대화 상자에서 Azure 웹앱에 필요한 모든 리소스를 만들 준비가 되었습니다.
 
 ### <a name="configure-the-web-app-name"></a>웹앱 이름 구성
 
 생성된 웹앱 이름을 유지하거나 다른 고유한 이름으로 변경할 수 있습니다(유효한 문자: `a-z`, `0-9` 및 `-`). 웹앱 이름은 앱의 기본 URL(`<app_name>.azurewebsites.net`, 여기서 `<app_name>`는 웹앱 이름)의 일부로 사용됩니다. 웹앱 이름은 Azure의 모든 앱에서 고유해야 합니다. 
 
 ![앱 서비스 만들기 대화 상자](media/app-service-web-tutorial-dotnet-sqldatabase/wan.png)
-
-> [!NOTE]
-> **만들기**는 클릭하지 마세요. 먼저 나중의 단계에서 SQL Database를 설정해야 하기 때문입니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -131,13 +127,9 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 먼저 [Azure SQL Database 논리 서버](../sql-database/sql-database-features.md)가 있어야 데이터베이스를 만들 수 있습니다. 논리 서버는 그룹으로 관리되는 데이터베이스 그룹을 포함합니다.
 
-**추가 Azure 서비스 탐색**을 선택합니다.
+**SQL Database 만들기**를 클릭합니다.
 
-![웹앱 이름 구성](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
-
-**서비스** 탭에서 **SQL Database** 옆에 있는 **+**  아이콘을 클릭합니다. 
-
-![[서비스] 탭에서 [SQL Database] 옆에 있는 + 아이콘을 클릭합니다.](media/app-service-web-tutorial-dotnet-sqldatabase/sql.png)
+![SQL Database 만들기](media/app-service-web-tutorial-dotnet-sqldatabase/web-app-name.png)
 
 **SQL Database 구성** 대화 상자에서 **SQL Server** 옆에 있는 **새로 만들기**를 클릭합니다. 
 
@@ -164,7 +156,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 
 ![SQL Database 구성](media/app-service-web-tutorial-dotnet-sqldatabase/configure-sql-database.png)
 
-**App Service 만들기** 대화 상자에서 만든 리소스를 표시합니다. **만들기**를 클릭합니다. 
+**App Service 만들기** 대화 상자에서 구성한 리소스를 표시합니다. **만들기**를 클릭합니다. 
 
 ![만든 리소스](media/app-service-web-tutorial-dotnet-sqldatabase/app_svc_plan_done.png)
 
@@ -314,7 +306,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 
 이전과 마찬가지로 프로젝트를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-**설정**을 클릭하여 게시 마법사를 엽니다.
+게시 설정을 열려면 **구성**을 클릭합니다.
 
 ![게시 설정 열기](./media/app-service-web-tutorial-dotnet-sqldatabase/publish-settings.png)
 

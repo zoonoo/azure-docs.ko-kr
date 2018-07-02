@@ -1,5 +1,5 @@
 
-리소스를 Azure에 배포하려면 Azure 계정dmfh 로그인해야 하고 Azure 리소스 관리자 모듈을 사용해야 합니다. Azure PowerShell 또는 Azure CLI과 함께 Azure 리소스 관리자를 사용하는 방법을 알아보려면 참조하십시오.
+리소스를 Azure에 배포하려면 Azure 계정에 로그인하여 Azure Resource Manager 모듈을 사용해야 합니다. Azure PowerShell 또는 Azure CLI과 함께 Azure 리소스 관리자를 사용하는 방법을 알아보려면 참조하십시오.
 
 * [Azure 리소스 관리자로 Azure PowerShell 사용](../articles/azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure 리소스 관리에서 Mac, Linux 및 Windows용 Azure CLI 사용](../articles/azure-resource-manager/xplat-cli-azure-resource-manager.md).

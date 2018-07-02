@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 R Server 시작 - Azure | Microsoft Docs
-description: R Server를 포함하는 HDInsight 클러스터에서 Apache Spark를 만들고 클러스터에 R 스크립트를 제출하는 방법을 알아봅니다.
+title: HDInsight에서 ML 서비스 시작 - Azure | Microsoft Docs
+description: ML 서비스를 포함하는 HDInsight 클러스터에서 Apache Spark를 만들고 클러스터에 R 스크립트를 제출하는 방법을 알아봅니다.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,19 +13,18 @@ ms.devlang: R
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 03/23/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: d6910ab257312626ca25126721410edeed6cdeae
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: efc7ada12f722b0447712594de496e933bde3d36
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411484"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053435"
 ---
-# <a name="get-started-with-r-server-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 R Server 클러스터 시작
+# <a name="get-started-with-ml-services-on-azure-hdinsight"></a>Azure HDInsight에서 ML 서비스 시작
 
-Azure HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 포함되어 있습니다. 이 옵션을 사용하면 R 스크립트에서 Spark 및 MapReduce를 사용하여 분산된 계산을 실행할 수 있습니다. 이 문서에서는 HDInsight 클러스터에 R Server를 만드는 방법에 대해 설명합니다. 그런 다음 분산 R 계산을 위해 Spark를 사용하여 보여 주는 R 스크립트를 실행하는 방법에 대해 설명합니다.
-
+Azure HDInsight를 사용하면 ML 서비스 클러스터를 만들 수 있습니다. 이 옵션을 사용하면 R 스크립트에서 Spark 및 MapReduce를 사용하여 분산된 계산을 실행할 수 있습니다. 이 아티클에서는 HDInsight에서 ML 서비스 클러스터를 만드는 방법 및 R 스크립트를 실행하여 분산된 R 계산에 Spark를 사용하는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,13 +52,13 @@ Azure HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 
 
 4. **클러스터 유형**을 선택한 다음 **클러스터 구성** 섹션에서 다음 값을 설정합니다.
 
-    * **클러스터 유형**: R Server
+    * **클러스터 형식**: ML 서비스
 
     * **운영 체제**: Linux
 
-    * **버전**: R Server 9.1(HDI 3.6). 사용 가능한 R Server 버전에 대한 릴리스 정보는 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-r-server#r-server-91)에 제공됩니다.
+    * **버전**: ML Server 9.3(HDI 3.6) ML Server 9.3에 대한 릴리스 정보는 [docs.microsoft.com](https://docs.microsoft.com/machine-learning-server/whats-new-in-machine-learning-server)에서 지원됩니다.
 
-    * **R Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
+    * **ML Server용 R Studio 커뮤니티 버전**: 기본적으로 에지 노드에 설치되는 브라우저 기반 IDE입니다. 설치하지 않으려면 확인란의 선택을 취소합니다. 설치를 선택하면 만들어진 클러스터의 포털 응용 프로그램 블레이드에서 RStudio Server 로그인에 액세스하기 위한 URL을 사용할 수 있습니다.
 
         ![클러스터 기본 세부 정보](./media/r-server-get-started/clustertypeconfig.png)
 
@@ -81,11 +80,11 @@ Azure HDInsight에는 HDInsight 클러스터에 통합되는 R Server 옵션이 
 
 HDInsight 클러스터의 일부로 R Studio Server Community Edition을 설치하기로 선택한 경우 다음 두 가지 방법 중 하나를 사용하여 RStudio 로그인에 액세스할 수 있습니다.
 
-* **옵션 1** - 다음 URL로 이동합니다(여기서 **CLUSTERNAME**은 만든 R Server 클러스터의 이름임).
+* **옵션 1** - 다음 URL로 이동합니다(여기서 **CLUSTERNAME**은 만든 ML 서비스 클러스터의 이름임).
 
         https://CLUSTERNAME.azurehdinsight.net/rstudio/
 
-* **옵션 2** - Azure Portal에서 R Server 클러스터를 열고 **빠른 링크**에서 **R Server 대시보드**를 클릭합니다.
+* **옵션 2** - Azure Portal에서 ML 서비스 클러스터를 열고 **빠른 링크**에서 **ML 서비스 대시보드**를 클릭합니다.
 
      ![HDInsight에 대한 저장소 계정 설정 지정](./media/r-server-get-started/dashboard-quick-links.png)
 
@@ -175,9 +174,9 @@ ScaleR 함수를 사용하여 작업을 제출할 수 있습니다. 다음은 �
 <a name="connect-to-edge-node"></a>
 ## <a name="connect-to-the-cluster-edge-node"></a>클러스터 에지 노드에 연결
 
-이 섹션에서는 SSH를 사용하여 R Server HDInsight 클러스터의 에지 노드에 연결하는 방법을 설명합니다. SSH 사용에 익숙해지려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+이 섹션에서는 SSH를 사용하여 ML 서비스 HDInsight 클러스터의 에지 노드에 연결하는 방법을 설명합니다. SSH 사용에 익숙해지려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-R Server 클러스터 에지 노드에 연결하기 위한 SSH 명령은 다음과 같습니다.
+ML 서비스 클러스터 에지 노드에 연결하기 위한 SSH 명령은 다음과 같습니다.
 
    `ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net`
 
@@ -194,15 +193,15 @@ SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는
     sshuser@ed00-myrclu:~$
 
 <a name="use-r-console"></a>
-## <a name="use-the-r-server-console"></a>R Server 콘솔 사용
+## <a name="use-the-r-console"></a>R 콘솔 사용
 
 1. SSH 세션에서 다음 명령을 사용하여 R 콘솔을 시작합니다.  
 
         R
 
-2. 다른 정보 외에 R Server의 버전이 포함된 출력이 표시되어야 합니다.
+2. 다른 정보 외에 ML Server의 버전이 포함된 출력이 표시되어야 합니다.
     
-3. `>` 프롬프트에서 R 코드를 입력할 수 있습니다. HDInsight에서 R Server에는 Hadoop과 쉽게 상호 작용하고 분산된 계산을 실행할 수 있는 패키지가 포함되어 있습니다. 예를 들어, 다음 명령을 사용하여 HDInsight 클러스터에 대한 기본 파일 시스템의 루트를 볼 수입니다.
+3. `>` 프롬프트에서 R 코드를 입력할 수 있습니다. HDInsight의 ML 서비스에는 Hadoop과 쉽게 상호 작용하고 분산된 계산을 실행할 수 있는 패키지가 포함되어 있습니다. 예를 들어, 다음 명령을 사용하여 HDInsight 클러스터에 대한 기본 파일 시스템의 루트를 볼 수입니다.
 
         rxHadoopListFiles("/")
 
@@ -216,11 +215,11 @@ SSH 사용자 계정을 보호하는 암호를 사용한 경우 암호를 묻는
 
 ## <a name="automated-cluster-creation"></a>자동화된 클러스터 생성
 
-Azure Resource Manager 템플릿, SDK 및 PowerShell을 사용하여 HDInsight용 R Server 클러스터 만들기를 자동화할 수 있습니다.
+SDK 및 PowerShell을 사용하여 HDInsight에서 ML 서비스 클러스터의 생성을 자동화할 수 있습니다.
 
-* Azure Resource Management 템플릿을 사용하여 R Server 클러스터를 만들려면 [HDInsight용 R Server 클러스터 배포](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/)를 참조하세요.
-* .NET SDK를 사용하여 R Server 클러스터를 만들려면 [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)를 참조하세요.
-* Powershell을 사용하여 R Server 클러스터를 만들려면 [Azure PowerShell을 사용하여 HDInsight 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)의 문서를 참조하세요.
+<!---* To create an ML Server cluster using an Azure Resource Management template, see [Deploy an R Server for HDInsight cluster](https://azure.microsoft.com/resources/templates/101-hdinsight-rserver/).--->
+* .NET SDK를 사용하여 ML 서비스 클러스터를 만들려면 [.NET SDK를 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)를 참조하세요.
+* Powershell을 사용하여 ML 서비스 클러스터를 만들려면 [Azure PowerShell을 사용하여 HDInsight 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)의 문서를 참조하세요.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
@@ -232,10 +231,10 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서 Azure HDInsight에서 새로운 R Server 클러스터를 만드는 방법과 SSH 세션에서 R 콘솔 사용에 관한 기본 사항에 대해 알아보았습니다. 다음 문서에서는 HDInsight에서 R Server를 관리하고 작업하는 다른 방법에 대해 설명합니다.
+이 아티클에서는 Azure HDInsight에서 새로운 ML 서비스 클러스터를 만드는 방법 및 SSH 세션에서 R 콘솔을 사용하는 기본 사항에 대해 알아보았습니다. 다음 아티클에서는 HDInsight에서 ML 서비스를 관리하고 작업하는 다른 방법에 대해 설명합니다.
 
 * [Visual Studio용 R 도구에서 작업 제출](r-server-submit-jobs-r-tools-vs.md)
-* [HDInsight에서 R Server 클러스터 관리](r-server-hdinsight-manage.md)
-* [HDInsight에서 R Server 클러스터 조작](r-server-operationalize.md)
-* [HDInsight의 R Server 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
-* [HDInsight에서 R Server 클러스터를 위한 Azure Storage 옵션](r-server-storage.md)
+* [HDInsight에서 ML 서비스 클러스터 관리](r-server-hdinsight-manage.md)
+* [HDInsight에서 ML 서비스 클러스터 운영](r-server-operationalize.md)
+* [HDInsight에서 ML 서비스 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight에서 ML 서비스 클러스터에 대한 Azure Storage 옵션](r-server-storage.md)

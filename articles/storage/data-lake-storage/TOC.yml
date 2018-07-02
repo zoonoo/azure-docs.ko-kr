@@ -52,6 +52,10 @@
           href: ../../data-factory/load-azure-data-lake-storage-gen2.md
     - name: Azure Databricks에 연결
       href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
+- name: 참고 자료
+  items:
+    - name: REST (영문)
+      href: 'https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2'
 - name: 리소스
   items:
     - name: Azure 로드맵

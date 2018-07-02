@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/23/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 70698dc233dac60a2fa2d1444930d21d3fba8773
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fa090a5277b1feb3e1b6ea0114ce90035197076
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637126"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753271"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Azure Monitor 경고로 이벤트에 응답
 Azure Monitor의 경고는 Log Analytics 리포지토리에서 중요한 정보를 식별할 수 있습니다. 경고는 정기적으로 로그 검색을 자동으로 실행하는 경고 규칙에 의해 작성되며 로그 검색 결과가 특정 기준과 일치하면 경고 레코드가 만들어지며 자동 응답을 수행하도록 구성할 수 있습니다.  이 자습서는 [Log Analytics 데이터의 대시보드 만들기 및 공유](log-analytics-tutorial-dashboards.md) 자습서와 이어집니다.   
@@ -41,7 +41,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 
 다음 예제에서는 [시각화 데이터 자습서](log-analytics-tutorial-dashboards.md)에 저장된 *Azure VM - 프로세서 사용률* 쿼리에 기반을 둔 메트릭 측정 경고 규칙을 만듭니다.  90%의 임계값을 초과하는 각 가상 머신에 대한 경고가 생성됩니다.  
 
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터**를 선택합니다.
 2. 왼쪽 창에서 **경고**를 선택한 다음, 페이지의 위쪽에서 **새 경고 규칙**을 클릭하여 새 경고를 만듭니다.<br><br> ![새 경고 규칙 만들기](./media/log-analytics-tutorial-response/alert-rule-02.png)<br>
 3. 첫 번째 단계로 **경고 만들기** 섹션 아래에서 리소스로 Log Analytics 작업 영역을 선택하려고 합니다. 이는 로그 기반 경고 신호이기 때문입니다.  VM 및 이전에 만든 Log Analytics 작업 영역을 포함하는 하나 이상이 있는 경우 드롭다운 목록에서 특정 **구독**을 선택하여 결과를 필터링합니다.  드롭다운 목록에서 **Log Analytics**를 선택하여 **리소스 종류**를 필터링합니다.  마지막으로 **리소스** **DefaultLAWorkspace**를 선택한 다음, **완료**를 클릭합니다.<br><br> ![경고 만들기 1단계 작업](./media/log-analytics-tutorial-response/alert-rule-03.png)<br>
 4. **경고 기준** 섹션 아래에서 **기준 추가**를 클릭하여 저장된 쿼리를 선택한 다음, 경고 규칙이 따르는 논리를 지정합니다.  **신호 논리 구성** 창의 목록에서 *Azure VM - 프로세서 사용률*을 선택합니다.  창은 경고에 대한 구성 설정을 표시하도록 업데이트합니다.  위쪽에서 선택한 신호 및 검색 쿼리 자체의 마지막 30분에 대한 결과를 표시합니다.  

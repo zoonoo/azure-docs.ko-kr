@@ -13,24 +13,21 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/20/2018
 ms.author: shlo
-ms.openlocfilehash: 8fda0eaa3c92fd750a84db345a91590163c20446
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293482"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048641"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
-> * [버전 1 - GA](v1/data-factory-scheduling-and-execution.md)
-> * [버전 2 - 미리 보기](concepts-pipeline-execution-triggers.md)
+> * [버전 1](v1/data-factory-scheduling-and-execution.md)
+> * [현재 버전](concepts-pipeline-execution-triggers.md)
 
-Azure Data Factory 버전 2의 _파이프라인 실행_은 파이프라인 실행의 인스턴스를 정의합니다. 예를 들어 오전 8시, 오전 9시 및 오전 10시에 실행하는 파이프라인이 있다고 합시다. 이 경우 파이프라인 또는 파이프라인 실행이라는 별도의 세 가지 실행이 있습니다. 각 파이프라인 실행에는 고유한 파이프라인 실행 ID가 있습니다. 실행 ID는 특정 파이프라인 실행을 고유하게 정의하는 GUID입니다. 
+Azure Data Factory의 _파이프라인 실행_은 파이프라인 실행의 인스턴스를 정의합니다. 예를 들어 오전 8시, 오전 9시 및 오전 10시에 실행하는 파이프라인이 있다고 합시다. 이 경우 파이프라인 또는 파이프라인 실행이라는 별도의 세 가지 실행이 있습니다. 각 파이프라인 실행에는 고유한 파이프라인 실행 ID가 있습니다. 실행 ID는 특정 파이프라인 실행을 고유하게 정의하는 GUID입니다. 
 
 파이프라인 실행은 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 인스턴스화됩니다. 수동으로 또는 _트리거_를 사용하여 파이프라인을 실행할 수 있습니다. 이 문서는 파이프라인을 실행하는 두 가지 방법 모두에 대한 자세한 정보를 제공합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Azure Data Factory 버전 1을 사용 중인 경우 [Azure Data Factory 버전 1 일정 계획 및 실행](v1/data-factory-scheduling-and-execution.md)을 참조하세요.
 
 ## <a name="manual-execution-on-demand"></a>수동 실행(요청 시)
 파이프라인의 수동 실행도 _주문형_ 실행이라고 합니다.
@@ -136,7 +133,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 > .NET SDK를 사용하여 Azure Functions, 사용자 고유의 웹 서비스 등에서 Data Factory 파이프라인을 호출할 수 있습니다.
 
 <h2 id="triggers">트리거 실행</h2>
-트리거는 파이프라인 실행을 실행할 수 있는 또 다른 방법입니다. 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 현재 Data Factory는 두 가지 유형의 트리거를 지원합니다.
+트리거는 파이프라인 실행을 실행할 수 있는 또 다른 방법입니다. 트리거는 파이프라인 실행을 시작해야 하는 시기를 결정하는 처리 단위를 나타냅니다. 현재 Data Factory는 세 가지 형식의 트리거를 지원합니다.
 
 - 일정 트리거: 벽시계 일정에 따라 파이프라인을 호출하는 트리거입니다.
 

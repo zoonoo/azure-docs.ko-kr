@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 05/10/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: fcedba0a5b8a9684216f181a6d16f86044edb961
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 10b2e77a89e2b8d7481559396d102177cf70161c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651497"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307370"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 
@@ -67,7 +67,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 ## <a name="add-a-user-account-to-the-server-administrator-role"></a>서버 관리자 역할에 사용자 계정 추가
 
-이 작업에서는 Azure AD의 사용자 또는 그룹 계정을 서버 관리자 역할에 추가합니다.
+이 작업에서는 Azure AD의 사용자 또는 그룹 계정을 서버 관리자 역할에 추가합니다. 보안 그룹을 추가하는 경우 `MailEnabled` 속성을 `True`로 설정해야 합니다.
 
 1. **개체 탐색기**에서 서버 이름을 마우스 오른쪽 단추로 클릭한 다음, **속성**을 클릭합니다. 
 2. **Analysis Server 속성** 창에서 **보안** > **추가**를 차례로 클릭합니다.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 035deabd04b8b838e0009f2cae96b0761733897f
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: f839b05a1d97ce78601697469c982839358d6b06
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248244"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300859"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>자습서: Log Analytics를 사용하여 Service Fabric에서 Windows 컨테이너 모니터링
 
@@ -31,7 +31,7 @@ ms.locfileid: "35248244"
 > [!div class="checklist"]
 > * Service Fabric 클러스터에 대한 Log Analytics 구성
 > * Log Analytics 작업 영역을 사용하여 컨테이너 및 노드의 로그 보기 및 쿼리
-> * 컨테이너 및 노드 메트릭을 수집하도록 OMS 에이전트 구성
+> * 컨테이너 및 노드 메트릭을 수집하도록 Log Analytics 에이전트 구성
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "35248244"
     "omsSolution": "ServiceFabric"
     ```
 
-3. OMS Microsoft Monitoring Agent를 가상 머신 확장으로 추가합니다. 가상 머신 확장 집합 리소스를 찾습니다. *resources* > *“apiVersion”: “[variables(‘vmssApiVersion’)]”*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
+3. Microsoft Monitoring Agent를 가상 머신 확장으로 추가합니다. 가상 머신 확장 집합 리소스를 찾습니다. *resources* > *“apiVersion”: “[variables(‘vmssApiVersion’)]”*. *properties* > *virtualMachineProfile* > *extensionProfile* > *extensions*의 *ServiceFabricNode* 확장 아래에 다음과 같은 확장 설명을 추가합니다. 
     
     ```json
     {
@@ -181,7 +181,7 @@ ms.locfileid: "35248244"
     },
     ```
 
-필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 저장소 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 OMS 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 머신 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
+필요에 따라 참조할 수 있는 이러한 모든 변경 내용이 있는 샘플 템플릿(이 자습서의 1부에서 사용됨)은 [여기](https://github.com/ChackDan/Service-Fabric/blob/master/ARM%20Templates/Tutorial/azuredeploy.json)를 참조하세요. 이러한 변경 내용은 리소스 그룹에 Log Analytics 작업 영역을 추가합니다. 작업 영역은 [Windows Azure 진단](service-fabric-diagnostics-event-aggregation-wad.md) 에이전트를 통해 구성된 저장소 테이블에서 Service Fabric 플랫폼 이벤트를 수집하도록 구성됩니다. 또한 Log Analytics 에이전트(Microsoft Monitoring Agent)가 클러스터의 각 노드에 가상 머신 확장으로 추가되었습니다. 따라서 클러스터 크기를 조정할 때 에이전트가 자동으로 각 컴퓨터에 구성되고 동일한 작업 영역에 연결됩니다.
 
 새 변경 내용이 포함된 템플릿을 배포하여 현재 클러스터를 업그레이드합니다. 이 작업이 완료되면 리소스 그룹에 Log Analytics 리소스가 표시됩니다. 클러스터가 준비되 컨테이너화된 응용 프로그램을 배포합니다. 다음 단계에서는 컨테이너 모니터링을 설정합니다.
 
@@ -191,7 +191,7 @@ ms.locfileid: "35248244"
 
 ![컨테이너 솔루션 추가](./media/service-fabric-tutorial-monitoring-wincontainers/containers-solution.png)
 
-*Log Analytics 작업 영역*에 대한 메시지가 표시되면 리소스 그룹에서 만든 작업 영역을 선택하고 **만들기**를 클릭합니다. 이렇게 하면 *컨테이너 모니터링 솔루션*이 작업 영역에 추가되고 템플릿에 의해 배포된 OMS 에이전트가 docker 로그 및 통계 수집을 자동으로 시작합니다. 
+*Log Analytics 작업 영역*에 대한 메시지가 표시되면 리소스 그룹에서 만든 작업 영역을 선택하고 **만들기**를 클릭합니다. 이렇게 하면 *컨테이너 모니터링 솔루션*이 작업 영역에 추가되고 템플릿에 의해 배포된 Log Analytics 에이전트가 docker 로그 및 통계 수집을 자동으로 시작합니다. 
 
 *리소스 그룹*으로 돌아가면 이제 새로 추가된 모니터링 솔루션이 표시됩니다. 클릭하면 방문 페이지에 실행 중인 컨테이너 이미지 수가 표시됩니다. 
 
@@ -211,11 +211,11 @@ ms.locfileid: "35248244"
 
 ![컨테이너 쿼리](./media/service-fabric-tutorial-monitoring-wincontainers/query-sample.png)
 
-## <a name="configure-oms-agent-to-pick-up-performance-counters"></a>성능 카운터를 수집하도록 OMS 에이전트 구성
+## <a name="configure-log-analytics-agent-to-pick-up-performance-counters"></a>성능 카운터를 수집하도록 Log Analytics 에이전트 구성
 
-OMS 에이전트를 사용하는 또 다른 이점은 Azure 진단 에이전트를 구성하고 Resource Manager 템플릿 기반 업그레이드를 매번 수행하는 대신 OMS UI 환경을 통해 수집할 성능 카운터를 변경하는 기능입니다. 이 작업을 수행하려면 컨테이너 모니터링(또는 Service Fabric) 솔루션의 방문 페이지에서 **OMS 작업 영역**을 클릭합니다.
+Log Analytics 에이전트를 사용하는 또 다른 이점은 Azure 진단 에이전트를 구성하고 Resource Manager 템플릿 기반 업그레이드를 매번 수행하는 대신 Log Analytics UI 환경을 통해 수집할 성능 카운터를 변경하는 기능입니다. 이 작업을 수행하려면 컨테이너 모니터링(또는 Service Fabric) 솔루션의 방문 페이지에서 **OMS 작업 영역**을 클릭합니다.
 
-OMS 작업 영역으로 이동되며, 여기서 솔루션을 보고, 사용자 지정 대시보드를 만들고, OMS 에이전트를 구성할 수 있습니다. 
+Log Analytics 작업 영역으로 이동되며, 여기서 솔루션을 보고, 사용자 지정 대시보드를 만들고, Log Analytics 에이전트를 구성할 수 있습니다. 
 * **고급 설정**을 클릭하여 고급 설정 메뉴를 엽니다.
 * **연결된 원본** > **Windows 서버**를 클릭하여 *5대의 Windows 컴퓨터가 연결*되어 있는지 확인합니다.
 * **데이터** > **Windows 성능 카운터**를 클릭하여 새 성능 카운터를 검색하고 추가합니다. 여기에는 수집할 수 있는 성능 카운터에 대한 Log Analytics의 권장 사항 목록과 다른 카운터를 검색하는 옵션이 표시됩니다. **Processor(_Total)\% Processor Time** 및 **Memory(*)\Available MBytes** 카운터를 수집했는지 확인합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Web App for Containers를 사용하여 다중 컨테이너(미리 보기) 앱 만들기
+title: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 description: Azure에서 WordPress 및 MySQL 앱을 통해 Docker Compose 및 Kubernetes 구성 파일이 포함된 다중 컨테이너를 사용하는 방법을 알아봅니다.
 keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 컨테이너, Kubernetes
 services: app-service
@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 05/02/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 61158af0bc978665c3d914c8de3376b8f5d5c69f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 43a3fa271a1958c99bd3dd597c73de2d77bb1bfd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651511"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751917"
 ---
-# <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
+# <a name="tutorial-create-a-multicontainer-preview-app-in-web-app-for-containers"></a>자습서: Web App for Containers에서 다중 컨테이너(미리 보기) 앱 만들기
 
 [Web App for Containers](app-service-linux-intro.md)는 Docker 이미지를 사용할 수 있는 유연한 방법을 제공합니다. 이 자습서에서는 WordPress 및 MySQL을 사용하여 다중 컨테이너 앱을 만드는 방법을 알아봅니다.
 
@@ -172,7 +172,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 (`http://<app_name>.azurewebsites.net`)에 배포된 앱으로 이동합니다. 앱을 로드하는 데 몇 분 정도 걸릴 수 있습니다. 오류가 발생하면 몇 분 후에 브라우저를 새로 고칩니다. 문제가 발생하여 이를 해결하려면 [컨테이너 로그](#find-docker-container-logs)를 검토합니다.
 
-![Web App for Containers의 다중 컨테이너 앱 샘플][1]
+![Web App for Containers의 샘플 다중 컨테이너 앱][1]
 
 **축하합니다!** Web App for Containers에 다중 컨테이너 앱을 만들었습니다. 다음으로, Azure Database for MySQL을 사용하도록 앱을 구성합니다. 지금은 WordPress를 설치하지 마세요.
 
@@ -332,7 +332,7 @@ az webapp config container set --resource-group myResourceGroup --name <app_name
 
 (`http://<app_name>.azurewebsites.net`)에 배포된 앱으로 이동합니다. 이제 앱에서 Azure Database for MySQL을 사용합니다.
 
-![Web App for Containers의 다중 컨테이너 앱 샘플][1]
+![Web App for Containers의 샘플 다중 컨테이너 앱][1]
 
 ## <a name="add-persistent-storage"></a>영구 저장소 추가
 
@@ -511,7 +511,7 @@ WordPress가 Redis 서버에 연결됩니다. 연결 **상태**가 동일한 페
 
 이 섹션에서는 Kubernetes 구성을 사용하여 여러 컨테이너를 배포하는 방법에 대해 알아봅니다. 이전 단계를 수행하여 [리소스 그룹](#create-a-resource-group) 및 [App Service 계획](#create-an-azure-app-service-plan)을 만듭니다. 대부분의 단계가 작성 섹션 단계와 비슷하므로 구성 파일이 결합되었습니다.
 
-### <a name="supported-kubernetes-options-for-multi-container"></a>다중 컨테이너에 지원되는 Kubernetes 옵션
+### <a name="supported-kubernetes-options-for-multicontainer"></a>다중 컨테이너에 지원되는 Kubernetes 옵션
 
 * args
 * command
@@ -649,7 +649,7 @@ az webapp config appsettings set --resource-group myResourceGroup --name <app_na
 ]
 ```
 
-### <a name="create-a-multi-container-app-kubernetes"></a>다중 컨테이너 앱 만들기(Kubernetes)
+### <a name="create-a-multicontainer-app-kubernetes"></a>다중 컨테이너 앱 만들기(Kubernetes)
 
 로컬 명령 프롬프트 터미널에서 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myResourceGroup` 리소스 그룹 및 `myAppServicePlan` App Service 계획에 다중 컨테이너 [웹앱](app-service-linux-intro.md)을 만듭니다. _\<app_name>_ 을 고유한 앱 이름으로 바꿔야 합니다.
 
@@ -679,7 +679,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 이제 앱에서 Web App for Containers에 있는 여러 컨테이너를 실행합니다.
 
-![Web App for Containers의 다중 컨테이너 앱 샘플][1]
+![Web App for Containers의 샘플 다중 컨테이너 앱][1]
 
 **축하합니다!** Web App for Containers에 다중 컨테이너 앱을 만들었습니다.
 

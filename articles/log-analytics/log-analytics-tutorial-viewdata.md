@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/03/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 6345fe89a3bf25041621213274ea0c3081848d99
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 4a5e6b24bbf7cc21d40cea8e4331de98a5cc05a6
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30834421"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752149"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics 로그 검색을 사용하여 수집한 데이터를 보고 분석합니다.
 
@@ -41,8 +41,8 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 ## <a name="open-the-log-search-portal"></a>로그 검색 포털 열기 
 로그 검색 포털을 열어서 시작합니다.   
 
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
-2. Log Analytics 구독 창에서 작업 영역을 선택한 다음 **로그 검색** 타일을 선택합니다.<br><br> ![로그 검색 단추](media/log-analytics-tutorial-viewdata/azure-portal-02.png)
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터**를 선택합니다.
+2. 모니터 탐색 메뉴에서 **Log Analytics**를 선택한 다음, 작업 영역 선택
 
 ## <a name="create-a-simple-search"></a>단순 검색 만들기
 사용할 데이터를 가장 빠르게 검색할 수 있는 방법은 테이블의 모든 레코드를 반환하는 단순 쿼리를 사용하는 것입니다.  Windows 또는 Linux 클라이언트가 작업 영역에 연결되어 있으면 Event(Windows) 또는 Syslog(Linux) 테이블에 데이터가 포함되어 있습니다.
@@ -124,7 +124,7 @@ Perf
 모든 성능 개체와 카운터의 레코드 수백만 개가 반환된다면 원하는 데이터를 찾기가 어렵습니다.  따라서 앞에서 사용했던 것과 같은 방법으로 데이터를 필터링하거나, 로그 검색 상자에 다음 쿼리를 직접 입력할 수 있습니다.  이 경우 Windows 및 Linux 컴퓨터의 프로세서 사용률 레코드만 반환됩니다.
 
 ```
-Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time")
+Perf | where ObjectName == "Processor"  | where CounterName == "% Processor Time"
 ```
 
 ![프로세서 사용률](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-02.png)
@@ -132,7 +132,9 @@ Perf | where (ObjectName == "Processor")  | where (CounterName == "% Processor T
 이렇게 하면 데이터가 특정 카운터로 제한되기는 하지만 아직은 특별히 유용하다고 할 수 없습니다.  데이터를 꺾은선형 차트에 표시할 수도 있는데, 그러려면 먼저 Computer 및 TimeGenereated를 기준으로 데이터를 그룹화해야 합니다.  여러 필드를 기준으로 그룹화하려면 쿼리를 직접 수정해야 하므로, 여기서는 다음과 같이 쿼리를 수정하겠습니다.  이 쿼리는 **CounterValue** 속성에서 [avg](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/avg()) 함수를 사용하여 매 시간마다 평균 값을 계산합니다.
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated
+Perf  
+| where ObjectName == "Processor"  | where CounterName == "% Processor Time"
+| summarize avg(CounterValue) by Computer, TimeGenerated
 ```
 
 ![성능 데이터 차트](media/log-analytics-tutorial-viewdata/log-analytics-portal-perfsearch-03.png)
@@ -140,7 +142,10 @@ Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor 
 이제 데이터를 적절하게 그룹화했으므로 [render](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) 연산자를 추가해 시각적 차트에 데이터를 표시할 수 있습니다.  
 
 ```
-Perf  | where (ObjectName == "Processor")  | where (CounterName == "% Processor Time") | summarize avg(CounterValue) by Computer, TimeGenerated | render timechart
+Perf  
+| where ObjectName == "Processor" | where CounterName == "% Processor Time" 
+| summarize avg(CounterValue) by Computer, TimeGenerated 
+| render timechart
 ```
 
 ![꺾은선형 차트](media/log-analytics-tutorial-viewdata/log-analytics-portal-linechart-01.png)
