@@ -460,6 +460,13 @@
           href: service-fabric-debugging-your-application-java.md
         - name: 로컬로 모니터링 및 진단
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: VS Code 환경에서 작업
+      href: service-fabric-get-started-vs-code.md
+      items:
+        - name: 'VS Code를 통해 C# Service Fabric 응용 프로그램 개발'
+          href: service-fabric-develop-csharp-applications-with-vs-code.md
+        - name: VS Code를 통해 Java Service Fabric 응용 프로그램 개발
+          href: service-fabric-develop-java-applications-with-vs-code.md
     - name: Cloud Services에서 마이그레이션
       items:
         - name: Cloud Services와 Service Fabric 비교
@@ -534,10 +541,6 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: 인증서 일반 이름을 사용하는 클러스터
                   href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Windows용 디스크 암호화 사용
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: Linux용 디스크 암호화 사용
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: 확장
               items:
                 - name: 수동으로 규모 확장

@@ -7,6 +7,7 @@
 #### [AppSource를 사용하여 비즈니스 확장](./grow-your-business-with-appsource.md)  
 ##### [방문 페이지 빌드](./build-your-landing-page.md)  
 ##### [잠재 고객 공유 사용](./enable-lead-sharing.md)  
+##### [기본 설정 솔루션](./preferred-solutions.md)
 ##### [마켓플레이스에 GTM 혜택](./gtm-benefits.md)  
 ##### [Microsoft를 통한 비즈니스 홍보](./promote-your-business-with-microsoft.md)  
 #### [Azure Marketplace로 비즈니스 확장](./grow-your-business-with-azure-marketplace.md)  

@@ -25,16 +25,11 @@
   items:
     - name: 역할 정의 이해
       href: role-definitions.md
-    - name: 기본 제공 역할
-      href: built-in-roles.md
-    - name: 리소스 공급자 작업
-      href: resource-provider-operations.md
     - name: RBAC용 PIM(Privileged Identity Management)
       href: pim-azure-resource.md
     - name: Azure 관리에 대한 조건부 액세스
       href: conditional-access-azure-management.md
 - name: 방법 가이드
-  expanded: true
   items:
     - name: 액세스 관리
       items:
@@ -63,3 +58,17 @@
       href: role-assignments-external-users.md
     - name: 문제 해결
       href: troubleshooting.md
+- name: 참고 자료
+  items:
+    - name: 기본 제공 역할
+      href: built-in-roles.md
+    - name: 리소스 공급자 작업
+      href: resource-provider-operations.md
+    - name: RBAC 제한
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: /powershell/module/azurerm.resources
+    - name: Azure CLI
+      href: /cli/azure/role?view=azure-cli-latest
+    - name: REST API
+      href: /rest/api/authorization/

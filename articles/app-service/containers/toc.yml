@@ -23,7 +23,7 @@
       href: quickstart-ruby.md
     - name: Docker/Go 앱 만들기
       href: quickstart-docker-go.md
-    - name: 멀티컨테이너 앱 만들기
+    - name: 다중 컨테이너 앱 만들기
       href: quickstart-multi-container.md
 - name: 자습서
   items:
