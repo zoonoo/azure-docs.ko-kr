@@ -192,11 +192,11 @@
         - name: 테스트 일괄 처리로 정확도 개선
           href: luis-tutorial-batch-testing.md
     - name: 앱 게시
-      href: PublishApp.md
+      href: luis-how-to-publish-app.md
     - name: 미리 작성된 모델 사용
       items:
         - name: 미리 작성된 엔터티 사용
-          href: Pre-builtEntities.md
+          href: luis-prebuilt-entities.md
         - name: 미리 작성된 도메인 사용
           href: luis-how-to-use-prebuilt-domains.md
         - name: Cortana 미리 작성된 앱 사용
@@ -208,7 +208,7 @@
         - name: 키 만들기
           href: luis-how-to-azure-subscription.md
         - name: LUIS에서 키 추가
-          href: Manage-Keys.md
+          href: luis-how-to-manage-keys.md
         - name: PowerShell로 끝점 사용량 보기
           href: luis-how-to-manage-from-cloud-shell.md
         - name: 버전 관리
@@ -283,6 +283,10 @@
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
         - name: Node.js
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Go
+          href: 'https://aka.ms/luis-sdk-go'
+        - name: 자바
+          href: 'https://aka.ms/luis-java-sdk'
         - name: 파이썬
           href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
         - name: .Net 끝점

@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/30/2017
   ms.author: v-jansko
-  ms.openlocfilehash: 1995f8d58c47b8e098022ca672c7889195dd5328
-  ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+  ms.openlocfilehash: 5d321a533ee6194492e5f0b25a8ef78951ac188a
+  ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/22/2018
-  ms.locfileid: "36319183"
+  ms.lasthandoff: 07/02/2018
+  ms.locfileid: "37340892"
 abstract:
   description: Microsoft Translator Text API는 클라우드 기반 기계 번역 서비스입니다. 이 API를 사용하면 간단한 REST API 호출을 통해 모든 앱이나 서비스에서 거의 실시간으로 텍스트를 번역할 수 있습니다. API는 최신 신경망 기계 번역 기술을 사용할 뿐만 아니라 통계 기계 번역 기술도 제공합니다. 신경망 MT와 통계 MT 모두에 대해 지원되는 언어 목록은 <a href="languages.md">지원되는 언어</a>를 참조하십시오.
 sections:
@@ -41,6 +41,9 @@ sections:
     - image:
         src: media/index/logo_python.svg
       title: 파이썬
+    - image:
+        src: media/index/logo_go.svg
+      title: Go
     rows:
     - title: 한 언어에서 다른 언어로 텍스트 번역
       values:
@@ -48,24 +51,28 @@ sections:
       - href: quickstart-java-translate
       - href: quickstart-nodejs-translate
       - href: quickstart-python-translate
+      - href: quickstart-go-translate
     - title: 한 스크립트에서 다른 스크립트로 텍스트 변환
       values:
       - href: quickstart-csharp-transliterate
       - href: quickstart-java-transliterate
       - href: quickstart-nodejs-transliterate
       - href: quickstart-python-transliterate
+      - href: quickstart-go-transliterate
     - title: 텍스트의 언어 식별
       values:
       - href: quickstart-csharp-detect
       - href: quickstart-java-detect
       - href: quickstart-nodejs-detect
       - href: quickstart-python-detect
+      - href: quickstart-go-detect
     - title: 대체 번역 및 사용량 가져오기
       values:
       - href: quickstart-csharp-dictionary
       - href: quickstart-java-dictionary
       - href: quickstart-nodejs-dictionary
       - href: quickstart-python-dictionary
+      - href: quickstart-go-dictionary
 - title: 참고 자료
   items:
   - type: paragraph

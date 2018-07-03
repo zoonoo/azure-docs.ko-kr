@@ -41,18 +41,16 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=865446'
     - name: Custom Vision 예측 API
       href: 'https://go.microsoft.com/fwlink/?linkid=865445'
-    - name: 한도 및 할당량
-      href: limits-and-quotas.md
     - name: 용어
       href: glossary-of-terms.md
     - name: SDK
       items:
-        - name: Go
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
-        - name: 파이썬
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
         - name: Windows
           href: 'http://github.com/Microsoft/Cognitive-CustomVision-Windows'
+        - name: 파이썬
+          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
+        - name: Go
+          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices'
 - name: 리소스
   items:
     - name: 샘플
@@ -67,3 +65,7 @@
       href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 한도 및 할당량
+      href: limits-and-quotas.md

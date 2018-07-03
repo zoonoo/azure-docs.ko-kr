@@ -21,6 +21,20 @@
           href: quickstart-csharp-languages.md
         - name: 텍스트의 문장 길이 가져오기
           href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+        - name: 텍스트 번역
+          href: quickstart-go-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-go-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-go-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-go-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-go-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-go-sentences.md
     - name: 자바
       items:
         - name: 텍스트 번역

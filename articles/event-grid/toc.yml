@@ -89,6 +89,12 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST (영문)
       href: /rest/api/eventgrid
+    - name: 템플릿 리소스
+      items:
+        - name: 이벤트 구독
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: 토픽
+          href: /azure/templates/microsoft.eventgrid/topics
     - name: SDK
       href: sdk-overview.md
     - name: 구독 스키마

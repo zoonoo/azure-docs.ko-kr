@@ -79,7 +79,11 @@
         - name: IoT Core
           href: how-to-install-iot-core.md
     - name: DPS와 함께 큐 자동 프로비전
-      href: how-to-auto-provision-simulated-device-windows.md
+      items:
+        - name: Linux
+          href: how-to-auto-provision-simulated-device-linux.md
+        - name: Windows
+          href: how-to-auto-provision-simulated-device-windows.md
     - name: 모듈 개발 및 디버깅
       items:
         - name: 'C#'
