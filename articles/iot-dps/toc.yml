@@ -114,8 +114,13 @@
         - name: 프로비저닝 서비스 API에 대한 액세스 제어
           href: how-to-control-access.md
     - name: IoT Edge 장치 프로비전
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
-      maintainContext: true
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
     - name: SDK를 통한 증명 메커니즘 사용
       href: use-hsm-with-sdk.md
     - name: 개발에 SDK 도구 사용

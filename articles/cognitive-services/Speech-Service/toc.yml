@@ -5,6 +5,8 @@
     - name: Speech Service란?
       href: overview.md
       expanded: true
+    - name: 음성 시나리오
+      href: speech-scenarios.md
 - name: 빠른 시작
   items:
     - name: Speech Service를 무료로 체험해보기
@@ -25,16 +27,18 @@
       href: how-to-text-to-speech.md
     - name: 음성 번역
       href: how-to-translate-speech.md
-    - name: 음성 장치 SDK 가져오기
-      href: get-speech-devices-sdk.md
     - name: 일괄 처리 전사
       href: batch-transcription.md
+    - name: 음성 장치 SDK 가져오기
+      href: get-speech-devices-sdk.md
 - name: 사용자 지정
   items:
     - name: 어쿠스틱 모델 사용자 지정
       href: how-to-customize-acoustic-models.md
     - name: 언어 모델 사용자 지정
       href: how-to-customize-language-model.md
+    - name: 발음 사용자 지정
+      href: how-to-customize-pronunciation.md
     - name: 음성 글꼴 사용자 지정(봇 브랜드 음성)
       href: how-to-customize-voice-font.md
     - name: 대본 준비

@@ -278,3 +278,11 @@
               href: app-service-web-open-source-technologies-faq.md
             - name: 구성 및 관리 FAQ
               href: app-service-web-configuration-and-management-faq.md
+    - name: IP 주소 변경
+      items:
+        - name: 인바운드 IP 주소
+          href: ip-address-change-inbound.md
+        - name: 아웃 바운드 IP 주소
+          href: ip-address-change-outbound.md
+        - name: SSL 주소
+          href: ip-address-change-ssl.md
