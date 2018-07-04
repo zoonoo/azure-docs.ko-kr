@@ -215,6 +215,16 @@
           href: ./blueprints/pci-dss-requirement-11-testing.md
         - name: 요구 사항 12 - 정책
           href: ./blueprints/pci-dss-requirement-12-policy.md
+    - name: 영국 NHS
+      items:
+        - name: 데이터 분석
+          href: ./blueprints/uknhs-analytics-overview.md
+        - name: 데이터 웨어하우스
+          href: ./blueprints/uknhs-datawarehouse-overview.md
+        - name: IaaS 웹 응용 프로그램
+          href: ./blueprints/uknhs-iaaswa-overview.md
+        - name: PaaS 웹 응용 프로그램
+          href: ./blueprints/uknhs-paaswa-overview.md
     - name: 영국 공식
       href: ./blueprints/uk-official-three-tier-applications-overview.md
       items:
