@@ -1,0 +1,203 @@
+---
+title: Windows 컨테이너를 사용하여 Windows에 Azure IoT Edge를 설치하는 방법 | Microsoft Docs
+description: Windows 컨테이너를 사용하여 Windows에 Azure IoT Edge 설치 지침
+author: kgremban
+manager: timlt
+ms.reviewer: veyalla
+ms.service: iot-edge
+services: iot-edge
+ms.topic: conceptual
+ms.date: 06/27/2018
+ms.author: kgremban
+ms.openlocfilehash: 0ab70de83c36ec3048d9bbf74e5a315026f02b85
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035703"
+---
+# <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
+
+Azure IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치에서 보안 표준을 제공하고 유지 관리합니다. 디먼은 부팅할 때마다 시작되며, IoT Edge 에이전트를 시작하여 장치를 부트스트랩합니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있게 합니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다.
+
+이 문서에는 Windows x64(AMD/Intel) 시스템에 Azure IoT Edge 런타임을 설치하는 단계가 나와 있습니다. 
+
+Windows 지원은 현재 미리 보기로 제공되고 있습니다.
+
+## <a name="supported-windows-versions"></a>지원되는 Windows 버전
+Azure IoT Edge 및 Windows 컨테이너는 다음에서 사용할 수 있습니다.
+  * Windows 10/IoT Enterprise/IoT Core 2018년 4월 업데이트(빌드 17134)
+  * Windows Server 1803
+
+## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치 
+
+>[!NOTE]
+>Windows IoT Core에서 컨테이너 엔진 설치의 경우, [IoT Core 장치 프로비전 문서][lnk-iot-core]의 단계를 따른 다음, 아래 지침을 계속 진행합니다.
+
+Azure IoT Edge는 [OCI 호환][lnk-oci] 컨테이너 런타임(예: Docker)을 사용합니다. 개발 및 테스트에는 [Windows용 Docker][lnk-docker-for-windows]를 사용할 수 있습니다. 
+
+**Windows용 Docker가 [Windows 컨테이너를 사용하도록 구성][lnk-docker-config]되어 있는지 확인합니다.**
+
+## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
+
+>[!NOTE]
+>Azure IoT Edge 소프트웨어 패키지에는 패키지(LICENSE 디렉터리)에 있는 사용 조건이 적용됩니다. 패키지를 사용하기 전에 사용 조건을 읽어보시기 바랍니다. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
+
+### <a name="download-the-edge-daemon-package-and-install"></a>Edge 디먼 패키지 다운로드 및 설치
+
+관리자 PowerShell 창에서 다음 명령을 실행합니다.
+
+```powershell
+Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+rmdir C:\ProgramData\iotedge\iotedged-windows
+$env:Path += ";C:\ProgramData\iotedge"
+SETX /M PATH "$env:Path"
+```
+
+다음을 사용하여 vcruntime을 설치합니다. IoT Core Edge 장치에서는 이 단계를 건너뛰어도 됩니다.
+
+```powershell
+Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+.\vc_redist.exe /quiet /norestart
+ ```
+
+**iotedge** 서비스를 만들고 시작합니다.
+
+```powershell
+New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
+Start-Service iotedge
+```
+
+서비스가 사용하는 포트에 대해 방화벽 예외를 추가합니다.
+
+```powershell
+New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
+```
+
+다음 콘텐츠를 사용하여 **iotedge.reg** 파일을 만들고, 파일을 두 번 클릭하거나 `reg import iotedge.reg` 명령을 사용하여 Windows 레지스트리로 가져옵니다.
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 구성
+
+`C:\ProgramData\iotedge\config.yaml`의 구성 파일을 사용하여 디먼을 구성할 수 있습니다. <!--[automatically via Device Provisioning Service][lnk-dps] or--> [장치 연결 문자열][lnk-dcs]을 사용하여 수동으로 에지 장치를 구성할 수 있습니다.
+
+수동 구성의 경우, **config.yaml**의 **provisioning:** 섹션에 장치 연결 문자열을 입력합니다.
+
+```yaml
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```
+
+PowerShell에서 `hostname` 명령을 사용하여 에지 장치의 이름을 가져온 다음, 구성 yaml에서 **hostname:** 의 값으로 설정합니다. 예: 
+
+```yaml
+  ###############################################################################
+  # Edge device hostname
+  ###############################################################################
+  #
+  # Configures the environment variable 'IOTEDGE_GATEWAYHOSTNAME' injected into
+  # modules.
+  #
+  ###############################################################################
+
+  hostname: "edgedevice-1"
+```
+
+그런 다음, 구성의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**에 대한 IP 주소와 포트를 제공해야 합니다.
+
+IP 주소의 경우, PowerShell 창에 `ipconfig`를 입력하고 아래 예에 표시된 **vEthernet(nat)** 인터페이스의 IP 주소를 선택합니다(사용자 시스템의 IP 주소는 다를 수 있음).  
+
+![nat][img-nat]
+
+```yaml
+connect:
+  management_uri: "http://172.29.240.1:15580"
+  workload_uri: "http://172.29.240.1:15581"
+```
+
+구성의 **listen:** 섹션에 동일한 주소를 입력합니다. 예: 
+
+```yaml
+listen:
+  management_uri: "http://172.29.240.1:15580"
+  workload_uri: "http://172.29.240.1:15581"
+```
+
+PowerShell 창에서 **management_uri** 주소를 사용하여 환경 변수 **IOTEDGE_HOST**를 만듭니다. 예를 들면 다음과 같습니다.
+
+```powershell
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://172.29.240.1:15580")
+```
+
+마지막으로, **moby_runtime:** 아래에서 **network:** 설정의 주석 처리가 제거되고 **nat**로 설정되었는지 확인합니다.
+
+```yaml
+moby_runtime:
+  docker_uri: "npipe://./pipe/docker_engine"
+  network: "nat"
+```
+
+구성 파일을 저장하고 서비스를 다시 시작합니다.
+
+```powershell
+Stop-Service iotedge -NoWait
+sleep 5
+Start-Service iotedge
+```
+
+## <a name="verify-successful-installation"></a>성공적인 설치 확인
+
+다음과 같은 방법으로 IoT Edge 서비스의 상태를 확인할 수 있습니다. 
+
+```powershell
+Get-Service iotedge
+```
+
+다음을 사용하여 최근 5분간의 서비스 로그를 검사합니다.
+
+```powershell
+
+# Displays logs from last 5 min, newest at the bottom.
+
+Get-WinEvent -ea SilentlyContinue `
+  -FilterHashtable @{ProviderName= "iotedged";
+    LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
+  select TimeCreated, Message |
+  sort-object @{Expression="TimeCreated";Descending=$false}
+```
+
+다음을 사용하여 실행 중인 모듈을 나열합니다.
+
+```powershell
+iotedge list
+```
+
+## <a name="next-steps"></a>다음 단계
+
+Edge 런타임을 제대로 설치하는 데 문제가 있는 경우, [문제 해결][lnk-trouble] 페이지를 확인하세요.
+
+
+<!-- Images -->
+[img-nat]: ./media/how-to-install-iot-edge-windows-with-windows/nat.png
+
+<!-- Links -->
+[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
+[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
+[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-oci]: https://www.opencontainers.org/
+[lnk-moby]: https://mobyproject.org/
+[lnk-trouble]: troubleshoot.md
+[lnk-docker-for-windows]: https://www.docker.com/docker-windows
+[lnk-iot-core]: how-to-install-iot-core.md
+

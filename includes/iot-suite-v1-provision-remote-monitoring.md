@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/30/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 4224575644e754724d2129f101aed6b9e4b54b65
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04081a514d9b96a5289594a730ec0519e6ee0b01
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34670169"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36329793"
 ---
 ## <a name="provision-the-solution"></a>솔루션 프로비전
 
 계정에서 미리 구성된 원격 모니터링 솔루션을 미리 프로비전하지 않은 경우 다음 작업을 수행합니다.
 
-1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com][lnk-azureiotsuite]에 로그온한 다음 **+** 를 클릭하여 솔루션을 만듭니다.
+1. Azure 계정 자격 증명을 사용하여 [azureiotsuite.com][lnk-azureiotsuite]에 로그인한 다음, **+** 를 클릭하여 솔루션을 만듭니다.
 2. **원격 모니터링** 타일에서 **선택**을 클릭합니다.
 3. 미리 구성된 원격 모니터링 솔루션에 **솔루션 이름** 을 입력합니다.
 4. 솔루션을 프로비전하는 데 사용할 **지역** 및 **구독**을 선택합니다.

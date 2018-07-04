@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: c8b0529b0ae45d7bcee5574991551a424c13ba70
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713867"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311117"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
 
@@ -44,7 +44,7 @@ ms.locfileid: "34713867"
 **Q: 최근에 장치를 등록했습니다. Azure Portal에서 내 사용자 정보에 장치가 표시되지 않는 이유는 무엇인가요?**
 
 **A:** 하이브리드 Azure AD에 가입된 Windows 10 장치가 사용자 장치 아래에 표시되지 않습니다.
-모든 장치를 표시하려면 PowerShell을 사용해야 합니다. 
+Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 사용할 수도 있습니다.
 
 다음 장치만 사용자 장치 아래에 나열됩니다.
 
@@ -52,25 +52,24 @@ ms.locfileid: "34713867"
 - 모든 비 Windows 10/Windows Server 2016 장치
 - 모든 비 Windows 장치 
 
----
-
-**Q: Azure Portal에서 Azure Active Directory에 등록된 모든 장치를 볼 수는 없는 이유는 무엇인가요?** 
-
-**A:** 이제 Azure AD 디렉터리 -> 모든 장치 메뉴 아래에서 볼 수 있습니다. 모든 장치를 찾기 위해 Azure PowerShell을 사용할 수도 있습니다. 자세한 내용은 [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet을 참조하세요.
-
 --- 
 
 **Q: 클라이언트의 장치 등록 상태를 어떻게 알 수 있나요?**
 
-**A:** Windows 10 및 Windows Server 2016 이상 장치의 경우 dsregcmd.exe /status를 실행합니다.
+**A:** Azure Portal에서 모든 장치로 이동한 다음, 장치 ID를 사용하여 장치를 검색할 수 있습니다. 조인 유형 열 아래의 값을 확인합니다.
 
-하위 수준 OS 버전의 경우 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"를 실행합니다.
+등록된 장치에서 로컬 장치 등록 상태를 확인하려면 다음을 수행합니다.
+
+- Windows 10 및 Windows Server 2016 이상 장치의 경우, dsregcmd.exe /status를 실행합니다.
+- 하위 수준 OS 버전의 경우 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"를 실행합니다.
 
 ---
 
-**Q: Azure Portal에서 또는 Windows PowerShell을 사용하여 삭제한 장치가 여전히 등록된 것으로 표시되는 이유는 무엇인가요?**
+**Q: Azure Portal에서 또는 Windows PowerShell을 사용하여 삭제했는데 장치의 로컬 상태가 여전히 등록되어 있다고 표시되는 이유는 무엇인가요?**
 
-**A:** 이것은 의도적인 작동입니다. 장치는 클라우드의 리소스에 액세스할 수 없습니다. 장치를 다시 등록하려면 장치에서 직접 작업을 수행해야 합니다. 
+**A:** 이것은 의도적인 작동입니다. 장치는 클라우드의 리소스에 액세스할 수 없습니다. 
+
+장치를 다시 등록하려면 장치에서 직접 작업을 수행해야 합니다. 
 
 온-프레미스 AD 도메인에 가입된 Windows 10 및 Windows Server 2016에서 가입 상태를 지우려면
 
@@ -87,12 +86,19 @@ ms.locfileid: "34713867"
 3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`을 입력합니다.
 
 ---
+**Q: 장치에서 Azure AD 조인 장치를 로컬로 조인 해제하려면 어떻게 하나요?
+**A:** 
+- 하이브리드 Azure AD 조인 장치의 경우, 예약된 작업이 장치를 다시 등록하지 않도록 자동 등록을 꺼야 합니다. 그런 다음, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 장치에서 이 명령을 스크립트로 실행하여 대량으로 조인 해제할 수 있습니다.
+
+- 순수한 Azure AD 조인 장치의 경우, Azure AD 사용자 자격 증명으로 로그인할 수 없으므로 오프라인 로컬 관리자 계정이 있는지 확인하거나 계정을 만들어야 합니다. 그런 다음, **설정** > **계정** > **회사 또는 학교 액세스**로 이동합니다. 계정을 선택하고 **연결 끊기**를 클릭합니다. 프롬프트를 따르고, 메시지가 표시되면 로컬 관리자 자격 증명을 제공합니다. 장치를 다시 부팅하여 조인 해제 프로세스를 완료합니다.
+
+---
 
 **Q: Azure Portal에서 중복된 장치 항목이 나타나는 이유는 무엇인가요?**
 
 **A:**
 
--   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 가입 해제했다가 다시 가입하면 중복된 항목이 나타날 수 있습니다. 
+-   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 조인 해제했다가 다시 조인하면 중복된 항목이 나타날 수 있습니다. 
 
 -   회사 또는 학교 계정 추가를 사용한 경우 회사 또는 학교 계정 추가를 사용하는 각 Windows 사용자는 장치 이름이 같은 새 장치 레코드를 만들게 됩니다.
 
@@ -119,7 +125,7 @@ ms.locfileid: "34713867"
 ---
 
 
-**Q: Azure Portal에서 사용자 정보에 장치 레코드가 표시되고 클라이언트에 등록된 상태로 표시됩니다. 조건부 액세스를 사용할 수 있게 제대로 설정되어 있는 것인가요?**
+**Q: Azure Portal에서 사용자 정보에 장치 레코드가 표시되고 장치에 등록된 상태로 표시됩니다. 조건부 액세스를 사용할 수 있게 제대로 설정되어 있는 것인가요?**
 
 **A:** deviceID로 리플렉션된 장치 가입 상태는 Azure AD의 가입 상태와 일치해야 하며 조건부 액세스에 대한 평가 조건을 만족해야 합니다. 자세한 내용은 [Azure Active Directory Device 등록 시작](active-directory-device-registration.md)을 참조하세요.
 
@@ -137,6 +143,8 @@ ms.locfileid: "34713867"
 
 - 페더레이션 로그인을 수행하려면 페더레이션 서버가 Ws-Trust 활성 끝점을 지원해야 합니다. 
 
+- 통과 인증을 사용하도록 설정했으며, 사용자에게 로그온 시 변경해야 하는 임시 암호가 있습니다.
+
 ---
 
 **Q: PC를 Azure AD에 가입하려고 할 때 "오류가 발생했습니다." 대화 상자가 표시되는 이유는 무엇인가요?**
@@ -147,7 +155,7 @@ ms.locfileid: "34713867"
 
 **Q: 오류 정보가 표시되지 않더라도 PC 조인 시도가 실패하는 이유는 무엇인가요?**
 
-**A:** 한 가지 가능한 원인은 사용자가 기본 제공 관리자 계정을 사용하여 장치에 로그인했기 때문입니다. Azure Active Directory 조인을 사용하여 설치를 완료하기 전에 다른 로컬 계정을 만드세요. 
+**A:** 한 가지 가능한 원인은 사용자가 기본 제공 로컬 관리자 계정을 사용하여 장치에 로그인했기 때문입니다. Azure Active Directory 조인을 사용하여 설치를 완료하기 전에 다른 로컬 계정을 만드세요. 
 
 ---
 

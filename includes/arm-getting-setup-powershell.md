@@ -24,7 +24,7 @@ Windows PowerShell 버전 3.0 또는 4.0이 있는지 확인합니다. Windows P
 ### <a name="set-your-azure-account-and-subscription"></a>Azure 계정 및 구독 설정
 Azure 구독이 아직 없는 경우 [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)을 활성화하거나 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 
-Azure PowerShell 명령 프롬프트를 열고 다음 명령으로 Azure에 로그온합니다.
+Azure PowerShell 명령 프롬프트를 열고 다음 명령으로 Azure에 로그인합니다.
 
     Connect-AzureRmAccount
 

@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fc4ce0a2ae33e99ecede371d9f17fb9a63851f64
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 88e56f522545f9c1f38bf0d0fdbcebdc171c294b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622026"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046533"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](data-factory-onprem-db2-connector.md)
-> * [버전 2 - 미리 보기](../connector-db2.md)
+> * [버전 1](data-factory-onprem-db2-connector.md)
+> * [버전 2(현재 버전)](../connector-db2.md)
 
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 DB2 커넥터](../connector-db2.md)를 참조하세요.
+> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 DB2 커넥터](../connector-db2.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 온-프레미스 DB2 데이터베이스에서 데이터 저장소로 데이터를 복사하는 방법에 대해 설명합니다. [Data Factory 데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 문서에서 지원되는 싱크로 나열되는 저장소로 데이터를 복사할 수 있습니다. 이 항목은 복사 활동을 사용한 데이터 이동에 대해 간략히 설명하고 지원되는 데이터 저장소 조합을 나열하는 Data Factory 문서를 기반으로 하여 작성되었습니다. 

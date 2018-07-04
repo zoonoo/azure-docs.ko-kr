@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: ea612f0c58b92e37d405f9a57611610fa187f7db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81392cc8b6225302d6835cdb3d23e9bab7d9c930
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619323"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055699"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-functions-variables.md)
-> * [버전 2 - 미리 보기](control-flow-expression-language-functions.md)
+> * [버전 1](v1/data-factory-functions-variables.md)
+> * [현재 버전](control-flow-expression-language-functions.md)
 
-이 문서에서는 Azure Data Factory(버전 2)에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
+이 문서에서는 Azure Data Factory에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
 
 ## <a name="introduction"></a>소개
 정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예:   
@@ -40,20 +40,15 @@ ms.locfileid: "34619323"
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory V1의 함수와 변수](v1/data-factory-functions-variables.md)를 참조하세요.
-
-
 ## <a name="expressions"></a>식  
-식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식이면 앳 기호(@)를 제거하여 식의 본문을 추출합니다. @으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 @@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
+식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식이면 at 기호(\@)를 제거하여 식의 본문을 추출합니다. @으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 @@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
   
 |JSON 값|결과|  
 |----------------|------------|  
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
-|"@@"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
-|\" \@\"|' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
+|“\@@”|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
+|“\@”|' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
   
  *문자열 보간*이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -61,13 +56,13 @@ ms.locfileid: "34619323"
   
 |JSON 값|결과|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| `foo`을 문자열로 반환합니다.|  
-|"@{pipeline().parameters.myString}"| `foo`을 문자열로 반환합니다.|  
-|"@pipeline().parameters.myNumber"| `42`를 *숫자*로 반환합니다.|  
-|"@{pipeline().parameters.myNumber}"| `42`를 *문자열*로 반환합니다.|  
+|“\@pipeline().parameters.myString”| `foo`을 문자열로 반환합니다.|  
+|\@“@{pipeline().parameters.myString}”| `foo`을 문자열로 반환합니다.|  
+|“\@pipeline().parameters.myNumber”| `42`를 *숫자*로 반환합니다.|  
+|“\@{pipeline().parameters.myNumber}”| `42`를 *문자열*로 반환합니다.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| `Answer is: 42` 문자열을 반환합니다.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| `Answer is: 42` 문자열을 반환합니다.|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
+|“\@concat(‘Answer is: ’, string(pipeline().parameters.myNumber))”| `Answer is: 42` 문자열을 반환합니다.|  
+|“Answer is: \@@{pipeline().parameters.myNumber}”| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
   
 ### <a name="examples"></a>예
 

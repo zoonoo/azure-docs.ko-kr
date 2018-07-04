@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: 8b007c4658d3ca168c4c1a86a72a737c75ca33db
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 629cdf3907f45419ecfa5fce59430a163767c8fb
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371340"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943269"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션
-이 문서에서는 Microsoft가 어떻게 클래식에서 Resource Manager 배포 모델로 IaaS(Infrastructure as a Service) 리소스를 마이그레이션할 수 있도록 지원하는지 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 가상 네트워크 사이트-사이트 게이트웨이를 사용하여 구독에서 공존하는 두 가지 배포 모델의 리소스를 연결하는 방법에 대해서도 설명합니다.
+이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/resource-group-overview.md)에 대해 자세히 알아볼 수 있습니다. 
 
 ## <a name="goal-for-migration"></a>마이그레이션 목표
 Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 배포할 수 있도록 지원하며 VM 확장을 사용하여 가상 머신을 구성하고 액세스 관리와 태깅을 통합합니다. Azure Resource Manager는 가용성 집합에 가상 머신에 대해 확장성 있는 병렬 배포를 포함합니다. 그뿐 아니라 새로운 배포 모델에서는 계산, 네트워크, 저장소의 수명 주기를 독립적으로 관리할 수 있습니다. 마지막으로 가상 네트워크에 가상 머신을 적용하여 보안 구현을 기본적으로 중요시합니다.
@@ -38,12 +38,12 @@ Resource Manager는 템플릿을 사용하여 복잡한 응용 프로그램을 �
 * 예약된 IP
 
 ## <a name="supported-scopes-of-migration"></a>지원되는 마이그레이션 범위
-계산, 네트워크 및 저장소 리소스의 마이그레이션을 완료하는 데는 4가지 방법이 있습니다. 다음과 같습니다.
+계산, 네트워크 및 저장소 리소스의 마이그레이션을 완료하는 데는 다음 4가지 방법이 있습니다.
 
-* 가상 머신 마이그레이션(가상 네트워크가 아님)
-* 가상 머신 마이그레이션(가상 네트워크에서)
-* Storage 계정 마이그레이션
-* 연결되지 않은 리소스(네트워크 보안 그룹, 경로 테이블 및 예약된 IP)
+* [가상 머신 마이그레이션(가상 네트워크가 아님)](#migration-of-virtual-machines-not-in-a-virtual-network)
+* [가상 머신 마이그레이션(가상 네트워크에서)](#migration-of-virtual-machines-in-a-virtual-network)
+* [저장소 계정 마이그레이션](#migration-of-storage-accounts)
+* [연결되지 않은 리소스 마이그레이션](#migration-of-unattached-resources)
 
 ### <a name="migration-of-virtual-machines-not-in-a-virtual-network"></a>가상 머신 마이그레이션(가상 네트워크가 아님)
 Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보안이 적용되어 있습니다. 모든 VM은 Resource Manager 모델의 가상 네트워크에 있어야 합니다. Azure 플랫폼은 마이그레이션의 일부로 VM을 다시 시작합니다(`Stop`, `Deallocate` 및 `Start`). Virtual Machines이 마이그레이션될 가상 네트워크에 대해서는 두 가지 옵션이 있습니다.
@@ -53,7 +53,6 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 
 > [!NOTE]
 > 이 마이그레이션 범위에서는 마이그레이션 중 특정 시간 동안 관리 평면 작업 및 데이터 평면 작업이 허용되지 않을 수 있습니다.
->
 >
 
 ### <a name="migration-of-virtual-machines-in-a-virtual-network"></a>가상 머신 마이그레이션(가상 네트워크에서)
@@ -67,23 +66,25 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 > [!NOTE]
 > 이 마이그레이션 범위에서는 마이그레이션 중 특정 시간 동안 관리 평면이 허용되지 않을 수 있습니다. 앞서 설명한 특정 구성의 경우 데이터 평면 가동 중지 시간이 발생합니다.
 >
->
 
-### <a name="storage-accounts-migration"></a>Storage 계정 마이그레이션
+### <a name="migration-of-storage-accounts"></a>저장소 계정 마이그레이션
 원활한 마이그레이션을 위해 클래식 저장소 계정에 Resource Manager VM을 배포할 수 있습니다. 이 기능을 사용하면 계산 및 네트워크 리소스를 저장소 계정과 상관없이 마이그레이션할 수 있으며 이러한 방식이 바람직합니다. Virtual Machines 및 Virtual Network에 대해 마이그레이션한 후에는 저장소 계정에 대해 마이그레이션을 수행하여 마이그레이션 프로세스를 완료해야 합니다.
+
+저장소 계정에 연결된 디스크 또는 Virtual Machines 데이터가 없고 Blob, 파일, 테이블 및 큐만 있는 경우, Azure Resource Manager로의 마이그레이션을 종속성 없는 독립형 마이그레이션으로 수행할 수 있습니다.
 
 > [!NOTE]
 > Resource Manager 배포 모델에는 기본 이미지 및 디스크 개념이 적용되지 않습니다. 저장소 계정이 마이그레이션되면 클래식 이미지와 디스크가 Resource Manager 스택에 표시되지 않지만 백업 VHD는 저장소 계정에 남아 있습니다.
 >
->
 
-### <a name="unattached-resources-network-security-groups-route-tables--reserved-ips"></a>연결되지 않은 리소스(네트워크 보안 그룹, 경로 테이블 및 예약된 IP)
-네트워크 보안 그룹, 모든 Virtual Machines 및 Virtual Networks에 연결되지 않은 경로 테이블 및 예약 IP는 따로 마이그레이션할 수 있습니다.
+### <a name="migration-of-unattached-resources"></a>연결되지 않은 리소스 마이그레이션
+연결된 디스크 또는 Virtual Machines 데이터가 없는 저장소 계정은 독립적으로 마이그레이션할 수 있습니다.
+
+Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 그룹, 경로 테이블 및 예약 IP도 독립적으로 마이그레이션할 수 있습니다.
 
 <br>
 
 ## <a name="unsupported-features-and-configurations"></a>지원되지 않는 기능 및 구성
-현재는 일부 기능 및 구성 집합을 지원하지 않습니다. 다음 섹션에서는 이와 관련된 권장 지침에 대해 설명합니다.
+일부 기능 및 구성은 현재 지원되지 않습니다. 다음 섹션에서는 이러한 항목에 대한 권장 사항을 설명합니다.
 
 ### <a name="unsupported-features"></a>지원되지 않는 기능
 현재 지원되지 않는 기능은 다음과 같습니다. 이러한 설정을 제거하고 VM을 마이그레이션한 다음 Resource Manager 배포 모델에서 설정을 다시 사용하도록 지정할 수 있습니다(선택 사항).
@@ -112,10 +113,10 @@ Resource Manager 배포 모델에서는 기본적으로 응용 프로그램 보�
 | 컴퓨팅 | Azure Security Center 확장이 있는 VM | Azure Security Center는 보안을 모니터링하고 경고를 발생시키기 위한 확장을 Virtual Machines에 자동으로 설치합니다. 이러한 확장은 일반적으로 구독에서 Azure Security Center가 사용되도록 설정되면 자동으로 설치됩니다. Virtual Machines를 마이그레이션하려면 구독에 대해 Virtual Machines에서 Security Center 모니터링 확장을 제거하는 Security Center 정책을 사용하지 않도록 설정합니다. |
 | 컴퓨팅 | 백업 또는 스냅숏 확장이 있는 VM | 이러한 확장은 Azure Backup 서비스를 사용하여 구성된 Virtual Machine에 설치됩니다. 이러한 VM의 마이그레이션은 지원되지 않지만 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault)의 지침에 따라 마이그레이션 전에 생성된 백업을 유지할 수 있습니다.  |
 | 네트워크 |가상 머신과 웹/작업자 역할이 포함된 가상 네트워크 |현재는 지원되지 않습니다. 마이그레이션하기 전에 웹/작업자 역할을 자체 Virtual Network로 이동하세요. 클래식 Virtual Network가 마이그레이션되면 마이그레이션된 Azure Resource Manager Virtual Network가 이전과 비슷한 구성을 얻기 위해 클래식 Virtual Network와 페어링될 수 있습니다.|
-| 네트워크 | 클래식 ExpressRoute 회로 |현재는 지원되지 않습니다. 이러한 회로는 IaaS 마이그레이션을 시작하기 전에 Azure Resource Manager로 마이그레이션해야 합니다. 이에 대한 자세한 내용은 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 참조하세요.|
+| 네트워크 | 클래식 ExpressRoute 회로 |현재는 지원되지 않습니다. 이러한 회로는 IaaS 마이그레이션을 시작하기 전에 Azure Resource Manager로 마이그레이션해야 합니다. 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 참조하세요.|
 | Azure App Service |App Service 환경이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure HDInsight |HDInsight Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Microsoft Dynamics Lifecycle Services |Dynamics Lifecycle Services에서 관리하는 가상 머신이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure AD Domain Services |Azure AD Domain Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure RemoteApp |Azure RemoteApp 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
-| Azure API Management |Azure API Management 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. IaaS VNET을 마이그레이션하려면 가동 중지 시간이 없는 API Management 배포의 VNET을 변경하세요. |
+| Azure API Management |Azure API Management 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. IaaS VNET을 마이그레이션하려면 API Management 배포의 VNET을 변경합니다. 이 작업은 가동 중지 시간이 없습니다. |

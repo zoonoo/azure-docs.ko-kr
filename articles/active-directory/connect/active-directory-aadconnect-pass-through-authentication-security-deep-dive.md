@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb8382a9801c3570a190259416d846fe518cc6ea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 967184d9a7590dc0b8c88a49cf178bbd9eb83267
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595039"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063598"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -132,20 +132,21 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 1. 사용자가 응용 프로그램(예: [Outlook 웹앱](https://outlook.office365.com/owa))에 대한 액세스를 시도합니다.
 2. 사용자가 아직 로그인하지 않은 경우 해당 응용 프로그램은 브라우저를 Azure AD 로그인 페이지로 리디렉션합니다.
 3. Azure AD STS 서비스가 **사용자 로그인 페이지**로 응답합니다.
-4. 사용자가 **사용자 로그인** 페이지에 사용자 이름과 암호를 입력하고 **로그인** 단추를 선택합니다.
-5. 사용자 이름 및 암호가 HTTPS POST 요청을 통해 Azure AD STS로 전송됩니다.
-6. Azure AD STS가 Azure SQL Database에서 해당 테넌트에 등록된 모든 인증 에이전트의 공개 키를 가져온 다음 가져온 공개 키를 사용하여 암호를 암호화합니다. 
+4. 사용자가 **사용자 로그인** 페이지에 사용자 이름을 입력하고 **다음** 단추를 선택합니다.
+5. 사용자가 **사용자 로그인** 페이지에 암호를 입력하고 **로그인** 단추를 선택합니다.
+6. 사용자 이름 및 암호가 HTTPS POST 요청을 통해 Azure AD STS로 전송됩니다.
+7. Azure AD STS가 Azure SQL Database에서 해당 테넌트에 등록된 모든 인증 에이전트의 공개 키를 가져온 다음 가져온 공개 키를 사용하여 암호를 암호화합니다. 
     - 해당 테넌트에 등록된 “N”개의 인증 에이전트에 대해 “N”개의 암호화된 암호 값을 생성합니다.
-7. Azure AD STS가 사용자 이름과 암호화된 암호 값으로 구성된 암호 유효성 검사 요청을 해당 테넌트의 Service Bus 큐에 배치합니다.
-8. 초기화된 인증 에이전트는 Service Bus 큐에 영구적으로 연결되므로 사용 가능한 인증 에이전트 중 하나가 암호 유효성 검사 요청을 가져옵니다.
-9. 인증 에이전트가 식별자를 사용하여 자신의 공개 키에 고유한 암호화된 암호 값을 찾고 자신의 개인 키를 사용하여 암호를 해독합니다.
-10. 인증 에이전트가 **dwLogonType** 매개 변수가 **LOGON32_LOGON_NETWORK**로 설정된 [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)를 사용하여 온-프레미스 Active Directory에 대해 사용자 이름 및 암호의 유효성을 검사합니다. 
+8. Azure AD STS가 사용자 이름과 암호화된 암호 값으로 구성된 암호 유효성 검사 요청을 해당 테넌트의 Service Bus 큐에 배치합니다.
+9. 초기화된 인증 에이전트는 Service Bus 큐에 영구적으로 연결되므로 사용 가능한 인증 에이전트 중 하나가 암호 유효성 검사 요청을 가져옵니다.
+10. 인증 에이전트가 식별자를 사용하여 자신의 공개 키에 고유한 암호화된 암호 값을 찾고 자신의 개인 키를 사용하여 암호를 해독합니다.
+11. 인증 에이전트가 **dwLogonType** 매개 변수가 **LOGON32_LOGON_NETWORK**로 설정된 [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)를 사용하여 온-프레미스 Active Directory에 대해 사용자 이름 및 암호의 유효성을 검사합니다. 
     - Win32 LogonUser API는 AD FS(Active Directory Federation Service)가 페더레이션 로그인 시나리오에서 사용자 로그인에 사용하는 API이기도 합니다.
     - Win32 LogonUser API는 Windows Server의 표준 확인 프로세스를 사용하여 도메인 컨트롤러를 찾습니다.
-11. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.
-12. 인증 에이전트는 포트 443을 통한 아웃바운드 상호 인증 HTTPS 채널을 통해 결과를 다시 Azure AD STS로 전달합니다. 상호 인증은 이전 단계에서 등록 시 인증 에이전트로 발급된 인증서를 사용합니다.
-13. Azure AD STS는 이 결과가 테넌트의 특정 로그인 요청과 관련이 있는지 확인합니다.
-14. Azure AD STS는 구성된 대로 로그인 절차를 계속 진행합니다. 예를 들어, 암호 유효성 검사가 성공적인 경우 사용자에게 Multi-Factor Authentication을 요청하거나 사용자를 응용 프로그램으로 리디렉션합니다.
+12. 인증 에이전트가 Active Directory로부터 성공, 사용자 이름 또는 암호 불일치, 암호 만료와 같은 결과를 수신합니다.
+13. 인증 에이전트는 포트 443을 통한 아웃바운드 상호 인증 HTTPS 채널을 통해 결과를 다시 Azure AD STS로 전달합니다. 상호 인증은 이전 단계에서 등록 시 인증 에이전트로 발급된 인증서를 사용합니다.
+14. Azure AD STS는 이 결과가 테넌트의 특정 로그인 요청과 관련이 있는지 확인합니다.
+15. Azure AD STS는 구성된 대로 로그인 절차를 계속 진행합니다. 예를 들어, 암호 유효성 검사가 성공적인 경우 사용자에게 Multi-Factor Authentication을 요청하거나 사용자를 응용 프로그램으로 리디렉션합니다.
 
 ## <a name="operational-security-of-the-authentication-agents"></a>인증 에이전트의 운영 보안
 
@@ -208,7 +209,7 @@ Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer �
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
-- [스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호합니다.
+- [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호합니다.
 - [작동 방법](active-directory-aadconnect-pass-through-authentication-how-it-works.md):- Azure AD 통과 인증이 작동하는 기본적인 방식을 알아봅니다.
 - [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md): 자주 하는 질문과 대답을 살펴봅니다.
 - [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.

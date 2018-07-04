@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: nitinme
-ms.openlocfilehash: 17ba4af006587dd1d34f61a0f5f77cbcd768fcf8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a53bc6459e431d855ba09cda59680c5d8698c488
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410093"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063260"
 ---
 # <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight에서 Hadoop 구성 요소에 대한 릴리스 정보
 
@@ -27,6 +27,17 @@ ms.locfileid: "31410093"
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 버전 관리 문서](hdinsight-component-versioning.md)를 참조하세요.
+
+## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>2018/06/27에 대한 메모 - 새 오픈 소스 버전 릴리스, HDInsight 3.6의 ADLS Gen2 등
+HDInsight의 2018년 6월 릴리스는 아래에 설명된 대로 고객을 위한 많은 새로운 업데이트와 기능이 포함된 중요한 릴리스가 되고 있습니다. 자세한 내용은 이 [게시물](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/)을 참조하세요.
+
+주요 사항은 다음과 같습니다. 자세한 릴리스 정보, 수정된 버그, 알려진 문제 등은 이 [문서](https://aka.ms/hdirelnotes)를 참조하세요.
+
+- **Hadoop 및 기타 오픈 소스 프로젝트 업데이트** - 20개 이상의 소스 프로젝트에서 1000개 이상의 버그 수정 이외에 이 업데이트는 새로운 버전의 Spark(2.3) 및 Kafka(1.0)를 포함합니다.
+- **R Server 9.1을 Machine Learning Services 9.3으로 업데이트** - 이 릴리스에서는 데이터 과학자와 엔지니어에게 알고리즘 혁신과 간편한 운영화를 통해 향상된 최상의 오픈 소스를, 선호하는 언어의 Apache Spark의 속도로 제공합니다. 이 릴리스는 Python에 대한 추가 지원을 통해 R Server에서 제공되는 기능을 확장하므로 클러스터 이름이 R 서버에서 ML 서비스로 변경됩니다. 
+- **Azure Data Lake Storage Gen2에 대한 지원** - HDInsight는 Azure Data Lake Storage Gen2의 미리 보기 릴리스를 지원합니다. 사용 가능한 지역에서 고객은 HDInsight 클러스터용 저장소로 ADLS Gen2 계정을 선택할 수 있습니다.
+- **HDInsight Enterprise Security Package 업데이트(미리 보기)** - (미리 보기) Azure Blob Storage, ADLS Gen1, Cosmos DB 및 Azure DB에 대한 가상 네트워크 서비스 끝점이 지원됩니다. 
+
 
 ## <a name="notes-for-03202018---release-of-spark-22-on-hdinsight-36"></a>HDInsight 3.6에서 Spark 2.2의 2018/03/20 릴리스 정보
 

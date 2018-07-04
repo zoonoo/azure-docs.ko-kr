@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 8f666bc352dc1706da4812590f85adc7695e2f13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647665"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050130"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션
 
@@ -78,11 +78,12 @@ SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니�
 
 - Azure Database Migration Service - 거의 제로에 가까운 가동 중지 시간으로 마이그레이션
 - URL에서 네이티브 복원 - SQL Server의 네이티브 백업을 사용하며 약간의 가동 중지 시간 필요
-- BACPAC 파일을 사용하여 마이그레이션 - SQL Server 또는 SQL Database의 BACPAC 파일을 사용하며 약간의 가동 중지 시간 필요
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
 [Azure DMS(Database Migration Service)](../dms/dms-overview.md)는 가동 중지 시간을 최소화하면서 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션할 수 있도록 설계된 완벽하게 관리되는 서비스입니다. 이 서비스는 기존 타사 및 SQL Server 데이터베이스를 Azure로 이동하는 데 필요한 작업을 간소화합니다. 공개 미리 보기의 배포 옵션에는 Azure Virtual Machine에 있는 Azure SQL Database, 관리되는 인스턴스 및 SQL Server가 포함됩니다. DMS는 엔터프라이즈 작업에 권장되는 마이그레이션 방법입니다. 
+
+SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사용하는 경우, DMS는 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)의 마이그레이션을 아직 지원하지 않지만, Azure SQL Database/관리되는 인스턴스에 새 SSISDB를 만들 Azure-SSIS IR(Integration Runtime)을 ADF(Azure Data Factory)에 프로비전하고 해당 패키지를 다시 배포할 수 있습니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
 
 이 시나리오와 DMS 구성 단계에 대해 자세히 알아보려면 [DMS를 사용하여 온-프레미스 데이터베이스를 관리되는 인스턴스로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.  
 
@@ -107,10 +108,6 @@ SQL 인스턴스를 이동하려면 다음을 신중하게 계획해야 합니�
 > 시스템 데이터베이스의 복원은 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 이러한 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
 
 SAS 자격 증명을 사용하여 관리되는 인스턴스에 데이터베이스 백업을 복원하는 전체 자습서는 [백업에서 관리되는 인스턴스 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
-
-### <a name="migrate-using-bacpac-file"></a>BACPAC 파일을 사용하여 마이그레이션
-
-BACPAC 파일에서 데이터를 사용하여 원본 데이터베이스의 복사본을 만들고 Azure SQL Database 및 관리되는 인스턴스로 가져올 수 있습니다. [새 Azure SQL Database로 BACPAC 파일 가져오기](sql-database-import.md)를 참조하세요.
 
 ## <a name="monitor-applications"></a>응용 프로그램 모니터링
 

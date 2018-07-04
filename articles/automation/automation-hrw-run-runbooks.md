@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cf32ea7b77db3fc78a404063b8a4d69ecebf58
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195712"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062577"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -157,13 +157,9 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Hybrid Runbook Worker의 작업은 Azure 샌드박스에서 실행될 때보다 약간 다르게 처리됩니다. 한 가지 중요한 차이점은 Hybrid Runbook Worker의 작업 기간에는 제한이 없다는 것입니다. 장기 실행 Runbook이 있는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터가 다시 부팅되는 경우와 같이 다시 시작하여 복원할 수 있는지 확인하려고 합니다. 하이브리드 작업자 호스트 컴퓨터가 다시 부팅되면, 실행 중인 모든 Runbook 작업이 처음부터 다시 시작되거나 PowerShell 워크플로 Runbook의 마지막 검사점에서 다시 시작됩니다. Runbook 작업이 4회 이상 다시 시작되면 일시 중단됩니다.
 
-## <a name="troubleshooting-runbooks-on-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 문제 해결
+## <a name="troubleshoot"></a>문제 해결
 
-로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. 또한 하이브리드 작업자는 **Application and Services Logs\Microsoft-SMA\Operational** 아래에 있는 Windows 이벤트 로그에 오류와 이벤트를 기록합니다. 작업자에서 실행되는 Runbook과 관련된 이벤트는 **Application and Services Logs\Microsoft-Automation\Operational**에 기록됩니다. **Microsoft-SMA** 로그에는 작업자에 푸시된 Runbook 작업 및 Runbook 처리와 관련된 더 많은 이벤트가 포함됩니다. **Microsoft-Automation** 이벤트 로그에는 Runbook 실행 문제를 해결하는 데 도움이 되는 세부 정보가 포함된 이벤트가 많지 않지만 Runbook 작업의 결과가 포함되어 있습니다.
-
-[Runbook 출력 및 메시지](automation-runbook-output-and-messages.md)는 클라우드에서 실행되는 Runbook 작업처럼 Hybrid Worker에서 Azure Automation으로 전송됩니다. Verbose 및 Progress 스트림을 다른 Runbook과 같은 방식으로 사용할 수도 있습니다.
-
-Runbook이 성공적으로 완료되지 않고 작업 요약에서 **일시 중단됨**상태를 표시하는 경우, [Hybrid Runbook Worker: Runbook 작업이 일시 중단됨 상태로 종료됨](automation-troubleshooting-hybrid-runbook-worker.md#a-runbook-job-terminates-with-a-status-of-suspended) 문제 해결 문서를 검토하세요.
+Runbook이 성공적으로 완료되지 않고 작업 요약에서 **일시 중단됨** 상태를 표시하는 경우, [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

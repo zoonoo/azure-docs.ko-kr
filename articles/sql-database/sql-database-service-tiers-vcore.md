@@ -1,65 +1,24 @@
 ---
 title: Azure SQL Database 서비스 - vCore | Microsoft Docs
-description: 성능 수준 및 저장소 크기를 제공하기 위한 단일 및 풀 데이터베이스에 대한 서비스 계층에 대해 알아보세요.
+description: vCore 기반 구매 모델(미리 보기)을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/20/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d37bf4fd131e700d4f4c3b07c84754b4014ca228
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648356"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309582"
 ---
-# <a name="vcore-based-purchasing-model-for-azure-sql-database-preview"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델(미리 보기)
+# <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>vCore 서비스 계층, 계산, 메모리, 저장소 및 IO 리소스 선택
 
-[Azure SQL Database](sql-database-technical-overview.md)는 계산, 저장소 및 IO 리소스에 대한 두 가지 구매 모델, 즉 DTU 기반 구매 모델과 vCore 기반 구매 모델(미리 보기)을 제공합니다. 다음 표와 차트에서는 이 두 가지 구매 모델을 비교하고 대조합니다.
-
-> [!IMPORTANT]
-> DTU 기반 구매 모델은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 참조하세요.
-
-
-|**구매 모델**|**설명**|**적합한 대상**|
-|---|---|---|
-|DTU 기반 모델|계산, 저장소 및 IO 리소스를 번들로 묶은 측정값을 기반으로 합니다. 성능 수준은 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 및 eDTU란?](sql-database-what-is-a-dtu.md)을 참조하세요.|간단하고 미리 구성된 리소스 옵션을 원하는 고객에게 가장 적합합니다.| 
-|vCore 기반 모델|이 모델을 사용하면 계산 및 저장소 리소스를 독립적으로 크기 조정할 수 있습니다(최대 80개 vCore, 4TB 데이터 저장소 및 200000 IOPS). SQL Server에 대한 Azure 하이브리드 혜택을 사용하여 비용을 절약할 수 있습니다.|유연성, 제어 및 투명성을 중요시하는 고객에게 가장 적합합니다.|
-||||  
-
-![가격 책정 모델](./media/sql-database-service-tiers/pricing-model.png)
-
-## <a name="vcore-based-purchasing-model--preview"></a>vCore 기반 구매 모델(미리 보기)
-
-가상 코어는 하드웨어 세대 중에서 선택할 수 있는 옵션과 함께 제공되는 논리 CPU를 나타냅니다. vCore 기반 구매 모델(미리 보기)은 개별 리소스 사용에 대한 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소의 크기를 조정할 수 있습니다. vCore 기반 구매 모델(미리 보기)에서 고객은 [단일 데이터베이스](sql-database-single-database-resources.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 모두에 대해 범용 및 중요 비즈니스 서비스 계층(미리 보기) 중에서 선택할 수 있습니다. 
-
-서비스 계층은 다양한 성능 수준, 고가용성 설계, 오류 격리, 저장소 유형 및 IO 범위로 구분됩니다. 고객은 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. vCore 모델을 사용하는 경우 단일 데이터베이스와 탄력적 풀은 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.
-
-vCore 기반 구매 모델(미리 보기)에서 고객이 지불하는 비용은 다음과 같습니다.
-- 계산(서비스 계층 + vCore 수 + 하드웨어 세대)*
-- 데이터 저장소 및 로그 저장소의 유형 및 크기 
-- IO 수**
-- 백업 저장소(RA-GRS)** 
-
-\* 최초 공개 미리 보기에서 4세대 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 합니다.
-
-\*\* 미리 보기 동안 백업 및 IO는 7일간 무료입니다.
-
-> [!IMPORTANT]
-> 계산, IO, 데이터 저장소 및 로그 저장소는 데이터베이스 또는 탄력적 풀당 요금이 부과됩니다. 백업 저장소는 각 데이터베이스당 요금이 부과됩니다. 관리되는 인스턴스 요금에 대한 자세한 내용은 [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
-
-> [!IMPORTANT]
-> 지역 제한 사항: 
->
-> vCore 기반 구매 모델(미리 보기)을 오스트레일리아 남동부에서는 아직 사용할 수 없습니다. 서유럽, 프랑스 중부, 영국 남부 및 영국 서부 지역에서는 미리 보기를 사용할 수 없습니다.
-> 
-
-## <a name="choosing-service-tier-compute-memory-storage-and-io-resources"></a>서비스 계층, 계산, 메모리, 저장소 및 IO 리소스 선택
-
-vCore 기반 구매 모델(미리 보기)로 변환하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다. 데이터베이스 또는 탄력적 풀에서 300을 초과하는 DTU를 vCore로 변환하면 비용을 절약할 수 있습니다. 선택한 API를 사용하거나 Azure Portal을 사용하여 가동 중지 시간 없이 변환할 수 있습니다. 그러나 변환이 필요하지 않습니다. DTU 구매 모델이 성능 및 비즈니스 요구 사항을 충족하는 경우 이 모델을 계속 사용해야 합니다. DTU 모델을 vCore 모델로 변환하려는 경우 경험 규칙을 사용하여 성능 수준을 선택해야 합니다. 이 경우 표준 계층의 각 100DTU에는 범용 계층에서 하나 이상의 vCore가 필요합니다. 프리미엄 계층의 각 125DTU에는 중요 비즈니스용 계층에서 하나 이상의 vCore가 필요합니다.
+서비스 계층은 다양한 성능 수준, 고가용성 설계, 오류 격리, 저장소 유형 및 IO 범위로 구분됩니다. 고객은 백업에 필요한 저장소와 보존 기간을 개별적으로 구성해야 합니다. vCore 모델을 사용하는 경우, 단일 데이터베이스와 탄력적 풀은 [SQL Server에 대한 Azure Hybrid Use Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.
 
 다음 표는 이러한 두 계층 간의 차이점을 이해하는 데 도움이 됩니다.
 
@@ -80,8 +39,6 @@ vCore 기반 구매 모델(미리 보기)로 변환하면 계산 및 저장소 �
 > [!IMPORTANT]
 > vCore의 계산 용량이 1개 미만인 경우 DTU 기반 구매 모델을 사용합니다.
 
-단일 데이터베이스에 사용할 수 있는 특정 성능 수준 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits.md#single-database-storage-sizes-and-performance-levels)을 참조하고, 탄력적 풀의 경우 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits.md#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.
-
 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요. 
 
 ## <a name="storage-considerations"></a>저장소 고려 사항
@@ -91,8 +48,8 @@ vCore 기반 구매 모델(미리 보기)로 변환하면 계산 및 저장소 �
 - 각 성능 수준은 최대 데이터베이스 크기를 지원하며 기본 최대 크기는 32GB입니다.
 - 필요한 데이터베이스 크기(MDF 크기)를 구성하면, LDF를 지원하기 위해 추가 저장소의 30%가 자동으로 추가됩니다
 - 10GB와 지원되는 최대 크기 중에서 데이터베이스 크기를 선택할 수 있습니다.
- - 표준 저장소의 경우 크기는 10GB 증분 단위로 늘리거나 줄입니다.
- - 프리미엄 저장소의 경우 크기는 250GB 증분 단위로 늘리거나 줄입니다.
+ - 표준 저장소의 경우, 크기는 10GB 증분 단위로 늘리거나 줄입니다.
+ - 프리미엄 저장소의 경우, 크기는 250GB 증분 단위로 늘리거나 줄입니다.
 - 범용 서비스 계층의 경우 `tempdb`에서 연결형 SSD를 사용하며, 이 저장소의 비용이 vCore 가격에 포함됩니다.
 - 중요 비즈니스 서비스 계층의 경우 `tempdb`에서 MDF 및 LDF 파일이 포함된 연결형 SSD를 공유하며, tempDB 저장소의 비용이 vCore 가격에 포함됩니다.
 
@@ -142,7 +99,7 @@ DTU 기반 모델에서 vCore 기반 모델로 마이그레이션하는 것은 �
 
 ## <a name="creation-of-a-geo-replication-secondary"></a>지역 복제 보조 데이터베이스 만들기
 
-주 데이터베이스와 동일한 서비스 계층을 사용하여 지역 복제 보조 데이터베이스만 만들 수 있습니다. 로그 생성 속도가 높은 데이터베이스의 경우, 보조 데이터베이스를 주 데이터베이스와 동일한 성능 수준으로 만드는 것이 좋습니다. 단일 주 데이터베이스에 대한 탄력적 풀에 지역 복제 보조 데이터베이스를 만드는 경우 주 데이터베이스 성능 수준과 일치하는 `maxVCore` 설정이 풀에 있는 것이 좋습니다. 다른 탄력적 풀에 있는 기본 탄력적 풀에 지역 보조 데이터베이스를 만드는 경우 풀의 설정은 `maxVCore`과 동일해야 합니다
+주 데이터베이스와 동일한 서비스 계층을 사용하여 지역 복제 보조 데이터베이스만 만들 수 있습니다. 로그 생성 속도가 높은 데이터베이스의 경우, 보조 데이터베이스를 주 데이터베이스와 동일한 성능 수준으로 만드는 것이 좋습니다. 단일 주 데이터베이스에 대한 탄력적 풀에 지역 복제 보조 데이터베이스를 만드는 경우, 주 데이터베이스 성능 수준과 일치하는 `maxVCore` 설정이 풀에 있는 것이 좋습니다. 다른 탄력적 풀에 있는 기본 탄력적 풀에 지역 보조 데이터베이스를 만드는 경우, 풀의 설정은 `maxVCore`와 동일해야 합니다.
 
 ## <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>데이터베이스 복사본을 사용하여 DTU 기반 데이터베이스를 vCore 기반 데이터베이스로 변환합니다.
 
@@ -150,6 +107,5 @@ DTU 기반 모델에서 vCore 기반 모델로 마이그레이션하는 것은 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 사용할 수 있는 특정 성능 수준 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md) 및 [SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits.md)을 참조하세요.
-- 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
-- [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)에 대해 자세히 알아보세요.
+- 단일 데이터베이스에 사용할 수 있는 특정 성능 수준 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [단일 데이터베이스에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)을 참조하세요.
+- 탄력적 풀에 사용할 수 있는 특정 성능 수준 및 저장소 크기를 선택하는 방법에 대한 자세한 내용은 [탄력적 풀에 대한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels)을 참조하세요.

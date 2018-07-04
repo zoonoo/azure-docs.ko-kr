@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ac301daca769f9cec0d3395e7bde32494dd8e3d1
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735330"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304134"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -101,7 +101,7 @@ RBAC를 사용하여 Azure Storage 계정 관리 작업에 액세스하는 작�
 * [Azure Storage 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   이 API 참조는 저장소 계정을 프로그래밍 방식으로 관리하는 데 사용할 수 있는 API에 대해 설명합니다.
-* [Azure Resource Manager API를 사용하여 인증을 수행하기 위한 개발자 가이드](http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/)
+* [Resource Manager 인증 API를 사용하여 구독에 액세스](../../azure-resource-manager/resource-manager-api-authentication.md)
 
   이 문서에서는 Resource Manager API를 사용하여 인증을 수행하는 방법을 보여 줍니다.
 * [Ignite를 사용한 Microsoft Azure에 대한 역할 기반 Access Control](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
@@ -209,7 +209,7 @@ http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
 &sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D (signature used for the authentication of the SAS)
 ```
 
-#### <a name="how-the-shared-access-signature-is-authenticated-by-the-azure-storage-service"></a>Azure Storage 서비스에서 공유 액세스 서명을 인증하는 방법
+#### <a name="how-the-shared-access-signature-is-authorized-by-the-azure-storage-service"></a>Azure Storage 서비스에서 공유 액세스 서명에 권한을 부여하는 방법
 저장소 서비스가 요청을 받으면 입력 쿼리 매개 변수를 수용한 후 호출 프로그램과 동일한 방법을 사용하여 서명을 만듭니다. 그런 후 두 서명을 비교합니다. 두 서명이 일치하면 저장소 서비스는 저장소 서비스 버전이 유효한지 확인하고, 현재 날짜 및 시간이 지정된 기간 내에 속하는지 확인하고, 요청된 액세스가 수행된 요청과 일치할 수 있습니다.
 
 예를 들어 위의 URL이 Blob 대신 파일을 가리킨다면 공유 액세스 서명은 Blob에 대한 것이라고 지정하고 있으므로 이 요청은 실패할 것입니다. 호출되는 REST 명령이 Blob을 업데이트하는 명령이라면 공유 액세스 서명은 읽기 액세스만 허용된다고 지정하고 있으므로 실패할 것입니다.
@@ -404,11 +404,11 @@ Azure Storage에 대한 모든 요청이 기록됩니다. 다음은 처음 몇 �
 
 ![로그 파일의 필드 스냅숏](./media/storage-security-guide/image3.png)
 
-GetBlob에 대한 항목과 인증 방법에 관심이 있으므로 operation-type이 “Get-Blob”인 항목을 찾은 다음 request-status(4번째</sup> 열) 및 authorization-type(8번째</sup> 열)을 확인해야 합니다.
+GetBlob에 대한 항목과 권한 부여 방법에 관심이 있으므로 operation-type이 “Get-Blob”인 항목을 찾은 다음, request-status(4번째</sup> 열) 및 authorization-type(8번째</sup> 열)을 확인해야 합니다.
 
-예를 들어 위 목록의 처음 몇 행에서 request-status는 “Success”이고 authorization-type은 “authenticated”입니다. 즉, 저장소 계정 키를 사용하여 요청의 유효성이 검사됩니다.
+예를 들어 위 목록의 처음 몇 행에서 request-status는 “Success”이고 authorization-type은 “authenticated”입니다. 즉, 저장소 계정 키를 사용하여 요청에 권한이 부여됩니다.
 
-#### <a name="how-are-my-blobs-being-authenticated"></a>Blob은 어떻게 인증되나요?
+#### <a name="how-is-access-to-my-blobs-being-authorized"></a>내 Blob에 대한 액세스 권한은 어떻게 부여되나요?
 우리는 다음 세 가지 경우에 관심이 있습니다.
 
 1. Blob이 공용이고 공유 액세스 서명 없이 URL을 사용하여 액세스됩니다. 이 경우 request-status는 “AnonymousSuccess”이고 authorization-type은 “anonymous”입니다.

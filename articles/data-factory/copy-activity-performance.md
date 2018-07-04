@@ -13,23 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 6b0f576538f159155dcf602fe39b0ea67254e4c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b6de6331b4d829f183c8b5dc03d6a29095a47479
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619255"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049335"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>복사 작업 성능 및 조정 가이드
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-copy-activity-performance.md)
-> * [버전 2 - 미리 보기](copy-activity-performance.md)
+> * [버전 1](v1/data-factory-copy-activity-performance.md)
+> * [현재 버전](copy-activity-performance.md)
 
 
 Azure Data Factory 복사 작업은 최고 수준의 보안, 안정성 및 고성능 데이터 로드 솔루션을 제공합니다. 풍부하게 다양한 클라우드 및 온-프레미스 데이터 저장소에서 매일 수십 테라바이트의 데이터를 복사할 수 있습니다. 초고속 데이터 로드 성능은 핵심적인 "빅 데이터" 문제인 고급 분석 솔루션을 구축하고 모든 데이터에서 깊은 통찰을 얻는 데 집중할 수 있도록 하는 열쇠입니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory 버전 1의 복사 작업 성능](v1/data-factory-copy-activity-performance.md)을 참조하세요.
 
 Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스 솔루션 세트를 제공하고 복사 작업은 쉽게 구성 및 설정할 수 있는 고도로 최적화된 데이터 로드 환경을 제공합니다. 단일 복사 작업 만을 사용하여 다음을 수행할 수 있습니다.
 
@@ -40,7 +37,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 이 문서에서는 다음을 설명합니다.
 
 * [성능 참조 번호](#performance-reference)와 프로젝트를 계획하는 데 도움이 되는 싱크 데이터 저장소.
-* [클라우드 데이터 이동 단위](#cloud-data-movement-units), [병렬 복사](#parallel-copy), [준비된 복사](#staged-copy)를 포함한 다양한 시나리오에서 복사 처리량을 높일 수 있는 기능.
+* [데이터 통합 단위](#data-integration-units), [병렬 복사](#parallel-copy), [준비된 복사](#staged-copy)를 포함한 다양한 시나리오에서 복사 처리량을 높일 수 있는 기능.
 * [성능 조정 지침](#performance-tuning-steps) .
 
 > [!NOTE]
@@ -49,12 +46,12 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 ## <a name="performance-reference"></a>성능 참조
 
-참조로 아래 테이블에 사내 테스트에 따른 **단일 복사 작업 실행**에서 지정된 원본 및 싱크 쌍에 대한 복사 처리량(**MBps**)이 나와 있습니다. 비교를 위해 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 또는 [자체 호스팅 Integration Runtime 확장성](concepts-integration-runtime.md#self-hosted-integration-runtime)(여러 노드)의 다른 설정이 어떻게 복사 성능에 도움이 되는지도 설명합니다.
+참조로 아래 테이블에 사내 테스트에 따른 **단일 복사 작업 실행**에서 지정된 원본 및 싱크 쌍에 대한 복사 처리량(**MBps**)이 나와 있습니다. 비교를 위해 [데이터 통합 단위](#data-integration-units) 또는 [자체 호스팅 Integration Runtime 확장성](concepts-integration-runtime.md#self-hosted-integration-runtime)(여러 노드)의 다른 설정이 어떻게 복사 성능에 도움이 되는지도 설명합니다.
 
 ![성능 매트릭스](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->Azure Data Factory 버전 2에서 복사 작업이 Azure Integration Runtime에서 실행될 때 최소 클라우드 데이터 이동 단위는 2입니다. 지정되지 않은 경우 [클라우드 데이터 이동 단위](#cloud-data-movement-units)에서 사용 중인 기본 데이터 이동 단위를 참조하세요.
+> [!IMPORTANT]
+> Azure Integration Runtime에서 복사 작업을 실행할 때 허용되는 최소 데이터 통합 단위(이전의 데이터 이동 단위)는 2입니다. 지정되지 않은 경우, [데이터 통합 단위](#data-integration-units)에 사용되는 기본 데이터 통합 단위를 참조하세요.
 
 주의할 사항:
 
@@ -79,25 +76,25 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 
 > [!TIP]
-> 허용되는 기본 최대 DMU(데이터 이동 단위)보다 많은 DMU를 활용하여 더 많은 처리량을 획득할 수 있으며, 클라우드 간 복사 작업 실행의 경우 32입니다. 예를 들어 100개 DMU를 사용하면 **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [클라우드 데이터 이동 단위](#cloud-data-movement-units) 섹션을 참조하세요. DMU를 더 많이 요청하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
+> 허용되는 기본 최대 DIU(데이터 통합 단위)보다 많은 DIU를 사용하여 처리량을 높일 수 있으며, 클라우드 간 복사 작업 실행의 경우 32입니다. 예를 들어 100개 DIU를 사용하는 경우, **1.0GBps** 속도로 Azure Blob에서 Azure Data Lake Store로 데이터 복사를 수행할 수 있습니다. 이 기능과 지원되는 시나리오에 대한 자세한 내용은 [데이터 통합 단위](#data-integration-units) 섹션을 참조하세요. DIU를 더 많이 요청하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
-## <a name="cloud-data-movement-units"></a>클라우드 데이터 이동 단위
+## <a name="data-integration-units"></a>데이터 통합 단위
 
-**클라우드 데이터 이동 단위(DMU)** 는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. **DMU는 [자체 호스팅 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)이 아닌 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** 에만 적용됩니다.
+**DIU(데이터 통합 단위)**(이전의 클라우드 데이터 이동 단위 또는 DMU)는 Data Factory 내 단일 단위의 힘(CPU, 메모리, 네트워크 자원 할당의 조합)을 나타내는 척도입니다. **DIU는 [자체 호스팅 Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime)이 아닌 [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)** 에만 적용됩니다.
 
-**복사 작업 실행을 위한 최소 클라우드 데이터 이동 단위는 2입니다.** 지정하지 않은 경우 다음 표의 다양한 복사 시나리오에서 사용되는 기본 DMU의 목록을 참조하세요.
+**복사 작업 실행을 위한 최소 데이터 통합 단위는 2입니다.** 지정되지 않은 경우, 다양한 복사 시나리오에서 사용되는 기본 DIU가 나열된 다음 표를 참조하세요.
 
-| 복사 시나리오 | 서비스에 따라 결정되는 기본 DMU |
+| 복사 시나리오 | 서비스에 따라 결정되는 기본 DIU |
 |:--- |:--- |
 | 파일 기반 저장소 간의 데이터 복사 | 파일 수와 크기에 따라 4~32 |
 | 그 밖의 모든 복사 시나리오 | 4 |
 
-기본값을 재정의하려면 **cloudDataMovementUnits** 속성에 대한 값을 지정합니다. **cloudDataMovementUnits** 속성에 **허용되는 값**은 **256까지**입니다. 런타임 시 복사 작업에서 사용하는 **실제 클라우드 DMU 수**는 데이터 패턴에 따라 구성된 값 이하입니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
+이 기본값을 재정의하려면 **dataIntegrationUnits** 속성의 값을 다음과 같이 지정합니다. **dataIntegrationUnits** 속성에 **허용되는 값**은 **256까지**입니다. 런타임 시 복사 작업에서 사용하는 **실제 DIU 수**는 데이터 패턴에 따라 구성된 값보다 작거나 같습니다. 특정 복사 원본 및 싱크에 대해 더 많은 단위를 구성할 때 얻을 수 있는 성능상 이점 수준에 대한 자세한 내용은 [성능 참조](#performance-reference)를 참조하세요.
 
-작업 실행을 모니터링할 때 복사 작업 출력에서 각 복사 실행에 대해 실질적으로 사용되는 클라우드 데이터 이동 단위를 확인할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 참조하세요.
+작업 실행을 모니터링할 때 복사 작업 출력에서 각 복사 실행을 위해 실제로 사용되는 데이터 통합 단위를 확인할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 참조하세요.
 
 > [!NOTE]
-> 더 높은 처리량을 위해 더 많은 클라우드 DMU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob Storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 여러 파일을 다른 클라우드 데이터 저장소로 복사**하는 경우에만 작동합니다.
+> 처리량을 높이기 위해 더 많은 DIU가 필요하면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하시기 바랍니다. 8 이상의 설정은 현재 **Blob Storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP에서 여러 파일을 다른 클라우드 데이터 저장소로 복사**하는 경우에만 작동합니다.
 >
 
 **예제:**
@@ -116,15 +113,15 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
 ```
 
-### <a name="cloud-data-movement-units-billing-impact"></a>클라우드 데이터 이동 단위 청구 요소 
+### <a name="data-integration-units-billing-impact"></a>데이터 통합 단위 청구 영향
 
-복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 데이터 이동에 대해 청구되는 총 기간은 전체 DMU의 기간 합계입니다. 두 클라우드 단위로 1시간이 걸렸던 복사 작업이 이제 8개의 클라우드에서 15분이 소요된다면 전체 청구 금액은 거의 동일한 상태로 유지됩니다.
+복사 작업의 총 시간을 기준으로 요금이 청구된다는 점을 기억하는 것이 **중요**합니다. 데이터 이동에 대해 청구되는 총 기간은 전체 DIU의 기간 합계입니다. 두 클라우드 단위로 1시간이 걸렸던 복사 작업이 이제 8개의 클라우드에서 15분이 소요된다면 전체 청구 금액은 거의 동일한 상태로 유지됩니다.
 
 ## <a name="parallel-copy"></a>병렬 복사 
 
@@ -134,7 +131,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
 | 복사 시나리오 | 서비스에 의해 결정되는 기본 병렬 복사 개수 |
 | --- | --- |
-| 파일 기반 저장소 간의 데이터 복사 |파일 크기 및 클라우드 데이터 이동 단위의 수(DMU)에 따라, 두 클라우드 데이터 저장소 간에 데이터를 복사하거나, 자체 호스팅 Integration Runtime 컴퓨터의 물리적 구성에 사용됩니다. |
+| 파일 기반 저장소 간의 데이터 복사 |두 클라우드 데이터 저장소 간에 데이터를 복사하는 데 사용되는 DIU(데이터 통합 단위) 수 및 파일 크기나 자체 호스팅 Integration Runtime 머신의 물리적 구성에 따라 다릅니다. |
 | 원본 데이터 저장소의 데이터를 Azure Table Storage에 복사 |4 |
 | 그 밖의 모든 복사 시나리오 |1 |
 
@@ -168,7 +165,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 * 파일 기반 저장소간에 데이터를 복사하면 **parallelCopies**에서 파일 수준 병렬 처리를 결정합니다. 단일 파일에서 수행되는 청크는 자동으로 투명하게 발생하며, 주어진 원본 데이터 저장소 유형에 가장 적합한 청크 크기를 사용하여 parallelCopies에 대해 병렬 및 직각으로 데이터를 로드하도록 설계되었습니다. 런타임 시 데이터 이동 서비스에서 복사 작업에 사용하는 병렬 복사의 실제 수는 사용자가 보유한 파일의 수를 넘지 않습니다. 복사 동작이 **mergeFile**인 경우 복사 작업은 파일 수준 병렬 처리의 이점을 활용할 수 없습니다.
 * **parallelCopies** 속성 값을 지정할 때는 복사 작업을 하이브리드 복사 등에서 제공하는 경우 원본과 싱크 데이터 저장소 및 자체 호스팅 Integration Runtime의 로드 증가를 고려합니다. 동일한 데이터 저장소에 대해 실행되는 여러 활동이 있거나 동일한 활동의 동시 실행이 있는 경우 특히 발생합니다. 데이터 저장소나 자체 호스팅 Integration Runtime이 로드로 인해 과부하가 걸리면 로드 감소를 위해 **parallelCopies** 값을 낮춥니다.
 * 파일 기반이 아닌 저장소에서 파일 기반인 저장소로 데이터를 이동할 경우 데이터 이동 서비스는 **parallelCopies** 속성을 무시합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
-* **parallelCopies**는 **cloudDataMovementUnits**와 직교되는 관계입니다. 전자는 모든 클라우드 데이터 이동 단위에서 계산됩니다.
+* **parallelCopies**는 **dataIntegrationUnits**에 교차합니다. 전자는 모든 데이터 통합 단위에서 계산됩니다.
 
 ## <a name="staged-copy"></a>준비된 복사
 
@@ -246,7 +243,7 @@ Azure는 엔터프라이즈급 데이터 저장소 및 데이터 웨어하우스
 
    * 성능 기능:
      * [병렬 복사](#parallel-copy)
-     * [클라우드 데이터 이동 단위](#cloud-data-movement-units)
+     * [데이터 통합 단위](#data-integration-units)
      * [준비된 복사](#staged-copy)
      * [자체 호스팅 Integration Runtime 확장성](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [자체 호스팅 Integration Runtime](#considerations-for-self-hosted-integration-runtime)

@@ -1,12 +1,12 @@
 ### <a name="server-auth"></a>방법: 공급자를 사용하여 인증(서버 흐름)
-Mobile Apps가 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, Azure 앱 서비스에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다.
+Mobile Apps가 앱에서 인증 프로세스를 관리하게 하려면 앱을 ID 공급자에 등록해야 합니다. 그런 다음, Azure App Service에서 공급자로부터 제공된 응용 프로그램 ID 및 암호를 구성해야 합니다.
 자세한 내용은 [앱에 인증 추가](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md)자습서를 참조하세요.
 
-ID 공급자를 등록하고 나면 공급자의 이름을 사용하여 `.login()` 메서드를 호출합니다. 예를 들어 Facebook으로 로그인하려면 다음 코드를 사용합니다.
+ID 공급자를 등록하고 나면 공급자의 이름을 사용하여 `.login()` 메서드를 호출합니다. 예를 들어, Facebook으로 로그인하려면 다음 코드를 사용합니다.
 
 ```
 client.login("facebook").done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -21,7 +21,7 @@ client.login("facebook").done(function (results) {
 
 ###<a name="client-auth"></a>방법: 공급자를 사용하여 인증(클라이언트 흐름)
 
-앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 앱 서비스에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
+앱이 독립적으로 ID 공급자에 연결한 후 반환된 토큰을 인증을 위해 App Service에 제공할 수도 있습니다. 이 클라이언트 흐름을 사용하면 단일 로그인 환경을 사용자에게 제공하거나 ID 공급자로부터 더 많은 사용자 데이터를 검색할 수 있습니다.
 
 #### <a name="social-authentication-basic-example"></a>소셜 인증 기본 예제
 
@@ -32,7 +32,7 @@ client.login(
      "facebook",
      {"access_token": token})
 .done(function (results) {
-     alert("You are now logged in as: " + results.userId);
+     alert("You are now signed in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
 });
@@ -50,7 +50,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
             "microsoftaccount",
             {"authenticationToken": result.session.authentication_token})
       .done(function(results){
-            alert("You are now logged in as: " + results.userId);
+            alert("You are now signed in as: " + results.userId);
       },
       function(error){
             alert("Error: " + err);
@@ -59,7 +59,7 @@ WL.login({ scope: "wl.basic"}).then(function (result) {
 
 ```
 
-이 예제는 login 함수를 호출하여 앱 서비스에 제공된 토큰을 Live Connect에서 가져옵니다.
+이 예제는 login 함수를 호출하여 App Service에 제공된 토큰을 Live Connect에서 가져옵니다.
 
 ###<a name="auth-getinfo"></a>방법: 인증된 사용자에 대한 정보 얻기
 
