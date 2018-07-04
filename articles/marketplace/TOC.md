@@ -5,7 +5,6 @@
 ### 상점  
 #### [AppSource 및 Azure Marketplace 비교](./comparing-appsource-azure-marketplace.md)  
 #### [AppSource를 사용하여 비즈니스 확장](./grow-your-business-with-appsource.md) 
-#### [기본 설정 솔루션](./preferred-solutions.md)
 ##### [방문 페이지 빌드](./build-your-landing-page.md)  
 ##### [잠재 고객 공유 사용](./enable-lead-sharing.md)  
 ##### [마켓플레이스에 GTM 혜택](./gtm-benefits.md)  
@@ -19,17 +18,17 @@
 ### 마켓플레이스에 상점에서 게시하는 방법  
 #### [솔루션에 대한 등록 형식 결정](./determine-your-listing-type.md)  
 #### [마켓플레이스에서 상점의 게시자 되기](./become-publisher.md)  
-#### [등록 형식별 요구 사항](./listing-type-requirements.md)  
+#### [등록 형식별 요구 사항](./listing-type-requirements.md) 
+#### [기본 설정 솔루션](./preferred-solutions.md) 
 
 ### 게시 검사 목록  
 #### [AppSource에 대한 게시 검사 목록](./publishing-checklist-appsource.md)  
 #### [Azure Marketplace에 대한 게시 검사 목록](./publishing-checklist-azure-marketplace.md)  
 
 ### 지원  
-#### [AppSource에 대한 지원](./support-appsource.md)  
-#### [Azure Marketplace에 대한 지원](./support-azure-marketplace.md)  
+#### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)  
 
-### 가이드  
+### 게시 가이드  
 #### [Azure Marketplace 컨설팅 서비스](consulting-services.md)  
 #### [Azure Marketplace SaaS 앱 기술 게시 가이드](marketplace-saas-applications-technical-publishing-guide.md) 
 

@@ -51,19 +51,21 @@
       href: 'https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7'
 - name: 리소스
   items:
+    - name: 외부 및 커뮤니티 콘텐츠
+      href: text-analytics-resource-external-community.md
     - name: FAQ
       href: text-analytics-resource-faq.md
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/text-analytics-api'
-    - name: 지원되는 언어
-      href: text-analytics-supported-languages.md
     - name: 구독 키
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=text-analytics'
-    - name: 외부 및 커뮤니티 콘텐츠
-      href: text-analytics-resource-external-community.md
+    - name: 지원되는 언어
+      href: text-analytics-supported-languages.md
     - name: 사용해 보세요.
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555922-text-analytics'

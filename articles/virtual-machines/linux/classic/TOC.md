@@ -4,7 +4,7 @@
 ## [FAQ](faq-classic.md)
 
 # 시작
-## [Azure Portal을 사용하여 Linux VM 만들기](createportal-classic.md)
+## [Linux VM 만들기](createportal-classic.md)
 
 # 방법
 ## 컴퓨팅
@@ -59,7 +59,7 @@
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=compute)
-## [가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
+## [가격](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
 ## [요금 계산기](https://azure.microsoft.com/pricing/calculator/)
 ## [국가별 가용성](https://azure.microsoft.com/regions/services)
 ## [스택 오버플로](http://stackoverflow.com/questions/tagged/azure-virtual-machine)

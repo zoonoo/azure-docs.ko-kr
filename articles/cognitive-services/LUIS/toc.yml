@@ -136,7 +136,7 @@
 - name: 방법 가이드
   items:
     - name: 앱 계획
-      href: Plan-your-app.md
+      href: luis-how-plan-your-app.md
     - name: 새 앱 시작
       href: Create-new-app.md
     - name: 모델 빌드
@@ -200,7 +200,7 @@
         - name: 미리 작성된 도메인 사용
           href: luis-how-to-use-prebuilt-domains.md
         - name: Cortana 미리 작성된 앱 사용
-          href: Cortana-Prebuilt-App.md
+          href: luis-how-to-cortana-prebuilt-app.md
     - name: LUIS 앱 관리
       items:
         - name: 대시보드 사용
@@ -309,6 +309,8 @@
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
     - name: 텍스트 분석
       href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: 인식기-텍스트
+      href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: 리소스
   items:
     - name: Azure 로드맵

@@ -118,6 +118,8 @@
       href: glossary.md
 - name: 리소스
   items:
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 가격

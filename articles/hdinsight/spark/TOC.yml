@@ -423,6 +423,10 @@
     - name: 릴리스 정보
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: 보관된 릴리스 정보
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 포럼에서 도움말 보기

@@ -2,15 +2,17 @@
 
 # 개요
 ## [리소스 관리자란?](resource-group-overview.md)
-## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
-## [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [관리 그룹으로 리소스 구성](management-groups-overview.md)
 
 # 시작하기
 ## [템플릿 만들기 및 배포](resource-manager-create-first-template.md)
 ## [템플릿에 VS Code 확장](resource-manager-vscode-extension.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+
+# 개념
+## [리소스 공급자 및 형식](resource-manager-supported-services.md)
+## [관리 그룹](management-groups-overview.md)
+## [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 # 방법
 ## 템플릿 만들기

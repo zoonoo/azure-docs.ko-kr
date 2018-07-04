@@ -157,15 +157,17 @@
           href: return-n-best-translations.md
 - name: 리소스
   items:
-    - name: FAQ
-      href: 'https://www.microsoft.com/translator/faq.aspx'
-    - name: 가격
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/558796-translator'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
-    - name: 기술 자료
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
     - name: GitHub의 코드 샘플
       href: 'https://aka.ms/TranslatorGitHub'
+    - name: FAQ
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: 기술 자료
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'

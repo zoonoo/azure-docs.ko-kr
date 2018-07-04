@@ -45,19 +45,21 @@
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
 - name: 리소스
   items:
+    - name: Bing Spell Check API에 대한 분석
+      href: bing-spell-check-stats.md
     - name: FAQ
       href: bing-spell-check-resource-faq.md
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/bing-api'
-    - name: 지원되는 언어
-      href: bing-spell-check-supported-languages.md
-    - name: Bing Spell Check API에 대한 분석
-      href: bing-spell-check-stats.md
     - name: 구독 키
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: 지원되는 언어
+      href: bing-spell-check-supported-languages.md
     - name: 사용해 보세요.
       href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'

@@ -1,4 +1,5 @@
 # [Data Lake Storage Gen1 설명서](index.md)
+# [Data Lake Storage Gen2(미리 보기)로 전환 설명서](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction)
 
 # 개요
 ## [Data Lake Storage Gen1 개요](data-lake-store-overview.md)

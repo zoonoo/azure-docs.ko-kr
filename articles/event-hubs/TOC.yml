@@ -60,6 +60,20 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: .NET Framework를 사용하여 이벤트 받기
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
+    - name: Kafka용 Event Hubs
+      items:
+        - name: Kafka 에코시스템용 Event Hubs 개요
+          href: event-hubs-for-kafka-ecosystem-overview.md
+        - name: Kafka 지원 이벤트 허브 만들기
+          href: event-hubs-create-kafka-enabled.md
+        - name: Kafka 에코시스템용 Event Hubs로 스트리밍
+          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+        - name: Event Hubs 자습서를 사용하는 Kafka MirrorMaker
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Event Hubs 자습서를 사용하는 Apache Flink
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Event Hubs 자습서를 사용하는 Akka Stream
+          href: event-hubs-kafka-akka-streams-tutorial.md
     - name: 사용 가능한 API
       href: event-hubs-api-overview.md
       items:

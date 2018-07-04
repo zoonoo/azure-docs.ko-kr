@@ -83,8 +83,8 @@
 ## [그룹 및 구성원 관리](fundamentals/active-directory-manage-groups.md)
 ### 그룹 관리
 #### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
-#### [Azure AD PowerShell for Graph(v2)](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
-#### [Azure AD PowerShell MSOnline](active-directory-accessmanagement-groups-settings-cmdlets.md)
+#### [Azure AD PowerShell for Graph(v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
+#### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [그룹 구성원 관리](fundamentals/active-directory-groups-members-azure-portal.md)
 ### [그룹 소유자 관리](fundamentals/active-directory-accessmanagement-managing-group-owners.md)
 ### [그룹 멤버 자격 관리](fundamentals/active-directory-groups-membership-azure-portal.md)
@@ -99,13 +99,13 @@
 ### [Office 365 그룹 만료 설정](active-directory-groups-lifecycle-azure-portal.md)
 ### [그룹에 대한 명명 정책 강제 적용](groups-naming-policy.md)
 ### [모든 그룹 보기](fundamentals/active-directory-groups-view-azure-portal.md)
-### [SaaS 앱에 대한 그룹 액세스 추가](active-directory-accessmanagement-group-saasapps.md)
+### [SaaS 앱에 대한 그룹 액세스 추가](users-groups-roles/groups-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### 고급 규칙 만들기
 #### [Azure Portal](active-directory-groups-dynamic-membership-azure-portal.md)
-### [셀프 서비스 그룹 설정](active-directory-accessmanagement-self-service-group-management.md)
-### [문제 해결](active-directory-accessmanagement-troubleshooting.md)
+### [셀프 서비스 그룹 설정](users-groups-roles/groups-self-service-management.md)
+### [문제 해결](users-groups-roles/groups-troubleshooting.md)
 
 ## [보고서 관리](active-directory-reporting-azure-portal.md)
 ### [로그인 활동](active-directory-reporting-activity-sign-ins.md)
@@ -363,7 +363,7 @@
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ### 사용자 지정 도메인 이름
 #### [빠른 시작](fundamentals/add-custom-domain.md)
-#### [사용자 지정 도메인 이름 추가](active-directory-domains-manage-azure-portal.md)
+#### [사용자 지정 도메인 이름 추가](users-groups-roles/domains-manage.md)
 ### [디렉터리 관리](fundamentals/active-directory-administer.md)
 ### [디렉터리 삭제](directory-delete-howto.md)
 ### [여러 디렉터리](active-directory-licensing-directory-independence.md)
@@ -381,12 +381,12 @@
 
 ## 리소스에 대한 액세스 위임
 ### [관리자 역할 구성원 보기](directory-manage-roles-portal.md)
-### [관리자 역할](active-directory-assign-admin-roles-azure-portal.md)
+### [관리자 역할](users-groups-roles/directory-assign-admin-roles.md)
 #### [사용자에게 관리자 역할 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [멤버 및 게스트 사용자 권한 비교](fundamentals/users-default-permissions.md)
 ### [관리자 역할 보안 강화](admin-roles-best-practices.md)  
-#### [긴급 액세스 관리자 계정 만들기](active-directory-admin-manage-emergency-access-accounts.md)
-### [관리 단위](active-directory-administrative-units-management.md)
+#### [긴급 액세스 관리자 계정 만들기](users-groups-roles/directory-emergency-access.md)
+### [관리 단위](users-groups-roles/directory-administrative-units.md)
 ### [토큰 수명](active-directory-configurable-token-lifetimes.md)
 
 ## 액세스 검토
@@ -406,6 +406,7 @@
 #### 빠른 시작
 ##### [클라우드 앱 MFA별 구성](active-directory-conditional-access-app-based-mfa.md)
 ##### [허용할 사용 약관 필요](active-directory-conditional-access-tou.md)
+##### [세션 위험이 감지되면 액세스 차단](active-directory-conditional-access-app-sign-in-risk.md)
 #### 자습서
 ##### [클래식 MFA 정책 마이그레이션](active-directory-conditional-access-migration-mfa.md)
 #### 개념
