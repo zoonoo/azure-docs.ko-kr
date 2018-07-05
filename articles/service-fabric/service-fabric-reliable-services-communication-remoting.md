@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: ad56580e73c06acff95b3146f6dc2d83ab2ba3ae
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: 7afa50484c3ebf258bbdd2b7f16c9cd051710d28
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36945975"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437895"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "36945975"
 >
 >
 
-특정한 통신 프로토콜 또는 스택에 얽매여 있지 않는 서비스(예: WebAPI, WCF(Windows Communication Foundation))의 경우, Reliable Services 프레임워크가 서비스에 대한 원격 프로시저 호출을 신속하고 간편하게 설정할 수 있는 원격 메커니즘을 제공합니다. 이 문서에서는 C#을 사용하여 서비스에 대한 원격 프로시저 호출을 설정하는 방법을 설명합니다.
+특정한 통신 프로토콜 또는 스택에 얽매여 있지 않는 서비스(예: WebAPI, WCF(Windows Communication Foundation) 등)의 경우, Reliable Services 프레임워크가 원격 메커니즘을 제공하여 서비스에 대한 원격 프로시저 호출을 신속하고 간편하게 설정합니다. 이 문서에서는 C#을 사용하여 서비스에 대한 원격 프로시저 호출을 설정하는 방법을 설명합니다.
 
 ## <a name="set-up-remoting-on-a-service"></a>서비스에 원격 호출 설정
 서비스에 대한 원격 호출은 간단한 두 가지 단계로 수행됩니다.

@@ -7,18 +7,18 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 03/04/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: 3d1027a2fe53a45b089fbae29a831d9e23df059e
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: cbb0e6c4f72e53938ba8ee838a1db9cab5357fc2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233325"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441025"
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM의 다른 관리자 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -28,7 +28,7 @@ ms.locfileid: "35233325"
 > [!IMPORTANT]
 > Microsoft는 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것을 권장합니다.
 
-전역 관리자는 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember`와 같은 PowerShell cmdlet을 사용하거나 또는 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)에 설명된 대로 포털을 통해 사용자가 **영구적으로** Azure AD에서 역할에 할당되도록 업데이트할 수 있습니다.
+전역 관리자는 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember`와 같은 PowerShell cmdlet을 사용하거나 또는 [Azure Active Directory에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md)에 설명된 대로 포털을 통해 사용자가 **영구적으로** Azure AD에서 역할에 할당되도록 업데이트할 수 있습니다.
 
 Azure AD Privileged Identity Management(PIM)는 Azure AD에서 사용자에 대한 권한 있는 액세스의 정책을 관리합니다. PIM은 Azure AD에서 사용자에게 하나 이상의 역할을 할당하고, 다른 사용자를 역할에 영구적으로 할당하거나 또는 역할에 대해 적격이 되도록 할당할 수 있습니다. 사용자가 역할에 영구적으로 할당되거나 적격 역할 할당을 활성화하는 경우 해당 역할에 할당된 권한으로 Azure Active Directory, Office 365 및 기타 응용 프로그램을 관리할 수 있습니다.
 
@@ -52,7 +52,7 @@ Privileged Identity Management를 사용하면 사용자를 다음과 같이 일
 * **SharePoint 관리자(미리 보기)** 는 SharePoint Online 관리 센터를 통해 SharePoint Online에 대한 관리 액세스 권한을 보유하고 SharePoint Online에서 거의 모든 태스크를 수행할 수 있습니다. 현재, 이 역할은 미리 보기로 제공되고 있습니다. 적격 사용자는 PIM에서 정품 인증을 한 후 SharePoint 내에서 이 역할을 사용할 때 지연이 발생할 수 있습니다.
 * **비즈니스용 Skype 관리자** 는 비즈니스용 Skype 관리 센터를 통해 비즈니스용 Skype에 대한 관리 액세스 권한을 보유하고 비즈니스용 Skype Online에서 거의 모든 태스크를 수행할 수 있습니다.
 
-[Azure AD에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md) 및 [Office 365에서 관리자 역할 할당](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504)에 대한 자세한 내용을 보려면 이 문서를 읽으세요.
+[Azure AD에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md) 및 [Office 365에서 관리자 역할 할당](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504)에 대한 자세한 내용을 보려면 이 문서를 읽으세요.
 
 <!--**PLACEHOLDER: The above article may not be the one we want since PIM gets roles from places other that Office 365**-->
 

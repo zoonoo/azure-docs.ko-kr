@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.openlocfilehash: 59dbc4134ee11999e54d2eba51804939e7e14229
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: na
+ms.openlocfilehash: 164b071a47c13f7c5586bd287adc41bea54a1198
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020738"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129620"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics의 사용자 지정 필드
 Log Analytics의 **사용자 지정 필드** 기능을 사용하면 자체적으로 검색 가능한 필드를 추가하여 Log Analytics의 기존 레코드를 확장할 수 있습니다.  사용자 지정 필드는 동일한 레코드의 다른 속성에서 추출한 데이터로 자동으로 채워집니다.

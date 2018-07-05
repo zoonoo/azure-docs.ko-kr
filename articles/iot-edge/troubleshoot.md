@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: efe3e31a1a92e21f2c3a3461deba248d2a8c97fa
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029444"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128063"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -237,4 +237,4 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
       ```
 
 ## <a name="next-steps"></a>다음 단계
-IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iot-edge/issues)하세요. 
+IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iotedge/issues)하세요. 

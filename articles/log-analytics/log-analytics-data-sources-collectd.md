@@ -9,17 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2017
 ms.author: magoedte
-ms.openlocfilehash: a63b15ca5126b45451f0694c9ee75d7b67b1ceaf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: 59b6f8b82d0f714d4526147b42f68e14bf0aa2bd
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23020858"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127699"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-log-analytics"></a>Log Analytics에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 응용 프로그램의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 응용 프로그램은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Log Analytics에서 CollectD의 성능 데이터 수집에 대한 정보를 제공합니다.
@@ -111,16 +112,16 @@ Linux용 OMS 에이전트에서 이미 수집된 인프라 메트릭과 CollectD
 
 | CollectD 메트릭 필드 | Log Analytics 필드 |
 |:--|:--|
-| host | 컴퓨터 |
+| host | Computer |
 | 플러그 인 | 없음 |
 | plugin_instance | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName="*_Total*" |
-| type | ObjectName |
+| 형식 | ObjectName |
 | type_instance | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
 | dsnames[] | CounterName |
 | dstypes | 없음 |
 | 값[] | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계
-* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md) 에 대해 알아봅니다. 
+* 데이터 원본 및 솔루션에서 수집한 데이터를 분석하기 위해 [로그 검색](log-analytics-log-searches.md)에 대해 알아봅니다. 
 * [사용자 지정 필드](log-analytics-custom-fields.md) 를 사용하여 syslog 레코드의 데이터를 개별 필드로 구문 분석합니다.
 

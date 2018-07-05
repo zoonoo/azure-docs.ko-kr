@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 09b76cd2235663d76b9973ff722ec6a515c30285
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e6f722afead39c8a0ba940d9e2cb54d1f197d143
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709685"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442283"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: 인증 프로토콜
 Azure AD B2C(Azure Active Directory B2C)는 두 개의 업계 표준 프로토콜인 OpenID Connect 및 OAuth 2.0을 지원하여 앱에 대한 Identity-as-a-Service를 제공합니다. 서비스는 표준을 준수하지만 이러한 프로토콜의 두 구현에는 약간의 차이가 있을 수 있습니다. 

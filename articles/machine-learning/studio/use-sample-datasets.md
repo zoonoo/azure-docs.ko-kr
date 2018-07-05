@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 5e225a16baef53c12a5d0a719c36a2042d391c7f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: acdc2ca6f0746f4495f6b3747b7fc303574f712c
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959105"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342551"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets
@@ -147,7 +147,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <tr>
   <td>CRM 데이터 집합 공유</td>
   <td>
-이 데이터는 KDD Cup 2009 고객 관계 예측 챌린지(<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>)에서 제공됩니다.
+이 데이터는 KDD Cup 2009 고객 관계 예측 챌린지(<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>)에서 제공됩니다.
 <p></p>
 데이터 집합에는 French Telecom 회사인 Orange의 고객 50,000명이 포함됩니다. 각 고객은 익명으로 처리되는 230개 기능을 가지며, 이 중 190개는 숫자이고 40개는 범주입니다. 기능이 매우 희박합니다.
   </td>
@@ -403,7 +403,7 @@ RCV1-V2 Reuters 뉴스 데이터 집합의 뉴스 기사에 대한 토픽 할당
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010)입니다. Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 집합. <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>에서 찾아보세요.
+이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010)입니다. Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 집합. <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>에서 찾아보세요.
 <p></p>
 데이터 집합이 다운로드되어 Azure Blob Store(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>)에 저장되었고 학생 교육 시스템의 로그 파일을 포함합니다. 제공된 기능에는 문제 ID 및 간략한 설명, 학생 ID, 타임스탬프, 올바른 방법으로 문제를 해결하기 전에 학생이 시도한 횟수가 포함됩니다. 원본 데이터 집합에는 8,900,000개 레코드가 있고 이 데이터 집합은 처음 100,000개 행으로 샘플을 줄였습니다. 데이터 집합에는 숫자, 범주, 타임스탬프 형식의 탭으로 구분된 23개 열이 있습니다.
   </td>

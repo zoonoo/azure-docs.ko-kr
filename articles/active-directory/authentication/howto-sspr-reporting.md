@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efdef681dd94cdb97d84de657668c49022b72d95
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: df46a4de32482f9da46b81e6b0fbc55c2cc1af35
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751499"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444245"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -26,7 +26,7 @@ ms.locfileid: "36751499"
 [Azure Portal](https://portal.azure.com/):에 있는 보고서를 통해 다음과 같은 질문에 대답할 수 있습니다.
 
 > [!NOTE]
-> 사용자는 [전역 관리자](../active-directory-assign-admin-roles-azure-portal.md)여야 하며 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 옵트인하려면 적어도 한 번 **보고** 탭이나 감사 로그를 방문해야 합니다. 그때까지 조직을 위해 데이터가 수집되지 않습니다.
+> 사용자는 [전역 관리자](../users-groups-roles/directory-assign-admin-roles.md)여야 하며 조직을 대신하여 이 데이터를 수집하기 위해 옵트인해야 합니다. 옵트인하려면 적어도 한 번 **보고** 탭이나 감사 로그를 방문해야 합니다. 그때까지 조직을 위해 데이터가 수집되지 않습니다.
 >
 
 * 얼마나 많은 사람들이 암호 재설정을 위해 등록합니까?

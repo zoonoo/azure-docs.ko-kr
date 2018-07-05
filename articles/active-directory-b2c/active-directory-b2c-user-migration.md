@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f1c417624b2950790dba54c4278e6109fa70610b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f1bb4fed22fd62c4934f841cabf3dbbe1df253de
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752981"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441365"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 ID 공급자를 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션할 때 사용자 계정도 마이그레이션해야 할 수 있습니다. 이 문서에서는 기존 사용자 계정을 ID 공급자에서 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서에서는 규범적인 내용이 아니라 몇 가지 시나리오를 설명하려고 합니다. 개발자는 각 방식의 적합성에 대한 책임이 있습니다.

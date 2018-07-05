@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e756a4bf3d9e42b47c0b96a6bf73e8e2b267b77
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712388"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443732"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: 기본 제공 정책을 통해 Azure AD 계정을 사용하여 로그인
 

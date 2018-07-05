@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b75efe7464c32863781353549f73048b4e127ddf
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4eee1f2c9ca37227ca2cea0ef5e2ff25f6fad828
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710222"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443412"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C ID 경험 프레임워크에서 보안 프레임워크 정의
 
@@ -49,7 +49,8 @@ TF는 OIX(Open Identity Exchange) 보안 프레임워크 모델의 핵심이며,
     - 참가자가 제공/요구하는 LOA(보증 수준)(예: 디지털 ID 정보의 신뢰성에 대해 순위 지정된 신뢰도 등급 집합)
     - 참가자가 제공/요구하는 LOP(보호 수준)(예: 관심 있는 커뮤니티의 참가자가 처리하는 디지털 ID 정보 보호에 대해 순위 지정된 신뢰도 등급 집합)
 
-- **참가자가 제공/요구하는 디지털 ID 정보에 대한 설명**
+- 
+  **참가자가 제공/요구하는 디지털 ID 정보에 대한 설명**
 
 - **디지털 ID 정보의 생성 및 사용, 즉 LOA 및 LOP 측정에 대한 기술 정책 - 이러한 서면 상의 정책에는 일반적으로 다음 범주의 정책이 포함됩니다.**
     - ID 교정 정책(예: *사람의 ID 정보를 얼마나 강력하게 검사하는가?*)

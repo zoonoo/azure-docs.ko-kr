@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: da44fb2982c76b849181683f308e414c3d3f0b7a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8eb12764cf5df539f61842ba3602c6265c1e2b86
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331209"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441212"
 ---
 # <a name="how-to-use-self-service-application-access"></a>셀프 서비스 응용 프로그램 액세스를 사용하는 방법
 
@@ -85,4 +85,4 @@ ms.locfileid: "36331209"
 이러한 승인은 단일 승인 워크플로만 지원합니다. 즉, 여러 승인자를 지정하는 경우 모든 단일 승인자는 응용 프로그램에 대한 액세스를 승인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](active-directory-accessmanagement-self-service-group-management.md)
+[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](users-groups-roles/groups-self-service-management.md)
