@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 6/28/2018
+ms.date: 07/03/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: fb870cbfbc233725752b3d97fc0ad048a7c14040
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341735"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446978"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum 블록 체인 솔루션 템플릿
 
@@ -69,7 +69,7 @@ Azure에서 블록 체인 시나리오에 대 한 자세한 내용은 참조 [Et
     ADMINUSERNAME | 각 배포 된 VM의 관리자 사용자 이름 | 1-64자 | gethadmin
     ADMINPASSWORD (인증 유형 = 암호)| 배포된 각 가상 머신의 관리자 계정 암호. 암호는 다음 요구 사항 중 3 가지를 포함해야 합니다. 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자. <br />처음에는 모든 VM이 같은 암호를 갖지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|
     ADMINSSHKEY (인증 유형을 sshPublicKey =) | 원격 로그인에 사용하는 보안 셸 키. | |
-    GENESISBLOCK | 사용자 지정 최초 블록을 나타내는 JSON 문자열입니다. | |
+    GENESISBLOCK | 사용자 지정 최초 블록을 나타내는 JSON 문자열입니다.  이 매개 변수 값을 지정 하는 것은 선택 사항입니다. | |
     ETHEREUMACCOUNTPSSWD | Ethereum 계정을 보호 하는 데 관리자 암호입니다. | |
     ETHEREUMACCOUNTPASSPHRASE | Ethereum 계정과 연결 된 개인 키를 생성 하는 데 암호입니다. | |
     ETHEREUMNETWORKID | 컨소시엄 네트워크 ID입니다. | 5에서 999999999 사이의 모든 값을 사용 하 여 | 72
