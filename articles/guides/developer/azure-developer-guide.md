@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3d4b93a604170cb3b8396562a15483923330f467
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771095"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754425"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -205,7 +205,7 @@ Azure를 사용하는 이점 중 하나는 전 세계 여러 데이터 센터에
 
 발생할 가능성이 없지만 전체 데이터 센터가 자연 재해 또는 인터넷 오류와 같은 이벤트로 인해 오프라인으로 전환될 수도 있습니다. 최대 가용성을 제공하기 위해 둘 이상의 데이터 센터에서 중요한 비즈니스 응용 프로그램을 호스트하는 것이 좋습니다. 여러 지역을 사용하면 로컬 사용자에게 대기 시간을 줄여주고 응용 프로그램을 업데이트할 때 유연성에 대한 추가 기회를 제공할 수 있습니다.
 
-Virtual Machine 및 App Services와 같은 일부 서비스는 [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 가용성이 높은 엔터프라이즈 응용 프로그램을 지원하기 위해 지역 간 장애 조치(failover)로 다중 지역 지원을 사용할 수 있습니다. 예를 들어 [Azure 참조 아키텍처: 고가용성을 요구하는 웹 응용 프로그램](../../guidance/guidance-web-apps-multi-region.md)을 참조하세요.
+Virtual Machine 및 App Services와 같은 일부 서비스는 [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 가용성이 높은 엔터프라이즈 응용 프로그램을 지원하기 위해 지역 간 장애 조치(failover)로 다중 지역 지원을 사용할 수 있습니다. 예를 들어 [Azure 참조 아키텍처: 여러 지역에서 웹 응용 프로그램 실행](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)을 참조하세요.
 
 >**사용 시기**: 장애 조치(failover) 및 복제를 활용하는 엔터프라이즈 및 가용성이 높은 응용 프로그램을 보유한 경우
 
@@ -263,9 +263,9 @@ JSON 형식 문서인 Azure Resource Manager 템플릿을 사용하여 이러한
 
 Azure 구독을 만들거나 작업하려면 Azure 계정이 있어야 합니다. Azure 계정은 Azure AD 또는 회사나 학교 조직과 같은 디렉터리의 단순한 ID로, Azure AD에서 신뢰할 수 있는 것입니다. 이러한 조직에 속해 있지 않은 경우 Azure AD에서 신뢰할 수 있는 Microsoft 계정을 사용하여 항상 구독을 만들 수 있습니다. 온-프레미스 Windows Server Active Directory를 Azure AD와 통합하는 방법에 대해 알아보려면 [온-프레미스 ID를 Azure Active Directory와 통합](../../active-directory/active-directory-aadconnect.md)을 참조하세요.
 
-모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 장치를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 장치를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-개별 Azure 계정 ID(*사용자*라고도 함)뿐만 아니라 Azure AD에서 *그룹*을 정의할 수도 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
+개별 Azure 계정 ID(*사용자*라고도 함)뿐만 아니라 Azure AD에서 *그룹*을 정의할 수도 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
 
 ### <a name="manage-your-subscriptions"></a>구독 관리
 

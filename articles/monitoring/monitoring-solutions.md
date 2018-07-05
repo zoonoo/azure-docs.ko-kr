@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 0df54d1758693bce5fb5fd74c3be9c4cfd7dccb6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885271"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752924"
 ---
 # <a name="management-solutions-in-azure"></a>Azure의 관리 솔루션
 관리 솔루션은 Azure의 서비스를 활용하여 특정 응용 프로그램이나 서비스의 작업에 대한 추가 인사이트를 제공합니다. 이 문서에서는 Azure 관리 솔루션에 대해 간략하게 설명하고 관리 솔루션을 설치 및 사용하는 방법을 자세히 알아봅니다.
@@ -52,21 +52,17 @@ ms.locfileid: "33885271"
 ![솔루션 속성](media/monitoring-solutions/solution-properties.png)
 
 
-## <a name="find-management-solutions"></a>관리 솔루션 찾기
-Microsoft와 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace)의 파트너가 제공하는 관리 솔루션을 찾아서 설치할 수 있습니다. [*관리 솔루션*을 검색](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions)하여 관리 솔루션을 필터링한 후 원하는 항목을 클릭하여 자세한 내용을 살펴봅니다.
-
-![Marketplace](media/monitoring-solutions/marketplace.png)
 
 ## <a name="install-a-management-solution"></a>관리 솔루션 설치
+Microsoft 및 파트너의 관리 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com)에서 사용할 수 있습니다. 다음 절차를 사용하여 사용 가능한 솔루션을 검색하고 설치할 수 있습니다.
 
-### <a name="install-a-management-solution-from-the-azure-marketplace"></a>Azure Marketplace에서 관리 솔루션 설치
-다음 방법을 사용하여 관리 솔루션을 찾아 설치할 수 있습니다.
+1. [구독의 솔루션 목록](#list-installed-management-solutions)에서 **추가**를 클릭합니다. 
+1. **관리 솔루션** 오른쪽에서 **기타**를 클릭합니다. 
+1. 원하는 관리 솔루션을 찾아서 해당 설명을 자세히 읽습니다.
+1. 설치 프로세스를 시작하려면 **만들기**를 클릭합니다.
+1. 설치 프로세스가 시작되면 필요한 구성을 입력하라는 메시지가 표시되며, 필요한 구성은 솔루션마다 다릅니다. 모든 솔루션에서 솔루션이 설치되고 데이터가 수집될 Log Analytics 작업 영역을 선택해야 합니다. 
 
-- [Azure Marketplace](#find-management-solutions)에서 관리 솔루션의 **지금 받기**를 클릭합니다.
-- [구독의 솔루션 목록](#list-installed-management-solutions)에서 **추가**를 클릭합니다. **관리 솔루션** 오른쪽에서 **기타**를 클릭합니다. 원하는 관리 솔루션을 찾아서 **만들기**를 클릭합니다.
-- Azure Portal에서 **리소스 만들기** > **모니터링 + 관리** > **모두 보기**를 선택합니다. **관리 솔루션** 오른쪽에서 **기타**를 클릭합니다. 원하는 관리 솔루션을 찾아서 **만들기**를 클릭합니다.
-
-설치 프로세스가 시작되면 필요한 구성을 입력하라는 메시지가 표시되며, 필요한 구성은 솔루션마다 다릅니다. 모든 솔루션에서 솔루션이 설치되고 데이터가 수집될 Log Analytics 작업 영역을 선택해야 합니다. 또한 솔루션에서 요구하는 경우 [Automation 계정을 지정](#log-analytics-workspace-and-automation-account)해야 합니다.
+![솔루션 설치](media/monitoring-solutions/install-solution.png)
 
 ### <a name="install-a-solution-from-the-community"></a>커뮤니티에서 솔루션 설치
 커뮤니티 구성원은 관리 솔루션을 Azure 빠른 시작 템플릿에 제출할 수 있습니다. 이러한 솔루션을 직접 설치하거나 나중에 설치할 수 있도록 템플릿을 다운로드할 수 있습니다.

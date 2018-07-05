@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 603ce00a036822fd0c7411b47cf3fe630671cc5a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628126"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017512"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI를 사용하여 원격 모니터링 솔루션 가속기 배포
 
@@ -68,7 +68,7 @@ pcs login
 | 개수 | 리소스                       | type         | 용도 |
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux 가상 머신](https://azure.microsoft.com/services/virtual-machines/) | 표준 D1 V2  | 마이크로 서비스 호스트 |
-| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – 기본 계층 | 장치 관리 및 통신 |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 - 표준 계층 | 장치 관리 및 통신 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | 구성 데이터와 규칙, 경보 및 메시지와 같은 장치 원격 분석 저장 |  
 | 1     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | VM 및 스트리밍 검사점에 대한 저장소 |
 | 1     | [웹 응용 프로그램](https://azure.microsoft.com/services/app-service/web/)        |                 | 프런트 엔드 웹 응용 프로그램 호스트 |
@@ -82,7 +82,7 @@ pcs login
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Linux Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)   | 표준 D2 V2  | 중복성을 위해 마이크로 서비스를 호스트하기 위한 1개 마스터 및 3개 에이전트 |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) Orchestrator |
-| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S1 – 기본 계층 | 장치 관리, 명령 및 제어 |
+| 1     | [Azure IoT Hub][https://azure.microsoft.com/services/iot-hub/]                     | S2 - 표준 계층 | 장치 관리, 명령 및 제어 |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | 구성 데이터와 규칙, 경보 및 메시지와 같은 장치 원격 분석 저장 |
 | 5     | [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | VM 저장소용 4개, 스트리밍 검사점용 1개 |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 표준     | SSL을 통한 Application Gateway |

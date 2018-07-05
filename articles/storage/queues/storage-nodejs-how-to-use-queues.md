@@ -14,11 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: cshoe
-ms.openlocfilehash: 2565f56324a070368c499a62ab54bb98830d8c20
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: c19ac5f45504e3c19b0b300dbc3ea157861d05ed
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34653028"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Node.js에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -66,8 +67,6 @@ var azure = require('azure-storage');
 
 ## <a name="setup-an-azure-storage-connection"></a>Azure Storage 연결 설정
 Azure 모듈은 AZURE\_STORAGE\_ACCOUNT 및 AZURE\_STORAGE\_ACCESS\_KEY 또는 AZURE\_STORAGE\_CONNECTION\_STRING 환경 변수를 읽고 Azure Storage 계정에 연결하는 데 필요한 정보를 확인합니다. 이러한 환경 변수가 설정되지 않은 경우 **createQueueService**를 호출할 때 계정 정보를 지정해야 합니다.
-
-Azure 웹 사이트의 [Azure Portal](https://portal.azure.com)에서 환경 변수를 설정하는 방법에 대한 예제는 [Azure Table Service를 사용하는 Node.js 웹앱](../../cosmos-db/table-storage-cloud-service-nodejs.md)을 참조하세요.
 
 ## <a name="how-to-create-a-queue"></a>큐를 만드는 방법
 다음 코드는 **QueueService** 개체를 만들어 큐 작업을 수행할 수 있게 해 줍니다.

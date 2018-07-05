@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/18/2018
-ms.openlocfilehash: 9e01d3a69fe8814d4864bccf94c0d65ea573ada8
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/21/2018
+ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756639"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018342"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
 | vCore 메모리 | 2 GB | 5GB | 10 GB |
-| 저장소 크기 | 5GB-1TB | 5GB-2TB | 5GB-2TB |
+| 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -37,7 +37,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 범용 | 확장 가능한 I/O 처리량을 갖춘 부하 분산된 컴퓨팅 및 메모리가 필요한 대부분의 비즈니스 워크로드. 예를 들어 웹 및 모바일 앱을 호스트하는 서버와 기타 엔터프라이즈 응용 프로그램이 있습니다.|
 | 메모리 최적화 | 빠른 트랜잭션 처리와 높은 동시성을 위해 메모리 내 성능이 필요한 고성능 데이터베이스 워크로드. 예를 들어 실시간 데이터를 처리하는 서버 및 고성능 트랜잭션 또는 분석 앱이 있습니다.|
 
-서버가 만들어지면 vCore 수는 몇 초 이내에 늘리거나 줄일 수 있습니다(같은 가격 책정 계층 내에서). 또한 응용 프로그램 중단 시간 없이 독립적으로 저장소 용량을 늘리거나 백업 보존 기간을 늘리거나 줄일 수 있습니다. 서버가 만들어진 후 가격 책정 계층 또는 백업 저장소 유형은 변경할 수 없습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
+서버를 만든 후 vCore 수, 하드웨어 생성 및 가격 책정 계층(기본 제외)은 몇 초 이내로 늘리거나 줄일 수 있습니다. 또한 응용 프로그램 중단 시간 없이 독립적으로 저장소 용량을 늘리거나 백업 보존 기간을 늘리거나 줄일 수 있습니다. 서버가 만들어진 후 백업 저장소 유형은 변경할 수 없습니다. 자세한 내용은 [리소스 크기 조정](#scale-resources) 섹션을 참조하세요.
 
 
 ## <a name="compute-generations-and-vcores"></a>세대 및 vCore 수 계산
@@ -49,7 +49,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 미국 중부 | X |  |
 | 미국 동부 | X | X |
 | 미국 동부 2 | X | X |
-| 미국 중북부 | X |  |
+| 미국 중북부 | X | X |
 | 미국 중남부 | X | X |
 | 미국 서부 | X | X |
 | 미국 서부 2 |  | X |
@@ -58,9 +58,10 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 브라질 남부 | X | X |
 | 북유럽 | X | X |
 | 서유럽 |  | X |
+| 프랑스 중부 |  | X |
 | 영국 서부 |  | X |
 | 영국 남부 |  | X |
-| 동아시아 | X |  |
+| 동아시아 | X | X |
 | 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
 | 오스트레일리아 남동부 |  | X |
@@ -69,6 +70,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 인도 남부 |  | X |
 | 일본 동부 | X | X |
 | 일본 서부 | X | X |
+| 한국 중부 |  | X |
 | 한국 남부 |  | X |
 
 ## <a name="storage"></a>Storage
@@ -78,15 +80,15 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 |    | **Basic** | **범용** | **메모리 최적화** |
 |:---|:----------|:--------------------|:---------------------|
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
-| 저장소 크기 | 5GB-1TB | 5GB-2TB | 5GB-2TB |
+| 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 저장소 증분 크기 | 1 GB | 1 GB | 1 GB |
-| IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS | 3IOPS/GB<br/>최소 100IOPS |
+| IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 6000IOPS |
 
 추가 저장소 용량은 서버를 만드는 동안 및 그 후에 추가할 수 있습니다. 기본 계층에서는 IOPS 보장을 제공하지 않습니다. 범용 및 메모리 최적화 가격 책정 계층에서 IOPS의 크기는 프로비전된 저장소 크기와 3:1 비율로 조정됩니다.
 
 Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터링할 수 있습니다. 모니터링할 관련 메트릭은 [저장소 제한, 저장소 비율, 저장소 사용됨 및 IO 백분율](concepts-monitoring.md)입니다.
 
-### <a name="reaching-the-store-limit"></a>저장 제한에 도달
+### <a name="reaching-the-storage-limit"></a>저장소 제한에 도달
 
 여유 저장 공간 용량이 프로비전된 저장소의 5% 또는 5GB 미만 중에서 더 작은 용량이 되면 서버는 읽기 전용으로 표시됩니다. 예를 들어 100GB의 저장소를 프로비전하고 실제 활용이 95GB를 넘어서는 경우 서버는 읽기 전용으로 표시됩니다. 또는 5GB 저장소를 프로비전하는 경우 서버는 여유 저장 공간이 250MB 미만이 되면 읽기 전용으로 표시됩니다.  
 
@@ -100,9 +102,9 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 ## <a name="scale-resources"></a>리소스 크기 조정
 
-서버를 만든 후 vCore 수, 저장소 크기 및 백업 보존 기간을 독립적으로 변경할 수 있습니다. 서버가 만들어진 후 가격 책정 계층 또는 백업 저장소 유형은 변경할 수 없습니다. vCores 수는 동일한 가격 책정 계층에서 늘리거나 줄일 수 있습니다. 백업 보존 기간은 7~35일 범위에서 늘리거나 줄일 수 있습니다. 저장소 크기는 늘릴 수 있습니다.  리소스의 크기 조정은 포털 또는 Azure CLI를 통해 수행할 수 있습니다. Azure CLI를 사용하는 크기 조정의 예제는 [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 모니터링 및 크기 조정](scripts/sample-scale-server-up-or-down.md)을 참조하세요.
+서버를 만든 후 vCore 수, 하드웨어 생성, 가격 책정 계층(기본 제외), 저장소 크기 및 백업 보존 기간을 독립적으로 변경할 수 있습니다. 서버가 만들어진 후 백업 저장소 유형은 변경할 수 없습니다. vCore 수는 늘리거나 줄일 수 있습니다. 백업 보존 기간은 7~35일 범위에서 늘리거나 줄일 수 있습니다. 저장소 크기는 늘릴 수 있습니다. 리소스의 크기 조정은 포털 또는 Azure CLI를 통해 수행할 수 있습니다. Azure CLI를 사용하는 크기 조정의 예제는 [Azure CLI를 사용하여 Azure Database for PostgreSQL 서버 모니터링 및 크기 조정](scripts/sample-scale-server-up-or-down.md)을 참조하세요.
 
-vCore 수를 변경하면 새 계산 할당을 사용하여 원본 서버의 복사본이 만들어집니다. 새 서버가 시작되고 실행된 후 새 서버에 대한 연결로 전환됩니다. 시스템이 새 서버로 전환되면 잠시 동안 새 연결을 설정할 수 없으며, 커밋되지 않은 모든 트랜잭션이 롤백됩니다. 이 기간은 다양하지만, 대부분의 경우 1분 미만입니다.
+vCore 수, 하드웨어 생성 또는 가격 책정 계층을 변경하면 새 계산 할당을 사용하여 원본 서버의 복사본이 만들어집니다. 새 서버가 시작되고 실행된 후 새 서버에 대한 연결로 전환됩니다. 시스템이 새 서버로 전환되면 잠시 동안 새 연결을 설정할 수 없으며, 커밋되지 않은 모든 트랜잭션이 롤백됩니다. 이 기간은 다양하지만, 대부분의 경우 1분 미만입니다.
 
 저장소 크기 조정 및 백업 보존 기간 변경은 온라인 작업입니다. 가동 중지 시간이 없으며 응용 프로그램은 영향을 받지 않습니다. IOPS가 프로비전된 저장소 크기로 조정되면 저장소를 확장하여 서버에서 사용할 수 있는 IOPS를 늘릴 수 있습니다.
 

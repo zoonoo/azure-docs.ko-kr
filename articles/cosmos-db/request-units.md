@@ -2,19 +2,19 @@
 title: 요청 단위 및 예상 처리량 - Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB의 요청 단위 요구 사항을 이해, 지정 및 예측하는 방법을 알아봅니다.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 06/26/2018
 ms.author: rimman
-ms.openlocfilehash: 16ccda120aef0aa892bf365403f3f0bdc1209ca3
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 160ff4e09f70036fd261c07fa59e13772bc00660
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823726"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053330"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB의 요청 단위
 
@@ -41,7 +41,7 @@ Azure Cosmos DB는 응용 프로그램의 처리량 수요를 충족하도록 �
 
 Azure Cosmos DB에서는 예약된 처리량이 초당 처리되는 요청 단위로 지정됩니다. 요청 단위는 처리량 통화로 생각할 수 있습니다. 초 단위별로 응용 프로그램에 사용할 수 있도록 보장된 요청 단위의 수를 예약합니다. 문서 작성, 쿼리 수행, 문서 업데이트를 비롯한 Azure Cosmos DB의 각 작업에서는 CPU, 메모리 및 IOPS를 사용합니다. 즉, 각 작업이 요청 요금을 발생시키고, 요청 요금은 요청 단위로 표시됩니다. 요청 단위 요금에 영향을 주는 요소와 응용 프로그램의 처리량 요구 사항을 이해하면 응용 프로그램을 최대한 경제적으로 실행할 수 있습니다. 
 
-시작에 도움을 드리기 위해 다음 비디오에서는 Azure Cosmos DB 프로그램 관리자 Andrew Liu가 요청 단위에 대해 설명합니다. <br /><br />
+시작에 도움을 드리기 위해 다음 비디오에서는 Azure Cosmos DB 프로그램 관리자 Andrew Liu가 요청 단위에 대해 설명합니다. 비디오의 요청 단위 예에는 약간의 철자 오류가 있습니다. 100,000개 레코드가 있는 1KB 데이터를 사용할 때 총 저장소는 100GB가 아닌 100MB입니다. <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/stk5WSp5uX0]
 > 
@@ -111,7 +111,7 @@ Azure Cosmos DB에서는 예약된 처리량이 초당 처리되는 요청 단�
 > 
 
 ### <a name="use-the-azure-cosmos-db-request-charge-response-header"></a>Azure Cosmos DB 요청 요금 응답 헤더 사용
-Azure Cosmos DB 서비스의 모든 응답에는 해당 요청에 사용된 요청 단위가 포함된 사용자 지정 헤더(`x-ms-request-charge`)가 포함되어 있습니다. 이 헤더는 Azure Cosmos DB SDK를 통해 액세스할 수도 있습니다. .NET SDK에서 **RequestCharge**는 **ResourceResponse** 개체의 속성입니다. 쿼리의 경우 Azure Portal의 Azure Cosmos DB 데이터 탐색기는 실행된 쿼리에 대한 요청 요금 정보를 제공합니다.
+Azure Cosmos DB 서비스의 모든 응답에는 해당 요청에 사용된 요청 단위가 포함된 사용자 지정 헤더(`x-ms-request-charge`)가 포함되어 있습니다. 이 헤더는 Azure Cosmos DB SDK를 통해 액세스할 수도 있습니다. .NET SDK에서 **RequestCharge**는 **ResourceResponse** 개체의 속성입니다. 쿼리의 경우 Azure Portal의 Azure Cosmos DB 데이터 탐색기는 실행된 쿼리에 대한 요청 요금 정보를 제공합니다. 다양한 다중 모델 API를 사용하여 처리량을 가져오고 설정하는 방법은 [Azure Cosmos DB에서 처리량 설정 및 가져오기](set-throughput.md) 문서를 참조하세요.
 
 응용 프로그램에 필요한 예약된 처리량을 예측하는 한 가지 방법은 응용 프로그램에서 사용하는 대표적인 항목에 대해 실행되는 일반 작업과 연결된 요청 단위 요금을 기록한 다음, 예상되는 초당 수행되는 작업 수를 추정하는 것입니다. 일반 쿼리 및 Azure Cosmos DB 스크립트 사용량도 측정하여 포함해야 합니다.
 

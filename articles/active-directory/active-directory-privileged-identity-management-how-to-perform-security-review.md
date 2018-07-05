@@ -10,22 +10,22 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: protection
-ms.date: 06/06/2017
+ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 885c7a144a2ac588e1f1b32fb03b7ed72d058e94
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 7c536a4e7f93a2f1ef42b7600513994dd80826a0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233455"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020873"
 ---
 # <a name="how-to-perform-an-access-review-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management의 액세스 검토를 수행하는 방법
 Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업이 Azure AD 및 기타 Microsoft Online Services(Office 365 또는 Microsoft Intune 등)에서 권한 있는 리소스에 대한 액세스를 관리하는 방법을 간소화합니다.  
 
 관리 역할에 할당된 경우 조직의 권한 있는 역할 관리자가 작업에 해당 역할이 여전히 필요한지 정기적으로 확인하도록 요청할 수 있습니다. 링크가 포함된 메일을 받거나 [Azure 포털](https://portal.azure.com)로 바로 이동할 수 있습니다. 할당된 역할을 자체 검토하려면 이 문서의 단계를 따릅니다.
 
-액세스 검토에 관심이 있는 권한 있는 역할 관리자인 경우 [액세스 검토를 시작하는 방법](active-directory-privileged-identity-management-how-to-start-security-review.md)에서 자세한 내용을 참조하세요.
+액세스 검토에 관심이 있는 권한 있는 역할 관리자 또는 전역 관리자인 경우 [액세스 검토를 시작하는 방법](active-directory-privileged-identity-management-how-to-start-security-review.md)에서 자세한 내용을 참조하세요.
 
 ## <a name="add-the-privileged-identity-management-application"></a>Privileged Identity Management 응용 프로그램 추가
 [Azure 포털](https://portal.azure.com/) 에서 Azure AD PIM(Privileged Identity Management) 응용 프로그램을 사용하여 검토를 수행할 수 있습니다.  Azure AD Privileged Identity Management 응용 프로그램이 포털에 없는 경우 다음 단계에 따라 시작합니다.

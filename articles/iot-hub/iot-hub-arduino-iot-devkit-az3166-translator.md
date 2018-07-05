@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: b65888ced67ba3c236c31678cf452d40489bf028
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ba2325272552a13d6e464797b1fb523415393100
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631781"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36945941"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-function-and-cognitive-services-to-make-a-language-translator"></a>Azure Function 및 Cognitive Services에서 IoT DevKit AZ3166을 사용하여 언어 번역기 만들기
 
@@ -38,13 +38,16 @@ ms.locfileid: "34631781"
 
 ### <a name="a-start-vs-code"></a>a. VS Code 시작
 
-- DevKit가 PC에 연결되어 있지 않은지 확인합니다.
+- DevKit가 PC에 연결되었는지 확인합니다.
 - VS Code 시작
 - DevKit를 컴퓨터에 연결합니다.
 
 ### <a name="b-open-the-arduino-examples-folder"></a>B. Arduino 예제 폴더 열기
 
-왼쪽의 **ARDUINO 예제 > MXCHIP AZ3166에 대한 예제 > AzureIoT**를 확장하고 **DevKitTranslator**를 선택합니다. DEVKITTRANSLATOR 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
+왼쪽의 **ARDUINO 예제 > MXCHIP AZ3166에 대한 예제 > AzureIoT**를 확장하고 **DevKitTranslator**를 선택합니다. DEVKITTRANSLATOR 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.  
+
+> [!NOTE]
+> MXCHIP AZ3166 섹션에 대한 예제를 볼 수 없다면 장치가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
 
 ![IoT DevKit 샘플](media/iot-hub-arduino-iot-devkit-az3166-translator/vscode_examples.png)
 

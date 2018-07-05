@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
-ms.openlocfilehash: 06fd2f3ef4a17c5626afc95ed8ae5999778ebda6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 24b20766997a9a41956f575f6cab8ee5ef0d9e25
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293163"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035391"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 응용 프로그램에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -37,7 +37,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 * 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \"Contoso\""
 
 ## <a name="list-of-functions"></a>함수 목록
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>추가
@@ -96,6 +96,18 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 | **length** |필수 |정수 |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
 
 - - -
+### <a name="normalizediacritics"></a>NormalizeDiacritics
+**함수:**<br> NormalizeDiacritics(원본)
+
+**설명:**<br> 하나의 문자열 인수가 필요합니다. 문자열을 반환하지만 해당하는 비분음 부호 문자로 대체된 분음 부호 문자를 포함합니다. 일반적으로 분음 부호 문자(악센트 부호)를 포함하는 이름 및 성을 다양한 사용자 ID(예: 사용자 계정 이름, SAM 계정 이름 및 이메일 주소)에 사용할 수 있는 올바른 값으로 변환하는 데 사용됩니다.
+
+**매개 변수:**<br> 
+
+| Name | 필수/ 반복 | type | 메모 |
+| --- | --- | --- | --- |
+| **원본** |필수 |문자열 | 일반적으로 이름 또는 성 특성 |
+
+- - -
 ### <a name="not"></a>not
 **함수:**<br> Not(source)
 
@@ -129,7 +141,6 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
   * **source**에 값이 있는 경우 **regexPattern** 및 **regexGroupName**을 사용하여 **replacementPropertyName**으로 속성에서 대체 값을 추출합니다. 대체 값이 결과로 반환됩니다.
 
 **매개 변수:**<br> 
-
 | Name | 필수/ 반복 | type | 메모 |
 | --- | --- | --- | --- |
 | **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
@@ -144,7 +155,7 @@ SaaS 응용 프로그램에 프로비전을 구성하면 식 매핑은 지정할
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **함수:**<br> SingleAppRoleAssignment([appRoleAssignments])
 
-**설명:**<br> 지정된 응용 프로그램에 대해 사용자에게 할당된 모든 appRoleAssignment 목록에서 단일 appRoleAssignment를 반환합니다. 이 함수는 appRoleAssignments 개체를 단일 역할 이름 문자열로 변환하는 데 필요합니다. 모범 사례는 한 번에 하나의 appRoleAssignment만 하나의 사용자에게 할당되도록 하는 것이고 여러 역할이 할당된 경우에는 반환된 역할 문자열을 예측할 수 없습니다.
+**설명:**<br> 하나의 문자열 인수가 필요합니다. 문자열을 반환하지만 해당하는 비분음 부호 문자로 대체된 분음 부호 문자를 포함합니다.
 
 **매개 변수:**<br> 
 
@@ -215,16 +226,16 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 * **입력** (surname): "Doe"
 * **출력**: "JohDoe"
 
-### <a name="remove-diacritics-from-a-string-and-convert-to-lowercase"></a>문자열에서 분음 부호를 제거하고 소문자로 변환
-문자열에서 특수 문자를 제거하고 대문자를 소문자로 변환해야 합니다.
+### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
+악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자를 바꿔야 합니다.
 
 **식:** <br>
-`Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace( Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace(Replace([givenName], , "([Øø])", , "oe", , ), , "[Ææ]", , "ae", , ), , "([äãàâãåáąÄÃÀÂÃÅÁĄA])", , "a", , ), , "([B])", , "b", , ), , "([CçčćÇČĆ])", , "c", , ), , "([ďĎD])", , "d", , ), , "([ëèéêęěËÈÉÊĘĚE])", , "e", , ), , "([F])", , "f", , ), , "([G])", , "g", , ), , "([H])", , "h", , ), , "([ïîìíÏÎÌÍI])", , "i", , ), , "([J])", , "j", , ), , "([K])", , "k", , ), , "([ľłŁĽL])", , "l", , ), , "([M])", , "m", , ), , "([ñńňÑŃŇN])", , "n", , ), , "([öòőõôóÖÒŐÕÔÓO])", , "o", , ), , "([P])", , "p", , ), , "([Q])", , "q", , ), , "([řŘR])", , "r", , ), , "([ßšśŠŚS])", , "s", , ), , "([TŤť])", , "t", , ), , "([üùûúůűÜÙÛÚŮŰU])", , "u", , ), , "([V])", , "v", , ), , "([W])", , "w", , ), , "([ýÿýŸÝY])", , "y", , ), , "([źžżŹŽŻZ])", , "z", , ), " ", , , "", , )`
+NormalizeDiacritics([givenName])
 
 **샘플 입/출력:** <br>
 
 * **입력** (givenName): "Zoë"
-* **출력**:  "zoe"
+* **출력**:  "Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
 SaaS 응용 프로그램에 특정 형식의 날짜를 전송하려고 합니다. <br>
@@ -259,5 +270,5 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 * [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [계정 프로비전 알림](active-directory-saas-account-provisioning-notifications.md)
-* [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](saas-apps/tutorial-list.md)
 

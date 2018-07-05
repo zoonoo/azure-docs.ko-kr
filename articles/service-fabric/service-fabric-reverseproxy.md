@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 21e1e3041d7b1f4dc205355f6c0b8d4fd2e82775
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a72873678323d31181654923caf07ba509c9ab81
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212278"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301583"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
 Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabric 클러스터 탐색에서 마이크로 서비스의 실행을 지원하고 http 끝점이 있는 타 서비스와 통신합니다.
@@ -57,8 +57,13 @@ Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabri
 ![외부 통신][0]
 
 > [!WARNING]
-> 부하 분산 장치에서 역방향 프록시의 포트를 구성하면 HTTP 끝점을 표시하는 클러스터의 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다.
+> 부하 분산 장치에서 역방향 프록시의 포트를 구성하면 HTTP 끝점을 표시하는 클러스터의 모든 마이크로 서비스의 주소를 클러스터 외부에서 지정할 수 있습니다. 즉, 내부용으로 의도된 마이크로 서비스를 악의적인 사용자가 검색할 수 있습니다. 이것은 잠재적으로 악용될 수 있는 심각한 취약성을 나타냅니다. 예:
 >
+> * 악의적인 사용자는 충분히 강화된 공격 노출 영역이 없는 내부 서비스를 반복적으로 호출하여 서비스 거부 공격을 시작할 수 있습니다.
+> * 악의적인 사용자가 잘못된 패킷을 내부 서비스로 전송하여 의도하지 않은 동작이 발생할 수 있습니다.
+> * 내부용으로 의도된 서비스는 클러스터 외부의 서비스에 노출되지 않아야 하는 개인 정보나 중요한 정보를 반환할 수 있으므로 이 민감한 정보가 악의적인 사용자에게 노출될 수 있습니다. 
+>
+> 역방향 프록시 포트를 공개하기 전에 클러스터 및 클러스터에서 실행 중인 앱의 잠재적인 보안 결과를 완전히 파악하고 완화해야 합니다. 
 >
 
 

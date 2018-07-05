@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 9bb79a2054a0e51ce435f51a52f964062427cea4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2aff7d98fde50c89e637572437a7c572911bce76
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647999"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309132"
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -24,9 +24,9 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL Database에 대한 SLA란 무엇인가요?
 99.99% 이상의 시간을 보장하며, 서비스 계층에 관계없이 Microsoft Azure SQL Database와 인터넷 게이트웨이를 연결할 수 있습니다. 자세한 내용은 [SLA](http://azure.microsoft.com/support/legal/sla/)를 참조하세요.
 
-## <a name="whatis-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델(미리 보기)이란?
+## <a name="what-is-the-new-vcore-based-purchasing-model-preview-for-azure-sql-database"></a>Azure SQL Database에 대한 새 vCore 기반 구매 모델(미리 보기)이란?
 
-새 구매 모델이 기존 DTU 기반 모델에 추가되었습니다. vCore 기반 모델은 고객에게 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 변환하는 간단한 방법을 제공하도록 설계되었습니다. 또한 고객이 워크로드 요구 사항에 따라 계산 및 저장소의 크기를 조정할 수 있습니다. vCore 모델을 사용하는 단일 데이터베이스 및 탄력적 풀 옵션도 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요. 
+새 구매 모델이 기존 DTU 기반 모델에 추가되었습니다. vCore 기반 모델은 고객에게 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 변환하는 간단한 방법을 제공하도록 설계되었습니다. 또한 고객이 워크로드 요구 사항에 따라 해당 계산 및 저장소 리소스의 크기를 조정할 수 있습니다. vCore 모델을 사용하는 단일 데이터베이스 및 탄력적 풀 옵션도 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다. 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요. 
 
 ## <a name="what-is-a-vcore"></a>vCore란? 
 가상 코어는 하드웨어 세대 중에서 선택할 수 있는 옵션과 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다.
@@ -36,7 +36,7 @@ SQL Database의 현재 버전은 V12입니다. 버전 V11은 만료되었습니�
 
 대부분의 경우 응용 프로그램은 미리 구성된 리소스 번들을 간단하게 활용할 수 있습니다. 따라서 고객에게 이러한 DTU 기반 선택을 지속적으로 제공하고 지원합니다. 이러한 모델을 사용하고 있고 비즈니스 요구 사항이 충족되는 경우 계속 사용해야 합니다.
 
-DTU 및 vCore 기반 모델은 계속해서 함께 존재할 것입니다. vCore 기반 모델은 데이터베이스 리소스에 대한 투명성 강화와 계산 및 저장소의 크기를 개별적으로 조정하는 기능에 대한 고객의 요청에 부응하여 출시되었습니다. 또한 vCore 기반 모델을 사용하면 활성 Software Assurance를 보유한 고객이 SQL Server에 대한 Azure 하이브리드 혜택을 통해 비용을 추가로 절약할 수도 있습니다.
+DTU 및 vCore 기반 모델은 계속해서 함께 존재할 것입니다. vCore 기반 모델은 데이터베이스 리소스에 대한 투명성 강화와 해당 계산 및 저장소 리소스의 크기를 개별적으로 조정하는 기능에 대한 고객의 요청에 부응하여 출시되었습니다. 또한 vCore 기반 모델을 사용하면 활성 Software Assurance를 보유한 고객이 SQL Server에 대한 Azure 하이브리드 혜택을 통해 비용을 추가로 절약할 수도 있습니다.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model-preview"></a>DTU 기반 구매 모델과 vCore 기반 구매 모델(미리 보기) 중 어느 것을 선택해야 할까요? 
 DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기의 혼합 측정값을 기반으로 합니다. DTU 기반 성능 수준은 다양한 응용 프로그램 성능 수준을 구동하는 미리 구성된 리소스 번들을 나타냅니다. 기본 리소스에 대해 걱정할 필요 없이 매월 고정 금액을 지불하면서 미리 구성된 번들을 단순히 사용하려는 고객은 DTU 기반 모델이 자신의 요구에 더 적합하다는 것을 알 수 있습니다. 그러나 최적의 성능을 달성하기 위해 기본 리소스에 대한 추가 정보가 필요하거나 크기를 독립적으로 조정해야 하는 고객에게는 vCore 기반 모델이 가장 적합합니다.  또한 고객이 SQL Server에 대한 활성 SA(Software Assurance)를 보유하고 있는 경우, 기존 투자를 활용하고 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.  각 구매 모델의 옵션은 자동 백업, 소프트웨어 업데이트 및 패치와 같이 완전히 관리되는 서비스의 이점을 제공합니다. 
@@ -49,10 +49,10 @@ DTU(데이터베이스 트랜잭션 단위)는 CPU, 메모리, 읽기 및 쓰기
 
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>SQL Server에 대한 Azure 하이브리드 혜택은 라이선스 이동과 어떻게 다른가요?
-현재 SQL Server 고객에게는 타사 공유 서버에 라이선스를 다시 할당할 수 있는 Software Assurance 라이선스 이동 혜택을 제공합니다. 이 혜택은 Azure IaaS 및 AWS EC2에서 사용할 수 있습니다.
+현재 SQL Server 고객에게는 타사 공유 서버에 라이선스를 다시 할당할 수 있는 Software Assurance에 대한 라이선스 이동 혜택을 제공합니다. 이 혜택은 Azure IaaS 및 AWS EC2에서 사용할 수 있습니다.
 SQL Server에 대한 Azure 하이브리드 혜택은 두 가지 주요 영역에서 라이선스 이동과 다릅니다.
 - 높은 수준으로 가상화된 워크로드를 Azure로 이동할 수 있는 경제적 이점을 제공합니다. SQL EE 고객은 높은 수준으로 가상화된 응용 프로그램을 위해 온-프레미스에서 소유하는 모든 코어에 대해 Azure의 범용 SKU에서 4개 코어를 얻을 수 있습니다. 라이선스 이동은 가상화된 워크로드를 클라우드로 이동하는 데 특별한 비용상의 혜택을 허용하지 않습니다.
-- Azure에서 SQL Server 온-프레미스(SQL Database 관리되는 인스턴스)와 항상 호환되는 PaaS 대상을 제공합니다.
+- Azure SQL Database 관리되는 인스턴스에서 SQL Server 온-프레미스와 항상 호환되는 PaaS 대상을 제공합니다.
 
 ## <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>SQL Server에 대한 Azure 하이브리드 혜택의 특정 권한은 무엇인가요?
 SQL Server에 대한 Azure 하이브리드 혜택과 관련하여 SQL Database 고객이 보유하는 권한은 다음과 같습니다.
@@ -90,18 +90,18 @@ DTU 기반 모델을 사용하는 기존 SQL Database 응용 프로그램의 경
 PITR에 대한 백업 보존 기간은 7-35일로 구성할 수 있습니다. 백업 저장소는 최대 데이터 크기와 동일한 저장소 용량을 초과하는 경우 실제 저장소 사용량에 따라 별도로 요금이 청구됩니다. 미리 보기에서 PITR 보존 기간은 기본적으로 7일로 설정됩니다. 대부분의 경우 최대 데이터 크기는 7일간의 백업 저장에 충분합니다.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>계산에 대해 하드웨어 세대를 선택하도록 허용하는 이유는 무엇인가요?
-응용 프로그램의 요구 사항과 거의 일치하는 성능 구성을 선택할 수 있도록 최대한의 유연성을 제공할 필요가 있기 때문입니다. 위의 표에서는 4세대와 5세대의 차이점을 보여 줍니다. 특히 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산을 훨씬 더 강화할 수 있습니다. 이러한 차이를 투명하게 하여 응용 프로그램에 가장 적합한 가격 대비 성능 비율을 달성할 수 있게 하려고 합니다.
+응용 프로그램의 요구 사항과 거의 일치하는 성능 구성을 선택할 수 있도록 최대한의 유연성을 제공할 필요가 있기 때문입니다. 위의 표에서는 4세대와 5세대의 차이점을 보여 줍니다. 특히 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산 리소스를 훨씬 더 강화할 수 있습니다. 이러한 차이를 투명하게 하여 응용 프로그램에 가장 적합한 가격 대비 성능 비율을 달성할 수 있게 하려고 합니다.
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU 기반 데이터베이스에서 vCore 기반 서비스 계층으로 변환하려면 응용 프로그램을 오프라인으로 전환해야 하나요? 
-새 서비스 계층에서는 데이터베이스를 표준 서비스 계층에서 프리미엄 서비스 계층으로 업그레이드하거나 그 반대로 업그레이드하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공합니다. 이 변환은 포털, ARM, PowerShell, Azure CLI 또는 T-SQL을 사용하여 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-resources.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
+새 서비스 계층에서는 데이터베이스를 표준 서비스 계층에서 프리미엄 서비스 계층으로 업그레이드하거나 그 반대로 업그레이드하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공합니다. 이 변환은 Azure Portal, PowerShell, Azure CLI, T-SQL 또는 REST API를 사용하여 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
 ## <a name="can-i-convert-a-database-from-a-vcore-based-service-tier-to-a-dtu-based-one"></a>데이터베이스를 vCore 기반 서비스 계층에서 DTU 기반 서비스 계층으로 변환할 수 있나요? 
-예, 포털을 사용하거나 프로그래밍 방식으로 포털, ARM, PowerShell, Azure CLI 또는 T-SQL을 사용하여 데이터베이스를 지원하는 성능 목표로 쉽게 변환할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-resources.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
+예, Azure Portal, PowerShell, Azure CLI, T-SQL 또는 REST API를 사용하여 데이터베이스를 지원하는 성능 목표로 쉽게 변환할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>범용 및 중요 비즈니스 서비스 계층 간에 업그레이드하거나 다운그레이드할 수 있나요? 
 예, 하지만 몇 가지 제한 사항이 있습니다. 대상 SKU는 기존 배포에 대해 구성한 최대 데이터베이스 또는 탄력적 풀 크기를 충족해야 합니다. [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하는 경우 중요 비즈니스 SKU는 Enterprise Edition 라이선스가 있는 고객만 사용할 수 있습니다. Enterprise Edition 라이선스가 있는 SQL Server에 대한 Azure 하이브리드 혜택을 사용하여 온-프레미스에서 범용 계층으로 마이그레이션한 고객만 중요 비즈니스 계층으로 업그레이드할 수 있습니다. 자세한 내용은 [SQL Server에 대한 Azure 하이브리드 사용 혜택에 대한 특정 권한은 무엇입니까?](../virtual-machines/windows/hybrid-use-benefit-licensing.md)를 참조하세요.
 
-이 변환은 가동 중지 시간을 초래하지 않으며, 포털, ARM, PowerShell, Azure CLI 또는 T-SQL을 사용하여 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-resources.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
+이 변환은 가동 중지 시간을 초래하지 않으며, Azure Portal, PowerShell, Azure CLI, T-SQL 또는 REST API를 사용하여 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>일반 공급되지 않는 프리미엄 RS 데이터베이스를 사용하고 있습니다. 새 계층으로 업그레이드하고 비슷한 가격 대비 성능 혜택을 얻을 수 있나요?
 vCore 모델은 프로비전된 계산 및 저장소의 용량을 독립적으로 제어할 수 있으므로, 결과 비용을 더 효과적으로 관리하여 프리미엄 RS 데이터베이스에서 매력적인 대상이 됩니다. 또한 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)은 vCore 기반 모델을 사용할 때 상당한 할인 혜택을 제공합니다. 
@@ -193,3 +193,4 @@ DMV를 통해 주 데이터베이스와 지역 보조 데이터베이스 간의 
 
 ## <a name="to-move-a-database-between-subscriptions"></a>구독 간에 데이터베이스를 이동하려면
 [Azure Portal](https://portal.azure.com)에서 **SQL Server** 를 클릭하고, 목록에서 데이터베이스를 호스팅하는 서버를 선택합니다. **이동**을 클릭한 후 이동할 리소스와 이동 대상인 구독을 선택합니다.
+

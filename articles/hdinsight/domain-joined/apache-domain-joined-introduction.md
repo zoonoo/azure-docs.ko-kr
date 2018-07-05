@@ -10,24 +10,21 @@ ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/30/2018
+ms.date: 06/26/2018
 ms.author: omidm
-ms.openlocfilehash: 6c5e32f0ed39ce2e8c1e412dcfc6c04fb0f8bd7a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3fd3a4b8982fe2170726df03bdc884e658d0b0c2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715261"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019491"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>도메인 조인 HDInsight 클러스터 소개를 사용한 Hadoop 보안 소개
 
 오늘날까지 Azure HDInsight는 단일 사용자 로컬 관리자만을 지원했습니다. 따라서 소규모 응용 프로그램 팀이나 부서의 경우에 유용하게 작동했습니다. Hadoop 기반 워크로드가 기업 부문에서 더 많은 인기를 얻게 되면서 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어와 같은 기업 수준 기능에 대한 필요성이 점점 더 중요해졌습니다. 도메인에 가입된 HDInsight 클러스터를 사용하면 Active Directory 도메인에 가입된 HDInsight 클러스터를 만들고 HDInsight 클러스터에 로그온하는 Azure Active Directory를 통해 인증할 수 있는 기업의 직원 목록을 구성할 수 있습니다. 기업 외부의 사용자는 HDInsight 클러스터에 로그온하거나 액세스할 수 없습니다. 기업 관리자는 [Apache Ranger](http://hortonworks.com/apache/ranger/)를 사용하여 Hive 보안용 역할 기반 액세스 제어를 구성할 수 있게 되어 필요한 만큼 데이터에 대한 액세스를 제한할 수 있습니다. 마지막으로 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있게 되어 회사 리소스를 고도로 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 아티클에서 설명하는 새 기능은 Hadoop, Spark 및 대화형 쿼리와 같은 클러스터 형식에서만 미리 보기로 사용할 수 있습니다.
-
-> [!IMPORTANT]
-> 도메인에 연결된 HDInsight에서는 Oozie를 사용할 수 없습니다.
+> 이 아티클에서 설명하는 새 기능은 Hadoop, Spark 및 대화형 쿼리와 같은 클러스터 형식에서만 미리 보기로 사용할 수 있습니다. 도메인에 연결된 클러스터에서는 Oozie를 사용할 수 있습니다. Oozie 웹 UI에 액세스하려면 사용자가 [터널링](../hdinsight-linux-ambari-ssh-tunnel.md)을 사용하도록 설정해야 합니다.
 
 ## <a name="benefits"></a>이점
 기업 보안에는 네 가지 주요 요소인 경계 보안, 인증, 권한 부여 및 암호화가 포함됩니다.

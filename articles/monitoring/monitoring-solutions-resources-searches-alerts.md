@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/16/2018
+ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b16c88b5ec45dec7bf0fe40da24e817ae325a3e
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c29d6cb0da2e394912a2584b0d3c3cedf13f054c
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887503"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304074"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
@@ -44,16 +44,13 @@ Log Analytics의 모든 리소스는 [작업 영역](../log-analytics/log-analyt
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
 ## <a name="log-analytics-api-version"></a>Log Analytics API 버전
-Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.  이 버전은 [레거시 및 업그레이드된 쿼리 언어](../log-analytics/log-analytics-log-search-upgrade.md)를 사용하는 리소스와는 다릅니다.  
+Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리소스가 사용해야 하는 API의 버전을 정의하는 **apiVersion** 속성이 있습니다.   
 
- 다음 표에서는 레거시 및 업그레이드된 작업 영역에서 저장된 검색의 Log Analytics API 버전을 지정합니다. 
+다음 표에는 이 예제에서 사용된 리소스의 API 버전이 제공됩니다.
 
-| 작업 영역 버전 | API 버전 | 쿼리 |
+| 리소스 종류 | API 버전 | 쿼리 |
 |:---|:---|:---|
-| v1(레거시)   | 2015-11-01-preview | 레거시 형식입니다.<br> 예: Type=Event EventLevelName = Error  |
-| v2(업그레이드된 버전) | 2015-11-01-preview | 레거시 형식입니다.  설치 시 업그레이드된 형식으로 변환됩니다.<br> 예: Type=Event EventLevelName = Error<br>변환 대상: Event &#124; where EventLevelName == "Error"  |
-| v2(업그레이드된 버전) | 2017-03-03-preview | 업그레이드 형식입니다. <br>예: Event &#124; where EventLevelName == "Error"  |
-
+| savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
 
 ## <a name="saved-searches"></a>저장된 검색
@@ -90,7 +87,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 > JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다.  예를 들어 쿼리가 **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"** 이면 솔루션 파일에 **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
 
 ## <a name="alerts"></a>Alerts
-[Log Analytics 경고](../log-analytics/log-analytics-alerts.md)는 일정한 간격으로 저장된 검색을 실행하는 경고 규칙에 의해 만들어집니다.  쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 실행됩니다.  
+[Azure 로그 경고](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)는 일정한 간격으로 지정된 로그 쿼리를 실행하는 Azure Alerts에 의해 생성됩니다.  쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 실행됩니다.  
 
 > [!NOTE]
 > 2018년 5월 14일부터 작업 영역의 모든 경고는 Azure로 자동 확장됩니다. 사용자는 2018년 5월 14일 전에 Azure로 경고 확장을 자발적으로 시작할 수 있습니다. 자세한 내용은 [OMS에서 Azure로 경고 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)을 참조하세요. Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작업 그룹에서 제어됩니다. 작업 영역 및 해당 경고가 Azure로 확장되는 경우 [작업 그룹 - Azure Resource Manager 템플릿](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md)을 사용하여 작업을 검색하거나 추가할 수 있습니다.
@@ -196,7 +193,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 | type | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
 | Name | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
 | 설명 | 아니오 | 경고에 대한 선택적 설명입니다. |
-| 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**Warning**<br>**정보 제공**
+| 심각도 | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
 
 #### <a name="threshold"></a>임계값
@@ -338,11 +335,12 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
           "SolutionPublisher": "Contoso",
           "ProductName": "SampleSolution",
     
-          "LogAnalyticsApiVersion": "2015-03-20",
-    
+          "LogAnalyticsApiVersion-Search": "2017-03-15-preview",
+              "LogAnalyticsApiVersion-Solution": "2015-11-01-preview",
+
           "MySearch": {
             "displayName": "Error records by hour",
-            "query": "Type=MyRecord_CL | measure avg(Rating_d) by Instance_s interval 60minutes",
+            "query": "MyRecord_CL | summarize AggregatedValue = avg(Rating_d) by Instance_s, bin(TimeGenerated, 60m)",
             "category": "Samples",
             "name": "Samples-Count of data"
           },
@@ -350,7 +348,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
             "Name": "[toLower(concat('myalert-',uniqueString(resourceGroup().id, deployment().name)))]",
             "DisplayName": "My alert rule",
             "Description": "Sample alert.  Fires when 3 error records found over hour interval.",
-            "Severity": "Critical",
+            "Severity": "critical",
             "ThresholdOperator": "gt",
             "ThresholdValue": 3,
             "Schedule": {
@@ -378,7 +376,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
             "location": "[parameters('workspaceRegionId')]",
             "tags": { },
             "type": "Microsoft.OperationsManagement/solutions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Solution')]",
             "dependsOn": [
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
               "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
@@ -406,7 +404,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [ ],
             "tags": { },
             "properties": {
@@ -419,7 +417,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/', variables('MyAlert').Schedule.Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('MySearch').Name)]"
             ],
@@ -433,7 +431,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
           {
             "name": "[concat(parameters('workspaceName'), '/', variables('MySearch').Name, '/',  variables('MyAlert').Schedule.Name, '/',  variables('MyAlert').Name)]",
             "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions",
-            "apiVersion": "[variables('LogAnalyticsApiVersion')]",
+            "apiVersion": "[variables('LogAnalyticsApiVersion-Search')]",
             "dependsOn": [
               "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/',  variables('MySearch').Name, '/schedules/', variables('MyAlert').Schedule.Name)]"
             ],

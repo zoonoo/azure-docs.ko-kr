@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: larryfr
-ms.openlocfilehash: 974ed70fbda88dfcb775e021474583f7afb0576b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 835e649959164aee5cc8edb1f2e34170d8a321f1
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404963"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046682"
 ---
 # <a name="availability-and-reliability-of-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Hadoop 클러스터의 가용성 및 안정성
 
@@ -63,9 +63,9 @@ Nimbus 노드는 Storm 클러스터와 함께 사용할 수 있습니다. Nimbus
 
 에지 노드는 클러스터 내에서 데이터 분석에 적극적으로 참가하지 않습니다. 이는 개발자 또는 데이터 과학자가 Hadoop과 함께 작업하는 경우 사용합니다. 에지 노드는 클러스터의 다른 노드와 동일한 Azure Virtual Network에 있으며 다른 모든 노드에 직접 액세스할 수 있습니다. 에지 노드는 중요한 Hadoop 서비스 또는 분석 작업에서 리소스를 가져오지 않으면서 사용할 수 있습니다.
 
-현재 HDInsight의 R 서버는 기본적으로 에지 노드를 제공하는 유일한 클러스터 유형입니다. HDInsight의 R 서버의 경우 에지 노드는 분산된 처리를 위해 클러스터에 제출하기 전에 노드에서 로컬로 R 코드를 테스트하는 데 사용됩니다.
+현재 HDInsight의 ML 서비스는 기본적으로 에지 노드를 제공하는 유일한 클러스터 형식입니다. HDInsight의 ML 서비스의 경우 에지 노드는 분산된 처리를 위해 클러스터에 제출하기 전에 노드에서 로컬로 R 코드를 테스트하는 데 사용됩니다.
 
-R Server 이외의 클러스터 유형으로 에지 노드를 사용하는 방법에 대한 내용은 [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md) 문서를 참조하세요.
+다른 클러스터 형식으로 에지 노드를 사용하는 방법에 대한 내용은 [HDInsight에서 에지 노드 사용](hdinsight-apps-use-edge-node.md) 문서를 참조하세요.
 
 ## <a name="accessing-the-nodes"></a>노드 액세스
 

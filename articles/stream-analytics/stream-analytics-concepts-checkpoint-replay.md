@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 1a7cb6c5d9c3383b127ce38ae21bb2dc811e1f2e
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31529206"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936720"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 검사점 및 재생 개념
 이 문서에서는 Azure Stream Analytics의 내부 검사점 및 재생 개념과 이러한 개념이 작업 복구에 미치는 영향에 대해 설명합니다. Stream Analytics 작업이 실행될 때마다 상태 정보가 내부적으로 유지 관리됩니다. 이러한 상태 정보는 정기적으로 검사점에 저장됩니다. 일부 시나리오에서는 작업 실패 또는 업그레이드가 발생하는 경우 검사점 정보가 작업을 복구하는 데 사용됩니다. 다른 상황에서는 검사점을 복구에 사용할 수 없으며 재생이 필요합니다.
 
-## <a name="stateful-query-logic-in-temporal-elements"></a>임시 요소의 상태 저장 쿼리 논리
+## <a name="stateful-query-logic-in-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
 Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 작업이 실행될 때 이러한 각 연산자는 상태 정보를 유지합니다. 이러한 쿼리 요소의 최대 시간 범위는 7일입니다. 
 
 임시 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
@@ -48,7 +48,7 @@ Microsoft는 경우에 따라 Azure 서비스에서 Stream Analytics 작업을 �
 
 현재 복구 검사점 형식은 업그레이드 간에 유지되지 않습니다. 결과적으로 스트리밍 쿼리의 상태는 재생 기술을 사용하여 완전히 복원해야 합니다. Stream Analytics 작업에서 이전과 똑같은 입력을 재생할 수 있도록 하려면 원본 데이터에 대한 보존 정책을 쿼리의 시간 범위 이상으로 설정해야 합니다. 이렇게 하지 않으면 원본 데이터가 전체 시간 범위를 포함할 만큼 충분한 기간 동안 다시 유지되지 않을 수 있으므로 서비스 업그레이드 중에 잘못되었거나 부분적인 결과가 발생할 수 있습니다.
 
-일반적으로 필요한 재생의 크기는 시간 범위에 평균 이벤트 속도를 곱한 값에 비례합니다. 예를 들어, 초당 1,000개 이벤트의 입력 속도로 수행되는 작업의 경우 1시간을 초과하는 시간 범위는 큰 재생 크기를 갖는 것으로 간주됩니다. 재생 크기가 큰 쿼리의 경우 일부 연장 기간 동안 지연되는 출력(출력 없음)을 관찰할 수 있습니다. 
+일반적으로 필요한 재생의 크기는 시간 범위에 평균 이벤트 속도를 곱한 값에 비례합니다. 예를 들어, 초당 1,000개 이벤트의 입력 속도로 수행되는 작업의 경우 1시간을 초과하는 시간 범위는 큰 재생 크기를 갖는 것으로 간주됩니다. 상태를 초기화하려면 최대 1시간 분량의 데이터를 다시 처리해야 할 수 있으므로 확장된 기간 동안 지연된 출력(출력 없음)을 발생할 수 있는 완전하고 올바른 결과를 생성할 수 있습니다. `JOIN` 또는 `LAG`처럼 시간 범위 없는 쿼리나 다른 임시 연산자는 0의 재생을 갖습니다.
 
 ## <a name="estimate-replay-catch-up-time"></a>재생 캐치업 시간 예측
 서비스 업그레이드로 인한 지연 시간을 예측하려면 다음 방법을 따를 수 있습니다.

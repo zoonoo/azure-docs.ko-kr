@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: c01f986bfe3e6a3162988056a268423e07f429bf
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6484142eafa8388117c1e96ab31eefeab188e488
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301153"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750275"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Log Analytics 경고를 Azure Alerts로 확장
-최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. [Microsoft Operations Management Suite 포털](../operations-management-suite/operations-management-suite-overview.md)에서 경고 규칙을 관리할 수 있습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 
+최근까지 Azure Log Analytics에는 Log Analytics 데이터에 기반한 조건을 사전에 알려줄 수 있는 자체 경고 기능이 포함됩니다. Microsoft Operations Management Suite 포털에서 경고 규칙을 관리했습니다. 새 경고 환경은 이제 Microsoft Azure의 다양한 서비스에서 경고를 통합했습니다. 이 환경은 Azure Portal에서 Azure Monitor 아래의 **경고**로 사용 가능하며 Log Analytics 및 Azure Application Insights에서 활동 로그, 메트릭 및 로그의 경고를 지원합니다. 
 
 ## <a name="benefits-of-extending-your-alerts"></a>경고 확장의 이점
 다음과 같이 Azure Portal에서 경고를 만들고 관리하는 여러 이점이 있습니다.

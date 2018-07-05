@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/27/2017
+ms.date: 06/25/2018
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86484ca2bc7dc14035f48b8f7b1514a4fc471b74
-ms.sourcegitcommit: b32d6948033e7f85e3362e13347a664c0aaa04c1
+ms.openlocfilehash: 493fb0295c1d760bb7de13ae1b703b3636750612
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2018
-ms.locfileid: "29180039"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018717"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>System Center Operations Manager Health Check(미리 보기) 솔루션을 사용하여 환경 최적화
 
@@ -212,14 +212,14 @@ System Center Operations Manager Health Check 솔루션의 관리 팩에는 *Mic
 
 ## <a name="use-health-check-focus-area-recommendations"></a>상태 검사 사용 초점 영역 권장 사항
 
-Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대한 자세한 내용은 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)를 참조하세요. 설치 후 OMS 포털의 개요 페이지에서 Operations Manager Health Check 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
+Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션이 설치되어 있어야 합니다. 솔루션 설치에 대해 자세히 알아보려면 [관리 솔루션 설치](log-analytics-add-solutions.md)를 참조하세요. 설치 후 Azure Portal의 사용자 작업 영역에 대한 **개요** 페이지에서 System Center Operations Manager Health Check 타일을 사용하여 권장 사항의 요약을 볼 수 있습니다.
 
 인프라에 대한 요약된 규정 준수 평가를 본 다음 세부 권장 사항을 확인합니다.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>주요 영역에 대한 권장 사항을 보고 수정 작업을 수행하려면
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+1. Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다.
 2. Azure Portal의 왼쪽 아래 모서리에 있는 **추가 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.
-3. Log Analytics 구독 창에서 작업 영역을 선택한 다음 **OMS 포털** 타일을 선택합니다.  
+3. Log Analytics 구독 창에서 작업 영역을 선택한 다음, **작업 영역 요약** 메뉴 항목을 클릭합니다.  
 4. **개요** 페이지에서 **System Center Operations Manager Health Check** 타일을 클릭합니다.
 5. **System Center Operations Manager Health Check** 페이지에서 주요 영역 블레이드 중 하나의 요약 정보를 검토한 다음 주요 영역 하나를 클릭하여 해당 주요 영역에 대한 권장 사항을 봅니다.
 6. 주요 영역 페이지에서 사용자 환경에 대해 우선순위가 지정된 권장 사항을 볼 수 있습니다. 권장하는 이유에 대한 세부 정보를 보려면 **영향을 받는 개체** 아래에서 해당 권장 사항을 클릭합니다.<br><br> ![주요 영역](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
@@ -232,7 +232,7 @@ Log Analytics에서 상태 검사 솔루션을 사용하려면 먼저 솔루션�
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>무시할 권장 사항을 식별하려면
-1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 타일을 클릭합니다.
+1. Azure Portal에서 선택한 작업 영역에 대한 Log Analytics 작업 영역 페이지에서 **로그 검색** 메뉴 항목을 클릭합니다.
 2. 다음 쿼리를 사용하여 사용자 환경의 컴퓨터에 대해 실패한 권장 사항을 나열합니다.
 
     ```

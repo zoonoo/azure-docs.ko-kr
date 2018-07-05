@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 3afdcbfc2d1d6f40db0f0336be161a06908cb883
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ded69225319e447ad210aed267741b2803889ac
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618000"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048087"
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP HANA에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-sap-hana-connector.md)
-> * [버전 2 - 미리 보기](connector-sap-hana.md)
+> * [버전 1](v1/data-factory-sap-hana-connector.md)
+> * [현재 버전](connector-sap-hana.md)
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP HANA 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용하는 경우 [V1의 SAP HANA 커넥터](v1/data-factory-sap-hana-connector.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 

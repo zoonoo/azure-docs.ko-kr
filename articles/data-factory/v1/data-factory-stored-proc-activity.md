@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 3a0d6998671df7f05d7077da6fffc20a5bf27e8a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b10fbd953eb9ca904043973ebc1f7c6adb9f9abc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622502"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047391"
 ---
 # <a name="sql-server-stored-procedure-activity"></a>SQL Server 저장 프로시저 작업
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -35,7 +35,7 @@ ms.locfileid: "34622502"
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2에서 저장 프로시저 작업을 사용하여 데이터 변환](../transform-data-using-stored-procedure.md)을 참조하세요.
+> 이 아티클은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에서 저장 프로시저 작업을 사용하여 데이터 변환](../transform-data-using-stored-procedure.md)을 참조하세요.
 
 ## <a name="overview"></a>개요
 Data Factory [파이프라인](data-factory-create-pipelines.md)의 데이터 변환 작업을 통해 원시 데이터를 변환 및 처리하여 예측 가능한, 통찰력 있는 정보로 만듭니다. 저장 프로시저 작업은 Data Factory에서 지원하는 변환 작업 중 하나입니다. 이 문서는 데이터 팩터리의 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.

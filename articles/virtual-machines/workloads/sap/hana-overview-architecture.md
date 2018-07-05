@@ -11,21 +11,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/04/2018
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfcab5a84d9e8b0bf164c666162636ede2e1b06f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763785"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063683"
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스) 개요 및 아키텍처
 
 ## <a name="what-is-sap-hana-on-azure-large-instances"></a>SAP HANA on Azure(대규모 인스턴스)란?
 
-SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니다. Azure는 SAP HANA를 배포하고 실행하기 위한 가상 머신을 제공하는 것 외에도, 운영 체제 미설치 전용 서버에서 SAP HANA를 실행하고 배포할 수 있는 가능성을 제공합니다. SAP HANA on Azure(대규모 인스턴스) 솔루션은 사용자에게 할당된 비공유 호스트/서버 운영 체제 미설치 하드웨어를 기반으로 합니다. 서버 하드웨어는 계산/서버, 네트워킹 및 스토리지 인프라가 포함된 큰 스탬프 안에 내장됩니다. 이는 하나의 조합으로 HANA TDI(맞춤형 데이터 센터 통합) 인증을 받았습니다. SAP HANA on Azure(대규모 인스턴스)는 서로 다른 서버 SKU 또는 크기를 제공합니다. 장치는 72개 CPU와 768GB 메모리를 갖출 수 있으며, 최대 960개 CPU와 20TB 메모리를 갖춘 장치로 이동할 수 있습니다.
+SAP HANA on Azure(대규모 인스턴스)는 Azure의 고유한 솔루션입니다. Azure는 SAP HANA를 배포하고 실행하기 위한 가상 머신을 제공하는 것 외에도, 운영 체제 미설치 전용 서버에서 SAP HANA를 실행하고 배포할 수 있는 가능성을 제공합니다. SAP HANA on Azure(대규모 인스턴스) 솔루션은 사용자에게 할당된 비공유 호스트/서버 운영 체제 미설치 하드웨어를 기반으로 합니다. 서버 하드웨어는 계산/서버, 네트워킹 및 스토리지 인프라가 포함된 큰 스탬프 안에 내장됩니다. 이는 하나의 조합으로 HANA TDI(맞춤형 데이터 센터 통합) 인증을 받았습니다. SAP HANA on Azure(대규모 인스턴스)는 서로 다른 서버 SKU 또는 크기를 제공합니다. 단위는 36개 Intel CPU 코어와 768GB 메모리를 가질 수 있고 최대 480개 Intel CPU 코어 및 24TB 메모리까지 증대할 수 있습니다.
 
 인프라 스탬프 내의 고객 격리는 테넌트에서 수행되며 다음과 같습니다.
 
@@ -80,9 +80,9 @@ NetWeaver 인증 외에도, SAP에서는 Azure IaaS와 같은 특정 인프라�
 
 NetWeaver 및 약간의 SAP HANA 인증에 대한 핵심 SAP Note는 [SAP Note #1928533 – Azure의 SAP 응용 프로그램: 지원되는 제품 및 Azure VM 유형](https://launchpad.support.sap.com/#/notes/1928533)입니다.
 
-[SAP Note #2316233 - SAP HANA on Microsoft Azure(대규모 인스턴스)](https://launchpad.support.sap.com/#/notes/2316233/E)도 중요합니다. 이 가이드에 설명된 솔루션에 대해 다룹니다. 또한 Azure의 GS5 VM 유형에서 SAP HANA를 실행할 수 있습니다. 이 사례에 대한 정보는 [SAP 웹 사이트](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)에 게시됩니다.
+SAP HANA on Azure 인증 레코드(대형 인스턴스) 단위는 [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 사이트에서 제공합니다. 
 
-SAP Note #2316233에서 언급한 SAP HANA on Azure(대규모 인스턴스) 솔루션은 Microsoft 및 SAP 고객에게 Azure에서 대규모 SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA 또는 기타 SAP HANA 워크로드를 배포할 수 있는 기능을 제공합니다. 이 솔루션은 SAP-HANA 인증 전용 하드웨어 스탬프([SAP HANA 맞춤형 TDI(데이터 센터 통합)](https://scn.sap.com/docs/DOC-63140))를 기반으로 합니다. SAP HANA TDI 구성 솔루션을 실행하면 모든 SAP HANA 기반 응용 프로그램(예: SAP Business Suite on SAP HANA, SAP BW on SAP HANA, S4/HANA 및 BW4/HANA)이 하드웨어 인프라에서 작동합니다.
+SAP HANA 인증 IaaS 플랫폼 사이트에서 언급한 SAP HANA on Azure(대형 인스턴스) 솔루션은 Microsoft 및 SAP 고객에게 Azure에서 대규모 SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA 또는 기타 SAP HANA 워크로드를 배포할 수 있는 기능을 제공합니다. 이 솔루션은 SAP-HANA 인증 전용 하드웨어 스탬프([SAP HANA 맞춤형 TDI(데이터 센터 통합)](https://scn.sap.com/docs/DOC-63140))를 기반으로 합니다. SAP HANA TDI 구성 솔루션을 실행하면 모든 SAP HANA 기반 응용 프로그램(예: SAP Business Suite on SAP HANA, SAP BW on SAP HANA, S4/HANA 및 BW4/HANA)이 하드웨어 인프라에서 작동합니다.
 
 VM에서 SAP HANA를 실행하는 것과 비교할 때 이 솔루션에 이점이 있습니다. 훨씬 더 큰 메모리 용량을 제공합니다. 이 솔루션을 사용하려면 다음 주요 사항을 이해해야 합니다.
 
@@ -132,7 +132,9 @@ VM과 마찬가지로, SAP HANA on Azure(대규모 인스턴스)가 여러 Azure
 
 Azure Virtual Machines를 사용하여 다양한 VM 유형 중에서 선택할 수 있는 것처럼 SAP HANA의 다양한 워크로드 유형에 맞게 조정된 HANA 대규모 인스턴스의 다양한 SKU 중에서 선택할 수 있습니다. SAP는 Intel 프로세서 세대에 따라 다양한 워크로드에 대한 메모리 대 프로세서 소켓 비율을 적용합니다. 다음 표에서는 제공된 SKU 형식을 보여줍니다.
 
-2017년 7월 현재, SAP HANA on Azure(대규모 인스턴스)는 미국 서부, 미국 동부, 오스트레일리아 동부, 오스트레일리아 남동부, 유럽 서부 및 북유럽의 Azure 지역에서 여러 구성으로 사용할 수 있습니다.
+SAP HANA on Azure(대규모 인스턴스) 서비스는 미국 서부, 미국 동부, 오스트레일리아 동부, 오스트레일리아 남동부, 유럽 서부, 북유럽, 일본 동부 및 일본 서부의 Azure 지역에서 여러 구성으로 사용할 수 있습니다.
+
+[HANA 대규모 인스턴스의 SAP HANA 인증 SKU](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)는 다음과 유사합니다.
 
 | SAP 솔루션 | CPU | 메모리 | Storage | 가용성 |
 | --- | --- | --- | --- | --- |
@@ -148,17 +150,31 @@ Azure Virtual Machines를 사용하여 다양한 VM 유형 중에서 선택할 �
 |---| Azure의 SAP HANA S576m<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  12.0 TB |  28 TB | 사용 가능 |
 |---| Azure의 SAP HANA S768m<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  16.0 TB |  36 TB | 사용 가능 |
 |---| Azure의 SAP HANA S960m<br /> – 20 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 480 CPU 코어 및 960 CPU 스레드 |  20.0 TB |  46 TB | 사용 가능 |
-| OLTP **TDIv5**에 대해 최적화됨: SAP Business Suite<br /> SAP HANA 또는 S/4HANA(OLTP)에서,<br /> 일반 OLTP | Azure S192xm에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 96 CPU 코어 및 192 CPU 스레드 |  6.0 TB |  16 TB | 사용 가능 |
-|---| Azure S384xxm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  12.0 TB |  28 TB | 사용 가능 |
-|---| Azure S576xm에서 SAP HANA<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  18.0TB |  41TB | 사용 가능 |
-|---| Azure S768xm에서 SAP HANA<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  24.0TB |  56TB | 사용 가능 |
+
+
+SAP HANA TDIv5에서 SAP는 고객 특정 규모 지정과 고객 특정 프로젝트를 허용하는데, 다음에서 인증으로 나열되지 않은 서버 구성으로 이어질 수 있습니다.
+
+- [SAP HANA 인증 어플라이언스](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
+- [SAP HANA 인증 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+
+많은 경우 이러한 고객 특정 서버 구성에는 SAP 인증 서버 단위보다 더 많은 메모리가 따릅니다. SAP 작업 시 고객은 SAP 지원을 받을 수 있고 고객 특정 규모 서버 구성에 대해 확인할 수 있습니다. Azure에서는 다음 HANA 대규모 인스턴스 표준 SKU를 사용할 수 있고 이러한 TDIv5 고객 특정 규모 프로젝트의 Microsoft 가격 목록이 제공됩니다.
+
+
+| 메모리 확장이 가능한 <br /> 원래의 SKU | CPU | 메모리 | Storage | 가용성 |
+| --- | --- | --- | --- | --- |
+| S192m 확장 가능 | Azure S192xm에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 96 CPU 코어 및 192 CPU 스레드 |  6.0 TB |  16 TB | 사용 가능 |
+| S384xm 확장 가능 | Azure S384xxm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  12.0 TB |  28 TB | 사용 가능 |
+| S576m 확장 가능 | Azure S576xm에서 SAP HANA<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  18.0TB |  41TB | 사용 가능 |
+| S768m 확장 가능 | Azure S768xm에서 SAP HANA<br /> – 16 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 384 CPU 코어 및 768 CPU 스레드 |  24.0TB |  56TB | 사용 가능 |
+
 - CPU 코어 = 서버 단위 프로세서 합계의 비하이퍼 스레드 CPU 코어 합계
-- CPU 스레드 = 서버 단위 프로세서 합계의 하이퍼 스레드된 CPU 코어에서 제공하는 계산 스레드 합계 모든 장치는 기본적으로 하이퍼스레드 기술을 사용하도록 구성됩니다.
+- CPU 스레드 = 서버 단위 프로세서 합계의 하이퍼 스레드된 CPU 코어에서 제공하는 계산 스레드 합계 대부분의 단위는 기본적으로 하이퍼 스레딩 기술을 사용하도록 구성됩니다.
+- 공급업체 권고에 따라 S768m, S768xm 및 S960m은 SAP HANA 실행에 하이퍼 스레딩을 사용하도록 구성되지 않았습니다.
 
 
 선택한 특정 구성은 워크로드, CPU 리소스 및 원하는 메모리에 따라 달라집니다. OLTP 워크로드에서 OLAP 워크로드에 최적화된 SKU를 사용할 수 있습니다. 
 
-모든 제안에 대한 하드웨어는 SAP HANA TDI 인증을 기반으로 합니다. SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
+고객 특정 규모 프로젝트 단위를 제외하고 제공되는 하드웨어 기준은 SAP HANA TDI 인증입니다.  SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
 
 - SKU의 '유형 I 클래스': S72, S72m, S144, S144m, S192, S192m 및 S192xm
 - SKU의 '유형 II 클래스': S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm 및 S960m
@@ -296,7 +312,7 @@ HANA 대규모 인스턴스에 대한 크기 조정은 일반적으로 HANA에 �
    > Microsoft에서 제공하는 운영 체제가 SUSE에 등록되어 있지 않습니다. 구독 관리 도구 인스턴스에 연결되어 있지 않습니다.
 
 - Azure에서 VM에 배포된 SUSE Linux 구독 관리 도구. 이 도구는 SUSE에서 SAP HANA on Azure(대규모 인스턴스)를 등록하고 하나씩 업데이트할 수 있는 기능을 제공합니다. (HANA 대규모 인스턴스 데이터 센터 내에서는 인터넷에 액세스할 수 없습니다.) 
-- SAP HANA용 Red Hat Enterprise Linux 6.7 또는 7.2에 대한 라이선스.
+- SAP HANA용 Red Hat Enterprise Linux 6.7 또는 7.x에 대한 라이선스.
 
    > [!NOTE]
    > Microsoft에서 제공하는 운영 체제가 Red Hat에 등록되어 있지 않습니다. Red Hat 구독 관리자 인스턴스에 연결되어 있지 않습니다.
@@ -347,7 +363,7 @@ SAP HANA on Azure(대규모 인스턴스)의 저장소 레이아웃은 SAP 권�
 | S72m | 3,328GB | 768 GB |1,280GB | 768 GB |
 | S192 | 4,608GB | 1,024GB | 1,536GB | 1,024GB |
 | S192m | 11,520 GB | 1,536GB | 1,792GB | 1,536GB |
-| S192xm |  12,000 GB |  2,050GB |  2,050GB |  2.040GB |
+| S192xm |  11,520 GB |  1,536GB |  1,792GB |  1,536GB |
 | S384 | 11,520 GB | 1,536GB | 1,792GB | 1,536GB |
 | S384m | 12,000 GB | 2,050GB | 2,050GB | 2,040GB |
 | S384xm | 16,000 GB | 2,050GB | 2,050GB | 2,040GB |
@@ -377,6 +393,8 @@ HANA 대규모 인스턴스 SKU를 세분화하는 경우 가능한 분할 조�
 더 많은 저장소가 필요할 수 있습니다. 저장소는 1TB 단위로 추가로 구입하여 추가할 수 있습니다. 이 추가 저장소는 추가 볼륨으로 추가될 수 있습니다. 또한 기존 볼륨 중 하나 이상을 확장하는 데도 사용할 수 있습니다. 원래 배포된 볼륨 크기는 줄일 수 없으며, 위의 표에서 대부분 설명되어 있습니다. 볼륨 이름을 변경하거나 탑재할 수도 없습니다. 앞에서 설명한 저장소 볼륨은 NFS4 볼륨으로 HANA 대규모 인스턴스 장치에 연결됩니다.
 
 저장소 스냅숏은 백업/복원 및 재해 복구 용도로 사용할 수 있습니다. 자세한 내용은 [SAP HANA on Azure(대규모 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요.
+
+시나리오의 저장소 레이아웃 세부 정보는 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
 ### <a name="encryption-of-data-at-rest"></a>미사용 데이터 암호화
 HANA 대규모 인스턴스에 사용되는 저장소를 통해 디스크에 저장된 데이터를 투명하게 암호화할 수 있습니다. HANA 대규모 인스턴스 장치가 배포되면 이러한 종류의 암호화를 사용하도록 설정할 수 있습니다. 또한 배포가 완료되면 암호화된 볼륨으로 변경할 수도 있습니다. 암호화되지 않은 볼륨에서 암호화된 볼륨으로 이동하는 경우 투명하게 수행되며 가동 중지 시간이 필요하지 않습니다. 
@@ -480,9 +498,7 @@ SAP HANA on Azure(대규모 인스턴스)에 연결하기 위해 여러 SAP 시�
 
 ![여러 가상 네트워크를 통해 SAP 응용 프로그램 계층 배포](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-이 그림에서는 여러 가상 네트워크를 통해 배포된 SAP 응용 프로그램 계층 또는 구성 요소를 보여 줍니다. 이 구성은 이러한 가상 네트워크에서 호스팅되는 응용 프로그램 간의 통신 중에 발생한 피할 수 없는 대기 시간 오버헤드를 유발했습니다. 기본적으로 서로 다른 가상 네트워크에 있는 VM 간의 네트워크 트래픽은 이 구성에서 엔터프라이즈 에지 라우터를 통해 라우팅됩니다. 이 라우팅은 2016년 9월부터 최적화할 수 있습니다. 
-
-두 가상 네트워크 간의 통신 대기 시간을 최적화하고 줄이려면 동일한 지역 내에서 가상 네트워크를 피어링합니다. 이 방법은 해당 가상 네트워크가 다른 구독에 있는 경우에도 작동합니다. 가상 네트워크 피어링을 사용하면 서로 다른 두 가상 네트워크의 VM 간 통신에서 Azure 네트워크 백본을 통해 서로 직접 통신할 수 있습니다. 대기 시간은 VM이 동일한 가상 네트워크에 있는 것처럼 표시됩니다. Azure 가상 네트워크 게이트웨이를 통해 연결된 IP 주소 범위를 처리하는 트래픽은 가상 네트워크의 개별 가상 네트워크 게이트웨이를 통해 라우팅됩니다. 
+이 그림에서는 여러 가상 네트워크를 통해 배포된 SAP 응용 프로그램 계층 또는 구성 요소를 보여 줍니다. 이 구성은 이러한 가상 네트워크에서 호스팅되는 응용 프로그램 간의 통신 중에 발생한 피할 수 없는 대기 시간 오버헤드를 유발했습니다. 기본적으로 서로 다른 가상 네트워크에 있는 VM 간의 네트워크 트래픽은 이 구성에서 엔터프라이즈 에지 라우터를 통해 라우팅됩니다. 두 가상 네트워크 간의 통신 대기 시간을 최적화하고 줄이려면 동일한 지역 내에서 가상 네트워크를 피어링합니다. 이 방법은 해당 가상 네트워크가 다른 구독에 있는 경우에도 작동합니다. 가상 네트워크 피어링을 사용하면 서로 다른 두 가상 네트워크의 VM 간 통신에서 Azure 네트워크 백본을 통해 서로 직접 통신할 수 있습니다. 대기 시간은 VM이 동일한 가상 네트워크에 있는 것처럼 표시됩니다. Azure 가상 네트워크 게이트웨이를 통해 연결된 IP 주소 범위를 처리하는 트래픽은 가상 네트워크의 개별 가상 네트워크 게이트웨이를 통해 라우팅됩니다. 
 
 가상 네트워크 피어링에 대한 자세한 내용은 [가상 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 참조하세요.
 

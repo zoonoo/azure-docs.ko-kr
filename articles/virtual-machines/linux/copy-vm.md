@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0을 사용하여 Linux VM 복사 | Microsoft Docs
-description: Azure CLI 2.0 및 Managed Disks를 사용하여 Azure Linux VM의 복사본을 만드는 방법을 알아봅니다.
+title: Azure CLI를 사용하여 Linux VM 복사 | Microsoft Docs
+description: Azure CLI 및 Managed Disks를 사용하여 Azure Linux VM의 복사본을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
@@ -14,17 +14,17 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: cynthn
-ms.openlocfilehash: 66f2789d717816f5be3fd8b298819825f8cd87f7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d250f1289c3757d5ea862a1c195dde6f8efb0eb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905013"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36938267"
 ---
-# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-20-and-managed-disks"></a>Azure CLI 2.0 및 Managed Disks를 사용하여 Linux VM의 복사본 만들기
+# <a name="create-a-copy-of-a-linux-vm-by-using-azure-cli-and-managed-disks"></a>Azure CLI 및 Managed Disks를 사용하여 Linux VM의 복사본 만들기
 
 
-이 문서에서는 Azure CLI 2.0 및 Azure Resource Manager 배포 모델을 사용하여 Linux를 실행하는 Azure VM(Virtual Machine)의 복사본을 만드는 방법에 대해 설명합니다. [Azure CLI 1.0](copy-vm-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에서 이러한 단계를 수행할 수도 있습니다.
+이 문서에서는 Azure CLI 2.0 및 Azure Resource Manager 배포 모델을 사용하여 Linux를 실행하는 Azure VM(Virtual Machine)의 복사본을 만드는 방법에 대해 설명합니다. 
 
 [VHD에서 VM을 업로드하고 만들](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)수도 있습니다.
 

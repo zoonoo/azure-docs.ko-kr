@@ -8,21 +8,21 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: 5541a2fff6bb54f5d62518e7edf54fb9150e3109
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: ca7da7ab048b6f7bfdba81aac9bc7702b20ff967
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248976"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751800"
 ---
-# <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
+# <a name="back-up-sql-server-on-stack"></a>Stack에 SQL Server 백업
 이 문서를 사용하여 Azure Stack에서 SQL Server 데이터베이스를 보호하도록 MABS(Microsoft Azure Backup Server)를 구성할 수 있습니다.
 
 Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베이스를 복구하는 것을 관리하는 작업에는 세 가지 단계가 포함됩니다.
 
-1. Azure에 대해 SQL server 데이터베이스를 보호하기 위한 백업 정책을 만듭니다.
-2. Azure에 주문형 백업 복사본을 만듭니다.
-3. Azure에서 데이터베이스를 복구합니다.
+1. SQL server 데이터베이스를 보호하기 위한 백업 정책 만들기
+2. 주문형 백업 복사본을 만들기
+3. Azure 및 디스크에서 데이터베이스 복구
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -63,12 +63,6 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
    >
 
 7. **디스크 할당 검토** 화면에서 사용 가능한 전체 저장소 공간 및 잠재적인 디스크 공간을 확인합니다. **다음**을 클릭합니다.
-
-    ![디스크 할당](./media/backup-azure-backup-sql/pg-storage.png)
-
-    기본적으로 Azure Backup Server는 초기 백업 복사본에 사용되는 데이터 원본(SQL Server 데이터베이스)당 하나의 볼륨을 만듭니다. 이 방법을 사용하여 논리 디스크 관리자(LDM)는 Azure Backup 보호를 300개 데이터 원본(SQL Server 데이터베이스)으로 제한합니다. 이 제한을 해결하려면 **DPM 저장소 풀에 데이터 공동 배치**를 선택합니다. 공동 배치를 선택하면 Azure Backup Server가 여러 데이터 원본에 단일 볼륨을 사용하고, 최대 2000개의 SQL Server 데이터베이스를 보호할 수 있습니다.
-
-    **볼륨 자동 증가**를 선택할 경우 Azure Backup Server는 프로덕션 데이터가 증가함에 따라 함께 증가하는 백업 볼륨을 처리할 수 있습니다. 이 옵션을 선택하지 않으면 Azure Backup Server는 보호 그룹의 데이터 원본에 사용되는 백업 저장소를 제한합니다.
 
 8. **복제본 만들기 방법 선택**에서, 첫 번째 복구 지점을 만들 방법을 선택합니다. 대역폭 정체를 방지하기 위해 초기 백업을 수동으로(오프 네트워크) 전송해도 되고 아니면 네트워크를 통해 전송해도 됩니다. 첫 번째 백업이 전송되기를 기다리기로 선택하는 경우 초기 전송의 시간을 지정할 수 있습니다. **다음**을 클릭합니다.
 
@@ -111,12 +105,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
     * 토요일 오후 12시에 수행되는 백업은 104주 동안 유지됩니다.
     * 마지막 주 토요일 오후 12시에 수행되는 백업은 60개월 동안 유지됩니다.
     * 3월 마지막 주 토요일 오후 12시에 수행되는 백업은 10년 동안 유지됩니다.
-13. **다음** 을 클릭하고 초기 백업 복사본을 Azure에 전송하기 위한 적절한 옵션을 선택합니다. **네트워크를 통해 자동으로** 또는 **오프라인 Backup**을 선택할 수 있습니다.
-
-    * **네트워크를 통해 자동으로** 는 백업에 선택한 일정에 따라 Azure에 백업 데이터를 전송합니다.
-    * **오프라인 백업**은 [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md)에 설명되어 있습니다.
-
-    관련 전송 메커니즘을 선택하여 초기 백업 복사본을 Azure로 보내고 **다음**을 클릭합니다.
+13. **다음** 을 클릭하고 초기 백업 복사본을 Azure에 전송하기 위한 적절한 옵션을 선택합니다. **네트워크를 통해 자동으로**를 선택할 수 있습니다.
 
 14. **요약** 화면에서 정책 세부 정보를 검토한 후에는 **그룹 만들기**를 클릭하여 워크플로를 완료합니다. **닫기**를 클릭하고 작업 영역 모니터링에서 작업 진행 상태를 모니터링할 수 있습니다.
 
@@ -147,11 +136,11 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
 2. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭하고 **복구**를 클릭합니다.
 
     ![Azure에서 복구](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 클릭합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 클릭합니다.
+3. MABS에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 클릭합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 클릭합니다.
 
     ![원래 위치로 복구](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    이 예제에서 DPM는 다른 SQL Server 인스턴스 또는 독립 실행형 네트워크 폴더에 데이터베이스를 복구합니다.
+    이 예제에서 MABS는 다른 SQL Server 인스턴스 또는 독립 실행형 네트워크 폴더로 데이터베이스를 복구합니다.
 
 4. **복구 옵션 지정** 화면에서 네트워크 대역폭 사용 제한을 같은 복구 옵션을 선택하여 복구에서 사용되는 대역폭을 제한할 수 있습니다. **다음**을 클릭합니다.
 

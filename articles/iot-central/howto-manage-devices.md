@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a1b88621feaaaff3f787cca8c4b4e45d4974931
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807478"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937621"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 장치 관리
 
@@ -49,7 +49,7 @@ Azure IoT Central 응용 프로그램에 장치를 추가하려면:
 1. **실제 장치** 또는 **시뮬레이션된 장치**를 선택합니다. 실제 장치는 Azure IoT Central 응용 프로그램에 연결하는 물리적 장치입니다. 시뮬레이션된 장치에는 Azure IoT Central에서 생성한 샘플 데이터가 있습니다. 이 예제에서는 실제 장치를 사용합니다. **실제 장치**를 선택하여 새 장치의 **장치 세부 정보** 페이지로 이동합니다.
 
 
-## <a name="bulk-import-devices"></a>장치 대량 가져오기
+## <a name="import-devices"></a>장치 가져오기
 
 대량의 장치를 응용 프로그램에 연결할 수 있도록 Azure IoT Central은 CSV 파일을 통해 장치 대량 가져오기 기능을 제공합니다. 
 
@@ -65,9 +65,12 @@ CSV 파일 요구 사항:
 
 1. 왼쪽 패널에서 장치를 대량으로 만들 장치 템플릿을 선택합니다.
 
-1. **새로 만들기**를 선택하고 **대량 가져오기**를 선택합니다.
+ >   [!NOTE] 
+    아직 장치 템플릿이 없는 경우 **연결되지 않은 장치** 아래에서 장치를 가져와서 아무런 템플릿 없이 등록할 수 있습니다. 장치를 가져오면 후속 단계로 템플릿과 장치를 연결할 수 있습니다.
 
-    [![대량 가져오기 작업](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
+1. **가져오기**를 클릭합니다.
+
+    [![가져오기 작업](./media/howto-manage-devices/BulkImport1.png)](./media/howto-manage-devices/BulkImport1.png#lightbox)
 
 1. 가져올 장치 ID 목록이 들어 있는 CSV 파일을 선택합니다.
 
@@ -75,9 +78,25 @@ CSV 파일 요구 사항:
 
 1. 가져오기가 완료되면 장치 그리드에 성공 메시지가 표시됩니다.
 
-    [![대량 가져오기 성공](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
+    [![가져오기 성공](./media/howto-manage-devices/BulkImport3.png)](./media/howto-manage-devices/BulkImport3.png#lightbox)
 
 장치 가져오기 작업이 실패하면 장치 그리드에 오류가 표시됩니다. 모든 오류를 캡처하는 로그 파일이 생성되며 오류 메시지를 클릭하여 다운로드할 수 있습니다.
+
+
+**템플릿과 장치 연결**
+
+**연결되지 않은 장치** 아래에서 가져오기를 시작하여 장치를 등록하는 경우 해당 장치는 어떤 장치 템플릿 연결 없이도 생성됩니다. 데이터 및 장치에 대한 기타 세부 정보를 탐색하려면 장치는 템플릿과 연결되어 있어야 합니다. 템플릿과 장치를 연결하려면 이러한 단계를 수행합니다.
+1. 왼쪽 탐색 메뉴에서 **Explorer**를 선택합니다.
+1. 왼쪽 패널에서 **연결되지 않은 장치**를 선택합니다.
+    [![연결되지 않은 장치](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
+1. 템플릿과 연결하려는 장치를 선택합니다.
+1. **연결** 옵션을 클릭합니다.
+    [![장치 연결](./media/howto-manage-devices/UnassociatedDevices2.png)](./media/howto-manage-devices/UnassociatedDevices2.png#lightbox)
+1. 사용 가능한 템플릿 목록에서 템플릿을 선택한 다음, **연결** 단추를 클릭합니다.
+1. 선택한 장치는 해당 장치 템플릿 아래로 이동합니다.
+
+ >   [!NOTE] 
+    장치가 템플릿과 연결되면 다른 템플릿과 연결되거나 연결 해제될 수 없습니다.
 
 ## <a name="export-devices"></a>내보내기 장치
 

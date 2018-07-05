@@ -1,25 +1,25 @@
 ---
-title: Azure SQL 데이터 동기화(미리 보기) 모범 사례 | Microsoft Docs
-description: Azure SQL 데이터 동기화(미리 보기)의 구성 및 실행에 대한 모범 사례를 알아봅니다.
+title: Azure SQL 데이터 동기화에 대한 모범 사례 | Microsoft Docs
+description: Azure SQL 데이터 동기화의 구성 및 실행에 대한 모범 사례를 알아봅니다.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 683cf1426f01b3ab495b2380612dbf37342fc27a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646010"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025348"
 ---
-# <a name="best-practices-for-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기)에 대한 모범 사례 
+# <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
-이 문서에서는 Azure SQL 데이터 동기화(미리 보기)에 대한 모범 사례를 설명합니다.
+이 문서에서는 Azure SQL 데이터 동기화에 대한 모범 사례를 설명합니다.
 
-Azure SQL 데이터 동기화(미리 보기)에 대한 개요는 [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
 
 ## <a name="security-and-reliability"></a> 보안 및 안정성
 
@@ -50,10 +50,10 @@ Azure SQL Database는 단일 자격 증명 집합만 지원합니다. 이 제약
 
 #### <a name="sql-database-instance-size"></a>SQL Database 인스턴스 크기
 
-새 SQL Database 인스턴스를 만들 때 항상 배포한 데이터베이스보다 크도록 최대 크기를 설정합니다. 최대 크기를 배포된 데이터베이스보다 크게 설정하지 않으면 동기화가 실패합니다. SQL 데이터 동기화(미리 보기)는 자동 확장을 제공하지 않지만, 데이터베이스가 생성된 후 `ALTER DATABASE` 명령을 실행하여 데이터베이스의 크기를 늘릴 수 있습니다. SQL Database 인스턴스 크기 제한을 넘지 않도록 주의해야 합니다.
+새 SQL Database 인스턴스를 만들 때 항상 배포한 데이터베이스보다 크도록 최대 크기를 설정합니다. 최대 크기를 배포된 데이터베이스보다 크게 설정하지 않으면 동기화가 실패합니다. SQL 데이터 동기화는 자동 확장을 제공하지 않지만, 데이터베이스가 생성된 후 `ALTER DATABASE` 명령을 실행하여 데이터베이스의 크기를 늘릴 수 있습니다. SQL Database 인스턴스 크기 제한을 넘지 않도록 주의해야 합니다.
 
 > [!IMPORTANT]
-> SQL 데이터 동기화(미리 보기)는 각 데이터베이스와 함께 추가 메타데이터를 저장합니다. 필요한 공간을 계산할 때 이 메타데이터를 고려해야 합니다. 추가 오버 헤드의 양은 테이블 너비(예: 테이블이 좁으면 더 많은 오버헤드가 필요) 및 트래픽 양에 비례합니다.
+> SQL 데이터 동기화는 각 데이터베이스와 함께 추가 메타데이터를 저장합니다. 필요한 공간을 계산할 때 이 메타데이터를 고려해야 합니다. 추가 오버 헤드의 양은 테이블 너비(예: 테이블이 좁으면 더 많은 오버헤드가 필요) 및 트래픽 양에 비례합니다.
 
 ### <a name="table-considerations-and-constraints"></a> 테이블 고려 사항 및 제약 조건
 
@@ -63,19 +63,19 @@ Azure SQL Database는 단일 자격 증명 집합만 지원합니다. 이 제약
 
 #### <a name="primary-keys"></a>기본 키
 
-동기화 그룹의 각 테이블에는 기본 키가 있어야 합니다. SQL 데이터 동기화(미리 보기) 서비스는 기본 키가 없는 테이블을 동기화 할 수 없습니다.
+동기화 그룹의 각 테이블에는 기본 키가 있어야 합니다. SQL 데이터 동기화 서비스는 기본 키가 없는 테이블을 동기화 할 수 없습니다.
 
-SQL 데이터 동기화(미리 보기)를 프로덕션에 사용하기 전에 초기 및 지속적인 동기화 성능을 테스트하세요.
+SQL 데이터 동기화를 프로덕션에 사용하기 전에 초기 및 지속적인 동기화 성능을 테스트하세요.
 
 ### <a name="provisioning-destination-databases"></a> 대상 데이터베이스 프로비전
 
-SQL 데이터 동기화(미리 보기)는 기본 데이터베이스 자동 프로비전을 제공합니다.
+SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제공합니다.
 
-이 섹션에서는 SQL 데이터 동기화(미리 보기)의 프로비전 제한 사항에 대해 설명합니다.
+이 섹션에서는 SQL 데이터 동기화의 프로비전 제한 사항에 대해 설명합니다.
 
 #### <a name="autoprovisioning-limitations"></a>자동 프로비전 제한 사항
 
-다음은 SQL 데이터 동기화(미리 보기)의 자동 프로비전 제한 사항입니다.
+다음은 SQL 데이터 동기화의 자동 프로비전 제한 사항입니다.
 
 -   대상 테이블에 생성된 열만 선택합니다.  
     동기화 그룹의 일부가 아닌 열은 대상 테이블에 프로비전되지 않습니다.
@@ -88,7 +88,7 @@ SQL 데이터 동기화(미리 보기)는 기본 데이터베이스 자동 프�
 
 #### <a name="recommendations"></a>권장 사항
 
--   SQL 데이터 동기화(미리 보기) 자동 프로비전 기능은 서비스를 시험해 보는 경우에만 사용합니다.  
+-   SQL 데이터 동기화 자동 프로비전 기능은 서비스를 시험해 보는 경우에만 사용합니다.  
 -   프로덕션의 경우 데이터베이스 스키마를 프로비전합니다.
 
 ### <a name="locate-hub"></a> 허브 데이터베이스를 찾을 수 있는 위치
@@ -114,7 +114,7 @@ SQL 데이터 동기화(미리 보기)는 기본 데이터베이스 자동 프�
 
 #### <a name="how-initial-sync-works"></a>초기 동기화의 작동 원리
 
-동기화 그룹을 만들 때 단 하나의 데이터베이스에 있는 데이터부터 시작합니다. 여러 데이터베이스에 데이터가 있으면 SQL 데이터 동기화(미리 보기)는 각 행을 해결해야 하는 충돌로 처리합니다. 이 충돌 해결이 초기 동기화를 느리게 만드는 원인입니다. 여러 데이터베이스에 데이터가 있으면 데이터베이스 크기에 따라 초기 동기화가 며칠부터 몇 달까지 걸릴 수 있습니다.
+동기화 그룹을 만들 때 단 하나의 데이터베이스에 있는 데이터부터 시작합니다. 여러 데이터베이스에 데이터가 있으면 SQL 데이터 동기화는 각 행을 해결해야 하는 충돌로 처리합니다. 이 충돌 해결이 초기 동기화를 느리게 만드는 원인입니다. 여러 데이터베이스에 데이터가 있으면 데이터베이스 크기에 따라 초기 동기화가 며칠부터 몇 달까지 걸릴 수 있습니다.
 
 데이터베이스가 여러 데이터 센터에 있는 경우 각 행은 여러 데이터 센터 사이를 이동해야 합니다. 이로 인해 초기 동기화의 비용이 증가합니다.
 
@@ -209,16 +209,16 @@ SQL 데이터 동기화(미리 보기)는 기본 데이터베이스 자동 프�
 데이터베이스를 제거한 후 변경 내용 중 하나가 먼저 배포되기 전에 동기화 그룹을 편집하려고 하면 해당 작업 또는 다른 작업이 실패합니다. 포털 인터페이스가 불일치 상태가 될 수 있습니다. 이 상황이 발생하면 페이지를 새로 고쳐서 올바른 상태로 복원할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-SQL 데이터 동기화(미리 보기)에 대한 자세한 내용은 다음 항목을 참조하세요.
+SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하세요.
 
--   [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)
--   [Azure SQL 데이터 동기화(미리 보기) 설정](sql-database-get-started-sql-data-sync.md)
--   [Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링](sql-database-sync-monitor-oms.md)
--   [Azure SQL 데이터 동기화(미리 보기) 문제 해결](sql-database-troubleshoot-data-sync.md)  
--   SQL 데이터 동기화(미리 보기) 구성 방법을 보여주는 전체 PowerShell 예제:  
+-   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)
+-   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
+-   [Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+-   [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)  
+-   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:  
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [SQL 데이터 동기화(미리 보기) REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
+-   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 SQL Database에 대한 자세한 내용은 다음 항목을 참조하세요.
 

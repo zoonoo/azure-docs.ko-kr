@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9c4c126663d34d65cc7e0aa641bf93b848a5dcae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658318"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062244"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
 
@@ -44,10 +44,12 @@ Azure의 SAP HANA(대규모 인스턴스)는 네 개의 지정학적 영역(미�
 | HANA 큰 인스턴스에서 지원되는 시나리오 | 고가용성 옵션 | 재해 복구 옵션 | 설명 |
 | --- | --- | --- | --- |
 | 단일 노드 | 사용할 수 없음. | 전용 DR 설치.<br /> 다목적 DR 설치. | |
-| 호스트 자동 장애 조치(failover): N+m<br /> 1+1 포함 | 활성 역할의 대기에서 가능.<br /> HANA에서 역할 전환 제어. | 전용 DR 설치.<br /> 다목적 DR 설치.<br /> 저장소 복제를 사용하여 DR 동기화. | HANA 볼륨 세트가 모든 노드에 연결됨(n+m).<br /> DR 사이트에는 동일한 수의 노드가 있어야 함. |
+| 호스트 자동 장애 조치(failover): 스케일 아웃(대기 모드 유무 상관 없음)<br /> 1+1 포함 | 활성 역할의 대기에서 가능.<br /> HANA에서 역할 전환 제어. | 전용 DR 설치.<br /> 다목적 DR 설치.<br /> 저장소 복제를 사용하여 DR 동기화. | HANA 볼륨 세트가 모든 노드에 연결됨.<br /> DR 사이트에는 동일한 수의 노드가 있어야 함. |
 | HANA 시스템 복제 | 주 또는 보조 설치에서 가능.<br /> 장애 조치(failover)의 경우 보조가 주 역할로 전환.<br /> HANA 시스템 복제 및 OS 제어 장애 조치(Failover). | 전용 DR 설치.<br /> 다목적 DR 설치.<br /> 저장소 복제를 사용하여 DR 동기화.<br /> HANA 시스템 복제를 사용하는 DR은 아직 타사 구성 요소 없이 가능하지 않음. | 별도의 디스크 볼륨 세트가 각 노드에 연결됩니다.<br /> 프로덕션 사이트에 있는 보조 복제본의 디스크 볼륨만 DR 위치로 복제됩니다.<br /> DR 사이트에는 한 세트의 볼륨이 필요합니다. | 
 
 전용 DR 설치는 DR 사이트의 HANA 큰 인스턴스 단위가 다른 워크로드 또는 비프로덕션 시스템을 실행하는 데 사용되지 않는 위치입니다. 이 단위는 수동이며 재해 장애 조치(failover)가 실행되는 경우에만 배포됩니다. 하지만 이 설치는 많은 고객이 선호하는 기본 선택 사항은 아닙니다.
+
+아키텍처의 저장소 레이아웃 및 이더넷 세부 정보는 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
 > [!NOTE]
 > 오버레이 시나리오로 구성된 [SAP HANA MCOD 배포](https://launchpad.support.sap.com/#/notes/1681092)(한 단위에 여러 개의 HANA 인스턴스가 있음)는 표에 나열된 HA 및 DR 방법으로 작동합니다. 단, Pacemaker 기반의 자동 장애 조치(failover) 클러스터에서 HANA 시스템 복제를 사용하는 경우는 예외입니다. 이 경우 단위당 하나의 HANA 인스턴스만 지원됩니다. [SAP HANA MDC](https://launchpad.support.sap.com/#/notes/2096000) 배포에서 둘 이상의 테넌트가 배포된 경우 비저장소 기반 HA 및 DR 메서드만 작동합니다. 하나의 테넌트가 배포된 경우 나열된 모든 방법이 유효합니다.  
@@ -60,7 +62,7 @@ Azure의 SAP HANA(대규모 인스턴스)는 네 개의 지정학적 영역(미�
 - [SAP HANA 고가용성 백서](http://go.sap.com/documents/2016/05/f8e5eeba-737c-0010-82c7-eda71af511fa.html)
 - [SAP HANA 관리 가이드](http://help.sap.com/hana/SAP_HANA_Administration_Guide_en.pdf)
 - [SAP HANA 시스템 복제에 대한 SAP HANA Academy 비디오](http://scn.sap.com/community/hana-in-memory/blog/2015/05/19/sap-hana-system-replication)
-- [SAP 지원 참고 사항 #1999880 – SAP HANA 시스템 복제에 대한 FAQ](https://bcs.wdf.sap.corp/sap/support/notes/1999880)
+- [SAP 지원 참고 사항 #1999880 – SAP HANA 시스템 복제에 대한 FAQ](https://apps.support.sap.com/sap/support/knowledge/preview/en/1999880)
 - [SAP 지원 참고 사항 #2165547 – SAP HANA 시스템 복제 환경 내의 SAP HANA 백업 및 복원](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3231363535343726)
 - [SAP 지원 참고 사항 #1984882 – 가동 중지 시간이 최소/없는 하드웨어 Exchange에 대한 SAP HANA 시스템 복제 사용](https://websmp230.sap-ag.de/sap(bD1lbiZjPTAwMQ==)/bc/bsp/sno/ui_entry/entry.htm?param=69765F6D6F64653D3030312669765F7361706E6F7465735F6E756D6265723D3139383438383226)
 

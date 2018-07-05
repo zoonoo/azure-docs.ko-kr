@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/14/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: 6a1d4a55074630cc20c98202d2e94ec682c323f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2c4e26bb6f2cd144d00d9e4ada92d756fe68418b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234076"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020409"
 ---
 # <a name="create-an-access-review-of-group-members-or-application-access-with-azure-ad"></a>Azure AD에서 그룹 구성원 또는 응용 프로그램 액세스에 대한 액세스 검토 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "35234076"
 
 ## <a name="create-an-access-review"></a>액세스 검토 만들기
 
-1. 전역 관리자인 경우 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동하고 **프로그램**을 선택합니다.
+1. 전역 관리자 또는 사용자 계정 관리자로 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동하고 **프로그램**을 선택합니다.
 
 2. 만들려는 액세스 검토 컨트롤을 포함하는 프로그램을 선택합니다. **기본 프로그램**은 항상 존재하거나 다른 프로그램을 만들 수 있습니다. 예를 들어 준수 이니셔티브 또는 비즈니스 목표 각각에 대한 프로그램을 하나씩 선택할 수 있습니다.
 
@@ -38,7 +38,7 @@ ms.locfileid: "35234076"
 
 6. 액세스 검토 되풀이를 만들려면 빈도를 한 번에서 매주, 매월, 매분기 또는 매년으로 변경하고 슬라이더 또는 텍스트 상자를 사용하여 각 되풀이 시리즈의 검토가 검토자의 입력에 대해 열리는 일 수를 정의합니다. 예를 들어 겹치는 검토를 방지하기 위해 월별 검토에 대해 설정할 수 있는 최대 기간은 27일입니다. 
 
-7.  되풀이 액세스 검토 시리즈는 3가지 방법으로 종료될 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자 또는 다른 전역 관리자는 해당 날짜에 종료되도록 설정에서 날짜를 변경하여 생성 후 시리즈를 중지할 수 있습니다.
+7.  되풀이 액세스 검토 시리즈는 3가지 방법으로 종료될 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자, 다른 사용자 계정 관리자 또는 다른 전역 관리자는 해당 날짜에 종료되도록 설정에서 날짜를 변경하여 생성 후 시리즈를 중지할 수 있습니다.
 
 8. 액세스 검토는 응용 프로그램에 할당된 그룹 구성원이거나 사용자일 수 있습니다. 구성원이거나 응용 프로그램에 대한 액세스 권한이 있는 모든 사용자를 검토하는 대신, 액세스 검토 범위를 자세히 지정하여 구성원이거나 앱에 할당된 게스트 사용자로만 제한하여 검토할 수 있습니다.
 

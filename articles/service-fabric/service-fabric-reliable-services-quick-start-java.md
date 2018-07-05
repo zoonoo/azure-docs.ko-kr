@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 48546e84b94ad0c11a159b2f88f7e21f7eb6ae0e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208304"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019698"
 ---
 # <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
 > [!div class="op_single_selector"]
@@ -119,7 +119,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 이 자습서에서는 `runAsync()` 진입점 메서드에 집중합니다. 바로 코드를 실행하기 시작할 수 있습니다.
 
 ### <a name="runasync"></a>RunAsync
-서비스의 인스턴스가 배치되어 실행할 준비가 되면 플랫폼이 이 메서드를 호출합니다. 상태 비저장 서비스의 경우 이는 간단히 말해 서비스 인스턴스가 열릴 때를 의미합니다. 서비스 인스턴스를 종료해야 하는 경우 취소 토큰이 제공됩니다. 서비스 패브릭에서 서비스 인스턴스의 열림-닫힘 주기는 서비스의 수명 동안 전체적으로 여러 번 발생할 수 있습니다. 다음을 포함하여 여러 가지 이유로 발생할 수 있습니다.
+서비스의 인스턴스가 배치되어 실행할 준비가 되면 플랫폼이 이 메서드를 호출합니다. 상태 비저장 서비스의 경우 이는 서비스 인스턴스가 열릴 때를 의미합니다. 서비스 인스턴스를 종료해야 하는 경우 취소 토큰이 제공됩니다. 서비스 패브릭에서 서비스 인스턴스의 열림-닫힘 주기는 서비스의 수명 동안 전체적으로 여러 번 발생할 수 있습니다. 다음을 포함하여 여러 가지 이유로 발생할 수 있습니다.
 
 * 시스템은 리소스 분산을 위해 서비스 인스턴스를 이동시킵니다.
 * 오류는 코드에서 발생합니다.
@@ -210,7 +210,7 @@ ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddRelia
   
    트랜잭션의 신뢰할 수 있는 컬렉션에서 업데이트 작업을 수행하지 않고 해당 개체의 로컬 인스턴스를 변환하지 않는 것이 중요합니다. 개체의 로컬 인스턴스에 대한 변경 내용은 자동으로 복제되지 않기 때문입니다. 개체를 디렉터리에 다시 삽입하거나 디렉터리의 *update* 메서드 중 하나를 사용해야 합니다.
 
-신뢰할 수 있는 상태 관리자는 사용자에 대한 신뢰할 수 있는 해시 맵을 관리합니다. 언제든지 서비스의 어느 위치에서든 신뢰할 수 있는 컬렉션에 대한 신뢰할 수 있는 상태 관리자를 단순히 요청할 수 있습니다. 신뢰할 수 있는 상태 관리자는 참조를 다시 가져오도록 합니다. 클래스 멤버 변수 또는 속성에서 신뢰할 수 있는 컬렉션 인스턴스에 대한 참조를 저장하는 것이 좋습니다. 서비스 수명 주기에서 항상 참조가 인스턴스로 설정되어 있도록 특별히 주의해야 합니다. 신뢰할 수 있는 상태 관리자는 사용자를 위해 이 작업을 처리하고 반복 방문에 최적화됩니다.
+신뢰할 수 있는 상태 관리자는 사용자에 대한 신뢰할 수 있는 해시 맵을 관리합니다. 언제든지 서비스의 어느 위치에서든 신뢰할 수 있는 컬렉션에 대한 신뢰할 수 있는 상태 관리자를 요청할 수 있습니다. 신뢰할 수 있는 상태 관리자는 참조를 다시 가져오도록 합니다. 클래스 멤버 변수 또는 속성에서 신뢰할 수 있는 컬렉션 인스턴스에 대한 참조를 저장하지 않는 것이 좋습니다. 서비스 수명 주기에서 항상 참조가 인스턴스로 설정되어 있도록 특별히 주의해야 합니다. 신뢰할 수 있는 상태 관리자는 사용자를 위해 이 작업을 처리하고 반복 방문에 최적화됩니다.
 
 
 ### <a name="transactional-and-asynchronous-operations"></a>트랜잭션 및 비동기 작업
@@ -236,7 +236,7 @@ return map.computeAsync(tx, "counter", (k, v) -> {
 신뢰할 수 있는 해시 맵 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 해시 맵 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 사전에서 작업 항목을 가져오고, 여기서 작업을 수행하고, 다른 신뢰할 수 있는 해시 맵의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 
 
-## <a name="run-the-application"></a>응용 프로그램 실행
+## <a name="build-the-application"></a>응용 프로그램 빌드
 
 Yeoman 스캐폴딩은 응용 프로그램을 빌드하는 Gradle 스크립트와 응용 프로그램을 배포하고 제거하는 Bash 스크립트를 포함합니다. 응용 프로그램을 실행하려면 먼저 다음과 같은 Gradle을 통해 응용 프로그램을 빌드합니다.
 
@@ -246,13 +246,31 @@ $ gradle
 
 그러면 Service Fabric CLI를 사용하여 배포할 수 있는 Service Fabric 응용 프로그램 패키지를 생성합니다.
 
-### <a name="deploy-with-service-fabric-cli"></a>Service Fabric CLI를 사용하여 배포
+## <a name="deploy-the-application"></a>응용 프로그램 배포
 
-install.sh 스크립트는 응용 프로그램 패키지를 배포하는 데 필요한 Service Fabric CLI 명령을 포함합니다. install.sh 스크립트를 실행하여 응용 프로그램을 배포합니다.
+응용 프로그램이 빌드되면 로컬 클러스터에 배포할 수 있습니다.
 
-```bash
-$ ./install.sh
-```
+1. 로컬 Service Fabric 클러스터에 연결합니다.
+
+    ```bash
+    sfctl cluster select --endpoint http://localhost:19080
+    ```
+
+2. 템플릿에 제공된 설치 스크립트를 실행하여 클러스터의 이미지 저장소에 응용 프로그램 패키지를 복사하고 응용 프로그램 유형을 등록하며 응용 프로그램의 인스턴스를 만듭니다.
+
+    ```bash
+    ./install.sh
+    ```
+
+빌드된 응용 프로그램을 배포하는 방법은 다른 Service Fabric 응용 프로그램과 같습니다. 자세한 지침은 [Service Fabric CLI에서 Service Fabric 응용 프로그램 관리](service-fabric-application-lifecycle-sfctl.md)에 대한 설명서를 참조하세요.
+
+응용 프로그램 패키지 내에 생성된 매니페스트에서 이러한 명령의 매개 변수를 찾을 수 있습니다.
+
+응용 프로그램이 배포되면 브라우저를 열고 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)에 있는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)로 이동합니다. 그런 다음 **응용 프로그램** 노드를 확장하면 응용 프로그램 형식에 대한 항목 및 해당 형식의 첫 번째 인스턴스에 대한 다른 항목이 만들어집니다.
+
+> [!IMPORTANT]
+> 응용 프로그램을 Azure의 보안 Linux 클러스터에 배포하려면 Service Fabric 런타임으로 응용 프로그램의 유효성을 검사하는 인증서를 구성해야 합니다. 이렇게 하면 Reliable Services 서비스에서 기본 Service Fabric 런타임 API와 통신할 수 있습니다. 자세히 알아보려면 [Linux 클러스터에서 실행하도록 Reliable Services 앱 구성](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)을 참조하세요.  
+>
 
 ## <a name="next-steps"></a>다음 단계
 

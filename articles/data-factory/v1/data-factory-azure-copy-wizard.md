@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ebd8abf8c34be1fa6fcd282c9bfbc63d81a56239
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6330854f4ee9b2db1597d916c815bb6646da6a29
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621135"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052752"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 
 
 Azure Data Factory 복사 마법사는 일반적으로 종단 간 데이터 통합 시나리오의 첫 번째 단계인 데이터 수집 프로세스를 용이하게 합니다. Azure Data Factory 복사 마법사를 진행할 때는 연결된 서비스, 데이터 집합 및 파이프라인에 대한 JSON 정의를 이해할 필요가 없습니다. 선택한 데이터 원본에서 선택한 대상으로 데이터를 복사하는 파이프라인이 자동으로 만들어집니다. 또한 복사 마법사는 만들 때 수집된 데이터의 유효성을 검사하는 데 도움을 줍니다. 이렇게 하면 특히 데이터 원본에서 처음으로 데이터를 처리할 때 시간을 절약할 수 있습니다. 복사 마법사를 시작하려면 Data Factory 홈 페이지에서 **데이터 복사** 타일을 클릭합니다.
 

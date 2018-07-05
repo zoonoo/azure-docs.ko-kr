@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 77326832f42cc1ef74ae7a380f4e38d3c67d17b7
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c07cc3e434a178a5f6a1ea10f7dc630c3d0d548d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775114"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37019293"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics의 VMware 모니터링(미리 보기) 솔루션
 
@@ -171,7 +171,7 @@ Log Analytics 표준 기능인 검색 쿼리 저장은 유용한 것으로 확�
 이 솔루션은 기본 ESXi 호스트 Syslog 전달 메커니즘을 사용합니다. ESXi 호스트에 추가 Microsoft 소프트웨어가 없어도 로그를 캡처할 수 있습니다. 기존 환경에 미치는 영향이 적습니다. 그러나 ESXI 기능인 syslog 전달을 설정해야 합니다.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>ESXi 호스트를 다시 시작해야 합니까?
-번호 이 프로세스는 호스트를 다시 시작하지 않아도 됩니다. vSphere에서 syslog을 제대로 업데이트하지 못하는 경우가 있습니다. 이 경우 ESXi 호스트에 로그온하여 syslog를 다시 로드하세요. 호스트를 다시 시작할 필요가 없으므로 이 프로세스는 사용자 환경에 방해가 되지 않습니다.
+아니요. 이 프로세스는 호스트를 다시 시작하지 않아도 됩니다. vSphere에서 syslog을 제대로 업데이트하지 못하는 경우가 있습니다. 이 경우 ESXi 호스트에 로그온하여 syslog를 다시 로드하세요. 호스트를 다시 시작할 필요가 없으므로 이 프로세스는 사용자 환경에 방해가 되지 않습니다.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Log Analytics로 전송되는 로그 데이터의 양을 늘리거나 줄일 수 있나요?
 예. vsphere에서 ESXi 호스트 로그 수준 설정을 사용하면 됩니다. 로그 수집은 *정보* 수준을 기반으로 합니다. 따라서 VM 만들기 또는 삭제를 감사하려면 호스트에서 *정보* 수준을 유지해야 합니다. 자세한 내용은 [VMware 기술 자료](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658)를 참조하세요.

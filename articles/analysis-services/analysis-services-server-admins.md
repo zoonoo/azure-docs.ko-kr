@@ -5,18 +5,21 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59aaf07edf387d40f47d7d82dcb116802a003dc1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec1630f4de70f77c13e335c68aff16180e524c12
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596171"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307811"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
-서버 관리자는 서버가 상주하는 테넌트의 Azure AD(Azure Active Directory)에서 유효한 사용자 또는 그룹이어야 합니다. Azure Portal 또는 SSMS의 서버 속성에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
+서버 관리자는 서버가 상주하는 테넌트의 Azure AD(Azure Active Directory)에서 유효한 사용자 또는 보안 그룹이어야 합니다. Azure Portal 또는 SSMS의 서버 속성에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
+
+> [!NOTE]
+> 보안 그룹에는 `True`로 설정된 `MailEnabled` 속성이 있어야 합니다.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Azure Portal을 사용하여 서버 관리자를 추가하려면
 1. 서버에 대한 포털에서 **Analysis Services 관리자**를 클릭합니다.

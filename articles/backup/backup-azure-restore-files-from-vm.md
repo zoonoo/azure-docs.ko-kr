@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: pullabhk
-ms.openlocfilehash: e9d1c79d6485764f4b671ad529e0812b49df34b1
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737021"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958623"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -171,9 +171,9 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 | Windows Server 2016    | 윈도우 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | 윈도우 7   |
+| Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Linux의 경우
+### <a name="for-linux-os"></a>Linux OS
 
 Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된 가상 머신의 파일 시스템을 지원해야 합니다. 스크립트를 실행할 컴퓨터를 선택할 때 컴퓨터에 호환되는 OS가 있는지 확인하고 다음 테이블에 나타난 버전 중 하나를 사용합니다.
 

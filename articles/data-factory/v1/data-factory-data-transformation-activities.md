@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: aa51073395a1049cd78f13ba185119707a787b29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: afa00a81738563ec3c5b4b168f533b732c263825
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622298"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045622"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "34622298"
 
 ## <a name="overview"></a>개요
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [Data Factory 버전 2의 데이터 변환 작업](../transform-data.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory에서 데이터 변환 작업](../transform-data.md)을 참조하세요.
 
 이 문서에서는 원시 데이터를 예측 가능하고 통찰력 있는 정보로 변환하고 처리하는 데 사용할 수 있는 Azure Data Factory의 데이터 변환 작업을 설명합니다. 변환 작업은 Azure HDInsight 클러스터나 Azure Batch와 같은 컴퓨팅 환경에서 실행됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.
 

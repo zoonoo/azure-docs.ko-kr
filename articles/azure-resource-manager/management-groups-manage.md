@@ -10,13 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/15/2018
+ms.date: 06/22/2018
 ms.author: rithorn
-ms.openlocfilehash: 822a2df113b848f07e616f155881f345028cee1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0a13627232904f4b14cdb5cbf5c3ca927d9ea167
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754409"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리 
 관리 그룹은 여러 구독에서 액세스, 정책 및 규정 준수를 관리하는 데 도움이 되는 컨테이너입니다. 이러한 컨테이너를 변경하고 삭제하고 관리하여 [Azure Policy](../azure-policy/azure-policy-introduction.md) 및 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)에서 사용할 수 있는 계층 구조를 유지할 수 있습니다. 관리 그룹에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](management-groups-overview.md)을 참조하세요.
@@ -55,8 +56,8 @@ C:\> Update-AzureRmManagementGroup -GroupName ContosoIt -DisplayName "Contoso Gr
 
 Azure CLI의 경우 update 명령을 사용합니다. 
 
-```azure-cli
-C:\> az account management-group update --group-name Contoso --display-name "Contoso Group" 
+```azurecli-interactive
+az account management-group update --name Contoso --display-name "Contoso Group" 
 ```
 
 ---
@@ -94,8 +95,8 @@ Remove-AzureRmManagementGroup -GroupName Contoso
 ### <a name="delete-in-azure-cli"></a>Azure CLI에서 삭제
 Azure CLI에서 az account management-group delete 명령을 사용합니다. 
 
-```azure-cli
-C:\> az account management-group delete --group-name Contoso
+```azurecli-interactive
+az account management-group delete --name Contoso
 ```
 ---
 
@@ -124,13 +125,13 @@ Get-AzureRmManagementGroup -GroupName Contoso
 ### <a name="view-in-azure-cli"></a>Azure CLI에서 보기
 모든 그룹을 검색하려면 list 명령을 사용합니다.  
 
-```azure-cli
+```azurecli-interactive
 az account management-group list
 ```
 단일 관리 그룹의 정보를 보려면 show 명령을 사용합니다.
 
-```azurepowershell-interactive
-az account management-group show --group-name Contoso
+```azurecli-interactive
+az account management-group show --name Contoso
 ```
 ---
 
@@ -159,7 +160,7 @@ az account management-group show --group-name Contoso
 **관리 그룹에서 구독 제거**
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **관리 그룹**을 선택합니다. 
-3. 현재 부모 항목인 관리 그룹을 선택합니다.  
+3. 현재 부모로 지정할 관리 그룹을 선택합니다.  
 4. 이동하려는 목록의 구독에 대해 행 끝에 있는 줄임표를 선택합니다.
 
     ![이동](media/management-groups/move_small.png)
@@ -185,14 +186,14 @@ Remove-AzureRmManagementGroupSubscription -GroupName Contoso -SubscriptionId 123
 ### <a name="move-subscriptions-in-azure-cli"></a>Azure CLI에서 구독 이동
 CLI에서 구독을 이동하려면 add 명령을 사용합니다. 
 
-```azure-cli
-C:\> az account management-group add --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription add --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 관리 그룹에서 구독을 제거하려면 구독 제거 명령을 사용합니다.  
 
-```azure-cli
-C:\> az account management-group remove --group-name Contoso --subscription 12345678-1234-1234-1234-123456789012
+```azurecli-interactive
+az account management-group subscription remove --name Contoso --subscription 12345678-1234-1234-1234-123456789012
 ```
 
 ---
@@ -216,13 +217,13 @@ C:\> az account management-group remove --group-name Contoso --subscription 1234
 PowerShell에서 Update-AzureRmManagementGroup 명령을 사용하여 관리 그룹을 다른 그룹 아래로 이동합니다.  
 
 ```powershell
-C:\> Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
+Update-AzureRmManagementGroup -GroupName Contoso  -ParentName ContosoIT
 ```  
 ### <a name="move-management-groups-in-azure-cli"></a>Azure CLI에서 관리 그룹 이동
 Azure CLI에서 update 명령을 사용하여 관리 그룹을 이동합니다. 
 
-```azure-cli
-C:/> az account management-group udpate --group-name Contoso --parent-id "Contoso Tenant" 
+```azurecli-interactive
+az account management-group update --name Contoso --parent "Contoso Tenant" 
 ``` 
 
 ---

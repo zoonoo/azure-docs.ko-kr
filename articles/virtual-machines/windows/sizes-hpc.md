@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
 ms.author: jonbeck
-ms.openlocfilehash: e402fd3ac95cac4816b9442f7c08aeaf7c108886
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d8ab1531c4e1fa33fbdba12a4ecbeb8908dd6a94
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34654354"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>고성능 계산 VM 크기
 
@@ -62,6 +63,7 @@ Microsoft의 무료 HPC 클러스터 및 작업 관리 솔루션인 [Microsoft H
 - [메모리에 최적화](../virtual-machines-windows-sizes-memory.md)
 - [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
+- [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계
 

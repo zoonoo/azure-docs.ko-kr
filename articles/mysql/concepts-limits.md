@@ -2,19 +2,19 @@
 title: Azure Database for MySQL의 제한 사항
 description: 이 문서에서는 Azure Database for MySQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 3ec78b9aad45500a92a8f46f4bb2e654f97da8cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264887"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311197"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
@@ -60,29 +60,29 @@ ms.locfileid: "35264887"
 ## <a name="data-manipulation-statement-support"></a>데이터 조작 명령문 지원
 
 ### <a name="supported"></a>지원됨
-- LOAD DATA INFILE - 지원되지만, UNC 경로(XSMB를 통해 탑재된 Azure 저장소)로 전달되는 [LOCAL] 매개 변수를 지정해야 합니다.
+- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure 저장소)로 전달해야 합니다.
 
 ### <a name="unsupported"></a>지원되지 않음
-- SELECT ... INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 
 ### <a name="scale-operations"></a>크기 조정 작업
-- 가격 책정 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본, 범용 및 메모리 최적화 가격 책정 계층 사이의 전환을 말합니다.
+- 기본 가격 책정 계층 간의 동적 크기 조정은 현재 지원되지 않습니다.
 - 서버 저장소 크기를 줄이는 것은 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다.
 
 ### <a name="point-in-time-restore"></a>특정 시점 복원
-- 다른 서비스 계층 및/또는 Compute 단위 및 저장소 크기로 복원할 수 없습니다.
+- PITR 기능을 사용하면 새 서버가 기반으로 하는 서버와 동일한 구성으로 새 서버가 만들어집니다.
 - 삭제된 서버 복원은 지원되지 않습니다.
 
 ### <a name="subscription-management"></a>구독 관리
 - 구독 및 리소스 그룹에서 미리 생성된 서버를 동적으로 이동하는 것은 현재 지원되지 않습니다.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제
-- 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 버전 관리를 가져오려면 MySQL 프롬프트에서 select version(); 명령을 입력합니다.
+- 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [각 서비스 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md)

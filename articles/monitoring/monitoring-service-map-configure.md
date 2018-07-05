@@ -3,8 +3,8 @@ title: Azure에서 서비스 맵 구성 | Microsoft Docs
 description: 서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: monitoring
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa85f06355ad5afc8e67ff4bace3b0ed471dc703
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 872d5f05e4d607c9445d1af5cc9b9cb984c19e11
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204195"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752577"
 ---
 # <a name="configure-service-map-in-azure"></a>Azure에서 서비스 맵 구성
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 이것을 사용하여 서버를 생각한 것처럼(중요한 서비스를 제공하는 상호 연결된 시스템으로) 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
@@ -49,7 +49,7 @@ Windows에서 System Center Operations Manager와 Log Analytics는 MMA(Microsoft
 
 Linux에서는 Linux용 OMS 에이전트가 모니터링 데이터를 수집하여 Log Analytics에 보냅니다. OMS 직접 에이전트가 있는 서버 또는 System Center Operations Manager 관리 그룹을 통해 Log Analytics에 연결된 서버에서 서비스 맵을 사용할 수 있습니다.  
 
-이 문서에서는 System Center Operations Manager 관리 그룹에 연결되어 있든 또는 Log Analytics에 직접 연결되어 있든 관계없이 Linux 또는 Windows의 모든 에이전트를 "OMS 에이전트"라고 하겠습니다. 컨텍스트에 필요한 경우에만 에이전트의 특정 배포 이름이 사용됩니다.
+이 문서에서는 System Center Operations Manager 관리 그룹에 연결되어 있든 또는 Log Analytics에 직접 연결되어 있든 관계없이 Linux 또는 Windows의 모든 에이전트를 *OMS 에이전트*라고 하겠습니다. 컨텍스트에 필요한 경우에만 에이전트의 특정 배포 이름이 사용됩니다.
 
 서비스 맵 에이전트는 데이터 자체를 전송하지 않으며 방화벽 또는 포트를 변경하지 않아도 됩니다. 서비스 맵의 데이터는 OMS 에이전트에 의해 직접 또는 OMS 게이트웨이를 통해 Log Analytics로 항상 전송됩니다.
 
@@ -60,7 +60,7 @@ Log Analytics에 연결된 관리 그룹을 사용하는 System Center Operation
 - System Center Operations Manager 에이전트가 인터넷에 액세스하여 Log Analytics에 연결할 수 있으면 추가 구성이 필요하지 않습니다.  
 - System Center Operations Manager 에이전트가 인터넷을 통해 Log Analytics에 액세스할 수 없는 경우 OMS 게이트웨이를 System Center Operations Manager와 작동하도록 구성해야 합니다.
   
-OMS 직접 에이전트를 사용하는 경우 OMS 에이전트 자체가 OMS 게이트웨이 또는 Log Analytics에 직접 연결되도록 구성해야 합니다. OMS 게이트웨이는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 다운로드할 수 있습니다.
+OMS 직접 에이전트를 사용하는 경우 OMS 에이전트 자체가 OMS 게이트웨이 또는 Log Analytics에 직접 연결되도록 구성해야 합니다. OMS 게이트웨이는 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 다운로드할 수 있습니다. OMS 게이트웨이를 배포하고 구성하는 방법에 자세한 내용은 [OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결](../log-analytics/log-analytics-oms-gateway.md)을 참조합니다.  
 
 ### <a name="management-packs"></a>관리 팩
 Log Analytics 작업 영역에서 서비스 맵이 활성화되면 해당 작업 영역의 모든 Windows 서버에 300KB 관리 팩이 전송됩니다. [연결된 관리 그룹](../log-analytics/log-analytics-om-agents.md)에서 System Center Operations Manager 에이전트를 사용하는 경우 서비스 맵 관리 팩은 System Center Operations Manager에서 배포됩니다. 에이전트가 직접 연결되어 있으면 Log Analytics가 관리 팩을 제공합니다.
@@ -75,7 +75,7 @@ Log Analytics 작업 영역에서 서비스 맵이 활성화되면 해당 작업
 
 각 Windows 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
-1.  [Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agent.md)의 지침을 사용하여 OMS 에이전트를 설치하세요.
+1.  [Log Analytics를 사용하여 사용자 환경의 컴퓨터에서 데이터 수집](../log-analytics/log-analytics-concept-hybrid.md)에 설명된 방법 중 하나를 따라 OMS 에이전트를 설치합니다.
 2.  Windows 에이전트를 다운로드하고 다음 명령을 사용하여 실행합니다. <br>`InstallDependencyAgent-Windows.exe`
 3.  마법사에 따라 에이전트를 설치합니다.
 4.  종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Windows 에이전트에서 로그 디렉터리는 %Programfiles%\Microsoft Dependency Agent\logs입니다. 
@@ -99,7 +99,7 @@ Windows 종속성 에이전트에 대한 파일은 기본적으로 C:\Program Fi
  
 각 Linux 컴퓨터에서 종속성 에이전트를 설치하려면 다음 단계를 따르세요.
 
-1.  [Linux 컴퓨터에서 데이터 수집 및 관리](https://technet.microsoft.com/library/mt622052.aspx)의 지침을 사용하여 OMS 에이전트를 설치합니다.
+1.  [Log Analytics를 사용하여 사용자 환경의 컴퓨터에서 데이터 수집](../log-analytics/log-analytics-concept-hybrid.md)에 설명된 방법 중 하나를 따라 OMS 에이전트를 설치합니다.
 2.  다음 명령을 사용하여 루트로 Linux 종속성 에이전트를 설치합니다.<br>`sh InstallDependencyAgent-Linux64.bin`
 3.  종속성 에이전트를 시작하지 못하는 경우 로그에서 자세한 오류 정보를 확인합니다. Linux 에이전트에서 로그 디렉터리는 /var/opt/microsoft/dependency-agent/log입니다.
 
@@ -143,6 +143,7 @@ sudo sh InstallDependencyAgent-Linux64.bin -s
 [Azure VM 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features)을 사용하여 종속성 에이전트를 Azure VM에 쉽게 배포할 수 있습니다.  Azure VM 확장을 사용하면 PowerShell 스크립트를 통해 또는 VM의 Azure Resource Manager 템플릿에서 직접 종속성 에이전트를 VM에 배포할 수 있습니다.  Windows(DependencyAgentWindows)와 Linux(DependencyAgentLinux) 모두에 사용할 수 있는 확장이 있습니다.  Azure VM 확장을 통해 배포하는 경우 에이전트가 자동으로 최신 버전으로 업데이트될 수 있습니다.
 
 PowerShell을 통해 Azure VM 확장을 배포하려는 경우 다음 예제를 사용할 수 있습니다.
+
 ```PowerShell
 #
 # Deploy the Dependency Agent to every VM in a Resource Group
@@ -169,7 +170,8 @@ ForEach-Object {
 }
 ```
 
-각 VM에 종속성 에이전트가 있는지 확인하는 보다 쉬운 방법은 Azure Resource Manager 템플릿에 에이전트를 포함시키는 것입니다.  종속성 에이전트는 여전히 OMS 에이전트에 종속되므로 [OMS 에이전트 VM 확장](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-vm-extension)을 먼저 배포해야 합니다.  다음 JSON 코드 조각을 템플릿의 *resources* 섹션에 추가할 수 있습니다.
+각 VM에 종속성 에이전트가 있는지 확인하는 보다 쉬운 방법은 Azure Resource Manager 템플릿에 에이전트를 포함시키는 것입니다.  종속성 에이전트는 여전히 OMS 에이전트에 종속되므로 [OMS 에이전트 VM 확장](../virtual-machines/extensions/oms-linux.md)을 먼저 배포해야 합니다.  다음 JSON 코드 조각을 템플릿의 *resources* 섹션에 추가할 수 있습니다.
+
 ```JSON
 "type": "Microsoft.Compute/virtualMachines/extensions",
 "name": "[concat(parameters('vmName'), '/DependencyAgent')]",
@@ -190,6 +192,7 @@ ForEach-Object {
 
 ## <a name="desired-state-configuration"></a>필요한 상태 구성
 필요한 상태 구성을 통해 종속성 에이전트를 배포하려면 xPSDesiredStateConfiguration 모듈 및 다음과 같은 코드를 사용할 수 있습니다.
+
 ```
 configuration ServiceMap {
 
@@ -231,10 +234,13 @@ Node localhost
 ### <a name="uninstall-the-dependency-agent-on-linux"></a>Linux의 종속성 에이전트 제거
 다음 명령을 사용하여 Linux에서 종속성 에이전트를 제거할 수 있습니다.
 <br>RHEL, CentOs 또는 Oracle:
+
 ```
 sudo rpm -e dependency-agent
 ```
+
 Ubuntu:
+
 ```
 sudo apt -y purge dependency-agent
 ```
@@ -242,7 +248,7 @@ sudo apt -y purge dependency-agent
 서비스 맵을 설치하거나 실행하는 데 문제가 있으면 이 섹션이 도움이 될 수 있습니다. 그래도 문제를 해결할 수 없으면 Microsoft 지원에 문의해 주세요.
 
 ### <a name="dependency-agent-installation-problems"></a>종속성 에이전트 설치 문제
-#### <a name="installer-asks-for-a-reboot"></a>설치 관리자에서 다시 부팅을 요청함
+#### <a name="installer-prompts-for-a-reboot"></a>재부팅용 설치 관리자 프롬프트
 종속성 에이전트는 *일반적으로* 설치 또는 제거 시 재부팅하지 않아도 됩니다. 그러나 드문 경우이지만 설치를 계속하기 위해 Windows Server를 다시 부팅해야 합니다. 이것은 종속성(일반적으로 Microsoft Visual C ++ 재배포 가능 패키지)이 잠긴 파일로 인해 재부팅해야 하는 경우 발생합니다.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>"종속성 에이전트를 설치할 수 없습니다: Visual Studio 런타임 라이브러리를 설치하지 못했습니다(코드 = [코드 번호])" 메시지가 표시됩니다.
@@ -272,7 +278,7 @@ Microsoft 종속성 에이전트는 Microsoft Visual Studio 런타임 라이브�
 
         * Computer="<your computer name here>" | measure count() by Type
         
-  결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 그렇다면 OMS 에이전트가 올바르게 작동하고 Log Analytics와 통신하고 있습니다. 그렇지 않으면 [Windows용 OMS 에이전트 문제 해결](https://support.microsoft.com/help/3126513/how-to-troubleshoot- monitoring-onboarding-issues) 또는 [Linux용 OMS 에이전트 문제 해결](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md)을 참조하여 서버의 OMS 에이전트를 확인합니다.
+  결과에서 다양한 이벤트를 얻었나요? 최근 데이터인가요? 그렇다면 OMS 에이전트가 올바르게 작동하고 Log Analytics와 통신하고 있습니다. 그렇지 않으면 [Windows용 OMS 에이전트 문제 해결](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) 또는 [Linux용 OMS 에이전트 문제 해결](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md)을 참조하여 서버의 OMS 에이전트를 확인합니다.
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>서버가 서비스 맵에 표시되지만 프로세스가 없습니다.
 서비스 맵에서 서버가 표시되지만 프로세스 또는 연결 데이터가 없는 경우 종속 에이전트가 설치되어 실행 중이지만 커널 드라이버가 로드되지 않았음을 나타냅니다. 

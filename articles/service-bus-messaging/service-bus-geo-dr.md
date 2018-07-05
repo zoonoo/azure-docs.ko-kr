@@ -2,23 +2,18 @@
 title: Azure Service Bus 지리적 재해 복구 | Microsoft Docs
 description: 지리적 지역을 사용하여 장애 조치(Failover)하고 Azure Service Bus에서 재해 복구를 수행하는 방법
 services: service-bus-messaging
-documentationcenter: ''
-author: christianwolf42
+author: sethmanheim
 manager: timlt
-editor: ''
 ms.service: service-bus-messaging
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 652adcf78add8ae699a7f827a915e90ce1694c61
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: b43c5bd6ff6b386e1a2ee0b5e3ae8ec8fa61fb4b
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237348"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301522"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus 지역 재해 복구
 
@@ -89,7 +84,7 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 [GitHub의 샘플](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/)에서는 장애 조치를 설정하고 시작하는 방법을 보여줍니다. 이러한 예제는 다음과 같은 개념을 보여줍니다.
 
-- 지역 재해 복구를 설정하고 사용하기 위해 Service Bus에서 Azure Resource Manager를 사용하는 데 필요한 Azure Active Directory의 .Net 샘플 및 설정
+- 지역 재해 복구를 설정하고 사용하기 위해 Service Bus에서 Azure Resource Manager를 사용하는 데 필요한 Azure Active Directory의 .NET 샘플 및 설정
 - 샘플 코드를 실행하는 데 필요한 단계
 - 기존 네임스페이스를 별칭으로 사용하는 방법
 - PowerShell 또는 CLI를 통해 지역 재해 복구를 사용하는 단계
@@ -107,6 +102,17 @@ Azure Service Bus의 지리적 재해 복구 기능은 재해 복구 솔루션�
 
 4. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다. 구독 및 규칙은 엔터티로 계산합니다. 
 
+## <a name="availability-zones-preview"></a>가용성 영역(미리 보기)
+
+Service Bus 프리미엄 SKU도 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. 
+
+> [!NOTE]
+> 가용성 영역 미리 보기는 **미국 중부**, **미국 동부 2** 및 **프랑스 중부** 지역에서만 지원됩니다.
+
+Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영역을 사용하도록 설정할 수 있습니다. Service Bus는 기존 네임스페이스의 마이그레이션을 지원하지 않습니다. 네임스페이스를 사용하도록 설정한 후에는 영역 중복성을 사용하지 않도록 설정할 수 없습니다.
+
+![3][]
+
 ## <a name="next-steps"></a>다음 단계
 
 - 지리적 재해 복구를 참조합니다[REST API 참조](/rest/api/servicebus/disasterrecoveryconfigs).
@@ -123,3 +129,4 @@ Service Bus 메시징에 대해 자세히 알아보려면 다음 문서를 참�
 
 [1]: ./media/service-bus-geo-dr/geo1.png
 [2]: ./media/service-bus-geo-dr/geo2.png
+[3]: ./media/service-bus-geo-dr/az.png

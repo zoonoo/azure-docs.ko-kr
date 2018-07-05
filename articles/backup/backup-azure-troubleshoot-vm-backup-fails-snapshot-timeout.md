@@ -7,14 +7,14 @@ manager: cshepard
 keywords: Azure 백업; VM 에이전트; 네트워크 연결;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 01/09/2018
+ms.date: 06/25/2018
 ms.author: genli
-ms.openlocfilehash: 63cded007af499455e7bb4fc23d26d56caf96678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09cfda3c2c790297b0961ecac92cba61c9e6de6f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606361"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36754332"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -84,12 +84,12 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 ### <a name="the-vm-has-no-internet-access"></a>VM이 인터넷에 액세스할 수 없습니다.
 배포 요구와 맞지 않게 VM이 인터넷에 액세스할 수 없습니다. 또는 제한으로 인해 Azure 인프라에 액세스하지 못할 수 있습니다.
 
-제대로 작동하려면 Backup 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 끝점(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
+제대로 작동하려면 Backup 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 엔드포인트(HTTP URL)에 명령을 보내 VM의 스냅숏을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
 
 프록시 서버를 배포하여 VM 트래픽을 라우팅할 수 있습니다.
-##### <a name="create-a-path-for-http-traffic"></a>HTTP 트래픽에 대한 경로 만들기
+##### <a name="create-a-path-for-https-traffic"></a>HTTP 트래픽에 대한 경로 만들기
 
-1. 네트워크 제한이 있는 경우(예를 들어 네트워크 보안 그룹) 트래픽을 라우트하도록 HTTP 프록시 서버를 배포합니다.
+1. 네트워크 제한이 있는 경우(예를 들어 네트워크 보안 그룹) 트래픽을 라우팅하도록 HTTP 프록시 서버를 배포합니다.
 2. HTTP 프록시 서버에서 인터넷에 액세스하도록 허용하려면 네트워크 보안 그룹이 있는 경우 규칙을 추가합니다.
 
 VM 백업에 대한 HTTP 프록시를 설정하는 방법을 알아보려면 [Azure Virtual Machines를 백업하기 위한 환경 준비](backup-azure-arm-vms-prepare.md#establish-network-connectivity)를 참조하세요.

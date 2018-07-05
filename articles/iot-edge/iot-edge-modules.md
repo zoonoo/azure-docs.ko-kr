@@ -8,14 +8,14 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 60c2c17d7a5cca66a6323f43e1ab2662afff54ee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630839"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029096"
 ---
-# <a name="understand-azure-iot-edge-modules---preview"></a>Azure IoT Edge 모듈 이해 - 미리 보기
+# <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
 Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈을 개발, 배포 및 유지 관리하는 방법을 이해하려면 모듈을 구성하는 4가지 개념적 요소를 고려하는 것이 좋습니다.
 
@@ -60,6 +60,17 @@ await client.OpenAsync();
 // Get the model twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
+
+## <a name="offline-capabilities"></a>오프라인 기능
+
+Azure IoT Edge는 IoT Edge 장치에서 오프라인 작업을 지원합니다. 이러한 기능은 현재 제한되어 있으며 추가 시나리오가 개발 중입니다. 
+
+IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동안 오프라인일 수 있습니다. 
+
+* **메시지 TTL(Time to Live)이 만료되지 않았습니다**. 메시지 TTL에 대한 기본값은 2시간이지만 IoT Edge 허브 설정의 저장소 및 착신 구성에서 높거나 낮게 변경될 수 있습니다. 
+* **모듈은 오프라인일 때 IoT Edge 허브로 재인증할 필요가 없습니다**. 모듈은 IoT 허브와 활성 연결이 있는 Edge 허브로만 인증될 수 있습니다. 어떠한 이유로 다시 시작된 경우 모듈은 다시 인증되어야 합니다. 모듈은 해당 SAS 토큰이 만료된 후에도 Edge 허브에 메시지를 여전히 보낼 수 있습니다. 연결이 다시 시작되면 Edge 허브는 모듈에서 새 토큰을 요청하고 IoT 허브로 유효성을 검사합니다. 성공한 경우 Edge 허브는 모듈의 토큰이 만료된 동안 전송된 메시지이더라도 저장한 모듈 메시지를 전달합니다. 
+* **오프라인 동안 메시지를 전송한 모듈은 연결이 다시 시작될 때 여전히 작동 중입니다**. IoT Hub에 재연결 시 Edge 허브는 모듈 메시지를 전달하기 전에 새 모듈 토큰의 유효성을 검사해야 합니다(이전 토큰이 만료된 경우). 모듈에서 새 토큰을 제공할 수 없는 경우 Edge 허브는 모듈의 저장된 메시지에서 역할을 수행할 수 없습니다. 
+* **Edge 허브에는 메시지를 저장할 디스크 공간이 있습니다**. 기본적으로 메시지는 Edge 허브 컨테이너의 파일 시스템에 저장됩니다. 메시지를 대신 저장할 탑재된 볼륨을 지정하는 구성 옵션이 있습니다. 두 경우에서 IoT 허브에 지연된 전송에 대한 메시지를 저장할 수 있는 공간이 있어야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
  - [Azure IoT Edge 런타임 및 해당 아키텍처 이해][lnk-runtime]

@@ -9,12 +9,12 @@ ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: bd36cfd0cd03592396a2aa9a977124880f47ec90
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9721935f005bbd9a5dc261fe801ecc14744b004f
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248472"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752795"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -265,7 +265,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 
 ### <a name="expire-data-based-on-age"></a>보존 기간에 따라 데이터 만료
 
-어떤 데이터는 비용을 줄이기 위해 또는 정부 규제를 따르기 위해 생성 시점으로부터 며칠 또는 몇 달 후 만료됩니다. 데이터 보존 기간에 따라 데이터를 만료하도록 수명 주기 관리 정책을 설정할 수 있습니다. 다음 예는 365일보다 오래된 모든 블록 Blob(접두사가 정의되지 않은)을 삭제하는 정책을 보여줍니다.
+어떤 데이터는 비용을 줄이기 위해 또는 정부 규제를 따르기 위해 생성 시점으로부터 며칠 또는 몇 달 후 만료됩니다. 데이터 보존 기간에 따라 삭제하여 데이터를 만료하도록 수명 주기 관리 정책을 설정할 수 있습니다. 다음 예는 365일보다 오래된 모든 블록 Blob(접두사가 정의되지 않은)을 삭제하는 정책을 보여줍니다.
 
 ```json
 {

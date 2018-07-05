@@ -11,29 +11,26 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: c5ec07603088edd3f95f08f12b6982022b396d05
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8e34b0823b7f10455ac0b66fb0614d3946f2382e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618490"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055654"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
 ## <a name="overview"></a>개요
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-data-movement-activities.md)
-> * [버전 2 - 미리 보기](copy-activity-overview.md)
+> * [버전 1](v1/data-factory-data-movement-activities.md)
+> * [현재 버전](copy-activity-overview.md)
 
 Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클라우드 간에 데이터를 복사할 수 있습니다. 복사한 데이터는 추가로 변환하고 분석할 수 있습니다. 복사 활동을 통해 BI(비즈니스 인텔리전스) 및 응용 프로그램에서 사용할 수 있도록 변환 및 분석 결과를 게시할 수도 있습니다.
 
 ![복사 활동의 역할](media/copy-activity-overview/copy-activity.png)
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 복사 작업](v1/data-factory-data-movement-activities.md)을 참조하세요.
 
 복사 작업은 [Integration Runtime](concepts-integration-runtime.md)에서 실행됩니다. 다양한 데이터 복사 시나리오에서 Integration Runtime을 다양하게 활용할 수 있습니다.
 
@@ -114,7 +111,7 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
                 "type": "TabularTranslator",
                 "columnMappings": "<column mapping>"
             },
-            "cloudDataMovementUnits": <number>,
+            "dataIntegrationUnits": <number>,
             "parallelCopies": <number>,
             "enableStaging": true/false,
             "stagingSettings": {
@@ -140,7 +137,7 @@ Azure Data Factory에서 복사 작업을 사용하려면 다음이 필요합니
 | 원본 | 데이터 검색 방법에 대한 해당 속성과 복사 원본 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
 | 싱크 | 데이터 쓰기 방법에 대한 해당 속성과 복사 싱크 유형을 지정합니다.<br/><br/>자세한 내용은 [지원되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 열거된 커넥터 문서의 "복사 작업 속성" 섹션을 참조하세요. | 예 |
 | 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 기본 복사 동작이 요구를 수행할 수 없는 경우 적용됩니다.<br/><br/>자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요. | 아니오 |
-| cloudDataMovementUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다.<br/><br/>자세한 내용은 [클라우드 데이터 이동 단위](copy-activity-performance.md)를 참조하세요. | 아니오 |
+| dataIntegrationUnits | 데이터 복사를 수행할 [Azure Integration Runtime](concepts-integration-runtime.md)의 강도를 지정합니다. 이전의 클라우드 DMU(데이터 이동 단위)입니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조하세요. | 아니오 |
 | parallelCopies | 원본에서 데이터를 읽어 싱크에 쓸 때 복사 작업이 사용할 병렬 처리를 지정합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조하세요. | 아니오 |
 | enableStaging<br/>stagingSettings | 데이터를 직접 원본에서 싱크로 복사하는 대신 aa BLOB Storage에서 중간 데이터를 준비하도록 선택합니다.<br/><br/>유용한 시나리오 및 구성 상세 정보는 [준비된 복사](copy-activity-performance.md#staged-copy)를 참조하세요. | 아니오 |
 | enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 데이터를 원본에서 싱크로 복사할 때 호환되지 않는 행을 처리하는 방법을 선택합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조하세요. | 아니오 |
@@ -185,7 +182,7 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 | redshiftUnload | 데이터를 Redshift로부터 복사할 때 UNLOAD를 사용합니다. | BOOLEAN |
 | hdfsDistcp | 데이터를 HDFS로부터 복사할 때 DistCp를 사용합니다. | BOOLEAN |
 | effectiveIntegrationRuntime | 활동 실행을 제공하는 데 사용할 Integration Runtime을 `<IR name> (<region if it's Azure IR>)` 형식으로 표시합니다. | 텍스트(문자열) |
-| usedCloudDataMovementUnits | 복사 중 유효 클라우드 데이터 이동 단위입니다. | Int32 값 |
+| usedDataIntegrationUnits | 복사 중 효율적인 데이터 통합 단위입니다. | Int32 값 |
 | usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값|
 | redirectRowPath | "RedirectIncompatibleRowSettings"에서 구성한 Blob Storage에서 생략된 비호환 행의 로그에 대한 경로입니다. 아래 예제를 참조하십시오. | 텍스트(문자열) |
 | executionDetails | 복사 작업이 거치는 단계 및 해당 하위 단계, 기간 및 사용되는 구성 등에 대한 세부 정보입니다. 변경 될 수 있으므로 이 섹션의 구문 분석은 권장되지 않습니다. | 배열 |
@@ -200,7 +197,7 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
     "throughput": 467707.344,
     "errors": [],
     "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedCloudDataMovementUnits": 32,
+    "usedDataIntegrationUnits": 32,
     "usedParallelCopies": 8,
     "executionDetails": [
         {
@@ -213,7 +210,7 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
             "status": "Succeeded",
             "start": "2018-01-17T15:13:00.3515165Z",
             "duration": 221,
-            "usedCloudDataMovementUnits": 32,
+            "usedDataIntegrationUnits": 32,
             "usedParallelCopies": 8,
             "detailedDurations": {
                 "queuingDuration": 2,
@@ -237,10 +234,10 @@ Azure Data Factory "작성자/모니터" UI에서 또는 프로그래밍 방식�
 Azure Data Factory의 데이터 이동(복사 활동) 성능에 영향을 주는 주요 요인에 대해 설명하는 [복사 작업 성능 및 튜닝 가이드](copy-activity-performance.md)를 참조하세요. 이 문서에서는 내부 테스트 중에 관찰되는 성능 관련 정보도 제공하며, 복사 활동의 성능을 최적화하는 여러 가지 방법에 대해서도 설명합니다.
 
 ## <a name="incremental-copy"></a>증분 복사 
-Data Factory 버전 2에서는 원본 데이터 저장소에서 대상 데이터 저장소로 델타 데이터를 증분 방식으로 복사하기 위한 시나리오를 지원합니다. [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요. 
+Data Factory에서는 원본 데이터 저장소에서 대상 데이터 저장소로 델타 데이터를 증분 방식으로 복사하기 위한 시나리오를 지원합니다. [자습서: 증분 방식으로 데이터 복사](tutorial-incremental-copy-overview.md)를 참조하세요. 
 
 ## <a name="read-and-write-partitioned-data"></a>분할된 데이터 읽기 및 쓰기
-버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 버전 2에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수의 값으로 사용하여 이 동작을 수행할 수 있습니다. 자세한 내용은 [분할된 데이터를 읽거나 쓰는 방법](how-to-read-write-partitioned-data.md)을 참조하세요.
+버전 1에서 Azure Data Factory는 SliceStart/SliceEnd/WindowStart/WindowEnd 시스템 변수를 사용하여 분할된 데이터 읽기 또는 쓰기를 지원했습니다. 현재 버전에서는 파이프라인 매개 변수와 트리거의 시작 시간/예약된 시간을 매개 변수의 값으로 사용하여 이 동작을 수행할 수 있습니다. 자세한 내용은 [분할된 데이터를 읽거나 쓰는 방법](how-to-read-write-partitioned-data.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 다음 퀵 스타트, 자습서 및 샘플을 참조하세요.

@@ -13,23 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: jingwang
-ms.openlocfilehash: 2c25bff60adc1f3d462cc6a437eab0d46f9fa413
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 034c9a321f402bada87290f6aa72fc7e416ef2c6
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287874"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054547"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HDFS에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-hdfs-connector.md)
-> * [버전 2 - 미리 보기](connector-hdfs.md)
+> * [버전 1](v1/data-factory-hdfs-connector.md)
+> * [현재 버전](connector-hdfs.md)
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 HDFS에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 HDFS 커넥터](v1/data-factory-hdfs-connector.md)를 참조하세요.
-
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 

@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/13/2018
 ms.author: markvi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 565394664ab59ef5186503f708502eacc040321f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295628"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035372"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 응용 프로그램에 대한 사용자 프로비전 특성 매핑 사용자 지정
-Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 응용 프로그램에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 응용 프로그램을 프로비전하는 사용자가 있을 경우 Azure Portal은 그 특성 값을 “특성 매핑”이라고 하는 구성 형태로 제어합니다.
+Microsoft Azure AD는 Salesforce, Google Apps 등과 같은 타사 SaaS 응용 프로그램에 프로비전을 하는 사용자에 대한 지원을 제공합니다. 타사 SaaS 응용 프로그램을 프로비전하는 사용자가 있을 경우 Azure Portal은 해당 특성 값을 특성 매핑이라는 형식으로 제어합니다.
 
 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미리 구성된 특성 및 특성 매핑 세트가 있습니다. 일부 앱은 사용자 외에도 그룹 같은 다른 유형의 개체를 관리합니다. <br> 
  비즈니스 요구 사항에 따라 기본 특성 매핑을 사용자 지정할 수 있습니다. 즉, 기존의 특성 매핑을 변경 또는 삭제하거나 새 특성 매핑을 만들 수 있습니다.
@@ -56,7 +56,7 @@ Azure AD 포털에서 **엔터프라이즈 응용 프로그램**의 **관리** �
   자세한 내용은 [Azure Active Directory의 특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)을 참조하세요.
 * **None** - 대상 특성이 수정되지 않고 남아있습니다. 그러나 대상 특성이 비어 있으면 지정된 기본 값으로 채워집니다.
 
-이 네 가지 기본 특성 맵 형식 외에도 사용자 지정 특성 매핑은 **기본** 값 할당(선택 사항)의 개념을 지원합니다. 기본 값 할당은 Azure AD에나 대상 개체에 값이 없을 경우 대상 특성이 값으로 채워지는지 확인해줍니다. 이 값을 비워두는 것이 가장 일반적인 구성입니다.
+이 네 가지 기본 형식 외에도 사용자 지정 특성 매핑은 **기본** 값 할당(선택 사항)의 개념을 지원합니다. 기본 값 할당은 Azure AD에나 대상 개체에 값이 없을 경우 대상 특성이 값으로 채워지는지 확인해줍니다. 이 값을 비워두는 것이 가장 일반적인 구성입니다.
 
 
 ### <a name="understanding-attribute-mapping-properties"></a>특성 매핑 속성 이해
@@ -98,8 +98,7 @@ ServiceNow, Box 및 Google Apps와 같은 일부 응용 프로그램에서는 �
 * Salesforce
 * ServiceNow
 * Workday
-* Azure Active Directory
-* 온-프레미스 Active Directory(Workday 사용자 프로비전 커넥터의 일부)
+* Azure Active Directory([Azure AD Graph API 기본 특성](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됩니다.)
 * [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱([코어 스키마](https://tools.ietf.org/html/rfc7643)에 정의된 특성을 추가해야 함)
 
 >[!NOTE]
@@ -151,7 +150,7 @@ ServiceNow, Box 및 Google Apps와 같은 일부 응용 프로그램에서는 �
 * [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](saas-apps/tutorial-list.md)
 
 <!--Image references-->
 [5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png

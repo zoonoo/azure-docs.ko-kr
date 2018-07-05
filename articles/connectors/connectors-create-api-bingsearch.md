@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 87045d5dbbc1221a770e44bd9e9cf2451a9ac522
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 8ac67f9df0e5baccc668c2aeb70f65d96e574df5
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295539"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021288"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Bing Search 및 Azure Logic Apps 소식 
 
@@ -102,7 +102,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    | 자산 | 필수 | 값 | 설명 | 
    |----------|----------|-------|-------------| 
-   | 검색 쿼리 | 예 | <*search-expression*> | 트리거 결과를 쿼리하는 식을 입력합니다. 동적 콘텐츠 목록의 필드를 선택하거나 식 작성기를 사용하여 식을 만들 수 있습니다. |
+   | 검색 쿼리 | 예 | <*search-expression*> | 트리거 결과를 쿼리하는 식을 입력합니다. 동적 콘텐츠 목록의 필드에서 선택하거나 식 작성기를 사용하여 식을 만들 수 있습니다. |
    | 시장 | 예 | <*locale*> | 검색 로캘입니다. 기본값은 "en-US"이지만 다른 값을 선택할 수 있습니다. | 
    | 안전 검색 | 예 | <*search-level*> | 성인물을 제외하기 위한 필터 수준입니다. 기본값은 "보통"이지만 다른 수준을 선택할 수 있습니다. | 
    | 개수 | 아니오 | <*results-count*> | 지정된 결과 수만 반환합니다. 기본값은 20이지만 다른 값을 지정할 수 있습니다. 반환된 결과의 실제 수는 지정된 수 미만일 수 있습니다. | 

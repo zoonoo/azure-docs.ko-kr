@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: dddb3311ff5db964494697d76967f74c863d84e1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 19f61893eb9250fbd5bbf930e98aa89ac74fd0c3
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615039"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028739"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Azure Cosmos DB로 자동 온라인 백업 및 복원
 Azure Cosmos DB는 자동으로 모든 데이터의 백업을 정기적으로 수행합니다. 자동 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. 모든 백업은 다른 저장소 서비스에 개별적으로 저장되고 이러한 백업은 지역 재해에 대한 복원을 위해 전역적으로 복제됩니다. 자동 백업은 Cosmos DB 컨테이너를 실수로 삭제했다가 나중에 데이터 복구 또는 재해 복구 솔루션이 필요한 시나리오를 위한 것입니다.  
@@ -45,7 +45,7 @@ Cosmos DB 내에 저장된 데이터와 달리 자동 백업은 Azure Blob Stora
 ![GRS Azure Storage에 있는 모든 Cosmos DB 엔터티의 정기적인 전체 백업](./media/online-backup-and-restore/automatic-backup.png)
 
 ## <a name="backup-retention-period"></a>Backup 보존 기간
-위에서 설명한 대로 Azure Cosmos DB는 4시간마다 파티션 수준으로 데이터의 스냅숏을 생성합니다. 지정된 시간에는 마지막 두 스냅숏만 유지됩니다. 단, 컬렉션/데이터베이스가 삭제된 경우 지정된 컬렉션/데이터베이스 내 삭제된 모든 파티션의 기존 스냅숏은 30일 동안 유지합니다.
+위에서 설명한 대로 Azure Cosmos DB는 4시간마다 파티션 수준으로 데이터의 스냅숏을 생성합니다. 지정된 시간에는 마지막 두 스냅숏만 유지됩니다. 단, 컬렉션/데이터베이스가 삭제된 경우 Azure Cosmos DB는 지정된 컬렉션/데이터베이스 내에 삭제된 모든 파티션의 기존 스냅숏을 30일 동안 유지합니다.
 
 SQL API의 경우 사용자 고유의 스냅숏을 유지하려는 경우 Azure Cosmos DB [데이터 마이그레이션 도구](import-data.md#export-to-json-file)에서 JSON으로 내보내기 옵션을 사용하여 추가 백업을 예약할 수 있습니다.
 
@@ -54,10 +54,22 @@ SQL API의 경우 사용자 고유의 스냅숏을 유지하려는 경우 Azure 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>온라인 백업에서 데이터베이스 복원
-데이터베이스 또는 컬렉션을 실수로 삭제한 경우 [지원 티켓](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출하거나 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하여 마지막 자동 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 Standard 및 Developer와 같은 지정된 요금제에만 사용할 수 있으며, Basic 요금제에는 사용할 수 없습니다. 여러 지원 계획에 대한 자세한 내용은 [Azure 지원 계획](https://azure.microsoft.com/en-us/support/plans/) 페이지를 참조하세요. 데이터 손상 문제로 인해 데이터베이스를 복원해야 하는 경우(컬렉션 내 문서가 삭제된 경우 포함) 손상된 데이터가 기존 백업에 덮어쓰이는 것을 방지하기 위해 추가 단계를 수행해야 할 때는 [데이터 손상 처리](#handling-data-corruption)를 참조하세요. 백업의 특정 스냅숏을 복원하려면 Cosmos DB에서 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
+
+데이터베이스 또는 컬렉션을 실수로 삭제한 경우 [지원 티켓](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)을 제출하거나 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하여 마지막 자동 백업에서 데이터를 복원할 수 있습니다. Azure 지원은 Standard 및 Developer와 같은 지정된 요금제에만 사용할 수 있으며, Basic 요금제에는 사용할 수 없습니다. 여러 지원 계획에 대한 자세한 내용은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/) 페이지를 참조하세요. 
+
+데이터 손상 문제로 인해 데이터베이스를 복원해야 하는 경우(컬렉션 내 문서가 삭제된 경우 포함) 손상된 데이터가 기존 백업에 덮어쓰이는 것을 방지하기 위해 추가 단계를 수행해야 할 때는 [데이터 손상 처리](#handling-data-corruption)를 참조하세요. 백업의 특정 스냅숏을 복원하려면 Cosmos DB에서 해당 스냅숏의 백업 주기 동안 데이터를 사용할 수 있어야 합니다.
 
 ## <a name="handling-data-corruption"></a>데이터 손상 처리
-Azure Cosmos DB는 데이터베이스 계정에서 모든 파티션의 마지막 두 개 백업을 유지합니다. 이 모델은 마지막 버전 중 하나를 복원할 수 있으므로 컨테이너(문서, 그래프, 테이블의 컬렉션) 또는 데이터베이스가 실수로 삭제될 경우에 매우 잘 작동합니다. 그러나 사용자가 데이터 손상 문제를 일으킬 수 있는 경우 Azure Cosmos DB에서 데이터 손상을 인식하지 못할 수 있으며 손상이 기존 백업에 덮어쓰여질 가능성이 있습니다. 손상이 발견되는 즉시 사용자는 백업이 손상된 데이터로 덮어 쓰이지 않도록 보호하기 위해 손상된 컨테이너(컬렉션/그래프/테이블)를 삭제해야 합니다.
+
+Azure Cosmos DB는 데이터베이스 계정에서 모든 파티션의 마지막 두 개 백업을 유지합니다. 이 모델은 마지막 버전 중 하나를 복원할 수 있으므로 컨테이너(문서, 그래프, 테이블의 컬렉션) 또는 데이터베이스가 실수로 삭제될 경우에 매우 잘 작동합니다. 그러나 사용자가 데이터 손상 문제를 일으킬 수 있는 경우 Azure Cosmos DB에서 데이터 손상을 인식하지 못할 수 있으며 손상이 기존 백업에 덮어쓰여질 가능성이 있습니다. 
+
+손상이 발견되는 즉시 계정 및 손상의 대략적인 시간이 있는 컬렉션 정보와 함께 고객 지원에 연락합니다. 손상(데이터 삭제/업데이트)이 발견되는 경우 사용자가 수행할 수 있는 다른 작업으로 사용자는 백업이 손상된 데이터로 덮어 쓰이지 않도록 보호하기 위해 손상된 컨테이너(컬렉션/그래프/테이블)를 삭제해야 합니다.  
+
+다음 이미지는 실수로 인한 삭제 또는 컨테이너 내 데이터 업데이트에 대해 Azure Portal을 통해 컨테이너(컬렉션/그래프/테이블) 복원에 대한 지원 요청 만들기를 보여줍니다.
+
+![잘못된 업데이트 또는 Cosmos DB에서 데이터 삭제에 대한 컬렉션 복원](./media/online-backup-and-restore/backup-restore-support.png)
+
+이러한 종류의 시나리오에 대한 복원이 완료되면 데이터는 다른 계정("-restored"의 접미사가 있음) 및 컬렉션으로 복원됩니다. 고객이 데이터의 유효성 검사를 수행하고 필요에 따라 데이터를 이동할 기회를 제공하려는 경우 이 복원은 수행되지 않습니다. 복원된 컬렉션은 동일한 RU 및 인덱싱 정책과 동일한 지역에 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

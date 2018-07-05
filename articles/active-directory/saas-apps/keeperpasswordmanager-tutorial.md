@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 3ef20cdb0f6a7b5afd624a7910495ee784140c48
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b61465e9f38a5a461802d4ab46a7221c557b4595
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219985"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308145"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>자습서: Keeper Password Manager & Digital Vault와 Azure Active Directory 통합
 
@@ -133,7 +133,7 @@ Keeper Password Manager & Digital Vault에서 Azure AD Single Sign-On을 구성�
 
     ![Configure Single Sign-On](./media/keeperpasswordmanager-tutorial/tutorial_keeper_configure.png) 
 
-7. **Keeper Password Manager & Digital Vault 구성** 쪽에서 Single Sign-On을 구성하려면 [Keeper 지원 가이드](https://keepersecurity.com/assets/pdf/SettingupAzurewithKeeperSSOConnect.pdf)에서 제공되는 지침에 따릅니다.
+7. **Keeper Password Manager & Digital Vault 구성** 쪽에서 Single Sign-On을 구성하려면 [Keeper 지원 가이드](https://keepersecurity.com/assets/pdf/KeeperSSOConnect_v11.pdf)에서 제공되는 지침에 따릅니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.

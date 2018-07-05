@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 파일 및 응용 프로그램 백업
+title: Azure Stack VM에서 파일 백업
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 응용 프로그램을 백업하고 복구합니다.
 services: backup
 author: adiganmsft
@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 7baaa29d205c09daaeeebf44a4bad338913dcad9
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248863"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751707"
 ---
-# <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 응용 프로그램 백업
-Azure Backup을 사용하여 Azure Stack의 파일 및 응용 프로그램을 보호(또는 백업)합니다. 파일 및 응용 프로그램을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 실행 중인 응용 프로그램을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
+# <a name="back-up-files-on-azure-stack"></a>Azure Stack에서 파일 백업
+Azure Backup을 사용하여 Azure Stack의 파일 및 응용 프로그램을 보호(또는 백업)합니다. 파일 및 응용 프로그램을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
 
 > [!NOTE]
 > Azure Backup Server 및 System Center DPM(Data Protection Manager)은 유사하지만 DPM은 Azure Stack에서 사용하도록 지원되지 않습니다.
 >
 
-이 문서에서는 Azure Stack 환경에 Azure Backup Server 서버를 설치하는 방법을 다루지 않습니다. Azure Stack에 Azure Backup Server를 설치하려면 [Azure Backup Server를 사용하여 워크로드 백업 준비](backup-mabs-install-azure-stack.md) 문서를 참조하세요.
+이 문서에서는 Azure Stack 환경에 Azure Backup Server 서버를 설치하는 방법을 다루지 않습니다. Azure Stack에 Azure Backup Server를 설치하려면 [Azure Backup Server 설치](backup-mabs-install-azure-stack.md) 문서를 참조하세요.
 
 
-## <a name="back-up-azure-stack-vm-file-data-to-azure"></a>Azure Stack VM 파일 데이터를 Azure에 백업
+## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Azure Stack VM의 파일 및 폴더를 Azure에 백업
 
-IaaS 가상 머신을 보호하도록 Azure Backup Server를 구성하려면 Azure Backup Server 콘솔을 엽니다. 콘솔을 사용하여 보호 그룹을 구성하고 가상 머신의 데이터를 보호할 것입니다.
+Azure Stack VM 가상 머신에서 파일을 보호하도록 Azure Backup Server를 구성하려면 Azure Backup Server 콘솔을 엽니다. 콘솔을 사용하여 보호 그룹을 구성하고 가상 머신의 데이터를 보호할 것입니다.
 
 1. Azure Backup Server 콘솔에서 **보호**를 클릭하고 도구 모음에서 **새로 만들기**를 클릭하여 **새 보호 그룹 만들기** 마법사를 엽니다.
 
@@ -49,13 +49,13 @@ IaaS 가상 머신을 보호하도록 Azure Backup Server를 구성하려면 Azu
 
     ![새 보호 그룹 마법사가 열립니다.](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    보호 정책을 공유할 모든 가상 머신을 한 보호 그룹에 배치하는 것이 좋습니다. 보호 그룹 계획 및 배포에 대한 자세한 내용은 System Center DPM 문서 [배포 보호 그룹](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)을 참조하세요.
+    보호 정책을 공유할 모든 데이터를 한 보호 그룹에 배치하는 것이 좋습니다. 보호 그룹 계획 및 배포에 대한 자세한 내용은 System Center DPM 문서 [배포 보호 그룹](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801)을 참조하세요.
 
 4. **데이터 보호 방법 선택** 화면에서 보호 그룹에 사용할 이름을 입력합니다. **다음 방법을 사용하여 단기 보호:** 및 **온라인 보호를 사용하려고 합니다**의 확인란을 선택합니다. **다음**을 클릭합니다.
 
     ![새 보호 그룹 마법사가 열립니다.](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    **온라인 보호를 사용하려고 합니다**를 선택하려면 먼저 **다음 방법을 사용하여 단기 보호:** 디스크를 선택해야 합니다. Azure Backup Server는 테이프를 보호할 수 없으므로 단기 보호에 선택할 수 있는 방법은 디스크밖에 없습니다.
+    **온라인 보호를 사용하려고 합니다**를 선택하려면 먼저 **다음 방법을 사용하여 단기 보호:** 디스크를 선택해야 합니다. Azure Backup Server가 테이프를 보호하지 못하므로 단기 보호에 선택할 수 있는 방법은 디스크밖에 없습니다.
 
 5. **단기 목표 지정** 화면에서, 디스크에 저장된 복구 지점을 얼마나 오래 유지할 것인지, 언제 증분 백업을 저장할 것인지 지정합니다. **다음**을 클릭합니다.
 
@@ -73,7 +73,7 @@ IaaS 가상 머신을 보호하도록 Azure Backup Server를 구성하려면 Azu
 
     **총 데이터 크기**는 백업할 데이터 크기이고 Azure Backup Server에 **프로비전할 디스크 공간**은 보호 그룹에 권장되는 공간입니다. Azure Backup Server는 설정에 따라 가장 적합한 백업 볼륨을 선택합니다. 하지만 사용자가 디스크 할당 세부 정보에서 백업 볼륨 선택을 편집할 수 있습니다. 워크로드의 경우 드롭다운 메뉴에서 원하는 저장소를 선택합니다. 편집을 통해 [사용 가능한 디스크 저장소] 창에서 [총 저장소] 및 [사용 가능한 저장소]의 값을 변경합니다. 미달 프로비전된 공간은 향후 원활한 백업이 가능하도록 Azure Backup Server가 볼륨에 추가하도록 제안하는 저장소 용량입니다.
 
-7. **복제본 만들기 방법 선택**에서 초기 전체 데이터 복제를 처리하는 방법을 선택합니다. 네트워크를 통해 복제하기로 선택할 경우 Azure는 사용량이 적은 시간을 선택할 것을 권장합니다. 대용량 데이터이거나 네트워크 상태가 최적화되지 않은 경우 이동식 미디어를 사용하여 데이터를 오프라인으로 복제하는 것을 고려하세요.
+7. **복제본 만들기 방법 선택**에서 초기 전체 데이터 복제를 처리하는 방법을 선택합니다. 네트워크를 통해 복제하기로 선택할 경우 Azure는 사용량이 적은 시간을 선택할 것을 권장합니다. 대용량 데이터이거나 네트워크 상태가 최적화되지 않은 경우 이동식 미디어를 사용하여 데이터 복제를 고려하세요.
 
 8. **일관성 확인 옵션 선택**에서 일관성 확인을 자동화할 방법을 선택합니다. 데이터 복제가 일관적이지 않은 경우에만 또는 일정에 따라서만 일관성 확인을 실행하도록 설정해야 합니다. 자동 일관성 확인을 원하지 않는 경우 언제든지 다음과 같은 방법으로 수동 확인을 실행할 수 있습니다.
     * Azure Backup Server 콘솔의 **보호** 영역에서 보호 그룹을 마우스 오른쪽 단추로 클릭하고 **일관성 확인 수행**을 선택합니다.
@@ -87,8 +87,6 @@ IaaS 가상 머신을 보호하도록 Azure Backup Server를 구성하려면 Azu
 11. **온라인 보존 정책 지정**에서 매일, 매주, 매월 및 매년 백업에서 만들어진 복구 지점을 Azure에 보존하는 방법을 선택합니다.
 
 12. **온라인 복제 선택**에서 데이터의 초기 전체 복제를 수행하는 방법을 지정합니다. 
-
-    네트워크를 통해 복제할 수도 있고 오프라인 백업(오프라인 시딩)을 수행할 수도 있습니다. 오프라인 백업에는 [Azure Import 기능](./backup-azure-backup-import-export.md)이 사용됩니다.
 
 13. **요약**에서 설정을 검토합니다. **그룹 만들기**를 클릭하면 초기 데이터 복제가 발생합니다. 데이터 복제가 완료되면 **상태** 페이지에서 보호 그룹 상태가 **정상**으로 표시됩니다. 초기 백업 작업은 보호 그룹 설정에 따라 수행됩니다.
 
@@ -116,7 +114,6 @@ Azure Backup Server 콘솔을 사용하여 가상 머신에 데이터를 복구�
     * **기존 버전 복구 동작**의 경우 **복사본 만들기**, **건너뛰기** 또는 **덮어쓰기**를 선택합니다. 덮어쓰기는 원래 위치로 복구하는 경우에만 사용할 수 있습니다.
     * **보안 복원**의 경우 **대상 컴퓨터의 설정 적용** 또는 **복구 지점 버전의 보안 설정 적용**을 선택합니다.
     * **네트워크 대역폭 사용 제한**의 경우 **수정**을 클릭하여 네트워크 대역폭 사용 제한을 사용하도록 설정합니다.
-    * **하드웨어 스냅숏을 사용한 SAN 기반 복구 사용**을 선택하여 신속한 복구를 위해 SAN 기반 하드웨어 스냅숏을 사용합니다. 이 옵션은 하드웨어 스냅숏 기능이 설정된 SAN이 있는 경우에만 유효합니다. 복구 지점에 쓸 수 있게 하려면 SAN에서 복제본을 만들고 복제본을 분할할 수 있어야 합니다. 보호되는 VM 및 Azure Backup Server가 동일한 SAN에 연결되어야 합니다.
     * **알림** **복구가 완료되면 이메일 보내기**를 클릭하고, 알림을 받을 사람을 지정합니다. 이메일 주소를 쉼표로 구분합니다.
     * 모두 선택한 후에는 **다음**을 클릭합니다.
 
@@ -132,16 +129,13 @@ MBS(Modern Backup Storage)를 사용하는 경우 파일 서버 EUR(최종 사�
 
 2. **속성** 메뉴에서 **이전 버전**을 클릭하고 복구할 버전을 선택합니다.
 
-
-
-## <a name="register-azure-backup-server-with-a-vault"></a>자격 증명 모음에 Azure Backup Server 등록
-다음 작업 방법을 보여주는 단계를 제공합니다.
-
+## <a name="view-azure-backup-server-with-a-vault"></a>자격 증명 모음으로 Azure Backup Server 보기
+Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 따르면 됩니다.
 1. Recovery Services 자격 증명 모음 열기
 2. 백업 인프라 클릭
 3. 백업 관리 서버 보기
 
 ## <a name="see-also"></a>참고 항목
 Azure Backup Server를 사용하여 다른 워크로드를 보호하는 방법에 대한 내용은 다음 아티클 중 하나를 참조하세요.
-- [SharePoint 팜 백업](backup-azure-backup-sharepoint-mabs.md)
-- [SQL Server 백업](backup-azure-sql-mabs.md)
+- [SharePoint 팜 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [SQL Server 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)

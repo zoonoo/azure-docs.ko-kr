@@ -12,35 +12,35 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: f9793156b3728f617b92624651ff89ab2665c061
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1c7fd3ac1a4cf62dd8f909acc26615ea5f96f32c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235810"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309101"
 ---
 # <a name="determine-the-listing-type-for-your-solution"></a>솔루션에 대한 열거 유형 결정  
 상점은 열거 유형 및 제품 유형의 다양한 게시 옵션을 지원합니다. 솔루션 및 서비스 정보를 가장 잘 나타내는 제품 유형을 선택합니다. 모든 게시 옵션은 잠재 고객 공유에 대한 액세스를 제공합니다.   
 
 | 상점 | 열거 유형 | 앱 유형 | 기술 지침 |  
 |:--- |:--- |:--- |:--- |  
-| AppSource | [목록](#list) | [컨설팅 서비스](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
-| Azure Marketplace | [목록](#list) | [컨설팅 서비스](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| Azure Marketplace | [목록](#list) | [연락처](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| Azure Marketplace | [평가판](#trial) | [평가판/SaaS 평가판](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
+| AppSource | [목록](#list) | [컨설팅 서비스](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| Azure Marketplace | [목록](#list) | [컨설팅 서비스](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| Azure Marketplace | [목록](#list) | [연락처](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| Azure Marketplace | [평가판](#trial) | [평가판/SaaS 평가판](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
 | AppSource |  | Cortana Intelligence | [docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 | AppSource |  |Dynamics 365 for Customer Engagement | [docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 | AppSource |  | 재무 및 운영을 위한 Dynamics 365 | [docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
-| Azure Marketplace | [평가판](#trial) | [대화형 데모](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| Azure Marketplace | [평가판](#trial) | [시험 사용](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
+| Azure Marketplace | [평가판](#trial) | [대화형 데모](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| Azure Marketplace | [평가판](#trial) | [시험 사용](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
 | AppSource |  | Office 365 | [docs.microsoft.com/office/dev/store/submit-to-the-office-store](https://docs.microsoft.com/office/dev/store/submit-to-the-office-store) |  
-| AppSource |  | Power BI | [docs.microsoft.com/power-bi/developer/office-store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Marketplace | [거래](#transact) | [Azure 앱: 관리되는 앱](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| Azure Marketplace | [거래](#transact) | [Azure 앱: 솔루션 템플릿](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| Azure Marketplace | [거래](#transact) | [컨테이너](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| Azure Marketplace | [거래](#transact) | [SaaS 앱](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| Azure Marketplace | [거래](#transact) | [가상 머신](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |   
+| AppSource |  | Power BI | [docs.microsoft.com/power-bi/developer/office-store](https://docs.microsoft.com/power-bi/developer/office-store) | | Azure Marketplace | [거래](#transact) | [Azure 앱: 관리되는 앱](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| Azure Marketplace | [거래](#transact) | [Azure 앱: 솔루션 템플릿](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| Azure Marketplace | [거래](#transact) | [컨테이너](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| Azure Marketplace | [거래](#transact) | [SaaS 앱](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| Azure Marketplace | [거래](#transact) | [가상 머신](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |   
 
 ## <a name="azure-certified-program"></a>Azure Certified 프로그램  
 Azure Marketplace에 게시된 모든 VM(가상 머신)은 Azure Certified 프로그램에서 테스트됩니다.  
@@ -58,7 +58,7 @@ Azure Marketplace에 게시된 모든 VM(가상 머신)은 Azure Certified 프�
 
 | 열거 유형 | 앱 유형 | 기술 지침 |  
 |:--- |:--- |:--- |  
-| [목록](#list) | [컨설팅 서비스](#requirements:-appSource:-list:-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
+| [목록](#list) | [컨설팅 서비스](#requirements-appSource-list-consulting-service) | [smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf) |  
 |  | Cortana Intelligence | [docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide) |  
 |  |Dynamics 365 for Customer Engagement | [docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource) |  
 |  | 재무 및 운영을 위한 Dynamics 365 | [docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lcs-solutions/lcs-solutions-app-source) |  
@@ -68,20 +68,23 @@ Azure Marketplace에 게시된 모든 VM(가상 머신)은 Azure Certified 프�
 ---   
 
 ## <a name="azure-marketplace-publishing-by-product"></a>제품별 Azure Marketplace 게시  
+
+![](./media/marketplace-publishers-guide/workflow-azure-marketplace.png)  
+
 다음 표에서는 Azure Marketplace 제품의 특정 요구 사항에 대한 자세한 정보를 제공합니다.  
 
 | 열거 유형 | 제품 유형 |  기술 지침 |  
 |:--- |:--- |:--- |  
-| [목록](#list) | [컨설팅 서비스](#requirements:-azure-marketplace:-list:-consulting-service) | [](#) |  
-| [목록](#list) | [연락처](#requirements:-azure-marketplace:-list:-contact-me) | [](#) |  
-| [평가판](#trial) | [평가판/SaaS 평가판](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) | [](#) |  
-| [평가판](#trial) | [대화형 데모](#requirements:-azure-marketplace:-trial:-interactive-demo) | [](#) |  
-| [평가판](#trial) | [시험 사용](#requirements:-azure-marketplace:-trial:-test-drive) | [](#) |  
-| [거래](#transact) | [Azure 앱: 관리되는 앱](#requirements:-azure-marketplace:-transact:-azure-apps:-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
-| [거래](#transact) | [Azure 앱: 솔루션 템플릿](#requirements:-azure-marketplace:-transact:-azure-apps:-solution-template) |  [](#) |  
-| [거래](#transact) | [컨테이너](#requirements:-azure-marketplace:-transact:-container) |  [](#) |  
-| [거래](#transact) | [SaaS 앱](#requirements:-azure-marketplace:-transact:-saas-app) |  [](#) |  
-| [거래](#transact) | [가상 머신](#requirements:-azure-marketplace:-transact:-virtual-machine) |  [](#) |  
+| [목록](#list) | [컨설팅 서비스](#requirements-azure-marketplace-list-consulting-service) | [](#) |  
+| [목록](#list) | [연락처](#requirements-azure-marketplace-list-contact-me) | [](#) |  
+| [평가판](#trial) | [평가판/SaaS 평가판](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) | [](#) |  
+| [평가판](#trial) | [대화형 데모](#requirements-azure-marketplace-trial-interactive-demo) | [](#) |  
+| [평가판](#trial) | [시험 사용](#requirements-azure-marketplace-trial-test-drive) | [](#) |  
+| [거래](#transact) | [Azure 앱: 관리되는 앱](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  [docs.microsoft.com/azure/managed-applications/overview](https://docs.microsoft.com/azure/managed-applications/overview) |  
+| [거래](#transact) | [Azure 앱: 솔루션 템플릿](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  [](#) |  
+| [거래](#transact) | [컨테이너](#requirements-azure-marketplace-transact-container) |  [](#) |  
+| [거래](#transact) | [SaaS 앱](#requirements-azure-marketplace-transact-saas-app) |  [](#) |  
+| [거래](#transact) | [가상 머신](#requirements-azure-marketplace-transact-virtual-machine) |  [](#) |  
 
 ---   
 
@@ -93,10 +96,10 @@ Azure Marketplace에 게시된 모든 VM(가상 머신)은 Azure Certified 프�
 
 | 제품 유형 | 상점 | 세부 정보 |  
 |:---        |:---        |:---     |  
-| 컨설팅 서비스 | AppSource | [요구 사항: AppSource: 나열: 컨설팅 서비스](#requirements:-appsource:-list:-consulting-service) |  
-| 컨설팅 서비스 | Azure Marketplace | [요구 사항: Azure Marketplace: 나열: 컨설팅 서비스](#requirements:-azure-marketplace:-list:-consulting-service) |  
+| 컨설팅 서비스 | AppSource | [요구 사항: AppSource: 나열: 컨설팅 서비스](#requirements-appsource-list-consulting-service) |  
+| 컨설팅 서비스 | Azure Marketplace | [요구 사항: Azure Marketplace: 나열: 컨설팅 서비스](#requirements-azure-marketplace-list-consulting-service) |  
 | 연락처 | AppSource | [](#) |  
-| 연락처 | Azure Marketplace | [요구 사항: AppSource: 나열: 연락처](#requirements:-azure-marketplace:-list:-contact-me) |  
+| 연락처 | Azure Marketplace | [요구 사항: AppSource: 나열: 연락처](#requirements-azure-marketplace-list-contact-me) |  
 
 #### <a name="requirements-appsource-list-consulting-service"></a>요구 사항: AppSource: 나열: 컨설팅 서비스  
 제품이 주로 전문 서비스(예: 평가, 구현, 워크샵)로 이루어져 있는 경우 컨설팅 서비스 제품 유형을 사용합니다.  
@@ -130,12 +133,12 @@ Azure Marketplace에 게시된 모든 VM(가상 머신)은 Azure Certified 프�
 
 | 제품 유형 | 상점 | 세부 정보 |  
 |:---        |:---        |:---     |  
-| 무료/SaaS 평가판 | AppSource | [열거 유형 요구 사항: 평가판](#Listing-Type-Requirements:-trial) |  
-| 무료/SaaS 평가판 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 평가판/SaaS 평가판](#requirements:-azure-marketplace:-trial:-free-trial-/-saas-trial) |  
-| 대화형 데모 | AppSource | [열거 유형 요구 사항: 평가판](#Listing-Type-Requirements:-trial) |  
-| 대화형 데모 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 대화형 데모](#requirements:-azure-marketplace:-trial:-interactive-demo) |  
-| 시험 사용 | AppSource | [열거 유형 요구 사항: 평가판](#Listing-Type-Requirements:-trial) |  
-| 시험 사용 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 시험 사용](#requirements:-azure-marketplace:-trial:-test-drive) |  
+| 무료/SaaS 평가판 | AppSource | [열거 유형 요구 사항: 평가판](#listing-type-requirements-trial) |  
+| 무료/SaaS 평가판 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 평가판/SaaS 평가판](#requirements-azure-marketplace-trial-free-trial-/-saas-trial) |  
+| 대화형 데모 | AppSource | [열거 유형 요구 사항: 평가판](#listing-type-requirements-trial) |  
+| 대화형 데모 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 대화형 데모](#requirements-azure-marketplace-trial-interactive-demo) |  
+| 시험 사용 | AppSource | [열거 유형 요구 사항: 평가판](#listing-type-requirements-trial) |  
+| 시험 사용 | Azure Marketplace | [요구 사항: Azure Marketplace: 평가판: 시험 사용](#requirements-azure-marketplace-trial-test-drive) |  
 
 #### <a name="requirements-azure-marketplace-trial"></a>요구 사항: Azure Marketplace: 평가판  
 
@@ -177,11 +180,11 @@ Azure Marketplace에 게시된 모든 VM(가상 머신)은 Azure Certified 프�
 
 | 제품 유형 | 상점 | 세부 정보 |   
 |:---        |:---        | :--- |  
-| Azure 앱: 관리되는 앱 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 관리되는 앱](#requirements:-azure-marketplace:-transact:-Azure-apps:-Managed-app) |  
-| Azure 앱: 솔루션 템플릿 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 솔루션 템플릿](#requirements:-azure-marketplace:-transact:-Azure-apps:-Solution-template) |  
-| 컨테이너 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: 컨테이너](#requirements:-azure-marketplace:-transact:-Container) |  
-| SaaS 앱  | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: SaaS 앱](#requirements:-azure-marketplace:-transact:-SaaS-app) |  
-| 가상 머신 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: 가상 머신](#requirements:-azure-marketplace:-transact:-Virtual-Machine) |  
+| Azure 앱: 관리되는 앱 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 관리되는 앱](#requirements-azure-marketplace-transact-azure-apps-managed-app) |  
+| Azure 앱: 솔루션 템플릿 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: Azure 앱: 솔루션 템플릿](#requirements-azure-marketplace-transact-azure-apps-solution-template) |  
+| 컨테이너 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: 컨테이너](#requirements-azure-marketplace-transact-container) |  
+| SaaS 앱  | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: SaaS 앱](#requirements-azure-marketplace-transact-saas-app) |  
+| 가상 머신 | Azure Marketplace | [요구 사항: Azure Marketplace: 거래: 가상 머신](#requirements-azure-marketplace-transact-virtual-machine) |  
 
 #### <a name="requirements-azure-marketplace-transact-azure-apps-managed-app"></a>요구 사항: Azure Marketplace: 거래: Azure 앱: 관리되는 앱  
 다음 조건이 필요한 경우, Azure 앱: 관리되는 앱 제품 유형을 사용합니다.  
@@ -209,11 +212,10 @@ Microsoft는 현재 무료 및 BYOL(사용자 라이선스 필요) 라이선스 
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
-|청구 및 계량  |  컨테이너는 무료 또는 BYOL 청구 모델 중 하나를 지원해야 합니다.       |  
-|Dockerfile에서 작성된 이미지   |   컨테이너 이미지는 Docker 이미지 사양을 기반으로 해야 하며 Dockerfile에서 작성해야 합니다. [여기]에서 docker 이미지 빌드에 대해 자세히 알아보세요.(https://docs.docker.com/engine/reference/builder/#usage)
-|ACR에서 호스팅   |   컨테이너 이미지는 Azure Container Registry(ACR) 리포지토리에서 호스팅되어야 합니다. [여기]에서 ACR 작업에 대해 자세히 알아보세요.(https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)     
-|이미지 태그 지정   |   컨테이너 이미지는 최소 1개 이상의 태그를 포함해야 합니다(최대 태그: 16). [여기]에서 이미지의 태그 지정에 대해 자세히 알아보세요.(https://docs.docker.com/engine/reference/commandline/tag/)     | 
-
+| 청구 및 계량 | 무료 또는 BYOL 청구 모델을 지원합니다. |  
+| Dockerfile에서 작성된 이미지 | 컨테이너 이미지는 Docker 이미지 사양을 기반으로 해야 하며 Dockerfile에서 작성해야 합니다.<ul> <li>Docker 이미지를 빌드하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/builder/#usage](https://docs.docker.com/engine/reference/builder/#usage)에 있는 사용법 섹션으로 이동합니다.</li> </ul> |  
+| ACR에서 호스팅 | 컨테이너 이미지는 Azure Container Registry(ACR) 리포지토리에서 호스팅되어야 합니다.<ul> <li>ACR을 사용하는 방법에 대한 자세한 내용은 [docs.microsoft.com/azure/container-registry/container-registry-get-started-portal](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)에 있는 빠른 시작: Azure Portal을 사용하여 컨테이너 레지스트리 만들기로 이동합니다.</li> </ul> |  
+| 이미지 태그 지정 | 컨테이너 이미지는 최소 1개 이상의 태그를 포함해야 합니다(최대 태그: 16).<ul> <li>이미지를 태그하는 방법에 대한 자세한 내용은 [docs.docker.com/engine/reference/commandline/tag](https://docs.docker.com/engine/reference/commandline/tag)에 있는 Docker 태그 페이지로 이동합니다.</li> </ul> |  
 
 
 #### <a name="requirements-azure-marketplace-transact-saas-app"></a>요구 사항: Azure Marketplace: 거래: SaaS 앱  
@@ -225,12 +227,10 @@ Microsoft는 상거래를 주도합니다. Microsoft는 사용자를 대신하�
 
 | 요구 사항 | 세부 정보 |  
 |:--- |:--- |  
-|청구 및 계량   |   제품은 월정액으로 가격이 책정됩니다. 사용량 기반 가격 책정 및 사용량 기반 "현실화" 기능은 이번에 지원되지 않습니다.      |  
-|취소  |   제품은 언제든지 고객에 의해 취소될 수 있습니다.      |  
-|트랜잭션 방문 페이지   |   사용자가 SaaS 서비스 계정을 만들고 관리할 수 있는 Azure 공동 브랜드 트랜잭션 방문 페이지를 호스트합니다.      |   
-|구독 API    |   SaaS 구독과 상호 작용할 수 있는 서비스를 노출하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다.      | 
-
-
+|청구 및 계량 | 제품은 월정액으로 가격이 책정됩니다. 사용량 기반 가격 책정 및 사용량 기반 "현실화" 기능은 이번에 지원되지 않습니다. |  
+|취소 | 제품은 언제든지 고객에 의해 취소될 수 있습니다. |  
+|트랜잭션 방문 페이지 | 사용자가 SaaS 서비스 계정을 만들고 관리할 수 있는 Azure 공동 브랜드 트랜잭션 방문 페이지를 호스트합니다. |   
+| 구독 API | SaaS 구독과 상호 작용할 수 있는 서비스를 노출하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. |  
 
 #### <a name="requirements-azure-marketplace-transact-virtual-machine"></a>요구 사항: Azure Marketplace: 거래: 가상 머신  
 고객과 연결된 구독에 가상 어플라이언스를 배포할 경우 가상 머신 제품 유형을 사용합니다. VM은 종량제 또는 BYOL(사용자 라이선스 필요) 라이선스 모델을 사용하여 완전하게 거래될 수 있습니다. Microsoft는 사용자 대신, 상거래를 주도하고 고객에게 요금을 청구합니다. 사용자는 기업계약을 비롯하여 고객과 Microsoft 간에 선호하는 결제 방식을 채택할 수 있습니다.  

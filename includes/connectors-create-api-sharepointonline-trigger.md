@@ -1,7 +1,7 @@
 이 예제에서는 **SharePoint Online - 새 항목을 만들 때** 트리거를 사용하여 SharePoint Online 목록에 새 항목이 만들어질 때 논리 앱 워크플로를 시작하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> SharePoint Online에 대한 *연결* 을 아직 만들지 않은 경우 SharePoint 계정에 로그인하라는 메시지가 표시됩니다.  
+> SharePoint Online에 대한 *연결*을 아직 만들지 않은 경우 SharePoint 계정에 로그인하라는 메시지가 표시됩니다.  
 > 
 > 
 

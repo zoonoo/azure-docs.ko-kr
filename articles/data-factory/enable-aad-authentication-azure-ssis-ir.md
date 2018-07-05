@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/04/2018
+ms.date: 06/21/2018
 ms.author: douglasl
-ms.openlocfilehash: 5fce1a3b8370ce49a522f41749795362e1bf1f9b
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 93d3e25957fb1f04400fa78423a5658d32f7d5fd
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757280"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36749721"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 Azure Active Directory 인증 활성화
 
@@ -53,7 +53,7 @@ Data Factory MSI에 대한 자세한 내용은 [Azure Data Factory 서비스 ID]
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  그룹에 Data Factory MSI를 추가합니다. [Azure Data Factory 서비스 ID](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)를 따라 서비스 ID ID를 가져올 수 있습니다(예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc).
+3.  그룹에 Data Factory MSI를 추가합니다. [Azure Data Factory 서비스 ID](https://docs.microsoft.com/en-us/azure/data-factory/data-factory-service-identity)를 따라 기본 서비스 ID ID를 가져올 수 있습니다(예: 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc. 이 용도로 서비스 ID 응용 프로그램 ID를 사용하지 마세요).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

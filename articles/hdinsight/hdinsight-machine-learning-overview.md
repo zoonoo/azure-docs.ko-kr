@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nitinme
-ms.openlocfilehash: b80c49b67c7cca835ae08346561984e168e3df4e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 6ccdb1fff5ecdcb61beedf1b12904d3785d4921d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392173"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048506"
 ---
 # <a name="machine-learning-on-hdinsight"></a>HDInsight의 기계 학습
 
@@ -33,13 +33,13 @@ HDInsight를 사용하면 빅 데이터와 함께 기계 학습을 수행하여 
 
 ## <a name="r"></a>R
 
-[R](https://www.r-project.org/)은 현재 세계에서 가장 인기 있는 통계 프로그래밍 언어입니다. 오픈 소스 데이터 시각화 도구이며, 250만 명이 넘는 사용자와 더불어 계속 성장 중인 커뮤니티가 참여하고 있습니다. 번창하는 사용자를 기반으로 하고 8,000개 이상의 적용된 패키지를 제공하는 R은 기계 학습이 필요한 많은 회사에 적합한 선택 사항입니다. 대량 데이터 집합 및 모델과 함께 사용할 준비가 된 R Server를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 이 기능은 데이터 과학자 및 통계 전문가에게 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기 조정할 수 있는 친숙한 R 인터페이스를 제공합니다.
+[R](https://www.r-project.org/)은 현재 세계에서 가장 인기 있는 통계 프로그래밍 언어입니다. 오픈 소스 데이터 시각화 도구이며, 250만 명이 넘는 사용자와 더불어 계속 성장 중인 커뮤니티가 참여하고 있습니다. 번창하는 사용자를 기반으로 하고 8,000개 이상의 적용된 패키지를 제공하는 R은 기계 학습이 필요한 많은 회사에 적합한 선택 사항입니다. 대량 데이터 집합 및 모델과 함께 사용할 준비가 된 ML 서비스를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 이 기능은 데이터 과학자 및 통계 전문가에게 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기 조정할 수 있는 친숙한 R 인터페이스를 제공합니다.
 
 ![R Server를 사용한 예측 학습](./media/hdinsight-machine-learning-overview/r-training.png)
 
 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다.  또한 ScaleR의 Hadoop Map Reduce 또는 Spark 계산 컨텍스트를 사용하여 클러스터 노드에서 R 스크립트를 실행하는 옵션도 제공됩니다.
 
-Spark가 있는 HDInsight의 R Server를 사용하면 Spark 계산 컨텍스트를 통해 클러스터 노드에서 학습을 병렬화할 수 있습니다. 필요에 따라 사용 가능한 모든 코어를 병렬로 사용하여 에지 노드에서 R 스크립트를 직접 실행할 수 있습니다. 또는 에지 노드의 코드를 실행하여 클러스터의 모든 노드에 분산된 처리를 시작할 수 있습니다. 또한 Spark가 있는 HDInsight의 R Server를 사용하면 원하는 경우 오픈 소스 R 패키지의 병렬화 기능을 사용할 수도 있습니다.
+Spark가 있는 HDInsight의 ML 서비스를 사용하면 Spark 계산 컨텍스트를 통해 클러스터 노드에서 학습을 병렬화할 수 있습니다. 필요에 따라 사용 가능한 모든 코어를 병렬로 사용하여 에지 노드에서 R 스크립트를 직접 실행할 수 있습니다. 또는 에지 노드의 코드를 실행하여 클러스터의 모든 노드에 분산된 처리를 시작할 수 있습니다. 또한 Spark가 있는 HDInsight의 ML 서비스를 사용하면 원하는 경우 오픈 소스 R 패키지의 병렬화 기능을 사용할 수도 있습니다.
 
 ## <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning 및 Hive
 

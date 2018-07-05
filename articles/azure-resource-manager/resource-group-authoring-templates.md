@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: f7dfdc4319e50e7a6c1c6032c27de5c76397e8de
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ce47874b759748f4a2e2ce1fb438b394443058
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603079"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334801"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 이 문서에서는 Azure Resource Manager 템플릿의 구조에 대해 설명합니다. 여기서는 템플릿의 다른 섹션 및 해당 섹션에서 사용할 수 있는 속성을 보여 줍니다. 템플릿은 배포에 대한 값을 생성하는 데 사용할 수 있는 식과 JSON으로 구성됩니다. 템플릿 만들기에 관한 단계별 연습은 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)를 참조하세요.
@@ -214,6 +214,7 @@ ms.locfileid: "34603079"
 사용자 함수를 정의할 때는 다음과 같은 몇 가지 제한 사항이 있습니다.
 
 * 함수는 변수에 액세스할 수 없습니다.
+* 함수는 다른 사용자 정의 함수를 호출할 수 없습니다.
 * 함수는 [참조 함수](resource-group-template-functions-resource.md#reference)를 사용할 수 없습니다.
 * 함수의 매개 변수는 기본값을 가질 수 없습니다.
 

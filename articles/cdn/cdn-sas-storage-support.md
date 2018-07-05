@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/21/2018
 ms.author: v-deasim
-ms.openlocfilehash: ea779f4f809e51b57d36cd44f9c6674340d665a2
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 15a4e0a8d62b38fa7aa542d95e53d29621965666
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261171"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316571"
 ---
 # <a name="using-azure-cdn-with-sas"></a>SAS로 Azure CDN 사용
 
@@ -41,7 +41,7 @@ SAS 토큰을 생성한 후 URL에 `?sv=<SAS token>`을 추가하여 Blob 저장
  
 예: 
  ```
-https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
+https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
 매개 변수 설정에 대한 자세한 내용은 [SAS 매개 변수 고려 사항](#sas-parameter-considerations) 및 [공유 액세스 서명 매개 변수](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1#shared-access-signature-parameters)를 참조하세요.
@@ -62,7 +62,7 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
 
    예:    
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://demoendpoint.azureedge.net/container1/demo.jpg/?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    
 3. 캐싱 규칙을 사용하거나 원본 서버에서 `Cache-Control` 헤더를 추가하여 캐시 지속 기간을 미세 조정합니다. Azure CDN은 SAS 토큰을 일반 쿼리 문자열로 취급하므로 SAS 만료 시간 또는 이전에 만료되는 캐싱 기간을 설정하는 것이 좋습니다. 그러지 않으면 SAS가 활성 상태인 기간보다 오랫동안 파일이 캐시되는 경우 SAS 만료 시간이 지난 후에도 Azure CDN 원본 서버에서 파일에 액세스할 수 있습니다. 이러한 상황이 발생하는 경우 캐시된 파일에 액세스할 수 없도록 하려면 파일에서 제거 작업을 수행하여 캐시에서 파일을 지워야 합니다. Azure CDN에서 캐시 기간을 설정하는 방법은 [캐싱 규칙으로 Azure CDN 캐싱 동작 제어](cdn-caching-rules.md)를 참조하세요.
@@ -80,14 +80,14 @@ https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-04-17&
    다음 샘플 URL 다시 쓰기 규칙은 캡처링 그룹 및 *storagedemo*라는 엔드포인트와 함께 정규식 패턴을 사용합니다.
    
    원본:   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    대상:   
    ```
-   $1?sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![CDN URL 다시 쓰기 규칙](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![CDN URL 재작성 규칙 - 왼쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL 재작성 규칙 - 오른쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
 
 2. 새 규칙이 활성화되면 URL에서 SAS 토큰을 사용하는지 여부에 관계 없이 누구나 CDN 엔드포인트에 지정된 컨테이너에서 파일에 액세스할 수 있습니다. 형식은 다음과 같습니다. `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
@@ -118,14 +118,14 @@ Azure CDN 보안 토큰 인증을 사용하려면 **Verizon의 Azure CDN Premium
    다음 샘플 URL 다시 쓰기 규칙은 캡처링 그룹 및 *storagedemo*라는 엔드포인트와 함께 정규식 패턴을 사용합니다.
    
    원본:   
-   `(/test/.*)`
+   `(\/container1\/.*)`
    
    대상:   
    ```
-   $1&sv=2017-04-17&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-
-   ![CDN URL 다시 쓰기 규칙](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![CDN URL 재작성 규칙 - 왼쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![CDN URL 재작성 규칙 - 오른쪽](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
 
 3. SAS를 갱신하는 경우 새 SAS 토큰을 사용하여 URL 다시 쓰기 규칙을 업데이트해야 합니다. 
 
@@ -140,7 +140,10 @@ SAS 매개 변수는 Azure CDN에 표시되지 않으므로 Azure CDN은 이 매
 | 허용된 IP 주소 | 선택 사항입니다. **Verizon의 Azure CDN**을 사용하는 경우 이 매개 변수를 you can set this parameter to the ranges defined in [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx)(Verizon의 Azure CDN 에지 서버 IP 범위)에 정의된 범위로 설정할 수 있습니다. **Akamai의 Azure CDN**을 사용하는 경우에는 IP 주소가 고정 주소가 아니므로 IP 범위 매개 변수를 설정할 수 없습니다.|
 | 허용되는 프로토콜 | 계정 SAS를 사용하여 요청하는 경우 허용되는 프로토콜입니다. HTTPS 설정을 사용하는 것이 좋습니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
+
+SAS에 대한 자세한 내용은 다음 문서를 참조하세요.
 - [SAS(공유 액세스 서명) 사용](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [공유 액세스 서명, 2부: Blob 저장소를 사용하여 SAS 만들기 및 사용](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
-- [토큰 인증을 사용하여 Azure Content Delivery Network 자산 보안 유지](https://docs.microsoft.com/azure/cdn/cdn-token-auth)
+
+토큰 인증을 설정하는 방법에 대한 자세한 내용은 [토큰 인증을 사용하여 Azure Content Delivery Network 자산 보안 유지](https://docs.microsoft.com/azure/cdn/cdn-token-auth)를 참조하세요.

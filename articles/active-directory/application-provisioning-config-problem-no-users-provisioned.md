@@ -3,22 +3,24 @@ title: 사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지
 description: Azure AD로 사용자 프로비전을 구성한 Azure AD 갤러리 응용 프로그램에 사용자가 표시되지 않는 일반적인 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
-ms.author: asteen
-ms.openlocfilehash: a36d60b8915ae0b46226bb2127829a8f1767daba
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.reviewer: asteen
+ms.openlocfilehash: 394e8642c177312c8990ea211f77fb802d4228fd
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26616295"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332412"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>사용자가 Azure AD 갤러리 응용 프로그램에 프로비전되지 않음
 
@@ -56,7 +58,7 @@ Azure Portal의 **Azure Active Directory &gt; 엔터프라이즈 응용 프로�
 
 감사 로그에 사용자가 “생략”으로 표시되면 로그 메시지의 확장되는 세부 정보를 읽고 이유를 확인해야 합니다. 다음은 일반적인 원인과 해결 방법입니다.
 
--   **특성 값에 따라 사용자를 필터링하는** **범위 지정 필터가 구성되었습니다**. 범위 지정 필터에 대한 자세한 내용은 <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>를 참조하세요.
+-   **특성 값에 따라 사용자를 필터링하는** **범위 지정 필터가 구성되었습니다**. 필터를 범위 지정하는 방법에 대한 자세한 내용은 <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>를 참조하세요.
 
 -   **사용자가 “실질적으로 권한을 부여받지 않았습니다.”** 이 특정 오류 메시지가 표시되는 경우 Azure AD에 저장된 사용자 할당 레코드에 문제가 있기 때문입니다. 이 문제를 해결하려면 앱에서 사용자(또는 그룹)의 할당을 취소하고 다시 할당하세요. 할당에 대한 자세한 내용은 <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>을 참조하세요.
 

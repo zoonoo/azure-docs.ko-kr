@@ -6,7 +6,7 @@
 
     `npm install -g iothub-explorer@latest`
 
-1. 이제 다음 명령을 실행하여 허브에 로그인합니다. `{iot hub connection string}`을 이전에 복사한 IoT Hub 연결 문자열로 대체합니다.
+1. 그런 다음, 다음 명령을 실행하여 허브에 로그인합니다. `{iot hub connection string}`을 이전에 복사한 IoT Hub 연결 문자열로 대체합니다.
 
     `iothub-explorer login "{iot hub connection string}"`
 

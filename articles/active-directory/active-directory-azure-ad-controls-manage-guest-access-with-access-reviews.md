@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: dbb139081e1eb84ea64a187b7fec0d9cb159653c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 8eb7e4bc79ee50982dae5751968eb732ef39e00d
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235008"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017783"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Azure AD 액세스 검토를 사용하여 게스트 액세스 관리
 
@@ -42,7 +42,7 @@ Azure AD(Azure Active Directory)를 사용하면 [Azure AD B2B 기능](active-di
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>게스트에 대한 액세스 검토 만들기 및 수행
 
-먼저 검토자의 액세스 패널에 표시되도록 액세스 검토를 활성화합니다. 전역 관리자로서 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동합니다. 
+먼저 검토자의 액세스 패널에 표시되도록 액세스 검토를 활성화합니다. 전역 관리자 또는 사용자 계정 관리자로서 [액세스 검토 페이지](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/)로 이동합니다. 
 
 Azure AD는 게스트 사용자를 검토하기 위한 몇 가지 시나리오를 지원합니다.
 

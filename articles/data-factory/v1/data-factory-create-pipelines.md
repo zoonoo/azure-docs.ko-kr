@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f80a22c39608a9d9c67977f2d0493af7300f475b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09fd2f38c3746cf92d576325058dc36221ae50cd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622709"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052490"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure 데이터 팩터리의 파이프라인 및 활동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](data-factory-create-pipelines.md)
-> * [버전 2 - 미리 보기](../concepts-pipelines-activities.md)
+> * [버전 1](data-factory-create-pipelines.md)
+> * [버전 2(현재 버전)](../concepts-pipelines-activities.md)
 
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 파이프라인](../concepts-pipelines-activities.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 파이프라인](../concepts-pipelines-activities.md)을 참조하세요.
 
 이 문서는 Azure Data Factory의 파이프라인 및 활동을 이해하고 데이터 이동 및 데이터 처리 시나리오를 위한 종단 간 데이터 기반 워크플로 사용하는 데 도움이 됩니다.  
 

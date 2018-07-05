@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/07/2018
+ms.date: 06/26/2018
 ms.author: asmalser
-ms.openlocfilehash: fce7ea66f5e10aae4f1a0a3f0ed92ca57e6112c7
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c7a18132a797bd7411487c233fc41647cc20dfb4
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293299"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025436"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 응용 프로그램의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>SaaS 앱을 위한 자동 사용자 프로비저닝이란?
@@ -50,7 +50,6 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 * 특정 SaaS 응용 프로그램 또는 시스템에 다수의 사용자를 손쉽게 가져옵니다.
 * 단일 정책 집합을 사용하여 프로비전된 사용자와 앱에 로그인할 수 있는 사용자를 편리하게 확인합니다.
 
-
 ## <a name="how-does-automatic-provisioning-work"></a>자동 프로비전은 어떻게 작동합니까?
     
 **Azure AD 프로비전 서비스**는 각 응용 프로그램 공급업체에서 제공하는 사용자 관리 API 끝점에 연결하여 SaaS 앱 및 다른 시스템에 사용자를 프로비전합니다. 이러한 사용자 관리 API 끝점을 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로비전 서비스는 그룹 및 역할과 같은 추가 ID 관련 개체를 만들고, 업데이트하고, 제거할 수 있습니다. 
@@ -69,15 +68,17 @@ Azure AD(Azure Active Directory)를 사용하면 Dropbox, Salesforce, ServiceNow
 
 Azure AD는 SCIM 2.0 표준의 특정 부분을 구현하는 앱에 대한 일반적 지원뿐만 아니라 다양한 인기 있는 SaaS 앱 및 인사 관리 시스템에 대한 사전 통합된 지원도 제공합니다.
 
-Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 응용 프로그램 목록을 보려면 [사용자 프로비저닝에 대한 응용 프로그램 자습서 목록](active-directory-saas-tutorial-list.md)을 참조하세요.
+### <a name="pre-integrated-applications"></a>사전 통합된 응용 프로그램
+Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 응용 프로그램 목록을 보려면 [사용자 프로비저닝에 대한 응용 프로그램 자습서 목록](saas-apps/tutorial-list.md)을 참조하세요.
 
-Azure AD 사용자 프로비저닝 지원을 응용 프로그램에 추가하는 방법에 대한 자세한 내용은 [도메인 간 ID 관리용 시스템을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전](manage-apps/use-scim-to-provision-users-and-groups.md)을 참조하세요.
-
-Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.    
+Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.
 
 > [!NOTE]
 > 응용 프로그램에서 자동화된 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램에서 사용자 만들기, 유지 관리 및 제거를 자동화하는 데 필요한 사용자 관리 API를 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 사용자 관리 API를 지원하는 앱의 경우 Azure AD 엔지니어링 팀에서 해당 앱에 대한 프로비전 커넥터를 빌드할 수 있게 되며, 현재 및 잠재 고객의 요구 사항에 따라 이 작업의 우선 순위가 지정됩니다. 
-    
+
+### <a name="connecting-applications-that-support-scim-20"></a>SCIM 2.0을 지원하는 응용 프로그램 연결
+SCIM 2.0 기반 사용자 관리 API를 구현하는 응용 프로그램에 일반적으로 연결하는 방법에 대한 자세한 내용은 [SCIM을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동으로 프로비전](manage-apps/use-scim-to-provision-users-and-groups.md)을 참조하세요.
+
     
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>응용 프로그램에 자동 프로비전을 설정하려면 어떻게 합니까?
 
@@ -85,7 +86,7 @@ Azure AD 엔지니어링 팀에 문의하여 추가 응용 프로그램에 대�
 
 선택한 응용 프로그램에 대한 Azure AD 프로비전 서비스의 구성은 **[Azure Portal](https://portal.azure.com)** 에서 시작됩니다. **Azure Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 **추가**, **모두**를 차례로 선택한 다음, 시나리오에 따라 다음 중 하나를 추가합니다.
 
-* **주요 응용 프로그램** 섹션에 있는 응용 프로그램은 모두 자동 프로비저닝을 지원합니다. 추가 응용 프로그램을 보려면 [사용자 프로비전에 대한 응용 프로그램 자습서 목록](active-directory-saas-tutorial-list.md)을 참조하세요.
+* **주요 응용 프로그램** 섹션에 있는 응용 프로그램은 모두 자동 프로비저닝을 지원합니다. 추가 응용 프로그램을 보려면 [사용자 프로비전에 대한 응용 프로그램 자습서 목록](saas-apps/tutorial-list.md)을 참조하세요.
 
 * 사용자 지정 개발된 SCIM 통합에 "비갤러리 응용 프로그램" 옵션을 사용합니다.
 
@@ -152,7 +153,7 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 >[!NOTE]
 > 필요에 따라 [특성 매핑](active-directory-saas-customizing-attribute-mappings.md) 섹션의 **대상 개체 작업** 확인란을 사용하여 만들기, 업데이트 또는 삭제 작업을 사용하지 않도록 설정할 수 있습니다. 업데이트 중에 사용자를 해제하는 논리도 “accountEnabled”와 같은 필드의 특성 매핑을 통해 제어됩니다.
 
-프로비저닝 서비스는 다음 이벤트 중 하나가 발생할 때까지 [각 응용 프로그램과 관련된 자습서](active-directory-saas-tutorial-list.md)에 정의된 간격마다 연속 증분 동기화를 무기한 실행합니다.
+프로비저닝 서비스는 다음 이벤트 중 하나가 발생할 때까지 [각 응용 프로그램과 관련된 자습서](saas-apps/tutorial-list.md)에 정의된 간격마다 연속 증분 동기화를 무기한 실행합니다.
 
 * 서비스가 Azure Portal을 사용하여 수동으로 중지되거나 적절한 Graph API 명령을 사용하여 중지됩니다. 
 * Azure Portal의 **상태 지우기 및 다시 시작** 옵션을 사용하거나 적절한 Graph API 명령을 사용하여 새 초기 동기화가 트리거됩니다. 이 경우 저장된 워터마크가 모두 지워지며 모든 소스 개체가 다시 평가됩니다.
@@ -216,33 +217,31 @@ ServiceNow, Google Apps, Box 등의 일부 응용 프로그램은 사용자 프�
 * 대상 시스템에서 구현된 요청 비율 한도 및 제한. 일부 대상 시스템은 큰 동기화 작업 중 성능에 영향을 줄 수 있는 요청 비율 한도 및 제한을 구현합니다. 이러한 조건에서 너무 많은 요청을 너무 빠르게 받는 앱은 응답 속도가 느려지거나 연결을 닫을 수도 있습니다. 성능을 개선하려면 커넥터가 앱이 처리할 수 있는 속도보다 빠르게 앱 요청이 전송되지 않도록 조정해야 합니다. Microsoft에서 빌드한 프로비저닝 커넥터는 이러한 조정 작업을 수행합니다. 
 
 * 할당된 그룹 수 및 크기. 할당된 그룹 동기화가 사용자 동기화보다 시간이 오래 걸립니다. 할당된 그룹 수와 크기는 둘 다 성능에 영향을 줍니다. 응용 프로그램에 [그룹 개체 동기화가 사용되는 매핑](active-directory-saas-customizing-attribute-mappings.md#editing-group-attribute-mappings)이 있는 경우 그룹 이름 및 멤버 자격과 같은 그룹 속성이 사용자와 함께 동기화됩니다. 이러한 추가 동기화 때문에 사용자 객체만 동기화하는 것보다 시간이 오래 걸립니다.
- 
 
-## <a name="frequently-asked-questions"></a>질문과 대답
 
-**현재 프로비저닝 작업의 진행률을 어떻게 확인할 수 있습니까?**
+##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>사용자가 적절히 프로비전되는지 어떻게 확인할 수 있나요?
 
-[프로비전 보고 가이드](active-directory-saas-provisioning-reporting.md)를 참조하세요.
+사용자 프로비저닝 서비스에서 수행되는 모든 작업은 Azure AD 감사 로그에 기록됩니다. 원본 및 대상 시스템에 만들어진 모든 읽기 및 쓰기 작업 뿐만 아니라 각 작업 동안 읽거나 작성된 사용자 데이터를 포함합니다.
 
-**사용자가 제대로 프로비저닝되지 않았을 때 어떻게 알 수 있습니까?**
+Azure Portal에서 감사 로그를 읽는 방법에 대한 자세한 내용은 [프로비전 보고 가이드](active-directory-saas-provisioning-reporting.md)를 참조하세요.
 
-모든 실패는 Azure AD 감사 로그에 기록됩니다. 자세한 내용은 [프로비전 보고 가이드](active-directory-saas-provisioning-reporting.md)를 참조하세요.
 
-**프로비저닝 서비스에서 작동하는 응용 프로그램을 빌드하려면 어떻게 하나요?**
+##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>사용자 프로비저닝 문제를 어떻게 해결하나요?
 
-[도메인 간 ID 관리용 시스템을 사용하여 사용자 및 그룹을 Azure Active Directory에서 응용 프로그램으로 자동 프로비전](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning)을 참조하세요.
+자동 사용자 프로비전 문제를 해결하는 방법에 대한 시나리오 기반 지침은 [응용 프로그램에 사용자를 구성 및 프로비전하는 문제](active-directory-application-provisioning-content-map.md)를 참조하세요.
 
-**엔지니어링 팀에 의견을 제출할 수 있는 방법은 무엇입니까?**
 
-[Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.
+##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>자동 사용자 프로비저닝을 롤아웃하기 위한 모범 사례는 무엇인가요?
+
+> [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
+
+응용 프로그램에 대한 아웃바운드 사용자 프로비저닝에 대한 단계별 배포 계획 예제는 [사용자 프로비저닝에 대한 ID 배포 가이드](https://aka.ms/userprovisioningdeploymentplan)/를 참조하세요.
 
 
 ## <a name="related-articles"></a>관련 문서
-* [SaaS App을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)
+* [SaaS App을 통합하는 방법에 대한 자습서 목록](saas-apps/tutorial-list.md)
 * [사용자 프로비저닝에 대한 특성 매핑 사용자 지정](active-directory-saas-customizing-attribute-mappings.md)
 * [특성 매핑에 대한 식 작성](active-directory-saas-writing-expressions-for-attribute-mappings.md)
 * [사용자 프로 비전에 대 한 필터 범위 지정](active-directory-saas-scoping-filters.md)
 * [SCIM를 사용하여 Azure Active Directory으로부터 응용 프로그램에 사용자 및 그룹의 자동 프로비전 사용](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-* [응용 프로그램의 아웃바운드 사용자 프로비전에 대한 단계별 배포 계획](https://aka.ms/userprovisioningdeploymentplan)
-

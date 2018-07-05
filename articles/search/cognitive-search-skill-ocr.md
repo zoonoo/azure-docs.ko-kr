@@ -4,8 +4,6 @@ description: Azure Search 보강 파이프라인의 이미지 파일에서 텍�
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 4ac86be25ebe7d12190cce290603ce83037a7b47
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640373"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055684"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 인식 기술
 
@@ -38,7 +36,7 @@ ms.locfileid: "34640373"
 | 매개 변수 이름     | 설명 |
 |--------------------|-------------|
 | detectOrientation | 이미지 방향의 자동 검색을 사용합니다. <br/> 유효한 값: true / false.|
-|defaultLanguageCode |  입력 텍스트의 언어 코드입니다. 지원되는 언어는 `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`을 포함합니다.  언어 코드가 지정되지 않았거나 null 이면 언어는 자동 검색됩니다.|
+|defaultLanguageCode | <p>  입력 텍스트의 언어 코드입니다. 지원되는 언어는 다음과 같습니다. <br/> zh-Hans(중국어 간체) <br/> zh-Hant(중국어 번체) <br/>cs(체코어) <br/>da(덴마크어) <br/>nl(네덜란드어) <br/>en(영어) <br/>fi(핀란드어)  <br/>fr(프랑스어) <br/>  de(독일어) <br/>el(그리스어) <br/> hu(헝가리어) <br/> it(이탈리아어) <br/>  ja(일본어) <br/> ko(한국어) <br/> nb(노르웨이어) <br/>   pl(폴란드어) <br/> pt(포르투갈어) <br/>  ru(러시아어) <br/>  es(스페인어) <br/>  sv(스웨덴어) <br/>  tr(터키어) <br/> ar(아랍어) <br/> ro(루마니아어) <br/> sr-Cyrl(세르비아 키릴어) <br/> sr-Latn(세르비아 라틴어) <br/>  sk(슬로바키아어) <br/>  unk(알 수 없음) <br/><br/> 언어 코드가 지정되지 않았거나 null 이면 언어는 자동 검색됩니다. </p> |
 | textExtractionAlgorithm | "인쇄" 또는 "필기"입니다. "필기" 텍스트 인식 OCR 알고리즘은 현재 미리 보기 및 영어가 지원됩니다. |
 
 ## <a name="skill-inputs"></a>기술 입력

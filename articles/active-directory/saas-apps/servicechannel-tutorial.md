@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 22de973ae00c93f82b274c0b833149b9fe494a7f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a62a6b334fd58ce360d932cdc4a8f04f36e3232d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36209853"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302032"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>자습서: ServiceChannel과 Azure Active Directory 통합
 
@@ -126,7 +126,7 @@ ServiceChannel에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     ![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 
-    > [여기](http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/)를 클릭하여 Azure AD에서 **역할**을 구성하는 방법을 알아봅니다.
+    > Azure AD에서 **역할**을 구성하는 방법을 알아보려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 5. **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 클릭하고 특성을 설정합니다.
 

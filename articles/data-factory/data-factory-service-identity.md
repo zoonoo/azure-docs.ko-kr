@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f4ce76385897c24bd5259d5a39aa1756769fe2aa
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ba965b0610525f66c24dd6d5bad3fd113a6b6758
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284483"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050868"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 서비스 ID
 
 이 문서를 통해 데이터 팩터리 서비스 ID의 정의 및 작동 방식을 이해할 수 있습니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
 
@@ -39,7 +36,7 @@ ms.locfileid: "36284483"
 
 데이터 팩터리 서비스 ID는 다음과 같이 생성됩니다.
 
-- **Azure Portal 또는 PowerShell**을 통해 데이터 팩터리를 만들 때 서비스 ID가 ADF V2 공개 미리 보기이므로 항상 자동으로 생성됩니다.
+- **Azure Portal 또는 PowerShell**을 통해 데이터 팩터리를 만들 때 서비스 ID가 항상 자동으로 생성됩니다.
 - **SDK**를 통해 데이터 팩터리를 만들 때, 생성할 팩터리 개체에서 "Identity = new FactoryIdentity()"를 지정하는 경우에만 서비스 ID가 생성됩니다. [.NET 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-dot-net.md#create-a-data-factory)에서 예제를 참조하세요.
 - **REST API**를 통해 데이터 팩터리를 만들 때, 요청 본문에 "identity" 섹션을 지정하는 경우에만 서비스 ID가 생성됩니다. [REST 빠른 시작 - 데이터 팩터리 만들기](quickstart-create-data-factory-rest-api.md#create-a-data-factory)에서 예제를 참조하세요.
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7d10f4bc772382f0ea48d32e7493be496946c455
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801867"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317829"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 토큰 참조
 Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다. 
@@ -113,7 +113,8 @@ Azure AD에서 발급된 토큰은 RSA 256 등의 업계 표준 비대칭 암호
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > 브라우저에서 이 URL을 사용해 보세요!
-> 
-> 
 
 이 메타데이터 문서는 OpenID Connect 인증을 수행하는 데 필요한 다양한 끝점의 위치 등 여러 유용한 정보를 포함하는 JSON 개체입니다. 
 
 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 `jwks_uri`도 포함합니다. `jwks_uri` 에 있는 JSON 문서는 해당 특정 시점에 사용 중인 공개 키 정보를 모두 포함합니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행할 수 있습니다.
+
+> [!NOTE]
+> v1.0 엔드포인트는 `x5t` 및 `kid` 클레임을 모두 반환합니다. v2.0 토큰에는 `x5t` 클레임이 없으므로 v2.0 엔드포인트는 `kid` 클레임을 통해 응답합니다. 앞으로는 `kid` 클레임을 사용하여 토큰의 유효성을 검사하는 것이 좋습니다.
 
 서명 유효성 검사는 이 문서의 범위를 벗어납니다. 필요한 경우 이 작업에 도움이 되는 다양한 오픈 소스 라이브러리가 있습니다.
 

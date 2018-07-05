@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 45b645fe556d1f9630ee15b1f2f605bbaf3f87f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648067"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309336"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 대한 VNet 구성
 
 Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 내에서 Azure SQL Database 관리되는 인스턴스(미리 보기)를 배포해야 합니다. 이 배포를 사용하면 다음과 같은 시나리오를 수행할 수 있습니다. 
-- 직접 관리되는 인스턴스에 연결하면 온-프레미스 네트워크를 형성합니다. 
+- 온-프레미스 네트워크에서 직접 관리되는 인스턴스에 연결 
 - 연결된 서버 또는 다른 온-프레미스 데이터 저장소에 관리되는 인스턴스 연결 
 - Azure 리소스에 관리되는 인스턴스 연결  
 

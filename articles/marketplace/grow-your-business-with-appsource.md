@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: d93f66282e3f735565389904c65436ed2ad79480
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f39392518f89ac51afd9a18fe59bcef46840478d
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826104"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054178"
 ---
 # <a name="grow-your-business-with-appsource"></a>AppSource를 사용하여 비즈니스 확장  
 AppSource를 사용하여 비즈니스 사용자가 비즈니스 결과를 추진하고 투자 비용 회수 기간을 줄이는 데 도움이 되는 기간 업무 SaaS 앱과 구현 서비스를 찾고 체험 및 다운로드하도록 유도합니다.  
@@ -32,8 +32,7 @@ AppSource를 사용하여 비즈니스 사용자가 비즈니스 결과를 추�
 | ***생산성, 효율성 및 비즈니스 인사이트 개선에 도움이 되는 앱*** | 고객 서비스, HR, 운영 등 기간 업무용 앱 제공 |  
 | ***앱을 고객을 위한 고유한 상황에 맞게 조정하는 데 도움이 되는 숙련된 구현 파트너*** | 비즈니스 사용자가 예측 가능한 결과를 제공하는 데 도움이 되는 Dynamics 365, Power BI, PowerApps 및 파트너 앱 기반 솔루션에 대한 컨설팅 서비스 제품 카탈로그 제공 |  
 
-<!-- # Grow your business with AppSource  -->
-Azure Marketplace와 AppSource는 모두 Microsoft와 공동으로 시장 진출 활동을 진행하기 위한 출발점이면서 비즈니스 확장을 위한 원동력이 됩니다. 마켓플레이스 제품은 출시 프로모션, 수요 창출, 공동 판매 및 마케팅을 통해 클라우드 비즈니스 엔진의 핵심이 될 수 있습니다. 참여에는 비용이 들지 않습니다. Microsoft 고객은 매일 Marketplace의 상점을 방문하여 고객의 비즈니스를 향상시키는 데 도움이 되는 올바른 앱과 서비스를 찾을 수 있습니다. Microsoft 및 Microsoft 파트너의 솔루션과 서비스를 조직과 연결하는 것이 Microsoft의 목표입니다.  
+<!-- # Grow your business with AppSource  --> Azure Marketplace와 AppSource는 모두 Microsoft와 공동으로 시장 진출 활동을 진행하기 위한 출발점이면서 비즈니스 확장을 위한 원동력이 됩니다. 마켓플레이스 제품은 출시 프로모션, 수요 창출, 공동 판매 및 마케팅을 통해 클라우드 비즈니스 엔진의 핵심이 될 수 있습니다. 참여에는 비용이 들지 않습니다. Microsoft 고객은 매일 Marketplace의 상점을 방문하여 고객의 비즈니스를 향상시키는 데 도움이 되는 올바른 앱과 서비스를 찾을 수 있습니다. Microsoft 및 Microsoft 파트너의 솔루션과 서비스를 조직과 연결하는 것이 Microsoft의 목표입니다.  
 
 ## <a name="business-benefits-of-joining-a-cloud-marketplace"></a>클라우드 마켓플레이스 조인 시 비즈니스상의 이점  
 Marketplace의 상점에 조인해야 하는 여러 가지 분명한 이유가 있습니다. 비즈니스를 성장시키는 데 도움이 되는 제안을 AppSource에 구체적으로 나열하면 다음과 같은 이점이 있습니다.  
@@ -68,7 +67,7 @@ AppSource에 대한 귀하의 제안을 마케팅하는 모범 사례를 따르�
 AppSource에 게시할 제품을 만들 때 고려해야 하는 마케팅 모범 사례 및 리소스를 제공하는 검사 목록은 다음과 같습니다.  
 *   **Microsoft 상표 및 브랜드 지침을 알고 있어야 합니다.**  
     앱 이름을 지정하고 Microsoft 상표와 Microsoft 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 Microsoft 상표 및 브랜드 지침 및 관련 제품별 지침을 따릅니다.  
-    *   Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.  
+    *   Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.  
 *   **앱에 대한 환경, 평가판 제품 또는 시험 사용 환경을 바로 획득할 수 있도록 합니다.**  
     비즈니스 사용자는 앱을 직접 경험해 보려고 합니다.  
 *   **강력한 가치 제안을 작성합니다.**  
@@ -105,14 +104,14 @@ AppSource 목록은 잠재 고객과의 첫 번째 상호 작용이 될 수 있�
 
 | 제품 설정 | 모범 사례 | 
 |:---------------------------------------- |:----------------------------------------------------- |
-| **Name** | **제품 이름 지정**<br />앱의 이름을 선택하는 것이 중요한 결정입니다. 혜택 기반 이름은 설명이 포함된 이름보다 더 효과적입니다. 앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수도 있습니다. Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 Microsoft 상표 및 브랜드 지침 및 관련 제품별 지침을 따릅니다.<ul> <li>Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.</li> </ul> |
+| **Name** | **제품 이름 지정**<br />앱의 이름을 선택하는 것이 중요한 결정입니다. 혜택 기반 이름은 설명이 포함된 이름보다 더 효과적입니다. 앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수도 있습니다. Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 Microsoft 상표 및 브랜드 지침 및 관련 제품별 지침을 따릅니다.<ul> <li>Microsoft 상표 및 브랜드 지침에 대한 자세한 내용은 [www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)에 있는 Microsoft 상표 및 브랜드 지침 페이지를 방문하세요.</li> </ul> |
 
 **상점 세부 정보 - 제품 세부 정보**  
 
 | 상점 설정 | 모범 사례 | 
 |:---------------------------------------- |:----------------------------------------------------- |
 | **제품 이름** | 제품 요약은 AppSource 홈페이지 및 앱 갤러리에서 제품의 검색 페이지에 표시됩니다. 제품 요약에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수 있습니다. |
-| **제품 설명** | **좋은 제품 설명 제공**<br />설명의 처음 몇 문장에서 제안의 가치 제안을 명확하게 설명합니다. 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요.<br />제품을 판매하는 특징과 기능에 의존하지 않습니다. 대신, 전달하는 가치에 중점을 둡니다. 산업별 어휘 또는 혜택 기반 단어를 최대한 많이 사용합니다.<br />가치 제안의 핵심 구성 요소에 포함되어야 하는 정보는 다음과 같습니다.<br />• 어떤 제품인가?<br />• 가장 많이 사용하는 대상은 누구인가?<br />• 처리해야 하는 요구 사항 또는 불만 사항은 무엇인가?<br />솔루션을 사용한 후에 비즈니스 또는 직장 생활이 어떻게 달라질 수 있는지 고객에게 알립니다.<br />제품 설명에 검색 키워드와 유사 키워드 변형을 통합하여 검색 엔진 결과에서 제품의 순위를 높일 수 있습니다.<br />간단한 HTML을 사용하여 제품 설명을 제공합니다.<br />다음은 주요 기능 목록 뒤에 제품 요약을 제공하는 간단한 제품 목록 페이지의 예입니다(위의 목록 예에 표시된 것과 동일함). 최대 문자 수는 3,000자입니다.<br />_샘플 HTML_<br /><p>Dynamics Insight for Dynamics 365(온라인)는 Dynamics 365 조직에 중요한 채택 및 사용량 메트릭을 제공하고, 성능 및 지원 문제를 미리 파악할 수 있도록 도움이 되는 도구를 제공합니다.</p> <ul><li><strong>대시보드 사용자 지정</strong><br /> 풍부한 사용자 경험과 중요한 데이터의 스냅숏을 제공하도록 대시보드를 설정합니다.<ul> <li><strong>채택 및 사용 모니터링:</strong> 가장 활발한 사용자, 페이지 요청 수, 가장 많이 사용된 엔터티, 워크플로 등을 식별합니다.</li> </ul><p>지원되는 최소 플랫폼 버전: 8.1.1</p> |
+| **제품 설명** | **좋은 제품 설명 제공**<br />설명의 처음 몇 문장에서 제안의 가치 제안을 명확하게 설명합니다. 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요.<br />제품을 판매하는 특징과 기능에 의존하지 않습니다. 대신, 전달하는 가치에 중점을 둡니다. 산업별 어휘 또는 혜택 기반 단어를 최대한 많이 사용합니다.<br />가치 제안의 핵심 구성 요소에 포함되어야 하는 정보는 다음과 같습니다.<ul> <li>어떤 제품인가요?</li>  <li>가장 많이 사용하는 대상은 누구인가요?</li> <li>처리해야 하는 요구 사항 또는 불만 사항은 무엇인가요?</li> </ul>솔루션을 사용한 후에 비즈니스 또는 직장 생활이 어떻게 달라질 수 있는지 고객에게 알립니다.<br />제품 설명에 검색 키워드와 유사 키워드 변형을 통합하여 검색 엔진 결과에서 제품의 순위를 높일 수 있습니다.<br />간단한 HTML을 사용하여 제품 설명을 제공합니다.<br />다음은 주요 기능 목록 뒤에 제품 요약을 제공하는 간단한 제품 목록 페이지의 예입니다(위의 목록 예에 표시된 것과 동일함). 최대 문자 수는 3,000자입니다.<br />*샘플 HTML*<br />Dynamics Insight for Dynamics 365(온라인)는 Dynamics 365 조직에 중요한 채택 및 사용량 메트릭을 제공하고, 성능 및 지원 문제를 미리 파악할 수 있도록 도움이 되는 도구를 제공합니다. <ul> <li>**대시보드 사용자 지정**<br />풍부한 사용자 경험과 중요한 데이터의 스냅숏을 제공하도록 대시보드를 설정합니다.<ul> <li>**채택 및 사용 모니터링**<br />가장 활발한 사용자, 페이지 요청 수, 가장 많이 사용된 엔터티, 워크플로 등을 식별합니다.</li> </ul></li> </ul>지원되는 최소 플랫폼 버전: `8.1.1` |
 
 **상점 세부 정보 - 목록 세부 정보**  
 
@@ -134,7 +133,7 @@ AppSource 목록은 잠재 고객과의 첫 번째 상호 작용이 될 수 있�
 | **스크린샷** | 최대 5개의 스크린샷을 추가하고 이름에 주요 검색어를 통합합니다. |
 
 ### <a name="promote-the-availability-of-your-offer-on-appsource"></a>AppSource에서 제품의 가용성 홍보  
-제품이 AppSource에 나열되면 페이지에 “AppSource에서 사용 가능” 배지를 표시할 수 있는 권한을 얻은 것입니다. 
+제품이 AppSource에 나열되면 페이지에 ***AppSource에서 사용 가능*** 배지를 표시할 수 있는 권한을 얻은 것입니다. 
 
  ![AppSource 배지](./media/marketplace-appsource/appsourcebadge.png)
     

@@ -1,93 +1,57 @@
 ---
-title: Azure CLI를 사용하여 Linux VM에 디스크 추가 | Microsoft Docs
-description: Azure CLI 1.0과 2.0을 사용하여 Linux VM에 영구 디스크를 추가하는 방법 알아보기
-keywords: Linux 가상 머신, 리소스 디스크 추가
+title: Azure CLI를 사용하여 Linux VM에 데이터 디스크 추가 | Microsoft Docs
+description: Azure CLI를 사용하여 Linux VM에 영구 데이터 디스크를 추가하는 방법 알아보기
 services: virtual-machines-linux
 documentationcenter: ''
-author: rickstercdn
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
-ms.date: 02/02/2017
-ms.author: rclaus
+ms.date: 06/13/2018
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c3d3e3468b491f366473899f5d073704ea9a95ea
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: c41090943e4053ddf0ea46e9da1b3b5c7dbbf132
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837009"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331226"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Linux VM에 디스크 추가
 이 문서에서는 유지 관리 또는 크기 조정으로 인해 VM이 다시 프로비전되더라도 데이터를 유지할 수 있도록 VM에 영구 디스크를 연결하는 방법을 보여 줍니다. 
 
 
-## <a name="use-managed-disks"></a>관리 디스크 사용
-Azure Managed Disks는 VM 디스크와 연결된 저장소 계정을 관리하여 Azure VM의 디스크 관리를 간소화합니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기만 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다. 자세한 내용은 [Managed Disks 개요](managed-disks-overview.md)를 참조하세요.
+## <a name="attach-a-new-disk-to-a-vm"></a>VM에 새 디스크 연결
 
-
-### <a name="attach-a-new-disk-to-a-vm"></a>VM에 새 디스크 연결
-VM에 새 디스크만 필요한 경우 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 명령에 `--new` 매개 변수를 사용합니다. VM이 가용성 영역에 있는 경우 VM과 동일한 영역에 디스크가 자동으로 생성됩니다. 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요. 다음 예제는 크기가 *50*GB이고 이름이 *myDataDisk*인 디스크를 만듭니다.
+VM에 새 빈 데이터 디스크를 추가하려는 경우 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 명령에 `--new` 매개 변수를 사용합니다. VM이 가용성 영역에 있는 경우 VM과 동일한 영역에 디스크가 자동으로 생성됩니다. 자세한 내용은 [가용성 영역 개요](../../availability-zones/az-overview.md)를 참조하세요. 다음 예제에서는 크기가 50GB이고 이름이 *myDataDisk*인 디스크를 만듭니다.
 
 ```azurecli
-az vm disk attach -g myResourceGroup --vm-name myVM --disk myDataDisk \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --disk myDataDisk \
+   --new \
+   --size-gb 50
 ```
 
-### <a name="attach-an-existing-disk"></a>기존 디스크 연결 
-대부분의 경우가 여기에 해당합니다. 이미 생성된 디스크를 연결합니다. 기존 디스크를 연결하려면 디스크 ID를 찾아 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 명령에 ID를 전달합니다. 다음 예제에서는 *myResourceGroup*에서 이름이 *myDataDisk*인 디스크를 쿼리한 다음 이름이 *myVM*인 VM에 연결합니다.
+## <a name="attach-an-existing-disk"></a>기존 디스크 연결 
+
+기존 디스크를 연결하려면 디스크 ID를 찾아 [az vm disk attach](/cli/azure/vm/disk?view=azure-cli-latest#az_vm_disk_attach) 명령에 ID를 전달합니다. 다음 예제에서는 *myResourceGroup*에서 이름이 *myDataDisk*인 디스크를 쿼리한 다음 이름이 *myVM*인 VM에 연결합니다.
 
 ```azurecli
-# find the disk id
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
 az vm disk attach -g myResourceGroup --vm-name myVM --disk $diskId
-```
-
-출력은 다음과 같이 보입니다(모든 명령에 `-o table` 옵션을 사용하여 출력을 서식 지정할 수 있음).
-
-```json
-{
-  "accountType": "Standard_LRS",
-  "creationData": {
-    "createOption": "Empty",
-    "imageReference": null,
-    "sourceResourceId": null,
-    "sourceUri": null,
-    "storageAccountId": null
-  },
-  "diskSizeGb": 50,
-  "encryptionSettings": null,
-  "id": "/subscriptions/<guid>/resourceGroups/rasquill-script/providers/Microsoft.Compute/disks/myDataDisk",
-  "location": "westus",
-  "name": "myDataDisk",
-  "osType": null,
-  "ownerId": null,
-  "provisioningState": "Succeeded",
-  "resourceGroup": "myResourceGroup",
-  "tags": null,
-  "timeCreated": "2017-02-02T23:35:47.708082+00:00",
-  "type": "Microsoft.Compute/disks"
-}
-```
-
-
-## <a name="use-unmanaged-disks"></a>관리되지 않는 디스크 사용
-비관리 디스크에서 기본 저장소 계정을 만들고 관리하려면 추가 오버헤드가 필요합니다. 비관리 디스크는 OS 디스크와 동일한 저장소 계정에 생성됩니다. 비관리 디스크를 만들고 연결하려면 [az vm unmanaged-disk attach](/cli/azure/vm/unmanaged-disk?view=azure-cli-latest#az_vm_unmanaged_disk_attach) 명령을 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹의 *myVM* VM에 *50*GB 비관리 디스크를 연결합니다.
-
-```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
 ```
 
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
-Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 Azure VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용하여 공용 DNS 항목이 *mypublicdns.westus.cloudapp.azure.com*인 VM에 연결합니다. 
+Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용하여 공용 DNS 항목이 *mypublicdns.westus.cloudapp.azure.com*인 VM에 연결합니다. 
 
 ```bash
 ssh azureuser@mypublicdns.westus.cloudapp.azure.com
@@ -115,7 +79,7 @@ dmesg | grep SCSI
 sudo fdisk /dev/sdc
 ```
 
-다음 예제와 유사하게 출력됩니다.
+새 파티션을 추가하려면 `n` 명령을 사용합니다. 이 예제에서는 주 파티션에 대해 `p`를 선택하고 기본 값의 나머지를 적용합니다. 다음 예제와 유사하게 출력됩니다.
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -137,7 +101,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-프롬프트에 다음과 같이 `p`를 입력하여 파티션을 만듭니다.
+`p`를 입력하여 파티션 테이블을 인쇄한 다음, `w`를 사용하여 디스크에 테이블을 쓰고 종료합니다. 출력은 다음 예제와 비슷해야 합니다.
 
 ```bash
 Command (m for help): p
@@ -266,7 +230,6 @@ Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. �
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>다음 단계
-* 해당 정보를 [fstab](http://en.wikipedia.org/wiki/Fstab) 파일에 쓰지 않았는데 다시 부팅하면 새 디스크를 VM에 사용할 수 없게 됩니다.
 * Linux VM을 올바르게 구성했는지 확인하려면 [Linux 컴퓨터 성능 최적화](optimization.md) 권장 사항을 검토합니다.
 * 디스크를 추가하여 저장소 용량을 확장하고 추가 성능이 필요할 경우 [RAID를 구성](configure-raid.md)합니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 6f1a95e52def9154253192ab9d43d1e7d621cee7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e9d43d46f1979e985a5da96fda608eec55ad7830
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425615"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031059"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Business Intelligence
 > [!IMPORTANT] 
@@ -34,7 +34,7 @@ Microsoft Azure Virtual Machines의 SQL Server에 라이선스를 허여하는 �
 1. Software Assurance에 속한 라이선스 이동 혜택. 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 참조하세요.
 2. SQL Server가 설치된 Azure Virtual Machines의 시간당 요금. [Virtual Machines 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)의 "SQL Server" 섹션을 참조하세요.
 
-라이선스 및 현재 요금에 대한 자세한 내용은 [Virtual Machines 라이선스 FAQ](https://azure.microsoft.com/pricing/licensing-faq/%20/)를 참조하세요.
+라이선스 및 현재 요금에 대한 자세한 내용은 [Virtual Machines 라이선스 FAQ](https://azure.microsoft.com/pricing/licensing-faq/)를 참조하세요.
 
 ## <a name="sql-server-images-available-in-azure-virtual-machine-gallery"></a>Azure Virtual Machine 갤러리에서 사용 가능한 SQL Server 이미지
 Microsoft Azure Virtual Machine 갤러리에는 Microsoft SQL Server가 포함된 몇 개의 이미지가 들어 있습니다. 가상 머신 이미지에 설치된 소프트웨어는 운영 체제 버전 및 SQL Server의 버전에 따라 다릅니다. Azure 가상 머신 갤러리에서 사용 가능한 이미지 목록은 자주 변경됩니다.
@@ -81,7 +81,7 @@ SQL Server에서 지원되는 버전 및 기능에 대한 자세한 내용은 �
 | **Reporting Services 기본 모드** |예 |설치되었지만 보고서 관리자 URL을 비롯한 구성이 필요합니다. [Reporting Services 구성](#configure-reporting-services)섹션을 참조하세요. |
 | **Reporting Services SharePoint 모드** |아니오 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
 | **Analysis Services 다차원 및 데이터 마이닝(OLAP)** |예 |설치되고 기본 Analysis Services 인스턴스로 구성되었습니다. |
-| **Analysis Services 테이블 형식** |아니요 |SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요. |
+| **Analysis Services 테이블 형식** |아니오 |SQL Server 2012, 2014 및 2016 이미지에서 지원되지만 기본적으로 설치되지 않습니다. Analysis Services의 다른 인스턴스를 설치합니다. 이 항목의 다른 SQL Server 서비스 및 기능 설치 섹션을 참조하세요. |
 | **SharePoint용 Analysis Services 파워 피벗** |아니오 |Microsoft Azure Virtual Machine 갤러리 이미지는 SharePoint 또는 SharePoint 설치 파일을 포함하지 않습니다. <sup>1</sup> |
 
 <sup>1</sup> SharePoint 및 Azure Virtual Machines에 대한 추가 정보는 [SharePoint 2013용 Microsoft Azure 아키텍처](https://technet.microsoft.com/library/dn635309.aspx) 및 [Microsoft Azure Virtual Machines에 SharePoint 배포](https://www.microsoft.com/download/details.aspx?id=34598)를 참조하세요.
@@ -351,5 +351,5 @@ Analysis Services의 **명명된 인스턴스** 의 경우 포트 액세스를 �
 > [Microsoft SQL Server Connect를 통해 피드백 및 연락처 정보 제출](https://connect.microsoft.com/SQLServer/Feedback)
 
 ### <a name="community-content"></a>커뮤니티 콘텐츠
-* [PowerShell을 사용한 Azure SQL Database 관리](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
+* [PowerShell을 사용한 Azure SQL Database 관리](https://azure.microsoft.com/blog/windows-azure-sql-database-management-with-powershell/)
 

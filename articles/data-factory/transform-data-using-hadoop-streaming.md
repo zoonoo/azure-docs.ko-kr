@@ -12,22 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: ea83701e834895b09faf8eb6602bd342b648ec37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4c2bf83fec3d8f961a84523365e4a98fe3bf7603
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620207"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052370"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-hadoop-streaming-activity.md)
-> * [버전 2 - 미리 보기](transform-data-using-hadoop-streaming.md)
+> * [버전 1](v1/data-factory-hadoop-streaming-activity.md)
+> * [현재 버전](transform-data-using-hadoop-streaming.md)
 
 Data Factory [파이프라인](concepts-pipelines-activities.md)의 HDInsight 스트리밍 작업은 [사용자 고유](compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 Hadoop 스트리밍 작업](v1/data-factory-hadoop-streaming-activity.md)을 참조하세요.
 
 Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](introduction.md)를 읽고 이 문서를 읽기 전에 [자습서: 데이터 변환](tutorial-transform-data-spark-powershell.md)을 수행하세요. 
 

@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: b1d82f9b527a62109e0301907b87bd683f9912af
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05021d5ab8d33e36bff16ce7d2ebacd3db72639a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035258"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -38,7 +39,7 @@ Azure Portal에서 시간 경과에 따른 메트릭을 모니터링할 수 있�
 
 ![Azure Portal에서 메트릭에 액세스 스크린 샷](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal.png)
 
-차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다. 다음은 **성공** 응답 형식을 사용하여 계정 수준에서 **트랜잭션**을 보는 방법을 보여 주는 예제입니다.
+차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 메트릭을 필터링할 수 있습니다. 다음 예제에서는 **API 이름** 차원에 대한 값을 선택하여 특정 작업의 계정 수준에서 **트랜잭션**을 보는 방법을 보여줍니다.
 
 ![Azure Portal에서 차원을 사용하여 메트릭에 액세스 스크린 샷](./media/storage-metrics-in-azure-monitor/access-metrics-in-portal-with-dimension.png)
 
@@ -317,7 +318,7 @@ Blob, 테이블, 파일 또는 큐에 대한 메트릭 정의를 나열하려면
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
 `
 * 파일 서비스 리소스 ID `
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/default
 `
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>Azure Monitor REST API의 리소스 ID
@@ -393,7 +394,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | 차원 이름 | 설명 |
 | ------------------- | ----------------- |
 | BlobType | Blob 메트릭용 Blob 형식만. 지원 되는 값은 **BlockBlob** 및 **PageBlob**입니다. 추가 Blob는 BlockBlob에 포함됩니다. |
-| ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외하고 모든 다른 서버 쪽 오류 </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상되는 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외하고 모든 다른 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청|
+| ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외하고 모든 다른 서버 쪽 오류 </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외하고 모든 다른 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청|
 | GeoType | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값은 기본 및 보조를 포함합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
 | ApiName | 작업 이름입니다. 예:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)를 참조하세요. |
 
@@ -402,6 +403,12 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 ## <a name="service-continuity-of-legacy-metrics"></a>레거시 메트릭의 서비스 연속성
 
 레거시 메트릭은 Azure Monitor 관리되는 메트릭과 동시에 사용할 수 있습니다. 이 지원은 Azure Storage가 레거시 메트릭에 대한 서비스를 종료할 때까지 동일하게 유지됩니다.
+
+## <a name="faq"></a>FAQ
+
+**Azure Storage가 Managed Disks 또는 Unmanaged Disks에 대한 메트릭을 지원하나요?**
+
+예. Azure Compute는 디스크에서 메트릭을 지원합니다. 자세한 내용은 [문서](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: df1981443d8c55f07f86394967e357a599a7b3a3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 262c864a9e580ab5e2ebb0d4fc1e6ec16adeacb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36213144"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334329"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -60,6 +60,8 @@ Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 �
 * Workday HCM 모듈에서 감지된 변경 내용 정보에 따라서만 하나 이상의 Active Directory 포리스트, 도메인 및 OU를 동기화하도록 사용자를 조인하고, 이동시키고, 유지해야 하는 조직([Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) 참조)
 
 * 이메일에 Office 365를 사용하는 조직
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)]
 
 ## <a name="planning-your-solution"></a>솔루션 계획
 
@@ -543,14 +545,13 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
    * 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 연결 테스트가 실패하면 Workday에서 Workday URL 및 자격 증명이 유효한지 다시 확인합니다.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>2부: 특성 매핑 구성 
 
 이 섹션에서는 클라우드 전용 사용자의 사용자 데이터가 Workday에서 Azure Active Directory로 흐르는 방식을 구성하겠습니다.
 
-1.  **매핑** 아래의 프로비전 탭에서 **Workday 작업자를 Azure AD와 동기화**를 클릭합니다.
+1. **매핑** 아래의 프로비전 탭에서 **Azure AD에 작업자 동기화**를 클릭합니다.
 
-2.   **원본 개체 범위** 필드에서 특성 기반 필터 집합을 정의하여 Azure AD 프로비전 범위에 포함할 Workday 사용자 집합을 선택할 수 있습니다. 기본 범위는 "Workday의 모든 사용자"입니다. 예제 필터:
+2. **원본 개체 범위** 필드에서 특성 기반 필터 집합을 정의하여 Azure AD 프로비전 범위에 포함할 Workday 사용자 집합을 선택할 수 있습니다. 기본 범위는 "Workday의 모든 사용자"입니다. 예제 필터:
 
    * 예: 작업자 ID가 1000000-2000000 사이인 사용자를 범위에 포함
 
@@ -566,9 +567,9 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
       * 연산자: IS NOT NULL
 
-3.  **대상 개체 작업** 필드에서 어떤 작업을 Azure AD에서 수행할 수 있도록 허용할 것인지 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
+3. **대상 개체 작업** 필드에서 어떤 작업을 Azure AD에서 수행할 수 있도록 허용할 것인지 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
-4.  **특성 매핑** 섹션에서 개별 Workday 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다.
+4. **특성 매핑** 섹션에서 개별 Workday 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다.
 
 5. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가**를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
 
@@ -602,7 +603,7 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 ### <a name="part-3-start-the-service"></a>3부: 서비스 시작
 1-2부를 완료했으면 프로비전 서비스를 시작할 수 있습니다.
 
-1.  **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
+1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
 2. **저장**을 클릭합니다.
 
@@ -612,7 +613,6 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>Workday로 이메일 주소 쓰기 저장 구성
 다음 지침에 따라 Azure Active Directory에서 Workday로 사용자 이메일 주소 쓰기 저장을 구성합니다.
 
@@ -620,21 +620,21 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
 **Workday에서 Active Directory로의 프로비전을 구성하려면:**
 
-1.  <https://portal.azure.com>으로 이동합니다.
+1. <https://portal.azure.com>으로 이동합니다.
 
-2.  왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
+2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 
-3.  **엔터프라이즈 응용 프로그램**, **모든 응용 프로그램**을 차례로 선택합니다.
+3. **엔터프라이즈 응용 프로그램**, **모든 응용 프로그램**을 차례로 선택합니다.
 
-4.  **응용 프로그램 추가**를 선택한 후 **모두** 범주를 선택합니다.
+4. **응용 프로그램 추가**를 선택한 후 **모두** 범주를 선택합니다.
 
-5.  **Workday 쓰기 저장**을 검색하고, 갤러리에서 해당 앱을 추가합니다.
+5. **Workday 쓰기 저장**을 검색하고, 갤러리에서 해당 앱을 추가합니다.
 
-6.  앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
 
-7.  **프로비전** **모드**를 **자동**으로 변경합니다.
+7. **프로비전** **모드**를 **자동**으로 변경합니다.
 
-8.  다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
+8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
    * **관리 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같은 형태여야 합니다. username@contoso4
 
@@ -646,24 +646,22 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 연결 테스트가 실패하면 Workday에서 Workday URL 및 자격 증명이 유효한지 다시 확인합니다.
 
-
 ### <a name="part-2-configure-attribute-mappings"></a>2부: 특성 매핑 구성 
-
 
 이 섹션에서는 사용자 데이터가 Workday에서 Active Directory로 흐르는 방식을 구성하겠습니다.
 
-1.  **매핑** 아래의 프로비전 탭에서 **Azure AD 사용자를 Workday와 동기화**를 클릭합니다.
+1. **매핑** 아래의 프로비전 탭에서 **Azure AD 사용자를 Workday와 동기화**를 클릭합니다.
 
-2.  선택 사항으로 **원본 개체 범위** 필드에서 Azure Active Directory의 사용자 집합 중 Workday에 이메일 주소를 기록할 사용자 집합을 필터링 할 수 있습니다. 기본 범위는 "Azure AD의 모든 사용자"입니다. 
+2. 선택 사항으로 **원본 개체 범위** 필드에서 Azure Active Directory의 사용자 집합 중 Workday에 이메일 주소를 기록할 사용자 집합을 필터링 할 수 있습니다. 기본 범위는 "Azure AD의 모든 사용자"입니다. 
 
-3.  **특성 매핑** 섹션에서 개별 Workday 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다. 기본적으로 이메일 주소에 대한 매핑이 있습니다. 그러나 Azure AD의 사용자가 Workday의 해당 항목과 일치하도록 일치 ID를 업데이트해야 합니다. Workday 작업자 ID 또는 직원 ID를 Azure AD의 extensionAttribute1-15와 동기화한 후 Azure AD에서 이 특성을 사용하여 Workday에서 사용자를 다시 일치시키는 방법이 주로 사용됩니다.
+3. **특성 매핑** 섹션에서 개별 Workday 특성이 Active Directory 특성에 매핑되는 방식을 정의할 수 있습니다. 기본적으로 이메일 주소에 대한 매핑이 있습니다. 그러나 Azure AD의 사용자가 Workday의 해당 항목과 일치하도록 일치 ID를 업데이트해야 합니다. Workday 작업자 ID 또는 직원 ID를 Azure AD의 extensionAttribute1-15와 동기화한 후 Azure AD에서 이 특성을 사용하여 Workday에서 사용자를 다시 일치시키는 방법이 주로 사용됩니다.
 
-4.  매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
+4. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
 ### <a name="part-3-start-the-service"></a>3부: 서비스 시작
 1-2부를 완료했으면 프로비전 서비스를 시작할 수 있습니다.
 
-1.  **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
+1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
 2. **저장**을 클릭합니다.
 
@@ -672,7 +670,6 @@ Azure AD Connect 설정에 대한 자세한 지침은 [Azure AD Connect 설명�
 4. 개별 동기화 이벤트는 **감사 로그** 탭에서 볼 수 있습니다. **[감사 로그를 읽는 방법에 대한 자세한 지침은 프로비전 보고 가이드 참조](../active-directory-saas-provisioning-reporting.md)**
 
 5. 작업이 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
-
 
 ## <a name="customizing-the-list-of-workday-user-attributes"></a>Workday 사용자 특성 목록 사용자 지정
 Active Directory 및 Azure AD 둘 다에 대한 Workday 프로비저닝 앱에는 선택할 수 있는 Workday사용자 특성의 기본 목록이 포함되어 있습니다. 그러나 이러한 목록은 포괄적이지 않습니다. Workday는 Workday 테넌트에 고유할 수 있는 수백 개의 가능한 사용자 특성을 지원합니다. 
@@ -799,15 +796,9 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 * 유럽 연합에 있는 Azure AD 테넌트에 표시되지 않는 감사 로그와 관련된 이전 문제는 해결되었습니다. 그러나 EU의 Azure AD 테넌트에 추가 에이전트가 구성이 필요합니다. 자세한 내용은 [3부: 온-프레미스 동기화 에이전트 구성](#Part 3: Configure the on-premises synchronization agent)을 참조하세요.
 
-
 ## <a name="managing-personal-data"></a>개인 데이터 관리
 
 Active Directory에 대한 Workday 프로비전 솔루션에는 도메인에 가입된 서버에 동기화 에이전트를 설치해야 하며, 이 에이전트는 개인 식별 정보를 포함할 수 있는 로그를 Windows 이벤트 로그에 만듭니다.
-
-[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-hybrid-note.md)] 여기서 ../ 참조는 문서의 계층 구조와 일치함
-
-> [!NOTE]
-> 개인 데이터의 보기 또는 삭제에 관심이 있는 경우 [GDPR에 대한 Windows 데이터 주체 요청](https://review.docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows) 사이트에서 Microsoft 지침을 검토하세요. GDPR에 대한 일반적인 내용은 [Service Trust Portal의 GDPR 섹션](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

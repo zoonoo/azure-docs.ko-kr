@@ -3,7 +3,7 @@ title: Azure Single Sign Out SAML 프로토콜 | Microsoft Docs
 description: 이 문서에서는 Azure Active Directory에서 Single Sign-Out SAML 프로토콜을 설명합니다.
 services: active-directory
 documentationcenter: .net
-author: priyamohanram
+author: CelesteDG
 manager: mtillman
 editor: ''
 ms.assetid: 0e4aa75d-d1ad-4bde-a94c-d8a41fb0abe6
@@ -14,21 +14,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: priyamo
+ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 9ec99ffc64138cf1cd94e0f11077cdc5d86dbc57
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: hirsin
+ms.openlocfilehash: c8373df67adbb93e25ab5a31a254efe70581d32d
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155500"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317680"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Single Sign-Out SAML 프로토콜
+
 Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-Out 프로필을 지원합니다. Single Sign-Out이 제대로 작동하려면, 응용 프로그램 등록 중에 응용 프로그램에 대한 **LogoutURL**이 Azure AD에 명시적으로 등록되어야 합니다. Azure AD는 LogoutURL을 사용하여 로그아웃된 사용자를 리디렉션합니다.
 
-이 다이어그램에서는 Azure AD Single Sign-Out 프로세스의 워크플로를 보여 줍니다.
+다음 다이어그램에서는 Azure AD Single Sign-Out 프로세스의 워크플로를 보여 줍니다.
 
-![Single Sign Out 워크플로](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
+![Azure AD Single Sign-Out 워크플로](media/active-directory-single-sign-out-protocol-reference/active-directory-saml-single-sign-out-workflow.png)
 
 ## <a name="logoutrequest"></a>LogoutRequest
 클라우드 서비스는 세션이 종료되었음을 나타내는 `LogoutRequest` 메시지를 Azure AD로 보냅니다. 다음 발췌문은 샘플 `LogoutRequest` 요소를 보여 줍니다.
@@ -43,9 +45,9 @@ Azure AD(Azure Active Directory)에서는 SAML 2.0 웹 브라우저 Single Sign-
 ### <a name="logoutrequest"></a>LogoutRequest
 Azure AD로 전송된 `LogoutRequest` 요소에는 다음 특성이 필요합니다.
 
-* `ID` : 로그아웃 요청을 식별합니다. `ID` 값은 숫자로 시작할 수 없습니다. 일반적인 방법은 **id** 를 GUID의 문자열 표현에 추가하는 것입니다.
-* `Version` : 이 요소의 값을 **2.0**으로 설정합니다. 이 값은 필수입니다.
-* `IssueInstant` : UTC(Coordinate Universal Time) 값과 [라운드 트립 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)을 포함하는 `DateTime` 문자열입니다. Azure AD에는 이 형식의 값이 필요하지만 강제 적용하지는 않습니다.
+* `ID` - 로그아웃 요청을 식별합니다. `ID` 값은 숫자로 시작할 수 없습니다. 일반적인 방법은 **id** 를 GUID의 문자열 표현에 추가하는 것입니다.
+* `Version` - 이 요소의 값을 **2.0**으로 설정합니다. 이 값은 필수입니다.
+* `IssueInstant` - UTC(Coordinate Universal Time) 값과 [왕복 형식("o")](https://msdn.microsoft.com/library/az4se3k1.aspx)이 포함된 `DateTime` 문자열입니다. Azure AD에는 이 형식의 값이 필요하지만 적용되지는 않습니다.
 
 ### <a name="issuer"></a>발급자
 `LogoutRequest`의 `Issuer` 요소는 Azure AD에서 클라우드 서비스의 **ServicePrincipalNames** 중 하나와 정확히 일치해야 합니다. 일반적으로 응용 프로그램 등록 중에 지정된 **앱 ID URI** 로 설정됩니다.

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 06/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2326f37afcb845b8c484bdf57db0876026f8e8a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34602723"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36940164"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -57,7 +57,7 @@ ms.locfileid: "34602723"
   원본 및 대상 구독에 대한 테넌트 ID가 다른 경우 다음 메서드를 사용하여 테넌트 ID를 조정합니다.
 
   * [Azure 구독의 소유권을 다른 계정으로 이전](../billing/billing-subscription-transfer.md)
-  * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/active-directory-how-subscriptions-associated-directory.md)
+  * [Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. 서비스는 리소스 이동 기능을 사용하도록 설정해야 합니다. 이 문서에서는 리소스 이동이 가능한 서비스와 그렇지 않은 서비스를 나열합니다.
 3. 이동되는 리소스의 리소스 공급자가 대상 구독에 등록되어야 합니다. 그러지 않으면 **구독이 리소스 형식에 대해 등록되지 않았음**을 알리는 오류 메시지가 표시됩니다. 해당 리소스 종류와 함께 사용된 적이 없는 새 구독으로 리소스를 이동할 때 이 문제가 발생할 수 있습니다.
@@ -93,6 +93,8 @@ ms.locfileid: "34602723"
    * 원본 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/moveResources/action**
    * 대상 리소스 그룹에 대한 **Microsoft.Resources/subscriptions/resourceGroups/write**
 
+5. 리소스를 이동하기 전에 리소스를 이동하려는 구독에 대한 구독 할당량을 확인합니다. 리소스 이동 시 구독이 해당 한계를 초과하는 경우 할당량 증가를 요청할 수 있는지 여부를 검토해야 합니다. 제한의 목록 및 증가 요청 방법은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
+
 5. 가능한 경우 대용량 이동을 개별 이동 작업으로 나눕니다. 단일 작업에서 800개가 넘는 리소스를 이동하려고 하면 Resource Manager가 즉시 실패합니다. 그러나 800개 미만의 리소스 이동도 시간 초과로 인해 실패할 수 있습니다.
 
 ## <a name="when-to-call-support"></a>지원을 호출해야 하는 경우
@@ -115,6 +117,7 @@ ms.locfileid: "34602723"
 * App Service 앱(웹앱) - [App Service 제한](#app-service-limitations)
 * App Service Certificates
 * Application Insights
+* Analysis Services
 * Automation
 * Azure Cosmos DB
 * Azure Relay
@@ -153,7 +156,8 @@ ms.locfileid: "34602723"
 * Storage
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Stream Analytics - 실행 중 상태일 때는 Stream Analytics 작업을 이동할 수 없습니다.
-* SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다. 
+* SQL Database 서버 - 데이터베이스와 서버는 동일한 리소스 그룹에 있어야 합니다. SQL Server를 이동하면 모든 해당 데이터베이스도 함께 이동합니다. 이 동작은 Azure SQL Database 및 Azure SQL Data Warehouse 데이터베이스에 적용됩니다.
+* Time Series Insights
 * Traffic Manager
 * Virtual Machines - 관리 디스크가 있는 VM은 이동할 수 없습니다. [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
 * Virtual Machines(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
@@ -174,7 +178,8 @@ ms.locfileid: "34602723"
 * Azure Migrate
 * BizTalk Services
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
-* DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동이 가능하지만, 구독 간 이동은 사용 가능하지 않습니다.
+* 컨테이너 서비스
+* DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동은 가능하지만, 구독 간 이동은 가능하지 않습니다.
 * Dynamics LCS
 * Express 경로
 * Kubernetes 서비스
@@ -189,7 +194,7 @@ ms.locfileid: "34602723"
 
 ## <a name="virtual-machines-limitations"></a>Virtual Machines 제한 사항
 
-관리 디스크는 이동을 지원하지 않습니다. 이 제한 사항은 여러 관련 리소스도 이동할 수 없음을 의미합니다. 이동할 수 없는 디스크:
+관리 디스크는 이동을 지원하지 않습니다. 이 제한 사항은 여러 관련 리소스도 이동할 수 없음을 의미합니다. 다음은 이동할 수 없습니다.
 
 * 관리 디스크
 * 관리 디스크가 있는 가상 머신
@@ -218,13 +223,13 @@ Key Vault에 저장된 인증서가 있는 Virtual Machines는 동일한 구독�
 
 ## <a name="app-service-limitations"></a>App Service 제한
 
-App Service 리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 리소스 이동에 대한 제한 사항이 다릅니다.
+리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 App Service 리소스 이동에 대한 제한 사항이 다릅니다.
 
 이 섹션에서 설명한 제한 사항은 App Service Certificates가 아닌 업로드된 인증서에 적용됩니다. 아무런 제한 없이 App Service Certificate를 새 리소스 그룹 또는 구독으로 이동시킬 수 있습니다. 동일한 App Service Certificate를 사용하는 여러 웹앱이 있는 경우 먼저 모든 웹앱을 이동한 다음, 인증서를 이동합니다.
 
 ### <a name="moving-within-the-same-subscription"></a>동일한 구독 내에서 이동
 
-_동일한 구독 내에서_ Web App을 이동할 때 업로드된 SSL 인증서는 이동할 수 없습니다. 그러나 업로드된 SSL 인증서를 이동하지 않고 Web App을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다.
+_동일한 구독 내에서_ 웹앱을 이동할 때 업로드된 SSL 인증서는 이동할 수 없습니다. 그러나 업로드된 SSL 인증서를 이동하지 않고 Web App을 새 리소스 그룹으로 이동할 수 있으며 앱의 SSL 기능도 계속 작동합니다.
 
 Web App을 사용하여 SSL 인증서를 이동하려면 다음 단계를 수행합니다.
 
@@ -246,13 +251,13 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
 
 ## <a name="classic-deployment-limitations"></a>클래식 배포 제한 사항
 
-구독 내 또는 새 구독으로 리소스를 이동할지 여부에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다.
+리소스를 구독 내에서 이동할지 또는 새 구독으로 이동할지에 따라 클래식 모델을 통해 배포된 리소스의 이동 옵션은 다릅니다.
 
 ### <a name="same-subscription"></a>동일한 구독
 
 한 리소스 그룹에서 같은 구독 내 다른 리소스 그룹으로 리소스를 이동할 경우 다음 제한 사항이 적용됩니다.
 
-* 가상 네트워크(클래식)은 이동할 수 없습니다.
+* 가상 네트워크(클래식)는 이동할 수 없습니다.
 * 가상 머신(클래식)은 클라우드 서비스로 이동해야 합니다.
 * 클라우드 서비스는 이동에 모든 가상 머신이 포함된 경우에만 이동할 수 있습니다.
 * 한 번에 하나의 클라우드 서비스만 이동할 수 있습니다.
@@ -342,13 +347,13 @@ Azure Site Recovery로 재해 복구를 설정하는 데 사용된 Storage, Netw
 
 ## <a name="hdinsight-limitations"></a>HDInsight 제한 사항
 
-새 구독 또는 리소스 그룹에 HDInsight 클러스터를 이동할 수 있습니다. 그러나 HDInsight 클러스터에 연결된 네트워킹 리소스(예: Virtual Network, NIC, 또는 부하 분산 장치)는 구독 간에 이동할 수 없습니다. 또한 클러스터에 대한 가상 머신에 연결된 NIC를 새 리소스 그룹으로 이동할 수 없습니다.
+새 구독 또는 리소스 그룹에 HDInsight 클러스터를 이동할 수 있습니다. 그러나 HDInsight 클러스터에 연결된 네트워킹 리소스(예: Virtual Network, NIC 또는 부하 분산 장치)는 구독 간에 이동할 수 없습니다. 또한 클러스터에 대한 가상 머신에 연결된 NIC를 새 리소스 그룹으로 이동할 수 없습니다.
 
 HDInsight 클러스터를 새 구독으로 이동할 때 먼저 다른 리소스(예: 저장소 계정)를 이동합니다. 그런 다음 자체적으로 HDInsight 클러스터를 이동합니다.
 
 ## <a name="search-limitations"></a>검색 제한 사항
 
-Search 리소스를 이동하여 한 번에 모두 다른 지역에 배치할 수 없습니다.
+여러 Search 리소스를 이동하여 한 번에 모두 다른 지역에 배치할 수 없습니다.
 이러한 경우에는 개별적으로 이동해야 합니다.
 
 ## <a name="lb-limitations"></a> 부하 분산 장치 제한 사항

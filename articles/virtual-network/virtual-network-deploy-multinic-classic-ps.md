@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 05/22/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09c85a9badaad45816a9160d09cb3c4a726426e8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: ca4e9e77d0e0ca62c04fbbfe132a41fb3e01df46
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34658777"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>PowerShell을 사용하여 다중 NIC이 있는 VM(클래식) 만들기
 
@@ -198,4 +199,10 @@ DB 서버를 만들려면 먼저 이 시나리오에 필요한 모든 리소스�
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>5단계 - VM의 운영 체제 내에서 라우팅 구성
 
-Azure DHCP는 가상 머신에 연결된 첫 번째(기본) 네트워크 인터페이스에 기본 게이트웨이를 할당합니다. 가상 머신에 연결된 추가(보조) 네트워크 인터페이스에는 기본 게이트웨이를 할당하지 않습니다. 따라서 보조 네트워크 인터페이스가 있는 서브넷 외부의 리소스와는 기본적으로 통신할 수 없습니다. 그러나 보조 네트워크 인터페이스는 서브넷 외부의 리소스와 통신할 수 있습니다. 보조 네트워크 인터페이스에 라우팅을 구성하려면 [여러 네트워크 인터페이스를 사용하여 가상 머신 운영 체제 내에서 라우팅](virtual-network-network-interface-vm.md)을 참조하세요.
+Azure DHCP는 가상 머신에 연결된 첫 번째(기본) 네트워크 인터페이스에 기본 게이트웨이를 할당합니다. 가상 머신에 연결된 추가(보조) 네트워크 인터페이스에는 기본 게이트웨이를 할당하지 않습니다. 따라서 보조 네트워크 인터페이스가 있는 서브넷 외부의 리소스와는 기본적으로 통신할 수 없습니다. 그러나 보조 네트워크 인터페이스는 서브넷 외부의 리소스와 통신할 수 있습니다. 보조 네트워크 인터페이스에 대한 라우팅을 구성하려면 다음 문서를 참조하세요.
+
+- [여러 NIC에 대한 Windows VM 구성](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+)
+
+- [여러 NIC에 대한 Linux VM 구성](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+)

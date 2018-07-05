@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/09/2018
 ms.author: jomolesk
-ms.openlocfilehash: 03f13c0b1ae209cc3da211a252a9a735faad34d0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 223829df11bb1c9add811b40b55e47ee1fbb1fe4
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301374"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751841"
 ---
 # <a name="azure-security-and-compliance-blueprint---pci-dss-compliant-payment-processing-environments"></a>Azure Security 및 Compliance Blueprint - PCI DSS 규격 지불 처리 환경
 
@@ -298,7 +298,7 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-이 솔루션의 배포를 위한 구성 요소는 [PCI Blueprint 코드 리포지토리][code-repo]에 제공됩니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 이 이름은 2단계에서 `-customHostName` 스위치로 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
+이 솔루션의 배포를 위한 구성 요소는 [PCI Blueprint 코드 리포지토리](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms)에서 제공합니다. 기본 아키텍처의 배포에는 Microsoft PowerShell v5를 통해 실행되는 여러 단계가 필요합니다. 웹 사이트에 연결하려면 사용자 지정 도메인 이름(예: contoso.com)을 제공해야 합니다. 2단계의 주 배포 스크립트에서 단계별 사용자 프롬프트를 통해 지정됩니다. 자세한 내용은 [Azure Web Apps에 대한 사용자 지정 도메인 이름 구매](/azure/app-service-web/custom-dns-web-site-buydomains-web-app)를 참조하세요. 사용자 지정 도메인 이름은 솔루션의 성공적인 배포 및 실행을 위해 필수는 아니지만 없으면 데모용 웹 사이트에 연결할 수 없습니다.
 
 이 스크립트는 사용자가 지정한 Azure AD 테넌트에 도메인 사용자를 추가합니다. 테스트로 새 Azure AD 테넌트를 만들어 사용하는 것이 좋습니다.
 
@@ -323,19 +323,17 @@ Azure Cloud Services 및 Virtual Machines용 [Microsoft Antimalware](/azure/secu
  
     ```powershell
     .\1-DeployAndConfigureAzureResources.ps1 
-        -resourceGroupName contosowebstore
-        -globalAdminUserName adminXX@contosowebstore.com 
-        -globalAdminPassword **************
-        -azureADDomainName contosowebstore.com 
-        -subscriptionID XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
-        -suffix PCIcontosowebstore
-        -customHostName contosowebstore.com
-        -sqlTDAlertEmailAddress edna@contosowebstore.com 
-        -enableSSL
-        -enableADDomainPasswordPolicy 
     ```
     
-    자세한 사용 지침은 [스크립트 지침 - Azure Resources 배포 및 구성](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)을 참조하세요.
+    자세한 사용 지침은 [스크립트 지침 - Azure Resources 배포 및 구성](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)을 참조하세요. 이 스크립트는 Contoso Web Store 데모를 지원하거나 PCI 준수를 지원하는 환경을 배포하는 초기 단계를 파일럿하는 데 사용할 수 있습니다. 
+    
+    ```PowerShell
+    .\1A-ContosoWebStoreDemoAzureResources.ps1
+    ```
+    
+    Contoso Web Store 데모 배포를 지원하기 위한 자세한 사용 지침은 [스크립트 지침 - Contoso Web Store 데모 Azure Resources](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1A-ContosoWebStoreDemoAzureResources.md)를 참조합니다. 이 스크립트는 Contoso Web Store 데모 인프라를 배포하는 데 사용할 수 있습니다. 
+    
+    이러한 스크립트는 서로 독립적으로 사용하기 위한 것입니다. 솔루션을 가장 잘 이해하려면 솔루션을 지원하는 데 필요한 Azure 리소스를 식별하기 위해 데모 배포를 완료하는 것이 좋습니다. 
     
 3. 로깅 및 모니터링. 솔루션을 배포한 후에는 Log Analytics 작업 영역을 열 수 있고, 솔루션 저장소에서 제공한 샘플 템플릿을 사용하여 모니터링 대시보드의 구성 방법을 설명할 수 있습니다. 샘플 템플릿은 [omsDashboards 폴더](https://github.com/Azure/pci-paas-webapp-ase-sqldb-appgateway-keyvault-oms/blob/master/1-DeployAndConfigureAzureResources.md)를 참조하세요. 템플릿을 올바르게 배포하려면 Log Analytics에 데이터를 수집해야 합니다. 사이트 작업에 따라 최대 1시간 이상 걸릴 수 있습니다.
  

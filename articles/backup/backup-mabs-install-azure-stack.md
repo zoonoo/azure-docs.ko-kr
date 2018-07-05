@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: f39f8571d4256a14f64ee2a66788cac8fa524eec
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248897"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36753356"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -42,18 +42,9 @@ Azure Backup Server는 다음과 같은 Azure Stack 가상 머신 워크로드�
 | SQL Server 2016 | 데이터베이스 |
 | SQL Server 2014 | 데이터베이스 |
 | SQL Server 2012 SP1 | 데이터베이스 |
+| SharePoint 2016 | 팜, 데이터베이스, 프런트 엔드, 웹 서버 |
 | SharePoint 2013 | 팜, 데이터베이스, 프런트 엔드, 웹 서버 |
 | SharePoint 2010 | 팜, 데이터베이스, 프런트 엔드, 웹 서버 |
-
-
-### <a name="host-vs-guest-backup"></a>호스트 백업과 게스트 백업 비교
-
-Azure Backup Server는 가상 머신을 호스트 또는 게스트 수준에서 백업합니다. 호스트 수준에서는 Azure Backup 에이전트가 가상 머신 또는 클러스터에 설치되고, 호스트에서 실행 중인 가상 머신 및 데이터 파일 전체를 보호합니다. 게스트 수준에서는 Azure Backup 에이전트가 각 가상 머신에 설치되어 해당 머신의 워크로드를 보호합니다.
-
-두 방법 모두 장점과 단점이 있습니다.
-
-   * 호스트 수준 백업은 게스트 컴퓨터에서 실행되는 OS에 관계없이 작동하며, 각 VM에 Azure Backup 에이전트를 설치할 필요가 없습니다. 호스트 수준 백업을 배포하는 경우 전체 가상 머신 또는 파일과 폴더가 복구됩니다(항목 수준 복구).
-   * 게스트 수준 백업은 가상 머신에서 실행되는 특정 워크로드를 보호하는 데 유리합니다. 호스트 수준에서는 전체 VM 또는 특정 파일을 복구할 수 있지만, 특정 응용 프로그램의 데이터를 복구할 수는 없습니다. 예를 들어 보호되는 가상 머신에서 특정 SharePoint 파일을 복구하려면 게스트 수준에서 VM을 보호해야 합니다. 통과 디스크에 저장된 데이터를 보호하려면 게스트 수준 백업을 사용해야 합니다. 통과를 사용하면 가상 머신이 저장 장치에 직접 액세스할 수 있으며, 가상 볼륨 데이터가 VHD 파일로 저장되지 않습니다.
 
 ## <a name="prerequisites-for-the-azure-backup-server-environment"></a>Azure Backup Server 환경의 필수 구성 요소
 
@@ -84,13 +75,10 @@ Azure에서 백업 데이터를 저장하면 Azure Stack에서 백업 인프라�
 
 Azure에서 백업 데이터를 저장하려면 Recovery Services 자격 증명 모음을 만들거나 사용합니다. Azure Backup Server 워크로드를 백업하도록 준비할 때 [Recovery Services 자격 증명 모음을 구성](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault)합니다. 구성되면 백업 작업이 실행될 때마다 자격 증명 모음에서 복구 지점이 생성됩니다. 각 Recovery Services 자격 증명 모음은 최대 9999개의 복구 지점을 유지합니다. 만든 복구 지점의 수 및 유지되는 기간에 따라 여러 해 동안 백업 데이터를 유지할 수 있습니다. 예를 들어 매월 복구 지점을 만들고 5년 동안 유지할 수 있습니다.
  
-### <a name="using-sql-server"></a>SQL Server 사용하기
-Azure Backup Server 데이터베이스에 원격 SQL Server를 사용하려는 경우 SQL Server를 실행하는 Azure Stack VM만을 선택합니다.
-
 ### <a name="scaling-deployment"></a>배포 크기 조정
 배포의 크기를 조정하려는 경우 다음 옵션을 사용할 수 있습니다.
   - 강화 - A 시리즈부터 D 시리즈까지 Azure Backup Server 가상 머신의 크기를 늘리고, [Azure Stack 가상 머신 지침당](../azure-stack/user/azure-stack-manage-vm-disks.md) 로컬 저장소를 늘립니다.
-  - 데이터 오프로드 - Azure Backup Server에 이전 데이터를 전송하고, Azure Backup Server에 연결된 저장소에 최신 데이터만 유지합니다.
+  - 데이터 오프로드 - Azure에 이전 데이터를 전송하고, Azure Backup Server에 연결된 저장소에 최신 데이터만 유지합니다.
   - 규모 확장 - Azure Backup Server를 더 추가하여 워크로드를 보호합니다.
 
 ### <a name="net-framework"></a>.NET Framework
@@ -140,7 +128,7 @@ Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 
 
 3. **모든 서비스** 대화 상자에서 *Recovery Services*를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**이 보이면 선택합니다.
 
-    ![[모든 서비스] 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/all-services.png)
+    ![모든 서비스 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/all-services.png)
 
     구독에 Recovery Services 자격 증명 모음 목록이 표시됩니다.
 
@@ -216,7 +204,7 @@ Azure Stack 가상 머신에 모든 파일을 다운로드한 후에는 다운�
 
 ![Microsoft Azure Backup 설정 마법사](./media/backup-mabs-install-azure-stack/mabs-install-wizard-local-5.png)
 
-Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azure Backup Server 설치 관리자에서 Data Protection Manager 및 DPM의 모든 참조를 볼 수 있습니다. Azure Backup Server 및 Data Protection Manager는 별도의 제품이지만 밀접하게 관련되어 있습니다. Azure Backup Server 설명서에서, Data Protection Manager 및 DPM에 대한 모든 참조는 Azure Backup Server에 적용됩니다.
+Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azure Backup Server 설치 관리자에서 Data Protection Manager 및 DPM의 모든 참조를 볼 수 있습니다. Azure Backup Server 및 Data Protection Manager는 별도의 제품이지만 밀접하게 관련되어 있습니다.
 
 1. 설치 마법사를 시작하려면 **Microsoft Azure Backup Server**를 클릭합니다.
 
@@ -322,7 +310,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
 ## <a name="add-backup-storage"></a>백업 저장소 추가
 
-첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 저장소에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [저장소 풀 및 디스크 저장소 구성](https://technet.microsoft.com/library/hh758075.aspx)을 참조하세요.
+첫 번째 백업 복사본은 Azure Backup 서버 컴퓨터에 연결된 저장소에 보관됩니다. 디스크 추가에 대한 자세한 내용은 [최신 백업 저장소 추가](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801)를 참조합니다.
 
 > [!NOTE]
 > 데이터를 Azure에 전송하려는 경우에도 백업 저장소를 추가해야 합니다. Azure Backup Server 아키텍처에서, Recovery Services 자격 증명 모음에는 데이터의 *두 번째* 복사본이 보관되고 로컬 저장소에는 첫 번째(및 필수) 백업 복사본이 보관됩니다.
@@ -372,10 +360,10 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 
 ## <a name="next-steps"></a>다음 단계
 
-[DPM을 위한 환경 준비](https://technet.microsoft.com/library/hh758176.aspx) 문서에는 지원되는 Azure Backup Server 구성에 대한 정보가 포함되어 있습니다.
+[DPM을 위한 환경 준비](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801) 문서에는 지원되는 Azure Backup Server 구성에 대한 정보가 포함되어 있습니다.
 
 다음 문서를 통해 Microsoft Azure Backup Server를 사용한 워크로드 보호에 대해 좀 더 자세히 알아볼 수 있습니다.
 
-- [SQL Server 백업](backup-azure-backup-sql.md)
-- [SharePoint 서버 백업](backup-azure-backup-sharepoint.md)
+- [SQL Server 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [SharePoint 서버 백업](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [대체 서버 백업](backup-azure-alternate-dpm-server.md)

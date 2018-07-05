@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: c9920857f7d1910921b4bb3771e770fb4c3a42c3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4377e9902696a4ee3b5bbb5fcb44d972ec14f822
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31389715"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958728"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.
@@ -102,7 +102,7 @@ Azure AD Connect Health는 다음과 같은 기본 제공 역할을 지원합니
 | 역할 | 권한 |
 | --- | --- |
 | 소유자 |소유자는 *액세스를 관리*(예: 사용자 또는 그룹에 역할 할당)하고, 포털에서 *모든 정보를 확인*(예: 경고 보기)하며, Azure AD Connect Health 내에서 *설정을 변경*(예: 메일 알림)할 수 있습니다. <br>기본적으로 Azure AD 전역 관리자에게 이 역할이 할당되며, 이 설정은 변경할 수 없습니다. |
-| 참가자 |참가자는 포털에서 *모든 정보를 확인*(예: 경고 보기)하고, Azure AD Connect Health 내에서 *설정을 변경*(예: 메일 알림)할 수 있습니다. |
+| 기여자 |참가자는 포털에서 *모든 정보를 확인*(예: 경고 보기)하고, Azure AD Connect Health 내에서 *설정을 변경*(예: 메일 알림)할 수 있습니다. |
 | 읽기 권한자 |구독자는 Azure AD Connect Health 내의 포털에서 *모든 정보를 확인*(예: 경고 보기)할 수 있습니다. |
 
 다른 모든 역할(예: 사용자 액세스 관리자 또는 DevTest 랩 사용자)은 포털 환경에서 사용할 수 있는 경우에도 Azure AD Connect Health 내의 액세스 권한에 영향을 주지 않습니다.
@@ -122,7 +122,7 @@ Azure AD Connect Health 내에서 *모든 서비스 인스턴스* 수준으로 �
 
 #### <a name="step-2-add-users-and-groups-and-assign-roles"></a>2단계: 사용자 및 그룹 추가, 역할 할당
 1. **구성** 섹션에서 **사용자**를 클릭합니다.<br>
-   ![사용자가 강조 표시된 Azure AD Connect Health RBAC 주 블레이드 스크린샷](./media/active-directory-aadconnect-health/RBAC_main_blade.png)
+   ![Azure AD Connect Health 리소스 사이드바 스크린샷](./media/active-directory-aadconnect-health/startRBAC.png)
 2. **추가**를 선택합니다.
 3. **역할 선택** 창에서 역할(예: **소유자**)을 선택합니다.<br>
    ![Azure AD Connect Health RBAC 사용자 창 스크린샷](./media/active-directory-aadconnect-health/RBAC_add.png)

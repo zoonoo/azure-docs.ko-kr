@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: a2770b9349dac8caa8e0611d77522ab56ca1bf07
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798870"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937420"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -74,6 +74,17 @@ ms.locfileid: "34798870"
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.14.1 이하와 호환 가능합니다.
 
 ### <a name="pre-release-builds"></a>시험판 빌드
+
+### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
+* 다음 문제가 수정됨:
+  * 파티션 분할의 경우 분할 전에 수정된 문서의 중복 처리가 있을 수 있습니다.
+  * 임대 컬렉션에 임대가 없는 경우 GetEstimatedRemainingWork API가 0를 반환했습니다.
+
+* 다음과 같은 예외를 공개합니다. IPartitionProcessor 구현이 이러한 예외를 throw할 수 있는 확장입니다.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
+  * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2 시험판
 * 부 버전 API 변경 내용:

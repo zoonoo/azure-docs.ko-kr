@@ -3,7 +3,7 @@ title: Azure Functions Twilio 바인딩
 description: Azure Functions와 함께 Twilio 바인딩을 사용하는 방법을 배웁니다.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,14 +14,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 62df5ebc6f5928c0992bd715e208137d89789e9a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e6c5a2e11e8b2faa62b04a792f5040ea928d94a3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724448"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318710"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
 
@@ -41,7 +41,7 @@ Twilio 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Twilio](http://www.nuget
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example"></a>예
+## <a name="example---functions-1x"></a>예제 - Functions 1.x
 
 언어 관련 예제를 참조하세요.
 
@@ -206,6 +206,173 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+## <a name="example---functions-2x"></a>예제 - Functions 2.x
+
+언어 관련 예제를 참조하세요.
+
+* [2.x C#](#2x-c-example)
+* [2.x C# 스크립트(.csx)](#2x-c-script-example)
+* [2.x JavaScript](#2x-javascript-example)
+
+### <a name="2x-c-example"></a>2.x C# 예제
+
+다음 예제에서는 큐 메시지에서 트리거되면 문자 메시지를 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+
+```cs
+[FunctionName("QueueTwilio")]
+[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
+public static SMSMessage Run(
+    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
+    TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {order}");
+
+    var message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"))
+    {
+        Body = $"Hello {order["name"]}, thanks for your order!",
+        To = order["mobileNumber"].ToString()
+    };
+
+    return message;
+}
+```
+
+이 예제에서는 메서드 반환 값과 `TwilioSms` 특성을 사용합니다. 또는 `out CreateMessageOptions` 매개 변수나, `ICollector<CreateMessageOptions>` 또는 `IAsyncCollector<CreateMessageOptions>` 매개 변수와 특성을 사용합니다.
+
+### <a name="2x-c-script-example"></a>2.x C# 스크립트 예제
+
+다음 예에서는 *function.json* 파일의 Twilio 출력 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 `out` 매개 변수를 사용하여 문자 메시지를 보냅니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+예제 function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSid": "TwilioAccountSid",
+  "authToken": "TwilioAuthToken",
+  "to": "+1704XXXXXXX",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+C# 스크립트 코드는 다음과 같습니다.
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio.Api"
+
+using System;
+using Newtonsoft.Json;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static void Run(string myQueueItem, out CreateMessageOptions message,  TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the CreateMessageOptions variable.
+    message = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    message.Body = msg;
+    message.To = order.mobileNumber;
+}
+```
+
+Out 매개 변수는 비동기 코드에서 사용할 수 없습니다. 비동기 C# 스크립트 코드 예제는 다음과 같습니다.
+
+```cs
+#r "Newtonsoft.Json"
+#r "Twilio.Api"
+
+using System;
+using Newtonsoft.Json;
+using Twilio.Rest.Api.V2010.Account;
+using Twilio.Types;
+
+public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOptions> message,  TraceWriter log)
+{
+    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
+    string msg = "Hello " + order.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the CreateMessageOptions variable.
+    CreateMessageOptions smsText = new CreateMessageOptions(new PhoneNumber("+1704XXXXXXX"));
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    smsText.Body = msg;
+    smsText.To = order.mobileNumber;
+
+    await message.AddAsync(smsText);
+}
+```
+
+### <a name="2x-javascript-example"></a>2.x JavaScript 예제
+
+다음 예에서는 Twilio 출력 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 함수](functions-reference-node.md)에서 테이블 출력 바인딩을 보여줍니다.
+
+*function.json* 파일의 바인딩 데이터는 다음과 같습니다.
+
+예제 function.json:
+
+```json
+{
+  "type": "twilioSms",
+  "name": "message",
+  "accountSid": "TwilioAccountSid",
+  "authToken": "TwilioAuthToken",
+  "to": "+1704XXXXXXX",
+  "from": "+1425XXXXXXX",
+  "direction": "out",
+  "body": "Azure Functions Testing"
+}
+```
+
+JavaScript 코드는 다음과 같습니다.
+
+```javascript
+module.exports = function (context, myQueueItem) {
+    context.log('Node.js queue trigger function processed work item', myQueueItem);
+
+    // In this example the queue item is a JSON string representing an order that contains the name of a
+    // customer and a mobile number to send text updates to.
+    var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
+
+    // Even if you want to use a hard coded message and number in the binding, you must at least
+    // initialize the message binding.
+    context.bindings.message = {};
+
+    // A dynamic message can be set instead of the body in the output binding. In this example, we use
+    // the order information to personalize a text message to the mobile number provided for
+    // order status updates.
+    context.bindings.message = {
+        body : msg,
+        to : myQueueItem.mobileNumber
+    };
+
+    context.done();
+};
+```
+
 ## <a name="attributes"></a>특성
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) 특성을 사용합니다.
@@ -249,5 +416,3 @@ public static SMSMessage Run(
 
 > [!div class="nextstepaction"]
 > [Azure Functions 트리거 및 바인딩에 대한 자세한 정보](functions-triggers-bindings.md)
-
-

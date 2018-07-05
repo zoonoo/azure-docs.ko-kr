@@ -1,5 +1,5 @@
 ---
-title: 무료 계정에 대한 미터 매핑 서비스 - Azure | Microsoft Docs
+title: Azure 무료 계정에 대한 미터 매핑 서비스 | Microsoft Docs
 description: 무료 계정에 포함된 서비스에 대한 미터 매핑 서비스를 이해합니다.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 683a94f25e94faf0eee7c6aa5fbae52132d58f34
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 3019fe5f8b44eaa32d4ab309f296d6b4574df1d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33201048"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061373"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>매핑을 계산하는 무료 서비스 이해
 

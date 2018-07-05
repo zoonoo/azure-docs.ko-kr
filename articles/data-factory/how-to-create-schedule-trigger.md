@@ -13,20 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 5df6633d40a3a361e551d1bea6caa2606a661a52
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618925"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054355"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>일정에 따라 파이프라인을 실행하는 트리거 만들기
 이 문서에서는 일정 트리거 및 일정 트리거를 만들고 시작 및 모니터링하는 단계에 대한 정보를 제공합니다. 다른 트리거 유형의 경우 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md)를 참조하세요.
 
 일정 트리거를 만들 때 트리거에 일정(시작 날짜, 되풀이, 종료 날짜 등)을 지정하고 파이프라인에 연결합니다. 파이프라인 및 트리거는 다 대 다 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있습니다. 단일 트리거는 여러 파이프라인을 시작할 수 있습니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Azure Data Factory 버전 1을 사용 중인 경우 [Azure Data Factory 버전 1 시작](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)을 참조하세요.
 
 다음 섹션에서는 다양한 방식으로 일정 트리거를 만드는 단계를 제공합니다. 
 
@@ -249,7 +246,7 @@ Azure Portal에서 트리거 실행 및 파이프라인 실행을 모니터링�
 Azure Resource Manager 템플릿을 사용하여 트리거를 만들 수 있습니다. 단계별 지침은 [Resource Manager 템플릿을 사용하여 Azure Data Factory 만들기](quickstart-create-data-factory-resource-manager-template.md)를 참조하세요.  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>파이프라인에 트리거 시작 시간 전달
-Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및 **WindowEnd**를 사용하여 분할된 데이터를 읽거나 쓰도록 지원합니다. Azure Data Factory 버전 2에서 파이프라인 매개 변수를 사용하여 이 동작을 수행할 수 있습니다. 트리거의 시작 시간 및 예약된 시간은 파이프라인 매개 변수의 값으로 설정됩니다. 다음 예제에서는 트리거의 예약된 시간이 파이프라인 매개 변수 **scheduledRunTime**에 값으로 전달됩니다.
+Azure Data Factory 버전 1은 **SliceStart**, **SliceEnd**, **WindowStart** 및 **WindowEnd**를 사용하여 분할된 데이터를 읽거나 쓰도록 지원합니다. Azure Data Factory 현재 버전에서는 파이프라인 매개 변수를 사용하여 이 동작을 수행할 수 있습니다. 트리거의 시작 시간 및 예약된 시간은 파이프라인 매개 변수의 값으로 설정됩니다. 다음 예제에서는 트리거의 예약된 시간이 파이프라인 매개 변수 **scheduledRunTime**에 값으로 전달됩니다.
 
 ```json
 "parameters": {

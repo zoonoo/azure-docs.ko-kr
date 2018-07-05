@@ -8,19 +8,18 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 8e521099-bf7d-43ab-a0e0-86aa1c9e577e
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 44b34c20c8b21b58ef67beedc1074f0664048b90
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f4ef40ea5e3d68ed8c04dc2a67042abd74df42aa
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212379"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317811"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>자습서: Azure Active Directory와 Manabi Pocket 통합
 
@@ -101,35 +100,29 @@ Manabi Pocket에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/manabipocket-tutorial/tutorial_manabipocket_samlbase.png)
 
-3. **Manabi Pocket 도메인 및 URL** 섹션에서 **IDP** 시작 모드로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
+3. **Manabi Pocket Domain and URL**(Manabi Pocket 도메인 및 URL) 섹션에서 다음 단계를 수행합니다.
 
     ![Manabi Pocket 도메인 및 URL Single Sign-On 정보](./media/manabipocket-tutorial/tutorial_manabipocket_url.png)
 
-    a. **식별자** 텍스트 상자에서 `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider` 패턴을 사용하여 URL을 입력합니다.
-    
-    나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/assertion_post`
+    a. **로그온 URL** 텍스트 상자에서 URL `https://ed-cl.com/`을 입력합니다.
+
+    나. **식별자** 텍스트 상자에서 `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이 값을 얻으려면 [Manabi Pocket 클라이언트 지원 팀](mailto:info-ed-cl@ntt.com)에 문의하세요.
+    > 식별자 값은 실제 값이 아닙니다. 이 값을 실제 식별자로 업데이트하세요. 이 값을 얻으려면 [Manabi Pocket 클라이언트 지원 팀](mailto:info-ed-cl@ntt.com)에 문의하세요.
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
-
-    ![Manabi Pocket 도메인 및 URL Single Sign-On 정보](./media/manabipocket-tutorial/tutorial_manabipocket_url1.png)
-
-    **로그온 URL** 텍스트 상자에서 URL `https://ed-cl.com/`을 입력합니다.
-
-5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/manabipocket-tutorial/tutorial_manabipocket_certificate.png) 
 
-6. **저장** 단추를 클릭합니다.
+5. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/manabipocket-tutorial/tutorial_general_400.png)
 
-7. **Manabi Pocket** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Manabi Pocket 지원 팀](mailto:info-ed-cl@ntt.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+6. **Manabi Pocket** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Manabi Pocket 지원 팀](mailto:info-ed-cl@ntt.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -196,7 +189,7 @@ Manabi Pocket에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
@@ -222,4 +215,3 @@ Manabi Pocket에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 [201]: ./media/manabipocket-tutorial/tutorial_general_201.png
 [202]: ./media/manabipocket-tutorial/tutorial_general_202.png
 [203]: ./media/manabipocket-tutorial/tutorial_general_203.png
-

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: 7c4294947cba72b1638e77c2dd8de1f5ee37b62a
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285993"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335757"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>AKS(Azure Kubernetes Service) 컨테이너 상태 모니터링(미리 보기)
 
@@ -37,7 +37,7 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 ## <a name="requirements"></a>요구 사항 
 시작하기 전에 다음 세부 정보를 검토하여 지원되는 필수 구성 요소를 이해합니다.
 
-- 버전 1.7.7 ~ 1.9.6의 AKS 클러스터가 지원됩니다.
+- 새 또는 기존 AKS 클러스터
 - Linux용 컨테이너화 OMS 에이전트 버전 microsoft / oms:ciprod04202018 이상. 이 에이전트는 컨테이너 상태를 등록하는 동안 자동으로 설치됩니다.  
 - Log Analytics 작업 영역.  새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 때 만들거나 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) 또는 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md)에서 만들 수 있습니다.
 - 컨테이너 모니터링을 사용하기 위한 Log Analytics 기여자 역할의 멤버입니다.  Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md)를 참조하세요.
@@ -244,7 +244,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하
 모니터링이 사용되도록 설정된 후에 클러스터에 대한 운영 데이터를 볼 수 있을 때까지 15분 정도 걸릴 수 있습니다.  
 
 ## <a name="verify-agent-deployed-successfully"></a>에이전트가 성공적으로 배포되었는지 확인
-OMS 에이전트가 제대로 배포되었는지 확인하려면 ` kubectl get ds omsagent --namespace=kube-system` 명령을 실행합니다.
+OMS 에이전트가 제대로 배포되었는지 확인하려면 `kubectl get ds omsagent --namespace=kube-system` 명령을 실행합니다.
 
 출력은 다음과 비슷하며 제대로 배포되었음을 나타냅니다.
 

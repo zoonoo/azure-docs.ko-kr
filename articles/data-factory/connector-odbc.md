@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: f1ab981247191db0abebd67701b07bf48b934292
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 26a1448ddf3f7ffb08ab581b1dad1abfd3ca8e12
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617113"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045146"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용하여 ODBC 데이터 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-odbc-connector.md)
-> * [버전 2 - 미리 보기](connector-odbc.md)
+> * [버전 1](v1/data-factory-odbc-connector.md)
+> * [현재 버전](connector-odbc.md)
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 ODBC 데이터 저장소 간에 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 ODBC 커넥터](v1/data-factory-odata-connector.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 

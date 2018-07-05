@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/11/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4b7d861ee0207c6a16c83e23d259411f7e874354
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823387"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309234"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드  
 
@@ -118,7 +118,7 @@ Microsoft는 마켓플레이스에 두 가지 상점을 제공합니다. 상점�
 ---   
 
 ## <a name="how-to-publish-in-the-storefronts-on-the-marketplace"></a>마켓플레이스에 상점에서 게시하는 방법  
-다음 섹션에서는 AppSource 및 Azure Marketplace에서 게시 옵션을 탐색하는 방법을 안내합니다.  
+다음 페이지에서는 AppSource 및 Azure Marketplace에서 게시 옵션을 탐색하는 방법을 안내합니다.  
 
 간단한 세 단계를 통해 마켓플레이스의 상점에 제품을 게시할 수 있습니다.  
 1.  [솔루션에 대한 열거 유형 결정](./determine-your-listing-type.md) 페이지를 방문하세요.  
@@ -135,7 +135,6 @@ Microsoft는 마켓플레이스에 두 가지 상점을 제공합니다. 상점�
 ---  
 
 ## <a name="support"></a>지원  
-
 *   [AppSource 지원](./support-appsource.md) 페이지를 방문하세요.  
 *   [Azure Marketplace 지원](./support-azure-marketplace.md) 페이지를 방문하세요.  
 
@@ -147,6 +146,7 @@ Microsoft는 마켓플레이스에 두 가지 상점을 제공합니다. 상점�
 
 ## <a name="guidelines"></a>지침  
 *   [지침](./guidelines.md) 페이지를 방문하세요.  
+    *   [마켓플레이스 계정을 관리하기 위해 Microsoft ID를 만들기 위한 지침](./guidelines.md#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) 섹션으로 이동하세요.  
 *   [개발자 센터에 등록](./register-dev-center.md) 페이지를 방문하세요.  
 *   [은행 및 세금 정보 추가](./add-bank-tax-info.md) 페이지를 방문하세요.  
 *   [Azure AD를 사용하여 평가판 사용](./enable-trial-using-azure-ad.md) 페이지를 방문하세요.  

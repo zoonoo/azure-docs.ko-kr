@@ -4,18 +4,18 @@ description: Azure IoT Edge 런타임 및 Edge 장치에 권한을 부여하는 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 02/15/2018
+ms.date: 06/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c44713d6b58edd3a18b0d20992d31dec7377fa7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b7418947c44c62883ef13c4be130458bb9f9ce6c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632077"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030382"
 ---
-# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture---preview"></a>Azure IoT Edge 런타임 및 아키텍처에 대한 이해 - 미리 보기
+# <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
 IoT Edge 런타임은 장치에 설치해야 하는 프로그램 모음으로 IoT Edge 장치로 간주됩니다. 전체적으로 IoT Edge 런타임의 구성 요소는 IoT Edge 장치를 사용하여 에지에서 실행될 코드를 받고 결과를 전달합니다. 
 
@@ -90,7 +90,7 @@ Edge 에이전트의 실행을 시작하려면 azure-iot-runtime-ctl.py 시작 �
 
 모듈 사전의 각 항목에는 모듈에 대한 특정 정보가 포함되며, 모듈의 수명 주기를 제어하기 위해 Edge 에이전트에서 사용합니다. 더 유용한 속성 중 일부는 다음과 같습니다. 
 
-* **settings.image** – Edge 에이전트에서 모듈을 시작하는 데 사용하는 컨테이너 이미지입니다. 이미지가 암호로 보호되는 경우 Edge 에이전트는 컨테이너 레지스트리에 대한 자격 증명으로 구성되어야 합니다. Edge 에이전트를 구성하려면 `azure-iot-edge-runtime-ctl.py –configure` 명령을 사용합니다.
+* **settings.image** – Edge 에이전트에서 모듈을 시작하는 데 사용하는 컨테이너 이미지입니다. 이미지가 암호로 보호되는 경우 Edge 에이전트는 컨테이너 레지스트리에 대한 자격 증명으로 구성되어야 합니다. Edge 에이전트를 구성하려면 `config.yaml` 파일을 업데이트합니다. Linux에서는 다음 명령을 사용합니다. `sudo nano /etc/iotedge/config.yaml`
 * **settings.createOptions** – 모듈의 컨테이너를 시작할 때 Docker 디먼에 직접 전달되는 문자열입니다. 이 속성에 Docker 옵션을 추가하면 포트 전달 또는 모듈의 컨테이너에 볼륨 탑재와 같은 고급 옵션을 사용할 수 있습니다.  
 * **status** – Edge 에이전트에서 모듈을 배치하는 상태입니다. 대부분의 사람들이 Edge 에이전트에서 장치의 모든 모듈을 즉시 시작하려고 하기 때문에 이 값은 일반적으로 'running'으로 설정됩니다. 그러나 중지할 모듈의 초기 상태를 지정하고, 나중에 Edge 에이전트에 모듈 시작을 알릴 때까지 기다릴 수 있습니다. Edge 에이전트는 각 모듈의 상태를 reported 속성의 클라우드로 다시 보고합니다. desired 속성과 reported 속성의 차이는 표시기 또는 오작동 장치입니다. 지원되는 상태는 다음과 같습니다.
    * 다운로드 중
@@ -114,7 +114,7 @@ IoT Edge 에이전트는 IoT Hub에 런타임 응답을 보냅니다. 가능한 
 
 ### <a name="security"></a>보안
 
-IoT Edge 에이전트는 IoT Edge 장치의 보안에서 중요한 역할을 합니다. 예를 들어 모듈의 이미지를 시작하기 전에 해당 이미지의 확인과 같은 작업을 수행합니다. 이러한 기능은 V2 기능의 일반 공급 시에 추가됩니다. 
+IoT Edge 에이전트는 IoT Edge 장치의 보안에서 중요한 역할을 합니다. 예를 들어 모듈의 이미지를 시작하기 전에 해당 이미지의 확인과 같은 작업을 수행합니다. 이러한 기능은 일반 공급 시에 추가됩니다. 
 
 <!-- For more information about the Azure IoT Edge security framework, see []. -->
 

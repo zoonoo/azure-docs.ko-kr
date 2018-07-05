@@ -1,5 +1,5 @@
 ---
-title: Azure Stack의 SharePoint 팜을 Azure에 백업
+title: Azure Stack에서 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure Stack에 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 services: backup
 author: pvrk
@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: pullabhk
-ms.openlocfilehash: da8421441863c8d7f840630614f4f35c16f184d5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 309e817426fff1eb877ab02ae9aa16ddc8f5cf16
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248986"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751900"
 ---
-# <a name="back-up-a-sharepoint-farm-on-azure-stack-to-azure"></a>Azure Stack의 SharePoint 팜을 Azure에 백업
+# <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
 다른 데이터 원본을 백업하는 방법과 동일한 방법으로 MABS(Microsoft Azure Backup Server)를 사용하여 Azure Stack의 SharePoint 팜을 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. 또한 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint가 지원하는 버전 및 관련 보호 시나리오
-DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
+MABS의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 | 워크로드 | 버전 | SharePoint 배포 | 보호 및 복구 |
 | --- | --- | --- | --- | --- | --- |
@@ -41,9 +41,6 @@ SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint
 Azure Backup Server는 LocalSystem 계정으로 실행됩니다. SQL Server 데이터베이스를 백업하려면, MABS에 SQL Server를 실행하는 서버의 해당 계정에 대한 sysadmin 권한이 필요합니다. 백업하기 전에 SQL Server를 실행하는 서버에서 NT AUTHORITY\SYSTEM을 *sysadmin*으로 설정합니다.
 
 SharePoint 팜에 SQL Server 별칭으로 구성 된 SQL Server 데이터베이스가 있는 경우, MABS가 보호할 프런트엔드 웹 서버에 SQL Server 클라이언트 구성 요소를 설치합니다.
-
-### <a name="sharepoint-server"></a>SharePoint Server
-성능은 SharePoint 팜의 크기와 같은 여러 요인에 따라 달라지지만, 일반 지침에 의하면 MABS 하나가 25TB SharePoint 팜을 보호할 수 있습니다.
 
 ### <a name="whats-not-supported"></a>지원 되지않는 사항
 * SharePoint 팜을 보호하는 MABS는 검색 인덱스 또는 응용 프로그램 서비스 데이터베이스를 보호하지 않습니다. 이러한 데이터베이스들은 별도로 보호를 구성해야 합니다.

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 03/09/2018
 ms.author: ponatara
-ms.openlocfilehash: 5c94e26c4639284f7e4c53d924f16040118d996c
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 838eac510fc17d56f808f541f4e205a279f63c56
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874362"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36318894"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>가상 머신을 Azure로 장애 조치 시 오류 문제 해결
-가상 컴퓨터를 Azure로 장애 조치하는 동안 다음 오류 중 하나가 나타날 수 있습니다. 문제를 해결하려면 각 오류 조건에 대해 설명된 단계를 따르세요.
 
+가상 컴퓨터를 Azure로 장애 조치하는 동안 다음 오류 중 하나가 나타날 수 있습니다. 문제를 해결하려면 각 오류 조건에 대해 설명된 단계를 따르세요.
 
 ## <a name="failover-failed-with-error-id-28031"></a>장애 조치 실패(오류 ID 28031)
 
@@ -45,6 +45,35 @@ Site Recovery가 Azure에서 장애 조치된 클래식 가상 머신을 만들 
 
 * 만들 가상 머신에 필요한 가상 네트워크와 같은 리소스 중 하나가 존재하지 않습니다. 가상 머신의 Compute 및 네트워크 설정에 제공된 대로 가상 네트워크를 만들거나 이미 존재하는 가상 네트워크로 설정을 수정한 다음 장애 조치를 다시 시도합니다.
 
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>가상 머신의 연결 단추가 회색으로 표시되어 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
+
+[연결] 단추가 회색으로 표시되고 ExpressRoute 또는 사이트 간 VPN 연결을 통해 Azure에 연결되지 않은 경우 다음을 수행합니다.
+
+1. **가상 머신** > **네트워킹**으로 차례로 이동하고, 필요한 네트워크 인터페이스의 이름을 클릭합니다.  ![네트워크 인터페이스](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+2. **IP 구성**으로 이동한 다음, 필요한 IP 구성의 이름 필드를 클릭합니다. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
+3. 공용 IP 주소를 사용하도록 설정하려면 **사용**을 클릭합니다. ![IP 사용](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. **필수 설정 구성** > **새로 만들기**를 차례로 클릭합니다. ![새로 만들기](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+5. 공용 주소의 이름을 입력하고, **SKU** 및 **할당**에 대한 기본 옵션을 선택한 다음, **확인**을 클릭합니다.
+6. 이제 변경 내용을 저장하려면 **저장**을 클릭합니다.
+7. 패널을 닫고, 가상 머신의 **개요** 섹션으로 이동하여 RDP를 연결합니다.
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-even-though-connect-button-is-available-not-grayed-out-on-the-virtual-machine"></a>가상 머신에서 연결 단추를 사용할 수 있지만(회색으로 표시되지 않음) 장애 조치된 가상 머신에 RDP/SSH를 연결할 수 없음
+
+Virtual Machine에서 **부트 진단**을 확인하고, 이 문서에 나열된 오류를 확인합니다.
+
+1. 가상 머신이 시작되지 않은 경우 이전의 복구 지점으로 장애 조치를 시도합니다.
+2. 가상 머신 내 응용 프로그램이 가동되지 않는 경우 응용 프로그램 일치 복구 지점으로 장애 조치를 시도합니다.
+3. 가상 머신이 도메인에 조인되어 있는 경우 도메인 컨트롤러가 정확하게 작동하는지 확인합니다. 이렇게 하려면 아래에 제공된 단계를 따릅니다.
+    a. 동일한 네트워크에 새 가상 머신을 만듭니다.
+
+    나.  장애 조치된 가상 머신이 가동되어야 하는 동일한 도메인에 조인할 수 있는지 확인합니다.
+
+    다. 도메인 컨트롤러가 정확하게 **작동하지 않는 경우** 로컬 관리자 계정을 사용하여 장애 조치된 가상 머신에 로그인합니다.
+4. 사용자 지정 DNS 서버를 사용하는 경우 연결할 수 있는지 확인합니다. 이렇게 하려면 아래에 제공된 단계를 따릅니다.
+    a. 동일한 네트워크에 새 가상 머신을 만듭니다. b. 가상 머신에서 사용자 지정 DNS 서버를 사용하여 이름 확인을 수행할 수 있는지 확인합니다.
+
+>[!Note]
+>부트 진단 이외의 설정을 사용하도록 설정하려면 장애 조치 전에 Azure VM 에이전트를 가상 머신에 설치해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

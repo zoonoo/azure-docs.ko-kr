@@ -1,25 +1,24 @@
 ---
-title: "Azure Data Catalog의 새로운 기능 | Microsoft Docs"
-description: "이 문서는 Azure Data Catalog에 추가된 새로운 기능의 개요를 제공합니다."
+title: Azure Data Catalog의 새로운 기능 | Microsoft Docs
+description: 이 문서는 Azure Data Catalog에 추가된 새로운 기능의 개요를 제공합니다.
 services: data-catalog
-documentationcenter: 
+documentationcenter: ''
 author: steelanddata
 manager: NA
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 9fb7814a8412200f6d31cfb9dcaee4663d7cea97
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025356"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
@@ -99,7 +98,7 @@ ms.lasthandoff: 01/19/2018
 
 ## <a name="whats-new-for-december-2016"></a>2016년 12월의 새로운 기능
 2016년 12월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
-*   Azure Data Catalog는 이제 [HIPAA](https://www.microsoft.com/trustcenter/Compliance/HIPAA) 및 [EU 모델 조항](https://www.microsoft.com/TrustCenter/Compliance/EU-Model-Clauses) 규정을 준수합니다.
+*   Azure Data Catalog는 이제 [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa) 및 [EU 모델 조항](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) 규정을 준수합니다.
 *   데이터 원본 연결 정보 편집에 대한 지원 데이터 자산 소유자 및 데이터 카탈로그 관리자는 이제 데이터 원본을 다시 등록하지 않고도 등록된 데이터 원본에 대한 연결 정보를 편집할 수 있습니다.
 *   Salesforce.com 데이터 원본에 대한 지원 사용자는 이제 Salesforce 개체를 등록하고 검색할 수 있습니다.
 
@@ -246,7 +245,7 @@ ms.lasthandoff: 01/19/2018
 * Azure Data Catalog 포털의 새로운 "시작" 데이터 원본 검색 환경을 지원합니다. 사용자가 Azure Data Catalog 포털에서 검색어를 입력하지 않고 "검색" 페이지에 들어가면 가장 자주 사용한 태그, 전문가, 데이터 원본 유형, 개체 유형 등 카탈로그 내용의 개요가 표시됩니다.
 * Azure SQL Data Warehouse 개체 및 데이터베이스 등록 및 검색을 지원합니다. Azure SQL Data Warehouse에 대한 추가 정보는 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)를 참조하세요.
 * SQL Server Analysis Services과 SQL Server Reporting Services 서버를 컨테이너로 등록하고 검색할 수 있게 지원합니다. SSAS 및 SSRS 개체를 등록할 때 Azure Data Catalog가 SSAS 모델 및 SSRS 서버와 보고서 및 기타 개체에 대한 항목을 만듭니다. Azure Data Catalog 포털을 사용하여 컨테이너를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 모델 또는 서버의 내용을 검색 및 필터링할 수도 있습니다.
-* HTTP/HTTPS를 통한 SQL Server Analysis Services 개체 등록 및 검색에 대한 지원. 사용자는 이제 서버 이름 대신에 URL(예: https://servername/olap/msmdpump.dll)을 사용하여 SSAS 서버에 연결할 수 있으며 Windows 인증 외에도 기본 인증 및 익명 연결을 사용할 수 있습니다. SSAS에 대한 HTTP/HTTPS 연결의 추가 정보는 [Analysis Services에 대한 HTTP 액세스 구성](https://msdn.microsoft.com/library/gg492140.aspx)을 참조하세요.
+* HTTP/HTTPS를 통한 SQL Server Analysis Services 개체 등록 및 검색에 대한 지원. 사용자는 이제 서버 이름 대신에 URL(예: https://servername/olap/msmdpump.dll))을 사용하여 SSAS 서버에 연결할 수 있으며 Windows 인증 외에도 기본 인증 및 익명 연결을 사용할 수 있습니다. SSAS에 대한 HTTP/HTTPS 연결의 추가 정보는 [Analysis Services에 대한 HTTP 액세스 구성](https://msdn.microsoft.com/library/gg492140.aspx)을 참조하세요.
 * HDInsight의 Hive 데이터 원본에 대한 지원. 사용자는 이제 HDInsight 데이터 원본의 Hadoop에서 Apache Hive에 대한 Hive 테이블을 등록하고 검색할 수 있습니다. HDInsight의 Hive에 대한 추가 정보는 [HDInsight 설명서 센터](../hdinsight/hadoop/hdinsight-use-hive.md)를 참조하세요.
 * 컨테이너로 Oracle 데이터베이스 및 HDFS 클러스터 등록 및 검색에 대한 지원. Oracle 테이블 및 뷰 또는 HDFS를 등록하면 Azure Data Catalog에 테이블 및 뷰는 물론 데이터베이스에 대한 항목도 생성됩니다. Azure Data Catalog 포털을 사용하여 데이터베이스를 검색하고 주석을 추가할 수 있습니다. 사용자는 카탈로그 내용을 검색 및 필터링하는 것은 물론 데이터베이스 또는 클러스터의 내용을 검색 및 필터링할 수도 있습니다.
 * 알 수 없는 데이터 원본 유형의 수동 등록 지원. 사용자는 데이터 원본 등록 도구에서 명시적으로 지원하지 않는 데이터 원본에 주석을 추가하고 검색할 수 있도록 Azure Data Catalog 포털을 사용하여 데이터 원본 정보를 수동으로 입력할 수 있습니다.

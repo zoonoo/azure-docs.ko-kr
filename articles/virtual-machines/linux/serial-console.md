@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: 69f5e29be77f25d649ce357dae6e3905ab2bf6b8
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 99d09455ed73b366fb3acfb414b9bd095df6319b
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425336"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36962426"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>가상 머신 직렬 콘솔(미리 보기) 
 
@@ -32,6 +32,7 @@ Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍�
 
 ## <a name="prerequisites"></a>필수 조건 
 
+* 리소스 관리 배포 모델을 사용해야 합니다. 클래식 배포는 지원되지 않습니다. 
 * 가상 머신에 [부트 진단](boot-diagnostics.md)을 사용하도록 설정되어 있어야 합니다. 
 * 직렬 콘솔을 사용하는 계정에는 VM에 대한 [참가자 역할](../../role-based-access-control/built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
 * Linux 배포판 설정에 대한 자세한 내용은 [Linux용 직렬 콘솔 액세스](#accessing-serial-console-for-linux)를 참조하세요.
@@ -90,8 +91,8 @@ SSH/RDP 구성 문제 | 직렬 콘솔 액세스 및 설정 변경 | Linux/Window
 ## <a name="accessing-serial-console-for-linux"></a>Linux의 직렬 콘솔에 액세스
 직렬 콘솔이 제대로 작동하려면 게스트 운영 체제가 콘솔 메시지를 읽고 직렬 포트에 쓰도록 구성되어야 합니다. 대부분의 [Azure Linux 보증 배포판](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)에는 직렬 콘솔이 기본적으로 구성되어 있습니다. 직렬 콘솔 섹션에서 포털을 클릭하기만 하면 콘솔에 액세스할 수 있습니다. 
 
-### <a name="access-for-redhat"></a>RedHat에 대한 액세스 
-Azure에서 사용 가능한 RedHat 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. Red Hat에서 단일 사용자 모드를 사용하려면 루트 사용자를 사용하도록 설정해야 합니다. 루트 사용자는 기본적으로 사용하지 않도록 설정되어 있습니다. 단일 사용자 모드를 활성화해야 하는 경우에는 다음 지침을 따르세요.
+### <a name="access-for-red-hat"></a>Red Hat에 대한 액세스 
+Azure에서 사용 가능한 Red Hat 이미지는 콘솔 액세스가 기본적으로 활성화되어 있습니다. Red Hat에서 단일 사용자 모드를 사용하려면 루트 사용자를 사용하도록 설정해야 합니다. 루트 사용자는 기본적으로 사용하지 않도록 설정되어 있습니다. 단일 사용자 모드를 활성화해야 하는 경우에는 다음 지침을 따르세요.
 
 1. SSH를 통해 Red Hat 시스템에 로그인
 2. 루트 사용자의 암호를 사용하도록 설정 
@@ -146,7 +147,7 @@ VM이 중지된 할당 취소 상태입니다. VM을 시작하고 직렬 콘솔 
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. 으로 이동하여 피드백을 제공해 주세요https://aka.ms/serialconsolefeedback. 또는(대안으로) azserialhelp@microsoft.com을 통해서 또는 http://feedback.azure.com의 가상 머신 범주에 피드백을 보내주세요.
+a. 으로 이동하여 피드백을 제공해 주세요 https://aka.ms/serialconsolefeedback. 또는(대안으로) azserialhelp@microsoft.com을 통해서 또는 http://feedback.azure.com의 가상 머신 범주에 피드백을 보내주세요.
 
 **Q. ”기존 콘솔의 OS 유형 Windows가 요청된 Linux의 OS 유형과 충돌됩니다”라는 오류가 발생합니다**.
 

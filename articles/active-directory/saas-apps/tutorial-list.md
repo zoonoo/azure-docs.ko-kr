@@ -16,12 +16,12 @@ ms.date: 06/18/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: 9aa060c6f28adb8361fcb9267ea658fda27b442c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 63fa305a94321fef87e5c60cb4ad78e83a3ca356
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223453"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054690"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Azure Active Directory와 SaaS 응용 프로그램 통합
 
@@ -136,8 +136,8 @@ Azure AD에 사전 통합된 포괄적인 SaaS 앱 목록에 대해서는 [Activ
 | ![로고](./media/tutorial-list/active-directory-saas-cimpl-tutorial.png)| [Cimpl](cimpl-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-ciscocloud-tutorial.png)| [Cisco Cloud](ciscocloud-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-ciscocloudlock-tutorial.png)| [Cisco Cloudlock](ciscocloudlock-tutorial.md)|
-| ![로고](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|
-| ![로고](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|
+| ![로고](./media/tutorial-list/active-directory-saas-cisco-spark-tutorial.png)| [Cisco Spark](cisco-spark-tutorial.md)|[Cisco Spark - 사용자 프로비전](cisco-spark-provisioning-tutorial.md)|
+| ![로고](./media/tutorial-list/active-directory-saas-cisco-webex-tutorial.png)| [Cisco Webex](cisco-webex-tutorial.md)|)|[Cisco Webex - 사용자 프로비전](cisco-webex-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-sharefile-tutorial.png)| [Citrix ShareFile](sharefile-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-clarizen-tutorial.png)| [Clarizen](clarizen-tutorial.md)|[Clarizen - 사용자 프로비전](clarizen-provisioning-tutorial.md)|
 | ![로고](./media/tutorial-list/active-directory-saas-clearreview-tutorial.png)| [Clear Review](clearreview-tutorial.md)|

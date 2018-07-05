@@ -1,24 +1,26 @@
 ---
-title: Azure Data Lake Store 사용을 위한 모범 사례 | Microsoft Docs
-description: Azure Data Lake Store 사용과 관련된 데이터 수집, 날짜 보안 및 성능에 대한 모범 사례를 알아봅니다.
+title: Azure Data Lake Storage Gen1을 사용하는 모범 사례 | Microsoft Docs
+description: Azure Data Lake Storage Gen1(이전에 Azure Data Lake Store라고 함) 사용과 관련된 데이터 수집, 날짜 보안 및 성능에 대한 모범 사례를 알아봅니다.
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
 manager: jhubbard
-editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2018
+ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 9fd6b72a7d09f85f7a6e60e5af4035ffc3862d2c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 00eb2b6b60aa6c3224b58556f6dad64d4294c308
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625341"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035313"
 ---
-# <a name="best-practices-for-using-azure-data-lake-store"></a>Azure Data Lake Store를 사용하는 모범 사례
+# <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1을 사용하는 모범 사례
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 이 문서에서는 Azure Data Lake Store 작업에 대한 모범 사례와 고려 사항에 대해 알아 봅니다. 여기서는 Data Lake Store의 보안, 성능, 복원력 및 모니터링에 대해 설명합니다. Data Lake Store 이전에는 Azure HDInsight와 같은 서비스에서 진정한 빅 데이터를 사용하는 것이 복잡했습니다. 여러 Blob 저장소 계정에서 데이터를 분할하여 페타바이트 저장소와 최적의 성능을 얻을 수 있도록 해야 했습니다. Data Lake Store를 사용하면 크기와 성능에 대한 대부분의 엄격한 제한이 제거됩니다. 그러나 이 문서에서 다루는 몇 가지 고려 사항은 Data Lake Store에서 최상의 성능을 얻을 수 있도록 하기 위한 것입니다. 
 
 ## <a name="security-considerations"></a>보안 고려 사항
@@ -114,7 +116,7 @@ Distcp(Distributed Copy의 약자)는 Hadoop과 함께 제공되고 두 위치 �
 
 ### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>Azure Data Factory를 사용하여 복사 작업 예약 
 
-Azure Data Factory는 **복사 활동**을 사용하여 복사 작업을 예약하는 데 사용할 수 있으며 **복사 마법사**를 통해 빈도에 설정할 수도 있습니다. Azure Data Factory에는 클라우드 DMU(데이터 이동 단위) 제한이 있으며, 결국에는 대규모 데이터 작업에 대한 처리량/계산을 제한한다는 것을 명심하세요. 또한 Azure Data Factory는 현재 Data Lake Store 계정 간에 델타 업데이트를 제공하지 않으므로 Hive 테이블과 같은 폴더에는 복제하는 데 전체 복사본이 필요합니다. Data Factory를 사용하여 복사하는 방법에 대한 자세한 내용은 [복사 활동 튜닝 가이드](../data-factory/v1/data-factory-copy-activity-performance.md)를 참조하세요. 
+Azure Data Factory는 **복사 활동**을 사용하여 복사 작업을 예약하는 데 사용할 수 있으며 **복사 마법사**를 통해 빈도에 설정할 수도 있습니다. Azure Data Factory에는 클라우드 DMU(데이터 이동 단위) 제한이 있으며, 결국에는 대규모 데이터 작업에 대한 처리량/계산을 제한한다는 것을 명심하세요. 또한 Azure Data Factory는 현재 Data Lake Store 계정 간에 델타 업데이트를 제공하지 않으므로 Hive 테이블과 같은 폴더에는 복제하는 데 전체 복사본이 필요합니다. Data Factory를 사용하여 복사하는 방법에 대한 자세한 내용은 [복사 활동 튜닝 가이드](../data-factory/copy-activity-performance.md)를 참조하세요. 
 
 ### <a name="adlcopy"></a>AdlCopy
 

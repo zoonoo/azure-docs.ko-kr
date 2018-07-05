@@ -12,15 +12,21 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 1/09/2018
+ms.date: 06/27/2018
 ms.author: aljo
-ms.openlocfilehash: 118a6d10eeba691fd0886967f90156a0ab8d9fae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6783c2b3b431e99050bc6762c1855b22e0701686
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642651"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062282"
 ---
+# <a name="description-of-the-different-upgrade-policies"></a>다른 업그레이드 정책에 대한 설명
+
+- **동적** – 동적 구성을 변경해도 Service Fabric 프로세스 또는 서비스 호스트 프로세스가 다시 시작되지는 않습니다. 
+- **정적** – 정적 구성을 변경하면 변경 내용을 사용하기 위해 Service Fabric 노드가 다시 시작됩니다. 노드의 서비스는 다시 시작됩니다.
+- **허용 안함** – 이 설정은 수정할 수 없습니다. 이 설정을 변경하려면 클러스터를 삭제하고 새 클러스터를 만들어야 합니다. 
+
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
 

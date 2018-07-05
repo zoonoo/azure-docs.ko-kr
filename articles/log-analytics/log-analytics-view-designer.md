@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/18/2018
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: d63d47c39054230307416e24ed1c8295fbf68d93
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 91d4efcd7fabc2f284078d752ea68778a9bd8d86
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29939872"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752042"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Log Analytics에서 뷰 디자이너를 사용하여 사용자 지정 보기 만들기
 [Azure Log Analytics](log-analytics-overview.md)에서 뷰 디자이너를 사용하면 Azure Portal에서 Log Analytics 작업 영역의 데이터를 시각화하는 데 도움이 되는 다양한 사용자 지정 보기를 만들 수 있습니다. 이 문서에는 뷰 디자이너 개요 및 사용자 지정 보기를 만들고 편집하는 절차가 제공됩니다.
@@ -55,13 +55,14 @@ ms.locfileid: "29939872"
 |:--|:--|
 | 새로 고침   | 최신 데이터로 보기를 새로 고칩니다. | 
 | 분석 | [Advanced Analytics 포털](log-analytics-log-search-portals.md#advanced-analytics-portal)을 열어서 로그 검색을 통해 데이터를 분석합니다. |
-| Filter    | 보기에 포함된 데이터의 시간 필터를 설정합니다. |
-| 편집      | 뷰 디자이너에서 보기를 열어서 내용과 구성을 편집합니다.  |
-| 복제     | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
+| 편집       | 뷰 디자이너에서 보기를 열어서 내용과 구성을 편집합니다.  |
+| 복제      | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
+| 날짜 범위 | 보기에 포함된 데이터의 날짜와 시간 범위 필터를 설정합니다. |
+| +          | 보기에 대해 정의된 사용자 지정 필터를 정의합니다. |
 
 
 ## <a name="create-a-new-view"></a>새 보기 만들기
-Log Analytics 작업 영역의 **개요** 페이지에서 뷰 디자이너 타일을 선택하여 **뷰 디자이너**에서 새 보기를 만들 수 있습니다.
+Log Analytics 작업 영역의 메뉴에서 **뷰 디자이너**를 선택하여 뷰 디자이너에서 새 보기를 만들 수 있습니다.
 
 ![뷰 디자이너 타일](media/log-analytics-view-designer/view-designer-tile.png)
 
@@ -104,7 +105,6 @@ Log Analytics 작업 영역의 **개요** 페이지에서 뷰 디자이너 타�
 | 내보내기      | 다른 작업 영역으로 가져올 수 있는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-authoring-templates.md)으로 보기를 내보냅니다. 파일 이름은 보기 이름이며 확장명은 *omsview*입니다. |
 | 가져오기      | 다른 작업 영역에서 내보낸 *omsview* 파일을 가져옵니다. 이렇게 하면 기존 보기의 구성을 덮어씁니다. |
 | 복제       | 새 보기를 만든 후 뷰 디자이너에서 엽니다. 새 보기의 이름은 원래 이름과 동일하지만 복사본이 추가됩니다. |
-| 게시     | [관리 솔루션](../operations-management-suite/operations-management-suite-solutions-resources-views.md)에 삽입할 수 있는 JSON 파일로 보기를 내보냅니다. 파일 이름은 보기 이름과 동일하며 확장명은 *json*입니다. *resjson* 확장명으로 만든 두 번째 파일에는 JSON 파일에 정의된 리소스에 대한 값이 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 * 사용자 지정 보기에 [타일](log-analytics-view-designer-tiles.md) 추가

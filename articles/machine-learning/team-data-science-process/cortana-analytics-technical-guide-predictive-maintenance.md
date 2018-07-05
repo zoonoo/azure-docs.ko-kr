@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: c3e9b27784a1c0671ca3c87f9a7c55a288362299
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 2916252c08c599d2e528595a8cdf2abca8ea89a3
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248387"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939968"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>항공 우주 및 다른 비즈니스에서 예측 유지 관리를 위한 Cortana Intelligence 솔루션 템플릿에 대한 기술 가이드
 
@@ -54,14 +54,14 @@ ms.locfileid: "35248387"
 ### <a name="synthetic-data-source"></a>가상 데이터 원본
 이 템플릿의 경우 사용되는 데이터 원본은 성공적인 배포 후 로컬로 다운로드하여 실행하는 데스크톱 응용 프로그램에서 생성됩니다.
 
-이 응용 프로그램 다운로드 및 설치에 대한 지침을 찾으려면 솔루션 템플릿 다이어그램에서 첫 번째 노드인 예측 유지 관리 데이터 생성기를 선택합니다. 지시 사항은 속성 표시줄에 있습니다. 이 응용 프로그램은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
+이 응용 프로그램 다운로드 및 설치에 대한 지침을 찾으려면 솔루션 템플릿 다이어그램에서 첫 번째 노드인 예측 유지 관리 데이터 생성기를 선택합니다. 지시 사항은 속성 표시줄에 있습니다. 이 응용 프로그램은 솔루션 흐름의 나머지 부분에서 사용되는 데이터 요소 또는 이벤트로 [Azure Event Hub](#azure-event-hub) 서비스를 피드합니다. 이 데이터 원본은 [Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan)을 사용한 [NASA 데이터 저장소](https://c3.nasa.gov/dashlink/resources/139/)의 공개적으로 사용할 수 있는 데이터에서 파생되었습니다.
 
-이벤트 생성 응용 프로그램은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.
+이벤트 생성 응용 프로그램은 컴퓨터에서 실행되는 동안 Azure Event Hub를 채웁니다.  
 
-### <a name="azure-event-hub"></a>Azure Event Hub
+### <a name="azure-event-hub"></a>Azure Event Hub  
 [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) 서비스는 가상 데이터 원본에서 제공되는 입력을 받는 대상입니다.
 
-## <a name="data-preparation-and-analysis"></a>데이터 준비 및 분석
+## <a name="data-preparation-and-analysis"></a>데이터 준비 및 분석  
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용하여 [Azure Event Hub](#azure-event-hub) 서비스의 입력 스트림에 대한 분석을 거의 실시간으로 제공합니다. 그런 다음 결과를 [Power BI](https://powerbi.microsoft.com) 대시보드에 게시하고 모든 원시 수신 이벤트를 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 서비스에 의해 나중에 처리하기 위해 [Azure Storage](https://azure.microsoft.com/services/storage/) 서비스에 보관합니다.
 
@@ -113,11 +113,11 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 두 번째 Stream Analytics 작업 **maintenancesa02asablob**의 쿼리는 모든 [이벤트 허브](https://azure.microsoft.com/services/event-hubs/) 이벤트를 [Azure Storage](https://azure.microsoft.com/services/storage/)에 출력하므로 전체 이벤트 정보는 저장소로 스트리밍되므로 데이터 형식에 관계 없이 변경이 필요하지 않습니다.
 
 ### <a name="azure-data-factory"></a>Azure 데이터 팩터리
-[Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 항공 솔루션 템플릿에 대한 예측 유지 관리에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 세 개의 [파이프라인](../../data-factory/v1/data-factory-create-pipelines.md)으로 구성됩니다.  솔루션의 배포로 만든 솔루션 템플릿 다이어그램 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스합니다. 데이터 집합에서 발생한 오류는 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것입니다. 이러한 오류는 무시할 수 있으며 데이터 팩터리도 제대로 작동합니다.
+[Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/) 서비스는 데이터의 이동 및 처리를 오케스트레이션합니다. 항공 솔루션 템플릿에 대한 예측 유지 관리에서 데이터 팩터리는 다양한 기술을 사용하여 데이터를 이동 및 처리하는 세 개의 [파이프라인](../../data-factory/concepts-pipelines-activities.md)으로 구성됩니다.  솔루션의 배포로 만든 솔루션 템플릿 다이어그램 맨 아래의 데이터 팩터리 노드를 열어 데이터 팩터리에 액세스합니다. 데이터 집합에서 발생한 오류는 데이터 생성기가 시작되기 전에 배포된 데이터로 인한 것입니다. 이러한 오류는 무시할 수 있으며 데이터 팩터리도 제대로 작동합니다.
 
 ![Data Factory 데이터 집합 오류](./media/cortana-analytics-technical-guide-predictive-maintenance/data-factory-dataset-error.png)
 
-이 섹션에서는 [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)에 포함된 필요한 [파이프라인](../../data-factory/v1/data-factory-create-pipelines.md) 및 [작업](../../data-factory/v1/data-factory-create-pipelines.md)을 설명합니다. 솔루션의 다이어그램 보기는 다음과 같습니다.
+이 섹션에서는 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)에 포함된 필요한 [파이프라인 및 작업](../../data-factory/concepts-pipelines-activities.md)을 설명합니다. 솔루션의 다이어그램 보기는 다음과 같습니다.
 
 ![Azure 데이터 팩터리](./media/cortana-analytics-technical-guide-predictive-maintenance/azure-data-factory.png)
 
@@ -126,22 +126,22 @@ Azure Stream Analytics 쿼리 생성에 대한 정보는 MSDN의 [Stream Analyti
 [Azure Stream Analytics](#azure-stream-analytics-1) 쿼리와 유사하게 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 들어오는 데이터 형식에 대한 암시적 지식을 가지며 데이터 형식에 따라 변경해야 합니다.
 
 #### <a name="aggregateflightinfopipeline"></a>*AggregateFlightInfoPipeline*
-이 [파이프라인](../../data-factory/v1/data-factory-create-pipelines.md)은 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업 동안 [Azure Storage](https://azure.microsoft.com/services/storage/)에 넣은 데이터를 분할하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 단일 작업([HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) 작업)을 포함합니다.
+이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) 작업 동안 [Azure Storage](https://azure.microsoft.com/services/storage/)에 넣은 데이터를 분할하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 단일 작업([HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업)을 포함합니다.
 
 이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***AggregateFlightInfo.hql***입니다.
 
 #### <a name="mlscoringpipeline"></a>*MLScoringPipeline*
-이 [파이프라인](../../data-factory/v1/data-factory-create-pipelines.md)은 여러 작업을 포함하며 최종 결과는 이 솔루션 템플릿과 연결된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험의 점수가 매겨진 예측입니다.
+이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 여러 작업을 포함하며 최종 결과는 이 솔루션 템플릿과 연결된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험의 점수가 매겨진 예측입니다.
 
 포함된 작업은 다음과 같습니다.
 
-* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) 작업.
+* [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험에 필요한 집계 및 기능 엔지니어링을 수행하도록 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트를 실행하는 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)를 사용한 [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업.
   이 분할 작업에 대한 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 스크립트는 ***PrepareMLInput.hql***입니다.
-* [HDInsightHive](../../data-factory/v1/data-factory-hive-activity.md) 작업의 결과를 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업으로 액세스할 수 있는 단일 [Azure Storage](https://azure.microsoft.com/services/storage/) Blob으로 이동하는 [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
+* [HDInsightHive](../../data-factory/transform-data-using-hadoop-hive.md) 작업의 결과를 [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업으로 액세스할 수 있는 단일 [Azure Storage](https://azure.microsoft.com/services/storage/) Blob으로 이동하는 [복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업.
 * [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx) 작업은 단일 [Azure Storage](https://azure.microsoft.com/services/storage/) Blob에 배치되는 결과로 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험을 호출합니다.
 
 #### <a name="copyscoredresultpipeline"></a>*CopyScoredResultPipeline*
-이 [파이프라인](../../data-factory/v1/data-factory-create-pipelines.md)은 ***MLScoringPipeline***에서 [Azure Machine Learning](#azure-machine-learning) 실험의 결과를 솔루션 템플릿 설치의 일부로 프로비전되는 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
+이 [파이프라인](../../data-factory/concepts-pipelines-activities.md)은 ***MLScoringPipeline***에서 [Azure Machine Learning](#azure-machine-learning) 실험의 결과를 솔루션 템플릿 설치의 일부로 프로비전되는 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)에 이동하는 단일 작업([복사](https://msdn.microsoft.com/library/azure/dn835035.aspx) 작업)을 포함합니다.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 이 솔루션 템플릿에 사용된 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 실험은 항공기 엔진의 잔여 수명(RUL)을 제공합니다. 실험은 사용된 데이터 집합에 특정되며 가져온 데이터에 특정된 수정 또는 대체가 필요합니다.

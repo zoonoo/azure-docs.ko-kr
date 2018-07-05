@@ -7,19 +7,18 @@ author: jeevansd
 manager: mtillman
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/21/2017
+ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 6fe7cad2910bed2dc08180d28fdf1af1d6cffd9a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7267f8fa1ed900d1bac58b4fa61f076e5949d712
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223419"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319108"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>자습서:Azure Active Directory와 Hightail 통합
 
@@ -105,31 +104,29 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     ![Configure Single Sign-On][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_samlbase.png)
 
-3. **Hightail 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+3. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **Hightail 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_url.png)
 
-     **회신 URL** 텍스트 상자에서 URL `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`를 입력합니다.
+    **회신 URL** 텍스트 상자에서 URL `https://www.hightail.com/samlLogin?phi_action=app/samlLogin&subAction=handleSamlResponse`를 입력합니다.
 
-    > [!NOTE] 
-    > 위의 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 회신 URL로 값을 업데이트하게 됩니다.
- 
-4. **Hightail 도메인 및 URL** 섹션에서 **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 다음 단계를 수행합니다.
-    
+    > [!NOTE]
+    > 회신 URL 값은 실제 값이 아닙니다. 이 회신 URL 값은 자습서 뒷부분에서 설명하는 실제 회신 URL로 업데이트하게 됩니다.
+
+4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_url1.png)
 
-    a. **고급 URL 설정 표시**를 클릭합니다.
-
-    나. **로그온 URL** 텍스트 상자에서 URL `https://www.hightail.com/loginSSO`를 입력합니다.
+    **로그온 URL** 텍스트 상자에서 URL `https://www.hightail.com/loginSSO`를 입력합니다.
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-5. Hightail 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 응용 프로그램의 **"특성"** 탭에서 이러한 특성의 값을 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 
+5. Hightail 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대한 다음 클레임을 구성하세요. 이러한 특성의 값은 응용 프로그램의 **"특성"** 탭에서 관리할 수 있습니다. 다음 스크린샷은 이에 대한 예제를 보여 줍니다. 
 
     ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -153,7 +150,7 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
 
     d. **네임스페이스**를 비워 둡니다.
-    
+
     e. **Ok**를 클릭합니다.
 
 7. **저장** 단추를 클릭합니다.
@@ -162,41 +159,32 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 8. **Hightail 구성** 섹션에서 **Hightail 구성**을 클릭하여 **로그인 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_configure.png) 
+    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_configure.png)
 
-    >[!NOTE] 
+    >[!NOTE]
     >Hightail 앱에서 Single Sign On을 구성하기 전에 이 도메인을 사용하는 모든 사용자가 Single Sign On 기능을 활용할 수 있도록 Hightail 팀을 통해 전자 메일 도메인을 허용 목록에 포함시키세요.
 
+9. 다른 브라우저 창에서 **Hightail** 관리 포털을 엽니다.
 
-9. 응용 프로그램에 대해 구성된 SSO를 가져오려면 관리자 권한으로 Hightail 테넌트에 로그온해야 합니다.
-   
-    a. 위쪽 메뉴에서 **계정** 탭을 클릭하고 **SAML 구성**을 선택합니다.
- 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_001.png) 
+10. 페이지의 오른쪽 위 모서리에서 **사용자 아이콘**을 클릭합니다. 
 
-    나. **SAML 인증 사용**확인란을 선택합니다.
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure1.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_002.png) 
+11. **View Admin Console**(관리 콘솔 보기) 탭을 클릭합니다.
 
-    다. Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음, **SAML 토큰 서명 인증서** 텍스트 상자에 붙여넣습니다.
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure2.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_003.png) 
+12. 위쪽의 메뉴에서 **SAML** 탭을 클릭하고 다음 단계를 수행합니다.
 
-    d. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SAML 인증 기관(ID 공급자)** 텍스트 상자에 붙여넣습니다.
+    ![Configure Single Sign-On](./media/hightail-tutorial/configure3.png)
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_004.png)
+    a. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **Login URL**(로그인 URL) 텍스트 상자에 붙여넣습니다.
 
-    e. **IDP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"IdP(ID 공급자) 시작 로그인"** 을 선택하고, **SP 시작 모드**로 응용 프로그램을 구성하려는 경우 **"SP(서비스 공급자) 시작 로그인"** 을 선택합니다.
+    나. Azure Portal에서 다운로드한 base-64로 인코딩된 인증서를 메모장에서 열고, 클립보드에 내용을 복사한 다음, **SAML Certificate**(SAML 인증서) 텍스트 상자에 붙여넣습니다.
 
-    ![Configure Single Sign-On](./media/hightail-tutorial/tutorial_hightail_006.png)
+    다. **COPY**(복사)를 클릭하여 인스턴스에 대한 SAML 소비자 URL을 복사하고, Azure Portal에서 **Hightail 도메인 및 URL** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
 
-    f. 인스턴스에 대한 SAML 소비자 URL을 복사하여 Azure Portal의 **Hightail 도메인 및 URL**에서 **회신 URL** 텍스트 상자에 붙여넣습니다.
-    
-    g. **저장**을 클릭합니다.
-
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+    d. **Save Configurations**(구성 저장)를 클릭합니다.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -256,7 +244,7 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
-    ![사용자 할당][202] 
+    ![사용자 할당][202]
 
 4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
@@ -267,7 +255,7 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
@@ -279,8 +267,6 @@ Hightail에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
-
-
 
 <!--Image references-->
 

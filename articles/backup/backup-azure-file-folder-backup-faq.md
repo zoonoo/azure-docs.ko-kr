@@ -7,14 +7,14 @@ manager: shreeshd
 keywords: 백업 및 재해 복구; 백업 서비스
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 6/25/2018
 ms.author: trinadhk
-ms.openlocfilehash: 4234b76c192ba3bbeaca9593250cc855c073e380
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605534"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37016491"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Azure Backup 에이전트에 대한 질문
 이 문서에서는 Azure Backup 에이전트 구성 요소를 빨리 이해하는 데 도움이 되는 일반적인 질문에 대한 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -58,7 +58,7 @@ Windows Server, System Center DPM 또는 Windows 클라이언트를 백업하기
 예. 게스트 Windows OS에 Azure Backup 에이전트를 설치하고 임시 저장소에 파일 및 폴더를 백업합니다. 임시 저장소 데이터가 초기화된 후에는 Backup 작업이 실패합니다. 또한 임시 저장소 데이터가 삭제된 경우 비휘발성 저장소에만 복원할 수 있습니다.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>캐시 폴더의 최소 크기 요구 사항은 무엇인가요? <br/>
-캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다. 캐시 폴더는 데이터 저장에 필요한 공간의 5%여야 합니다.
+캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다. 백업 데이터의 전체 크기에 비교해서 캐시 폴더의 볼륨은 최소 5-10%의 여유 공간이 있어야 합니다. 볼륨에 여유 공간이 5% 미만일 경우 볼륨 크기를 늘리거나 [충분한 여유 공간이 있는 볼륨으로 캐시 폴더를 이동](backup-azure-file-folder-backup-faq.md#backup)합니다.
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>다른 데이터 센터에 내 서버를 등록하려면 어떻게 해야 하나요?<br/>
 Backup 데이터는 등록된 자격 증명 모음의 데이터 센터로 전송됩니다. 데이터 센터를 변경하는 가장 쉬운 방법은 에이전트를 제거하고 다시 설치한 후 원하는 데이터 센터에 속한 새 자격 증명 모음에 등록하는 것입니다.

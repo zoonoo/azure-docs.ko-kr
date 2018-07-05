@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 0c3df0642d36aa1c4471c433fe9c1d3fa3b0880d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631764"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752686"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색!
 
@@ -36,7 +36,7 @@ ms.locfileid: "34631764"
 
 ### <a name="start-vs-code"></a>VS Code 시작
 
-- DevKit가 컴퓨터에 연결되어 있지 **않은지** 확인합니다.
+- DevKit가 컴퓨터에 연결되어 있는지 확인합니다.
 - VS Code를 시작합니다.
 - DevKit를 컴퓨터에 연결합니다.
 
@@ -45,7 +45,10 @@ ms.locfileid: "34631764"
 
 ### <a name="open-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
+왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.  
+
+> [!NOTE]
+> MXCHIP AZ3166 섹션을 볼 수 없다면 장치가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 

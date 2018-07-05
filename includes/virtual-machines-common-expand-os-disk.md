@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/18/2018
 ms.author: kirpas;iainfou;sewhee
 ms.custom: include file
-ms.openlocfilehash: c8b48c9b3ebd6b40640a744f00673158c07cdc3a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: ab4d5326fc06cc8676ea93ed529315cc47651e26
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35323802"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943456"
 ---
 ## <a name="overview"></a>개요
 [Azure Marketplace](https://azure.microsoft.com/marketplace/)에서 이미지를 배포하여 리소스 그룹에 새 VM(가상 머신)을 만드는 경우 기본 OS 드라이브는 종종 127GB입니다(일부 이미지의 경우 OS 디스크 크기가 기본적으로 더 작음). VM에 데이터 디스크를 추가할 수 있고(선택한 SKU에 따라 추가할 수 있는 양이 달라짐) 응용 프로그램 및 CPU 사용량이 많은 워크로드는 이러한 추가 디스크에 설치하는 것이 좋지만, 고객이 다음과 같은 특정 시나리오를 지원하기 위해 OS 드라이브를 확장해야 하는 경우가 자주 있습니다.

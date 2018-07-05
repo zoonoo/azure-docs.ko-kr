@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 0bb4a57bcc31cffba3c0e7dc50d0e2b214c50838
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1de2482b7795bbed82874b6eea29f89f1ff52560
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260416"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36939973"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 
@@ -29,12 +29,18 @@ Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도�
 전역 관리자는 모든 관리 기능에 액세스할 수 있습니다. 기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 전역 관리자 역할이 할당됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다.
 
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
-Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법에 대한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](active-directory-users-assign-role-azure-portal.md)을 참조하세요.
+Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법에 대한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)을 참조하세요.
 
 ## <a name="available-roles"></a>사용 가능한 역할
 다음과 같은 관리자 역할을 사용할 수 있습니다.
 
+* **응용 프로그램 관리자**: 이 역할의 사용자는 엔터프라이즈 응용 프로그램, 응용 프로그램 등록 및 응용 프로그램 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 또한 이 역할은 위임된 권한 및 Microsoft Graph와 Azure AD Graph를 제외한 응용 프로그램 사용 권한에 동의하는 기능을 부여합니다. 이 역할의 구성원은 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가되지 않습니다.
+
+* **응용 프로그램 개발자**: 이 역할의 사용자는 “사용자가 응용 프로그램을 등록할 수 있음” 설정이 아니오로 설정된 경우 응용 프로그램 등록을 만들 수 있습니다. 또한 이 역할은 “사용자가 앱이 사용자 대신 회사 데이터에 액세스하는 것에 동의할 수 있음” 설정이 아니오로 설정된 경우 구성원이 직접 동의하도록 허용합니다. 이 역할의 구성원은 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가됩니다.
+
 * **대금 청구 관리자**: 구입하고, 구독을 관리하고, 지원 티켓을 관리하고, 서비스 상태를 모니터링합니다.
+
+* **클라우드 응용 프로그램 관리자**: 이 역할의 사용자는 응용 프로그램 관리자 역할과 동일한 권한을 가집니다. 응용 프로그램 프록시를 관리하는 기능은 제외됩니다. 이 역할은 엔터프라이즈 응용 프로그램 및 응용 프로그램 등록의 모든 측면을 만들고 관리하는 기능을 부여합니다. 또한 이 역할은 위임된 권한 및 Microsoft Graph와 Azure AD Graph를 제외한 응용 프로그램 사용 권한에 동의하는 기능을 부여합니다. 이 역할의 구성원은 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가되지 않습니다.
 
 * **준수 관리자**: 이 역할의 사용자는 Office 365 보안 및 준수 센터와 Exchange 관리 센터 내 관리 권한을 갖습니다. 자세한 내용은 “[Office 365 관리 역할 정보](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d)”를 참조하세요.
 
@@ -107,11 +113,29 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ## <a name="administrator-permissions"></a>관리자 권한
 
+### <a name="application-administrator"></a>응용 프로그램 관리자
+
+| 가능한 작업 | 불가능한 작업 |
+| --- | --- |
+| 모든 디렉터리 정보 읽기<br>응용 프로그램 등록 만들기<br>응용 프로그램 등록 속성 업데이트<br>엔터프라이즈 응용 프로그램 획득<br>응용 프로그램 등록 사용 권한 관리<br>응용 프로그램 등록 삭제<br>엔터프라이즈 응용 프로그램 Single Sign-On 설정 관리<br>엔터프라이즈 응용 프로그램 프로비전 설정 관리<br>엔터프라이즈 응용 프로그램 셀프 서비스 설정 관리<br>엔터프라이즈 응용 프로그램 사용 권한 설정 관리<br>응용 프로그램 액세스 관리<br>프로비전 설정 관리<br>엔터프라이즈 응용 프로그램 삭제<br>위임된 모든 권한 요청에 대해 모든 사용자를 대신하여 동의<br>Azure AD Graph 또는 Microsoft Graph를 제외한 모든 응용 프로그램 권한 요청에 대해 모든 사용자를 대신하여 동의<br>응용 프로그램 프록시 설정 관리<br>서비스 설정 액세스<br>서비스 상태 모니터링<br>지원 티켓 관리<br>숨겨진 그룹 멤버 자격 읽기 | 그룹 만들기, 편집 및 삭제<br>사용자 라이선스 관리<br>디렉터리 동기화 사용<br>로그인 보고서 및 감사 로그 보기 | 
+
+### <a name="application-developer"></a>응용 프로그램 개발자
+
+| 가능한 작업 | 불가능한 작업 |
+| --- | --- |
+| 모든 디렉터리 정보 읽기<br>응용 프로그램 등록 만들기<br>직접 동의 | 로그인 및 감사 로그 보기<br>숨겨진 그룹 멤버 자격 읽기 |
+
 ### <a name="billing-administrator"></a>대금 청구 관리자
 
 | 가능한 작업 | 불가능한 작업 |
 | --- | --- |
-|<p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p> |<p>사용자 암호 다시 설정</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>감사 로그 보기</p>|
+|<p>회사 및 사용자 정보 보기</p><p>Office 지원 티켓 관리</p><p>Office 제품의 대금 청구 및 구매 작업 수행</p> |<p>사용자 암호 다시 설정</p><p>사용자 보기 만들기 및 관리</p><p>사용자 및 그룹 만들기/편집/삭제, 사용자 라이선스 관리</p><p>도메인 관리</p><p>회사 정보 관리</p><p>다른 사용자에게 관리 역할 위임</p><p>디렉터리 동기화 사용</p><p>감사 로그 보기</p> |
+
+### <a name="cloud-application-administrator"></a>클라우드 응용 프로그램 관리자
+
+| 가능한 작업 | 불가능한 작업 |
+| --- | --- |
+| 모든 디렉터리 정보 읽기<br>응용 프로그램 등록 만들기<br>응용 프로그램 등록 속성 업데이트<br>엔터프라이즈 응용 프로그램 획득<br>응용 프로그램 등록 사용 권한 관리<br>응용 프로그램 등록 삭제<br>엔터프라이즈 응용 프로그램 Single Sign-On 설정 관리<br>엔터프라이즈 응용 프로그램 프로비전 설정 관리<br>엔터프라이즈 응용 프로그램 셀프 서비스 설정 관리<br>엔터프라이즈 응용 프로그램 사용 권한 설정 관리<br>응용 프로그램 액세스 관리<br>프로비전 설정 관리<br>엔터프라이즈 응용 프로그램 삭제<br>위임된 모든 권한 요청에 대해 모든 사용자를 대신하여 동의<br>Azure AD Graph 또는 Microsoft Graph를 제외한 모든 응용 프로그램 권한 요청에 대해 모든 사용자를 대신하여 동의<br>서비스 설정 액세스<br>서비스 상태 모니터링<br>지원 티켓 관리<br>숨겨진 그룹 멤버 자격 읽기 | 응용 프로그램 프록시 설정 관리<br>그룹 만들기, 편집 및 삭제<br>사용자 라이선스 관리<br>디렉터리 동기화 사용<br>로그인 보고서 및 감사 로그 보기 |
 
 ### <a name="conditional-access-administrator"></a>조건부 액세스 관리자
 
@@ -169,13 +193,15 @@ Azure AD 로그인 보고서 및 감사 로그 보기<br>회사 및 사용자 �
 
    ![Azure AD 관리 센터 열기](./media/active-directory-assign-admin-roles-azure-portal/active-directory-admin-center.png)
 
-2. **사용자 및 그룹 &gt; 모든 사용자**를 차례로 선택합니다.
+2. **사용자** > **모든 사용자**를 선택합니다.
 
-3. 전역 관리자로 지정하려는 사용자를 찾아 해당 사용자에 대한 블레이드를 엽니다.
+3. 전역 관리자로 지정하려는 사용자에 대한 페이지를 엽니다.
 
-4. 사용자 블레이드에서 **디렉터리 역할**을 선택합니다.
- 
-5. 디렉터리 역할 블레이드에서 **전역 관리자** 역할을 선택하고 저장합니다.
+4. 명령 모음에서 **디렉터리 역할**을 선택합니다.
+
+5. **역할 추가**를 선택합니다.
+
+6. 디렉터리 역할 페이지에서 **전역 관리자** 역할을 선택한 다음, **선택**을 클릭하여 저장합니다.
 
 ## <a name="deprecated-roles"></a>사용되지 않는 역할
 
@@ -190,9 +216,9 @@ Azure AD 로그인 보고서 및 감사 로그 보기<br>회사 및 사용자 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 관리자 역할을 추가 또는 변경하는 방법](../billing-add-change-azure-subscription-administrator.md)
+* Azure 구독에 대한 관리자를 변경하는 방법에 대해 자세히 알아보려면 [Azure 구독 관리자 추가 또는 변경](../billing-add-change-azure-subscription-administrator.md)을 참조하세요.
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](active-directory-how-subscriptions-associated-directory.md)
+* Azure 구독에 Azure Active Directory가 연결되는 방법에 대한 자세한 내용은 [Azure 구독을 Azure Active Directory에 연결하는 방법](fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [사용자 관리](active-directory-create-users.md)
 * [암호 관리](active-directory-manage-passwords.md)
-* [그룹 관리](active-directory-manage-groups.md)
+* [그룹 관리](fundamentals/active-directory-manage-groups.md)

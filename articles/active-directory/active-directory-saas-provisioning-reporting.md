@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/12/2017
 ms.author: asmalser-msft
-ms.openlocfilehash: faccaa4496eb1deda23bbfcf335088a023d229d6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5011dfbe496472e21a85dee9fa4901dad429a984
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293180"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031732"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -30,9 +30,9 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 ## <a name="overview"></a>개요
 
-프로비전 커넥터는 주로 사용자 계정 프로비전이 필요한 응용 프로그램에 [제공된 설명서](active-directory-saas-tutorial-list.md)에 따라 [Azure 관리 포털](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 응용 프로그램에 대한 프로비전 작업을 보고할 수 있습니다.
+프로비전 커넥터는 지원되는 응용 프로그램에 [제공된 설명서](saas-apps/tutorial-list.md)에 따라 [Azure Portal](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
 
-* **Azure 관리 포털** - 이 문서에서는 주로 지정된 응용 프로그램에 대한 프로비전 요약 보고서와 자세한 프로비전 감사 로그를 제공하는 [Azure 관리 포털](https://portal.azure.com)에서 보고서 정보를 검색하는 방법에 대해 설명합니다.
+* **Azure 관리 포털** - 이 문서에서는 주로 지정된 응용 프로그램에 대한 프로비전 요약 보고서와 자세한 프로비전 감사 로그를 제공하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색하는 방법에 대해 설명합니다.
 
 * **감사 API** - Azure Active Directory는 자세한 프로비전 감사 로그를 프로그래밍 방식으로 검색할 수 있게 해주는 감사 API도 제공합니다. 이 API의 사용과 관련하여 [Azure Active Directory 감사 API 참조](active-directory-reporting-api-audit-reference.md) 문서를 참조하세요. 이 문서에서는 API를 사용하는 방법을 구체적으로 다루지 않지만, 감사 로그에 기록되는 프로비전 이벤트 유형에 대해서는 자세히 설명합니다.
 
@@ -54,15 +54,15 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 여기서는 아래에서 설명하는 프로비전 요약 보고서와 프로비전 감사 로그에 모두 액세스할 수 있습니다.
 
 
-### <a name="provisioning-summary-report"></a>요약 보고서 프로비전
+## <a name="provisioning-summary-report"></a>요약 보고서 프로비전
 
-프로비전 요약 보고서는 지정된 응용 프로그램에 대한 **프로비전** 탭에 표시됩니다. **설정** 아래의 [동기화 세부 정보] 섹션에 있으며, 제공되는 정보는 다음과 같습니다.
+프로비전 요약 보고서는 지정된 응용 프로그램에 대한 **프로비전** 탭에 표시됩니다. **설정** 아래의 **동기화 세부 정보** 섹션에 있으며, 제공되는 정보는 다음과 같습니다.
 
 * 동기화되어 현재의 원본 시스템과 대상 시스템 간 프로비전에 해당하는 범위에 포함된 총 사용자 및/또는 그룹 수
 
-* 동기화가 마지막으로 실행된 시간 - 일반적으로 전체 동기화가 완료된 후 20-40분마다 동기화가 발생합니다.
+* 동기화가 마지막으로 실행된 시간 - 일반적으로 [초기 동기화](active-directory-saas-app-provisioning.md#what-happens-during-provisioning)가 완료된 후 20-40분마다 동기화가 발생합니다.
 
-* 초기 전체 동기화가 완료되었는지 여부
+* [초기 동기화](active-directory-saas-app-provisioning.md#what-happens-during-provisioning)가 완료되었는지 여부
 
 * 프로비전 프로세스의 격리 여부 및 격리 상태에 대한 이유(예: 잘못된 관리자 자격 증명으로 인해 대상 시스템과 통신하지 못하는 경우)
 
@@ -70,7 +70,7 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
  ![요약 보고서](./media/active-directory-saas-provisioning-reporting/summary_report.PNG)
 
-### <a name="provisioning-audit-logs"></a>감사 로그 프로비전
+## <a name="provisioning-audit-logs"></a>감사 로그 프로비전
 프로비전 서비스에서 수행되는 모든 활동은 Azure AD 감사 로그에 기록되며, **계정 프로비전** 범주 아래의 **감사 로그** 탭에서 볼 수 있습니다. 기록되는 활동 이벤트 유형은 다음과 같습니다.
 
 * **가져오기 이벤트** - Azure AD 프로비전 서비스에서 원본 시스템 또는 대상 시스템의 개별 사용자 또는 그룹에 대한 정보를 검색할 때마다 "가져오기" 이벤트가 기록됩니다. 동기화하는 동안 먼저 "가져오기" 이벤트로 기록된 결과와 함께 원본 시스템에서 사용자를 검색합니다. 그런 다음 검색된 사용자와 일치하는 ID에 대해 대상 시스템에 쿼리하여 "가져오기" 이벤트로 기록된 결과와 함께 해당 ID가 있는지 확인합니다. 이러한 이벤트는 이벤트 발생 시 Azure AD 프로비전 서비스에서 표시한 모든 매핑된 사용자 특성과 해당 값을 기록합니다. 
@@ -112,6 +112,9 @@ Azure Active Directory에는 종단 간 ID 수명 주기 관리를 위해 SaaS �
 
 7. 개별 이벤트를 클릭하면 이벤트의 일부로 검색, 평가 또는 작성된 모든 사용자 특성을 포함하여 펼쳐진 세부 정보를 볼 수 있습니다.
 
+감사 로그를 사용하는 방법에 대한 데모는 아래 비디오를 참조하세요. 감사 로그는 5:30 태그에 표시됩니다.
+
+> [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
 ### <a name="tips-for-viewing-the-provisioning-audit-logs"></a>프로비전 감사 로그 보기 팁
 

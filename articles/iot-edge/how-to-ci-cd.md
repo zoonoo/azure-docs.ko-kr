@@ -4,28 +4,28 @@ description: Azure IoT Edge 연속 통합 및 지속적인 배포 개요
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 04/30/2018
+ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8b58eae9aa08d8f6539370fa6e78a7a4813c18f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631023"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047458"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge---preview"></a>Azure IoT Edge 연속 통합 및 지속적인 배포 - 미리 보기
-이 자습서에서는 Visual Studio Team Services(VSTS) 및 Microsoft Team Foundation Server(TFS)의 연속 통합 및 지속적인 배포 기능을 사용하여 응용 프로그램을 빠르고 효율적으로 빌드, 테스트하고 Azure IoT Edge에 배포하는 방법을 설명합니다. 
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Azure IoT Edge 연속 통합 및 지속적인 배포
 
-이 자습서에서는 다음 방법을 알아봅니다.
-> [!div class="checklist"]
-> * 단위 테스트가 포함된 샘플 IoT Edge 솔루션을 만들고 체크 인합니다.
-> * VSTS에 대한 Azure IoT Edge 확장 프로그램을 설치합니다.
-> * 연속 통합(CI)을 구성하여 솔루션을 빌드하고 단위 테스트를 실행합니다.
-> * 지속적인 배포(CD)를 구성하여 솔루션을 배포하고 응답을 봅니다.
+이 아티클에서는 Visual Studio Team Services(VSTS) 및 Microsoft Team Foundation Server(TFS)의 연속 통합 및 지속적인 배포 기능을 사용하여 응용 프로그램을 빠르고 효율적으로 빌드, 테스트하고 Azure IoT Edge에 배포하는 방법을 설명합니다. 
 
-이 자습서를 완료하려면 30분 정도 걸립니다.
+이 아티클에서는 다음 방법을 설명합니다.
+* 단위 테스트가 포함된 샘플 IoT Edge 솔루션을 만들고 체크 인합니다.
+* VSTS에 대한 Azure IoT Edge 확장 프로그램을 설치합니다.
+* 연속 통합(CI)을 구성하여 솔루션을 빌드하고 단위 테스트를 실행합니다.
+* 지속적인 배포(CD)를 구성하여 솔루션을 배포하고 응답을 봅니다.
+
+이 아티클의 단계를 완료하려면 30분이 걸립니다.
 
 ![CI 및 CD](./media/how-to-ci-cd/cd.png)
 
@@ -82,13 +82,7 @@ ms.locfileid: "34631023"
 
             static void Main(string[] args)
             {
-                // The Edge runtime gives us the connection string we need -- it is injected as an environment variable
-                string connectionString = Environment.GetEnvironmentVariable("EdgeHubConnectionString");
-
-                // Cert verification is not yet fully functional when using Windows OS for the container
-                bool bypassCertVerification = RuntimeInformation.IsOSPlatform(OSPlatform.Windows);
-                if (!bypassCertVerification) InstallCert();
-                Init(connectionString, bypassCertVerification).Wait();
+                Init().Wait();
 
                 // Wait until the app unloads or is cancelled
                 var cts = new CancellationTokenSource();
@@ -108,94 +102,55 @@ ms.locfileid: "34631023"
             }
 
             /// <summary>
-            /// Add certificate in local cert store for use by client for secure connection to IoT Edge runtime
-            /// </summary>
-            static void InstallCert()
-            {
-                string certPath = Environment.GetEnvironmentVariable("EdgeModuleCACertificateFile");
-                if (string.IsNullOrWhiteSpace(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing path to certificate file.");
-                }
-                else if (!File.Exists(certPath))
-                {
-                    // We cannot proceed further without a proper cert file
-                    Console.WriteLine($"Missing path to certificate collection file: {certPath}");
-                    throw new InvalidOperationException("Missing certificate file.");
-                }
-                X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
-                store.Open(OpenFlags.ReadWrite);
-                store.Add(new X509Certificate2(X509Certificate2.CreateFromCertFile(certPath)));
-                Console.WriteLine("Added Cert: " + certPath);
-                store.Close();
-            }
-            /// <summary>
-            /// Initializes the DeviceClient and sets up the callback to receive
+            /// Initializes the ModuleClient and sets up the callback to receive
             /// messages containing temperature information
             /// </summary>
-            static async Task Init(string connectionString, bool bypassCertVerification = false)
+            static async Task Init()
             {
-                Console.WriteLine("Connection String {0}", connectionString);
-
                 MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
-                // During dev you might want to bypass the cert verification. It is highly recommended to verify certs systematically in production
-                if (bypassCertVerification)
-                {
-                    mqttSetting.RemoteCertificateValidationCallback = (sender, certificate, chain, sslPolicyErrors) => true;
-                }
                 ITransportSettings[] settings = { mqttSetting };
 
                 // Open a connection to the Edge runtime
-                DeviceClient ioTHubModuleClient = DeviceClient.CreateFromConnectionString(connectionString, settings);
+                ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
                 await ioTHubModuleClient.OpenAsync();
                 Console.WriteLine("IoT Hub module client initialized.");
 
                 // Register callback to be called when a message is received by the module
-                // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
-
-                // Read TemperatureThreshold from Module Twin Desired Properties
-                var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-                var moduleTwinCollection = moduleTwin.Properties.Desired;
-                try {
-                    temperatureThreshold = moduleTwinCollection["TemperatureThreshold"];
-                } catch(ArgumentOutOfRangeException) {
-                    Console.WriteLine("Proerty TemperatureThreshold not exist");
-                }
-
-                // Attach callback for Twin desired properties updates
-                await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
-
-                // Register callback to be called when a message is received by the module
-                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+                await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessage, ioTHubModuleClient);
             }
 
-            static Task onDesiredPropertiesUpdate(TwinCollection desiredProperties, object userContext)
+            /// <summary>
+            /// This method is called whenever the module is sent a message from the EdgeHub. 
+            /// It just pipe the messages without any change.
+            /// It prints all the incoming messages.
+            /// </summary>
+            static async Task<MessageResponse> FilterMessage(Message message, object userContext)
             {
-                try
+                int counterValue = Interlocked.Increment(ref counter);
+
+                var moduleClient = userContext as ModuleClient;
+                if (moduleClient == null)
                 {
-                    Console.WriteLine("Desired property change:");
-                    Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-
-                    if (desiredProperties["TemperatureThreshold"] != null)
-                        temperatureThreshold = desiredProperties["TemperatureThreshold"];
-
+                    throw new InvalidOperationException("UserContext doesn't contain " + "expected values");
                 }
-                catch (AggregateException ex)
+
+                byte[] messageBytes = message.GetBytes();
+                string messageString = Encoding.UTF8.GetString(messageBytes);
+                Console.WriteLine($"Received message: {counterValue}, Body: [{messageString}]");
+
+                var filteredMessage = filter(message);
+
+                if (filteredMessage != null && !string.IsNullOrEmpty(messageString))
                 {
-                    foreach (Exception exception in ex.InnerExceptions)
+                    var pipeMessage = new Message(messageBytes);
+                    foreach (var prop in message.Properties)
                     {
-                        Console.WriteLine();
-                        Console.WriteLine("Error when receiving desired property: {0}", exception);
+                        pipeMessage.Properties.Add(prop.Key, prop.Value);
                     }
+                    await moduleClient.SendEventAsync("output1", pipeMessage);
+                    Console.WriteLine("Received message sent");
                 }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error when receiving desired property: {0}", ex.Message);
-                }
-                return Task.CompletedTask;
+                return MessageResponse.Completed;
             }
 
             public static Message filter(Message message)
@@ -223,42 +178,6 @@ ms.locfileid: "34631023"
                     return filteredMessage;
                 }
                 return null;
-            }
-
-            static async Task<MessageResponse> FilterMessages(Message message, object userContext)
-            {
-                try
-                {
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-
-                    var filteredMessage = filter(message);
-                    if (filteredMessage != null)
-                    {
-                        await deviceClient.SendEventAsync("output1", filteredMessage);
-                    }
-
-                    // Indicate that the message treatment is completed
-                    return MessageResponse.Completed;
-                }
-                catch (AggregateException ex)
-                {
-                    foreach (Exception exception in ex.InnerExceptions)
-                    {
-                        Console.WriteLine();
-                        Console.WriteLine("Error in sample: {0}", exception);
-                    }
-                    // Indicate that the message treatment is not completed
-                    var deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Error in sample: {0}", ex.Message);
-                    // Indicate that the message treatment is not completed
-                    DeviceClient deviceClient = (DeviceClient)userContext;
-                    return MessageResponse.Abandoned;
-                }
             }
         }
     }
@@ -404,7 +323,7 @@ ms.locfileid: "34631023"
 
     ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
-1. 첫 번째 Azure IoT Edge 작업에서 **표시 이름**을 **모듈 빌드 및 푸시**로 업데이트하고 **작업** 드롭다운 목록에서 **빌드 및 푸시**를 선택합니다. **Module.json 파일** 텍스트 상자에서 아래 경로를 추가합니다. 그런 다음, **컨테이너 레지스트리 유형**을 선택하여 코드에서 동일한 레지스트리를 구성하고 선택하도록 합니다. 이 작업은 솔루션의 모든 모듈을 빌드 및 푸시하고 지정된 컨테이너 레지스트리로 게시합니다. 
+1. 첫 번째 Azure IoT Edge 작업에서 **표시 이름**을 **모듈 빌드 및 푸시**로 업데이트하고 **작업** 드롭다운 목록에서 **빌드 및 푸시**를 선택합니다. **Module.json 파일** 텍스트 상자에서 아래 경로를 추가합니다. 그런 다음, **컨테이너 레지스트리 유형**을 선택하여 코드에서 동일한 레지스트리를 구성하고 선택하도록 합니다. 이 작업은 솔루션의 모든 모듈을 빌드 및 푸시하고 지정된 컨테이너 레지스트리로 게시합니다. 모듈이 다른 레지스트리로 푸시된 경우 다중 **모듈 빌드 및 푸시** 작업이 있을 수 있습니다.
 
     ```
     **/module.json
@@ -449,16 +368,5 @@ ms.locfileid: "34631023"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 VSTS 또는 TFS의 연속 통합 및 지속적인 배포 기능을 사용하는 방법을 설명합니다. 
-
 * [단일 장치 또는 대규모 IoT Edge 배포에 대한 이해](module-deployment-monitoring.md)를 통해 IoT Edge 배포 이해
-* [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md) 에서 배포를 생성, 업데이트 또는 삭제하는 단계를 연습합니다.
-
-
-
-
-
-
-
-
-
+* [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)에서 배포를 생성, 업데이트 또는 삭제하는 단계를 연습합니다.

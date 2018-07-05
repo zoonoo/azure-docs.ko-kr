@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 82a3ebcf4d208b550a792deddba5ce214105af13
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4d0b5d5ba429dc5d839fa054476461f96a52143
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632750"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030736"
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>IoT Hub를 사용한 장치 관리 개요
 
@@ -51,16 +51,16 @@ IoT는 특유의 장치 관리 과제를 수반하며 모든 기업 수준의 �
 
 * **계획**: 운영자가 대량 관리 작업을 위해 장치 그룹을 간편하고 정확하게 대상화하고 쿼리하기 위한 장치 메타데이터 구성표를 만들 수 있습니다. 장치 쌍을 사용하여 이 장치 메타데이터를 태그 및 속성 형식으로 저장할 수 있습니다.
   
-    *추가 정보*: [장치 쌍 시작][lnk-twins-getstarted], [장치 쌍 이해][lnk-twins-devguide], [장치 쌍 속성 사용 방법][lnk-twin-properties]
+    *추가 정보*: [장치 쌍 시작][lnk-twins-getstarted], [장치 쌍 이해][lnk-twins-devguide], [장치 쌍 속성 사용 방법][lnk-twin-properties], [IoT 솔루션 내에서 장치 구성에 대한 모범 사례][lnk-adm-best-practices]
 * **프로비전**: 새 장치를 IoT Hub에 안전하게 프로비전하고 운영자가 장치의 기능을 즉시 검색할 수 있도록 합니다.  IoT Hub ID 레지스트리를 사용하여 유연한 장치 ID 및 자격 증명을 만들고 작업을 사용하여 대량으로 이 작업을 수행합니다. 장치 쌍에서 장치 속성을 통해 기능 및 조건을 보고하도록 장치를 빌드합니다.
   
-    *추가 정보*: [장치 ID 관리][lnk-identity-registry], [장치 ID 대량 관리][lnk-bulk-identity], [장치 쌍 속성 사용 방법][lnk-twin-properties], [Azure IoT Hub Device Provisioning 서비스][lnk-dps]
+    *추가 정보*: [장치 ID 관리][lnk-identity-registry], [장치 ID 대량 관리][lnk-bulk-identity], [장치 쌍 속성 사용 방법][lnk-twin-properties], [IoT 솔루션 내에서 장치 구성에 대한 모범 사례][lnk-adm-best-practices], [Azure IoT Hub Device Provisioning 서비스][lnk-dps]
 * **구성**: 정상적인 상태와 보안을 유지하면서 장치에 대한 일괄 구성 변경 및 펌웨어 업데이트를 가능하게 합니다. 원하는 속성 또는 직접 메서드와 브로드캐스트 작업을 사용하여 대량으로 이러한 장치 관리 작업을 수행합니다.
   
-    *추가 정보*:  [직접 메서드 사용][lnk-c2d-methods], [장치에서 직접 메서드 호출][lnk-methods-devguide], [장치 쌍 속성 사용 방법][lnk-twin-properties], [작업 예약 및 브로드캐스트][lnk-jobs], [여러 장치에서 작업 예약][lnk-jobs-devguide]
+    *추가 정보*: [장치 쌍 속성 사용 방법][lnk-twin-properties], [대규모 IoT 장치 구성 및 모니터링][lnk-adm-how-to], [IoT 솔루션 내에서 장치 구성에 대한 모범 사례][lnk-adm-best-practices]
 * **모니터링**: 전반적인 다수의 장치 상태와 현재 작업 상태를 모니터링하고 주의가 필요한 문제를 운영자에게 알립니다.  장치 쌍을 적용하여 장치 업데이트 작업의 상태를 실시간 운영 상태를 보고할 수 있도록 허용합니다. 장치 쌍 쿼리를 사용하여 즉각적인 문제를 노출하는 강력한 대시보드 보고서를 작성합니다.
   
-    *추가 정보*: [장치 쌍 속성 사용 방법][lnk-twin-properties], [장치 쌍, 작업 및 메시지 라우팅의 IoT Hub 쿼리 언어][lnk-query-language]
+    *추가 정보*: [장치 쌍 속성 사용 방법][lnk-twin-properties], [장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-query-language], [대규모 IoT 장치 구성 및 모니터링][lnk-adm-how-to], [IoT 솔루션 내에서 장치 구성에 대한 모범 사례][lnk-adm-best-practices]
 * **사용 중지**: 오류가 발생하거나, 업그레이드 주기 후에 또는 서비스 수명 주기가 끝나면 장치를 교체하거나 서비스를 해제합니다.  장치 쌍을 사용하여 물리적 장치를 바꾸는 경우 장치 정보를 유지하거나 사용이 중지될 경우 보관합니다. IoT Hub ID 레지스트리를 사용하여 장치 ID 및 자격 증명을 안전하게 해지합니다.
   
     *추가 정보*: [장치 쌍 속성 사용 방법][lnk-twin-properties], [장치 ID 관리][lnk-identity-registry]
@@ -77,7 +77,7 @@ IoT Hub는 다음과 같은 장치 관리 패턴을 가능하게 합니다.  [�
 * **구성** - 백 엔드 앱은 필요한 속성을 사용하여 장치에서 실행 중인 소프트웨어를 구성합니다.  장치는 보고된 속성을 사용하여 장치의 구성 상태를 업데이트합니다.
   
     ![장치 관리 구성 패턴 그래픽][img-config_pattern]
-* **펌웨어 업데이트** - 백 엔드 앱은 직접 메서드를 통해 펌웨어 업데이트를 시작한 것을 장치에 알립니다.  장치는 펌웨어 이미지를 다운로드하는 다단계 프로세스를 시작하고, 펌웨어 이미지를 적용하고, 마지막으로 IoT Hub 서비스에 다시 연결합니다.  다단계 프로세스가 진행되는 동안, 장치는 보고된 속성을 사용하여 진행률과 장치의 상태를 업데이트합니다.
+* **펌웨어 업데이트** - 백 엔드 앱은 자동 장치 관리 구성을 사용하여 업데이트를 수신하고, 장치에 업데이트를 찾을 위치를 알리고, 업데이트 프로세스를 모니터링하는 장치를 선택합니다. 장치는 펌웨어 이미지를 다운로드, 확인 및 적용한 다음, IoT Hub 서비스에 다시 연결하기 전에 장치를 다시 부팅하는 다단계 프로세스를 시작합니다.  다단계 프로세스가 진행되는 동안, 장치는 보고된 속성을 사용하여 진행률과 장치의 상태를 업데이트합니다.
   
     ![장치 관리 펌웨어 업데이트 패턴 그래픽][img-fwupdate_pattern]
 * **진행률 및 상태 보고** - 솔루션 백 엔드는 장치에서 실행 중인 작업의 상태와 진행률을 보고하기 위하여 일련의 장치 전반에 대해 장치 쌍 쿼리를 실행합니다.
@@ -111,3 +111,5 @@ IoT Hub 장치 관리 기능에 대해 계속 알아보려면 [장치 관리 시
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+[lnk-adm-best-practices]: iot-hub-configuration-best-practices.md
+[lnk-adm-how-to]: iot-hub-auto-device-config.md

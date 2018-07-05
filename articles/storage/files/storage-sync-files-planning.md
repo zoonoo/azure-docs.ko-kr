@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 81b760e3a911bacb9c01106d59577d794788abe8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296910"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335842"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -144,6 +144,9 @@ Azure File Sync 및 DFS-R을 나란히 사용하려면
 2. 서버 엔드포인트는 DFS-R 읽기 전용 복제 폴더에 대해 구성할 수 없습니다.
 
 자세한 내용은 [DFS 복제 개요](https://technet.microsoft.com/library/jj127250)를 참조하세요.
+
+### <a name="sysprep"></a>Sysprep
+Azure File Sync 에이전트가 설치되어 있는 서버에서 sysprep 사용은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
 
 ### <a name="windows-search"></a>Windows 검색
 클라우드 계층화가 서버 엔드포인트에서 활성화되면 더 이상 사용되지 않는 파일은 건너뛰고 Windows 검색을 통해 인덱싱되지 않습니다. 계층화되지 않은 파일은 제대로 인덱싱됩니다.

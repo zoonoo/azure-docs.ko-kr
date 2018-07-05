@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 12efeba68f30aa8723acc32449ae05ffac4c1ac4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d6c56f96c085de60b7cc05e4cc16b57867f6a7d
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658760"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308363"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 응용 프로그램용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -42,7 +42,7 @@ ms.locfileid: "34658760"
 
 [sap-swcenter]:https://support.sap.com/en/my-support/software-downloads.html
 
-[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[suse-ha-guide]:https://www.suse.com/products/sles-for-sap/resource-library/sap-best-practices/
 [suse-drbd-guide]:https://www.suse.com/documentation/sle-ha-12/singlehtml/book_sleha_techguides/book_sleha_techguides.html
 
 [template-multisid-xscs]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
@@ -75,8 +75,7 @@ ms.locfileid: "34658760"
 * [Linux에서 SAP용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [Linux에서 SAP용 Azure Virtual Machines 배포(이 문서)][deployment-guide]
 * [Linux에서 SAP용 Azure Virtual Machines DBMS 배포][dbms-guide]
-* [SAP HANA SR 성능 최적화된 시나리오][suse-hana-ha-guide]  
-  이 가이드에는 온-프레미스에 SAP HANA 시스템 복제를 설정하는 데 필요한 모든 정보가 들어 있습니다. 이 가이드를 기준으로 사용합니다.
+* [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 Netweaver HA 및 SAP HANA 시스템 복제 온-프레미스를 설정하는 데 필요한 모든 정보가 포함됩니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
 * [DRBD 및 Pacemaker를 사용하는 고가용성 NFS 저장소][suse-drbd-guide] 이 가이드에는 고가용성 NFS 서버를 설정하는 데 필요한 모든 정보가 포함되어 있습니다. 이 가이드를 기준으로 사용합니다.
 
 

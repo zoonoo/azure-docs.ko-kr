@@ -48,7 +48,7 @@ Azure는 고정된 VHD 형식 가상 하드 디스크를 지원합니다. VHDX�
 가상 머신을 만들 때, 사용자가 원하는 가상 머신이 소속될 네트워크를 지정해야 합니다. 가상 네트워크에 기존 가상 머신을 가입할 수 없습니다. 그러나 기본 가상 머신에서 가상 하드 디스크(VHD)를 분리한 후, 사용자가 원하는 네트워킹 구성으로 새로운 가상 머신을 만들어서 이 문제를 해결할 수 있습니다.
 
 ## <a name="how-can-i-access--my-virtual-machine"></a>나의 가상 머신에 액세스 하려면 어떻게 해야 합니까?
-Linux VM에 대한 SSH(Secure Shell) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 머신에 로그온 하기 위해서는 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
+Linux VM에 대한 SSH(Secure Shell) 또는 Windows VM에 대한 원격 데스크톱 연결을 사용하여 가상 머신에 로그온하기 위해서는 원격 연결을 구축해야 합니다. 자세한 내용은 다음을 참조하세요.
 
 * [Windows Server를 실행하는 Virtual Machine에 로그온하는 방법](../articles/virtual-machines/windows/classic/connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). 서버가 원격 데스크톱 서비스 세션 호스트로 구성되지 않으면 최대 2개의 동시 연결이 지원됩니다.  
 * [Linux를 실행하는 Virtual Machine에 로그온하는 방법](../articles/virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 기본적으로, SSH는 최대 10개의 동시 연결을 허용합니다. 구성 파일을 편집하여 이 수를 늘릴 수 있습니다.
@@ -78,7 +78,7 @@ Windows 가상 머신에서, 페이지 파일을 이동하고 드라이브 문�
 Windows Server 마이그레이션을 위한 도구 및 프로세스에 대한 자세한 일반 정보는 [Windows Server에 역할 및 기능 마이그레이션](http://go.microsoft.com/fwlink/p/?LinkId=396940)을 참조하세요.
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>가상 머신에 대한 기본 사용자 이름 및 암호는 무엇입니까?
-Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 머신을 만들 때, 가상 머신에 로그온 하는데 사용할 사용자 이름 및 암호를 제공해야 합니다.
+Azure에 의해 제공되는 이미지는 미리 구성된 이름 및 암호가 필요없습니다. 이러한 이미지 중 하나를 사용하여 가상 머신을 만들 때, 가상 머신에 로그온하는 데 사용할 사용자 이름 및 암호를 제공해야 합니다.
 
 사용자 이름 또는 암호를 잊어버리고 VM 에이전트를 설치한 경우 해당 문제를 수정하기 위해 [VMAccess](../articles/virtual-machines/windows/extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 확장을 설치하고 사용할 수 있습니다.
 

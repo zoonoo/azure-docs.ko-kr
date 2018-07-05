@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 5f3b8a7b9c7bf582ebc2fac2be8ff55134fbc6f2
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333516"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -40,7 +41,7 @@ ms.lasthandoff: 05/10/2018
  KV(Key Vault)에서 인증서를 만들려면 필수 구성 요소 1단계 및 2단계를 성공적으로 수행하고 이 사용자/조직에 대해 키 자격 증명 모음이 존재해야 합니다.  
 
 **1단계** - CA(인증 기관) 공급자  
--   지정된 회사(예:  Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
+-   지정된 회사(예: Contoso)에 대해 IT 관리자, PKI 관리자로 등록하거나 CA로 계정을 관리하는 것은 Key Vault 인증서를 사용하는 필수 구성 요소입니다.  
     다음 CA는 Key Vault와 현재 협력하는 공급자입니다.  
     -   DigiCert - Key Vault는 DigiCert를 통해 OV SSL 인증서를 제공합니다.  
     -   GlobalSign - Key Vault는 GlobalSign을 통해 OV SSL 인증서를 제공합니다.  
@@ -82,8 +83,9 @@ ms.lasthandoff: 05/10/2018
       -   갱신 정보 -> 예 만료 90일 전  
 
   - 인증서 만들기 프로세스는 일반적으로 비동기 프로세스이며 인증서 만들기 작업의 상태에 대한 키 자격 증명 모음 폴링을 포함합니다.  
-[인증서 가져오기 작업](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation) - 상태: 완료, 오류 정보와 함께 실패 또는 취소  
-            - 만들기에 대한 지연으로 인해 취소 작업을 시작할 수 있습니다. 취소가 적용되거나 적용되지 않을 수 있습니다.  
+[인증서 작업 가져오기](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+      -   상태: 완료, 오류 정보와 함께 실패 또는 취소  
+      -   만들기에 대한 지연으로 인해 취소 작업을 시작할 수 있습니다. 취소가 적용되거나 적용되지 않을 수 있습니다.  
 
 ## <a name="import-a-certificate"></a>인증서 가져오기  
  또는 - Key Vault로 인증서를 가져올 수 있습니다(PFX 또는 PEM).  

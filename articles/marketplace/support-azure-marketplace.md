@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 06/07/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6ad1c226246bc1523daca84235591afc27a3b132
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: a2962f50258bb3f65f574882ce2ea46ff006aac3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826065"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309353"
 ---
 # <a name="support-for-azure-marketplace"></a>Azure Marketplace에 대한 지원  
 Azure Marketplace에 대한 지원 옵션.  
@@ -50,7 +50,7 @@ Azure Marketplace에 대한 지원 옵션.
 |:--- |:--- |  
 | Slack: [join.marketplace.azure.com](https://join.marketplace.azure.com) | 파트너의 기술 문제를 지원하기 위한 Slack 환경입니다. 현재 이 환경에서 작업하는 350개 이상의 파트너가 있습니다. |  
 | MSDN 포럼: [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket)에 있는 Marketplace | Microsoft Developer Network 포럼입니다. |  
-| 스택 오버플로: [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure)에 있는 Azure | Azure Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 스택 오버플로 환경입니다.<ul> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)에 있는 Azure Marketplace</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)에 있는 Azure Resource Manager</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)에 있는 Azure Virtual Machines</li><li>[Azure의 컨테이너](https://stackoverflow.com/search?q=azure+container)</li></ul> |
+| 스택 오버플로: [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure)에 있는 Azure | Azure Marketplace와 관련된 모든 사항에 대한 솔루션을 얻고 질문을 할 수 있는 스택 오버플로 환경입니다.<ul> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)에 있는 Azure Marketplace</li> <li>스택 오버플로: [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)에 있는 Azure Resource Manager</li> <li>Stack Overflow: Azure의 Virtual Machines는 [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)에 배치되었습니다.</li> <li>Stack Overflow: Azure의 컨테이너는 [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)에 배치되었습니다.</li> </ul> |
 
 ## <a name="marketing-resources"></a>마케팅 리소스  
 

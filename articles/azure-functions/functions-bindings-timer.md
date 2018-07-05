@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/27/2017
 ms.author: tdykstra
 ms.custom: ''
-ms.openlocfilehash: 4da1ed4e9424950c39f3eb255ead2b39094597fd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725448"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308162"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -280,6 +280,10 @@ CRON 식과 다르게 `TimeSpan` 값은 각 함수 호출 간의 시간 간격�
 ## <a name="retry-behavior"></a>다시 시도 동작
 
 큐 트리거와 다르게 타이머 트리거는 함수가 실패한 후에 다시 시도하지 않습니다. 함수가 실패한 경우 일정에 따라 다음 시도까지 다시 호출되지 않습니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+타이머 트리거가 예상대로 작동하지 않는 경우 수행할 작업에 대한 정보는 [타이머 트리거 함수가 작동하지 않는 문제 조사 및 보고](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

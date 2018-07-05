@@ -1,6 +1,6 @@
 ---
 title: Azure Time Series Insights 환경의 규모 계획 | Microsoft Docs
-description: 이 문서에서는 저장소 용량, 데이터 보존, 수집 용량, 모니터링 모범 사례에 따라 Azure Time Series Insights 환경을 계획하는 방법을 설명합니다.
+description: 이 문서에서는 저장소 용량, 데이터 보존, 수집 용량, 모니터링 및 BCDR(비즈니스 재해 복구) 모범 사례에 따라 Azure Time Series Insights 환경을 계획하는 방법을 설명합니다.
 services: time-series-insights
 ms.service: time-series-insights
 author: ashannon7
@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 49842f971645f97d954451ff6755294dc3c5a40f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f0f414e43231fc6d873d639902fd4f71e48f1002
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293267"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751172"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Azure Time Series Insights 환경 계획
 
@@ -96,6 +96,16 @@ TSI에 이벤트를 보내는 방식이 프로비전하는 환경의 크기를 �
 
 TSI에서 참조 데이터를 만들고, 업로드하고, 관리하는 방법에 대한 자세한 내용은 *참조 데이터* 설명서[설명서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조하세요.
 
+## <a name="business-disaster-recovery"></a>비즈니스 재해 복구
+Azure 서비스로 Time Series Insights는 Azure 지역 수준에서 중복을 사용하여 솔루션의 추가 작업 없이도 HA(고가용성)를 제공합니다. Microsoft Azure Platform에는 재해 복구(DR) 기능 또는 지역 간 가용성을 포함하는 솔루션을 빌드하도록 도와주는 기능도 포함되어 있습니다. 장치 또는 사용자에게 전역, 지역 간 고가용성을 제공하려면 이러한 Azure DR 기능을 활용합니다. [Azure 비즈니스 연속성 기술 지침](../resiliency/resiliency-technical-guidance.md) 문서에서는 비즈니스 연속성 및 DR에 대한 Azure의 기본 제공 기능을 설명합니다. [Azure 응용 프로그램에 대한 재해 복구 및 고가용성][Azure 응용 프로그램에 대한 재해 복구 및 고가용성] 문서는 Azure 응용 프로그램에서 HA 및 DR을 수행하는 전략에 대한 아키텍처 지침을 제공합니다.
+
+Time Series Insights에는 기본 제공 BCDR(비즈니스 재해 복구)가 없습니다.  하지만 BCDR이 필요한 고객은 여전히 복구 전략을 구현할 수 있습니다. 두 번째 전용 소비자 그룹 및 해당 이벤트 원본의 BCDR 지침을 활용하여 백업 Azure 지역에서 두 번째 Time Series Insights 환경을 만들고 주 이벤트 원본에서 이 두 번째 환경으로 이벤트를 보냅니다.  
+
+1.  두 번째 지역에서 환경을 만듭니다.  Time Series Insights 환경 리소스 만드는 방법에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started)를 참조합니다.
+2.  이벤트 원본에 대한 두 번째 전용 소비자 그룹을 만들고 새 환경에 해당 이벤트 원본을 연결합니다.  두 번째 전용 소비자 그룹을 지정했는지 확인합니다.  이에 대해 자세히 알려면 [IoT Hub 설명서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) 또는 [이벤트 허브 설명서](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access) 중 하나를 수행할 수 있습니다.
+3.  주 지역이 재해 사건 중 아래로 이동해야 하는 경우 백업 Time Series Insights 환경으로 작업을 전환합니다.  
+
+IoT Hub의 BCDR 정책에 대해 자세히 알려면 [여기](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr)로 이동합니다.  Event Hub의 BCDR 정책에 대해 자세히 알려면 [여기](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr)로 이동합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 - [Event Hub 이벤트 소스를 추가하는 방법](time-series-insights-how-to-add-an-event-source-eventhub.md)

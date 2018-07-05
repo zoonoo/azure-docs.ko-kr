@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 320ca0da946a0f04517c9ed4e8a61a868d2bb27c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260484"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937335"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -192,7 +192,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `"notContainsKey": "keyName"`
 - `"exists": "bool"`
 
-**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드(*)를 제공할 수 있습니다. 값에 와일드 카드(*)가 여러 개 있으면 안 됩니다.
+**like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드`*`를 제공할 수 있습니다.
+값에 1을 초과하는 와일드 카드`*`가 있으면 안 됩니다.
 
 **match** 및 **notMatch** 조건을 사용하는 경우 자릿수 하나를 나타내려면 `#`를, 문자 하나를 나타내려면 `?`를, 해당 실제 문자를 나타내려면 다른 문자를 입력합니다. 예를 들어 [여러 이름 패턴 허용](scripts/allow-multiple-name-patterns.md)을 참조하세요.
 

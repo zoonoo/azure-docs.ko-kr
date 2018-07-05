@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/22/2018
 ms.author: raynew
-ms.openlocfilehash: d78980b69e6598dff349c75527fc27d8a04dfa18
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 16a19a862d4fc6b424e8441ec5377ea3c819fadb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301187"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317445"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -76,15 +76,15 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
-14.04 LTS | 9.13 | 3.13.0-24-generic에서 3.13.0-137-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-104-generic |
-14.04 LTS | 9.14 | 3.13.0-24-generic에서 3.13.0-142-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-116-generic |
-14.04 LTS | 9.15 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-119-generic |
+14.04 LTS | 9.17 | 3.13.0-24-generic에서 3.13.0-149-generic까지,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-127-generic까지 |
 14.04 LTS | 9.16 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-119-generic |
-16.04 LTS | 9.13 | 4.4.0-21-generic에서 4.4.0-104-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic |
-16.04 LTS | 9.14 | 4.4.0-21-generic에서 4.4.0-116-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-36-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1011-azure |
-16.04 LTS | 9.15 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic to 4.13.0-38-generic,<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1012-azure |
-16.04 LTS | 9.16 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic to 4.13.0-38-generic,<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1012-azure |
-
+14.04 LTS | 9.15 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-119-generic |
+14.04 LTS | 9.14 | 3.13.0-24-generic에서 3.13.0-142-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-116-generic |
+|||
+16.04 LTS | 9.17 | 4.4.0-21-generic에서 4.4.0-127-generic까지,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-43-generic까지 |
+16.04 LTS | 9.16 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-38-generic까지 |
+16.04 LTS | 9.15 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-38-generic까지 |
+16.04 LTS | 9.14 | 4.4.0-21-generic에서 4.4.0-116-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-36-generic까지 |
 
 
 ### <a name="debian-kernel-versions"></a>Debian 커널 버전
@@ -92,9 +92,12 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
+Debian 7 | 9.17 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
 Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
-Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
+|||
+Debian 8 | 9.17 | 3.16.0-4-amd64에서 3.16.0-6-amd64까지, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64까지 |
 Debian 8 | 9.16 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
 
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 저장소
@@ -119,10 +122,10 @@ XFSv5 | XFS 파일 시스템의 XFSv5 기능(예: 메타데이터 체크섬)은 
 호스트 네트워크 NIC 팀 | VMware VM에서 지원됩니다. <br/><br/>물리적 컴퓨터 복제에 지원되지 않습니다.
 호스트 네트워크 VLAN | 예.
 호스트 네트워크 IPv4 | 예.
-호스트 네트워크 IPv6 | 번호
-게스트/서버 네트워크 NIC 팀 | 번호
+호스트 네트워크 IPv6 | 아니요.
+게스트/서버 네트워크 NIC 팀 | 아니요.
 게스트/서버 네트워크 IPv4 | 예.
-게스트/서버 네트워크 IPv6 | 번호
+게스트/서버 네트워크 IPv6 | 아니요.
 게스트/서버 네트워크 정적 IP(Windows) | 예.
 게스트/서버 네트워크 정적 IP(Linux) | 예. <br/><br/>VM이 장애 복구(Failback) 시 DHCP를 사용하도록 구성되어 있습니다.
 게스트/서버 네트워크 다중 NIC | 예.

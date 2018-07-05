@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: d0afc8b6f8e0b7ef73e5d1c3cbabf2e1542f47f4
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234524"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018458"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -66,6 +66,9 @@ public static void Run(
 2. **클래식 Windows 데스크톱 > 콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
 
    3.x 프로젝트를 만들려면 **.NET Core > 콘솔 앱(.NET Core)** 을 차례로 선택합니다.
+   
+   > [!NOTE]
+   > 3.x는 아직 미리 보기 상태이며 개발 중입니다. 이 문서의 3.x 지침은 완료되지 않았습니다. 최신 정보는 페이지 맨 아래에 있는 GitHub 문제를 참조하세요.
 
 3. *WebJobsSDKSample* 프로젝트의 이름을 지정한 다음, **확인**을 선택합니다.
 

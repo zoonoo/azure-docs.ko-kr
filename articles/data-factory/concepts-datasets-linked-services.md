@@ -13,22 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 93729646cf1a501b5502e2666ed68944fe474f72
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5cf4005ad50c9c75f22b2fa2719925afbe69f26
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616008"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37044979"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory의 데이터 집합 및 연결된 서비스 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-create-datasets.md)
-> * [버전 2 - 미리 보기](concepts-datasets-linked-services.md)
+> * [버전 1](v1/data-factory-create-datasets.md)
+> * [현재 버전](concepts-datasets-linked-services.md)
 
-이 문서에서는 데이터 집합의 정의, 데이터 집합을 JSON 형식으로 정의하는 방법, Azure Data Factory V2 파이프라인에서 데이터 집합을 사용하는 방법에 대해 설명합니다. 
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory V1의 데이터 집합](v1/data-factory-create-datasets.md)을 참조하세요.
+이 문서에서는 데이터 집합의 정의, 데이터 집합을 JSON 형식으로 정의하는 방법, Azure Data Factory 파이프라인에서 데이터 집합을 사용하는 방법에 대해 설명합니다. 
 
 Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요. 
 
@@ -220,13 +217,13 @@ format | type이 `Datetime` 또는 `Datetimeoffset` .NET 형식일 때 사용할
 ## <a name="create-datasets"></a>데이터 집합 만들기
 [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager 템플릿 및 Azure Portal 등의 도구 또는 SDK 중 하나를 사용하여 데이터 집합을 만들 수 있습니다.
 
-## <a name="v1-vs-v2-datasets"></a>V1 및 V2 데이터 집합
+## <a name="current-version-vs-version-1-datasets"></a>현재 버전 및 버전 1 데이터 집합
 
-Data Factory v1 및 v2 데이터 집합 사이에 몇 가지 차이점은 다음과 같습니다. 
+Data Factory 및 Data Factory 버전 1 데이터 집합 사이에 몇 가지 차이점은 다음과 같습니다. 
 
-- 외부 속성은 v2에서 지원되지 않습니다. [트리거](concepts-pipeline-execution-triggers.md)로 대체됩니다.
-- 정책 및 가용성 속성은 V2에서 지원되지 않습니다. 파이프라인에 대한 시작 시간은 [트리거](concepts-pipeline-execution-triggers.md)에 따라 달라집니다.
-- 범위가 지정된 데이터 집합(파이프라인에서 정의된 데이터 집합)은 V2에서 지원되지 않습니다. 
+- 외부 속성은 현재 버전에서 지원되지 않습니다. [트리거](concepts-pipeline-execution-triggers.md)로 대체됩니다.
+- 정책 및 가용성 속성은 현재 버전에서 지원되지 않습니다. 파이프라인에 대한 시작 시간은 [트리거](concepts-pipeline-execution-triggers.md)에 따라 달라집니다.
+- 범위가 지정된 데이터 집합(파이프라인에서 정의된 데이터 집합)은 현재 버전에서 지원되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 도구 또는 SDK 중 하나를 사용하여 파이프라인 및 데이터 집합을 만들기 위한 단계별 지침은 다음 자습서를 참조하세요. 

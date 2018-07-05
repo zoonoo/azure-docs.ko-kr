@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 05/18/2018
+ms.date: 06/20/2018
 ms.author: sngun
-ms.openlocfilehash: 4b12652783c94d132a5c1f4d4aa352d4e2318edf
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e4a3b3a482f56065c54525a4d9cd7971f50f5b2a
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797671"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300682"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -53,6 +53,16 @@ SQL API 비동기 Java SDK는 [Netty 라이브러리](http://netty.io/)를 지�
 
 ## <a name="release-notes"></a>릴리스 정보
 
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+* 성능상의 이유 및 라이선싱 때문에 jackson에 의한 org.json 종속성이 대체되었습니다([github #29](https://github.com/Azure/azure-cosmosdb-java/issues/29)).
+* 사용되지 않는 OfferV2 클래스가 제거되었습니다.
+* 처리량 콘텐츠에 대한 Off 클래스에 접근자 메서드가 추가되었습니다.
+* org.json 형식을 반환하는 Document/Resource의 모든 메서드가 jackson 개체 형식을 반환하도록 변경되었습니다.
+* JsonSerializable을 확장하는 클래스의 getObject(.) 메서드가 jackson ObjectNode 형식을 반환하도록 변경되었습니다.
+* getCollection(.) 메서드가 ObjectNode의 컬렉션을 반환하도록 변경되었습니다.
+* org.json.JSONObject 인수가 있는 JsonSerializable 하위 클래스의 생성자가 제거되었습니다.
+* 이제 JsonSerializable.toJson(SerializationFormattingPolicy.Indented)은 들어쓰기에 공백 두 개를 사용합니다.
+  
 ### <a name="a-name102102"></a><a name="1.0.2"/>1.0.2
 * 고유 인덱스 정책에 대한 지원이 추가되었습니다.
 * 피드 옵션에서 응답 연속 토큰 크기를 제한할 수 있는 지원이 추가되었습니다.
@@ -89,6 +99,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.0.0](#2.0.0) |2018년 6월 20일|--- |
 | [1.0.2](#1.0.2) |2018년 5월 18일|--- |
 | [1.0.1](#1.0.1) |2018년 4월 20일|--- |
 | [1.0.0](#1.0.0) |2018년 2월 27일|--- |

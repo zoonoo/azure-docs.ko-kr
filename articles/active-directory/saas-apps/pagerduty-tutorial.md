@@ -8,19 +8,18 @@ manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 37409ee72591d943a834ff38f077a002a1724ab9
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 18c3dbdcf85c5b06b4f0f20c85b9fe751a3719fe
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215395"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>자습서: PagerDuty와 Azure Active Directory 통합
 
@@ -60,14 +59,14 @@ PagerDuty가 Azure AD에 통합되도록 구성하려면 갤러리의 PagerDuty�
 
 **갤러리에서 PagerDuty를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
@@ -102,8 +101,8 @@ PagerDuty에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+
     ![Single Sign-On 대화 상자](./media/pagerduty-tutorial/tutorial_pagerduty_samlbase.png)
 
 3. **PagerDuty 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -114,12 +113,12 @@ PagerDuty에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     나. **식별자** 텍스트 상자에서 `https://<tenant-name>.pagerduty.com` 패턴을 사용하여 URL을 입력합니다.
 
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [PagerDuty 클라이언트 지원 팀](https://www.pagerduty.com/support/)에 문의하세요. 
+    > [!NOTE]
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [PagerDuty 클라이언트 지원 팀](https://www.pagerduty.com/support/)에 문의하세요.
 
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
-    ![인증서 다운로드 링크](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png) 
+    ![인증서 다운로드 링크](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 5. **저장** 단추를 클릭합니다.
 
@@ -127,34 +126,33 @@ PagerDuty에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 6. **PagerDuty 구성** 섹션에서 **PagerDuty 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![PagerDuty 구성](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png) 
+    ![PagerDuty 구성](./media/pagerduty-tutorial/tutorial_pagerduty_configure.png)
 
 7. 다른 웹 브라우저 창에서 Pagerduty 회사 사이트에 관리자로 로그인합니다.
 
 8. 위쪽의 메뉴에서 **계정 설정**을 클릭합니다.
-   
+
     ![계정 설정](./media/pagerduty-tutorial/ic778535.png "계정 설정")
 
 9. **Single Sign-On**을 클릭합니다.
-   
+
     ![Single Sign-On](./media/pagerduty-tutorial/ic778536.png "Single Sign-On")
 
 10. **SSO(Single Sign-On) 사용** 페이지에서 다음 단계를 수행합니다.
-   
+
     ![Single Sign-On 사용](./media/pagerduty-tutorial/ic778537.png "Single Sign-On 사용")
-   
+
     a. Azure Portal에서 다운로드한 Base 64로 인코딩된 인증서를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여넣습니다.
   
     나. **로그인 URL** 텍스트 상자에서 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL**을 붙여넣습니다.
   
     다. **로그아웃 URL** 텍스트 상자에서 Azure Portal에서 복사한 **로그아웃 URL**을 붙여넣습니다.
- 
-    d. **Single Sign-On 켜기**를 선택합니다.
- 
-    e. **변경 내용 저장**을 클릭합니다.
 
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
+    d. **Allow username/password login**(사용자 이름/암호 로그인 허용)을 선택합니다.
+
+    e. **Require EXACT authentication context comparison**(정확하게 일치 인증 컨텍스트 비교 필요) 확인란을 선택합니다.
+
+    f. **변경 내용 저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -262,8 +260,6 @@ PagerDuty의 경우 프로비전은 수동 작업입니다.
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-
-
 <!--Image references-->
 
 [1]: ./media/pagerduty-tutorial/tutorial_general_01.png
@@ -277,4 +273,3 @@ PagerDuty의 경우 프로비전은 수동 작업입니다.
 [201]: ./media/pagerduty-tutorial/tutorial_general_201.png
 [202]: ./media/pagerduty-tutorial/tutorial_general_202.png
 [203]: ./media/pagerduty-tutorial/tutorial_general_203.png
-

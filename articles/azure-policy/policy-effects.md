@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 23bbbe9cf86268f93ae1f8fcec9303efa8a673de
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796719"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751781"
 ---
 # <a name="understanding-policy-effects"></a>Policy 효과 이해
 
@@ -90,7 +90,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트하는 �
 "then": {
     "effect": "append",
     "details": [{
-        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]",
+        "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
         "value": [{
             "action": "Allow",
             "value": "134.5.0.0/21"
@@ -304,7 +304,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 
 ## <a name="layering-policies"></a>레이어링 정책
 
-리소스는 여러 할당에 의해 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위(특정 리소스, 리소스 그룹, 구독 또는 관리 그룹) 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 그럼에도 불구하고 각 정책(직접 또는 이니셔티브의 일부로 할당됨)에 대한 조건 및 효과는 독립적으로 평가됩니다. 예를 들어 정책 1에 구독 A에 대한 위치가 거부 효과가 있는 'westus'에서 만들어지는 것을 제한하는 조건 및 리소스 그룹 B(구독 A에 있음)의 리소스가 감사 효과가 모두 할당된 'eastus'에서 만들어지는 것을 제한하는 정책 2가 있는 경우 도출되는 결과는 다음과 같습니다.
+리소스는 여러 할당에 의해 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위(특정 리소스, 리소스 그룹, 구독 또는 관리 그룹) 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 그럼에도 불구하고 각 정책(직접 또는 이니셔티브의 일부로 할당됨)에 대한 조건 및 효과는 독립적으로 평가됩니다. 예를 들어 정책 1에 구독 A에 대한 리소스 위치가 거부 효과가 있는 'westus'에서만 만들어지도록 제한하는 조건 및 리소스 그룹 B(구독 A에 있음)의 리소스 위치가 감사 효과가 모두 할당된 'eastus'에서만 만들어지도록 제한하는 정책 2가 있는 경우 도출되는 결과는 다음과 같습니다.
 
 - 'eastus'의 리소스 그룹 B에 이미 있는 리소스는 정책 2를 준수하지만 정책 1에 비호환으로 표시됩니다.
 - 'eastus'가 아닌 리소스 그룹 B에 이미 있는 리소스는 정책 2에 비호환으로 표시되고, 'westus'가 아닌 경우 정책 1에도 비호환으로 표시됩니다.

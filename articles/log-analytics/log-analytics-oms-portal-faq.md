@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: bwren
-ms.openlocfilehash: cb48d6f61991fd16112b3507a413946ec01b4871
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1e0fd56b6e420103b4f786985f71a84737db642d
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34851204"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333635"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>OMS 포털에서 Azure Portal로 전환하는 Log Analytics 사용자를 위한 일반적인 질문
 Log Analytics는 처음에 OMS 포털이라는 자체 포털을 사용하여 구성을 관리하고 수집된 데이터를 분석했습니다.  이 포털의 모든 기능은 Azure Portal로 이동되었으며 계속 개발될 예정입니다.
@@ -39,7 +39,7 @@ Azure Portal의 작업 영역 목록에서 **추가**를 클릭합니다.  전�
 ![개요 페이지](media/log-analytics-new-portal/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>개요 페이지는 어디에 있나요?
-OMS 포털의 메인 화면에는 사용자가 만든 모든 사용자 지정 보기 및 작업 영역에 설치된 모든 관리 솔루션에 대한 타일이 표시됩니다. Azure Portal에서는 이를 **개요** 페이지라고 합니다. Azure Portal의 작업 영역에서 메뉴에 있는 **개요**를 선택하거나 메인 페이지에서 **개요** 단추를 클릭합니다.
+OMS 포털의 메인 화면에는 사용자가 만든 모든 사용자 지정 보기 및 작업 영역에 설치된 모든 관리 솔루션에 대한 타일이 표시됩니다. 이 동일한 보기는 Azure Portal에서 사용할 수 있습니다. 작업 영역에서 **작업 영역 요약**을 선택합니다.
 
 ![개요 페이지](media/log-analytics-new-portal/overview.png)
 

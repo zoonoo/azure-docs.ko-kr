@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 5201d02b4f70f964f39b4fe135e4715732b9741a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: e0366e6a2403f7cea83efde35c7b3b42565a1cf2
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792551"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062782"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics의 데이터 원본
 Log Analytics는 연결된 원본에서 데이터를 수집하여 Log Analytics 작업 영역에 저장합니다.  각 원본에서 수집되는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  Log Analytics의 데이터는 레코드 집합으로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.
@@ -37,7 +37,7 @@ Log Analytics는 연결된 원본에서 데이터를 수집하여 Log Analytics 
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | [사용자 지정 로그](log-analytics-data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 도착 시 |
 | [사용자 지정 로그](log-analytics-data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 도착 시 |
-| [IIS 로그](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |5분 |
+| [IIS 로그](log-analytics-data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |로그 파일 롤오버 설정에 따라 다름 |
 | [성능 카운터](log-analytics-data-sources-performance-counters.md) | Windows |&#8226; |&#8226; |  |  |  |예약된 대로, 최소 10초 |
 | [성능 카운터](log-analytics-data-sources-performance-counters.md) | Linux |&#8226; |  |  |  |  |예약된 대로, 최소 10초 |
 | [Syslog](log-analytics-data-sources-syslog.md) | Linux |&#8226; |  |  |  |  |Azure 저장소: 10분, 에이전트: 도착 시 |

@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: d6f42a5f3ce907fdb759bef29ca25bdc7fe365d9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757011"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311097"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 네트워크 구성
 
@@ -28,7 +28,7 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 ## <a name="advanced-networking"></a>고급 네트워킹
 
 **고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다.
-현재, 고급 네트워킹은 [Azure Portal][portal]에서 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때만 사용할 수 있습니다.
+고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
 
 고급 네트워킹용으로 구성된 AKS 클러스터의 노드는 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다.
 
@@ -47,7 +47,7 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 * Pod는 공용 인터넷의 리소스에 액세스할 수 있습니다. 또한 기본 네트워킹의 기능도 제공합니다.
 
 > [!IMPORTANT]
-> 고급 네트워킹용으로 구성된 AKS 클러스터의 각 노드는 최대 **30개의 Pod**를 호스트할 수 있습니다. Azure CNI 플러그 인에서 사용하기 위해 프로비전된 각 VNet은 **4096개의 구성된 IP 주소**로 제한됩니다.
+> 고급 네트워킹용으로 구성된 AKS 클러스터의 각 노드는 Azure Portal을 사용하여 구성되는 경우 최대 **30개의 Pod**를 호스트할 수 있습니다.  Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 maxPods 속성을 수정하여 최댓값만 변경할 수 있습니다. Azure CNI 플러그 인에서 사용하기 위해 프로비전된 각 VNet은 **4096개의 구성된 IP 주소**로 제한됩니다.
 
 ## <a name="advanced-networking-prerequisites"></a>고급 네트워킹 필수 구성 요소
 
@@ -75,19 +75,47 @@ AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 �
 
 앞서 언급한 것처럼 Azure CNI 플러그 인에서 사용하기 위해 프로비전된 각 VNet은 **4096개의 구성된 IP 주소**로 제한됩니다. 고급 네트워킹용으로 구성된 클러스터의 각 노드는 최대 **30개의 Pod**를 호스트할 수 있습니다.
 
-## <a name="configure-advanced-networking"></a>고급 네트워킹 구성
+## <a name="deployment-parameters"></a>배포 매개 변수
 
-Azure Portal에서 [AKS 클러스터를 만들 경우](kubernetes-walkthrough-portal.md) 고급 네트워킹을 위해 다음 매개 변수를 구성할 수 있습니다.
+AKS 클러스터를 만들 때 고급 네트워킹에서 다음 매개 변수를 구성할 수 있습니다.
 
 **가상 네트워크**: Kubernetes 클러스터를 배포하려는 VNet입니다. 클러스터에 대해 새 VNet을 만들려는 경우 *새로 만들기*를 선택하고 *가상 네트워크 만들기* 섹션의 단계를 따릅니다.
 
 **서브넷**: 클러스터를 배포하려는 VNet 내의 서브넷입니다. 클러스터에 대해 VNet에 새 서브넷을 만들려는 경우 *새로 만들기*를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다.
 
-**Kubernetes 서비스 주소 범위**: Kubernetes 클러스터 서비스 IP에 대한 IP 주소 범위입니다. 이 범위는 클러스터의 VNet IP 주소 범위에 속하지 않아야 합니다.
+**Kubernetes 서비스 주소 범위**: *Kubernetes 서비스 주소 범위*는 IP 범위이며 이 주소는 클러스터의 Kubernetes 서비스에 할당됩니다(Kubernetes 서비스에 대한 자세한 내용은 Kubernetes 설명서에서 [서비스][services] 참조).
+
+Kubernetes 서비스 IP 주소 범위:
+
+* 클러스터의 VNet IP 주소 범위에 속하지 않아야 합니다.
+* 클러스터 VNet이 피어링한 다른 VNet과 겹치지 않아야 합니다.
+* 온-프레미스 IP와 겹치지 않아야 합니다.
+
+겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 예를 들어 Pod에서 클러스터 외부의 IP에 액세스하고 해당 IP가 서비스 IP인 경우 예측할 수 없는 동작 및 오류가 표시될 수 있습니다.
 
 **Kubernetes DNS 서비스 IP 주소**: 클러스터의 DNS 서비스의 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위*에 속해야 합니다.
 
 **Docker 브리지 주소**: Docker 브리지에 할당할 IP 주소 및 네트워크 마스크입니다. 이 IP 주소는 클러스터의 VNet IP 주소 범위에 속하지 않아야 합니다.
+
+## <a name="configure-networking---cli"></a>네트워킹 구성 - CLI
+
+Azure CLI를 사용하여 AKS 클러스터를 만들면 고급 네트워킹을 구성할 수도 있습니다. 다음 명령을 사용하여 고급 네트워킹 기능을 사용한 새로운 AKS 클러스터를 만듭니다.
+
+먼저 기존 서브넷의 서브넷 리소스 ID를 조인할 AKS 클러스터로 가져옵니다.
+
+```console
+$ az network vnet subnet list --resource-group myVnet --vnet-name myVnet --query [].id --output tsv
+
+/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/myVnet/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/default
+```
+
+`--network-plugin azure` 인수와 함께 [az aks create][az-aks-create] 명령을 사용하여 고급 네트워킹을 포함한 클러스터를 만듭니다. `--vnet-subnet-id` 값을 이전 단계에서 수집한 서브넷 ID로 업데이트합니다.
+
+```azurecli
+az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin azure --vnet-subnet-id <subnet-id> --docker-bridge-address 172.17.0.1/16 --dns-service-ip 10.2.0.10 --service-cidr 10.2.0.0/24
+```
+
+## <a name="configure-networking---portal"></a>네트워킹 구성 - 포털
 
 Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이러한 설정을 구성하는 방법의 예를 보여줍니다.
 
@@ -99,15 +127,15 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 * *Azure CLI를 사용하여 고급 네트워킹을 구성할 수 있나요?*
 
-  번호 현재, 고급 네트워킹은 Azure Portal에서 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때만 사용할 수 있습니다.
+  아니요. 현재, 고급 네트워킹은 Azure Portal에서 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때만 사용할 수 있습니다.
 
 * *내 클러스터 서브넷에 VM을 배포할 수 있나요?*
 
-  번호 Kubernetes 클러스터에서 사용되는 서브넷에 VM을 배포하는 것은 지원되지 않습니다. VM은 동일한 VNet의 다른 서브넷에 배포할 수 있습니다.
+  아니요. Kubernetes 클러스터에서 사용되는 서브넷에 VM을 배포하는 것은 지원되지 않습니다. VM은 동일한 VNet의 다른 서브넷에 배포할 수 있습니다.
 
 * *Pod별 네트워크 정책을 구성할 수 있나요?*
 
-  번호 Pod별 네트워크 정책은 현재 지원되지 않습니다.
+  아니요. Pod별 네트워크 정책은 현재 지원되지 않습니다.
 
 * *구성 가능한 노드로 배포할 수 있는 Pod의 최대 수는 얼마나 되나요?*
 
@@ -143,7 +171,9 @@ ACS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 
 [acs-engine]: https://github.com/Azure/acs-engine
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 
 <!-- LINKS - Internal -->
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md

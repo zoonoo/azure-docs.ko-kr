@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: be6e5fb83ea88ce30b64f5e1eb53422f0404410f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbf4e2a35667484fea66a1888cdfc0184a806583
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229656"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308319"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 
@@ -95,7 +95,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 10. 토큰을 복사하고 Azure AD 창으로 이동하여 **비밀 토큰** 필드에 붙여넣습니다.
 
-11. Salesforce의 인스턴스가 Salesforce 정부 클라우드에 있는 경우 **테넌트 URL**을 입력해야 합니다. 그렇지 않은 경우 선택 사항입니다. https://your-instance.my.salesforce.com 형식을 사용하여 테넌트 URL을 입력합니다. 사용자의 인스턴스를 Salesforce 인스턴스의 이름으로 바꿉니다.
+11. Salesforce의 인스턴스가 Salesforce 정부 클라우드에 있는 경우 **테넌트 URL**을 입력해야 합니다. 그렇지 않은 경우 선택 사항입니다. "https://\<your-instance\>.my.salesforce.com" 형식을 사용하여 테넌트 URL을 입력하고 \<your-instance\>를 Salesforce 인스턴스의 이름으로 바꿉니다.
 
 12. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Salesforce 앱에 연결할 수 있는지 확인합니다.
 

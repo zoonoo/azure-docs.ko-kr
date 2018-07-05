@@ -1,6 +1,6 @@
 ---
 title: 템플릿에서 Azure에 Linux VM 만들기 | Microsoft Docs
-description: Azure CLI 2.0을 사용하여 Resource Manager 템플릿에서 Linux VM을 만드는 방법
+description: Azure CLI를 사용하여 Resource Manager 템플릿에서 Linux VM을 만드는 방법
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -16,15 +16,15 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e241d56eba8c8cb23b1a78227b4ca7ff725162d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fc2b4dde9796336112d6c8a68d16d0b3006b3fee
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716410"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936417"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 Linux 가상 머신을 만드는 방법
-이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI 2.0을 사용하여 Linux VM(가상 머신)을 신속하게 배포하는 방법을 보여 줍니다. [Azure CLI 1.0](create-ssh-secured-vm-from-template-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다.
+이 문서에서는 Azure Resource Manager 템플릿 및 Azure CLI를 사용하여 Linux VM(가상 머신)을 신속하게 배포하는 방법을 보여 줍니다. 
 
 
 ## <a name="templates-overview"></a>템플릿 개요

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 05/22/2018
+ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4e819bdce971e92e4b2d99e68f51ddbf8a22182
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597470"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937367"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -54,22 +54,22 @@ AzureRm cmdlet을 사용하여 서버를 운영하려면 사용자의 계정 또
 
 ## <a name="database-operations"></a>데이터베이스 작업
 
-Azure Analysis Services 데이터베이스 작업에서는 SQL Server Analysis Services와 동일한 [SqlServer](https://www.powershellgallery.com/packages/SqlServer) 모듈을 사용합니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 
+Azure Analysis Services 데이터베이스 작업에서는 SQL Server Analysis Services와 동일한 [SqlServer 모듈](https://www.powershellgallery.com/packages/SqlServer)을 사용합니다. 그러나 모든 cmdlet이 Azure Analysis Services에서 지원되는 것은 아닙니다. 자세한 내용은 [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell)을 참조합니다.
 
 SqlServer 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet뿐만 아니라 작업 관련 데이터베이스 관리 cmdlet도 제공합니다. SqlServer 모듈의 다음 cmdlet은 Azure Analysis Services에서 지원됩니다.
 
   
 |Cmdlet|설명|
 |------------|-----------------| 
-|[Add-RoleMember](https://msdn.microsoft.com/library/hh510167.aspx)|데이터베이스 역할에 구성원을 추가합니다.| 
-|[Backup-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/backup-asdatabase-cmdlet)|Analysis Services 데이터베이스를 백업합니다.|  
-|[Remove-RoleMember](https://msdn.microsoft.com/library/hh510173.aspx)|데이터베이스 역할에서 구성원을 제거합니다.|   
-|[Invoke-ASCmd](https://msdn.microsoft.com/library/hh479579.aspx)|TMSL 스크립트를 실행합니다.|
-|[Invoke-ProcessASDatabase](https://msdn.microsoft.com/library/mt651773.aspx)|데이터베이스를 처리합니다.|  
-|[Invoke-ProcessPartition](https://msdn.microsoft.com/library/hh510164.aspx)|파티션을 처리합니다.| 
-|[Invoke-ProcessTable](https://msdn.microsoft.com/library/mt651774.aspx)|테이블을 처리합니다.|  
-|[Merge-Partition](https://msdn.microsoft.com/library/hh479576.aspx)|파티션을 병합합니다.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/sql/analysis-services/powershell/restore-asdatabase-cmdlet)|Analysis Services 데이터베이스를 복원합니다.| 
+|[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
+|[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Analysis Services 데이터베이스를 백업합니다.|  
+|[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|데이터베이스 역할에서 구성원을 제거합니다.|   
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|TMSL 스크립트를 실행합니다.|
+|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|데이터베이스를 처리합니다.|  
+|[Invoke-ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|파티션을 처리합니다.| 
+|[Invoke-ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|테이블을 처리합니다.|  
+|[Merge-Partition](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|파티션을 병합합니다.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Analysis Services 데이터베이스를 복원합니다.| 
   
 
 ## <a name="related-information"></a>관련 정보
