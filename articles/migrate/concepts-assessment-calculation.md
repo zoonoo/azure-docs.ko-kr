@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 평가 계산에 대한 개요를 제공
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: e815ff3340a9ef6c56e43d3276a28619d2f008a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639149"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287891"
 ---
 # <a name="assessment-calculations"></a>평가 계산
 
@@ -132,7 +132,7 @@ Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결�
 
 크기 조정 권장 사항이 완료되면 Azure Migrate는 마이그레이션 후 계산 및 저장소 비용을 계산합니다.
 
-- **계산 비용**: Azure Migrate는 권장되는 Azure VM 크기를 사용하여 청구 API를 통해 VM에 대한 월별 비용을 계산합니다. 계산에는 운영 체제, 소프트웨어 보증, 위치 및 통화 설정이 고려됩니다. 모든 컴퓨터에서 비용을 집계하여 월별 총 계산 비용을 계산합니다.
+- **계산 비용**: Azure Migrate는 권장되는 Azure VM 크기를 사용하여 청구 API를 통해 VM에 대한 월별 비용을 계산합니다. 계산에는 운영 체제, 소프트웨어 보증, 예약 인스턴스, VM 작동 시간, 위치 및 통화 설정이 고려됩니다. 모든 컴퓨터에서 비용을 집계하여 월별 총 계산 비용을 계산합니다.
 - **저장소 비용**: 컴퓨터에 연결된 모든 디스크의 월별 비용을 집계하여 해당 컴퓨터의 월별 저장소 비용을 계산합니다. Azure Migrate는 모든 컴퓨터의 저장소 비용을 집계하여 월별 총 저장소 비용을 계산합니다. 현재 계산에서는 평가 설정에 지정된 제안을 고려하지 않습니다.
 
 비용은 평가 설정에 지정된 통화로 표시됩니다.

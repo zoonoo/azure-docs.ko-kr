@@ -15,18 +15,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: b59173259aa86a429b9f926a8e5ffbfd046451a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c5e4c1569464d2e204edf13fe7534d80780524e8
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294880"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294962"
 ---
 # <a name="migrate-to-the-updated-batch-ai-api"></a>업데이트된 Batch AI API로 마이그레이션
 
-예정된 Batch AI REST API 2018-05-01 버전 및 관련 Batch AI SDK 및 도구에서 주요 변경 사항 및 새로운 기능이 도입되고 있습니다.
+Batch AI REST API 2018-05-01 버전 및 관련 Batch AI SDK 및 도구에서 주요 변경 사항 및 새로운 기능이 도입되었습니다.
 
-이전 버전의 Batch AI API를 사용한 경우 이 문서에서는 새 API와 함께 작동하기 위해 코드와 스크립트를 수정하는 방법을 설명합니다. 새 API가 사용 가능한 후에만 이러한 변경 내용을 적용합니다.
+이전 버전의 Batch AI API를 사용한 경우 이 문서에서는 새 API와 함께 작동하기 위해 코드와 스크립트를 수정하는 방법을 설명합니다. 
 
 ## <a name="whats-changing"></a>변경 내용은?
 

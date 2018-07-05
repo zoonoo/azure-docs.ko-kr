@@ -4,14 +4,14 @@ description: Azure Migration Planner를 사용하여 VMware VM을 Azure에 마�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 73dab9c7eca53ecce44d43a9607fcc7426f9de8d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9ddd6c32388b2e05fd97138414958b67c009f9ee
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34715509"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284916"
 ---
 # <a name="customize-an-assessment"></a>평가 사용자 지정
 
@@ -26,16 +26,18 @@ ms.locfileid: "34715509"
     **설정** | **세부 정보** | **기본값**
     --- | --- | ---
     **대상 위치** | 마이그레이션할 Azure 위치입니다.<br/><br/> Azure Migrate는 현재 오스트레일리아 동부, 오스트레일리아 남동부, 브라질 남부, 캐나다 중부, 캐나다 동부, 인도 중부, 미국 중부, 중국 동부, 중국 북부, 동아시아, 미국 동부, 독일 중부, 독일 북동부, 미국 동부 2, 일본 동부, 일본 서부, 한국 중부, 한국 남부, 미국 중북부, 북유럽, 미국 중남부, 동남 아시아, 인도 남부, 영국 남부, 영국 서부, US Gov 애리조나, US Gov 텍사스, US Gov 버지니아, 미국 서중부, 유럽 서부, 인도 서부, 미국 서부 및 미국 서부 2를 비롯한 30개 지역을 지원합니다. |  미국 서부 2가 기본 위치입니다.
+    **가격 책정 계층** | 대상 Azure VM의 [가격 책정 계층(기본/표준)](../virtual-machines/windows/sizes-general.md)을 지정할 수 있습니다. 예를 들어 프로덕션 환경을 마이그레이션할 계획이라면 VM 대기 시간이 짧은 대신 더 많은 비용이 발생할 수 있는 표준 계층을 고려하는 것이 좋습니다. 반면, 개발-테스트 환경을 사용하는 경우 VM 대기 시간이 긴 대신 비용이 저렴한 기본 계층을 고려하는 것이 좋습니다. | 기본적으로 [표준](../virtual-machines/windows/sizes-general.md) 계층이 사용됩니다.
     **저장소 유형** | Azure에서 할당할 디스크의 형식을 지정할 수 있습니다. 크기 조정 조건이 온-프레미스 크기 조정인 경우에 이 속성을 적용합니다. 대상 디스크 형식을 프리미엄 관리 디스크 또는 표준 관리 디스크로 지정할 수 있습니다. 성능 기반 크기 조정의 경우 디스크 권장 사항은 VM의 성능 데이터에 따라 자동으로 수행됩니다. 마이그레이션 평가의 경우 Azure Migrate는 관리 디스크만을 지원합니다. | 기본값은 프리미엄 관리 디스크(크기 조정 조건을 *온-프레미스 크기 조정*으로 지정).
+    **예약 인스턴스** |  또한 Azure에 [예약 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/)가 있는지 지정하면 Azure Migrate가 그에 따라 비용을 계산합니다. 예약 인스턴스는 소버린 지역(Azure Government, 독일 및 중국)에 적용할 수 없으며 Azure Migrate의 종량제 제품에만 적용 가능합니다. | 이 속성에 대한 기본값은 3년 예약 인스턴스입니다.
     **크기 조정 기준** | Azure Migrate가 Azure에 사용할 VM의 적정 크기를 산정하는 데 사용되는 기준입니다. *성능 기반* 크기 조정을 수행하거나, 성능 기록을 고려하지 않고 *온-프레미스로* VM 크기를 조정할 수 있습니다. | 기본 옵션은 성능 기반 크기 조정입니다.
     **성능 기록** | VM의 성능을 평가하는 데 고려할 기간입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다. | 기본값은 1일입니다.
     **백분위 수 사용률** | 적정 크기를 산정하는 데 고려되는 성능 샘플 집합의 백분위수 값입니다. 이 속성은 크기 조정 기준이 *성능 기반 크기 조정*인 경우에만 적용됩니다.  | 기본값은 95번째 백분위수입니다.
     **VM 시리즈** | 크기 조정 시 고려할 VM 시리즈를 지정할 수 있습니다. 예를 들어 Azure에서 A 시리즈 VM으로 마이그레이션하지 않으려는 프로덕션 환경이 있는 경우 목록 또는 시리즈에서 A 시리즈를 제외하고 선택한 시리즈에서만 크기 조정을 수행할 수 있습니다. | 기본적으로 모든 VM 시리즈가 선택됩니다.
-    **가격 책정 계층** | 대상 Azure VM의 [가격 책정 계층(기본/표준)](../virtual-machines/windows/sizes-general.md)을 지정할 수 있습니다. 예를 들어 프로덕션 환경을 마이그레이션할 계획이라면 VM 대기 시간이 짧은 대신 더 많은 비용이 발생할 수 있는 표준 계층을 고려하는 것이 좋습니다. 반면, 개발-테스트 환경을 사용하는 경우 VM 대기 시간이 긴 대신 비용이 저렴한 기본 계층을 고려하는 것이 좋습니다. | 기본적으로 [표준](../virtual-machines/windows/sizes-general.md) 계층이 사용됩니다.
     **쾌적 인자** | Azure Migrate는 평가 중에 버퍼(쾌적 인자)를 고려합니다. 이 버퍼는 VM의 컴퓨터 사용률 데이터(CPU, 메모리, 디스크 및 네트워크)를 기반으로 적용됩니다. 쾌적 인자는 계절별 사용량, 성능 기록 부족, 향후 사용량 증가 가능성 등의 문제를 고려합니다.<br/><br/> 예를 들어 사용률이 20%인 10코어 VM은 일반적으로 2코어 VM이라는 결과가 나옵니다. 그러나 쾌적 인자가 2.0x이면 결과는 4코어 VM이 됩니다. | 기본 설정은 1.3x입니다.
     **제안** | 등록된 [Azure 제품](https://azure.microsoft.com/support/legal/offer-details/)입니다. | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p/)가 기본값입니다.
     **통화** | 청구 통화입니다. | 기본값은 미국 달러입니다.
     **할인(%)** | Azure 제품에 적용되는 구독별 할인입니다. | 기본 설정은 0%입니다.
+    **VM 작동 시간** | VM이 Azure에서 24x7 실행되지 않는 경우 VM이 실행될 기간(월당 일 수 및 일당 시간 수)을 지정하면 그에 따라 비용이 계산됩니다. | 기본값은 월당 31일이며 일당 24시간입니다.
     **Azure 하이브리드 혜택** | 소프트웨어 보증이 있고 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-use-benefit/)을 받을 수 있는지 여부를 지정합니다. [예]로 설정하면 Windows 외 Azure 가격이 Windows VM에 적용됩니다. | 기본값은 [예]입니다.
 
 3. **저장**을 클릭하여 평가를 업데이트합니다.

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ea45bef5e50c41d07ddfeb5fcd6dba4d7247c61
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6a0f18a47bb50144d0a4d428617e0dc5c7509196
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593764"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442249"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect에 대한 토폴로지
 이 문서에서는 주요 통합 솔루션으로 Azure AD Connect Sync를 사용하는 다양한 온-프레미스 및 Azure AD(Azure Active Directory) 토폴로지에 대해 설명합니다. 이 문서에는 지원되는 구성과 지원되지 않는 구성이 포함되어 있습니다.
@@ -138,7 +138,7 @@ Azure AD Connect는 *준비 모드*에서 두 번째 서버의 설치를 지원�
 
 ## <a name="multiple-azure-ad-tenants"></a>여러 Azure AD 테넌트
 조직의 Azure AD에 테넌트를 하나만 보유할 것을 권장합니다.
-다중 Azure AD 테넌트를 사용하기 위한 계획을 세우기 전에 [Azure AD에서 관리 단위 관리](../active-directory-administrative-units-management.md)를 참조하세요. 단일 테넌트를 사용할 수 있는 일반적인 시나리오에 대해 설명되어 있습니다.
+다중 Azure AD 테넌트를 사용하기 위한 계획을 세우기 전에 [Azure AD에서 관리 단위 관리](../users-groups-roles/directory-administrative-units.md)를 참조하세요. 단일 테넌트를 사용할 수 있는 일반적인 시나리오에 대해 설명되어 있습니다.
 
 ![다중 포리스트 및 다중 테넌트를 위한 토폴로지](./media/active-directory-aadconnect-topologies/MultiForestMultiDirectory.png)
 

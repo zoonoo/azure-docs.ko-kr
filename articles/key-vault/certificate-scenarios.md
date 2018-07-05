@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 665365e06ef02698c10259628f6bf2442ab8d612
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f1a1a2fa083dd1bf02132e08981d736a17a2c58f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333516"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109487"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 인증서 시작
 다음과 같은 시나리오는 키 자격 증명 모음에서 첫 번째 인증서를 만드는 데 필요한 추가 단계를 포함하여 몇 가지 Key Vault의 인증서 관리 서비스의 기본 사용을 간략하게 설명합니다.
@@ -121,5 +121,5 @@ ms.locfileid: "36333516"
   (5) - 응용 프로그램이 CA에서 X509 인증서를 병합해 새로운 인증서 만들기를 완료합니다.
 
 ## <a name="see-also"></a>참고 항목
-- [인증서 작업](/rest/api/keyvault/certificate-operations.md)
+- [인증서 작업](/rest/api/keyvault/certificate-operations)
 - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

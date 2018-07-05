@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: sujayt
-ms.openlocfilehash: 7f0011172185f13f51bcea8061b36012aa5da33b
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 125d521d840d2b06687d818ae7b31a2610886dfe
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36324218"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342534"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -109,10 +109,10 @@ ms.locfileid: "36324218"
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
-Debian 7 | 9.17 | 3.2.0-4-amd64에서 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
 Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.17 | 3.16.0-4-amd64에서 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64 |
+Debian 8 | 9.17 | 3.16.0-4-amd64에서 3.16.0-6-amd64까지, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64까지 |
 Debian 8 | 9.14, 9.15, 9.16 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
 
 ### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Azure 가상 머신에 대해 지원되는 SUSE Linux Enterprise Server 12 커널 버전
@@ -170,8 +170,8 @@ Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | Site Recove
 디스크의 데이터 변경률 | 프리미엄 저장소의 경우 디스크당 최대 10MBps, 표준 저장소의 경우 디스크당 최대 2MBps | 디스크의 평균 데이터 변경률이 지속적으로 10MBps(프리미엄) 및 2MBps(표준)를 초과하는 경우 복제가 처리되지 않습니다. 그러나 데이터 버스트가 간헐적으로 발생하고 데이터 변경률이 일정 시간 동안 10MBps(프리미엄) 및 2MBps(표준)를 초과했다가 낮아지는 경우에는 복제가 처리됩니다. 이 경우 복구 지점이 약간 지연될 수 있습니다.
 표준 저장소 계정의 디스크 | 지원됨 |
 Premium Storage 계정의 디스크 | 지원됨 | VM의 디스크가 Premium Storage 계정과 표준 저장소 계정에 분산된 경우 대상 지역의 저장소를 동일하게 구성하기 위해 각 디스크에 대해 서로 다른 대상 저장소 계정을 선택할 수 있습니다.
-표준 Managed Disks | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. Government 클라우드는 현재 지원되지 않습니다.  |  
-프리미엄 Managed Disks | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. Government 클라우드는 현재 지원되지 않습니다. |
+표준 Managed Disks | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |  
+프리미엄 Managed Disks | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |
 저장소 공간 | 지원됨 |         
 미사용 암호화(SSE) | 지원됨 | SSE은 저장소 계정의 기본 설정입니다.   
 ADE(Azure Disk Encryption) | 지원되지 않음 |

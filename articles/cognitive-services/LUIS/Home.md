@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: bbd0a532e54f9b221739c8ae9ff097fe44fdc4df
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751598"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344834"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 LUIS(Language Understanding)는 사용자 지정 기계 학습을 사용자의 자연스러운 기존 언어 텍스트에 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 서비스입니다. 
@@ -82,7 +82,7 @@ LUIS가 사용자 발언에 나오는 엔터티를 반환한 후에, 클라이�
 
 LUIS는 엔터티를 식별하고 분류하는 몇 가지 방법을 제공합니다.
 
-* **미리 작성된 엔터티** LUIS에는 의도, 발언 및 [미리 작성된 엔터티](pre-builtentities.md)를 비롯하여 미리 작성된 여러 도메인 모델이 포함되어 있습니다. 미리 작성된 모델의 의도 및 발언을 사용하지 않고도 미리 작성된 엔터티를 사용할 수 있습니다. 미리 작성된 엔터티를 사용하면 시간이 절약됩니다.
+* **미리 작성된 엔터티** LUIS에는 의도, 발언 및 [미리 작성된 엔터티](luis-prebuilt-entities.md)를 비롯하여 미리 작성된 여러 도메인 모델이 포함되어 있습니다. 미리 작성된 모델의 의도 및 발언을 사용하지 않고도 미리 작성된 엔터티를 사용할 수 있습니다. 미리 작성된 엔터티를 사용하면 시간이 절약됩니다.
 
 * **사용자 지정 엔터티** LUIS는 기계 학습 엔터티, 특정 또는 리터럴 엔터티, 기계 학습 및 리터럴의 조합을 비롯하여 사용자 고유의 [엔터티](luis-concept-entity-types.md)를 식별하는 몇 가지 방법을 제공합니다.
 

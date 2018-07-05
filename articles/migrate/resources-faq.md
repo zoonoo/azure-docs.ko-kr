@@ -3,15 +3,15 @@ title: Azure Migrate - FAQ(질문과 대답) | Microsoft Docs
 description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 06/06/2018
+ms.topic: conceptual
+ms.date: 06/20/2018
 ms.author: snehaa
-ms.openlocfilehash: b18d2cecfd7556ad3f05d0f63435d16bc29ebab1
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826136"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285708"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -21,7 +21,7 @@ ms.locfileid: "34826136"
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Azure Migrate는 Azure Site Recovery와 어떻게 다른가요?
 
-Azure Migrate는 온-프레미스 워크로드를 검색하고 Azure로 마이그레이션을 계획할 때 도움이 되는 평가 서비스입니다. 재해 복구 솔루션과 함께 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure)를 사용하면 온-프레미스 워크로드를 Azure의 IaaS VM으로 마이그레이션하는 데 유용합니다. 
+Azure Migrate는 온-프레미스 워크로드를 검색하고 Azure로 마이그레이션을 계획할 때 도움이 되는 평가 서비스입니다. 재해 복구 솔루션과 함께 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure)를 사용하면 온-프레미스 워크로드를 Azure의 IaaS VM으로 마이그레이션하는 데 유용합니다.
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Azure Migrate는 Azure Site Recovery Deployment Planner와 어떻게 다른가요?
 
@@ -36,6 +36,10 @@ Azure Migrate는 마이그레이션 계획 도구이며 Azure Site Recovery Depl
 ### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate에는 VMware 환경을 검색하기 위해 vCenter Server가 필요한가요?
 
 네, Azure Migrate에는 VMware 환경을 검색하기 위한 vCenter Server가 필요합니다. vCenter Server에서 관리되지 않는 ESXi 호스트의 검색은 지원되지 않습니다.
+
+### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
+
+Azure Migrate는 현재 프로젝트 위치로 미국 동부 및 미국 중서부를 지원합니다. 미국 중서부 및 미국 동부에서만 마이그레이션 프로젝트를 만들 수 있더라도 [여러 대상 위치](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)에 대해 여전히 컴퓨터를 평가할 수 있습니다. 프로젝트 위치는 검색된 데이터를 저장하는 데에만 사용됩니다.
 
 ## <a name="discovery"></a>검색
 

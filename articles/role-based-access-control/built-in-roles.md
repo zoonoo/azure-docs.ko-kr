@@ -1,6 +1,6 @@
 ---
-title: Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할 | Microsoft Docs
-description: 이 항목에서는 Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할에 대해 설명합니다. actions 및 notActions를 나열합니다.
+title: Azure의 기본 제공 역할 | Microsoft Docs
+description: 이 항목에서는 Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할에 대해 설명합니다. 작업, notActions, dataActions 및 notDataActions를 나열합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 06/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: cea928d5a4ea5cddaa9942c9535945e11f0f80ad
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267376"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294499"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
+# <a name="built-in-roles-in-azure"></a>Azure의 기본 제공 역할
 [RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들 수 있습니다.
 
 기본 제공 역할은 계속 발전하고 있습니다. 최신 역할 정의를 가져오려면 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용하세요.
