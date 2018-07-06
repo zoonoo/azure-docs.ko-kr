@@ -3,7 +3,7 @@ title: Azure API Management에서 개발자 포털의 페이지 콘텐츠 수정
 description: Azure API Management에서 개발자 포털의 페이지 콘텐츠를 편집하는 방법을 알아봅니다.
 services: api-management
 documentationcenter: ''
-author: antonba
+author: vlvinogr
 manager: vlvinogr
 editor: ''
 ms.assetid: 186128fe-41c0-4efb-9efe-2478ad4d103f
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 02/09/2017
-ms.author: antonba
-ms.openlocfilehash: bcf48ab8dd3b57ace70fa713074b13a992940002
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: vlvinogr
+ms.openlocfilehash: 4a372b54ace87816b9e7cccbd38466331b5ebfc7
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29377802"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437599"
 ---
 # <a name="modify-the-content-and-layout-of-pages-on-the-developer-portal-in-azure-api-management"></a>Azure API Management에서 개발자 포털의 페이지 콘텐츠 및 레이아웃 수정
 Azure API Management에는 개발자 포털을 사용자 지정하는 기본적인 방법이 세 가지 있습니다.
@@ -34,7 +34,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ![개발자 포털 페이지 구조][api-management-customization-widget-structure]
 
-모든 위젯은 편집이 가능합니다. 
+모든 위젯은 편집이 가능합니다.
 * 각 페이지 고유의 핵심 콘텐츠는 "콘텐츠" 위젯에 있습니다. 페이지를 편집한다는 것은 이 위젯의 콘텐츠를 편집한다는 의미입니다.
 * 모든 페이지 레이아웃 요소는 나머지 위젯에 포함됩니다. 이러한 위젯의 변경 내용은 모든 페이지에 적용됩니다. 이것을 "레이아웃 위젯"이라고 합니다.
 
@@ -42,12 +42,12 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 ## <a name="modify-layout-widget"> </a>레이아웃 위젯의 콘텐츠 수정
 
-개발자 포털은 Azure Portal에서 액세스할 수 있습니다. 
+개발자 포털은 Azure Portal에서 액세스할 수 있습니다.
 
 1. API Management 인스턴스의 도구 모음에서 **개발자 포털**을 클릭합니다.
-2. 위젯의 내용을 편집하려면 왼쪽에 있는 **개발자** 포털 메뉴에서 두 개의 페인트 브러시로 이루어진 아이콘을 클릭합니다. 
+2. 위젯의 내용을 편집하려면 왼쪽에 있는 **개발자** 포털 메뉴에서 두 개의 페인트 브러시로 이루어진 아이콘을 클릭합니다.
 3. 헤더의 내용을 수정하려면 왼쪽의 목록에서 **헤더**로 스크롤합니다.
-    
+
     위젯은 필드 내에서 편집할 수 있습니다.
 4. 변경 내용을 게시할 준비가 완료되면 페이지 맨 아래에서 **게시**를 클릭합니다.
 
