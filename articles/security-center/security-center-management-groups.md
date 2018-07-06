@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 2c95b06ce34b850d1bfaf60e47d6e5fede148a38
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 05504f94d72f39762672d0e79669dd50d8e6435e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025332"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441507"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -86,7 +86,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 5. 권한이 상승된 액세스를 확인하는 데 필요한 작업을 수행합니다. 작업이 완료되면 스위치를 다시 **아니요**로 설정합니다.
 
 ### <a name="assign-rbac-roles-to-users"></a>사용자에게 RBAC 역할 할당
-테넌트 관리자가 상승된 엑세스 권한을 가지면 루트 관리 그룹 수준에서 관련 사용자에게 RBAC 역할을 할당할 수 있습니다. 할당할 권장 역할은 [**Reader**](../role-based-access-control/built-in-roles.md#reader)입니다. 이 역할은 테넌트 수준 가시성을 제공하는 데 필요합니다. 할당된 역할은 모든 관리 그룹 및 루트 관리 그룹 아래의 구독으로 자동으로 전파됩니다. RBAC 역할에 대한 자세한 내용은 [사용 가능한 역할](../active-directory/active-directory-assign-admin-roles-azure-portal.md#available-roles)을 참조하세요.
+테넌트 관리자가 상승된 엑세스 권한을 가지면 루트 관리 그룹 수준에서 관련 사용자에게 RBAC 역할을 할당할 수 있습니다. 할당할 권장 역할은 [**Reader**](../role-based-access-control/built-in-roles.md#reader)입니다. 이 역할은 테넌트 수준 가시성을 제공하는 데 필요합니다. 할당된 역할은 모든 관리 그룹 및 루트 관리 그룹 아래의 구독으로 자동으로 전파됩니다. RBAC 역할에 대한 자세한 내용은 [사용 가능한 역할](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles)을 참조하세요.
 
 1. [Azure PowerShell](/powershell/azure/install-azurerm-ps)을 설치합니다.
 2. 다음 명령을 실행합니다. 

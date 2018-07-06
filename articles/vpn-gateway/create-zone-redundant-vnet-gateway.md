@@ -7,14 +7,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: a08c0f772965ddb2b40ac1ced1f26ade4cba3197
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c484358bf98f0121cfc3ce270b162b01c75b5b09
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017035"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096236"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Azure Availability Zones에서 영역 중복 가상 네트워크 게이트웨이 만들기 - 미리 보기
 
@@ -177,7 +177,7 @@ $getvnet | Set-AzureRmVirtualNetwork
 **표준** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청하고 모든 영역을 지정하지 않습니다. 이 경우 만들어진 표준 공용 IP 주소는 영역 중복 공용 IP가 됩니다.   
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Standard
+$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard
 ```
 
 ### <a name="ipzonalgw"></a>영역 게이트웨이의 경우
@@ -185,7 +185,7 @@ $pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Nam
 **표준** PublicIpaddress SKU가 포함된 공용 IP 주소를 요청합니다. 영역(1, 2 또는 3)을 지정합니다. 이 영역에 모든 게이트웨이 인스턴스가 배포됩니다.
 
 ```azurepowershell-interactive
-$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Dynamic -Sku Standard -Zone 1
+$pip1 = New-AzureRmPublicIpAddress -ResourceGroup $RG1 -Location $Location1 -Name $GwIP1 -AllocationMethod Static -Sku Standard -Zone 1
 ```
 
 ### <a name="ipregionalgw"></a>지역 게이트웨이의 경우
