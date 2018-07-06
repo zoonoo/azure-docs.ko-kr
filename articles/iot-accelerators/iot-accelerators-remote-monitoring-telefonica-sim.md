@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae8751f429cb4b11199bd8da9d8c2e08c0b98b35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628286"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097083"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>원격 모니터링 솔루션에 SIM 데이터 통합
 
@@ -33,9 +33,9 @@ IoT 장치는 어디에서나 데이터 스트림을 보낼 수 있는 SIM 카�
 
 이 추가 원격 모니터링 기능은 현재 미리 보기로 제공됩니다. 연결 데이터를 Azure 원격 모니터링 솔루션에 동기화하려면 다음 단계를 따르십시오.
 
-1. [Telefónica 사이트](https://iot.Telefónica.com/contact)에서 요청을 입력하고 연락처 데이터를 포함하여 **Azure Remote Monitoring** 옵션을 선택합니다.
+1. [Telefónica 사이트](https://iot.telefonica.com/contact)에서 요청을 입력하고 연락처 데이터를 포함하여 **Azure Remote Monitoring** 옵션을 선택합니다.
 2. Telefónica에서 계정이 활성화됩니다.
-3. 아직 Telefónica 고객이 아닌 경우 이 서비스나 다른 IoT Connectivity Cloud Ready 서비스를 사용하려면 [Telefónica 사이트](https://iot.Telefónica.com/contact)에 방문하여 **Connectivity** 옵션을 선택합니다.
+3. 아직 Telefónica 고객이 아닌 경우 이 서비스나 다른 IoT Connectivity Cloud Ready 서비스를 사용하려면 [Telefónica 사이트](https://iot.telefonica.com/)에 방문하여 **Connectivity** 옵션을 선택합니다.
 
 ### <a name="telefnica-sim-setup"></a>Telefónica SIM 설정
 Telefónica SIM과 Azure 쌍 장치 ID 연결은 Telefónica IoT SIM "alias" 속성을 기반으로 합니다. 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cb77bd4418e105c877202f0f1725350380ea2308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660320"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082233"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)
 
@@ -61,7 +61,7 @@ Azure ID에 RBAC 역할을 할당하여 저장소 계정의 컨테이너 또는 
 
 Azure Portal의 저장소 계정에 있는 모든 컨테이너 또는 큐에 대한 액세스 권한을 부여하는 기본 제공 역할을 할당하려면:
 
-1. [Azure Portal](https://azure.portal.com/)에서 저장소 계정으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 저장소 계정으로 이동합니다.
 2. 저장소 계정을 선택한 다음, **액세스 제어(IAM)** 를 선택하여 계정에 대한 액세스 제어 설정을 표시합니다. **추가** 단추를 클릭하여 새 역할을 추가합니다.
 
     ![저장소 액세스 제어 설정을 보여주는 스크린샷](media/storage-auth-aad-rbac/portal-access-control.png)
@@ -78,7 +78,7 @@ Azure Portal의 저장소 계정에 있는 모든 컨테이너 또는 큐에 대
 
 컨테이너 또는 큐로 범위가 지정된 기본 제공 역할을 할당하는 단계는 유사합니다. 여기에 표시된 프로시저는 컨테이너로 범위가 지정된 역할을 할당하지만 큐로 범위가 지정된 역할을 할당하기 위해 동일한 단계를 수행할 수 있습니다. 
 
-1. [Azure Portal](https://azure.portal.com/)에서 저장소 계정으로 이동하고 계정에 대한 **개요**를 표시합니다.
+1. [Azure Portal](https://portal.azure.com)에서 저장소 계정으로 이동하고 계정에 대한 **개요**를 표시합니다.
 2. Blob 서비스에서 **Blob 찾아보기**를 선택합니다. 
 3. 역할을 할당하려는 컨테이너를 찾아 컨테이너의 설정을 표시합니다. 
 4. **액세스 제어(IAM)** 를 선택하여 컨테이너에 대한 액세스 제어 설정을 표시합니다.

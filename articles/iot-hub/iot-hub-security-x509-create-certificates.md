@@ -1,23 +1,19 @@
 ---
 title: PowerShell을 사용하여 X.509 인증서를 만드는 방법 | Microsoft Docs
 description: PowerShell을 사용하여 로컬에 X.509 인증서를 만들고 시뮬레이션된 환경의 Azure IoT Hub에서 X.509 기반 보안을 사용하는 방법을 설명합니다.
-services: iot-hub
-documentationcenter: ''
 author: dsk-2015
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: dkshir
-ms.openlocfilehash: 656799c76a87870a19018849dbeffea3b12a356e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d0063ff79a0bda88fffb486f03286f6784ece7fa
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34637602"
 ---
 # <a name="powershell-scripts-to-manage-ca-signed-x509-certificates"></a>CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트
 

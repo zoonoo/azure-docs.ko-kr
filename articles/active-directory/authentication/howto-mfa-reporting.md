@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a3e7390e0df707c4898ad9573baa96b567499de1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 4eb91e37331a5af064d2af0e937eb071d805688f
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866611"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097882"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -49,5 +49,5 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 
 ## <a name="next-steps"></a>다음 단계
 
-* [사용자](../../multi-factor-authentication/end-user/multi-factor-authentication-end-user.md)
+* [사용자](end-user/current/multi-factor-authentication-end-user.md)
 * [배포할 위치](concept-mfa-whichversion.md)

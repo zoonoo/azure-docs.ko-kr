@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94fbc1cf0232eaf48bb0be3c6edc0542142e4681
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7958042ccb2f55e9b6021f7d804a0dcd090695c5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196052"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109320"
 ---
 # <a name="azure-automation-runbook-types"></a>Azure Automation Runbook 형식
 Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 테이블에서는 각 유형에 대해 간략하게 설명합니다.  아래 섹션은 각각을 사용할 경우에 대한 고려 사항을 포함하여 각 형식에 대해 자세한 정보를 제공합니다.
@@ -44,7 +44,7 @@ Azure Automation는 여러 가지 유형의 Runbook을 지원합니다. 아래 �
 * 그래픽 워크플로에 의해 만들어진 PowerShell 코드를 보거나 직접 편집할 수 없습니다. 코드 작업에서 만든 코드는 볼 수 있습니다.
 
 ## <a name="powershell-runbooks"></a>PowerShell Runbook
-PowerShell Runbook은 Windows PowerShell을 기반으로 합니다.  Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다.  오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](http://msdn.microsoft.com/library/azure/dn643637.aspx) 가 가능합니다.
+PowerShell Runbook은 Windows PowerShell을 기반으로 합니다.  Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다.  오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](automation-creating-importing-runbook.md) 가 가능합니다.
 
 ### <a name="advantages"></a>장점
 * PowerShell 워크플로의 부가적인 복잡성 없이 PowerShell 코드로 모든 복잡한 로직을 구현합니다. 
@@ -65,7 +65,7 @@ PowerShell Runbook에 대해 현재 알려진 문제는 다음과 같습니다.
 * PowerShell Runbook은 한 번에 스트림을 출력하기 위해 매우 큰 데이터를 쓰려는 시도를 하면 실패할 수 있습니다.   일반적으로 큰 개체로 작업하는 경우 필요한 정보만 출력하면 이 문제를 극복할 수 있습니다.  예를 들어 *Get-Process* 같은 출력 대신 *Get-Process | Select ProcessName, CPU*를 사용하여 필요한 필드만 출력할 수 있습니다.
 
 ## <a name="powershell-workflow-runbooks"></a>PowerShell 워크플로 Runbook
-PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-powershell-workflow.md)를 기반으로 하는 텍스트 Runbook입니다.  Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다.  오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](http://msdn.microsoft.com/library/azure/dn643637.aspx) 가 가능합니다.
+PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-powershell-workflow.md)를 기반으로 하는 텍스트 Runbook입니다.  Azure 포털의 텍스트 편집기를 사용하여 Runbook을 직접 편집합니다.  오프라인 텍스트 편집기도 사용할 수 있고 Azure Automation으로 [Runbook 가져오기](automation-creating-importing-runbook.md) 가 가능합니다.
 
 ### <a name="advantages"></a>장점
 * PowerShell 워크플로 코드로 모든 복잡한 로직을 구현합니다.
@@ -80,7 +80,7 @@ PowerShell 워크플로 Runbook은 [Windows PowerShell 워크플로](automation-
 * PowerShell Runbook은 새 작업을 만드는 Start-AzureAutomationRunbook cmdlet을 사용해서만 자식 Runbook으로 포함시킬 수 있습니다.
 
 ## <a name="python-runbooks"></a>Python Runbook
-Python Runbook은 Python 2에서 컴파일됩니다.  Azure Portal의 텍스트 편집기를 사용하여 직접 Runbook 코드를 편집하거나, Azure Automation으로 [Runbook을 가져올 수](http://msdn.microsoft.com/library/azure/dn643637.aspx) 있습니다.
+Python Runbook은 Python 2에서 컴파일됩니다.  Azure Portal의 텍스트 편집기를 사용하여 직접 Runbook 코드를 편집하거나, Azure Automation으로 [Runbook을 가져올 수](automation-creating-importing-runbook.md) 있습니다.
 
 ### <a name="advantages"></a>장점
 * Python의 강력한 표준 라이브러리를 활용합니다.

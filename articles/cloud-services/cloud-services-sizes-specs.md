@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: adegeo
-ms.openlocfilehash: bde4347c487be8986c72435172b18c10effa0690
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 490fd248cdd14858e2ca71f94dcb9dbaa5726f9c
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940287"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34608817"
 ---
 # <a name="sizes-for-cloud-services"></a>Cloud Services에 적합한 크기
 이 항목에서는 클라우드 서비스 역할 인스턴스(웹 역할 및 작업자 역할)에서 사용 가능한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 각 크기에 따라 [서비스 정의 파일](cloud-services-model-and-package.md#csdef)에 입력할 ID가 있습니다. 각 크기의 가격은 [Cloud Services 가격](https://azure.microsoft.com/pricing/details/cloud-services/) 페이지에서 확인할 수 있습니다.
@@ -85,13 +85,13 @@ Azure SKU에서 계산(CPU) 성능을 비교하는 방법을 제공하고 성능
 | 크기            | CPU 코어 | 메모리: GiB  | 임시 저장소: GiB       | 최대 NIC 수/네트워크 대역폭 |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | 매우 작음      | 1         | 0.768        | 20                   | 1/낮음 |
-| 작음           | 1         | 1.75         | 70                   | 1/보통 |
-| 중간          | 2         | 3.5          | 135                  | 1/보통 |
-| 큰           | 4         | 7            | 285                  | 2/높음 |
-| 매우 큼      | 8         | 14           | 605                  | 4/높음 |
-| A5              | 2         | 14           | 135                  | 1/보통 |
-| A6              | 4         | 28           | 285                  | 2/높음 |
-| A7              | 8         | 56           | 605                  | 4/높음 |
+| 작음           | 1         | 1.75         | 225                  | 1/보통 |
+| 중간          | 2         | 3.5          | 490                  | 1/보통 |
+| 큰           | 4         | 7            | 1000                 | 2/높음 |
+| 매우 큼      | 8         | 14           | 2040                 | 4/높음 |
+| A5              | 2         | 14           | 490                  | 1/보통 |
+| A6              | 4         | 28           | 1000                 | 2/높음 |
+| A7              | 8         | 56           | 2040                 | 4/높음 |
 
 ## <a name="a-series---compute-intensive-instances"></a>A-시리즈 - 계산 집약적 인스턴스
 이 크기의 사용과 관련된 자세한 내용 및 고려 사항은 [고성능 계산 VM 크기](../virtual-machines/windows/sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.

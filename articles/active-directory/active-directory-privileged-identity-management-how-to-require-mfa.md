@@ -7,23 +7,23 @@ author: rolyon
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d0a9abc145a4d108e48bc81cbb6a849c62e5862b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 727147673a527f2c28c9ca01ad17b30db292b6c0
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234015"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447220"
 ---
 # <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management에서 MFA를 요구하는 방법
 모든 관리자에 대해 Multi-Factor Authentication(MFA)을 요구하는 것이 좋습니다. 이렇게 하면 손상된 암호로 인한 공격의 위험이 줄어듭니다.
 
-사용자가 로그인할 때 MFA 챌린지를 완료하도록 요구할 수 있습니다. 블로그 게시물 [MFA for Office 365 and MFA for Azure(Office 365용 MFA 및 Azure용 MFA)](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) 에서는 Microsoft Azure Multi-Factor Authentication 제공에 포함된 기능과 Office 및 Azure 구독에 포함된 항목을 비교합니다.
+사용자가 로그인할 때 MFA 챌린지를 완료하도록 요구할 수 있습니다. 블로그 게시물 [MFA for Office 365 and MFA for Azure(Office 365용 MFA 및 Azure용 MFA)](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/)에서는 Microsoft Azure Multi-Factor Authentication 제안에 포함된 기능과 Office 및 Azure 구독에 포함된 항목을 비교합니다.
 
 사용자가 Azure AD PIM의 역할을 활성화하는 경우 MFA 챌린지를 완료하도록 요구할 수도 있습니다. 이러한 방식으로 사용자가 로그인 시 MFA 챌린지를 완료하지 않은 경우 PIM에서 이 작업을 수행하도록 메시지를 표시합니다.
 

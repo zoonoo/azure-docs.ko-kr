@@ -1,19 +1,17 @@
 ---
 title: Azure Site Recovery를 사용하여 보호에서 디스크 제외 | Microsoft Docs
 description: Hyper-V에서 Azure로의 복제에서 VM 디스크를 제외하는 이유와 방법에 대해 설명합니다.
-services: site-recovery
 author: nsoneji
-manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/14/2018
+ms.topic: conceptual
+ms.date: 07/01/2018
 ms.author: nisoneji
-ms.openlocfilehash: 131c98c6772a68c8617df3160b159ece62bd1fc9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: 8803b87b21e30e3ff3770147e4d56e965dc41c22
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29466839"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341881"
 ---
 # <a name="exclude-disks-from-replication"></a>복제에서 디스크 제외
 이 문서에서는 디스크를 복제에서 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다.
@@ -21,7 +19,7 @@ ms.locfileid: "29466839"
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 **기능** | **VMware에서 Azure로** | **Hyper-V에서 Azure로** | **Azure 간**| **Hyper-V 간** 
 --|--|--|--|--
-디스크 제외 | 예 | 예 | 아니요 | 아니오
+디스크 제외 | 예 | 예 | 아니오 | 아니오
 
 ## <a name="why-exclude-disks-from-replication"></a>복제에서 디스크를 제외하는 이유는?
 다음과 같은 이유로 복제에서 디스크를 제외해야 하는 경우가 자주 있습니다.

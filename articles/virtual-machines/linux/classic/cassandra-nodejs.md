@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 93cd4b6c4264c5905746b85f9fa46ce31ebd9e9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937672"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098943"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js를 사용하여 Azure의 Linux에서 Cassandra 클러스터 실행
 
@@ -61,7 +61,7 @@ Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 
 
 **클러스터 시드:** 새 노드는 시드 노드와 통신하여 클러스터의 토폴로지를 검색하므로 가장 가용성이 큰 노드를 시드로 선택하는 것이 중요합니다. 단일 실패 지점을 방지하기 위해 각 가용성 집합에서 하나의 노드가 시드 노드로 지정됩니다.
 
-**복제 요소 및 일관성 수준:** Cassandra의 기본 제공 고가용성 및 데이터 지속성의 특징은 복제 계수(RF-클러스터에 저장된 각 행의 복사본 매수) 및 일관성 수준(호출자에게 결과를 반환하기 전에 읽기/쓰기를 수행할 복제본의 수)입니다. 복제 요소는 CRUD 쿼리 실행 중 일관성 수준을 지정하는 반면 KEYSPACE(관계형 데이터베이스와 유사)를 만드는 동안 지정됩니다. 일관성 세부 정보 및 쿼럼 계산에 대한 수식은 [일관성을 위해 구성](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 의 Cassandra 설명서를 참조하세요.
+**복제 요소 및 일관성 수준:** Cassandra의 기본 제공 고가용성 및 데이터 지속성의 특징은 복제 계수(RF-클러스터에 저장된 각 행의 복사본 매수) 및 일관성 수준(호출자에게 결과를 반환하기 전에 읽기/쓰기를 수행할 복제본의 수)입니다. 복제 요소는 CRUD 쿼리 실행 중 일관성 수준을 지정하는 반면 KEYSPACE(관계형 데이터베이스와 유사)를 만드는 동안 지정됩니다. 일관성 세부 정보 및 쿼럼 계산에 대한 수식은 [일관성을 위해 구성](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) 의 Cassandra 설명서를 참조하세요.
 
 Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 최종 일관성을 지원합니다. 복제 계수 및 일관성 수준이 결합되어 쓰기 작업이 완료되는 즉시 데이터가 일치하는지 또는 최종적으로 일치하는지를 결정합니다. 예를 들어 QUORUM을 일관성 수준으로 지정하면 항상 데이터 일관성이 유지되는 반면, QUORUM 실현에 필요한 쓸 복제본 수보다 적게 지정하면(예: ONE) 데이터가 최종적으로 일치합니다.
 
@@ -75,8 +75,8 @@ Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 �
 | 복제 계수(RF) |3 |지정된 행의 복제본 수 |
 | 일관성 수준(쓰기) |QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 |응답이 호출자에게 전송되기 전에 최대 2개의 복제본에 씁니다. 세 번째 복제본은 최종 일관성 방식으로 작성됩니다. |
 | 일관성 수준(읽기) |QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 |호출자에게 응답을 보내기 전에 2개의 복제본을 읽습니다. |
-| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
-| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Switches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
+| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Switches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
 **Cassandra 클러스터에 대한 Azure 고려 사항:** Microsoft Azure Virtual Machines 기능은 디스크 지속성을 위해 Azure Blob Storage를 사용합니다. Azure Storage는 높은 내구성을 위해 각 디스크의 복제본을 3개 저장합니다. 즉, Cassandra 테이블에 삽입된 데이터의 각 행은 3개의 복제본에 이미 저장되어 있습니다. 따라서 복제 계수(RF)가 1이더라도 데이터 일관성이 처리됩니다. 복제 요소가 1인 가장 큰 문제는 단 하나의 Cassandra 노드가 실패하더라도 응용 프로그램에서 작동 중지 시간이 발생한다는 것입니다. 그러나 Azure 패브릭 컨트롤러에서 인식된 문제(예: 하드웨어, 시스템 소프트웨어 오류)로 인해 노드가 다운되는 경우, 동일한 저장소 드라이브를 사용하여 해당 위치에 새 노드를 프로비전합니다. 새 노드를 프로비전하여 이전 노드로 바꾸려면 몇 분 정도 걸릴 수 있습니다.  게스트 OS 변경 같이 계획된 유지 관리 작업과 마찬가지로, Cassandra가 업그레이드되고 응용 프로그램이 변경되어 Azure Fabric Controller는 클러스터에서 노드의 롤링 업그레이드를 수행합니다.  롤링 업그레이드도 한번에 몇 노드를 분해하므로 클러스터는 몇 파티션에 대해 간단한 가동 중지가 발생할 수 있습니다. 그러나 데이터는 기본 제공 Azure Storage 중복으로 손실되지 않습니다.  
 
@@ -110,8 +110,8 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 | 복제 계수(RF) |3 |지정된 행의 복제본 수 |
 | 일관성 수준(쓰기) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 |2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 쿼럼에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
 | 일관성 수준(읽기) |LOCAL_QUORUM ((RF/2) +1) = 2 공식 결과는 버림됨 |읽기 요청은 한 지역에서만 충족됩니다. 응답이 클라이언트로 다시 전송되기 전에 2개 노드를 읽습니다. |
-| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
-| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) 를 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
+| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) 를 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
 ## <a name="the-software-configuration"></a>소프트웨어 구성
 배포 중에 다음 소프트웨어 버전이 사용됩니다.

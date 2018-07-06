@@ -2,18 +2,18 @@
 title: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽 허용 목록
 description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽 허용 목록
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/23/2018
-ms.author: nepeters
-ms.openlocfilehash: 0bafb62fcdc8a24084cf7170a0e0f72bfd7824b1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: iainfou
+ms.openlocfilehash: 2394b61fb84a2f22af036f35819b87074a1dbd2d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659813"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100148"
 ---
 # <a name="azure-kubernetes-service-aks-egress"></a>AKS(Azure Kubernetes Service) 송신
 

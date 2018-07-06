@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 6707610fc3410eab6eb2985c7d8a0ef821354689
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062082"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346589"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>빠른 시작: HDInsight에서 클러스터 설정
 
@@ -55,7 +55,7 @@ Data Lake Storage는 이 빠른 시작에서 데이터 계층으로 사용됩니
 
 * [리소스 그룹 이름](#resource-group-name)
 * [클러스터 유형 및 구성](#cluster-types) 
-* [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-username)
+* [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-user-name)
 * [위치](#location)
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ Hadoop의 온-프레미스 설치가 클러스터의 저장소에 HDFS(Hadoop �
 
 구성하는 동안 기본 저장소 끝점에 대해 Data Lake Storage를 지정합니다. 기본 저장소에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 필요에 따라 클러스터에서 액세스할 수 있는 연결된 Azure Data Lake Storage 계정을 추가로 지정할 수 있습니다. HDInsight 클러스터와 종속된 저장소 계정은 같은 Azure 위치에 있어야 합니다.
 
-![클러스터 저장소 설정: HDFS 호환 저장소 끝점](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage-TEMP.png)
+![클러스터 저장소 설정: HDFS 호환 저장소 끝점](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
 > [!IMPORTANT]
 > **Data Lake Store 액세스를 사용하지 않도록 설정**해야 합니다. 이 설정은 이전 *Data Lake Store* 기능을 나타내고 *Data Lake Storage* 기능이 제대로 작동하려면 사용하지 않도록 설정되어야 합니다.

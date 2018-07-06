@@ -2,19 +2,19 @@
 title: AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소를 사용합니다.
 description: AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소를 사용합니다.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9f6c34bd09d022b2453869c048f5f3cda7580b91
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596664"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100592"
 ---
 # <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS(Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소를 사용합니다.
 
@@ -22,7 +22,7 @@ AKS(Azure Kubernetes Service) 부하 분산 장치가 만들어지거나 LoadBal
 
 ## <a name="create-static-ip-address"></a>고정 IP 주소 만들기
 
-Kubernetes 서비스에 대한 공용 고정 IP 주소를 만듭니다. IP 주소는 AKS **노드** 리소스 그룹에서 만들어야 합니다.  [az resource show][az-resource-show] 명령으로 리소스 그룹 이름을 가져옵니다.
+Kubernetes 서비스에 대한 공용 고정 IP 주소를 만듭니다. IP 주소는 AKS **노드** 리소스 그룹에 만들어야 합니다. [az resource show][az-resource-show] 명령으로 리소스 그룹 이름을 가져옵니다.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv

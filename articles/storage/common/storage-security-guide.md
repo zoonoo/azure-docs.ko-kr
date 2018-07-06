@@ -3,17 +3,17 @@ title: Azure Storage 보안 가이드 | Microsoft Docs
 description: RBAC, Storage 서비스 암호화, 클라이언트 쪽 암호화, SMB 3.0 및 Azure 디스크 암호화를 비롯하여 Azure Storage 보안을 유지하는 다양한 방법을 자세히 설명합니다.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: ba008a86f76a526967bb9dab6ba37043a85f5cf3
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 3c45375a46ee7896509f061828720bcf465aded7
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304134"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342473"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
@@ -154,7 +154,6 @@ Azure Key Vault를 사용하면 Azure Active Directory를 사용하여 키에 �
 * [저장소 계정에 대한 작업](https://msdn.microsoft.com/library/ee460790.aspx)
 
   Storage 서비스 관리자 REST API 참조의 이 문서에는 REST API를 사용하여 Storage 계정 키를 검색하고 다시 생성하는 과정에 대한 특정 문서의 링크가 포함되어 있습니다. 참고: 기본 저장소 계정에 대한 내용입니다.
-* [키 관리 방식 중단 – Azure AD를 사용하여 Azure Storage 데이터에 대한 액세스 관리(영문)](http://www.dushyantgill.com/blog/2015/04/26/say-goodbye-to-key-management-manage-access-to-azure-storage-data-using-azure-ad/)
 
   이 문서에서는 Active Directory를 사용하여 Azure Key Vault의 Azure Storage 키에 대한 액세스를 제어하는 방법을 보여 줍니다. 또한 Azure Automation 작업을 사용하여 시간별로 키를 다시 생성하는 방법도 보여 줍니다.
 

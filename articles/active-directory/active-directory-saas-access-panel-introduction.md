@@ -15,12 +15,12 @@ ms.date: 05/11/18
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982e2cb6780e5285dc5849d655efdf830f76cf13
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: bc05ff8c6961cd9389a12ff9c082867eecb79bca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34347502"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449296"
 ---
 # <a name="what-is-the-access-panel"></a>액세스 패널이란?
 
@@ -40,7 +40,7 @@ ms.locfileid: "34347502"
 
 - Azure AD 관리자로부터 액세스 권한을 부여받은 클라우드 기반 응용 프로그램을 보거나 시작합니다. 
 
-- 그룹을 셀프 관리합니다. 관리자는 Azure AD에서 보안 그룹을 만들고 관리할 수 있으며 보안 그룹 멤버 자격을 요청할 수 있습니다. 자세한 내용은 [Azure AD의 사용자를 위한 셀프 서비스 그룹 관리](active-directory-accessmanagement-self-service-group-management.md)와 [그룹 관리](active-directory-manage-groups.md)를 참조하세요.
+- 그룹을 셀프 관리합니다. 관리자는 Azure AD에서 보안 그룹을 만들고 관리할 수 있으며 보안 그룹 멤버 자격을 요청할 수 있습니다. 자세한 내용은 [Azure AD의 사용자를 위한 셀프 서비스 그룹 관리](users-groups-roles/groups-self-service-management.md)와 [그룹 관리](fundamentals/active-directory-manage-groups.md)를 참조하세요.
 
 
 
@@ -214,7 +214,7 @@ Office 365 응용 프로그램에 대한 응용 프로그램 타일을 선택하
 
 - 응용 프로그램 관리와 관련된 모든 항목의 목록을 보려면 [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](active-directory-apps-index.md)를 참조하세요.
  
-- SaaS 앱을 Azure AD와 통합하는 방법을 알아보려면 [SaaS 앱을 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md)을 참조하세요.
+- SaaS 앱을 Azure AD와 통합하는 방법을 알아보려면 [SaaS 앱을 통합하는 방법에 대한 자습서 목록](saas-apps/tutorial-list.md)을 참조하세요.
  
 - Azure AD를 사용하여 앱 관리에 대한 자세한 내용은 [Azure Active Directory로 SSO(Single Sign-On) 및 앱 액세스 관리 소개](manage-apps/what-is-single-sign-on.md)를 참조하세요.
  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
-ms.openlocfilehash: d4832807bb8ce3a854bee16eae5d0ced37fedcd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 547c3785fa307838e9a86d38280b90fb31b040b3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215078"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>자습서: Sedgwick CMS와 Azure Active Directory 통합
 
@@ -123,7 +123,7 @@ Sedgwick CMS에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     | `https://claimlookup.com/Voe/sso` |
 
     > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Sedgwick CMS 지원 팀](https://www.sedgwick.com/contact/Pages/contactform.aspx)에 문의하세요.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [Sedgwick CMS 지원 팀](https://www.sedgwick.com/help)에 문의하세요.
  
 
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.

@@ -3,7 +3,7 @@ title: Azure IT 운영자를 위한 시작 가이드 | Microsoft Docs
 description: Azure IT 운영자를 위한 시작 가이드
 services: ''
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: nepeters
-ms.openlocfilehash: b63beffdd3b10071c6d18128e78a949374c171b2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: iainfou
+ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361658"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099496"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>클라우드 컴퓨팅 및 Microsoft Azure 소개
 
@@ -61,7 +61,7 @@ SaaS는 중앙에서 호스트되고 관리되는 소프트웨어입니다. 일�
 
 Microsoft Office 365는 SaaS 제공 사항의 좋은 예입니다. 구독자는 월간 또는 연간 구독료를 지불하고 Microsoft Exchange, Microsoft OneDrive 및 나머지 Microsoft Office 제품군을 서비스로 받습니다. 구독자는 항상 최신 버전을 사용할 수 있으며 Exchange Server는 자동으로 관리됩니다. 이렇게 하면 매년 Office를 설치 및 업그레이드하는 것에 비해 필요한 비용과 노력이 줄어듭니다.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a service 
+#### <a name="paas-platform-as-a-service"></a>PaaS: Platform as a service
 
 PaaS를 사용하면 클라우드 서비스 공급업체가 제공하는 환경에 응용 프로그램을 배포할 수 있습니다. 모든 인프라 관리는 공급업체에서 수행하므로 응용 프로그램 개발에 집중할 수 있습니다.
 
@@ -381,11 +381,11 @@ Azure storage 계정은 여러 수준의 중복성으로 구성할 수 있습니
 
 -   **읽기 액세스 지역 중복 저장소**는 중복된 저장소와 보조 지역의 데이터를 읽을 수 있는 기능입니다. 이 기능은 부분 재해 복구에 적합합니다. 주 지역에 문제가 있는 경우 쌍으로 된 지역에 대한 읽기 전용 액세스 권한을 가지도록 응용 프로그램을 변경할 수 있습니다.
 
-### <a name="use-cases"></a>사용 사례 
+### <a name="use-cases"></a>사용 사례
 
 각 저장소 유형마다 사용 사례가 다릅니다.
 
-**Blob storage** 
+**Blob storage**
 
 *Blob*이라는 단어는 *Binary Large Object*의 머리글자어입니다. Blob은 컴퓨터에 저장한 파일과 같은 구조화되지 않은 파일입니다. Blob storage는 문서, 미디어 파일 또는 응용 프로그램 설치 프로그램과 같은 모든 종류의 텍스트 또는 이진 데이터를 저장할 수 있습니다. 또한 Blob storage를 개체 저장소라고 합니다. Azure Blob Storage에는 Azure Virtual Machines 데이터 디스크도 저장됩니다.
 
@@ -445,7 +445,7 @@ PowerShell 모듈과 마찬가지로 Azure 명령줄 인터페이스는 배포 �
 
 ### <a name="access-and-security-for-azure-storage"></a>Azure Storage의 액세스 및 보안
 
-Azure Storage는 Azure Portal을 통해, VM 생성 및 작동 중에, Storage 클라이언트 라이브러리에서 등 다양한 방법으로 액세스됩니다. 
+Azure Storage는 Azure Portal을 통해, VM 생성 및 작동 중에, Storage 클라이언트 라이브러리에서 등 다양한 방법으로 액세스됩니다.
 
 **가상 머신 디스크**
 
@@ -457,7 +457,7 @@ Azure storage 계정은 Visual Studio 클라우드 탐색기와 같은 다양한
 
 **저장소 API**
 
-저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기식 호출, 작업 일괄 처리, 예외 관리 및 자동 재시도와 같은 세부 사항을 처리하여 Azure Storage 작업을 간소화합니다. 자세한 내용은 [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
+저장소 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure Storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기식 호출, 작업 일괄 처리, 예외 관리 및 자동 재시도와 같은 세부 사항을 처리하여 Azure Storage 작업을 간소화합니다. 자세한 내용은 [Azure Storage 서비스 REST API 참조](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
 
 **저장소 액세스 키**
 

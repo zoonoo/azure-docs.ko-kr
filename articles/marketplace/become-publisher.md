@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: b3b9228c0733d34ea909a501e8ca6f9e11948381
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 58e3646588e500c4dd5334966d559aaed333b689
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826088"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083164"
 ---
 # <a name="become-a-publisher-in-the-storefronts-on-the-marketplace"></a>마켓플레이스에서 상점의 게시자 되기  
 마켓플레이스의 상점에 게시자로 등록하려면 다음 단계를 참조하세요. Microsoft 및 선택된 열거 유형을 사용하는 기존 방법에 따라 몇 가지 단계가 필요하지 않을 수 있습니다.  
@@ -30,7 +30,6 @@ ms.locfileid: "34826088"
 | 2 | Microsoft ID 만들기 | 15분 | [Microsoft ID 만들기](#create-a-microsoft-id) |  
 | 3 | Marketplace 추천 양식 제출 | 1-3일 | [Marketplace 추천 양식 제출](#submit-the-marketplace-nomination-form) |  
 | 4 | Microsoft 개발자 센터(개발자 센터)에 등록 | 5-10일 | [개발자 센터에 등록](#register-in-dev-center) |  
-| 5 | AppSource에 로그인 | 15분 | [AppSource에 로그인](#sign-into-appSource) |  
 | 5 |  Cloud 파트너 포털에 로그인 | 15분 | [Cloud 파트너 포털에 로그인](#sign-into-cloud-partner-portal) |  
 
 ## <a name="register-in-microsoft-partner-network"></a>Microsoft 파트너 네트워크에 등록  
@@ -81,18 +80,6 @@ Transact 열거 유형의 앱(예: 가상 머신), Azure 앱(예: 솔루션 템�
 >[!Important]
 >개발자 센터 계정을 만들기 전에 회사에 개발자 센터 계정이 있는지 확인합니다. 
 >*   자세한 내용은 [개발자 센터에 등록하는 방법](#how-to-register-in-dev-center) 섹션을 참조하세요.  
-
----  
-
-## <a name="sign-into-appsource"></a>AppSource에 로그인  
-| 15분 |  
-추천이 승인되고 MPN과 개발자 센터에 모두 등록한 후에는 AppSource에 대한 액세스 권한이 있는 Marketplace 계정이 만들어집니다. 최초 로그인 자격 증명이 포함된 추천 승인 메일이 전송됩니다. 
-*   MPN에 액세스하려면 멤버십 페이지([partner.microsoft.com/membership](https://partner.microsoft.com/membership))를 방문하세요.  
-*   개발자 센터에 액세스하려면 Windows 개발자 센터([dev.windows.com](https://dev.windows.com))를 방문하세요.  
-*   AppSource에 액세스하려면 AppSource 페이지([appsource.microsoft.com](https://appsource.microsoft.com))를 방문하세요.  
-*   Microsoft Cloud 파트너 포털에 액세스하려면 Cloud 파트너 포털 페이지([cloudpartner.azure.com](https://cloudpartner.azure.com))를 방문하세요.  
-*   Cloud 파트너 포털 사용에 대한 자세한 내용은 학습 섹션([cloudpartner.azure.com/#Learn](https://cloudpartner.azure.com/#Learn))을 참조하세요.  
-*   Cloud 파트너 포털에 대한 자세한 내용은 문서 섹션([cloudpartner.azure.com/#documentation](https://cloudpartner.azure.com/#documentation))을 방문하세요.  
 
 ---  
 
