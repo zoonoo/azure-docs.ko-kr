@@ -3,23 +3,24 @@ title: Azure AD 액세스 검토 | Microsoft Docs
 description: Azure Active Directory 액세스 검토를 사용하여 조직의 거버넌스, 위험 관리 및 준수 이니셔티브를 충족할 수 있도록 그룹 멤버 자격 및 응용 프로그램 액세스를 제어할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 31f3ce4ae7915ef463a557a9be60c651acdbabe6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: 0180968d85fffcaf1ee5e224e72864d2ab0511ca
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233274"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446057"
 ---
 # <a name="azure-ad-access-reviews"></a>Azure AD 액세스 검토
 

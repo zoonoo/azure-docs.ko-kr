@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 056821bd26e9c6c110b23a048df4aa13bc4ab8fa
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754417"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446778"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -45,7 +45,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 정의 및 확인된 도메인 | [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)<br/>**참고:** Power BI 등의 일부 작업은 내부적으로 Azure AD 테넌트를 프로비전했을 수 있습니다. 지정된 도메인이 테넌트에 연결되어 있는지 확인하려면 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration로 이동합니다. 성공적인 응답을 받으면 도메인이 이미 테넌트에 할당된 것이고 인수가 필요할 수 있습니다. 이 경우 Microsoft에 추가 지침을 문의하세요. 인수 옵션에 대한 참고 항목: [Azure의 셀프 서비스 등록이란?](active-directory-self-service-signup.md) |
 | Azure AD Premium 또는 EMS 평가판 사용 | [한 달 동안 Azure Active Directory Premium 체험](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium 또는 EMS 라이선스를 PoC 사용자에게 할당했습니다. | [Azure Active Directory에서 사용자 본인 및 사용자의 사용자 라이선스](active-directory-licensing-get-started-azure-portal.md) |
-| Azure AD 전역 관리자 자격 증명 | [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md) |
+| Azure AD 전역 관리자 자격 증명 | [Azure Active Directory에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md) |
 | 선택 사항이지만 강력하게 권장됨: 대체로서 병렬 랩 환경 | [Azure AD Connect에 대한 필수 구성 요소](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>디렉터리 동기화 - PHS(암호 해시 동기화) - 새 설치
@@ -428,7 +428,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 ### <a name="considerations"></a>고려 사항
 
 1. 이 문서 블록의 PoC 단계에서는 로그인할 때마다 사용자에 대한 MFA를 명시적으로 설정합니다. 더 많은 대상 시나리오에서 MFA를 적용하는 ID 보호 및 조건부 액세스와 같은 다른 도구가 있습니다. POC에서 프로덕션으로 이동할 때 이를 고려할 수 있습니다.
-2. 이 문서 블록의 PoC 단계에서는 편의를 위해 전화 통화를 MFA 방법으로 명시적으로 사용합니다. POC에서 프로덕션으로 전환할 때 가능하면 항상 [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md)와 같은 응용 프로그램을 두 번째 요소로 사용하는 것이 좋습니다.
+2. 이 문서 블록의 PoC 단계에서는 편의를 위해 전화 통화를 MFA 방법으로 명시적으로 사용합니다. POC에서 프로덕션으로 전환할 때 가능하면 항상 [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md)와 같은 응용 프로그램을 두 번째 요소로 사용하는 것이 좋습니다.
 참고 항목: [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)(DRAFT NIST 특별 간행물 800-63B)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>SaaS 응용 프로그램에 대한 MFA 조건부 액세스
@@ -553,7 +553,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 엔터프라이즈 PKI에서 사용자 인증서가 프로비전된 장치(Windows, iOS 또는 Android) | [사용자 인증서 배포](https://msdn.microsoft.com/library/cc770857.aspx) |
 | ADFS를 통해 페더레이션된 Azure AD 도메인 | [Azure AD Connect 및 페더레이션](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory 인증서 서비스 개요](https://technet.microsoft.com/library/hh831740.aspx)|
-| iOS 장치의 경우 Microsoft Authenticator 앱이 설치됨 | [Microsoft Authenticator 앱 시작](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| iOS 장치의 경우 Microsoft Authenticator 앱이 설치됨 | [Microsoft Authenticator 앱 시작](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>단계
 

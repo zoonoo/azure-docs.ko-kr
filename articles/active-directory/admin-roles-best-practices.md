@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 729cb89fbe63dbecb65c6f948052b920bf6e70fe
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4facc88aad5338362f2220148f1b1870ade5fe7e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937455"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445486"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -117,7 +117,7 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 응급 액세스 계정을 사용하면 조직이 기존 Azure Active Directory 환경 내에서 권한 있는 액세스를 제한할 수 있습니다. 이러한 계정은 높은 권한을 부여받으며 특정 개인에게 할당되지 않습니다. 응급 액세스 계정은 일반 관리 계정을 사용할 수 없는 '비상' 시나리오의 긴급한 상황으로 제한됩니다. 조직에서는 응급 계정의 사용을 통제하고 필요한 시간까지만 허용하는 목표를 보장해야 합니다. 
 
-전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. *.onmicrosoft.com 도메인을 사용하는 클라우드 전용 계정("비상" 응급 액세스용)이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](active-directory-admin-manage-emergency-access-accounts.md)를 참조하세요.
+전역 관리자 역할에 할당되었거나 적합한 계정을 평가합니다. *.onmicrosoft.com 도메인을 사용하는 클라우드 전용 계정("비상" 응급 액세스용)이 표시되지 않으면 해당 계정을 만듭니다. 자세한 내용은 [Azure AD에서 응급 액세스 관리 계정의 관리](users-groups-roles/directory-emergency-access.md)를 참조하세요.
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록 
 
@@ -345,7 +345,7 @@ Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통
 
 #### <a name="review-admin-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 검토 
 
-현재 기본 제공되는 Azure AD 관리자 역할이 최신 상태인지 확인하고, 사용자가 해당 권한에 필요한 역할 및 위임에만 있는지 확인합니다. Azure AD를 사용하면 별도의 관리자를 지정하여 다른 기능을 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
+현재 기본 제공되는 Azure AD 관리자 역할이 최신 상태인지 확인하고, 사용자가 해당 권한에 필요한 역할 및 위임에만 있는지 확인합니다. Azure AD를 사용하면 별도의 관리자를 지정하여 다른 기능을 제공할 수 있습니다. 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
 #### <a name="review-users-who-have-administration-of-azure-ad-joined-devices"></a>Azure AD 가입 장치를 관리하는 사용자 검토
 
@@ -442,7 +442,8 @@ Microsoft Office 365에서 보안 인시던트를 처리하는 방법에 대한 
 
 * [Microsoft 보안 센터 - 제품 보안](https://www.microsoft.com/en-us/trustcenter/security) – Microsoft 클라우드 제품 및 서비스의 보안 기능
 
-* [Microsoft 보안 센터 - 준수](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
+* 
+  [Microsoft 보안 센터 - 준수](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – 클라우드 서비스를 위한 포괄적인 Microsoft 규정 준수 제품 집합
 
 * [위험 평가 수행 방법에 대한 지침](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) - Microsoft 클라우드 서비스에 대한 보안 및 규정 준수 요구 사항 관리
 

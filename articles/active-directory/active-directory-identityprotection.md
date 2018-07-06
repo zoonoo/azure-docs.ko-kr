@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9658eaaf35d9b937d76926c73dba23d2a4989b3a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: faeeebb21c6dde73be855af469e03ede4c6d0b5d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713187"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444959"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호
 
@@ -88,7 +88,7 @@ ID 보호 구현에 관련된 관리 작업의 부하를 분산하기 위해 몇
 
 
 
-자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
 
 

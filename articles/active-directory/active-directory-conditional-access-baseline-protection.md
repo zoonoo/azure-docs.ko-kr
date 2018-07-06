@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/21/2018
+ms.date: 07/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 86b57a82573760ac73975e851b2bb4caf769845b
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1e7eb3a0098dc27b6f3c47d8d4848b2b9b5f7e61
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308563"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447543"
 ---
 # <a name="what-is-baseline-protection---preview"></a>기준 보호란? - 미리 보기  
 
@@ -51,7 +51,7 @@ ms.locfileid: "36308563"
 
 ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/01.png)
 
-이 기준 정책은 사용자 및 그룹을 제외하는 옵션을 제공합니다. 테넌트에서 차단되지 않도록 한 *[응급 액세스 관리 계정](active-directory-admin-manage-emergency-access-accounts.md)* 을 제외할 수 있습니다.
+이 기준 정책은 사용자 및 그룹을 제외하는 옵션을 제공합니다. 테넌트에서 차단되지 않도록 한 *[응급 액세스 관리 계정](users-groups-roles/directory-emergency-access.md)* 을 제외할 수 있습니다.
 
 
 ## <a name="enable-a-baseline-policy"></a>기준 정책 사용 
@@ -67,9 +67,9 @@ ms.locfileid: "36308563"
 
     ![Azure Active Directory](./media/active-directory-conditional-access-baseline-protection/02.png)
 
-3. **Azure Active Directory** 페이지의 **관리** 섹션에서 **조건부 액세스**를 클릭합니다.
+3. **Azure Active Directory** 페이지의 **보안** 섹션에서 **조건부 액세스**를 클릭합니다.
 
-    ![조건부 액세스](./media/active-directory-conditional-access-baseline-protection/03.png)
+    ![조건부 액세스](./media/active-directory-conditional-access-baseline-protection/05.png)
 
 4. 정책 목록에서 **기준 정책:** 으로 시작하는 정책을 클릭합니다. 
 

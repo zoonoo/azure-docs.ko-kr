@@ -8,16 +8,16 @@ ms.author: pabuehle
 manager: mwinkle
 ms.reviewer: marhamil, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 5ff6502b0ed023f6fe8a9475a0e81991a9918cc5
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850174"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35640645"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench를 사용하여 이미지 분류
 
@@ -236,7 +236,8 @@ Azure Machine Learning Workbench는 각 실행의 기록을 Azure에 저장하�
 첫 번째 스크린샷에서는 DNN 구체화는 모든 클래스의 SVM 학습보다 더 나은 정확도를 제공합니다. 두 번째 스크린샷에서는 분류자를 포함하여 추적 중인 모든 메트릭이 표시됩니다. 이 추적은 Azure Machine Learning Workbench 로거를 호출하여 `5_evaluate.py` 스크립트에서 수행됩니다. 또한 이 스크립트는 ROC 곡선 및 혼동 행렬을 *outputs* 폴더에 저장합니다. 특히 이 *outputs* 폴더는 Workbench 기록 기능에 따라 해당 내용도 추적되므로 로컬 복사본이 덮어쓰였는지 여부에 관계없이 언제든지 출력 파일에 액세스할 수 있습니다.
 
 <p align="center">
-<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/> </p>
+<img src="media/scenario-image-classification-using-cntk/run_comparison1.jpg" alt="alt text" width="700"/>
+</p>
 
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/run_comparison2b.jpg" alt="alt text" width="700"/>
