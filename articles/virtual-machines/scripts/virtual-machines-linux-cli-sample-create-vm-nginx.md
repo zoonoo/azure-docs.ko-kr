@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - NGINX를 사용하여 Linux VM 만들기 
 description: Azure CLI 스크립트 샘플 - NGINX를 사용하여 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3f222a11c19c9a2ee1e6c5c245d0823f3269cddc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b3d3f0c50bdc4ca6295158c360659226c25d8b52
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654337"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096631"
 ---
 # <a name="create-a-vm-with-nginx"></a>NGINX를 사용하여 VM 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "34654337"
 
 ## <a name="custom-script-extension"></a>사용자 지정 스크립트 확장
 
-사용자 지정 스크립트 확장은 가상 머신에 이 스크립트를 복사합니다. 그런 다음 스크립트를 실행하여 NGINX 웹 서버를 설치하고 구성합니다. 
+사용자 지정 스크립트 확장은 가상 머신에 이 스크립트를 복사합니다. 그런 다음 스크립트를 실행하여 NGINX 웹 서버를 설치하고 구성합니다.
 
 ```bash
 #!/bin/bash
@@ -49,11 +49,11 @@ apt-get -y update
 apt-get -y install nginx
 ```
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

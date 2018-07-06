@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - NGINX | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - NGINX
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/01/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b4887c6486aeeaae202e8f772aca13814ff175b0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43680a2e1089210d849dcc66dcc57056704dd2d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654031"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098189"
 ---
 # <a name="create-an-nginx-vm-with-powershell"></a>PowerShell을 사용하여 NGINX VM 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "34654031"
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nginx/create-vm-nginx.ps1 "Create VM NGINX")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 

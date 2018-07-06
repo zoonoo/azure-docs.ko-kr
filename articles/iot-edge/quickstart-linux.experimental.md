@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b63c10a8c092d6568f8caf9842f007a5dc9c027
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0e0d22b3363b00c81be5091fd12773f9e486c09e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049165"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099188"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포
 
@@ -134,8 +134,9 @@ Moby 컨테이너 런타임 및 해당 CLI 명령을 설치합니다.
 6. 장치에서 실행 중인 모듈을 확인합니다. 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+로그오프 및 로그인 후에는 위의 명령에 *sudo*가 필요하지 않습니다.
 
    ![장치에서 하나의 모듈 보기](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -154,16 +155,19 @@ Moby 컨테이너 런타임 및 해당 CLI 명령을 설치합니다.
 시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+로그오프 및 로그인 후에는 위의 명령에 *sudo*가 필요하지 않습니다.
 
    ![장치에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
 
 tempSensor 모듈에서 전송되는 메시지를 봅니다.
 
-   ```bash
-   iotedge logs tempSensor -f 
+  ```bash
+   sudo iotedge logs tempSensor -f 
    ```
+
+로그오프 및 로그인 후에는 위의 명령에 *sudo*가 필요하지 않습니다.
 
 ![모듈의 데이터 보기](./media/quickstart-linux/iotedge-logs.png)
 

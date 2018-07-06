@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, 23113853-34f2-4f
-ms.openlocfilehash: d815bf3fa4b63f12ac9f0d871e353e872a5aca25
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c5d09e03eb79d89604cba6d9533051bb9b50ce90
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699974"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084844"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio를 사용하여 첫 번째 함수 만들기
 
@@ -95,5 +95,4 @@ Azure Functions Core Tools를 사용하면 로컬 개발 컴퓨터에서 Azure F
 Visual Studio를 사용하여 간단하고 HTTP에서 트리거한 함수가 있는 C# 함수 앱을 만들고 게시했습니다.
 
 * [다른 서비스와 통합되는 입력 및 출력 바인딩을 추가하는 방법을 알아봅니다.](functions-develop-vs.md#add-bindings)
-* [Azure Functions Core 도구를 사용하여 로컬에서 테스트하고 디버그하는 방법을 자세히 알아보세요.](functions-run-local.md#vs-debug)
 * [.NET 클래스 라이브러리로 함수를 개발하는 방법을 자세히 알아봅니다](functions-dotnet-class-library.md).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 9c562f1ce938e5f5d9371cbccf032c0eb1d67125
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3e7fcde204966e5a6a8154ab307807652cfa0419
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055033"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37086214"
 ---
 Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치에 모듈을 배포할 수 있다는 것입니다. IoT Edge 모듈은 컨테이너로 구현되는 실행 가능한 패키지입니다. 이 섹션에서는 시뮬레이트된 장치에 대한 원격 분석을 생성하는 모듈을 배포합니다. 
 
@@ -21,7 +21,7 @@ Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치
 1. **IoT Edge**로 이동하여 IoT Edge 장치를 선택합니다.
 1. **모듈 설정**을 선택합니다.
 1. 페이지의 **배포 모듈** 섹션에서 **추가**를 클릭한 다음, **IoT Edge 모듈**을 선택합니다.
-1. **이름** 필드에 `tempsensor`을 입력합니다. 
+1. **이름** 필드에 `tempSensor`을 입력합니다. 
 1. **이미지 URI** 필드에 `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0`를 입력합니다. 
 1. 다른 설정은 변경하지 않고 **저장**을 선택합니다.
 

@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - Linux VM 만들기 | Microsoft Docs
 description: Azure CLI 스크립트 샘플 - Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 645689f5bd79a30f57842af8672f24634eda471b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1ab176e8d3e01816f0d4840b6164604500c334e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653232"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096648"
 ---
 # <a name="create-a-fully-configured-virtual-machine"></a>완벽히 구성된 가상 머신 만들기
 
@@ -35,11 +35,11 @@ ms.locfileid: "34653232"
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

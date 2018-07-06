@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 2d1f93e839d4ad2d7c857916996f2ad5d09626c5
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: be8b99f8cf291d2e09187344aa458420db92364e
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796590"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082328"
 ---
 # <a name="azure-cosmos-db-getting-started-with-the-sql-api-and-net-core"></a>Azure Cosmos DB: SQL API 및 .NET Core 시작
 > [!div class="op_single_selector"]
@@ -25,9 +25,7 @@ ms.locfileid: "34796590"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [MongoDB용 Node.js](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
-> * [Java](sql-api-java-get-started.md)
-> * [C++](sql-api-cpp-get-started.md)
->  
+> * [Java](sql-api-java-get-started.md)  
 > 
 
 Azure Cosmos DB SQL API .NET Core 시작 자습서를 시작합니다. 이 자습서를 따라 하면 Azure Cosmos DB 리소스를 만들고 쿼리하는 콘솔 응용 프로그램이 생깁니다.

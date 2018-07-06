@@ -2,33 +2,31 @@
 title: Azure의 Kubernetes 자습서 - 응용 프로그램 업데이트
 description: AKS 자습서 - 응용 프로그램 업데이트
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 622cd17a93bf1b9fa9d3c138d385ca1d29426f3b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934059"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101033"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 업데이트
 
 Kubernetes에서 응용 프로그램을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 응용 프로그램을 업데이트할 수 있습니다. 응용 프로그램을 업데이트할 때는 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 응용 프로그램을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다.
 
-이 자습서(전체 8부 중 6부)에서는 샘플 Azure 투표 앱을 업데이트합니다. 완료하는 작업은 다음과 같습니다.
+이 자습서(전체 7부 중 6부)에서는 샘플 Azure 투표 앱을 업데이트합니다. 완료하는 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 프런트 엔드 응용 프로그램 코드 업데이트
 > * 업데이트된 컨테이너 이미지 만들기
 > * Azure Container Registry에 컨테이너 이미지 밀어넣기
 > * 업데이트된 컨테이너 이미지 배포
-
-후속 자습서에서는 Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ad2895a457a20632823260f2429ac95fad82089c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060198"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081390"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포 - 미리 보기
 
@@ -128,7 +128,7 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
    이전에 이 장치에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 그렇지 않은 경우 다음 단계에 따라 모듈을 추가합니다.
 
    1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
-   2. 이름에 대해 **tempsensor**를 입력합니다.
+   2. 이름으로 **tempSensor**를 입력합니다.
    3. 이미지 URI에 대해 **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**을 입력합니다. 
    4. 다른 설정은 변경하지 말고 그대로 둡니다.
    5. **저장**을 선택합니다.
@@ -190,9 +190,9 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 
 <!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-권장되는 다음 문서로 계속 진행하는 경우 지금까지 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
+권장되는 다음 아티클을 계속 진행하는 경우 지금까지 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
 
-그렇지 않으면 요금이 부과되지 않도록 이 문서에서 만든 로컬 구성과 Azure 리소스를 삭제할 수 있습니다. 
+그렇지 않으면 요금이 부과되지 않도록 이 아티클에서 만든 로컬 구성과 Azure 리소스를 삭제할 수 있습니다. 
 
 > [!IMPORTANT]
 > Azure 리소스와 리소스 그룹을 삭제하면 되돌릴 수 없습니다. 일단 삭제되면 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관할 리소스가 포함된 기존 리소스 그룹 내에 IoT Hub를 만든 경우 리소스 그룹을 삭제하지 말고 IoT Hub 리소스만 삭제하면 됩니다.

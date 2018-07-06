@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 86bf28249321a705e8855de35121611b05009854
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 27e5b7fed227248d9d60c8ede460c9ecc65ca52d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063496"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096277"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포
 
@@ -23,13 +23,13 @@ Azure IoT Edge는 클라우드의 강력한 기능을 사물 인터넷 장치로
 이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
 
 1. IoT Hub를 만듭니다.
-2. IoT Edge 장치를 IoT 허브에 등록합니다.
+2. IoT Edge 장치를 IoT Hub에 등록합니다.
 3. IoT Edge 런타임을 장치에 설치하고 시작합니다.
 4. 모듈을 IoT Edge 장치에 원격으로 배포합니다.
 
 ![빠른 시작 아키텍처][2]
 
-이 빠른 시작에서는 Linux 컴퓨터 또는 가상 머신을 IoT Edge 장치로 전환합니다. 그런 다음, Azure Portal에서 모듈을 장치에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서는 비즈니스 인사이트를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하여 여기서 수행하는 작업을 기반으로 합니다. 
+이 빠른 시작에서는 Linux 컴퓨터 또는 가상 머신을 IoT Edge 장치로 전환합니다. 그런 다음, Azure Portal에서 모듈을 장치에 배포할 수 있습니다. 이 빠른 시작에서 배포하는 모듈은 온도, 습도 및 압력 데이터를 생성하는 시뮬레이션된 센서입니다. 다른 Azure IoT Edge 자습서에서는 비즈니스 정보를 위해 시뮬레이션된 데이터를 분석하는 모듈을 배포하는 과정을 설명하므로 여기에서 수행하는 작업을 토대로 진행됩니다. 
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][lnk-account]을 만드세요.
 
@@ -57,7 +57,7 @@ Azure Portal에서 IoT Hub를 만들어 빠른 시작을 시작합니다.
    az group create --name TestResources --location westus
    ```
 
-1. 새 리소스 그룹에 IoT Hub를 만듭니다. 다음 코드는 **TestResources** 리소스 그룹에 체험 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브에 대한 고유한 이름으로 바꿉니다.
+1. 새 리소스 그룹에 IoT Hub를 만듭니다. 다음 코드는 **TestResources** 리소스 그룹에 체험 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브의 고유한 이름으로 바꿉니다.
 
    ```azurecli-interactive
    az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
@@ -171,8 +171,10 @@ Moby 컨테이너 런타임 및 해당 CLI 명령을 설치합니다.
 6. 장치에서 실행 중인 모듈을 확인합니다. 
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+
+   로그오프 및 로그인 후에는 위의 명령에 *sudo*가 필요하지 않습니다.
 
    ![장치에서 하나의 모듈 보기](./media/quickstart-linux/iotedge-list-1.png)
 
@@ -190,8 +192,9 @@ Moby 컨테이너 런타임 및 해당 CLI 명령을 설치합니다.
 시뮬레이션된 장치를 실행 중인 컴퓨터에서 명령 프롬프트를 다시 엽니다. 클라우드에서 배포된 모듈을 IoT Edge 장치에서 실행 중인지 확인합니다.
 
    ```bash
-   iotedge list
+   sudo iotedge list
    ```
+   로그오프 및 로그인 후에는 위의 명령에 *sudo*가 필요하지 않습니다.
 
    ![장치에서 세 가지 모듈 보기](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -242,7 +245,7 @@ IoT Edge 런타임을 제거합니다.
 이 빠른 시작은 모든 IoT Edge 자습서에 대한 필수 구성 요소입니다. 다른 자습서를 계속 진행하면서 Azure IoT Edge가 이러한 데이터를 통해 비즈니스 통찰력을 얻는 데 어떻게 도움을 줄 수 있는지 알아볼 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Functions를 사용하여 센서 데이터 필터링](tutorial-deploy-function.md)
+> [Azure Function을 사용하여 센서 데이터 필터링](tutorial-deploy-function.md)
 
 
 

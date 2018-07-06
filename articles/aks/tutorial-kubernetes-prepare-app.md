@@ -2,23 +2,23 @@
 title: Azure의 Kubernetes 자습서 - 앱 준비
 description: AKS 자습서 - 앱 준비
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/22/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 50c302ddc7bad9cd2de666c1b99d1fbc6d5a62a8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3e500ec0c7acbf8d8e10756c944516cd7e589610
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934117"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101113"
 ---
 # <a name="tutorial-prepare-application-for-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에 대한 응용 프로그램 준비
 
-총 8부 중 1부인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 응용 프로그램이 준비됩니다. 완료되는 단계는 다음과 같습니다.
+7개 중 1단계인 이 자습서에서는 Kubernetes에서 사용할 수 있도록 다중 컨테이너 응용 프로그램을 준비하는 과정입니다. 완료되는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
 > * GitHub에서 응용 프로그램 소스 복제
@@ -98,7 +98,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>로컬에서 응용 프로그램 테스트
 
-http://localhost:8080으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
+http://localhost:8080 으로 이동하여 실행 중인 응용 프로그램을 확인합니다.
 
 ![Azure의 Kubernetes 클러스터 이미지](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
