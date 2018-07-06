@@ -52,7 +52,7 @@ CNAME 레코드는 *contoso.com* , **contoso.com** or **특정**도메인을 정
 > 
 
 ### <a name="a-record"></a>A 레코드
-*A* 레코드는 **contoso.com**, **www.contoso.com**, *등의 도메인이나 **\*.contoso.com** 등의 와일드카드 도메인*을 IP 주소에 매핑합니다. Azure 클라우드 서비스의 경우 서비스의 가상 IP입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 \***.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com** 또는 **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
+*A* 레코드는 **contoso.com**, **www.contoso.com**, *등의 도메인이나* **\*.contoso.com** 등의 와일드카드 도메인 을 IP 주소에 매핑합니다. Azure 클라우드 서비스의 경우 서비스의 가상 IP입니다. 따라서 A 레코드가 CNAME 레코드보다 나은 주요 장점은 \***.contoso.com**과 같이 와일드카드를 사용하는 항목을 사용할 수 있다는 것입니다. 이러한 항목은 **mail.contoso.com**, **login.contoso.com** 또는 **www.contso.com** 등의 여러 하위 도메인에 대한 요청을 처리합니다.
 
 > [!NOTE]
 > A 레코드는 고정 IP 주소에 매핑되므로 변경 내용을 클라우드 서비스의 IP 주소로 자동으로 확인할 수 없습니다. 빈 슬롯(프로덕션 또는 스테이징)에 처음 배포할 때 클라우드 서비스에서 사용되는 IP 주소가 할당됩니다. 슬롯에 대한 배포를 삭제하면 Azure에서 IP 주소를 해제하며, 나중에 슬롯에 배포할 때 새 IP 주소가 지정될 수 있습니다.
