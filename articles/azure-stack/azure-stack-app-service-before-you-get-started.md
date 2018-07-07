@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 660532118549a23416f4c0571845ec3517cb1b5b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436221"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857868"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Azure Stack에서 App Service를 사용 하 여 시작 하기 전에
 
@@ -204,26 +204,26 @@ Azure Resource Manager 템플릿을 사용 하는 사용자가 이미 생성 됩
 
 1. FileShareOwner 및 FileShareUser 계정을 만들려면 다음 명령을 실행 합니다. 대체 `<password>` 를 고유한 값입니다.
 
-``` DOS
-net user FileShareOwner <password> /add /expires:never /passwordchg:no
-net user FileShareUser <password> /add /expires:never /passwordchg:no
-```
+   ``` DOS
+   net user FileShareOwner <password> /add /expires:never /passwordchg:no
+   net user FileShareUser <password> /add /expires:never /passwordchg:no
+   ```
 
 2. 다음 WMIC 명령을 실행 하 여 만료 되지 않도록 계정에 대 한 암호를 설정 합니다.
 
-``` DOS
-WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
-WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
-```
+   ``` DOS
+   WMIC USERACCOUNT WHERE "Name='FileShareOwner'" SET PasswordExpires=FALSE
+   WMIC USERACCOUNT WHERE "Name='FileShareUser'" SET PasswordExpires=FALSE
+   ```
 
 3. FileShareUsers 및 FileShareOwners, 로컬 그룹을 만들고에 첫 번째 단계의 계정을 추가 합니다.
 
-``` DOS
-net localgroup FileShareUsers /add
-net localgroup FileShareUsers FileShareUser /add
-net localgroup FileShareOwners /add
-net localgroup FileShareOwners FileShareOwner /add
-```
+   ``` DOS
+   net localgroup FileShareUsers /add
+   net localgroup FileShareUsers FileShareUser /add
+   net localgroup FileShareOwners /add
+   net localgroup FileShareOwners FileShareOwner /add
+   ```
 
 ### <a name="provision-the-content-share"></a>콘텐츠 공유를 프로 비전
 
