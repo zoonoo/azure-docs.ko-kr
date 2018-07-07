@@ -76,7 +76,7 @@
     - name: REST (영문)
       href: /rest/api/containerregistry
     - name: PowerShell
-      href: /powershell/module/azurerm.containerregistry
+      href: '/powershell/module/azurerm.containerregistry#container_registry'
     - name: .NET
       href: /dotnet/api/overview/azure/containerregistry
     - name: 파이썬

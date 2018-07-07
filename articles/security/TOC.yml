@@ -164,8 +164,16 @@
           href: azure-operational-security-checklist.md
 - name: 거버넌스 및 규정 준수
   items:
-    - name: 규제된 워크로드의 금융 서비스
-      href: ./blueprints/financial-services-regulated-workloads.md
+    - name: FFIEC
+      items:
+        - name: 데이터 분석
+          href: ./blueprints/ffiec-analytics-overview.md
+        - name: 데이터 웨어하우스
+          href: ./blueprints/ffiec-dw-overview.md
+        - name: IaaS 웹 응용 프로그램
+          href: ./blueprints/ffiec-iaaswa-overview.md
+        - name: PaaS 웹 응용 프로그램
+          href: ./blueprints/ffiec-paaswa-overview.md
     - name: GDPR
       items:
         - name: 데이터 분석
@@ -187,34 +195,15 @@
         - name: PaaS 웹 응용 프로그램
           href: ./blueprints/fedramp-paaswa-overview.md
     - name: PCI DSS
-      href: ./blueprints/payment-processing-blueprint.md
       items:
-        - name: 요구 사항 개요
-          href: ./blueprints/pci-dss-requirements-overview.md
-        - name: 요구 사항 1 - 방화벽
-          href: ./blueprints/pci-dss-requirement-1-firewall.md
-        - name: 요구 사항 2 - 암호
-          href: ./blueprints/pci-dss-requirement-2-password.md
-        - name: 요구 사항 3 - CHD
-          href: ./blueprints/pci-dss-requirement-3-chd.md
-        - name: 요구 사항 4 - 암호화
-          href: ./blueprints/pci-dss-requirement-4-encryption.md
-        - name: 요구 사항 5 - 맬웨어
-          href: ./blueprints/pci-dss-requirement-5-malware.md
-        - name: 요구 사항 6 - 보안 시스템
-          href: ./blueprints/pci-dss-requirement-6-secure-system.md
-        - name: 요구 사항 7 - 액세스
-          href: ./blueprints/pci-dss-requirement-7-access.md
-        - name: 요구 사항 8 - ID
-          href: ./blueprints/pci-dss-requirement-8-identity.md
-        - name: 요구 사항 9 - 물리적 액세스
-          href: ./blueprints/pci-dss-requirement-9-physical-access.md
-        - name: 요구 사항 10 - 모니터링
-          href: ./blueprints/pci-dss-requirement-10-monitoring.md
-        - name: 요구 사항 11 - 테스트
-          href: ./blueprints/pci-dss-requirement-11-testing.md
-        - name: 요구 사항 12 - 정책
-          href: ./blueprints/pci-dss-requirement-12-policy.md
+        - name: 데이터 분석
+          href: ./blueprints/pcidss-analytics-overview.md
+        - name: 데이터 웨어하우스
+          href: ./blueprints/pcidss-dw-overview.md
+        - name: IaaS 웹 응용 프로그램
+          href: ./blueprints/pcidss-iaaswa-overview.md
+        - name: PaaS 웹 응용 프로그램
+          href: ./blueprints/pcidss-paaswa-overview.md
     - name: 영국 NHS
       items:
         - name: 데이터 분석

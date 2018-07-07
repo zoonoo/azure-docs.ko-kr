@@ -115,6 +115,8 @@
   items:
     - name: FAQ
       href: FAQs.md
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
     - name: 계정 데이터 내보내기 또는 삭제
