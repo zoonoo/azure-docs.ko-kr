@@ -20,7 +20,9 @@
       href: storage-quickstart-blobs-cli.md
     - name: Blob 사용 - .NET
       href: storage-quickstart-blobs-dotnet.md
-    - name: Blob 사용 - Java
+    - name: Blob 사용 - Java(Storage SDK V10)
+      href: storage-quickstart-blobs-java-v10.md
+    - name: Blob 사용 - Java(Storage SDK V7)
       href: storage-quickstart-blobs-java.md
     - name: Blob 사용 - Python
       href: storage-quickstart-blobs-python.md
@@ -192,6 +194,8 @@
           href: storage-blob-immutable-storage.md
         - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
           href: ../common/storage-security-tls.md
+        - name: 규정 준수 제안
+          href: ../common/storage-compliance-offerings.md
     - name: 모니터링 및 문제 해결
       items:
         - name: 문제 해결 자습서

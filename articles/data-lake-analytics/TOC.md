@@ -4,7 +4,7 @@
 ## [Data Lake Analytics란?](data-lake-analytics-overview.md)
 
 # 시작하기
-## [Azure Portal](data-lake-analytics-get-started-portal.md)
+## [Azure 포털](data-lake-analytics-get-started-portal.md)
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
@@ -13,7 +13,7 @@
 # 방법
 
 ## Data Lake Analytics 관리
-### [Azure Portal](data-lake-analytics-manage-use-portal.md)
+### [Azure 포털](data-lake-analytics-manage-use-portal.md)
 ### 명령 줄
 #### [Azure CLI](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
@@ -40,12 +40,11 @@
 #### [인지 확장](data-lake-analytics-u-sql-cognitive.md)
 #### [프로그램 기능 가이드](data-lake-analytics-u-sql-programmability-guide.md)
 
-### U-SQL SDK
-#### [로컬 실행 및 디버그](data-lake-analytics-data-lake-tools-local-run.md)
-#### [실행 및 테스트](data-lake-analytics-u-sql-sdk.md) 
-
 ### Visual Studio
 #### [설치](data-lake-analytics-data-lake-tools-install.md)
+#### [로컬 실행](data-lake-analytics-data-lake-tools-local-run.md)
+#### [로컬 디버그](data-lake-analytics-data-lake-tools-local-debug.md)
+#### [U-SQL 데이터베이스 개발](data-lake-analytics-data-lake-tools-develop-usql-database.md)
 #### [작업 검색 및 보기](data-lake-analytics-data-lake-tools-view-jobs.md)
 #### [사용자 정의 C# 코드 디버그](data-lake-analytics-debug-u-sql-jobs.md)
 #### [되풀이 작업 문제 해결](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
@@ -59,6 +58,11 @@
 #### [작성](data-lake-analytics-data-lake-tools-for-vscode.md)
 #### [사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [로컬 실행 및 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
+
+### 연속 통합 및 연속 배포
+#### [개요](data-lake-analytics-cicd-overview.md)
+#### [테스트 설정](data-lake-analytics-cicd-test.md)
+#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

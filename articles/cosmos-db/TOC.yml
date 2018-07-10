@@ -73,7 +73,7 @@ items:
     items:
       - name: 글로벌 분포
         href: distribute-data-globally.md
-      - name: 다중 마스터 설치
+      - name: 다중 마스터
         href: multi-region-writers.md
       - name: 분할
         href: partition-data.md
@@ -172,8 +172,6 @@ items:
                 href: bulk-executor-dot-net.md
               - name: BulkExecutor - Java
                 href: bulk-executor-java.md
-              - name: 저장소 탐색기를 사용하여 관리
-                href: storage-explorer.md
               - name: 쿼리
                 items:
                   - name: SQL 쿼리 수행
@@ -184,8 +182,6 @@ items:
                 href: indexing-policies.md
               - name: SQL 데이터 분할
                 href: sql-api-partition-data.md
-              - name: '저장 프로시저, 트리거 및 UDF'
-                href: programming.md
               - name: 변경 피드
                 href: change-feed.md
               - name: 데이터 형식
@@ -262,8 +258,6 @@ items:
                 href: sql-api-sql-query-reference.md
           - name: 리소스
             items:
-              - name: 저장소 탐색기를 사용하여 관리
-                href: storage-explorer.md
               - name: Visual Studio Code 확장
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
               - name: SQL 실습
@@ -328,12 +322,8 @@ items:
                 href: mongodb-ttl.md
               - name: Power BI를 사용하여 데이터 시각화
                 href: powerbi-visualize.md
-              - name: 저장소 탐색기를 사용하여 관리
-                href: storage-explorer.md
           - name: 리소스
             items:
-              - name: 저장소 탐색기를 사용하여 관리
-                href: storage-explorer.md
               - name: Visual Studio Code 확장
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Graph API 문서
@@ -352,12 +342,8 @@ items:
             items:
               - name: 그래프 분할
                 href: graph-partitioning.md
-              - name: 저장소 탐색기를 사용하여 관리
-                href: storage-explorer.md
           - name: 리소스
             items:
-              - name: 저장소 탐색기를 사용하여 관리
-                href: storage-explorer.md
               - name: Visual Studio Code 확장
                 href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
       - name: Table API 문서
@@ -410,8 +396,6 @@ items:
                 href: table-sdk-python.md
           - name: 리소스
             items:
-              - name: 저장소 탐색기를 사용하여 관리
-                href: storage-explorer.md
               - name: 테이블 저장소 개요
                 href: table-storage-overview.md
               - name: 테이블 저장소 디자인 가이드
@@ -450,6 +434,8 @@ items:
         href: regional-failover.md
       - name: 진단 로깅
         href: logging.md
+      - name: '저장 프로시저, 트리거 및 UDF'
+        href: programming.md
       - name: BulkExecutor 개요
         href: bulk-executor-overview.md
       - name: 비용 효율적인 읽기 및 쓰기
@@ -460,12 +446,10 @@ items:
         href: manage-account-with-powershell.md
       - name: 저장소 탐색기를 사용하여 관리
         href: storage-explorer.md
-      - name: 다중 지역 기록기
+      - name: 다중 마스터 설치
         href: multi-master-workaround.md
   - name: 리소스
     items:
-      - name: 저장소 탐색기를 사용하여 관리
-        href: storage-explorer.md
       - name: 쿼리 참고 자료
         href: query-cheat-sheet.md
       - name: 20일 팁

@@ -47,6 +47,8 @@
       items:
         - name: 변경 내용 추적 개요
           href: automation-change-tracking.md
+        - name: 추적된 파일의 파일 콘텐츠 보기
+          href: change-tracking-file-contents.md
     - name: 인벤토리
       items:
         - name: 인벤토리 컬렉션을 사용하여 VM 관리

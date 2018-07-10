@@ -98,6 +98,8 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Azure Storage 클라이언트에 대한 보안 TLS 사용
           href: ../common/storage-security-tls.md
+        - name: 규정 준수 제안
+          href: ../common/storage-compliance-offerings.md
         - name: 클라이언트 쪽 암호화
           items:
             - name: .NET

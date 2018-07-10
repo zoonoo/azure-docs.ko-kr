@@ -98,7 +98,7 @@
 
 ### 확장된 IoT 시나리오
 #### [iothub-explorer를 사용하여 클라우드 장치 메시지 관리](iot-hub-explorer-cloud-device-messaging.md)
-#### [IoT Hub 메시지를 Azure 데이터 저장소에 저장](iot-hub-store-data-in-azure-table-storage.md)
+#### [Azure Blob Storage에 IoT Hub 메시지 저장](iot-hub-store-data-in-azure-table-storage.md)
 #### [Power BI에서 데이터 시각화](iot-hub-live-data-visualization-in-power-bi.md)
 #### [Web Apps를 사용하여 데이터 시각화](iot-hub-live-data-visualization-in-web-apps.md)
 #### [Azure Machine Learning을 사용한 날씨 예측](iot-hub-weather-forecast-machine-learning.md)

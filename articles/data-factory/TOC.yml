@@ -138,10 +138,10 @@
           href: connector-azure-blob-storage.md
         - name: Azure Cosmos DB
           href: connector-azure-cosmos-db.md
-        - name: Azure Data Lake 저장소
-          href: connector-azure-data-lake-storage.md
-        - name: Azure Data Lake Store
+        - name: Azure Data Lake Storage Gen1
           href: connector-azure-data-lake-store.md
+        - name: Azure Data Lake Storage Gen2
+          href: connector-azure-data-lake-storage.md
         - name: Azure Database for MySQL
           href: connector-azure-database-for-mysql.md
         - name: Azure Database for PostgreSQL
@@ -277,11 +277,11 @@
         - name: 데이터 복사 도구
           href: copy-data-tool.md
           items: null
-        - name: Data Lake Storage 로드
+        - name: Data Lake Storage Gen2 로드
           href: load-azure-data-lake-storage-gen2.md
         - name: SQL Data Warehouse 로드
           href: load-azure-sql-data-warehouse.md
-        - name: Data Lake Store 로드
+        - name: Data Lake Storage Gen1 로드
           href: load-azure-data-lake-store.md
         - name: 분할된 데이터 읽기 또는 쓰기
           href: how-to-read-write-partitioned-data.md

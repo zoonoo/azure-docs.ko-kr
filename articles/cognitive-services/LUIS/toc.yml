@@ -65,8 +65,10 @@
           href: luis-quickstart-intent-and-key-phrase.md
         - name: 8. 감정 분석 추가
           href: luis-quickstart-intent-and-sentiment-analysis.md
-    - name: 예측 개선
+    - name: 앱 개선
       items:
+        - name: 끝점 utterances 검토
+          href: luis-tutorial-review-endpoint-utterances.md
         - name: 패턴 사용
           href: luis-tutorial-pattern.md
         - name: 문구 목록 사용
@@ -313,6 +315,8 @@
       href: 'https://github.com/Microsoft/Recognizers-Text'
 - name: 리소스
   items:
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Azure 로드맵
       href: 'https://aka.ms/luis-roadmap'
     - name: 용어
@@ -326,7 +330,7 @@
     - name: UserVoice
       href: 'https://aka.ms/luis-uservoice-forum'
     - name: 검색
-      href: 'https://docs.microsoft.com/en-us/search/index?search=LUIS'
+      href: 'https://docs.microsoft.com/search/index?search=LUIS'
     - name: 블로그
       href: 'https://blog.botframework.com/category/luis/'
     - name: 기술 자료
