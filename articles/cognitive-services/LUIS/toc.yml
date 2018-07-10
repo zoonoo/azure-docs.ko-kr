@@ -71,8 +71,6 @@
           href: luis-tutorial-review-endpoint-utterances.md
         - name: 패턴 사용
           href: luis-tutorial-pattern.md
-        - name: 문구 목록 사용
-          href: luis-tutorial-interchangeable-phrase-list.md
 - name: 샘플
   items:
     - name: 코드 샘플
