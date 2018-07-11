@@ -382,8 +382,8 @@
 ### [Azure AD Connect를 사용하여 온-프레미스 ID 통합](./connect/active-directory-aadconnect.md)
 
 ## 리소스에 대한 액세스 위임
-### [관리자 역할 구성원 보기](users-groups-roles//directory-manage-roles-portal.md)
 ### [관리자 역할](users-groups-roles/directory-assign-admin-roles.md)
+#### [관리자 역할 구성원 보기](users-groups-roles//directory-manage-roles-portal.md)
 #### [사용자에게 관리자 역할 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
 #### [멤버 및 게스트 사용자 권한 비교](fundamentals/users-default-permissions.md)
 ### [관리자 역할 보안](users-groups-roles/directory-admin-roles-secure.md)  
