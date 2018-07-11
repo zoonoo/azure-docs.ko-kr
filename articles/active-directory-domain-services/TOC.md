@@ -54,6 +54,7 @@
 #### [누락된 서비스 주체 복원](active-directory-ds-troubleshoot-service-principals.md)
 #### [보안 LDAP 오류](active-directory-ds-troubleshoot-ldaps.md)
 ### [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
+### [일시 중단된 도메인](active-directory-ds-suspension.md)
 
 
 # 참고 자료

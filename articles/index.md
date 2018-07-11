@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: fdce9dc733f8c1a389a44374641eb27ba40d6b37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 557717b6fbb93bf3e0ca007fcc8b793441a13283
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446019"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920909"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -177,6 +177,7 @@ Go</a>
                                                     <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">서버리스 Functions</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">컨테이너</a></li>
+                                                    <li><a class="barLink" href="/azure/aks/">Kubernetes를 통한 마이크로 서비스</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Service Fabric을 사용하는 Microservices</a></li>
                                                 </ul>
                                             </div>
@@ -494,6 +495,11 @@ Azure를 사용하는 DevOps 알아보기</a>
                                                 <img src="media/index/AppService.svg" alt="" />
                                                 <p>Web App for Containers</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/dev-spaces/">
+                                                <img src="media/index/AzureDevSpaceController_50x.svg" alt=""/>
+                                                <p>Azure Dev 공간</p>
                                         </li>
                                     </ul>
                                     <h3>통합</h3>
@@ -883,7 +889,7 @@ Azure를 사용하는 DevOps 알아보기</a>
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/labs/anomaly-finder/overview">
-                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" /> 
+                                                <img src="media/index/API_Anomaly_Finder.svg" alt="" />
                                                 <p>Anomaly Finder</p>
                                             </a>
                                         </li>
@@ -2702,6 +2708,25 @@ s" alt="" />
                                                 <div class="cardText">
                                                     <h3>Web App for Containers</h3>
                                                     <p>비즈니스에 맞게 크기 조정하도록 컨테이너화된 웹앱을 쉽게 배포 및 실행</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/dev-spaces/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Dev 공간</h3>
+                                                    <p>컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5772,6 +5797,34 @@ Service Fabric SDK 및 Tools </h3>
                                                 </p>
                                                 <p>DEA(
                                                     <a href="https://aka.ms/dea-tool">데이터베이스 실험 도우미</a>)
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li> <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="media/index/AzureDevSpaceController_50x.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Azure Dev 공간 </h3>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">시작</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">.NET Core 및 VS Code용 다운로드</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">.NET Core 및 Visual Studio용 다운로드</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">Node.js용 다운로드</a>
                                                 </p>
                                             </div>
                                         </div>
