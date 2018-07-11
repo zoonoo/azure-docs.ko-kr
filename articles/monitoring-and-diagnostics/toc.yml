@@ -103,6 +103,8 @@
           href: monitoring-stream-diagnostic-logs-to-event-hubs.md
         - name: Resource Manager 템플릿을 사용하여 진단 설정을 사용하도록 설정
           href: monitoring-enable-diagnostic-logs-using-template.md
+        - name: JSON 줄 진단 로그 형식에 대한 준비
+          href: monitor-diagnostic-logs-append-blobs.md
     - name: 활동 로그 사용
       items:
         - name: 활동 로그의 이벤트 보기

@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: 68c0ea1fd3f2e60e0adec631f33c8bd09a3d9960
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35383496"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346011"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>패턴을 추가하여 예측 정확도를 개선하는 방법
 LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patterns.md)을 사용하여 단어 순서 및 단어 선택에 패턴을 노출하는 발화에 대한 예측 정확도를 개선합니다. 패턴은 [엔터티](luis-concept-entity-types.md) 및 해당 역할을 사용하여 특정 패턴 구문을 통해 데이터를 추출합니다. 
@@ -132,7 +132,7 @@ LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patte
     ![엔터티별로 필터링된 패턴 스크린샷](./media/luis-how-to-model-intent-pattern/confirm-patterns-modal.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>패턴이 포함된 모델을 변경한 후 앱 학습
-패턴을 추가, 편집, 제거 또는 다시 할당한 후 변경 내용을 끝점 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](PublishApp.md)합니다. 
+패턴을 추가, 편집, 제거 또는 다시 할당한 후 변경 내용을 끝점 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

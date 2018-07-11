@@ -59,16 +59,20 @@
           href: luis-quickstart-intent-and-list-entity.md
         - name: 5. 계층적 엔터티 추가
           href: luis-quickstart-intent-and-hier-entity.md
-        - name: 6. 단순 엔터티 및 문구 목록 추가
+        - name: 6. 복합 엔터티 추가
+          href: luis-tutorial-composite-entity.md
+        - name: 7. 단순 엔터티 및 문구 목록 추가
           href: luis-quickstart-primary-and-secondary-data.md
-        - name: 7. keyPhrase 엔터티 추가
+        - name: 8. keyPhrase 엔터티 추가
           href: luis-quickstart-intent-and-key-phrase.md
-        - name: 8. 감정 분석 추가
+        - name: 9. 감정 분석 추가
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: 앱 개선
       items:
         - name: 끝점 utterances 검토
           href: luis-tutorial-review-endpoint-utterances.md
+        - name: 일괄 처리 테스트 사용
+          href: luis-tutorial-batch-testing.md
         - name: 패턴 사용
           href: luis-tutorial-pattern.md
 - name: 샘플
@@ -138,7 +142,7 @@
     - name: 앱 계획
       href: luis-how-plan-your-app.md
     - name: 새 앱 시작
-      href: Create-new-app.md
+      href: luis-how-to-start-new-app.md
     - name: 모델 빌드
       items:
         - name: 의도 추가
@@ -147,15 +151,15 @@
           href: luis-how-to-add-example-utterances.md
         - name: 엔터티 추가
           href: luis-how-to-add-entities.md
-        - name: 복합 엔터티를 사용하여 그룹화된 데이터 추출
-          href: luis-tutorial-composite-entity.md
-        - name: Node.js를 사용하여 정확한 텍스트와 일치하는 목록 엔터티 사용
-          href: luis-tutorial-list-entity.md
-        - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
-          href: luis-tutorial-node-import-utterances-csv.md
+        - name: API 사용
+          items:
+            - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
+              href: luis-tutorial-node-import-utterances-csv.md
+            - name: Node.js를 사용하여 정확한 텍스트와 일치하는 목록 엔터티 사용
+              href: luis-tutorial-list-entity.md
     - name: 통합
       items:
-        - name: Bing Spell Check API v7을 사용한 올바른 맞춤법
+        - name: Bing Spell Check API v7 사용
           href: luis-tutorial-bing-spellcheck.md
         - name: 음성 서비스 사용
           href: luis-tutorial-speech-to-intent.md
@@ -176,7 +180,7 @@
     - name: 예측 정확도 개선
       items:
         - name: 끝점 utterances 검토
-          href: Label-Suggested-Utterances.md
+          href: luis-how-to-review-endoint-utt.md
         - name: 문구 목록 추가
           href: luis-how-to-add-features.md
         - name: 패턴 추가
@@ -189,36 +193,36 @@
           href: interactive-test.md
         - name: 테스트 일괄 처리
           href: luis-how-to-batch-test.md
-        - name: 테스트 일괄 처리로 정확도 개선
-          href: luis-tutorial-batch-testing.md
     - name: 앱 게시
       href: luis-how-to-publish-app.md
     - name: 미리 작성된 모델 사용
       items:
-        - name: 미리 작성된 엔터티 사용
+        - name: 엔터티 사용
           href: luis-prebuilt-entities.md
-        - name: 미리 작성된 도메인 사용
+        - name: 도메인 사용
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Cortana 미리 작성된 앱 사용
+        - name: Cortana 사용
           href: luis-how-to-cortana-prebuilt-app.md
-    - name: LUIS 앱 관리
+    - name: 앱 관리
       items:
         - name: 대시보드 사용
           href: luis-how-to-use-dashboard.md
-        - name: 키 만들기
+        - name: 끝점 키 만들기
           href: luis-how-to-azure-subscription.md
-        - name: LUIS에서 키 추가
+        - name: 앱에 끝점 키를 추가
           href: luis-how-to-manage-keys.md
-        - name: PowerShell로 끝점 사용량 보기
-          href: luis-how-to-manage-from-cloud-shell.md
         - name: 버전 관리
           href: luis-how-to-manage-versions.md
         - name: 다른 작성자와 공동 작업
           href: luis-how-to-collaborate.md
-        - name: Traffic Manager를 사용하여 키에 끝점 할당량 분산
-          href: traffic-manager.md
-    - name: LUIS 계정 관리
-      href: luis-how-to-account-settings.md
+        - name: 작성 키 관리
+          href: luis-how-to-account-settings.md
+        - name: 끝점 사용 관리
+          items:
+            - name: PowerShell로 끝점 사용량 보기
+              href: luis-how-to-manage-from-cloud-shell.md
+            - name: Traffic Manager를 사용하여 키에 끝점 할당량 분산
+              href: traffic-manager.md
     - name: V2 API로 마이그레이션
       href: migration-v1-to-v2.md
     - name: 프로그래밍 방식으로 영역 찾기
@@ -251,6 +255,8 @@
           href: luis-reference-prebuilt-deprecated.md
         - name: 이메일 엔터티
           href: luis-reference-prebuilt-email.md
+        - name: keyPhrase 엔터티
+          href: luis-reference-prebuilt-keyphrase.md
         - name: 숫자 엔터티
           href: luis-reference-prebuilt-number.md
         - name: 서수 엔터티

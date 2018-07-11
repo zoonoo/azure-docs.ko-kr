@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e8dd425bbb5839b1c2f5ad4e217c61dc50b38ce1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346827"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465840"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -100,9 +100,6 @@ SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다
    * 기존 SKU를 사용 하려면 사용 가능한 SKU를 선택 하 고 선택한 **만들기**합니다.
    * SKU를 만들려면 **+ 새 SKU 만들기**합니다. **만들 SKU**, 필요한 정보를 입력 하 고 선택한 **확인**합니다.
 
-     > [!IMPORTANT]
-     > 특수 문자, 공백 및 마침표를 포함 하 여에서 지원 되지 않습니다 **이름을** 필드입니다. 다음 화면 캡처의 예제를 사용 하 여 값을 입력 합니다 **제품군**를 **계층**, 및 **Edition** 필드입니다.
-
      ![SKU 만들기](./media/azure-stack-sql-rp-deploy/sqlrp-newsku.png)
 
 ## <a name="provide-high-availability-using-sql-always-on-availability-groups"></a>SQL Always On 가용성 그룹을 사용 하 여 고가용성 제공
@@ -119,16 +116,18 @@ SQL Always On 인스턴스를 구성 하려면 추가 단계가 필요 하며 3 
 
 사용 하도록 설정 해야 [자동 시드](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) SQL Server의 각 인스턴스에 대 한 각 가용성 그룹에 있습니다.
 
-모든 인스턴스에서 자동 시드를 사용 하도록 설정 하려면 편집 하 고 각 인스턴스에 대해 다음 SQL 명령을 실행 합니다.
+모든 인스턴스에서 자동 시드를 사용 하려면 편집 하 고 각 보조 인스턴스에 대 한 주 복제본에서 다음 SQL 명령을 실행 하십시오.
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
-      MODIFY REPLICA ON 'InstanceName'
+      MODIFY REPLICA ON '<secondary_node>'
       WITH (SEEDING_MODE = AUTOMATIC)
   GO
   ```
 
-보조 인스턴스에서 편집 하 고 각 인스턴스에 대해 다음 SQL 명령을 실행 합니다.
+참고를 가용성 그룹 대괄호로 묶어야 합니다.
+
+보조 노드에서 다음 SQL 명령을 실행 합니다.
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,7 +155,7 @@ SQL Always On 인스턴스를 구성 하려면 추가 단계가 필요 하며 3 
 
    아래 **SQL 호스팅 서버**, 리소스 공급자의 백 엔드로 사용 되는 SQL Server 인스턴스의 실제에 SQL Server 리소스 공급자를 연결할 수 있습니다.
 
-3. SQL Server 인스턴스에 대 한 연결 세부 정보로 양식을 작성 하세요. Always On 수신기 (및 선택적 포트 번호입니다.)의 FQDN 주소를 사용 하 고 있는지 확인 Sysadmin 권한으로 구성 된 계정에 대 한 정보를 제공 합니다.
+3. SQL Server 인스턴스에 대 한 연결 세부 정보로 양식을 작성 하세요. Always On 수신기 (및 선택적 포트 번호와 인스턴스 이름을)의 FQDN 주소를 사용 하 고 있는지 확인 합니다. Sysadmin 권한으로 구성 된 계정에 대 한 정보를 제공 합니다.
 
 4. Always On 가용성 그룹 확인란 SQL Always On 가용성 그룹 인스턴스에 대 한 지원을 사용 하도록 설정 합니다.
 

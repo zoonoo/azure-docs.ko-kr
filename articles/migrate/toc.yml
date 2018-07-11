@@ -40,6 +40,8 @@
           href: contoso-migration-refactor-web-app-sql.md
         - name: 10. Contoso-Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링
           href: contoso-migration-refactor-linux-app-service-mysql.md
+        - name: 11. Contoso-TFS를 VSTS로 마이그레이션
+          href: contoso-migration-tfs-vsts.md
     - name: 대규모 환경 검색 및 평가
       href: how-to-scale-assessment.md
     - name: 컴퓨터 그룹화

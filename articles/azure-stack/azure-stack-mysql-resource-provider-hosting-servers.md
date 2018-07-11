@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 60f1978b4173f169ad14deb67b075a61f9e7f149
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344141"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302316"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>MySQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -52,9 +52,6 @@ MySQL 버전 5.6, 5.7 및 8.0 호스팅 서버에 대해 사용할 수 있습니
    ![MySQL SKU 만들기](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
    SKU **이름을** 사용자가 적절 한 SKU를 해당 데이터베이스를 배포할 수 있도록 SKU의 속성을 반영 해야 합니다.
-
-   >[!IMPORTANT]
-   >특수 문자, 공백 및 마침표를 포함 하 여에서 지원 되지 않습니다 **이름을** 또는 **계층** MySQL 리소스 공급자에 대 한 SKU를 만들면 됩니다.
 
 6. 선택 **확인** 는 SKU를 만듭니다.
 > [!NOTE]

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 8c758f78b661f492c98ac174d7fbbf8b7e3a5e52
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345086"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38305899"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
@@ -47,7 +47,6 @@ Azure Stack MySQL 리소스 공급자를 배포 하기 전에 준비에서 되�
     | --- | --- |
     | 버전 1804 (1.0.180513.1)|[MySQL 버전 1.1.24.0 RP](https://aka.ms/azurestackmysqlrp1804) |
     | 버전 1802 (1.0.180302.1) | [MySQL 버전 1.1.18.0 RP](https://aka.ms/azurestackmysqlrp1802) |
-    | 버전 1712 (1.0.180102.3 또는 1.0.180106.1 (통합된 시스템)) | [MySQL 버전 1.1.14.0 RP](https://aka.ms/azurestackmysqlrp1712) |
 
 ### <a name="certificates"></a>인증서
 

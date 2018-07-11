@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: v-geberr
-ms.openlocfilehash: 3526871f126ac975f323fe84b14883b361b684ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382991"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340776"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Azure 끝점 구독 키 관리
 
@@ -40,7 +40,7 @@ ms.locfileid: "35382991"
     ![Azure 키](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * 해당 지역의 [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하여 [새로운 LUIS 끝점 키를 추가](Manage-Keys.md#assign-endpoint-key)합니다. 
+    > * 해당 지역의 [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하여 [새로운 LUIS 끝점 키를 추가](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 
     > * 해당 지역의 [LUIS](luis-reference-regions.md) 게시 페이지에서 선택하려면 직접 만든 Azure 서비스의 이름을 기억해야 합니다.  
 
 ## <a name="change-luis-pricing-tier"></a>LUIS 가격 책정 계층 변경
@@ -53,7 +53,7 @@ ms.locfileid: "35382991"
     ![LUIS 결제 계층 변경](./media/luis-usage-tiers/plans.png)
 4.  가격 변경이 완료되면 팝업 창에서 새로운 가격 책정 계층을 확인합니다. 
     ![LUIS 결제 계층 확인](./media/luis-usage-tiers/updated.png)
-5. **게시** 페이지에서 [이 끝점 키를 할당](manage-keys.md#assign-endpoint-key)하고 모든 끝점 쿼리에서 이 끝점 키를 사용해야 합니다. 
+5. **게시** 페이지에서 [이 끝점 키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)하고 모든 끝점 쿼리에서 이 끝점 키를 사용해야 합니다. 
 
 ## <a name="exceed-pricing-tier-usage"></a>가격 책정 계층 사용량 초과
 각 계층은 특정 요금으로 LUIS 계정에 대한 끝점 요청을 허용합니다. 요청 요금이 분당 또는 월별 계정 요금제의 허용된 요금보다 높은 경우 요청은 HTTP 오류 “429: 요청이 너무 많음”을 수신합니다.

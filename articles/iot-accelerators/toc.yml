@@ -10,6 +10,8 @@
   items:
     - name: 원격 모니터링 솔루션 배포
       href: quickstart-remote-monitoring-deploy.md
+    - name: 장치 시뮬레이션 솔루션 배포
+      href: quickstart-device-simulation-deploy.md
 - name: 자습서
   items:
     - name: IoT 장치 모니터링
@@ -149,10 +151,10 @@
           href: iot-accelerators-connected-factory-customize.md
     - name: 장치 시뮬레이션
       items:
-        - name: 솔루션 가속기 배포
-          href: iot-accelerators-device-simulation-deploy.md
-        - name: 시뮬레이션 실행
-          href: iot-accelerators-device-simulation-explore.md
+        - name: 기존 IoT Hub 사용
+          href: iot-accelerators-device-simulation-choose-hub.md
+        - name: 사용자 지정 장치 모델 사용
+          href: iot-accelerators-device-simulation-custom-model.md
 - name: 참고 자료
   items:
     - name: 개발자 참조 가이드
