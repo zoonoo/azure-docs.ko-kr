@@ -364,8 +364,6 @@ items:
                 href: tutorial-query-table.md
               - name: 4 - 전역으로 분산
                 href: tutorial-global-distribution-table.md
-              - name: 5 - 서버를 사용하지 않는 앱 - Node.js
-                href: 'https://docs.microsoft.com/learn/build-serverless-app/index'
           - name: 샘플
             items:
               - name: .NET

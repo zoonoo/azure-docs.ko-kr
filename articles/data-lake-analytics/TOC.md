@@ -59,10 +59,10 @@
 #### [사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [로컬 실행 및 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
 
-### 연속 통합 및 연속 배포
-#### [개요](data-lake-analytics-cicd-overview.md)
-#### [테스트 설정](data-lake-analytics-cicd-test.md)
-#### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
+## 연속 통합 및 연속 배포
+### [개요](data-lake-analytics-cicd-overview.md)
+### [테스트 설정](data-lake-analytics-cicd-test.md)
+### [U-SQL SDK](data-lake-analytics-u-sql-sdk.md)
 
 # 참고 자료
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)

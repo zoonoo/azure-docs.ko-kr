@@ -127,11 +127,13 @@
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 
 
-
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
 #### [Azure Active Directory 활동 로그 콘텐츠 팩 오류](active-directory-reporting-troubleshoot-content-pack.md)
+#### [Azure Active Directory Reporting API의 오류](active-directory-reporting-troubleshoot-graph-api.md)
+
+
 ### [프로그래밍 방식 액세스](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [필수 구성 요소](active-directory-reporting-api-prerequisites-azure-portal.md)
 #### [감사 샘플](active-directory-reporting-api-audit-samples.md)

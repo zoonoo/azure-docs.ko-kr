@@ -55,10 +55,6 @@
           href: tutorial-autoscale-powershell.md
         - name: Template
           href: tutorial-autoscale-template.md
-    - name: 사용자 지정 Packer 이미지로 Azure 가상 머신 확장 집합에 앱 배포
-      items:
-        - name: Azure CLI 2.0
-          href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: 샘플
   items:
     - name: Azure CLI 2.0

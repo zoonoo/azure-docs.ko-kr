@@ -25,12 +25,14 @@
       href: QuickStarts/Python.md
     - name: Ruby
       href: QuickStarts/Ruby.md
+- name: 자습서
+  items:
+    - name: 'C#'
+      href: Tutorials/FaceAPIinCSharpTutorial.md
 - name: 방법 가이드
   items:
     - name: 첫 번째 Face API 앱
       items:
-        - name: 'C#'
-          href: Tutorials/FaceAPIinCSharpTutorial.md
         - name: Android용 Java
           href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: 파이썬
