@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: f8ef3070c318293af59a8f22d271b9c836c06f69
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31429365"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38725904"
 ---
 1. 새 브라우저 창에서 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기** > **데이터베이스** > **Azure Cosmos DB**를 클릭합니다.

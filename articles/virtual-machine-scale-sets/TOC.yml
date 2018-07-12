@@ -224,6 +224,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: 템플릿을 관리 디스크로 변환
           href: virtual-machine-scale-sets-convert-template-to-md.md
+        - name: 계획된 유지 보수
+          href: virtual-machine-scale-sets-maintenance-notifications.md
     - name: 문제 해결
       items:
         - name: Autoscale

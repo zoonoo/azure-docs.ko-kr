@@ -9,11 +9,11 @@ ms.date: 5/14/2018
 ms.author: markgal
 ms.custom: include file
 ms.openlocfilehash: 5590da80a1c217e7902e8e010688e40f5624898c
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34664958"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38730501"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백업과 복구 지점을 저장하는 엔터티입니다. Recovery Services 자격 증명 모음에는 보호된 가상 머신과 연결된 백업 정책도 포함됩니다.

@@ -9,11 +9,11 @@ ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753798"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38727542"
 ---
 ### <a name="supportedclientos"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇인가요?
 

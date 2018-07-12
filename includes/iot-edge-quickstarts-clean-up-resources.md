@@ -9,11 +9,11 @@ ms.date: 06/26/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: c0b9f9e9808de90df84edf2d3c409a921629baee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055050"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38728308"
 ---
 권장되는 다음 아티클을 계속 진행하는 경우 지금까지 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
 
