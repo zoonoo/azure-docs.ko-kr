@@ -447,7 +447,7 @@
 #### [FAQ](active-directory-identity-protection-faqs.md)
 #### [용어](active-directory-identityprotection-glossary.md)
 #### [Microsoft Graph](active-directory-identityprotection-graph-getting-started.md)
-### [Privileged Identity Management](active-directory-privileged-identity-management-configure.md)
+### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## Azure AD와 다른 서비스 통합 
 ### [Azure AD와 LinkedIn 통합](users-groups-roles/linkedin-integration.md)
@@ -477,7 +477,7 @@
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [개발자용 Azure AD](./develop/active-directory-how-to-integrate.md)
-## [Azure AD Privileged Identity Management](./privileged-identity-management/active-directory-securing-privileged-access.md)
+## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # 리소스
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
