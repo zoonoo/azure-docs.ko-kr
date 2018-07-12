@@ -8,6 +8,8 @@
       href: cheat-sheet.md
 - name: 릴리스 정보
   items:
+    - name: 2018년 6월
+      href: release-notes-june-2018.md
     - name: 2018년 5월
       href: release-notes-may-2018.md
     - name: 2018년 4월

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: raynew
-ms.openlocfilehash: 03e3aaad810f6ccd5fb376765ddbada072dedb06
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 33ab56003f2d9428816ea0f32cfd6381ea857df3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301306"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611291"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 마이그레이션: 온-프레미스 앱을 Azure VM 및 SQL Server AlwaysOn 가용성 그룹에 다시 호스트
 
@@ -23,14 +23,14 @@ ms.locfileid: "35301306"
 
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
-[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대한 개요를 제공합니다. | 사용 가능
+[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
 [문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
 [문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. Contoso가 [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
 [문서 4: 앱을 Azure VM 및 SQL 관리되는 인스턴스에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여 줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
 [문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery만 사용하여 SmartHotel 앱 VM을 마이그레이션하는 방법을 보여 줍니다.
 문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트(이 문서) | Contoso가 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Contoso가 Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호하는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
-[문서 7: Linux 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 계획
-[문서 8: Linux 앱을 Azure VM 및 Azure MySQL 서버에 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고 MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 7: Azure VM에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 계획
+[문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고 MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
 
 
 
@@ -42,8 +42,8 @@ IT 리더십 팀은 비즈니스 파트너와의 긴밀한 협력을 통해 다�
 
 - **비즈니스 성장 문제 해결**: Contoso는 성장 중이므로 온-프레미스 시스템과 인프라에 부담이 있습니다.
 - **효율성 증가**: Contoso는 불필요한 프로시저를 제거하고 개발자와 사용자가 사용할 프로세스를 간소화해야 합니다.  이 회사는 IT를 빠른 상태로 유지하고 시간이나 비용을 낭비하지 않도록 하여 고객 요구 사항을 더 빠르게 제공해야 합니다.
-- **민첩성 향상**: Contoso IT는 비즈니스 요구 사항에 대한 응답성을 더욱 높여야 합니다. 글로벌 경제에서 성공을 거두려면 시장의 변화보다 더 빠르게 대응할 수 있어야 합니다.  비즈니스에 방해 요인이 되어서는 안 됩니다.
-- **확장**: Contoso IT는 성공적인 비즈니스 성장에 따라 동일한 속도로 확장할 수 있는 시스템을 제공해야 합니다.
+- **민첩성 향상**: Contoso IT에서 비즈니스 요구 사항에 대해 더 빠르게 응답해야 합니다. 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다.  사업상의 걸림돌이 되지 않아야 합니다.
+- **크기 조정**: 비즈니스가 성공적으로 성장함에 따라 Contoso IT에서 동일한 속도로 크기를 조정할 수 있는 시스템을 제공해야 합니다.
 
 ## <a name="migration-goals"></a>마이그레이션 목표
 
@@ -61,9 +61,9 @@ Contoso 클라우드 팀은 이 마이그레이션의 목표를 확실하게 정
 
 - 앱은 두 개의 VM(WEBVM 및 SQLVM)에 계층화되어 있습니다.
 - VM은 VMware ESXi 호스트 **contosohost1.contoso.com**(버전 6.5)에 있습니다.
-- VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**vcenter.contoso.com**)를 통해 관리됩니다.
+- VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**vcenter.contoso.com**)에서 관리합니다.
 - Contoso는 온-프레미스 데이터 센터(contoso-datacenter)와 온-프레미스 도메인 컨트롤러(**contosodc1**)를 갖고 있습니다.
-- Contoso 데이터 센터의 온-프레미스 VM은 마이그레이션이 완료된 후 해제됩니다.
+- 마이그레이션이 완료되면 Contoso 데이터 센터의 온-프레미스 VM은 서비스 해제됩니다.
 
 ![시나리오 아키텍처](media/contoso-migration-rehost-vm-sql-ag/architecture.png) 
 
@@ -71,7 +71,7 @@ Contoso 클라우드 팀은 이 마이그레이션의 목표를 확실하게 정
 
 **서비스** | **설명** | **비용**
 --- | --- | ---
-[데이터베이스 관리 서비스](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso는 DMS를 사용하여 앱 데이터 계층을 마이그레이션합니다. DMS는 사이트 간 VPN에서 온-프레미스 SQLVM 머신에 연결됩니다. DMS를 통해 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션하며 가동 중지 시간을 최소화할 수 있습니다. | DMS [지원 지역](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability)에 대해 알아보고 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/database-migration/)를 확인해 보세요.
+[데이터베이스 관리 서비스](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso는 DMS를 사용하여 앱 데이터 계층을 마이그레이션합니다. DMS는 사이트 간 VPN에서 온-프레미스 SQLVM 머신에 연결됩니다. DMS를 통해 여러 데이터베이스 원본에서 Azure 데이터 플랫폼으로 원활하게 마이그레이션하며 가동 중지 시간을 최소화할 수 있습니다. | DMS에 대해 [지원되는 지역](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability)에 대해 알아보고, [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/database-migration/)를 확인하세요.
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Contoso는 앱 프런트 엔드 VM의 리프트 앤 시프트 마이그레이션에 Site Recovery를 사용합니다. Site Recovery는 Azure VM, 온-프레미스 VM 및 물리적 서버에 대한 마이그레이션 및 재해 복구를 오케스트레이션하고 관리합니다.  | Azure로 복제하는 동안 Azure Storage 비용이 청구됩니다.  장애 조치(failover) 발생 시 Azure VM이 생성되고, 요금이 발생합니다. 요금 및 가격 책정에 대해 [자세히 알아보세요](https://azure.microsoft.com/pricing/details/site-recovery/).
 
  
@@ -96,9 +96,9 @@ Contoso 클라우드 팀은 이 마이그레이션의 목표를 확실하게 정
 
 **요구 사항** | **세부 정보**
 --- | ---
-**Azure 구독** | 이 시리즈의 첫 번째 문서에서 평가를 수행할 때 이미 구독을 만들었어야 합니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.<br/><br/> 무료 계정을 만드는 경우 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> 보다 세부적인 권한이 필요한 경우 [이 문서](../site-recovery/site-recovery-role-based-linked-access-control.md)를 검토합니다. 
+**Azure 구독** | 이 시리즈의 첫 번째 문서에서 평가를 수행했을 때 이미 구독이 만들어졌어야 합니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.<br/><br/> 무료 계정을 만드는 경우 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> 보다 세부적인 권한이 필요한 경우 [이 문서](../site-recovery/site-recovery-role-based-linked-access-control.md)를 검토합니다. 
 **Azure 인프라** | Contoso가 Azure 인프라를 설정하는 [방법에 대해 알아보세요](contoso-migration-infrastructure.md).<br/><br/> Site Recovery 고유의 [네트워크](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) 및 [저장소](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) 요구 사항에 대해 자세히 알아보세요.
-**사이트 복구(온-프레미스)** | 온-프레미스 vCenter Server는 5.5, 6.0 또는 6.5 버전을 실행해야 합니다.<br/><br/> 5.5, 6.0 또는 6.5 버전을 실행하는 ESXi 호스트<br/><br/> ESXi 호스트에서 실행되는 하나 이상의 VMware VM<br/><br/> VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.<br/><br/> 지원되는 [네트워크](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) 및 [저장소](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) 구성입니다.<br/><br/> 복제하려는 VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.
+**사이트 복구(온-프레미스)** | 온-프레미스 vCenter Server에서 5.5, 6.0 또는 6.5 버전을 실행해야 합니다.<br/><br/> 5.5, 6.0 또는 6.5 버전을 실행하는 ESXi 호스트<br/><br/> ESXi 호스트에서 실행되는 하나 이상의 VMware VM<br/><br/> VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.<br/><br/> 지원되는 [네트워크](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) 및 [저장소](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) 구성입니다.<br/><br/> 복제하려는 VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.
 **DMS** | DMS의 경우 [호환 가능한 온-프레미스 VPN 장치](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices)가 필요합니다.<br/><br/> 온-프레미스 VPN 장치를 구성할 수 있어야 합니다. 외부적으로 연결 공용 IPv4 주소가 있어야 하며, NAT 장치 뒤에 주소를 배치할 수 없습니다.<br/><br/> 온-프레미스 SQL Server 데이터베이스에 대한 권한이 있는지 확인합니다.<br/><br/> Windows 방화벽은 원본 데이터베이스 엔진에 액세스할 수 있어야 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> 데이터베이스 컴퓨터 앞에 방화벽이 있는 경우 SMB 포트 445를 통해 데이터베이스 및 파일에 엑세스를 허용하는 규칙을 추가합니다.<br/><br/> 원본 SQL Server와 대상 관리되는 인스턴스를 연결하는 데 사용되는 자격 증명은 sysadmin 서버 역할의 구성원이어야 합니다.<br/><br/> DMS에서 원본 데이터베이스를 백업하는 데 사용할 수 있는 온-프레미스 데이터베이스에서 네트워크 공유가 필요합니다.<br/><br/> 원본 SQL Server 인스턴스를 실행하는 서비스 계정이 네트워크 공유에 대한 쓰기 권한을 갖고 있는지 확인합니다.<br/><br/> 네트워크 공유에 대한 전체 제어 권한을 갖고 있는 Windows 사용자(및 암호)를 메모해 둡니다. Azure Database Migration Service는 이러한 사용자 자격 증명을 가장하여 Azure 저장소 컨테이너에 백업 파일을 업로드합니다.<br/><br/> SQL Server Express 설치 프로세스는 TCP/IP 프로토콜을 기본적으로 **사용 안 함**으로 설정합니다. 활성화되어 있는지 확인합니다.
 
 
@@ -319,7 +319,7 @@ Contoso가 Site Recovery를 배포하는 데 필요한 Azure 구성 요소는 �
 
 **도움이 더 필요하세요?**
 
-Site Recovery를 위한 Azure 설정에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure).
+Azure에서 Site Recovery를 설정하는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/tutorial-prepare-azure).
 
 
 ## <a name="step-4-prepare-on-premises-vmware-for-site-recovery"></a>4단계: Site Recovery를 위해 온-프레미스 VMware 준비
@@ -398,7 +398,7 @@ Contoso가 Azure로 마이그레이션을 실행하려면 먼저 복제를 설�
 
 ### <a name="confirm-deployment-planning"></a>배포 계획 확인
 
-계속하려면 **예, 완료함**을 선택하여 배포 계획을 완료했음을 확인해야 합니다. 이 시나리오에서는 Contoso가 한 개의 VM만 마이그레이션하므로 배포 계획이 필요하지 않습니다.
+계속하려면 **예, 완료함**을 선택하여 배포 계획을 완료했는지 확인해야 합니다. 이 시나리오에서는 Contoso가 한 개의 VM만 마이그레이션하므로 배포 계획이 필요하지 않습니다.
 
 ### <a name="set-up-the-source-environment"></a>원본 환경 설정
 
@@ -410,7 +410,7 @@ Contoso는 원본 환경을 구성해야 합니다. 이 작업을 위해 OVF 템
 - 프로세스 서버 - 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure 저장소로 전송합니다.
 - 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware VM의 자동 검색을 수행합니다.
 
-Contoso는 다음과 같이 단계를 수행합니다.
+Contoso는 다음 단계를 수행합니다.
 
 
 1. 자격 증명 모음의 **인프라 준비** > **원본** > **구성 서버**에서 OVF 템플릿을 다운로드합니다.
@@ -421,7 +421,7 @@ Contoso는 다음과 같이 단계를 수행합니다.
 
     ![OVF 템플릿](./media/contoso-migration-rehost-vm-sql-ag/vcenter-wizard.png)
 
-3. VM을 처음 켜면 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
+3. VM을 처음 작동하면 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
 4. 설치가 완료되면 VM에 관리자 권한으로 로그인합니다. 처음 로그인하면 Azure Site Recovery 구성 도구가 기본적으로 실행됩니다.
 5. 도구에서 자격 증명 모음에 구성 서버를 등록하는 데 사용할 이름을 지정합니다.
 6. VM이 Azure에 연결할 수 있는지 도구에서 확인합니다. 연결이 설정되면 Azure 구독에 로그인합니다. 구성 서버를 등록하려는 자격 증명 모음에 자격 증명이 액세스할 수 있어야 합니다.
@@ -430,17 +430,17 @@ Contoso는 다음과 같이 단계를 수행합니다.
 
 7. 도구에서 몇 가지 구성 작업을 수행한 후 다시 부팅합니다.
 8. 머신에 다시 로그인하면 구성 서버 관리 마법사가 자동으로 시작됩니다.
-9. 마법사에서 복제 트래픽을 수신할 NIC를 선택합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
-10. 구독과 리소스 그룹, 구성 서버를 등록할 자격 증명 모음을 선택합니다.
+9. 마법사에서 복제 트래픽을 받을 NIC를 선택합니다. 이 설정은 구성된 후에 변경할 수 없습니다.
+10. 구성 서버를 등록할 구독, 리소스 그룹 및 자격 증명 모음을 선택합니다.
         ![자격 증명 모음](./media/contoso-migration-rehost-vm-sql-ag/cswiz1.png) 
 
 10. MySQL 서버 및 VMWare PowerCLI를 다운로드하여 설치합니다. 
 11. 유효성 검사 이후 vCenter 서버나 vSphere 호스트의 FQDN 또는 IP 주소를 지정합니다. 기본 포트는 그대로 두고 vCenter 서버의 이름을 지정합니다.
-12. 자동 검색을 위해 만든 계정과 모바일 서비스를 자동으로 설치하는 데 사용되는 자격 증명을 지정합니다. Windows 머신의 경우, VM에 대한 로컬 관리자 권한이 계정에 필요합니다.
+12. 자동 검색을 위해 만든 계정과 모바일 서비스를 자동으로 설치하는 데 사용되는 자격 증명을 지정합니다. Windows 컴퓨터의 경우 VM에 대한 로컬 관리자 권한이 계정에 필요합니다.
 
     ![vCenter](./media/contoso-migration-rehost-vm-sql-ag/cswiz2.png)
 
-7. 등록이 완료되면 Contoso는 Azure Portal에서 구성 서버 및 VMware 서버가 자격 증명 모음의 **원본** 페이지에 표시되는지 다시 확인합니다. 검색하는 데 15분 이상 걸릴 수 있습니다. 
+7. 등록이 완료되면 Contoso는 Azure Portal에서 구성 서버와 VMware 서버가 자격 증명 모음의 **원본** 페이지에 나열되어 있는지 이중으로 확인합니다. 검색하는 데 15분 이상 걸릴 수 있습니다. 
 8. 그런 다음, Site Recovery가 지정한 설정을 사용하여 VMware 서버에 연결하고 VM을 검색합니다.
 
 ### <a name="set-up-the-target"></a>대상 설정
@@ -448,7 +448,7 @@ Contoso는 다음과 같이 단계를 수행합니다.
 이제 Contoso는 대상 복제 설정을 지정합니다.
 
 1. **인프라 준비** > **대상**에서 대상 설정을 선택합니다.
-2. Site Recovery는 지정된 대상에 Azure Storage 계정 및 네트워크가 있는지 확인합니다.
+2. Site Recovery에서 지정된 대상에 Azure 저장소 계정과 네트워크가 있는지 확인합니다.
 
 ### <a name="create-a-replication-policy"></a>복제 정책 만들기
 
@@ -457,8 +457,8 @@ Contoso는 다음과 같이 단계를 수행합니다.
 1. **인프라 준비** > **복제 설정** > **복제 정책** >  **만들기 및 연결**에서 **ContosoMigrationPolicy** 정책을 만듭니다.
 2. 다음 기본 설정을 사용합니다.
     - **RPO 임계값**: 기본값은 60분입니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
-    - **복구 지점 보존**. 기본값은 24시간입니다. 이 값은 각 복구 지점에 대해 지속될 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
-    - **앱 일치 스냅숏 빈도**. 기본값은 1시간입니다. 이 값은 응용 프로그램 일치 스냅숏이 만들어지는 빈도를 지정합니다.
+    - **복구 지점 보존**: 기본값은 24시간입니다. 이 값은 각 복구 지점에 대한 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
+    - **앱 일치 스냅숏 빈도**: 기본값은 1시간입니다. 이 값은 응용 프로그램 일치 스냅숏이 만들어지는 빈도를 지정합니다.
  
         ![복제 정책 만들기](./media/contoso-migration-rehost-vm-sql-ag/replication-policy.png)
 
@@ -485,8 +485,8 @@ Contoso는 다음과 같이 단계를 수행합니다.
  
     ![복제 사용](./media/contoso-migration-rehost-vm-sql-ag/enable-replication3.png)
 
-4. **작업**에서 복제 진행률을 추적합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
-5. Contoso는 Azure Portal의 **Essentials**에서 Azure에 복제되는 VM의 구조를 볼 수 있습니다.
+4. **작업**에서 복제 진행 상황을 추적합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+5. Contoso는 Azure Portal의 **기본 정보**에서 Azure로 복제되는 VM의 구조를 확인할 수 있습니다.
 
     ![인프라 보기](./media/contoso-migration-rehost-vm-sql-ag/essentials.png)
 
@@ -576,7 +576,7 @@ Contoso가 모든 설정을 완료하면 마이그레이션된 데이터베이�
 **도움이 더 필요하세요?**
 - [가용성 그룹](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#create-the-availability-group) 및 [수신기](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-tutorial#configure-listener) 만들기에 대해 알아보세요.
 - 수동으로 [부하 분산 장치 IP 주소를 사용하도록 클러스터를 설정](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener#configure-the-cluster-to-use-the-load-balancer-ip-address)합니다.
-- SAS 만들기 및 사용에 대해 [알아보세요](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-2).
+- SAS 만들기 및 사용에 대해 [알아보세요](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
 ## <a name="step-8-migrate-the-vm-with-site-recovery"></a>8단계: Site Recovery를 사용하여 VM 마이그레이션
@@ -588,14 +588,14 @@ Contoso는 빠른 테스트 장애 조치(failover)를 실행한 다음, VM을 �
 테스트 장애 조치(failover)를 실행하면 마이그레이션 전에 모든 요소가 예상대로 작동하는지 확인하는 데 도움이 됩니다. 
 
 1. Contoso는 사용할 수 있는 최근 특정 시점(**최근에 처리됨**)으로 테스트 장애 조치(failover)를 실행합니다.
-2. 장애 조치(failover)를 트리거하기 전에 Site Recovery가 원본 VM 종료를 시도하도록 **장애 조치(failover)를 시작하기 전에 머신을 종료합니다.** 를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. 
-3. 다음과 같이 테스트 장애 조치(failover)가 실행됩니다. 
+2. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 VM 종료를 시도하도록 **장애 조치를 시작하기 전에 머신 종료**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. 
+3. 테스트 장애 조치가 다음과 같이 실행됩니다. 
 
     - 필수 구성 요소 확인은 마이그레이션에 필요한 모든 조건이 충족되었는지 확인하기 위해 실행합니다.
     - 장애 조치(failover)는 데이터를 처리하며 이 데이터에서 Azure VM이 만들어질 수 있습니다. 최신 복구 지점을 선택하는 경우 해당 데이터에서 복구 지점이 만들어집니다.
     - 이전 단계에서 처리한 데이터를 사용하여 Azure VM이 만들어집니다.
 
-3. 장애 조치(failover)가 완료되면 Azure Portal에 Azure VM 복제본이 표시됩니다. Contoso는 VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다. 
+3. 장애 조치가 완료되면 Azure Portal에 Azure VM 복제본이 표시됩니다. Contoso는 VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다. 
 4. 확인한 후 Contoso는 장애 조치(failover)를 정리하고 모든 관찰 내용을 기록 및 저장합니다. 
 
 ### <a name="run-a-failover"></a>장애 조치(Failover) 실행
@@ -604,7 +604,7 @@ Contoso는 빠른 테스트 장애 조치(failover)를 실행한 다음, VM을 �
 
      ![복구 계획](./media/contoso-migration-rehost-vm-sql-ag/recovery-plan.png)
 
-2. 계획에 대해 장애 조치(failover)를 실행합니다. 최근 복구 지점을 선택하고 Site Recovery가 장애 조치(failover)를 트리거하기 전에 온-프레미스 VM을 종료하도록 지정합니다.
+2. 계획에 대해 장애 조치(failover)를 실행합니다. 최근 복구 지점을 선택하고 Site Recovery에서 장애 조치를 트리거하기 전에 온-프레미스 VM을 종료하도록 지정합니다.
 
     ![장애 조치(failover)](./media/contoso-migration-rehost-vm-sql-ag/failover1.png)
 
@@ -612,7 +612,7 @@ Contoso는 빠른 테스트 장애 조치(failover)를 실행한 다음, VM을 �
 
     ![복구 계획](./media/contoso-migration-rehost-vm-sql-ag/failover2.png)
 
-6. Azure에서 VM을 확인한 후 마이그레이션을 완료하여 마이그레이션 프로세스를 마치고, VM 복제를 중지하고, VM에 대한 Site Recovery 청구를 중지합니다.
+6. Azure에서 VM이 확인되면 마이그레이션을 완료하여 마이그레이션 프로세스를 마치고, VM에 대한 복제를 중지하고, VM에 대한 Site Recovery 청구를 중지합니다.
 
     ![장애 조치(failover)](./media/contoso-migration-rehost-vm-sql-ag/failover3.png)
 
@@ -624,15 +624,15 @@ Contoso는 빠른 테스트 장애 조치(failover)를 실행한 다음, VM을 �
 
     ![장애 조치(failover)](./media/contoso-migration-rehost-vm-sql-ag/failover4.png)  
 
-2. 파일 업데이트 및 저장 후 WEBVM에서 IIS를 다시 시작합니다. 이 작업은 cmd 프롬프트에서 IISRESET/RESTART를 사용하여 수행합니다.
+2. 파일이 업데이트되고 저장되면 WEBVM에서 IIS를 다시 시작합니다. 이 작업은 cmd 프롬프트에서 IISRESET/RESTART를 사용하여 수행합니다.
 2. IIS를 다시 시작한 후에는 응용 프로그램이 SQL MI에서 실행되는 데이터베이스를 사용합니다.
 
 
 **도움이 더 필요하세요?**
 
-- 테스트 장애 조치(failover) 실행에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure). 
+- 테스트 장애 조치를 실행하는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure). 
 - 복구 계획을 만드는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans).
-- Azure로 장애 조치(failover)하는 방법을 [알아보세요](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover).
+- Azure로 장애 조치하는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover).
 
 ## <a name="clean-up-after-migration"></a>마이그레이션 이후 정리
 
@@ -648,7 +648,7 @@ Contoso는 빠른 테스트 장애 조치(failover)를 실행한 다음, VM을 �
 
 ## <a name="review-the-deployment"></a>배포 검토
 
-Azure의 마이그레이션된 리소스를 사용하여 Contoso는 새 인프라를 완전히 운용하고 보안을 유지해야 합니다.
+Azure에서 마이그레이션된 리소스를 사용하여 Contoso는 새 인프라를 완전하게 운영하고 보호해야 합니다.
 
 ### <a name="security"></a>보안
 
@@ -658,7 +658,7 @@ Contoso 보안 팀은 Azure VM WEBVM, SQLAOG1 및 SQLAOG2를 검토하여 보안
 - Azure Disk Encryption 및 KeyVault를 사용하여 디스크의 데이터를 보안하는 것을 고려합니다.
 - TDE(투명한 데이터 암호화)를 평가하고 새 SQL AOG에서 실행되는 SmartHotel 데이터베이스에서 사용하도록 설정해야 합니다. [자세히 알아보기](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
-VM 보안 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+VM 보안 모범 사례에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
 
 ### <a name="backups"></a>Backup
 
@@ -671,7 +671,7 @@ Contoso는 Azure Backup 서비스를 사용하여 WEBVM, SQLAOG1 및 SQLAOG2의 
 
 ## <a name="conclusion"></a>결론
 
-이 문서에서 Contoso는 Site Recovery 서비스를 사용하여 앱 프런트 엔드 VM을 Azure로 마이그레이션함으로써 Azure의 SmartHotel 앱을 다시 호스트했습니다. 앱 데이터베이스를 Azure에 프로비전된 SQL Server 클러스터로 마이그레이션했고 SQL Server AlwaysOn 가용성 그룹에서 보호했습니다.
+이 문서에서 Contoso는 Site Recovery 서비스를 통해 앱 프런트 엔드 VM을 Azure로 마이그레이션하여 Azure에서 SmartHotel 앱을 다시 호스팅했습니다. 앱 데이터베이스를 Azure에 프로비전된 SQL Server 클러스터로 마이그레이션했고 SQL Server AlwaysOn 가용성 그룹에서 보호했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

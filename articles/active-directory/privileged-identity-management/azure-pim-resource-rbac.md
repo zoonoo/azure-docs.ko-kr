@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: protection
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 7cf628495a79fe775528080ae6ec31df8e9a0f37
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447586"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38528623"
 ---
 # <a name="pim-for-azure-resources"></a>Azure Resource용 PIM
 
@@ -59,7 +59,7 @@ PIM은 왼쪽 탐색 메뉴의 [작업] 섹션에서 역할을 활성화하고 �
 
 ## <a name="activate-roles"></a>역할 활성화
 
-Azure Resources에 대한 역할 활성화에서는 적격 역할 구성원이 미래의 날짜/시간으로 활성화를 예약하고 관리자가 구성한 최대 기간 내에서 특정 활성화를 선택할 수 있는 새로운 환경을 소개하고 있습니다. [여기서 Azure AD 역할 활성화](../active-directory-privileged-identity-management-how-to-activate-role.md)에 대해 자세히 알아봅니다.
+Azure Resources에 대한 역할 활성화에서는 적격 역할 구성원이 미래의 날짜/시간으로 활성화를 예약하고 관리자가 구성한 최대 기간 내에서 특정 활성화를 선택할 수 있는 새로운 환경을 소개하고 있습니다. [여기서 Azure AD 역할 활성화](pim-how-to-activate-role.md)에 대해 자세히 알아봅니다.
 
 ![](media/azure-pim-resource-rbac/contributor.png)
 
@@ -156,7 +156,7 @@ Azure Resource에 대한 역할을 검색하고 관리하려면 왼쪽 탐색 �
 
 ![](media/azure-pim-resource-rbac/owner.png)
 
-[액세스 검토에 대해 자세히 알아보기](../active-directory-privileged-identity-management-how-to-perform-security-review.md)
+[액세스 검토에 대해 자세히 알아보기](pim-how-to-perform-security-review.md)
 
 >[!NOTE]
 검토는 현재 구독 리소스 종류에 대해서만 지원됩니다.
@@ -196,5 +196,5 @@ Azure 리소스용 PIM을 사용하면 리소스 역할 할당에 대한 JEA(Jus
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)
-- [여기서 Azure AD 역할 활성화](../active-directory-privileged-identity-management-how-to-activate-role.md)에 대해 자세히 알아보세요.
+- [여기서 Azure AD 역할 활성화](pim-how-to-activate-role.md)에 대해 자세히 알아보세요.
 - [PIM 승인 워크플로](azure-ad-pim-approval-workflow.md)

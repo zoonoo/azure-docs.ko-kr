@@ -17,11 +17,11 @@ ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
 ms.openlocfilehash: 89973581d7c6aa99ab671d5bd04f258898e9235e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31391635"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306840"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Linux의 App Service에서 .NET Core 웹앱 만들기
 
@@ -180,7 +180,7 @@ git push azure master
 
 ![Azure Portal의 App Service 페이지](media/quickstart-dotnetcore/portal-app-overview.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다. 
+왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

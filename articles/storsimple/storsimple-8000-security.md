@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 80cdd2bdad5962a9d5f6a0e20f34ac3db1942741
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650940"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906389"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 보안 및 데이터 보호
 
@@ -43,7 +43,7 @@ Microsoft Azure StorSimple 솔루션은 서로 상호 작용 하는 네 가지 �
 
 StorSimple 장치 관리자 서비스는 Microsoft Azure에서 호스트되고 조직에서 조달하는 모든 StorSimple 장치를 관리하는 데 사용되는 관리 서비스입니다. 웹 브라우저에서 조직 자격 증명을 사용하여 Azure Portal에 로그온하면 StorSimple 장치 관리자 서비스에 액세스할 수 있습니다.
 
-StorSimple 장치 관리자 서비스에 액세스하려면 조직에 StorSimple을 포함하는 Azure 구독이 있어야 합니다. 구독은 Azure Portal에서 액세스할 수 있는 기능을 제어합니다. 조직에 Azure 구독이 없고 이에 대한 자세한 정보를 알려면 [조직으로 Azure에 등록](../active-directory/sign-up-organization.md)을 참조하세요.
+StorSimple 장치 관리자 서비스에 액세스하려면 조직에 StorSimple을 포함하는 Azure 구독이 있어야 합니다. 구독은 Azure Portal에서 액세스할 수 있는 기능을 제어합니다. 조직에 Azure 구독이 없고 이에 대한 자세한 정보를 알려면 [조직으로 Azure에 등록](../active-directory/fundamentals/sign-up-organization.md)을 참조하세요.
 
 StorSimple 장치 관리자 서비스는 Azure에서 호스트되므로 Azure 보안 기능으로 보호됩니다. Microsoft Azure에서 제공하는 보안 기능에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/security/)로 이동합니다.
 
@@ -267,7 +267,7 @@ StorSimple는 StorSimple 솔루션의 구성 요소 간 이동되는 또는 저�
 
 **A:** StorSimple 장치 관리자 서비스에서 새 인증서를 다운로드하여 원격 액세스 클라이언트의 인증서 저장소에 설치될 수 있도록 제공합니다. 자세한 내용은 다음을 참조하세요.
 
-* [가져오기-Certificate cmdlet](https://technet.microsoft.com/library/hh848630.aspx)
+* [가져오기-Certificate cmdlet](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate)
 
 **Q:** StorSimple 장치 관리자 서비스가 손상되어도 데이터가 보호되나요?
 

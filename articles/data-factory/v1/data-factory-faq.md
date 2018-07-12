@@ -15,15 +15,15 @@ ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 1db10a1578133021b976231a66aee6b550d71faf
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046757"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299734"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure 데이터 팩터리 - 질문과 대답
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [질문과 대답 - Data Factory](../frequently-asked-questions.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [질문과 대답 - Data Factory](../frequently-asked-questions.md)를 참조하세요.
 
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?

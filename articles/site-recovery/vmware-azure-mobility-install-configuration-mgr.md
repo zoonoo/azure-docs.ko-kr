@@ -1,17 +1,17 @@
 ---
 title: System Center Configuration Manager를 사용하여 Azure Site Recovery에 대한 모바일 서비스 설치 자동화 | Microsoft Docs
 description: 이 문서에서는 System Center Configuration Manager를 사용하여 모바일 서비스 설치를 자동화하는 방법을 안내합니다.
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
-ms.author: anoopkv
-ms.openlocfilehash: c01fa286b0f9b9768ddc719b41c77e331aa82f8f
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.topic: article
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: 6aff17908d220557720776a2d7884adc28b5deee
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286565"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37917172"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>System Center Configuration Manager를 사용하여 모바일 서비스 설치 자동화
 

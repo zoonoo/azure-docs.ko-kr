@@ -7,16 +7,16 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 3e7436c4b69a27931238ea80304231394074ffe3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5a772f8792c02139e45977e207b5be4bebc63a9c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831097"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906329"
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>변경 내용을 유지하고 큰 파일 사용
 Azure Machine Learning 실험 서비스를 사용하여 다양한 실행 대상을 구성할 수 있습니다. 로컬 컴퓨터 또는 로컬 컴퓨터의 Docker 컨테이너처럼 로컬인 대상도 있고, 원격 컴퓨터 또는 HDInsight 클러스터의 Docker 컨테이너처럼 원격인 대상도 있습니다. 자세한 내용은 [Azure Machine Learning 실험 실행 서비스 개요](experimentation-service-configuration.md)를 참조하세요. 
@@ -83,12 +83,12 @@ Azure Machine Learning Workbench에서 특정 실행의 실행 세부 정보 페
 import os
 
 # write to the shared folder
-with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'wb') as f:
-    f.write(“Hello World”)
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "w") as f1:
+    f1.write(“Hello World”)
 
 # read from the shared folder
-with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', 'r') as f:
-    text = file.read()
+with open(os.environ['AZUREML_NATIVE_SHARE_DIRECTORY'] + 'test.txt', "r") as f2:
+    text = f2.read()
 ```
 
 보다 완전한 예제를 보려면 _아이리스 분류_ 샘플 프로젝트의 *iris_sklearn_shared_folder.py* 파일을 참조하세요.
@@ -162,6 +162,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 ```python
 from azure.storage.blob import BlockBlobService
+from azure.storage.blob.models import PublicAccess
 import glob
 import os
 
@@ -172,7 +173,7 @@ CONTAINER_NAME = "<container name>"
 blob_service = BlockBlobService(account_name=ACCOUNT_NAME, account_key=ACCOUNT_KEY)
 
 ## Create a new container if necessary, or use an existing one
-my_service.create_container(CONTAINER_NAME, fail_on_exist=False, public_access=PublicAccess.Container)
+blob_service.create_container(CONTAINER_NAME, fail_on_exist=False, public_access=PublicAccess.Container)
 
 # df is a pandas DataFrame
 df.to_csv('mydata.csv', sep='\t', index=False)

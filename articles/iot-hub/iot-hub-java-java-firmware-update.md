@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: dobett
 ms.openlocfilehash: 5991615bca26749e1f138b561260108f8bcf2646
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634610"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611330"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-javajava"></a>장치 관리를 사용하여 장치 펌웨어 업데이트(Java/Java)를 시작합니다.
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

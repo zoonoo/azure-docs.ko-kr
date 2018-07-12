@@ -16,11 +16,11 @@ ms.workload: integration
 ms.date: 09/19/2016
 ms.author: estfan; ladocs
 ms.openlocfilehash: 8bcf69a7c8e04cb45d795fd0d6f20d477c15865d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296138"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652008"
 ---
 # <a name="get-started-with-the-twilio-connector"></a>Twilio 커넥터 시작
 Twilio에 연결하여 전역 SMS, MMS 및 IP 메시지를 보내고 받습니다. Twilio를 사용하여 다음을 수행할 수 있습니다.

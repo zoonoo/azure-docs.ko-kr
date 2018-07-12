@@ -6,14 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 2e9a46f2a99bc9b530ac5859068bde58bf5b5098
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38634090"
 ---
 # <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>자습서: 지역 배포에 업데이트된 이미지 푸시
 
@@ -70,7 +71,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="rebuild-the-image"></a>이미지 다시 빌드
 
-이제 웹 응용 프로그램을 업데이트했으므로 해당 컨테이너 이미지를 다시 빌드합니다. 이전처럼 로그인 서버 URL을 포함하는 정규화된 이미지 이름을 사용합니다. 태그의 경우:
+이제 웹 응용 프로그램을 업데이트했으므로 해당 컨테이너 이미지를 다시 빌드합니다. 이전처럼 로그인 서버의 FQDN(정규화된 도메인 이름)을 포함한 정규화된 이미지 이름을 태그에 사용합니다.
 
 ```bash
 docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-helloworld:v1
@@ -78,15 +79,16 @@ docker build . -f ./AcrHelloworld/Dockerfile -t <acrName>.azurecr.io/acr-hellowo
 
 ## <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
-이제 지역에서 복제된 레지스트리에 업데이트된 *acr-helloworld* 컨테이너 이미지를 푸시합니다. 여기에서 단일 `docker push` 명령을 실행하여 *미국 서부* 및 *미국 동부* 지역 모두의 레지스트리 복제본에 업데이트된 이미지를 배포합니다.
+다음으로, 지역 복제된 레지스트리에 업데이트된 *acr-helloworld* 컨테이너 이미지를 푸시합니다. 여기에서 단일 `docker push` 명령을 실행하여 *미국 서부* 및 *미국 동부* 지역 모두의 레지스트리 복제본에 업데이트된 이미지를 배포합니다.
 
 ```bash
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-출력은 다음과 유사합니다.
+`docker push` 출력은 다음과 비슷합니다.
 
-```bash
+```console
+$ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1
 The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
 5b9454e91555: Pushed
 d6803756744a: Layer already exists
@@ -126,19 +128,17 @@ Webhook는 두 지역 웹앱에 업데이트된 컨테이너를 자동으로 배
 
 ![미국 동부 지역에서 실행되는 수정된 웹앱의 브라우저 보기][deployed-app-eastus-modified]
 
-단일 `docker push`를 사용하여 두 지역 웹앱 배포를 업데이트했고 Azure Container Registry는 네트워크에 가까운 리포지토리에서 컨테이너 이미지를 제공했습니다.
+단일 `docker push`를 사용하여 두 지역 웹앱 배포에서 실행되는 웹 응용 프로그램을 자동으로 업데이트했습니다. 그리고 Azure Container Registry는 각 배포와 가장 가까이 있는 리포지토리의 컨테이너 이미지를 제공했습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 지역에서 복제된 레지스트리에 새 버전의 웹 응용 프로그램 컨테이너를 업데이트 및 푸시했습니다. Azure Container Registry의 웹후크가 레지스트리 복제본에서 로컬 끌어오기를 트리거하는 업데이트를 Web App for Containers에 알렸습니다.
+이 자습서에서는 지역에서 복제된 레지스트리에 새 버전의 웹 응용 프로그램 컨테이너를 업데이트 및 푸시했습니다. Azure Container Registry의 웹후크가 가장 가까운 레지스트리 복제본에서 로컬 끌어오기를 트리거하는 업데이트를 Web App for Containers에 알렸습니다.
 
-이 시리즈의 마지막 자습서에서 다음을 수행했습니다.
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build: 자동화된 이미지 빌드 및 패치
 
-> [!div class="checklist"]
-> * 웹 응용 프로그램 HTML 업데이트
-> * Docker 이미지 빌드 및 태그 지정
-> * Azure Container Registry에 변경 내용 푸시
-> * 두 개의 서로 다른 지역에서 업데이트된 앱 보기
+지역 복제 외에도 ACR Build는 컨테이너 배포 파이프라인을 최적화할 수 있는 Azure Container Registry의 또 다른 기능입니다. ACR Build 개요부터 시작하여 그 기능을 알아보세요.
+
+[ACR Build를 사용하여 OS 및 프레임워크 패치 자동화](container-registry-build-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

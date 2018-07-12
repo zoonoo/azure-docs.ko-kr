@@ -10,11 +10,11 @@ ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
 ms.openlocfilehash: 0a3f0baa4998dbc594023935575d659f7d45bbb9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32161993"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38629072"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-datadog"></a>Datadog을 사용하여 Azure Container Service 클러스터 모니터링
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 96432abe619ea23c1a06735567d00660e5430550
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781852"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633284"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>개발자를 위한 Azure DevTest Labs 사용
 Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 있지만 기본 시나리오 중 하나는 DevTest Labs를 사용하여 개발자를 위한 개발 컴퓨터를 호스트하는 것입니다. 이 시나리오에서는 DevTest Labs는 다음과 같은 이점을 제공합니다.

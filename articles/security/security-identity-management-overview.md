@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 8763f1dca110a43586619c09f5d25c340c177b09
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: cbf6ac736db9935f5ec52fa4507dab1e56bcde43
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300660"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611190"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 응용 프로그램 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호는 Multi-Factor Authentication 및 조건부 액세스 정책 등 유효성 검사의 추가 수준을 사용하도록 설정합니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
@@ -134,9 +134,9 @@ Azure AD Privileged Identity Management로 다음을 수행할 수 있습니다.
 
 자세한 정보:
 
-* [Azure AD Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Azure AD Privileged Identity Management의 역할](../active-directory/active-directory-privileged-identity-management-roles.md)
-* [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](../active-directory/active-directory-privileged-identity-management-how-to-add-role-to-user.md)
+* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
+* [Azure AD Privileged Identity Management의 역할](../active-directory/privileged-identity-management/pim-roles.md)
+* [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>ID 보호
 Azure AD ID 보호는 조직의 ID에 영향을 주는 위험 이벤트와 잠재적 취약성에 대한 통합된 뷰를 제공하는 보안 서비스입니다. ID 보호는 Azure AD 비정상 작업 보고서를 통해 사용할 수 있는 기존 Azure AD 변칙 검색 기능을 활용합니다. 또한 ID 보호는 실시간으로 변칙을 검색할 수 있는 새 위험 이벤트 유형을 도입했습니다.
