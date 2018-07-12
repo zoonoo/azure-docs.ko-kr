@@ -5,21 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 06/04/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: fa6a232c657d9d96943f241eb05221e42f0f599b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763343"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869146"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure Portal을 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 이벤트 데이터를 기록하는 Azure 함수에 이벤트를 보냅니다. 작업을 완료하면 이벤트 데이터가 엔드포인트에 전송되고 기록되었음을 확인합니다.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="create-a-custom-topic"></a>사용자 지정 토픽 만들기
 

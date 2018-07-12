@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/24/2017
 ms.author: wesmc
 ms.openlocfilehash: 270158bbf85a58a48a367a091ad2b09a9d114b2b
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910852"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38700886"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-redis-cache"></a>프리미엄 Azure Redis Cache에 데이터 지속성을 구성하는 방법
 Azure Redis Cache에는 클러스터링, 지속성, 가상 네트워크 지원 등의 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 이 문서에서는 프리미엄 Azure Redis Cache에서 지속성을 구성하는 방법을 설명합니다.

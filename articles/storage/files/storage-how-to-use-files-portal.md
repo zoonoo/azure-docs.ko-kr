@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.openlocfilehash: 24996e80d2e75978a814bbf471176d4edcf22549
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031654"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479175"
 ---
 # <a name="managing-azure-file-shares-with-the-azure-portal"></a>Azure Portal을 사용하여 Azure 파일 공유 관리 
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 가이드에서는 [Azure Portal](https://portal.azure.com/)을 사용하여 Azure 파일 공유 작업의 기본 사항을 안내합니다. 방법 배우기:

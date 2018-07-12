@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: jroth
 ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072320"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704541"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "34072320"
 > [!TIP]
 > SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a id="select"></a>SQL Server 가상 머신 갤러리 이미지
 

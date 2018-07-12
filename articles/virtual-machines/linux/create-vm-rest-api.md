@@ -3,7 +3,7 @@ title: Azure REST API를 통해 Linux 가상 머신 만들기 | Microsoft Docs
 description: Azure에서 Azure REST API를 통해 관리 디스크 및 SSH 인증을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
-ms.author: iainfou
-ms.openlocfilehash: e3f41bea26e9a5ff45b31ae9d9a2e5955317ad7a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.author: cynthn
+ms.openlocfilehash: 0f77b46be0207b0ce96e6dc2562fb5298afbe36b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34826365"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928185"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 

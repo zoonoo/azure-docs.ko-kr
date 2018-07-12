@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/05/2018
+ms.date: 7/06/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 091076a86c7f1c3f83f20a47b8f351d050350c9a
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263466"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902992"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -102,7 +102,7 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 * **IBM QRadar** - Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](http://www.ibm.com/support)에서 다운로드할 수 있습니다. [Azure와의 통합에 대해 여기서 자세히 알아볼 수 있습니다](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** - Splunk 설정에 따라 두 가지 접근 방법이 있습니다.
     1. [Splunk용 Azure Monitor 추가 기능](https://splunkbase.splunk.com/app/3534/)은 Splunkbase와 오픈 소스 프로젝트에서 사용할 수 있습니다. [해당 설명서는 여기에 있습니다](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
-    2. Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우), [이벤트 허브의 새 메시지로 트리거되는 이 함수](https://github.com/sebastus/AzureFunctionForSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다.
+    2. Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우), [이벤트 허브의 새 메시지로 트리거되는 이 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다.
 * **SumoLogic** - 이벤트 허브에서 데이터를 사용하도록 SumoLogic을 설정하기 위한 지침은 [여기서 사용할 수 있습니다](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub).
 
 ## <a name="next-steps"></a>다음 단계

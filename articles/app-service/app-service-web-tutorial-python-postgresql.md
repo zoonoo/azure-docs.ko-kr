@@ -13,11 +13,11 @@ ms.date: 01/25/2018
 ms.author: beverst
 ms.custom: mvc
 ms.openlocfilehash: 49ec67d06446d6c48e45aef90e2bd528a1b541a9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203513"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473017"
 ---
 # <a name="tutorial-build-a-python-and-postgresql-web-app-in-azure"></a>자습서: Azure에서 Python 및 PostgreSQL 웹앱 빌드
 
@@ -246,7 +246,7 @@ Git 리포지토리에는 App Service에서 Flask 웹앱을 실행하는 데 필
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
+### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 

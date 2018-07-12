@@ -15,11 +15,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
 ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600294"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307989"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>하나 이상의 Always On 가용성 그룹 수신기 구성 - Resource Manager
 이 문서에서는 다음을 수행하는 방법을 보여 줍니다.

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: b1cfb76c7e196441ebad3bcfcd1d788bd544ab74
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 64c12177e5cf6c82018731b493c0da22e1895b7f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292562"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37855527"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
@@ -51,7 +51,7 @@ Azure Active Directory(Azure AD) 암호 재설정이 올바르게 작동하려�
 
 ## <a name="enable-group-or-user-based-licensing"></a>그룹 또는 사용자 기반 라이선스 사용
 
-Azure AD가 이제 그룹 기반 라이선스를 지원합니다. 관리자는 라이선스를 한 번에 하나씩 할당하는 대신 사용자 그룹에 한꺼번에 라이선스를 할당할 수 있습니다. 자세한 내용은 [라이선스 할당, 확인 및 문제 해결](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses)을 참조하세요.
+Azure AD가 이제 그룹 기반 라이선스를 지원합니다. 관리자는 라이선스를 한 번에 하나씩 할당하는 대신 사용자 그룹에 한꺼번에 라이선스를 할당할 수 있습니다. 자세한 내용은 [라이선스 할당, 확인 및 문제 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses)을 참조하세요.
 
 일부 Microsoft 서비스는 모든 위치에서 사용할 수 없습니다. 사용자에게 라이선스를 할당하려면 먼저 관리자가 해당 사용자의 **사용 위치** 속성을 지정해야 합니다. 라이선스는 Azure Portal의 **사용자** > **프로필** > **설정**에서 할당할 수 있습니다. *그룹 라이선스 할당을 사용할 때 사용 위치가 지정되지 않은 사용자는 디렉터리의 위치를 상속합니다.*
 

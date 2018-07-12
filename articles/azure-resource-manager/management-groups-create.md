@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/1/2018
+ms.date: 07/09/2018
 ms.author: rithorn
-ms.openlocfilehash: 1592e47509f2537bef9cbcefd3cf49618561edcc
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: f2b596b34aa18d20fa888ad40e82eccb90d5fd8c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069069"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38465774"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>리소스 조직 및 관리에 대한 관리 그룹 만들기
 관리 그룹은 여러 구독에서 액세스, 정책 및 규정 준수를 관리하는 데 도움이 되는 컨테이너입니다. 이러한 컨테이너를 만들어 [Azure 정책](../azure-policy/azure-policy-introduction.md) 및 [Azure 역할 기반 액세스 제어](../role-based-access-control/overview.md)와 함께 사용할 수 있는 효과적이고 효율적인 계층을 구축합니다. 관리 그룹에 대한 자세한 내용은 [Azure 관리 그룹으로 리소스 구성](management-groups-overview.md)을 참조하세요. 
@@ -73,5 +73,5 @@ C:\ az account management-group create --group-name <YourGroupName>
 - [Azure 관리 그룹으로 리소스 구성](management-groups-overview.md)
 - [관리 그룹을 변경, 삭제 또는 관리하는 방법](management-groups-manage.md)
 - [Azure PowerShell 모듈 설치](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview)
-- [REST API 사양 검토](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)
+- [REST API 사양 검토](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Azure CLI 확장 설치](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available)

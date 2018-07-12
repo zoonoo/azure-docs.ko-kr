@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 42471687e0a56ff0bacf5c9effecb0e2466b4690
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f2d0b009c4451a4108222ac7aa7954ba6dd86699
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593594"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869010"
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Azure AD에서 셀프 서비스 암호 재설정 자세히 알아보기
 
@@ -235,7 +235,7 @@ Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미�
 암호 재설정 및 변경은 모든 B2B(기업 간 전자 상거래) 구성에서 완전히 지원됩니다. B2B 사용자 암호 재설정은 다음 세 가지 경우에 지원됩니다.
 
    * **기존 Azure AD 테넌트가 있는 파트너 조직의 사용자** - 제휴한 조직에 기존 Azure AD 테넌트가 있는 경우 "해당 테넌트에서 사용되는 모든 암호 재설정 정책을 따릅니다". 암호 재설정이 작동하려면 파트너 조직에서 Azure AD SSPR을 사용하도록 설정되어 있는지 확인해야 합니다. Office 365 고객에게 추가 요금이 청구되지 않으며 [암호 관리 시작](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) 가이드의 단계에 따라 이 기능을 사용하도록 설정할 수 있습니다.
-   * 셀프 서비스 등록을 통해 **로그인한 사용자** - 제휴한 조직에서 [셀프 서비스 등록](../active-directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
+   * 셀프 서비스 등록을 통해 **로그인한 사용자** - 제휴한 조직에서 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
    * **B2B 사용자** - 새 [Azure AD B2B 기능](../active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대 프로세스 중에 등록한 전자 메일을 통해 암호를 다시 설정할 수 있습니다.
 
 이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 http://passwordreset.microsoftonline.com으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.

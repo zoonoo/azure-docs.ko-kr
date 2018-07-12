@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30191384"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452637"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>네이티브 Azure 인증서 인증을 사용하여 VNet에 지점 및 사이트 간 연결 구성: Azure portal
 
@@ -29,7 +29,7 @@ ms.locfileid: "30191384"
 ![Azure VNet-지점 및 사이트 간 연결 다이어그램에 컴퓨터 연결](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
 
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
 지점 및 사이트 간 네이티브 Azure 인증서 인증 연결은 이 연습에서 구성하는 다음 항목을 사용합니다.
 

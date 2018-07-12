@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 87381a27a59d6719f4bfff9ed367598932c1985c
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436406"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857534"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -227,7 +227,7 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 `groups` 폴더는 서비스 인스턴스에 정의된 각 그룹에 대한 폴더를 포함하고 있습니다.
 
 * `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)의 `description` 속성에 해당합니다.
+* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)의 `description` 속성에 해당합니다.
 
 ### <a name="policies-folder"></a>policies 폴더
 `policies` 폴더에는 서비스 인스턴스에 대한 정책 설명이 포함되어 있습니다.

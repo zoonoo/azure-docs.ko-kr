@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e72ec06f7c682e68ca94ba5d4044d1d9974b0b24
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 1e512bdd0a7df50b19fa49bd7b83632499775b04
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101044"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927726"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
@@ -122,7 +122,7 @@ docker push <acrLoginServer>/azure-vote-front:v1
 
 ## <a name="list-images-in-registry"></a>레지스트리에서 이미지 나열
 
-Azure Container Registry에 밀어넣은 이미지 목록을 반환하려면 [az acr repository list][az-acr-repository-list] 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
+Azure Container Registry로 푸시한 이미지 목록을 반환하려면 [az acr repository list][az-acr-repository-list] 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

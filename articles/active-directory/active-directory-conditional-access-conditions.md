@@ -18,10 +18,10 @@ ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
 ms.openlocfilehash: 42792170593dbd94d0eae9b408c70f326891508a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 07/10/2018
 ms.locfileid: "36232177"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란? 
@@ -223,7 +223,7 @@ EWS가 사용하는 인증 프로토콜에 따라 다릅니다. EWS 응용 프�
 
 **Exchange ActiveSync는 모든 조건 및 컨트롤을 지원하나요?**
 
-번호 다음은 Exchange ActiveSync(EAS) 지원에 대한 요약입니다.
+아니요. 다음은 Exchange ActiveSync(EAS) 지원에 대한 요약입니다.
 
 - EAS는 사용자 및 그룹 대상 지정만을 지원합니다. 게스트, 역할을 지원하지 않습니다. 게스트/역할 조건이 구성된 경우 정책을 사용자에게 적용해야 하는지 여부를 확인할 수 없기 때문에 모든 사용자가 차단됩니다.
 
@@ -235,7 +235,7 @@ EWS가 사용하는 인증 프로토콜에 따라 다릅니다. EWS 응용 프�
 
 **정책은 앞으로 모든 클라이언트 앱에 기본적으로 적용되나요?**
 
-번호 기본 정책 동작에 변경 내용이 없습니다. 정책은 기본적으로 브라우저 및 모바일 응용 프로그램/데스크톱 클라이언트에 계속해서 적용됩니다.
+아니요. 기본 정책 동작에 변경 내용이 없습니다. 정책은 기본적으로 브라우저 및 모바일 응용 프로그램/데스크톱 클라이언트에 계속해서 적용됩니다.
 
 
 

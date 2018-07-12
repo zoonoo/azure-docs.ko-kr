@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
 ms.openlocfilehash: b8d5a8d8725e2e9412cef7c377b17a77f34be27d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592510"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473651"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "27592510"
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * [Xamarin.iOS 빠른 시작 자습서](app-service-mobile-xamarin-ios-get-started.md) 를 완료합니다.
 * 실제 iOS 장치. 푸시 알림은 iOS 시뮬레이터에서 지원되지 않습니다.
 

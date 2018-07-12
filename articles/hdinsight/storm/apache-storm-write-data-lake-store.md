@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 149f91f3091f08da2e54458d708a17da928c1972
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131738"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903135"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
 
@@ -69,7 +69,7 @@ HdfsBolt는 사용자가 제공하는 파일 구성표를 사용하여 HDFS에 �
 
 ### <a name="example-configuration"></a>예제 구성
 
-다음 YAML은 예제에 포함된 `resources/writetohdfs.yaml` 파일에서 인용한 부분입니다. 이 파일에서는 Apache Storm의 [Flux](https://storm.apache.org/releases/1.1.0/flux.html) 프레임워크를 사용하여 Storm 토폴로지를 정의합니다.
+다음 YAML은 예제에 포함된 `resources/writetohdfs.yaml` 파일에서 인용한 부분입니다. 이 파일에서는 Apache Storm의 [Flux](https://storm.apache.org/releases/1.1.2/flux.html) 프레임워크를 사용하여 Storm 토폴로지를 정의합니다.
 
 ```yaml
 components:
@@ -133,7 +133,7 @@ bolts:
 * `rotationPolicy`: 파일을 회전하는 시기를 정의합니다. 이 예제에서는 회전이 수행되지 않습니다.
 * `hdfs-bolt`: 이전 구성 요소를 `HdfsBolt` 클래스의 구성 매개 변수로 사용합니다.
 
-Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)을 참조하세요.
+Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)을 참조하세요.
 
 ## <a name="configure-the-cluster"></a>클러스터 구성
 

@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 780ab56df19e8d6761fcf88fa7fbed3e8002fbe8
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025356"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860006"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Azure 데이터 카탈로그의 새로운 기능
 **Azure Data Catalog**에 대한 업데이트는 정기적으로 릴리스됩니다. 일부 릴리스에서 백 엔드 서비스 기능에 초점을 맞추므로 모든 릴리스는 새로운 사용자용 기능을 포함하지 않습니다. 이 페이지는 Azure Data Catalog 서비스에 추가된 새로운 사용자용 기능을 강조 표시합니다.
@@ -93,7 +93,7 @@ ms.locfileid: "37025356"
 
 ## <a name="whats-new-for-january-2017"></a>2017년 1월의 새로운 기능 
 2017년 1월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
-*   Azure Data Catalog는 이제 [CSA STAR](https://www.microsoft.com/trustcenter/compliance/csa-star-certification) 규정을 준수합니다.
+*   Azure Data Catalog는 이제 [CSA STAR](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification) 규정을 준수합니다.
 *   [Excel 2016 및 Excel용 파워 쿼리에서 가져오기 및 변환](https://support.office.com/article/Introduction-to-Microsoft-Power-Query-for-Excel-6E92E2F4-2079-4E1F-BAD5-89F6269CD605)과 통합 Excel 사용자는 Excel 내에서 Azure Data Catalog를 사용하여 쿼리를 공유하고 검색할 수 있습니다. 이 기능은 Power BI Pro 라이선스를 갖고 있는 사용자에게 제공됩니다.
 
 ## <a name="whats-new-for-december-2016"></a>2016년 12월의 새로운 기능
@@ -105,7 +105,7 @@ ms.locfileid: "37025356"
 
 ## <a name="whats-new-for-november-2016"></a>2016년 11월의 새로운 기능
 2016년 11월을 기준으로 다음과 같은 기능이 Azure Data Catalog에 추가되었습니다.
-*   Azure Data Catalog는 이제 [ISO/IEC 27001](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001) 및 [ISO/IEC 27018](https://www.microsoft.com/TrustCenter/Compliance/iso-iec-27018) 규정을 준수합니다.
+*   Azure Data Catalog는 이제 [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27001) 및 [ISO/IEC 27018](https://www.microsoft.com/en-us/TrustCenter/Compliance/iso-iec-27018) 규정을 준수합니다.
 *   데이터 카탈로그 포털 및 REST API를 사용하여 ODBC 데이터 원본의 수동 등록에 대한 지원
 
 ## <a name="whats-new-for-september-2016"></a>2016년 9월의 새로운 기능

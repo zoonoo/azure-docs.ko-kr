@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f40f2102729cc317f74bd5a91b17a349a7824476
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849994"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473989"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정**을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](active-directory-aadconnect-get-started-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -67,7 +67,7 @@ Azure AD에 연결 화면에서, 전역 관리자 계정 및 암호를 입력합
 전역 관리자 계정이 MFA를 사용하도록 설정된 경우 로그인 팝업에서 암호를 다시 제공하고 MFA 인증을 완료해야 합니다. 과제에서는 확인 코드 또는 전화 통화를 제공할 수 있습니다.  
 ![사용자 로그인 MFA](./media/active-directory-aadconnect-get-started-custom/connectaadmfa.png)
 
-또한 전역 관리자 계정은 [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)를 사용하도록 설정할 수 있습니다.
+또한 전역 관리자 계정은 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)를 사용하도록 설정할 수 있습니다.
 
 오류가 발생하고 연결에 문제가 있는 경우 [연결 문제 해결](active-directory-aadconnect-troubleshoot-connectivity.md)을 참조하세요.
 

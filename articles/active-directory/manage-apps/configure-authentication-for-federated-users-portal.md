@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: it-pro
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f2ab0a4458c83aa9e5c9cee4875e41c24f615018
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 24a6956d3f2289f6ac8ad85e2f48252cc1a4a633
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301202"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858758"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 응용 프로그램에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -207,7 +207,7 @@ HRD 정책을 만든 후에 적용하려면 여러 응용 프로그램 서비스
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2단계: 정책을 할당할 서비스 주체 찾기  
 정책을 할당할 서비스 주체의 **ObjectID**가 필요합니다. 여러 가지 방법으로 서비스 주체의 **ObjectID**를 찾을 수 있습니다.    
 
-포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://graphexplorer.cloudapp.net/)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. PowerShell을 사용하기 때문에 get-AzureADServicePrincipal cmdlet을 사용하여 서비스 주체 및 해당 ID를 나열할 수 있습니다.
+포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. PowerShell을 사용하기 때문에 get-AzureADServicePrincipal cmdlet을 사용하여 서비스 주체 및 해당 ID를 나열할 수 있습니다.
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에게 정책 할당  
 자동 가속을 구성하려는 응용 프로그램의 서비스 주체 **ObjectID**를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.

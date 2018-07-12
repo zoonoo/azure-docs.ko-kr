@@ -3,7 +3,7 @@ title: Azure CLI 1.0을 사용하여 클래식 Linux VM 만들기 | Microsoft Do
 description: Azure CLI 1.0에서 클래식 배포 모델을 사용하여 Linux 가상 머신을 만드는 방법에 대해 알아보기
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
-ms.author: iainfou
-ms.openlocfilehash: 6d3f0dd0c82ad32df4d6e17058d9b1bea57c301f
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: cynthn
+ms.openlocfilehash: 13d0ef93c3828c514e46e37494a66f7003eac827
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841438"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931617"
 ---
 # <a name="how-to-create-a-classic-linux-vm-with-the-azure-cli-10"></a>Azure CLI 1.0을 사용하여 클래식 Linux VM을 만드는 방법
 > [!IMPORTANT] 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743469"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701945"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>StorSimple 8100 장치 개봉, 랙 탑재, 케이블 연결
 ## <a name="overview"></a>개요
@@ -157,7 +157,7 @@ Microsoft Azure StorSimple 8100은 단일 인클로저의 랙 탑재 장치입�
 ## <a name="cable-your-storsimple-8100-device"></a>StorSimple 8100 장치 케이블 연결
 다음 절차는 StorSimple 8100 장치를 전원, 네트워크 및 직렬 연결을 위해 케이블로 연결하는 방법을 설명합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 장치를 케이블로 연결하려면 다음이 필요합니다.
 
 * 저장소 장치는 완전히 개봉되고 랙이 탑재되었습니다.

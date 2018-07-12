@@ -18,11 +18,11 @@ ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 3b4a67a06d628040d155a0fe2d78beb2eee25090
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602453"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477765"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "31602453"
 * 각 가상 네트워크에 VM(가상 머신) 배포
 * VM 간 통신
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

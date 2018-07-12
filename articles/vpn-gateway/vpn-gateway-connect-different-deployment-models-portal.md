@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
 ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603380"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721558"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>포털을 사용하여 다양한 배포 모델에서 가상 네트워크 연결
 
@@ -96,7 +96,7 @@ Location = East US <br>
 
 VPN 게이트웨이가 있는 VNet이 이미 있는 경우 해다 게이트웨이가 동적인지 확인합니다. 정적인 경우 [로컬 사이트를 구성](#local)하기 전에 먼저 VPN 게이트웨이를 삭제해야 합니다.
 
-1. [클래식 포털](https://ms.portal.azure.com)을 열고 Azure 계정으로 로그인합니다.
+1. [클래식 포털](https://ms.portal.azure.com)에서 Azure Portal에 로그인합니다.
 2. **+ 리소스 만들기**를 클릭하여 '새' 페이지를 엽니다.
 3. ‘Marketplace 검색’ 필드에 ‘Virtual Network’를 입력합니다. 대신, 네트워킹 -> Virtual Network를 선택한 경우 클래식 VNet을 만드는 옵션이 표시되지 않습니다.
 4. 반환된 목록에서 'Virtual Network'를 찾아서 클릭하여 Virtual Network 페이지를 엽니다. 

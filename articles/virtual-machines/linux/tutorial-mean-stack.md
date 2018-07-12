@@ -3,7 +3,7 @@ title: 자습서 - Azure의 Linux 가상 머신에 MEAN 스택 만들기 | Micro
 description: 이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/08/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6a9adcd03c5f75b4065273c4ccf657b01bc3d96d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8b472c5f1175f006e4c7a6574135460540bf2283
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190345"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38720655"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "32190345"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.30 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 
 ## <a name="create-a-linux-vm"></a>Linux VM 만들기

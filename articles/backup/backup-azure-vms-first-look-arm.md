@@ -12,11 +12,11 @@ ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: 백업; vm 백업
 ms.openlocfilehash: feae4ac83b637588fe0979a82ce05a56c2d339ae
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606038"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38466134"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure 가상 머신 백업
 

@@ -3,7 +3,7 @@ title: 자습서 - Windows VM을 위한 Azure 가상 네트워크 만들기 및 
 description: 이 자습서에서는 Azure PowerShell을 사용하여 Windows 가상 머신을 위한 Azure 가상 네트워크를 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a13163949a52503f42642c109a4fd4c1dedd837f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 8bf8388829504b18e71ec597d21b844e29a82346
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944089"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931137"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 

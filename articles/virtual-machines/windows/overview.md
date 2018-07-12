@@ -3,7 +3,7 @@ title: Windows Virtual Machines 개요 | Microsoft Docs
 description: Azure에서 Windows 가상 머신 만들기 및 관리에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,24 +14,25 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 105eb95ed28d9a278d60d538aabaadb412c16f4f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c1122ab403eb7192d7acbd493c46d478d0382a6b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267114"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932198"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure에서의 Windows 가상 머신 개요
 
-Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](../../app-service/choose-web-site-cloud-service-vm.md) 중 하나입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 가상 컴퓨터를 선택합니다. 이 문서에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법에 대해 설명합니다.
+Azure Virtual Machines(VM)는 Azure에서 제공하는 여러 유형의 [확장성 있는 주문형 컴퓨팅 리소스](../../app-service/choose-web-site-cloud-service-vm.md) 중 하나입니다. 일반적으로 컴퓨팅 환경에서 다른 선택 옵션에서 제공하는 것보다 더 많이 제어해야 하는 경우에 VM을 선택합니다. 이 문서에서는 VM을 만들기 전에 고려해야 하는 요구 사항, 만드는 방법 및 관리하는 방법에 대해 설명합니다.
 
 Azure VM은 가상 컴퓨터를 실행하는 실제 하드웨어를 구입 및 유지 관리하지 않고도 가상화의 유연성을 제공합니다. 하지만 가상 컴퓨터에서 실행하는 소프트웨어의 구성, 패치 및 설치와 같은 작업을 수행하여 VM을 계속 유지 관리할 필요가 있습니다.
 
 Azure 가상 머신은 다양한 방식으로 사용할 수 있습니다. 일부 사례:
 
-* **개발 및 테스트** – Azure VM은 응용 프로그램의 코딩과 테스트에 필요한 특정 구성을 갖춘 컴퓨터를 만드는 쉽고 빠른 방법을 제공합니다.
+* 
+  **개발 및 테스트** – Azure VM은 응용 프로그램의 코딩과 테스트에 필요한 특정 구성을 갖춘 컴퓨터를 만드는 쉽고 빠른 방법을 제공합니다.
 * **클라우드의 응용 프로그램** – 응용 프로그램에 대한 수요가 변동할 수 있으므로 Azure의 VM에서 응용 프로그램을 실행하는 것이 경제적입니다. 필요할 경우 여분의 VM에 대해 비용을 지불하고, 그렇지 않은 경우에는 해당 VM을 종료합니다.
 * **확장된 데이터 센터** – Azure 가상 네트워크의 가상 머신은 조직의 네트워크에 쉽게 연결할 수 있습니다.
 
@@ -83,9 +84,11 @@ Azure에서는 다양한 버전과 종류의 Windows Server 운영 체제에서 
 | 방법 | 설명 |
 | --- | --- |
 | Azure portal |사용할 이미지를 선택할 때 사용자에 적합한 값이 자동으로 지정됩니다. |
-| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>[Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
+| Azure PowerShell |[Get-AzureRMVMImagePublisher](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimagepublisher) -Location "location"<BR>[Get-AzureRMVMImageOffer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v2.5.0/get-azurermvmimageoffer) -Location "location" -Publisher "publisherName"<BR>
+  [Get-AzureRMVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimagesku) -Location "location" -Publisher "publisherName" -Offer "offerName" |
 | REST API |[이미지 게시자 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[이미지 제안 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[이미지 SKU 나열](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
+| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_publishers) --location "location"<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az_vm_image_list_offers) --location "location" --publisher "publisherName"<BR>
+  [az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az_vm_list_skus) --location "location" --publisher "publisherName" --offer "offerName"|
 
 [사용자 고유의 이미지를 업로드하고 사용하도록](upload-generalized-managed.md#upload-the-vhd-to-your-storage-account) 선택할 수 있습니다. 이렇게 하는 경우 게시자 이름, 제안 및 SKU는 사용되지 않습니다.
 

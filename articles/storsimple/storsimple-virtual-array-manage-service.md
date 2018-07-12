@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/29/2016
 ms.author: alkohli
 ms.openlocfilehash: 1881a0625b107ae1a90e5b772f5296a4d728973d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110301"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688156"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-virtual-array"></a>StorSimple 가상 배열에 StorSimple Device Manager 서비스 배포
 ## <a name="overview"></a>개요
@@ -31,7 +31,7 @@ StorSimple Device Manager 서비스와 관련된 일반적인 태스크는 다�
 * 서비스 만들기
 * 서비스 삭제
 * 서비스 등록 키 가져오기
-* 서비스 등록 키 다시 생성
+* 서비스 등록 키 생성
 
 이 자습서에서는 이러한 태스크를 수행하는 방법을 설명합니다. 이 문서에 포함된 정보는 StorSimple 가상 배열에만 적용됩니다. StorSimple 8000 시리즈에 대한 자세한 내용은 [StorSimple Manager 서비스 배포](storsimple-manage-service.md)를 참조하세요.
 

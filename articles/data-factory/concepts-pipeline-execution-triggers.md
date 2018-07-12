@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: ceff54b15ef70c9654142566bb1d54b6a7990833
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0af6ea05b663f0954785ce966440e3f698ad14a8
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048641"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867089"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -105,8 +105,8 @@ Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickSt
 
 ```json
 {
-  “sourceBlobContainer”: “MySourceFolder”,
-  “sinkBlobCountainer”: “MySinkFolder”
+  "sourceBlobContainer": "MySourceFolder",
+  "sinkBlobCountainer": "MySinkFolder"
 }
 ```
 
@@ -137,7 +137,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 - 일정 트리거: 벽시계 일정에 따라 파이프라인을 호출하는 트리거입니다.
 
-- 연속 창 트리거: 상태를 유지하면서 일정한 간격에 작동하는 트리거입니다. Azure Data Factory는 현재 이벤트 기반 트리거를 지원하지 않습니다. 예를 들어 파일 도착 이벤트에 응답하는 파이프라인 실행에 대한 트리거는 지원되지 않습니다.
+- 연속 창 트리거: 상태를 유지하면서 일정한 간격에 작동하는 트리거입니다.
 
 - 이벤트 기반 트리거: 이벤트에 응답하는 트리거.
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: raynew
-ms.openlocfilehash: 1764f4ed9dfe73763c288844be85d4805401887e
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dc316df754ea0b8630abe341dc5ce6b0adffa685
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285970"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920038"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>일반적인 질문 - VMware에서 Azure로 복제
 
@@ -117,7 +117,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 최신 버전의 OVF 템플릿을 사용하여 [구성 서버 VM을 만드는](vmware-azure-deploy-configuration-server.md) 것이 좋습니다. VMware 서버에 대한 액세스 권한이 없는 것처럼 어떤 이유로 액세스할 수 없는 경우 포털에서 [통합 설치 파일을 다운로드](physical-azure-set-up-source.md)하여 VM에서 실행할 수 있습니다. 
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>구성 서버에서 둘 이상의 지역에 복제할 수 있나요?
-번호 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
+아니요. 이렇게 하려면 각 지역마다 구성 서버를 설정해야 합니다.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Azure에서 구성 서버를 호스팅할 수 있나요?
 가능한 경우 구성 서버를 실행하는 Azure VM에서 온-프레미스 VMware 인프라 및 VM과 통신해야 합니다. 아마도 오버헤드가 실용적이지 않을 것입니다.

@@ -16,11 +16,11 @@ ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
-ms.locfileid: "24526556"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477927"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>StorSimple 가상 배열 배포 – Azure Portal 준비
 
@@ -33,7 +33,7 @@ Resource Manager 모델을 사용하여 가상 배열을 파일 서버 또는 iS
 
 이 문서에 게시된 정보는 Azure Portal 및 Microsoft Azure Government 클라우드에서 StorSimple 가상 배열의 배포에 적용됩니다.
 
-### <a name="get-started"></a>시작
+### <a name="get-started"></a>시작하기
 배포 워크플로는 포털 준비, 가상화된 환경에 가상 배열 프로비전, 설치 완료로 구성됩니다. 파일 서버 또는 iSCSI 서버로 StorSimple 가상 배열 배포를 시작하려면 다음 표에 준비된 리소스를 참고해야 합니다.
 
 #### <a name="deployment-articles"></a>배포 문서
@@ -167,7 +167,7 @@ StorSimple 장치 관리자 서비스를 실행한 후에는 서비스 등록 �
 
 ## <a name="next-step"></a>다음 단계
 
-다음 단계는 StorSimple 가상 배열에 대한 가상 컴퓨터를 프로비전하는 것입니다. 호스트 운영 체제에 따라서 다음의 자세한 지침을 참조하세요.
+다음 단계는 StorSimple 가상 배열에 대한 가상 머신을 프로비전하는 것입니다. 호스트 운영 체제에 따라서 다음의 자세한 지침을 참조하세요.
 
 * [Hyper-V에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-hyperv.md)
 * [VMware에서 StorSimple 가상 배열 프로비전](storsimple-virtual-array-deploy2-provision-vmware.md)

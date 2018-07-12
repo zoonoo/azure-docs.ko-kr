@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: 693996595f1a1b963c96e5f59e72fe4c9ca80ff0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753043"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37927692"
 ---
 # <a name="reset-a-vpn-gateway"></a>VPN Gateway 다시 설정
 
@@ -65,7 +65,7 @@ Azure Portal을 사용하여 Resource Manager VPN Gateway를 다시 설정할 �
 게이트웨이를 다시 설정하는 cmdlet은 **Reset-AzureRmVirtualNetworkGateway**입니다. 다시 설정을 수행하기 전에 최신 버전의 [Resource Manager PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.0.0)이 있는지 확인합니다. 다음 예제에서는 TestRG1 리소스 그룹에서 VNet1GW라는 가상 네트워크 게이트웨이를 다시 설정합니다.
 
 ```powershell
-$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroup TestRG1
+$gw = Get-AzureRmVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
 Reset-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $gw
 ```
 

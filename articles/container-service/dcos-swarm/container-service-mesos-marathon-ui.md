@@ -2,19 +2,19 @@
 title: Marathon UI를 사용하여 Azure DC/OS 클러스터 관리
 description: Marathon 웹 UI를 사용하여 컨테이너를 Azure 컨테이너 서비스 클러스터 서비스에 배포합니다.
 services: container-service
-author: dlepow
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: danlep
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 43407d40db0aab2772cb1baeab3471be68aee2ab
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32166986"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903084"
 ---
 # <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>Marathon 웹 UI를 통해 Azure Container Service DC/OS 클러스터 관리
 
