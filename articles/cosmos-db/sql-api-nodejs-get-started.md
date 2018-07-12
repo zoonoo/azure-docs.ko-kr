@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 08/14/2017
 ms.author: sngun
 ms.openlocfilehash: 6a98d3b477a3cb06c1454a79b77dffa685853a35
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084827"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38668127"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js 자습서: Azure Cosmos DB에서 SQL API를 사용하여 Node.js 콘솔 응용 프로그램 만들기
 

@@ -10,11 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: 0445817f9ff403156025e38a1e14a3892a9a292b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031195"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38667025"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules---preview"></a>자습서: IoT Edge 모듈로 Azure Functions 배포 - 미리 보기
 
@@ -41,8 +41,8 @@ ms.locfileid: "37031195"
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * Visual Studio Code에 대한 [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Visual Studio Code에 대한 [Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
-* 개발 컴퓨터의 [Docker CE](https://docs.docker.com/install/) 
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
+* 개발 머신의 [Docker CE](https://docs.docker.com/install/) 
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 이 자습서에서는 VS Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  

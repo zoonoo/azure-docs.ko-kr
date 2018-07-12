@@ -1,17 +1,17 @@
 ---
 title: 모바일 서비스(VMware/Azure 물리적 서버) 설치 | Microsoft Docs
 description: 모바일 서비스 에이전트를 설치하여 Azure Site Recovery를 사용하여 온-프레미스 VMware VM 및 실제 서버를 보호하는 방법에 대해 알아봅니다.
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
-ms.author: anoopkv
-ms.openlocfilehash: 7c292af91fea7f0e0d3b32412cfa9907560d68d9
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.topic: article
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287782"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37919090"
 ---
 # <a name="install-the-mobility-service"></a>모바일 서비스 설치 
 
