@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
 ms.openlocfilehash: 1b599e5b88026c06a6912ede9952497c489b0269
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593545"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697307"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure 포털](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)

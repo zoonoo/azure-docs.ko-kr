@@ -15,11 +15,11 @@ ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27592714"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307173"
 ---
 # <a name="create-a-xamarinios-app"></a>Xamarin.iOS 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "27592714"
 
 이 자습서를 완료해야 Azure App Service에서 Mobile Apps 기능을 사용하는 방법에 대한 다른 모든 Xamarin.iOS 자습서를 진행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져옵니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.

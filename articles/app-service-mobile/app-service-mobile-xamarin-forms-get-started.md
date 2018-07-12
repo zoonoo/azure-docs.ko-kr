@@ -14,11 +14,11 @@ ms.topic: hero-article
 ms.date: 05/25/2018
 ms.author: crdun
 ms.openlocfilehash: b2dafbcf0e41e7387157590e145f74430686321c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597674"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307122"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure를 사용하여 Xamarin.Forms 앱 만들기
 
@@ -58,7 +58,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. [Azure Portal]로 이동합니다.
+1. [Azure 포털]로 이동합니다.
 
 2. Mobile Apps에 대한 설정 블레이드에서 **빠른 시작**(배포 아래) > **Xamarin.Forms**를 차례로 클릭합니다. 3단계 아래에서 **새 앱 만들기**가 선택되어 있지 않으면 클릭합니다.  그런 다음 **다운로드** 단추를 클릭합니다.
 
@@ -72,7 +72,7 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 
 ### <a name="visual-studio-for-mac"></a>Mac용 Visual Studio
 
-1. [Azure Portal]로 이동합니다.
+1. [Azure 포털]로 이동합니다.
 
 2. Mobile Apps에 대한 설정 블레이드에서 **빠른 시작**(배포 아래) > **Xamarin.Forms**를 차례로 클릭합니다. 3단계 아래에서 **새 앱 만들기**가 선택되어 있지 않으면 클릭합니다.  그런 다음 **다운로드** 단추를 클릭합니다.
 
@@ -211,4 +211,4 @@ Xamarin용 Visual Studio Tools는 솔루션을 열어야 합니다. [Xamarin 설
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
 [Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/

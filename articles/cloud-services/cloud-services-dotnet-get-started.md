@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.openlocfilehash: 7860af5dea41ce00739b592c5409fe5a1a05383b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342296"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860023"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -178,7 +178,7 @@ Azure 저장소 계정은 큐 및 Blob 데이터를 클라우드에 저장하기
 
     클라우드 서비스와 저장소 계정이 서로 다른 데이터 센터, 즉 서로 다른 지역에 있는 경우 대기 시간이 길어지고 데이터 센터 외부 대역폭에 대한 요금이 발생합니다. 데이터 센터 내부 대역폭은 무료입니다.
 
-    Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](http://msdn.microsoft.com/library/jj156209.aspx)을 참조하세요.
+    Azure 선호도 그룹은 데이터 센터 리소스 사이의 거리를 최소화하는 메커니즘을 제공하며, 이로 인해 대기 시간이 줄어들 수 있습니다. 이 자습서는 선호도 그룹을 사용하지 않습니다. 자세한 내용은 [Azure에서 선호도 그룹을 만드는 방법](https://msdn.microsoft.com/library/azure/gg715317.aspx)을 참조하세요.
 7. **만들기**를 클릭합니다.
 
     ![새 저장소 계정](./media/cloud-services-dotnet-get-started/newstorage.png)

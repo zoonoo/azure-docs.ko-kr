@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9a29406b92f7d2e2ce8171974efb5a264e112d1d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371153"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38724918"
 ---
 1. [Azure Portal][lnk-portal]에 로그인합니다.
 1. **리소스 만들기** > **사물 인터넷** > **IoT Hub**를 선택합니다.
@@ -36,7 +36,7 @@ ms.locfileid: "34371153"
 
 2. **다음: 크기 및 규모**를 선택하여 IoT Hub를 계속 만듭니다. 
 
-3. **가격 책정 및 규모 계층**을 선택합니다. 이 문서의 경우 구독에서 여전히 제공되는 **F1 - 무료** 계층을 선택합니다. 자세한 내용은 [가격 및 크기 계층][lnk-pricing]을 참조하세요.
+3. **가격 책정 및 규모 계층**을 선택합니다. 이 문서의 경우 구독에서 아직 사용할 수 있다면 **F1 - 무료** 계층을 선택합니다. 자세한 내용은 [가격 및 크기 계층][lnk-pricing]을 참조하세요.
 
    ![IoT Hub 크기 및 규모 창][3]
 
