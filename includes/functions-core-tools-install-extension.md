@@ -9,11 +9,11 @@ ms.date: 04/06/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: d166a77a0636efea3b63660fde2187e3f2ec15c0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063751"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38944057"
 ---
 함수를 로컬로 개발하는 경우, 터미널 또는 명령 프롬프트에서 Azure Functions 핵심 도구를 사용하여 필요한 확장을 설치할 수 있습니다. 
 

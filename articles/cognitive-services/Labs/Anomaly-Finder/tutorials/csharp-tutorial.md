@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375375"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317682"
 ---
 # <a name="anomaly-detection-c-application"></a>변칙 검색 C# 응용 프로그램
 

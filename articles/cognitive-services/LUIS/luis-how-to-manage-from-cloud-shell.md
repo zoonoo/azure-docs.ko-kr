@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: v-geberr
-ms.openlocfilehash: 2de25645e5377efdd53bcc980695804d34db5ee2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8dfe5b2363fbf9b89947956f212d8d4e1ef5d82a
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376983"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867038"
 ---
 # <a name="manage-luis-service-from-azure-cloud-shell"></a>Azure Cloud Shell에서 LUIS 서비스 관리
 Azure Portal에서 PowerShell cmdlet을 사용하여 LUIS 리소스 작업을 수행할 수 있습니다. 
@@ -22,7 +22,7 @@ Azure Portal에서 PowerShell cmdlet을 사용하여 LUIS 리소스 작업을 �
 이러한 cmdlet을 사용하여 LUIS 구독을 [만들고](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0), [사용량](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0)을 비롯한 구독 정보를 가져오고, 구독을 [제거](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0)할 수 있습니다. 
 
 ## <a name="cloud-shell-storage-account-and-authentication"></a>Cloud Shell 저장소 계정 및 인증
-Azure Portal [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)에서 PowerShell을 사용하려면 Azure Storage 계정이 있어야 합니다. [저장소 계정](https://docs.microsoft.com/en-us/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share)이 없는 경우 계정을 만들라는 메시지가 표시됩니다. 저장소 계정을 사용하면 Cloud Shell에 PowerShell 스크립트를 저장할 수 있습니다.  
+Azure Portal [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell)에서 PowerShell을 사용하려면 Azure Storage 계정이 있어야 합니다. [저장소 계정](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage#set-up-a-clouddrive-file-share)이 없는 경우 계정을 만들라는 메시지가 표시됩니다. 저장소 계정을 사용하면 Cloud Shell에 PowerShell 스크립트를 저장할 수 있습니다.  
 
 또한 리소스에 액세스하려면 Cloud Shell에서 Azure에 인증해야 합니다. 
 

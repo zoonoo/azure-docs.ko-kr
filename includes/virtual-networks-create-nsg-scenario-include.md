@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 873549442284ede2e9f020bd90879f721b9c1a18
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31805235"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38760363"
 ---
 ## <a name="scenario"></a>시나리오
 NSG를 만드는 방법을 보다 잘 설명하기 위해 이 문서에서는 다음 시나리오를 사용합니다.

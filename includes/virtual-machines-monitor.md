@@ -16,7 +16,7 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 
     수집된 진단 데이터를 사용하여 VM에 대한 자동 크기 조정을 구성할 수 있습니다. 데이터를 저장하고 성능이 정확하지 않을 때 알려주는 경고를 설정하도록 로그를 구성할 수 있습니다.
 
-## <a name="alerts"></a>경고
+## <a name="alerts"></a>Alerts
 
 특정 성능 메트릭을 기반으로 하는 [경고](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md)를 만들 수 있습니다. 경고를 받을 수 있는 경우의 예는 평균 CPU 사용량이 특정 임계값을 초과하거나 사용 가능한 디스크 공간이 일정량 이하로 떨어지는 경우를 포함합니다. [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 또는 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)를 사용하여 [Azure Portal](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)에서 경고를 구성할 수 있습니다.
 
@@ -60,5 +60,5 @@ Azure Portal, Azure CLI, Azure PowerShell 및 프로그래밍 API(응용 프로�
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md)를 통해 VM 및 위치한 네트워크와 관련된 연결된 리소스를 모니터링할 수 있습니다. [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) 또는 [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md)에 Network Watcher 에이전트 확장을 설치할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure PowerShell을 사용하여 Windows 가상 컴퓨터 모니터링](../articles/virtual-machines/windows/tutorial-monitoring.md) 또는 [Azure CLI를 사용하여 Linux 가상 컴퓨터 모니터링](../articles/virtual-machines/linux/tutorial-monitoring.md)의 단계를 안내합니다.
+- [Azure PowerShell을 사용하여 Windows Virtual Machine 모니터링](../articles/virtual-machines/windows/tutorial-monitoring.md) 또는 [Azure CLI를 사용하여 Linux Virtual Machine 모니터링](../articles/virtual-machines/linux/tutorial-monitoring.md)의 단계를 안내합니다.
 - [모니터링 및 진단](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)에 대한 모범 사례에 대해 자세히 알아봅니다.

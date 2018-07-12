@@ -1,5 +1,5 @@
 
-1. Azure 가상 컴퓨터를 만들고 실행한 후에 Azure Portal의 Virtual Machines 아이콘을 클릭하면 VM을 볼 수 있습니다.
+1. Azure Virtual Machine을 만들고 실행한 후에 Azure Portal의 Virtual Machines 아이콘을 클릭하면 VM을 볼 수 있습니다.
 
 1. 새 VM에 대한 줄임표(**...**)를 클릭합니다.
 
