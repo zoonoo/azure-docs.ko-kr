@@ -337,7 +337,7 @@ Modify the *SetCertAccess.ps1* file properties to set **Copy to Output Directory
 
 ## <a name="run-the-application-locally"></a>로컬에서 응용 프로그램 실행
 
-솔루션 탐색기에서 **투표** 응용 프로그램을 선택하고 **응용 프로그램 URL** 속성을 "https://localhost:443"으로 설정합니다.
+솔루션 탐색기에서 **투표** 응용 프로그램을 선택하고 **응용 프로그램 URL** 속성을 " https://localhost:443 " 으로 설정합니다.
 
 모든 파일을 저장하고 F5 키를 눌러 로컬에서 응용 프로그램을 실행합니다.  응용 프로그램이 배포되면 웹 브라우저에 [https://localhost:443](https://localhost:443)이 열립니다. 자체 서명된 인증서를 사용하는 경우 PC가 이 웹 사이트의 보안을 신뢰하지 않는다는 경고가 표시됩니다.  웹 페이지로 계속 이동합니다.
 

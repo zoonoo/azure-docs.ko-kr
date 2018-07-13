@@ -54,7 +54,7 @@ VM을 만들 경우 Resource Manager 템플릿을 저장하고 원할 경우 사
 
 ### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Visual Studio Team Services 리포지토리 복제 URL 및 개인 액세스 토큰 가져오기
 
-1. 팀 컬렉션의 홈 페이지(예: https://contoso-web-team.visualstudio.com))로 이동 한 다음 프로젝트를 선택합니다.
+1. 팀 컬렉션의 홈 페이지(예: https://contoso-web-team.visualstudio.com) )로 이동 한 다음 프로젝트를 선택합니다.
 2. 프로젝트 홈 페이지에서 선택 **코드**합니다.
 3. 복제 URL을 보려면 프로젝트 **코드** 페이지에서 **복제**를 선택합니다.
 4. URL을 저장합니다. URL은 나중에 사용합니다.

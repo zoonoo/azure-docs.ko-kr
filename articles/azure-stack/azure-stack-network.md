@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/12/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 2d16d1dc7a53ca388b00ba02b6447e178a9f6edb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
-ms.translationtype: HT
+ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989240"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003616"
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 Azure Stack 기존 네트워킹 환경에 통합 하는 방법을 결정 하는 데 Azure Stack 네트워크 인프라 정보를 제공 합니다. 
@@ -29,7 +29,7 @@ ms.locfileid: "38989240"
 > 외부 DNS 이름 (예를 들어 www.bing.com) Azure Stack에서를 해결 하려면 DNS 요청을 전달 하도록 DNS 서버를 제공 해야 합니다. Azure Stack의 DNS 요구 사항에 대 한 자세한 내용은 참조 하세요. [Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)합니다.
 
 ## <a name="physical-network-design"></a>실제 네트워크 디자인
-Azure Stack 솔루션에는 작업 및 서비스를 지원 하기 위해 복원 력이 있고 항상 사용 가능한 물리적 인프라에 필요 합니다. 테두리 스위치에 ToR에서 업링크 SFP + 미디어 및 1GB 또는 10GB 속도가 제한 됩니다. 가용성에 대 한 원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 사용 하 여 확인 합니다. 다음 다이어그램은 권장 되는 디자인을 나타냅니다.
+Azure Stack 솔루션에는 작업 및 서비스를 지원 하기 위해 복원 력이 있고 항상 사용 가능한 물리적 인프라에 필요 합니다. 테두리 스위치에 ToR에서 업링크 SFP + SFP28 미디어 및 1GB에서 10GB 또는 25GB 속도 제한 됩니다. 가용성에 대 한 원래 장비 제조업체 (OEM) 하드웨어 공급 업체를 사용 하 여 확인 합니다. 다음 다이어그램에서는 권장 되는 디자인을 제공합니다.
 
 ![권장 되는 Azure Stack 네트워크 디자인](media/azure-stack-network/recommended-design.png)
 
