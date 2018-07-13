@@ -69,7 +69,7 @@
           href: luis-quickstart-intent-and-sentiment-analysis.md
     - name: 앱 개선
       items:
-        - name: 끝점 utterances 검토
+        - name: 끝점 발화 검토
           href: luis-tutorial-review-endpoint-utterances.md
         - name: 일괄 처리 테스트 사용
           href: luis-tutorial-batch-testing.md
@@ -125,7 +125,7 @@
       items:
         - name: 대화형 테스트
           href: luis-concept-test.md
-        - name: 테스트 일괄 처리
+        - name: 일괄 처리 테스트
           href: luis-concept-batch-test.md
     - name: Enterprise
       items:
@@ -185,13 +185,13 @@
           href: luis-how-to-add-features.md
         - name: 패턴 추가
           href: luis-how-to-model-intent-pattern.md
-    - name: 교육
+    - name: 학습
       href: luis-how-to-train.md
     - name: 테스트
       items:
         - name: 대화형 테스트
           href: interactive-test.md
-        - name: 테스트 일괄 처리
+        - name: 일괄 처리 테스트
           href: luis-how-to-batch-test.md
     - name: 앱 게시
       href: luis-how-to-publish-app.md
@@ -201,8 +201,6 @@
           href: luis-prebuilt-entities.md
         - name: 도메인 사용
           href: luis-how-to-use-prebuilt-domains.md
-        - name: Cortana 사용
-          href: luis-how-to-cortana-prebuilt-app.md
     - name: 앱 관리
       items:
         - name: 대시보드 사용
@@ -241,7 +239,7 @@
       href: luis-boundaries.md
     - name: 미리 작성된 엔터티 참조
       items:
-        - name: 문화권당 엔터티
+        - name: 문화권별 엔터티
           href: luis-reference-prebuilt-entities.md
         - name: 연령 엔터티
           href: luis-reference-prebuilt-age.md
@@ -257,7 +255,7 @@
           href: luis-reference-prebuilt-email.md
         - name: keyPhrase 엔터티
           href: luis-reference-prebuilt-keyphrase.md
-        - name: 숫자 엔터티
+        - name: Number 엔터티
           href: luis-reference-prebuilt-number.md
         - name: 서수 엔터티
           href: luis-reference-prebuilt-ordinal.md
@@ -271,8 +269,6 @@
           href: luis-reference-prebuilt-url.md
     - name: 미리 작성된 도메인 참조
       href: luis-reference-prebuilt-domains.md
-    - name: Cortana 미리 작성된 앱 참조
-      href: luis-reference-cortana-prebuilt.md
     - name: V2 API 제작
       href: 'https://aka.ms/luis-authoring-apis'
     - name: 끝점 V2 API

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 7afa50484c3ebf258bbdd2b7f16c9cd051710d28
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9609a0fa5599bd34fa52f7c0311369fb27aaf955
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437895"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951161"
 ---
 # <a name="service-remoting-in-c-with-reliable-services"></a>Reliable Services로 C#에서 서비스 원격 호출
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ ServiceProxy 만들기는 가벼운 작업이므로 사용자가 원하는 만�
 
 ### <a name="serviceproxyfactory-lifetime"></a>ServiceProxyFactory 수명
 [ServiceProxyFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory)는 다른 원격 인터페이스를 위한 프록시 인스턴스를 만드는 팩터리입니다. 프록시를 만들기 위해 api `ServiceProxy.Create`를 사용하는 경우 프레임워크는 단일 ServiceProxy를 만듭니다.
-[IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory) 속성을 재정의해야 하는 경우 수동으로 만드는 것이 유용합니다.
+[IServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v1.client.iserviceremotingclientfactory) 속성을 재정의해야 하는 경우 수동으로 만드는 것이 유용합니다.
 팩터리 생성은 비용이 많이 드는 작업입니다. ServiceProxyFactory는 통신 클라이언트의 내부 캐시를 유지 관리합니다.
 ServiceProxyFactory를 가능한 한 오랫동안 캐시하는 것이 가장 좋습니다.
 

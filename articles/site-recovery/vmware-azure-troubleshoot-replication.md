@@ -2,21 +2,22 @@
 title: Azure Site Recovery를 사용하여 VMware VM 및 실제 서버를 복제하기 위한 복제 문제 해결 | Microsoft Docs
 description: 이 아티클에서는 Azure Site Recovery를 사용하여 VMware VM 및 실제 서버를 Azure에 복제하는 경우 일반적인 복제 문제를 해결하는 방법을 제공합니다.
 services: site-recovery
-author: asgang
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: asgang
-ms.openlocfilehash: 9291840428c9a8d7ba5d65bc94ce5964728316f3
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951651"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
-Azure Site Recovery를 사용하여 VMware 가상 머신 또는 실제 서버를 보호하는 경우 특정 오류 메시지가 나타날 수 있습니다. 이 아티클에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM 및 실제 서버를 Azure에 복제하는 경우 발생할 수 있는 몇 가지 일반적인 문제를 설명합니다.
+Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버를 보호하는 경우 특정 오류 메시지가 나타날 수 있습니다. 이 아티클에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 VMware VM 및 실제 서버를 Azure에 복제하는 경우 발생할 수 있는 몇 가지 일반적인 문제를 설명합니다.
 
 ## <a name="initial-replication-issues"></a>초기 복제 문제
 

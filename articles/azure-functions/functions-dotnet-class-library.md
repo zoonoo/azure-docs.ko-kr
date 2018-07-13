@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/12/2017
 ms.author: tdykstra
-ms.openlocfilehash: e521ef29a338d0c7d80493f92acff4758a091359
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: bde7a7788fd01bcbcc63296c0513af8eb4196021
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261290"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970182"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -314,7 +314,7 @@ public static class EnvironmentVariablesExample
 
 앱 설정은 로컬로 개발할 때와 Azure에서 실행할 때 환경 변수에서 읽을 수 있습니다. 로컬로 개발할 때 앱 설정은 `Values`local.settings.json*파일의* 컬렉션에서 가져옵니다. 로컬 및 Azure의 두 환경에서 `GetEnvironmentVariable("<app setting name>")`은 명명된 앱 설정의 값을 검색합니다. 예를 들어 로컬로 실행하는 경우 *local.settings.json* 파일에 `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`이 포함된 경우 "My Site Name"이 반환됩니다.
 
-[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/en-us/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API지만, 다음과 같이 `GetEnvironmentVariable`을 사용하는 것이 좋습니다.
+[System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) 속성은 앱 설정 값을 가져오는 대체 API지만, 다음과 같이 `GetEnvironmentVariable`을 사용하는 것이 좋습니다.
 
 ## <a name="binding-at-runtime"></a>런타임에 바인딩
 

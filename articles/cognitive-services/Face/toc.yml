@@ -29,12 +29,12 @@
   items:
     - name: 'C#'
       href: Tutorials/FaceAPIinCSharpTutorial.md
+    - name: Android
+      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: 방법 가이드
   items:
     - name: 첫 번째 Face API 앱
       items:
-        - name: Android용 Java
-          href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
         - name: 파이썬
           href: Tutorials/FaceAPIinPythonTutorial.md
     - name: 이미지에서 얼굴 감지

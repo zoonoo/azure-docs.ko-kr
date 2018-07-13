@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 6f078823d8b911bc5ce6a36ab27b11a9c0117b80
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/21/2018
+ms.openlocfilehash: 3637ee63c94ea54145d99b9d5632f0a77c95d2f4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018342"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970264"
 ---
 # <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 가격 책정 계층
 
@@ -64,6 +64,8 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 동아시아 | X | X |
 | 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
+| 오스트레일리아 중부 |  | X |
+| 오스트레일리아 중부 2 |  | X |
 | 오스트레일리아 남동부 |  | X |
 | 인도 중부 | X | X |
 | 인도 서부 | X | X |

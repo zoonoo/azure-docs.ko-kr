@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0024f8ab914eba83effe8f5787cfb252775b5f0f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443388"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969662"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -63,7 +63,7 @@ Azure AD B2C(Azure Active Directory B2C)는 B2C 리소스, 발행된 토큰 및 
 - **다운로드**를 클릭하여 활동을 csv 파일로 다운로드합니다.
 
 ##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Azure AD 보고 API를 통해 감사 로그 액세스
-감사 로그는 Azure Active Directory에 대한 다른 활동과 동일한 파이프라인에 게시되므로 [Azure Active Directory 보고 API](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-api-audit-reference)를 통해 액세스할 수 있습니다. 
+감사 로그는 Azure Active Directory에 대한 다른 활동과 동일한 파이프라인에 게시되므로 [Azure Active Directory 보고 API](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)를 통해 액세스할 수 있습니다. 
 
 ###<a name="prerequisites"></a>필수 조건
 Azure AD 보고 API를 인증하려면 먼저 응용 프로그램을 등록해야 합니다. [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다.

@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 4a83ebbcf045ac2b74957effceadfe80609e960c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36237423"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970247"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Azure Blob Storage의 변경할 수 없는 저장소 기능(미리 보기)
 
@@ -42,7 +42,7 @@ Azure Blob의 변경할 수 없는 저장소 기능을 사용하면 사용자는
 
 - **컨테이너 수준 구성:** 변경할 수 없는 저장소 기능을 통해 사용자는 컨테이너 수준에서 시간 기반 보존 정책 및 법적 보존 태그를 구성할 수 있습니다.  사용자는 간단한 컨테이너 수준 설정을 통해 시간 기반 보존 정책을 만들고/잠그고, 보존 기간을 연장하고, 법적 보존을 설정하고 지울 수 있습니다.  이러한 정책은 컨테이너의 모든 BLOB(기존 및 신규)에 적용됩니다.
 
-- **감사 로깅 지원:** 각 컨테이너에는 최대 3개의 보존 기간 연장 로그와 함께 잠긴 시간 기반 보존 정책에 대한 시간 기반 보존 명령을 5개까지 표시하는 감사 로그가 포함되어 있습니다.  시간 기반 보존의 경우 로그에 사용자 ID, 명령 유형, 타임스탬프 및 보존 기간이 포함됩니다. 법적 보존의 경우 로그에 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 SEC 17a-4(f) 규정 지침에 정의된 컨테이너 수명 동안 보존됩니다. 보다 포괄적인 모든 제어 평면 활동 로그는 [Azure 활동 로그](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)에서 확인할 수 있습니다. 이러한 로그는 규정 또는 기타 용도에 필요할 수 있으므로 사용자는 이러한 로그를 영구적으로 저장할 책임이 있습니다.
+- **감사 로깅 지원:** 각 컨테이너에는 최대 3개의 보존 기간 연장 로그와 함께 잠긴 시간 기반 보존 정책에 대한 시간 기반 보존 명령을 5개까지 표시하는 감사 로그가 포함되어 있습니다.  시간 기반 보존의 경우 로그에 사용자 ID, 명령 유형, 타임스탬프 및 보존 기간이 포함됩니다. 법적 보존의 경우 로그에 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 SEC 17a-4(f) 규정 지침에 정의된 컨테이너 수명 동안 보존됩니다. 보다 포괄적인 모든 제어 평면 활동 로그는 [Azure 활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)에서 확인할 수 있습니다. 이러한 로그는 규정 또는 기타 용도에 필요할 수 있으므로 사용자는 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
  이 기능은 모든 Azure 공용 지역에서 사용됩니다.
 
@@ -68,7 +68,7 @@ Azure Blob의 변경할 수 없는 저장소 기능은 두 가지 유형의 WORM
 
 한 컨테이너에 법적 보존 및 시간 기반 보존 정책을 모두 사용할 수 있습니다. 이 컨테이너의 모든 BLOB은 유효 보존 기간이 만료되더라도 법적 보존이 삭제될 때까지 변경할 수 없는 상태로 보존됩니다. 반대로, 모든 법적 보존이 삭제되더라도 유효 보존 기간이 만료될 때까지 BLOB이 변경할 수 없는 상태로 보존됩니다.
 다음 표는 여러 변경할 수 없는 시나리오에 사용할 수 없는 BLOB 작업의 종류를 보여줍니다.
-Blob REST API에 대한 자세한 내용은 [Azure Blob Service API](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api)를 참조하세요.
+Blob REST API에 대한 자세한 내용은 [Azure Blob Service API](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api)를 참조하세요.
 
 |시나리오  |Blob 상태  |Blob 작업이 허용되지 않음  |
 |---------|---------|---------|
@@ -79,7 +79,7 @@ Blob REST API에 대한 자세한 내용은 [Azure Blob Service API](https://doc
 
 > [!NOTE]
 > 첫 번째 Blob 배치와 BLOB을 만드는 데 필요한 블록 목록 배치 및 블록 배치 작업은 위의 표에서 보여드린 처음 두 시나리오에서 허용되고 모든 후속 작업은 허용되지 않습니다.
-> 변경할 수 없는 저장소 기능은 GPv2 및 BLOB 저장소 계정에서만 사용할 수만 있으며 [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)를 통해 만들어야 합니다.
+> 변경할 수 없는 저장소 기능은 GPv2 및 BLOB 저장소 계정에서만 사용할 수만 있으며 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 통해 만들어야 합니다.
 
 ## <a name="pricing"></a>가격
 
@@ -94,7 +94,7 @@ Blob REST API에 대한 자세한 내용은 [Azure Blob Service API](https://doc
 
 ## <a name="getting-started"></a>시작
 
-Azure Blob의 변경할 수 없는 저장소 기능은 대부분의 최신 [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 및 Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) 릴리스에서 지원됩니다.
+Azure Blob의 변경할 수 없는 저장소 기능은 대부분의 최신 [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 및 Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) 릴리스에서 지원됩니다.
 
 ### <a name="azure-portal"></a>Azure portal
 
@@ -130,7 +130,7 @@ Azure Blob의 변경할 수 없는 저장소 기능은 대부분의 최신 [Azur
 
 ### <a name="cli-20"></a>CLI 2.0
 
-`az extension add -n storage-preview` 명령을 사용하여 [CLI 확장](http://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) 설치
+`az extension add -n storage-preview` 명령을 사용하여 [CLI 확장](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 설치
 
 이미 확장을 설치한 경우 `az extension update -n storage-preview` 명령을 사용하여 변경할 수 없는 저장소 기능을 사용하도록 설정합니다.
 

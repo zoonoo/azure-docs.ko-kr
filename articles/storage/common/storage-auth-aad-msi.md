@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
-ms.openlocfilehash: 83d3a2d973604e3b8a709b24cabcb3abba1e304c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 080cb3ee536227e5ddce3fac856de79b2b061dcf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660297"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970771"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Azure 관리 서비스 ID(미리 보기)에서 Azure AD를 사용하여 인증
 
@@ -32,7 +32,7 @@ Azure Storage는 [관리 서비스 ID](../../active-directory/managed-service-id
 
 MSI를 사용하여 VM에서 Azure Storage를 인증하려면 먼저 VM에서 MSI를 사용하도록 설정해야 합니다. MSI를 사용하도록 설정하는 방법은 다음 문서 중 하나를 참조하세요.
 
-- [Azure Portal](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 템플릿](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
@@ -78,7 +78,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Storage의 RBAC 역할에 대해 자세히 알아보려면 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
+- Azure Storage의 RBAC 역할에 대한 자세한 내용은 [RBAC를 사용하여 저장소 데이터에 대한 액세스 권한 관리(미리 보기)](storage-auth-aad-rbac.md)를 참조하세요.
 - 저장소 응용 프로그램 내에서 컨테이너 및 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [저장소 응용 프로그램에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.
 - Azure AD ID를 사용하여 Azure CLI 및 PowerShell에 로그인하는 방법을 알아보려면 [Azure AD ID를 사용하여 CLI 또는 PowerShell을 통해 Azure Storage에 액세스(미리 보기)](storage-auth-aad-script.md)를 참조하세요.
-- Azure Blob 및 큐의 Azure AD 통합에 대한 자세한 내용은 Azure Storage 팀 블로그 게시물인 [Azure Storage에 대한 Azure AD 인증 미리 보기 발표](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/)를 참조하세요.
+- Azure Blob 및 큐의 Azure AD 통합에 대한 자세한 내용은 Azure Storage 팀 블로그 게시물 [Azure Storage에 대한 Azure AD 인증 미리 보기 발표](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/)를 참조하세요.

@@ -109,7 +109,7 @@
         - name: Jenkins 연속 배포
           href: jenkins-continuous-deployment.md
         - name: AKS에 대한 Azure DevOps Project
-          href: 'https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks'
+          href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
     - name: Kubernetes 기본 사항
       items:

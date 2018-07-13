@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 64914a1b3efe81a152f5463f74c70c22f01ec0c1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724047"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970675"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -344,7 +344,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ## <a name="trigger---event-metadata"></a>트리거 - 이벤트 메타데이터
 
-Event Hubs 트리거는 몇 가지 [메타데이터 속성](functions-triggers-bindings.md#binding-expressions---trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [EventData](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스의 속성은 다음과 같습니다.
+Event Hubs 트리거는 몇 가지 [메타데이터 속성](functions-triggers-bindings.md#binding-expressions---trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스의 속성은 다음과 같습니다.
 
 |자산|type|설명|
 |--------|----|-----------|

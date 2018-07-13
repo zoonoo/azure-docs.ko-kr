@@ -4,14 +4,14 @@ description: Azure Migrate 서비스의 평가 계산에 대한 개요를 제공
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: 6fd0af65e63e9fc1c09232cd1e002da105a9d086
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 6d5a0b959b25c0ee294b22b3f4066d006806b524
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287891"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920927"
 ---
 # <a name="assessment-calculations"></a>평가 계산
 
@@ -58,7 +58,7 @@ Windows Server 2016 및 모든 SP | Azure에서 완벽하게 지원합니다. | 
 Windows Server 2012 R2 및 모든 SP | Azure에서 완벽하게 지원합니다. | Azure 준비 완료
 Windows Server 2012 및 모든 SP | Azure에서 완벽하게 지원합니다. | Azure 준비 완료
 Windows Server 2008 R2 및 모든 SP | Azure에서 완벽하게 지원합니다.| Azure 준비 완료
-Windows Server 2003-2008 R2 | 이러한 운영 체제는 지원 날짜가 종료되었으며, Azure에서 지원을 받기 위해 [CSA(사용자 지정 지원 계약)](https://aka.ms/WSosstatement)가 필요합니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
+Windows Server 2003-2008 | 이러한 운영 체제는 지원 날짜가 종료되었으며, Azure에서 지원을 받기 위해 [CSA(사용자 지정 지원 계약)](https://aka.ms/WSosstatement)가 필요합니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | 이러한 운영 체제는 지원 날짜가 종료되었으며, Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Windows 클라이언트 7, 8, 10 | Azure에서 Visual Studio 구독만 지원합니다. | 조건부 Azure 준비 완료
 Windows Vista, XP Professional | 이러한 운영 체제는 지원 날짜가 종료되었으며, Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.

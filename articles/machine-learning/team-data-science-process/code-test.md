@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: de1ed0b85957413a254503fc72375866dfd1bea1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837160"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970862"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>UCI 성인 소득 예측 데이터 집합을 활용한 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 집합을 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
@@ -128,7 +128,7 @@ ms.locfileid: "34837160"
 
        ![템플릿 목록 및 “빈 프로세스” 단추](./media/code-test/start_empty_process_template.PNG)
 
-    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용하여 빌드 프로세스를 완료하려면 여기서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](https://docs.microsoft.com/en-us/vsts/build-release/concepts/agents/agents?view=vsts)를 참조하세요.
+    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용하여 빌드 프로세스를 완료하려면 여기서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts)를 참조하세요.
     
        ![빌드 및 에이전트 선택](./media/code-test/select_agent.PNG)
 

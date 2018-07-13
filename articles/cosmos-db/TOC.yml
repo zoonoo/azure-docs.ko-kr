@@ -318,8 +318,6 @@ items:
                 href: mongodb-readpreference.md
               - name: 인덱싱
                 href: mongodb-indexing.md
-              - name: MongoDB의 TTL
-                href: mongodb-ttl.md
               - name: Power BI를 사용하여 데이터 시각화
                 href: powerbi-visualize.md
           - name: 리소스

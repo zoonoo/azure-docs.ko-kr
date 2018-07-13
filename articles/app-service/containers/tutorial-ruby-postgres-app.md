@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9ae476e21e4935ea555e671c3c7144748d60abb6
-ms.sourcegitcommit: 5821eef990c26fa045e4beacce39f6b02b83156b
+ms.openlocfilehash: 927c8f6d0fefbc592999487217c41aeecc96b0d9
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/15/2018
-ms.locfileid: "35662798"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950984"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 웹앱 빌드
 
@@ -42,7 +42,7 @@ ms.locfileid: "35662798"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Git 설치](https://git-scm.com/)
-* [Ruby 2.3 설치](https://www.ruby-lang.org/documentation/installation/)
+* [Ruby 2.3 설치](https://www.ruby-lang.org/en/documentation/installation/)
 * [Ruby on Rails 5.1 설치](http://guides.rubyonrails.org/v5.1/getting_started.html)
 * [PostgreSQL 설치 및 실행](https://www.postgresql.org/download/)
 
@@ -290,7 +290,7 @@ git commit -m "database.yml updates"
 
 [!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
+### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 [!INCLUDE [Create app service plan no h](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 

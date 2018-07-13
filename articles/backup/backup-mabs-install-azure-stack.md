@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: c9dd6a1818b0afeb5e577724568a8254a70c8228
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753356"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970886"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -338,7 +338,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 방화벽 또는 프록시가 Azure에 대한 액세스를 차단하고 있는 경우 방화벽/프록시 프로필에서 다음 도메인 주소를 허용 목록에 추가해야 합니다.
 
-- www.msftncsi.com
+- `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
 - \*.WindowsAzure.com
 - \*.microsoftonline.com
