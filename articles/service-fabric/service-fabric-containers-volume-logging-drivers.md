@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: d6195eda43dfd6ad249e82dabd0b314fc162b8c6
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301085"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969608"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files 볼륨 드라이버(미리 보기)
 Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 응용 프로그램으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 응용 프로그램에 대한 Azure Files 기반 볼륨을 제공하는 것입니다.
@@ -29,17 +29,17 @@ Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](
 >
 
 ## <a name="prerequisites"></a>필수 조건
-* Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](https://docs.microsoft.com/en-us/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/en-us/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다. Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
+* Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](https://docs.microsoft.com/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다. Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
 
 * Azure Files 볼륨 플러그 인은 Service Fabric 버전 6.2 이상에서만 작동합니다.
 
-* [Azure Files 설명서](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share)의 지침을 따라 볼륨으로 사용할 Service Fabric 컨테이너 응용 프로그램에 대한 파일 공유를 만듭니다.
+* [Azure Files 설명서](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)의 지침을 따라 볼륨으로 사용할 Service Fabric 컨테이너 응용 프로그램에 대한 파일 공유를 만듭니다.
 
-* [Service Fabric 모듈을 사용하는 Powershell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started) 또는 [SFCTL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cli) 설치가 필요합니다.
+* [Service Fabric 모듈을 사용하는 Powershell](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) 또는 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 설치가 필요합니다.
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Service Fabric Azure Files 응용 프로그램 배포
 
-컨테이너에 대한 볼륨을 제공하는 Service Fabric 응용 프로그램은 다음 [링크](https://aka.ms/sfvolume)에서 다운로드할 수 있습니다. 응용 프로그램은 [PowerShell](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 또는 [FabricClient API](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient)를 통해 클러스터에 배포될 수 있습니다.
+컨테이너에 대한 볼륨을 제공하는 Service Fabric 응용 프로그램은 다음 [링크](https://aka.ms/sfvolume)에서 다운로드할 수 있습니다. 응용 프로그램은 [PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-lifecycle-sfctl) 또는 [FabricClient API](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications-fabricclient)를 통해 클러스터에 배포될 수 있습니다.
 
 1. 명령줄을 사용하여 다운로드한 응용 프로그램 패키지의 루트 디렉터리로 디렉터리를 변경합니다.
 
