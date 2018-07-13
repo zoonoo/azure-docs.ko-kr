@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: ae0247df0bbde07e755bd910bca08b8703969cec
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047278"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082957"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -113,11 +113,11 @@ Data Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세�
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서 데이터 팩터리를 만들 수 있습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
+Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 그러나 데이터 팩터리는 계산 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 계산 서비스에 액세스할 수 있습니다.
 
 Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데이터 기반 워크플로를 만들어서 지원되는 데이터 저장소 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 계산 서비스를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
-데이터 팩터리는 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 사용할 수 있지만, 여러 지역에서 데이터 팩터리의 데이터 이동을 지원하는 서비스를 전역적으로 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 자체 호스팅 Integration Runtime이 데이터를 대신 이동합니다.
+Data Factory는 특정 지역에서만 사용할 수 있지만, 여러 지역에서 Data Factory의 데이터 이동을 지원하는 서비스를 전역적으로 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 자체 호스팅 Integration Runtime이 데이터를 대신 이동합니다.
 
 예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 계산 환경이 유럽 서부 지역 외부에서 실행되고 있다고 가정해보겠습니다. 미국 동부 또는 미국 동부 2에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있으며, 이를 사용하여 유럽 서부의 계산 환경에서 작업을 예약할 수 있습니다. 데이터 팩터리가 계산 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 계산 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
 

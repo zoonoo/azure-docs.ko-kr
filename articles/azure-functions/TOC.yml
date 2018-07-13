@@ -11,12 +11,12 @@
   items:
     - name: 함수 만들기 - 포털
       href: functions-create-first-azure-function.md
-    - name: 함수 만들기 - Azure CLI
-      href: functions-create-first-azure-function-azure-cli.md
     - name: 함수 만들기 - Visual Studio
       href: functions-create-your-first-function-visual-studio.md
     - name: 함수 만들기 - Java/Maven
       href: functions-create-first-java-maven.md
+    - name: 함수 만들기 - Azure CLI
+      href: functions-create-first-azure-function-azure-cli.md
     - name: 함수 만들기 - Linux
       href: functions-create-first-azure-function-azure-cli-linux.md
     - name: 트리거
@@ -97,6 +97,8 @@
       items:
         - name: 개요
           href: durable-functions-overview.md
+        - name: 함수 형식 및 기능
+          href: durable-functions-types-features-overview.md
         - name: 바인딩
           href: durable-functions-bindings.md
         - name: 검사점 및 재생

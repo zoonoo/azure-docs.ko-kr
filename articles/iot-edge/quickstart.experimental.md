@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5863a8edbb20b2b0c231834259f1bb7b0423a8f6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033804"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436445"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -81,29 +81,38 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
 
 2. IoT Edge 서비스 패키지를 다운로드합니다.
 
-   ```powershell
-   Invoke-WebRequest https://conteng.blob.core.windows.net/iotedged/iotedge.zip -o .\iotedge.zip
-   Expand-Archive .\iotedge.zip C:\ProgramData\iotedge -f
-   $env:Path += ";C:\ProgramData\iotedge"
-   SETX /M PATH "$env:Path"
-   ```
+  ```powershell
+  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+  rmdir C:\ProgramData\iotedge\iotedged-windows
+  $env:Path += ";C:\ProgramData\iotedge"
+  SETX /M PATH "$env:Path"
+  ```
 
-3. IoT Edge 서비스를 만들고 시작합니다.
+3. vcruntime을 설치합니다.
+
+  ```powershell
+  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
+  .\vc_redist.exe /quiet /norestart
+  ```
+
+4. IoT Edge 서비스를 만들고 시작합니다.
 
    ```powershell
    New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
    Start-Service iotedge
    ```
 
-4. IoT Edge 서비스가 사용하는 포트에 대해 방화벽 예외를 추가합니다.
+5. IoT Edge 서비스가 사용하는 포트에 대해 방화벽 예외를 추가합니다.
 
    ```powershell
    New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
    ```
 
-5. **iotedge.reg**라는 새 파일을 만들어 텍스트 편집기에서 엽니다. 
+6. **iotedge.reg**라는 새 파일을 만들어 텍스트 편집기에서 엽니다. 
 
-6. 다음 콘텐츠를 추가하고 파일을 저장합니다. 
+7. 다음 콘텐츠를 추가하고 파일을 저장합니다. 
 
    ```input
    Windows Registry Editor Version 5.00
@@ -113,7 +122,7 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
    "TypesSupported"=dword:00000007
    ```
 
-7. 파일 탐색기에서 파일로 이동하고 두 번 클릭하여 Windows Registry로 변경 내용을 가져옵니다. 
+8. 파일 탐색기에서 파일로 이동하고 두 번 클릭하여 Windows Registry로 변경 내용을 가져옵니다. 
 
 ### <a name="configure-the-iot-edge-runtime"></a>IoT Edge 런타임 구성 
 
@@ -131,21 +140,27 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
 
 4. 구성 파일에서 **Edge 장치 호스트 이름** 섹션을 찾습니다. PowerShell에서 복사한 호스트 이름으로 **호스트 이름** 값을 업데이트합니다.
 
-5. 관리자 PowerShell 창에서 IoT Edge 장치에 대한 IP 주소를 검색합니다. 
+3. 관리자 PowerShell 창에서 IoT Edge 장치에 대한 IP 주소를 검색합니다. 
 
    ```powershell
    ipconfig
    ```
 
-6. 출력의 **vEthernet(DockerNAT)** 섹션에서 **IPv4 주소**에 대한 값을 복사합니다. 
+4. 출력의 **vEthernet(DockerNAT)** 섹션에서 **IPv4 주소**에 대한 값을 복사합니다. 
 
-7. *\<ip_address\>* 를 IoT Edge 장치에 대한 IP 주소로 바꾸면서 **IOTEDGE_HOST**라는 환경 변수를 만듭니다. 
+5. *\<ip_address\>* 를 IoT Edge 장치에 대한 IP 주소로 바꾸면서 **IOTEDGE_HOST**라는 환경 변수를 만듭니다. 
 
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
+  ```powershell
+  [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
+  ```
 
-8. `config.yaml` 파일에서 **연결 설정** 섹션을 찾습니다. 이전 섹션에서 연 포트 및 IP 주소를 사용하여 **\<GATEWAY_ADDRESS\>** 대신에 **management_uri** 및 **workload_uri** 값을 업데이트합니다. 
+  다시 부팅 사이에 환경 변수를 그대로 유지합니다.
+
+  ```powershell
+  SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
+  ```
+
+6. `config.yaml` 파일에서 **연결 설정** 섹션을 찾습니다. 이전 섹션에서 연 포트 및 IP 주소를 사용하여 **management_uri** 및 **workload_uri** 값을 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 해당 IP 주소로 바꿉니다. 
 
    ```yaml
    connect: 
@@ -153,7 +168,7 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-9. **설정 수신** 섹션을 찾아 **management_uri** 및 **workload_uri**에 대해 동일한 값을 추가합니다. 
+7. **설정 수신** 섹션을 찾아 **management_uri** 및 **workload_uri**에 대해 동일한 값을 추가합니다. 
 
    ```yaml
    listen:
@@ -161,20 +176,15 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-10. **Moby 컨테이너 런타임 설정** 섹션을 찾습니다. **네트워크** 줄의 주석 처리를 제거하고 값이 `nat`로 설정되어 있는지 확인합니다.
+8. **Moby 컨테이너 런타임 설정** 섹션을 찾아 **네트워크**에 대한 값이 `nat`로 설정되어 있는지 확인합니다.
 
-   ```yaml
-   moby_runtime:
-     uri: "npipe://./pipe/docker_engine"
-     network: "nat"
-   ```
+9. 구성 파일을 저장합니다. 
 
-11. 구성 파일을 저장합니다. 
-
-12. PowerShell에서 IoT Edge 서비스를 다시 시작합니다.
+10. PowerShell에서 IoT Edge 서비스를 다시 시작합니다.
 
    ```powershell
-   Stop-Service iotedge
+   Stop-Service iotedge -NoWait
+   sleep 5
    Start-Service iotedge
    ```
 
@@ -194,9 +204,10 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
    # Displays logs from today, newest at the bottom.
 
    Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Today} |
-  select TimeCreated, Message | Sort-Object -Descending
+    -FilterHashtable @{ProviderName= "iotedged";
+      LogName = "application"; StartTime = [datetime]::Today} |
+    select TimeCreated, Message |
+    sort-object @{Expression="TimeCreated";Descending=$false}
    ```
 
 3. IoT Edge 장치에서 실행되는 모든 모듈을 봅니다. 서비스를 처음 시작했으므로 **edgeAgent** 모듈이 실행되는 것을 확인해야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 장치에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다. 

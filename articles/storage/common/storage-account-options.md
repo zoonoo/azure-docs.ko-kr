@@ -7,14 +7,14 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 06/22/2018
+ms.date: 07/03/2018
 ms.author: hux
-ms.openlocfilehash: 3f1dfa09c0f123d20a7be043aa8d0033a5b6bd72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335774"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445430"
 ---
 # <a name="azure-storage-account-options"></a>Azure Storage 계정 옵션
 
@@ -46,7 +46,10 @@ GPv2 저장소 계정은 계정 수준에서 **액세스 계층** 특성을 노�
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>저장소 계정을 GPv2로 업그레이드
 
-사용자는 언제든지 PowerShell 또는 Azure CLI를 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 이 변경 내용은 되돌릴 수 없으며 다른 변경 내용이 허용되지 않습니다.
+사용자는 언제든지 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 이 변경 내용은 되돌릴 수 없으며 다른 변경 내용이 허용되지 않습니다.
+
+#### <a name="upgrade-with-azure-portal"></a>Azure Portal을 사용하여 업그레이드
+Azure Portal을 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드하려면 [Azure Portal](https://portal.azure.com)에 로그인한 후 저장소 계정을 선택합니다. **설정** > **구성**을 선택합니다. 업그레이드 프로세스에 대한 메모와 함께 **업그레이드** 단추가 보일 것입니다.
 
 #### <a name="upgrade-with-powershell"></a>Powershell로 업그레이드
 
@@ -262,9 +265,9 @@ Blob Storage 계정에 대한 지역에서 복제 데이터 전송의 비용은 
 
 ## <a name="migrating-existing-data"></a>기존 데이터 마이그레이션
 
-GPv1 계정은 가동 중지 시간 또는 API를 변경하거나 데이터를 마이그레이션할 필요 없이 GPv2로 쉽게 업그레이드할 수 있습니다. 이러한 이유로 GPv1 계정을 Blob Storage 계정 대신 GPv2 계정으로 마이그레이션하는 것이 가장 좋습니다.
+GPv1 또는 Blob Storage 계정은 가동 중지 시간 또는 API를 변경하거나 데이터를 마이그레이션할 필요 없이 GPv2로 쉽게 업그레이드할 수 있습니다. 이러한 이유로 GPv1 계정을 Blob Storage 계정 대신 GPv2 계정으로 마이그레이션하는 것이 가장 좋습니다. GPv2로 업그레이드하는 방법에 대한 자세한 내용은 [저장소 계정을 GPv2로 업그레이드](#upgrade-a-storage-account-to-gpv2)를 참조하세요.
 
-그러나 Blob Storage 계정으로 마이그레이션해야 하고 GPv2 계정을 사용할 수 없는 경우 다음 지침을 사용할 수 있습니다. 
+그러나 GPv1에서 Blob Storage 계정으로 마이그레이션해야 하는데 GPv2 계정을 사용할 수 없는 경우 다음 지침을 사용하면 됩니다. 
 
 Blob 저장소 계정은 저장 전용 블록 및 추가 Blob에 맞게 특별히 설정됩니다. 테이블, 큐, 파일 및 디스크는 물론 Blob도 저장할 수 있는 기존의 범용 저장소 계정은 Blob Storage 계정으로 변환할 수 없습니다. 저장소 계층을 사용하려면, 새로운 Blob Storage 계정을 만들어서 기존 데이터를 새로 만든 계정으로 마이그레이션해야 합니다. 
 

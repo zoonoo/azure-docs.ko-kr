@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: tvoellm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fce6553ce7407f892ed1de1f71bc812798f91c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 237ab0ed99793f54574c4b81e883acb8c2bc57a9
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611809"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082104"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>Java, Python 및 Node.js에서 사용할 Azure Cosmos DB 에뮬레이터 인증서 내보내기
 
@@ -99,7 +99,7 @@ X.509 인증서를 Java 기본 인증서 저장소로 가져 오려면 [Java CA 
 > * SSL 인증서를 내보냈습니다.
 > * Java, Python 및 Node.js에서 인증서를 사용하는 방법을 알아보았습니다.
 
-이제 Azure Cosmos DB 입력 바인딩 자습서를 통해 Azure Functions HTTP 트리거를 진행할 수 있습니다.
+이제 개념 섹션으로 진행하여 Azure Cosmos DB에 대한 자세한 정보를 확인할 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [Azure Cosmos DB 입력으로 Azure Function 만들기](tutorial-functions-http-trigger.md) 
+>[Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준](../cosmos-db/consistency-levels.md)

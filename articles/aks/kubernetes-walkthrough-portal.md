@@ -2,19 +2,19 @@
 title: 빠른 시작 - Azure Kubernetes 클러스터 포털 빠른 시작
 description: AKS에서 Azure Portal을 사용하여 Linux 컨테이너용 Kubernetes 클러스터를 빠르게 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 90d01ed7cc2483c8467d646ebf9ad056ea1a4baf
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286599"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344477"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -28,11 +28,9 @@ ms.locfileid: "36286599"
 
 http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
-
-
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-**리소스 만들기** > **Kubernetes 서비스** > **만들기**를 선택합니다.
+**리소스 만들기** > **Kubernetes 서비스**를 선택합니다.
 
 AKS 클러스터 만들기 양식의 각 머리글 아래에 있는 다음 단계를 완료합니다.
 
@@ -88,7 +86,7 @@ az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 kubectl get nodes
 ```
 
-출력
+출력:
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
@@ -170,7 +168,7 @@ spec:
 kubectl apply -f azure-vote.yaml
 ```
 
-출력
+출력:
 
 ```
 deployment "azure-vote-back" created

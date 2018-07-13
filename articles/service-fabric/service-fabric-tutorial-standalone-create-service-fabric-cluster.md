@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dastanfo
 ms.custom: mvc
-ms.openlocfilehash: 85e6efcc4e213da4d6c650f7543403dd52e8337c
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 7ba5fa1d4c5b87d1c4828ee98dae36f415d37c20
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248438"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344158"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>자습서: Service Fabric 클러스터 설치 및 만들기
 
@@ -61,13 +61,7 @@ zip 파일을 선택하고 바로 가기 메뉴를 열고 **모두 추출** > **
         }
 ```
 
-그런 다음, 몇 가지 속성을 업데이트해야 합니다.  34줄에서 진단 저장소에 대한 연결 문자열을 수정해야 합니다. 수정 후 `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`에서 대체된 IP 주소로 표시되어야 합니다.
-
-연결 문자열을 업데이트한 후 폴더를 만들어야 합니다.  다음 명령은 폴더를 만듭니다. 아래 IP 주소를 연결 문자열에 삽입한 IP 주소로 바꿔야 합니다.
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
+그런 다음, 몇 가지 속성을 업데이트해야 합니다.  34줄에서 진단 저장소에 대한 연결 문자열을 수정해야 합니다. `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`로 표시되어야 합니다.
 
 마지막으로 구성의 `nodeTypes` 섹션에 Windows에서 사용할 임시 포트를 매핑하는 새 섹션을 추가합니다.  구성 파일은 다음과 같이 표시됩니다.
 

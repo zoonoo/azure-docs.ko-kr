@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/26/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: b718ed505babd2df6487aecd3a87f17590aef2b9
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061250"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130895"
 ---
-# <a name="tutorial-create-app-that-uses-simple-entity"></a>자습서: 단순 엔터티를 사용하는 앱 만들기
+# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>자습서: 6. 단순 엔터티 및 문구 목록 추가
 이 자습서에서는 **단순** 엔터티를 사용하여 발화에서 기계 학습 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.
 
 <!-- green checkmark -->
@@ -45,7 +45,7 @@ ms.locfileid: "37061250"
 |엔지니어링 직위에 대한 내 이력서를 제출해 주세요.|엔지니어링|
 |123456 직무에 대한 지원서를 작성합니다.|123456|
 
-이 자습서에서는 직무 이름을 추출하는 새 엔터티를 추가합니다. 특정 직무 번호를 추출하는 기능은 정규식 [자습서](luis-quickstart-intents-regex-entity.md)에 나와 있습니다. 
+이 자습서에서는 직무 이름을 추출하는 새 엔터티를 추가합니다. 
 
 ## <a name="purpose-of-the-simple-entity"></a>단순 엔터티의 목적
 이 LUIS 앱의 단순 엔터티는 메시지가 무엇인지와 발화 중 어디에서 직무 이름을 찾을 수 있는지를 LUIS에 가르치기 위한 것입니다. 직무에 해당하는 발화 부분은 단어 선택과 발화 길이에 따라 발화 간에 바뀔 수 있습니다. LUIS에는 모든 의도에서 모든 발화의 직무 예제가 필요합니다.  
@@ -85,7 +85,7 @@ ms.locfileid: "37061250"
 
     ![직무의 이름과 단순 형식을 사용한 단순 엔터티 만들기 팝업 모달 대화 상자](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-5. `Submit resume for engineering position` 발화에서 '엔지니어링'이라는 단어를 [직무] 엔터티의 레이블로 지정합니다. '엔지니어링'이라는 단어를 선택한 다음, 팝업 메뉴에서 [직무]를 선택합니다. 
+5. `Submit resume for engineering position` 발화에서 `engineering`이라는 단어를 직무 엔터티의 레이블로 지정합니다. `engineering`이라는 단어를 선택한 다음, 팝업 메뉴에서 **직무**를 선택합니다. 
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "강조 표시된 LUIS 직무 엔터티 레이블 지정의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -292,7 +292,7 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    구 목록에 더 많은 단어를 추가하려면 추천 단어를 검토하고 관련 단어를 추가합니다. 
+    구 목록에 더 많은 단어를 추가하려면 **관련 값**을 검토하고 관련된 내용을 추가합니다. 
 
 4. **저장**을 선택하여 구 목록을 활성화합니다.
 
@@ -369,7 +369,7 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
 구 목록을 추가하면 목록에 있는 단어를 표시하도록 확대되지만 정확한 일치로는 **사용되지 않습니다**. 구 목록에는 첫 번째 단어가 `lead`인 직무가 여러 개 있고 `welder`직무도 있지만, `lead welder` 직무는 없습니다. 직무에 대한 이 구 목록은 완전하지 않을 수 있습니다. 정기적으로 [엔드포인트 발화를 검토](label-suggested-utterances.md)하고 다른 직무 단어가 있으면 이러한 단어를 구 목록에 추가합니다. 그런 다음, 또 다시 학습하고 게시합니다.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
-이 앱에서는 단순 엔터티와 단어의 구 목록을 사용하여 자연어 쿼리 의도를 확인하고 메시지 데이터를 반환했습니다. 
+이 앱에서는 단순 엔터티와 단어의 구 목록을 사용하여 자연어 쿼리 의도를 확인하고 작업 데이터를 반환했습니다. 
 
 챗봇에는 이제 직무가 적용되는 기본 작업과 해당 직무가 참조되는 해당 작업의 매개 변수를 결정하는 데 필요한 정보가 충분히 있습니다. 
 
@@ -377,9 +377,9 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 타사 API를 통해 메시지를 보낼 수 있습니다. 봇 또는 호출 응용 프로그램에 대한 다른 프로그래밍 옵션이 있는 경우 LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [미리 작성된 keyphrase 엔터티를 추가하는 방법 알아보기](luis-quickstart-intent-and-key-phrase.md)
+> [미리 작성된 keyphrase 엔터티 추가](luis-quickstart-intent-and-key-phrase.md)

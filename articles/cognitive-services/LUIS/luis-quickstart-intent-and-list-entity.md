@@ -7,16 +7,16 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 68c241833aab756bfc5e71c03da5d4175401910d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335825"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127858"
 ---
-# <a name="tutorial-create-app-using-a-list-entity"></a>자습서: 목록 엔터티를 사용하여 앱 만들기
+# <a name="tutorial-4-add-list-entity"></a>자습서: 4. 목록 엔터티 추가
 이 자습서에서는 미리 정의된 목록과 일치하는 데이터를 가져오는 방법을 보여주는 앱을 만듭니다. 
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ ms.locfileid: "36335825"
 이 문서에서는 LUIS 앱을 작성하기 위한 [LUIS](luis-reference-regions.md#luis-website) 체험 계정이 필요합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-regex 엔터티 [사용자 지정 도메인](luis-quickstart-intents-regex-entity.md) 자습서의 인사 관리 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](create-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github 리포지토리에 있습니다.
+[regex 엔터티](luis-quickstart-intents-regex-entity.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](create-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github 리포지토리에 있습니다.
 
 원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `list`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
 
@@ -97,8 +97,6 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
     |234-56-7891에서 hh-2345로|
 
     [ ![새 발화가 강조 표시된 의도 페이지의 스크린샷](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png) ](./media/luis-quickstart-intent-and-list-entity/hr-enter-utterances.png#lightbox)
-
-    이 응용 프로그램에는 이전 자습서에서 추가된 미리 작성된 번호 엔터티가 있으므로 각 번호에 태그가 지정됩니다. 이 정보만 있으면 클라이언트 응용 프로그램에서 충분할 수 있지만, 번호에 형식 레이블이 지정되지 않습니다. 적절한 이름으로 새 엔터티를 만들면 LUIS에서 엔터티가 반환될 때 클라이언트 응용 프로그램이 해당 엔터티를 처리할 수 있습니다.
 
 ## <a name="create-an-employee-list-entity"></a>직원 목록 엔터티 만들기
 **MoveEmployee** 의도에 발언이 생겼으니, LUIS가 직원이 무엇인지 이해해야 합니다. 
@@ -298,10 +296,10 @@ LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용�
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 다음 단계를 수행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식으로 작동하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위의 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [계층적 엔터티를 추가하는 방법 알아보기](luis-quickstart-intent-and-hier-entity.md)
+> [앱에 계층적 엔터티 추가](luis-quickstart-intent-and-hier-entity.md)
 

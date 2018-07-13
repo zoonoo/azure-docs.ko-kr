@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7902b5ad2d680a22a2d132187cdad5f96a334447
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061848"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097481"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 기본 부하 분산 장치로 내부 트래픽을 여러 VM에 분산
 
@@ -66,8 +66,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭하고 가상 머신에 대해 다음 값을 입력합니다.
-    - *myVM1* - 가상 머신의 이름        
-    - *azureuser* - 관리자 사용자 이름   
+    - *myVM1* - 가상 머신의 이름입니다.        
+    - *azureuser* - 관리자 사용자 이름입니다.   
     - *myResourceGroupILB* - **리소스 그룹**에서 **기존 항목 사용**을 선택한 다음, *myResourceGroupILB*를 선택합니다.
 2. **확인**을 클릭합니다.
 3. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
@@ -75,10 +75,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     - *myAvailabilitySet* - 새로 만드는 가용성 집합의 이름으로 입력합니다.
     -  *myVNet* - 가상 네트워크로 선택합니다.
     - *myBackendSubnet* - 서브넷으로 선택합니다.
-    - *myNetworkSecurityGroup* - 만들어야 하는 새 네트워크 보안 그룹(방화벽)의 이름으로 입력합니다.
+5. **네트워크 보안 그룹**에서 **고급**을 선택합니다. 다음으로 **네트워크 보안 그룹(방화벽)** 에서 **없음**을 선택합니다.
 5. **사용 안 함**을 클릭하여 부팅 진단을 사용하지 않도록 설정합니다.
 6. **확인**을 클릭하고 요약 페이지에서 설정을 검토한 다음, **만들기**를 클릭합니다.
-7. 1-6단계를 사용하여 가용성 집합은 *myAvailabilityset*이고, 가상 네트워크는 *myVnet*이고, 서브넷은  *myBackendSubnet*이고, 네트워크 보안 그룹은 *myNetworkSecurityGroup*인 두 번째 VM *VM2*를 만듭니다. 
+7. 1-6단계를 사용하여 가용성 집합은 *myAvailabilityset*이고, 가상 네트워크는 *myVnet*이고, 서브넷은  *myBackendSubnet*인 두 번째 VM *VM2*를 만들고, **네트워크 보안 그룹(방화벽)** 으로 **없음**을 선택합니다. 
 
 ### <a name="install-iis-and-customize-the-default-web-page"></a>IIS를 설치하고 기본 웹 페이지를 사용자 지정
 
@@ -100,33 +100,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 5. *myVM1*과의 RDP 연결을 종료합니다.
 6. *myVM2*에서 1-5단계를 반복하여 IIS를 설치하고 기본 웹 페이지를 사용자 지정합니다.
 
-## <a name="create-nsg-rules"></a>NSG 규칙 만들기
-
-이 섹션에서는 HTTP 및 RDP를 사용하는 인바운드 연결을 허용하는 NSG 규칙을 만듭니다.
-
-1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myResourceGroupLB** 리소스 그룹에 있는 **myNetworkSecurityGroup**을 클릭합니다.
-2. **설정**에서 **인바운드 보안 규칙**을 클릭한 다음, **추가**를 클릭합니다.
-3. 포트 80을 사용하는 인바운드 HTTP 연결을 허용하도록 *myHTTPRule*이라고 하는 인바운드 보안 규칙에 다음 값을 입력합니다.
-    - *서비스 태그* - **소스**로 입력합니다.
-    - *인터넷* - **원본 서비스 태그**로 입력합니다.
-    - *80* - **대상 포트 범위**로 입력합니다.
-    - *TCP* - **프로토콜**로 입력합니다.
-    - *허용* - **작업**에 대해 선택합니다.
-    - *100* - **우선 순위**로 입력합니다.
-    - *myHTTPRule* - 이름으로 입력합니다.
-    - *HTTP 허용* - 설명으로 입력합니다.
-4. **확인**을 클릭합니다.
- 
-5. 다음 값으로 2-4단계를 반복하여 포트 3389를 사용하는 인바운드 RDP 연결을 허용하는 *myRDPRule*이라는 또 다른 규칙을 만듭니다.
-    - *서비스 태그* - **소스**로 입력합니다.
-    - *인터넷* - **원본 서비스 태그**로 입력합니다.
-    - *3389* - **대상 포트 범위**로 입력합니다.
-    - *TCP* - **프로토콜**로 입력합니다.
-    - *허용* - **작업**에 대해 선택합니다.
-    - *200* - **우선 순위**로 입력합니다.
-    - *myRDPRule* - 이름으로 입력합니다.
-    - *RDP 허용* - 설명으로 입력합니다.
-
 ## <a name="create-basic-load-balancer-resources"></a>기본 부하 분산 장치 리소스 만들기
 
 이 섹션에서는 백 엔드 주소 풀 및 상태 프로브에 대한 부하 분산 장치 설정을 구성하고, 부하 분산 장치 및 NAT 규칙을 지정합니다.
@@ -139,7 +112,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 1. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
 2. **설정**에서 **백 엔드 풀**을 클릭한 다음, **추가**를 클릭합니다.
 3. **백 엔드 풀 추가** 페이지에서 다음을 수행합니다.
-    - 이름에서, 백 엔드 풀의 이름으로 *myBackEndPool을 입력합니다.
+    - 이름에서, 백 엔드 풀의 이름으로 *myBackEndPool*을 입력합니다.
     - **연결 대상**으로 드롭다운 메뉴에서 **가용성 집합**을 클릭합니다.
     - **가용성 집합**으로 **myAvailabilitySet**를 클릭합니다.
     - **대상 네트워크 IP 구성 추가**를 클릭하고 앞에서 만든 각 가상 머신(*myVM1* & *myVM2*)을 백 엔드 풀에 추가합니다.
@@ -185,7 +158,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 ## <a name="create-a-virtual-machine-to-test-the-load-balancer"></a>부하 분산 장치를 테스트할 가상 머신 만들기
 내부 부하 분산 장치를 테스트하기 위해 백 엔드 서버 VM과 동일한 가상 네트워크에 있는 가상 머신을 만들어야 합니다.
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **계산** > **Windows Server 2016 Datacenter**를 클릭하고 가상 머신에 대해 다음 값을 입력합니다.
-    - *myVMTest* - 가상 머신의 이름.        
+    - *myVMTest* - 가상 머신의 이름입니다.        
     - *myResourceGroupILB* - **리소스 그룹**에서 **기존 항목 사용**을 선택한 다음, *myResourceGroupILB*를 선택합니다.
 2. **확인**을 클릭합니다.
 3. 가상 머신의 크기에 대해 **DS1_V2**를 선택하고 **선택**을 클릭합니다.
@@ -197,7 +170,7 @@ VM으로 트래픽을 분산하기 위해 백 엔드 주소 풀에 부하 분산
 
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 1. Azure Portal의 **개요** 화면에서 부하 분산 장치의 개인 IP 주소를 가져옵니다. 이렇게 하려면 다음을 수행합니다. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 **myLoadBalancer**를 클릭합니다.
-    나. **개요** 세부 정보 페이지에서 개인 IP 주소를 복사합니다(이 예제에서는 10.1.0.7).
+    b. **개요** 세부 정보 페이지에서 개인 IP 주소를 복사합니다(이 예제에서는 10.1.0.7).
 
 2. 다음과 같이 *myVMTest*에 원격으로 연결합니다. 왼쪽 메뉴에서 **모든 리소스**를 클릭한 다음, 리소스 목록에서 *myResourceGroupILB* 리소스 그룹에 있는 **myVMTest**를 클릭합니다.
 2. **개요** 페이지에서 **연결**을 클릭하여 VM과의 원격 세션을 시작합니다.

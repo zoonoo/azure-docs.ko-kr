@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/21/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: eec54e0074cbc00fb8c51cf28ba477ef75f99a3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657243"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438237"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신 거버넌스에 대해 알아보기
 
@@ -55,7 +55,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 * [네트워크 기여자](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Storage 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../../active-directory/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
+개별 사용자에게 역할을 할당하는 대신 비슷한 동작을 수행해야 하는 사용자에게 [Azure Active Directory 그룹을 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)가 더 쉽습니다. 그런 다음, 해당 그룹에 적절한 역할을 할당합니다. 이 문서를 단순화하려면 구성원이 없는 Azure Active Directory 그룹을 만들 수 있습니다. 여전히 해당 그룹에 역할 범위를 할당할 수 있습니다. 
 
 다음 예에서는 메일 별칭이 *vmDemoGroup*인 *VMDemoContributors*라는 Azure Active Directory 그룹을 만듭니다. 메일 별칭은 그룹에 대한 별칭으로 사용됩니다.
 
@@ -194,7 +194,7 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 
 ### <a name="find-resources-by-tag"></a>태그로 리소스 찾기
 
-태그 이름 및 값을 사용하여 리소스를 찾으려면 [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) 명령을 사용합니다.
+태그 이름 및 값을 사용하여 리소스를 찾으려면 [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) 명령을 사용합니다.
 
 ```azurepowershell-interactive
 (Get-AzureRmResource -Tag @{ Environment="Test"}).Name

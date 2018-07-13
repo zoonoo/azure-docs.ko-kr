@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: d9720377beb1973b8ae4e9423fc991aa82646924
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061599"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344710"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -39,7 +39,7 @@ ms.locfileid: "37061599"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -49,7 +49,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
@@ -65,7 +65,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 제공합니다.
 
-    |자산  |설명  |
+    |속성  |설명  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역에 대한 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 첫 번째 셀에 다음 코드를 입력하고 코드를 실행합니다.
 
-    ```python
+    ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
     dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
@@ -132,11 +132,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 다음 단계는 나중에 Azure Databricks에서 변환할 샘플 데이터 파일을 저장소 계정에 업로드하는 것입니다. 
 
-1. Data Lake Storage Gen2에 대한 계정을 아직 만들지 않은 경우 빠른 시작에 따라 Data Lake Storage Gen2 계정을 만듭니다.
-2. 샘플 데이터(**small_radio_json.json**)는 [U-SQL 예제 및 문제 추적](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 리포지토리에서 사용할 수 있습니다. JSON 파일을 다운로드하고 해당 파일이 저장되는 경로를 적어 둡니다.
-3. 저장소 계정에 데이터를 업로드합니다. 저장소 계정에 데이터를 업로드하는 방법은 HNS(Hierarchical Namespace Service)를 사용할 수 있는지 여부에 따라 달라집니다.
+> [!NOTE]
+> Azure Data Lake Storage Gen2 지원 계정이 아직 없는 경우 [계정을 만드는 빠른 시작](./quickstart-create-account.md)을 수행합니다.
 
-    ADLS Gen2 계정에서 HNS를 사용하도록 설정되어 있는 경우 Azure Data Factory, distp 또는 AzCopy(버전 10)를 사용하여 업로드를 처리할 수 있습니다. AzCopy 버전 10은 고객을 미리 볼 수만 있습니다. Cloud Shell에서 AzCopy를 사용하려면 다음을 수행합니다.
+1. [U-SQL 예제 및 문제 추적](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 리포지토리에서 (**small_radio_json.json**)을 다운로드하고 파일을 저장할 경로를 적어둡니다.
+
+2. 다음으로 저장소 계정에 샘플 데이터를 업로드합니다. 저장소 계정에 데이터를 업로드하는 방법은 계층 구조 네임스페이스를 사용할 수 있는지 여부에 따라 달라집니다.
+
+    Gen2 계정에서 만든 Azure Storage 계정에서 계층 구조 네임스페이스를 사용하도록 설정한 경우 Azure Data Factory, distp 또는 AzCopy(버전 10)를 사용하여 업로드를 처리할 수 있습니다. AzCopy 버전 10은 고객을 미리 볼 수만 있습니다. 다음 코드의 AzCopy pase를 명령 창에서 사용하려면:
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -150,7 +153,7 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 
 1. 빈 코드 셀에 다음 코드 조각을 추가하고, 자리 표시자 값을 이전에 저장소 계정에서 저장한 값으로 바꿉니다.
 
-    ```python
+    ```scala
     dbutils.widgets.text("storage_account_name", "STORAGE_ACCOUNT_NAME", "<YOUR_STORAGE_ACCOUNT_NAME>")
     dbutils.widgets.text("storage_account_access_key", "YOUR_ACCESS_KEY", "<YOUR_STORAGE_ACCOUNT_SHARED_KEY>")
     ```
@@ -159,13 +162,13 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 
 2. 이제 Azure Databricks에서 샘플 json 파일을 데이터 프레임으로 로드할 수 있습니다. 새 셀에 다음 코드를 붙여넣은 다음, 자리 표시자 값을 바꾸려면 **SHIFT+ENTER**를 누릅니다.
 
-    ```python
+    ```scala
     val df = spark.read.json("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/data/small_radio_json.json")
     ```
 
 3. 데이터 프레임의 내용을 보려면 다음 코드를 실행합니다.
 
-    ```python
+    ```scala
     df.show()
     ```
 
@@ -190,7 +193,7 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 
 1. 먼저 앞에서 만든 데이터 프레임에서 *이름*, *성*, *성별*, *위치* 및 *수준* 열만 검색합니다.
 
-    ```python
+    ```scala
     val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
     ```
 
@@ -225,7 +228,7 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 
 2.  열 **수준**을 **subscription_type**으로 지정하도록 이 데이터를 추가로 변환할 수 있습니다.
 
-    ```python
+    ```scala
     val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
     renamedColumnsDF.show()
     ```
@@ -267,28 +270,28 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 
 1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다.
 
-    ```python
+    ```scala
     val storageURI = "<STORAGE_ACCOUNT_NAME>.dfs.core.windows.net"
-    val fileSystemName = "<FILE_SYSTEM_NJAME>"
+    val fileSystemName = "<FILE_SYSTEM_NAME>"
     val accessKey =  "<ACCESS_KEY>"
     ```
 
 2. Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 이동하는 데 사용되는 임시 폴더를 지정합니다.
 
-    ```python
+    ```scala
     val tempDir = "abfs://" + fileSystemName + "@" + storageURI +"/tempDirs"
     ```
 
 3. 다음 코드 조각을 실행하여 Azure Blob Storage 액세스 키를 구성에 저장합니다. 이렇게 하면 액세스 키를 노트북에서 일반 텍스트로 유지할 필요가 없습니다.
 
-    ```python
+    ```scala
     val acntInfo = "fs.azure.account.key."+ storageURI
     sc.hadoopConfiguration.set(acntInfo, accessKey)
     ```
 
 4. Azure SQL Data Warehouse 인스턴스에 연결하기 위한 값을 입력합니다. 필수 구성 요소의 일부로 SQL 데이터 웨어하우스를 이미 만들어 두셨을 것입니다.
 
-    ```python
+    ```scala
     //SQL Data Warehouse related settings
     val dwDatabase = "<DATABASE NAME>"
     val dwServer = "<DATABASE SERVER NAME>" 
@@ -302,7 +305,7 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 
 5. 다음 코드 조각을 실행하여 변환된 데이터 프레임, **renamedColumnsDF**를 SQL 데이터 웨어하우스에 테이블로 로드합니다. 이 코드 조각은 SQL 데이터베이스에 **SampleTable**이라는 테이블을 만듭니다.
 
-    ```python
+    ```scala
     spark.conf.set(
         "spark.sql.parquet.writeLegacyFormat",
         "true")
@@ -342,7 +345,7 @@ DataBricks Notebook으로 돌아가서 새 셀에 다음 코드를 입력합니�
 > * Azure Databricks에 Spark 클러스터 만들기
 > * Azure Data Lake Storage Gen2 지원 계정 만들기
 > * Azure Data Lake Storage Gen2에 데이터 업로드
-> * Azure Databricks에 노트북 만들기
+> * Azure Databricks에 Notebook 만들기
 > * Data Lake Storage Gen2에서 데이터 추출
 > * Azure Databricks에서 데이터 변환
 > * Azure SQL Data Warehouse에 데이터 로드

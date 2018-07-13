@@ -1,29 +1,28 @@
 ---
 title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 재해 복구 드릴 실행 | Microsoft Docs
 description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로 재해 복구 드릴을 실행하는 방법에 대해 알아봅니다.
-services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/20/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: c706474018bd0751872381c6d28f0ad579ba772b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286582"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437215"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
 이 문서에서는 테스트 장애 조치(failover)를 사용하여 온-프레미스 컴퓨터에 대해 Azure로 재해 복구 드릴을 실행하는 방법을 설명합니다. 훈련은 데이터 손실 없이 복제 전략의 유효성을 검사합니다.
 
-이는 온-프레미스 VMware VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 네 번째 자습서입니다.
+온-프레미스 VMware VM 또는 Hyper-V VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여주는 자습서 시리즈 중 네 번째 자습서입니다.
 
 이 자습서에서는 여러분이 처음 세 자습서를 완료한 것으로 간주합니다. 
-    - [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 재해 복구에 필요한 Azure 구성 요소를 설정했습니다.
-    - [두 번째 자습서](vmware-azure-tutorial-prepare-on-premises.md)에서는 재해 복구용 온-프레미스 구성 요소를 준비하고 필수 구성 요소를 살펴보았습니다.
-    - [세 번째 자습서](vmware-azure-tutorial.md)에서는 온-프레미스 VMware VM에 복제를 설정하고 활성화했습니다.
+    - [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 또는 Hyper-V 재해 복구에 필요한 [Azure 구성 요소를 준비](tutorial-prepare-azure.md)했습니다.
+    - 두 번째 자습서에서는 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 재해 복구에 필요한 온-프레미스 구성 요소를 준비했습니다.
+    - 세 번째 자습서에서는 온-프레미스 [VMware VM](vmware-azure-tutorial.md), [System Center VMM이 있는 Hyper-V VM](hyper-v-vmm-azure-tutorial.md) 또는 [System Center VMM이 없는 Hyper-V VM](hyper-v-azure-tutorial.md)에 복제를 사용하도록 설정하고 적용했습니다.
 - 자습서는 특정 시나리오의 가장 간단한 배포 경로를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 모든 자습서는 가장 간단한 설정을 사용하고 가능한 경우 기본값을 이용하여 Site Recovery를 설정합니다. 테스트 장애 조치(failover) 단계에 대해 자세히 알아보려면 [방법 가이드](site-recovery-test-failover-to-azure.md)를 읽어 보세요.
 
 이 자습서에서는 다음 방법을 알아봅니다.
@@ -37,7 +36,7 @@ ms.locfileid: "36286582"
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
-테스트 장애 조치(failover)를 실행하기 전에 VMware VM 속성을 확인하고, [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 또는 [VMware VM/실제 서버](vmware-physical-azure-support-matrix.md#replicated-machines)가 Azure 요구 사항을 준수하는지 확인합니다.
+테스트 장애 조치(failover)를 실행하기 전에 먼저 VM 속성을 확인하고 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 또는 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines)이 Azure 요구 사항을 준수하는지 확인합니다.
 
 1. **보호된 항목**에서 **복제된 항목**을 클릭하고 VM을 클릭합니다.
 2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
@@ -70,3 +69,4 @@ ms.locfileid: "36286582"
 
 > [!div class="nextstepaction"]
 > [온-프레미스 VMware VM 간 장애 조치(failover) 및 장애 복구(failback) 실행](vmware-azure-tutorial-failover-failback.md)
+> [온-프레미스 Hyper-V VM 간 장애 조치(failover) 및 장애 복구(failback) 실행](hyper-v-azure-failover-failback-tutorial.md)

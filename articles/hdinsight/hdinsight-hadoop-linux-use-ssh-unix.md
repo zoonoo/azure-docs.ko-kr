@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a76dbb9a232d99615629d1a3fec6010b37e73247
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046781"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446608"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 
@@ -137,7 +137,19 @@ SSH 사용자 계정 암호를 변경하는 방법에 대한 내용은 [HDInsigh
 
 ## <a id="domainjoined"></a>인증: 도메인에 조인된 HDInsight
 
-__도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH와 연결한 후에 `kinit` 명령을 사용해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
+__도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH 로컬 사용자와 연결한 후에 `kinit` 명령을 사용해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
+
+도메인 계정을 사용하여 ssh가 가능하도록 도메인에 조인된 각 노드(예: 헤드 노드, 에지 노드)에서 Kerberos 인증을 사용할 수도 있습니다. 이렇게 하려면 sshd 구성 파일을 편집합니다.
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+주석 처리를 제거하고 `KerberosAuthentication`을 `yes`로 변경합니다.
+
+```bash
+sudo service sshd restart
+```
+
+언제든지 `klist` 명령을 사용하여 Kerberos 인증이 성공했는지 확인할 수 있습니다.
 
 자세한 내용은 [도메인에 조인된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md)을 참조하세요.
 

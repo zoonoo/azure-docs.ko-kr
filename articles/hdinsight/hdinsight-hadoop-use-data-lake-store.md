@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0d0fb9bad8c6120100ae3ee766aea7620dd6105f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 362a9ae9cb1a1ebc30193b76929f0a683414e5fd
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201760"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435300"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Data Lake Store 사용
 
@@ -100,10 +100,10 @@ Data Lake Store를 기본 저장소로 사용할 수 있으려면 파일이 저�
 
 ## <a name="configure-data-lake-store-access"></a>Data Lake Store 액세스 구성
 
-HDInsight 클러스터에서 Data Lake Store 액세스를 구성하려면 Azure AD(Azure Active Directory) 서비스 주체가 있어야 합니다. Azure AD 관리자만 서비스 주체를 만들 수 있습니다. 서비스 주체는 인증서로 만들어야 합니다. 자세한 내용은 [Data Lake Store 액세스 구성](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#configure-data-lake-store-access) 및 [자체 서명된 인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
+HDInsight 클러스터에서 Data Lake Store 액세스를 구성하려면 Azure AD(Azure Active Directory) 서비스 주체가 있어야 합니다. Azure AD 관리자만 서비스 주체를 만들 수 있습니다. 서비스 주체는 인증서로 만들어야 합니다. 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) 및 [자체 서명된 인증서로 서비스 주체 만들기](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate)를 참조하세요.
 
 > [!NOTE]
-> Azure Data Lake Store를 HDInsight 클러스터의 추가 저장소로 사용하려는 경우 이 문서에서 설명한 대로 클러스터를 만드는 동안 이 작업을 수행하는 것이 좋습니다. 기존의 HDInsight 클러스터에 Azure Data Lake Store를 추가 저장소로 추가하는 것은 복잡한 프로세스이며 오류가 발생하기 쉽습니다.
+> Azure Data Lake Store를 HDInsight 클러스터의 추가 저장소로 사용하려는 경우 이 문서에서 설명한 대로 클러스터를 만드는 동안 이 작업을 수행하는 것이 좋습니다. 기존 HDInsight 클러스터에 Azure Data Lake Store를 추가 저장소로 추가하는 시나리오는 지원되지 않습니다.
 >
 
 ## <a name="access-files-from-the-cluster"></a>클러스터에서 파일 액세스
@@ -130,7 +130,7 @@ HDInsight 클러스터에서 Data Lake Store의 파일에 액세스할 수 있�
 
 Data Lake Store에 대한 액세스로 HDInsight 클러스터를 만드는 방법에 대한 자세한 지침은 다음 링크를 사용하세요.
 
-* [포털 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [포털 사용](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [PowerShell 사용(Data Lake Store를 기본 저장소로)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
 * [PowerShell 사용(Data Lake Store를 추가 저장소로)](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [Azure 템플릿 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
@@ -142,8 +142,7 @@ Data Lake Store에 대한 액세스로 HDInsight 클러스터를 만드는 방�
 자세한 내용은 다음을 참조하세요.
 
 * [Azure HDInsight 시작][hdinsight-get-started]
-* [Azure Data Lake Store 시작](../data-lake-store/data-lake-store-get-started-portal.md)
-* [HDInsight 클러스터를 만들어 Azure Portal을 사용하는 Data Lake Store 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [HDInsight 클러스터를 만들어 Azure PowerShell을 사용하는 Data Lake Store 사용](../data-lake-store/data-lake-store-hdinsight-hadoop-use-powershell.md)
 * [HDInsight에 데이터 업로드][hdinsight-upload-data]
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]

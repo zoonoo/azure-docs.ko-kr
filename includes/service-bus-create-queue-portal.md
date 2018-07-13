@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: service-bus-messaging
+author: sethmanheim
+ms.service: service-bus-messaging
+ms.topic: include
+ms.date: 06/29/2018
+ms.author: sethm
+ms.custom: include file
+ms.openlocfilehash: bad7e87cb194fb7d8846e7e675881658a1d33b1e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37138163"
+---
 [여기][namespace-how-to]와 같이 Service Bus 네임스페이스를 만들었는지 확인합니다.
 
 1. [Azure Portal][azure-portal]에 로그인합니다.

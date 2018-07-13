@@ -93,7 +93,7 @@
       href: concepts-tpm-attestation.md
 - name: 방법 가이드
   items:
-    - name: IoT 허브에 MXChip IoT DevKit 연결
+    - name: IoT Hub에 MXChip IoT DevKit 연결
       href: how-to-connect-mxchip-iot-devkit.md
     - name: 장치 프로비전 구성 관리
       items:
@@ -157,6 +157,16 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
+    - name: 'C#(.NET)용 Azure IoT 샘플'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Node.js용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Java용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Python용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: iOS 플랫폼용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Azure IoT Hub
       href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: IoT용 Azure Certified 장치 카탈로그

@@ -12,19 +12,22 @@ ms.workload: tbd
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/17/2018
+ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: e7107e5c75d79714ae8d2d78d35e2cd3742ac674
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c24e3045640471ed6ee7052f877850acd8e8cf00
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101129"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>자습서: Azure SignalR Service 인증
 
+Microsoft Azure SignalR Service는 현재 [Public Preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 제공됩니다.
+
 이 자습서는 빠른 시작에서 소개한 대화방 응용 프로그램에서 진행됩니다. [SignalR Service로 대화방 만들기](signalr-quickstart-dotnet-core.md)를 아직 완료하지 않았으면 해당 연습을 먼저 완료합니다. 
 
-이 자습서에서는 사용자 고유의 인증을 구현하고 Azure SignalR Service에 통합하는 방법을 설명합니다. 
+이 자습서에서는 사용자 고유의 인증을 구현하고 Microsoft Azure SignalR Service에 통합하는 방법을 설명합니다. 
 
 처음에 빠른 시작의 대화방 응용 프로그램에서 사용된 인증은 실제 시나리오에 비해 너무 간단합니다. 이 응용 프로그램에서 각 클라이언트는 자신이 누구인지 클레임할 수 있으며, 서버는 간단히 수락합니다. 이 방법은 Rogue 사용자가 다른 사람을 가장하여 중요한 데이터에 액세스하는 실제 응용 프로그램에서는 별로 유용하지 않습니다. 
 
@@ -85,9 +88,10 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ### <a name="update-the-startup-class-to-support-github-authentication"></a>GitHub 인증을 지원하도록 Startup 클래스 업데이트
 
-1. 최신 *Microsoft.AspNetCore.Authentication.Cookies* 패키지에 대한 참조를 추가하고 모든 패키지를 복원합니다.
+1. 최신 *Microsoft.AspNetCore.Authentication.Cookies* 및 *AspNet.Security.OAuth.GitHub* 패키지에 대한 참조를 추가하고 모든 패키지를 복원합니다.
 
         dotnet add package Microsoft.AspNetCore.Authentication.Cookies -v 2.1.0-rc1-30656
+        dotnet add package AspNet.Security.OAuth.GitHub -v 2.0.0-rc2-final
         dotnet restore
 
 1. *Startup.cs*를 열고 다음 네임스페이스에 대한 `using` 문을 추가합니다.
@@ -475,7 +479,7 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure:SignalR:ConnectionString=$connstring" 
+    --settings "Azure__SignalR__ConnectionString=$connstring" 
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \
@@ -591,7 +595,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
 
-**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 후 **리소스 그룹 삭제**를 클릭합니다.
+**이름을 기준으로 필터링...** 텍스트 상자에 리소스 그룹의 이름을 입력합니다. 이 문서의 지침에서는 *SignalRTestResources*라는 리소스 그룹을 사용합니다. 결과 목록의 리소스 그룹에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
    
 ![삭제](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
@@ -599,13 +603,11 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 입력하여 확인한 후 **삭제**를 클릭합니다.
    
-잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure SignalR Service로 인증하는 보다 나은 방법을 제공하기 위해 OAuth 인증을 추가했습니다. Azure SignalR Server를 사용하는 방법을 자세히 알아보려면 Azure Functions와의 통합을 보여주는 다음 자습서를 계속 진행합니다.
+이 자습서에서는 Azure SignalR Service로 인증하는 보다 나은 방법을 제공하기 위해 OAuth 인증을 추가했습니다. Azure SignalR Server에 대해 자세히 알아보려면 SignalR Service용 Azure CLI 샘플을 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Azure Functions를 Azure SignalR Service와 통합](./signalr-integrate-functions.md)
-
-
+> [Azure SignalR CLI 샘플](./signalr-cli-samples.md)

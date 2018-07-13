@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 3b0e03d47a03411e3e6dc2d073d5087bcb42e03e
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 43b232e612f2ea4b47789e29a7f241bf4c35271d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960426"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100124"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 Visual Studio)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -29,17 +29,17 @@ ms.locfileid: "36960426"
 > [!Note]
 > **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요. 또한 더 자세한 [자습서](get-started-netcore-visualstudio.md)를 시도해 볼 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 - EastUS, WestEurope 또는 CanadaEast 지역에서 Http 응용 프로그램 라우팅이 활성화된 상태로 Kubernetes 1.9.6을 실행 중인 Kubernetes 클러스터.
 
   ![Http 응용 프로그램 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-- 설치된 Visual Studio 2017과 웹 개발 워크로드. 설치되어 있지 않으면 [여기](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)에서 다운로드하세요.
+- Visual Studio 2017과 웹 개발 워크로드가 설치되었습니다. 설치되어 있지 않으면 [여기](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)에서 다운로드하세요.
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
-[Azure Dev Spaces용 Visual Studio 확장](https://aka.ms/get-azds-visualstudio)을 설치합니다.
+[Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)를 설치합니다.
 
 ## <a name="connect-to-a-cluster"></a>클러스터에 연결
 
@@ -65,7 +65,7 @@ Visual Studio 2017에서 새 프로젝트를 만듭니다. 현재 프로젝트�
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
 
-**확인**을 클릭하여 클러스터를 선택하거나 만듭니다.
+클러스터를 선택하거나 만들려면 **확인**을 클릭합니다.
 
 Azure Dev Spaces와 함께 작동하도록 구성되지 않은 클러스터를 선택하면 구성할 것인지를 묻는 메시지가 표시됩니다.
 

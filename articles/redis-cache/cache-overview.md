@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 5efb0087c8e1ea55051d8eb7b209059b3abd5c5c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062762"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096195"
 ---
 # <a name="what-is-azure-redis-cache"></a>Azure Redis Cache란?
 
@@ -27,7 +27,7 @@ Azure Redis Cache는 인기 있는 오픈 소스 [Redis Cache](https://redis.io/
 
 Azure Redis Cache는 메모리 내 데이터 구조 저장소, 분산된 비관계형 데이터베이스 및 메시지 브로커로 사용할 수 있습니다. Redis 엔진의 낮은 대기 시간의 처리량이 높은 성능을 이용하여 응용 프로그램 성능이 향상됩니다.
 
-Azure Redis Cache는 Microsoft에서 관리하고, Azure 내에서 호스팅되며, Azure 내 모든 응용 프로그램에 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 사용자에게 제공합니다.
+Azure Redis Cache는 Microsoft에서 관리하고, Azure 내에서 호스팅되며, Azure 내부 또는 외부의 모든 응용 프로그램에 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 사용자에게 제공합니다.
 
 ## <a name="why-use-azure-redis-cache"></a>Azure Redis Cache를 사용하는 이유
 

@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: 9acdfdde667d37bac5b96e4497b3e86d2cdeccb8
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063411"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340953"
 ---
-# <a name="tutorial-learn-how-to-return-data-from-keyphrase-entity"></a>자습서: keyPhrase 엔터티에서 데이터를 반환하는 방법 알아보기 
+# <a name="tutorial-7-add-keyphrase-entity"></a>자습서: 7. keyPhrase 엔터티 추가 
 이 자습서에서는 발화에서 핵심 주제를 추출하는 방법을 보여 주는 앱을 사용합니다.
 
 <!-- green checkmark -->
@@ -201,10 +201,10 @@ keyPhrase 엔터티 검색이 포함된 이 앱은 자연어 쿼리 의도를 �
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램은 발언에서 topScoringIntent 결과 및 keyPhrase 데이터를 사용하여 다음 단계를 진행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [의도 예측과 함께 감정을 반환하는 앱 만들기](luis-quickstart-intent-and-sentiment-analysis.md)
+> [앱에 감정 분석 추가](luis-quickstart-intent-and-sentiment-analysis.md)
 

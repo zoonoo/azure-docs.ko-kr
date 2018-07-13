@@ -1,19 +1,20 @@
 ---
-title: "Site Recovery를 사용하여 복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs"
-description: "Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover)고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법 알아보기"
+title: Site Recovery를 사용하여 복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
+description: Azure Site Recovery를 사용하여 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover)고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법 알아보기
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/05/2018
+ms.date: 06/13/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 618e2bb7ef124883af2d73264e01922ad2329d12
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 57be12e3d203ba88cf7900598a09abdd206e1495
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115135"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>복제된 VMware VM 및 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -62,9 +63,9 @@ VM 속성을 확인하고 VM이 [Azure 요구 사항](vmware-physical-azure-supp
 
 ## <a name="run-a-failover-to-azure"></a>Azure에 대한 장애 조치(Failover) 실행
 
-1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)**를 클릭합니다.
+1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)** 를 클릭합니다.
 
-2. **장애 조치(Failover)**에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
+2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
    - **최신**(기본값): 이 옵션은 먼저 Site Recovery로 전송된 모든 데이터를 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
    - **가장 최근에 처리됨**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
    - **최신 앱 일치**: 이 옵션은 VM을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치합니다.
@@ -132,7 +133,7 @@ VM에서 vCenter를 사용하지 않는 경우 컴퓨터를 다시 보호하기 
 
 다음과 같이 장애 조치(Failover)를 실행합니다.
 
-1. **복제된 항목** 페이지에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 다음 **계획되지 않은 장애 조치(Failover)**를 선택합니다.
+1. **복제된 항목** 페이지에서 컴퓨터를 마우스 오른쪽 단추로 클릭한 다음 **계획되지 않은 장애 조치(Failover)** 를 선택합니다.
 2. **장애 조치(Failover) 확인**에서 장애 조치(Failover) 방향이 Azure부터인지 확인합니다.
 
 3. 장애 조치(Failover)에 사용할 복구 지점을 선택합니다. 최신 시점 이전에 최신 응용 프로그램 일치 복구 지점이 발생하고 일부 데이터가 손실됩니다. 장애 조치(Failover)를 실행하면 Site Recovery가 Azure VM을 종료하고 온-프레미스 VM을 부팅합니다. 일정 시간 동안 가동 중지되므로 적절한 시간을 선택합니다.

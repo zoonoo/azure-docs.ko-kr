@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 7f8e8d920884c611965ff760bb0369e08163356e
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 52d5977b2a454dec803ad1233fcb12cc9573521c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029607"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100354"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: 데이터 마이그레이션 도구
 
@@ -50,7 +50,7 @@ Azure Cosmos DB와 함께 사용할 API는 무엇인가요?
 * MongoDB
 * SQL Server
 * CSV 파일
-* Azure 테이블 저장소
+* Azure Table Storage
 * Amazon DynamoDB
 * HBase
 * Azure Cosmos DB 컬렉션
@@ -206,32 +206,32 @@ CSV 가져오기에 대한 명령줄 샘플은 다음과 같습니다.
 
     dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:CosmosDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:Employees /t.IdField:EntityID /t.CollectionThroughput:2500
 
-## <a id="AzureTableSource"></a>Azure 테이블 저장소에서 가져오기
+## <a id="AzureTableSource"></a>Azure Table Storage에서 가져오기
 Azure Table Storage 원본 가져오기 옵션을 사용하면 개별 Azure Table Storage 테이블에서 가져올 수 있습니다. 필요에 따라 가져올 테이블 엔터티를 필터링할 수 있습니다. 
 
 Azure Table Storage에서 가져온 데이터는 Table API와 함께 사용할 Azure Cosmos DB 테이블 및 엔터티 또는 SQL API와 함께 사용할 컬렉션 및 문서에 대한 출력일 수 있습니다. 하지만 테이블 API는 명령줄 유틸리티의 대상으로만 사용할 수 있으며, 데이터 마이그레이션 도구 사용자 인터페이스를 사용하여 테이블 API로 내보낼 수 없습니다. 자세한 정보는 [Azure Cosmos DB Table API와 함께 사용할 데이터 가져오기](table-import.md)를 참조하세요. 
 
-![Azure 테이블 저장소 원본 옵션의 스크린샷](./media/import-data/azuretablesource.png)
+![Azure Table Storage 원본 옵션의 스크린샷](./media/import-data/azuretablesource.png)
 
-Azure 테이블 저장소 연결 문자열의 형식은 다음과 같습니다.
+Azure Table Storage 연결 문자열의 형식은 다음과 같습니다.
 
     DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;
 
 > [!NOTE]
-> Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure 테이블 저장소 인스턴스를 액세스할 수 있는지 확인합니다.
+> Verify 명령을 사용하여 연결 문자열 필드에 지정된 Azure Table Storage 인스턴스를 액세스할 수 있는지 확인합니다.
 > 
 > 
 
 가져올 Azure 테이블의 이름을 입력합니다. 필요에 따라 [필터](../vs-azure-tools-table-designer-construct-filter-strings.md)를 지정할 수 있습니다.
 
-Azure 테이블 저장소 원본 가져오기 옵션에는 다음과 같은 추가 옵션이 있습니다.
+Azure Table Storage 원본 가져오기 옵션에는 다음과 같은 추가 옵션이 있습니다.
 
 1. 내부 필드 포함
    1. 모두 - 모든 내부 필드 포함(PartitionKey, RowKey 및 Timestamp)
    2. 없음 - 모든 내부 필드 제외
    3. RowKey - RowKey 필드만 포함
 2. 열 선택
-   1. Azure 테이블 저장소 필터는 프로젝션을 지원하지 않습니다. 특정 Azure 테이블 엔터티 속성만 가져오려는 경우 열 선택 목록에 추가합니다. 다른 모든 엔터티 속성은 무시됩니다.
+   1. Azure Table Storage 필터는 프로젝션을 지원하지 않습니다. 특정 Azure 테이블 엔터티 속성만 가져오려는 경우 열 선택 목록에 추가합니다. 다른 모든 엔터티 속성은 무시됩니다.
 
 Azure Table Storage에서 가져오는 명령줄 샘플은 다음과 같습니다.
 
@@ -450,7 +450,7 @@ Azure Cosmos DB 연결 문자열의 형식은 다음과 같습니다.
 
 Azure Cosmos DB - 순차 레코드 가져오기에는 다음과 같은 추가 고급 옵션이 있습니다.
 
-1. 병렬 요청 수: 기본적으로 도구의 병렬 요청 수는 2개로 설정되어 있습니다. 가져올 문서가 작으면 병렬 요청 수를 늘리는 것이 좋습니다. 이 개수를 너무 많이 늘리면 가져오기 시 제한이 발생할 수 있습니다.
+1. 병렬 요청 수: 기본적으로 도구의 병렬 요청 수는 2개로 설정되어 있습니다. 가져올 문서가 작으면 병렬 요청 수를 늘리는 것이 좋습니다. 이 개수를 너무 많이 늘리면 가져오기 시 속도 제한이 발생할 수 있습니다.
 2. 자동 ID 생성 사용 안 함: 가져올 모든 문서에 ID 필드가 포함되어 있는 경우 이 옵션을 선택하면 성능을 향상시킬 수 있습니다. 고유 ID 필드가 누락된 문서는 가져오지 않습니다.
 3. 기존 문서 업데이트: 이 도구는 기본적으로 기존 문서를 충돌하는 ID로 대체하지 않습니다. 이 옵션을 선택하면 기존 문서를 일치하는 ID로 덮어쓸 수 있습니다. 이 기능은 기존 문서를 업데이트하는 예약된 데이터 마이그레이션에 유용합니다.
 4. 실패 시 다시 시도 횟수: 일시적 오류(예: 네트워크 연결 중단)의 경우 Azure Cosmos DB에 대한 연결을 다시 시도할 횟수를 지정합니다.
@@ -474,7 +474,7 @@ Azure Cosmos DB - 순차 레코드 가져오기에는 다음과 같은 추가 �
 도구가 제공하는 정책 템플릿은 다음과 같습니다.
 
 * 기본값 이 정책은 문자열에 대해 같음 쿼리를 수행하고 숫자에 대해 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 범위보다 더 낮은 인덱스 저장소 오버헤드가 있습니다.
-* 범위입니다. 이 정책은 숫자와 문자열 모두에 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 기본값 또는 해시보다 더 높은 인덱스 저장소 오버헤드가 있습니다.
+* 범위 이 정책은 숫자와 문자열 모두에 ORDER BY, 범위 및 같음 쿼리를 사용할 때 가장 좋습니다. 이 정책에는 기본값 또는 해시보다 더 높은 인덱스 저장소 오버헤드가 있습니다.
 
 ![Azure Cosmos DB 인덱싱 정책 고급 옵션의 스크린샷](./media/import-data/indexingpolicy2.png)
 
@@ -484,7 +484,7 @@ Azure Cosmos DB - 순차 레코드 가져오기에는 다음과 같은 추가 �
 > 
 
 ## <a name="export-to-json-file"></a>JSON 파일로 내보내기
-Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵션을 JSON 문서 배열이 포함된 JSON 파일로 내보낼 수 있습니다. 도구에서 자동으로 내보내기를 처리하거나, 결과 마이그레이션 명령을 보고 직접 명령을 실행할 수 있습니다. 결과 JSON 파일은 로컬로 또는 Azure Blob 저장소에 저장될 수도 있습니다.
+Azure Cosmos DB JSON 내보내기를 사용하면 사용 가능한 모든 원본 옵션을 JSON 문서 배열이 포함된 JSON 파일로 내보낼 수 있습니다. 도구에서 자동으로 내보내기를 처리하거나, 결과 마이그레이션 명령을 보고 직접 명령을 실행할 수 있습니다. 결과 JSON 파일은 로컬로 또는 Azure Blob Storage에 저장될 수도 있습니다.
 
 ![Azure Cosmos DB JSON 로컬 파일 내보내기 옵션의 스크린샷](./media/import-data/jsontarget.png)
 

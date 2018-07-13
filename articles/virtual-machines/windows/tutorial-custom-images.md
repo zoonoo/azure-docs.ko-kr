@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a449c1f9781ffc86de4786eaab3cb83999b86a72
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 930f5dc0369c998039b9cc0c089f60de17993be0
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188051"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435163"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure VM의 사용자 지정 이미지 만들기
 
@@ -121,12 +121,12 @@ New-AzureRmVm `
 
 ## <a name="image-management"></a>이미지 관리 
 
-일반적인 이미지 관리 작업의 몇 가지 예제와 PowerShell을 사용하여 완료하는 방법은 다음과 같습니다.
+다음은 일반적인 관리형 이미지 작업의 예제와 PowerShell을 사용하여 완료하는 방법입니다.
 
 이름별로 모든 이미지를 나열합니다.
 
 ```azurepowershell-interactive
-$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 

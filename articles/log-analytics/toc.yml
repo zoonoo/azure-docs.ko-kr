@@ -35,6 +35,8 @@
           href: log-analytics-oms-portal-faq.md
     - name: Log Analytics FAQ
       href: log-analytics-faq.md
+    - name: 데이터 수집 시간
+      href: log-analytics-data-ingestion-time.md
     - name: 데이터 보안
       href: log-analytics-data-security.md
     - name: 액세스 관리

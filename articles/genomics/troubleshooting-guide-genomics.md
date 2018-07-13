@@ -12,11 +12,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
 ms.date: 04/13/2018
-ms.openlocfilehash: 18761c02cc423affe7b1050700e560b1f0b0594d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: d3991bdbcd9c3dcd08572dc92cc75aaebb02b133
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34627367"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 이 개요에서는 Microsoft Genomics 서비스를 사용할 때 일반적인 문제를 해결하기 위한 전략에 대해 설명합니다. 일반 FAQ는 [일반적인 질문](frequently-asked-questions-genomics.md)을 참조하세요. 
@@ -72,9 +73,7 @@ Fastq 파일은 샘플 식별자 뒤에 오는 /1 또는 /2만 달라야 합니�
 * `Error locating input files on worker machine`
 * `Process management failure`
 
-워크플로를 다시 제출해 보세요. 작업이 계속 실패하거나 다른 질문이 있는 경우 Azure Portal의 Microsoft Genomics 지원에 문의하세요.
-
-![Azure Portal에서 지원 문의](./media/troubleshooting-guide/genomics-contact-support.png "Azure Portal에서 지원 문의")
+워크플로를 다시 제출해 보세요. 작업이 계속 실패하거나 다른 질문이 있는 경우 Azure Portal의 Microsoft Genomics 지원에 문의하세요. 지원 요청을 제출하는 방법에 대한 추가 정보는 [여기](file-support-ticket-genomics.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Microsoft Genomics 서비스와 관련된 일반적인 문제를 해결하는 방법을 알아보았습니다. 자세한 내용 및 일반적인 FAQ는 [일반적인 질문](frequently-asked-questions-genomics.md)을 참조하세요. 

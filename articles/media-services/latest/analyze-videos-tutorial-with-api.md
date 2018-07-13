@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/09/2018
+ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e81544d263bea3f367eaf2100ddb36a2835034c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637915"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114227"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>자습서: Azure Media Services로 비디오 분석 
 
@@ -33,6 +33,9 @@ ms.locfileid: "34637915"
 > * 앱 실행
 > * 출력 내용 검사
 > * 리소스 정리
+
+> [!Note]
+> [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)에 설명된 대로 Azure Portal을 사용하여 Media Services 계정을 10개의 S3 미디어 예약 단위로 설정합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

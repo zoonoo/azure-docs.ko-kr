@@ -150,6 +150,16 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
+    - name: 'C#(.NET)용 Azure IoT 샘플'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Node.js용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Java용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Python용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: iOS 플랫폼용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: IoT용 Azure Certified 장치 카탈로그
       href: 'https://catalog.azureiotsuite.com/'
     - name: Azure IoT 개발자 센터

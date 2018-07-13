@@ -13,6 +13,7 @@
 ## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [관리 그룹](management-groups-overview.md)
 ## [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [클라우드 일관성을 위한 템플릿](templates-cloud-consistency.md)
 
 # 방법
 ## 템플릿 만들기
@@ -47,7 +48,7 @@
 ## 관리
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure Portal](resource-group-portal.md)
+### [Azure 포털](resource-group-portal.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
 ### [EA 구독 만들기](programmatically-create-subscription.md)
@@ -59,7 +60,7 @@
 ### 서비스 주체 만들기
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure Portal](resource-group-create-service-principal-portal.md)
+#### [Azure 포털](resource-group-create-service-principal-portal.md)
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
 

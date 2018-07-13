@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 06/29/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: 3f0ba3034c1ba9e68f83caaaf9aacb96134ca74b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235501"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342228"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>자습서: Azure CDN 사용자 지정 도메인에서 HTTPS 구성
 
@@ -47,7 +47,7 @@ Azure CDN은 기본적으로 CDN 엔드포인트에서 HTTPS를 지원합니다.
 > - 도메인의 유효성 검사
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하지 않도록 설정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
 이 자습서에서 단계를 완료하기 전에 먼저 CDN 프로필 및 하나 이상의 CDN 끝점을 만들어야 합니다. 자세한 내용은 [빠른 시작: Azure CDN 프로필 및 끝점 만들기](cdn-create-new-endpoint.md)를 참조하세요.
 
@@ -61,7 +61,7 @@ Azure CDN 사용자 지정 도메인에서 콘텐츠를 안전하게 제공하�
 
 # <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[옵션 1(기본값): CDN 관리되는 인증서를 사용하여 HTTPS 활성화](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
 
-CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을 설정할 수 있습니다. Azure CDN은 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 CDN 엔드포인트에 이미 매핑된 경우 추가 조치가 필요하지 않습니다. Azure CDN은 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
+CDN 관리되는 인증서를 사용하면 단 몇 번의 클릭으로 HTTPS 기능을 설정할 수 있습니다. Azure CDN은 조달 및 갱신과 같은 인증서 관리 작업을 완전히 처리합니다. 기능을 활성화하면 프로세스는 즉시 시작됩니다. 사용자 지정 도메인이 CDN 엔드포인트에 이미 매핑된 경우 추가적인 조치가 필요하지 않습니다. Azure CDN은 단계를 처리하고 자동으로 요청을 완료합니다. 그러나 사용자 지정 도메인이 다른 곳에 매핑된 경우 이메일을 사용하여 도메인 소유권의 유효성을 검사해야 합니다.
 
 사용자 지정 도메인에서 HTTPS를 활성화하려면 다음 단계를 따르세요.
 
@@ -171,13 +171,13 @@ CNAME 레코드를 사용하여 사용자 지정 엔드포인트에 매핑되는
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 CDN 끝점 호스트 이름입니다.
 
-| Name            | type  | 값                 |
+| 이름            | 형식  | 값                 |
 |-----------------|-------|-----------------------|
 | www.contoso.com | CNAME | contoso.azureedge.net |
 
 CNAME 레코드에 대한 자세한 내용은 [CNAME DNS 레코드 만들기](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain#create-the-cname-dns-records)를 참조하세요.
 
-CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인 이름을 자동으로 확인하고 SAN(주체 대체 이름) 인증서에 추가합니다. DigitCert는 확인 메일을 보내지 않으며 요청을 승인할 필요가 없습니다. 인증서는 1년 동안 유효하며 만료되기 전에 자동으로 갱신됩니다. [전파 대기](#wait-for-propagation)를 진행합니다. 
+CNAME 레코드가 올바른 형식이면 DigiCert는 사용자 지정 도메인 이름을 자동으로 확인하고 도메인 이름에 전용 인증서를 만듭니다. DigitCert는 확인 메일을 보내지 않으며 요청을 승인할 필요가 없습니다. 인증서는 1년 동안 유효하며 만료되기 전에 자동으로 갱신됩니다. [전파 대기](#wait-for-propagation)를 진행합니다. 
 
 일반적으로 자동 유효성 검사에 몇 분 정도 걸립니다. 1시간 내에 도메인의 유효성이 확인되지 않으면 지원 티켓을 엽니다.
 
@@ -200,9 +200,9 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 admin@digicert.com을 허용 목록에 추가입니다. 24시간 이내에 전자 메일을 받지 못하면 Microsoft 지원에 문의하세요.
+잠시 후 다음 예제와 비슷한 승인 요청 전자 메일을 받게 됩니다. 스팸 필터를 사용하는 경우 admin@digicert.com을 허용 목록에 추가입니다. 24시간 이내에 이메일을 받지 못하면 Microsoft 지원에 문의하세요.
     
-![도메인 유효성 검사 전자 메일](./media/cdn-custom-ssl/domain-validation-email.png)
+![도메인 유효성 검사 이메일](./media/cdn-custom-ssl/domain-validation-email.png)
 
 승인 링크를 클릭하는 경우 다음과 같은 온라인 승인 양식으로 이동됩니다. 
     
@@ -214,7 +214,7 @@ postmaster@&lt;your-domain-name.com&gt;
 
 - 이 요청에 사용된 특정 호스트 이름을 승인할 수 있습니다. 후속 요청에는 추가 승인이 필요합니다.
 
-승인 후에는 DigiCert가 사용자 지정 도메인 이름을 SAN 인증서에 추가합니다. 인증서는 1년 동안 유효하며 만료되기 전 자동으로 갱신됩니다.
+승인 후에 DigiCert는 사용자 지정 도메인 이름에 대한 인증서 생성을 완료합니다. 인증서는 1년 동안 유효하며 만료되기 전 자동으로 갱신됩니다.
 
 ## <a name="wait-for-propagation"></a>전파 대기
 
@@ -288,11 +288,11 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 1. *인증서 공급자는 누구이며 어떤 유형의 인증서가 사용되나요?*
 
-    **Verizon의 Azure CDN**과 함께 DigiCert에서 제공하는 SAN(주체 대체 이름) 인증서가 사용됩니다. SAN 인증서는 하나의 인증서로 정규화된 여러 도메인 이름을 보호할 수 있습니다. **Microsoft의 Azure CDN 표준**과 함께 DigiCert에서 제공하는 단일 인증서가 사용됩니다.
+    **Verizon의 Azure CDN** 및 **Microsoft의 Azure CDN** 모두의 경우 사용자 지정 도메인에 Digicert에서 제공된 전용/단일 인증서를 사용합니다. 
 
-2. IP 기반 또는 SNI TLS/SSL을 사용하나요?
+2. *IP 기반 또는 SNI TLS/SSL을 사용하나요?*
 
-    **Verizon의 Azure CDN**은 IP 기반 TLS/SSL을 사용합니다. **Microsoft의 Azure CDN 표준**은 SNI TLS/SSL을 사용합니다.
+    **Verizon의 Azure CDN** 및 **Microsoft의 Azure CDN 표준**은 모두 SNI TLS/SSL을 사용합니다.
 
 3. *DigiCert로부터 도메인 확인 메일을 받지 못한 경우 어떻게 하나요?*
 
@@ -309,6 +309,10 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 6. *내 DNS 공급자에게 CAA(Certificate Authority Authorization) 레코드가 필요합니까?*
 
     아니요, CAA 레코드는 현재 필요하지 않습니다. 그러나 이 레코드가 있으면 DigiCert가 유효한 CA로 포함되어야 합니다.
+
+7. *기본적으로 2018년 6월 20일에 SNI TLS/SSL에서 전용 인증서를 사용하여 Verizon의 Azure CDN을 시작했습니다. SAN(주체 대체 이름) 인증서와 IP 기반 TLS/SSL을 사용하는 기존 사용자 지정 도메인은 어떻게 되나요?*
+
+    Microsoft가 응용 프로그램에 대한 SNI 클라이언트 요청이 있는지 분석하는 경우 기존 도메인은 향후 몇 달 안에 단일 인증서로 점진적으로 마이그레이션됩니다. Microsoft가 응용 프로그램에 대한 일부 비 SNI 클라이언트 요청을 검색하는 경우 도메인은 IP 기반 TLS/SSL을 사용하여 SAN 인증서에 유지됩니다. 어떤 경우든 해당 요청이 SNI인지 비 SNI인지에 관계 없이 서비스에 대한 중단 또는 클라이언트 요청에 대한 지원이 없습니다.
 
 
 ## <a name="next-steps"></a>다음 단계
