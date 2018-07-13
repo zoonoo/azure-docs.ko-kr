@@ -6,18 +6,19 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 10/24/2017
+ms.date: 04/30/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: c6ac8f22f128b350844af10f309fd3b93512d54d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582304"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>자습서: Azure Container Registry에서 웹앱 배포
 
-세 부분으로 이루어진 자습서 시리즈의 두 번째 부분입니다. [1부](container-registry-tutorial-prepare-registry.md)에서 지리적 복제 개인 컨테이너 레지스트리가 작성되었으며 컨테이너 이미지가 원본에서 빌드되어 레지스트리로 푸시되었습니다. 이 문서에서는 지리적 복제 레지스트리의 네트워크 닫기 측면을 활용하기 위해 두 개의 다른 Azure 지역에 있는 두 개의 웹앱 인스턴스에 컨테이너를 배포합니다.
+세 부분으로 이루어진 자습서 시리즈의 두 번째 부분입니다. [1부](container-registry-tutorial-prepare-registry.md)에서 지리적 복제 개인 컨테이너 레지스트리가 작성되었으며 컨테이너 이미지가 원본에서 빌드되어 레지스트리로 푸시되었습니다. 이 문서에서는 서로 다른 두 Azure 지역에 있는 두 웹앱 인스턴스에 컨테이너를 배포하여 지리적 복제 레지스트리의 네트워크-인접 측면을 활용합니다. 그러면 각 인스턴스는 가장 가까운 레지스트리에서 컨테이너 이미지를 가져옵니다.
 
 이 자습서는 시리즈의 2부입니다.
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/28/2018
 
 지리적 복제 레지스트리를 아직 만들지 않았고 컨테이너화된 샘플 응용 프로그램의 이미지를 레지스트리에 푸시한 경우 시리즈의 이전 자습서인 [지리적 복제 Azure Container Registry 준비](container-registry-tutorial-prepare-registry.md)로 돌아갑니다.
 
-시리즈의 다음 부분에서는 응용 프로그램을 업데이트한 다음 새 컨테이너 이미지를 레지스트리로 푸시합니다. 마지막으로, 실행 중인 각 웹앱 인스턴스를 탐색하여 변경 사항이 자동으로 적용되어 Azure Container Registry 지역에서 복제 및 webhook가 실제로 작동하고 있음을 보여 줍니다.
+이 시리즈의 그 다음 문서에서는 응용 프로그램을 업데이트한 다음, 업데이트된 컨테이너 이미지를 레지스트리로 푸시합니다. 마지막으로, 실행 중인 각 웹앱 인스턴스를 탐색하여 변경 사항이 자동으로 적용되어 Azure Container Registry 지역에서 복제 및 webhook가 실제로 작동하고 있음을 보여 줍니다.
 
 ## <a name="automatic-deployment-to-web-apps-for-containers"></a>Web App for Containers에 자동 배포
 
@@ -103,11 +104,7 @@ Docker 이미지가 지리적 복제 컨테이너 레지스트리에서 배포�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 지리적 복제 Azure Container Registry에서 Web App for Containers 인스턴스 2개를 배포했습니다. 이 자습서의 단계에 따라 다음을 수행할 수 있습니다.
-
-> [!div class="checklist"]
-> * 두 개의 *Web App for Containers* 인스턴스에 컨테이너 이미지 배포
-> * 배포된 응용 프로그램 확인
+이 자습서에서는 지리적 복제 Azure Container Registry에서 Web App for Containers 인스턴스 2개를 배포했습니다.
 
 다음 자습서로 이동하여 새 컨테이너 이미지를 업데이트하고 컨테이너 레지스트리에 배포한 다음 두 영역에서 실행 중인 웹앱이 자동으로 업데이트되었는지 확인합니다.
 

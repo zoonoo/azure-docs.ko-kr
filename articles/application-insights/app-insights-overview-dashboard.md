@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4a639b51fd930c5c74ee78b37fbe8e97e39dbc32
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36336771"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970975"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
@@ -28,7 +28,7 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 
 이제 새 개요 대시보드가 기본적으로 시작합니다.
 
-![개요 미리 보기 창](.\media\app-insights-overview-dashboard\overview-0001.png)
+![개요 미리 보기 창](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>향상된 성능
 
@@ -60,12 +60,6 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 개요 환경으로 돌아가려면 다음을 선택합니다.
 
 ![개요 단추](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
-
-## <a name="access-the-classic-overview-dashboard"></a>클래식 개요 대시보드에 액세스
-
-이전 개요를 누락하는 경우 **클래식 개요**를 선택합니다.
-
-![클래식 개요](.\media\app-insights-overview-dashboard\overview-classic.png)
 
 ## <a name="next-steps"></a>다음 단계
 

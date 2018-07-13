@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: c64061aee94e8c08a3f6bcae78cffca0b4172d97
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650675"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969387"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
 
@@ -118,7 +118,7 @@ Azure Storage는 이전 메트릭 값을 수집하고, 집계하며, 동일한 �
 
 ### <a name="is-new-metric-data-stored-in-the-same-storage-account-by-default"></a>새 메트릭 데이터는 기본적으로 동일한 저장소 계정에 저장되나요?
 
-번호 메트릭 데이터를 저장소 계정에 보관하려면 [Azure Monitor 진단 설정 API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings/createorupdate)를 사용합니다.
+아니요. 메트릭 데이터를 저장소 계정에 보관하려면 [Azure Monitor 진단 설정 API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)를 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

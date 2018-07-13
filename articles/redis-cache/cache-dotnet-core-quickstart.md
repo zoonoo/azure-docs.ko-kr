@@ -16,17 +16,17 @@ ms.date: 05/18/2018
 ms.author: wesmc
 ms.custom: mvc
 ms.openlocfilehash: 63bab0e5c77204ea1e122c32a508e31ed9bcd114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660608"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38696962"
 ---
 # <a name="quickstart-use-azure-redis-cache-with-a-net-core-app"></a>빠른 시작: .NET Core 앱에서 Azure Redis Cache 사용
 
 
 
-이 빠른 시작에서는 .NET Core에서 Microsoft Azure Redis Cache 사용을 시작하는 방법을 보여 줍니다. Microsoft Azure Redis Cache는 인기 있는 오픈 소스 Redis Cache를 기반으로 합니다. Microsoft에서 관리하는 안전한 전용 Redis Cache에 액세스할 수 있게 합니다. Azure Redis 캐시를 사용하여 만들어진 캐시는 Microsoft Azure 내의 모든 응용 프로그램에서 액세스할 수 있습니다.
+이 빠른 시작에서는 .NET Core에서 Microsoft Azure Redis Cache 사용을 시작하는 방법을 보여 줍니다. Microsoft Azure Redis Cache는 많이 사용되는 오픈 소스 Redis Cache를 기반으로 합니다. Microsoft에서 관리하는 안전한 전용 Redis Cache에 액세스할 수 있게 합니다. Azure Redis 캐시를 사용하여 만들어진 캐시는 Microsoft Azure 내의 모든 응용 프로그램에서 액세스할 수 있습니다.
 
 이 빠른 시작에서는 .NET Core 콘솔 앱에서 C\# 코드를 통해 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) 클라이언트를 사용합니다. 캐시를 만들고 .NET Core 클라이언트 앱을 구성합니다. 그런 다음, 캐시에 개체를 추가하고 업데이트합니다. 
 
@@ -39,7 +39,7 @@ ms.locfileid: "34660608"
 ## <a name="prerequisites"></a>필수 조건
 
 * [.Net SDK 2.0](https://www.microsoft.com/net/learn/get-started/windows) 이상
-* StackExchange.Redis 클라이언트에는 [.NET Framework 4 이상](https://www.microsoft.com/net/download/dotnet-framework-runtime)이 필요합니다.
+* StackExchange.Redis 클라이언트를 사용하려면 [.NET Framework 4 이상](https://www.microsoft.com/net/download/dotnet-framework-runtime)이 필요합니다.
 
 ## <a name="create-a-cache"></a>캐시 만들기
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -229,7 +229,7 @@ dotnet build
 dotnet run
 ```
 
-아래 예제에서는 이전에 Azure Portal에서 Redis 콘솔을 사용하여 설정되어 캐시된 값이 있는 `Message` 키를 볼 수 있습니다. 앱에서 캐시된 값을 업데이트했습니다. 또한 앱에서 `PING` 및 `CLIENT LIST` 명령을 실행했습니다.
+아래 예제에서는 이전에 Azure Portal에서 Redis 콘솔을 사용하여 설정된 캐시된 값이 있는 `Message` 키를 볼 수 있습니다. 앱에서 캐시된 값을 업데이트했습니다. 또한 앱에서 `PING` 및 `CLIENT LIST` 명령을 실행했습니다.
 
 ![콘솔 앱 부분](./media/cache-dotnet-core-quickstart/cache-console-app-partial.png)
 
@@ -330,7 +330,7 @@ dotnet run
 이 빠른 시작에서는 .NET Core 응용 프로그램에서 Azure Redis Cache를 사용하는 방법을 알아보았습니다. ASP.NET 웹앱에서 Redist Cache를 사용하려면 다음 빠른 시작으로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Redis Cache를 사용하는 ASP.NET 웹앱 만들기](./cache-web-app-howto.md)
+> [Azure Redis Cache를 사용하는 ASP.NET 웹앱 만들기](./cache-web-app-howto.md)
 
 
 

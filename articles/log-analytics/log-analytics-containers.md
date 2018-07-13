@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 584e7a211cde83d7785c7fa0962c004af2b76968
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a5c459fa9bafa48bb8731009a0813cdff7a900d8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128914"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970805"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics의 컨테이너 모니터링 솔루션
 
@@ -130,7 +130,7 @@ Docker를 설치한 후 컨테이너 호스트에 다음 설정을 사용하여 
 모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
 **CoreOS를 포함한 모든 Azure Government Linux 컨테이너 호스트의 경우:**
@@ -138,7 +138,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -e 
 모니터링하려는 컨테이너를 시작합니다. 다음 예제를 수정하여 사용합니다.
 
 ```
-sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
+sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/log:/var/log -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -e DOMAIN="opinsights.azure.us" -p 127.0.0.1:25225:25225 -p 127.0.0.1:25224:25224/udp --name="omsagent" -h=`hostname` --restart=always microsoft/oms
 ```
 
 **설치된 Linux 에이전트에서 컨테이너의 다른 에이전트로 전환**
@@ -152,7 +152,7 @@ Docker Swarm에서 전역 서비스로 OMS 에이전트를 실행할 수 있습�
 - 마스터 노드에서 다음을 실행합니다.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock  -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers -e WSID="<WORKSPACE ID>" -e KEY="<PRIMARY KEY>" -p 25225:25225 -p 25224:25224/udp  --restart-condition=on-failure microsoft/oms
     ```
 
 ##### <a name="secure-secrets-for-docker-swarm"></a>Docker Swarm에 대한 비밀 보호

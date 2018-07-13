@@ -11,11 +11,11 @@ manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
 ms.openlocfilehash: 68ef2c3c13dcf3c193ce1dd5e9b14c73113b5c9b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629833"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971060"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>C# 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 장치 등록
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.openlocfilehash: 9e538ac39af5b6df44860a4a70b0fd1e058c060c
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 10c2ed359fa77ad00945ddcfbc55dc0901ba8bff
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752291"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697108"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Azure 보안 관리 및 모니터링 개요
 Azure는 Azure Cloud Services 및 Virtual Machines의 관리 및 모니터링을 지원하기 위해 보안 메커니즘을 제공합니다. 이 문서에서는 이러한 핵심 보안 기능 및 서비스에 대한 개요를 제공합니다. 문서에는 각 문서에 대한 세부 정보를 제공해 줄 링크가 제공되므로 자세히 알아볼 수 있습니다.
@@ -100,8 +100,8 @@ Privileged Identity Management는 역할에 대해 임시 관리자 개념 또�
 
 자세한 정보:
 
-* [Azure AD 권한 있는 ID 관리](../active-directory/active-directory-privileged-identity-management-configure.md)
-* [Azure AD Privileged Identity Management 시작](../active-directory/active-directory-privileged-identity-management-getting-started.md)
+* [Azure AD 권한 있는 ID 관리](../active-directory/privileged-identity-management/pim-configure.md)
+* [Azure AD Privileged Identity Management 시작](../active-directory/privileged-identity-management/pim-getting-started.md)
 
 ## <a name="identity-protection"></a>ID 보호
 Azure AD Identity Protection은 의심스러운 로그인 활동 및 잠재적 취약성에 대한 통합 뷰를 제공하여 비즈니스를 보호하는 데 도움이 됩니다. Identity Protection은 다음과 같은 신호에 따라 사용자 및 권한 있는(관리자) ID에 대한 의심스러운 활동을 감지합니다.

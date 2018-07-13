@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8253dfb6525496c78515a9382778a767f7da0771
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ddc9941792b0c5d8fbf29bfdc698b16a999a3858
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063581"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971043"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -41,7 +41,7 @@ ms.locfileid: "37063581"
 *Solution Explorer에서 기존 프로젝트를 마우스 오른쪽 단추로 클릭할 때 Application Insights 옵션이 표시되지 않습니다.*
 
 * 이 도구가 모든 유형의 .NET 프로젝트를 지원하지는 않습니다. 웹 및 WCF 프로젝트는 지원됩니다. 데스크톱 또는 서비스 응용 프로그램 같은 기타 프로젝트 유형은 여전히 [수동으로 프로젝트에 Application Insights SDK를 추가](app-insights-windows-desktop.md)할 수 있습니다.
-* [Visual Studio 2013 업데이트 3 이후](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2013-update3-rtm-vs)가 설치되어 있는지 확인하세요. Application Insights SDK를 제공하는 개발자 분석 도구가 사전 설치되어 제공됩니다.
+* [Visual Studio 2013 업데이트 3 이후](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs)가 설치되어 있는지 확인하세요. Application Insights SDK를 제공하는 개발자 분석 도구가 사전 설치되어 제공됩니다.
 * **도구**, **확장 및 업데이트**를 차례로 선택하고 **개발자 분석 도구**가 설치 및 활성화되었는지 확인하세요. 그렇다면 **업데이트** 를 클릭하여 제공되는 업데이트가 있는지 확인합니다.
 * 새 프로젝트 대화 상자를 열고 ASP.NET 웹 응용 프로그램을 선택합니다. Application Insights 옵션이 보이면 도구가 설치된 것입니다. 옵션이 보이지 않으면 Application Insights Tools를 다시 설치해 보세요.
 

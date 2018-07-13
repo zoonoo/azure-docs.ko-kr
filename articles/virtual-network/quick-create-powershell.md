@@ -18,17 +18,17 @@ ms.date: 03/09/2018
 ms.author: jdial
 ms.custom: mvc
 ms.openlocfilehash: b8b67b235b54fb5bde738ed5cc1605e08d182a69
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31604034"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688088"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>빠른 시작: PowerShell을 사용하여 가상 네트워크 만들기
 
 가상 네트워크를 사용하면 VM(가상 머신)과 같은 Azure 리소스에서 서로 인터넷을 통해 개별적으로 통신할 수 있습니다. 이 빠른 시작에서는 가상 네트워크를 만드는 방법을 알아봅니다. 가상 네트워크를 만든 후에 두 개의 VM을 가상 네트워크에 배포합니다. 그런 다음, 인터넷에서 하나의 VM에 연결하고 두 VM 간에 개별적으로 통신합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
 

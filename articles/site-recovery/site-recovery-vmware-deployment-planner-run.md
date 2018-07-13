@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 930cd3cc637c2c8286f8388b9f116b9ba33c3fc5
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 8298f4a31db974f75e80aef7589bfd31fd7c7491
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236011"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921055"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>VMware에서 Azure로의 Azure Site Recovery Deployment Planner 실행
 이 문서는 VMware에서 Azure로의 프로덕션 배포를 위한 Azure Site Recovery의 Deployment Planner 사용자 가이드입니다.
@@ -86,7 +86,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 | -Password | (선택 사항) vCenter server/vSphere ESXi 호스트에 연결하는 데 사용하는 암호입니다. 지금 지정하지 않으면 나중에 명령을 실행할 때 지정하도록 요구하는 메시지가 표시됩니다.|
 |-Port|(선택 사항) vCenter/ESXi 호스트에 연결할 포트 번호입니다. 기본 포트는 443입니다.|
 |-Protocol| (선택 사항) vCenter에 연결하기 위해 프로토콜을 'http' 또는 'https'로 지정합니다. 기본 프로토콜은 https입니다.|
-| -StorageAccountName | (선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 저장소 계정은 GPv1(General-purpose v1) 형식이어야 합니다. |
+| -StorageAccountName | (선택 사항) 온-프레미스 환경에서 Azure로의 데이터 복제에서 달성할 수 있는 처리량을 확인하기 위해 사용되는 저장소 계정 이름입니다. 도구에서 이 저장소 계정에 테스트 데이터를 업로드하여 처리량을 계산합니다. 저장소 계정은 GPv1(범용 v1) 형식이어야 합니다. |
 | -StorageAccountKey | (선택 사항) 저장소 계정에 액세스하는 데 사용되는 저장소 계정 키입니다. Azure Portal > 저장소 계정 > <*저장소 계정 이름*> > 설정> 액세스 키 > Key1로 이동합니다. |
 | -Environment | (선택 사항) 대상 Azure Storage 계정 환경입니다. AzureCloud, AzureUSGovernment, AzureChinaCloud의 3가지 값 중 하나일 수 있습니다. 기본값은 AzureCloud입니다. 대상 Azure 지역이 Azure 미국 정부 또는 Azure 중국 클라우드인 경우 매개 변수를 사용하세요. |
 
@@ -167,9 +167,9 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 | -EndDate | (선택 사항) MM-DD-YYYY:HH:MM 형식(24시간 형식)의 종료 날짜 및 시간입니다. *EndDate*는 *StartDate*와 함께 지정해야 합니다. EndDate를 지정한 경우 StartDate와 EndDate 사이에 수집한 프로파일링된 데이터에 대한 보고서가 생성됩니다. |
 | -GrowthFactor | (선택 사항) 백분율로 표시된 증가율입니다. 기본값은 30%입니다. |
 | -UseManagedDisks | (선택 사항)UseManagedDisks - 예/아니요. 기본값은 [예]입니다. 단일 저장소 계정에 배치할 수 있는 가상 머신의 수는 가상 머신의 장애 조치/테스트 장애 조치가 관리되지 않는 디스크가 아닌 Managed Disk에서 수행되었음을 고려하여 계산됩니다. |
-|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제품 및 특정 대상 Azure 지역의 제품에 기반한 최신 가격과 지정된 통화로 비용 예측 보고서를 생성하려면 이 매개 변수를 사용합니다.|
+|-SubscriptionId |(선택 사항) 구독 GUID입니다. 구독, 구독과 연결된 제안 및 특정 대상 Azure 지역의 제안에 기반한 최신 가격과 지정된 통화로 비용 예측 보고서를 생성하려면 이 매개 변수를 사용합니다.|
 |-TargetRegion|(선택 사항) 복제 대상이 되는 Azure 지역입니다. Azure는 지역마다 비용이 다르기 때문에 특정 대상 Azure 지역으로 보고서를 생성하려면 이 매개 변수를 사용합니다.<br>기본값은 WestUS2 또는 마지막으로 사용된 대상 지역입니다.<br>[지원되는 대상 지역](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) 목록을 참조하세요.|
-|-OfferId|(선택 사항) 주어진 구독과 연결된 제품입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
+|-OfferId|(선택 사항) 주어진 구독과 연결된 제안입니다. 기본값은 MS-AZR-0003P(종량제)입니다.|
 |-Currency|(선택 사항) 생성된 보고서의 비용 표시에 사용되는 통화입니다. 기본값은 미국 달러($) 또는 마지막 사용한 통화입니다.<br>[지원되는 통화](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies) 목록을 참조하세요.|
 
 기본적으로 이 도구는 최대 1,000개의 VM에 대한 보고서를 프로파일링하고 생성하도록 구성됩니다. *ASRDeploymentPlanner.exe.config* 파일에서 MaxVMsSupported 키 값을 변경하여 제한을 변경할 수 있습니다.

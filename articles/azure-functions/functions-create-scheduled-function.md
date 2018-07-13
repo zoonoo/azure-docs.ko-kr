@@ -17,11 +17,11 @@ ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 9c961c06a01bba0b645088a19cd55e72a54396c1
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30288317"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38586855"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Azure에서 타이머에 따라 트리거되는 함수 만들기
 
@@ -33,7 +33,7 @@ Azure Functions를 사용하여 정의한 일정에 따라 실행되는 [서버�
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
++ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-an-azure-function-app"></a>Azure Function 앱 만들기
 

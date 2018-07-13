@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: f79d80a2743fb1a46fd2f17ec3b99d97e3b3d8d8
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: fd2539830ab20fe4c63ddf3bb97cccdb13e535ea
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111027"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857007"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
 
@@ -87,7 +87,7 @@ Windows 클러스터의 경우 구성 요소 버전을 확인하는 다른 방�
 | HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015년 12월 2일 |2016년 6월 27일 |2018년 7월 31일 |예 |아니오 |
 
 > [!NOTE]
-> 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://msdn.microsoft.com/library/mt619331.aspx) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
+> 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) 명령의 `Version` 매개 변수 및 .NET SDK를 사용하여 계속 사용할 수 있습니다.
 >
 
 ### <a name="retired-versions"></a>사용 중지된 버전
@@ -275,7 +275,7 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 
-[hdp-2-2]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.0/HDP_2.2.0_Release_Notes_20141202_version/index.html
+[hdp-2-2]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.2.9/bk_HDP_RelNotes/content/ch_relnotes_v229.html
 
 [hdp-2-1-7]: http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.7-Win/bk_releasenotes_HDP-Win/content/ch_relnotes-HDP-2.1.7.html
 
@@ -285,7 +285,7 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 
 [hdp-1-3-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.3.0_1.html
 
-[hdp-1-1-0]: http://docs.hortonworks.com/HDPDocuments/HDP1/HDP-Win-1.1/bk_releasenotes_HDP-Win/content/ch_relnotes-hdp-win-1.1.0_1.html
+[hdp-1-1-0]: https://docs.hortonworks.com/HDPDocuments/HDP1/HDP-1.3.0/bk_releasenotes_hdp_1.x/content/ch_relnotes-hdp1.1.1.16_1.html
 
 [ambari-docs]: https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md
 

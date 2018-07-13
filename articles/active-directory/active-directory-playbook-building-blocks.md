@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: c5f3904621dcc4fe992b2c2f8293ad706b01f713
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446778"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451702"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -42,7 +42,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 유효한 Azure 구독을 통해 정의된 Azure AD 테넌트 | [Azure Active Directory 테넌트를 얻는 방법](active-directory-howto-tenant.md)<br/>**참고:** 이미 Azure AD 프리미엄 라이선스가 포함된 환경이 있는 경우에는 https://aka.ms/accessaad로 이동하여 무제한 구독을 얻을 수 있음 <br/>https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 및 https://technet.microsoft.com/library/dn832618.aspx에 대한 자세한 정보 |
-| 정의 및 확인된 도메인 | [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)<br/>**참고:** Power BI 등의 일부 작업은 내부적으로 Azure AD 테넌트를 프로비전했을 수 있습니다. 지정된 도메인이 테넌트에 연결되어 있는지 확인하려면 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration로 이동합니다. 성공적인 응답을 받으면 도메인이 이미 테넌트에 할당된 것이고 인수가 필요할 수 있습니다. 이 경우 Microsoft에 추가 지침을 문의하세요. 인수 옵션에 대한 참고 항목: [Azure의 셀프 서비스 등록이란?](active-directory-self-service-signup.md) |
+| 정의 및 확인된 도메인 | [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)<br/>**참고:** Power BI 등의 일부 작업은 내부적으로 Azure AD 테넌트를 프로비전했을 수 있습니다. 지정된 도메인이 테넌트에 연결되어 있는지 확인하려면 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration로 이동합니다. 성공적인 응답을 받으면 도메인이 이미 테넌트에 할당된 것이고 인수가 필요할 수 있습니다. 이 경우 Microsoft에 추가 지침을 문의하세요. 인수 옵션에 대한 참고 항목: [Azure의 셀프 서비스 등록이란?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium 또는 EMS 평가판 사용 | [한 달 동안 Azure Active Directory Premium 체험](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium 또는 EMS 라이선스를 PoC 사용자에게 할당했습니다. | [Azure Active Directory에서 사용자 본인 및 사용자의 사용자 라이선스](active-directory-licensing-get-started-azure-portal.md) |
 | Azure AD 전역 관리자 자격 증명 | [Azure Active Directory에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md) |
@@ -125,11 +125,11 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | Azure AD 관리 포털에서 라이선스 블레이드로 이동합니다. | [Azure AD Management Portal: Licensing](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)(Azure AD 관리 포털: 라이선싱) |
-| POC 사용자가 포함된 보안 그룹에 라이선스를 할당합니다. | [Azure Active Directory에서 사용자의 그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md) |
+| POC 사용자가 포함된 보안 그룹에 라이선스를 할당합니다. | [Azure Active Directory에서 사용자의 그룹에 라이선스 할당](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>고려 사항
 
-문제가 있는 경우 [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하여 시나리오, 제한 사항 및 알려진 문제](active-directory-licensing-group-advanced.md)로 이동합니다.
+문제가 있는 경우 [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하여 시나리오, 제한 사항 및 알려진 문제](users-groups-roles/licensing-group-advanced.md)로 이동합니다.
 
 ## <a name="saas-federated-sso-configuration"></a>SaaS 페더레이션 SSO 구성
 
@@ -468,24 +468,24 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| PIM의 POC에 포함될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](active-directory-privileged-identity-management-getting-started.md) |
-| 보안 관리자가 될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](active-directory-privileged-identity-management-getting-started.md)<br/> [Azure Active Directory PIM의 다른 관리자 역할](active-directory-privileged-identity-management-roles.md) |
-| 선택 사항: 전역 관리자에게 PIM에서 메일 알림을 실행할 메일 권한이 있는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| PIM의 POC에 포함될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](privileged-identity-management/pim-getting-started.md) |
+| 보안 관리자가 될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](privileged-identity-management/pim-getting-started.md)<br/> [Azure Active Directory PIM의 다른 관리자 역할](privileged-identity-management/pim-roles.md) |
+| 선택 사항: 전역 관리자에게 PIM에서 메일 알림을 실행할 메일 권한이 있는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
-| https://portal.azure.com에 GA(전역 관리자)로 로그인하고 PIM 블레이드를 부트스트랩합니다. 이 단계를 수행하는 전역 관리자는 보안 관리자로 시드됩니다.  이 행위자 GA1을 호출해 보겠습니다. | [Azure AD Privileged Identity Management에서 보안 마법사 사용](active-directory-privileged-identity-management-security-wizard.md) |
-| 전역 관리자를 식별하고 영구에서 적격으로 이동합니다. 분명한 설명을 위해 이 관리자는 1단계에서 사용된 관리자와 달라야 합니다. 이 행위자 GA2를 호출해 보겠습니다. | [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| https://portal.azure.com에 GA(전역 관리자)로 로그인하고 PIM 블레이드를 부트스트랩합니다. 이 단계를 수행하는 전역 관리자는 보안 관리자로 시드됩니다.  이 행위자 GA1을 호출해 보겠습니다. | [Azure AD Privileged Identity Management에서 보안 마법사 사용](privileged-identity-management/pim-security-wizard.md) |
+| 전역 관리자를 식별하고 영구에서 적격으로 이동합니다. 분명한 설명을 위해 이 관리자는 1단계에서 사용된 관리자와 달라야 합니다. 이 행위자 GA2를 호출해 보겠습니다. | [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | 이제 GA2로 https://portal.azure.com에 로그인하고 “사용자 설정”을 변경해 봅니다. 일부 옵션이 회색으로 표시되는 것을 알 수 있습니다. | |
-| 새 탭 및 3단계와 같은 세션에서 https://portal.azure.com로 이동하고 PIM 블레이드를 대시보드에 추가합니다. | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: Privileged Identity Management 응용 프로그램 추가](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| 전역 관리자 역할에 대한 활성화 요청 | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: 역할 활성화](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| 새 탭 및 3단계와 같은 세션에서 https://portal.azure.com로 이동하고 PIM 블레이드를 대시보드에 추가합니다. | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: Privileged Identity Management 응용 프로그램 추가](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| 전역 관리자 역할에 대한 활성화 요청 | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: 역할 활성화](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | GA2가 MFA에 등록한 적이 없는 경우에는 Azure MFA에 대한 등록이 필요합니다. |  |
 | 3단계의 원래 탭으로 돌아가서 브라우저에서 [새로 고침] 단추를 클릭합니다. 이제 “사용자 설정”을 변경할 수 있습니다. | |
 | 필요한 경우 전역 관리자에 대한 메일을 사용하도록 설정하면 GA1 및 GA2의 받은 편지함을 확인하고 활성화되는 역할에 대한 알림을 확인할 수 있습니다. |  |
-| 8 감사 기록을 확인하고 보고서를 검토하여 GA2의 권한 상승이 표시되는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활동 검토](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 감사 기록을 확인하고 보고서를 검토하여 GA2의 권한 상승이 표시되는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활동 검토](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>고려 사항
 

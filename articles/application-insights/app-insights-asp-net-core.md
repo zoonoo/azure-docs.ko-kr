@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 261bc78bfe427173ba81eef731e33eddd2ec379b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f9ab9b9af81bf1827c2da646908e204bd051706b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294278"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970937"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -48,7 +48,7 @@ Azure Application Insights는 코드 수준까지 웹 응용 프로그램의 심
 
 ## <a name="application-insights-search"></a>Application Insights 검색
 
-기본적으로 ASP.NET Core 2+ 기반 프로젝트가 있는 Visual studio 버전 2015 업데이트 2 이상에서는 명시적으로 Application Insights를 사용자의 프로젝트에 추가하기 전이라도 [Application Insights 검색](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-visual-studio)을 활용할 수 있습니다.
+기본적으로 ASP.NET Core 2+ 기반 프로젝트가 있는 Visual studio 버전 2015 업데이트 2 이상에서는 명시적으로 Application Insights를 사용자의 프로젝트에 추가하기 전이라도 [Application Insights 검색](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)을 활용할 수 있습니다.
 
 이 기능을 테스트하려면.
 

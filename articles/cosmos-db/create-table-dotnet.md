@@ -12,11 +12,11 @@ ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
 ms.openlocfilehash: e70501be61455e9707fcf57d1996729097a0641f
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808226"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582386"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>빠른 시작: .NET 및 Azure Cosmos DB를 사용하여 Table API 앱 빌드 
 

@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
 ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187075"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971706"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse에 대한 질문과 대답
 
@@ -88,7 +88,7 @@ A: Orc, RC, Parquet 및 일반 구분 텍스트
 
 Q: PolyBase를 사용하여 SQL DW에서 어디로 연결할 수 있나요? 
 
-A: [Azure Data Lake Store] 및 [Azure Storage Blob]
+A: [Azure Data Lake Storage] 및 [Azure Storage Blobs]
 
 Q: Azure Storage Blob 또는 ADLS에 연결할 때 계산 푸시다운이 가능한가요? 
 
@@ -112,8 +112,8 @@ SQL Data Warehouse 전반에 대한 자세한 내용은 [개요] 페이지를 �
 [용량 제한]: ./sql-data-warehouse-service-capacity-limits.md
 [데이터 형식]: ./sql-data-warehouse-tables-data-types.md
 [지원되지 않는 테이블 기능]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[Azure Storage Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Azure Data Lake Storage]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
+[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [데이터베이스 프로젝트 기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [개요]: ./sql-data-warehouse-overview-faq.md

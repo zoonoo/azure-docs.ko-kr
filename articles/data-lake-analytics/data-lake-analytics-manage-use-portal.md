@@ -10,12 +10,12 @@ editor: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1ccd4dd6b8d4ee15b7d9f14e7436ccd87392121e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623709"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969513"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -166,4 +166,4 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 
 * [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
-* [정책을 사용하여 Azure Data Lake Analytics 관리](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-policies)
+* [정책을 사용하여 Azure Data Lake Analytics 관리](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)

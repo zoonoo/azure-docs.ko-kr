@@ -2,15 +2,18 @@
 title: Site Recovery 자격 증명 모음 삭제
 description: Site Recovery 시나리오에 따라 Azure Site Recovery 자격 증명 모음을 삭제하는 방법에 대해 알아봅니다.
 author: rajani-janaki-ram
-ms.topic: conceptual
-ms.date: 07/01/2018
+manager: rochakm
+ms.service: site-recovery
+ms.devlang: na
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f5f92b0dc064a992b93447f785db6c717f81e47b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 9c4a88d8a3d63555a57bd5553b721cfbcd77df2c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436646"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971191"
 ---
 # <a name="delete-a-site-recovery-vault"></a>Site Recovery 자격 증명 모음 삭제
 
@@ -71,4 +74,4 @@ ms.locfileid: "37436646"
 
     Remove-AzureRmRecoveryServicesVault -Vault $vault
 
-[Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/en-us/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0) 및 [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0)에 대해 자세히 알아봅니다.
+[Get-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0) 및 [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0)에 대해 자세히 알아봅니다.

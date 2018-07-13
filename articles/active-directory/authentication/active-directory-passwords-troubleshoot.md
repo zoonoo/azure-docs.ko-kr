@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 30409794807618f082cf98de14e374d97a9b4519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7a23702b40ea46edd6dd139ebdb0a3742193429e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592880"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857221"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>셀프 서비스 암호 재설정의 문제 해결
 
@@ -39,7 +39,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 
 | 오류 | 해결 방법 |
 | --- | --- |
-| Azure Portal의 Azure AD 섹션에서 **암호 재설정**이 표시되지 않습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당합니다. [라이선스 할당, 확인 및 문제 해결](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) 문서의 단계를 따를 수 있습니다.|
+| Azure Portal의 Azure AD 섹션에서 **암호 재설정**이 표시되지 않습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당합니다. [라이선스 할당, 확인 및 문제 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) 문서의 단계를 따를 수 있습니다.|
 | 특정 구성 옵션이 보이지 않습니다. | 필요할 때까지 UI의 요소는 대부분 숨겨져 있습니다. 참조하려는 모든 옵션을 사용하도록 설정하세요. |
 | **온-프레미스 통합** 탭이 표시되지 않습니다. | Azure AD 연결을 다운로드하고 비밀번호 쓰기 저장을 구성하는 경우 이 옵션이 표시됩니다. 자세한 내용은 [기본 설정을 사용하여 Azure AD Connect 시작](./../connect/active-directory-aadconnect-get-started-express.md)을 참조하세요. |
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 
 | 오류 | 해결 방법 |
 | --- | --- |
-| 암호 관리 작업 형식이 **셀프 서비스 암호 관리** 감사 이벤트 범주에 표시되지 않습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당하여 이 문제를 해결할 수 있습니다. [라이선스 할당, 확인 및 문제 해결](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) 문서의 단계를 따릅니다. |
+| 암호 관리 작업 형식이 **셀프 서비스 암호 관리** 감사 이벤트 범주에 표시되지 않습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당하여 이 문제를 해결할 수 있습니다. [라이선스 할당, 확인 및 문제 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) 문서의 단계를 따릅니다. |
 | 사용자 등록이 여러 번 표시됩니다 | 사용자가 등록할 때 별도 이벤트로 등록된 데이터의 각 개별 부분을 기록합니다. <br> <br> 이 데이터를 집계하려고 하며 데이터를 보다 다양한 방법으로 확인하고 싶은 경우 보고서를 다운로드하고 엑셀에서 피벗 테이블로 데이터를 열 수 있습니다.
 
 ## <a name="troubleshoot-the-password-reset-registration-portal"></a>암호 재설정 등록 포털에서 문제 해결
@@ -55,7 +55,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | 오류 | 해결 방법 |
 | --- | --- |
 | 암호 재설정을 위해 디렉터리를 사용할 수 없습니다. **관리자는 이 기능을 사용하도록 활성화하지 않습니다.** | **셀프 서비스 암호 재설정 사용** 플래그를 **선택됨** 또는 **모두**로 전환하고 **저장**을 선택합니다. |
-| 사용자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않았습니다. **관리자는 이 기능을 사용하도록 활성화하지 않습니다.** | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당하여 이 문제를 해결할 수 있습니다. [라이선스 할당, 확인 및 문제 해결](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) 문서의 단계를 따릅니다.|
+| 사용자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않았습니다. **관리자는 이 기능을 사용하도록 활성화하지 않습니다.** | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당하여 이 문제를 해결할 수 있습니다. [라이선스 할당, 확인 및 문제 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) 문서의 단계를 따릅니다.|
 | 요청을 처리하는 중 오류가 발생했습니다. | 많은 문제로 인해 발생할 수 있지만 일반적으로 서비스 중단 또는 구성 문제로 인해 이 오류가 발생합니다. 이 오류가 나타나고 비즈니스에 영향을 주는 경우 추가적인 도움이 필요하면 Microsoft 지원에 문의하세요. |
 
 ## <a name="troubleshoot-the-password-reset-portal"></a>암호 재설정 포털에서 문제 해결
@@ -63,7 +63,7 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정)에 문�
 | 오류 | 해결 방법 |
 | --- | --- |
 | 암호 재설정을 위해 디렉터리를 사용할 수 없습니다. | **셀프 서비스 암호 재설정 사용** 플래그를 **선택됨** 또는 **모두**로 전환하고 **저장**을 선택합니다. |
-| 사용자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않았습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당하여 이 문제를 해결할 수 있습니다. [라이선스 할당, 확인 및 문제 해결](../active-directory-licensing-group-assignment-azure-portal.md#step-1-assign-the-required-licenses) 문서의 단계를 따릅니다. |
+| 사용자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않았습니다. | 작업을 수행하는 관리자에게 Azure AD Premium 또는 Basic 라이선스가 할당되지 않은 경우에 발생할 수 있습니다. <br> <br> 문제의 관리자 계정에 라이선스를 할당하여 이 문제를 해결할 수 있습니다. [라이선스 할당, 확인 및 문제 해결](../users-groups-roles/licensing-groups-assign.md#step-1-assign-the-required-licenses) 문서의 단계를 따릅니다. |
 | 암호 재설정에 디렉터리를 사용할 수 있지만 사용자가 인증 정보를 누락했거나 형식이 잘못 되었습니다. | 진행하기 전에 사용자가 디렉터리에서 파일에 연락처 데이터를 제대로 구성했는지 확인합니다. 자세한 내용은 [Azure AD 셀프 서비스 암호 재설정에서 사용하는 데이터](howto-sspr-authenticationdata.md)를 참조하세요. |
 | 암호 재설정에 디렉터리를 사용할 수 있지만 두 개의 검증 단계가 필요하도록 정책이 설정된 경우 사용자는 파일에 하나의 연락처 데이터만 유지하게 됩니다. | 계속하기 전에 해당 사용자에게 둘 이상의 제대로 구성된 연락 방법이 있는지 확인합니다. 예로 휴대폰 번호*와* 사무실 전화 번호를 둘 다 사용하는 경우를 예로 들 수 있습니다. |
 | 암호 재설정에 디렉터리를 사용할 수 있고 사용자가 올바르게 구성되어 있지만 사용자와 연결할 수 없습니다. | 이것은 임시 서비스 오류의 결과이거나 제대로 검색할 수 없는 잘못된 연락처 데이터가 있기 때문일 수 있습니다. <br> <br> 사용자가 10초 동안 기다리면 다시 시도하고 "관리자에게 문의하세요." 링크가 표시됩니다. 사용자가 "다시 시도"를 선택하는 경우 호출이 다시 시도됩니다. "관리자에게 문의하세요."를 선택하면 관리자에게 해당 사용자 계정에 대해 암호 재설정을 수행하도록 요청하는 양식 전자 메일이 전송됩니다. |

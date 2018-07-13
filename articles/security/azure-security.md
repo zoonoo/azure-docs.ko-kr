@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: bda8f72de16d1d8d95823de98aab8ec209908e63
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437793"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971009"
 ---
 # <a name="introduction-to-azure-security"></a>Azure 보안 소개
 ## <a name="overview"></a>개요
@@ -114,7 +114,7 @@ Log Analytics를 사용하면 유연한 쿼리 방법으로 대량의 보안 관
 [App Service 앱](https://docs.microsoft.com/azure/app-service/app-service-web-overview)에서 취약성 테스트를 시작하는 가장 쉬운 방법 중 하나는 [Tinfoil Security와 통합](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/)을 사용하여 앱에서 한 번의 클릭으로 취약성 스캔을 수행하는 것입니다. 이해하기 쉬운 보고서에서 테스트 결과를 확인하고 단계별 지침에 따라 각 취약점을 수정하는 방법을 알아볼 수 있습니다.
 
 ### <a name="penetration-testing"></a>침투 테스트
-사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://docs.microsoft.com/en-us/azure/security/azure-security-pen-testing ) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
+사용자 고유의 침투 테스트를 수행하거나 다른 스캐너 도구 모음 또는 공급자를 사용하려면 [Azure 침투 테스트 승인 프로세스](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) 에 따라 원하는 침투 테스트를 수행하기 위한 사전 승인을 얻어야 합니다.
 
 ### <a name="web-application-firewall"></a>웹 응용 프로그램 방화벽
 [Azure Application Gateway](https://azure.microsoft.com/services/application-gateway/)의 WAF(웹 응용 프로그램 방화벽)는 SQL 삽입, 사이트 간 스크립팅 공격, 세션 하이재킹과 같은 일반적인 웹 기반 공격으로부터 웹 응용 프로그램을 보호합니다. [OWASP(Open Web Application Security Project)에서 상위 10개 일반 취약성](https://msdn.microsoft.com/library/)으로 확인된 위협으로부터 보호하는 기능이 미리 구성되어 있습니다.

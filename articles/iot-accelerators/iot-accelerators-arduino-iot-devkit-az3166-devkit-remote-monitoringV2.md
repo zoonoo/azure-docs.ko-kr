@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: isacabe
-ms.openlocfilehash: 8aa4d660fbf785a4caf99bcdeddc86aa9929c50d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e900b952ab9bb2054b9e4174670894027cdd2618
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627742"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969455"
 ---
 # <a name="connect-mxchip-iot-devkit-az3166-to-the-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit AZ3166을 IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -157,4 +157,4 @@ MX Chip 예제 코드는 센서가 선택될 때 Method 섹션에서 볼 수 있
 DevKit 장치를 IoT 솔루션 가속기에 연결하고 센서 데이터를 시각화하는 방법을 알아보았습니다. 다음 제안 단계는 다음과 같습니다.
 
 * [IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/en-us/microsoft-iot-central/howto-connect-devkit)
+* [Microsoft IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

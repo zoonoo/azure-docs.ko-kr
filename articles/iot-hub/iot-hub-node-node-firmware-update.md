@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 09/07/2017
 ms.author: juanpere
 ms.openlocfilehash: 0cd8c019cf9a65e0e72227ba99c1995a45ed4067
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34634969"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452433"
 ---
 # <a name="use-device-management-to-initiate-a-device-firmware-update-nodenode"></a>장치 관리를 사용하여 장치 펌웨어 업데이트 시작(노드/노드)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]

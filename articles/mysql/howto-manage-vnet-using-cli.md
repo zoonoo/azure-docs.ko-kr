@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/01/2018
 ms.openlocfilehash: fd8b21d1273b1bd02b0a949894be53cdc4a5c3c0
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736595"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597883"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MySQL VNet 서비스 엔드포인트 만들기 및 관리
 VNet(가상 네트워크) 서비스 엔드포인트 및 규칙이 가상 네트워크의 개인 주소 공간을 Azure Database for MySQL 서버로 확장합니다. 편리한 Azure CLI(명령줄 인터페이스) 명령을 사용하면 서버를 관리하는 VNet 서비스 엔드포인트 및 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. 제한을 포함하여 Azure Database for MySQL VNet 서비스 엔드포인트에 대한 개요는 [Azure Database for MySQL 서버 VNet 서비스 엔드포인트](concepts-data-access-and-security-vnet.md)를 참조하세요. VNet 서비스 엔드포인트는 Azure Database for MySQL에 대한 지원되는 모든 지역의 공용 미리 보기에서 사용할 수 있습니다.

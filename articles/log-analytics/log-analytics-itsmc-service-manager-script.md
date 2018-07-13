@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
 ms.component: na
-ms.openlocfilehash: 15626a9dd2e889470477e34d6f1ebd47cce1411b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 0fe987b00da669daf3830e903d53793d9d1edab6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128659"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950127"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 
@@ -42,7 +42,7 @@ ms.locfileid: "37128659"
 ## <a name="prerequisites"></a>필수 조건
 
  Windows Management Framework 5.0 이상
-Windows 10에는 기본적으로 5.1 버전이 있습니다. [여기](https://www.microsoft.com/download/details.aspx?id=53347)에서 이 Framework를 다운로드할 수도 있습니다.
+Windows 10에는 기본적으로 5.1 버전이 있습니다. [여기](https://www.microsoft.com/download/details.aspx?id=50395)에서 이 Framework를 다운로드할 수도 있습니다.
 
 다음 스크립트를 사용합니다.
 
