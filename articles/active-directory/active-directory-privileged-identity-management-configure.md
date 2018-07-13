@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 927d2ccef6a250d489273a17b070a4a0aa820bee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9e5039623b1f9b53c636ebaeb1e956d852185577
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767558"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952055"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -101,13 +101,13 @@ Azure AD 권한 있는 ID 관리자는 다음과 같은 중요한 정보를 전�
 *   지난 30일 동안 새 역할 할당이 있는 사용자 및 그룹(Azure 리소스 역할)
 
 
-![PIM 대시보드 - 스크린샷][2]
+![PIM 대시보드 - 스크린샷](./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>권한 있는 역할 관리
 
 Azure AD Privileged Identity Management를 사용하면 Azure AD 디렉터리 역할에 대한 각 역할에 영구 또는 적격 관리자를 추가하거나 제거하여 관리자를 관리할 수 있습니다. Azure Resources(미리 보기)에 대한 PIM을 사용하면, 테넌트의 구독 관리를 사용할 수 있는 소유자, 사용자 액세스 관리자 및 전역 관리자가 사용자 또는 그룹을 Azure 리소스 역할에 적격(Just-In-Time 액세스), 시작 및 종료 날짜/시간이 있는 시간 제한(활성화 필요 없음) 액세스 또는 영구(역할 설정에서 사용하도록 설정된 경우)로 할당할 수 있습니다.
 
-![PIM 추가/제거 관리자 - 스크린샷][3]
+![PIM 추가/제거 관리자 - 스크린샷](./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png)
 
 ## <a name="configure-the-role-activation-settings"></a>역할 활성화 설정 구성
 
@@ -119,7 +119,7 @@ Azure AD Privileged Identity Management를 사용하면 Azure AD 디렉터리 �
 * 서비스 티켓 또는 인시던트 번호
 * [승인 워크플로 요구 사항 - 미리 보기](./privileged-identity-management/azure-ad-pim-approval-workflow.md)
 
-![PIM 설정 - 관리자 활성화 - 스크린샷][4]
+![PIM 설정 - 관리자 활성화 - 스크린샷](./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png)
 
 이미지에서 **Multi-Factor Authentication** 에 대한 단추가 비활성입니다. 높은 권한이 필요한 특정 역할에 대해 우리는 강화된 보호를 위해 MFA가 필요합니다.
 
@@ -140,13 +140,13 @@ Azure 리소스 역할(미리 보기)에 대한 역할 설정을 사용하면 �
 
 역할 활성화는 사용자 지정할 수 있습니다. PIM 설정에서 활성화 길이 및 역할을 활성화하기 위해 관리자가 제공해야 하는 정보를 결정할 수 있습니다.
 
-![PIM 관리자 요청 역할 활성화 - 스크린샷][5]
+![PIM 관리자 요청 역할 활성화 - 스크린샷](./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png)
 
 ## <a name="review-role-activity"></a>역할 작업 검토
 
 직원 및 관리자가 권한 있는 역할을 사용하는 방법을 추적하는 방법은 두 가지가 있습니다. 첫 번째 옵션은 [디렉터리 역할 감사 기록](active-directory-privileged-identity-management-how-to-use-audit-log.md)을 사용하는 것입니다. 감사 기록 로그는 권한 있는 역할 할당, 역할 활성화 기록 및 Azure 리소스 역할(미리 보기)에 대한 설정 변경 내용을 추적합니다. 
 
-![PIM 활성화 기록 - 스크린샷][6]
+![PIM 활성화 기록 - 스크린샷](./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png)
 
 두 번째 옵션은 정기적인 [액세스 검토](active-directory-privileged-identity-management-how-to-start-security-review.md)를 설정하는 것입니다. 이러한 액세스 검토는 할당된 검토자(예: 팀 관리자) 또는 자체적으로 검토할 수 있는 직원에 의해 수행될 수 있습니다. 사용자의 액세스 필요 여부를 모니터링하는 가장 좋은 방법입니다.
 
@@ -158,12 +158,3 @@ Azure AD PIM을 사용하기 전에 테넌트에 Azure AD Premium P2(또는 EMS 
 ## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-configure/PIM_Admin_Overview.png
-[3]: ./media/active-directory-privileged-identity-management-configure/PIM_AddRemove.png
-[4]: ./media/active-directory-privileged-identity-management-configure/PIM_Settings_w_Approval_Disabled.png
-[5]: ./media/active-directory-privileged-identity-management-configure/PIM_RequestActivation.png
-[6]: ./media/active-directory-privileged-identity-management-configure/PIM_ActivationHistory.png

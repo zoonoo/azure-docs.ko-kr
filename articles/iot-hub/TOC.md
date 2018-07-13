@@ -251,9 +251,11 @@
 # 관련 항목
 ## 솔루션 
 ### [IoT 솔루션 가속기](/azure/iot-suite) 
-### [IoT 중부](https://docs.microsoft.com/microsoft-iot-central/) 
+### 
+  [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## 플랫폼 서비스 
-### [IoT 허브](/azure/iot-hub) 
+### 
+  [IoT Hub](/azure/iot-hub) 
 ### [IoT Hub Device Provisioning 서비스](/azure/iot-dps)
 ### [IoT 서비스 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
 ### [Maps](/azure/azure-maps) 
@@ -263,6 +265,11 @@
 ### [IoT 장치 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks) 
 
 # 리소스
+## [C#(.NET)용 Azure IoT 샘플](https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/)
+## [Node.js용 Azure IoT 샘플](https://azure.microsoft.com/resources/samples/azure-iot-samples-node/)
+## [Java용 Azure IoT 샘플](https://azure.microsoft.com/resources/samples/azure-iot-samples-java/)
+## [Python용 Azure IoT 샘플](https://azure.microsoft.com/resources/samples/azure-iot-samples-python/)
+## [iOS 플랫폼용 Azure IoT 샘플](https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/)
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 ## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
 ## [고객 데이터 요청](iot-hub-customer-data-requests.md)

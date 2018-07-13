@@ -16,11 +16,11 @@ ms.date: 04/11/2018
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: b0ded0fb274f6b64935ddaba75abf23a94063120
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109555"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452654"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>빠른 시작: Linux 컨테이너를 Service Fabric에 배포
 
@@ -86,7 +86,7 @@ Cloud Shell에서 CLI를 사용하려면 인증서 PFX 파일을 Cloud Shell에 
 
 Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에서 다운로드한 인증서 PFX 파일을 인증서 저장소(Windows 또는 Mac) 또는 브라우저 자체(Ubuntu)로 가져와야 합니다. PFX 개인 키 암호가 필요하며 **추가 정보** 페이지에서 얻을 수 있습니다.
 
-가장 편리한 방법을 사용하여 시스템에서 인증서를 가져옵니다. 예:
+가장 편리한 방법을 사용하여 시스템에서 인증서를 가져옵니다. 예: 
 
 - Windows: PFX 파일을 두 번 클릭하고 프롬프트에 따라 개인 저장소 `Certificates - Current User\Personal\Certificates`에 인증서를 설치합니다. 또는 **추가 정보** 지침의 PowerShell 명령을 사용할 수 있습니다.
 - Mac: PFX 파일을 두 번 클릭하고 프롬프트에 따라 키 집합에 인증서를 설치합니다.
@@ -167,7 +167,7 @@ Service Fabric 서비스는 해당 서비스에 대한 부하를 수용하도록
     ./uninstall.sh
     ```
 
-2. 클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예:
+2. 클러스터 작업이 완료되면 인증서를 인증서 저장소에서 제거할 수 있습니다. 예: 
    - Windows: [인증서 MMC 스냅인](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in)을 사용합니다. 스냅인을 추가할 때 반드시 **내 사용자 계정**을 선택합니다. `Certificates - Current User\Personal\Certificates`로 이동하여 인증서를 제거합니다.
    - Mac: 키 집합 앱을 사용합니다.
    - Ubuntu: 인증서를 보는 데 사용한 단계를 수행하여 인증서를 제거합니다.

@@ -14,12 +14,12 @@ ms.date: 08/04/2017
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 82d475e5adadb4e7670f24a6193348c9e1b37a16
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767526"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857726"
 ---
 # <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Azure Active Directory에서 그룹 만들기 및 멤버 추가
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ ms.locfileid: "37767526"
 
    ![추가 명령 선택](./media/active-directory-groups-create-azure-portal/add-group-command.png)
 5. **그룹** 블레이드에서 그룹에 대한 이름 및 설명을 추가합니다.
-6. 그룹에 추가할 멤버를 선택하려면 **멤버 자격 유형** 상자에서 **할당**을 선택한 다음 **멤버**를 선택합니다. 그룹의 구성원을 동적으로 관리하는 방법에 대한 자세한 내용은 [특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기](../active-directory-groups-dynamic-membership-azure-portal.md)를 참조하세요.
+6. 그룹에 추가할 멤버를 선택하려면 **멤버 자격 유형** 상자에서 **할당**을 선택한 다음 **멤버**를 선택합니다. 그룹의 구성원을 동적으로 관리하는 방법에 대한 자세한 내용은 [특성을 사용하여 그룹 멤버 자격에 대한 고급 규칙 만들기](../users-groups-roles/groups-dynamic-membership.md)를 참조하세요.
 
    ![추가할 멤버 선택](./media/active-directory-groups-create-azure-portal/select-members.png)
 7. **멤버** 블레이드에서 그룹에 추가할 하나 이상의 사용자 또는 장치를 선택하고 블레이드 아래쪽의 **선택** 단추를 선택하여 그룹에 추가합니다. **사용자** 상자는 사용자 또는 장치 이름 부분에 대한 항목 일치를 기반으로 한 표시를 필터링합니다. 와일드카드 문자는 해당 상자에서 허용되지 않습니다.
@@ -56,4 +56,4 @@ ms.locfileid: "37767526"
 * [그룹의 설정 관리](active-directory-groups-settings-azure-portal.md)
 * [그룹의 멤버 관리](active-directory-groups-members-azure-portal.md)
 * [그룹의 멤버 자격 관리](active-directory-groups-membership-azure-portal.md)
-* [그룹의 사용자에 대한 동적 규칙 관리](../active-directory-groups-dynamic-membership-azure-portal.md)
+* [그룹의 사용자에 대한 동적 규칙 관리](../users-groups-roles/groups-dynamic-membership.md)

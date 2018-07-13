@@ -17,12 +17,12 @@ ms.date: 08/22/2017
 ms.author: lizross
 ms.reviewer: jeffgilb
 custom: it-pro
-ms.openlocfilehash: 738e96bf631833b8d35847114ee08fc3f5bec2a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767462"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856092"
 ---
 # <a name="quickstart-license-users-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 사용자의 라이선스
 라이선스 기반 Azure AD 서비스는 Azure 테넌트에서 Azure AD(Active Directory) 구독을 활성화하면 작동됩니다. 구독이 활성화된 후 서비스 기능은 Azure AD 관리자가 관리하고 사용이 허가된 사용자가 사용합니다. Enterprise Mobility + Security, Azure AD Premium 또는 Azure AD Basic을 구매하면 디렉터리의 유효 기간 및 선불 라이선스를 포함하여 테넌트가 구독으로 업데이트됩니다. 할당되거나 사용 가능한 라이선스 수를 포함한 구독 정보는 **라이선스** 타일을 열어 **Azure Active Directory** 아래에서 Azure Portal을 통해 사용할 수 있습니다. **라이선스** 블레이드는 사용자 라이선스 할당을 관리하기에 가장 적합한 위치이기도 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "37767462"
 * [셀프 서비스 그룹](../users-groups-roles/groups-self-service-management.md)을 사용하여 조직의 다른 관리자에게 의사 결정을 위임할 수 있습니다.
 
 > [!TIP]
-> 고급 시나리오 및 Office 365 라이선스 시나리오를 비롯한 그룹에 대한 라이선스 할당의 자세한 내용은 [Azure Active Directory에서 그룹 멤버 자격에 따라 사용자에게 라이선스 할당](../active-directory-licensing-group-assignment-azure-portal.md)을 참조하세요.
+> 고급 시나리오 및 Office 365 라이선스 시나리오를 비롯한 그룹에 대한 라이선스 할당의 자세한 내용은 [Azure Active Directory에서 그룹 멤버 자격에 따라 사용자에게 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)을 참조하세요.
 
 ## <a name="assign-licenses-to-users-and-groups"></a>사용자 및 그룹에 라이선스 할당
 활성 구독을 사용하면 먼저 자신에게 라이선스를 할당하고 구독에 포함된 예상된 기능을 모두 표시하도록 브라우저를 새로 고쳐야 합니다. 다음 단계는 유료 Azure AD 기능에 액세스해야 할 사용자에게 라이선스를 할당하는 것입니다. 라이선스를 할당하는 쉬운 방법은 개인 대신 사용자의 그룹에 라이선스를 할당하는 것입니다. 그룹에게 라이선스를 할당하면 모든 그룹 구성원에게 라이선스가 할당됩니다. 사용자가 그룹에서 추가 또는 제거될 경우 해당 라이선스가 자동으로 할당 또는 제거됩니다. 

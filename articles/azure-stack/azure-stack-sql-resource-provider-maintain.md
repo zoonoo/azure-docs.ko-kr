@@ -15,15 +15,15 @@ ms.date: 06/20/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
 ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
+ms.lasthandoff: 07/11/2018
 ms.locfileid: "36300913"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 리소스 공급자 유지 관리 작업
 
-SQL 리소스 공급자 잠겨 가상 머신에서 실행 됩니다. 유지 관리 작업을 사용 하려면 가상 컴퓨터의 보안을 업데이트 해야 합니다. 이렇게 하려면 최소 권한의 원칙을 사용 하 여 사용할 수 있습니다 [PowerShell 관리 JEA (Just Enough)](https://docs.microsoft.com/en-us/powershell/jea/overview) 끝점 *DBAdapterMaintenance*합니다. 리소스 공급자 설치 패키지는이 작업에 대 한 스크립트를 포함합니다.
+SQL 리소스 공급자 잠겨 가상 머신에서 실행 됩니다. 유지 관리 작업을 사용 하려면 가상 컴퓨터의 보안을 업데이트 해야 합니다. 이렇게 하려면 최소 권한의 원칙을 사용 하 여 사용할 수 있습니다 [PowerShell 관리 JEA (Just Enough)](https://docs.microsoft.com/powershell/jea/overview) 끝점 *DBAdapterMaintenance*합니다. 리소스 공급자 설치 패키지는이 작업에 대 한 스크립트를 포함합니다.
 
 ## <a name="patching-and-updating"></a>패치 적용 및 업데이트
 

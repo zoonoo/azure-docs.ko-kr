@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/02/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 9216d43bd6431bb16c14e0bf2d8fb7d174365417
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c61e94191a20696a1fa8c8e632a83f980f256934
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902704"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971094"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -36,7 +36,7 @@ ms.locfileid: "37902704"
 |![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)| **Windows 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft | Windows |
 |![Powershell DSC 확장](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| **PowerShell DSC 확장의 기본 버전으로이 업데이트를 다운로드 합니다. TLS v1.2를 지원 하도록 업데이트 합니다.** | Microsoft | Windows |
 | ![Microsoft 맬웨어 방지 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 맬웨어 방지 확장](https://docs.microsoft.com/azure/security/azure-security-antimalware)| Azure를 위한 Microsoft 맬웨어 방지는 응용 프로그램 및 테넌트 환경에 대한 단일 에이전트 솔루션이며 사용자의 개입 없이 백그라운드에서 실행되도록 설계됩니다. **맬웨어 방지 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft | Windows |
-| ![Microsoft Azure 진단 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 진단 확장](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 진단은 배포 된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. **Windows에 대 한 진단 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft | Windows || ![Microsoft Monitoring 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent 확장](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/oms-windows)| Microsoft Monitoring Agent 확장 기능을 모니터링 하는 가상 컴퓨터 수 있도록 OMS와 함께 사용 됩니다. **이 업데이트는 모니터링 에이전트 확장에 대 한 Windows의 기본 버전을 다운로드 합니다.** | Microsoft | Windows |
+| ![Microsoft Azure 진단 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Azure 진단 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-windows)| Microsoft Azure 진단은 배포 된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내 기능입니다. **Windows에 대 한 진단 확장의 기본 버전으로이 업데이트를 다운로드 합니다.** | Microsoft | Windows || ![Microsoft Monitoring 확장](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft Monitoring Agent 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows)| Microsoft Monitoring Agent 확장 기능을 모니터링 하는 가상 컴퓨터 수 있도록 OMS와 함께 사용 됩니다. **이 업데이트는 모니터링 에이전트 확장에 대 한 Windows의 기본 버전을 다운로드 합니다.** | Microsoft | Windows |
 |![사용자 지정 스크립트 확장](media/azure-stack-marketplace-azure-items/cse.png) | [사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)|**Linux 용 사용자 지정 스크립트 확장의 기본 버전으로이 업데이트를 다운로드 합니다. 이 확장의 버전이 여러 개 및 1.5.2.1와 2.0.x 다운로드 해야 합니다.** | Microsoft | Linux |
 | ![Linux 용 VM 액세스](media/azure-stack-marketplace-azure-items/cse.png) | [Linux 용 VM 액세스](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **Linux 확장에 대 한 기본 버전을 VMAccess의이 업데이트를 다운로드 합니다. 이 업데이트는 Debian Linux Vm을 사용 하려는 경우 중요 합니다.** | Microsoft | Linux |
 | ![Linux 용 Acronis 백업 확장](media/azure-stack-marketplace-azure-items/acronis.png) | [Linux 용 Acronis 백업 확장](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | Microsoft Azure 용 Acronis 백업 확장에는 Acronis 백업 제품군에 데이터 보호의 일부입니다. | Acronis International GmbH 합니다. | Linux |
@@ -162,7 +162,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | 전체 PHP, MySQL 및 Nginx 개발 환경입니다. | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | 강력한 이중 항목 회계 시스템입니다. | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | 쉽게 빌드하기 위한 Javascript로 작성 된 오픈 소스 환경입니다. | Bitnami |
-| ![node.js 고가용성 클러스터](media/azure-stack-marketplace-azure-items/nodejs.png) | [Node.js 고가용성 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js는 V8 JavaScript 엔진을 기반으로 하는 런타임 환경입니다. 해당 이벤트 구동, 비차단 I/O 모델을 사용 하면 신속 하 고 확장 가능한 데이터를 많이 사용 하는 서버 응용 프로그램을 개발 합니다. 이 솔루션에서는 공유 파일 시스템을 사용 하 여 Node.js 클러스터를 만들고 부하 분산 기능을 여러 Vm을 사용 합니다.  **이 솔루션 템플릿에 Debian 8, Linux 2.0 확장에 대 한 사용자 지정 스크립트 및 데이터베이스에도 필요합니다.**| Bitnami |
+| ![Node.js 고가용성 클러스터](media/azure-stack-marketplace-azure-items/nodejs.png) | [Node.js 고가용성 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js는 V8 JavaScript 엔진을 기반으로 하는 런타임 환경입니다. 해당 이벤트 구동, 비차단 I/O 모델을 사용 하면 신속 하 고 확장 가능한 데이터를 많이 사용 하는 서버 응용 프로그램을 개발 합니다. 이 솔루션에서는 공유 파일 시스템을 사용 하 여 Node.js 클러스터를 만들고 부하 분산 기능을 여러 Vm을 사용 합니다.  **이 솔루션 템플릿에 Debian 8, Linux 2.0 확장에 대 한 사용자 지정 스크립트 및 데이터베이스에도 필요합니다.**| Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | 비즈니스 프로세스를 효과적으로 연결 하는 ERP, CRM 시스템입니다. | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | 유연 하 고 다각적인 인트라넷 플랫폼입니다. | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | 온라인 점포에 대 한 무료 전자 상거래 플랫폼입니다. | Bitnami |

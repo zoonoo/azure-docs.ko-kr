@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a0a50c4315540fba014c4f152f108a61b328a936
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109429"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38652705"
 ---
 # <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>자습서: 로컬 Service Fabric 클러스터에 배포된 Java 응용 프로그램 디버그
 
@@ -66,7 +66,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 4. 디버그하려는 서비스의 entryPoint.sh를 원격 디버그 매개 변수를 사용하여 Java 프로세스를 시작하도록 업데이트합니다. 이 자습서의 경우 상태 비저장 프런트 엔드는 다음과 같이 사용됩니다. *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. 이 예제에서 포트 8001은 디버깅을 위해 설정되었습니다.
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
     ```
 
 5. 인스턴스 수 또는 디버그하는 서비스의 복제본 수를 1로 설정하여 응용 프로그램 매니페스트를 업데이트합니다. 이 설정은 디버깅에 사용되는 포트에 대한 충돌을 방지합니다. 예를 들어, 상태 비저장 서비스의 경우 ``InstanceCount="1"``을 설정하고 상태 저장 서비스의 경우 ``TargetReplicaSetSize="1" MinReplicaSetSize="1"``과 같이 대상과 최소 복제본 세트 크기를 1로 설정합니다.
@@ -116,7 +116,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
     다음 예제에서는 샘플 실행을 보여줍니다.
 
     ```bash
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar
     ```
 
 이 단계에서는 Service Fabric Java 응용 프로그램을 개발하는 동안 응용 프로그램 로그를 디버그하고 액세스하는 방법을 알아봅니다.

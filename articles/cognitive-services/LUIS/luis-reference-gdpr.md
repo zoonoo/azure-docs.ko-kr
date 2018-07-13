@@ -9,17 +9,17 @@ ms.technology: luis
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f684b8ab875e2fbb774dc4a29bce25be41b24e6d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af3a96c978a3b22fcbc6296642e4749c863dff9e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35378158"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928576"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
 ## <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
-LUIS(Language Understanding Intelligent Service)는 서비스 작동을 위해 고객 콘텐츠를 보존하지만, LUIS 사용자가 데이터 보기, 내보내기 및 삭제에 대한 모든 권한을 갖습니다. 이 작업은 LUIS 웹 [포털](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-reference-regions) 또는 [LUIS Programmatic API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 수행할 수 있습니다.
+LUIS(Language Understanding Intelligent Service)는 서비스 작동을 위해 고객 콘텐츠를 보존하지만, LUIS 사용자가 데이터 보기, 내보내기 및 삭제에 대한 모든 권한을 갖습니다. 이 작업은 LUIS 웹 [포털](luis-reference-regions.md) 또는 [LUIS Programmatic API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)를 통해 수행할 수 있습니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -28,15 +28,15 @@ LUIS(Language Understanding Intelligent Service)는 서비스 작동을 위해 �
 - 등록 시 수집된 사용자 계정 콘텐츠
 - 모델 빌드에 필요한 학습 데이터(예: 의도 및 엔터티)
 - 사용자 모델을 개선하는 데 도움이 되는 런타임에 로깅된 사용자 쿼리
-  - 사용자는 요청에 `&log=false`를 추가하여 쿼리 로깅을 해제할 수 있습니다. 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-resources-faq#how-can-i-disable-the-logging-of-utterances)를 참조하세요.
+  - 사용자는 요청에 `&log=false`를 추가하여 쿼리 로깅을 해제할 수 있습니다. 자세한 내용은 [여기](luis-resources-faq.md#how-can-i-disable-the-logging-of-utterances)를 참조하세요.
 
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 LUIS 사용자는 LUIS 웹 포털 또는 LUIS Programmatic API를 통해 모든 사용자 콘텐츠를 삭제할 모든 권한이 있습니다. 다음 표에는 두 작업에 도움이 되는 링크가 나와 있습니다.
 
 | | **사용자 계정** | **응용 프로그램** | **발언** | **최종 사용자 쿼리** |
 | --- | --- | --- | --- | --- |
-| **포털** | [링크](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-account-settings) | [링크](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#delete-app) | [링크](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#delete-app) | [링크](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app#delete-app) |
-| **API** | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
+| **포털** | [링크](luis-how-to-account-settings.md) | [링크](luis-how-to-start-new-app.md#delete-app) | [링크](luis-how-to-start-new-app.md#delete-app) | [링크](luis-how-to-start-new-app.md#delete-app) |
+| **API** | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기

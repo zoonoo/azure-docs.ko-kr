@@ -1,42 +1,39 @@
 ---
-title: PowerShell을 사용하여 Azure Analysis Services 서버 만들기 | Microsoft Docs
+title: 빠른 시작 - PowerShell을 사용하여 Azure Analysis Services 서버 만들기 | Microsoft Docs
 description: PowerShell을 사용하여 Azure Analysis Services 서버를 만드는 방법 알아보기
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
-ms.topic: conceptual
-ms.date: 04/12/2018
+ms.service: azure-analysis-services
+ms.topic: quickstart
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f0d3ae6786e9f63f0e4eb025118d0d217eced64
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9149f15d0503b9a39ac67d9c3f6fc1ddde7e03bd
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952769"
 ---
-# <a name="create-an-azure-analysis-services-server-by-using-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 서버 만들기
+# <a name="quickstart-create-a-server---powershell"></a>빠른 시작: 서버 만들기 - PowerShell
 
-이 빠른 시작은 Azure 구독의 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)에서 Azure Analysis Services 서버를 만들기 위해 명령줄에서 PowerShell 사용에 대해 설명합니다.
+이 빠른 시작은 명령줄에서 PowerShell을 사용하여 Azure 구독에 Azure Analysis Services 서버를 만드는 방법을 설명합니다.
 
-이 작업을 수행하려면 Azure PowerShell 모듈 버전 4.0 이상이 필요합니다. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
+## <a name="prerequisites"></a>필수 조건
 
-> [!NOTE]
-> 서버를 만들면 새로운 유료 서비스가 생성될 수 있습니다. 자세한 내용은 [Analysis Services 가격 책정](https://azure.microsoft.com/pricing/details/analysis-services/)을 참조하세요.
-
-## <a name="before-you-begin"></a>시작하기 전에
-이 빠른 시작을 완료하려면 다음이 필요합니다.
-
-* **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 이동하여 계정을 만들 수 있습니다.
-* **Azure Active Directory**: 구독이 Azure Active Directory 테넌트와 연결되어 있고 해당 디렉터리에 계정이 있어야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
+- **Azure 구독**: [Azure 평가판](https://azure.microsoft.com/offers/ms-azr-0044p/)으로 이동하여 계정을 만들 수 있습니다.
+- **Azure Active Directory**: 구독이 Azure Active Directory 테넌트와 연결되어 있고 해당 디렉터리에 계정이 있어야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요.
+- **Azure PowerShell 모듈 버전 4.0 이상**. 버전을 확인하려면 ` Get-Module -ListAvailable AzureRM`을 실행합니다. 설치 또는 업그레이드하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요.
 
 ## <a name="import-azurermanalysisservices-module"></a>AzureRm.AnalysisServices 모듈 가져오기
+
 구독에서 서버를 만들려면 [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices) 구성 요소 모듈을 사용합니다. PowerShell 세션으로 AzureRm.AnalysisServices 모듈을 로드 합니다.
 
 ```powershell
 Import-Module AzureRM.AnalysisServices
 ```
 
-## <a name="sign-in-to-azure"></a>Azure에 로그인
+## <a name="log-in-to-azure"></a>Azure에 로그인
 
 [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용하여 Azure 구독에 로그인합니다. 화면에 나타나는 지침에 따릅니다.
 
@@ -49,15 +46,15 @@ Connect-AzureRmAccount
 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 서버를 만들 때 구독에서 리소스 그룹을 지정해야 합니다. 아직 리소스 그룹이 없는 경우 [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) 명령을 사용하여 새 리소스 그룹을 만들 수 있습니다. 다음 예제에서는 미국 서부 지역의 `myResourceGroup`라는 리소스 그룹을 만듭니다.
 
 ```powershell
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "West US"
+New-AzureRmResourceGroup -Name "myResourceGroup" -Location "WestUS"
 ```
 
 ## <a name="create-a-server"></a>서버 만들기
 
-[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 명령을 사용하여 새 서버를 만듭니다. 다음 예제에서는 D1 계층, 미국 서부 지역, myResourceGroup에서 myServer라는 서버를 만들고 서버 관리자로 philipc@adventureworks.com을 지정합니다.
+[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) 명령을 사용하여 새 서버를 만듭니다. 다음 예제에서는 D1(체험) 계층, 미국 서부 지역, myResourceGroup에서 myServer라는 서버를 만들고 서버 관리자로 philipc@adventureworks.com을 지정합니다.
 
 ```powershell
-New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myServer" -Location West US -Sku D1 -Administrator "philipc@adventure-works.com"
+New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "myserver" -Location WestUS -Sku D1 -Administrator "philipc@adventure-works.com"
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -66,10 +63,14 @@ New-AzureRmAnalysisServicesServer -ResourceGroupName "myResourceGroup" -Name "my
 
 
 ```powershell
-Remove-AzureRmAnalysisServicesServer -Name "myServer" -ResourceGroupName "myResourceGroup"
+Remove-AzureRmAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[PowerShell을 사용하여 Azure Analysis Services 관리](analysis-services-powershell.md)
-[SSDT에서 모델 배포](analysis-services-deploy.md)
-[Azure Portal에서 모델 만들기](analysis-services-create-model-portal.md)
+
+이 빠른 시작에서는 PowerShell을 사용하여 Azure 구독에서 서버를 만드는 방법을 알아보았습니다. 이제 서버가 생겼으니, 서버 방화벽을 구성하여(선택 사항) 보안을 강화할 수 있습니다. 또한 포털에서 바로 기본 샘플 데이터 모델을 서버에 추가할 수 있습니다. 샘플 모델이 있으면 model 데이터베이스 역할을 구성하고 클라이언트 연결을 테스트하는 방법을 알아볼 때 유용합니다. 자세히 알아보려면 샘플 모델 추가를 위한 자습서를 계속합니다.
+
+> [!div class="nextstepaction"]
+> [빠른 시작: 서버 방화벽 구성 - 포털](analysis-services-qs-firewall.md)      
+> [!div class="nextstepaction"]
+> [자습서: 서버에 샘플 모델 추가](analysis-services-create-sample-model.md)

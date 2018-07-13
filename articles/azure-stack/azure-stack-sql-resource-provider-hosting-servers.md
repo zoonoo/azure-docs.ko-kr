@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9249de56979d47a29fc9d7c12b99e41b3ada0fd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465840"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970554"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>SQL 리소스 공급자에 대 한 호스팅 서버를 추가 합니다.
 
@@ -66,7 +66,7 @@ SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다
 
 * 모든 Azure Stack 저장소는 Azure Stack에서 SQL 인스턴스에 암호화 된 blob 저장소를 사용 하 여 BitLocker를 사용 하 여 암호화 됩니다.
 * SQL 리소스 공급자는 TLS 1.2를 완벽 하 게 지원합니다. TLS 1.2에 대 한 SQL RP를 통해 관리 되는 모든 SQL Server 구성 되어 있는지 확인 _만_ RP는 기본값은입니다. 모든 지원 되는 버전의 SQL Server 지원 TLS 1.2를 참조 하세요 [Microsoft SQL Server에 대 한 TLS 1.2 지원을](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server)합니다.
-* 사용 하 여 SQL Server 구성 관리자를 설정 합니다 **ForceEncryption** SQL server에 대 한 모든 통신을 확인 하는 옵션은 항상 암호화 됩니다. 참조 [암호화 된 연결을 강제 하도록 서버를 구성 하려면](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections)합니다.
+* 사용 하 여 SQL Server 구성 관리자를 설정 합니다 **ForceEncryption** SQL server에 대 한 모든 통신을 확인 하는 옵션은 항상 암호화 됩니다. 참조 [암호화 된 연결을 강제 하도록 서버를 구성 하려면](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections)합니다.
 * 모든 클라이언트 응용 프로그램도 통신 하는 데 암호화 된 연결을 확인 합니다.
 * RP는 SQL Server 인스턴스에 사용 되는 인증서를 신뢰 하도록 구성 됩니다.
 
@@ -106,8 +106,8 @@ SQL sysadmin 보다 낮은 권한을 가진 관리자를 만들 수 있습니다
 
 SQL Always On 인스턴스를 구성 하려면 추가 단계가 필요 하며 3 개의 Vm (또는 물리적 컴퓨터입니다.) 이 문서에서는 Always On 가용성 그룹의 숙지 이미 있다고 가정 합니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure virtual machines에서 SQL Server Always On 가용성 그룹 소개](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
-* [Always On 가용성 그룹 (SQL Server)](https://docs.microsoft.com/en-us/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
+* [Azure virtual machines에서 SQL Server Always On 가용성 그룹 소개](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-overview)
+* [Always On 가용성 그룹 (SQL Server)](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server?view=sql-server-2017)
 
 > [!NOTE]
 > SQL 어댑터 리소스 공급자 _만_ 나중에 Always On 가용성 그룹에 대 한 인스턴스 또는 SQL 2016 SP1 Enterprise를 지원 합니다. 이 어댑터 구성 자동 시드 같은 새로운 SQL 기능에 필요 합니다.

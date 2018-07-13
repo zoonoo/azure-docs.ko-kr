@@ -35,7 +35,7 @@ Bing은 유니코드 문자 또는 HTML 태그를 마커로 사용하는 옵션�
 |U+E018|\<sup>|위 첨자 콘텐츠의 시작을 표시
 |U+E019|\</sup>|위 첨자 콘텐츠의 끝을 표시
 
-다음 예제는 log(2) 쿼리 용어에 대한 아래 첨자 마커가 포함된 `Computation` 답변을 표시합니다. `expression` 필드는 `textDecoration이 **true**인 경우에만 마커를 포함합니다.
+다음 예제는 log(2) 쿼리 용어에 대한 아래 첨자 마커가 포함된 `Computation` 답변을 표시합니다. `expression` 필드는 `textDecoration`이 **true**인 경우에만 마커를 포함합니다.
 
 ![계산 마커](./media/cognitive-services-bing-hit-highlighting/bing-markers-computation.PNG) 
 

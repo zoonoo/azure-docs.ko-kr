@@ -15,10 +15,10 @@ ms.date: 06/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
 ms.openlocfilehash: 101686149c0e3faaf442c58f4002cbbfe0e72eaa
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
+ms.lasthandoff: 07/11/2018
 ms.locfileid: "35651657"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Marketplace 항목 만들기 및 게시
@@ -100,7 +100,7 @@ ms.locfileid: "35651657"
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`  
 `https://systemgallery.blob.[Region].[external FQDN]/dev20161101-microsoft-windowsazure-gallery/[Template Name]/UiDefinition.json`
 
-6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다 합니다 **Remove-azurermgalleryitem** cmdlet. 예:
+6. 사용 하 여 마켓플레이스 항목을 제거할 수 있습니다 합니다 **Remove-azurermgalleryitem** cmdlet. 예제:
    
         Remove-AzureRMGalleryItem -Name Microsoft.SimpleTemplate.1.0.0  –Verbose
    

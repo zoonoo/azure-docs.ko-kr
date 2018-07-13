@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/29/2018
 ms.author: sethm
 ms.openlocfilehash: 2763e401454cdb6145067a3ac415c3a252d7c494
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131670"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630084"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>Azure Portal을 사용하여 Service Bus 네임스페이스 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "37131670"
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-축하합니다. 이제 Service Bus 메시징 네임스페이스를 만들었습니다.
+축하합니다! 이제 Service Bus 메시징 네임스페이스를 만들었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

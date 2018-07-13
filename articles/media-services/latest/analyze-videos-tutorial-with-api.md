@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/28/2018
 ms.author: juliako
-ms.openlocfilehash: e5b8cc9285d9637a04c4bec47b0185652aa7c84e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 314ffce8a9f8dde62cac670099afbc2223df37e4
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114227"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972001"
 ---
 # <a name="tutorial-analyze-videos-with-azure-media-services"></a>자습서: Azure Media Services로 비디오 분석 
 
@@ -112,7 +112,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 #### <a name="job"></a>작업
 
-위에서 언급했듯이 [Transform](https://docs.microsoft.com/rest/api/media/transforms) 개체는 레시피이며 [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 비디오의 위치는 HTTPS URL, SAS URL 또는 Media Service 계정에 있는 자산을 사용하여 지정할 수 있습니다. 
+위에서 언급했듯이 [Transform](https://docs.microsoft.com/rest/api/media/transforms) 개체는 레시피이며 [Job](https://docs.microsoft.com/rest/api/media/jobs)은 주어진 입력 비디오 또는 오디오 콘텐츠에 **Transform**을 적용하라는 Media Services에 대한 실제 요청입니다. **Job**은 입력 비디오의 위치 및 출력 위치와 같은 정보를 지정합니다. 비디오의 위치는 HTTPS URL, SAS URL 또는 Media Service 계정에 있는 자산을 사용하여 지정할 수 있습니다. 
 
 이 예에서 작업 입력은 로컬 비디오입니다.  
 
@@ -120,7 +120,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 ### <a name="wait-for-the-job-to-complete"></a>작업이 완료될 때까지 대기
 
-작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. [Job](https://docs.microsoft.com/en-us/rest/api/media/jobs) 완료에 대한 알림을 받는 옵션은 여러 가지입니다. 가장 간단한 옵션(여기에 표시됨)은 폴링을 사용하는 것입니다. 
+작업을 완료하는 데 시간이 다소 걸리기 때문에 완료되면 알림을 받는 것이 좋습니다. [Job](https://docs.microsoft.com/rest/api/media/jobs) 완료에 대한 알림을 받는 옵션은 여러 가지입니다. 가장 간단한 옵션(여기에 표시됨)은 폴링을 사용하는 것입니다. 
 
 폴링은 잠재적인 대기 시간 때문에 프로덕션 응용 프로그램에는 권장되지 않습니다. 폴링이 계정에서 초과 사용되면 정체될 수 있습니다. 대신 Event Grid를 사용해야 합니다.
 
