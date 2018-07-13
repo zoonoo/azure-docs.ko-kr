@@ -13,12 +13,12 @@ ms.component: protection
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e0e9e01baccd71804b26282f288d19abff8ff8fa
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bc4280d6e0ac362712d3b406e2e32c42cf4a9be2
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444925"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952684"
 ---
 # <a name="how-to-activate-or-deactivate-roles-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법
 Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업이 Azure AD 및 기타 Microsoft Online Services(Office 365 또는 Microsoft Intune 등)에서 권한 있는 리소스에 대한 액세스를 관리하는 방법을 간소화합니다.  
@@ -44,11 +44,11 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 4. **활성화**를 선택합니다. **역할 활성화 요청** 블레이드가 나타납니다.
 5. 일부 역할은 Multi-factor Authentication (MFA)가 있어야 역할을 활성화할 수 있습니다. 세션당 한 번만 인증해야 합니다.
    
-    ![역할 활성화 전에 MFA 사용하여 확인합니다 - 스크린샷][2]
+    ![역할 활성화 전에 MFA 사용하여 확인합니다 - 스크린샷](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png)
 6. 텍스트 필드에 활성화 요청 이유를 입력합니다.  일부 역할은 문제 티켓 번호를 제공해야 합니다.
 7. **확인**을 선택합니다.  역할에서 승인을 요청하지 않는 경우 역할이 활성화된 상태이며 해당 역할이 활성 역할 목록(적격 역할 할당 목록 바로 아래)에 표시됩니다. [역할에서 활성화하는 데 승인이 필요](./privileged-identity-management/azure-ad-pim-approval-workflow.md)한 경우 요청이 승인 보류 중임을 알려주는 알림 메시지가 브라우저 오른쪽 상단 모서리에 간단하게 표시됩니다.
 
-    ![보류 중인 요청 알림 - 스크린샷][3]
+    ![보류 중인 요청 알림 - 스크린샷](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png)
 
 ## <a name="deactivate-a-role"></a>역할 비활성화
 역할이 활성화된 후 시간 제한(적격 기간)에 도달하면 자동으로 비활성화됩니다.
@@ -64,16 +64,9 @@ Azure AD(Active Directory) Privileged Identity Management를 사용하면 기업
 4. 역할 활성화 세부 정보 블레이드에서 **Activation is pending approval**(활성화가 승인 보류 중임) 배너를 선택합니다.
 5. **보류 중인 승인** 블레이드 맨 위에서 **취소**를 선택합니다.
 
-   ![보류 중인 요청 취소 스크린샷][4]
+   ![보류 중인 요청 취소 스크린샷](./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png)
 
 ## <a name="next-steps"></a>다음 단계
 Azure AD Privileged Identity Management에 대한 자세한 정보는 다음 링크를 참조하세요.
 
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-configure/PIM_EnablePim.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_activation_MFA.png
-[3]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Toast2.png
-[4]: ./media/active-directory-privileged-identity-management-how-to-activate-role/PIM_Request_Pending_Banner_Cancel.png

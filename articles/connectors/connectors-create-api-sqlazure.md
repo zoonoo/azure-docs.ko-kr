@@ -12,11 +12,11 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.openlocfilehash: dccb91c782408a5fed5c3ef1b68f9918823ce402
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296291"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38544026"
 ---
 # <a name="connect-to-sql-server-or-azure-sql-database-from-azure-logic-apps"></a>Azure Logic Apps에서 SQL Server 또는 Azure SQL Database에 연결
 
@@ -24,7 +24,7 @@ ms.locfileid: "35296291"
 
 SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이벤트로 트리거될 때 실행할 수 있는 논리 앱을 만들 수 있습니다. 논리 앱은 기존 SQL 쿼리 및 저장 프로시저를 사용하여 데이터를 가져오고 삽입하고 삭제할 수 있습니다. 예를 들어 Dynamics CRM Online에서 새 레코드를 자동으로 확인하고, 새 레코드에 대한 항목을 SQL 데이터베이스에 추가한 다음, 이메일 경고를 보내는 논리 앱을 만들 수 있습니다.
 
-Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">무료 Azure 계정에 등록</a>합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다. 커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 커넥터 참조</a>를 참조하세요.
+Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다. 커넥터 관련 기술 정보는 <a href="https://docs.microsoft.com/connectors/sql/" target="blank">SQL Server 커넥터 참조</a>를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 

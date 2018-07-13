@@ -13,18 +13,18 @@ ms.component: protection
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d054ca015fd97b3ec45f18b2d3a795eccf606993
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fee4344be2875140a2e9c35bd83eb668bd1efa3f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447560"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952463"
 ---
 # <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 에서 보안 경고를 구성하는 방법
 ## <a name="security-alerts"></a>보안 경고
 Azure Privileged Identity Management(PIM)은 사용자의 환경에 의심스럽거나 안전하지 않은 활동이 있을 때 경고를 생성합니다. 경고가 트리거될 때 PIM 대시보드에 표시됩니다. 경고를 선택하여 경고를 트리거하는 사용자 또는 역할을 나열하는 보고서를 확인합니다.
 
-![PIM 대시보드 보안 경고 - 스크린 샷][1]
+![PIM 대시보드 보안 경고 - 스크린 샷](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png)
 
 | 경고 | 심각도 | 트리거 | 권장 사항 |
 | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ PIM의 일부 보안 경고를 환경 및 보안 목표에 맞게 사용자 지�
 1. [Azure 포털](https://portal.azure.com/) 에 로그인하고 대시보드에서 **Azure AD Privileged Identity Management** 타일을 선택합니다.
 2. **권한 있는 역할 관리** > **설정** > **경고 설정**을 선택합니다.
    
-    ![보안 경고 설정으로 이동][2]
+    ![보안 경고 설정으로 이동](./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png)
 
 ### <a name="roles-are-being-activated-too-frequently-alert"></a>"역할이 너무 자주 활성화됨" 경고
 사용자가 지정된 기간 내에 동일한 권한 있는 역할을 여러 번 활성화한다면 이 경고가 트리거됩니다. 기간 및 활성화 횟수를 모두 구성할 수 있습니다.
@@ -66,8 +66,3 @@ PIM은 서로 다른 두 조건이 충족되고, 그 두 조건을 모두 구성
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [active-directory-privileged-identity-management-toc](../../includes/active-directory-privileged-identity-management-toc.md)]
-
-<!--Image references-->
-
-[1]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_dash.png
-[2]: ./media/active-directory-privileged-identity-management-how-to-configure-security-alerts/PIM_security_settings.png

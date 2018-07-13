@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 06/13/2018
 ms.author: raynew
-ms.openlocfilehash: c7dc9e8406494739aa5d8f21397a606e0b74a617
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 99eda135161a228fde139458de30f5120af55153
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301255"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723615"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms-and-azure-sql-managed-instance"></a>Contoso 마이그레이션: Contoso 앱을 Azure VM 및 Azure SQL 관리되는 인스턴스에 다시 호스팅
 
@@ -258,7 +258,7 @@ DMS Contoso를 준비하기 위해 수행해야 하는 몇 가지 작업은 다�
 
 **도움이 더 필요하세요?**
 - DMS를 설치하는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
-- SAS를 만들고 사용하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-2).
+- SAS를 만들고 사용하는 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
 ## <a name="step-3-prepare-azure-for-the-site-recovery-service"></a>3단계: Azure에서 Site Recovery 서비스 준비

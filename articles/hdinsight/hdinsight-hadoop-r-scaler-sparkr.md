@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 34d923cdf2dd96412996c766632ae42aac576e8c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2b16135e83ba52f7a2e6bd214791910db80634bc
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061481"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952844"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>HDInsight에서 ScaleR과 SparkR 결합
 
@@ -273,7 +273,7 @@ weatherDF <- rename(weatherDF,
 
 ## <a name="joining-the-weather-and-airline-data"></a>날씨 및 항공사 데이터 결합
 
-SparkR [join()](https://docs.databricks.com/spark/latest/sparkr/functions/join.html) 함수를 사용하여 출발 AirportID와 날짜/시간을 기준으로 항공사와 날씨 데이터의 왼쪽 외부 조인을 수행합니다. 외부 조인을 사용하면 일치하는 날씨 데이터가 없는 경우에도 모든 항공사 데이터 레코드를 유지할 수 있습니다. 조인에 따라 중복 열 몇 개를 제거하고, 유지 열의 이름을 바꿔 조인에서 도입된 들어오는 DataFrame 접두사를 제거합니다.
+SparkR [join()](https://docs.databricks.com/spark/1.6/sparkr/functions/join.html#join) 함수를 사용하여 출발 AirportID와 날짜/시간을 기준으로 항공사와 날씨 데이터의 왼쪽 외부 조인을 수행합니다. 외부 조인을 사용하면 일치하는 날씨 데이터가 없는 경우에도 모든 항공사 데이터 레코드를 유지할 수 있습니다. 조인에 따라 중복 열 몇 개를 제거하고, 유지 열의 이름을 바꿔 조인에서 도입된 들어오는 DataFrame 접두사를 제거합니다.
 
 ```
 logmsg('Join airline data with weather at Origin Airport')

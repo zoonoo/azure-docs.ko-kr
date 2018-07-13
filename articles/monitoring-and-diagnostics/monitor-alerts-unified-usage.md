@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 9ade63c07003ead55e63093ae74e876589ec8d61
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a913075c051c6b784495917b7edbd7340254a212
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287840"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952633"
 ---
 # <a name="create-view-and-manage-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 경고 만들기, 보기 및 관리  
 
@@ -62,7 +62,7 @@ Azure 경고는 또한 모든 경고 규칙에 대한 통합된 보기 및 확�
 
     > 활동 로그 경고도 지원되지만 미리 보기에 있습니다. [자세히 알아보기](monitoring-activity-log-alerts-new-experience.md).
 
-5. *메트릭 경고: **리소스 종류**가 **메트릭**과 같은 신호 형식으로 선택되었는지 확인한 다음, 적절한 **리소스**가 선택되면 *완료* 단추를 클릭하여 [경고 만들기]로 돌아갑니다. 다음으로 **조건 추가** 단추를 사용하여 신호 옵션 목록, 해당 모니터링 서비스 및 나열된 형식에서 특정 신호를 선택합니다. 이전에 선택한 리소스에 사용할 수 있습니다.
+5. *메트릭 경고*: **리소스 종류**가 **메트릭**과 같은 신호 유형으로 선택되었는지 확인한 다음, 적절한 **리소스**가 선택되면 *완료* 단추를 눌러 [경고 만들기]로 돌아갑니다. 다음으로 **조건 추가** 단추를 사용하여 신호 옵션 목록, 해당 모니터링 서비스 및 나열된 형식에서 특정 신호를 선택합니다. 이전에 선택한 리소스에 사용할 수 있습니다.
 
     ![리소스 선택](./media/monitor-alerts-unified/AlertsPreviewResourceSelection.png)
 

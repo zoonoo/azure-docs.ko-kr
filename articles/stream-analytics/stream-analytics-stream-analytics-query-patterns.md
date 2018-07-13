@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: f63ccd62136fe8d556a4cfb591e3294f3751dfb3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652249"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971784"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 
@@ -617,7 +617,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 
 ````
 
-**설명**: [TIMESTAMP BY OVER](https://msdn.microsoft.com/en-us/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 절은 하위 스트림을 사용하여 각 장치 타임라인을 개별적으로 살펴봅니다. 각 TollID에 대한 출력 이벤트는 계산될 때 생성됩니다. 즉 모든 장치가 동일한 시계를 사용하는 것처럼 순서가 재배열되는 대신 이벤트가 각 TollID에 관해 순서대로 처리됩니다.
+**설명**: [TIMESTAMP BY OVER](https://msdn.microsoft.com/azure/stream-analytics/reference/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) 절은 하위 스트림을 사용하여 각 장치 타임라인을 개별적으로 살펴봅니다. 각 TollID에 대한 출력 이벤트는 계산될 때 생성됩니다. 즉 모든 장치가 동일한 시계를 사용하는 것처럼 순서가 재배열되는 대신 이벤트가 각 TollID에 관해 순서대로 처리됩니다.
 
 
 ## <a name="get-help"></a>도움말 보기

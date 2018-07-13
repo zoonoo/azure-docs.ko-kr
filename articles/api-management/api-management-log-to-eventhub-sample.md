@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: 8ef8d64ba90960281faffc350821d7934e35749a
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 4c58be8f501e72027e1692ceb73552a3f252f92a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117071"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38603181"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-runscope"></a>Azure API Management, Event Hubs 및 Runscope를 사용하여 API 모니터링
 [API Management 서비스](api-management-key-concepts.md)는 HTTP API로 전송 된 HTTP 요청의 처리를 향상시키기 위해 다양한 기능을 제공합니다. 그러나 요청 및 응답의 존재는 일시적입니다. 요청이 생성되면 API Management 서비스를 통해 백 엔드 API로 전달됩니다. API는 요청을 처리하고 응답은 API 소비자를 통해 다시 전달합니다. API Management 서비스는 Azure Portal 대시보드에 표시하기 위해 API에 대한 중요한 통계를 일부 유지하지만 세부 정보는 사라집니다.
@@ -281,5 +281,5 @@ Azure API Management 서비스는 API간을 이동하는 HTTP 트래픽을 캡�
   * [Event Hubs 프로그래밍 가이드](../event-hubs/event-hubs-programming-guide.md)
 * API Management 및 Event Hubs 통합에 대해 자세히 알아보기
   * [Azure API Management에서 Azure Event Hubs에 이벤트를 기록하는 방법](api-management-howto-log-event-hubs.md)
-  * [로거 엔터티 참조](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+  * [로거 엔터티 참조](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub 정책 참조](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

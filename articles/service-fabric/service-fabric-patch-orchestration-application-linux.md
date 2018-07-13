@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: ea999945ace53099eb9dec15397310c9b5d1b904
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643127"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971269"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Linux 운영 체제 패치
 
@@ -324,7 +324,7 @@ a. 예, 정리는 설치 후 단계의 일부로 발생합니다.
 
 Q. **패치 오케스트레이션 앱을 사용하여 개발자 클러스터(1노드 클러스터)에 패치를 적용할 수 있나요?**
 
-a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스터에 패치를 적용할 수 없습니다. 이 제한은 기본적으로 [Service Fabric 시스템 서비스](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-technical-overview#system-services) 또는 고객 앱이 가동 중지되고 패치에 대한 모든 복구 작업이 복구 관리자에서 승인되지 않으므로 이 제한은 기본적으로 적용됩니다.
+a. 아니요, 패치 오케스트레이션 앱을 사용하여 1노드 클러스터에 패치를 적용할 수 없습니다. 이 제한은 기본적으로 [Service Fabric 시스템 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) 또는 고객 앱이 가동 중지되고 패치에 대한 모든 복구 작업이 복구 관리자에서 승인되지 않으므로 이 제한은 기본적으로 적용됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 4b90d1b9b2ee64722d3c92bcbd8fa205c9b59ebd
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: d46c55f809d24529ea5deeb4d84de44dae876a4b
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809610"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968989"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 백업 및 복원
 
@@ -84,8 +84,8 @@ SQL VM에 대한 이 Azure Backup 솔루션은 현재 공개 미리 보기 상�
 
 SQL VM에서 백업 및 복원 작업을 수동으로 관리하려는 경우 사용하는 SQL Server의 버전에 따라 몇 가지 옵션이 있습니다. 백업 및 복원의 개요는 SQL Server의 버전에 따라 다음 문서 중 하나를 참조하세요.
 
-- [SQL Server 2016 이상에 대한 백업 및 복원](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
-- [SQL Server 2014에 대한 백업 및 복원](https://msdn.microsoft.com/en-us/library/ms187048%28v=sql.120%29.aspx)
+- [SQL Server 2016 이상에 대한 백업 및 복원](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases)
+- [SQL Server 2014에 대한 백업 및 복원](https://msdn.microsoft.com/library/ms187048%28v=sql.120%29.aspx)
 - [SQL Server 2012에 대한 백업 및 복원](https://msdn.microsoft.com/library/ms187048%28v=sql.110%29.aspx)
 - [SQL Server SQL Server 2008 R2에 대한 백업 및 복원](https://msdn.microsoft.com/library/ms187048%28v=sql.105%29.aspx)
 - [SQL Server 2008에 대한 백업 및 복원](https://msdn.microsoft.com/library/ms187048%28v=sql.100%29.aspx)
@@ -105,7 +105,7 @@ SQL Server 2012 SP1 CU2부터 URL에 백업이라고도 하는 Microsoft Azure B
 | 2016의 향상된 기능 | 세부 정보 |
 | --- | --- |
 | **스트라이프** |Microsoft Azure Blob 저장소에 백업하는 경우 SQL Server 2016에서는 대형 데이터베이스를 백업할 수 있도록 최대 12.8TB까지 여러 Blob으로의 백업을 지원합니다. |
-| **스냅숏 백업** |Azure 스냅숏을 사용하는 경우 SQL Server 파일-스냅숏 Backup 기능은 Azure Blob 저장소 서비스를 사용하여 저장한 데이터베이스 파일을 거의 즉시 백업하고 신속하게 복원하는 기능을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅숏 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅숏 Backup](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)을 참조하세요. |
+| **스냅숏 백업** |Azure 스냅숏을 사용하는 경우 SQL Server 파일-스냅숏 Backup 기능은 Azure Blob 저장소 서비스를 사용하여 저장한 데이터베이스 파일을 거의 즉시 백업하고 신속하게 복원하는 기능을 제공합니다. 이 기능을 사용하면 백업 및 복원 정책을 단순화할 수 있습니다. 또한 파일-스냅숏 백업 기능은 특정 시점 복원도 지원합니다. 자세한 내용은 [Azure에서 데이터베이스 파일에 대한 스냅숏 Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/file-snapshot-backups-for-database-files-in-azure)을 참조하세요. |
 
 자세한 내용은 SQL Server의 버전에 따라 다음 문서 중 하나를 참조하세요.
 

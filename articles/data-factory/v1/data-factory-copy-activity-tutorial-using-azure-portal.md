@@ -16,17 +16,17 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 09cad6b76b2fdefe1163530e5437427faf29d72f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046870"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299924"
 ---
 # <a name="tutorial-use-azure-portal-to-create-a-data-factory-pipeline-to-copy-data"></a>자습서: Azure Portal을 사용하여 데이터를 복사하는 Data Factory 파이프라인 만들기 
 > [!div class="op_single_selector"]
 > * [개요 및 필수 구성 요소](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [복사 마법사](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+> * [Azure 포털](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager 템플릿](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -35,7 +35,7 @@ ms.locfileid: "37046870"
 > 
 
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [작업 복사 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [복사 작업 자습서](../quickstart-create-data-factory-dot-net.md)를 참조하세요. 
 
 이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 파이프라인이 있는 데이터 팩터리를 만드는 방법에 대해 알아봅니다. Azure Data Factory를 처음 사용하는 경우 이 자습서를 수행하기 전에 [Azure Data Factory 소개](data-factory-introduction.md) 문서를 참조하세요.   
 

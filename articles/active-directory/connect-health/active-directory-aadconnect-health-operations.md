@@ -3,7 +3,7 @@ title: Azure Active Directory Connect Health 작업
 description: 이 문서에서는 Azure AD Connect Health를 배포한 후 수행할 수 있는 추가 작업에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 4377e9902696a4ee3b5bbb5fcb44d972ec14f822
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 68be732b2a375d1667c743ac277ce653c78105f1
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958728"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37886872"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health 작업
 이 항목에서는 Azure AD(Azure Active Directory) Connect Health를 사용하여 수행할 수 있는 다양한 작업에 대해 설명합니다.

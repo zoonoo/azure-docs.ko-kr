@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: ecbc88ebaaa93215f85b57becc8a643dc3e168a0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a13057769bad7fcad5f95e49102adac234ebcdb4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129043"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868942"
 ---
 # <a name="connect-computers-without-internet-access-using-the-oms-gateway"></a>OMS 게이트웨이를 사용하여 인터넷 액세스 없이 컴퓨터 연결
 이 문서에서는 직접 연결되거나 Operations Manager 모니터링 컴퓨터가 인터넷에 액세스할 수 없는 경우, OMS 게이트웨이를 사용하여 Azure Automation 및 Log Analytics와의 통신을 구성하는 방법을 설명합니다.  HTTP CONNECT 명령을 사용하여 HTTP 터널링을 지원하는 HTTP 전달 프록시인 OMS 게이트웨이에서 데이터를 수집하고 대신하여 Azure Automation 및 Log Analytics로 보낼 수 있습니다.  

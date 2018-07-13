@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr
-ms.openlocfilehash: c3c0d12bbbeec85d2cbf0daead49ee16ca7728fb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046261"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888282"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다. 발언에 대한 패턴을 제공하여 LUIS는 예측에서 높은 신뢰도를 유지할 수 있습니다. 
@@ -117,11 +117,9 @@ How much does {Booktitle} cost and what format is it available in?
 LUIS에서는 의도에 예제 발언이 없는 앱이 허용됩니다. 이 사용 방식은 패턴을 사용할 때만 허용됩니다. 각 패턴에는 하나 이상의 엔터티가 필요합니다. 패턴 전용 앱의 경우, 패턴에 기계 학습된 엔터티가 포함되면 안 됩니다. 이러한 엔터티에는 예제 발언이 필요하기 때문입니다. 
 
 ## <a name="best-practices"></a>모범 사례
-[모범 사례](luis-concept-best-practices.md)에 대해 알라봅니다.
+[모범 사례](luis-concept-best-practices.md)에 대해 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [이 자습서의 패턴을 구현하는 방법 알아보기](luis-tutorial-pattern.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

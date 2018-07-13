@@ -3,7 +3,7 @@ title: 자습서 - Azure PowerShell을 사용하여 Azure 디스크 관리 | Mic
 description: 이 자습서에서는 Azure PowerShell은 사용하여 가상 머신을 위한 Azure 디스크를 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ea9d89b7dd94c38b326b83ff1fbf51595d67599a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 67e95ea4b816e1c21b5a43233360c7fa89f43a7a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190631"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929307"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -36,7 +36,7 @@ Azure 가상 머신은 디스크를 사용하여 VM 운영 체제, 응용 프로
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에는 Azure PowerShell 모듈 버전 5.7.0 이상이 필요합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
+PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure PowerShell 모듈 버전이 5.7.0 이상이어야 합니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
 ## <a name="default-azure-disks"></a>기본 Azure 디스크
 

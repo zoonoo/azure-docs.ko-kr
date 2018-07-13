@@ -15,11 +15,11 @@ ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: 6b13c70d86af195e50190083aa562811236cdd4b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054261"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299863"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: kgremban
 ms.openlocfilehash: 532ae26dfd7add5c5ecc61db259903239e449f40
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34635018"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299147"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>IoT Hub를 사용하여 장치에서 클라우드로 파일 업로드
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-이 자습서에서는 [IoT 허브의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하여 [Azure Blob 저장소](../storage/index.yml)에 파일을 업로드하는 방법에 대해 설명합니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
+이 자습서에서는 [IoT Hub의 파일 업로드 기능](iot-hub-devguide-file-upload.md)을 사용하여 [Azure Blob 저장소](../storage/index.yml)에 파일을 업로드하는 방법에 대해 설명합니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 - 파일을 업로드하기 위해 저장소 컨테이너를 안전하게 제공합니다.
 - Python 클라이언트를 사용하여 IoT 허브를 통해 파일을 업로드합니다.
@@ -28,7 +28,7 @@ ms.locfileid: "34635018"
 [IoT Hub 시작](iot-hub-node-node-getstarted.md) 자습서는 IoT Hub의 기본 장치-클라우드 메시지 기능을 보여줍니다. 그러나 일부 시나리오에서는 장치에서 전송하는 데이터를 IoT Hub에서 허용하는 비교적 작은 장치-클라우드 메시지에 쉽게 매핑할 수 없습니다. 장치에서 파일을 업로드해야 할 때 IoT Hub의 보안 및 안정성을 여전히 사용할 수 있습니다.
 
 > [!NOTE]
-> IoT 허브 Python SDK는 현재 **.txt** 파일과 같은 문자 기반 파일의 업로드만 지원합니다.
+> IoT Hub Python SDK는 현재 **.txt** 파일과 같은 문자 기반 파일의 업로드만 지원합니다.
 
 이 자습서의 끝 부분에서 Python 콘솔 앱을 실행합니다.
 
@@ -130,7 +130,7 @@ ms.locfileid: "34635018"
 1. 샘플 텍스트 파일을 작업 폴더에 복사하고 이름을 `sample.txt`로 바꿉니다.
 
     > [!NOTE]
-    > IoT 허브 Python SDK는 현재 **.txt** 파일과 같은 문자 기반 파일의 업로드만 지원합니다.
+    > IoT Hub Python SDK는 현재 **.txt** 파일과 같은 문자 기반 파일의 업로드만 지원합니다.
 
 
 ## <a name="run-the-application"></a>응용 프로그램 실행

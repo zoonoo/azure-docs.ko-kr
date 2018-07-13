@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 12/13/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc
-ms.openlocfilehash: 4eaae22f1ccbcb73eb7244f55ea4629aae053171
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2d1144a94a74e56cae6ff0a4b026a64540086c11
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597759"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968581"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "34597759"
 
 [Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작 자습서에서는 PHP 앱을 Azure Web Apps에 배포하는 방법을 보여 줍니다. Cloud Shell에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 웹앱을 만들고 Git을 사용하여 웹앱에 샘플 PHP 코드를 배포합니다.
 
-![Azure에서 실행되는 샘플 앱]](media/app-service-web-get-started-php/hello-world-in-browser.png)
+![Azure에서 실행되는 샘플 앱](media/app-service-web-get-started-php/hello-world-in-browser.png)
 
 Mac, Windows 또는 Linux 컴퓨터를 사용하여 여기서 설명하는 단계를 수행하면 됩니다. 필수 구성 요소가 설치된 후 단계를 완료하는 데는 약 5분 정도 걸립니다.
 
@@ -92,6 +92,7 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
 웹앱이 만들어지면 Azure CLI에서 다음 예제와 비슷한 출력을 표시합니다.
 
 ```json
+Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
 {
   "availabilityState": "Normal",
   "clientAffinityEnabled": true,
@@ -104,6 +105,11 @@ az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --
   < JSON data removed for brevity. >
 }
 ```
+git 배포를 활성화하여 새 빈 웹앱을 만들었습니다.
+
+> [!NOTE]
+> Git 원격의 URL은 `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git` 형식으로 `deploymentLocalGitUrl` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.
+>
 
 새로 만든 웹앱으로 이동합니다. _&lt;앱 이름>_ 을 이전 단계에서 만든 고유한 앱 이름으로 바꿉니다.
 

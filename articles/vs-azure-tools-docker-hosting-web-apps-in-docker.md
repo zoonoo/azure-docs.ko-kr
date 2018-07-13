@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/21/2018
 ms.author: mlearned
-ms.openlocfilehash: 4442c1d763f4ed21a5efeedbe957727254e2a0b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58df17b17de1d93683875b68dd7c6c087bc6d16d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658474"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972311"
 ---
 # <a name="deploy-an-aspnet-container-to-a-container-registry-using-visual-studio"></a>Visual Studio를 사용하여 컨테이너 레지스트리에 ASP.NET 컨테이너 배포
 ## <a name="overview"></a>개요
 Docker는 가상 머신과 몇 가지 측면에서 비슷하며 응용 프로그램과 서비스를 호스트하는 데 사용할 수 있는 간단한 컨테이너 엔진입니다.
-이 자습서에서는 Visual Studio를 사용하여 컨테이너화된 응용 프로그램을 [Azure Container Registry](https://azure.microsoft.com/en-us/services/container-registry)에 게시하는 방법을 설명합니다.
+이 자습서에서는 Visual Studio를 사용하여 컨테이너화된 응용 프로그램을 [Azure Container Registry](https://azure.microsoft.com/services/container-registry)에 게시하는 방법을 설명합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/dotnet/?utm_source=acr-publish-doc&utm_medium=docs&utm_campaign=docs)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* "ASP.NET 및 웹 개발" 워크로드가 포함된 최신 버전의 [Visual Studio 2017](https://azure.microsoft.com/en-us/downloads/)을 설치합니다.
+* "ASP.NET 및 웹 개발" 워크로드가 포함된 최신 버전의 [Visual Studio 2017](https://azure.microsoft.com/downloads/)을 설치합니다.
 * [Windows용 Docker](https://docs.docker.com/docker-for-windows/install/)를 설치합니다.
 
 ## <a name="1-create-an-aspnet-core-web-app"></a>1. ASP.NET Core 웹앱 만들기
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     | **DNS 접두사** | 전역적으로 고유한 이름 | 컨테이너 레지스트리를 고유하게 식별하는 이름입니다. |
     | **구독** | 구독 선택 | 사용할 Azure 구독입니다. |
     | **[리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  컨테이너 레지스트리를 만들 리소스 그룹의 이름입니다. **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다.|
-    | **[SKU](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-skus)** | Standard | 컨테이너 레지스트리의 서비스 계층  |
+    | **[SKU](https://docs.microsoft.com/azure/container-registry/container-registry-skus)** | Standard | 컨테이너 레지스트리의 서비스 계층  |
     | **레지스트리 위치** | 가까운 위치 | 사용자 또는 컨테이너 레지스트리를 사용할 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 위치를 선택합니다. |
     ![Visual Studio의 Azure Container Registry 만들기 대화 상자][0]
 5. **만들기**

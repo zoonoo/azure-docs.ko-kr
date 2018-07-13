@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: yizhon
-ms.openlocfilehash: 62065b78e3f8191c6423ba9dba4a8f7d16fad114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 15fc5794c71428b5fb1036060af3e9c4a6890f4f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660025"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969064"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-sdks"></a>Azure IoT SDK를 사용하여 제한된 장치 개발
 
@@ -73,7 +73,7 @@ Azure IoT C SDK 아키텍처에 대한 자세한 내용은 다음을 참조하�
 [lnk-cmake]: https://cmake.org/
 [lnk-devbox-setup]:  https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md
 [lnk-choosing-protocol]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-protocols
-[lnk-hub-file-upload]: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-file-upload
+[lnk-hub-file-upload]: https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-file-upload
 [lnk-strip]: https://en.wikipedia.org/wiki/Strip_(Unix)
 [lnk-serializer]: https://github.com/Azure/azure-iot-sdk-c/tree/master/serializer
 [lnk-parson]: https://github.com/kgabis/parson

@@ -3,7 +3,7 @@ title: 자습서 - Azure에서 Linux용 가상 머신 확장 집합 만들기 | 
 description: 이 자습서에서는 Azure CLI 2.0을 사용하여 가상 머신 확장 집합을 사용하는 Linux VM에서 고가용성 응용 프로그램을 만들고 배포하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/01/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 305c8b46f82409257061e1cb0ab79b3bf958384d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b8e25934dfd1bfa9d94d3452044443e7a5002534
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34839608"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932673"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli-20"></a>자습서: Azure CLI 2.0을 통해 Linux에서 가상 머신 확장 집합 만들기 및 고가용성 앱 배포
 

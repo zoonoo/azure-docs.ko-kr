@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 9002d0636a5abaf24cc2bcd1e531f38ec5c8d2eb
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: e48c2aceb2a8f45d01b922a186900780c1c5ef51
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294015"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968759"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
-[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 기본적인 HTML+CSS 사이트를 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview)에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다.
+[Azure Web Apps](app-service-web-overview.md)는 확장성 있는 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 기본적인 HTML+CSS 사이트를 Azure Web Apps에 배포하는 방법을 보여 줍니다. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)에서 이 빠른 시작을 완료하지만 [Azure CLI](/cli/azure/install-azure-cli)를 사용하여 이러한 명령을 로컬로 실행할 수도 있습니다.
 
 ![샘플 앱의 홈 페이지](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -34,7 +34,7 @@ ms.locfileid: "36294015"
 
 ## <a name="install-web-app-extension-for-cloud-shell"></a>Cloud Shell에 대한 웹앱 확장 설치
 
-이 빠른 시작을 완료하려면 [az web app extension](https://docs.microsoft.com/en-us/cli/azure/extension?view=azure-cli-latest#az-extension-add)을 추가해야 합니다. 확장이 이미 설치되어 있는 경우 최신 버전으로 업데이트해야 합니다. 웹앱 확장을 업데이트하려면 `az extension update -n webapp`을 입력합니다.
+이 빠른 시작을 완료하려면 [az web app extension](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az-extension-add)을 추가해야 합니다. 확장이 이미 설치되어 있는 경우 최신 버전으로 업데이트해야 합니다. 웹앱 확장을 업데이트하려면 `az extension update -n webapp`을 입력합니다.
 
 웹앱 확장을 설치하려면 다음 명령을 실행합니다.
 
@@ -84,7 +84,7 @@ az webapp up -n <app_name>
 
 - 지정된 이름의 앱 만들기
 
-- 현재 작업 디렉터리에서 웹앱까지의 [Zip 배포](https://docs.microsoft.com/en-us/azure/app-service/app-service-deploy-zip) 파일
+- 현재 작업 디렉터리에서 웹앱까지의 [Zip 배포](https://docs.microsoft.com/azure/app-service/app-service-deploy-zip) 파일
 
 이 명령을 실행하는 데 몇 분 정도 걸릴 수 있습니다. 실행 시 다음 예와 유사한 정보를 출력합니다.
 
@@ -144,7 +144,7 @@ az webapp up -n <app_name>
 
 ![Azure Portal의 App Service 블레이드](./media/app-service-web-get-started-html/portal2.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다.
+왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

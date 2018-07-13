@@ -4,7 +4,7 @@ description: Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 
 keywords: AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, O365, 페더레이션, 신뢰 당사자
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
+author: billmath
 manager: mtillman
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 719506e35e6abe5ac573c7ceedc1668fd2704bd4
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961692"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916999"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 이 문서에서는 Azure AD(Azure Active Directory) Connect를 사용하여 AD FS(Active Directory Federation Services)를 관리 및 사용자 지정하는 방법을 설명합니다. 또한 AD FS 팜의 완벽한 구성을 위해 수행해야 할 수 있는 다른 일반적인 AD FS 작업을 포함합니다.

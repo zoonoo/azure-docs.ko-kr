@@ -1,19 +1,19 @@
 ---
 title: Azure에서 Recovery Services 자격 증명 모음 삭제
 description: 이 문서는 Recovery Services 자격 증명 모음을 삭제하는 방법을 설명합니다. 문서에는 자격 증명 모음을 삭제하려고 하나 할 수 없는 경우의 문제 해결 단계가 포함되어 있습니다.
-services: service-name
+services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/21/2018
+ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: d8169eba6790e49a85d69434663faabe7430942e
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937603"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901853"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 삭제
 
@@ -77,7 +77,7 @@ Recovery Services 자격 증명 모음 삭제하려면
 
 4. chocolately.org에서 Azure Resource Manager 클라이언트 패키지를 다운로드하려면 다음 명령을 실행합니다.
 
-    `iex ((New-Object System.Net.WebClient) DownloadString('https://chocolatey.org/install.ps1))`
+    `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
 5. Azure Resource Manager API 클라이언트를 설치하려면 다음 명령을 사용합니다.
 

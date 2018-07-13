@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 06/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 489801852202163ef40d57da0082e39793196d85
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 5205a6746f6a698768a60375e2e77db9cb535a71
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264097"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971910"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
 
@@ -45,7 +45,7 @@ Media Services를 사용하면 클라우드에서 다양한 미디어 워크플�
 * 고객(예: 영화 스튜디오)이 독점 저작물의 액세스 및 사용을 제한해야 하는 경우 구독 비디오 서비스를 만들고 DRM 보호된 콘텐츠를 스트리밍합니다.
 * 항공기, 기차 및 자동차에서 재생할 오프라인 콘텐츠를 제공합니다. 고객은 네트워크에서 연결이 끊길 것으로 예상되는 경우 재생을 위해 휴대 전화나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다.
 * 더 많은 청중(예: 청각 장애인 또는 다른 언어로 따라 읽기를 원하는 사람들)을 수용하기 위해 자막 및 캡션을 비디오에 추가합니다. 
-* Azure Media Services 및 [Azure Cognitive Services API](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai)를 사용하여 음성-텍스트 캡션, 다중 언어로 번역 등을 위한 교육 온라인 학습 비디오 플랫폼을 구현합니다.
+* Azure Media Services 및 [Azure Cognitive Services API](https://docs.microsoft.com/azure/#pivot=products&panel=ai)를 사용하여 음성-텍스트 캡션, 다중 언어로 번역 등을 위한 교육 온라인 학습 비디오 플랫폼을 구현합니다.
 * Azure CDN을 사용하여 순간적인 높은 부하(예: 제품 런칭 이벤트 시작)를 더 효율적으로 처리하기 위한 대규모 크기 조정을 구현합니다. 
 
 ## <a name="v3-capabilities"></a>v3 기능

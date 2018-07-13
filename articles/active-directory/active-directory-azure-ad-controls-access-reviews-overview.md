@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 0180968d85fffcaf1ee5e224e72864d2ab0511ca
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d2e0f1ecea84398f9e4d43af07b9871f36e8dd48
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446057"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295012"
 ---
 # <a name="azure-ad-access-reviews"></a>Azure AD 액세스 검토
 
@@ -43,4 +43,4 @@ Azure AD(Azure Active Directory) 액세스 검토를 사용하면 조직에서 �
 - [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Azure AD 액세스 검토용 프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
-- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](privileged-identity-management/pim-how-to-start-security-review.md)

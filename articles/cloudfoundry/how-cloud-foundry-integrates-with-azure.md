@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0959617185694d48c593996d5cd8c836098dd1cd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062209"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968622"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
 
@@ -77,7 +77,7 @@ Azure Log Analytics Nozzle은 [Cloud Foundry Loggregator Firehose](https://docs.
 ## <a name="7-cost-saving"></a>7. 비용 절감
 ### <a name="cost-saving-for-devtest-environments"></a>개발/테스트 환경에 대한 비용 절감
 #### <a name="b-series-"></a>B 시리즈: *
-일반적으로 F 및 D VM 시리즈를 Pivotal Cloud Foundry 프로덕션 환경에 일반적으로 권장하는 반면 새롭게 "높은 성능을 발휘할 수 있는" [B 시리즈](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/)는 새로운 옵션을 제공합니다. 버스트 가능한 B 시리즈 VM은 웹 서버, 소규모 데이터베이스 및 개발 및 테스트 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. $0.05/시간(F1)에 비한 $0.012/시간(B1)입니다. 자세한 내용은 [VM 크기](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general) 및 [가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 전체 목록을 참조하세요. 
+일반적으로 F 및 D VM 시리즈를 Pivotal Cloud Foundry 프로덕션 환경에 일반적으로 권장하는 반면 새롭게 "높은 성능을 발휘할 수 있는" [B 시리즈](https://azure.microsoft.com/blog/introducing-b-series-our-new-burstable-vm-size/)는 새로운 옵션을 제공합니다. 버스트 가능한 B 시리즈 VM은 웹 서버, 소규모 데이터베이스 및 개발 및 테스트 환경과 같이 CPU의 전체 성능이 지속적으로 필요하지 않은 작업에 적합합니다. 이러한 작업에는 일반적으로 버스트 가능한 성능 요구 사항이 있습니다. $0.05/시간(F1)에 비한 $0.012/시간(B1)입니다. 자세한 내용은 [VM 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general) 및 [가격](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 전체 목록을 참조하세요. 
 #### <a name="managed-standard-disk"></a>관리되는 표준 디스크 
 프리미엄 디스크는 프로덕션에서 신뢰할 수 있는 성능에 대해 권장했습니다.  [관리 디스크](https://azure.microsoft.com/services/managed-disks/)에서 표준 저장소는 다른 성능과 유사한 안정성을 제공할 수도 있습니다. 개발/테스트 또는 중요하지 않은 환경과 같은 성능에 민감하지 않은 환경의 경우 관리되는 표준 디스크는 저렴한 비용으로 다른 옵션을 제공합니다.  
 ### <a name="cost-saving-in-general"></a>일반적인 비용 절감 

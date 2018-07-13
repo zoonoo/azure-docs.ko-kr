@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
 ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061267"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38299209"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>자습서: Node.js IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포
 
@@ -68,9 +68,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 3. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
 
-3. 명령 팔레트에서 **Azure: Sign in**(Azure: 로그인) 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계는 건너뛸 수 있습니다.
+3. 명령 팔레트에서 **Azure: 로그인** 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계는 건너뛸 수 있습니다.
 
-4. 명령 팔레트에서 **Azure IoT Edge: New IoT Edge solution**(Azure IoT Edge: 새 IoT Edge 솔루션) 명령을 입력 및 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
+4. 명령 팔레트에서 **Azure IoT Edge: 새 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
 
    1. 솔루션을 만들 폴더를 선택합니다. 
    2. 솔루션에 대한 이름을 제공하거나 기본 **EdgeSolution**을 그대로 적용합니다.
@@ -185,26 +185,26 @@ VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그�
 
 1. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다.
 
-2. **Azure: Sign in** 명령을 검색하여 실행합니다. 지침에 따라 Azure 계정에 로그인합니다. 
+2. **Azure: 로그인** 명령을 검색하여 실행합니다. 지침에 따라 Azure 계정에 로그인합니다. 
 
-3. 명령 팔레트에서 **Azure IoT Hub: Select IoT Hub**(Azure IoT Hub: IoT Hub 선택) 명령을 검색하여 실행합니다. 
+3. 명령 팔레트에서 **Azure IoT Hub: IoT Hub 선택** 명령을 검색하여 실행합니다. 
 
-4. IoT 허브가 포함된 구독을 선택한 다음, 액세스하려는 IoT 허브를 선택합니다.
+4. IoT Hub가 포함된 구독을 선택한 다음, 액세스하려는 IoT Hub를 선택합니다.
 
 5. VS Code 탐색기에서 **Azure IoT Hub 장치** 섹션을 펼칩니다. 
 
 6. IoT Edge 장치의 이름을 마우스 오른쪽 단추로 클릭한 다음, **IoT Edge 장치에 대한 배포 만들기**를 선택합니다. 
 
-7. NodeModule이 포함된 솔루션 폴더로 이동합니다. **config** 폴더를 열고 **deployment.json** 파일을 선택합니다. **Edge 배포 매니페스트 선택**을 클릭합니다.
+7. NodeModule이 포함된 솔루션 폴더로 이동합니다. **config** 폴더를 열고 **deployment.json** 파일을 선택합니다. **에지 배포 매니페스트 선택**을 클릭합니다.
 
 8. **Azure IoT Hub 장치** 섹션을 새로 고칩니다. **TempSensor** 모듈과 **$edgeAgent** 및 **$edgeHub**와 함께 실행되는 새 **NodeModule**이 표시됩니다. 
 
 
 ## <a name="view-generated-data"></a>생성된 데이터 보기
 
-1. IoT 허브에 도착하는 데이터를 모니터링하려면 **...** 를 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
+1. IoT Hub에 도달하는 데이터를 모니터링하려면 **...** 를 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
 2. 특정 장치에 대한 D2C 메시지를 모니터링하려면 목록에서 해당 장치를 마우스 오른쪽 단추로 클릭하고 **D2C 메시지 모니터링 시작**을 선택합니다.
-3. 데이터 모니터링을 중지하려면 명령 팔레트에서 **Azure IoT Hub: Stop monitoring D2C message**(Azure IoT Hub: D2C 메시지 모니터링 중지) 명령을 실행합니다. 
+3. 데이터 모니터링을 중지하려면 명령 팔레트에서 **Azure IoT Hub: D2C 메시지 모니터링 중지** 명령을 실행합니다. 
 4. 모듈 쌍을 보거나 업데이트하려면 목록에서 해당 모듈을 마우스 오른쪽 단추로 클릭하고 **모듈 쌍 편집**을 선택합니다. 모듈 쌍을 업데이트하려면 쌍 JSON 파일을 저장하고, 편집기 영역을 마우스 오른쪽 단추로 클릭하고, **모듈 쌍** 업데이트를 선택합니다.
 5. Docker 로그를 보려면 VS Code용 [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)를 설치하고 Docker 탐색기에서 실행 중인 모듈을 로컬로 찾을 수 있습니다. 통합 터미널에서 보려면 상황에 맞는 메뉴에서 **로그 표시**를 클릭합니다. 
 
@@ -212,9 +212,9 @@ VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그�
 
 <!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-권장되는 다음 문서로 계속 진행하는 경우 지금까지 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
+권장되는 다음 아티클을 계속 진행하는 경우 지금까지 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
 
-그렇지 않으면 요금이 부과되지 않도록 이 문서에서 만든 로컬 구성과 Azure 리소스를 삭제할 수 있습니다. 
+그렇지 않으면 요금이 부과되지 않도록 이 아티클에서 만든 로컬 구성과 Azure 리소스를 삭제할 수 있습니다. 
 
 > [!IMPORTANT]
 > Azure 리소스와 리소스 그룹을 삭제하면 되돌릴 수 없습니다. 일단 삭제되면 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관할 리소스가 포함된 기존 리소스 그룹 내에 IoT Hub를 만든 경우 리소스 그룹을 삭제하지 말고 IoT Hub 리소스만 삭제하면 됩니다.

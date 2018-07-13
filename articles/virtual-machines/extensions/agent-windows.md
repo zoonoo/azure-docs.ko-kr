@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: fb29f0f931715b8a6ba5b4528294eb61ef5762c8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 51271a875d19d08d84dcc102c85c947c05599d85
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944745"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868520"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -77,7 +77,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 Azure VM에 대한 정�
 powershell Get-AzureRmVM
 ```
 
-The following condensed example output shows the the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
+The following condensed example output shows the *ProvisionVMAgent* property nested inside *OSProfile*. This property can be used to determine if the VM agent has been deployed to the VM:
 
 ```PowerShell
 OSProfile                  :

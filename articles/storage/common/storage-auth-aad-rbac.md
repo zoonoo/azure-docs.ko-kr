@@ -8,27 +8,27 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: 241808e0a7bde1d2c53cd0af1de677275c169214
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cee319c4fb158e95b4a6d996f846038f0654dd32
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082233"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969156"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)
 
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 컨테이너 또는 큐에 액세스하는 데 사용되는 사용 권한의 공통 집합을 포함하는 기본 제공 RBAC 역할 집합을 정의합니다. RBAC 역할이 Azure AD ID에 할당되면 ID에는 지정된 범위에 따라 해당 리소스에 대한 액세스 권한이 부여됩니다. 액세스 권한은 구독, 리소스 그룹, 저장소 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure Management API를 사용하여 Azure Storage 리소스에 액세스 권한을 할당할 수 있습니다. 
 
-Azure AD ID는 사용자, 그룹 또는 응용 프로그램 서비스 주체일 수도 있고, *관리 서비스 ID*일 수도 있습니다. 보안 주체는 사용자, 그룹 또는 응용 프로그램 서비스 사용자일 수 있습니다. [관리 서비스 ID](../../active-directory/managed-service-identity/overview.md)는 Azure 가상 머신, 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램에서 인증하는 데 사용되는 자동으로 관리되는 ID입니다. Azure AD에서 ID는 [Azure ID 솔루션 이해](https://docs.microsoft.com/en-us/azure/active-directory/understand-azure-identity-solutions)를 참조하세요.
+Azure AD ID는 사용자, 그룹 또는 응용 프로그램 서비스 주체일 수도 있고, *관리 서비스 ID*일 수도 있습니다. 보안 주체는 사용자, 그룹 또는 응용 프로그램 서비스 사용자일 수 있습니다. [관리 서비스 ID](../../active-directory/managed-service-identity/overview.md)는 Azure 가상 머신, 기능 앱, 가상 머신 확장 집합 및 기타 기능에서 실행 중인 응용 프로그램에서 인증하는 데 사용되는 자동으로 관리되는 ID입니다. Azure AD에서 ID는 [Azure ID 솔루션 이해](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions)를 참조하세요.
 
 ## <a name="rbac-roles-for-azure-storage"></a>Azure Storage에 대한 RBAC 역할
 
 Azure Storage는 기본 제공 및 사용자 지정 RBAC 역할을 지원합니다. Azure Storage는 Azure AD에 사용하기 위해 이러한 기본 제공 RBAC 역할을 제공합니다.
 
-- [Storage Blob 데이터 기여자(미리 보기)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
-- [Storage Blob 데이터 판독기(미리 보기)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
-- [Storage 큐 데이터 기여자(미리 보기)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
-- [Storage 큐 데이터 판독기(미리 보기)](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
+- [Storage Blob 데이터 기여자(미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)
+- [Storage Blob 데이터 판독기(미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+- [Storage 큐 데이터 기여자(미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+- [Storage 큐 데이터 판독기(미리 보기)](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-reader-preview)
 
 기본 제공 역할을 Azure Storage에 정의하는 방법에 대한 자세한 내용은 [역할 정의 이해](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#management-and-data-operations-preview)를 참조하세요.
 

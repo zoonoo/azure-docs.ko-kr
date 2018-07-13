@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: v-geberr
-ms.openlocfilehash: da8ea6dead6b22d97e7338b2aa57a892be475417
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344834"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952541"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 LUIS(Language Understanding)는 사용자 지정 기계 학습을 사용자의 자연스러운 기존 언어 텍스트에 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 서비스입니다. 
@@ -99,7 +99,7 @@ LUIS는 엔터티를 식별하고 분류하는 몇 가지 방법을 제공합니
 LUIS 앱이 게시되고 실제 사용자 발언이 수신되면, LUIS는 끝점 발언의 [능동적 학습](#active-learning), 도메인 단어 포함을 위한 [문구 목록](#phrase-lists) 및 필요한 발언 수를 줄이기 위한 [패턴](#patterns)과 같이 예측 정확도를 향상시키는 몇 가지 방법을 제공합니다.
 
 ### <a name="active-learning"></a>능동적 학습
-[능동적 학습](label-suggested-utterances.md) 프로세스에서는 검토를 위해 끝점에서 수신된 발언을 선택하여 LUIS 앱을 실제 발언에 맞게 조정할 수 있습니다. 끝점 예측을 수락 또는 수정하고, 재학습하고, 재게시할 수 있습니다. LUIS는 이러한 반복 프로세스로 빠르게 학습하며, 사용자에게 필요한 시간과 노력을 최소화합니다. 
+[능동적 학습](luis-how-to-review-endoint-utt.md) 프로세스에서는 검토를 위해 끝점에서 수신된 발언을 선택하여 LUIS 앱을 실제 발언에 맞게 조정할 수 있습니다. 끝점 예측을 수락 또는 수정하고, 재학습하고, 재게시할 수 있습니다. LUIS는 이러한 반복 프로세스로 빠르게 학습하며, 사용자에게 필요한 시간과 노력을 최소화합니다. 
 
 ### <a name="phrase-lists"></a>문구 목록 
 LUIS는 모델 도메인에 중요한 단어나 구를 나타낼 수 있도록 [문구 목록](luis-concept-feature.md)을 제공합니다. LUIS는 이러한 목록을 사용하여 모델에서 찾을 수 없는 해당 단어 및 문구에 추가적인 중요도를 추가합니다.

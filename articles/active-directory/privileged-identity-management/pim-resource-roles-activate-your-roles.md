@@ -14,15 +14,15 @@ ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d2f61f1ebdd473a24115c7774801f5b7694f224f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 483f30a6546cf21d93b96b08eede6afae828d9e4
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443208"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548307"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Privileged Identity Management를 사용하여 Azure 리소스에 대한 역할 활성화
-PIM(Privileged Identity Management)은 Azure 리소스에 대한 역할을 활성화하는 새로운 환경을 소개합니다. 적격 역할 멤버는 미래의 날짜 및 시간에 대한 활성화를 예약할 수 있습니다. 또한 최대(관리자로 구성됨) 내에서 특정 활성화 기간을 선택할 수도 있습니다. 자세한 내용은 [Azure AD Privileged Identity Management에서 역할을 활성화하거나 비활성화하는 방법](../active-directory-privileged-identity-management-how-to-activate-role.md)을 참조하세요.
+PIM(Privileged Identity Management)은 Azure 리소스에 대한 역할을 활성화하는 새로운 환경을 소개합니다. 적격 역할 멤버는 미래의 날짜 및 시간에 대한 활성화를 예약할 수 있습니다. 또한 최대(관리자로 구성됨) 내에서 특정 활성화 기간을 선택할 수도 있습니다. 자세한 내용은 [Azure AD Privileged Identity Management에서 역할을 활성화하거나 비활성화하는 방법](pim-how-to-activate-role.md)을 참조하세요.
 
 ## <a name="activate-roles"></a>역할 활성화
 왼쪽 창에서 **내 역할** 섹션으로 이동합니다. 활성화하려는 역할에 대해 **활성화**를 선택합니다.

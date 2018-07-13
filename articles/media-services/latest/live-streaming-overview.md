@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: juliako
-ms.openlocfilehash: b8c9375d8ad915200cbc8b2e1a62979fd1b7d179
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35237084"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972182"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -32,7 +32,7 @@ Azure Media Services를 사용하여 라이브 스트리밍 이벤트를 제공�
 
 ## <a name="overview-of-main-components"></a>미디어 구성 요소 개요
 
-[LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 Media Services에서 라이브 스트리밍 콘텐츠 처리를 담당합니다. LiveEvent는 온-프레미스 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. LiveEvent는 라이브 인코더에서 RTMP 또는 부드러운 스트리밍 형식으로 라이브 입력 스트림을 수신하여 하나 이상의 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. [LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs)을 사용하면 라이브 스트림의 게시, 기록 및 DVR 창 설정을 제어할 수 있습니다. 또한 LiveEvent는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다. 
+[LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents)는 Media Services에서 라이브 스트리밍 콘텐츠 처리를 담당합니다. LiveEvent는 온-프레미스 라이브 인코더에 제공할 입력 엔드포인트(수집 URL)를 제공합니다. LiveEvent는 라이브 인코더에서 RTMP 또는 부드러운 스트리밍 형식으로 라이브 입력 스트림을 수신하여 하나 이상의 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints)를 통해 스트리밍하는 데 사용할 수 있도록 합니다. [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 사용하면 라이브 스트림의 게시, 기록 및 DVR 창 설정을 제어할 수 있습니다. 또한 LiveEvent는 스트림을 추가로 처리하고 배달하기 전에 미리 보고 유효성을 검색하는 데 사용되는 미리 보기 엔드포인트(미리 보기 URL)를 제공합니다. 
 
 Media Services는 **동적 패키징**을 제공하며 이는 콘텐츠를 스트리밍 형식(MPEG DASH, HLS, 부드러운 스트리밍)으로 수동으로 다시 패키지하지 않고도 이런 스트리밍 형식으로 배달할 수 있게 합니다. HLS, DASH 또는 Smooth 호환 플레이어로 재생할 수 있습니다. [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html)를 사용하여 스트림을 테스트할 수도 있습니다.
 
@@ -101,7 +101,7 @@ LiveEvent의 현재 상태입니다. 가능한 값은 다음과 같습니다.
 
 ## <a name="liveoutput"></a>LiveOutput
 
-[LiveOutput](https://docs.microsoft.com/en-us/rest/api/media/liveoutputs)을 사용하면 라이브 스트림의 게시, 기록 및 DVR 창 설정을 제어할 수 있습니다. LiveEvent 및 LiveOutput 관계는 기존 미디어와 유사하여 채널(LiveEvent)에는 일정한 콘텐츠 스트림이 있고 프로그램(LiveOutput) 범위는 해당 LiveEvent에 있는 일부 시간 제한 이벤트로 지정됩니다.
+[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)을 사용하면 라이브 스트림의 게시, 기록 및 DVR 창 설정을 제어할 수 있습니다. LiveEvent 및 LiveOutput 관계는 기존 미디어와 유사하여 채널(LiveEvent)에는 일정한 콘텐츠 스트림이 있고 프로그램(LiveOutput) 범위는 해당 LiveEvent에 있는 일부 시간 제한 이벤트로 지정됩니다.
 **ArchiveWindowLength** 속성을 설정하여 LiveOutput에 대해 기록된 콘텐츠를 유지할 시간을 지정할 수 있습니다. **ArchiveWindowLength**는 보관 창 길이(디지털 비디오 레코더 또는 DVR)의 ISO 8601 timespan 기간입니다. 이 값은 최소 5분에서 최대 25시간 사이로 설정할 수 있습니다. 
 
 또한 **ArchiveWindowLength**는 클라이언트가 현재 라이브 위치에서 이전 시간을 검색할 수 있는 최대 시간을 나타냅니다. LiveOutput은 지정된 시간 동안 실행되지만 기간 길이보다 늦는 콘텐츠는 계속 삭제됩니다. 또한 이 속성의 값은 클라이언트 매니페스트가 증가할 수 있는 길이를 결정합니다.

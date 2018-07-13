@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/01/2018
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: be04a1cd723cf27e764daa468607d6495baf0291
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 563ee61b56af22ada662fcfff9f47ae58f3f32ba
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849933"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969098"
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>ExpressRoute 회로 및 라우팅 도메인
  연결 공급자를 통해 온-프레미스 인프라를 Microsoft에 연결하려면 *ExpressRoute 회로* 를 주문해야 합니다. 다음 그림은 WAN 및 Microsoft 간 연결의 논리적 표현을 보여 줍니다.
@@ -89,7 +89,7 @@ Microsoft 피어링을 통해 Microsoft 온라인 서비스(Office 365, Dynamics
 3개의 모든 피어링 세션을 선택하는 경우, 3쌍의 BGP 세션(각 피어링 형식에 대해 한 쌍)이 있어야 합니다. BGP 세션 쌍은 항상 사용 가능한 링크를 제공합니다. 계층 2 연결 공급자를 통해 연결하는 경우, 사용자가 라우팅을 구성하고 관리합니다. ExpressRoute를 설정하기 위한 [워크플로](expressroute-workflows.md) 를 검토하여 자세히 알아볼 수 있습니다.
 
 ## <a name="expressroute-health"></a>ExpressRoute 상태
-ExpressRoute 회로는 NPM([네트워크 성능 모니터](https://docs.microsoft.com/en-us/azure/networking/network-monitoring-overview))을 사용하여 가용성, VNet에 대한 연결성 및 대역폭 사용률에 대해 모니터링할 수 있습니다.
+ExpressRoute 회로는 NPM([네트워크 성능 모니터](https://docs.microsoft.com/azure/networking/network-monitoring-overview))을 사용하여 가용성, VNet에 대한 연결성 및 대역폭 사용률에 대해 모니터링할 수 있습니다.
 
 NPM은 Azure 개인 피어링 및 Microsoft 피어링의 상태를 모니터링합니다.  자세한 내용은 [포스트](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/)를 확인하세요.
 

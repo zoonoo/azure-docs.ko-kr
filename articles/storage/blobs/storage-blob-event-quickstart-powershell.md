@@ -5,15 +5,15 @@ services: storage,event-grid
 keywords: ''
 author: david-stanford
 ms.author: dastanfo
-ms.date: 05/24/2018
+ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: b6764ffa0e7cfbc888f11c22af855d48d8160372
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2c61c58398b8c095002db4bc59afed1c95e3550f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650505"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865423"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Powershell로 Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅
 
@@ -99,6 +99,8 @@ New-AzureRmResourceGroupDeployment `
 배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 
 현재 표시된 메시지가 없는 사이트가 표시되어야 합니다.
+
+[!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
 ## <a name="subscribe-to-your-storage-account"></a>저장소 계정 구독
 

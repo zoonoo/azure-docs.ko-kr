@@ -18,11 +18,11 @@ ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ms.openlocfilehash: 3205fc8597d4d501b19ace7d50c4807a47d31d03
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234192"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602618"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>함수에 대한 OpenAPI 정의 만들기
 REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다(이전의 [Swagger](http://swagger.io/) 파일). 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다.

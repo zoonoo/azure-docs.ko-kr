@@ -3,7 +3,7 @@ title: Azure AD Connect Health Agent 설치 | Microsoft Docs
 description: AD FS 및 동기화를 위한 에이전트 설치에 관해 설명하는 Azure AD Connect Health 페이지입니다.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7a29f438d57136c33a0e5608cc403c484ec1074f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 42910d616bdbf38c847b48a4a44e6ff9593fa17b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231771"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952728"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Azure AD Connect Health Agent 설치
 이 문서는 Azure AD Connect Health Agent를 설치하고 구성하는 단계를 안내합니다. [여기](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent)에서 에이전트를 다운로드할 수 있습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "36231771"
  
 | 도메인 환경 | 필수 Azure 서비스 엔드포인트 |
 | --- | --- |
-| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.queue.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.table.core.windows.net </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> | 
+| 일반 공개 | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.queue.core.windows.net </li><li>&#42;.servicebus.windows.net - Port: 5671 </li><li>&#42;.table.core.windows.net </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> | 
 | Azure Germany | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.queue.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li><li>&#42;.table.core.cloudapi.de </li><li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li><li>&#42;.queue.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.table.core.usgovcloudapi.net </li><li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com *이 엔드포인트는 등록하는 동안 검색 용도로만 사용합니다.</li> |  
  

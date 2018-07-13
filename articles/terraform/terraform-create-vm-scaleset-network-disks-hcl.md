@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 06/04/2018
 ms.topic: article
-ms.openlocfilehash: b7cd9ad90198ead7c68d838547232429dbd1289f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757323"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971836"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale"></a>Terraform을 사용하여 Azure Virtual Machine Scale 만들기
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform을 사용하여 Azure Virtual Machine Scale Set 만들기
 
 [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets)를 사용하면 동일하고 부하 분산된 가상 머신 그룹을 만들고 관리할 수 있습니다. 가상 머신 인스턴스 수는 수요 또는 정의된 일정에 따라 자동으로 증가하거나 감소할 수 있습니다. 
 

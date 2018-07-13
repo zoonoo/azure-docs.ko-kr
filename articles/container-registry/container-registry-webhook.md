@@ -2,18 +2,18 @@
 title: Azure Container Registry 웹후크
 description: 레지스트리 리포지토리 중 하나에서 특정 작업이 수행되는 경우 웹후크를 사용하여 이벤트를 트리거하는 방법을 알아봅니다.
 services: container-registry
-author: iainfoulds
+author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: iainfou
-ms.openlocfilehash: 538548fa211b2159b190ff1b689033c50ad801fe
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: marsma
+ms.openlocfilehash: aff8f1b18c60610ff1d231661fe142eb6c69f3d7
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096311"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887576"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Azure Container Registry 웹후크 사용
 

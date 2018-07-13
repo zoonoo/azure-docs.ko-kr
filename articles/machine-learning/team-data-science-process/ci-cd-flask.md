@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 233da393bb9e030d885ce588f4841dc1c707c1cb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836269"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968794"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>AI(인공 지능) 응용 프로그램에 대한 DevOps: Docker 및 Kubernetes를 사용하여 Azure에서 지속적인 통합 파이프라인 만들기
 AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 데이터 과학자와 응용 프로그램을 빌드하고 사용할 최종 사용자에게 노출하는 앱 개발자라는 두 가지 작업 스트림이 있습니다. 이 문서에서는 AI 응용 프로그램을 위한 CI(지속적인 통합)/CD(지속적인 배포) 파이프라인을 구현하는 방법을 설명합니다. AI 응용 프로그램은 미리 학습된 ML(Machine Learning) 모델이 포함된 응용 프로그램 코드의 조합입니다. 이 문서의 경우 개인 Azure blob 저장소 계정에서 미리 학습된 모델을 페치합니다. 이는 AWS S3 계정에도 적용될 수 있습니다. 문서에서는 간단한 python flask 웹 응용 프로그램을 사용합니다.
@@ -35,10 +35,10 @@ AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 
 
 ## <a name="pre-requisites"></a>필수 조건
 다음은 아래에 설명된 CI/CD 파이프라인을 수행하기 위한 필수 구성 요소입니다.
-* [Visual Studio Team Services 계정](https://docs.microsoft.com/en-us/vsts/accounts/create-account-msa-or-work-student)
-* [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Kubernetes를 실행하는 AKS(Azure Container Service) 클러스터](https://docs.microsoft.com/en-us/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
-* [ACR(Azure Container Registy) 계정](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+* [Visual Studio Team Services 계정](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Kubernetes를 실행하는 AKS(Azure Container Service) 클러스터](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+* [ACR(Azure Container Registy) 계정](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Kubernetes 클러스터에 대해 명령을 실행하는 Kubectl을 설치합니다.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 이는 ACS 클러스터에서 구성을 페치하기 위해 필요합니다. 
 * GitHub 계정으로 리포지토리를 포크합니다.
 
@@ -69,6 +69,6 @@ AI 응용 프로그램의 경우 대개 Machine Learning 모델을 빌드하는 
 
 ## <a name="references"></a>참조
 * [TDSP(Team Data Science Process)](https://aka.ms/tdsp)
-* [AML(Azure Machine Learning)](https://docs.microsoft.com/en-us/azure/machine-learning/service/)
+* [AML(Azure Machine Learning)](https://docs.microsoft.com/azure/machine-learning/service/)
 * [VSTS(Visual Studio Team Services)](https://www.visualstudio.com/vso/)
-* [AKS(Azure Kubernetes Services)](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
+* [AKS(Azure Kubernetes Services)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

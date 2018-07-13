@@ -3,7 +3,7 @@ title: 여러 NIC를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Doc
 description: Azure CLI 2.0 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 있는 Linux VM을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: 5d2d04d0-fc62-45fa-88b1-61808a2bc691
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/26/2017
-ms.author: iainfou
-ms.openlocfilehash: 2ad04b17fc4c5bafb7fa0b7eea946832430a4f17
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 257b80c30823be41893be8659845d4fcbc922da3
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936754"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932275"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 Azure에서 여러 가상 NIC(네트워크 인터페이스)가 연결된 VM(가상 머신)을 만들 수 있습니다. 일반적인 시나리오는 프런트 엔드 및 백 엔드 연결에 다른 서브넷을 사용하거나 모니터링 또는 백업 솔루션 전용 네트워크를 두는 것입니다. 이 문서에서는 여러 NIC가 연결되어 있는 VM을 만드는 방법과 기존 VM에서 NIC를 추가 또는 제거하는 방법을 자세히 설명합니다. [VM 크기](sizes.md) 가 다르면 다양한 NIC가 지원되므로 그에 따라 VM 크기를 지정하도록 합니다.

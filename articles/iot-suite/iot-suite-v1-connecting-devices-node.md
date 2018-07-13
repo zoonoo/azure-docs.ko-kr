@@ -1,12 +1,12 @@
 ---
-title: "Node.js를 사용하여 장치 연결 | Microsoft Docs"
-description: "Node.js에 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다."
-services: 
+title: Node.js를 사용하여 장치 연결 | Microsoft Docs
+description: Node.js에 작성된 응용 프로그램을 사용하여 미리 구성된 Azure IoT Suite 원격 모니터링 솔루션에 장치를 연결하는 방법을 설명합니다.
+services: ''
 suite: iot-suite
 documentationcenter: na
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: fc50a33f-9fb9-42d7-b1b8-eb5cff19335e
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 87a2e97638508eef1d90a219cfb38d1fcac81d55
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723525"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-preconfigured-solution-nodejs"></a>미리 구성된 원격 모니터링 솔루션에 장치 연결(Node.js)
 [!INCLUDE [iot-suite-v1-selector-connecting](../../includes/iot-suite-v1-selector-connecting.md)]

@@ -12,11 +12,11 @@ ms.date: 2/14/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 68aeb6e96e7588696d31b7b03e0c639506e0c89b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607177"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598376"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>CLI를 사용하여 Azure에서 가상 머신 백업
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 정기적으로 백업을 수행하여 데이터를 보호할 수 있습니다. Azure Backup은 지역 중복 복구 자격 증명 모음에 저장될 수 있는 복구 지점을 만듭니다. 이 문서에서는 Azure CLI를 사용하여 Azure에서 VM(가상 머신)을 백업하는 방법을 자세히 설명합니다. [Azure PowerShell](quick-backup-vm-powershell.md)을 사용하거나 [Azure Portal](quick-backup-vm-portal.md)에서 이 단계를 수행할 수도 있습니다.

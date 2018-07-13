@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
 ms.openlocfilehash: 99ecf8af278823fbae41cb14df5c2372d6451e0c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236198"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38719658"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -72,10 +72,10 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>정책 기반 VPN Gateway를 경로 기반으로 업데이트할 수 있나요?
-번호 Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
+아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 2. 게이트웨이를 삭제합니다.
-* [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+* [Azure 포털](vpn-gateway-delete-vnet-gateway-portal.md)
 * [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure PowerShell - 클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [원하는 형식의 새 게이트웨이 만들기 및 VPN 설정 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
@@ -88,15 +88,15 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Virtual Machines 또는 역할 인스턴스를 내 게이트웨이 서브넷에 배포할 수 있습니까?
 
-번호
+아니요.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>VPN 게이트웨이 IP 주소를 만들기 전에 내 VPN 게이트웨이 IP 주소를 가져올 수 있나요?
 
-번호 IP 주소를 가져오려면 게이트웨이를 먼저 만들어야 합니다. VPN 게이트웨이를 삭제하고 다시 만들면 IP 주소가 변경됩니다.
+아니요. IP 주소를 가져오려면 게이트웨이를 먼저 만들어야 합니다. VPN 게이트웨이를 삭제하고 다시 만들면 IP 주소가 변경됩니다.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>VPN Gateway에 고정 공용 IP 주소를 요청할 수 있나요?
 
-번호 동적 IP 주소 할당만 지원됩니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 VPN Gateway IP 주소가 변경됩니다. VPN Gateway 공용 IP 주소는 VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드에서 변경되지 않습니다. 
+아니요. 동적 IP 주소 할당만 지원됩니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 VPN Gateway IP 주소가 변경됩니다. VPN Gateway 공용 IP 주소는 VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드에서 변경되지 않습니다. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>내 VPN 터널을 어떻게 인증합니까?
 
@@ -230,7 +230,7 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>내 가상 머신이 프레미스 간 연결을 사용하는 가상 네트워크에 포함된 경우 내 VM의 모든 트래픽이 해당 연결을 통해 이동됩니까?
 
-번호 대상 IP가 지정된 가상 네트워크 로컬 네트워크 IP 주소 범위에 포함되는 트래픽만 가상 네트워크 게이트웨이를 통해 이동됩니다. 대상 IP가 가상 네트워크 내에 있는 트래픽은 가상 네트워크 내에 유지됩니다. 다른 트래픽은 부하 분산 장치를 통해 공용 네트워크에 전송되고, 강제 터널링을 사용하는 경우 Azure VPN 게이트웨이를 통해 전송됩니다.
+아니요. 대상 IP가 지정된 가상 네트워크 로컬 네트워크 IP 주소 범위에 포함되는 트래픽만 가상 네트워크 게이트웨이를 통해 이동됩니다. 대상 IP가 가상 네트워크 내에 있는 트래픽은 가상 네트워크 내에 유지됩니다. 다른 트래픽은 부하 분산 장치를 통해 공용 네트워크에 전송되고, 강제 터널링을 사용하는 경우 Azure VPN 게이트웨이를 통해 전송됩니다.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>VM에 대한 RDP 연결 문제를 해결하려면 어떻게 하나요?
 

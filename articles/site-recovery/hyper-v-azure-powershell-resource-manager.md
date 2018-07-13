@@ -6,14 +6,14 @@ author: bsiva
 manager: abhiag
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 18ed9566cd265ef851f914a59e10f6973bdc0d86
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 13456dc53f85f6f26aab222ab0cb499aabb7d1cc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596707"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916234"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 

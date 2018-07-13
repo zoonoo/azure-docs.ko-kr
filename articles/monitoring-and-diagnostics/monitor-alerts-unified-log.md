@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: aab3c843493048291583bea111a52fe3356dc0f0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264377"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971723"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Azure Monitor의 로그 경고 - 경고 
 이 아티클에서는 로그 경고의 세부 정보를 제공합니다. 즉, 새 [Azure 경고](monitoring-overview-unified-alerts.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 경고의 기준으로 Azure의 분석 플랫폼을 사용할 수 있도록 합니다. 로그를 사용하는 메트릭 경고에 대한 자세한 내용은 [거의 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 참조하세요.
@@ -120,7 +120,7 @@ ms.locfileid: "35264377"
 
 세부 정보뿐만 아니라 REST API를 사용하는 예제는 다음을 참조하세요.
 - [Log Analytics 경고 REST API](../log-analytics/log-analytics-api-alerts.md) - Azure Log Analytics에 대한 로그 검색 경고 규칙을 만들고 관리합니다.
-- [Azure Monitor 예약 쿼리 규칙 REST API](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) - Azure Application Insights에 대한 로그 검색 경고 규칙을 만들고 관리합니다.
+- [Azure Monitor 예약 쿼리 규칙 REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) - Azure Application Insights에 대한 로그 검색 경고 규칙을 만들고 관리합니다.
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 사용자는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)에서 제공한 유연성을 사용하여 로그 경고를 만들거나 업데이트하기 위해 리소스를 만들고 업데이트할 수 있습니다.

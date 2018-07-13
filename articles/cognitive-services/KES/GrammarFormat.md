@@ -9,12 +9,12 @@ ms.component: knowledge-exploration
 ms.topic: article
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 27202379b8c36696a380049336229cac040b0108
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b64025be2f5a9708162da475c1f037d7f253d2c6
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373406"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865756"
 ---
 # <a name="grammar-format"></a>문법 형식
 문법은 서비스에서 해석할 수 있는 가중치가 적용된 자연어 쿼리 집합 및 이러한 자연어 쿼리가 의미 체계 쿼리 식으로 변환하는 방법을 지정하는 XML 파일입니다.  문법 구문은 데이터 인덱스 통합 및 의미 체계 함수를 지원하는 확장과 함께 [SRGS](http://www.w3.org/TR/speech-grammar/) 기반의 음성 인식 문법에 대한 W3C 표준입니다.

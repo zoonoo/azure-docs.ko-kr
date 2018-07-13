@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.openlocfilehash: fe9292459134972b44037a58235cdd817030a956
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660312"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968935"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Azure Import/Export 서비스를 사용하여 Azure Blob Storage로 데이터 가져오기
 
@@ -24,7 +24,7 @@ ms.locfileid: "34660312"
 가져오기 작업을 만들어 Azure Blob Storage로 데이터를 전송하기 전에 이 서비스에 대한 다음 필수 조건 목록을 신중하게 검토하고 완료해야 합니다. 다음이 필요합니다.
 
 - Import/Export 서비스에 사용할 수 있는 활성 Azure 구독이 있어야 합니다.
-- 저장소 컨테이너가 있는 Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 유형](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요. 저장소 컨테이너에 대한 자세한 내용은 [저장소 컨테이너 만들기](../blobs/storage-quickstart-blobs-portal.md#create-a-container)로 이동하세요.
+- 저장소 컨테이너가 있는 Azure Storage 계정이 하나 이상 있어야 합니다. [Import/Export 서비스에 지원되는 저장소 계정 및 저장소 형식](storage-import-export-requirements.md) 목록을 참조하세요. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요. 저장소 컨테이너에 대한 자세한 내용은 [저장소 컨테이너 만들기](../blobs/storage-quickstart-blobs-portal.md#create-a-container)로 이동하세요.
 - [지원되는 유형](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다. 
 - Windows 시스템에서 BitLocker를 사용하도록 설정합니다. [BitLocker를 사용하도록 설정하는 방법](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)을 참조하세요.
@@ -33,7 +33,7 @@ ms.locfileid: "34660312"
 
 ## <a name="step-1-prepare-the-drives"></a>1단계: 드라이브 준비
 
-이 단계에서는 저널 파일을 생성합니다. 저널 파일에는 드라이브 일련 번호, 암호화 키 및 저장소 계정 세부 정보와 같은 기본 정보가 저장됩니다. 
+이 단계에서는 업무 일지 파일을 생성합니다. 업무 일지 파일에는 드라이브 일련 번호, 암호화 키 및 저장소 계정 세부 정보와 같은 기본 정보가 저장됩니다. 
 
 다음 단계를 수행하여 드라이브를 준비합니다.
 

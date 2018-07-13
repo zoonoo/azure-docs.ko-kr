@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: bca33fe187668d38d4451b2de5b9e54d86e40ba9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 437c38a8e674fcdf06e26a7191ceecef9d901470
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660257"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968323"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>방법: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너 디버깅
 
@@ -26,9 +26,9 @@ Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 응용 프
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Windows 10에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 10을 구성](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-10)합니다.
-* Windows Server 2016에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 2016을 구성](https://docs.microsoft.com/en-us/virtualization/windowscontainers/quick-start/quick-start-windows-server)합니다.
-* [Windows에서 개발 환경 준비](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started)에 따라 로컬 Service Fabric 환경을 설정합니다.
+* Windows 10에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 10을 구성](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)합니다.
+* Windows Server 2016에서 이 빠른 시작에 따라 [Windows 컨테이너를 실행하도록 Windows 2016을 구성](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)합니다.
+* [Windows에서 개발 환경 준비](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started)에 따라 로컬 Service Fabric 환경을 설정합니다.
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>컨테이너를 디버그하도록 개발자 환경 구성
 
@@ -47,7 +47,7 @@ Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 응용 프
     > `-CreateOneNodeCluster`를 사용하여 단일 노드 클러스터를 설정할 수 있습니다. 기본적으로 5개 로컬 노드 클러스터를 만듭니다.
     >
 
-    Service Fabric의 DNS 서비스에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice)를 참조하세요.
+    Service Fabric의 DNS 서비스에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice)를 참조하세요.
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Service Fabric에서 컨테이너를 디버그할 때 알려진 제한 사항
 

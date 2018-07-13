@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 7a0a5d4f1fbba5d7bd2813e8b9c300a37853e06c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f16fdfca704b8f8cb175de637ad7f3ef143d3ed7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111479"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968958"
 ---
 # <a name="visualize-remote-monitoring-data-with-time-series-insights"></a>Time Series Insights로 원격 모니터링 데이터 시각화
 
@@ -85,7 +85,8 @@ IoT Hub에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에서 �
     | 설정 | 값 |
     | ------- | ----- |
     | 이벤트 원본 이름 | 다음 스크린샷에서는 **contosorm-iot-hub**라는 이름을 사용합니다. 이 단계를 완료할 때는 자신만의 고유한 이름을 사용합니다. |
-    | 원본 | **IoT 허브** |
+    | 원본 | 
+  **IoT Hub** |
     | 가져오기 옵션 | **사용 가능한 구독에서 IoT Hub 사용** |
     | 구독 ID | 드롭다운에서 Azure 구독을 선택합니다. |
     | IoT Hub 이름 | **contosorma57a6**입니다. 원격 모니터링 솔루션에서 IoT Hub의 이름을 사용합니다. |
@@ -99,7 +100,7 @@ IoT Hub에 연결할 새 이벤트 원본을 만듭니다. 이전 단계에서 �
 1. **만들기**를 클릭합니다.
 
 > [!NOTE]
-> Time Series Insights 탐색기에 대한 액세스 권한을 추가 사용자에게 부여해야 하는 경우 다음 단계를 사용하여 [데이터 액세스 권한을 부여](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access#grant-data-access)할 수 있습니다.
+> Time Series Insights 탐색기에 대한 액세스 권한을 추가 사용자에게 부여해야 하는 경우 다음 단계를 사용하여 [데이터 액세스 권한을 부여](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access#grant-data-access)할 수 있습니다.
 
 ## <a name="time-series-insights-explorer"></a>Time Series Insights 탐색기
 

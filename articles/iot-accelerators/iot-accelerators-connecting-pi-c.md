@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: dobett
 ms.openlocfilehash: 23e84a8d577bb1c4950de3acd76b0f8528551ae0
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735497"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611444"
 ---
 # <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-c"></a>원격 모니터링 솔루션 가속기에 Raspberry Pi 장치 연결(C)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-이 자습서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다. 제한된 장치에서 실행되는 포함된 응용 프로그램과 마찬가지로 Raspberry Pi 장치 응용 프로그램에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 응용 프로그램을 빌드합니다.
+이 자습서에서는 원격 모니터링 솔루션 가속기에 물리적 장치를 연결하는 방법을 보여줍니다. 제한된 장치에서 실행되는 포함된 응용 프로그램과 마찬가지로 Raspberry Pi 장치 응용 프로그램에 대한 클라이언트 코드는 C에서 작성되었습니다. 이 자습서에서는 Raspbian OS를 실행 중인 Raspberry Pi에서 응용 프로그램을 빌드합니다.
 
 ### <a name="required-hardware"></a>필수 하드웨어
 

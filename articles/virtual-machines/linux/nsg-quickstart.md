@@ -3,7 +3,7 @@ title: Azure CLI 2.0을 사용하여 Linux VM에 포트 열기 | Microsoft Docs
 description: Azure Resource Manager 배포 모델 및 Azure CLI 2.0을 사용하여 Linux VM에 대한 포트를 열고 끝점을 만드는 방법 알아보기
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: eef9842b-495a-46cf-99a6-74e49807e74e
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: iainfou
-ms.openlocfilehash: 77e4744d43aa4e71e6cdbbe2364149465a5aeae1
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.author: cynthn
+ms.openlocfilehash: 7125523b051441a2547560ff3af650ccd91f07a0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936618"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928892"
 ---
 # <a name="open-ports-and-endpoints-to-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에 대한 끝점 및 포트 열기
 서브넷 또는 VM 네트워크 인터페이스에서 네트워크 필터를 만들어, Azure에서 VM(가상 컴퓨터)에 대한 포트를 열거나 끝점을 만듭니다. 인바운드 및 아웃바운드 트래픽을 모두 제어하는 이러한 필터를 트래픽을 수신하는 리소스에 연결된 네트워크 보안 그룹에 배치합니다. 포트 80에서 웹 트래픽의 일반적인 예제를 사용해 보겠습니다. 이 문서에서는 Azure CLI 2.0을 사용하여 VM에 포트를 여는 방법을 보여 줍니다. 

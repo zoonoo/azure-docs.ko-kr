@@ -16,12 +16,12 @@ ms.component: protection
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4322ab5c90b04cf4eb0591e97e5e026664a2769
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 681169fc3db69c2dfb8aa36d6e2896e0ddba8b56
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442375"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38548131"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Azure Active Directory Privileged Identity Management 구독 요구 사항
 
@@ -38,7 +38,7 @@ Azure AD(Azure Active Directory) Privileged Identity Management가 미리 보기
 2. `Connect-MsolService`를 입력하여 테넌트의 사용자로 인증을 받습니다.
 3. `Get-MsolSubscription | ft SkuPartNumber,IsTrial,Status`을 입력합니다.
 
-이 명령은 테넌트의 구독 목록을 검색합니다. 반환되는 줄이 없으면 Azure AD Premium P2 평가판을 구하거나 Azure AD Premium P2 구독 또는 EMS E5 구독이 구매해야 Azure AD Privileged Identity Management를 사용할 수 있습니다.  평가판을 구하고 Azure AD Privileged Identity Management 사용을 시작하려면 [Azure AD Privileged Identity Management 시작](../active-directory-privileged-identity-management-getting-started.md)을 읽어보세요.
+이 명령은 테넌트의 구독 목록을 검색합니다. 반환되는 줄이 없으면 Azure AD Premium P2 평가판을 구하거나 Azure AD Premium P2 구독 또는 EMS E5 구독이 구매해야 Azure AD Privileged Identity Management를 사용할 수 있습니다.  평가판을 구하고 Azure AD Privileged Identity Management 사용을 시작하려면 [Azure AD Privileged Identity Management 시작](pim-getting-started.md)을 읽어보세요.
 
 이 명령이 SkuPartNumber가 "AAD_PREMIUM_P2"이거나 "EMSPREMIUM"이고 IsTrial이 "True"인 줄을 반환하는 경우 Azure AD Premium P2 평가판이 테넌트에 있는 것입니다.  구독 상태를 사용하도록 설정하지 않고 Azure AD Premium P2 또는 EMS E5 구독을 구매하지 않은 경우 Azure AD Privileged Identity Management를 계속 사용하려면 Azure AD Premium P2 구독 또는 EMS E5 구독을 구입해야 합니다.
 
@@ -61,5 +61,5 @@ Azure AD Premium P2 구독 또는 EMS E5 구독이 만료되거나 미리 보기
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD Privileged Identity Management 시작](../active-directory-privileged-identity-management-getting-started.md)
-- [Azure AD Privileged Identity Management의 역할](../active-directory-privileged-identity-management-roles.md)
+- [Azure AD Privileged Identity Management 시작](pim-getting-started.md)
+- [Azure AD Privileged Identity Management의 역할](pim-roles.md)

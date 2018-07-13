@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: d42fa432f57def5e4f80480e41c2299098e20d7d
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 07/11/2018
+ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020695"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971940"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -63,6 +63,8 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | 동아시아 | X | X |
 | 동남아시아 | X | X |
 | 오스트레일리아 동부 |  | X |
+| 오스트레일리아 중부 |  | X |
+| 오스트레일리아 중부 2 |  | X |
 | 오스트레일리아 남동부 |  | X |
 | 인도 중부 | X | X |
 | 인도 서부 | X | X |

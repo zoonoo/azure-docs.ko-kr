@@ -3,7 +3,7 @@ title: 클라우드에서 온-프레미스 ID 인프라 모니터링
 description: 사용되는 항목 및 이유를 설명하는 Azure AD Connect 상태 페이지입니다.
 services: active-directory
 documentationcenter: ''
-author: karavar
+author: zhiweiw
 manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: aef9a923932b3794e32275bacd2f880d0b8b7b73
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 006914b279f2d762bf0dee6f83d6866235c062bc
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939602"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887507"
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>온-프레미스 ID 인프라 및 클라우드 동기화 서비스를 모니터링합니다.
 Azure AD(Azure Active Directory) Connect Health를 사용하면 온-프레미스 ID 인프라 및 동기화 서비스를 모니터링하고 파악할 수 있습니다. AD FS(Active Directory Federation Services) 서버, Azure AD Connect 서버(즉, 동기화 엔진), Active Directory 도메인 컨트롤러 등과 같은 핵심 ID 구성 요소를 위한 모니터링 기능을 제공하여 Office 365 및 Microsoft Online Services에 대해 신뢰할 수 있는 연결을 유지 관리할 수 있습니다. 또한 사용자가 사용 현황 및 기타 중요한 정보를 보고 올바른 의사 결정을 내릴 수 있도록 이러한 구성 요소의 핵심 데이터 요소에 쉽게 액세스할 수 있게 만들어 줍니다.

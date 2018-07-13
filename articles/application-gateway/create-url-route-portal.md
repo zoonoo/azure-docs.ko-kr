@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: ecb8a46c57d31c8a19f3a7b75306e42a7d3981bd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: feb9b0c3d90aea9d5e0351b6691e93186dbfb9f6
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335740"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902081"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -159,7 +159,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![응용 프로그램 게이트웨이의 기준 URL 테스트](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. http://&lt;ip-address&gt;:8080/video/test.htm에서 &lt;ip-address&gt;를 사용자의 IP 주소로 대체하여 URL을 변경하면 다음 예제와 같은 내용이 표시됩니다.
+3. &lt;ip-address&gt;를 사용자 IP 주소로 대체하여 http://&lt;ip-address&gt;:8080/images/test.htm에 대한 URL을 변경하면 다음 예제와 같은 내용이 표시됩니다.
 
     ![응용 프로그램 게이트웨이의 이미지 URL 테스트](./media/create-url-route-portal/application-gateway-iistest-images.png)
 

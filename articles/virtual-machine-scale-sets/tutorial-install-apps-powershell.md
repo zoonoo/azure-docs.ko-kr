@@ -3,7 +3,7 @@ title: 자습서 - Azure PowerShell을 사용하여 확장 집합에 응용 프�
 description: Azure PowerShell을 사용하여 사용자 지정 스크립트 확장이 있는 가상 머신 확장 집합에 응용 프로그램을 설치하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ce35db90e49e0d2861dd71e80ac61f05db607338
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 4f162dcf58316e6d9f39b71be37abf5626e93c75
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365069"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295827"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합에 응용 프로그램 설치
 확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이전 자습서에서는 사용자 지정 VM 이미지를 만들고 사용하여 VM 인스턴스를 배포하는 방법을 알아보았습니다. 이 사용자 지정 이미지에는 수동 응용 프로그램 설치 및 구성이 포함되어 있습니다. 또한 각 VM 인스턴스가 배포된 후에 확장 집합에 응용 프로그램 설치를 자동화하거나 이미 확장 집합에서 실행되는 응용 프로그램을 업데이트할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -88,7 +88,7 @@ $vmss = Add-AzureRmVmssExtension `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.8 `
+  -TypeHandlerVersion 1.9 `
   -Setting $customConfig
 
 # Update the scale set and apply the Custom Script Extension to the VM instances
@@ -136,7 +136,7 @@ $vmss = Add-AzureRmVmssExtension `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
-  -TypeHandlerVersion 1.8 `
+  -TypeHandlerVersion 1.9 `
   -Setting $customConfigv2
 
 # Update the scale set and reapply the Custom Script Extension to the VM instances

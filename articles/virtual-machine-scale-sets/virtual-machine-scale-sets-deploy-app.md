@@ -3,7 +3,7 @@ title: Azure 가상 머신 확장 집합에 응용 프로그램 배포 | Microso
 description: Linux 및 Windows 가상 머신 인스턴스의 확장 집합에 응용 프로그램을 배포하는 방법을 알아봅니다.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: iainfou
-ms.openlocfilehash: ed43dc21c8b7c585abc0a2734a541f760ab3c487
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.author: cynthn
+ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111566"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718984"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 응용 프로그램 배포
 확장 집합의 VM(가상 머신) 인스턴스에서 응용 프로그램을 실행하려면 먼저 응용 프로그램 구성 요소 및 필요한 파일을 설치해야 합니다. 이 문서에서는 확장 집합의 인스턴스에 대한 사용자 지정 VM 이미지를 빌드하거나 기존 VM 인스턴스에 설치 스크립트를 자동으로 실행하는 방법을 소개합니다. 또한 확장 집합 전체에서 응용 프로그램 또는 OS 업데이트를 관리하는 방법도 알아봅니다.
