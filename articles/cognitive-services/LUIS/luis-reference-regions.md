@@ -10,16 +10,16 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: v-geberr
-ms.openlocfilehash: 86a20770178707f72cf2991ca08b6b98eaeaf0cf
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d81fbc03689788066fb9275523a5e96647117c58
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36236676"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346456"
 ---
 # <a name="regions-and-keys"></a>지역 및 키
 
-LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 끝점 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. [앱을 게시](./PublishApp.md)하면 LUIS가 키와 연결된 지역의 끝점 URL을 자동으로 생성합니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다. 
+LUIS 앱을 게시하는 지역은 Azure Portal에서 Azure LUIS 끝점 키를 만들 때 Azure Portal에서 지정한 지역 또는 위치에 해당합니다. [앱을 게시](./luis-how-to-publish-app.md)하면 LUIS가 키와 연결된 지역의 끝점 URL을 자동으로 생성합니다. LUIS 앱을 둘 이상의 지역에 게시하려면 지역당 하나 이상의 키가 필요합니다. 
 
 ## <a name="luis-website"></a>LUIS 웹 사이트
 지역에 따라 세 가지 LUIS 웹 사이트가 있습니다. 동일한 지역에서 작성하고 게시해야 합니다. 

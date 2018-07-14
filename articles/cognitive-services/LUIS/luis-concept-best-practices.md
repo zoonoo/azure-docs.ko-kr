@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: v-geberr;
-ms.openlocfilehash: f68e05ba40827375fbd76448e38916c682075228
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 6c4e4c7acb5083e758aa7c6b94e2464a85ae8e9e
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264012"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951116"
 ---
 # <a name="best-practices"></a>모범 사례
 앱 작성 프로세스를 사용하여 LUIS 앱을 빌드합니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "36264012"
 * 끝점에서 테스트 
 * 기능 추가
 
-앱이 [게시](publishapp.md)된 후 기능 추가, 게시 및 끝점에서 테스트의 작성 주기를 사용합니다. 다른 예제 발화를 추가하는 방식으로 다음 작성 주기를 시작하지 마세요. 이렇게 하면 LUIS는 실제 사용자 발화를 사용하여 모델을 학습할 수 없습니다. 
+앱이 [게시](luis-how-to-publish-app.md)된 후 기능 추가, 게시 및 끝점에서 테스트의 작성 주기를 사용합니다. 다른 예제 발화를 추가하는 방식으로 다음 작성 주기를 시작하지 마세요. 이렇게 하면 LUIS는 실제 사용자 발화를 사용하여 모델을 학습할 수 없습니다. 
 
 LUIS가 학습을 효율적으로 진행하려면 예제 및 끝점 발화의 현재 집합이 신뢰할 수 있는 높은 예측 점수를 반환할 때까지 발화를 확장하지 마세요. 활성 학습, [패턴](luis-concept-patterns.md) 및 [구문 목록](luis-concept-feature.md)을 사용하여 점수를 개선합니다. 
 
@@ -77,7 +77,7 @@ LUIS의 예측 데이터를 사용하여 의도가 겹치는지 확인합니다.
 이는 응용 프로그램 외부의 모든 것을 나타내는 대체 의도입니다. LUIS 앱의 나머지 부분에 있는 예제 발화 10개마다 하나의 예제 발화를 None 의도에 추가합니다.
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>활성 학습의 제안 기능 활용
-의도에 더 많은 예제 의도를 추가하는 대신 정기적으로 [활성 학습](label-suggested-utterances.md)의 **끝점 발화 검토**를 사용합니다. 앱이 지속적으로 끝점 발화를 수신하기 때문에 이 목록은 계속 증가하고 변경됩니다.
+의도에 더 많은 예제 의도를 추가하는 대신 정기적으로 [활성 학습](luis-how-to-review-endoint-utt.md)의 **끝점 발화 검토**를 사용합니다. 앱이 지속적으로 끝점 발화를 수신하기 때문에 이 목록은 계속 증가하고 변경됩니다.
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>앱 성능 모니터링
 테스트 집합을 사용하여 예측 정확도를 모니터링합니다. 
@@ -113,6 +113,4 @@ LUIS는 의도의 발화에서 변형을 예측합니다. 전체 의미는 동�
 
 ## <a name="next-steps"></a>다음 단계
 
-* LUIS 앱에서 [앱을 계획](plan-your-app.md)하는 방법을 알아봅니다.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+* LUIS 앱에서 [앱을 계획](luis-how-plan-your-app.md)하는 방법을 알아봅니다.

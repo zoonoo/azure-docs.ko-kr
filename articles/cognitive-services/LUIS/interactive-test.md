@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-geberr
-ms.openlocfilehash: fb4c3bb117d1ea60c9cc28d2b193ee3c01f6c945
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 927d95f6b6fac922d2c3701b8a5124efb18825f6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221634"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951240"
 ---
 # <a name="test-your-luis-app"></a>LUIS 앱 테스트
 <a name="train-your-app"></a>
@@ -65,7 +65,7 @@ ms.locfileid: "36221634"
 
 ## <a name="view-sentiment-results"></a>감정 결과 보기
 
-**감정 분석**이 **[게시](publishapp.md#enable-sentiment-analysis)** 페이지에 구성되어 있으면 테스트 결과에는 발화에서 발견된 감정이 포함됩니다. 
+**감정 분석**이 **[게시](luis-how-to-publish-app.md#enable-sentiment-analysis)** 페이지에 구성되어 있으면 테스트 결과에는 발화에서 발견된 감정이 포함됩니다. 
 
 ![감정 분석이 포함된 테스트 창 이미지](./media/luis-how-to-interactive-test/sentiment.png)
 
@@ -129,5 +129,5 @@ ms.locfileid: "36221634"
 
 테스트에서 LUIS 앱이 올바른 의도와 엔터티를 인식하지 못하는 것으로 나타나면 추가 발화에 레이블을 지정하거나 기능을 추가하여 LUIS 앱의 정확도를 개선할 수 있습니다. 
 
-* [LUIS로 제안된 발화에 레이블 지정](Label-Suggested-Utterances.md) 
+* [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endoint-utt.md) 
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md) 

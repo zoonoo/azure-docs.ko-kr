@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 5c2feb0240b676d4e106cbda65aaaed7604a35c5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: cbf1ad2da3bbc86f8c6861458ae9e5d5c49c56ce
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265155"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888581"
 ---
 # <a name="intents-in-luis"></a>LUIS의 의도
 
@@ -100,5 +100,3 @@ None 의도에 사용할 수 있는 발화 유형은 무엇인가요? “파란�
 * 의도에 관련된 중요 단어인 [엔터티](luis-concept-entity-types.md)에 대해 자세히 알아보기
 * LUIS 앱에서 [의도를 추가 및 관리](luis-how-to-add-intents.md)하는 방법에 대해 알아봅니다.
 * 의도 [모범 사례](luis-concept-best-practices.md) 검토
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

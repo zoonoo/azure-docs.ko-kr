@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: v-geberr
-ms.openlocfilehash: b7f8dd46dc8289322726934f330761b0f1ab94bd
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265940"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888251"
 ---
 # <a name="authoring-cycle"></a>제작 주기
 LUIS는 모델 변경, 발화 예제, 게시 및 끝점 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 
@@ -40,7 +40,7 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 각 의도에 10~15개의 여러 발화가 포함되고 필요한 엔터티에 레이블이 지정되면 LUIS를 학습시킨 다음, 게시하여 끝점을 가져옵니다. 필요한 [끝점 지역](luis-reference-regions.md)에서 사용할 수 있도록 앱을 만들고 앱을 게시해야 합니다. 
 
 ## <a name="https-endpoint-testing"></a>HTTPS 끝점 테스트
-**[게시](publishapp.md)** 페이지에 나열된 HTTPS 끝점에서 LUIS 앱을 테스트할 수 있습니다. 끝점에서 테스트하면 LUIS가 검토를 위해 신뢰도가 낮은 발화를 선택할 수 있습니다.  
+**[게시](luis-how-to-publish-app.md)** 페이지에 나열된 HTTPS 끝점에서 LUIS 앱을 테스트할 수 있습니다. 끝점에서 테스트하면 LUIS가 검토를 위해 신뢰도가 낮은 발화를 선택할 수 있습니다.  
 
 ## <a name="recycle"></a>재순환
 작성 주기를 완료하면 다시 시작할 수 있습니다. 먼저 신뢰도가 낮게 표시된 끝점 발화 LUIS를 검토합니다. 의도 및 엔터티에 모두 이러한 발화를 확인합니다. 발화를 검토한 후 검토 목록이 비어 있어야 합니다.  
@@ -51,5 +51,3 @@ Do not add features such as a [phrase list](luis-concept-feature.md) feature in 
 ## <a name="next-steps"></a>다음 단계
 
 [공동 작업](luis-concept-collaborator.md) 개념을 알아봅니다.
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
