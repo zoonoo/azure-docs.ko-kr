@@ -28,6 +28,8 @@
       href: visual-search-sdk-python.md
 - name: 자습서
   items:
+    - name: 시각적 검색 이미지 업로드
+      href: tutorial-visual-search-image-upload.md
     - name: 단일 페이지 웹앱
       href: tutorial-bing-visual-search-single-page-app.md
     - name: 단일 페이지 웹앱(소스 코드)

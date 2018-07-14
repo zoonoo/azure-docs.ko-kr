@@ -215,6 +215,10 @@
               href: service-fabric-image-store-connection-string.md
         - name: 서비스 리소스
           href: service-fabric-service-manifest-resources.md
+        - name: 정기 백업 및 복원
+          items:
+            - name: 정기 백업 구성 이해
+              href: service-fabric-backuprestoreservice-configure-periodic-backup.md
     - name: 클러스터
       href: service-fabric-deploy-anywhere.md
       items:

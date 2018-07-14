@@ -22,7 +22,7 @@
       items:
         - name: 1. Contoso-마이그레이션 개요
           href: contoso-migration-overview.md
-        - name: 2. Contoso-Azure 인프라 설정
+        - name: 2. Contoso-Azure 인프라 배포
           href: contoso-migration-infrastructure.md
         - name: 3. Contoso-Azure로 마이그레이션할 온-프레미스 리소스 평가
           href: contoso-migration-assessment.md
@@ -30,7 +30,7 @@
           href: contoso-migration-rehost-vm-sql-managed-instance.md
         - name: 5. Contoso-Azure VM에서 앱 다시 호스트
           href: contoso-migration-rehost-vm.md
-        - name: 6. Contoso-Azure VM 및 Azure SQL AlwaysOn에서 앱 다시 호스트
+        - name: 6. Contoso-Azure VM 및 Azure SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트
           href: contoso-migration-rehost-vm-sql-ag.md
         - name: 7. Contoso-Azure VM에서 Linux 앱 다시 호스트
           href: contoso-migration-rehost-linux-vm.md
@@ -42,7 +42,7 @@
           href: contoso-migration-refactor-linux-app-service-mysql.md
         - name: 11. Contoso-TFS를 VSTS로 마이그레이션
           href: contoso-migration-tfs-vsts.md
-        - name: 12. Contoso-Azure Service Fabric 및 Azure SQL Database에서 앱 아키텍처 변경
+        - name: 12. Contoso-Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경
           href: contoso-migration-rearchitect-container-sql.md
         - name: 13. Contoso-Azure에서 앱 다시 빌드
           href: contoso-migration-rebuild.md

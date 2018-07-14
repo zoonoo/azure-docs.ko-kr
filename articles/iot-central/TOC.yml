@@ -49,8 +49,8 @@
           href: howto-version-devicetemplate.md
         - name: 원격 분석 규칙 만들기
           href: howto-create-telemetry-rules.md
-        - name: 이벤트 규칙 만들기
-          href: howto-create-event-rules.md
+        - name: 홈페이지 구성
+          href: howto-configure-homepage.md
         - name: 이미지 준비 및 업로드
           href: howto-prepare-images.md
     - name: 연산자

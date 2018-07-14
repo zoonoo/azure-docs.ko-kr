@@ -279,6 +279,9 @@
           items: null
         - name: Data Lake Storage Gen2 로드
           href: load-azure-data-lake-storage-gen2.md
+          items:
+            - name: Data Lake Storage Gen1에서 복사
+              href: load-azure-data-lake-storage-gen2-from-gen1.md
         - name: SQL Data Warehouse 로드
           href: load-azure-sql-data-warehouse.md
         - name: Data Lake Storage Gen1 로드

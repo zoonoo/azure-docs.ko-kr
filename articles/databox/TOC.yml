@@ -1,0 +1,50 @@
+- name: Azure Data Box 설명서
+  href: /azure/databox/
+- name: 개요
+  items:
+    - name: Data Box 디스크란?
+      href: data-box-disk-overview.md
+- name: 빠른 시작
+  items:
+    - name: 설정 - Azure Portal
+      href: data-box-disk-quickstart-portal.md
+- name: 자습서
+  items:
+    - name: 1 - 주문
+      href: data-box-disk-deploy-ordered.md
+    - name: 2 - 설정
+      href: data-box-disk-deploy-set-up.md
+    - name: 3 - 데이터 복사
+      href: data-box-disk-deploy-copy-data.md
+    - name: '4 - 반환, 업로드, 확인'
+      href: data-box-disk-deploy-picked-up.md
+- name: 개념
+  items:
+    - name: 요구 사항 검토
+      href: data-box-disk-system-requirements.md
+    - name: 제한 이해
+      href: data-box-disk-limits.md
+    - name: 보안 검토
+      href: data-box-disk-security.md
+    - name: FAQ
+      href: data-box-disk-faq.md
+- name: 방법
+  items:
+    - name: Azure 포털을 통해 관리
+      href: data-box-portal-ui-admin.md
+    - name: 디스크 문제 해결
+      href: data-box-disk-troubleshoot.md
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=storage'
+    - name: Azure Data Box 마케팅
+      href: 'https://azure.microsoft.com/services/storage/databox/'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: 요금 계산기
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=databox'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=databox'

@@ -28,7 +28,7 @@
 - name: 샘플
   items:
     - name: Azure 코드 샘플
-      href: 'https://azure.microsoft.com/resources/samples/?service=media-services'
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=media-services&term=v3'
     - name: Azure CLI
       href: cli-samples.md
 - name: 개념
@@ -95,12 +95,14 @@
       href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
     - name: 이벤트 스키마
       href: media-services-event-schemas.md
-    - name: DRM 라이선스 스키마
+    - name: DRM 라이선스
       items:
         - name: PlayReady 라이선스 템플릿
           href: playready-license-template-overview.md
         - name: Widevine 라이선스 템플릿
           href: widevine-license-template-overview.md
+        - name: FairPlay 라이선스 요구 사항
+          href: fairplay-license-overview.md
 - name: 리소스
   items:
     - name: Azure 로드맵
