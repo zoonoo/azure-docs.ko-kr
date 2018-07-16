@@ -4,14 +4,14 @@ description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/03/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: fa66e47715940584259e5cf555f3f6cd6f07e267
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437215"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920174"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -20,10 +20,10 @@ ms.locfileid: "37437215"
 온-프레미스 VMware VM 또는 Hyper-V VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여주는 자습서 시리즈 중 네 번째 자습서입니다.
 
 이 자습서에서는 여러분이 처음 세 자습서를 완료한 것으로 간주합니다. 
-    - [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 또는 Hyper-V 재해 복구에 필요한 [Azure 구성 요소를 준비](tutorial-prepare-azure.md)했습니다.
-    - 두 번째 자습서에서는 [VMware](vmware-azure-tutorial-prepare-on-premises.md) 또는 [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) 재해 복구에 필요한 온-프레미스 구성 요소를 준비했습니다.
-    - 세 번째 자습서에서는 온-프레미스 [VMware VM](vmware-azure-tutorial.md), [System Center VMM이 있는 Hyper-V VM](hyper-v-vmm-azure-tutorial.md) 또는 [System Center VMM이 없는 Hyper-V VM](hyper-v-azure-tutorial.md)에 복제를 사용하도록 설정하고 적용했습니다.
-- 자습서는 특정 시나리오의 가장 간단한 배포 경로를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 모든 자습서는 가장 간단한 설정을 사용하고 가능한 경우 기본값을 이용하여 Site Recovery를 설정합니다. 테스트 장애 조치(failover) 단계에 대해 자세히 알아보려면 [방법 가이드](site-recovery-test-failover-to-azure.md)를 읽어 보세요.
+    - [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 재해 복구에 필요한 Azure 구성 요소를 설정했습니다.
+    - [두 번째 자습서](vmware-azure-tutorial-prepare-on-premises.md)에서는 재해 복구용 온-프레미스 구성 요소를 준비하고 필수 구성 요소를 살펴보았습니다.
+    - [세 번째 자습서](vmware-azure-tutorial.md)에서는 온-프레미스 VMware VM에 복제를 설정하고 활성화했습니다.
+    - 자습서는 **시나리오의 가장 간단한 배포 경로**를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 테스트 장애 조치(failover) 단계에 대해 자세히 알아보려면 [방법 가이드](site-recovery-test-failover-to-azure.md)를 읽어 보세요.
 
 이 자습서에서는 다음 방법을 알아봅니다.
 

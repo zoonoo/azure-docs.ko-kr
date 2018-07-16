@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 908d018c6fd3c8fc996e74ef9085416b1b8244ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 9391668438dedad755fcf62e044825eaf944bcd9
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112561"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950950"
 ---
 # <a name="what-is-azure-search"></a>Azure Search란?
 Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프로그램의 비공개, 이기종 콘텐츠에 대한 풍부한 검색 환경을 추가하기 위한 API 및 도구를 제공하는 SaaS(Search-as-a-Service) 클라우드 솔루션입니다.
@@ -24,14 +24,16 @@ Azure Search는 개발자에게 웹, 모바일 및 엔터프라이즈 응용 프
 
 ## <a name="feature-summary"></a>기능 요약
 
-| 범주 | 기능 |
+| Category | 기능 |
 |----------|----------|
 |전체 텍스트 검색 및 텍스트 분석 | [전체 텍스트 검색](search-lucene-query-architecture.md)은 대부분의 검색 기반 앱에서 기본적으로 사용되는 검색 방식입니다. 쿼리는 지원되는 구문을 사용하여 작성할 수 있습니다. <br/><br/>[**간단한 쿼리 구문**](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)은 논리 연산자, 구 검색 연산자, 후위 연산자, 선행 연산자를 제공합니다.<br/><br/>[**Lucene 쿼리 구문**](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)에는 간단한 구문의 모든 연산이 포함되며 유사 항목 검색, 근접 검색, 용어 상승 및 정규식에 대한 확장이 포함됩니다.|
 |인지 검색(미리 보기) | 이미지 및 텍스트 분석을 위한 [AI 지원 알고리즘](cognitive-search-concept-intro.md)은 인덱싱 파이프라인에 적용되어 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. |
-| 데이터 통합 | Azure Search 인덱스는 JSON 데이터 구조로 제출되기만 하면 모든 원본의 데이터를 수용합니다. <br/><br/> 필요에 따라 Azure에서 지원되는 데이터 원본에 대해 [**인덱서**](search-indexer-overview.md)를 사용해 자동으로 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)를 크롤링하여 검색 인덱스의 콘텐츠를 주 데이터 저장소와 동기화할 수 있습니다. Azure Blob 인덱서는 Microsoft Office, PDF 및 HTML 문서를 비롯한 [주요 파일 형식 인덱싱](search-howto-indexing-azure-blob-storage.md)을 위해 *문서 크래킹*을 수행할 수 있습니다. |
+| 데이터 통합 | Azure Search 인덱스는 JSON 데이터 구조로 제출되기만 하면 모든 원본의 데이터를 수용합니다. <br/><br/> 필요에 따라 Azure에서 지원되는 데이터 원본에 대해 [**인덱서**](search-indexer-overview.md)를 사용해 기본 데이터 저장소에서 검색 가능한 콘텐츠에 대해 자동으로 [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md), [Azure Cosmos DB](search-howto-index-cosmosdb.md) 또는 [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)를 크롤링합니다. Azure Blob 인덱서는 Microsoft Office, PDF 및 HTML 문서를 비롯한 [주요 파일 형식에서 텍스트를 추출](search-howto-indexing-azure-blob-storage.md)하기 위해 *문서 크래킹*을 수행할 수 있습니다. |
 | 언어 분석 | 분석기는 인덱싱 및 검색 작업 중 텍스트 처리에 사용되는 구성 요소입니다. 두 가지 형식이 있습니다. <br/><br/>[**사용자 지정 어휘 분석기**](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)는 표기 일치 및 정규식을 사용하는 복잡한 검색 쿼리에 사용됩니다. <br/><br/>Lucene 또는 Microsoft의 [**언어 분석기**](https://docs.microsoft.com/rest/api/searchservice/language-support)는 동사 시제, 성, 불규칙 복수 명사(예: ‘mouse’와 ‘mice’), 단어 분해, 단어 분철(띄어쓰기가 없는 언어의 경우) 등을 비롯한 언어별 언어 체계를 지능적으로 처리할 수 있습니다. |
 | 지리적 검색 | Azure Search는 지리적 위치를 처리하고, 필터링하고, 표시합니다. 이 기능을 통해 사용자는 실제 위치에 대한 검색 결과의 근접도에 따라 데이터를 검색할 수 있습니다. [이 동영상을 시청](https://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-and-Geospatial-Data)하거나 [이 예제를 검토](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)하여 자세히 알아보세요. |
-| 사용자 환경 기능 | [**검색 제안**](search-autocomplete-tutorial.md)은 검색 창의 자동 완성 쿼리에 사용할 수 있습니다. <br/><br/>[**검색 제안** ](https://docs.microsoft.com/rest/api/searchservice/suggesters) 도 검색 표시줄 결과에서 일부 텍스트 입력에서 작동에 실제 문서 쿼리를 사용 하지 않고 인덱스 사용 약관이 있습니다. <br/><br/>[**동의어**](search-synonyms.md)는 사용자가 대체 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. <br/><br/>[**패싯 탐색**](search-faceted-navigation.md)은 단일 쿼리 매개 변수를 통해 사용하도록 설정됩니다. Azure Search는 자기 주도형 필터링(예: 가격 범위 또는 브랜드별로 카탈로그 항목 필터링)을 위해 코드 숨김 카탈로그 목록으로 사용할 수 있는 패싯 탐색 구조를 반환합니다. <br/><br/> [**필터**](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)를 사용하여 패싯 탐색을 응용 프로그램 UI에 통합하고, 쿼리 작성을 향상하고, 사용자 또는 개발자가 지정한 기준에 따라 필터링할 수 있습니다. OData 구문을 사용하여 필터를 만듭니다.<br/><br/> [**적중 항목 강조 표시**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)는 검색 결과의 일치하는 키워드에 텍스트 서식을 적용합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.<br/><br/>[**정렬**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)은 인덱스 스키마를 통해 여러 필드에 제공된 후 쿼리 시 단일 검색 매개 변수를 통해 전환됩니다.<br/><br/> 검색 결과 [**페이징**](search-pagination-page-layout.md) 및 제한은 Azure Search에서 검색 결과에 대해 제공하는 세밀하게 조정된 컨트롤을 사용하여 손쉽게 적용할 수 있습니다.  
+| 사용자 환경 기능 | [**검색 제안**](search-autocomplete-tutorial.md)은 검색 창의 자동 완성 쿼리에 사용할 수 있습니다. <br/><br/>[**검색 제안** ](https://docs.microsoft.com/rest/api/searchservice/suggesters) 도 검색 표시줄 결과에서 일부 텍스트 입력에서 작동에 실제 문서 쿼리를 사용 하지 않고 인덱스 사용 약관이 있습니다. <br/><br/>[**동의어**](search-synonyms.md)는 사용자가 대체 용어를 제공할 필요 없이 쿼리의 범위를 암시적으로 확장하는 동등한 용어를 연결합니다. <br/><br/>[**패싯 탐색**](search-faceted-navigation.md)은 단일 쿼리 매개 변수를 통해 사용하도록 설정됩니다. Azure Search는 자기 주도형 필터링(예: 가격 범위 또는 브랜드별로 카탈로그 항목 필터링)을 위해 코드 숨김 카탈로그 목록으로 사용할 수 있는 패싯 탐색 구조를 반환합니다. <br/><br/> [**필터**](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search)를 사용하여 패싯 탐색을 응용 프로그램 UI에 통합하고, 쿼리 작성을 향상하고, 사용자 또는 개발자가 지정한 기준에 따라 필터링할 수 있습니다. OData 구문을 사용하여 필터를 만듭니다.<br/><br/> [**적중 항목 강조 표시**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)는 검색 결과의 일치하는 키워드에 텍스트 서식을 적용합니다. 강조 표시된 조각을 반환할 필드를 선택할 수 있습니다.<br/><br/>
+  [
+  **정렬**](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)은 인덱스 스키마를 통해 여러 필드에 제공된 후 쿼리 시 단일 검색 매개 변수를 통해 전환됩니다.<br/><br/> 검색 결과 [**페이징**](search-pagination-page-layout.md) 및 제한은 Azure Search에서 검색 결과에 대해 제공하는 세밀하게 조정된 컨트롤을 사용하여 손쉽게 적용할 수 있습니다.  
 | 관련성 | [**간단한 점수 매기기**](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)는 Azure Search의 주요 이점입니다. 점수 매기기 프로필은 문서 자체의 값에 대한 함수로서 관련성을 모델링하는 데 사용됩니다. 예를 들어 최신 제품 또는 할인 제품을 검색 결과의 더 높은 부분에 나타내려고 할 수 있습니다. 또한 따로 추적하고 저장한 고객 검색 기본 설정에 따라 개인화된 점수에 태그를 사용하여 점수 매기기 프로필을 만들 수도 있습니다. |
 | 모니터링 및 보고 | [**검색 트래픽 분석**](search-traffic-analytics.md)을 수집하고 분석하여 사용자가 검색 상자에 입력하는 내용으로부터 정보를 얻을 수 있습니다. <br/><br/>필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다. 인덱스 및 문서 수를 쉽게 모니터링할 수 있으므로 필요에 따라 용량을 조정할 수 있습니다. 자세한 내용은 [서비스 관리](search-manage.md)를 참조하세요. |
 | 프로토타입 및 검사용 도구 | 포털에서 [**데이터 가져오기 마법사**](search-import-data-portal.md)를 사용하여 인덱서를 구성하고, 인덱스 디자이너를 사용하여 인덱스를 나타내고, [**검색 탐색기**](search-explorer.md)를 사용하여 쿼리를 테스트하고 점수 매기기 프로필을 구체화할 수 있습니다. 인덱스를 열어 해당 스키마를 볼 수도 있습니다. |

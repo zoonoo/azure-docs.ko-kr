@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
 ms.author: sethm
-ms.openlocfilehash: b970fe1d9d705bd91e616f19a6ef133d6cfd7dd2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f8979687747453354f60eda15d73b20b2c745a0
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660637"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867208"
 ---
 # <a name="quickstart-send-and-receive-messages-using-the-azure-portal-and-net"></a>빠른 시작: Azure Portal 및 .NET을 사용하여 메시지 보내기 및 받기
 
@@ -25,7 +25,7 @@ Microsoft Azure Service Bus는 안전한 메시징과 완벽한 안정성을 제
 
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 메시징 네임스페이스 및 해당 네임스페이스 내에 큐를 만들고 네임스페이스에서 권한 부여 자격 증명을 얻은 다음, Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다. 그런 다음, [.NET 표준 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)를 사용하여 이 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만들 수 있습니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -254,7 +254,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 > [Azure Portal을 사용하여 재고 업데이트](./service-bus-tutorial-topics-subscriptions-portal.md)
 
 
-[체험 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[무료 계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [정규화된 도메인 이름]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

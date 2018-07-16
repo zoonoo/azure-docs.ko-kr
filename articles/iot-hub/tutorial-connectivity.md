@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 47d52fa412adf3f8e7f0c3c4d4afaf9009b4783e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dc857760cf0d3fa2e146f22196b7bc36d119df5f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651591"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869595"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>자습서: 시뮬레이션된 장치를 사용하여 IoT 허브와의 연결 테스트
 
@@ -49,7 +49,7 @@ az extension add --name azure-cli-iot-ext
 node --version
 ```
 
-https://github.com/Azure-Samples/iot-hub-tutorials-node/archive/master.zip에서 샘플 장치 시뮬레이터 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
+https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip에서 샘플 장치 시뮬레이터 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -123,6 +123,9 @@ node SimulatedDevice-1.js "{your device connection string}"
 장치에서 IoT Hub 장치 SDK 중 하나를 사용하는 경우 SDK 라이브러리 코드에서 허브를 인증하는 데 사용되는 SAS 토큰을 생성합니다. SAS 토큰은 허브 이름, 장치 이름 및 장치 키로부터 생성됩니다.
 
 클라우드 프로토콜 게이트웨이 또는 사용자 지정 인증 체계의 일부와 같은 몇 가지 시나리오에서는 SAS 토큰을 직접 생성해야 할 수도 있습니다. SAS 생성 코드 문제를 해결하려면 테스트 중에 알려진 유효한 SAS 토큰을 생성하는 것이 유용합니다.
+
+> [!NOTE]
+> SimulatedDevice-2.js 샘플에는 SDK를 포함 및 포함하지 않고 SAS 토큰을 생성하는 예가 포함되어 있습니다.
 
 CLI를 사용하여 알려진 유효한 SAS 토큰을 생성하려면 다음 명령을 실행합니다.
 

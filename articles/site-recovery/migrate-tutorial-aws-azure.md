@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 02/27/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b0474ce532831e15738ec882dfdf451bc35d09cf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737615"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922660"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS(Amazon Web Services)에서 Azure로 VM 마이그레이션
 
@@ -34,10 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 - 마이그레이션할 VM이 지원되는 OS 버전을 실행하고 있는지 확인합니다. 지원되는 버전은 다음과 같습니다. 
     - Windows Server 2016
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - 64비트 버전의 Windows Server 2008 R2 SP1 이상
-    - Citrix Paravirtual 드라이버 또는 AWS Paravirtual 드라이버가 설치된 Red Hat Enterprise Linux 6.7(HVM 가상 인스턴스 전용). Red Hat Paravirtual 드라이버를 실행하는 인스턴스는 지원되지 *않습니다*.
+    - Red Hat Enterprise Linux 6.7(HVM 가상화된 인스턴스만 해당) 및 Citrix PV 또는 AWS PV 드라이버만 포함해야 합니다. Red Hat PV 드라이버를 실행하는 인스턴스는 지원되지 **않습니다**.
 
 - 복제하려는 각 VM에 모바일 서비스가 설치되어야 합니다. 
 

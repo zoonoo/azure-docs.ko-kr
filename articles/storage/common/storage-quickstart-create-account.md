@@ -3,18 +3,18 @@ title: Azure 빠른 시작 - 저장소 계정 만들기 | Microsoft Docs
 description: Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 새 저장소 계정을 만드는 방법을 간단히 알아봅니다.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 01/19/2018
+ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 7f6357c5b0be12c18797e82b73bd05af42888aa0
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752336"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856531"
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -165,7 +165,7 @@ Azure Portal에서 범용 v2 저장소 계정을 만들려면 다음 단계를 �
 1. Azure Portal에서 왼쪽의 메뉴를 확장하여 서비스의 메뉴를 열고 **모든 서비스**를 선택합니다. 그런 다음 **Storage**로 스크롤하고 **Storage 계정**을 선택합니다. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
 2. 저장소 계정의 이름을 입력합니다.
 3. **계정 종류** 필드를 **StorageV2(범용 v2)** 로 설정합니다.
-4. **복제** 필드를 **LRS(로컬 중복 저장소)** 로 설정된 채로 둡니다. 또는 **ZRS(영역 중복 저장소)(미리 보기)**, **GRS(지역 중복 저장소)** 또는 **RA-GRS(읽기 액세스 지역 중복 저장소)** 를 선택할 수 있습니다.
+4. **복제** 필드를 **LRS(로컬 중복 저장소)** 로 설정된 채로 둡니다. 또는 **ZRS(영역 중복 저장소)**, **GRS(지역 중복 저장소)** 또는 **RA-GRS(읽기 액세스 지역 중복 저장소)** 를 선택할 수 있습니다.
 5. **배포 모델**, **성능**, **보안 전송 필요** 등의 필드는 기본값을 그대로 둡니다.
 6. 저장소 계정을 만들려는 구독을 선택합니다.
 7. **리소스 그룹** 섹션에서 **기존 항목 사용**을 선택한 다음 이전 섹션에서 만든 리소스 그룹을 선택합니다.

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/05/2017
 ms.author: lbosq
-ms.openlocfilehash: ee6e3adc3300178164b83ee1f8dc2ab307eec45b
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 333bb4074ac741e854ff56c7c397b0e3be247f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081215"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857153"
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Azure Cosmos DB: Graph API 소개
 
@@ -99,7 +99,7 @@ Azure Cosmos DB는 시중에 판매되는 다른 그래프 데이터베이스에
 
  잘 정의된 5가지 일관성 수준에서 선택하여 일관성과 성능 간의 최적 절충을 실현합니다. 쿼리 및 읽기 작업에 대해 Azure Cosmos DB는 강력, 제한된 부실, 세션, 일관된 접두사, 최종의 5가지 일관성 수준을 제공합니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 일관성, 가용성 및 대기 시간 간에 적절한 절충을 이룰 수 있습니다. [Azure Cosmos DB의 튜닝 가능한 데이터 일관성 수준](consistency-levels.md)에서 자세히 알아봅니다.
 
-Azure Cosmos DB는 동일한 컨테이너/데이터베이스 내에서 문서 및 그래프와 같은 여러 모델을 사용할 수도 있습니다. 문서 컬렉션을 사용하여 그래프 데이터를 문서와 나란히 저장할 수 있습니다. JSON에 대한 SQL 쿼리와 Gremlin 쿼리를 둘 다 사용하여 그래프와 동일한 데이터를 쿼리할 수 있습니다.
+Azure Cosmos DB는 동일한 컨테이너/데이터베이스 내에서 문서 및 그래프와 같은 여러 모델을 사용할 수도 있습니다. 문서 컨테이너를 사용하여 그래프 데이터를 문서와 나란히 저장할 수 있습니다. JSON에 대한 SQL 쿼리와 Gremlin 쿼리를 둘 다 사용하여 그래프와 동일한 데이터를 쿼리할 수 있습니다.
 
 ## <a name="get-started"></a>시작하기
 Graph API에 대한 지원을 포함하는 Azure CLI(명령줄 인터페이스), Azure PowerShell 또는 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만들 수 있습니다. 계정을 만들면 Azure Portal에서 Gremlin에 대한 WebSocket 프런트 엔드를 제공하는 `https://<youraccount>.gremlin.cosmosdb.azure.com`과 같은 서비스 끝점을 제공합니다. 이 끝점에 연결하고 Java, Node.js 또는 임의 Gremlin 클라이언트 드라이버에서 응용 프로그램을 빌드하도록 [Gremin 콘솔](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console)과 같은 TinkerPop 호환 도구를 구성할 수 있습니다.

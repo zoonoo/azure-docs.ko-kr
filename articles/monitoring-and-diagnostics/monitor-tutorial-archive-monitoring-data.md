@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: 4d08c4c7a76d7ed16ec57590ee0fd4ee978e5258
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f6b7b9fe73f5e815e08bbf4f6493ee181a0c692b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263153"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918274"
 ---
 # <a name="archive-azure-monitoring-data"></a>Azure 모니터링 데이터 보관
 
@@ -136,6 +136,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이제 가상 머신의 모니터링 데이터가 저장소 계정으로 이동합니다.
 
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>저장소 계정에서 모니터링 데이터 보기
+
+> [!WARNING]
+> 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 문서를 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
 
 이전 단계를 수행했다면 데이터가 저장소 계정으로 이동하기 시작했습니다.
 

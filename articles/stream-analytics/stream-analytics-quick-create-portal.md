@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 1059a401382820b4e5d3fd4b010d400bb6113926
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031433"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902907"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -48,7 +48,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
 4. **모든 리소스** 페이지에서 이전 단계에서 만든 저장소 계정을 찾습니다. **개요** 페이지, **Blob** 타일을 차례로 엽니다.  
 
-5. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, *container1*과 같은 컨테이너에 대한 **이름**을 제공하고 **공용 액세스 수준**을 Blob(Blob에 대한 익명 읽기 권한만 해당)으로 변경하고 > **확인**을 선택합니다.  
+5. **Blob Service** 페이지에서 **컨테이너**를 선택하고, *container1*과 같은 컨테이너에 대한 **이름**을 제공하고 **공용 액세스 수준**을 개인(익명 액세스 없음)으로 변경하고 > **확인**을 선택합니다.  
 
    ![컨테이너 만들기](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 

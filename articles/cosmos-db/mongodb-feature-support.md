@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2017
 ms.author: alekseys
-ms.openlocfilehash: 9202e8eb328f098f7ab68a18f4629a95ecc10991
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2c86cbe2ac9a0611873aca35480af92304abe5b5
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34796358"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928695"
 ---
 # <a name="mongodb-api-support-for-mongodb-features-and-syntax"></a>MongoDB 기능 및 구문에 대한 MongoDB API 지원
 
@@ -23,14 +23,19 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 Azure Cosmos DB MongoDB API를 사용하면 Azure Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB API의 이점을 누릴 수 있습니다. 이러한 기능에는 [전역 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 휴식 시 암호화, 백업 등이 포함됩니다.
 
+## <a name="mongodb-protocol-support"></a>MongoDB 프로토콜 지원
+
+Azure Cosmos DB MongoDB API는 기본적으로 MongoDB 서버 버전 **3.2**와 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. MongoDB 버전 **3.4**에 추가된 기능 또는 쿼리 연산자는 현재 미리 보기 기능으로 사용할 수 있습니다. 이러한 프로토콜을 이해하는 모든 클라이언트 드라이버는 MongoDB API를 사용하여 Cosmos DB에 연결할 수 있어야 합니다.
+
+[MongoDB 집계 파이프라인](#aggregation-pipeline)은 현재 별도의 미리 보기 기능으로 사용할 수 있습니다.
+
 ## <a name="mongodb-query-language-support"></a>MongoDB 쿼리 언어 지원
 
 Azure Cosmos DB MongoDB API는 MongoDB 쿼리 언어 구문을 포괄적으로 지원합니다. 아래에서 현재 지원되는 연산, 연산자, 단계, 명령 및 옵션에 대한 자세한 목록을 찾을 수 있습니다.
 
-
 ## <a name="database-commands"></a>데이터베이스 명령
 
-Azure Cosmos DB는 모든 MongoDB API 계정에서 다음 데이터베이스 명령을 지원합니다. 
+Azure Cosmos DB는 모든 MongoDB API 계정에서 다음 데이터베이스 명령을 지원합니다.
 
 ### <a name="query-and-write-operation-commands"></a>쿼리 및 쓰기 작업 명령
 - delete
@@ -287,7 +292,11 @@ $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` | 
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
-$text |  | 지원되지 않습니다. 대신 $regex 사용 
+$text |  | 지원되지 않습니다. 대신 $regex를 사용합니다.
+
+## <a name="unsupported-operators"></a>지원되지 않는 연산자
+
+```$where``` 및 ```$eval``` 연산자는 Azure Cosmos DB에서 지원되지 않습니다.
 
 ### <a name="methods"></a>메서드
 
@@ -316,6 +325,10 @@ Azure Cosmos DB는 아직 사용자 및 역할을 지원하지 않습니다. Azu
 ## <a name="replication"></a>복제
 
 Azure Cosmos DB는 가장 낮은 계층에서 자동의 네이티브 복제를 지원합니다. 이 논리는 또한 짧은 대기 시간, 글로벌 복제를 달성하기 위해 확장됩니다. Azure Cosmos DB는 수동 복제 명령을 지원하지 않습니다.
+
+## <a name="write-concern"></a>쓰기 문제
+
+특정 MongoDB Api는 쓰기 작업 중 필요한 응답 수를 지정하는 [쓰기 문제](https://docs.mongodb.com/manual/reference/write-concern/)를 지정하는 것을 지원합니다. Cosmos DB가 백그라운드에서 복제를 처리하는 방식 때문에 모든 쓰기는 자동으로 쿼럼(기본값)입니다. 클라이언트 코드로 지정된 모든 쓰기 문제는 무시됩니다. [일관성 수준을 사용하여 가용성 및 성능 최대화](consistency-levels.md)에서 자세히 알아보세요.
 
 ## <a name="sharding"></a>분할
 

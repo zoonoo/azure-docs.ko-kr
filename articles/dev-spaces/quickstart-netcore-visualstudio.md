@@ -6,17 +6,17 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 ms.author: ghogen
-ms.date: 06/06/2018
+ms.date: 07/09/2018
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 43b232e612f2ea4b47789e29a7f241bf4c35271d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 91302f21f3b3f9db50dc0c930a4cdfc02749d151
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100124"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951008"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>빠른 시작: Azure Dev Spaces(.NET Core 및 Visual Studio)를 사용하여 Kubernetes 개발 환경 만들기
 
@@ -29,13 +29,13 @@ ms.locfileid: "37100124"
 > [!Note]
 > **의문 사항이 있으면** 언제든지 [문제 해결](troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요. 또한 더 자세한 [자습서](get-started-netcore-visualstudio.md)를 시도해 볼 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-- EastUS, WestEurope 또는 CanadaEast 지역에서 Http 응용 프로그램 라우팅이 활성화된 상태로 Kubernetes 1.9.6을 실행 중인 Kubernetes 클러스터.
+- 미국 동부, 미국 중부, 미국 서부 2, 서유럽, 캐나다 중부 또는 캐나다 동부 지역에서 Http 응용 프로그램 라우팅이 활성화된 상태로 Kubernetes 1.10.3을 실행 중인 Kubernetes 클러스터.
 
   ![Http 응용 프로그램 라우팅을 활성화해야 합니다.](media/common/Kubernetes-Create-Cluster-3.PNG)
 
-- Visual Studio 2017과 웹 개발 워크로드가 설치되었습니다. 설치되어 있지 않으면 [여기](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)에서 다운로드하세요.
+- 설치된 Visual Studio 2017과 웹 개발 워크로드. 설치되어 있지 않으면 [여기](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)에서 다운로드하세요.
 
 ## <a name="set-up-azure-dev-spaces"></a>Azure Dev Spaces 설치
 
@@ -117,4 +117,4 @@ Azure Dev Spaces는 Kubernetes에서 단순히 코드를 실행하는 것이 아
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [여러 컨테이너 작업 및 팀 개발](get-started-netcore-visualstudio.md#call-another-container)
+> [여러 컨테이너 작업 및 팀 개발](team-development-netcore-visualstudio.md)

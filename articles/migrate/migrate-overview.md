@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/20/2018
+ms.date: 07/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6c78554b78468329819726bfd95671a34f51b231
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 753a21638745870941ac77e340b5e6aa713c7ffe
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285800"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920725"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 
@@ -30,7 +30,11 @@ Azure Migrate의 기능:
 ## <a name="current-limitations"></a>현재 제한 사항
 
 - 현재 온-프레미스 VMware VM(가상 머신)에서 Azure VM으로의 마이그레이션만 평가할 수 있습니다. VMware VM은 vCenter Server(버전 5.5, 6.0 또는 6.5)에서 관리되어야 합니다.
-- Hyper-V에 대한 지원은 로드맵에 있습니다. 그동안 [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc)를 사용하여 Hyper-V 워크로드의 마이그레이션을 계획하는 것이 좋습니다.
+
+> [!NOTE]
+> Hyper-V 및 물리적 서버에 대한 지원은 계획되어 있습니다. 그동안 [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc)를 사용하여 Hyper-V 워크로드의 마이그레이션을 계획하고 [파트너 도구](https://azure.microsoft.com/migration/partners/)를 사용하여 실제 워크로드의 마이그레이션을 계획하는 것이 좋습니다.
+
+
 - 단일 검색에서 최대 1500대의 VM을 검색하고, 단일 프로젝트에서 최대 1500대의 VM을 검색할 수 있습니다. 또한 단일 평가에서 최대 1500대의 VM을 평가할 수 있습니다. 더 큰 환경을 검색하려면 검색을 분할하고 여러 프로젝트를 만들면 됩니다. [자세히 알아보세요](how-to-scale-assessment.md). Azure Migrate는 구독당 최대 20개의 프로젝트를 지원합니다.
 - 미국 중서부 또는 미국 동부 지역에서는 Azure Migrate 프로젝트만 만들 수 있습니다. 그러나 다른 대상 Azure 위치에 대한 마이그레이션을 계획하는 기능에는 영향이 없습니다. 마이그레이션 프로젝트의 위치는 온-프레미스 환경에서 발견된 메타데이터를 저장하는 용도로만 사용됩니다.
 - 마이그레이션을 평가하는 경우 Azure Migrate는 관리 디스크만 지원합니다.

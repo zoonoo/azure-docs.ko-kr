@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 71ccae1951020a522fbbdddcdce0bbeeea5f1fb9
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: b085911f760693a774d443ca055944268b20f055
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235793"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869584"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 응용 프로그램에서 새 장치 유형 정의
 
@@ -41,6 +41,7 @@ ms.locfileid: "35235793"
 > * 시뮬레이션된 상태 보기
 > * 장치 속성 사용
 > * 장치 설정 사용
+> * 명령 사용
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -50,23 +51,29 @@ ms.locfileid: "35235793"
 
 2. Azure 구독에 액세스 하는 데 사용하는 이메일 주소와 암호를 입력합니다.
 
-   ![조직 계정 입력](media/tutorial-define-device-type/sign-in.png)
+   ![조직 계정 입력](./media/tutorial-define-device-type/sign-in.png)
 
 3. 새로운 Azure IoT Central 응용 프로그램 만들기를 시작하려면 **새 응용 프로그램**을 선택합니다.
 
-    ![Azure IoT Central 응용 프로그램 관리자 페이지](media/tutorial-define-device-type/iotcentralhome.png)
+    ![Azure IoT Central 응용 프로그램 관리자 페이지](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. 새로운 Azure IoT Central 응용 프로그램을 만들려면:
 
     * **Contoso 공조 장치** 같은 친숙한 응용 프로그램 이름을 선택합니다. Azure IoT Central은 사용자를 위해 고유한 URL 접두사를 생성합니다. 이 URL 접두사를 더욱 기억하기 쉬운 것으로 변경할 수 있습니다.
+    
     * 사용할 Azure Active Directory 및 Azure 구독을 선택합니다. 디렉터리 및 구독에 대한 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](howto-create-application.md)를 참조합니다.
+    
     * 선택한 이름으로 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 예: **contoso-rg**.
+    
     * 지리적으로 가장 가까운 지역을 선택합니다.
+    
     * **사용자 지정 응용 프로그램** 템플릿을 선택합니다.
+    
     * **무료 30일 평가판 응용 프로그램** 결제 계획을 선택합니다.
+    
     * **만들기**를 선택합니다.
 
-    ![Azure IoT Central 응용 프로그램 페이지](media/tutorial-define-device-type/iotcentralcreate.png)
+    ![Azure IoT Central 응용 프로그램 페이지](./media/tutorial-define-device-type/iotcentralcreate.png)
 
 자세한 내용은 [Azure IoT Central 응용 프로그램 만드는 방법](howto-create-application.md)을 참조하세요.
 
@@ -76,7 +83,7 @@ ms.locfileid: "35235793"
 
 응용 프로그램에 새 장치 템플릿을 추가하려면 **응용 프로그램 작성기** 페이지로 이동해야 합니다. 그러려면 왼쪽 탐색 메뉴에서 **응용 프로그램 작성기**를 선택합니다.
 
-    ![Application Builder page](media/tutorial-define-device-type/builderhome.png)
+![응용 프로그램 개발자 페이지](./media/tutorial-define-device-type/builderhome.png)
 
 ## <a name="add-a-device-and-define-telemetry"></a>장치 추가 및 원격 분석 정의
 
@@ -84,37 +91,43 @@ ms.locfileid: "35235793"
 
 1. **응용 프로그램 작성기** 페이지에서 **장치 템플릿 만들기**를 선택합니다.
 
-    ![응용 프로그램 작성기 페이지에서 장치 템플릿 만들기](media/tutorial-define-device-type/builderhomedevices.png)
+    ![응용 프로그램 작성기 페이지에서 장치 템플릿 만들기](./media/tutorial-define-device-type/builderhomedevices.png)
 
 2. **장치 템플릿** 페이지에서 **사용자 지정**을 선택합니다. **사용자 지정** 장치 템플릿을 사용하면 연결된 공조 장치의 모든 특성 및 동작을 정의할 수 있습니다.
 
-    ![장치](media/tutorial-define-device-type/builderhomedevicescustom.png)
+    ![장치](./media/tutorial-define-device-type/builderhomedevicescustom.png)
 
 3. **새 장치 템플릿을** 페이지에서 장치 이름으로 **연결된 공조 장치**를 입력한 다음, **만들기**를 선택합니다. 장치 탐색기의 연산자에 표시되는 장치의 이미지를 업로드할 수 있습니다.
 
-    ![사용자 지정 장치](media/tutorial-define-device-type/createcustomdevice.png)
+    ![사용자 지정 장치](./media/tutorial-define-device-type/createcustomdevice.png)
 
 4. **연결된 공조 장치** 템플릿에서 원격 분석을 정의하는 경우 **측정** 페이지에 있는지 확인합니다. 정의하는 각 장치 템플릿은 다음을 위한 별도 페이지가 있습니다.
 
     * 장치에서 보내는 원격 분석, 이벤트 및 상태 같은 측정값을 지정합니다.
+    
     * 장치를 컨트롤하는 데 사용하는 설정을 정의합니다.
+    
     * 장치에 대한 정보를 기록하는 데 사용하는 속성을 정의합니다.
+    
     * 장치와 연결된 규칙을 정의합니다.
+    
     * 연산자에 대한 장치 대시보드를 사용자 지정합니다.
 
-    ![공조 장치 측정값](media/tutorial-define-device-type/airconmeasurements.png)
+    ![공조 장치 측정값](./media/tutorial-define-device-type/airconmeasurements.png)
 
     > [!NOTE]
     > 장치 또는 장치 템플릿의 이름을 변경하려면 페이지 위쪽에 있는 텍스트를 클릭합니다.
 
 5. 온도 원격 분석 측정값을 추가하려면 **새 측정**을 선택합니다. 그런 다음, 측정 유형으로 **원격 분석**을 선택합니다.
 
-    ![연결된 공조 장치 측정값](media/tutorial-define-device-type/airconmeasurementsnew.png)
+    ![연결된 공조 장치 측정값](./media/tutorial-define-device-type/airconmeasurementsnew.png)
 
 6. 장치 템플릿에 대해 정의하는 각 유형의 원격 분석은 다음과 같은 [구성 옵션](howto-set-up-template.md)을 포함합니다.
 
     * 옵션을 표시합니다.
+
     * 원격 분석의 세부 정보입니다.
+
     * 시뮬레이션 매개 변수입니다.
 
     **온도** 원격 분석을 구성하려면 다음 표의 정보를 사용합니다.
@@ -130,15 +143,15 @@ ms.locfileid: "35235793"
 
     또한 원격 분석 표시에 대한 색을 선택할 수 있습니다. 원격 분석 정의를 저장하려면 **저장**을 선택합니다.
 
-    ![온도 시뮬레이션 구성](media/tutorial-define-device-type/temperaturesimulation.png)
+    ![온도 시뮬레이션 구성](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. 잠시 후 **측정** 페이지는 시뮬레이션한 연결된 공조 장치에서 온도 원격 분석 차트를 표시합니다. 컨트롤을 사용하여 표시 유형 및 집계를 관리하거나 원격 분석 정의를 편집합니다.
 
-    ![온도 시뮬레이션 보기](media/tutorial-define-device-type/viewsimulation.png)
+    ![온도 시뮬레이션 보기](./media/tutorial-define-device-type/viewsimulation.png)
 
 8. **줄**, **누적** 및 **편집 시간 범위** 컨트롤을 사용하여 차트를 사용자 지정할 수도 있습니다.
 
-    ![차트 사용자 지정](media/tutorial-define-device-type/customizechart.png)
+    ![차트 사용자 지정](./media/tutorial-define-device-type/customizechart.png)
 
 ## <a name="define-event-measurement"></a>이벤트 측정 정의
 
@@ -146,13 +159,15 @@ ms.locfileid: "35235793"
 
 1. **팬 모터 오류** 이벤트 측정을 추가하려면 **새 측정**을 선택합니다. 그런 다음, 측정 유형으로 **이벤트**를 선택합니다.
 
-    ![연결된 공조 장치 측정값](media/tutorial-define-device-type/eventnew.png)
+    ![연결된 공조 장치 측정값](./media/tutorial-define-device-type/eventnew.png)
 
 2. 장치 템플릿에 대해 정의하는 각 유형의 이벤트은 다음과 같은 [구성 옵션](howto-set-up-template.md)을 포함합니다.
 
-    * 표시 이름입니다.
-    * 필드 이름입니다.
-    * 심각도입니다.
+   * 표시 이름입니다.
+
+   * 필드 이름입니다.
+
+   * 심각도입니다.
 
     **팬 모터 오류** 이벤트를 구성하려면 다음 표의 정보를 사용합니다.
 
@@ -164,15 +179,15 @@ ms.locfileid: "35235793"
 
     이벤트 정의를 저장하려면 **저장**을 선택합니다.
 
-    ![이벤트 측정 구성](media/tutorial-define-device-type/eventconfiguration.png)
+    ![이벤트 측정 구성](./media/tutorial-define-device-type/eventconfiguration.png)
 
 3. 잠시 후 **측정** 페이지는 시뮬레이션한 연결된 공조 장치에서 임의로 생성된 이벤트의 차트를 표시합니다. 컨트롤을 사용하여 표시 유형을 관리하거나 이벤트 정의를 편집합니다.
 
-    ![이벤트 시뮬레이션 보기](media/tutorial-define-device-type/eventview.png)
+    ![이벤트 시뮬레이션 보기](./media/tutorial-define-device-type/eventview.png)
 
 1. 이벤트에 대한 추가 세부 정보를 보려면 차트에서 이벤트를 클릭합니다.
 
-    ![이벤트 세부 정보 보기](media/tutorial-define-device-type/eventviewdetail.png)
+    ![이벤트 세부 정보 보기](./media/tutorial-define-device-type/eventviewdetail.png)
 
 ## <a name="define-state-measurement"></a>상태 측정 정의
 
@@ -180,14 +195,17 @@ ms.locfileid: "35235793"
 
 1. **팬 모드** 측정을 추가하려면 **새 측정**을 선택합니다. 그런 다음, 측정 유형으로 **상태**를 선택합니다.
 
-    ![연결된 공조 장치 상태 측정값](media/tutorial-define-device-type/statenew.png)
+    ![연결된 공조 장치 상태 측정값](./media/tutorial-define-device-type/statenew.png)
 
 2. 장치 템플릿에 대해 정의하는 각 유형의 상태는 다음과 같은 [구성 옵션](howto-set-up-template.md)을 포함합니다.
 
-    * 표시 이름입니다.
-    * 필드 이름입니다.
-    * 선택 사항으로 값이 레이블을 표시합니다.
-    * 각 값에 대한 색
+   * 표시 이름입니다.
+
+   * 필드 이름입니다.
+
+   * 선택 사항으로 값이 레이블을 표시합니다.
+
+   * 각 값에 대한 색.
 
     **팬 모터** 상태를 구성하려면 다음 표의 정보를 사용합니다.
 
@@ -202,19 +220,19 @@ ms.locfileid: "35235793"
 
     상태 측정값을 저장하려면 **저장**을 선택합니다.
 
-    ![상태 측정 구성](media/tutorial-define-device-type/stateconfiguration.png)
+    ![상태 측정 구성](./media/tutorial-define-device-type/stateconfiguration.png)
 
 3. 잠시 후 **측정** 페이지는 시뮬레이션한 연결된 공조 장치에서 임의로 생성된 상태의 차트를 표시합니다. 컨트롤을 사용하여 표시 유형을 관리하거나 상태 정의를 편집합니다.
 
-    ![상태 시뮬레이션 보기](media/tutorial-define-device-type/stateview.png)
+    ![상태 시뮬레이션 보기](./media/tutorial-define-device-type/stateview.png)
 
 4. 짧은 기간 내에 장치에서 보낸 데이터 요소가 너무 많은 경우 상태 측정값은 아래와 같이 다른 시각적 개체로 표시됩니다. 차트를 클릭하는 경우 해당 기간 내의 모든 데이터 요소가 시간순으로 표시됩니다. 차트에 표시된 측정값을 볼 수 있도록 시간 범위를 좁힐 수 있습니다.
 
-    ![상태 세부 정보 보기](media/tutorial-define-device-type/stateviewdetail.png)
+    ![상태 세부 정보 보기](./media/tutorial-define-device-type/stateviewdetail.png)
 
-## <a name="properties-device-properties-and-settings"></a>속성, 장치 속성 및 설정
+## <a name="settings-properties-and-commands"></a>설정, 속성 및 명령
 
-속성, 장치 속성 및 설정은 장치 템플릿에서 정의되고 각 개별 장치와 연결된 다른 값입니다.
+설정, 속성 및 장치 속성, 명령은 장치 템플릿에서 정의되고 각 개별 장치와 연결된 다른 값입니다.
 
 * _설정_을 사용하여 응용 프로그램에서 구성 데이터를 장치에 보낼 수 있습니다. 예를 들어 연산자는 설정을 사용하여 장치 원격 분석 간격을 2초에서 5초로 변경할 수 있습니다. 연산자가 설정을 변경하는 경우 장치가 설정을 변경했다는 것을 인식할 때까지 설정은 UI에서 보류 중으로 표시됩니다.
 
@@ -222,13 +240,15 @@ ms.locfileid: "35235793"
 
 * 속성 값을 응용 프로그램에 보내도록 장치를 설정하려면 _장치 속성_을 사용할 수 있습니다. 이러한 속성은 장치에서만 변경할 수 있습니다. 연산자의 경우 장치 속성은 읽기 전용입니다.
 
+* _명령_을 사용하여 응용 프로그램에서 장치를 원격으로 관리합니다. 클라우드에서 장치에 대한 명령을 직접 실행하여 장치를 제어할 수 있습니다. 예를 들어, 운영자는 다시 부팅과 같은 명령을 실행하여 장치를 즉시 다시 부팅할 수 있습니다.
+
 ## <a name="use-settings"></a>설정 사용
 
 구성 데이터를 장치에 보내도록 장치를 설정하려면 *설정*을 사용합니다. 이 섹션에서 **연결된 공조 장치** 템플릿에 설정을 추가하여 연산자가 연결된 공조 장치의 대상 온도를 설정하게 할 수 있습니다.
 
 1. **연결된 공조 장치** 템플릿에 대한 **설정** 페이지로 이동합니다.
 
-    ![설정 추가 준비](media/tutorial-define-device-type/deviceaddsetting.png)
+    ![설정 추가 준비](./media/tutorial-define-device-type/deviceaddsetting.png)
 
     숫자 또는 텍스트 등 다른 형식의 설정을 만들 수 있습니다.
 
@@ -249,24 +269,24 @@ ms.locfileid: "35235793"
 
     그런 다음, **저장**을 선택합니다.
 
-    ![온도 설정 구성](media/tutorial-define-device-type/configuresetting.png)
+    ![온도 설정 구성](./media/tutorial-define-device-type/configuresetting.png)
 
     > [!NOTE]
     > 장치가 설정 변경을 인식하는 경우 설정 상태가 **동기화됨**으로 변경됩니다.
 
 4. 설정 타일을 이동하고 크기 조정하여 **설정** 페이지의 레이아웃을 사용자 지정할 수 있습니다.
 
-    ![설정 레이아웃 사용자 지정](media/tutorial-define-device-type/settingslayout.png)
+    ![설정 레이아웃 사용자 지정](./media/tutorial-define-device-type/settingslayout.png)
 
-## <a name="use-properties"></a>속성 사용
+## <a name="use-properties--device-properties"></a>속성 / 장치 속성 사용
 
-*속성*을 사용하여 응용 프로그램에서 장치에 대한 정보를 저장합니다. 이 섹션에서는 **연결된 공조 장치** 템플릿에 속성을 추가하여 장치 일련 번호 및 각 장치의 펌웨어 버전을 저장합니다.
-
+*속성*을 사용하여 응용 프로그램에서 장치에 대한 정보를 저장합니다. 이 섹션에서는 **연결된 공조 장치** 템플릿에 장치 속성을 추가하여 장치 일련 번호 및 펌웨어 버전을 저장합니다. 이 두 가지 모두 장치에서 보고된 읽기 전용 속성이므로 값을 할당할 수 없습니다. 장치의 위치, 소유권 정보 및 장치의 마지막 서비스 날짜/시간을 포함하도록 값을 할당하여 사용할 수 있는 속성입니다.
+ 
 1. **연결된 공조 장치** 템플릿에 대한 **속성** 페이지로 이동합니다.
 
-    ![속성 추가 준비](media/tutorial-define-device-type/deviceaddproperty.png)
+    ![속성 추가 준비](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    숫자 또는 텍스트 등 다른 형식의 속성을 만들 수 있습니다. 장치 템플릿에 일련 번호 속성을 추가하려면 **텍스트**를 선택합니다.
+    숫자 또는 텍스트 등 다른 형식의 장치 속성을 만들 수 있습니다. 장치 템플릿에 일련 번호 속성을 추가하려면 **텍스트**를 선택합니다.
 
 2. 일련 번호 속성을 구성하려면 다음 표의 정보를 사용합니다.
 
@@ -279,13 +299,13 @@ ms.locfileid: "35235793"
 
     다른 필드는 기본값 그대로 둡니다.
 
-    ![장치 속성 구성](media/tutorial-define-device-type/configureproperties.png)
+    ![장치 속성 구성](./media/tutorial-define-device-type/configureproperties.png)
 
-    그런 다음, **저장**을 선택합니다.
+    **저장**을 선택합니다.
 
-3. 장치 템플릿에 펌웨어 버전 속성을 추가하려면 **텍스트** 선택
+3. 장치 템플릿에 대한 장치 속성에 펌웨어 버전을 추가하려면 **텍스트**를 선택합니다.
 
-4. 펌웨어 버전 속성을 구성하려면 다음 표의 정보를 사용합니다.
+4. 펌웨어 버전 장치 속성을 구성하려면 다음 표의 정보를 사용합니다.
 
     | 필드                | 값                   |
     | -------------------- | ----------------------- |
@@ -294,13 +314,44 @@ ms.locfileid: "35235793"
     | 초기 값        | 0.1                     |
     | 설명          | 장치 펌웨어 버전 |
 
-    ![장치 속성 구성](media/tutorial-define-device-type/configureproperties2.png)
+    ![장치 속성 구성](./media/tutorial-define-device-type/configureproperties2.png)
 
-    그런 다음, **저장**을 선택합니다.
+    **저장**을 선택합니다.
 
 5. 속성 타일을 이동하고 크기 조정하여 **속성** 페이지의 레이아웃을 사용자 지정할 수 있습니다.
 
-    ![속성 레이아웃 사용자 지정](media/tutorial-define-device-type/propertieslayout.png)
+    ![속성 레이아웃 사용자 지정](./media/tutorial-define-device-type/propertieslayout.png)
+
+
+## <a name="use-commands"></a>명령 사용
+
+_명령_을 사용하여 운영자가 장치에서 직접 명령을 실행하도록 할 수 있습니다. 이 섹션에서는 운영자가 연결된 공조 장치 디스플레이에 특정 메시지를 에코할 수 있도록 해주는 **연결된 공조 장치** 템플릿에 명령을 추가합니다(MxChip 샘플 코드에서 작동함).
+
+1. **연결된 공조 장치** 템플릿의 **명령** 페이지로 이동합니다.
+
+    ![설정 추가 준비](media/tutorial-define-device-type/commandsecho.png)
+
+    요구 사항에 따라 다양한 유형의 명령을 만들 수 있습니다. 
+
+1. **새 명령**을 클릭하여 장치에 명령을 추가합니다.
+
+1. 새 명령을 구성하려면 다음 표의 정보를 사용합니다.
+
+    | 필드                | 값           |
+    | -------------------- | -----------     |
+    | 표시 이름         | Echo 명령    |
+    | 필드 이름           | echo            |
+    | 기본 시간 제한      | 30              |
+    | 표시 이름         | 텍스트 표시    |
+    | 표시 유형         | text            |  
+
+입력에 **+** 를 클릭하여 명령에 입력을 더 추가할 수 있습니다.
+
+2. **저장**을 선택합니다.
+
+3. 명령 타일을 이동하고 크기 조정하여 **명령** 페이지의 레이아웃을 사용자 지정할 수 있습니다.
+
+    ![설정 레이아웃 사용자 지정](media/tutorial-define-device-type/commandstileresize.png)
 
 ## <a name="view-your-simulated-device"></a>시뮬레이션된 장치 보기
 
@@ -308,11 +359,11 @@ ms.locfileid: "35235793"
 
 1. **연결된 공조 장치** 템플릿에 대한 **대시보드** 페이지를 선택합니다.
 
-    ![연결된 공조 장치 대시보드](media/tutorial-define-device-type/aircondashboards.png)
+    ![연결된 공조 장치 대시보드](./media/tutorial-define-device-type/aircondashboards.png)
 
 2. **꺾은선형 차트**를 선택하여 **대시보드**에 구성 요소를 추가합니다.
 
-    ![대시보드 구성 요소](media/tutorial-define-device-type/dashboardcomponents1.png)
+    ![대시보드 구성 요소](./media/tutorial-define-device-type/dashboardcomponents1.png)
 
 3. 다음 표의 정보를 사용하여 **꺾은선형 차트** 구성 요소를 구성합니다.
 
@@ -322,7 +373,7 @@ ms.locfileid: "35235793"
     | 시간 범위   | 지난 30분 |
     | 측정값 | 온도(**온도** 옆의 **표시 유형** 선택) |
 
-    ![꺾은선형 차트 설정](media/tutorial-define-device-type/linechartsettings.png)
+    ![꺾은선형 차트 설정](./media/tutorial-define-device-type/linechartsettings.png)
 
     그런 다음, **저장**을 선택합니다.
 
@@ -334,7 +385,7 @@ ms.locfileid: "35235793"
     | 시간 범위   | 지난 30분 |
     | 측정값 | 팬 모터 오류(**팬 모터 오류** 옆의 **표시 유형** 선택) |
 
-    ![꺾은선형 차트 설정](media/tutorial-define-device-type/dashboardeventchartsetting.png)
+    ![꺾은선형 차트 설정](./media/tutorial-define-device-type/dashboardeventchartsetting.png)
 
     그런 다음, **저장**을 선택합니다.
 
@@ -346,13 +397,13 @@ ms.locfileid: "35235793"
     | 시간 범위   | 지난 30분 |
     | 측정값 | 팬 모드(**팬 모드** 옆의 **표시 유형** 선택) |
 
-    ![꺾은선형 차트 설정](media/tutorial-define-device-type/dashboardstatechartsetting.png)
+    ![꺾은선형 차트 설정](./media/tutorial-define-device-type/dashboardstatechartsetting.png)
 
     그런 다음, **저장**을 선택합니다.
 
 6. 온도 설정을 대시보드에 추가하려면 **설정 및 속성**을 선택합니다.
 
-    ![대시보드 구성 요소](media/tutorial-define-device-type/dashboardcomponents4.png)
+    ![대시보드 구성 요소](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
 7. 다음 표의 정보를 사용하여 **설정 및 속성** 구성 요소를 구성합니다.
 
@@ -361,13 +412,13 @@ ms.locfileid: "35235793"
     | 제목                   | 대상 온도 설정 |
     | 설정 및 속성 | 온도 설정 |
 
-    ![일련 번호 속성 설정](media/tutorial-define-device-type/propertysettings3.png)
+    ![일련 번호 속성 설정](./media/tutorial-define-device-type/propertysettings3.png)
 
     그런 다음, **저장**을 선택합니다.
 
 8. 장치 일련 번호를 대시보드에 추가하려면 **설정 및 속성**을 선택합니다.
 
-    ![대시보드 구성 요소](media/tutorial-define-device-type/dashboardcomponents3.png)
+    ![대시보드 구성 요소](./media/tutorial-define-device-type/dashboardcomponents3.png)
 
 9. 다음 표의 정보를 사용하여 **설정 및 속성** 구성 요소를 구성합니다.
 
@@ -376,13 +427,13 @@ ms.locfileid: "35235793"
     | 제목                   | 일련 번호 |
     | 설정 및 속성 | 일련 번호 |
 
-    ![일련 번호 속성 설정](media/tutorial-define-device-type/propertysettings1.png)
+    ![일련 번호 속성 설정](./media/tutorial-define-device-type/propertysettings1.png)
 
     그런 다음, **저장**을 선택합니다.
 
 10. 장치 펌웨어 버전을 대시보드에 추가하려면 **설정 및 속성**을 선택합니다.
 
-    ![대시보드 구성 요소](media/tutorial-define-device-type/dashboardcomponents4.png)
+    ![대시보드 구성 요소](./media/tutorial-define-device-type/dashboardcomponents4.png)
 
 11. 다음 표의 정보를 사용하여 **설정 및 속성** 구성 요소를 구성합니다.
 
@@ -391,7 +442,7 @@ ms.locfileid: "35235793"
     | 제목                   | 펌웨어 버전 |
     | 설정 및 속성 | 펌웨어 버전 |
 
-    ![일련 번호 속성 설정](media/tutorial-define-device-type/propertysettings2.png)
+    ![일련 번호 속성 설정](./media/tutorial-define-device-type/propertysettings2.png)
 
     그런 다음, **저장**을 선택합니다.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 001fefef900a0dd468f8deb8d705c308d8149f71
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1a713d23a385723517ba1fe924f9ec54d81eade5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055214"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857893"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory의 파이프라인 및 작업
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,8 @@ Azure Data Factory는 개별적 또는 다른 작업과 연계하여 파이프�
 [Machine Learning 작업: Batch 실행 및 업데이트 리소스](transform-data-using-machine-learning.md) | Azure VM
 [저장 프로시저](transform-data-using-stored-procedure.md) | Azure SQL, Azure SQL Data Warehouse 또는 SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure 데이터 레이크 분석
+[사용자 지정 코드](transform-data-using-dotnet-custom-activity.md) | Azure Batch
+[Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 
 자세한 내용은 [데이터 변환 작업](transform-data.md) 문서를 참조하세요.
 

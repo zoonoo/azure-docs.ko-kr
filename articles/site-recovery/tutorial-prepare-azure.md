@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffcce12800fae3a4d9e4930c918fcafb919b96ed
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 6a113169cb3f8fea1012643efcb56e5cf6c7e908
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737207"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915972"
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>온-프레미스 컴퓨터 복제를 위한 Azure 리소스 준비
 
@@ -54,11 +54,12 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **Storage** > **Storage 계정 - BLOB, 파일, 테이블, 큐**를 클릭합니다.
 2. **저장소 계정 만들기**에서 계정의 이름을 입력합니다. 이 자습서에서는 **contosovmsacct1910171607**을 사용합니다. 선택한 이름은 Azure 내에서 고유해야 하며 길이가 3자에서 24자 사이이고 숫자 및 소문자만 포함해야 합니다.
 3. **배포 모델**에서 **Resource Manager**를 선택합니다.
-4. **계정 종류**에서 **Storage(범용 v1)** 를 선택합니다. Blob Storage를 선택하지 마세요. **성능**에서 **표준**을 선택합니다. 
+4. **계정 종류**에서 **Storage(범용 v1)** 를 선택합니다. Blob Storage를 선택하지 마세요.
 5. **복제**에서 저장소 중복에 대해 기본 **읽기 액세스 지역 중복 저장소**를 선택합니다. **보안 전송 필요**를 **사용 안 함**으로 둡니다.
-6. **구독**에서 새 저장소 계정을 만들려는 구독을 선택합니다. 
-2. **리소스 그룹**에서 새 리소스 그룹을 입력합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 자습서에서는 **ContosoRG**를 사용합니다.
-3. **위치**에서 저장소 계정에 대한 지리적 위치를 선택합니다. 
+6. **성능**에서 **표준**을 선택하고 **액세스 계층**에서 **핫**의 기본 옵션을 선택합니다.
+7. **구독**에서 새 저장소 계정을 만들려는 구독을 선택합니다.
+8. **리소스 그룹**에서 새 리소스 그룹을 입력합니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 이 자습서에서는 **ContosoRG**를 사용합니다.
+9. **위치**에서 저장소 계정에 대한 지리적 위치를 선택합니다. 
 
    ![저장소 계정 만들기](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -98,7 +99,7 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 - Azure 네트워크에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 - Azure Storage 유형에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts).
-- - 저장소 중복 및 저장소의 [보안 전송](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage).
+- 저장소 중복 및 저장소의 [보안 전송](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)에 대해 [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage).
 
 
 
