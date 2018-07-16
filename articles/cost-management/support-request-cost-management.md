@@ -23,7 +23,7 @@ ms.locfileid: "35296694"
 
 ## <a name="open-a-support-ticket"></a>지원 티켓 열기
 
-1. Azure Portal(https://portal.azure.com)에 로그인합니다.
+1. Azure Portal (https://portal.azure.com) 에 로그인합니다.
 2. 위쪽 탐색 모음에서 **도움말**을 클릭합니다.
 3. **도움말** 메뉴에서 **도움말 + 지원**을 클릭합니다.
 4. [도움말 + 지원] 메뉴의 [지원] 아래에서 **새 지원 요청**을 클릭합니다.

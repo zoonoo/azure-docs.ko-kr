@@ -297,7 +297,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ![응용 프로그램 게이트웨이에서 contoso 사이트 테스트](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-주소를 다른 도메인(예: http://www.contoso.org)으로 변경하면 트래픽이 www.contoso.com의 수신기로 다시 리디렉션되었다고 표시됩니다.
+주소를 다른 도메인(예: http://www.contoso.org )으로 변경하면 트래픽이 www.contoso.com의 수신기로 다시 리디렉션되었다고 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
