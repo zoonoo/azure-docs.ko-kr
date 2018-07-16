@@ -99,7 +99,7 @@ SSH 터널링이 실행되면 클러스터에서 Hue를 액세스하는 유일�
         hn0-myhdi-nfebtpfdv1nubcidphpap2eq2b.ex.internal.cloudapp.net
 
     Hue 웹 사이트가 위치한 기본 헤드의 호스트 이름입니다.
-4. 브라우저를 사용하여 http://HOSTNAME:8888에서 Hue 포털을 엽니다. HOSTNAME을 이전 단계에서 얻은 이름으로 바꿉니다.
+4. 브라우저를 사용하여 http://HOSTNAME:8888 에서 Hue 포털을 엽니다. HOSTNAME을 이전 단계에서 얻은 이름으로 바꿉니다.
 
    > [!NOTE]
    > 처음으로 로그인할 때 Hue 포털에 로그인할 계정을 만들라는 메시지가 표시됩니다. 여기에서 지정한 자격 증명은 포털로 제한되며 클러스터를 프로비전하는 동안 지정한 관리자 또는 SSH 사용자 자격 증명과 관련이 없습니다.

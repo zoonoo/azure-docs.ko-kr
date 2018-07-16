@@ -192,7 +192,7 @@ Service Fabric 백 엔드의 경우 특정 Service Fabric 서비스가 아니라
 
 * **displayName**은 API에 대한 어떤 이름도 될 수 있습니다. 이 자습서에서는 "Service Fabric 앱"을 사용합니다.
 * **name**은 API를 설명하는 고유한 이름(예: "service-fabric-app")을 제공합니다. 개발자 및 게시자 포털에 표시됩니다.
-* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API Management는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어 이 자습서에서는 "http://servicefabric"일 수 있습니다.
+* **serviceUrl**은 API를 구현하는 HTTP 서비스를 참조합니다. API Management는 이 주소로 요청을 전달합니다. Service Fabric 백 엔드에는 이 URL 값이 사용되지 않습니다. 여기에 임의의 값을 입력할 수 있습니다. 예를 들어 이 자습서에서는 " http://servicefabric "일 수 있습니다.
 * **path**는 API Management 서비스의 기본 URL에 추가됩니다. 기본 URL은 API Management 서비스 인스턴스에서 호스트되는 모든 API에 공통으로 사용됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.
 * **protocols**는 API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. 이 자습서에서는 **http** 및 **https**가 나열됩니다.
 * **path**는 API에 대한 접미사입니다. 이 자습서에서는 "myapp"을 사용합니다.
