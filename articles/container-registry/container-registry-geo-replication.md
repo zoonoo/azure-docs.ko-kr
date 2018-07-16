@@ -65,7 +65,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 ![Azure Portal에서 SKU 전환하기](media/container-registry-skus/update-registry-sku.png)
 
-프리미엄 레지스트리의 지리적 복제를 구성하려면 Azure Portal(http://portal.azure.com)에 로그인합니다.
+프리미엄 레지스트리의 지리적 복제를 구성하려면 Azure Portal( http://portal.azure.com )에 로그인합니다.
 
 Azure Container Registry로 이동하여 **복제**:
 

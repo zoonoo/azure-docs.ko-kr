@@ -14,33 +14,41 @@ ms.topic: article
 ms.date: 07/10/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: e2785b0beeab042d4b1ad9a9eb5f545dbb58b8b9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 09d5842f349917be0e5d94d919b0e9630347284b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38487504"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035482"
 ---
 # <a name="install-powershell-for-azure-stack"></a>Azure Stack 용 PowerShell 설치
 
 *적용 대상: Azure Stack 통합 시스템 및 Azure Stack 개발 키트*
 
-Azure Stack 호환 가능한 Azure PowerShell 모듈은 Azure Stack을 사용 해야 합니다. 이 가이드에서는 안내 Azure Stack 용 PowerShell을 설치 하는 데 필요한 단계입니다.
+Azure Stack 호환 가능한 Azure PowerShell 모듈은 Azure Stack을 사용 해야 합니다. 이 가이드에서는 안내 Azure Stack 용 PowerShell을 설치 하는 데 필요한 단계입니다. 다음 단계를 인터넷에 연결 된 환경에 적용 됩니다. 연결이 끊어진된 환경에 대 한 페이지의 아래쪽으로 스크롤하십시오.
 
 이 문서에서는 Azure Stack 용 PowerShell을 설치 하는 지침에 자세한 하 고 있습니다.
 
 > [!Note]  
-> 다음 단계는 PowerShell 5.0이 필요 합니다. 버전을 확인 하려면 $PSVersionTable.PSVersion을 실행 하 고 비교 합니다 **주요** 버전입니다.
+> 다음 단계를 필요 이상 PowerShell 5.0입니다. 버전을 확인 하려면 $PSVersionTable.PSVersion을 실행 하 고 비교 합니다 **주요** 버전입니다. PowerShell 5.0가 없는 경우에 따라 합니다 [링크](https://docs.microsoft.com/en-us/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) PowerShell 5.0으로 업그레이드 합니다.
 
 Azure Stack에 대 한 PowerShell 명령이 PowerShell 갤러리를 통해 설치 됩니다. PSGallery 리포지토리로 등록 된 경우의 유효성을 검사 하 고 관리자 권한 PowerShell 세션을 열고 다음 명령을 실행 하려면 다음 절차를 사용할 수 있습니다.
 
-```PowerShell  
+```PowerShell
+#requires -Version 5
+#requires -RunAsAdministrator
+#requires -Module PowerShellGet
+
+Import-Module -Name PowerShellGet -ErrorAction Stop
+Import-Module -Name PackageManagement -ErrorAction Stop 
+
 Get-PSRepository -Name "PSGallery"
 ```
 
 리포지토리 등록 되지 않은 경우 관리자 권한 PowerShell 세션을 열고 다음 명령을 실행 합니다.
 
-```PowerShell  
+```PowerShell
+Register-PsRepository -Default
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 > [!Note]  
@@ -97,24 +105,22 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 
 1. 인터넷에 연결 되어 하 고 다음 스크립트는 AzureRM 다운로드 및 azurestack의 경우 패키지를 사용 하 여 로컬 컴퓨터에 있는 컴퓨터에 로그인 합니다.
 
-   ```PowerShell  
+   ```PowerShell 
+  #requires -Version 5
+  #requires -RunAsAdministrator
+  #requires -Module PowerShellGet
+  #requires -Module PackageManagement
+  
+  Import-Module -Name PowerShellGet -ErrorAction Stop
+  Import-Module -Name PackageManagement -ErrorAction Stop
+
    $Path = "<Path that is used to save the packages>"
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureRM `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.2.11
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
 
-   Save-Package `
-     -ProviderName NuGet `
-     -Source https://www.powershellgallery.com/api/v2 `
-     -Name AzureStack `
-     -Path $Path `
-     -Force `
-     -RequiredVersion 1.3.0 
+   Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 `
+     -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0 
    ```
 
   > [!Important]  
@@ -127,19 +133,19 @@ Get-Module -ListAvailable | where-Object {$_.Name -like "Azs*"}
 4. 이제이 위치를 기본 저장소로 등록 하 고이 리포지토리에서 AzureRM 및 azurestack의 경우 모듈을 설치 해야 합니다.
 
    ```PowerShell
+   #requires -Version 5
+   #requires -RunAsAdministrator
+   #requires -Module PowerShellGet
+   #requires -Module PackageManagement
+
    $SourceLocation = "<Location on the development kit that contains the PowerShell packages>"
    $RepoName = "MyNuGetSource"
 
-   Register-PSRepository `
-     -Name $RepoName `
-     -SourceLocation $SourceLocation `
-     -InstallationPolicy Trusted
+   Register-PSRepository -Name $RepoName -SourceLocation $SourceLocation  -InstallationPolicy Trusted
 
-   Install-Module AzureRM `
-     -Repository $RepoName
+   Install-Module AzureRM -Repository $RepoName
 
-   Install-Module AzureStack `
-     -Repository $RepoName 
+   Install-Module AzureStack -Repository $RepoName 
    ```
 
 ## <a name="configure-powershell-to-use-a-proxy-server"></a>프록시 서버를 사용 하도록 PowerShell 구성

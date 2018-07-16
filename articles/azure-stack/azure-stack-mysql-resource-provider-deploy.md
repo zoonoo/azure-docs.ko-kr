@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: e4af3dc8aa7a656fd0020285c3f73ce414ba039c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 645fa89bede1311215f1d67c64a2388e4de5c1b1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38305899"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044886"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>Azure Stack에서 MySQL 리소스 공급자 배포
 
@@ -30,23 +30,30 @@ MySQL Server 리소스 공급자를 사용 하 여 Azure Stack 서비스로 MySQ
 Azure Stack MySQL 리소스 공급자를 배포 하기 전에 준비에서 되어야 하는 몇 가지 필수 구성 요소가 있습니다. 이러한 요구 사항에 맞게, 권한 있는 끝점을 VM에 액세스할 수 있는 컴퓨터에서이 문서의 단계를 완료 합니다.
 
 * 따라서 아직 수행 하지 않은 경우 [Azure Stack 등록](.\azure-stack-registration.md) Azure 마켓플레이스 항목을 다운로드할 수 있도록 Azure를 사용 합니다.
-* Azure 및 Azure Stack PowerShell 모듈을 설치 해야 시스템 wher이이 설치를 실행 합니다. 해당 시스템에는.NET 런타임의 최신 버전을 사용 하 여 Windows 10 또는 Windows Server 2016 이미지를 해야 합니다. 참조 [Azure Stack 용 PowerShell 설치](.\azure-stack-powershell-install.md)합니다.
+* 이 설치를 실행할 시스템에서 Azure 및 Azure Stack PowerShell 모듈을 설치 해야 합니다. 해당 시스템에는.NET 런타임의 최신 버전을 사용 하 여 Windows 10 또는 Windows Server 2016 이미지를 해야 합니다. 참조 [Azure Stack 용 PowerShell 설치](.\azure-stack-powershell-install.md)합니다.
 * 다운로드 하 여 Azure Stack marketplace에 필요한 Windows Server core VM을 추가 합니다 **Windows Server 2016 Datacenter Server Core** 이미지입니다.
-
-  >[!NOTE]
-  >Windows 업데이트를 설치 해야 할 경우에 단일을 배치할 수 있습니다. 로컬 종속성 경로에서 MSU 패키지입니다. 둘 이상 있습니다. MSU 파일이, MySQL 리소스 공급자 설치가 실패 합니다.
 
 * 이진 MySQL 리소스 공급자를 다운로드 하 고 임시 디렉터리에 콘텐츠를 추출할 자동 압축 풀기 프로그램을 실행 합니다.
 
   >[!NOTE]
   >인터넷 액세스가 없는 시스템에서 MySQL 공급자를 배포 하려면 다음을 복사 합니다 [mysql 커넥터-net 6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) 파일로 로컬 경로입니다. 사용 하 여 경로 이름을 제공 합니다 **DependencyFilesLocalPath** 매개 변수입니다.
 
-* 리소스 공급자에는 빌드를 최소 해당 Azure Stack에 있습니다. 실행 중인 Azure Stack의 버전에 대 한 올바른 이진 파일을 다운로드 했는지 확인 합니다.
+* 리소스 공급자에는 빌드를 최소 해당 Azure Stack에 있습니다. 실행 중인 Azure Stack의 버전에 대 한 올바른 이진 파일을 다운로드 해야 합니다.
 
     | Azure Stack 버전 | MySQL RP 버전|
     | --- | --- |
     | 버전 1804 (1.0.180513.1)|[MySQL 버전 1.1.24.0 RP](https://aka.ms/azurestackmysqlrp1804) |
-    | 버전 1802 (1.0.180302.1) | [MySQL 버전 1.1.18.0 RP](https://aka.ms/azurestackmysqlrp1802) |
+    | 버전 1802 (1.0.180302.1) | [MySQL 버전 1.1.18.0 RP](https://aka.ms/azurestackmysqlrp1802)|
+    |     |     |
+
+- 데이터 센터 통합 필수 구성 요소가 충족 되는지 확인 합니다.
+
+    |필수 요소|참조|
+    |-----|-----|
+    |조건부 DNS 전달이 올바르게 설정 됩니다.|[Azure Stack 데이터 센터 통합-DNS](azure-stack-integrate-dns.md)|
+    |리소스 공급자에 대 한 인바운드 포트가 열려 있습니다.|[Azure 데이터 센터 통합 스택-끝점 게시](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI 인증서 주체 및 SAN이 올바르게 설정 됩니다.|[Azure Stack 배포 필수 PKI 필수 조건](azure-stack-pki-certs.md#mandatory-certificates)<br>[Azure Stack 배포 PaaS 인증서 필수 구성 요소](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
 ### <a name="certificates"></a>인증서
 
@@ -56,7 +63,7 @@ _통합된 시스템 설치용_합니다. 선택적 PaaS 인증서 섹션에서 
 
 설치 된 모든 필수 구성 요소를 가져온 후 실행 합니다 **DeployMySqlProvider.ps1** MYSQL 리소스 공급자를 배포 하는 스크립트입니다. Azure Stack의 버전에 대 한 다운로드 한 MySQL 리소스 공급자 이진 파일의 일부로 DeployMySqlProvider.ps1 스크립트를 추출 합니다.
 
-MySQL 리소스 공급자를 배포 하려면 관리자 권한으로 새 PowerShell 콘솔 창을 열고 MySQL 리소스 공급자 이진 파일의 압축을 푼 디렉터리로 변경 합니다. 새 PowerShell 창을 사용 하 여 이미 로드 되어 있는 PowerShell 모듈에 의해 발생 하는 잠재적인 문제를 방지 하는 것이 좋습니다.
+MySQL 리소스 공급자를 배포 하려면 (PowerShell ISE 없습니다 ()를 관리자 권한으로 새 PowerShell 창을 열고 MySQL 리소스 공급자 이진 파일의 압축을 푼 디렉터리로 변경 합니다. 새 PowerShell 창을 사용 하 여 이미 로드 되어 있는 PowerShell 모듈에 의해 발생 하는 잠재적인 문제를 방지 하는 것이 좋습니다.
 
 실행 합니다 **DeployMySqlProvider.ps1** 다음 작업을 완료 하는 스크립트:
 
@@ -65,8 +72,7 @@ MySQL 리소스 공급자를 배포 하려면 관리자 권한으로 새 PowerSh
 * 호스팅 서버를 배포에 대 한 갤러리 패키지를 게시 합니다.
 * 다운로드 한 다음 MySQL 리소스 공급자를 설치는 Windows Server 2016 core 이미지를 사용 하 여 VM을 배포 합니다.
 * 리소스 공급자 VM에 매핑되는 로컬 DNS 레코드를 등록 합니다.
-* 연산자 및 사용자 계정에 대 한 로컬 Azure Resource Manager로 리소스 공급자를 등록합니다.
-* 필요에 따라 리소스 공급자 설치 중 Windows Server의 단일 업데이트를 설치합니다.
+* 연산자 계정에 대 한 로컬 Azure Resource Manager로 리소스 공급자를 등록합니다.
 
 > [!NOTE]
 > MySQL 리소스 공급자 배포를 시작할 때의 **system.local.mysqladapter** 리소스 그룹이 생성 됩니다. 이 리소스 그룹 하는 데 필요한 배포 완료 후 75 분까지 걸릴 수 있습니다.

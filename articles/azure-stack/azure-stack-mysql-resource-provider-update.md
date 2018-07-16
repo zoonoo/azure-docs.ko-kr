@@ -1,6 +1,6 @@
 ---
-title: AzureStack에 MySQL 어댑터 RP에서 제공 하는 데이터베이스를 사용 하 여 | Microsoft Docs
-description: 만들고 어댑터 MySQL 리소스 공급자를 사용 하 여 사용자를 프로 비전 하는 MySQL 데이터베이스를 관리 하는 방법
+title: Azure Stack MySQL 리소스 공급자를 업데이트 하는 중 | Microsoft Docs
+description: Azure Stack MySQL 리소스 공급자를 업데이트 하는 방법을 알아봅니다.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,59 +11,100 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 0a900d75315fd0015633c036877faef84c48d65b
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031833"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049598"
 ---
-# <a name="create-mysql-databases"></a>MySQL 데이터베이스 만들기
+# <a name="update-the-mysql-resource-provider"></a>MySQL 리소스 공급자 업데이트 
 
-만들 수 있으며 사용자 포털에서 데이터베이스 셀프 서비스 관리. Azure 스택 사용자 구독 MySQL 데이터베이스 서비스를 포함 하는 제품에 필요 합니다.
+*적용 대상: Azure Stack 통합 시스템입니다.*
 
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>MySQL 데이터베이스를 만들고 배포를 테스트 합니다.
+Azure Stack 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 가능한 한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다. 
 
-1. Azure 스택 사용자 포털에 로그인 합니다.
-2. 선택 **새 +** > **데이터 + 저장소** > **MySQL 데이터베이스** > **추가**합니다.
-3. 아래 **MySQL 데이터베이스 만들기**데이터베이스 이름을 입력 하 고 사용자 환경의 필요에 따라 다른 설정을 구성 합니다.
+>[!IMPORTANT]
+>릴리스되는 순서 대로 업데이트를 설치 해야 합니다. 버전을 건너뛸 수 없습니다. 버전 목록 가리킵니다 [리소스 공급자 필수 구성 요소 배포](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)합니다.
 
-    ![테스트 MySQL 데이터베이스 만들기](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>MySQL 리소스 공급자 어댑터 (통합된 시스템에만 해당) 업데이트
+Azure Stack 빌드를 업데이트할 때 새 SQL 리소스 공급자 어댑터를 해제 될 수 있습니다. 기존 어댑터를 작동 하는 동안에 가능한 한 빨리 최신 빌드를 업데이트 하는 것이 좋습니다.  
+ 
+사용 하는 리소스 공급자 업데이트를 **UpdateMySQLProvider.ps1** 스크립트입니다. 프로세스는에 설명 된 대로 리소스 공급자를 설치 하는 데 사용 하는 프로세스와 유사 합니다 [리소스 공급자 배포](#deploy-the-resource-provider) 이 문서의 섹션입니다. 스크립트는 리소스 공급자의 다운로드에 포함 되어 있습니다. 
 
-4. 아래 **Create Database**선택, **SKU**합니다. 아래 **MySQL SKU 선택**, 데이터베이스에 대 한 SKU를 선택 합니다.
+합니다 **UpdateMySQLProvider.ps1** 스크립트 최신 리소스 공급자 코드를 사용 하 여 새 VM을 만들고 설정을 기존 VM에서 새 VM을 마이그레이션합니다. 필요한 DNS 레코드 및 설정을 마이그레이션하는 데이터베이스 및 호스팅 서버 정보를 포함 됩니다. 
 
-    ![MySQL SKU를 선택 합니다.](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+>[!NOTE]
+>Marketplace 관리에서 최신 Windows Server 2016 Core 이미지를 다운로드 하는 것이 좋습니다. 업데이트를 설치 해야 하는 경우 배치할 수 있습니다는 **단일** 로컬 종속성 경로에서 MSU 패키지 있습니다. 스크립트는이 위치에 MSU 파일이 둘 이상 있으면 실패 합니다.
 
-    >[!Note]
-    >호스팅 서버는 Azure 스택에 추가 되 면 SKU는 할당 하는 있습니다. SKU의 서버를 호스팅하는 풀에서 데이터베이스가 만들어집니다.
+DeployMySqlProvider.ps1 스크립트에 대 한 설명 된 동일한 인수를 사용을 해야 하는 스크립트입니다. 여기에 인증서도 제공 합니다.  
 
-5. 아래 **로그인**선택, ***필요한 설정 구성***합니다.
-6. 아래 **로그인을 선택**를 선택 하거나 기존 로그인을 선택할 수 있습니다 **새 로그인을 만듭니다 +** 새 로그인을 설정 하 합니다.  입력 한 **데이터베이스 로그인** 이름 및 **암호**를 선택한 후 **확인**합니다.
+다음은의 예는 *UpdateMySQLProvider.ps1* PowerShell 프롬프트에서 실행할 수 있는 스크립트입니다. 계정 정보 및 필요에 따라 암호를 변경 해야 합니다.  
 
-    ![새 데이터베이스 로그인 생성](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
+> [!NOTE] 
+> 업데이트 프로세스를 통합된 시스템에만 적용 됩니다. 
 
-    >[!NOTE]
-    >데이터베이스 로그인 이름의 길이 MySQL 5.7 32 자를 초과할 수 없습니다. 이전 버전에서 16 자를 초과할 수는 없습니다.
+```powershell 
+# Install the AzureRM.Bootstrapper module and set the profile. 
+Install-Module -Name AzureRm.BootStrapper -Force 
+Use-AzureRmProfile -Profile 2017-03-09-profile 
 
-7. 선택 **만들기** 데이터베이스 설치를 마칩니다.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
+$domain = "AzureStack" 
 
-데이터베이스를 배포한 후 기록해는 **연결 문자열** 아래 **Essentials**합니다. MySQL 데이터베이스에 액세스 하는 모든 응용 프로그램에서이 문자열을 사용할 수 있습니다.
+# For integrated systems, use the IP address of one of the ERCS virtual machines 
+$privilegedEndpoint = "AzS-ERCS01" 
 
-![MySQL 데이터베이스에 대 한 연결 문자열을 가져옵니다.](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
+# Point to the directory where the resource provider installation files were extracted. 
+$tempDir = 'C:\TEMP\MYSQLRP' 
 
-## <a name="update-the-administrative-password"></a>관리자 암호를 업데이트 합니다.
+# The service admin account (can be Azure Active Directory or Active Directory Federation Services). 
+$serviceAdmin = "admin@mydomain.onmicrosoft.com" 
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass) 
+ 
+# Set credentials for the new resource provider VM. 
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass) 
+ 
+# And the cloudadmin credential required for privileged endpoint access. 
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass) 
 
-MySQL 서버 인스턴스에서 변경 하 여 암호를 수정할 수 있습니다.
+# Change the following as appropriate. 
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force 
+ 
+# Change directory to the folder where you extracted the installation files. 
+# Then adjust the endpoints. 
+$tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds ` 
+-VMLocalCredential $vmLocalAdminCreds ` 
+-CloudAdminCredential $cloudAdminCreds ` 
+-PrivilegedEndpoint $privilegedEndpoint ` 
+-DefaultSSLCertificatePassword $PfxPass ` 
+-DependencyFilesLocalPath $tempDir\cert ` 
+-AcceptLicense 
+``` 
+ 
+### <a name="updatemysqlproviderps1-parameters"></a>UpdateMySQLProvider.ps1 매개 변수 
+명령줄에서 이러한 매개 변수를 지정할 수 있습니다. 그렇지 않으면, 모든 매개 변수 유효성 검사에 실패 하는 경우 필수 매개 변수를 제공 하 라는 메시지가 표시 됩니다. 
 
-1. 선택 **관리 리소스** > **MySQL 호스팅 서버**합니다. 호스팅 서버를 선택 합니다.
-2. 아래 **설정**선택, **암호**합니다.
-3. 아래 **암호**, 새 암호를 입력 한 다음 선택 **저장**합니다.
-
-![관리자 암호를 업데이트 합니다.](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+| 매개 변수 이름 | 설명 | 주석 또는 기본 값 | 
+| --- | --- | --- | 
+| **CloudAdminCredential** | 권한 있는 끝점에 액세스 하는 데 필요한 클라우드 관리자에 대 한 자격 증명입니다. | _필수_ | 
+| **AzCredential** | Azure Stack에 대 한 자격 증명을 서비스 관리자 계정입니다. Azure Stack 배포에 사용한 것과 동일한 자격 증명을 사용 합니다. | _필수_ | 
+| **VMLocalCredential** |SQL 리소스 공급자 VM의 로컬 관리자 계정의 자격 증명입니다. | _필수_ | 
+| **PrivilegedEndpoint** | IP 주소 또는 권한 있는 끝점의 DNS 이름입니다. |  _필수_ | 
+| **DependencyFilesLocalPath** | 인증서.pfx 파일에서이 디렉터리에 배치 되어야 합니다. | _선택적_ (_필수_ 다중 노드) | 
+| **DefaultSSLCertificatePassword** | .Pfx 인증서에 대 한 암호입니다. | _필수_ | 
+| **MaxRetryCount** | 오류가 발생 하는 경우 각 작업을 다시 시도 하려는 횟수입니다.| 2 | 
+| **RetryDuration** | 시간 (초)에서 재시도 사이의 시간 제한 간격입니다. | 120 | 
+| **제거** | 리소스 공급자와 연결 된 모든 리소스 (아래 참고 참조)를 제거 합니다. | 아니요 | 
+| **DebugMode** | 실패 한 경우 자동 정리를 방지합니다. | 아니요 | 
+| **AcceptLicense** | GPL 라이선스에 동의 하는 메시지를 건너뜁니다.  (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | | 
+ 
 
 ## <a name="next-steps"></a>다음 단계
-
 [MySQL 리소스 공급자를 유지 관리](azure-stack-mysql-resource-provider-maintain.md)

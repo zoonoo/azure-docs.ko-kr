@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-응용 프로그램을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000)에서 Node.js 응용 프로그램에 액세스할 수 있습니다.
+응용 프로그램을 성공적으로 로컬 클러스터에 게시한 후에는 Node.js 응용 프로그램의 서비스 매니페스트에 입력한 포트(예: http://localhost:3000 )에서 Node.js 응용 프로그램에 액세스할 수 있습니다.
 
 이 자습서에서는 간편하게 두 기존 응용 프로그램을 하나의 서버 패브릭 응용 프로그램으로 패키지하는 방법을 알아보았습니다. 또한 고가용성 및 상태 시스템 통합 같은 서비스 패브릭의 장점을 활용할 수 있도록 응용 프로그램을 서비스 패브릭에 배포하는 방법도 알아보았습니다.
 
