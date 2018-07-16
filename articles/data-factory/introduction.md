@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: e4e90082f483720699fb029db33bc8110173c0aa
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: bc53d245dd814b6f9bb4edab89ddcbf841f16a8f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082957"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38579180"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 소개 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -120,6 +120,10 @@ Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데�
 Data Factory는 특정 지역에서만 사용할 수 있지만, 여러 지역에서 Data Factory의 데이터 이동을 지원하는 서비스를 전역적으로 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 자체 호스팅 Integration Runtime이 데이터를 대신 이동합니다.
 
 예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 계산 환경이 유럽 서부 지역 외부에서 실행되고 있다고 가정해보겠습니다. 미국 동부 또는 미국 동부 2에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있으며, 이를 사용하여 유럽 서부의 계산 환경에서 작업을 예약할 수 있습니다. 데이터 팩터리가 계산 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 계산 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
+
+## <a name="accessibility"></a>접근성
+
+Azure Portal에서 Data Factory 사용자 환경에 액세스할 수 있습니다.
 
 ## <a name="compare-with-version-1"></a>버전 1과 비교
 Data Factory 서비스 버전 1과 현재 버전 사이의 차이점 목록은 [버전 1과 비교](compare-versions.md)를 참조하세요. 

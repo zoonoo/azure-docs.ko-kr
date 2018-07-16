@@ -12,13 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/15/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: a7a4391b436af4ffa303741397f0be7abf0186fb
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722850"
 ---
 # <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
 
@@ -52,6 +53,8 @@ ms.lasthandoff: 05/10/2018
 
     만드는 동안 또는 나중에 **설정** 탭으로 이동하여 API 값을 설정할 수 있습니다. 필드 옆에 있는 빨간색 별표는 필수 필드임을 나타냅니다.
 
+    첫 번째 API를 만들려면 아래 테이블에서 값을 사용합니다.
+
     |설정|값|설명|
     |---|---|---|
     |**OpenAPI 사양**|http://conferenceapi.azurewebsites.net?format=json|API를 구현하는 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.|
@@ -74,19 +77,21 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 1. 이전 단계에서(**API** 탭에서) 만든 API를 선택합니다.
 2. **테스트** 탭을 누릅니다.  ![API 테스트](./media/api-management-get-started/test-api.png)
 3. **GetSpeakers**를 클릭합니다.
-    페이지에는 쿼리 매개 변수에 대한 필드가 표시되지만 이 경우에는 아무 필드도 표시되지 않습니다. 페이지에는 헤더에 대한 필드도 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. 키가 자동으로 채워집니다.
+    페이지에는 쿼리 매개 변수에 대한 필드가 표시되며, 이 경우에는 헤더 필드만 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. 키가 자동으로 채워집니다.
 4. **보내기**를 누릅니다.
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
 
 ## <a name="call-operation"> </a>개발자 포털에서 작업 호출
 
-**개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다. 
+**개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다.
 
-1. **데모 회의 API**를 선택합니다.
-2. **GetSpeakers**를 클릭합니다.
+1. **개발자 포털**로 이동합니다.
+![개발자 포털](./media/api-management-get-started/developer-portal.png)
+
+2. **API**를 선택하고 **데모 회의 API** 및 **GetSpeakers**를 차례로 클릭합니다.
     
-    페이지에는 쿼리 매개 변수에 대한 필드가 표시되지만 이 경우에는 아무 필드도 표시되지 않습니다. 페이지에는 헤더에 대한 필드도 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다.
+    페이지에는 쿼리 매개 변수에 대한 필드가 표시되며, 이 경우에는 헤더 필드만 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다.
 3. **시도**를 누릅니다.
 4. **보내기**를 누릅니다.
     

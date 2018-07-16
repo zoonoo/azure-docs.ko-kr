@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.date: 06/14/2018
 ms.author: srinia
-ms.openlocfilehash: b2cbf7501b3c5006c7504c7af7d70c14035cfc74
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113360"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972165"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Elastic Database 작업을 사용하여 데이터베이스 그룹 관리
 
@@ -38,7 +38,7 @@ ms.locfileid: "37113360"
 ### <a name="collect-data-for-reporting"></a>보고에 대한 데이터 수집
 
 - Azure SQL Database의 컬렉션에서 단일 대상 테이블로 데이터를 집계합니다.
-- 큰 데이터베이스 집합에 대해 더 오래 실행되는 데이터 처리 쿼리(예: 고객 원격 분석 수집)를 실행합니다. 추가 분석을 위해 결과가 단일 대상 테이블에 수집됩니다.
+- 큰 데이터베이스 집합에 대해 더 오래 실행되는 데이터 처리 쿼리(예: 고객 원격 분석 수집) 실행. 추가 분석을 위해 결과가 단일 대상 테이블에 수집됩니다.
 
 ### <a name="reduce-overhead"></a>오버헤드 줄이기
 

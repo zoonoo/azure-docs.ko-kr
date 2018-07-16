@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/22/2018
 ms.author: tamram
-ms.openlocfilehash: 0074e0a66ae842d798d6fd8cd2f4392644d873fa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 157fd47861857fedbe4886407ba464f886ef1be3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650760"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767139"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-net"></a>빠른 시작: .NET을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -63,7 +63,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
 
-응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청을 인증하는 데 사용합니다.
+응용 프로그램을 실행하려면 저장소 계정에 대한 연결 문자열을 제공해야 합니다. 이 응용 프로그램 예제는 환경 변수의 연결 문자열을 읽어서 Azure Storage에 대한 요청 권한을 부여하는 데 사용합니다.
 
 연결 문자열을 복사한 후 응용 프로그램을 실행 중인 로컬 컴퓨터의 새 환경 변수에 씁니다. 환경 변수를 설정하려면 콘솔 창을 열고 사용 중인 운영 체제의 지침을 따릅니다. `<yourconnectionstring>`을 실제 연결 문자열로 바꿉니다.
 

@@ -12,20 +12,18 @@ ms.workload: na
 ms.date: 06/21/2018
 ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 515c9917add27663e8d145fee3e1effc89291bc0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 0c8734bec1ce14a3a9692efa3a1fcf975067953a
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37033916"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38968905"
 ---
-<!-- **TODO** Update publish config with repo paths before publishing! -->
-
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 장치 펌웨어 업데이트 프로세스 구현
 
 IoT Hub에 연결된 장치에서 펌웨어를 업데이트해야 합니다. 예를 들어 펌웨어에 새로운 기능을 추가하거나 보안 패치를 적용하려고 합니다. 여러 IoT 시나리오에서는 물리적으로 방문한 다음, 장치에 펌웨어 업데이트를 수동으로 적용하는 것은 실용적이지 않습니다. 이 자습서에서는 허브에 연결된 백 엔드 응용 프로그램을 통해 원격으로 펌웨어 업데이트 프로세스를 시작하고 모니터링할 수 있는 방법을 보여줍니다.
 
-펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 응용 프로그램은 IoT Hub에서 _구성_을 만듭니다. Azure IoT Hub 자동 장치 관리는 이 구성을 사용하여 모든 냉각기 장치에 대한 일련의 _장치 쌍 desired 속성_을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 장치가 펌웨어 업데이트 프로세스를 실행하는 동안 _장치 쌍 reported 속성_을 사용하여 백 엔드 응용 프로그램에 해당 상태를 보고합니다. 백 엔드 응용 프로그램은 구성을 사용하여 장치에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
+펌웨어 업데이트 프로세스를 만들고 모니터링하기 위해 이 자습서의 백 엔드 응용 프로그램은 IoT Hub에서 _구성_을 만듭니다. IoT Hub [자동 장치 관리](iot-hub-auto-device-config.md)는 이 구성을 사용하여 모든 냉각기 장치에 대한 일련의 _장치 쌍 desired 속성_을 업데이트합니다. desired 속성은 필요한 펌웨어 업데이트의 세부 정보를 지정합니다. 냉각기 장치가 펌웨어 업데이트 프로세스를 실행하는 동안 _장치 쌍 reported 속성_을 사용하여 백 엔드 응용 프로그램에 해당 상태를 보고합니다. 백 엔드 응용 프로그램은 구성을 사용하여 장치에서 전송된 reported 속성을 모니터링하고 완료될 때까지 펌웨어 업데이트 프로세스를 추적할 수 있습니다.
 
 ![펌웨어 업데이트 프로세스](media/tutorial-firmware-update/Process.png)
 
@@ -101,7 +99,7 @@ Windows 명령 프롬프트 또는 Powershell 프롬프트에서 이러한 명�
 
 ## <a name="start-the-firmware-update"></a>펌웨어 업데이트 시작
 
-백 엔드 응용 프로그램에서 자동 장치 관리 구성을 만들어서 냉각기의 **devicetype**으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
+백 엔드 응용 프로그램에서 [자동 장치 관리 구성](iot-hub-auto-device-config.md#create-a-configuration)을 만들어서 냉각기의 **devicetype**으로 태그로 지정된 모든 장치에서 펌웨어 업데이트 프로세스를 시작합니다. 이 섹션에서 수행하는 방법은 다음과 같습니다.
 
 * 백 엔드 응용 프로그램의 구성을 만듭니다.
 * 완료할 작업을 모니터링합니다.

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: c1277484d8f8b3073ac15534110b01903c265318
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795886"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38453419"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API를 사용한 .NET Framework 또는 Core 응용 프로그램 빌드
 
@@ -86,7 +86,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
     private static int port = 443;
     private static string authKey = "your-authentication-key";
     private static string database = "your-database";
-    private static string collection = "your-collection-or-graph";
+    private static string collection = "your-graph-container";
     ```
 
 * 실행할 Gremlin 명령은 사전에 나열됩니다(줄 26).
@@ -175,7 +175,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
     `private static string database = "your-database";`
 
-5. 마찬가지로, 위에서 만든 컬렉션 정보를 사용하여 줄 23의 `collection` 변수 안에 컬렉션(그래프 이름이기도 함)을 붙여넣습니다. 
+5. 마찬가지로, 위에서 만든 컨테이너 정보를 사용하여 줄 23의 `collection` 변수 안에 컬렉션(그래프 이름이기도 함)을 붙여넣습니다. 
 
     `private static string collection = "your-collection-or-graph";`
 
@@ -193,7 +193,7 @@ Ctrl+F5를 눌러 응용 프로그램을 실행합니다. 응용 프로그램이
 
 이제 Azure Portal에서 데이터 탐색기로 돌아가고 새 그래프 데이터를 찾아 쿼리합니다.
 
-1. [데이터 탐색기]에서 새 데이터베이스가 그래프 창에 표시됩니다. 데이터베이스 및 컬렉션 노드를 확장한 다음, **그래프**를 클릭합니다.
+1. [데이터 탐색기]에서 새 데이터베이스가 그래프 창에 표시됩니다. 데이터베이스 및 컨테이너 노드를 확장한 다음, **그래프**를 클릭합니다.
 
 2. **필터 적용** 단추를 클릭하고 기본 쿼리를 사용하여 그래프의 모든 꼭짓점을 봅니다. 샘플 앱에 의해 생성된 데이터는 그래프 창에 표시됩니다.
 

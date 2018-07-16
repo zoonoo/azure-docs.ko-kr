@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 701ab041eb603a1a06025d5bb43964880353ada9
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867496"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972984"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>로그인 화면에서 Azure AD 암호 재설정
 
@@ -28,7 +28,7 @@ Azure AD SSPR(셀프 서비스 암호 재설정)을 이미 배포했지만 사�
 * Windows 10 2018년 4월 업데이트 또는 [Azure AD에 조인된](../device-management-azure-portal.md) 또는 [하이브리드 Azure AD에 조인된](../device-management-hybrid-azuread-joined-devices-setup.md) 최신 클라이언트.
 * Azure AD 셀프 서비스 암호 재설정을 사용하도록 설정.
 * 다음 방법 중 하나를 통해 암호 재설정 링크를 사용하도록 설정을 구성하고 배포.
-   * [Intune 장치 구성 프로필](tutorial-sspr-windows.md#configure-reset-password-link-using-intune)
+   * [Intune 장치 구성 프로필](tutorial-sspr-windows.md#configure-reset-password-link-using-intune). 이 메서드는 장치의 Intune 등록이 필요합니다.
    * [레지스트리 키](tutorial-sspr-windows.md#configure-reset-password-link-using-the-registry)
 
 ## <a name="configure-reset-password-link-using-intune"></a>Intune을 사용하여 암호 재설정 링크 구성
@@ -66,7 +66,7 @@ Azure AD SSPR(셀프 서비스 암호 재설정)을 이미 배포했지만 사�
    * **선택** 클릭
 4. **만들기**
 
-그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../active-directory-manage-groups.md) 문서에서 찾을 수 있습니다.
+그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](../fundamentals/active-directory-manage-groups.md) 문서에서 찾을 수 있습니다.
 
 #### <a name="assign-device-configuration-policy-to-device-group"></a>장치 그룹에 장치 구성 정책 할당
 

@@ -4,15 +4,15 @@ description: Azure Migrate 서비스를 사용하여 Azure로의 마이그레이
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 07/09/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 71d4bc0aa1ea2658c4cd40834a769eaaac649bc3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228376"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970788"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -33,10 +33,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ## <a name="prerequisites"></a>필수 조건
 
 - **VMware**: 마이그레이션하려는 VM은 버전 5.5, 6.0 또는 6.5를 실행하는 vCenter Server에서 관리해야 합니다. 또한 수집기 VM을 배포하려면 5.0 이상을 실행하는 ESXi 호스트가 하나 필요합니다.
-
-> [!NOTE]
-> Hyper-V에 대한 지원은 준비 중이며 곧 사용할 수 있습니다.
-
 - **vCenter Server 계정**: vCenter Server에 액세스하려면 읽기 전용 계정이 필요합니다. Azure Migrate는 이 계정을 사용하여 온-프레미스 VM을 검색합니다.
 - **사용 권한**: vCenter Server에서 .OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다.
 - **통계 구성**: vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 수준 3 평가보다 낮게 작동한다면, 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우 권장되는 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 수행됩니다.
@@ -49,6 +45,7 @@ Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware �
 - 권한: 데이터 센터 개체 –> 자식 개체에 전파, role=Read-only
 - 세부 정보: 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.
 - 액세스를 제한하려는 경우 자식에 전파 개체를 사용하여 액세스 권한 없음 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
+
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -85,6 +82,14 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 생성된 해시는 이러한 설정에 일치해야 합니다.
+
+  OVA 버전 1.0.9.12의 경우
+
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
   OVA 버전 1.0.9.8의 경우
 
@@ -143,7 +148,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 5. Azure Migrate Collector에서 **필수 조건 설정**을 엽니다.
     - 사용 조건에 동의하고 타사 정보를 읽습니다.
     - 수집기는 VM이 인터넷에 액세스를 수 있는지 확인합니다.
-    - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다. 인터넷 연결 요구 사항 및 수집기가 액세스하는 URL 목록에 대해 [자세히 알아보세요](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#internet-connectivity).
+    - VM이 프록시를 통해 인터넷에 액세스하는 경우 **프록시 설정**을 클릭하고, 프록시 주소 및 수신 대기 포트를 지정합니다. 프록시에 인증이 필요한 경우 자격 증명을 지정합니다. 인터넷 연결 요구 사항 및 수집기가 액세스하는 URL 목록에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity).
 
     > [!NOTE]
     > 프록시 주소는 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 입력해야 합니다. HTTP 프록시만 지원됩니다.
@@ -157,10 +162,12 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
     - **컬렉션 범위**에서 VM 검색에 대한 범위를 선택합니다. 수집기는 지정된 범위 내의 VM만 검색할 수 있습니다. 범위를 특정 폴더, 데이터 센터 또는 클러스터로 설정할 수 있습니다. VM은 1500대 미만이어야 합니다. 더 큰 환경을 검색하는 방법을 [자세히 알아보세요](how-to-scale-assessment.md).
 
 7. **마이그레이션 프로젝트 지정**에서 Azure Migrate 프로젝트 ID를 지정하고 포털에서 복사한 키를 지정합니다. 해당 항목을 복사하지 않은 경우 수집기 VM에서 Azure Portal을 엽니다. 프로젝트 **개요** 페이지에서 **컴퓨터 검색**을 클릭하고 값을 복사합니다.  
-8. **컬렉션 진행률 보기**에서 검색을 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다. Azure Migrate Collector가 어떤 데이터를 수집하는지 [자세히 알아보세요](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#what-data-is-collected).
+8. **컬렉션 진행률 보기**에서 검색을 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다. Azure Migrate Collector가 어떤 데이터를 수집하는지 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected).
 
 > [!NOTE]
-> 수집기는 "영어(미국)"만을 운영 체제 언어와 수집기 인터페이스 언어로 지원합니다. 더 많은 언어에 대한 지원이 곧 제공될 예정입니다.
+> 수집기는 "영어(미국)"만을 운영 체제 언어와 수집기 인터페이스 언어로 지원합니다.
+> 액세스하려는 컴퓨터에서 설정을 변경하는 경우 평가를 실행하기 전에 검색을 다시 트리거합니다. 수집기에서 이 작업을 수행하려면 **수집 다시 시작** 옵션을 사용합니다. 컬렉션 완료된 후 업데이트된 평가 결과를 얻으려면 포털에서 평가에 대한 **다시 계산** 옵션을 선택합니다.
+
 
 
 ### <a name="verify-vms-in-the-portal"></a>포털에서 VM을 확인합니다.

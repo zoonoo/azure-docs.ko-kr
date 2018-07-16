@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41dfafe7ce8287d1bacac672209824c1c32067e2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 89120daf971586e8c2e360e9b6b064b10b14f707
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161298"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723054"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>CLI 예: Azure Media Services 계정 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "34161298"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0.20 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드를 해야 할 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="example-script"></a>예제 스크립트
 
