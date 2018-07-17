@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 3ef910cc588b095b0c10f5e0928d7fadf17113f6
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989812"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091775"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 업데이트
 
@@ -78,7 +78,7 @@ Azure Stack 1805 업데이트 빌드 번호는 **1.1805.1.47**합니다.
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제   
 - 1805 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 *오류 – FaultType UserAccounts.New 템플릿을 누락 되었습니다.*  이러한 경고를 안전 하 게 무시할 수 있습니다. 이러한 경고 1805 업데이트가 완료 된 후 자동으로 닫힙니다.   
 
-- <!-- 2489559 - IS --> 이 업데이트를 설치 하는 동안 가상 컴퓨터를 만들 하려고 하지 마십시오. SeSe 업데이트를 관리 하는 방법에 대 한 자세한 내용은 [Azure Stack 개요에 대 한 업데이트 관리](azure-stack-updates.md#plan-for-updates)합니다.
+- <!-- 2489559 - IS --> 이 업데이트를 설치 하는 동안 가상 컴퓨터를 만들 하려고 하지 마십시오. 업데이트를 관리 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Stack 개요에 대 한 업데이트 관리](azure-stack-updates.md#plan-for-updates)합니다.
 
 
 ### <a name="post-update-steps"></a>업데이트 후 단계

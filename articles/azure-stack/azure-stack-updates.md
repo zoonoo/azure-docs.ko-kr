@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: e80c114b06390a72dcdcc614dffaa97b9761381e
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988911"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069862"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack 개요에 대 한 업데이트 관리
 
 *적용 대상: Azure Stack 통합 시스템*
 
-새 업데이트 패키지 일반적으로 Azure Stack 통합 시스템에 대 한 각 월의 네 번째 화요일 주위를 놓습니다. 업데이트 알림 조직에 도달 하는 특정 알림 프로세스에 대 한 OEM을 요청 합니다. 아래에서이 문서 라이브러리에서 확인할 수 있습니다 **개요** > **릴리스** 현재 지원 되는 릴리스에 대 한 정보에 대 한 합니다. 
+Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 한 각 월의 네 번째 화요일 주위를 놓습니다. 업데이트 알림 조직에 도달 하는 특정 알림 프로세스에 대 한 OEM을 요청 합니다. 아래에서이 문서 라이브러리에서 확인할 수 있습니다 **개요** > **릴리스** 현재 지원 되는 릴리스에 대 한 정보에 대 한 합니다. 
 
 각 릴리스의 Microsoft 소프트웨어 업데이트는 단일 업데이트 패키지로 제공 됩니다. Azure Stack 운영자로 가져올 수 있습니다, 설치 및 이러한의 설치 진행률을 모니터링 관리자 포털에서 패키지를 업데이트 합니다. 
 
-원래 장비 제조업체 (OEM) 하드웨어 공급 업체는 또한 드라이버 및 펌웨어 업데이트 등의 업데이트를 릴리스 했습니다. 이러한 업데이트 OEM 하드웨어 공급 업체에서 별도 패키지로 제공 되 고 Microsoft 업데이트에서 별도로 관리 됩니다.
+원래 장비 제조업체 (OEM) 하드웨어 공급 업체는 또한 드라이버 및 펌웨어 업데이트 등의 업데이트를 릴리스 했습니다. 이러한 업데이트, OEM 하드웨어 공급 업체에서 별도 패키지로 전달 되는 동안 가져온, 설치 하며 업데이트 패키지 가져온, 설치 및 관리 되는 Microsoft에서 동일한 방식으로 업데이트 패키지를 관리 합니다.
 
 지원 시스템을 유지 하려면 특정 버전 수준으로 업데이트 하는 Azure Stack을 유지 해야 합니다. 검토 하 고 있는지 확인 합니다 [Azure Stack 서비스 정책](azure-stack-servicing-policy.md)합니다.
 
