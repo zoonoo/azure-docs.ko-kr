@@ -42,9 +42,9 @@
 ### [액세스 검토 시작](pim-resource-roles-start-access-review.md)
 ### [액세스 검토 완료](pim-resource-roles-complete-access-review.md)
 
-# FAQ
-## 리소스 역할에 대한 PIM
-### [할당 유형](pim-resource-roles-eligible-visibility.md)
+# 개념
+## [할당 형식](pim-resource-roles-eligible-visibility.md)
+## [전자 메일 알림](pim-email-notifications.md)
 
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=active-directory)

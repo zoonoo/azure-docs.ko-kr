@@ -219,10 +219,9 @@
         - name: PaaS 웹 응용 프로그램
           href: ./blueprints/uknhs-paaswa-overview.md
     - name: 영국 공식
-      href: ./blueprints/uk-official-three-tier-applications-overview.md
       items:
-        - name: 원칙 개요
-          href: ./blueprints/uk-official-three-tier-applications-principles-overview.md
+        - name: IaaS 웹 응용 프로그램
+          href: ./blueprints/ukofficial-iaaswa-overview.md
     - name: HIPAA/HITRUST 상태 데이터 및 AI
       href: ./blueprints/azure-health.md
 - name: 백서
