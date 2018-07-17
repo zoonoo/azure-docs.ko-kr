@@ -241,11 +241,9 @@
 # 관련 항목
 ## 솔루션 
 ### [IoT 솔루션 가속기](/azure/iot-suite) 
-### 
-  [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## 플랫폼 서비스 
-### 
-  [IoT Hub](/azure/iot-hub) 
+### [IoT Hub](/azure/iot-hub) 
 ### [IoT Hub Device Provisioning 서비스](/azure/iot-dps)
 ### [IoT 서비스 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
 ### [Maps](/azure/azure-maps) 
