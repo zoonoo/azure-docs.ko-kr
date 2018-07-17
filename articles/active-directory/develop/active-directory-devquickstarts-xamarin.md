@@ -93,7 +93,7 @@ Azure AD에 앱이 있으므로 ADAL을 설치하고 ID 관련 코드를 작성�
 
   * *테넌트*는 Azure AD 테넌트의 도메인(예: contoso.onmicrosoft.com)입니다.
   * *clientId*는 포털에서 복사한 앱의 클라이언트 ID입니다.
-  * *returnUri*는 포털에 입력한 리디렉션 URI(예: http://DirectorySearcher)입니다.
+  * *returnUri*는 포털에 입력한 리디렉션 URI(예: http://DirectorySearcher) 입니다.
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>4단계: ADAL을 사용하여 Azure AD에서 토큰 가져오기
 거의 모든 앱 인증 논리가 `DirectorySearcher.SearchByAlias(...)`에 있습니다. 플랫폼별 프로젝트에서는 `DirectorySearcher` PCL에 컨텍스트 매개 변수를 전달하기만 하면 됩니다.
