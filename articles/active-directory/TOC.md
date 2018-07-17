@@ -143,9 +143,9 @@
 ## 암호 관리
 ### [암호 개요](authentication/active-directory-passwords-overview.md)
 ### 사용자 문서
-#### [암호 재설정 또는 변경](active-directory-passwords-update-your-own-password.md)
+#### [암호 재설정 또는 변경](user-help/active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
-#### [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md)
+#### [셀프 서비스 암호 재설정 등록](user-help/active-directory-passwords-reset-register.md)
 ### [SSPR 작동 방법](authentication/concept-sspr-howitworks.md)
 ### [SSPR 배포 가이드](authentication/howto-sspr-deployment.md)
 ### [SSPR 및 Windows 10](authentication/tutorial-sspr-windows.md)
@@ -174,8 +174,8 @@
 ### [Azure AD 조인 계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [FAQ](device-management-faq.md)
 ### 작업
-#### [Azure AD 등록 Windows 10 장치 설정](device-management-azuread-registered-devices-windows10-setup.md)
-#### [Azure AD 가입 장치 설정](device-management-azuread-joined-devices-setup.md)
+#### [Azure AD 등록 Windows 10 장치 설정](user-help/device-management-azuread-registered-devices-windows10-setup.md)
+#### [Azure AD 가입 장치 설정](user-help/device-management-azuread-joined-devices-setup.md)
 #### [하이브리드 Azure AD 가입 장치 설정](device-management-hybrid-azuread-joined-devices-setup.md)
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
 #### [Windows 10 첫 실행 경험 중 Azure AD 조인](device-management-azuread-joined-devices-frx.md)
