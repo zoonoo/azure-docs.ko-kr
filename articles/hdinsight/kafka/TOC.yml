@@ -61,8 +61,6 @@
           maintainContext: true
         - name: Azure Container Service에서 Kafka 사용
           href: apache-kafka-azure-container-services.md
-        - name: Kafka 및 Azure Functions
-          href: apache-kafka-azure-functions.md
     - name: 개발
       items:
         - name: 빈 에지 노드 사용
