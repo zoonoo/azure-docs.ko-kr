@@ -319,6 +319,10 @@
           href: transform-data-using-data-lake-analytics.md
         - name: Databricks Notebook 활동
           href: transform-data-databricks-notebook.md
+        - name: Databricks Jar 작업
+          href: transform-data-databricks-jar.md
+        - name: Databricks Python 작업
+          href: transform-data-databricks-python.md
         - name: 사용자 지정 작업
           href: transform-data-using-dotnet-custom-activity.md
         - name: Compute 연결된 서비스

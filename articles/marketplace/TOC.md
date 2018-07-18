@@ -8,12 +8,8 @@
 ### Marketplace에서 게시하는 방법  
 #### [솔루션에 대한 등록 형식 결정](./determine-your-listing-type.md)  
 #### [Marketplace에서 게시자 되기](./become-publisher.md)  
-#### [등록 형식별 요구 사항](./listing-type-requirements.md) 
-#### 비즈니스 유효성 검사 목록  
-##### [지침](./guidelines.md)  
-##### [개발자 센터에 등록](./register-dev-center.md)  
-##### [은행 및 세금 정보 추가](./add-bank-tax-info.md)  
-##### [Azure AD를 사용하여 평가판 사용](./enable-trial-using-azure-ad.md)  
+##### [Microsoft 계정 만들기](./guidelines.md)
+##### [개발자 센터에 등록](./register-dev-center.md) 
 ##### [Azure Marketplace에 대한 청구 옵션](./billing-options-azure-marketplace.md)  
 
 ### 제안 형식별 게시 가이드 
@@ -24,12 +20,21 @@
 #### [컨테이너](./marketplace-containers.md)
 #### [컨설팅 서비스](./consulting-services.md)  
 #### [AppSource 앱](./appsource-offer-publishing-guide.md)
+#### [Azure Active Directory를 사용하여 Marketplace 평가판 환경 사용](./enable-trial-using-azure-ad.md)
 
 ### [마켓플레이스를 통한 비즈니스 성장](./grow-your-business-with-azure-marketplace.md)  
 #### [기본 설정 솔루션](./preferred-solutions.md) 
 
 ### 지원  
 #### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)  
+
+### 게시 가이드  
+#### [Azure Marketplace 컨설팅 서비스](consulting-services.md)  
+#### [Azure Marketplace SaaS 앱 기술 게시 가이드](marketplace-saas-applications-technical-publishing-guide.md) 
+#### [Azure Active Directory를 사용하여 Marketplace 평가판 사용](./enable-trial-using-azure-ad.md)  
+
+### [마켓플레이스를 통한 비즈니스 성장](./grow-your-business-with-azure-marketplace.md)  
+#### [기본 설정 솔루션](./preferred-solutions.md) 
 
 ## [클라우드 파트너 포털](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 

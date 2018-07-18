@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 05/31/2018
   ms.author: nolachar
-  ms.openlocfilehash: 234b25ce674162cf69905689cec383c049bae6e6
-  ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+  ms.openlocfilehash: 32f5dfcbd26206268172109188395765cb80b884
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/02/2018
-  ms.locfileid: "37341136"
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39089353"
 abstract:
   description: 클라우드 기반 Face API를 사용하면 고급 얼굴 인식 알고리즘에 액세스할 수 있습니다. Microsoft Face 알고리즘을 사용하면 얼굴 특성 감지 및 얼굴 인식이 가능합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
 sections:
@@ -50,6 +50,15 @@ sections:
         src: media/index/logo_go.svg
       text: Go
       href: QuickStarts/Go
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Face 서비스를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Windows의 이미지에서 얼굴 감지 및 포착</a></li>
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Android의 이미지에서 얼굴 감지 및 포착</a></li>
 - title: 참고 자료
   items:
   - type: list

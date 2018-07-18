@@ -9,14 +9,20 @@
       href: speech-scenarios.md
 - name: 빠른 시작
   items:
-    - name: Speech Service를 무료로 체험해보기
+    - name: Speech Service 체험해 보기
       href: get-started.md
-    - name: 'C#에서 음성 인식'
-      href: quickstart-csharp-windows.md
+    - name: 'C#에서 음성 인식(Windows의 .NET)'
+      href: quickstart-csharp-dotnet-windows.md
+    - name: 'C#에서 음성 인식(Windows의 .NET Core)'
+      href: quickstart-csharp-dotnetcore-windows.md
+    - name: UWP 앱에서 음성 인식
+      href: quickstart-csharp-uwp.md
     - name: Windows용 C++에서 음성 인식
       href: quickstart-cpp-windows.md
     - name: Linux용 C++에서 음성 인식
       href: quickstart-cpp-linux.md
+    - name: Android용 Java에서 음성 인식
+      href: quickstart-java-android.md
     - name: 음성 장치 SDK 시작
       href: speech-devices-sdk-qsg.md
 - name: 방법 가이드
@@ -25,7 +31,7 @@
       href: how-to-speech-to-text.md
     - name: 음성 합성
       href: how-to-text-to-speech.md
-    - name: 음성 번역
+    - name: 음성 변환
       href: how-to-translate-speech.md
     - name: 일괄 처리 기록
       href: batch-transcription.md
@@ -57,15 +63,15 @@
       href: speech-to-text-sample.md
     - name: 의도 인식
       href: intent.md
-    - name: 번역
+    - name: Translation
       href: translation.md
 - name: 개념
   items:
-    - name: 음성 텍스트 변환
+    - name: 음성을 텍스트로 변환
       href: speech-to-text.md
     - name: 텍스트에서 음성 변환
       href: text-to-speech.md
-    - name: 음성 번역
+    - name: Speech Translation
       href: speech-translation.md
     - name: 음성 SDK
       href: speech-sdk.md

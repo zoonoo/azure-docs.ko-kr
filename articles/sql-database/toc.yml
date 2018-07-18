@@ -402,6 +402,8 @@
           href: sql-database-cloud-migrate.md
         - name: 관리되는 인스턴스로 마이그레이션
           href: sql-database-managed-instance-migrate.md
+        - name: 관리되는 인스턴스로 TDE 인증서 마이그레이션
+          href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: 마이그레이션 후 SQL Database 관리
           href: sql-database-manage-after-migration.md
     - name: 데이터 로드 및 이동

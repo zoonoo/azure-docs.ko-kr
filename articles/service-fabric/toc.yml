@@ -551,7 +551,7 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: 프로그래밍 방식으로 규모 확장
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: 주 노드 형식 VM 강화
+                - name: 주 노드 형식 VM 크기 조정 및 업그레이드
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: 업그레이드
               href: service-fabric-cluster-upgrade.md
@@ -569,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: 클러스터 노드 VM에 원격 연결
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: VMSS SKU 업그레이드/마이그레이션
-              href: service-fabric-update-vmss-sku.md
         - name: 독립 실행형 클러스터
           items:
             - name: 생성

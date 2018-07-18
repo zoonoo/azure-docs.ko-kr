@@ -20,6 +20,8 @@
       href: stream-analytics-with-azure-functions.md
     - name: 3 - JavaScript UDF 실행
       href: stream-analytics-javascript-user-defined-functions.md
+    - name: 4 - VSTS에서 CI/CD를 사용하여 배포
+      href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: 샘플
   items:
     - name: 코드 샘플

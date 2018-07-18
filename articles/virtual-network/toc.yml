@@ -35,7 +35,7 @@
       href: policy-samples.md
 - name: 개념
   items:
-    - name: 보안
+    - name: 보안 그룹
       href: security-overview.md
     - name: 라우팅
       href: virtual-networks-udr-overview.md

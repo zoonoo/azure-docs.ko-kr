@@ -10,6 +10,8 @@
   items:
     - name: 원격 모니터링 솔루션 배포
       href: quickstart-remote-monitoring-deploy.md
+    - name: 연결된 팩터리 솔루션 배포
+      href: quickstart-connected-factory-deploy.md
     - name: 예측 유지 관리 솔루션 배포
       href: quickstart-predictive-maintenance-deploy.md
     - name: 장치 시뮬레이션 솔루션 배포
@@ -141,8 +143,8 @@
           href: iot-accelerators-predictive-overview.md
     - name: 연결된 팩터리
       items:
-        - name: 솔루션 가속기 배포
-          href: iot-accelerators-connected-factory-overview.md
+        - name: 대시보드 사용
+          href: iot-accelerators-connected-factory-dashboard.md
         - name: 게이트웨이 배포
           href: iot-accelerators-connected-factory-gateway-deployment.md
         - name: OPC 게시자 사용
