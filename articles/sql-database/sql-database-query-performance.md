@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SQL Database에 대한 쿼리 성능 Insight | Microsoft Docs
 description: 쿼리 성능 모니터링은 Azure SQL Database에 대한 대부분의 CPU 사용 쿼리를 식별합니다.
 services: sql-database

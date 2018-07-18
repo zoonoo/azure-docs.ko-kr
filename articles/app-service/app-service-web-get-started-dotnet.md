@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure에서 ASP.NET Core 웹앱 만들기 | Microsoft Docs
 description: 기본 ASP.NET 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 services: app-service\web

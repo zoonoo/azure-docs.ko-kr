@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure SDK for .NET 2.9 릴리스 정보
 description: Azure SDK for .NET 2.9 릴리스 정보
 services: app-service\web
@@ -46,7 +46,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 
 #### <a name="known-issues"></a>알려진 문제
 
-- Azure .NET SDK 2.9.6부터는 .NET framework(예: .NET 4.6)를 사용하여 프로젝트를 OS 제품군 5 미만으로 배포하는 것을 차단하는 제한 사항이 도입되었습니다. 해결 방법이 [여기](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)에 제공됩니다.
+- Azure .NET SDK 2.9.6부터는 .NET framework(예: .NET 4.6)를 사용하는 프로젝트가 OS 제품군 5 미만으로 배포되는 것을 차단하는 기능이 도입되었습니다. 해결 방법이 [여기](https://github.com/MicrosoftDocs/azure-cloud-services-files/tree/master/Azure%20Targets%20SDK%202.9)에 제공됩니다.
 
  
 ### <a name="azure-in-role-cache"></a>Azure In-Role Cache 
@@ -84,7 +84,7 @@ Azure SDK 2.9의 새로운 변경 내용은 이번 릴리스에 도입되지 않
 * **서버 탐색기** 를 통해 모든 항목을 보고 일부 U-SQL 메타데이터 엔터티를 만들 수 있습니다. 자세한 내용은 [이 블로그](https://azure.microsoft.com/documentation/services/data-lake-analytics/) 를 참조하세요.
 
 ## <a name="hdinsight-tools"></a>HDInsight 도구
-Visual Studio용 **HDInsight 도구** 는 Tez 그래프 표시 및 기타 언어 수정을 포함하여 HDInsight 버전 3.3을 지원합니다.
+Visual Studio용 **HDInsight 도구**는 Tez 그래프 표시 및 기타 언어 수정을 포함하여 HDInsight 버전 3.3을 지원합니다.
 
 ## <a name="azure-resource-manager"></a>Azure 리소스 관리자
 이 릴리스는 Resource Manager 템플릿을 위한 [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) 지원을 추가했습니다.
