@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/26/2018
   ms.author: ryanwi
-  ms.openlocfilehash: e5fc62d84ace2acd46816a7116ea1cf2198be63f
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+  ms.openlocfilehash: fccd805f6d4abcf7005fca0cc6f4d368ac5764f1
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39073702"
+  ms.locfileid: "39090046"
 abstract:
   description: Azure Service Fabric Mesh는 개발자가 인프라를 관리하지 않고 중요 업무용 응용 프로그램을 빌드하고 배포할 수 있는 완전히 관리되는 서비스입니다.  Service Fabric Mesh를 사용하여 요청 시 확장되는 안전하고 분산된 마이크로 서비스 응용 프로그램을 빌드하고 실행합니다. 빠른 시작 및 자습서에서 Service Fabric Mesh를 사용하는 방법을 알아봅니다.  자세한 내용은 <a href="/azure/service-fabric-mesh/service-fabric-mesh-overview">Service Fabric Mesh 개요</a>를 참조하세요.
 sections:
@@ -45,15 +45,3 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore">.NET Core 응용 프로그램 배포</a>
-- title: 샘플
-  items:
-  - type: paragraph
-    text: Windows 및 Linux용 .NET Core 샘플 응용 프로그램을 찾습니다.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/helloworld">Hello world!</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/azurefiles-volume">Azure Files 볼륨</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/todolistapp">할 일 목록</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/visualobjects">시각적 개체</a>
-    - html: <a href="https://github.com/Azure-Samples/service-fabric-mesh/tree/master/src/votingapp">Voting</a>
