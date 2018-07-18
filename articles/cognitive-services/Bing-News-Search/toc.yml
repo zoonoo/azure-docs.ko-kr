@@ -1,0 +1,91 @@
+- name: Bing News Search 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Bing News Search란?
+      href: search-the-web.md
+- name: REST API 빠른 시작
+  expanded: true
+  items:
+    - name: 시작하기
+      href: quickstart.md
+    - name: 'C#'
+      href: csharp.md
+    - name: 자바
+      href: java.md
+    - name: Node.js
+      href: nodejs.md
+    - name: PHP
+      href: php.md
+    - name: 파이썬
+      href: python.md
+    - name: Ruby
+      href: ruby.md
+- name: SDK 빠른 시작
+  items:
+    - name: SDK 샘플 개요
+      href: sdk.md
+    - name: 'News Search SDK C# 빠른 시작'
+      href: news-search-sdk-quickstart.md
+    - name: News Search SDK Node.js 빠른 시작
+      href: news-search-sdk-node-quickstart.md
+    - name: News Search SDK Python 빠른 시작
+      href: news-sdk-python-quickstart.md
+    - name: News Search SDK Java 빠른 시작
+      href: news-sdk-java-quickstart.md
+- name: 자습서
+  items:
+    - name: 단일 페이지 웹앱
+      href: tutorial-bing-news-search-single-page-app.md
+    - name: 단일 페이지 웹앱(소스 코드)
+      href: tutorial-bing-news-search-single-page-app-source.md
+- name: 샘플
+  items:
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+News+Search'
+- name: 방법 가이드
+  items:
+    - name: 사용 및 표시 요구 사항
+      href: UseAndDisplayRequirements.md
+    - name: 적중 항목 강조 표시 처리
+      href: hit-highlighting.md
+    - name: 페이지 소식
+      href: paging-news.md
+    - name: 크기 조정 및 자르기 썸네일
+      href: resize-and-crop-thumbnails.md
+    - name: v5에서 v7로 업그레이드
+      href: bing-news-upgrade-guide-v5-to-v7.md
+    - name: Visual Studio 작업
+      items:
+        - name: Bing News Search 연결된 서비스 사용
+          href: vs-bing-news-search-connected-service.md
+- name: 참고 자료
+  items:
+    - name: Bing News Search API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference'
+    - name: Bing News Search API v5
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference'
+- name: 리소스
+  items:
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/search?q=bing+news+search'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 기술 자료
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API 키 가져오기
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+    - name: 사용해 보세요.
+      href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
+    - name: Bing News Search 엔드포인트
+      href: endpoint-news.md
+    - name: 지원되는 국가 및 마켓
+      href: supported-countries-markets.md
+    - name: Bing News Search API에 대한 분석
+      href: bing-news-stats.md

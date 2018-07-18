@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 58c27c0872978c3a6a4c47be37e6fa6078309286
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293719"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Azure App Service에서 웹앱 구성
 
@@ -45,7 +46,7 @@ ms.lasthandoff: 03/12/2018
 기술적인 이유로, 앱에 Java를 사용하도록 설정하면 .NET, PHP 및 Python 옵션은 사용하지 않도록 설정됩니다.
 
 <a name="platform"></a>
-**플랫폼**. 응용 프로그램이 32비트 또는 64비트 환경에서 실행되는지 선택합니다. 64비트 환경에는 기본 또는 표준 모드가 필요합니다. 무료 및 공유 모드는 항상 32비트 환경에서 실행됩니다.
+**플랫폼**. 응용 프로그램이 32비트 또는 64비트 환경에서 실행되는지 선택합니다. 64비트 환경에는 기본 또는 표준 계층이 필요합니다. 무료 및 공유 계층은 항상 32비트 환경에서 실행됩니다.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -55,6 +56,13 @@ ms.lasthandoff: 03/12/2018
 **Always On**. 기본적으로 웹 앱은 일정 기간 동안 유휴 상태인 경우 언로드됩니다. 이를 통해 시스템 리소스가 절약됩니다. 기본 또는 표준 모드에서는 **Always On**을 사용하도록 설정하여 앱을 항상 로드된 상태로 유지할 수 있습니다. 앱에서 연속 WebJobs를 실행하거나 CRON 식을 사용하여 트리거되는 WebJobs를 실행하는 경우 **Always On**을 사용하도록 설정해야 합니다. 그러지 않으면 웹 작업이 안정적으로 실행되지 않을 수 있습니다.
 
 **관리되는 파이프라인 버전**. IIS [파이프라인 모드]를 설정합니다. 이전 버전의 IIS가 필요한 레거시 앱이 없으면 통합(기본값)으로 설정된 상태로 그대로 둡니다.
+
+**HTTP 버전**. [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 프로토콜에 대한 지원을 사용하도록 **2.0**으로 설정합니다. 
+
+> [!NOTE]
+> 대부분의 최신 브라우저는 TLS를 통해서만 HTTP/2 프로토콜을 지원하는 반면에 암호화되지 않은 트래픽은 HTTP/1.1을 계속 사용합니다. 클라이언트 브라우저가 HTTP/2를 통해 앱에 연결되도록 하려면 앱의 사용자 지정 도메인에 대해 [App Service Certificate을 구매](web-sites-purchase-ssl-web-site.md)하거나 [타사 인증서를 바인딩](app-service-web-tutorial-custom-ssl.md)합니다.
+
+**ARR 선호도**. 여러 VM 인스턴스로 확장되는 응용 프로그램에서 ARR 선호도 쿠키는 클라이언트가 세션이 끝날 때까지 동일한 인스턴스로 라우팅되도록 보장합니다. 상태 비저장 응용 프로그램의 성능을 향상시키려면 이 옵션을 **꺼짐**으로 설정합니다.   
 
 **자동 교체**. 배포 슬롯에 대한 자동 교체를 사용 하는 경우, 업데이트를 해당 슬롯에 푸시하면 App Service는 자동으로 웹앱을 프로덕션으로 교체합니다. 자세한 내용은 [Azure App Service에서 웹앱에 대한 스테이징 슬롯에 배포](web-sites-staged-publishing.md)를 참조하세요.
 
@@ -66,6 +74,8 @@ ms.lasthandoff: 03/12/2018
 
 * .NET 앱의 경우, 이 설정은 런타임 시 .NET 구성 `AppSettings`으로 주입되어 기존 설정을 재정의합니다. 
 * PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 환경 변수로 이러한 설정에 액세스할 수 있습니다. 각 앱 설정에 대해 두 개의 환경 변수가 만들어집니다. 하나는 앱 설정 항목에 의해 이름이 지정되고, 다른 하나는 이름에 APPSETTING_ 접두사가 붙습니다. 둘 다 같은 값을 포함합니다.
+
+앱 설정은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
 ### <a name="connection-strings"></a>연결 문자열
 연결된 리소스의 연결 문자열입니다. 
@@ -80,6 +90,8 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 * 사용자 지정: `CUSTOMCONNSTR_`
 
 예를 들어 MySql 연결 문자열 이름이 `connectionstring1`로 지정된 경우 환경 변수 `MYSQLCONNSTR_connectionString1`을 통해 액세스될 수 있습니다.
+
+연결 문자열은 저장될 때 항상 암호화됩니다(미사용 암호화).
 
 ### <a name="default-documents"></a>기본 문서
 기본 문서는 웹 사이트의 루트 URL에 표시되는 웹 페이지입니다.  목록에서 첫 번째로 일치되는 파일이 사용됩니다. 
@@ -150,7 +162,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 자세한 내용은 [방법: 웹 끝점 모니터링]을 참조하세요.
 
 > [!NOTE]
-> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험]으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
+> Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 평가]으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.
 > 
 > 
 
@@ -171,7 +183,7 @@ PHP, Python, Java 및 Node 응용 프로그램에서는 런타임에 이러한 �
 [Azure App Service에서 Web Apps에 대한 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [Azure App Service에서 웹앱 크기 조정]: ./web-sites-scale.md
-[App Service 체험]: https://azure.microsoft.com/try/app-service/
+[App Service 평가]: https://azure.microsoft.com/try/app-service/
 
 <!-- IMG List -->
 

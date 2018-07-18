@@ -1,11 +1,11 @@
 ---
-title: "Azure AD 동기화 연결: 함수 참조 | Microsoft Docs"
-description: "Azure AD Connect 동기화의 선언적 프로비전 식을 참조하세요."
+title: 'Azure AD 동기화 연결: 함수 참조 | Microsoft Docs'
+description: Azure AD Connect 동기화의 선언적 프로비전 식을 참조하세요.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ce27ca217f99b4f12ca1af0b5a178f5d61a1c89
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 4814d53a86b0d90cf16f76e75c7044448cf791eb
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34595158"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD 동기화 연결: 함수 참조
 Azure AD Connect에서 동기화 중에 특성 값을 조작하려면 함수를 사용합니다.  
@@ -1108,7 +1110,7 @@ ReplaceChars 함수는 ReplacePattern 문자열에 해당 문자가 나오는 �
 * 함수는 정의된 원본의 각 항목을 사용하여 대상의 항목을 대체합니다.
 * 원본은 하나의 문자만(유니코드) 있어야 합니다.
 * 원본은 공백이거나 한글자 이상일 수 없습니다(구문 분석 오류).
-* 대상에는 여러 문자가 있을 수 있습니다(예: ö:oe, β:ss).
+* ö:oe, β:ss처럼 대상에 여러 문자가 있을 수 있습니다.
 * 문자가 제거되어야 하는 경우 대상은 비어있을 수 있습니다.
 * 원본은 대소문자를 구분하며 정확히 일치해야 합니다.
 * ,(쉼표) 및: (콜론)은 지정된 문자이며 이 함수를 사용하여 바꿀 수 없습니다.

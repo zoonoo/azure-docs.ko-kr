@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 07/06/2018
 ms.author: rayne
-ms.openlocfilehash: 531705bc704b3366c1c670ecf07c809ade67bc55
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 40a4b53229aad8f226cf3edcdba4ecbc6682e623
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29378678"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917611"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
 
@@ -45,9 +45,9 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 
 ### <a name="fail-over-a-subnet"></a>서브넷 장애 조치(failover)
 
-전체 서브넷을 장애 조치(failover)하면 서브넷을 실제로 늘이지 않고도 확대 서브넷의 혜택을 얻을 수 있습니다. 이 솔루션에서는 원본 또는 대상 사이트 중 하나에서 서브넷을 사용할 수 있지만 두 사이트에서 동시에 사용할 수는 없습니다.
+전체 서브넷을 장애 조치(failover)하면 실제로 서브넷을 확대(stretch)하지 않고도 확대 서브넷의 혜택을 얻을 수 있습니다. 이 솔루션에서는 원본 또는 대상 사이트 중 하나에서 서브넷을 사용할 수 있지만 두 사이트에서 동시에 사용할 수는 없습니다.
 
-- 장애 조치(failover) 시 IP 주소 공간을 유지 관리하기 위해 라우터 인프라에 대해 프로그래밍 방식으로 정렬하여 한 사이트에서 다른 사이트로 서브넷을 이동할 수 있습니다.
+- 장애 조치(failover) 시 IP 주소 공간을 유지하기 위해 라우터 인프라를 프로그래밍 방식으로 정렬하여 사이트 간 서브넷을 이동할 수 있습니다.
 - 장애 조치(failover)가 발생하면 서브넷이 연결된 VM과 함께 이동됩니다.
 - 이 방법의 주요 단점은 오류 발생 시 전체 서브넷을 이동해야 한다는 것입니다.
 
@@ -55,11 +55,11 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 
 전체 서브넷 장애 조치(failover)의 예는 다음과 같습니다. 
 
-- 장애 조치(failover) 전에는 기본 사이트에 서브넷 192.168.1.0/24에서 실행되는 응용 프로그램이 있습니다.
+- 장애 조치(failover) 전에는 기본 사이트에서 응용 프로그램이 서브넷 192.168.1.0/24에서 실행됩니다.
 - 장애 조치(failover) 중 이 서브넷의 모든 VM이 보조 사이트로 장애 조치(failover)되며 IP 주소는 유지됩니다. 
 - 서브넷 192.168.1.0/24에 있는 모든 VM이 이제 보조 사이트로 이동된 사실을 반영하여 모든 사이트 간의 경로를 수정해야 합니다.
 
-다음 그림에는 장애 조치(failover) 전과 후의 서브넷이 나와 있습니다.
+다음 그림은 장애 조치(failover) 전과 후의 서브넷을 보여 줍니다.
 
 
 **장애 조치(failover) 전**

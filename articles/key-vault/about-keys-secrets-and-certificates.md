@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 2c7dd89d9c2e5d50f2533101499a6e50e52047b3
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636609"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 Azure Key Vault를 사용하면 Microsoft Azure 환경 내에서 암호화 키를 저장하고 사용할 수 있습니다. Key Vault는 여러 키 유형과 알고리즘을 지원하며, 고부가 가치 키에 HSM(하드웨어 보안 모듈)을 사용할 수 있습니다. 또한 Key Vault를 통해 사용자는 비밀을 안전하게 저장할 수 있습니다. 비밀은 특정 의미 체계가 없는 제한된 크기의 옥텟 개체입니다. Key Vault는 키와 비밀을 기반으로 하는 인증서를 지원하고 자동 갱신 기능을 추가합니다.
@@ -327,7 +328,7 @@ Key Vault 인증서에는 인증서 메타데이터, 주소 지정 가능한 키
 
 Key Vault 인증서에 포함되는 특성은 다음과 같습니다.  
 
--   *enabled*: 부울, 선택 사항, 기본값은 **true**입니다. 이 특성은 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. *nbf*과 exp 사이에 작업이 발생할 때 *nbf* 및 *exp*와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
+-   *enabled*: 부울, 선택 사항, 기본값은 **true**입니다. 이 특성은 인증서 데이터를 비밀로 검색할 수 있는지 또는 키로 작동할 수 있는지 여부를 나타내기 위해 지정할 수 있습니다. *nbf*과 *exp* 사이에 작업이 발생할 때 *nbf* 및 *exp*와 함께 사용되며, enabled가 true로 설정된 경우에만 허용됩니다. *nbf* 및 *exp* 시간 범위에 속하지 않은 작업은 자동으로 허용되지 않습니다.  
 
 응답에 포함되는 추가 읽기 전용 특성은 다음과 같습니다.
 

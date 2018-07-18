@@ -1,22 +1,19 @@
 ---
 title: 마이크로 서비스 변경 및 다시 배포 | Microsoft 문서 도구
 description: 이 자습서에서는 Remote Monitoring에서 마이크로 서비스를 변경하고 다시 배포하는 방법을 보여줍니다.
-services: ''
-suite: iot-suite
 author: giyeh
 manager: hegate
 ms.author: giyeh
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 04/19/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 3d79c085d10515183a5ddcc12ecac503915eb2e2
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: de42e68116c147d81ed0211426bfa813d070b121
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627997"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>마이크로 서비스 사용자 지정 및 다시 배포
 
@@ -38,7 +35,7 @@ ms.lasthandoff: 05/20/2018
 이 자습서를 수행하려면 다음이 필요합니다.
 
 >[!div class="checklist"]
-> * [로컬로 미리 구성된 원격 모니터링 솔루션 배포](iot-accelerators-remote-monitoring-deploy-local.md)
+> * [로컬에 원격 모니터링 솔루션 가속기 배포](iot-accelerators-remote-monitoring-deploy-local.md)
 > * [Docker 계정](https://hub.docker.com/)
 > * [Postman](https://www.getpostman.com/) - API 응답을 보는 데 필요함
 

@@ -1,32 +1,27 @@
 ---
-title: "Microsoft Azure Microsoft Azure Virtual Machines, Cloud Services 및 Web Apps에서 자동 크기 조정 개요 | Microsoft Docs"
-description: "Microsoft Azure의 자동 크기 조정의 개요입니다. Virtual Machines, Cloud Services 및 Web Apps에 적용됩니다."
+title: Virtual Machines, Cloud Services 및 Web Apps의 자동 크기 조정 개요
+description: Microsoft Azure의 자동 크기 조정입니다. Virtual Machines, 가상 머신 확장 집합, Cloud Services 및 Web Apps에 적용됩니다.
 author: rboucher
-manager: carmonm
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 74bf03be-e658-4239-a214-c12424b53e4c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/02/2016
 ms.author: robb
-ms.openlocfilehash: 0a30f0c3b799f76858424d97218c5a6e4386e78e
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.component: autoscale
+ms.openlocfilehash: 4eeca81e08a0ecae9ba41ccdd2bf8a2f395f579c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264673"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure Microsoft Azure Virtual Machines, Cloud Services 및 Web Apps에서 자동 크기 조정 개요
 이 문서에서는 Microsoft Azure 자동 크기 조정에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
 
-Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 및 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)에만 적용됩니다.
+Azure Monitor 자동 크기 조정은 [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 및 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)에만 적용됩니다.
 
 > [!NOTE]
-> Azure에는 두 개의 자동 크기 조정 메서드가 있습니다. 이전 버전의 자동 크기 조정은 Virtual Machines(가용성 집합)에 적용됩니다. 이 기능은 제한적으로 지원하므로 빠르고 안정적인 자동 크기 조정 지원을 위해 가상 컴퓨터 확장 집합으로 마이그레이션하는 것이 좋습니다. 이전 기술을 사용하는 방법에 대한 링크는 이 문서에 포함됩니다.  
+> Azure에는 두 개의 자동 크기 조정 메서드가 있습니다. 이전 버전의 자동 크기 조정은 Virtual Machines(가용성 집합)에 적용됩니다. 이 기능은 제한적으로 지원하므로 빠르고 안정적인 자동 크기 조정 지원을 위해 가상 머신 확장 집합으로 마이그레이션하는 것이 좋습니다. 이전 기술을 사용하는 방법에 대한 링크는 이 문서에 포함됩니다.  
 >
 >
 
@@ -43,7 +38,7 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 
 ## <a name="resource-metrics"></a>리소스 메트릭
 리소스에서 메트릭을 내보내며, 이러한 메트릭은 나중에 규칙에 따라 처리됩니다. 메트릭은 다른 메서드를 통해 제공됩니다.
-Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 직접 제공되는 반면 가상 컴퓨터 확장 집합에서는 Azure 진단 에이전트의 원격 분석 데이터를 사용합니다. 일부 자주 사용되는 통계는 CPU 사용량, 메모리 사용량, 스레드 수, 큐 길이 및 디스크 사용량을 포함합니다. 사용할 수 있는 원격 분석 데이터 목록은 [자동 크기 조정 공통 메트릭](insights-autoscale-common-metrics.md)을 참조하세요.
+Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 직접 제공되는 반면 가상 머신 확장 집합에서는 Azure 진단 에이전트의 원격 분석 데이터를 사용합니다. 일부 자주 사용되는 통계는 CPU 사용량, 메모리 사용량, 스레드 수, 큐 길이 및 디스크 사용량을 포함합니다. 사용할 수 있는 원격 분석 데이터 목록은 [자동 크기 조정 공통 메트릭](insights-autoscale-common-metrics.md)을 참조하세요.
 
 ## <a name="custom-metrics"></a>사용자 지정 메트릭
 응용 프로그램에서 내보낼 수 있는 사용자 지정 메트릭을 활용할 수도 있습니다. Application Insights에 메트릭을 보내도록 응용 프로그램을 구성한 경우 이러한 메트릭을 활용하여 크기 조정 여부를 결정할 수 있습니다. 
@@ -96,24 +91,24 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 
 반대로 수직적 규모 조정은 다릅니다. 수직적 규모 조정은 동일한 수의 VM을 유지하지만 VM을 강력하게("강화") 만들거나 약하게("축소") 만듭니다. 전원은 메모리, CPU 속도, 디스크 공간 등에서 측정됩니다.  수직적 크기 조정에 더 많은 제한이 있습니다. 큰 하드웨어의 가용성에 따라 다르고 신속하게 상한값에 도달하며 지역에 따라 달라질 수 있습니다. 또한 수직적 규모 조정은 일반적으로 VM 중지 및 재시작이 필요합니다.
 
-자세한 내용은 [Azure Automation을 사용하여 Azure 가상 컴퓨터를 수직으로 확장](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+자세한 내용은 [Azure Automation을 사용하여 Azure 가상 머신을 수직으로 확장](../virtual-machines/linux/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 
 ## <a name="methods-of-access"></a>액세스 방법
 자동 크기 조정은 다음을 통해 설정할 수 있습니다.
 
-* [Azure 포털](insights-how-to-scale.md)
+* [Azure Portal](insights-how-to-scale.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [플랫폼 간 CLI(명령줄 인터페이스)](insights-cli-samples.md#autoscale)
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 
 ## <a name="supported-services-for-autoscale"></a>자동 크기 조정이 지원되는 서비스
-| 부여 | 스키마 및 문서 |
+| 서비스 | 스키마 및 문서 |
 | --- | --- |
 | Web Apps |[Web Apps 크기 조정](insights-how-to-scale.md) |
 | Cloud Services |[클라우드 서비스 자동 크기 조정](../cloud-services/cloud-services-how-to-scale-portal.md) |
-| Virtual Machines: 클래식 |[클래식 가상 컴퓨터 가용성 집합 크기 조정](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines: Windows 확장 집합 |[Windows에서 가상 컴퓨터 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Virtual Machines: Linux 확장 집합 |[Linux에서 가상 컴퓨터 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Virtual Machines: 클래식 |[클래식 Virtual Machine 가용성 집합 크기 조정](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
+| Virtual Machines: Windows 확장 집합 |[Windows에서 가상 머신 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
+| Virtual Machines: Linux 확장 집합 |[Linux에서 가상 머신 확장 집합 크기 조정](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
 | Virtual Machines: Windows 예제 |[Resource Manager 템플릿을 사용하여 VM 확장 집합에 대한 고급 자동 크기 조정 구성](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 
 ## <a name="next-steps"></a>다음 단계
@@ -123,4 +118,4 @@ Web Apps 및 클라우드 서비스의 원격 분석은 Azure 인프라에서 �
 * [Azure Monitor 자동 크기 조정에 대한 모범 사례](insights-autoscale-best-practices.md)
 * [크기 자동 조정 작업을 사용하여 전자 메일 및 웹후크 경고 알림 보내기](insights-autoscale-to-webhook-email.md)
 * [자동 크기 조정 REST API](https://msdn.microsoft.com/library/dn931953.aspx)
-* [가상 컴퓨터 규모 집합 자동 크기 조정 문제 해결](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)
+* [Virtual Machine Scale Sets 자동 크기 조정 문제 해결](../virtual-machine-scale-sets/virtual-machine-scale-sets-troubleshoot.md)

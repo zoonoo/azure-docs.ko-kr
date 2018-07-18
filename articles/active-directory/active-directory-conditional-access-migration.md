@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 클래식 정책 마이그레이션 | Microsoft Docs
+title: Azure Active Directory 조건부 액세스의 정책 마이그레이션이란? | Microsoft Docs
 description: Azure Portal에서 클래식 정책을 마이그레이션하기 위해 알아야 하는 작업을 자세히 살펴봅니다.
 services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2017
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: b6285381833526cdbdd7c1392894458a47c1cf34
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4a9b3df66567c4170ba861d3e597261e37271bf1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723731"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232103"
 ---
-# <a name="migrate-classic-policies-in-the-azure-portal"></a>Azure Portal에서 클래식 정책 마이그레이션 
+# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 정책 마이그레이션이란? 
 
 
 [조건부 액세스](active-directory-conditional-access-azure-portal.md)는 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있게 해 주는 Azure AD(Azure Active Directory)의 기능입니다. 그 목적은 동일하지만 조건부 액세스가 작동하는 방식이 크게 개선된 새로운 Azure Portal 릴리스가 도입되었습니다.
@@ -85,11 +85,11 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 
 다음을 참조하세요.
 
-- [Azure Active Directory 조건부 액세스](active-directory-conditional-access-azure-portal.md) - 기본 개념과 용어에 대해 알아봅니다.
+- [Azure Active Directory 조건부 액세스란?](active-directory-conditional-access-azure-portal.md)에서 기본 개념과 용어에 대해 알아봅니다.
 
 - [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md) - 조직의 조건부 액세스 배포에 대한 지침을 제공합니다.
 
-- [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md) - Azure Portal의 사용자 인터페이스에 대해 알아봅니다.
+- [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](active-directory-conditional-access-app-based-mfa.md)를 참조하여 Azure Portal의 사용자 인터페이스에 익숙해지도록 합니다.
 
 
  
@@ -170,6 +170,6 @@ Azure Portal에서 조건부 액세스를 사용하면 중앙의 단일 위치�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
+- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](active-directory-conditional-access-app-based-mfa.md)를 참조하세요.
 
 - 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)를 참조하세요. 

@@ -10,11 +10,11 @@ ms.custom: develop databases, mvc, devcenter
 ms.topic: tutorial
 ms.date: 06/07/2018
 ms.openlocfilehash: 4e2238968d29bc0081a472c9c05662cb7813d866
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850664"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697716"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Azure SQL Database 설계 및 C#과 ADO.NET에 연결
 

@@ -1,22 +1,20 @@
 ---
 title: Azure Maps로 도형 추가 | Microsoft Docs
 description: Javascript 맵에 도형을 추가하는 방법
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fb9ec0713d3db465cf835346465e70c4455b38ff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dec9b7289927365faa9c58522df2571db99f0494
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599374"
 ---
 # <a name="add-a-shape-to-a-map"></a>맵에 도형 추가
 
@@ -59,3 +57,10 @@ ms.lasthandoff: 05/07/2018
 두 번째 코드 블록에서는 다각형이 만들어집니다. 다각형은 기능 속성으로 [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonproperties?view=azure-iot-typescript-latest)를 사용하는 [Polygon](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygon?view=azure-iot-typescript-latest)의 [기능](https://docs.microsoft.com/javascript/api/azure-maps-javascript/feature?view=azure-iot-typescript-latest)입니다. `new atlas.data.Feature(new atlas.data.Polygon())`을 사용하여 다각형을 만들고 속성을 정의합니다. polygon 생성자에서 다각형 경로에 대한 정렬된 좌표를 제공합니다.
 
 다각형 계층은 다각형의 배열입니다. 마지막 코드 블록은 map 클래스의 [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#addpolygons) 함수를 사용하여 다각형 계층을 맵에 추가하고 해당 속성을 정의합니다. [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-javascript/polygonlayeroptions?view=azure-iot-typescript-latest)에서 다각형 계층의 속성을 참조하세요. 
+
+## <a name="next-steps"></a>다음 단계
+맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
+* [사용자 지정 HTML 추가](./map-add-custom-html.md)
+* [검색 결과 표시](./map-search-location.md)
+
+

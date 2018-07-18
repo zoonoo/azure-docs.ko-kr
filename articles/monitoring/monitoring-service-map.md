@@ -3,8 +3,8 @@ title: Azure에서 서비스 맵 솔루션 사용 | Microsoft Docs
 description: 서비스 맵은 Windows 및 Linux 시스템의 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 사용자 환경에 서비스 맵을 배포하고 다양한 시나리오에서 사용하는 것에 대해 자세히 설명합니다.
 services: monitoring
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
@@ -12,20 +12,33 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
-ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: aa9a6b54576ce8399471891c9ab5b80216f00ee1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.date: 06/22/2018
+ms.author: daseidma;bwren
+ms.openlocfilehash: 812137a8320634364a7d91fd2e61cd3e9d15fc12
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887493"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751431"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Azure에서 서비스 맵 솔루션 사용
 서비스 맵은 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 서비스 맵을 사용하면 생각하는 방식 즉 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다.
 
-이 문서에서는 서비스 맵 사용에 대한 세부 정보를 설명합니다. 서비스 맵 구성 및 에이전트 온보딩에 대한 자세한 내용은 [Azure에서 서비스 맵 솔루션 구성]( monitoring-service-map-configure.md)을 참조하세요.
+이 문서에서는 서비스 맵 사용 및 온보딩에 대한 세부 정보를 설명합니다. 서비스 맵 구성 및 에이전트 온보딩에 대한 자세한 내용은 [Azure에서 서비스 맵 솔루션 구성]( monitoring-service-map-configure.md)을 참조하세요.
 
+## <a name="sign-in-to-azure"></a>Azure에 로그인
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+
+## <a name="enable-service-map"></a>서비스 맵 사용
+1. Azure Portal에서 **+ 리소스 만들기**를 클릭합니다.
+2. 검색 창에 **서비스 맵**을 입력하고 **Enter** 키를 누릅니다.
+3. 마켓플레이스 검색 결과 페이지의 목록에서 **서비스 맵**을 선택합니다.<br><br> ![Azure Marketplace 검색 결과에서 서비스 맵 솔루션 선택](./media/monitoring-service-map/marketplace-search-results.png)<br>
+4. **서비스 맵** 개요 창에서 솔루션 세부 정보를 검토한 다음, **만들기**를 클릭하여 Log Analytics 작업 영역에서 온보딩 프로세스를 시작합니다.<br><br> ![서비스 맵 솔루션을 등록합니다](./media/monitoring-service-map/service-map-onboard.png).
+5. **솔루션 구성** 창에서 기존 Log Analytics 작업 영역을 선택하거나 새 Log Analytics 작업 영역을 만듭니다.  새 작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../log-analytics/log-analytics-quick-create-workspace.md)를 참조합니다. 필요한 정보를 제공한 후 **만들기**를 클릭합니다.  
+
+정보가 확인되고 솔루션이 배포되는 동안 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다. 
+
+Log Analytics 작업 영역의 Azure Portal에서 서비스 맵에 액세스하고 왼쪽 창에서 **솔루션** 옵션을 선택합니다.<br><br> ![작업 영역에서 솔루션 옵션을 선택합니다](./media/monitoring-service-map/select-solution-from-workspace.png).<br> 솔루션의 목록에서 **ServiceMap(workspaceName)** 을 선택하고 서비스 맵 솔루션 개요 페이지에서 서비스 맵 요약 타일을 클릭합니다.<br><br> ![서비스 맵 요약 타일](./media/monitoring-service-map/service-map-summary-tile.png).
 
 ## <a name="use-cases-make-your-it-processes-dependency-aware"></a>사용 사례: IT 프로세스 종속성 인식
 
@@ -44,9 +57,10 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 ### <a name="patch-management"></a>패치 관리
 서비스 맵은 다른 어떤 팀과 서버가 사용자의 서비스에 종속되어 있는지를 보여 주어 시스템 업데이트 평가 사용을 개선하므로 패치 적용을 위해 시스템이 중단되기 전에 사전에 알릴 수 있습니다. 또한 서비스 맵은 서비스가 사용 가능한지, 패치 적용되어 다시 시작된 후 제대로 연결되었는지를 표시하여 패치 관리를 개선합니다.
 
-
 ## <a name="mapping-overview"></a>매핑 개요
-서비스 맵 에이전트는 에이전트가 설치된 서버에서 각 프로세스에 대한 인바운드 및 아웃바운드 연결에 대한 정보를 비롯하여 모든 TCP 연결 프로세스에 대한 정보를 수집합니다. 왼쪽 창의 목록에서 서비스 맵 에이전트가 있는 시스템이나 그룹을 선택하여 지정된 시간 범위에 대한 종속성을 시각화할 수 있습니다. 컴퓨터 종속성 맵은 특정 컴퓨터에 집중하고 해당 컴퓨터의 직접 TCP 클라이언트 또는 서버인 모든 컴퓨터를 보여 줍니다.  컴퓨터 그룹 맵은 일련의 서버 및 서버 종속성을 보여줍니다.
+서비스 맵 에이전트는 에이전트가 설치된 서버에서 각 프로세스에 대한 인바운드 및 아웃바운드 연결에 대한 정보를 비롯하여 모든 TCP 연결 프로세스에 대한 정보를 수집합니다.
+
+왼쪽 창의 목록에서 서비스 맵 에이전트가 있는 시스템이나 그룹을 선택하여 지정된 시간 범위에 대한 종속성을 시각화할 수 있습니다. 컴퓨터 종속성 맵은 특정 컴퓨터에 집중하고 해당 컴퓨터의 직접 TCP 클라이언트 또는 서버인 모든 컴퓨터를 보여 줍니다.  컴퓨터 그룹 맵은 일련의 서버 및 서버 종속성을 보여줍니다.
 
 ![서비스 맵 개요](media/monitoring-service-map/service-map-overview.png)
 
@@ -187,16 +201,13 @@ Azure Site Recovery를 사용 중이고 응용 프로그램 환경에 대한 복
 ![프로세스 요약 창](media/monitoring-service-map/process-summary.png)
 
 ## <a name="alerts-integration"></a>경고 통합
-서비스 맵은 Log Analytics의 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다. 현재 경고가 있으면 서버에 아이콘이 표시되고 **컴퓨터 경고** 창에 경고가 나열됩니다.
+서비스 맵은 Azure 경고와 통합되어 선택한 시간 범위에서 선택한 서버에 대해 발생된 경고를 표시합니다. 현재 경고가 있으면 서버에 아이콘이 표시되고 **컴퓨터 경고** 창에 경고가 나열됩니다.
 
 ![컴퓨터 경고 창](media/monitoring-service-map/machine-alerts.png)
 
 서비스 맵에서 관련 경고를 표시하려면 특정 컴퓨터에 대해 실행되는 경고 규칙을 만듭니다. 적절한 경고를 만들려면
-- 컴퓨터별로 그룹화할 절(예, **by Computer interval 1minute**)을 포함
+- 컴퓨터별로 그룹화할 절(예, **by Computer interval 1 minute**)을 포함합니다.
 - 미터법을 기준으로 경고하도록 선택
-
-![경고 구성](media/monitoring-service-map/alert-configuration.png)
-
 
 ## <a name="log-events-integration"></a>로그 이벤트 통합
 서비스 맵은 로그 검색과 통합되어 선택한 시간 범위 내에서 선택한 서버에 대해 사용할 수 있는 모든 로그 이벤트의 개수를 표시합니다. 이벤트 수 목록의 행을 클릭하면 로그 검색으로 이동하고 개별 로그 이벤트를 볼 수 있습니다.
@@ -224,7 +235,7 @@ IT 서비스 관리 커넥터와 서비스 맵 통합은 두 솔루션이 사용
 
 다음 이미지는 **Log Analytics에 표시**를 선택한 후 볼 수 있는 ConfigurationChange 이벤트의 자세히 보기입니다.
 
-![ConfigurationChange 이벤트](media/monitoring-service-map/configuration-change-event.png)
+![ConfigurationChange 이벤트](media/monitoring-service-map/configuration-change-event-01.png)
 
 
 ## <a name="performance-integration"></a>성능 통합
@@ -254,7 +265,6 @@ Linux:
 **컴퓨터 보안** 창에는 선택한 서버에 대한 보안 및 감사 솔루션의 데이터가 표시됩니다. 이 창에는 선택한 기간 동안 서버의 보안 문제에 대한 요약이 나열됩니다. 보안 문제를 클릭하면 보안 문제에 대한 세부 내용을 표시하는 로그 검색으로 드릴다운됩니다.
 
 ![컴퓨터 보안 창](media/monitoring-service-map/machine-security.png)
-
 
 ## <a name="updates-integration"></a>업데이트 통합
 업데이트 관리와 서비스 맵 통합은 두 솔루션이 사용하도록 설정되고 Log Analytics 작업 영역에서 구성된 경우 자동입니다.

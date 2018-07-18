@@ -9,17 +9,17 @@ editor: vturecek
 ms.assetid: c3655b7b-de78-4eac-99eb-012f8e042109
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/14/2018
+ms.date: 05/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7e64bc34f5c39edaf87cc732d7c4702655df0e3e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 7dadaadd0e6a6e6d71685356568076ad26305cc2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212673"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642226"
 ---
 # <a name="create-your-first-c-service-fabric-stateful-reliable-services-application"></a>첫 번째 C# Service Fabric 상태 저장 Reliable Services 응용 프로그램 만들기
 
@@ -68,12 +68,15 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
 이제 다음 단계에 따라 응용 프로그램을 만들고, 실행하고, 배포하고, 디버그할 수 있습니다.
 
-1. Visual Studio에서 F5를 선택하여 디버그할 응용 프로그램을 배포합니다.
+1. Visual Studio에서 **F5**를 선택하여 디버그할 응용 프로그램을 배포합니다.  'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
 
     >[!NOTE]
     >로컬에서 처음으로 응용 프로그램을 실행하고 배포할 때 Visual Studio는 디버깅을 위해 로컬 클러스터를 만듭니다. 이 작업에는 시간이 약간 걸릴 수 있습니다. Visual Studio 출력 창에 클러스터 생성 상태가 표시됩니다.
-
-    클러스터가 준비되면 SDK에 포함된 로컬 클러스터 시스템 트레이 관리자 응용 프로그램에서 알림을 받습니다.
+    
+     클러스터가 준비되면 SDK에 포함된 로컬 클러스터 시스템 트레이 관리자 응용 프로그램에서 알림을 받습니다.
+     
+    >[!NOTE]
+    >이 연습에는 5노드(및 1노드) 클러스터가 필요합니다. 다음과 같이 이를 확인할 수 있습니다. **Service Fabric 로컬 클러스터 관리자** 시스템 트레이 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음, **클러스터 모드 전환**을 선택하여 Service Fabric Explorer 도구를 시작합니다. 현재 1노드가 선택된 경우 **5노드**를 클릭합니다.
     
     ![로컬 클러스터 시스템 트레이 알림][4]
 
@@ -107,7 +110,7 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
     ![상태 저장 서비스 RunAsync 메서드의 중단점][7]
 
-7. **로컬 클러스터 관리자** 시스템 트레이 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 관리**를 선택하여 Service Fabric Explorer 도구를 시작합니다.
+7. **Service Fabric 로컬 클러스터 관리자** 시스템 트레이 응용 프로그램을 마우스 오른쪽 단추로 클릭한 다음, **로컬 클러스터 관리**를 선택하여 Service Fabric Explorer 도구를 시작합니다.
 
     ![로컬 클러스터 관리자에서 Service Fabric Explorer 시작][systray-launch-sfx]
 
@@ -117,7 +120,7 @@ Windows에서 첫 번째 .NET용 Azure Service Fabric 응용 프로그램을 몇
 
     ![서비스 패브릭 탐색기에서 노드 중지][sfx-stop-node]
 
-    한 노드에서 원활하게 수행한 계산이 다른 노드에 장애 조치되면 일시적으로 Visual Studio에서 중단점을 확인해야 합니다.
+    한 노드에서 원활하게 수행한 계산이 다른 노드에 장애 조치되면 일시적으로 Visual Studio에서 중단점을 확인해야 합니다. 계속하려면 **F5** 키를 누릅니다.
 
 9. 다음으로 진단 이벤트 뷰어로 돌아가서 메시지를 관찰합니다. 실제로 다른 노드에서 이벤트가 들어오더라도 카운터는 계속 증분합니다.
 

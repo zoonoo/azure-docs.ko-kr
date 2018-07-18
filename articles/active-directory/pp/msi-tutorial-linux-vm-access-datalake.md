@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 12/15/2017
 ms.author: skwan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a70f02fca5ebf575bc009623c3af648a5a80fd70
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 358827722e8d77cd91410fae842ad2ba99967d98
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153747"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38610357"
 ---
 # <a name="use-a-linux-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스
 
@@ -190,7 +190,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 MSI�
 - MSI의 개요는 [관리 서비스 ID 개요](msi-overview.md)를 참조하세요.
 - 작업 관리의 경우 Data Lake Store는 Azure Resource Manager를 사용합니다.  VM MSI를 사용하여 Resource Manager에 인증하는 방법에 대한 자세한 내용은 [Linux VM MSI(관리 서비스 ID)를 사용하여 Resource Manager에 액세스](../managed-service-identity/msi-tutorial-linux-vm-access-arm.md)를 참고하세요.
 - [Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증](~/articles/data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)에 대해 자세히 알아봅니다.
-- [REST API를 사용하는 Azure Data Lake Store의 파일 시스템 작업](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) 또는 [WebHDFS 파일 시스템 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis.md)에 대해 자세히 알아봅니다.
+- [REST API를 사용하는 Azure Data Lake Store의 파일 시스템 작업](~/articles/data-lake-store/data-lake-store-data-operations-rest-api.md) 또는 [WebHDFS 파일 시스템 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis)에 대해 자세히 알아봅니다.
 - [Data Lake Store에서 액세스 제어](~/articles/data-lake-store/data-lake-store-access-control.md)에 대해 자세히 알아봅니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.

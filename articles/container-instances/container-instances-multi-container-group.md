@@ -2,35 +2,43 @@
 title: Azure Container Instances에 다중 컨테이너 그룹 배포
 description: Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포하는 방법을 알아봅니다.
 services: container-instances
-author: neilpeterson
+author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/29/2018
-ms.author: nepeters
+ms.date: 06/08/2018
+ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 8cbf379e167f854d495704bc0919789dcbafd8e1
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: ecc4484eddd6541c1407e1ed816ba8830030d7c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888200"
 ---
 # <a name="deploy-a-container-group"></a>컨테이너 그룹 배포
 
 Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 로깅, 모니터링 또는 서비스에 두 번째 연결된 프로세스가 필요한 기타 구성용으로 응용 프로그램 사이드카를 빌드할 때 이러한 기능을 사용하면 유용합니다.
 
-이 문서에서는 Azure Resource Manager 템플릿을 배포하여 간단한 다중 컨테이너 사이드카 구성을 실행하는 과정을 설명합니다.
+Azure CLI를 사용하여 다중 컨테이너 그룹을 배포하는 두 가지 방법이 있습니다.
+
+* Resource Manager 템플릿 배포(이 문서)
+* [YAML 파일 배포](container-instances-multi-container-yaml.md)
+
+컨테이너 인스턴스 배포 시 추가 Azure 서비스 리소스(예: Azure 파일 공유)를 배포해야 하는 경우 Resource Manager 템플릿을 사용하여 배포하는 것이 좋습니다. YAML 형식이 좀 더 간결하기 때문에 배포에 컨테이너 인스턴스*만* 있는 경우 YAML 파일을 사용하여 배포하는 것이 좋습니다.
 
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다. 모든 기능을 Windows 컨테이너에서 제공하려고 합니다. 그 동안 [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 찾을 수 있습니다.
 
 ## <a name="configure-the-template"></a>템플릿 구성
 
-`azuredeploy.json`이라는 파일을 만들고 다음 JSON을 해당 파일에 복사합니다.
+본 문서의 이 섹션에서는 Azure Resource Manager 템플릿을 배포하여 간단한 다중 컨테이너 사이드카 구성을 실행하는 과정을 설명합니다.
 
-이 샘플에서는 두 개의 컨테이너, 하나의 공용 IP 주소 및 두 개의 노출된 포트가 포함된 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 그룹 로컬 네트워크를 통해 주 웹 응용 프로그램에 대한 HTTP 요청을 수행합니다.
+먼저 `azuredeploy.json` 파일을 만든 후, 다음 JSON을 이 파일에 복사합니다.
 
-```json
+이 Resource Manager 템플릿은 두 개의 컨테이너, 하나의 공용 IP 주소, 두 개의 노출된 포트가 포함된 컨테이너 그룹을 정의합니다. 그룹의 첫 번째 컨테이너는 인터넷 연결 응용 프로그램을 실행합니다. 두 번째 컨테이너인 사이드카는 그룹 로컬 네트워크를 통해 주 웹 응용 프로그램에 대한 HTTP 요청을 수행합니다.
+
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -118,7 +126,7 @@ Azure Container Instances에서는 [컨테이너 그룹](container-instances-con
 
 개인 컨테이너 이미지 레지스트리를 사용하려면 다음과 같은 형식의 개체를 JSON 문서에 추가합니다. 이 구성의 예제 구성은 [ACI Resource Manager 템플릿 참조][template-reference] 설명서를 참조하세요.
 
-```json
+```JSON
 "imageRegistryCredentials": [
   {
     "server": "[parameters('imageRegistryLoginServer')]",
@@ -146,13 +154,13 @@ az group deployment create --resource-group myResourceGroup --template-file azur
 
 ## <a name="view-deployment-state"></a>배포 상태 확인
 
-배포의 상태를 확인하려면 [az container show][az-container-show] 명령을 사용합니다. 그러면 응용 프로그램이 액세스할 수 있는 프로비전된 공용 IP 주소가 반환됩니다.
+배포 상태를 확인하려면 [az container show][az-container-show] 명령을 사용합니다.
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name myContainerGroup --output table
 ```
 
-출력
+실행 중인 응용 프로그램을 보려면 사용하는 브라우저에서 공용 IP 주소로 이동합니다. 예를 들어 이 예제 출력의 IP는 `52.168.26.124`입니다.
 
 ```bash
 Name              ResourceGroup    ProvisioningState    Image                                                           IP:ports               CPU/Memory       OsType    Location

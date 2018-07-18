@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,11 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0cb37a29847e69dae4a0e0682591bae092b38360
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713697"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.
@@ -38,14 +40,14 @@ Multi-Factor Authentication은 사용자 인증에 두 번째 계층의 보안�
 
 사용자 로그인에 Azure Multi-Factor Authentication을 요구하는 것이 좋습니다. 다단계 인증은 ID 보호를 통해 사용할 수 있는 위험 기반 조건부 액세스 정책에서 중요한 역할을 합니다.
 
-자세한 내용은 [Azure Multi-Factor Authentication 정의](authentication/multi-factor-authentication.md)
+자세한 내용은 [Azure Multi-Factor Authentication이란?](authentication/multi-factor-authentication.md)을 참조하세요.
 
 ## <a name="unmanaged-cloud-apps"></a>관리되지 않은 클라우드 앱
 이 취약점을 사용하면 조직에서 관리되지 않은 클라우드 앱을 식별할 수 있습니다.
 
 오늘날 기업에서 IT 부서는 해당 조직의 사용자가 작업하는 데 사용하고 있는 일부 클라우드 응용 프로그램을 인지하지 못하는 경우가 있습니다. 관리자가 회사 데이터에 대한 무단 액세스, 데이터 유출 가능성 및 기타 보안 위험에 대해 우려하는 원인을 쉽게 확인합니다. 
 
-Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 프로그램을 검색하고 이러한 응용 프로그램을 관리하도록 조직에서 클라우드 앱 검색을 배포하는 것이 좋습니다.
+Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 프로그램을 검색하고 이러한 응용 프로그램을 관리하도록 Cloud App Discovery를 배포하는 것이 좋습니다.
 
 자세한 내용은 [Cloud App Discovery를 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기](manage-apps/cloud-app-discovery.md)를 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Files을 Azure로 백업
+title: Azure 파일 공유 백업
 description: 이 문서에서는 Azure 파일 공유를 백업 및 복원하는 방법과 관리 작업에 대해 설명합니다.
 services: backup
 author: markgalioto
@@ -8,11 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 440cee4309fad0a22d8964982f3aad2178397124
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: d21a235602c425cef77b26d8c60f1e3562411095
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36961675"
 ---
 # <a name="back-up-azure-file-shares"></a>Azure 파일 공유 백업
 이 문서에서는 Azure Portal을 사용하여 [Azure 파일 공유](../storage/files/storage-files-introduction.md)를 백업 및 복원하는 방법을 설명합니다.
@@ -27,17 +28,21 @@ ms.lasthandoff: 04/06/2018
 > * 백업 데이터 삭제
 
 ## <a name="prerequisites"></a>필수 조건
-Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 저장소 계정 유형](troubleshoot-azure-files.md#preview-boundaries) 중 하나에 있는지 확인합니다. 이를 확인한 후에는 파일 공유를 보호할 수 있습니다.
+Azure 파일 공유를 백업하려면 파일 공유가 [지원되는 저장소 계정 유형](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview) 중 하나에 있는지 확인합니다. 이를 확인한 후에는 파일 공유를 보호할 수 있습니다.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Azure 파일 공유 백업 미리 보기의 제한 사항
-Azure 파일 공유를 위한 백업은 미리 보기에 있습니다. 미리 보기인 동안에는 다음과 같은 제한이 있습니다.
-- 저장소 계정에서 [ZRS(영역 중복 저장소)](../storage/common/storage-redundancy-zrs.md) 또는 [RA-GRS(읽기 액세스 지역 중복 저장소)](../storage/common/storage-redundancy-grs.md) 복제를 사용하여 Azure 파일 공유를 보호할 수 없습니다.
-- Virtual Networks를 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
-- Azure Files 보호에 PowerShell 또는 CLI를 사용할 수 없습니다.
+Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 다음 백업 시나리오에는 Azure 파일 공유가 지원되지 않습니다.
+- 저장소 계정에서 RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제*를 사용하여 Azure 파일 공유를 보호할 수 없습니다.
+- Virtual Networks 또는 방화벽을 사용하도록 설정된 저장소 계정에서 Azure 파일 공유를 보호할 수 없습니다.
+- Azure Backup을 사용하여 Azure Files를 보호할 수 있는 PowerShell 또는 CLI가 없습니다.
 - 일별 최대 예약 백업의 수는 1개입니다.
 - 일별 최대 주문형 백업의 수는 4개입니다.
 - 저장소 계정에서 [리소스 잠금](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)을 사용하면 Recovery Services 자격 증명 모음에서 Backup이 실수로 삭제되는 것을 방지할 수 있습니다.
-- Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다. 
+- Azure Backup으로 생성된 스냅숏은 삭제하지 마십시오. 스냅숏을 삭제하면 복구 지점이 손실되거나 복원이 실패할 수 있습니다.
+
+\*RA-GRS([읽기 액세스 지역 중복 저장소](../storage/common/storage-redundancy-grs.md)) 복제 기능을 GRS로 사용하고 GRS 가격이 청구되는 저장소 계정의 Azure 파일 공유.
+
+ZRS([지역 중복 저장소](../storage/common/storage-redundancy-zrs.md)) 복제 기능을 지원하는 저장소 계정의 Azure 파일 공유 백업은 현재 CUS(미국 중부), EUS2(미국 동부2), NE(북유럽), SEA(동남아시아) 및 WE(서유럽)에서만 사용할 수 있습니다.
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Azure 파일 공유를 위한 백업 구성
 모든 백업 데이터는 Recovery Services 자격 증명 모음에 저장됩니다. 이 자습서에서는 이미 Azure 파일 공유를 설정한 것으로 가정합니다. Azure 파일 공유를 백업하려면:
@@ -46,7 +51,7 @@ Azure 파일 공유를 위한 백업은 미리 보기에 있습니다. 미리 �
 
     ![Backup 목표로 Azure 파일 공유 선택](./media/backup-file-shares/overview-backup-page.png)
 
-2. [Backup 목표] 메뉴의 **무엇을 백업하시겠습니까?**에서 Azure 파일 공유를 선택합니다.
+2. [Backup 목표] 메뉴의 **무엇을 백업하시겠습니까?** 에서 Azure 파일 공유를 선택합니다.
 
     ![Backup 목표로 Azure 파일 공유 선택](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -79,7 +84,7 @@ Azure 파일 공유를 위한 백업은 미리 보기에 있습니다. 미리 �
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png)
 
-2. 목록에서 **Azure Storage(Azure Files)**를 선택합니다. Azure 파일 공유 목록이 나타납니다.
+2. 목록에서 **Azure Storage(Azure Files)** 를 선택합니다. Azure 파일 공유 목록이 나타납니다.
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -158,7 +163,7 @@ Azure 파일 공유 보호를 중지하려면:
 
    ![Backup을 클릭하여 Azure 파일 공유를 자격 증명 모음과 연결](./media/backup-file-shares/list-of-backup-items.png) 
 
-2. **Backup 관리 유형** 목록에서 **Azure Storage(Azure 파일)**를 선택합니다. (Azure Storage(Azure Files))에 대한 Backup 항목 목록이 표시됩니다.
+2. **Backup 관리 유형** 목록에서 **Azure Storage(Azure 파일)** 를 선택합니다. (Azure Storage(Azure Files))에 대한 Backup 항목 목록이 표시됩니다.
 
    ![추가 메뉴를 열려면 항목 클릭](./media/backup-file-shares/azure-file-share-backup-items.png) 
 

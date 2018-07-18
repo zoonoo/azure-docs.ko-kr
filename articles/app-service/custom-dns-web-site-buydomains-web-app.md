@@ -1,11 +1,11 @@
 ---
-title: "Azure Web Apps에 대한 사용자 지정 도메인 이름 구입"
-description: "Azure App Service에서 웹 앱으로 사용자 지정 도메인 이름을 구입하는 방법에 대해 알아봅니다."
+title: Azure Web Apps에 대한 사용자 지정 도메인 이름 구입
+description: Azure App Service에서 웹 앱으로 사용자 지정 도메인 이름을 구입하는 방법에 대해 알아봅니다.
 services: app-service\web
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.service: app-service-web
 ms.workload: web
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 152dbb6d47dfdf3bf5df945b823f64e58e7d91e2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714887"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web Apps에 대한 사용자 지정 도메인 이름 구입
 
@@ -41,7 +42,7 @@ Azure Web Apps에서 사용자 지정 도메인을 사용하려면 웹앱의 [Ap
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[클래식 포털](https://portal.azure.com)을 열고 Azure 계정으로 로그인합니다.
+[클래식 포털](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure Portal에서 앱으로 이동합니다.
 
@@ -53,21 +54,21 @@ App Service 앱의 관리 페이지가 표시됩니다.
 
 ### <a name="check-the-pricing-tier"></a>가격 책정 계층 확인
 
-앱 페이지의 왼쪽 탐색 영역에서 **설정** 섹션으로 스크롤하고 **강화(App Service 계획)**를 선택합니다.
+앱 페이지의 왼쪽 탐색 영역에서 **설정** 섹션으로 스크롤하고 **강화(App Service 계획)** 를 선택합니다.
 
 ![강화 메뉴](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
-앱의 현재 계층은 파란색 테두리로 강조 표시됩니다. 앱이 **무료** 계층에 속해 있지 않은지 확인합니다. 사용자 지정 DNS는 **무료** 계층에서는 지원되지 않습니다. 
+앱의 현재 계층은 파란색 테두리로 강조 표시됩니다. 앱이 **F1** 계층에 속해 있지 않은지 확인합니다. 사용자 지정 DNS는 **F1** 계층에서는 지원되지 않습니다. 
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-App Service 계획이 **평가판** 계층이 아닌 경우 **가격 책정 계층 선택** 페이지를 닫고 [도메인 구입](#buy-the-domain)으로 건너뜁니다.
+App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지를 닫고 [도메인 구입](#buy-the-domain)으로 건너뜁니다.
 
 ### <a name="scale-up-the-app-service-plan"></a>강화 - App Service 계획
 
-무료가 아닌 계층(**공유**, **기본**, **표준** 또는 **프리미엄**) 중에서 선택합니다. 
+유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**선택**을 클릭합니다.
+**Apply**를 클릭합니다.
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -78,7 +79,7 @@ App Service 계획이 **평가판** 계층이 아닌 경우 **가격 책정 계�
 ## <a name="buy-the-domain"></a>도메인 구입
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
-[클래식 포털](https://portal.azure.com/)을 열고 Azure 계정으로 로그인합니다.
+[클래식 포털](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
 
 ### <a name="launch-buy-domains"></a>도메인 구입 시작
 **Web Apps** 탭에서 웹앱의 이름을 클릭하고 **설정**을 선택한 다음 **사용자 지정 도메인**을 선택합니다.

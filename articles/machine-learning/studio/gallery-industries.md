@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: garye
-ms.openlocfilehash: b2b55c550a75be977b040070926953308c387639
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c1ca9c45a7bd070ba0dbcee3b428f986ebac47d3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834569"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062100"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>Azure AI 갤러리에서 산업별 솔루션 검색
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="industry-specific-cortana-intelligence-solutions"></a>산업별 Cortana Intelligence 솔루션
-갤러리의 **[산업](https://gallery.cortanaintelligence.com/industries)** 섹션에는 다음과 같은 산업별로 다양한 리소스가 모여있습니다.
+갤러리의 **[산업](https://gallery.azure.ai/industries)** 섹션에는 다음과 같은 산업별로 다양한 리소스가 모여있습니다.
 
-* [소매](https://gallery.cortanaintelligence-int.com/industries/retail) - 판매 예측, 고객 이탈 예측, 가격 책정 모델 개발 등의 소매업 솔루션이 있습니다.
-* [제조](https://gallery.cortanaintelligence-int.com/industries/manufacturing) - 장비 유지 보수 및 에너지 가격 예측과 같은 제조업 솔루션이 있습니다.
-* [금융](https://gallery.cortanaintelligence-int.com/industries/banking) - 신용 위험 예측, 온라인 사기 행위 모니터링과 같은 금융업 솔루션이 있습니다.
-* [의료](https://gallery.cortanaintelligence-int.com/industries/healthcare) - 질병 감지 및 병원 재입원 예측과 같은 의료업 솔루션이 있습니다.
+* [소매](https://gallery.azure.ai/industries/retail) - 판매 예측, 고객 이탈 예측, 가격 책정 모델 개발 등의 소매업 솔루션이 있습니다.
+* [제조](https://gallery.azure.ai/industries/manufacturing) - 장비 유지 보수 및 에너지 가격 예측과 같은 제조업 솔루션이 있습니다.
+* [금융](https://gallery.azure.ai/industries/banking) - 신용 위험 예측, 온라인 사기 행위 모니터링과 같은 금융업 솔루션이 있습니다.
+* [의료](https://gallery.azure.ai/industries/healthcare) - 질병 감지 및 병원 재입원 예측과 같은 의료업 솔루션이 있습니다.
 
 이러한 리소스에는 실험, 사용자 지정 모듈, API, 컬렉션 및 여러분이 종사하고 있는 산업에 맞는 솔루션을 개발하는 데 도움을 줄 수 있는 그 밖의 갤러리 항목이 포함되어 있습니다.
 

@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: 76a9fc586a1932b8b5e664b6c964f0c7d3eac4d4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297838"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Cost Management를 위해 저장소 계정 구성
 
@@ -34,7 +35,7 @@ AWS 단순 저장소 서비스(S3) 버킷이 없는 경우 만들어야 합니�
 
 Cost Management에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 저장소 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
 
-1. Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
+1. http://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. **모든 서비스**를 선택하고 **저장소 계정**을 선택한 후 사용하려는 저장소 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
 3. 저장소 계정 페이지의 **설정** 아래에서 **액세스 키**를 클릭합니다.
 4. **저장소 계정 이름** 및 **연결 문자열**을 key1 아래에 복사합니다.  

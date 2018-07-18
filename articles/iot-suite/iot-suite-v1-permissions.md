@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite 및 Azure Active Directory | Microsoft Docs"
-description: "Azure IoT Suite에서 Azure Active Directory를 사용하여 사용 권한을 관리하는 방법을 설명합니다."
-services: 
+title: Azure IoT Suite 및 Azure Active Directory | Microsoft Docs
+description: Azure IoT Suite에서 Azure Active Directory를 사용하여 사용 권한을 관리하는 방법을 설명합니다.
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 246228ba-954a-4d96-b6d6-e53e4590cb4f
 ms.service: iot-suite
 ms.devlang: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: a032fc4332c697748e658ad2615ed5b0915c56c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 4d0c7aff54ee20cf9ae4e6cdf2fc0718cd0b2f2a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35303189"
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>azureiotsuite.com 사이트에 대한 사용 권한
 
@@ -113,10 +114,10 @@ Azure 관리자 역할은 Azure 구독을 AD 텐넌트에 매핑할 수 있는 �
 
 ### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>원격 모니터링 미리 구성된 솔루션 및 응용 프로그램이 할당되어 있는 AAD 테넌트를 어떻게 변경하나요?
 
-<https://github.com/Azure/azure-iot-remote-monitoring>에서 클라우드 배포를 실행하고 새로 생성된 AAD 테넌트와 다시 배포할 수 있습니다. AAD 테넌트를 만들 때 기본적으로 전역 관리자가 되기 때문에, 사용자를 추가하고 해당 사용자에 역할을 추가하는 사용 권한을 갖게 됩니다.
+<https://github.com/Azure/azure-iot-remote-monitoring>에서 클라우드 배포를 실행하고, 새로 만든 AAD 테넌트를 사용하여 다시 배포할 수 있습니다. AAD 테넌트를 만들 때 기본적으로 전역 관리자가 되기 때문에, 사용자를 추가하고 해당 사용자에 역할을 추가하는 사용 권한을 갖게 됩니다.
 
 1. [Azure Portal][lnk-portal]에서 AAD 디렉터리를 만듭니다.
-2. <https://github.com/Azure/azure-iot-remote-monitoring>으로 이동합니다.
+2. <https://github.com/Azure/azure-iot-remote-monitoring>로 이동합니다.
 3. `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}`(예: `build.cmd cloud debug myRMSolution`)를 실행합니다.
 4. 프롬프트가 표시되면, **tenantid** 를 새로 만든 테넌트가(이전 테넌트 대신) 되도록 설정합니다.
 
@@ -149,7 +150,7 @@ IoT Suite에 대해 계속 알아보려면 [미리 구성된 솔루션을 사용
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
-[lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md
+[lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin/
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
 [lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs

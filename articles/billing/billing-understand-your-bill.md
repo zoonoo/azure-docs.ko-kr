@@ -1,6 +1,6 @@
 ---
-title: Azure 요금 청구 방식 이해
-description: Azure 구독에 대한 사용량 및 청구서를 읽고 이해하는 방법에 대해 알아봅니다.
+title: Azure 청구서 이해 | Microsoft Docs
+description: Azure 구독에 대한 사용량 및 청구를 읽고 이해하는 방법에 대해 알아봅니다.
 services: ''
 documentationcenter: ''
 author: tonguyen10
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: f3e0e3eeab88ad8ad0c4a21eb69a6340dbbe0441
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33204894"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064624"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Microsoft Azure 청구서 이해
 Azure 청구서를 이해하려면 청구서를 자세한 일별 사용 현황 파일 및 Azure Portal의 비용 관리 보고서와 비교합니다.
@@ -101,6 +101,40 @@ Azure Portal에서 요금을 확인할 수도 있습니다. Azure Portal은 청�
 ## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>신용 카드 결제 상태는 어떻게 확인하나요?
 
 [지원 티켓을 작성](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 결제 상태 확인을 문의합니다. 
+
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>다른 Azure 고객 유형이 있나요? 내가 어떤 유형의 고객인지 알려면 어떻게 해야 하나요?
+Azure 고객에는 여러 가지 유형이 있습니다. 가격 책정 및 청구서를 잘 이해하려면 다음 고객 유형 설명을 참조하세요.
+
+- **Enterprise**: 기업 고객은 Azure와 기업 계약을 체결하여 현금 약정 금액을 협상하고 Azure 리소스에 대한 사용자 지정 가격에 액세스할 수 있습니다.
+- **Web Direct**: Direct 웹 고객은 Azure와 사용자 지정 계약을 체결하지 않습니다. 이 고객은 azure.com을 통해 Azure에 등록하고 Azure의 모든 리소스에 대해 공개된 가격이 적용됩니다.
+- **클라우드 서비스 공급자**: 일반적으로 클라우드 서비스 공급자는 최종 고객이 Azure를 기반으로 솔루션을 구축하기 위해 고용한 회사입니다.
+
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>내가 만든 리소스에 대한 비용이 청구서에 표시되지 않는 이유가 무엇인가요?
+Azure는 리소스 비용에 직접 기반하여 청구하지 않습니다. 청구는 리소스의 수명 전체를 통틀어서 사용량을 추적하는 데 사용되는 하나 이상의 미터를 기반으로 수행됩니다. 이러한 미터는 청구서를 계산하는 데 사용됩니다. Azure 계량(metering)에 대한 자세한 내용은 아래를 참조하세요.
+
+## <a name="how-does-azure-charge-metering-work"></a>Azure 요금 계량 원리는 무엇인가요?
+Azure 리소스(예: 가상 머신) 하나를 스핀업하면 하나 이상의 미터 인스턴스도 같이 만들어집니다. 미터는 시간별 리소스 사용량을 추적하는 데 사용됩니다. 각 미터가 사용량 레코드를 내보내면 당사의 비용 측정 시스템에서 Azure가 청구서를 계산하는 데 사용됩니다. 
+
+예를 들어, Azure에서 생성된 단일 가상 머신에서 사용량을 추적하기 위해 다음과 같은 미터를 생성할 수 있습니다.
+
+- 계산 시간
+- IP 주소 시간
+- 데이터 수신
+- 데이터 송신
+- 표준 관리 디스크
+- 표준 관리 디스크 작업
+- 표준 IO-디스크
+- 표준 IO-블록 Blob 읽기
+- 표준 IO-블록 Blob 쓰기
+- 표준 IO-블록 Blob 삭제
+
+VM이 생성되면 위의 미터는 각자 사용량 레코드를 내보내기 시작합니다. 사용량은 미터의 가격과 함께 Azure의 계량 시스템에 사용되어 고객에게 부과되는 요금을 결정합니다.
+
+> [!Note]
+> 위의 예제 미터는 생성된 VM을 만든 미터의 하위 집합 일 수 있습니다.
+
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Azure 자사 요금과 Azure Marketplace 요금의 차이는 무엇인가요?
+자사 요금은 Azure가 직접 개발하고 제공한 리소스에 대한 요금입니다. Azure Marketplace 요금은 Azure Marketplace를 통해 사용할 수 있는 타사 소프트웨어 공급업체가 생성한 리소스에 대한 요금입니다. 예를 들어 Barracuda Firewall은 타사가 제공하는 Azure Marketplace 리소스입니다. 방화벽 및 방화벽에 해당하는 미터의 모든 요금은 마켓플레이스 요금으로 표시됩니다. 
 
 ## <a name="tips-for-cost-management"></a>비용 관리 팁
 - [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/)와 [총 소유 비용 계산기](https://aka.ms/azure-tco-calculator)를 사용하여 비용을 산정하고 [각 서비스에 대한 자세한 요금 정보](https://azure.microsoft.com/pricing/)를 가져옵니다.

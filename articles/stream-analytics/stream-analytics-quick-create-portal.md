@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 86d4bab282db0ffc7b48813b9817eed0b45c3199
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902907"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -39,15 +40,15 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
      "hmdt": 44
    }
    ```
-2. Azure 포털에 로그인합니다.  
+2. [Azure 포털](https://portal.azure.com/)에 로그인합니다.  
 
-3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다. 저장소 계정 작업 페이지를 **이름**은 "myasastorageaccount"로 설정하고, **위치**는 "미국 서부 2"로 설정하고, **리소스 그룹**은 "MyRG"로 설정하여 채웁니다(향상된 성능을 위해 스트리밍 작업과 동일한 리소스 그룹의 저장소 계정을 호스트). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
+3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **저장소** > **저장소 계정**을 선택합니다. **이름**이 "asaquickstartstorage"로, **위치**가 "미국 서부 2"로, **리소스 그룹**이 "asaquickstart-resourcegroup"으로 설정된 저장소 계정 작업 페이지를 작성합니다(성능 향상을 위해 스트리밍 작업과 동일한 리소스 그룹의 저장소 계정을 호스팅함). 나머지 설정은 해당 기본값으로 유지할 수 있습니다.  
 
    ![저장소 계정 만들기](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
 4. **모든 리소스** 페이지에서 이전 단계에서 만든 저장소 계정을 찾습니다. **개요** 페이지, **Blob** 타일을 차례로 엽니다.  
 
-5. **Blob 서비스** 페이지에서 **컨테이너**를 선택하고, *container1*과 같은 컨테이너에 대한 **이름**을 제공하고 **공용 액세스 수준**을 Blob(Blob에 대한 익명 읽기 권한만 해당)으로 변경하고 > **확인**을 선택합니다.  
+5. **Blob Service** 페이지에서 **컨테이너**를 선택하고, *container1*과 같은 컨테이너에 대한 **이름**을 제공하고 **공용 액세스 수준**을 개인(익명 액세스 없음)으로 변경하고 > **확인**을 선택합니다.  
 
    ![컨테이너 만들기](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
 
@@ -67,9 +68,9 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
-   |작업 이름   |  myJob   |   Stream Analytics 작업을 식별하는 이름을 입력합니다. Stream Analytics 작업 이름은 영숫자 문자, 하이픈, 밑줄만 사용할 수 있으며 길이가 3자에서 63자 사이여야 합니다. |
+   |작업 이름   |  myasajob   |   Stream Analytics 작업을 식별하는 이름을 입력합니다. Stream Analytics 작업 이름은 영숫자 문자, 하이픈, 밑줄만 사용할 수 있으며 길이가 3자에서 63자 사이여야 합니다. |
    |구독  | \<사용자의 구독\> |  이 작업에 사용할 Azure 구독을 선택합니다. |
-   |리소스 그룹   |   myResourceGroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
+   |리소스 그룹   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
    |위치  |  \<사용자와 가장 가까운 지역 선택\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
    |스트리밍 단위  | 1  |   스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.   |
    |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure Cloud에 배포할 수 있고, 에지를 사용하면 IoT 에지 장치에 배포할 수 있습니다. |
@@ -115,8 +116,9 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
    |---------|---------|---------|
    |출력 별칭 |   BlobOutput   |   작업의 출력을 식별하는 이름을 입력합니다. |
    |구독  |  \<사용자의 구독\>  |  만든 저장소 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 저장소 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 저장소 계정을 만들었다고 가정합니다. |
-   |Storage 계정 |  myasastorageaccount |   저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
-   |컨테이너 |   container2  |  입력에 사용한 동일한 저장소 계정에서 새 컨테이너를 만듭니다.   |
+   |Storage 계정 |  asaquickstartstorage |   저장소 계정의 이름을 선택하거나 입력합니다. 저장소 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
+   |컨테이너 |   container1  |  저장소 계정에서 만든 기존 컨테이너를 선택합니다.   |
+   |경로 패턴 |   output  |  출력에 대한 기존 컨테이너 내의 경로로 사용할 이름을 입력합니다.   |
 
 4. 다른 옵션을 기본값으로 유지하고 **저장**을 선택하여 설정을 저장합니다.  
 
@@ -153,7 +155,7 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 
    ![작업 시작](./media/stream-analytics-quick-create-portal/start-the-job.png)
 
-3. 몇 분 후 포털에서 작업에 대한 출력으로 구성한 저장소 계정 및 컨테이너를 찾습니다. 이제 컨테이너에서 출력 파일을 볼 수 있습니다. 작업이 처음으로 시작되는 데 몇 분이 소요되며, 시작된 후 데이터가 도착하는 것과 동일하게 계속해서 실행됩니다.  
+3. 몇 분 후 포털에서 작업에 대한 출력으로 구성한 저장소 계정 및 컨테이너를 찾습니다. 출력 경로를 선택합니다. 이제 컨테이너에서 출력 파일을 볼 수 있습니다. 작업이 처음으로 시작되는 데 몇 분이 소요되며, 시작된 후 데이터가 도착하는 것과 동일하게 계속해서 실행됩니다.  
 
    ![변환된 출력](./media/stream-analytics-quick-create-portal/transformed-output.png)
 

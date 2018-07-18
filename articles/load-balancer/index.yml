@@ -14,11 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/19/2018
   ms.author: kumud
-  ms.openlocfilehash: 8ddf35502bb8fd7f6d4e2a83d1f6f37f30ab8857
-  ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+  ms.openlocfilehash: 497dc23f56e3dd75c6d7e0549fbdef42ff3c3698
+  ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 05/03/2018
+  ms.lasthandoff: 06/29/2018
+  ms.locfileid: "37132581"
 abstract:
   description: Azure Load Balancer의 사용 방법에 대해 알아보세요. 빠른 시작, 자습서, 샘플 등은 부하 분산 장치를 배포하고, 가상 머신 및 클라우드 리소스 간 그리고 크로스-프레미스 가상 네트워크의 트래픽 부하를 분산하는 방법을 보여줍니다.
 sections:
@@ -48,11 +49,12 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-manage-portal">Load Balancer 만들기 및 관리</a>
     - html: <a href="/azure/load-balancer/tutorial-load-balancer-basic-internal-portal">VM에 내부 트래픽 부하 분산</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">영역 중복 공용 표준 부하 분산 장치 만들기</a>
-    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">영역 내에 VM 부하 분산</a>
-- title: >
-    무료 Pluralsight 동영상 교육
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal">가용성 영역에 VM 부하 분산</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal">특정 가용성 영역 내에 VM 부하 분산</a>
+    - html: <a href="/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal">부하 분산 장치에서 포트 전달 구성</a>
+- title: 무료 Pluralsight 동영상 교육
   items:
   - type: list
     style: cards
@@ -90,8 +92,8 @@ sections:
     className: cardsD
     items:
     - title: 명령줄
-      html: <p><a href="/powershell/module/azurerm.network#networking">PowerShell</a></p><p><a href="/cli/azure/network">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/azurerm.network#load_balancer">PowerShell</a></p><p><a href="/cli/azure/network/lb">Azure CLI</a></p>
     - title: 언어
-      html: <p><a href="/dotnet/api/overview/azure/network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/LoadBalancers.html">Node.js</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.LoadBalancersOperations#azure.mgmt.network.operations.LoadBalancersOperations">Python</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/network">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2017_10_01.models.LoadBalancer">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure.mgmt.network.v2015_06_15.operations.loadbalancersoperations">Python</a></p>
     - title: REST (영문)
       html: <p><a href="/rest/api/load-balancer/">REST API 참조</a></p>

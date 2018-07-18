@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 62f5ae4a9152d3f1b1641cc69136bf472527ba2a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942414"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018541"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -170,7 +170,6 @@ Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함�
 
 자세한 내용은 다음을 참조하세요.
 
-* [PHP용 Media Services SDK](http://southworks.com/blog/2015/12/09/new-microsoft-azure-media-services-sdk-for-php-release-available-with-new-features-and-samples/) 블로그
 * 다음 [코드 샘플](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)을 통해 신속하게 시작할 수 있습니다.
   * **vodworkflow_aes.php**: 이 PHP 파일은 AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여줍니다. [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)에 설명된 .NET 샘플에 기반합니다.
   * **vodworkflow_aes.php**: 이 PHP 파일은 PlayReady 동적 암호화 및 라이선스 배달 서비스를 사용하는 방법을 보여줍니다. [PlayReady 및/또는 Widevine 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)에 설명된 .NET 샘플에 기반합니다.
@@ -209,9 +208,7 @@ Media Services는 이제 브라질 남부, 인도 서부, 인도 남부 및 인�
 
 ## <a id="august_changes_15"></a>2015년 8월 릴리스
 * Java용 Media Services SDK 버전 0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 자세한 내용은 다음을 참조하세요.
-  
-  * [이 블로그 게시물](http://southworks.com/blog/2015/08/25/microsoft-azure-media-services-sdk-for-java-v0-8-0-released-and-new-samples-available/)
-  * [Java 샘플 리포지토리](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
+    
 * Azure Media Player는 다중 오디오 스트림을 지원하도록 업데이트되었습니다. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)에 게시해 주세요.
 
 ## <a id="july_changes_15"></a>2015년 7월 릴리스

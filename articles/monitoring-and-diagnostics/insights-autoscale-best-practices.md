@@ -1,24 +1,19 @@
 ---
-title: "자동 크기 조정에 대한 모범 사례 | Microsoft Docs"
-description: "Azure에서 Web Apps, Virtual Machine 확장 집합 및 Cloud Services에 대한 자동 크기 조정 패턴"
+title: 자동 크기 조정 모범 사례
+description: Azure에서 Web Apps, Virtual Machine 확장 집합 및 Cloud Services에 대한 자동 크기 조정 패턴
 author: anirudhcavale
-manager: orenr
-editor: 
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 9fa2b94b-dfa5-4106-96ff-74fd1fba4657
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: d5b33b15c315c7538bba7bf9ae067946f3b6d3c4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: autoscale
+ms.openlocfilehash: e9fc5a4c5d2e23750493cc320dffa380724347fb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35262446"
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
 이 문서에서는 Azure에서 자동으로 크기를 조정하기 위한 모범 사례를 설명합니다. Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/) 및 [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/)에만 적용됩니다. 다른 Azure 서비스에는 다른 크기 조정 방법이 사용됩니다.

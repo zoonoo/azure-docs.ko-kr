@@ -202,9 +202,6 @@
         - name: Hue 사용
           href: ../hdinsight-hadoop-hue-linux.md
           maintainContext: true
-        - name: R 사용
-          href: ../hdinsight-hadoop-r-scripts-linux.md
-          maintainContext: true
         - name: Solr 사용
           href: ../hdinsight-hadoop-solr-install-linux.md
           maintainContext: true
@@ -422,13 +419,10 @@
         - name: 온-프레미스 네트워크와 HDInsight 연결
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: OMS를 사용한 모니터링
+    - name: Log Analytics를 사용한 모니터링
       items:
         - name: Azure Log Analytics 사용
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 클러스터 지정 대시보드
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Log Analytics로 쿼리 사용
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -514,6 +508,10 @@
     - name: 릴리스 정보
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: 보관된 릴리스 정보
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 포럼에서 도움말 보기

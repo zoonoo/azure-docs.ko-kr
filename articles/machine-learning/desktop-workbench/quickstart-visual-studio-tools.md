@@ -7,22 +7,24 @@ ms.author: ahgyger
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/15/2017
-ms.openlocfilehash: bbcb2ea5a7ceeb976f590393608cc29c67d9a49e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 735bfd911a738d4e71974f5cdcd94afa50acc502
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932985"
 ---
 # <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools for AI
 Visual Studio Tools for AI는 딥 러닝/AI 솔루션을 빌드, 테스트 및 배포하기 위한 개발 확장입니다. Azure Machine Learning과 원활한 통합, 특히 이전 교육 및 사용자 지정 메트릭의 성능을 자세히 기술한 실행 기록 보기가 특징입니다. 또한 [Microsoft Cognitive Toolkit(이전의 CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) 및 기타 심층 학습 프레임워크를 사용하여 새 프로젝트를 탐색하고 부트스트랩할 수 있는 샘플 탐색기 보기를 제공합니다. 끝으로 Azure Virtual Machines 또는 GPU 포함 Linux 서버 같은 원격 환경에 관한 모델을 교육하는 작업을 제출할 수 있는 컴퓨터 대상에 대한 탐색기를 제공합니다. 또한 [Azure Batch AI(미리 보기)](https://docs.microsoft.com/azure/batch-ai/)에 수월하게 액세스할 수 있습니다.
  
 ## <a name="getting-started"></a>시작 
 시작하려면 먼저 [Visual Studio](https://www.visualstudio.com/downloads/)를 다운로드하여 설치해야 합니다. Visual Studio를 연 후 다음 단계를 수행합니다.
-1. Visual Studio에서 메뉴 모음을 클릭하고 "확장 및 업데이트..."를 선택합니다.
+1. Visual Studio의 메뉴 모음에서 [도구]를 클릭하고 [확장 및 업데이트...]를 선택합니다.
 2. "온라인" 탭을 클릭하고 "Visual Studio Marketplace 검색"을 선택합니다.
 3. "Visual Studio for AI"를 검색합니다. 
 3. **다운로드** 단추를 클릭합니다. 
@@ -58,7 +60,7 @@ Visual Studio Tools for AI는 샘플 탐색기가 함께 제공됩니다. 샘플
 Visual Studio에서 새 프로젝트를 열어 놓은 상태로, 계산 대상(로컬 또는 Docker 포함 VM)에 작업을 제출합니다.
 작업을 제출하려면 다음 단계를 수행합니다. 
 1. 솔루션 탐색기에서 제출할 파일을 마우스 오른쪽 단추로 클릭하고 **시작 파일로 설정**을 선택합니다.
-2. 프로젝트 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **작업 제출...**을 선택합니다.
+2. 프로젝트 이름을 선택하고 마우스 오른쪽 단추로 클릭한 후 **작업 제출...** 을 선택합니다.
 3. 스크립트를 실행할 클러스터(또는 대상 계산)를 선택할 수 있는 새로운 대화 상자가 열립니다.
 4. **제출**을 클릭합니다.
 

@@ -1,30 +1,28 @@
 ---
-title: PHP에서 Azure Storage Table service 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
-description: PHP에서 Table service API를 사용하여 테이블을 작성 및 삭제하고 테이블을 삽입, 삭제 및 쿼리하는 방법에 대해 알아봅니다.
+title: PHP에서 Azure Storage Table 서비스 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
+description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
-documentationcenter: php
 author: SnehaGunda
 manager: kfile
-ms.assetid: 1e57f371-6208-4753-b2a0-05db4aede8e3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: php
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: af193c5ec7993d44fe67216843eb18f459718cfe
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 19d475c16b672b960b417391b4c3a6efe27f6cd6
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797943"
 ---
-# <a name="how-to-use-azure-storage-table-service-or-cosmos-db-table-api-from-php"></a>PHP에서 Azure Storage Table service 또는 Cosmos DB Table API를 사용하는 방법
+# <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>PHP에서 Azure Storage Table 서비스 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>개요
-이 가이드에서는 Azure Storage Table service 및 Azure Cosmos DB Table API를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [Azure Storage Table PHP Client Library][download]를 사용합니다. 여기에서 다루는 시나리오에는 **테이블 만들기 및 삭제** 및 **테이블에서 엔터티 삽입, 삭제 및 쿼리**가 포함됩니다. Azure Table service에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
+이 가이드에서는 Azure Storage Table 서비스 및 Azure Cosmos DB Table API를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었으며 [Azure Storage Table PHP Client Library][download]를 사용합니다. 여기에서 다루는 시나리오에는 **테이블 만들기 및 삭제** 및 **테이블에서 엔터티 삽입, 삭제 및 쿼리**가 포함됩니다. Azure Table service에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하세요.
 
 
 ## <a name="create-an-azure-service-account"></a>Azure 서비스 계정 만들기
@@ -102,7 +100,7 @@ UseDevelopmentStorage = true
 Azure Table service 클라이언트 또는 Azure Cosmos DB 클라이언트를 만들려면 **TableRestProxy** 클래스를 사용해야 합니다. 다음을 수행할 수 있습니다.
 
 * 연결 문자열을 직접 전달할 수 있습니다.
-* **CCM(CloudConfigurationManager)**을 사용하여 여러 외부 소스에서 연결 문자열을 확인할 수 있습니다.
+* **CCM(CloudConfigurationManager)** 을 사용하여 여러 외부 소스에서 연결 문자열을 확인할 수 있습니다.
   * 기본적으로 하나의 외부 소스, 환경 변수에 대한 지원이 제공됩니다.
   * `ConnectionStringSource` 클래스를 확장하여 새 소스를 추가할 수 있습니다.
 

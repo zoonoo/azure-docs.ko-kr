@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
 ms.author: sethm
-ms.openlocfilehash: f59f88d47bfcb3e761f509a3d87c6d068f44e0db
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3dba92467dfaf377236a25f48899a8a53c587a82
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28985207"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130976"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작
 
@@ -33,13 +33,13 @@ ms.locfileid: "28985207"
 * [Microsoft Visual Studio 2015 또는 2017](http://www.visualstudio.com). 이 자습서의 예제에서는 Visual Studio 2017을 사용하지만 Visual Studio 2015도 지원됩니다.
 * [.NET Core Visual Studio 2015 또는 2017 도구](http://www.microsoft.com/net/core).
 * Azure 구독.
-* 이벤트 허브 네임스페이스
+* [이벤트 허브 네임스페이스 및 이벤트 허브](event-hubs-quickstart-portal.md)
 
 Event Hub에 메시지를 전송하려면 이 자습서에서는 Visual Studio를 사용하여 C# 콘솔 응용 프로그램을 작성합니다.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 이벤트 허브 만들기
 
-1단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 이벤트 허브 형식의 네임스페이스를 만들고 응용 프로그램이 이벤트 허브와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 Event Hub를 만들려면 [이 문서](event-hubs-create.md)의 절차에 따라 다음 단계를 진행합니다.
+네임스페이스 및 이벤트 허브를 만들려면 [이 아티클](event-hubs-quickstart-portal.md)의 절차에 따라 이 자습서를 진행합니다.
 
 ## <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
@@ -141,8 +141,8 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
         public class Program
         {
             private static EventHubClient eventHubClient;
-            private const string EhConnectionString = "{Event Hubs connection string}";
-            private const string EhEntityPath = "{Event Hub path/name}";
+            private const string EventHubConnectionString = "{Event Hubs connection string}";
+            private const string EventHubName = "{Event Hub path/name}";
 
             public static void Main(string[] args)
             {
@@ -152,11 +152,11 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
             private static async Task MainAsync(string[] args)
             {
                 // Creates an EventHubsConnectionStringBuilder object from the connection string, and sets the EntityPath.
-                // Typically, the connection string should have the entity path in it, but this simple scenario
-                // uses the connection string from the namespace.
-                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EhConnectionString)
+                // Typically, the connection string should have the entity path in it, but for the sake of this simple scenario
+                // we are using the connection string from the namespace.
+                var connectionStringBuilder = new EventHubsConnectionStringBuilder(EventHubConnectionString)
                 {
-                    EntityPath = EhEntityPath
+                    EntityPath = EventHubName
                 };
 
                 eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
@@ -206,4 +206,4 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 * [이벤트 허브 만들기](event-hubs-create.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
-[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcore.png
+[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

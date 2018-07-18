@@ -1,44 +1,50 @@
 ---
 title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성 서버 관리 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
-services: site-recovery
-author: AnoopVasudavan
+description: 이 아티클에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
+author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b5ba316b21e0c31e0ecc99fc2d57f81b0f24c086
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 06/20/2018
+ms.author: raynew
+ms.openlocfilehash: 753e123c660b1aacea1157157f0e580e15c47536
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287408"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware VM에 대해 구성 서버 관리
 
 Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Site Recovery](site-recovery-overview.md)를 사용할 경우 온-프레미스 구성 서버를 설정합니다. 구성 서버는 온-프레미스 VMware 및 Azure 간의 통신을 조정하고 데이터 복제를 관리합니다. 이 문서에서는 배포된 후에 구성 서버를 관리하기 위한 일반 태스크를 요약합니다.
 
 
+
 ## <a name="modify-vmware-settings"></a>VMware 설정 수정
 
-구성 서버가 연결하는 VMware 서버에 대한 설정을 수정합니다.
+다음과 같이 구성 서버에 액세스할 수 있습니다.
+    - 배포된 VM에 로그인하고, 바탕 화면 바로 가기에서 Azure Site Recovery 구성 관리자를 시작합니다.
+    - 또는 **https://*ConfigurationServerName*/:44315/** 에서 구성 서버에 원격으로 액세스할 수 있습니다. 관리자 자격 증명을 사용하여 로그인합니다.
+   
+### <a name="modify-vmware-server-settings"></a>VMware 서버 설정 수정
 
-1. 구성 서버를 실행하는 컴퓨터에 로그인합니다.
-2. 바탕 화면 바로 가기에서 Azure Site Recovery 구성 관리자를 시작합니다. 또는 [이 링크](https://configuration-server-name/IP:44315)를 엽니다.
-3. **vCenter 서버/vSPhere ESXi 서버**를 선택하고 다음을 수행합니다.
+1. 다른 VMware 서버를 구성 서버에 연결하려면 로그인한 후에 **vCenter 서버/vSphere ESXi 서버 추가**를 선택합니다.
+2. 세부 정보를 입력한 다음, **확인**을 선택합니다.
 
-    * 다른 VMware 서버를 구성 서버에 연결하려면 **vCenter 서버/vSphere ESXi 서버 추가**를 선택합니다. 서버 정보를 입력합니다.
 
-    * VMware VM의 자동 검색을 위해 VMware 서버에 연결하는 데 사용되는 자격 증명을 업데이트하려면 **편집**을 선택합니다. 새 자격 증명을 입력하고 **확인**을 선택합니다.
+### <a name="modify-credentials-for-automatic-discovery"></a>자동 검색에 대한 자격 증명 수정
+
+1. VMware VM의 자동 검색을 위해 VMware 서버에 연결하는 데 사용되는 자격 증명을 업데이트하려면 로그인한 후에 **편집**을 선택합니다.
+2. 새 자격 증명을 입력하고 **확인**을 선택합니다.
 
     ![VMware 수정](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Mobility Service 설치에 대한 자격 증명 수정
 
 복제에 대해 사용되는 VMware VM에 Mobility Service를 자동으로 설치하는 데 사용되는 자격 증명을 수정합니다.
 
-1. 구성 서버를 실행하는 컴퓨터에 로그인합니다.
-2. 바탕 화면 바로 가기에서 Site Recovery 구성 관리자를 시작합니다. 또는 [이 링크](https://configuration-server-name/IP:44315)를 엽니다.
-3. **가상 머신 자격 증명 관리**를 선택하고 새 자격 증명을 입력합니다. 그런 후 **확인**을 선택하여 설정을 업데이트합니다.
+1. 로그인한 후에 **가상 머신 자격 증명 관리**를 선택합니다.
+2. 새 자격 증명을 입력하고 **확인**을 선택합니다.
 
     ![Mobility Service 자격 증명 수정](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
 
@@ -46,15 +52,15 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 Azure에 대한 인터넷 액세스를 위해 구성 서버 컴퓨터에서 사용하는 프록시 설정을 수정합니다. 구성 서버 컴퓨터에서 실행 중인 기본 프로세스 서버 외에도, 프로세스 서버 컴퓨터가 있는 경우 두 컴퓨터의 설정을 수정합니다.
 
-1. 구성 서버를 실행하는 컴퓨터에 로그인합니다.
-2. 바탕 화면 바로 가기에서 Site Recovery 구성 관리자를 시작합니다. 또는 [이 링크](https://configuration-server-name/IP:44315)를 엽니다.
-3. **연결 관리**를 선택하고 프록시 값을 업데이트합니다. 그런 후 **저장**을 선택하여 설정을 업데이트합니다.
+1. 구성 서버에 로그인한 후에 **연결 관리**를 선택합니다.
+2. 프록시 값을 업데이트합니다. 그런 후 **저장**을 선택하여 설정을 업데이트합니다.
 
 ## <a name="add-a-network-adapter"></a>네트워크 어댑터 추가
 
-OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 사용하여 구성 서버 VM을 배포합니다. [VM에 추가 어댑터를 추가](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)할 수 있으나 자격 증명 모음에 구성 서버를 등록하기 전에 추가해야 합니다.
+OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 사용하여 구성 서버 VM을 배포합니다.
 
-구성 서버를 자격 증명 모음에 등록한 후 어댑터를 추가하려면 VM 속성에서 어댑터를 추가합니다. 그런 후 자격 증명 모음에 서버를 다시 등록합니다.
+- [VM에 추가 어댑터를 추가](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter)할 수 있지만 자격 증명 모음에 구성 서버를 등록하기 전에 추가해야 합니다.
+- 구성 서버를 자격 증명 모음에 등록한 후 어댑터를 추가하려면 VM 속성에서 어댑터를 추가합니다. 그런 다음, 자격 증명 모음에 서버를 다시 등록해야 합니다.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>동일한 자격 증명 모음에 구성 서버 다시 등록
@@ -65,7 +71,7 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
   1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**를 엽니다.
   2. **서버**에서 **등록 키 다운로드**를 선택하여 자격 증명 모음 자격 증명 파일을 다운로드합니다.
   3. 구성 서버 컴퓨터에 로그인합니다.
-  4. **%ProgramData%\ASR\home\svagent\bin**에서 **cspsconfigtool.exe**를 엽니다.
+  4. **%ProgramData%\ASR\home\svsystems\bin**에서 **cspsconfigtool.exe**를 엽니다.
   5. **자격 증명 모음 등록** 탭에서 **찾아보기**를 선택하고 다운로드한 자격 증명 모음 자격 증명 파일을 찾습니다.
   6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음 **등록**을 선택합니다.
   7. 관리자 PowerShell 명령 창을 열고 다음 명령을 실행합니다.
@@ -88,15 +94,27 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 다음과 같이 서버를 업그레이드합니다.
 
+1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**로 이동합니다.
+2. 업데이트를 사용할 수 있는 경우 **에이전트 버전** > 열에 링크가 표시됩니다.
+
+    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update2.png)
+
 1. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
-2. 두 번 클릭하여 설치 관리자를 실행합니다.
-3. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다.
-4. **확인**을 선택하여 확인하고 업그레이드를 실행합니다. 
+
+    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. 두 번 클릭하여 설치 관리자를 실행합니다.
+2. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다. **예**를 클릭하여 업그레이드를 시작합니다. 
+3. 업그레이드가 완료되면 서버 구성의 유효성을 검사합니다.
+
+    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update3.png)
+
+4. **마침**을 클릭하여 설치 관리자를 닫습니다.
 
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>구성 서버 삭제 또는 등록 취소
 
-1. 구성 서버의 모든 VM에 대해 [보호 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)을 사용하지 않도록 설정합니다.
+1. 구성 서버의 모든 VM에 대해 [보호를 사용하지 않습니다](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
 2. 구성 서버에서 모든 복제 정책을 [연결 해제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 및 [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)합니다.
 3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)합니다.
 4. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 엽니다.

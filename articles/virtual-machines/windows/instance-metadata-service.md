@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
 ms.openlocfilehash: a40971e373a6e2fe6324e06816112e2025506ba8
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/12/2018
 ms.locfileid: "34057981"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
@@ -286,7 +286,7 @@ Data | 설명 | 도입된 버전
 -----|-------------|-----------------------
 location | VM을 실행하는 Azure 지역 | 2017-04-02 
 이름 | VM의 이름 | 2017-04-02
-offer | VM 이미지에 대한 정보를 제공합니다. 이 값은 Azure 이미지 갤러리에서 배포된 이미지에 대해서만 표시됩니다. | 2017-04-02
+제품 | VM 이미지에 대한 정보를 제공합니다. 이 값은 Azure 이미지 갤러리에서 배포된 이미지에 대해서만 표시됩니다. | 2017-04-02
 publisher | VM 이미지 게시자 | 2017-04-02
 sku | VM 이미지에 해당하는 SKU | 2017-04-02
 버전 | VM 이미지의 버전 | 2017-04-02

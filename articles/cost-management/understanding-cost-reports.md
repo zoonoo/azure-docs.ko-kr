@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b2f33a8dce441312e74688ca766ab65c028451d9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 75709e099c6126997d91bf4b679de473fc75a485
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167898"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064629"
 ---
 # <a name="understanding-cost-management-reports"></a>비용 관리 보고서 이해
 
@@ -136,7 +136,7 @@ ms.locfileid: "32167898"
     비 사용량 기반 서비스 요금 또는 일회성 지급 비용을 확인하고 이러한 비용을 수명 주기 전체에 걸쳐 균등하게 분산하려면 비용 할당 보고서에서 [상환]을 사용합니다. 일회성 요금의 예는 다음과 같습니다.
     - 연간 지원 요금
     - 연간 보안 구성 요소 요금
-    - 예약 인스턴스 구매 요금
+    - 예약 인스턴스 구입 요금
     - 일부 Azure Marketplace 항목.
 
   상환 아래에서 **비용 상환** 또는 **실제 비용**을 선택합니다.
@@ -176,6 +176,10 @@ ms.locfileid: "32167898"
 
     보고서를 저장하거나 내보내거나 예약하려면 [작업]을 사용합니다.
 
+15. **정책**
+
+    그림에는 없지만 일부 보고서에는 예상 비용 계산 정책이 포함됩니다. 이러한 보고서에서 **통합** 정책은 Microsoft 등록이나 AWS 지불자 등, 현재 엔터티의 모든 계정 및 구독에 대한 권장 사항을 나타냅니다. **독립형** 정책은 다른 구독이 없는 경우 한 계정 또는 구독에 대한 권장 사항을 나타냅니다.  선택한 정책은 조직에서 사용하는 최적화 전략에 따라 다릅니다. 비용 예상은 지난 30일 사용량을 기준으로 합니다.
+
 ## <a name="save-and-schedule-reports"></a>보고서 저장 및 예약
 
 보고서를 만들면 나중에 사용하도록 저장할 수 있습니다. 저장된 보고서는 **내 도구** > **내 보고서**에서 사용할 수 있습니다. 기존 보고서를 변경하고 저장하는 경우 보고서는 새 버전으로 저장됩니다. 또는 새 보고서로 저장할 수 있습니다.
@@ -199,4 +203,5 @@ ms.locfileid: "32167898"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Cost Management에 대한 첫 번째 자습서를 아직 완료하지 않은 경우 [사용량 및 비용 검토](tutorial-review-usage.md)에서 읽어 보십시오.
+- [비용 관리 보고서 사용](use-reports.md)에서 Cloudyn에 포함된 보고서에 대해 알아보세요.
+- 보고서를 사용하여 [대시보드](dashboards.md)를 만드는 방법을 알아보세요.

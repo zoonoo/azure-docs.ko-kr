@@ -1,19 +1,19 @@
 ---
 title: Azure Data Lake Store를 사용하여 원격 모니터링 솔루션 통합 | Microsoft 문서 도구
 description: Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션을 Azure Data Lake Store와 통합하는 방법을 알아봅니다.
-+services: ''
-+suite: iot-suite
-+author: philmea
-+manager: timlt
-+ms.author: philmea
-+ms.date: 04/029/2018
-+ms.topic: article
-+ms.service: iot-suite
-ms.openlocfilehash: 426ded8079ba5d6de4c186a8d18dd284082b0c1c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+author: philmea
+manager: timlt
+ms.author: philmea
+ms.date: 04/29/2018
+ms.topic: conceptual
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.openlocfilehash: 5ba9b5534e986be1cbe55043a9acdd981d2ed7fd
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971740"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 05/20/2018
 
 이 방법을 완료하려면 다음이 필요합니다.
 
-* [미리 구성된 원격 모니터링 솔루션 배포](iot-accelerators-remote-monitoring-deploy.md)
+* [원격 모니터링 솔루션 가속기 배포](iot-accelerators-remote-monitoring-deploy.md).
   * 원격 모니터링 솔루션은 이 문서에서 Azure 구독에 사용된 IoT 허브 및 Azure Stream Analytics 작업을 배포합니다.
 * [Azure Data Lake Store 배포](../data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store는 원격 모니터링 솔루션과 동일한 지역에 배포되어야 합니다.
@@ -180,4 +180,4 @@ Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이�
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Data Lake Analytics를 사용하여 Data Lake Store 데이터 세트에서 빅 데이터 분석을 수행할 수 있습니다. 자세한 내용은 [Data Lake Analytics 문서](https://docs.microsoft.com/en-us/azure/data-lake-analytics)를 참조하세요.
+Azure Data Lake Analytics를 사용하여 Data Lake Store 데이터 세트에서 빅 데이터 분석을 수행할 수 있습니다. 자세한 내용은 [Data Lake Analytics 문서](https://docs.microsoft.com/azure/data-lake-analytics)를 참조하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: mbaldwin
-ms.openlocfilehash: 83e69701aa5e8c11354e7551d66f3fdd18289000
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 147b0b9b4a3fe789544457d17fed3d29badbe12c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29937311"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113955"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Azure Marketplace용 솔루션 템플릿 만들기 가이드
 1단계 [계정 만들기 및 등록][link-acct-creation]을 완료한 후 [솔루션 템플릿을 만들기 위한 기술 필수 조건](marketplace-publishing-solution-template-creation-prerequisites.md)에서 Azure 호환 솔루션 템플릿 만들기에 대해 안내했습니다. 이제 Azure Marketplace의 [게시 포털][link-pubportal]에서 여러 VM에 대한 솔루션 템플릿을 만드는 단계를 안내합니다.
@@ -55,12 +55,13 @@ ms.locfileid: "29937311"
   >
 
 ## <a name="next-steps"></a>다음 단계
-지금까지 솔루션 템플릿을 만들고 zip 파일을 업로드했으므로 제품을 스테이징으로 푸시하기 전에 [Marketplace 마케팅 콘텐츠 가이드](marketplace-publishing-push-to-staging.md) 의 지침을 따르세요. [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하여 전체 마켓플레이스 게시 문서를 확인할 수 있습니다.
+지금까지 솔루션 템플릿을 만들고 zip 파일을 업로드했으므로 제품을 스테이징으로 푸시하기 전에 [Marketplace 마케팅 콘텐츠 가이드](marketplace-publishing-push-to-staging.md)의 지침을 따르세요. 
+  [시작: Azure Marketplace에 제품을 게시하는 방법](marketplace-publishing-getting-started.md)을 참조하여 전체 마켓플레이스 게시 문서를 확인할 수 있습니다.
 
 다음 관련 문서를 참조할 수도 있습니다.
 
 * VM 이미지: [Azure의 Virtual Machine 이미지 정보](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM 확장: [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/azure/dn832621.aspx) 및 [Azure VM 확장 및 기능](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM 확장: [VM 에이전트 및 VM 확장 개요](https://msdn.microsoft.com/library/azure/dn832621.aspx) 및 [Azure VM 확장 및 기능](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows)
 * Azure Resource Manager: [Azure Resource Manager 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md) 및 [간단한 템플릿 예제](https://github.com/rjmax/ArmExamples)
 * Storage 계정 제한: [Storage 계정 제한을 모니터링하는 방법](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) 및 [Premium storage](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

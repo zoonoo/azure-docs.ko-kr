@@ -8,6 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 43681ce665bec088472b5c33f64d52d3d9fda5a1
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 424ea1eca637653c5e7cfed9dc4b970d5afd91ad
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164206"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713411"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD ID 보호를 사용하는 로그인 환경
 Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습니다.
@@ -30,7 +31,7 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 
 더 이상 사용자 이름과 암호를 제공하여 직접 로그인할 수 없기 때문에 이러한 문제에 대한 시스템의 응답은 사용자의 로그인 환경에 영향을 줍니다. 사용자를 업무 환경으로 안전하게 복귀시키려면 추가 단계가 필요합니다.
 
-이 항목에서는 발생할 수 있는 모든 경우의 사용자 로그인 환경에 대한 개요를 제공합니다.
+이 아티클에서는 발생할 수 있는 모든 경우의 사용자 로그인 환경에 대한 개요를 제공합니다.
 
 **Multi-Factor Authentication**
 
@@ -72,7 +73,7 @@ Azure Active Directory ID 보호를 사용하여 다음을 수행할 수 있습�
 1. 사용자는 새 위치, 장치 또는 앱에서 로그인과 같은 해당 로그인에 대해 비정상적인 점이 검색되었음을 통보받습니다. 
    
     ![수정](./media/active-directory-identityprotection-flows/120.png "수정")
-2. 사용자가 보안 과제를 해결하여 해당 ID를 증명해야 합니다. 사용자가 Multi-Factor Authentication에 등록된 경우 전화 번호에 대한 보안 코드를 왕복해야 합니다. 손상된 계정이 아닌 위험한 로그인일 뿐이기 때문에 사용자는 이 흐름에서 암호를 변경할 필요가 없습니다. 
+2. 사용자가 보안 과제를 해결하여 해당 ID를 증명해야 합니다. 사용자가 다단계 인증에 등록된 경우 전화 번호에 대한 보안 코드를 왕복해야 합니다. 손상된 계정이 아닌 위험한 로그인일 뿐이기 때문에 사용자는 이 흐름에서 암호를 변경할 필요가 없습니다. 
    
     ![수정](./media/active-directory-identityprotection-flows/121.png "수정")
 

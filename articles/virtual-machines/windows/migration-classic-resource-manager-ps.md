@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: a57337acadafe40839e16d6a31861ff7c892c071
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9cfdd6828a6d7ec699501a485519f843c59d0422
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31602504"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291928"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 이러한 단계에서는 Azure PowerShell 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다.
@@ -46,8 +46,6 @@ ms.locfileid: "31602504"
 > Application Gateway는 현재 클래식에서 Resource Manager로 마이그레이션될 수 없습니다. Application Gateway를 사용하여 클래식 가상 네트워크를 마이그레이션하려면 준비 작업을 실행하여 네트워크를 이동하기 전에 게이트웨이를 제거합니다. 마이그레이션을 완료한 후 Azure Resource Manager에서 게이트웨이를 다시 연결합니다.
 >
 >다른 구독에서 ExpressRoute 회로에 연결하는 ExpressRoute 게이트웨이를 자동으로 마이그레이션할 수 없습니다. 이러한 경우에 ExpressRoute 게이트웨이를 제거하고 가상 네트워크를 마이그레이션한 다음 게이트웨이를 다시 만듭니다. 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 및 연결된 가상 네트워크 마이그레이션](../../expressroute/expressroute-migration-classic-resource-manager.md)을 참조하세요.
->
->
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>2단계: Azure PowerShell 최신 버전 설치
 Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/) 또는 [WebPI(웹 플랫폼 설치 관리자)](http://aka.ms/webpi-azps)가 있습니다. WebPI는 매월 업데이트를 수신합니다. PowerShell 갤러리는 지속적으로 업데이트를 수신합니다. 이 문서는 Azure PowerShell 버전 2.1.0을 기반으로 합니다.
@@ -90,8 +88,6 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 > 등록은 일회성 단계이지만 마이그레이션 전에 한 번은 수행해야 합니다. 등록하지 않으면 다음과 같은 오류 메시지가 표시됩니다.
 >
 > *BadRequest : 구독이 마이그레이션에 대해 등록되지 않았습니다.*
->
->
 
 다음 명령을 사용하여 마이그레이션 리소스 공급자에 등록합니다.
 
@@ -137,12 +133,15 @@ Get-AzureRmVMUsage -Location "West US"
 ```
 
 ## <a name="step-6-run-commands-to-migrate-your-iaas-resources"></a>6단계: IaaS 리소스를 마이그레이션하는 명령 실행
+* [클라우드 서비스(가상 네트워크가 아닌)에서 VM 마이그레이션](#step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network)
+* [가상 네트워크에서 VM 마이그레이션](#step-61-option-2---migrate-virtual-machines-in-a-virtual-network)
+* [저장소 계정 마이그레이션](#step-62-migrate-a-storage-account)
+
 > [!NOTE]
 > 여기에 설명된 모든 작업은 idempotent 방식입니다. 지원되지 않는 기능 또는 구성 오류 이외의 문제가 발생하는 경우 준비, 중단 또는 커밋 작업을 다시 시도하는 것이 좋습니다. 그러면 플랫폼이 해당 작업을 다시 시도합니다.
->
->
 
-## <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>6.1단계: 옵션 1 - 클라우드 서비스(가상 네트워크가 아님)에서 가상 머신 마이그레이션
+
+### <a name="step-61-option-1---migrate-virtual-machines-in-a-cloud-service-not-in-a-virtual-network"></a>6.1단계: 옵션 1 - 클라우드 서비스(가상 네트워크가 아님)에서 가상 머신 마이그레이션
 다음 명령을 사용하여 클라우드 서비스 목록을 가져와서 마이그레이션할 클라우드 서비스를 선택합니다. 클라우드 서비스의 VM이 가상 네트워크에 있거나 웹 또는 작업자 역할을 포함하는 경우 명령을 오류 메시지를 반환합니다.
 
 ```powershell
@@ -169,7 +168,7 @@ Get-AzureRmVMUsage -Location "West US"
     $validate.ValidationMessages
     ```
 
-    위의 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사가 성공하면 **준비** 단계로 넘어갈 수 있습니다.
+    다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사가 성공하면 **준비** 단계로 넘어갈 수 있습니다.
 
     ```powershell
     Move-AzureService -Prepare -ServiceName $serviceName `
@@ -193,7 +192,7 @@ Get-AzureRmVMUsage -Location "West US"
     $validate.ValidationMessages
     ```
 
-    위의 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사에서 마이그레이션이 가능한 것으로 확인되면 다음 준비 단계를 진행할 수 있습니다.
+    다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사에서 마이그레이션이 가능한 것으로 확인되면 다음 준비 단계를 진행할 수 있습니다.
 
     ```powershell
         Move-AzureService -Prepare -ServiceName $serviceName -DeploymentName $deploymentName `
@@ -223,7 +222,7 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
     Move-AzureService -Commit -ServiceName $serviceName -DeploymentName $deploymentName
 ```
 
-## <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>6.1단계: 옵션 2 - 가상 네트워크에서 가상 머신 마이그레이션
+### <a name="step-61-option-2---migrate-virtual-machines-in-a-virtual-network"></a>6.1단계: 옵션 2 - 가상 네트워크에서 가상 머신 마이그레이션
 
 가상 네트워크에서 가상 머신을 마이그레이션하려면 가상 네트워크를 마이그레이션합니다. 가상 머신은 가상 네트워크와 함께 자동으로 마이그레이션됩니다. 마이그레이션할 가상 네트워크를 선택합니다.
 > [!NOTE]
@@ -241,8 +240,6 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
 
 > [!NOTE]
 > 가상 네트워크에 웹 또는 작업자 역할이 포함되어 있거나 지원되지 않는 구성을 포함하는 VM이 있으면 유효성 검사 오류 메시지가 표시됩니다.
->
->
 
 먼저 다음 명령을 사용하여 가상 네트워크를 마이그레이션할 수 있는지 유효성을 검사합니다.
 
@@ -250,7 +247,7 @@ PowerShell 또는 Azure 포털을 사용하여 준비된 리소스에 대한 구
     Move-AzureVirtualNetwork -Validate -VirtualNetworkName $vnetName
 ```
 
-위의 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사에서 마이그레이션이 가능한 것으로 확인되면 다음 준비 단계를 진행할 수 있습니다.
+다음 명령은 마이그레이션을 차단하는 경고와 오류를 표시합니다. 유효성 검사에서 마이그레이션이 가능한 것으로 확인되면 다음 준비 단계를 진행할 수 있습니다.
 
 ```powershell
     Move-AzureVirtualNetwork -Prepare -VirtualNetworkName $vnetName
@@ -268,78 +265,81 @@ Azure PowerShell 또는 Azure 포털을 사용하여 준비된 가상 머신에 
     Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 ```
 
-## <a name="step-62-migrate-a-storage-account"></a>6.2단계 저장소 계정 마이그레이션
-가상 머신 마이그레이션이 완료되면 저장소 계정을 마이그레이션하는 것이 좋습니다.
+### <a name="step-62-migrate-a-storage-account"></a>6.2단계 저장소 계정 마이그레이션
+가상 머신 마이그레이션을 마쳤으면, 저장소 계정을 마이그레이션하기 전에 다음과 같은 필수 검사를 수행하는 것이 좋습니다.
 
-저장소 계정을 마이그레이션하기 전에 이전의 필수 요소 검사를 수행하세요.
+> [!NOTE]
+> 저장소 계정에 연결된 디스크 또는 VM 데이터가 없는 경우 바로 **저장소 계정의 유효성을 검사하고 마이그레이션 시작** 섹션으로 건너뛰어도 됩니다.
 
-* **디스크가 저장소 계정에 저장되는 클래식 가상 머신 마이그레이션**
+* **VM을 마이그레이션했거나 저장소 계정에 디스크 리소스가 있는 경우 필수 구성 요소 확인**
+    * **디스크가 저장소 계정에 저장되는 클래식 가상 머신 마이그레이션**
 
-    이전 명령은 저장소 계정에서 모든 클래식 VM 디스크의 RoleName 및 DiskName 속성을 반환합니다. RoleName은 디스크가 연결된 가상 머신의 이름입니다. 이전 명령이 디스크를 반환하면 저장소 계정을 마이그레이션하기 전에 디스크가 연결된 가상 머신을 마이그레이션해야 합니다.
+        다음 명령은 저장소 계정에서 모든 클래식 VM 디스크의 RoleName 및 DiskName 속성을 반환합니다. RoleName은 디스크가 연결된 가상 머신의 이름입니다. 이 명령이 디스크를 반환하면 저장소 계정을 마이그레이션하기 전에 디스크가 연결된 가상 머신을 마이그레이션해야 합니다.
+        ```powershell
+         $storageAccountName = 'yourStorageAccountName'
+          Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
+          DiskName | Format-List -Property RoleName, DiskName
+
+        ```
+    * **저장소 계정에서 연결되지 않은 클래식 VM 디스크 삭제**
+
+        다음 명령을 사용하여 저장소 계정에서 연결되지 않은 클래식 VM 디스크를 찾습니다.
+
+        ```powershell
+            $storageAccountName = 'yourStorageAccountName'
+            Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
+
+        ```
+        위의 명령이 디스크를 반환하면 다음 명령을 사용하여 다음과 같은 디스크를 삭제합니다.
+
+        ```powershell
+           Remove-AzureDisk -DiskName 'yourDiskName'
+        ```
+    * **저장소 계정에 저장된 VM 이미지 삭제**
+
+        다음 명령은 저장소 계정에 저장된 이미지 중 OS 디스크가 포함된 모든 VM 이미지를 반환합니다.
+         ```powershell
+            Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                    } | Select-Object -Property ImageName, ImageLabel
+         ```
+         다음 명령은 저장소 계정에 저장된 이미지 중 데이터가 포함된 모든 VM 이미지를 반환합니다.
+         ```powershell
+
+            Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                             -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                            } | Select-Object -Property ImageName, ImageLabel
+         ```
+        이 명령을 사용하여 위의 명령을 통해 반환된 모든 VM 이미지를 삭제합니다.
+        ```powershell
+        Remove-AzureVMImage -ImageName 'yourImageName'
+        ```
+* **저장소 계정의 유효성을 검사하고 마이그레이션 시작**
+
+    다음 명령을 사용하여 마이그레이션을 위한 각 저장소 계정의 유효성을 검사합니다. 이 예제에서 저장소 계정 이름은 **myStorageAccount**입니다. 예제 이름을 사용자 고유의 저장소 계정 이름으로 바꿉니다.
+
     ```powershell
-     $storageAccountName = 'yourStorageAccountName'
-      Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Select-Object -ExpandProperty AttachedTo -Property `
-      DiskName | Format-List -Property RoleName, DiskName
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
     ```
-* **저장소 계정에서 연결되지 않은 클래식 VM 디스크 삭제**
 
-    다음 명령을 사용하여 저장소 계정에서 연결되지 않은 클래식 VM 디스크를 찾습니다.
+    다음 단계에서는 마이그레이션을 위한 저장소 계정을 준비합니다.
 
     ```powershell
-        $storageAccountName = 'yourStorageAccountName'
-        Get-AzureDisk | where-Object {$_.MediaLink.Host.Contains($storageAccountName)} | Where-Object -Property AttachedTo -EQ $null | Format-List -Property DiskName  
-
+        $storageAccountName = "myStorageAccount"
+        Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
     ```
-    위의 명령이 디스크를 반환하면 다음 명령을 사용하여 다음과 같은 디스크를 삭제합니다.
+
+    Azure PowerShell 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구성을 확인합니다. 마이그레이션할 준비가 되지 않았으며 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
 
     ```powershell
-       Remove-AzureDisk -DiskName 'yourDiskName'
+        Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
     ```
-* **저장소 계정에 저장된 VM 이미지 삭제**
 
-    이전 명령은 저장소 계정에 저장된 이미지 중 OS 디스크가 포함된 모든 VM 이미지를 반환합니다.
-     ```powershell
-        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
-                                } | Select-Object -Property ImageName, ImageLabel
-     ```
-     이전 명령은 저장소 계정에 저장된 이미지 중 데이터가 포함된 모든 VM 이미지를 반환합니다.
-     ```powershell
+    준비된 구성이 양호하면 계속 진행하고 다음 명령을 사용하여 리소스를 커밋합니다.
 
-        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
-                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
-                                        } | Select-Object -Property ImageName, ImageLabel
-     ```
-    이전 명령을 사용하여 위의 명령을 통해 반환된 모든 VM 이미지를 삭제합니다.
     ```powershell
-    Remove-AzureVMImage -ImageName 'yourImageName'
+        Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
     ```
-
-다음 명령을 사용하여 마이그레이션을 위한 각 저장소 계정의 유효성을 검사합니다. 이 예제에서 저장소 계정 이름은 **myStorageAccount**입니다. 예제 이름을 사용자 고유의 저장소 계정 이름으로 바꿉니다.
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Validate -StorageAccountName $storageAccountName
-```
-
-다음 단계에서는 마이그레이션을 위한 저장소 계정을 준비합니다.
-
-```powershell
-    $storageAccountName = "myStorageAccount"
-    Move-AzureStorageAccount -Prepare -StorageAccountName $storageAccountName
-```
-
-Azure PowerShell 또는 Azure 포털을 사용하여 준비된 저장소 계정에 대한 구성을 확인합니다. 마이그레이션할 준비가 되지 않았으며 이전 상태로 되돌아가려면 다음 명령을 사용합니다.
-
-```powershell
-    Move-AzureStorageAccount -Abort -StorageAccountName $storageAccountName
-```
-
-준비된 구성이 양호하면 계속 진행하고 다음 명령을 사용하여 리소스를 커밋합니다.
-
-```powershell
-    Move-AzureStorageAccount -Commit -StorageAccountName $storageAccountName
-```
 
 ## <a name="next-steps"></a>다음 단계
 * [클래식에서 Azure Resource Manager로 IaaS 리소스의 플랫폼 지원 마이그레이션 개요](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

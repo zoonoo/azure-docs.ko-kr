@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
 ms.openlocfilehash: 9d254fa17ae2b45a5771777bc7cedf9fa90d9815
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790766"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477644"
 ---
 # <a name="create-a-virtual-network-classic-by-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 네트워크(클래식) 만들기
 [!INCLUDE [virtual-networks-create-vnet-selectors-classic-include](../../includes/virtual-networks-create-vnet-selectors-classic-include.md)]

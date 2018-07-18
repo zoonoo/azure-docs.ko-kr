@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: 674f4ec53300643450d8a576db6fcb50e86dd9d2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: c500725508d2bf9f09279e665871ab286d9e495a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161161"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652072"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>StorSimple에 대한 역할 기반 액세스 제어
 
@@ -31,7 +31,7 @@ ms.locfileid: "34161161"
 
 RBAC는 역할을 기반으로 할당할 수 있습니다. 이 역할은 환경에서 사용할 수 있는 리소스를 기준으로 특정 권한 수준을 보장합니다. StorSimple 사용자는 기본 제공 또는 사용자 지정의 두 가지 유형 중에서 역할을 선택할 수 있습니다.
 
-* **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/overview.md#built-in-roles)을 참조하세요.
+* **기본 제공 역할** - 기본 제공 역할은 owner, contributor, reader 또는 사용자 액세스 관리자가 있습니다. 자세한 내용은 [Azure 역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 * **사용자 지정 역할** - 기본 제공 역할이 요구 사항에 맞지 않을 경우 StorSimple에 대해 사용자 지정 RBAC 역할을 만들 수 있습니다. 사용자 지정 RBAC 역할을 만들려면 기본 제공 역할을 시작하고 편집한 다음 환경에서 다시 가져옵니다. 역할의 다운로드 및 업로드는 Azure PowerShell 또는 Azure CLI를 사용하여 관리합니다. 자세한 내용은 [역할 기반 액세스 제어의 기본 제공 역할](../role-based-access-control/custom-roles.md)을 참조하세요.
 
@@ -154,7 +154,7 @@ PS C:\WINDOWS\system32>
 
 ## <a name="add-users-to-the-custom-role"></a>사용자 지정 역할에 사용자 추가
 
-역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용을 보려면 [리소스 계층 및 액세스 권한 상속(영문)](../role-based-access-control/overview.md#resource-hierarchy-and-access-inheritance)으로 이동하세요.
+역할 할당의 범위인 리소스, 리소스 그룹 또는 구독 내에서 액세스 권한을 부여합니다. 액세스 권한을 제공할 때에는 부모 노드에서 부여한 액세스 권한이 자식에게 상속된다는 점을 기억하세요. 자세한 내용은 [역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
 1. **액세스 제어(IAM)** 로 이동합니다. 액세스 제어 블레이드에서 **+ 추가**를 선택합니다.
 

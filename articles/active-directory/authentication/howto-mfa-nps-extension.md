@@ -1,5 +1,5 @@
 ---
-title: 기존 NPS 서버를 사용하여 Azure MFA 기능 제공 | Microsoft Docs
+title: 기존 NPS 서버를 사용하여 Azure MFA 기능 제공
 description: 기존 인증 인프라에 클라우드 기반 2단계 검증 기능 추가
 services: multi-factor-authentication
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 57bf8b81d8d7fee6eaee216b9a2e0c52aa625257
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: ac2b0e2ba3eff83462ded91bcd0ac9a7309f73b4
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868333"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031144"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -58,8 +58,8 @@ Windows Server 2008 R2 SP1 이상
 
 이러한 라이브러리는 확장으로 자동 설치됩니다.
 
--   [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
--   [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual Studio 2013(X64)용 Visual C++ 재배포 가능 패키지](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Windows PowerShell용 Microsoft Azure Active Directory 모듈 버전 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치되지 않은 경우 설치 프로세스의 일부로 실행되는 구성 스크립트를 통해 설치됩니다. 이 모듈은 아직 설치하지 않은 상태에서 미리 설치할 필요가 없습니다.
 
@@ -70,6 +70,13 @@ NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 
 확장을 설치할 때 Azure AD 테넌트에 대한 디렉터리 ID와 관리자 자격 증명이 필요합니다. [Azure Portal](https://portal.azure.com)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인하고 왼쪽의 **Azure Active Directory** 아이콘을 선택한 다음 **속성**을 선택합니다. **디렉터리 ID** 상자에서 GUID를 복사하고 저장합니다. NPS 확장을 설치할 때 이 GUID를 테넌트 ID로 사용합니다.
 
 ![Azure Active Directory 속성에서 디렉터리 ID 찾기](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### <a name="network-requirements"></a>네트워크 요구 사항
+
+NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 합니다.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## <a name="prepare-your-environment"></a>환경 준비
 
@@ -131,19 +138,19 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 
 ### <a name="download-and-install-the-nps-extension-for-azure-mfa"></a>Azure MFA용 NPS 확장 다운로드 및 설치
 
-1.  Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
-2.  이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
-3.  *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 조건 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
+1. Microsoft 다운로드 센터에서 [NPS 확장을 다운로드합니다](https://aka.ms/npsmfa).
+2. 이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
+3. *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 조건 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
 
 ### <a name="run-the-powershell-script"></a>PowerShell 스크립트 실행
 
-설치 관리자에서 `C:\Program Files\Microsoft\AzureMfa\Config`(여기서 C: \는 설치 드라이브) 위치에 PowerShell 스크립트를 만듭니다. 이 PowerShell 스크립트는 다음 작업을 수행합니다.
+설치 관리자에서 `C:\Program Files\Microsoft\AzureMfa\Config`(여기서 C: \는 설치 드라이브) 위치에 PowerShell 스크립트를 만듭니다. 이 PowerShell 스크립트는 실행될 때마다 다음 작업을 수행합니다.
 
--   자체 서명된 인증서를 만듭니다.
--   인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
--   로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
--   네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
--   NPS를 다시 시작합니다.
+- 자체 서명된 인증서를 만듭니다.
+- 인증서의 공개 키를 Azure AD의 서비스 주체에 연결합니다.
+- 로컬 컴퓨터 인증서 저장소에 인증서를 저장합니다.
+- 네트워크 사용자에게 인증서의 개인 키에 대한 액세스 권한을 부여합니다.
+- NPS를 다시 시작합니다.
 
 PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사용자 고유의 인증서를 사용하려는 경우가 아니면 PowerShell 스크립트를 실행하여 설치를 완료합니다. 여러 서버에 확장을 설치하는 경우 각각 자체 인증서가 있어야 합니다.
 
@@ -162,8 +169,8 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다.
 
->[!NOTE]
->PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
+> [!NOTE]
+> PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
@@ -172,7 +179,7 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 ### <a name="configuration-limitations"></a>구성 제한 사항
 
 - Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드에 MFA 세부 정보를 채워야 합니다.  
-- NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용하도록 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfaserver-nps-vpn.md)을 참조하세요.
+- NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용하도록 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfa-nps-extension-advanced.md) 문서를 참조하세요.
 - 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
    - **PAP**는 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
@@ -232,12 +239,15 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 AD Connect가 실행 중이고 사용자가 Windows Active Directory와 Azure Active Directory 모두에 있는지 확인합니다.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>내 모든 인증이 실패한 상태의 로그에 HTTP 연결 오류가 표시되는 이유는 무엇입니까?
 
 NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com에 액세스할 수 있는지 확인합니다.
 
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
+
+조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 문서에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

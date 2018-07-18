@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: ce2bc8cc8d9b149b16aee9c5e601d9872621e277
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f486ce5c058286289873d87767f02bf92f91459e
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701445"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>서비스 매니페스트에서 리소스 지정
 ## <a name="overview"></a>개요
@@ -105,7 +106,10 @@ HTTPS 프로토콜은 서버 인증을 제공하며, 클라이언트-서버 통�
 > [!NOTE]
 > 서비스의 프로토콜은 응용 프로그램 업그레이드 중에 변경될 수 없습니다. 업그레이드 중에 변경되는 경우 불안정한 변경이 됩니다.
 > 
-> 
+
+> [!WARNING] 
+> HTTPS를 사용하는 경우 동일한 노드에 배포된 다른 서비스 인스턴스(응용 프로그램과 독립적)에 동일한 포트 및 인증서를 사용하지 않습니다. 다른 응용 프로그램 인스턴스에서 동일한 포트를 사용하는 두 가지 다른 서비스를 업그레이드하면 업그레이드 오류가 발생합니다. 자세한 내용은 [HTTPS 끝점으로 여러 응용 프로그램 업그레이드](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)를 참조하세요.
+>
 
 HTTPS에 대해 설정해야 하는 예제 ApplicationManifest는 다음과 같습니다. 인증서에 대한 지문을 제공해야 합니다. EndpointRef는 HTTPS 프로토콜을 설정하는 ServiceManifest의 EndpointResource에 대한 참조입니다. 둘 이상의 Endpointcertificate를 추가할 수 있습니다.  
 
@@ -188,7 +192,7 @@ Parameters에서 아래 내용을 추가합니다.
   </Parameters>
 ```
 
-예를 들어 응용 프로그램을 배포하는 동안 다음 값을 ApplicationParameters로 제공할 수 있습니다.
+응용 프로그램을 배포하는 동안 이러한 값을 ApplicationParameters로 제공할 수 있습니다.  예: 
 
 ```powershell
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}

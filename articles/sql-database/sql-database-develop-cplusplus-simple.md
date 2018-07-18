@@ -50,7 +50,7 @@ Azure SQL Database를 프로비전한 후 연결 정보를 확인하고 방화�
 **ODBC(Node.js 포함) [SQL 인증]** 문자열의 내용을 복사합니다. 이 문자열은 C++ ODBC 명령줄 인터프리터에서 연결하는 데 사용합니다. 이 문자열은 드라이버, 서버 및 다른 데이터베이스 연결 매개 변수 등의 세부 정보를 제공합니다. 
 
 ## <a id="Firewall"></a>3단계: 방화벽에 IP 추가
-Database 서버 방화벽으로 이동하고 [이 단계를 사용하여 방화벽에 클라이언트 IP](sql-database-configure-firewall-settings.md)를 추가하여 다음과 같이 연결을 합니다. 
+Database 서버 방화벽으로 이동하고 [이 단계를 사용하여 방화벽에 클라이언트 IP](sql-database-configure-firewall-settings.md)를 추가하여 다음과 같이 연결을 합니다.  
 
 ![AddyourIPWindow](./media/sql-database-develop-cplusplus-simple/ip.png)
 
@@ -61,7 +61,7 @@ Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용
 
 ![DSN Propsfile](./media/sql-database-develop-cplusplus-simple/props.png)
 
-해당 데이터베이스에 그 데이터베이스 연결 문자열로 올바른 인증을 해야 합니다. 
+해당 데이터베이스에 그 데이터베이스 연결 문자열로 올바른 인증을 해야 합니다.  
 
 빌드하려면 응용 프로그램을 시작합니다. 성공적인 연결의 유효성을 검사하는 창이 다음과 같이 표시됩니다. 데이터베이스 연결의 유효성을 검사하려면 **테이블 만들기**와 같은 몇 가지 기본 SQL 명령을 실행할 수도 있습니다.
 
@@ -71,7 +71,7 @@ Visual Studio로 만든 [이 샘플을 사용하는 Windows에서 ODBC를 사용
 
 ![파일 DSN 만들기](./media/sql-database-develop-cplusplus-simple/datasource.png)
 
-
+축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요.  
 축하합니다! 이제 Windows에서 C++ 및 ODBC를 사용하여 Azure SQL에 성공적으로 연결했습니다. Linux 플랫폼에도 동일한 작업을 수행하려면 다음을 읽어주세요. 
 
 ## <a id="Linux"></a>5 단계: Linux C/C++ 응용 프로그램에서 연결
@@ -96,7 +96,7 @@ SSH 통해 연결이 설정된 후에 빈 프로젝트(Linux) 템플릿을 만�
 
 ![새 프로젝트 템플릿](./media/sql-database-develop-cplusplus-simple/template.png)
 
-그런 다음 [새 C 소스 파일을 추가하고 다음 내용으로 교체](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)할 수 있습니다. ODBC Api SQLAllocHandle, SQLSetConnectAttr 및 SQLDriverConnect를 사용하여 데이터베이스에 연결을 만들고 초기화 할 수 있습니다. Windows ODBC 샘플과 마찬가지로 SQLDriverConnect 호출을 Azure Portal에서 이전에 복사한 데이터베이스 연결 문자열 매개 변수의 세부 정보로 교체해야 합니다. 
+그런 다음 [새 C 소스 파일을 추가하고 다음 내용으로 교체](https://github.com/Microsoft/VCSamples/blob/master/VC2015Samples/ODBC%20database%20sample%20%28linux%29/odbcconnector/odbcconnector.c)할 수 있습니다. ODBC Api SQLAllocHandle, SQLSetConnectAttr 및 SQLDriverConnect를 사용하여 데이터베이스에 연결을 만들고 초기화 할 수 있습니다. Windows ODBC 샘플과 마찬가지로 이전에 Azure Portal에서 복사한 데이터베이스 연결 문자열 매개 변수로 SQLDriverConnect 호출을 교체해야 합니다. 
 
      retcode = SQLDriverConnect(
         hdbc, NULL, "Driver=ODBC Driver 13 for SQL"

@@ -6,23 +6,23 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 05/15/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aec0d93cb9358e7654f8ee1a334b7529fbee604a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208841"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916605"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>다른 Azure 지역에 Azure VM 복제
 
 [Azure Site Recovery](site-recovery-overview.md) 서비스는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 
-이 빠른 시작에서는 Azure VM을 다른 Azure 지역에 복제하는 방법을 설명합니다. Azure에서 Azure로의 복제는 현재 미리 보기 상태입니다.
+이 빠른 시작에서는 Azure VM을 다른 Azure 지역에 복제하는 방법을 설명합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 
 
@@ -47,7 +47,7 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 복제 작업이 완료되면 복제 상태를 확인하고, 복제 설정을 수정하고, 배포를 테스트할 수 있습니다.
 
-1. VM 메뉴에서 **재해 복구(미리 보기)** 를 클릭합니다.
+1. VM 메뉴에서 **재해 복구**를 클릭합니다.
 2. 복제 상태, 생성된 복구 지점, 원본 및 대상 지역을 지도에서 확인할 수 있습니다.
 
    ![복제 상태](media/azure-to-azure-quickstart/replication-status.png)

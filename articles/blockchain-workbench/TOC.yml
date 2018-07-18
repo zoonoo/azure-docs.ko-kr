@@ -40,8 +40,6 @@
           href: blockchain-workbench-data-sql-management-studio.md
 - name: 참고 자료
   items:
-    - name: 코드 샘플
-      href: 'https://github.com/Azure-Samples/blockchain'
     - name: 구성
       href: blockchain-workbench-configuration-overview.md
     - name: 데이터베이스 뷰
@@ -50,6 +48,19 @@
       href: blockchain-workbench-messages-overview.md
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/azure-blockchain-workbench'
+- name: 리소스
+  expanded: true
+  items:
+    - name: 블로그
+      href: 'https://azure.microsoft.com/blog/topics/blockchain/'
+    - name: 코드 샘플
+      href: 'https://github.com/Azure-Samples/blockchain'
+    - name: 커뮤니티
+      href: 'https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain'
+    - name: 포럼
+      href: 'https://aka.ms/workbenchforum'
+    - name: 제품 사용자 의견
+      href: 'https://feedback.azure.com/forums/586780-blockchain'
     - name: 솔루션 템플릿
       items:
         - name: Ethereum 작업 증명 컨소시엄

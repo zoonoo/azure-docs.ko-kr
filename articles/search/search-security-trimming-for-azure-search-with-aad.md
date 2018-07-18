@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: 7c1723e01c78132169d8975473a0e9f5466a066c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 75017a1a3a400ca5390210225f26a6c5f3bb7c47
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796536"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856167"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>Active Directory ID를 사용하여 Azure Search 결과를 자르는 보안 필터
 
@@ -138,7 +138,7 @@ _indexClient.Documents.Index(batch);
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>1단계: 사용자의 그룹 식별자 검색
 
-사용자 그룹이 아직 캐시되지 않았거나 캐시가 만료된 경우 [그룹](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) 요청을 실행합니다.
+사용자 그룹이 아직 캐시되지 않았거나 캐시가 만료된 경우 [그룹](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/directoryobject_getmembergroups) 요청을 실행합니다.
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {

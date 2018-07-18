@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 37f44538d94ed78509bbcb09e726dc34a9e92e95
-ms.sourcegitcommit: 28178ca0364e498318e2630f51ba6158e4a09a89
+ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28031044"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113530"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>StorSimple에 새 인증 사용
 
@@ -60,9 +60,9 @@ StorSimple 8000 시리즈 장치를 사용하는 경우 다음 테이블을 사�
 
 | 실행 중인 장치| 수행할 작업                                    |
 |--------------------------|------------------------|--------------------|--------------------------------------------------------------|
-| 업데이트 5 이상을 실행 중이고 장치가 오프라인 상태입니다. <br> URL이 허용 목록에 없다는 경고가 표시됩니다.| 인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br> [인증 URL](#url-changes-for-aad-authentication)을 참조하세요. |
-| 업데이트 5 이상을 실행 중이고 장치가 온라인 상태입니다.| 별도의 작업이 필요하지 않습니다.                                       |
-| 업데이트 4 이상을 실행 중이고 장치가 오프라인 상태입니다. | 인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br>[카탈로그 서버를 통해 업데이트 5를 다운로드합니다](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>[핫픽스 메서드를 통해 업데이트 5를 적용합니다](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix). <br> [서비스에서 AAD 등록 키를 받습니다](#aad-based-registration-keys). <br> [StorSimple 8000 시리즈 장치의 Windows PowerShell 인터페이스에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>`Redo-DeviceRegistration` cmdlet을 사용하여 Windows PowerShell을 통해 장치를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
+| 업데이트 5 이상을 실행 중이고 장치가 오프라인 상태입니다. <br> URL이 허용 목록에 없다는 경고가 표시됩니다.|1. 인증 URL을 포함하도록 방화벽 규칙을 수정합니다. [인증 URL](#url-changes-for-aad-authentication)을 참조하세요.<br>2. [서비스에서 AAD 등록 키를 받습니다](#aad-based-registration-keys).<br>3. [StorSimple 8000 시리즈 장치의 Windows PowerShell 인터페이스에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. `Redo-DeviceRegistration` cmdlet을 사용하여 Windows PowerShell을 통해 장치를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
+| 업데이트 5 이상을 실행 중이고 장치가 온라인 상태입니다.| 추가적인 조치가 필요하지 않습니다.                                       |
+| 업데이트 4 이상을 실행 중이고 장치가 오프라인 상태입니다. |1. 인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br>2. [카탈로그 서버를 통해 업데이트 5를 다운로드합니다](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [핫픽스 메서드를 통해 업데이트 5를 적용합니다](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [서비스에서 AAD 등록 키를 받습니다](#aad-based-registration-keys).<br>5. [StorSimple 8000 시리즈 장치의 Windows PowerShell 인터페이스에 연결합니다](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. `Redo-DeviceRegistration` cmdlet을 사용하여 Windows PowerShell을 통해 장치를 등록합니다. 이전 단계에서 얻은 키를 제공합니다.|
 | 업데이트 4 이상을 실행 중이고 장치가 온라인 상태입니다. |인증 URL을 포함하도록 방화벽 규칙을 수정합니다.<br> Azure Portal을 통해 업데이트 5를 설치합니다.              |
 | 업데이트 5 이전 버전으로 공장 재설정.      |장치에서 이전 소프트웨어를 실행하는 동안 포털에 AAD 기반 등록 키가 표시됩니다. 장치에서 업데이트 4 또는 이전 버전을 실행하는 경우 이전 시나리오의 단계를 따릅니다.              |
 

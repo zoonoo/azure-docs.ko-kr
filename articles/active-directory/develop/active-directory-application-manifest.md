@@ -16,13 +16,13 @@ ms.workload: identity
 ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: elisol
-ms.openlocfilehash: 9f73f31c7afd7ca13107653d097e1ac11ef94f0d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol, sureshja
+ms.openlocfilehash: 7448a6c37df2c0bbffbebf23d211e3ace8d12edc
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157078"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317398"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory 응용 프로그램 매니페스트
 Azure AD와 통합되는 앱은 Azure AD 테넌트에 등록되어야 합니다. 이 앱은 [Azure Portal](https://portal.azure.com)에서 앱 매니페스트(Azure AD 블레이드 아래)를 사용하도록 구성할 수 있습니다.

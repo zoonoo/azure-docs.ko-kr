@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 1febadbbf7821988600d6feddc94fce25d15e989
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ec1727926f6dbfeead9932004715a8bb1dfbb0cd
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31434061"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36964538"
 ---
 ## <a name="os-config"></a>VM 운영 체제에 IP 주소 추가
 
@@ -110,7 +110,7 @@ ping -S 10.0.0.5 hotmail.com
 
     목록의 일부로 추가한 IP 주소가 표시되어야 합니다.
 
-### <a name="linux-redhat-centos-and-others"></a>Linux(Redhat, CentOS 및 기타)
+### <a name="linux-red-hat-centos-and-others"></a>Linux(Red Hat, CentOS 및 기타)
 
 1. 터미널 창을 엽니다.
 2. 루트 사용자인지 확인합니다. 그렇지 않으면 다음 명령을 입력합니다.

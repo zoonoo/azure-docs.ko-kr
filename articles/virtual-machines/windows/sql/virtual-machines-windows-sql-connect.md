@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: jroth
-ms.openlocfilehash: 7285cf47c3a5ec731cd9cfe311053e9d19886f1d
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 522ece2528e43c1037dc6bb707201ecda8074dd9
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29400242"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38705965"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 
@@ -139,7 +139,7 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 | [SQL 로그인 만들기](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL 인증을 사용하는 경우 대상 데이터베이스에 대한 권한이 있는 사용자 이름과 암호를 사용하는 SQL 로그인이 필요합니다. |
 | [TCP/IP 프로토콜 사용](#manualTCP) | SQL Server에서 TCP를 통한 연결을 허용해야 합니다. |
 | [SQL Server 포트에 방화벽 규칙 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM의 방화벽은 SQL Server 포트에서 인바운드 트래픽을 허용해야 합니다(기본값 1433). |
-| [TCP 1433에 대한 네트워크 보안 그룹 규칙 만들기](../../../virtual-network/virtual-networks-create-nsg-arm-pportal.md#create-rules-in-an-existing-nsg) | 인터넷을 통해 연결하려면 VM에서 SQL Server 포트(기본값 1433)에서 트래픽을 받도록 허용해야 합니다. 로컬 및 가상 네트워크 전용 연결에는 이 기능이 필요하지 않습니다. 이는 Azure Portal에서 요구되는 유일한 단계입니다. |
+| [TCP 1433에 대한 네트워크 보안 그룹 규칙 만들기](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | 인터넷을 통해 연결하려면 VM에서 SQL Server 포트(기본값 1433)에서 트래픽을 받도록 허용해야 합니다. 로컬 및 가상 네트워크 전용 연결에는 이 기능이 필요하지 않습니다. 이는 Azure Portal에서 요구되는 유일한 단계입니다. |
 
 > [!TIP]
 > 위의 표에 나와 있는 단계는 포털에서 연결을 구성할 때 수행됩니다. 이러한 단계를 사용하여 SQL Server에 대한 구성을 확인하거나 수동으로 연결을 설정합니다.

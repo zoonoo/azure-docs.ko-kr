@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/7/2017
 ms.author: sngun
-ms.openlocfilehash: ab24dc98ef4c767f04dc083ac6208e2c9d831935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 15a4e2fa981617c538edf3731bf9457bf172213c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34616807"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113122"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 응용 프로그램을 개발할 때 시작점 역할을 합니다.   
@@ -51,7 +51,7 @@ Azure Event Hubs는 짧은 대기 시간으로 높은 처리량 데이터 수집
 
 Azure Cosmos DB, EventHub 및 Storm을 사용한 샘플 IoT 솔루션은 [GitHub의 hdinsight-storm-examples 리포지토리](https://github.com/hdinsight/hdinsight-storm-examples/)를 참조하세요.
 
-IoT용 Azure 제품에 대한 자세한 내용은 [사물 인터넷 만들기](http://www.microsoft.com/server-cloud/internet-of-things.aspx)를 참조하세요. 
+IoT용 Azure 제품에 대한 자세한 내용은 [사물 인터넷 만들기](https://www.microsoft.com/en-us/internet-of-things)를 참조하세요. 
 
 ## <a name="retail-and-marketing"></a>소매 및 마케팅
 Azure Cosmos DB는 Windows 스토어 및 XBox Live를 실행하는 Microsoft 고유의 전자 상거래 플랫폼에서 광범위하게 사용됩니다. 또한 카탈로그 데이터 저장 및 주문 처리 파이프라인의 이벤트 소싱을 위해 소매 업계에서 사용됩니다.

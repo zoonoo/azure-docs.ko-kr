@@ -1,40 +1,35 @@
 ---
-title: "Azure에 대한 SharePoint 팜 DPM/Azure 백업 서버 보호 | Microsoft Docs"
-description: "이 문서는 Azure에 대한 SharePoint 팜 DPM/Azure 백업 서버 보호에 관한 개요를 제공합니다."
+title: Azure에 대한 SharePoint 팜 DPM/Azure Backup 서버 보호
+description: 이 문서는 Azure에 대한 SharePoint 팜 DPM/Azure Backup 서버 보호에 관한 개요를 제공합니다.
 services: backup
-documentationcenter: 
 author: adigan
 manager: Nkolli1
-editor: 
-ms.assetid: e0c0c252-dc1d-4072-b777-7222c13950b0
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/29/2016
-ms.author: adigan;giridham;jimpark;trinadhk;markgal
-ms.openlocfilehash: 1bbf3233169fa9966e3dd0fac18ee448f26caa6b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606656"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Azure에 SharePoint 팜 백업
-SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 System Center DPM(Data Protection Manager)을 사용하여 Microsoft Azure에 백업합니다. Azure 백업은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. DPM은 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
+SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 System Center DPM(Data Protection Manager)을 사용하여 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. DPM은 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint가 지원하는 버전 및 관련 보호 시나리오
-DPM의 Azure 백업은 다음 시나리오들을 지원합니다.
+DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 | 워크로드 | 버전 | SharePoint 배포 | DPM 배포 유형 | DPM - System Center 2012 R2 | 보호 및 복구 |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 컴퓨터로 배포됨  <br> -------------- <br> SQL AlwaysOn |물리적 서버 또는 온-프레미스 Hyper-v 가상 컴퓨터 |업데이트 롤업 5에서 Azure에 백업을 지원 |SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목   Azure 복구 지점에서 팜 및 데이터베이스 복구 |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 머신으로 배포됨  <br> -------------- <br> SQL AlwaysOn |물리적 서버 또는 온-프레미스 Hyper-v 가상 머신 |업데이트 롤업 5에서 Azure에 백업을 지원 |SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목   Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
 ## <a name="before-you-start"></a>시작하기 전에
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
 ### <a name="prerequisites"></a>필수 조건
-진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure 백업 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure 백업 에이전트 설치, 자격 증명 모음에 DPM/Azure 백업 서버 등록 등이 포함됩니다.
+진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
 
 ### <a name="dpm-agent"></a>DPM 에이전트
 DPM 에이전트가 SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint 팜에 속하는 그 밖의 모든 서버에 설치되어야 합니다. 보호 에이전트를 설정하는 방법 대한 자세한 내용은 [보호 에이전트 설치](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx)를 참조하세요.  유일한 예외는 단일 WFE(웹 프런트엔드) 서버에만 에이전트를 설치하는 것입니다. DPM은 보호를 위한 진입점 용도로만 단일 WFE 서버의 에이전트가 필요합니다.
@@ -92,12 +87,12 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
    > DPM 에이전트를 설치하면, 마법사에서 서버를 볼 수 있습니다. 또한 DPM에서는 해당 구조를 보여줍니다. ConfigureSharePoint.exe를 실행했기 때문에, DPM이 SharePoint VSS 기록기 서비스 및 해당 SQL Server 데이터베이스와 통신하고 SharePoint 팜 구조, 연결된 콘텐츠 데이터베이스, 및 모든 해당 항목을 인식합니다.
    > 
    > 
-4. **데이터 보호 방법 선택** 페이지에서 **보호 그룹**의 이름을 입력하고 선호하는 *보호 방법*을 선택합니다. **다음**을 누릅니다.
+4. **데이터 보호 방법 선택** 페이지에서 **보호 그룹**의 이름을 입력하고 선호하는 *보호 방법*을 선택합니다. **다음**을 클릭합니다.
    
     ![데이터 보호 방법 선택](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
    
    > [!NOTE]
-   > 디스크 보호 방법은 짧은 복구 시간 목표를 충족하는 데 유용합니다. Azure는 테이프에 비해 경제적인 장기 보호 대상입니다. 자세한 내용은 [Azure 백업을 사용하여 테이프 인프라 대체](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
+   > 디스크 보호 방법은 짧은 복구 시간 목표를 충족하는 데 유용합니다. Azure는 테이프에 비해 경제적인 장기 보호 대상입니다. 자세한 내용은 [Azure Backup을 사용하여 테이프 인프라 대체](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
    > 
    > 
 5. **단기 목표 지정** 페이지에서, 원하는 **보존 범위**를 선택하고 백업을 수행할 때를 식별합니다.
@@ -123,7 +118,7 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
 9. **온라인 보호 데이터 지정** 페이지에서 보호할 SharePoint 팜을 선택하고 **다음**을 클릭합니다.
    
     ![DPM SharePoint Protection1](./media/backup-azure-backup-sharepoint/select-online-protection1.png)
-10. **온라인 백업 일정 지정** 페이지에서 선호하는 일정을 선택하고 **다음**을 클릭합니다.
+10. **온라인 Backup 일정 지정** 페이지에서 선호하는 일정을 선택하고 **다음**을 클릭합니다.
     
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
     
@@ -163,7 +158,7 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
 5. 다양한 복구 지점을 살펴보고 복구할 데이터베이스 또는 항목을 선택할 수 있습니다. **날짜 > 복구 시간**을 선택한 다음 올바른 **데이터베이스 > SharePoint 팜 > 복구 지점 > 항목**을 선택합니다.
    
     ![DPM SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. 항목을 마우스 오른쪽 단추로 클릭하고 **복구**를 선택하여 **복구 마법사**를 엽니다. **다음**을 누릅니다.
+6. 항목을 마우스 오른쪽 단추로 클릭하고 **복구**를 선택하여 **복구 마법사**를 엽니다. **다음**을 클릭합니다.
    
     ![복구 선택 사항 확인](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
 7. 수행할 복구 유형을 선택한 후 **다음**을 클릭합니다.
@@ -187,7 +182,7 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
     DPM은 SharePoint 항목을 호스트하는 콘텐츠 데이터베이스를 임시 SQL Server 인스턴스에 연결합니다. 콘텐츠 데이터베이스에서, DPM 서버는 항목을 복구하여 DPM 서버의 준비 파일 위치에 넣습니다. 이제 DPM 서버의 준비 위치에 있는 복구된 항목을 SharePoint 팜의 준비 위치로 내보내야 합니다.
    
     ![스테이징 Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. **복구 옵션 지정**을 선택하고, SharePoint 팜에 보안 설정을 적용하거나 복구 지점의 보안 설정을 적용합니다. **다음**을 누릅니다.
+10. **복구 옵션 지정**을 선택하고, SharePoint 팜에 보안 설정을 적용하거나 복구 지점의 보안 설정을 적용합니다. **다음**을 클릭합니다.
     
     ![복구 옵션](./media/backup-azure-backup-sharepoint/recovery-options.png)
     

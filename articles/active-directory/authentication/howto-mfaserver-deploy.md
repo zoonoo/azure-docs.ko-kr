@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bd1b0f21162978496750886d32e7166c3a90922d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 130e9956702515574da47dc872b03598ca19ff29
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868299"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031690"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
@@ -103,8 +103,8 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 1. 실행 파일을 두 번 클릭합니다.
 2. 설치 폴더 선택 화면에서 해당 폴더가 정확한지 확인하고 **다음**을 클릭합니다.
-3. 설치가 완료되면 **마침**을 클릭합니다.  구성 마법사가 시작됩니다.
-4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**에 체크 표시하고 **다음**을 클릭합니다.  마법사가 닫히고 서버가 시작됩니다.
+3. 설치가 완료되면 **마침**을 클릭합니다. 구성 마법사가 시작됩니다.
+4. 구성 마법사 시작 화면에서 **인증 구성 마법사를 사용하여 건너뛰기**에 체크 표시하고 **다음**을 클릭합니다. 마법사가 닫히고 서버가 시작됩니다.
 
    ![클라우드](./media/howto-mfaserver-deploy/skip2.png)
 
@@ -116,7 +116,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 전자 메일을 보내는 작업은 2단계 인증에 사용자를 구성하는 방법으로 결정되어야 합니다. 예를 들어, 회사 디렉터리에서 전화 번호를 가져올 수 있었다면 사용자가 예상하는 것을 알 수 있도록 전자 메일에 기본 전화 번호가 포함되어 있습니다. 전화 번호를 가져오지 않았거나 사용자가 모바일 앱을 사용하려는 경우 해당 계정 등록을 완료하도록 지시하는 이메일을 보냅니다. 전자 메일에 Azure Multi-factor Authentication 사용자 포털에 대한 하이퍼링크를 포함합니다.
 
-또한 전자 메일의 내용은 사용자에 대해 설정된 인증 방법(전화 통화, SMS, 모바일 앱)에 따라 달라집니다.  예를 들어 사용자가 인증할 때 PIN을 사용해야 하는 경우 전자 메일은 초기 PIN 설정 내용을 알려줍니다.  사용자는 처음 인증할 때 PIN을 변경해야 합니다.
+또한 전자 메일의 내용은 사용자에 대해 설정된 인증 방법(전화 통화, SMS, 모바일 앱)에 따라 달라집니다. 예를 들어 사용자가 인증할 때 PIN을 사용해야 하는 경우 전자 메일은 초기 PIN 설정 내용을 알려줍니다. 사용자는 처음 인증할 때 PIN을 변경해야 합니다.
 
 ### <a name="configure-email-and-email-templates"></a>전자 메일 및 전자 메일 템플릿 구성
 
@@ -136,8 +136,8 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 1. Azure MFA 서버의 왼쪽에서 **사용자**를 선택합니다.
 2. 아래쪽에서 **Active Directory에서 가져오기**를 선택합니다.
-3. 이제 개별 사용자를 검색하거나 해당 사용자로 OU에 대한 AD 디렉터리를 검색할 수 있습니다.  이 경우 사용자 OU를 지정합니다.
-4. 오른쪽의 모든 사용자를 강조 표시하고 **가져오기**를 클릭합니다.  성공했음을 알려주는 팝업 메시지가 나타납니다.  가져오기 창을 닫습니다.
+3. 이제 개별 사용자를 검색하거나 해당 사용자로 OU에 대한 AD 디렉터리를 검색할 수 있습니다. 이 경우 사용자 OU를 지정합니다.
+4. 오른쪽의 모든 사용자를 강조 표시하고 **가져오기**를 클릭합니다. 성공했음을 알려주는 팝업 메시지가 나타납니다. 가져오기 창을 닫습니다.
 
    ![MFA 서버 사용자 가져오기](./media/howto-mfaserver-deploy/import2.png)
 
@@ -181,6 +181,10 @@ Azure MFA 서버를 백업하려면 **PhoneFactor.pfdata** 파일을 포함한 *
 5. **MultiFactorAuth** 서비스를 시작합니다.
 
 이제 원래 백업된 구성 및 사용자 데이터를 사용하여 새 서버가 실행됩니다.
+
+## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
+
+MFA 서버 버전 8.x 이상으로 업그레이드하거나 해당 버전을 설치하면 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 아티클에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

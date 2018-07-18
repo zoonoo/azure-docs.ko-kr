@@ -1,24 +1,20 @@
 ---
 title: Azure Functions를 사용하여 Twitter 메시지 검색
 description: 동작 센서를 사용하여 흔들기를 감지하고 Azure Functions를 사용하여 사용자가 지정하는 해시태그가 달린 임의의 트윗을 찾습니다.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 50ce34cb3289e346e7b637d917730dac8e8a097b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5a4605a1668d25d5a90dc7d7873efa83ddc767ff
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752686"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>흔들기, 흔들어서 트윗 찾기 -- Azure Functions를 사용하여 Twitter 메시지 검색!
 
@@ -40,7 +36,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="start-vs-code"></a>VS Code 시작
 
-- DevKit가 컴퓨터에 연결되어 있지 **않은지** 확인합니다.
+- DevKit가 컴퓨터에 연결되어 있는지 확인합니다.
 - VS Code를 시작합니다.
 - DevKit를 컴퓨터에 연결합니다.
 
@@ -49,7 +45,10 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="open-arduino-examples-folder"></a>Arduino 예제 폴더 열기
 
-왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
+왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **ShakeShake**를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.  
+
+> [!NOTE]
+> MXCHIP AZ3166 섹션을 볼 수 없다면 장치가 제대로 연결되었는지 확인하고 Visual Studio Code를 다시 시작합니다.  
 
 ![mini-solution-examples](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/vscode_examples.png)
 

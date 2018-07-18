@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: f75671e2e5511054f3db550a8c24e62d031492c3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 4c537b06c4ff50d90d9fd5a847b378038f252790
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776715"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972277"
 ---
 # <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.Android 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "33776715"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - Windows의 경우 [Xamarin이 포함된 Visual Studio] 또는 OS X의 경우 [Mac용 Visual Studio]
 - 활성 Google 계정
 
@@ -58,7 +58,7 @@ ms.locfileid: "33776715"
 
 알림 허브가 FCM과 작동하도록 구성되었으며, 알림을 받고 푸시 알림을 보내기 위해 앱을 등록하는 연결 문자열이 있습니다.
 
-## <a name="create-xamainandroid-app-and-connect-it-to-notification-hub"></a>Xamarin.Android 앱을 생성한 후 알림 허브에 연결
+## <a name="create-xamarinandroid-app-and-connect-it-to-notification-hub"></a>Xamarin.Android 앱을 생성한 후 알림 허브에 연결
 
 ### <a name="create-visual-studio-project-and-add-nuget-packages"></a>Visual Studio 프로젝트 생성 및 NuGet 패키지 설치
 1. Visual Studio에서 **파일**을 가리킨 후 **새로 만들기**를 선택하고 **프로젝트**를 선택합니다. 
@@ -142,6 +142,7 @@ ms.locfileid: "33776715"
 8. **MyFirebaseIIDService.cs**에 다음 using 문을 추가합니다.
    
     ```csharp
+    using Android.App;
     using Android.Util;
     using WindowsAzure.Messaging;
     using Firebase.Iid;
@@ -183,6 +184,7 @@ ms.locfileid: "33776715"
 12. **MyFirebaseMessagingService.cs**에 다음 using 문을 추가합니다.
     
     ```csharp
+        using Android.App;
         using Android.Util;
         using Firebase.Messaging;
     ```

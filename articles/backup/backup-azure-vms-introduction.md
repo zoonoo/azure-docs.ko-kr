@@ -1,25 +1,20 @@
 ---
-title: Azure에서 VM 백업 인프라 계획 | Microsoft Docs
+title: Azure에서 VM 백업 인프라 계획
 description: Azure에서 가상 머신을 백업하려고 할 때 중요한 고려 사항
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: vm 백업, virtual machines 백업
-ms.assetid: 19d2cf82-1f60-43e1-b089-9238042887a9
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 3/23/2018
-ms.author: markgal;trinadhk;sogup
-ms.openlocfilehash: 299794b100ed438de2995d70419025dd686d2278
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: markgal
+ms.openlocfilehash: 92122e7dc62e0f402bcddff099984e6e2c605fae
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606089"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Azure에서 VM 백업 인프라 계획
 이 문서에서는 성능 및 리소스를 제안하여 VM 백업 인프라를 계획할 수 있도록 합니다. 또한 Backup 서비스의 핵심 요소를 정의합니다. 이러한 측면은 아키텍처, 용량 계획 및 예약을 결정하는 데 중요한 요인이 될 수 있습니다. [환경을 준비](backup-azure-arm-vms-prepare.md)했다면 계획은 [VM 백업](backup-azure-arm-vms.md)을 시작하기 전의 다음 단계입니다. Azure Virtual Machines에 대한 자세한 내용은 [Virtual Machines 설명서](https://azure.microsoft.com/documentation/services/virtual-machines/)를 참조하세요.
@@ -119,7 +114,7 @@ Backup은 자격 증명 모음에 스냅숏 만들기 및 스냅숏 전송과 �
 * 사용량이 많지 않은 시간에 VM 백업을 예약하세요. 그러면 Backup 서비스가 고객 저장소 계정에서 자격 증명 모음으로 데이터를 전송할 때 IOPS를 사용합니다.
 * 정책이 서로 다른 저장소 계정에 분산된 VM에 적용되어야 합니다. 권장 단일 저장소 계정에서 20개 이하의 총 디스크를 동일한 백업 일정으로 보호하는 것이 좋습니다. 저장소 계정에 20개가 넘는 디스크가 있는 경우 해당 VM을 여러 정책에 분산하여 백업 프로세스의 전송 단계에서 필요한 IOPS를 얻습니다.
 * 프리미엄 저장소에서 실행되는 VM을 동일한 저장소 계정에 복원하지 마세요. 복원 작업 프로세스가 백업 작업과 일치하는 경우 백업에 사용할 수 있는 IOPS를 감소시킵니다.
-* 프리미엄 VM 백업의 경우 프리미엄 디스크를 호스트하는 저장소 계정에 성공적인 백업을 위해 스냅샷 준비에 사용할 50% 이상의 사용 가능한 공간이 있는지 확인합니다. 
+* VM 백업 스택 V1에서 Premium VM 백업 시 Azure Backup 서비스에서 저장소 계정에 스냅숏을 복사하고 저장소 계정의 복사된 위치에서 자격 증명 모음으로 데이터를 전송할 수 있도록 총 저장소 계정 공간의 50%만 할당하는 것이 좋습니다.
 * 백업에 사용할 수 있는 Linux VM의 python 버전이 2.7인지 확인합니다.
 
 ## <a name="data-encryption"></a>데이터 암호화.

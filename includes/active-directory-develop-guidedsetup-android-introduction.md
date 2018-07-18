@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: aa21168f1e19ccddc190379b30e1b612d96b56d5
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 23b7ca44b72b8840579f369954f41f554d4c8852
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32202675"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943422"
 ---
-# <a name="sign-in-users-and-all-the-microsoft-graph-api-from-an-android-app"></a>Android 앱에서 사용자 및 모든 Microsoft Graph API 로그인
+# <a name="sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Android 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
 이 가이드에서는 네이티브 Android 응용 프로그램이 액세스 토큰을 얻고 Azure Active Directory v2 끝점에서 액세스 토큰이 필요한 Microsoft Graph API를 한 개 이상 호출할 수 있는 방법에 대해 설명합니다.
 

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: sethm
 ms.openlocfilehash: face684190456fbf4b78a84ac3afe7a4ead8995a
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "26856085"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38697895"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>.NET에서 Azure Relay WCF 릴레이를 사용하는 방법
 이 문서에서는 Azure Relay 서비스를 사용하는 방법을 설명합니다. 이 샘플은 C#으로 작성되었으며 Service Bus 어셈블리에 포함된 확장과 함께 WCF(Windows Communication Foundation) API를 사용합니다. Azure Relay에 대한 자세한 내용은 [Azure Relay 개요](relay-what-is-it.md)를 참조하세요.

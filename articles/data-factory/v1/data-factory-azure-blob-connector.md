@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2af093e4ce6284f4cee75543720d109fa71a9b66
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ec3c87c39cd8b8d1dafa8ad062776171c602135b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621397"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047063"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob Storage 사이에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](data-factory-azure-blob-connector.md)
-> * [버전 2 - 미리 보기](../connector-azure-blob-storage.md)
+> * [버전 1](data-factory-azure-blob-connector.md)
+> * [버전 2(현재 버전)](../connector-azure-blob-storage.md)
 
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 Azure Blob Storage 커넥터](../connector-azure-blob-storage.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 Azure Blob Storage 커넥터](../connector-azure-blob-storage.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Blob Storage 사이에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
@@ -195,7 +195,7 @@ Azure Blob 저장소 간에 데이터를 빠르게 복사하는 방법을 살펴
 3. 작성이 완료되면 다음 이미지와 같이 **데이터 팩터리** 블레이드가 나타납니다. ![데이터 팩터리 홈 페이지](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>복사 마법사
-1. 데이터 팩터리 홈 페이지에서 **데이터 복사[미리 보기]** 타일을 클릭하여 **데이터 복사 마법사**를 별도의 탭에 시작합니다.    
+1. 데이터 팩터리 홈 페이지에서 **데이터 복사** 타일을 클릭하여 **데이터 복사 마법사**를 별도의 탭에서 시작합니다.    
     
     > [!NOTE]
     >    웹 브라우저가 "권한 부여..." 상태로 중지된 것을 확인하면 **타사 쿠키 및 사이트 데이터 차단** 설정을 사용 안 함/선택 취소하고 (또는) 계속 사용하지 않습니다. 그리고 **login.microsoftonline.com**에 대한 예외를 만든 다음 마법사를 다시 시작해봅니다.

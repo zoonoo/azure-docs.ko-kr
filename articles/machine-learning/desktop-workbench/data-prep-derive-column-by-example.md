@@ -7,15 +7,17 @@ ms.author: ranku
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: desktop-workbench
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 201492f033ad3e2508bc75c0865036e7c83a652a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8b85f57f79cad0a01d3c5499383108450babd507
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34833766"
 ---
 # <a name="derive-column-by-example-transformation"></a>예제별 열 파생 변환
 
@@ -139,7 +141,7 @@ Round, Floor, Ceiling, 범주화, 0이나 공백인 안쪽 여백, 또는 1000�
 이 경우 필요한 예제 수: 1
 
 >[!NOTE] 
->이 예제에서 특수 문자 · 는 출력 열에서 공백을 나타냅니다.
+>이 예제에서는 특수 문자 ·는 출력 열의 공백을 나타냅니다.
 
 |이름|중간 이니셜|성|출력|
 |:-----|:-----|:-----|:-----|

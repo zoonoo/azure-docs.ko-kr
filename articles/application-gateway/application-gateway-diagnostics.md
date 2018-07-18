@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/2/2018
+ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 982ae712320cb390b1822de6a7a3980ebfb6251e
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 256eac99feacc18a51e45c3f07cdceb7d687cacf
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314051"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293624"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Application Gateway에 대한 백 엔드 상태, 진단 로그 및 메트릭
 
@@ -36,7 +36,7 @@ Application Gateway는 포털, PowerShell 및 CLI(명령줄 인터페이스)를 
 백 엔드 상태 보고서는 백 엔드 인스턴스에 대한 Application Gateway 상태 프로브의 결과를 반영합니다. 프로브가 성공하고 백 엔드에서 트래픽을 받을 수 있으면 정상 상태로 간주됩니다. 그렇지 않으면 비정상 상태로 간주됩니다.
 
 > [!IMPORTANT]
-> Application Gateway 서브넷에 NSG(네트워크 보안 그룹)가 있는 경우 인바운드 트래픽을 위해 Application Gateway 서브넷에서 65503-65534 포트 범위를 엽니다. 백 엔드 상태 API가 제대로 작동하는 데 이러한 포트가 필요합니다.
+> Application Gateway 서브넷에 NSG(네트워크 보안 그룹)가 있는 경우 인바운드 트래픽을 위해 Application Gateway 서브넷에서 65503-65534 포트 범위를 엽니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에서 변경을 시작할 수 없습니다.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>포털을 통해 백 엔드 상태 보기
@@ -331,7 +331,7 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 - **총 요청 수**
 - **비정상 호스트 수**
 
-   특정 백 엔드 풀의 정상/비정상 호스트를 표시하도록 백 엔드 풀 기준으로 필터링 할 수 있습니다.
+   특정 백 엔드 풀의 정상/비정상 호스트를 표시하도록 백 엔드 풀 기준으로 필터링할 수 있습니다.
 
 응용 프로그램 게이트웨이를 찾아 **모니터링** 아래에서 **메트릭**을 클릭합니다. 사용 가능한 값을 보려면 **메트릭** 드롭다운 목록을 선택합니다.
 

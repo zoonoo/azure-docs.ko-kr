@@ -6,14 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/08/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b790213e19b9f2aaef74a3f670c89246f54fd6d7
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34597070"
 ---
 # <a name="volumes-with-azure-disks"></a>Azure 디스크가 포함된 볼륨
 
@@ -23,34 +24,27 @@ Kubernetes 볼륨에 대한 자세한 내용은 [Kubernetes 볼륨][kubernetes-v
 
 ## <a name="create-an-azure-disk"></a>Azure 디스크 만들기
 
-Azure 관리되는 디스크를 Kubernetes 볼륨으로 탑재하려면 먼저 디스크가 AKS 클러스터 리소스와 동일한 리소스 그룹에 있어야 합니다. 이 리소스 그룹을 찾으려면 [az group list][az-group-list] 명령을 사용합니다.
+Azure 관리 디스크를 Kubernetes 볼륨으로 탑재하려면 먼저 디스크가 AKS **노드** 리소스 그룹에 있어야 합니다. [az resource show][az-resource-show] 명령으로 리소스 그룹 이름을 가져옵니다.
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-`MC_clustername_clustername_locaton`과 비슷한 이름의 리소스 그룹을 찾습니다. 여기서 clustername은 AKS 클러스터의 이름이고, location은 클러스터가 배포된 Azure 지역입니다.
-
-```console
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 [az disk create][az-disk-create] 명령을 사용하여 Azure 디스크를 만듭니다.
 
-이 예제를 사용하고 `--resource-group`을 리소스 그룹의 이름으로, `--name`을 사용자가 선택한 이름으로 업데이트합니다.
+이전 단계에서 수집한 리소스 그룹의 이름으로 `--resource-group`을, 사용자가 원하는 이름으로 `--name`을 업데이트합니다.
 
 ```azurecli-interactive
 az disk create \
-  --resource-group MC_myAKSCluster_myAKSCluster_eastus \
+  --resource-group MC_myResourceGroup_myAKSCluster_eastus \
   --name myAKSDisk  \
   --size-gb 20 \
   --query id --output tsv
 ```
 
-디스크를 만든 후 다음과 비슷한 출력이 표시됩니다. 이 값은 Kubernetes pod에 디스크를 탑재할 때 사용되는 디스크 ID입니다.
+디스크를 만든 후 다음과 비슷한 출력이 표시됩니다. 이 값은 디스크를 탑재할 때 사용되는 디스크 ID입니다.
 
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
@@ -105,3 +99,4 @@ Azure 디스크를 사용하는 Kubernetes 볼륨에 대해 자세히 알아봅�
 [az-disk-list]: /cli/azure/disk#az_disk_list
 [az-disk-create]: /cli/azure/disk#az_disk_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fbae15c1c6a9ec886f57f9df903612ae10d8e12
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: ccd24e1498282cd2b627226df79af22e9647b64d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27779094"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38681577"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>CentOS를 실행하는 StorSimple 호스트에서 MPIO 구성
 이 문서에서는 Centos 6.6 호스트 서버에서 다중 경로 IO(MPIO)를 구성하는 데 필요한 단계를 설명합니다. 호스트 서버는 iSCSI 초기자를 통해 고가용성용 Microsoft Azure StorSimple 장치에 연결됩니다. StorSimple 볼륨에 대한 다중 경로 장치 및 특정 설치의 자동 검색을 자세히 설명합니다.
@@ -67,7 +67,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
 
 다음 절차는 두 네트워크 인터페이스가 있는 StorSimple 장치가 두 네트워크 인터페이스가 있는 호스트에 연결된 경우 다중 경로를 구성하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 섹션은 CentOS 서버 및 StorSimple 장치에 대한 필수 구성 요소를 자세히 설명합니다.
 
 ### <a name="on-centos-host"></a>CentOS 호스트에서
@@ -120,7 +120,7 @@ multipath.conf에는 다섯 가지 섹션이 있습니다.
    4. 부팅 시간 동안 iSCSI 초기자를 사용하도록 설정하려면 `chkconfig` 명령을 사용하여 서비스를 사용할 수 있습니다.
       
        `chkconfig iscsi on`
-   5. 제대로 설치되었는지 확인려면 다음 명령을 실행합니다.
+   5. 제대로 설치되었는지 확인하려면 다음 명령을 실행합니다.
       
        `chkconfig --list | grep iscsi`
       
@@ -445,5 +445,5 @@ a. 장치를 허용 목록에 추가되었는지를 확인하려면 다음 문�
 또한 Linux 호스트에서 MPIO를 구성했기 때문에 다음 CentoS 6.6 문서를 참조해야 할 수 있습니다.
 
 * [CentOS에 MPIO 설정](http://www.centos.org/docs/5/html/5.1/DM_Multipath/setup_procedure.html)
-* [Linux 교육 가이드](http://linux-training.be/files/books/LinuxAdm.pdf)
+* [Linux 교육 가이드](http://linux-training.be/linuxsys.pdf)
 

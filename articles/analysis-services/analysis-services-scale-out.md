@@ -3,16 +3,17 @@ title: Azure Analysis Services 규모 확장 | Microsoft Docs
 description: 규모 확장으로 Azure Analysis Services 서버 복제
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee9210953306fbe317e9ed63c02fb90452ffbd15
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445023"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -33,6 +34,22 @@ ms.lasthandoff: 04/18/2018
 
 > [!NOTE]
 > 규모 확장은 서버의 사용 가능한 메모리 양을 증가시키지 않습니다. 메모리를 늘리려면 계획을 업그레이드해야 합니다.
+
+## <a name="region-limits"></a>지역 제한
+
+사용자가 구성할 수 있는 쿼리 복제본 수는 서버가 있는 지역에 따라 제한됩니다. 다음과 같은 제한이 적용됩니다.
+
+|지역  |최대 복제본 수  |
+|---------|---------|
+|미국 동부 2    |    7     |
+|미국 중서부     |    7     |
+|서유럽     |    7     |
+|미국 서부     |     7    |
+|미국 중부     |     3    |
+|동남아시아    |     3    |
+|다른 모든 하위 지역  |   1    |
+
+
 
 ## <a name="monitor-qpu-usage"></a>QPU 사용량 모니터링
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/05/2018
 ms.author: harijay
-ms.openlocfilehash: e891e9c9fd87f370f0c98639ff0c6fc5b8cc81af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e9e98a0c9f1db805d62cdee038fb4754ff047e2
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194406"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960443"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>가상 머신 직렬 콘솔(미리 보기) 
 
@@ -33,6 +33,7 @@ Azure의 가상 머신 직렬 콘솔은 Linux 및 Windows 가상 머신용 텍�
 
 ## <a name="prerequisites"></a>필수 조건 
 
+* 리소스 관리 배포 모델을 사용해야 합니다. 클래식 배포는 지원되지 않습니다. 
 * 가상 머신에 [부트 진단](boot-diagnostics.md)을 사용하도록 설정되어 있어야 합니다. 
 * 직렬 콘솔을 사용하는 계정에는 VM에 대한 [참가자 역할](../../role-based-access-control/built-in-roles.md)과 [부트 진단](boot-diagnostics.md) 저장소 계정이 있어야 합니다. 
 
@@ -581,7 +582,7 @@ Windows VM에 연결할 때 상태 정보만 표시됩니다.| [Windows 상태 �
 ## <a name="frequently-asked-questions"></a>질문과 대답 
 **Q. 피드백을 보내려면 어떻게 해야 하나요?**
 
-a. 으로 이동하여 피드백을 제공해 주세요 https://aka.ms/serialconsolefeedback . 또는(대안으로) 을 통해서 또는 azserialhelp@microsoft.com의 가상 머신 범주에 피드백을 보내주세요 http://feedback.azure.com 
+a. 으로 이동하여 피드백을 제공해 주세요 https://aka.ms/serialconsolefeedback. 또는(대안으로) 을 통해서 또는 azserialhelp@microsoft.com의 가상 머신 범주에 피드백을 보내주세요 http://feedback.azure.com 
 
 **Q. “기존 콘솔의 OS 유형 Windows가 요청된 Linux의 OS 유형과 충돌됩니다.”라는 오류가 발생합니다**.
 

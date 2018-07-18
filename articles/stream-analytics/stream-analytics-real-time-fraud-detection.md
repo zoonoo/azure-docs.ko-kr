@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 1ebbdb22698ec1eab76b6b6b504fe27a6f0b28bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 4da848b9d7765b11db67973226a056e73ca5cced
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824764"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Azure Stream Analytics 사용 시작 : 실시간 부정 행위 감지
 
@@ -131,12 +132,12 @@ TelcoGenerator 앱을 시작하기 전에 호출 레코드를 만든 이벤트 �
 1.  명령 창을 열고 TelcoGenerator 앱이 압축 해제된 폴더로 변경합니다.
 2.  다음 명령을 입력합니다.
 
-        telcodatagen.exe 1000 .2 2
+        telcodatagen.exe 1000 0.2 2
 
     매개 변수는 다음과 같습니다. 
 
     * 시간당 CDR 수. 
-    * SIM 카드 사기 확률: 앱에서 사기성 호출을 시뮬레이션하게 되는 전체 호출 대비 백분율로의 빈도 값 .2는 호출 레코드의 약 20%가 사기성으로 나타남을 의미합니다.
+    * SIM 카드 사기 확률: 앱에서 사기성 호출을 시뮬레이션하게 되는 전체 호출 대비 백분율로의 빈도 값 0.2는 호출 레코드의 약 20%가 사기성으로 나타남을 의미합니다.
     * 기간(시간). 앱이 실행되는 시간. 명령줄에서 Ctrl + C를 눌러 언제든지 앱을 중지할 수도 있습니다.
 
     몇 초 후 앱에서 이벤트 허브로 데이터를 전송함에 따라 화면에 전화 통화 레코드가 표시되기 시작합니다.

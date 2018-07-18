@@ -3,29 +3,30 @@ title: Azure AD 액세스 검토 결과 검색 | Microsoft Docs
 description: Azure Active Directory 액세스 검토 결과 검색하는 방법입니다.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 05/16/2018
+ms.date: 06/21/2018
 ms.author: rolyon
-ms.openlocfilehash: c30d166335e31cdbf03283371da42fa6b7cda162
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: 96676c3ec6d96fd6c6f78aa2dbed8cf4d0a6718d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233117"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295303"
 ---
 # <a name="retrieve-access-review-results"></a>액세스 검토 결과 검색
 
-관리자는 Azure AD(Azure Active Directory)를 사용하여 응용 프로그램에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](active-directory-azure-ad-controls-create-access-review.md) 있습니다.  **전역 관리자**, **보안 관리자** 또는 **보안 판독기** 역할을 하는 사용자는 액세스 검토 결과를 읽을 수 있습니다.  이러한 역할 중 하나에 사용자를 할당하려면 권한있는 역할 관리자는 Azure AD PIM를 사용하여 사용자가 역할을 활성화하기에 적합하게 만들 수 있거나 전역 관리자가 영구적으로 [사용자를 역할에 할당](active-directory-users-assign-role-azure-portal.md)할 수 있습니다.
+관리자는 Azure AD(Azure Active Directory)를 사용하여 응용 프로그램에 할당된 그룹 구성원 또는 사용자에 대한 [액세스 검토를 만들 수](active-directory-azure-ad-controls-create-access-review.md) 있습니다.  **전역 관리자**, **사용자 계정 관리자**, **보안 관리자** 또는 **보안 판독기** 역할을 하는 사용자는 액세스 검토 결과를 읽을 수 있습니다.  이러한 역할 중 하나에 사용자를 할당하려면 권한있는 역할 관리자는 Azure AD PIM를 사용하여 사용자가 역할을 활성화하기에 적합하게 만들 수 있거나 전역 관리자가 영구적으로 [사용자를 역할에 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)할 수 있습니다.
 
-[!INCLUDE [Privacy](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="locating-an-access-review"></a>액세스 검토 찾기
 
@@ -46,7 +47,7 @@ ms.locfileid: "35233117"
 
 ## <a name="removing-users-from-an-access-review"></a>액세스 검토에서 사용자 제거
 
-기본적으로 삭제된 사용자는 30일 동안 Azure AD에서 삭제된 채로 남아 있지만 이 기간 동안 관리자는 필요한 경우 삭제된 사용자를 복원할 수 있습니다.  30일 후 해당 사용자가 영구적으로 삭제됩니다.  또한 Azure Active Directory 포털을 사용하여 전역 관리자는 해당 기간이 만료되기 전에 명시적으로 [최근에 삭제된 사용자를 영구적으로 삭제](active-directory-users-restore.md)할 수 있습니다.  사용자가 영구적으로 삭제됐으므로 추후 해당 사용자에 대한 데이터가 활성 액세스 검토에서 제거됩니다.  삭제된 사용자에 대한 감사 정보는 감사 로그에 남아 있습니다.
+기본적으로 삭제된 사용자는 30일 동안 Azure AD에서 삭제된 채로 남아 있지만 이 기간 동안 관리자는 필요한 경우 삭제된 사용자를 복원할 수 있습니다.  30일 후 해당 사용자가 영구적으로 삭제됩니다.  또한 Azure Active Directory 포털을 사용하여 전역 관리자는 해당 기간이 만료되기 전에 명시적으로 [최근에 삭제된 사용자를 영구적으로 삭제](fundamentals/active-directory-users-restore.md)할 수 있습니다.  사용자가 영구적으로 삭제됐으므로 추후 해당 사용자에 대한 데이터가 활성 액세스 검토에서 제거됩니다.  삭제된 사용자에 대한 감사 정보는 감사 로그에 남아 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -54,6 +55,6 @@ ms.locfileid: "35233117"
 - [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Azure AD 액세스 검토용 프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
-- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](privileged-identity-management/pim-how-to-start-security-review.md)
 
 

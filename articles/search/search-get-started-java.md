@@ -86,7 +86,7 @@ Azure Search에 대한 모든 REST API 호출에는 서비스 URL 및 api-key를
 ## <a name="configure-the-service-url-and-api-key"></a>서비스 URL 및 api-key 구성
 1. **Project Explorer**에서 **config.properties**를 두 번 클릭하여 서버 이름 및 api-key가 포함된 구성 설정을 편집합니다.
 2. 이 문서의 이전 단계를 참조하여 [config.properties](https://portal.azure.com)에 입력할 값을 가져오도록 **Azure Portal**에서 서비스 URL 및 api-key를 찾습니다.
-3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 다음으로 서비스 이름(URL http://servicename.search.windows.net)의 첫 번째 구성 요소)이 같은 파일의 “서비스 이름"을 대체합니다.
+3. **config.properties**에서 "Api Key"를 서비스의 api-key로 바꿉니다. 다음으로 서비스 이름(URL http://servicename.search.windows.net) 의 첫 번째 구성 요소)이 같은 파일의 “서비스 이름"을 대체합니다.
    
     ![][5]
 

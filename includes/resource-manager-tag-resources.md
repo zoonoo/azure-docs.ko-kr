@@ -1,31 +1,73 @@
-1. 리소스 또는 리소스 그룹에 대한 태그를 보려면 **태그** 아이콘을 선택합니다. 
+---
+title: 포함 파일
+description: 포함 파일
+services: azure-resource-manager
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: tomfitz
+ms.custom: include file
+ms.openlocfilehash: daa97c8ec0c2fd728e4d1eddf090afa17e87c31f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34675339"
+---
+1. 리소스 또는 리소스 그룹에 대한 태그를 보려면 개요에서 기존 태그를 찾습니다. 이전에 태그를 적용하지 않은 경우 목록이 비어 있습니다.
    
-     ![리소스 및 리소스 그룹 블레이드에서 태그 선택](./media/resource-manager-tag-resources/select-tag-icon.png)
-2. 리소스에 대한 기존 태그를 참조합니다. 이전에 태그를 적용하지 않은 경우 목록이 비어 있습니다. 
+     ![리소스 또는 리소스 그룹에 대한 태그 보기](./media/resource-manager-tag-resources/view-tags.png)
+1. 태그를 추가하려면 **태그를 추가하려면 여기를 클릭**을 선택합니다.
 
-     ![리소스 및 리소스 그룹 블레이드에서 기존 태그 보기](./media/resource-manager-tag-resources/existing-tags.png)
-3. 태그를 추가하거나 이름과 값을 입력하거나 드롭다운 메뉴에서 기존 항목을 선택합니다. **저장**을 선택합니다.
+1. 이름 및 값을 제공합니다. 태그를 추가하려면 **+** 를 선택합니다.
+   
+     ![태그 추가](./media/resource-manager-tag-resources/add-tag.png)
+1. 필요에 따라 태그를 계속 추가합니다. 완료되면 **저장**을 선택합니다.
+   
+     ![태그 저장](./media/resource-manager-tag-resources/save-tags.png)
+1. 이제 태그가 개요에 표시됩니다.
+   
+     ![태그 표시](./media/resource-manager-tag-resources/view-new-tags.png)
+1. 태그를 추가하거나 삭제하려면 **변경**을 선택합니다.
+   
+1. 태그를 삭제하려면 휴지통 아이콘을 선택합니다. 그런 다음 **저장**을 선택합니다.
 
-     ![새 태그 추가](./media/resource-manager-tag-resources/tag-resources.png)
-3. 태그 값을 갖는 모든 리소스를 보려면 **>**(**더 많은 서비스**)를 선택하고 필터 텍스트 상자에 **태그**라는 단어를 입력합니다. 사용 가능한 옵션에서 **태그**를 선택합니다.
-   
-     ![찾아보기 허브를 통해 태그 찾기](./media/resource-manager-tag-resources/browse-tags.png)
-4. 구독에 태그 요약이 표시됩니다.
-   
-     ![모든 태그 표시](./media/resource-manager-tag-resources/tag-taxonomy.png)
-5. 이러한 태그 중에서 선택하면 해당 태그와 함께 리소스 및 리소스 그룹이 표시됩니다.
-   
-     ![태그가 지정된 리소스 표시](./media/resource-manager-tag-resources/show-tagged-resources.png)
-6. 빠른 액세스를 위해 **대시보드로 블레이드 고정**을 선택합니다.
-   
-     ![대시보드에 태그 고정](./media/resource-manager-tag-resources/pin-tag.png)
-7. 해당 태그가 있는 리소스를 보려면 대시보드에서 고정된 태그를 선택할 수 있습니다.
-
-     ![대시보드에 태그 고정](./media/resource-manager-tag-resources/show-pinned-tag.png)
+     ![태그 삭제](./media/resource-manager-tag-resources/delete-tag.png)
 
 
 여러 리소스에 태그를 대량으로 할당하려면 다음을 수행합니다.
-1. 모든 리소스 목록(예: 모든 리소스, 리소스 그룹 개요)에서
-2. 태그를 할당하려는 리소스에 대한 확인란을 선택합니다.
-3. [태그 할당] 옵션을 선택합니다.
-4. 이름과 값을 추가하고 [할당]을 선택합니다.
+
+1. 모든 리소스 목록에서 태그를 할당하려는 리소스에 대한 확인란을 선택합니다.
+
+     ![여러 리소스 선택](./media/resource-manager-tag-resources/select-multiple-resources.png)
+
+1. **태그 할당**을 선택합니다.
+
+     ![태그 할당](./media/resource-manager-tag-resources/assign-tags.png)
+
+1. 각 이름 및 값 다음에 **+** 를 선택합니다. 완료되면 **할당**을 선택합니다.
+
+     ![할당 선택](./media/resource-manager-tag-resources/select-assign.png)
+
+태그가 있는 모든 리소스를 보려면
+
+1. **모든 서비스** 및 **태그**를 선택합니다.
+
+     ![태그로 찾기](./media/resource-manager-tag-resources/find-tags.png)
+
+1. 리소스를 보기 위한 태그를 선택합니다.
+
+     ![태그 선택](./media/resource-manager-tag-resources/select-tag.png)
+
+1. 해당 태그가 지정된 모든 리소스가 표시됩니다.
+
+     ![태그로 리소스 보기](./media/resource-manager-tag-resources/view-resources-by-tag.png)
+
+1. 빠른 액세스를 위해 보기를 대시보드에 고정합니다.
+
+     ![대시보드에 고정](./media/resource-manager-tag-resources/pin-to-dashboard.png)
+
+1. 대시보드에서 해당 보기를 사용할 수 있습니다.
+
+     ![대시보드](./media/resource-manager-tag-resources/dashboard.png)

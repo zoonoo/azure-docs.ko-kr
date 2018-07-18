@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: a8784a8e29e65d8abea566b5a2bf41a2ae6cadf0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359631"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441576"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
@@ -47,7 +47,7 @@ ms.locfileid: "34359631"
 
    ![앱 등록 보기](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
 
-1. 앱 등록 설정이 **아니요**로 설정되어 있으면 [전역 관리자](../active-directory/active-directory-assign-admin-roles-azure-portal.md)만 앱을 등록할 수 있습니다. 사용자 계정이 Azure AD 테넌트에 대한 관리자인지 확인합니다. **개요**를 선택하여 사용자 정보를 확인합니다. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정(이전 단계)이 관리자로 제한되어 있으면 관리자에게 사용자를 전역 관리자 역할로 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 요청합니다.
+1. 앱 등록 설정이 **아니요**로 설정되어 있으면 [전역 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md)만 앱을 등록할 수 있습니다. 사용자 계정이 Azure AD 테넌트에 대한 관리자인지 확인합니다. **개요**를 선택하여 사용자 정보를 확인합니다. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정(이전 단계)이 관리자로 제한되어 있으면 관리자에게 사용자를 전역 관리자 역할로 할당하거나 사용자가 앱을 등록할 수 있게 설정하도록 요청합니다.
 
    ![사용자 찾기](./media/resource-group-create-service-principal-portal/view-user-info.png)
 

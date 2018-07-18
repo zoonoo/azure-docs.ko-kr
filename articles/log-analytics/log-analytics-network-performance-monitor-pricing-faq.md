@@ -10,17 +10,18 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.openlocfilehash: 1e7e43dc2e7ed386f8f77fd1ab186d2ff34af405
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: na
+ms.openlocfilehash: 96eb26d6a4faf8c6907d23ebf21f2446722c913b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177002"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127096"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 네트워크 성능 모니터에 대한 가격 책정 변경
 
@@ -56,7 +57,7 @@ NPM의 청구는 사용량 및 소비량의 두 가지 구성 요소를 기준�
 
 **두 개의 서브넷(A와 B)이 있고 각 서브넷에 여러 에이전트가 있습니다. 성능 모니터는 서브넷 A에 있는 모든 에이전트에서 서브넷 B에 있는 모든 에이전트까지의 연결을 모니터링합니다. 그러면 서브넷 간 연결의 수에 따라 요금이 청구되나요?**
 
-번호 요금을 청구하기 위해 서브넷 A에서 서브넷 B로의 모든 연결은 하나의 서브넷 링크로 그룹화됩니다. 그리고 단일 연결에 대한 요금이 청구됩니다. 성능 모니터는 각 서브넷에 있는 다양한 에이전트 간의 연결을 계속 모니터링하게 됩니다.
+아니요. 요금을 청구하기 위해 서브넷 A에서 서브넷 B로의 모든 연결은 하나의 서브넷 링크로 그룹화됩니다. 그리고 단일 연결에 대한 요금이 청구됩니다. 성능 모니터는 각 서브넷에 있는 다양한 에이전트 간의 연결을 계속 모니터링하게 됩니다.
 
 **서브넷 링크를 모니터링하기 위한 요금은 얼마인가요?**
 

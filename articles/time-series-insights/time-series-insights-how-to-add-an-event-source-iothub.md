@@ -3,19 +3,19 @@ title: Azure Time Series Insights에 IoT Hub 이벤트 원본을 추가하는 �
 description: 이 문서에서는 IoT Hub에 연결된 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: sandshadow
+author: ashannon7
 ms.author: edett
 manager: jhubbard
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 01ab5017a5f16a0c46ea2bc600cef6bbf81de963
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1cc8518e84bd9fe7a1f03a2f5d6ccdbac8fb78e3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652528"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330597"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본을 추가하는 방법
 이 문서에서는 Azure Portal을 사용하여 IoT Hub에서 데이터를 읽는 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 다룹니다.
@@ -25,6 +25,22 @@ ms.locfileid: "34652528"
 - IoT Hub를 만듭니다. IoT Hub에 대한 자세한 내용은 [Azure Portal을 사용하여 IoT Hub 만들기](../iot-hub/iot-hub-create-through-portal.md)를 참조하세요.
 - IoT Hub에는 전송 중인 활성 메시지 이벤트가 있어야 합니다.
 - Time Series Insights에서 사용할 IoT Hub의 전용 소비자 그룹을 만듭니다. 각 Time Series Insights 이벤트 원본에는 다른 소비자와 공유되지 않은 전용 소비자 그룹 자체가 있어야 합니다. 같은 소비자 그룹에서 여러 읽기 권한자가 이벤트를 소비하는 경우 모든 읽기 권한자에게 오류가 표시될 수 있습니다. 자세한 내용은 [IoT Hub 개발자 가이드](../iot-hub/iot-hub-devguide.md)를 참조하세요.
+
+### <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
+소비자 그룹은 응용 프로그램에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. IoT Hub에서 안정적으로 데이터를 읽기 위해 이 Time Series Insights 환경에서만 사용하는 전용 소비자 그룹을 제공합니다.
+
+IoT Hub에 새 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
+1. Azure Portal에서 IoT Hub를 찾아서 엽니다.
+
+2. **메시징** 제목 아래에서 **끝점**을 선택합니다. 
+
+   ![소비자 그룹 추가](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
+
+3. **이벤트** 끝점을 선택합니다. 그러면 **속성** 페이지가 열립니다.
+
+4. **소비자 그룹** 제목에서 소비자 그룹에 대한 새 고유 이름을 제공합니다. 새 이벤트 원본을 만들 때 Time Series Insights 환경에서 이 동일한 이름을 사용합니다.
+
+5. **저장**을 선택하여 새 소비자 그룹을 저장합니다.
 
 ## <a name="add-a-new-event-source"></a>새 이벤트 원본 추가
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
@@ -73,27 +89,13 @@ ms.locfileid: "34652528"
    | 이벤트 직렬화 형식 | JSON이 현재 사용 가능한 유일한 직렬화입니다. 이벤트 메시지는 이 형식이어야 합니다. 그렇지 않으면 데이터를 읽을 수 없습니다. |
    | 타임스탬프 속성 이름 | 이 값을 확인하려면 IoT Hub로 전송되는 메시지 데이터의 메시지 형식을 이해해야 합니다. 이 값은 이벤트 타임스탬프로 사용하려는 메시지 데이터에 있는 특정 이벤트 속성의 **이름**입니다. 이 값은 대/소문자를 구분합니다. 이 값을 비워 두면 이벤트 원본 내의 **이벤트 인큐 시간**이 이벤트 타임스탬프로 사용됩니다. |
 
-10. 새 이벤트 원본을 추가하려면 **만들기**를 선택합니다.
+10. 추가한 전용 TSI 소비자 그룹 이름을 IoT Hub에 추가합니다.
+
+11. 새 이벤트 원본을 추가하려면 **만들기**를 선택합니다.
 
    ![만들기 클릭](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    이벤트 원본이 생성되면 Time Series Insights가 자동으로 데이터를 환경으로 스트리밍하기 시작합니다.
-
-### <a name="add-a-consumer-group-to-your-iot-hub"></a>IoT Hub에 소비자 그룹 추가
-소비자 그룹은 응용 프로그램에서 Azure IoT Hub의 데이터를 끌어오는 데 사용됩니다. IoT Hub에서 안정적으로 데이터를 읽기 위해 이 Time Series Insights 환경에서만 사용하는 전용 소비자 그룹을 제공합니다.
-
-IoT Hub에 새 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
-1. Azure Portal에서 IoT Hub를 찾아서 엽니다.
-
-2. **메시징** 제목 아래에서 **끝점**을 선택합니다. 
-
-   ![소비자 그룹 추가](media/time-series-insights-how-to-add-an-event-source-iothub/5-add-consumer-group.png)
-
-3. **이벤트** 끝점을 선택합니다. 그러면 **속성** 페이지가 열립니다.
-
-4. **소비자 그룹** 제목에서 소비자 그룹에 대한 새 고유 이름을 제공합니다. 새 이벤트 원본을 만들 때 Time Series Insights 환경에서 이 동일한 이름을 사용합니다.
-
-5. **저장**을 선택하여 새 소비자 그룹을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 데이터를 보호하기 위한 [데이터 액세스 정책 정의](time-series-insights-data-access.md)

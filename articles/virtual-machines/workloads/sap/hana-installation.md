@@ -4,29 +4,29 @@ description: Azure(큰 인스턴스)에서 SAP HANA를 설치하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: timlt
+manager: jeconnoc
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 768d9c31cdf019bf73a9d3b3a239c537c72725f6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778599"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064511"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
-다음은 이 지침을 읽기 전에 알아야 할 중요한 정의입니다. [Azure(큰 인스턴스)에서 SAP HANA 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 가지 다른 클래스를 도입했습니다.
+다음은 이 지침을 읽기 전에 알아야 할 중요한 정의입니다. [SAP HANA (큰 인스턴스) 개요 및 Azure 상의 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에서 HANA 큰 인스턴스 단위의 두 다른 클래스를 도입했습니다.
 
-- SKU의 'Type I 클래스'인 S72, S72m, S144, S144m, S192 및 S192m.
-- SKU의 'Type II 클래스'인 S384, S384m, S384xm, S576m, S768m 및 S960m.
+- SKU의 '유형 I 클래스'인 S72, S72m, S144, S144m, S192, S192m 및 S192xm.
+- SKU의 '유형 II 클래스'인 S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm 및 S960m.
 
 클래스 지정자는 HANA 큰 인스턴스 설명서 전반에서 HANA 큰 인스턴스 SKU를 기반으로 하는 다양한 기능과 요구 사항을 언급하는 데 사용됩니다.
 
@@ -44,7 +44,7 @@ SAP HANA 설치는 사용자가 진행하며 Azure(큰 인스턴스) 서버에 �
 
 ## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>HANA 큰 인스턴스 단위를 받은 후 첫 번째 단계
 
-HANA 큰 인스턴스를 받고 인스턴스에 대한 액세스 및 연결을 설정한 후 **첫 번째 단계**는 OS 공급자에게 인스턴스의 OS를 등록하는 것입니다. 이 단계에는 Azure에서 VM에 배포해야 하는 SUSE SMT 인스턴스에 SUSE Linux OS를 등록하는 것이 포함됩니다. HANA 큰 인스턴스 유닛은 SMT 인스턴스(이 설명서의 뒷부분 참조)에 연결할 수 있습니다. 또는 연결해야 하는 Red Hat Subscription Manager에 RedHat OS를 등록해야 합니다. 이 [문서](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명도 참조하세요. 이 단계는 OS를 패치할 수도 있어야 합니다. 고객에게 책임이 있는 작업입니다. SUSE의 경우 [여기](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)서 SMT 설치 및 구성을 위한 설명서를 찾아보세요.
+HANA 큰 인스턴스를 받고 인스턴스에 대한 액세스 및 연결을 설정한 후 **첫 번째 단계**는 OS 공급자에게 인스턴스의 OS를 등록하는 것입니다. 이 단계에는 Azure에서 VM에 배포해야 하는 SUSE SMT 인스턴스에 SUSE Linux OS를 등록하는 것이 포함됩니다. HANA 큰 인스턴스 유닛은 SMT 인스턴스(이 설명서의 뒷부분 참조)에 연결할 수 있습니다. 또는 연결해야 하는 Red Hat Subscription Manager에 Red Hat OS를 등록해야 합니다. 이 [문서](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)의 설명도 참조하세요. 이 단계는 OS를 패치할 수도 있어야 합니다. 고객에게 책임이 있는 작업입니다. SUSE의 경우 [여기](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html)서 SMT 설치 및 구성을 위한 설명서를 찾아보세요.
 
 **두 번째 단계**는 특정 OS 릴리스/버전의 새 패치 및 수정을 확인하는 것입니다. HANA 큰 인스턴스의 패치 수준이 최신 상태인지 확인하세요. OS 패치/릴리스의 타이밍과 Microsoft가 배포할 수 있는 이미지의 변경 사항에 따라 최신 패치가 포함되지 않을 수 있습니다. 따라서 HANA 큰 인스턴스 유닛을 인수한 후 보안, 기능, 가용성 및 성능이 적절한 패치가 특정 Linux 공급 업체에 의해 릴리스되었는지 여부를 확인하고 적용해야 하는 필수 단계입니다.
 
@@ -80,18 +80,7 @@ Azure VNet을 디자인할 때 권장 사항을 따르고 다음 문서에 설�
 
 단일 단위의 네트워킹에 대해 알아야 할 몇 가지 세부 사항이 있습니다. 모든 HANA 큰 인스턴스 단위에는 2개 또는 3개의 단위 NIC 포트에 할당된 2개 또는 3개의 IP 주소가 포함되어 있습니다. HANA 확장 구성 및 HANA 시스템 복제 시나리오에는 3개의 IP 주소가 사용됩니다. 단위의 NIC에 할당된 IP 주소 중 하나가 [Azure에서 SAP HANA(큰 인스턴스) 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)에 설명된 서버 IP 풀을 벗어납니다.
 
-할당된 두 IP 주소가 있는 단위에 대한 배포는 다음과 같습니다.
-
-- eth0.xx에는 Microsoft에 제출한 서버 IP 풀 주소 범위를 벗어나는 IP 주소가 할당되어 있어야 합니다. 이 IP 주소는 OS의 /etc/hosts에서 유지 관리에 사용됩니다.
-- eth1.xx에는 NFS와의 통신에 사용되는 IP 주소가 할당되어 있어야 합니다. 따라서 이러한 주소는 테넌트 내에서 인스턴스 트래픽에 대한 인스턴스를 허용하기 위해 etc/hosts에서 유지 관리할 필요가 **없습니다**.
-
-HANA 시스템 복제 또는 HANA 확장 배포의 경우 두 개의 IP 주소가 할당된 블레이드 구성은 적합하지 않습니다. IP 주소가 두 개만 할당되어 있는 경우 이러한 구성을 배포하려면 할당된 세 번째 VLAN의 세 번째 IP 주소를 Azure의 SAP HANA Service Management에 문의하세요. 세 개의 NIC 포트에 새 개의 IP 주소가 할당되어 있는 HANA 큰 인스턴스 유닛에는 다음 사용 규칙이 적용됩니다.
-
-- eth0.xx에는 Microsoft에 제출한 서버 IP 풀 주소 범위를 벗어나는 IP 주소가 할당되어 있어야 합니다. 따라서 이 IP 주소는 OS의 /etc/hosts에서 유지 관리에 사용됩니다.
-- eth1.xx에는 NFS 저장소와의 통신에 사용되는 IP 주소가 할당되어 있어야 합니다. 따라서 이 주소 유형은 etc/hosts에서 유지 관리되지 않아야 합니다.
-- eth2.xx는 다른 인스턴스 간의 통신을 위해 etc/hosts에서 유지 관리되도록 독점적으로 사용되어야 합니다. 이 주소는 HANA가 노드 간 구성에 사용하는 IP 주소로 규모 확장 HANA 구성에서 유지해야 하는 IP 주소이기도 합니다.
-
-
+아키텍처의 이더넷 세부 정보는 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
 ## <a name="storage"></a>Storage
 
@@ -111,7 +100,7 @@ SID = HANA 인스턴스 시스템 ID
 
 tenant = 테넌트 배치 시 연산에 대한 내부 열거
 
-위에서 볼 수 있듯이 HANA shared와 usr/sap는 같은 볼륨을 공유합니다. 탑재 지점의 명명법에는 HANA 인스턴스의 시스템 ID는 물론 탑재 번호가 포함됩니다. 강화(scale-up) 배포의 경우 탑재가 하나(예: mnt00001)만 있습니다. 반면에 확장(scale-out) 배포의 경우 worker 및 master 노드를 포함하여 많은 탑재를 볼 수 있습니다. 확장 환경의 경우, 데이터, 로그, 로그 백업 볼륨이 공유되고 확장 구성의 각 노드에 연결됩니다. 여러 SAP 인스턴스를 실행하는 구성의 경우 다른 볼륨 세트가 만들어져 HAN 큰 인스턴스 유닛에 연결됩니다.
+위에서 볼 수 있듯이 HANA shared와 usr/sap는 같은 볼륨을 공유합니다. 탑재 지점의 명명법에는 HANA 인스턴스의 시스템 ID는 물론 탑재 번호가 포함됩니다. 강화(scale-up) 배포의 경우 탑재가 하나(예: mnt00001)만 있습니다. 반면에 확장(scale-out) 배포의 경우 worker 및 master 노드를 포함하여 많은 탑재를 볼 수 있습니다. 확장 환경의 경우, 데이터, 로그, 로그 백업 볼륨이 공유되고 확장 구성의 각 노드에 연결됩니다. 여러 SAP 인스턴스를 실행하는 구성의 경우 다른 볼륨 세트가 만들어져 HAN 큰 인스턴스 유닛에 연결됩니다. 시나리오의 저장소 레이아웃 세부 정보는 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
 이 문서를 읽고 HANA 큰 인스턴스 유닛을 살펴보면 유닛의 HANA/data에 상당히 많은 디스크 볼륨이 있고 HANA/log/backup 볼륨이 있다는 것을 볼 수 있습니다. HANA/data 크기가 너무 큰 이유는 고객에게 제공되는 저장소 스냅숏이 동일한 디스크 볼륨을 사용하기 때문입니다. 저장소 스냅숏을 더 많이 수행할수록 할당된 저장소 볼륨에서 더 많은 공간이 스냅숏에 소비된다는 의미입니다. HANA/log/backup 볼륨은 데이터베이스 백업을 넣는 볼륨으로 간주되지 않습니다. HANA 트랜잭션 로그 백업을 위한 백업 볼륨에 사용되도록 크기가 설정되었습니다. 향후 버전의 저장소 스냅숏 셀프 서비스는 이 특정 볼륨에 보다 빈번하게 스냅숏을 저장하도록 만드는 것이 목표입니다. HANA Large Instance 인프라에서 제공하는 재해 복구 기능에 옵트인하려는 경우 재해 복구 사이트를 보다 빈번하게 복제할 수 있습니다. 자세한 내용은 [Azure의 SAP HANA(큰 인스턴스) 고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
@@ -150,6 +139,7 @@ hdbparam 프레임워크를 사용하여 SAP HANA 데이터베이스 설치 후 
 
 SAP HANA 2.0에서는 hdbparam 프레임워크가 사용되지 않습니다. 따라서 SQL 명령을 사용하여 매개 변수를 설정해야 합니다. 자세한 내용은 [SAP Note #2399079: HANA 2에서 hdbparam 제거](https://launchpad.support.sap.com/#/notes/2399079)를 참조하세요.
 
+아키텍처의 저장소 레이아웃은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
 ## <a name="operating-system"></a>운영 체제
 

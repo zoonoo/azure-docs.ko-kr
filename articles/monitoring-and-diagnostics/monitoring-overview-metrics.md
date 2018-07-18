@@ -1,39 +1,25 @@
 ---
-title: Microsoft Azure의 메트릭 개요 | Microsoft Docs
+title: Microsoft Azure의 메트릭 개요
 description: Microsoft Azure의 메트릭 개요 및 사용
 author: anirudhcavale
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 405ec51c-0946-4ec9-b535-60f65c4a5bd1
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 06/05/2018
 ms.author: ancav
-ms.openlocfilehash: 537213fdf106da1c07d549d65b1d8cf71887db9f
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.component: metrics
+ms.openlocfilehash: 3501c8d35968ecf8e32c806dfb05ccfebc7f4386
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264224"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 이 문서에서는 Microsoft Azure의 메트릭에 대해 설명하고 그 이점과 사용 방법을 소개합니다.  
 
 ## <a name="what-are-metrics"></a>메트릭이 무엇인가요?
 Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드의 상태와 성능에 대한 정보를 구할 수 있습니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 메트릭(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
-
-## <a name="what-can-you-do-with-metrics"></a>메트릭으로 무엇을 할 수 있나요?
-메트릭은 원격 분석의 중요한 출처로, 다음 작업을 수행할 수 있습니다.
-
-* 포털 차트에 메트릭을 넣고 해당 차트를 대시보드에 고정하여 리소스(예: VM, 웹 사이트, 논리 앱)의 **성능을 추적**합니다.
-* 메트릭이 특정 임계값을 초과할 때 리소스 성능에 영향을 미치는 **문제에 대한 알림을 받습니다**.
-* 메트릭이 특정 임계값을 초과할 때 리소스 자동 크기 조정 또는 runbook 실행 등과 같은 **자동화된 작업을 구성합니다**.
-* 리소스의 성능 또는 사용 추세에 대한 **고급 분석**이나 보고를 수행합니다.
-* **규정 준수 또는 감사** 목적으로 리소스의 성능 또는 상태 기록을 **보관**합니다.
 
 ## <a name="what-are-the-characteristics-of-metrics"></a>메트릭의 특징은 무엇인가요?
 메트릭에는 다음과 같은 특성이 있습니다.
@@ -43,19 +29,17 @@ Azure 모니터에서는 원격 분석을 사용하여 Azure에서 워크로드�
 * 각 메트릭에 대해 **93일 동안의 기록**에 액세스할 수 있습니다. 리소스의 성능이나 상태에서 최근 및 월별 추세를 신속하게 살펴볼 수 있습니다.
 * 일부 메트릭은 **차원**이라는 이름-값 쌍 특성을 가질 수합니다. 그러면 메트릭을 더 분할하고 보다 의미 있는 방식으로 탐색할 수 있습니다.
 
-또한 다음을 수행할 수 있습니다.
+## <a name="what-can-you-do-with-metrics"></a>메트릭으로 무엇을 할 수 있나요?
+메트릭을 사용하여 다음 작업을 수행할 수 있습니다.
 
-* 메트릭이 사용자가 설정한 임계값을 초과하면 **알림을 보내거나 자동 조치를 취하는 메트릭 경고 규칙**을 구성할 수 있습니다. 자동 크기 조정은 웹 사이트나 계산 리소스에서 들어오는 요청이나 부하에 부합하게 리소스 크기를 조정할 수 있는 특수 자동 작업입니다. 임계값을 초과하는 메트릭을 기준으로 자동 크기 조정 설정 규칙을 확대 또는 축소하도록 구성할 수 있습니다.
 
-* 모든 메트릭 Application Insights 또는 Log Analytics를 **라우팅**하여 리소스로부터 받은 메트릭 데이터에 대한 인스턴스 분석, 검색 및 사용자 지정 경고를 사용할 수 있습니다. 메트릭을 Event Hub로 스트리밍하고 거의 실시간에 가까운 분석을 위해 Azure Stream Analytics나 사용자 지정 앱으로 라우팅할 수 있습니다. 진단 설정을 사용하여 Event Hub 스트리밍을 설정합니다.
-
-* 장기 보존을 위해 **메트릭을 저장소에 보관**하거나 오프라인 보고에 사용합니다. 리소스에 대한 진단 설정을 구성할 때 메트릭을 Azure Blob Storage로 라우팅할 수 있습니다.
-
-* Azure 포털을 통해 리소스를 선택하고 메트릭을 차트에 그려서 **모든 메트릭** 간편하게 찾고, 액세스하고, 확인할 수 있습니다.
-
-* 새로운 Azure Monitor REST API를 통해 메트릭을 **사용합니다**.
-
-* PowerShell Cmdlet 또는 크로스 플랫폼 REST API를 사용하여 메트릭을 **쿼리**합니다.
+- 메트릭이 사용자가 설정한 임계값을 초과하면 **알림을 보내거나 자동 조치를 취하는 메트릭 경고 규칙**을 구성할 수 있습니다. 작업은 [작업 그룹](monitoring-action-groups.md)을 통해 제어됩니다. 작업의 예로는 이메일, 전화, SMS 알림, 웹후크 호출, Runbook 시작 등이 있습니다. **자동 크기 조정**은 처리할 부하에 따라 리소스를 확장 또는 축소하여 비용을 절감할 수 있는 특수한 자동화 작업입니다. 임계값을 초과하는 메트릭을 기준으로 자동 크기 조정 설정 규칙을 확대 또는 축소하도록 구성할 수 있습니다.
+- 모든 메트릭을 *Application Insights* 또는 *Log Analytics*에 **라우팅**하여 리소스의 메트릭 데이터를 즉시 분석하고, 검색하고, 사용자 지정 경고를 사용할 수 있습니다. 메트릭을 *Event Hub*로 스트리밍한 후 Azure Stream Analytics 또는 사용자 지정 앱으로 라우팅하여 거의 실시간으로 분석할 수도 있습니다. 진단 설정을 사용하여 Event Hub 스트리밍을 설정합니다.
+- 규정 준수, 감사 또는 오프라인 보고의 목적으로 리소스의 성능 또는 상태 기록을 **보관**합니다.  리소스에 대한 진단 설정을 구성할 때 메트릭을 Azure Blob Storage로 라우팅할 수 있습니다.
+- 리소스를 선택하고 메트릭을 차트에 그릴 때 **Azure Portal**을 사용하여 모든 메트릭을 검색하고, 액세스하고, 살펴볼 수 있습니다. 차트를 대시보드에 고정하여 리소스(예: VM, 웹 사이트 또는 논리 앱) 성능을 추적할 수 있습니다.  
+- 리소스의 성능 또는 사용 추세에 대한 **고급 분석**이나 보고를 수행합니다.
+- PowerShell Cmdlet 또는 크로스 플랫폼 REST API를 사용하여 메트릭을 **쿼리**합니다.
+- 새로운 Azure Monitor REST API를 통해 메트릭을 **사용합니다**.
 
   ![Azure Monitor의 메트릭 라우팅](./media/monitoring-overview-metrics/Metrics_Overview_v4.png)
 

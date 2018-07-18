@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 26731d80f5917f9d21aacafb5f8a79cfb02855af
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795077"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37095675"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Cassandra 데이터 가져오기
 
@@ -57,7 +57,7 @@ Cassandra API에서 사용할 수 있도록 Cassandra 데이터를 Azure Cosmos 
 1. 테이블을 미리 만들고 크기를 조정합니다.
     * 기본적으로 Azure Cosmos DB는 초당 1,000개의 요청 단위(RU/s)가 있는 새 Cassandra API 테이블을 만듭니다(CQL 기반 만들기는 400RU/s로 프로비전됨). cqlsh를 사용하여 마이그레이션을 시작하기 전에 [Azure Portal](https://portal.azure.com) 또는 cqlsh에서 모든 테이블을 미리 만듭니다. 
 
-    * [Azure Portal](https://portal.azure.com)에서 테이블의 처리량을 기본 처리량(400 또는 1,000RU/s)에서 10,000RU/s로 늘립니다. 처리량이 높을수록 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. Azure Cosmos DB에서는 시간당 청구되므로 마이그레이션 후 바로 처리량을 줄여 비용을 절감할 수 있습니다.
+    * [Azure Portal](https://portal.azure.com)에서 테이블의 처리량을 기본 처리량(400 또는 1,000RU/s)에서 10,000RU/s로 늘립니다. 처리량이 높을수록 속도 제한을 피하고 마이그레이션 시간을 단축할 수 있습니다. Azure Cosmos DB에서는 시간당 청구되므로 마이그레이션 후 바로 처리량을 줄여 비용을 절감할 수 있습니다.
 
 2. 작업에 대한 RU 비용을 확인합니다. 선택한 내용의 Azure Cosmos DB Cassandra API SDK를 사용하여 이 작업을 수행할 수 있습니다. 다음 예제는 RU 비용 가져오기의 .NET 버전을 보여 줍니다. 
 

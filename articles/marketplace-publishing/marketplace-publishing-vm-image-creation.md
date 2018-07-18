@@ -14,11 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: mbaldwin
-ms.openlocfilehash: ea92275b26da4ac72f76b438f632bd1c048beb10
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ad6d48a03575e8fabd7eed2ebc1f7926ec4559d4
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34808743"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Azure Marketplace에 대한 가상 머신 이미지 만들기 가이드
 이 문서의 **2단계**에서는 Azure Marketplace에 배포할 VHD(가상 하드 디스크)를 준비하는 과정을 안내합니다. VHD는 SKU의 기반입니다. Linux 기반 SKU를 제공할지 Windows 기반 SKU를 제공할지 여부에 따라 프로세스는 다릅니다. 이 문서에서는 두 시나리오를 모두 다룹니다. 이 프로세스는 [계정 만들기 및 등록][link-acct-creation]과 함께 병렬로 수행할 수 있습니다.
@@ -151,7 +152,7 @@ RDP에 대한 자세한 내용은 MSDN의 [RDP 또는 SSH를 사용하여 Azure 
 
 **VM 구성 및 SKU 만들기**
 
-운영 체제 VHD를 다운로드한 후 Hyper­V를 사용하고 VM을 구성하여 SKU를 만들기 시작합니다. 자세한 단계는 [Hyper­V 설치 및 VM 구성](http://technet.microsoft.com/library/hh846766.aspx) TechNet 링크에서 찾을 수 있습니다.
+운영 체제 VHD를 다운로드한 후 Hyper-V를 사용하고 SKU 만들기를 시작하도록 VM을 구성합니다. 세부 단계는 TechNet 링크([Hyper-V 설치 및 VM 구성](http://technet.microsoft.com/library/hh846766.aspx))에서 확인할 수 있습니다.
 
 ### <a name="34-choose-the-correct-vhd-size"></a>3.4 올바른 VHD 크기 선택
 VM 이미지의 Windows 운영 체제 VHD는 128GB 고정 형식 VHD로 만들어져야 합니다.  
@@ -452,7 +453,7 @@ Azure CLI를 사용하여 SAS URL을 생성하는 단계는 다음과 같습니�
 
     다음은 적절한 매개 변수를 업데이트한 후의 예제 코드입니다.
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
+          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=<account-key>"
           azure storage container list vhds -c $conn
           azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
 

@@ -1,21 +1,21 @@
 ---
-title: 토큰, 세션 및 Single Sign-On 구성 - Azure AD B2C | Microsoft Docs
-description: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성
+title: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성 | Microsoft Docs
+description: Azure Active Directory B2C에서 토큰, 세션 및 Single Sign-On 구성입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: 925313b6f2a00826f2ec8086457315c60f70b007
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: B2C
+ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444833"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: 토큰, 세션 및 Single Sign-On 구성
 
@@ -86,7 +86,7 @@ Azure AD B2C는 웹 응용 프로그램에 대한 보안 로그인을 활성화�
   * 기본값: 1440분.
   * 최소(포함) = 15분.
   * 최대(포함) = 1440분.
-* **웹앱 세션 제한 시간**: 이 스위치가 **절대**로 설정된 경우 사용자는 **웹앱 세션 수명(분)**에서 지정한 기간이 경과된 후 강제로 다시 인증합니다. 이 스위치가 **롤링** (기본 설정)으로 설정된 경우 사용자는 웹 응용 프로그램에서 지속적으로 활성 상태인 한 로그인 상태로 유지됩니다.
+* **웹앱 세션 제한 시간**: 이 스위치가 **절대**로 설정된 경우 사용자는 **웹앱 세션 수명(분)** 에서 지정한 기간이 경과된 후 강제로 다시 인증합니다. 이 스위치가 **롤링** (기본 설정)으로 설정된 경우 사용자는 웹 응용 프로그램에서 지속적으로 활성 상태인 한 로그인 상태로 유지됩니다.
 
 다음은 이러한 속성을 사용하여 활성화할 수 있는 몇 가지 사용 사례입니다.
 

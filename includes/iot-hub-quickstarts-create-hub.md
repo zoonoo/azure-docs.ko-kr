@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 7987ee8c9a127c7a41ec2cd1f726450c771d527f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: ddecf2f75e80f95291b12d9c139a8da85f45ac94
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34666969"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36288073"
 ---
 첫 번째 단계는 Azure Portal을 사용하여 구독에 IoT Hub를 만드는 것입니다. IoT Hub를 사용하면 다양한 장치에서 클라우드로 다량의 원격 분석을 수집할 수 있습니다. 그런 다음, 허브는 클라우드에서 실행 중인 하나 이상의 백 엔드 서비스가 원격 분석을 읽고 처리할 수 있게 합니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "34666969"
 
    * **구독**: 이 IoT Hub를 만드는 데 사용할 구독을 선택합니다.
 
-   * **리소스 그룹**: IoT Hub를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][lnk-resource-groups]를 참조하세요.
+   * **리소스 그룹**: IoT Hub를 호스트할 리소스 그룹을 만들거나 기존 리소스 그룹을 사용합니다. 모든 관련 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 해당 그룹에 들어 있는 모든 리소스가 삭제됩니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리][lnk-resource-groups]를 참조하세요.
 
    * **지역**: 가장 가까운 위치를 선택합니다.
 

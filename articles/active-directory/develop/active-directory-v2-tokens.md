@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: d7b9ad5c76b0e20a3c58bddcc4947482b237fb8f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 93d551bcc6e517702c064ec0bdf6be61d3230cb3
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164461"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316671"
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Azure Active Directory v2.0 토큰 참조
 Azure AD(Azure Active Directory) v2.0 끝점은 각 [인증 흐름](active-directory-v2-flows.md)에서 여러 유형의 보안 토큰을 내보냅니다. 이 참조에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다.
@@ -95,8 +95,7 @@ v2.0 끝점의 액세스 토큰을 요청하는 경우 앱이 사용할 수 있�
 ## <a name="validating-tokens"></a>토큰 유효성 검사
 현재 앱이 수행해야 하는 토큰 유효성 검사는 ID 토큰 유효성 검사뿐입니다. ID 토큰의 유효성을 검사하려면 앱이 ID 토큰의 서명과 ID 토큰에 있는 클레임의 유효성을 모두 검사해야 합니다.
 
-<!-- TODO: Link -->
-Microsoft는 토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주는 라이브러리 및 코드 샘플을 제공합니다. 다음 섹션에서는 기본 프로세스를 설명합니다. JWT 유효성 검사에 사용할 수 있는 여러 타사 오픈 소스 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대해 하나 이상의 옵션이 있습니다.
+<!-- TODO: Link --> Microsoft는 토큰 유효성 검사를 쉽게 처리하는 방법을 보여 주는 라이브러리와 코드 샘플을 제공합니다. 다음 섹션에서는 기본 프로세스를 설명합니다. JWT 유효성 검사에 사용할 수 있는 여러 타사 오픈 소스 라이브러리도 있습니다. 거의 모든 플랫폼 및 언어에 대해 하나 이상의 옵션이 있습니다.
 
 ### <a name="validate-the-signature"></a>서명의 유효성을 검사
 JWT에는 `.` 문자로 구분된 세 개의 세그먼트가 포함되어 있습니다. 첫 번째 세그먼트는 *헤더*, 두 번째 세그먼트는 *본문*, 세 번째 세그먼트는 *서명*이라고 합니다. 서명 세그먼트는 앱이 신뢰할 수 있도록 ID 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다.
@@ -113,7 +112,7 @@ ID 토큰은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 �
 
 `alg` 클레임은 토큰을 서명하는 데 사용된 알고리즘을 나타냅니다. `kid` 클레임은 토큰을 서명하는 데 사용된 공개 키를 나타냅니다.
 
-언제든지 v2.0 끝점은 공개-개인 키 쌍의 특정 집합 중 하나를 사용하여 ID 토큰을 서명할 수 있습니다. v2.0 끝점은 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. v2.0 끝점에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 매 24시간입니다.
+v2.0 엔드포인트는 특정 공용-개인 키 쌍 집합 중 하나를 사용하여 ID 및 액세스 토큰에 서명합니다. v2.0 끝점은 주기적으로 가능한 키 집합을 순환하므로 이러한 키 변경을 자동으로 처리하도록 앱을 작성해야 합니다. v2.0 끝점에서 사용된 공개 키에 대한 업데이트를 확인하는 적절한 빈도는 매 24시간입니다.
 
 다음 위치에 있는 OpenID Connect 메타데이터 문서를 사용하여 서명 유효성 검사에 필요한 서명 키 데이터를 얻을 수 있습니다.
 
@@ -123,10 +122,11 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 > [!TIP]
 > 브라우저에서 이 URL을 사용해 보세요!
->
->
 
 이 메타데이터 문서는 OpenID Connect 인증에 필요한 다양한 끝점의 위치 등 여러 유용한 정보가 있는 JSON 개체입니다. 이 문서에는 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 *jwks_uri*도 포함합니다. jwks_uri에 있는 JSON 문서에는 현재 사용 중인 모든 공개 키 정보가 있습니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행합니다.
+
+> [!NOTE]
+> `x5t` 클레임은 v2.0 엔드포인트에서 사용되지 않습니다. `kid` 클레임을 사용하여 토큰의 유효성을 검사하는 것이 좋습니다.
 
 서명 유효성 검사 수행은 이 문서의 범위를 벗어납니다. 많은 오픈 소스 라이브러리가 도움이 될 수 있습니다.
 

@@ -16,12 +16,13 @@ ms.workload: identity
 ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: e8e693355fb9b30e1a69b49f20d5044c531e2fcd
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.reviewer: elisol
+ms.openlocfilehash: d7194846dbeab2a5da8a8ceaa5a1040f33e8d515
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34155622"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317132"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Azure Active Directory(Azure AD)의 응용 프로그램 및 서비스 주체 개체
 경우에 따라 “응용 프로그램”이 Azure AD의 문맥에서 사용될 때 용어의 의미를 잘못 이해할 수 있습니다. 이 문서의 목표는 [다중 테넌트 응용 프로그램](active-directory-dev-glossary.md#multi-tenant-application)에 대한 등록 및 동의에 대한 그림을 통해 Azure AD 응용 프로그램 통합의 개념 및 구체적인 측면을 명확히 설명하는 것입니다.

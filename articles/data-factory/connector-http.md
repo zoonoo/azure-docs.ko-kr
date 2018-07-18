@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 05/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3aca66d6922273e78b5100948f1b868c6c9b56af
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: a27d90006d31c83b5ebe6cfc4a8d97969743a91e
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049861"
 ---
 # <a name="copy-data-from-http-endpoint-using-azure-data-factory"></a>Azure Data Factory를 사용하여 HTTP 끝점에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-http-connector.md)
-> * [버전 2 - 미리 보기](connector-http.md)
+> * [버전 1](v1/data-factory-http-connector.md)
+> * [현재 버전](connector-http.md)
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 HTTP 끝점에서 데이터를 복사하는 방법을 간략히 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용하는 경우 [V1의 HTTP 커넥터](v1/data-factory-http-connector.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -58,7 +56,7 @@ HTTP 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **HttpServer**로 설정해야 합니다. | 예 |
 | URL | 웹 서버에 대한 기본 URL입니다. | 예 |
-| enableServerCertificateValidation | HTTP 끝점으로 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. | 아니요. 기본값은 True입니다. |
+| enableServerCertificateValidation | HTTP 끝점으로 연결할 때 서버 SSL 인증서 유효성 검사를 사용할지 지정합니다. HTTPS 서버에서 자체 서명된 인증서를 사용하는 경우 false로 설정합니다. | 아니요. 기본값은 True입니다. |
 | authenticationType | 인증 유형을 지정합니다. 허용되는 값: **Anonymous**, **Basic**, **Digest**, **Windows**, **ClientCertificate**. <br><br> 각 인증 형식에 대한 더 많은 속성 및 JSON 샘플은 표 아래 섹션을 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
 
@@ -103,13 +101,13 @@ ClientCertificate 인증을 사용하려면 “authenticationType” 속성을 *
 |:--- |:--- |:--- |
 | embeddedCertData | Base64 인코딩 인증서 데이터입니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
 | certThumbprint | 자체 호스팅 Integration Runtime 컴퓨터의 인증서 저장소에 설치된 인증서의 지문입니다. 자체 호스팅된 유형의 Integration Runtime이 connectVia에 지정된 경우에만 적용됩니다. | `embeddedCertData` 또는 `certThumbprint`를 지정합니다. |
-| 암호 | 인증서와 연결된 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| 암호 | 인증서와 연결된 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니오 |
 
 인증에 “certThumbprint”를 사용하고 인증서가 로컬 컴퓨터의 개인 저장소에 설치된 경우 자체 호스팅된 Integration Runtime에 읽기 권한을 부여해야 합니다.
 
 1. MMC(Microsoft Management Console)를 시작합니다. **로컬 컴퓨터**를 대상으로 하는 **인증서** 스냅인을 추가합니다.
 2. **인증서**, **개인**을 확장하고 **인증서**를 클릭합니다.
-3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** -> **개인 키 관리...**를 선택합니다.
+3. 개인 저장소에서 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** -> **개인 키 관리...** 를 선택합니다.
 3. **보안** 탭에서 인증서에 대한 읽기 권한으로 Integration Runtime 호스트 서비스(DIAHostService)를 실행 중인 사용자 계정을 추가합니다.
 
 **예제 1: certThumbprint 사용**
@@ -166,7 +164,7 @@ HTTP에서 데이터를 복사하려면 데이터 집합의 형식 속성을 **H
 |:--- |:--- |:--- |
 | 형식 | 데이터 집합의 형식 속성을 **HttpFile**로 설정해야 합니다. | 예 |
 | relativeUrl | 데이터를 포함하는 리소스에 대한 상대 URL입니다. 이 속성을 지정하지 않으면 연결된 서비스 정의에 지정된 URL만 사용됩니다. | 아니오 |
-| requestMethod | HTTP 메서드입니다.<br/>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니요 |
+| requestMethod | HTTP 메서드입니다.<br/>허용되는 값은 **Get**(기본값) 또는 **Post**입니다. | 아니오 |
 | additionalHeaders | 추가 HTTP 요청 헤더입니다. | 아니오 |
 | requestBody | HTTP 요청의 본문입니다. | 아니오 |
 | format | 데이터를 구문 분석하지 않고 **HTTP 끝점에서 데이터를 있는 그대로 검색**하고 파일 기반 저장소에 복사하려면 입력 및 출력 데이터 집합 정의 모두에서 형식 섹션을 건너뜁니다.<br/><br/>복사 중에 HTTP 응답 콘텐츠를 구문 분석하려는 경우 **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 파일 형식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [Json 형식](supported-file-formats-and-compression-codecs.md#json-format), [텍스트 형식](supported-file-formats-and-compression-codecs.md#text-format), [Avro 형식](supported-file-formats-and-compression-codecs.md#avro-format), [Orc 형식](supported-file-formats-and-compression-codecs.md#orc-format) 및 [Parquet 형식](supported-file-formats-and-compression-codecs.md#parquet-format) 섹션을 참조하세요. |아니오 |
@@ -222,7 +220,7 @@ HTTP에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Http
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 원본의 형식 속성을 **HttpSource**로 설정해야 합니다. | 예 |
-| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다.<br/> 기본값은 00:01:40입니다.  | 아니요 |
+| httpRequestTimeout | HTTP 요청이 응답을 받을 시간 제한(TimeSpan)입니다. 응답 데이터를 읽는 시간 제한이 아니라, 응답을 받을 시간 제한입니다.<br/> 기본값은 00:01:40입니다.  | 아니오 |
 
 **예제:**
 

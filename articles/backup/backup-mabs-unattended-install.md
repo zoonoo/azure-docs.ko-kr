@@ -1,22 +1,19 @@
 ---
-title: "Azure Backup Server v2 자동 설치 | Microsoft Docs"
-description: "PowerShell 스크립트를 사용하여 Azure Backup Server v2를 자동으로 설치할 수 있습니다. 이런 종류의 설치를 무인 설치라고도 합니다."
+title: Azure Backup Server v2의 자동 설치
+description: PowerShell 스크립트를 사용하여 Azure Backup Server v2를 자동으로 설치할 수 있습니다. 이런 종류의 설치를 무인 설치라고도 합니다.
 services: backup
-documentationcenter: " "
 author: markgalioto
 manager: carmonm
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 05/30/2017
-ms.author: markgal;masaran
-ms.openlocfilehash: 91778a67f9ef523aa87b7918197e0d0ded0f5702
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606412"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>Azure Backup Server v2의 무인 설치 실행
 

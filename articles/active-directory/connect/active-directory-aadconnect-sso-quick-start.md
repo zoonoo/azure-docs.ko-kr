@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Active Directory Seamless Single Sign-On�
 services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/23/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e6bb32c20ca9bb6c514cab462e94018543c3a702
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592615"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917519"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -89,7 +89,7 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>사용자의 인트라넷 영역 설정을 수정해야 하는 이유
 
-기본적으로 브라우저는 특정 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 “http://contoso/”은 인트라넷 영역에 매핑되지만, "http://intranet.contoso.com/"는 인터넷 영역에 매핑됩니다(URL에 마침표가 포함되어 있기 때문). 브라우저는 URL이 브라우저의 인트라넷 영역에 명시적으로 추가되지 않는 한 클라우드 엔드포인트(예: Azure AD URL)에 Kerberos 티켓을 보내지 않습니다.
+기본적으로 브라우저는 특정 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 “http://contoso/” 은 인트라넷 영역에 매핑되지만, "http://intranet.contoso.com/" 는 인터넷 영역에 매핑됩니다(URL에 마침표가 포함되어 있기 때문). 브라우저는 URL이 브라우저의 인트라넷 영역에 명시적으로 추가되지 않는 한 클라우드 엔드포인트(예: Azure AD URL)에 Kerberos 티켓을 보내지 않습니다.
 
 ### <a name="detailed-steps"></a>자세한 단계
 
@@ -128,10 +128,10 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox(모든 플랫폼)
 
 Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. 각 사용자는 다음 단계에 따라 Firefox 설정에 Azure AD URL을 수동으로 추가해야 합니다.
-1. Firefox를 실행하고 주소 표시줄에 `about:config`를 입력합니다. 표시되는 모든 알림을 해제합니다.
+1. Firefox를 실행하고 주소 표시줄에 `about:config` 를 입력합니다. 표시되는 모든 알림을 해제합니다.
 2. **network.negotiate-auth.trusted-uris** 기본 설정을 검색합니다. 이 기본 설정은 Firefox의 신뢰할 수 있는 Kerberos 인증 사이트를 나열합니다.
 3. 마우스 오른쪽 단추로 클릭하고 **수정**을 선택합니다.
-4. 필드에 https://autologon.microsoftazuread-sso.com을 입력합니다.
+4. 필드에 https://autologon.microsoftazuread-sso.com 을 입력합니다.
 5. **확인**을 선택한 다음, 브라우저를 다시 엽니다.
 
 #### <a name="safari-mac-os"></a>Safari(Mac OS)
@@ -140,7 +140,7 @@ Mac OS를 실행하는 컴퓨터가 AD에 가입되어 있는지 확인합니다
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com))도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL( https://autologon.microsoftazuread-sso.com) )도 해당 정책 설정에 추가해야 합니다.
 
 #### <a name="google-chrome-mac-os-only"></a>Google Chrome(Mac OS에만 해당)
 
@@ -161,11 +161,11 @@ Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamles
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](##step-3-roll-out-the-feature)했습니다.
 
 사용자가 암호가 아니라 사용자 이름만 입력하는 시나리오를 테스트하려면 다음을 수행합니다.
-   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/에 로그인합니다.
+   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/ 에 로그인합니다.
 
 사용자가 사용자 이름이나 암호를 입력할 필요가 없는 시나리오를 테스트하려면 다음 중 하나를 수행합니다. 
-   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/contoso.onmicrosoft.com에 로그인합니다. *contoso*를 테넌트의 이름으로 바꿉니다.
-   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/contoso.com에 로그인합니다. *contoso.com*을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
+   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/contoso.onmicrosoft.com 에 로그인합니다. *contoso*를 테넌트의 이름으로 바꿉니다.
+   - 새 개인 브라우저 세션에서 https://myapps.microsoft.com/contoso.com 에 로그인합니다. *contoso.com*을 테넌트에서 확인된 도메인(페더레이션 도메인이 아님)으로 바꿉니다.
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버
 

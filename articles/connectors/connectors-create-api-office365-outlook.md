@@ -1,25 +1,22 @@
 ---
-title: Logic Apps에서 Office 365 Outlook 커넥터 추가 | Microsoft Docs
-description: 'Office 365와 상호 작용할 수 있도록 Office 365 커넥터로 논리 앱을 만듭니다. 예: 연락처 및 일정 항목 만들기, 편집 및 업데이트.'
-services: ''
-documentationcenter: ''
+title: Office 365 Outlook에 연결 - Azure Logic Apps | Microsoft Docs
+description: Office 365 REST API 및 Azure Logic Apps를 사용하여 이메일, 연락처 및 달력 관리
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: b2f6cc2c-bba2-493a-b0ba-841785462a80
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 10/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: ea0b2f657f808bb6ba4bf427497955b9e520c669
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: aa900a486b9b0bd0f570da866f3d0ab78c31bc6e
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296155"
 ---
 # <a name="get-started-with-the-office-365-outlook-connector"></a>Office 365 Outlook 커넥터 시작
 Office 365 Outlook 커넥터를 통해 Office 365에서 Outlook과 상호 작용할 수 있습니다. 이 커넥터를 사용하여 연락처 및 일정 항목을 만들기, 편집 및 업데이트하고 전자 메일을 가져오고 보내며 회신할 수도 있습니다.

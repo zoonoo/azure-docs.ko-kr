@@ -1,12 +1,12 @@
 ---
-title: "Azure Files 소개 | Microsoft Docs"
-description: "업계 표준 SMB 프로토콜을 사용하여 클라우드에서 네트워크 파일 공유를 만들고 사용할 수 있게 해주는 서비스인 Azure Files를 간략히 설명합니다."
+title: Azure Files 소개 | Microsoft Docs
+description: 업계 표준 SMB 프로토콜을 사용하여 클라우드에서 네트워크 파일 공유를 만들고 사용할 수 있게 해주는 서비스인 Azure Files를 간략히 설명합니다.
 services: storage
-documentationcenter: 
+documentationcenter: ''
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
-ms.assetid: 
+editor: tamram
+ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: f96aa9fe12aba28e1ac3429f012419341bdf92c1
-ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
+ms.openlocfilehash: 83096e15b26b0edfd47df36fe368fd5c9c846f12
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737285"
 ---
 # <a name="introduction-to-azure-files"></a>Azure Files 소개
-Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)(일반 인터넷 파일 시스템 또는 CIFS라고도 함)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure File 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 또한 데이터가 사용되는 위치 가까이에 빠르게 액세스하기 위해 Azure File Sync(미리 보기)를 사용하여 Azure File 공유를 Windows Server에서 캐시할 수 있습니다.
+Azure Files는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure File 공유는 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포를 통해 동시에 탑재될 수 있습니다. 또한 데이터가 사용되는 위치 가까이에 빠르게 액세스하기 위해 Azure File Sync(미리 보기)를 사용하여 Azure 파일 공유를 Windows Server에서 캐시할 수 있습니다.
 
 ## <a name="videos"></a>동영상
 | Azure Files Sync 소개(2분) | Sync를 사용하는 Azure Files(Ignite 2017)(85분)  |

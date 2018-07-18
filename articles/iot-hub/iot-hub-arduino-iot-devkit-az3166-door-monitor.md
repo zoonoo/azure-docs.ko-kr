@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 80537bb817baf20831ad5020f0db775f21836f92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25cb3ba53c663a642f0871becbfbcab39d521c67
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632138"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437718"
 ---
 # <a name="door-monitor"></a>문 모니터링          
 
@@ -33,7 +33,7 @@ MXChip IoT DevKit에는 기본 제공 자기 센서가 포함되어 있습니다
 
 ## <a name="what-you-need"></a>필요한 항목
 
-[시작 가이드]({{"/docs/get-started/" | absolute_url }})를 완료하여:
+[시작 가이드](iot-hub-arduino-iot-devkit-az3166-get-started.md)를 완료하여:
 
 * DevKit을 Wi-Fi에 연결
 * 개발 환경 준비

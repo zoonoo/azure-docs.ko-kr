@@ -16,18 +16,16 @@ ms.workload: web
 ms.date: 10/22/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: d2c346424c5bcec7ec91b309799a1bf9fe3cab02
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 744c5310e08066dcbbfbde55b8e6ecb6c9361855
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29842785"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937301"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>App Service 계획에서 함수 앱 만들기
 
 이 Azure Functions 샘플 스크립트는 함수의 컨테이너인 함수 앱을 만듭니다. 생성된 함수 앱은 전용 App Service 계획을 사용하는데, 이는 서버 리소스가 항상 켜져 있음을 의미합니다.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,7 +49,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서 
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_create) | Azure Storage 계정을 만듭니다. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appserviceplan#az_appserviceplan_create) | App Service 계획을 만듭니다. |
+| [az appservice plan create](https://docs.microsoft.com/en-us/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create) | App Service 계획을 만듭니다. |
 | [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_delete) | Azure 함수 앱을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계

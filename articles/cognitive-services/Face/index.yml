@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Face Service 설명서
+metadata:
+  title: Face Service 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  description: Face Service를 사용하여 이미지에서 얼굴을 감지 및 식별하고 얼굴 정보를 반환합니다. 자습서에서는 API를 사용하는 앱을 작성하는 방법을 보여줍니다.
+  services: cognitive-services
+  author: noellelacharite
+  manager: nolachar
+  ms.service: cognitive-services
+  ms.component: computer-vision
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/31/2018
+  ms.author: nolachar
+  ms.openlocfilehash: 32f5dfcbd26206268172109188395765cb80b884
+  ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/17/2018
+  ms.locfileid: "39089353"
+abstract:
+  description: 클라우드 기반 Face API를 사용하면 고급 얼굴 인식 알고리즘에 액세스할 수 있습니다. Microsoft Face 알고리즘을 사용하면 얼굴 특성 감지 및 얼굴 인식이 가능합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 다음을 사용하여 이미지를 분석하고 썸네일을 생성하고 텍스트를 추출합니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_Csharp.svg
+      text: C&#35;
+      href: QuickStarts/CSharp
+    - image:
+        src: media/index/logo_java.svg
+      text: 자바
+      href: QuickStarts/Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: QuickStarts/node
+    - image:
+        src: media/index/logo_python.svg
+      text: 파이썬
+      href: QuickStarts/Python
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: QuickStarts/Go
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: Face 서비스를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinCSharpTutorial">Windows의 이미지에서 얼굴 감지 및 포착</a></li>
+    - html: <a href="/azure/cognitive-services/Face/Tutorials/FaceAPIinJavaForAndroidTutorial">Android의 이미지에서 얼굴 감지 및 포착</a></li>
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API
+      html: <p><a href="APIReference">Face API</a></p>
+    - title: SDK
+      html: <p><a href="https://github.com/Microsoft/Cognitive-Face-Windows">Windows</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules">Node.js</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-Python">Python</a></p> <p><a href="https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face">Go</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-Android">Android</a></p> <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>

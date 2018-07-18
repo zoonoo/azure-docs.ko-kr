@@ -8,15 +8,15 @@ ms.reviewer: carlrab, srbozovi
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: c6f397c2cfcfd9fbd4a5cc8f70a99f4abc86ba21
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34850681"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949887"
 ---
 # <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업 복원
 
@@ -140,7 +140,7 @@ SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 관리되
 
     ![파일 목록](./media/sql-database-managed-instance-tutorial/file-list.png)
 
-4. 다음 스크립트를 사용하여 백업 파일에서 Adventure Works 2012 데이터베이스를 복원합니다. 백업 파일이 있는 컨테이너에 대한 URL을 제공합니다.
+4. 다음 스크립트를 사용하여 백업 파일에서 Wide World Importers 데이터베이스를 복원합니다. 백업 파일이 있는 컨테이너에 대한 URL을 제공합니다.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =

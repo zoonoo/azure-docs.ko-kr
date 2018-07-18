@@ -1,11 +1,11 @@
 ---
-title: "Python을 사용하여 Azure Files용으로 개발 | Microsoft Docs"
-description: "Azure Files를 사용하여 파일 데이터를 저장하는 Python 응용 프로그램 및 서비스를 개발하는 방법에 대해 알아봅니다."
+title: Python을 사용하여 Azure Files용으로 개발 | Microsoft Docs
+description: Azure Files를 사용하여 파일 데이터를 저장하는 Python 응용 프로그램 및 서비스를 개발하는 방법에 대해 알아봅니다.
 services: storage
 documentationcenter: python
-author: tamram
-manager: timlt
-editor: tysonn
+author: wmgries
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
@@ -14,11 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: tamram
-ms.openlocfilehash: cee6ece907950724f6ad4a86c489a5f07dfcaaec
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1102fd516b5497b4c482986b64fa7c96e9ccc54a
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738264"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Python을 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -29,7 +30,7 @@ ms.lasthandoff: 12/08/2017
 
 * Azure 파일 공유 만들기
 * 디렉터리 만들기
-* Azure 파일 공유에 파일 및 디렉터리 열거
+* Azure 파일 공유의 파일 및 디렉터리 열거
 * 파일 업로드, 다운로드 및 삭제
 
 > [!Note]  
@@ -83,7 +84,7 @@ file_service.create_share('myshare')
 file_service.create_directory('myshare', 'sampledir')
 ```
 
-## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Azure 파일 공유에 파일 및 디렉터리 열거
+## <a name="enumerate-files-and-directories-in-an-azure-file-share"></a>Azure 파일 공유의 파일 및 디렉터리 열거
 공유의 파일 및 디렉터리를 나열하려면 **list\_directories\_and\_files** 메서드를 사용합니다. 이 메서드는 생성기를 반환합니다. 다음 코드는 공유에 있는 각 파일 및 디렉터리의 **이름** 을 콘솔에 출력합니다.
 
 ```python

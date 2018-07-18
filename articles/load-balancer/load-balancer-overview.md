@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 080a4e670b06544d84e3d34a0b04bdb91a95aff1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04fa1f9a23a7c93426b45305302e3f77d16ab8c0
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202444"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726264"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -94,7 +94,7 @@ Load Balancer는 TCP 및 UDP 응용 프로그램에 대해 다음과 같은 기�
 
     - **TCP 사용자 지정 프로브:** 이 프로브는 정의된 프로브 포트에 대한 성공적인 TCP 세션 설정에 따라 달라집니다. VM에 지정된 수신기가 있기만 하면 이 프로브는 성공합니다. 연결이 거부되면 프로브는 실패합니다. 이 프로브는 기본 게스트 에이전트 프로브를 재정의합니다.
 
-    - **게스트 에이전트 프로브(PaaS[Platform as a Service] VM에서만)**: 부하 분산 장치는 VM 내에서 게스트 에이전트를 사용할 수도 있습니다. 게스트 에이전트는 수신 대기하고 인스턴스가 준비 상태인 경우에만 HTTP 200 정상으로 응답합니다. 에이전트가 HTTP 200 OK로 응답하지 않으면, 부하 분산 장치에서 인스턴스를 응답하지 않는 것으로 표시하고 해당 인스턴스로의 트래픽 전송을 중지합니다. 이때 부하 분산 장치는 계속해서 인스턴스에 연결하려고 시도합니다. 게스트 에이전트가 HTTP 200으로 응답하면 부하 분산 장치는 다시 트래픽을 해당 인스턴스에 전송합니다. 게스트 에이전트 프로브는 최후의 수단으로, HTTP 또는 TCP 사용자 지정 프로브 구성이 가능한 경우에는 권장되지 않습니다. 
+    - **게스트 에이전트 프로브**: 부하 분산 장치는 VM 내에서 게스트 에이전트를 사용할 수도 있습니다. 게스트 에이전트는 수신 대기하고 인스턴스가 준비 상태인 경우에만 HTTP 200 정상으로 응답합니다. 에이전트가 HTTP 200 OK로 응답하지 않으면, 부하 분산 장치에서 인스턴스를 응답하지 않는 것으로 표시하고 해당 인스턴스로의 트래픽 전송을 중지합니다. 이때 부하 분산 장치는 계속해서 인스턴스에 연결하려고 시도합니다. 게스트 에이전트가 HTTP 200으로 응답하면 부하 분산 장치는 다시 트래픽을 해당 인스턴스에 전송합니다. HTTP 또는 TCP 사용자 지정 프로브 구성이 가능한 경우 게스트 에이전트 프로브는 _권장되지 않는 최후의 수단_입니다. 
     
 * **아웃바운드 연결(SNAT)**
 

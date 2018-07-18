@@ -11,24 +11,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/31/2017
+ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0d5caf5836b96555e01b55d408e51f3df2407d35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f01a32612b335003856a372ece15ef300b9d93db
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657607"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063277"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus"></a>형식 II SKU에 대한 OS 백업 및 복원
 
-이 문서에서는 HANA 큰 인스턴스의 **형식 II SKU**에 대한 운영 체제 백업 및 복원을 수행하는 단계를 설명합니다. 
+이 문서에서는 HANA 큰 인스턴스의 **형식 II SKU**에 대한 운영 체제 파일 수준 백업 및 복원을 수행하는 단계를 설명합니다. 
 
 >[!NOTE]
 >OS 백업 스크립트는 서버에 미리 설치되어 있는 ReaR 소프트웨어를 사용합니다.  
 
-기본적으로 Microsoft 서비스 관리 팀에서 프로비전을 완료한 후에 서버는 전체 운영 체제를 백업하는 두 번의 백업 일정으로 구성됩니다. 다음 명령을 사용하여 백업 작업 일정을 확인할 수 있습니다.
+기본적으로 Microsoft 서비스 관리 팀에서 프로비전을 완료한 후에 서버는 운영 체제의 파일 시스템 수준 백업을 수행하는 두 번의 백업 일정으로 구성됩니다. 다음 명령을 사용하여 백업 작업 일정을 확인할 수 있습니다.
 ```
 #crontab –l
 ```
@@ -38,7 +38,7 @@ ms.locfileid: "34657607"
 ```
 ## <a name="how-to-take-a-manual-backup"></a>수동 백업을 수행하는 방법
 
-**cron 작업**을 사용하여 운영 체제 백업이 이미 예약되었습니다. 그러나 운영 체제 백업을 수동으로도 수행할 수 있습니다. 수동 백업을 수행하려면 다음 명령을 실행합니다.
+**cron 작업**을 사용하여 운영 체제 파일 시스템 백업이 이미 예약되었습니다. 그러나 운영 체제 파일 수준 백업을 수동으로도 수행할 수 있습니다. 수동 백업을 수행하려면 다음 명령을 실행합니다.
 
 ```
 #rear -v mkbackup

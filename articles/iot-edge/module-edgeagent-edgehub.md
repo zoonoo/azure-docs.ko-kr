@@ -8,12 +8,12 @@ ms.date: 03/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0b9e7421bb09e619b4a820910db5faa9edfcc5d5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2858179d42ebf51cbb24d95d2e0093f8577bacef
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632910"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030566"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge 에이전트 및 Edge 허브 모듈 트윈스의 속성
 
@@ -31,15 +31,18 @@ Edge 에이전트에 대한 모듈 쌍은 `$edgeAgent`라고 하며, 장치에�
 | runtime.type | "docker"여야 합니다. | 예 |
 | runtime.settings.minDockerVersion | 이 배포 매니페스트에 필요한 최소 Docker 버전으로 설정합니다. | 예 |
 | runtime.settings.loggingOptions | Edge 에이전트 컨테이너에 대한 로깅 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 로깅 옵션][lnk-docker-logging-options] | 아니오 |
+| runtime.settings.registryCredentials<br>.{registryId}.username | 컨테이너 레지스트리의 사용자 이름입니다. Azure Container Registry의 경우 사용자 이름은 일반적으로 레지스트리 이름입니다.<br><br> 레지스트리 자격 증명은 공용이 아닌 모든 모듈 이미지에 필요합니다. | 아니오 |
+| runtime.settings.registryCredentials<br>.{registryId}.password | 컨테이너 레지스트리에 대한 암호입니다. | 아니오 |
+| runtime.settings.registryCredentials<br>.{registryId}.address | 컨테이너 레지스트리의 주소입니다. Azure Container Registry의 경우 주소는 일반적으로 *{registryname}.azurecr.io*입니다. | 아니오 |  
 | systemModules.edgeAgent.type | "docker"여야 합니다. | 예 |
 | systemModules.edgeAgent.settings.image | Edge 에이전트의 이미지에 대한 URI입니다. 현재 Edge 에이전트는 자체적으로 업데이트할 수 없습니다. | 예 |
-| systemModules.edgeAgent.settings.createOptions | Edge 에이전트 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니오 |
+| systemModules.edgeAgent.settings<br>.createOptions | Edge 에이전트 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니오 |
 | systemModules.edgeAgent.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
 | systemModules.edgeHub.type | "docker"여야 합니다. | 예 |
 | systemModules.edgeHub.status | "running"이어야 합니다. | 예 |
 | systemModules.edgeHub.restartPolicy | "always"여야 합니다. | 예 |
 | systemModules.edgeHub.settings.image | Edge 허브의 이미지에 대한 URI입니다. | 예 |
-| systemModules.edgeHub.settings.createOptions | Edge 허브 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니오 |
+| systemModules.edgeHub.settings<br>.createOptions | Edge 허브 컨테이너에 대한 만들기 옵션을 포함하는 문자열 형식 JSON입니다. [Docker 만들기 옵션][lnk-docker-create-options] | 아니오 |
 | systemModules.edgeHub.configuration.id | 이 모듈을 배포한 배포의 ID입니다. | 이 매니페스트가 배포를 사용하여 적용될 때 IoT Hub에서 이 속성을 설정합니다. 배포 매니페스트의 일부가 아닙니다. |
 | modules.{moduleId}.version | 이 모듈의 버전을 나타내는 사용자 정의 문자열입니다. | 예 |
 | modules.{moduleId}.type | "docker"여야 합니다. | 예 |
@@ -59,7 +62,7 @@ Edge 에이전트 reported 속성에는 다음 세 가지 주요 정보가 포�
 이 마지막 정보는 런타임에서 마지막 desired 속성이 성공적으로 적용되지 않고 장치에서 이전 배포 매니페스트를 계속 실행하는 경우에 유용합니다.
 
 > [!NOTE]
-> Edge 에이전트의 reported 속성은 [IoT Hub 쿼리 언어][lnk-iothub-query]로 쿼리하여 대규모 배포의 상태를 조사할 수 있으므로 유용합니다. 이 기능을 사용하는 방법에 대한 자세한 내용은 [배포][lnk-deploy]를 참조하세요.
+> Edge 에이전트의 reported 속성은 [IoT Hub 쿼리 언어][lnk-iothub-query]로 쿼리하여 대규모 배포의 상태를 조사할 수 있으므로 유용합니다. 상태에 대해 Edge 에이전트 속성을 사용하는 방법에 대한 자세한 내용은 [단일 장치 또는 대규모 IoT Edge 배포에 대한 이해][lnk-deploy]를 참조하세요.
 
 다음 표에는 desired 속성에서 복사한 정보가 포함되어 있지 않습니다.
 

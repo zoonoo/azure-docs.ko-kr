@@ -11,13 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: c7e9807e7195be47bf7874837ff9428c90abbcee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 5e67c60828467cce7c3b40ba17f15f44ad045920
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735673"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
 
@@ -128,11 +129,11 @@ ms.lasthandoff: 05/20/2018
 
 예제 템플릿을 배포하려면 Azure PowerShell 4.0.0 이상 또는 Azure CLI 2.0.0 이상을 사용합니다.
 
-## <a name="use-the-resourcegroup-function"></a>resourceGroup() 함수 사용
+## <a name="use-the-resourcegroup-and-subscription-functions"></a>ResourceGroup() 및 subscription() 함수 사용
 
-리소스 그룹 간 배포의 경우 [resourceGroup() 함수](resource-group-template-functions-resource.md#resourcegroup)는 중첩 템플릿 지정 방식에 따라 다르게 확인됩니다. 
+리소스 그룹 간 배포의 경우 [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 및 [subscription()](resource-group-template-functions-resource.md#subscription) 함수는 중첩 템플릿 지정 방식에 따라 다르게 확인됩니다. 
 
-하나의 템플릿을 다른 템플릿 내에 포함하는 경우 중첩 템플릿의 resourceGroup()이 부모 리소스 그룹으로 확인됩니다. 포함된 템플릿은 다음 형식을 사용합니다.
+하나의 템플릿을 다른 템플릿 내에 포함하는 경우 중첩 템플릿의 함수는 부모 리소스 그룹 및 구독으로 확인됩니다. 포함된 템플릿은 다음 형식을 사용합니다.
 
 ```json
 "apiVersion": "2017-05-10",
@@ -143,12 +144,12 @@ ms.lasthandoff: 05/20/2018
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-별도의 템플릿에 연결하는 경우 연결된 템플릿의 resourceGroup()가 중첩된 리소스 그룹으로 확인됩니다. 연결된 템플릿은 다음 형식을 사용합니다.
+별도 템플릿에 연결하는 경우 중첩 템플릿의 함수는 중첩 리소스 그룹 및 구독으로 확인됩니다. 연결된 템플릿은 다음 형식을 사용합니다.
 
 ```json
 "apiVersion": "2017-05-10",
@@ -159,7 +160,7 @@ ms.lasthandoff: 05/20/2018
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```

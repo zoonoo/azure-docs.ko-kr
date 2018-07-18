@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 44777946fdc829da222ffdd67dfecfa3bf240be7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2eefabcc0484fca0e6e3ad1dd5037684a759d010
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850449"
 ---
 # <a name="troubleshooting-guide-for-azure-stream-analytics"></a>Azure Stream Analytics 문제 해결 가이드
 
@@ -41,6 +42,7 @@ Stream Analytics 작업 문제 해결에서 최상의 결과를 얻으려면 다
 
 5.  다음과 같은 공통 문제를 제거합니다.
     - 쿼리의 [**WHERE**](https://msdn.microsoft.com/library/azure/dn835048.aspx) 절은 출력이 생성되지 않도록 방지하는 모든 이벤트를 필터링했습니다.
+    - [**캐스트**](https://msdn.microsoft.com/azure/stream-analytics/reference/cast-azure-stream-analytics) 기능이 실패하면 작업이 실패합니다. 형식 캐스팅 오류를 방지하려면 [**TRY_CAST**](https://msdn.microsoft.com/azure/stream-analytics/reference/try-cast-azure-stream-analytics)를 대신 사용하세요.
     - 창 함수를 사용하는 경우 전체 창 기간을 기다려서 쿼리의 출력을 확인합니다.
     - 작업 시작 시간 전에 이벤트에 대한 타임스탬프가 있으므로 이벤트가 손실됩니다.
 

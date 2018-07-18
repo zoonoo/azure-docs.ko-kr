@@ -1,24 +1,26 @@
 ---
-title: "Azure의 하이브리드 ID 디자인 - 콘텐츠 관리 요구 사항 | Microsoft Docs"
-description: "비즈니스의 콘텐츠 관리 요구 사항을 확인하는 방법을 설명합니다. 일반적으로 사용자에게 자신만의 장치가 있는 경우 사용하는 응용 프로그램에 따라 변경되는 여러 자격 증명이 있을 수 있습니다. 개인 자격 증명을 사용하여 생성된 콘텐츠와 회사 자격 증명을 사용하여 생성된 콘텐츠를 구분하는 것이 중요합니다. ID 솔루션은 최종 사용자의 개인 정보를 보호하고 데이터 유출 방지 기능을 개선하면서, 클라우드 서비스와 상호 작용하여 최종 사용자에게 원활한 환경을 제공할 수 있어야 합니다."
-documentationcenter: 
+title: Azure의 하이브리드 ID 디자인 - 콘텐츠 관리 요구 사항 | Microsoft Docs
+description: 비즈니스의 콘텐츠 관리 요구 사항을 확인하는 방법을 설명합니다. 일반적으로 사용자에게 자신만의 장치가 있는 경우 사용하는 응용 프로그램에 따라 변경되는 여러 자격 증명이 있을 수 있습니다. 개인 자격 증명을 사용하여 생성된 콘텐츠와 회사 자격 증명을 사용하여 생성된 콘텐츠를 구분하는 것이 중요합니다. ID 솔루션은 최종 사용자의 개인 정보를 보호하고 데이터 유출 방지 기능을 개선하면서, 클라우드 서비스와 상호 작용하여 최종 사용자에게 원활한 환경을 제공할 수 있어야 합니다.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 71e33ec82c3db6fb7efa52dd12315e309658aab9
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.openlocfilehash: b414a1e93d5a0f4be5be82011482b492fd9ce378
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34800796"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 콘텐츠 관리 요구 사항 확인
 비즈니스의 콘텐츠 관리 요구 사항에 대한 이해는 어떤 하이브리드 ID 솔루션을 사용할지 결정하는 데 직접적인 영향을 미칠 수 있습니다. 여러 장치 및 사용자가 자신의 장치를 가져오는 기능([BYOD](https://aka.ms/byodcg))이 확산됨에 따라 회사는 회사만의 데이터도 보호해야 하지만 사용자의 개인 정보도 보호해야 합니다. 일반적으로 사용자에게 자신만의 장치가 있는 경우 사용하는 응용 프로그램에 따라 변경되는 여러 자격 증명이 있을 수 있습니다. 개인 자격 증명을 사용하여 생성된 콘텐츠와 회사 자격 증명을 사용하여 생성된 콘텐츠를 구분하는 것이 중요합니다. ID 솔루션은 최종 사용자의 개인 정보를 보호하고 데이터 유출 방지 기능을 개선하면서, 클라우드 서비스와 상호 작용하여 최종 사용자에게 원활한 환경을 제공할 수 있어야 합니다. 

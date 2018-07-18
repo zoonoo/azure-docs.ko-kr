@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 86e018a3f8eedecbb60614b0f1226b088ebb18fc
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837935"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128402"
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Azure Machine Learning 웹 서비스 배포
 Azure Machine Learning을 사용하면 예측 분석 솔루션을 빌드, 테스트 및 배포할 수 있습니다.
@@ -187,8 +187,8 @@ For more information on how to manage Azure Machine Learning web service endpoin
 [학습 실험 만들기]: #create-a-training-experiment
 [예측 실험으로 변환]: #convert-the-training-experiment-to-a-predictive-experiment
 [앱 서비스로 배포]: #deploy-it-as-a-web-service
-[신규]: #deploy-the-predictive-experiment-as-a-new-Web-service
-[기존]: #deploy-the-predictive-experiment-as-a-new-Web-service
+[신규]: #deploy-the-predictive-experiment-as-a-new-web-service
+[기존]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal
 [Update]: #update-the-Web-service

@@ -1,25 +1,27 @@
 ---
-title: "Azure Active Directory 보고 대기 시간 | Microsoft Docs"
-description: "Azure Portal에 보고 이벤트를 표시하는 데 걸리는 시간에 대해 알아보기"
+title: Azure Active Directory 보고 대기 시간 | Microsoft Docs
+description: Azure Portal에 보고 이벤트를 표시하는 데 걸리는 시간에 대해 알아보기
 services: active-directory
-documentationcenter: 
-author: MarkusVi
+documentationcenter: ''
+author: priyamohanram
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.component: compliance-reports
 ms.date: 12/15/2017
-ms.author: markvi;dhanyahk
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ec41817fede495b8262e28d2d614a480d98ff3b
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: eda894216c624956aab6efa74057e15ce9a1b3ff
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36230525"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory 보고 대기 시간
 
@@ -37,10 +39,10 @@ Azure Active Directory에서 [보고](active-directory-preview-explainer.md)를 
 
 다음 표에는 활동 보고서에 대한 대기 시간 정보가 나와 있습니다.
 
-| 보고서 | 최소 | 평균 | 설명 |
-| :-- | --- | --- | :-- |
-| 감사 로그 | 30분  | 1시간  |일부 인스턴스에서 감사 활동 데이터가 표시되는 데 최대 2시간이 걸릴 수 있습니다.|
-| 로그인 | 15분  | 2시간 |일부 인스턴스에서 로그인 활동 데이터가 표시되는 데 최대 24시간이 걸릴 수 있습니다. 여기에는 레거시 Office 응용 프로그램에서 들어오는 로그인 활동 데이터가 포함됩니다. |
+| 보고서 | 대기 시간(P95) |대기 시간(P99)|
+| :-- | --- | --- | 
+| 감사 로그 | 2분  | 5분  |
+| 로그인 | 2분  | 5분 |
 
 
 

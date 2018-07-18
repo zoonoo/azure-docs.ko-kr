@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: juliako
-ms.openlocfilehash: 804a418f6ee88974d6e74a2c18bc5d01b6adf838
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c488060b9db0ba482d12eee2394e5149b918950e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783552"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331523"
 ---
 # <a name="media-intelligence"></a>미디어 인텔리전스
 
@@ -181,7 +181,7 @@ Azure Media Services REST v3 API를 사용하면 오디오 및 비디오 콘텐�
 |id|얼굴 ID입니다.|
 |이름|얼굴 이름입니다. ‘Unknown #0’, 확인된 유명인 또는 고객 교육을 받은 사람일 수 있습니다.|
 |신뢰도|얼굴 인식 신뢰도입니다.|
-|description|유명인인 경우 설명입니다("Satya Nadella의 출생지는...."). |
+|description|유명인인 경우 설명입니다. |
 |thumbnalId|얼굴 썸네일의 ID입니다.|
 |knownPersonId|알려진 사람인 경우 내부 ID입니다.|
 |referenceId|Bing 유명인의 경우 Bing ID입니다.|
@@ -329,33 +329,6 @@ Azure Media Services REST v3 API를 사용하면 오디오 및 비디오 콘텐�
       ]
     }
   ]
-```
-
-### <a name="audioeffects"></a>audioEffects
-
-|Name|설명|
-|---|---|
-|id|오디오 효과 ID입니다.|
-|형식|오디오 효과 유형(예: 박수, 음성, 음소거)입니다.|
-|인스턴스|이 오디오 효과가 나타나는 시간 범위 목록입니다.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
 ```
 
 

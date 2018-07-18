@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: skwan
-ms.openlocfilehash: f2904f3d070a818985fa291fb9083b5ec57529dd
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.author: daveba
+ms.openlocfilehash: afd35c963c2c1c4badb32f7e8f7dba1dce87481c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301654"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37904291"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-data-lake-store"></a>자습서: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스
 
@@ -209,12 +209,9 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 MSI�
 
 축하합니다!  VM MSI를 사용하여 Data Lake Store 파일 시스템을 인증했습니다.
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="next-steps"></a>다음 단계
 
-- MSI의 개요는 [관리 서비스 ID 개요](overview.md)를 참조하세요.
-- 작업 관리의 경우 Data Lake Store는 Azure Resource Manager를 사용합니다.  VM MSI를 사용하여 Resource Manager에 인증하는 방법에 대한 자세한 내용은 [Linux VM MSI(관리 서비스 ID)를 사용하여 Resource Manager에 액세스](https://docs.microsoft.com/azure/active-directory/msi-tutorial-linux-vm-access-arm)를 참고하세요.
-- [Azure Active Directory를 사용하여 Data Lake Store로 최종 사용자 인증](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)에 대해 자세히 알아봅니다.
-- [REST API를 사용하는 Azure Data Lake Store의 파일 시스템 작업](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-operations-rest-api) 또는 [WebHDFS 파일 시스템 API](https://docs.microsoft.com/rest/api/datalakestore/webhdfs-filesystem-apis)에 대해 자세히 알아봅니다.
-- [Data Lake Store에서 액세스 제어](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control)에 대해 자세히 알아봅니다.
+이 자습서에서는 Windows 가상 머신에 대해 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 학습했습니다. Azure Data Lake Store에 대한 자세한 내용은 다음을 참조하세요.
 
-다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+> [!div class="nextstepaction"]
+>[Azure Data Lake Storage](/azure/data-lake-store/data-lake-store-overview)

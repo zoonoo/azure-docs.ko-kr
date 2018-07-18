@@ -1,24 +1,19 @@
 ---
-title: "Azure Backup Server에서 데이터 복구 | Microsoft Docs"
-description: "Recovery Services 자격 증명 모음에 보호해 둔 데이터를 해당 자격 증명 모음에 등록된 모든 Azure Backup Server에서 복구할 수 있습니다."
+title: Azure Backup Server에서 데이터 복구
+description: Recovery Services 자격 증명 모음에 보호해 둔 데이터를 해당 자격 증명 모음에 등록된 모든 Azure Backup Server에서 복구할 수 있습니다.
 services: backup
-documentationcenter: 
 author: nkolli1
 manager: shreeshd
-editor: 
-ms.assetid: a55f8c6b-3627-42e1-9d25-ed3e4ab17b1f
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/18/2017
-ms.author: adigan;giridham;trinadhk;markgal
-ms.openlocfilehash: 688d155b68bc2d76d53f78d251bc2f659582845f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 8559532f873e8073e736f881374fec1c080d08c3
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34604406"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Azure Backup Server에서 데이터 복구
 Azure Backup Server를 사용하여 Recovery Services 자격 증명 모음으로 백업한 데이터를 복구할 수 있습니다. 이 과정이 Azure Backup Server 관리 콘솔에 통합되며 다른 Azure Backup 구성 요소의 복구 워크플로와 유사합니다.
@@ -70,7 +65,7 @@ Azure Backup Server에서 데이터를 복구하려면
      복구가 성공적으로 완료되면 **알림**을 전송할지 여부를 식별합니다.
 
      ![외부 DPM 복구 알림](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. **요약** 화면에 지금까지 선택한 옵션이 나열됩니다. **'복구'**를 클릭하면 데이터가 적절한 온-프레미스 위치에 복구됩니다.
+9. **요약** 화면에 지금까지 선택한 옵션이 나열됩니다. **'복구'** 를 클릭하면 데이터가 적절한 온-프레미스 위치에 복구됩니다.
 
     ![외부 DPM 복구 옵션 요약](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
@@ -105,4 +100,4 @@ Azure Backup Server에서 데이터를 복구하려면
 ![외부 DPM 지우기](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
 
 ## <a name="next-steps"></a>다음 단계:
-•   [Azure Backup FAQ](backup-azure-backup-faq.md)
+•   [Azure Backup - FAQ](backup-azure-backup-faq.md)

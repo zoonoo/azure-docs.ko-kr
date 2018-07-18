@@ -14,20 +14,20 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: d12038daf5d74889ca99ed2c7d35009f4cb7add7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 044d47a294df4e218c84a928a63426dde4f8373b
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622816"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053136"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](data-factory-use-custom-activities.md)
-> * [버전 2 - 미리 보기](../transform-data-using-dotnet-custom-activity.md)
+> * [버전 1](data-factory-use-custom-activities.md)
+> * [버전 2(현재 버전)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 사용자 지정 작업](../transform-data-using-dotnet-custom-activity.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 사용자 지정 작업](../transform-data-using-dotnet-custom-activity.md)을 참조하세요.
 
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 

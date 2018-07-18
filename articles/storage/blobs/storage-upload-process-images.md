@@ -12,17 +12,24 @@ ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 29accb3394e9a2f6939a657172c1a5c2e411706a
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 307ccc6f5fce703b786708196779f0cf3d71ae96
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461506"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
 이 자습서는 시리즈의 1부입니다. 이 자습서에서는 Azure Storage 클라이언트 라이브러리를 사용하여 저장소 계정에 이미지를 업로드하는 웹 응용 프로그램을 배포하는 방법을 보여 줍니다. 완료되면 Azure Storage에서 이미지를 저장 및 표시하는 웹앱이 생성됩니다.
 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Images 컨테이너 보기](media/storage-upload-process-images/figure2.png)
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 시리즈 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -53,7 +60,7 @@ az group create --name myResourceGroup --location westcentralus
 이 샘플은 Azure Storage 계정의 blob 컨테이너에 이미지를 업로드합니다. 저장소 계정은 Azure Storage 데이터 개체의 저장 및 액세스를 위한 고유한 네임스페이스를 제공합니다. [az storage account create](/cli/azure/storage/account#az_storage_account_create) 명령을 사용하여 만든 리소스 그룹에 저장소 계정을 만듭니다. 
 
 > [!IMPORTANT] 
-> 자습서의 2부에서는 blob 저장소에 대해 이벤트 구독을 사용합니다. 이벤트 구독은 현재 West Central US 및 West US 2의 Blob Storage 계정에 대해서만 지원됩니다. 이러한 제한으로 인해 이미지 및 썸네일을 저장하기 위해 샘플 앱에서 사용하는 Blob Storage 계정을 만들어야 합니다.   
+> 자습서의 2부에서는 blob 저장소에 대해 이벤트 구독을 사용합니다. 이벤트 구독은 동남아시아, 동아시아, 오스트레일리아 동부, 오스트레일리아 남동부, 미국 중부, 미국 동부, 미국 동부 2, 서유럽, 북유럽, 일본 동부, 일본 서부, 미국 중서부, 미국 서부 및 미국 서부 2의 위치에서 Blob 저장소 계정에 대해서만 지원됩니다. 이러한 제한으로 인해 이미지 및 썸네일을 저장하기 위해 샘플 앱에서 사용하는 Blob Storage 계정을 만들어야 합니다.   
 
 다음 명령에서 `<blob_storage_account>` 자리 표시자는 Blob Storage 계정에 대한 전역적으로 고유한 이름으로 바꿉니다.  
 
@@ -64,7 +71,7 @@ az storage account create --name <blob_storage_account> \
 ``` 
  
 ## <a name="create-blob-storage-containers"></a>Blob Storage 컨테이너 만들기
- 
+
 앱은 Blob Storage 계정에서 두 컨테이너를 사용합니다. 컨테이너는 폴더와 비슷하며 blob을 저장하는 데 사용됩니다. _images_ 컨테이너는 앱이 고해상도 이미지를 업로드하는 위치입니다. 시리즈의 뒷부분에서 Azure 함수 앱은 크기가 조정된 이미지 썸네일을 _썸네일_ 컨테이너에 업로드합니다. 
 
 [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) 명령을 사용하여 저장소 계정 키를 가져옵니다. 그런 다음 [az storage container create](/cli/azure/storage/container#az_storage_container_create) 명령을 사용하여 이 키로 2개의 컨테이너를 만듭니다.  
@@ -74,7 +81,7 @@ az storage account create --name <blob_storage_account> \
 ```azurecli-interactive 
 $blobStorageAccount="<blob_storage_account>"
 
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
+$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
 az storage container create -n images --account-name $blobStorageAccount \
@@ -89,7 +96,7 @@ echo $blobStorageAccountKey
 
 Blob Storage 계정 이름 및 키를 적어둡니다. 샘플 앱은 이러한 설정을 사용하여 저장소 계정에 연결한 후 이미지를 업로드합니다. 
 
-## <a name="create-an-app-service-plan"></a>App Service 계획 만들기 
+## <a name="create-an-app-service-plan"></a>App Service 플랜 만들기 
 
 [App Service 계획](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)은 위치, 크기 및 앱을 호스트하는 웹 서버 팜의 기능을 지정합니다. 
 
@@ -111,11 +118,18 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan 
 ``` 
 
-## <a name="deploy-the-sample-app-from-the-github-repository"></a>GitHub 리포지토리에서 샘플 앱 배포 
+## <a name="deploy-the-sample-app-from-the-github-repository"></a>GitHub 리포지토리에서 샘플 앱 배포
+
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다. `<web_app>`을 이전 단계에서 만든 웹앱의 이름으로 바꿉니다.
 
 샘플 프로젝트에는 이미지를 수락하고, 저장소 계정에 저장한 후 썸네일 컨테이너의 이미지를 표시하는 [ASP.NET MVC](https://www.asp.net/mvc) 앱이 포함되어 있습니다. 웹 응용 프로그램은 Azure Storage 클라이언트 라이브러리의 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet), [Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet), 및 [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 네임스페이스를 사용하여 Azure Storage와 상호 작용합니다. 
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다. `<web_app>`을 이전 단계에서 만든 웹앱의 이름으로 바꿉니다.
+
+---
 
 ```azurecli-interactive 
 az webapp deployment source config --name <web_app> \
@@ -142,6 +156,8 @@ AzureStorageConfig__AccountKey=<blob_storage_key>
 ## <a name="upload-an-image"></a>이미지 업로드 
 
 웹앱을 테스트하려면 게시된 앱의 URL로 이동합니다. 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다. **사진 업로드** 영역을 선택하고 파일을 선택 및 업로드하거나 파일을 해당 영역으로 끌어다 놓습니다. 성공적으로 업로드되면 이미지가 사라집니다.
+
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 
 ![ImageResizer 앱](media/storage-upload-process-images/figure1.png)
 
@@ -182,6 +198,69 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 |[CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer?view=azure-dotnet)    | [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlobContainer_GetBlockBlobReference_System_String_)        |
 |[CloudBlockBlob](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azure-dotnet)     | [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet)        |
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+![이미지 업로드 앱](media/storage-upload-process-images/upload-app-nodejs.png)
+
+샘플 코드에서 `post` 경로는 이미지를 BLOB 컨테이너에 업로드하는 일을 담당합니다. 이 경로는 모듈을 사용하여 업로드를 처리하는 데 유용합니다.
+
+- [multer](https://github.com/expressjs/multer)는 경로 처리기에 대한 업로드 전략 구현
+- [into-stream](https://github.com/sindresorhus/into-stream)은 [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)에서 요구하는 대로 버퍼를 스트림으로 변환
+
+파일을 경로로 보내기 때문에 파일이 BLOB 컨테이너에 업로드되기까지 파일의 내용은 메모리에 남아 있습니다.
+
+> [!IMPORTANT]
+> 매우 큰 파일을 메모리에 로드하면 웹 응용 프로그램의 성능에 부정적인 영향을 줄 수 있습니다. 사용자가 대형 파일을 게시하리라 예상하는 경우 웹 서버 파일 시스템에서 파일을 준비한 다음, BLOB 저장소에 업로드 예약을 고려할 수 있습니다. 파일이 BLOB 저장소에 있으면 서버 파일 시스템에서 제거할 수 있습니다.
+
+```javascript
+const
+      express = require('express')
+    , router = express.Router()
+
+    , multer = require('multer')
+    , inMemoryStorage = multer.memoryStorage()
+    , uploadStrategy = multer({ storage: inMemoryStorage }).single('image')
+
+    , azureStorage = require('azure-storage')
+    , blobService = azureStorage.createBlobService()
+
+    , getStream = require('into-stream')
+    , containerName = 'images'
+;
+
+const handleError = (err, res) => {
+    res.status(500);
+    res.render('error', { error: err });
+};
+
+const getBlobName = originalName => {
+    const identifier = Math.random().toString().replace(/0\./, ''); // remove "0." from start of string
+    return `${originalName}-${identifier}`;
+};
+
+router.post('/', uploadStrategy, (req, res) => {
+
+    const
+          blobName = getBlobName(req.file.originalname)
+        , stream = getStream(req.file.buffer)
+        , streamLength = req.file.buffer.length
+    ;
+
+    blobService.createBlockBlobFromStream(containerName, blobName, stream, streamLength, err => {
+
+        if(err) {
+            handleError(err);
+            return;
+        }
+
+        res.render('success', { 
+            message: 'File uploaded to Azure Blob storage.' 
+        });
+    });
+});
+```
+---
+
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>저장소 계정에서 이미지가 표시되는지 확인합니다.
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **저장소 계정**을 선택하고 저장소 계정의 이름을 선택합니다. **개요** 아래에서 **images** 컨테이너를 선택합니다.
@@ -200,7 +279,13 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 
 앱으로 다시 이동하여 **썸네일** 컨테이너에 업로드된 이미지가 보이는지 확인합니다.
 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
 ![Images 컨테이너 보기](media/storage-upload-process-images/figure2.png)
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+![Images 컨테이너 보기](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+
+---
 
 Azure Portal의 **썸네일** 컨테이너에서 업로드한 이미지를 선택하고 **삭제**를 선택하여 이미지를 삭제합니다. 시리즈의 2부에서는 썸네일 이미지 생성을 자동화하여 이 테스트 이미지가 필요하지 않도록 합니다.
 

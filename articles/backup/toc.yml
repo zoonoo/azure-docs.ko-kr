@@ -61,13 +61,13 @@
           href: backup-mabs-protection-matrix.md
         - name: 설치 또는 업그레이드
           items:
-            - name: Azure Portal에서 Azure Backup Server 작업 준비
+            - name: Azure Backup Server 설치
               href: backup-azure-microsoft-azure-backup.md
-            - name: Azure Backup Server에 저장소 추가
+            - name: 저장소 추가
               href: backup-mabs-add-storage.md
-            - name: Azure Backup Server를 v.2로 업그레이드
+            - name: v.2로 업그레이드
               href: backup-mabs-upgrade-to-v2.md
-            - name: Azure Backup Server의 무인 설치
+            - name: 무인 설치
               href: backup-mabs-unattended-install.md
         - name: 워크로드 보호
           items:
@@ -205,6 +205,8 @@
           href: backup-azure-mars-troubleshoot.md
         - name: Azure 파일 공유
           href: troubleshoot-azure-files.md
+        - name: SQL Server
+          href: backup-sql-server-azure-troubleshoot.md
 - name: 참고 자료
   items:
     - name: .NET

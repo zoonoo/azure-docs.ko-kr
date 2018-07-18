@@ -6,6 +6,7 @@
       href: service-bus-messaging-overview.md
     - name: 메시징 서비스 비교
       href: ../event-grid/compare-messaging-services.md
+      maintainContext: true
 - name: 빠른 시작
   items:
     - name: 메시지 보내기 - PowerShell
@@ -125,6 +126,10 @@
               href: service-bus-amqp-request-response.md
         - name: 고급 기능
           items:
+            - name: IP 연결 필터
+              href: service-bus-ip-filtering.md
+            - name: Virtual Network 서비스 엔드포인트
+              href: service-bus-service-endpoints.md
             - name: 배달하지 못한 편지 큐
               href: service-bus-dead-letter-queues.md
             - name: 메시지 프리페치

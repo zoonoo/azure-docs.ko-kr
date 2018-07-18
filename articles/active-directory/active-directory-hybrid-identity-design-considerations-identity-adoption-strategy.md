@@ -12,14 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 290c41e62080edcd9a2fad1b5045bac4328cc4cd
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 9107464acefe75141950c0d07298c8ad946e0ddc
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260365"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>하이브리드 ID 채택 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 하이브리드 ID 채택 전략을 정의하여 다음에서 설명한 비즈니스 요구 사항을 충족합니다.
@@ -32,7 +34,7 @@ ms.lasthandoff: 04/19/2018
 첫 번째 작업은 조직 비즈니스 필요를 다룹니다.  신중하지 않으면 매우 광범위한 범위 변형이 발생할 수 있습니다.  처음에 단순하게 유지하지만 나중에 변화를 수용하고 촉진하는 설계에 대한 계획을 항상 기억합니다.  간단한 설계 또는 매우 복잡한 설계에 관계 없이 Azure Active Directory는 Office 365, Microsoft 온라인 서비스 및 클라우드 인식 응용 프로그램을 지원하는 Microsoft ID 플랫폼입니다.
 
 ## <a name="define-an-integration-strategy"></a>통합 전략 정의
-Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3개의 주요 통합 시나리오가 있습니다.  이러한 통합 전략 중 하나를 채택하도록 계획해야 합니다.  선택한 전략은 달라질 수 있으며 하나를 선택하는 결정은 제공하려는 사용자 환경은 어떤 형식이고, 이미 준비된 기존 인프라가 있는지, 가장 비용 효과적인지를 포함할 수 있습니다  
+Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3개의 주요 통합 시나리오가 있습니다.  이러한 통합 전략 중 하나를 채택하도록 계획해야 합니다.  어떤 사용자 환경을 제공할 것인지, 기존 인프라가 있는지, 가장 비용 효과적인 방법은 무엇인지에 따라 선택하는 전략이 달라질 수 있습니다.  
 
 ![](./media/hybrid-id-design-considerations/integration-scenarios.png)
 
@@ -51,7 +53,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 | 전략 | 장점 | 단점 |
 | --- | --- | --- |
-| **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스 설치 안 함 - 추가 하드웨어가 필요하지 않습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br> 암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
+| **클라우드 ID** |소규모 조직을 관리하기가 쉬워집니다. <br> 온-프레미스에 아무 것도 설치하지 않습니다. 추가 하드웨어가 필요 없습니다.<br>사용자가 퇴사하는 경우 쉽게 사용 불가능해 집니다. |사용자는 클라우드의 워크로드에 액세스할 때 로그인해야 합니다 <br> 암호는 클라우드 및 온-프레미스 ID에 대해 동일할 수도 있고 않을 수도 있습니다 |
 | **동기화됨** |온-프레미스 암호는 온-프레미스 및 클라우드 디렉터리를 인증합니다  <br>소규모, 중규모 또는 대규모 조직을 관리하기가 쉬워집니다. <br>사용자는 일부 리소스에 대한 SSO(Single Sign-On)를 가질 수 있습니다  <br> 동기화에 대한 Microsoft의 기본 메서드 <br> 관리가 쉬워집니다 |일부 고객은 특정 회사의 경찰 때문에 클라우드를 사용하여 해당 디렉터리를 동기화하는 것을 꺼릴 수 있습니다. |
 | **페더레이션** |사용자는 Single Sign-On(SSO)을 가질 수 있습니다  <br>사용자를 종료하거나 사용자가 나가는 경우, 계정을 즉시 사용할 수 없게 하고 액세스를 해지할 수 있습니다.<br> 동기화되어 수행할 수 없는 고급 시나리오를 지원합니다 |설정 및 구성의 추가 단계 <br> 더 높은 유지 관리 <br> STS 인프라에 대한 추가 하드웨어가 필요할 수 있습니다. <br> 페더레이션 서버를 설치하는 데 추가적인 하드웨어가 필요할 수 있습니다. AD FS를 사용할 경우 추가적인 소프트웨어가 필요합니다. <br> SSO에 대한 광범위한 설정이 필요 <br> 중요 장애점, 페더레이션 서버가 다운된 경우 사용자는 인증할 수 없습니다. |
 
@@ -65,7 +67,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 | 웹 브라우저 |양식 기반 인증  |때때로 조직 ID를 제공하는 데 필요한 Single Sign On |
 | Outlook |자격 증명 확인 |자격 증명 확인 |
 | 비즈니스용 Skype(Lync) |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
-| Skydrive Pro |자격 증명 확인 |Single Sign-On |
+| OneDrive for Business |자격 증명 확인 |Single Sign-On |
 | Office Pro Plus 구독 |자격 증명 확인 |Single Sign-On |
 
 **외부 또는 신뢰할 수 없는 원본**:
@@ -73,7 +75,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 |  | 동기화된 ID | 페더레이션된 ID |
 | --- | --- | --- |
 | 웹 브라우저 |양식 기반 인증  |양식 기반 인증  |
-| Outlook, 비즈니스용 Skype(Lync), Skydrive Pro, Office 구독 |자격 증명 확인 |자격 증명 확인 |
+| Outlook, 비즈니스용 Skype(Lync), 비즈니스용 OneDrive, Office 구독 |자격 증명 확인 |자격 증명 확인 |
 | Exchange ActiveSync |자격 증명 확인 |Exchange에 대한 자격 증명을 확인하는 Lync용 Single Sign-On |
 | 모바일 앱 |자격 증명 확인 |자격 증명 확인 |
 
@@ -149,7 +151,7 @@ Microsoft에는 클라우드 ID, 동기화된 ID 및 페더레이션된 ID는 3�
 
 **단일 포리스트 필터링 시나리오**
 
-이 작업을 수행하기 위해 다음이 적용되어야 합니다.
+이렇게 하려면 다음 조건을 충족해야 합니다.
 
 * Azure AD Connect Sync 서버가 필터링에 대해 구성되므로 각각 상호 배타적인 개체 집합이 있습니다.  예를 들어 특정 도메인 또는 OU에 서버의 범위를 지정하여 이를 수행합니다.
 * DNS 도메인은 단일 Azure AD Directory에만 등록될 수 있으므로, 온-프레미스 AD 내의 사용자 UPN도 별도의 네임스페이스를 사용해야 합니다.

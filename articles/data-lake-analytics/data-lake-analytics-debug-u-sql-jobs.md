@@ -1,24 +1,21 @@
 ---
-title: 실패한 Azure Data Lake U-SQL 작업에 대한 사용자 지정 C# 코드 디버깅 | Microsoft Docs
-description: Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL의 실패한 꼭짓점을 디버그하는 방법을 알아봅니다.
+title: 실패한 Azure Data Lake U-SQL 작업에 대한 사용자 지정 C# 코드 디버깅
+description: 이 문서에서는 Azure Data Lake Tools for Visual Studio를 사용하여 U-SQL의 실패한 꼭짓점을 디버그하는 방법을 설명합니다.
 services: data-lake-analytics
-documentationcenter: ''
-author: yanancai
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/31/2017
+author: yanancai
 ms.author: yanacai
-ms.openlocfilehash: b614583079347c2634f8d03531517d1d32c75132
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
+ms.topic: conceptual
+ms.date: 11/30/2017
+ms.openlocfilehash: d8926f0defdfcc0e045ae87de6fd82755a5a35eb
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736850"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>실패한 U-SQL 작업에 대한 사용자 정의 C# 코드 디버그
 
@@ -78,7 +75,7 @@ C# 소스 코드가 캡처되는 두 가지 경우가 있습니다.
 
 사용자 코드가 코드 숨김 파일에 포함되어 있지 않거나 **디버그 정보**를 포함하는 어셈블리를 등록하지 않은 경우 소스 코드는 디버깅 솔루션에 자동으로 포함되지 않습니다. 이 경우에 소스 코드를 추가하는 추가 단계가 필요합니다.
 
-1. **솔루션 'VertexDebug' > 추가 > 기존 프로젝트...**를 마우스 오른쪽 단추로 클릭하여 어셈블리 소스 코드를 찾고 프로젝트를 디버깅 솔루션에 추가합니다.
+1. **솔루션 'VertexDebug' > 추가 > 기존 프로젝트...** 를 마우스 오른쪽 단추로 클릭하여 어셈블리 소스 코드를 찾고 프로젝트를 디버깅 솔루션에 추가합니다.
 
     ![Azure Data Lake Analytics U-SQL 디버그 - 프로젝트 추가](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 

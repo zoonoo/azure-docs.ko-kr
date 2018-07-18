@@ -1,25 +1,19 @@
 ---
-title: Azure Backup - Azure Import/Export 서비스를 사용한 오프라인 백업 또는 초기 시드 작업 | Microsoft Docs
+title: Azure Backup - Azure Import/Export 서비스를 사용한 오프라인 백업 또는 초기 시드 작업
 description: Azure Backup이 Azure Import/Export 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
 manager: shivamg
-editor: ''
-ms.assetid: ada19c12-3e60-457b-8a6e-cf21b9553b97
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 5/8/2018
-ms.author: saurse;nkolli;trinadhk
-ms.openlocfilehash: 801de343ebb88394f04a65236997f9ec80a2f535
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 05/17/2018
+ms.author: saurse
+ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939716"
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831461"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 Azure Backup은 데이터를 Azure에 처음 전체 백업하는 동안 네트워크 및 저장소 비용을 절약하는 여러 가지 기본 제공 효율성 향상 기능이 있습니다. 초기 "전체" 백업은 일반적으로 많은 양의 데이터를 전송하며 델타/증분만 전송하는 후속 백업에 비해 네트워크 대역폭을 더 많이 요구합니다. 오프라인 시드 프로세스를 통해 Azure Backup은 디스크를 사용하여 오프라인 백업 데이터를 Azure에 업로드할 수 있습니다.
@@ -57,7 +51,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 오프라인 백업 워크플로를 시작하기 전에 다음과 같은 전제 조건을 완료합니다. 
 * [Recovery Services 자격 증명 모음](backup-azure-recovery-services-vault-overview.md)을 만듭니다. 자격 증명 모음을 만들려면 [이 문서](tutorial-backup-windows-server-to-azure.md#create-a-recovery-services-vault)의 단계를 참조하세요.
 * 해당되는 경우 Windows Server/Windows 클라이언트에 [최신 버전의 Azure Backup 에이전트](https://aka.ms/azurebackup_agent)만 설치되어 있고 컴퓨터가 Recovery Services 자격 증명 모음에 등록되어 있습니다.
-* Azure Backup 에이전트를 실행하는 컴퓨터에 Azure PowerShell 3.7.0 이상이 필요합니다. [최신 버전의 Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)하는 것이 좋습니다.
+* Azure Backup 에이전트를 실행하는 컴퓨터에 Azure PowerShell 3.7.0이 필요합니다. [Azure PowerShell 3.7.0 버전을 다운로드하여 설치](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017)하는 것이 좋습니다.
 * Azure Backup 에이전트를 실행하는 컴퓨터에 Microsoft Edge 또는 Internet Explorer 11이 설치되어 있고 JavaScript가 활성화되어 있는지 확인합니다. 
 * Recovery Services 자격 증명 모음과 동일한 구독에 Azure Storage 계정을 만듭니다. 
 * Azure Active Directory 응용 프로그램을 만드는 데 [필요한 권한](../azure-resource-manager/resource-group-create-service-principal-portal.md)이 있는지 확인합니다. 오프라인 백업 워크플로는 Azure Storage 계정과 연결된 구독에 Azure Active Directory 응용 프로그램을 만듭니다. 응용 프로그램의 목표는 Azure Backup에 오프라인 백업 워크플로에 필요한 Azure Import 서비스에 대해 안전하고 범위가 지정된 액세스를 제공하는 것입니다. 
@@ -68,7 +62,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
     4. 공급자 목록에서 Microsoft.ImportExport까지 아래로 스크롤합니다. 상태가 NotRegistered이면 **등록**을 클릭합니다.
     ![리소스 공급자 등록](./media/backup-azure-backup-import-export/registerimportexport.png)
 * 네트워크 공유 또는 컴퓨터의 추가 드라이브에 있을 수 있는, 초기 복사본을 저장할 충분한 디스크 공간이 있는 내부 또는 외부의 스테이징 위치가 생성됩니다. 예를 들어 500GB 파일 서버를 백업하려는 경우 준비 영역이 500GB인지 확인합니다. (압축으로 인해 더 작은 양이 사용됩니다.)
-* Azure에 디스크를 보낼 때는 2.5인치 SSD나 2.5인치 또는 3.5인치 SATA II/III 내장 하드 드라이브만 사용합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. [Azure Import/Export 서비스 설명서](../storage/common/storage-import-export-service.md#hard-disk-drives)에서 서비스가 지원하는 최신 드라이브를 집합을 확인하세요.
+* Azure에 디스크를 보낼 때는 2.5인치 SSD나 2.5인치 또는 3.5인치 SATA II/III 내장 하드 드라이브만 사용합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. [Azure Import/Export 서비스 설명서](../storage/common/storage-import-export-requirements.md#supported-hardware)에서 서비스가 지원하는 최신 드라이브를 집합을 확인하세요.
 * SATA 드라이브는 *준비 위치*에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터*라고 함)에 연결되어야 합니다. BitLocker가 *복사 컴퓨터*에서 활성화되는지 확인합니다.
 
 ## <a name="workflow"></a>워크플로
@@ -114,7 +108,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
     * 복사 컴퓨터는 **오프라인 백업 시작** 워크플로에 제공된 것과 같은 네트워크 경로를 사용하여 오프라인 시드 워크플로에 대해 제공된 스테이징 위치에 액세스할 수 있습니다.
     * BitLocker가 복사 컴퓨터에서 활성화됩니다.
-    * Azure PowerShell 3.7.0 이상이 설치되어 있습니다.
+    * Azure PowerShell 3.7.0이 설치되었습니다.
     * 호환되는 최신 브라우저(Edge 또는 Internet Explorer 11)가 설치되어 있고 JavaScript가 활성화되어 있습니다. 
     * 복사 컴퓨터는 Azure Portal에 액세스할 수 있습니다. 필요한 경우 복사 컴퓨터는 원본 컴퓨터와 같을 수 있습니다.
     

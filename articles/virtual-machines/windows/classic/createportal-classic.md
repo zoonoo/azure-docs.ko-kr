@@ -17,11 +17,11 @@ ms.topic: article
 ms.date: 11/03/17
 ms.author: cynthn
 ms.openlocfilehash: 0ed150b1cce967bc0be614a24cc1d363a0209373
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30918522"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38477714"
 ---
 # <a name="create-a-custom-virtual-machine-running-windows-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 Windows를 실행하는 사용자 지정 가상 머신 만들기
 > [!IMPORTANT]

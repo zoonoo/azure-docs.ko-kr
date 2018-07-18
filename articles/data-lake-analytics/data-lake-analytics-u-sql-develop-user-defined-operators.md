@@ -1,29 +1,24 @@
 ---
-title: U-SQL UDO(사용자 정의 연산자) 개발 | Microsoft Docs
-description: 'Data Lake Analytics 작업에 사용 및 재사용되는 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다. '
+title: Azure Data Lake Analytics에서 U-SQL UDO(사용자 정의 연산자) 개발
+description: Azure Data Lake Analytics 작업에 사용 및 재사용되는 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: c0164d9f1e40778d3ce0dc7e947f6d2807234468
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+manager: kfile
+editor: jasonwhowell
+ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: 8d8937a6132f770e989d7595883b2c5cf804c44f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623858"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>U-SQL UDO(사용자 정의 연산자) 개발
-U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법에 대해 알아봅니다.
-
-U-SQL에 대한 일반적인 용도의 어셈블리 개발에 대한 지침은 [Azure Data Lake Analytics 작업에 대한 U-SQL 어셈블리 개발](data-lake-analytics-u-sql-develop-assemblies.md)을 참조하세요.
+이 문서에서는 U-SQL 작업에서 데이터를 처리하기 위한 사용자 정의 연산자를 개발하는 방법을 설명합니다.
 
 ## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>U-SQL에서 사용자 정의 연산자 정의 및 사용
 **U-SQL 작업을 만들고 제출하기**

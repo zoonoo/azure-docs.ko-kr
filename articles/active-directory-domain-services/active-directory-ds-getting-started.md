@@ -1,27 +1,41 @@
 ---
-title: "Azure Active Directory Domain Services: 시작 | Microsoft Docs"
-description: "Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화"
+title: 'Azure Active Directory Domain Services: 시작 | Microsoft Docs'
+description: Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 services: active-directory-ds
-documentationcenter: 
+documentationcenter: ''
 author: mahesh-unnikrishnan
 manager: mtillman
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 97803d62ee42d777336dc87c34a16eff426d24d0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 340193f191bbdbe658769f9265f9e63844481c32
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265272"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화
 이 문서에서는 Azure Portal을 사용하여 Azure AD DS(Azure Active Directory Domain Services)를 사용하도록 설정하는 방법을 설명합니다.
+
+
+## <a name="before-you-begin"></a>시작하기 전에
+이 문서에 나열된 작업을 완료하려면 다음이 필요합니다.
+
+* 유효한 **Azure 구독**.
+* **Azure AD 디렉터리** - 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화됩니다.
+* **Azure 구독은 Azure AD 디렉터리와 연결되어야 합니다**.
+* Azure AD Domain Services를 활성화하려면 Azure AD 디렉터리에 **전역 관리자** 권한이 필요합니다.
+
+
+## <a name="enable-azure-ad-domain-services"></a>Azure AD Domain Services 활성화
 
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
 
@@ -39,7 +53,7 @@ ms.lasthandoff: 02/21/2018
 
 
 ## <a name="task-1-configure-basic-settings"></a>작업 1: 기본 설정 구성
-마법사의 **기본 사항** 페이지에서 관리되는 도메인에 대한 DNS 도메인 이름을 지정할 수 있습니다. 관리되는 도메인이 배포되어야 하는 Azure 위치 및 리소스 그룹을 선택할 수도 있습니다.
+마법사의 **기본 사항** 페이지에서 관리되는 도메인에 대한 DNS 도메인 이름을 지정합니다. 관리되는 도메인이 배포되어야 하는 Azure 위치 및 리소스 그룹을 선택할 수도 있습니다.
 
 ![기본 사항 구성](./media/getting-started/domain-services-blade-basics.png)
 
@@ -59,11 +73,11 @@ ms.lasthandoff: 02/21/2018
 
 2. 관리되는 도메인을 만들려는 Azure **구독**을 선택합니다.
 
-3. 관리되는 도메인이 속해야 하는 **리소스 그룹**을 선택합니다. **새로 만들기** 또는 **기존 항목 사용** 옵션을 선택하여 리소스 그룹을 선택할 수 있습니다.
+3. 관리되는 도메인이 속해야 하는 **리소스 그룹**을 선택합니다. **새로 만들기** 또는 **기존 항목 사용** 옵션을 선택하여 리소스 그룹을 선택합니다.
 
 4. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. 마법사의 **네트워크** 페이지에는 선택한 위치에 속하는 가상 네트워크만 표시됩니다.
 
-5. 완료되면 **확인**을 클릭하여 마법사의 **네트워크** 페이지로 이동합니다.
+5. **확인**을 클릭하여 마법사의 **네트워크** 페이지로 이동합니다.
 
 
 ## <a name="next-step"></a>다음 단계

@@ -1,19 +1,20 @@
 ---
-title: "대규모로 Azure 가상 머신 백업 | Microsoft Docs"
-description: "Azure에 여러 가상 머신을 동시에 백업"
+title: 대규모로 Azure 가상 머신 백업
+description: Azure에 여러 가상 머신을 동시에 백업
 services: backup
-keywords: "가상 머신 백업; vm 백업; Azure vm 백업; 백업 및 재해 복구"
+keywords: 가상 머신 백업; vm 백업; Azure vm 백업; 백업 및 재해 복구
 author: markgalioto
 ms.author: markgal
 ms.date: 2/14/2018
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: f1cfa72d0fb3c83ef6265649b740dec317f0e4b2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: ecbf583a9b64868004b246bb01e7f174a21496b0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607467"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
@@ -115,7 +116,7 @@ Recovery Services 자격 증명 모음에 대한 백업을 사용하도록 설�
 
     ![백업 작업 트리거됨](./media/tutorial-backup-vm-at-scale/initial-backup-context-menu.png)
 
-3. **백업 항목** 목록에서 줄임표 **...**를 클릭하여 상황에 맞는 메뉴를 엽니다.
+3. **백업 항목** 목록에서 줄임표 **...** 를 클릭하여 상황에 맞는 메뉴를 엽니다.
 
 4. 상황에 맞는 메뉴에서 **지금 백업**을 선택합니다.
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0baeca982cc19d327a58b7223555f2afcb4c35e7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d19e45710aca3e1e18be6c4529da6474a97bc59f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34596722"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449334"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
@@ -57,7 +57,6 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 |작업 이름  |발생 시기  |
 |---------|---------|
-|CreateGateway     |   사용자가 서버에서 게이트웨이 구성      |
 |ResumeServer     |    서버 다시 시작     |
 |SuspendServer    |   서버 일시 중지      |
 |DeleteServer     |    서버 삭제     |

@@ -15,15 +15,17 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 01/11/2018
 ms.author: maghan
-ms.openlocfilehash: 692edc9a685ce7d1906f13f08c763909a2513b03
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 33d948ee283ff3ee873e2f17ee07a7a889889925
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969496"
 ---
 # <a name="get-started-with-microsoft-power-bi-embedded"></a>Microsoft Power BI Embedded 시작
 
-**Power BI Embedded**는 ISV(독립 소프트웨어 공급 업체) 및 개발자가 용량 기반 시간당 요금 모델을 통해 뛰어난 시각적 개체, 보고서 및 대시보드를 응용 프로그램에 신속하게 추가하는 방법을 제공합니다.
+
+  **Power BI Embedded**는 ISV(독립 소프트웨어 공급 업체) 및 개발자가 용량 기반 시간당 요금 모델을 통해 뛰어난 시각적 개체, 보고서 및 대시보드를 응용 프로그램에 신속하게 추가하는 방법을 제공합니다.
 
 ![포함 흐름의 다이어그램](media/get-started/introduction.png)
 
@@ -48,14 +50,14 @@ AAD에 응용 프로그램을 등록한 후에 응용 프로그램 내에서 Pow
 Microsoft Azure 내에서 Power BI Embedded 용량을 만들어 프로덕션으로 응용 프로그램을 이동합니다. 용량을 만드는 방법에 대한 자세한 내용은 [Azure Portal에서 Power BI Embedded 용량 만들기](create-capacity.md)를 참조하세요.
 
 > [!IMPORTANT]
-> embed 토큰은 개발 테스트용으로만 사용되므로 Power BI 마스터 계정에서 생성할 수 있는 embed 토큰의 수는 제한됩니다. 프로덕션 포함 시나리오의 경우 [용량을 구매해야 합니다](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). 용량 구매 시 embed 토큰 생성은 제한되지 않습니다. [사용 가능한 기능 가져오기](https://msdn.microsoft.com/en-us/library/mt846473.aspx)로 이동하여 현재 포함된 사용량을 백분율로 확인합니다.
+> embed 토큰은 개발자 테스트용으로만 사용되므로 Power BI 마스터 계정에서 생성할 수 있는 embed 토큰의 수는 제한됩니다. 프로덕션 포함 시나리오의 경우 [용량을 구매해야 합니다](https://docs.microsoft.com/power-bi/developer/embedded-faq#technical). 전용 용량 구매 시 embed 토큰 생성은 제한되지 않습니다. [사용 가능한 기능 가져오기](https://msdn.microsoft.com/library/mt846473.aspx)로 이동하여 현재 포함된 사용량을 백분율로 확인합니다.
 
-Power BI 관리 포털 내에서 용량을 관리합니다. 앱 작업 영역을 지원하도록 작업 영역 할당자를 할당합니다. 자세한 내용은 [Power BI Premium 및 Power BI Embedded 내 용량 관리](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/)를 참조하세요.
+Power BI 관리 포털 내에서 용량을 관리합니다. 앱 작업 영역을 지원하도록 작업 영역 관리자를 할당합니다. 자세한 내용은 [Power BI Premium 및 Power BI Embedded 내 용량 관리](https://powerbi.microsoft.com/documentation/powerbi-admin-premium-manage/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 Power BI Embedded 용량을 만들 준비가 된 경우 [Azure Portal에서 Power BI Embedded 용량 만들기](create-capacity.md)를 참조하세요.
 
-샘플 연습을 찾는 경우 [응용 프로그램에 대시보드, 타일 또는 보고서 통합](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)을 참조하세요.
+연습 샘플을 찾는 경우 [응용 프로그램에 대시보드, 타일 또는 보고서 통합](https://powerbi.microsoft.com/documentation/powerbi-developer-embed-sample-app-owns-data/)을 참조하세요.
 
 궁금한 점이 더 있나요? [Power BI 커뮤니티를 이용하세요.](http://community.powerbi.com/)

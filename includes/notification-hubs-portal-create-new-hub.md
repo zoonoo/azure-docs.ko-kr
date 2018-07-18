@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c718fa972b9d6cba13a13edd3c7e8df29fa63207
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 22c1d24042072de5d57d41da379a5fad18180de7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33835782"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972521"
 ---
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. **리소스 만들기** > **웹 + 모바일** > **알림 허브**를 선택합니다.
+2. **리소스 만들기** > **모바일** > **알림 허브**를 선택합니다.
    
       ![Azure Portal - 알림 허브 만들기](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
       

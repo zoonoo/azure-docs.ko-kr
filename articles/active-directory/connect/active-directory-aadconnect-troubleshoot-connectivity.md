@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2c12630deb45fd057537c42157d88fdeef22d18b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593016"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295399"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -174,7 +174,7 @@ MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 인증이 성공했습니다. 전역 관리자가 아닙니다.
 
 ### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
-인증이 성공했습니다. Privileged Identity Management를 사용하며 현재 전역 관리자가 아닙니다. 자세한 내용은 [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md)를 참조하세요.
+인증이 성공했습니다. Privileged Identity Management를 사용하며 현재 전역 관리자가 아닙니다. 자세한 내용은 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)를 참조하세요.
 
 ### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
 인증이 성공했습니다. Azure AD에서 회사 정보를 검색할 수 없습니다.

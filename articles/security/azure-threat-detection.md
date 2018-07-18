@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: eb1bf9f6465a8a94fd2de75f581817887c333289
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0813e0f6b51c747d033ca2c44aed21cf94c32000
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895334"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113030"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure 고급 위협 검색
 ## <a name="introduction"></a>소개
@@ -420,7 +420,7 @@ Cloud App Security는 다음과 같은 방법으로 클라우드와 가시성을
 
 다음은 Azure Market Place에서 사용할 수 있는 웹 응용 프로그램 방화벽의 예입니다.
 
-[Barracuda 웹 응용 프로그램 방화벽, Brocade vWAF(Brocade 가상 웹 응용 프로그램 방화벽), Imperva SecureSphere 및 ThreatSTOP IP 방화벽](https://azure.microsoft.com/marketplace/partners/brocade_communications/brocade-virtual-web-application-firewall-templatevtmcluster/)
+[Barracuda 웹 응용 프로그램 방화벽, Brocade vWAF(Brocade 가상 웹 응용 프로그램 방화벽), Imperva SecureSphere 및 ThreatSTOP IP 방화벽](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.waf)
 
 ## <a name="next-steps"></a>다음 단계
 

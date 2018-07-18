@@ -1,5 +1,5 @@
 ---
-title: Azure 빠른 시작 - Java를 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
+title: Azure 빠른 시작 - Java Storage SDK V7을 사용하여 개체 저장소에 Blob 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 개체(Blob) 저장소에서 저장소 계정 및 컨테이너를 만듭니다. 그런 다음, Java용 저장소 클라이언트 라이브러리를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: roygara
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 197777971b92ad9cd53e91602b88858a371ce1d8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32192012"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38606612"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-java"></a>빠른 시작: Java를 사용하여 BLOB 업로드, 다운로드 및 나열
+# <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>빠른 시작: Java SDK V7을 사용하여 BLOB 업로드, 다운로드 및 나열
 
 이 빠른 시작에서 Java를 사용하여 Azure Blob Storage에서 컨테이너에 블록 blob을 업로드, 다운로드 및 나열하는 방법을 알아봅니다.
 
@@ -30,13 +30,13 @@ ms.locfileid: "32192012"
 
 이 자습서에서는 "Java 개발자를 위한 Eclipse IDE" 구성으로 [Eclipse](http://www.eclipse.org/downloads/)를 사용합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>샘플 응용 프로그램 다운로드
 
-이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-java-quickstart)은 기본적인 콘솔 응용 프로그램입니다. 
+이 빠른 시작 가이드에서 사용되는 [샘플 응용 프로그램](https://github.com/Azure-Samples/storage-blobs-java-quickstart)은 기본적인 콘솔 응용 프로그램입니다.  
 
 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드합니다. 
 
@@ -48,7 +48,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 프로젝트 가져오기가 완료되면 **AzureApp.java**(**src/main/java**의 **blobQuickstart.blobAzureApp**에 있음)를 열고 `storageConnectionString` 문자열 내부의 `accountname`및 `accountkey`를 바꿉니다. 그런 다음 응용 프로그램을 실행합니다.
 
-[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]   
+[!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]    
 
 ## <a name="configure-your-storage-connection-string"></a>저장소 연결 문자열 구성
     
@@ -65,9 +65,7 @@ public static final String storageConnectionString =
 
 이 샘플은 기본 디렉터리(Windows 사용자의 경우 내 문서)에 테스트 파일을 만들고, Blob Storage에 업로드한 후, 컨테이너의 blob을 나열하고, 해당 파일을 새 이름으로 다운로드하여 이전 파일과 새 파일을 비교할 수 있도록 합니다. 
 
-Eclipse에서 **Ctrl+F11** 키를 눌러 샘플을 실행합니다.
-
-명령줄에서 Maven을 사용하여 샘플을 실행하려는 경우 셸을 열고 복제한 디렉터리 내의 **blobAzureApp**으로 이동합니다. 그런 후 `mvn compile exec:java`를 입력합니다.
+명령줄에서 Maven을 사용하여 샘플을 실행합니다. 셸을 열고 복제한 디렉터리 내부의 **blobAzureApp**으로 이동합니다. 그런 후 `mvn compile exec:java`를 입력합니다. 
 
 다음은 Windows에서 응용 프로그램을 실행하는 경우의 출력 예제입니다.
 
@@ -84,9 +82,9 @@ Deleting the container
 Deleting the source, and downloaded files
 ```
 
- 계속하기 전에 두 파일에 대한 기본 디렉터리(Windows 사용자의 경우 내 문서)를 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다. Enter 키를 누르면 저장소 컨테이너 및 파일이 삭제됩니다.
+계속하기 전에 두 파일에 대한 기본 디렉터리(Windows 사용자의 경우 내 문서)를 확인합니다. 이 파일을 열어 동일한지 확인할 수 있습니다. 콘솔 창에서 blob에 대한 URL을 복사하고 브라우저에 붙여 넣어 Blob Storage의 파일 콘텐츠를 봅니다. Enter 키를 누르면 저장소 컨테이너 및 파일이 삭제됩니다. 
 
-[Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 저장소 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다. 
+[Azure Storage 탐색기](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)와 같은 도구를 사용하여 Blob Storage의 파일을 볼 수도 있습니다. Azure Storage 탐색기는 저장소 계정 정보에 액세스할 수 있는 무료 플랫폼 간 도구입니다.
 
 파일을 확인한 후에 Enter 키나 눌러 데모를 완료하고 테스트 파일을 삭제합니다. 이 샘플의 용도 파악했으므로 **AzureApp.java** 파일을 열고 코드를 확인합니다. 
 
@@ -113,7 +111,7 @@ Deleting the source, and downloaded files
 > [!IMPORTANT]
 > 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
-### <a name="create-a-container"></a>컨테이너 만들기 
+### <a name="create-a-container"></a>컨테이너 만들기
 
 이 섹션에서는 개체의 인스턴스를 만들고, 새 컨테이너를 만든 다음, 컨테이너에 대해 사용 권한을 설정하여 Blob을 공용 Blob으로 유지하고 URL을 통해서만 액세스할 수 있게 합니다. 컨테이너를 **quickstartblobs**로 지칭합니다. 
 
@@ -205,26 +203,13 @@ if(sourceFile != null)
 sourceFile.deleteOnExit();
 ```
 
-## <a name="resources-for-developing-java-applications-with-blobs"></a>Blob을 사용하여 Java 응용 프로그램을 개발하기 위한 리소스
-
-Blob 저장소를 사용하여 Java 응용 프로그램을 개발하기 위한 추가 리소스는 다음과 같습니다.
-
-### <a name="binaries-and-source-code"></a>이진 파일 및 소스 코드
-
-- GitHub에서 Azure Storage용 [Java 클라이언트 라이브러리 소스 코드](https://github.com/Azure/azure-storage-java)를 검색 및 다운로드하세요.
-
-### <a name="client-library-reference-and-samples"></a>클라이언트 라이브러리 참조 및 샘플
-
-- Java 클라이언트 라이브러리에 대한 자세한 내용은 [Java API 참조](https://docs.microsoft.com/java/api/overview/azure/storage)를 참조하세요.
-- Java 클라이언트 라이브러리를 사용하여 작성된 [Blob 저장소 샘플](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=java&term=blob)을 탐색하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작 가이드에서는 Java를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 알아보았습니다. Blob Storage를 사용하는 방법을 자세히 알아보려면 계속해서 Blob Storage 방법을 진행하세요.
+이 빠른 시작 가이드에서는 Java를 사용하여 로컬 디스크와 Azure Blob Storage 간에 파일을 전송하는 방법을 알아보았습니다. Java를 사용하는 방법에 대해 자세히 알려면 GitHub 소스 코드 리포지토리를 계속합니다.
 
 > [!div class="nextstepaction"]
-> [Blob Storage 작업 방법](storage-java-how-to-use-blob-storage.md)
+> [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java) 
+> [API 참조](https://docs.microsoft.com/en-us/java/api/storage/client?view=azure-java-stable)
+> [Java용 샘플 코드](../common/storage-samples-java.md)
 
-Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md)를 참조하세요.
-
-더 많은 Java 샘플은 [Java를 사용한 Azure Storage 샘플](../common/storage-samples-java.md)을 참조하세요.
+* Storage 탐색기 및 Blob에 대한 자세한 내용은 [Storage 탐색기를 사용하여 Azure Blob Storage 리소스 관리](../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조하세요.

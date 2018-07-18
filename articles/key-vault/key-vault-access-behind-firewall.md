@@ -1,8 +1,8 @@
 ---
-title: "방화벽 뒤에 있는 Key Vault에 액세스 | Microsoft Docs"
-description: "방화벽 뒤에 있는 응용 프로그램에서 Azure Key Vault에 액세스하는 방법을 알아봅니다"
+title: 방화벽 뒤에 있는 Key Vault에 액세스 | Microsoft Docs
+description: 방화벽 뒤에 있는 응용 프로그램에서 Azure Key Vault에 액세스하는 방법을 알아봅니다
 services: key-vault
-documentationcenter: 
+documentationcenter: ''
 author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: ad31e869d998d29d403ff97c17150c5078ce856d
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: d017c0d9940288cb5eeaa45694b324f93b9bb144
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736251"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 ### <a name="q-my-key-vault-client-application-needs-to-be-behind-a-firewall-what-ports-hosts-or-ip-addresses-should-i-open-to-enable-access-to-a-key-vault"></a>Q: 내 주요 자격 증명 모음 클라이언트 응용 프로그램은 방화벽 뒤에 있어야 합니다. 주요 자격 증명 모음에 대한 액세스를 활성화하려면 어떤 포트, 호스트 또는 IP 주소를 열어야 합니까?
@@ -26,7 +27,7 @@ ms.lasthandoff: 01/17/2018
 
 * Azure AD(Azure Active Directory)를 통한 인증.
 * Azure Key Vault의 관리. Azure Resource Manager를 통한 액세스 정책 만들기, 읽기, 업데이트, 삭제 및 설정을 포함합니다.
-* Key Vault 자체에 저장된 개체(키와 암호)를 액세스하고 관리하는 작업은 Key Vault 특정 끝점을 통과합니다(예: [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
+* Key Vault 자체에 저장된 개체(키와 암호)를 액세스하고 관리하는 작업은 Key Vault 특정 엔드포인트를 통과합니다(예: [https://yourvaultname.vault.azure.net](https://yourvaultname.vault.azure.net)).  
 
 구성 및 환경에 따라 일부의 변형이 있습니다.   
 
@@ -60,7 +61,7 @@ Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증�
 | 키에 대한 암호화 작업을 포함하는 작업, 키 및 암호 만들기, 읽기, 업데이트 및 삭제, 키 자격 증명 모음 개체(키 또는 암호)의 태그 및 기타 특성 설정 또는 가져오기 |**전역:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure 중국:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure 미국 정부:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 
 ## <a name="ip-address-ranges"></a>IP 주소 범위
-Key Vault 서비스는 PaaS 인프라와 같은 다른 Azure 리소스를 사용합니다. 따라서 Key Vault 서비스 끝점은 특정 시간에 가지므로 특정 범위의 IP 주소를 제공할 수 없습니다. 방화벽이 IP 주소 범위만을 지원하는 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 문서를 참조하세요. 인증 및 ID(Azure Active Directory)의 경우 응용 프로그램은 [인증 및 ID 주소](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)에서 설명한 끝점에 연결할 수 있어야 합니다.
+Key Vault 서비스는 PaaS 인프라와 같은 다른 Azure 리소스를 사용합니다. 따라서 Key Vault 서비스 끝점은 특정 시간에 가지므로 특정 범위의 IP 주소를 제공할 수 없습니다. 방화벽이 IP 주소 범위만을 지원하는 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 문서를 참조하세요. 인증 및 ID(Azure Active Directory)는 글로벌 서비스이며 다른 지역으로 장애 조치(failover)하거나 고지 없이 트래픽을 이동할 수 있습니다. 이 시나리오에서는 [인증 및 ID IP 주소](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity_ip)에 나열된 모든 IP 범위를 방화벽에 추가해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Key Vault에 대한 질문이 있으면 [Azure Key Vault 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)을 방문하세요.

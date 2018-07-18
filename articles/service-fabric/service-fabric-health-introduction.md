@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: ed1a307cb2a2613fc7701392cd7b408715f10910
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc0bb56e85c2a9cf7a458b0f6d97887d392ee65f
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207301"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114319"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>서비스 패브릭 상태 모니터링 소개
 다양하고 유연하며 확장 가능한 상태 평가 및 보고 기능을 제공하는 상태 모델이 Azure 서비스 패브릭에 도입되었습니다. 이 모델에서는 클러스터의 상태와 클러스터에서 실행되는 서비스의 상태를 거의 실시간으로 모니터링할 수 있습니다. 간편하게 상태 정보를 얻을 수 있고 잠재적인 문제로 인한 대규모 중단 사태가 발생하기 전에 해당 문제를 해결할 수 있습니다. 일반적인 모델에서는 서비스가 로컬 보기를 기반으로 한 보고서를 보내고 정보는 전체 클러스터 수준 보기를 제공하도록 집계됩니다.
@@ -117,7 +117,7 @@ Health 스토어는 상태 정책을 적용하여 보고서와 해당 자식에 
 [응용 프로그램 상태 정책](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy) 은 응용 프로그램 및 해당 자식에 대해 이벤트 및 하위 상태 집계의 평가를 수행하는 방법을 설명합니다. 응용 프로그램 패키지의 응용 프로그램 매니페스트 **ApplicationManifest.xml**에서 정의할 수 있습니다. 정책을 지정하지 않으면 상태 보고가 있거나 자식이 경고 또는 오류 성능 상태인 경우 서비스 패브릭에서 해당 엔터티를 비정상으로 가정합니다.
 구성 가능한 정책은 다음과 같습니다.
 
-* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.considerwarningaserror.aspx). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
+* [ConsiderWarningAsError](https://docs.microsoft.com/dotnet/api/system.fabric.health.clusterhealthpolicy.considerwarningaserror). 상태를 평가하는 동안 경고 상태 보고를 오류로 처리할지 여부를 지정합니다. 기본값: false입니다.
 * [MaxPercentUnhealthyDeployedApplications](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.maxpercentunhealthydeployedapplications). 응용 프로그램에서 오류로 처리하기 전에 비정상 상태를 유지할 수 있는 배포된 응용 프로그램의 최대 허용 비율을 지정합니다. 이 비율은 클러스터에서 응용 프로그램이 현재 배포되어 있는 노드 수에 대해 배포된 비정상 응용 프로그램의 수를 나누어 계산됩니다. 계산값은 적은 수의 노드에서 오류 하나를 허용할 수 있도록 반올림됩니다. 기본 비율: 0.
 * [DefaultServiceTypeHealthPolicy](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.defaultservicetypehealthpolicy). 응용 프로그램에서 모든 서비스 유형의 기본 상태 정책을 대체하는 기본 서비스 유형 상태 정책을 지정합니다.
 * [ServiceTypeHealthPolicyMap](https://docs.microsoft.com/dotnet/api/system.fabric.health.applicationhealthpolicy.servicetypehealthpolicymap). 서비스 유형별 서비스 상태 정책의 맵을 제공합니다. 이러한 정책은 지정된 서비스 유형의 기본 서비스 유형 상태 정책을 대체합니다. 예를 들어 응용 프로그램에 상태 비저장 게이트웨이 서비스 유형과 상태 저장 엔진 서비스 유형이 있다면, 평가를 위한 상태 정책을 다르게 구성할 수 있습니다. 서비스 유형별로 정책을 지정할 때 서비스의 상태를 좀더 세분화하여 제어할 수 있습니다.

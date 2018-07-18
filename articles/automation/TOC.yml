@@ -47,6 +47,8 @@
       items:
         - name: 변경 내용 추적 개요
           href: automation-change-tracking.md
+        - name: 추적된 파일의 파일 콘텐츠 보기
+          href: change-tracking-file-contents.md
     - name: 인벤토리
       items:
         - name: 인벤토리 컬렉션을 사용하여 VM 관리
@@ -195,10 +197,16 @@
           href: automation-migrate-account-subscription.md
     - name: 문제 해결
       items:
-        - name: 일반적인 오류 문제 해결
-          href: automation-troubleshooting-automation-errors.md
-        - name: Hybrid Runbook Worker 문제 해결
-          href: automation-troubleshooting-hybrid-runbook-worker.md
+        - name: 온보딩
+          href: troubleshoot/onboarding.md
+        - name: Runbook
+          href: troubleshoot/runbooks.md
+        - name: DSC(필요한 상태 구성)
+          href: troubleshoot/desired-state-configuration.md
+        - name: Hybrid Runbook Worker
+          href: troubleshoot/hybrid-runbook-worker.md
+        - name: 업데이트 관리
+          href: troubleshoot/update-management.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

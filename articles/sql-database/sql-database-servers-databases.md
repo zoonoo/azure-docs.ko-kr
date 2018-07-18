@@ -1,33 +1,22 @@
 ---
-title: Azure SQL Server 및 데이터베이스 만들기 및 관리 | Microsoft Docs
-description: SQL Database 서버 및 데이터베이스 개념, 서버 및 데이터베이스 생성 및 관리에 대해 알아봅니다.
+title: Azure SQL 논리 서버 및 단일 데이터베이스 | Microsoft Docs
+description: Azure SQL Database 논리 서버 및 단일 데이터베이스 개념과 해당 리소스에 대해 알아봅니다.
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 2600e39dec91fc6916fa7bbd02e318d33cfa3c99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 505fd88959feb1c84abc53c6435776a5c5b4123c
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649060"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309183"
 ---
-# <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Azure SQL Database 서버 및 데이터베이스 만들기 및 관리
-
-SQL Database는 다음 세 가지 유형의 데이터베이스를 제공합니다.
-
-- [결합된 계산 및 저장소 리소스 집합](sql-database-service-tiers-dtu.md) 또는 [계산 및 저장소 리소스의 독립된 크기 조정](sql-database-service-tiers-vcore.md)을 통해 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 단일 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
-- 풀의 모든 데이터베이스 간에 공유되는 [결합된 계산 및 저장소 리소스 집합(DTU 기반)](sql-database-service-tiers-dtu.md) 또는 [계산 및 저장소 리소스의 독립된 크기 조정(vCore 기반)](sql-database-service-tiers-vcore.md)을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 [데이터베이스 풀](sql-database-elastic-pool.md)의 일부로 만들어진 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
-- 해당 서버 인스턴스의 모든 데이터베이스에 대해 정의된 계산 및 저장소 리소스 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 [SQL Server 인스턴스](sql-database-managed-instance.md)(관리되는 인스턴스). 관리되는 인스턴스는 시스템 및 사용자 데이터베이스를 둘 다 포함합니다. 관리되는 인스턴스는 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 지원을 제공합니다.  
-
-Microsoft Azure SQL Database는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원하며 암호화된 TCP/IP 연결만 허용합니다.
-
-> [!IMPORTANT]
-> 현재 공개 미리 보기로 제공되는 SQL Database 관리되는 인스턴스는 단일 범용 서비스 계층을 제공합니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요. 이 문서의 나머지 부분은 관리되는 인스턴스에 적용되지 않습니다.
+# <a name="azure-sql-database-logical-servers-and-single-databases-and-their-resources"></a>Azure SQL Database 논리 서버 및 단일 데이터베이스와 해당 리소스
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>Azure SQL 논리 서버란?
 
@@ -59,6 +48,20 @@ Azure 데이터베이스 논리 서버는 다음과 같습니다.
 - 서버 수준 주체 로그인은 서버에 있는 모든 데이터베이스를 관리할 수 있습니다.
 - 서버에서 하나 이상의 데이터베이스에 대한 액세스를 부여하는 SQL Server 온-프레미스 인스턴스에서 해당 항목과 비슷한 로그인을 포함하고 제한된 관리 권한이 부여될 수 있습니다. 자세한 내용은 [로그인](sql-database-manage-logins.md)을 참조하세요.
 - 논리 서버에서 생성되는 모든 사용자 데이터베이스에 대한 기본 데이터 정렬은 `SQL_LATIN1_GENERAL_CP1_CI_AS`입니다. 여기서 `LATIN1_GENERAL`은 영어(미국)이고, `CP1`은 코드 페이지 1252이며, `CI`는 대/소문자 비구분이고, `AS`는 악센트 구분입니다.
+
+## <a name="logical-servers-and-databases"></a>논리 서버 및 데이터베이스
+
+논리 서버에서 다음을 만들 수 있습니다.
+
+- [결합된 계산 및 저장소 리소스 집합](sql-database-service-tiers-dtu.md) 또는 [계산 및 저장소 리소스의 독립된 크기 조정](sql-database-service-tiers-vcore.md)을 통해 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 단일 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
+- 풀의 모든 데이터베이스 간에 공유되는 [결합된 계산 및 저장소 리소스 집합(DTU 기반)](sql-database-service-tiers-dtu.md) 또는 [계산 및 저장소 리소스의 독립된 크기 조정(vCore 기반)](sql-database-service-tiers-vcore.md)을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 [데이터베이스 풀](sql-database-elastic-pool.md)의 일부로 만들어진 데이터베이스. Azure SQL Database는 Azure SQL Database 논리 서버와 연결되어 있으며 특정 Azure 지역에서 만들어집니다.
+
+> [!IMPORTANT]
+> 현재 공용 미리 보기 상태인 Azure SQL Database 관리되는 인스턴스는 해당 서버 인스턴스의 모든 데이터베이스에 대해 정의된 계산 및 저장소 리소스 집합을 사용하여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 내에서 만들어진 [SQL Server 인스턴스](sql-database-managed-instance.md)(관리되는 인스턴스)입니다. 관리되는 인스턴스는 시스템 및 사용자 데이터베이스를 둘 다 포함합니다. 관리되는 인스턴스는 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 지원을 제공합니다. 자세한 내용은 [SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요. 이 문서의 나머지 부분은 관리되는 인스턴스에 적용되지 않습니다.
+
+## <a name="tds-and-tcpip-connections"></a>TDS 및 TCP/IP 연결
+
+Microsoft Azure SQL Database는 TDS(Tabular Data Stream) 프로토콜 클라이언트 버전 7.3 이상을 지원하며 암호화된 TCP/IP 연결만 허용합니다.
 
 ## <a name="azure-sql-databases-protected-by-sql-database-firewall"></a>Azure SQL Database는 SQL Database 방화벽으로 보호됩니다.
 
@@ -109,7 +112,7 @@ Azure PowerShell을 사용하여 Azure SQL Server, 데이터베이스 및 방화
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|하나 이상의 데이터베이스 가져오기|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|데이터베이스의 속성 설정 또는 기존 데이터베이스를 탄력적 풀로 이동|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|데이터베이스 제거|
-|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|리소스 그룹 만들기]
+|[New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup)|리소스 그룹 만들기|
 |[New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver)|서버 만들기|
 |[Get-AzureRmSqlServer](/powershell/module/azurerm.sql/get-azurermsqlserver)|서버에 대한 정보 반환|
 |[Set-AzureRmSqlServer](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlserver)|서버의 속성 수정|

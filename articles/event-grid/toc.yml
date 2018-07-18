@@ -13,6 +13,8 @@
       href: ../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
     - name: Blob 저장소 이벤트 - PowerShell
       href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Blob 저장소 이벤트 - Portal
+      href: blob-event-quickstart-portal.md
     - name: 사용자 지정 이벤트 - Azure CLI
       href: custom-event-quickstart.md
     - name: 사용자 지정 이벤트 - PowerShell
@@ -69,6 +71,8 @@
       href: post-to-custom-topic.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
+    - name: 이벤트 전달 관리
+      href: manage-event-delivery.md
     - name: 이벤트 전달 모니터링
       href: monitor-event-delivery.md
     - name: 이벤트 구독 쿼리
@@ -85,6 +89,12 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST (영문)
       href: /rest/api/eventgrid
+    - name: 템플릿 리소스
+      items:
+        - name: 이벤트 구독
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: 토픽
+          href: /azure/templates/microsoft.eventgrid/topics
     - name: SDK
       href: sdk-overview.md
     - name: 구독 스키마

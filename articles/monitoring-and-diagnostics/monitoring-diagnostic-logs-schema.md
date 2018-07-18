@@ -1,24 +1,19 @@
 ---
-title: Azure 진단 로그 지원 서비스 및 스키마 | Microsoft Docs
+title: Azure 진단 로그 지원 서비스 및 스키마
 description: Azure 진단 로그에 대해 지원되는 서비스 및 이벤트 스키마에 대해 알아봅니다.
 author: johnkemnetz
-manager: orenr
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: fe8887df-b0e6-46f8-b2c0-11994d28e44f
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 4/12/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
+ms.date: 6/08/2018
 ms.author: johnkem
-ms.openlocfilehash: 91c3f1507bb4fb64d5395917e8e431951f77e72b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: logs
+ms.openlocfilehash: 45595893a199b845c8b010bc1e2545b89aa688cd
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264982"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -29,30 +24,34 @@ ms.lasthandoff: 04/16/2018
 
 | 서비스 | 스키마 및 문서 |
 | --- | --- |
-| Analysis Services | 스키마를 사용할 수 없음 |
+| Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateway |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Azure Automation에 대한 Log Analytics](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch 진단 로깅](../batch/batch-diagnostics.md) |
-| Customer Insights | 스키마를 사용할 수 없음 |
-| Content Delivery Network | 스키마를 사용할 수 없음 |
+| Content Delivery Network | [CDN에 대한 Azure 진단 로그](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 로깅](../cosmos-db/logging.md) |
+| Data Factory | [Azure Monitor를 사용하여 데이터 팩터리 모니터링](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Azure Data Lake Analytics에 대한 진단 로그에 액세스](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Azure Data Lake Store에 대한 진단 로그에 액세스](../data-lake-store/data-lake-store-diagnostic-logs.md) |
+| PostgreSQL용 DB |  스키마를 사용할 수 없음 |
 | Event Hubs |[Azure Event Hubs 진단 로그](../event-hubs/event-hubs-diagnostic-logs.md) |
-| IoT 허브 | [IoT Hub 작업](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
+| Express 경로 | 스키마를 사용할 수 없음 |
+| IoT Hub | [IoT Hub 작업](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault 로깅](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Azure Load Balancer에 대한 Log analytics](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Logic Apps B2B 사용자 지정 추적 스키마](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | 네트워크 보안 그룹 |[NSG(네트워크 보안 그룹)에 대한 로그 분석](../virtual-network/virtual-network-nsg-manage-log.md) |
-| DDoS 보호 | 스키마를 사용할 수 없음 |
+| DDOS Protection | [Azure DDoS Protection 표준 관리](../virtual-network/manage-ddos-protection.md) |
+| PowerBI 전용 | 스키마를 사용할 수 없음 |
 | Recovery Services | [Azure Backup용 데이터 모델](../backup/backup-azure-reports-data-model.md)|
 | 검색 |[검색 트래픽 분석 설정 및 사용](../search/search-traffic-analytics.md) |
-| 서버 관리 | 스키마를 사용할 수 없음 |
 | Service Bus |[Azure Service Bus 진단 로그](../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Azure SQL Database 진단 로깅](../sql-database/sql-database-metrics-diag-logging.md) |
 | Stream Analytics |[작업 진단 로그](../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
+| Traffic Manager | 스키마를 사용할 수 없음 |
 | Virtual Network | 스키마를 사용할 수 없음 |
+| Virtual Network 게이트웨이 | 스키마를 사용할 수 없음 |
 
 ## <a name="supported-log-categories-per-resource-type"></a>각 리소스 유형별 지원되는 로그 범주
 |리소스 종류|Category|범주 표시 이름|
@@ -74,6 +73,7 @@ ms.lasthandoff: 04/16/2018
 |Microsoft.DataLakeStore/accounts|감사|감사 로그|
 |Microsoft.DataLakeStore/accounts|요청|요청 로그|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 서버 로그|
+|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL 백업 이벤트|
 |Microsoft.Devices/IotHubs|연결|연결|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|장치 원격 분석|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 명령|
@@ -90,6 +90,7 @@ ms.lasthandoff: 04/16/2018
 |Microsoft.Devices/provisioningServices|ServiceOperations|서비스 작동|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
+|Microsoft.DocumentDB/databaseAccounts|QueryRuntimeStatistics|QueryRuntimeStatistics|
 |Microsoft.EventHub/namespaces|ArchiveLogs|보관 로그|
 |Microsoft.EventHub/namespaces|OperationalLogs|작업 로그|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|자동 크기 조정 로그|
@@ -112,6 +113,7 @@ ms.lasthandoff: 04/16/2018
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2P 진단 로그|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager 프로브 상태 결과 이벤트|
 |Microsoft.Network/expressRouteCircuits|GWMCountersTable|GWM 카운터 테이블|
+|Microsoft.PowerBIDedicated/capacities|엔진|엔진|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup 보고 데이터|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 작업|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Azure Site Recovery 이벤트|

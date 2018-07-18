@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: ecfe3fb6db6b0fb0561e31b3c8aa70b74785b807
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: eeb5fd765a6cad10be5706162566605feaa8af4c
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781166"
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34802564"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 서비스에 대한 가상 네트워크 통합
 
@@ -67,11 +67,7 @@ Azure 서비스를 Azure 가상 네트워크에 통합하면 가상 네트워크
 
 ## <a name="service-endpoints-for-azure-services"></a>Azure 서비스에 대한 서비스 끝점
 
-일부 Azure 서비스는 가상 네트워크에 배포할 수 없습니다. 필요한 경우 가상 네트워크 서비스 끝점을 사용하도록 설정하여 일부 서비스 리소스에 대한 액세스를 특정 가상 네트워크 서브넷으로만 제한할 수 있습니다. 자세한 내용은 [가상 네트워크 서비스 끝점](virtual-network-service-endpoints-overview.md)을 참조하세요.
-
-현재 서비스 끝점은 다음 서비스에 대해 지원됩니다. 
-- **Azure Storage**: [Azure Storage 계정을 가상 네트워크로 보호](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- **Azure SQL Database**: [Azure SQL Database를 가상 네트워크로 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+일부 Azure 서비스는 가상 네트워크에 배포할 수 없습니다. 필요한 경우 가상 네트워크 서비스 끝점을 사용하도록 설정하여 일부 서비스 리소스에 대한 액세스를 특정 가상 네트워크 서브넷으로만 제한할 수 있습니다. [가상 네트워크 서비스 엔드포인트](virtual-network-service-endpoints-overview.md) 및 엔드포인트를 사용할 수 있는 서비스에 대해 자세히 알아봅니다.
 
 ## <a name="virtual-network-integration-across-multiple-azure-services"></a>여러 Azure 서비스에서 가상 네트워크 통합
 

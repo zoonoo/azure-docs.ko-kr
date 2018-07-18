@@ -1,3 +1,1 @@
-Azure Portal의 서비스 목록에서 **Azure AD B2C**를 선택합니다.
-
-![B2C 서비스 선택](media/active-directory-b2c-find-service-settings/select-b2c-service.png)
+Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다. 이전 자습서에서 만든 테넌트를 사용해야 합니다.

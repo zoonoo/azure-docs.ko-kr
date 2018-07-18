@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
-ms.openlocfilehash: 92b6945ad13842e926d53be6dcc0d21554485ff3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0626b958a9b822569f4d3b6d27f3395bed853174
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32151011"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030056"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -74,31 +74,31 @@ az webapp config set --python-version 3.4 --resource-group <groupname> --name <a
 az webapp config set --java-version 1.8 --java-container Tomcat --java-container-version 9.0 --resource-group <groupname> --name <appname>
 ```
 
-### <a name="deprecated-versions"></a>더 이상 사용되지 않는 버전
+### <a name="deprecated-versions"></a>더 이상 사용되지 않는 버전  
 
 이전 버전이 더 이상 사용되지 않을 경우 그에 따라 런타임 버전 업그레이드를 계획할 수 있도록 제거 날짜가 공지됩니다. 
 
-## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>인스턴스 내에서 OS 및 런타임 업데이트 상태를 쿼리하는 방법
+## <a name="how-can-i-query-os-and-runtime-update-status-on-my-instances"></a>인스턴스 내에서 OS 및 런타임 업데이트 상태를 쿼리하는 방법  
 
 중요한 OS 정보를 액세스하지 못하게 잠그면([Azure App Service의 운영 체제 기능](web-sites-available-operating-system-functionality.md)) [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console)을 사용하여 App Service 인스턴스에서 OS 버전 및 런타임 버전을 쿼리할 수 있습니다. 
 
 다음 표에서는 앱을 실행하는 언어 런타임의 Windows 버전을 확인하는 방법을 보여 줍니다.
 
-| 정보 | 찾는 위치 |
+| 정보 | 찾는 위치 | 
 |-|-|
 | Windows 버전 | `https://<appname>.scm.azurewebsites.net/Env.cshtml` 참조(시스템 정보 아래에 제공됨) |
 | .NET 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br>`powershell -command "gci 'Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Net Framework Setup\NDP\CDF'"` |
 | .NET Core 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `dotnet --version` |
 | PHP 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `php --version` |
 | 기본 Node.js 버전 | [Cloud Shell](../cloud-shell/overview.md)에서 다음 명령을 실행합니다. <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
-| Python 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `python --version` |
+| Python 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `python --version` |  
 
-> [!NOTE]
+> [!NOTE]  
 > 레지스트리 위치 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`에 액세스합니다. 여기에는 ["KB" 패치]((https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins))에 대한 정보가 저장되고 잠겨집니다.
 >
 >
 
 ## <a name="more-resources"></a>추가 리소스
 
-[보안 센터: 보안](https://www.microsoft.com/TrustCenter/Security/default.aspx)  
+[보안 센터: 보안](https://www.microsoft.com/en-us/trustcenter/security)  
 [Azure App Service의 64비트 ASP.NET Core](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

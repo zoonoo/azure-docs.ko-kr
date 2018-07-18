@@ -1,5 +1,20 @@
-
-
+---
+title: 포함 파일
+description: 포함 파일
+services: virtual-machines
+author: jonbeck7
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 03/09/2018
+ms.author: azcspmt;jonbeck;cynthn
+ms.custom: include file
+ms.openlocfilehash: eaf490979167ea5cbfe5846e62444526310452f8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36269547"
+---
 SQL Server 또는 Oracle과 같은 일부 데이터베이스 워크로드는 메모리, 저장소 및 I/O 대역폭 요구량은 많지만 코어 수 요구량은 많지 않습니다. 대부분의 데이터베이스 워크로드는 CPU를 많이 사용하지 않습니다. Azure에서는 VM vCPU 수를 제한하여 소프트웨어 라이선스 비용을 줄이면서도 메모리, 저장소 및 I/O 대역폭을 그대로 유지할 수 있는 특정 VM 크기를 제공합니다.
 
 vCPU 수를 원래 VM 크기의 절반이나 1/4로 제한할 수 있습니다. 이러한 새 VM 크기에는 더 쉽게 구분할 수 있도록 활성 vCPU 수를 지정하는 접미사가 붙습니다.
@@ -11,6 +26,12 @@ SQL Server 또는 Oracle에 대해 청구되는 라이선스 요금은 새 vCPU 
 
 | Name                | vCPU | 사양           |
 |---------------------|------|-----------------|
+| Standard_M8-2ms     | 2    | M8ms와 동일    |
+| Standard_M8-4ms     | 4    | M8ms와 동일    |
+| Standard_M16-4ms    | 4    | M16ms와 동일   |
+| Standard_M16-8ms    | 8    | M16ms와 동일   |
+| Standard_M32-8ms    | 8    | M32ms와 동일   |
+| Standard_M32-16ms   | 16   | M32ms와 동일   |
 | Standard_M64-32ms   | 32   | M64ms와 동일   |
 | Standard_M64-16ms   | 16   | M64ms와 동일   |
 | Standard_M128-64ms  | 64   | M128ms와 동일  |

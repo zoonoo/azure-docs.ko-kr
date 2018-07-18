@@ -11,14 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1fa7f58040b420bf52d89a57b1234416c2fb939
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8e3f81a6480e9de55c8f803e2266c4ac6e33c316
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32149392"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34590541"
 ---
 # <a name="user-privacy-and-azure-ad-connect"></a>사용자 개인 정보 및 Azure AD Connect 
 
@@ -27,7 +28,7 @@ ms.locfileid: "32149392"
 >[!NOTE] 
 >이 문서에서는 Azure AD Connect 및 사용자 개인 정보를 다룹니다.  Azure AD Connect Health 및 사용자 개인 정보에 대한 자세한 내용은 [여기](../../active-directory/connect-health/active-directory-aadconnect-health-gdpr.md) 문서를 참조하세요.
 
-Azure AD Connect 설치를 위한 사용자 개인 정보 규정 준수는 두 가지 방법으로 도달할 수 있습니다.
+두 가지 방법으로 Azure AD Connect 설치의 사용자 개인 정보 보호 수준을 높입니다.
 
 1.  요청 시 사람에 대한 데이터를 추출하고 그 사람의 데이터를 설치에서 제거합니다.
 2.  데이터는 48시간 이상 데이터가 보존하지 않도록 합니다.

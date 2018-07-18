@@ -1,25 +1,22 @@
 ---
-title: 논리 앱에서 FTP 커넥터를 사용하는 방법 알아보기 | Microsoft Docs
-description: Azure 앱 서비스로 논리 앱을 만듭니다. FTP 서버에 연결하여 파일을 관리합니다. FTP 서버에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
-services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: d83c55fe-eb59-4b7b-a5ec-afac5c772616
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+title: FTP 서버에 연결 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps을 사용하여 FTP 서버에 파일 만들기, 모니터링 및 관리
+author: ecfan
+manager: jeconnoc
+ms.author: estfan
 ms.date: 07/22/2016
-ms.author: mandia; ladocs
-ms.openlocfilehash: 7719e0e90df3a384e870e2e839cb77a27d95ada8
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 983e8f84e6e44bc9e5de5f4e7fff361b92b316c9
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295696"
 ---
 # <a name="get-started-with-the-ftp-connector"></a>FTP 커넥터 시작
 FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리하고 파일을 만듭니다. 
@@ -48,7 +45,7 @@ FTP 커넥터를 사용하여 FTP 서버에서 파일을 모니터링 및 관리
    ![FTP 트리거 이미지 1](./media/connectors-create-api-ftp/ftp-trigger-1.png)  
    **파일을 추가하거나 수정할 때** 컨트롤이 열립니다.  
    ![FTP 트리거 이미지 2](./media/connectors-create-api-ftp/ftp-trigger-2.png)  
-2. 컨트롤의 오른쪽에 있는 **...**를 선택합니다. 이렇게 하면 폴더 선택 컨트롤이 열립니다.  
+2. 컨트롤의 오른쪽에 있는 **...** 를 선택합니다. 이렇게 하면 폴더 선택 컨트롤이 열립니다.  
    ![FTP 트리거 이미지 3](./media/connectors-create-api-ftp/ftp-trigger-3.png)  
 3. **>**(오른쪽 화살표)를 선택하고 새 파일 또는 수정된 파일을 모니터링할 폴더를 탐색하여 찾습니다. 해당 폴더를 선택하면 이제 폴더가 **폴더** 컨트롤에 표시됩니다.  
    ![FTP 트리거 이미지 4](./media/connectors-create-api-ftp/ftp-trigger-4.png)   

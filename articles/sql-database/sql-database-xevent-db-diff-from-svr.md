@@ -10,12 +10,12 @@ ms.workload: On Demand
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 446c1f3af3f00fb70a230dfec5f5c533b45a285f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9c0115254fc3368868584e76ead8da812656e4d1
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650046"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028849"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -190,7 +190,7 @@ Azure Storage BLOB에 데이터를 유지하는 동안 **이벤트 파일** 대�
 ## <a name="related-links"></a>관련 링크
 
 - [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md)
-- [Azure Storage Cmdlet](http://msdn.microsoft.com/library/dn806401.aspx)
+- [Azure Storage Cmdlet](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Azure Storage와 함께 Azure PowerShell 사용](../storage/common/storage-powershell-guide-full.md) - PowerShell 및 Azure Storage 서비스에 대한 포괄적 정보를 제공합니다.
 - [.NET에서 Blob 저장소를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL(Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)

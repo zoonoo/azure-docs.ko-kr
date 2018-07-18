@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: ed64c9df6fcca8f85b200c5f738c2009ea7ae0a5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293112"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38451702"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -42,10 +42,10 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 유효한 Azure 구독을 통해 정의된 Azure AD 테넌트 | [Azure Active Directory 테넌트를 얻는 방법](active-directory-howto-tenant.md)<br/>**참고:** 이미 Azure AD 프리미엄 라이선스가 포함된 환경이 있는 경우에는 https://aka.ms/accessaad로 이동하여 무제한 구독을 얻을 수 있음 <br/>https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 및 https://technet.microsoft.com/library/dn832618.aspx에 대한 자세한 정보 |
-| 정의 및 확인된 도메인 | [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)<br/>**참고:** Power BI 등의 일부 작업은 내부적으로 Azure AD 테넌트를 프로비전했을 수 있습니다. 지정된 도메인이 테넌트에 연결되어 있는지 확인하려면 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration로 이동합니다. 성공적인 응답을 받으면 도메인이 이미 테넌트에 할당된 것이고 인수가 필요할 수 있습니다. 이 경우 Microsoft에 추가 지침을 문의하세요. 인수 옵션에 대한 참고 항목: [Azure의 셀프 서비스 등록이란?](active-directory-self-service-signup.md) |
+| 정의 및 확인된 도메인 | [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)<br/>**참고:** Power BI 등의 일부 작업은 내부적으로 Azure AD 테넌트를 프로비전했을 수 있습니다. 지정된 도메인이 테넌트에 연결되어 있는지 확인하려면 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration로 이동합니다. 성공적인 응답을 받으면 도메인이 이미 테넌트에 할당된 것이고 인수가 필요할 수 있습니다. 이 경우 Microsoft에 추가 지침을 문의하세요. 인수 옵션에 대한 참고 항목: [Azure의 셀프 서비스 등록이란?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium 또는 EMS 평가판 사용 | [한 달 동안 Azure Active Directory Premium 체험](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium 또는 EMS 라이선스를 PoC 사용자에게 할당했습니다. | [Azure Active Directory에서 사용자 본인 및 사용자의 사용자 라이선스](active-directory-licensing-get-started-azure-portal.md) |
-| Azure AD 전역 관리자 자격 증명 | [Azure Active Directory에서 관리자 역할 할당](active-directory-assign-admin-roles-azure-portal.md) |
+| Azure AD 전역 관리자 자격 증명 | [Azure Active Directory에서 관리자 역할 할당](users-groups-roles/directory-assign-admin-roles.md) |
 | 선택 사항이지만 강력하게 권장됨: 대체로서 병렬 랩 환경 | [Azure AD Connect에 대한 필수 구성 요소](./connect/active-directory-aadconnect-prerequisites.md) |
 
 ## <a name="directory-synchronization---password-hash-sync-phs---new-installation"></a>디렉터리 동기화 - PHS(암호 해시 동기화) - 새 설치
@@ -100,10 +100,10 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | Azure AD 관리 포털로 이동합니다. | [Azure AD Management Portal - Company Branding](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding)(Azure AD 관리 포털 - 회사 브랜딩) |
-| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](customize-branding.md) |
+| 로그인 페이지에 대한 자산을 업로드합니다(대표 로고, 작은 로고, 레이블 등). 선택적으로 AD FS가 있는 경우 동일한 자산을 ADFS 로그인 페이지에 맞춥니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가: 사용자 지정 가능한 요소](fundamentals/customize-branding.md) |
 | 변경 내용이 완전히 적용될 때까지 몇 분 정도 기다립니다. |  |
 | POC 사용자 자격 증명으로 https://myapps.microsoft.com에 로그인 |  |
-| 브라우저의 모양과 느낌을 확인합니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](customize-branding.md) |
+| 브라우저의 모양과 느낌을 확인합니다. | [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](fundamentals/customize-branding.md) |
 | 필요한 경우 다른 장치에서 모양과 느낌을 확인합니다. |  |
 
 ### <a name="considerations"></a>고려 사항
@@ -118,18 +118,18 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 모든 POC 사용자가 보안 그룹에 속함(클라우드 또는 온-프레미스) | [Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
+| 모든 POC 사용자가 보안 그룹에 속함(클라우드 또는 온-프레미스) | [Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
 | Azure AD 관리 포털에서 라이선스 블레이드로 이동합니다. | [Azure AD Management Portal: Licensing](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products)(Azure AD 관리 포털: 라이선싱) |
-| POC 사용자가 포함된 보안 그룹에 라이선스를 할당합니다. | [Azure Active Directory에서 사용자의 그룹에 라이선스 할당](active-directory-licensing-group-assignment-azure-portal.md) |
+| POC 사용자가 포함된 보안 그룹에 라이선스를 할당합니다. | [Azure Active Directory에서 사용자의 그룹에 라이선스 할당](users-groups-roles/licensing-groups-assign.md) |
 
 ### <a name="considerations"></a>고려 사항
 
-문제가 있는 경우 [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하여 시나리오, 제한 사항 및 알려진 문제](active-directory-licensing-group-advanced.md)로 이동합니다.
+문제가 있는 경우 [Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하여 시나리오, 제한 사항 및 알려진 문제](users-groups-roles/licensing-group-advanced.md)로 이동합니다.
 
 ## <a name="saas-federated-sso-configuration"></a>SaaS 페더레이션 SSO 구성
 
@@ -140,16 +140,16 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | 사용 가능한 SaaS 응용 프로그램의 테스트 환경. 이 가이드에서는 ServiceNow를 예제로 사용합니다.<br/>테스트 인스턴스를 사용하여 기존 데이터 품질 및 매핑을 탐색할 때 마찰을 최소화하는 것이 좋습니다. | 테스트 인스턴스를 가져오는 과정을 시작하려면 https://developer.servicenow.com/app.do#!/home으로 이동 |
-| ServiceNow 관리 콘솔에 대한 관리자 권한 | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
+| ServiceNow 관리 콘솔에 대한 관리자 권한 | [자습서: ServiceNow와 Azure Active Directory 통합](saas-apps/servicenow-tutorial.md) |
 | 응용 프로그램을 할당할 대상 사용자 집합. PoC 사용자가 포함된 보안 그룹을 사용하는 것이 좋습니다. <br/>그룹을 만들 수 없는 경우 사용자를 PoC에 대한 응용 프로그램에 직접 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
-| Microsoft 문서에서 모든 행위자에게 자습서를 공유합니다.  | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
-| 작업 모임을 설정하고 각 행위자와 함께 자습서 단계를 따릅니다. | [자습서: ServiceNow와 Azure Active Directory 통합](active-directory-saas-servicenow-tutorial.md) |
-| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. POC의 범위에 조건부 액세스가 있으면 나중에 다시 방문하여 MFA 등을 추가할 수 있습니다. <br/>이 작업은 프로비전 프로세스에서 시작됩니다(구성된 경우). |  [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
+| Microsoft 문서에서 모든 행위자에게 자습서를 공유합니다.  | [자습서: ServiceNow와 Azure Active Directory 통합](saas-apps/servicenow-tutorial.md) |
+| 작업 모임을 설정하고 각 행위자와 함께 자습서 단계를 따릅니다. | [자습서: ServiceNow와 Azure Active Directory 통합](saas-apps/servicenow-tutorial.md) |
+| 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. POC의 범위에 조건부 액세스가 있으면 나중에 다시 방문하여 MFA 등을 추가할 수 있습니다. <br/>이 작업은 프로비전 프로세스에서 시작됩니다(구성된 경우). |  [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
 | Azure AD 관리 포털을 사용하여 갤러리에서 ServiceNow 응용 프로그램을 추가합니다.| [Azure AD management Portal: Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/Overview)(Azure AD 관리 포털: 엔터프라이즈 응용 프로그램) <br/>[Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능](active-directory-enterprise-apps-whats-new-azure-portal.md) |
 | ServiceNow 앱의 "Single Sign-On" 블레이드에서 "SAML 기반 로그인"을 사용하도록 설정합니다. |  |
 | ServiceNow URL을 통해 “로그온 URL” 및 “식별자” 필드를 입력합니다.<br/>“새 인증서 활성화” 상자를 선택하고<br/>설정을 저장합니다. |  |
@@ -163,7 +163,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 ### <a name="considerations"></a>고려 사항
 
-1. 위의 [자습서](active-directory-saas-servicenow-tutorial.md)는 이전 Azure AD 관리 환경을 참조합니다. 그러나 PoC는 [빠른 시작](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) 환경을 기반으로 합니다.
+1. 위의 [자습서](saas-apps/servicenow-tutorial.md)는 이전 Azure AD 관리 환경을 참조합니다. 그러나 PoC는 [빠른 시작](active-directory-enterprise-apps-whats-new-azure-portal.md#quickstart-get-going-with-your-new-application-right-away) 환경을 기반으로 합니다.
 2. 대상 응용 프로그램이 갤러리에 없으면 “사용자 고유 앱 가져오기”를 사용할 수 있습니다. 참고 항목: [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 한 곳에서 사용자 지정 응용 프로그램 추가](active-directory-enterprise-apps-whats-new-azure-portal.md#add-custom-applications-from-one-place)
 
 ## <a name="saas-password-sso-configuration"></a>SaaS 암호 SSO 구성
@@ -242,7 +242,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 사용자가 전역 관리자인 Microsoft Azure AD 기본 또는 프리미엄 구독 및 Azure AD 디렉터리 | [Azure Active Directory 버전](active-directory-whatis.md) |
+| 사용자가 전역 관리자인 Microsoft Azure AD 기본 또는 프리미엄 구독 및 Azure AD 디렉터리 | [Azure Active Directory 버전](fundamentals/active-directory-whatis.md) |
 | 원격 액세스를 사용하도록 구성할 온-프레미스에서 호스트된 웹 응용 프로그램 |  |
 | 응용 프로그램 프록시 커넥터를 설치할 수 있는 Windows Server 2012 R2 또는 Windows 8.1 이상을 실행하는 서버 | [Azure AD 응용 프로그램 프록시 커넥터 이해](manage-apps/application-proxy-connectors.md) |
 | 방화벽이 경로에 있는 경우 커넥터가 응용 프로그램 프록시에 HTTPS(TCP) 요청을 할 수 있도록 방화벽이 열려 있는지 확인합니다. | [Azure Portal에서 응용 프로그램 프록시 사용: 응용 프로그램 프록시 필수 구성 요소](manage-apps/application-proxy-enable.md#application-proxy-prerequisites) |
@@ -306,8 +306,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | SaaS 응용 프로그램(페더레이션 SSO 또는 암호 SSO)이 이미 구성됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) |
-| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
-| 그룹 소유자에 대한 자격 증명을 사용할 수 있음 | [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md) |
+| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
+| 그룹 소유자에 대한 자격 증명을 사용할 수 있음 | [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](fundamentals/active-directory-manage-groups.md) |
 | 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -315,8 +315,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 단계 | 리소스 |
 | --- | --- |
-| 응용 프로그램에 대한 액세스 권한이 부여된 그룹을 식별하고 해당 그룹의 소유자를 구성합니다.| [Azure Active Directory에서 그룹의 설정 관리](active-directory-groups-settings-azure-portal.md) |
-| 그룹 소유자로 로그인하여 액세스 패널의 [그룹] 탭에서 그룹 멤버 자격을 확인합니다. | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r/#/groups)(Azure Active Directory 그룹 관리 페이지) |
+| 응용 프로그램에 대한 액세스 권한이 부여된 그룹을 식별하고 해당 그룹의 소유자를 구성합니다.| [Azure Active Directory에서 그룹의 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md) |
+| 그룹 소유자로 로그인하여 액세스 패널의 [그룹] 탭에서 그룹 멤버 자격을 확인합니다. | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r#/groups)(Azure Active Directory 그룹 관리 페이지) |
 | 테스트할 정보 근로자를 추가합니다. |  |
 | 정보 근로자로 로그인하여 타일을 사용할 수 있는지 확인합니다. | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
 
@@ -331,7 +331,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | SaaS 응용 프로그램(페더레이션 SSO 또는 암호 SSO)이 이미 구성됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) |
-| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](active-directory-groups-create-azure-portal.md) |
+| #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
 | 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
 
 
@@ -339,7 +339,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 단계 | 리소스 |
 | --- | --- |
-| 앱이 할당된 그룹에서 사용자를 제거합니다. | [Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리](active-directory-groups-members-azure-portal.md) |
+| 앱이 할당된 그룹에서 사용자를 제거합니다. | [Azure Active Directory 테넌트의 사용자에 대한 그룹 멤버 자격 관리](fundamentals/active-directory-groups-members-azure-portal.md) |
 | 프로비전이 해제되는 동안 몇 분 정도 기다립니다. | [Azure AD에서 SaaS 앱 사용자를 자동으로 프로비전: 자동 프로비전은 어떻게 수행되나요?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
 | 별도의 브라우저 세션에서 정보 근로자로 My Apps 포털에 로그인하고 타일이 없는지 확인합니다. | http://myapps.microsoft.com |
 
@@ -428,7 +428,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 ### <a name="considerations"></a>고려 사항
 
 1. 이 문서 블록의 PoC 단계에서는 로그인할 때마다 사용자에 대한 MFA를 명시적으로 설정합니다. 더 많은 대상 시나리오에서 MFA를 적용하는 ID 보호 및 조건부 액세스와 같은 다른 도구가 있습니다. POC에서 프로덕션으로 이동할 때 이를 고려할 수 있습니다.
-2. 이 문서 블록의 PoC 단계에서는 편의를 위해 전화 통화를 MFA 방법으로 명시적으로 사용합니다. POC에서 프로덕션으로 전환할 때 가능하면 항상 [Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md)와 같은 응용 프로그램을 두 번째 요소로 사용하는 것이 좋습니다.
+2. 이 문서 블록의 PoC 단계에서는 편의를 위해 전화 통화를 MFA 방법으로 명시적으로 사용합니다. POC에서 프로덕션으로 전환할 때 가능하면 항상 [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md)와 같은 응용 프로그램을 두 번째 요소로 사용하는 것이 좋습니다.
 참고 항목: [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)(DRAFT NIST 특별 간행물 800-63B)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>SaaS 응용 프로그램에 대한 MFA 조건부 액세스
@@ -468,24 +468,24 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| PIM의 POC에 포함될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](active-directory-privileged-identity-management-getting-started.md) |
-| 보안 관리자가 될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](active-directory-privileged-identity-management-getting-started.md)<br/> [Azure Active Directory PIM의 다른 관리자 역할](active-directory-privileged-identity-management-roles.md) |
-| 선택 사항: 전역 관리자에게 PIM에서 메일 알림을 실행할 메일 권한이 있는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)
+| PIM의 POC에 포함될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](privileged-identity-management/pim-getting-started.md) |
+| 보안 관리자가 될 전역 관리자 식별 | [Azure AD Privileged Identity Management 시작](privileged-identity-management/pim-getting-started.md)<br/> [Azure Active Directory PIM의 다른 관리자 역할](privileged-identity-management/pim-roles.md) |
+| 선택 사항: 전역 관리자에게 PIM에서 메일 알림을 실행할 메일 권한이 있는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)
 
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
-| https://portal.azure.com에 GA(전역 관리자)로 로그인하고 PIM 블레이드를 부트스트랩합니다. 이 단계를 수행하는 전역 관리자는 보안 관리자로 시드됩니다.  이 행위자 GA1을 호출해 보겠습니다. | [Azure AD Privileged Identity Management에서 보안 마법사 사용](active-directory-privileged-identity-management-security-wizard.md) |
-| 전역 관리자를 식별하고 영구에서 적격으로 이동합니다. 분명한 설명을 위해 이 관리자는 1단계에서 사용된 관리자와 달라야 합니다. 이 행위자 GA2를 호출해 보겠습니다. | [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](active-directory-privileged-identity-management-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](active-directory-privileged-identity-management-configure.md#configure-the-role-activation-settings)  |
+| https://portal.azure.com에 GA(전역 관리자)로 로그인하고 PIM 블레이드를 부트스트랩합니다. 이 단계를 수행하는 전역 관리자는 보안 관리자로 시드됩니다.  이 행위자 GA1을 호출해 보겠습니다. | [Azure AD Privileged Identity Management에서 보안 마법사 사용](privileged-identity-management/pim-security-wizard.md) |
+| 전역 관리자를 식별하고 영구에서 적격으로 이동합니다. 분명한 설명을 위해 이 관리자는 1단계에서 사용된 관리자와 달라야 합니다. 이 행위자 GA2를 호출해 보겠습니다. | [Azure AD Privileged Identity Management: 사용자 역할을 추가 또는 제거하는 방법](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Azure AD Privileged Identity Management란?: 역할 활성화 설정 구성](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | 이제 GA2로 https://portal.azure.com에 로그인하고 “사용자 설정”을 변경해 봅니다. 일부 옵션이 회색으로 표시되는 것을 알 수 있습니다. | |
-| 새 탭 및 3단계와 같은 세션에서 https://portal.azure.com로 이동하고 PIM 블레이드를 대시보드에 추가합니다. | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: Privileged Identity Management 응용 프로그램 추가](active-directory-privileged-identity-management-how-to-activate-role.md#add-the-privileged-identity-management-application) |
-| 전역 관리자 역할에 대한 활성화 요청 | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: 역할 활성화](active-directory-privileged-identity-management-how-to-activate-role.md#activate-a-role) |
+| 새 탭 및 3단계와 같은 세션에서 https://portal.azure.com로 이동하고 PIM 블레이드를 대시보드에 추가합니다. | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: Privileged Identity Management 응용 프로그램 추가](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| 전역 관리자 역할에 대한 활성화 요청 | [Azure AD Privileged Identity Management 역할을 활성화하거나 비활성화하는 방법: 역할 활성화](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | GA2가 MFA에 등록한 적이 없는 경우에는 Azure MFA에 대한 등록이 필요합니다. |  |
 | 3단계의 원래 탭으로 돌아가서 브라우저에서 [새로 고침] 단추를 클릭합니다. 이제 “사용자 설정”을 변경할 수 있습니다. | |
 | 필요한 경우 전역 관리자에 대한 메일을 사용하도록 설정하면 GA1 및 GA2의 받은 편지함을 확인하고 활성화되는 역할에 대한 알림을 확인할 수 있습니다. |  |
-| 8 감사 기록을 확인하고 보고서를 검토하여 GA2의 권한 상승이 표시되는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활동 검토](active-directory-privileged-identity-management-configure.md#review-role-activity) |
+| 8 감사 기록을 확인하고 보고서를 검토하여 GA2의 권한 상승이 표시되는지 확인합니다. | [Azure AD Privileged Identity Management란?: 역할 활동 검토](privileged-identity-management/pim-configure.md#review-role-activity) |
 
 ### <a name="considerations"></a>고려 사항
 
@@ -553,7 +553,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 엔터프라이즈 PKI에서 사용자 인증서가 프로비전된 장치(Windows, iOS 또는 Android) | [사용자 인증서 배포](https://msdn.microsoft.com/library/cc770857.aspx) |
 | ADFS를 통해 페더레이션된 Azure AD 도메인 | [Azure AD Connect 및 페더레이션](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory 인증서 서비스 개요](https://technet.microsoft.com/library/hh831740.aspx)|
-| iOS 장치의 경우 Microsoft Authenticator 앱이 설치됨 | [Microsoft Authenticator 앱 시작](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| iOS 장치의 경우 Microsoft Authenticator 앱이 설치됨 | [Microsoft Authenticator 앱 시작](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: b87cb14fc707d14638c2d6a52af6f295276a2279
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 992b469803b26a11e7ca26142beba7d238e25452
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779143"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952214"
 ---
 # <a name="overview-of-azure-devops-project"></a>Azure DevOps Project 개요
 
@@ -69,7 +69,7 @@ DevOps Project를 만든 후 다음을 수행할 수 있습니다.
 
 ## <a name="how-do-i-start-using-the-azure-devops-project"></a>Azure DevOps Project를 사용하기 시작하려면 어떻게 해야 합니까?
 
-* [Azure DevOps Project 시작하기](https://docs.microsoft.com/vsts/build-release/actions/azure-devops-project-github)
+* [Azure DevOps Project 시작하기](https://docs.microsoft.com/azure/azure-devops-project-github)
 
 ## <a name="azure-devops-project-videos"></a>Azure DevOps Project 비디오
 

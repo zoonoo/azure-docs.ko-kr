@@ -3,14 +3,15 @@ title: Azure Migrate 문제 해결 | Microsoft Docs
 description: Azure Migrate 서비스의 알려진 문제에 대한 개요와 일반적인 오류 해결 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: troubleshooting
-ms.date: 05/15/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: a878bab2bef31ff853dbad503a706e1a8d5803fe
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 896e918f6031f3bc6b925a2ecdfa2a5c82f00e0b
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36228257"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -18,8 +19,29 @@ ms.lasthandoff: 05/16/2018
 
 [Azure Migrate](migrate-overview.md)는 Azure로 마이그레이션하는 온-프레미스 워크로드를 평가합니다. Azure Migrate 배포 및 사용과 관련하여 문제가 발생하면 이 문서를 사용하여 해결하세요.
 
+### <a name="migration-project-creation-failed-with-error-requests-must-contain-user-identity-headers"></a>*요청에 사용자 ID 헤더가 있어야 합니다* 오류 메시지와 함께 마이그레이션 프로젝트 만들기 실패
 
-**수집기에서 인터넷에 연결할 수 없음**
+조직의 Azure AD(Azure Active Directory) 테넌트에 대한 액세스 권한이 없는 사용자에게 이 문제가 발생할 수 있습니다. 사용자가 처음으로 Azure AD 테넌트에 추가되면 해당 사용자는 테넌트에 조인하라는 이메일 초대장을 받게 됩니다. 사용자는 이메일로 이동하여 초대를 수락해야만 테넌트에 성공적으로 추가됩니다. 이메일을 볼 수 없는 경우 테넌트에 액세스할 수 있는 사용자에게 [여기](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator#resend-invitations-to-guest-users)에 설명된 단계에 따라 초대장을 다시 보내 달라고 부탁하면 됩니다.
+
+초대 이메일을 받은 후에는 이메일을 열고 이메일의 링크를 클릭하여 초대를 수락해야 합니다. 여기까지 마친 후 Azure Portal에서 로그아웃했다가 다시 로그인해야 합니다. 브라우저 새로 고침은 작동하지 않습니다. 그 후 마이그레이션 프로젝트 만들기를 시도할 수 있습니다.
+
+### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>디스크 및 네트워크 어댑터의 성능 데이터가 0을 표시
+
+vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상이 발생할 수 있습니다. 3 이상에서는 vCenter가 VM의 계산, 저장소 및 네트워크 성능 기록을 저장합니다. 3 미만에서는 vCenter가 저장소 및 네트워크 데이터를 저장하지 않고 CPU 및 메모리 데이터만 저장합니다. 이 시나리오에서는 Azure Migrate 에서 성능 데이터가 0으로 표시되고, Azure Migrate는 온-프레미스 컴퓨터에서 수집된 메타데이터를 기반으로 디스크 및 네트워크에 대한 권장 크기를 제공합니다.
+
+디스크 및 네트워크 성능 데이터 수집을 사용하려면 통계 설정 수준을 3으로 변경하세요. 그런 다음 환경을 검색하고 평가를 마칠 때까지 하루 이상 기다립니다.
+
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>에이전트를 설치하고 종속성 시각화 그룹을 사용하여 그룹을 만들었습니다. 장애 조치(failover) 이후, 컴퓨터가 "종속성 보기" 대신 "에이전트 설치" 작업을 표시합니다.
+* 계획된 또는 계획되지 않은 장애 조치(failover) 후에는 온-프레미스 컴퓨터가 꺼지고 동급 컴퓨터가 Azure에 생성됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다. 사용자가 온-프레미스 IP 주소를 유지하는지 여부에 따라 다른 IP 주소를 가질 수도 있습니다. MAC 및 IP 주소가 모두 다르면 Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 Log Analytics 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+
+## <a name="collector-errors"></a>수집기 오류
+
+### <a name="deployment-of-collector-ova-failed"></a>수집기 OVA 배포 실패
+
+OVA가 일부만 다운로드되었거나 vSphere 웹 클라이언트를 사용하여 OVA를 배포하는 경우 브라우저 때문에 이 문제가 발생할 수 있습니다. 다운로드가 완전한지 확인한 후 다른 브라우저로 OVA를 배포해 보세요.
+
+### <a name="collector-is-not-able-to-connect-to-the-internet"></a>수집기가 인터넷에 연결할 수 없음
 
 이 문제는 사용 중인 컴퓨터가 프록시 뒤에 있는 경우 발생할 수 있습니다. 프록시에 필요한 경우 권한 부여 자격 증명을 제공해야 합니다.
 URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어하는 경우 다음과 같은 필수 URL을 허용 목록에 포함해야 합니다.
@@ -42,7 +64,7 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 7. 에이전트가 프로젝트에 연결할 수 있는지 확인합니다. 연결할 수 없으면 설정을 확인합니다. 에이전트는 연결할 수는 있지만 수집기는 연결할 수 없는 경우 지원에 문의합니다.
 
 
-**오류 802: 날짜 및 시간 동기화 오류가 발생합니다.**
+### <a name="error-802-date-and-time-synchronization-error"></a>오류 802: 날짜 및 시간 동기화 오류
 
 서버 시계가 현재 시간과 동기화되지 않아 5분 이상 차이가 벌어질 수 있습니다. 다음과 같이 VM 수집기에서 시계 시간을 현재 시간과 일치하도록 변경합니다.
 
@@ -50,20 +72,32 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 2. 표준 시간대를 확인하려면 w32tm /tz 명령을 실행합니다.
 3. 시간을 동기화하려면 w32tm /resync 명령을 실행합니다.
 
-**프로젝트 키의 끝부분에 “==” 기호가 있습니다. 이러한 기호가 수집기에서 다른 영숫자 문자로 인코딩됩니다. 이것은 예상된 동작인가요?**
+### <a name="vmware-powercli-installation-failed"></a>VMware PowerCLI 설치 실패
 
-예, 모든 프로젝트 키는 "==" 기호로 끝납니다. 수집기는 프로젝트 키를 암호화한 후 처리합니다.
+Azure Migrate 수집기는 PowerCLI를 다운로드하여 어플라이언스에 설치합니다. PowerCLI 리포지토리의 엔드포인트에 연결할 수 없는 것이 PowerCLI 설치 실패의 원인일 수 있습니다. 문제를 해결하려면 다음 단계에 따라 수집기 VM에서 PowerCLI를 수동으로 설치해 보세요.
 
-**디스크 및 네트워크 어댑터의 성능 데이터가 0을 표시합니다.**
+1. Windows PowerShell을 관리자 모드로 엽니다.
+2. C:\ProgramFiles\ProfilerService\VMWare\Scripts\ 디렉터리로 이동합니다.
+3. InstallPowerCLI.ps1 스크립트를 실행합니다.
 
-vCenter server의 통계 설정 수준이 3 미만으로 설정되면 이 현상이 발생할 수 있습니다. 3 이상에서는 vCenter가 VM의 계산, 저장소 및 네트워크 성능 기록을 저장합니다. 3 미만에서는 vCenter가 저장소 및 네트워크 데이터를 저장하지 않고 CPU 및 메모리 데이터만 저장합니다. 이 시나리오에서는 Azure Migrate 에서 성능 데이터가 0으로 표시되고, Azure Migrate는 온-프레미스 컴퓨터에서 수집된 메타데이터를 기반으로 디스크 및 네트워크에 대한 권장 크기를 제공합니다.
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>오류 UnhandledException 내부 오류가 발생했습니다. System.IO.FileNotFoundException
 
-디스크 및 네트워크 성능 데이터 수집을 사용하려면 통계 설정 수준을 3으로 변경하세요. 그런 다음 환경을 검색하고 평가를 마칠 때까지 하루 이상 기다립니다.
+1.0.9.5 미만인 수집기 버전에서 표시되는 오류입니다. 수집기 버전 1.0.9.2 또는 1.0.8.59와 같은 이전 GA 버전을 사용하는 경우 이 문제가 발생합니다. [자세한 응답은 포럼에 지정된 링크](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate)를 따릅니다.
 
-**에이전트를 설치하고 종속성 시각화 그룹을 사용하여 그룹을 만들었습니다. 장애 조치(failover) 이후, 컴퓨터가 "종속성 보기" 대신 "에이전트 설치" 작업을 표시합니다.**
-* 계획된 또는 계획되지 않은 장애 조치(failover) 후에는 온-프레미스 컴퓨터가 꺼지고 동급 컴퓨터가 Azure에 생성됩니다. 이러한 컴퓨터는 다른 MAC 주소를 갖습니다. 사용자가 온-프레미스 IP 주소를 유지하는지 여부에 따라 다른 IP 주소를 가질 수도 있습니다. MAC 및 IP 주소가 모두 다르면 Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
-* 테스트 장애 조치(failover) 후에도 온-프레미스 컴퓨터는 예상대로 계속 켜져 있습니다. Azure에서 생성된 동급 컴퓨터는 다른 MAC 주소를 획득하며 다른 IP 주소를 획득할 수도 있습니다. 사용자가 이러한 컴퓨터에서 나가는 Log Analytics 트래픽을 차단하지 않는 이상, Azure Migrate는 온-프레미스 컴퓨터를 서비스 맵 종속성 데이터와 연결하지 않으며, 종속성을 보는 대신 사용자에게 에이전트를 설치하라고 요청합니다.
+[문제를 해결하기 위해 수집기 업그레이드](https://aka.ms/migrate/col/checkforupdates)
 
+### <a name="error-unabletoconnecttoserver"></a>오류 UnableToConnectToServer
+
+오류로 인해 vCenter Server “Servername.com:9443”에 연결할 수 없습니다: 메시지를 수락할 수 있는, https://Servername.com:9443/sdk에서 수신 대기 중인 끝점이 없습니다.
+
+수집기 어플라이언스가 최신 버전인지 확인하고, 최신 버전이 아니면 어플라이언스를 [최신 버전](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector)으로 업그레이드합니다.
+
+최신 버전에서도 여전히 문제가 발생하면 수집기 컴퓨터가 지정된 vCenter Server 이름을 확인할 수 없거나 지정된 포트가 잘못되었을 수 있습니다. 기본적으로 포트가 지정되지 않은 경우 수집기는 포트 번호 443에 연결하려고 합니다.
+
+1. 수집기 컴퓨터에서 Servername.com를 ping해 봅니다.
+2. 1단계가 실패하는 경우 IP 주소를 통해 vCenter Server에 연결해보세요.
+3. vCenter에 연결할 정확한 포트 번호를 식별합니다.
+4. 마지막으로 vCenter Server가 실행 중인지 확인합니다.
 
 ## <a name="troubleshoot-readiness-issues"></a>준비 관련 문제 해결
 
@@ -125,43 +159,23 @@ Windows용 이벤트 추적을 수집하려면 다음 단계를 수행합니다.
  - Edge/IE의 경우 오류를 마우스 오른쪽 단추로 클릭하고 **모두 복사**를 선택합니다.
 7. 개발자 도구를 닫습니다.
 
-
-## <a name="vcenter-errors"></a>vCenter 오류
-
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>오류 UnhandledException 내부 오류가 발생했습니다. System.IO.FileNotFoundException
-
-1.0.9.5 미만인 수집기 버전에서 표시되는 오류입니다. 수집기 버전 1.0.9.2 또는 1.0.8.59와 같은 이전 GA 버전을 사용하는 경우 이 문제가 발생합니다. [자세한 응답은 포럼에 지정된 링크](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate)를 따릅니다.
-
-[문제를 해결하기 위해 수집기 업그레이드](https://aka.ms/migrate/col/checkforupdates)
-
-### <a name="error-unabletoconnecttoserver"></a>오류 UnableToConnectToServer
-
-오류로 인해 vCenter Server “Servername.com:9443”에 연결할 수 없습니다: 메시지를 수락할 수 있는, https://Servername.com:9443/sdk에서 수신 대기 중인 끝점이 없습니다.
-
-수집기 컴퓨터가 지정된 vCenter Server 이름을 확인할 수 없거나 지정된 포트가 잘못된 경우에 발생합니다. 기본적으로 포트가 지정되지 않은 경우 수집기는 포트 번호 443에 연결하려고 합니다.
-
-1. 수집기 컴퓨터에서 Servername.com를 ping해 봅니다.
-2. 1단계가 실패하는 경우 IP 주소를 통해 vCenter Server에 연결해보세요.
-3. vCenter에 연결할 정확한 포트 번호를 식별합니다.
-4. 마지막으로 vCenter Server가 실행 중인지 확인합니다.
-
 ## <a name="collector-error-codes-and-recommended-actions"></a>수집기 오류 코드 및 권장 작업
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            | 
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------| 
-| 오류 코드 | 오류 이름                      | Message                                                                       | 가능한 원인                                                                                        | 권장 작업                                                                                                                          | 
-| 601       | CollectorExpired               | 수집기가 만료되었습니다.                                                        | 수집기가 만료되었습니다.                                                                                    | 새 버전의 수집기를 다운로드하고 다시 시도하세요.                                                                                      | 
-| 751       | UnableToConnectToServer        | 오류로 인해 vCenter Server ‘%Name;’에 연결할 수 없습니다. %ErrorMessage;     | 자세한 내용은 오류 메시지를 확인하세요.                                                             | 문제를 해결하고 다시 시도하세요.                                                                                                           | 
-| 752       | InvalidvCenterEndpoint         | 서버 ‘%Name;’이(가) vCenter Server가 아닙니다.                                  | vCenter Server 세부 정보를 제공하세요.                                                                       | 올바른 vCenter Server 세부 정보를 사용하여 작업을 다시 시도하세요.                                                                                   | 
-| 753       | InvalidLoginCredentials        | 오류로 인해 vCenter Server ‘%Name;’에 연결할 수 없습니다. %ErrorMessage; | 잘못된 로그인 자격 증명으로 인해 vCenter Server에 연결하지 못했습니다.                             | 제공된 로그인 자격 증명 정보가 올바른지 확인하세요.                                                                                    | 
-| 754       | NoPerfDataAvaialable           | 성능 데이터를 사용할 수 없습니다.                                               | vCenter Server에서 통계 수준을 확인하세요. 성능 데이터를 사용하려면 3으로 설정해야 합니다. | 통계 수준을 3(5분, 30분, 2시간 동안)으로 변경하고 하루 이상 기다린 후 시도하세요.                   | 
-| 756       | NullInstanceUUID               | null InstanceUUID가 있는 컴퓨터를 발견했습니다.                                  | vCenter Server에 부적절한 개체가 있을 수 있습니다.                                                      | 문제를 해결하고 다시 시도하세요.                                                                                                           | 
-| 757       | VMNotFound                     | 가상 머신이 없습니다.                                                  | 가상 머신이 삭제되었을 수 있습니다. %VMID;                                                                | vCenter 인벤토리의 범위를 지정하는 동안 선택한 가상 머신이 검색 중에 있는지 확인하세요.                                      | 
-| 758       | GetPerfDataTimeout             | VCenter 요청 시간이 초과되었습니다. 메시지 %Message;                                  | vCenter Server 자격 증명이 잘못되었습니다.                                                              | vCenter Server 자격 증명을 검사하고 vCenter Server에 연결할 수 있는지 확인하세요. 작업을 다시 시도하세요. 문제가 지속되면 고객 지원 팀에 문의하세요. | 
-| 759       | VmwareDllNotFound              | VMWare.Vim DLL이 없습니다.                                                     | PowerCLI가 올바르게 설치되지 않았습니다.                                                                   | PowerCLI가 올바르게 설치되었는지 확인하세요. 작업을 다시 시도하세요. 문제가 지속되면 고객 지원 팀에 문의하세요.                               | 
-| 800       | ServiceError                   | Azure Migrate Collector 서비스가 실행되고 있지 않습니다.                               | Azure Migrate Collector 서비스가 실행되고 있지 않습니다.                                                       | services.msc를 사용하여 서비스를 시작하고 작업을 재시도하세요.                                                                             | 
-| 801       | PowerCLIError                  | VMware PowerCLI 설치에 실패했습니다.                                          | VMware PowerCLI 설치에 실패했습니다.                                                                  | 작업을 다시 시도하세요. 문제가 지속되면 수동으로 설치하고 작업을 다시 시도하세요.                                                   | 
-| 802       | TimeSyncError                  | 시간이 인터넷 시간 서버와 동기화되어 있지 않습니다.                            | 시간이 인터넷 시간 서버와 동기화되어 있지 않습니다.                                                    | 컴퓨터 시간이 컴퓨터의 표준 시간대에 맞게 정확하게 설정되었는지 확인하고 작업을 다시 시도하세요.                                 | 
-| 702       | OMSInvalidProjectKey           | 잘못된 프로젝트 키가 지정되었습니다.                                                | 잘못된 프로젝트 키가 지정되었습니다.                                                                        | 올바른 프로젝트 키로 작업을 다시 시도하세요.                                                                                              | 
-| 703       | OMSHttpRequestException        | 요청을 보내는 동안 오류가 발생했습니다. 메시지 %Message;                                | 프로젝트 ID 및 키를 검사하고 끝점에 연결할 수 있는지 확인하세요.                                       | 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.                                                                     | 
-| 704       | OMSHttpRequestTimeoutException | HTTP 요청 시간이 초과되었습니다. 메시지 %Message;                                     | 프로젝트 ID 및 키를 검사하고 끝점에 연결할 수 있는지 확인하세요.                                       | 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.                                                                     | 
+|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
+|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| 오류 코드 | 오류 이름                      | Message                                                                       | 가능한 원인                                                                                        | 권장 작업                                                                                                                          |
+| 601       | CollectorExpired               | 수집기가 만료되었습니다.                                                        | 수집기가 만료되었습니다.                                                                                    | 새 버전의 수집기를 다운로드하고 다시 시도하세요.                                                                                      |
+| 751       | UnableToConnectToServer        | 오류로 인해 vCenter Server ‘%Name;’에 연결할 수 없습니다. %ErrorMessage;     | 자세한 내용은 오류 메시지를 확인하세요.                                                             | 문제를 해결하고 다시 시도하세요.                                                                                                           |
+| 752       | InvalidvCenterEndpoint         | 서버 ‘%Name;’이(가) vCenter Server가 아닙니다.                                  | vCenter Server 세부 정보를 제공하세요.                                                                       | 올바른 vCenter Server 세부 정보를 사용하여 작업을 다시 시도하세요.                                                                                   |
+| 753       | InvalidLoginCredentials        | 오류로 인해 vCenter Server ‘%Name;’에 연결할 수 없습니다. %ErrorMessage; | 잘못된 로그인 자격 증명으로 인해 vCenter Server에 연결하지 못했습니다.                             | 제공된 로그인 자격 증명 정보가 올바른지 확인하세요.                                                                                    |
+| 754       | NoPerfDataAvaialable           | 성능 데이터를 사용할 수 없습니다.                                               | vCenter Server에서 통계 수준을 확인하세요. 성능 데이터를 사용하려면 3으로 설정해야 합니다. | 통계 수준을 3(5분, 30분, 2시간 동안)으로 변경하고 하루 이상 기다린 후 시도하세요.                   |
+| 756       | NullInstanceUUID               | null InstanceUUID가 있는 컴퓨터를 발견했습니다.                                  | vCenter Server에 부적절한 개체가 있을 수 있습니다.                                                      | 문제를 해결하고 다시 시도하세요.                                                                                                           |
+| 757       | VMNotFound                     | 가상 머신이 없습니다.                                                  | 가상 머신이 삭제되었을 수 있습니다. %VMID;                                                                | vCenter 인벤토리의 범위를 지정하는 동안 선택한 가상 머신이 검색 중에 있는지 확인하세요.                                      |
+| 758       | GetPerfDataTimeout             | VCenter 요청 시간이 초과되었습니다. 메시지 %Message;                                  | vCenter Server 자격 증명이 잘못되었습니다.                                                              | vCenter Server 자격 증명을 검사하고 vCenter Server에 연결할 수 있는지 확인하세요. 작업을 다시 시도하세요. 문제가 지속되면 고객 지원 팀에 문의하세요. |
+| 759       | VmwareDllNotFound              | VMWare.Vim DLL이 없습니다.                                                     | PowerCLI가 올바르게 설치되지 않았습니다.                                                                   | PowerCLI가 올바르게 설치되었는지 확인하세요. 작업을 다시 시도하세요. 문제가 지속되면 고객 지원 팀에 문의하세요.                               |
+| 800       | ServiceError                   | Azure Migrate Collector 서비스가 실행되고 있지 않습니다.                               | Azure Migrate Collector 서비스가 실행되고 있지 않습니다.                                                       | services.msc를 사용하여 서비스를 시작하고 작업을 재시도하세요.                                                                             |
+| 801       | PowerCLIError                  | VMware PowerCLI 설치에 실패했습니다.                                          | VMware PowerCLI 설치에 실패했습니다.                                                                  | 작업을 다시 시도하세요. 문제가 지속되면 수동으로 설치하고 작업을 다시 시도하세요.                                                   |
+| 802       | TimeSyncError                  | 시간이 인터넷 시간 서버와 동기화되어 있지 않습니다.                            | 시간이 인터넷 시간 서버와 동기화되어 있지 않습니다.                                                    | 컴퓨터 시간이 컴퓨터의 표준 시간대에 맞게 정확하게 설정되었는지 확인하고 작업을 다시 시도하세요.                                 |
+| 702       | OMSInvalidProjectKey           | 잘못된 프로젝트 키가 지정되었습니다.                                                | 잘못된 프로젝트 키가 지정되었습니다.                                                                        | 올바른 프로젝트 키로 작업을 다시 시도하세요.                                                                                              |
+| 703       | OMSHttpRequestException        | 요청을 보내는 동안 오류가 발생했습니다. 메시지 %Message;                                | 프로젝트 ID 및 키를 검사하고 끝점에 연결할 수 있는지 확인하세요.                                       | 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.                                                                     |
+| 704       | OMSHttpRequestTimeoutException | HTTP 요청 시간이 초과되었습니다. 메시지 %Message;                                     | 프로젝트 ID 및 키를 검사하고 끝점에 연결할 수 있는지 확인하세요.                                       | 작업을 다시 시도하세요. 문제가 지속되면 Microsoft 지원에 문의하세요.                                                                     |

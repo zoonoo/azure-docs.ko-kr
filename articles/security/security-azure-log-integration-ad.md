@@ -1,35 +1,39 @@
 ---
-title: "Azure 로그 통합 및 Azure Active Directory 감사 로그 | Microsoft Docs"
-description: "Azure 로그 통합 서비스를 설치하고 Azure 감사 로그의 로그를 통합하는 방법에 대해 알아봅니다."
+title: Azure 로그 통합 및 Azure Active Directory 감사 로그 | Microsoft Docs
+description: Azure 로그 통합 서비스를 설치하고 Azure 감사 로그의 로그를 통합하는 방법에 대해 알아봅니다.
 services: security
 documentationcenter: na
 author: Barclayn
 manager: MBaldwin
 editor: TomShinder
-ms.assetid: 
+ms.assetid: ''
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/16/2018
+ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0f45f43a0296a7d90a68b0526f805ea50a1ce6c6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 07299b960747528dde8dcefc70055442c2150486
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235994"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합
 
 Azure AD(Azure Active Directory) 감사 이벤트를 통해 Azure Active Directory에서 발생한 권한 있는 작업을 식별할 수 있습니다. [Azure Active Directory 감사 보고서 이벤트](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md)를 검토하여 추적할 수 있는 이벤트 유형을 확인할 수 있습니다.
 
 
-> [!NOTE]
-> 이 문서의 단계를 시도하기 전에 먼저 [시작하기](security-azure-log-integration-get-started.md) 문서를 검토하고 해당 단계를 완료해야 합니다.
+>[!IMPORTANT]
+> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일에 비활성화됩니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
 
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그 통합 단계
+
+> [!NOTE]
+> 이 문서의 단계를 시도하기 전에 먼저 [시작하기](security-azure-log-integration-get-started.md) 문서를 검토하고 해당 관련 단계를 완료해야 합니다.
 
 1. 명령 프롬프트를 열고 이 명령을 실행합니다.
 

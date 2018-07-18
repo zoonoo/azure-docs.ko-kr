@@ -1,25 +1,26 @@
 ---
-title: Data Lake Store와 관련된 데이터 시나리오 | Microsoft 문서
-description: 데이터를 Data Lake 저장소에 수집, 처리, 다운로드 및 시각화할 수 있는 다양한 시나리오 및 도구 이해
+title: Data Lake Storage Gen1과 관련된 데이터 시나리오 | Microsoft Docs
+description: 데이터를 Data Lake Storage Gen1(이전에 Azure Data Lake Store로 알려짐)에 수집, 처리, 다운로드 및 시각화할 수 있는 다양한 시나리오 및 도구 이해
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 37409a71-a563-4bb7-bc46-2cbd426a2ece
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 86b6d05538171fcf0e259e2761316529deb4fb37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e0c7ed22762ef19c6e68ad69d0cabcfeb8007251
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625324"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031042"
 ---
-# <a name="using-azure-data-lake-store-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake 저장소 사용
+# <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>빅 데이터 요구 사항에 Azure Data Lake Storage Gen1 사용
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 빅 데이터 처리에는 네 가지 주요 단계가 있습니다.
 
 * 실시간으로 또는 배치로 대량의 데이터를 데이터 저장소에 수집
@@ -43,7 +44,7 @@ ms.locfileid: "34625324"
 | Azure Storage Blob |<ul> <li>[Azure 데이터 팩터리](../data-factory/connector-azure-data-lake-store.md)</li> <li>[AdlCopy 도구](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[HDInsight 클러스터에서 실행되는 DistCp](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>스트리밍된 데이터
-응용 프로그램, 장치, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 사용하여 Data Lake 저장소에 수집할 수 있습니다. 이러한 도구는 일반적으로 이벤트 단위로 데이터를 실시간으로 캡처 및 처리한 다음, 추가로 처리할 수 있도록 이벤트를 배치로 Data Lake 저장소에 씁니다.
+응용 프로그램, 장치, 센서 등 다양한 원본을 통해 생성할 수 있는 데이터를 나타냅니다. 이 데이터는 다양한 도구를 사용하여 Data Lake Store에 수집할 수 있습니다. 이러한 도구는 일반적으로 이벤트 단위로 데이터를 실시간으로 캡처 및 처리한 다음, 추가로 처리할 수 있도록 이벤트를 배치로 Data Lake 저장소에 씁니다.
 
 다음은 사용할 수 있는 도구입니다.
 

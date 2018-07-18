@@ -3,7 +3,7 @@ title: Azure Virtual Machines에서 사용할 Ansible 설치 및 구성 | Micros
 description: Ubuntu, CentOS 및 SLES에서 Azure 리소스를 관리하기 위해 Ansible을 설치 및 구성하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: na
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/04/2018
-ms.author: iainfou
-ms.openlocfilehash: c00ebcb771081f8e35c67bf384f5f6822e16f268
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cynthn
+ms.openlocfilehash: e7d57ead2caff87db07380582b9085b831844f1e
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652994"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930072"
 ---
 # <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Azure에서 가상 머신을 관리하기 위한 Ansible 설치 및 구성
 
@@ -106,7 +106,7 @@ VM에서 Azure Python SDK 모듈 및 Ansible에 대한 필수 패키지를 다�
 sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
 
 ## Install Ansible and Azure SDKs via pip
-pip install ansible[azure]
+sudo pip install ansible[azure]
 ```
 
 이제 계속해서 [Azure 자격 증명 만들기](#create-azure-credentials) 작업을 수행합니다.

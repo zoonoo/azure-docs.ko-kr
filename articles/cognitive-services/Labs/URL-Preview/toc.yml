@@ -1,0 +1,28 @@
+- name: Project URL Preview 설명서
+- name: 개요
+  expanded: true
+  items:
+    - name: Project URL Preview란?
+      href: overview.md
+    - name: URL Preview 끝점
+      href: endpoint.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 'C#'
+      href: csharp.md
+    - name: 자바
+      href: java-quickstart.md
+    - name: JavaScript
+      href: javascript.md
+    - name: 노드
+      href: node-quickstart.md
+    - name: 파이썬
+      href: python-quickstart.md
+- name: 참고 자료
+  expanded: true
+  items:
+    - name: 요구 사항 사용 및 표시
+      href: use-display-requirements.md
+    - name: URL Preview 참조
+      href: url-preview-reference.md

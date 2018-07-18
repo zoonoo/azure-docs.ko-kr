@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: dc816bb6e95d2800d79124dfac60b55e88eaa500
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 8c29cf5a65e9587b281a6000b5b4eff47f11da91
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807325"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -58,19 +59,20 @@ ms.lasthandoff: 03/16/2018
 
 일반적으로 솔루션에는 이러한 리소스와 계층 중 일부만 포함됩니다. 누락된 계층의 경우 하위 리소스를 그 다음 상위 계층에 매핑합니다.
 
-다음 예제는 템플릿의 일부를 보여줍니다. 연결 문자열 구성 값은 MSDeploy 확장에 종속됩니다. MSDeploy 확장은 웹앱 및 데이터베이스에 따라 달라집니다.
+다음 예제는 템플릿의 일부를 보여줍니다. 연결 문자열 구성 값은 MSDeploy 확장에 종속됩니다. MSDeploy 확장은 웹앱 및 데이터베이스에 따라 달라집니다. 
 
 ```json
 {
-    "name": "[parameters('name')]",
-    "type": "Microsoft.Web/sites",
+    "name": "[parameters('appName')]",
+    "type": "Microsoft.Web/Sites",
+    ...
     "resources": [
       {
           "name": "MSDeploy",
           "type": "Extensions",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'))]",
-            "[concat('SuccessBricks.ClearDB/databases/', parameters('databaseName'))]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'))]",
+            "[concat('Microsoft.Sql/servers/', parameters('dbServerName'), '/databases/', parameters('dbName'))]",
           ],
           ...
       },
@@ -78,13 +80,15 @@ ms.lasthandoff: 03/16/2018
           "name": "connectionstrings",
           "type": "config",
           "dependsOn": [
-            "[concat('Microsoft.Web/Sites/', parameters('name'), '/Extensions/MSDeploy')]"
+            "[concat('Microsoft.Web/Sites/', parameters('appName'), '/Extensions/MSDeploy')]"
           ],
           ...
       }
     ]
 }
 ```
+
+위의 코드를 사용하는 즉시 실행 가능한 샘플은 [템플릿: 간단한 Umbraco 웹앱 빌드](https://github.com/Azure/azure-quickstart-templates/tree/master/umbraco-webapp-simple)를 참조하세요.
 
 ## <a name="find-information-about-msdeploy-errors"></a>MSDeploy 오류에 대한 정보 찾기
 

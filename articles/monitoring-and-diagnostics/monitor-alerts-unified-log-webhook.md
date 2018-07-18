@@ -1,24 +1,19 @@
 ---
-title: Azure Alerts의 로그 경고에 대한 웹후크 작업 | Microsoft Docs
+title: Azure Alerts의 로그 경고에 대한 웹후크 작업
 description: 이 문서에서는 Log Analytics 또는 Application Insights를 사용하는 로그 경고 규칙이 HTTP 웹후크 및 다른 가능한 사용자 지정의 세부 정보로 데이터를 푸시하는 방법을 설명합니다.
 author: msvijayn
-manager: kmadnani1
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: monitoring
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
-ms.openlocfilehash: 28c8e6ab6a23a46bdea31c71b08b9c6a28d1be33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.component: alerts
+ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264258"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -47,11 +42,11 @@ ms.lasthandoff: 05/08/2018
 | 심각도 |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |
 | AlertThresholdOperator |#thresholdoperator |경고 규칙에 대한 임계값 연산자입니다.  *보다 큼* 또는 *보다 작음*. |
 | AlertThresholdValue |#thresholdvalue |경고 규칙에 대한 임계값입니다. |
-| LinkToSearchResults |#linktosearchresults |경고를 생성한 쿼리에서 레코드를 반환하는 Log Analytics 로그 검색에 대한 링크입니다. |
+| LinkToSearchResults |#linktosearchresults |경고를 생성한 쿼리에서 레코드를 반환하는 Analytics 포털의 링크입니다. |
 | ResultCount |#searchresultcount |검색 결과의 레코드 수입니다. |
-| 검색 간격 종료 시간 |#searchintervalendtimeutc |UTC 형식의 쿼리에 대한 종료 시간입니다. |
-| 검색 간격 |#searchinterval |경고 규칙에 대한 기간입니다. |
-| 검색 간격 시작 시간 |#searchintervalstarttimeutc |UTC 형식의 쿼리에 대한 시작 시간입니다. 
+| 검색 간격 종료 시간 |#searchintervalendtimeutc |쿼리의 종료 시간(UTC)으로, mm/dd/yyyy HH:mm:ss AM/PM 형식입니다. |
+| 검색 간격 |#searchinterval |경고 규칙의 시간으로, HH:mm:ss 형식입니다. |
+| 검색 간격 시작 시간 |#searchintervalstarttimeutc |쿼리의 시작 시간(UTC)으로, mm/dd/yyyy HH:mm:ss AM/PM 형식입니다. 
 | SearchQuery |#searchquery |경고 규칙에서 사용하는 로그 검색 쿼리입니다. |
 | SearchResults |"IncludeSearchResults": true|“IncludeSearchResults”:true를 사용자 지정 JSON 웹후크 정의에 최상위 속성으로 추가할 경우 쿼리에서 JSON 테이블로 반환되는 레코드이며, 처음 1,000개 레코드로 제한됩니다. |
 | WorkspaceID |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
@@ -74,6 +69,7 @@ ms.lasthandoff: 05/08/2018
         "text":"My Alert Rule fired with 18 records over threshold of 10 ."
     }
 ```
+사용자 지정 웹후크의 모든 변수는 "#searchinterval"처럼 JSON 엔클로저 내에 지정되어야 하므로 그 결과로 생기는 웹후크 역시 "00:05:00"처럼 엔클로저 내의 변수 데이터를 갖습니다.
 
 사용자 지정 페이로드에 검색 결과를 포함하려면 **IncudeSearchResults**가 json 페이로드에 최상위 속성으로 설정되어 있는지 확인합니다. 
 

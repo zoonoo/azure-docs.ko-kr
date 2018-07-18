@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/02/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: 2e5f5f596834eeb04620005fb7e024cf9e4ffdb3
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 3275fb0e40e7cdd6f02ec96fb949ec4e4e673f26
+ms.sourcegitcommit: 902aae1b5f872993185cbf1e35a4f7bb93748226
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28987311"
+ms.lasthandoff: 06/15/2018
+ms.locfileid: "35656320"
 ---
 `myAppServicePlan` App Service 계획에서 [웹앱](../articles/app-service/containers/app-service-linux-intro.md)을 만듭니다. 
 
@@ -40,8 +40,6 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
   < JSON data removed for brevity. >
 }
 ```
-
-git 배포를 활성화하여 Linux 컨테이너에 빈 웹앱을 만들었습니다.
 
 > [!NOTE]
 > Git 원격의 URL은 `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git` 형식으로 `deploymentLocalGitUrl` 속성에 표시됩니다. 나중에 필요하므로 이 URL을 저장합니다.

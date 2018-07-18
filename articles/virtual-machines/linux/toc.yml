@@ -51,8 +51,6 @@
       href: tutorial-mean-stack.md
     - name: 16 - SSL로 웹 서버 보안
       href: tutorial-secure-web-server.md
-    - name: Packer 이미지 및 앱을 확장 집합에 배포
-      href: 'https://docs.microsoft.com/learn/deploy-custom-vmss-app/index'
 - name: 샘플
   items:
     - name: Azure CLI
@@ -201,7 +199,13 @@
         - name: 원격 데스크톱 사용
           href: use-remote-desktop.md
         - name: VM을 Azure Active Directory에 가입시키기
-          href: join-redhat-linux-vm-to-azure-active-directory-domain-service.md
+          items:
+            - name: Red Hat Enterprise Linux
+              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+            - name: CentOS
+              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+            - name: Ubuntu
+              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
         - name: Azure Active Directory 자격 증명으로 로그인
           href: login-using-aad.md
         - name: 업데이트 및 패치

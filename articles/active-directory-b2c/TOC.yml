@@ -16,8 +16,8 @@
       href: active-directory-b2c-quickstarts-spa.md
 - name: 자습서
   items:
-    - name: 1 - 응용 프로그램 등록
-      href: tutorial-register-applications.md
+    - name: 1 - B2C 테넌트 만들기
+      href: tutorial-create-tenant.md
     - name: 2 - 계정 인증
       items:
         - name: ASP.NET
@@ -157,6 +157,8 @@
           href: b2clogin.md
         - name: 나이 게이팅 사용
           href: basic-age-gating.md
+        - name: 직접 로그인
+          href: direct-signin.md
     - name: ID 경험 프레임워크
       items:
         - name: 사용자 지정 정책

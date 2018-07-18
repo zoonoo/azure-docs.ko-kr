@@ -219,7 +219,7 @@ ms.locfileid: "34798664"
 
 1. 이제 앱을 다시 실행하겠습니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)을 클릭하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)을 클릭합니다.
 
-3. 이제 브라우저로 돌아가서 개발자 도구 및 네트워크 탭을 연 다음 http://localhost:3000로 이동하면 응용 프로그램이 있습니다.
+3. 이제 브라우저로 돌아가서 개발자 도구 및 네트워크 탭을 연 다음 http://localhost:3000 로 이동하면 응용 프로그램이 있습니다.
 
     ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

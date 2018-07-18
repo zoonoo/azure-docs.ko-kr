@@ -2,23 +2,19 @@
 title: Java를 사용하여 Azure Event Hubs로 이벤트 전송 | Microsoft Docs
 description: Java를 사용하여 Event Hubs로 전송 시작
 services: event-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 05/30/2018
 ms.author: sethm
-ms.openlocfilehash: 5dd0c88dab9ff4b7073a9acf6872b4c3ff085586
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6d3bf0b8ac5c5bdc7bf3deda21e800fe3cc6be2e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626414"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Java를 사용하여 Azure Event Hubs로 이벤트 전송
 
@@ -28,12 +24,14 @@ Event Hubs는 연결된 장치와 응용 프로그램에서 생성되는 엄청�
 
 이 자습서에서는 Java 언어의 콘솔 응용 프로그램을 사용하여 이벤트 허브로 이벤트를 전송하는 방법을 보여 줍니다. Java 이벤트 프로세스 호스트 라이브러리를 사용하여 이벤트를 수신하려면 [이 문서](event-hubs-java-get-started-receive-eph.md)를 참조하거나 목차 왼쪽에서 해당하는 수신 언어를 클릭합니다.
 
-이 자습서를 완료하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>필수 조건
 
-* Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용한다고 가정합니다.
+이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+
+* Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용합니다.
 * 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만듭니다.
 
-이 자습서의 코드는 전체 작동 중인 응용 프로그램을 확인하기 위해 검사할 수 있는 [GitHub 샘플 전송](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/Send)을 기반으로 합니다.
+이 자습서의 코드는 작동 중인 전체 응용 프로그램을 확인하기 위해 검사할 수 있는 [SimpleSend GitHub 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)을 기반으로 합니다.
 
 ## <a name="send-events-to-event-hubs"></a>Event Hubs에 이벤트 보내기
 
@@ -94,7 +92,7 @@ ConnectionStringBuilder 클래스를 사용하여 Event Hubs 클라이언트 인
 
 ### <a name="send-events"></a>이벤트 보내기
 
-그런 다음, 문자열을 UTF-8 바이트 인코딩으로 전환하여 단일 이벤트를 만듭니다. 그런 다음, 연결 문자열에서 새 Event Hubs 클라이언트 인스턴스를 만들고 메시지를 보냅니다.   
+문자열을 UTF-8 바이트 인코딩으로 전환하여 단일 이벤트를 만듭니다. 그런 다음, 연결 문자열에서 새 Event Hubs 클라이언트 인스턴스를 만들고 메시지를 보냅니다.   
 
 ```java 
 byte[] payloadBytes = "Test AMQP message from JMS".getBytes("UTF-8");

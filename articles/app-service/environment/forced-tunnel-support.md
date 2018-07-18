@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 904641a433d55cc5f1d04b17ed067cd560c6b33c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114976"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 
@@ -37,6 +38,7 @@ Azure Virtual Network에서 라우팅은 LPM(Longest Prefix Match)을 기반으�
 인터넷에 직접이 아닌 다른 곳에서 ASE 아웃바운드 트래픽을 라우팅하려고 하면 다음 옵션이 있습니다.
 
 * ASE가 인터넷에 직접 액세스하도록 설정
+* BGP 경로를 무시하도록 ASE 서브넷 구성
 * Azure SQL 및 Azure Storage에 서비스 끝점을 사용하려면 ASE 서브넷 구성
 * ASE Azure SQL 방화벽에 고유한 IP 추가
 
@@ -58,8 +60,22 @@ Azure 가상 네트워크가 ExpressRoute를 통해 구성된 경우에도 인�
 
 ![직접 인터넷 액세스][1]
 
+## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>BGP 경로를 무시하도록 ASE 서브넷 구성 ## 
+
+BGP 경로를 무시하도록 ASE 서브넷을 구성할 수 있습니다.  이렇게 구성된 경우 ASE는 문제 없이 해당 종속성에 액세스할 수 있습니다.  그러나 UDR을 만들어서 앱이 온-프레미스 리소스에 액세스할 수 있어야 합니다.
+
+BGP 경로를 무시하도록 ASE 서브넷을 구성하려면:
+
+* UDR이 없는 경우 만들고 ASE 서브넷에 할당합니다.
+* Azure Portal에서 ASE 서브넷에 할당된 경로 테이블에 대한 UI를 엽니다.  구성을 선택합니다.  BGP 경로 전파를 사용 안 함으로 설정합니다.  저장을 클릭합니다. 이 기능을 해제하는 방법에 대한 설명서는 [경로 테이블 만들기][routetable] 문서에 있습니다.
+
+이 작업을 수행하면 앱은 더 이상 온-프레미스에 연결할 수 없습니다. 이를 해결하려면 ASE 서브넷에 할당된 UDR을 편집하고 온-프레미스 주소 범위에 대한 경로를 추가합니다. 다음 홉 형식은 가상 네트워크 게이트웨이로 설정되어야 합니다. 
+
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>서비스 끝점을 사용하여 ASE 구성 ##
+
+ > [!NOTE]
+   > SQL을 포함한 서비스 엔드포인트는 US Government 지역에서 ASE와 함께 작동하지 않습니다.  Azure 공용 지역에서만 다음 정보가 유효합니다.  
 
 SQL Azure 및 Azure Storage로 이동 하는 트랙픽을 제외하고 ASE에서 모든 아웃바운드 트래픽을 라우팅하려면 다음 단계를 수행합니다.
 
@@ -141,3 +157,4 @@ ASE와 그 종속성 간 통신이 중단되는 경우 ASE는 비정상 상태�
 [routes]: ../../virtual-network/virtual-networks-udr-overview.md
 [template]: ./create-from-template.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
+[routetable]: ../../virtual-network/manage-route-table.md#create-a-route-table

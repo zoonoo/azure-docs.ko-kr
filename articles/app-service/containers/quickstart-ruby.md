@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 10/10/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 0707835cf4d6891397579cc41de49fc0462b4521
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 57442cdb28dfce07ec653e2f0a69d19f5bb6c919
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158613"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674787"
 ---
 # <a name="create-a-ruby-app-in-app-service-on-linux"></a>Linux의 App Service에서 Ruby 앱 만들기
 
@@ -129,4 +129,4 @@ http://<app name>.azurewebsites.net
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [MySQL과 Ruby on Rails](tutorial-ruby-mysql-app.md)
+> [MySQL과 Ruby on Rails](tutorial-ruby-postgres-app.md)

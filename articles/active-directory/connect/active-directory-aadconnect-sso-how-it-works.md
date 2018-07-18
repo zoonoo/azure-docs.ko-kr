@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure Active Directory Seamless Single Sign-On 
 services: active-directory
 keywords: Azure AD Connect의 정의, Active Directory 설치, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-on
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d17a4038f2171b74c8ba1dbc21e8335e6893691
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 0b1940894ffb01595d11bc49889c6ec01714816b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918257"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory Seamless Single Sign-On: 기술 심층 분석
 
@@ -50,7 +52,7 @@ Seamless SSO는 [여기](active-directory-aadconnect-sso-quick-start.md)서 보�
 
 웹 브라우저의 로그인 흐름은 다음과 같습니다.
 
-1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 웹 응용 프로그램(예: Outlook Web App - https://outlook.office365.com/owa/)에 액세스하려고 합니다.
+1. 사용자가 회사 네트워크의 도메인 가입 회사 장치에서 웹 응용 프로그램(예: Outlook 웹앱 https://outlook.office365.com/owa/))에 액세스하려고 합니다.
 2. 사용자가 아직 로그인하지 않은 경우 해당 사용자는 Azure AD 로그인 페이지로 리디렉션됩니다.
 3. 사용자는 자신의 사용자 이름을 Azure AD 로그인 페이지에 입력합니다.
 

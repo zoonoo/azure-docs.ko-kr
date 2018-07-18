@@ -6,19 +6,19 @@ documentationcenter: ''
 author: tfitzmac
 manager: timlt
 editor: tysonn
-ms.assetid: 5f5ca940-eef8-4125-b6a0-f44ba04ab5ab
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 06/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 14aa54277cac3369df739a1d84580624f2d3b401
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3e1dd8ad49ceb126a14070ed641146d91419640a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025339"
 ---
 # <a name="export-an-azure-resource-manager-template-from-existing-resources"></a>기존 리소스에서 Azure Resource Manager 템플릿 내보내기
 이 문서에서는 구독에서 기존 리소스의 Resource Manager 템플릿을 내보내는 방법을 알아봅니다. 생성된 해당 템플릿을 사용하여 템플릿 구문을 깊이 이해할 수 있습니다.
@@ -64,8 +64,7 @@ ms.lasthandoff: 05/20/2018
    
    1. **템플릿** - 솔루션의 인프라를 정의하는 템플릿입니다. 포털을 통해 저장소 계정을 만들 때 Resource Manager는 템플릿을 사용하여 배포하고 나중에 참조할 수 있도록 해당 템플릿을 저장했습니다.
    2. **매개 변수** - 배포하는 동안 값을 전달하는 데 사용할 수 있는 매개 변수 파일. 첫 번째 배포 중에 제공되는 값을 포함합니다. 템플릿을 다시 배포할 때 이러한 값을 변경할 수 있습니다.
-   3. **CLI** - 템플릿 배포에 사용할 수 있는 Azure CLI(명령줄 인터페이스) 스크립트 파일.
-   3. **CLI 2.0** - 템플릿 배포에 사용할 수 있는 Azure CLI(명령줄 인터페이스) 스크립트 파일.
+   3. **CLI** - 템플릿 배포에 사용할 수 있는 Azure CLI 스크립트 파일.
    4. **PowerShell** - 템플릿 배포에 사용할 수 있는 Azure PowerShell 스크립트 파일.
    5. **.NET** - 템플릿 배포에 사용할 수 있는 .NET 클래스.
    6. **Ruby** - 템플릿 배포에 사용할 수 있는 Ruby 클래스.
@@ -120,7 +119,7 @@ ms.lasthandoff: 05/20/2018
 2. 템플릿을 선택합니다.
    
      ![템플릿 편집](./media/resource-manager-export-template/select-added-template.png)
-3. 배포 중에 지정하려는 값을 전달할 수 있도록 하려면 템플릿에서 **매개 변수** 섹션에 두 개의 다음 매개 변수를 추가합니다.
+3. 배포 중에 지정하려는 값을 전달하려면 템플릿에서 **매개 변수** 섹션에 두 개의 다음 매개 변수를 추가합니다.
 
    ```json
    "administratorLogin": {
@@ -162,12 +161,11 @@ ms.lasthandoff: 05/20/2018
 
 
 ## <a name="fix-export-issues"></a>내보내기 문제 수정
-모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. 이 문제를 해결하려면 누락된 리소스를 템플릿에 다시 수동으로 추가합니다. 오류 메시지에는 내보낼 수 없는 리소스 종류가 포함됩니다. [템플릿 참조](/azure/templates/)에서 리소스 종류를 찾습니다. 예를 들어 가상 네트워크 게이트웨이를 수동으로 추가하려면 [Microsoft.Network/virtualNetworkGateways 템플릿 참조](/azure/templates/microsoft.network/virtualnetworkgateways)를 참조하세요.
+모든 리소스 종류가 내보내기 템플릿 함수를 지원하지는 않습니다. 배포 기록이 아닌 리소스 그룹에서 내보낸 경우 내보내기 문제가 발생합니다. 마지막 배포가 리소스 그룹의 현재 상태를 정확하게 나타내는 경우 리소스 그룹이 아닌 배포 기록에서 템플릿을 내보내야 합니다. 단일 템플릿에서 정의되지 않은 리소스 그룹을 변경한 경우에만 리소스 그룹에서 내보냅니다.
 
-> [!NOTE]
-> 배포 기록이 아닌 리소스 그룹에서 내보낸 경우 내보내기 문제가 발생합니다. 마지막 배포가 리소스 그룹의 현재 상태를 정확하게 나타내는 경우 리소스 그룹이 아닌 배포 기록에서 템플릿을 내보내야 합니다. 단일 템플릿에서 정의되지 않은 리소스 그룹을 변경한 경우에만 리소스 그룹에서 내보냅니다.
-> 
-> 
+내보내기 문제를 해결하려면 누락된 리소스를 템플릿에 다시 수동으로 추가합니다. 오류 메시지에는 내보낼 수 없는 리소스 종류가 포함됩니다. [템플릿 참조](/azure/templates/)에서 리소스 종류를 찾습니다. 예를 들어 가상 네트워크 게이트웨이를 수동으로 추가하려면 [Microsoft.Network/virtualNetworkGateways 템플릿 참조](/azure/templates/microsoft.network/virtualnetworkgateways)를 참조하세요. 템플릿 참조는 템플릿에 리소스를 추가하도록 JSON을 제공합니다.
+
+리소스에 대한 JSON 형식을 가져온 후 리소스 값을 가져와야 합니다. 리소스 종류에 대한 REST API에서 GET 작업을 사용하여 리소스에 대한 값을 확인할 수 있습니다. 예를 들어 가상 네트워크 게이트웨이에 대한 값을 가져오려면 [가상 네트워크 게이트웨이 - 가져오기](/rest/api/network-gateway/virtualnetworkgateways/get)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

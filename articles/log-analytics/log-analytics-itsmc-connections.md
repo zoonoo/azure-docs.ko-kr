@@ -2,7 +2,7 @@
 title: Azure Log Analytics의 IT Service Management Connector와의 연결 지원 | Microsoft Docs
 description: 이 문서에서는 ITSM 제품/서비스를 OMS Log Analytics의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다.
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 8231b7ce-d67f-4237-afbf-465e2e397105
@@ -10,14 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: fdf3c7d1a6621437c414e2c1fe0628f2f585d98a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: na
+ms.openlocfilehash: 661107779b74b6e21dec01aecf6d545ec2b7a702
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131755"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](log-analytics-itsmc-overview.md)를 참조하세요.
@@ -85,7 +87,7 @@ System Center Service Manager 인스턴스를 ITSMC에 연결하려면 다음 �
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Service Manager 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
 
-추가 정보: [Log Analytics 경고에 대한 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Log Analytics 로그에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) 및 [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-and-deploy-service-manager-web-app-service"></a>Service Manager 웹앱 서비스 만들기 및 배포
 
@@ -190,7 +192,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 **ServiceNow 관리자는 ServiceNow 인스턴스에서 다음을 수행해야 합니다.**
 - ServiceNow 제품에 대한 클라이언트 ID 및 클라이언트 암호를 생성합니다. 클라이언트 ID와 비밀을 생성하는 방법에 대한 자세한 내용은 필요에 따라 다음을 참조하세요.
 
-    - [Kingston에 대해 OAuth 설정](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/concept/OAuth-setup.html)
+    - [Kingston에 대해 OAuth 설정](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Jakarta에 대해 OAuth 설정](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Istanbul에 대해 OAuth 설정](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Helsinki에 대해 OAuth 설정](https://docs.servicenow.com/bundle/helsinki-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -238,7 +240,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 ServiceNow 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-추가 정보: [Log Analytics 경고에 대한 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Log Analytics 로그에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) 및 [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="create-integration-user-role-in-servicenow-app"></a>ServiceNow 앱에서 통합 사용자 역할 만들기
 
@@ -329,7 +331,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Provance 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-추가 정보: [Log Analytics 경고에 대한 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Log Analytics 로그에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) 및 [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ## <a name="connect-cherwell-to-it-service-management-connector-in-azure"></a>Cherwell을 Azure의 IT 서비스 관리 커넥터에 연결
 
@@ -381,7 +383,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 - Log Analytics 경고 또는 로그 레코드에서, 또는 이 Cherwell 인스턴스의 Azure 경고에서 인시던트를 만들 수 있습니다.
 
-추가 정보: [Log Analytics 경고에 대한 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts), [Log Analytics 로그에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records) 및 [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+자세한 정보: [Azure Alerts에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts).
 
 ### <a name="generate-client-id-for-cherwell"></a>Cherwell용 클라이언트 ID 생성
 
@@ -395,6 +397,4 @@ Cherwell용 클라이언트 ID/키를 생성하려면 다음 절차를 수행합
 
 
 ## <a name="next-steps"></a>다음 단계
- - [Log Analytics 경고에 대한 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-alerts)
- - [Log Analytics 로그 레코드 로그에 대한 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-log-analytics-log-records)
  - [Azure 경고에서 ITSM 작업 항목 만들기](log-analytics-itsmc-overview.md#create-itsm-work-items-from-azure-alerts)

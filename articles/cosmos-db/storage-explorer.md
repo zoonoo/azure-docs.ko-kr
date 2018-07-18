@@ -3,25 +3,22 @@ title: Azure Storage 탐색기에서 Azure Cosmos DB 관리
 description: Azure Storage 탐색기에서 Azure Cosmos DB를 관리하는 방법을 알아봅니다.
 Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
 services: cosmos-db
-documentationcenter: ''
 author: Jejiang
-manager: omafnan
+manager: kfile
 editor: ''
 tags: Azure Cosmos DB
-ms.assetid: ''
 ms.service: cosmos-db
 ms.custom: Azure Cosmos DB active
-ms.workload: big-data
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: ff4ee0a47129be5df03112006dcd45a62ad410af
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345110"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Azure Storage 탐색기에서 Azure Cosmos DB 관리
 
@@ -222,7 +219,7 @@ Storage 탐색기의 Azure Cosmos DB에서 나타나는 일반적인 문제에 �
 
 이 오류가 표시되는 원인에는 몇 가지가 있는데, 가장 일반적인 두 가지는 다음과 같습니다.
 
-+ “투명 프록시” 뒤에 있습니다. 즉, IT 부서와 같은 누군가가 HTTPS 트래픽을 가로 채고 해독한 다음, 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
++ *투명 프록시* 뒤에 있습니다. 즉, IT 부서와 같은 누군가가 HTTPS 트래픽을 가로 채고 해독한 다음, 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
 
 + 수신한 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 바이러스 백신 소프트웨어와 같은 소프트웨어를 실행하고 있습니다.
 

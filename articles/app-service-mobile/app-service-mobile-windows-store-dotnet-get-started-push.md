@@ -1,11 +1,11 @@
 ---
-title: "UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림 추가 | Microsoft Docs"
-description: "Azure App Service Mobile Apps 및 Azure Notification Hubs를 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다."
+title: UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림 추가 | Microsoft Docs
+description: Azure App Service Mobile Apps 및 Azure Notification Hubs를 사용하여 UWP(유니버설 Windows 플랫폼) 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
 services: app-service\mobile,notification-hubs
 documentationcenter: windows
 author: conceptdev
 manager: crdun
-editor: 
+editor: ''
 ms.assetid: 6de1b9d4-bd28-43e4-8db4-94cd3b187aa3
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -14,11 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: d51fa215ace8b33acb5d36b98e9a1a86e3296a65
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 9e3ed6d19b0f830923745ad0263c5c4f920c0f51
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473523"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Windows 앱에 푸시 알림 추가
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -32,18 +33,18 @@ ms.lasthandoff: 01/04/2018
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 ## <a name="register-your-app-for-push-notifications"></a>푸시 알림에 대해 앱 등록
-Windows 스토어에 앱을 제출한 다음 푸시를 전송하는 WNS(Windows Notification Services)를 통합하도록 서버 프로젝트를 구성해야 합니다.
+Microsoft Store에 앱을 제출한 다음, 푸시를 전송하는 WNS(Windows Notification Services)를 통합하도록 서버 프로젝트를 구성해야 합니다.
 
-1. Visual Studio 솔루션 탐색기에서 UWP 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **스토어와 앱을 연결...**을 클릭합니다.
+1. Visual Studio 솔루션 탐색기에서 UWP 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고 **스토어** > **스토어와 앱을 연결...** 을 클릭합니다.
 
-    ![Windows 스토어에 응용 프로그램 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+    ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 2. 마법사에서 **다음**을 클릭하고, Microsoft 계정으로 로그인하고, **새로운 앱 이름 예약**에서 앱 이름을 입력한 후 **예약**을 클릭합니다.
-3. 앱을 성공적으로 등록한 후에 새로운 앱 이름을 선택하고 **다음** 및 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Windows 스토어 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.  
+3. 앱을 성공적으로 등록한 후에 새로운 앱 이름을 선택하고 **다음** 및 **연결**을 차례로 클릭합니다. 이렇게 하면 필요한 Microsoft Store 등록 정보가 응용 프로그램 매니페스트에 추가됩니다.
 4. [Windows 개발자 센터](https://dev.windows.com/en-us/overview)로 이동하여 Microsoft 계정을 사용해 로그인하고 **내 앱**에서 새 앱 등록을 클릭한 후 **서비스** > **푸시 알림**을 확장합니다.
 5. **푸시 알림** 페이지에서 **Microsoft Azure Mobile Services** 아래의 **Live Services 사이트**를 클릭합니다.
 6. 등록 페이지에서 **응용 프로그램 암호** 및 **패키지 SID**에 있는 값을 기록합니다. 이 값은 모바일 앱 백 엔드를 구성하는 데 사용합니다.
 
-    ![Windows 스토어에 응용 프로그램 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
+    ![Microsoft Store와 앱 연결](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > 클라이언트 암호와 패키지 SID는 중요한 보안 자격 증명입니다. 다른 사람과 공유하지 말고 앱과 함께 분산하지 마세요. **응용 프로그램 ID** 는 Microsoft 계정 인증을 구성하는 암호와 함게 사용됩니다.
@@ -185,17 +186,13 @@ Windows 스토어에 앱을 제출한 다음 푸시를 전송하는 WNS(Windows 
 ## <a id="more"></a>다음 단계
 푸시 알림에 대해 자세히 알아봅니다.
 
-* [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications)  
-  템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. 템플릿을 등록하는 방법에 대해 자세히 알아봅니다.
-* [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md)  
-  장치에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
+* [Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법](app-service-mobile-dotnet-how-to-use-client-library.md#pushnotifications) 템플릿은 유연성을 제공하여 플랫폼간 푸시 및 지역화된 푸시를 보냅니다. 템플릿을 등록하는 방법에 대해 자세히 알아봅니다.
+* [푸시 알림 문제 진단](../notification-hubs/notification-hubs-push-notification-fixer.md) 장치에서 알림이 삭제되거나 끝나지 않는 다양한 이유가 있습니다. 이 항목에서는 푸시 알림 실패의 근본 원인을 분석 및 파악하는 방법을 보여 줍니다.
 
 다음 자습서 중 하나를 진행하는 것이 좋습니다.
 
-* [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
-* [앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  모바일 앱 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
+* [앱에 인증 추가](app-service-mobile-windows-store-dotnet-get-started-users.md) ID 공급자를 사용하여 앱 사용자를 인증하는 방법을 알아봅니다.
+* [앱에 오프라인 동기화 사용](app-service-mobile-windows-store-dotnet-get-started-offline-data.md) Mobile App 백 엔드를 사용하여 앱에 오프라인 지원을 추가하는 방법을 알아봅니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다.
 
 <!-- Anchors. -->
 

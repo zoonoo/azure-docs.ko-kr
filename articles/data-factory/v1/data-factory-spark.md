@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d22829217209b7d0b1b5690d6a864b58bf102e3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e775798dbaaf93d5a9b497323a3b2fa365820550
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34622281"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37046467"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -37,7 +37,7 @@ ms.locfileid: "34622281"
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기에 있는 Data Factory 서비스 버전 2를 사용하는 경우 [Data Factory 버전 2에서 Apache Spark 작업을 사용하여 데이터 변환](../transform-data-using-spark.md)을 참조하세요.
+> 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우, [Data Factory에서 Apache Spark 작업을 사용하여 데이터 변환](../transform-data-using-spark.md)을 참조하세요.
 
 ## <a name="introduction"></a>소개
 Spark 작업은 Data Factory에서 지원하는 [데이터 변환 작업](data-factory-data-transformation-activities.md) 중 하나입니다. 이 작업은 Azure HDInsight의 Spark 클러스터에서 지정된 Spark 프로그램을 실행합니다. 
@@ -268,8 +268,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
     ![Jupyter 쿼리 결과](media/data-factory-spark/jupyter-notebook-results.png)
 
-<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->
-자세한 지침은 [Spark SQL 쿼리 실행](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 섹션을 참조하세요. 
+<!-- Removed bookmark #run-a-hive-query-using-spark-sql since it doesn't exist in the target article -->자세한 지침은 [Spark SQL 쿼리 실행](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 섹션을 참조하세요. 
 
 ### <a name="troubleshooting"></a>문제 해결
 getDebugInfo를 **Always**로 설정했으므로 Blob 컨테이너의 pyFiles 폴더에 log 하위 폴더가 표시됩니다. log 폴더의 로그 파일에서 추가 정보를 제공합니다. 이 로그 파일은 오류가 발생할 때 특히 유용합니다. 프로덕션 환경에서는 이 오류를 **실패**로 설정할 수 있습니다.

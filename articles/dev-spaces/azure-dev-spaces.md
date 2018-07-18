@@ -5,30 +5,35 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 06/01/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 344947b7906d15e819e372e0affe4af3c34ba69b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198761"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823047"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev 공간
-Azure Dev 공간은 Kubernetes에서 빠르게 개발하는 데 도움을 줍니다. Azure Dev 공간을 사용하여 Azure Kubernetes 컨테이너에 대한 디버깅 같은 완전한 개발 기능을 추가할 수도 있으며 VS Code, Visual Studio 또는 명령줄 같은 친숙한 도구를 사용하여 클라우드에서 컨테이너를 반복적으로 개발할 수 있습니다. Azure Dev 공간은 고유한 공간에서 개별 코드 분기의 격리가 개발 주기의 중요한 부분을 차지하는 팀 개발과 특히 관련이 있습니다.
+Azure Dev Spaces는 팀에게 신속하고 반복적인 Kubernetes 개발 환경을 제공합니다. 최소한의 개발 컴퓨터 설정을 통해 AKS(Azure Kubernetes Service)에서 바로 컨테이너를 반복적으로 실행하고 디버그할 수 있습니다. Windows, Mac 또는 Linux에서 Visual Studio, Visual Studio Code 또는 명령줄과 같은 익숙한 도구를 사용하여 개발하세요.
+
+[!INCLUDE[](includes/dev-spaces-preview.md)]
 
 ## <a name="how-azure-dev-spaces-simplifies-kubernetes-development"></a>Azure Dev 공간이 Kubernetes 개발을 단순화하는 방법 
 
-이 접근 방식에는 몇 가지 이점이 있습니다.
-
-* 클라우드 리소스에 대한 모든 권한을 사용하여 프로덕션을 대표하는 인프라 없는 개발 환경을 가져옵니다.
-* VS Code 또는 Visual Studio를 사용하여 Kubernetes에서 직접 Node.js 및 .NET Core 컨테이너를 디버깅합니다. 명령줄 인터페이스를 사용하여 다른 언어 모두를 개발할 수 있습니다.
-* 비용을 절약하고 새로운 팀 멤버에 대한 로컬 컴퓨터 설치를 최소화하려면 개발 팀에서 Kubernetes 인스턴스를 공유합니다.
-* 격리 상태에서 코드를 개발하고, 종속성을 복제하거나 목업하지 않고 다른 구성 요소로 통합형 테스트를 수행합니다.
+Azure Dev Spaces는 다음과 같은 방식으로 개발 팀이 Kubernetes에서 생산성을 높이도록 지원합니다.
+- 각 팀 멤버의 로컬 개발 컴퓨터 설정을 최소화하고 Azure의 관리되는 Kubernetes 클러스터인 AKS에서 바로 작업합니다.
+- Visual Studio 2017 또는 Visual Studio Code를 사용하여 Kubernetes에서 바로 코드를 반복하고 디버깅합니다.
+- 개발 단계부터 프로덕션 단계까지 사용할 수 있는 Docker 및 Kubernetes configuration-as-code 자산을 생성합니다. 
+- 팀과 관리되는 Kubernetes 클러스터를 공유하고 공동 작업합니다. 격리 상태에서 코드를 개발하고, 종속성을 복제하거나 목업하지 않고 다른 구성 요소로 통합형 테스트를 수행합니다.
 
 [!INCLUDE[](includes/get-started.md)]
 
 ![](media/azure-dev-spaces/vscode-overview.png)
+
+## <a name="see-also"></a>참고 항목
+
+[Azure Kubernetes Service](/azure/aks)

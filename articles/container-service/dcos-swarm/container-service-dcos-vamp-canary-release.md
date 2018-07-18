@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 339864f6261d031a21b138f880654bcd6ef51855
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0f6c0e9206d9e056ee0496b6cc515625b08b1e4a
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177804"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959919"
 ---
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 클러스터에서 Vamp를 사용하여 마이크로 서비스 카나리아 릴리스
 
@@ -293,5 +293,5 @@ Vamp는 **조건**을 사용하여 게이트웨이의 경로 간 트래픽을 �
 
 * Node.js에서 Vamp 자동화 스크립트를 빌드하고 [Vamp 워크플로](http://vamp.io/documentation/tutorials/create-a-workflow/)로 실행합니다.
 
-* 추가 [VAMP 자습서](http://vamp.io/documentation/tutorials/overview/)를 살펴봅니다.
+* 추가 [VAMP 자습서](http://vamp.io/documentation/tutorials/)를 살펴봅니다.
 

@@ -93,7 +93,7 @@
       href: concepts-tpm-attestation.md
 - name: 방법 가이드
   items:
-    - name: IoT 허브에 MXChip IoT DevKit 연결
+    - name: IoT Hub에 MXChip IoT DevKit 연결
       href: how-to-connect-mxchip-iot-devkit.md
     - name: 장치 프로비전 구성 관리
       items:
@@ -113,6 +113,14 @@
           href: how-to-manage-dps-with-cli.md
         - name: 프로비저닝 서비스 API에 대한 액세스 제어
           href: how-to-control-access.md
+    - name: IoT Edge 장치 프로비전
+      items:
+        - name: Linux
+          href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+          maintainContext: true
+        - name: Windows
+          href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+          maintainContext: true
     - name: SDK를 통한 증명 메커니즘 사용
       href: use-hsm-with-sdk.md
     - name: 개발에 SDK 도구 사용
@@ -149,6 +157,16 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
+    - name: 'C#(.NET)용 Azure IoT 샘플'
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
+    - name: Node.js용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-node/'
+    - name: Java용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-java/'
+    - name: Python용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-python/'
+    - name: iOS 플랫폼용 Azure IoT 샘플
+      href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Azure IoT Hub
       href: 'https://azure.microsoft.com/services/iot-hub/'
     - name: IoT용 Azure Certified 장치 카탈로그

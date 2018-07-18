@@ -1,22 +1,19 @@
 ---
-title: Azure 활동 로그 이벤트 스키마 | Microsoft 문서
+title: Azure 활동 로그 이벤트 스키마
 description: 활동 로그로 내보내는 데이터의 이벤트 스키마에 대해 설명합니다.
 author: johnkemnetz
-manager: robb
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.openlocfilehash: 4264bfd733f586dcdabdee8f29494bfffd9a7a76
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: activitylog
+ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264554"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 **Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다.
@@ -482,6 +479,88 @@ ms.lasthandoff: 04/16/2018
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
+
+## <a name="recommendation"></a>권장 사항
+이 범주에는 서비스에 대해 생성되는 새 권장 사항 레코드가 포함됩니다. 권장 사항의 예로 "내결함성을 향상하려면 가용성 집합을 사용하세요"를 들 수 있습니다. 고가용성, 성능, 보안 및 비용 최적화의 4가지 권장 사항 이벤트가 생성될 수 있습니다. 
+
+### <a name="sample-event"></a>샘플 이벤트
+```json
+{
+    "channels": "Operation",
+    "correlationId": "92481dfd-c5bf-4752-b0d6-0ecddaa64776",
+    "description": "The action was successful.",
+    "eventDataId": "06cb0e44-111b-47c7-a4f2-aa3ee320c9c5",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Recommendation",
+        "localizedValue": "Recommendation"
+    },
+    "eventTimestamp": "2018-06-07T21:30:42.976919Z",
+    "id": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM/events/06cb0e44-111b-47c7-a4f2-aa3ee320c9c5/ticks/636640038429769190",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Advisor/generateRecommendations/action",
+        "localizedValue": "Microsoft.Advisor/generateRecommendations/action"
+    },
+    "resourceGroupName": "MYRESOURCEGROUP",
+    "resourceProviderName": {
+        "value": "MICROSOFT.COMPUTE",
+        "localizedValue": "MICROSOFT.COMPUTE"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.COMPUTE/virtualmachines",
+        "localizedValue": "MICROSOFT.COMPUTE/virtualmachines"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<Subscription ID>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MYVM",
+    "status": {
+        "value": "Active",
+        "localizedValue": "Active"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2018-06-07T21:30:42.976919Z",
+    "subscriptionId": "<Subscription ID>",
+    "properties": {
+        "recommendationSchemaVersion": "1.0",
+        "recommendationCategory": "Security",
+        "recommendationImpact": "High",
+        "recommendationRisk": "None"
+    },
+    "relatedEvents": []
+}
+
+```
+### <a name="property-descriptions"></a>속성 설명
+| 요소 이름 | 설명 |
+| --- | --- |
+| channels | 항상 “Operation”입니다. |
+| CorrelationId | 문자열 형식의 GUID입니다. |
+| description |권장 사항 이벤트에 대한 정적 텍스트 설명 |
+| eventDataId | 권장 사항 이벤트의 고유 식별자. |
+| 카테고리 | 항상 "권장 사항" |
+| id |권장 사항 이벤트의 고유 리소스 식별자. |
+| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning”, “Informational” 또는 “Verbose” 값 중 하나입니다. |
+| operationName |작업의 이름입니다.  항상 "Microsoft.Advisor/generateRecommendations/action"|
+| resourceGroupName |리소스의 리소스 그룹 이름입니다. |
+| resourceProviderName |이 권장 사항이 적용되는 리소스의 리소스 공급자 이름(예: "MICROSOFT.COMPUTE") |
+| resourceType |이 권장 사항이 적용되는 리소스의 리소스 종류 이름(예: "MICROSOFT.COMPUTE/virtualmachines") |
+| ResourceId |권장 사항이 적용되는 리소스의 리소스 id |
+| status | 항상 "활성" |
+| submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
+| subscriptionId |Azure 구독 ID입니다. |
+| properties |권장 사항에 대한 세부 정보를 설명하는 `<Key, Value>` 쌍 집합(즉, 사전)입니다.|
+| properties.recommendationSchemaVersion| 활동 로그 항목에 게시된 권장 사항 속성의 스키마 버전 |
+| properties.recommendationCategory | 권장 사항의 범주. 가능한 값은 "고가용성", "성능", "보안" 및 "비용" |
+| properties.recommendationImpact| 권장 사항의 영향. 가능한 값은 "높음", "보통" 또는 "낮음" |
+| properties.recommendationRisk| 권장 사항의 위험. 가능한 값은 "오류", "경고", "없음" |
+
+
 
 ## <a name="next-steps"></a>다음 단계
 * [활동 로그(이전의 감사 로그)에 대해 자세히 알아보기](monitoring-overview-activity-logs.md)

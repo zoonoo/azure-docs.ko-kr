@@ -14,16 +14,16 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b398ff3b5f3e6fd2ea7d6e2544e7399646f4fa5c
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 29c53232dc2ded5bce476111fd5b817d1574b008
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200793"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36752998"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Azure CLI를 사용하여 웹 트래픽 관리
 
-이 스크립트는 백 엔드 서버에 가상 머신 확장 집합을 사용하는 응용 프로그램 게이트웨이를 만듭니다. 그 후 웹 트래픽을 관리하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 스크립트를 실행한 후에는 공용 IP 주소를 사용하여 응용 프로그램 게이트웨이를 테스트할 수 있습니다.
+이 스크립트는 백 엔드 서버에 가상 머신 확장 집합을 사용하는 응용 프로그램 게이트웨이를 만듭니다. 그런 다음, 웹 트래픽을 관리하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 스크립트를 실행한 후에는 공용 IP 주소를 사용하여 응용 프로그램 게이트웨이를 테스트할 수 있습니다.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -50,8 +50,8 @@ az group delete --name myResourceGroupAG --yes
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_net) | 가상 네트워크를 만듭니다. |
 | [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | 가상 네트워크에 서브넷을 만듭니다. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/public-ip#az_network_public_ip_create) | 응용 프로그램 게이트웨이의 공용 IP 주소를 만듭니다. |
-| [az network application-gateway create](https://docs.microsoft.com/cli/azure/application-gateway#az_application_gateway_create) | Application Gateway를 만듭니다. |
+| [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip?view=azure-cli-latest) | 응용 프로그램 게이트웨이의 공용 IP 주소를 만듭니다. |
+| [az network application-gateway create](https://docs.microsoft.com/en-us/cli/azure/network/application-gateway?view=azure-cli-latest) | Application Gateway를 만듭니다. |
 | [az vmss create](https://docs.microsoft.com/cli/azure/vmss#az_vmss_create) | 가상 머신 확장 집합을 만듭니다. |
 | [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_show) | 응용 프로그램 게이트웨이의 공용 IP 주소를 가져옵니다. |
 

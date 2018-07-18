@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/04/2018
+ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 31c8dd520079046808b32dad0d338415bed71c58
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302980"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37127716"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 
@@ -55,7 +55,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
-다음 스크립트는 릴레이 네임스페이스의 리소스 ID를 가져옵니다. 하이브리드 연결의 ID를 생성하고 Event Grid 토픽을 구독합니다. 엔드포인트 유형을 `hybridconnection`으로 설정하고 엔드포인트에 대한 하이브리드 연결 ID를 사용합니다.
+다음 스크립트는 릴레이 네임스페이스의 리소스 ID를 가져옵니다. 하이브리드 연결의 ID를 생성하고 Event Grid 토픽을 구독합니다. 스크립트는 엔드포인트 형식을 `hybridconnection`으로 설정하고 엔드포인트에 대한 하이브리드 연결 ID를 사용합니다.
 
 ```azurecli-interactive
 relayname=<namespace-name>
@@ -73,9 +73,25 @@ az eventgrid event-subscription create \
   --endpoint $hybridid
 ```
 
+## <a name="create-application-to-process-events"></a>이벤트를 처리하는 응용 프로그램 만들기
+
+하이브리드 연결에서 이벤트를 검색할 수 있는 응용 프로그램이 필요합니다. [C#용 Microsoft Azure Event Grid 하이브리드 연결 소비자 샘플](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination)은 해당 작업을 수행합니다. 필수 구성 요소 단계를 이미 완료했습니다.
+
+1. Visual Studio 2017 버전 15.5 이상이 설치되어 있는지 확인합니다.
+
+1. 로컬 컴퓨터에 리포지토리를 복제합니다.
+
+1. Visual Studio에서 HybridConnectionConsumer 프로젝트를 로드합니다.
+
+1. Program.cs에서 `<relayConnectionString>` 및 `<hybridConnectionName>`을 만든 릴레이 연결 문자열 및 하이브리드 연결 이름으로 바꿉니다.
+
+1. Visual Studio에서 응용 프로그램을 컴파일하고 실행합니다.
+
 ## <a name="send-an-event-to-your-topic"></a>토픽에 이벤트 보내기
 
-이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴보겠습니다. 먼저, 사용자 지정 토픽에 대한 URL 및 키를 가져오겠습니다. 다시, `<topic_name>`의 토픽 이름을 사용합니다.
+이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴보겠습니다. 이 아티클에서는 Azure CLI를 사용하여 이벤트를 트리거하는 방법을 보여줍니다. 또한 [Event Grid 게시자 응용 프로그램](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/tree/master/EventGridPublisher)을 사용할 수 있습니다.
+
+먼저, 사용자 지정 토픽에 대한 URL 및 키를 가져오겠습니다. 다시, `<topic_name>`의 토픽 이름을 사용합니다.
 
 ```azurecli-interactive
 endpoint=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query "endpoint" --output tsv)

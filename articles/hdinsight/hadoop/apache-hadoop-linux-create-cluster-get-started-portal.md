@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: nitinme
-ms.openlocfilehash: 69c3ebf5a51151cd8e77c637ddd57eb18c8a9d15
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097899"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Hadoop 및 Hive 시작
 
@@ -46,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 입력하거나 선택합니다.
     
-    |자산  |설명  |
+    |속성  |설명  |
     |---------|---------|
     |**클러스터 이름**     | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
     |**구독**     |  Azure 구독을 선택합니다. |
@@ -63,9 +64,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 선택합니다.
     
-    |자산  |설명  |
+    |속성  |설명  |
     |---------|---------|
-    |**클러스터 유형**     | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
+    |**클러스터 유형**     | **Hadoop**을 선택합니다. |
     |**운영 체제**     |  Azure 구독을 선택합니다. |
     |**버전**     | **Hadoop 2.7.3(HDI 3.6)** 을 선택합니다.|
 
@@ -77,9 +78,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 선택합니다.
     
-    |자산  |설명  |
+    |속성  |설명  |
     |---------|---------|
-    |**기본 저장소 유형**     | 이 문서에서는 **Azure 저장소**를 선택하여 기본 저장소 계정으로 Azure Storage Blob을 사용합니다. 또한 Azure Data Lake Store를 기본 저장소로 사용할 수 있습니다. |
+    |**기본 저장소 유형**     | 이 문서에서는 **Azure 저장소**를 선택하여 기본 저장소 계정으로 Azure Storage Blob을 사용합니다. 또한 Azure Data Lake Storage를 기본 저장소로 사용할 수 있습니다. |
     |**선택 방법**     |  이 문서에서는 **내 구독**을 선택하여 Azure 구독에서 저장소 계정을 사용합니다. 다른 구독에서 저장소 계정을 사용하려면 **액세스 키**를 선택한 다음, 해당 계정에 대한 액세스 키를 입력합니다. |
     |**새 저장소 계정 만들기**     | 저장소 계정에 사용할 이름을 입력합니다.|
 
@@ -106,7 +107,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="run-hive-queries"></a>Hive 쿼리 실행
 
-[Apache Hive](hdinsight-use-hive.md) 는 HDInsight에서 사용되는 가장 인기 있는 구성 요소입니다. HDInsight에서 Hive 작업을 실행하는 방법은 여러 가지가 있습니다. 이 자습서에서는 포털에서 Ambari Hive 뷰를 사용합니다. Hive 작업을 제출하는 다른 방법은 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
+[Apache Hive](hdinsight-use-hive.md)는 HDInsight에서 사용되는 가장 인기 있는 구성 요소입니다. HDInsight에서 Hive 작업을 실행하는 방법은 여러 가지가 있습니다. 이 자습서에서는 포털에서 Ambari Hive 뷰를 사용합니다. Hive 작업을 제출하는 다른 방법은 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 1. 이전 스크린샷에서 Ambari를 열려면 **클러스터 대시보드**를 선택합니다.  **https://&lt;ClusterName>.azurehdinsight.net**으로 이동할 수도 있습니다. 여기서 &lt;ClusterName>은 이전 섹션에서 만든 클러스터입니다.
 
@@ -176,6 +177,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 자신의 데이터로 작업을 시작할 준비가 된 상태에서 HDInsight에서 데이터를 저장하는 방법과 HDInsight로 데이터를 가져오는 방법에 대해 더 알아보려면 다음 문서를 참조하세요.
 
 * HDInsight에서 Azure Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
+* Data Lake Storage를 사용하여 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 * 데이터를 HDInsight로 업로드하는 방법에 대한 정보는 [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)를 참조하세요.
 
 HDInsight를 사용하여 데이터를 분석하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.

@@ -20,6 +20,8 @@
       href: ../spark/apache-spark-intellij-tool-plugin.md
     - name: Eclipse를 사용하여 도메인 가입된 클러스터에 연결
       href: ../spark/apache-spark-eclipse-tool-plugin.md
+    - name: 도메인 가입 클러스터에 Oozie 사용
+      href: hdinsight-use-oozie-domain-joined-clusters.md
 - name: 데이터 보안
   href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   maintainContext: true
@@ -37,13 +39,10 @@
     - name: Azure VNet의 HBase 클러스터 복제
       href: ../hbase/apache-hbase-replication.md
       maintainContext: true
-- name: OMS를 사용한 모니터링
+- name: Log Analytics를 사용한 모니터링
   items:
     - name: Azure Log Analytics 사용
       href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
-    - name: 클러스터 지정 대시보드
-      href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
       maintainContext: true
     - name: Log Analytics로 쿼리 사용
       href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -72,6 +71,10 @@
     - name: 릴리스 정보
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: 보관된 릴리스 정보
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 포럼에서 도움말 보기

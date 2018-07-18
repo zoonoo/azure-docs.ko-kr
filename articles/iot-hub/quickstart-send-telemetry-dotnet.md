@@ -1,23 +1,21 @@
 ---
 title: Azure IoT Hub에 원격 분석 전송 빠른 시작(C#) | Microsoft Docs
 description: 이 빠른 시작에서는 두 가지 샘플 C# 응용 프로그램을 실행하여 시뮬레이션된 원격 분석을 IoT Hub로 보내고, 클라우드에서 처리할 원격 분석을 IoT Hub에서 읽습니다.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/20/2018
 ms.author: dobett
-ms.openlocfilehash: 9feade4407f800312556a1db39ce6c315c9330c2
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 501a8f2dad0537f0288dfd6a6d7bedcac054ab86
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619304"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>빠른 시작: 장치에서 IoT 허브로 원격 분석을 보내고 백 엔드 응용 프로그램(C#)으로 허브에서 원격 분석을 읽습니다.
 
@@ -62,7 +60,7 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
     장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
-1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+2. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDotnetDevice --output table
@@ -70,7 +68,7 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
     `Hostname=...=`과 같은 장치 연결 문자열을 기록해 둡니다. 이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
-1. 또한 백 엔드 응용 프로그램이 IoT 허브에 연결하고 메시지를 검색할 수 있도록 하려면 IoT 허브에서 _Event Hubs 호환 엔드포인트_, _Event Hubs 호환 경로_ 및 _iothubowner 기본 키_가 필요합니다. 다음 명령은 IoT 허브에 대해 이 값을 검색합니다.
+3. 또한 백 엔드 응용 프로그램이 IoT 허브에 연결하고 메시지를 검색할 수 있도록 하려면 IoT 허브에서 _Event Hubs 호환 엔드포인트_, _Event Hubs 호환 경로_ 및 _iothubowner 기본 키_가 필요합니다. 다음 명령은 IoT 허브에 대해 이 값을 검색합니다.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -86,19 +84,19 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치 관련 엔드포인트에 연결하고 시뮬레이션된 온도 및 습도 원격 분석을 전송합니다.
 
-1. 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\simulated-device** 폴더로 이동합니다.
+1. 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
 
-    `connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
+    `s_connectionString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램에 필요한 패키지를 설치합니다.
+3. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램에 필요한 패키지를 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 빌드하고 실행합니다.
+4. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run
@@ -112,23 +110,23 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 **이벤트** 엔드포인트에 연결합니다. 응용 프로그램은 시뮬레이션된 장치에서 전송하는 장치-클라우드 메시지를 받습니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행되며 장치-클라우드 메시지를 수신하고 처리합니다.
 
-1. 또 다른 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\read-d2c-messages** 폴더로 이동합니다.
+1. 또 다른 터미널 창에서 샘플 C# 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\read-d2c-messages** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **ReadDeviceToCloudMessages.cs** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **ReadDeviceToCloudMessages.cs** 파일을 엽니다. 다음 변수를 업데이트하고 파일에 변경 내용을 저장합니다.
 
-    `eventHubsCompatibleEndpoint` 변수의 값을 이전에 적어둔 Event Hubs 호환 엔드포인트로 바꿉니다.
+    | 변수 | 값 |
+    | -------- | ----------- |
+    | `s_eventHubsCompatibleEndpoint` | 변수 값을 이전에 적어둔 Event Hubs 호환 엔드포인트로 바꿉니다. |
+    | `s_eventHubsCompatiblePath`     | 변수 값을 이전에 적어둔 Event Hubs 호환 경로로 바꿉니다. |
+    | `s_iotHubSasKey`                | 변수 값을 이전에 적어둔 iothubowner 기본 키로 바꿉니다. |
 
-    `eventHubsCompatiblePath` 변수의 값을 이전에 적어둔 Event Hubs 호환 경로로 바꿉니다.
-
-    `iotHubSasKey` 변수의 값을 이전에 적어둔 iothubowner 기본 키로 바꿉니다. 그런 다음 변경 사항을 **ReadDeviceToCloudMessages.cs** 파일에 저장합니다.
-
-1. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리 설치합니다.
+3. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램에 필요한 라이브러리 설치합니다.
 
     ```cmd/sh
     dotnet restore
     ```
 
-1. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
+4. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 빌드하고 실행합니다.
 
     ```cmd/sh
     dotnet run
@@ -140,9 +138,7 @@ https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip에�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다음 빠른 시작을 완료하려면 리소스 그룹과 IoT 허브를 그대로 두었다가 나중에 다시 사용합니다.
-
-더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT Hub가 포함된 **qs-iot-hub-rg** 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

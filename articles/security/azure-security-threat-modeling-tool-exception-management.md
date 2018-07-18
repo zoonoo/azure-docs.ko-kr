@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 9a8e0154faccca356c7fb8ce93e43ce67cc0aae2
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: 3fae9390b41d12361b820e2c37601283b37bc302
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019588"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031715"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>보안 프레임: 예외 관리 | 해결 방법 
 | 제품/서비스 | 문서 |
@@ -36,7 +36,7 @@ ms.locfileid: "28019588"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **단계** | WCF(Windows Communication Framework) 서비스는 디버깅 정보를 노출하도록 구성할 수 있습니다. 디버그 정보를 프로덕션 환경에서는 사용하지 않아야 합니다. `<serviceDebug>` 태그는 WCF 서비스에 대해 디버그 정보 기능이 사용되는지 여부를 정의합니다. 특성 includeExceptionDetailInFaults를 true로 설정하면 응용 프로그램에서 예외 정보가 클라이언트로 반환됩니다. 공격자는 디버깅 출력에서 얻은 추가 정보를 활용하여 프레임워크, 데이터베이스 또는 응용 프로그램이 사용하는 기타 리소스를 대상으로 공격을 수행할 수 있습니다. |
 
 ### <a name="example"></a>예
@@ -60,7 +60,7 @@ ms.locfileid: "28019588"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 일반, .NET Framework 3 |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **단계** | 서비스에 대한 정보를 공개적으로 노출하면 공격자는 서비스를 악용하는 방법에 대한 중요한 아이디어를 얻을 수 있습니다. `<serviceMetadata>` 태그는 메타데이터 게시 기능을 사용하도록 설정합니다. 서비스 메타데이터에는 공개적으로 액세스할 수 없게 해야 하는 중요한 정보가 포함될 수 있습니다. 적어도, 신뢰할 수 있는 사용자만 메타데이터에 액세스하도록 허용하고 불필요한 정보가 노출되지 않도록 해야 합니다. 더 나아가 메타데이터를 게시하는 기능은 완전히 사용하지 않도록 설정해야 합니다. 안전한 WCF 구성에는 `<serviceMetadata>` 태그가 포함되지 않습니다. |
 
 ## <a id="exception"></a>ASP.NET Web API에서 적절한 예외 처리가 수행되었는지 확인

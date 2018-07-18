@@ -12,23 +12,17 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/15/2018
+ms.date: 06/18/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 83d97d9ed9c51d59500115c4ee3896d471024999
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 8e179e2af3ee7a19c39a2f2c688e0eb25a0c02ca
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359760"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287537"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
-
-> [!div class="op_single_selector"]
-> * [Azure Portal](batch-account-create-portal.md)
-> * [Batch 관리 .NET](batch-management-dotnet.md)
->
->
 
 [Azure Portal][azure_portal]에 Azure Batch 계정을 만들고 계산 시나리오에 적합한 계정 속성을 선택하는 방법에 대해 알아봅니다. 액세스 키 및 계정 URL과 같은 중요한 계정 속성을 찾는 위치에 대해 알아봅니다.
 
@@ -40,7 +34,7 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 1. [Azure Portal][azure_portal]에 로그인합니다.
 
-2. **새로 만들기** > **계산** > **배치 서비스**를 클릭합니다.
+2. **리소스 만들기** > **계산** > **Batch Service**를 선택합니다.
 
     ![Marketplace에서 Batch][marketplace_portal]
 
@@ -62,24 +56,24 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     f. **풀 할당 모드**: 대부분의 시나리오의 경우 기본 **Batch 서비스**를 수락합니다.
 
-4. **만들기**를 클릭하여 계정을 만듭니다.
+4. **만들기**를 선택하여 계정을 만듭니다.
 
 
 
 ## <a name="view-batch-account-properties"></a>Batch 계정 속성 보기
-계정이 만들어지면 계정을 클릭하여 해당 설정 및 속성에 액세스합니다. 왼쪽 메뉴를 사용하여 모든 계정 설정 및 속성에 액세스할 수 있습니다.
+계정이 만들어지면 계정을 선택하여 해당 설정 및 속성에 액세스합니다. 왼쪽 메뉴를 사용하여 모든 계정 설정 및 속성에 액세스할 수 있습니다.
 
 ![Azure Portal에서 배치 계정 페이지][account_blade]
 
 * **Batch 계정 이름, URL 및 키**: [Batch API](batch-apis-tools.md#azure-accounts-for-batch-development)를 사용하여 응용 프로그램을 개발하는 경우 Batch 리소스에 액세스하려면 계정 URL 및 키가 필요합니다. (Batch는 Azure Active Directory 인증도 지원합니다.)
 
-    Batch 계정 액세스 정보를 보려면 **키**를 클릭합니다.
+    배치 계정 액세스 정보를 보려면 **키**를 선택합니다.
 
     ![Azure Portal에서 Batch 계정 키][account_keys]
 
-* Batch 계정에 연결된 저장소 계정의 이름 및 키를 보려면 **Storage 계정**을 클릭합니다.
+* 배치 계정에 연결된 저장소 계정의 이름 및 키를 보려면 **Storage 계정**을 선택합니다.
 
-* Batch 계정에 적용되는 리소스 할당량을 보려면 **할당량**을 클릭합니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
+* 배치 계정에 적용되는 리소스 할당량을 보려면 **할당량**을 선택합니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md)을 참조하세요.
 
 
 ## <a name="additional-configuration-for-user-subscription-mode"></a>사용자 구독 모드에 대한 추가 구성
@@ -91,9 +85,13 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
 1. [Azure Portal][azure_portal]에 로그인합니다.
 
-2. **추가 서비스** > **구독**을 차례로 클릭하고, Batch 계정에 사용할 구독을 클릭합니다.
+2. **모든 서비스** > **구독**을 선택하고, 배치 계정에 사용할 구독을 선택합니다.
 
-3. **구독** 페이지에서 **액세스 제어(IAM)** > **추가**를 클릭합니다.
+3. **구독** 페이지에서 **리소스 공급자**를 선택하고, **Microsoft.Batch**를 검색합니다. **Microsoft.Batch** 리소스 공급자가 구독에 등록되었는지 확인합니다. 등록되지 않았으면 **등록** 링크를 선택합니다.
+
+    ![Microsoft.Batch 공급자 등록][register_provider]
+
+3. **구독** 페이지에서 **액세스 제어(IAM)** > **추가**를 선택합니다.
 
     ![구독 액세스 제어][subscription_access]
 
@@ -102,16 +100,16 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
     2. **Microsoft Azure Batch** - 최신 Azure AD 테넌트에서는 이 이름을 사용할 수도 있습니다.
     3. **ddbf3205-c6bd-46ae-8127-60eb93363864**는 Batch API에 대한 ID입니다. 
 
-5. Batch API를 찾으면 해당 API를 선택하고 **저장**을 클릭합니다.
+5. Batch API를 찾았으면 해당 API를 선택하고 **저장**을 선택합니다.
 
     ![Batch 권한 추가][add_permission]
 
 ### <a name="create-a-key-vault"></a>키 자격 증명 모음 만들기
 사용자 구독 모드에서 Azure 키 자격 증명 모음은 만들려는 Batch 계정과 동일한 리소스 그룹에 속해야 합니다. Batch를 [사용할 수 있고](https://azure.microsoft.com/regions/services/) 구독에서 지원하는 지역에 리소스 그룹이 있는지 확인합니다.
 
-1. [Azure Portal][azure_portal]에서 **새로 만들기** > **보안** > **Key Vault**를 차례로 클릭합니다.
+1. [Azure Portal][azure_portal]에서 **새로 만들기** > **보안** > **Key Vault**를 차례로 선택합니다.
 
-2. **Key Vault 만들기** 페이지에서 키 자격 증명 모음의 이름을 입력하고, Batch 계정에 사용할 지역에 리소스 그룹을 만듭니다. 나머지 설정은 기본값으로 그대로 두고 **만들기**를 클릭합니다.
+2. **Key Vault 만들기** 페이지에서 키 자격 증명 모음의 이름을 입력하고, Batch 계정에 사용할 지역에 리소스 그룹을 만듭니다. 나머지 설정은 기본값으로 그대로 두고 **만들기**를 선택합니다.
 
 사용자 구독 모드에서 Batch 계정을 만들 때 키 자격 증명 모음에 대한 리소스 그룹을 사용하고, 풀 할당 모드로 **사용자 구독**을 지정하고, 키 자격 증명 모음을 선택합니다.
 
@@ -137,4 +135,5 @@ Azure Portal을 사용하는 것 외에도 다음을 포함하는 도구로 Batc
 [storage_account]: ./media/batch-account-create-portal/storage_account.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
+[register_provider]: ./media/batch-account-create-portal/register_provider.png
 

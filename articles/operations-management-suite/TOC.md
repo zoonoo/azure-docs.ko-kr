@@ -1,6 +1,5 @@
 # 개요
-## [Operations Management Suite란?](operations-management-suite-overview.md)
-## [OMS 아키텍처](operations-management-suite-architecture.md)
+## [에이전트 모니터링](../monitoring/index.md)
 
 # 시작하기
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
@@ -13,8 +12,6 @@
 
 ## 분석
 ### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
-### [제품 비교 모니터링](operations-management-suite-monitoring-product-comparison.md)
-### [경고 관리](operations-management-suite-monitoring-alerts.md)
 ## 자동화
 ### [Azure Automation 개요](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -68,12 +65,7 @@
 ### [모범 사례](../monitoring/monitoring-solutions-best-practices.md)
 
 ## 관리 시나리오
-### [Runbook에서 분석 데이터 수집](operations-management-suite-runbook-datacollect.md)
-
-## [OMS와 통합](operations-management-suite-integration.md)
-
-# 참고 자료
-## [SDK](operations-management-suite-sdk.md)
+### [Runbook에서 분석 데이터 수집](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

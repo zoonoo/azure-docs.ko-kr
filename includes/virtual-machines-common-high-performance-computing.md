@@ -5,15 +5,15 @@ services: virtual-machines-linux, virtual-machines-windows
 author: dlepow
 ms.service: multiple
 ms.topic: include
-ms.date: 05/11/2018
+ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 32a438d393077cfe4cb7f6ee62f3a01edfce0571
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 496c32e70ad58f64b31c1f6fcf913884fcd4abc1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34152226"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37348238"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
@@ -40,7 +40,8 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
     * [Altair](http://www.altair.com/), [Rescale](https://www.rescale.com/azure/) 및 [Cycle Computing](https://cyclecomputing.com/)(이제 [Microsoft와 조인됨](https://blogs.microsoft.com/blog/2017/08/15/microsoft-acquires-cycle-computing-accelerate-big-computing-cloud/))을 포함하여 공급 업체에서 Azure를 사용할 수 있는 엔지니어링 및 시뮬레이션 솔루션을 실행합니다.
     * Azure에서 호스팅된 서비스로 [Cray 슈퍼 컴퓨터](https://www.cray.com/solutions/supercomputing-as-a-service/cray-in-azure)를 사용합니다.
 * **Marketplace 솔루션**
-    * [Azure Marketplace](https://azuremarketplace.microsoft.com/)에서 제공되는 [HPC 응용 프로그램](#hpc-applications) 및 [솔루션](#marketplace-solutions)의 규모를 사용합니다. 
+    * 
+  [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)에서 제공되는 [HPC 응용 프로그램](#hpc-applications) 및 [솔루션](#marketplace-solutions)의 규모를 사용합니다. 
     
 
 
@@ -50,7 +51,7 @@ Azure 클라우드를 사용하여 병렬 일괄 처리 작업에서 기존의 H
 
 ## <a name="marketplace-solutions"></a>Marketplace 솔루션
 
-HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 방문하세요. 이러한 예로 다음이 포함됩니다.
+HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)를 방문하세요. 다음은 이러한 템플릿의 예입니다.
 
 * [RogueWave CentOS 기반 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 * [SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
@@ -64,7 +65,7 @@ HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Ma
  
 ## <a name="hpc-applications"></a>HPC 응용 프로그램
 
-Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합니다. 이 섹션에서 일부 예제는 추가 VM 또는 계산 코어를 통해 효율적으로 확장하도록 벤치마킹됩니다. 솔루션 배포 준비는 [Azure Marketplace](https://marketplace.azure.com)를 방문합니다.
+Azure에서 사용자 지정 또는 상용 HPC 응용 프로그램을 실행합니다. 이 섹션에서 일부 예제는 추가 VM 또는 계산 코어를 통해 효율적으로 확장하도록 벤치마킹됩니다. 솔루션 배포 준비는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace)를 방문합니다.
 
 > [!NOTE]
 > 클라우드에서 실행하기 위해 라이선스나 기타 제한 사항에 대한 상용 응용 프로그램을 공급 업체에 확인합니다. 일부 공급 업체는 종량제 라이선스를 제공합니다. 솔루션에 대한 라이선스 서버가 클라우드에 필요하거나 온-프레미스 라이선스 서버에 연결할 수 있습니다.
@@ -196,6 +197,7 @@ Azure HPC 솔루션으로 비즈니스 문제를 해결한 고객은 다음과 �
 * [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 * [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
+* [NeuroInitiative](https://customers.microsoft.com/en-us/story/neuroinitiative-health-provider-azure)
 * [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 

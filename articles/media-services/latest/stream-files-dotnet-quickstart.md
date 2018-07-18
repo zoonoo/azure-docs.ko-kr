@@ -13,18 +13,19 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/08/2018
 ms.author: juliako
-ms.openlocfilehash: 40759fc65caa181651de68756f4374f879fd9c9c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e17a800ff61822a5040737e479c3e1855eeb8893
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701041"
 ---
 # <a name="quickstart-stream-video-files---net"></a>빠른 시작: 비디오 파일 스트리밍 - .NET
 
 > [!NOTE]
 > Azure Media Services의 최신 버전은 미리보기에 있으며 v3라고도 합니다. v3 API를 사용하기 시작하려면 이 빠른 시작에서 설명한 대로 새 Media Services 계정을 만들어야 합니다. 
 
-이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 장치에서 비디오 스트리밍을 시작하는 것이 얼마나 쉬운지 보여줍니다. 
+이 빠른 시작은 Azure Media Services를 사용하여 다양한 브라우저 및 장치에서 비디오 스트리밍을 시작하는 것이 얼마나 쉬운지 보여줍니다. 이 항목의 샘플에서는 콘텐츠를 인코딩하여 HTTPS URL을 통해 액세스할 수 있게 만듭니다. 
 
 빠른 시작이 끝나면 비디오를 스트리밍 할 수 있습니다.  
 
@@ -43,6 +44,18 @@ Visual Studio가 설치되지 않은 경우 [Visual Studio Community 2017](https
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts.git
  ```
+
+샘플은 [EncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/tree/master/AMSV3Quickstarts/EncodeAndStreamFiles) 폴더에 있습니다.
+
+샘플은 다음 작업을 수행합니다.
+
+1. 변환을 만듭니다(먼저 지정된 변환이 있는지 확인합니다). 
+2. 인코딩 작업의 출력으로 사용되는 출력 자산을 만듭니다.
+3. HTTPS URL을 기반으로 하는 작업의 입력을 만듭니다.
+4. 앞서 만든 입력 및 출력을 사용하여 인코딩 작업을 제출합니다.
+5. 작업의 상태를 확인합니다.
+6. StreamingLocator를 만듭니다.
+7. 스트리밍 URL을 빌드합니다.
 
 샘플의 각 기능이 무엇을 하는지에 관한 설명은 코드를 검토하고 [이 소스 파일 ](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs)의 주석을 확인합니다.
 

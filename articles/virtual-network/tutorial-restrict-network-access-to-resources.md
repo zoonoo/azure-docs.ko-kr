@@ -12,16 +12,16 @@ ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: virtual-networ
+ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/14/2018
 ms.author: jdial
-ms.custom: mvc
-ms.openlocfilehash: f53544e756bde623a604513f17f9cc92c8efe42b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2442c177b303600f936e80f6c765e2d4096b1dca
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021722"
 ---
 # <a name="tutorial-restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 서비스 끝점으로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -37,7 +37,7 @@ ms.lasthandoff: 04/05/2018
 
 원하는 경우 [Azure CLI](tutorial-restrict-network-access-to-resources-cli.md) 또는 [Azure PowerShell](tutorial-restrict-network-access-to-resources-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
@@ -65,6 +65,8 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="enable-a-service-endpoint"></a>서비스 끝점 사용
 
+서비스 엔드포인트는 서비스 단위, 서브넷 단위로 활성화됩니다. 서브넷을 만들고 서브넷에 서비스 엔드포인트를 사용하도록 설정합니다.
+
 1. 포털 맨 위에 있는 **리소스, 서비스 및 문서 검색** 상자에 *myVirtualNetwork*를 입력합니다. 검색 결과에 **myVirtualNetwork**가 표시되면 선택합니다.
 2. 가상 네트워크에 서브넷을 추가합니다. 다음 그림과 같이 **설정**에서 **서브넷**을 선택한 다음, **+ 서브넷**을 선택합니다.
 
@@ -78,11 +80,16 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
     |주소 범위| 10.0.1.0/24|
     |서비스 끝점| **서비스** 아래에서 **Microsoft.Storage**를 선택합니다.|
 
+> [!CAUTION]
+> 리소스를 포함한 기존 서브넷에 서비스 엔드포인트를 사용하도록 설정하기 전에 [서브넷 설정 변경](virtual-network-manage-subnet.md#change-subnet-settings)을 참조하세요.
+
 ## <a name="restrict-network-access-for-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
+
+기본적으로 모든 VM은 서브넷에 있는 모든 리소스와 통신할 수 있습니다. 네트워크 보안 그룹을 만들고 서브넷에 연결하여 서브넷에 있는 모든 리소스 간에 통신을 제한할 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
 2. **네트워킹**을 선택하고 **네트워크 보안 그룹**을 선택합니다.
-**네트워크 보안 그룹 만들기**에서 다음 정보를 입력하거나 선택하고 **만들기**를 선택합니다.
+3. **네트워크 보안 그룹 만들기**에서 다음 정보를 입력하거나 선택하고 **만들기**를 선택합니다.
 
     |설정|값|
     |----|----|
@@ -94,7 +101,7 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 4. 네트워크 보안 그룹이 만들어진 후에 포털 맨 위에 있는 **리소스, 서비스 및 문서 검색** 상자에 *myNsgPrivate*를 입력합니다. 검색 결과에 **myNsgPrivate**가 표시되면 선택합니다.
 5. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
 6. **+추가**를 선택합니다.
-7. Azure Storage 서비스에 지정된 공용 IP 주소에 대한 아웃바운드 액세스를 허용하는 규칙을 만듭니다. 다음 정보를 입력하거나 선택하고 **확인**을 선택합니다.
+7. Azure Storage 서비스에 대해 아웃바운드 통신을 허용하는 규칙을 만듭니다. 다음 정보를 입력하거나 선택하고 **확인**을 선택합니다.
 
     |설정|값|
     |----|----|
@@ -107,7 +114,8 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
     |조치|허용|
     |우선 순위|100|
     |Name|Allow-Storage-All|
-8. 모든 공용 IP 주소에 대한 아웃바운드 액세스를 허용하는 기본 보안 규칙을 재정의하는 규칙을 만듭니다. 다음 값을 사용하여 6단계와 7단계를 다시 완료합니다.
+    
+8. 인터넷에 대한 아웃바운드 통신을 거부하는 규칙을 만듭니다. 이 규칙은 아웃바운드 인터넷 통신을 허용하는 모든 네트워크 보안 그룹의 기본 규칙을 재정의합니다. 다음 값을 사용하여 6단계와 7단계를 다시 완료합니다.
 
     |설정|값|
     |----|----|
@@ -171,9 +179,9 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 4. **이름**에서 *my-file-share*를 입력하고 **확인**을 선택합니다.
 5. **파일 서비스** 상자를 닫습니다.
 
-### <a name="enable-network-access-from-a-subnet"></a>서브넷에서 네트워크 액세스 사용
+### <a name="restrict-network-access-to-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
 
-기본적으로 저장소 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 특정 서브넷에서ㅕ의 액세스를 허용하고 다른 모든 네트워크에서의 네트워크 액세스는 거부하려면 다음 단계를 완료합니다.
+기본적으로 저장소 계정은 인터넷을 비롯하여 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. *myVirtualNetwork* 가상 네트워크에 있는 *개인* 서브넷을 제외하고 인터넷 및 다른 모든 서브넷과 모든 가상 네트워크로부터의 네트워크 액세스를 거부합니다.
 
 1. 저장소 계정에 대한 **설정** 아래에서 **방화벽 및 가상 네트워크**를 선택합니다.
 2. **가상 네트워크**에서 **선택한 네트워크**를 선택합니다.
@@ -256,13 +264,13 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 
     Azure 파일 공유가 Z 드라이브에 매핑되었습니다.
 
-7. 명령 프롬프트에서 VM에 다른 공용 IP 주소에 대한 아웃바운드 연결이 없는지 확인합니다.
+7. VM에 인터넷에 대한 아웃바운드 연결이 없는지 명령 프롬프트에서 확인합니다.
 
     ```
     ping bing.com
     ```
     
-    *Private* 서브넷과 연결된 네트워크 보안 그룹이 Azure Storage 서비스에 지정된 주소 이외의 공용 IP 주소에 대한 아웃바운드 액세스를 허용하지 않으므로 응답이 수신되지 않습니다.
+    *개인* 서브넷에 연결된 네트워크 보안 그룹이 인터넷에 대한 아웃바운드 액세스를 허용하지 않기 때문에 응답이 수신되지 않습니다.
 
 8. *myVmPrivate* VM에 대한 원격 데스크톱 세션을 닫습니다.
 
@@ -272,7 +280,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 2. 검색 결과에 **myVmPublic**이 표시되면 선택합니다.
 3. *myVmPublic* VM에 대한 [저장소 계정에 대한 액세스 확인](#confirm-access-to-storage-account)에서 1-6단계를 완료합니다.
 
-    액세스가 거부되고 `New-PSDrive : Access is denied` 오류가 수신됩니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *Public* 서브넷에는 Azure Storage에 사용할 수 있는 서비스 끝점이 없으며 저장소 계정이 *Public* 서브넷이 아닌 *Private* 서브넷의 네트워크 액세스만 허용합니다.
+    액세스가 거부되고 `New-PSDrive : Access is denied` 오류가 수신됩니다. *myVmPublic* VM이 *Public* 서브넷에 배포되었으므로 액세스가 거부되었습니다. *공용* 서브넷에는 Azure Storage에 사용하도록 설정된 서비스 엔드포인트가 없습니다. 저장소 계정은 *공용* 서브넷이 아닌 *개인* 서브넷으로부터의 네트워크 액세스만을 허용합니다.
 
 4. *myVmPublic* VM에 대한 원격 데스크톱 세션을 닫습니다.
 
@@ -291,13 +299,13 @@ VM을 배포하는 데 몇 분이 걸립니다. 만들기가 끝나고 해당 �
 
 1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력합니다. 검색 결과에 **myResourceGroup**이 보이면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
-3. **리소스 그룹 이름 입력:**에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력:** 에 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 가상 네트워크 서브넷에 대해 서비스 끝점을 사용하도록 설정했습니다. 여러 Azure 서비스로 배포된 리소스에 대해 서비스 끝점을 사용하도록 설정할 수 있음을 배웠습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 끝점에 대한 자세한 내용은 [서비스 끝점 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
+이 자습서에서는 가상 네트워크 서브넷에 대해 서비스 끝점을 사용하도록 설정했습니다. 여러 Azure 서비스에서 배포된 리소스에 서비스 엔드포인트를 사용하도록 설정할 수 있음을 알았습니다. Azure Storage 계정을 만들고 저장소 계정에 대한 네트워크 액세스를 가상 네트워크 서브넷 내의 리소스로만 제한했습니다. 서비스 끝점에 대한 자세한 내용은 [서비스 끝점 개요](virtual-network-service-endpoints-overview.md) 및 [서브넷 관리](virtual-network-manage-subnet.md)를 참조하세요.
 
-계정에 여러 개의 가상 네트워크가 있는 경우 각 가상 네트워크 내의 리소스가 서로 통신할 수 있도록 두 개의 가상 네트워크를 함께 연결하는 것이 좋습니다. 가상 네트워크를 연결하는 방법을 알아보려면 다음 자습서를 진행합니다.
+계정에 여러 개의 가상 네트워크가 있는 경우, 각 가상 네트워크 내의 리소스가 서로 통신할 수 있도록 두 개의 가상 네트워크를 함께 연결하는 것이 좋습니다. 가상 네트워크를 연결하는 방법을 알아보려면 다음 자습서를 진행합니다.
 
 > [!div class="nextstepaction"]
 > [가상 네트워크 연결](./tutorial-connect-virtual-networks-portal.md)

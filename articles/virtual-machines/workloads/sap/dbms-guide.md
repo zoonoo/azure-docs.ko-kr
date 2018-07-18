@@ -4,7 +4,7 @@ description: SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2c78b764b66e677144186831b6139fd6a0aae7e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366361"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972447"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines DBMS 배포
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -288,7 +288,7 @@ ms.locfileid: "34366361"
 [virtual-machines-sql-server-performance-best-practices]:./../../windows/sql/virtual-machines-windows-sql-performance.md
 [virtual-machines-upload-image-windows-resource-manager]:../../virtual-machines-windows-upload-image.md
 [virtual-machines-windows-tutorial]:../../virtual-machines-windows-hero-tutorial.md
-[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/documentation/templates/sql-server-2014-alwayson-dsc/
+[virtual-machines-workload-template-sql-alwayson]:https://azure.microsoft.com/resources/templates/sql-server-2014-alwayson-existing-vnet-and-ad/
 [virtual-network-deploy-multinic-arm-cli]:../linux/multiple-nics.md
 [virtual-network-deploy-multinic-arm-ps]:../windows/multiple-nics.md
 [virtual-network-deploy-multinic-arm-template]:../../../virtual-network/template-samples.md
@@ -370,7 +370,7 @@ Linux용 SAP 정보를 모두 포함하는 [SCN Wiki](https://wiki.scn.sap.com/w
 Microsoft Azure 아키텍처 및 Microsoft Azure Virtual Machines 배포와 작동에 대한 실무 지식이 있어야 합니다. 자세한 내용은 <https://azure.microsoft.com/documentation/>에서 찾을 수 있습니다.
 
 > [!NOTE]
-> Microsoft Azure Platform의 Microsoft Azure PaaS(Platform as a Service)에 대해서는 다루지 **않습니다** . 이 문서에서는 온-프레미스 환경에서 DBMS(데이터베이스 관리 시스템)를 실행하는 것처럼 Microsoft Azure Virtual Machines(IaaS)에서 DBMS를 실행하는 방법에 대해 설명합니다. 이러한 두 환경에서의 데이터베이스 기능은 매우 다르므로 서로 혼합하지 않아야 합니다. <https://azure.microsoft.com/services/sql-database/>도 참조하세요.
+> Microsoft Azure Platform의 Microsoft Azure PaaS(Platform as a Service)에 대해서는 다루지 **않습니다**. 이 문서에서는 온-프레미스 환경에서 DBMS(데이터베이스 관리 시스템)를 실행하는 것처럼 Microsoft Azure Virtual Machines(IaaS)에서 DBMS를 실행하는 방법에 대해 설명합니다. 이러한 두 환경에서의 데이터베이스 기능은 매우 다르므로 서로 혼합하지 않아야 합니다. <https://azure.microsoft.com/services/sql-database/>도 참조하세요.
 > 
 > 
 
@@ -540,9 +540,10 @@ SAP는 현재 Premium Managed Disks만 지원합니다. 자세한 내용은 SAP 
 Managed Disks를 사용하는 경우 다음 방법으로 Premium Storage로 마이그레이션이 가능합니다.
 
 1. 가상 머신 할당 취소
-2. 필요한 경우 Premium Storage를 지원하도록 가상 머신을 크기 조정합니다(예: DS 또는 GS).
-3. Managed Disk 계정 유형을 Premium(SSD)으로 변경
-4. 가상 컴퓨터 시작
+1. 필요한 경우 Premium Storage를 지원하도록 가상 머신을 크기 조정합니다(예: DS 또는 GS).
+1. Managed Disk 계정 유형을 Premium(SSD)으로 변경
+1. [VM 및 데이터 디스크에 대한 캐싱][dbms-guide-2.1] 챕터에서 권장하는 대로 데이터 디스크 캐싱
+1. 가상 머신 시작
 
 ### <a name="deployment-of-vms-for-sap-in-azure"></a>Azure의 SAP용 VM 배포
 Microsoft Azure는 VM 및 관련 디스크를 배포하기 위한 여러 가지 방법을 제공합니다. 따라서 배포 방법에 따라 VM 준비가 달라질 수 있으므로 차이점을 이해해야 합니다. 일반적으로 다음 챕터에서 설명하는 시나리오를 살펴봅니다.
@@ -618,7 +619,8 @@ Microsoft Azure부터 Windows Server 플랫폼에 빌드된 기존 SQL Server �
 * **Virtual Machines SLA**: Azure에서 실행되는 Virtual Machines에 대한 SLA는 <https://azure.microsoft.com/support/legal/sla/>에 있습니다.  
 * **SQL 버전 지원**: SAP 고객의 경우 Microsoft Azure Virtual Machine에서 SQL Server 2008 R2 이상 버전을 지원합니다. 이전 버전은 지원되지 않습니다. 자세한 내용은 이 일반 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. 일반적으로 SQL Server 2008은 Microsoft에서도 지원됩니다. 그러나 SQL Server 2008 R2에 SAP용 중요 기능이 도입되어 있으므로 SQL Server 2008 R2 이상 릴리스를 사용해야 합니다. SQL Server 2012 및 2014에서는 IaaS 시나리오(Azure Storage에 대한 직접 백업 등)와 더 밀접하게 통합되어 확장되었습니다. 따라서 이 문서는 SQL Server 2012 및 2014와 Azure용 최신 패치 수준으로 제한됩니다.
 * **SQL 기능 지원**: 대부분의 SQL Server 기능이 Microsoft Azure Virtual Machines에서 지원되지만 몇 가지 예외가 있습니다. **공유 디스크를 사용하는 SQL Server 장애 조치(failover) 클러스터링은 지원되지 않습니다**.  데이터베이스 미러링, AlwaysOn 가용성 그룹, 복제, 로그 전달 및 Service Broker와 같은 분산 기술은 단일 Azure 지역 내에서 지원됩니다. SQL Server AlwaysOn은 <https://blogs.technet.com/b/dataplatforminsider/archive/2014/06/19/sql-server-alwayson-availability-groups-supported-between-microsoft-azure-regions.aspx>에서 설명한 대로 다른 Azure 지역 간에도 지원됩니다.  자세한 내용은 [지원 설명](https://support.microsoft.com/kb/956893) 을 참조하세요. AlwaysOn 구성을 배포하는 방법에 대한 예제는 [이 문서][virtual-machines-workload-template-sql-alwayson]에 보여 줍니다. 또한 [여기][virtual-machines-sql-server-infrastructure-services]서 설명하는 모범 사례도 참조하세요. 
-* **SQL 성능**: Microsoft Azure에서 호스트되는 Virtual Machines는 다른 공용 클라우드 가상화 서비스보다 훨씬 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [이 문서][virtual-machines-sql-server-performance-best-practices]를 참조하세요.
+* 
+  **SQL 성능**: Microsoft Azure에서 호스트되는 Virtual Machines는 다른 공용 클라우드 가상화 서비스보다 훨씬 뛰어난 성능을 제공하지만 개별 결과는 다를 수 있습니다. [이 문서][virtual-machines-sql-server-performance-best-practices]를 참조하세요.
 * **Azure Marketplace에서 이미지 사용**: 새 Microsoft Azure VM을 배포하는 가장 빠른 방법은 Azure Marketplace의 이미지를 사용하는 것입니다. Azure Marketplace에는 SQL Server를 포함한 이미지가 있습니다. SQL Server가 이미 설치된 이미지는 SAP NetWeaver 응용 프로그램에 즉시 사용할 수 없습니다. 그 이유는 이러한 이미지 내에 SAP NetWeaver 시스템에 필요한 데이터 정렬이 아닌 기본 SQL Server 데이터 정렬이 설치되어 있기 때문입니다. 이러한 이미지를 사용하려면 [Microsoft Azure Marketplace에서 SQL Server 이미지 사용][dbms-guide-5.6] 챕터에서 설명하는 단계를 확인하세요. 
 * 자세한 내용은 [가격 책정 정보](https://azure.microsoft.com/pricing/) 를 확인하세요. [SQL Server 2012 라이선스 가이드](https://download.microsoft.com/download/7/3/C/73CAD4E0-D0B5-4BE5-AB49-D5B886A5AE00/SQL_Server_2012_Licensing_Reference_Guide.pdf) 및 [SQL Server 2014 라이선스 가이드](https://download.microsoft.com/download/B/4/E/B4E604D9-9D38-4BBA-A927-56E4C872E41C/SQL_Server_2014_Licensing_Guide.pdf)도 중요한 리소스입니다.
 

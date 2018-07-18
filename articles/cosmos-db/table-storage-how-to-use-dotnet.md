@@ -1,42 +1,39 @@
 ---
-title: .NET을 사용하여 Azure 테이블 저장소 시작 | Microsoft Docs
-description: Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
+title: .NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작 | Microsoft Docs
+description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
-documentationcenter: .net
 author: SnehaGunda
 manager: kfile
-ms.assetid: fe46d883-7bed-49dd-980e-5c71df36adb3
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: sample
 ms.date: 03/14/2018
 ms.author: sngun
-ms.openlocfilehash: 9f8175742adc5c543b637ab69b3a9583f251da04
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360192"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959970"
 ---
-# <a name="get-started-with-azure-table-storage-using-net"></a>.NET을 사용하여 Azure 테이블 저장소 시작
+# <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>.NET을 사용하여 Azure Table Storage 및 Azure Cosmos DB Table API 시작
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Azure Table Storage는 클라우드에 구조화된 NoSQL 데이터를 저장하는 서비스로, 스키마 없이 디자인된 키/특성 저장소를 제공합니다. 테이블 저장소는 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 데이터에 대한 액세스는 많은 응용 프로그램 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
+Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 NoSQL 데이터를 저장하고, 스키마 없이 디자인된 키/특성 저장소를 제공할 수 있습니다. Table Storage 및 Azure Cosmos DB Table API는 모두 스키마가 없기 때문에 응용 프로그램의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Table Storage 데이터 및 Azure Cosmos DB Table API에 대한 액세스는 많은 응용 프로그램 유형에 대해 빠르고 비용 효율적이며 비슷한 양의 데이터일 때 일반적으로 전통적인 SQL에 비해 비용이 매우 낮습니다.
 
-Table Storage를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정에 포함할 수 있는 테이블의 수에는 저장소 계정의 최대 용량 한도까지 제한이 없습니다.
+Table Storage 또는 Azure Cosmos DB Table API를 사용하여 웹 응용 프로그램의 사용자 데이터, 주소록, 장치 정보 및 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 집합을 저장할 수 있습니다. 테이블에 저장할 수 있는 엔터티 수에는 제한이 없으며, 저장소 계정 또는 Table API 계정에 포함할 수 있는 테이블의 수에는 저장소 계정 또는 Table API 계정의 최대 용량 한도까지 제한이 없습니다.
 
-### <a name="about-this-tutorial"></a>이 자습서 정보
-이 자습서에서는 몇 가지 일반적인 Azure Table Storage 시나리오에서 [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)을 사용하는 방법을 보여 줍니다. 패키지의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 패키지는 Azure Cosmos DB와 Azure Tables 저장소 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 C# 예제를 통해 이러한 시나리오를 살펴보겠습니다.
+### <a name="about-this-sample"></a>이 샘플 정보
+이 샘플에서는 몇 가지 일반적인 Azure Table Storage 및 Table API 시나리오에서 [Microsoft Azure CosmosDB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)을 사용하는 방법을 보여 줍니다. 패키지의 이름은 Azure Cosmos DB에 사용할 것임을 의미하지만 이 패키지는 Azure Cosmos DB Table API와 Azure Tables 저장소 모두에서 작동하며 각 서비스에 고유한 엔드포인트가 있습니다. 다음 방법을 설명하는 C# 예제를 통해 이러한 시나리오를 살펴보겠습니다.
 * 테이블 만들기 및 삭제
 * 행 삽입, 업데이트 및 삭제
 * 쿼리 테이블
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 성공적으로 완료하려면 다음이 필요합니다.
+이 샘플을 성공적으로 완료하려면 다음이 필요합니다.
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). 프로덕션 환경에서 지원되는 필수 미리 보기 패키지입니다. 
@@ -74,12 +71,12 @@ Visual Studio에서 새로운 Windows 콘솔 응용 프로그램을 만듭니다
 4. **이름:** 필드에서 응용 프로그램의 이름을 입력합니다.
 5. **확인**을 선택합니다.
 
-이 자습서의 모든 코드 예제는 콘솔 응용 프로그램에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
+이 샘플의 모든 코드 예제는 콘솔 응용 프로그램에 있는 `Program.cs` 파일의 `Main()` 메서드에 추가될 수 있습니다.
 
 Azure 클라우드 서비스, 웹앱, 바탕화면 및 모바일 응용 프로그램을 포함하여 .NET 응용 프로그램의 모든 형식에서 Azure CosmosDB 테이블 라이브러리를 사용할 수 있습니다. 이 가이드에서는 편의상 콘솔 응용 프로그램을 사용합니다.
 
 ### <a name="use-nuget-to-install-the-required-packages"></a>NuGet을 사용하여 필요한 패키지 설치
-이 자습서를 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 권장되는 패키지가 있습니다.
+이 샘플을 완료하기 위해 프로젝트에서 참조해야 하는 세 개의 권장되는 패키지가 있습니다.
 
 * [Azure Storage Common Library for .NET(미리 보기)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) 
 * [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 이 패키지는 Azure Table Storage 계정 또는 Azure Cosmos DB 테이블 API 계정에서 데이터 리소스에 대한 프로그래밍 방식의 액세스를 제공합니다.
@@ -98,7 +95,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 > 
 
 > [!TIP]
-> Azure 테이블 저장소에 이미 친숙한 개발자는 과거에 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 패키지를 사용했을 수도 있습니다. 모든 새 테이블 응용 프로그램은 [Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) 및 [Azure Cosmos DB 테이블 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 사용하는 것이 좋지만 WindowsAzure.Storage 패키지는 계속해서 지원됩니다. WindowsAzure.Storage 라이브러리를 사용하는 경우 using 문에 Microsoft.WindowsAzure.Storage.Table을 포함합니다.
+> Azure 테이블 저장소에 이미 친숙한 개발자는 과거에 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) 패키지를 사용했을 수도 있습니다. 모든 새 테이블 응용 프로그램은 [Azure Storage 공용 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common) 및 [Azure Cosmos DB 테이블 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 사용하는 것이 좋지만 WindowsAzure.Storage 패키지는 계속해서 지원됩니다. WindowsAzure.Storage 라이브러리를 사용하는 경우 using 문에 Microsoft.WindowsAzure.Storage.Table을 포함합니다.
 >
 >
 
@@ -112,7 +109,7 @@ NuGet을 사용하여 패키지를 모두 가져올 수 있습니다. 다음 단
 클라우드에서 저장소 계정을 대상으로 하는 경우 Azure Portal에서 저장소 계정에 대한 기본 선택키를 복사합니다. 자세한 내용은 [저장소 액세스 키 보기 및 복사](../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys)를 참조하세요.
 
 > [!NOTE]
-> Azure Storage와 연결하여 비용이 초래되지 않도록 저장소 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 자습서를 수행하는 비용은 무시됩니다.
+> Azure Storage와 연결하여 비용이 초래되지 않도록 저장소 에뮬레이터를 대상으로 할 수 있습니다. 그러나 클라우드에서 Azure 저장소 계정을 대상으로 하도록 선택하는 경우 이 샘플을 수행하는 비용은 무시됩니다.
 > 
 > 
 
@@ -144,13 +141,13 @@ Azure Storage Common Library for .NET은 저장소 연결 문자열을 사용하
 예를 들어 Azure Storage 계정을 사용할 경우 구성 설정이 다음과 비슷하게 표시됩니다.
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=<account-key>" />
 ```
 
 Azure Cosmos DB 계정을 사용할 경우 구성 설정이 다음과 비슷하게 표시됩니다.
 
 ```xml
-<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=GMuzNHjlB3S9itqZJHHCnRkrokLkcSyW7yK9BRbGp0ENePunLPwBgpxV1Z/pVo9zpem/2xSHXkMqTHHLcx8XRA==;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
+<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=tableapiacct;AccountKey=<account-key>;TableEndpoint=https://tableapiacct.table.cosmosdb.azure.com:443/;" />
 ```
 
 저장소 에뮬레이터를 대상으로 하려면 잘 알려진 계정 이름 및 키에 매핑되는 바로 가기를 사용할 수 있습니다. 이 경우에 연결 문자열 설정은 다음과 같습니다.

@@ -12,14 +12,14 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/21/2017
+ms.date: 06/19/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 30e6adfe2a15598acceccc56160622f234af163a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 82d1fbc4167d1df4cb2c976395c181e4abd1ba3c
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299980"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293207"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Azure Log Analytics를 사용하여 B2B 통신 추적
 
@@ -56,39 +56,31 @@ Log Analytics가 논리 앱에 대한 B2B 메시지를 추적하도록 하려면
 
    ![Log Analytics 작업 영역 선택](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. **관리** 아래에서 **OMS 포털**을 선택합니다.
+3. **관리**에서 **개요**를 선택합니다.
 
-   ![OMS 포털 선택](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
+   ![Log Analytics 포털 선택](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 
-4. 홈페이지를 연 후 **솔루션 갤러리**를 선택합니다.    
+4. 홈 페이지가 열리면 **추가**를 선택하여 Logic Apps B2B 솔루션을 설치합니다.    
+   ![솔루션 갤러리 선택](media/logic-apps-track-b2b-messages-omsportal/add-b2b-solution.png)
 
-   ![솔루션 갤러리 선택](media/logic-apps-track-b2b-messages-omsportal/omshomepage1.png)
-
-5. **모든 솔루션** 아래에서 **Logic Apps B2B**를 찾고 선택합니다.     
-
-   ![Logic Apps B2B 선택](media/logic-apps-track-b2b-messages-omsportal/omshomepage2.png)
-
-6. **Logic Apps B2B** 아래에서 **추가**를 선택합니다.
-
-   ![[추가] 선택](media/logic-apps-track-b2b-messages-omsportal/omshomepage3.png)
+5. **관리 솔루션**에서 **Logic Apps B2B** 솔루션을 찾아서 만듭니다.     
+   ![Logic Apps B2B 선택](media/logic-apps-track-b2b-messages-omsportal/create-b2b-solution.png)
 
    홈페이지에 **Logic Apps B2B 메시지**에 대한 타일이 이제 나타납니다. 
    이 타일은 B2B 메시지가 처리되는 경우 메시지 수를 업데이트합니다.
-
-   ![홈페이지, Logic Apps B2B 메시지 타일](media/logic-apps-track-b2b-messages-omsportal/omshomepage4.png)
 
 <a name="message-status-details"></a>
 
 ## <a name="track-message-status-and-details-in-log-analytics"></a>Log Analytics에서 메시지 상태 및 세부 정보 추적
 
-1. B2B 메시지가 처리된 후 해당 메시지에 대한 상태 및 세부 정보를 볼 수 있습니다. 홈페이지에서 **Logic Apps B2B 메시지** 타일을 선택합니다.
+1. B2B 메시지가 처리된 후 해당 메시지에 대한 상태 및 세부 정보를 볼 수 있습니다. 개요 홈페이지에서 **Logic Apps B2B 메시지** 타일을 선택합니다.
 
-   ![업데이트된 메시지 수](media/logic-apps-track-b2b-messages-omsportal/omshomepage6.png)
+   ![업데이트된 메시지 수](media/logic-apps-track-b2b-messages-omsportal/b2b-overview-tile.png)
 
    > [!NOTE]
    > 기본적으로 **Logic Apps B2B 메시지** 타일은 일별 데이터를 표시합니다. 데이터 범위를 다른 간격으로 변경하려면 페이지 맨 위에 있는 범위 컨트롤을 선택합니다.
    > 
-   > ![데이터 범위 변경](media/logic-apps-track-b2b-messages-omsportal/change-interval.png)
+   > ![데이터 범위 변경](media/logic-apps-track-b2b-messages-omsportal/server-filter.png)
    >
 
 2. 메시지 상태 대시보드가 나타난 후 일별 데이터를 표시하는 특정 메시지 유형에 대한 자세한 정보를 볼 수 있습니다. **AS2**, **X12** 또는 **EDIFACT**에 대한 타일을 선택합니다.

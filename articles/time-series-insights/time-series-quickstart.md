@@ -1,22 +1,22 @@
 ---
-title: "빠른 시작 - Azure Time Series Insights 탐색기 | Microsoft Docs"
-description: "이 빠른 시작에서는 웹 브라우저에서 간편하게 Azure Time Series Insights 탐색기를 시작하여 다량의 IoT 데이터를 시각화하는 방법을 설명합니다. 데모 환경에서 주요 기능을 둘러봅니다."
-services: time-series-insights
+title: 빠른 시작 - Azure Time Series Insights 탐색기 | Microsoft Docs
+description: 이 빠른 시작에서는 웹 브라우저에서 간편하게 Azure Time Series Insights 탐색기를 시작하여 다량의 IoT 데이터를 시각화하는 방법을 설명합니다. 데모 환경에서 주요 기능을 둘러봅니다.
 ms.service: time-series-insights
-author: MarkMcGeeAtAquent
-ms.author: v-mamcge
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
-editor: MarkMcGeeAtAquent, jasonwhowell, kfile, MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc
 ms.date: 11/15/2017
-ms.openlocfilehash: a2f88ab65a8f9948b83f491896d53b34f162747c
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 45eb469fdbd3603d1ebdcb558485ff0f93822f6b
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36293863"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>빠른 시작: Azure Time Series Insights 탐색하기
 이 빠른 시작에서는 무료 데모 환경에서 Azure Time Series Insights 탐색기를 시작하는 방법을 설명합니다. 웹 브라우저를 사용하여 많은 양의 IoT 데이터를 시각화하는 방법을 알아보고, Time Series Insights 탐색기의 주요 기능을 둘러봅니다. 

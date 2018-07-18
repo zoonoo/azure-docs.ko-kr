@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: a94d97fb90e65fd569047a3d55945437002d97ab
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9537380daab80529c3ba6307f1b2cd82a8c0ca41
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867394"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36334672"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>최신 Azure Multi-Factor Authentication 서버로 업그레이드
 
@@ -48,21 +48,12 @@ v6.x 이상에서 v7.x 또는 최신 버전으로 업그레이드하는 경우 �
 
 여러 서버에 사용자 포털에 있는 경우 모든 서버에서 설치를 반복합니다. 
 
-
 ## <a name="upgrade-the-mobile-app-web-service"></a>모바일 앱 웹 서비스 업그레이드
 
-1. 모바일 앱 웹 서비스 설치 위치의 가상 디렉터리(예: C:C:\inetpub\wwwroot\app or C:\inetpub\wwwroot\MultiFactorAuthMobileAppWebService)에 있는 web.config 파일의 백업을 만듭니다.
-2. MFA 서버의 설치 위치에서 MultiFactorAuthenticationMobileAppWebServiceSetup64.msi 파일을 복사한 후 모바일 앱 등록 웹 서버에 저장합니다.
-3. 설치 관리자를 실행합니다. 
-
-  Microsoft Visual C++ 2015 재배포 가능 패키지 업데이트 1 이상이 필요하다는 오류가 발생하는 경우 [Microsoft 다운로드 센터](https://www.microsoft.com/download/)에서 최신 업데이트 패키지를 다운로드하여 설치합니다. x86 및 x64 버전을 둘 다 설치합니다.
-
-4. 업데이트된 Mobile App 웹 서비스 소프트웨어를 설치한 후 1단계에서 백업한 web.config 파일을 새 web.config 파일과 비교합니다. 새 web.config에 새 특성이 없으면 저장한 web.config를 가상 디렉터리에 복사하여 새 파일을 덮어쓸 수 있습니다. 또 다른 옵션은 백업 파일에서 appSettings 값 및 웹 서비스 SDK URL을 복사한 후 새 web.config에 붙여 넣습니다.
-
-여러 서버에 모바일 앱 웹 서비스가 있는 경우 모든 서버에서 설치를 반복합니다. 
+> [!NOTE]
+> Azure MFA Server 8.0 미만 버전에서 8.0 이상 버전으로 업그레이드할 때 업그레이드 후 모바일 앱 웹 서비스를 제거할 수 있습니다.
 
 ## <a name="upgrade-the-ad-fs-adapters"></a>AD FS 어댑터 업그레이드
-
 
 ### <a name="if-mfa-runs-on-different-servers-than-ad-fs"></a>MFA가 AD FS 이외의 다른 서버에서 실행되는 경우
 

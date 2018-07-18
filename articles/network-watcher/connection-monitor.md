@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: bfd9552a0d7c3b1e631fcc1a25d240608754c6a3
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639030"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 개의 가상 머신 간의 네트워크 통신 모니터링
 
@@ -31,7 +32,7 @@ VM(가상 머신)과 다른 VM과 같은 엔드포인트 간의 통신의 성공
 > * Network Watcher의 연결 모니터 기능을 사용하여 VM 간의 통신 모니터링
 > * 두 VM 간의 통신 문제를 진단하고 해결 방법에 대해 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -141,7 +142,7 @@ VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기
 
 5. 연결 모니터가 60초 간격으로 조사하므로 몇 분 정도를 대기한 다음, 포털의 왼쪽에서 **Network Watcher** 및 **연결 모니터**를 선택한 다음, **myVm1-myVm2(22)** 모니터링을 다시 선택합니다. 다음 그림에 나와 있는 대로 결과가 이제 달라집니다.
 
-    ![모니터 세부 정보 오류](./media/connection-monitor/vm-monitor-fault.png)
+    ![세부 정보 오류 모니터링](./media/connection-monitor/vm-monitor-fault.png)
 
     **myvm2529** 네트워크 인터페이스의 상태 열에 빨간색 느낌표 아이콘을 확인할 수 있습니다.
 

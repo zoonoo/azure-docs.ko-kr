@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: de8b354cf0199d36d5e0b1410a9f79d4a9e3e05c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: efd8e93f32020d1ef3695e7fc6b9907374275848
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359784"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608392"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>자습서: Azure App Service 웹앱에 Azure CDN 추가
 
@@ -55,6 +55,9 @@ ms.locfileid: "34359784"
 
 브라우저를 열고 [Azure Portal](https://portal.azure.com)로 이동합니다.
 
+### <a name="dynamic-site-acceleration-optimization"></a>동적 사이트 가속 최적화
+DSA(동적 사이트 가속)에 대한 CDN 엔드포인트를 최적화하려는 경우 [CDN 포털](cdn-create-new-endpoint.md)을 사용하여 프로필 및 엔드포인트를 만들어야 합니다. [DSA(동적 사이트 가속) 최적화](cdn-dynamic-site-acceleration.md)를 사용하여 동적 콘텐츠가 포함된 웹 페이지의 성능이 크게 향상되었습니다. CDN 포털에서 DSA에 대한 CDN 엔드포인트를 최적화하는 방법에 대한 지침은 [동적 파일의 전송을 가속화하도록 CDN 엔드포인트 구성](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files)을 참조하세요. 그렇지 않으면 새 엔드포인트를 최적화하지 않으려는 경우 다음 섹션의 단계를 수행하여 만들려는 웹앱 포털을 사용할 수 있습니다. **Verizon의 Azure CDN** 프로필의 경우 CDN 엔드포인트를 만든 후에 최적화를 변경할 수 없습니다.
+
 ## <a name="create-a-cdn-profile-and-endpoint"></a>CDN 프로필 및 끝점 만들기
 
 왼쪽 탐색 영역에서 **App Services**를 선택한 다음 [정적 HTML 빠른 시작](../app-service/app-service-web-get-started-html.md)에서 만든 앱을 선택합니다.
@@ -64,9 +67,6 @@ ms.locfileid: "34359784"
 **App Service** 페이지의 **설정** 섹션에서 **네트워킹 > 앱에서 Azure CDN 구성**을 선택합니다.
 
 ![포털에서 CDN 선택](media/cdn-add-to-web-app/portal-select-cdn.png)
-
-### <a name="dynamic-site-acceleration-optimization"></a>동적 사이트 가속 최적화
-DSA(동적 사이트 가속)에 대한 CDN 엔드포인트를 최적화하려는 경우 CDN 포털을 사용하여 엔드포인트를 직접 만듭니다. [DSA(동적 사이트 가속) 최적화](cdn-dynamic-site-acceleration.md)를 사용하여 동적 콘텐츠가 포함된 웹 페이지의 성능이 크게 향상되었습니다. CDN 포털에서 DSA에 대한 CDN 엔드포인트 최적화에 대한 자세한 내용은 [동적 파일의 전송을 가속화하도록 CDN 엔드포인트 구성](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files)을 참조하세요. **Verizon의 Azure CDN** 프로필의 경우 CDN 끝점을 만든 후에 최적화를 변경할 수 없습니다.
 
 **Azure Content Delivery Network** 페이지에서 테이블에 지정된 대로 **새 끝점** 설정을 제공합니다.
 

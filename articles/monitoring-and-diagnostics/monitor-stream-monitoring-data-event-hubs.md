@@ -1,23 +1,19 @@
 ---
-title: Event Hubs로 Azure 모니터링 데이터 스트리밍 | Microsoft Docs
+title: Event Hubs로 Azure 모니터링 데이터 스트리밍
 description: 모든 Azure 모니터링 데이터를 이벤트 허브에 스트리밍하여 파트너 SIEM 또는 분석 도구로 데이터를 가져오는 방법을 알아봅니다.
 author: johnkemnetz
-manager: robb
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/05/2018
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
+ms.date: 7/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 9cc4eb8d8f1494a7ea7a63297751f8e251aedf05
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.component: ''
+ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902992"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -97,7 +93,7 @@ Azure 리소스는 두 가지 유형의 모니터링 데이터를 내보냅니�
 
 1. 저장소 계정에 Application Insights 데이터의 [연속 내보내기를 설정](../application-insights/app-insights-export-telemetry.md)합니다.
 
-2. [Blob 저장소에서 데이터를 가져오고](../connectors/connectors-create-api-azureblobstorage.md#use-an-action) [이를 메시지로 이벤트 허브에 푸시하는](../connectors/connectors-create-api-azure-event-hubs.md#send-events-to-your-event-hub-from-your-logic-app) 타이머 트리거 논리 앱을 설정합니다.
+2. [Blob 저장소에서 데이터를 가져오고](../connectors/connectors-create-api-azureblobstorage.md#add-action) [이를 메시지로 이벤트 허브에 푸시하는](../connectors/connectors-create-api-azure-event-hubs.md#add-action) 타이머 트리거 논리 앱을 설정합니다.
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>내 이벤트 허브로 보내지는 모니터링 데이터를 사용하여 수행할 수 있는 작업은 무엇인가요?
 
@@ -106,7 +102,7 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 * **IBM QRadar** - Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](http://www.ibm.com/support)에서 다운로드할 수 있습니다. [Azure와의 통합에 대해 여기서 자세히 알아볼 수 있습니다](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** - Splunk 설정에 따라 두 가지 접근 방법이 있습니다.
     1. [Splunk용 Azure Monitor 추가 기능](https://splunkbase.splunk.com/app/3534/)은 Splunkbase와 오픈 소스 프로젝트에서 사용할 수 있습니다. [해당 설명서는 여기에 있습니다](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
-    2. Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우), [이벤트 허브의 새 메시지로 트리거되는 이 함수](https://github.com/sebastus/AzureFunctionForSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다.
+    2. Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우(예: 프록시를 사용 중이거나 Splunk Cloud에서 실행 중인 경우), [이벤트 허브의 새 메시지로 트리거되는 이 함수](https://github.com/Microsoft/AzureFunctionforSplunkVS)를 사용하여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다.
 * **SumoLogic** - 이벤트 허브에서 데이터를 사용하도록 SumoLogic을 설정하기 위한 지침은 [여기서 사용할 수 있습니다](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub).
 
 ## <a name="next-steps"></a>다음 단계

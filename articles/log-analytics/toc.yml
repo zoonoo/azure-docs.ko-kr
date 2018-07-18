@@ -33,20 +33,16 @@
           href: log-analytics-oms-portal-transition.md
         - name: 일반적인 질문
           href: log-analytics-oms-portal-faq.md
-    - name: 작업 영역 업그레이드
-      items:
-        - name: 업그레이드 개요
-          href: log-analytics-log-search-upgrade.md
-        - name: 변경 내용 요약
-          href: log-analytics-log-search-upgrade-changes.md
-        - name: 업그레이드 FAQ
-          href: log-analytics-log-search-faq.md
     - name: Log Analytics FAQ
       href: log-analytics-faq.md
+    - name: 데이터 수집 시간
+      href: log-analytics-data-ingestion-time.md
     - name: 데이터 보안
       href: log-analytics-data-security.md
     - name: 액세스 관리
       href: log-analytics-manage-access.md
+    - name: 에이전트 개요
+      href: ../monitoring/monitoring-overview-azure-agents.md
     - name: 하이브리드 환경 모니터링
       href: log-analytics-concept-hybrid.md
     - name: 서비스 공급자의 기능
@@ -175,94 +171,104 @@
           href: log-analytics-agent-linux-support.md
     - name: 솔루션 사용
       items:
-        - name: 솔루션 개요
-          href: log-analytics-add-solutions.md
+        - name: 솔루션 설치
+          href: ../monitoring/monitoring-solutions.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: 솔루션 인벤토리
+          href: ../monitoring/monitoring-solutions-inventory.md?toc=%2fazure%2flog-analytics%2ftoc.json
         - name: 대상 솔루션
           href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Azure 활동 로그
+        - name: 솔루션 가이드
           items:
-            - name: 분석
-              href: log-analytics-activity.md
-            - name: 구독 간 수집
-              href: log-analytics-activity-logs-subscriptions.md
-        - name: AD 평가
-          href: log-analytics-ad-assessment.md
-        - name: AD 복제 상태
-          href: log-analytics-ad-replication-status.md
-        - name: 에이전트 상태
-          href: ../operations-management-suite/oms-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: 경고 관리
-          href: log-analytics-solution-alert-management.md
-        - name: Application Insights 커넥터
-          href: log-analytics-app-insights-connector.md
-        - name: Azure SQL Analytics
-          href: log-analytics-azure-sql.md
-        - name: Azure Web Apps 분석
-          href: log-analytics-azure-web-apps-analytics.md
-        - name: 용량 및 성능
-          href: log-analytics-capacity.md
-        - name: 변경 내용 추적
-          href: log-analytics-change-tracking.md
-        - name: 컨테이너
-          href: log-analytics-containers.md
-        - name: DNS 분석
-          href: log-analytics-dns.md
-        - name: IT Service Management Connector
-          href: log-analytics-itsmc-overview.md
-          items:
-            - name: IT Service Management 연결
-              href: log-analytics-itsmc-connections.md
-        - name: Key Vault
-          href: log-analytics-azure-key-vault.md
-        - name: Logic Apps B2B 메시지
-          items:
-            - name: Logic Apps B2B 메시지 솔루션
-              href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: Logic Apps B2B 사용자 지정 추적 스키마
-              href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: 네트워킹 분석
-          href: log-analytics-azure-networking-analytics.md
-        - name: 네트워크 성능 모니터
-          items:
-            - name: 솔루션 개요
-              href: log-analytics-network-performance-monitor.md
-            - name: 성능 모니터링
-              href: log-analytics-network-performance-monitor-performance-monitor.md
-            - name: 서비스 끝점
-              href: log-analytics-network-performance-monitor-service-endpoint.md
-            - name: ExpressRoute
-              href: log-analytics-network-performance-monitor-expressroute.md
-            - name: 가격
-              href: log-analytics-network-performance-monitor-pricing-faq.md
-        - name: Office 365
-          href: ../operations-management-suite/oms-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SCOM 상태 검사
-          href: log-analytics-scom-assessment.md
-        - name: 보안 감사
-          href: ../security-center/security-center-intro.md
-        - name: Azure PowerShell을 사용한 Service Fabric
-          href: log-analytics-service-fabric.md
-          items:
-            - name: Azure Resource Manager를 사용한 Service Fabric
-              href: log-analytics-service-fabric-azure-resource-manager.md
-        - name: 서비스 맵
-          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: SQL 상태 검사
-          href: log-analytics-sql-assessment.md
-        - name: Surface Hub
-          href: log-analytics-surface-hubs.md
-        - name: 업데이트 관리
-          href: ../operations-management-suite/oms-solution-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: VMware
-          href: log-analytics-vmware.md
-        - name: Windows 분석
-          items:
-            - name: 업데이트 준수
-              href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
-            - name: 업그레이드 준비
-              href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
-        - name: 실시간 데이터
-          href: log-analytics-wire-data.md
+            - name: Azure 활동 로그
+              items:
+                - name: 분석
+                  href: log-analytics-activity.md
+                - name: 구독 간 수집
+                  href: log-analytics-activity-logs-subscriptions.md
+            - name: AD 평가
+              href: log-analytics-ad-assessment.md
+            - name: AD 복제 상태
+              href: log-analytics-ad-replication-status.md
+            - name: 에이전트 상태
+              href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: 경고 관리
+              href: log-analytics-solution-alert-management.md
+            - name: Application Insights 커넥터
+              href: log-analytics-app-insights-connector.md
+            - name: Azure SQL Analytics
+              href: log-analytics-azure-sql.md
+            - name: Azure Web Apps 분석
+              href: log-analytics-azure-web-apps-analytics.md
+            - name: 용량 및 성능
+              href: log-analytics-capacity.md
+            - name: 변경 내용 추적
+              href: log-analytics-change-tracking.md
+            - name: 컨테이너
+              href: log-analytics-containers.md
+            - name: DNS 분석
+              href: log-analytics-dns.md
+            - name: IT Service Management Connector
+              href: log-analytics-itsmc-overview.md
+              items:
+                - name: IT Service Management 연결
+                  href: log-analytics-itsmc-connections.md
+            - name: Key Vault
+              href: log-analytics-azure-key-vault.md
+            - name: Logic Apps B2B 메시지
+              items:
+                - name: Logic Apps B2B 메시지 솔루션
+                  href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Logic Apps B2B 사용자 지정 추적 스키마
+                  href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: 네트워킹 분석
+              href: log-analytics-azure-networking-analytics.md
+            - name: 네트워크 성능 모니터
+              items:
+                - name: 솔루션 개요
+                  href: log-analytics-network-performance-monitor.md
+                - name: 성능 모니터링
+                  href: log-analytics-network-performance-monitor-performance-monitor.md
+                - name: 서비스 끝점
+                  href: log-analytics-network-performance-monitor-service-endpoint.md
+                - name: ExpressRoute
+                  href: log-analytics-network-performance-monitor-expressroute.md
+                - name: 가격
+                  href: log-analytics-network-performance-monitor-pricing-faq.md
+            - name: Office 365
+              href: ../monitoring/monitoring-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: SCOM 상태 검사
+              href: log-analytics-scom-assessment.md
+            - name: 보안 감사
+              href: ../security-center/security-center-intro.md
+            - name: Azure PowerShell을 사용한 Service Fabric
+              href: log-analytics-service-fabric.md
+              items:
+                - name: Azure Resource Manager를 사용한 Service Fabric
+                  href: log-analytics-service-fabric-azure-resource-manager.md
+            - name: 서비스 맵
+              items:
+                - name: 사용
+                  href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: 구성
+                  href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2flog-analytics%2ftoc.json
+                - name: Operations Manager와 통합
+                  href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: SQL 상태 검사
+              href: log-analytics-sql-assessment.md
+            - name: Surface Hub
+              href: log-analytics-surface-hubs.md
+            - name: 업데이트 관리
+              href: ../automation/automation-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
+            - name: VMware
+              href: log-analytics-vmware.md
+            - name: Windows 분석
+              items:
+                - name: 업데이트 준수
+                  href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
+                - name: 업그레이드 준비
+                  href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
+            - name: 실시간 데이터
+              href: log-analytics-wire-data.md
     - name: 개발
       items:
         - name: PowerShell cmdlet

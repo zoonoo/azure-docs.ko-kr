@@ -1,20 +1,20 @@
 ---
-title: "성능 데이터 또는 일정에 따라 Azure 리소스 자동 크기 조정 | Microsoft Docs"
-description: "메트릭 데이터 및 일정을 사용하여 앱 서비스 계획에 대한 자동 크기 조정 설정 만들기"
+title: 성능 데이터 또는 일정에 따라 Azure 리소스 자동 크기 조정
+description: 메트릭 데이터 및 일정을 사용하여 앱 서비스 계획에 대한 자동 크기 조정 설정 만들기
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: f956a9436126c2a46d80b20770d7d86309e5b3af
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: autoscale
+ms.openlocfilehash: b63e1fa316e9ebeaa564731b8bb0bc3ed5ba9036
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264064"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>성능 데이터 또는 일정에 따라 Azure 리소스에 대한 자동 크기 조정 설정 만들기
 

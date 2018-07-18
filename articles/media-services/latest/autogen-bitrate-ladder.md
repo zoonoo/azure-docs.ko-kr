@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 5d13c711d7d71df7469e6408ce78cf0df611632b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6e447c04f4a94f2fb534ecb0605595a90816431e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34638299"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>자동 생성된 비트 전송률 사다리로 인코딩
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/07/2018
 
 ### <a name="encoding-for-streaming"></a>스트리밍용 인코딩
 
-이름에서 알 수 있듯이 인코딩 변환을 만들 때 **AdaptiveStreaming** 사전 설정을 사용하면 HLS, DASH, CMAF 등과 같은 스트리밍 프로토콜을 통한 전달에 적합한 출력을 얻을 수 있습니다. 이 **AdaptiveStreaming** 사전 설정을 사용할 때 인코더는 생성할 비디오 레이어 수와 비트 전송률 및 해상도를 지능적으로 결정합니다. 출력 자산에는 AAC 인코딩 오디오 및 H.264 인코딩 비디오가 인터리빙되지 않은 MP4 파일이 포함됩니다.
+**변환**에서 **AdaptiveStreaming** 사전 설정을 사용하면 HLS 및 DASH와 같은 스트리밍 프로토콜을 통한 전달에 적합한 출력을 얻을 수 있습니다. 이 사전 설정을 사용할 때 서비스는 생성할 비디오 레이어 수와 비트 전송률 및 해상도를 지능적으로 결정합니다. 출력 콘텐츠에는 AAC 인코딩 오디오 및 H.264 인코딩 비디오가 인터리빙되지 않은 MP4 파일이 포함됩니다.
 
 이 사전 설정이 사용된 예를 보려면 [파일 스트리밍](stream-files-dotnet-quickstart.md)을 참조하세요.
 

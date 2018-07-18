@@ -1,23 +1,21 @@
 ---
 title: Azure IoT Hub 빠른 시작(Node.js)에서 장치 제어 | Microsoft Docs
 description: 이 빠른 시작에서 두 개의 샘플 Node.js 응용 프로그램을 실행합니다. 하나의 응용 프로그램은 허브에 연결된 장치를 원격으로 제어할 수 있는 백 엔드 응용 프로그램입니다. 또 다른 응용 프로그램은 원격으로 제어할 수 있는 허브에 연결된 장치를 시뮬레이션 합니다.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
-ms.devlang: node
+services: iot-hub
+ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/19/2018
 ms.author: dobett
-ms.openlocfilehash: a3f60409d6b337ef314963d2116e71f156d6dafd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8d771fb17019e39da93995d0244c8089ea4a08b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235595"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>빠른 시작: IoT 허브(Node.js)에 연결된 장치 제어
 
@@ -64,8 +62,10 @@ node --version
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
-    az iot hub device-identity create --hub-name {YourIoTHubName}--device-id MyNodeDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
+
+    장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
 1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 
@@ -87,7 +87,7 @@ node --version
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석을 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 장치에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 장치는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
 
-1. 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\simulated-device-2** 폴더로 이동합니다.
+1. 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device-2** 폴더로 이동합니다.
 
 1. 원하는 텍스트 편집기에서 **SimulatedDevice.js** 파일을 엽니다.
 
@@ -108,7 +108,7 @@ node --version
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 응용 프로그램은 IoT 허브를 통해 장치에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행됩니다.
 
-1. 또 다른 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\back-end-application** 폴더로 이동합니다.
+1. 또 다른 터미널 창에서 샘플 Node.js 프로젝트의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
 1. 원하는 텍스트 편집기에서 **BackEndApplication.js** 파일을 엽니다.
 
@@ -131,9 +131,8 @@ node --version
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서로 진행하려는 경우 나중에 다시 사용하기 위해 리소스 그룹과 IoT 허브를 그대로 둡니다.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
-더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT Hub가 포함된 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -142,4 +141,4 @@ node --version
 장치-클라우드 메시지를 클라우드의 다른 대상으로 라우팅하는 방법을 알아보려면 다음 자습서로 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 처리를 위해 다른 엔드포인트로 원격 분석 라우팅](iot-hub-node-node-process-d2c.md)
+> [자습서: 처리를 위해 다른 엔드포인트로 원격 분석 라우팅](tutorial-routing.md)

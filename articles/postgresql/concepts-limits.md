@@ -8,41 +8,33 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 7e06cdba7c9c9f7e5c1d621e7421a18c342c0fdb
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/04/2018
+ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757419"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
 
-## <a name="pricing-tier-maximums"></a>가격 책정 계층 최댓값
-Azure Database for PostgreSQL에는 서버를 만들 때 선택할 수 있는 가격 책정 계층이 여러 개 있습니다. 자세한 내용은 [Azure Database for PostgreSQL의 가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.  
+## <a name="maximum-connections"></a>최대 연결 수
+가격 책정 계층 및 vCores당 최대 연결 수는 다음과 같습니다. 
 
-각 가격 책정 계층에는 다음과 같은 최대 연결 수, 계산 단위 및 저장소가 있습니다. 
-
-|가격 책정 계층| 계산 세대| vCore| 최대 연결 수 |
-|---|---|---|---|
-|Basic| 4세대| 1| 50 |
-|Basic| 4세대| 2| 100 |
-|Basic| 5세대| 1| 50 |
-|Basic| 5세대| 2| 100 |
-|범용| 4세대| 2| 150|
-|범용| 4세대| 4| 250|
-|범용| 4세대| 8| 480|
-|범용| 4세대| 16| 950|
-|범용| 4세대| 32| 1500|
-|범용| 5세대| 2| 150|
-|범용| 5세대| 4| 250|
-|범용| 5세대| 8| 480|
-|범용| 5세대| 16| 950|
-|범용| 5세대| 32| 1500|
-|메모리 최적화| 5세대| 2| 150|
-|메모리 최적화| 5세대| 4| 250|
-|메모리 최적화| 5세대| 8| 480|
-|메모리 최적화| 5세대| 16| 950|
+|**가격 책정 계층**| **vCore**| **최대 연결** |
+|---|---|---|
+|Basic| 1| 50 |
+|Basic| 2| 100 |
+|범용| 2| 150|
+|범용| 4| 250|
+|범용| 8| 480|
+|범용| 16| 950|
+|범용| 32| 1500|
+|메모리 최적화| 2| 150|
+|메모리 최적화| 4| 250|
+|메모리 최적화| 8| 480|
+|메모리 최적화| 16| 950|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.

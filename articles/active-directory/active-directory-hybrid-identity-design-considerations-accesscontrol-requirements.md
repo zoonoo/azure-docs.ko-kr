@@ -1,25 +1,27 @@
 ---
-title: "Azure의 하이브리드 ID 디자인 액세스 제어 요구 사항 | Microsoft Docs"
-description: "하이브리드 환경에서 ID의 기본 요소 및 사용자의 리소스에 대한 액세스 요구 사항 식별에 대해 설명합니다."
-documentationcenter: 
+title: Azure의 하이브리드 ID 디자인 액세스 제어 요구 사항 | Microsoft Docs
+description: 하이브리드 환경에서 ID의 기본 요소 및 사용자의 리소스에 대한 액세스 요구 사항 식별에 대해 설명합니다.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 161820e69b0c9d0dc376a62cecceb9cc5e83c8ce
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 3a61e7ab4c738f6cba17bcc74c3bfd335378ab83
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801221"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 액세스 제어 요구 사항 확인
 또한 조직이 해당 하이브리드 ID 솔루션을 설계하는 경우 사용자는 이 기회를 사용하여 사용자가 사용할 수 있게 하려는 리소스에 대한 액세스 요구 사항을 검토할 수 있습니다. ID의 네 가지 기본 요소에 대한 데이터 액세스는 다음과 같습니다.
@@ -41,7 +43,7 @@ ms.lasthandoff: 01/18/2018
 
 * 조직이 해당 ID 관리 시스템에 있는 사용자만 인증하고 권한을 부여합니까?
   * B2B 시나리오에 대한 계획이 있습니까?
-  * 있다면 어떤 프로토콜(SAML, OAuth, Kerberos, 토큰 또는 인증서)이 양쪽 비즈니스를 연결하는 데 사용할 수 있는지 알고 계십니까?
+  * 있다면 어떤 프로토콜(SAML, OAuth, Kerberos 또는 인증서)이 양쪽 비즈니스를 연결하는 데 사용할 수 있는지 알고 계십니까?
 * 채택하려는 하이브리드 ID 솔루션이 해당 프로토콜을 지원합니까?
 
 고려해야 할 다른 중요한 사항은 사용자 및 파트너가 사용할 인증 리포지토리가 배치될 위치 및 사용할 관리 모델입니다. 다음 두 가지 핵심 옵션을 고려합니다.

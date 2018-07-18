@@ -1,8 +1,8 @@
 ---
-title: "Azure App Service의 운영 체제 기능"
-description: "Azure App Service에서 웹앱, 모바일 앱 백 엔드, API 앱에 사용할 수 있는 OS 기능에 대해 알아봅니다."
+title: Azure App Service의 운영 체제 기능
+description: Azure App Service에서 웹앱, 모바일 앱 백 엔드, API 앱에 사용할 수 있는 OS 기능에 대해 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 6b5939341ad05fb8f80415c5335c24d216fc2555
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850157"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
@@ -49,7 +50,13 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>로컬 드라이브
-근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 여기에는 운영 체제 드라이브(D:\ 드라이브), App Service에서만 사용되며 고객에게는 액세스 권한이 없는 Azure 패키지 cspkg 파일이 포함된 응용 프로그램 드라이브, VM 크기에 따라 크기가 다양한 "사용자" 드라이브(C:\ 드라이브) 등이 포함됩니다. 응용 프로그램이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 응용 프로그램에 부정적인 영향을 줄 수 있습니다.
+근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 다음 내용이 포함됩니다.
+
+- 운영 체제 드라이브(D:\ 드라이브)
+- App Service에서 단독으로 사용하며 고객이 액세스할 수 없는 Azure 패키지 cspkg 파일을 포함하는 응용 프로그램 드라이브
+- VM의 크기에 따라 크기가 달라지는 "user" 드라이브(C:\ 드라이브) 
+
+응용 프로그램이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 응용 프로그램에 부정적인 영향을 줄 수 있습니다.
 
 <a id="NetworkDrives"></a>
 
@@ -58,7 +65,7 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 
 App Service 내에는 각 데이터 센터에서 만들어진 다수의 UNC 공유가 있습니다. 각 데이터 센터에서 모든 고객의 사용자 콘텐츠가 차지하는 비율이 각 UNC 공유에 할당됩니다. 뿐만 아니라 단일 고객의 구독에 대한 모든 파일 콘텐츠는 항상 동일한 UNC 공유에 보관됩니다. 
 
-클라우드 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하는 특정 가상 머신은 시간이 지남에 따라 변경됩니다. 가상 머신은 일반적인 클라우드 작동 과정에서 채택되거나 채택되지 않으면서, UNC 공유는 다양한 가상 머신에 탑재될 것이 확실합니다. 이 때문에 앱은 UNC 파일 경로의 컴퓨터 정보가 시간이 지남에 따라 안정성을 유지할 것으로 강력하게 가정해서는 안 됩니다. 대신, App Service가 제공하는 간편한 *faux* 절대 경로인 **D:\home\site**를 사용해야 합니다. 이 가짜 절대 경로를 사용하면 앱 및 사용자를 알 수 없는 이동식 방법으로 고유 앱을 참조할 수 있습니다. **D:\home\site**를 사용하여 전송별로 새로운 절대 경로를 구성하지 않고 앱 간에 공유 파일을 전송할 수 있습니다.
+Azure 서비스가 작동하는 방식으로 인해 UNC 공유를 호스트하는 특정 가상 머신은 시간이 지남에 따라 변경됩니다. 가상 머신은 일반적인 Azure 작동 과정에서 채택되거나 채택되지 않으면서, UNC 공유는 다양한 가상 머신에 탑재될 것이 확실합니다. 이 때문에 앱은 UNC 파일 경로의 컴퓨터 정보가 시간이 지남에 따라 안정성을 유지할 것으로 강력하게 가정해서는 안 됩니다. 대신, App Service가 제공하는 간편한 *faux* 절대 경로인 **D:\home\site**를 사용해야 합니다. 이 가짜 절대 경로를 사용하면 앱 및 사용자를 알 수 없는 이동식 방법으로 고유 앱을 참조할 수 있습니다. **D:\home\site**를 사용하여 전송별로 새로운 절대 경로를 구성하지 않고 앱 간에 공유 파일을 전송할 수 있습니다.
 
 <a id="TypesOfFileAccess"></a>
 
@@ -81,7 +88,7 @@ App Service의 각 앱은 "응용 프로그램 풀 ID"라는 권한이 낮은 �
 ## <a name="network-access"></a>네트워크 액세스
 응용 프로그램 코드는 외부 서비스를 노출하는 인터넷 액세스 끝점에 아웃바운드 네트워크를 연결하는 데 TCP/IP 및 UDP 기반 프로토콜을 사용할 수 있습니다. 앱은 이 동일한 프로토콜을 사용하여 Azure 내의 서비스에 연결할 수 있습니다.&#151;예를 들어 SQL Database에 대한 HTTPS 연결을 설정하면 됩니다.
 
-앱이 하나의 로컬 루프백 연결을 설정하고 앱이 해당 로컬 루프백 소켓을 수신 대기하도록 만드는 제한된 기능도 있습니다. 이 기능은 주로 기능의 일부로 로컬 루프백 소켓을 수신 대기하는 앱을 사용하도록 설정하기 위한 것입니다. 각 앱에서 "비공개" 루프백 연결이 확인됩니다. 즉, 앱 "A"가 앱 "B"에서 설정한 로컬 루프백 소켓을 수신 대기할 수 없습니다.
+앱이 하나의 로컬 루프백 연결을 설정하고 앱이 해당 로컬 루프백 소켓을 수신 대기하도록 만드는 제한된 기능도 있습니다. 이 기능은 주로 기능의 일부로 로컬 루프백 소켓을 수신 대기하는 앱을 사용하도록 설정하기 위한 것입니다. 각 앱에서 "비공개" 루프백 연결을 볼 수 있습니다 앱 "A"는 앱 "B"가 설정한 로컬 루프백 소켓을 수신할 수 없습니다.
 
 전체적으로 앱을 실행하는 다양한 프로세스 사이의 IPC(프로세스 간 통신) 메커니즘으로 명명된 파이프도 지원됩니다. 예를 들어 IIS FastCGI 모듈은 PHP 페이지를 실행하는 개별 프로세스를 조정하는 데 명명된 파이프를 사용합니다.
 

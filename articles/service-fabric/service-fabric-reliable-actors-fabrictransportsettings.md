@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 5ba13aeb63a72b738aac435b63ebbcfd4eeb7fa9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f196859500d5de883a4de3f21b803c8f83e2f0b2
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213217"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021415"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Reliable Actors에 대한 FabricTransport 설정 구성
 
@@ -51,6 +51,10 @@ https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fa
 ## <a name="config-package"></a>구성 패키지
 
 [구성 패키지](service-fabric-application-and-service-manifests.md)를 사용하여 기본 구성을 수정할 수 있습니다.
+
+> [!IMPORTANT]
+> Linux 노드에서 인증서는 PEM 형식이어야 합니다. Linux에서 인증서 찾기 및 구성에 대해 자세히 알아보려면 [Linux에서 인증서 구성](./service-fabric-configure-certificates-linux.md)을 참조하세요. 
+> 
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>행위자 서비스에 대한 FabricTransport 설정 구성
 

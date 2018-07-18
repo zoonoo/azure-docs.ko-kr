@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7254e9336fca14daee2021d5bde4c5538509fe35
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 81478ace72a538f4970e114cd704fd64ceb94aa6
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842325"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344899"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -39,7 +39,7 @@ ms.locfileid: "30842325"
 
 원하는 경우 [Azure CLI](tutorial-create-route-table-cli.md) 또는 [Azure PowerShell](tutorial-create-route-table-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
@@ -53,8 +53,8 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|myRouteTablePublic|
-    |구독| 사용 중인 구독을 선택합니다.|
+    |이름|myRouteTablePublic|
+    |구독| 구독을 선택합니다.|
     |리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
     |위치|미국 동부|
  
@@ -81,14 +81,14 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 서브넷에 경로 테이블을 연결하려면 먼저 가상 네트워크 및 서브넷을 만들어야 합니다. 그 후 서브넷에 경로 테이블을 연결할 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
-2. **네트워킹**을 선택한 다음 **가상 네트워크**를 선택합니다.
+2. **네트워킹**을 선택한 다음, **가상 네트워크**를 선택합니다.
 3. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVirtualNetwork|
+    |이름|myVirtualNetwork|
     |주소 공간| 10.0.0.0/16|
-    |구독 | 사용 중인 구독을 선택합니다.|
+    |구독 | 구독을 선택합니다.|
     |리소스 그룹|**기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다.|
     |위치|*미국 동부*를 선택합니다.|
     |서브넷 이름|공용|
@@ -103,14 +103,14 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|개인|
+    |이름|개인|
     |주소 공간| 10.0.1.0/24|
 
 7. 다음 정보를 입력하여 5단계와 6단계를 다시 완료합니다.
 
     |설정|값|
     |---|---|
-    |Name|DMZ|
+    |이름|DMZ|
     |주소 공간| 10.0.2.0/24|
 
 8. 이전 단계를 완료하면 **myVirtualNetwork - 서브넷** 상자가 표시됩니다. **설정**에서 **서브넷**을 선택한 다음, **공용**을 선택합니다.
@@ -128,7 +128,7 @@ NVA는 라우팅, 방화벽 또는 WAN 최적화와 같은 네트워크 기능�
 
     |설정|값|
     |---|---|
-    |Name|myVmNva|
+    |이름|myVmNva|
     |사용자 이름|선택한 사용자 이름을 입력합니다.|
     |암호|선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |리소스 그룹| **기존 항목 사용**을 선택한 다음, *myResourceGroup*을 선택합니다.|

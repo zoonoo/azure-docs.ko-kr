@@ -16,21 +16,22 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: 2b0f463c009d13440f6d3eb2bbbe2315ba7b13f2
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895327"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "34656444"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 가상 머신 확장 집합에 대한 FAQ
 
 Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>확장 집합에 대한 상위 질문과 대답
+
 **Q.** 크기 집합에 포함할 수 있는 VM 수는 몇 개인가요?
 
-**A.** 확장 집합에는 플랫폼 이미지 기준으로 0~1,000대의 VM, 사용자 지정 이미지 기준으로 0~300대의 VM을 포함시킬 수 있습니다. 
+**A.** 확장 집합에는 플랫폼 이미지 기준으로 0~1,000대의 VM, 사용자 지정 이미지 기준으로 0~300대의 VM을 포함시킬 수 있습니다.
 
 **Q.** 크기 집합 내에서 데이터 디스크가 지원되나요?
 
@@ -48,7 +49,7 @@ Azure의 가상 머신 확장 집합에 대한 FAQ(질문과 대답)에 대해 �
 
 **Q.** 사용자 지정 이미지를 사용하여 크기 집합을 어떻게 만드나요?
 
-**A.** 사용자 지정 이미지 VHD를 기반으로 Managed Disk를 만들고 크기 집합 템플릿에서 참조합니다. [예를 들면 다음과 같습니다](https://github.com/chagarw/MDPP/tree/master/101-vmss-custom-os).
+**A.** VM 이미지를 만들고 캡처한 다음, 확장 집합에 대한 원본으로 사용합니다. 사용자 지정 VM 이미지를 만들고 사용하는 방법에 대한 자습서의 경우 [Azure CLI 2.0](tutorial-use-custom-image-cli.md) 또는 [Azure PowerShell](tutorial-use-custom-image-powershell.md)을 사용할 수 있습니다.
 
 **Q.** 내 크기 집합 용량을 20에서 15로 줄이면, 어떤 VM이 제거되나요?
 
@@ -120,7 +121,7 @@ VM에 자동 크기 조정 설정을 만들면 호스트 수준 메트릭 또는
 
 PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭에 대해 경고를 만들 수 있습니다. 자세한 내용은 [Azure Monitor PowerShell 빠른 시작 샘플](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) 및 [Azure Monitor 플랫폼 간 CLI 빠른 시작 샘플](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts)을 참조하세요.
 
-가상 머신 확장 집합의 TargetResourceId는 다음과 같습니다. 
+가상 머신 확장 집합의 TargetResourceId는 다음과 같습니다.
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
@@ -128,8 +129,12 @@ PowerShell 또는 Azure CLI를 통해 가상 머신 확장 집합의 메트릭�
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 어떻게 하나요?
 
-PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 [Azure Virtual Machine Scale Set에 자동 크기 조정을 추가하는 방법](https://msftstack.wordpress.com/2017/03/05/how-to-add-autoscale-to-an-azure-vm-scale-set/) 블로그 게시물을 참조하세요.
+PowerShell을 사용하여 가상 머신 확장 집합에 대해 자동 크기 조정을 설정하려면 [가상 머신 확장 집합의 크기를 자동으로 조정](tutorial-autoscale-powershell.md)을 참조하세요. [Azure CLI 2.0](tutorial-autoscale-cli.md) 및 [Azure 템플릿](tutorial-autoscale-template.md)으로 자동 크기 조정을 구성할 수도 있습니다.
 
+
+### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>VM을 중지(할당 취소)한 경우 VM이 자동 크기 조정 작업의 일부로 시작되었나요?
+
+아니요. 자동 크기 조정 규칙에 확장 집합의 일부로 추가 VM 인스턴스가 필요한 경우 새 VM 인스턴스가 생성됩니다. 중지(할당 취소)된 VM 인스턴스는 자동 크기 조정 이벤트의 일부로 시작되지 않습니다. 그러나 중지(할당 취소)된 VM은 VM 인스턴스 ID의 순서에 따라 모든 VM 인스턴스를 삭제할 수 있는 것과 같은 방식으로, 인스턴스 수에 따라 자동 크기 조정 이벤트의 일부로 삭제할 수 있습니다.
 
 
 

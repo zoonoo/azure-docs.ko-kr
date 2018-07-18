@@ -1,23 +1,21 @@
 ---
 title: Azure IoT Hub에서 장치 제어 빠른 시작(Java) | Microsoft Docs
 description: 이 빠른 시작에서는 두 개의 Java 응용 프로그램 샘플을 실행합니다. 하나의 응용 프로그램은 허브에 연결된 장치를 원격으로 제어할 수 있는 백 엔드 응용 프로그램입니다. 또 다른 응용 프로그램은 원격으로 제어할 수 있는 허브에 연결된 장치를 시뮬레이션 합니다.
-services: iot-hub
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.tgt_pltfrm: na
-ms.workload: ns
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: dobett
-ms.openlocfilehash: 6dcbf954fdfd6f5b6f65b54edf33e9da234c7d0f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 5da4248f0b0a72c3614b4c3e5ea042c4341f4e03
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38573503"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>빠른 시작: IoT 허브에 연결된 장치 제어(Java)
 
@@ -77,7 +75,7 @@ mvn --version
 
     장치에 다른 이름을 선택하는 경우 샘플 응용 프로그램에서 실행하기 전에 장치 이름을 업데이트합니다.
 
-1. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
+2. 방금 등록한 장치의 _장치 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -99,19 +97,19 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 시뮬레이션된 장치 응용 프로그램은 IoT 허브의 장치별 엔드포인트에 연결하고, 시뮬레이션된 원격 분석을 전송하고, 허브에서 직접 메서드 호출을 수신 대기합니다. 이 빠른 시작에서 허브의 직접 메서드 호출은 장치에 원격 분석을 보내는 간격을 변경하도록 지시합니다. 시뮬레이션된 장치는 직접 메서드를 실행한 후 승인을 다시 허브로 보냅니다.
 
-1. 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\simulated-device-2** 폴더로 이동합니다.
+1. 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\simulated-device-2** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** 파일을 엽니다.
 
     `connString` 변수의 값을 이전에 적어둔 장치 연결 문자열로 바꿉니다. 그런 다음 변경 내용을 **SimulatedDevice.java** 파일에 저장합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고, 시뮬레이션된 장치 응용 프로그램을 빌드합니다.
+3. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고, 시뮬레이션된 장치 응용 프로그램을 빌드합니다.
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 실행합니다.
+4. 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 장치 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     java -jar target/simulated-device-2-1.0.0-with-deps.jar
@@ -125,19 +123,19 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 백 엔드 응용 프로그램은 IoT Hub의 서비스 측 엔드포인트에 연결합니다. 응용 프로그램은 IoT 허브를 통해 장치에 직접 메서드 호출을 하고 승인을 수신 대기합니다. IoT Hub 백 엔드 응용 프로그램은 일반적으로 클라우드에서 실행됩니다.
 
-1. 다른 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음 **Quickstarts\back-end-application** 폴더로 이동합니다.
+1. 다른 터미널 창에서 Java 프로젝트 샘플의 루트 폴더로 이동합니다. 그런 다음, **iot-hub\Quickstarts\back-end-application** 폴더로 이동합니다.
 
-1. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** 파일을 엽니다.
+2. 원하는 텍스트 편집기에서 **src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java** 파일을 엽니다.
 
     `iotHubConnectionString` 변수의 값을 이전에 적어둔 서비스 연결 문자열로 바꿉니다. 그런 다음, 변경 내용을 **BackEndApplication.java** 파일에 저장합니다.
 
-1. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고, 백 엔드 응용 프로그램을 빌드합니다.
+3. 터미널 창에서 다음 명령을 실행하여 필요한 라이브러리를 설치하고, 백 엔드 응용 프로그램을 빌드합니다.
 
     ```cmd/sh
     mvn clean package
     ```
 
-1. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 실행합니다.
+4. 터미널 창에서 다음 명령을 실행하여 백 엔드 응용 프로그램을 실행합니다.
 
     ```cmd/sh
     java -jar target/back-end-application-1.0.0-with-deps.jar
@@ -153,9 +151,7 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 자습서로 진행하려는 경우 나중에 다시 사용하기 위해 리소스 그룹과 IoT 허브를 그대로 둡니다.
-
-더 이상 IoT Hub가 필요하지 않으면 포털에서 IoT Hub와 리소스 그룹을 삭제합니다. 이렇게 하려면 IoT Hub가 포함된 리소스 그룹을 선택하고 **삭제**를 클릭합니다.
+[!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -164,4 +160,4 @@ az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
 장치-클라우드 메시지를 클라우드의 다른 대상으로 라우팅하는 방법을 알아보려면 다음 자습서로 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [자습서: 처리를 위해 다른 엔드포인트로 원격 분석 라우팅](iot-hub-java-java-process-d2c.md)
+> [자습서: 처리를 위해 다른 엔드포인트로 원격 분석 라우팅](tutorial-routing.md)

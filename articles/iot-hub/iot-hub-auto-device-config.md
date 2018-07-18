@@ -1,24 +1,23 @@
 ---
 title: Azure IoT Hub로 크기 조정 시 IoT 장치 구성 및 모니터링 | Microsoft Docs
 description: Azure IoT Hub 자동 장치 구성을 사용하여 여러 장치에 구성을 할당합니다
-services: iot-hub
-documentationcenter: ''
 author: ChrisGMsft
-manager: timlt
-editor: ''
+manager: bruz
 ms.service: iot-hub
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 7146fba69857c3a612ce1b3dbb83387c1f3068d6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030770"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale---preview"></a>크기 조정 시 IoT 장치 구성 및 모니터링 - 미리 보기
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT 장치 구성 및 모니터링
+
+[!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
 Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대규모 장치를 관리하는 반복적이고 복잡한 작업을 자동화합니다. 자동 장치 관리를 사용하여 해당 속성을 기반으로 장치 집합을 대상으로 지정하고, 원하는 구성을 정의하고, 범위에 나올 때마다 IoT Hub에서 장치를 업데이트하도록 할 수 있습니다.  이는 완료 및 규정 준수를 요약하고, 병합 및 충돌을 처리하고, 단계별 방식으로 구성을 롤아웃할 수 있는 자동 장치 구성을 사용하여 수행됩니다.
 
@@ -52,7 +51,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 ## <a name="create-a-configuration"></a>구성 만들기
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다.
+1. **IoT 장치 구성**을 선택합니다.
 1. **구성 추가**를 선택합니다.
 
 구성을 만드는 데에는 5단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다. 
@@ -86,7 +85,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 
 예: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
 
-구성이 적용된 절을 포함할 수 있습니다(예: `SELECT deviceId FROM devices WHERE configurations.yourconfigname.status='Applied'`).
+구성이 적용된 절을 포함할 수 있습니다(예: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'`, 이중 괄호 포함).
 
 
 ### <a name="step-4-target-devices"></a>4단계: 대상 장치
@@ -96,7 +95,7 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 여러 구성에서 동일한 장치를 대상으로 지정할 수 있으므로 각 구성에 우선 순위 번호를 부여해야 합니다. 충돌하는 경우 우선 순위가 가장 높은 구성이 먼저 적용됩니다. 
 
 1. 구성 **우선 순위**에 대해 양의 정수를 입력합니다. 가장 높은 숫자 값이 우선 순위가 가장 높은 것으로 간주됩니다. 두 구성의 우선 순위 번호가 동일한 경우 가장 최근에 만든 구성이 먼저 적용됩니다. 
-1. **대상 조건**을 입력하여 이 구성의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.chillerProperties.model='4000x'`과 같습니다. 
+1. **대상 조건**을 입력하여 이 구성의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.chillerProperties.model='4000x'`과 같습니다. 모든 장치를 대상으로 지정하도록 `*`를 지정할 수 있습니다.
 1. **다음**을 선택하여 최종 단계로 이동합니다.
 
 ### <a name="step-5-review-configuration"></a>5단계: 구성 검토
@@ -108,8 +107,8 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 구성의 세부 정보를 확인하고 이를 실행하는 장치를 모니터링하려면 다음 단계를 사용합니다.
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다.
-1. 구성 목록을 검사합니다. 각 구성의 경우 다음 세부 정보를 볼 수 있습니다.
+1. **IoT 장치 구성**을 선택합니다.
+2. 구성 목록을 검사합니다. 각 구성의 경우 다음 세부 정보를 볼 수 있습니다.
    * **ID** - 구성의 이름입니다.
    * **대상 조건** - 대상으로 지정된 장치를 정의하는 데 사용되는 태그입니다.
    * **우선 순위** - 구성에 할당된 우선 순위 번호입니다.
@@ -136,25 +135,25 @@ Azure IoT Hub에서 자동 장치 관리는 전체 수명 주기를 통해 대�
 구성을 수정하려면 다음 단계를 사용합니다. 
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다. 
-1. 수정하려는 구성을 선택합니다. 
-1. 다음 필드를 업데이트합니다. 
+1. **IoT 장치 구성**을 선택합니다. 
+2. 수정하려는 구성을 선택합니다. 
+3. 다음 필드를 업데이트합니다. 
    * 대상 조건 
    * 레이블 
    * 우선 순위 
    * 메트릭
-1. **저장**을 선택합니다.
-1. [구성 모니터링][anchor-monitor]의 단계에 따라 변경 내용이 롤아웃되는지 확인합니다. 
+4. **저장**을 선택합니다.
+5. [구성 모니터링][anchor-monitor]의 단계에 따라 변경 내용이 롤아웃되는지 확인합니다. 
 
 ## <a name="delete-a-configuration"></a>구성 삭제
 
 구성을 삭제하면 모든 장치 쌍은 다음으로 가장 높은 우선 순위 구성을 적용합니다. 장치 쌍이 다른 구성의 대상 조건을 충족하지 않는 경우에는 다른 설정이 적용됩니다. 
 
 1. [Azure Portal][lnk-portal]에서 IoT Hub로 이동합니다. 
-1. **장치 구성(미리 보기)** 을 선택합니다. 
-1. 확인란을 사용하여 삭제하려는 구성을 선택합니다. 
-1. **삭제**를 선택합니다.
-1. 메시지에서 확인을 요청합니다.
+1. **IoT 장치 구성**을 선택합니다. 
+2. 확인란을 사용하여 삭제하려는 구성을 선택합니다. 
+3. **삭제**를 선택합니다.
+4. 메시지에서 확인을 요청합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 IoT 장치를 크기 조정 시 구성 및 모니터링하는 방법에 대해 알아보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 알아보려면 다음 링크를 따라가세요.

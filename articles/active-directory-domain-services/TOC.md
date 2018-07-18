@@ -27,7 +27,7 @@
 ### [템플릿의 Windows Server VM](active-directory-ds-join-windows-vm-template.md)
 ### [CentOS](active-directory-ds-join-centos-linux-vm.md)
 ### [CoreOS](active-directory-ds-join-coreos-linux-vm.md)
-### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Red Hat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
 ### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## 관리되는 도메인 관리
 ### [관리되는 도메인 관리](active-directory-ds-admin-guide-administer-domain.md)
@@ -38,6 +38,7 @@
 #### [작업 3: Azure Portal을 사용하여 관리되는 도메인에 대해 보안 LDAP를 사용하도록 설정](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
 
 ### [관리되는 도메인에 OU 만들기](active-directory-ds-admin-guide-create-ou.md)
+### [관리되는 도메인에 그룹 관리 서비스 계정 만들기](active-directory-ds-create-gmsa.md)
 ### [관리되는 도메인에서 그룹 정책 관리](active-directory-ds-admin-guide-administer-group-policy.md)
 ## [가상 네트워크 선택](active-directory-ds-networking.md)
 ## 응용 프로그램 배포
@@ -53,6 +54,7 @@
 #### [누락된 서비스 주체 복원](active-directory-ds-troubleshoot-service-principals.md)
 #### [보안 LDAP 오류](active-directory-ds-troubleshoot-ldaps.md)
 ### [일치하지 않는 테넌트 오류 해결](active-directory-ds-mismatched-tenant-error.md)
+### [일시 중단된 도메인](active-directory-ds-suspension.md)
 
 
 # 참고 자료

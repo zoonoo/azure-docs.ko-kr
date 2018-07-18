@@ -25,7 +25,7 @@ ms.locfileid: "34600632"
 
 두 소비 모델 모두에서 일부 매개 변수를 명시적으로 지정하려면 다른 매개 변수도 똑같이 지정해야 합니다. 이러한 종속성은 다음과 같습니다.
 
-* 모든 매개 변수에서 **constantSpeedConsumption**은 사용자가 지정해야 합니다. **constantSpeedConsumption***이 지정되지 않은 경우에 **vehicleWeight**의 예외와 함께 다른 소비 모델 매개 변수를 지정하면 오류가 발생합니다.
+* 모든 매개 변수에서 **constantSpeedConsumption**은 사용자가 지정해야 합니다. **constantSpeedConsumption**\*이 지정되지 않은 경우에 **vehicleWeight**의 예외와 함께 다른 소비 모델 매개 변수를 지정하면 오류가 발생합니다.
 * **accelerationEfficiency** 및 **decelerationEfficiency**는 항상 쌍으로 지정해야 합니다(즉, 둘 다 또는 없음).
 * **accelerationEfficiency** 및 **decelerationEfficiency**가 지정된 경우 해당 값은 1 이하여야 합니다(영구적 동작을 방지하기 위해).
 * **uphillEfficiency** 및 **downhillEfficiency**는 항상 쌍으로 지정해야 합니다(즉, 둘 다 또는 없음).

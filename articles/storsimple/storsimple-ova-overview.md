@@ -12,13 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 03/28/2018
+ms.date: 05/21/2018
 ms.author: alkohli
-ms.openlocfilehash: db06614ebd7dee4b0a320737ea8f575b3a3be70f
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34651208"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
 
@@ -39,7 +40,7 @@ Microsoft Azure StorSimple 가상 배열은 하이퍼바이저 및 Microsoft Azu
 | 기능 | StorSimple 가상 배열 |
 | --- | --- |
 | 설치 요구 사항 |가상화 인프라(Hyper-V 또는 VMware)  사용 |
-| Availability |단일 노드 |
+| 가용성 |단일 노드 |
 | 총 용량(클라우드 포함) |가상 배열당 사용 가능 용량 최대 64TB |
 | 로컬 용량 |가상 배열당 사용 가능 용량 390GB~6.4TB(500GB~8TB의 디스크 공간을 프로비전해야 함) |
 | 네이티브 프로토콜 |iSCSI 또는 SMB |
@@ -206,10 +207,9 @@ StorSimple은 중복 제거 및 데이터 압축을 사용하여 클라우드의
 
 StorSimple 데이터 보호 기능을 통해 주문형 백업을 만들 수 있습니다. 또한, 기본 백업 일정은 매일 데이터가 백업되도록 보장합니다. Backup은 증분 스냅숏의 형태로 생성되고 클라우드에 저장됩니다. 스냅숏은 마지막 백업 이후의 변경 사항만을 기록하기 때문에 신속한 생성과 복원이 가능합니다. 이러한 스냅숏은 보조 저장소 시스템(예: 테이프 백업)을 대체하기 때문에 재해 복구 시나리오에서 매우 중요할 수 있으며, 필요한 경우 데이터 센터 또는 대체 사이트에 데이터를 복원할 수 있게 해줍니다.
 
-## <a name="gdpr-compliance"></a>GDPR 규정 준수
-[GDPR(일반 데이터 보호 규정)](http://ec.europa.eu/justice/data-protection/reform/index_en.htm)은 EU(유럽 연합)의 데이터 보호 및 프라이버시 법률입니다. GDPR은 개인 정보를 수집, 저장 및 사용하는 방법에 대한 많은 요구 사항을 포함하고 있습니다. GDPR 규칙은 회사 및 정부 기관 그리고 EU에서 작동하고 EU 지역 거주자와 연결된 데이터를 수집하고 분석하는 다른 조직에 적용됩니다.
+## <a name="managing-personal-information"></a>개인 정보 관리
 
-가상 계열에 대한 StorSimple 장치 관리자는 GDPR을 준수합니다. 개인 정보가 수집되고 서비스에 표시되는 두 개의 키 인스턴스가 있습니다.
+가상 계열에 대한 StorSimple 장치 관리자는 두 가지 키 인스턴스에서 개인 정보를 수집합니다.
  - 사용자의 이메일 주소가 구성된 사용자 설정을 변경합니다. 이 정보는 관리자가 지울 수 있습니다. 
  - 공유 폴더에 있는 데이터에 액세스할 수 있는 사용자입니다. 공유 데이터에 액세스할 수 있는 사용자의 목록을 표시하고 내보낼 수 있습니다. 공유가 삭제되는 경우 이 목록도 삭제됩니다.
 

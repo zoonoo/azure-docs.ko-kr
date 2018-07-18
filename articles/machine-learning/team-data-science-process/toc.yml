@@ -54,15 +54,17 @@
     - name: Azure Machine Learning
       href: walkthroughs-aml-with-tdsp.md
       items:
-        - name: 감정 분류
+        - name: Keras & Scikit Learn을 사용하여 감정 분류
           href: predict-twitter-sentiment.md
+        - name: AML 텍스트 분석 패키지를 사용하여 감정 분류
+          href: predict-twitter-sentiment-amltextpackage.md
         - name: US 수입 분류
           href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
           maintainContext: true
         - name: 생명 공학 엔터티 인식
           href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
           maintainContext: true
-        - name: 피부암 이미지 분류
+        - name: AML 비전 패키지를 사용하여 피부암 이미지 분류
           href: isic-image-classification.md
           maintainContext: true
     - name: PySpark 및 Scala를 사용하는 Spark
@@ -216,8 +218,6 @@
           items:
             - name: 개요
               href: create-features.md
-            - name: Pandas 사용
-              href: create-features-blob.md
             - name: SQL+Python 사용
               href: create-features-sql-server.md
             - name: Hive 쿼리 사용

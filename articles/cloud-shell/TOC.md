@@ -5,13 +5,12 @@
 ## [PowerShell-빠른 시작](quickstart-powershell.md)
 
 # 기능 및 도구
-## [Bash - 기능 및 도구](features.md)
-## [PowerShell - 기능 및 도구](features-powershell.md)
+## [기능 및 도구](features.md)
 
 # 방법
-## [Bash - 저장소 유지](persisting-shell-storage.md)
-## [PowerShell - 저장소 유지](persisting-shell-storage-powershell.md)
+## [저장소 유지](persisting-shell-storage.md)
 ## [창 사용](using-the-shell-window.md)
+## [Windows 사용자용 PowerShell Cloud Shell](cloud-shell-windows-users.md)
 
 # 예
 ## [Bash - Terraform으로 리소스 만들기](example-terraform-bash.md)

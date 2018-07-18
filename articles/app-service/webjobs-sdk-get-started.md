@@ -1,5 +1,5 @@
 ---
-title: WebJobs SDK 시작 - Azure
+title: Azure WebJobs SDK 시작
 description: 이벤트 구동 백그라운드 처리를 위한 WebJobs SDK에 대해 간략히 소개합니다. Azure 서비스 및 타사 서비스에서 데이터에 액세스하는 방법을 알아봅니다.
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,19 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: tdykstra
-ms.openlocfilehash: b1de898ec4f661c54b5227367ad416a5edec80ed
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5a3070582a32adeda45dff233782c3a971885c14
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018458"
 ---
-# <a name="get-started-with-the-webjobs-sdk"></a>WebJobs SDK 시작
+# <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
-이 문서에서는 WebJobs SDK 프로젝트를 만들고, 로컬로 실행하고, Azure에 배포하는 방법을 보여 줍니다.
+이 문서에서는 Azure WebJobs SDK 프로젝트를 만들고, 로컬로 실행하고, Azure App Service에 배포하는 방법을 보여 줍니다.
 
 [Visual Studio 2017](https://www.visualstudio.com/vs/)에 대한 지침이지만, [Visual Studio Code](https://code.visualstudio.com/)와 같은 다른 도구를 사용하여 동일한 작업을 수행할 수 있습니다.
 
-## <a name="what-is-the-webjobs-sdk"></a>WebJobs SDK란?
+## <a name="what-is-the-azure-webjobs-sdk"></a>Azure WebJobs SDK 정의
 
 Azure WebJobs SDK는 Azure 서비스의 데이터에 액세스하는 백그라운드 처리 코드를 작성하는 작업을 간소화하는 프레임워크입니다. SDK에는 함수를 트리거해야 하는 이벤트(예: 큐에 추가된 새 메시지)를 지정하기 위한 선언적 구문이 있습니다. 함수가 트리거되면 비슷한 선언적 구문에서 데이터 읽기 및 쓰기를 제어합니다. 이 트리거 및 바인딩 시스템은 Azure 및 타사 서비스 액세스와 관련된 대부분의 하위 수준 코딩 작업을 처리합니다.
 
@@ -45,7 +46,7 @@ public static void Run(
 
 ### <a name="versions-2x-and-3x"></a>2.x 및 3.x 버전
 
-미리 보기의 지침에서는 3.x와의 차이점에 대한 메모와 함께 WebJobs SDK 버전 2.x 프로젝트를 만드는 방법에 대해 설명합니다. 3.x에서 도입된 주요 변경 내용은 .NET Framework 대신 .NET Core를 사용하는 것입니다.
+미리 보기의 지침에서는 3.x와의 차이점에 대한 메모와 함께 WebJobs SDK 버전 2.x 프로젝트를 만드는 방법에 대해 설명합니다. 3.x 버전에 도입된 주요 변경 내용은 .NET Framework 대신 .NET Core를 사용하는 것입니다.
 
 ### <a name="azure-functions"></a>Azure 기능
 
@@ -65,6 +66,9 @@ public static void Run(
 2. **클래식 Windows 데스크톱 > 콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
 
    3.x 프로젝트를 만들려면 **.NET Core > 콘솔 앱(.NET Core)** 을 차례로 선택합니다.
+   
+   > [!NOTE]
+   > 3.x는 아직 미리 보기 상태이며 개발 중입니다. 이 문서의 3.x 지침은 완료되지 않았습니다. 최신 정보는 페이지 맨 아래에 있는 GitHub 문제를 참조하세요.
 
 3. *WebJobsSDKSample* 프로젝트의 이름을 지정한 다음, **확인**을 선택합니다.
 

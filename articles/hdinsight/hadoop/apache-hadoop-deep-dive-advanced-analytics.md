@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: f121a1f95eed04bf8086c03a5d4406c092dc9445
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400676"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048474"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -61,7 +61,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 옵션이 있습니다.
 
 * [Machine Learning 및 Spark](#machine-learning-and-spark)
-* [R 및 R Server](#r-and-r-server)
+* [R 및 ML 서비스](#r-and-r-server)
 * [Azure Machine Learning 및 Hive](#azure-machine-learning-and-hive)
 * [Spark 및 딥 러닝](#spark-and-deep-learning)
 
@@ -75,9 +75,9 @@ HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 �
 * [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML은 ML 파이프라인을 생성하기 위해 Spark DataFrames에 기반하여 빌드된 높은 수준의 고급 API를 제공하는 새로운 패키지입니다.
 * [**MMLSpark**](https://github.com/Azure/mmlspark) - MMLSpark(Apache Spark용 Microsoft Machine Learning 라이브러리)는 Spark에서 데이터 과학자의 생산성을 높이고, 실험 속도를 높이고, 매우 큰 데이터 집합에서 최첨단 기계 학습 기술(딥 러닝 포함)을 활용하도록 설계되었습니다. MMLSpark 라이브러리는 PySpark에서 모델을 작성하기 위한 일반적인 모델링 작업을 간소화합니다. 
 
-### <a name="r-and-r-server"></a>R 및 R Server
+### <a name="r-and-ml-services"></a>R 및 ML 서비스
 
-HDInsight의 일부로서, 대량 데이터 집합 및 모델과 함께 사용할 준비가 된 [R Server](../r-server/r-server-overview.md)를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 새로운 이 기능은 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기를 조정할 수 있는 친숙한 R 인터페이스를 데이터 과학자 및 통계 전문가에게 제공합니다.
+HDInsight의 일부로서, 대량 데이터 집합 및 모델과 함께 사용할 준비가 된 [ML 서비스](../r-server/r-server-overview.md)를 사용하여 HDInsight 클러스터를 만들 수 있습니다. 새로운 이 기능은 클러스터 설치 및 유지 관리에 대한 오버헤드 없이 HDInsight를 통해 주문형으로 크기를 조정할 수 있는 친숙한 R 인터페이스를 데이터 과학자 및 통계 전문가에게 제공합니다.
 
 ### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning 및 Hive
 

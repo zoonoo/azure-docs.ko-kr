@@ -31,6 +31,8 @@
       href: update-managed-resources.md
     - name: 포털을 사용하여 게시
       href: publish-portal.md
+    - name: Key Vault의 암호 사용
+      href: key-vault-access.md
 - name: 참고 자료
   items:
     - name: Azure CLI

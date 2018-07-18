@@ -11,7 +11,7 @@
 | **암시적 흐름 허용** | 예 | 응용 프로그램이 [OpenID Connect 로그인](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)을 사용할 경우 **예** 선택 |
 | **회신 URL** | `https://localhost:44316` | 회신 URL은 Azure AD B2C에서 응용 프로그램이 요청한 토큰을 반환하는 끝점입니다. [적절한](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) **회신 URL**을 입력합니다. 이 예에서는 앱이 로컬이고 포트 44316에서 수신하고 있습니다. |
 
-**만들기**를 클릭하여 응용 프로그램을 등록합니다.
+**만들기** 를 클릭하여 응용 프로그램을 등록합니다.
 
 새로 등록된 응용 프로그램은 B2C 테넌트에 대한 응용 프로그램 목록에 표시됩니다. 목록에서 웹앱을 선택합니다. 웹 응용 프로그램의 속성 창이 표시 됩니다.
 

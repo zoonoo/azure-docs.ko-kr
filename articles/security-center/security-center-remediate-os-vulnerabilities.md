@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 06/19/2018
 ms.author: terrylan
-ms.openlocfilehash: 477973298d8cc9d99da78e36274933e0bb737c4f
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 3af8f211c19fde9d2fc79f41fc13009570a9b4de
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
-ms.locfileid: "28103934"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36285919"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Azure Security Center에서 보안 구성 수정
 Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 체제)를 매일 분석하여 이러한 VM과 컴퓨터를 공격에 보다 취약하게 만들 수 있는 구성을 확인합니다. Security Center에서는 OS 구성이 권장 보안 구성 규칙과 일치하지 않을 경우 취약성을 해결하도록 권장하며, 이러한 취약성 해결을 위해 구성을 변경하는 것이 좋습니다.
@@ -51,7 +51,7 @@ Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 �
 
   - **CCEID**: 규칙에 대한 CCE 고유 식별자입니다. Security Center는 CCE(일반 구성 열거형)를 사용하여 구성 규칙에 고유 ID를 할당합니다.
   - **이름**: 실패한 규칙의 이름입니다.
-  - **규칙 유형**: *레지스트리 키*, *보안 정책* 또는 *감사 정책* 규칙 유형입니다.
+  - **규칙 유형**: *레지스트리 키*, *보안 정책*, *감사 정책* 또는 *IIS* 규칙 유형입니다.
   - **VM 및 컴퓨터 수**: 실패한 규칙이 적용되는 VM 및 컴퓨터의 총 수입니다.
   - **규칙 심각도**: CCE 값으로 *위험*, *중요* 또는 *경고*입니다.
   - **상태**: 권장 사항의 현재 상태입니다.
@@ -100,10 +100,10 @@ Azure Security Center에서는 VM(Virtual Machines) 및 컴퓨터의 OS(운영 �
 
 Security Center에 대해 알아보려면 다음 리소스를 참조하세요.
 
-* 지원되는 Windows 및 Linux VM의 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요. 
-* Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아보려면 [Azure Security Center에서 보안 정책 설정](security-center-policies.md)을 참조하세요. 
-* 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아보려면 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요. 
-* Azure 리소스의 상태를 모니터링하는 방법을 알아보려면 [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요. 
+* 지원되는 Windows 및 Linux VM의 목록은 [Azure Security Center에서 지원되는 플랫폼](security-center-os-coverage.md)을 참조하세요.
+* Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아보려면 [Azure Security Center에서 보안 정책 설정](security-center-policies.md)을 참조하세요.
+* 권장 사항이 Azure 리소스 보호에 어떤 도움이 되는지를 알아보려면 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
+* Azure 리소스의 상태를 모니터링하는 방법을 알아보려면 [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)을 참조하세요.
 * 보안 경고를 관리하고 대응하는 방법을 알아보려면 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 참조하세요.
 * 파트너 솔루션의 상태를 모니터링하는 방법을 알아보려면 [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md)을 참조하세요.
 * 서비스 사용에 관한 질문과 대답은 [Azure Security Center FAQ](security-center-faq.md)를 참조하세요.

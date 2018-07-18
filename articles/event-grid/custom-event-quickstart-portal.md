@@ -5,21 +5,23 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a16a9bdb866803a65bf7204628b735bd9ac60aee
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302562"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869146"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure Portal을 사용하여 사용자 지정 토픽을 만들고 해당 토픽을 구독하며 이벤트를 트리거하여 결과를 확인합니다. 이벤트 데이터를 기록하는 Azure 함수에 이벤트를 보냅니다. 작업을 완료하면 이벤트 데이터가 엔드포인트에 전송되고 기록되었음을 확인합니다.
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 ## <a name="create-a-custom-topic"></a>사용자 지정 토픽 만들기
 
@@ -71,7 +73,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
    ![함수 만들기](./media/custom-event-quickstart-portal/create-function.png)
 
-1. Azure 함수에 사용할 고유한 이름을 입력합니다. 이미지에 표시된 이름은 사용하지 마십시오. 이 문서에서 만든 리소스 그룹을 선택합니다. 호스팅 계획의 경우 **소비 계획**을 사용합니다. 제안된 새 저장소 계정을 사용합니다. 값을 입력한 후 **만들기**를 선택합니다.
+1. Azure 함수에 사용할 고유한 이름을 입력합니다. 이미지에 표시된 이름은 사용하지 마십시오. 이 문서에서 만든 리소스 그룹을 선택합니다. 호스팅 계획의 경우 **소비 계획**을 사용합니다. 제안된 새 저장소 계정을 사용합니다. Application Insights를 끌 수 있습니다. 값을 입력한 후 **만들기**를 선택합니다.
 
    ![함수 값 입력](./media/custom-event-quickstart-portal/provide-function-values.png)
 

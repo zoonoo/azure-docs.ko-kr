@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: tomfitz
-ms.openlocfilehash: c2232e1ce92eb6198b22bad22b8c3e10bab6bf12
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 79bc42394513efc2ac03ea9d7170f035d71edb4f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603729"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 
@@ -113,7 +114,7 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="deploy-resources-from-a-template-saved-to-your-account"></a>계정에 저장된 템플릿에서 리소스 배포
 
-포털을 사용하면 Azure 계정에 템플릿을 저장했다가 나중에 다시 배포할 수 있습니다. 저장된 템플릿에 관한 자세한 내용은 [Azure 포털에서 개인 템플릿 시작하기](../marketplace-consumer/mytemplates-getstarted.md)를 참조하세요.
+포털을 사용하면 Azure 계정에 템플릿을 저장했다가 나중에 다시 배포할 수 있습니다. 템플릿에 대한 자세한 내용은 [첫 번째 Azure Resource Manager 템플릿을 만들고 배포](resource-manager-create-first-template.md)를 참조하세요.
 
 1. 저장된 템플릿을 찾으려면 **추가 서비스**를 선택합니다.
 
@@ -135,4 +136,4 @@ ms.lasthandoff: 05/20/2018
 * 감사 로그를 보려면 [Resource Manager로 작업 감사](resource-group-audit.md)를 참조하세요.
 * 배포 오류를 해결하려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.
 * 배포 또는 리소스 그룹에서 템플릿을 검색하려면 [기존 리소스에서 Azure Resource Manager 템플릿 내보내기](resource-manager-export-template.md)를 참조하세요.
-* 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](resource-manager-subscription-governance.md)를 참조하세요.
+* 엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)를 참조하세요.

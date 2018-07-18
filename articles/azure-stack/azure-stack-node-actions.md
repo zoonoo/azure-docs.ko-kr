@@ -11,13 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 06/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 202854157dee28f3ab3dc73c6f22508a8bf510b3
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.reviewer: ppacent
+ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801418"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure 스택에서 배율 단위 노드 작업
 
@@ -41,11 +43,11 @@ ms.lasthandoff: 05/12/2018
  
 여기에서 다음 정보를 볼 수 있습니다.
 
-- 영역 이름
+- 지역 이름입니다. 영역 이름으로 참조 된 **-위치** PowerShell 모듈에 있습니다.
 - 시스템의 종류
 - 총 논리 코어
 - 총 메모리
-- 개별 노드 및 해당 상태;의 목록 하나는 실행 또는 중지 합니다.
+- 개별 노드 및 해당 상태;의 목록 어느 **실행** 또는 **중지**합니다.
 
 ![각 노드에 대 한 실행 상태를 표시 하는 배율 단위 타일](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
@@ -87,7 +89,7 @@ ms.lasthandoff: 05/12/2018
 전원 끄기 PowerShell 통해를 실행 합니다.
 
 ````PowerShell
-  Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
 전원 끄기 작동 하지 않는 경우으 나 가능성이, BMC 웹 인터페이스를 대신 사용 합니다.
@@ -102,7 +104,7 @@ ms.lasthandoff: 05/12/2018
 실행 하려면 전원 PowerShell 통해 작업에서:
 
 ````PowerShell
-  Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
 전원 동작에 작동 하지 않는 경우으 나 가능성이, BMC 웹 인터페이스를 대신 사용 합니다.
@@ -113,13 +115,13 @@ ms.lasthandoff: 05/12/2018
 
 이 작업은 일반적으로 필드 전체 노드 교체과 같은 부분을 교체 하는 동안 사용 됩니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 사용자가 알렸습니다는 계획 된 유지 관리 기간 동안에 노드를 드레이닝 있는지 확인 합니다. 어떤 조건 활성 작업 중단을 경험할 수 있습니다.
 
 실행 하려면 PowerShell 통해를 드레이닝 할 작업:
 
   ````PowerShell
-  Disable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="resume"></a>다시 시작
@@ -129,7 +131,7 @@ ms.lasthandoff: 05/12/2018
 실행 하려면 PowerShell 통해 다시 시작 작업:
 
   ````PowerShell
-  Enable-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
+  Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
   ````
 
 ### <a name="repair"></a>복구
@@ -139,7 +141,7 @@ ms.lasthandoff: 05/12/2018
 - 전체 노드 교체 (사용 또는 새 데이터 디스크 제외)
 - 하드웨어 구성 요소 오류 후 (필드 교체 장치 (FRU) 설명서에서 advise) 하는 경우 대체 합니다.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 노드 또는 개별 하드웨어 구성 요소를 교체 해야 하는 경우 정확한 단계는 OEM 하드웨어 공급 업체의 FRU 설명서를 참조 하십시오. FRU 설명서 하드웨어 구성 요소를 바꾼 후 복구 작업을 실행 해야 하는지 여부를 지정 합니다.  
 
 복구 작업을 실행 하는 경우 BMC IP 주소를 지정 해야 합니다. 
@@ -147,7 +149,9 @@ ms.lasthandoff: 05/12/2018
 실행 하려면 PowerShell 통해 복구 작업:
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Region <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
   ````
 
+## <a name="next-steps"></a>다음 단계
 
+Azure 스택 패브릭 관리자 모듈에 대 한 자세한 참조 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0)합니다.

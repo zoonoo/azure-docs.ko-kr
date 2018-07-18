@@ -1,21 +1,21 @@
 ---
-title: 액세스 토큰 요청 - Azure AD B2C | Microsoft Docs
+title: Azure Active Directory B2C에서 액세스 토큰 요청 | Microsoft Docs
 description: 이 문서에서는 클라이언트 응용 프로그램을 설정하고 액세스 토큰을 획득하는 방법을 보여 줍니다.
 services: active-directory-b2c
-documentationcenter: android
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
-ms.openlocfilehash: bd919543072a8d2bf5fb0ebba17e69ba2f467218
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 58a0a1e8be7ad5a119204b52b5263943dcef0192
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441229"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: 액세스 토큰 요청
 
@@ -79,7 +79,7 @@ API가 범위를 게시하도록 구성되면 클라이언트 응용 프로그�
 > 현재 사용자 지정 도메인은 액세스 토큰과 함께 지원되지 않습니다. 요청 URL에서 tenantName.onmicrosoft.com 도메인을 사용해야 합니다.
 
 ```
-https://login.microsoftonline.com/<tenantName>.onmicrosoft.com/oauth2/v2.0/authorize?p=<yourPolicyId>&client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
+https://login.microsoftonline.com/tfp/<tenantName>.onmicrosoft.com/<yourPolicyId>/oauth2/v2.0/authorize?client_id=<appID_of_your_client_application>&nonce=anyRandomValue&redirect_uri=<redirect_uri_of_your_client_application>&scope=https%3A%2F%2Fcontoso.onmicrosoft.com%2Fnotes%2Fread&response_type=code 
 ```
 
 같은 요청에 여러 권한을 얻기 위해 단일 **범위** 매개 변수에 공백으로 구분된 여러 항목을 추가할 수 있습니다. 예: 

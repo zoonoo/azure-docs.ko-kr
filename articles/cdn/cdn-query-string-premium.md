@@ -4,7 +4,7 @@ description: Azure CDN 쿼리 문자열 캐싱은 웹 요청에 쿼리 문자열
 services: cdn
 documentationcenter: ''
 author: dksimpson
-manager: akucer
+manager: cfowler
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -12,19 +12,19 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
-ms.author: mazha
-ms.openlocfilehash: a1ef5f3e502b5383343dbec2c427d36054a3edc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/11/2018
+ms.author: v-deasim
+ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35260837"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어 - 프리미엄 계층
 > [!div class="op_single_selector"]
 > * [표준 계층](cdn-query-string.md)
 > * [프리미엄 계층](cdn-query-string-premium.md)
-> 
 > 
 
 ## <a name="overview"></a>개요
@@ -63,6 +63,6 @@ Azure CDN(Content Delivery Network)을 사용하면 쿼리 문자열이 포함�
 3. 쿼리 문자열 모드를 선택한 다음 **업데이트**를 클릭합니다.
 
 > [!IMPORTANT]
-> 등록이 CDN 전체에 전파되기까지 시간이 걸리기 때문에, 캐시 문자열 설정 변경이 즉시 표시되지 않을 수 있습니다. **Verizon의 Azure CDN Premium** 프로필의 경우 일반적으로 90분 이내에 전파가 완료됩니다.
+> 등록이 CDN 전체에 전파되기까지 시간이 걸리기 때문에, 캐시 문자열 설정 변경이 즉시 표시되지 않을 수 있습니다. 전파는 일반적으로 10분 안에 완료됩니다.
  
 

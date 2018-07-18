@@ -3,6 +3,7 @@
 ## [인증서](sap-certifications.md)
 # Azure(큰 인스턴스)에서 SAP HANA 사용
 ## [개요 및 아키텍처](hana-overview-architecture.md)
+### [HLI 지원 시나리오](hana-supported-scenario.md)
 ## [인프라 및 연결](hana-overview-infrastructure-connectivity.md)
 ## [SAP HANA 설치](hana-installation.md)
 ## [고가용성 및 재해 복구](hana-overview-high-availability-disaster-recovery.md)
@@ -47,16 +48,27 @@
 ### SAP 다중 SID
 #### [(A)SCS 인스턴스에 공유 디스크를 사용하는 Windows](sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 #### [(A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows](sap-ascs-ha-multi-sid-wsfc-file-share.md)
-## [배포 가이드](deployment-guide.md)
-## [DBMS 배포 가이드](dbms-guide.md)
+## [SAP NetWeaver 배포 가이드](deployment-guide.md)
+## SAP 워크로드에 대한 DBMS 배포 가이드
+### [SAP 워크로드에 대한 일반적인 Azure Virtual Machines DBMS 배포](dbms_guide_general.md)
+### [SAP 워크로드에 대한 SQL Server Azure Virtual Machines DBMS 배포](dbms_guide_sqlserver.md)
+### [SAP 워크로드에 대한 Oracle Azure Virtual Machines DBMS 배포](dbms_guide_oracle.md)
+### [SAP 워크로드에 대한 IBM DB2 Azure Virtual Machines DBMS 배포](dbms_guide_ibm.md)
+### [SAP 워크로드에 대한 SAP ASE Azure Virtual Machines DBMS 배포](dbms_guide_sapase.md)
+### [Azure에서 SAP MaxDB, liveCache 및 콘텐츠 서버 배포](dbms_guide_maxdb.md)
+### [Azure 운영 가이드의 SAP HANA](hana-vm-operations.md)
+#### Azure Virtual Machines의 SAP HANA 가용성
+##### [Azure의 SAP HANA 가용성 개요](sap-hana-availability-overview.md)
+##### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)
+##### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
 ## [SAP 재해 복구를 위한 Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
 # AAD SAP ID 통합 및 Single-Sign-On
-## [SAP 클라우드와 통합](../../../active-directory/active-directory-saas-sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP 클라우드 플랫폼 ID 인증 통합](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [SAP 클라우드 플랫폼에 Single-Sign-On 설정](../../../active-directory/active-directory-saas-sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP NetWeaver 통합](../../../active-directory/active-directory-saas-sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP Business ByDesign 통합](../../../active-directory/active-directory-saas-sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-## [AAD와 SAP HANA DBMS 통합](../../../active-directory/active-directory-saas-saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP 클라우드와 통합](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP 클라우드 플랫폼 ID 인증 통합](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [SAP 클라우드 플랫폼에 Single-Sign-On 설정](../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP NetWeaver 통합](../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP Business ByDesign 통합](../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+## [AAD와 SAP HANA DBMS 통합](../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ##[Azure AD로 SAP Fiori Launchpad SAML Single Sign-On](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad)
 # 리소스
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/)

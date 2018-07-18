@@ -6,15 +6,15 @@ author: neilpeterson
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/21/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 991db1fc32ae89ab04ca040cfb6e8d59ffe5262f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356446"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597504"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure Files가 포함된 영구적 볼륨
 
@@ -24,29 +24,20 @@ ms.locfileid: "34356446"
 
 ## <a name="create-storage-account"></a>저장소 계정 만들기
 
-Azure 파일 공유를 Kubernetes 볼륨으로 동적으로 생성하는 경우 AKS 클러스터와 동일한 리소스 그룹에 들어 있는 모든 저장소 계정을 사용할 수 있습니다. 필요한 경우 AKS 클러스터와 동일한 리소스 그룹에 저장소 계정을 만듭니다.
-
-적절한 리소스 그룹을 식별하려면 [az group list][az-group-list] 명령을 사용합니다.
+Azure 파일 공유를 Kubernetes 볼륨으로 동적으로 생성하는 경우 AKS **노드** 리소스 그룹에 들어 있는 모든 저장소 계정을 사용할 수 있습니다. [az resource show][az-resource-show] 명령으로 리소스 그룹 이름을 가져옵니다.
 
 ```azurecli-interactive
-az group list --output table
-```
+$ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
 
-`MC_clustername_clustername_locaton`과 비슷한 이름의 리소스 그룹을 찾습니다.
-
-```
-Name                                 Location    Status
------------------------------------  ----------  ---------
-MC_myAKSCluster_myAKSCluster_eastus  eastus      Succeeded
-myAKSCluster                         eastus      Succeeded
+MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 [az storage account create][az-storage-account-create] 명령을 사용하여 저장소 계정을 만듭니다.
 
-이 예제를 사용하고 `--resource-group`을 리소스 그룹의 이름으로, `--name`을 사용자가 선택한 이름으로 업데이트합니다.
+이전 단계에서 수집한 리소스 그룹의 이름으로 `--resource-group`을, 사용자가 원하는 이름으로 `--name`을 업데이트합니다.
 
 ```azurecli-interactive
-az storage account create --resource-group MC_myAKSCluster_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
+az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
 ## <a name="create-storage-class"></a>저장소 클래스 만들기
@@ -77,7 +68,7 @@ kubectl apply -f azure-file-sc.yaml
 
 PVC(영구적 볼륨 클레임)는 저장소 클래스 개체를 사용하여 Azure 파일 공유를 동적으로 프로비전합니다.
 
-다음 YAML을 사용하여 크기 `5GB`에 `ReadWriteOnce` 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조하세요.
+다음 YAML을 사용하여 크기 `5GB`에 `ReadWriteMany` 액세스 권한을 가진 영구적 볼륨 클레임을 만들 수 있습니다. 액세스 모드에 대한 자세한 내용은 [Kubernetes 영구 볼륨][access-modes] 설명서를 참조하세요.
 
 파일 `azure-file-pvc.yaml`을 만들고 다음 YAML에 복사합니다. `storageClassName`이 마지막 단계에서 만든 저장소 클래스와 일치하는지 확인합니다.
 
@@ -88,7 +79,7 @@ metadata:
   name: azurefile
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: azurefile
   resources:
     requests:
@@ -210,6 +201,7 @@ Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알�
 <!-- LINKS - internal -->
 [az-group-create]: /cli/azure/group#az_group_create
 [az-group-list]: /cli/azure/group#az_group_list
+[az-resource-show]: /cli/azure/resource#az-resource-show
 [az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list

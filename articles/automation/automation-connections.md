@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ee866248ae7f0c1f1c49c449b777c2b68d884c5b
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257682"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435696"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -77,10 +77,10 @@ Automation [실행 계정](automation-sec-configure-azure-runas-account.md)에 �
 ```powershell
 $ConnectionAssetName = "AzureRunAsConnection"
 $ConnectionFieldValues = @{"ApplicationId" = $Application.ApplicationId; "TenantId" = $TenantID.TenantId; "CertificateThumbprint" = $Cert.Thumbprint; "SubscriptionId" = $SubscriptionId}
-New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues 
+New-AzureRmAutomationConnection -ResourceGroupName $ResourceGroup -AutomationAccountName $AutomationAccountName -Name $ConnectionAssetName -ConnectionTypeName AzureServicePrincipal -ConnectionFieldValues $ConnectionFieldValues
 ```
 
-Automation 계정을 만들 때 기본적으로 **AzurServicePrincipal** 연결 형식과 함께 여러 전역 모듈이 자동으로 포함되어 **AzureRunAsConnection** 연결 자산을 만들 수 있기 때문에 스크립트를 사용하여 연결 자산을 만들 수 있습니다.  새 연결 자산을 만들어 다른 인증 방법으로 서비스 또는 응용 프로그램에 연결하려는 경우 아직 연결 형식이 Automation 계정에 정의되어 있지 않기 때문에 실패하게 된다는 것을 명심해야 합니다.  [PowerShell 갤러리](https://www.powershellgallery.com)에서 사용자 지정 또는 모듈에 대해 고유한 연결 형식을 만드는 방법에 대한 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.
+Automation 계정을 만들 때 기본적으로 **AzureServicePrincipal** 연결 형식과 함께 여러 전역 모듈이 자동으로 포함되어 **AzureRunAsConnection** 연결 자산을 만들 수 있기 때문에 스크립트를 사용하여 연결 자산을 만들 수 있습니다.  새 연결 자산을 만들어 다른 인증 방법으로 서비스 또는 응용 프로그램에 연결하려는 경우 아직 연결 형식이 Automation 계정에 정의되어 있지 않기 때문에 실패하게 된다는 것을 명심해야 합니다.  [PowerShell 갤러리](https://www.powershellgallery.com)에서 사용자 지정 또는 모듈에 대해 고유한 연결 형식을 만드는 방법에 대한 자세한 내용은 [통합 모듈](automation-integration-modules.md)을 참조하세요.
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>runbook 또는 DSC 구성에서 연결 사용하기
 
@@ -94,6 +94,9 @@ Automation 계정을 만들 때 기본적으로 **AzurServicePrincipal** 연결 
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection 
 Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 ```
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Add-AzureRmAccount**를 사용하거나 Automation 계정에서 모듈을 업데이트할 수 있습니다.
 
 ### <a name="graphical-runbook-samples"></a>그래픽 Runbook 샘플
 

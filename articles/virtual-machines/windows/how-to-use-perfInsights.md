@@ -3,7 +3,7 @@ title: Microsoft Azure에서 PerfInsights를 사용하는 방법 | Microsoft Doc
 description: PerfInsights를 사용하여 Windows VM 성능 문제를 해결하는 방법을 설명합니다.
 services: virtual-machines-windows'
 documentationcenter: ''
-author: genlin
+author: anandhms
 manager: cshepard
 editor: na
 tags: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: cac17b5f3ee730bf1f56dbfd05b6c6d3b02c891f
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2f496f906eef416b35e2e59b2db93481ce65acb1
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160661"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946274"
 ---
-# <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법 
+# <a name="how-to-use-perfinsights"></a>PerfInsights를 사용하는 방법
 
 [PerfInsights](http://aka.ms/perfinsightsdownload)는 진단 데이터를 수집 및 분석하고, Azure에서 Windows 가상 머신 성능 문제를 해결하는 데 도움이 되는 보고서를 제공하는 자체 진단 도구입니다. PerfInsights는 [Azure Performance Diagnostics VM 확장](performance-diagnostics-vm-extension.md)을 설치하여 포털에서 직접 또는 독립 실행형 스크립트로 가상 머신에서 실행될 수 있는 도구입니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "34160661"
 
 PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니다. 다음 섹션에서 일반적인 시나리오를 설명합니다.
 
-### <a name="collect-basic-configuration"></a>기본 구성 수집 
+### <a name="quick-performance-analysis"></a>빠른 성능 분석
 
 이 시나리오에서는 다음을 포함하여 디스크 구성 및 기타 중요한 정보를 수집합니다.
 
@@ -64,11 +64,11 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 > 이 시나리오는 시스템에 영향을 줄 수 있으므로 라이브 프로덕션 시스템에서 실행하면 안됩니다. 필요한 경우 문제가 발생하지 않도록 전용 유지 관리 창에서 이 시나리오를 실행합니다. 추적 또는 벤치마크 테스트로 인해 워크로드가 증가하면 VM 성능이 저하될 수 있습니다.
 >
 
-### <a name="slow-vm-analysis"></a>느린 VM 분석 
+### <a name="slow-vm-analysis"></a>느린 VM 분석
 
 이 시나리오에서는 RuleEngineConfig.json 파일에 지정된 카운터를 사용하여 [성능 카운터](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) 추적을 실행합니다. VM이 SQL Server를 실행하는 서버로 식별되면 성능 카운터 추적을 실행합니다. RuleEngineConfig.json 파일에 있는 카운터를 사용하여 이 작업을 수행합니다. 이 시나리오에는 성능 진단 데이터도 포함됩니다.
 
-### <a name="azure-files-analysis"></a>Azure Files 분석 
+### <a name="azure-files-analysis"></a>Azure Files 분석
 
 이 시나리오에서는 네트워크 추적과 함께 특별한 성능 카운터 캡처를 실행합니다. 캡처에는 모든 SMB(Server Message Block) 클라이언트 공유 카운터가 포함됩니다. 다음은 캡처에 포함되는 몇 가지 주요 SMB 클라이언트 공유 성능 카운터입니다.
 
@@ -90,9 +90,9 @@ PerfInsights는 여러 종류의 정보를 수집하고 분석할 수 있습니�
 |              | 평균 쓰기 큐 길이       |
 |              | 평균 데이터 큐 길이        |
 
-### <a name="custom-slow-vm-analysis"></a>사용자 지정 느린 VM 분석 
+### <a name="advanced-slow-vm-analysis"></a>고급 느린 VM 분석
 
-사용자 지정 느린 VM 분석을 실행할 때는 병렬 실행되도록 추적을 선택합니다. 원한다면 전체(성능 카운터, Xperf, 네트워크 및 StorPort)를 실행할 수 있습니다.  
+고급 느린 VM 분석을 실행할 때는 병렬 실행되도록 추적을 선택합니다. 원한다면 전체(성능 카운터, Xperf, 네트워크 및 StorPort)를 실행할 수 있습니다.  
 
 > [!Note]
 > 이 시나리오는 시스템에 영향을 줄 수 있으므로 라이브 프로덕션 시스템에서 실행하면 안됩니다. 필요한 경우 문제가 발생하지 않도록 전용 유지 관리 창에서 이 시나리오를 실행합니다. 추적 또는 벤치마크 테스트로 인해 워크로드가 증가하면 VM 성능이 저하될 수 있습니다.
@@ -104,7 +104,7 @@ Windows VM, 디스크 또는 저장소 풀 구성, 성능 카운터, 로그 및 
 
 |수집되는 데이터                              |  |  | 성능 시나리오 |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | 기본 구성 수집 | 벤치마킹 | 느린 VM 분석 | Azure Files 분석 | 사용자 지정 느린 VM 분석 |
+|                               | 빠른 성능 분석 | 벤치마킹 | 느린 VM 분석 | Azure Files 분석 | 고급 느린 VM 분석 |
 | 이벤트 로그의 정보       | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 시스템 정보                | 예                        | 예                                | 예                      | 예                  | 예                  |
 | 볼륨 매핑                        | 예                        | 예                                | 예                      | 예                  | 예                  |
@@ -171,9 +171,9 @@ Diskspd IO 워크로드 테스트(OS 디스크[쓰기] 및 풀 드라이브[읽�
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>프로덕션 VM에서 도구 실행 시 발생할 수 있는 문제
 
--  Xperf 또는 Diskspd를 사용하도록 구성된 벤치마킹 시나리오 또는 "사용자 지정 느린 VM 분석" 시나리오를 사용하는 경우 이 도구로 인해 VM의 성능이 저하될 수 있습니다. 이러한 시나리오는 프로덕션 환경에서 실행해서는 안 됩니다.
+-  Xperf 또는 Diskspd를 사용하도록 구성된 벤치마킹 시나리오 또는 “고급 느린 VM 분석” 시나리오를 사용하는 경우 이 도구로 인해 VM의 성능이 저하될 수 있습니다. 이러한 시나리오는 프로덕션 환경에서 실행해서는 안 됩니다.
 
--  DiskSpd를 사용하도록 구성된 벤치마킹 시나리오 또는 "사용자 지정 느린 VM 분석" 시나리오의 경우, 다른 백그라운드 작업이 I/O 워크로드를 방해하지 않는지 확인합니다.
+-  DiskSpd를 사용하도록 구성된 벤치마킹 시나리오 또는 “고급 느린 VM 분석” 시나리오의 경우, 다른 백그라운드 작업이 I/O 워크로드를 방해하지 않는지 확인합니다.
 
 -  기본적으로 이 도구는 임시 저장소 드라이브를 사용하여 데이터를 수집합니다. 추적을 더 오랫동안 사용하도록 유지하면 수집되는 데이터의 양이 적절할 수 있습니다. 이렇게 하면 임시 디스크의 공간 가용성을 낮출 수 있으므로 이 드라이브를 사용하는 모든 응용 프로그램에 영향을 미칠 수 있습니다.
 
@@ -218,10 +218,16 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics
     ```
 
-    다음 예제를 사용하여 5분 동안 Xperf 및 성능 카운터 추적을 사용해서 사용자 지정 시나리오를 실행할 수 있습니다.
+    다음 예제를 사용하여 5분 동안 Xperf 및 성능 카운터 추적을 사용해서 고급 시나리오를 실행할 수 있습니다.
     
     ```
-    PerfInsights /run custom xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    PerfInsights /run advanced xp /d 300 /AcceptDisclaimerAndShareDiagnostics
+    ```
+
+    아래 예제를 사용하여 5분 동안 느린 VM 시나리오를 실행하고 결과 zip 파일을 저장소 계정에 업로드할 수 있습니다.
+    
+    ```
+    PerfInsights /run vmslow /d 300 /AcceptDisclaimerAndShareDiagnostics /sa <StorageAccountName> /sk <StorageAccountKey>
     ```
 
     **/list** 명령을 사용하여 사용 가능한 모든 시나리오와 옵션을 조회할 수 있습니다.
@@ -237,7 +243,7 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
     >
     >기본적으로 PerfInsights는 사용 가능한 최신 버전으로 자체적으로 업데이트를 시도합니다. 자동 업데이트를 건너뛰려면 **/SkipAutoUpdate** 또는 **/sau** 매개 변수를 사용합니다.  
     >
-    >기간 스위치 **/d**를 지정하지 않으면 PerfInsights는 vmslow, azurefiles 및 사용자 지정 시나리오를 실행하면서 해당 문제를 재현하도록 요구합니다. 
+    >기간 스위치 **/d**를 지정하지 않으면 PerfInsights는 vmslow, azurefiles 및 고급 시나리오를 실행하면서 해당 문제를 재현하도록 요구합니다. 
 
 추적 또는 작업이 완료되면 PerfInsights와 동일한 폴더에 새 파일이 나타납니다. 이 파일의 이름은 **CollectedData\_yyyy-MM-dd\_hh-mm-ss-fff.zip**입니다. 분석을 위해 지원 담당자에게 이 파일을 전송하거나 zip 파일 내의 보고서를 열어 결과 및 권장 사항을 검토할 수 있습니다.
 
@@ -251,9 +257,9 @@ PerfInsights 도구를 실행하려면 다음 단계를 수행합니다.
 ![PerfInsights 보고서 스크린샷](media/how-to-use-perfInsights/findings.PNG)
 
 > [!NOTE] 
-> 위험으로 분류된 검색 결과는 성능 문제를 일으킬 수 있는 알려진 문제입니다. 중요로 분류된 검색 결과는 반드시 성능 문제를 일으키지는 않지만 최적이 아닌 구성을 나타냅니다. 정보로 분류되는 검색 결과는 정보만 제공합니다.
+> 높음으로 분류된 검색 결과는 성능 문제를 일으킬 수 있는 알려진 문제입니다. 보통으로 분류된 검색 결과는 반드시 성능 문제를 일으키지는 않지만 최적이 아닌 구성을 나타냅니다. 낮음으로 분류되는 검색 결과는 정보만 제공합니다.
 
-권장 사항과, 모든 중대 및 중요 결과에 대한 링크를 검토합니다. 성능에 어떻게 영향을 미칠 수 있고 성능 최적화 구성을 위한 모범 사례는 무엇인지 살펴봅니다.
+권장 사항과, 모든 높음 및 보통 결과에 대한 링크를 검토합니다. 성능에 어떻게 영향을 미칠 수 있고 성능 최적화 구성을 위한 모범 사례는 무엇인지 살펴봅니다.
 
 ### <a name="storage-tab"></a>저장소 탭
 

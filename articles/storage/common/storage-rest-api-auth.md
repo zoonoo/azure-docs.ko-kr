@@ -1,29 +1,25 @@
 ---
-title: "인증을 포함하여 Azure Storage Services REST API 작업 호출 | Microsoft Docs"
-description: "인증을 포함하여 Azure Storage Services REST API 작업 호출"
+title: 인증을 포함하여 Azure Storage Services REST API 작업 호출 | Microsoft Docs
+description: 인증을 포함하여 Azure Storage Services REST API 작업 호출
 services: storage
-documentationcenter: na
-author: robinsh
-manager: timlt
-ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
+author: tamram
+manager: twooley
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 11/27/2017
-ms.author: robinsh
-ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.date: 05/22/2018
+ms.author: tamram
+ms.openlocfilehash: 6009ebd18eb089b21c98d6f7d9f49044a8d96098
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34650454"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API 사용
 
 이 문서에서는 Blob Storage Service REST API를 사용하는 방법 및 서비스에 대한 호출을 인증하는 방법을 보여 줍니다. 개발자이긴 하지만 REST에 대해 아무 것도 모르고 REST를 호출하는 방법조차 모르는 사람들의 관점에서 작성되었습니다. REST 호출에 대한 참조 설명서를 살펴보고 실제 REST 호출로 변환하는 방법을 살펴보겠습니다. 어떤 필드가 어디로 이동할까요? REST 호출을 설정하는 방법을 배우고 나면 이 지식을 활용하여 Storage Service REST API를 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소 
+## <a name="prerequisites"></a>필수 조건 
 
 응용 프로그램이 저장소 계정에 대한 BLOB 저장소의 컨테이너를 나열합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
 
@@ -48,19 +44,17 @@ git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 
 이 명령은 로컬 git 폴더에 해당 리포지토리를 복제합니다. Visual Studio 솔루션을 열려면 storage-dotnet-rest-api-with-auth 폴더를 찾아 열고, StorageRestApiAuth.sln을 두 번 클릭합니다. 
 
-## <a name="why-do-i-need-to-know-rest"></a>REST에 대해 알아야 하는 이유
-
-REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 팀에서 수시로 새 기능을 출시하고 있습니다. 새 기능은 대부분 REST 인터페이스를 통해 액세스할 수 있지만, 아직 **모든** 저장소 클라이언트 라이브러리 또는 UI(예: Azure Portal)를 통해 표시된 적은 없습니다. 항상 가장 멋진 최신 기능을 사용하고 싶다면 반드시 REST에 대해 배워야 합니다. Azure Storage와 상호 작용하는 나만의 라이브러리를 작성하고 싶거나 SDK 또는 저장소 클라이언트 라이브러리가 없는 프로그래밍 언어를 사용하여 Azure Storage에 액세스하려는 경우에도 REST API를 사용하면 됩니다.
-
 ## <a name="what-is-rest"></a>REST란 무엇인가요?
 
 REST는 *Representational State Transfer*를 말합니다. 구체적인 정의는 [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer)를 확인하세요.
 
 기본적으로 REST는 API를 호출하거나 호출 가능하게 만들 때 사용할 수 있는 아키텍처입니다. 어느 쪽에서 어떤 일이 발생하든, REST 호출을 보내거나 받을 때 어떤 소프트웨어가 사용되든 아무 관계 없습니다. Mac, Windows, Linux, Android 휴대폰 또는 태블릿, iPhone, iPod, 웹 사이트에서 실행되는 응용 프로그램을 작성할 수 있으며 이 모든 플랫폼에 동일한 REST API를 사용할 수 있습니다. REST API가 호출될 때 데이터를 받거나 내보낼 수 있습니다. REST API는 어떤 플랫폼에서 호출되는지는 중요하지 않고 요청에서 전달되는 정보와 응답에 제공되는 데이터만이 중요합니다.
 
-## <a name="heres-the-plan"></a>계획
+REST는 사용 방법을 알아두면 유용한 기술입니다. Azure 제품 팀에서 수시로 새 기능을 출시하고 있습니다. 새 기능은 대부분 REST 인터페이스를 통해 액세스할 수 있지만, 아직 **모든** 저장소 클라이언트 라이브러리 또는 UI(예: Azure Portal)를 통해 표시된 적은 없습니다. 항상 가장 멋진 최신 기능을 사용하고 싶다면 반드시 REST에 대해 배워야 합니다. Azure Storage와 상호 작용하는 나만의 라이브러리를 작성하고 싶거나 SDK 또는 저장소 클라이언트 라이브러리가 없는 프로그래밍 언어를 사용하여 Azure Storage에 액세스하려는 경우에도 REST API를 사용하면 됩니다.
 
-예제 프로젝트는 저장소 계정의 컨테이너를 나열합니다. REST API 설명서의 정보와 실제 코드의 상관 관계를 이해하고 나면 다른 REST 호출은 더 쉽게 이해할 수 있습니다. 
+## <a name="about-the-sample-application"></a>샘플 응용 프로그램 정보
+
+샘플 응용 프로그램은 저장소 계정의 컨테이너를 나열합니다. REST API 설명서의 정보와 실제 코드의 상관 관계를 이해하고 나면 다른 REST 호출은 더 쉽게 이해할 수 있습니다. 
 
 [BLOB 서비스 REST API](/rest/api/storageservices/fileservices/Blob-Service-REST-API)를 보시면, BLOB 저장소에서 수행할 수 있는 모든 작업이 있습니다. 저장소 클라이언트 라이브러리는 REST API를 감싸고 이는 래퍼로, REST API를 직접 사용하지 않고도 간단하게 저장소에 액세스할 수 있게 해줍니다. 하지만 위에서 언급했듯이, 가끔 저장소 클라이언트 라이브러리 대신 REST API를 사용하는 경우가 있습니다.
 
@@ -70,11 +64,11 @@ REST는 *Representational State Transfer*를 말합니다. 구체적인 정의�
 
 **요청 메서드**: GET. 이 동사는 요청 개체의 속성으로 지정되는 HTTP 메서드입니다. 호출하는 API에 따라 이 동사의 다른 값으로 HEAD, PUT 및 DELETE가 포함됩니다.
 
-**요청 URI**: https://myaccount.blob.core.windows.net/?comp=list  BLOB 저장소 계정 엔드포인트 `http://myaccount.blob.core.windows.net` 및 리소스 문자열 `/?comp=list`에서 생성됩니다.
+**요청 URI**: https://myaccount.blob.core.windows.net/?comp=list는 `http://myaccount.blob.core.windows.net`(Blob 저장소 계정 엔드포인트) 및 `/?comp=list`(리소스 문자열)에서 만들어집니다.
 
 [URI 매개 변수](/rest/api/storageservices/fileservices/List-Containers2#uri-parameters): ListContainers를 호출할 때 사용할 수 있는 추가 쿼리 매개 변수가 있습니다. 이러한 매개 변수 중 일부는 필터링에 사용되는 호출 *timeout*(초) 및 *prefix*입니다.
 
-또 다른 유용한 매개 변수는 *maxresults:*입니다. 사용 가능한 컨테이너가 이 값보다 많으면 응답 본문에 다음 요청에서 반환할 그 다음 컨테이너를 나타내는 *NextMarker* 요소가 포함됩니다. 이 기능을 사용하려면 다음 요청을 만들 때 *NextMarker* 값을 URI에 *marker* 매개 변수로 입력합니다. 이 기능을 사용하면 결과 페이징과 비슷한 동작이 발생합니다. 
+또 다른 유용한 매개 변수는 *maxresults:* 입니다. 사용 가능한 컨테이너가 이 값보다 많으면 응답 본문에 다음 요청에서 반환할 그 다음 컨테이너를 나타내는 *NextMarker* 요소가 포함됩니다. 이 기능을 사용하려면 다음 요청을 만들 때 *NextMarker* 값을 URI에 *marker* 매개 변수로 입력합니다. 이 기능을 사용하면 결과 페이징과 비슷한 동작이 발생합니다. 
 
 추가 매개 변수를 사용하려면 다음 예제와 같이 값을 사용하여 리소스 문자열에 매개 변수를 추가합니다.
 
@@ -141,7 +135,7 @@ x-ms-date 및 x-ms-version에 대한 요청 헤더를 추가합니다. 코드의
     // Add the request headers for x-ms-date and x-ms-version.
     DateTime now = DateTime.UtcNow;
     httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-04-17");
+    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
     // If you need any additional headers, add them here before creating
     //   the authorization header. 
 ```
@@ -205,7 +199,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 3e889876-001e-0039-6a3a-5f4396000000
-x-ms-version: 04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
@@ -271,6 +265,9 @@ Content-Length: 1511
 
 ## <a name="creating-the-authorization-header"></a>인증 헤더 만들기
 
+> [!TIP]
+> Azure Storage는 이제 Blob 및 큐 서비스에 대한 Azure AD(Azure Active Directory) 통합(미리 보기)을 지원합니다. Azure AD는 Azure Storage에 대한 요청에 권한을 부여하는 훨씬 간단한 환경을 제공합니다. Azure AD를 사용하여 REST 작업에 권한을 부여하는 방법에 대한 자세한 내용은 [Azure Active Directory로 인증(미리 보기)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory)을 참조하세요. Azure Storage와 Azure AD의 통합에 대한 개요는 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증(미리 보기)](storage-auth-aad.md)을 참조하세요.
+
 [Azure Storage Services 인증](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services) 방법을 개념적으로(코드 없이) 설명하는 문서가 있습니다.
 이 문서에서 필요한 내용만 추리고 코드를 살펴보겠습니다.
 
@@ -312,7 +309,7 @@ CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문
 이 값을 만들려면 "x-ms-"로 시작하는 헤더를 검색하고 정렬한 다음 `[key:value\n]` 인스턴스 문자열로 포맷하고, 하나의 문자열로 연결합니다. 이 예제의 정식화 헤더는 다음과 같습니다. 
 
 ```
-x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 다음은 해당 출력을 만드는 데 사용된 코드입니다.
@@ -417,7 +414,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 이 코드를 실행하면 그 결과로 MessageSignature가 다음과 같이 표시됩니다.
 
 ```
-GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-04-17\n/contosorest/\ncomp:list
+GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 01:07:37 GMT\nx-ms-version:2017-07-29\n/contosorest/\ncomp:list
 ```
 
 다음은 AuthorizationHeader에 대한 최종 값입니다.
@@ -463,7 +460,7 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 **정식화 헤더:**
 
 ```
-x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
+x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
 **정식화 리소스:**
@@ -476,7 +473,7 @@ x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-04-17\n
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
-  \nx-ms-version:2017-04-17\n/contosorest/container-1\ncomp:list\nrestype:container
+  \nx-ms-version:2017-07-29\n/contosorest/container-1\ncomp:list\nrestype:container
 ```
 
 **AuthorizationHeader:**
@@ -497,7 +494,7 @@ GET http://contosorest.blob.core.windows.net/container-1?restype=container&comp=
 
 ```
 x-ms-date: Fri, 17 Nov 2017 05:16:48 GMT
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Authorization: SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 Host: contosorest.blob.core.windows.net
 Connection: Keep-Alive
@@ -510,7 +507,7 @@ HTTP/1.1 200 OK
 Content-Type: application/xml
 Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
 x-ms-request-id: 7e9316da-001e-0037-4063-5faf9d000000
-x-ms-version: 2017-04-17
+x-ms-version: 2017-07-29
 Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```

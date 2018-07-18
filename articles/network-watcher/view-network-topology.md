@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: 6ef165ddc481bf84c6189635e36b97eb9518261e
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1725a3d6a4eb82ca57078f648efa14866d2fe390
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077808"
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35777328"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Azure 가상 네트워크의 토폴로지 보기
 
@@ -37,10 +37,12 @@ ms.locfileid: "34077808"
 
     ![토폴로지 보기](./media/view-network-topology/view-topology.png)
 
-    앞의 그림에서 볼 수 있듯이 가상 네트워크에는 세 개의 서브넷이 있습니다. 한 서브넷에는 배포된 VM이 있습니다. VM에는 연결된 네트워크 인터페이스 및 공용 IP 주소가 하나씩 있습니다. 다른 두 서브넷에는 연결된 경로 테이블이 있습니다. 각 경로 테이블에는 두 개의 경로가 있습니다. 한 서브넷에는 연결된 네트워크 보안 그룹이 있습니다. 다음 리소스에 대한 토폴로지 정보만 표시됩니다. - *myVnet* 가상 네트워크와 동일한 리소스 그룹 및 지역 내에 있습니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
-        - *myVnet* 가상 네트워크 내부에 있거나 내부의 리소스와 연결되어 있습니다. 예를 들어, *myVnet* 가상 네트워크의 서브넷 또는 네트워크 인터페이스와 연결되지 않은 네트워크 보안 그룹은 *MyResourceGroup* 리소스 그룹에 있어도 표시되지 않습니다.
+    앞의 그림에서 볼 수 있듯이 가상 네트워크에는 세 개의 서브넷이 있습니다. 한 서브넷에는 배포된 VM이 있습니다. VM에는 연결된 네트워크 인터페이스 및 공용 IP 주소가 하나씩 있습니다. 다른 두 서브넷에는 연결된 경로 테이블이 있습니다. 각 경로 테이블에는 두 개의 경로가 있습니다. 한 서브넷에는 연결된 네트워크 보안 그룹이 있습니다. 토폴로지 정보는 다음의 리소스에 대해서만 표시됩니다.
+    
+    - *myVnet* 가상 네트워크와 동일한 리소스 그룹 및 지역 내부에 있습니다. 예를 들어, *MyResourceGroup*이 아닌 리소스 그룹에 있는 네트워크 보안 그룹은 *MyVnet* 가상 네트워크의 서브넷에 연결되어 있어도 표시되지 않습니다.
+    - *myVnet* 가상 네트워크 내부에 있거나 내부의 리소스와 연결되어 있습니다. 예를 들어, *myVnet* 가상 네트워크의 서브넷 또는 네트워크 인터페이스와 연결되지 않은 네트워크 보안 그룹은 *MyResourceGroup* 리소스 그룹에 있어도 표시되지 않습니다.
 
-    그림에 표시된 토폴로지는 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 사용하여 배포할 수 있는**네트워크 가상 어플라이언스를 통해 트래픽 라우팅** 스크립트 샘플을 배포한 후 만들어지는 가상 네트워크에 대한 것입니다.
+  그림에 표시된 토폴로지는 [Azure CLI](../virtual-network/scripts/virtual-network-cli-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 또는 [PowerShell](../virtual-network/scripts/virtual-network-powershell-sample-route-traffic-through-nva.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 사용하여 배포할 수 있는**네트워크 가상 어플라이언스를 통해 트래픽 라우팅** 스크립트 샘플을 배포한 후 만들어지는 가상 네트워크에 대한 것입니다.
 
 6. **토폴로지 다운로드**를 선택하여 이미지를 편집 가능한 파일을 svg 형식으로 다운로드합니다.
 

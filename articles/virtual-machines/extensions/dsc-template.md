@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: d19d33d7d8d19923e814b8685c3e56553f85850d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 8d1e8b4d529936a2401c734b2eff1f0c02dae352
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012481"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36307869"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
@@ -65,7 +65,7 @@ DSC 확장은 기본 확장 속성을 상속합니다.
                         }
                     },
                     {
-                        "RegistrationUrl": "registrationUrl",
+                        "RegistrationUrl": "registrationUrl"
                     },
                     {
                         "NodeConfigurationName": "nodeConfigurationName"
@@ -115,7 +115,7 @@ DSC 확장은 기본 확장 속성을 상속합니다.
                             },
                         },
                         {
-                            "RegistrationUrl": "registrationUrl",
+                            "RegistrationUrl": "registrationUrl"
                         },
                         {
                             "NodeConfigurationName": "nodeConfigurationName"
@@ -335,9 +335,9 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="invalid-values"></a>잘못된 값
 
-"Privacy.dataCollection이 '{0}'입니다.
+“Privacy.dataCollection이 ‘{0}’입니다.
 유일하게 가능한 값은 '', 'Enable' 및 'Disable'"입니다.
-"WmfVersion이 '{0}'입니다.
+“WmfVersion이 ‘{0}’입니다.
 유일하게 가능한 값은 … 및 'latest'"입니다.
 
 **문제점**: 제공된 값이 허용되지 않습니다.
@@ -347,7 +347,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="invalid-url"></a>잘못된 URL
 
-"ConfigurationData.url은 '{0}'입니다. 유효한 URL이 아닙니다." "DataBlobUri는 '{0}'입니다. 유효한 URL이 아닙니다." "Configuration.url이 '{0}'입니다. 유효한 URL이 아닙니다."
+“ConfigurationData.url이 ‘{0}’입니다. 유효한 URL이 아닙니다.” “DataBlobUri가 ‘{0}’입니다. 유효한 URL이 아닙니다.” “Configuration.url이 ‘{0}’입니다. 유효한 URL이 아닙니다."
 
 **문제점**: 제공된 URL이 유효하지 않습니다.
 
@@ -356,7 +356,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="invalid-configurationargument-type"></a>잘못된 ConfigurationArgument 형식
 
-"잘못된 configurationArguments 형식 {0}입니다."
+“잘못된 configurationArguments 형식 {0}입니다.”
 
 **문제점**: *ConfigurationArguments* 속성을 **Hashtable** 개체로 확인할 수 없습니다.
 
@@ -365,7 +365,7 @@ Resource Manager 템플릿에서 다음 코드는 VM에 올바른 파일을 다�
 
 ### <a name="duplicate-configurationarguments"></a>중복 ConfigurationArguments
 
-"공용 및 보호된 configurationArguments에 중복 인수 '{0}'이 있습니다."
+“공용 및 보호된 configurationArguments에 중복 인수 ‘{0}’이 있습니다.”
 
 **문제점**: 공용 설정의 *ConfigurationArguments* 및 보호된 설정의 *ConfigurationArguments*에 동일한 이름의 속성이 포함되어 있습니다.
 

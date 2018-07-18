@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: c72f513c7134c556afa5fa5d0b94c17b1142be54
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ed90e50167f7e86c464b1571b91dc27435437e9b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627419"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Spark에 대한 Scala Maven 응용 프로그램 만들기
 
@@ -46,6 +47,41 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Oracle Java Development 키트. [여기](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)에서 설치할 수 있습니다.
 * Java IDE. 이 문서에서는 IntelliJ IDEA 18.1.1을 사용합니다. [여기](https://www.jetbrains.com/idea/download/)에서 설치할 수 있습니다.
+
+## <a name="use-intellij-to-create-application"></a>IntelliJ를 사용하여 응용 프로그램 만들기
+
+1. IntelliJ IDEA를 시작하고 프로젝트를 만듭니다. **새 프로젝트** 대화 상자에서 다음을 수행합니다. 
+
+   a. **HDInsight** > **HDInsight의 Spark(Scala)** 를 선택합니다.
+
+   나. **빌드 도구** 목록에서 요구 사항에 따라 다음 중 하나를 선택합니다.
+
+      * Scala 프로젝트 만들기 마법사 지원에 대해 **Maven**
+      * 종속성 관리 및 Scala 프로젝트에 대한 빌드에 대해 **SBT**
+
+   ![새 프로젝트 대화 상자](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
+
+2. **다음**을 선택합니다.
+
+3. Scala 프로젝트 생성 마법사는 Scala 플러그 인이 설치되어 있는지 여부를 자동으로 검색합니다. **설치**를 선택합니다.
+
+   ![Scala 플러그 인 검사](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
+
+4. Scala 플러그 인을 다운로드하려면 **확인**을 선택합니다. 지침에 따라 IntelliJ를 다시 시작합니다. 
+
+   ![Scala 플러그 인 설치 대화 상자](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
+
+5. **새 프로젝트** 창에서 다음을 수행합니다.  
+
+    ![Spark SDK 선택](./media/apache-spark-create-standalone-application/hdi-new-project.png)
+
+   a. 프로젝트 이름 및 위치를 입력합니다.
+
+   나. **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
+
+   다. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
+
+6. **마침**을 선택합니다.
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>IntelliJ IDEA용 Scala 플러그 인 설치
 Scala 플러그 인을 설치하려면 다음 단계를 사용합니다.

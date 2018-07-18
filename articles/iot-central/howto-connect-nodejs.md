@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Central에 일반 Node.js 클라이언트 응용 프로그램 연결 | Microsoft Docs
 description: 장치 개발자로서 일반 Node.js 장치를 Azure IoT Central 응용 프로그램에 연결하는 방법을 알아봅니다.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
-ms.topic: article
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 8666a2db051cbd4a93c3e587aeaef3e1722b1b83
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
+ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199598"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34628541"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 응용 프로그램에 일반 클라이언트 응용 프로그램 연결(Node.js)
 
@@ -80,7 +80,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성�
 
 ### <a name="settings"></a>설정
 
-**설정 페이지**에서 다음** 숫자** 설정을 추가합니다.
+**설정 페이지**에서 다음 **숫자** 설정을 추가합니다.
 
 | 표시 이름    | 필드 이름     | Units | 10진수 | Min | max  | Initial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |

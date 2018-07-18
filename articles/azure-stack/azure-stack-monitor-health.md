@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mabrigg
-ms.openlocfilehash: 446df7922422ccfcf3fbb92ecf153c6dec2f6197
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e20670476f4549a06d80d5f85e2ebd8ab1f50b05
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26640381"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047244"
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Azure Stack의 상태 및 경고 모니터링
 
@@ -32,6 +32,17 @@ Azure 스택 인프라 모니터링 상태 및 Azure 스택 영역에 대 한 �
  ## <a name="understand-health-in-azure-stack"></a>Azure Stack의 상태 이해
 
  상태 및 경고 상태 리소스 공급자에 의해 관리 됩니다. Azure Stack 구성 요소는 Azure Stack이 배포 및 구성되는 동안 상태 리소스 공급자에 등록합니다. 이 등록 상태 및 각 구성 요소에 대 한 알림을 표시할 수 있습니다. Azure Stack의 상태는 간단한 개념입니다. 등록된 구성 요소 인스턴스가 있으면 해당 구성 요소의 상태에 최악의 활성 경고 심각도인 경고 또는 위험이 반영됩니다.
+
+## <a name="alert-severity-definition"></a>경고 심각도 정의
+
+두 개의 심각도 인 경고가 발생 Azure 스택의: **경고** 및 **중요**합니다.
+
+**Warning**  
+연산자는 예약 된 방식으로 경고 경고를 해결할 수 있습니다. 일반적으로 경고 사용자 작업량이 영향 하지 않습니다.
+
+**중요**  
+긴급도를 연산자에는 중요 한 경고인을 다루어야 합니다. 이들은 문제가 현재 영향을 줄 되거나 곧 Azure 스택 사용자가 영향을 줍니다. 
+
  
  ## <a name="view-and-manage-component-health-state"></a>보기 및 구성 요소 상태 관리
  

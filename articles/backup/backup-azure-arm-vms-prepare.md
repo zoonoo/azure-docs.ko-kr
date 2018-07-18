@@ -1,26 +1,20 @@
 ---
-title: 'Azure Backup: 가상 머신 백업 준비 | Microsoft Docs'
+title: 'Azure Backup: 가상 머신 백업 준비'
 description: 환경이 Azure의 가상 머신을 백업할 준비가 되었는지 확인합니다.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 백업; 백업;
-ms.assetid: e87e8db2-b4d9-40e1-a481-1aa560c03395
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 3/1/2018
-ms.author: markgal;trinadhk;sogup;
-ms.openlocfilehash: 489875e595c9f28a1e30cbb29cde078f1b716f7f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.topic: conceptual
+ms.date: 6/21/2018
+ms.author: markgal
+ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940573"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960171"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -40,11 +34,14 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 사용자 환경이 이러한 조건을 이미 갖춘 경우 [VM 백업](backup-azure-arm-vms.md) 문서로 진행합니다. 필수 구성 요소를 하나라도 설정하거나 확인해야 하는 경우 이 문서를 통해 단계를 수행합니다.
 
 ## <a name="supported-operating-systems-for-backup"></a>백업에 지원되는 운영 체제
- * **Linux**: Azure Backup은 CoreOS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 지원합니다. 
- 
+
+ * **Linux**: Azure Backup은 CoreOS Linux를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 지원합니다. 파일 저장을 지원하는 Linux 운영 체제의 목록은 [가상 머신 백업에서 파일 복구](backup-azure-restore-files-from-vm.md#for-linux-os)를 참조하세요.
+
     > [!NOTE] 
     > 가상 머신에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own-Linux 배포가 작동할 수 있습니다. 그러나 이러한 배포는 지원되지 않습니다.
- * **Windows Server**: Windows Server 2008 R2 이전 버전은 지원되지 않습니다.
+    >
+ * **Windows Server**, **Windows 클라이언트**: Windows Server 2008 R2 또는 Windows 7 이전 버전은 지원되지 않습니다.
+
 
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>VM 백업 및 복원 시의 제한 사항
 환경을 준비하기 전에 다음과 같은 제한 사항을 이해해야 합니다.
@@ -60,6 +57,7 @@ Resource Manager 배포 가상 머신을 보호하거나 백업하기 전에 다
 * 선택한 네트워크에 대해 저장소 계정에 대한 방화벽 및 가상 네트워크 설정을 구성한 다음, Azure Backup 서비스가 네트워크 제한 저장소 계정에 액세스할 수 있도록 **신뢰할 수 있는 Microsoft 서비스가 이 저장소 계정에 액세스하도록 허용합니다.** 를 예외적으로 선택합니다. 네트워크 제한 저장소 계정에는 항목 수준 복구가 지원되지 않습니다.
 * Azure의 모든 공영 지역에 있는 가상 머신을 백업할 수 있습니다. (지원되는 지역의 [검사 목록](https://azure.microsoft.com/regions/#services)을 참조하세요.) 찾는 지역이 현재 지원되지 않는 경우 자격 증명 모음을 만드는 동안 드롭다운 목록에 표시되지 않습니다.
 * 다중 DC 구성의 일부인 도메인 컨트롤러(DC) VM 복원은 PowerShell을 통해서만 지원됩니다. 대해 자세히 알아보려면 [다중 DC 도메인 컨트롤러 복원](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)을 참조하세요.
+* Write Accelerator를 사용하도록 설정된 디스크의 스냅숏은 지원되지 않습니다. 이 제한 사항은 가상 머신의 모든 디스크에 대해 응용 프로그램 일치 스냅숏을 수행하는 Azure Backup 서비스 기능을 차단합니다.
 * 다음과 같은 특수 네트워크 구성을 포함하는 가상 머신 복원은 PowerShell 통해서만 지원됩니다. UI에서 복원 워크플로를 통해 만든 VM은 복원 작업이 완료된 후 이러한 네트워크 구성을 갖지 않습니다. 자세한 내용은 [특수 네트워크 구성을 가진 VM 복원](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)을 참조하세요.
   * 부하 분산 장치 구성에서의 가상 머신(내부 및 외부)
   * 다중의 예약된 IP 주소가 있는 가상 머신
@@ -175,7 +173,9 @@ Recovery Services 자격 증명 모음에 가상 머신을 등록하기 전에 �
 ## <a name="install-the-vm-agent-on-the-virtual-machine"></a>가상 머신에 VM 에이전트 설치
 사용할 백업 확장의 경우 Azure [VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure 가상 머신에 설치되어야 합니다. Azure Marketplace에서 VM을 만든 경우 VM 에이전트는 이미 가상 머신에 표시됩니다. 
 
-Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. 예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.
+Azure Marketplace에서 만든 VM을 사용하지 *않는* 경우에 다음 정보가 제공됩니다. **예를 들어 온-프레미스 데이터 센터에서 VM을 마이그레이션했습니다. 이런 경우, 가상 머신을 보호하기 위해 VM 에이전트를 설치해야 합니다.**
+
+**참고**: VM 에이전트를 설치한 후에는 Azure에서 VM에 에이전트가 설치되었음을 알 수 있도록 Azure PowerShell을 사용하여 ProvisionGuestAgent 속성을 업데이트해야 합니다. 
 
 Azure VM을 백업하는 데 문제가 있는 경우 다음 표를 사용하여 Azure VM 에이전트가 가상 머신에 올바르게 설치되었는지 확인합니다. 표에서는 Windows 및 Linux VM용 VM 에이전트에 대한 추가 정보를 제공합니다.
 

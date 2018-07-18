@@ -1,22 +1,19 @@
 ---
 title: Power BI를 사용하여 원격 모니터링 데이터 시각화 - Azure | Microsoft Docs
 description: 이 자습서에서는 Power BI Desktop과 Cosmos DB를 사용하여 원격 모니터링 솔루션의 데이터를 사용자 지정된 시각화로 통합시킵니다. 이렇게 하면 자신만의 사용자 지정 대시보드를 만들어서 솔루션이 아닌 곳에서 사용자에게 공유할 수 있습니다.
-services: iot-suite
-suite: iot-suite
 author: asdonald
 manager: hegate
 ms.author: asdonald
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 05/01/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 55feb56008a54676bd0af332e251da94a9653aaf
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970404"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Power BI를 사용하여 원격 모니터링 데이터 시각화
 
@@ -97,9 +94,9 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="publishing-the-dashboard-and-refreshing-the-data"></a>대시보드 게시 및 데이터 새로 고침
 
-대시보드 만들기를 완료한 후에는 [Power BI 대시보드를 게시](https://docs.microsoft.com/en-us/power-bi/desktop-upload-desktop-files)하여 다른 사람들과 공유하는 것이 좋습니다.
+대시보드 만들기를 완료한 후에는 [Power BI 대시보드를 게시](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files)하여 다른 사람들과 공유하는 것이 좋습니다.
 
-또한 최신 데이터 집합이 표시되도록 게시된 대시보드의 [데이터를 새로 고치는 것이](https://docs.microsoft.com/en-us/power-bi/refresh-data) 좋습니다.
+또한 최신 데이터 집합이 표시되도록 게시된 대시보드의 [데이터를 새로 고치는 것이](https://docs.microsoft.com/power-bi/refresh-data) 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

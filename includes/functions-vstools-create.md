@@ -9,11 +9,11 @@ ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 16bda26a80611b29fdb100736cfc48978e63f75a
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34702433"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38739218"
 ---
 Visual Studio의 Azure Functions 프로젝트 템플릿은 Azure에서 함수 앱에 게시할 수 있는 프로젝트를 만듭니다. 함수 앱을 통해 함수를 논리적 단위로 그룹화하여 관리, 배포 및 리소스를 공유할 수 있습니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: genli
-ms.openlocfilehash: 2d332ce0da8622441d31a16a0addb9c06058998c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: df1bb64d0d753ae1853a2212c7c89d2e1613b8bc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363297"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657318"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>오프라인 모드에서 Azure 가상 머신 에이전트 설치 
 
@@ -109,7 +109,7 @@ Azure VM 에이전트(가상 머신 에이전트)는 로컬 관리자 암호 재
 
 Resource Manager 배포 모델을 사용하여 VM을 만든 경우 작업이 끝났습니다.
 
-### <a name="use-the-provisionguestagent-property-for-vms-created-with-azure-resource-manager"></a>Azure Resource Manager로 만든 VM의 ProvisionGuestAgent 속성 사용
+### <a name="use-the-provisionguestagent-property-for-classic-vms"></a>클래식 VM에 ProvisionGuestAgent 속성 사용
 
 클래식 모델을 사용하여 VM을 만든 경우 Azure PowerShell 모듈을 사용하여 **ProvisionGuestAgent** 속성을 업데이트합니다. 이 속성은 VM에 VM 에이전트가 설치되었다는 사실을 Azure에 알려줍니다.
 

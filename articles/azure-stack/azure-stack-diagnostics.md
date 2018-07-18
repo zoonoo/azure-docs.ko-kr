@@ -7,14 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/27/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 28e1939d3c9cb5a9b9080e60230ad5600ad8a6a3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064166"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure 스택 진단 도구
 
@@ -45,6 +46,35 @@ PowerShell cmdlet **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구
 *   **ETW 로그**
 
 이러한 파일에 수집 되 고 추적 수집기에서 공유에 저장 됩니다. **Get AzureStackLog** PowerShell cmdlet 다 필요한 경우 사용할 수 있습니다.
+
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>통합 시스템 Azure 스택에 AzureStackLog Get을 실행 하려면 
+통합된 된 시스템에서 로그 수집 도구를 실행 하려면 액세스 권한을 가진 끝점 (PEP)가 필요 합니다. 다음은 예제 스크립트는 PEP 통합된 된 시스템에 로그를 수집 하려면 사용 하 여 실행할 수 있습니다.
+
+```powershell
+$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
+ 
+$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
+ 
+$shareCred = Get-Credential
+ 
+$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
+
+$fromDate = (Get-Date).AddHours(-8)
+$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
+ 
+Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
+
+if($s)
+{
+    Remove-PSSession $s
+}
+```
+
+- 매개 변수 **OutputSharePath** 및 **OutputShareCredential** 외부 공유 폴더에 로그를 업로드 하는 데 사용 됩니다.
+- 이전 예에서 같이 **FromDate** 및 **ToDate** 특정 기간에 대 한 로그를 수집 하도록 매개 변수를 사용할 수 있습니다. 이 제공 될 수 있습니다 시나리오 같은 통합된 된 시스템에 업데이트 패키지를 적용 한 후 로그를 수집 하는 데 편리 합니다.
+
+
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Azure 스택 개발 키트 (ASDK) 시스템에서 AzureStackLog Get을 실행 하려면
 1. 로 로그인 **AzureStack\CloudAdmin** 호스트 합니다.
@@ -77,70 +107,11 @@ PowerShell cmdlet **Get AzureStackLog** 는 Azure 스택 환경에서 모든 구
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1804-and-later"></a>통합 시스템 버전 1804 이상 Azure 스택에 AzureStackLog Get을 실행 하려면
-
-통합된 된 시스템에서 로그 수집 도구를 실행 하려면 액세스 권한을 가진 끝점 (PEP)가 필요 합니다. 다음은 예제 스크립트는 PEP 통합된 된 시스템에 로그를 수집 하려면 사용 하 여 실행할 수 있습니다.
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- 매개 변수 **OutputSharePath** 및 **OutputShareCredential** 외부 공유 폴더에 로그를 업로드 하는 데 사용 됩니다.
-- 이전 예에서 같이 **FromDate** 및 **ToDate** 특정 기간에 대 한 로그를 수집 하도록 매개 변수를 사용할 수 있습니다. 이 제공 될 수 있습니다 시나리오 같은 통합된 된 시스템에 업데이트 패키지를 적용 한 후 로그를 수집 하는 데 편리 합니다.
-
-
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems-version-1803-and-earlier"></a>통합 시스템 1803 이전 버전 Azure 스택에 AzureStackLog Get을 실행 하려면
-
-통합된 된 시스템에서 로그 수집 도구를 실행 하려면 액세스 권한을 가진 끝점 (PEP)가 필요 합니다. 다음은 예제 스크립트는 PEP 통합된 된 시스템에 로그를 수집 하려면 사용 하 여 실행할 수 있습니다.
-
-```powershell
-$ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
- 
-$pwd= ConvertTo-SecureString "<CLOUD ADMIN PASSWORD>" -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN NAME>\CloudAdmin", $pwd)
- 
-$shareCred = Get-Credential
- 
-$s = New-PSSession -ComputerName $ip -ConfigurationName PrivilegedEndpoint -Credential $cred
-
-$fromDate = (Get-Date).AddHours(-8)
-$toDate = (Get-Date).AddHours(-2)  #provide the time that includes the period for your issue
- 
-Invoke-Command -Session $s {    Get-AzureStackLog -OutputPath "\\<HLH MACHINE ADDRESS>\c$\logs" -OutputSharePath "<EXTERNAL SHARE ADDRESS>" -OutputShareCredential $using:shareCred  -FilterByRole Storage -FromDate $using:fromDate -ToDate $using:toDate}
-
-if($s)
-{
-    Remove-PSSession $s
-}
-```
-
-- PEP에서 로그를 수집 하는 경우 지정는 **OutputPath** 매개 변수를 하드웨어 수명 주기 호스트 (HLH) 컴퓨터에 있는 위치 여야 합니다. 또한 위치 암호화 되어 있는지 확인 합니다.
-- 매개 변수 **OutputSharePath** 및 **OutputShareCredential** 선택 사항이 며 외부 공유 폴더에 로그를 업로드 하는 경우에 사용 됩니다. 이러한 매개 변수를 사용 하 여 *또한* 를 **OutputPath**합니다. 경우 **OutputPath** 를 지정 하지 않으면 로그 컬렉션 도구 PEP VM의 시스템 드라이브를 사용 하 여 저장소에 대 한 합니다. 드라이브 공간이 제한 되기 때문에 실패 하는 스크립트를 않을 수 있습니다.
-- 이전 예에서 같이 **FromDate** 및 **ToDate** 특정 기간에 대 한 로그를 수집 하도록 매개 변수를 사용할 수 있습니다. 이 제공 될 수 있습니다 시나리오 같은 통합된 된 시스템에 업데이트 패키지를 적용 한 후 로그를 수집 하는 데 편리 합니다.
-
-
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK와 통합 된 시스템에 대 한 매개 변수 고려 사항
 
 - 경우는 **FromDate** 및 **ToDate** 매개 변수가 지정 되지 않은 경우, 기본적으로 지난 4 시간 동안 로그가 수집 됩니다.
 - 사용할 수는 **TimeOutInMinutes** 매개 변수를 로그 컬렉션에 대 한 제한 시간을 설정 합니다. 기본적으로 150 (2.5 시간)에 설정 됩니다.
-
+- 1805 이상 버전에서는 덤프 파일 로그 컬렉션은 기본적으로 비활성화 됩니다. 을 사용 하려면 사용 하 여는 **IncludeDumpFile** 스위치 매개 변수입니다. 
 - 현재 사용할 수는 **FilterByRole** 매개 변수를 사용 하 여 다음과 같은 역할 필터 로그 컬렉션:
 
    |   |   |   |
@@ -184,7 +155,7 @@ ERCS_AzureStackLogs.ps1 PowerShell 스크립트에 대 한 자세한 내용은 �
 * 이 명령은 다소 시간이 걸릴 수 로그를 수집 하는 어떤 역할에 따라 실행 합니다. 영향을 주는 요소는 로그 수집 및 Azure 스택 환경에 있는 노드의 숫자에 대해 지정 된 기간도 포함 됩니다.
 * 컬렉션 실행 로그를 검사에서 만든 새 폴더는 **OutputSharePath** 명령에 지정 된 매개 변수입니다.
 * 각 역할에는 개별 zip 파일 내의 해당 로그에 있습니다. 수집 된 로그의 크기에 따라 역할에는 해당 로그를 여러 개의 zip 파일에 분할 수 있을 수 있습니다. 이러한 역할에 대 한 단일 폴더에 압축을 푼 모든 로그 파일을 원하는 경우 (예: 7zip) 대량에서 압축을 풀 수 있는 도구를 사용 합니다. 역할의 경우 압축 된 파일을 모두 선택 하 고 선택 **여기 추출**합니다. 이 압축을 풀고 단일 병합 된 폴더에 해당 역할에 대 한 모든 로그 파일입니다.
-* 이라는 파일 **Get AzureStackLog_Output.log** 압축 된 로그 파일이 포함 된 폴더에 만들어집니다. 이 파일은 로그 수집 하는 동안 문제 해결에 사용할 수 있는 명령 출력의 로그입니다.
+* 이라는 파일 **Get AzureStackLog_Output.log** 압축 된 로그 파일이 포함 된 폴더에 만들어집니다. 이 파일은 로그 수집 하는 동안 문제 해결에 사용할 수 있는 명령 출력의 로그입니다. 로그 파일에 포함 하는 경우에 따라 `PS>TerminatingError` 항목 무시 될 수 있는 안전 하 게, 예상된 로그 파일은 한 후 누락 된 경우가 아니면 로그 수집을 실행 합니다.
 * 특정 오류를 조사 하려면 둘 이상의 구성 요소에서 로그를 필요할 수 있습니다.
     -   시스템 및 인프라의 모든 Vm에 대 한 이벤트 로그에서 수집 되는 *VirtualMachines* 역할입니다.
     -   시스템 및 모든 호스트에 대 한 이벤트 로그에서 수집 되는 *BareMetal* 역할입니다.

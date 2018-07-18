@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 40f35cde2b55da0763f6ee65b065f5dd8a55b9c6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894643"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918308"
 ---
 # <a name="failover-in-site-recovery"></a>사이트 복구에서 장애 조치
 이 문서에서는 Site Recovery에서 보호하는 가상 머신 및 물리적 서버를 장애 조치하는 방법에 대해 설명합니다.

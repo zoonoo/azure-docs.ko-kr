@@ -2,23 +2,20 @@
 title: Azure Cosmos DB에서 지리 공간 데이터 작업 | Microsoft Docs
 description: Azure Cosmos DB 및 SQL API를 사용하여 공간 개체를 만들고 인덱싱 및 쿼리하는 방법을 이해합니다.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 82ce2898-a9f9-4acf-af4d-8ca4ba9c7b8f
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/20/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 858d6c2154a74a6e5fe16c9392827cc8a6354f9c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 893b985514f4c812da673a90fc40148e8ac9ce81
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34611370"
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Azure Cosmos DB에서 지리 공간 및 GeoJSON 위치 데이터 작업
 이 문서에서는 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)의 지리 공간 기능을 소개합니다. 이 문서를 읽은 후에는 다음과 같은 질문에 답할 수 있습니다.
@@ -98,7 +95,7 @@ Azure Cosmos DB는 인덱싱 및 지리 공간 지점 데이터의 쿼리를 지
 점, LineString 및 다각형 외에도 GeoJSON은 여러 지리 공간 위치를 그룹화하는 방법 및 임의 속성을 지리적 위치에 **기능**으로 연결하는 방법에 대한 표현을 지정합니다. 이러한 개체는 유효한 JSON이므로 모두 Azure Cosmos DB에 저장하고 처리할 수 있습니다. 그러나 Azure Cosmos DB는 지점의 자동 인덱싱만 지원합니다.
 
 ### <a name="coordinate-reference-systems"></a>좌표 참조 시스템
-지구 모양이 불규칙적이므로 지리 공간 데이터의 좌표는 각각 고유한 참조 프레임과 측정 단위가 있는 많은 CRS(좌표 참조 시스템)에 표시됩니다. 예를 들어 "National Grid of Britain"은 영국에서만 매우 정확하고 그 밖의 지역에서는 정확하지 않은 참조 시스템입니다. 
+지구 모양이 불규칙적이므로 지리 공간 데이터의 좌표는 각각 고유한 참조 프레임과 측정 단위가 있는 많은 CRS(좌표 참조 시스템)에 표시됩니다. 예를 들어 "National Grid of Britain"은 영국에서만 정확하고 그 밖의 지역에서는 정확하지 않은 참조 시스템입니다. 
 
 현재 가장 많이 사용되는 CRS는 World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/)입니다. GPS 장치와 Google Map 및 Bing 지도 API를 비롯한 많은 매핑 서비스는 WGS-84를 사용합니다. Azure Cosmos DB는 WGS-84 CRS만 사용하여 지리 공간 데이터의 인덱싱 및 쿼리를 지원합니다. 
 
@@ -272,7 +269,7 @@ ST_ISVALID 및 ST_ISVALIDDETAILED를 사용하여 공간 개체가 유효한지 
     }]
 
 ### <a name="linq-querying-in-the-net-sdk"></a>.NET SDK의 LINQ 쿼리
-SQL .NET SDK는 LINQ 식에서 사용하기 위한 스텁 메서드 `Distance()` 및 `Within()`도 제공합니다. SQL LINQ 공급자는 이러한 메서드 호출을 동등한 SQL 기본 제공 함수 호출(각각 ST_DISTANCE 및 ST_WITHIN)로 변환합니다. 
+SQL .NET SDK는 LINQ 식에서 사용하기 위한 스텁 메서드 `Distance()` 및 `Within()`도 제공합니다. SQL LINQ 공급자는 이 메서드 호출을 동등한 SQL 기본 제공 함수 호출(각각 ST_DISTANCE 및 ST_WITHIN)로 변환합니다. 
 
 LINQ를 사용하여 Azure Cosmos DB 컬렉션에서 “위치” 값이 지정된 점에서 30km 반지름 내에 있는 모든 문서를 찾는 LINQ 쿼리의 예는 다음과 같습니다.
 

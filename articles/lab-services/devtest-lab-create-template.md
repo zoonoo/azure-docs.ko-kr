@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: a961565815ca0d89dc98a8d6a3e14b338b649398
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781712"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687811"
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>VHD 파일에서 사용자 지정 이미지 만들기
 
@@ -58,7 +58,7 @@ ms.locfileid: "33781712"
 
 1. 드롭다운 메뉴에서 **VHD**를 선택합니다. 새 사용자 지정 이미지를 만드는 데 사용될 VHD입니다. 필요한 경우 **PowerShell을 사용하여 VHD 업로드**를 선택합니다.
 
-1. 사용자 지정 이미지를 만드는 데 사용되는 이미지가 라이선스 이미지(Microsoft에서 게시)가 아닌 경우 계획 이름, 계획 제품 및 계획 게시자를 입력할 수도 있습니다.
+1. 사용자 지정 이미지를 만드는 데 사용되는 이미지가 라이선스 이미지(Microsoft에서 게시)가 아닌 경우 계획 이름, 계획 제안 및 계획 게시자를 입력할 수도 있습니다.
 
    - **계획 이름:** 이 사용자 지정 이미지를 만들 Marketplace 이미지(SKU)의 이름을 입력합니다. 
    - **계획 제품:** 이 사용자 지정 이미지를 만들 Marketplace 이미지의 제품(제안)을 입력합니다. 

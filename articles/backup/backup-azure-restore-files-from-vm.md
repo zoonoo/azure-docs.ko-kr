@@ -1,28 +1,24 @@
 ---
-title: 'Azure Backup: Azure VM 백업에서 파일 및 폴더 복구 | Microsoft Docs'
+title: 'Azure Backup: Azure VM 백업에서 파일 및 폴더 복구'
 description: Azure 가상 머신 복구 지점에서 파일 복구
 services: backup
-documentationcenter: dev-center-name
 author: pvrk
 manager: shivamg
 keywords: 항목 수준 복구, Azure 백업에서 파일 복구, Azure VM에서 파일 복원
-ms.assetid: f1c067a2-4826-4da4-b97a-c5fd6c189a77
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: pullabhk;markgal
-ms.openlocfilehash: 0fce38db010a77ac61145ef63f616e0e466c95e2
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.author: pullabhk
+ms.openlocfilehash: 4be1ffcabed6667ab76ec790326a687d75c8b125
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36958623"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
-Azure Backup에서는 Azure VM Backup에서 [Azure 가상 머신(VM) 및 디스크](./backup-azure-arm-restore-vms.md)를 복원하는 기능을 제공합니다. 이 문서에서는 Azure VM Backup에서 파일 및 폴더를 어떻게 복구할 수 있는지 설명합니다. 파일 및 폴더 복원은 Resource Manager 모델을 사용하여 배포된 Azure VM에서만 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
+Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Azure VM(가상 머신) 및 디스크](./backup-azure-arm-restore-vms.md)를 복원하는 기능을 제공합니다. 이 문서에서는 Azure VM Backup에서 파일 및 폴더를 어떻게 복구할 수 있는지 설명합니다. 파일 및 폴더 복원은 Resource Manager 모델을 사용하여 배포된 Azure VM에서만 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
 
 > [!Note]
 > 이 기능은 Resource Manager 모델을 사용하여 배포된 Azure VM에서 사용 가능하며 Recovery Services 자격 증명 모음에 대해 보호됩니다.
@@ -31,7 +27,7 @@ Azure Backup에서는 Azure VM Backup에서 [Azure 가상 머신(VM) 및 디스�
 
 ## <a name="mount-the-volume-and-copy-files"></a>볼륨 탑재 및 파일 복사
 
-복원 지점에서 파일 또는 폴더를 복원하려면 가상 머신으로 이동하고 복원 지점을 선택합니다. 
+복구 지점에서 파일 또는 폴더를 복원하려면 가상 머신으로 이동하고 원하는 복구 지점을 선택합니다. 
 
 1. [Azure Portal](http://portal.Azure.com)에 로그인하고 왼쪽 메뉴에서 **가상 머신**를 클릭합니다. 가상 머신 목록에서 가상 머신을 선택하여 해당 가상 머신의 대시보드를 엽니다. 
 
@@ -175,9 +171,9 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 | Windows Server 2016    | 윈도우 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | 윈도우 7   |
+| Windows Server 2008 R2 | Windows 7   |
 
-### <a name="for-linux"></a>Linux의 경우
+### <a name="for-linux-os"></a>Linux OS
 
 Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된 가상 머신의 파일 시스템을 지원해야 합니다. 스크립트를 실행할 컴퓨터를 선택할 때 컴퓨터에 호환되는 OS가 있는지 확인하고 다음 테이블에 나타난 버전 중 하나를 사용합니다.
 

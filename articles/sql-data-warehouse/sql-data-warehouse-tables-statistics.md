@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2922a859f741c6b6420f49d34b982b7ec4968a8c
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: bbc6a5083aebba40885700cab6c67128c9d9f916
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011767"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34643433"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 테이블에서 통계 만들기 및 업데이트
 Azure SQL Data Warehouse의 테이블에서 쿼리 최적화 통계 생성 및 업데이트에 대한 예제와 권장 사항입니다.
@@ -50,11 +50,14 @@ SET AUTO_CREATE_STATISTICS ON
 > 통계 생성은 다른 사용자 컨텍스트에서 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016)에도 기록됩니다.
 > 
 
-자동 통계를 만들 때 _WA_Sys_<16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. 다음 명령을 실행하여 이미 생성된 통계를 볼 수 있습니다.
+자동 통계를 만들 때 _WA_Sys_<16진수의 8자리 열 ID>_<16진수의 8자리 테이블 ID> 양식을 사용합니다. [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) 명령을 실행하면 이미 생성된 통계를 볼 수 있습니다.
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+첫 번째 인수는 표시할 통계가 포함된 테이블입니다. 외부 테이블은 사용할 수 없습니다. 두 번째 인수는 통계 정보를 표시할 대상 인덱스, 통계 또는 열의 이름입니다.
+
+
 
 ## <a name="updating-statistics"></a>통계 업데이트
 

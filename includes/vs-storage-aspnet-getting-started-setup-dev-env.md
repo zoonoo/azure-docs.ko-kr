@@ -8,7 +8,7 @@
 
 1. 주 메뉴에서 **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
-1. **새 프로젝트** 대화 상자에서 **웹** > **ASP.NET 웹 응용 프로그램(.NET Framework)**을 선택합니다. **이름** 필드에서 **StorageAspNet**을 지정합니다. **확인**을 선택합니다.
+1. **새 프로젝트** 대화 상자에서 **웹** > **ASP.NET 웹 응용 프로그램(.NET Framework)** 을 선택합니다. **이름** 필드에서 **StorageAspNet**을 지정합니다. **확인**을 선택합니다.
 
     ![새 프로젝트 대화 상자 스크린샷](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-1.png)
 
@@ -22,7 +22,7 @@
 
 2. 상황에 맞는 메뉴에서 **추가** > **연결된 서비스**를 선택합니다.
 
-1. **연결된 서비스** 대화 상자에서 **Azure Storage에서 클라우드 저장소**를 선택한 다음 **구성**을 선택합니다.
+1. **연결된 서비스** 대화 상자에서 **Azure Storage의 클라우드 저장소**를 선택합니다.
 
     ![연결된 서비스 대화 상자 스크린샷](./media/vs-storage-aspnet-getting-started-setup-dev-env/vs-storage-aspnet-getting-started-setup-dev-env-3.png)
 

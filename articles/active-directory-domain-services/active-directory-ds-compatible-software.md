@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: d44420505ebf08e199ee482d78baa8fdb5654c14
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77453d05667e0520b4da550803902f01631aa5e1
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34587162"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232082"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Azure AD Domain Services와 호환되는 타사 소프트웨어
 
@@ -35,10 +35,10 @@ One Identity Authentication Services를 통해 Unix, Linux 및 Mac OS X 시스�
 [기술 자료 문서 - Azure AD Domain Services를 통해 One Identity Authentication Services 사용](https://support.quest.com/authentication-services/kb/208427)
 
 
-## <a name="redhat-enterprise-linux"></a>RedHat Enterprise Linux
+## <a name="red-hat-enterprise-linux"></a>Red Hat Enterprise Linux
 
-![RedHat](./media/compatible-software-icons/RedHat.png)
+![Red Hat](./media/compatible-software-icons/RedHat.png)
 
 Red Hat Enterprise Linux는 오늘날 현대식 엔터프라이즈의 요구 사항을 충족하도록 구축된 세계 최고의 엔터프라이즈 Linux 플랫폼입니다. Red Hat Enterprise Linux는 Microsoft Azure의 엔터프라이즈 Linux 가상 컴퓨터(VM) 워크로드에 적합한 선택입니다. Red Hat Enterprise Linux는 데이터 센터에서 Azure 클라우드까지 Red Hat 및 Microsoft에서 긴밀하게 통합된 엔터프라이즈급 지원에 힘입어 비즈니스에 중요한 워크로드에 배포 유연성을 원하는 고객들을 위해 설계된 신뢰할 수 있는 안전한 개방형 플랫폼입니다.
 
-[Azure AD Domain Services에 RedHat Enterprise Linux 7.2 VM 조인](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+[Red Hat Enterprise Linux 7.2 VM을 Azure AD Domain Services에 조인](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

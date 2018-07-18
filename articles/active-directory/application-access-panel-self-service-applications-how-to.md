@@ -3,23 +3,24 @@ title: 셀프 서비스 응용 프로그램 액세스를 사용하는 방법 | M
 description: 셀프 서비스 응용 프로그램 액세스를 활성화하여 사용자가 자신의 응용 프로그램을 찾을 수 있도록 함
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviewer: japere
-ms.openlocfilehash: 760234d0d36bc140e3b441d7326083407de726b0
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: japere,asteen
+ms.openlocfilehash: 8eb12764cf5df539f61842ba3602c6265c1e2b86
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29383192"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441212"
 ---
 # <a name="how-to-use-self-service-application-access"></a>셀프 서비스 응용 프로그램 액세스를 사용하는 방법
 
@@ -84,4 +85,4 @@ ms.locfileid: "29383192"
 이러한 승인은 단일 승인 워크플로만 지원합니다. 즉, 여러 승인자를 지정하는 경우 모든 단일 승인자는 응용 프로그램에 대한 액세스를 승인합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](active-directory-accessmanagement-self-service-group-management.md)
+[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](users-groups-roles/groups-self-service-management.md)

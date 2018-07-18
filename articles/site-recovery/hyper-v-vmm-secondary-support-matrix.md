@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 767b0e76b73c082ddb75374f51700b85272f713e
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 13b4dc6e49c67ae9fd880ab64880966835242dec
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923421"
 ---
 # <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트에 복제하기 위한 지원 매트릭스
 
@@ -57,10 +58,10 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 호스트 - NIC 팀 | 예 
 호스트 - VLAN | 예 
 호스트 - IPv4 | 예 
-호스트 - IPv6 | 아니요 
-게스트 VM - NIC 팀 | 아니요
+호스트 - IPv6 | 아니오 
+게스트 VM - NIC 팀 | 아니오
 게스트 VM - IPv4 | 예
-게스트 VM - IPv6 | 아니요
+게스트 VM - IPv6 | 아니오
 게스트 VM - Windows/Linux - 고정 IP 주소 | 예
 게스트 VM - 다중 NIC | 예
 
@@ -83,10 +84,10 @@ SAN(ISCSI) | 예
 VMDK |  해당 없음
 VHD/VHDX | 예(최대 16개 디스크)
 2세대 VM | 예
-공유 클러스터 디스크 | 아니요
-암호화된 디스크 | 아니요
+공유 클러스터 디스크 | 아니오
+암호화된 디스크 | 아니오
 UEFI| 해당 없음
-NFS | 아니요
+NFS | 아니오
 SMB 3.0 | 아니오
 RDM | 해당 없음
 디스크 > 1TB | 예
@@ -100,8 +101,8 @@ RDM | 해당 없음
 
 **작업** | **지원됨**
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니요
-리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니오
+리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니오
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery 공급자
 

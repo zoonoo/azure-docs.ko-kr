@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: 0beeb8fb7f7e46db97e179f3eacf3c68dd92cff3
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798580"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061746"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>서버 탐색기로 저장소 리소스 찾아보기 및 관리
 
@@ -157,7 +157,7 @@ Blob을 선택한 다음 **Blob 열기** 단추를 선택합니다.
 
 ![큐 보기](./media/vs-azure-tools-storage-resources-server-explorer-browse-manage/IC651470.png)
 
-저장소 서비스 큐에 대한 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](http://go.microsoft.com/fwlink/?LinkID=264702)을 참조하세요. 저장소 서비스 큐의 웹 서비스에 대한 자세한 내용은 [큐 서비스 개념](http://go.microsoft.com/fwlink/?LinkId=264788)을 참조하세요. Visual Studio를 사용하여 Storage 서비스 큐에 메시지를 보내는 방법에 대한 자세한 내용은 [Storage 서비스 큐에 메시지 보내기](https://msdn.microsoft.com/library/azure/jj649344.aspx)를 참조하세요.
+저장소 서비스 큐에 대한 자세한 내용은 [.NET을 사용하여 Azure Queue Storage 시작](http://go.microsoft.com/fwlink/?LinkID=264702)을 참조하세요. 저장소 서비스 큐의 웹 서비스에 대한 자세한 내용은 [큐 서비스 개념](http://go.microsoft.com/fwlink/?LinkId=264788)을 참조하세요. Visual Studio를 사용하여 Storage 서비스 큐에 메시지를 보내는 방법에 대한 자세한 내용은 [Storage 서비스 큐에 메시지 보내기](https://docs.microsoft.com/azure/visual-studio/vs-storage-cloud-services-getting-started-queues)를 참조하세요.
 
 > [!NOTE]
 > 저장소 서비스 큐는 Azure Service Bus 큐와 구별됩니다. Service Bus 큐에 대한 자세한 내용은 [Service Bus 큐, 항목 및 구독](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-queues-topics-subscriptions)을 참조하세요.

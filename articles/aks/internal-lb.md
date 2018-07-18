@@ -2,23 +2,23 @@
 title: AKS(Azure Kubernetes Service) 내부 부하 분산 장치 만들기
 description: AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치를 사용합니다.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 3/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a1a5d6d455086ee34767e92b277936840717bcd6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 7606ce574c7ff94caef3ffa89320d682b22d8502
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933776"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097923"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
-내부 부하 분산은 Kubernetes 서비스가 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 응용 프로그램에 액세스할 수 있게 합니다. 이 문서에서는 AKS(Azure Kubernetes Service)를 사용하여 내부 부하 분산 장치를 만드는 방법을 자세히 설명합니다.
+내부 부하 분산은 Kubernetes 서비스가 Kubernetes 클러스터와 동일한 가상 네트워크에서 실행되는 응용 프로그램에 액세스할 수 있게 합니다. 이 문서에서는 AKS(Azure Kubernetes Service)를 사용하여 내부 부하 분산 장치를 만드는 방법을 자세히 설명합니다. Azure Load Balancer는 기본 및 표준이라는 두 SKU에서 사용할 수 있습니다. AKS는 기본 SKU를 사용합니다.
 
 ## <a name="create-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: larryfr
-ms.openlocfilehash: 0c870b0c8de648ac65bec6857bf850c2913e7aeb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412631"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903135"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>HDInsight의 Apache Storm에서 HDFS에 쓰기
 
-Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 저장소에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Store를 모두 HDFS 호환 저장소로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
+Storm을 사용하여 HDInsight의 Apache Storm에서 사용하는 HDFS 호환 저장소에 데이터를 쓰는 방법에 대해 알아봅니다. HDInsight는 Azure Storage 및 Azure Data Lake Store를 모두 HDFS 호환 저장소로 사용할 수 있습니다. Storm은 HDFS에 데이터를 쓰는 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 구성 요소를 제공합니다. 이 문서는 HdfsBolt에서 두 가지 유형의 저장소에 쓰는 방법에 대한 정보를 제공합니다. 
 
 > [!IMPORTANT]
 > 이 문서에서 사용되는 예제 토폴로지는 HDInsight의 Storm에 포함된 구성 요소를 사용합니다. 다른 Apache Storm 클러스터와 함께 Azure Data Lake Store를 사용하려면 수정해야 할 수도 있습니다.
@@ -65,11 +65,11 @@ HdfsBolt는 사용자가 제공하는 파일 구성표를 사용하여 HDFS에 �
 | `wasb://CONTAINER@ACCOUNT.blob.core.windows.net/` | 클러스터와 연결된 기본이 아닌 추가 Azure Storage 계정입니다. |
 | `adl://STORENAME/` | 클러스터에서 사용하는 Data Lake Store의 루트입니다. 이 구성표를 사용하면 클러스터 파일 시스템이 포함된 디렉터리 외부에 있는 데이터에 액세스할 수 있습니다. |
 
-자세한 내용은 Apache.org의 [HdfsBolt](http://storm.apache.org/releases/1.1.0/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 참조를 참조하세요.
+자세한 내용은 Apache.org의 [HdfsBolt](http://storm.apache.org/releases/current/javadocs/org/apache/storm/hdfs/bolt/HdfsBolt.html) 참조를 참조하세요.
 
 ### <a name="example-configuration"></a>예제 구성
 
-다음 YAML은 예제에 포함된 `resources/writetohdfs.yaml` 파일에서 인용한 부분입니다. 이 파일에서는 Apache Storm의 [Flux](https://storm.apache.org/releases/1.1.0/flux.html) 프레임워크를 사용하여 Storm 토폴로지를 정의합니다.
+다음 YAML은 예제에 포함된 `resources/writetohdfs.yaml` 파일에서 인용한 부분입니다. 이 파일에서는 Apache Storm의 [Flux](https://storm.apache.org/releases/1.1.2/flux.html) 프레임워크를 사용하여 Storm 토폴로지를 정의합니다.
 
 ```yaml
 components:
@@ -133,7 +133,7 @@ bolts:
 * `rotationPolicy`: 파일을 회전하는 시기를 정의합니다. 이 예제에서는 회전이 수행되지 않습니다.
 * `hdfs-bolt`: 이전 구성 요소를 `HdfsBolt` 클래스의 구성 매개 변수로 사용합니다.
 
-Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.0/flux.html](https://storm.apache.org/releases/1.1.0/flux.html)을 참조하세요.
+Flux 프레임워크에 대한 자세한 내용은 [https://storm.apache.org/releases/1.1.2/flux.html](https://storm.apache.org/releases/1.1.2/flux.html)을 참조하세요.
 
 ## <a name="configure-the-cluster"></a>클러스터 구성
 

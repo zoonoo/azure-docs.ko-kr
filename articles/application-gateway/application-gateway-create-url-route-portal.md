@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/26/2018
 ms.author: victorh
-ms.openlocfilehash: 4ffaeedf125b6f74aeb88e22248040c6c3ef001c
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3fcbcbe5d5f8dab956f40cde112f3536e1ae668c
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "34356174"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36263995"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Azure Portal을 사용하여 경로 기반 라우팅 규칙을 사용하여 응용 프로그램 게이트웨이 만들기
 
@@ -141,8 +141,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 1. **규칙**을 클릭한 다음, **경로 기반**을 클릭합니다.
 2. 이름에 *rule2*를 입력합니다.
-3. 첫 번째 경로의 이름에 *Images*를 입력합니다. 경로에 */images/**를 입력합니다. 백 엔드 풀에 **imagesBackendPool**을 선택합니다.
-4. 두 번째 경로의 이름에 *Video*를 입력합니다. 경로에 */video/**를 입력합니다. 백 엔드 풀에 **videoBackendPool**을 선택합니다.
+3. 첫 번째 경로의 이름에 *Images*를 입력합니다. 경로에 */images/*\*를 입력합니다. 백 엔드 풀에 **imagesBackendPool**을 선택합니다.
+4. 두 번째 경로의 이름에 *Video*를 입력합니다. 경로에 */video/*\*를 입력합니다. 백 엔드 풀에 **videoBackendPool**을 선택합니다.
 
     ![경로 기반 규칙 만들기](./media/application-gateway-create-url-route-portal/application-gateway-route-rule.png)
 

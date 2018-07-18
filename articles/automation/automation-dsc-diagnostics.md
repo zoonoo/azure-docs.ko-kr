@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d01042a02f2339f039f23d4f6e021de503dc3815
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 822d0e285e6f1cc9907625d7928dff3d9bf66921
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195967"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36218958"
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-log-analytics"></a>Log Analytics에 Azure Automation DSC 보고 데이터 전달
 
@@ -86,14 +86,14 @@ Log Analytics에서 검색하여 로그를 볼 수도 있습니다. [로그 검�
 
 고객이 자주 묻는 질문 중 하나는 DSC 구성에 문제가 발생한 경우 전자 메일 또는 텍스트를 보낼 수 있는지 여부입니다.   
 
-경고 규칙을 만들려면 경고를 호출해야 하는 DSC 보고서 레코드에 대한 로그 검색을 만드는 것으로 시작합니다.  **경고** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
+경고 규칙을 만들려면 경고를 호출해야 하는 DSC 보고서 레코드에 대한 로그 검색을 만드는 것으로 시작합니다.  **+ 새 경고 규칙** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
 
 1. Log Analytics 개요 페이지에서 **로그 검색**을 클릭합니다.
 1. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `Type=AzureDiagnostics Category=DscNodeStatus NodeName_s=DSCTEST1 OperationName=DscNodeStatusData ResultType=Failed`.
 
   둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다.  
   Automation 계정 이름은 DscNodeStatusData 검색의 리소스 필드에서 파생될 수 있습니다.  
-1. **경고 규칙 추가** 화면을 열려면 페이지 위쪽의 **경고**를 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Log Analytics의 경고](../log-analytics/log-analytics-alerts.md#alert-rules)를 참조하세요.
+1. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **+ 새 경고 규칙**을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [경고 규칙 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)를 참조하세요.
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>모든 노드에서 실패한 DSC 리소스 찾기
 

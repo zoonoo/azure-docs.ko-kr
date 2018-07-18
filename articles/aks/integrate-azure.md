@@ -8,11 +8,12 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: seozerca
-ms.openlocfilehash: a881b08874a157b0d6781ec3859b05eeaeba6676
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 471b53be4200ff728214876dd187c3c4e427c947
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342883"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
@@ -21,7 +22,7 @@ ms.lasthandoff: 05/10/2018
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독
 
-* Azure CLI 2.0: [로컬로 설치][azure-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용합니다.
+* Azure CLI: [로컬로 설치][azure-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용합니다.
 
 * Helm CLI 2.7+: [로컬로 설치][helm-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용합니다.
 
@@ -43,10 +44,16 @@ helm init --upgrade
 helm repo add svc-cat https://svc-catalog-charts.storage.googleapis.com
 ```
 
-마지막으로 Helm 차트와 함께 서비스 카탈로그를 설치합니다.
+마지막으로 Helm 차트와 함께 서비스 카탈로그를 설치합니다. 클러스터가 RBAC를 사용할 수 있는 경우 이 명령을 실행합니다.
 
 ```azurecli-interactive
-helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false
+helm install svc-cat/catalog --name catalog --namespace catalog --set controllerManager.healthcheck.enabled=false
+```
+
+클러스터가 RBAC를 사용할 수 없는 경우 이 명령을 실행합니다.
+
+```azurecli-interactive
+helm install svc-cat/catalog --name catalog --namespace catalog --set rbacEnable=false --set apiserver.auth.enabled=false --set controllerManager.healthcheck.enabled=false
 ```
 
 Helm 차트를 실행한 후에는 다음 명령의 출력에 `servicecatalog`가 나타나는지 확인합니다.
@@ -68,7 +75,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>Open Service Broker for Azure 설치
 
-다음 단계는 Azure에서 관리하는 서비스에 대한 카탈로그를 포함하는 [Open Service Broker for Azure][open-service-broker-azure]에 설치하는 것입니다. 사용 가능한 Azure 서비스의 예로는 Azure Database for PostgreSQL, Azure Redis Cache, Azure Database for MySQL, Azure Cosmos DB, Azure SQL Database 등이 있습니다.
+다음 단계는 Azure에서 관리하는 서비스에 대한 카탈로그를 포함하는 [Open Service Broker for Azure][open-service-broker-azure]에 설치하는 것입니다. 사용 가능한 Azure 서비스의 예로는 Azure Database for PostgreSQL, Azure Database for MySQL 및 Azure SQL Database가 있습니다.
 
 Open Service Broker for Azure Helm 리포지토리 추가부터 시작합니다.
 

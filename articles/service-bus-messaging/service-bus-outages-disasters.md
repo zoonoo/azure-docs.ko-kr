@@ -1,28 +1,23 @@
 ---
-title: "가동 중단 및 재해로부터 Azure Service Bus 응용 프로그램 보호 | Microsoft Docs"
-description: "잠재적 Service Bus 가동 중단으로부터 응용 프로그램을 보호하는 기술."
+title: 가동 중단 및 재해로부터 Azure Service Bus 응용 프로그램 보호 | Microsoft Docs
+description: 잠재적 Service Bus 가동 중단으로부터 응용 프로그램을 보호하는 기술.
 services: service-bus-messaging
-documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: fd9fa8ab-f4c4-43f7-974f-c876df1614d4
 ms.service: service-bus-messaging
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/30/2018
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 7b01412202b5091ad3ae420089049bf456f9a30b
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 1d960349b50e2618365fd085cba7b3e55fa53874
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301719"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 응용 프로그램을 보호하기 위한 모범 사례
 
-중요 업무용 응용 프로그램은 갑작스러운 가동 중단이나 재해가 발생하더라도 계속해서 작동해야 합니다. 이 항목에서는 잠재적 서비스 가동 중단 또는 재해로부터 Service Bus 응용 프로그램을 보호하기 위해 사용할 수 있는 기술을 설명합니다.
+중요 업무용 응용 프로그램은 갑작스러운 가동 중단이나 재해가 발생하더라도 계속해서 작동해야 합니다. 이 문서에서는 잠재적 서비스 가동 중단 또는 재해로부터 Service Bus 응용 프로그램을 보호하기 위해 사용할 수 있는 기술을 설명합니다.
 
 가동 중단이란 Azure Service Bus를 일시적으로 사용할 수 없게 됨을 의미합니다. 가동 중단은 메시징 저장소와 같은 Service Bus의 일부 구성 요소에 영향을 줄 수 있으며 때로는 전체 데이터센터에도 영향을 줄 수 있습니다. 문제가 해결되면 Service Bus가 다시 사용할 수 있는 상태가 됩니다. 일반적으로 가동 중단으로 인해 메시지나 기타 데이터는 손실되지는 않습니다. 구성 요소 오류의 예로 특정 메시지 저장소를 사용할 수 없는 경우를 들 수 있습니다. 데이터센터 범위의 가동 중단으로는 데이터센터의 전원 문제나 잘못된 데이터센터 네트워크 전환을 예로 들 수 있습니다. 가동 중단은 몇 분에서 며칠까지 지속될 수 있습니다.
 
@@ -34,7 +29,9 @@ Service Bus는 여러 메시징 저장소를 사용하여 큐 또는 항목에 �
 모든 Service Bus 메시징 엔터티(큐, 항목, 릴레이)는 데이터센터와 연결된 서비스 네임스페이스에 상주합니다. 이제 Service Bus는 네임스페이스 수준에서 [*지역 재해 복구* 및 *지역 복제*](service-bus-geo-dr.md)를 지원합니다.
 
 ## <a name="protecting-queues-and-topics-against-messaging-store-failures"></a>메시지 저장소 오류로부터 큐와 항목 보호
-분할되지 않은 큐나 항목은 하나의 메시징 저장소에 할당됩니다. 이 메시지 저장소를 사용할 수 없게 되면 해당 큐 또는 항목의 모든 작업이 실패하게 됩니다. 반면에 분할된 큐는 여러 조각으로 구성됩니다. 각 조각은 서로 다른 메시징 저장소에 저장됩니다. 분할된 큐 또는 항목으로 메시지를 보내면 Service Bus는 메시지를 조각 중 하나에 할당합니다. 해당 메시징 저장소를 사용할 수 없는 경우, Service Bus는 가능한 다른 조각에 메시지를 씁니다. 분할된 엔터티에 대한 자세한 내용은 [분할된 메시지 엔터티][Partitioned messaging entities]를 참조하세요.
+분할되지 않은 큐나 항목은 하나의 메시징 저장소에 할당됩니다. 이 메시지 저장소를 사용할 수 없게 되면 해당 큐 또는 항목의 모든 작업이 실패하게 됩니다. 반면에 분할된 큐는 여러 조각으로 구성됩니다. 각 조각은 서로 다른 메시징 저장소에 저장됩니다. 분할된 큐 또는 항목으로 메시지를 보내면 Service Bus는 메시지를 조각 중 하나에 할당합니다. 해당 메시징 저장소를 사용할 수 없는 경우, Service Bus는 가능한 다른 조각에 메시지를 씁니다. 분할된 엔터티는 [프리미엄 SKU](service-bus-premium-messaging.md)에서 지원되지 않습니다. 
+
+분할된 엔터티에 대한 자세한 내용은 [분할된 메시징 엔터티][Partitioned messaging entities]를 참조하세요.
 
 ## <a name="protecting-against-datacenter-outages-or-disasters"></a>데이터센터 가동 중단 또는 재해로부터 보호
 두 데이터센터 간의 장애 조치(failover)를 허용하려면 각 데이터센터에 Service Bus 서비스 네임스페이스를 만들 수 있습니다. 예를 들어, Service Bus 서비스 네임스페이스 **contosoPrimary.servicebus.windows.net**은 미국(북부/중부) 하위 지역에 있고 **contosoSecondary.servicebus.windows.net**은 미국(남부/중부) 하위 지역에 있을 수 있습니다. 데이터센터가 가동 중단되어도 Service Bus 메시징 엔터티를 액세스할 수 있도록 하려면 이 엔터티를 두 네임스페이스 모두에 만들 수 있습니다.
@@ -81,6 +78,17 @@ Service Bus는 여러 메시징 저장소를 사용하여 큐 또는 항목에 �
 
 Service Bus는 네임스페이스 수준에서 지역 재해 복구 및 지역 복제를 지원합니다. 자세한 내용은 [Azure Service Bus 지역 재해 복구](service-bus-geo-dr.md)를 참조하세요. [Premium SKU](service-bus-premium-messaging.md)에서만 사용할 수 있는 재해 복구 기능은 메타데이터 재해 복구를 구현하며 주 및 보조 재해 복구 네임스페이스를 사용합니다.
 
+## <a name="availability-zones-preview"></a>가용성 영역(미리 보기)
+
+Service Bus 프리미엄 SKU는 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. 
+
+> [!NOTE]
+> 가용성 영역 미리 보기는 **미국 중부**, **미국 동부 2** 및 **프랑스 중부** 지역에서만 지원됩니다.
+
+Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영역을 사용하도록 설정할 수 있습니다. Service Bus는 기존 네임스페이스의 마이그레이션을 지원하지 않습니다. 네임스페이스를 사용하도록 설정한 후에는 영역 중복성을 사용하지 않도록 설정할 수 없습니다.
+
+![1][]
+
 ## <a name="next-steps"></a>다음 단계
 재해 복구에 대한 자세한 내용은 다음 문서를 참조하세요.
 
@@ -96,3 +104,5 @@ Service Bus는 네임스페이스 수준에서 지역 재해 복구 및 지역 �
 [Geo-replication with Service Bus Brokered Messages]: https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoReplication
 [Azure SQL Database Business Continuity]: ../sql-database/sql-database-business-continuity.md
 [Azure resiliency technical guidance]: /azure/architecture/resiliency
+
+[1]: ./media/service-bus-outages-disasters/az.png

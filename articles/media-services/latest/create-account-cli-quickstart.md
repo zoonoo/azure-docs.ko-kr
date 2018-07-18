@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작—CLI 2.0을 사용하여 Azure Media Services 계정 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure CLI를 사용하여 Azure Media Services 계정 만들기 | Microsoft Docs
 description: Azure Media Services 계정을 만들려면 빠른 시작의 단계를 수행합니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: f7e5cb28f90466e9366c0a32e2a333e6823b9396
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33779721"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767105"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>빠른 시작: Azure Media Services 계정을 만듭니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "33779721"
 
 개발자 또는 미디어 콘텐츠 제작자이든, Azure에서 미디어 콘텐츠를 저장, 암호화, 인코딩, 관리 및 스트리밍하려면 Media Services 계정을 만들어야 합니다. 미디어 서비스 계정을 만들 때는 Azure Storage 계정 리소스의 ID를 제공해야 합니다. 지정된 저장소 계정은 Media Services 계정에 연결됩니다. 이 저장소 계정 리소스는 미디어 서비스 계정과 동일한 지역에 있어야 합니다.  
 
-이 빠른 시작은 CLI 2.0을 사용하여 새로운 Azure Media Services 계정을 만드는 단계를 설명합니다.  
+이 빠른 시작은 Azure CLI를 사용하여 새로운 Azure Media Services 계정을 만드는 단계를 설명합니다.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "33779721"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드를 해야 할 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="set-the-azure-subscription"></a>Azure 구독 설정
 

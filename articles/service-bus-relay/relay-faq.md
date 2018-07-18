@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2018
+ms.date: 05/21/2018
 ms.author: sethm
-ms.openlocfilehash: d433fb916280e98dd0f2af61728596b8566be71b
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 1795c1ec0b4129e3c99fff3fc893148e191ce83e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34641495"
 ---
 # <a name="azure-relay-faqs"></a>Azure Relay FAQ
 
-이 문서에서는 [Azure Relay](https://azure.microsoft.com/services/service-bus/)에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/en-in/support/faq/)를 참조하세요.
+이 문서에서는 [Azure Relay](https://azure.microsoft.com/services/service-bus/)에 대해 자주 묻는 일부 질문에 답변합니다. 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="general-questions"></a>일반적인 질문
 ### <a name="what-is-azure-relay"></a>Azure 릴레이란?
@@ -35,7 +36,7 @@ ms.lasthandoff: 03/28/2018
 이전의 Service Bus Relay 서비스를 이제 [WCF Relay](relay-wcf-dotnet-get-started.md)라고 부릅니다. 평소처럼 이 서비스를 계속 사용할 수 있습니다. 하이브리드 연결 기능은 Azure BizTalk Services에 옮겨진 업데이트된 버전의 서비스입니다. WCF Relay 및 하이브리드 연결은 모두 계속 지원됩니다.
 
 ## <a name="pricing"></a>가격
-이 섹션에서는 Relay 가격 책정 구조에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](http://go.microsoft.com/fwlink/?LinkID=185083)를 참조하면 됩니다. Relay 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요.
+이 섹션에서는 Relay 가격 책정 구조에 대해 자주 묻는 일부 질문에 답변합니다. 또한 일반적인 Azure 가격 책정 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하면 됩니다. Relay 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 세부 정보][Pricing overview]를 참조하세요.
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>하이브리드 연결 및 WCF 릴레이의 요금은 어떻게 청구되나요?
 릴레이 가격 책정에 대한 자세한 내용은 Service Bus 가격 책정 세부 정보 페이지의 [하이브리드 연결 및 WCF 릴레이][Pricing overview] 표를 참조하세요. 페이지에 언급된 가격 외에도 응용 프로그램이 프로비전되는 데이터 센터의 외부에서 송신을 위해 연결된 데이터 전송에 요금이 부과됩니다.
@@ -81,8 +82,8 @@ Service Bus Relay에 메시지를 보내는 경우 메시지를 수신하는 릴
 | 릴레이의 동시 수신기 |엔터티 |추가 연결에 대한 후속 요청이 거부되며 호출 코드에서 예외를 수신합니다. |25 |
 | 서비스 네임스페이스의 모든 릴레이 끝점당 동시 릴레이 연결 |네임스페이스 |- |5,000 |
 | 서비스 네임스페이스당 릴레이 끝점 |네임스페이스 |- |10000 |
-| [NetOnewayRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.netonewayrelaybinding.aspx) and [NetEventRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.neteventrelaybinding.aspx) 릴레이의 메시지 크기 |네임스페이스 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
-| [HttpRelayTransportBindingElement](https://msdn.microsoft.com/library/microsoft.servicebus.httprelaytransportbindingelement.aspx) 및 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 릴레이의 메시지 크기 |네임스페이스 |메시지 크기에 제한이 없습니다. |Unlimited |
+| [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) and [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) 릴레이의 메시지 크기 |네임스페이스 |이러한 할당량을 초과하는 들어오는 메시지가 거부되며 호출 코드에서 예외를 수신합니다. |64KB |
+| [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 및 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 릴레이의 메시지 크기 |네임스페이스 |메시지 크기에 제한이 없습니다. |Unlimited |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>릴레이에는 사용 할당량이 있습니까?
 기본적으로 모든 클라우드 서비스의 경우 Microsoft는 모든 고객의 구독에 대해 계산되는 월별 사용 할당량을 집계합니다. 이번에는 요구가 이러한 제한을 초과할 수 있다는 점을 이해합니다. 이러한 한도를 적절하게 조정할 수 있도록 고객 서비스에 언제든지 문의해 주세요. Service Bus의 경우 집계 사용 할당량은 다음과 같습니다.
@@ -108,7 +109,7 @@ Azure Portal을 사용하여 구독 간에 Azure Relay 네임스페이스를 마
 
 PowerShell을 사용하여 Azure 구독 간에 네임스페이스를 이동하려면 다음 명령 시퀀스를 사용합니다. 이 작업을 실행하려면 네임스페이스 이미 활성 상태여야 하며 PowerShell 명령을 실행하는 사용자는 원본 및 대상 구독의 관리자 사용자여야 합니다.
 
-```powershell
+```azurepowershell-interactive
 # Create a new resource group in the target subscription.
 Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
 New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
@@ -136,4 +137,4 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 
 [Pricing overview]: https://azure.microsoft.com/pricing/details/service-bus/
 [Relay exceptions]: relay-exceptions.md
-[Shared access signatures]: ../service-bus-messaging/service-bus-sas.md
+[Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

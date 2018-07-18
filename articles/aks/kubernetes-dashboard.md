@@ -2,18 +2,19 @@
 title: 웹 UI를 사용하여 Azure Kubernetes 클러스터 관리
 description: AKS에서 Kubernetes 대시보드 사용
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 02/24/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cdb406c5a0a314562ae886c797c5ebd9dc5f8796
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100428"
 ---
 # <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)와 Kubernetes 대시보드
 
@@ -37,7 +38,7 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 ## <a name="run-an-application"></a>응용 프로그램 실행
 
-Kubernetes 대시보드에서 오른쪽 상단 창의 **만들기** 단추를 클릭합니다. 배포 이름을 `nginx`로 지정하고 이미지 이름으로 `nginx:latest`를 입력합니다. **서비스**에서 **외부**를 선택하고 포트와 대상 포트 모두에 대해 `80`을 입력합니다.
+Kubernetes 대시보드에서 오른쪽 상단 창의 **만들기** 단추를 클릭합니다. 배포 이름을 `nginx`로 지정하고 컨테이너 이미지 이름에 `nginx:latest`를 입력합니다. **서비스**에서 **외부**를 선택하고 포트와 대상 포트 모두에 대해 `80`을 입력합니다.
 
 준비가 되면 **배포**를 클릭하여 배포를 만듭니다.
 

@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 1db4c7ae78320eb08b2aa0b9da701d9678baf798
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: abad57856db63c954f963a28b1dbd3c95395c9bd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652589"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 대한 네트워킹
 
@@ -212,7 +213,10 @@ GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG 
 확장 집합의 VM에 연결된 모든 NIC에는 하나 이상의 IP 구성이 연결되어 있습니다. 각 구성에는 하나의 개인 IP 주소가 할당됩니다. 각 구성에는 연결된 하나의 공용 IP 주소 리소스가 있을 수도 있습니다. NIC에 할당할 수 있는 IP 주소 수와 Azure 구독에서 사용할 수 있는 공용 IP 주소 수를 이해하려면 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.
 
 ## <a name="multiple-nics-per-virtual-machine"></a>가상 컴퓨터당 여러 NIC
-컴퓨터 크기에 따라 가상 머신당 최대 8개 NIC를 포함할 수 있습니다. 컴퓨터당 최대 NIC 수는 [VM 크기 문서](../virtual-machines/windows/sizes.md)에서 확인할 수 있습니다. 다음 예제는 가상 머신마다 여러 개의 NIC 항목과 여러 개의 공용 IP를 보여 주는 확장 집합 네트워크 프로필입니다.
+컴퓨터 크기에 따라 가상 머신당 최대 8개 NIC를 포함할 수 있습니다. 컴퓨터당 최대 NIC 수는 [VM 크기 문서](../virtual-machines/windows/sizes.md)에서 확인할 수 있습니다. VM 인스턴스에 연결된 모든 NIC는 동일한 가상 네트워크에 연결해야 합니다. NIC는 다른 서브넷에 연결할 수 있지만, 모든 서브넷은 동일한 가상 네트워크에 속해야 합니다.
+
+다음 예제는 가상 머신마다 여러 개의 NIC 항목과 여러 개의 공용 IP를 보여 주는 확장 집합 네트워크 프로필입니다.
+
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 331e589aadf783fc40ab6efbfb554469c27e48d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629680"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750369"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
 
@@ -115,6 +115,17 @@ DevKit에 고유 장치 암호를 저장하려면 다음을 수행합니다.
    - 나머지 항목은 기본값으로 유지하고 **저장** 클릭
 
    ![인증서 업로드](./media/how-to-connect-mxchip-iot-devkit/upload-cert.png)
+
+  > [!NOTE]
+  > 이 메시지에 오류가 있는 경우
+  >
+  > `{"message":"BadRequest:{\r\n \"errorCode\": 400004,\r\n \"trackingId\": \"1b82d826-ccb4-4e54-91d3-0b25daee8974\",\r\n \"message\": \"The certificate is not a valid base64 string value\",\r\n \"timestampUtc\": \"2018-05-09T13:52:42.7122256Z\"\r\n}"}`
+  >
+  > 인증서 파일 **.pem**을 텍스트로 열고(메모장 이나 모든 텍스트 편집기로 열기) 줄을 삭제합니다.
+  >
+  > `"-----BEGIN CERTIFICATE-----"` 및 `"-----END CERTIFICATE-----"`
+  >
+
 
 ## <a name="start-the-devkit"></a>DevKit 시작
 

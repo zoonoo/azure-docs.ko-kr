@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: sethm
 ms.openlocfilehash: 9c2501840b3c00a63b0344d48e3225fd2c9d1620
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30927672"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38701994"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Java에서 Service Bus 토픽 및 구독을 사용하는 방법
 

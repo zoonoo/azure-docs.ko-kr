@@ -14,15 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 10/09/2017
 ms.author: BernardoAMunoz
-ms.openlocfilehash: 3b4d99fe883cf52ca7f1ef98e70b7f3a1bccd5ae
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 35eedb170e1c79f4d282f71608b456a271c4d59b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795948"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018226"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
+
+## <a name="microsoftanalysisservicesservers"></a>Microsoft.AnalysisServices/servers
+|실행된 검사|
+|---|
+|<ul><li>서버가 작동 중인가?</li><li>서버에 메모리가 부족한가?</li><li>서버가 시작되었는가?</li><li>서버가 복구 중인가?</li></ul>|
 
 ## <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 |실행된 검사|
@@ -57,13 +62,13 @@ ms.locfileid: "31795948"
 ## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |실행된 검사|
 |---|
-|<ul><li>사용자가 지역의 Data Lake Analytics에 작업을 제출할 수 있는가?</li><li>지역에서 기본 작업을 실행하여 성공적으로 완료되는가?</li><li>사용자가 지역에 카탈로그 항목을 나열할 수 있는가?</li>|
+|<ul><li>사용자가 Data Lake Analytics 작업을 제출하거나 나열하는 데 문제가 있는가?</li><li>Data Lake Analytics 작업이 시스템 오류를 완료할 수 없는가?</li></ul>|
 
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |실행된 검사|
 |---|
-|<ul><li>사용자가 지역의 Data Lake Store에 데이터를 업로드할 수 있는가?</li><li>사용자가 지역의 Data Lake Store에서 데이터를 다운로드할 수 있는가?</li></ul>|
+|<ul><li>사용자가 Data Lake Store에 데이터를 업로드하는 데 문제가 있는가?</li><li>사용자가 Data Lake Store에서 데이터를 다운로드하는 데 문제가 있는가?</li></ul>|
 
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
@@ -75,6 +80,11 @@ ms.locfileid: "31795948"
 |실행된 검사|
 |---|
 |<ul><li>Azure Cosmos DB 서비스를 사용할 수 없어서 데이터베이스 또는 컬렉션 요청이 처리되지 않았는가?</li><li>Azure Cosmos DB 서비스를 사용할 수 없어서 문서 요청이 처리되지 않았는가?</li></ul>|
+
+## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
+|실행된 검사|
+|---|
+|<ul><li>Azure KeyVault 플랫폼 문제로 인해 Key Vault에 대한 요청이 실패하는가?</li><li>고객의 요청이 너무 많아서 Key Vault에 대한 요청이 스로틀되는가?</li></ul>|
 
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |실행된 검사|
@@ -105,6 +115,11 @@ ms.locfileid: "31795948"
 |실행된 검사|
 |---|
 |<ul><li> 데이터베이스에 로그인했는가?</li></ul>|
+
+## <a name="microsoftstoragestorageaccounts"></a>Microsoft.Storage/storageAccounts
+|실행된 검사|
+|---|
+|<ul><li>Azure Storage 플랫폼 문제로 인해 저장소 계정에서 데이터를 읽는 요청이 실패하는가?</li><li>Azure Storage 플랫폼 문제로 인해 저장소 계정에 데이터를 쓰는 요청이 실패하는가?</li><li>저장소 계정이 있는 저장소 클러스터를 사용할 수 없는가?</li></ul>|
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 |실행된 검사|

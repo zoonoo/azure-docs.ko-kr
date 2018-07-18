@@ -3,7 +3,7 @@ title: Azure Log Analytics의 IT Service Management Connector | Microsoft Docs
 description: 이 문서에서는 ITSMC(IT 서비스 관리 커넥터)의 개요 및 이 솔루션을 사용하여 Azure Log Analytics의 ITSM 작업 항목을 중앙에서 모니터링하고 관리하며 모든 문제를 신속하게 해결하는 방법에 대한 정보를 제공합니다.
 services: log-analytics
 documentationcenter: ''
-author: JYOTHIRMAISURI
+author: jyothirmaisuri
 manager: riyazp
 editor: ''
 ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/23/2018
+ms.topic: conceptual
+ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 8fb75484537d577cb19b04fa091bab69d6723c9b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.component: na
+ms.openlocfilehash: da37e7558f93bc5073cd4ee1726a409c7defe127
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131721"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -98,7 +100,7 @@ ITSM 도구를 준비하고 나면 아래 단계에 따라 연결을 만듭니�
 
     > [!NOTE]
 
-    > 기본적으로 ITSMC는 24시간 마다 한 번씩 연결의 구성 데이터를 새로 고칩니다. 적용한 편집 내용 또는 템플릿 업데이트에 대해 연결 데이터를 즉시 새로 고치려면 연결 옆에 표시된 “새로 고침” 단추를 클릭합니다.
+    > 기본적으로 ITSMC는 24시간 마다 한 번씩 연결의 구성 데이터를 새로 고칩니다. 적용한 편집 내용 또는 템플릿 업데이트에 대해 연결 데이터를 즉시 새로 고치려면 연결 블레이드에서 **동기화** 단추를 클릭합니다.
 
     ![연결 새로 고침](./media/log-analytics-itsmc/itsmc-connections-refresh.png)
 
@@ -137,58 +139,6 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 >[!NOTE]
 
 > ITSM 작업의 가격 책정에 대한 자세한 내용은 작업 그룹의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조하세요.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-alerts"></a>Log Analytics 경고에서 ITSM 작업 항목 만들기
-
-다음 절차를 사용하여 Azure Log Analytics 포털에서 경고 규칙을 구성하여 ITSM 도구에서 작업 항목을 만들 수 있습니다.
-
-1. **로그 검색** 창에서 로그 검색 쿼리를 실행하여 데이터를 봅니다. 쿼리 결과는 작업 항목의 원본입니다.
-2. **로그 검색**에서 **경고**를 클릭하여 **경고 규칙 추가** 페이지를 엽니다.
-
-    ![Log Analytics 화면](./media/log-analytics-itsmc/itsmc-work-items-for-azure-alerts.png)
-
-3. **경고 규칙 추가** 창에서 **이름**, **심각도**, **검색 쿼리** 및 **경고 조건**(기간/메트릭 측정)에 대한 필수 정보를 제공합니다.
-4. **ITSM 작업**에 대해 **예**를 선택합니다.
-5. **연결 선택** 목록에서 ITSM 연결을 선택합니다.
-6. 필요에 따라 세부 정보를 제공합니다.
-7. 이 경고의 각 로그 항목에 대해 별도 작업 항목을 만들려면 **각 로그 항목에 대해 개별 작업 항목 만들기** 확인란을 선택합니다.
-
-    또는
-
-    이 경고에서 제한없는 수의 로그 항목에 대해 하나의 작업 항목만 만들려면 이 확인란을 선택 취소합니다.
-
-7. **저장**을 클릭합니다.
-
-**설정>경고**에서 만든 Log Analytics 경고를 볼 수 있습니다. 지정된 경고 조건이 충족되면 해당 ITSM 연결의 작업 항목이 만들어집니다.
-
-
-## <a name="create-itsm-work-items-from-log-analytics-log-records"></a>Log Analytics 로그 레코드에서 ITSM 작업 항목 만들기
-
-로그 레코드에서 직접 연결된 ITSM 원본의 작업 항목을 만들 수도 있습니다. 이는 연결이 제대로 작동하는 경우 테스트하는 데 사용할 수 있습니다.
-
-
-1. **로그 검색**에서 필요한 데이터를 검색하고 세부 정보를 선택한 후 **작업 항목 만들기**를 클릭합니다.
-
-    **ITSM 작업 항목 만들기** 창이 나타납니다.
-
-    ![Log Analytics 화면](media/log-analytics-itsmc/itsmc-work-items-from-azure-logs.png)
-
-2.   다음 세부 정보를 추가합니다.
-
-  - **작업 항목 제목**: 작업 항목의 제목입니다.
-  - **작업 항목 설명**: 새 작업 항목에 대한 설명입니다.
-  - **영향을 받는 컴퓨터**: 이 로그 데이터가 있는 컴퓨터의 이름입니다.
-  - **연결 선택**: 이 작업 항목을 만들려는 ITSM 연결입니다.
-  - **작업 항목**: 작업 항목의 유형입니다.
-
-3. 인시던트에 대한 기존 작업 항목 템플릿을 사용하려면 **템플릿을 기준으로 작업 항목 생성** 옵션에서 **예**를 클릭한 다음 **만들기**를 클릭합니다.
-
-    또는
-
-    사용자 지정한 값을 제공하려는 경우 **아니요**를 클릭합니다.
-
-4. **연락처 유형**, **영향**, **긴급도**, **범주** 및 **하위 범주** 텍스트 상자에 적절한 값을 입력하고 **만들기**를 클릭합니다.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>인시던트 및 변경 요청 데이터 시각화 및 분석

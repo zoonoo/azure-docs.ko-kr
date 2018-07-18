@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 06/20/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19cdf81a355bae4d59cb49c1c588b995b040309b
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 12880ba3aa918873343ee8eb98e92130106e8362
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310539"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36304024"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 서비스 할당량 및 제한
 
@@ -51,14 +51,10 @@ Batch에서 프로덕션 작업을 실행하려고 계획하는 경우, 위 기�
 | [동시 작업](batch-parallel-node-tasks.md)  |4 x 노드 코어 수 |
 | [응용 프로그램](batch-application-packages.md)  |20 |
 | 응용 프로그램당 응용 프로그램 패키지 |40 |
-| 각 응용 프로그램 패키지 크기 |약 195GB<sup>1</sup> |
-| 최대 시작 태스크 크기 | 32768자<sup>2</sup> |
-| 최대 작업 수명 | 7일<sup>3</sup> |
+| 최대 작업 수명 | 7일<sup>1</sup> |
 | 노드 간 통신 사용 풀의 계산 노드 | 100 |
 
-<sup>1</sup> 최대 블록 Blob 크기에 대한 Azure Storage 용량 한도<br />
-<sup>2</sup> 리소스 파일 및 환경 변수를 포함합니다.<br />
-<sup>3</sup> 태스크가 작업에 추가될 때부터 완료될 때까지 태스크의 최대 수명은 7일입니다. 완료된 태스크무한 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
+<sup>1</sup> 태스크가 작업에 추가될 때부터 완료될 때까지 태스크의 최대 수명은 7일입니다. 완료된 태스크무한 지속됩니다. 최대 수명 이내에 완료되지 않은 태스크에 대한 데이터에는 액세스할 수 없습니다.
 
 
 ## <a name="view-batch-quotas"></a>Batch 할당량 보기

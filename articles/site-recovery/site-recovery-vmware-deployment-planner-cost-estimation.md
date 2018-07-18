@@ -12,14 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 337217e66fe4d3780af197911a0e72c6f936e411
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f1d23419df6f66ef430cb57f41a9a70c7babe7df
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30242053"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919144"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서  
 
@@ -46,8 +46,8 @@ Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-
 **월간/연간 Azure 저장소 비용**: 복제 및 DR 드릴을 위해 프리미엄 및 표준 저장소에 대해 발생할 총 저장소 비용을 보여줍니다.
 
 ## <a name="detailed-cost-analysis"></a>자세한 비용 분석
-계산, 저장소, 네트워크 등에 대한 Azure 가격은 Azure 지역마다 다릅니다. 구독, 구독과 연결된 제품 및 지정된 대상 Azure 지역에 기반하여 최신 Azure 가격을 사용하여 지정된 통화로 비용 예측 보고서를 생성할 수 있습니다. 도구에서는 기본적으로 미국 서부 2 Azure 지역과 USD(미국 달러) 통화가 사용됩니다. 다른 지역 및 통화를 사용한 경우, 다음 번에 구독 ID, 제품 ID, 대상 지역 및 통화가 없이 보고서를 생성하면 마지막으로 사용한 대상 지역과 마지막으로 사용한 통화가 비용 예측에 사용됩니다.
-이 섹션에는 보고서 생성에 사용한 구독 ID 및 제품 ID가 표시됩니다.  사용하지 않은 경우 비어 있습니다.
+계산, 저장소, 네트워크 등에 대한 Azure 가격은 Azure 지역마다 다릅니다. 구독, 구독과 연결된 제안 및 지정된 대상 Azure 지역에 기반하여 최신 Azure 가격을 사용하여 지정된 통화로 비용 예측 보고서를 생성할 수 있습니다. 도구에서는 기본적으로 미국 서부 2 Azure 지역과 USD(미국 달러) 통화가 사용됩니다. 다른 지역 및 통화를 사용한 경우, 다음 번에 구독 ID, 제안 ID, 대상 지역 및 통화가 없이 보고서를 생성하면 마지막으로 사용한 대상 지역과 마지막으로 사용한 통화가 비용 예측에 사용됩니다.
+이 섹션에는 보고서 생성에 사용한 구독 ID 및 제안 ID가 표시됩니다.  사용하지 않은 경우 비어 있습니다.
 
 전체 보고서에서 회색으로 표시된 셀은 읽기 전용입니다. 흰색 셀은 요구 사항에 따라 수정할 수 있습니다.
 

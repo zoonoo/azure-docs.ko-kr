@@ -1,30 +1,30 @@
 ---
-title: UI(사용자 인터페이스) 사용자 지정 - Azure AD B2C | Microsoft Docs
-description: Azure Active Directory B2C에서 UI(사용자 인터페이스) 사용자 지정 기능의 항목
+title: Azure Active Directory B2C에서 UI(사용자 인터페이스) 사용자 지정 | Microsoft Docs
+description: Azure Active Directory B2C에서 UI(사용자 인터페이스) 사용자 지정 기능의 항목입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
-ms.openlocfilehash: b202f30e5fb47bcd16f25c5961f8345dd0324139
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: 385c13194063761d6449fafa49714d8627f6c6fc
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447056"
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Azure AD B2C UI(사용자 인터페이스)를 사용자 지정
 
 사용자 환경은 고객 관련 응용 프로그램에서 가장 중요합니다.  브랜드의 모양과 느낌으로 사용자 환경을 만들어 고객 기반을 늘릴 수 있습니다. Azure AD B2C(Azure Active Directory B2C)를 사용하면 픽셀을 완벽하게 제어하여 등록, 로그인, 프로필 편집 및 암호 재설정 페이지를 사용자 지정할 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서 설명하는 페이지 UI 사용자 지정 기능은 로그인 전용 정책, 함께 제공되는 암호 재설정 페이지 및 확인 전자 메일에는 적용되지 않습니다.  이러한 기능은 대신 [회사 브랜딩 기능](../active-directory/customize-branding.md)을 사용합니다.
+> 이 문서에서 설명하는 페이지 UI 사용자 지정 기능은 로그인 전용 정책, 함께 제공되는 암호 재설정 페이지 및 확인 전자 메일에는 적용되지 않습니다.  이러한 기능은 대신 [회사 브랜딩 기능](../active-directory/fundamentals/customize-branding.md)을 사용합니다.
 >
-> 마찬가지로 사용자가 로그인하기 *전에* 프로필 정책 편집을 시작한 경우 이 사용자는 [회사 브랜드 기능](../active-directory/customize-branding.md)을 사용하여 사용자 지정 가능한 페이지로 리디렉션됩니다.
+> 마찬가지로 사용자가 로그인하기 *전에* 프로필 정책 편집을 시작한 경우 이 사용자는 [회사 브랜드 기능](../active-directory/fundamentals/customize-branding.md)을 사용하여 사용자 지정 가능한 페이지로 리디렉션됩니다.
 
 이 문서는 다음 항목을 설명합니다.
 

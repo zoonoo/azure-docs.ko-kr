@@ -4,21 +4,22 @@ description: Azure 파일 동기화 저장소 동기화 서비스에서 Windows 
 services: storage
 documentationcenter: ''
 author: wmgries
-manager: klaasl
-editor: jgerend
+manager: aungoo
+editor: tamram
 ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 9367b2bdb1bb77725356d2be41d5e44d900cb927
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34738295"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure File Sync(미리 보기)로 등록된 서버 관리
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
@@ -113,14 +114,15 @@ Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - Res
 ### <a name="unregister-the-server-with-storage-sync-service"></a>저장소 동기화 서비스에서 서버 등록 취소
 저장소 동기화 서비스에서 서버 등록을 취소하려면 여러 단계를 수행해야 합니다. 서버를 제대로 등록 취소하는 방법을 살펴보겠습니다.
 
-#### <a name="optional-recall-all-tiered-data"></a>(선택 사항) 모든 계층화된 데이터 기억
-서버 엔드포인트에 대해 클라우드 계층화를 사용하도록 설정하면 파일을 Azure 파일 공유로 *계층화*됩니다. 이렇게 하면 온-프레미스 파일 공유가 데이터 집합의 전체 복사본이 아닌 캐시로 사용될 수 있으므로 파일 서버의 공간이 효율적으로 사용됩니다. 그러나 계층화된 파일이 아직 서버에서 로컬로 존재하는 서버 엔드포인트를 제거하면 해당 파일에 액세스할 수 없게 됩니다. 따라서 파일에 계속 액세스해야 하는 경우 등록 취소를 계속하기 전에 Azure Files에서 모든 계층화된 파일을 기억해야 합니다. 
+> [!Warning]  
+> Microsoft 엔지니어가 명시적으로 지시하기 전에 서버 등록을 취소하거나, 등록하거나, 서버 엔드포인트를 제거하고 다시 만들어서 동기화, 클라우드 계층화 또는 Azure File Sync의 다른 부분에서 발생한 문제를 해결하려고 하지 않습니다. 서버 등록을 취소하고 서버 엔트포인트를 제거하는 것은 파괴적 작업입니다. 서버 엔드포인트를 사용하여 볼륨에 계층화된 파일은 등록된 서버 및 서버 엔드포인트를 다시 만든 후에 Azure 파일 공유의 해당 위치에 "다시 연결"되지 않습니다. 그러면 동기화 오류가 발생합니다. 또한 서버 엔드포인트 네임스페이스 외부에 있는 계층화된 파일은 영구적으로 손실될 수 있습니다. 클라우드 계층화를 한 번도 사용하지 않아도 계층화된 파일이 서버 엔드포인트에 있을 수 있습니다.
 
-이 작업에는 다음과 같이 PowerShell cmdlet을 사용할 수 있습니다.
+#### <a name="optional-recall-all-tiered-data"></a>(선택 사항) 모든 계층화된 데이터 기억
+현재 계층화된 파일을 Azure File Sync(예: 테스트, 환경이 아닌 프로덕션임)를 제거한 후에 사용할 수 있도록 하려면 서버 엔드포인트를 포함하는 각 볼륨에서 모든 파일을 회수합니다. 모든 서버 엔드포인트에 대해 계층화된 클라우드를 사용하지 않도록 설정한 다음, 다음과 같은 PowerShell cmdlet을 실행합니다.
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
+Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
 
 > [!Warning]  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 44abf7a4fc24893146179b34d3357f54450decab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 27f6ccadaa89042ebced759ac3040b5b79e1f8f8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365147"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051528"
 ---
 # <a name="azure-database-security-overview"></a>Azure 데이터베이스 보안 개요
 
@@ -69,7 +69,7 @@ Azure SQL Database에 대한 모든 연결은 데이터베이스로/로부터 �
 
 한 가지 해결 방법으로 데이터베이스의 중요한 데이터를 암호화하고 인증서로 데이터를 암호화하는 데 사용되는 키를 보호합니다. 이렇게 하면 키가 없는 사람이 데이터를 사용할 수 없게 되지만 이러한 종류의 보호는 계획해야 합니다.
 
-이 문제를 해결하기 위해 SQL Server 및 SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/securityrecryption/transparent-data-encryption-tde)를 지원합니다. 투명한 데이터 암호화는 SQL Server 및 SQL Database 데이터 파일을 암호화합니다. 이를 미사용 데이터 암호화라고 합니다.
+이 문제를 해결하기 위해 SQL Server 및 SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current&viewFallbackFrom=sql-server-2017)를 지원합니다. 투명한 데이터 암호화는 SQL Server 및 SQL Database 데이터 파일을 암호화합니다. 이를 미사용 데이터 암호화라고 합니다.
 
 투명한 데이터 암호화는 악의적인 활동의 위협으로부터 보호합니다. 응용 프로그램에 대한 변경 없이 미사용 데이터베이스, 연결된 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행합니다.  
 

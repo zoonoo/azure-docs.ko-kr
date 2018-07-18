@@ -1,6 +1,6 @@
 ---
-title: HDInsight의 R Server에 대한 Azure Storage 옵션 - Azure | Microsoft Docs
-description: HDInsight의 R Server에서 사용할 수 있는 다양한 저장소 옵션에 대해 알아봅니다.
+title: HDInsight의 ML Services에 대한 Azure Storage 옵션 - Azure | Microsoft Docs
+description: HDInsight의 ML Services에서 사용할 수 있는 다양한 저장소 옵션에 대해 알아봅니다.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -11,18 +11,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: R
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 23e32a913fb73d2207f7cf37ce6230e428fbe95c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f5b9b180f8a6f825e4d91850ee72af19e6d09a4c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409468"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052966"
 ---
-# <a name="azure-storage-solutions-for-r-server-on-azure-hdinsight"></a>Azure HDInsight의 R Server에 대한 Azure Storage 솔루션
+# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure HDInsight의 ML Services에 대한 Azure Storage 솔루션
 
-HDInsight의 R Server에는 데이터, 코드, 또는 분석 결과가 포함된 개체를 유지할 수 있는 다양한 저장 솔루션이 있습니다. 여기에는 다음 옵션이 포함됩니다.
+HDInsight의 ML Services에는 데이터, 코드, 또는 분석 결과가 포함된 개체를 유지할 수 있는 다양한 저장 솔루션이 있습니다. 여기에는 다음 옵션이 포함됩니다.
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
 - [Azure 데이터 레이크 저장소](https://azure.microsoft.com/services/data-lake-store/)
@@ -35,14 +35,14 @@ HDInsight에서 Hadoop 클러스터를 만들 때 **Azure Storage** 계정 또�
 - [HDInsight에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
 - [Azure HDInsight 클러스터에 Data Lake Store 사용](../hdinsight-hadoop-use-data-lake-store.md)
 
-## <a name="use-azure-blob-storage-accounts-with-r-server-cluster"></a>R Server 클러스터에 Azure Blob 저장소 계정 사용
+## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>ML Services 클러스터에서 Azure Blob 저장소 계정 사용
 
-R Server 클러스터를 만들 때 둘 이상의 저장소 계정을 지정한 경우, 다음 지침에서는 R Server 클러스터에서 데이터 액세스 및 작업에 보조 계정을 사용하는 방법을 설명합니다. **storage1** 및 **container1**(기본 컨테이너), **storage2** 및 **container2** 등의 저장소 계정과 컨테이너를 가정합니다.
+ML Services 클러스터를 만들 때 둘 이상의 저장소 계정을 지정한 경우, 다음 지침에서는 ML Services 클러스터에서 데이터 액세스 및 작업에 보조 계정을 사용하는 방법을 설명합니다. **storage1** 및 **container1**(기본 컨테이너), **storage2** 및 **container2** 등의 저장소 계정과 컨테이너를 가정합니다.
 
 > [!WARNING]
 > 성능을 위해 HDInsight 클러스터는 사용자가 지정한 기본 저장소 계정과 동일한 데이터 센터에 만들어집니다. HDInsight 클러스터와 다른 위치에서는 저장소 계정을 사용할 수 없습니다.
 
-### <a name="use-the-default-storage-with-r-server-on-hdinsight"></a>HDInsight의 R Server에서 기본 저장소 사용
+### <a name="use-the-default-storage-with-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 기본 저장소 사용
 
 1. SSH 클라이언트를 사용하여 클러스터의 에지 노드에 연결합니다. HDInsight 클러스터에서 SSH를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
   
@@ -73,7 +73,7 @@ R Server 클러스터를 만들 때 둘 이상의 저장소 계정을 지정한 
 
 모든 디렉터리와 파일 참조는 저장소 계정 `wasb://container1@storage1.blob.core.windows.net`을 지정합니다. 이는 HDInsight 클러스터와 연결된 **기본 저장소 계정**입니다.
 
-### <a name="use-the-additional-storage-with-r-server-on-hdinsight"></a>HDInsight의 R Server에서 추가 저장소 사용
+### <a name="use-the-additional-storage-with-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 추가 저장소 사용
 
 이제 **storage2**에서 **container2**의 /private 디렉터리에 있는 mysamplefile1.csv 파일을 처리한다고 가정합니다.
 
@@ -106,13 +106,13 @@ R 코드에서 이름 노드 참조를 **storage2** 저장소 계정으로 지�
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## <a name="use-an-azure-data-lake-store-with-r-server-cluster"></a>R Server 클러스터에서 Azure Data Lake Store 사용 
+## <a name="use-an-azure-data-lake-store-with-ml-services-cluster"></a>ML Services 클러스터에서 Azure Data Lake Store 사용 
 
 HDInsight 클러스터에서 Data Lake Store를 사용하려면 사용할 각 Azure Data Lake Store에 대한 액세스 권한을 클러스터에 부여해야 합니다. Azure Portal에서 기본 저장소 또는 추가 저장소로 Azure Data Lake Store 계정을 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [Azure Portal을 사용하여 Data Lake Store를 포함한 HDInsight 클러스터 만들기](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
 
 그런 다음, 보조 Azure Storage 계정을 사용하는 것처럼 R 스크립트에서 저장소를 사용합니다(이전 절차에서 설명한 대로).
 
-### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Azure Data Lake 저장소에 클러스터 액세스 추가
+### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Azure Data Lake Store에 클러스터 액세스 추가
 HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 주체를 사용하여 Azure Data Lake 저장소에 액세스합니다.
 
 1. HDInsight 클러스터를 만들 때 **데이터 원본** 탭에서 **클러스터 AAD ID**를 선택합니다.
@@ -123,9 +123,9 @@ HDInsight 클러스터와 연결된 Azure AD(Azure Active Directory) 서비스 �
 
 클러스터를 만든 후 하나 이상의 Data Lake Store 계정에 클러스터 액세스를 추가할 수도 있습니다. Data Lake Store에 대한 Azure Portal 항목을 열고 **데이터 탐색기 > 액세스 > 추가**로 이동합니다. 
 
-### <a name="how-to-access-the-data-lake-store-from-r-server-on-hdinsight"></a>HDInsight의 R Server에서 Data Lake Store에 액세스하는 방법
+### <a name="how-to-access-the-data-lake-store-from-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Data Lake Store에 액세스하는 방법
 
-Data Lake Store에 대한 액세스 권한을 부여했으면 보조 Azure Storage 계정과 동일한 방식으로 HDInsight의 R Server 클러스터에서 저장소를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasb://** 접두사가 **adl://** 로 변경된다는 것입니다.
+Data Lake Store에 대한 액세스 권한을 부여했으면 보조 Azure Storage 계정과 동일한 방식으로 HDInsight의 ML Services 클러스터에서 저장소를 사용할 수 있습니다. 유일한 차이점은 다음과 같이 **wasb://** 접두사가 **adl://** 로 변경된다는 것입니다.
 
 
     # Point to the ADL store (e.g. ADLtest)
@@ -161,7 +161,7 @@ Data Lake Store에 대한 액세스 권한을 부여했으면 보조 Azure Stora
     hadoop fs –ls adl://rkadl1.azuredatalakestore.net/share
 
 
-## <a name="use-azure-file-storage-with-r-server-on-hdinsight"></a>HDInsight의 R Server에서 Azure File Storage 사용
+## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>HDInsight의 ML Services에서 Azure File Storage 사용
 
 에지 노드에 사용할 수 있는 [Azure 파일]이라고 하는 편리한 데이터 저장소 옵션도 있습니다(https://azure.microsoft.com/services/storage/files/)). Azure 파일을 사용하면 Linux 파일 시스템에서 Azure Storage 파일 공유를 탑재할 수 있습니다. 이 옵션은 특히 나중에 HDFS 대신 에지 노드의 원시 파일 시스템을 사용하는 것이 유용할 때 필요할 수 있는 데이터 파일, R 스크립트 및 결과 개체를 저장하는 데 편리합니다. 
 
@@ -173,7 +173,7 @@ Azure 파일의 장점은 파일 공유가 탑재되고 Windows 또는 Linux 등
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight의 R Server 클러스터 개요](r-server-overview.md)
-* [Hadoop에서 R Server 클러스터 시작](r-server-get-started.md)
-* [HDInsight의 R Server 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight의 ML Services 클러스터 개요](r-server-overview.md)
+* [Hadoop에서 ML Services 클러스터 시작](r-server-get-started.md)
+* [HDInsight에서 ML Services 클러스터에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
 

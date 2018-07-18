@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 4530b11db7691f631f636021634cc5e9c8be8c86
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac0e1945e75ee7aea346c103a671b4a47b9e5994
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620564"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37048617"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
 최신 데이터 통합의 과제 중 하나는 온-프레미스 간 및 온-프레미스에서 클라우드로 데이터를 이동하는 것입니다. Data Factory를 사용하면 하이브리드 데이터 이동을 지원하기 위해 온-프레미스에 설치할 수 있는 에이전트인 데이터 관리 게이트웨이와 이러한 통합을 수행할 수 있습니다.
 
@@ -127,12 +127,12 @@ ms.locfileid: "34620564"
 
     *  재구성되고 간소화된 컨트롤입니다.
 
-    *  [코드가 없는 복사 미리 보기 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 저장소에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
+    *  [코드가 없는 복사 도구](data-factory-copy-data-wizard-tutorial.md)를 사용하여 저장소에서 데이터를 복사할 수 있습니다. 이 기능에 대한 전반적인 세부 정보는 [준비된 복사](data-factory-copy-activity-performance.md#staged-copy) 를 참조하세요.
 *  데이터 관리 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Machine Learning으로 직접 데이터를 수신할 수 있습니다.
 
 *  성능 개선
 
-    * 코드가 없는 미리 보기 도구의 SQL Server에 대해 스키마/미리 보기 보기의 성능이 향상됩니다.
+    * 코드가 없는 복사 도구에서 SQL Server에 대해 스키마/미리 보기를 보는 성능이 향상됩니다.
 
 ## <a name="11259531"></a>1.12.5953.1
 

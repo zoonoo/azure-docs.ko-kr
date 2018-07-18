@@ -1,25 +1,20 @@
 ---
-title: Azure에 Windows 시스템 상태 백업 | Microsoft Docs
+title: Azure에 Windows 시스템 상태 백업
 description: Windows Server 및/또는 Windows 컴퓨터의 시스템 상태를 Azure에 백업하는 방법을 알아봅니다.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: 백업 방법; 백업 방법; 파일 및 폴더 백업
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-ms.openlocfilehash: b4847a4b2d8397530d8a6bb4bc4729a6966634f2
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: saurse
+ms.openlocfilehash: 61ee1ce7d5cc6dc2aa4b7a8b02c2e5ba77539725
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606072"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Resource Manager 배포에서 Windows 시스템 상태 백업
 이 문서에서는 Azure에 Windows 서버 시스템 상태를 백업하는 방법을 설명합니다. 기본 사항을 안내하기 위해 마련된 자습서입니다.
@@ -175,6 +170,11 @@ Recovery Services 자격 증명 모음을 만드는 경우 저장소 중복을 �
 * 처음으로 시스템 상태 백업
 
 최초 백업을 완료하려면 Microsoft Azure Recovery Services 에이전트를 사용합니다.
+
+> [!NOTE]
+> Windows Server 2008 R2~Windows Server 2016에서 시스템 상태를 백업할 수 있습니다. 클라이언트 SKU에서는 시스템 상태 백업이 지원되지 않습니다. 시스템 상태는 Windows 클라이언트 또는 Windows Server 2008 SP2 컴퓨터에 대한 옵션으로 표시되지 않습니다.
+>
+>
 
 ### <a name="to-schedule-the-backup-job"></a>백업 작업을 예약하려면
 

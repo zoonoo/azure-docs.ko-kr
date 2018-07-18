@@ -51,6 +51,8 @@
           href: tutorial-prepare-azure.md
         - name: Azure로 온-프레미스 컴퓨터 마이그레이션
           href: migrate-tutorial-on-premises-azure.md
+        - name: 'Windows Server 2008, 2008 R2 서버를 Azure로 마이그레이션'
+          href: migrate-tutorial-windows-server-2008.md
         - name: Azure로 AWS 인스턴스 마이그레이션
           href: migrate-tutorial-aws-azure.md
         - name: 다른 지역으로 Azure VM 마이그레이션

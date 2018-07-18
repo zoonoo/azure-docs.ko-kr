@@ -1,29 +1,23 @@
 ---
 title: 연결된 팩터리 솔루션 특징 - Azure | Microsoft Docs
 description: 미리 구성된 솔루션인 연결된 팩터리의 특징을 간략하게 살펴봅니다.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: dobett
-ms.openlocfilehash: 7ee86a59e7c47406ea1a890f1a9d1eb2ed4ad772
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3478217771418ab31772d6a42a7ed8d8a2e8069a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34626499"
 ---
-# <a name="what-is-azure-iot-suite-connected-factory"></a>Azure IoT Suite 연결된 팩터리란 무엇입니까?
+# <a name="what-is-connected-factory-iot-solution-accelerator"></a>연결된 팩터리 IoT 솔루션 가속기란?
 
-연결된 팩터리는 Microsoft의 Azure Industrial IoT 참조 아키텍처를 구현한 것으로, 오픈 소스 솔루션으로 패키징됩니다. 연결된 팩터리는 상용 제품 개발을 위한 시작점으로 사용할 수 있습니다. 미리 빌드된 버전의 연결된 팩터리 솔루션을 [Azure IoT Suite](https://www.azureiotsuite.com/#solutions/types/CF)에서 Azure 구독에 배포할 수 있습니다.
+연결된 팩터리는 Microsoft의 Azure Industrial IoT 참조 아키텍처를 구현한 것으로, 오픈 소스 솔루션으로 패키징됩니다. 연결된 팩터리는 상용 제품 개발을 위한 시작점으로 사용할 수 있습니다. 미리 빌드된 버전의 연결된 팩터리 솔루션을 [Azure IoT Solution Accelerator](https://www.azureiotsolutions.com/#solutions/types/CF)에서 Azure 구독에 배포할 수 있습니다.
 
 ![연결된 팩터리 솔루션 대시보드](./media/iot-accelerators-connected-factory-features/dashboard.png)
 
@@ -64,7 +58,7 @@ ms.lasthandoff: 05/20/2018
 
 ## <a name="customizability"></a>사용자 지정 가능
 
-- 특정 비즈니스 요구 사항을 충족하도록 솔루션을 [사용자 지정](../iot-suite/iot-suite-v1-guidance-on-customizing-preconfigured-solutions.md)할 수 있습니다.
+- 특정 비즈니스 요구 사항을 충족하도록 솔루션을 사용자 지정할 수 있습니다.
 - GitHub에서 전체 솔루션 소스 코드를 제공합니다. [연결된 팩터리 미리 구성된 솔루션](https://github.com/Azure/azure-iot-connected-factory) 리포지토리를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

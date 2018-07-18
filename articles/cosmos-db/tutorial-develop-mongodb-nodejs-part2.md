@@ -2,24 +2,22 @@
 title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 2부 | Microsoft Docs
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 2부
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 9d3c3209807a201f11d4d0a4ddd905f332a3951f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b35f003c18e19eafd3dfa9988409ceacb44e3bc4
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798069"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 2부: Angular CLI를 사용하여 Node.js Express 앱 만들기 
 
@@ -65,10 +63,10 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="use-the-angular-cli-to-create-a-new-project"></a>Angular CLI를 사용하여 새 프로젝트 만들기
 
-1. 명령 프롬프트에서 새 프로젝트를 만들려는 폴더로 변경하고 다음 명령을 실행합니다. 이 명령은 새 폴더 및 angular-cosmosdb라는 프로젝트를 만들고 새 앱에 필요한 Angular 구성 요소를 설치합니다. 또한 src/client 폴더에 소스 코드를 설치(-sd src/client)하고, 최소한의 설치를 사용하고(--minimal), 프로젝트에서 Sass를 사용하도록 지정합니다(플래그로 지정된 CSS 유사 구문 --style scss).
+1. 명령 프롬프트에서 새 프로젝트를 만들려는 폴더로 변경하고 다음 명령을 실행합니다. 이 명령은 새 폴더 및 angular-cosmosdb라는 프로젝트를 만들고 새 앱에 필요한 Angular 구성 요소를 설치합니다. 또한 최소한의 설치를 사용하고(--minimal), 프로젝트에서 Sass를 사용하도록 지정합니다(플래그로 지정된 CSS 유사 구문 --style scss).
 
     ```bash
-    ng new angular-cosmosdb -sd src/client --minimal --style scss
+    ng new angular-cosmosdb --minimal --style scss
     ```
 
 2. 명령이 완료되면 src/client 폴더로 디렉터리를 변경합니다.
@@ -151,11 +149,9 @@ ms.lasthandoff: 04/16/2018
 
 7. 수정한 모든 파일 저장 
 
-8. Visual Studio Code에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)을 클릭하고, 기어 단추 ![Visual Studio Code의 기어 단추](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png)를 클릭하고, **Node.js**를 선택하여 구성을 만듭니다.
+8. Visual Studio Code에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png)을 클릭하고, 기어 단추 ![Visual Studio Code의 기어 단추](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png)를 클릭합니다. Visual Studio Code에서 새로운 launch.json 파일이 열립니다.
 
-   Visual Studio Code에서 새로운 launch.json 파일이 열립니다.
-
-8. launch.json 파일의 11줄에서 `"program": "${file}"`을 `"program": "${workspaceRoot}/src/server/index.js"`로 변경하고 파일을 저장합니다.
+8. launch.json 파일의 11줄에서 `"${workspaceFolder}\\server"`을 `"program": "${workspaceRoot}/src/server/index.js"`로 변경하고 파일을 저장합니다.
 
 9. **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png)을 클릭하여 앱을 실행합니다.
 

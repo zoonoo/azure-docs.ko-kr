@@ -3,16 +3,17 @@ title: SSDT를 사용하여 Azure Analysis Services에 배포 | Microsoft Docs
 description: SSDT를 사용하여 Azure Analysis Services 서버에 테이블 형식 모델을 배포하는 방법에 대해 알아봅니다.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a25066ef8446449148bc0ca95989dc6ca3ca6839
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9a3b969af861d6fb750b8aad666f2e1dfb7c8a3d
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447288"
 ---
 # <a name="deploy-a-model-from-ssdt"></a>SSDT에서 모델 배포
 Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이터베이스를 배포할 준비가 되었습니다. SSDT(SQL Server 데이터 도구)를 사용하여 작업하는 테이블 형식 모델 프로젝트를 빌드하고 배포할 수 있습니다. 
@@ -29,15 +30,18 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 > 
 > 
 
-## <a name="to-deploy-a-tabular-model-from-ssdt"></a>SSDT에서 테이블 형식 모델을 배포하려면
+## <a name="get-the-server-name"></a>서버 이름 가져오기
 
-1. 배포하기 전에 서버 이름을 가져와야 합니다. **Azure Portal** > 서버 > **개요** > **서버 이름**에서 서버 이름을 복사합니다.
+**Azure Portal** > 서버 > **개요** > **서버 이름**에서 서버 이름을 복사합니다.
    
-    ![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. SSDT > **솔루션 탐색기**에서 프로젝트 > **속성**을 마우스 오른쪽 단추로 클릭합니다. 그런 다음 **배포** > **서버**에서 서버 이름을 붙여 넣습니다.   
+![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
+
+## <a name="to-deploy-from-ssdt"></a>SSDT에서 배포하려면
+
+1. SSDT > **솔루션 탐색기**에서 프로젝트 > **속성**을 마우스 오른쪽 단추로 클릭합니다. 그런 다음 **배포** > **서버**에서 서버 이름을 붙여 넣습니다.   
    
     ![배포 서버 속성에 서버 이름을 붙여 넣습니다](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-3. **솔루션 탐색기**에서 **속성**을 마우스 오른쪽 단추로 클릭한 후 **배포**를 클릭합니다. Azure에 로그인하라는 메시지가 표시될 수 있습니다.
+2. **솔루션 탐색기**에서 **속성**을 마우스 오른쪽 단추로 클릭한 후 **배포**를 클릭합니다. Azure에 로그인하라는 메시지가 표시될 수 있습니다.
    
     ![서버에 배포](./media/analysis-services-deploy/aas-deploy-deploy.png)
    

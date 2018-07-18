@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 06/22/2018
 ms.author: magoedte
-ms.openlocfilehash: f0501d4404375ee44b96ae4514c15e69b616d38a
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 23109a74fa707759cc3300896392dcc129f3e28c
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335757"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>AKS(Azure Kubernetes Service) 컨테이너 상태 모니터링(미리 보기)
 
@@ -36,10 +37,10 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 ## <a name="requirements"></a>요구 사항 
 시작하기 전에 다음 세부 정보를 검토하여 지원되는 필수 구성 요소를 이해합니다.
 
-- 버전 1.7.7 ~ 1.9.6의 AKS 클러스터가 지원됩니다.
+- 새 또는 기존 AKS 클러스터
 - Linux용 컨테이너화 OMS 에이전트 버전 microsoft / oms:ciprod04202018 이상. 이 에이전트는 컨테이너 상태를 등록하는 동안 자동으로 설치됩니다.  
 - Log Analytics 작업 영역.  새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 때 만들거나 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json) 또는 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md)에서 만들 수 있습니다.
-
+- 컨테이너 모니터링을 사용하기 위한 Log Analytics 기여자 역할의 멤버입니다.  Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md)를 참조하세요.
 
 ## <a name="components"></a>구성 요소 
 
@@ -49,8 +50,8 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 >AKS 클러스터를 이미 배포한 경우, 이 문서의 뒷부분에 설명된 대로, 제공된 Azure Resource Manager 템플릿을 사용하여 모니터링을 사용하도록 설정할 수 있습니다. `kubectl`을 사용하여 에이전트를 업그레이드, 삭제, 다시 배포 또는 배포할 수 없습니다.  
 >
 
-## <a name="log-in-to-azure-portal"></a>Azure Portal에 로그인
-Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다. 
+## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>새 클러스터에 대해 컨테이너 상태 모니터링 사용
 Azure Portal에서 배포할 때는 AKS 클러스터의 모니터링만 사용하도록 설정할 수 있습니다.  빠른 시작 문서 [AKS(Azure Kubernetes Service) 클러스터 배포](../aks/kubernetes-walkthrough-portal.md)의 단계를 따르세요.  **모니터링** 페이지에서 **모니터링 사용** 옵션에 대해 **예**를 선택하여 사용하도록 설정한 후, 기존 Log Analytics 작업 영역을 선택하거나 새로 만듭니다.  
@@ -65,7 +66,27 @@ Azure Portal에서 배포할 때는 AKS 클러스터의 모니터링만 사용�
 모니터링이 사용되도록 설정된 후에 클러스터에 대한 운영 데이터를 볼 수 있을 때까지 15분 정도 걸릴 수 있습니다.  
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>관리되는 기존 클러스터에 대해 컨테이너 상태 모니터링 사용
-이미 배포된 AKS 컨테이너에 대한 모니터링의 경우 포털에서 사용하도록 설정할 수 없으며, 제공된 Azure Resource Manager 템플릿을 사용하여 **New-AzureRmResourceGroupDeployment** 또는 Azure CLI를 통해서만 사용하도록 설정할 수 있습니다.  모니터링을 사용하도록 구성을 지정하는 JSON 템플릿도 있고, 다음을 지정하도록 구성하는 매개 변수 값을 포함하는 JSON 템플릿도 있습니다.
+이미 배포된 AKS 컨테이너에 대한 모니터링은 Azure Portal에서 또는 제공된 Azure Resource Manager 템플릿을 통해 PowerShell cmdlet **New-AzureRmResourceGroupDeployment** 또는 Azure CLI를 사용하여 설정할 수 있습니다.  
+
+
+### <a name="enable-from-azure-portal"></a>Azure Portal에서 설정
+다음 단계를 수행하여 Azure Portal에서 AKS 컨테이너 모니터링을 설정할 수 있습니다.
+
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **컨테이너**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Kubernetes 서비스**를 선택합니다.<br><br> ![Azure Portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
+2. 컨테이너 목록에서 컨테이너를 선택합니다.
+3. 컨테이너 개요 페이지에서 **컨테이너 상태 모니터링**을 선택하면 **컨테이너 상태 및 로그에 온보딩** 페이지가 나타납니다.
+4. 클러스터와 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 **컨테이너 상태 및 로그에 온보딩** 페이지의 드롭다운 목록에서 해당 작업 영역을 선택합니다.  구독에서 AKS 컨테이너가 배포된 기본 작업 영역 및 위치가 미리 선택됩니다. 또는 **새로 만들기**를 선택하고 같은 구독에서 새 작업 영역을 지정할 수도 있습니다.<br><br> ![AKS 컨테이너 상태 모니터링 사용](./media/monitoring-container-health/container-health-enable-brownfield.png) 
+
+    **새로 만들기**를 선택하면 **새 작업 영역 만들기** 창이 나타납니다. **영역**은 기본적으로 컨테이너 리소스가 만들어진 영역으로 설정되며, 기본값을 적용하거나 다른 영역을 선택한 다음, 작업 영역의 이름을 지정합니다.  **만들기**를 클릭하여 선택한 내용을 적용합니다.<br><br> ![컨테이너 모니터링에 사용할 작업 영역 정의](./media/monitoring-container-health/create-new-workspace-01.png)  
+
+    >[!NOTE]
+    >지금은 미국 중서부 영역에 새 작업 영역을 만들 수 없고, 해당 영역의 기존 작업 영역만 선택할 수 있습니다.  목록에서 해당 영역을 선택할 수 있지만, 배포를 시작하면 얼마 후 배포가 실패합니다.  
+    >
+ 
+모니터링이 사용되도록 설정된 후에 클러스터에 대한 운영 데이터를 볼 수 있을 때까지 15분 정도 걸릴 수 있습니다. 
+
+### <a name="enable-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
+이 방법에는 JSON 템플릿 2개가 사용됩니다. 한 템플릿은 모니터링을 사용할 구성을 지정하고 다른 JSON 템플릿은 다음을 지정하도록 구성하는 매개 변수 값을 포함하고 있습니다.
 
 * AKS 컨테이너 리소스 ID 
 * 클러스터가 배포된 리소스 그룹 
@@ -77,7 +98,7 @@ PowerShell에서 템플릿을 사용하여 리소스를 배포하는 개념을 �
 
 Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하고 사용해야 합니다.  Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 
-### <a name="create-and-execute-template"></a>템플릿 만들기 및 실행
+#### <a name="create-and-execute-template"></a>템플릿 만들기 및 실행
 
 1. 다음 JSON 구문을 파일에 복사하여 붙여넣습니다.
 
@@ -89,82 +110,82 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하
       "aksResourceId": {
         "type": "string",
         "metadata": {
-           "description": "AKS Cluster resource id"
-        }
+           "description": "AKS Cluster Resource ID"
+           }
     },
     "aksResourceLocation": {
+    "type": "string",
+     "metadata": {
+        "description": "Location of the AKS resource e.g. \"East US\""
+       }
+    },
+    "workspaceResourceId": {
       "type": "string",
       "metadata": {
-        "description": "Location of the AKS resource e.g. \"East US\""
-        }
-      },
-      "workspaceId": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics resource id"
-        }
-      },
-      "workspaceRegion": {
-        "type": "string",
-        "metadata": {
-          "description": "Azure Monitor Log Analytics workspace region"
-        }
+         "description": "Azure Monitor Log Analytics Resource ID"
+       }
+    },
+    "workspaceRegion": {
+    "type": "string",
+    "metadata": {
+       "description": "Azure Monitor Log Analytics workspace region"
       }
+     }
     },
     "resources": [
       {
-        "name": "[split(parameters('aksResourceId'),'/')[8]]",
-        "type": "Microsoft.ContainerService/managedClusters",
-        "location": "[parameters('aksResourceLocation')]",
-        "apiVersion": "2018-03-31",
-        "properties": {
-          "mode": "Incremental",
-          "id": "[parameters('aksResourceId')]",
-          "addonProfiles": {
-            "omsagent": {
-              "enabled": true,
-              "config": {
-                "logAnalyticsWorkspaceResourceID": "[parameters('workspaceId')]"
-              }
-            }
+    "name": "[split(parameters('aksResourceId'),'/')[8]]",
+    "type": "Microsoft.ContainerService/managedClusters",
+    "location": "[parameters('aksResourceLocation')]",
+    "apiVersion": "2018-03-31",
+    "properties": {
+      "mode": "Incremental",
+      "id": "[parameters('aksResourceId')]",
+      "addonProfiles": {
+        "omsagent": {
+          "enabled": true,
+          "config": {
+            "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
           }
-        }
-      },
-      {
-            "type": "Microsoft.Resources/deployments",
-            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-            "apiVersion": "2017-05-10",
-            "subscriptionId": "[split(parameters('workspaceId'),'/')[2]]",
-            "resourceGroup": "[split(parameters('workspaceId'),'/')[4]]",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {},
-                    "variables": {},
-                    "resources": [
-                        {
-                            "apiVersion": "2015-11-01-preview",
-                            "type": "Microsoft.OperationsManagement/solutions",
-                            "location": "[parameters('workspaceRegion')]",
-                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                            "properties": {
-                                "workspaceResourceId": "[parameters('workspaceId')]"
-                            },
-                            "plan": {
-                                "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceId'),'/')[8], ')')]",
-                                "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
-                                "promotionCode": "",
-                                "publisher": "Microsoft"
-                            }
-                        }
-                    ]
-                },
-                "parameters": {}
-            }
          }
-      ]
+       }
+      }
+     },
+    {
+        "type": "Microsoft.Resources/deployments",
+        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+        "apiVersion": "2017-05-10",
+        "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
+        "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
+        "properties": {
+            "mode": "Incremental",
+            "template": {
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "variables": {},
+                "resources": [
+                    {
+                        "apiVersion": "2015-11-01-preview",
+                        "type": "Microsoft.OperationsManagement/solutions",
+                        "location": "[parameters('workspaceRegion')]",
+                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                        "properties": {
+                            "workspaceResourceId": "[parameters('workspaceResourceId')]"
+                        },
+                        "plan": {
+                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
+                            "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
+                            "promotionCode": "",
+                            "publisher": "Microsoft"
+                        }
+                    }
+                ]
+            },
+            "parameters": {}
+        }
+       }
+     ]
     }
     ```
 
@@ -173,26 +194,26 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {
-           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-        },
-        "aksResourceLocation": {
-          "value": "East US"
-        },
-        "workspaceId": {
-          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-        },
-        "workspaceRegion": {
-          "value": "eastus"
-        }
-      }
+           "value": "/subscriptions/<SubscroptiopnId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+       },
+       "aksResourceLocation": {
+         "value": "East US"
+       },
+       "workspaceResourceId": {
+         "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+       },
+       "workspaceRegion": {
+         "value": "eastus"
+       }
+     }
     }
     ```
 
-4. **aksResourceId**, **aksResourceLocation**의 값을 AKS 클러스터에 대한 **AKS 개요** 페이지에서 찾을 수 있는 값으로 편집합니다.  **workspaceId** 값은 Log Analytics 작업 영역의 이름이어야 하고, **workspaceRegion**에 대해 작업 영역이 만들어진 위치를 지정합니다.    
+4. **aksResourceId**, **aksResourceLocation**의 값을 AKS 클러스터에 대한 **AKS 개요** 페이지에서 찾을 수 있는 값으로 편집합니다.  **workspaceResourceId** 값은 Log Analytics 작업 영역의 전체 리소스 ID 이며, 작업 영역 이름을 포함합니다.  또한 **workspaceRegion**에 대한 작업 영역이 있는 위치를 지정합니다.    
 5. 이 파일을 **existingClusterParam.json**으로 로컬 폴더에 저장합니다.
 6. 이제 이 템플릿을 배포할 수 있습니다. 
 
@@ -223,12 +244,12 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하
 모니터링이 사용되도록 설정된 후에 클러스터에 대한 운영 데이터를 볼 수 있을 때까지 15분 정도 걸릴 수 있습니다.  
 
 ## <a name="verify-agent-deployed-successfully"></a>에이전트가 성공적으로 배포되었는지 확인
-OMS 에이전트가 제대로 배포되었는지 확인하려면 ` kubectl get ds omsagent -—namespace=kube-system` 명령을 실행합니다.
+OMS 에이전트가 제대로 배포되었는지 확인하려면 `kubectl get ds omsagent --namespace=kube-system` 명령을 실행합니다.
 
 출력은 다음과 비슷하며 제대로 배포되었음을 나타냅니다.
 
 ```
-User@aksuser:~$ kubectl get ds omsagent -—namespace=kube-system 
+User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
@@ -314,19 +335,19 @@ omsagent   2         2         2         2            2           beta.kubernete
 
 | 데이터 형식 | 로그 검색의 데이터 유형 | 필드 |
 | --- | --- | --- |
-| 호스트 및 컨테이너에 대한 성능 | `Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue,TimeGenerated, CounterPath, SourceSystem |
+| 호스트 및 컨테이너에 대한 성능 | `Perf` | 컴퓨터, ObjectName, CounterName &#40;%프로세서 시간, 디스크 읽기 MB, 디스크 쓰기 MB, 메모리 사용 MB, 네트워크 수신 바이트, 네트워크 송신 바이트, 프로세서 사용 초, 네트워크&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
 | 컨테이너 인벤토리 | `ContainerInventory` | TimeGenerated, 컴퓨터, 컨테이너 이름, ContainerHostname, 이미지, ImageTag, ContainerState, ExitCode, EnvironmentVar, 명령, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
 | 컨테이너 이미지 인벤토리 | `ContainerImageInventory` | TimeGenerated, 컴퓨터, 이미지, ImageTag, ImageSize, VirtualSize, 실행 중, 일시 중지됨, 중지됨, 실패, SourceSystem, ImageID, TotalContainer |
 | 컨테이너 로그 | `ContainerLog` | TimeGenerated, 컴퓨터, 이미지 ID, 컨테이너 이름, LogEntrySource, LogEntry, SourceSystem, ContainerID |
 | 컨테이너 서비스 로그 | `ContainerServiceLog`  | TimeGenerated, 컴퓨터, TimeOfCommand, 이미지, 명령, SourceSystem, ContainerID |
 | 컨테이너 노드 인벤토리 | `ContainerNodeInventory_CL`| TimeGenerated, 컴퓨터, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
 | 컨테이너 프로세스 | `ContainerProcess_CL` | TimeGenerated, 컴퓨터, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Kubernetes 클러스터의 Pod 인벤토리 | `KubePodInventory` | TimeGenerated, Computer, ClusterId , ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
+| Kubernetes 클러스터의 Pod 인벤토리 | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
 | Kubernetes 클러스터의 노드 부분 인벤토리 | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
 | kubernetes 이벤트 | `KubeEvents_CL` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
 | Kubernetes 클러스터의 서비스 | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SNode” | cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes | 
-| Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SContainer” | cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes | 
+| Kubernetes 클러스터의 노드 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+| Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 
 ## <a name="search-logs-to-analyze-data"></a>로그를 검색하여 데이터 분석
 Log Analytics에서는 현재 클러스터 구성이 최적 상태로 실행되고 있는지를 파악하는 데 도움이 되도록 추세를 찾아보거나, 병목 상태를 진단하거나, 예측하거나 데이터 간 상관 관계를 파악할 있습니다.  미리 정의된 로그 검색을 즉시 사용하거나, 사용자 지정하여 원하는 방식으로 정보를 반환할 수 있습니다. 
@@ -363,7 +384,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하
         "aksResourceId": {
            "type": "string",
            "metadata": {
-             "description": "AKS Cluster resource id"
+             "description": "AKS Cluster Resource ID"
            }
        },
       "aksResourceLocation": {
@@ -429,7 +450,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사하게 결과가 포함된 메시지가 표시됩니다.
+        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 결과를 포함하고 있는 다음과 비슷한 메시지가 반환됩니다.
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -443,7 +464,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬로 설치하
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 다음과 유사하게 결과가 포함된 메시지가 표시됩니다.
+        구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 결과를 포함하고 있는 다음과 비슷한 메시지가 반환됩니다.
 
         ```azurecli
         ProvisioningState       : Succeeded

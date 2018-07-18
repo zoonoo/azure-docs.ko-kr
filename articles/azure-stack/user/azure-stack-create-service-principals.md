@@ -11,13 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
+ms.date: 06/21/2018
 ms.author: mabrigg
-ms.openlocfilehash: de5712fd7b48a759b366f5b9808bbbefc6e305cd
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.reviewer: thoroet
+ms.openlocfilehash: 3c9f114c2844021d515765888aa19f18a0adc10b
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36321269"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>서비스 사용자를 만들어 응용 프로그램 액세스 권한을 Azure 스택 리소스에 부여
 
@@ -61,7 +63,7 @@ Azure 스택 Azure AD id 저장소로을 사용 하는 서비스 Azure 포털을
 
 응용 프로그램에 대 한 서비스 사용자를 만들려면:
 
-1. [Azure Portal](https://portal.azure.com)을 통해 Azure 계정에 로그인합니다.
+1. 통해 Azure 계정에 로그인 된 [Azure 포털](https://portal.azure.com)합니다.
 2. 선택 **Azure Active Directory** > **앱 등록** > **추가**합니다.
 3. 응용 프로그램에 대한 이름 및 URL을 제공합니다. 만들려는 응용 프로그램 유형으로 **웹앱/API** 또는 **네이티브**를 선택합니다. 값을 설정한 후 **만들기**를 선택합니다.
 
@@ -93,54 +95,7 @@ AD FS를 사용 하 여 id 저장소로 Azure 스택을 배포한 경우에 다�
 * 서비스 사용자 역할에 할당 합니다.
 * 서비스 보안 주체 id를 사용 하 여 로그인 합니다.
 
-### <a name="before-you-begin"></a>시작하기 전에
-
-[로컬 컴퓨터에 필요한 Azure 스택 도구를 다운로드 합니다.](azure-stack-powershell-download.md)
-
-### <a name="import-the-identity-powershell-module"></a>Identity PowerShell 모듈을 가져옵니다
-
-Azure 스택 도구에 대 한 다운로드 폴더로 이동한 다음 명령을 사용 하 여 Identity PowerShell 모듈을 가져옵니다.
-
-```PowerShell
-Import-Module .\Identity\AzureStack.Identity.psm1
-```
-
-Identity 모듈을 가져올 때이 오류 메시지가 표시 될 수 있습니다: "AzureStack.Connect.psm1 디지털 서명이 없습니다. 스크립트가 실행 되지 않습니다는 시스템에서 ".
-
-이 문제를 해결 하려면 스크립트 실행을 허용 하도록 실행 정책을 구성 해야 합니다. 실행 정책을 설정 하려면 관리자 권한 PowerShell 세션에서에서 다음 명령을 실행 합니다.
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted
-```
-
-### <a name="create-the-service-principal"></a>서비스 주체 만들기
-
-업데이트를 확인 하 여 다음 명령을 실행 하 여 서비스 사용자를 만들 수 있습니다는 **DisplayName** 매개 변수:
-
-```powershell
-$servicePrincipal = New-AzSADGraphServicePrincipal `
- -DisplayName "<YourServicePrincipalName>" `
- -AdminCredential $(Get-Credential) `
- -AdfsMachineName "AZS-ADFS01" `
- -Verbose
-
-```
-
-### <a name="assign-a-role"></a>역할 할당
-
-서비스 사용자를 만든 다음을 수행 해야 [역할에 할당](azure-stack-create-service-principals.md#assign-role-to-service-principal)합니다.
-
-### <a name="sign-in-using-powershell"></a>PowerShell을 사용 하 여 로그인
-
-로그인 하려면 Azure 스택 다음 명령을 실행 하 여 업데이트 하는 **EnvironmentName** 응용 프로그램의 이름으로 매개 변수:
-
-```powershell
-Add-AzureRmAccount -EnvironmentName "<AzureStackEnvironmentName>" `
- -ServicePrincipal `
- -CertificateThumbprint $servicePrincipal.Thumbprint `
- -ApplicationId $servicePrincipal.ApplicationId `
- -TenantId $directoryTenantId
-```
+서비스 사용자를 만드는 방법에 대 한 자세한 내용은 참조 하십시오. [AD FS에 대 한 서비스 보안 주체를 만들](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)합니다.
 
 ## <a name="assign-the-service-principal-to-a-role"></a>서비스 사용자 역할에 할당
 

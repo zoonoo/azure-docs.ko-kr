@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/17/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: c7549297f040e251f3c0109debf757c28750d0a0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b96483232a1da5ae21e6ba8cbe873d876d38ed11
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619272"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050304"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 
@@ -35,9 +35,6 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
 > [!NOTE]
 > 자세한 내용은 [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간에 데이터 복사](connector-azure-sql-data-warehouse.md)를 참조하세요.
->
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Azure Data Factory 버전 1의 복사 작업](v1/data-factory-data-movement-activities.md)을 참조하세요.
-
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -57,7 +54,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
     * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadSQLDWDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리에 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-    * **버전**: **V2(미리 보기)** 를 선택합니다.
+    * **버전**: **V2**를 선택합니다.
     * **위치**: 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 이러한 데이터 저장소는 Azure Data Lake Store, Azure Storage, Azure SQL Database 등을 포함합니다.
 
 3. **만들기**를 선택합니다.
@@ -75,47 +72,72 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 2. **속성** 페이지에서 **작업 이름** 필드를 **CopyFromSQLToSQLDW**로 지정하고 **다음**을 선택합니다.
 
     ![속성 페이지](./media/load-azure-sql-data-warehouse/copy-data-tool-properties-page.png)
-3. **원본 데이터 저장소** 페이지에서 **Azure SQL Database**를 선택하고 **다음**을 선택합니다.
 
-    ![원본 데이터 저장소 페이지](./media/load-azure-sql-data-warehouse/specify-source.png)
-4. **Azure SQL Database 지정** 페이지에서 다음 단계를 수행합니다. 
-   1. **서버 이름**에 대해 Azure SQL Server를 선택합니다.
-   2. **데이터베이스 이름**에 대해 Azure SQL Database를 선택합니다.
-   3. **사용자 이름**에 대해 사용자의 이름을 지정합니다.
-   4. **암호**에 대해 사용자의 암호를 지정합니다.
-   5. **다음**을 선택합니다.
+3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
+
+    a. **+ 새 연결 만들기**를 클릭합니다.
+
+    ![원본 데이터 저장소 페이지](./media/load-azure-sql-data-warehouse/new-source-linked-service.png)
+
+    나. 갤러리에서 **Azure SQL Database**를 선택하고 **계속**을 선택합니다. 검색 상자에 "SQL"을 입력하여 커넥터를 필터링할 수 있습니다.
+
+    ![Azure SQL DB 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
+
+    다. **새로 연결된 서비스** 페이지의 드롭다운 목록에서 서버 이름 및 DB 이름을 선택하고, 사용자 이름과 암호를 지정합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
    
-   ![Azure SQL DB 지정](./media/load-azure-sql-data-warehouse/specify-source-connection.png)
-5. **데이터를 복사할 테이블 선택 또는 사용자 지정 쿼리 사용** 페이지에서 **SalesLT**를 입력하여 테이블을 필터링합니다. 복사에 모든 테이블을 사용하도록 **(모두 선택)** 상자를 선택한 후 **다음**을 선택합니다. 
+    ![Azure SQL DB 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
+
+    d. 새로 만든 연결된 서비스를 원본으로 선택하고 **다음**을 클릭합니다.
+
+    ![원본 연결된 서비스 선택](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
+
+4. **데이터를 복사할 테이블 선택 또는 사용자 지정 쿼리 사용** 페이지에서 **SalesLT**를 입력하여 테이블을 필터링합니다. 복사에 모든 테이블을 사용하도록 **(모두 선택)** 상자를 선택한 후 **다음**을 선택합니다. 
 
     ![원본 테이블 선택](./media/load-azure-sql-data-warehouse/select-source-tables.png)
 
-6. **대상 데이터 저장소** 페이지에서 **Azure SQL Data Warehouse**를 선택하고 **다음**을 선택합니다.
+6. **대상 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
-    ![대상 데이터 저장소 페이지](./media/load-azure-sql-data-warehouse/specify-sink.png)
-7. **Azure SQL Data Warehouse 지정** 페이지에서 다음 단계를 수행합니다. 
+    a. **+ 새 연결 만들기**를 클릭하여 연결을 추가합니다.
 
-   1. **서버 이름**에 대해 Azure SQL Server를 선택합니다.
-   2. **데이터베이스 이름**에 대해 Azure SQL Data Warehouse를 선택합니다.
-   3. **사용자 이름**에 대해 사용자의 이름을 지정합니다.
-   4. **암호**에 대해 사용자의 암호를 지정합니다.
-   5. **다음**을 선택합니다.
+    ![싱크 데이터 저장소 페이지](./media/load-azure-sql-data-warehouse/new-sink-linked-service.png)
+
+    나. 갤러리에서 **Azure SQL Data Warehouse**를 선택하고 **다음**을 선택합니다.
+
+    ![Azure SQL DW 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+
+    다. **새로 연결된 서비스** 페이지의 드롭다운 목록에서 서버 이름 및 DB 이름을 선택하고, 사용자 이름과 암호를 지정합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
    
-   ![Azure SQL Data Warehouse 지정](./media/load-azure-sql-data-warehouse/specify-sink-connection.png)
-8. **테이블 매핑** 페이지에서 콘텐츠를 검토하고, **다음**을 선택합니다. 지능형 테이블 매핑이 표시됩니다. 원본 테이블은 테이블 이름에 따라 대상 테이블에 매핑됩니다. 원본 테이블이 대상에 없으면 기본적으로 Azure Data Factory는 같은 이름으로 대상 테이블을 만듭니다. 기존 대상 테이블에 원본 테이블을 매핑할 수도 있습니다. 
+    ![Azure SQL DW 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+
+    d. 새로 만든 연결된 서비스를 싱크로 선택하고 **다음**을 클릭합니다.
+
+    ![연결된 싱크 서비스 선택](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
+
+6. **테이블 매핑** 페이지에서 콘텐츠를 검토하고, **다음**을 선택합니다. 지능형 테이블 매핑이 표시됩니다. 원본 테이블은 테이블 이름에 따라 대상 테이블에 매핑됩니다. 원본 테이블이 대상에 없으면 기본적으로 Azure Data Factory는 같은 이름으로 대상 테이블을 만듭니다. 기존 대상 테이블에 원본 테이블을 매핑할 수도 있습니다. 
 
    > [!NOTE]
    > SQL Data Warehouse 싱크에 대한 자동 테이블 만들기는 SQL Server 또는 Azure SQL Database가 원본일 때 적용됩니다. 다른 원본 데이터 저장소에서 데이터를 복사하는 경우, 데이터 복사를 실행하기 전에 싱크 Azure SQL Data Warehouse에서 스키마를 미리 만들어야 합니다.
 
-   ![테이블 매핑 페이지](./media/load-azure-sql-data-warehouse/specify-table-mapping.png)
+   ![테이블 매핑 페이지](./media/load-azure-sql-data-warehouse/table-mapping.png)
 
 9. **스키마 매핑** 페이지에서 콘텐츠를 검토하고, **다음**을 선택합니다. 지능형 테이블 매핑은 열 이름을 기반으로 합니다. 데이터 팩터리에서 테이블을 자동으로 만들도록 하는 경우 원본 및 대상 저장소 간에 비호환성 문제가 있을 때 데이터 형식 변환이 발생할 수 있습니다. 원본 및 대상 열 간에 지원되지 않는 데이터 형식 변환이 있는 경우 해당 테이블 옆에 오류 메시지가 표시됩니다.
 
-    ![스키마 매핑 페이지](./media/load-azure-sql-data-warehouse/specify-schema-mapping.png)
+    ![스키마 매핑 페이지](./media/load-azure-sql-data-warehouse/schema-mapping.png)
 
-11. **설정** 페이지의 **저장소 계정 이름** 드롭다운 목록에서 Azure 저장소 계정을 선택합니다. 계정은 PolyBase를 사용하여 SQL Data Warehouse에 로드하기 전에, 데이터를 준비하는 데 사용됩니다. 복사가 완료되면 Azure Storage의 중간 데이터는 자동으로 정리됩니다. **고급 설정** 아래에서 **사용 유형 기본값** 옵션을 선택 취소합니다.
+11. **설정** 페이지에서 다음 단계를 완료합니다.
 
-    ![설정 페이지](./media/load-azure-sql-data-warehouse/copy-settings.png)
+    a. **준비 설정** 섹션에서 **+ 새로 만들기**를 클릭하여 준비 저장소를 새로 만듭니다. 저장소는 PolyBase를 사용하여 SQL Data Warehouse에 로드하기 전에, 데이터를 준비하는 데 사용됩니다. 복사가 완료되면 Azure Storage의 중간 데이터는 자동으로 정리됩니다. 
+
+    ![준비 구성](./media/load-azure-sql-data-warehouse/configure-staging.png)
+
+    나. **새로 연결된 서비스** 페이지에서 저장소 계정을 선택하고 **마침**을 선택합니다.
+   
+    ![Azure Storage 구성](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
+
+    다. **고급 설정** 섹션에서 **형식 기본값 사용** 옵션의 선택을 취소한 다음, **다음**을 선택합니다.
+
+    ![PolyBase 구성](./media/load-azure-sql-data-warehouse/configure-polybase.png)
+
 12. **요약** 페이지에서 설정을 검토하고, **다음**을 선택합니다.
 
     ![요약 페이지](./media/load-azure-sql-data-warehouse/summary-page.png)
@@ -124,10 +146,10 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
     ![배포 페이지](./media/load-azure-sql-data-warehouse/deployment-page.png)
 14. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다. **작업** 열에는 활동 실행 세부 정보를 보고 파이프라인을 다시 실행하기 위한 링크가 있습니다. 
 
-    ![파이프라인 실행 모니터링](./media/load-azure-sql-data-warehouse/monitor-pipeline-run.png)
-15. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 파이프라인에는 각 작업이 하나의 데이터 테이블을 복사하는 10개의 복사 작업이 있습니다. 파이프라인 실행 보기로 전환하려면 위쪽의 **파이프라인** 링크를 선택합니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. 
+    ![파이프라인 실행 모니터링](./media/load-azure-sql-data-warehouse/pipeline-monitoring.png)
+15. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 링크를 선택합니다. 파이프라인 실행 보기로 전환하려면 위쪽의 **파이프라인** 링크를 선택합니다. **새로 고침**을 선택하여 목록을 새로 고칩니다. 
 
-    ![작업 실행 모니터링](./media/load-azure-sql-data-warehouse/monitor-activity-run.png)
+    ![작업 실행 모니터링](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
 16. 각 복사 작업의 실행 세부 정보를 모니터링하려면 작업 모니터링 보기의 **작업** 아래에서 **세부 정보** 링크를 선택합니다. 원본에서 싱크로 복사되는 데이터 볼륨, 데이터 처리량, 해당 기간의 실행 단계, 사용되는 구성 등의 세부 정보를 모니터링할 수 있습니다.
 

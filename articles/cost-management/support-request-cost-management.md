@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 4a0ac66f8f7adff99c211df20b84cf0f6f08f523
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 35d3153cb485f11fe17689f1ff1d3d88961878d3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296694"
 ---
 # <a name="create-a-support-request-for-cost-management"></a>Cost Management에 대한 지원 요청 만들기
 
@@ -22,7 +23,7 @@ ms.lasthandoff: 04/28/2018
 
 ## <a name="open-a-support-ticket"></a>지원 티켓 열기
 
-1. Azure Portal(https://portal.azure.com)에 로그인합니다.
+1. Azure Portal (https://portal.azure.com) 에 로그인합니다.
 2. 위쪽 탐색 모음에서 **도움말**을 클릭합니다.
 3. **도움말** 메뉴에서 **도움말 + 지원**을 클릭합니다.
 4. [도움말 + 지원] 메뉴의 [지원] 아래에서 **새 지원 요청**을 클릭합니다.

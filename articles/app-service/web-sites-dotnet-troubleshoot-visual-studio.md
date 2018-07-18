@@ -33,17 +33,17 @@ ms.locfileid: "30266141"
 * Visual Studio 원격 뷰를 사용하여 원격 웹 앱에서 빠르게 변경하는 방법
 * 웹 앱 및 WebJob에 대해 Azure에서 프로젝트를 실행하는 동안 원격으로 디버그 모드를 실행하는 방법
 * 응용 프로그램 추적 로그를 만드는 방법 및 해당 로그가 생성될 때 이를 보는 방법
-* 자세한 오류 메시지 및 실패한 요청 추적 등의 웹 서버 로그를 보는 방법
+* 자세한 오류 메시지 및 실패한 요청 추적 등의 웹 서버 로그를 보는 방법.
 * 진단 로그를 Azure Storage 계정으로 보내고 해당 위치에서 로그를 보는 방법
 
 Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 를 사용할 수도 있습니다. IntelliTrace는 이 사용설명서에서 다루지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
-이 사용설명서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱을 작업합니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
+이 사용설명서에서는 [Azure 및 ASP.NET 시작][GetStarted]에서 설정한 개발 환경, 웹 프로젝트 및 Azure 웹앱에 적용됩니다. WebJobs 섹션의 경우 [Azure WebJobs SDK 시작][GetStartedWJ]에서 만든 응용 프로그램이 필요합니다.
 
-이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다.
+이 사용설명서에 제시된 코드 샘플은 C# MVC 웹 응용 프로그램용이지만 문제 해결 절차는 Visual Basic 및 Web Forms 응용 프로그램에도 동일하게 적용됩니다. 
 
-이 사용설명서는 Visual Studio 2017을 사용한다고 가정합니다.
+이 사용설명서는 Visual Studio 2017을 사용한다고 가정합니다. 
 
 로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 응용 프로그램에서만 작동합니다.
 
@@ -150,7 +150,7 @@ public ActionResult About()
 
     ![디버거 연결](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-attachdebugger.png)
 
-    브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 48시간 후에 웹앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 동일한 시간에 디버깅을 다시 시작하면 지연이 발생하지 않습니다.
+    브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 48시간 내 웹앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 동일한 시간에 디버깅을 다시 시작하면 지연이 발생하지 않습니다
 
     > [!NOTE] 
     > 디버거를 시작하는 데 문제가 있는 경우 **서버 탐색기** 대신 **클라우드 탐색기**를 사용해 보세요.
@@ -177,7 +177,7 @@ public ActionResult About()
 ## <a name="remotedebugwj"></a> 원격 디버깅 WebJob
 이 섹션에서는 [Azure WebJob SDK 시작](https://github.com/Azure/azure-webjobs-sdk/wiki)에서 만든 프로젝트 및 웹 앱을 사용하여 원격으로 디버그하는 방법을 보여 줍니다
 
-이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4 또는 그 이상의 버전에서만 사용할 수 있습니다. 
+이 섹션에 표시된 기능은 Visual Studio 2013 업데이트 4 또는 그 이상의 버전에서만 사용할 수 있습니다.
 
 연속 WebJobs에서 원격 디버깅만 작동합니다. 예약 및 주문형 WebJobs은 디버깅을 지원하지 않습니다.
 
@@ -203,7 +203,7 @@ public ActionResult About()
 
     ![디버거 연결](./media/web-sites-dotnet-troubleshoot-visual-studio/wjattach.png)
 
-    브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 48시간 내 웹앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 동일한 시간 내에 디버깅을 다시 시작하면 지연이 발생하지 않습니다.
+    브라우저에 Azure에서 실행되는 홈 페이지가 자동으로 열립니다. Azure에서 디버깅용 서버를 설정할 때까지 약 20초 정도 기다려야 할 수 있습니다. 이 지연은 48시간 내 웹앱에서 디버그 모드를 처음 실행하는 경우에만 발생합니다. 동일한 시간에 디버깅을 다시 시작하면 지연이 발생하지 않습니다
 
 9. Contoso Ads 홈페이지로 열리는 웹 브라우저에서 새 광고를 만듭니다.
 
@@ -379,7 +379,7 @@ public ActionResult Contact()
 
     ![출력 창의 오류 추적](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-errortrace.png)
 
-    로그 모니터링 서비스를 사용하도록 설정하는 경우 오류 수준의 추적이 기본 설정이므로 Visual Studio에는 오류 수준의 추적만 표시됩니다. 새 Azure 웹 앱을 만드는 경우 사이트 설정에서 확인한 것처럼 모든 로깅은 기본적으로 사용하지 않도록 설정됩니다.
+    로그 모니터링 서비스를 사용하도록 설정하는 경우 오류 수준의 추적이 기본 설정이므로 Visual Studio에는 오류 수준의 추적만 표시됩니다. 새 Azure 웹 앱을 만드는 경우 사이트 설정에서 확인한 것처럼 모든 로깅은 기본적으로 사용하지 않도록 설정됩니다. 
 
     ![응용 프로그램 로깅 끄기](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-apploggingoff.png)
 

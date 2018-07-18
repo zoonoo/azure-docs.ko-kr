@@ -1,13 +1,13 @@
 ---
-title: "Azure Linux 가상 머신에 Oracle ASM 설정 | Microsoft Docs"
-description: "Azure 환경에서 Oracle ASM을 빠르게 준비하여 실행합니다."
+title: Azure Linux 가상 머신에 Oracle ASM 설정 | Microsoft Docs
+description: Azure 환경에서 Oracle ASM을 빠르게 준비하여 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: RicksterCDN
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 07/19/2017
 ms.author: rclaus
-ms.openlocfilehash: 0e34a188271a5ac2fb6cb34a088ec3f650be6cab
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: cc75235680eeace5107ef6ac0380e8b7a42974fc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618441"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Azure Linux 가상 컴퓨터에 Oracle ASM 설정  
 
@@ -354,7 +355,7 @@ Oracle Grid Infrastructure 소프트웨어를 다운로드 및 준비하려면 �
 
 1. [Oracle ASM 다운로드 페이지](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-linux-download-2240591.html)에서 Oracle Grid Infrastructure를 다운로드합니다. 
 
-   다운로드 제목 **Linux x86-64용 Oracle Database 12c 릴리스 1 Grid Infrastructure(12.1.0.2.0)**에서 두 개의 .zip 파일을 다운로드합니다.
+   다운로드 제목 **Linux x86-64용 Oracle Database 12c 릴리스 1 Grid Infrastructure(12.1.0.2.0)** 에서 두 개의 .zip 파일을 다운로드합니다.
 
 2. 클라이언트 컴퓨터에 .zip 파일을 다운로드한 후 SCP(보안 복사 프로토콜)를 사용하여 파일을 VM에 복사합니다.
 
@@ -529,7 +530,7 @@ Oracle ASM 설치를 설정하려면 다음 단계를 완료합니다.
 5. **디스크 그룹 만들기** 대화 상자에서 다음을 수행합니다.
 
    - 디스크 그룹 이름 **FRA**를 입력합니다.
-   - **중복**에서 **외부(없음)**를 선택합니다.
+   - **중복**에서 **외부(없음)** 를 선택합니다.
    - **멤버 디스크 선택**에서 **ORCL_FRA**를 선택합니다.
    - **할당 단위 크기**에서 **4**를 선택합니다.
    - `ok`을 클릭하여 디스크 그룹을 만듭니다.
@@ -559,7 +560,7 @@ Oracle 데이터베이스 소프트웨어는 이미 Azure Marketplace 이미지�
 3. **생성 모드** 페이지에서,
 
    - 데이터베이스에 사용할 이름을 입력합니다.
-   - **저장소 형식**의 경우 **ASM(자동 저장소 관리)**을 선택하도록 합니다.
+   - **저장소 형식**의 경우 **ASM(자동 저장소 관리)** 을 선택하도록 합니다.
    - **데이터베이스 파일 위치**의 경우 위치를 제안하는 ASM 기본값을 사용합니다.
    - **빠른 복구 영역**의 경우 위치를 제안하는 ASM 기본값을 사용합니다.
    - **관리 암호** 및 **암호 확인**을 입력합니다.

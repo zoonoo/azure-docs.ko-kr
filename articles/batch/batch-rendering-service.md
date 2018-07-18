@@ -1,5 +1,5 @@
 ---
-title: Azure Batch Rendering 서비스 - 클라우드 규모 렌더링 | Microsoft Docs
+title: Azure Batch Rendering - 클라우드 규모 렌더링 | Microsoft Docs
 description: Maya에서 직접 사용량 기준 과금으로 Azure 가상 머신의 작업을 렌더링합니다.
 services: batch
 author: dlepow
@@ -8,23 +8,23 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: df1b2da7628e6c3f9f4bcbb02a936c33aad49698
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076974"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128591"
 ---
-# <a name="get-started-with-the-batch-rendering-service"></a>Batch Rendering 서비스 시작
+# <a name="get-started-with-batch-rendering"></a>Batch Rendering 시작 
 
-Azure Batch Rendering 서비스는 클라우드 규모 렌더링 기능을 사용량 기준 과금으로 제공합니다. Batch Rendering 서비스는 렌더링 작업의 작업 일정 및 큐, 실패 및 재시도 관리, 자동 크기 조정을 처리합니다. Batch Rendering Service는 [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), [V-Ray](https://www.chaosgroup.com/vray/maya) 등의 렌더링 앱을 지원합니다. Maya 2017의 Batch 플러그 인을 사용하면 바탕 화면에서 바로 Azure의 렌더링 작업을 시작할 수 있습니다.
+Azure Batch Rendering은 클라우드 규모 렌더링 기능을 사용량 기준 과금으로 제공합니다. Batch Rendering은 렌더링 작업의 작업 일정 및 큐, 실패 및 재시도 관리, 자동 크기 조정을 처리합니다. Batch Rendering은 [Autodesk Maya](https://www.autodesk.com/products/maya/overview), [3ds Max](https://www.autodesk.com/products/3ds-max/overview), [Arnold](https://www.autodesk.com/products/arnold/overview), [V-Ray](https://www.chaosgroup.com/vray/maya) 등의 렌더링 앱을 지원합니다. Maya 2017의 Batch 플러그 인을 사용하면 바탕 화면에서 바로 Azure의 렌더링 작업을 시작할 수 있습니다.
 
 Maya 및 3ds Max를 통해 [BatchLabs](https://github.com/Azure/BatchLabs) 데스크톱 응용 프로그램 또는 [Batch 템플릿 CLI](batch-cli-templates.md)를 사용하여 작업을 실행할 수 있습니다. Azure Batch CLI를 사용하면 코드를 작성하지 않고 Batch 작업을 실행할 수 있습니다. 대신, 템플릿 파일을 사용하여 Batch 풀, 작업, 및 태스크를 만들 수 있습니다. 자세한 내용은 [Azure Batch CLI 템플릿 및 파일 전송 사용](batch-cli-templates.md)을 참조하세요.
 
 
 ## <a name="supported-applications"></a>지원되는 응용 프로그램
 
-Batch Renderin 서비스는 현재 다음과 같은 응용 프로그램을 지원합니다.
+Batch Rendering은 현재 다음과 같은 응용 프로그램을 지원합니다.
 
 CentOS 7의 렌더링 노드:
 - Autodesk Maya I/O 2017 업데이트 5(201708032230 잘라내기)
@@ -47,9 +47,9 @@ Windows Server 2016의 렌더링 노드:
 - Blender(2.79)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>필수 구성 요소
 
-Batch Rendering 서비스를 사용하려면 다음이 필요합니다.
+Batch Rendering을 사용하려면 다음을 수행해야 합니다.
 
 - [Azure 계정](https://azure.microsoft.com/free/)입니다.
 - **Azure Batch 계정입니다.** Azure Portal에서 Batch 계정을 만드는 방법에 대한 지침은 [Azure Portal에서 Batch 계정 만들기](batch-account-create-portal.md)를 참조하세요.
@@ -72,7 +72,7 @@ Batch는 렌더링처럼 계산 집약적인 작업을 **계산 노드** **풀**
 
 Batch 풀 및 계산 노드에 대한 자세한 내용은 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)의 [풀](batch-api-basics.md#pool) 및 [Compute 노드](batch-api-basics.md#compute-node) 섹션을 참조하세요.
 
-### <a name="jobs"></a>교육
+### <a name="jobs"></a>작업
 
 Batch **작업**은 풀의 계산 노드에서 실행되는 작업 컬렉션입니다. 렌더링 작업을 제출하면 Batch에서 작업을 여러 작업으로 분할하고 실행할 작업을 풀의 계산 노드에 분산합니다.
 
@@ -121,14 +121,14 @@ Maya를 사용하면 다음을 수행할 수 있습니다.
 - [BatchLabs](https://azure.github.io/BatchLabs) 데스크톱 응용 프로그램(3ds Max BatchLabs 템플릿 사용에 대한 지침은 [BatchLabs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 참조)
 - [Batch 템플릿 CLI](batch-cli-templates.md)
 
-3DS Max Batch Labs 템플릿을 사용하면 Azure Batch Rendering 서비스를 통해 VRay와 Arnold 장면을 렌더링할 수 있습니다. VRay 및 Arnold를 위한 템플릿에는 두 가지 변형이 있습니다. 하나는 표준 장면을 위한 것이고, 다른 하나는 자산과 텍스처에 대한 3DS Max 경로 파일(.mxp 파일)이 필요한 더 복잡한 장면을 위한 것입니다. 3ds Max Batch Labs 템플릿에 대한 자세한 내용은 GitHub의 [BatchLabs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 리포지토리를 참조하세요.
+3ds Max Batch Labs 템플릿을 사용하면 Batch Rendering을 통해 VRay와 Arnold 장면을 렌더링할 수 있습니다. VRay 및 Arnold를 위한 템플릿에는 두 가지 변형이 있습니다. 하나는 표준 장면을 위한 것이고, 다른 하나는 자산과 텍스처에 대한 3DS Max 경로 파일(.mxp 파일)이 필요한 더 복잡한 장면을 위한 것입니다. 3ds Max Batch Labs 템플릿에 대한 자세한 내용은 GitHub의 [BatchLabs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 리포지토리를 참조하세요.
 
-또한 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)를 사용하여 렌더링 서비스를 기존 파이프라인과 통합할 수 있습니다.
+또한 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)를 사용하여 렌더링을 기존 파이프라인과 통합할 수 있습니다.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Maya용 Batch 플러그 인을 사용하여 렌더링 작업 제출
 
-Maya용 Batch 플러그 인을 사용하면 Maya에서 바로 Batch Rendering 서비스에 작업을 제출할 수 있습니다. 다음 섹션에서는 플러그 인에서 작업을 구성한 후 제출하는 방법을 설명합니다. 
+Maya용 Batch 플러그 인을 사용하면 Maya에서 바로 Batch Rendering에 작업을 제출할 수 있습니다. 다음 섹션에서는 플러그 인에서 작업을 구성한 후 제출하는 방법을 설명합니다. 
 
 ### <a name="load-the-batch-plug-in-for-maya"></a>Maya용 Batch 플러그 인 로드
 
@@ -176,7 +176,7 @@ Batch 및 Storage 계정을 인증한 후에는 렌더링 작업에 사용할 �
 
 - **이 작업에 사용할 풀을 자동 프로비전**할 수 있습니다(기본 옵션). 이 옵션을 선택하면 Batch에서 현재 작업에 대한 배타적인 풀을 만들고, 렌더링 작업이 완료되면 자동으로 해당 풀을 삭제합니다. 이 옵션은 완료할 렌더링 작업이 하나인 경우에 이상적입니다.
 - **기존의 영구 풀을 다시 사용할 수 있습니다**. 유휴 상태인 기존 풀이 있는 경우 드롭다운 목록에서 해당 풀을 선택하여 렌더링 작업을 실행할 풀로 지정할 수 있습니다. 기존의 영구 풀을 다시 사용하면 풀을 프로비전하는 데 필요한 시간이 단축됩니다.  
-- **새 영구 풀을 만들 수 있습니다**. 이 옵션을 선택하면 작업 실행에 사용할 새 풀을 만듭니다. 작업이 완료되어도 풀을 삭제하지 않으므로 이후 작업에 다시 사용할 수 있습니다. 렌더링 작업을 지속적으로 실행해야 하는 경우 이 옵션을 선택합니다. 후속 작업에서 **기존 영구 풀 다시 사용**을 선택하여 첫 번째 작업에서 만든 영구 풀을 사용할 수 있습니다.
+- **새 영구 풀**을 만들 수 있습니다. 이 옵션을 선택하면 작업 실행에 사용할 새 풀을 만듭니다. 작업이 완료되어도 풀을 삭제하지 않으므로 이후 작업에 다시 사용할 수 있습니다. 렌더링 작업을 지속적으로 실행해야 하는 경우 이 옵션을 선택합니다. 후속 작업에서 **기존 영구 풀 다시 사용**을 선택하여 첫 번째 작업에서 만든 영구 풀을 사용할 수 있습니다.
 
 ![풀, OS 이미지, VM 크기 및 라이선스 지정](./media/batch-rendering-service/submit.png)
 
@@ -237,7 +237,7 @@ Maya에서 선택한 렌더링 엔진이 지원되지 않으면 플러그 인에
 
 - 장면 파일의 위치 
 - 현재 프로젝트의 _sourceimages_ 디렉터리
-- 현재 작업 디렉터리. 
+- 현재 작업 디렉터리 
 
 그래도 자산을 찾을 수 없으면 해당 자산에 경고 아이콘이 표시됩니다.
 

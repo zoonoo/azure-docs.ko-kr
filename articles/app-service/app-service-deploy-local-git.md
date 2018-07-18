@@ -11,13 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 842cd6f67a04bec0ed06282bdeeea8b8a51c0667
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: a614dadae40fcfc28eba85e5943f60a38653224b
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35233906"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대한 로컬 Git 배포
 
@@ -38,36 +39,21 @@ ms.lasthandoff: 04/19/2018
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
-## <a name="prepare-your-repository"></a>리포지토리 준비
-
-리포지토리 루트에 프로젝트의 올바른 파일에 있는지 확인합니다.
-
-| 런타임 | 루트 디렉터리 파일 |
-|-|-|
-| ASP.NET(Windows만 해당) | _*.sln_, _*.csproj_ 또는 _default.aspx_ |
-| ASP.NET Core | _*.sln_ 또는 _*.csproj_ |
-| PHP | _index.php_ |
-| Ruby(Linux만 해당) | _Gemfile_ |
-| Node.js | _server.js_, _app.js_ 또는 _package.json_(시작 스크립트 포함) |
-| Python(Windows만 해당) | _\*.py_, _requirements.txt_ 또는 _runtime.txt_ |
-| HTML | _default.htm_, _default.html_, _default.asp_, _index.htm_, _index.html_ 또는 _iisstart.htm_ |
-| 웹 작업 | _App\_Data/jobs/continuous_(연속 WebJobs용) 또는 _App\_Data/jobs/triggered_(트리거된 WebJobs용)의 _\<job_name>/run.\<extension>_ 자세한 내용은 [Kudu WebJobs 설명서](https://github.com/projectkudu/kudu/wiki/WebJobs)를 참조하세요. |
-| Functions | [Azure Functions에 대한 연속 배포](../azure-functions/functions-continuous-deployment.md#continuous-deployment-requirements)를 참조하세요. |
-
-배포를 사용자 지정하려면 리포지토리 루트에 _.deployment_ 파일을 포함할 수 있습니다. 자세한 내용은 [배포 사용자 지정](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) 및 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 참조하세요.
-
-> [!NOTE]
-> 배포하려는 모든 변경 내용에 대해 `git commit`을 실행해야 합니다.
->
->
+[!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user.md)]
+## <a name="deploy-from-local-git-with-kudu-builds"></a>Kudu 빌드로 로컬 Git에서 배포
 
-## <a name="enable-git-for-your-app"></a>앱에 대해 Git 사용
+Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하는 가장 쉬운 방법은 Cloud Shell을 사용하는 것입니다.
 
-기존 App Service 앱에 대해 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git)를 실행합니다.
+### <a name="create-a-deployment-user"></a>배포 사용자 만들기
+
+[!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
+
+### <a name="enable-local-git-with-kudu"></a>Kudu로 로컬 Git을 사용하도록 설정
+
+Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git)을 실행합니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
@@ -97,7 +83,7 @@ Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebs
 }
 ```
 
-## <a name="deploy-your-project"></a>프로젝트 배포
+### <a name="deploy-your-project"></a>프로젝트 배포
 
 _로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _\<url>_ 을 [앱에 대해 Git 사용](#enable-git-for-you-app)에서 가져온 Git 원격의 URL로 바꿉니다.
 
@@ -113,13 +99,58 @@ git push azure master
 
 출력에 ASP.NET용 MSBuild, Node.js용 `npm install` 및 Python용 `pip install`과 같은 런타임 관련 자동화가 표시될 수 있습니다. 
 
-배포가 완료되면 **배포 옵션** 페이지에 Azure Portal의 앱에 대한 `git push` 기록이 표시됩니다.
+앱으로 이동하여 콘텐츠가 배포되었는지 확인합니다.
 
-![](./media/app-service-deploy-local-git/deployment_history.png)
+## <a name="deploy-from-local-git-with-vsts-builds"></a>VSTS 빌드로 로컬 Git에서 배포
+
+> [!NOTE]
+> App Service가 필요한 빌드를 만들고 VSTS 계정에 정의를 릴리스하려면 사용자의 Azure 계정에 Azure 구독의 **소유자**의 역할이 있어야 합니다.
+>
+
+Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하려면 [Azure Portal](https://portal.azure.com)에서 앱으로 이동합니다.
+
+앱 페이지의 왼쪽 탐색 영역에서 **배포 센터** > **로컬 Git** > **계속**을 클릭합니다. 
+
+![](media/app-service-deploy-local-git/portal-enable.png)
+
+**VSTS 지속적인 업데이트** > **계속**을 클릭합니다.
+
+![](media/app-service-deploy-local-git/vsts-build-server.png)
+
+**구성** 페이지에서 새 VSTS 계정을 구성하거나 기존 계정을 지정합니다. 작업을 마쳤으면 **계속**을 클릭합니다.
+
+> [!NOTE]
+> 나열되지 않은 기존 VSTS 계정을 사용하려는 경우 [VSTS 계정을 Azure 구독에 연결](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)해야 합니다.
+
+**테스트** 페이지에서 부하 테스트를 사용하도록 설정한 다음, **계속**을 클릭합니다.
+
+App Service 계획의 [가격 책정 계층](/pricing/details/app-service/plans/)에 따라 **스테이징에 배포** 페이지가 표시될 수 있습니다. 배포 슬롯을 활성화할지 여부를 선택한 다음, **계속**을 클릭합니다.
+
+**요약** 페이지에서 옵션을 확인하고 **마침**을 클릭합니다.
+
+VSTS 계정을 준비하는 데 몇 분 정도 걸립니다. 준비되면 배포 센터에서 Git 리포지토리 URL을 복사합니다.
+
+![](media/app-service-deploy-local-git/vsts-repo-ready.png)
+
+_로컬 터미널 창_으로 돌아와서 로컬 Git 리포지토리에 Azure 원격을 추가합니다. _\<url>_ 을 마지막 단계에서 가져온 URL로 바꿉니다.
+
+```bash
+git remote add vsts <url>
+```
+
+다음 명령을 사용하여 Azure 원격에 푸시하여 앱을 배포합니다. Git 자격 증명 관리자에서 메시지가 표시되면 visualstudio.com 사용자를 사용하여 로그인합니다. 추가 인증 방법은 [VSTS 인증 개요](/vsts/git/auth-overview?view=vsts)를 참조하세요.
+
+```bash
+git push vsts master
+```
+
+배포가 완료된 후에 `https://<vsts_account>.visualstudio.com/<project_name>/_build`에서 빌드 진행률을, `https://<vsts_account>.visualstudio.com/<project_name>/_release`에서 배포 진행률을 확인할 수 있습니다.
 
 앱으로 이동하여 콘텐츠가 배포되었는지 확인합니다.
 
-## <a name="troubleshooting"></a>문제 해결
+[!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
+
+## <a name="troubleshooting-kudu-deployment"></a>Kudu 배포 문제 해결
 
 다음은 Git을 사용하여 Azure에서 App Service 앱을 게시할 때 일반적으로 발생하는 문제 또는 오류입니다.
 

@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 306d0e57449de41080d5473034e585f772771d51
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: aea43eed0cb66b0e0d3bb7a393f569714feb475d
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850140"
 ---
 # <a name="network-monitoring-solutions"></a>네트워크 모니터링 솔루션 
 
@@ -54,14 +55,15 @@ NPM(네트워크 성능 모니터)은 응용 프로그램에 대한 네트워크
 * [사용 사례](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  제품 업데이트: [2017년 2월](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [2017년 8월](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
-## <a name="expressroute-monitor"></a>ExpressRoute 모니터링
+## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
-ExpressRoute를 위한 NPM은 개인 피어링 연결에 대한 종합적인 ExpressRoute 모니터링을 제공합니다. ExpressRoute를 통해 지사와 Azure 간의 E2E 연결 및 성능을 모니터링할 수 있습니다. 주요 기능은 다음과 같습니다.
+ExpressRoute를 위한 NPM은 Azure 개인 피어링 및 Microsoft 피어링 연결에 대한 종합적인 ExpressRoute 모니터링을 제공합니다. ExpressRoute를 통해 지사와 Azure 간의 E2E 연결 및 성능을 모니터링할 수 있습니다. 주요 기능은 다음과 같습니다.
 
 * 구독에 연결된 ER 회로의 자동 검색
 * 온-프레미스에서 클라우드 응용 프로그램까지 네트워크 토폴로지 검색
-* Virtual Network당 용량 계획, 사용률 분석, 대역폭 사용률
+* 용량 계획, 대역폭 사용률 분석
 * 기본 및 보조 경로에서 모니터링 및 경고
+* ExpressRoute를 통해 Office 365, Dynamics 365 등의 Azure 서비스에 대한 연결 모니터링
 * VNet에 대한 연결에서 성능 저하 감지
 
 ![전체 지역의 트래픽을 보여주는 지역 지도](./media/network-monitoring-overview/expressroute-topology-map.png) 

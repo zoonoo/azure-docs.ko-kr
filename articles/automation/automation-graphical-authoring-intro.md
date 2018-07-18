@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b813ba564e6451f973972f08f297399c3af1747b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195491"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437878"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -289,6 +289,9 @@ Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대�
 다음 활동인 Connect-AzureRmAccount는 Runbook에서 사용하기 위해 인증된 실행 계정을 추가합니다.
 
 ![Connect-AzureRmAccount 매개 변수 집합](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)
+
+> [!IMPORTANT]
+> **Add-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Add-AzureRmAccount**를 사용하거나 Automation 계정에서 모듈을 업데이트할 수 있습니다.
 
 **APPLICATIONID**, **CERTIFICATETHUMBPRINT** 및 **TENANTID** 매개 변수의 경우에는 활동이 여러 속성이 있는 개체를 출력하기 때문에 필드 경로에 대한 속성 이름을 지정해야 합니다. 그렇지 않은 경우 runbook을 실행하면 인증하려는 시도가 실패합니다. 실행 계정을 사용하여 runbook을 인증하는데 필요한 최소한의 사항입니다.
 

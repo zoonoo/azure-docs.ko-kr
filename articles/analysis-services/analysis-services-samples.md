@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 54913fa7940ac83f5de87ad9f35d6dcee07d29d0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6456663a1114ec00f2a071458c54067da53b52a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598432"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443725"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 다음 예제 리소스를 사용하여 사용자 환경의 Analysis Services를 알아보고 테스트하는 데 도움을 얻을 수 있습니다.
@@ -39,5 +39,5 @@ Azure Portal에 Analysis Services 서버가 있는 경우 빠르고 쉽게 샘�
 
 ## <a name="next-steps"></a>다음 단계
 
-[Adventure Works 자습서](/tutorials/aas-adventure-works-tutorial.md)   
+[Adventure Works 자습서](tutorials/aas-adventure-works-tutorial.md)   
 [Azure 온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)  

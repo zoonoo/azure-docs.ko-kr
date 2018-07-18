@@ -2,18 +2,18 @@
 title: Azure Site Recovery를 사용하여 VMware의 소스 환경을 Azure 복제로 설정 | Microsoft Docs
 description: 이 아티클에서는 Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하도록 온-프레미스 환경을 설정하는 방법을 설명합니다.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: b2c564e8d49e39d9cdc09d3fe168388d579de70e
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 07/06/2018
+ms.author: ramamill
+ms.openlocfilehash: 1380c1bc820a815fae317a86fcd0ee4f46dd9aa5
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29811090"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952657"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
@@ -39,12 +39,12 @@ ms.locfileid: "29811090"
 
 ## <a name="set-up-the-configuration-server"></a>구성 서버 설정
 
-구성 서버를 온-프레미스 VMware VM으로 설정하고, OVF(Open Virtualization Format) 템플릿을 사용합니다. VMware VM에 설치되는 구성 요소에 대해 [자세히 알아봅니다](concepts-vmware-to-azure-architecture.md). 
+OVA(Open Virtualization Application) 템플릿을 통해 구성 서버를 온-프레미스 VMware VM으로 설정할 수 있습니다. VMware VM에 설치되는 구성 요소에 대해 [자세히 알아봅니다](concepts-vmware-to-azure-architecture.md).
 
 1. 구성 서버 배포에 대한 [필수 구성 요소](vmware-azure-deploy-configuration-server.md#prerequisites)에 대해 알아봅니다.
 2. 배포에 대한 [용량 수치를 확인](vmware-azure-deploy-configuration-server.md#capacity-planning)합니다.
-3. 구성 서버를 실행하는 온-프레미스 VMware VM을 설치하기 위한 OVF 템플릿(how-to-deploy-configuration-server.md)을 [다운로드](vmware-azure-deploy-configuration-server.md#download-the-template)하고 [가져옵니다](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware).
-4. VMware VM을 켜고 Recovery Services 자격 증명 모음에 [등록](vmware-azure-deploy-configuration-server.md#register-the-configuration-server)합니다.
+3. OVA 템플릿을 [다운로드](vmware-azure-deploy-configuration-server.md#download-the-template)하고 [가져와서](vmware-azure-deploy-configuration-server.md#import-the-template-in-vmware) 구성 서버를 실행하는 온-프레미스 VMware VM을 설정합니다. 템플릿과 함께 제공되는 라이선스는 180일 동안 유효한 평가 라이선스입니다. 이 기간 후에는 고객이 취득한 라이선스의 사용 기간에 대해 정품 인증을 받아야 합니다.
+4. VMware VM을 켜고 Recovery Services 자격 증명 모음에 [등록](vmware-azure-deploy-configuration-server.md#register-the-configuration-server-with-azure-site-recovery-services)합니다.
 
 
 ## <a name="add-the-vmware-account-for-automatic-discovery"></a>자동 검색에 VMware 계정 추가

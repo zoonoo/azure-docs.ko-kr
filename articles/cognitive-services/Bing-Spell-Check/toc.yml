@@ -1,0 +1,65 @@
+- name: Bing Spell Check API 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Bing Spell Check API란?
+      href: proof-text.md
+- name: REST API 빠른 시작
+  expanded: true
+  items:
+    - name: 'C#'
+      href: quickstarts/csharp.md
+    - name: 자바
+      href: quickstarts/java.md
+    - name: Node.js
+      href: quickstarts/nodejs.md
+    - name: PHP
+      href: quickstarts/php.md
+    - name: 파이썬
+      href: quickstarts/python.md
+    - name: Ruby
+      href: quickstarts/ruby.md
+- name: SDK 빠른 시작
+  items:
+    - name: 'SDK C# 빠른 시작'
+      href: sdk-quickstart-spell-check.md
+    - name: SDK 샘플 개요
+      href: sdk.md
+- name: 자습서
+  items:
+    - name: 맞춤법 검사 웹앱 빌드
+      href: tutorials/spellcheck.md
+    - name: '소스 코드: 맞춤법 검사 웹앱'
+      href: tutorials/spellcheck-source.md
+- name: 방법 가이드
+  items:
+    - name: 사용 및 표시 요구 사항
+      href: UseAndDisplayRequirements.md
+    - name: v5에서 v7로 업그레이드
+      href: bing-spell-check-upgrade-guide-v5-to-v7.md
+- name: 참고 자료
+  items:
+    - name: Bing Spell Check API v7
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference'
+    - name: Bing Spell Check API v5(이전 버전)
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference'
+- name: 리소스
+  items:
+    - name: Bing Spell Check API에 대한 분석
+      href: bing-spell-check-stats.md
+    - name: FAQ
+      href: bing-spell-check-resource-faq.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/bing-api'
+    - name: 구독 키
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api'
+    - name: 지원되는 언어
+      href: bing-spell-check-supported-languages.md
+    - name: 사용해 보세요.
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598195-bing-spell-check'

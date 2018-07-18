@@ -4,17 +4,17 @@ description: 다음 문서에서는 UserPrincipalName 특성이 채워지는 방
 author: billmath
 ms.component: hybrid
 ms.author: billmath
-ms.date: 02/02/2018
+ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 73238b1f79e639f832499eed15ac1e4499eb6e84
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6b3fddcdf6ff9c35d5932b9b83da02f60f9e081e
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593403"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064496"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD userPrincipalName 채우기
 
@@ -30,14 +30,14 @@ UserPrincipalName 특성 값은 사용자 계정에 대한 Azure AD 사용자 �
 |MOERA(Microsoft 온라인 전자 메일 라우팅 주소)|Azure AD에서는 Azure AD MailNickName 특성 및 Azure AD 초기 도메인의 MOERA를 &lt;MailNickName&gt;& #64;&lt; 초기 도메인&gt;으로 계산합니다.|
 |온-프레미스 mailNickName 특성|Active Directory의 특성으로, Exchange 조직에서 사용자의 별칭을 나타냅니다.|
 |온-프레미스 mail 특성|Active Directory의 특성으로, 사용자의 전자 메일 주소를 나타냅니다.|
-|기본 SMTP 주소|Exchange 받는 사람 개체의 기본 전자 메일 주소입니다. 예: SMTP:user@contoso.com|
+|기본 SMTP 주소|Exchange 받는 사람 개체의 기본 전자 메일 주소입니다. 예: SMTP:user\@contoso.com.|
 |대체 로그인 ID|UserPrincipalName 이외의 온-프레미스 특성(예: 로그인에 사용되는 mail 특성)입니다.|
 
 ## <a name="what-is-userprincipalname"></a>UserPrincipalName이란?
 UserPrincipalName은 인터넷 표준 [RFC 822](http://www.ietf.org/rfc/rfc0822.txt)에 따른 사용자의 인터넷 스타일 로그인 이름에 해당하는 특성입니다. 
 
 ### <a name="upn-format"></a>UPN 형식
-UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. "@" 기호를 사용해서 접두사를 접미사에 연결합니다. 예: "someone@example.com". UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
+UPN은 UPN 접두사(사용자 계정 이름) 및 UPN 접미사(DNS 도메인 이름)으로 구성됩니다. “\@” 기호를 사용해서 접두사를 접미사에 연결합니다. 예: “someone\@example.com”. UPN은 디렉터리 포리스트 내의 모든 보안 주체 개체 사이에서 고유해야 합니다. 
 
 ## <a name="upn-in-azure-ad"></a>Azure AD의 UPN 
 UPN은 사용자가 로그인할 수 있도록 하기 위해 Azure AD에서 사용됩니다.  사용자가 사용할 수 있는 UPN은 도메인 확인 여부에 따라 달라집니다.  도메인이 확인되면 해당 접미사를 포함하는 사용자가 Azure AD에 로그인하도록 허용됩니다.  
@@ -47,7 +47,7 @@ UPN은 사용자가 로그인할 수 있도록 하기 위해 Azure AD에서 사�
    ![확인되지 않은 도메인](./media/active-directory-aadconnect-get-started-express/unverifieddomain.png) 
 
 ## <a name="alternate-login-id"></a>대체 로그인 ID
-일부 환경에서는 회사 정책 또는 온-프레미스 LOB(기간 업무) 응용 프로그램 종속성으로 인해 최종 사용자가 전자 메일 주소만 인식하고 해당 UPN은 인식하지 못할 수 있습니다.
+일부 환경에서는 최종 사용자가 메일 주소만 인식하고 해당 UPN은 인식하지 못할 수 있습니다.  메일 주소를 사용하는 것은 기업 정책 또는 온-프레미스 사업 부문 응용 프로그램 종속성 때문일 수 있습니다.
 
 대체 로그인 ID를 사용하면 사용자가 UPN 이외의 특성(예: 메일)을 사용하여 로그인할 수 있는 로그인 환경을 구성할 수 있습니다.
 
@@ -66,7 +66,7 @@ Azure AD에서 대체 로그인 ID를 사용하도록 설정하기 위해 Azure 
 ## <a name="azure-ad-mailnickname-attribute-value-calculation"></a>Azure AD MailNickName 특성 값 계산
 Azure AD UserPrincipalName 특성 값이 MOERA로 설정될 수 있으므로 MOERA 접두사에 해당하는 Azure AD MailNickName 특성 값이 계산되는 방식을 이해하는 것이 중요합니다.
 
-사용자 개체가 처음으로 Azure AD 테넌트와 동기화되면 Azure AD는 지정된 순서로 다음을 확인하고, MailNickName 특성 값을 기존 첫 번째 값으로 설정합니다.
+사용자 개체가 처음으로 Azure AD 테넌트와 동기화되면 Azure AD는 지정된 순서로 다음 항목을 확인하고, MailNickName 특성 값을 기존 첫 번째 값으로 설정합니다.
 
 - 온-프레미스 mailNickName 특성
 - 기본 SMTP 주소의 접두사
@@ -86,6 +86,8 @@ Azure AD UserPrincipalName 특성 값이 MOERA로 설정될 수 있으므로 MOE
 
 ### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>시나리오 1: 확인되지 않은 UPN 접미사 - 초기 동기화
 
+![시나리오 1](media/active-directory-aadconnect-userprincipalname/example1.png)
+
 온-프레미스 사용자 개체:
 - mailNickName      : &lt;not set&gt;
 - proxyAddresses        : {SMTP:us1@contoso.com}
@@ -104,6 +106,8 @@ Azure AD 테넌트 사용자 개체:
 
 ### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>시나리오 2: 확인되지 않은 UPN 접미사 – 온-프레미스 mailNickName 특성 설정
 
+![시나리오 2](media/active-directory-aadconnect-userprincipalname/example2.png)
+
 온-프레미스 사용자 개체:
 - mailNickName      : us4
 - proxyAddresses        : {SMTP:us1@contoso.com}
@@ -119,6 +123,8 @@ Azure AD 테넌트 사용자 개체:
 - UserPrincipalName : us1@contoso.onmicrosoft.com
 
 ### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>시나리오 3: 확인되지 않은 UPN 접미사 – 온-프레미스 userPrincipalName 특성 업데이트
+
+![시나리오 3](media/active-directory-aadconnect-userprincipalname/example3.png)
 
 온-프레미스 사용자 개체:
 - mailNickName      : us4
@@ -137,6 +143,8 @@ Azure AD 테넌트 사용자 개체:
 
 ### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>시나리오 4: 확인되지 않은 UPN 접미사 – 기본 SMTP 주소 및 온-프레미스 mail 특성 업데이트
 
+![시나리오 4](media/active-directory-aadconnect-userprincipalname/example4.png)
+
 온-프레미스 사용자 개체:
 - mailNickName      : us4
 - proxyAddresses        : {SMTP:us6@contoso.com}
@@ -151,6 +159,8 @@ Azure AD 테넌트 사용자 개체:
 - UserPrincipalName : us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>시나리오 5: 확인된 UPN 접미사 – 온-프레미스 userPrincipalName 특성 접미사 업데이트
+
+![시나리오 5](media/active-directory-aadconnect-userprincipalname/example5.png)
 
 온-프레미스 사용자 개체:
 - mailNickName      : us4

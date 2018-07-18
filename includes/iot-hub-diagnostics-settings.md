@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 05/17/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 1c7f006c066a4f1505a642af04a1ef027fde0a44
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34666945"
+---
 ### <a name="enable-logging-with-diagnostics-settings"></a>진단 설정에 대한 로깅 사용
 
 1. [Azure Portal][lnk-portal]에 로그인하고 IoT Hub로 이동합니다.

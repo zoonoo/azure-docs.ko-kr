@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 658588b29e65c9b1cd2f9d82c1c4528929875b2f
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b4c885758f572851f058edb6e7851d650faed9f9
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33935575"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38973001"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -58,10 +58,14 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 메트릭에 액세스하려면
 
 1. 페이지 맨 아래의 메뉴에서 **메트릭**을 선택합니다.
-2. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다(여러 메트릭을 추가할 수 있음). 
 
+    ![메트릭](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. 드롭다운 목록에서 관심 있는 메트릭을 선택합니다(여러 메트릭을 추가할 수 있음).  
     예를 들어 사용 가능한 메트릭 목록에서 **총 게이트웨이 요청** 및 **실패한 게이트웨이 요청**을 선택합니다.
-3. 차트에는 총 API 호출 수가 표시됩니다. 또한 실패한 API 호출 수도 표시됩니다. 
+3. 차트에는 총 API 호출 수가 표시됩니다. 또한 실패한 API 호출 수도 표시됩니다.
+
+    ![메트릭 차트](./media/api-management-azure-monitor/apim-monitor-metrics.png)
 
 ## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>권한 없는 요청에 대한 경고 규칙 설정
 
@@ -73,7 +77,10 @@ API Management는 1분 간격으로 메트릭을 내보내, 거의 실시간으�
 
 경고를 구성하려면
 
-1. 페이지 맨 아래의 메뉴 모음에서 **경고 규칙**을 선택합니다.
+1. 페이지 맨 아래의 메뉴 모음에서 **경고(클래식)** 을 선택합니다.
+
+    ![경고](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+
 2. **메트릭 경고 추가**를 선택합니다.
 3. 이 경고의 **이름**을 입력합니다.
 4. 모니터링할 메트릭으로 **무단 게이트웨이 요청**을 선택합니다.
@@ -100,6 +107,12 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 1. APIM 서비스 인스턴스를 선택합니다.
 2. **활동 로그**를 클릭합니다.
 
+    ![활동 로그](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. 원하는 필터링 범위를 선택하고 **적용**을 클릭합니다.
+
+    ![활동 로그](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 ## <a name="diagnostic-logs"></a>진단 로그
 
 진단 로그는 감사 뿐만 아니라 문제 해결에 중요한 작업 및 오류에 대한 풍부한 정보를 제공합니다. 진단 로그는 활동 로그와 다릅니다. 활동 로그는 Azure 리소스에서 수행된 작업에 대한 정보를 제공합니다. 진단 로그는 리소스에서 수행하는 작업에 대한 정보를 제공합니다.
@@ -108,6 +121,9 @@ API Management 서비스에서 활동 로그에 액세스하거나 Azure Monitor
 
 1. APIM 서비스 인스턴스를 선택합니다.
 2. **진단 로그**를 클릭합니다.
+
+    ![진단 로그](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
 3. **진단 켜기**를 클릭합니다. 진단 로그를 메트릭과 함께 저장소 계정에 보관하고, Event Hub에 스트리밍하고, Log Analytics에 보낼 수 있습니다. 
 
 API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 요청에 대한 진단 로그(시간 단위로 일괄 처리됨)를 제공합니다.

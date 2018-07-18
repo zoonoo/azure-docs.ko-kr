@@ -14,14 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 06/05/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3b4bf8d8ca43110dcfa4aeaed279a8e340e5d529
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 8b6d85fbfdde463352ae80cc8922025a7dcc03f3
+ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34807536"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -43,10 +44,10 @@ App Service 계획에서는 계층 간에 크기 조정하여 서로 다른 양�
 
 ## <a name="consumption-plan"></a>소비 계획
 
-소비 계획을 사용하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가되고 제거됩니다. 이 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 계산 리소스에 대한 요금이 청구됩니다. 소비 계획에서 함수는 최대 10분 동안 실행될 수 있습니다. 
+소비 계획을 사용하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가되고 제거됩니다. 이 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 계산 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다. 
 
 > [!NOTE]
-> 소비 계획에서 함수에 대한 기본 시간 제한은 5분입니다. [host.json](functions-host-json.md#functiontimeout) 프로젝트 파일에서 `functionTimeout` 속성을 변경하여 함수 앱에서 이 값을 10분으로 늘릴 수 있습니다.
+> 소비 계획에서 함수에 대한 기본 시간 제한은 5분입니다. [host.json](functions-host-json.md#functiontimeout) 프로젝트 파일에서 `functionTimeout` 속성을 변경하여 함수 앱에서 이 값을 최대 10분으로 늘릴 수 있습니다.
 
 청구는 실행 횟수, 실행 시간 및 사용된 메모리를 기반으로 하며, 함수 앱 내의 모든 함수에 대해 집계됩니다. 자세한 내용은 [Azure Functions 가격 책정 페이지]를 참조하세요.
 
@@ -90,7 +91,7 @@ App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행�
 
 ## <a name="how-the-consumption-plan-works"></a>소비 계획의 작동 원리
 
-소비 계획에서 크기 조정 컨트롤러는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 인스턴스를 추가하여 CPU 및 메모리 리소스를 자동으로 조정합니다. 함수 호스트의 각 인스턴스는 1.5GB의 메모리로 제한됩니다.  호스트의 인스턴스는 함수 앱입니다. 즉, 함수 앱 내에 있는 모든 기능은 인스턴스 내에서 리소스를 공유하고 동시에 크기 조정됩니다.
+소비 계획에서 크기 조정 컨트롤러는 해당 함수가 트리거되는 이벤트의 수에 따라 함수 호스트의 인스턴스를 추가하여 CPU 및 메모리 리소스를 자동으로 조정합니다. 함수 호스트의 각 인스턴스는 1.5GB의 메모리로 제한됩니다.  호스트의 인스턴스는 함수 앱입니다. 즉, 함수 앱 내에 있는 모든 기능은 인스턴스 내에서 리소스를 공유하고 동시에 크기 조정됩니다. 동일한 소비 계획을 공유하는 함수 앱은 독립적으로 크기 조정됩니다.  
 
 소비 호스팅 계획을 사용하는 경우 함수 코드 파일은 함수의 주 저장소 계정에 있는 Azure Files 공유에 저장됩니다. 함수 앱의 주 저장소 계정을 삭제하면 함수 코드 파일이 삭제되고 복구할 수 없습니다.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: tamram
-ms.openlocfilehash: c16bf1e750ea059e663e05c91835884eb0bc54a5
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: c6500cd1ddd31d789b8cd5d72d6e4614db3f88db
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305109"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291938"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>개발 및 테스트에 Azure Storage 에뮬레이터 사용
 
@@ -81,14 +81,14 @@ Azure Storage 에뮬레이터를 시작하려면:
 > LocalDB 설치를 포함하여 SQL Server 인스턴스를 관리하는 데 SSMS([Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 사용할 수 있습니다. SMSS **서버에 연결** 대화 상자에서 **서버 이름:** 필드에 `(localdb)\MSSQLLocalDb`을 지정하여 LocalDB 인스턴스에 연결합니다.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>저장소 에뮬레이터에 대한 인증 요청
-저장소 에뮬레이터를 설치하고 시작하면 코드를 테스트할 수 있습니다. 익명 요청이 아니면 클라우드의 Azure Storage의 경우와 마찬가지로 Azure Storage 에뮬레이터에 대한 모든 요청을 인증해야 합니다. 공유 키 인증 또는 공유 액세스 서명 (SAS)을 사용하여 저장소 에뮬레이터에 대한 요청을 인증할 수 있습니다.
+저장소 에뮬레이터를 설치하고 시작하면 코드를 테스트할 수 있습니다. 클라우드의 Azure Storage와 마찬가지로, 익명 요청이 아닌 이상 저장소 에뮬레이터에 대해 만드는 모든 요청을 인증해야 합니다. 공유 키 인증 또는 SAS(공유 액세스 서명)을 사용하여 저장소 에뮬레이터에 대한 요청을 인증할 수 있습니다.
 
-### <a name="authenticate-with-shared-key-credentials"></a>공유 키 자격 증명 인증
+### <a name="authorize-with-shared-key-credentials"></a>공유 키 자격 증명 인증
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
 연결 문자열에 대한 자세한 내용은 [Azure Storage 연결 문자열 구성](../storage-configure-connection-string.md)을 참조하세요.
 
-### <a name="authenticate-with-a-shared-access-signature"></a>공유 액세스 서명 인증
+### <a name="authorize-with-a-shared-access-signature"></a>공유 액세스 서명을 사용하여 인증
 Xamarin 라이브러리와 같은 일부 Azure 저장소 클라이언트 라이브러리는 공유 액세스 서명 (SAS) 토큰 인증만 지원합니다. [저장소 탐색기](http://storageexplorer.com/) 또는 공유 키 인증을 지원하는 다른 응용 프로그램과 같은 도구를 사용하여 SAS 토큰을 만들 수 있습니다.
 
 또한 Azure PowerShell을 사용하여 SAS 토큰을 생성할 수 있습니다. 다음 예제에서는 blob 컨테이너에 대한 모든 권한을 가진 SAS 토큰을 생성합니다.
@@ -204,12 +204,23 @@ Azure Storage 계정에 리소스 주소를 지정할 때는 다음 체계를 �
 에뮬레이터에서 큐 저장소에 특정 차이점이 있습니다.
 
 ## <a name="storage-emulator-release-notes"></a>저장소 에뮬레이터 릴리스 정보
+
+### <a name="version-55"></a>버전 5.5
+* 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2017-11-09 버전의 저장소 서비스를 지원합니다.
+* BLOB 생성 시간을 반환하는 BLOB **Created** 속성에 대한 지원이 추가되었습니다.
+
+### <a name="version-54"></a>버전 5.4
+설치 안정성을 향상하기 위해, 에뮬레이터가 더 이상 설치 중에 포트를 예약하려고 시도하지 않습니다. 포트 예약을 원하는 경우 **init** 명령의 *-reserveports* 옵션을 사용하여 지정하세요.
+
+### <a name="version-53"></a>버전 5.3
+저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 엔드포인트에서 2017-07-29 버전의 저장소 서비스를 지원합니다.
+
 ### <a name="version-52"></a>버전 5.2
 * 저장소 에뮬레이터는 이제 Blob, 큐 및 Table service 끝점에서 2017-04-17 버전의 저장소 서비스를 지원합니다.
 * 테이블 속성 값이 제대로 인코딩되지 않는 버그를 수정했습니다.
 
 ### <a name="version-51"></a>버전 5.1
-* 서비스가 `DataServiceVersion` 헤더를 반환하지 않았던 일부 응답에서 저장소 에뮬레이터가 이 헤더를 반환하는 버그를 수정했습니다.
+서비스가 `DataServiceVersion` 헤더를 반환하지 않았던 일부 응답에서 저장소 에뮬레이터가 이 헤더를 반환하는 버그를 수정했습니다.
 
 ### <a name="version-50"></a>버전 5.0
 * 저장소 에뮬레이터 설치 관리자가 더 이상 기존 MSSQL 및 .NET Framework 설치를 확인하지 않습니다.

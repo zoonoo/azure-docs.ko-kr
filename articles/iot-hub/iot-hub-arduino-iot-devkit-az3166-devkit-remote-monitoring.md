@@ -1,24 +1,20 @@
 ---
-title: 'IoT DevKit에서 클라우드로: Azure IoT Hub에 IoT MXChip DevKit 연결 | Microsoft Docs'
+title: IoT DevKit에서 클라우드로 - Azure IoT Hub에 IoT MXChip DevKit 연결 | Microsoft Docs
 description: 이 자습서에서는 IoT DevKit AZ3166의 센서 상태를 Azure IoT 원격 모니터링 솔루션 가속기로 보내는 방법을 알아봅니다.
-services: iot-hub
-documentationcenter: ''
 author: liydu
-manager: timlt
-tags: ''
-keywords: ''
+manager: jeffya
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: d3de8241b42aff63faaf04477a58c5564407ac8b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34631499"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -40,7 +36,7 @@ ms.lasthandoff: 05/10/2018
 
 ## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Azure IoT 원격 모니터링 솔루션 가속기 만들기
 
-1. [Azure IoT 솔루션 가속기 사이트](https://www.azureiotsuite.com/)로 이동하여 **새 솔루션 만들기**를 클릭합니다.
+1. [Azure IoT 솔루션 가속기 사이트](https://www.azureiotsolutions.com/)로 이동하여 **새 솔루션 만들기**를 클릭합니다.
   ![Azure IoT 솔루션 가속기 유형 선택](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
   > [!WARNING]
   > 기본적으로 이 샘플은 하나의 IoT 원격 모니터링 솔루션 가속기를 만든 후 S2 IoT Hub를 만듭니다. 이 IoT Hub가 다수의 장치에 사용되지 않는 경우 S2에서 S1로 다운그레이드하고 더 이상 필요 없는 관련 IoT Hub도 삭제되도록 IoT 원격 모니터션 솔루션 가속기를 삭제하는 것이 좋습니다. 

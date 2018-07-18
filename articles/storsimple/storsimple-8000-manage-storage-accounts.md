@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
 ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108721"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38688731"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>StorSimple 장치 관리자 서비스를 사용하여 저장소 계정 자격 증명 관리
 
@@ -27,7 +27,7 @@ ms.locfileid: "23108721"
 
 StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션에서는 StorSimple 장치 관리자 서비스에서 만들 수 있는 모든 글로벌 서비스 매개 변수를 표시합니다. 이러한 매개 변수는 서비스에 연결된 모든 장치에 적용할 수 있으며 다음을 포함합니다.
 
-* 저장소 계정 자격 증명
+* Storage 계정 자격 증명
 * 대역폭 템플릿 
 * 액세스 제어 레코드 
 
@@ -35,9 +35,9 @@ StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션에서는
 
  ![저장소 계정 자격 증명 목록](./media/storsimple-8000-manage-storage-accounts/createnewstorageacct6.png)  
 
-저장소 계정에는 StorSimple 장치가 클라우드 서비스 공급자를 통해 저장소 계정에 액세스하는 데 사용하는 자격 증명이 포함되어 있습니다. Microsoft Azure 저장소 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다. 
+Storage 계정에는 StorSimple 장치가 클라우드 서비스 공급자를 통해 Storage 계정에 액세스하는 데 사용하는 자격 증명이 포함되어 있습니다. Microsoft Azure 저장소 계정의 경우 계정 이름 및 기본 액세스 키와 같은 자격 증명이 있습니다. 
 
-**저장소 계정 자격 증명** 블레이드에는 청구 구독에 대해 만들어진 모든 저장소 계정이 다음 정보를 포함하여 테이블 형식으로 표시됩니다.
+**Storage 계정 자격 증명** 블레이드에는 청구 구독에 대해 만들어진 모든 Storage 계정이 다음 정보를 포함하여 테이블 형식으로 표시됩니다.
 
 * **이름** – 만들어졌을 때 계정에 할당된 고유 이름입니다.
 * **SSL 사용** – SSL 사용 및 장치와 클라우드 사이의 통신이 보안 채널을 통해 이루어지는지 여부입니다.
@@ -55,8 +55,8 @@ StorSimple 장치 관리자 서비스 블레이드의 **구성** 섹션에서는
 StorSimple 장치에서 사용할 수 있는 저장소 계정에는 다음과 같은 세 종류가 있습니다.
 
 * **자동 생성된 저장소 계정** – 이름 제안 시, 서비스를 처음 만들 때 이 저장소 계정 유형이 자동으로 생성됩니다. 이 저장소 계정을 만드는 방법에 대해 자세히 알아보려면 [온-프레미스 StorSimple 장치 배포](storsimple-8000-deployment-walkthrough-u2.md)에서 [1단계: 새 서비스 만들기](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service)를 참조하세요. 
-* **서비스 구독의 저장소 계정** – 이러한 계정은 서비스와 동일한 구독과 연결된 Azure 저장소 계정입니다. 이러한 저장소 계정을 만드는 방법에 대해 더 알아보려면 [Azure 저장소 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요. 
-* **서비스 구독 외의 저장소 계정** - 이러한 계정은 서비스와 연결되지 않았고 서비스가 만들어지기 전에 존재했던 Azure 저장소 계정입니다.
+* **서비스 구독의 Storage 계정** – 이러한 계정은 서비스와 동일한 구독과 연결된 Azure Storage 계정입니다. 이러한 Storage 계정을 만드는 방법에 대해 더 알아보려면 [Azure Storage 계정 정보](../storage/common/storage-create-storage-account.md)를 참조하세요. 
+* **서비스 구독 외의 Storage 계정** - 이러한 계정은 서비스와 연결되지 않았고 서비스가 만들어지기 전에 존재했던 Azure Storage 계정입니다.
 
 ## <a name="add-a-storage-account"></a>저장소 계정 추가
 
@@ -76,7 +76,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 #### <a name="to-add-an-azure-storage-account-credential-outside-of-the-storsimple-device-manager-service-subscription"></a>StorSimple 장치 관리자 서비스 구독 외부에 있는 Azure Storage 계정 자격 증명을 추가하려면
 
 1. StorSimple 장치 관리자 서비스를 찾아 선택하고 두 번 클릭합니다. 그러면 **개요** 블레이드가 열립니다.
-2. **구성** 섹션 내의 **저장소 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
+2. **구성** 섹션 내의 **Storage 계정 자격 증명**을 선택합니다. 그러면 StorSimple 장치 관리자 서비스와 연결된 모든 기존 저장소 계정 자격 증명을 나열합니다.
 3. **추가**를 클릭합니다.
 4. **저장소 계정 자격 증명 추가** 블레이드에서 다음을 수행합니다.
    
@@ -90,7 +90,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
    
     5. **추가**를 클릭합니다. 저장소 계정 자격 증명이 성공적으로 만들어진 후 알림이 표시됩니다.
 
-5. 새로 만든 저장소 계정 자격 증명은 **저장소 계정 자격 증명**의 StorSimple 구성 장치 관리자 서비스 블레이드에 표시됩니다.
+5. 새로 만든 Storage 계정 자격 증명은 **Storage 계정 자격 증명**의 StorSimple 구성 장치 관리자 서비스 블레이드에 표시됩니다.
    
 
 
@@ -100,11 +100,11 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 #### <a name="to-edit-a-storage-account"></a>저장소 계정을 편집하려면
 
-1. StorSimple 장치 관리자 서비스로 이동합니다. **구성** 섹션에서 **저장소 계정 자격 증명**을 클릭합니다.
+1. StorSimple 장치 관리자 서비스로 이동합니다. **구성** 섹션에서 **Storage 계정 자격 증명**을 클릭합니다.
 
-    ![저장소 계정 자격 증명](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
+    ![Storage 계정 자격 증명](./media/storsimple-8000-manage-storage-accounts/editstorageacct1.png)
 
-2. **저장소 계정 자격 증명** 블레이드의 저장소 계정 자격 증명 목록에서 편집하려는 항목을 선택하고 클릭합니다. 
+2. **Storage 계정 자격 증명** 블레이드의 Storage 계정 자격 증명 목록에서 편집하려는 항목을 선택하고 클릭합니다. 
 
 3. **SSL 사용** 섹션을 수정할 수 있습니다. **자세히...** 를 클릭하여 저장소 계정 액세스 키를 회전하도록 **Sync access key to rotate**(회전할 액세스 키 동기화)를 선택할 수도 있습니다. 키 회전을 수행하는 방법에 대한 자세한 내용을 보려면 [저장소 계정의 키 회전](#key-rotation-of-storage-accounts)으로 이동합니다. 설정을 수정한 후 **저장**을 클릭합니다. 
 
@@ -123,7 +123,7 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 #### <a name="to-delete-a-storage-account"></a>저장소 계정을 삭제하려면
 
-1. StorSimple 장치 관리자 서비스로 이동합니다. **구성** 섹션에서 **저장소 계정 자격 증명**을 클릭합니다.
+1. StorSimple 장치 관리자 서비스로 이동합니다. **구성** 섹션에서 **Storage 계정 자격 증명**을 클릭합니다.
 
 2. 저장소 계정의 테이블 형식 목록에서 삭제하려는 계정을 마우스로 가리킵니다. 마우스 오른쪽 단추를 클릭하여 상황에 맞는 메뉴를 호출하고 **삭제**를 클릭합니다.
 
@@ -147,12 +147,12 @@ Azure Storage 계정 자격 증명을 추가하려면 다음 절차를 사용합
 
 ## <a name="rotation-workflow"></a>회전 워크플로
 
-Microsoft Azure 관리자가 저장소 계정에 직접 액세스하여(Microsoft Azure 저장소 서비스를 통해) 기본 키 또는 보조 키를 다시 생성하거나 변경할 수 있습니다. StorSimple 장치 관리자 서비스는 이 변경 사항을 자동으로 표시하지 않습니다.
+Microsoft Azure 관리자가 Storage 계정에 직접 액세스하여(Microsoft Azure Storage 서비스를 통해) 기본 키 또는 보조 키를 다시 생성하거나 변경할 수 있습니다. StorSimple 장치 관리자 서비스는 이 변경 사항을 자동으로 표시하지 않습니다.
 
 StorSimple 장치 관리자 서비스에 변경을 알리려면 StorSimple 장치 관리자 서비스에 액세스하고 저장소 계정에 액세스한 다음 기본 또는 보조 키(변경된 키에 따라 다름)를 동기화해야 합니다. 그러면 서비스는 최신 키를 가져오고 해당 키를 암호화하여 장치에 암호화된 키를 보냅니다.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-in-the-same-subscription-as-the-service"></a>서비스와 동일한 구독에서 저장소 계정에 대한 키를 동기화하려면 
-1. StorSimple 장치 관리자 서비스로 이동합니다. **구성** 섹션에서 **저장소 계정 자격 증명**을 클릭합니다.
+1. StorSimple 장치 관리자 서비스로 이동합니다. **구성** 섹션에서 **Storage 계정 자격 증명**을 클릭합니다.
 2. 저장소 계정의 테이블 형식 목록에서 수정하려는 항목을 클릭합니다. 
 
     ![키 동기화](./media/storsimple-8000-manage-storage-accounts/syncaccesskey1.png)
@@ -169,11 +169,11 @@ StorSimple 장치 관리자 서비스에 변경을 알리려면 StorSimple 장�
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>서비스 구독 외의 저장소 계정에 대한 키를 동기화하려면
 1. **서비스** 페이지에서 **구성** 탭을 클릭합니다.
-2. **저장소 계정 추가/편집**을 클릭합니다.
+2. **Storage 계정 추가/편집**을 클릭합니다.
 3. 대화 상자에서 다음을 수행합니다.
    
    1. 업데이트하려는 액세스 키가 있는 저장소 계정을 선택합니다.
-   2. StorSimple 장치 관리자 서비스에서 저장소 액세스 키를 업데이트해야 합니다. 이 경우 저장소 액세스 키를 볼 수 있습니다. **저장소 계정 액세스 키** 상자에 새 키를 입력합니다. 
+   2. StorSimple 장치 관리자 서비스에서 저장소 액세스 키를 업데이트해야 합니다. 이 경우 저장소 액세스 키를 볼 수 있습니다. **Storage 계정 액세스 키** 상자에 새 키를 입력합니다. 
    3. 변경 내용을 저장합니다. 이제 저장소 계정 액세스 키가 업데이트됩니다.
 
 ## <a name="next-steps"></a>다음 단계

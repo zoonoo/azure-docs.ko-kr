@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cce1cfc4cf883fcecab0e339177bc70c18e7af0b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 9365fd70036c8b489efaea42bda9c670182c496c
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798647"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082277"
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Cosmos DB Table API 작업 수행 
 
@@ -45,7 +45,7 @@ Azure PowerShell을 설치하거나 업데이트한 후에 엔터티 관리 명�
 Install-Module AzureRmStorageTable
 ```
 
-그런 후 이러한 PowerShell cmdlet을 사용하기 위해 Azure Cosmos DB 어셈블리를 로컬로 설치합니다. 이를 수행하는 방법에 대한 지침은 [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/)(Cosmos DB Table용 Azure RM 저장소 테이블 PowerShell 모듈)를 참조하세요.
+그런 후 이러한 PowerShell cmdlet을 사용하기 위해 Azure Cosmos DB 어셈블리를 로컬로 설치합니다. 이를 수행하는 방법에 대한 지침은 [Azure RM Storage Tables PowerShell module for Cosmos DB Tables](https://blogs.technet.microsoft.com/paulomarques/2017/01/17/working-with-azure-storage-tables-from-powershell/)(Cosmos DB Table용 Azure RM 저장소 테이블 PowerShell 모듈)를 참조하세요.
 
 다음 연습을 사용하려면 Azure Cosmos DB 데이터베이스 계정이 필요합니다. 계정이 없는 경우 [Azure Portal](https://portal.azure.com)을 사용하여 새 Azure Cosmos DB 계정을 만듭니다. 새 데이터베이스 계정을 만드는 방법에 대한 자세한 내용은 [Azure Cosmos DB: 데이터베이스 계정 만들기](create-table-dotnet.md#create-a-database-account)를 참조하세요.
 
@@ -88,7 +88,7 @@ PowerShell을 사용하여 Azure Cosmos DB 계정의 테이블을 나열할 수 
 
 ## <a name="delete-a-table"></a>테이블 삭제 
 
-PowerShell은 Azure Cosmos DB에서 테이블 삭제를 지원하지 않습니다. 테이블을 삭제하려면 [Azure Portal](https://azure.portal.com)로 이동하여 사용 중인 Azure Cosmos DB 계정을 찾은 다음 테이블을 찾아서 삭제합니다. 
+PowerShell은 Azure Cosmos DB에서 테이블 삭제를 지원하지 않습니다. 테이블을 삭제하려면 [Azure Portal](https://portal.azure.com)로 이동하여 사용 중인 Azure Cosmos DB 계정을 찾은 다음 테이블을 찾아서 삭제합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

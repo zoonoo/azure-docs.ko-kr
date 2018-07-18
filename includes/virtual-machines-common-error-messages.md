@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: db241c1a3c8bfd15e13ae0bd9f1cdf4c92c7081d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 00cb6cb59f8144782fdacd8c2f9763c2f7036880
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34013939"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906839"
 ---
 >[!NOTE]
 > 이 페이지에 의견을 남기거나 #azerrormessage 태그를 사용하여 [Azure 피드백](https://feedback.azure.com/forums/216843-virtual-machines)을 통해 의견을 남겨주세요.
@@ -164,7 +164,7 @@ Azure VM은 오류 응답에 다음 JSON 형식을 사용합니다.
 |  OperationNotAllowed  |  현재 VM이 할당된 클러스터에서 요청한 크기 {0}을(를) 사용할 수 없기 때문에 VM의 크기를 조정할 수 없습니다. VM의 크기를 {1}(으)로 조정하려면 Azure Portal에서 중지 작업인 할당을 취소하고 크기 조정 작업을 다시 시도하세요. https://aka.ms/azure-resizevm에서 VM 크기 조정 전략에 대해 자세히 알아봅니다.  |
 |  OSProvisioningClientError  |  게스트 OS가 현재 프로비전되고 있는 중이므로 '{0}' VM에 대한 OS 프로비전에 실패했습니다.  |
 |  OSProvisioningClientError  |  VM '{0}'에 대한 OS를 프로비전하지 못했습니다. 오류 세부 정보: {1} 이미지가 올바르게 준비되었는지 확인합니다(일반화됨). <ul><li>Windows에 대한 지침: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  SSH 호스트 키를 생성하지 못했습니다. 오류 세부 정보: {0} 이 문제를 해결하려면 Linux 에이전트가 올바르게 설정되었는지 확인합니다. <ul><li>https://azure.microsoft.com/documentation/articles/virtual-machines-linux-agent-user-guide/에서 지침을 확인할 수 있습니다. </li></ul> |
+|  OSProvisioningClientError  |  SSH 호스트 키를 생성하지 못했습니다. 오류 세부 정보: {0} 이 문제를 해결하려면 Linux 에이전트가 올바르게 설정되었는지 확인합니다. <ul><li>https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/에서 지침을 확인할 수 있습니다. </li></ul> |
 |  OSProvisioningClientError  |  VM에 지정된 사용자 이름은 이 Linux 배포판에 유효하지 않습니다. 오류 세부 정보: {0}  |
 |  OSProvisioningInternalError  |  내부 오류로 인해 VM '{0}'에 대한 OS 프로비전에 실패했습니다.  |
 |  OSProvisioningTimedOut  |  할당된 시간에 VM '{0}'에 대한 OS의 프로비전을 완료하지 못했습니다. VM은 성공적으로 프로비전을 완료할 수 있습니다. 나중에 프로비전 상태를 확인합니다.  |

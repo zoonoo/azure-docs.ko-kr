@@ -6,13 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: b51a4573ad7a8461b7261f08d94639d2030492d9
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923411"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>VMware VM 및 물리적 서버를 보조 사이트에 복제하기 위한 지원 매트릭스
 
@@ -60,7 +61,7 @@ Linux | Red Hat Enterprise Linux 6.7, 6.8, 6.9, 7.1, 7.2 <br/><br/> Centos 6.5, 
 호스트 - VLAN | 예 
 호스트 - IPv4 | 예 
 호스트 - IPv6 | 아니오 
-게스트 VM - NIC 팀 | 아니요
+게스트 VM - NIC 팀 | 아니오
 게스트 VM - IPv4 | 예
 게스트 VM - IPv6 | 아니오
 게스트 VM - Windows/Linux - 고정 IP 주소 | 예
@@ -86,14 +87,14 @@ VMDK | 예
 VHD/VHDX | 해당 없음 
 2세대 VM | 해당 없음 
 공유 클러스터 디스크 | 예 
-암호화된 디스크 | 아니요 
+암호화된 디스크 | 아니오 
 UEFI| 예 
 NFS | 아니오 
-SMB 3.0 | 아니요 
+SMB 3.0 | 아니오 
 RDM | 예 
 디스크 > 1TB | 예 
 스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예 
-저장소 공간 | 아니요 
+저장소 공간 | 아니오 
 디스크 핫 추가/제거 | 예 
 디스크 제외 | 예 
 다중 경로(MPIO) | 해당 없음 
@@ -102,7 +103,7 @@ RDM | 예
 
 **작업** | **지원됨** 
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니요 
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) | 아니오 
 리소스 그룹 간에 저장소, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니오 
 
 ## <a name="mobility-service-and-updates"></a>Mobility 서비스 및 업데이트

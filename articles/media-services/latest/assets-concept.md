@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 76ed74f2df62d478b83e109a492977ec2d580198
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305092"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284841"
 ---
 # <a name="assets"></a>자산
 
@@ -50,7 +50,7 @@ Media Services v3에서 작업 입력은 자산 또는 HTTP URL에서 만들 수
 
 전체 정의는 [자산](https://docs.microsoft.com/rest/api/media/assets)을 참조하세요.
 
-## <a name="filtering-ordering-and-paging-support"></a>필터링, 정렬 및 페이징 지원
+## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
 
 Media Services는 자산에 대한 다음 OData 쿼리 옵션을 지원합니다. 
 
@@ -88,7 +88,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 네 개의 활성화된 정렬 순서 각각에 대해 페이지 매김이 지원됩니다. 
 
-쿼리 응답이 여러 항목(현재 1000개 이상)을 포함하는 경우 서비스는 결과의 다음 페이지를 가져오는 "@odata.nextLink" 속성을 반환합니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 사용자가 페이지 크기를 구성할 수 없습니다. 
+쿼리 응답에 여러 항목(현재 1000개 이상)이 포함된 경우 서비스는 결과의 그 다음 페이지를 가져오는 "\@odata.nextLink" 속성을 반환합니다. 전체 결과 집합을 통해 페이지에 사용할 수 있습니다. 사용자가 페이지 크기를 구성할 수 없습니다. 
 
 (해당 변경 내용이 다운로드되지 않은 컬렉션의 일부인 경우)컬렉션을 통해 페이징하는 동안 자산이 생성되거나 삭제되면 변경 내용이 반환된 결과에 반영됩니다. 
 
@@ -105,6 +105,21 @@ while (currentPage.NextPageLink != null)
 ```
 
 나머지 예제는 [자산 - 목록](https://docs.microsoft.com/rest/api/media/assets/list)을 참조하세요.
+
+
+## <a name="storage-side-encryption"></a>저장소 쪽 암호화
+
+미사용 자산을 보호하려면 저장소 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 저장소 쪽 암호화가 작동하는 원리를 보여줍니다.
+
+|암호화 옵션|설명|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services 저장소 암호화|AES-256 암호화, Media Services에서 키 관리|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
+|[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|지원됨|
+|[저장소 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|지원되지 않음|
+
+<sup>1</sup> Media Services가 깨끗한/어떠한 형태의 암호화도 없는 콘텐츠 처리를 지원하기는 하지만, 그렇게 하지 않는 것이 좋습니다.
+
+<sup>2</sup> Media Services v3에서 저장소 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 저장소 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

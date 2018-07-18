@@ -11,11 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 198a637fcfc2268e393a63b27a153b163dc4331e
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34850613"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 관리되는 인스턴스 만들기
 
@@ -161,16 +162,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![관리되는 인스턴스 만들기](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
 
-3. 구독을 선택하고 미리 보기 약관이 **승인됨**으로 표시되는지 확인합니다.
+4. 구독을 선택하고 미리 보기 약관이 **승인됨**으로 표시되는지 확인합니다.
 
    ![승인된 관리되는 인스턴스 미리 보기](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
 
-4. 다음 표의 정보를 사용하여 요청된 정보가 포함된 관리되는 인스턴스 양식을 작성합니다.
+5. 다음 표의 정보를 사용하여 요청된 정보가 포함된 관리되는 인스턴스 양식을 작성합니다.
 
    | 설정| 제안 값 | 설명 |
    | ------ | --------------- | ----------- |
    |**관리되는 인스턴스 이름**|모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
-   |**관리되는 인스턴스 관리자 로그인**|모든 유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.| 
+   |**관리되는 인스턴스 관리자 로그인**|모든 유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.| 
    |**암호**|유효한 암호|암호는 16자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
    |**리소스 그룹**|이전에 만든 리소스 그룹||
    |**위치**:|이전에 선택한 위치|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
@@ -178,17 +179,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![관리되는 인스턴스 만들기 양식](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
 
-5. **가격 책정 계층**을 클릭하여 계산 및 저장소 리소스의 크기를 조정하고 가격 책정 옵션을 검토합니다. 기본적으로 인스턴스에서 32GB의 저장소 공간을 추가 비용 없이 제공하며, 응용 프로그램에 충분하지 않을 수 있습니다.
-6. 슬라이더 또는 텍스트 상자를 사용하여 저장소 공간 및 가상 코어 수를 지정합니다. 
-   ![관리되는 인스턴스 만들기 양식](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+6. **가격 책정 계층**을 클릭하여 계산 및 저장소 리소스의 크기를 조정하고 가격 책정 옵션을 검토합니다. 기본적으로 인스턴스에서 32GB의 저장소 공간을 추가 비용 없이 제공하며, 응용 프로그램에 충분하지 않을 수 있습니다.
+7. 슬라이더 또는 텍스트 상자를 사용하여 저장소 공간 및 가상 코어 수를 지정합니다. 
+   ![관리되는 인스턴스 가격 책정 계층](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
 
-7. 완료되면 **적용**을 클릭하여 선택 사항을 저장합니다.  
-8. **만들기**를 클릭하여 관리되는 인스턴스를 배포합니다.
-9. **알림** 아이콘을 클릭하여 배포 상태를 확인합니다.
+8. 완료되면 **적용**을 클릭하여 선택 사항을 저장합니다.  
+9. **만들기**를 클릭하여 관리되는 인스턴스를 배포합니다.
+10. **알림** 아이콘을 클릭하여 배포 상태를 확인합니다.
  
    ![배포 진행률](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
 
-9. **배포 진행 중**을 클릭하여 관리되는 인스턴스 창을 열어 배포 진행 상황을 자세히 모니터링합니다.
+11. **배포 진행 중**을 클릭하여 관리되는 인스턴스 창을 열어 배포 진행 상황을 자세히 모니터링합니다.
  
    ![배포 진행률 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
@@ -248,18 +249,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![가상 머신 만들기 양식](./media/sql-database-managed-instance-tutorial/virtual-machine-create-form.png)
 
-3. **확인**을 클릭합니다.
-4. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 이 자습서에서는 작은 가상 머신만 필요합니다.
+4. **확인**을 클릭합니다.
+5. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 이 자습서에서는 작은 가상 머신만 필요합니다.
 
     ![VM 크기](./media/sql-database-managed-instance-tutorial/virtual-machine-size.png)  
 
-5. **선택**을 클릭합니다.
-6. **설정** 양식에서 **서브넷**을 클릭한 다음, **vm_subnet**을 선택합니다. 관리되는 인스턴스가 프로비전되는 서브넷이 아니라 동일한 Vnet의 다른 서브넷을 선택합니다.
+6. **선택**을 클릭합니다.
+7. **설정** 양식에서 **서브넷**을 클릭한 다음, **vm_subnet**을 선택합니다. 관리되는 인스턴스가 프로비전되는 서브넷이 아니라 동일한 Vnet의 다른 서브넷을 선택합니다.
 
     ![VM 설정](./media/sql-database-managed-instance-tutorial/virtual-machine-settings.png)  
 
-7. **확인**을 클릭합니다.
-8. 요약 페이지에서 제품 세부 정보를 검토한 다음, **만들기**를 클릭하여 가상 머신 배포를 시작합니다.
+8. **확인**을 클릭합니다.
+9. 요약 페이지에서 제품 세부 정보를 검토한 다음, **만들기**를 클릭하여 가상 머신 배포를 시작합니다.
  
 ## <a name="connect-to-virtual-machine"></a>가상 머신에 연결
 

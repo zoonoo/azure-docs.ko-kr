@@ -1,4 +1,4 @@
-[가상 컴퓨터 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md)을 사용하면 [VM(가상 컴퓨터)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
+[가상 머신 확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)과 [Azure Monitor의 자동 조정 기능](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md)을 사용하면 [VM(가상 머신)](../articles/virtual-machines/windows/overview.md)을 쉽게 [자동으로 크기 조정](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md)할 수 있습니다. VM은 자동으로 크기 조정되도록 설정된 확장 집합의 멤버여야 합니다. 이 문서에서는 자동 및 수동 방법을 사용하여 VM을 수직 및 수평으로 확장하는 방법을 더 잘 이해할 수 있는 정보를 제공합니다.
 
 ## <a name="horizontal-or-vertical-scaling"></a>수평 또는 수직적 크기 조정
 
@@ -8,7 +8,7 @@ Azure Monitor의 자동 크기 조정 기능은 수평으로만 확장하며, �
 
 [Azure Automation](../articles/automation/automation-intro.md)에서 Runbook을 사용하면 [확장 집합](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision.md)으로 VM을 쉽게 강화하거나 규모 축소할 수 있습니다.
 
-## <a name="create-a-virtual-machine-scale-set"></a>가상 컴퓨터 확장 집합 만들기
+## <a name="create-a-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기
 
 확장 집합을 사용하면 동일한 VM을 집합으로 쉽게 배포하고 관리할 수 있습니다. [Azure Portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md) 또는 [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md)를 사용하여 Linux 또는 Windows 확장 집합을 만들 수 있습니다. 또한 [Python](/develop/python) 또는 [Node.js](/nodejs/azure)와 같은 SDK를 사용하거나 [REST API](/rest/api/compute/virtualmachinescalesets)를 직접 사용하여 확장 집합을 만들고 관리할 수도 있습니다. VM의 자동 크기 조정은 확장 집합에 메트릭 및 규칙을 적용하여 수행됩니다.
 
@@ -34,7 +34,7 @@ Azure Monitor의 자동 크기 조정 기능을 사용하면 [메트릭](../arti
 
 ![자동 크기 조정 작업](./media/virtual-machines-autoscale/virtual-machines-autoscale-actions.png)
  
-### <a name="notifications"></a>알림
+### <a name="notifications"></a>공지
 
 [트리거를 설정](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)하여 특정 웹 URL을 호출하거나 만든 자동 크기 조정 규칙에 따라 전자 메일을 보낼 수 있습니다. Webhook를 사용하면 사후 처리 또는 사용자 지정 알림을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다.
 

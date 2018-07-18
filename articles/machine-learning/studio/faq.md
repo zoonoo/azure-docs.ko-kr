@@ -10,17 +10,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 4ea48300e83e1faa1250d2fba7c37a82825c820f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32180018"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37024730"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 질문과 대답: 대금 청구, 기능, 제한 사항 및 지원
 Azure Machine Learning, 예측 모델 개발을 위한 클라우드 서비스 및 웹 서비스를 통한 운용성 솔루션에 대한 질문(FAQ)과 해당하는 대답입니다. 이 FAQ는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대한 질문을 제공합니다.
@@ -74,7 +75,7 @@ REST API를 사용하고 웹 서비스에 액세스하는 여러 가지 방법�
 
 **Azure Machine Learning에 대한 주요 업데이트는 무엇인가요?**
 
-최신 업데이트는 [Azure Machine Learning의 새로운 기능](whats-new.md)을 참조하세요.
+최신 업데이트는 [Azure Machine Learning의 새로운 기능](../../active-directory/fundamentals/whats-new.md)을 참조하세요.
 
 ## <a name="machine-learning-studio-questions"></a>Machine Learning Studio 질문
 ### <a name="import-and-export-data-for-machine-learning"></a>Machine Learning에 대한 데이터 가져오기 및 내보내기
@@ -174,7 +175,7 @@ Machine Learning Studio는 Microsoft Research에서 개발된 확장 가능한 �
 
 **기본 제공 모듈을 사용하여 신경망 모델의 계층을 시각화할 수 있나요?**
 
-번호
+아니요.
 
 **C# 또는 일부 다른 언어로 모듈을 만들 수 있나요?**
 
@@ -211,7 +212,7 @@ API 다시 학습을 사용합니다. 자세한 내용은 [프로그래밍 방�
 ### <a name="create"></a>생성
 **모델을 로컬로 배포하거나 인터넷에 연결하지 않고 응용 프로그램에서 배포할 수 있나요?**
 
-번호
+아니요.
 
 **모든 웹 서비스에 예상되는 기준 대기 시간이 있나요?**
 
@@ -252,7 +253,7 @@ RRS의 경우 웹 서비스 응답은 일반적으로 결과를 보는 위치입
 
 **R 작업은 노드 간에 분산되나요?**
 
-번호  
+아니요.  
 
 **학습에 사용할 수 있는 데이터의 양은 얼마인가요?**
 
@@ -281,7 +282,7 @@ Machine Learning Studio의 모듈은 일반적인 사용 사례의 경우 최대
 
 **웹 서비스를 실행하는 가상 머신의 크기를 조정할 수 있나요?**
 
-번호  
+아니요.  
 
 ## <a name="security-and-availability"></a>보안 및 사용 가능성
 **웹 서비스에 대한 http 끝점에 기본적으로 액세스할 수 있는 사람은 누구인가요? 끝점에 대한 액세스는 어떻게 제한하나요?**
@@ -459,11 +460,11 @@ Azure Machine Learning 웹 서비스 포털의 계획 페이지에서 모든 계
 
 RRS 워크로드의 경우 요청하신 모든 API 트랜잭션 호출 및 해당 요청과 연관된 계산 시간에 대한 비용이 청구됩니다. RRS 프로덕션 API 트랜잭션 비용은 요청하신 총 API 호출 수에 트랜잭션 1,000개당 가격을 곱하여 계산됩니다(트랜잭션별 일할 계산). RRS API 프로덕션 API 계산 시간 비용은 각 API 호출 실행에 필요한 시간에 총 API 트랜잭션 수를 곱하고 프로덕션 API 계산 시간당 가격을 곱하여 계산됩니다.
 
-예를 들어 표준 S1 초과분의 경우 한 번 실행하는 데 0.72초가 걸리는 API 트랜잭션이 1,000,000개 있다면 프로덕션 API 트랜잭션 비용은 $500(1,000,000 * $0.50/1K API 트랜잭션)이고 프로덕션 API 계산 시간은 $400(1,000,000 * 0.72초 * $2/시간)로 총 $900의 금액이 산정됩니다.
+예를 들어 표준 S1 초과분의 경우 한 번 실행하는 데 0.72초가 걸리는 API 트랜잭션이 1,000,000개 있다면 프로덕션 API 트랜잭션 비용은 $500(1,000,000 $0.50/1K API 트랜잭션)이고 프로덕션 API 계산 시간은 $400(1,000,000 0.72초 * $2/시간)로 총 $900의 금액이 산정됩니다.
 
 BES 워크로드도 같은 방식으로 청구됩니다. 하지만 API 트랜잭션 비용은 제출한 일괄 작업 수를, 계산 비용은 해당 일괄 작업과 연관된 계산 시간을 나타냅니다. BES 프로덕션 API 트랜잭션 비용은 제출한 총 작업 수에 트랜잭션 1,000개당 가격을 곱하여 계산됩니다(트랜잭션별 일할 계산). BES API 프로덕션 API 계산 시간 비용은 작업의 각 행 실행에 필요한 시간에 작업의 총 행 수, 총 작업 수, 프로덕션 API 계산 시간당 가격을 곱하여 계산됩니다. Machine Learning 계산기를 사용할 때 트랜잭션 미터는 제출하려는 작업 수를, 트랜잭션 필드당 시간은 각 작업의 모든 행을 실행하는 데 필요한 총 시간을 나타냅니다.
 
-예를 들어 표준 S1 초과분에 대해 각 0.72초가 필요한 행 500개로 구성된 각 작업을 하루에 100개 제출한다고 가정해 보겠습니다. 월간 초과 비용은 프로덕션 API 트랜잭션 비용 $1.55(하루 100개 작업 = 3,100개 작업/1개월 * $0.50/1K API 트랜잭션)이며 프로덕션 API 계산 시간은 $620(500행 * 0.72초 * 3,100개 작업 * $2/시간)로 총 $621.55의 금액이 산정됩니다.
+예를 들어 표준 S1 초과분에 대해 각 0.72초가 필요한 행 500개로 구성된 각 작업을 하루에 100개 제출한다고 가정해 보겠습니다. 월간 초과 비용은 프로덕션 API 트랜잭션 비용 $1.55(하루 100개 작업 = 3,100개 작업/1개월 $0.50/1K API 트랜잭션)이며 프로덕션 API 계산 시간은 $620(500행 0.72초 3,100개 작업 $2/시간)로 총 $621.55의 금액이 산정됩니다.
 
 ### <a name="azure-machine-learning-classic-web-services"></a>Azure Machine Learning 클래식 웹 서비스
 **종량제를 계속 사용할 수 있나요?**
@@ -473,7 +474,7 @@ BES 워크로드도 같은 방식으로 청구됩니다. 하지만 API 트랜잭
 ### <a name="azure-machine-learning-free-and-standard-tier"></a>Azure Machine Learning 무료 및 표준 계층
 **Azure Machine Learning 무료 계층에는 무엇이 포함되나요?**
 
-Azure Machine Learning 무료 계층은 Azure Machine Learning Studio를 자세히 소개하기 위한 것입니다. Microsoft 계정을 등록하기만 하면 됩니다. 무료 계층에는 [Microsoft 계정](https://www.microsoft.com/account/default.aspx)당 하나의 Azure Machine Learning Studio 작업 영역에 대한 무료 액세스 권한이 포함됩니다. 이 계층에서 최대 10GB의 저장소를 사용하고 스테이징 API로서 모델을 운영할 수 있습니다. 무료 계층 작업은 SLA의 적용을 받지 않으며 개발 및 개인 용도로만 사용할 수 있습니다. 
+Azure Machine Learning 무료 계층은 Azure Machine Learning Studio를 자세히 소개하기 위한 것입니다. Microsoft 계정을 등록하기만 하면 됩니다. 무료 계층에는 [Microsoft 계정](https://account.microsoft.com/account)당 하나의 Azure Machine Learning Studio 작업 영역에 대한 무료 액세스 권한이 포함됩니다. 이 계층에서 최대 10GB의 저장소를 사용하고 스테이징 API로서 모델을 운영할 수 있습니다. 무료 계층 작업은 SLA의 적용을 받지 않으며 개발 및 개인 용도로만 사용할 수 있습니다. 
 
 무료 계층 작업 영역의 제한 사항:
 

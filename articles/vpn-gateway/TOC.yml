@@ -106,6 +106,8 @@
       items:
         - name: Azure PowerShell
           href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Azure 가용성 영역에서 영역 중복 VNet 게이트웨이 만들기
+      href: create-zone-redundant-vnet-gateway.md
     - name: '라우팅, BGP 및 VNet 피어링'
       items:
         - name: VPN Gateway에 BGP 구성

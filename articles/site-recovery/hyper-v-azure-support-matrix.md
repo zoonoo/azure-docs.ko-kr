@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: raynew
-ms.openlocfilehash: f8149d2af5542fb311ff83160d674e4d525289dc
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011376"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266964"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -45,7 +45,7 @@ Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2016, V
  **구성 요소** | **세부 정보**
 --- | ---
 VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#failed-over-azure-vm-requirements)을 충족해야 합니다.
-게스트 운영 체제 | [Azure에서 지원하는](https://technet.microsoft.com/library/cc794868.aspx) 모든 게스트 OS<br/><br/> Windows Server 2016 Nano Server는 지원되지 않습니다.
+게스트 운영 체제 | Azure에서 지원하는 모든 게스트 OS.<br/><br/> Windows Server 2016 Nano Server는 지원되지 않습니다.
 
 
 

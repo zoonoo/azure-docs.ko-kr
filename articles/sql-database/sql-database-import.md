@@ -8,13 +8,13 @@ ms.service: sql-database
 ms.custom: load & move data
 ms.date: 04/10/2018
 ms.author: carlrab
-ms.topic: article
-ms.openlocfilehash: bd9554a18775cf98f4415ebd5d4b0d52edc53718
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.openlocfilehash: d22c9a05d1fe56d71eb901c0a4bf22c179dfe937
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894194"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34646918"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>새 Azure SQL Database로 BACPAC 파일 가져오기
 
@@ -102,6 +102,9 @@ $importStatus
 
 > [!TIP]
 다른 스크립트 예제는 [BACPAC 파일에서 데이터베이스 가져오기](scripts/sql-database-import-from-bacpac-powershell.md)를 참조하세요.
+
+## <a name="limitations"></a>제한 사항
+- 탄력적 풀의 데이터베이스로 가져오기는 지원되지 않습니다. 싱글톤 데이터베이스로 데이터를 가져온 다음 해당 데이터베이스를 풀로 이동할 수 있습니다.
 
 ## <a name="import-using-other-methods"></a>다른 방법을 사용하여 가져오기
 

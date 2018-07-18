@@ -17,20 +17,16 @@
       href: quick-deploy-iot-central.md
 - name: 자습서
   items:
-    - name: 작성기
-      items:
-        - name: 1 - 새 장치 유형 정의
-          href: tutorial-define-device-type.md
-        - name: 2 - 규칙 구성
-          href: tutorial-configure-rules.md
-        - name: 3 - 연산자의 뷰 사용자 지정.
-          href: tutorial-customize-operator.md
-    - name: 연산자
-      items:
-        - name: 4 - 장치 모니터링
-          href: tutorial-monitor-devices.md
-        - name: 5 - 장치 추가
-          href: tutorial-add-device.md
+    - name: 1 - 새 장치 유형 정의
+      href: tutorial-define-device-type.md
+    - name: 2 - 규칙 구성
+      href: tutorial-configure-rules.md
+    - name: 3 - 연산자의 뷰 사용자 지정.
+      href: tutorial-customize-operator.md
+    - name: 4 - 장치 모니터링
+      href: tutorial-monitor-devices.md
+    - name: 5 - 장치 추가
+      href: tutorial-add-device.md
 - name: 개념
   items:
     - name: 아키텍처
@@ -41,10 +37,12 @@
   items:
     - name: 관리자
       items:
-        - name: 응용 프로그램 만들기
-          href: howto-create-application.md
+        - name: CSP가 응용 프로그램을 만들고 관리할 때
+          href: howto-create-and-manage-applications-as-CSP.md
         - name: 응용 프로그램 관리
           href: howto-administer.md
+        - name: 데이터 내보내기
+          href: howto-export-data.md
     - name: 작성기
       items:
         - name: 장치 템플릿 설정
@@ -55,6 +53,10 @@
           href: howto-create-telemetry-rules.md
         - name: 이벤트 규칙 만들기
           href: howto-create-event-rules.md
+        - name: Microsoft Flow에서 워크플로 빌드
+          href: howto-add-microsoft-flow.md
+        - name: 홈페이지 구성
+          href: howto-configure-homepage.md
         - name: 이미지 준비 및 업로드
           href: howto-prepare-images.md
     - name: 연산자

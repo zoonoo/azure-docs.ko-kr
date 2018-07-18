@@ -6,14 +6,15 @@ author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: ef35ee881923c69d41b79fd6cb8464c695c614f9
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/02/2018
+ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35265846"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MySQL Database를 MySQL용 Azure 데이터베이스로 마이그레이션
 이 문서에서는 MySQL용 Azure Database에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명합니다.
@@ -51,6 +52,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 -   적절한 경우 분할된 테이블을 사용합니다.
 -   병렬로 데이터를 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다. 
 -   테이블 데이터가 로드된 후 인덱스 생성이 발생하도록 데이터베이스를 덤프할 때 mysqlpump에서 `defer-table-indexes` 옵션을 사용합니다.
+-   Azure blob/저장소에 백업 파일을 복사하고, 인터넷을 통해 복원을 수행할 때보다 훨씬 더 빨리 수행할 수 있는 위치에서 복원을 수행합니다.
 
 ## <a name="create-a-backup-file-from-the-command-line-using-mysqldump"></a>mysqldump를 사용하여 명령줄에서 백업 파일 만들기
 로컬 온-프레미스 서버 또는 가상 머신에 기존 MySQL 데이터베이스를 백업하려면 다음 명령을 실행합니다. 
@@ -74,7 +76,6 @@ $ mysqldump -u root -p testdb > testdb_backup.sql
 ```bash
 $ mysqldump -u root -p testdb table1 table2 > testdb_tables_backup.sql
 ```
-
 한 번에 둘 이상의 데이터베이스를 백업하려면 --database 스위치를 사용하고 데이터베이스 이름을 공백으로 구분합니다. 
 ```bash
 $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sql 
@@ -108,21 +109,22 @@ $ mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p test
 
 ## <a name="export-using-phpmyadmin"></a>PHPMyAdmin을 사용하여 내보내기
 내보내려면 환경에 로컬로 이미 설치했을 수 있는 일반 도구 phpMyAdmin을 사용할 수 있습니다. PHPMyAdmin을 사용하여 MySQL 데이터베이스를 내보내려면
-- phpMyAdmin을 엽니다.
-- 데이터베이스를 선택합니다. 왼쪽 목록에서 데이터베이스 이름을 클릭합니다. 
-- **내보내기** 링크를 클릭합니다. 데이터베이스의 덤프를 보는 새 페이지가 나타납니다.
-- 내보내기 영역에서 **모두 선택** 링크를 클릭하여 데이터베이스의 테이블을 선택합니다. 
-- SQL 옵션 영역에서 적절한 옵션을 클릭합니다. 
-- **파일로 저장** 옵션 및 해당 압축 옵션을 클릭하고 **이동** 단추를 클릭합니다. 파일을 로컬로 저장할지 묻는 대화 상자가 나타납니다.
+1. phpMyAdmin을 엽니다.
+2. 데이터베이스를 선택합니다. 왼쪽 목록에서 데이터베이스 이름을 클릭합니다. 
+3. **내보내기** 링크를 클릭합니다. 데이터베이스의 덤프를 보는 새 페이지가 나타납니다.
+4. 내보내기 영역에서 **모두 선택** 링크를 클릭하여 데이터베이스의 테이블을 선택합니다. 
+5. SQL 옵션 영역에서 적절한 옵션을 클릭합니다. 
+6. **파일로 저장** 옵션 및 해당 압축 옵션을 클릭하고 **이동** 단추를 클릭합니다. 파일을 로컬로 저장할지 묻는 대화 상자가 나타납니다.
 
 ## <a name="import-using-phpmyadmin"></a>PHPMyAdmin을 사용하여 가져오기
 데이터베이스 가져오기는 내보내기와 비슷합니다. 다음 작업을 수행합니다.
-- phpMyAdmin을 엽니다. 
-- phpMyAdmin 설치 페이지에서 **추가**를 클릭하여 Azure Database for MySQL 서버를 추가합니다. 연결 정보 및 로그인 정보를 제공합니다.
-- 적절하게 명명된 데이터베이스를 만들고 화면 왼쪽에서 선택합니다. 기존 데이터베이스를 다시 작성하려면 데이터베이스 이름을 클릭하고 테이블 이름 옆에 있는 모든 확인란을 선택하고 **삭제**를 선택하여 기존 테이블을 삭제합니다. 
-- **SQL** 링크를 클릭하여 SQL 명령을 입력하거나 SQL 파일을 업로드할 수 있는 페이지를 표시합니다. 
-- **찾아보기** 단추를 사용하여 데이터베이스 파일을 찾습니다. 
-- **이동** 단추를 클릭하여 백업을 내보내고 SQL 명령을 실행하고, 데이터베이스를 다시 만듭니다.
+1. phpMyAdmin을 엽니다. 
+2. phpMyAdmin 설치 페이지에서 **추가**를 클릭하여 Azure Database for MySQL 서버를 추가합니다. 연결 정보 및 로그인 정보를 제공합니다.
+3. 적절하게 명명된 데이터베이스를 만들고 화면 왼쪽에서 선택합니다. 기존 데이터베이스를 다시 작성하려면 데이터베이스 이름을 클릭하고 테이블 이름 옆에 있는 모든 확인란을 선택하고 **삭제**를 선택하여 기존 테이블을 삭제합니다. 
+4. **SQL** 링크를 클릭하여 SQL 명령을 입력하거나 SQL 파일을 업로드할 수 있는 페이지를 표시합니다. 
+5. **찾아보기** 단추를 사용하여 데이터베이스 파일을 찾습니다. 
+6. **이동** 단추를 클릭하여 백업을 내보내고 SQL 명령을 실행하고, 데이터베이스를 다시 만듭니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure Database for MySQL에 응용 프로그램 연결](./howto-connection-string.md)
+- [Azure Database for MySQL에 응용 프로그램을 연결합니다](./howto-connection-string.md).
+- Azure Database for MySQL로 데이터베이스 마이그레이션에 대한 자세한 내용은 [데이터베이스 마이그레이션 가이드](http://aka.ms/datamigration)을 참조합니다.

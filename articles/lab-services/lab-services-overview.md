@@ -13,17 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: spelluru
-ms.openlocfilehash: b42183369b9ad88c77a05a91fdba8fe0efca2a8c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 8f8de53f03cc1378e8aaafa9a2f486eadc23fe14
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637856"
 ---
-# <a name="an-introduction-to-azure-lab-services-formerly-azure-devtest-labs"></a>Azure Lab Services(이전 Azure DevTest Labs) 소개
+# <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services 소개
 Azure Lab Services를 사용하면 클라우드에서 팀 환경(예: 개발 환경, 테스트 환경, 클래스룸 랩 환경)을 신속하게 설정할 수 있습니다. 랩 소유자는 랩을 만들고, Windows 또는 Linux 가상 머신을 프로비전하고, 필요한 소프트웨어 및 도구를 설치하고, 랩 사용자가 사용할 수 있게 합니다. 랩 사용자는 랩의 VM(가상 머신)에 연결하여 그것들을 일상 업무, 단기 프로젝트 또는 클래스룸 연습에 사용합니다. 사용자가 랩에서 리소스를 활용하기 시작하면 랩 관리자는 여러 랩의 비용 및 사용을 분석하고, 조직 또는 팀의 비용을 최적화하기 위해 포괄적인 정책을 설정할 수 있습니다.
 
 > [!IMPORTANT]
-> Azure DevTest Labs는 새로운 유형의 랩(Azure Lab Services)으로 확장되고 있습니다! 
+> **Azure DevTest Labs**는 새로운 유형의 랩(Azure Lab Services)으로 확장되고 있습니다! 
 > 
 > Azure Lab Services를 사용하면 클래스룸 랩과 같은 관리되는 랩을 만들 수 있습니다. 서비스 자체는 VM 가동에서 오류 처리 및 인프라 확장에 이르기까지 관리되는 랩의 모든 인프라 관리를 처리합니다. 관리되는 랩은 현재 미리 보기로 제공됩니다. 일단 미리 보기가 끝나면 새로운 랩 유형과 기존 DevTest Labs는 Azure Lab Services의 포괄적인 새로운 공통 이름인 Azure Lab Services를 사용하여 모든 유형의 랩 유형이 계속 발전합니다. 
 
@@ -31,7 +32,7 @@ Azure Lab Services를 사용하면 클라우드에서 팀 환경(예: 개발 환
 Azure Lab Services는 다음과 같은 주요 기능/특징을 지원합니다. 
 
 - **랩의 빠르고 유연한 설정**. 랩 소유자는 Azure Lab Services를 사용하여 필요에 따라 랩을 신속하게 설정할 수 있습니다. 이 서비스는 관리되는 랩의 모든 Azure 인프라 작업을 처리하거나 랩 소유자가 랩 소유자의 구독에서 인프라를 자체 관리하고 사용자 지정할 수 있는 옵션을 제공합니다. 이 서비스는 서비스가 관리하는 랩을에 대한 인프라의 기본 확장 및 복구 기능을 제공합니다. 
-- **랩 사용자를 위한 간소화된 경험**. 랩 사용자는 클래스룸 랩과 같은 관리되는 랩에서 등록 코드로 랩에 등록하고 언제든지 랩에 액세스하여 랩 리소스를 사용할 수 있습니다. 랩 소유자는 DevTest Labs에서 만든 사용자 지정 랩에서 가상 머신을 만들고 액세스하며, 데이터 디스크를 관리 및 재사용하고, 재사용 할 수 있는 비밀을 설정하도록 랩 사용자들에게 권한을 부여할 수 있습니다.  
+- **랩 사용자를 위한 간소화된 경험**. 랩 사용자는 클래스룸 랩과 같은 관리되는 랩에서 등록 코드로 랩에 등록하고 언제든지 랩에 액세스하여 랩 리소스를 사용할 수 있습니다. 랩 소유자는 DevTest Labs에서 만든 랩에서 가상 머신을 만들고 액세스하며, 데이터 디스크를 관리 및 재사용하고, 재사용 할 수 있는 비밀을 설정하도록 랩 사용자들에게 권한을 부여할 수 있습니다.  
 - **비용 최적화 및 분석**. 랩 소유자는 랩 일정을 설정하여 가상 머신를 자동으로 종료하고 시작할 수 있습니다. 랩 소유자는 랩의 가상 머신에 사용자가 액세스할 수 있는 시간대를 지정하고, 사용자 또는 랩별로 사용 정책을 설정하여 비용을 최적화하고, 랩에서 사용 및 활동 동향을 분석하기 위해 일정을 설정할 수 있습니다. 클래스룸 랩과 같은 관리되는 랩의 경우 현재 보다 작은 하위 집합의 비용 최적화 및 분석 옵션을 사용할 수 있습니다. 
 - **내장된 보안**. 랩 소유자는 랩에 대한 개인 가상 네트워크와 서브넷을 설정하고 공유되는 공용 IP 주소를 사용할 수 있습니다. 랩 사용자는 ExpressRoute 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 안전하게 리소스에 액세스할 수 있습니다. (현재 DevTest Labs에서만 사용 가능)
 - **워크 플로와 도구에 통합**. Azure Lab Services를 사용하여 랩을 조직의 웹 사이트 및 관리 시스템에 통합할 수 있습니다. 지속적인 통합/지속적인 배포(CI/CD) 도구 내에서 환경을 자동으로 프로비전할 수 있습니다. (현재 DevTest Labs에서만 사용 가능)
@@ -93,5 +94,5 @@ Azure 구독을 소유한 조직내 클라우드 리소스의 IT 관리자는 �
 ## <a name="next-steps"></a>다음 단계
 Azure Lab Services를 사용하여 랩 설정 시작합니다.
 
-- [클래스룸 랩 설정](tutorial-setup-classroom-lab.md)
-- [사용자 지정 랩 설정](tutorial-create-custom-lab.md)
+- [클래스룸 랩 설정](classroom-labs/tutorial-setup-classroom-lab.md)
+- [랩 설정](tutorial-create-custom-lab.md)

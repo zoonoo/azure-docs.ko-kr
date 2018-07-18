@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
-ms.openlocfilehash: 50e0e9f5edc18aac42ee80e232f70e09736124bc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7ad205c75a02b496abe2cb910c7eb459cdb16c97
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33761890"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969241"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Azure App Service 진단 개요 
 
@@ -27,7 +27,7 @@ ms.locfileid: "33761890"
  
 이 환경은 지난 24시간 동안 웹앱에 문제가 있을 때 가장 유용하지만, 언제든지 분석할 수 있도록 모든 진단 그래프가 제공됩니다. 추가 문제 해결 도구 및 유용한 문서와 포럼에 대한 링크는 오른쪽 열에 있습니다.
 
-App Service 진단은 Windows의 앱 뿐만 아니라 [Linux/컨테이너](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-intro), [App Service 환경](https://docs.microsoft.com/en-us/azure/app-service/environment/intro) 및 [Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)의 앱에도 작용합니다. 
+App Service 진단은 Windows의 앱 뿐만 아니라 [Linux/컨테이너](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service 환경](https://docs.microsoft.com/azure/app-service/environment/intro) 및 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)의 앱에도 작용합니다. 
 
 ## <a name="open-app-service-diagnostics"></a>App Service 진단 열기
 

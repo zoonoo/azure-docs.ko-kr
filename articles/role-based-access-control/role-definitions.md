@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/12/2018
+ms.date: 05/18/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7a9e257d445ff7dadfe27d1c75cde6f58a393397
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 9bb7808f2b483fe9cd7d22c6df3fe80d4a98f1f4
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161816"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266859"
 ---
 # <a name="understand-role-definitions"></a>역할 정의 이해
 
@@ -28,7 +28,7 @@ ms.locfileid: "34161816"
 
 ## <a name="role-definition-structure"></a>역할 정의 구조
 
-*역할 정의*는 권한의 모음입니다. 때로는 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 수행할 수 없는 작업도 나열할 수 있습니다. 역할 정의의 구조는 다음과 같습니다.
+*역할 정의*는 권한의 모음입니다. 때로는 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 또한 수행할 수 없는 작업이나 기본 데이터와 관련된 작업이 나열될 수도 있습니다. 역할 정의의 구조는 다음과 같습니다.
 
 ```
 assignableScopes []
@@ -37,7 +37,9 @@ id
 name
 permissions []
   actions []
+  dataActions []
   notActions []
+  notDataActions []
 roleName
 roleType
 type
@@ -74,11 +76,13 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
           "*"
         ],
         "additionalProperties": {},
+        "dataActions": [],
         "notActions": [
           "Microsoft.Authorization/*/Delete",
           "Microsoft.Authorization/*/Write",
           "Microsoft.Authorization/elevateAccess/Action"
         ],
+        "notDataActions": []
       }
     ],
     "roleName": "Contributor",
@@ -88,7 +92,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 ]
 ```
 
-## <a name="management-operations"></a>관리 작업
+## <a name="management-and-data-operations-preview"></a>관리 및 데이터 작업(미리 보기)
 
 관리 작업에 대한 역할 기반 액세스 제어는 역할 정의의 `actions` 및 `notActions` 섹션에 지정됩니다. Azure의 관리 작업에 대한 몇 가지 예는 다음과 같습니다.
 
@@ -96,7 +100,93 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 - Blob 컨테이너 만들기, 업데이트 또는 삭제
 - 리소스 그룹 및 해당하는 모든 리소스 삭제
 
-관리 액세스 권한은 데이터에 상속되지 않습니다. 이렇게 분리하면 와일드카드(`*`)가 있는 역할에서 데이터에 무제한으로 액세스할 수 없게 됩니다. 예를 들어 구독에 [읽기 권한자](built-in-roles.md#reader) 역할이 있는 사용자는 저장소 계정을 볼 수 있지만 기본 데이터는 볼 수 없습니다.
+관리 액세스 권한은 데이터에 상속되지 않습니다. 이렇게 분리하면 와일드카드(`*`)가 있는 역할에서 데이터에 무제한으로 액세스할 수 없게 됩니다. 예를 들어 구독에 [읽기 권한자](built-in-roles.md#reader) 역할이 있는 사용자는 저장소 계정을 볼 수 있지만 기본적으로 기본 데이터는 볼 수 없습니다.
+
+이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용되는 것과 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업(현재 미리 보기)으로 확장되었습니다.
+
+데이터 작업을 지원하기 위해 새로운 데이터 섹션이 역할 정의 구조에 추가되었습니다. 데이터 작업은 `dataActions` 및 `notDataActions` 섹션에서 지정됩니다. 이러한 데이터 섹션을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `dataActions` 및 `notDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
+
+- 컨테이너의 Blob 목록 읽기
+- 컨테이너에 Storage Blob 쓰기
+- 큐의 메시지 삭제
+
+다음은 [Storage Blob 데이터 판독기(미리 보기)](built-in-roles.md#storage-blob-data-reader-preview) 역할 정의입니다. 여기에는 `actions` 및 `dataActions` 섹션의 작업이 모두 포함됩니다. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
+
+```json
+[
+  {
+    "additionalProperties": {},
+    "assignableScopes": [
+      "/"
+    ],
+    "description": "Allows for read access to Azure Storage blob containers and data.",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+        ],
+        "additionalProperties": {},
+        "dataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+        ],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Storage Blob Data Reader (Preview)",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions"
+  }
+]
+```
+
+데이터 작업만 `dataActions` 및 `notDataActions` 섹션에 추가할 수 있습니다. 리소스 공급자는 `isDataAction` 속성을 `true`로 설정하여 데이터 작업을 식별합니다. `isDataAction`이 `true`인 작업 목록을 보려면 [리소스 공급자 작업](resource-provider-operations.md)을 참조하세요. 데이터 작업이 없는 역할은 역할 정의 내에 `dataActions` 및 `notDataActions` 섹션이 없어도 됩니다.
+
+모든 관리 작업 API 호출에 대한 권한 부여는 Azure Resource Manager에서 처리합니다. 데이터 작업 API 호출에 대한 권한 부여는 리소스 공급자 또는 Azure Resource Manager에 의해 처리됩니다.
+
+### <a name="data-operations-example"></a>데이터 작업 예제
+
+관리 및 데이터 작업 방법에 대한 이해를 돕기 위한 구체적인 예를 살펴 보겠습니다. Alice는 구독 범위에서 [소유자](built-in-roles.md#owner) 역할을 할당 받았습니다. Bob에게는 저장소 계정 범위에서 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할이 할당되었습니다. 다음 다이어그램은 이 예제를 보여 줍니다.
+
+![역할 기반 액세스 제어가 관리 및 데이터 작업을 모두 지원하도록 확장되었습니다.](./media/role-definitions/rbac-management-data.png)
+
+Alice의 [소유자](built-in-roles.md#owner) 역할과 Bob의 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할은 다음 작업을 수행합니다.
+
+소유자
+
+&nbsp;&nbsp;&nbsp;&nbsp;작업<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`*`
+
+Storage Blob 데이터 기여자(미리 보기)
+
+&nbsp;&nbsp;&nbsp;&nbsp;작업<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;DataActions<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
+
+Alice는 구독 범위에서 와일드카드(`*`) 작업을 수행하므로 그녀의 권한은 그녀가 모든 관리 작업을 수행할 수 있도록 상속됩니다. 그러나 Alice는 데이터 작업을 수행할 수 없습니다. 예를 들어 Alice는 기본적으로 컨테이너 내부의 Blob을 읽을 수 없지만 컨테이너를 읽고, 쓰고, 삭제할 수 있습니다.
+
+Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-roles.md#storage-blob-data-contributor-preview) 역할에 지정된 `actions` 및 `dataActions`로만 제한됩니다. 역할에 따라 Bob은 관리 및 데이터 작업을 모두 수행할 수 있습니다. 예를 들어 Bob은 지정된 저장소 계정에서 컨테이너를 읽고, 쓰고, 삭제할 수 있으며 Blob을 읽고, 쓰고, 삭제할 수도 있습니다.
+
+### <a name="what-tools-support-using-rbac-for-data-operations"></a>RBAC를 사용한 데이터 작업을 지원하는 도구는 무엇인가요?
+
+데이터 작업을 보고 작업하려면 도구 또는 SDK의 올바른 버전이 있어야 합니다.
+
+| 도구  | 버전  |
+|---------|---------|
+| [Azure PowerShell](/powershell/azure/install-azurerm-ps) | 5.6.0 이상 |
+| [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 이상 |
+| [.NET용 Azure](/dotnet/azure/) | 2.8.0-미리 보기 이상 버전 |
+| [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 이상 |
+| [Java용 Azure](/java/azure/) | 1.9.0 이상 |
+| [Python용 Azure](/python/azure) | 0.40.0 이상 |
+| [Ruby용 Azure SDK](https://rubygems.org/gems/azure_sdk) | 0.17.1 이상 |
 
 ## <a name="actions"></a>actions
 
@@ -116,6 +206,25 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 > [!NOTE]
 > 사용자에게 `notActions`에서 작업을 제외하는 역할이 할당되고 동일한 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 작업을 수행할 수 있습니다. `notActions`는 거부 규칙이 아니며, 특정 작업을 제외해야 할 경우 허용되는 작업 집합을 만드는 편리한 방법일 뿐입니다.
+>
+
+## <a name="dataactions-preview"></a>dataActions(미리 보기)
+
+`dataActions` 권한은 역할이 해당 개체 내의 데이터에 대한 액세스 권한을 부여하는 데이터 작업을 지정합니다. 예를 들어 사용자가 저장소 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 저장소 계정 내의 Blob을 읽을 수 있습니다. `dataActions`에서 사용할 수 있는 데이터 작업의 몇 가지 예제는 다음과 같습니다.
+
+| 작업 문자열    | 설명         |
+| ------------------- | ------------------- |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/read` | Blob 또는 Blob 목록 반환 |
+| `Microsoft.Storage/storageAccounts/ blobServices/containers/blobs/write` | Blob 쓰기 결과 반환 |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | 메시지 반환 |
+| `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | 메시지 또는 메시지 작성/삭제 결과를 반환합니다. |
+
+## <a name="notdataactions-preview"></a>notDataActions(미리 보기)
+
+`notDataActions` 권한은 허용된 `dataActions`에서 제외되는 데이터 작업을 지정합니다. 역할(유효 사용 권한)로 부여되는 액세스 권한은 `dataActions` 작업에서 `notDataActions` 작업을 제외하여 계산됩니다. 각 리소스 공급자는 데이터 작업을 수행하기 위한 각각의 API 집합을 제공합니다.
+
+> [!NOTE]
+> 사용자에게 `notDataActions`에서 데이터 작업을 제외하는 역할이 할당되고 동일한 데이터 작업에 대한 액세스 권한을 부여하는 두 번째 역할이 할당된 경우 사용자는 해당 데이터 작업을 수행할 수 있습니다. `notDataActions`는 거부 규칙이 아니며, 특정 데이터 작업을 제외해야 할 경우 허용되는 데이터 작업 집합을 만드는 편리한 방법일 뿐입니다.
 >
 
 ## <a name="assignablescopes"></a>assignableScopes
@@ -163,7 +272,9 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
           "*/read"
         ],
         "additionalProperties": {},
+        "dataActions": [],
         "notActions": [],
+        "notDataActions": []
       }
     ],
     "roleName": "Reader",
@@ -196,6 +307,12 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
   "NotActions":  [
 
                  ],
+  "DataActions":  [
+
+                  ],
+  "NotDataActions":  [
+
+                     ],
   "AssignableScopes":  [
                            "/subscriptions/{subscriptionId1}",
                            "/subscriptions/{subscriptionId2}",

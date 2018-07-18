@@ -9,16 +9,18 @@ manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 38f31220b7cf4624367d872df152ef9e1304e841
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903033"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets
@@ -145,7 +147,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <tr>
   <td>CRM 데이터 집합 공유</td>
   <td>
-이 데이터는 KDD Cup 2009 고객 관계 예측 챌린지(<a href="http://www.sigkdd.org/kdd-cup-2009-customer-relationship-prediction - orange_small_train.data.zip">orange_small_train.data.zip</a>)에서 제공됩니다.
+이 데이터는 KDD Cup 2009 고객 관계 예측 챌린지(<a href="http://www.sigkdd.org/site/2009/files/orange_small_train.data.zip">orange_small_train.data.zip</a>)에서 제공됩니다.
 <p></p>
 데이터 집합에는 French Telecom 회사인 Orange의 고객 50,000명이 포함됩니다. 각 고객은 익명으로 처리되는 230개 기능을 가지며, 이 중 190개는 숫자이고 40개는 범주입니다. 기능이 매우 희박합니다.
   </td>
@@ -203,7 +205,7 @@ KDD Cup 2009 고객 관계 예측 챌린지의 레이블(<a href="http://www.sig
 <p></p>
 <b>관련 조사:</b> Cortez, P., & Morais, A. (2008). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
-[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos and J. Machado Eds., New Trends in Artificial Intelligence, Proceedings of the 13th EPIA 2007 - Portuguese Conference on Artificial Intelligence, December, Guimarães, Portugal, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 사용 가능: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
+[Cortez and Morais, 2007] P. Cortez and A. Morais. A Data Mining Approach to Predict Forest Fires using Meteorological Data. In J. Neves, M. F. Santos 및 J. Machado Eds., 인공 지능의 새로운 추세, 13회 EPIA 2007 - 인공 지능에 관한 포르투갈 컨퍼런스, 12월, 포르투갈 기마랑이스, pp. 512-523, 2007. APPIA, ISBN-13 978-989-95618-0-9. 사용 가능: <a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>.
   </td>
 </tr>
 
@@ -306,7 +308,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <p></p>
 <b>관련 조사:</b> Sterling, D. & Buntine, W. (NA). UCI Machine Learning 리포지토리 <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science 
 <p></p>
-여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf">http://www.outokumpu.com/SiteCollectionDocuments/Outokumpu-steel-grades-properties-global-standards.pdf</a>
+여기에서 강철 등급에 대한 유용한 지침을 확인할 수 있습니다. <a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
 </tr>
 
@@ -401,7 +403,7 @@ RCV1-V2 Reuters 뉴스 데이터 집합의 뉴스 기사에 대한 토픽 할당
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010)입니다. Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 집합. <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> 또는 <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>에서 찾아보세요.
+이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="http://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010)입니다. Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 집합. <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>에서 찾아보세요.
 <p></p>
 데이터 집합이 다운로드되어 Azure Blob Store(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>)에 저장되었고 학생 교육 시스템의 로그 파일을 포함합니다. 제공된 기능에는 문제 ID 및 간략한 설명, 학생 ID, 타임스탬프, 올바른 방법으로 문제를 해결하기 전에 학생이 시도한 횟수가 포함됩니다. 원본 데이터 집합에는 8,900,000개 레코드가 있고 이 데이터 집합은 처음 100,000개 행으로 샘플을 줄였습니다. 데이터 집합에는 숫자, 범주, 타임스탬프 형식의 탭으로 구분된 23개 열이 있습니다.
   </td>

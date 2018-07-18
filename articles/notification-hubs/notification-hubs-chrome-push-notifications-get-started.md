@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 5754a537b8a0bf0a93d6d54ba0ba78e5957ac87f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7bdc692104194bff4a25e6974ba72971af543cbf
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777477"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698163"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Chrome 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -86,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이제 알림 허브가 GCM과 작동하도록 구성되었으며, 푸시 알림을 받고 보내도록 앱을 등록하기 위한 연결 문자열이 있습니다.
 
 ### <a name="create-a-new-chrome-app"></a>새 Chrome 앱 만들기
-다음 샘플은 [Chrome 앱 GCM 샘플]을 기반으로 하며, 권장되는 방식을 사용하여 Chrome 앱을 만듭니다. 이 섹션에서는 Azure Notification Hubs에만 적용되는 단계를 중점적으로 설명합니다. 
+다음 샘플은 [Chrome App GCM 샘플]을 기반으로 하며, 권장되는 방식을 사용하여 Chrome 앱을 만듭니다. 이 섹션에서는 Azure Notification Hubs에만 적용되는 단계를 중점적으로 설명합니다. 
 
 > [!NOTE]
 > [Chrome 앱 알림 허브 샘플]에서 이 Chrome 앱용 소스를 다운로드하는 것이 좋습니다. 
@@ -400,7 +400,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
    
         Install-Package Microsoft.Azure.NotificationHubs
    
-   <a href="http://nuget.org/packages/  WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지를 포함하는 Azure Service Bus SDK에 대한 참조는 프로젝트에 자동으로 추가됩니다.</a>
+   <a href="http://nuget.org/packages/WindowsAzure.ServiceBus/">WindowsAzure.ServiceBus NuGet 패키지를 포함하는 Azure Service Bus SDK에 대한 참조는 프로젝트에 자동으로 추가됩니다.</a>
 4. `Program.cs`을 열고 다음 `using` 문을 추가합니다.
    
         using Microsoft.Azure.NotificationHubs;
@@ -465,7 +465,7 @@ JavaScript를 사용하여 Chrome 앱을 만듭니다. 이때 원하는 단어 �
 [Chrome 앱 알림 허브 샘플]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToChromeApps
 [Notification Hubs Overview]: notification-hubs-push-notification-overview.md
 [Chrome 앱 개요]: https://developer.chrome.com/apps/about_apps
-[Chrome 앱 GCM 샘플]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
+[Chrome App GCM 샘플]: https://github.com/GoogleChrome/chrome-app-samples/tree/master/samples/gcm-notifications
 [Installable Web Apps]: https://developers.google.com/chrome/apps/docs/
 [모바일의 Chrome 앱]: https://developer.chrome.com/apps/chrome_apps_on_mobile
 [등록 NH REST API 만들기]: http://msdn.microsoft.com/library/azure/dn223265.aspx

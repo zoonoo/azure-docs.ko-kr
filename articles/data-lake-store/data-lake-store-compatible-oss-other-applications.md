@@ -1,25 +1,26 @@
 ---
-title: Data Lake Store와 호환되는 빅 데이터 응용 프로그램 | Microsoft 문서
-description: Azure 데이터 레이크 저장소에서 작동하는 공개 소스 응용 프로그램의 목록
+title: Data Lake Storage Gen1과 호환되는 빅 데이터 응용 프로그램 | Microsoft Docs
+description: Azure Data Lake Storage Gen1(이전에 Azure Data Lake Store로 알려짐)에서 작동하는 오픈 소스 응용 프로그램의 목록
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 699e1805-cb76-4807-9ac1-8bd9d9bbb72b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fdeaf4d1d25d1669002b696219adfb6eaff4fd40
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 61187a26190e8d449a572e00d5abe8338d9060c2
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624707"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029641"
 ---
-# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램
+# <a name="open-source-big-data-applications-that-work-with-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1에서 작동하는 오픈 소스 빅 데이터 응용 프로그램
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 이 문서는 Azure 데이터 레이크 저장소에서 작동하는 공개 소스 빅 데이터 응용 프로그램 목록을 보여줍니다. 아래 표의 응용 프로그램은 지원되는 나열된 배포의 버전에서만 사용할 수 있습니다. HDInsight와 함께 사용할 수 있는 응용 프로그램의 버전에 대한 자세한 정보는 [HDInsight 구성 요소 버전 관리](../hdinsight/hdinsight-component-versioning.md)를 참조하세요.
 
 | 공개 소스 소프트웨어 | 배포 |
@@ -38,5 +39,5 @@ ms.locfileid: "34624707"
 
 
 ## <a name="see-also"></a>참고 항목
-* [Azure 데이터 레이크 저장소 개요](data-lake-store-overview.md)
+* [Azure Data Lake Storage Gen1 개요](data-lake-store-overview.md)
 

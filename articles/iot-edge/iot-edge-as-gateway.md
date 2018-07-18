@@ -8,14 +8,14 @@ ms.date: 11/27/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ff5e50df1f7a9059bf37fe99d89050a48aa6e64e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0e085d6c2962ec2a2324bfc134b0e201df04a336
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631601"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028968"
 ---
-# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway---preview"></a>IoT Edge 장치를 게이트웨이로 사용하는 방법 - 미리 보기
+# <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>IoT Edge 장치를 게이트웨이로 사용하는 방법
 
 IoT 솔루션에서 게이트웨이의 목적은 솔루션에 국한되며 장치 연결을 에지 분석과 결합합니다. Azure IoT Edge는 연결, ID 또는 에지 분석과의 관련성에 관계없이 IoT 게이트웨이에 대한 모든 요구를 충족하는 데 사용할 수 있습니다. 이 문서의 게이트웨이 패턴은 장치 데이터가 게이트웨이에서 처리되는 방식이 아닌 다운스트림 장치 연결 및 장치 ID의 특징만을 참조합니다.
 
@@ -54,7 +54,7 @@ ID를 변환하는 게이트웨이는 프로토콜 변환의 이점을 제공할
 ## <a name="next-steps"></a>다음 단계
 IoT Edge 장치를 [투명 게이트웨이][lnk-iot-edge-as-transparent-gateway]로 사용 
 
-[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway.md
+[lnk-iot-edge-as-transparent-gateway]: ./how-to-create-transparent-gateway-linux.md
 [lnk-iothub-throttles-quotas]: ../iot-hub/iot-hub-devguide-quotas-throttling.md
 
 [1]: ./media/iot-edge-as-gateway/edge-as-gateway.png

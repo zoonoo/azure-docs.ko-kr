@@ -2,19 +2,19 @@
 title: Azure Kubernetes Service에서 Kubernetes와 Jenkins 연속 배포
 description: Jenkins로 연속 배포 프로세스를 자동화하여 Azure Kubernetes Service의 Kubernetes에서 컨테이너화된 앱을 배포 및 업그레이드하는 방법
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 376d3b916c4e01ea6111e6c1db63e976dd1ea320
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 84baf01ce6eeed8dc569d7a856189aefba788126
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069343"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096478"
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Jenkins 및 Azure Kubernetes Service를 사용한 연속 배포
 

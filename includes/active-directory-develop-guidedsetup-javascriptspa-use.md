@@ -50,7 +50,7 @@ function callGraphApi() {
         userInfoElement.parentElement.classList.remove("hidden");
         userInfoElement.innerHTML = JSON.stringify(user, null, 4);
 
-        // Show Sign-Out button
+        // Show sign-out button
         document.getElementById("signOutButton").classList.remove("hidden");
 
         // Now Call Graph API to show the user profile information:
@@ -81,7 +81,7 @@ function callGraphApi() {
 /**
  * Callback method from sign-in: if no errors, call callGraphApi() to show results.
  * @param {string} errorDesc - If error occur, the error message
- * @param {object} token - The token received from login
+ * @param {object} token - The token received from sign-in
  * @param {object} error - The error string
  * @param {string} tokenType - The token type: For loginRedirect, tokenType = "id_token". For acquireTokenRedirect, tokenType:"access_token".
  */
@@ -119,12 +119,12 @@ function showError(endpoint, error, errorDesc) {
 
 #### <a name="getting-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 
-초기 로그인 후, 사용자는 리소스에 액세스하기 위해 토큰을 요청해야 할 때마다 다시 인증하는 것을 원하지 않으므로 토큰을 획득하는 대부분 경우 *acquireTokenSilent*를 사용해야 합니다. 하지만 사용자가 Azure Active Directory v2 끝점과 강제로 상호 작용하도록 해야 하는 다음과 같은 상황이 있습니다.
--   암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 수 있습니다.
--   응용 프로그램이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있습니다.
--   2단계 인증이 필요합니다.
+초기 로그인 후, 사용자는 리소스에 액세스하기 위해 토큰을 요청해야 할 때마다 다시 인증하는 것을 원하지 않으므로 토큰을 획득하는 대부분 경우 *acquireTokenSilent*를 사용해야 합니다. 하지만 사용자가 Azure Active Directory v2 엔드포인트와 강제로 상호 작용하도록 해야 하는 다음과 같은 상황이 있습니다.
+- 암호가 만료되어 사용자가 자격 증명을 다시 입력해야 할 수 있습니다.
+- 응용 프로그램이 사용자 동의가 필요한 리소스에 액세스를 요청하고 있습니다.
+- 2단계 인증이 필요합니다.
 
-*acquireTokenRedirect(scope)* 를 호출하면 사용자가 Azure Active Directory v2 끝점(또는 팝업 창의 *acquireTokenPopup(scope)* 결과)으로 리디렉션되며 여기에서 사용자는 자격 증명을 확인하거나 필요한 리소스에 동의하거나 2단계 인증을 완료하여 상호 작용해야 합니다.
+*acquireTokenRedirect(scope)* 를 호출하면 사용자가 Azure Active Directory v2 엔드포인트(또는 팝업 창의 *acquireTokenPopup(scope)* 결과)로 리디렉션되며 여기에서 사용자는 자격 증명을 확인하거나 필요한 리소스에 동의하거나 2단계 인증을 완료하여 상호 작용해야 합니다.
 
 #### <a name="getting-a-user-token-silently"></a>자동으로 사용자 토큰 가져오기
 ` acquireTokenSilent` 메서드는 사용자 개입 없이 토큰 획득 및 갱신을 자동으로 처리합니다. `loginRedirect`(또는 `loginPopup`)가 처음으로 실행된 후 일반적으로 `acquireTokenSilent` 메서드를 사용하여 후속 호출 시 보호되는 리소스에 액세스하는 데 사용되는 토큰을 가져옵니다. 즉, 토큰을 요청하거나 갱신하기 위한 호출이 자동으로 수행됩니다.
@@ -204,7 +204,7 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
 
 ```javascript
 /**
- * Sign-out the user
+ * Sign out the user
  */
 function signOut() {
     userAgentApplication.logout();

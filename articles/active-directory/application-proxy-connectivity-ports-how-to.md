@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.openlocfilehash: 9f6c45f548b69ed71215593d52cff9b1e42852c4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: asteen
+ms.openlocfilehash: bc1ed4a0b49588bd9828bd64508caa50e92c304a
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589732"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335675"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 필요한 방화벽 포트를 여는 방법
 

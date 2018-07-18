@@ -1,24 +1,19 @@
 ---
-title: "Azure Backup Server v2에서 Modern Backup Storage 사용 | Microsoft Docs"
-description: "Azure Backup Server v2의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다."
+title: Azure Backup Server v2에서 Modern Backup Storage 사용
+description: Azure Backup Server v2의 새로운 기능에 대해 알아봅니다. 이 문서에서는 Backup Server 설치를 업그레이드하는 방법을 설명합니다.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: masaran;markgal
-ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: markgal
+ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34606757"
 ---
 # <a name="add-storage-to-azure-backup-server-v2"></a>Azure Backup Server v2에 저장소 추가
 
@@ -43,7 +38,7 @@ Backup Server v2는 저장소 볼륨을 허용합니다. 볼륨을 추가하면 
 
 볼륨이 포함된 Backup Server v2를 디스크 저장소로 사용하면 저장소를 지속적으로 제어할 수 있습니다. 볼륨은 단일 디스크일 수 있습니다. 하지만 나중에 저장소를 확장하려는 경우에는 저장소 공간을 사용하여 만들어진 디스크에서 볼륨을 만듭니다. 이렇게 하면 백업 저장소용 볼륨을 확장하려는 경우 도움이 될 수 있습니다. 이 섹션에서는 이 설정을 통해 볼륨을 만드는 모범 사례를 제공합니다.
 
-1. 서버 관리자에서 **파일 및 저장소 서비스** > **볼륨** > **저장소 풀**을 선택합니다. **실제 디스크**에서 **새 저장소 풀**을 선택합니다. 
+1. 서버 관리자에서 **파일 및 Storage 서비스** > **볼륨** > **저장소 풀**을 선택합니다. **실제 디스크**에서 **새 저장소 풀**을 선택합니다. 
 
     ![새 저장소 풀 만들기](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 

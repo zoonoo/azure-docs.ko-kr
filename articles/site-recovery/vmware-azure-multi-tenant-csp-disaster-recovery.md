@@ -6,18 +6,18 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 58ea2e7c387137f974425464ef2c9d17f438ba7c
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d384a77054cdcab0305b9e6d3fe5bb824e49bb16
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071862"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916805"
 ---
 # <a name="set-up-vmware-replication-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>CSP(클라우드 솔루션 공급자) 프로그램을 사용하여 다중 테넌트 환경에서 VMware 복제 설정
 
-[CSP 프로그램](https://partner.microsoft.com/en-US/cloud-solution-provider)은 Office 365, Enterprise Mobility Suite 및 Microsoft Azure 등 모든 Microsoft 클라우드 서비스에 대한 더 나은 협력 사례를 발전시키고 있습니다. CSP를 통해 파트너는 고객과 종단 간 관계를 보유하게 되고 기본 관계 접점이 될 수 있습니다. 파트너는 고객을 위해 Azure 구독을 배포하고 이러한 구독과 고객의 부가 가치 사용자 지정 옵션을 결합할 수 있습니다.
+[CSP 프로그램](https://partner.microsoft.com/en-US/cloud-solution-provider)은 Office 365, Enterprise Mobility Suite 및 Microsoft Azure 등 모든 Microsoft 클라우드 서비스에 대한 더 나은 협력 사례를 발전시키고 있습니다. CSP를 통해 파트너는 고객과 종단 간 관계를 보유하게 되고 기본 관계 접점이 될 수 있습니다. 파트너는 고객을 위해 Azure 구독을 배포하고 이러한 구독과 고객의 부가 가치 사용자 지정 제안을 결합할 수 있습니다.
 
 파트너로써 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 CSP를 통해 고객을 위한 재해 복구를 직접 관리할 수 있습니다. 또는 CSP를 사용하여 Site Recovery 환경을 설정할 수 있으며 고객이 셀프 서비스 방식으로 고유한 재해 복구 요구 사항을 관리하도록 할 수 있습니다. 두 시나리오 모두에서 파트너는 Site Recovery와 고객 간의 매개체입니다. 파트너가 고객 관계 서비스를 제공하고 Site Recovery 사용에 대해 고객에게 비용을 청구합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/15/2017
 ms.author: dugill
-ms.openlocfilehash: 1dea8d173432b05a72de72e8b17db4c97ea7924d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359865"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018649"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -204,7 +204,7 @@ ASP.NET MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 
     {"value":[{"actions":["*"],"notActions":["Microsoft.Authorization/*/Write","Microsoft.Authorization/*/Delete"]},{"actions":["*/read"],"notActions":[]}]}
 
-사용 권한 API가 여러 사용 권한을 반환합니다. 각 사용 권한은 허용되는 작업(**actions**) 및 허용되지 않는 작업(**notactions**)으로 구성됩니다. 작업이 사용 권한의 허용되는 작업에 있고 해당 권한의 허용되지 않는 작업에 없는 경우, 사용자는 해당 작업을 수행할 수 있습니다. **microsoft.authorization/roleassignments/write** 는 액세스 관리 권한을 부여하는 작업입니다. 응용 프로그램은 사용 권한 결과를 구문 분석하여 각 권한의 **actions** 및 **notactions**에서 이 작업 문자열에 대한 정규식 일치(regex match)를 찾습니다.
+사용 권한 API가 여러 사용 권한을 반환합니다. 각 사용 권한은 허용되는 작업(**actions**) 및 허용되지 않는 작업(**notactions**)으로 구성됩니다. 작업이 사용 권한의 허용되는 작업에 있고 해당 권한의 허용되지 않는 작업에 없는 경우, 사용자는 해당 작업을 수행할 수 있습니다. **microsoft.authorization/roleassignments/write**는 액세스 관리 권한을 부여하는 작업입니다. 응용 프로그램은 사용 권한 결과를 구문 분석하여 각 권한의 **actions** 및 **notactions**에서 이 작업 문자열에 대한 정규식 일치(regex match)를 찾습니다.
 
 ## <a name="get-app-only-access-token"></a>앱 전용 액세스 토큰 가져오기
 이제 사용자가 Azure 구독에 액세스 권한을 할당할 수 있는지 알게 되었습니다. 다음 단계는 다음과 같습니다.

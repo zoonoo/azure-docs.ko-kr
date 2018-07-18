@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
 ms.author: jdial
-ms.openlocfilehash: 22cf62f201b21f3035687b7f0f2ff07dc94f1a29
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f2fe02a6e7e696fa2c0ab301e7469060d6bd4ab6
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658675"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292038"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>네트워크 보안 그룹을 만들기, 변경 또는 삭제
 
@@ -39,7 +39,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 
 ## <a name="work-with-network-security-groups"></a>네트워크 보안 그룹으로 작업
 
-네트워크 보안 그룹의 만들기, [모두 보기](#view-all-network-security-groups), [세부 정보 보기](#view-details-of-a-network-security-group), [변경](#change-a-network-security-group) 및 [삭제](#delete-a-network-security-group)를 수행할 수 있습니다. 네트워크 인터페이스 또는 서브넷에서 네트워크 보안 그룹을 [연결 또는 분리](#associate-or-dissociate-a-network-security-group-to-or-from-a-resource)할 수 있습니다.
+네트워크 보안 그룹의 만들기, [모두 보기](#view-all-network-security-groups), [세부 정보 보기](#view-details-of-a-network-security-group), [변경](#change-a-network-security-group) 및 [삭제](#delete-a-network-security-group)를 수행할 수 있습니다. 네트워크 인터페이스 또는 서브넷에서 네트워크 보안 그룹을 [연결 또는 분리](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet-or-network-interface)할 수 있습니다.
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
@@ -121,9 +121,9 @@ Azure 위치와 구독별로 만들 수 있는 네트워크 보안 그룹당 규
     
     |설정  |값  |세부 정보  |
     |---------|---------|---------|
-    |원본     | **모든**, **IP 주소** 또는 **서비스 태그**를 선택합니다.        | **IP 주소**를 선택하는 경우 **원본 IP 주소/CIDR 범위**를 지정해야 합니다. 단일 값 또는 쉼표로 구분된 다중 값 목록을 지정할 수 있습니다. 다중 값의 예는 10.0.0.0/16, 192.188.1.1입니다. 지정할 수 있는 값의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. **서비스 태그**를 선택하는 경우 서비스 태그 하나를 선택해야 합니다. 서비스 태그는 IP 주소 범주에 대한 사전 정의된 식별자입니다. 사용할 수 있는 서비스 태그 및 각 태그의 의미에 대한 자세한 내용은 [서비스 태그](security-overview.md#service-tags) 참조        |
+    |원본     | **모든**, **IP 주소** 또는 **서비스 태그**를 선택합니다.        | **IP 주소**를 선택하는 경우 **원본 IP 주소/CIDR 범위**를 지정해야 합니다. 단일 값 또는 쉼표로 구분된 다중 값 목록을 지정할 수 있습니다. 다중 값의 예는 10.0.0.0/16, 192.188.1.1입니다. 지정할 수 있는 값의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요. **서비스 태그**를 선택하는 경우 서비스 태그 하나를 선택해야 합니다. 서비스 태그는 IP 주소 범주에 대한 사전 정의된 식별자입니다. 사용할 수 있는 서비스 태그 및 각 태그의 의미에 대해 자세히 알려면 [서비스 태그](security-overview.md#service-tags)를 참조합니다. 지정하는 IP 주소가 Azure 가상 머신에 할당된 경우 공용 IP 주소가 가상 머신에 할당되면 공용 IP 주소가 아닌 개인 IP 주소를 지정했는지 확인합니다. 인바운드 보안 규칙을 위해 Azure가 공용 IP 주소를 개인 IP 주소로 변환한 후 및 아웃 바운드 규칙을 위해 Azure가 개인 IP 주소를 공용 IP 주소를 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](virtual-network-ip-addresses-overview-arm.md)을 참조합니다.        |
     |원본 포트 범위     | 80 같은 단일 포트, 1024-65535 같은 포트 범위 또는 80 및 1024-65535 같이 쉼표로 구분된 단일 포트 및/또는 포트 범위를 지정합니다. 모든 포트에 트래픽을 허용하려면 별표를 입력합니다. | 포트 및 범위는 규칙이 허용 또는 거부하는 포트 트래픽을 지정합니다. 지정할 수 있는 포트의 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)을 참조하세요.  |
-    |대상     | **모든**, **IP 주소** 또는 **가상 네트워크**를 선택합니다.        | **IP 주소**를 선택하는 경우 **대상 IP 주소/CIDR 범위**를 지정해야 합니다. **원본** 및 **원본 IP 주소/CIDR 범위**와 비슷한 경우 단일 또는 여러 주소나 범위를 지정할 수 있으며 지정할 수 있는 수에는 제한이 있습니다. 서비스 태그인 **가상 네트워크**를 선택하면 가상 네트워크의 주소 공간 내의 모든 IP 주소에 트래픽이 허용됩니다.        |
+    |대상     | **모든**, **IP 주소** 또는 **가상 네트워크**를 선택합니다.        | **IP 주소**를 선택하는 경우 **대상 IP 주소/CIDR 범위**를 지정해야 합니다. **원본** 및 **원본 IP 주소/CIDR 범위**와 비슷한 경우 단일 또는 여러 주소나 범위를 지정할 수 있으며 지정할 수 있는 수에는 제한이 있습니다. 서비스 태그인 **가상 네트워크**를 선택하면 가상 네트워크의 주소 공간 내의 모든 IP 주소에 트래픽이 허용됩니다. 지정하는 IP 주소가 Azure 가상 머신에 할당된 경우 공용 IP 주소가 가상 머신에 할당되면 공용 IP 주소가 아닌 개인 IP 주소를 지정했는지 확인합니다. 인바운드 보안 규칙을 위해 Azure가 공용 IP 주소를 개인 IP 주소로 변환한 후 및 아웃 바운드 규칙을 위해 Azure가 개인 IP 주소를 공용 IP 주소를 변환하기 전에 보안 규칙을 처리합니다. Azure에서 공용 및 개인 IP 주소에 대한 자세히 알려면 [IP 주소 형식](virtual-network-ip-addresses-overview-arm.md)을 참조합니다.        |
     |대상 포트 범위     | 단일 값 또는 쉼표로 구분된 값의 목록을 지정합니다. | **원본 포트 범위**와 비슷한 경우 단일 또는 여러 포트 및 범위를 지정할 수 있으며 지정할 수 있는 수에는 제한이 있습니다. |
     |프로토콜     | **모든**, **TCP** 또는 **UDP**를 선택합니다.        |         |
     |조치     | **허용** 또는 **거부**를 선택합니다.        |         |

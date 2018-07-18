@@ -1,22 +1,19 @@
 ---
 title: IoT Hub Device Provisioning Service - 자동 프로비전 개념
 description: 이 문서에서는 IoT Device Provisioning Service, IoT Hub 및 클라이언트 SDK를 사용하여 장치 자동 프로비전 단계에 대한 개념적 개요를 제공합니다.
-services: iot-dps
-keywords: ''
 author: BryanLa
 ms.author: bryanla
-ms.date: 03/27/2018
+ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
-documentationcenter: ''
+services: iot-dps
 manager: timlt
-ms.devlang: na
-ms.custom: ''
-ms.openlocfilehash: e743f40a1f8ff71fe93f14217b410df348d9903d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736409"
 ---
 # <a name="auto-provisioning-concepts"></a>자동 프로비전 개념
 
@@ -33,7 +30,7 @@ Azure IoT 자동 프로비전은 다음 세 단계로 구분할 수 있습니다
 
 2. **장치 등록** - Device Provisioning Service 인스턴스가 향후 등록할 장치를 인식하도록 하는 프로세스입니다. [등록](concepts-service.md#enrollment)은 프로비전 서비스에서 단일 장치의 경우는 "개별 등록"으로, 여러 장치의 경우는 "그룹 등록"으로 장치 ID 정보를 구성하여 수행됩니다. ID는 장치가 사용하도록 디자인된 [증명 메커니즘](concepts-security.md#attestation-mechanism)을 기준으로 합니다. 이 메커니즘을 사용하여 프로비전 서비스는 등록 중에 장치의 신뢰성을 증명할 수 있습니다.
 
-   - **TPM**: "개별 등록"으로 구성됩니다. 장치 ID는 TPM 등록 ID 및 공용 인증 키를 기준으로 합니다. TPM이 [사양]((https://trustedcomputinggroup.org/work-groups/trusted-platform-module/))이라고 간주할 경우, 서비스는 TPM 구현(하드웨어 또는 소프트웨어)에 관계없이 사양에 따라서만 증명합니다. TPM 기반 증명에 대한 자세한 내용은 [장치 프로비전: TPM으로 ID 증명](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/)을 참조하세요. 
+   - **TPM**: "개별 등록"으로 구성됩니다. 장치 ID는 TPM 등록 ID 및 공용 인증 키를 기준으로 합니다. TPM이 [사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)이라고 간주할 경우, 서비스는 TPM 구현(하드웨어 또는 소프트웨어)에 관계없이 사양에 따라서만 증명합니다. TPM 기반 증명에 대한 자세한 내용은 [장치 프로비전: TPM으로 ID 증명](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/)을 참조하세요. 
 
    - **X509**: "개별 등록" 또는 "그룹 등록"으로 구성됩니다. 장치 ID는 .pem 또는 .cer 파일로 등록에 업로드되는 X.509 디지털 인증서를 기준으로 합니다.
 
@@ -56,13 +53,13 @@ Azure IoT 자동 프로비전은 다음 세 단계로 구분할 수 있습니다
 | | 장치 ID 제공 | 장치 ID 정보의 작성자인 제조업체는 작업자(또는 지정된 에이전트)에게 해당 정보를 전달하거나, API를 통해 Device Provisioning Service에 직접 등록해야 합니다.<br><br>**빠른 시작**: 장치가 시뮬레이트되므로 제조업체 역할은 없습니다. Device Provisioning Service 인스턴스에서 시뮬레이트된 장치를 등록하는 데 사용되는 장치 ID를 얻는 방법에 대한 자세한 내용은 작업자 역할을 참조하세요. | 
 | 연산자 | 자동 프로비전 구성 | 이 작업은 자동 프로비전의 첫 번째 단계에 해당합니다.<br><br>**빠른 시작**: 작업자 역할을 수행하여 Azure 구독에서 Device Provisioning Service 및 IoT Hub 인스턴스를 구성합니다. | 자동 프로비전 설정 |
 |  | 장치 ID 등록 | 이 작업은 자동 프로비전의 두 번째 단계에 해당합니다.<br><br>**빠른 시작**: 작업자 역할을 수행하여 Device Provisioning Service 인스턴스에서 시뮬레이트된 장치를 등록합니다. 장치 ID는 빠른 시작에서 시뮬레이트된 증명 방법에 따라 결정됩니다(TPM 또는 X.509). 증명 세부 정보에 대해서는 개발자 역할을 참조하세요. | 
-| Device Provisioning Service,<br>IoT 허브 | \<모든 작업\> | 물리적 장치를 사용하는 프로덕션 구현과 시뮬레이트된 장치를 통한 빠른 시작에서, 이러한 역할은 Azure 구독에서 구성하는 IoT 서비스를 통해 이행됩니다. IoT 서비스는 물리적 장치 및 시뮬레이트된 장치의 프로비전에서 크게 다르지 않으므로 역할/작업은 정확히 동일하게 작동합니다. | 
+| Device Provisioning Service,<br>IoT Hub | \<모든 작업\> | 물리적 장치를 사용하는 프로덕션 구현과 시뮬레이트된 장치를 통한 빠른 시작에서, 이러한 역할은 Azure 구독에서 구성하는 IoT 서비스를 통해 이행됩니다. IoT 서비스는 물리적 장치 및 시뮬레이트된 장치의 프로비전에서 크게 다르지 않으므로 역할/작업은 정확히 동일하게 작동합니다. | 
 | Developer | 등록 소프트웨어 빌드/배포 | 이 작업은 자동 프로비전의 세 번째 단계에 해당합니다. 개발자는 적절한 SDK를 사용하여 등록 소프트웨어를 빌드하고 장치에 배포하는 일을 담당 합니다.<br><br>**빠른 시작**: 빌드하는 샘플 등록 응용 프로그램은 사용자가 선택한 플랫폼/언어에 대해 워크스테이션에서 실행되는 실제 장치를 시뮬레이트합니다(실제 장치에 배포되지 않음). 등록 응용 프로그램은 물리적 장치에 배포된 경우와 동일한 작업을 수행합니다. Device Provisioning Service의 등록 URL 및 “ID 범위" 외에 증명 방법(TPM 또는 X.509 인증서)을 지정합니다. 장치 ID는 사용자가 지정한 방법에 따라, 런타임에 SDK 증명 논리에 의해 결정됩니다. <ul><li>**TPM 증명** - 개발 워크스테이션에서 [TPM 시뮬레이터 응용 프로그램](how-to-use-sdk-tools.md#trusted-platform-module-tpm-simulator)이 실행됩니다. 일단 실행되면, 장치 ID를 등록하는 데 사용할 TPM의 "인증 키" 및 "등록 ID"를 별도 응용 프로그램을 통해 추출합니다. 또한 SDK 증명 논리는 등록 중에 이 시뮬레이터를 사용하여 인증 및 등록 확인을 위한 서명된 SAS 토큰을 제공합니다.</li><li>**X509 증명** - 도구를 사용하 여 [인증서를 생성](how-to-use-sdk-tools.md#x509-certificate-generator)합니다. 일단 생성되면, 등록에 사용해야 하는 인증서 파일을 만듭니다. 또한 SDK 증명 논리는 등록 중에 이 인증서를 사용하여 인증 및 등록 확인을 위해 제공됩니다.</li></ul> | 
 | 장치 | 부팅 및 등록 | 이 작업은 자동 프로비전의 세 번째 단계에 해당하며, 개발자가 빌드한 장치 등록 소프트웨어에 의해 이행됩니다. 자세한 내용은 개발자 역할을 참조하세요. 최초 부팅 시: <ol><li>응용 프로그램은 개발 동안 지정한 전역 URL 및 서비스 "ID 범위"를 기준으로 Device Provisioning Service 인스턴스에 연결합니다.</li><li>일단 연결되면, 장치는 등록 중에 지정된 증명 방법 및 ID에 따라 인증됩니다.</li><li>일단 인증되면, 장치는 프로비전 서비스 인스턴스에 의해 지정된 IoT Hub 인스턴스에 등록됩니다.</li><li>등록이 성공적으로 수행되면 고유한 장치 ID 및 IoT Hub 끝점이 IoT Hub와의 통신을 위해 등록 응용 프로그램으로 반환됩니다.</li><li> 여기에서 장치는 구성을 위해 초기 [장치 쌍](~/articles/iot-hub/iot-hub-devguide-device-twins.md) 상태를 풀다운하고, 원격 분석 데이터 보고 프로세스를 시작할 수 있습니다.</li></ol>**빠른 시작**: 장치가 시뮬레이트된 후에 등록 소프트웨어가 개발용 워크스테이션에서 실행됩니다.| 
 
 다음 다이어그램에서는 장치 자동 프로비전 동안 작업의 역할 및 시퀀스를 요약해서 보여 줍니다.
 <br><br>
-![장치에 대한 자동 프로비전 시퀀스](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png) 
+[![장치에 대한 자동 프로비전 시퀀스](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
 > 필요에 따라, 제조업체가 작업자를 통해서가 아니라 Device Provisioning Service API를 사용하여 "장치 ID 등록" 작업을 수행할 수도 있습니다. 이 시퀀스에 대한 자세한 내용은 [Azure IoT를 사용한 제로 터치 장치 등록 비디오](https://myignite.microsoft.com/sessions/55087)를 참조하세요(41:00 표시부터 시작).

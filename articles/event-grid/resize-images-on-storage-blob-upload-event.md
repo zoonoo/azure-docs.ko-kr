@@ -9,20 +9,21 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/20/2017
+ms.date: 06/20/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0edf5648ddef58db74273635c84d7473e17e1b30
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f1f10e0cb552dfa938b85280f3acb302b4591426
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36295952"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Event Grid를 사용하여 업로드된 이미지 크기 자동 조정
 
 [Azure Event Grid](overview.md)는 클라우드용 이벤트 서비스입니다. Event Grid를 사용하면 Azure 서비스나 타 리소스에서 발생하는 이벤트에 대한 구독을 만들 수 있습니다.  
 
-이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](..\azure-functions\functions-overview.md)가 [Azure Blob 저장소](..\storage\blobs\storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. BLOB 저장소 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 BLOB 저장소 컨테이너에 추가되면 함수 끝점이 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다. 
+이 자습서는 스토리지 자습서의 2부입니다. [이전 저장소 자습서][previous-tutorial]를 확장하여 Azure Event Grid 및 Azure Functions를 통해 서버 없는 자동 미리 보기 생성을 추가합니다. Event Grid를 사용하면 [Azure Functions](..\azure-functions\functions-overview.md)가 [Azure Blob 저장소](..\storage\blobs\storage-blobs-introduction.md) 이벤트에 응답하고 업로드된 이미지의 미리 보기를 생성할 수 있습니다. BLOB 저장소 만들기 이벤트에 대해 이벤트 구독을 만듭니다. BLOB이 특정 BLOB 저장소 컨테이너에 추가되면 함수 끝점이 호출됩니다. Event Grid에서 함수 바인딩에 전달된 데이터를 사용하여 BLOB에 액세스하고 미리 보기 이미지를 생성합니다.
 
 Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미지 업로드 앱에 추가합니다.
 
@@ -39,13 +40,13 @@ Azure CLI 및 Azure Portal을 사용하여 크기 조정 기능을 기존 이미
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-+ 이전 BLOB 저장소 자습서 [Azure Storage로 클라우드에 이미지 데이터 업로드][previous-tutorial]를 마쳐야 합니다. 
+이전 BLOB 저장소 자습서 [Azure Storage로 클라우드에 이미지 데이터 업로드][previous-tutorial]를 마쳐야 합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에는 Azure CLI 버전 2.0.14 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에는 Azure CLI 버전 2.0.14 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 Cloud Shell을 사용하지 않는 경우 먼저 `az login`을 사용하여 로그인해야 합니다.
 
@@ -97,7 +98,9 @@ myContainerName=thumbnails
 
 ## <a name="deploy-the-function-code"></a>함수 코드 배포 
 
-이미지 크기 조정을 수행하는 C# 함수는 [이 GitHub 리포지토리](https://github.com/Azure-Samples/function-image-upload-resize)에서 제공됩니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 명령을 사용하여 함수 앱에 배포합니다. 
+# <a name="nettabnet"></a>[\.NET](#tab/net)
+
+샘플 C# 스크립트(.csx) 크기 조정은 [GitHub](https://github.com/Azure-Samples/function-image-upload-resize)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 명령을 사용하여 함수 앱에 배포합니다. 
 
 다음 명령에서 `<function_app>`은 이전에 만든 함수 앱의 이름입니다.
 
@@ -106,6 +109,19 @@ az functionapp deployment source config --name <function_app> \
 --resource-group myResourceGroup --branch master --manual-integration \
 --repo-url https://github.com/Azure-Samples/function-image-upload-resize
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+샘플 Node.js 크기 조정 기능은 [GitHub](https://github.com/Azure-Samples/storage-blob-resize-function-node)에서 사용할 수 있습니다. 이 Functions 코드 프로젝트를 [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#config) 명령을 사용하여 함수 앱에 배포합니다. 
+
+
+다음 명령에서 `<function_app>`은 이전에 만든 함수 앱의 이름입니다.
+
+```azurecli-interactive
+az functionapp deployment source config --name <function_app> \
+--resource-group myResourceGroup --branch master --manual-integration \
+--repo-url https://github.com/Azure-Samples/storage-blob-resize-function-node
+```
+---
 
 이미지 크기 조정 함수는 Event Grid 서비스에서 전송된 HTTP 요청에 의해 트리거됩니다. 이벤트 구독을 만들어 Event Grid가 함수의 URL에서 이러한 알림을 가져오도록 지시합니다. 이 자습서에서 Blob 생성 이벤트를 구독합니다.
 

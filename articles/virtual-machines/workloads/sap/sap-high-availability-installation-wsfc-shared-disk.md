@@ -1,13 +1,13 @@
 ---
-title: "Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치 | Microsoft Docs"
-description: "Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA를 설치하는 방법을 알아봅니다."
+title: Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치 | Microsoft Docs
+description: Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA를 설치하는 방법을 알아봅니다.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
-editor: 
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
-keywords: 
+keywords: ''
 ms.assetid: 6209bcb3-5b20-4845-aa10-1475c576659f
 ms.service: virtual-machines-windows
 ms.devlang: NA
@@ -17,11 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 419bbdd57a391dbbf01c2110a1609cb3d0ded003
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: d5d52653d68c6ebfca7e35a134da263eee99fd3e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34657080"
 ---
 # <a name="install-sap-netweaver-ha-on-a-windows-failover-cluster-and-shared-disk-for-an-sap-ascsscs-instance-in-azure"></a>Azure에서 Windows 장애 조치(Failover) 클러스터 및 공유 디스크에 SAP ASCS/SCS 인스턴스용 SAP NetWeaver HA 설치
 
@@ -242,7 +243,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 ### <a name="10822f4f-32e7-4871-b63a-9b86c76ce761"></a> 프로브 포트 추가
 
-내부 부하 분산 장치의 프로브 기능을 사용하여 전체 클러스터 구성이 Azure Load Balancer에서 작동하도록 합니다. 일반적으로 Azure 내부 부하 분산 장치는 참여하는 가상 컴퓨터 간에 동일하게 들어오는 작업 부하를 분산합니다.
+내부 부하 분산 장치의 프로브 기능을 사용하여 전체 클러스터 구성이 Azure Load Balancer에서 작동하도록 합니다. 일반적으로 Azure 내부 부하 분산 장치는 참여하는 가상 머신 간에 동일하게 들어오는 작업 부하를 분산합니다.
 
  그러나 하나의 인스턴스만 활성 상태가 되므로 일부 클러스터 구성에서는 작동하지 않습니다. 다른 인스턴스는 수동 상태이므로 워크로드를 받아들일 수 없습니다. 검색 기능은 Azure 내부 부하 분산 장치가 활성 인스턴스에만 작업을 할당할 때 도움이 됩니다. 검색 기능을 사용하면 내부 부하 분산 장치는 활성 상태인 인스턴스를 감지한 후 해당 인스턴스만 워크로드 대상으로 지정할 수 있습니다.
 
@@ -257,7 +258,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
   Get-ClusterResource $SAPNetworkIPClusterName | Get-ClusterParameter
   ```
 
-   이 명령은 클러스터 구성의 가상 컴퓨터 중 하나에서 실행합니다.
+   이 명령은 클러스터 구성의 가상 머신 중 하나에서 실행합니다.
 
 2.  프로브 포트를 정의합니다. 프로브 포트 기본값은 0입니다. 예제에서는 62000 프로브 포트를 사용합니다.
 
@@ -362,7 +363,7 @@ ASCS/SCS 인스턴스의 SAP 프로필을 수정하려면:
 
 ## <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> SAP ERS Windows 서비스 인스턴스의 시작 유형 변경
 
-두 클러스터 노드에서 SAP ERS Windows 서비스의 시작 유형을 **자동(지연된 시작)**으로 변경합니다.
+두 클러스터 노드에서 SAP ERS Windows 서비스의 시작 유형을 **자동(지연된 시작)** 으로 변경합니다.
 
 ![그림 5: SAP ERS 인스턴스의 서비스 형식을 지연된 자동으로 변경][sap-ha-guide-figure-3050]
 
@@ -370,11 +371,11 @@ _**그림 5:** SAP ERS 인스턴스의 서비스 형식을 지연된 자동으�
 
 ## <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> SAP 기본 응용 프로그램 서버 설치
 
-PAS(기본 응용 프로그램 서버)를 호스트하도록 지정한 가상 컴퓨터에 PAS 인스턴스 \<SID\>-di-0를 설치합니다. Azure와는 관련이 없습니다. DataKeeper 관련 설정과는 관련이 없습니다.
+PAS(기본 응용 프로그램 서버)를 호스트하도록 지정한 가상 머신에 PAS 인스턴스 \<SID\>-di-0를 설치합니다. Azure와는 관련이 없습니다. DataKeeper 관련 설정과는 관련이 없습니다.
 
 ## <a name="0ba4a6c1-cc37-4bcf-a8dc-025de4263772"></a> SAP 추가 응용 프로그램 서버 설치
 
-SAP 응용 프로그램 서버 인스턴스를 호스트하도록 지정한 모든 가상 컴퓨터에 SAP AAS(추가 응용 프로그램 서버)를 설치합니다. \<SID\>-di-1 ~ \<SID\>-di-&lt;n&gt;을 예로 들 수 있습니다.
+SAP 응용 프로그램 서버 인스턴스를 호스트하도록 지정한 모든 가상 머신에 SAP AAS(추가 응용 프로그램 서버)를 설치합니다. 예를 들어 \<SID\>-di-1에서 \<SID\>-di-&lt;n&gt;까지의 가상 머신에 설치할 수 있습니다.
 
 > [!NOTE]
 > 이는 고가용성 SAP NetWeaver 시스템의 설치를 완료합니다. 다음으로 장애 조치 테스트를 진행합니다.

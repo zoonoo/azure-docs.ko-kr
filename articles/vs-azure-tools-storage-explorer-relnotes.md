@@ -12,28 +12,175 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2017
+ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 7e290b3bbe3fa70522533f23febe587fbb873e35
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 59415941172fab06b3e86ef4d34d464cf359ce8f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779008"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025427"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Microsoft Azure Storage 탐색기 릴리스 정보
 
-이 문서에서는 Azure Storage 탐색기 1.0.0 릴리스의 릴리스 정보와 이전 버전의 릴리스 정보를 제공합니다.
+이 문서는 Azure Storage 탐색기 1.2.0 릴리스에 대한 릴리스 정보 및 이전 버전에 대한 릴리스 정보를 포함합니다.
 
 [Microsoft Azure Storage 탐색기](./vs-azure-tools-storage-manage-with-storage-explorer.md) 는 Windows, macOS 및 Linux에서 Azure Storage 데이터를 쉽게 사용할 수 있게 하는 독립 실행형 앱입니다.
 
+## <a name="version-120"></a>버전 1.2.0
+2018/06/12
+
+### <a name="download-azure-storage-explorer-120"></a>Azure Storage 탐색기 1.2.0 다운로드
+- [Windows용 Azure Storage 탐색기 1.2.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Mac용 Azure Storage 탐색기 1.2.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Linux용 Azure Storage 탐색기 1.2.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>새로 만들기
+* Storage 탐색기가 테넌트의 하위 집합에서만 하위 구독을 로드하지 못하는 경우 성공적으로 로드된 모든 구독은 실패한 테넌트에 대한 오류 메시지와 함께 표시됩니다. [#159](https://github.com/Microsoft/AzureStorageExplorer/issues/159)
+* Windows에서 업데이트를 사용할 수 있는 경우 이제 "종료 시 업데이트"하도록 선택할 수 있습니다. 이 옵션을 선택하면 Storage 탐색기를 닫은 후 업데이트에 대한 설치 관리자가 실행됩니다. [#21](https://github.com/Microsoft/AzureStorageExplorer/issues/21)
+* 파일 공유 스냅숏을 볼 때 파일 공유 편집기의 바로 가기 메뉴에 복원 스냅숏이 추가되었습니다.[#131](https://github.com/Microsoft/AzureStorageExplorer/issues/131)
+* 큐 지우기 단추는 이제 항상 활성화되어 있습니다.[#135](https://github.com/Microsoft/AzureStorageExplorer/issues/135)
+* ADFS Azure Stack에 로그인에 대한 지원이 다시 활성화되었습니다. Azure Stack 버전 1804 이상이 필요합니다. [#150](https://github.com/Microsoft/AzureStorageExplorer/issues/150)
+
+### <a name="fixes"></a>수정 프로그램
+* 이름이 동일한 저장소 계정에서 다른 파일 공유의 접두사인 파일 공유에 대한 스냅숏을 본 경우 다른 파일 공유에 대한 스냅숏도 나열됩니다. 이 문제가 해결되었습니다. [#255](https://github.com/Microsoft/AzureStorageExplorer/issues/255)
+* SAS를 통해 연결된 경우 파일 공유 스냅숏에서 파일 복원은 오류가 발생합니다. 이 문제가 해결되었습니다. [#211](https://github.com/Microsoft/AzureStorageExplorer/issues/211)
+* Blob에 대한 스냅숏을 볼 때 스냅숏 승격 작업은 기본 Blob 및 단일 스냅숏이 선택된 경우 활성화되었습니다. 작업은 이제 단일 스냅숏이 선택된 경우에만 활성화됩니다. [#230](https://github.com/Microsoft/AzureStorageExplorer/issues/230)
+* 단일 작업(예: Blob 다운로드)이 시작되고 나중에 실패한 경우 동일한 형식의 다른 작업을 시작할 때까지 자동으로 다시 시도하지 않습니다. 모든 작업은 이제 대기 중인 작업의 수와 관계 없이 자동 다시 시도되어야 합니다.
+* GPV2 및 Blob Storage 계정에서 새롭게 만든 Blob 컨테이너에 대해 열린 편집기에는 액세스 계층 열이 없습니다. 이 문제가 해결되었습니다. [#109](https://github.com/Microsoft/AzureStorageExplorer/issues/109)
+* 액세스 계층 열은 경우에 따라 Storage 계정 또는 Blob 컨테이너가 SAS를 통해 연결된 경우 나타나지 않습니다. 열은 이제 항상 표시되지만 액세스 계층 집합이 없는 경우에 빈 값으로 표시됩니다. [#160](https://github.com/Microsoft/AzureStorageExplorer/issues/160)
+* 새로 업로드된 블록 Blob의 액세스 계층에 대한 설정이 비활성화되었습니다. 이 문제가 해결되었습니다. [#171](https://github.com/Microsoft/AzureStorageExplorer/issues/171)
+* 키보드를 사용하여 "탭 열어 두기" 단추가 호출된 경우 키보드 포커스가 손실됩니다. 이제 포커스는 열어 둔 탭으로 이동합니다. [#163](https://github.com/Microsoft/AzureStorageExplorer/issues/163)
+* 쿼리 작성기에서 쿼리의 경우 VoiceOver는 현재 연산자에 대한 사용 가능한 설명을 제공하지 않습니다. 이제 좀 더 구체적이 되었습니다. [#207](https://github.com/Microsoft/AzureStorageExplorer/issues/207)
+* 다양한 편집기에 대한 페이지 매김 링크가 설명되지 않았습니다. 잘 설명하도록 변경되었습니다. [#205](https://github.com/Microsoft/AzureStorageExplorer/issues/205)
+* 엔터티 추가 대화 상자에서 VoiceOver는 입력 요소가 일부인 열을 발표하지 않았습니다. 이제 현재 열의 이름은 요소의 설명에 포함되었습니다. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* 포커스가 지정되었을 때 라디오 단추와 확인란에 테두리 표시가 없었습니다. 이 문제가 해결되었습니다. [#237](https://github.com/Microsoft/AzureStorageExplorer/issues/237)
+
+### <a name="known-issues"></a>알려진 문제
+* Azure Storage 에뮬레이터 또는 Azurite와 같은 에뮬레이터를 사용하는 경우 해당 기본 포트에 대한 연결을 수신하도록 해야 합니다. 그렇지 않으면 Storage 탐색기에서 연결할 수 없습니다.
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317) 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
+
+
+
+
+
+
+## <a name="previous-releases"></a>이전 릴리스
+
+* [버전 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [버전 0.9.6](#version-096)
+* [버전 0.9.5](#version-095)
+* [버전 0.9.4 및 0.9.3](#version-094-and-093)
+* [버전 0.9.2](#version-092)
+* [버전 0.9.1 및 0.9.0](#version-091-and-090)
+* [버전 0.8.16](#version-0816)
+* [버전 0.8.14](#version-0814)
+* [버전 0.8.13](#version-0813)
+* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
+* [버전 0.8.9 및 0.8.8](#version-089-and-088)
+* [버전 0.8.7](#version-087)
+* [버전 0.8.6](#version-086)
+* [버전 0.8.5](#version-085)
+* [버전 0.8.4](#version-084)
+* [버전 0.8.3](#version-083)
+* [버전 0.8.2](#version-082)
+* [버전 0.8.0](#version-080)
+* [버전 0.7.20160509.0](#version-07201605090)
+* [버전 0.7.20160325.0](#version-07201603250)
+* [버전 0.7.20160129.1](#version-07201601291)
+* [버전 0.7.20160105.0](#version-07201601050)
+* [버전 0.7.20151116.0](#version-07201511160)
+
+
+## <a name="version-110"></a>버전 1.1.0
+05/09/2018
+
+### <a name="new"></a>새로 만들기
+* Storage 탐색기에서 Azurite 사용이 지원됩니다. 참고: Azurite에 대한 연결은 기본 개발 엔드포인트로 하드코드됩니다.
+* Storage 탐색기에서 Blob 전용 및 GPV2 저장소 계정에 대한 액세스 계층이 지원됩니다. 액세스 계층에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers)를 참조하세요.
+* SAS를 생성할 때 시작 시간이 더 이상 필요하지 않습니다.
+
+### <a name="fixes"></a>수정 프로그램
+* 미국 정부 계정에 대한 구독 검색이 끊겼었습니다. 이 문제가 해결되었습니다. [#61](https://github.com/Microsoft/AzureStorageExplorer/issues/61)
+* 액세스 정책의 만료 시간이 올바르게 저장되지 않았습니다. 이 문제가 해결되었습니다. [#50](https://github.com/Microsoft/AzureStorageExplorer/issues/50)
+* 컨테이너에 있는 항목에 대한 SAS URL을 생성할 때 해당 항목의 이름이 URL에 추가되지 않았습니다. 이 문제가 해결되었습니다. [#44](https://github.com/Microsoft/AzureStorageExplorer/issues/44)
+* SAS를 만들 때 과거의 만료 시간이 기본값이 되는 경우가 있습니다. 이 문제는 Storage 탐색기에서 마지막으로 사용된 시작 시간과 만료 시간이 기본값으로 사용되기 때문입니다. 이제는 SAS 대화 상자를 열 때마다 새로운 기본값이 생성됩니다. [#35](https://github.com/Microsoft/AzureStorageExplorer/issues/35)
+* 저장소 계정 간에 복사하는 경우 24시간 SAS가 생성됩니다. 복사본이 24시간 넘게 유지된 경우에는 복사가 실패합니다. SAS가 만료되어 복사가 실패할 가능성을 줄이기 위해 SAS가 1주일간 지속되도록 시간을 늘렸습니다. [#62](https://github.com/Microsoft/AzureStorageExplorer/issues/62)
+* 일부 작업에 대해 "취소"를 클릭해도 작동하지 않는 경우가 있습니다. 이 문제가 해결되었습니다. [#125](https://github.com/Microsoft/AzureStorageExplorer/issues/125)
+* 일부 작업에 대한 전송 속도가 틀렸습니다. 이 문제가 해결되었습니다. [#124](https://github.com/Microsoft/AzureStorageExplorer/issues/124)
+* 보기 메뉴에 있는 "이전의 영문인 Previous"의 철자가 틀렸습니다. 이제 철자가 수정되었습니다. [#71](https://github.com/Microsoft/AzureStorageExplorer/issues/71)
+* Windows Installer의 마지막 페이지에 "다음" 단추가 있었습니다. 이것이 "마침" 단추로 변경되었습니다. [#70](https://github.com/Microsoft/AzureStorageExplorer/issues/70)
+* HC 검정 테마를 사용하는 경우 대화 상자의 단추에 탭 포커스가 표시되지 않았습니다. 이제 표시됩니다.[#64](https://github.com/Microsoft/AzureStorageExplorer/issues/64)
+* 활동 로그의 작업에 대한 "자동 해결의 영문인 Auto-Resolve"의 대/소문자가 잘못되었습니다. 이제 수정되었습니다. [#51](https://github.com/Microsoft/AzureStorageExplorer/issues/51)
+* 테이블에서 엔터티를 삭제할 때 확인을 요청하는 대화 상자에 오류 아이콘이 표시되었습니다. 이제 대화 상자에 경고 아이콘이 사용됩니다. [#148](https://github.com/Microsoft/AzureStorageExplorer/issues/148)
+
+### <a name="known-issues"></a>알려진 문제
+* Mac용 VS를 사용하고 사용자 지정 AAD 구성을 만든 적이 있으면 로그인이 불가능할 수 있습니다. 이 문제를 해결하려면 ~/.IdentityService/AadConfigurations의 내용을 삭제합니다. 이렇게 해도 차단이 해제되지 않으면 [이 문제](https://github.com/Microsoft/AzureStorageExplorer/issues/97)에 의견을 남겨주세요.
+* Azurite는 모든 저장소 API에 아직 완전히 구현되지 않았습니다. 그래서 개발 저장소에 Azurite를 사용하는 경우 예상치 못한 오류나 동작이 발생할 수 있습니다.
+* 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
+* NodeJS의 버그로 인해 OneDrive 폴더에서 업로드가 수행되지 않습니다. 이 버그는 수정되었지만 Electron에 아직 통합되지 않았습니다.
+* Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. [여기](https://github.com/Azure/azure-storage-node/issues/317) 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
+* 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
+* blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
+* Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
+* 저장소 탐색기에서 사용하는 전자 셸에는 GPU(그래픽 처리 장치) 하드웨어 가속과 관련된 문제가 발생합니다. 저장소 탐색기가 빈(비어 있는) 주 창을 표시하는 경우 `--disable-gpu` 스위치를 추가하여 명령줄에서 저장소 탐색기를 시작하고 GPU 가속을 사용하지 않도록 설정할 수 있습니다.
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Linux 사용자의 경우 [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x)을 설치해야 합니다.
+* Ubuntu 14.04 사용자의 경우 GCC가 최신 상태인지 확인해야 합니다. 이를 위해 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Ubuntu 17.04 사용자의 경우에는 GConf를 설치해야 합니다. 이렇게 하려면 다음 명령을 실행한 후 컴퓨터를 다시 시작합니다.
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+
 ## <a name="version-100"></a>Version 1.0.0
 2018/04/16
-
-### <a name="download-azure-storage-explorer-100"></a>Azure Storage 탐색기 1.0.0 다운로드
-- [Windows용 Azure Storage 탐색기 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 1.0.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 1.0.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>새로 만들기
 * Storage 탐색기에서 Visual Studio 2017과 동일한 계정을 사용할 수 있는 향상된 인증입니다. 이 기능을 사용하려면 계정에 다시 로그인하여 필터링된 구독을 다시 설정해야 합니다.
@@ -71,7 +218,7 @@ ms.locfileid: "32779008"
 ### <a name="known-issues"></a>알려진 문제
 * 드물지만, 트리 포커스가 빠른 액세스에 고정될 수 있습니다. 모두 새로 고침을 사용하여 고정을 풀 수 있습니다.
 * Azure Stack을 대상으로 지정할 때 특정 파일을 추가 Blob으로 업로드하는 데 실패할 수 있습니다.
-* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기 설명된 취소 필터 해결 방법을 사용하기 때문입니다. 
+* 작업에서 "취소"를 클릭한 후 해당 작업이 취소될 때까지 시간이 걸릴 수 있습니다. 여기 설명된 취소 필터 해결 방법을 사용하기 때문입니다.
 * 잘못된 PIN/스마트 카드 인증서를 선택하는 경우 해당 선택을 취소하려면 저장소 탐색기를 다시 시작해야 합니다.
 * blob 이름을 바꿀 경우(개별적으로 또는 이름이 바뀐 blob 컨테이너 내에서) 스냅숏을 보존되지 않습니다. Blob, 파일 및 엔터티의 기타 모든 속성과 메타데이터는 이름을 바꾸어도 보존됩니다.
 * Azure Stack은 현재 파일 공유를 지원하지 않지만, 연결된 Azure Stack 저장소 계정에는 파일 공유 노드가 계속 표시됩니다.
@@ -97,38 +244,8 @@ ms.locfileid: "32779008"
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>이전 릴리스
-
-* [버전 0.9.6](#version-096)
-* [버전 0.9.5](#version-095)
-* [버전 0.9.4 및 0.9.3](#version-094-and-093)
-* [버전 0.9.2](#version-092)
-* [버전 0.9.1 및 0.9.0](#version-091-and-090)
-* [버전 0.8.16](#version-0816)
-* [버전 0.8.14](#version-0814)
-* [버전 0.8.13](#version-0813)
-* [버전 0.8.12 및 0.8.11 및 0.8.10](#version-0812-and-0811-and-0810)
-* [버전 0.8.9 및 0.8.8](#version-089-and-088)
-* [버전 0.8.7](#version-087)
-* [버전 0.8.6](#version-086)
-* [버전 0.8.5](#version-085)
-* [버전 0.8.4](#version-084)
-* [버전 0.8.3](#version-083)
-* [버전 0.8.2](#version-082)
-* [버전 0.8.0](#version-080)
-* [버전 0.7.20160509.0](#version-07201605090)
-* [버전 0.7.20160325.0](#version-07201603250)
-* [버전 0.7.20160129.1](#version-07201601291)
-* [버전 0.7.20160105.0](#version-07201601050)
-* [버전 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-096"></a>버전 0.9.6
 02/28/2018
-
-### <a name="download-azure-storage-explorer-096-preview"></a>Azure Storage 탐색기 0.9.6(미리 보기) 다운로드
-- [Windows용 Azure Storage 탐색기 0.9.6(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 0.9.6(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 0.9.6(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="fixes"></a>수정 프로그램
 * 문제로 인해 BLOB/파일이 편집기에 나열되지 않았습니다. 이 문제가 해결되었습니다.
@@ -165,11 +282,6 @@ ms.locfileid: "32779008"
 
 ## <a name="version-095"></a>버전 0.9.5
 02/06/2018
-
-### <a name="download-azure-storage-explorer-095-preview"></a>Azure Storage 탐색기 0.9.5(미리 보기) 다운로드
-- [Windows용 Azure Storage 탐색기 0.9.5(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Mac용 Azure Storage 탐색기 0.9.5(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Linux용 Azure Storage 탐색기 0.9.5(미리 보기)](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>새로 만들기
 
@@ -219,11 +331,6 @@ ms.locfileid: "32779008"
 
 ## <a name="version-094-and-093"></a>버전 0.9.4 및 0.9.3
 2018년 1월 21일
-
-### <a name="download-azure-storage-explorer-094-preview"></a>Azure Storage 탐색기 0.9.4(미리 보기) 다운로드
-* [Windows용 Azure Storage 탐색기 0.9.4(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Mac용 Azure Storage 탐색기 0.9.4(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Linux용 Azure Storage 탐색기 0.9.4(미리 보기) 다운로드](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>새로 만들기
 * 다음과 같은 경우에 기존 Storage 탐색기 창을 다시 사용합니다.
