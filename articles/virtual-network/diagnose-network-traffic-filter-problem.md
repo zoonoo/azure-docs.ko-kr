@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
 ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
+ms.lasthandoff: 07/17/2018
 ms.locfileid: "34757230"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
@@ -32,7 +32,7 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
 
 인터넷에서 포트 80을 통해 VM에 연결하려고 하지만 연결에 실패합니다. 인터넷에서 포트 80에 액세스할 수 없는 이유를 확인하기 위해 Azure [Portal](#diagnose-using-azure-portal), [PowerShell](#diagnose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 볼 수 있습니다.
 
-다음 단계는 효과적인 보안 규칙을 볼 수 있는 기존 VM이 있다고 가정합니다. 기존 VM이 없는 경우 먼저 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM을 배포하여 이 문서의 작업과 함께 완료합니다. 이 문서에 있는 예제는 *myVMVMNic*라는 네트워크 인터페이스가 있는 *myVM*이라는 VM에 대한 것입니다. VM 및 네트워크 인터페이스는 *myResourceGroup*이라는 리소스 그룹에 있고, *미국 동부* 영역에 있습니다. 해당 단계에서 문제를 진단하는 VM에 대해 적절히 값을 변경합니다.
+다음 단계는 효과적인 보안 규칙을 볼 수 있는 기존 VM이 있다고 가정합니다. 기존 VM이 없는 경우 먼저 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM을 배포하여 이 문서의 작업과 함께 완료합니다. 이 아티클에 있는 예제는 *myVMVMNic*라는 네트워크 인터페이스가 있는 *myVM*이라는 VM에 대한 것입니다. VM 및 네트워크 인터페이스는 *myResourceGroup*이라는 리소스 그룹에 있고, *미국 동부* 영역에 있습니다. 해당 단계에서 문제를 진단하는 VM에 대해 적절히 값을 변경합니다.
 
 ## <a name="diagnose-using-azure-portal"></a>Azure Portal을 사용하여 진단
 
@@ -75,7 +75,7 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
 
 ## <a name="diagnose-using-powershell"></a>PowerShell을 사용하여 진단
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 컴퓨터에서 PowerShell을 실행하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈, 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령 또는 컴퓨터에서 PowerShell을 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈 버전 6.0.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
 [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup)을 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다.
 
@@ -109,7 +109,7 @@ NetworkInterfaces
 
 ## <a name="diagnose-using-azure-cli"></a>Azure CLI를 사용하여 진단
 
-이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 문서에는 Azure CLI 버전 2.0.32 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+이 문서의 작업을 완료하기 위해 Azure CLI(명령줄 인터페이스)를 사용하는 경우 [Azure Cloud Shell](https://shell.azure.com/bash)에서 명령을 실행하거나 컴퓨터에서 CLI를 실행합니다. 이 아티클에서는 Azure CLI 버전 2.0.32 이상이 필요합니다. 설치되어 있는 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치](/cli/azure/install-azure-cli)를 참조하세요. Azure CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
 [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg)를 사용하여 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다. 다음 예제에서는 *myResourceGroup*이라는 리소스 그룹에 있는 *myVMVMNic*라는 네트워크 인터페이스에 대한 효과적인 보안 규칙을 가져옵니다.
 
