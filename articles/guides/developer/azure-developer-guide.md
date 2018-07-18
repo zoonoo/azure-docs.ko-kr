@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: e0a04d44edf39c90533c59d67ea2dfce69f092cd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33771095"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442174"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -80,7 +80,8 @@ VM에 대한 제어 수준으로 인해 Azure에서 PaaS 모델에 적합하지 
 
 #### <a name="azure-functions-serverless"></a>Azure Functions(서버를 사용하지 않음)
 
-코드를 실행하기 위해 전체 응용 프로그램 또는 인프라를 빌드하고 관리하는 것에 대해 걱정할 필요가 없습니다. 코드를 작성하여 이를 이벤트 응답이나 일정에 따라 실행할 수 있다면 어떨까요?  [Azure Functions](../../azure-functions/functions-overview.md)는 "서버를 사용하지 않는" 스타일 제공 사항으로, 필요한 코드만 작성할 수 있습니다. Functions를 사용하면 코드 실행이 HTTP 요청, Webhook, 클라우드 서비스 이벤트 또는 일정에 따라 트리거됩니다. C\#, F\#, Node.js, Python 또는 PHP와 같은 원하는 개발 언어로 코드를 작성할 수 있습니다. 사용량 기반 요금 청구의 경우 코드 실행 시간에 대해서만 지불하고 Azure는 필요에 따라 확장합니다.
+코드를 실행하기 위해 전체 응용 프로그램 또는 인프라를 빌드하고 관리하는 것에 대해 걱정할 필요가 없습니다. 코드를 작성하여 이를 이벤트 응답이나 일정에 따라 실행할 수 있다면 어떨까요?  
+  [Azure Functions](../../azure-functions/functions-overview.md)는 "서버를 사용하지 않는" 스타일 제공 사항으로, 필요한 코드만 작성할 수 있습니다. Functions를 사용하면 코드 실행이 HTTP 요청, Webhook, 클라우드 서비스 이벤트 또는 일정에 따라 트리거됩니다. C\#, F\#, Node.js, Python 또는 PHP와 같은 원하는 개발 언어로 코드를 작성할 수 있습니다. 사용량 기반 요금 청구의 경우 코드 실행 시간에 대해서만 지불하고 Azure는 필요에 따라 확장합니다.
 
 >**사용 시기**: 다른 Azure 서비스에 의해, 웹 기반 이벤트 또는 일정에 따라 트리거되는 코드가 있는 경우 Azure Functions를 사용합니다. 완전히 호스트된 프로젝트의 오버헤드가 필요하지 않은 경우 또는 코드 실행 시간에 대해서만 비용을 지불하려는 경우에도 Functions를 사용할 수 있습니다. 자세한 내용은 [Azure Functions 개요](../../azure-functions/functions-overview.md)를 참조하세요.
 
@@ -111,7 +112,8 @@ Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용�
 
     >**시작하기**: [Azure Cosmos DB 웹앱을 빌드합니다](../../cosmos-db/create-sql-api-dotnet.md). MongoDB 개발자라면 [Azure Cosmos DB를 통한 MongoDB 웹앱 빌드](../../cosmos-db/create-mongodb-dotnet.md)를 참조하세요.
 
--   **Azure Storage**: Blob, 큐, 파일 및 다른 종류의 비관계형 데이터에 대한 항상 사용 가능한 지속형 저장소를 제공합니다. Storage는 VM의 저장소 기반을 제공합니다.
+-   
+  **Azure Storage**: Blob, 큐, 파일 및 다른 종류의 비관계형 데이터에 대한 항상 사용 가능한 지속형 저장소를 제공합니다. Storage는 VM의 저장소 기반을 제공합니다.
 
     >**사용 시기**: 앱이 키-값 쌍(테이블), Blob, 파일 공유 또는 메시지(큐)와 같은 비관계형 데이터를 저장하는 경우
 
@@ -205,7 +207,7 @@ Azure를 사용하는 이점 중 하나는 전 세계 여러 데이터 센터에
 
 발생할 가능성이 없지만 전체 데이터 센터가 자연 재해 또는 인터넷 오류와 같은 이벤트로 인해 오프라인으로 전환될 수도 있습니다. 최대 가용성을 제공하기 위해 둘 이상의 데이터 센터에서 중요한 비즈니스 응용 프로그램을 호스트하는 것이 좋습니다. 여러 지역을 사용하면 로컬 사용자에게 대기 시간을 줄여주고 응용 프로그램을 업데이트할 때 유연성에 대한 추가 기회를 제공할 수 있습니다.
 
-Virtual Machine 및 App Services와 같은 일부 서비스는 [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 가용성이 높은 엔터프라이즈 응용 프로그램을 지원하기 위해 지역 간 장애 조치(failover)로 다중 지역 지원을 사용할 수 있습니다. 예를 들어 [Azure 참조 아키텍처: 고가용성을 요구하는 웹 응용 프로그램](../../guidance/guidance-web-apps-multi-region.md)을 참조하세요.
+Virtual Machine 및 App Services와 같은 일부 서비스는 [Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md)를 사용하여 가용성이 높은 엔터프라이즈 응용 프로그램을 지원하기 위해 지역 간 장애 조치(failover)로 다중 지역 지원을 사용할 수 있습니다. 예를 들어 [Azure 참조 아키텍처: 여러 지역에서 웹 응용 프로그램 실행](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)을 참조하세요.
 
 >**사용 시기**: 장애 조치(failover) 및 복제를 활용하는 엔터프라이즈 및 가용성이 높은 응용 프로그램을 보유한 경우
 
@@ -257,15 +259,15 @@ JSON 형식 문서인 Azure Resource Manager 템플릿을 사용하여 이러한
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>계정, 구독 및 청구 이해
 
-개발자는 곧바로 코드를 작성하여 최대한 빠르게 응용 프로그램을 실행하면서 시작하려고 합니다. 당사는 사용자가 Azure에서 최대한 쉽게 작업을 시작할 수 있기를 원합니다. 쉽게 작업할 수 있도록 Azure에서 [무료 평가판](https://azure.microsoft.com/free/)을 제공합니다. 일부 서비스에도 [Azure App Service](https://tryappservice.azure.com/)처럼 계정을 만들 필요가 없는 "무료 평가판" 기능이 있습니다. 응용 프로그램을 코딩하고 Azure에 배포하는 일은 흥미로운 작업이며 사용자 계정, 구독 및 청구의 관점에서 Azure 작동 방식을 이해하는 것도 중요합니다.
+개발자는 곧바로 코드를 작성하여 최대한 빠르게 응용 프로그램을 실행하면서 시작하려고 합니다. 당사는 사용자가 Azure에서 최대한 쉽게 작업을 시작할 수 있기를 원합니다. 쉽게 작업할 수 있도록 Azure에서 [평가판](https://azure.microsoft.com/free/)을 제공합니다. 일부 서비스에도 [Azure App Service](https://tryappservice.azure.com/)처럼 계정을 만들 필요가 없는 "무료 평가판" 기능이 있습니다. 응용 프로그램을 코딩하고 Azure에 배포하는 일은 흥미로운 작업이며 사용자 계정, 구독 및 청구의 관점에서 Azure 작동 방식을 이해하는 것도 중요합니다.
 
 ### <a name="what-is-an-azure-account"></a>Azure 계정이란?
 
 Azure 구독을 만들거나 작업하려면 Azure 계정이 있어야 합니다. Azure 계정은 Azure AD 또는 회사나 학교 조직과 같은 디렉터리의 단순한 ID로, Azure AD에서 신뢰할 수 있는 것입니다. 이러한 조직에 속해 있지 않은 경우 Azure AD에서 신뢰할 수 있는 Microsoft 계정을 사용하여 항상 구독을 만들 수 있습니다. 온-프레미스 Windows Server Active Directory를 Azure AD와 통합하는 방법에 대해 알아보려면 [온-프레미스 ID를 Azure Active Directory와 통합](../../active-directory/active-directory-aadconnect.md)을 참조하세요.
 
-모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 장치를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
+모든 Azure 구독은 Azure AD 인스턴스와 트러스트 관계가 있습니다. 이는 Azure 구독이 사용자, 서비스, 장치를 인증하는 해당 디렉터리를 신뢰함을 의미합니다. 여러 구독에서 동일한 디렉터리를 신뢰할 수 있지만 구독은 하나의 디렉터리만 신뢰합니다. 자세한 내용은 [Azure 구독과 Azure Active Directory의 연관 관계](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조하세요.
 
-개별 Azure 계정 ID(*사용자*라고도 함)뿐만 아니라 Azure AD에서 *그룹*을 정의할 수도 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
+개별 Azure 계정 ID(*사용자*라고도 함)뿐만 아니라 Azure AD에서 *그룹*을 정의할 수도 있습니다. RBAC(역할 기반 액세스 제어)를 사용하여 구독의 리소스에 대한 액세스를 관리하려면 사용자 그룹을 만드는 것이 좋습니다. 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory 미리 보기에서 그룹 만들기](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요. 또한 [PowerShell을 사용](../../active-directory/users-groups-roles/groups-settings-v2-cmdlets.md)하여 그룹을 만들고 관리할 수 있습니다.
 
 ### <a name="manage-your-subscriptions"></a>구독 관리
 

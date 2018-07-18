@@ -1,0 +1,337 @@
+- name: LUIS 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Language Understanding이란?
+      href: Home.md
+    - name: 지원되는 언어
+      href: luis-supported-languages.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 미리 빌드된 도메인 앱 빌드
+      href: luis-get-started-create-app.md
+    - name: API 사용
+      items:
+        - name: 끝점 쿼리로 utterance 예측 가져오기
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-get-intent.md
+            - name: 자바
+              href: luis-get-started-java-get-intent.md
+            - name: JavaScript
+              href: luis-get-started-js-get-intent.md
+            - name: Node.js
+              href: luis-get-started-node-get-intent.md
+            - name: 파이썬
+              href: luis-get-started-python-get-intent.md
+            - name: PHP
+              href: luis-get-started-php-get-intent.md
+            - name: Ruby
+              href: luis-get-started-ruby-get-intent.md
+        - name: utterance에 의도 추가 및 앱 학습
+          items:
+            - name: 'C#'
+              href: luis-get-started-cs-add-utterance.md
+            - name: 자바
+              href: luis-get-started-java-add-utterance.md
+            - name: JavaScript
+              href: luis-get-started-javascript-add-utterance.md
+            - name: Node.js
+              href: luis-get-started-node-add-utterance.md
+            - name: 파이썬
+              href: luis-get-started-python-add-utterance.md
+            - name: PHP
+              href: luis-get-started-php-add-utterance.md
+            - name: Ruby
+              href: luis-get-started-ruby-add-utterance.md
+- name: 자습서
+  items:
+    - name: 앱 빌드
+      items:
+        - name: 1. 사용자 지정 도메인 사용
+          href: luis-quickstart-intents-only.md
+        - name: 2. 미리 작성된 의도 및 엔터티 추가
+          href: luis-tutorial-prebuilt-intents-entities.md
+        - name: 3. 정규식 엔터티 추가
+          href: luis-quickstart-intents-regex-entity.md
+        - name: 4. 목록 엔터티 추가
+          href: luis-quickstart-intent-and-list-entity.md
+        - name: 5. 계층적 엔터티 추가
+          href: luis-quickstart-intent-and-hier-entity.md
+        - name: 6. 복합 엔터티 추가
+          href: luis-tutorial-composite-entity.md
+        - name: 7. 단순 엔터티 및 문구 목록 추가
+          href: luis-quickstart-primary-and-secondary-data.md
+        - name: 8. keyPhrase 엔터티 추가
+          href: luis-quickstart-intent-and-key-phrase.md
+        - name: 9. 감정 분석 추가
+          href: luis-quickstart-intent-and-sentiment-analysis.md
+    - name: 앱 개선
+      items:
+        - name: 끝점 발화 검토
+          href: luis-tutorial-review-endpoint-utterances.md
+        - name: 일괄 처리 테스트 사용
+          href: luis-tutorial-batch-testing.md
+        - name: 패턴 사용
+          href: luis-tutorial-pattern.md
+- name: 샘플
+  items:
+    - name: 코드 샘플
+      href: 'https://github.com/Microsoft/LUIS-Samples'
+- name: 개념
+  items:
+    - name: 모범 사례
+      href: luis-concept-best-practices.md
+    - name: 작성자 앱
+      items:
+        - name: 제작 주기
+          href: luis-concept-app-iteration.md
+        - name: 공동 작업
+          href: luis-concept-collaborator.md
+        - name: 버전 관리
+          href: luis-concept-version.md
+    - name: 디자인 모델
+      items:
+        - name: 의도
+          href: luis-concept-intent.md
+        - name: 엔터티
+          href: luis-concept-entity-types.md
+        - name: 발언
+          href: luis-concept-utterance.md
+        - name: 역할
+          href: luis-concept-roles.md
+    - name: 앱 성능 향상
+      items:
+        - name: 예측 점수
+          href: luis-concept-prediction-score.md
+        - name: 끝점 utterances 검토
+          href: luis-concept-review-endpoint-utterances.md
+        - name: 문구 목록
+          href: luis-concept-feature.md
+        - name: 패턴
+          href: luis-concept-patterns.md
+    - name: 데이터 관리
+      items:
+        - name: 데이터 변경
+          href: luis-concept-data-alteration.md
+        - name: 데이터 변환
+          href: luis-concept-data-conversion.md
+        - name: 데이터 추출
+          href: luis-concept-data-extraction.md
+        - name: 데이터 저장소
+          href: luis-concept-data-storage.md
+    - name: 테스트
+      items:
+        - name: 대화형 테스트
+          href: luis-concept-test.md
+        - name: 일괄 처리 테스트
+          href: luis-concept-batch-test.md
+    - name: Enterprise
+      items:
+        - name: 디자인 전략
+          href: luis-concept-enterprise.md
+    - name: 보안
+      items:
+        - name: 앱 액세스
+          href: luis-concept-security.md
+        - name: 제작 및 끝점 키
+          href: luis-concept-keys.md
+- name: 방법 가이드
+  items:
+    - name: 앱 계획
+      href: luis-how-plan-your-app.md
+    - name: 새 앱 시작
+      href: luis-how-to-start-new-app.md
+    - name: 모델 빌드
+      items:
+        - name: 의도 추가
+          href: luis-how-to-add-intents.md
+        - name: 발언 추가
+          href: luis-how-to-add-example-utterances.md
+        - name: 엔터티 추가
+          href: luis-how-to-add-entities.md
+        - name: API 사용
+          items:
+            - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
+              href: luis-tutorial-node-import-utterances-csv.md
+            - name: Node.js를 사용하여 정확한 텍스트와 일치하는 목록 엔터티 사용
+              href: luis-tutorial-list-entity.md
+    - name: 통합
+      items:
+        - name: Bing Spell Check API v7 사용
+          href: luis-tutorial-bing-spellcheck.md
+        - name: 음성 서비스 사용
+          href: luis-tutorial-speech-to-intent.md
+        - name: 봇 사용
+          items:
+            - name: 웹앱 봇
+              items:
+                - name: Node.js
+                  href: luis-nodejs-tutorial-build-bot-framework-sample.md
+                - name: 'C#'
+                  href: luis-csharp-tutorial-build-bot-framework-sample.md
+            - name: Application Insights
+              items:
+                - name: Node.js
+                  href: luis-tutorial-function-appinsights.md
+                - name: 'C#'
+                  href: luis-tutorial-bot-csharp-appinsights.md
+    - name: 예측 정확도 개선
+      items:
+        - name: 끝점 utterances 검토
+          href: luis-how-to-review-endoint-utt.md
+        - name: 문구 목록 추가
+          href: luis-how-to-add-features.md
+        - name: 패턴 추가
+          href: luis-how-to-model-intent-pattern.md
+    - name: 학습
+      href: luis-how-to-train.md
+    - name: 테스트
+      items:
+        - name: 대화형 테스트
+          href: interactive-test.md
+        - name: 일괄 처리 테스트
+          href: luis-how-to-batch-test.md
+    - name: 앱 게시
+      href: luis-how-to-publish-app.md
+    - name: 미리 작성된 모델 사용
+      items:
+        - name: 엔터티 사용
+          href: luis-prebuilt-entities.md
+        - name: 도메인 사용
+          href: luis-how-to-use-prebuilt-domains.md
+    - name: 앱 관리
+      items:
+        - name: 대시보드 사용
+          href: luis-how-to-use-dashboard.md
+        - name: 끝점 키 만들기
+          href: luis-how-to-azure-subscription.md
+        - name: 앱에 끝점 키를 추가
+          href: luis-how-to-manage-keys.md
+        - name: 버전 관리
+          href: luis-how-to-manage-versions.md
+        - name: 다른 작성자와 공동 작업
+          href: luis-how-to-collaborate.md
+        - name: 작성 키 관리
+          href: luis-how-to-account-settings.md
+        - name: 끝점 사용 관리
+          items:
+            - name: PowerShell로 끝점 사용량 보기
+              href: luis-how-to-manage-from-cloud-shell.md
+            - name: Traffic Manager를 사용하여 키에 끝점 할당량 분산
+              href: traffic-manager.md
+    - name: V2 API로 마이그레이션
+      href: migration-v1-to-v2.md
+    - name: 프로그래밍 방식으로 영역 찾기
+      items:
+        - name: 'C# 사용'
+          href: find-region-csharp.md
+        - name: Node.js 사용
+          href: find-region-nodejs.md
+- name: 참고 자료
+  items:
+    - name: 사용자 개인 정보
+      href: luis-reference-gdpr.md
+    - name: 영역
+      href: luis-reference-regions.md
+    - name: 경계
+      href: luis-boundaries.md
+    - name: 미리 작성된 엔터티 참조
+      items:
+        - name: 문화권별 엔터티
+          href: luis-reference-prebuilt-entities.md
+        - name: 연령 엔터티
+          href: luis-reference-prebuilt-age.md
+        - name: 통화 엔터티
+          href: luis-reference-prebuilt-currency.md
+        - name: DatetimeV2 엔터티
+          href: luis-reference-prebuilt-datetimev2.md
+        - name: 차원 엔터티
+          href: luis-reference-prebuilt-dimension.md
+        - name: 사용되지 않는 엔터티
+          href: luis-reference-prebuilt-deprecated.md
+        - name: 이메일 엔터티
+          href: luis-reference-prebuilt-email.md
+        - name: keyPhrase 엔터티
+          href: luis-reference-prebuilt-keyphrase.md
+        - name: Number 엔터티
+          href: luis-reference-prebuilt-number.md
+        - name: 서수 엔터티
+          href: luis-reference-prebuilt-ordinal.md
+        - name: 백분율 엔터티
+          href: luis-reference-prebuilt-percentage.md
+        - name: 전화번호 엔터티
+          href: luis-reference-prebuilt-phonenumber.md
+        - name: 온도 엔터티
+          href: luis-reference-prebuilt-temperature.md
+        - name: URL 엔터티
+          href: luis-reference-prebuilt-url.md
+    - name: 미리 작성된 도메인 참조
+      href: luis-reference-prebuilt-domains.md
+    - name: V2 API 제작
+      href: 'https://aka.ms/luis-authoring-apis'
+    - name: 끝점 V2 API
+      href: 'https://aka.ms/luis-endpoint-apis'
+    - name: HTTP 코드
+      href: luis-reference-response-codes.md
+    - name: Azure CLI 2.0
+      href: 'https://aka.ms/az-cli-cognitiveservices'
+    - name: Azure RM PowerShell
+      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+    - name: SDK
+      items:
+        - name: Android
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Android'
+        - name: Node.js
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Node.js'
+        - name: Go
+          href: 'https://aka.ms/luis-sdk-go'
+        - name: 자바
+          href: 'https://aka.ms/luis-java-sdk'
+        - name: 파이썬
+          href: 'https://github.com/Microsoft/Cognitive-LUIS-Python'
+        - name: .Net 끝점
+          href: 'https://aka.ms/luis-endpoint-sdk'
+        - name: .Net 제작
+          href: 'https://aka.ms/luis-authoring-sdk'
+- name: 관련 항목
+  items:
+    - name: Bot Framework
+      href: 'https://dev.botframework.com/'
+    - name: '봇 작성기 3.x SDK C#'
+      href: 'https://github.com/Microsoft/BotBuilder'
+    - name: '봇 작성기 4.x SDK C#'
+      href: 'https://github.com/Microsoft/botbuilder-dotnet'
+    - name: QnA Maker
+      href: 'https://qnamaker.ai/'
+    - name: Bing Speech API
+      href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+    - name: Bing Spell Check API
+      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+    - name: 텍스트 분석
+      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+    - name: 인식기-텍스트
+      href: 'https://github.com/Microsoft/Recognizers-Text'
+- name: 리소스
+  items:
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 로드맵
+      href: 'https://aka.ms/luis-roadmap'
+    - name: 용어
+      href: luis-glossary.md
+    - name: FAQ
+      href: luis-resources-faq.md
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/LUIS'
+    - name: UserVoice
+      href: 'https://aka.ms/luis-uservoice-forum'
+    - name: 검색
+      href: 'https://docs.microsoft.com/search/index?search=LUIS'
+    - name: 블로그
+      href: 'https://blog.botframework.com/category/luis/'
+    - name: 기술 자료
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service'

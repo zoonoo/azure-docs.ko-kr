@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1c8ea748297b8fe4052b60f08b8f00b1e41275fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f1dd8c4c5e38547492887425bb5732d87d5f8071
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620360"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045887"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>원본 데이터 집합 열을 대상 데이터 집합 열에 매핑
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 
 
 열 매핑은 원본 테이블 맵의 “structure”에서 지정한 열을 싱크 테이블의 “structure”에서 지정한 열과 매핑하는 방법을 지정하는 데 사용할 수 있습니다. **columnMapping** 속성은 Copy 작업의 **typeProperties** 섹션에서 사용할 수 있습니다.
 

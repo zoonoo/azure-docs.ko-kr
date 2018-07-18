@@ -7,20 +7,22 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 06/20/2018
 ms.author: jodebrui
-ms.openlocfilehash: aff0f82f07e9129c8f7c131f055447ad578ad15b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f74c9bf06cad8b84d08baf7a0a0504b9cb729bf4
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647343"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308682"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 저장소 모니터링
-[메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리 최적화 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 및 중요 비즈니스용 서비스 계층은 최대 메모리 내 OLTP 저장소 크기가 있으며 이는 [DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md) 및 [vCore 기반 리소스 제한](sql-database-vcore-resource-limits.md)에서 설명합니다. 이 제한이 초과되면 삽입 및 업데이트 작업이 실패할 수 있습니다(독립 실행형 데이터베이스의 경우 오류 41823, 탄력적 풀의 경우 오류 41840). 해당 시점에서 데이터를 삭제하여 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
+[메모리 내 OLTP](sql-database-in-memory.md)를 사용하는 경우 메모리 최적화 테이블 및 테이블 변수에 있는 데이터는 메모리 내 OLTP 저장소에 상주합니다. 각 프리미엄 및 중요 비즈니스용 서비스 계층에는 최대 메모리 내 OLTP 저장소 크기가 포함됩니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
+
+이 제한이 초과되면 삽입 및 업데이트 작업이 실패할 수 있습니다(독립 실행형 데이터베이스의 경우 오류 41823, 탄력적 풀의 경우 오류 41840). 해당 시점에서 데이터를 삭제하여 메모리를 회수하거나 데이터베이스의 성능 계층을 업그레이드해야 합니다.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>데이터가 메모리 내 OLTP 저장소 용량에 맞는지 여부 결정
-다른 서비스 계층의 저장소 용량을 결정합니다. [DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md) 및 [vCore 기반 리소스 제한](sql-database-vcore-resource-limits.md)을 참조하세요.
+다른 서비스 계층의 저장소 용량을 결정합니다. [DTU 기반 리소스 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md), [DTU 기반 리소스 제한 - 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md), [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md) 및 [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)을 참조하세요.
 
 메모리 최적화 테이블에 대한 메모리 요구 사항을 추정하면 Azure SQL Database에서 SQL Server가 작동과 동일한 방식으로 작동합니다. [MSDN](https://msdn.microsoft.com/library/dn282389.aspx)의 해당 문서를 검토하는 데 몇 분이 걸립니다.
 

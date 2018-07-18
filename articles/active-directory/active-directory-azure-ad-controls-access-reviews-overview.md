@@ -3,23 +3,24 @@ title: Azure AD 액세스 검토 | Microsoft Docs
 description: Azure Active Directory 액세스 검토를 사용하여 조직의 거버넌스, 위험 관리 및 준수 이니셔티브를 충족할 수 있도록 그룹 멤버 자격 및 응용 프로그램 액세스를 제어할 수 있습니다.
 services: active-directory
 documentationcenter: ''
-author: markwahl-msft
+author: rolyon
 manager: mtillman
-editor: ''
+editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 31f3ce4ae7915ef463a557a9be60c651acdbabe6
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.reviewer: mwahl
+ms.openlocfilehash: d2e0f1ecea84398f9e4d43af07b9871f36e8dd48
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233274"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38295012"
 ---
 # <a name="azure-ad-access-reviews"></a>Azure AD 액세스 검토
 
@@ -42,4 +43,4 @@ Azure AD(Azure Active Directory) 액세스 검토를 사용하면 조직에서 �
 - [Azure AD 액세스 검토를 사용하여 게스트 액세스 관리](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
 - [Azure AD 액세스 검토용 프로그램 및 컨트롤 관리](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [그룹의 멤버 또는 응용 프로그램에 액세스에 대한 액세스 검토 만들기](active-directory-azure-ad-controls-create-access-review.md)
-- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](active-directory-privileged-identity-management-how-to-start-security-review.md)
+- [Azure AD 관리 역할에서 사용자 액세스 검토 만들기](privileged-identity-management/pim-how-to-start-security-review.md)

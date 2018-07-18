@@ -1,24 +1,21 @@
 ---
-title: "Azure Service Bus를 사용하는 .NET 다중 계층 응용 프로그램 | Microsoft Docs"
-description: "Azure에서 Service Bus 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다."
+title: Azure Service Bus를 사용하는 .NET 다중 계층 응용 프로그램 | Microsoft Docs
+description: Azure에서 Service Bus 큐를 사용하여 계층 간에 통신하는 다중 계층 응용 프로그램을 개발하는 데 도움이 되는 .NET 자습서입니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
-editor: 
-ms.assetid: 1b8608ca-aa5a-4700-b400-54d65b02615c
 ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 06/05/2018
 ms.author: sethm
-ms.openlocfilehash: 667efced715b904234bd2b941453ed27e9ef1c42
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 34b647c0405e4d0997eca12758c10b60cf862a5f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611235"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Azure Service Bus 큐를 사용하는 .NET 다중 계층 응용 프로그램
 
@@ -58,29 +55,23 @@ Service Bus는 조정된 메시징을 지원하는 두 개의 엔터티인 큐�
 
 다음 섹션에서는 이 아키텍처를 구현하는 코드에 대해 설명합니다.
 
-## <a name="set-up-the-development-environment"></a>개발 환경 설정
-Azure 응용 프로그램 개발을 시작하려면 먼저 도구를 얻고 개발 환경을 설정해야 합니다.
-
-1. SDK [다운로드 페이지](https://azure.microsoft.com/downloads/)에서 .NET용 Azure SDK를 설치합니다.
-2. **.NET** 열에서 사용 중인 [Visual Studio](http://www.visualstudio.com) 버전을 클릭합니다. 이 자습서의 단계에서는 Visual Studio 2015를 사용하지만 Visual Studio 2017에도 작동합니다.
-3. 설치 관리자를 실행할지 또는 저장할지를 묻는 메시지가 표시되면 **실행**을 클릭합니다.
-4. **웹 플랫폼 설치 관리자**에서 **설치**를 클릭하여 설치를 계속합니다.
-5. 설치가 완료되면 앱을 개발하기 시작하는 데 필요한 내용이 모두 준비된 것입니다. SDK에는 Visual Studio에서 Azure 응용 프로그램을 쉽게 개발할 수 있는 도구가 포함되어 있습니다.
-
 ## <a name="create-a-namespace"></a>네임스페이스 만들기
-다음 단계에서는 *네임스페이스*를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명) 키](service-bus-sas.md)를 얻습니다. 네임스페이스는 Service Bus를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
+
+첫 번째 단계에서는 *네임스페이스*를 만들고 해당 네임스페이스에 대한 [SAS(공유 액세스 서명)](service-bus-sas.md) 키를 얻습니다. 네임스페이스는 Service Bus를 통해 노출되는 각 응용 프로그램에 대한 응용 프로그램 경계를 제공합니다. SAS 키는 네임스페이스가 만들어질 때 시스템에 의해 자동으로 생성됩니다. 네임스페이스 이름 및 SAS 키 조합은 Service Bus에 자격 증명을 제공하여 응용 프로그램에 대한 액세스를 인증합니다.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
 ## <a name="create-a-web-role"></a>웹 역할 만들기
+
 이 섹션에서는 응용 프로그램의 프런트 엔드를 빌드합니다. 먼저 응용 프로그램에서 표시하는 페이지를 만듭니다.
 그런 다음 Service Bus 큐에 항목을 제출하고 큐에 대한 상태 정보를 표시하는 코드를 추가합니다.
 
 ### <a name="create-the-project"></a>프로젝트 만들기
+
 1. 관리자 권한을 사용하여 Visual Studio 시작: **Visual Studio** 프로그램 아이콘을 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 클릭합니다. 이 문서의 뒷부분에서 설명하는 Azure 계산 에뮬레이터를 사용하려면 Visual Studio를 관리자 권한으로 실행해야 합니다.
    
    Visual Studio의 **파일** 메뉴에서 **새로 만들기**를 클릭한 다음 **프로젝트**를 클릭합니다.
-2. **설치된 템플릿**의 **Visual C#**에서 **클라우드**를 클릭한 다음 **Azure Cloud Service**를 클릭합니다. 프로젝트의 이름을 **MultiTierApp**으로 지정합니다. 그런 후 **OK**를 클릭합니다.
+2. **설치된 템플릿**의 **Visual C#** 에서 **클라우드**를 클릭한 다음 **Azure Cloud Service**를 클릭합니다. 프로젝트의 이름을 **MultiTierApp**으로 지정합니다. 그런 후 **OK**를 클릭합니다.
    
    ![][9]
 3. **역할** 창에서 **ASP.NET 웹 역할**을 두 번 클릭합니다.

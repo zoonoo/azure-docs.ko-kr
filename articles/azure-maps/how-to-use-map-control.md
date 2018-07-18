@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 4ba4b9a9f2357d283ddc03a4723cb08b48d40a9b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0b0549e7a7ea6389597e483f239a75743a96fef1
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599214"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317967"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Azure Maps 맵 컨트롤을 사용하는 방법
 맵 컨트롤 클라이언트 쪽 Javascript 라이브러리를 사용하면 맵 및 포함된 Azure Maps 기능을 웹 또는 모바일 응용 프로그램에 렌더링할 수 있습니다. 
@@ -48,7 +48,7 @@ ms.locfileid: "34599214"
             var MapsAccountKey = "<_your account key_>";
             var map = new atlas.Map("map", {
                 "subscription-key": MapsAccountKey,
-                center: [47.59093,-122.33263],
+                center: [-122.33263,47.59093],
                 zoom: 12
             });
         </script>

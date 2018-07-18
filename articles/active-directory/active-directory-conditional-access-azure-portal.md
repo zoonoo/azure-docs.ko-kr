@@ -9,19 +9,20 @@ manager: mtillman
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
+ms.component: protection
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/23/2018
+ms.date: 06/08/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 19878b7fa023ecf0d9c2a62001a5ea93ca3eb6db
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0730fbd2df6c2a0a8b8d0930c86709c0e3012002
+ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257736"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35248723"
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Azure Active Directory 조건부 액세스
 
@@ -31,6 +32,7 @@ ms.locfileid: "34257736"
 ![제어](./media/active-directory-conditional-access-azure-portal/81.png)
 
 이 문서에서는 Azure AD의 조건부 액세스에 대한 개념적 개요를 제공합니다.
+
 
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
@@ -82,32 +84,8 @@ Azure AD 조건부 액세스를 사용하여 권한 있는 사용자가 클라�
 
 정책 기반 방법을 사용하여 클라우드 앱에 대한 액세스를 보호하는 경우의 한 가지 장점은 기술 구현에 대해 염려하지 않고 이 문서에 요약된 구조를 사용하여 사용자 환경에 대한 정책 요구 사항을 작성할 수 있다는 것입니다. 
 
-## <a name="what-you-need-to-know"></a>알아야 하는 작업
 
-### <a name="general-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 일반 요구 사항
-
-Azure AD 조건부 액세스를 사용하여 인증 시도가 다음에서 오는 경우 클라우드 앱을 보호할 수 있습니다.
-
-- 웹 브라우저
-
-- 최신 인증을 사용하는 클라이언트 앱
-
-- Exchange ActiveSync
-
-자세한 내용은 [클라이언트 앱](active-directory-conditional-access-conditions.md#client-apps)을 참조하세요.
-
-일부 [클라우드 앱](active-directory-conditional-access-conditions.md#cloud-apps)도 레거시 인증 프로토콜을 지원합니다. 이는, 예를 들어 SharePoint Online 및 Exchange Online에 적용됩니다. 클라이언트 앱이 레거시 인증 프로토콜을 사용하여 클라우드 앱에 액세스할 수 있는 경우 Azure AD는 이 액세스 시도에서 조건부 액세스 정책을 적용할 수 없습니다. 클라이언트 앱이 정책의 적용을 우회하는 것을 방지하려면 영향을 받는 클라우드 앱에서 최신 인증만을 사용할 수 있는지 확인해야 합니다.
-
-클라이언트 앱 조건부 액세스가 적용되지 않는 예제는 다음과 같습니다.
-
-- Office 2010 이하
-
-- 최신 인증을 사용하지 않는 경우 Office 2013
-
-자세한 내용은 [Azure Active Directory 조건부 액세스를 위해 SharePoint Online 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)을 참조하세요.
-
-
-### <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
+## <a name="license-requirements-for-using-conditional-access"></a>조건부 액세스를 사용하기 위한 라이선스 요구 사항
 
 조건부 액세스를 사용하려면 Azure AD Premium 라이선스가 필요합니다. 요구 사항에 적합한 라이선스를 찾으려면 [Free, Basic 및 Premium 버전의 일반적으로 사용할 수 있는 기능 비교](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 

@@ -1,27 +1,23 @@
 ---
-title: "Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍 | Microsoft 문서"
-description: "일반적인 시나리오에 대한 지침을 포함하여 Event Hubs로 Azure 진단을 완벽하게 구성."
-services: event-hubs
-documentationcenter: na
+title: Event Hubs에 Azure 진단 데이터 스트리밍
+description: 일반적인 시나리오에 대한 지침을 포함하여 Event Hubs로 Azure 진단을 완벽하게 구성.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.component: diagnostic-extension
+ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35267716"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
-Azure 진단에서는 클라우드 서비스 VM(가상 컴퓨터)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
+Azure 진단에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
 
 지원되는 데이터 유형은 다음과 같습니다.
 
@@ -39,7 +35,7 @@ Azure 진단에서는 클라우드 서비스 VM(가상 컴퓨터)에서 메트�
 * 연결 문제를 해결하는 방법  
 
 ## <a name="prerequisites"></a>필수 조건
-Azure 진단에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, 가상 컴퓨터 확장 집합 및 Service Fabric에서 지원됩니다.
+Azure 진단에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, Virtual Machine Scale Sets 및 Service Fabric에서 지원됩니다.
 
 * Azure 진단 확장 1.6(기본적으로[Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
 * [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
@@ -393,7 +389,7 @@ namespace EventHubListener
 </ServiceConfiguration>
 ```
 
-가상 컴퓨터에 대한 Json 기반 설정은 다음과 같습니다.
+가상 머신에 대한 Json 기반 설정은 다음과 같습니다.
 ```JSON
 "settings": {
     "WadCfg": {

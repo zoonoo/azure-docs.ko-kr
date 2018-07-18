@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
 ms.openlocfilehash: 92b739424d1d6f0e1eb89d5993718f5c36162204
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31429389"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38733781"
 ---
 이제 데이터 탐색기를 사용하여 새 컬렉션에 데이터를 추가할 수 있습니다.
 

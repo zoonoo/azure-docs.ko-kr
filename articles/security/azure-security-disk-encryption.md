@@ -14,22 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2018
 ms.author: devtiw
-ms.openlocfilehash: 813124ae7c0dd76a27dcbaea6f0d7aa19bc1e49c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f350716d0ca906376f3eadce9e117694ff14515c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "35756399"
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Windows 및 Linux IaaS VM용 Azure 디스크 암호화
 Microsoft Azure는 데이터 프라이버시, 데이터 독립성을 보장하기 위해 노력하고 있으며 암호화 키를 암호화, 제어 및 관리하고 데이터 액세스를 제어 및 감사하는 광범위한 고급 기술을 통해 Azure 호스팅 데이터를 제어할 수 있도록 합니다. 또한 Azure 고객에게 비즈니스 요구에 가장 잘 맞는 솔루션을 선택할 수 있는 유연성을 제공합니다. 이 문서에는 "Windows 및 Linux IaaS VM용 Azure 디스크 암호화"라는 새로운 기술 솔루션을 소개하여 조직의 보안 및 규정 준수 약정에 따라 데이터를 보호하도록 합니다. 이 문서에서는 지원되는 시나리오와 사용자 환경을 비롯하여 Azure 디스크 암호화 기능을 사용하는 방법에 대한 자세한 지침을 제공합니다.
 
-> [!NOTE]
-> 특정 권장 사항으로 인해 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다.
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="overview"></a>개요
 Azure Disk Encryption은 Windows 및 Linux IaaS 가상 머신 디스크를 암호화할 수 있도록 하는 새로운 기능입니다. Azure Disk Encryption은 업계 표준인 Windows의 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능과 Linux의 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 OS 및 데이터 디스크를 위한 볼륨 암호화를 제공합니다. 또한 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)에 통합되어 있습니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
 
 Windows 및 Linux IaaS VM용 Azure Disk Encryption은 이제 Standard VM 및 Premium Storage를 사용하는 VM을 위한 모든 Azure 공용 지역 및 AzureGov 지역에서 **일반 공급**으로 제공됩니다.
+
+> [!NOTE]
+> 특정 권장 사항으로 인해 데이터, 네트워크 또는 계산 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다.
+
 
 ### <a name="encryption-scenarios"></a>암호화 시나리오
 Azure 디스크 암호화 솔루션은 다음의 고객 시나리오를 지원합니다.
@@ -417,7 +422,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
 > [!NOTE]
 > 이 템플릿은 Windows Server 2012 갤러리 이미지를 사용하는 새 암호화된 Windows VM을 만듭니다.
 
-이 [Resource Manager 템플릿](https://aka.ms/fde-rhel)을 사용하여 200GB RAID-0 배열이 있는 새 IaaS RedHat Linux 7.2 VM에서 디스크 암호화를 사용하도록 설정할 수 있습니다. 템플릿을 배포한 후 [실행 중인 Linux VM에서 OS 드라이브 암호화](#encrypting-os-drive-on-a-running-linux-vm) 섹션에 설명된 대로 `Get-AzureRmVmDiskEncryptionStatus` cmdlet을 사용하여 VM 암호화 상태를 확인합니다. 컴퓨터에서 _VMRestartPending_ 상태를 반환하면 VM을 다시 시작합니다.
+이 [Resource Manager 템플릿](https://aka.ms/fde-rhel)을 사용하여 200GB RAID-0 배열이 있는 새 IaaS Red Hat Linux 7.2 VM에서 디스크 암호화를 사용하도록 설정할 수 있습니다. 템플릿을 배포한 후 [실행 중인 Linux VM에서 OS 드라이브 암호화](#encrypting-os-drive-on-a-running-linux-vm) 섹션에 설명된 대로 `Get-AzureRmVmDiskEncryptionStatus` cmdlet을 사용하여 VM 암호화 상태를 확인합니다. 컴퓨터에서 _VMRestartPending_ 상태를 반환하면 VM을 다시 시작합니다.
 
 다음 표에 Azure AD 클라이언트 ID를 사용하는 Marketplace 시나리오에서 새 VM에 대한 Resource Manager 템플릿 매개 변수 목록이 나와 있습니다.
 

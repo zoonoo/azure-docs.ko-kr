@@ -7,14 +7,14 @@ author: mayanknayar
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
 ms.author: manayar
-ms.openlocfilehash: 7cc4c84ebae7ade4169f8d85a2d5cc11f1df6f87
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ac64c73ac26c610c08dceff13cbd524916853146
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071450"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916424"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure Site Recovery를 사용한 Azure ExpressRoute
 
@@ -30,7 +30,8 @@ ExpressRoute 회로는 연결 공급자를 통한 온-프레미스 인프라와 
 
 ExpressRoute 회로에는 연결된 여러 라우팅 도메인이 있습니다.
 -   [Azure 개인 피어링](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) - Azure 계산 서비스, 즉 가상 머신 (IaaS) 및 가상 네트워크 내에 배포된 클라우드 서비스(PaaS)는 개인 피어링 도메인을 통해 연결될 수 있습니다. 개인 피어링 도메인은 Microsoft Azure로의 핵심 네트워크의 신뢰할 수 있는 확장으로 간주됩니다.
--   [Azure 공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) - Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주소에 제공됩니다. 공용 피어링 라우팅 도메인을 통해 공용 IP 주소(클라우드 서비스의 VIP 포함)에서 호스팅되는 서비스에 개인적으로 연결할 수 있습니다. 새 만들기에 대해 공용 피어링을 사용하지 않으며 Azure PaaS 서비스에 대해 Microsoft 피어링을 대신 사용해야 합니다.
+-   
+  [Azure 공용 피어링](../expressroute/expressroute-circuit-peerings.md#azure-public-peering) - Azure Storage, SQL Databases 및 Websites와 같은 서비스는 공용 IP 주소에 제공됩니다. 공용 피어링 라우팅 도메인을 통해 공용 IP 주소(클라우드 서비스의 VIP 포함)에서 호스팅되는 서비스에 개인적으로 연결할 수 있습니다. 새 만들기에 대해 공용 피어링을 사용하지 않으며 Azure PaaS 서비스에 대해 Microsoft 피어링을 대신 사용해야 합니다.
 -   [Microsoft 피어링](../expressroute/expressroute-circuit-peerings.md#microsoft-peering) - Microsoft 피어링을 통해 Microsoft 온라인 서비스(Office 365, Dynamics 365 및 Azure PaaS 서비스)에 대해 연결됩니다. Microsoft 피어링은 Azure PaaS 서비스에 연결하는 데 권장하는 라우팅 도메인입니다.
 
 [여기](../expressroute/expressroute-circuit-peerings.md#routing-domain-comparison)에서 ExpressRoute 라우팅 도메인을 비교하고 자세히 알아봅니다.

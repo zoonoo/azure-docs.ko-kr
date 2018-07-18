@@ -1,6 +1,6 @@
 ---
-title: Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할 | Microsoft Docs
-description: 이 항목에서는 Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할에 대해 설명합니다. actions 및 notActions를 나열합니다.
+title: Azure의 기본 제공 역할 | Microsoft Docs
+description: 이 항목에서는 Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할에 대해 설명합니다. 작업, notActions, dataActions 및 notDataActions를 나열합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,24 +11,24 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/06/2018
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 91f721f5508191c7530e57b6dd96cad3301542a7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 861b4ca360ef3fb9bc752d79009570ee2cfc9ade
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34203508"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294499"
 ---
-# <a name="built-in-roles-for-azure-role-based-access-control"></a>Azure 역할 기반 액세스 제어의 기본 제공 역할
-[RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할을 수정할 수 없지만, 조직의 특정 요구 사항에 맞는 [사용자 정의 역할](custom-roles.md)을 만들 수 있습니다.
+# <a name="built-in-roles-in-azure"></a>Azure의 기본 제공 역할
+[RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들 수 있습니다.
 
 기본 제공 역할은 계속 발전하고 있습니다. 최신 역할 정의를 가져오려면 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용하세요.
 
 ## <a name="built-in-role-descriptions"></a>기본 제공 역할 설명
-다음 테이블은 기본 제공 역할을 간략하게 설명합니다. 각 역할의 `actions` 및 `notActions` 목록을 보려면 역할 이름을 클릭합니다.
+다음 테이블은 기본 제공 역할을 간략하게 설명합니다. 각 역할의 `actions`, `notActions`, `dataActions` 및 `notDataActions` 목록을 보려면 역할 이름을 클릭합니다.
 
 
 | 기본 제공 역할 | 설명 |
@@ -84,6 +84,7 @@ ms.locfileid: "34203508"
 | [NewRelic APM 계정 기여자](#new-relic-apm-account-contributor) | New Relic Application Performance Management 계정을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [Reader 및 데이터 액세스](#reader-and-data-access) | 모든 것을 볼 수 있지만, 저장소 계정 또는 포함된 리소스를 삭제하거나 만들 수는 없습니다. 또한 저장소 계정 키에 액세스하여 저장소 계정에 포함된 모든 데이터를 읽고 쓸 수 있습니다. |
 | [Redis 캐시 기여자](#redis-cache-contributor) | Redis Cache를 관리할 수 있지만 액세스할 수는 없습니다. |
+| [리소스 정책 기여자(미리 보기)](#resource-policy-contributor-preview) | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
 | [Scheduler 작업 컬렉션 기여자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. |
 | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. |
 | [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제 |
@@ -97,6 +98,10 @@ ms.locfileid: "34203508"
 | [SQL Server 기여자](#sql-server-contributor) | SQL Server 및 데이터베이스를 관리할 수 있지만 여기에 액세스할 수는 없으며, 해당하는 보안과 관련된 정책에도 액세스할 수 없습니다. |
 | [Storage 계정 기여자](#storage-account-contributor) | Storage 계정을 관리할 수 있지만 여기에 액세스할 수는 없습니다. |
 | [저장소 계정 키 운영자 서비스 역할](#storage-account-key-operator-service-role) | 저장소 계정 키 운영자가 저장소 계정에서 키를 나열하고 다시 생성할 수 있습니다. |
+| [Storage Blob 데이터 기여자(미리 보기)](#storage-blob-data-contributor-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
+| [Storage Blob 데이터 판독기(미리 보기)](#storage-blob-data-reader-preview) | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스 허용 |
+| [Storage 큐 데이터 기여자(미리 보기)](#storage-queue-data-contributor-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
+| [Storage 큐 데이터 판독기(미리 보기)](#storage-queue-data-reader-preview) | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스 허용 |
 | [지원 요청 기여자](#support-request-contributor) | 지원 요청을 만들고 관리할 수 있습니다. |
 | [Traffic Manager 기여자](#traffic-manager-contributor) | Traffic Manager 프로필을 관리할 수 있지만 액세스할 수 있는 사람을 제어할 수는 없습니다. |
 | [사용자 액세스 관리자](#user-access-administrator) | Azure 리소스에 대한 사용자 액세스를 관리할 수 있습니다. |
@@ -128,6 +133,8 @@ ms.locfileid: "34203508"
 > | Microsoft.Authorization/*/Delete | 역할 및 역할 할당을 삭제할 수 없음 |
 > | Microsoft.Authorization/*/Write | 역할 및 역할 할당을 만들 수 없음 |
 > | Microsoft.Authorization/elevateAccess/Action | 테넌트 범위에서 호출자에게 사용자 액세스 관리자 액세스 권한을 부여합니다. |
+> | Microsoft.Blueprint/blueprintAssignments/write |  |
+> | Microsoft.Blueprint/blueprintAssignments/delete |  |
 
 ## <a name="reader"></a>판독기
 > [!div class="mx-tableFixed"]
@@ -704,7 +711,7 @@ ms.locfileid: "34203508"
 > | **Id** | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | **actions** |  |
 > | Microsoft.Insights/components/*/read |  |
-> | Microsoft.Insights/components/purge/action |  |
+> | Microsoft.Insights/components/purge/action | Application Insights에서 데이터 삭제 |
 > | Microsoft.OperationalInsights/workspaces/*/read |  |
 > | Microsoft.OperationalInsights/workspaces/purge/action | 작업 영역에서 지정된 데이터를 삭제합니다. |
 
@@ -1034,6 +1041,20 @@ ms.locfileid: "34203508"
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
+> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+
+## <a name="resource-policy-contributor-preview"></a>리소스 정책 기여자(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | (미리 보기) 리소스 정책을 생성/수정하고, 지원 티켓을 만들고, 리소스/계층 구조를 읽을 수 있는 권한을 가진 EA의 백필된 사용자입니다. |
+> | **Id** | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | **actions** |  |
+> | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
+> | Microsoft.Authorization/policyassignments/* | 정책 할당 만들기 및 관리 |
+> | Microsoft.Authorization/policydefinitions/* | 정책 정의 만들기 및 관리 |
+> | Microsoft.Authorization/policysetdefinitions/* | 정책 집합 만들기 및 관리 |
+> | Microsoft.PolicyInsights/* |  |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
 ## <a name="scheduler-job-collections-contributor"></a>Scheduler 작업 컬렉션 기여자
@@ -1389,6 +1410,58 @@ ms.locfileid: "34203508"
 > | Microsoft.Storage/storageAccounts/listkeys/action | 지정된 저장소 계정에 대한 액세스 키를 반환합니다. |
 > | Microsoft.Storage/storageAccounts/regeneratekey/action | 지정된 저장소 계정에 대한 액세스 키를 다시 생성합니다. |
 
+## <a name="storage-blob-data-contributor-preview"></a>Storage Blob 데이터 기여자(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
+> | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 컨테이너 삭제 결과를 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Blob 컨테이너 넣기 또는 임대 결과를 반환합니다. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Blob 삭제 결과 반환 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Blob 쓰기 결과 반환 |
+
+## <a name="storage-blob-data-reader-preview"></a>Storage Blob 데이터 판독기(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Storage Blob 컨테이너 및 데이터에 대한 읽기 액세스 허용 |
+> | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | **actions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 컨테이너 또는 컨테이너 목록을 반환합니다. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Blob 또는 Blob 목록 반환 |
+
+## <a name="storage-queue-data-contributor-preview"></a>Storage 큐 데이터 기여자(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Storage 큐 및 큐 메시지에 대한 읽기, 쓰기 및 삭제 액세스 허용 |
+> | **Id** | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | **actions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/delete | 큐 삭제 결과를 반환합니다. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/write | 큐 쓰기 결과를 반환합니다. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | 메시지 삭제 결과 반환 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 메시지 반환 |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | 메시지 작성 결과 반환 |
+
+## <a name="storage-queue-data-reader-preview"></a>Storage 큐 데이터 판독기(미리 보기)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Azure Storage 큐 및 큐 메시지에 대한 읽기 액세스 허용 |
+> | **Id** | 19e7f393-937e-4f77-808e-94535e297925 |
+> | **actions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/read | 큐 또는 큐 목록을 반환합니다. |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | 메시지 반환 |
+
 ## <a name="support-request-contributor"></a>지원 요청 기여자
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1438,6 +1511,9 @@ ms.locfileid: "34203508"
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | 가상 머신에 일반 사용자로 로그인 |
+> | Microsoft.Compute/virtualMachines/loginAsAdmin/action | 가상 머신에 Windows 관리자 또는 Linux 루트 사용자 권한으로 로그인 |
 
 ## <a name="virtual-machine-contributor"></a>Virtual Machine 기여자
 > [!div class="mx-tableFixed"]
@@ -1496,6 +1572,8 @@ ms.locfileid: "34203508"
 > | Microsoft.Network/loadBalancers/read | 부하 분산 장치 정의를 가져옵니다. |
 > | Microsoft.Network/networkInterfaces/read | 네트워크 인터페이스 정의를 가져옵니다.  |
 > | Microsoft.Compute/virtualMachines/*/read |  |
+> | **DataActions** |  |
+> | Microsoft.Compute/virtualMachines/login/action | 가상 머신에 일반 사용자로 로그인 |
 
 ## <a name="web-plan-contributor"></a>웹 계획 기여자
 > [!div class="mx-tableFixed"]

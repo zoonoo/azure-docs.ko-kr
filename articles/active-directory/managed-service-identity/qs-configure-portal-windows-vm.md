@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 62b8504f5c10f338539d263bb231cf96eb405ba6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930343"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901360"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Azure Portal을 사용하여 VM MSI(관리 서비스 ID) 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "33930343"
 이 문서에서는 Azure Portal을 사용하여 Azure VM에 시스템 할당 ID를 사용하거나 사용하지 않도록 설정하는 방법을 알아봅니다. Azure VM에서 사용자 할당 ID를 할당 및 제거하는 기능은 현재 Azure Portal을 통해 지원되지 않습니다.
 
 > [!NOTE]
-> 현재 사용자 할당 ID 작업은 Azure Portal을 통해 지원되지 않습니다. 업데이트를 다시 확인하십시오. 
+> 현재 사용자 할당 ID 작업은 Azure Portal을 통해 지원되지 않습니다. 업데이트를 다시 확인하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 

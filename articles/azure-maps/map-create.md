@@ -1,22 +1,20 @@
 ---
 title: Azure Maps로 맵 만들기 | Microsoft Docs
 description: Javascript 맵을 만드는 방법
-services: azure-maps
-keywords: ''
-author: jinzh-azureiot
+author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
+services: azure-maps
+manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9a7c611860a6d32f82d6714d945c62e6c562f91f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ec85854e5d9b7ee0d5e2c54881a417ba6cbb366e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34599816"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -56,4 +54,9 @@ ms.lasthandoff: 05/07/2018
 * [맵](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest)
     * [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamera)
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-javascript/map?view=azure-iot-typescript-latest#setcamerabounds)
+    
+맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요. 
+* [핀 추가](./map-add-pin.md)
+* [팝업 추가](map-add-popup.md)
+    
 

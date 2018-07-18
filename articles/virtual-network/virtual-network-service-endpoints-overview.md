@@ -12,14 +12,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2018
+ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: 001aadc3dee03a9868a2a78e8dfc280d504633e1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e7e79d51b59d82ebf91d68f0714b8eb7bcaafbe6
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443633"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -27,10 +28,13 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 
 이 기능은 다음과 같은 Azure 서비스 및 지역에서 제공됩니다.
 
-- **Azure Storage**: 모든 Azure 지역에서 일반 공급됩니다.
-- **Azure SQL Database**: 모든 Azure 지역에서 일반 공급됩니다.
-- **Azure Cosmos DB**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다. 
-- **Azure SQL Data Warehouse**: 모든 Azure 공용 클라우드 지역에서 미리 보기로 제공됩니다.
+- **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: 모든 Azure 지역에서 일반 공급됩니다.
+- **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다. 
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 미리 보기로 제공됩니다.
+- **PostgreSQL 및 MySQL용 Azure 데이터베이스 서비스**: 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 미리 보기로 제공됩니다.
+- **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기로 제공됩니다.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기로 제공됩니다.
 
 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 
@@ -65,8 +69,8 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 ### <a name="configuration"></a>구성
 
 - 서비스 끝점은 가상 네트워크의 서브넷에 구성됩니다. 끝점은 해당 서브넷 내에서 실행되는 모든 계산 인스턴스를 사용합니다.
-- 서브넷에 지원되는 모든 Azure 서비스(예: Azure Storage, Azure SQL Database)에 여러 개의 서비스 끝점을 구성할 수 있습니다.
-- Azure SQL의 경우 가상 네트워크는 Azure 서비스 리소스와 동일한 지역에 있어야 합니다. GRS 및 RA-GRS Azure Storage 계정을 사용하는 경우 기본 계정은 가상 네트워크와 동일한 지역에 있어야 합니다. 그 외의 서비스는 Azure 서비스 리소스를 모든 지역의 가상 네트워크에 안전하게 보호할 수 있습니다. 
+- 서브넷에 지원되는 모든 Azure 서비스(예: Azure Storage, Azure SQL Database)에 여러 개의 서비스 엔드포인트를 구성할 수 있습니다.
+- Azure SQL Database의 경우 가상 네트워크는 Azure 서비스 리소스와 동일한 지역에 있어야 합니다. GRS 및 RA-GRS Azure Storage 계정을 사용하는 경우 기본 계정은 가상 네트워크와 동일한 지역에 있어야 합니다. 그 외의 서비스는 Azure 서비스 리소스를 모든 지역의 가상 네트워크에 안전하게 보호할 수 있습니다. 
 - 끝점이 구성된 가상 네트워크는 Azure 서비스 리소스와 동일하거나 다른 구독에 구성될 수 있습니다. 끝점을 설정하고 Azure 서비스를 보호하는 데 필요한 사용 권한에 대한 자세한 내용은 [프로비전](#Provisioning)을 참조하세요.
 - 지원되는 서비스의 경우 서비스 끝점을 사용하여 가상 네트워크에 대한 기존 또는 새로운 리소스를 보호할 수 있습니다.
 
@@ -78,7 +82,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 - 서비스 끝점에서 Azure 서비스의 DNS 항목은 현재 상태로 유지되고 Azure 서비스에 할당된 공용 IP 주소로 계속 사용됩니다.
 - 서비스 끝점의 NSG(네트워크 보안 그룹):
   - 기본적으로 NSG는 아웃바운드 인터넷 트래픽을 허용하고 따라서 VNet에서 Azure 서비스로의 트래픽을 허용합니다. 서비스 끝점에서 계속 그대로 작동합니다. 
-  - 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure 서비스에 대한 트래픽만 허용하려는 경우 NSG에서 __"Azure 서비스 태그"__ 를 사용하여 수행할 수 있습니다. NSG 규칙에서 대상으로 지원되는 Azure 서비스를 지정할 수 있습니다. 또한 각 태그의 기반이 되는 IP 주소의 유지 관리는 Azure에서 제공됩니다. 자세한 내용은 [NSG의 Azure 서비스 태그](https://aka.ms/servicetags)를 참조하세요. 
+  - 모든 아웃바운드 인터넷 트래픽을 거부하고 특정 Azure 서비스에 대한 트래픽만 허용하려는 경우 NSG에서 [서비스 태그](security-overview.md#service-tags)를 사용하여 수행할 수 있습니다. NSG 규칙에서 대상으로 지원되는 Azure 서비스를 지정할 수 있습니다. 또한 각 태그의 기반이 되는 IP 주소의 유지 관리는 Azure에서 제공됩니다. 자세한 내용은 [NSG의 Azure 서비스 태그](security-overview.md#service-tags)를 참조하세요. 
 
 ### <a name="scenarios"></a>시나리오
 
@@ -98,7 +102,7 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
   - 강제 터널링 경로에 비해 서비스에 대한 직접 연결이 더 효과적임을 나타냅니다.
 
 >[!NOTE]
-> 서비스 끝점 경로는 Azure 서비스의 주소 접두사에 대한 BGP 또는 UDR 경로를 재정의합니다. [유효 경로 관련 문제 해결](virtual-network-routes-troubleshoot-portal.md#using-effective-routes-to-troubleshoot-vm-traffic-flow)에 대해 자세히 알아봅니다.
+> 서비스 끝점 경로는 Azure 서비스의 주소 접두사에 대한 BGP 또는 UDR 경로를 재정의합니다. [유효 경로 관련 문제 해결](diagnose-network-routing-problem.md)에 대해 자세히 알아봅니다.
 
 ## <a name="provisioning"></a>프로비전
 
@@ -122,5 +126,5 @@ Azure 서비스 리소스(예: Azure Storage 계정)의 경우 서비스는 리�
 - [가상 네트워크에 대한 Azure Storage 계정을 보호](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크에 대한 Azure SQL Database 계정을 보호](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)하는 방법에 대한 자세한 내용
 - [가상 네트워크의 Azure 서비스 통합](virtual-network-for-azure-services.md)에 대한 자세한 내용
--  빠른 시작: VNet의 서브넷에 서비스 엔드포인트를 설정하고 해당 서브넷에 Azure Storage 계정을 보호하기 위한 [Azure 리소스 관리자 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration).
+-  빠른 시작: VNet의 서브넷에 서비스 엔드포인트를 설정하고 해당 서브넷에 Azure Storage 계정을 보호하기 위한 [Azure Resource Manager 템플릿](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration).
 

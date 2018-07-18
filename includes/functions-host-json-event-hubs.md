@@ -8,7 +8,7 @@
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |maxBatchSize|64|수신 루프 당 받은 최대 이벤트 수입니다.|
 |prefetchCount|해당 없음|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.| 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 06/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 17fb10f4b39361a99d3f51ed753d333c6ec0bf15
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: febd43586ab3006303143ca04ce8a37941a6fd60
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618592"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36267925"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory에서 연속 통합 및 배포
 
@@ -89,42 +89,9 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
 4.  환경의 이름을 입력합니다.
 
-5.  Git 아티팩트를 추가하고 Data Factory를 사용하여 구성된 동일한 리포지토리를 선택합니다. 최신 기본 버전을 사용하여 `adf\_publish`를 기본 분기로 선택합니다.
+5.  Git 아티팩트를 추가하고 Data Factory를 사용하여 구성된 동일한 리포지토리를 선택합니다. 최신 기본 버전을 사용하여 `adf_publish`를 기본 분기로 선택합니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
-
-6.  Azure Key Vault에서 암호를 가져옵니다. 암호를 처리하는 두 가지 방법이 있습니다.
-
-    a.  매개 변수 파일에 암호를 추가합니다.
-
-       -   게시 분기에 업로드된 매개 변수 파일의 복사본을 만들고 다음과 같은 형식의 키 자격 증명 모음에서 가져오려는 매개 변수의 값을 설정합니다.
-
-        ```json
-        {
-            "parameters": {
-                "azureSqlReportingDbPassword": {
-                    "reference": {
-                        "keyVault": {
-                            "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
-                        },
-                        "secretName": " < secret - name > "
-                    }
-                }
-            }
-        }
-        ```
-
-       -   이 메서드를 사용하는 경우 키 자격 증명 모음에서 자동으로 암호를 끌어옵니다.
-
-       -   매개 변수 파일은 게시 분기에 포함되어야 합니다.
-
-    나.  [Azure Key Vault 작업](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)을 추가합니다.
-
-       -   **작업** 탭을 선택하고, 새 작업을 만들고, **Azure Key Vault**를 검색하고 추가합니다.
-
-       -   Key Vault 작업에서는 키 자격 증명 모음을 만든 구독을 선택하고, 필요한 경우 자격 증명을 제공한 다음, 키 자격 증명 모음을 선택합니다.
-
-       ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 7.  Azure Resource Manager 배포 작업을 추가합니다.
 
@@ -134,7 +101,7 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
     다.  **리소스 그룹 만들기 또는 업데이트** 작업을 선택합니다.
 
-    d.  **템플릿 매개 변수 재정의** 필드 **…** 를 선택합니다. 포털에서 게시 작업으로 만들어진 Resource Manager 템플릿(*ARMTemplateForFactory.json*)을 찾아봅니다. `adf\_publish` 분기의 루트 폴더에서 이 파일을 찾습니다.
+    d.  **템플릿** 필드에서 **…** 를 선택합니다. 포털에서 게시 작업으로 만들어진 Resource Manager 템플릿(*ARMTemplateForFactory.json*)을 찾아봅니다. `adf_publish` 분기의 `<FactoryName>` 폴더에서 이 파일을 찾습니다.
 
     e.  매개 변수 파일에 동일한 작업을 수행합니다. 복사본을 만들었는지 또는 기본 파일 *ARMTemplateParametersForFactory.json*을 사용하는지에 따라 올바른 파일을 선택합니다.
 
@@ -147,6 +114,43 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 9.  이 릴리스 정의에서 새 릴리스를 만듭니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
+
+### <a name="optional---get-the-secrets-from-azure-key-vault"></a>선택 사항 - Azure Key Vault에서 비밀을 가져옵니다.
+
+Azure Resource Manager 템플릿에 전달하는 비밀이 있는 경우 VSTS 릴리스로 Azure Key Vault를 사용하는 것이 좋습니다.
+
+암호를 처리하는 두 가지 방법이 있습니다.
+
+1.  매개 변수 파일에 비밀을 추가합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](../azure-resource-manager/resource-manager-keyvault-parameter.md)을 참조하세요.
+
+    -   게시 분기에 업로드된 매개 변수 파일의 복사본을 만들고 다음과 같은 형식의 키 자격 증명 모음에서 가져오려는 매개 변수의 값을 설정합니다.
+
+    ```json
+    {
+        "parameters": {
+            "azureSqlReportingDbPassword": {
+                "reference": {
+                    "keyVault": {
+                        "id": "/subscriptions/<subId>/resourceGroups/<resourcegroupId> /providers/Microsoft.KeyVault/vaults/<vault-name> "
+                    },
+                    "secretName": " < secret - name > "
+                }
+            }
+        }
+    }
+    ```
+
+    -   이 메서드를 사용하는 경우 키 자격 증명 모음에서 자동으로 암호를 끌어옵니다.
+
+    -   매개 변수 파일은 게시 분기에 포함되어야 합니다.
+
+2.  이전 섹션에 설명된 Azure Resource Manager 배포 전에 [Azure Key Vault 작업](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)을 추가합니다.
+
+    -   **작업** 탭을 선택하고, 새 작업을 만들고, **Azure Key Vault**를 검색하고 추가합니다.
+
+    -   Key Vault 작업에서는 키 자격 증명 모음을 만든 구독을 선택하고, 필요한 경우 자격 증명을 제공한 다음, 키 자격 증명 모음을 선택합니다.
+
+    ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
 ### <a name="grant-permissions-to-the-vsts-agent"></a>VSTS 에이전트에 사용 권한 부여
 Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 실패할 수 있습니다. 릴리스에 대한 로그를 다운로드하고, VSTS 에이전트에 사용 권한을 부여하는 명령을 사용하여 `.ps1` 파일을 찾습니다. 직접 명령을 실행할 수 있습니다. 또는 파일에서 보안 주체 ID를 복사하고 Azure Portal에 액세스 정책을 수동으로 추가할 수 있습니다. (*가져오기* 및 *나열*은 필요한 최소 권한입니다.)
@@ -161,14 +165,9 @@ Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 �
 3.  **인라인 스크립트**를 스크립트 형식으로 선택한 다음, 코드를 제공합니다. 다음 예제에서는 트리거를 중지합니다.
 
     ```powershell
-    $armTemplate="$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json"
+    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 
-    $templateJson = Get-Content "$(env:System.DefaultWorkingDirectory)/Dev/ARMTemplateForFactory.json" | ConvertFrom-Json
-
-    $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName
-    $DataFactoryName -ResourceGroupName $ResourceGroupName
-
-    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $\_.name -Force }
+    $triggersADF | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)

@@ -215,6 +215,10 @@
               href: service-fabric-image-store-connection-string.md
         - name: 서비스 리소스
           href: service-fabric-service-manifest-resources.md
+        - name: 정기 백업 및 복원
+          items:
+            - name: 정기 백업 구성 이해
+              href: service-fabric-backuprestoreservice-configure-periodic-backup.md
     - name: 클러스터
       href: service-fabric-deploy-anywhere.md
       items:
@@ -428,6 +432,8 @@
               href: service-fabric-securing-containers.md
             - name: Windows 컨테이너용 gMSA 설정
               href: service-fabric-setup-gmsa-for-windows-containers.md
+            - name: Linux에서 인증서 구성
+              href: service-fabric-configure-certificates-linux.md
         - name: 정기적으로 백업 구성(Azure의 클러스터)
           href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
         - name: 정기적으로 백업 구성(독립 실행형 클러스터)
@@ -458,6 +464,13 @@
           href: service-fabric-debugging-your-application-java.md
         - name: 로컬로 모니터링 및 진단
           href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: VS Code 환경에서 작업
+      href: service-fabric-get-started-vs-code.md
+      items:
+        - name: 'VS Code를 통해 C# Service Fabric 응용 프로그램 개발'
+          href: service-fabric-develop-csharp-applications-with-vs-code.md
+        - name: VS Code를 통해 Java Service Fabric 응용 프로그램 개발
+          href: service-fabric-develop-java-applications-with-vs-code.md
     - name: Cloud Services에서 마이그레이션
       items:
         - name: Cloud Services와 Service Fabric 비교
@@ -532,17 +545,13 @@
                   href: service-fabric-cluster-creation-via-arm.md
                 - name: 인증서 일반 이름을 사용하는 클러스터
                   href: service-fabric-create-cluster-using-cert-cn.md
-                - name: Windows용 디스크 암호화 사용
-                  href: service-fabric-enable-azure-disk-encryption-windows.md
-                - name: Linux용 디스크 암호화 사용
-                  href: service-fabric-enable-azure-disk-encryption-linux.md
             - name: 확장
               items:
                 - name: 수동으로 규모 확장
                   href: service-fabric-cluster-scale-up-down.md
                 - name: 프로그래밍 방식으로 규모 확장
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: 주 노드 형식 VM 강화
+                - name: 주 노드 형식 VM 크기 조정 및 업그레이드
                   href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
             - name: 업그레이드
               href: service-fabric-cluster-upgrade.md
@@ -560,8 +569,6 @@
               href: service-fabric-cluster-delete.md
             - name: 클러스터 노드 VM에 원격 연결
               href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-            - name: VMSS SKU 업그레이드/마이그레이션
-              href: service-fabric-update-vmss-sku.md
         - name: 독립 실행형 클러스터
           items:
             - name: 생성
@@ -610,13 +617,13 @@
               href: service-fabric-diagnostics-event-aggregation-wad.md
             - name: Linux Azure 진단
               href: service-fabric-diagnostics-event-aggregation-lad.md
-            - name: OMS Log Analytics 설정
+            - name: Log Analytics 설정
               href: service-fabric-diagnostics-oms-setup.md
-            - name: OMS로 모니터링
+            - name: Log Analytics로 모니터링
               href: service-fabric-diagnostics-event-analysis-oms.md
         - name: 인프라 모니터
           items:
-            - name: OMS 에이전트를 사용한 성능 모니터링
+            - name: Log Analytics 에이전트를 사용하여 성능 모니터링
               href: service-fabric-diagnostics-oms-agent.md
             - name: WAD를 사용하여 성능 모니터링
               href: service-fabric-diagnostics-perf-wad.md

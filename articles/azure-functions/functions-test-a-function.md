@@ -3,7 +3,7 @@ title: Azure Functions 테스트 | Microsoft Docs
 description: Postman, cURL 및 Node.js를 사용하여 Azure 함수를 테스트합니다.
 services: functions
 documentationcenter: na
-author: wesmc7777
+author: tdykstra
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: wesmc
+ms.author: tdykstra
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 41796a8cdde0756e5157ba276463a56b07679d04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22992198"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083260"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -186,7 +186,7 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 ### <a name="test-a-blob-trigger-by-using-storage-explorer"></a>저장소 탐색기를 사용하여 Blob 트리거 테스트
 [Azure Storage 탐색기](http://storageexplorer.com/)를 사용하여 Blob 트리거 함수를 테스트할 수 있습니다.
 
-1. 함수 앱에 대한 [Azure Portal]에서 C#, F# 또는 JavaScript Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예:
+1. 함수 앱에 대한 [Azure Portal]에서 C#, F# 또는 JavaScript Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예: 
 
         files
 2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
@@ -356,7 +356,7 @@ req.end(bodyString);
 ```
 
 
-출력:
+출력
 
     C:\Users\Wesley\testing\Node.js>node testHttpTriggerExample.js
     *** Sending name and address in body ***
@@ -383,7 +383,7 @@ req.end(bodyString);
 콘솔 앱에서 이 코드를 테스트하려면 다음을 수행해야 합니다.
 
 * [app.config 파일에서 저장소 연결 문자열을 구성합니다](../storage/queues/storage-dotnet-how-to-use-queues.md).
-* 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"`. 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다.
+* 앱에 대한 매개 변수로 `name` 및 `address`를 전달합니다. 예: `C:\myQueueConsoleApp\test.exe "Wes testing queues" "in a console app"` 이 코드는 런타임 동안 새 사용자에 대한 이름 및 주소를 명령줄 인수로 허용합니다.
 
 C# 코드 예제:
 

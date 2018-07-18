@@ -3,7 +3,7 @@ title: 자습서 - Azure에서 Jenkins를 사용하여 개발 파이프라인 �
 description: 자습서 - 이 자습서에서는 각 코드 커밋의 GitHub에서 가져오고 앱을 실행하기 위해 새 Docker 컨테이너를 빌드하는 Azure에서 Jenkins 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/27/2017
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: f50555775d369da7cf9321d5493bf4e1d84a7bf2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211194"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931731"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서 - Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 
@@ -148,8 +148,8 @@ GitHub를 통해 통합을 구성하려면 Azure 샘플 리포지토리에서 [N
 Jenkins 웹 사이트에서 홈 페이지에서 **새 작업 만들기**를 선택합니다.
 
 - *HelloWorld*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 다음 **확인**을 선택합니다.
-- **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/iainfoulds/nodejs-docs-hello-world*와 같은 포크된 리포지토리 URL을 입력합니다.
-- **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/iainfoulds/nodejs-docs-hello-world.git*과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
+- **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world*와 같은 포크된 리포지토리 URL을 입력합니다.
+- **소스 코드 관리** 섹션에서 **Git**을 선택하고 *https://github.com/cynthn/nodejs-docs-hello-world.git*과 같은 포크된 리포지토리 *.git* URL을 입력합니다.
 - **트리거 빌드**에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 - **빌드** 섹션 아래에서 **빌드 단계 추가**를 선택합니다. **셸 실행**을 선택한 다음 명령 창에 `echo "Testing"` 명령을 입력합니다.
 - 작업 창 맨 아래에서 **저장**을 선택합니다.

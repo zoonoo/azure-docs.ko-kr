@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - Docker | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - Docker
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,18 +14,18 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/02/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 87b87734ebf2eaa266447cab0083c24399844f55
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f2c66385f66bf9aa75601da1a6ab03bf00210fa2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653395"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928402"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>PowerShell을 사용하여 Docker 호스트 만들기
 
-이 스크립트는 Docker를 사용하는 가상 머신을 만들고 컨테이너에서 NGINX를 실행하기 시작합니다. 스크립트를 실행한 후에 Azure Virtual Machine의 FQDN을 통해 NGINX 웹 서버에 액세스할 수 있습니다. 
+이 스크립트는 Docker를 사용하는 가상 머신을 만들고 컨테이너에서 NGINX를 실행하기 시작합니다. 스크립트를 실행한 후에 Azure Virtual Machine의 FQDN을 통해 NGINX 웹 서버에 액세스할 수 있습니다.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "34653395"
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-docker-host/create-docker-host.ps1 "Create Docker host")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 

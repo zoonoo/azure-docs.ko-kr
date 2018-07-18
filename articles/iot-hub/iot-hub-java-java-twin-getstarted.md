@@ -1,23 +1,20 @@
 ---
 title: Azure IoT Hub 장치 쌍 시작(Java) | Microsoft Docs
 description: Azure IoT Hub 장치 쌍을 사용하여 태그를 추가한 다음 IoT Hub 쿼리를 사용하는 방법입니다. Java용 Azure IoT 장치 SDK를 사용하여 장치 앱을 구현하고 Java용 Azure IoT 서비스 SDK를 사용하여 태그를 추가하고 IoT Hub 쿼리를 실행하는 서비스 앱을 구현합니다.
-services: iot-hub
-documentationcenter: java
 author: dominicbetts
 manager: timlt
-editor: ''
 ms.service: iot-hub
+services: iot-hub
 ms.devlang: java
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: 8611b55f6e4f33f8946d8c7c481163166d24049c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 96cad0fc7f387c5f0cb14996ae6ac015c104b81d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619440"
 ---
 # <a name="get-started-with-device-twins-java"></a>장치 쌍 시작(Java)
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 05/07/2018
 이 자습서에서는 다음 두 개의 Java 콘솔 앱을 만듭니다.
 
 * **add-tags-query**, 태그를 추가하고 장치 쌍을 쿼리하는 Java 백 엔드 앱입니다.
-* **simulated-device**, IoT 허브에 연결하고 reported 속성을 사용하여 해당 연결 조건을 보고하는 Java 장치 앱입니다.
+* **simulated-device**, IoT Hub에 연결하고 reported 속성을 사용하여 해당 연결 조건을 보고하는 Java 장치 앱입니다.
 
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 문서는 장치 및 백 엔드 앱을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 대한 정보를 제공합니다.

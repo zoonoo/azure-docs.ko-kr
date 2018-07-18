@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: ce8221cd7bf427084e63f8b13dcf6f0f1cc7a35e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a7ddcb834b135d2177355a0523c7e99bcc599e99
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699005"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931517"
 ---
 # <a name="create-list-and-delete-a-user-assigned-identity-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 사용자 할당 ID 생성, 나열 및 삭제
 
@@ -70,7 +70,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
   "resources": [
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-      "name": "[parameters('<USER ASSIGNED IDENTITY NAME>')]",
+      "name": "[parameters('resourceName')]",
       "apiVersion": "2015-08-31-PREVIEW",
       "location": "[resourceGroup().location]"
     }
@@ -78,7 +78,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, Azure Resourc
   "outputs": {
       "identityName": {
           "type": "string",
-          "value": "[parameters('<USER ASSIGNED IDENTITY NAME>')]"
+          "value": "[parameters('resourceName')]"
       }
   }
 }

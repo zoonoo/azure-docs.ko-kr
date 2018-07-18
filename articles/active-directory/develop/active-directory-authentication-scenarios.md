@@ -17,12 +17,12 @@ ms.date: 04/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 0c1390945848901dd71214e01469ab3bfa765ef4
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: f85b97791c9e2d17417f82dae05d27838be63703
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157574"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36319016"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Azure AD 인증 시나리오
 
@@ -138,7 +138,7 @@ Azure AD를 사용하여 개발 및 통합할 수 있는 두 가지 범주의 �
 1. 사용자가 응용 프로그램을 방문할 때 로그인해야 하는 경우 로그인 요청을 통해 Azure AD의 인증 끝점으로 리디렉션됩니다.
 1. 사용자가 로그인 페이지에서 로그인합니다.
 1. 인증에 성공하면 Azure AD에서 인증 토큰을 만들고, Azure Portal에서 구성한 응용 프로그램의 회신 URL에 대한 로그인 응답을 반환합니다. 프로덕션 응용 프로그램의 경우 이 회신 URL은 HTTPS여야 합니다. 반환된 토큰에는 응용 프로그램이 토큰의 유효성을 검사하는 데 필요한, 사용자 및 Azure AD에 대한 클레임이 포함됩니다.
-1. 응용 프로그램이 Azure AD에 대한 페더레이션 메타데이터 문서에서 제공되는 공개 서명 키 및 발급자 정보를 사용하여 토큰의 유효성을 검사합니다. 응용 프로그램이 토큰의 유효성을 검사한 후에는 Azure AD가 사용자의 새 세션을 시작합니다. 이 세션에서 사용자는 응용 프로그램이 만료될 때까지 응용 프로그램에 액세스할 수 있습니다.
+1. 응용 프로그램이 Azure AD에 대한 페더레이션 메타데이터 문서에서 제공되는 공개 서명 키 및 발급자 정보를 사용하여 토큰의 유효성을 검사합니다. 응용 프로그램이 토큰의 유효성을 검사한 후에 사용자의 새 세션을 시작합니다. 이 세션에서 사용자는 응용 프로그램이 만료될 때까지 응용 프로그램에 액세스할 수 있습니다.
 
 #### <a name="code-samples"></a>코드 샘플
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 06/28/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: dfbabb3bc2702e7c6ab5d0ba5c809a1bd04d0bbc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 74e6428cf0536a7c8016be6cdf29071128bf4a3b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293010"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025364"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Azure AD 응용 프로그램 프록시 커넥터 이해
 
@@ -92,7 +92,6 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 아웃바운드 방화벽 규칙 구성에 대한 자세한 내용은 [기존 온-프레미스 프록시 서버 작업](application-proxy-configure-connectors-with-proxy-servers.md)을 참조하세요.
 
-[Azure AD 응용 프로그램 프록시 커넥터 포트 테스트 도구](https://aadap-portcheck.connectorporttest.msappproxy.net/)를 사용하여 커넥터가 응용 프로그램 프록시 서비스에 연결할 수 있는지 확인합니다. 최소한 미국 중부 하위 지역 및 사용자에게 가까운 지역에는 모두 녹색 확인 표시가 있는지 확인합니다. 그 외의 항목에도 녹색 확인 표시가 있으면 복원력이 더 뛰어난 것입니다. 
 
 ## <a name="performance-and-scalability"></a>성능 및 확장성
 
@@ -104,7 +103,7 @@ Azure AD에서는 사용자가 배포하는 모든 커넥터에 자동 업데이
 
 반면, 커넥터에서는 메모리가 중요하지 않습니다. 온라인 서비스는 대부분의 프로세싱과 인증되지 않은 모든 트래픽을 처리합니다. 클라우드에서 수행할 수 있는 모든 작업은 클라우드에서 수행됩니다. 
 
-부하 분산은 지정된 커넥터 그룹의 커넥터 간에 수행됩니다. 라운드 로빈의 변형을 수행하여 그룹의 커넥터가 특정 요청을 제공하는지를 확인합니다. 커넥터를 선택한 후에 세션의 기간 동안 해당 사용자와 응용 프로그램 간에 세션 선호도를 유지합니다. 어떤 이유로든 커넥터 또는 컴퓨터를 사용할 수 없는 경우 트래픽이 그룹에 있는 다른 커넥터로 이동하기 시작합니다. 이 복원력은 여러 커넥터를 권장하는 이유이기도 합니다.
+부하 분산은 지정된 커넥터 그룹의 커넥터 간에 수행됩니다. 라운드 로빈의 변형을 수행하여 그룹의 커넥터가 특정 요청을 제공하는지를 확인합니다. 어떤 이유로든 커넥터 또는 컴퓨터를 사용할 수 없는 경우 트래픽이 그룹에 있는 다른 커넥터로 이동하기 시작합니다. 이 복원력은 여러 커넥터를 권장하는 이유이기도 합니다.
 
 성능에 영향을 주는 또 다른 요소는 커넥터 간 네트워킹의 품질이며 다음과 같습니다. 
 

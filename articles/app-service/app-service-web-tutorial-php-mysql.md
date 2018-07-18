@@ -16,11 +16,11 @@ ms.date: 10/20/2017
 ms.author: cephalin
 ms.custom: mvc
 ms.openlocfilehash: 4bb6f12781666792aad31789a59d752dd5a822de
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205716"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307190"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>자습서: Azure에서 PHP 및 MySQL 웹앱 빌드
 
@@ -145,7 +145,7 @@ php artisan key:generate
 php artisan serve
 ```
 
-브라우저에서 `http://localhost:8000`으로 이동합니다. 해당 페이지에서 몇 가지 작업을 추가합니다.
+브라우저에서 `http://localhost:8000` 으로 이동합니다. 해당 페이지에서 몇 가지 작업을 추가합니다.
 
 ![PHP가 MySQL 연결에 성공](./media/app-service-web-tutorial-php-mysql/mysql-connect-success.png)
 
@@ -334,7 +334,7 @@ git commit -m "database.php updates"
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
-### <a name="create-an-app-service-plan"></a>App Service 계획 만들기
+### <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 [!INCLUDE [Create app service plan no h](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 

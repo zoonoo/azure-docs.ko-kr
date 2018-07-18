@@ -1,23 +1,19 @@
 ---
-title: 클래식 활동 로그 경고 만들기 | Microsoft Docs
+title: 클래식 활동 로그 경고 만들기
 description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크 및 전자 메일을 통해 알림을 받습니다.
 author: johnkemnetz
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: ''
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
-ms.openlocfilehash: e0d92fcd6d3cbd50a2bcb8166b27b11bc86aad83
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263527"
 ---
 # <a name="create-activity-log-alerts-classic"></a>활동 로그 경고 만들기(클래식)
 
@@ -62,7 +58,7 @@ ms.lasthandoff: 03/23/2018
 1. [포털](https://portal.azure.com)에서 **모니터**를 선택합니다.
 
     ![“모니터링” 서비스](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. **활동 로그** 섹션에서 **경고(클래식)**를 선택합니다.
+2. **활동 로그** 섹션에서 **경고(클래식)** 를 선택합니다.
 
     ![“경고” 탭](./media/monitoring-activity-log-alerts/alerts-blades.png)
 3. **활동 로그 경고 추가**를 선택하고 필드를 입력합니다.

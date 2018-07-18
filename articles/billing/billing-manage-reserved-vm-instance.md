@@ -1,5 +1,5 @@
 ---
-title: Azure Reserved Instances 관리 - Azure 청구 | Microsoft Docs
+title: Azure Reserved VM Instances 관리 | Microsoft Docs
 description: 구독 범위를 변경하고 Azure Reserved VM Instances에 대한 액세스 권한을 관리하는 방법에 대해 알아봅니다.
 services: billing
 documentationcenter: ''
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: vikdesai
-ms.openlocfilehash: fc473906be9c572e6d6549c85f9faa8fe7566b86
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: ddb9d46dc2689b0dbcd8734e276916f7cd9d2728
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303065"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37064642"
 ---
-# <a name="manage-reserved-instances"></a>예약 인스턴스 관리
+# <a name="manage-reserved-instances-in-azure"></a>Azure에서 예약 인스턴스 관리
 
-Azure Reserved VM Instance를 구입한 다음, 구매 중에 지정된 구독이 아닌 다른 구독에 예약 인스턴스를 적용하는 것이 좋습니다. 또한 동일한 가상 머신이 여러 구독에서 실행 중인 경우 공유할 예약 인스턴스 범위를 변경하는 것이 좋습니다. 예약 인스턴스 할인을 최대화하려면 구입한 인스턴스 수가 특성 및 실행 중인 가상 머신 수와 일치하는지 확인합니다. Azure Reserved Instances에 대해 자세히 알아보려면 [Azure 가상 머신을 사전 지불하여 비용 절감](https://go.microsoft.com/fwlink/?linkid=862121)을 참조하세요.
+Azure Reserved VM Instance를 구입한 다음, 구매 중에 지정된 구독이 아닌 다른 구독에 예약 인스턴스를 적용하고자 할 수 있습니다. 또한 동일한 가상 머신이 여러 구독에서 실행 중인 경우 공유할 예약 인스턴스 범위를 변경하는 것이 좋습니다. 예약 인스턴스 할인을 최대화하려면 구입한 인스턴스 수가 특성 및 실행 중인 가상 머신 수와 일치하는지 확인합니다. Azure Reserved Instances에 대해 자세히 알아보려면 [Azure 가상 머신을 사전 지불하여 비용 절감](https://go.microsoft.com/fwlink/?linkid=862121)을 참조하세요.
 
-## <a name="change-the-scope-for-a-reserved-instance"></a>예약 인스턴스의 범위 변경
+## <a name="change-the-scope-for-a-reserved-instance"></a>예약 인스턴스 범위 변경
  예약 인스턴스 할인은 예약 인스턴스와 일치하고 예약 인스턴스 범위 내에서 실행되는 가상 머신에 적용됩니다. 예약 인스턴스의 범위는 청구 컨텍스트에서 단일 구독이나 모든 구독일 수 있습니다. 단일 구독으로 범위를 설정하는 경우 예약 인스턴스는 선택한 구독에서 실행 중인 가상 머신과 일치됩니다. 범위를 공유로 설정하는 경우 Azure에서는 예약 인스턴스를 청구 컨텍스트 내에서 모든 구독에서 실행되는 가상 머신에 일치시킵니다. 청구 컨텍스트는 예약 인스턴스를 구입하는 데 사용되는 구독에 따라 달라집니다. 자세한 내용은 [예약 인스턴스를 사용하여 VM 사전 지불](https://go.microsoft.com/fwlink/?linkid=861721)을 참조하세요.
 
-예약 인스턴스의 범위를 업데이트하려면: 
+예약 인스턴스의 범위를 업데이트하려면 
 1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
 3. 예약 인스턴스를 선택합니다.
@@ -43,7 +43,7 @@ Azure Reserved VM Instance를 구입한 다음, 구매 중에 지정된 구독�
 1. 다음 명령을 실행하여 예약 인스턴스 주문 ID를 가져옵니다.
 
     ```powershell
-    # Get the Reserved Instance orders you have access to
+    # Get the reserved instance orders you have access to
     Get-AzureRmReservationOrder
     ```
 2. 예약 인스턴스의 세부 정보를 가져옵니다.
@@ -54,7 +54,7 @@ Azure Reserved VM Instance를 구입한 다음, 구매 중에 지정된 구독�
 3. 예약 인스턴스를 두 개로 분할하고 인스턴스를 배포합니다.
 
     ```powershell
-    # Split the Reserved Instance. The sum of the Reserved Instances, the quantity, must equal the total number of instances in the Reserved Instance that you're splitting.
+    # Split the reserved instance. The sum of the reserved instances, the quantity, must equal the total number of instances in the reserved instance that you're splitting.
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 1. 다음 명령을 실행하여 범위를 업데이트할 수 있습니다.
@@ -78,13 +78,13 @@ Azure Reserved VM Instance를 구입한 다음, 구매 중에 지정된 구독�
 7. 사용자를 선택한 다음 **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-Azure Reserved Instance에 대한 자세한 내용은 다음 아티클을 참조하세요.
+Azure 예약 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Reserved Instance를 사용하여 가상 머신에서 비용 절감](billing-save-compute-costs-reservations.md)
-- [Reserved Instance를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Reserved Instance 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [Azure Reserved VM Instances란?](billing-save-compute-costs-reservations.md)
+- [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [예약 인스턴스 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
 - [종량제 구독에서 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage.md)
-- [Enterprise 등록의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [기업 등록계약의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
 - [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의

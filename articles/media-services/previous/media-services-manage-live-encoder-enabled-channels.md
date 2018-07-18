@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: c4d5533c443d27afa56471ce048efc5a375f6780
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 5aa6f629b04a4c187a43b13c929a122a6304c575
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639438"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Azure Media Services를 사용하여 다중 비트 전송률 스트림을 만드는 라이브 스트리밍
 
@@ -332,7 +333,7 @@ Live Encoding을 사용하도록 설정한 경우 이제 라이브 피드가 채
 * 채널이 **실행 중** 상태일 때만 청구됩니다. 자세한 내용은 [이](media-services-manage-live-encoder-enabled-channels.md#states) 섹션을 참조하세요.
 * 현재 라이브 이벤트의 최대 권장 기간은 8시간입니다. 이 기간보다 긴 시간 동안 채널을 실행해야 하는 경우 amslived@microsoft.com에 문의하세요.
 * 콘텐츠를 스트림하려는 스트리밍 끝점이 **실행** 상태인지 확인합니다.
-* 인코딩 사전 설정에서 "최대 프레임 속도" 30fps의 개념을 사용합니다. 입력이 60fps/59.97i이면 입력 프레임이 30/29.97fps로 드롭/디인터레이스됩니다. 입력이 50fps/50i이면 입력 프레임이 25fps로 드롭/디인터레이스됩니다. 입력이 25fps이면 출력이 25fps를 유지합니다.
+* 인코딩 사전 설정에서 "최대 프레임 속도" 30fps의 개념을 사용합니다. 입력이 60fps/59.94i이면 입력 프레임이 30/29.97fps로 드롭/디인터레이스됩니다. 입력이 50fps/50i이면 입력 프레임이 25fps로 드롭/디인터레이스됩니다. 입력이 25fps이면 출력이 25fps를 유지합니다.
 * 작업이 끝나면 채널을 중지하는 것을 잊지 마세요. 그렇지 않으면 요금이 계속 청구됩니다.
 
 ## <a name="known-issues"></a>알려진 문제

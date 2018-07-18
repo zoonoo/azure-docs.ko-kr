@@ -1,24 +1,25 @@
 ---
-title: BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행 | Microsoft Docs
-description: Azure Cosmos DB의 BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서 대량 가져오기 및 업데이트를 수행합니다.
+title: Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행 | Microsoft Docs
+description: Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서 대량 가져오기 및 업데이트를 수행합니다.
 keywords: .NET Bulk Executor
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.topic: article
+ms.devlang: dotnet
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 608551090ce10e08ba517def644c72186a6f25e1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300774"
 ---
-# <a name="using-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
+# <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
-이 자습서는 Azure Cosmos DB의 BulkExecutor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. BulkExecutor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [BulkExecutor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 Azure Cosmos DB 컬렉션으로 임의로 생성된 문서를 대량으로 가져오는 샘플 .NET 응용 프로그램을 통해 안내합니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
+이 자습서는 Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 Azure Cosmos DB 컬렉션으로 임의로 생성된 문서를 대량으로 가져오는 샘플 .NET 응용 프로그램을 통해 안내합니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -165,7 +166,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
     
 ## <a name="performance-tips"></a>성능 팁 
 
-BulkExecutor 라이브러리를 사용하는 경우 성능 향상을 위해 다음 사항을 고려합니다.
+Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다음 사항을 고려합니다.
 
 * 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure 가상 머신에서 응용 프로그램을 실행합니다.  
 
@@ -195,4 +196,4 @@ BulkExecutor 라이브러리를 사용하는 경우 성능 향상을 위해 다�
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* Nuget 패키지 세부 정보 및 BulkExecutor .Net 라이브러리의 릴리스 정보를 알아보려면 [BulkExecutor SDK 세부 정보](sql-api-sdk-bulk-executor-dot-net.md)를 참조하세요. 
+* Nuget 패키지 세부 정보 및 Bulk Executor .Net 라이브러리의 릴리스 정보를 알아보려면 [Bulk Executor SDK 세부 정보](sql-api-sdk-bulk-executor-dot-net.md)를 참조하세요. 

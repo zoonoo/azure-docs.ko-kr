@@ -3,7 +3,7 @@ title: Log Analytics FAQ | Microsoft Docs
 description: Azure Log Analytics 서비스에 대해 자주 묻는 질문에 대한 답변입니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 22da58df653b31c46145ebbbd1f6f6a26b0e9f29
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: eb1a60ff533e9e24f3dc80057129da47a2d9a726
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128533"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics FAQ
 Microsoft FAQ는 Microsoft Azure의 Log Analytics에 대해 자주 묻는 질문의 목록입니다. Log Analytics에 대한 추가 질문이 있으면 [토론 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
@@ -74,18 +76,21 @@ Log Analytics는 UTC 시간을 사용하고 매일 UTC 자정에 시작됩니다
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. 데이터 수집이 중지될 때 알림을 받을 수 있는 방법은 무엇인가요?
 
-A: [경고 규칙 만들기](log-analytics-alerts-creating.md#create-an-alert-rule)에 설명한 단계를 사용하여 데이터 수집이 중단되는 경우 알림을 받을 수 있습니다.
+A: [새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 데이터 수집이 중단되는 경우 알림을 받을 수 있습니다.
 
 데이터 수집이 중단되는 경우에 대한 경고를 만드는 시기는 다음을 설정합니다.
-- **이름**을 *데이터 수집 중지됨*으로
-- **심각도**를 *경고*로
-- **쿼리 검색**을 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`으로
-- **시간 창**을 *30분*으로.
-- **경고 빈도**를 매 *10*분으로.
-- **경고 생성 기준**을 *결과의 수*로
-- **결과 수**를 *0보다 큼*으로
 
-이 경고는 15분 이상에 하트비트가 누락된 경우에만 쿼리가 결과를 반환할 때 발생합니다.  [경고 규칙에 작업 추가](log-analytics-alerts-actions.md)에 설명한 단계를 사용하여 경고 규칙에 전자 메일, 웹후크 또는 Runbook 작업을 구성합니다.
+- **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
+- **경고 조건**은 다음을 지정합니다.
+   - **신호 이름**은 **사용자 지정 로그 검색**을 선택합니다.
+   - **쿼리 검색**을 `Heartbeat | summarize LastCall = max(TimeGenerated) by Computer | where LastCall < ago(15m)`으로
+   - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
+   - *30*분의 **시간 범위** 및 매 *10*분의 **경고 주기**
+- **경고 세부 정보 정의**는 다음을 지정합니다.
+   - **이름**을 *데이터 수집 중지됨*으로
+   - **심각도**를 *경고*로
+
+로그 경고가 조건과 일치하도록 기존 항목을 지정하거나 새 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 만들면 15분 초과 하트비트가 누락된 경우 사용자에게 알려줍니다.
 
 ## <a name="configuration"></a>구성
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>Q. WAD(Azure 진단)에서 읽어오는 데 사용되는 테이블/Blob 컨테이너의 이름을 변경할 수 있나요?
@@ -96,7 +101,7 @@ a. 아니요, 현재 Azure 저장소의 임의 테이블 또는 컨테이너에�
 
 a. Log Analytics 서비스는 Azure를 기반으로 빌드됩니다. Log Analytics IP 주소는 [Microsoft Azure 데이터 센터 IP 범위](http://www.microsoft.com/download/details.aspx?id=41653)에 있습니다.
 
-서비스 배포가 수행되면서 Log Analytics 서비스의 실제 IP 주소가 변경됩니다. 방화벽을 통과하도록 허용하는 DNS 이름은 [시스템 요구 사항](log-analytics-concept-hybrid.md#prerequisites)에 문서화됩니다.
+서비스 배포가 수행되면서 Log Analytics 서비스의 실제 IP 주소가 변경됩니다. 방화벽을 통과하도록 허용하는 DNS 이름은 [네트워크 요구 사항](log-analytics-concept-hybrid.md#network-firewall-requirements)에 문서화됩니다.
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. ExpressRoute를 사용하여 Azure에 연결합니다. Log Analytics 트래픽이 내 ExpressRoute 연결을 사용하나요?
 
@@ -106,7 +111,7 @@ Log Analytics에 대한 트래픽은 공용 피어링 ExpressRoute 회로를 사
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. 기존 Log Analytics 작업 영역을 다른 Log Analytics 작업 영역/Azure 구독으로 이동할 간단하고 쉬운 방법이 있나요?
 
-a. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 자동화 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
+a. `Move-AzureRmResource` cmdlet을 사용하면 Log Analytics 작업 영역을 이동할 수 있으며 한 Azure 구독에서 다른 구독으로 Automation 계정도 이동할 수 있습니다. 자세한 내용은 [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx)를 참조하세요.
 
 이러한 변경은 Azure 포털에서 이루어집니다.
 
@@ -130,7 +135,7 @@ A: 에이전트가 OMS와 통신할 수 있는지 확인하려면 제어판, 보
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>Q: 에이전트가 Log Analytics와의 통신을 중지하도록 하려면 어떻게 하나요?
 
 A: System Center Operations Manager의 OMS 관리 컴퓨터 목록에서 컴퓨터를 제거합니다. Operations Manager는 Log Analytics에 더 이상 보고하지 않도록 에이전트의 구성을 업데이트합니다. Log Analytics에 직접 연결된 에이전트인 경우 제어판, 보안 및 설정, **Microsoft Monitoring Agent**를 통해 통신을 중지할 수 있습니다.
-**Azure Log Analytics(OMS)**아래에서 나열된 모든 작업 영역을 제거합니다.
+**Azure Log Analytics(OMS)** 아래에서 나열된 모든 작업 영역을 제거합니다.
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>Q: 내 작업 영역을 특정 Azure 구독에서 다른 구독으로 이동하려고 하는 경우 오류가 발생하는 이유는 무엇인가요?
 

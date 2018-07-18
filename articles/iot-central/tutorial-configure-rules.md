@@ -1,21 +1,22 @@
 ---
 title: Azure IoT Central에서 규칙 및 작업 구성 | Microsoft Docs
 description: 이 자습서에서는 Azure IoT Central 응용 프로그램에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 알려줍니다.
-services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: 5ac19e0e25ea3e25ede4d87776c01f8bcaea4655
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202240"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35236334"
 ---
-# <a name="2---configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>2 - Azure IoT Central에서 장치에 대한 규칙 및 작업 구성
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 장치에 대한 규칙 및 작업 구성
 
 이 자습서에서는 Microsoft Azure IoT Central 응용 프로그램에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 알려줍니다.
 
@@ -39,17 +40,17 @@ ms.locfileid: "34202240"
 
     이전 자습서에서 만든 **연결된 공조 장치(1.0.0)** 템플릿 및 **연결된 공조 장치-1**을 확인할 수 있습니다.
 
-1. 연결된 공조 장치의 사용자 지정을 시작하려면 이전 자습서에서 만든 장치를 선택합니다.
+2. 연결된 공조 장치의 사용자 지정을 시작하려면 이전 자습서에서 만든 장치를 선택합니다.
 
     ![연결된 공조 장치 페이지](media/tutorial-configure-rules/builderdevicelist.png)
 
-1. **규칙** 보기에 규칙을 추가하려면 **규칙**을 선택합니다.
+3. **규칙** 보기에 규칙을 추가하려면 **규칙**을 선택합니다.
 
     ![규칙 보기](media/tutorial-configure-rules/builderrulesview.png)
 
-1. 이 자습서에서는 임계값 기반 원격 분석 규칙을 추가합니다. 임계값 기반 규칙 만들기를 시작하려면 **새 규칙** 및 **원격 분석**을 차례로 선택합니다.
+4. 임계값 기반 원격 분석 규칙 만들기를 시작하려면 **새 규칙** 및 **원격 분석**을 차례로 선택합니다.
 
-1. 규칙을 정의하려면 다음 표의 정보를 사용합니다.
+5. 규칙을 정의하려면 다음 표의 정보를 사용합니다.
 
     | 설정     | 값                          |
     | ----------- | ------------------------------ |
@@ -67,7 +68,7 @@ ms.locfileid: "34202240"
 
     ![온도 규칙 작업](media/tutorial-configure-rules/builderaddaction.png)
 
-1. 작업을 정의하려면 다음 표의 정보를 사용합니다.
+2. 작업을 정의하려면 다음 표의 정보를 사용합니다.
 
     | 설정   | 값                          |
     | --------- | ------------------------------ |
@@ -79,7 +80,7 @@ ms.locfileid: "34202240"
 
     ![응용 프로그램 작성기 온도 작업](media/tutorial-configure-rules/buildertemperatureaction.png)
 
-1. **저장**을 선택합니다. **규칙** 페이지에 규칙이 나열됩니다.
+3. **저장**을 선택합니다. **규칙** 페이지에 규칙이 나열됩니다.
 
     ![응용 프로그램 작성기 규칙](media/tutorial-configure-rules/builderrules.png)
 

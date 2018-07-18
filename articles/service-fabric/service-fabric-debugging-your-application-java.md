@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 0e9e816fa84816b1b5d12f066dc65aee7b4930f7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 78483a5a5d78b539415aeeb0e28c1dbaf3680173
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205456"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38619343"
 ---
 # <a name="debug-your-java-service-fabric-application-using-eclipse"></a>Eclipse를 사용하여 Java Service Fabric 응용 프로그램 디버그
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "34205456"
 2. 디버그하려는 서비스의 entryPoint.sh를 원격 디버그 매개 변수를 사용하여 java 프로세스를 시작하도록 업데이트합니다. 이 파일은 ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh`` 위치에서 찾을 수 있습니다. 이 예제에서 포트 8001은 디버깅을 위해 설정되었습니다.
 
     ```sh
-    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
+    java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
     ```
 3. 인스턴스 수 또는 디버그하는 서비스의 복제본 수를 1로 설정하여 응용 프로그램 매니페스트를 업데이트합니다. 이 설정은 디버깅에 사용되는 포트에 대한 충돌을 방지합니다. 예를 들어, 상태 비저장 서비스의 경우 ``InstanceCount="1"``을 설정하고 상태 저장 서비스의 경우 `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``과 같이 대상과 최소 복제본 세트 크기를 1로 설정합니다.
 

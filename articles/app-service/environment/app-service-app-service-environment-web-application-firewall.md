@@ -66,7 +66,7 @@ Barracuda에는 Azure의 가상 머신에 WAF를 배포하는 방법에 대한 [
 
 ![관리 끝점 추가][AddManagementEndpoint]
 
-브라우저를 사용하여 클라우드 서비스에서 관리 끝점으로 이동 합니다. Cloud Service 이름이 test.cloudapp.net이라면 http://test.cloudapp.net:8000으로 이동하여 이 끝점에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
+브라우저를 사용하여 클라우드 서비스에서 관리 끝점으로 이동 합니다. Cloud Service 이름이 test.cloudapp.net이라면 http://test.cloudapp.net:8000 으로 이동하여 이 끝점에 액세스합니다. 로그인 페이지를 참조해야 다음 이미지와 같은 WAF VM 설치 단계에서 지정한 자격 증명을 사용하여 로그인할 수 있습니다.
 
 ![관리 로그인 페이지][ManagementLoginPage]
 

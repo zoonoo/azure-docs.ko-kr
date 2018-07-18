@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: alkohli
 ms.openlocfilehash: 9173e34f889ce1c082b20bb382cb6ca9a03dd797
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108341"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38597500"
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-access-control-records"></a>StorSimple 관리자 서비스를 사용하여 액세스 제어 레코드 관리
 
@@ -91,7 +91,7 @@ ACR을 편집하려면 다음 단계를 수행합니다.
 
     ![액세스 제어 레코드 편집](./media/storsimple-8000-manage-acrs/editacr2.png)
 
-4. **Save**를 클릭합니다. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 
+4. **저장**을 클릭합니다. 확인하라는 메시지가 표시되면 **예**를 클릭합니다. 
 
     ![액세스 제어 레코드 편집](./media/storsimple-8000-manage-acrs/editacr3.png)
 

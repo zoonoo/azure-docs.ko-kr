@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 47ccf91a64653c928cc4da01bc98535c97440d37
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aa2278e7d32147d75b8ca0241a39a9fed6df41c8
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187694"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36266885"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption FAQ
 
@@ -49,11 +49,13 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | --- | --- |--- |
 | Ubuntu | 16.04-DAILY-LTS | OS 및 데이터 디스크 |
 | Ubuntu | 14.04.5-DAILY-LTS | OS 및 데이터 디스크 |
+| RHEL | 7.5 | 데이터 디스크* |
 | RHEL | 7.4 | 데이터 디스크* |
 | RHEL | 7.3 | 데이터 디스크* |
 | RHEL | 7.2 | 데이터 디스크* |
 | RHEL | 6.8 | 데이터 디스크* |
 | RHEL | 6.7 | 데이터 디스크* |
+| CentOS | 7.4 | OS 및 데이터 디스크 |
 | CentOS | 7.3 | OS 및 데이터 디스크 |
 | CentOS | 7.2n | OS 및 데이터 디스크 |
 | CentOS | 6.8 | OS 및 데이터 디스크 |

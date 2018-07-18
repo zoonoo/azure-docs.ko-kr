@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: a40ca715c15540bf7048fae8b5dde152890eb1c1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 929c05901c54ef0e7fe0d4af28c5ba45c92091f0
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648329"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021143"
 ---
 # <a name="securing-your-sql-database"></a>SQL Database 보안 설정
 
@@ -79,7 +79,7 @@ SQL Database 감사는 데이터베이스 활동을 추적하고 데이터베이
 위협 감지는 데이터베이스를 액세스하거나 악용하려는 비정상적이고 잠재적으로 해로운 시도를 감지하는 Azure SQL Database 서비스에 내장된 추가적인 보안 인텔리전스 계층을 제공하여 감사 기능을 보완합니다. 의심스러운 활동, 잠재적 취약성 및 SQL 삽입 공격은 물론 비정상적인 데이터베이스 액세스 패턴에 대해 경고합니다. 위협 감지 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있으며 의심스러운 활동에 대한 세부 정보를 제공하고 위협을 조사하고 완화하는 방법에 대한 조치를 권장합니다. 위협 감지 비용은 $15/서버/월입니다. 처음 60일 동안 무료입니다. 자세한 내용은 [SQL Database 위협 감지 시작](sql-database-threat-detection.md)을 참조하세요.
  
 ## <a name="compliance"></a>규정 준수
-위의 기능 및 응용 프로그램이 다양한 보안 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL Database는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings/) 목록을 찾을 수 있습니다.
+위의 기능 및 응용 프로그램이 다양한 보안 요구 사항을 충족하도록 도울 수 있는 기능 외에도 Azure SQL Database는 정기적인 감사에 참여하고 여러 규정 준수 표준에 대해 인증받았습니다. 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/)를 참조하세요. 여기서 최신 [SQL Database 규정 준수 인증서](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) 목록을 찾을 수 있습니다.
 
 
 ## <a name="security-management"></a>보안 관리

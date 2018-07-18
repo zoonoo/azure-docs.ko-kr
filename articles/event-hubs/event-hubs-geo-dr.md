@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 06/14/2018
 ms.author: sethm
-ms.openlocfilehash: 237b0639be75e12cff56f40ac76426aba7a8a701
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: 0192f65f394a3bb6d5cffc90639966b5f913b291
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/16/2017
-ms.locfileid: "26745897"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36302116"
 ---
 # <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure Event Hubs 지역 재해 복구
 
@@ -101,6 +101,17 @@ Azure Event Hubs의 지역 재해 복구 기능은 재해 복구 솔루션입니
 
 4. 엔터티를 동기화하는 데 분당 약 50~100개의 엔터티를 처리하므로 다소 시간이 걸릴 수 있습니다.
 
+## <a name="availability-zones-preview"></a>가용성 영역(미리 보기)
+
+Event Hubs 표준 SKU도 Azure 지역 내에서 오류가 없는 위치를 제공하는 [가용성 영역](../availability-zones/az-overview.md)을 지원합니다. 
+
+> [!NOTE]
+> 가용성 영역 미리 보기는 **미국 중부**, **미국 동부 2** 및 **프랑스 중부** 지역에서만 지원됩니다.
+
+Azure Portal을 사용하여 새로운 네임스페이스에서만 가용성 영역을 사용하도록 설정할 수 있습니다. Event Hubs에서는 기존 네임스페이스의 마이그레이션을 지원하지 않습니다. 네임스페이스를 사용하도록 설정한 후에는 영역 중복성을 사용하지 않도록 설정할 수 없습니다.
+
+![3][]
+
 ## <a name="next-steps"></a>다음 단계
 
 * [GitHub의 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient)은 지리적 페어링을 만들고 재해 복구 시나리오에 대한 장애 조치(Failover)를 시작하는 간단한 워크플로를 진행합니다.
@@ -114,3 +125,4 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 방문하세요.
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

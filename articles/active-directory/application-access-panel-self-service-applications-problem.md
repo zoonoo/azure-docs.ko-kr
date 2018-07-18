@@ -3,23 +3,24 @@ title: 셀프 서비스 응용 프로그램 액세스를 사용할 때 발생하
 description: 셀프 서비스 응용 프로그램 액세스와 관련된 문제 해결
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.reviewer: japere
-ms.openlocfilehash: 6d4044414cfae9a79487d02709aab24998fdef0b
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: barbkess
+ms.reviewer: japere,asteen
+ms.openlocfilehash: cdd554b71cc17019d7818e2b509433df621da84f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29382358"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446829"
 ---
 # <a name="problem-using-self-service-application-access"></a>셀프 서비스 응용 프로그램 액세스를 사용할 때 발생하는 문제
 
@@ -97,4 +98,4 @@ ms.locfileid: "29382358"
 -   Fiddler 추적
 
 ## <a name="next-steps"></a>다음 단계
-[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](active-directory-accessmanagement-self-service-group-management.md)
+[셀프 서비스 그룹 관리를 위한 Azure Active Directory 설정](users-groups-roles/groups-self-service-management.md)

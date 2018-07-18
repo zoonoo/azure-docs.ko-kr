@@ -6,13 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 05/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8eb6717369b48289bd31dcd1972ce275bc550c77
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 83852917909d13555e7a0a339d2ecc805eeead42
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625800"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도 
 
@@ -62,7 +63,7 @@ Event Grid는 이벤트 배달에 대해 지수 백오프 재시도 정책을 �
 
 Event Grid는 약간의 불규칙을 모든 다시 시도 간격에 추가합니다. 한 시간 후에 이벤트 배달은 한 시간에 한 번 다시 시도됩니다.
 
-기본적으로 Event Grid는 24시간 이내에 배달되지 않는 모든 이벤트를 만료합니다.
+Event Grid는 24시간 내에 배달되지 않은 모든 이벤트를 전달하려는 시도를 중지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

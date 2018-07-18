@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: b71ad5701cfd1f8a274318c69d3464cf4fa34708
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3f234e49f1a28fd0881e47ede13ae72483ed31f3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621091"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053119"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>모니터링 및 관리 앱을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "34621091"
 >
 
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [버전 2에서 Data Factory 파이프라인 모니터링 및 관리](../monitor-visually.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우 [Data Factory 파이프라인 모니터링 및 관리](../monitor-visually.md)를 참조하세요.
 
 이 문서는 모니터링 및 관리 앱을 사용하여 Data Factory 파이프라인을 모니터링하고 관리하고 디버그하는 방법을 설명합니다. 다음 비디오를 시청하여 응용 프로그램 사용을 시작할 수 있습니다.
 

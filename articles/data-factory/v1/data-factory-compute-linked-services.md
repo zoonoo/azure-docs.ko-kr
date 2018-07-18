@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 51a0f43587b9d34a3693eb4a2927d10c71bd95d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59631ee0115c817da1b0588c1ad37d2f8b34db67
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621754"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053665"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory에서 지원하는 Compute 환경
 > [!NOTE]
-> 이 문서는 일반 공급(GA)되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 서비스 버전 2를 사용 중인 경우 [버전 2의 연결된 서비스 계산](../compute-linked-services.md)을 참조하세요.
+> 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [연결된 서비스 계산](../compute-linked-services.md)를 참조하세요.
 
 이 문서에서는 데이터를 처리하거나 변환하는 데 사용할 수 있는 계산 환경에 대해 설명합니다. 또한 이런 계산 환경을 Azure 데이터 팩터리로 연결하는 연결된 서비스를 구성할 때 Data Factory에서 지원하는 다양한 구성(on-demand 및 bring-your-own)에 대한 세부 정보를 제공합니다.
 
@@ -66,7 +66,7 @@ Microsoft는 지원되는 HDInsight 버전 목록을 최신 Hadoop 에코시스�
 - 주문형 HDInsight 연결된 서비스를 사용하여 Data Factory 버전 1 DotNet 사용자 지정 작업을 실행 중인 경우, Azure Batch 연결된 서비스를 대신 사용하도록 DotNet 사용자 지정 작업 JSON 정의를 업데이트합니다. 자세한 내용은 [데이터 팩터리 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)을 참조하세요. 
 
 > [!Note]
-> Data Factory 버전 1에서 기존의, 자체(bring-your-own) 클러스터 HDInsight 연결된 장치를 사용하거나 Azure Data Factory 버전 2에서 자체(bring-your-own) 및 주문형 HDInsight 연결된 서비스를 사용하는 경우에는 별도의 조치가 필요하지 않습니다. 이러한 시나리오에는 HDInsight 클러스터의 최신 버전 지원 정책이 이미 적용되고 있습니다. 
+> Data Factory 버전 1에서 기존의, 자체(bring-your-own) 클러스터 HDInsight 연결된 장치를 사용하거나 Azure Data Factory에서 자체(bring-your-own) 및 주문형 HDInsight 연결된 서비스를 사용하는 경우에는 별도의 조치가 필요하지 않습니다. 이러한 시나리오에는 HDInsight 클러스터의 최신 버전 지원 정책이 이미 적용되고 있습니다. 
 >
 > 
 

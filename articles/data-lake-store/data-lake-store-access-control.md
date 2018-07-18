@@ -9,16 +9,15 @@ editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 8fd8bd81191d2019d5fa41ce1b6a029f3587adfd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: afe1a784ecc0a8f8846a71d21cc7ca8eb76078ec
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36336941"
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Azure Data Lake Store에서 액세스 제어
 
@@ -279,7 +278,7 @@ Data Lake Store의 ACL에 대해 자주 제기하는 몇 가지 질문은 다음
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL에 대한 지원을 사용하도록 설정해야 하나요?
 
-번호 ACL을 통한 액세스 제어는 항상 Data Lake Store 계정에 대하여 켜져 있습니다.
+아니요. ACL을 통한 액세스 제어는 항상 Data Lake Store 계정에 대하여 켜져 있습니다.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>폴더 및 해당 내용을 재귀적으로 삭제하는 데 필요한 권한은 무엇인가요?
 
@@ -326,7 +325,7 @@ ACL의 항목은 Azure AD의 사용자에 해당하는 GUID로 저장됩니다. 
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>POSIX 액세스 제어 모델에 대한 어디서 자세히 알아볼 수 있나요?
 
-* [Linux의 POSIX Access Control 목록](http://www.vanemery.com/Linux/ACL/POSIX_ACL_on_Linux.html)(영문)
+* [Linux의 POSIX Access Control 목록](https://www.linux.com/news/posix-acls-linux)(영문)
 
 * [HDFS 권한 가이드](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)(영문)
 

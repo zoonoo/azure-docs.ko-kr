@@ -2,7 +2,7 @@
 
 
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
-1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://portal.azure.us/)에 로그온합니다.
+1. Microsoft 계정 자격 증명을 사용하여 [Microsoft Azure Government 포털](https://portal.azure.us/)에 로그인합니다.
 2. Government 포털에서 **+** 를 클릭한 다음 Marketplace에서 **모두 보기**를 클릭합니다. _StorSimple 실제_를 검색합니다. **StorSimple 실제 장치 시리즈**를 선택하여 클릭한 후 **만들기**를 클릭합니다. 또는 Government 포털에서 **+** 를 클릭한 다음 **저장소** 아래에서 **StorSimple 물리적 장치 시리즈**를 클릭합니다.
 3. **StorSimple 장치 관리자** 블레이드에서 다음 단계를 수행합니다.
    

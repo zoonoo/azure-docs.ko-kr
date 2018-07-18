@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 06/26/2018
 ms.author: terrylan
-ms.openlocfilehash: 0004db332ec13e23ed49f2c19e3454a516ca6a40
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: d10cef33ef0c325d41c9539107b9a4cab5e916d8
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29531675"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37059857"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>빠른 시작: Security Center 표준에 Azure 구독 온보딩
 Azure Security Center는 하이브리드 클라우드 워크로드에 통합 보안 관리 및 위협 방지 기능을 제공합니다. 체험 계층은 Azure 리소스에 대한 제한된 보안만 제공하지만 표준 계층은 이러한 기능을 온-프레미스 및 기타 클라우드로 확장합니다. Security Center 표준을 사용하면 보안 취약성을 찾아서 수정하고, 액세스 및 응용 프로그램 제어를 적용하여 악성 활동을 차단하고, 분석 및 인텔리전스를 사용하여 위협을 검색하고, 공격을 받을 때 신속하게 대응할 수 있습니다. 처음 60일 동안 추가 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.
@@ -46,7 +46,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 Security Center를 처음 시작하면 수분 내에 다음이 표시될 수 있습니다.
 
 - **권장 사항** - Azure 구독의 보안을 향상하는 방법을 제공합니다. **권장 사항** 타일을 클릭하면 우선 순위가 지정된 목록이 시작됩니다.
-- 현재 Security Center에서 평가 중인 **계산**, **네트워킹**, **저장소 및 데이터**, **응용 프로그램** 리소스 인벤토리 및 각 리소스의 보안 상태입니다.
+- 현재 Security Center에서 평가 중인 **계산 및 앱**, **네트워킹**, **데이터 보안** 및 **ID 및 액세스** 리소스 인벤토리 및 각 리소스의 보안 상태입니다.
 
 Security Center를 최대한 활용하려면 아래 단계를 완료하여 표준 계층으로 업그레이드하고 Microsoft Monitoring Agent를 설치해야 합니다.
 

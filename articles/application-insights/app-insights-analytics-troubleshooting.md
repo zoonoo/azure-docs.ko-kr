@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: c479298187cfc4af6d9b33d9bd3839e8fa579566
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: eeda0fa6ad8faa05baf0a9344e958d298fb80d8e
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294162"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936686"
 ---
 # <a name="troubleshoot-analytics-in-application-insights"></a>Application Insights의 Analytics 문제 해결
 [Application Insights Analytics](app-insights-analytics.md)에 문제가 있습니까? 여기에서 시작합니다. Analytics는 Azure Application Insights의 강력한 검색 도구입니다.
@@ -57,7 +57,7 @@ ms.locfileid: "35294162"
 4. 다른 (일반) 브라우저 창을 열고 [Azure](https://portal.azure.com)로 이동합니다. 로그아웃합니다. 링크를 열고 올바른 자격 증명으로 로그인합니다.
 5. Edge와 Internet Explorer 사용자는 신뢰하는 영역 설정이 지원되지 않을 때 이 오류가 발생할 수 있습니다.
    
-    [Analytics 포털](https://analytics.applicationinsights.io)과 [Azure Active Directory 포털](https://portal.azure.com)이 같은 보안 영역에 있는지 확인합니다.
+    [Analytics 포털](https://portal.azure.com)과 [Azure Active Directory 포털](https://portal.azure.com)이 같은 보안 영역에 있는지 확인합니다.
    
    * Internet Explorer에서 **인터넷 옵션**, **보안**, **신뢰할 수 있는 사이트**, **사이트**를 엽니다.
      

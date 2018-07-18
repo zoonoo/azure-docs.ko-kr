@@ -1,12 +1,12 @@
 ---
-title: "Azure Functions에 대한 연속 배포 | Microsoft 문서"
-description: "Azure 앱 서비스의 연속 배포 기능을 사용하여 Azure Functions를 게시합니다."
+title: Azure Functions에 대한 연속 배포 | Microsoft 문서
+description: Azure App Service의 연속 배포 기능을 사용하여 Azure Functions를 게시합니다.
 services: functions
 documentationcenter: na
 author: ggailey777
 manager: cfowler
-editor: 
-tags: 
+editor: ''
+tags: ''
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: functions
 ms.devlang: multiple
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34735706"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
 Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수 앱을 쉽게 배포할 수 있습니다. Functions는 BitBucket, Dropbox, GitHub 및 VSTS(Visual Studio Team Services)와 통합됩니다. 따라서 Azure에사 이러한 통합된 서비스 트리거 배포 중 하나를 사용하여 함수 코드가 업데이트된 워크플로를 구현할 수 있습니다. Azure Functions를 처음 접하는 경우 [Azure 함수 개요](functions-overview.md)로 시작합니다.
@@ -41,6 +42,8 @@ Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수
 연속 배포를 설정하기 전에 구성된 배포 원본 및 배포 원본에 함수 코드가 있어야 합니다. 지정된 함수 앱 배포에서 각 함수는 명명된 하위 디렉터리에 있으며, 여기서 디렉터리 이름은 함수의 이름입니다.  
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
+
+VSTS에서 배포할 수 있으려면 먼저 Azure 구독과 VSTS 계정을 연결해야 합니다. 자세한 내용은 [VSTS 계정에 대한 청구 설정](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal)을 참조하세요.
 
 ## <a name="set-up-continuous-deployment"></a>연속 배포 설정
 다음 절차를 사용하여 기존 함수 앱에 대한 연속 배포를 구성합니다. 다음 단계에서는 GitHub 리포지토리와의 통합을 보여 주지만 Visual Studio Team Services 또는 기타 배포 서비스에도 유사한 단계가 적용됩니다.
@@ -89,7 +92,7 @@ Azure Functions를 사용하면 App Service 연속 통합을 사용하여 함수
 
 <a name="existing"></a>
 ### <a name="move-existing-functions-to-continuous-deployment"></a>기존 함수를 연속 배포로 이동
-포털에서 만들고 유지 관리하는 기존 함수가 있는 경우 위에서 설명한 대로 연속 배포를 설정하려면 먼저 FTP 또는 로컬 Git 리포지토리를 사용하여 기존 함수 코드 파일을 다운로드해야 합니다. 함수 앱에 대한 앱 서비스 설정에서 이 작업을 수행할 수 있습니다. 파일을 다운로드한 후 선택한 연속 배포 원본에 업로드할 수 있습니다.
+포털에서 만들고 유지 관리하는 기존 함수가 있는 경우 위에서 설명한 대로 연속 배포를 설정하려면 먼저 FTP 또는 로컬 Git 리포지토리를 사용하여 기존 함수 코드 파일을 다운로드해야 합니다. 함수 앱에 대한 App Service 설정에서 이 작업을 수행할 수 있습니다. 파일을 다운로드한 후 선택한 연속 배포 원본에 업로드할 수 있습니다.
 
 > [!NOTE]
 > 연속 통합을 구성한 후 함수 포털에서 원본 파일을 더 이상 편집할 수 없습니다.

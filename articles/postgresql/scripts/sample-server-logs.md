@@ -12,11 +12,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
 ms.openlocfilehash: 1e62868523bece0d6154f0b4a32ea6231ecec1b3
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849565"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232307"
 ---
 # <a name="enable-and-download-server-slow-query-logs-of-an-azure-database-for-postgresql-server-using-azure-cli"></a>Azure CLI를 사용하여 Azure Database for PostgreSQL 서버의 서버 느린 쿼리 로그 사용 및 다운로드
 이 샘플 CLI 스크립트는 단일 Azure Database for PostgreSQL 서버의 느린 쿼리 로그를 사용하도록 설정하고 다운로드합니다.

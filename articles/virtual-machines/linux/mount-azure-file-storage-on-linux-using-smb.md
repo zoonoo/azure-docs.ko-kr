@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/13/2017
 ms.author: iainfou
-ms.openlocfilehash: 01e18103f9e94615357ff3b9c4be7f2473763a57
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2255c8fd7cd873ae9b6511e1a7b9e2ac13f9fb66
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31423241"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36936771"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>SMB를 사용하여 Linux VM에 Azure File Storage 탑재
 
-이 문서에서는 Azure CLI 2.0에서 SMB 탑재를 사용하여 Linux VM에서 Azure File Storage 서비스를 활용하는 방법을 보여 줍니다. Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. [Azure CLI 1.0](mount-azure-file-storage-on-linux-using-smb-nodejs.md)에서 이러한 단계를 수행할 수도 있습니다. 요구 사항은 다음과 같습니다.
+이 문서에서는 Azure CLI 2.0에서 SMB 탑재를 사용하여 Linux VM에서 Azure File Storage 서비스를 활용하는 방법을 보여 줍니다. Azure 파일 저장소는 표준 SMB 프로토콜을 사용하여 클라우드에서 파일 공유를 제공합니다. 요구 사항은 다음과 같습니다.
 
 - [Azure 계정](https://azure.microsoft.com/pricing/free-trial/)
 - [SSH 공용 및 개인 키 파일](mac-create-ssh-keys.md)

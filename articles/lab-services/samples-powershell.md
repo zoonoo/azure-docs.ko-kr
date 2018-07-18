@@ -12,11 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: spelluru
-ms.openlocfilehash: a9819b40c31eac9a5365bbc114ace3b244094859
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 5b126ac5d5cadaa1f81cce955ff5b76883103c3c
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637398"
 ---
 # <a name="azure-powershell-samples-for-azure-lab-services"></a>Azure Lab Services용 Azure PowerShell 샘플
 
@@ -24,9 +25,9 @@ ms.lasthandoff: 05/07/2018
 
 | |  |
 |---|---|
-|[랩에 외부 사용자 추가](scripts/add-external-user-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Lab Services의 사용자 지정 랩에 외부 사용자를 추가합니다. |
-|[랩에 마켓플레이스 이미지 추가](scripts/add-marketplace-images-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Lab Services의 사용자 지정 랩에 마켓플레이스 이미지를 추가합니다. |
-|[VHD에서 사용자 지정 이미지 만들기](scripts/create-custom-image-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Lab Services의 사용자 지정 랩에 사용자 지정 이미지를 만듭니다. |
-|[랩에 사용자 지정 역할 만들기](scripts/create-custom-role-in-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Lab Services의 사용자 지정 랩에 사용자 지정 역할을 만듭니다. |
+|[랩에 외부 사용자 추가](scripts/add-external-user-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 외부 사용자를 추가합니다. |
+|[랩에 마켓플레이스 이미지 추가](scripts/add-marketplace-images-to-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 마켓플레이스 이미지를 추가합니다. |
+|[VHD에서 사용자 지정 이미지 만들기](scripts/create-custom-image-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 사용자 지정 이미지를 만듭니다. |
+|[랩에 사용자 지정 역할 만들기](scripts/create-custom-role-in-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Lab Services의 랩에 사용자 지정 역할을 만듭니다. |
 |[랩에 허용되는 VM 크기 설정](scripts/set-allowed-vm-sizes-in-lab.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 랩에 허용되는 VM(가상 머신) 크기를 설정합니다. |
 

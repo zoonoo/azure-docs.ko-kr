@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: be7dec07597b0a82633d330a72274a94dbb9bf67
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156047"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36937141"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -44,7 +44,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 
 **Azure AD를 사용하여 응용 프로그램에 대한 액세스 권한이 있는 사용자를 제어합니다.**  Azure AD의 관리자 및 응용 프로그램 소유자는 응용 프로그램에 대한 액세스 권한을 특정 사용자 및 그룹에게 할당할 수 있습니다. Graph API를 사용하여 이 목록을 읽고 리소스의 프로비전 및 프로비전 해제와 응용 프로그램 내의 액세스를 제어할 수 있습니다.
 
-**Azure AD를 사용하여 역할 기반 Access Control을 사용합니다.**  관리자와 응용 프로그램 소유자는 Azure AD에 응용 프로그램을 등록할 때 정의하는 역할에 사용자 및 그룹을 할당할 수 있습니다. 역할 정보는 로그인 토큰의 응용 프로그램에 전송되며 Graph API를 사용해서도 읽을 수 있습니다. [Azure AD를 사용하여 권한 부여](http://blogs.technet.com/b/ad/archive/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles.aspx)에 대해 자세히 알아보세요.
+**Azure AD를 사용하여 역할 기반 Access Control을 사용합니다.**  관리자와 응용 프로그램 소유자는 Azure AD에 응용 프로그램을 등록할 때 정의하는 역할에 사용자 및 그룹을 할당할 수 있습니다. 역할 정보는 로그인 토큰의 응용 프로그램에 전송되며 Graph API를 사용해서도 읽을 수 있습니다. [Azure AD를 사용하여 권한 부여](https://cloudblogs.microsoft.com/enterprisemobility/2014/12/18/azure-active-directory-now-with-group-claims-and-application-roles/)에 대해 자세히 알아보세요.
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>사용자의 프로필, 일정, 메일, 연락처, 파일 등에 액세스
 **Azure AD는 Office 365 및 기타 Microsoft 비즈니스 서비스의 권한 부여 서버입니다.**  응용 프로그램 로그인에 Azure AD를 지원하거나 OAuth 2.0을 사용하는 Azure AD 사용자 계정에 현재 사용자 계정 연결을 지원하는 경우 사용자의 프로필, 일정, 메일, 연락처, 파일 및 기타 정보에 대한 읽기 및 쓰기 권한을 요청할 수 있습니다. 사용자의 일정에 매끄럽게 이벤트를 쓸 수 있으며 사용자의 OneDrive에 파일을 읽거나 쓸 수 있습니다. [Office 365 API 액세스](https://msdn.microsoft.com/office/office365/howto/platform-development-overview)에 대해 자세히 알아보세요.

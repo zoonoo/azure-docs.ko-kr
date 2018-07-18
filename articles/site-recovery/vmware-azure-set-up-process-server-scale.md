@@ -2,44 +2,99 @@
 title: Azure Site Recovery를 사용하여 VMware VM 및 실제 서버 장애 복구에 대해 Azure의 프로세스 서버 설정 | Microsoft Docs
 description: 이 아티클에서는 Azure VM을 VMware에 장애 복구하도록 Azure에서 프로세스 서버를 설정하는 방법을 설명합니다.
 services: site-recovery
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/05/2018
-ms.author: anoopkv
-ms.openlocfilehash: 7bbe690e749680edde08facadf6d5910d7896f7e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 07/06/2018
+ms.author: raynew
+ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38689003"
 ---
-# <a name="set-up-a-process-server-in-azure-for-failback"></a>장애 복구를 위해 Azure에서 프로세스 서버 설정
+# <a name="set-up-additional-process-servers-for-scalability"></a>확장성을 위해 추가 프로세스 서버 설정
 
-[Site Recovery](site-recovery-overview.md)를 사용하여 Azure에 대한 VMware VM 또는 실제 서버를 장애 복구한 후에 다시 실행되었을 때 온-프레미스 사이트로 다시 장애 조치할 수 있습니다. 장애 복구하기 위해 Azure에서 온-프레미스로 복제를 처리하도록 Azure에서 임시 프로세스 서버를 설정해야 합니다. 장애 복구가 완료되면 이 VM을 삭제할 수 있습니다.
+기본적으로 [사이트 복구](site-recovery-overview.md)를 사용하여 VMware VM 또는 물리적 서버를 Azure에 복제하는 경우 프로세스 서버가 구성 서버 컴퓨터에 설치되어 사이트 복구 및 온-프레미스 인프라 간의 데이터 전송을 조정하는 데 사용됩니다. 용량을 늘리고 복제 배포를 확장하려면 추가 독립 실행형 프로세스 서버를 추가할 수 있습니다. 이 문서에서는 이를 수행하는 방법을 설명합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-[다시 보호](vmware-azure-reprotect.md) 및 [장애 복구](vmware-azure-failback.md) 프로세스에 대해 자세히 알아봅니다.
+### <a name="capacity-planning"></a>용량 계획
 
-[!INCLUDE [site-recovery-vmware-process-server-prerequ](../../includes/site-recovery-vmware-azure-process-server-prereq.md)]
+VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)을 수행했는지 확인합니다. 추가 프로세스 서버를 배포해야 시기와 방법을 식별하도록 도와줍니다.
 
-## <a name="deploy-a-process-server-in-azure"></a>Azure에서 프로세스 서버 배포
+### <a name="sizing-requirements"></a>크기 조정 요구 사항 
 
-1. 자격 증명 모음 > **Site Recovery 인프라**> **관리** > **구성 서버**에서 구성 서버를 선택합니다.
-2. 서버 페이지에서 **+프로세스 서버**를 클릭합니다.
-3. **프로세스 서버 추가** 페이지에서 Azure의 프로세스 서버를 배포하도록 선택합니다.
-4. 장애 조치에 사용되는 구독, 리소스 그룹, 장애 조치에 사용되는 Azure 지역 및 Azure VM이 위치한 가상 네트워크를 비롯한 Azure 설정을 지정합니다. 여러 Azure 네트워크를 사용하는 경우 각각에 프로세스 서버가 필요합니다.
-5. **서버 이름**, **사용자 이름** 및 **암호**에서 프로세스 서버의 이름과 서버에 관리자 권한이 할당된 자격 증명을 지정합니다.
-6. 서버 VM 디스크에 사용할 저장소 계정, 프로세스 서버 VM이 위치한 서브넷 및 VM이 시작될 때 할당된 서버 IP 주소를 지정합니다.
-7. **확인** 단추를 클릭하여 프로세스 서버 VM을 배포하기 시작합니다.
+표에 요약된 크기 조정 요구 사항을 확인합니다. 일반적으로 배포 규모를 200대 초과 원본 컴퓨터로 확장해야 하거나 총 이탈률이 2TB를 초과하는 경우 트래픽 볼륨을 처리할 추가 프로세스가 필요합니다.
 
->
+| **추가 프로세스 서버** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터** |
+| --- | --- | --- | --- |
+|4개 vCPU(2개 소켓 * 2코어 @ 2.5GHz), 8GB 메모리 |300GB |250GB 이하 |85대 이하의 컴퓨터를 복제합니다. |
+|8개 vCPU(2개 소켓 * 4코어 @ 2.5GHz), 12GB 메모리 |600GB |250GB ~ 1TB |85-150대 컴퓨터를 복제합니다. |
+|12개 vCPU(2개 소켓 * 6코어 @ 2.5GHz), 24GB 메모리 |1TB |1TB ~ 2TB |150-225대 컴퓨터를 복제합니다. |
 
-## <a name="registering-the-process-server-running-in-azure-to-a-configuration-server-running-on-premises"></a>프로세스 서버(Azure에서 실행)를 구성 서버(온-프레미스에서 실행)에 등록
+### <a name="prerequisites"></a>필수 조건
 
-프로세스 서버 VM을 실행한 후에 다음과 같이 온-프레미스 구성 서버에 등록해야 합니다.
+추가 프로세스 서버에 대한 필수 구성 요소는 다음 표에 요약되어 있습니다.
 
-[!INCLUDE [site-recovery-vmware-register-process-server](../../includes/site-recovery-vmware-register-process-server.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
 
+## <a name="download-installation-file"></a>설치 파일 다운로드
+
+다음과 같이 프로세스 서버에 대한 설치 파일을 다운로드합니다.
+
+1. Azure Portal에 로그온하고 Recovery Services 자격 증명 모음으로 이동합니다.
+2. **Site Recovery 인프라** > **VMware 및 물리적 컴퓨터** > **구성 서버**(VMware 및 물리적 컴퓨터용 아래에서)를 엽니다.
+3. 구성 서버를 선택하여 서버의 세부 정보로 드릴다운합니다. 그럼 다음, **+ 프로세스 서버**를 클릭합니다.
+4. **프로세스 서버 추가** >  **프로세스 서버 배포하려는 위치 선택**에서 **온-프레미스로 확장 프로세스 서버 배포를 선택합니다**.
+
+  ![서버 페이지 추가](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+1. **Microsoft Azure Site Recovery 통합 설치 다운로드**를 클릭합니다. 최신 버전의 설치 파일을 다운로드합니다.
+
+  > [!WARNING]
+  프로세스 서버 설치 버전이 실행 중인 구성 서버 버전과 동일하거나 이전 버전이어야 합니다. 버전 호환성을 보장하는 간단한 방법은 구성 서버를 설치 또는 업데이트하는 데 최근에 사용한 동일한 설치 관리자를 사용하는 것입니다.
+
+## <a name="install-from-the-ui"></a>UI에서 설치
+
+다음과 같이 설치합니다. 서버를 설정한 후 이를 사용하도록 원본 컴퓨터를 마이그레이션할 수 있습니다.
+
+[!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-add-process-server.md)]
+
+
+## <a name="install-from-the-command-line"></a>명령줄에서 설치
+
+다음 명령을 실행하여 설치합니다.
+
+```
+UnifiedSetup.exe [/ServerMode <CS/PS>] [/InstallDrive <DriveLetter>] [/MySQLCredsFilePath <MySQL credentials file path>] [/VaultCredsFilePath <Vault credentials file path>] [/EnvType <VMWare/NonVMWare>] [/PSIP <IP address to be used for data transfer] [/CSIP <IP address of CS to be registered with>] [/PassphraseFilePath <Passphrase file path>]
+```
+
+여기에서 명령줄 매개 변수는 다음과 같습니다.
+
+[!INCLUDE [site-recovery-unified-setup-parameters](../../includes/site-recovery-unified-installer-command-parameters.md)]
+
+예: 
+
+```
+MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /xC:\Temp\Extracted
+cd C:\Temp\Extracted
+UNIFIEDSETUP.EXE /AcceptThirdpartyEULA /servermode "PS" /InstallLocation "D:\" /EnvType "VMWare" /CSIP "10.150.24.119" /PassphraseFilePath "C:\Users\Administrator\Desktop\Passphrase.txt" /DataTransferSecurePort 443
+```
+### <a name="create-a-proxy-settings-file"></a>프록시 설정 파일 만들기
+
+프록시 설정이 필요한 경우 ProxySettingsFilePath 매개 변수는 입력으로 파일을 사용합니다. 다음과 같이 파일을 만들어 입력 ProxySettingsFilePath 매개 변수로 전달할 수 있습니다.
+
+```
+* [ProxySettings]
+* ProxyAuthentication = "Yes/No"
+* Proxy IP = "IP Address"
+* ProxyPort = "Port"
+* ProxyUserName="UserName"
+* ProxyPassword="Password"
+```
+
+## <a name="next-steps"></a>다음 단계
+[프로세스 서버 설정 관리](vmware-azure-manage-process-server.md)에 대해 알아봅니다.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: danis
-ms.openlocfilehash: 01178995dbf9203082a6250ef256522bc1101e57
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 04f6d68feccf4a9b2bf2fa0f03ad8bd978cf5f17
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944705"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34653266"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 Azure VM(Azure 가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화 작업을 제공하는 작은 응용 프로그램이며, 기존 이미지를 사용하여 배포의 일부로 사용자 지정함으로써 사용자 지정 이미지를 작성하는 업무에서 벗어나게 할 수 있습니다.

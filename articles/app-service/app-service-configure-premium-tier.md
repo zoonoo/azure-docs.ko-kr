@@ -1,12 +1,12 @@
 ---
-title: "Azure App Service에 대한 PremiumV2 계층 구성 | Microsoft Docs"
-description: "새 PremiumV2 가격 책정 계층으로 확장하여 Azure App Service에서 웹, 모바일 및 API 앱 성능을 향상하는 방법에 대해 알아봅니다."
-keywords: "앱 서비스, Azure 앱 서비스, 규모, 확장성, 앱 서비스 계획, 앱 서비스 비용"
+title: Azure App Service에 대한 PremiumV2 계층 구성 | Microsoft Docs
+description: 새 PremiumV2 가격 책정 계층으로 확장하여 Azure App Service에서 웹, 모바일 및 API 앱 성능을 향상하는 방법에 대해 알아봅니다.
+keywords: 앱 서비스, Azure 앱 서비스, 규모, 확장성, 앱 서비스 계획, 앱 서비스 비용
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: cfowler
-editor: 
+editor: ''
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.service: app-service
 ms.workload: na
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: cephalin
-ms.openlocfilehash: 76897173d9fdfffe7139e7c5648ad0efb1c05b97
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714564"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service에 대한 PremiumV2 계층 구성
 
@@ -51,9 +52,9 @@ App Service 앱의 가격 책정 계층은 해당 앱이 실행되는 [App Servi
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 App Service 계획을 구성하는 경우 **가격 책정 계층**을 선택합니다. 
 
-**PremiumV2** 옵션 중 하나를 선택하고 **선택**을 클릭합니다.
+**프로덕션**을 선택한 다음, **P1V2**, **P2V2** 또는 **P3V2**를 선택한 다음, **적용**을 클릭합니다.
 
-![](media/app-service-configure-premium-tier/pick-premium-tier.png)
+![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
 > **P1V2**, **P2V2** 및 **P3V2**가 옵션으로 표시되지 않는 경우는 선택한 지역에서 **PremiumV2**를 사용할 수 없거나 **PremiumV2**를 지원하지 않는 Linux App Service 계획을 구성 중인 경우입니다.
@@ -66,11 +67,11 @@ App Service 앱의 가격 책정 계층은 해당 앱이 실행되는 [App Servi
 
 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 App Service 앱 페이지를 엽니다.
 
-App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계획)**를 선택합니다.
+App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계획)** 를 선택합니다.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-portal.png)
 
-**PremiumV2** 크기 중 하나를 선택한 다음 **선택**을 클릭합니다.
+**프로덕션**을 선택한 다음, **P1V2**, **P2V2** 또는 **P3V2**를 선택한 다음, **적용**을 클릭합니다.
 
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 

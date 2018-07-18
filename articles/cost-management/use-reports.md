@@ -5,16 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2018
+ms.date: 06/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: db7663623ada5d7799c46018be9e3b66afd004ca
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1a2067228629b04f1ef2cc407a28f379acc75f60
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35297518"
 ---
 # <a name="use-cost-management-reports"></a>비용 관리 보고서 사용
 
@@ -23,6 +24,8 @@ ms.lasthandoff: 04/28/2018
 ## <a name="cost-analysis-reports"></a>비용 분석 보고서
 
 비용 분석 보고서는 클라우드 공급자의 청구 데이터를 표시합니다. 보고서를 사용하여 청구 파일에 항목별로 작성된 여러 데이터 세그먼트를 그룹화하고 세부적으로 들여다볼 수 있습니다. 보고서를 사용하여 클라우드 공급자의 원시 청구 데이터에 대한 세부적인 비용을 탐색할 수 있습니다.
+
+그래프로 볼 때 분석 보고서에는 Y-축 *비용* 및 선택하는 *범주 또는 태그*에 대한 X-축이 있습니다. 그래프에 범위가 있다고 해도 예를 들어 지난 30일의 범위는 필터로 사용됩니다. 분석 보고서는 범주를 비교하는 데 이상적입니다. 예를 들어 지난 30일에 따른 각 구독 비용입니다. 또는 특정 기간에 따른 계산 또는 저장소 같은 서비스 비용입니다.
 
 비용 분석 보고서는 비용을 태그별로 그룹화하지 않습니다. 태그 기반 보고는 Cost Allocation 360을 사용하여 비용 모델을 만든 후 비용 할당 보고서 세트에서만 사용할 수 있습니다.
 
@@ -50,6 +53,8 @@ ms.lasthandoff: 04/28/2018
 ### <a name="actual-cost-over-time"></a>시간에 따른 실제 비용
 
 시간에 따른 실제 비용 보고서는 정의된 시간 확인에 대해 비용을 분배하는 표준 비용 분석 보고서입니다. 이 보고서는 추세를 관찰하고 지출 이상값을 탐지할 수 있도록 시간에 대한 지출을 표시합니다. 이 보고서는 선택한 시간 프레임 동안 소비한 지속적 비용 및 1회 예약 인스턴스 요금을 포함하여 주 비용 기여요인을 보여 줍니다.
+
+그래프로 볼 때 시간에 따른 비용 보고서에는 Y-축 *비용* 및 X-축 *기간*이 있습니다. 이러한 보고서는 기간에 따른 비용의 변화를 표시합니다.
 
 시간에 따른 실제 비용 보고서를 사용하여 다음을 수행합니다.
 

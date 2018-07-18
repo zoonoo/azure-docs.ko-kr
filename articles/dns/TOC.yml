@@ -5,12 +5,13 @@
     - name: Azure DNS란?
       href: dns-overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 이름 확인 - 포털
       href: dns-getstarted-portal.md
-    - name: DNS 영역 및 레코드 만들기 - PowerShell
+    - name: 이름 확인 - PowerShell
       href: dns-getstarted-powershell.md
-    - name: DNS 영역 및 레코드 만들기 - CLI
+    - name: 이름 확인 - CLI
       href: dns-getstarted-cli.md
 - name: 자습서
   items:

@@ -1,22 +1,19 @@
 ---
 title: 원격 모니터링 솔루션의 장치 스키마 - Azure | Microsoft Docs
 description: 이 문서에서는 원격 모니터링 솔루션에서 시뮬레이션된 장치를 정의하는 JSON 스키마에 대해 설명합니다.
-services: iot-suite
-suite: iot-suite
 author: dominicbetts
 manager: timlt
 ms.author: dobett
-ms.service: iot-suite
+ms.service: iot-accelerators
+services: iot-accelerators
 ms.date: 01/29/2018
-ms.topic: article
-ms.devlang: NA
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.openlocfilehash: 186eaee952435573a861d144195c3165e4940cc1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.topic: conceptual
+ms.openlocfilehash: 1ba73d24aaa113a9124e17ea91946c205b21fba6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34627436"
 ---
 # <a name="understand-the-device-model-schema"></a>장치 모델 스키마 이해
 
@@ -26,7 +23,7 @@ ms.lasthandoff: 05/20/2018
 
 다음 문서는 현재 문서와 관련이 있습니다.
 
-* [장치 모델 동작 구현](../iot-suite/iot-suite-remote-monitoring-device-behavior.md)에서는 시뮬레이션된 장치의 동작을 구현하는 데 사용하는 JavaScript 파일에 대해 설명합니다.
+* [장치 모델 동작 구현](iot-accelerators-remote-monitoring-device-behavior.md)에서는 시뮬레이션된 장치의 동작을 구현하는 데 사용하는 JavaScript 파일에 대해 설명합니다.
 * [새 시뮬레이션된 장치 만들기](iot-accelerators-remote-monitoring-test.md)에서는 장치를 만들고 새 시뮬레이션된 장치 유형을 솔루션에 배포하는 방법을 보여 줍니다.
 
 이 문서에서는 다음 방법을 설명합니다.

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: bf01cf4fe5d7c7219fa7c53e54db60cd4bafb928
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b16bd5b93eda0fcb0c0c9ff96f86efc866abf798
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31393874"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294482"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Azure API Management에서 역할 기반 액세스 제어를 사용하는 방법
 Azure API Management는 Azure 역할 기반 액세스 제어(RBAC)를 사용하여 API Management 서비스 및 엔터티(예: API 및 정책)에 대한 세분화된 액세스 관리를 가능하게 합니다. 이 문서에서는 API Management에서 기본 제공 및 사용자 지정 역할에 대한 개요를 제공합니다. Azure Portal에서 액세스 관리에 대한 자세한 내용은 [Azure Portal에서 액세스 관리 시작](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/)을 참조하세요.
@@ -54,6 +54,7 @@ $role.Id = $null
 $role.Name = 'Calculator API Contributor'
 $role.Description = 'Has read access to Contoso APIM instance and write access to the Calculator API.'
 $role.Actions.Add('Microsoft.ApiManagement/service/apis/write')
+$role.Actions.Add('Microsoft.ApiManagement/service/apis/*/write')
 $role.AssignableScopes.Clear()
 $role.AssignableScopes.Add('/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>')
 New-AzureRmRoleDefinition -Role $role

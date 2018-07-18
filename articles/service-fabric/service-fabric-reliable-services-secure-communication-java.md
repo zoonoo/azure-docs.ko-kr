@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric에서 서비스에 대한 통신 보호 도움말 | Microsoft Docs
-description: Azure 서비스 패브릭 클러스터에서 실행되는 Reliable Services에 대한 통신을 보호하는 방법을 간략하게 설명합니다.
+title: Azure Service Fabric에서 Java를 통한 서비스 원격 통신 보호 | Microsoft Docs
+description: Azure Service Fabric 클러스터에서 실행되는 Java Reliable Services에서 서비스 원격 기반 통신을 보호하는 방법을 알아봅니다.
 services: service-fabric
 documentationcenter: java
 author: PavanKunapareddyMSFT
@@ -13,22 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 06/30/2017
 ms.author: pakunapa
-ms.openlocfilehash: 624d9d358145fb8b41013d686821cb157693d3c6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: cbefb3ede6d0d1fe21065b49c84db9f4db5dd39c
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207998"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020816"
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Azure 서비스 패브릭에서 서비스에 대한 통신 보호 도움말
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>Java 서비스에서 서비스 원격 통신 보호
 > [!div class="op_single_selector"]
 > * [Windows에서 C#](service-fabric-reliable-services-secure-communication.md)
 > * [Linux에서 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>서비스 원격 기능을 사용하는 경우 서비스 보호 도움말
-Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설명하는 기존 [예제](service-fabric-reliable-services-communication-remoting-java.md) 를 사용합니다. 서비스 원격 기능을 사용하는 경우 서비스를 보호하려면 다음 단계를 따르세요.
+통신의 가장 중요한 측면 중 하나는 보안입니다. Reliable Services 응용 프로그램 프레임워크는 보안을 향상시키는 데 사용할 수 있는 미리 빌드된 통신 스택 및 도구 몇 가지를 제공합니다. 이 문서에서는 Java 서비스에서 서비스 원격을 사용하는 경우 보안을 향상시키는 방법에 대해 설명합니다. Java로 작성된 Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설명하는 기존 [예제](service-fabric-reliable-services-communication-remoting-java.md)를 기반으로 빌드됩니다. 
+
+Java 서비스에서 서비스 원격 기능을 사용하는 경우 서비스를 보호하려면 다음 단계를 따르세요.
 
 1. 서비스의 원격 프로시저 호출에 사용할 수 있는 메서드를 정의하는 인터페이스 `HelloWorldStateless`을 만듭니다. 서비스는 `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` 패키지에 선언되는 `FabricTransportServiceRemotingListener`를 사용합니다. 이것은 원격 호출 기능을 제공하는 `CommunicationListener` 구현입니다.
 
@@ -54,11 +55,13 @@ Reliable Services에 대한 원격 기능을 설정하는 방법에 대해 설�
     ```
 2. 수신기 설정 및 보안 자격 증명을 추가합니다.
 
-    서비스 통신을 보호하는 데 사용할 인증서는 클러스터의 모든 노드에 설치해야 합니다. 두 가지 방법으로 수신기 설정 및 보안 자격 증명을 제공할 수 있습니다.
+    서비스 통신을 보호하는 데 사용할 인증서는 클러스터의 모든 노드에 설치해야 합니다. Linux에서 실행 중인 서비스의 경우 인증서를 PEM 형식 파일로 사용할 수 있어야 합니다. 인증서와 개인 키가 포함된 `.pem` 파일 또는 인증서가 포함된 `.crt` 파일 중 하나와 개인 키가 포함된 `.key` 파일입니다. 자세히 알아보려면 [Linux 노드에서 X.509 인증서의 위치 및 형식](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes)을 참조하세요.
+    
+    두 가지 방법으로 수신기 설정 및 보안 자격 증명을 제공할 수 있습니다.
 
    1. [config 패키지](service-fabric-application-and-service-manifests.md)를 사용하여 제공:
 
-       settings.xml 파일에 `TransportSettings` 섹션을 추가합니다.
+       settings.xml 파일에서 명명된 `TransportSettings` 섹션을 추가합니다.
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->

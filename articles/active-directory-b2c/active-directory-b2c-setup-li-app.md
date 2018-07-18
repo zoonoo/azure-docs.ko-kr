@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: LinkedIn 구성 | Microsoft Docs'
-description: 소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 LinkedIn 계정으로 등록 및 로그인 제공
+title: Azure Active Directory B2C에서 LinkedIn 구성 | Microsoft Docs
+description: 소비자에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 LinkedIn 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
-ms.openlocfilehash: 91970b3ec41c645cd1cd3e203cc96ad655dafd7e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 7588711bd1c2a02e2e9a100d2ba182f43e7df488
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446096"
 ---
 # <a name="azure-active-directory-b2c-provide-sign-up-and-sign-in-to-consumers-with-linkedin-accounts"></a>Azure Active Directory B2C: 고객에게 LinkedIn 계정으로 등록 및 로그인 제공
 ## <a name="create-a-linkedin-application"></a>LinkedIn 응용 프로그램 만들기
@@ -35,7 +35,7 @@ Azure Active Directory(Azure AD) B2C에서 LinkedIn을 ID 공급자로 사용하
    > **클라이언트 암호** 는 중요한 보안 자격 증명입니다.
    > 
    > 
-6. **권한이 부여된 리디렉션 URL** 필드에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다(**OAuth 2.0** 아래). **{tenant}** 를 사용자의 테넌트 이름(예: contoso.onmicrosoft.com)으로 바꿉니다. **추가**를 클릭한 후 **업데이트**를 클릭합니다. **{tenant}** 값은 대/소문자를 구분합니다.
+6. **권한이 부여된 리디렉션 URL** 필드에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다(**OAuth 2.0** 아래). **{tenant}** 를 사용자의 테넌트 이름(예: contoso.onmicrosoft.com)으로 바꿉니다. **추가**를 클릭한 후 **업데이트**를 클릭합니다. **{tenant}** 값은 소문자여야 합니다.
    
     ![LinkedIn - 앱 설정](./media/active-directory-b2c-setup-li-app/linkedin-setup.png)
 

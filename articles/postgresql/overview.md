@@ -9,12 +9,13 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 02/28/2018
-ms.openlocfilehash: 766373f4b9390e576285db73d9e9e9942eb6624f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/02/2018
+ms.openlocfilehash: fab3aa7d0b1fe0f4fafd4b2fdca24ad0e8a3d03c
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737234"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database란?
 
@@ -22,7 +23,7 @@ Azure Database for PostgreSQL은 커뮤니티 버전의 오픈 소스 [PostgreSQ
 
 - 추가 비용 없이 기본 제공되는 고가용성
 - 예측 가능한 성능, 포괄적인 종량제 가격 책정 사용
-- 몇 초 이내 즉시 크기 조정
+- 몇 초 이내 필요에 따라 크기 조정
 - 중요한 미사용 및 이동 데이터 보호
 - 최대 35일 동안 자동 백업 및 특정 시점 복원
 - 엔터프라이즈급 보안 및 규정 준수
@@ -52,7 +53,15 @@ Azure Database 서비스는 PostgreSQL용 Azure Database가 액세스를 제한�
 
 PostgreSQL용 Azure 데이터베이스 서비스는 미사용 데이터에 대해 저장소 암호화를 사용합니다. 백업을 포함한 데이터는 디스크에서 암호화됩니다. 단, 쿼리를 실행하는 동안 엔진에서 만든 임시 파일은 예외입니다. 서비스는 Azure Storage 암호화에 포함된 AES 256비트 암호화를 사용하며 키는 시스템에서 관리합니다. 저장소 암호화는 항상 켜져 있고 해제할 수 없습니다.
 
-기본적으로 PostgreSQL용 Azure 데이터베이스 서비스는 네트워크를 통해 이동하는 데이터에 대해 [SSL 연결 보안](./concepts-ssl-connection-security.md)을 요구하도록 구성됩니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다.  필요에 따라 클라이언트 응용 프로그램이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL을 요구하지 않도록 설정할 수 있습니다.
+기본적으로 PostgreSQL용 Azure 데이터베이스 서비스는 네트워크를 통해 이동하는 데이터에 대해 [SSL 연결 보안](./concepts-ssl-connection-security.md)을 요구하도록 구성됩니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결을 적용하면 서버와 응용 프로그램 간 데이터 스트림을 암호화함으로써 “메시지 가로채기(man in the middle)” 공격으로부터 보호할 수 있습니다. 필요에 따라 클라이언트 응용 프로그램이 SSL 연결을 지원하지 않을 경우 데이터베이스 서비스에 연결하기 위해 SSL을 요구하지 않도록 설정할 수 있습니다.
+
+## <a name="contacts"></a>연락처
+Azure Database for MySQL 작업에 대해 궁금한 점이나 제안하고 싶은 의견이 있으면 Azure Database for MySQL 팀([@Ask Azure DB for PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com))으로 이메일을 보내주세요. 이는 기술 지원 별칭이 아닙니다.
+
+또한 문의의 다음 사항을 적절히 고려해 주세요.
+- Azure 고객 지원팀에 문의하려면 [Azure Portal에서 티켓을 제출](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+- 계정 관련 문제를 해결하려면 Azure Portal에서 [지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출합니다.
+- 피드백을 제공하거나 새 기능을 요청하려면 [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql)를 통해 항목을 만드세요.
 
 ## <a name="next-steps"></a>다음 단계
 - 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.

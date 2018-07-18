@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/09/2018
+ms.date: 05/14/2018
 ms.author: celested
+ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 5f42a706bd7cb44162765bb77039cc3173d6941e
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b369cdeb3a58db0336d4f6e343599aaa46643b32
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34354455"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316787"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열
 
@@ -34,20 +35,19 @@ Azure AD(Azure Active Directory)는 클라우드 기반 ID 서비스입니다. [
 
 *  고객에게 최상의 SSO(Single Sign-On) 환경을 제공합니다.
 
-*  응용 프로그램 구성이 간단하고 최소화됩니다. 
+*  응용 프로그램 구성이 간단하고 최소화됩니다.
 
 *  갤러리에서 빠른 검색에 응용 프로그램을 제공합니다.
 
-*  무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다. 
+*  무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다.
 
-*  상호 고객을 위한 단계별 구성 자습서가 있습니다. 
+*  상호 고객을 위한 단계별 구성 자습서가 있습니다.
 
 *  SCIM를 사용하는 고객은 동일한 앱에 프로비전을 사용할 수 있습니다.
 
-
 ##  <a name="prerequisites-implement-federation-protocol"></a>필수 구성 요소: 페더레이션 프로토콜 구현
 
-Azure AD 앱 갤러리에 응용 프로그램을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현해야 합니다. Azure AD 응용 프로그램 갤러리의 사용 약관은 여기에서 읽어보십시오. 
+Azure AD 앱 갤러리에 응용 프로그램을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현하고 Azure AD 응용 프로그램 갤러리 사용 약관에 동의해야 합니다.  Azure AD 응용 프로그램 갤러리의 사용 약관은 [여기](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/)에서 확인하세요.
 
 *   **OpenID Connect**: Azure AD에서 다중 테넌트 응용 프로그램을 만들고 응용 프로그램에 [Azure AD 승인 프레임워크](active-directory-integrating-applications.md#overview-of-the-consent-framework)를 구현합니다. 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 공통 끝점에 로그인 요청을 보냅니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다. 응용 프로그램과 Azure AD를 통합하려면 [개발자 지침](active-directory-authentication-scenarios.md)을 수행합니다.
 

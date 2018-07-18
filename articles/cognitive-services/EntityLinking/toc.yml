@@ -1,0 +1,17 @@
+- name: 엔터티 연결 설명서
+- name: 개요
+  href: Home.md
+- name: 시작하기
+  href: GettingStarted.md
+- name: 참고 자료
+  items:
+    - name: API 참조
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c'
+    - name: Labs API 참조
+      href: 'https://dev.labs.cognitive.microsoft.com/docs/services/56f0eabfca730713cc392442/operations/56f0eabfca73070e44d0f39c'
+    - name: Windows SDK
+      href: 'https://github.com/Microsoft/Cognitive-EntityLinking-Windows'
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'

@@ -1,26 +1,26 @@
 ---
-title: Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링 | Microsoft Docs
-description: Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기)를 모니터링하는 방법을 알아봅니다.
+title: Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링 | Microsoft Docs
+description: Log Analytics를 사용하여 Azure SQL 데이터 동기화를 모니터링하는 방법을 알아봅니다.
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 4c684337a904fe6984e6b5cd5cf88ef8eb976cb6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650250"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025412"
 ---
-# <a name="monitor-sql-data-sync-preview-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화(미리 보기) 모니터링 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화 모니터링 
 
 이전에는 SQL 데이터 동기화 활동 로그를 확인하고 오류와 경고를 검색하기 위해 Azure Portal에서 수동으로 SQL 데이터 동기화를 확인하거나 PowerShell 또는 REST API를 사용해야 했습니다. 이 문서의 단계에 따라 데이터 동기화 모니터링 환경을 향상시키는 사용자 지정 솔루션을 구성합니다. 시나리오에 맞게 이 솔루션을 사용자 지정할 수 있습니다.
 
-SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
 
 ## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>모든 동기화 그룹에 대한 모니터링 대시보드 
 

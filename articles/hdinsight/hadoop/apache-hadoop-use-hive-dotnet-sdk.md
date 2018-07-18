@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jgao
-ms.openlocfilehash: 1372dab2685d62a12d0d1fb186c803f8906156b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 41c568191ab47faba8f67e855f0a52d5d97ffc6b
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200676"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37020650"
 ---
 # <a name="run-hive-queries-using-hdinsight-net-sdk"></a>HDInsight .NET SDK를 사용하여 Hive 쿼리 실행
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -145,7 +145,7 @@ HDInsight .NET SDK는 .NET에서 HDInsight 클러스터로 더 쉽게 작업하�
 * [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)
 * [HDInsight에서 Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Azure Portal을 사용하여 HDInsight의 Hadoop 클러스터 관리](../hdinsight-administer-use-management-portal.md)
-* [HDInsight .NET SDK 참조](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK 참조](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)
 * [HDInsight에서 Sqoop 사용](apache-hadoop-use-sqoop-mac-linux.md)
 * [비대화형 인증 .NET HDInsight 응용 프로그램 만들기](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)

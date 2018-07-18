@@ -228,13 +228,15 @@
           href: ../connectors/connectors-native-recurrence.md
         - name: SendGrid
           href: ../connectors/connectors-create-api-sendgrid.md
+        - name: SFTP
+          href: ../connectors/connectors-create-api-sftp.md
         - name: SharePoint Online
           href: ../connectors/connectors-create-api-sharepointonline.md
         - name: SharePoint Server
           href: ../connectors/connectors-create-api-sharepointserver.md
         - name: Slack
           href: ../connectors/connectors-create-api-slack.md
-        - name: SQL Azure 및 SQL Server
+        - name: SQL Server
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: XML 변환
           href: logic-apps-enterprise-integration-transform.md
@@ -268,14 +270,14 @@
       items:
         - name: 논리 앱 상태 모니터링
           href: logic-apps-monitor-your-logic-apps.md
-        - name: Log Analytics로 OMS에서 논리 앱 상태 모니터링
+        - name: Azure Log Analytics를 사용하여 논리 앱 상태 모니터링
           href: logic-apps-monitor-your-logic-apps-oms.md
         - name: B2B 메시지 모니터링
           href: logic-apps-monitor-b2b-message.md
           items:
-            - name: OMS에서 B2B 메시지 추적
+            - name: Azure Log Analytics에서 B2B 메시지 추적
               href: logic-apps-track-b2b-messages-omsportal.md
-            - name: B2B 메시지에 대한 OMS 쿼리
+            - name: B2B 메시지에 대한 Azure Log Analytics 쿼리
               href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
     - name: '예제, 시나리오 및 연습'
       href: logic-apps-examples-and-scenarios.md
@@ -290,6 +292,13 @@
           href: logic-apps-enterprise-integration-b2b.md
 - name: 참고 자료
   items:
+    - name: 아키텍처 패턴
+      href: logic-apps-architectures-simple-enterprise-integration.md
+      items:
+        - name: 간단한 엔터프라이즈 통합
+          href: logic-apps-architectures-simple-enterprise-integration.md
+        - name: 큐 및 이벤트와 엔터프라이즈 통합
+          href: logic-apps-architectures-enterprise-integration-with-queues-events.md
     - name: 커넥터 - 자세한 내용
       href: 'https://docs.microsoft.com/connectors/'
     - name: 한도 및 구성

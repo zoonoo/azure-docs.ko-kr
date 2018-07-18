@@ -13,17 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 65441882827ecb26405f74fb1389b6a21d99cf9c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1b7ce6078fcaedee3d9ed4151063816df937ac0f
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055160"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 대략적인 시나리오 개요: ![개요](media/tutorial-control-flow-portal/overview.png)
 
@@ -137,7 +135,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       
      ![새 데이터 팩터리 페이지](./media/tutorial-control-flow-portal/new-azure-data-factory.png)
  
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
@@ -147,7 +145,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
         리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2(미리 보기)**를 선택합니다.
+4. **버전**에 대해 **V2**를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.      
@@ -241,7 +239,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
         - 메시지 - `@{activity('Copy1').output.dataWritten`의 값을 전달합니다. 이전 복사 작업의 속성에 액세스하고 dataWritten 값을 전달합니다. 실패의 경우 `@{activity('CopyBlobtoBlob').error.message` 대신 오류 출력을 전달합니다.
         - 데이터 팩터리 이름 - `@{pipeline().DataFactory}`의 값을 전달합니다. 이 변수는 시스템 변수이며, 해당 데이터 팩터리 이름에 액세스할 수 있게 합니다. 시스템 변수 목록은 [시스템 변수](control-flow-system-variables.md) 문서를 참조하세요.
         - 파이프라인 이름 - `@{pipeline().Pipeline}`의 값을 전달합니다. 이는 시스템 변수이기도 하므로 해당 파이프라인 액세스할 수 있게 합니다. 
-        - 받는 사람 - "@pipeline().parameters.receiver")의 값을 전달합니다. 파이프라인 매개 변수에 액세스합니다.
+        - 받는 사람 - "\@pipeline().parameters.receiver")의 값을 전달합니다. 파이프라인 매개 변수에 액세스합니다.
     
         ![첫 번째 웹 활동에 대한 설정](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. 복사 활동 옆의 녹색 단추를 끌어 웹 활동에 놓아서 **복사** 활동을 **웹** 활동에 연결합니다. 

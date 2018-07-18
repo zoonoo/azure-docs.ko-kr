@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: 0f3662ed386c3a3d2d132a483e7192bddc26de06
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5c05c7c4c0f8f0b3619b36390c8a0224a03c900a
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633819"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063545"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Azure BizTalk Services에 대한 릴리스 정보
 
@@ -66,11 +66,11 @@ Visual Studio에서 솔루션을 성공적으로 '빌드'합니다. 그런 다�
   파일 <Path to DLL>을(를) "bin\Debug\FileName.dll"에 복사할 수 없습니다. 'bin\Debug\FileName.dll' 파일은 다른 프로세스에서 사용 중이므로 프로세스에서 액세스할 수 없습니다.  
 
 #### <a name="workaround"></a>해결 방법
-* [Visual Studio 2012 업데이트 3](https://www.microsoft.com/download/details.aspx?id=39305) 이 설치된 경우 다음 두 가지 옵션이 있습니다.
+* [Visual Studio 2012 업데이트 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) 이 설치된 경우 다음 두 가지 옵션이 있습니다.
   
   * Visual Studio를 다시 시작하거나
   * 솔루션을 다시 시작합니다. 그런 다음 솔루션에서 빌드만 수행합니다.  
-* [Visual Studio 2012 업데이트 3](https://www.microsoft.com/download/details.aspx?id=39305) 이 설치되지 않은 경우 작업 관리자를 열어 프로세스 탭을 클릭하고 MSBuild.exe 프로세스를 클릭한 후 프로세스 종료 단추를 클릭합니다.  
+* [Visual Studio 2012 업데이트 3](https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2012-update3-vs) 이 설치되지 않은 경우 작업 관리자를 열어 프로세스 탭을 클릭하고 MSBuild.exe 프로세스를 클릭한 후 프로세스 종료 단추를 클릭합니다.  
 
 ### <a name="routing-to-basichttprelay-endpoints-is-not-supported-from-bridges-and-biztalk-services-portal-if-non-printable-characters-are-promoted-as-http-headers"></a>HTTP 헤더로 인쇄할 수 없는 문자가 승격된 경우 브리지 및 BizTalk Services 포털에서 BasicHttpRelay 끝점으로 라우팅이 지원되지 않음
 인쇄할 수 없는 문자를 메시지의 승격된 속성의 일부로 사용하는 경우 해당 메시지를 BasicHttpRelay 바인딩을 사용하는 릴레이 대상으로 라우팅할 수 없습니다. 또한 추적의 일부로 제공되는 승격된 속성은 BLOB에 대해 URL로 인코딩되고 대상에 대해서는 인코딩되지 않습니다.  

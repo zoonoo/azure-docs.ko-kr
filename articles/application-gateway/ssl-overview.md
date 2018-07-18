@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
-ms.openlocfilehash: b1b6cec8cfeee2253ccd62f764ce4da4cb1b459d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1c94bc7fb97902c9d44392d2eb9bf4ee29f72af6
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160531"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37949750"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Application Gateway의 종단 간 SSL 개요
 
@@ -42,7 +42,7 @@ Application Gateway는 알려진 백 엔드 인스턴스, 즉 Application Gatewa
 
 ## <a name="next-steps"></a>다음 단계
 
-종단 간 SSL에 대해 학습한 후에는 [Application Gateway에서 종단 간 SSL을 사용하도록 설정](tutorial-ssl-powershell.md)으로 이동하여 종단 간 SSL을 사용하여 Application Gateway를 만듭니다.
+종단 간 SSL에 대해 학습한 후에는 [Azure Portal을 사용하여 SSL 종료로 Application Gateway 구성](create-ssl-portal.md)으로 이동하여 종단 간 SSL을 사용하여 Application Gateway를 만듭니다.
 
 <!--Image references-->
 

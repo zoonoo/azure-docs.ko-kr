@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: 51dd957a94d1e10658678d9123e9cce6183c0ab0
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 8726aae7545809573b63f29cd8ef568c34aee5b4
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776604"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109174"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -117,7 +117,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [ID 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
 * [네트워크 보안 모범 사례](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices)
 * [PaaS 권장 사항](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [규정 준수](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
 * [이제 OMS 고객은 Azure Security Center를 사용하여 하이브리드 클라우드 워크로드를 보호할 수 있습니다.](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>커뮤니티 리소스

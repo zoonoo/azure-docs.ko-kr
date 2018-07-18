@@ -7,18 +7,19 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/16/2018
+ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f758d6aec25ce0ef6bf9a0ecab34189296c81fc0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fd96a6cfebe44bd02e3f44a44d91119ad1c2c5a9
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598755"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure Automation의 역할 기반 Access Control
 
-RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../role-based-access-control/role-assignments-portal.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 응용 프로그램에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
+RBAC(역할 기반 액세스 제어)를 통해 Azure 리소스에 대한 액세스 관리가 가능합니다. [RBAC](../role-based-access-control/overview.md)를 사용하여 팀 내에서 업무를 분리하고 사용자, 그룹 및 응용 프로그램에 해당 작업을 수행하는 데에만 필요한 권한을 부여할 수 있습니다. Azure Portal, Azure 명령줄 도구 또는 Azure 관리 API를 사용하여 사용자에게 역할 기반 액세스에 대한 권한을 부여할 수 있습니다.
 
 ## <a name="roles-in-automation-accounts"></a>Automation 계정의 역할
 
@@ -70,6 +71,24 @@ Reader는 Automation 계정의 모든 리소스를 볼 수 있지만 변경할 �
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Automation 계정에서 모든 리소스를 봅니다. |
 
+### <a name="automation-operator"></a>Automation 운영자
+
+Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Automation 계정의 모든 Runbook에 대한 Runbook 이름 및 속성을 읽을 수 있습니다.  참고: 개별 Runbook에 액세스하도록 연산자를 제어하려는 경우에는 이 역할을 설정하지 말고 대신 ‘Automation 작업 연산자’ 및 ‘Automation Runbook 연산자’ 역할을 조합하여 사용합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
+
+|**actions**  |**설명**  |
+|---------|---------|
+|Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
+|Microsoft.Automation/automationAccounts/jobs/read|Runbook의 작업을 나열합니다.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|일시 중지된 작업을 다시 시작합니다.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|진행 중인 작업을 취소합니다.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|작업 스트림 및 출력을 읽습니다.|
+|Microsoft.Automation/automationAccounts/jobs/suspend/action|진행 중인 작업을 일시 중지합니다.|
+|Microsoft.Automation/automationAccounts/jobs/write|작업을 만듭니다.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |역할 및 역할 할당을 읽습니다.         |
+|Microsoft.Resources/deployments/*      |리소스 그룹 배포를 만들고 관리합니다.         |
+|Microsoft.Insights/alertRules/*      | 경고 규칙을 만들고 관리합니다.        |
+|Microsoft.Support/* |지원 티켓을 만들고 관리합니다.|
+
 ### <a name="automation-job-operator"></a>Automation 작업 연산자
 
 Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩니다. 그러면 연산자 권한이 계정의 모든 Runbook에 대한 작업을 만들고 관리할 수 있습니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
@@ -92,9 +111,6 @@ Automation 작업 연산자 역할은 Automation 계정 범위에서 부여됩�
 
 Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Automation Runbook 연산자 역할은 Runbook의 이름 및 속성을 볼 수 있습니다.  ‘Automation 작업 연산자’ 역할과 결합된 이 역할은 연산자가 Runbook에 대한 작업을 만들고 관리할 수 있도록 설정합니다. 다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
 
-> [!NOTE]
-> 운영자에게 계정의 모든 Runbook에 대한 작업을 관리할 수 있는 권한을 부여하려는 경우 외에는 ‘Automation 연산자’ 역할을 설정하지 마십시오.
-
 |**actions**  |**설명**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Runbook을 나열합니다.        |
@@ -103,24 +119,6 @@ Automation Runbook 운영자 역할은 Runbook 범위에서 부여됩니다. Aut
 |Microsoft.Resources/deployments/*      | 리소스 그룹 배포를 만들고 관리합니다.         |
 |Microsoft.Insights/alertRules/*      | 경고 규칙을 만들고 관리합니다.        |
 |Microsoft.Support/*      | 지원 티켓을 만들고 관리합니다.        |
-
-### <a name="automation-operator"></a>Automation 운영자
-
-Automation 연산자 역할은 작업을 만들고 관리할 수 있으며, Automation 계정의 모든 Runbook에 대한 Runbook 이름 및 속성을 읽을 수 있습니다.  참고: 개별 Runbook에 액세스하도록 연산자를 제어하려는 경우에는 이 역할을 설정하지 말고 대신 ‘Automation 작업 연산자’ 및 ‘Automation Runbook 연산자’ 역할을 사용합니다.  다음 표에서는 역할에 부여된 사용 권한을 보여줍니다.
-
-|**actions**  |**설명**  |
-|---------|---------|
-|Microsoft.Authorization/*/read|권한 부여를 읽습니다.|
-|Microsoft.Automation/automationAccounts/jobs/read|Runbook의 작업을 나열합니다.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|일시 중지된 작업을 다시 시작합니다.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|진행 중인 작업을 취소합니다.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|작업 스트림 및 출력을 읽습니다.|
-|Microsoft.Automation/automationAccounts/jobs/suspend/action|진행 중인 작업을 일시 중지합니다.|
-|Microsoft.Automation/automationAccounts/jobs/write|작업을 만듭니다.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |역할 및 역할 할당을 읽습니다.         |
-|Microsoft.Resources/deployments/*      |리소스 그룹 배포를 만들고 관리합니다.         |
-|Microsoft.Insights/alertRules/*      | 경고 규칙을 만들고 관리합니다.        |
-|Microsoft.Support/* |지원 티켓을 만들고 관리합니다.|
 
 ### <a name="log-analytics-contributor"></a>Log Analytics 기여자
 
@@ -259,14 +257,18 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
 |해결 방법     |Log Analytics 기여자         | 해결 방법|
 |Virtual Machine     | Virtual Machine 기여자        | Virtual Machine        |
 
-## <a name="configure-rbac-for-your-automation-account-using-azure-portal"></a>Azure Portal을 사용하여 Automation 계정에 대한 RBAC 구성
+## <a name="configure-rbac-for-your-automation-account"></a>Automation 계정에 대한 RBAC 구성
+
+다음 섹션에서는 [포털](#configure-rbac-using-the-azure-portal) 및 [PowerShell](#configure-rbac-using-powershell)을 통해 Automation 계정에서 RBAC를 구성하는 방법을 보여 줍니다.
+
+### <a name="configure-rbac-using-the-azure-portal"></a>Azure Portal을 사용한 RBAC 구성 
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Automation 계정 페이지에서 Automation 계정을 엽니다.
 2. 왼쪽 위 모서리에 있는 **액세스 제어(IAM)** 컨트롤을 클릭합니다. 그러면 새 사용자, 그룹, 응용 프로그램을 추가하여 Automation 계정을 관리하고 Automation 계정에 구성 가능한 기존 역할을 볼 수 있는 **액세스 제어(IAM)** 페이지가 열립니다.
 
    ![액세스 단추](media/automation-role-based-access-control/automation-01-access-button.png)
 
-### <a name="add-a-new-user-and-assign-a-role"></a>새 사용자 추가 및 역할 할당
+#### <a name="add-a-new-user-and-assign-a-role"></a>새 사용자 추가 및 역할 할당
 
 1. **액세스 제어(IAM)** 페이지에서 **+추가**를 클릭하여 사용자, 그룹 또는 응용 프로그램을 추가할 수 있는 **사용 권한 추가** 페이지를 열고 역할을 할당합니다.
 
@@ -288,7 +290,7 @@ Monitoring Reader는 모든 모니터링 데이터를 읽을 수 있습니다. �
    > [!NOTE]
    > 역할 기반 액세스 제어는 Automation 계정 범위에서만 설정할 수 있으며 Automation 계정 아래의 리소스에는 설정할 수 없습니다.
 
-### <a name="remove-a-user"></a>사용자 제거
+#### <a name="remove-a-user"></a>사용자 제거
 
 Automation 계정을 관리하지 않는 사용자 또는 더 이상 조직에서 일하지 않는 사용자의 액세스 권한을 제거할 수 있습니다. 다음은 사용자를 제거하는 단계입니다.
 
@@ -298,23 +300,7 @@ Automation 계정을 관리하지 않는 사용자 또는 더 이상 조직에�
 
    ![사용자 제거](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-## <a name="role-assigned-user"></a>역할이 할당된 사용자
-
-역할을 할당받은 사용자가 Azure에 로그인하고 해당 Automation 계정을 선택하면 **디렉터리** 목록에 소유자 계정이 나열된 것을 볼 수 있습니다. 추가된 Automation 계정을 보려면 기본 디렉터리를 소유자의 기본 디렉터리로 전환해야 합니다.
-
-### <a name="user-experience-for-automation-operator-role"></a>Automation 운영자 역할에 대한 사용자 환경
-
-Automation 운영자 역할이 할당된 사용자가 할당된 Automation 계정을 볼 때 사용자는 Automation 계정에서 만든 Runbook 목록, Runbook 작업 및 일정을 볼 수 있지만 해당 정의는 볼 수 없습니다. 사용자는 Runbook 작업을 시작, 중지, 일시 중단, 다시 시작 또는 예약할 수 있습니다. 사용자는 구성, Hybrid Worker 그룹 또는 DSC 노드와 같은 다른 Automation 리소스에 액세스할 수 없습니다.
-
-![리소스에 대한 액세스 권한 없음](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
-
-사용자에게는 일정을 보고 만드는 액세스 권한이 있지만 다른 자산 형식에는 액세스할 수 없습니다.
-
-이 사용자는 Runbook과 연결된 웹 후크를 볼 액세스 권한도 없습니다.
-
-![Webhook에 대한 액세스 없음](media/automation-role-based-access-control/automation-13-no-access-to-webhooks.png)
-
-## <a name="configure-rbac-for-your-automation-account-using-azure-powershell"></a>Azure PowerShell을 사용하여 Automation 계정에 대한 RBAC를 구성합니다.
+### <a name="configure-rbac-using-powershell"></a>PowerShell을 사용한 RBAC 구성 
 
 다음 [Azure PowerShell cmdlet](../role-based-access-control/role-assignments-powershell.md)을 사용하여 Automation 계정에 역할 기반 액세스를 구성할 수도 있습니다.
 
@@ -326,7 +312,7 @@ Get-AzureRmRoleDefinition -Name 'Automation Operator'
 
 예제 출력은 다음과 같습니다.
 
-```azurepowershell-interactive
+```azurepowershell
 Name             : Automation Operator
 Id               : d3881f73-407a-4167-8283-e981cbba0404
 IsCustom         : False
@@ -387,6 +373,45 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 ```
 
 앞의 예제에서 **로그인 ID**, **구독 ID**, **리소스 그룹 이름** 및 **Automation 계정 이름**을 계정 세부 정보로 바꿉니다. 사용자 역할 할당을 계속 제거하기 전에 확인하라는 메시지가 표시되면 **예** 를 선택합니다.
+
+### <a name="user-experience-for-automation-operator-role---automation-account"></a>Automation 운영자 역할에 대한 사용자 환경 - Automation 계정
+
+Automation 계정 범위에서 Automation 운영자 역할이 할당된 사용자가 할당된 Automation 계정을 볼 때 사용자는 Automation 계정에서 만든 Runbook 목록, Runbook 작업 및 일정을 볼 수 있지만 해당 정의는 볼 수 없습니다. 사용자는 Runbook 작업을 시작, 중지, 일시 중단, 다시 시작 또는 예약할 수 있습니다. 사용자는 구성, Hybrid Worker 그룹 또는 DSC 노드와 같은 다른 Automation 리소스에 액세스할 수 없습니다.
+
+![리소스에 대한 액세스 권한 없음](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
+
+## <a name="configure-rbac-for-runbooks"></a>Runbook에 대한 RBAC 구성
+
+Azure Automation에서는 사용자가 특정 Runbook에 RBAC를 할당할 수 있습니다. 이를 위해서는 다음 스크립트를 실행하여 사용자를 특정 Runbook에 추가합니다. 다음 스크립트는 Automation 계정 관리자나 테넌트 관리자가 실행할 수 있습니다.
+
+```azurepowershell-interactive
+$rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
+$automationAccountName ="<Automation Account Name>" # Name of the Automation Account
+$rbName = "<Name of Runbook>" # Name of the runbook
+$userId = "<User ObjectId>" # Azure Active Directory (AAD) user's ObjectId from the directory
+
+# Gets the Automation Account resource
+$aa = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts" -ResourceName $automationAccountName
+
+# Get the Runbook resource
+$rb = Get-AzureRmResource -ResourceGroupName $rgName -ResourceType "Microsoft.Automation/automationAccounts/runbooks" -ResourceName "$automationAccountName/$rbName"
+
+# The Automation Job Operator role only needs to be ran once per user.
+New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job Operator" -Scope $aa.ResourceId
+
+# Adds the user to the Automation Runbook Operator role to the Runbook scope
+New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
+```
+
+실행된 후에는 사용자가 Azure Portal에 로그인하고 **모든 리소스**를 볼 수 있습니다. 사용자는 목록에서 자신이 **Automation Runbook 운영자**로 추가된 Runbook을 보게 됩니다.
+
+![포털의 Runbook RBAC](./media/automation-role-based-access-control/runbook-rbac.png)
+
+### <a name="user-experience-for-automation-operator-role---runbook"></a>Automation 운영자 역할에 대한 사용자 환경 - Runbook
+
+Runbook에 대한 Automation 운영자 역할이 할당된 사용자가 자신에게 할당된 Runbook을 볼 때는 해당 Runbook만 시작하고 Runbook 작업을 볼 수 있습니다.
+
+![시작에만 액세스](media/automation-role-based-access-control/automation-only-start.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/12/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a98f2ed2ce55f74ea3967dbb23a762fce566a2f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6ad95eb45cc208fe2289cb2095214f98a0b250b
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595634"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442392"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -63,7 +63,8 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |Dynamics CRM*     |  
 |Excel 통합 문서     |  
 |Exchange*     |  
-|폴더*     | 
+|폴더*     |
+|IBM Informix*(베타) |
 |JSON 문서*     |  
 |이진의 줄*     | 
 |MySQL 데이터베이스     | 
@@ -71,6 +72,8 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |ODBC 쿼리     | 
 |OLE DB     |   
 |Postgre SQL Database*    | 
+|Salesforce 개체* |  
+|Salesforce 보고서* |
 |SAP HANA*    |  
 |SAP Business Warehouse*    |  
 |SharePoint*     |   

@@ -1,21 +1,22 @@
 ---
 title: Azure IoT Central에서 장치 모니터링 | Microsoft Docs
 description: 운영자로서 Azure IoT Central 응용 프로그램을 사용하여 장치를 모니터링합니다.
-services: iot-central
-author: tanmaybhagwat
+author: tbhagwat3
 ms.author: tanmayb
 ms.date: 04/16/2018
 ms.topic: tutorial
-ms.prod: microsoft-iot-central
-manager: timlt
-ms.openlocfilehash: a07c9e3c28fadaead8bfaaebe4d1ee06ac66a99e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
+manager: peterpr
+ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201390"
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235484"
 ---
-# <a name="use-azure-iot-central-to-monitor-your-devices"></a>Azure IoT Central을 사용하여 장치 모니터링
+# <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>자습서: Azure IoT Central을 사용하여 장치 모니터링
 
 이 자습서에서는 운영자로서 Microsoft Azure IoT Central 응용 프로그램을 사용하여 장치를 모니터링하고 설정을 변경하는 방법을 알려줍니다.
 
@@ -50,11 +51,11 @@ Azure IoT Central은 장치에 대한 알림을 이메일 메시지로 보냅니
 
 운영자로서 **측정**, **설정**, **속성**, **규칙** 및  **대시보드** 페이지에서 장치에 대한 정보를 볼 수 있습니다. 작성기는 연결된 공조 장치에 대한 중요한 정보를 표시하기 위해 **대시보드**를 사용자 지정했습니다.
 
-* 장치에 대한 정보를 보려면 **대시보드** 보기를 선택합니다.
+장치에 대한 정보를 보려면 **대시보드** 보기를 선택합니다.
 
-    ![장치 대시보드](media/tutorial-monitor-devices/initial_screen.png)
+![장치 대시보드](media/tutorial-monitor-devices/initial_screen.png)
 
-    대시보드의 차트에는 장치 온도 플롯이 표시됩니다. **대상 온도 설정** 타일에서 장치에 대한 현재 대상 온도를 볼 수 있습니다. 대상 온도가 너무 높다고 판단합니다.
+대시보드의 차트에는 장치 온도 플롯이 표시됩니다. **대상 온도 설정** 타일에서 장치에 대한 현재 대상 온도를 볼 수 있습니다. 대상 온도가 너무 높다고 판단합니다.
 
 ## <a name="remediate-an-issue"></a>문제 해결
 
@@ -64,7 +65,7 @@ Azure IoT Central은 장치에 대한 알림을 이메일 메시지로 보냅니
 
     ![업데이트 설정](media/tutorial-monitor-devices/change_settings.png)
 
-1. **대시보드**를 선택하여 새 설정 값을 확인합니다.
+2. **대시보드**를 선택하여 새 설정 값을 확인합니다.
 
     ![업데이트된 장치 대시보드](media/tutorial-monitor-devices/new_settings.png)
 

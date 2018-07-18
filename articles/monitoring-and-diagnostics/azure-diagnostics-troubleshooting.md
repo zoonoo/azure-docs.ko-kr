@@ -1,24 +1,20 @@
 ---
-title: "Azure 진단 문제 해결 | Microsoft Docs"
-description: "Azure Virtual Machines, Service Fabric 또는 Cloud Services에서 Azure 진단을 사용할 때 문제를 해결합니다."
-services: monitoring-and-diagnostics
-documentationcenter: .net
+title: Azure 진단 확장 문제 해결
+description: Azure Virtual Machines, Service Fabric 또는 Cloud Services에서 Azure 진단을 사용할 때 문제를 해결합니다.
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: 
-ms.assetid: 66469bce-d457-4d1e-b550-a08d2be4d28c
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.openlocfilehash: e194c2898616d5a19782039d38592c59f6b0c576
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.component: diagnostic-extension
+ms.openlocfilehash: 8f41605114de296b626418d0a868e3ed778c0640
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263849"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 진단 문제 해결
 이 문서에서는 Azure 진단 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure 진단 개요](azure-diagnostics.md)를 참조하세요.
@@ -122,7 +118,7 @@ DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] Diagnostic
 #### <a name="is-the-host-generating-data"></a>호스트에서 데이터를 생성하고 있습니까?
 - **성능 카운터**: perfmon을 열고 카운터를 확인합니다.
 
-- **추적 로그**: VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  텍스트 수신기를 설정하려면 http://msdn.microsoft.com/library/sk36c28t.aspx 를 참조하세요.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
+- **추적 로그**: VM에 원격 액세스하고 앱의 구성 파일에 TextWriterTraceListener를 추가합니다.  http://msdn.microsoft.com/library/sk36c28t.aspx 문서를 참조하여 텍스트 수신기를 설정합니다.  `<trace>` 요소에 `<trace autoflush="true">`가 있는지 확인합니다.<br />
 생성된 추적 로그가 표시되지 않으면 [누락된 추적 로그에 대한 자세한 정보](#more-about-trace-logs-missing)를 참조하세요.
 
 - **ETW 추적**: VM에 원격 액세스하고 PerfView를 설치합니다.  PerfView에서 **파일** > **사용자 명령** > **Listen etwprovder1** > **etwprovider2** 등을 차례로 실행합니다. **Listen** 명령은 대/소문자를 구분하며, 쉼표로 구분된 ETW 공급자 목록 사이에는 공백이 없어야 합니다. 명령을 실행하지 못하는 경우 Perfview 도구의 오른쪽 아래에 있는 **로그** 단추를 선택하여 실행하려고 시도한 내용과 그 결과를 확인할 수 있습니다.  입력이 올바르다고 가정하면 새 창이 나타납니다. 몇 초 후 ETW 추적 보기를 시작합니다.

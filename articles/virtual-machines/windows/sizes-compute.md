@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.date: 07/06/2018
 ms.author: jonbeck
-ms.openlocfilehash: 278644fe00b3710fb4959ccdeddc97afd9223601
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d28fd5c01e91c4af9c8eeea4a3f342b57468ddc
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901870"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>계산 최적화 가상 머신 크기
 
@@ -34,6 +35,7 @@ ms.lasthandoff: 04/06/2018
 - [Storage에 최적화](../virtual-machines-windows-sizes-storage.md)
 - [GPU에 최적화](sizes-gpu.md)
 - [고성능 계산](sizes-hpc.md)
+- [이전 세대](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>다음 단계
 [ACU(Azure Compute 단위)](acu.md)가 Azure SKU 간의 Compute 성능을 비교하는 데 어떻게 도움을 줄 수 있는지 알아봅니다.

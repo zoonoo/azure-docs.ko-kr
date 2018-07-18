@@ -100,8 +100,8 @@ ASE를 만든 후에는 해당 하위 도메인이 사용자가 지정한 하위
 4. ASE를 만든 후에 ASE에서 웹앱을 만듭니다. 
 5. 해당 VNET에 없는 경우 VM을 만듭니다(ASE가 있는 동일한 서브넷이 아니거나 연결이 끊긴 경우).
 6. 하위 도메인에 대한 DNS를 설정합니다. DNS에 하위 도메인과 와일드카드를 사용할 수도 있고, 몇 가지 간단한 테스트를 수행하려는 경우 VM의 호스트 파일을 편집하여 웹앱 이름을 VIP IP 주소로 설정할 수 있습니다. ASE에 .ilbase.com이라는 하위 도메인이 있고 웹앱 mytestapp을 만들었으면 mytestapp.ilbase.com에서 주소가 지정되고 해당 사항이 호스트 파일에 설정됩니다. (Windows에서 호스트 파일은 C:\Windows\System32\drivers\etc에 있습니다\).)
-7. 해당 VM의 브라우저를 사용하여 http://mytestapp.ilbase.com(또는 하위 도메인이 포함된 웹앱 이름)으로 이동합니다.
-8. 해당 VM에서 브라우저를 사용하고 https://mytestapp.ilbase.com으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의해야 합니다. 
+7. 해당 VM의 브라우저를 사용하여 http://mytestapp.ilbase.com (또는 하위 도메인이 포함된 웹앱 이름)으로 이동합니다.
+8. 해당 VM에서 브라우저를 사용하고 https://mytestapp.ilbase.com 으로 이동합니다. 자체 서명된 인증서를 사용하는 경우 보안 부족에 동의해야 합니다. 
 
 ILB에 대한 IP 주소는 속성에 가상 IP 주소로 표시됩니다.
 

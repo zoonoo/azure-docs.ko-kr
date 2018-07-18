@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e53b38bf336816ca670fad3ab70a43e5cc8b3437
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763563"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970057"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -71,7 +71,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 모든 JavaScript 오케스트레이션 함수는 `durable-functions` 모듈을 포함해야 합니다. 이것은 오케스트레이션 함수 작업을 out-of-proc 언어에 대한 지속형 실행 프로토콜로 변환하는 JavaScript 라이브러리입니다. 오케스트레이션 함수 및 다른 JavaScript 함수 사이에는 다음과 같은 세 가지 중요한 차이점이 있습니다.
 
-1. 함수가 [생성기 함수](https://docs.microsoft.com/en-us/scripting/javascript/advanced/iterators-and-generators-javascript)입니다.
+1. 함수가 [생성기 함수](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)입니다.
 2. 함수가 `durable-functions` 모듈 호출에 래핑됩니다(여기 `df`).
 3. 함수가 `context.done`이 아닌 `return`을 호출하여 종료됩니다.
 

@@ -1,27 +1,25 @@
 ---
 title: Java에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법 | Microsoft Docs
-description: Azure 테이블 저장소, NoSQL 데이터 저장소를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
+description: Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하여 클라우드에 구조화된 데이터를 저장합니다.
 services: cosmos-db
-documentationcenter: java
 author: SnehaGunda
 manager: kfile
-ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: Java
-ms.topic: article
+ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 4ac25fd9e1d7233546b34da89eb1bcaf37f6f38b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34797899"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Java에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
-[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+[!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
 ## <a name="overview"></a>개요
 이 문서에서는 Azure Table Storage 서비스 및 Azure Cosmos DB를 사용하여 일반적인 시나리오를 수행하는 방법을 보여 줍니다. 샘플은 Java로 작성되었으며 [Java용 Azure Storage SDK][Azure Storage SDK for Java](영문)를 사용합니다. 여기에서 다루는 시나리오에는 **creating**, **listing**, **deleting** 테이블과 테이블의 **inserting**, **querying**, **modifying**, **deleting** 엔터티가 포함됩니다. 테이블에 대한 자세한 내용은 [다음 단계](#next-steps) 섹션을 참조하십시오.
@@ -36,13 +34,13 @@ ms.lasthandoff: 04/16/2018
 ### <a name="create-an-azure-storage-account"></a>Azure 저장소 계정 만들기
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
-### <a name="create-an-azure-cosmos-db-table-api-account"></a>Azure Cosmos DB Table API 계정 만들기
+### <a name="create-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정 만들기
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
 
 ## <a name="create-a-java-application"></a>Java 응용 프로그램 만들기
 이 가이드에서는 Java 응용 프로그램에서 로컬로 실행할 수 있거나 Azure에서 웹 역할 또는 작업자 역할로 실행되는 코드에서 실행할 수 있는 저장소 기능을 사용합니다.
 
-이 문서의 샘플을 사용하려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure Storage 계정을 만듭니다. 그런 다음, 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예제를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
+이 문서의 샘플을 사용하려면 JDK(Java Development Kit)를 설치하고 Azure 구독에서 Azure Storage 계정 또는 Azure Cosmos DB 계정을 만듭니다. 그런 다음, 개발 시스템에서 GitHub의 [Java용 Azure Storage SDK][Azure Storage SDK for Java] 리포지토리에 있는 최소 요구 사항과 종속성을 충족하는지 확인합니다. 시스템에서 해당 요구 사항을 충족하는 경우에는 리포지토리에서 시스템의 Java용 Azure Storage Library를 다운로드 및 설치하기 위한 지침을 따를 수 있습니다. 작업을 완료하고 나면 이 문서의 예제를 사용하는 Java 응용 프로그램을 만들 수 있습니다.
 
 ## <a name="configure-your-application-to-access-table-storage"></a>테이블 저장소에 액세스하도록 응용 프로그램 구성
 Azure Storage API 또는 Azure Cosmos DB Table API를 사용하여 테이블에 액세스하려는 경우 Java 파일의 맨 위에 다음 import 문을 추가합니다.
@@ -67,7 +65,7 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-## <a name="add-an-azure-cosmos-db-connection-string"></a>Azure Cosmos DB 연결 문자열 추가
+## <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Azure Cosmos DB Table API 연결 문자열 추가
 Azure Cosmos DB 계정은 연결 문자열을 사용하여 테이블 끝점과 자격 증명을 저장합니다. 클라이언트 응용 프로그램에서 실행할 경우, *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 Azure Cosmos DB 계정의 이름과 기본 선택키를 사용하여 다음 형식의 Azure Cosmos DB 연결 문자열을 제공해야 합니다. 
 
 이 예제에서는 고정 필드가 Azure Cosmos DB 연결 문자열을 보유하도록 선언하는 방법을 보여줍니다.
@@ -100,7 +98,7 @@ StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=your_accoun
 **CloudTableClient** 개체를 사용하면 테이블 및 엔터티에 대한 참조 개체를 가져올 수 있습니다. 다음 코드에서는 한 **CloudTableClient** 개체를 만들고 이 개체를 사용하여 “people”이라는 테이블을 나타내는 새 **CloudTable** 개체를 만듭니다. 
 
 > [!NOTE]
-> **CloudStorageAccount** 개체를 만들 수 있는 다른 방법이 있습니다. 자세한 내용은 [Azure Storage Client SDK 참조]에서 **CloudStorageAccout**를 참조하세요.
+> **CloudStorageAccount** 개체를 만들 수 있는 다른 방법이 있습니다. 자세한 내용은 [Azure Storage 클라이언트 SDK 참조]에서 **CloudStorageAccout**를 참조하세요.
 >
 
 ```java
@@ -534,7 +532,7 @@ catch (Exception e)
 ```
 
 ## <a name="delete-an-entity"></a>엔터티 삭제
-엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete** 를 호출하십시오. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다.
+엔터티를 검색한 다음 쉽게 삭제할 수 있습니다. 엔터티를 검색한 후, 삭제할 엔터티와 함께 **TableOperation.delete**를 호출하세요. 그런 다음 **CloudTable** 개체에 대해 **execute**를 호출합니다. 다음 코드는 고객 엔터티를 검색하고 삭제합니다.
 
 ```java
 try
@@ -599,7 +597,7 @@ catch (Exception e)
 * [Java에서 Azure Table Service 시작](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 * [Java용 Azure Storage SDK][Azure Storage SDK for Java]
-* [Azure Storage Client SDK 참조][Azure Storage Client SDK 참조]
+* [Azure Storage 클라이언트 SDK 참조][Azure Storage 클라이언트 SDK 참조]
 * [Azure Storage REST API][Azure Storage REST API]
 * [Azure Storage 팀 블로그][Azure Storage Team Blog]
 
@@ -608,7 +606,7 @@ catch (Exception e)
 [Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure Storage Client SDK 참조]: http://azure.github.io/azure-storage-java/
+[Azure Storage 클라이언트 SDK 참조]: http://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

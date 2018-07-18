@@ -1,31 +1,28 @@
 ---
 title: Azure IoT Hub의 상태 모니터링 | Microsoft Docs
 description: Azure Monitor 및 Azure Resource Health를 사용하여 IoT Hub를 모니터링하고 신속하게 문제 진단
-services: iot-hub
-documentationcenter: ''
 author: kgremban
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: iot-hub
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 10/09/2017
 ms.author: kgremban
-ms.openlocfilehash: bf6202b002aaf6d89a30c7c653fdcee00cb50290
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202223"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38611374"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Azure IoT Hub 상태 모니터링 및 신속한 문제 진단
 
 Azure IoT Hub를 구현하는 기업은 리소스에서 안정적인 성능을 기대합니다. 고객이 계속해서 작업을 면밀하게 검토할 수 있도록 IoT Hub는 [Azure Monitor][lnk-AM] 및 [Azure Resource Health][lnk-ARH]와 완벽하게 통합되어 있습니다. 이러한 두 서비스는 동시에 작동하여 IoT 솔루션을 정상 상태로 유지하는 데 필요한 데이터를 제공합니다. 
 
-Azure Monitor는 모든 Azure 서비스를 모니터링하고 로깅하는 단일 원본입니다. Azure Monitor가 생성하는 로그를 고객이 처리하도록 Log Analytics, Event Hubs 또는 Azure Storage로 보낼 수 있습니다. Azure Monitor의 메트릭 및 진단 설정은 리소스 성능에 대한 실시간 가시성을 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Monitor를 사용](#use-azure-monitor)하는 방법에 대해 알아보세요. 
+Azure Monitor는 모든 Azure 서비스를 모니터링하고 로깅하는 단일 원본입니다. Azure Monitor가 생성하는 진단 로그를 고객이 처리하도록 Log Analytics, Event Hubs 또는 Azure Storage로 보낼 수 있습니다. Azure Monitor의 메트릭 및 진단 설정은 리소스 성능에 대한 가시성을 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Monitor를 사용](#use-azure-monitor)하는 방법에 대해 알아보세요. 
+
+> [!IMPORTANT]
+> Azure Monitor 진단 로그를 사용하여 IoT Hub 서비스에서 내보내는 이벤트는 안정적이거나 정렬되도록 보장되지 않습니다. 일부 이벤트는 손실되거나 순서 없이 제공될 수 있습니다. 또한 진단 로그는 실시간으로 제공되지 않으며, 사용자가 선택한 대상에 이벤트를 기록하기까지 몇 분 정도 걸릴 수 있습니다.
 
 Azure Resource Health는 Azure 문제가 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다. 개인 설정된 대시보드는 IoT Hub의 현재 및 과거 성능 상태를 제공합니다. 이 문서를 계속 읽고 IoT Hub에 [Azure Resource Health를 사용](#use-azure-resource-health)하는 방법에 대해 알아보세요. 
 
@@ -47,7 +44,7 @@ Azure Monitor는 IoT Hub에서 발생하는 여러 작업을 추적합니다. �
 
 #### <a name="connections"></a>연결
 
-연결 범주는 장치가 IoT Hub에 연결되거나 연결이 해제될 때 발생하는 오류를 추적합니다. 이 범주를 추적하는 것은 무단 연결 시도를 식별하고 연결 상태가 좋지 않은 영역에서 장치의 연결이 끊어졌을 때 추적하는 데 유용합니다.
+연결 범주는 오류뿐 아니라 IoT Hub에서의 장치 연결 및 이벤트 분리를 추적합니다. 이 범주를 추적하는 것은 무단 연결 시도를 식별하고 연결 상태가 좋지 않은 영역에서 장치의 연결이 끊어졌을 때 추적하는 데 유용합니다.
 
 ```json
 {

@@ -11,11 +11,11 @@ ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
 ms.openlocfilehash: a3c54fe635fe0f8988c321684a815e9896922587
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634348"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38235508"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Power BI를 사용하여 Azure IoT Hub에서 실시간 센서 데이터 시각화
 

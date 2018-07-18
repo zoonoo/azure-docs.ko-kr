@@ -18,6 +18,7 @@
 ### [이전 버전에서 업그레이드](active-directory-aadconnect-upgrade-previous-version.md)
 ### [기존 ADSync 데이터베이스를 사용하여 설치](active-directory-aadconnect-existing-database.md)
 ### [SQL 위임된 관리자 권한을 사용하여 설치](active-directory-aadconnect-sql-delegation.md)
+### [원격 SQL Server로 Azure AD Connect 데이터베이스 이동](active-directory-aadconnect-move-db.md)
 
 # 방법
 ## 계획 및 디자인
@@ -46,7 +47,6 @@
 ##### [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md)
 ##### [작동 원리](active-directory-aadconnect-pass-through-authentication-how-it-works.md)
 ##### [미리 보기 에이전트 업그레이드](active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)
-##### [스마트 잠금](active-directory-aadconnect-pass-through-authentication-smart-lockout.md)
 ##### [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md)
 ##### [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md)
 ##### [보안 심층 분석](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md)

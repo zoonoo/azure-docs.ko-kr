@@ -12,14 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: 77cc2f80588a104880e8149daccc6debd1ec43bc
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c3cc8857373238079fee06c61faec962d7e3a6b2
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34796427"
 ---
 # <a name="azure-stack-servicing-policy"></a>정책 서비스는 azure 스택
 이 문서에서는 Azure 스택 통합 시스템 및 지원 되는 상태 시스템을 유지 하기 위해 수행 해야 하는 것에 대 한 서비스 정책을 설명 합니다. 
@@ -37,10 +38,9 @@ ms.lasthandoff: 04/19/2018
 Microsoft는 매월 주기로 소프트웨어 업데이트 패키지를 해제 하기 위해 필요 합니다. 그러나는 한 달에 있거나 전혀 업데이트 릴리스 있을 수 있습니다. OEM 하드웨어 공급 업체에 필요할 때 해당 업데이트를 출시 합니다. 
 
 계획 하 고 업데이트를 관리 하는 방법과에서 현재 버전을 확인 하는 방법에 대 한 설명서 찾기 [관리 업데이트 개요](azure-stack-updates.md)합니다. 를 다운로드 하는 방법을 포함 한 특정 업데이트에 대 한 정보에 대 한 참조를 업데이트 하는 작업에 대 한 릴리스 정보: 
+- [Azure 스택 1805 업데이트](azure-stack-update-1805.md)
+- [Azure 스택 1804 업데이트](azure-stack-update-1804.md)
 - [Azure 스택 1803 업데이트](azure-stack-update-1803.md)
-- [Azure 스택 1802 업데이트](azure-stack-update-1802.md)
-- [Azure 스택 1712 업데이트](azure-stack-update-1712.md)
-
 
 
 ## <a name="hotfixes"></a>핫픽스

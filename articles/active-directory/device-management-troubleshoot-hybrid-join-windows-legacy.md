@@ -7,6 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 2fd3d2cb403e3889c5faa538a49fa129496ae6e8
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32770743"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34714115"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -54,7 +55,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
 - 초기 등록 / 장치 조인은 로그온 또는 잠금 / 잠금 해제 시 시도를 수행하도록 구성됩니다. 작업 스케줄러 작업에 의해 트리거되는 5분 지연이 있을 수 있습니다. 
 
-- 운영 체제의 다시 설치나 수동 등록 취소가 수행되면 Azure AD에서 새 등록이 생성되어 Azure Portal의 사용자 정보 탭에 여러 항목이 생성될 수 있습니다. 
+- 운영 체제의 다시 설치나 수동 재등록이 수행되면 Azure AD에서 새 등록이 생성되어 Azure Portal의 사용자 정보 탭에 여러 항목이 생성될 수 있습니다. 
 
 ## <a name="step-1-retrieve-the-registration-status"></a>1단계: 등록 상태 검색 
 
@@ -89,7 +90,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
     
     - 로그인한 사용자가 도메인 사용자(예: 로컬 사용자)가 아닙니다. 도메인 사용자에 대해 하위 수준 장치의 하이브리드 Azure AD 조인만 지원됩니다.
     
-    - Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없습니다. 이는 Azure AD URL에 대한 아웃바운드 네트워크 연결 문제 때문일 수 있습니다(필수 구성 요소 확인). 또한 사용자에 대한 다단계 인증(MFA)이 활성화/구성되었고 페더레이션 서버에 WIAORMUTLIAUTHN이 구성되지 않았을 수도 있습니다(구성 단계 확인). 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 사용자 상호 작용을 기다리고 **autoworkplace.exe**가 자동으로 토큰을 가져오지 못하게 하는 경우입니다.
+    - Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없습니다. 이는 Azure AD URL에 대한 아웃바운드 네트워크 연결 문제 때문일 수 있습니다. 또한 사용자에 대한 다단계 인증(MFA)이 활성화/구성되었고 페더레이션 서버에 WIAORMUTLIAUTHN이 구성되지 않았을 수도 있습니다. 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 사용자 상호 작용을 기다리고 **autoworkplace.exe**가 자동으로 토큰을 가져오지 못하게 하는 경우입니다.
     
     - 조직에서 Azure AD Seamless Single Sign-On을 사용하고, 장치의 IE 인트라넷 설정에 `https://autologon.microsoftazuread-sso.com` 또는 `https://aadg.windows.net.nsatc.net`이 없고, 인트라넷 영역에 **스크립트를 통한 상태 표시줄 업데이트 허용**이 활성화되어 있지 않습니다.
 

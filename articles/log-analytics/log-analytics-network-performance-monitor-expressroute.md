@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9610a8b37ead976cfdfa2fed81d4d3932055ddcc
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: na
+ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237786"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131131"
 ---
 # <a name="expressroute-manager"></a>ExpressRoute 관리자
 
@@ -37,7 +38,7 @@ ms.locfileid: "30237786"
 ### <a name="configure-network-security-group-rules"></a>네트워크 보안 그룹 규칙 구성 
 네트워크 성능 모니터를 통한 모니터링에 사용되는 Azure에 있는 서버의 경우 가상 트랜잭션을 위해 네트워크 성능 모니터에서 사용하는 포트에 TCP 트래픽을 허용하도록 NSG(네트워크 보안 그룹) 규칙을 구성합니다. 기본 포트는 8084입니다. 이 구성을 사용하면 Azure VM에 Operations Management Suite 에이전트를 설치하여 온-프레미스 모니터링 에이전트와 통신할 수 있습니다. 
 
-NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../virtual-network/virtual-networks-create-nsg-arm-pportal.md)을 참조하세요. 
+NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md)을 참조하세요. 
 
 >[!NOTE]
 > 이 단계를 계속하기 전에 온-프레미스 서버 에이전트와 Azure 서버 에이전트를 설치하고 EnableRules.ps1 PowerShell 스크립트를 실행합니다. 

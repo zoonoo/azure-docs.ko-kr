@@ -3,21 +3,19 @@ title: Azure Cosmos DB Cassandra API 소개 | Microsoft Docs
 description: Azure Cosmos DB를 사용하여 기존 응용 프로그램을 “리프트 앤 시프트”하고, 이미 익숙한 Cassandra 드라이버와 CQL을 사용하여 Cassandra API를 사용하는 새 응용 프로그램을 빌드하는 방법을 알아봅니다.
 services: cosmos-db
 author: govindk
-manager: ''
-documentationcenter: ''
-ms.assetid: 73839abf-5af5-4ae0-a852-0f4159bc00a0
+manager: kfile
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-cassandra
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 65ab01031ed0fe554ef162f0115bdda39fd1c80b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: edc8ba7f8dd52a5facbfeb930a8660b082d72877
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34795274"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Azure Cosmos DB 소개: Apache Cassandra API
 
@@ -57,7 +55,7 @@ Cassandra API를 사용하면 이미 익숙한 Cassandra 쿼리 언어 기반 �
 
 **일관성 선택**: Azure Cosmos DB는 일관성과 성능 간에 최적의 절충을 실현할 수 있도록 잘 정의된 5가지 일관성 수준 옵션을 제공합니다. 이러한 일관성 수준은 강력, 제한된 부실, 세션, 일관된 접두사 및 최종입니다. 이러한 잘 정의된 세부적인 일관성 수준을 통해 개발자는 일관성, 가용성 및 대기 시간 간에 타당한 절충을 수행할 수 있습니다. [일관성 수준을 사용하여 가용성 및 성능 최대화](consistency-levels.md)에서 자세히 알아보세요. 
 
-**엔터프라이즈 등급**: 기본적으로 보안 및 호환성이 보장되는 Azure Cosmos DB는 사용자가 규정 준수 문제를 염려하지 않고 플랫폼을 사용할 수 있도록 [규정 준수 인증](https://www.microsoft.com/trustcenter)을 제공합니다. Azure Cosmos DB는 또한 휴식 및 작동 시 암호화, IP 방화벽, 제어 영역 활동에 대한 감사 로그를 제공합니다.  
+**엔터프라이즈급**: Azure Cosmos DB는 사용자가 플랫폼을 안전하게 사용할 수 있도록 [준수 인증](https://www.microsoft.com/trustcenter)을 제공합니다. Azure Cosmos DB는 또한 휴식 및 작동 시 암호화, IP 방화벽, 제어 영역 활동에 대한 감사 로그를 제공합니다.  
 
 <a id="sign-up-now"></a>
 ## <a name="sign-up-now"></a>지금 등록하십시오. 

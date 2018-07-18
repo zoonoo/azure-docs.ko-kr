@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9a03588b3327c3ab231f5c2cae17488f4d63bde7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: e3c80fe824d87c15a710b133c8e6cddf4ee0e096
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402110"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856558"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>게시된 응용 프로그램 설치 - H2O Sparkling Water
 
@@ -38,7 +38,7 @@ H2O Sparkling Water는 선형 확장성을 갖춘 완벽하게 분산된 오픈 
 
 ### <a name="resource-links"></a>리소스 링크
 
-* [H2O.ai 엔지니어링 로드맵](https://jira.h2o.ai/)
+* [H2O.ai 엔지니어링 로드맵](http://jira.h2o.ai/)
 * [H2O.ai 홈](http://www.h2o.ai/)
 * [H2O.ai 설명서](http://docs.h2o.ai/)
 * [H2O.ai 지원](https://support.h2o.ai/)

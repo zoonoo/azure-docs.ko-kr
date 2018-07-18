@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 9ef988ccdcca921c0285bf983125483a38a07678
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: d88fcea4a41d8402cc25a1623727284afb0e9088
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240227"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959385"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Azure Redis Cache 크기를 조정하는 방법
 Azure Redis Cache에는 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제품이 있습니다. 캐시를 만든 후 응용 프로그램 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -154,7 +154,7 @@ Azure CLI을 통한 크기 조정에 대한 자세한 내용은 [기존 Redis Ca
 * 작업을 다른 크기로 확장하는 동안 **기본** 캐시는 오프라인 상태입니다. **기본**에서 **표준**으로 확장하는 동안 기본 캐시를 그대로 사용할 수 있지만 작은 연결 블립이 발생할 수도 있습니다. 연결 블립이 발생하는 경우 redis 클라이언트가 해당 연결을 즉시 다시 설정할 수 있습니다.
 
 
-### <a name="scaling-limitations-with-geo-relication"></a>지역 복제를 사용하여 제한 사항 크기 조정
+### <a name="scaling-limitations-with-geo-replication"></a>지역 복제를 사용하여 제한 사항 크기 조정
 
 두 개의 캐시 간에 지역 복제 링크를 추가하면 더 이상 크기 조정 작업을 시작하거나 클러스터에서 분할된 데이터베이스의 수를 변경할 수 없습니다. 캐시의 연결을 해제하여 이러한 명령을 실행해야 합니다. 자세한 내용은 [지역 복제 구성](cache-how-to-geo-replication.md)을 참조하세요.
 

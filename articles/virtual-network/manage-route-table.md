@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 065ac8b2e9cb48408c7922a1937e541521ccd8cf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: cd97b00a522ff41a74f46195da5d8b1a0d92d344
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895598"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36960011"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>경로 테이블 만들기, 변경 또는 삭제
 
@@ -94,6 +94,8 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블 수에 제한이
 3. **설정**에서 **서브넷**을 선택합니다.
 4. 경로 테이블을 연결할 서브넷을 선택합니다.
 5. **경로 테이블**을 선택하고 서브넷에 연결할 경로 테이블을 선택한 다음 **저장**을 선택합니다.
+
+가상 네트워크가 Azure VPN 게이트웨이에 연결된 경우 대상이 0.0.0.0/0인 경로가 포함된 [게이트웨이 서브넷](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에 경로 테이블을 연결하지 않습니다. 그러면 게이트웨이가 제대로 작동하지 못할 수 있습니다. 경로에서 0.0.0.0/0을 사용하는 방법에 대한 자세한 내용은 [가상 네트워크 트래픽 라우팅](virtual-networks-udr-overview.md#default-route)을 참조하세요.
 
 **명령**
 
@@ -211,7 +213,7 @@ Azure 위치와 구독별로 만들 수 있는 경로 테이블당 경로 수에
 **명령**
 
 - Azure CLI: [az network nic show-effective-route-table](/cli/azure/network/nic?view=azure-cli-latest#az_network_nic_show_effective_route_table)
-- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/remove-azurermrouteconfig) 
+- PowerShell: [Get-AzureRmEffectiveRouteTable](/powershell/module/azurerm.network/get-azurermeffectiveroutetable) 
 
 ## <a name="validate-routing-between-two-endpoints"></a>두 개의 끝점 간의 라우팅 유효성 검사
 

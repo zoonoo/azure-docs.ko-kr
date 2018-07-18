@@ -15,17 +15,18 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: f930cec984a8b92e00ec613ce3bba91a40518911
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34597929"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 비교
 ## <a name="overview"></a>개요
 Azure는 [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric] 및 [Cloud Services][Cloud Services] 등 웹 사이트를 호스트하는 여러 가지 방법을 제공합니다. 이 문서에서는 각 옵션에 대해 파악하고 웹 응용 프로그램에 적합한 옵션을 선택하는 데 도움이 되는 정보를 제공합니다.
 
-대부분의 웹앱에서는 Azure App Service가 가장 적합합니다. Azure 웹 사이트에서는 배포와 관리 기능이 플랫폼에 통합되고, 높은 트래픽 부하를 처리하기 위해 사이트를 빠르게 확장할 수 있으며, 기본 제공 부하 분산 및 Traffic Manager가 고가용성을 제공합니다. [온라인 마이그레이션 도구](https://www.migratetoazure.net/)를 사용하여 기존 사이트를 Azure App Service로 쉽게 이동하거나, 웹 응용 프로그램 갤러리에서 오픈 소스 앱을 사용하거나, 원하는 프레임워크와 도구를 사용하여 새 사이트를 만들 수 있습니다. [WebJobs][WebJobs] 기능을 사용하면 백그라운드 작업 처리 기능을 App Service 웹앱에 쉽게 추가할 수 있습니다.
+대부분의 웹앱에서는 Azure App Service가 가장 적합합니다. Azure 웹 사이트에서는 배포와 관리 기능이 플랫폼에 통합되고, 높은 트래픽 부하를 처리하기 위해 사이트를 빠르게 확장할 수 있으며, 기본 제공 부하 분산 및 Traffic Manager가 고가용성을 제공합니다. [온라인 마이그레이션 도구][migrate-tool]를 사용하여 기존 사이트를 Azure App Service로 쉽게 이동하거나, 웹 응용 프로그램 갤러리에서 오픈 소스 앱을 사용하거나, 원하는 프레임워크와 도구를 사용하여 새 사이트를 만들 수 있습니다. [WebJobs][WebJobs] 기능을 사용하면 백그라운드 작업 처리 기능을 App Service 웹앱에 쉽게 추가할 수 있습니다.
 
 Service Fabric은 새 앱을 만들거나 마이크로 서비스 아키텍처를 사용하도록 기존 앱을 다시 작성하는 경우에 적합합니다. 컴퓨터의 공유 풀에서 실행하는 앱은 작게 시작하고 필요에 따라 수백 또는 수천 대의 컴퓨터로 대규모로 확장할 수 있습니다. 상태 저장 서비스를 통해 일관되고 안정적으로 앱 상태를 손쉽게 저장하고 Service Fabric은 서비스 분할, 크기 조정 및 가용성을 자동으로 관리합니다.  Service Fabric은 OWIN(Open Web Interface for .NET) 및 ASP.NET Core를 사용하여 WebAPI를 지원합니다.  App Service에 비해 Service Fabric은 기본 인프라에 대한 더 많은 제어 기능 또는 직접 액세스를 지원합니다. 서버로 원격으로 연결하거나 서버 시작 작업을 구성할 수 있습니다. Cloud Services는 제어 수준과 사용 편이성에서 Service Fabric과 비슷하지만 이제는 레거시 서비스이므로 Service Fabric을 새로운 개발에 사용하는 것이 좋습니다.
 
@@ -97,7 +98,7 @@ Azure App Service는 회사 웹 사이트를 호스트하는 데 적합한 솔�
 * Active Directory와 통합할 수 있습니다.
 
 ### <a id="iis6"></a> IIS6 응용 프로그램을 Windows Server 2003에서 실행 중인 경우
-Azure App Service에서는 이전의 IIS6 응용 프로그램 마이그레이션과 관련된 인프라 비용 문제를 쉽게 해결할 수 있습니다. Microsoft는 호환성을 확인하고 수행해야 하는 변경을 식별할 수 있는 [간편한 마이그레이션 도구와 자세한 마이그레이션 지침](https://www.migratetoazure.net/)을 제작했습니다. Visual Studio, TFS 및 일반 CMS 도구와의 통합을 통해 IIS6 응용 프로그램을 쉽게 클라우드로 직접 배포할 수 있습니다. 배포 후에는 Azure Portal에서 제공하는 유용한 관리 도구를 사용하여 응용 프로그램을 축소해 비용을 관리하고 필요에 따라 수요 충족을 위해 응용 프로그램을 확장할 수 있습니다. 마이그레이션 도구를 통해 다음을 수행할 수 있습니다.
+Azure App Service에서는 이전의 IIS6 응용 프로그램 마이그레이션과 관련된 인프라 비용 문제를 쉽게 해결할 수 있습니다. Microsoft는 호환성을 확인하고 수행해야 하는 변경을 식별할 수 있는 [간편한 마이그레이션 도구와 자세한 마이그레이션 지침][migrate-tool]을 제작했습니다. Visual Studio, TFS 및 일반 CMS 도구와의 통합을 통해 IIS6 응용 프로그램을 쉽게 클라우드로 직접 배포할 수 있습니다. 배포 후에는 Azure Portal에서 제공하는 유용한 관리 도구를 사용하여 응용 프로그램을 축소해 비용을 관리하고 필요에 따라 수요 충족을 위해 응용 프로그램을 확장할 수 있습니다. 마이그레이션 도구를 통해 다음을 수행할 수 있습니다.
 
 * 레거시 Windows Server 2003 웹 응용 프로그램을 클라우드로 빠르고 쉽게 마이그레이션할 수 있습니다.
 * 연결된 SQL Database를 온-프레미스에 유지하여 하이브리드 응용 프로그램을 만들 수 있습니다.
@@ -191,3 +192,4 @@ HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하
 <!-- IMG List -->
 
 [ChoicesDiagram]: ./media/choose-web-site-cloud-service-vm/Websites_CloudServices_VMs_3.png
+[migrate-tool]: https://www.movemetothecloud.net/

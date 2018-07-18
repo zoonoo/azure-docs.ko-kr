@@ -5,16 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/03/2018
+ms.date: 05/21/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: dac04ed9a43e19d022720979c8f83aa2b4132f78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 49db6b625a9e4fc46fe414eb723dfccd890efd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34677362"
 ---
-**마지막 문서 업데이트**: 4월 3일 오후 3시 PST.
+**마지막 문서 업데이트**: 2018년 5월 21일 오후 3시 PST
 
 투기적 실행 사이드 채널 공격으로 알려진 최근 공개된 [새로운 종류의 CPU 취약성](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)으로 인해 고객은 명확하게 이해하기 위해 질문하게 되었습니다.  
 
@@ -23,6 +24,8 @@ Microsoft는 모든 클라우드 서비스에서 완화 기능을 배포했습�
 또한 Azure는 가능한 경우 [메모리 보존 유지 관리](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance)의 사용을 확대하고, 호스트가 업데이트되거나 VM이 이미 업데이트된 호스트로 이동하는 동안 최대 30초까지 VM을 일시 중지합니다.  나아가 메모리 보존 유지 관리는 고객 영향을 최소화하고 다시 부팅이 필요하지 않습니다.  Azure는 호스트에 대한 시스템 전체 업데이트를 적용할 때 이러한 메서드를 활용하게 됩니다.
 
 > [!NOTE] 
+2018년 5월 21일에, Google Project Zero와 Microsoft는 Speculative Store Bypass로 알려진 새로운 추론형 실행 쪽 채널 취약점 일부를 발표했습니다. 추론형 실행 취약점을 직접적으로 해결하는 추가적인 심층 방어 완화 기능이 Microsoft 클라우드 인프라를 통해 배포되었습니다. 자세한 내용은 https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012를 참조하세요. 
+>
 > 2018년 2월말에 Intel Corporation에서는 안정성을 개선하고 [Google Project Zero](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html)에 의해 밝혀진 최근 취약점을 완화하는 마이크로코드 릴리스의 상태에 대해 업데이트된 [마이크로코드 수정 지침](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf)을 게시했습니다. [2018년 1월 3일](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/)에 Azure에서 결정된 완화 요소는 Intel의 마이크로코드 업데이트의 영향을 받지 않습니다. Microsoft는 이미 다른 Azure 테넌트의 Azure 가상 머신을 보호하기 위해 강력한 완화 요소를 배치하였습니다.  
 >
 > Intel의 마이크로코드는 공격으로부터 보호하기 위해 변형 2 스펙터([CVE-2017-5715](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5715) 또는 분기 대상 주입)를 처리하며, 이는 Azure의 VM 내에서 공유하거나 신뢰할 수 없는 워크로드를 실행하는 경우에만 적용할 수 있습니다. 엔지니어들은 Azure 고객에게 제공하기 전에 마이크로코드의 성능 영향을 최소화하기 위해 안정성 테스트를 진행하고 있습니다.  VM 내에서 신뢰할 수 없는 워크로드를 실행하는 고객은 거의 없으므로 대부분의 고객은 일단 출시되면 이 기능을 사용하도록 설정하지 않아도 됩니다. 

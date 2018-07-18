@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2017
-ms.author: ramach; mbullwin
-ms.openlocfilehash: 9d95cb637607e69c4b7a7ab22f3c6239bd67c4f7
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: ramach
+ms.author: mbullwin
+ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950674"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure VM, Service Fabric 및 Azure Cloud Services에서 Application Insights Profiler 사용
 
@@ -210,7 +212,7 @@ Profiler 및 응용 프로그램을 실행하는 환경은 가상 머신, 가상
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. 원하는 응용 프로그램이 [IIS](https://www.microsoft.com/web/platform/server.aspx)를 통해 실행 중인 경우에는 다음을 수행하여 `IIS Http Tracing` Windows 기능을 활성화합니다.  
+2. 원하는 응용 프로그램이 [IIS](https://www.microsoft.com/web/downloads/platform.aspx)를 통해 실행 중인 경우에는 다음을 수행하여 `IIS Http Tracing` Windows 기능을 활성화합니다.  
 
    a. 환경에 대한 원격 액세스를 설정한 다음, [Windows 기능 추가]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) 창을 사용하거나 PowerShell에서 (관리자로서) 다음 명령을 실행합니다.  
 

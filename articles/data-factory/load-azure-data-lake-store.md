@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: fdfb35b0e1c52ad2aad164a38ae308f9142880a6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619629"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055518"
 ---
 # <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 로드
 
@@ -35,9 +35,6 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
 
 > [!NOTE]
 > 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)를 참조하세요.
->
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Azure Data Factory 버전 1의 복사 작업](v1/data-factory-data-movement-activities.md)을 참조하세요.
-
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -56,7 +53,7 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
     * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadADLSDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리의 다른 이름을 입력합니다. 예를 들어 _**yourname**_**ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-    * **버전**: **V2(미리 보기)** 를 선택합니다.
+    * **버전**: **V2**를 선택합니다.
     * **위치**: 데이터 팩터리의 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소가 다른 위치 및 지역에 있어도 됩니다. 이러한 데이터 저장소는 Azure Data Lake Store, Azure Storage, Azure SQL Database 등을 포함합니다.
 
 3. **만들기**를 선택합니다.
@@ -74,35 +71,45 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
 2. **속성** 페이지에서 **작업 이름** 필드를 **CopyFromAmazonS3ToADLS**로 지정하고 **다음**을 선택합니다.
 
     ![속성 페이지](./media/load-data-into-azure-data-lake-store/copy-data-tool-properties-page.png)
-3. **원본 데이터 저장소** 페이지에서 **Amazon S3**을 선택하고 **다음**을 선택합니다.
+3. **원본 데이터 저장소** 페이지에서 **+ 새 연결 만들기**를 클릭합니다.
 
     ![원본 데이터 저장소 페이지](./media/load-data-into-azure-data-lake-store/source-data-store-page.png)
+    
+    **Amazon S3**, **계속**을 차례로 선택합니다.
+    
+    ![원본 데이터 저장소 s3 페이지](./media/load-data-into-azure-data-lake-store/source-data-store-page-s3.png)
+    
 4. **Amazon S3 연결 지정** 페이지에서 다음 단계를 수행합니다. 
    1. **액세스 키 ID** 값을 지정합니다.
    2. **비밀 액세스 키** 값을 지정합니다.
-   3. **다음**을 선택합니다.
+   3. **마침**을 선택합니다.
    
    ![Amazon S3 계정 지정](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account.png)
+   
+   4. 새 연결이 표시됩니다. **다음**을 선택합니다.
+   
+   ![Amazon S3 계정 지정](./media/load-data-into-azure-data-lake-store/specify-amazon-s3-account-created.png)
+   
 5. **입력 파일 또는 폴더 선택** 페이지에서, 복사하려는 폴더 및 파일로 이동합니다. 폴더/파일을 선택하고 **선택**, **다음**을 차례로 선택합니다.
 
     ![입력 파일 또는 폴더 선택](./media/load-data-into-azure-data-lake-store/choose-input-folder.png)
 
-6. **대상 데이터 저장소** 페이지에서 **Azure Data Lake Store**를 선택하고 **다음**을 선택합니다.
-
-    ![대상 데이터 저장소 페이지](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
-
-7. **재귀적으로 파일 복사** 및 **이진 복사**(있는 그대로 파일 복사) 옵션을 선택하여 복사 동작을 선택합니다. **다음**을 선택합니다.
+6. **재귀적으로 파일 복사** 및 **이진 복사**(있는 그대로 파일 복사) 옵션을 선택하여 복사 동작을 선택합니다. **다음**을 선택합니다.
 
     ![출력 폴더 지정](./media/load-data-into-azure-data-lake-store/specify-binary-copy.png)
+    
+7. **대상 데이터 저장소** 페이지에서 **+ 새 연결 만들기**를 클릭한 다음, **Azure Data Lake Store**를 선택하고 **계속**을 선택합니다.
+
+    ![대상 데이터 저장소 페이지](./media/load-data-into-azure-data-lake-store/destination-data-storage-page.png)
 
 8. **Data Lake Store 연결 지정** 페이지에서 다음 단계를 수행합니다. 
 
    1. **Data Lake Store 계정 이름**에 대해 Data Lake Store를 선택합니다.
-   2. 서비스 주체 정보 **테넌트**, **서비스 주체 ID** 및 **서비스 주체 키**를 지정합니다.
+   2. **테넌트**를 지정하고 마침을 선택합니다.
    3. **다음**을 선택합니다.
    
    > [!IMPORTANT]
-   > 이 연습에서는 _서비스 주체_를 사용하여 Data Lake Store를 인증합니다. [다음 지침](connector-azure-data-lake-store.md#using-service-principal-authentication)에 따라 Azure Data Lake Store에서 서비스 주체에 적절한 권한을 부여합니다.
+   > 이 연습에서는 _관리되는 서비스 ID_를 사용하여 Data Lake Store를 인증합니다. [다음 지침](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)에 따라 Azure Data Lake Store에서 서비스 주체에 적절한 권한을 부여합니다.
    
    ![Azure Data Lake Store 계정을 지정합니다.](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfroms3**를 입력하고 **다음**을 선택합니다. 

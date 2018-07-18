@@ -9,11 +9,12 @@ ms.topic: include
 ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
-ms.openlocfilehash: a94a68d238a731388d8b13bd962b0db1007c5ca4
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: d2b409c7454645893665b080b927998402056cdd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34666911"
 ---
 ## <a name="create-a-module-identity"></a>모듈 ID 만들기
 
@@ -43,7 +44,16 @@ ms.lasthandoff: 05/03/2018
     const string moduleID = "myFirstModule";
     ```
 
-5. **Program** 클래스에 다음 메서드를 추가합니다.
+5. **Main** 클래스에 다음 코드를 추가합니다.
+    ```csharp
+    static void Main(string[] args)
+    {
+        AddDeviceAsync().Wait();
+        AddModuleAsync().Wait();
+    }
+    ```
+
+6. **Program** 클래스에 다음 메서드를 추가합니다.
 
     ```csharp
     private static async Task AddDeviceAsync()
@@ -87,7 +97,7 @@ ms.lasthandoff: 05/03/2018
 
 [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-6. 이 응용 프로그램을 실행하고 장치 키 및 모듈 키를 기록합니다.
+7. 이 응용 프로그램을 실행하고 장치 키 및 모듈 키를 기록합니다.
 
 > [!NOTE]
 > IoT Hub ID 레지스트리는 장치 및 모듈 ID만 저장하여 IoT Hub에 보안 액세스를 사용합니다. ID 레지스트리는 보안 자격 증명으로 사용할 장치 ID 및 키를 저장합니다. 또한 ID 레지스트리는 각 장치에 대한 액세스를 사용하지 않도록 설정하는 데 사용할 수 있는 해당 장치에 대한 enabled/disabled 플래그를 저장합니다. 응용 프로그램이 다른 장치별 메타데이터를 저장해야 할 경우 응용 프로그램별 저장소를 사용해야 합니다. 모듈 ID에 대한 enabled/disabled 플래그는 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드][lnk-devguide-identity]를 참조하세요.

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: 700569684888428032997dd81c10023c6fd5a7d8
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823308"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "35762000"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>원격 데스크탑 연결에서 Pig 작업 실행
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
@@ -78,6 +78,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
     <td>RESULT = order FREQUENCIES by COUNT desc;</td><td>로그 수준을 개수(내림차순)를 기준으로 정렬하고 RESULT에 저장합니다.</td>
     </tr>
 </table>
+
 6. `STORE` 문을 사용하여 변환 결과를 저장할 수도 있습니다. 예를 들어 다음 명령은 클러스터의 기본 저장소 컨테이너에 있는 **/example/data/pigout** 디렉터리에 `RESULT`를 저장합니다.
 
         STORE RESULT into 'wasb:///example/data/pigout'
@@ -86,6 +87,7 @@ HDInsight 클러스터에 대해 원격 데스크톱을 사용하도록 설정�
    > 데이터는 지정된 디렉터리에 **part-nnnnn**이라는 파일로 저장됩니다. 해당 디렉터리가 이미 존재하는 경우 오류 메시지가 발생합니다.
    >
    >
+   
 7. 성가신 프롬프트를 종료하려면 다음 문을 입력합니다.
 
         QUIT;

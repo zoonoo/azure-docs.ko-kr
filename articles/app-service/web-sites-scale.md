@@ -1,8 +1,8 @@
 ---
-title: "Azure에서 앱 강화 | Microsoft Docs"
-description: "Azure App Service에서 앱을 강화하여 용량 및 기능을 추가하는 방법을 알아봅니다."
+title: Azure에서 앱 강화 | Microsoft Docs
+description: Azure App Service에서 앱을 강화하여 용량 및 기능을 추가하는 방법을 알아봅니다.
 services: app-service
-documentationcenter: 
+documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: mollybos
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: f6244e3f739424be169f1ea117500159bd5e4254
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: 01c20e7f43c11a077d3870ee32c1d8be98a95696
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38306436"
 ---
 # <a name="scale-up-an-app-in-azure"></a>Azure에서 앱 강화
 
@@ -50,7 +51,7 @@ ms.lasthandoff: 02/14/2018
 2. App Service 앱 페이지에서 **모든 설정**을 클릭한 다음 **강화**를 클릭합니다.
    
     ![Azure 앱을 강화하기 위해 이동합니다.][ChooseWHP]
-3. 사용자 계층을 선택한 다음 **선택**을 클릭합니다.
+3. 사용자 계층을 선택한 다음, **적용**을 클릭합니다.
    
     작업이 완료되면 **알림** 탭에 **성공**이 녹색으로 깜박입니다.
 
@@ -97,7 +98,7 @@ ms.lasthandoff: 02/14/2018
   
     [Microsoft Azure를 위한 Virtual Machine 및 클라우드 서비스 크기][vmsizes]
   
-* 확장성 있고 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure App Service 모범 사례에 대한 자세한 내용은 [모범 사례: Azure App Service Web Apps](http://blogs.msdn.com/b/windowsazure/archive/2014/02/10/best-practices-windows-azure-websites-waws.aspx)를 참조하세요.
+* 확장성 있고 복원력이 뛰어난 아키텍처 빌드를 포함하여 Azure App Service 모범 사례에 대한 자세한 내용은 [모범 사례: Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/)를 참조하세요.
 * App Service 앱 크기 조정에 대한 비디오는 다음 리소스를 참조하세요.
   
   * [Azure Websites 크기를 조정하는 방법 - 스테판 스차코우(Stefan Schackow)](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
@@ -107,7 +108,7 @@ ms.lasthandoff: 02/14/2018
 <!-- LINKS -->
 [vmsizes]:/pricing/details/app-service/
 [SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
-[azuresubscriptions]:http://go.microsoft.com/fwlink/?LinkID=235288
+[azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 
 <!-- IMAGES -->

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 034a864cd98bb383e97f1def8eff1c6f9842a554
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 144669e52b8883f4dcebde02a487da865e198e5b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635749"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38452603"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Raspberry Pi를 Azure IoT Hub에 연결(Node.js)
 
@@ -45,7 +45,7 @@ ms.locfileid: "34635749"
 ![필요한 항목](media/iot-hub-raspberry-pi-kit-node-get-started/0_starter_kit.jpg)
 
 * Raspberry Pi 2 또는 Raspberry Pi 3 보드.
-* 활성 Azure 구독. Azure 계정이 없는 경우 몇 분 만에 [Azure 평가판 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * Pi에 연결할 모니터, USB 키보드 및 마우스.
 * Windows 또는 Linux를 실행하는 Mac 또는 PC.
 * 인터넷 연결.
@@ -60,9 +60,8 @@ ms.locfileid: "34635749"
 * F/M 점퍼 와이어 6개.
 * 확산형 10mm LED.
 
-
 > [!NOTE] 
-선택 항목이 없는 경우 시뮬레이트된 센서 데이터를 사용할 수 있습니다.
+> 선택 항목이 없는 경우 시뮬레이트된 센서 데이터를 사용할 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
@@ -73,34 +72,44 @@ ms.locfileid: "34635749"
 Raspbian 이미지를 설치를 위해 microSD 카드를 준비합니다.
 
 1. Raspbian을 다운로드합니다.
-   1. [Raspbian Stretch를 다운로드합니다](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)(.zip 파일).
+
+   a. [Raspbian Stretch를 다운로드합니다](http://downloads.raspberrypi.org/raspbian/images/raspbian-2017-07-05/)(.zip 파일).
 
    > [!WARNING]
    > 위의 링크를 사용하여 `raspbian-2017-07-5` zip 이미지를 다운로드하십시오. 최신 버전의 Raspbian 이미지에는 Wiring-Pi Node와 관련된 몇 가지 알려진 문제점이 있으며 이로 인해 다음 단계에서 오류가 발생할 수 있습니다.
-   1. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
+ 
+   나. 컴퓨터의 폴더에 Raspbian 이미지의 압축을 풉니다.
 
-1. microSD 카드에 Raspbian을 설치합니다.
-   1. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
-   1. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
-   1. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
-   1. Flash를 클릭하여 microSD 카드에 Raspbian을 설치합니다.
-   1. 설치가 완료되면 컴퓨터에서 microSD 카드를 제거합니다. 완료되면 Etcher가 microSD 카드를 자동으로 배출하거나 탑재를 해제하므로 microSD 카드를 바로 제거하는 것이 안전합니다.
-   1. Pi에 microSD 카드를 삽입합니다.
+2. microSD 카드에 Raspbian을 설치합니다.
+
+   a. [Etcher SD 카드 버너 유틸리티를 다운로드하여 설치합니다](https://etcher.io/).
+
+   나. Etcher를 실행하고 1단계에서 압축을 푼 Raspbian 이미지를 선택합니다.
+
+   다. microSD 카드 드라이브를 선택합니다. Etcher가 이미 정확한 드라이브를 선택했을 수 있습니다.
+
+   d. Flash를 클릭하여 microSD 카드에 Raspbian을 설치합니다.
+
+   e. 설치가 완료되면 컴퓨터에서 microSD 카드를 제거합니다. 완료되면 Etcher가 microSD 카드를 자동으로 배출하거나 탑재를 해제하므로 microSD 카드를 바로 제거하는 것이 안전합니다.
+
+   f. Pi에 microSD 카드를 삽입합니다.
 
 ### <a name="enable-ssh-and-i2c"></a>SSH 및 I2C를 사용하도록 설정
 
 1. Pi를 모니터, 키보드 및 마우스에 연결합니다. 
-1. Pi를 시작한 다음 `pi`를 사용자 이름으로, `raspberry`를 암호로 사용하여 Raspbian에 로그인합니다.
-1. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성**을 클릭합니다.
+
+2. Pi를 시작한 다음 `pi`를 사용자 이름으로, `raspberry`를 암호로 사용하여 Raspbian에 로그인합니다.
+
+3. Raspberry 아이콘 > **기본 설정** > **Raspberry Pi 구성**을 클릭합니다.
 
    ![Raspbian 기본 설정 메뉴](media/iot-hub-raspberry-pi-kit-node-get-started/1_raspbian-preferences-menu.png)
 
-1. **인터페이스** 탭에서 **I2C** 및 **SSH**를 **사용**으로 설정한 다음 **확인**을 클릭합니다. 실제 센서가 없고 시뮬레이트된 센서 데이터를 사용하려는 경우 이 단계는 선택 사항입니다.
+4. **인터페이스** 탭에서 **I2C** 및 **SSH**를 **사용**으로 설정한 다음 **확인**을 클릭합니다. 실제 센서가 없고 시뮬레이트된 센서 데이터를 사용하려는 경우 이 단계는 선택 사항입니다.
 
    ![Raspberry Pi에서 I2C 및 SSH를 사용하도록 설정](media/iot-hub-raspberry-pi-kit-node-get-started/2_enable-i2c-ssh-on-raspberry-pi.png)
 
 > [!NOTE] 
-SSH 및 I2C를 사용하려는 경우 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 및 [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c)에서 더 많은 참조 문서를 찾을 수 있습니다.
+> SSH 및 I2C를 사용하려는 경우 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 및 [Adafruit.com](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-4-gpio-setup/configuring-i2c)에서 더 많은 참조 문서를 찾을 수 있습니다.
 
 ### <a name="connect-the-sensor-to-pi"></a>Pi에 센서 연결
 
@@ -143,18 +152,21 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 1. 호스트 컴퓨터에서 다음 SSH 클라이언트 중 하나를 사용하여 Raspberry Pi에 연결합니다.
    
    **Windows 사용자**
-   1. Windows용 [PuTTY](http://www.putty.org/)를 다운로드 및 설치합니다. 
-   1. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
+  
+   a. Windows용 [PuTTY](http://www.putty.org/)를 다운로드 및 설치합니다. 
+
+   나. 호스트 이름(또는 IP 주소) 섹션에 Pi의 IP 주소를 복사하고 연결 형식으로 SSH를 선택합니다.
    
    ![PuTTy](media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
    **Mac 및 Ubuntu 사용자**
    
    Ubuntu 또는 macOS에서 기본 제공되는 SSH 클라이언트를 사용합니다. SSH를 통해 Pi를 연결하려면 `ssh pi@<ip address of pi>`를 실행해야 할 수도 있습니다.
-   > [!NOTE] 
-   기본 사용자 이름은 `pi`이며 암호는 `raspberry`입니다.
 
-1. Node.js 및 NPM을 Pi에 설치합니다.
+   > [!NOTE] 
+   > 기본 사용자 이름은 `pi`이며 암호는 `raspberry`입니다.
+
+2. Node.js 및 NPM을 Pi에 설치합니다.
    
    먼저 Node.js 버전을 확인합니다. 
    
@@ -169,20 +181,20 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    sudo apt-get -y install nodejs
    ```
 
-1. 샘플 응용 프로그램을 복제합니다.
+3. 샘플 응용 프로그램을 복제합니다.
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-client-app
    ```
 
-1. 샘플의 모든 패키지를 설치합니다. 설치에는 Azure IoT 장치 SDK, BME280 센서 라이브러리 및 배선 Pi 라이브러리가 포함되어 있습니다.
+4. 샘플의 모든 패키지를 설치합니다. 설치에는 Azure IoT 장치 SDK, BME280 센서 라이브러리 및 배선 Pi 라이브러리가 포함되어 있습니다.
 
    ```bash
    cd iot-hub-node-raspberrypi-client-app
    sudo npm install
    ```
    > [!NOTE] 
-   네트워크 연결에 따라 이 설치 프로세스를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
+   >네트워크 연결에 따라 이 설치 프로세스를 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ### <a name="configure-the-sample-application"></a>샘플 응용 프로그램 구성
 
@@ -198,7 +210,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
 
    **센서가 없는 경우** `simulatedData` 값을 `true`로 설정하여 샘플 응용 프로그램에서 시뮬레이션된 센서 데이터를 만들어서 사용하게 합니다.
 
-1. Control-O > Enter > Control-X를 입력하여 저장하고 종료합니다.
+2. Control-O > Enter > Control-X를 입력하여 저장하고 종료합니다.
 
 ### <a name="run-the-sample-application"></a>샘플 응용 프로그램 실행
 
@@ -209,7 +221,7 @@ BME280이 Raspberry Pi에 성공적으로 연결되면 아래 이미지처럼 �
    ```
 
    > [!NOTE] 
-   장치 연결 문자열을 복사하여 작은따옴표 안에 붙여 넣습니다.
+   > 장치 연결 문자열을 복사하여 작은따옴표 안에 붙여 넣습니다.
 
 
 IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 출력이 표시됩니다.

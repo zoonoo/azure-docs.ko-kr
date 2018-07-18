@@ -16,11 +16,12 @@ ms.topic: hero-article
 ms.date: 03/23/2018
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 051078bd3220c8d0f6b78c834cdf3628c2039e8e
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 824d7c44488e382aef9fd0640e6c46e9f4672898
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317506"
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Azure Active Directory 테넌트를 얻는 방법
 
@@ -35,7 +36,7 @@ Azure AD 사용자가 응용 프로그램에 로그인하도록 허용하려면 
 대부분의 개발자는 이미 Azure AD 테넌트(예: Office 365 또는 Azure 구독)와 연결된 서비스 또는 구독을 통해 테넌트를 확보하고 있습니다. 테넌트가 아직 있는지 확인하려면, 응용 프로그램을 관리하는 데 사용하려는 계정으로 [Azure Portal](https://portal.azure.com)에 로그인하고 오른쪽 위 모서리에 표시되는 계정 정보를 확인합니다. 테넌트가 있으면 자동으로 해당 테넌트에 로그인되며, 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리키면 사용자의 이름, 이메일, 디렉터리 및 테넌트 ID(GUID), 그리고 사용자의 도메인이 나타납니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다.
 
 > [!TIP]
-> 테넌트 ID를 찾아야 하는 경우 이 정보를 찾는 여러 방법이 있습니다. 사용자의 계정 이름을 기리켜 테넌트 ID를 가져오거나 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID**를 선택할 수 있습니다.
+> 테넌트 ID를 찾아야 하는 경우 이 정보를 찾는 여러 방법이 있습니다. 마우스 커서를 계정 이름 위로 이동하여 테넌트 ID를 가져오거나 Azure Portal에서 **Azure Active Directory > 속성 > 디렉터리 ID**를 선택할 수 있습니다.
 
 계정과 연결된 기존 테넌트가 없으면, 계정 이름 아래에 GUID가 표시되며 [새 테넌트를 만들](#create-a-new-azure-ad-tenant) 때까지 앱 등록과 같은 작업을 수행할 수 없습니다.
 

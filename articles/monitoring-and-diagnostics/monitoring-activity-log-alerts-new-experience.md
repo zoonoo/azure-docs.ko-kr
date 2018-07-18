@@ -1,26 +1,19 @@
 ---
-title: Azure Monitor에서 새 경고 환경을 사용하여 활동 로그 만들기 및 관리 | Microsoft Docs
-description: 이 문서에서는 Azure Monitor 아래의 경고 탭에서 활동 로그 경고를 만드는 방법에 대한 정보를 제공합니다.
-author: JYOTHIRMAISURI
-manager: vvithal
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: aabc0e57-78cd-44dd-a8d1-af5e1e567360
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+title: 새 Azure Monitor 경고 환경에서 활동 로그 경고 사용
+description: Azure Monitor 아래의 경고(미리 보기) 탭에서 활동 로그 경고를 만드는 방법을 알아봅니다. 이 문서에서는 이 기능에 대한 새 사용자 환경을 자세히 설명합니다.
+author: jyothirmaisuri
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: v-jysur
-ms.custom: ''
-ms.openlocfilehash: 070acc6fb6f6f744474edeef0e914dda9d24c558
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.component: alerts
+ms.openlocfilehash: 10cd4e2ea14ab66a44ba2123e025b3d1b91f385c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202823"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263567"
 ---
 # <a name="create-activity-log-alerts-using-the-new-alerts-experience"></a>새 경고 환경을 사용하여 활동 로그 경고 만들기
 

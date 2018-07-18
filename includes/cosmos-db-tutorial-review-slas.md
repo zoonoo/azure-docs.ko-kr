@@ -1,6 +1,6 @@
 계정에 있는 리소스의 처리량, 저장소, 가용성, 대기 시간 및 일관성은 Azure Portal에서 모니터링됩니다. 이러한 메트릭을 빠르게 살펴보겠습니다. 
 
-1. 탐색 메뉴에서 **메트릭** 을 클릭합니다.
+1. 탐색 메뉴에서 **메트릭**을 클릭합니다.
 
    ![Azure Portal의 메트릭](./media/cosmos-db-tutorial-review-slas/metrics.png)
 

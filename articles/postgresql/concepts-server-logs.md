@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: a8d560aa8906e3ba1f65758239b645cd1b1df032
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: bcca8ce8d11482dd8517992297b7e8a5b94ac8b1
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29691096"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435493"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 서버 로그 
 PostgreSQL용 Azure 데이터베이스에서는 쿼리 및 오류 로그를 생성합니다. 그러나 트랜잭션 로그에 대한 액세스는 지원되지 않습니다. 쿼리 및 오류 로그는 구성 오류 및 최적 상태가 아닌 성능 문제를 식별하고, 문제를 해결하고, 복구하는 데 사용될 수 있습니다. 자세한 내용은 [오류 보고 및 로깅](https://www.postgresql.org/docs/9.6/static/runtime-config-logging.html)을 참조하세요.
@@ -29,7 +29,7 @@ Azure Portal, [Azure CLI](howto-configure-server-logs-using-cli.md) 및 Azure RE
 ## <a name="configure-logging-for-azure-postgresql-server"></a>Azure PostgreSQL 서버에 대한 로깅 구성
 서버에 대한 쿼리 로깅 및 오류 로그를 사용하도록 설정할 수 있습니다. 오류 로그에는 자동 진공, 연결 및 검사점 정보가 포함될 수 있습니다.
 
-두 개의 서버 매개 변수 `log\_statement` 및 `log\_min\_duration\_statement`를 설정하여 PostgreSQL DB 인스턴스에 대한 쿼리 로깅을 활성화할 수 있습니다.
+두 개의 서버 매개 변수 `log_statement` 및 `log_min_duration_statement`를 설정하여 PostgreSQL DB 인스턴스에 대한 쿼리 로깅을 활성화할 수 있습니다.
 
 **log\_statement** 매개 변수는 로깅되는 SQL 문을 제어합니다. 모든 문을 로깅하려면 이 매개 변수를 ***all***로 설정하는 것이 좋습니다. 기본값은 none입니다.
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 345ea6f91593e14ff19616f5512916ee77f38486
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2dab0adb0728a1fb5e8ac9bebe01f861ed8c7c3a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619952"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055508"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-use-custom-activities.md)
-> * [버전 2 - 미리 보기](transform-data-using-dotnet-custom-activity.md)
+> * [버전 1](v1/data-factory-use-custom-activities.md)
+> * [현재 버전](transform-data-using-dotnet-custom-activity.md)
 
 Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 유형이 있습니다.
 
@@ -30,10 +30,6 @@ Azure Data Factory 파이프라인에서 사용할 수 있는 두 가지 작업 
 - [데이터 변환 작업](transform-data.md)은 Azure HDInsight, Azure Batch, Azure Machine Learning과 같은 Compute Services를 사용하여 데이터를 변환하는 작업입니다. 
 
 Data Factory에서 지원하지 않는 데이터 저장소 간에 데이터를 이동하거나, Data Factory에서 지원하지 않는 방식으로 데이터를 변환/처리하려면 고유의 데이터 이동 또는 변환 논리가 포함된 **사용자 지정 작업**을 만들어서 파이프라인에 해당 작업을 사용하면 됩니다. 사용자 지정 작업은 사용자 지정된 코드 논리를 가상 머신의 **Azure Batch** 풀에서 실행합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [(사용자 지정) Data Factory 버전1의 DotNet 작업](v1/data-factory-use-custom-activities.md)을 참조하세요.
- 
 
 Azure Batch 서비스가 처음이라면 다음 문서를 참조하세요.
 
@@ -288,7 +284,7 @@ namespace SampleApp
   "failureType": ""
   "target": "MyCustomActivity"
   ```
-다운스트림 작업에서 stdout.txt의 콘텐츠를 사용하려는 경우 "@activity('MyCustomActivity').output.outputs[0]" 식에서 stdout.txt 파일의 경로를 가져올 수 있습니다. 
+다운스트림 작업에서 stdout.txt의 콘텐츠를 사용하려는 경우 "\@activity('MyCustomActivity').output.outputs[0]" 식에서 stdout.txt 파일의 경로를 가져올 수 있습니다. 
 
   > [!IMPORTANT]
   > - activity.json, linkedServices.json 및 datasets.json은 Batch 작업의 런타임 폴더에 저장됩니다. 이 예제의 경우 activity.json, linkedServices.json 및 datasets.json은 "https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/" 경로에 저장됩니다. 필요한 경우 개별적으로 정리해야 합니다. 
@@ -307,7 +303,7 @@ namespace SampleApp
   다음 표에서는 Data Factory V2 사용자 지정 작업과 Data Factory 버전 1 (사용자 지정) DotNet 작업 간의 차이점을 설명합니다. 
 
 
-|차이점      |버전 2 사용자 지정 작업      | 버전 1 (사용자 지정) DotNet 작업      |
+|차이점      | 사용자 지정 작업      | 버전 1 (사용자 지정) DotNet 작업      |
 | ---- | ---- | ---- |
 |사용자 지정 논리를 정의하는 방법      |실행 파일을 제공하여      |.Net DLL을 구현하여      |
 |사용자 지정 논리의 실행 환경      |Windows 또는 Linux      |Windows(.Net Framework 4.5.2)      |
@@ -318,7 +314,7 @@ namespace SampleApp
 |로깅      |STDOUT에 직접 작성      |.Net DLL에서 로거 구현      |
 
 
-  버전 1 (사용자 지정) DotNet 작업용으로 작성된 기존 .Net 코드가 있는 경우 버전 2 사용자 지정 작업을 사용하도록 코드를 수정해야 합니다. 다음의 같은 개괄적인 지침에 따라 코드를 업데이트합니다.  
+  버전 1 (사용자 지정) DotNet 작업용으로 작성된 기존 .Net 코드가 있는 경우 현재 버전의 사용자 지정 작업을 사용하도록 코드를 수정해야 합니다. 다음의 같은 개괄적인 지침에 따라 코드를 업데이트합니다.  
 
    - .NET 클래스 라이브러리의 프로젝트를 콘솔 앱으로 변경합니다. 
    - `Main` 메서드를 사용하여 응용 프로그램을 시작합니다. `IDotNetActivity` 인터페이스의 `Execute` 메서드는 더 이상 필요하지 않습니다. 
@@ -327,7 +323,7 @@ namespace SampleApp
    - Microsoft.Azure.Management.DataFactories NuGet 패키지는 더 이상 필요하지 않습니다. 
    - 코드를 컴파일하고 실행 파일 및 종속성을 Azure Storage에 업로드한 후 `folderPath` 속성에 경로를 정의합니다. 
 
-Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory v2 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 버전 2 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)을 참조하세요. 
+Data Factory 버전 1 문서에서 설명된 종단 간 DLL 및 파이프라인 샘플의 전체 샘플의 경우 [Azure Data Factory 파이프라인에서 사용자 지정 작업 사용](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities)은 Data Factory 사용자 지정 작업으로 다시 작성될 수 있습니다. [Data Factory 사용자 지정 작업 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample)을 참조하세요. 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Azure Batch의 자동 확장
 **자동 크기 조정** 기능으로 Azure Batch 풀을 만들 수 있습니다. 예를 들어 보류 중인 작업의 수에 따라 전용 VM 0개 및 자동 크기 조정 수식을 사용하여 Azure 배치 풀을 만들 수 있습니다. 

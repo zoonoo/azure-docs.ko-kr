@@ -3,7 +3,7 @@ title: Log Analytics 데이터 보안 | Microsoft Docs
 description: Log Analytics에서 개인 정보를 보호하고 데이터 보안을 유지하는 방법에 대해 알아봅니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: a33bb05d-b310-4f2c-8f76-f627e600c8e7
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: magoedte
-ms.openlocfilehash: f14b96b88a96f4bef24602bb9338a77352fbf375
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: na
+ms.openlocfilehash: 7596428b4ed067bf53f3b295a1682ed372f8d472
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131447"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 데이터 보안
 이 문서에서는 [Azure 보안 센터](../security/security-microsoft-trust-center.md)의 정보를 보완하기 위해 Azure Log Analytics 관련 정보를 제공합니다.  
@@ -67,7 +69,7 @@ Log Analytics 서비스에서 데이터를 수집하면 해당 데이터는 서�
 | 시스템 상태 |StateChangeEventId, StateId, NewHealthState, OldHealthState, Context, TimeGenerated, TimeAdded, StateId2, BaseManagedEntityId, MonitorId, HealthState, LastModified, LastGreenAlertGenerated, DatabaseTimeModified |
 
 ## <a name="physical-security"></a>물리적 보안
-Log Analytics 서비스는 Microsoft 담당자가 관리하며 모든 활동을 기록하여 감사할 수 있습니다. Log Analytics는 Azure 서비스로 작동하며 모든 Azure 준수 및 보안 요구 사항을 충족합니다. Azure 자산의 물리적 보안에 대한 자세한 내용은 [Microsoft Azure 보안 개요](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)의 18페이지에서 확인할 수 있습니다. 더 이상 OMS 서비스에 대한 전송, 종료 등의 책임이 없는 사용자는 1영업일 이내에 보안 영역에 대한 물리적 액세스 권한이 변경됩니다. [Microsoft 데이터 센터](https://www.microsoft.com/server-cloud/cloud-os/global-datacenters.aspx)에서 사용하는 글로벌 물리적 인프라에 대해 읽을 수 있습니다.
+Log Analytics 서비스는 Microsoft 담당자가 관리하며 모든 활동을 기록하여 감사할 수 있습니다. Log Analytics는 Azure 서비스로 작동하며 모든 Azure 준수 및 보안 요구 사항을 충족합니다. Azure 자산의 물리적 보안에 대한 자세한 내용은 [Microsoft Azure 보안 개요](http://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)의 18페이지에서 확인할 수 있습니다. 더 이상 OMS 서비스에 대한 전송, 종료 등의 책임이 없는 사용자는 1영업일 이내에 보안 영역에 대한 물리적 액세스 권한이 변경됩니다. [Microsoft 데이터 센터](https://azure.microsoft.com/en-us/global-infrastructure/)에서 사용하는 글로벌 물리적 인프라에 대해 읽을 수 있습니다.
 
 ## <a name="incident-management"></a>인시던트 관리
 OMS에는 모든 Microsoft 서비스가 준수하는 인시던트 관리 프로세스가 있습니다. 요약하면 Microsoft는
@@ -91,10 +93,10 @@ OMS에는 모든 Microsoft 서비스가 준수하는 인시던트 관리 프로�
 
 고객 데이터 손실이 발생하는 경우 각 고객에게 1일 이내에 알립니다. 하지만 이 서비스에서 고객 데이터 손실이 발생한 경우는 없었습니다. 
 
-Microsoft가 보안 인시던트에 대응하는 방법에 대한 자세한 내용은 [클라우드에서 Microsoft Azure의 보안 대응](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf)을 참조하세요.
+Microsoft가 보안 인시던트에 대응하는 방법에 대한 자세한 내용은 [클라우드에서 Microsoft Azure의 보안 대응](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf)을 참조하세요.
 
 ## <a name="compliance"></a>규정 준수
-Log Analytics 소프트웨어 개발 및 서비스 팀의 정보 보안 및 거버넌스 프로그램은 비즈니스 요구 사항을 지원하며 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/) 및 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)에 설명된 법률 및 규정을 준수합니다. 여기에는 Log Analytics가 보안 요구 사항을 정하고 보안 컨트롤을 식별하며 위험을 관리 및 모니터링하는 방식도 설명되어 있습니다. 정책, 표준, 절차, 지침을 매년 검토합니다.
+Log Analytics 소프트웨어 개발 및 서비스 팀의 정보 보안 및 거버넌스 프로그램은 비즈니스 요구 사항을 지원하며 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/) 및 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)에 설명된 법률 및 규정을 준수합니다. 여기에는 Log Analytics가 보안 요구 사항을 정하고 보안 컨트롤을 식별하며 위험을 관리 및 모니터링하는 방식도 설명되어 있습니다. 정책, 표준, 절차, 지침을 매년 검토합니다.
 
 각 개발 팀원은 공식적인 애플리케이션 보안 교육을 이수합니다. 내부적으로는 소프트웨어 개발에 대한 버전 관리 시스템을 사용합니다. 각 소프트웨어 프로젝트는 버전 관리 시스템으로 보호됩니다.
 
@@ -112,10 +114,10 @@ Azure Log Analytics는 다음 요구 사항을 충족합니다.
 * [ISO 22301](https://azure.microsoft.com/blog/iso22301/)
 * PCI Security Standards Council의 [Payment Card Industry(PCI 규격) Data Security Standard(PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI).
 * [SOC(Service Organization Controls) 1 Type 1 및 SOC 2 Type 1](https://www.microsoft.com/en-us/TrustCenter/Compliance/SOC1-and-2) 규정 준수
-* HIPAA BAA(Business Associate Agreement)를 소유하는 회사에 대한 [HIPAA 및 HITECH](https://www.microsoft.com/TrustCenter/Compliance/HIPAA)
+* HIPAA BAA(Business Associate Agreement)를 소유하는 회사에 대한 [HIPAA 및 HITECH](https://www.microsoft.com/en-us/TrustCenter/Compliance/hipaa)
 * Windows Common Engineering Criteria
 * Microsoft 신뢰할 수 있는 컴퓨팅
-* Log Analytics 구성 요소는 Azure 서비스로서 Azure 규정 준수 요구 사항을 준수합니다. 자세한 내용은 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)를 참조하세요.
+* Log Analytics 구성 요소는 Azure 서비스로서 Azure 규정 준수 요구 사항을 준수합니다. 자세한 내용은 [Microsoft 보안 센터 규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)를 참조하세요.
 
 > [!NOTE]
 > 일부 인증/증명의 경우 Log Analytics가 *Operational Insights*의 이전 이름으로 나열됩니다.
@@ -130,8 +132,8 @@ Azure Log Analytics는 다음 요구 사항을 충족합니다.
 ## <a name="1-sign-up-for-log-analytics-and-collect-data"></a>1. Log Analytics 등록 및 데이터 수집
 사용자의 조직에서 Log Analytics에 데이터를 보내려면 Azure Virtual Machine에서 실행되거나 사용자 환경 또는 다른 클라우드 공급자의 가상 또는 물리적 컴퓨터에서 실행되는 Windows 또는 Linux 에이전트를 구성합니다.  Operations Manager를 사용하는 경우 관리 그룹에서 Operations Manager 에이전트를 구성합니다. 사용자(이 문서의 독자, 다른 개별 사용자 또는 사용자 그룹)는 하나 이상의 Log Analytics 작업 영역을 만들고 다음 계정 중 하나를 사용하여 에이전트를 등록합니다.
 
-* [조직 ID](../active-directory/sign-up-organization.md)
-* [Microsoft 계정 - Outlook, Office Live, MSN](http://www.microsoft.com/account/default.aspx)
+* [조직 ID](../active-directory/fundamentals/sign-up-organization.md)
+* [Microsoft 계정 - Outlook, Office Live, MSN](https://account.microsoft.com/account)
 
 Log Analytics 작업 영역은 데이터를 수집, 집계, 분석 및 제공하는 데 사용됩니다. 작업 영역은 주로 데이터를 분할하는 데 사용되며, 각 작업 영역은 고유합니다. 예를 들어 하나의 작업 영역을 사용하여 프로덕션 데이터를 관리하고 다른 작업 영역을 사용하여 테스트 데이터를 관리할 수 있습니다. 관리자는 작업 영역을 사용하여 데이터에 대한 사용자 액세스를 제어할 수 있습니다. 각 작업 영역에는 여러 사용자 계정이 연결될 수 있으며, 각 사용자 계정은 여러 Log Analytics 작업 영역에 액세스할 수 있습니다. 데이터 센터 영역을 기준으로 작업 영역을 만듭니다. 각 작업 영역은 기본적으로 Log Analytics 서비스 가용성을 보장하기 위해 영역 내 다른 데이터 센터로 복제됩니다.
 

@@ -1,25 +1,27 @@
 ---
-title: "Azure의 하이브리드 ID 디자인 - 수명 주기 채택 전략 | Microsoft Docs"
-description: "각 수명 주기 단계에 사용할 수 있는 옵션에 따라 하이브리드 ID 관리 작업을 정의하는 데 도움이 됩니다."
-documentationcenter: 
+title: Azure의 하이브리드 ID 디자인 - 수명 주기 채택 전략 | Microsoft Docs
+description: 각 수명 주기 단계에 사용할 수 있는 옵션에 따라 하이브리드 ID 관리 작업을 정의하는 데 도움이 됩니다.
+documentationcenter: ''
 services: active-directory
 author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 05/30/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bfa74c7557819bbef334fc94eb42e5ba83cf3fee
-ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
+ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/18/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34801833"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>하이브리드 ID 수명 주기 채택 전략 결정
 이 작업에서 하이브리드 ID 솔루션에 대한 ID 관리 전략을 정의하여 [하이브리드 ID 관리 작업 확인](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)에 정의된 비즈니스 요구 사항을 충족합니다.
@@ -35,11 +37,11 @@ ms.lasthandoff: 01/18/2018
 
 | 수명 주기 관리 단계 | 온-프레미스 | 클라우드 | 하이브리드 |
 | --- | --- | --- | --- |
-| 계정 관리 및 프로비전 |Active Directory ® 도메인 서비스(AD DS) 서버 역할을 사용하여 사용자 및 리소스 관리에 확장성 있는 안전하고 관리 가능한 인프라를 만들고 Microsoft ® Exchange Server와 같은 디렉터리 사용 응용 프로그램에 대한 지원을 제공합니다. <br><br> [ID 관리자를 통해 AD DS의 그룹을 프로비전할 수 있습니다.](https://technet.microsoft.com/library/ff686261.aspx) <br>[AD DS의 사용자를 프로비전할 수 있습니다.](https://technet.microsoft.com/library/ff686263.aspx) <br><br> 관리자는 액세스 제어를 사용하여 보안을 위해 공유 리소스에 대한 사용자 액세스를 관리할 수 있습니다. Active Directory에서 액세스 제어는 다른 수준의 액세스 또는 사용 권한을 모든 권한, 쓰기, 읽기, 또는 액세스 권한 없음과 같은 개체에 설정하여 개체 수준에서 관리됩니다. Active directory의 액세스 제어는 어떻게 다른 사용자가 Active Directory 개체를 사용할 수 있는지 정의합니다. 기본적으로 Active Directory의 개체에 대한 권한은 가장 안전한 설정으로 설정됩니다. |Microsoft 클라우드 서비스에 액세스하는 모든 사용자에 대한 계정을 만들어야 합니다. 사용자 계정을 변경할 수도 있으며 더 이상 필요하지 않은 계정은 삭제할 수 있습니다. 기본적으로 사용자에게는 관리자 권한이 없지만 선택적으로 할당할 수 있습니다. 자세한 내용은 [Azure AD에서 사용자 관리](active-directory-create-users.md)를 참조하세요. <br><br> Azure Active Directory 내에서 주요 기능 중 하나는 리소스에 대한 액세스를 관리하는 기능입니다. 이러한 리소스는 디렉터리에서 역할을 통해 개체를 관리하는 권한이나 SaaS 응용 프로그램, Azure 서비스 및 SharePoint 사이트 또는 온-프레미스 리소스와 같이 디렉터리 외부에 있는 리소스의 경우처럼 디렉터리의 일부일 수 있습니다. <br><br> Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 리소스 소유자(또는 디렉터리 관리자)는 특정한 액세스 권한을 제공할 그룹을 자신이 소유한 리소스에 할당할 수 있습니다. 그룹 구성원에게 액세스 권한이 제공되며, 리소스 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 사람에게 그룹 구성원 목록을 관리할 권한을 위임할 수 있습니다<br> <br> Azure AD에서 그룹 관리 항목은 그룹을 통한 액세스를 관리하는 데 대한 자세한 정보를 제공합니다. |Active Directory ID를 동기화 및 페더레이션을 통해 클라우드로 확장 |
+| 계정 관리 및 프로비전 |Active Directory ® 도메인 서비스(AD DS) 서버 역할을 사용하여 사용자 및 리소스 관리에 확장성 있는 안전하고 관리 가능한 인프라를 만들고 Microsoft ® Exchange Server와 같은 디렉터리 사용 응용 프로그램에 대한 지원을 제공합니다. <br><br> [ID 관리자를 통해 AD DS의 그룹을 프로비전할 수 있습니다.](https://technet.microsoft.com/library/ff686261.aspx) <br>[AD DS의 사용자를 프로비전할 수 있습니다.](https://technet.microsoft.com/library/ff686263.aspx) <br><br> 관리자는 액세스 제어를 사용하여 보안을 위해 공유 리소스에 대한 사용자 액세스를 관리할 수 있습니다. Active Directory에서 액세스 제어는 다른 수준의 액세스 또는 사용 권한을 모든 권한, 쓰기, 읽기, 또는 액세스 권한 없음과 같은 개체에 설정하여 개체 수준에서 관리됩니다. Active directory의 액세스 제어는 어떻게 다른 사용자가 Active Directory 개체를 사용할 수 있는지 정의합니다. 기본적으로 Active Directory의 개체에 대한 권한은 가장 안전한 설정으로 설정됩니다. |Microsoft 클라우드 서비스에 액세스하는 모든 사용자에 대한 계정을 만들어야 합니다. 사용자 계정을 변경할 수도 있으며 더 이상 필요하지 않은 계정은 삭제할 수 있습니다. 기본적으로 사용자에게는 관리자 권한이 없지만 선택적으로 할당할 수 있습니다. 자세한 내용은 [Azure AD에서 사용자 관리](active-directory-create-users.md)를 참조하세요. <br><br> Azure Active Directory 내에서 주요 기능 중 하나는 리소스에 대한 액세스를 관리하는 기능입니다. 이러한 리소스는 디렉터리에서 역할을 통해 개체를 관리하는 권한이나 SaaS 응용 프로그램, Azure 서비스 및 SharePoint 사이트 또는 온-프레미스 리소스와 같이 디렉터리 외부에 있는 리소스의 경우처럼 디렉터리의 일부일 수 있습니다. <br><br> Azure Active Directory의 액세스 관리 솔루션 센터에 보안 그룹이 있습니다. 리소스 소유자(또는 디렉터리 관리자)는 특정한 액세스 권한을 제공할 그룹을 자신이 소유한 리소스에 할당할 수 있습니다. 그룹 구성원에게 액세스 권한이 제공되며, 리소스 소유자는 부서 관리자 또는 기술 지원팀 관리자와 같은 다른 사람에게 그룹 구성원 목록을 관리할 권한을 위임할 수 있습니다<br> <br> Azure AD에서 그룹 관리 섹션은 그룹을 통한 액세스를 관리하는 데 대한 자세한 정보를 제공합니다. |Active Directory ID를 동기화 및 페더레이션을 통해 클라우드로 확장 |
 
 ## <a name="role-based-access-control"></a>역할 기반 액세스 제어
 역할 기반 액세스 제어(RBAC)는 역할 및 프로비전 정책을 사용하여 사용자에게 액세스 권한을 부여하는 비즈니스 프로세스 및 규칙을 평가, 테스트, 적용합니다. 키 관리자는 프로비전 정책을 만들고 사용자를 역할에 할당하며 해당 역할에 대한 리소스에 권한 부여의 집합을 정의합니다. RBAC는 ID 관리 솔루션을 확장하여 소프트웨어 기반 프로세스를 사용하고 프로비전 프로세스에서 사용자의 수동 개입을 줄입니다.
-Azure AD RBAC를 사용하면 회사는 개인이 Azure 관리 포털에 액세스하면 수행할 수 있는 작업의 양을 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
+Azure AD RBAC를 사용하면 회사는 개인이 Azure Portal에 액세스하면 수행할 수 있는 작업의 수를 제한할 수 있습니다. RBAC를 사용하여 포털에 대한 액세스를 제어하려면 IT 관리자는 다음 액세스 관리 방법을 사용하여 액세스를 위임할 수 있습니다.
 
 * **역할 그룹 기반 할당**: 로컬 Active Directory에서 동기화될 수 있는 Azure AD 그룹에 액세스를 할당할 수 있습니다. 이렇게 하면 그룹 관리에 대한 도구 및 프로세스에서 조직이 만든 기존 투자를 활용할 수 있습니다. 또한 Azure AD Premium의 위임된 그룹 관리 기능을 사용할 수 있습니다.
 * **Azure에서 내장된 역할 활용**: 소유자, 참가자 및 판독기 등 세 가지 역할을 사용하여 사용자 및 그룹이 작업 수행에 필요한 작업만 수행할 수 있는 권한이 있도록 할 수 있습니다.
@@ -57,7 +59,7 @@ Azure AD RBAC를 사용하면 회사는 개인이 Azure 관리 포털에 액세�
 ## <a name="license-management"></a>라이선스 관리
 Azure AD에서 라이선스 그룹 기반 관리는 관리자가 보안 그룹에 사용자를 할당하도록 하고 Azure AD는 자동으로 그룹의 모든 멤버에게 라이선스를 할당합니다. 사용자가 이후에 추가되거나 그룹에서 제거되는 경우 라이선스가 자동으로 할당되거나 적절하게 제거됩니다.
 
-온-프레미스 AD에서 동기화하고 또는 Azure AD에서 관리한 그룹을 사용할 수 있습니다. Azure AD premium 셀프서비스 그룹 관리와 쌍을 맞추어 적절한 의사 결정권자에 게 라이선스 할당을 쉽게 위임할 수 있습니다. 라이선스 충돌 및 누락  위치 데이터와 같은 문제는 자동으로 분류될 수 있습니다.
+온-프레미스 AD에서 동기화하고 또는 Azure AD에서 관리한 그룹을 사용할 수 있습니다. Azure AD premium 셀프서비스 그룹 관리와 쌍을 맞추어 적절한 의사 결정권자에 게 라이선스 할당을 쉽게 위임할 수 있습니다. 라이선스 충돌 및 누락 위치 데이터와 같은 문제는 자동으로 분류될 수 있습니다.
 
 ## <a name="self-regulating-user-administration"></a>자동 조절 사용자 관리
 조직이 모든 내부 조직 전반의 리소스를 프로비전하기 시작하면 사용자 관리 기능을 자동으로 규제하도록 구현합니다. 조직의 경계를 넘어 사용자를 프로비전하는 장점 및 혜택을 알 수 있습니다. 이 환경에서 사용자의 상태 변경은 조직의 경계 및 지역을 넘어 액세스에 자동으로 반영됩니다. 프로비전 비용을 줄일 수 있으며 액세스 및 승인 프로세스를 간소화할 수 있습니다. 구현하면 조직에서 종단간 액세스 관리에 대한 역할 기반 액세스 제어를 구현하는 잠재력을 완전히 인식하게 됩니다. 사용자 프로비전의 관리에 대한 자동화된 절차를 통해 관리 비용을 줄일 수 있습니다. 보안 정책을 자동으로 적용하여 보안을 향상하고 대형 사용자 모집단에 대한 사용자 수명 주기 관리 및 리소스 프로비전을 효율적으로 중앙 집중화시킬 수 있습니다.
@@ -67,10 +69,11 @@ Azure AD에서 라이선스 그룹 기반 관리는 관리자가 보안 그룹�
 > 
 > 
 
-라이선스 기반(자격 기반) Azure AD 서비스는 Azure AD 디렉터리/서비스 테넌트에서 구독을 활성화하면 작동됩니다. 구독이 활성화되면 디렉터리/서비스 관리자가 서비스 기능을 관리하고 허가된 사용자가 사용할 수 있습니다. 자세한 내용은 Azure AD 라이선스 작업을 수행하는 방법을 참조하세요.
-다른 타사 공급 업체와 통합
+라이선스 기반(자격 기반) Azure AD 서비스는 Azure AD 디렉터리/서비스 테넌트에서 구독을 활성화하면 작동됩니다. 구독이 활성화되면 디렉터리/서비스 관리자가 서비스 기능을 관리하고 허가된 사용자가 사용할 수 있습니다. 
 
-Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 single-sign on를 제공하고 응용 프로그램 액세스 보안을 강화합니다. 지원되는 SaaS 응용 프로그램에 대한 Azure Active Directory 응용 프로그램 갤러리의 세부 목록은 Azure Active Directory 호환성 목록: Single Sign-On 구현하는 사용될 수 있는 타사 ID 공급자를 참조하세요.
+## <a name="integration-with-other-3rd-party-providers"></a>다른 타사 공급 업체와 통합
+
+Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 single-sign on를 제공하고 응용 프로그램 액세스 보안을 강화합니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/active-directory-integrating-applications.md)을 참조하세요.
 
 ## <a name="define-synchronization-management"></a>동기화 관리 정의
 Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하므로 사용자가 더 생산성을 높일 수 있습니다. 이러한 통합을 통해 사용자와 조직은 다음과 같은 이점을 얻을 수 있습니다.
@@ -90,7 +93,7 @@ ID 동기화 프로세스
 
 | 동기화 관리 옵션 | 장점 | 단점 |
 | --- | --- | --- |
-| 동기화 기반(DirSync 또는 AADConnect를 통해) |온-프레미스 및 클라우드에서 동기화된 사용자 및 그룹  <br>  **정책 제어**: 계정 정책이 Active Directory를 통해 설정될 수 있으며 이는 관리자가 클라우드에서 추가 작업을 수행하지 않고 관리자 암호 정책, 워크스테이션, 제한, 잠금 컨트롤을 관리하는 기능을 줍니다.  <br>  **액세스 제어**: 클라우드 서비스에 액세스를 제한하므로 기업 환경 및 서비스 온라인 서버 각각 또는 모두를 통해 서비스에 액세스될 수 있습니다. <br>  감소된 지원 호출: 사용자가 기억할 암호 수가 줄면 분실할 가능성이 줄어듭니다. <br>  보안: Single Sign-On에 사용되는 모든 서버 및 서비스가 온-프레미스에서 마스터되고 제어되기 때문에 사용자 ID 및 정보는 보호됩니다. <br>  강력한 인증에 대한 지원: 클라우드 서비스를 사용하여 강력한 인증(2단계 인증이라고도 함)을 사용할 수 있습니다. 그러나 강력한 인증을 사용하는 경우 Single Sign-On을 사용해야 합니다. | |
+| 동기화 기반(DirSync 또는 AADConnect를 통해) |온-프레미스 및 클라우드에서 동기화된 사용자 및 그룹 <br>  **정책 제어**: 계정 정책이 Active Directory를 통해 설정될 수 있으며 이는 관리자가 클라우드에서 추가 작업을 수행하지 않고 관리자 암호 정책, 워크스테이션, 제한, 잠금 컨트롤을 관리하는 기능을 줍니다.  <br>  **액세스 제어**: 클라우드 서비스에 액세스를 제한하므로 기업 환경 및 서비스 온라인 서버 각각 또는 모두를 통해 서비스에 액세스될 수 있습니다. <br>  감소된 지원 호출: 사용자가 기억할 암호 수가 줄면 분실할 가능성이 줄어듭니다. <br>  보안: Single Sign-On에 사용되는 모든 서버 및 서비스가 온-프레미스에서 마스터되고 제어되기 때문에 사용자 ID 및 정보는 보호됩니다. <br>  강력한 인증에 대한 지원: 클라우드 서비스를 사용하여 강력한 인증(2단계 인증이라고도 함)을 사용할 수 있습니다. 그러나 강력한 인증을 사용하는 경우 Single Sign-On을 사용해야 합니다. | |
 | 페더레이션 기반(AD FS를 통해) |보안 토큰 서비스(STS)에서 사용 가능. Microsoft 클라우드 서비스를 사용하여 Single Sign-On 액세스를 제공하도록 STS를 구성하면 Azure AD 테넌트에 지정한 온-프레미스 STS과 페더레이션된 도메인 간에 페더레이션된 트러스트를 만듭니다. <br> 최종 사용자가 여러 리소스에 액세스하기 위해 동일한 자격 증명의 집합을 사용하도록 허용합니다. <br>최종 사용자가 여러 자격 증명 집합을 유지 관리할 필요가 없습니다. 사용자는 지원되는 참여하는 리소스, B2B 및 B2C 시나리오 각각에 자격 증명을 제공해야 합니다. |전용 온-프레미스 AD FS 서버의 배포 및 유지 관리에 대한 전문 직원이 필요합니다. STS에 AD FS를 사용하려는 경우 강력한 인증의 사용에 제한 사항이 있습니다. 자세한 내용은 [AD FS 2.0에 대한 고급 옵션 구성](http://go.microsoft.com/fwlink/?linkid=235649)을 참조하세요. |
 
 > [!NOTE]

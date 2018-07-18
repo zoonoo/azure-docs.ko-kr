@@ -1,37 +1,37 @@
 ---
 title: Azure IoT Edge 모듈 구성 | Microsoft Docs
-description: Azure IoT Edge 모듈에 포함할 항목 및 다시 사용하는 방법을 알아봅니다.
+description: 배포 매니페스트에서 배포할 모듈을 선언하는 방법, 배포하는 방법 및 이들 간에 메시지 경로를 만드는 방법을 알아봅니다.
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 03/23/2018
+ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c886d1d9dea120a243693c12ae861a58126daadc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 209f159d9003838edb36728828758b76730118ff
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631686"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098467"
 ---
-# <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해 - 미리 보기
+# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
 각 IoT Edge 장치는 $edgeAgent 및 $edgeHub라는 두 개 이상의 모듈을 실행합니다. 그러면 IoT Edge 런타임을 구성합니다. 해당하는 두 개의 표준 외에도 IoT Edge 장치는 여러 모듈을 실행하여 개수에 관계 없이 프로세스를 수행할 수 있습니다. 장치에 이러한 모든 모듈을 한 번에 배포하는 경우 포함되는 모듈 및 서로 상호 작용하는 방법을 선언하는 방법이 필요합니다. 
 
 *배포 매니페스트*는 다음 항목을 설명하는 JSON 문서입니다.
 
-* 만들기 및 관리 옵션과 함께 배포해야 하는 IoT Edge 모듈
+* 각 모듈에 대한 컨테이너 이미지, 개인 컨테이너 레지스트리에 액세스하는 자격 증명 및 각 모듈이 생성 및 관리되어야 하는 방법에 대한 지침을 포함하는 Edge 에이전트의 구성입니다.
 * 모듈 간 및 결국 IoT Hub에 대한 메시지 흐름 방법을 포함하는 Edge 허브의 구성
-* 필요에 따라 개별 모듈 응용 프로그램을 구성하기 위해 모듈 쌍의 desired 속성에 설정되는 값
+* 경우에 따라 모듈 쌍의 desired 속성입니다.
 
 모든 IoT Edge 장치는 배포 매니페스트로 구성해야 합니다. 새로 설치된 IoT Edge 런타임은 유효한 매니페스트로 구성될 때까지 오류 코드를 보고합니다. 
 
-Azure IoT Edge 자습서에서는 Azure IoT Edge 포털의 마법사를 통해 배포 매니페스트를 빌드합니다. REST 또는 IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 배포 매니페스트를 적용할 수도 있습니다. IoT Edge 배포에 대한 자세한 내용은 [배포 및 모니터링][lnk-deploy]을 참조하세요.
+Azure IoT Edge 자습서에서는 Azure IoT Edge 포털의 마법사를 통해 배포 매니페스트를 빌드합니다. REST 또는 IoT Hub 서비스 SDK를 사용하여 프로그래밍 방식으로 배포 매니페스트를 적용할 수도 있습니다. 자세한 내용은 [IoT Edge 배포에 대한 이해][lnk-deploy]를 참조하세요.
 
 ## <a name="create-a-deployment-manifest"></a>배포 매니페스트 만들기
 
-상위 수준에서 배포 매니페스트는 IoT Edge 장치에 배포된 IoT Edge 모듈에 대해 모듈 쌍의 원하는 속성을 구성합니다. 이러한 모듈 중 두 모듈, 즉 Edge 에이전트 및 Edge 허브가 항상 있습니다.
+상위 수준에서 배포 매니페스트는 IoT Edge 장치에 배포된 IoT Edge 모듈에 대해 모듈 쌍의 원하는 속성을 구성합니다. 이러한 모듈 중 두 개, `$edgeAgent` 및 `$edgeHub`는 항상 존재합니다.
 
 IoT Edge 런타임(에이전트 및 허브)만 포함하는 배포 매니페스트가 유효합니다.
 
@@ -44,6 +44,7 @@ IoT Edge 런타임(에이전트 및 허브)만 포함하는 배포 매니페스�
             "properties.desired": {
                 // desired properties of the Edge agent
                 // includes the image URIs of all modules
+                // includes container registry credentials
             }
         },
         "$edgeHub": {
@@ -67,7 +68,7 @@ IoT Edge 런타임(에이전트 및 허브)만 포함하는 배포 매니페스�
 
 ## <a name="configure-modules"></a>모듈 구성
 
-배포하려는 모듈의 원하는 속성을 설정하는 것 외에도 IoT Edge 런타임에 설치 방법을 지시해야 합니다. 모든 모듈에 대한 구성 및 관리 정보는 **$edgeAgent** 원하는 속성 내에 포함됩니다. 이 정보에는 Edge 에이전트 자체에 대한 구성 매개 변수가 포함됩니다. 
+IoT Edge 런타임에 배포에서 모듈을 설치하는 방법을 알려야 합니다. 모든 모듈에 대한 구성 및 관리 정보는 **$edgeAgent** 원하는 속성 내에 포함됩니다. 이 정보에는 Edge 에이전트 자체에 대한 구성 매개 변수가 포함됩니다. 
 
 포함될 수 있거나 포함되어야 하는 속성의 전체 목록은 [Edge 에이전트 및 Edge 허브의 속성](module-edgeagent-edgehub.md)을 참조하세요.
 
@@ -78,6 +79,11 @@ $edgeAgent 속성은 다음과 같은 구조를 따릅니다.
     "properties.desired": {
         "schemaVersion": "1.0",
         "runtime": {
+            "settings":{
+                "registryCredentials":{ // give the edge agent access to container images that aren't public
+                    }
+                }
+            }
         },
         "systemModules": {
             "edgeAgent": {
@@ -88,7 +94,7 @@ $edgeAgent 속성은 다음과 같은 구조를 따릅니다.
             }
         },
         "modules": {
-            "{module1}": { //optional
+            "{module1}": { // optional
                 // configuration and management details
             },
             "{module2}": { // optional
@@ -158,7 +164,7 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 | `$upstream` | 메시지를 IoT Hub로 보냅니다. |
 | `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | 메시지를 `{moduleId}` 모듈의 `{input}` 입력으로 보냅니다. |
 
-Edge 허브는 한 번 이상의 보증을 제공한다는 점에 유의해야 합니다. 즉, 경로에서 싱크에 메시지를 전달할 수 없는 경우(예: Edge 허브에서 IoT Hub에 연결할 수 없거나 대상 모듈이 연결되어 있지 않은 경우) 메시지가 로컬에 저장됩니다.
+IoT Edge는 최소 한 번의 보장을 제공합니다. Edge 허브는 경로에서 해당 싱크로 메시지를 전달할 수 없는 경우 로컬로 메시지를 저장합니다. 예를 들어 Edge 허브에서 IoT Hub에 연결할 수 없거나 대상 모듈이 연결되지 않은 경우입니다.
 
 Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `storeAndForwardConfiguration.timeToLiveSecs` 속성에서 지정된 시간까지 메시지를 저장합니다.
 
@@ -176,72 +182,79 @@ Edge 허브는 [Edge 허브 원하는 속성](module-edgeagent-edgehub.md)의 `s
 
 ```json
 {
-"moduleContent": {
+  "moduleContent": {
     "$edgeAgent": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "runtime": {
-                "type": "docker",
-                "settings": {
-                    "minDockerVersion": "v1.25",
-                    "loggingOptions": ""
-                }
-            },
-            "systemModules": {
-                "edgeAgent": {
-                    "type": "docker",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-agent:1.0-preview",
-                    "createOptions": ""
-                    }
-                },
-                "edgeHub": {
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-hub:1.0-preview",
-                    "createOptions": ""
-                    }
-                }
-            },
-            "modules": {
-                "tempSensor": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview",
-                    "createOptions": "{}"
-                    }
-                },
-                "filtermodule": {
-                    "version": "1.0",
-                    "type": "docker",
-                    "status": "running",
-                    "restartPolicy": "always",
-                    "settings": {
-                    "image": "myacr.azurecr.io/filtermodule:latest",
-                    "createOptions": "{}"
-                    }
-                }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "runtime": {
+          "type": "docker",
+          "settings": {
+            "minDockerVersion": "v1.25",
+            "loggingOptions": "",
+            "registryCredentials": {
+              "ContosoRegistry": {
+                "username": "myacr",
+                "password": "{password}",
+                "address": "myacr.azurecr.io"
+              }
             }
+          }
+        },
+        "systemModules": {
+          "edgeAgent": {
+            "type": "docker",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "createOptions": ""
+            }
+          },
+          "edgeHub": {
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "createOptions": ""
+            }
+          }
+        },
+        "modules": {
+          "tempSensor": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+              "createOptions": "{}"
+            }
+          },
+          "filtermodule": {
+            "version": "1.0",
+            "type": "docker",
+            "status": "running",
+            "restartPolicy": "always",
+            "settings": {
+              "image": "myacr.azurecr.io/filtermodule:latest",
+              "createOptions": "{}"
+            }
+          }
         }
+      }
     },
     "$edgeHub": {
-        "properties.desired": {
-            "schemaVersion": "1.0",
-            "routes": {
-                "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
-                "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
-            },
-            "storeAndForwardConfiguration": {
-                "timeToLiveSecs": 10
-            }
+      "properties.desired": {
+        "schemaVersion": "1.0",
+        "routes": {
+          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+        },
+        "storeAndForwardConfiguration": {
+          "timeToLiveSecs": 10
         }
+      }
     }
-}
+  }
 }
 ```
 

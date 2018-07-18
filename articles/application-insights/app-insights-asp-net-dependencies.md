@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/04/2017
+ms.topic: conceptual
+ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 99d9ad04ac39d6d0072b13c81e74605e48de175b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: f2ebd2a021d3803b6e3f7d805b9253d181cb16c3
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010467"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293642"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Application Insights 설정: 종속성 추적
 *종속성*은 앱에서 호출하는 외부 구성 요소로, 일반적으로 HTTP, 데이터베이스 또는 파일 시스템을 사용하여 호출되는 서비스입니다. [Application Insights](app-insights-overview.md)는 응용 프로그램이 종속성을 기다리는 시간과 종속성 호출에 실패하는 빈도를 측정합니다. 특정 호출을 조사하여 요청 및 예외와 연관지을 수 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "34010467"
 | Azure 클라우드 서비스 |[시작 작업 사용](app-insights-cloudservices.md) 또는 [.NET Framework 4.6+ 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="where-to-find-dependency-data"></a>종속성 데이터를 찾을 수 있는 위치
-* [응용 프로그램 맵](#application-map): 앱과 인접 구성 요소 간의 종속성을 시각화합니다.
+* [응용 프로그램 맵](#application-map)은 앱과 인접 구성 요소 간의 종속성을 시각화합니다.
 * [성능, 브라우저 및 실패 블레이드](#performance-and-blades): 서버 종속성 데이터를 표시합니다.
 * [브라우저 블레이드](#ajax-calls): 사용자 브라우저에서의 AJAX 호출을 표시합니다.
 * [느리거나 실패한 요청 클릭](#diagnose-slow-requests): 해당 종속성 호출을 확인합니다.
@@ -191,6 +191,8 @@ ms.locfileid: "34010467"
             {
                 timer.Stop();
                 telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
+                // The call above has been made obsolete in the latest SDK. The updated call follows this format:
+                // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
             }
 ```
 
@@ -201,12 +203,13 @@ ms.locfileid: "34010467"
 
 *SQL 쿼리가 일부만 표시됩니다.*
 
-* Application Insights SDK의 안정적인 최신 버전으로 업그레이드합니다.
+응용 프로그램에 대한 종속성 모니터링을 사용하도록 설정하려면 올바른 구성을 선택했는지 확인하고 아래 표를 참조하십시오.
 
- .NET 버전이 4.6 미만인 경우:
-
-* IIS 호스트: 호스트 서버에 [Application Insights 에이전트](app-insights-monitor-performance-live-website-now.md)를 설치합니다.
-* Azure 웹앱: 웹앱 제어판에서 Application Insights 탭을 열고 Application Insights를 설치합니다.
+| 플랫폼 | 설치 |
+| --- | --- |
+| IIS 서버 |[서버에 상태 모니터 설치](app-insights-monitor-performance-live-website-now.md)하거나 [응용 프로그램을 .NET Framework 4.6 이상으로 업그레이드](http://go.microsoft.com/fwlink/?LinkId=528259)하고 앱에 [Application Insights SDK](app-insights-asp-net.md)를 설치합니다. |
+| Azure 웹앱 |웹앱 제어판에서 [Application Insights 블레이드를 열고](app-insights-azure-web-apps.md) 메시지가 표시되면 설치를 선택합니다. |
+| Azure 클라우드 서비스 |[시작 작업 사용](app-insights-cloudservices.md) 또는 [.NET Framework 4.6+ 설치](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
 ## <a name="video"></a>비디오
 

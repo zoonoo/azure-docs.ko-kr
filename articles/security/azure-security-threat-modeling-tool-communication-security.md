@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 71bbe53595f2afab50d6220f335d615ada957a85
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: c361f74147862585074f3c4475209ba6eb0c1e0c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019486"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37029801"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
 | 제품/서비스 | 문서 |
@@ -288,7 +288,7 @@ namespace CertificatePinningExample
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify, 영국](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
 | **단계** | 응용 프로그램 구성에서 중요한 정보에 대한 모든 액세스에 HTTPS가 사용되는지 확인해야 합니다.<ul><li>**설명:** 응용 프로그램이 중요한 정보를 처리하고 메시지 수준 암호화를 사용하지 않으면 암호화된 전송 채널을 통해서만 통신할 수 있어야 합니다.</li><li>**권장 사항:** HTTP 전송을 사용하지 않는 대신 HTTPS 전송을 사용하도록 설정합니다. 예를 들어 `<httpTransport/>`를 `<httpsTransport/>` 태그로 바꿉니다. 보안 채널을 통해서만 응용 프로그램에 액세스할 수 있도록 하려면 네트워크 구성(방화벽)을 사용하면 안됩니다. 철학적 관점에서 응용 프로그램은 보안을 위해 네트워크를 신뢰하지 않아야 합니다.</li></ul><p>실용적 관점에서 네트워크 보안 책임자는 진화하는 응용 프로그램의 보안 요구 사항을 항상 추적하지는 않습니다.</p>|
 
 ## <a id="message-protection"></a>WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정

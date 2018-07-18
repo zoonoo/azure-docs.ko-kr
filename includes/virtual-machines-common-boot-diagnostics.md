@@ -2,11 +2,11 @@
 
 자신의 이미지를 Azure로 가져 오거나 플랫폼 이미지 중 하나를 부팅 할 때 가상 머신이 부팅 불가능한 상태가 되는 데에는 많은 이유가 있을 수 있습니다. 이 기능을 사용하면 부팅 오류에서 가상 머신을 쉽게 진단하고 복구할 수 있습니다.
 
-Linux 가상 머신의 경우 포털에서 콘솔 로그의 출력을 쉽게 볼 수 있습니다.
+Linux Virtual Machines의 경우 포털에서 콘솔 로그의 출력을 쉽게 볼 수 있습니다.
 
 ![Azure portal](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
  
-그러나 Windows 및 Linux 가상 머신의 경우 Azure를 사용하면 하이퍼바이저에서 VM의 스크린샷을 볼 수도 있습니다.
+그러나 Windows 및 Linux Virtual Machines의 경우 Azure를 사용하면 하이퍼바이저에서 VM의 스크린샷을 볼 수도 있습니다.
 
 ![오류](./media/virtual-machines-common-boot-diagnostics/screenshot2.png)
 

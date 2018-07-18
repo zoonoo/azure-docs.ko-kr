@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 66340e690e5a6ac3e440b8b4d26e1a8b2abab266
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: f78dd2a28575ad8e3fa30ac9c2bbd29c7d85a78f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640475"
 ---
 # <a name="azure-redis-cache-faq"></a>Azure Redis Cache FAQ
 Azure Redis Cache에 대한 일반적인 질문과 대답, 패턴 및 모범 사례를 알아봅니다.
@@ -385,7 +386,7 @@ IOCP 또는 작업자 스레드의 증가에 제한이 있는 경우 StackExchan
 
 이 설정을 구성하는 방법
 
-* ASP.NET에서 web.config의 `<processModel>` 구성 요소에 있는 ["minIoThreads" 구성 설정]["minIoThreads" configuration setting]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 여전히 global.asax.cs의 Application_Start 메서드에서 이 설정을 프로그래밍 방식으로 구성할 수 있습니다(아래 참조).
+* ASP.NET에서 web.config의 `<processModel>` 구성 요소에 있는 ["minIoThreads" 또는 "minWorkerThreads" 구성 설정]["minIoThreads" configuration setting]을 사용합니다. Azure 웹 사이트 내에서 실행하는 경우 이 설정은 구성 옵션을 통해 노출되지 않습니다. 그러나 여전히 global.asax.cs의 Application_Start 메서드에서 이 설정을 프로그래밍 방식으로 구성할 수 있습니다(아래 참조).
 
   > [!NOTE] 
   > 이 구성 요소에 지정된 값은 *코어당* 설정입니다. 예를 들어 4코어 컴퓨터가 있고 minIOThreads 설정을 런타임 시 200으로 지정하려는 경우 `<processModel minIoThreads="50"/>`를 사용합니다.

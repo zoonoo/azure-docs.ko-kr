@@ -1,21 +1,21 @@
 ---
-title: Azure AD B2C에 대한 Twitter 구성 | Microsoft Docs
+title: Azure Active Directory B2C에 대한 Twitter 구성 | Microsoft Docs
 description: 고객에게 Azure Active Directory B2C를 사용하여 보안이 유지되는 응용 프로그램에서 Twitter 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 4/17/2018
 ms.author: davidmu
-ms.openlocfilehash: 40e4c5549414765dabc6f37c5ffb5aea519ae673
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 68b9e9edbacda08bc98b6b7af5d944d3df9edca1
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34709583"
 ---
 # <a name="provide-sign-up-and-sign-in-to-consumers-with-twitter-accounts-using-azure-ad-b2c"></a>Azure AD B2C를 사용하여 고객에게 Twitter 계정으로 등록 및 로그인 제공
 
@@ -27,8 +27,10 @@ Azure AD(Azure Active Directory) B2C에서 Twitter를 ID 공급자로 사용하�
 3. 폼에서 **Name**(이름), **Description**(설명) 및 **Website**(웹 사이트)의 값을 입력합니다.
 4. **Callback URL**(콜백 URL)에 `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp`를 입력합니다. **{tenant}** 를 테넌트의 이름(예: contosob2c.onmicrosoft.com)으로 바꿔야 합니다.
 5. 상자를 선택하여 **Developer Agreement**(개발자 계약)에 동의하고 **Create your Twitter application**(Twitter 응용 프로그램 만들기)을 클릭합니다.
-6. 앱이 만들어지면 **Keys and Access Tokens**(키 및 액세스 토큰) 탭을 클릭합니다.
-7. **Consumer Key**(소비자 키) 및 **Consumer Secret**(소비자 암호)의 값을 복사합니다. 테넌트에서 Twitter를 ID 공급자로 구성하려면 둘 모두가 필요합니다.
+6. 앱을 만든 후에 목록에서 선택한 다음, **설정** 탭을 선택합니다.
+7. **콜백 잠금 사용** 상자를 정리한 다음, **업데이트 설정**을 클릭합니다.
+8. **Keys and Access Tokens** 탭을 선택합니다.
+9. **Consumer Key**(소비자 키) 및 **Consumer Secret**(소비자 암호)의 값을 복사합니다. 테넌트에서 Twitter를 ID 공급자로 구성하려면 둘 모두가 필요합니다.
 
 ## <a name="configure-twitter-as-an-identity-provider-in-your-tenant"></a>테넌트에서 Twitter를 ID 공급자로 구성
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 

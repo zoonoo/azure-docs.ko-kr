@@ -14,11 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1b51638754287d3359eaea7bd5da3f71bf15cc89
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38461540"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>자습서: 관리되는 서비스 ID를 사용하여 SQL Database 연결 보호
 
@@ -31,6 +32,9 @@ ms.lasthandoff: 04/23/2018
 > * 서비스 ID에 SQL Database 액세스 권한 부여
 > * Azure Active Directory 인증을 사용하여 SQL Database로 인증하도록 응용 프로그램 코드 구성
 > * SQL Database에서 서비스 ID에 최소한의 권한 부여
+
+> [!NOTE]
+> Azure Active Directory 인증은 온-프레미스 Active Directory(AD DS)의 [통합 Windows 인증](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))과 _다릅니다_. AD DS 및 Azure Active Directory는 완전히 다른 인증 프로토콜을 사용합니다. 자세한 내용은 [Windows Server AD DS와 Azure AD 간의 차이](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad)를 참조하세요.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +68,7 @@ Azure Active Directory에서 ID가 생성된 후의 출력 예는 다음과 같�
 다음 단계에서는 `principalId` 값을 사용합니다. Azure Active Directory에서 새 ID의 세부 정보를 확인하려면 다음과 같은 선택적 명령을 `principalId` 값과 함께 실행합니다.
 
 ```azurecli-interactive
-az ad sp show --id <principalid>`
+az ad sp show --id <principalid>
 ```
 
 ## <a name="grant-database-access-to-identity"></a>ID에 데이터베이스 액세스 권한 부여
@@ -156,7 +160,7 @@ Cloud Shell에서 다음 스크립트에 표시된 _myAzureSQLDBAccessGroup_이�
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
 msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
-az ad group member add --group $groupid --member-id $msiid
+az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
 

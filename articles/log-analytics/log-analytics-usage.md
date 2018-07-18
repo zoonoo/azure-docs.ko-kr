@@ -3,7 +3,7 @@ title: Log Analytics에서 데이터 사용 현황 분석 | Microsoft Docs
 description: Log Analytics의 사용량 및 예상 비용 대시보드를 사용하여 Log Analytics로 전송된 데이터 양을 평가하고 예상치 않게 데이터 양이 증가할 수 있는 잠재적 요소를 파악합니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 74d0adcb-4dc2-425e-8b62-c65537cef270
@@ -11,14 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 03/29/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 7e141dcf69c1a173c60cb96907cae2ba9f119b03
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: na
+ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128567"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Log Analytics에서 데이터 사용 현황 분석
 Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다양한 형식과 같이 수집된 데이터의 양에 대한 정보를 포함합니다.  **Log Analytics 사용량** 대시보드를 사용하여 데이터 사용을 검토하고 분석할 수 있습니다. 대시보드는 각 솔루션에서 수집되는 데이터의 양 및 컴퓨터에서 전송한 데이터의 양을 표시합니다.
@@ -58,7 +60,9 @@ Log Analytics는 데이터를 전송한 소스 및 전송되는 데이터의 다
 - 데이터 볼륨이 지정된 크기를 초과합니다.
 - 데이터 볼륨이 지정된 크기를 초과할 것으로 예측됩니다.
 
-Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사용합니다. 최근 24시간 내에 수집된 데이터가 100GB를 초과하는 경우 다음 쿼리에 결과가 표시됩니다.
+검색 쿼리를 사용하는 Azure 경고 지원 [경고 로그](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)입니다. 
+
+최근 24시간 내에 수집된 데이터가 100GB를 초과하는 경우 다음 쿼리에 결과가 표시됩니다.
 
 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
 
@@ -68,27 +72,35 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 
 다른 크기의 데이터 볼륨에 대해 경고하려면 쿼리의 100GB를 원하는 수로 변경합니다.
 
-[경고 규칙 만들기](log-analytics-alerts-creating.md#create-an-alert-rule)에 설명한 단계를 사용하여 데이터 컬렉션이 예상보다 높은 경우 알림을 받을 수 있습니다.
+[새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 데이터 컬렉션이 예상보다 높은 경우 알림을 받을 수 있습니다.
 
 첫 번째 쿼리에 대한 경고를 만들 때 즉, 24시간 내에 데이터가 100GB를 초과하는 경우 다음을 설정합니다.  
-- **이름**을 *24시간 내에 100GB를 초과하는 데이터 볼륨*으로  
-- **심각도**를 *경고*로  
-- **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`으로   
-- **시간 창**을 *24시간*으로 설정합니다.
-- 사용량 데이터가 시간당 한 번만 업데이트되므로 **경고 빈도**를 1시간으로 설정합니다.
-- **경고 생성 기준**을 *결과의 수*로
-- **결과 수**를 *0보다 큼*으로
 
-[경고 규칙에 작업 추가](log-analytics-alerts-actions.md)에 설명한 단계를 사용하여 경고 규칙에 전자 메일, 웹후크 또는 Runbook 작업을 구성합니다.
+- **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
+- **경고 조건**은 다음을 지정합니다.
+   - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
+   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`으로
+   - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
+   - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *1440*분이고 **주파수 경고**는 *60*분마다입니다.
+- **경고 세부 정보 정의**는 다음을 지정합니다.
+   - **이름**을 *24시간 내에 100GB를 초과하는 데이터 볼륨*으로
+   - **심각도**를 *경고*로
+
+기존 또는 새 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 지정하거나 만들어서 로그 경고가 조건과 일치하는 경우 알려줍니다.
 
 두 번째 쿼리에 대한 경고를 만들 때 즉, 24시간 내에 100GB를 초과하는 데이터가 예측되는 경우 다음을 설정합니다.
-- **이름**을 *24시간 내에 100GB를 초과한다고 예측되는 데이터 볼륨*으로
-- **심각도**를 *경고*로
-- **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`으로
-- **시간 창**을 *3시간*으로 설정합니다.
-- 사용량 데이터가 시간당 한 번만 업데이트되므로 **경고 빈도**를 1시간으로 설정합니다.
-- **경고 생성 기준**을 *결과의 수*로
-- **결과 수**를 *0보다 큼*으로
+
+- **경고 조건 정의**는 리소스 대상으로 Log Analytics 작업 영역을 지정합니다.
+- **경고 조건**은 다음을 지정합니다.
+   - **신호 이름**은 **로그 검색 사용자 지정**을 선택합니다.
+   - **쿼리 검색**을 `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`으로
+   - **경고 논리**는 *결과 수*에 **기반**하고 **조건**은 *0*의 **임계값**을 *초과*합니다.
+   - 사용량 데이터가 시간당 한 번만 업데이트되므로 **기간**은 *180*분이고 **주파수 경고**는 *60*분마다입니다.
+- **경고 세부 정보 정의**는 다음을 지정합니다.
+   - **이름**을 *24시간 내에 100GB를 초과한다고 예측되는 데이터 볼륨*으로
+   - **심각도**를 *경고*로
+
+기존 또는 새 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 지정하거나 만들어서 로그 경고가 조건과 일치하는 경우 알려줍니다.
 
 경고를 수신하는 경우 사용량이 예상보다 더 높은 원인을 해결하려면 다음 섹션의 단계를 사용합니다.
 
@@ -116,7 +128,7 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 
 다음으로 *사용* 대시보드로 돌아가서 *솔루션별 데이터 볼륨* 차트를 확인합니다. 솔루션에 가장 많은 데이터를 전송하는 컴퓨터를 보려면 목록에서 솔루션의 이름을 클릭합니다. 목록에서 첫 번째 솔루션의 이름을 클릭합니다. 
 
-다음 스크린샷에서 *acmetomcat* 컴퓨터가 로그 관리 솔루션에 가장 많은 데이터를 보내는지 확인합니다.<br><br> ![솔루션의 데이터 볼륨](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
+다음 스크린샷에서 *mycon* 컴퓨터가 로그 관리 솔루션에 가장 많은 데이터를 보내는지 확인합니다.<br><br> ![솔루션의 데이터 볼륨](./media/log-analytics-usage/log-analytics-usage-data-volume-solution.png)<br><br>
 
 필요한 경우 솔루션이나 데이터 형식 내에서 큰 볼륨을 식별하려면 추가 분석을 수행합니다. 예제 쿼리는 다음과 같습니다.
 
@@ -140,7 +152,7 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 
 | 높은 데이터 볼륨의 소스 | 데이터 볼륨을 줄이는 방법 |
 | -------------------------- | ------------------------- |
-| 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [감사 레지스트리](https://docs.microsoft.com/windows/device-security/auditing/audit-registry)<br> - [감사 파일 시스템](https://docs.microsoft.com/windows/device-security/auditing/audit-file-system)<br> - [감사 커널 개체](https://docs.microsoft.com/windows/device-security/auditing/audit-kernel-object)<br> - [감사 핸들 조작](https://docs.microsoft.com/windows/device-security/auditing/audit-handle-manipulation)<br> - [이동식 저장소 감사](https://docs.microsoft.com/windows/device-security/auditing/audit-removable-storage) |
+| 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](https://blogs.technet.microsoft.com/msoms/2016/11/08/filter-the-security-events-the-oms-security-collects/)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [감사 레지스트리](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [감사 파일 시스템](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [감사 커널 개체](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [감사 핸들 조작](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 이동식 저장소 감사 |
 | 성능 카운터       | [성능 카운터 구성](log-analytics-data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](log-analytics-data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
 | syslog                     | [syslog 구성](log-analytics-data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
@@ -150,14 +162,14 @@ Log Analytics [경고](log-analytics-alerts-creating.md)는 검색 쿼리를 사
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>예상보다 더 많은 노드가 있는지 확인합니다.
 *노드당(OMS)* 가격 책정 계층에 있는 경우 사용한 노드 및 솔루션의 수에 따라 요금이 청구됩니다. 사용 대시보드의 *제품* 섹션에서 사용 중인 각 제품의 노드 수를 볼 수 있습니다.<br><br> ![사용량 대시보드](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
-**모두 표시...**를 클릭하여 선택한 제품에 데이터를 전송하는 컴퓨터의 전체 목록을 볼 수 있습니다.
+
+  **모두 표시...** 를 클릭하여 선택한 제품에 데이터를 전송하는 컴퓨터의 전체 목록을 볼 수 있습니다.
 
 [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 * [Log Analytics에서 로그 검색](log-analytics-log-searches.md)을 참조하여 검색 언어를 사용하는 방법을 배울 수 있습니다. 사용 데이터에 대한 추가 분석을 수행하려면 검색 쿼리를 사용할 수 있습니다.
-* [경고 규칙 만들기](log-analytics-alerts-creating.md#create-an-alert-rule)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
+* [새 로그 경고 만들기](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)에 설명한 단계를 사용하여 검색 기준이 충족되는 경우 알림을 받을 수 있습니다.
 * [솔루션 대상](../operations-management-suite/operations-management-suite-solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다.
 * 효과적인 보안 이벤트 컬렉션 정책을 구성하려면 [Azure Security Center 필터링 정책](../security-center/security-center-enable-data-collection.md)을 검토합니다.
 * [성능 카운터 구성](log-analytics-data-sources-performance-counters.md)을 변경합니다.

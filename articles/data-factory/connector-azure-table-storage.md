@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f6add6691b0e1f43d70399493fa6bf8db8f3833
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 24954cfc128834313bf13a1917e67d5c1812cf66
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34617181"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055528"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table 저장소 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - 일반 공급](v1/data-factory-azure-table-connector.md)
-> * [버전 2 - 미리 보기](connector-azure-table-storage.md)
+> * [버전 1](v1/data-factory-azure-table-connector.md)
+> * [현재 버전](connector-azure-table-storage.md)
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 Azure Table 저장소 간에 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급되는 Data Factory 버전 1을 사용하는 경우 [버전 1의 Table 저장소 커넥터](v1/data-factory-azure-table-connector.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -81,11 +78,11 @@ ms.locfileid: "34617181"
 
 공유 액세스 서명은 저장소 계정의 리소스에 대한 위임된 권한을 제공합니다. 이를 사용하여 저장소 계정의 개체에 대해 지정된 시간 동안 지정된 권한 집합이 있는 제한된 권한을 클라이언트에 부여할 수 있습니다. 계정 액세스 키를 공유할 필요가 없습니다. 공유 액세스 서명은 저장소 리소스에 대해 인증된 액세스에 필요한 모든 정보를 쿼리 매개 변수에 포함하는 URI입니다. 공유 액세스 서명을 사용하여 저장소 리소스에 액세스하려면 클라이언트에서 공유 액세스 서명을 해당 생성자 또는 메서드에 전달하기만 하면 됩니다. 공유 액세스 서명에 대한 자세한 내용은 [공유 액세스 서명: 공유 액세스 서명 모델 이해](../storage/common/storage-dotnet-shared-access-signature-part-1.md)를 참조하세요.
 
-> [!IMPORTANT]
-> Data Factory는 이제 서비스 공유 액세스 서명만 지원하고, 계정 공유 액세스 서명은 지원하지 않습니다. 이러한 두 유형 및 이를 생성하는 방법에 대한 자세한 내용은 [공유 액세스 서명 유형](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)을 참조하세요. Azure Portal 또는 Azure Storage 탐색기에서 생성된 공유 액세스 서명 URL은 계정 공유 액세스 서명이며 지원되지 않습니다.
+> [!NOTE]
+> 이제 Data Factory는 서비스 공유 액세스 서명과 계정 공유 액세스 서명을 모두 지원합니다. 이러한 두 유형 및 이를 생성하는 방법에 대한 자세한 내용은 [공유 액세스 서명 유형](../storage/common/storage-dotnet-shared-access-signature-part-1.md#types-of-shared-access-signatures)을 참조하세요. 
 
 > [!TIP]
-> 다음 PowerShell 명령을 실행하여 저장소 계정에 대한 서비스 공유 액세스 서명을 생성할 수 있습니다. 자리 표시자를 바꾸고 필요한 권한을 부여합니다.
+> 저장소 계정에 대한 서비스 공유 액세스 서명을 생성하려면 다음 PowerShell 명령을 실행합니다. 자리 표시자를 바꾸고 필요한 권한을 부여합니다.
 > `$context = New-AzureStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
 > `New-AzureStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 

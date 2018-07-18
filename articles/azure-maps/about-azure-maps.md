@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9eb6039a10cbdac004ab25f8295f5659c246a743
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 239134e7665b80ef78b6a3df12c14156bff9ae29
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600064"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317061"
 ---
 # <a name="an-introduction-to-azure-maps"></a>Azure Maps 소개
 Azure Maps는 지도, 검색, 경로, 트래픽 및 표준 시간대를 포함하는 지리 공간 서비스 포트폴리오입니다. 서비스 포트폴리오를 사용하면 익숙한 도구를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. Azure Maps는 모든 산업의 개발자에게 지리적 컨텍스트를 웹 및 모바일 응용 프로그램에 제공하는 데 필수적인 최신 지도 데이터가 포함된 강력한 지리 공간적 기능을 제공합니다. Azure Maps는 여러 미디어를 통한 개발을 쉽고 유연하며 이식 가능하도록 웹 기반 JavaScript 제어와 함께 제공되는 REST API 집합입니다. 
@@ -77,27 +77,9 @@ Azure Maps API는 현재 일부 국가에서 사용할 수 없습니다. 현재 
 * 파키스탄
 * 대한민국
 
-## <a name="relationship-with-bing-maps"></a>Bing 지도와 관계
-이 문서에서 설명하는 지도는 Bing 지도에서 제공하는 서비스와 다릅니다. 많은 기능이 공통되지만 두 서비스에는 서로 다르며 무관합니다. 이 Azure 서비스는 Bing 지도 제품 제공 또는 로드맵에 영향을 주지 않습니다.
-
-Microsoft의 목표는 위치 서비스와 관련하여 개발자 커뮤니티에 선택 옵션을 제공하는 것입니다. 다음 표에는 사용할 서비스를 결정하는 개발자를 위한 지침이 포함되어 있습니다. 
-
-| 시나리오 | Azure Maps를 사용하는 경우 | Bing 지도를 사용하는 경우 |
-| ------------- | ------------- | ------------- |
-| 개발 환경 | 다른 Azure 서비스에서 빌드 또는 다른 Azure 서비스와 상호 작용 | 타사 클라우드 또는 기타 개발자 환경 사용 |
-| 개발 단계  | Azure Maps는 초기 단계 테스트와 POC(개념 증명) 개발에 최적화되었습니다. | 프로덕션 환경에는 엔터프라이즈급 SLA가 필요합니다. |
-| 가격 책정 옵션 | 예비 개발자 가격 책정 옵션으로 충분 | 사용자 지정된 엔터프라이즈급 가격 책정 필요 |
-| 사용 사례 환경 | 차량 내 사용 필요 | 차량 내 사용 필수 아님 |
-| 지리적 검사 | 인도, 중국, 일본 및 대한민국 필수 아님 | 인도, 중국, 일본 및 대한민국 지도 검사 필요 |
-| 콘텐츠 매핑 | 표준 지상 지도로 충분 | 위성, 항공 및 거리 이미지 필요 |
-| 기본 지도 원본 | TomTom 지도 데이터 추천 | HERE 지도 데이터 추천 |
-
-[지금 Azure Maps 계정](http://aka.ms/azurelbsportal)에 등록하세요.
-
 ## <a name="next-steps"></a>다음 단계
 
 이제 Azure Maps를 대략적으로 이해하게 되었을 것입니다. 다음 단계에서는 서비스를 표시하는 샘플 앱을 사용해봅니다.
 
 > [!div class="nextstepaction"]
 > [데모 대화형 검색 맵 시작](quick-demo-map-app.md)
-

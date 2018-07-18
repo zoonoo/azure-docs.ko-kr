@@ -12,21 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ums.workload: na
-ms.date: 02/20/2018
-ms.author: TomSh
+ms.date: 06/07/2018
+ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 3e229c4db44fc3c8d16aa2bd0a014fb1acc64a5e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
+ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/08/2018
+ms.locfileid: "35235749"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 진단 로깅 및 Windows 이벤트 전달과의 Azure Log Integration
 
-Azure Log Integration은 SIEM(Security Incident and Event Management) 공급업체에서 [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) 커넥터를 사용할 수 없는 경우 고객에게 대안을 제공합니다. Azure Log Integration을 통해 SIEM에서 Azure 로그를 사용할 수 있으며 모든 자산의 통합 보안 대시보드를 만들 수 있습니다.
 
-> [!NOTE]
-> Azure Monitor에 대한 자세한 내용은 [Azure Monitor 시작](../monitoring-and-diagnostics/monitoring-get-started.md)을 참조하세요. Azure Monitor 커넥터의 상태에 대한 자세한 내용은 SIEM 공급업체에 문의하세요.
+>[!IMPORTANT]
+> Azure Log Integration 기능은 2019년 6월 1일에 사용 중지될 예정입니다. AzLog 다운로드는 2018년 6월 27일에 비활성화됩니다. 향후 작업 진행 방향에 대한 지침은 게시물 [Azure Monitor를 사용하여 SIEM 도구와 통합](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)을 검토하세요. 
+
+SIEM(Security Incident and Event Management) 공급업체에서 [Azure Monitor](../monitoring-and-diagnostics/monitoring-get-started.md) 커넥터를 사용할 수 없는 경우에만 Azure Log Integration을 사용해야 합니다.
+
+Azure Log Integration을 통해 SIEM에서 Azure 로그를 사용할 수 있으며 모든 자산의 통합 보안 대시보드를 만들 수 있습니다.
+Azure Monitor 커넥터의 상태에 대한 자세한 내용은 SIEM 공급업체에 문의하세요.
 
 > [!IMPORTANT]
 > 가상 머신 로그를 수집하는 것이 주요 관심사인 경우, 이 옵션은 대부분의 SIEM 공급업체 솔루션에 포함됩니다. SIEM 공급업체의 커넥터를 사용하는 것이 항상 기본 대안입니다.
@@ -118,7 +123,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
   > [!NOTE]
   > 명령이 성공하면 피드백이 수신되지 않습니다. 
 
-4. 시스템을 모니터링하려면 Azure 진단에 사용 중인 저장소 계정의 이름이 필요합니다. Azure Portal에서 **가상 머신**으로 이동합니다. 모니터링하는 가상 머신을 찾습니다. **속성** 섹션에서 **진단 설정**을 선택합니다.  그런 다음, **에이전트**를 선택합니다. 지정된 저장소 계정 이름을 기록합니다. 이후 단계에서 이 계정 이름이 필요합니다.
+4. 시스템을 모니터링하려면 Azure 진단에 사용 중인 저장소 계정의 이름이 필요합니다. Azure Portal에서 **가상 머신**으로 이동합니다. 모니터링할 Windows 가상 머신을 찾습니다. **속성** 섹션에서 **진단 설정**을 선택합니다.  그런 다음, **에이전트**를 선택합니다. 지정된 저장소 계정 이름을 기록합니다. 이후 단계에서 이 계정 이름이 필요합니다.
 
   ![Azure 진단 설정 창 스크린샷](./media/security-azure-log-integration-get-started/storage-account-large.png) 
 
@@ -134,14 +139,14 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
   4. Azure에 로그인합니다.
   5. Azure 진단용으로 구성된 저장소 계정이 표시되는지 확인합니다. 
 
-    ![저장소 탐색기의 저장소 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
+   ![저장소 탐색기의 저장소 계정 스크린샷](./media/security-azure-log-integration-get-started/storage-explorer.png)
 
   6. 저장소 계정 아래에 몇 가지 옵션이 나타납니다. **테이블**에 **WADWindowsEventLogsTable**라는 테이블이 표시되어야 합니다.
 
   가상 머신을 만들 때 모니터링을 사용하도록 설정하지 않은 경우 앞서 설명된 것처럼 사용하도록 설정할 수 있습니다.
 
 
-## <a name="integrate-azure-diagnostics-logging"></a>Azure 진단 로깅 통합
+## <a name="integrate-windows-vm-logs"></a>Windows VM 로그 통합
 
 이 단계에서는 로그 파일이 포함된 저장소 계정에 연결하도록 Azure Log Integration 서비스를 실행하는 컴퓨터를 구성합니다.
 
@@ -178,7 +183,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  예: 
+  예:
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -207,8 +212,37 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 
 또 다른 지원 옵션은 [Azure Log Integration MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?forum=AzureLogIntegration)입니다. 이 MSDN 포럼에서 커뮤니티는 Azure Log Integration을 최대한 활용하기 위한 방법에 대한 질문에 대답하고 유용한 정보를 공유하여 지원을 제공할 수 있습니다. 또한 Azure Log Integration 팀에서 이 포럼을 모니터링합니다. 아울러 가능할 때마다 도움을 드립니다.
 
+## <a name="integrate-azure-activity-logs"></a>Azure 활동 로그 통합
+
+Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한 정보를 제공하는 구독 로그입니다. 여기에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. Azure Security Center 경고도 이 로그에 포함됩니다.
+> [!NOTE]
+> 이 문서의 단계를 시도하기 전에 먼저 [시작하기](security-azure-log-integration-get-started.md) 문서를 검토하고 해당 단계를 완료해야 합니다.
+
+### <a name="steps-to-integrate-azure-activity-logs"></a>Azure 활동 로그를 통합하는 단계
+
+1. 명령 프롬프트를 열고 다음 명령을 실행합니다. ```cd c:\Program Files\Microsoft Azure Log Integration```
+2. 다음 명령을 실행합니다. ```azlog createazureid```
+
+    이 명령은 사용자에게 Azure 로그인을 요구합니다. 그런 다음 로그인한 사용자가 관리자, 공동 관리자 또는 소유자인 Azure 구독을 호스트하는 Azure AD 테넌트에 Azure Active Directory 서비스 주체를 만듭니다. 로그인한 사용자가 Azure AD 테넌트의 게스트 사용자이면 명령이 실패합니다. Azure에 대한 인증은 Azure AD를 통해 수행됩니다. Azure 로그 통합에 대한 서비스 주체를 만들면 Azure 구독을 읽을 수 있는 Azure AD ID가 생성됩니다.
+3.  다음 명령을 실행하여 이전 단계에서 만든 Azure Log Integration 서비스 주체가 구독에 대한 활동 로그 읽기에 액세스할 수 있도록 권한을 부여합니다. 명령을 실행하려면 구독에 대해 소유자여야 합니다.
+
+    ```Azlog.exe authorize subscriptionId``` 예제:
+
+```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+4.  다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인합니다.
+    - C:\Users\azlog\AzureResourceManagerJson
+    - C:\Users\azlog\AzureResourceManagerJsonLD
+
+> [!NOTE]
+> SIEM(보안 정보 및 이벤트 관리) 시스템으로 JSON 파일에서 정보를 가져오는 것과 관련한 특정 지침은 해당 SIEM 공급업체에 문의하세요.
+
+[Azure 로그 통합 MSDN 포럼](https://social.msdn.microsoft.com/Forums/office/home?forum=AzureLogIntegration)을 통해 커뮤니티의 지원을 받을 수 있습니다. 이 포럼을 통해 Azure 로그 통합 커뮤니티의 사람들은 질문, 답변, 팁, 요령 등을 통해 서로 지원할 수 있습니다. 또한 Azure 로그 통합 팀이 이 포럼을 모니터링하며 가능한 한 언제든지 도움을 드릴 것입니다.
+
+[지원 요청](../azure-supportability/how-to-create-azure-support-request.md)을 열 수도 있습니다. 지원을 요청하려면 서비스로 Log Integration을 선택합니다.
+
 ## <a name="next-steps"></a>다음 단계
-Azure Log Integration에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+Azure Log Integration에 대한 자세한 내용은 다음 문서를 참조하세요. 이 문서의 단계를 시도하기 전에 먼저 시작하기 문서를 검토하고 해당 단계를 완료해야 합니다.
 
 * [Azure 로그에 대한 Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324) 이 다운로드 센터에는 Azure Log Integration에 대한 세부 정보, 시스템 요구 사항 및 설치 지침이 포함되어 있습니다.
 * [Azure Log Integration 소개](security-azure-log-integration-overview.md) 이 문서에서는 Azure Log Integration, 주요 기능 및 작동 원리를 소개합니다.

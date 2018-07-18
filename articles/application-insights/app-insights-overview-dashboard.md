@@ -10,29 +10,25 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/10/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0be54c47965c6a27c3506fd37a7bf67e4b2b7924
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cf7c151121ddf8b2dc57d5db66a62f4d46e463de
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356089"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970975"
 ---
-# <a name="application-insights-overview-dashboard-preview"></a>Application Insights 개요 대시보드(미리 보기)
+# <a name="application-insights-overview-dashboard"></a>Application Insights 개요 대시보드
 
-Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈에 빠르게 파악할 수 있도록 요약 개요 창이 항상 제공됩니다. 새 미리 보기 개요 대시보드에는 더 빠르고 유연한 환경이 제공됩니다.
+Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈에 빠르게 파악할 수 있도록 요약 개요 창이 항상 제공됩니다. 새 개요 대시보드에는 더 빠르고 유연한 환경이 제공됩니다.
 
 ## <a name="how-do-i-test-out-the-new-experience"></a>새 환경을 테스트하려면 어떻게 할까요?
 
- Application Insights의 _개요_에서 _기본 환경이 되기 전에 새 개요를 사용해 보세요_(Please try new Overview before it becomes the default experience)를 선택합니다.
+이제 새 개요 대시보드가 기본적으로 시작합니다.
 
-![개요 미리 보기](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-01.png)
-
-새로운 기본 개요 대시보드가 시작됩니다.
-
-![개요 미리 보기 창](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-02.png)
+![개요 미리 보기 창](.\media\app-insights-overview-dashboard\overview.png)
 
 ## <a name="better-performance"></a>향상된 성능
 
@@ -40,7 +36,7 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 
 ![시간 범위](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
 
-성능이 전반적으로 크게 향상되었습니다. 동적으로 업데이트되는 KPI 타일이 각각 해당 Application Insights 기능에 연결됩니다. 예를 들어 실패한 요청을 선택하면 _실패_ 창이 시작됩니다.
+성능이 전반적으로 크게 향상되었습니다. **검색** 및 **분석** 같은 인기 있는 기능에 한 번의 클릭으로 액세스합니다. 동적으로 업데이트되는 KPI 타일이 각각 해당 Application Insights 기능에 인사이트를 제공합니다. 실패한 요청에 대해 자세히 알려면 **조사** 헤더 아래에서 **오류**를 선택합니다.
 
 ![오류](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
 
@@ -56,7 +52,7 @@ Application Insights에는 응용 프로그램의 상태 및 성능을 한 눈�
 
 ![대시보드 보기](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-06.png)
 
-원하는 경우 기본 보기를 유지할 수 있지만, 팀의 요구에 가장 적합하도록 대시보드에서 추가하고 삭제할 수도 있습니다.
+원하는 경우 기본 보기를 유지할 수 있습니다. 또는 팀의 요구에 가장 적합하도록 대시보드에서 추가하고 삭제할 수도 있습니다.
 
 > [!NOTE]
 > Application Insights 리소스에 액세스할 수 있는 모든 사용자는 동일한 응용 프로그램 대시보드 환경을 공유합니다. 한 명의 사용자가 대시보드를 변경하면 모든 사용자의 보기가 수정됩니다.

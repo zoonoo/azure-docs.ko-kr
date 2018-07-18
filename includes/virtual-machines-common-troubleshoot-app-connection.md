@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 23abf13aca84bde3a9e4a82722051689cc177a2b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34371272"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36313516"
 ---
 Azure VM(가상 머신)에서 실행되는 응용 프로그램을 시작 또는 연결할 수 없는 다양한 이유가 있습니다. 이유로는 응용 프로그램이 실행되지 않거나 예상된 포트에서 수신 대기하지 않거나, 수신 포트가 차단되었거나, 네트워킹 규칙이 응용 프로그램에 트래픽을 올바르게 전달하지 않는 등의 경우가 포함됩니다. 이 문서에서는 문제를 찾고 해결하는 체계적인 방법을 설명합니다.
 
@@ -32,7 +32,7 @@ RDP 또는 SSH를 사용하여 VM에 연결하는 데 문제가 있는 경우 �
 
 * 가상 머신 다시 시작
 * 끝점 / 방화벽 규칙 / NSG(네트워크 보안 그룹) 규칙 다시 만들기
-  * [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/manage-network-security-group.md)
   * [클래식 모델 - Cloud Services 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
 * 다른 Azure 가상 네트워크 등 다른 위치에서 연결
 * 가상 머신 다시 배포
@@ -93,7 +93,7 @@ VM의 호스트 이름 또는 Azure 할당 공용, 개인 또는 공급자 IP �
 * 대상 VM에서 실행되는 침입 탐지 또는 네트워크 모니터링 소프트웨어가 트래픽을 허용 중입니다.
 * Cloud Services 끝점 또는 네트워크 보안 그룹은 다음과 같이 트래픽을 허용하고 있습니다.
   * [클래식 모델 - Cloud Services 끝점 관리](../articles/cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md)
+  * [Resource Manager 모델 - 네트워크 보안 그룹 관리](../articles/virtual-network/manage-network-security-group.md)
 * 부하 분산 장치 또는 방화벽과 같은 테스트 VM 및 VM 간의 경로에서 사용자의 VM에서 실행 중인 개별 구성 요소가 트래픽을 허용 중입니다.
 
 Windows 기반 가상 컴퓨터에서, 방화벽 규칙이 사용자의 응용 프로그램의 인바운드 및 아웃 바운드 트래픽을 제외할지 여부를 확인하려면 고급 보안이 포함된 Windows 방화벽을 사용하세요.

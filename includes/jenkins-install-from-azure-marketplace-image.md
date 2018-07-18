@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: 552e93e9bd1b17c73fb1638fbae2ac30b051c261
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
+ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29957552"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36943473"
 ---
 1. 브라우저에서 [Azure Marketplace image for Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview)(Jenkins용 Azure Marketplace 이미지)를 엽니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "29957552"
 1. **추가 설정** 탭에서 다음 값을 지정합니다.
 
     - **크기** - Jenkins 가상 머신에 적합한 크기 지정 옵션을 선택합니다.
-    - **VM 디스크 유형** - HDD(하드 디스크 드라이브) 또는 SSD(반도체 드라이브)를 지정하여 가상 머신에 허용된 저장소 디스크 유형을 나타냅니다.
+    - **VM 디스크 유형** - HDD(하드 디스크 드라이브) 또는 SSD(반도체 드라이브)를 지정하여 Jenkins 가상 머신에 허용된 저장소 디스크 유형을 나타냅니다.
     - **가상 네트워크** - (선택 사항) **가상 네트워크**를 선택하여 기본 설정을 수정합니다.
     - **서브넷** - **서브넷**을 선택하고, 정보를 확인한 다음, **확인**을 선택합니다.
     - **공용 IP 주소** - IP 주소 이름은 기본적으로 이전 페이지에서 지정한 Jenkins에 접미사 -IP가 붙습니다. 옵션을 선택하여 이 기본값을 변경할 수 있습니다.

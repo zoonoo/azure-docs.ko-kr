@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 24ac4d699a511cc99936cb2cd4b245de01984163
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722782"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>자습서 2: 아이리스 분류: 모델 빌드
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -36,7 +38,7 @@ Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, �
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 - [빠른 시작](../service/quickstart-installation.md)에 설명된 대로 설치된 실험 계정 및 Azure Machine Learning Workbench
 - [자습서 1부](tutorial-classifying-iris-part-1.md)에서 준비된 아이리스 데이터 및 프로젝트
 - 로컬로 설치되고 실행되는 Docker 엔진입니다. Docker의 Community Edition은 충분합니다. Docker 설치 방법에 대해 여기서 https://docs.docker.com/engine/installation/ 알아봅니다.

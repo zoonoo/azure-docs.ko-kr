@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2018
 ms.author: kumud
-ms.openlocfilehash: e6f3ae71a924840c973b2536d332070b9a12d0dc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 20897137c617ddf9a33a8f4966bcd7e30ac7c60c
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33775233"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261936"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -33,7 +33,7 @@ Azure Load Balancer를 사용하여 응용 프로그램 크기를 조정하고 �
 
 표준 Load Balancer는 공용 또는 내부 Load Balancer로 사용할 수 있습니다. 또한 가상 머신을 하나의 공용 Load Balancer 및 하나의 내부 Load Balancer 리소스에 연결할 수 있습니다.
 
-Load Balancer 리소스의 기능은 항상 프런트 엔드, 규칙, 상태 프로브 및 백 엔드 풀 정의로 표현됩니다.  하나의 리소스가 여러 규칙을 포함할 수 있습니다. 가상 머신의 NIC 리소스에 있는 백 엔드 풀을 지정하여 가상 머신을 백 엔드 풀에 배치할 수 있습니다.  가상 머신 확장 집합의 경우 이 매개 변수가 네트워크 프로필을 통해 전달되고 확장됩니다.
+Load Balancer 리소스의 기능은 항상 프런트 엔드, 규칙, 상태 프로브 및 백 엔드 풀 정의로 표현됩니다.  하나의 리소스가 여러 규칙을 포함할 수 있습니다. 가상 머신의 NIC 리소스에 있는 백 엔드 풀을 지정하여 가상 머신을 백 엔드 풀에 배치할 수 있습니다.  가상 머신 확장 집합을 사용하는 경우 이 매개 변수가 네트워크 프로필을 통해 전달되고 확장됩니다.
 
 한 가지 중요한 측면은 리소스에 대한 가상 네트워크 범위입니다.  기본 Load Balancer는 가용성 집합 범위 내에 존재하지만, 표준 Load Balancer는 가상 네트워크의 범위에 완전히 통합되며, 모든 가상 네트워크 개념이 적용됩니다.
 
@@ -72,7 +72,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 표준 Load Balancer 백 엔드 풀은 가상 네트워크의 가상 머신 리소스로 확장됩니다.  최대 1,000개의 백 엔드 인스턴스를 포함할 수 있습니다.  백 엔드 인스턴스는 NIC 리소스의 속성인 IP 구성입니다.
 
-백 엔드 풀은 독립 실행형 가상 머신, 가용성 집합 또는 가상 머신 확장 집합을 포함할 수 있습니다.  백 엔드 풀에는 다양한 리소스가 혼합될 수 있으며, 이러한 리소스 조합을 총 150개까지 포함할 수 있습니다.
+백 엔드 풀은 독립 실행형 가상 머신, 가용성 집합 또는 가상 머신 확장 집합을 포함할 수 있습니다.  또한 백 엔드 풀에서 리소스를 혼합할 수 있습니다. Load Balancer 리소스당 백 엔드 풀에서 최대 150개의 리소스를 결합할 수 있습니다.
 
 백 엔드 풀을 디자인하는 방법을 고려할 때는 가장 적은 수의 개별 백 엔드 풀 리소스에 맞게 디자인하고, 관리 작업 기간을 추가로 최적화할 수 있습니다.  데이터 평면 성능 또는 크기 조정에는 차이가 없습니다.
 
@@ -90,7 +90,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 ### <a name="diagnostics"></a> 진단
 
-표준 Load Balancer는 Azure Monitor를 통해 다차원 메트릭을 제공합니다.  이러한 메트릭은 필터링, 그룹화될 수 있고, 서비스의 성능과 상태에 대한 현재 및 이전 정보를 제공할 수 있습니다.  리소스 상태도 지원됩니다.  다음은 지원되는 진단에 대한 간략한 개요입니다.
+표준 Load Balancer는 Azure Monitor를 통해 다차원 메트릭을 제공합니다.  이러한 메트릭은 지정된 차원에 대해 필터링, 그룹화 및 나눌 수 있습니다.  이러한 메트릭은 서비스의 성능과 상태에 대한 현재 및 이전 정보를 제공합니다.  리소스 상태도 지원됩니다.  다음은 지원되는 진단에 대한 간략한 개요입니다.
 
 | 메트릭 | 설명 |
 | --- | --- |
@@ -118,9 +118,9 @@ HA 포트 부하 분산 규칙을 사용하여 네트워크 가상 어플라이�
 
 ### <a name="securebydefault"></a>기본적으로 보안 적용
 
-표준 Load Balancer는 가상 네트워크에 완벽하게 온보딩됩니다.  가상 네트워크는 닫혀 있는 개인 네트워크입니다.  표준 Load Balancer 및 표준 공용 IP 주소는 이 가상 네트워크를 가상 네트워크 외부에서 액세스할 수 있도록 디자인되어 있으므로, 이제 이러한 리소스는 열지 않으면 기본적으로 닫혀 있습니다. 즉, 이제 NSG(네트워크 보안 그룹)를 사용하여 트래픽을 명시적으로 허용합니다.  전체 가상 데이터 센터를 만들고, NSG를 통해 사용 가능한 항목 및 시기를 결정할 수 있습니다.  서브넷에 NSG가 없거나 가상 컴퓨터 리소스의 NIC가 없으면 트래픽이 이 리소스에 도달하도록 허용하지 않게 됩니다.
+표준 Load Balancer는 가상 네트워크에 완벽하게 온보딩됩니다.  가상 네트워크는 닫혀 있는 개인 네트워크입니다.  표준 Load Balancer 및 표준 공용 IP 주소는 이 가상 네트워크를 가상 네트워크 외부에서 액세스할 수 있도록 디자인되어 있으므로, 이제 이러한 리소스는 열지 않으면 기본적으로 닫혀 있습니다. 즉, 이제 NSG(네트워크 보안 그룹)를 사용하여 트래픽을 명시적으로 허용합니다.  전체 가상 데이터 센터를 만들고, NSG를 통해 사용 가능한 항목 및 시기를 결정할 수 있습니다.  서브넷에 NSG가 없거나 가상 머신 리소스의 NIC가 없으면 트래픽이 이 리소스에 도달하도록 허용되지 않습니다.
 
-NSG에 대한 개요와 NSG를 시나리오에 적용하는 방법을 자세히 알아보려면 [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)을 참조하세요.
+NSG에 대한 개요와 NSG를 시나리오에 적용하는 방법을 자세히 알아보려면 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
 
 ### <a name="outbound"></a> 아웃바운드 연결
 
@@ -224,7 +224,9 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 - Load Balancer 규칙은 두 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트엔드 및 해당 관련 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
 - Load Balancer 프런트 엔드는 전역 가상 네트워크 피어링에 액세스할 수 없습니다.
 - [구독 작업 이동](../azure-resource-manager/resource-group-move-resources.md)은 표준 SKU LB 및 PIP 리소스에 대해 지원되지 않습니다.
-- VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스의 기능 방법의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 해당 서비스 자체 또는 기본 플랫폼이 예고 업이 변경될 수 있기 때문에 여기에 의존하지 말아야 합니다. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 만들어야 한다고 항상 가정해야 합니다.
+- VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스 작동 방식의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 해당 서비스 자체 또는 기본 플랫폼이 예고 업이 변경될 수 있기 때문에 여기에 의존하지 말아야 합니다. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 만들어야 한다고 항상 가정해야 합니다.
+- Load Balancer는 이러한 특정 IP 프로토콜에 대한 부하 분산 및 포트 전달용 TCP 또는 UDP 제품입니다.  부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP에 대해 지원되며 ICMP를 포함한 다른 IP 프로토콜에 대해서는 지원되지 않습니다. Load Balancer가 종료 및 응답하지 않거나 UDP 또는 TCP 흐름의 페이로드와 상호 작용하지 않습니다. 프록시가 아닙니다. 프런트 엔드 연결에 대한 성공적인 유효성 검사는 부하 분산 또는 인바운드 NAT 규칙(TCP 또는 UDP)에 사용된 동일한 프로토콜을 사용하여 대역 내에서 이뤄져야 하며, _그리고_ 하나 이상의 가상 머신은 프런트 엔드에서 응답을 확인하려면 클라이언트에 대한 응답을 생성해야 합니다.  Load Balancer 프런트 엔드에서 대역 내 응답을 수신하지 못하면 어떤 가상 머신도 응답할 수 없음을 나타냅니다.  응답할 수 있는 가상 머신이 없으면 Load Balancer 프런트 엔드와 상호 작용이 불가능합니다.  이는 [SNAT 모조 포트](load-balancer-outbound-connections.md#snat)가 TCP 및 UDP에 대해서만 지원되고 ICMP를 포함한 다른 모든 IP 프로토콜이 실패하는 경우에 아웃 바운드 연결에도 적용됩니다.  완화할 인스턴스 수준 공용 IP 주소를 할당합니다.
+- 가상 네트워크 내의 개인 IP 주소에서 공용 IP 주소로 전환할 때 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 제공하는 공용 Load Balancer와 달리 공용 및 내부 Load Balancer가 모두 개인 IP 주소 공간에 있으므로 내부 Load Balancer는 내부 Load Balancer의 프런트 엔드에 아웃바운드 연결을 변환하지 않습니다.  이렇게 하면 변환이 필요하지 않은 경우 고유한 내부 IP 주소 공간 내에서 SNAT 소모 가능성이 없습니다.  부작용은 백 엔드 풀의 VM에서 아웃바운드 흐름이 상주하는 풀에 있는 내부 Load Balancer의 프런트 엔드로 흐름을 유도하고 _또_ 자체로 매핑되는 경우, 흐름의 구간 둘 다 일치하지 않으며 흐름이 실패하게 된다는 것입니다.  흐름이 프런트 엔드로 흐름을 생성한 백 엔드 풀에서 동일한 VM에 다시 매핑하지 않은 경우 흐름은 성공하게 됩니다.   흐름이 스스로에게 다시 매핑되는 경우 아웃바운드 흐름은 VM에서 시작돼 프런트 엔드에 나타나며 해당 인바운드 흐름은 VM에서 시작돼 자신에게 나타납니다. 게스트 OS의 관점에서 동일한 흐름의 인바운드 및 아웃 바운드 부분은 가상 머신 내에서 일치하지 않습니다. TCP 스택은 원본과 대상이 일치하지 않으므로 동일한 흐름의 이러한 절반을 동일한 흐름의 일부로서 인식하지 않습니다.  흐름이 백 엔드 풀에서 다른 모든 VM에 매핑되는 경우 흐름의 절반은 일치하며 VM은 성공적으로 흐름에 응답할 수 있습니다.  이 시나리오의 증상은 일시적인 연결 시간 제한입니다. 이 시나리오를 안전하게 실현하기 위한 몇 가지 일반적인 해결 방법(백 엔드 풀에서 백 엔드 풀 해당 내부 Load Balancer 프런트 엔드로 흐름이 시작)에는 내부 Load Balancer 뒤에 타사 프록시의 삽입이나 [DSR 스타일 규칙 사용](load-balancer-multivip-overview.md) 중 하나가 포함됩니다.  완화할 공용 Load Balancer를 사용할 수도 있지만 결과적인 시나리오는 [SNAT 소모](load-balancer-outbound-connections.md#snat)가 발생하기 쉬우며 주의해 관리하지 않는 한 사용하지 말아야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -236,7 +238,7 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 - [HA 포트 부하 분산 규칙을 사용하는 표준 Load Balancer](load-balancer-ha-ports-overview.md)에 대해 자세히 알아보세요.
 - [다중 프런트 엔드를 사용하는 Load Balancer](load-balancer-multivip-overview.md)에 대해 자세히 알아보세요.
 - [Virtual Networks](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보세요.
-- [네트워크 보안 그룹](../virtual-network/virtual-networks-nsg.md)에 대해 자세히 알아보세요.
+- [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
 - [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)에 대해 자세히 알아보세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.
 - [Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보세요.

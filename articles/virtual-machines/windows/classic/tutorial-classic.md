@@ -17,15 +17,15 @@ ms.topic: article
 ms.date: 05/30/2017
 ms.author: cynthn
 ms.openlocfilehash: 5fd2128ff436d3211f41c7dfdcc4c2b8aabd0eb0
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30917832"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232329"
 ---
 # <a name="create-a-virtual-machine-running-windows-in-the-azure-portal"></a>Azure 포털에서 Windows를 실행하는 가상 머신 만들기
 > [!div class="op_single_selector"]
-> * [Azure Portal](tutorial.md)
+> * [Azure 포털](tutorial.md)
 > * [PowerShell: 클래식 배포](create-powershell.md)
 >
 >

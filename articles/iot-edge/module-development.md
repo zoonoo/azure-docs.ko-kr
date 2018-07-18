@@ -8,14 +8,14 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bf6a14020f26691195963a210d668912705f3b8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dbbd07e93602855afb0c9755e8872e0b46557611
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631720"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030022"
 ---
-# <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules---preview"></a>IoT Edge 모듈 개발을 위한 요구 사항 및 도구 이해 - 미리 보기
+# <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해
 
 이 문서에서는 IoT Edge 모듈로 실행되는 응용 프로그램을 작성할 때 사용할 수 있는 기능과 이를 활용하는 방법에 대해 설명합니다.
 

@@ -61,9 +61,9 @@ Azure 고객은 매달 25,000통의 무료 전자 메일의 잠금을 해제할 
 
 전자 메일 배달 설정을 관리하려면 **관리** 단추를 클릭합니다. 그러면 SendGrid 대시보드로 리디렉션됩니다.
 
-    ![manage][manage]
+![manage][manage]
 
-    For more information on sending email through SendGrid, visit the [Email API Overview][Email API Overview].
+SendGrid 통해 전자 메일을 보내는 방법에 대한 자세한 내용은 [전자 메일 API 개요][Email API Overview]를 참조하세요.
 
 <!--images-->
 

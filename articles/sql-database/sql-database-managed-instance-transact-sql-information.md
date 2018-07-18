@@ -6,15 +6,16 @@ author: jovanpop-msft
 ms.reviewer: carlrab, bonova
 ms.service: sql-database
 ms.custom: managed instance
-ms.topic: article
-ms.date: 04/10/2018
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: b36099c6fd2deb6b627c8ccd7cc9e13c328f54e3
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36337301"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리되는 인스턴스 및 SQL Server 간의 T-SQL 차이점 
 
@@ -207,6 +208,10 @@ SQL Server에서 사용하도록 설정되었지만 문서화되지 않은 DBCC 
 - `DBCC TRACEOFF`는 지원되지 않습니다. [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql)를 참조하세요.
 - `DBCC TRACEON`은 지원되지 않습니다. [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql)을 참조하세요.
 
+### <a name="distributed-transactions"></a>분산 트랜잭션
+
+MSDTC도 [탄력적 트랜잭션](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview)도 현재 관리되는 인스턴스에서 지원되지 않습니다.
+
 ### <a name="extended-events"></a>확장 이벤트 
 
 XEvent에 대한 일부 Windows 관련 대상은 지원되지 않습니다.
@@ -375,12 +380,10 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
  
 다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.  
 - `SERVERPROPERTY('EngineEdition')`는 8 값을 반환합니다. 이 속성은 관리되는 인스턴스를 고유하게 식별합니다. [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
-- `SERVERPROPERTY('InstanceName')`는 짧은 인스턴스 이름을 반환합니다(예: 'myserver'). [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
+- 인스턴스 개념은 SQL Server에 대해 존재하기에 관리되는 인스턴스에 적용되지 않으므로 `SERVERPROPERTY('InstanceName')`는 NULL을 반환합니다. [SERVERPROPERTY('InstanceName')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
 - `@@SERVERNAME`은 전체 DNS '연결 가능한' 이름을 반환합니다(예: my-managed-instance.wcus17662feb9ce98.database.windows.net). [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)을 참조하세요.  
 - `SYS.SERVERS` - 'name' 및 'data_source' 속성에 대한 전체 DNS '연결 가능한' 이름을 반환합니다(예: `myinstance.domain.database.windows.net`). [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요. 
-- `@@SERVERNAME`은 전체 DNS '연결 가능한' 이름을 반환합니다(예: `my-managed-instance.wcus17662feb9ce98.database.windows.net`). [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql)을 참조하세요.  
-- `SYS.SERVERS` - 'name' 및 'data_source' 속성에 대한 전체 DNS '연결 가능한' 이름을 반환합니다(예: `myinstance.domain.database.windows.net`). [SYS.SERVERS](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요. 
-- `@@SERVICENAME`은 관리되는 인스턴스 환경에서 의미가 없기 때문에 NULL을 반환합니다. [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.   
+- 서비스 개념은 SQL Server에 대해 존재하기에 관리되는 인스턴스에 적용되지 않으므로 `@@SERVICENAME`은 NULL을 반환합니다. [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.   
 - `SUSER_ID`가 지원됩니다. AAD 로그인이 sys.syslogins에 없는 경우 NULL을 반환합니다. [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요.  
 - `SUSER_SID`는 지원되지 않습니다. 잘못된 데이터를 반환합니다(알려진 임시 문제). [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
 - `GETDATE()` 및 다른 기본 제공 날짜/시간 함수는 항상 UTC 표준 시간대의 시간을 반환합니다. [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql)를 참조하세요.

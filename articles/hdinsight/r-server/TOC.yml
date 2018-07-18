@@ -1,6 +1,6 @@
 - name: Azure HDInsight 설명서
   href: /azure/hdinsight
-- name: HDInsight의 R Server
+- name: HDInsight의 ML 서비스
   items:
     - name: 개요
       href: r-server-overview.md
@@ -9,7 +9,7 @@
       maintainContext: true
 - name: 시작하기
   items:
-    - name: R Server 시작
+    - name: ML 서비스 시작
       href: r-server-get-started.md
     - name: HDInsight 앱 설치
       href: ../hdinsight-apps-install-applications.md
@@ -19,11 +19,11 @@
       maintainContext: true
 - name: 방법
   items:
-    - name: R 서버 사용
+    - name: ML 서비스 사용
       items:
-        - name: R Server 클러스터 관리
+        - name: ML 서비스 클러스터 관리
           href: r-server-hdinsight-manage.md
-        - name: R Server 클러스터 운영
+        - name: ML 서비스 클러스터 운영
           href: r-server-operationalize.md
         - name: 저장소 옵션
           href: r-server-storage.md
@@ -276,13 +276,10 @@
         - name: 온-프레미스 네트워크와 HDInsight 연결
           href: ../connect-on-premises-network.md
           maintainContext: true
-    - name: OMS를 사용한 모니터링
+    - name: Log Analytics를 사용한 모니터링
       items:
         - name: Azure Log Analytics 사용
           href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: 클러스터 지정 대시보드
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
           maintainContext: true
         - name: Log Analytics로 쿼리 사용
           href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
@@ -311,6 +308,10 @@
     - name: 릴리스 정보
       href: ../hdinsight-release-notes.md
       maintainContext: true
+      items:
+        - name: 보관된 릴리스 정보
+          href: ../hdinsight-release-notes-archive.md
+          maintainContext: true
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
     - name: 포럼에서 도움말 보기

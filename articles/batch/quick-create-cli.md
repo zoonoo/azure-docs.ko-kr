@@ -7,15 +7,15 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 07/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b885a08cb9d5c4f601c9d180d1d3997018b66fb2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f5790f57b66f1d73ff98d5f84276ec9a44568432
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607891"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857929"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Batch 작업 실행
 
@@ -170,29 +170,29 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-텍스트 편집기에서 `stdout.txt`의 내용을 볼 수 있습니다. 내용에는 노드에 설정된 Azure Batch 환경 변수가 표시됩니다. 사용자 고유의 Batch 작업을 만들 때, 태스크 명령줄과 이 명령줄에서 실행되는 앱 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다.
+텍스트 편집기에서 `stdout.txt`의 내용을 볼 수 있습니다. 내용에는 노드에 설정된 Azure Batch 환경 변수가 표시됩니다. 사용자 고유의 Batch 작업을 만들 때, 태스크 명령줄과 이 명령줄에서 실행되는 앱 및 스크립트에서 이러한 환경 변수를 참조할 수 있습니다. 예: 
 
 ```
-AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3
+AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1
 AZ_BATCH_NODE_STARTUP_DIR=/mnt/batch/tasks/startup
-AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/certs
-AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2batch.azure.com/
-AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask3/wd
+AZ_BATCH_CERTIFICATES_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/certs
+AZ_BATCH_ACCOUNT_URL=https://mybatchaccount.eastus2.batch.azure.com/
+AZ_BATCH_TASK_WORKING_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1/wd
 AZ_BATCH_NODE_SHARED_DIR=/mnt/batch/tasks/shared
 AZ_BATCH_TASK_USER=_azbatch
 AZ_BATCH_NODE_ROOT_DIR=/mnt/batch/tasks
-AZ_BATCH_JOB_ID=myjob
+AZ_BATCH_JOB_ID=myjobl
 AZ_BATCH_NODE_IS_DEDICATED=true
-AZ_BATCH_NODE_ID=tvm-1392786932_2-20171026t223740z
-AZ_BATCH_POOL_ID=mypool-linux
-AZ_BATCH_TASK_ID=mytask3
+AZ_BATCH_NODE_ID=tvm-257509324_2-20180703t215033z
+AZ_BATCH_POOL_ID=mypool
+AZ_BATCH_TASK_ID=mytask1
 AZ_BATCH_ACCOUNT_NAME=mybatchaccount
 AZ_BATCH_TASK_USER_IDENTITY=PoolNonAdmin
 ```
 ## <a name="clean-up-resources"></a>리소스 정리
 Batch 자습서 및 샘플을 계속 사용하려면 이 빠른 시작에서 만든 배치 계정 및 연결된 저장소 계정을 사용합니다. 배치 계정 자체에는 요금이 부과되지 않습니다.
 
-작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 더 이상 풀이 필요하지 않으면 [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) 명령을 사용하여 삭제합니다.
+작업이 예약되지 않은 경우에도 노드가 실행되는 동안은 풀에 대한 요금이 부과됩니다. 더 이상 풀이 필요하지 않으면 [az batch pool delete](/cli/azure/batch/pool#az_batch_pool_delete) 명령을 사용하여 삭제합니다. 풀을 삭제하면 노드의 모든 태스크 출력이 삭제됩니다. 
 
 ```azurecli-interactive
 az batch pool delete --pool-id mypool

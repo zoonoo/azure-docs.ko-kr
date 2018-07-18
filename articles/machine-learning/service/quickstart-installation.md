@@ -7,15 +7,17 @@ ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 3/7/2018
-ms.openlocfilehash: 12a34bc98db396482d9fde8da778db0f0ef7de4b
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 30795f542bca52159f2ff0fe052a94de3743f0e8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38767156"
 ---
 # <a name="quickstart-install-and-get-started-with-azure-machine-learning-services"></a>빠른 시작: Azure Machine Learning 서비스 설치 및 시작
 Azure Machine Learning 서비스(미리 보기)는 통합된 종단 간 데이터 과학 및 고급 분석 솔루션입니다. 이를 통해 전문 데이터 과학자들은 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포할 수 있습니다.
@@ -29,7 +31,7 @@ Azure Machine Learning 서비스(미리 보기)는 통합된 종단 간 데이�
 * CLI(명령줄 인터페이스)에 액세스
 
 
-Microsoft Azure 포트폴리오의 일부인 Azure Machine Learning 서비스에는 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Microsoft Azure 포트폴리오의 일부인 Azure Machine Learning 서비스에는 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 또한 리소스 그룹, Virtual Machines 등의 자산을 만들 수 있는 적절한 권한이 있어야 합니다. 
 
@@ -145,7 +147,7 @@ Azure Machine Learning에서 프로젝트는 문제를 해결하기 위해 수�
    프로젝트 이름 | myIris |계정을 식별하는 고유한 이름을 입력합니다. 본인의 이름 또는 실험을 가장 잘 식별하는 부서나 프로젝트 이름을 사용할 수 있습니다. 이름은 2~32자여야 합니다. 영숫자 문자 및 대시(-) 문자만 포함되어야 합니다. 
    프로젝트 디렉터리 | c:\Temp\ | 프로젝트가 만들어지는 디렉터리를 지정합니다.
    프로젝트 설명 | _비워 둠_ | 프로젝트를 설명하기에 유용한 선택적 필드입니다.
-   Visualstudio.com GIT 리포지토리 URL |_비워 둠_ | 선택적 필드입니다. 소스 제어 및 공동 작업을 위해 필요에 따라 Visual Studio Team Services의 Git 리포지토리와 프로젝트를 연결할 수 있습니다. [설정하는 방법을 알아보세요](/desktop-workbench/using-git-ml-project#step-3-set-up-a-machine-learning-project-and-git-repo). 
+   Visualstudio.com GIT 리포지토리 URL |_비워 둠_ | 선택적 필드입니다. 소스 제어 및 공동 작업을 위해 필요에 따라 Visual Studio Team Services의 Git 리포지토리와 프로젝트를 연결할 수 있습니다. [설정하는 방법을 알아보세요](../desktop-workbench/using-git-ml-project.md#step-3-set-up-a-machine-learning-project-and-git-repo). 
    선택한 작업 영역 | IrisGarden(있는 경우) | Azure Portal에서 실험 계정에 대해 만든 작업 영역을 선택합니다. <br/>빠른 시작을 수행한 경우 IrisGarden이라는 이름의 작업 영역이 있어야 합니다. 그렇지 않으면 실험 계정을 만들 때 생성한 항목을 선택하거나 원하는 다른 항목을 선택합니다.
    프로젝트 템플릿 | 아이리스 분류 | 템플릿에는 제품을 탐색하는 데 사용할 수 있는 스크립트와 데이터가 포함됩니다. 템플릿에는 이 설명서 사이트의 빠른 시작 및 기타 자습서에 필요한 스크립트와 데이터가 포함됩니다. 
 

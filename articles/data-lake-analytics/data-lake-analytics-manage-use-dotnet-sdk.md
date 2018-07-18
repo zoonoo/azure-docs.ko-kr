@@ -1,29 +1,26 @@
 ---
-title: "Azure .NET SDK를 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs"
-description: "데이터 레이크 분석 작업, 데이터 원본, 사용자를 관리하는 방법에 대해 알아봅니다. "
+title: Azure .NET SDK를 사용하여 Azure Data Lake Analytics 관리
+description: 이 문서에서는 Azure .Net SDK를 사용하여 Data Lake Analytics 작업, 데이터 원본 및 사용자를 관리하는 앱을 작성하는 방법을 설명합니다.
 services: data-lake-analytics
-documentationcenter: 
 author: saveenr
-manager: saveenr
-editor: cgronlun
+ms.author: saveenr
+manager: kfile
+editor: jasonwhowell
 ms.assetid: 811d172d-9873-4ce9-a6d5-c1a26b374c79
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.topic: conceptual
 ms.date: 06/18/2017
-ms.author: saveenr
-ms.openlocfilehash: 0f8a95f96ce4c816dfb9132923faa9a9bf20c205
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc49bb9b5461a4e8eb3573877276f5876e12f340
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34625123"
 ---
-# <a name="manage-azure-data-lake-analytics-using-azure-net-sdk"></a>Azure .NET SDK를 사용하여 Azure Data Lake Analytics 관리
+# <a name="manage-azure-data-lake-analytics-a-net-app"></a>Azure Data Lake Analytics .NET 앱 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure .NET SDK를 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법에 대해 알아봅니다. 
+이 문서에서는 Azure .NET SDK를 사용하여 작성한 앱을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -221,7 +218,7 @@ if (adlaClient.Account.Exists(rg, adla))
 
 데이터 레이크 분석은 현재 다음 데이터 원본을 지원합니다.
 
-* [Azure 데이터 레이크 저장소](../data-lake-store/data-lake-store-overview.md)
+* [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage 계정](../storage/common/storage-introduction.md)
 
 ### <a name="link-to-an-azure-storage-account"></a>Azure Storage 계정에 대한 링크
@@ -288,6 +285,8 @@ using (var memstream = new MemoryStream())
    {
       sw.WriteLine("Hello World");
       sw.Flush();
+      
+      memstream.Position = 0;
 
       adlsFileSystemClient.FileSystem.Create(adls, "/Samples/Output/randombytes.csv", memstream);
    }

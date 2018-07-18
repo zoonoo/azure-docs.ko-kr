@@ -16,11 +16,12 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: c9c4cb42e6bf9f60c883242fad6963f72b772063
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e40283abd418552f296f7539e554e0ad5232e49a
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031693"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -75,7 +76,7 @@ Azure Portal에는 현재 Web App for Containers에 대해 작동하는 기능�
 
 가상 네트워크 통합, Azure Active Directory/타사 인증 또는 Kudu 사이트 확장 등의 일부 기능은 아직 사용할 수 없습니다. 이러한 기능이 사용 가능해지면 설명서와 블로그에 변경 내용이 업데이트될 것입니다.
 
-Linux의 App Service는 [기본 및 표준](https://azure.microsoft.com/pricing/details/app-service/plans/) 앱 서비스 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다.
+Linux의 App Service는 [기본, 표준 및 프리미엄](https://azure.microsoft.com/pricing/details/app-service/plans/) App Service 계획에서만 지원되며 [체험 또는 공유](https://azure.microsoft.com/pricing/details/app-service/plans/) 계층은 없습니다. [ASE의 Linux(격리된 계층)](https://blogs.msdn.microsoft.com/appserviceteam/2018/05/07/announcing-the-linux-on-app-service-environment-public-preview/)은 이 시점에 미리 보기 상태이며 프로덕션 워크로드에 지원되지 않습니다. 이미 비 Linux Web Apps를 호스트 중인 App Service 계획에서는 Web App for Containers를 만들 수 없습니다. 동일한 리소스 그룹에서도 Windows 및 Linux 앱을 함께 사용하지 않는 등 현재 제약 조건이 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

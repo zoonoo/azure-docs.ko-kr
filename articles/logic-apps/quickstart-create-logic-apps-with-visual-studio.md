@@ -1,29 +1,26 @@
 ---
-title: Visual Studio 및 Azure Logic Apps을 사용하여 작업 및 프로세스 자동화 | Microsoft Docs
-description: 이 빠른 시작에서는 Visual Studio에서 Azure Logic Apps을 사용하여 작업 및 프로세스를 자동화하는 워크플로를 만드는 방법 설명
-author: ecfan
-manager: SyntaxC4
-editor: ''
+title: Visual Studio를 사용하여 워크플로를 자동화하는 논리 앱 만들기 | Microsoft Docs
+description: Visual Studio에서 Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로를 자동화하는 방법에 대한 빠른 시작
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.date: 03/15/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 02e19de97654d751dc0cd557791a61a863a9a4e0
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35300755"
 ---
-# <a name="quickstart-automate-tasks-and-processes-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps - Visual Studio를 사용하여 작업 및 프로세스 자동화
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로 만들기 및 자동화 - Visual Studio
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md)을 사용하여 기업 및 조직에서 앱, 데이터, 시스템 및 서비스를 통합하기 위해 작업 및 프로세스를 자동화하는 워크플로 만들 수 있습니다. 이 빠른 시작에서는 Visual Studio에서 논리 앱을 만들고 클라우드에서 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>에 해당 앱을 배포하여 이러한 워크플로를 디자인하고 빌드할 수 있는 방법을 보여줍니다. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 이러한 작업을 수행할 수 있다고 해도 Visual Studio를 사용하면 소스 제어에 논리 앱을 추가하고 다른 버전을 게시하고 다른 배포 환경에 대한 Azure Resource Manager 템플릿을 만들 수 있습니다. 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio를 사용하여 기업 및 조직에서 앱, 데이터, 시스템 및 서비스를 통합하는 작업 및 프로세스를 자동화하도록 워크플로를 만들 수 있습니다. 이 빠른 시작에서는 Visual Studio에서 논리 앱을 만들고 클라우드에서 <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a>에 해당 앱을 배포하여 이러한 워크플로를 디자인하고 빌드할 수 있는 방법을 보여줍니다. <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 이러한 작업을 수행할 수 있다고 해도 Visual Studio를 사용하면 소스 제어에 논리 앱을 추가하고 다른 버전을 게시하고 다른 배포 환경에 대한 Azure Resource Manager 템플릿을 만들 수 있습니다. 
 
 Azure Logic Apps을 처음 사용하며 단지 기본 개념만 필요한 경우 대신 [Azure Portal에서 논리 앱을 만들기 위한 빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 시도합니다. Logic Apps 디자이너는 Azure Portal 및 Visual Studio에서 비슷하게 작동합니다. 
 
@@ -37,7 +34,7 @@ Azure Logic Apps을 처음 사용하며 단지 기본 개념만 필요한 경우
 
 * Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">무료 Azure 계정에 등록</a>합니다.
 
-* 없는 경우 이러한 도구를 다운로드하고 설치합니다. 
+* 다음 도구가 없으면 다운로드하여 설치합니다. 
 
   * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 또는 Visual Studio 2015 - Community Edition 이상</a>. 
   이 빠른 시작에서는 무료로 제공되는 Visual Studio Community 2017을 사용합니다.
@@ -132,7 +129,7 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 
 논리 앱을 실행하기 전에 먼저 몇 단계가 걸리는 Visual Studio에서 Azure에 앱을 배포합니다.
 
-1. 프로젝트 바로 가기 메뉴의 솔루션 탐색기에서 **배포** > **새로 만들기...**를 선택합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
+1. 프로젝트 바로 가기 메뉴의 솔루션 탐색기에서 **배포** > **새로 만들기...** 를 선택합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
    ![논리 앱 배포 만들기](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
@@ -161,7 +158,7 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
    기술적으로 트리거가 RSS 피드를 확인하고 새 항목을 찾는 경우 해당 트리거가 실행되고 Logic Apps 엔진이 워크플로에서 동작을 실행하는 논리 앱 워크플로 인스턴스를 만듭니다.
    트리거가 새 항목을 찾지 못하면 해당 트리거는 실행되지 않고 워크플로 인스턴스화도 "건너뜁니다".
 
-축하합니다. Visual Studio를 사용하여 논리 앱을 성공적으로 빌드하고 배포했습니다! 논리 앱을 관리하고 해당 실행 기록을 검토하려면 [Visual Studio를 사용하여 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)를 참조합니다.
+축하합니다. Visual Studio를 사용하여 논리 앱을 성공적으로 빌드하고 배포했습니다. 논리 앱을 관리하고 해당 실행 기록을 검토하려면 [Visual Studio를 사용하여 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)를 참조합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -187,4 +184,5 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 이 아티클에서는 Visual Studio를 사용하여 논리 앱을 빌드하고 배포하고 실행했습니다. Visual Studio를 사용하여 논리 앱에 대한 고급 배포를 관리하고 수행하는 방법을 자세히 알아보려면 이 아티클을 참조합니다.
 
 > [!div class="nextstepaction"]
-> [Visual Studio에서 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Visual Studio에서 논리 앱 관리](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> * [Visual Studio를 사용하여 논리 앱에 배포 템플릿 만들기](../logic-apps/logic-apps-create-deploy-template.md)

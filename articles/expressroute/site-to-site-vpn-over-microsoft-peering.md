@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: cherylmc
-ms.openlocfilehash: 64203e2cbac1206224f0e0ad8b7d364f19ad0332
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 86e101ee78cfa709c6957c7658f103ce787a6351
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26357667"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110857"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
-이 문서를 사용하면 ExpressRoute 개인 연결을 통해 온-프레미스 네트워크와 Azure VNet(가상 네트워크) 간에 암호화된 보안 연결을 구성할 수 있습니다. ExpressRoute를 통해 보안 터널을 구성하면 기밀성, 재생 방지, 신뢰성 및 무결성을 가진 데이터 교환이 가능합니다.
+이 문서를 사용하면 ExpressRoute 개인 연결을 통해 온-프레미스 네트워크와 Azure VNet(가상 네트워크) 간에 암호화된 보안 연결을 구성할 수 있습니다. ExpressRoute를 통해 보안 터널을 구성하면 기밀성, 재생 방지, 신뢰성 및 무결성이 보장된 데이터 교환이 가능합니다.
 
 ## <a name="architecture"></a>아키텍처
 
@@ -36,14 +36,14 @@ Microsoft 피어링을 활용하여 선택한 온-프레미스 네트워크와 A
 >
 >
 
-고가용성 및 중복성을 위해 두 개의 ExpressRoute 회로 MSEE-PE 쌍을 통해 여러 터널을 구성할 수 있으며 터널 간에 부하 분산을 사용할 수 있습니다.
+고가용성 및 중복성을 위해 ExpressRoute 회로의 두 MSEE-PE 쌍을 통해 여러 터널을 구성할 수 있으며 터널 간에 부하 분산을 사용할 수 있습니다.
 
   ![고가용성 옵션](./media/site-to-site-vpn-over-microsoft-peering/HighAvailability.png)
 
-VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 적절한 NVA(네트워크 가상 어플라이언스)를 사용하여 Microsoft 피어링을 통한 VPN 터널을 종료할 수 있습니다. 기본 Microsoft 피어링에 경로 교환을 노출하지 않고 암호화된 터널을 통해 경로를 고정 또는 동적으로 교환할 수 있습니다. 이 문서의 예제에서 BGP(Microsoft 피어링을 만드는 데 사용되는 BGP 세션과 다름)를 사용하여 암호화된 터널을 통해 동적으로 접두사를 교환합니다.
+VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 적절한 NVA(네트워크 가상 어플라이언스)를 사용하여 Microsoft 피어링을 통한 VPN 터널을 종료할 수 있습니다. 기본 Microsoft 피어링에 경로 교환을 노출하지 않고 암호화된 터널을 통해 경로를 정적으로 또는 동적으로 교환할 수 있습니다. 이 문서의 예제에서는 BGP(Microsoft 피어링을 만드는 데 사용되는 BGP 세션과 다름)를 사용하여 암호화된 터널을 통해 동적으로 접두사를 교환합니다.
 
 >[!IMPORTANT]
->온-프레미스 측의 경우 일반적으로 Microsoft 피어링은 DMZ에서 종료되고 개인 피어링은 핵심 네트워크 영역에서 종료됩니다. 방화벽을 사용하여 두 개의 영역이 분리됩니다. ExpressRoute를 통해 보안 터널링을 사용하기 위해 배타적으로 Microsoft 피어링을 구성하는 경우 Microsoft 피어링을 통해 보급된 주요 공용 IP만을 통해 필터링해야 합니다.
+>온-프레미스 측의 경우 일반적으로 Microsoft 피어링은 DMZ에서 종료되고 개인 피어링은 핵심 네트워크 영역에서 종료됩니다. 두 영역은 방화벽을 사용하여 분리됩니다. ExpressRoute를 통해 보안 터널링을 사용하기 위해 배타적으로 Microsoft 피어링을 구성하는 경우 Microsoft 피어링을 통해 보급되는 주요 공용 IP만을 필터링해야 합니다.
 >
 >
 
@@ -51,10 +51,10 @@ VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 
 
 1. ExpressRoute 회로에 Microsoft 피어링을 구성합니다.
 2. Microsoft 피어링을 통해 온-프레미스 네트워크에 선택한 Azure 지역 공용 접두사를 보급합니다.
-3. VPN Gateway 구성 및 IPsec 터널 설정
+3. VPN Gateway를 구성하고 IPsec 터널을 설정합니다.
 4. 온-프레미스 VPN 장치를 구성합니다.
 5. 사이트 간 IPsec/IKE 연결을 만듭니다.
-6. (선택 사항)온-프레미스 VPN 장치에서 방화벽/필터링을 구성합니다.
+6. (선택 사항) 온-프레미스 VPN 장치에서 방화벽/필터링을 구성합니다.
 7. ExpressRoute 회로를 통해 IPsec 통신을 테스트하고 확인합니다.
 
 ## <a name="peering"></a>1. Microsoft 피어링 구성
@@ -63,7 +63,7 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 * 새 ExpressRoute 회로를 구성하려면 [ExpressRoute 필수 구성 요소](expressroute-prerequisites.md) 문서 및 [ExpressRoute 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)을 차례로 시작합니다.
 
-* ExpressRoute 회로가 이미 있지만 Microsoft 피어링을 구성하지 않고, [ExpressRoute 회로에 대한 피어링 만들기 및 수정](expressroute-howto-routing-arm.md#msft) 문서를 사용하여 Microsoft 피어링을 구성합니다.
+* ExpressRoute 회로가 이미 있지만 Microsoft 피어링을 구성하지 않은 경우, [ExpressRoute 회로에 대한 피어링 만들기 및 수정](expressroute-howto-routing-arm.md#msft) 문서를 사용하여 Microsoft 피어링을 구성합니다.
 
 회로 및 Microsoft 피어링을 구성하면 Azure Portal에서 **개요** 페이지를 사용하여 쉽게 볼 수 있습니다.
 
@@ -71,13 +71,13 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 ## <a name="routefilter"></a>2. 경로 필터 구성
 
-경로 필터를 사용하면 ExpressRoute 회로의 Microsoft 피어링을 통해 사용하려는 서비스를 식별할 수 있습니다. 특히 모든 BGP 커뮤니티 값의 허용 목록입니다. 
+경로 필터를 사용하면 ExpressRoute 회로의 Microsoft 피어링을 통해 사용하려는 서비스를 식별할 수 있습니다. 실질적으로 모든 BGP 커뮤니티 값의 허용 목록과도 같습니다. 
 
 ![경로 필터](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-이 예제에서는 배포는 *Azure 미국 서부 2* 지역에서만 이루어집니다. 경로 필터 규칙을 추가하여 Azure 미국 서부 2 국가별 접두사를 보여줍니다. 여기에는 BGP 커뮤니티 값 *12076:51026*이 있습니다. **규칙 관리**를 선택하여 허용하려는 국가별 접두사를 지정합니다.
+이 예제에서는 배포는 *Azure 미국 서부 2* 지역에서만 이루어집니다. 경로 필터 규칙을 추가하여 Azure 미국 서부 2 지역별 접두사만 보여줍니다. 여기에는 BGP 커뮤니티 값 *12076:51026*이 있습니다. **규칙 관리**를 선택하여 허용하려는 지역별 접두사를 지정합니다.
 
-경로 필터 내에서 경로 필터가 적용되는 ExpressRoute 회로를 선택해야 합니다. **회로 추가**를 선택하여 ExpressRoute 회로를 선택할 수 있습니다. 위의 그림에서 경로 필터는 예제 ExpressRoute 회로에 연결됩니다.
+경로 필터 내에서 경로 필터가 적용되는 ExpressRoute 회로를 선택해야 합니다. **회로 추가**를 선택하여 ExpressRoute 회로를 선택할 수 있습니다. 위의 그림에서 경로 필터는 예제 ExpressRoute 회로에 연결되어 있습니다.
 
 ### <a name="configfilter"></a>2.1 경로 필터 구성
 
@@ -85,17 +85,17 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 ### <a name="verifybgp"></a>2.2 BGP 경로 확인
 
-ExpressRoute 회로를 통해 Microsoft 피어링을 성공적으로 만들고 해당 회로를 포함한 경로 필터를 연결하면 MSEE와 피어링된 PE 장치의 MSEE에서 수신된 BGP 경로를 확인할 수 있습니다. 유효성 검사 명령은 PE 장치의 운영 체제에 따라 달라집니다.
+ExpressRoute 회로를 통해 Microsoft 피어링을 성공적으로 만들고 경로 필터를 해당 회로에 연결하면 MSEE와 피어링된 PE 장치의 MSEE에서 수신된 BGP 경로를 확인할 수 있습니다. 유효성 검사 명령은 PE 장치의 운영 체제에 따라 달라집니다.
 
 #### <a name="cisco-examples"></a>Cisco 예제
 
-이 예제에서는 Cisco IOS-XE 명령을 사용합니다. 예제에서는 VRF(가상 라우팅 및 포워딩) 인스턴스를 사용하여 피어링 트래픽을 격리합니다.
+이 예제에서는 Cisco IOS-XE 명령을 사용합니다. 이 예제에서는 VRF(가상 라우팅 및 포워딩) 인스턴스를 사용하여 피어링 트래픽을 격리합니다.
 
 ```
 show ip bgp vpnv4 vrf 10 summary
 ```
 
-다음 부분 출력에서는 ASN 12076(MSEE)을 사용하여 68개의 접두사가 인접한 *.243.229.34 항목에서 수신되었음을 보여줍니다.
+다음 부분 출력에서는 ASN 12076(MSEE)을 통해 68개의 접두사가 *.243.229.34 인접 항목에서 수신되었음을 보여줍니다.
 
 ```
 ...
@@ -134,7 +134,7 @@ IPsec 터널 쌍을 통해 개인 네트워크 경로를 교환하도록 eBGP �
 
 ### <a name="about-the-azure-resource-manager-template-examples"></a>Azure Resource Manager 템플릿 예제 정보
 
-이 예제에서는 Azure Resource Manager 템플릿을 사용하여 VPN Gateway 및 IPsec 터널이 종료되도록 구성됩니다. 처음 Resource Manager 템플릿을 사용하거나 Resource Manager 템플릿 기본 사항을 이해하려는 경우 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 이 섹션의 템플릿은 최적의 Azure 환경(VNet)을 만듭니다. 그러나 기존 VNet이 있는 경우 템플릿에서 참조할 수 있습니다. VPN Gateway IPsec/IKE 사이트 간 구성에 익숙하지 않은 경우 [사이트 간 연결 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
+이 예제에서는 Azure Resource Manager 템플릿을 사용하여 VPN Gateway 및 IPsec 터널이 종료되도록 구성됩니다. 처음 Resource Manager 템플릿을 사용하거나 Resource Manager 템플릿 기본 사항을 이해하려는 경우 [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 이 섹션의 템플릿은 아직 개발되지 않은 Azure 환경(VNet)을 만듭니다. 그러나 기존 VNet이 있는 경우 템플릿에서 참조할 수 있습니다. VPN Gateway IPsec/IKE 사이트 간 구성에 익숙하지 않은 경우 [사이트 간 연결 만들기](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)를 참조하세요.
 
 >[!NOTE]
 >이 구성을 만들기 위해 Azure Resource Manager 템플릿을 사용할 필요가 없습니다. Azure Portal 또는 PowerShell을 사용하여 이 구성을 만들 수 있습니다.
@@ -167,7 +167,7 @@ IPsec 터널 쌍을 통해 개인 네트워크 경로를 교환하도록 eBGP �
   "gatewayName": "vpnGw",                 // Name of the Azure VPN gateway
   "gatewaySku": "VpnGw1",                 // Azure VPN gateway SKU
   "vpnType": "RouteBased",                // type of VPN gateway
-  "sharedKey": "string",                  // shared secret needs to match with on-premise configuration
+  "sharedKey": "string",                  // shared secret needs to match with on-premises configuration
   "asnVpnGateway": 65000,                 // BGP Autonomous System number assigned to the VPN Gateway 
   "asnRemote": 65010,                     // BGP Autonmous Syste number assigned to the on-premises device
   "bgpPeeringAddress": "172.16.0.3",      // IP address of the remote BGP peer on-premises
@@ -181,7 +181,7 @@ IPsec 터널 쌍을 통해 개인 네트워크 경로를 교환하도록 eBGP �
 
 ### <a name="vnet"></a>3.2 VNet(가상 네트워크) 만들기
 
-VPN 터널과 기존 VNet을 연결하는 경우 이 단계를 건너뛸 수 있습니다.
+기존 VNet을 VPN 터널과 연결하는 경우 이 단계를 건너뛸 수 있습니다.
 
 ```json
 {
@@ -271,7 +271,7 @@ VPN Gateway의 각 인스턴스에 공용 IP 주소를 할당합니다.
 템플릿의 이 섹션은 활성-활성 구성에 대한 필수 설정을 사용하여 VPN Gateway를 구성합니다. 다음 요구 사항을 고려하세요.
 
 * **"RouteBased"** VpnType을 사용하여 VPN Gateway를 만듭니다. 이 설정은 VPN Gateway와 VPN 온-프레미스 간에 BGP 라우팅을 사용하도록 설정하려는 경우에 필수입니다.
-* 활성-활성 모드에서 VPN Gateway의 두 인스턴스와 지정된 온-프레미스 장치 간에 VPN 터널을 설정하려면 Resource Manager 템플릿에서 **"activeActive"** 매개 변수를 **true**로 설정합니다. 항상 사용 가능한 VPN Gateway에 대한 자세한 정보를 이해하려면 [항상 사용 가능한 VPN Gateway 연결](../vpn-gateway/vpn-gateway-highlyavailable.md)을 참조하세요.
+* 활성-활성 모드에서 VPN Gateway의 두 인스턴스와 지정된 온-프레미스 장치 간에 VPN 터널을 설정하려면 Resource Manager 템플릿에서 **"activeActive"** 매개 변수를 **true**로 설정합니다. 고가용성 VPN Gateway에 대한 자세한 정보를 이해하려면 [고가용성 VPN Gateway 연결](../vpn-gateway/vpn-gateway-highlyavailable.md)을 참조하세요.
 * VPN 터널 간에 eBGP 세션을 구성하려면 양쪽에 두 개의 다른 ASN을 지정해야 합니다. 개인 ASN 번호를 지정하는 것이 좋습니다. 자세한 내용은 [BGP 및 Azure VPN Gateway 개요](../vpn-gateway/vpn-gateway-bgp-overview.md)를 참조하세요.
 
 ```json
@@ -365,9 +365,9 @@ Azure VPN Gateway는 여러 공급 업체의 여러 VPN 장치와 호환됩니�
 VPN 장치를 구성할 때 다음 항목이 필요합니다.
 
 * 공유 키 - 사이트 간 VPN 연결을 만들 때 지정하는 것과 동일한 공유 키입니다. 이 예제에서는 기본적인 공유 키를 사용합니다. 실제로 사용할 키는 좀 더 복잡하게 생성하는 것이 좋습니다.
-* VPN Gateway의 공용 IP 주소입니다. Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. Azure Portal을 사용하여 VPN Gateway의 공용 IP 주소를 찾으려면 가상 네트워크 게이트웨이로 이동한 다음 게이트웨이의 이름을 클릭합니다.
+* VPN Gateway의 공용 IP 주소 - Azure Portal, PowerShell 또는 CLI를 사용하여 공용 IP 주소를 볼 수 있습니다. Azure Portal을 사용하여 VPN Gateway의 공용 IP 주소를 찾으려면 가상 네트워크 게이트웨이로 이동한 다음, 게이트웨이의 이름을 클릭합니다.
 
-일반적으로 eBGP 피어는 직접 연결됩니다(종종 WAN 연결). 그러나 ExpressRoute Microsoft 피어링을 통해 IPsec VPN 터널에 eBGP를 구성하는 경우 eBGP 피어 간에 여러 라우팅 도메인이 있습니다. 두 개의 직접 연결 피어 간에 eBGP 인접 관계를 설정하는 **ebgp-multihop** 명령을 사용합니다. ebgp-multihop 명령 뒤에 오는 정수는 BGP 패킷에서 TTL 값을 지정합니다. **maximum-paths eibgp 2** 명령은 두 개의 BGP 경로 간에 트래픽 부하를 분산할 수 있습니다.
+일반적으로 eBGP 피어는 직접 연결됩니다(종종 WAN 연결을 통해). 그러나 ExpressRoute Microsoft 피어링을 통해 IPsec VPN 터널에 eBGP를 구성하는 경우 eBGP 피어 간에 여러 라우팅 도메인이 있습니다. 직접 연결되지 않은 두 개의 피어 간에 eBGP 인접 관계를 설정하려면 **ebgp-multihop** 명령을 사용합니다. ebgp-multihop 명령 뒤에 오는 정수는 BGP 패킷에서 TTL 값을 지정합니다. **maximum-paths eibgp 2** 명령은 두 개의 BGP 경로 간에 트래픽 부하를 분산할 수 있습니다.
 
 ### <a name="cisco1"></a>Cisco CSR1000 예제
 
@@ -603,7 +603,7 @@ csr1#show crypto ipsec sa | inc encaps|decaps
 
 ### <a name="verifye2e"></a>내부 네트워크 온-프레미스와 Azure VNet 간에 종단 간 연결 확인
 
-IPsec 터널이 가동되고 고정 경로가 정확하게 설정되는 경우 원격 BGP 피어의 IP 주소를 ping할 수 있습니다.
+IPsec 터널이 실행 중이고 고정 경로가 정확하게 설정되어 있는 경우 원격 BGP 피어의 IP 주소를 ping할 수 있습니다.
 
 ```
 csr1#ping 10.2.0.228
@@ -637,7 +637,7 @@ Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw 
 65000 07:13:51.0109601  10.2.0.228              507          500   10.2.0.229               6 Connected
 ```
 
-VPN 집선 장치 온-프레미스에서 eBGP를 통해 수신된 네트워크 접두사 목록을 확인하려면 "출처" 특성으로 필터링하면 됩니다.
+VPN 집선 장치 온-프레미스에서 eBGP를 통해 수신된 네트워크 접두사 목록을 확인하려면 "Origin" 특성으로 필터링하면 됩니다.
 
 ```powershell
 Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
@@ -692,7 +692,7 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 4
 ```
 
-다음 명령을 사용하여 온-프레미스 Cisco CSR1000에서 Azure VPN Gateway로 보급된 네트워크 목록이 나열될 수 있습니다.
+온-프레미스 Cisco CSR1000에서 Azure VPN Gateway로 보급된 네트워크 목록을 나열하려면 다음 명령을 사용합니다.
 
 ```powershell
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes

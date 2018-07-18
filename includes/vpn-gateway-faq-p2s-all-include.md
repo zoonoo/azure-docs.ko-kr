@@ -5,14 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 06/04/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 072c16a0e50a4922d44dd354b632f39b33d23cdd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 199998f193f375137d499913e9ce966f85ed863c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38727542"
 ---
 ### <a name="supportedclientos"></a>지점 및 사이트 간 연결에 사용할 수 있는 클라이언트 운영 체제는 무엇인가요?
 
@@ -20,7 +21,6 @@ ms.lasthandoff: 03/28/2018
 
 * Windows 7(32비트 및 64비트)
 * Windows Server 2008 R2(64비트 전용)
-* Windows 8(32비트 및 64비트)
 * Windows 8.1(32비트 및 64비트)
 * Windows Server 2012(64비트 전용)
 * Windows Server 2012 R2(64비트 전용)
@@ -28,6 +28,12 @@ ms.lasthandoff: 03/28/2018
 * 윈도우 10
 * Mac OS X 버전 10.11(El Capitan)
 * Mac OS X 버전 10.12(Sierra)
+* Linux(StrongSwan)
+* iOS
+
+>[!NOTE]
+>[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
+>
 
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>지점 및 사이트 간 구성에서 VPN 클라이언트 끝점을 몇 개까지 지정할 수 있습니까?
 
@@ -55,7 +61,7 @@ Azure에서는 두 가지 형식의 지점 및 사이트 VPN 옵션을 지원합
 
 ### <a name="can-i-configure-a-point-to-site-client-to-connect-to-multiple-virtual-networks-at-the-same-time"></a>지점 및 사이트 간 클라이언트를 여러 가상 네트워크에 동시에 연결하도록 구성할 수 있습니까?
 
-번호 지점 및 사이트 간 클라이언트만이 가상 네트워크 게이트웨이가 있는 VNet의 리소스에 연결할 수 있습니다.
+아니요. 지점 및 사이트 간 클라이언트만이 가상 네트워크 게이트웨이가 있는 VNet의 리소스에 연결할 수 있습니다.
 
 ### <a name="how-much-throughput-can-i-expect-through-site-to-site-or-point-to-site-connections"></a>사이트 간 연결 또는 지점 및 사이트 간 연결을 통해 어느 정도의 처리량을 제공할 수 있습니까?
 
@@ -63,7 +69,7 @@ VPN 터널의 정확한 처리량을 유지하는 것은 어렵습니다. IPsec�
 
 ### <a name="can-i-use-any-software-vpn-client-for-point-to-site-that-supports-sstp-andor-ikev2"></a>SSTP 및/또는 IKEv2를 지원하는 지점 및 사이트 간 연결에 소프트웨어 VPN 클라이언트를 사용할 수 있나요?
 
-번호 SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제 목록을 참조하세요.
+아니요. SSTP의 경우 Windows에서 네이티브 VPN 클라이언트를 사용하고 IKEv2의 경우 Mac에서 네이티브 VPN 클라이언트를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제 목록을 참조하세요.
 
 ### <a name="does-azure-support-ikev2-vpn-with-windows"></a>Azure는 Windows에서 IKEv2 VPN을 지원합니까?
 
@@ -87,7 +93,7 @@ IKEv2에 대해 Windows 10 또는 Server 2016을 준비하려면:
 
 ### <a name="other-than-windows-and-mac-which-other-platforms-does-azure-support-for-p2s-vpn"></a>Azure는 P2S VPN에 대해 Windows나 Mac 이외에 다른 어떤 플랫폼을 지원합니까?
 
-Azure는 P2S VPN에 대해 Windows와 Mac 만을 지원합니다.
+Azure는 P2S VPN에 대해 Windows, Mac 및 Linux를 지원합니다.
 
 ### <a name="i-already-have-an-azure-vpn-gateway-deployed-can-i-enable-radius-andor-ikev2-vpn-on-it"></a>배포된 Azure VPN Gateway가 이미 있습니다. 여기에서 RADIUS 및/또는 IKEv2 VPN을 사용할 수 있습니까?
 

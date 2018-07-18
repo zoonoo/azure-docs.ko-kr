@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 2/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4caa4dfcfdc468c69241c5cf61d3c520609a088a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e52674014a888913e288f7b0749d9b2e05bedf45
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710266"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36292789"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>빠른 시작 - Azure Active Directory B2C를 사용하여 ASP.NET 응용 프로그램에 대한 로그인 설정
 
@@ -124,4 +124,4 @@ Azure AD B2C 사용자 계정을 사용하여 Azure AD B2C 보안 웹 API에 대
 자습서를 계속 진행하여 자신만의 Azure AD B2C 테넌트를 사용하도록 샘플 ASP.NET을 구성하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [자습서: ASP.NET 웹앱에서 Azure Active Directory B2C를 사용하여 사용자 인증](active-directory-b2c-tutorials-web-app.md)
+> [Azure Portal에서 Azure Active Directory B2C 테넌트 만들기](tutorial-create-tenant.md)

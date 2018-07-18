@@ -1,5 +1,5 @@
 ---
-title: 무료 서비스 사용량 모니터링 및 추적 - Azure| Microsoft Docs
+title: Azure 무료 서비스 사용량 모니터링 및 추적 | Microsoft Docs
 description: 무료 서비스 사용량을 확인하는 방법을 알아봅니다. Azure Portal 및 사용량 csv를 사용합니다.
 services: ''
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: amberb
-ms.openlocfilehash: 560137d92491da46fda950dec84a0a7caa3ed720
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 7fa0196b7a44ef20ecd63797869dffea55f92c3d
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33205893"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061319"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인 
 

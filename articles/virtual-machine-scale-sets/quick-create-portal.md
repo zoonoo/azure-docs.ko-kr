@@ -4,7 +4,7 @@ description: Azure Portal에서 가상 머신 확장 집합을 빠르게 만드�
 keywords: 가상 머신 크기 집합
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
-ms.author: iainfou
-ms.openlocfilehash: 03b4468fd1032b94cde5d83bc871c32e0c21df1c
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: cynthn
+ms.openlocfilehash: fb3a3e1cec0d6ec15495e677e7bead1c02445803
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247361"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38680961"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 가상 머신 확장 집합을 사용하면 동일한 자동 크기 조정 가상 머신 집합을 배포하고 관리할 수 있습니다. 확장 집합의 VM 수를 수동으로 조정하거나 리소스 사용량(예: CPU, 메모리 요구량 또는 네트워크 트래픽)에 따라 자동으로 크기를 조정하는 규칙을 정의할 수 있습니다. 그러면 Azure 부하 분산 장치에서 확장 집합의 VM 인스턴스에 트래픽을 분산합니다. 이 빠른 시작에서는 Azure Portal에서 가상 머신 확장 집합을 만듭니다.
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
-http://portal.azure.com 에서 Azure Portal에 로그인합니다.
+Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 
 ## <a name="create-virtual-machine-scale-set"></a>가상 머신 확장 집합 만들기

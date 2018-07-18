@@ -3,21 +3,23 @@ title: Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Singl
 description: 기존 Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하고 자습서를 사용하여 신속하게 준비하는 방법
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 47aab24702be966beeb41371201c6966497dc35a
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: barbkess
+ms.openlocfilehash: f74e614cd8709503afcbae8714732bbacf7c2ae2
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331653"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
@@ -165,7 +167,7 @@ Azure AD에서 응용 프로그램 메타데이터 또는 인증서를 다운로
 
 8.  **SAML 서명 인증서** 섹션으로 이동한 다음 **다운로드** 열 값을 클릭합니다. Single Sign-On을 구성해야 할 응용 프로그램에 따라 메타데이터 XML이나 인증서를 다운로드하는 옵션이 표시됩니다.
 
-Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니다. 메타데이터는 XML 파일로만 검색할 수 있습니다.
+Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 응용 프로그램 관련 메타데이터 URL(https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>)을 가져오려면 이 패턴을 따릅니다.
 
 ## <a name="assign-users-to-the-application"></a>응용 프로그램에 사용자 할당
 

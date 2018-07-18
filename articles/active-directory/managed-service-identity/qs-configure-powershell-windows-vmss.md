@@ -9,17 +9,17 @@ editor: ''
 ms.service: active-directory
 ms.component: msi
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 97c5e2dde3faeaad13317597bef4f70455d22102
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 61fa6c94c0d717fe1e71bf8929f2e3b4a0982562
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930132"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903882"
 ---
 # <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>PowerShell을 사용하여 VMSS MSI(관리 서비스 ID) 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "33930132"
 
 관리 서비스 ID는 Azure Active Directory에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명을 포함할 필요가 없습니다. 
 
-이 문서에서는 PowerShell을 사용하여 Azure VMSS(Virtual Machine Scale Set)에서 다음과 같은 관리 서비스 ID 작업을 수행하는 방법을 알아봅니다.
+이 아티클에서는 PowerShell을 사용하여 Azure VMSS(Virtual Machine Scale Set)에서 관리 서비스 ID 작업을 수행하는 방법을 알아봅니다.
 - Azure VMSS에서 시스템 할당 ID를 사용 및 사용하지 않도록 설정
 - Azure VMSS에서 사용자 할당 ID 추가 및 제거
 
@@ -122,8 +122,7 @@ PowerShell을 통해 사용자 할당 ID가 있는 새 VMSS 만들기는 현재 
 
 2. 먼저 `Get-AzureRmVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 다음, Azure VMSS에 사용자 할당 ID를 할당하고 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet에서 `-IdentityType` 및 `-IdentityID` 스위치를 사용합니다. `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2`를 사용자 고유의 값으로 바꿉니다.
 
-   > [!IMPORTANT]
-   > 사용자 할당 ID 만들기는 영숫자와 하이픈(0-9 또는 a-z 또는 A-Z 또는 -) 문자만 지원합니다. 또한 VM/VMSS에 대한 할당이 제대로 작동하려면 이름의 길이가 24자로 제한되어야 합니다. 업데이트를 다시 확인하세요. 자세한 내용은 [FAQ 및 알려진 문제](known-issues.md)를 참조하세요.
+   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 
    ```powershell

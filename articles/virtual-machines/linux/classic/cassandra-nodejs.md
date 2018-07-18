@@ -1,11 +1,11 @@
 ---
-title: "Node.js에서 Azure의 Linux에서 Cassandra 클러스터 실행"
-description: "Node.js 앱에서 Azure Virtual Machines의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다."
+title: Node.js에서 Azure의 Linux에서 Cassandra 클러스터 실행
+description: Node.js 앱에서 Azure Virtual Machines의 Linux에서 Cassandra 클러스터를 실행하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: nodejs
 author: craigshoemaker
 manager: routlaw
-editor: 
+editor: ''
 tags: azure-service-management
 ms.assetid: 30de1f29-e97d-492f-ae34-41ec83488de0
 ms.service: virtual-machines-linux
@@ -15,11 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 00e42a00dffd1be37073f10f6ff7bff619fdee85
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: b1945c68f0e320c834ae93a590f420403263a0fd
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098943"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>Node.js를 사용하여 Azure의 Linux에서 Cassandra 클러스터 실행
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 01/19/2018
 > Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다. [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) 및 [CentOS의 Spark 클러스터 및 Cassandra](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/)는 Resource Manager 템플릿을 참조하세요.
 
 ## <a name="overview"></a>개요
-Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들웨어뿐 아니라 상용 및 오픈 소스 모델의 SQL 및 NoSQL 데이터베이스를 포함하는 Microsoft 및 타사 소프트웨어를 실행하는 개방형 클라우드 플랫폼입니다. Azure를 비롯한 공용 클라우드에 복원 서비스를 빌드하려면 응용 프로그램 서버 및 저장소 계층 둘 다의 신중한 계획과 세밀한 아키텍처가 필요합니다. Cassandra의 분산 저장소 아키텍처는 클러스터 오류에 대한 내결함성이 있는 고가용성 시스템 빌드에 도움이 됩니다. Cassandra는 cassandra.apache.org에서 Apache Software Foundation에 의해 유지 관리되는 클라우드 규모의 NoSQL 데이터베이스입니다. Cassandra는 Java로 작성됩니다. 따라서 Windows 및 Linux 플랫폼에서 모두 실행됩니다.
+Microsoft Azure는 운영 체제, 응용 프로그램 서버, 메시징 미들웨어뿐 아니라 상용 및 오픈 소스 모델의 SQL 및 NoSQL 데이터베이스를 포함하는 Microsoft 및 타사 소프트웨어를 실행하는 개방형 클라우드 플랫폼입니다. Azure를 비롯한 공용 클라우드에 복원 서비스를 빌드하려면 응용 프로그램 서버 및 저장소 계층 둘 다의 신중한 계획과 세밀한 아키텍처가 필요합니다. Cassandra의 분산 저장소 아키텍처는 클러스터 오류에 대한 내결함성이 있는 고가용성 시스템 빌드에 도움이 됩니다. Cassandra는 cassandra.apache.org의 Apache Software Foundation에서 유지 관리하는 클라우드 규모의 NoSQL 데이터베이스입니다. Cassandra는 Java로 작성됩니다. 따라서 Windows 및 Linux 플랫폼에서 모두 실행됩니다.
 
 이 문서는 Azure Virtual Machines 및 Virtual Network를 사용하는 단일 및 다중 데이터 센터 클러스터로 Ubuntu에 Cassandra를 배포하는 과정을 보여 주는 데 중점을 둡니다. 프로덕션에 최적화된 작업을 위한 클러스터 배포는 필요한 복제, 데이터 일관성, 처리량 및 고가용성 요구 사항을 충족하기 위해 다중 디스크 노드 구성, 적절한 링 토폴로지 디자인 및 데이터 모델링이 필요하므로 이 문서의 범위를 벗어납니다.
 
@@ -58,11 +59,11 @@ Cassandra는 작업의 분산 특성에 따라 단일 Azure 지역이나 여러 
 
 **로드 균형 조정 Thrift 트래픽:** 웹 서버 내부의 Thrift 클라이언트 라이브러리는 내부 부하 분산 장치를 통해 클러스터에 연결합니다. 이렇게 하려면 Cassandra 클러스터를 호스팅하는 클라우드 서비스의 컨텍스트에서 "데이터" 서브넷에 내부 부하 분산 장치를 추가하는 프로세스가 필요합니다(그림 1 참조). 내부 부하 분산을 정의한 후, 각 노드에서 부하 분산된 끝점이 이전에 정의된 부하 분산 장치 이름을 포함하는 부하 분산된 집합의 주석으로 추가되어야 합니다. 자세한 내용은 [Azure 내부 부하 분산 ](../../../load-balancer/load-balancer-internal-overview.md)을 참조하세요.
 
-**클러스터 시드:** 새 노드는 시드 노드와 통신하여 클러스터의 토폴로지를 검색하므로 시드에 대해서는 가장 가용성이 큰 노드를 선택하는 것이 중요합니다. 단일 실패 지점을 방지하기 위해 각 가용성 집합에서 하나의 노드가 시드 노드로 지정됩니다.
+**클러스터 시드:** 새 노드는 시드 노드와 통신하여 클러스터의 토폴로지를 검색하므로 가장 가용성이 큰 노드를 시드로 선택하는 것이 중요합니다. 단일 실패 지점을 방지하기 위해 각 가용성 집합에서 하나의 노드가 시드 노드로 지정됩니다.
 
-**복제 요소 및 일관성 수준:** Cassandra의 기본 제공 고가용성 및 데이터 지속성의 특징은 복제 계수(RF-클러스터에 저장된 각 행의 복사본 매수) 및 일관성 수준(호출자에게 결과를 반환하기 전에 읽기/쓰기를 수행할 복제본의 수)입니다. 복제 요소는 CRUD 쿼리 실행 중 일관성 수준을 지정하는 반면 KEYSPACE(관계형 데이터베이스와 유사)를 만드는 동안 지정됩니다. 일관성 세부 정보 및 쿼럼 계산에 대한 수식은 [일관성을 위해 구성](http://www.datastax.com/documentation/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html) 의 Cassandra 설명서를 참조하세요.
+**복제 요소 및 일관성 수준:** Cassandra의 기본 제공 고가용성 및 데이터 지속성의 특징은 복제 계수(RF-클러스터에 저장된 각 행의 복사본 매수) 및 일관성 수준(호출자에게 결과를 반환하기 전에 읽기/쓰기를 수행할 복제본의 수)입니다. 복제 요소는 CRUD 쿼리 실행 중 일관성 수준을 지정하는 반면 KEYSPACE(관계형 데이터베이스와 유사)를 만드는 동안 지정됩니다. 일관성 세부 정보 및 쿼럼 계산에 대한 수식은 [일관성을 위해 구성](https://docs.datastax.com/en/cassandra/3.0/cassandra/dml/dmlConfigConsistency.html) 의 Cassandra 설명서를 참조하세요.
 
-Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 최종 일관성을 지원합니다. 복제 계수 및 일관성 수준이 결합되어 쓰기 작업이 완료되는 즉시 데이터가 일치하는지 또는 최종적으로 일치하는지를 결정합니다. 예를 들어 QUORUM을 일관성 수준으로 지정하면 항상 데이터 일관성이 유지되는 반면 QUORUM 실현에 필요한 쓸 복제본 수보다 낮은 일관성 수준(예: ONE)에서는 데이터가 최종적으로 일치합니다.
+Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 최종 일관성을 지원합니다. 복제 계수 및 일관성 수준이 결합되어 쓰기 작업이 완료되는 즉시 데이터가 일치하는지 또는 최종적으로 일치하는지를 결정합니다. 예를 들어 QUORUM을 일관성 수준으로 지정하면 항상 데이터 일관성이 유지되는 반면, QUORUM 실현에 필요한 쓸 복제본 수보다 적게 지정하면(예: ONE) 데이터가 최종적으로 일치합니다.
 
 복제 계수가 3이고 읽기/쓰기 일관성 수준이 QUORUM(일관성을 위해 2개 노드를 읽거나 씀)인 위에 표시된 8 노드 클러스터는 응용 프로그램에서 실패를 감지하기 전에 복제 그룹당 최대 1개 노드의 이론적 손실을 감당할 수 있습니다. 이 경우 모든 주요 공간에서 읽기/쓰기 요청의 균형이 잘 조정되어 있다고 가정합니다.  다음은 배포된 클러스터에 사용할 매개 변수입니다.
 
@@ -74,17 +75,17 @@ Cassandra는 두 가지 유형의 데이터 무결성 모델, 즉 일관성과 �
 | 복제 계수(RF) |3 |지정된 행의 복제본 수 |
 | 일관성 수준(쓰기) |QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 |응답이 호출자에게 전송되기 전에 최대 2개의 복제본에 씁니다. 세 번째 복제본은 최종 일관성 방식으로 작성됩니다. |
 | 일관성 수준(읽기) |QUORUM [(RF/2) +1= 2] 공식 결과는 버림됨 |호출자에게 응답을 보내기 전에 2개의 복제본을 읽습니다. |
-| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
-| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Switches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
+| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Switches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
-**Cassandra 클러스터에 대한 Azure 고려 사항:** Microsoft Azure Virtual Machines 기능은 디스크 지속성을 위해 Azure Blob Storage를 사용합니다. Azure Storage는 높은 내구성을 위해 각 디스크의 복제본을 3개 저장합니다. 즉, Cassandra 테이블에 삽입된 데이터의 각 행은 3개의 복제본에 이미 저장되어 있습니다. 따라서 복제 계수(RF)가 1이더라도 데이터 일관성이 처리됩니다. 복제 요소가 1인 가장 큰 문제는 단 하나의 Cassandra 노드가 실패하더라도 응용 프로그램에서 작동 중지 시간이 발생한다는 것입니다. 그러나 Azure 패브릭 컨트롤러에서 인식된 문제(예: 하드웨어, 시스템 소프트웨어 오류)에 대한 노드가 다운되는 경우, 동일한 저장소 드라이브를 사용하여 해당 위치에 새 노드를 프로비전합니다. 새 노드를 프로비전하여 이전 노드로 바꾸려면 몇 분 정도 걸릴 수 있습니다.  게스트 OS 변경 같이 계획된 유지 관리 작업과 마찬가지로, Cassandra가 업그레이드되고 응용 프로그램이 변경되어 Azure Fabric Controller는 클러스터에서 노드의 롤링 업그레이드를 수행합니다.  롤링 업그레이드도 한번에 몇 노드를 분해하므로 클러스터는 몇 파티션에 대해 간단한 가동 중지가 발생할 수 있습니다. 그러나 데이터는 기본 제공 Azure Storage 중복으로 손실되지 않습니다.  
+**Cassandra 클러스터에 대한 Azure 고려 사항:** Microsoft Azure Virtual Machines 기능은 디스크 지속성을 위해 Azure Blob Storage를 사용합니다. Azure Storage는 높은 내구성을 위해 각 디스크의 복제본을 3개 저장합니다. 즉, Cassandra 테이블에 삽입된 데이터의 각 행은 3개의 복제본에 이미 저장되어 있습니다. 따라서 복제 계수(RF)가 1이더라도 데이터 일관성이 처리됩니다. 복제 요소가 1인 가장 큰 문제는 단 하나의 Cassandra 노드가 실패하더라도 응용 프로그램에서 작동 중지 시간이 발생한다는 것입니다. 그러나 Azure 패브릭 컨트롤러에서 인식된 문제(예: 하드웨어, 시스템 소프트웨어 오류)로 인해 노드가 다운되는 경우, 동일한 저장소 드라이브를 사용하여 해당 위치에 새 노드를 프로비전합니다. 새 노드를 프로비전하여 이전 노드로 바꾸려면 몇 분 정도 걸릴 수 있습니다.  게스트 OS 변경 같이 계획된 유지 관리 작업과 마찬가지로, Cassandra가 업그레이드되고 응용 프로그램이 변경되어 Azure Fabric Controller는 클러스터에서 노드의 롤링 업그레이드를 수행합니다.  롤링 업그레이드도 한번에 몇 노드를 분해하므로 클러스터는 몇 파티션에 대해 간단한 가동 중지가 발생할 수 있습니다. 그러나 데이터는 기본 제공 Azure Storage 중복으로 손실되지 않습니다.  
 
-Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 약 99.9, 자세한 내용은 [고가용성](http://en.wikipedia.org/wiki/High_availability) 참조)이 필요하지 않은 경우 RF=1 및 일관성 수준=ONE으로 실행할 수 있습니다.  고가용성 요구 사항이 있는 응용 프로그램의 경우 RF=3 및 일관성 수준=QUORUM은 복제본 한 개당 노드 한 개의 가동 중지 시간을 감당합니다. 기존 배포(예: 온-프레미스)의 RF=1은 디스크 오류 등의 문제로 인한 데이터 손실 때문에 사용할 수 없습니다.   
+Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 약 99.9, 자세한 내용은 [고가용성](http://en.wikipedia.org/wiki/High_availability) 참조)이 필요하지 않은 경우 RF=1 및 일관성 수준=ONE으로 실행할 수 있습니다.  고가용성 요구 사항이 있는 응용 프로그램의 경우 RF=3 및 일관성 수준=QUORUM은 복제본 한 개당 노드 한 개의 가동 중지 시간을 감당합니다. 디스크 오류 등의 문제로 인한 데이터 손실 가능성 때문에 기존 배포(예: 온-프레미스)에서는 RF=1을 사용할 수 없습니다.   
 
 ## <a name="multi-region-deployment"></a>다중 지역 배포
 위에서 설명한 Cassandra의 데이터 센터 인식 복제 및 일관성 모델은 외부 도구를 사용할 필요 없이 다중 지역 배포를 도와줍니다. 이것이 다중 마스터 쓰기를 위한 데이터베이스 미러링 설정이 복잡할 수 있는 기존 관계형 데이터베이스와의 차이점입니다. 다중 지역 설정의 Cassandra는 다음 시나리오를 비롯한 사용 시나리오에서 유용할 수 있습니다.
 
-**근접 기반 배포:** 테넌트 사용자를 명확하게 지역으로 매핑한 다중 테넌트 응용 프로그램은 다중 지역 클러스터의 낮은 대기 시간의 이점이 있을 수 있습니다. 예를 들어, 교육 기관에 대한 학습 관리 시스템은 미국 동부 및 미국 서부 지역에 분산된 클러스터를 배포하여 트랜잭션 및 분석을 위해 각 캠퍼스를 제공합니다. 데이터는 시간 읽기 및 쓰기에 로컬로 일관되어 두 영역에서 일관성이 있을 수 있습니다. 미디어 배포, 전자 상거래와 같은 다른 예제는 없으며, 지역 관련 사용자 기반을 제공하는 모든 것이 이 배포 모델에 대한 좋은 사용 사례입니다.
+**근접 기반 배포:** 테넌트 사용자를 명확하게 지역으로 매핑한 다중 테넌트 응용 프로그램은 다중 지역 클러스터의 낮은 대기 시간의 이점이 있을 수 있습니다. 예를 들어, 교육 기관을 위한 학습 관리 시스템은 미국 동부 및 미국 서부 지역에 분산된 클러스터를 배포하여 트랜잭션 및 분석을 위해 각 캠퍼스에서 사용할 수 있습니다. 데이터는 시간 읽기 및 쓰기에 로컬로 일관되어 두 영역에서 일관성이 있을 수 있습니다. 미디어 배포, 전자 상거래와 같은 다른 예제는 없으며, 지역 관련 사용자 기반을 제공하는 모든 것이 이 배포 모델에 대한 좋은 사용 사례입니다.
 
 **고가용성:** 중복성은 소프트웨어 및 하드웨어의 높은 가용성을 계산하는 핵심 요소이며 자세한 내용은 Microsoft Azure에서 신뢰할 수 있는 클라우드 시스템 구축을 참조하세요. Microsoft Azure에서 진정한 중복성을 달성하는 신뢰할 수 있는 유일한 방법은 다중 지역 클러스터를 배포하는 것입니다. 액티브-패시브 또는 액티브-액티브 모드로 응용 프로그램을 배포할 수 있으며, 지역 중 하나가 다운되는 경우 Azure Traffic Manager는 활성 영역에 트래픽을 리디렉션할 수 있습니다.  단일 지역 배포로 가용성이 99.9인 경우, 두 지역 배포는 공식 (1-(1-0.999) * (1-0.999))*100)으로 계산된 99.9999의 가용성을 얻을 수 있습니다. 자세한 내용은 위 문서를 참조하세요.
 
@@ -107,10 +108,10 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 | --- | --- | --- |
 | 노드 수(N) |8 + 8 |클러스터의 총 노드 수 |
 | 복제 계수(RF) |3 |지정된 행의 복제본 수 |
-| 일관성 수준(쓰기) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 |2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 할당량에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
+| 일관성 수준(쓰기) |LOCAL_QUORUM [(sum(RF)/2) +1) = 4] 수식의 결과는 버림됨 |2개 노드는 첫 번째 데이터 센터에 동기적으로 기록됩니다. 쿼럼에 필요한 추가 2개 노드는 두 번째 데이터 센터에 비동기적으로 기록됩니다. |
 | 일관성 수준(읽기) |LOCAL_QUORUM ((RF/2) +1) = 2 공식 결과는 버림됨 |읽기 요청은 한 지역에서만 충족됩니다. 응답이 클라이언트로 다시 전송되기 전에 2개 노드를 읽습니다. |
-| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureDataDistributeReplication_c.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
-| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](http://www.datastax.com/documentation/cassandra/2.0/cassandra/architecture/architectureSnitchesAbout_c.html) 를 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
+| 복제 전략 |NetworkTopologyStrategy자세한 내용은 Cassandra 설명서의 [데이터 복제](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archDataDistributeAbout.html) 참조 |배포 토폴로지를 이해하고 모든 복제본이 동일한 랙에 배포되지 않도록 노드에 복제본을 배치합니다. |
+| Snitch |GossipingPropertyFileSnitch 자세한 내용은 Cassandra 설명서의 [Snitches](https://docs.datastax.com/en/cassandra/3.0/cassandra/architecture/archSnitchesAbout.html) 를 참조 |NetworkTopologyStrategy는 snitch 개념을 사용하여 토폴로지를 파악합니다. GossipingPropertyFileSnitch를 사용하면 데이터 센터 및 랙에 대한 각 노드의 매핑을 보다 잘 제어할 수 있습니다. 클러스터는 가십을 사용하여 이 정보를 전파합니다. PropertyFileSnitch에 비해 동적 IP 설정이 훨씬 간단합니다. |
 
 ## <a name="the-software-configuration"></a>소프트웨어 구성
 배포 중에 다음 소프트웨어 버전이 사용됩니다.
@@ -119,7 +120,7 @@ Azure에 배포된 시스템에 고가용성(예: 8.76시간/년과 동등한 �
 <tr><th>소프트웨어</th><th>원본</th><th>버전</th></tr>
 <tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
-<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/2.0.8/apache-cassandra-2.0.8-bin.tar.gz)</td><td> 2.0.8</td></tr>
+<tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
@@ -332,11 +333,11 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
 <tr><td>hk-c1-west-us    </td><td>데이터    </td><td>10.1.2.4    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1 </td><td>예</td></tr>
 <tr><td>hk-c2-west-us    </td><td>데이터    </td><td>10.1.2.5    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack1    </td><td>아니오 </td></tr>
 <tr><td>hk-c3-west-us    </td><td>데이터    </td><td>10.1.2.6    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>예</td></tr>
-<tr><td>hk-c4-west-us    </td><td>데이터    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>아니오 </td></tr>
+<tr><td>hk-c4-west-us    </td><td>데이터    </td><td>10.1.2.7    </td><td>hk-c-aset-1    </td><td>dc =WESTUS rack =rack2    </td><td>아니요 </td></tr>
 <tr><td>hk-c5-west-us    </td><td>데이터    </td><td>10.1.2.8    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>예</td></tr>
 <tr><td>hk-c6-west-us    </td><td>데이터    </td><td>10.1.2.9    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack3    </td><td>아니요 </td></tr>
 <tr><td>hk-c7-west-us    </td><td>데이터    </td><td>10.1.2.10    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>예</td></tr>
-<tr><td>hk-c8-west-us    </td><td>데이터    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>아니오 </td></tr>
+<tr><td>hk-c8-west-us    </td><td>데이터    </td><td>10.1.2.11    </td><td>hk-c-aset-2    </td><td>dc =WESTUS rack =rack4    </td><td>아니요 </td></tr>
 <tr><td>hk-w1-west-us    </td><td>web    </td><td>10.1.1.4    </td><td>hk-w-aset-1    </td><td>                       </td><td>해당 없음</td></tr>
 <tr><td>hk-w2-west-us    </td><td>web    </td><td>10.1.1.5    </td><td>hk-w-aset-1    </td><td>                       </td><td>해당 없음</td></tr>
 </table>
@@ -355,7 +356,7 @@ Data 및 Web 서브넷은 이 문서를 범위를 벗어난 네트워크 보안 
         #Tested with Azure Powershell - November 2014
         #This powershell script deployes a number of VMs from an existing image inside an Azure region
         #Import your Azure subscription into the current Powershell session before proceeding
-        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. crate a list of VMs from the template
+        #The process: 1. create Azure Storage account, 2. create virtual network, 3.create the VM template, 2. create a list of VMs from the template
 
         #fundamental variables - change these to reflect your subscription
         $country="us"; $region="west"; $vnetName = "your_vnet_name";$storageAccount="your_storage_account"
@@ -527,7 +528,7 @@ Azure Portal에서 두 가상 네트워크의 “대시보드” 메뉴를 사�
 | 컴퓨터 이름 | 서브넷 | IP 주소 | 가용성 집합 | DC/랙 | 시드 여부 |
 | --- | --- | --- | --- | --- | --- |
 | hk-c1-east-us |데이터 |10.2.2.4 |hk-c-aset-1 |dc =EASTUS rack =rack1 |예 |
-| hk-c2-east-us |데이터 |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |아니오 |
+| hk-c2-east-us |데이터 |10.2.2.5 |hk-c-aset-1 |dc =EASTUS rack =rack1 |아니요 |
 | hk-c3-east-us |데이터 |10.2.2.6 |hk-c-aset-1 |dc =EASTUS rack =rack2 |예 |
 | hk-c5-east-us |데이터 |10.2.2.8 |hk-c-aset-2 |dc =EASTUS rack =rack3 |예 |
 | hk-c6-east-us |데이터 |10.2.2.9 |hk-c-aset-2 |dc =EASTUS rack =rack3 |아니요 |

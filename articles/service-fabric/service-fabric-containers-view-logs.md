@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: ryanwi
-ms.openlocfilehash: b2b3562f65e7e861b7e4dff7b7c26d58081ff29e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: c8b6bc791700e6811f5681ee70329e4d2ac05991
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211928"
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34824614"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Service Fabric 컨테이너 서비스에 대한 로그 보기
 Azure Service Fabric은 컨테이너 오케스트레이터이며 [Windows 및 Linux 컨테이너](service-fabric-containers-overview.md)를 모두 지원합니다.  이 문서에서는 문제를 진단하고 해결할 수 있도록 실행 중인 컨테이너 서비스 또는 비활성 컨테이너의 컨테이너 로그를 보는 방법을 설명합니다.
@@ -35,6 +35,14 @@ Azure Service Fabric은 컨테이너 오케스트레이터이며 [Windows 및 Li
 
 ## <a name="access-the-logs-of-a-dead-or-crashed-container"></a>비활성 또는 손상된 컨테이너의 로그에 액세스
 V6.2부터 [REST API](/rest/api/servicefabric/sfclient-index) 또는 [SFCTL(Service Fabric CLI)](service-fabric-cli.md) 명령을 사용하여 비활성 또는 손상된 컨테이너에 대한 로그를 가져올 수도 있습니다.
+
+### <a name="set-container-retention-policy"></a>컨테이너 보존 정책 설정
+컨테이너 시작 오류 진단을 지원하기 위해 Service Fabric(버전 6.1 이상)은 종료되었거나 시작하지 못한 컨테이너를 보존하도록 지원합니다. 이 정책은 다음 코드 조각과 같이 **ApplicationManifest.xml** 파일에서 설정할 수 있습니다.
+```xml
+ <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
+ ```
+
+**ContainersRetentionCount** 설정은 실패할 때 유지할 컨테이너의 수를 지정합니다. 음수 값을 지정하면 실패한 모든 컨테이너가 유지됩니다. **ContainersRetentionCount** 특성을 지정하지 않으면 컨테이너는 유지되지 않습니다. 또한 **ContainersRetentionCount** 특성은 응용 프로그램 매개 변수도 지원하므로 사용자는 테스트 및 프로덕션 클러스터에 대해 다른 값을 지정할 수 있습니다. 이 기능을 사용하여 컨테이너 서비스가 다른 노드로 이동하지 않도록 방지하려면 배치 제약 조건을 사용하여 특정 노드에 대한 컨테이너 서비스를 대상으로 지정합니다. 이 기능을 사용하여 유지된 컨테이너는 수동으로 제거해야 합니다.
 
 ### <a name="rest"></a>REST (영문)
 [노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 응용 프로그램 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`를 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
@@ -68,6 +76,6 @@ sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttp
 
 ## <a name="next-steps"></a>다음 단계
 - [Linux 컨테이너 응용 프로그램 만들기 자습서](service-fabric-tutorial-create-container-images.md)를 진행합니다.
-- [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)에 대해 자세히 알아봅니다.
+- [Service Fabric 및 컨테이너](service-fabric-containers-overview.md)에 대해 자세알아히 봅니다.
 
 [Image1]: media/service-fabric-containers-view-logs/view-container-logs-sfx.png

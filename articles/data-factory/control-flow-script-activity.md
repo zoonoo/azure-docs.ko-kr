@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory에서 스크립트 작업 | Microsoft Docs
-description: SQL Server 저장 프로시저 작업을 사용하여 데이터 팩터리 파이프라인으로 Azure SQL Database 또는 Azure SQL Data Warehouse에서 저장 프로시저를 호출하는 방법을 알아봅니다.
+description: 스크립트 작업을 사용하여 Data Factory 파이프라인에서 스크립트를 호출할 수 있는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,17 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: a6b5c6f4b74bb78bdfe737af21f689e4ab5980bf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 47151fde09dd2a67c6a321e438d7b1b98ff1aca3
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619000"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37049909"
 ---
 # <a name="script-activity-in-azure-data-factory"></a>Azure Data Factory에서 스크립트 작업
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory V1 설명서](v1/data-factory-introduction.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Data Factory에서 지원하는 다른 제어 흐름 작업을 참조하세요. 

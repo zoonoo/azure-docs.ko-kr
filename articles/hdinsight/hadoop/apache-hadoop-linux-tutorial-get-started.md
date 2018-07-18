@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: jgao
-ms.openlocfilehash: 4cf20dacf66ee334dcd455ce1770609c175d3b88
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c49371d194b3b6f94076cb00595ec9feaeb3fb44
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096403"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure HDInsight에서 Hadoop 및 Hive 시작
 
@@ -77,6 +78,110 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > 기타 클러스터 생성 방법 및 이 자습서에 사용된 속성에 대한 이해는 [HDInsight 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.       
 > 
 >
+
+## <a name="use-vscode-to-run-hive-queries"></a>VSCode를 사용하여 Hive 쿼리 실행
+
+VSCode에서 HDInsight Tools를 가져오는 방법은 [Azure HDInsight Tools for Visual Studio Code 사용](../hdinsight-for-vscode.md)을 참조하세요.
+
+### <a name="submit-interactive-hive-queries"></a>대화형 Hive 쿼리 제출
+
+HDInsight Tools for VSCode를 사용하면 HDInsight 대화형 쿼리 클러스터에 대화형 Hive 쿼리를 제출할 수 있습니다.
+
+1. 새 작업 폴더 및 새 Hive 스크립트 파일을 만듭니다(아직 없는 경우).
+
+2. Azure 계정에 연결한 다음 기본 클러스터를 구성합니다(아직 구성하지 않은 경우).
+
+3. 다음 코드를 복사하여 Hive 파일에 붙여넣은 후 파일을 저장합니다.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: Hive Interactive**를 선택하여 쿼리를 제출합니다. 이 도구에서는 상황에 맞는 메뉴를 사용하여 전체 스크립트 파일 대신 코드 블록을 제출할 수도 있습니다. 잠시 후 다음과 같이 새 탭에 쿼리 결과가 표시됩니다.
+
+   ![대화형 Hive 결과](./media/apache-hadoop-linux-tutorial-get-started/interactive-hive-result.png)
+
+    - **결과** 패널: 전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장하거나 여러 줄을 선택할 수 있습니다.
+
+    - **메시지** 패널: **줄** 번호를 선택하면 실행 중인 스크립트의 첫 번째 줄로 이동합니다.
+
+[Hive 배치 작업 실행](#submit-hive-batch-scripts)에 비해 대화형 쿼리 실행이 훨씬 더 빠릅니다.
+
+### <a name="submit-hive-batch-scripts"></a>Hive 배치 스크립트 제출
+
+1. 새 작업 폴더 및 새 Hive 스크립트 파일을 만듭니다(아직 없는 경우).
+
+2. Azure 계정에 연결한 다음 기본 클러스터를 구성합니다(아직 구성하지 않은 경우).
+
+3. 다음 코드를 복사하여 Hive 파일에 붙여넣은 후 파일을 저장합니다.
+
+    ```hiveql
+    SELECT * FROM hivesampletable;
+    ```
+4. 스크립트 편집기를 마우스 오른쪽 단추로 클릭한 다음 **HDInsight: Hive Batch**를 선택하여 Hive 작업을 제출합니다. 
+
+5. 제출하려는 클러스터를 선택합니다.  
+
+    Hive 작업을 제출하면 제출 성공 정보 및 jobid가 **출력** 패널에 표시됩니다. Hive 작업은 **웹 브라우저**도 열어 실시간 작업 로그 및 상태를 표시합니다.
+
+   ![Hive 작업 결과 제출](./media/apache-hadoop-linux-tutorial-get-started/submit-Hivejob-result.png)
+
+[대화형 Hive 쿼리 제출](#submit-interactive-hive-queries)이 일괄 작업 제출보다 훨씬 더 빠릅니다.
+
+## <a name="use-visualstudio-to-run-hive-queries"></a>VisualStudio를 사용하여 Hive 쿼리 실행
+
+Visual Studio에서 HDInsight Tools를 가져오는 방법은 [Data Lake Tools for Visual Studio 사용](./apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
+
+### <a name="run-hive-queries"></a>Hive 쿼리 실행
+
+Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
+
+* 임시 쿼리 만들기
+* Hive 응용 프로그램 만들기
+
+임시 쿼리를 만들고 실행하려면:
+
+1. **서버 탐색기**에서 **Azure** > **HDInsight 클러스터**를 차례로 선택합니다.
+
+2. 쿼리를 실행하려는 클러스터를 마우스 오른쪽 단추로 클릭한 다음, **Hive 쿼리 작성**을 선택합니다.  
+
+3. Hive 쿼리를 입력합니다. 
+
+    Hive 편집기는 IntelliSense를 지원합니다. Data Lake Tools for Visual Studio는 Hive 스크립트를 편집할 때 원격 메타데이터 로드를 지원합니다. 예를 들어 **SELECT * FROM**을 입력하면 IntelliSense에서 제안된 테이블 이름을 모두 나열합니다. 테이블 이름이 지정되면 IntelliSense에서 열 이름을 나열합니다. 이 도구는 대부분의 Hive DML 문, 하위 쿼리 및 기본 제공 UDF를 지원합니다.
+   
+    ![HDInsight Visual Studio Tools- IntelliSense 예 1의 스크린샷](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-table-name.png "U-SQL IntelliSense")
+   
+    ![HDInsight Visual Studio Tools - IntelliSense 예 2의 스크린샷](./media/apache-hadoop-linux-tutorial-get-started/vs-intellisense-column-name.png "U-SQL IntelliSense")
+   
+   > [!NOTE]
+   > IntelliSense는 HDInsight 도구 모음에서 선택한 클러스터의 메타데이터만 제안합니다.
+   > 
+   
+4. **제출** 또는 **제출(고급)** 을 선택합니다. 
+   
+    ![Hive 쿼리 제출 스크린샷](./media/apache-hadoop-linux-tutorial-get-started/vs-batch-query.png)
+
+   고급 제출 옵션을 선택하는 경우 스크립트에 대한 **작업 이름**, **인수**, **추가 구성** 및 **상태 디렉터리**를 구성합니다.
+
+    ![HDInsight Hadoop Hive 쿼리의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.submit.jobs.advanced.png "쿼리 제출")
+
+   대화형 Hive 쿼리 실행
+
+   * 아래쪽 화살표를 클릭하여 **대화형**을 선택합니다. 
+   
+   * **실행**을 클릭합니다.
+
+   ![대화형 Hive 쿼리 실행 스크린샷](./media/apache-hadoop-linux-tutorial-get-started/vs-execute-hive-query.png)
+
+Hive 솔루션을 만들고 실행하려면,
+
+1. **파일** 메뉴에서 **새로 만들기**, **프로젝트**를 차례로 선택합니다.
+2. 왼쪽 창에서 **HDInsight**를 선택합니다. 가운데 창에서 **Hive 응용 프로그램**을 선택합니다. 속성을 입력한 다음, **확인**을 선택합니다.
+   
+    ![HDInsight Visual Studio Tools - 새 Hive 프로젝트의 스크린샷](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight.visual.studio.tools.new.hive.project.png "Visual Studio에서 Hive 응용 프로그램 만들기")
+3. **솔루션 탐색기**에서 **Script.hql**을 두 번 클릭하여 이 스크립트를 엽니다.
+4. Hive 쿼리를 입력하고 제출합니다. (위의 3단계 및 4단계 참조)  
+
+
 
 ## <a name="run-hive-queries"></a>Hive 쿼리 실행
 
@@ -150,6 +255,7 @@ HDInsight 클러스터를 만드는 동안 문제가 발생할 경우 [액세스
 자신의 데이터로 작업을 시작할 준비가 된 상태에서 HDInsight에서 데이터를 저장하는 방법과 HDInsight로 데이터를 가져오는 방법에 대해 더 알아보려면 다음 문서를 참조하세요.
 
 * HDInsight에서 Azure Storage를 사용하는 방법에 대한 자세한 내용은 [HDInsight에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)을 참조하세요.
+* Data Lake Storage를 사용하여 HDInsight 클러스터를 만드는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 * 데이터를 HDInsight로 업로드하는 방법에 대한 정보는 [HDInsight에 데이터 업로드](../hdinsight-upload-data.md)를 참조하세요.
 
 HDInsight를 사용하여 데이터를 분석하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
@@ -158,7 +264,7 @@ HDInsight를 사용하여 데이터를 분석하는 방법에 대한 자세한 �
 * 데이터를 변환하는 데 사용되는 언어인 Pig에 대해 알아보려면 [HDInsight로 Pig 사용](hdinsight-use-pig.md)을 참조하세요.
 * Hadoop에서 데이터를 처리하는 프로그램을 작성하는 방법인 MapReduce에 대해 알아보려면 [HDInsight로 MapReduce 사용](hdinsight-use-mapreduce.md)을 참조하세요.
 * Visual Studio에 HDInsight Tools를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [HDInsight용 Visual Studio Hadoop 도구를 사용하여 시작](apache-hadoop-visual-studio-tools-get-started.md)을 참조하세요.
-
+* HDInsight Tools for VSCode를 사용하여 HDInsight의 데이터를 분석하는 방법에 대해 알아보려면 [Azure HDInsight Tools for Visual Studio Code 사용](../hdinsight-for-vscode.md)을 참조하세요.
 
 
 HDInsight 클러스터를 만들거나 관리하는 방법에 대해 자세히 알아보려면 다음 문서를 참조하세요.

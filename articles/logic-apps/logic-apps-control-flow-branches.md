@@ -1,32 +1,28 @@
 ---
-title: "병렬 분기 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱에서 병렬 분기를 만들거나 조인합니다."
+title: 병렬 분기 만들기 또는 조인 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에서 워크플로에 대한 병렬 분기를 만들거나 조인하는 방법입니다.
 services: logic-apps
-keywords: "분기, 병렬 처리"
-documentationcenter: 
-author: ecfan
-manager: anneta
-editor: 
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: 9a836b707a576b9a938f43397ef35c00aeb476bf
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35298858"
 ---
-# <a name="create-or-join-parallel-branches-in-your-logic-app"></a>논리 앱에서 병렬 분기 만들기 또는 조인
+# <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Azure Logic Apps에서 워크플로 작업에 대한 병렬 분기 만들기 또는 조인
 
-기본적으로 논리 앱에서 작업은 순차적으로 실행됩니다. 독립적인 작업을 동시에 수행하려면 [병렬 분기](#parallel-branches)를 만든 다음, 나중에 흐름에서 [이러한 분기를 조인](#join-branches)할 수 있습니다. 
+기본적으로 논리 앱 워크플로의 작업은 순차적으로 실행됩니다. 독립적인 작업을 동시에 수행하려면 [병렬 분기](#parallel-branches)를 만든 다음, 나중에 흐름에서 [이러한 분기를 조인](#join-branches)할 수 있습니다. 
 
 > [!TIP] 
-> 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)*할 수 있습니다.
+> 배열을 받는 트리거가 있고 각 배열 항목에 대한 워크플로를 실행하려는 경우, [**SplitOn** 트리거 속성](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)을 사용하여 해당 배열을 *분리 처리(debatch)* 할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

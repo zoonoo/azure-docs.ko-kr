@@ -11,25 +11,22 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: 85b721df1e666903c4966ca240c433ded01c06b7
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: b080029cdf7e7200663830abad02ae7e61dbdb99
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171906"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053357"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - 일반 공급](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
-> * [버전 2 - 미리 보기](tutorial-hybrid-copy-data-tool.md)
+> * [버전 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [현재 버전](tutorial-hybrid-copy-data-tool.md)
 
 이 자습서에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음, 데이터 복사 도구를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 파이프라인을 만듭니다.
 
 > [!NOTE]
 > - Azure Data Factory를 처음 사용하는 경우 [Data Factory 소개](introduction.md)를 참조하세요.
->
-> - 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급되는 Data Factory 버전 1을 사용하는 경우 [Data Factory 버전 1 시작](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)을 참조하세요.
-
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
@@ -54,7 +51,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 2. 자격 증명을 사용하여 SQL server 인스턴스에 연결합니다. 
 
 3. 샘플 데이터베이스 만들기 트리 뷰에서 **데이터베이스**를 마우스 오른쪽 단추로 클릭한 다음 **새 데이터베이스**를 선택합니다. 
- 
+
 4. **새 데이터베이스** 창에서 데이터베이스의 이름을 입력하고 **확인**을 선택합니다. 
 
 5. **emp** 테이블을 만들고 일부 샘플 데이터를 이 테이블에 삽입하려면 데이터베이스에 대해 다음 쿼리 스크립트를 실행합니다. 트리 뷰에서 생성한 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
@@ -120,24 +117,24 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
 1. 왼쪽 메뉴에서 **새로 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
-   
+  
    ![새 데이터 팩터리 만들기](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory-menu.png)
 2. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory**를 입력합니다. 
-      
+   
      ![새 data factory](./media/tutorial-hybrid-copy-data-tool/new-azure-data-factory.png)
- 
+
    데이터 팩터리 이름은 *전역적으로 고유*해야 합니다. 이름 필드에 대해 다음과 같은 오류 메시지가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
-  
+
    ![새 데이터 팩터리 이름](./media/tutorial-hybrid-copy-data-tool/name-not-available-error.png)
 3. 데이터 팩터리를 만들 Azure **구독**을 선택합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
-     
+  
       - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
-         
+        
       리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-5. **버전** 아래에서 **V2(미리 보기)** 를 선택합니다.
+5. **버전**에서 **V2 **를 선택합니다.
 6. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 위치와 지역에 있을 수 있습니다.
 7. **대시보드에 고정**을 선택합니다. 
 8. **만들기**를 선택합니다.
@@ -145,7 +142,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
     ![Data Factory 배포 중 타일](media/tutorial-hybrid-copy-data-tool/deploying-data-factory.png)
 10. 만들기가 완료되면 이미지와 같은 **Data Factory** 페이지가 표시됩니다.
-   
+  
     ![데이터 팩터리 홈페이지](./media/tutorial-hybrid-copy-data-tool/data-factory-home-page.png)
 11. **작성 및 모니터링**을 선택하여 별도의 탭에서 Data Factory 사용자 인터페이스를 시작합니다. 
 
@@ -154,82 +151,126 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 1. **시작** 페이지에서 **데이터 복사**를 선택하여 데이터 복사 도구를 시작합니다. 
 
    ![데이터 복사 도구 타일](./media/tutorial-hybrid-copy-data-tool/copy-data-tool-tile.png)
+
 2. 데이터 복사 도구의 **속성** 페이지에 있는 **작업 이름** 아래에서 **CopyFromOnPremSqlToAzureBlobPipeline**을 입력합니다. 그런 후 **다음**을 선택합니다. 데이터 복사 도구는 이 필드에 지정한 이름의 파이프라인을 만듭니다. 
-    
+
    ![작업 이름](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
-3. **원본 데이터 저장소** 페이지에서 **SQL Server**, **다음**을 차례로 선택합니다. 목록에서 **SQL Server**를 보려면 아래로 스크롤해야 할 수도 있습니다. 
+
+3. **원본 데이터 저장소** 페이지에서 **새 연결 만들기**를 클릭합니다. 
+
+   ![새로 연결된 서비스 만들기](./media/tutorial-hybrid-copy-data-tool/create-new-source-data-store.png)
+
+4. **새로 연결된 서비스**에서 **SQL Server**를 검색한 다음, **다음**을 선택합니다. 
 
    ![SQL Server 선택](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
-4. **연결 이름** 아래에서 **SqlServerLinkedService**를 입력합니다. **Integration Runtime 만들기** 링크를 선택합니다. 자체 호스팅 통합 런타임을 만들고, 컴퓨터에 다운로드하고, Data Factory에 등록해야 합니다. 자체 호스팅 통합 런타임은 온-프레미스 환경과 클라우드 간에 데이터를 복사합니다.
+
+5. 새로 연결된 서비스(SQL Server) **이름***에서 **SqlServerLinkedService**를 입력합니다. **통합 런타임을 통해 연결**에서 **+새로 만들기**를 선택합니다. 자체 호스팅 통합 런타임을 만들고, 컴퓨터에 다운로드하고, Data Factory에 등록해야 합니다. 자체 호스팅 통합 런타임은 온-프레미스 환경과 클라우드 간에 데이터를 복사합니다.
 
    ![자체 호스팅 통합 런타임 만들기](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
-5. **Integration Runtime 만들기** 대화 상자의 **이름** 아래에서 **TutorialIntegration 런타임**을 입력합니다. 그런 다음 **만들기**를 선택합니다. 
+
+6. **Integration Runtime 설정** 대화 상자에서 **개인 네트워크**를 선택합니다. 그런 후 **다음**을 선택합니다. 
+
+   ![](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog0.png)
+
+7. **Integration Runtime 설정** 대화 상자의 **이름** 아래에서 **TutorialIntegrationRuntime**을 입력합니다. 그런 후 **다음**을 선택합니다. 
 
    ![통합 런타임 이름](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-dialog.png)
-6. **이 컴퓨터에서 빠른 설치 시작**을 선택합니다. 이 작업은 통합 런타임을 컴퓨터에 설치하고 Data Factory에 등록합니다. 또는 수동 설치 옵션을 사용하여 설치 파일을 다운로드하고, 실행하고, 키를 사용하여 통합 런타임을 등록할 수 있습니다. 
+
+8. **이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하십시오**를 선택합니다. 이 작업은 통합 런타임을 컴퓨터에 설치하고 Data Factory에 등록합니다. 또는 수동 설치 옵션을 사용하여 설치 파일을 다운로드하고, 실행하고, 키를 사용하여 통합 런타임을 등록할 수 있습니다. 
 
     ![이 컴퓨터에서 빠른 설치 시작 링크](./media/tutorial-hybrid-copy-data-tool/launch-express-setup-link.png)
-7. 다운로드한 응용 프로그램을 실행합니다. 창에 빠른 설치의 상태가 표시됩니다. 
+
+9. 다운로드한 응용 프로그램을 실행합니다. 창에 빠른 설치의 상태가 표시됩니다. 
 
     ![빠른 설치 상태](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
-8. **Integration Runtime** 필드에 대해 **TutorialIntegrationRuntime**이 선택되어 있는지 확인합니다.
+
+10. **Integration Runtime** 필드에 대해 **TutorialIntegrationRuntime**이 선택되어 있는지 확인합니다.
 
     ![Integration Runtime 선택](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
-9. **온-프레미스 SQL Server 데이터베이스 지정**에서 다음 단계를 수행합니다. 
 
-    a. **연결 이름** 아래에서 **OnPremSqlLinkedService**를 입력합니다.
+11. **온-프레미스 SQL Server 데이터베이스 지정**에서 다음 단계를 수행합니다. 
 
-    나. **서버 이름** 아래에서 온-프레미스 SQL Server 인스턴스의 이름을 입력합니다.
+      a. **이름** 아래에서 **SqlServerLinkedService**를 입력합니다.
 
-    다. **데이터베이스 이름** 아래에서 온-프레미스 데이터베이스의 이름을 입력합니다.
+      나. **서버 이름** 아래에서 온-프레미스 SQL Server 인스턴스의 이름을 입력합니다.
 
-    d. **인증 유형** 아래에서 적절한 인증을 선택합니다.
+      다. **데이터베이스 이름** 아래에서 온-프레미스 데이터베이스의 이름을 입력합니다.
 
-    e. **사용자 이름** 아래에서 온-프레미스 SQL Server에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다.
+      d. **인증 유형** 아래에서 적절한 인증을 선택합니다.
 
-    f. 사용자에 대한 **암호**를 입력합니다. 
-10. **복사할 데이터가 있는 테이블을 선택하거나 사용자 지정 쿼리를 사용하십시오** 페이지의 목록에서 **[dbo].[emp]** 테이블, **다음**을 차례로 선택합니다. 
+      e. **사용자 이름** 아래에서 온-프레미스 SQL Server에 대한 액세스 권한이 있는 사용자의 이름을 입력합니다.
 
-    ![emp 테이블 선택](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
-11. **대상 데이터 저장소 페이지**에서 **Azure Blob Storage**를 선택하고 **다음**을 선택합니다.
+      f. 사용자에 대한 **암호**를 입력합니다. **마침**을 선택합니다. 
 
-    ![Blob 저장소 선택](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
-12. **Azure Blob 저장소 계정 지정** 페이지에서 다음 단계를 수행합니다. 
+12. **다음**을 선택합니다.
 
-    a. **연결 이름** 아래에서 **AzureStorageLinkedService**를 입력합니다.
+     ![](./media/tutorial-hybrid-copy-data-tool/select-source-linked-service.png)
 
-    나. **저장소 계정 이름** 아래의 드롭다운 목록에서 저장소 계정을 선택합니다. 
+13. **복사할 데이터가 있는 테이블을 선택하거나 사용자 지정 쿼리를 사용하십시오** 페이지의 목록에서 **[dbo].[emp]** 테이블, **다음**을 차례로 선택합니다. 데이터베이스에 따라 다른 테이블을 선택할 수 있습니다.
 
-    다. **다음**을 선택합니다.
+     ![제품 테이블 선택](./media/tutorial-hybrid-copy-data-tool/select-emp-table.png)
 
-    ![저장소 계정 지정](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
-13. **출력 파일 또는 폴더** 페이지의 **폴더 경로**에서 **adftutorial/fromonprem**을 입력합니다. 필수 구성 요소의 일부로 **adftutorial** 컨테이너를 만들었습니다. 출력 폴더가 없으면 Data Factory에서 자동으로 만듭니다. 또한 **찾아보기** 단추를 사용하여 Blob 저장소 및 해당 컨테이너/폴더를 탐색할 수도 있습니다. 출력 파일의 이름은 기본적으로 **dbo.emp**로 설정되어 있습니다.
-        
-    ![출력 파일 또는 폴더 선택](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
-14. **파일 형식 설정** 페이지에서 **다음**을 선택합니다. 
+14. **대상 데이터 저장소** 페이지에서 **새 연결 만들기**를 선택합니다.
 
-    ![파일 형식 설정 페이지](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
-15. **설정** 페이지에서 **다음**을 선택합니다. 
+     //image create-new-sink-connection.png
 
-    ![설정 페이지](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
-16. **요약** 페이지에서 모든 설정 값을 검토하고 **다음**을 선택합니다. 
+     ![연결된 대상 서비스 만들기](./media/tutorial-hybrid-copy-data-tool/create-new-sink-connection.png)
 
-    ![요약 페이지](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
-17. **배포** 페이지에서 **모니터**를 선택하여 만든 파이프라인 또는 작업을 모니터링합니다.
+15. **새로 연결된 서비스**에서 **Azure Blob**를 검색하고 선택한 다음, **계속**합니다. 
 
-    ![배포 페이지](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
-18. **모니터** 탭에서 만든 파이프라인의 상태를 볼 수 있습니다. **작업** 열의 링크를 사용하여 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
+     ![Blob 저장소 선택](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
-    ![파이프라인 실행 모니터링](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
-19. **작업** 열에서 **활동 실행 보기** 링크를 선택하여 파이프라인 실행과 연결된 활동 실행을 확인합니다. 복사 활동에 대한 세부 정보를 보려면 **작업** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. **파이프라인 실행** 보기로 다시 전환하려면 위쪽의 **파이프라인**을 선택합니다.
+16. **새로 연결된 서비스(Azure Blob Storage)** 대화 상자에서 다음 단계를 수행합니다. 
 
-    ![작업 실행 모니터링](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
-20. **adftutorial** 컨테이너의 **fromonprem** 폴더에 있는 출력 파일이 표시되는지 확인합니다. 
- 
-    ![출력 Blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
-21. 왼쪽의 **편집** 탭을 선택하여 편집기 모드로 전환합니다. 편집기를 사용하여 도구에서 만든 연결된 서비스, 데이터 집합 및 파이프라인을 업데이트할 수 있습니다. **코드**를 선택하여 편집기에서 열려 있는 엔터티와 연결된 JSON 코드를 살펴봅니다. Data Factory UI에서 이러한 엔터티를 편집하는 방법에 대한 자세한 내용은 [이 자습서의 Azure Portal 버전](tutorial-copy-data-portal.md)을 참조하세요.
+     a. **이름**** 아래에서 **AzureStorageLinkedService**를 입력합니다.
 
-    ![편집 탭](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
+     나. **통합 런타임을 통해 연결**에서 **TutorialIntegrationRuntime**을 선택합니다.
+
+     다. **저장소 계정 이름** 아래의 드롭다운 목록에서 저장소 계정을 선택합니다. 
+
+     d. **다음**을 선택합니다.
+
+     ![저장소 계정 지정](./media/tutorial-hybrid-copy-data-tool/specify-azure-blob-storage-account.png)
+
+17. **대상 데이터 저장소** 대화 상자에서 **다음**을 선택합니다. **연결 속성**에서 **Azure Storage 서비스**를 **Azure Blob Storage**로 선택합니다. **다음**을 선택합니다. 
+
+     ![연결 속성](./media/tutorial-hybrid-copy-data-tool/select-connection-properties.png)
+
+18. **출력 파일 또는 폴더** 대화 상자의 **폴더 경로**에서 **adftutorial/fromonprem**을 입력합니다. 필수 구성 요소의 일부로 **adftutorial** 컨테이너를 만들었습니다. 출력 폴더가 없으면(이 경우에 **fromonprem**) Data Factory에서 자동으로 만듭니다. 또한 **찾아보기** 단추를 사용하여 Blob 저장소 및 해당 컨테이너/폴더를 탐색할 수도 있습니다. **파일 이름** 아래에 있는 값을 지정하지 않으면 기본적으로 원본의 이름을 사용합니다(이 경우에 **dbo.emp**).
+           
+     ![출력 파일 또는 폴더 선택](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
+
+19. **파일 형식 설정** 대화 상자에서 **다음**을 선택합니다. 
+
+     ![파일 형식 설정 페이지](./media/tutorial-hybrid-copy-data-tool/file-format-settings-page.png)
+
+20. **설정** 대화 상자에서 **다음**을 선택합니다. 
+
+     ![설정 페이지](./media/tutorial-hybrid-copy-data-tool/settings-page.png)
+
+21. **요약** 대화 상자에서 모든 설정 값을 검토하고 **다음**을 선택합니다. 
+
+     ![요약 페이지](./media/tutorial-hybrid-copy-data-tool/summary-page.png)
+
+22. **배포** 페이지에서 **모니터**를 선택하여 만든 파이프라인 또는 작업을 모니터링합니다.
+
+     ![배포 페이지](./media/tutorial-hybrid-copy-data-tool/deployment-page.png)
+
+23. **모니터** 탭에서 만든 파이프라인의 상태를 볼 수 있습니다. **작업** 열의 링크를 사용하여 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
+
+     ![파이프라인 실행 모니터링](./media/tutorial-hybrid-copy-data-tool/monitor-pipeline-runs.png)
+
+24. **작업** 열에서 **활동 실행 보기** 링크를 선택하여 파이프라인 실행과 연결된 활동 실행을 확인합니다. 복사 활동에 대한 세부 정보를 보려면 **작업** 열에서 **세부 정보** 링크(안경 아이콘)를 선택합니다. **파이프라인 실행** 보기로 다시 전환하려면 위쪽의 **파이프라인**을 선택합니다.
+
+     ![작업 실행 모니터링](./media/tutorial-hybrid-copy-data-tool/monitor-activity-runs.png)
+
+25. **adftutorial** 컨테이너의 **fromonprem** 폴더에 있는 출력 파일이 표시되는지 확인합니다. 
+
+     ![출력 Blob](./media/tutorial-hybrid-copy-data-tool/output-blob.png)
+
+26. 왼쪽의 **편집** 탭을 선택하여 편집기 모드로 전환합니다. 편집기를 사용하여 도구에서 만든 연결된 서비스, 데이터 집합 및 파이프라인을 업데이트할 수 있습니다. **코드**를 선택하여 편집기에서 열려 있는 엔터티와 연결된 JSON 코드를 살펴봅니다. Data Factory UI에서 이러한 엔터티를 편집하는 방법에 대한 자세한 내용은 [이 자습서의 Azure Portal 버전](tutorial-copy-data-portal.md)을 참조하세요.
+
+     ![편집 탭](./media/tutorial-hybrid-copy-data-tool/edit-tab.png)
 
 
 ## <a name="next-steps"></a>다음 단계

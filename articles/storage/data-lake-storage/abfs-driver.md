@@ -1,0 +1,67 @@
+---
+title: Azure Data Lake Storage Gen2 미리 보기용 Azure Blob 파일 시스템 드라이버
+description: ABFS Hadoop 파일 시스템 드라이버
+services: storage
+keywords: ''
+author: jamesbak
+manager: jahogg
+ms.topic: article
+ms.author: jamesbak
+ms.date: 06/27/2018
+ms.service: storage
+ms.component: data-lake-storage-gen2
+ms.openlocfilehash: e92c4efba29f1c40f6d4cb155974ca3a896796e5
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114336"
+---
+# <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
+
+Azure Data Lake Storage Gen2 미리 보기에서 데이터에 대한 기본 액세스 방법 중 하나는 [Hadoop 파일 시스템](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html)을 통해서입니다. Azure Data Lake Storage Gen2는 연결된 드라이버인 Azure Blob 파일 시스템 드라이버(`ABFS`)가 특징입니다. ABFS는 Apache Hadoop의 일부이며 많은 Hadoop의 상업용 배포 버전에 포함됩니다. 이 드라이버를 사용하여 많은 응용 프로그램 및 프레임워크는 Data Lake Storage Gen2 서비스를 명시적으로 참조하는 어떤 코드도 없이 Data Lake Storage Gen2의 데이터에 액세스할 수 있습니다.
+
+## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>이전 기능: Windows Azure Storage Blob 드라이버
+
+Windows Azure Storage Blob 드라이버 또는 [WASB 드라이버](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)는 Azure Storage Blob에 대해 원래 지원을 제공했습니다. 이 드라이버는 파일 시스템 의미 체계를 Azure Blob Storage에서 공개한 개체 저장소 스타일 인터페이스의 드라이버에 매핑하는 복잡한 작업(Hadoop 파일 시스템 인터페이스에서 요구하는 대로)을 수행하였습니다. 이 드라이버는 이 모델을 계속 지원하면서 Blob에 저장된 데이터에 대한 고성능 액세스를 제공하지만 이 매핑을 수행하는 상당한 양의 코드를 담고 있어 유지하기가 어렵습니다. 또한 [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) 및 [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) 같은 몇몇 작업은 디렉터리에 적용될 때 개체 저장소의 디렉터리에 대한 지원이 부족하기 때문에 드라이버가 방대한 수의 작업을 수행하도록 요구해 종종 성능 저하로 이어집니다.
+
+따라서 WASB의 내재된 디자인 결함을 극복하기 위해 새 Azure Data Lake Storage 서비스가 새 ABFS 드라이버의 지원으로 구현됐습니다.
+
+## <a name="the-azure-blob-file-system-driver"></a>Azure Blob 파일 시스템 드라이버
+
+[Azure Data Lake Storage REST 인터페이스](https://docs.microsoft.com/en-us/rest/api/storageservices/data-lake-storage-gen2)는 Azure Blob Storage에 대해 파일 시스템 의미 체계를 지원하도록 설계됐습니다. Hadoop 파일 시스템도 동일한 의미 체계를 지원하도록 설계된 경우 드라이버에서 복잡한 매핑에 대한 요구 사항은 없습니다. 따라서 Azure Blob 파일 시스템(ABFS) 드라이버는 REST API에 대한 클라이언트 shim에 불과합니다.
+
+그러나 이 드라이버가 아직 수행해야 할 몇 가지 기능이 있습니다.
+
+### <a name="uri-scheme-to-reference-data"></a>참조 데이터에 대한 URI 스키마
+
+Hadoop 내에서 파일 시스템 구현과 일치하는 ABFS 드라이버는 자체 URI 스키마를 정의하므로 리소스(디렉터리 및 파일)에 분명하게 대응할 수 있습니다. URI 스키마는 [Azure Data Lake Storage Gen2 URI 사용](./introduction-abfs-uri.md)에 설명되어 있습니다. URI 구조는 `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`과 같습니다.
+
+위의 URI 형식을 사용하는 표준 Hadoop 도구 및 프레임워크는 이러한 리소스를 참조하는 데 사용될 수 있습니다.
+
+```bash
+hdfs dfs -mkdir -p abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data 
+hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows.net/tutorials/flightdelays/data/ 
+```
+
+내부적으로 ABFS 드라이버는 URI에 지정된 리소스를 파일 및 디렉터리로 변환하고 해당 리소스를 사용하여 Azure Data Lake Storage REST API를 호출합니다.
+
+### <a name="authentication"></a>인증
+
+ABFS 드라이버는 현재 공유 키 인증을 지원하므로 Hadoop 응용 프로그램은 Data Lake Storage Gen2 내에 포함된 리소스에 안전하게 액세스할 수 있습니다. 키는 암호화되어 Hadoop 구성에 저장됩니다.
+
+### <a name="configuration"></a>구성
+
+ABFS 드라이버에 대한 모든 구성은 <code>core-site.xml</code> 구성 파일에 저장됩니다. [Ambari](http://ambari.apache.org/)가 특징인 Hadoop 배포에서 웹 포털이나 Ambari REST API를 사용하여 구성을 관리할 수 있습니다.
+
+지원되는 모든 구성 항목의 세부 정보는 [Hadoop 공식 설명서](http://hadoop.apache.org/docs/current/hadoop-azure/index.html)에 나와 있습니다.
+
+### <a name="hadoop-documentation"></a>Hadoop 설명서
+
+ABFS 드라이버는 [Hadoop 공식 설명서](http://hadoop.apache.org/docs/current/hadoop-azure/index.html)에 충분히 설명돼 있습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [HDInsight 클러스터 설치](./quickstart-create-connect-hdi-cluster.md)
+- [Azure Databricks 클러스터 만들기](./quickstart-create-databricks-account.md)
+- [Azure Data Lake Storage Gen2 URI 사용](./introduction-abfs-uri.md)

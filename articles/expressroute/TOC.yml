@@ -89,6 +89,8 @@
       href: expressroute-howto-move-arm.md
     - name: 클래식에서 Resource Manager로 연결된 가상 네트워크 마이그레이션
       href: expressroute-migration-classic-resource-manager.md
+    - name: Azure 가용성 영역에서 영역 중복 VNet 게이트웨이 만들기
+      href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
     - name: ExpressRoute에 대해 라우터 구성
       items:
         - name: 라우터 구성

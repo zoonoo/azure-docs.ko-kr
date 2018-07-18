@@ -1,12 +1,12 @@
 ---
-title: "Azure IoT Suite에 사용자 지정 규칙 만들기 | Microsoft Docs"
-description: "미리 구성된 IoT Suite 솔루션에서 사용자 지정 규칙을 만드는 방법"
-services: 
+title: Azure IoT Suite에 사용자 지정 규칙 만들기 | Microsoft Docs
+description: 미리 구성된 IoT Suite 솔루션에서 사용자 지정 규칙을 만드는 방법
+services: ''
 suite: iot-suite
-documentationcenter: 
+documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 562799dc-06ea-4cdd-b822-80d1f70d2f09
 ms.service: iot-suite
 ms.devlang: na
@@ -16,10 +16,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 9bf2a13035de141766fd935966ce18459dccdaab
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723355"
 ---
 # <a name="create-a-custom-rule-in-the-remote-monitoring-preconfigured-solution"></a>미리 구성된 원격 모니터링 솔루션에서 사용자 지정 규칙 만들기
 
@@ -119,7 +120,7 @@ ms.lasthandoff: 11/06/2017
 
 1. 관리자 권한 명령 프롬프트를 열고 azure-iot-remote-monitoring 리포지토리의 로컬 복사본 루트로 이동합니다.
 
-2. 업데이트된 솔루션을 배포하려면 **{deployment name}**을 이전에 적어둔 미리 구성된 솔루션 배포의 이름으로 바꾸어 다음 명령을 실행합니다.
+2. 업데이트된 솔루션을 배포하려면 **{deployment name}** 을 이전에 적어둔 미리 구성된 솔루션 배포의 이름으로 바꾸어 다음 명령을 실행합니다.
 
     ```
     build.cmd cloud release {deployment name}
@@ -216,7 +217,7 @@ ms.lasthandoff: 11/06/2017
  
 ## <a name="additional-information"></a>추가 정보
 
-연산자  **>** 을 변경하는 것은 좀 더 복잡하여 이 자습서에서 다루지 않습니다. 원하는 연산자를 사용하도록 Stream Analytics 작업을 변경할 수는 있으나 솔루션 포털에서 해당 연산자를 적용하는 것이 더 복잡한 작업입니다. 
+연산자 **>** 을 변경하는 것은 좀 더 복잡하여 이 자습서에서 다루지 않습니다. 원하는 연산자를 사용하도록 Stream Analytics 작업을 변경할 수는 있으나 솔루션 포털에서 해당 연산자를 적용하는 것이 더 복잡한 작업입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 사용자 지정 규칙을 만드는 방법을 살펴보았으므로 이제 미리 구성된 솔루션에 대해 자세히 알아볼 수 있습니다.

@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: d65e4c76d6c9bc0b1f6a9f2827a0ae2d7dec5d93
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: f0def105997213ae5d356de89e6189b6441facbd
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824171"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291918"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 데이터 보호 전략 정의
 이 작업에서 하이브리드 ID 솔루션에 대한 데이터 보호 전략을 정의하여 다음에서 정의된 비즈니스 요구 사항을 충족합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "34824171"
 >
 
 ## <a name="define-content-management-options"></a>콘텐츠 관리 옵션 정의
-하이브리드 ID 인프라를 관리하기 위해 Azure AD를 사용하는 이점은 프로세스가 최종 사용자의 관점에서 완전히 투명하다는 점입니다. 토큰을 얻고 리소스에 액세스 하기 위해 사용자는 공유 리소스에 액세스하려고 하고 리소스에는 인증이 필요하며 사용자는 Azure AD로 인증 요청을 보내야 합니다. 이 전체 프로세스는 사용자 개입 없이 백그라운드에서 발생합니다. 또한 특정 일반 동작을 수행할 수 있도록 하기 위해 사용자의 [그룹](active-directory-manage-groups.md#getting-started-with-access-management) 에 권한을 부여할 수 있습니다.
+하이브리드 ID 인프라를 관리하기 위해 Azure AD를 사용하는 이점은 프로세스가 최종 사용자의 관점에서 완전히 투명하다는 점입니다. 토큰을 얻고 리소스에 액세스 하기 위해 사용자는 공유 리소스에 액세스하려고 하고 리소스에는 인증이 필요하며 사용자는 Azure AD로 인증 요청을 보내야 합니다. 이 전체 프로세스는 사용자 개입 없이 백그라운드에서 발생합니다. 또한 특정 일반 동작을 수행할 수 있도록 하기 위해 사용자의 [그룹](fundamentals/active-directory-manage-groups.md#getting-started-with-access-management) 에 권한을 부여할 수 있습니다.
 
 데이터 정보 보호를 우려하는 조직은 일반적으로 해당 솔루션에 대한 데이터 분류가 필요합니다. 현재 온-프레미스 인프라가 이미 데이터 분류를 사용하고 있는 경우 사용자의 ID에 대한 주 리포지토리로 Azure AD를 활용하는 것이 가능합니다. 데이터 분류 호출에 사용되는 온-프레미스인 일반적인 도구는 Windows Server 2012 R2에 대한 [데이터 분류 도구 키트](https://msdn.microsoft.com/library/Hh204743.aspx) 라고 합니다. 이 도구는 사설 클라우드에서 파일 서버에 데이터를 식별, 분류 및 보호할 수 있습니다. 또한 이 작업을 수행하기 위해 Windows Server 2012에서 [자동 파일 분류](https://technet.microsoft.com/library/hh831672.aspx) 를 활용할 수 있습니다.
 
@@ -131,12 +131,12 @@ Azure AD를 사용하여 사용자가 인증되면 사용자를 갖게 된 액�
 
   3. Microsoft Intune을 사용한 Office 365 응용 프로그램에 대한 조건부 액세스: IT 관리자는 조건부 액세스 장치 정책을 프로비전하여 규격 장치를 사용하는 정보 작업자가 서비스에 액세스할 수 있도록 하는 동시에 회사 리소스를 보호할 수 있습니다. 자세한 내용은 [Office 365 서비스에 대한 조건부 액세스 장치 정책](active-directory-conditional-access-device-policies.md)을 참조하세요.
 
-  4. SaaS 앱에 대한 조건부 액세스: [이 기능](http://blogs.technet.com/b/ad/archive/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work.aspx)을 사용하면 응용 프로그램별 Multi-Factor Authentication 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
+  4. SaaS 앱에 대한 조건부 액세스: [이 기능](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)을 사용하면 응용 프로그램별 Multi-Factor Authentication 액세스 규칙 및 신뢰할 수 있는 네트워크에 없는 사용자에 대한 액세스 차단 기능을 구성할 수 있습니다. 응용 프로그램에 할당된 모든 사용자 또는 지정된 보안 그룹 내의 사용자에 제한적으로 다단계 인증 규칙을 적용할 수 있습니다. 조직 네트워크 내부에 있는 IP 주소에서 응용 프로그램에 액세스하는 경우에는 다단계 인증 요구 사항에서 제외될 수도 있습니다.
 
 액세스 제어에 대한 옵션은 다중 계층 접근 방법을 사용하기 때문에 이러한 옵션 간의 비교는 이 작업에 적용될 수 없습니다. 리소스에 대한 액세스를 제어하기 위해 필요한 각 시나리오에 사용 가능한 모든 옵션을 활용하도록 합니다.
 
 ## <a name="define-incident-response-options"></a>인시던트 대응 옵션 정의
-Azure AD는 사용자 활동을 모니터링하여 환경의 잠재적인 보안 위험을 파악하는 데 도움이 될 수 있습니다. Azure AD 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 볼 수 있습니다 이 정보를 사용하면 IT 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다.  [Azure AD Premium 구독](active-directory-get-started-premium.md)에는 IT가 이 정보를 가져올 수 있는 보안 보고서 집합이 있습니다. [Azure AD 보고서](active-directory-view-access-usage-reports.md)는 다음과 같이 분류됩니다.
+Azure AD는 사용자 활동을 모니터링하여 환경의 잠재적인 보안 위험을 파악하는 데 도움이 될 수 있습니다. Azure AD 액세스 및 사용 보고서를 사용하여 조직 디렉터리의 무결성 및 보안을 볼 수 있습니다 이 정보를 사용하면 IT 관리자는 가능한 보안 위험이 발생할 수 있는 위치를 보다 잘 결정하여 이러한 위험을 적절하게 완화할 수 있습니다.  [Azure AD Premium 구독](fundamentals/active-directory-get-started-premium.md)에는 IT가 이 정보를 가져올 수 있는 보안 보고서 집합이 있습니다. [Azure AD 보고서](active-directory-view-access-usage-reports.md)는 다음과 같이 분류됩니다.
 
 * **비정상 보고서**: 비정상으로 확인된 로그인 이벤트가 포함됩니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
 * **통합 응용 프로그램 보고서**: 클라우드 응용 프로그램이 조직에서 사용되는 방식을 파악할 수 있게 해줍니다. Azure Active Directory는 수천 개의 클라우드 응용 프로그램과 통합을 제공합니다.
@@ -145,9 +145,9 @@ Azure AD는 사용자 활동을 모니터링하여 환경의 잠재적인 보안
 * **활동 로그**: 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
 
 > [!TIP]
-> 또한 사건을 다루는 인시던트 대응 팀에게 도움이 되는 다른 보고서는 [누수된 자격 증명을 사용하는 사용자](http://blogs.technet.com/b/ad/archive/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials.aspx) 보고서입니다. 이 보고서는 이러한 누수된 자격 증명 목록과 테넌트 간의 일치 항목을 표시합니다.
+> 또한 사건을 다루는 인시던트 대응 팀에게 도움이 되는 다른 보고서는 [누수된 자격 증명을 사용하는 사용자](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) 보고서입니다. 이 보고서는 이러한 누수된 자격 증명 목록과 테넌트 간의 일치 항목을 표시합니다.
 >
->
+
 
 인시던트 대응 조사 중에 사용될 수 있는 다른 중요한 Azure AD의 기본 제공 보고서는 다음과 같습니다.
 

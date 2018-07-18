@@ -2,19 +2,19 @@
 title: Azure SQL Database 감사 시작 | Microsoft Docs
 description: Azure SQL 데이터베이스 감사를 사용하여 데이터베이스 이벤트를 감사 로그로 추적합니다.
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 62c6e576a5ef7fa953618dcba4ddd158df131148
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644592"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36751046"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
@@ -200,12 +200,17 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 
 **REST API - Blob 감사**
 
-* [데이터베이스 Blob 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt695939.aspx)
-* [서버 Blob 감사 정책 만들기 또는 업데이트](https://msdn.microsoft.com/library/azure/mt771861.aspx)
-* [데이터베이스 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt695938.aspx)
-* [서버 Blob 감사 정책 가져오기](https://msdn.microsoft.com/library/azure/mt771860.aspx)
+* [데이터베이스 Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/createorupdate)
+* [서버 Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
+* [데이터베이스 Blob 감사 정책 가져오기](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
+* [서버 Blob 감사 정책 가져오기](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
 * [서버 Blob 감사 작업 결과 가져오기](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
+WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입니다.
+* [데이터베이스 *확장된* Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)
+* [서버 *확장된* Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/createorupdate)
+* [데이터베이스 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/get)
+* [서버 *확장된* Blob 감사 정책 가져오기](https://docs.microsoft.com/en-us/rest/api/sql/server%20extended%20auditing%20settings/get)
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

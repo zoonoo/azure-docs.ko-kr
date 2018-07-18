@@ -6,14 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 11/07/2017
+ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 1837fc6511ac734766c55bd1c2a2a7a40219c31a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793024"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950684"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -29,8 +29,8 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 ## <a name="find-azure-search"></a>Azure Search 찾기
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 위 모퉁이에서 더하기 기호("+")를 클릭합니다.
-3. **웹 + 모바일** > **Azure Search**를 선택합니다.
+2. 왼쪽 위 모퉁이에서 더하기 기호("+ 리소스 만들기")를 클릭합니다.
+3. **웹** > **Azure Search**를 선택합니다.
 
 ![](./media/search-create-service-portal/find-search3.png)
 
@@ -58,7 +58,8 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅될 수 있습니다. 지역별로 [가격이 다를 수](https://azure.microsoft.com/pricing/details/search/) 있습니다.
 
 ## <a name="select-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
-[Azure Search는 무료, 기본 또는 표준 등 여러 가지 가격 책정 계층에서 현재 제공됩니다](https://azure.microsoft.com/pricing/details/search/). 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
+
+  [Azure Search는 무료, 기본 또는 표준 등 여러 가지 가격 책정 계층에서 현재 제공됩니다](https://azure.microsoft.com/pricing/details/search/). 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
 
 이 연습에서는 서비스에 대한 표준 계층을 선택했습니다.
 
@@ -77,12 +78,14 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 
 ***복제본***을 사용하면 서비스가 더 큰 부하의 검색 쿼리를 처리할 수 있습니다.
 
+리소스를 추가하면 월별 청구서가 증가합니다. [가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/)는 리소스 추가의 청구 영향을 이해하는 데 도움이 됩니다. 부하에 따라 리소스를 조정할 수 있도록 해야 합니다. 예를 들어 전체 초기 인덱스를 만들려면 리소스를 늘린 다음, 나중에 증분 인덱싱에 더 적합한 수준으로 리소스를 줄일 수 있습니다.
+
 > [!Important]
 > 서비스는 [SLA 읽기 전용으로 2개의 복제본과 SLA 읽기/쓰기용으로 3개의 복제본](https://azure.microsoft.com/support/legal/sla/search/v1_0/)이 있어야 합니다.
 
 1. Azure Portal의 검색 서비스 페이지로 이동합니다.
 2. 왼쪽 탐색 창에서 **설정** > **규모**를 선택합니다.
-3. 슬라이드 바를 사용하여 복제본 또는 파티션을 추가합니다.
+3. 슬라이드 바를 사용하여 두 형식의 리소스 중 하나를 추가합니다.
 
 ![](./media/search-create-service-portal/settings-scale.png)
 

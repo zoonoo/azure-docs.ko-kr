@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: b8ddd43fb19b3800840180c458268301b5ec26f6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34794550"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>이미 라이브 상태인 Java 웹앱용 Application Insights
-
 
 J2EE 서버에서 이미 실행 중인 웹 응용 프로그램이 있는 경우 코드를 변경하거나 프로젝트를 다시 컴파일할 필요 없이 [Application Insights](app-insights-overview.md) 를 사용하여 모니터링을 시작할 수 있습니다. 이 옵션을 사용하면 서버로 전송된 HTTP 요청, 처리되지 않은 예외 및 성능 카운터에 대한 정보를 얻을 수 있습니다.
 
@@ -136,4 +136,4 @@ HTTP 요청에 대한 원격 분석은 개요 블레이드에 표시됩니다. (
 * [웹 테스트를 설정](app-insights-monitor-web-app-availability.md) 하여 응용 프로그램이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 * [로그 추적 캡처](app-insights-java-trace-logs.md)
 * [이벤트 및 로그를 검색](app-insights-diagnostic-search.md) 하여 문제를 진단할 수 있습니다.
-
+* [Spring Boot Initializer 앱 구성](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

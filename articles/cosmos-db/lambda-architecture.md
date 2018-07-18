@@ -3,20 +3,20 @@ title: Azure Cosmos DB 및 HDInsight(Apache Spark)를 사용하는 람다 아키
 description: 이 문서에서는 Azure Cosmos DB, HDInsight 및 Spark를 사용하여 람다 아키텍처를 구현하는 방법을 설명합니다.
 keywords: 람다 아키텍처
 services: cosmos-db
-author: dennyglee
+author: tknandu
 manager: kfile
 editor: ''
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: denlee
-ms.openlocfilehash: a8cdee6e8e7c338be278449a31426824f6e805d6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: ramkris
+ms.openlocfilehash: 20fea7f4f4ccf852045d53ba06c3f8fcbdd1d60d
+ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611860"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36959834"
 ---
 # <a name="azure-cosmos-db-implement-a-lambda-architecture-on-the-azure-platform"></a>Azure Cosmos DB: Azure 플랫폼에 람다 아키텍처 구현 
 

@@ -3,8 +3,8 @@ title: Azure Site Recovery에서 복구 계획에 스크립트 추가 | Microsof
 description: Azure에서 복구 계획에 새 System Center Virtual Machine Manager(VMM) 스크립트를 추가하기 위한 사전 요건을 알아봅니다.
 services: site-recovery
 documentationcenter: ''
-author: ruturaj
-manager: shons
+author: rajani-janaki-ram
+manager: rochakm
 editor: ''
 ms.assetid: 72408c62-fcb6-4ee2-8ff5-cab1218773f2
 ms.service: site-recovery
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/13/2017
-ms.author: ruturaj
-ms.openlocfilehash: 2e00f812fb35ac9a0cb390fc6a3ba40a8678f8dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.date: 07/06/2018
+ms.author: rajanaki
+ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29402074"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917341"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 
@@ -40,7 +40,7 @@ ms.locfileid: "29402074"
         - 600초 이내에 반환하지 않는 경우 스크립트 시간이 초과됩니다.
         - STDERR에 기록되는 항목이 하나라도 존재하면 스크립트가 실패로 분류됩니다. 이 정보는 스크립트 실행 세부 정보에 표시됩니다.
 
-* 복구 계획의 스크립트는 VMM 서비스 계정에서 실행됩니다. 따라서 VMM 서비스 계정에 스크립트가 위치한 원격 공유에 대한 읽기 권한이 있어야 합니다. 스크립트가 VMM 서비스 계정에 부여된 사용자 권한과 동일한 수준으로 실행되는지 테스트합니다.
+* 복구 계획의 스크립트는 VMM 서비스 계정 컨텍스트에서 실행됩니다. 따라서 VMM 서비스 계정에 스크립트가 위치한 원격 공유에 대한 읽기 권한이 있어야 합니다. 스크립트가 VMM 서비스 계정에 부여된 사용자 권한과 동일한 수준으로 실행되는지 테스트합니다.
 * VMM cmdlet은 Windows PowerShell 모듈로 배달됩니다. 모듈은 VMM 콘솔을 설치할 때 설치됩니다. 스크립트에 모듈을 로드하려면 스크립트에서 다음 명령을 사용합니다. 
 
     `Import-Module -Name virtualmachinemanager`

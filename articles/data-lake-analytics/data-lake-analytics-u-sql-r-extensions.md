@@ -1,26 +1,23 @@
 ---
-title: "Azure Data Lake Analytics에서 R로 U-SQL 스크립트 확장 | Microsoft Docs"
-description: "U-SQL 스크립트에서 R 코드를 실행하는 방법을 알아봅니다"
+title: Azure Data Lake Analytics에서 R로 U-SQL 스크립트 확장
+description: Azure Data Lake Analytics를 사용하여 U-SQL 스크립트로 R 코드를 실행하는 방법 알아보기
 services: data-lake-analytics
-documentationcenter: 
-author: saveenr
-manager: sukvg
-editor: cgronlun
-ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 06/20/2017
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: d479af515566f497d9611e75426f6acb8f8276d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
+ms.topic: conceptual
+ms.date: 06/20/2017
+ms.openlocfilehash: 8b22b4238b20f56727d1c7858094328ab8817dad
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34624927"
 ---
-# <a name="tutorial-get-started-with-extending-u-sql-with-r"></a>자습서: R로 U-SQL 확장 시작
+# <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 R 코드로 U-SQL 스크립트 확장
 
 다음 예제에서는 R 코드를 배포하는 기본 단계를 보여 줍니다.
 * `REFERENCE ASSEMBLY` 문을 사용하여 U-SQL 스크립트에 대한 R 확장을 사용하도록 설정합니다.

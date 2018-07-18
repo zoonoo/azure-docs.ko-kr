@@ -1,11 +1,11 @@
 ---
-title: "Azure Event Hubs의 가용성 및 일관성 | Microsoft Docs"
-description: "파티션을 사용하여 Azure Event Hubs에서 가용성 및 일관성의 최대치를 제공하는 방법입니다."
+title: Azure Event Hubs의 가용성 및 일관성 | Microsoft Docs
+description: 파티션을 사용하여 Azure Event Hubs에서 가용성 및 일관성의 최대치를 제공하는 방법입니다.
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
 ms.devlang: na
@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2017
 ms.author: sethm
-ms.openlocfilehash: be1398e9b0a10efcd694e46d6322d5d7b9e7a843
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: e119406292ca1d805f831bc65e3ae6e583147c6d
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34700692"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Event Hubs의 가용성 및 일관성
 
 ## <a name="overview"></a>개요
 Azure Event Hubs는 [파티셔닝 모델](event-hubs-features.md#partitions)을 사용하여 단일 이벤트 허브 내 가용성과 병렬 처리를 개선합니다. 예를 들어 이벤트 허브에 4개의 파티션이 있고 해당 파티션 중 하나가 부하 분산 작업 중 한 서버에서 다른 서버로 이동된 경우 여전히 나머지 3개의 파티션을 보내고 받을 수 있습니다. 또한 더 많은 파티션을 사용하면 더 많은 동시 읽기 권한자가 데이터를 처리할 수 있으므로 집계 처리량이 개선됩니다. 분산된 시스템에서 분할 및 순서 지정이 가진 의미를 이해하는 것은 솔루션 디자인의 중요한 측면입니다.
 
-순서 지정과 가용성 간의 균형을 잘 이해하려면 Brewer의 정리라고도 하는 [CAP 정리](https://en.wikipedia.org/wiki/CAP_theorem)를 참조하세요. 이 정리에서는 일관성, 가용성, 파티션 허용 오차를 선택할 때의 차이점을 다룹니다.
+순서 지정과 가용성 간의 균형을 잘 이해하려면 Brewer의 정리라고도 하는 [CAP 정리](https://en.wikipedia.org/wiki/CAP_theorem)를 참조하세요. 이 정리에서는 일관성, 가용성, 파티션 허용 오차를 선택할 때의 차이점을 다룹니다. 네트워크에서 분할한 시스템의 경우 항상 일관성과 가용성을 절충해야 합니다.
 
 Brewer의 정리는 일관성 및 가용성을 다음과 같이 정의합니다.
 * 파티션 허용 오차: 파티션 오류가 발생하는 경우 데이터 처리를 계속하는 데이터 처리 시스템의 기능입니다.
@@ -35,7 +36,7 @@ Brewer의 정리는 일관성 및 가용성을 다음과 같이 정의합니다.
 ## <a name="partition-tolerance"></a>파티션 허용 오차
 Event Hubs는 분할된 데이터 모델을 기반으로 빌드됩니다. 설치하는 동안 이벤트 허브의 파티션 수를 구성할 수 있지만 나중에 이 값을 변경할 수 없습니다. Event Hubs에서 파티션을 사용해야 하므로 응용 프로그램의 가용성 및 일관성에 대한 결정을 내려야 합니다.
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>가용성
 Event Hubs를 시작하는 가장 간단한 방법은 기본 동작을 사용하는 것입니다. 새 **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** 개체를 만들고 **[보내기](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** 메서드를 사용하는 경우 사용자의 이벤트는 이벤트 허브의 파티션 사이에 자동으로 분산됩니다. 이 동작을 사용하면 가동 시간을 최대화할 수 있습니다.
 
 최대 가동 시간을 필요로 하는 사용 사례의 경우 이 모델을 사용하는 것이 좋습니다.

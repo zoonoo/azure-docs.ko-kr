@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5f963e9ef6f0a19599f372b196dc75a327b92b5a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32178239"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335094"
 ---
 # <a name="what-is-appsource"></a>AppSource란?
 AppSource는 Microsoft 파트너가 Microsoft 지원 온라인 상점을 통해 고객에게 기술과 서비스를 검색할 수 있도록 합니다. AppSource 게시자는 AppSource에 비즈니스 사용자를 끌어들여 기간 업무 SaaS 응용 프로그램과 구현 서비스를 찾고, 사용해 보고, 가져옴으로써 비즈니스 결과를 이끌어내고 가치 창출 시간을 단축할 수 있습니다. 
@@ -76,7 +76,7 @@ Enterprise Edition을 구축하는 경우 [게시 프로세스 및 지침](https
 | SaaS Apps(이전의 Web Apps) | 기본 설정 | Azure AD는 원활한 고객 환경을 보장하고 최상위 잠재 고객을 끌어들이는 모범 사례입니다. |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>표: Azure Active Directory 통합이 필요한 AppSource 제품
 
-처음에는 작업을 다른 이니셔티브와 격리할 수 있도록 **Azure Marketplace 게시 전용 구독을 설정***하는 것이 좋습니다. 또한 다음 도구를 아직 설치하지 않은 경우 개발 환경에 추가하는 것이 좋습니다. 
+처음에는 작업을 다른 이니셔티브와 격리할 수 있도록 **Azure Marketplace 게시 전용 구독을 설정**\*하는 것이 좋습니다. 또한 다음 도구를 아직 설치하지 않은 경우 개발 환경에 추가하는 것이 좋습니다. 
 *   [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest "Azure - CLI")
 *   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0 "PowerShell - Azure")
 *   [Azure 개발자 도구](https://azure.microsoft.com/tools/ "Azure - 개발자 도구") 페이지에서 사용 가능한 도구 검토

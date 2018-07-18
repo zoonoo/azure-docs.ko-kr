@@ -87,8 +87,6 @@
           href: batch-job-prep-release.md
         - name: 동시 노드 작업
           href: batch-parallel-node-tasks.md
-        - name: 상태별 작업 카운트
-          href: batch-get-task-counts.md
         - name: 작업 종속성
           href: batch-task-dependencies.md
         - name: 작업 실행을 위한 사용자 계정
@@ -119,7 +117,9 @@
           href: batch-diagnostics.md
         - name: Application Insights로 모니터링
           href: monitor-application-insights.md
-        - name: 효율적인 목록 쿼리
+        - name: 상태별 리소스 개수
+          href: batch-get-resource-counts.md
+        - name: 효율적으로 리소스 쿼리
           href: batch-efficient-list-queries.md
     - name: 개발자 도구 사용
       items:
@@ -178,8 +178,8 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Batch 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-us/home?forum=azurebatch'
+    - name: Batch Community
+      href: 'https://github.com/Azure/Batch'
     - name: Batch Shipyard
       href: 'https://github.com/Azure/batch-shipyard'
     - name: 블로그

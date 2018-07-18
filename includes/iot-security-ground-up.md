@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c1ba6cb5b01c86c64fd6134c592829050bbb226d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 0eaf1115dc6ed5a7dc9e7354340d5eb529116c88
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307552"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37780658"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>처음부터 사물 인터넷 보안
 
@@ -33,19 +33,20 @@ ms.locfileid: "34307552"
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>처음부터 보안 인프라
 
-[Microsoft Cloud](https://www.microsoft.com/enterprise/microsoftcloud/default.aspx#fbid=WzBsRQi6aGk) 인프라는 127개 국가에서 10억 명 이상의 고객을 지원합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
+[Microsoft Cloud](https://azure.microsoft.com) 인프라는 127개 국가에서 10억 명 이상의 고객을 지원합니다. 엔터프라이즈 소프트웨어를 구축하고 전 세계에서 가장 큰 온라인 서비스 중 일부를 실행하는 Microsoft의 수십 년에 걸친 경험을 토대로, Microsoft 클라우드는 대부분의 고객이 자체적으로 달성할 수 있는 것보다 향상된 수준의 보안, 개인 정보, 규정 준수 및 위협 완화 방법을 제공합니다.
 
 [SDL(보안 개발 수명 주기)](https://www.microsoft.com/sdl/)은 보안 요구 사항을 전체 소프트웨어 수명 주기에 포함하는 전사적인 필수 개발 프로세스를 제공합니다. 동일한 보안 실무 수준에 따라 운영 활동이 진행되도록 하기 위해, SDL은 Microsoft의 OSA(운영 보안 보증) 프로세스에 따른 엄격한 보안 지침을 사용합니다. 또한 Microsoft는 규정 준수 의무를 충족하는지 지속적으로 확인하기 위해 타사 감사 업체와도 협력하며 Microsoft Digital Crimes Unit, Microsoft 보안 대응 센터 및 Microsoft 맬웨어 보호 센터를 비롯한 우수한 센터를 만들어 광범위한 보안 작업에 참여하고 있습니다.
 
 ## <a name="microsoft-azure---secure-iot-infrastructure-for-your-business"></a>Microsoft Azure - 비즈니스를 위한 보안 IoT 인프라
 
-Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 선도적인 노력을 통해 지속적으로 증가하는 통합 클라우드 서비스(분석, 기계 학습, 저장소, 보안, 네트워킹 및 웹) 컬렉션을 결합하는 완전한 클라우드 솔루션을 제공합니다. Microsoft의 [보안 위험 가정](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 전략은 공격을 시뮬레이트하는 소프트웨어 보안 전문가로 구성된 전용 *레드 팀*을 활용하여 Azure에서 새로운 위협을 감지 및 보호하고 위험으로부터 복구하는 기능을 테스트합니다. Microsoft의 [글로벌 인시던트 대응](https://www.microsoft.com/TrustCenter/Security/DesignOpSecurity) 팀은 공격 및 악의적인 활동이 미치는 영향을 최소화 하기 위해 24시간 내내 노력합니다. 이 팀은 문제 관리, 통신 및 복구를 위해 설정된 절차를 따르며 내부 및 외부 파트너와 검색 가능하며 예측 가능한 인터페이스를 사용합니다.
+Microsoft Azure는 데이터 보호 및 개인 정보 보호를 위한 업계 선도적인 노력을 통해 지속적으로 증가하는 통합 클라우드 서비스(분석, 기계 학습, 저장소, 보안, 네트워킹 및 웹) 컬렉션을 결합하는 완전한 클라우드 솔루션을 제공합니다. Microsoft의 [보안 위험 가정](https://azure.microsoft.com/blog/red-teaming-using-cutting-edge-threat-simulation-to-harden-the-microsoft-enterprise-cloud/) 전략은 공격을 시뮬레이트하는 소프트웨어 보안 전문가로 구성된 전용 *레드 팀*을 활용하여 Azure에서 새로운 위협을 감지 및 보호하고 위험으로부터 복구하는 기능을 테스트합니다. Microsoft의 [글로벌 인시던트 대응](https://www.microsoft.com/en-us/TrustCenter/Security/DesignOpSecurity) 팀은 공격 및 악의적인 활동이 미치는 영향을 최소화 하기 위해 24시간 내내 노력합니다. 이 팀은 문제 관리, 통신 및 복구를 위해 설정된 절차를 따르며 내부 및 외부 파트너와 검색 가능하며 예측 가능한 인터페이스를 사용합니다.
 
 Microsoft의 시스템은 지속적인 침입 탐지 및 방지, 서비스 거부 공격 방지, 일반적인 침투 테스트, 외부 도구를 통해 위협을 식별하고 완화할 수 있습니다. [다단계 인증](../articles/active-directory/authentication/multi-factor-authentication.md) 은 최종 사용자가 네트워크에 액세스하는 추가 보안 계층을 제공합니다. 또한 Microsoft는 응용 프로그램 및 호스트 공급자를 위해 액세스 제어, 모니터링, 맬웨어 방지, 취약점 검색, 패치 및 구성 관리를 제공합니다.
 
 솔루션 가속기는 모든 Microsoft 소프트웨어의 안전한 개발 및 운영을 위한 SDL 및 OSA 프로세스와 함께 Azure 플랫폼에 기본 제공된 보안 및 개인 정보를 활용합니다. 이러한 절차는 인프라 보호, 네트워크 보호, 모든 솔루션의 보안을 위한 기본 사항인 식별 및 관리 기능을 제공합니다.
 
-[IoT 솔루션 가속기](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
+
+  [IoT 솔루션 가속기](../articles/iot-accelerators/iot-accelerators-what-is-azure-iot.md) 내에 있는 [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md)는 장치별 보안 자격 증명 및 액세스 제어를 사용하여 IoT 장치와 Azure 서비스(예: [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 및 [Azure Stream Analytics](../articles/stream-analytics/stream-analytics-introduction.md)) 간에 안정적이고 안전한 양방향 통신을 가능하게 해주는 완전히 관리되는 서비스를 제공합니다.
 
 이 문서에서는 Azure IoT 솔루션 가속기에 기본 제공되는 보안 및 개인 정보 기능을 가장 잘 전달하기 위해 솔루션 가속기를 세 가지 주요 보안 영역으로 세분화했습니다.
 

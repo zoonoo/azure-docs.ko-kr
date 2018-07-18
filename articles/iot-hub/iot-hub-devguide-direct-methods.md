@@ -1,25 +1,19 @@
 ---
 title: Azure IoT Hub 직접 메서드 이해 | Microsoft Docs
 description: 개발자 가이드 - 직접 메서드를 사용하여 서비스 앱의 장치에서 코드 호출
-services: iot-hub
-documentationcenter: .net
 author: nberdy
-manager: timlt
-editor: ''
-ms.assetid: 9f0535f1-02e6-467a-9fc4-c0950702102d
+manager: briz
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2018
+services: iot-hub
+ms.topic: conceptual
+ms.date: 06/01/2018
 ms.author: nberdy
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a35c88ac053b43d4a95b5bef92f3ebfb03567e2b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736680"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 장치의 응답 여부에 따라 달라지는 시나리오에서 유용합니다.
@@ -85,6 +79,11 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
     ```
 
     `status`와 `body`는 모두 장치에 의해 제공되며 장치 자체의 상태 코드 및/또는 설명으로 응답하는 데 사용됩니다.
+
+### <a name="method-invocation-for-iot-edge-modules"></a>IoT Edge 모듈에 대한 메서드 호출
+모듈 ID를 사용하여 직접 메서드를 호출하는 작업은 C# 미리 보기 SDK에서 지원됩니다([여기](https://www.nuget.org/packages/Microsoft.Azure.Devices/1.16.0-preview-004)에서 사용 가능함).
+
+이 작업의 경우 `ServiceClient.InvokeDeviceMethodAsync()` 메서드를 사용하고 `deviceId` 및 `moduleId`에서 매개 변수로 전달합니다.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>장치에서 직접 메서드 처리
 ### <a name="mqtt"></a>MQTT

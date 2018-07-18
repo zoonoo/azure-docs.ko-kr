@@ -6,30 +6,31 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2018
+ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f7722891af15111fd0151055c35bf24100ed79b1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915205"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 
-이 자습서에서는 VMware VM을 Azure에 복제하려는 경우 온-프레미스 VMware 인프라를 준비하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+[Azure Site Recovery](site-recovery-overview.md)는 계획된 정전 및 계획되지 않은 정전 중 비즈니스 앱 작동을 유지하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
+
+- 이는 온-프레미스 VMware VM에 대한 재해 복구를 Azure에 설정하는 방법을 보여 주는 자습서 시리즈 중 두 번째 자습서입니다. [첫 번째 자습서](tutorial-prepare-azure.md)에서는 VMware 재해 복구에 필요한 Azure 구성 요소를 설정했습니다.
+- 자습서는 특정 시나리오의 가장 간단한 배포 경로를 보여주도록 설계되었습니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 
+
+이 문서에서는 Azure Site Recovery를 사용하여 VMware VM을 Azure에 복제하려고 할 때 온-프레미스 VMware 환경을 준비하는 방법을 보여줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 검색을 자동화하기 위해 vCenter 서버 또는 vSphere ESXi 호스트에서 계정 준비
 > * VMware VM에 모바일 서비스 자동 설치를 위한 계정 준비
-> * VMware 서버 요구 사항 검토
-> * VMware VM 요구 사항 검토
+> * VMware 서버 및 VM 요구 사항 검토
+> * 장애 조치(Failover) 후 Azure VM에 연결할 준비
 
-이 자습서 시리즈에서는 Azure Site Recovery를 사용하여 단일 VM을 복제하는 방법을 보여줍니다. 
-
-이 문서는 시리즈의 두 번째 자습서입니다. 이전 자습서에서 설명한 대로 [Azure 구성 요소를 설정](tutorial-prepare-azure.md)했는지 확인합니다.
-
-여러 VM을 복제하는 경우 VMware 복제에 대한 [Deployment Planner 도구](https://aka.ms/asr-deployment-planner)를 다운로드합니다. [자세히 알아보기](site-recovery-deployment-planner.md).
 
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>자동 검색용 계정 준비
@@ -54,12 +55,17 @@ Site Recovery에서는 다음 작업을 위해 VMware 서버에 액세스해야 
 
 ## <a name="prepare-an-account-for-mobility-service-installation"></a>모바일 서비스 설치를 위한 계정 준비
 
-복제하려는 VM에 모바일 서비스를 설치해야 합니다. Site Recovery에서 VM에 대한 복제를 사용하도록 설정하면 이 서비스를 자동으로 설치합니다. 자동 설치하려면 Site Recovery에서 VM에 액세스하는 데 사용할 계정을 준비해야 합니다. Azure 콘솔에서 재해 복구를 설정할 때 이 계정을 지정합니다.
+복제하려는 컴퓨터에 모바일 서비스가 설치되어야 합니다. 사용자가 컴퓨터에 복제를 사용하도록 설정할 경우 Site Recovery가 이 서비스의 강제 설치를 수행할 수 있으며, 그렇지 않을 경우 사용자가 수동으로 설치하거나 설치 도구를 사용하여 설치할 수 있습니다.
 
-1. VM에 설치할 수 있는 권한이 있는 도메인 또는 로컬 계정을 준비합니다.
-2. Windows VM에 설치하려면 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
-   - 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
-3. Linux VM에 설치하려면 Linux 원본 서버에서 루트 계정을 준비합니다.
+- 이 자습서에서는 강제 설치 방식으로 Mobility 서비스를 설치하겠습니다.
+- 강제 설치를 사용하려는 경우 Site Recovery가 VM에 액세스하는 데 사용할 수 있는 계정을 준비해야 합니다. Azure 콘솔에서 재해 복구를 설정할 때 이 계정을 지정합니다.
+
+다음과 같이 계정을 준비합니다.
+
+VM에 설치할 수 있는 권한이 있는 도메인 또는 로컬 계정을 준비합니다.
+
+- **Windows VM**: Windows VM에 설치하려면 도메인 계정을 사용하지 않는 경우 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다. 이렇게 하려면 레지스트리의 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**에서 값이 1인 **LocalAccountTokenFilterPolicy** DWORD 항목을 추가합니다.
+- **Linux VM**: Linux VM에 설치하려면 Linux 원본 서버에서 루트 계정을 준비합니다.
 
 
 ## <a name="check-vmware-requirements"></a>VMware 요구 사항 확인
@@ -67,7 +73,7 @@ Site Recovery에서는 다음 작업을 위해 VMware 서버에 액세스해야 
 VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 
 1. VMware 서버 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers)합니다.
-2. Linux의 경우 파일 시스템 및 저장소 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)합니다. 
+2. Linux VM의 경우 파일 시스템 및 저장소 요구 사항을 [확인](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)합니다. 
 3. 온-프레미스 [네트워크](vmware-physical-azure-support-matrix.md#network) 및 [저장소](vmware-physical-azure-support-matrix.md#storage) 지원을 확인합니다. 
 4. 장애 조치(failover) 후 [Azure 네트워킹](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [저장소](vmware-physical-azure-support-matrix.md#azure-storage) 및 [계산](vmware-physical-azure-support-matrix.md#azure-compute)에 대해 지원되는 기능을 확인합니다.
 5. Azure에 복제하려는 온-프레미스 VM은 [Azure VM 요구 사항](vmware-physical-azure-support-matrix.md#azure-vm-requirements)을 준수해야 합니다.
@@ -75,21 +81,31 @@ VMware 서버 및 Vm이 요구 사항을 준수하는지 확인 합니다.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
 
-장애 조치 시나리오에서는 온-프레미스 네트워크에서 Azure에 복제된 VM에 연결하는 것이 좋습니다.
+장애 조치(failover) 후 온-프레미스 네트워크의 Azure VM에에 연결할 수 있습니다.
 
 장애 조치 후 RDP를 사용하여 Windows VM에 연결하려면 다음을 수행합니다.
 
-1. 인터넷을 통해 액세스하려면 장애 조치 전에 온-프레미스 VM에서 RDP를 활성화합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.
-2. 사이트 간 VPN을 통해 액세스하려면 온-프레미스 컴퓨터에서 RDP를 활성화합니다. RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 사설** 네트워크에 대해 허용되어야 합니다.
-   운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135). 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우 업데이트가 완료될 때까지 가상 머신에 로그인할 수 없습니다.
-3. 장애 조치 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
+- **인터넷 액세스**. 장애 조치(failover) 전에 온-프레미스 VM에서 RDP를 활성화합니다. **공용** 프로필에 대한 TCP 및 UDP 규칙이 추가되었는지와 해당 RDP가 **Windows 방화벽** > **허용되는 앱**에서 모든 프로필에 대해 허용되는지 확인합니다.
+- **사이트 간 VPN 액세스**:
+    - 장애 조치(failover) 전에 온-프레미스 컴퓨터에서 RDP를 활성화합니다.
+    - RDP가 **Windows 방화벽** -> **허용되는 앱 및 기능**에서 **도메인 또는 사설** 네트워크에 대해 허용되어야 합니다.
+    - 운영 체제의 SAN 정책이 **OnlineAll**로 설정되어 있는지 확인합니다. [자세히 알아보기](https://support.microsoft.com/kb/3031135).
+- 장애 조치를 트리거할 때 VM에 보류 중인 Windows 업데이트가 없어야 합니다. 있는 경우 업데이트가 완료될 때까지 가상 머신에 로그인할 수 없습니다.
+- 장애 조치 후 Microsoft Azure VM에서 **부트 진단**을 확인하여 VM의 스크린샷을 검토합니다. 연결할 수 없는 경우 VM이 실행 중인지 확인하고 해당 [문제 해결 팁](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)(영문)을 검토합니다.
 
 장애 조치 후 SSH를 사용하여 Linux VM에 연결하려면 다음을 수행합니다.
 
-1. 장애 조치 전에 온-프레미스 컴퓨터에서 시스템 부팅 시 SSH(Secure Shell) 서비스가 자동으로 시작되도록 설정되어 있는지 확인합니다. 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.
+- 장애 조치 전에 온-프레미스 컴퓨터에서 시스템 부팅 시 SSH(Secure Shell) 서비스가 자동으로 시작되도록 설정되어 있는지 확인합니다.
+- 방화벽 규칙에서 SSH 연결을 허용하는지 확인합니다.
+- 장애 조치 후 Azure VM에서 장애 조치된 VM의 네트워크 보안 그룹 규칙 및 연결되어 있는 Azure 서브넷에 대한 SSH 포트로 들어오는 연결을 허용합니다.
+- VM에 대한 [공용 IP 주소를 추가](site-recovery-monitoring-and-troubleshooting.md)합니다.
+- **부트 진단**을 확인하여 VM에 대한 스크린샷을 볼 수 있습니다.
 
-2. 장애 조치 후 Azure VM에서 장애 조치된 VM의 네트워크 보안 그룹 규칙 및 연결되어 있는 Azure 서브넷에 대한 SSH 포트로 들어오는 연결을 허용합니다.
-   VM에 대한 [공용 IP 주소를 추가](site-recovery-monitoring-and-troubleshooting.md)합니다. **부트 진단**을 확인하여 VM에 대한 스크린샷을 볼 수 있습니다.
+## <a name="useful-links"></a>유용한 링크
+
+여러 VM을 복제하는 경우 시작하기 전에 용량 및 배포를 계획해야 합니다. [자세히 알아보기](site-recovery-deployment-planner.md).
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

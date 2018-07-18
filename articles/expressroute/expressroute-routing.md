@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: b0c8be546b40b36746224ca43c7766ac310fd7ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178758"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930531"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -67,6 +67,7 @@ BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합
 ### <a name="ip-addresses-used-for-microsoft-peering"></a>Microsoft 피어링에 사용된 IP 주소
 BGP 세션을 설치하기 위해 소유한 공용 IP 주소를 사용해야 합니다. Microsoft은 라우팅 인터넷 레지스트리 및 인터넷 라우팅 레지스트리를 통해 IP 주소의 소유권을 확인할 수 있어야 합니다.
 
+* Microsoft 피어링을 위한 보급된 공용 접두사의 포털에 나열된 IP는 Microsoft 코어 라우터에 대한 ACL을 만들어서 이러한 IP의 인바운드 트래픽을 허용합니다. 
 * 고유한 /29 (IPv4) 또는 /125 (IPv6) 서브넷 또는 두 개의 /30 (IPv4) 또는 /126 (IPv6) 서브넷을 사용하여 ExpressRoute 회로당(하나 이상이 있는 경우) 각 피어링에 BGP를 설정해야 합니다.
 * /29 서브넷을 사용한 경우 두 개의 /30 서브넷으로 분할됩니다.
 * 첫 번째 /30 서브넷은 기본 링크에 사용되고 두 번째 /30 서브넷은 보조 링크에 사용됩니다.
@@ -116,7 +117,7 @@ IP 주소 및 AS 번호가 다음 레지스트리 중 하나에 등록되었는�
 > 
 
 ## <a name="dynamic-route-exchange"></a>동적 경로 Exchange
-라우팅 Exchange는 eBGP 프로토콜을 통합니다. EBGP 세션은 MSEE와 라우터 간에 설정됩니다. BGP 세션의 인증은 요구되지 않습니다. 필요한 경우 MD5 해시를 구성할 수 있습니다. BGP 세션을 구성하는 방법에 대한 정보는 [구성 라우팅](expressroute-howto-routing-classic.md) 및 [회로 프로비전 워크플로 및 회로 상태](expressroute-workflows.md)를 참조하세요.
+라우팅 Exchange는 eBGP 프로토콜을 통합니다. EBGP 세션은 MSEE와 라우터 간에 설정됩니다. BGP 세션의 인증은 요구되지 않습니다. 필요한 경우 MD5 해시를 구성할 수 있습니다. BGP 세션을 구성하는 방법에 대한 정보는 [구성 라우팅](how-to-routefilter-portal.md) 및 [회로 프로비전 워크플로 및 회로 상태](expressroute-workflows.md)를 참조하세요.
 
 ## <a name="autonomous-system-numbers"></a>자치 시스템 번호
 Microsoft는 Azure 공용, Azure 개인 및 Microsoft 피어링에 AS 12076을 사용합니다. 내부 사용을 위해 65515에서 65520으로 ASN을 예약했습니다. 16 및 32비트 AS 번호를 모두 지원합니다.

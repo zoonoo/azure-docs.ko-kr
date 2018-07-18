@@ -5,26 +5,25 @@ keywords: NoSQL 예제
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-documentationcenter: java
-ms.assetid: d824d517-903e-4d82-ab0a-09fc3b984c84
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
+ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: 270cebd08fb1b03851825f7678689598cb9b71b9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ec13a594750132bc016d1383eb4b0a08fdf6114e
+ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34831832"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB: SQL API에 대한 Java 예제
 
 > [!div class="op_single_selector"]
 > * [.NET 예제](sql-api-dotnet-samples.md)
 > * [Java 예제](sql-api-java-samples.md)
+> * [비동기 Java 예제](sql-api-async-java-samples.md)
 > * [Node.js 예제](sql-api-nodejs-samples.md)
 > * [Python 예제](sql-api-python-samples.md)
 > * [Azure 코드 샘플 갤러리](https://azure.microsoft.com/resources/samples/?sort=0&service=cosmos-db)

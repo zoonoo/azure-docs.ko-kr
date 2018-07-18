@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/22/2018
+ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 95ce83a3f1288d1b731aeeb8dcc32e58bcaefe21
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: a12ac87eba14db4ff13868446cf8d14b10d1f5fb
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157924"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317829"
 ---
 # <a name="azure-ad-token-reference"></a>Azure AD 토큰 참조
 Azure AD(Azure Active Directory)는 각 인증 흐름의 처리 과정에서 여러 유형의 보안 토큰을 내보냅니다. 이 문서에서는 각 토큰 유형의 형식, 보안 특성 및 내용을 설명합니다. 
@@ -56,7 +56,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | JWT 클레임 | Name | 설명 |
 | --- | --- | --- |
 | `aud` |대상 |토큰의 의도한 수신자입니다. 토큰을 받는 응용 프로그램에서는 대상 값이 올바른지 확인하여 대상이 다른 모든 토큰을 거부해야 합니다. <br><br> **SAML 값 예제**: <br> `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>` <br><br> **JWT 값 예제**: <br> `"aud":"https://contoso.com"` |
-| `appidacr` |응용 프로그램 인증 컨텍스트 클래스 참조 |클라이언트가 인증된 방법을 나타냅니다. 공용 클라이언트의 경우 값이 0입니다. 클라이언트 ID 및 클라이언트 암호가 사용되면 값이 1입니다. <br><br> **JWT 값 예제**: <br> `"appidacr": "0"` |
+| `appidacr` |응용 프로그램 인증 컨텍스트 클래스 참조 |클라이언트가 인증된 방법을 나타냅니다. 공용 클라이언트의 경우 값이 0입니다. 클라이언트 ID 및 클라이언트 암호가 사용되면 값이 1입니다. 클라이언트 인증서가 인증에 사용된 경우 값은 2입니다. <br><br> **JWT 값 예제**: <br> `"appidacr": "0"` |
 | `acr` |인증 컨텍스트 클래스 참조 |응용 프로그램 인증 컨텍스트 클래스 참조 클레임의 클라이언트와는 반대로 주체가 인증된 방법을 나타냅니다. 값 "0"은 최종 사용자 인증이 ISO/IEC 29115 요구 사항을 충족하지 못했다는 뜻입니다. <br><br> **JWT 값 예제**: <br> `"acr": "0"` |
 | 인증 인스턴트 |인증이 발생한 날짜 및 시간을 기록합니다. <br><br> **SAML 값 예제**: <br> `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | |
 | `amr` |인증 방법 |토큰의 주체가 인증된 방법을 식별합니다. <br><br> **SAML 값 예제**: <br> `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` <br><br> **JWT 값 예제**: `“amr”: ["pwd"]` |
@@ -113,7 +113,8 @@ Azure AD에서 발급된 토큰은 RSA 256 등의 업계 표준 비대칭 암호
 {
   "typ": "JWT",
   "alg": "RS256",
-  "x5t": "kriMPdmBvx68skT8-mPAB3BseeA"
+  "x5t": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
+  "kid": "iBjL1Rcqzhiy4fpxIxdZqohM2Yk"
 }
 ```
 
@@ -129,12 +130,13 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 
 > [!TIP]
 > 브라우저에서 이 URL을 사용해 보세요!
-> 
-> 
 
 이 메타데이터 문서는 OpenID Connect 인증을 수행하는 데 필요한 다양한 끝점의 위치 등 여러 유용한 정보를 포함하는 JSON 개체입니다. 
 
 토큰 서명에 사용되는 공개 키 집합의 위치를 제공하는 `jwks_uri`도 포함합니다. `jwks_uri` 에 있는 JSON 문서는 해당 특정 시점에 사용 중인 공개 키 정보를 모두 포함합니다. 앱은 JWT 헤더에 `kid` 클레임을 사용하여 토큰 서명에 사용된 공개 키를 이 문서에서 선택할 수 있습니다. 그런 다음 올바른 공개 키와 표시된 알고리즘을 사용하여 서명 유효성 검사를 수행할 수 있습니다.
+
+> [!NOTE]
+> v1.0 엔드포인트는 `x5t` 및 `kid` 클레임을 모두 반환합니다. v2.0 토큰에는 `x5t` 클레임이 없으므로 v2.0 엔드포인트는 `kid` 클레임을 통해 응답합니다. 앞으로는 `kid` 클레임을 사용하여 토큰의 유효성을 검사하는 것이 좋습니다.
 
 서명 유효성 검사는 이 문서의 범위를 벗어납니다. 필요한 경우 이 작업에 도움이 되는 다양한 오픈 소스 라이브러리가 있습니다.
 
@@ -153,21 +155,31 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ## <a name="token-revocation"></a>토큰 해지
 
 다양한 이유로 언제든지 새로 고침 토큰이 무효화되거나 취소될 수 있습니다. 이러한 이유는 시간 제한 및 해지 등 두 가지 주요 범주로 나뉩니다. 
-* 토큰 제한 시간
-  * MaxInactiveTime: MaxInactiveTime에 의해 결정된 시간 내에 새로 고침 토큰을 사용하지 않은 경우 새로 고침 토큰은 더 이상 유효하지 않습니다. 
-  * MaxSessionAge: MaxAgeSessionMultiFactor 또는 MaxAgeSessionSingleFactor가 (해지될 때까지) 기본값 이외의 값으로 설정된 경우 MaxAgeSession *에 설정된 시간이 경과된 후에 다시 인증해야 합니다. 
-  * 예제:
-    * 테넌트에 5일의 MaxInactiveTime이 설정되고 사용자가 1주일 동안 휴가를 갔습니다. 따라서 AAD에는 7일 동안 사용자의 새 토큰 요청이 없습니다. 다음에 사용자가 새 토큰을 요청하는 경우 해당 새로 고침 토큰이 해지되었음을 발견하고 자격 증명을 다시 입력해야 합니다. 
-    * 중요한 응용 프로그램에는 1일의 MaxAgeSessionSingleFactor가 지정됩니다. 월요일 및 화요일(25시간이 경과된 후에)에 사용자가 로그인하는 경우 다시 인증해야 합니다. 
-* 해지
-  * 자발적 암호 변경: 사용자가 암호를 변경하는 경우 토큰을 획득한 방식에 따라 해당 응용 프로그램 중 일부를 다시 인증해야 할 수 있습니다. 예외는 아래 메모를 참조하세요. 
-  * 비자발적 암호 변경: 관리자가 사용자의 암호를 변경하거나 다시 설정하도록 강제하는 경우 해당 암호를 사용하여 수행하면 사용자의 토큰은 무효화됩니다. 예외는 아래 메모를 참조하세요. 
-  * 보안 위반: 보안 위반(예: 암호의 온-프레미스 저장소 위반)이 발생할 때 관리자는 현재 발급된 모든 새로 고침 토큰을 해지할 수 있습니다. 그러면 모든 사용자를 다시 인증하도록 강제합니다. 
+
+**토큰 제한 시간**
+
+* MaxInactiveTime: MaxInactiveTime에 의해 결정된 시간 내에 새로 고침 토큰을 사용하지 않은 경우 새로 고침 토큰은 더 이상 유효하지 않습니다. 
+* MaxSessionAge: MaxAgeSessionMultiFactor 또는 MaxAgeSessionSingleFactor가 (해지될 때까지) 기본값 이외의 값으로 설정된 경우 MaxAgeSession *에 설정된 시간이 경과된 후에 다시 인증해야 합니다. 
+* 예제:
+  * 테넌트에 5일의 MaxInactiveTime이 설정되고 사용자가 1주일 동안 휴가를 갔습니다. 따라서 AAD에는 7일 동안 사용자의 새 토큰 요청이 없습니다. 다음에 사용자가 새 토큰을 요청하는 경우 해당 새로 고침 토큰이 해지되었음을 발견하고 자격 증명을 다시 입력해야 합니다. 
+  * 중요한 응용 프로그램에는 1일의 MaxAgeSessionSingleFactor가 지정됩니다. 월요일 및 화요일(25시간이 경과된 후에)에 사용자가 로그인하는 경우 다시 인증해야 합니다. 
+
+**해지**
+
+|   | 암호 기반 쿠키 | 암호 기반 토큰 | 비암호 기반 쿠키 | 비암호 기반 토큰 | 기밀 클라이언트 토큰| 
+|---|-----------------------|----------------------|---------------------------|--------------------------|--------------------------|
+|암호 만료| 활성 상태|활성 상태|활성 상태|활성 상태|활성 상태|
+|사용자에 의해 암호가 변경됨| 해지됨 | 해지됨 | 활성 상태|활성 상태|활성 상태|
+|사용자가 SSPR 수행|해지됨 | 해지됨 | 활성 상태|활성 상태|활성 상태|
+|관리자가 암호 재설정|해지됨 | 해지됨 | 활성 상태|활성 상태|활성 상태|
+|사용자가 [PowerShell을 통해](https://docs.microsoft.com/powershell/module/azuread/revoke-azureadsignedinuserallrefreshtoken) 새로 고침 토큰 해지 | 해지됨 | 해지됨 |해지됨 | 해지됨 |해지됨 | 해지됨 |
+|관리자가 [PowerShell을 통해](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken) 테넌트에 대한 모든 새로 고침 토큰 해지 | 해지됨 | 해지됨 |해지됨 | 해지됨 |해지됨 | 해지됨 |
+|웹에서 [단일 로그아웃](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code#single-sign-out) | 해지됨 | 활성 상태 |해지됨 | 활성 상태 |활성 상태 |활성 상태 |
 
 > [!NOTE]
->인증에 비암호 메서드를 사용(Windows Hello, Authenticator 앱, 얼굴 또는 지문과 같은 생체 인식)하여 토큰을 만드는 경우 사용자의 암호를 변경하면 사용자를 다시 인증하도록 강제하지 않습니다. (하지만 해당 Authenticator 앱을 다시 인증하도록 강제합니다.) 선택한 인증 입력(예: 얼굴)이 변경되지 않았기 때문입니다. 따라서 다시 인증하는 데 사용할 수 있습니다.
+> "비 암호 기반" 로그인은 사용자가 가져오도록 암호를 입력하지 않은 위치입니다.  예를 들어 Windows Hello로 얼굴, FIDO 키 또는 PIN을 사용합니다. 
 >
-> 기밀 클라이언트는 암호 변경 해지의 영향을 받지 않습니다. 암호를 변경하기 전에 발급된 새로 고침 토큰이 있는 기밀 클라이언트에서 새로 고침 토큰을 계속 사용하여 더 많은 토큰을 얻을 수 있습니다. 
+> Windows 기본 새로 고침 토큰으로 알려진 문제가 있습니다.  PRT가 암호를 통해 획득된 다음, 사용자가 Hello를 통해 로그인하는 경우 PRT의 원본을 변경하지 않으며 사용자가 해당 암호를 변경하는 경우 해지됩니다. 
 
 ## <a name="sample-tokens"></a>샘플 토큰
 

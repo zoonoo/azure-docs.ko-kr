@@ -1,22 +1,21 @@
 ---
-title: Azure AD B2C의 언어 사용자 지정 | Microsoft Docs
+title: Azure Active Directory B2C에서 언어 사용자 지정 | Microsoft Docs
 description: 언어 환경을 사용자 지정하는 방법을 알아봅니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: davidmu
-ms.openlocfilehash: 097033b78e3e4f640e7bf4008fd970c53315d5d7
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.component: B2C
+ms.openlocfilehash: affd52352dcc745557dd66c61ccfa1e7a99dcdb7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33200555"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442324"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
@@ -198,7 +197,7 @@ Chrome과 Firefox는 설정된 언어를 요청합니다. 이 언어가 지원�
 | 헝가리어             | hu            |
 | 이탈리아어               | it            |
 | 일본어              | ja            |
-| 카나다어               | kn            |
+| 칸나다어               | kn            |
 | 한국어                | ko            |
 | 말라얄람어             | ml            |
 | 마라티어               | mr            |

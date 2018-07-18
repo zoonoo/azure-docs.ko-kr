@@ -3,7 +3,7 @@ title: Linux VM의 이미지 캡처 | Microsoft Docs
 description: 클래식 배포 모델을 사용하여 만든, Linux 기반 Azure VM(가상 머신)의 이미지를 캡처하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: iainfou
-ms.openlocfilehash: 6071e025352199c5ec559598a580a918c2e9c666
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: cynthn
+ms.openlocfilehash: ae87af45ffc442c0de6c7f703694a994e536cdb8
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33941431"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929215"
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>클래식 Linux 가상 머신을 이미지로 캡처하는 방법
 > [!IMPORTANT]

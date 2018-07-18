@@ -1,4 +1,4 @@
-- name: Data Factory V2 설명서
+- name: Data Factory 설명서
   href: index.yml
 - name: 버전 1 문서로 전환
   href: v1/data-factory-introduction.md
@@ -6,7 +6,7 @@
   items:
     - name: Data Factory 소개
       href: introduction.md
-    - name: 버전 1과 2 비교
+    - name: 현재 버전을 버전 1과 비교합니다.
       href: compare-versions.md
 - name: 빠른 시작
   expanded: true
@@ -126,161 +126,168 @@
           href: continuous-integration-deployment.md
         - name: 반복 개발 및 디버깅
           href: iterative-development-debugging.md
+    - name: 커넥터
+      items:
+        - name: Amazon Marketplace 웹 서비스
+          href: connector-amazon-marketplace-web-service.md
+        - name: Amazon Redshift
+          href: connector-amazon-redshift.md
+        - name: Amazon S3
+          href: connector-amazon-simple-storage-service.md
+        - name: Azure Blob Storage
+          href: connector-azure-blob-storage.md
+        - name: Azure Cosmos DB
+          href: connector-azure-cosmos-db.md
+        - name: Azure Data Lake Storage Gen1
+          href: connector-azure-data-lake-store.md
+        - name: Azure Data Lake Storage Gen2
+          href: connector-azure-data-lake-storage.md
+        - name: Azure Database for MySQL
+          href: connector-azure-database-for-mysql.md
+        - name: Azure Database for PostgreSQL
+          href: connector-azure-database-for-postgresql.md
+        - name: Azure File Storage
+          href: connector-azure-file-storage.md
+        - name: Azure Search
+          href: connector-azure-search.md
+        - name: Azure SQL Database
+          href: connector-azure-sql-database.md
+        - name: Azure SQL Data Warehouse
+          href: connector-azure-sql-data-warehouse.md
+        - name: Azure Table Storage
+          href: connector-azure-table-storage.md
+        - name: Cassandra
+          href: connector-cassandra.md
+        - name: 앱에 대한 Common Data Service
+          href: connector-dynamics-crm-office-365.md
+        - name: Concur
+          href: connector-concur.md
+        - name: Couchbase
+          href: connector-couchbase.md
+        - name: DB2
+          href: connector-db2.md
+        - name: Drill
+          href: connector-drill.md
+        - name: Dynamics 365
+          href: connector-dynamics-crm-office-365.md
+        - name: Dynamics CRM
+          href: connector-dynamics-crm-office-365.md
+        - name: 파일 시스템
+          href: connector-file-system.md
+        - name: FTP
+          href: connector-ftp.md
+        - name: GE Historian
+          href: 'connector-odbc.md#ge-historian-source'
+        - name: Google BigQuery
+          href: connector-google-bigquery.md
+        - name: Greenplum
+          href: connector-greenplum.md
+        - name: HBase
+          href: connector-hbase.md
+        - name: HDFS
+          href: connector-hdfs.md
+        - name: Hive
+          href: connector-hive.md
+        - name: HTTP
+          href: connector-http.md
+        - name: HubSpot
+          href: connector-hubspot.md
+        - name: Impala
+          href: connector-impala.md
+        - name: Informix
+          href: 'connector-odbc.md#ibm-informix-source'
+        - name: Jira
+          href: connector-jira.md
+        - name: Magento
+          href: connector-magento.md
+        - name: MariaDB
+          href: connector-mariadb.md
+        - name: Marketo
+          href: connector-marketo.md
+        - name: Microsoft Access
+          href: 'connector-odbc.md#microsoft-access-source'
+        - name: MongoDB
+          href: connector-mongodb.md
+        - name: MySQL
+          href: connector-mysql.md
+        - name: Netezza
+          href: connector-netezza.md
+        - name: OData
+          href: connector-odata.md
+        - name: ODBC
+          href: connector-odbc.md
+        - name: Oracle
+          href: connector-oracle.md
+        - name: Oracle Eloqua
+          href: connector-oracle-eloqua.md
+        - name: Oracle Responsys
+          href: connector-oracle-responsys.md
+        - name: Paypal
+          href: connector-paypal.md
+        - name: Phoenix
+          href: connector-phoenix.md
+        - name: PostgreSQL
+          href: connector-postgresql.md
+        - name: Presto
+          href: connector-presto.md
+        - name: QuickBooks
+          href: connector-quickbooks.md
+        - name: Salesforce
+          href: connector-salesforce.md
+        - name: Salesforce 서비스 클라우드
+          href: connector-salesforce.md
+        - name: Salesforce 마케팅 클라우드
+          href: connector-salesforce-marketing-cloud.md
+        - name: SAP Business Warehouse
+          href: connector-sap-business-warehouse.md
+        - name: SAP Cloud for Customer
+          href: connector-sap-cloud-for-customer.md
+        - name: SAP ECC
+          href: connector-sap-ecc.md
+        - name: SAP HANA
+          href: connector-sap-hana.md
+        - name: ServiceNow
+          href: connector-servicenow.md
+        - name: SFTP
+          href: connector-sftp.md
+        - name: Shopify
+          href: connector-shopify.md
+        - name: Spark
+          href: connector-spark.md
+        - name: SQL Server
+          href: connector-sql-server.md
+        - name: Square
+          href: connector-square.md
+        - name: Sybase
+          href: connector-sybase.md
+        - name: Teradata
+          href: connector-teradata.md
+        - name: Vertica
+          href: connector-vertica.md
+        - name: 웹 테이블
+          href: connector-web-table.md
+        - name: Xero
+          href: connector-xero.md
+        - name: Zoho
+          href: connector-zoho.md
     - name: 데이터 복사
       items:
         - name: 복사 작업을 사용하여 데이터 복사
           href: copy-activity-overview.md
         - name: 데이터 복사 도구
           href: copy-data-tool.md
+          items: null
+        - name: Data Lake Storage Gen2 로드
+          href: load-azure-data-lake-storage-gen2.md
           items:
-            - name: Data Lake Store 로드
-              href: load-azure-data-lake-store.md
-            - name: SQL Data Warehouse 로드
-              href: load-azure-sql-data-warehouse.md
+            - name: Data Lake Storage Gen1에서 복사
+              href: load-azure-data-lake-storage-gen2-from-gen1.md
+        - name: SQL Data Warehouse 로드
+          href: load-azure-sql-data-warehouse.md
+        - name: Data Lake Storage Gen1 로드
+          href: load-azure-data-lake-store.md
         - name: 분할된 데이터 읽기 또는 쓰기
           href: how-to-read-write-partitioned-data.md
-        - name: 커넥터
-          items:
-            - name: Amazon Marketplace 웹 서비스
-              href: connector-amazon-marketplace-web-service.md
-            - name: Amazon Redshift
-              href: connector-amazon-redshift.md
-            - name: Amazon S3
-              href: connector-amazon-simple-storage-service.md
-            - name: Azure Blob Storage
-              href: connector-azure-blob-storage.md
-            - name: Azure Cosmos DB
-              href: connector-azure-cosmos-db.md
-            - name: Azure Data Lake Store
-              href: connector-azure-data-lake-store.md
-            - name: Azure Database for MySQL
-              href: connector-azure-database-for-mysql.md
-            - name: Azure Database for PostgreSQL
-              href: connector-azure-database-for-postgresql.md
-            - name: Azure File Storage
-              href: connector-azure-file-storage.md
-            - name: Azure Search
-              href: connector-azure-search.md
-            - name: Azure SQL Database
-              href: connector-azure-sql-database.md
-            - name: Azure SQL Data Warehouse
-              href: connector-azure-sql-data-warehouse.md
-            - name: Azure Table Storage
-              href: connector-azure-table-storage.md
-            - name: Cassandra
-              href: connector-cassandra.md
-            - name: 앱에 대한 Common Data Service
-              href: connector-dynamics-crm-office-365.md
-            - name: Concur
-              href: connector-concur.md
-            - name: Couchbase
-              href: connector-couchbase.md
-            - name: DB2
-              href: connector-db2.md
-            - name: Drill
-              href: connector-drill.md
-            - name: Dynamics 365
-              href: connector-dynamics-crm-office-365.md
-            - name: Dynamics CRM
-              href: connector-dynamics-crm-office-365.md
-            - name: 파일 시스템
-              href: connector-file-system.md
-            - name: FTP
-              href: connector-ftp.md
-            - name: GE Historian
-              href: 'connector-odbc.md#ge-historian-source'
-            - name: Google BigQuery
-              href: connector-google-bigquery.md
-            - name: Greenplum
-              href: connector-greenplum.md
-            - name: HBase
-              href: connector-hbase.md
-            - name: HDFS
-              href: connector-hdfs.md
-            - name: Hive
-              href: connector-hive.md
-            - name: HTTP
-              href: connector-http.md
-            - name: HubSpot
-              href: connector-hubspot.md
-            - name: Impala
-              href: connector-impala.md
-            - name: Informix
-              href: 'connector-odbc.md#ibm-informix-source'
-            - name: Jira
-              href: connector-jira.md
-            - name: Magento
-              href: connector-magento.md
-            - name: MariaDB
-              href: connector-mariadb.md
-            - name: Marketo
-              href: connector-marketo.md
-            - name: Microsoft Access
-              href: 'connector-odbc.md#microsoft-access-source'
-            - name: MongoDB
-              href: connector-mongodb.md
-            - name: MySQL
-              href: connector-mysql.md
-            - name: Netezza
-              href: connector-netezza.md
-            - name: OData
-              href: connector-odata.md
-            - name: ODBC
-              href: connector-odbc.md
-            - name: Oracle
-              href: connector-oracle.md
-            - name: Oracle Eloqua
-              href: connector-oracle-eloqua.md
-            - name: Oracle Responsys
-              href: connector-oracle-responsys.md
-            - name: Paypal
-              href: connector-paypal.md
-            - name: Phoenix
-              href: connector-phoenix.md
-            - name: PostgreSQL
-              href: connector-postgresql.md
-            - name: Presto
-              href: connector-presto.md
-            - name: QuickBooks
-              href: connector-quickbooks.md
-            - name: Salesforce
-              href: connector-salesforce.md
-            - name: Salesforce 서비스 클라우드
-              href: connector-salesforce.md
-            - name: Salesforce 마케팅 클라우드
-              href: connector-salesforce-marketing-cloud.md
-            - name: SAP Business Warehouse
-              href: connector-sap-business-warehouse.md
-            - name: SAP Cloud for Customer
-              href: connector-sap-cloud-for-customer.md
-            - name: SAP ECC
-              href: connector-sap-ecc.md
-            - name: SAP HANA
-              href: connector-sap-hana.md
-            - name: ServiceNow
-              href: connector-servicenow.md
-            - name: SFTP
-              href: connector-sftp.md
-            - name: Shopify
-              href: connector-shopify.md
-            - name: Spark
-              href: connector-spark.md
-            - name: SQL Server
-              href: connector-sql-server.md
-            - name: Square
-              href: connector-square.md
-            - name: Sybase
-              href: connector-sybase.md
-            - name: Teradata
-              href: connector-teradata.md
-            - name: Vertica
-              href: connector-vertica.md
-            - name: 웹 테이블
-              href: connector-web-table.md
-            - name: Xero
-              href: connector-xero.md
-            - name: Zoho
-              href: connector-zoho.md
         - name: 형식 및 압축 지원
           href: supported-file-formats-and-compression-codecs.md
         - name: 스키마 및 형식 매핑
@@ -312,6 +319,10 @@
           href: transform-data-using-data-lake-analytics.md
         - name: Databricks Notebook 활동
           href: transform-data-databricks-notebook.md
+        - name: Databricks Jar 작업
+          href: transform-data-databricks-jar.md
+        - name: Databricks Python 작업
+          href: transform-data-databricks-python.md
         - name: 사용자 지정 작업
           href: transform-data-using-dotnet-custom-activity.md
         - name: Compute 연결된 서비스
@@ -356,6 +367,8 @@
           href: monitor-visually.md
         - name: Azure Monitor로 모니터링
           href: monitor-using-azure-monitor.md
+        - name: OMS로 모니터링
+          href: data-factory-monitor-oms.md
         - name: SDK로 모니터링
           href: monitor-programmatically.md
         - name: 통합 런타임 모니터링
@@ -398,6 +411,8 @@
           href: how-to-create-schedule-trigger.md
         - name: 연속 창 트리거 만들기
           href: how-to-create-tumbling-window-trigger.md
+        - name: 이벤트 기반 트리거 만들기
+          href: how-to-create-event-trigger.md
 - name: 참고 자료
   items:
     - name: .NET

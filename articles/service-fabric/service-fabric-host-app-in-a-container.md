@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/07/2018
+ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: d0b3ce1fcabbc69c30e316a69e492da7c75d23ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6fe314125440096d21a1276defd082c4e1997b8e
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207488"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34642685"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>자습서: Azure Service Fabric에 Windows 컨테이너의 .NET 응용 프로그램 배포
 
@@ -51,6 +51,8 @@ Fabrikam Fiber CallCenter 응용 프로그램이 오류 없이 빌드되고 실�
 
 ## <a name="containerize-the-application"></a>응용 프로그램 컨테이너화
 **FabrikamFiber.Web** 프로젝트 > **추가** > **컨테이너 Orchestrator 지원**을 마우스 오른쪽 단추로 클릭합니다.  **Service Fabric**을 컨테이너 오케스트레이터로 선택하고 **확인**을 클릭합니다.
+
+**예**를 클릭하여 이제 Docker를 Windows 컨테이너로 전환합니다.
 
 새 프로젝트 Service Fabric 응용 프로그램 프로젝트 **FabrikamFiber.CallCenterApplication**이 솔루션에서 만들어집니다.  Dockerfile이 **FabrikamFiber.Web** 기존 프로젝트에 추가됩니다.  **PackageRoot** 디렉터리도 **FabrikamFiber.Web** 프로젝트에 추가되며, 이는 새 FabrikamFiber.Web 서비스에 대한 서비스 매니페스트 및 설정을 포함하는 프로젝트입니다. 
 
@@ -120,16 +122,17 @@ Write-Host "Server name is $servername"
 >호스트에서 연결할 수 있기만 하면 어떤 SQL Server든지 로컬 디버깅에 사용할 수 있습니다. 그러나 **localdb**는 `container -> host` 통신을 지원하지 않습니다. 웹 응용 프로그램의 릴리스 버전을 빌드할 때 다른 SQL 데이터베이스를 사용하려면 *web.release.config* 파일에 다른 연결 문자열을 추가합니다.
 
 ## <a name="run-the-containerized-application-locally"></a>컨테이너화된 응용 프로그램을 로컬로 실행
-**F5** 키를 눌러 로컬 Service Fabric 개발 클러스터에서 컨테이너의 응용 프로그램을 실행하고 디버그합니다.
+**F5** 키를 눌러 로컬 Service Fabric 개발 클러스터에서 컨테이너의 응용 프로그램을 실행하고 디버그합니다. 'ServiceFabricAllowedUsers' 그룹 읽기 및 실행 권한을 Visual Studio 프로젝트 디렉터리에 부여할지 묻는 메시지 상자가 표시되는 경우 **예**를 클릭합니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
-응용 프로그램이 로컬로 실행되므로 Azure에 배포할 준비를 시작합니다.  컨테이너 이미지는 컨테이너 레지스트리에 저장되어야 합니다.  다음 스크립트를 사용하여 [Azure Container Registry](/azure/container-registry/container-registry-intro)를 만듭니다.  Azure에 응용 프로그램을 배포하기 전에 이 레지스트리에 컨테이너 이미지를 푸시합니다.  응용 프로그램이 Azure에서 클러스터에 배포되면 컨테이너 이미지는 이 레지스트리에서 가져옵니다.
+응용 프로그램이 로컬로 실행되므로 Azure에 배포할 준비를 시작합니다.  컨테이너 이미지는 컨테이너 레지스트리에 저장되어야 합니다.  다음 스크립트를 사용하여 [Azure Container Registry](/azure/container-registry/container-registry-intro)를 만듭니다. 컨테이너 레지스트리 이름은 다른 Azure 구독을 통해 표시되므로 고유해야 합니다.
+Azure에 응용 프로그램을 배포하기 전에 이 레지스트리에 컨테이너 이미지를 푸시합니다.  응용 프로그램이 Azure에서 클러스터에 배포되면 컨테이너 이미지는 이 레지스트리에서 가져옵니다.
 
 ```powershell
 # Variables
 $acrresourcegroupname = "fabrikam-acr-group"
 $location = "southcentralus"
-$registryname="fabrikamregistry"
+$registryname="fabrikamregistry$(Get-Random)"
 
 New-AzureRmResourceGroup -Name $acrresourcegroupname -Location $location
 
@@ -140,10 +143,12 @@ $registry = New-AzureRMContainerRegistry -ResourceGroupName $acrresourcegroupnam
 Service Fabric 응용 프로그램은 네트워크에 연결된 가상 머신 또는 물리적 머신의 집합인 클러스터에서 실행됩니다.  Azure에 응용 프로그램을 배포하기 전에 먼저 Azure에서 Service Fabric 클러스터를 만듭니다.
 
 다음을 수행할 수 있습니다.
-- Visual Studio에서 테스트 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설 구성으로 Visual Studio에서 직접 보안 클러스터정를 만들 수 있습니다. 
+- Visual Studio에서 테스트 클러스터를 만듭니다. 이 옵션을 사용하면 기본 설정 구성으로 Visual Studio에서 직접 보안 클러스터를 만들 수 있습니다. 
 - [템플릿에서 보안 클러스터 만들기](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 
-클러스터를 만들 때 컨테이너 실행을 지원하는 SKU를 선택합니다(예: 컨테이너가 있는 Windows Server 2016 Datacenter). 이 자습서는 테스트 시나리오에 적합한 Visual Studio에서 클러스터를 만듭니다. 어떤 다른 방법으로 클러스터를 만들거나 기존 클러스터를 사용하는 경우 연결 엔트포인트를 복사해 붙여넣거나 구독에서 선택할 수 있습니다. 
+이 자습서는 테스트 시나리오에 적합한 Visual Studio에서 클러스터를 만듭니다. 어떤 다른 방법으로 클러스터를 만들거나 기존 클러스터를 사용하는 경우 연결 엔트포인트를 복사해 붙여넣거나 구독에서 선택할 수 있습니다. 
+
+클러스터를 만들 때 실행 중인 컨테이너를 지원하는 SKU를 선택합니다. 클러스터 노드의 Windows Server OS는 컨테이너의 Windows Server OS와 호환되어야 합니다. 자세히 알아보려면 [Windows Server 컨테이너 OS 및 호스트 OS 호환성](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)을 참조하세요. 기본적으로 이 자습서에서는 Windows Server 2016 LTSC를 기반으로 하는 Docker 이미지를 만듭니다. 이 이미지를 기반으로 하는 컨테이너는 컨테이너로 Windows Server 2016 Datacenter를 사용하여 만든 클러스터에서 실행됩니다. 그러나 클러스터를 만들거나 컨테이너로 Windows Server Datacenter 코어 1709를 기반으로 하는 기존 클러스터를 사용하는 경우 컨테이너가 기반으로 하는 Windows Server OS 이미지를 변경해야 합니다. **FabrikamFiber.Web** 프로젝트에서 **Dockerfile**을 열고, 기존 `FROM` 문을 주석으로 처리하고(`windowsservercore-ltsc`에 따라) `windowsservercore-1709`에 따라 `FROM` 문의 주석 처리를 제거합니다. 
 
 1. 솔루션 탐색기에서 응용 프로그램 프로젝트 **FabrikamFiber.CallCenterApplication**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 

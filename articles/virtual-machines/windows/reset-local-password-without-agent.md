@@ -3,7 +3,7 @@ title: Azure 에이전트 없이 로컬 Windows 암호 재설정 | Microsoft Doc
 description: Azure 게스트 에이전트가 설치되어 있지 않거나 VM에서 작동하지 않는 경우 로컬 Windows 사용자 계정의 암호를 재설정하는 방법
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: cf353dd3-89c9-47f6-a449-f874f0957013
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/25/2018
-ms.author: iainfou
-ms.openlocfilehash: ad892aee646b1a5f8c96d5bdeca24b7a0d88f38e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.author: cynthn
+ms.openlocfilehash: 791ac9ca7795b5317c7b6e12a67327e7710a71ff
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915608"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932520"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Azure VM 오프라인의 로컬 Windows 암호 재설정
 Azure 게스트 에이전트 설치가 제공되는 [Azure Portal 또는 Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)을 사용하여 Azure에서 VM의 로컬 Windows 암호를 재설정할 수 있습니다. 이 방법은 Azure VM의 암호를 재설정하는 기본 방법입니다. Azure 게스트 에이전트가 응답하지 않거나 사용자 지정 이미지를 업로드한 후 설치에 실패하는 문제가 발생하는 경우 Windows 암호를 수동으로 재설정할 수 있습니다. 이 문서에는 다른 VM에 원본 OS 가상 디스크를 연결하여 로컬 계정 암호를 재설정하는 방법을 자세히 설명합니다. 이 문서에 설명된 단계는 Windows 도메인 컨트롤러에는 적용되지 않습니다. 
@@ -94,7 +94,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      ```
      
      ![gpt.ini 만들기](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. `\Windows\System32\GroupPolicy\Machine\Scripts`에 `scripts.ini`를 만듭니다. 숨겨진 폴더가 표시되어 있는지 확인합니다. 필요한 경우 `Machine` 또는 `Scripts` 폴더를 만듭니다.
+5. `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`에 `scripts.ini`를 만듭니다. 숨겨진 폴더가 표시되어 있는지 확인합니다. 필요한 경우 `Machine` 또는 `Scripts` 폴더를 만듭니다.
    
    * 만든 `scripts.ini` 파일에 다음 줄을 추가합니다.
      
@@ -134,7 +134,7 @@ Azure 게스트 에이전트에 대한 액세스가 없는 경우 Azure에서 Wi
      ![디스크 URI 복사](./media/reset-local-password-without-agent/copy_source_vhd_uri.png)
 9. 원본 VM의 OS 디스크에서 VM을 만듭니다.
    
-   * [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd)을 사용하여 전문화된 VHD에서 VM을 만듭니다. `Deploy to Azure` 단추를 클릭하여 템플릿 세부 정보로 채워진 Azure Portal을 엽니다.
+   * [이 Azure Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet)을 사용하여 전문화된 VHD에서 VM을 만듭니다. `Deploy to Azure` 단추를 클릭하여 템플릿 세부 정보로 채워진 Azure Portal을 엽니다.
    * VM에 대한 모든 이전 설정을 유지하려는 경우 *템플릿 편집*을 선택하여 기존 VNet, 서브넷, 네트워크 어댑터 또는 공용 IP를 제공합니다.
    * `OSDISKVHDURI` 매개 변수 입력란에 이전 단계에서 가져온 원본 VHD의 URI를 붙여 넣습니다.
      

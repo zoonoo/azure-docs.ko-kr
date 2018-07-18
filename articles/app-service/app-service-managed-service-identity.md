@@ -9,24 +9,22 @@ ms.service: app-service
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/12/2018
+ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: ed2db5fd48c60601b90fc7ffb1094b8d89573b1f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153662"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37061440"
 ---
-# <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure Managed Service Identity(공개 미리 보기)를 사용하는 방법
+# <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure 관리 서비스 ID를 사용하는 방법
 
 > [!NOTE] 
-> App Service 및 Azure Functions용 Managed Service Identity는 현재 미리 보기 버전입니다. Linux의 App Service 및 Web App for Containers는 현재 지원되지 않습니다.
-
+> Linux의 App Service 및 Web App for Containers는 현재 관리 서비스 ID를 지원되지 않습니다.
 
 > [!Important] 
-> 앱이 구독/테넌트 간에 마이그레이션되는 경우 App Service 및 Azure Functions에 대한 관리 서비스 ID가 예상대로 작동하지 않습니다. 앱이 새 ID를 얻어야 하며, 사이트 자체를 삭제하지 않고는 기존 ID를 올바르게 삭제할 수 없습니다. 새 ID를 사용하여 앱을 새로 만들어야 하며, 다운스트림 리소스는 새 ID를 사용하도록 업데이트된 정책에 액세스할 수 있어야 합니다.
-
+> 앱이 구독/테넌트 간에 마이그레이션되는 경우 App Service 및 Azure Functions에 대한 관리 서비스 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
 
 이 토픽에서는 App Service 및 Azure Functions 응용 프로그램에 대한 관리되는 앱 ID를 만들어서 다른 리소스에 액세스하는 데 사용하는 방법을 보여줍니다. Azure Active Directory의 관리되는 서비스 ID를 사용하면 앱이 Azure Key Vault처럼 AAD로 보호되는 다른 리소스에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. Managed Service Identity에 대한 자세한 내용은 [Managed Service Identity 개요](../active-directory/managed-service-identity/overview.md)를 참조하세요.
 
@@ -77,6 +75,31 @@ Azure CLI를 사용하여 관리되는 서비스 ID를 설정하려면 기존 �
     az webapp identity assign --name myApp --resource-group myResourceGroup
     ```
 
+### <a name="using-azure-powershell"></a>Azure PowerShell 사용
+
+다음 단계는 웹앱을 만들고 Azure PowerShell을 사용하여 ID를 할당하는 과정을 안내합니다.
+
+1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzureRmAccount`를 실행하여 Azure에 연결합니다.
+
+2. Azure PowerShell을 사용하여 웹앱을 만듭니다. App Service에서 Azure PowerShell을 사용하는 방법에 대한 예제는 [App Service PowerShell 샘플](../app-service/app-service-powershell-samples.md)을 참조하세요.
+
+    ```azurepowershell-interactive
+    # Create a resource group.
+    New-AzureRmResourceGroup -Name myResourceGroup -Location $location
+    
+    # Create an App Service plan in Free tier.
+    New-AzureRmAppServicePlan -Name $webappname -Location $location -ResourceGroupName myResourceGroup -Tier Free
+    
+    # Create a web app.
+    New-AzureRmWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName myResourceGroup
+    ```
+
+3. 이 응용 프로그램에 대한 ID를 만들려면 `identity assign` 명령을 실행합니다.
+
+    ```azurepowershell-interactive
+    Set-AzureRmWebApp -AssignIdentity $true -Name $webappname -ResourceGroupName myResourceGroup 
+    ```
+
 ### <a name="using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 
 Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자동화할 수 있습니다. App Service 및 Functions에 배포하는 방법에 대한 자세한 내용은 [App Service에서 리소스 배포 자동화](../app-service/app-service-deploy-complex-application-predictably.md) 및 [Azure Functions에서 리소스 배포 자동화](../azure-functions/functions-infrastructure-as-code.md)를 참조하세요.
@@ -121,7 +144,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }
 ```
 
-여기서 `<TENANTID>` 및 `<PRINCIPALID>`는 GUID로 대체됩니다. tenantId 속성은 응용 프로그램이 속한 AAD 테넌트를 식별합니다. principalId는 응용 프로그램 새 ID의 고유 식별자입니다. AAD 내에서 응용 프로그램은 사용자가 App Service 또는 Azure Functions 인스턴스에 지정한 이름과 동일한 이름을 갖습니다.
+여기서 `<TENANTID>` 및 `<PRINCIPALID>`는 GUID로 대체됩니다. tenantId 속성은 ID가 속한 AAD 테넌트를 식별합니다. principalId는 응용 프로그램 새 ID의 고유 식별자입니다. AAD 내에서 서비스 주체는 사용자가 App Service 또는 Azure Functions 인스턴스에 지정한 이름과 동일한 이름을 갖습니다.
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Azure 리소스 토큰 가져오기
 
@@ -205,7 +228,7 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>코드 예제
-C#에서 이 요청을 만들려면:
+<a name="token-csharp"></a>C#에서 이 요청을 만들려면:
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -216,7 +239,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 > [!TIP]
 > .NET 언어의 경우 이 요청을 직접 만드는 대신 [Microsoft.Azure.Services.AppAuthentication](#asal)을 사용해도 됩니다.
 
-Node.JS:
+<a name="token-js"></a>Node.JS:
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -231,7 +254,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-PowerShell에서:
+<a name="token-powershell"></a>PowerShell:
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -239,6 +262,21 @@ $tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVers
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+## <a name="remove"></a>ID 제거
+
+포털, PowerShell 또는 CLI를 사용하여 생성할 때와 같은 방식으로 기능을 사용하지 않도록 설정하여 ID를 제거할 수 있습니다. REST/ARM 템플릿 프로토콜에서는 유형을 "None"으로 설정하여 수행됩니다.
+
+```json
+"identity": {
+    "type": "None"
+}    
+```
+
+ID를 이런 방식으로 제거하면 AAD에서 보안 주체도 삭제됩니다. 앱 리소스가 삭제될 때 시스템 할당 ID가 AAD에서 자동으로 제거됩니다.
+
+> [!NOTE] 
+> 설정할 수 있는 응용 프로그램 설정인 WEBSITE_DISABLE_MSI도 있으며 이것은 로컬 토큰 서비스를 비활성화합니다. 하지만 ID는 그대로 유지되고 도구에는 MSI가 "on" 또는 "enabled"로 표시됩니다. 따라서 이 설정은 사용하지 않는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

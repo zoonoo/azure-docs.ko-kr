@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/13/2018
 ms.author: carolz
-ms.openlocfilehash: ac13d584c3312918e06139035da1f777c0030895
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 04b2853729296d158fee77d96a807972bd4f92e5
+ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34594145"
+ms.lasthandoff: 06/26/2018
+ms.locfileid: "36946043"
 ---
 # <a name="azure-active-directory-documentation"></a>Azure Active Directory 설명서
 
@@ -131,7 +131,7 @@ Azure AD(Azure Active Directory)는 다중 테넌트 클라우드 기반 디렉�
                         <h3>앱</h3>
                         <p>
                         <a href="/azure/active-directory/active-directory-enable-sso-scenario">앱 관리</a><br/>
-                        <a href="/azure/active-directory/cloudappdiscovery-get-started">앱 검색</a><br/>
+                        <a href="/azure/active-directory/manage-apps/migrate-adfs-apps-to-azure">앱 마이그레이션</a><br/>
                         <a href="/azure/active-directory/active-directory-coreapps-assign-user-azure-portal">Enterprise 앱</a><br/>
                         <a href="/azure/active-directory/active-directory-managing-access-to-apps">앱에 대한 액세스</a>
                         </p>

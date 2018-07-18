@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: dfaf3fe1427c9069939f5421c6a87efb584ebe48
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763207"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081910"
 ---
 # <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>자습서: Gremlin을 사용하여 Azure Cosmos DB Graph API 쿼리
 
@@ -31,7 +31,7 @@ Azure Cosmos DB [Graph API](graph-introduction.md)는 [Gremlin](https://github.c
 
 ## <a name="prerequisites"></a>필수 조건
 
-이러한 쿼리가 작동하려면 Azure Cosmos DB 계정이 있어야 하며 컨테이너에 그래프 데이터가 있어야 합니다. 이들 중 하나라도 없는가요? 그러면 [5분 퀵 스타트](create-graph-dotnet.md) 또는 [개발자 자습서](tutorial-query-graph.md)를 수행하여 계정을 만들고 데이터베이스를 채워 놓으세요. [Azure Cosmos DB .NET 그래프 라이브러리](graph-sdk-dotnet.md), [Gremlin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) 또는 즐겨찾는 Gremlin 드라이버를 사용하여 다음 쿼리를 실행할 수 있습니다.
+이러한 쿼리가 작동하려면 Azure Cosmos DB 계정이 있어야 하며 컨테이너에 그래프 데이터가 있어야 합니다. 이들 중 하나라도 없는가요? 그러면 [5분 퀵 스타트](create-graph-dotnet.md) 또는 [개발자 자습서](tutorial-query-graph.md)를 수행하여 계정을 만들고 데이터베이스를 채워 놓으세요. [Gremlin 콘솔](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) 또는 즐겨찾는 Gremlin 드라이버를 사용하여 다음 쿼리를 실행할 수 있습니다.
 
 ## <a name="count-vertices-in-the-graph"></a>그래프의 꼭짓점 계산
 
@@ -80,7 +80,8 @@ Gremlin을 사용하여 필터 식을 혼합하고, `loop` 단계를 사용하�
 > [!div class="checklist"]
 > * 그래프를 사용하여 쿼리하는 방법 
 
-이제 전 세계로 데이터를 배포하는 방법을 알아보려면 다음 자습서로 진행할 수 있습니다.
+이제 개념 섹션으로 진행하여 Cosmos DB에 대한 자세한 정보를 확인할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [전 세계로 데이터 배포](tutorial-global-distribution-graph.md)
+> [글로벌 분포](distribute-data-globally.md) 
+

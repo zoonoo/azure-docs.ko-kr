@@ -1,6 +1,6 @@
 ---
-title: "Azure Database for PostgreSQL의 서버 개념"
-description: "이 문서에서는 Azure Database for PostgreSQL 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다."
+title: Azure Database for PostgreSQL의 서버 개념
+description: 이 문서에서는 Azure Database for PostgreSQL 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: 2db18b014606799bdf5707c4c19f363bbc323e5c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 05/22/2018
+ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640016"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 서버
 이 문서에서는 Azure Database for PostgreSQL 서버를 사용할 때의 고려 사항 및 지침을 제공합니다.
@@ -45,13 +46,22 @@ PostgreSQL 서버용 Azure Database 내에서 하나 이상의 데이터베이�
 | **TCP/IP** | 이 프로토콜은 TCP/IP 및 Unix 도메인 소켓을 통해 지원됩니다. |
 | **방화벽** | 데이터를 보호하기 위해, 방화벽 규칙은 권한이 있는 컴퓨터를 지정할 때까지 서버 및 해당 데이터베이스에 대한 모든 액세스를 금지합니다. [PostgreSQL용 Azure 데이터베이스 서버 방화벽 규칙](concepts-firewall-rules.md)을 참조하세요. |
 
-## <a name="how-do-i-manage-a-server"></a>서버는 어떻게 관리해야 하나요?
+## <a name="managing-your-server"></a>서버 관리
 [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](/cli/azure/postgres)를 사용하여 Azure Database for PostgreSQL 서버를 관리할 수 있습니다.
+
+서버를 만드는 동안 관리 사용자의 자격 증명을 설정합니다. 관리 사용자는 서버에서 권한이 가장 높은 사용자입니다. azure_pg_admin 역할에 속합니다. 이 역할에는 전체 슈퍼 사용자 권한이 없습니다. 
+
+PostgreSQL 슈퍼 사용자 특성은 관리 서비스에 속하는 azure_superuser에게 할당됩니다. 이 역할에 대해서는 액세스 권한이 없습니다.
+
+Azure Database for PostgreSQL 서버에는 두 가지 기본 데이터베이스가 있습니다. 
+- **postgres** - 서버가 만들어지면 연결할 수 있는 기본 데이터베이스입니다.
+- **azure_maintenance** - 이 데이터베이스는 관리 서비스를 제공하는 프로세스를 사용자 작업으로부터 분리하는 데 사용됩니다. 이 데이터베이스에 대해서는 액세스 권한이 없습니다.
+
 
 ## <a name="server-parameters"></a>서버 매개 변수
 PostgreSQL 서버 매개 변수는 서버의 구성을 확인합니다. Azure Database for PostgreSQL에서 매개 변수 목록은 Azure Portal 또는 Azure CLI를 사용하여 보고 편집할 수 있습니다. 
 
-Azure Database for PostgreSQL에서 구성 가능한 매개 변수는 Postgres의 관리되는 서비스이며 로컬 Postgres 인스턴스에 있는 매개 변수의 하위 집합입니다(Postgres 매개 변수에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/9.6/static/runtime-config.html)를 참조하세요). Azure Database for PostgreSQL 서버를 생성할 때 각 매개 변수의 기본값을 사용할 수 있습니다. 서버가 필요한 매개 변수가 다시 시작되거나 변경 내용이 적용될 superuser 액세스가 사용자에 의해 구성될 수 없습니다.
+Azure Database for PostgreSQL에서 구성 가능한 매개 변수는 Postgres의 관리되는 서비스이며 로컬 Postgres 인스턴스에 있는 매개 변수의 하위 집합입니다(Postgres 매개 변수에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/9.6/static/runtime-config.html)를 참조하세요). Azure Database for PostgreSQL 서버를 생성할 때 각 매개 변수의 기본값을 사용할 수 있습니다. 변경 내용을 적용하기 위해 서버를 다시 시작하거나 슈퍼 사용자 액세스가 필요한 일부 매개 변수는 사용자가 구성할 수 없습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

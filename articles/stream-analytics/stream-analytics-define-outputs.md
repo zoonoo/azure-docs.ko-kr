@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: e14c4671669bc00e52c84c821a5229d26b2ba1c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f2f616c5908d8583764425b62acd1650283d0695
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211374"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701720"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Azure Stream Analytics의 출력 이해
 이 문서에서는 Azure Stream Analytics 작업에 사용할 수 있는 다양한 유형의 출력을 설명합니다. 출력을 사용하여 Stream Analytics 작업의 결과를 저장할 수 있습니다. 출력 데이터를 사용하여 추가 비즈니스 분석 및 데이터의 데이터 웨어하우징을 수행할 수 있습니다. 
@@ -28,6 +28,8 @@ Stream Analytics 작업 출력을 만들고, 편집하고 테스트하기 위해
 
 ## <a name="azure-data-lake-store"></a>Azure Data Lake Store
 Stream Analytics는 [Azure Data Lake 저장소](https://azure.microsoft.com/services/data-lake-store/)를 지원합니다. Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Data Lake 저장소를 사용하면 작동 및 예비 분석에 대해 모든 크기, 형식 및 수집 속도의 데이터를 저장할 수 있습니다. Stream Analytics에는 Data Lake Store에 액세스할 수 있는 권한이 필요합니다.
+
+Stream Analytics의 Azure Data Lake Store 출력은 현재 Azure 중국(21Vianet) 및 Azure 독일(T-Systems International) 영역에서 사용할 수 없습니다.
 
 ### <a name="authorize-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정 권한 부여
 
@@ -45,7 +47,7 @@ Stream Analytics는 [Azure Data Lake 저장소](https://azure.microsoft.com/serv
 | --- | --- |
 | 출력 별칭 | 쿼리 출력을 Data Lake Store로 보내기 위해 쿼리에 사용되는 식별 이름입니다. | 
 | 계정 이름 | 출력을 보내는 Data Lake Storage 계정의 이름 구독에서 사용할 수 있는 Data Lake Store 계정 드롭다운 목록이 표시됩니다. |
-| 경로 접두사 패턴 | 지정된 Data Lake 저장소 계정 내에서 파일을 작성하는 데 사용되는 파일 경로입니다. {date} 및 {time} 변수 인스턴스를 하나 이상 지정할 수 있습니다.</br><ul><li>예제 1: folder1/logs/{date}/{time}</li><li>예제 2: folder1/logs/{date}</li></ul>파일 경로 패턴에 후행 "/"가 포함되어 있지 않으면 파일 경로의 마지막 패턴이 파일 이름 접두사로 처리됩니다. </br></br>이 경우 새 파일이 만들어집니다.<ul><li>출력 스키마의 변경</li><li>작업의 외부 또는 내부 다시 시작</li></ul> |
+| 경로 접두사 패턴 | 지정된 Data Lake 저장소 계정 내에서 파일을 작성하는 데 사용되는 파일 경로입니다. {date} 및 {time} 변수 인스턴스를 하나 이상 지정할 수 있습니다.</br><ul><li>예제 1: folder1/logs/{date}/{time}</li><li>예제 2: folder1/logs/{date}</li></ul><br>생성된 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다.</br><br>파일 경로 패턴에 후행 "/"가 포함되어 있지 않으면 파일 경로의 마지막 패턴이 파일 이름 접두사로 처리됩니다. </br></br>이 경우 새 파일이 만들어집니다.<ul><li>출력 스키마의 변경</li><li>작업의 외부 또는 내부 다시 시작</li></ul> |
 | 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
 |시간 형식 | 선택 사항입니다. 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다. JSON, CSV 및 Avro를 지원합니다.| 
@@ -87,7 +89,7 @@ Stream Analytics는 [Azure Data Lake 저장소](https://azure.microsoft.com/serv
 | Storage 계정 | 출력을 보내는 저장소 계정의 이름 |
 | Storage 계정 키 | 저장소 계정과 연결된 비밀 키입니다. |
 | 저장소 컨테이너 | 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Blob service에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. |
-| 경로 패턴 | 선택 사항입니다. 지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. </br></br> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 날짜 시간 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. </br> {date}, {time} </br> </br>[미리 보기](https://aka.ms/ASAPreview)에 등록한 경우 필드 이름이 영숫자이고 공백, 하이픈 및 밑줄을 포함할 수 있는지에 따라 이벤트 데이터에서 파티션 Blob으로 하나의 사용자 지정 {필드} 이름을 지정할 수도 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>대/소문자 구문 없음(열 "ID" 및 열 "id" 간 다를 수 없음)</li><li>중첩된 필드는 허용되지 않음(대신 "평면화" 필드에 대한 작업 쿼리에서 별칭 사용)</li><li>식은 필드 이름으로 사용할 수 없음</li></ul>예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3(미리 보기): cluster1/{client_id}/{date}/{time}</li><li>예제 4(미리 보기): cluster1/{myField} 여기서 쿼리는 SELECT data.myField AS myField FROM 입력</li></ul><BR> 파일 명명은 다음 규칙을 따릅니다. </br> {경로 접두사 패턴}/schemaHashcode_Guid_Number.extension </br></br> 예제 출력 파일: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
+| 경로 패턴 | 선택 사항입니다. 지정된 컨테이너 내에서 Blob를 작성하는 데 사용되는 파일 경로 패턴입니다. </br></br> 경로 패턴에서 Blob가 작성된 빈도를 지정하기 위해 날짜 시간 변수 인스턴스 중 하나 이상을 사용하도록 선택할 수도 있습니다. </br> {date}, {time} </br> </br>[미리 보기](https://aka.ms/ASAPreview)에 등록한 경우 필드 이름이 영숫자이고 공백, 하이픈 및 밑줄을 포함할 수 있는지에 따라 이벤트 데이터에서 파티션 Blob으로 하나의 사용자 지정 {필드} 이름을 지정할 수도 있습니다. 사용자 지정 필드에 대한 제한은 다음을 포함합니다. <ul><li>대/소문자 구문 없음(열 "ID"와 열 "id"를 구분할 수 없음)</li><li>중첩된 필드는 허용되지 않음(대신 "평면화" 필드에 대한 작업 쿼리에서 별칭 사용)</li><li>식은 필드 이름으로 사용할 수 없음</li></ul>예제: <ul><li>예제 1: cluster1/logs/{date}/{time}</li><li>예제 2: cluster1/logs/{date}</li><li>예제 3(미리 보기): cluster1/{client_id}/{date}/{time}</li><li>예제 4(미리 보기): cluster1/{myField} 여기서 쿼리는 SELECT data.myField AS myField FROM 입력</li></ul><br>생성된 폴더 구조의 타임스탬프는 현지 시간이 아닌 UTC를 따릅니다.</br><BR> 파일 명명은 다음 규칙을 따릅니다. </br> {경로 접두사 패턴}/schemaHashcode_Guid_Number.extension </br></br> 예제 출력 파일: </br><ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li><li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul><br/>
 | 날짜 형식 | 선택 사항입니다. 접두사 경로에 날짜 토큰을 사용하는 경우 파일을 구성하는 날짜 형식을 선택할 수 있습니다. 예: YYYY/MM/DD |
 | 시간 형식 | 선택 사항입니다. 접두사 경로에 시간 토큰을 사용하는 경우 파일을 구성하는 시간 형식을 지정합니다. 현재 지원되는 유일한 값은 HH입니다. |
 | 이벤트 직렬화 형식 | 출력 데이터에 대한 직렬화 형식입니다.  JSON, CSV 및 Avro를 지원합니다.
@@ -104,7 +106,7 @@ BLOB 저장소를 출력으로 사용하면 다음과 같은 경우 BLOB에 새 
 * 저장소 계정의 파일이나 컨테이너가 사용자에 의해 삭제된 경우  
 * 출력 시간이 경로 접두사 패턴을 사용하여 분할되고 쿼리가 다음 시간으로 이동할 때 새 BLOB이 사용되는 경우
 * 출력이 사용자 지정 필드에 따라 분할되는 경우 존재하지 않는 경우 파티션 키당 새 Blob이 만들어집니다.
-*   출력이 파티션 키 카디널리티가 8000을 초과하는 사용자 지정 필드에 따라 분할되는 경우 파티션 키당 새 Blob이 만들어질 수도 있습니다.
+* 출력이 파티션 키 카디널리티가 8000을 초과하는 사용자 지정 필드에 따라 분할되는 경우 파티션 키당 새 Blob이 만들어질 수도 있습니다.
 
 ## <a name="event-hub"></a>이벤트 허브
 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) 서비스는 확장성이 뛰어난 게시-구독 이벤트 수집기입니다. 초당 수 백만의 이벤트를 수집할 수 있습니다. 출력으로 이벤트 허브를 사용하는 한 가지 예는 Stream Analytics 작업의 출력이 다른 스트리밍 작업의 입력이 되는 경우입니다.
@@ -114,7 +116,7 @@ BLOB 저장소를 출력으로 사용하면 다음과 같은 경우 BLOB에 새 
 | 속성 이름 | 설명 |
 | --- | --- |
 | 출력 별칭 | 쿼리 출력을 이 이벤트 허브로 보내기 위해 쿼리에서 사용되는 식별 이름입니다. |
-| 이벤트 허브 네임스페이스 |이벤트 허브 네임스페이스는 메시징 엔터티 집합에 대한 컨테이너입니다. 새 Event Hub를 만들 때 이벤트 허브 네임스페이스도 만들었습니다. |
+| 이벤트 허브 네임스페이스 |이벤트 허브 네임스페이스는 메시지 엔터티 집합에 대한 컨테이너입니다. 새 이벤트 허브를 만들 때 이벤트 허브 네임스페이스도 만들었습니다. |
 | 이벤트 허브 이름 | 이벤트 허브 출력의 이름입니다. |
 | 이벤트 허브 정책 이름 | 이벤트 허브 구성 탭에서 만들 수 있는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | 이벤트 허브 정책 키 | 이벤트 허브 네임스페이스에 대한 액세스를 인증하는 데 사용되는 공유 선택키입니다. |
@@ -126,6 +128,8 @@ BLOB 저장소를 출력으로 사용하면 다음과 같은 경우 BLOB에 새 
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/)를 Stream Analytics 작업의 출력으로 사용하여 분석 결과에 대한 풍부한 시각화 환경을 제공할 수 있습니다. 운영 대시보드, 보고서 생성 및 메트릭 제어 보고에 이 기능을 이용할 수 있습니다.
+
+Stream Analytics의 Power BI 출력은 현재 Azure 중국(21Vianet) 및 Azure 독일(T-Systems International) 영역에서 사용할 수 없습니다.
 
 ### <a name="authorize-a-power-bi-account"></a>Power BI 계정 권한 부여
 1. Azure Portal에서 Power BI를 출력으로 선택하는 경우 기존 Power BI 사용자를 인증하거나 새로운 Power BI 계정을 생성하라는 메시지가 나타납니다.  
@@ -248,6 +252,8 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)는 세계적으로 분산된 다중 모델 데이터베이스 서비스로서, 제한없는 탄력적 크기 조정을 전 세계적으로 제공하고 스키마 제약 없는 데이터 모델에 대한 자동 인덱싱 및 다양한 쿼리, 낮은 대기 시간 보장과 업계 최고의 포괄적인 SLA를 제공합니다. Stream Analytics의 Cosmos DB 수집 옵션에 대해 알아 보려면 [Cosmos DB를 출력으로 사용하는 Stream Analytics](stream-analytics-documentdb-output.md) 문서를 참조하세요.
 
+Stream Analytics의 Azure Cosmos DB 출력은 현재 Azure 중국(21Vianet) 및 Azure 독일(T-Systems International) 영역에서 사용할 수 없습니다.
+
 > [!Note]
 > 현재 Azure Stream Analytics는 **SQL API**를 사용한 CosmosDB 연결만을 지원합니다.
 > 다른 Azure Cosmos DB API는 아직 지원되지 않습니다. Azure Stream Analytics를 다른 API로 만든 Azure Cosmos DB 계정에 지정한 경우 데이터는 올바르게 저장되지 않을 수도 있습니다. 
@@ -267,6 +273,8 @@ Service Bus 큐는 보낸 사람에서 받는 사람으로의 일대일 통신 �
 
 ## <a name="azure-functions"></a>Azure 기능
 Azure Functions는 인프라를 명시적으로 프로비전 또는 관리하지 않고도 필요 시 코드를 실행할 수 있는 서버를 사용하지 않는 계산 서비스입니다. Azure 또는 타사 서비스에서 발생하는 이벤트에 의해 트리거되는 코드를 구현할 수 있습니다.  트리거에 응답하는 이러한 Azure Functions 기능 때문에 Azure Stream Analytics에 대한 출력이 자연스럽게 제공될 수 있습니다. 이 출력 어댑터를 사용하여 Stream Analytics를 Azure Functions에 연결하고, 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행할 수 있습니다.
+
+Stream Analytics의 Azure Functions 출력은 현재 Azure 중국(21Vianet) 및 Azure 독일(T-Systems International) 영역에서 사용할 수 없습니다.
 
 Azure Stream Analytics는 HTTP 트리거를 통해 Azure Functions를 호출합니다. 새 Azure Function 출력 어댑터는 다음의 구성 가능한 속성을 통해 사용할 수 있습니다.
 

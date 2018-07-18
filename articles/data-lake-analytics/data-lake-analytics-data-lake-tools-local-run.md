@@ -1,28 +1,29 @@
 ---
-title: "로컬 실행 및 Azure Data Lake U-SQL SDK를 사용하여 U-SQL 작업 테스트 및 디버그 | Microsoft Docs"
-description: "Azure Data Lake Tools for Visual Studio 및 Azure Data Lake U-SQL SDK를 사용하여 로컬 워크스테이션에서 U-SQL 작업을 테스트하고 디버그하는 방법에 대해 알아봅니다."
+title: Azure Data Lake U-SQL SDK를 사용하여 U-SQL 스크립트를 로컬로 실행
+description: 이 문서에서는 Azure Data Lake Tools for Visual Studio를 사용하여 로컬 워크스테이션에서 U-SQL 작업을 테스트하고 디버그하는 방법을 알아봅니다.
 services: data-lake-analytics
-documentationcenter: 
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 11/15/2016
+author: mumian
 ms.author: yanacai
-ms.openlocfilehash: 771a96df5cc66bac46e7144785be8cc072b57b31
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: kfile
+editor: jasonwhowell
+ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
+ms.topic: conceptual
+ms.date: 11/15/2016
+ms.openlocfilehash: 322278f00f49f718b1ba560e9d21d0af0be49b18
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34736006"
 ---
-# <a name="test-and-debug-u-sql-jobs-by-using-local-run-and-the-azure-data-lake-u-sql-sdk"></a>로컬 실행 및 Azure Data Lake U-SQL SDK를 사용하여 U-SQL 작업 테스트 및 디버그
+# <a name="runing-u-sql-scripts-locally"></a>로컬로 U-SQL 스크립트 실행
 
-Azure Data Lake 서비스의 경우처럼 Visual Studio와 Azure Data Lake U-SQL SDK에 대해 Azure Data Lake 도구를 사용하여 워크스테이션에서 U-SQL 작업을 실행할 수 있습니다. 이들 두 가지 로컬 실행 기능으로 U-SQL 작업을 테스트하고 디버그하는 시간을 절약할 수 있습니다.
+Azure에서 U-SQL을 실행하는 대신, 자체 환경에서 U-SQL을 실행할 수 있습니다. 이것을 "로컬 실행"이라고 부릅니다. 
+
+U-SQL 로컬 실행은 다음과 같은 도구에서 사용할 수 있습니다.
+* Azure Data Lake Tools for Visual Studio
+* Azure Data Lake U-SQL SDK
 
 ## <a name="understand-the-data-root-folder-and-the-file-path"></a>데이터 루트 폴더 및 파일 경로 이해
 
@@ -68,7 +69,7 @@ Data Lake Tools 설치 관리자는 기본 데이터 루트 폴더로 사용할 
 ### <a name="to-run-a-u-sql-script-locally"></a>로컬로 U-SQL 스크립트를 실행하려면
 1. Visual Studio에서 U-SQL 프로젝트를 엽니다.   
 2. [솔루션 탐색기]에서 U-SQL 스크립트를 마우스 오른쪽 단추로 클릭한 다음 **스크립트 제출**을 클릭합니다.
-3. 로컬로 스크립트를 실행하려면 분석 계정을 **(로컬)**로 선택합니다.
+3. 로컬로 스크립트를 실행하려면 분석 계정을 **(로컬)** 로 선택합니다.
 또는 스크립트 창 위쪽에서 **(로컬)** 계정을 클릭한 다음 **제출**을 클릭하거나 Ctrl+F5 바로 가기를 사용할 수도 있습니다.
 
     ![Data Lake Tools for Visual Studio의 로컬 실행 작업 제출](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-submit-job.png)

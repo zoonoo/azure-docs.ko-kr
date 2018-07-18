@@ -3,7 +3,7 @@ title: Azure Data Factory를 사용하여 증분 방식으로 여러 테이블 �
 description: 이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 399e132f0a28ffc6b60e3d757afff5aae60f7674
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37052847"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -36,9 +37,6 @@ ms.lasthandoff: 03/23/2018
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 파이프라인을 다시 실행하고 모니터링합니다.
 > * 최종 결과를 검토합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. 일반 공급되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
 이 솔루션을 만드는 중요한 단계는 다음과 같습니다. 
@@ -78,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`이라는 테이블을 만듭니다.
+3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.
 
     ```sql
     create table customer_table
@@ -117,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-3. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`이라는 테이블을 만듭니다.  
+3. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.  
     
     ```sql
     create table customer_table
@@ -236,7 +234,7 @@ END
       
      ![새 데이터 팩터리 페이지](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
  
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFMultiIncCopyTutorialDF) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFMultiIncCopyTutorialDF) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
        `Data factory name ADFMultiIncCopyTutorialDF is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
@@ -246,7 +244,7 @@ END
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
         리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2(미리 보기)**를 선택합니다.
+4. **버전**에 **V2(미리 보기)** 를 선택합니다.
 5. 데이터 팩터리의 **위치** 를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.      
@@ -295,7 +293,7 @@ END
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 온-프레미스 SQL Server 데이터베이스와 SQL 데이터베이스에 연결된 서비스를 만듭니다. 
 
-### <a name="create-the-sql-server-linked-service"></a>SQL Server 연결된 서비스 만들기
+### <a name="create-the-sql-server-linked-service"></a>SQL Server에 연결된 서비스 만들기
 이 단계에서 온-프레미스 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
 
 1. **연결** 창의 **통합 런타임** 탭에서 **연결된 서비스** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다.
@@ -354,7 +352,7 @@ END
 3. 웹 브라우저에 데이터 집합을 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SourceDataset**를 입력합니다. 
 
    ![원본 데이터 집합 - 이름](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-general.png)
-4. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **SqlServerLinkedService**를 선택합니다. 여기에서 테이블을 선택하지 마십시오. 파이프 라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
+4. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **SqlServerLinkedService**를 선택합니다. 여기에서 테이블을 선택하지 마십시오. 파이프라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
 
    ![원본 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
 
@@ -369,16 +367,25 @@ END
 3. 웹 브라우저에 데이터 집합을 구성하기 위해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. 아래쪽 속성 창의 **일반** 탭에서 **이름**에 대해 **SinkDataset**를 입력합니다.
 
    ![싱크 데이터 집합 - 일반](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **AzureSqlLinkedService**를 선택합니다. 
-
-   ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
-5. 속성 창에서 **매개 변수** 탭으로 전환하고 다음 단계를 수행합니다. 
+4. 속성 창에서 **매개 변수** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **Create/update 매개 변수** 섹션에서 **새로 만들기**를 클릭합니다. 
     2. **이름**에 대해 **SinkTableName**을 입력하고 **형식**에 대해 **문자열**을 입력합니다. 이 데이터 집합은 매개 변수로 **SinkTableName**을 사용합니다. SinkTableName 매개 변수는 런타임에 동적으로 파이프라인에 의해 설정됩니다. 파이프라인의 ForEach 작업은 테이블 이름 목록을 반복하고 반복할 때마다 테이블 이름을 이 데이터 집합에 전달합니다.
-    3. **Parameterizable 속성** 섹션에서 **tableName** 속성에 대해 `@{dataset().SinkTableName}`을 입력합니다. **SinkTableName** 매개 변수에 전달된 값을 사용하여 데이터 집합의 **tableName** 속성을 초기화합니다. 
-
+   
        ![싱크 데이터 집합 - 속성](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
+5. 속성 창에서 **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **AzureSqlLinkedService**를 선택합니다. **테이블** 속성에서 **동적 콘텐츠 추가**를 클릭합니다. 
+
+   ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
+    
+    
+6. **매개 변수** 섹션에서 **SinkTableName**을 선택합니다.
+   
+   ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
+
+   
+ 7. **마침**을 클릭하면 **@dataset().SinkTableName**이 테이블 이름으로 표시됩니다.
+   
+   ![싱크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
 ### <a name="create-a-dataset-for-a-watermark"></a>워터마크에 대한 데이터 집합 만들기
 이 단계에서는 상위 워터마크 값을 저장하기 위한 데이터 집합을 만듭니다. 
@@ -393,16 +400,16 @@ END
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
-    2. **테이블**에 대해 **[dbo].[watermarktable]**을 선택합니다.
+    2. **테이블**에 대해 **[dbo].[watermarktable]** 을 선택합니다.
 
        ![워터마크 데이터 집합 - 연결](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
-1. 조회 작업을 사용하여 이전 워터마크 값을 검색합니다(초기 값 또는 마지막 반복에서 사용된 값).
+1. 조회 작업을 사용하여 이전 워터마크 값(초기 값 또는 마지막 반복에서 사용된 값)을 검색합니다.
 
-2. 조회 작업을 사용하여 새로운 워터마크 값을 검색합니다(원본 테이블의 워터마크 열의 최대값).
+2. 조회 작업을 사용하여 새로운 워터마크 값(원본 테이블의 워터마크 열의 최대값)을 검색합니다.
 
 3. 복사 작업을 사용하여 원본 데이터베이스에서 대상 데이터베이스로 2개의 워터마크 값 사이에 데이터를 복사합니다.
 
@@ -502,7 +509,7 @@ END
     2. **가져오기 매개 변수**를 선택합니다. 
     3. 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | Name | 형식 | 값 | 
+        | Name | type | 값 | 
         | ---- | ---- | ----- |
         | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | 문자열 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
@@ -644,7 +651,7 @@ VALUES
     ]
     ```
 
-## <a name="monitor-the-pipeline"></a>파이프라인 모니터링
+## <a name="monitor-the-pipeline-again"></a>파이프라인 다시 모니터링
 
 1. 왼쪽의 **모니터** 탭으로 전환합니다. **수동 트리거**로 트리거된 파이프라인 실행이 표시됩니다. **새로 고침** 단추를 클릭하여 목록을 새로 고칩니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
 

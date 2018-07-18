@@ -12,20 +12,20 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/9/2017
+ms.date: 06/19/2018
 ms.author: LADocs; divswa
-ms.openlocfilehash: 493d82f59600d83a083bb13cdd0a21b872d77a43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 0dc7f28ebe3816ba317eb3a4e28fc640c8a12a4e
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299946"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36294577"
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-log-analytics"></a>Log Analytics를 사용한 논리 앱 실행에 관한 모니터링 및 유용한 정보 얻기
 
 모니터링 및 더 다양한 디버깅 정보를 위해 논리 앱을 만들 때 동시에 Log Analytics를 켤 수 있습니다. Log Analytics는 Azure Portal을 통해 논리 앱 실행에 대한 진단 로깅 및 모니터링을 제공합니다. Logic Apps 관리 솔루션을 추가하면 논리 앱 실행 및 상태, 실행 시간, 다시 제출 상태 및 상관 관계 ID와 같은 특정 세부 사항에 관한 집계된 상태를 얻을 수 있습니다.
 
-이 항목에서는 논리 앱 실행에 관한 런타임 이벤트 및 데이터를 볼 수 있도록 Log Analytics를 켜는 방법을 보여줍니다.
+이 문서에서는 논리 앱 실행에 관한 런타임 이벤트 및 데이터를 볼 수 있도록 Log Analytics를 켜는 방법을 보여줍니다.
 
  > [!TIP]
  > 기존 논리 앱을 모니터링하려면 다음 단계에 따라 [진단 로깅을 켜서 논리 앱 런타임 데이터를 Log Analytics에 보냅니다](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
@@ -67,17 +67,17 @@ ms.locfileid: "35299946"
 
    ![Log Analytics 작업 영역 선택](media/logic-apps-monitor-your-logic-apps-oms/select-logic-app.png)
 
-3. **관리** 아래에서 **OMS 포털**을 선택합니다.
+3. **관리**에서 **개요**를 선택합니다.
 
-   !["OMS 포털" 선택](media/logic-apps-monitor-your-logic-apps-oms/oms-portal-page.png)
+   !["OMS 포털" 선택](media/logic-apps-monitor-your-logic-apps-oms/ibiza-portal-page.png)
 
-4. **모든 솔루션**에서 **Logic Apps 관리** 솔루션에 대한 타일을 찾아 선택합니다.
+4. 개요 페이지에서 **추가**를 선택하여 관리 솔루션 타일을 엽니다. 
 
-   ![“Logic Apps 관리” 선택](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-management-tile2.png)
+   ![“Logic Apps 관리” 선택](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
 
-5. Log Analytics 작업 영역에 솔루션을 설치하려면 **추가**를 선택합니다.
+5. **관리 솔루션** 목록을 스크롤하여 **Logic Apps 관리** 솔루션을 선택하고 **만들기**를 선택하여 개요 페이지에 설치합니다.
 
-   ![“Logic Apps 관리”에 “추가” 선택](media/logic-apps-monitor-your-logic-apps-oms/add-logic-apps-management-solution.png)
+   ![“Logic Apps 관리”에 “추가” 선택](media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
 
 <a name="view-logic-app-runs-oms"></a>
 

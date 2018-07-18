@@ -2,24 +2,22 @@
 title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 3부 | Microsoft Docs
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 3부
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: ''
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: de645f46a889ba05fc54b1c5d2b9da64393d348e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eba96be567094a3e2e3977f505d4e4a67f0b5cea
+ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34798307"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 3부: Angular에서 UI 빌드
 
@@ -55,56 +53,20 @@ ms.lasthandoff: 04/16/2018
 
     터미널 창에는 새 구성 요소에 대한 확인이 표시됩니다.
 
-    ```bash
-    installing component
-      create src\client\app\heroes.component.ts
-      update src\client\app\app.module.ts 
-    ```
+    ![Hero 구성 요소 설치](./media/tutorial-develop-mongodb-nodejs-part3/install-heros-component.png)
 
     만들고 업데이트된 파일을 살펴보겠습니다. 
 
-3. Visual Studio Code의 **탐색기** 창에서 새 **src\client\app** 폴더로 이동하고 2단계에서 만든 새 **heroes.component.ts** 파일을 엽니다. 이 TypeScript 구성 요소 파일은 이전 명령에 의해 만들어졌습니다.
+3. Visual Studio Code의 **탐색기** 창에서 새 **src\app** 폴더로 이동하고 앱 폴더에 생성된 새 **heroes.component.ts** 파일을 엽니다. 이 TypeScript 구성 요소 파일은 이전 명령에 의해 만들어졌습니다.
 
     > [!TIP]
     > 앱 폴더가 Visual Studio Code에 표시되지 않으면 Mac에서 CMD + SHIFT + P를 입력하거나 Windows에서 Ctrl + Shift + P를 입력하여 명령 팔레트를 열고 *다시 로드 창* 을 입력하여 시스템 변경 내용을 선택합니다.
-
-    ![heroes.component.ts 파일 열기](./media/tutorial-develop-mongodb-nodejs-part3/open-folder.png)
 
 4. 동일한 폴더에서 **app.module.ts** 파일을 열고 5줄의 선언에 `HeroesComponent`을 추가하고 10줄로 가져옵니다.
 
     ![app-module.ts 파일 열기](./media/tutorial-develop-mongodb-nodejs-part3/app-module-file.png)
 
-    이제 Heroes 구성 요소가 있으므로 Heroes 구성 요소 HTML에 대한 새 파일을 만듭니다. 최소 앱을 만들었기 때문에 TypeScript 파일과 동일한 파일에서 HTML을 이동했지만 이를 취소하고 별도 파일을 만들려고 합니다.
-
-5. **탐색기** 창에서 **앱** 폴더를 마우스 오른쪽 단추로 클릭하고, **새 파일**을 클릭하고, 새 파일 이름을 *heroes.component.html*로 지정합니다.
-
-6. **heroes.component.ts** 파일에서 5~9줄을 삭제하고 
-
-    ```ts
-    template: `
-        <p>
-          heroes Works!
-        </p>
-      `,
-      ```
-      다음으로 바꿔서
-  
-    ```ts
-    templateUrl: './heroes.component.html',
-    ```
-
-    새 HTML 파일을 참조합니다.
- 
-    > [!TIP]
-    > Visual Studio Code에 John Papa의 Angular Essentials 확장 및 코드 조각을 사용하여 신속하게 개발할 수 있습니다. 
-    > 1. **확장** 단추 ![Visual Studio Code 확장 단추](./media/tutorial-develop-mongodb-nodejs-part3/extensions-button.png)를 클릭합니다.
-    > 2. 검색 상자에 *angular essentials*를 입력합니다.
-    > 3. **Install**을 클릭합니다. 
-    > 4. **다시 로드** 단추를 클릭하여 새 확장을 사용합니다.
-    > 또는 [http://jpapa.me/angularessentials](http://jpapa.me/angularessentials)에서 다운로드합니다. 
-    > ![Angular Essentials 확장](./media/tutorial-develop-mongodb-nodejs-part3/angular-essentials-extension.png)
-
-7. **heroes.component.html** 파일로 돌아가서 이 코드에 복사합니다. `<div>`는 전체 페이지에 대한 컨테이너입니다. 컨테이너 내에는 만들어야 하는 Heroes 목록이 있습니다. 따라서 이 중 하나를 클릭하면 선택하고 편집하거나 UI에서 삭제할 수 있습니다. 그런 다음 HTML에서 선택한 항목을 확인할 수 있도록 몇 가지 스타일을 지정했습니다. 편집 영역도 있으므로 새 Hero를 추가하거나 기존 Hero를 편집할 수 있습니다. 
+5. **heroes.component.html** 파일로 돌아가서 이 코드에 복사합니다. `<div>`는 전체 페이지에 대한 컨테이너입니다. 컨테이너 내에는 만들어야 하는 Heroes 목록이 있습니다. 따라서 이 중 하나를 클릭하면 선택하고 편집하거나 UI에서 삭제할 수 있습니다. 그런 다음 HTML에서 선택한 항목을 확인할 수 있도록 몇 가지 스타일을 지정했습니다. 편집 영역도 있으므로 새 Hero를 추가하거나 기존 Hero를 편집할 수 있습니다. 
 
     ```html
     <div>
@@ -143,7 +105,7 @@ ms.lasthandoff: 04/16/2018
     </div>
     ```
 
-8. 이제 HTML이 준비되었으므로 템플릿에서 조작할 수 있도록 **heroes.component.ts** 파일에 추가해야 합니다. 아래 **heroes.component.ts**에 추가된 새 코드는 구성 요소 파일에 템플릿을 추가합니다. 모든 데이터를 가져오기 위해 일부 Heroes를 가져오고 es 서비스 구성 요소를 초기화하는 생성자가 추가되었습니다. 또한 이 코드는 UI에서 이벤트를 처리하는 데 필요한 모든 메서드를 추가합니다. **heroes.component.ts**에 있는 기존 코드에 다음 코드를 복사할 수 있습니다. 
+7. 이제 HTML이 준비되었으므로 템플릿에서 조작할 수 있도록 **heroes.component.ts** 파일에 추가해야 합니다. 다음 코드는 구성 요소 파일에 템플릿을 추가합니다. 모든 데이터를 가져오기 위해 일부 Heroes를 가져오고 es 서비스 구성 요소를 초기화하는 생성자가 추가되었습니다. 또한 이 코드는 UI에서 이벤트를 처리하는 데 필요한 모든 메서드를 추가합니다. **heroes.component.ts**에 있는 기존 코드에 다음 코드를 복사할 수 있습니다. 해당 구성 요소를 아직 가져오지 않았기 때문에 Hero 및 HeroService 영역에 오류가 보일 것입니다. 이러한 오류는 다음 섹션에서 해결하겠습니다. 
 
     ```ts
     import { Component, OnInit } from '@angular/core';
@@ -151,6 +113,7 @@ ms.lasthandoff: 04/16/2018
     @Component({
       selector: 'app-heroes',
       templateUrl: './heroes.component.html'
+        styleUrls: ['./heroes.component.scss']
     })
     export class HeroesComponent implements OnInit {
       addingHero = false;
@@ -210,7 +173,7 @@ ms.lasthandoff: 04/16/2018
     }
     ```
 
-9. **탐색기**에서 **app/app.module.ts** 파일을 열고 `FormsModule`에 대해 가져오기를 추가하도록 13(쉼표 추가)과 14줄을 업데이트합니다. 가져오기 섹션은 다음과 같이 표시됩니다.
+8. **탐색기**에서 **app/app.module.ts** 파일을 열고 `FormsModule`에 대해 가져오기를 추가하도록 가져오기 섹션을 업데이트합니다. 가져오기 섹션은 다음과 같이 표시됩니다.
 
     ```
     imports: [
@@ -219,7 +182,7 @@ ms.lasthandoff: 04/16/2018
     ],
     ```
 
-10. 3줄의 새 FormsModule 모듈에 대해 가져오기를 추가합니다. 
+9. **app/app.module.ts** 파일에서 3줄의 새 FormsModule 모듈에 대해 가져오기를 추가합니다. 
 
     ```
     import { BrowserModule } from '@angular/platform-browser';
@@ -229,7 +192,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="use-css-to-set-the-look-and-feel"></a>CSS를 사용하여 디자인 설정
 
-1. 탐색기 창에서 **src/client/styles.scss** 파일을 엽니다.
+1. 탐색기 창에서 **src/styles.scss** 파일을 엽니다.
 
 2. 다음 코드를 **styles.scss** 파일에 복사하여 파일의 기존 내용을 대체합니다.
 
@@ -392,34 +355,34 @@ ms.lasthandoff: 04/16/2018
 
 이제 구성 요소를 만들었으면 화면에 표시해보도록 하겠습니다. **app.component.ts**에서 기본 구성 요소를 수정하겠습니다.
 
-1. 탐색기 창에서 **client/app/app.component.ts**를 엽니다.
-
-2. 6~8줄에서 Heroes에 대한 제목을 변경하고 **heroes.components.ts**(app-heroes)에서 만든 구성 요소의 이름을 사용해서 새 구성 요소를 참조합니다. 템플릿 섹션은 이제 다음처럼 표시됩니다. 
+1. 탐색기 창에서 **/app/app.component.ts**를 열고, 제목을 Heroes로 변경하고, **heroes.components.ts**(app-heroes)에서 만든 구성 요소의 이름을 사용해서 새 구성 요소를 참조합니다. 이제 파일의 내용이 다음과 같이 표시됩니다. 
 
     ```ts
-    template: `
+    import { Component } from '@angular/core';
+
+    @Component({
+      selector: 'app-root',
+      templateUrl: './app.component.html',
+      styleUrls: ['./app.component.scss'],
+      template: `
       <h1>Heroes</h1>
       <div class="header-bar"></div>
       <app-heroes></app-heroes>
-    `,
+    `
+    })
+    export class AppComponent {
+      title = 'app';
+    }
+
     ```
 
-3. Hero 구성 요소와 마찬가지로 참조하는 **heroes.components.ts**에는 다른 구성 요소가 있으므로 그것도 만들어야 합니다. Angular CLI 명령 프롬프트에서 다음 명령을 사용하여 Hero 모델 및 **hero.ts**라는 파일을 만듭니다. 여기서 g=생성, cl=클래스, hero=클래스의 이름입니다.
+2. Hero 구성 요소와 마찬가지로 참조하는 **heroes.components.ts**에는 다른 구성 요소가 있으므로 그것도 만들어야 합니다. Angular CLI 명령 프롬프트에서 다음 명령을 사용하여 Hero 모델 및 **hero.ts**라는 파일을 만듭니다. 여기서 g=생성, cl=클래스, hero=클래스의 이름입니다.
 
     ```bash
     ng g cl hero
     ```
 
-    터미널 창에는 새 클래스에 대한 확인이 표시됩니다.
-
-    ```bash
-    installing class
-    create src\client\app\hero.ts
-    ```
-
-4. 탐색기 창에서 **src\client\app\hero.ts**를 엽니다.
-
-5. **hero.ts**에서 ID, 이름을 포함한 Hero 클래스에 추가한 다음 코드로 파일의 내용을 바꿉니다. 
+3. 탐색기 창에서 **src\app\hero.ts**를 엽니다. **hero.ts**에서 ID, 이름을 포함한 Hero 클래스에 추가한 다음 코드로 파일의 내용을 바꿉니다.
 
     ```ts
       export class Hero {
@@ -429,15 +392,15 @@ ms.lasthandoff: 04/16/2018
     }
     ```
 
-6. **heroes.components.ts**로 돌아가서 `selectedHero: Hero;`줄(10줄), `Hero`에는 아래에 빨간색 선이 있습니다. 
+4. **heroes.components.ts**로 돌아가서 `selectedHero: Hero;`줄(10줄), `Hero`에는 아래에 빨간색 선이 있습니다. 
 
-7. `Hero` 용어를 마우스 왼쪽 단추로 클릭하면 Visual Studio는 코드 블록의 왼쪽에 전구 모양 아이콘을 표시합니다. 
+5. `Hero` 용어를 마우스 왼쪽 단추로 클릭하면 Visual Studio는 코드 블록의 왼쪽에 전구 모양 아이콘을 표시합니다. 
 
     ![Visual Studio Code의 전구 모양 아이콘](./media/tutorial-develop-mongodb-nodejs-part3/light-bulb.png)
 
-8. 전구 모양 아이콘을 클릭한 다음 **"client/app/hero"에서 Hero 가져오기**를 클릭합니다. 또는 **"./hero"에서 Hero 가져오기**를 클릭합니다. (설정에 따라 메시지 변경)
+6. 전구 모양 아이콘을 클릭한 다음, **"/app/hero"에서 Hero 가져오기**를 클릭합니다. 또는 **"./hero"에서 Hero 가져오기**를 클릭합니다. (설정에 따라 메시지 변경)
 
-    새 줄의 코드는 2줄에 표시됩니다. 2줄이 client/app/hero를 참조하는 경우 로컬 폴더에서 Hero 파일을 참조하도록 수정합니다(./hero). 2줄은 다음과 같이 표시되어야 합니다.
+    새 줄의 코드는 2줄에 표시됩니다. 2줄이 /app/hero를 참조하는 경우 로컬 폴더에서 Hero 파일을 참조하도록 수정합니다(./hero). 2줄은 다음과 같이 표시되어야 합니다.
 
    ```
    import { Hero } from "./hero";
@@ -453,23 +416,15 @@ ms.lasthandoff: 04/16/2018
     ng g s hero -m app.module
     ```
 
-    출력은 **hero.service.ts**를 생성하고 **app.module.ts**를 업데이트했다고 알려줍니다.
-  
-    ```bash
-    installing service
-      create src\client\app\hero.service.ts
-      update src\client\app\app.module.ts
-    ```
+2. Visual Studio Code에서 **heroes.components.ts**로 돌아갑니다. `constructor(private heroService: HeroService) {}`줄(13줄)에서 `HeroService`의 아래에는 빨간색 선이 있습니다. `HeroService`를 클릭하면 코드 블록의 왼쪽에 전구 모양 아이콘이 생성됩니다. 전구 모양 아이콘을 클릭한 다음 **"./hero.service "에서 HeroService 가져오기**를 클릭합니다. 또는 **"/app/hero.service"에서 HeroService 가져오기**를 클릭합니다.
+
+    전구 모양 이아콘을 클릭하면 2줄에 새 코드 줄을 삽입합니다. 2줄이 /app/hero.service 폴더를 참조하는 경우 로컬 폴더에서 Hero 파일을 참조하도록 수정합니다(./hero.serivce). 2줄은 다음과 같이 표시되어야 합니다.
     
-    app.module.ts에서 다음 코드 줄이 추가되었습니다(6과 17줄).
-    
-    ```typescript
-    import { HeroService } from './hero.service';
-    ...
-        providers: [HeroService],
+    ```javascript
+    import { HeroService } from "./hero.service"
     ```
 
-2. Visual Studio Code에서 **hero.service.ts**를 열고 다음 코드를 복사하여 파일의 내용을 대체합니다.
+3. Visual Studio Code에서 **hero.service.ts**를 열고 다음 코드를 복사하여 파일의 내용을 대체합니다.
 
     ```ts
     import { Injectable } from '@angular/core';
@@ -503,7 +458,7 @@ ms.lasthandoff: 04/16/2018
 
     이 코드는 Angular에서 제공하는 HttpClient의 최신 버전을 사용합니다. 이 버전은 다음을 수행할 수 있도록 제공해야 하는 모듈입니다.
 
-3. Visual Studio Code에서 **app.module.ts**를 열고 HttpClientModule을 포함하는 가져오기 섹션을 업데이트하여 HttpClientModule을 가져옵니다.
+4. Visual Studio Code에서 **app.module.ts**를 열고 HttpClientModule을 포함하는 가져오기 섹션을 업데이트하여 HttpClientModule을 가져옵니다.
 
     ```ts
     imports: [
@@ -513,18 +468,10 @@ ms.lasthandoff: 04/16/2018
     ],
     ```
 
-4. **app.module.ts**에서 가져오기 목록인 HttpClientModule import 문을 추가합니다.
+5. **app.module.ts**에서 가져오기 목록인 HttpClientModule import 문을 추가합니다.
 
     ```ts
     import { HttpClientModule } from '@angular/common/http';
-    ```
-
-5. Visual Studio Code에서 **heroes.components.ts**로 돌아갑니다. `constructor(private heroService: HeroService) {}`줄(13줄)에서 `HeroService`의 아래에는 빨간색 선이 있습니다. `HeroService`를 클릭하면 코드 블록의 왼쪽에 전구 모양 아이콘이 생성됩니다. 전구 모양 아이콘을 클릭한 다음 **"./hero.service "에서 HeroService 가져오기**를 클릭합니다. 또는 **"client/app/hero.service"에서 HeroService 가져오기**를 클릭합니다.
-
-    전구 모양 이아콘을 클릭하면 2줄에 새 코드 줄을 삽입합니다. 2줄이 client/app/hero.service 폴더를 참조하는 경우 로컬 폴더에서 Hero 파일을 참조하도록 수정합니다(./hero.serivce). 2줄은 다음과 같이 표시되어야 합니다.
-    
-    ```javascript
-    import { HeroService } from "./hero.service"
     ```
 
 6. Visual Studio Code에서 모든 파일을 저장합니다.

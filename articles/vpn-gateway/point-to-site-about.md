@@ -1,25 +1,26 @@
 ---
-title: "Azure 지점 및 사이트 간 VPN 연결 정보 | Microsoft Docs"
-description: "이 문서에서는 지점 및 사이트 간 연결을 이해하고 P2S VPN 게이트웨이 인증 유형을 결정합니다."
+title: Azure 지점 및 사이트 간 VPN 연결 정보 | Microsoft Docs
+description: 이 문서에서는 지점 및 사이트 간 연결을 이해하고 P2S VPN 게이트웨이 인증 유형을 결정합니다.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
 manager: timlt
-editor: 
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/17/2018
+ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 708027b6cea8ac6a2fe7f713f5c6639fc6f8258a
-ms.sourcegitcommit: 79683e67911c3ab14bcae668f7551e57f3095425
+ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38721431"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
@@ -47,7 +48,7 @@ Azure에서 P2S VPN 연결을 허용하기 전에 먼저 사용자를 인증해�
 
 Azure 기본 인증서 인증을 사용하는 경우 장치에 있는 클라이언트 인증서가 연결하는 사용자를 인증하는 데 사용됩니다. 클라이언트 인증서는 신뢰할 수 있는 루트 인증서에서 생성되어 각 클라이언트 컴퓨터에 설치됩니다. 엔터프라이즈 솔루션을 사용하여 생성된 루트 인증서를 사용하거나 자체 서명된 인증서를 생성할 수 있습니다.
 
-클라이언트 인증서의 유효성 검사는 VPN 게이트웨이에서 수행되며, P2S VPN 연결을 설정하는 동안 발생합니다. 루트 인증서는 유효성 검사에 필요하며 Azure에 업로드해야 합니다. 
+클라이언트 인증서의 유효성 검사는 VPN 게이트웨이에서 수행되며, P2S VPN 연결을 설정하는 동안 발생합니다. 루트 인증서는 유효성 검사에 필요하며 Azure에 업로드해야 합니다.
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Azure AD(Active Directory) 도메인 서버를 사용하여 인증
 
@@ -57,9 +58,13 @@ AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자�
 
 또한 RADIUS 서버는 다른 외부 ID 시스템과 통합할 수도 있습니다. 이렇게 하면 다단계 옵션을 포함하여 P2S VPN에 대한 많은 인증 옵션이 제공됩니다.
 
-![지점 및 사이트 간 연결](./media/지점 및 사이트 간-about/p2s.png "지점 및 사이트 간")
+![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
 
-### <a name="configuration-requirements-for-client-devices"></a>클라이언트 장치에 대한 구성 요구 사항
+## <a name="what-are-the-client-configuration-requirements"></a>클라이언트 구성 요구 사항은 어떻게 되나요?
+
+>[!NOTE]
+>Windows 클라이언트의 경우 클라이언트 장치에서 Azure로 VPN 연결을 시작하려면 클라이언트 장치에 대한 관리자 권한이 있어야 합니다.
+>
 
 사용자는 P2S용 Windows 및 Mac 장치에서 VPN 기본 클라이언트를 사용합니다. Azure는 이러한 기본 클라이언트에서 Azure에 연결하는 데 필요한 설정을 포함하고 있는 VPN 클라이언트 구성 zip 파일을 제공합니다.
 
@@ -69,10 +74,10 @@ AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자�
 또한 zip 파일에서 중요한 Azure 쪽 설정 일부에 대한 값을 제공하므로 이러한 장치에 대한 사용자 고유의 프로필을 만들 수 있습니다. 일부 값에는 VPN 게이트웨이 주소, 구성된 터널 종류, 경로 및 게이트웨이 유효성 검사용 루트 인증서가 포함됩니다.
 
 >[!NOTE]
->Windows 클라이언트의 경우 클라이언트 장치에서 Azure로 VPN 연결을 시작하려면 클라이언트 장치에 대한 관리자 권한이 있어야 합니다.
+>[!INCLUDE [TLS version changes](../../includes/vpn-gateway-tls-change.md)]
 >
 
-### <a name="gwsku"></a>어떤 게이트웨이 SKU에서 P2S VPN을 지원하나요?
+## <a name="gwsku"></a>어떤 게이트웨이 SKU에서 P2S VPN을 지원하나요?
 
 [!INCLUDE [p2s-skus](../../includes/vpn-gateway-table-point-to-site-skus-include.md)]
 

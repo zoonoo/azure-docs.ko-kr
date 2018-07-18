@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 506ff0bce0b68b1477f27f913bd3fe119e36cca1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8e3cc261576e38cc304dc740f89582f7fd857e1a
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35293037"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>응용 프로그램 프록시를 사용하여 앱에 Single Sign-On에 대한 Kerberos 제한된 위임
 
@@ -84,7 +85,23 @@ Sharepointserviceaccount는 해당 SPS 앱 풀이 실행되고 있는 SPS 컴퓨
 
 
 ## <a name="sso-for-non-windows-apps"></a>비 Windows 앱에 대한 SSO
-클라우드에서 Azure AD가 사용자를 인증할 때 Azure AD 응용 프로그램 프록시에서 Kerberos 위임 흐름이 시작됩니다. 요청이 온-프레미스에 도착하면 Azure AD 응용 프로그램 프록시 커넥터는 로컬 Active Directory와 상호 작용하여 사용자 대신 Kerberos 티켓을 발급합니다. 해당 과정은 Kerberos 제한 위임(KCD)이라고 합니다. 다음 단계에서 요청은 백 엔드 응용 프로그램에 Kerberos 티켓으로 전송됩니다. 이러한 요청을 보내는 방법을 정의하는 몇 가지 프로토콜이 있습니다. 현재 비 Windows Server는 대부분 Azure AD 응용 프로그램 프록시에 지원되는 Negotiate/SPNego를 참조합니다.
+
+클라우드에서 Azure AD가 사용자를 인증할 때 Azure AD 응용 프로그램 프록시에서 Kerberos 위임 흐름이 시작됩니다. 요청이 온-프레미스에 도착하면 Azure AD 응용 프로그램 프록시 커넥터는 로컬 Active Directory와 상호 작용하여 사용자 대신 Kerberos 티켓을 발급합니다. 해당 과정은 Kerberos 제한 위임(KCD)이라고 합니다. 다음 단계에서 요청은 백 엔드 응용 프로그램에 Kerberos 티켓으로 전송됩니다. 
+
+이러한 요청을 보내는 방법을 정의하는 몇 가지 프로토콜이 있습니다. 대부분의 비 Windows 서버는 SPNEGO와 협상을 예상합니다. 이 프로토콜은 Azure AD 응용 프로그램 프록시에서 지원되지만 기본적으로 사용할 수 없습니다. 서버는 둘 다가 아닌, SPNEGO 또는 표준 KCD에 대해 구성될 수 있습니다.
+
+SPNEGO에 대한 커넥터 컴퓨터를 구성하는 경우 해당 커넥터 그룹의 다른 모든 커넥터가 SPNEGO를 사용하여 구성되는지 확인합니다. 표준 KCD를 예상하는 응용 프로그램은 SPNEGO에 대해 구성되지 않은 다른 커넥터를 통해 라우팅돼야 합니다.
+ 
+
+SPNEGO를 사용하도록 설정하려면
+
+1. 관리자 권한으로 실행되는 명령 프롬프트를 엽니다.
+2. 명령 프롬프트에서 SPNEGO가 필요한 커넥터 서버 상에서 다음 명령을 실행합니다.
+
+    ```
+    REG ADD "HKLM\SOFTWARE\Microsoft\Microsoft AAD App Proxy Connector" /v UseSpnegoAuthentication /t REG_DWORD /d 1
+    net stop WAPCSvc & net start WAPCSvc
+    ```
 
 Kerberos에 대한 자세한 내용은 [KCD(Kerberos Constrained Delegation)에 대해 확인하려는 모든 정보](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd)를 참조하세요.
 
@@ -124,7 +141,7 @@ SSO 프로세스에 오류가 있으면 [문제 해결](../application-proxy-bac
 ## <a name="next-steps"></a>다음 단계
 
 * [Kerberos 제한된 위임을 사용하도록 응용 프로그램 프록시 응용 프로그램을 구성하는 방법](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
-* [응용 프로그램 프록시에서 발생한 문제 해결](../active-directory-application-proxy-troubleshoot.md)
+* [응용 프로그램 프록시에서 발생한 문제 해결](application-proxy-troubleshoot.md)
 
 
 최신 뉴스 및 업데이트는 [응용 프로그램 프록시 블로그](http://blogs.technet.com/b/applicationproxyblog/)

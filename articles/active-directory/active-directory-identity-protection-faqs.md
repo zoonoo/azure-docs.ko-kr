@@ -1,12 +1,13 @@
 ---
-title: "Azure Active Directory ID 보호 FAQ | Microsoft Docs"
-description: "Azure AD ID 보호에 대한 질문과 대답입니다."
+title: Azure Active Directory ID 보호 FAQ | Microsoft Docs
+description: Azure AD ID 보호에 대한 질문과 대답입니다.
 services: active-directory
-documentationcenter: 
+documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
+ms.component: protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,11 +15,12 @@ ms.topic: article
 ms.date: 11/03/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 102cf0108aeefa255d40bd932e41f1e7b5536205
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4637420b712f98c3a8bf9d5965704cd043bb9a1c
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34713442"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory ID 보호 FAQ
 
@@ -27,7 +29,7 @@ ms.lasthandoff: 12/11/2017
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>일부 위험 이벤트에 "닫힘(시스템)" 상태가 있는 이유는 무엇인가요?
 
-**A:** 이러한 이벤트는 Azure Active Directory ID 보호에서 검색했지만 나중에 해당 이벤트가 더 이상 위험하다고 간주되지 않아 닫힌 이벤트이며, 사용자의 위험 수준으로 계산되지 않습니다. 
+**A:** 이러한 위험 이벤트는 ID 보호에서 검색했지만 해당 이벤트가 더 이상 위험하다고 간주되지 않기 때문에 나중에 닫히고, 사용자의 위험 수준으로 계산되지 않습니다. 
 
 ---
 

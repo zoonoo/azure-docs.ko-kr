@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: ea612f0c58b92e37d405f9a57611610fa187f7db
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619323"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859150"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-functions-variables.md)
-> * [버전 2 - 미리 보기](control-flow-expression-language-functions.md)
+> * [버전 1](v1/data-factory-functions-variables.md)
+> * [현재 버전](control-flow-expression-language-functions.md)
 
-이 문서에서는 Azure Data Factory(버전 2)에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
+이 문서에서는 Azure Data Factory에서 지원하는 식과 함수에 대한 정보를 제공합니다. 
 
 ## <a name="introduction"></a>소개
 정의의 JSON 값은 리터럴일 수도 있고 정의가 런타임에 평가되는 식일 수도 있습니다. 예:   
@@ -40,20 +40,15 @@ ms.locfileid: "34619323"
 "name": "@pipeline().parameters.password"
 ```
 
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [Data Factory V1의 함수와 변수](v1/data-factory-functions-variables.md)를 참조하세요.
-
-
 ## <a name="expressions"></a>식  
-식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식이면 앳 기호(@)를 제거하여 식의 본문을 추출합니다. @으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 @@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
+식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식이면 at 기호(\@)를 제거하여 식의 본문을 추출합니다. @으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 @@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
   
 |JSON 값|결과|  
 |----------------|------------|  
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
-|"@@"|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
-|\" \@\"|' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
+|“\@@”|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
+|“\@”|' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
   
  *문자열 보간*이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -61,13 +56,13 @@ ms.locfileid: "34619323"
   
 |JSON 값|결과|  
 |----------------|------------|  
-|"@pipeline().parameters.myString"| `foo`을 문자열로 반환합니다.|  
-|"@{pipeline().parameters.myString}"| `foo`을 문자열로 반환합니다.|  
-|"@pipeline().parameters.myNumber"| `42`를 *숫자*로 반환합니다.|  
-|"@{pipeline().parameters.myNumber}"| `42`를 *문자열*로 반환합니다.|  
+|“\@pipeline().parameters.myString”| `foo`을 문자열로 반환합니다.|  
+|\@“@{pipeline().parameters.myString}”| `foo`을 문자열로 반환합니다.|  
+|“\@pipeline().parameters.myNumber”| `42`를 *숫자*로 반환합니다.|  
+|“\@{pipeline().parameters.myNumber}”| `42`를 *문자열*로 반환합니다.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| `Answer is: 42` 문자열을 반환합니다.|  
-|"@concat('Answer is: ', string(pipeline().parameters.myNumber))"| `Answer is: 42` 문자열을 반환합니다.|  
-|"Answer is: @@{pipeline().parameters.myNumber}"| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
+|“\@concat(‘Answer is: ’, string(pipeline().parameters.myNumber))”| `Answer is: 42` 문자열을 반환합니다.|  
+|“Answer is: \@@{pipeline().parameters.myNumber}”| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
   
 ### <a name="examples"></a>예
 
@@ -162,8 +157,8 @@ ms.locfileid: "34619323"
 |toUpper|문자열을 대문자로 변환합니다. 예를 들어 다음 식은 `TWO BY TWO IS FOUR`:  `toUpper('Two by Two is Four')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 대문자로 변환할 문자열입니다. 문자열에 있는 문자에 대문자로 변환할 항목이 없으면 반환된 문자열에서 해당 문자가 변경되지 않고 포함됩니다.|  
 |indexof|문자열 내에서 대소문자를 구분하지 않고 값의 인덱스를 찾습니다. 예를 들어 다음 식은 `7`: `indexof('hello, world.', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 인덱스를 검색할 값입니다.|  
 |lastindexof|문자열 내에서 대소문자를 구분하지 않고 값의 마지막 인덱스를 찾습니다. 예를 들어 다음 식은 `3`: `lastindexof('foofoo', 'foo')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 인덱스를 검색할 값입니다.|  
-|startswith|문자열이 대소문자를 구분하지 않고 값으로 시작하는지 확인합니다. 예를 들어 다음 식은 `true`: `lastindexof('hello, world', 'hello')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값으로 시작할 수 있습니다.|  
-|endswith|문자열이 대소문자를 구분하지 않고 값으로 끝나는지 확인합니다. 예를 들어 다음 식은 `true`: `lastindexof('hello, world', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값으로 끝날 수 있습니다.|  
+|startswith|문자열이 대소문자를 구분하지 않고 값으로 시작하는지 확인합니다. 예를 들어 다음 식은 `true`: `startswith('hello, world', 'hello')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값으로 시작할 수 있습니다.|  
+|endswith|문자열이 대소문자를 구분하지 않고 값으로 끝나는지 확인합니다. 예를 들어 다음 식은 `true`: `endswith('hello, world', 'world')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값을 포함할 수 있습니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 문자열은 이 값으로 끝날 수 있습니다.|  
 |분할|구분 기호를 사용하여 문자열을 분할합니다. 예를 들어 다음 식은 `["a", "b", "c"]`: `split('a;b;c',';')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 분할된 문자열입니다.<br /><br /> **매개 변수 번호**: 2<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 구분 기호입니다.|  
   
   
@@ -233,7 +228,7 @@ ms.locfileid: "34619323"
 |decodeDataUri|입력 데이터 URI 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `some string`:  `decodeDataUri('data:;base64,c29tZSBzdHJpbmc=')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br /> **설명**: 필수. 이진 표현으로 디코딩할 데이터 URI입니다.|  
 |uriComponent|값의 URI 인코딩 표현을 반환합니다. 예를 들어 다음 식은 `You+Are%3ACool%2FAwesome: uriComponent('You Are:Cool/Awesome ')`를 반환합니다.<br /><br /> 매개 변수 세부 정보: 번호: 1, 이름: 문자열, 설명: 필수 URI 인코딩할 문자열입니다.|  
 |uriComponentToBinary|URI 인코딩 문자열의 이진 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`의 이진 표현을 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: String<br /><br />**설명**: 필수. URI 인코딩된 문자열입니다.|  
-|uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToBinary('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: String<br /><br />**설명**: 필수. URI 인코딩된 문자열입니다.|  
+|uriComponentToString|URI 인코딩 문자열의 문자열 표현을 반환합니다. 예를 들어 다음 식은 `You Are:Cool/Awesome`: `uriComponentToString('You+Are%3ACool%2FAwesome')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: String<br /><br />**설명**: 필수. URI 인코딩된 문자열입니다.|  
 |xml|값의 XML 표현을 반환합니다. 예를 들어 다음 식은 `'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`으로 표현되는 xml 콘텐츠를 반환합니다. xml 함수는 JSON 개체 입력도 지원합니다. 예를 들어 `{ "abc": "xyz" }` 매개 변수는 XML 콘텐츠 `\<abc>xyz\</abc>`로 변환됩니다. <br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: Value<br /><br />**설명**: 필수. XML로 변환할 값입니다.|  
 |xpath|xpath 식을 평가할 값의 xpath 식과 일치하는 XML 노드 배열을 반환합니다.<br /><br />  **예 1**<br /><br /> 매개 변수 ‘p1’ 값이 다음 XML의 문자열 표현이라고 가정합니다.<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1. 다음 코드는 `xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 다음을 반환합니다.<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> 반면<br /><br /> 2. 다음 코드는 `xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 다음을 반환합니다.<br /><br /> `13`<br /><br /> <br /><br /> **예 2**<br /><br /> 다음 XML 콘텐츠를 가정한다면:<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.  다음 코드는 `@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 또는<br /><br /> 2. 다음 코드는 `@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 다음을 반환합니다.<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> and<br /><br /> 3. 다음 코드는 `@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 다음을 반환합니다.<br /><br /> ``bar``<br /><br /> **매개 변수 번호**: 1<br /><br />**이름**: Xml<br /><br />**설명**: 필수. XPath 식을 평가할 XML입니다.<br /><br /> **매개 변수 번호**: 2<br /><br />**이름**: XPath<br /><br />**설명**: 필수. 평가할 XPath 식입니다.|  
 |array|매개 변수를 배열로 변환합니다.  예를 들어 다음 식은 `["abc"]`: `array('abc')`를 반환합니다.<br /><br /> **매개 변수 번호**: 1<br /><br /> **이름**: Value<br /><br /> **설명**: 필수. 배열로 변환할 값입니다.|

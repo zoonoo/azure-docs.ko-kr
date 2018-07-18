@@ -15,17 +15,17 @@ ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
 ms.openlocfilehash: e7aa675e849fb8c4dac0bfb5a1ae44dd16ca25e3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068299"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38539208"
 ---
 # <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure Key Vault 만들기
 
 Azure Key Vault는 보안 비밀 저장소로 작동하는 클라우드 서비스입니다. 키, 암호, 인증서 및 기타 비밀을 안전하게 저장할 수 있습니다. Key Vault에 대한 자세한 내용을 보려면 [개요](key-vault-overview.md)를 살펴보세요. 이 빠른 시작에서는 PowerShell를 사용하여 Key Vault를 만듭니다. 그런 다음, 새로 만든 자격 증명 모음에 비밀을 저장합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

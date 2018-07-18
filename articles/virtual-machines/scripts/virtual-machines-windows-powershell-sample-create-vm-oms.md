@@ -3,7 +3,7 @@ title: Azure PowerShell 스크립트 샘플 - OMS | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - OMS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: dc6cda6490740488e60f380d99952fa3f8d0c3fb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5befcb526f6337c05c33bb9b13aa1354ee046248
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655965"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930371"
 ---
 # <a name="create-an-operations-management-suite-monitored-vm-with-powershell"></a>PowerShell로 Operations Management Suite 모니터링 VM 만들기
 
@@ -35,7 +35,7 @@ ms.locfileid: "34655965"
 
 [!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-monitor-oms/create-windows-vm-detailed-oms.ps1 "Create VM OMS")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 

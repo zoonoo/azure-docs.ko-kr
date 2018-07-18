@@ -1,27 +1,25 @@
 ---
 title: Table API의 Azure Cosmos DB 전역 배포 자습서 | Microsoft Docs
-description: Table API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법에 대해 알아봅니다.
+description: Table API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법을 알아봅니다.
 services: cosmos-db
 keywords: 전역 배포, Table
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
-ms.assetid: 8b815047-2868-4b10-af1d-40a1af419a70
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/13/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: f877baa33d94dad07250da9a10209555dbca65c9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7baa1e5b4b50d1f420b514854fa4d4c9ef786c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38582138"
 ---
-# <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Table API를 사용하여 Azure Cosmos DB 전역 배포를 설정하는 방법
+# <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Table API를 사용하여 Azure Cosmos DB 전역 배포 설정
 
 이 문서에서 다루는 작업은 다음과 같습니다. 
 

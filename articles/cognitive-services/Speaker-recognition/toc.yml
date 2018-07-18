@@ -1,0 +1,20 @@
+- name: 화자 인식 설명서
+- name: 개요
+  items:
+    - name: 화자 인식에 대해 알아보기
+      href: Home.md
+- name: 참고 자료
+  items:
+    - name: API 참조
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c3271984551c84ec6797'
+      items:
+        - name: SDK
+          items:
+            - name: Android
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Android'
+            - name: Windows
+              href: 'https://github.com/Microsoft/Cognitive-SpeakerRecognition-Windows'
+- name: 리소스
+  items:
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'

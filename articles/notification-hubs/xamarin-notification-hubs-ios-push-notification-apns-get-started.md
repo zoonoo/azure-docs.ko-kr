@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: babd6bff3cec38318cacc0d55394a7563f8e69a4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cebb73fedffe3b5f0a11c919ff39d1d2acd462d3
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776875"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969530"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 Xamarin.iOS 앱에 알림 푸시
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "33776875"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - 최신 버전의 [XCode][Install Xcode]
 - iOS 10 이상 호환 장치
 - [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
@@ -84,34 +84,46 @@ ms.locfileid: "33776875"
 
     ![Visual Studio - iOS 앱 구성][32]
 
-4. Azure Messaging 패키지를 추가합니다. [솔루션] 보기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **NuGet 패키지 추가**를 차례로 선택합니다. **Xamarin.Azure.NotificationHubs.iOS**를 검색하고 프로젝트에 이 패키지를 추가합니다.
+4. 솔루션 보기에서 *Entitlements.plist* 두 번 클릭하고 "푸시 알림 사용"이 선택되어 있는지 확인합니다.
 
-5. 클래스에 새 파일을 추가하고, 이름을 **Constants.cs**로 지정하고, 다음 변수를 추가하고, 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 언급한 *DefaultListenSharedAccessSignature*로 바꿉니다.
+    ![Visual Studio-iOS 자격 구성][33]
+
+5. Azure Messaging 패키지를 추가합니다. [솔루션] 보기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **NuGet 패키지 추가**를 차례로 선택합니다. **Xamarin.Azure.NotificationHubs.iOS**를 검색하고 프로젝트에 이 패키지를 추가합니다.
+
+6. 클래스에 새 파일을 추가하고, 이름을 **Constants.cs**로 지정하고, 다음 변수를 추가하고, 문자열 리터럴 자리 표시자를 *허브 이름* 및 앞에서 언급한 *DefaultListenSharedAccessSignature*로 바꿉니다.
    
     ```csharp
         // Azure app-specific connection string and hub path
-        public const string ConnectionString = "<Azure connection string>";
-        public const string NotificationHubPath = "<Azure hub path>";
+        public const string ListenConnectionString = "<Azure connection string>";
+        public const string NotificationHubName = "<Azure hub path>";
     ```
 
-6. **AppDelegate.cs**에서 다음 using 문을 추가합니다.
+7. **AppDelegate.cs**에서 다음 using 문을 추가합니다.
    
     ```csharp
         using WindowsAzure.Messaging;
     ```
 
-7. **SBNotificationHub**인스턴스를 선언합니다.
+8. **SBNotificationHub**인스턴스를 선언합니다.
    
     ```csharp
         private SBNotificationHub Hub { get; set; }
     ```
 
-8. **AppDelegate.cs**에서 **FinishedLaunching()** 을 다음 코드와 일치하도록 업데이트합니다.
-   
+9.  **AppDelegate.cs**에서 **FinishedLaunching()** 을 다음 코드와 일치하도록 업데이트합니다.
+  
     ```csharp
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
-            if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
+            if (UIDevice.CurrentDevice.CheckSystemVersion(10, 0))
+            {
+                UNUserNotificationCenter.Current.RequestAuthorization(UNAuthorizationOptions.Alert | UNAuthorizationOptions.Sound | UNAuthorizationOptions.Sound,
+                                                                      (granted, error) =>
+                {
+                    if (granted)
+                        InvokeOnMainThread(UIApplication.SharedApplication.RegisterForRemoteNotifications);
+                });
+            } else if (UIDevice.CurrentDevice.CheckSystemVersion (8, 0)) {
                 var pushSettings = UIUserNotificationSettings.GetSettingsForTypes (
                        UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound,
                        new NSSet ());
@@ -127,12 +139,12 @@ ms.locfileid: "33776875"
         }
     ```
 
-9. **AppDelegate.cs**의 **RegisteredForRemoteNotifications()** 메서드를 재정의합니다.
+10. **AppDelegate.cs**의 **RegisteredForRemoteNotifications()** 메서드를 재정의합니다.
    
     ```csharp
         public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
         {
-            Hub = new SBNotificationHub(Constants.ConnectionString, Constants.NotificationHubPath);
+            Hub = new SBNotificationHub(Constants.ListenConnectionString, Constants.NotificationHubName);
    
             Hub.UnregisterAllAsync (deviceToken, (error) => {
                 if (error != null)
@@ -150,7 +162,7 @@ ms.locfileid: "33776875"
         }
     ```
 
-10. **AppDelegate.cs**의 **ReceivedRemoteNotification()** 메서드를 재정의합니다.
+11. **AppDelegate.cs**의 **ReceivedRemoteNotification()** 메서드를 재정의합니다.
    
     ```csharp
         public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -159,7 +171,7 @@ ms.locfileid: "33776875"
         }
     ```
 
-11. **AppDelegate.cs**에 다음 **ProcessNotification()** 메서드를 만듭니다.
+12. **AppDelegate.cs**에 다음 **ProcessNotification()** 메서드를 만듭니다.
    
     ```csharp
         void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -200,7 +212,7 @@ ms.locfileid: "33776875"
    > 네트워크 연결이 없는 경우를 처리하도록 **FailedToRegisterForRemoteNotifications()** 를 재정의할 수 있습니다. 이는 사용자가 응용 프로그램을 오프라인 모드(예: 비행기)에서 시작할 수 있고 앱에 특정한 푸시 메시지 시나리오를 처리하려는 경우에 특히 중요합니다.
   
 
-12. 장치에서 앱을 실행합니다.
+13. 장치에서 앱을 실행합니다.
 
 ## <a name="send-test-push-notifications"></a>테스트 푸시 알림 보내기
 [Azure Portal]에서 *테스트 보내기* 옵션을 사용하여 앱에서 알림 수신을 테스트할 수 있습니다. 이렇게 하면 테스트 푸시 알림이 장치로 전송됩니다.
@@ -226,6 +238,7 @@ ms.locfileid: "33776875"
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
+[33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
 
 

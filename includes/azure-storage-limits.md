@@ -8,15 +8,16 @@ ms.topic: include
 ms.date: 04/03/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 6381f8f0e68853183fc3e17e76b4ab93b152b48b
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6572adb0d8d629910492603a17988b89acce2f17
+ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/07/2018
+ms.locfileid: "34852061"
 ---
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 지역당 저장소 계정 수 | 200<sup>1</sup> |
+| 구독당 지역별 저장소 계정 수 | 200<sup>1</sup> |
 | 최대 저장소 계정 용량 | 500TiB<sup>2</sup> |
 | 저장소 계정당 Blob 컨테이너, Blob, 파일 공유, 테이블, 큐, 엔터티 또는 메시지의 최대 수 | 제한 없음 |
 | 저장소 계정당 최대 요청 속도 | 초당 20,000개 요청<sup>2</sup> |
@@ -25,7 +26,7 @@ ms.lasthandoff: 04/05/2018
 | 저장소 계정당 최대 수신<sup>3</sup> 속도(미국 이외 지역) | RA-GRS/GRS를 사용하는 경우 5Gbps, LRS/ZRS의 경우 10Gbps<sup>4</sup> |
 | 저장소 계정당 최대 송신<sup>3</sup> 속도(미국 이외 지역) | RA-GRS/GRS를 사용하는 경우 10Gbps, LRS/ZRS의 경우 15Gbps<sup>4</sup> |
 
-<sup>1</sup> 표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 Storage 계정을 250개까지 승인할 수 있습니다. 
+<sup>1</sup> 표준 및 프리미엄 저장소 계정이 모두 포함됩니다. 지정된 지역에서 저장소 계정이 200개 이상 필요한 경우 [Azure 지원](https://azure.microsoft.com/support/faq/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다. 
 
 <sup>2</sup> 저장소 계정에 대해 한도 확장이 필요한 경우 [Azure Support](https://azure.microsoft.com/support/faq/)에 문의하세요. Azure Storage 팀에서 해당 요청을 검토하여 상황별로 더 높은 제한을 승인할 수 있습니다. 범용 및 Blob 저장소 계정은 요청에 따라 증가된 용량, 수신/송신 및 요청 속도가 지원됩니다. Blob 저장소 계정의 새로운 최댓값은 [용량 및 확장성이 향상된 저장소 계정 발표](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)를 참조하세요.
 

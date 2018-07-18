@@ -3,7 +3,7 @@ title: 변경 내용 추적 및 Azure Data Factory를 사용하여 데이터 증
 description: '이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다. '
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/12/2018
-ms.author: jingwang
-ms.openlocfilehash: 891dad1a481c966e6ea1771f3e7c7850fa429352
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 4d2339ace047a5aacda74f6b1ccb9f1eb77aab0c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30189871"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054045"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>변경 내용 추적 정보를 사용하여 Azure SQL Database에서 Azure Blob Storage로 데이터 증분 로드 
 이 자습서에서는 원본 Azure SQL 데이터베이스의 **변경 내용 추적** 정보를 기반으로 Azure Blob 저장소에 델타 데이터를 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.  
@@ -34,11 +34,8 @@ ms.locfileid: "30189871"
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 증분 복사 파이프라인을 생성, 실행 및 모니터링합니다.
 
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-
 ## <a name="overview"></a>개요
-데이터 통합 솔루션에서 초기 데이터로드 후 데이터 증분을 로드하는 것은 널리 사용되는 시나리오입니다. 경우에 따라 원본 데이터 저장소에서 특정 기간 내에 변경된 데이터를 쉽게 조각낼 수 있습니다(예: LastModifyTime, CreationTime). 데이터를 마지막으로 처리한 이후 델타 데이터를 식별하는 명시적인 방법이 없는 경우가 있습니다. 변경 내용 추적 기술은 Azure SQL Database와 같은 데이터 저장소 기술에 의해 지원되며 SQL Server는 델타 데이터를 파악하는 데 사용될 수 있습니다.  이 자습서는 Azure Data Factory 버전 2를 사용하여 SQL 변경 내용 추적 기술을 통해 Azure SQL Database에서 Azure Blob Storage로 델타 데이터를 증분 로드하는 방법을 설명합니다.  SQL 변경 내용 추적 기술에 대한 구체적인 정보는 [SQL Server에서 변경 내용 추적](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 참조하세요. 
+데이터 통합 솔루션에서 초기 데이터로드 후 데이터 증분을 로드하는 것은 널리 사용되는 시나리오입니다. 경우에 따라 원본 데이터 저장소에서 특정 기간 내에 변경된 데이터를 쉽게 조각낼 수 있습니다(예: LastModifyTime, CreationTime). 데이터를 마지막으로 처리한 이후 델타 데이터를 식별하는 명시적인 방법이 없는 경우가 있습니다. 변경 내용 추적 기술은 Azure SQL Database와 같은 데이터 저장소 기술에 의해 지원되며 SQL Server는 델타 데이터를 파악하는 데 사용될 수 있습니다.  이 자습서는 SQL 변경 내용 추적 기술을 통해 Azure Data Factory를 사용하여 Azure SQL Database에서 Azure Blob Storage로 델타 데이터를 증분 로드하는 방법을 설명합니다.  SQL 변경 내용 추적 기술에 대한 구체적인 정보는 [SQL Server에서 변경 내용 추적](/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 참조하세요. 
 
 ## <a name="end-to-end-workflow"></a>종단 간 워크플로
 다음은 변경 내용 추적 기술을 사용하여 데이터 증분을 로드하는 일반적인 종단 간 워크플로 단계입니다.
@@ -160,7 +157,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
       
      ![새 데이터 팩터리 페이지](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
  
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 다음 오류가 표시되는 경우 데이터 팩터리 이름을 변경하고(예: yournameADFTutorialDataFactory) 다시 만듭니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
        `Data factory name “ADFTutorialDataFactory” is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
@@ -214,8 +211,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **새 연결된 서비스** 창에서 다음 단계를 수행합니다. 
 
     1. **이름** 필드에 대해 **AzureSqlDatabaseLinkedService**를 입력합니다. 
-    2. **서버 이름** 필드에 대해 Azure SQL Server를 선택합니다.
-    4. **데이터베이스 이름** 필드에 대해 Azure SQL Database를 선택합니다. 
+    2. **서버 이름** 필드에 대해 Azure SQL 서버를 선택합니다.
+    4. **데이터베이스 이름** 필드에 대해 Azure SQL 데이터베이스를 선택합니다. 
     5. **사용자 이름** 필드에 대해 사용자의 이름을 입력합니다. 
     6. **암호** 필드에 대해 사용자의 암호를 입력합니다. 
     7. **연결 테스트**를 클릭하여 연결을 테스트합니다.
@@ -245,7 +242,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    ![원본 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-connection.png)
 
-### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>싱크 데이터 저장소에 복사된 데이터를 나타내는 데이터 집합 만들기 
+### <a name="create-a-dataset-to-represent-data-copied-to-sink-data-store"></a>싱크 데이터 저장소에 복사되는 데이터를 나타내는 데이터 집합을 만듭니다. 
 이 단계에서는 원본 데이터 저장소에서 복사된 데이터를 나타내는 데이터 집합을 만듭니다. 필수 구성 요소의 일부로 adftutorial 컨테이너를 Azure Blob Storage에 만들었습니다. 아직 없는 경우 컨테이너를 만들거나 기존 컨테이너의 이름으로 설정합니다. 이 자습서에서 출력 파일 이름은 `@CONCAT('Incremental-', pipeline().RunId, '.txt')` 식을 사용하여 동적으로 생성됩니다.
 
 1. 트리 뷰에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다. 
@@ -315,7 +312,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ### <a name="monitor-the-full-copy-pipeline"></a>전체 복사 파이프라인 모니터링
 
-1. 왼쪽의 **모니터** 탭을 클릭합니다. 파이프라인 실행 및 해당 상태가 목록에 표시됩니다. 목록을 새로 고치려면 **새로 고침**을 클릭합니다. [작업] 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
+1. 왼쪽의 **모니터** 탭을 클릭합니다. 목록에 파이프라인 실행 및 해당 상태가 표시됩니다. 목록을 새로 고치려면 **새로 고침**을 클릭합니다. [작업] 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 볼 수 있고 파이프라인을 다시 실행할 수 있습니다. 
 
     ![파이프라인 실행](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
 2. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다. 파이프라인에는 하나의 활동만 있으므로 목록에는 하나의 항목만 표시됩니다. 파이프라인 실행 보기로 다시 전환하려면 위쪽의 **파이프라인** 링크를 클릭합니다. 
@@ -399,7 +396,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 9. **싱크** 탭으로 전환하고, **싱크 데이터 집합** 필드에 대해 **SinkDataset**를 선택합니다. 
 
     ![복사 활동 - 싱크 설정](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
-10. **두 개의 조회 활동을 하나씩 복사 활동에 연결합니다**. **조회** 활동에 붙어 있는 **녹색** 단추를 **복사** 활동으로 끕니다. 
+10. **두 개의 조회 활동을 하나씩 복사 활동에 연결합니다**. **조회** 활동에 연결된 **녹색** 단추를 **복사** 활동으로 끕니다. 
 
     ![조회 활동 및 복사 활동 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png)
 11. **저장 프로시저** 활동을 **활동** 도구 상자에서 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **StoredProceduretoUpdateChangeTrackingActivity**로 설정합니다. 이 활동은 **table_store_ChangeTracking_version** 테이블의 변경 내용 추적 버전을 업데이트합니다.
@@ -414,13 +411,13 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     2. **가져오기 매개 변수**를 선택합니다. 
     3. **저장 프로시저 매개 변수** 섹션에서 매개 변수에 대해 다음 값을 지정합니다. 
 
-        | Name | 형식 | 값 | 
+        | Name | type | 값 | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | 문자열 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
     
         ![저장 프로시저 활동 - 매개 변수](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-parameters.png)
-14. **복사 활동을 저장 프로시저 활동에 연결합니다**. 복사 활동에 붙어 있는 **녹색** 단추를 저장 프로시저 활동으로 끌어서 놓습니다. 
+14. **복사 활동을 저장 프로시저 활동에 연결합니다**. 복사 활동에 연결된 **녹색** 단추를 저장 프로시저 활동으로 끌어서 놓습니다. 
 
     ![복사 활동 및 저장 프로시저 활동 연결](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
 15. 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **>>** 를 클릭하여 **파이프라인 유효성 검사 보고서** 창을 닫습니다. 
@@ -437,7 +434,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 2. **파이프라인 실행** 창에서 **마침**을 선택합니다.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>증분 복사 파이프라인 모니터링
-1. 왼쪽의 **모니터** 탭을 클릭합니다. 파이프라인 실행 및 해당 상태가 목록에 표시됩니다. 목록을 새로 고치려면 **새로 고침**을 클릭합니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
+1. 왼쪽의 **모니터** 탭을 클릭합니다. 목록에 파이프라인 실행 및 해당 상태가 표시됩니다. 목록을 새로 고치려면 **새로 고침**을 클릭합니다. **작업** 열의 링크를 사용하면 파이프라인 실행과 연결된 활동 실행을 보고 파이프라인을 다시 실행할 수 있습니다. 
 
     ![파이프라인 실행](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
 2. 파이프라인 실행과 연결된 활동 실행을 보려면 **작업** 열에서 **활동 실행 보기** 링크를 클릭합니다. 파이프라인에는 하나의 활동만 있으므로 목록에는 하나의 항목만 표시됩니다. 파이프라인 실행 보기로 다시 전환하려면 위쪽의 **파이프라인** 링크를 클릭합니다. 

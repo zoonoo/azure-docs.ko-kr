@@ -7,15 +7,17 @@ ms.author: aashishb
 manager: mwinkle
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 8eb6470afb44ba1b41e0077a890a36601db5387e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 5b751546320ca6728573954290bd2258e837775f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723224"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>자습서 3: 아이리스 분류: 배포 모델
 Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다. 데이터 과학자는 클라우드 규모로 데이터를 준비하고, 실험을 개발하며, 모델을 배포하는 데 사용할 수 있습니다.
@@ -35,7 +37,7 @@ Azure Machine Learning(미리 보기)는 전문 데이터 과학자를 위한 �
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 - [빠른 시작](../service/quickstart-installation.md)에 설명된 대로 설치된 실험 계정 및 Azure Machine Learning Workbench
 - [자습서 2부](tutorial-classifying-iris-part-2.md)에서 모델 분류
 - 로컬로 설치되고 실행되는 Docker 엔진
@@ -162,7 +164,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    az provider show -n Microsoft.ContainerRegistry 
    ``` 
 
-   출력의 세 번째 줄에 **“registrationState”: “Registering”**이 표시됩니다. 몇 분 정도 기다렸다가 출력에 **"registrationState": "Registered"** 가 표시될 때까지 **show** 명령을 반복합니다.
+   출력의 세 번째 줄에 **“registrationState”: “Registering”** 이 표시됩니다. 몇 분 정도 기다렸다가 출력에 **"registrationState": "Registered"** 가 표시될 때까지 **show** 명령을 반복합니다.
 
    >[!NOTE] 
    ACS 클러스터를 배포하는 경우 정확히 동일한 방법을 사용하여 **Microsoft.ContainerService** 리소스 공급자를 등록해야 합니다.
@@ -274,7 +276,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    매니페스트를 만들려면 다음 명령을 사용하고, 이전 단계의 모델 ID 출력을 제공합니다.
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f score_iris.py -r python -i <model ID> -s service_schema.json -c aml_config\conda_dependencies.yml
    ```
    이 명령은 매니페스트 ID를 생성합니다.
 
@@ -283,7 +285,7 @@ _로컬 모드_ 배포를 사용하여 로컬 컴퓨터의 Docker 컨테이너�
    Docker 이미지를 만들려면 다음 명령을 사용하고 이전 단계에서 출력한 매니페스트 ID 값을 제공합니다. 선택적으로 `-c` 스위치를 사용하여 conda 종속성을 포함시킬 수도 있습니다.
 
    ```azurecli
-   az ml image create -n irisimage --manifest-id <manifest ID> -c aml_config\conda_dependencies.yml
+   az ml image create -n irisimage --manifest-id <manifest ID> 
    ```
    이 명령은 Docker 이미지 ID를 생성합니다.
    

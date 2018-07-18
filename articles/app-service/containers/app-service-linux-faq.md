@@ -13,19 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2017
-ms.author: aelnably;wesmc
-ms.openlocfilehash: 8d25c70a0e5db92bca6f3970049a2e1325fe124b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 06/18/2018
+ms.author: msangapu
+ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36222980"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
 Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가하고 플랫폼을 더욱 개선하기 위한 작업을 진행하고 있습니다. 이 문서는 고객이 최근에 요청한 질문에 대한 대답을 제공합니다.
 
-질문이 있으면 문서에 남겨주세요. 최대한 신속하게 답변을 드리겠습니다.
+질문이 있는 경우 이 문서에 댓글을 달아주세요.
 
 ## <a name="built-in-images"></a>기본 제공 이미지
 
@@ -35,7 +36,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 **런타임 스택을 구성할 때 시작 파일 섹션에 대해 예상되는 값은 무엇인가요?**
 
-Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니다. .Net Core의 경우 컴파일된 DLL 이름을 지정해야 합니다. Ruby의 경우 앱을 초기화하려면 Ruby 스크립트를 지정할 수 있습니다.
+Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니다. .Net Core의 경우 컴파일된 DLL 이름을 `dotnet <myapp>.dll`로 지정합니다. Ruby의 경우 앱을 초기화하려면 Ruby 스크립트를 지정할 수 있습니다.
 
 ## <a name="management"></a>관리
 
@@ -47,7 +48,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 예. SCM(원본 제어 관리) 사이트를 통해 수행할 수 있습니다.
 
-> [!NOTE] 
+> [!NOTE]
 > SSH, SFTP 또는 Visual Studio Code를 사용하여 로컬 개발 컴퓨터에서 직접 앱 컨테이너에 연결할 수도 있습니다(Node.js 앱 라이브 디버깅을 위해). 자세한 내용은 [Linux App Service의 원격 디버깅 및 SSH](https://aka.ms/linux-debug)를 참조하세요.
 >
 
@@ -59,7 +60,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 **Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합 및 배포를 지원하나요?**
 
-Azure Container Registry 또는 DockerHub 이미지에 대한 연속 통합/배포를 설정하려면 [Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
+예, Azure Container Registry 또는 DockerHub에 대한 지속적인 통합/배포를 설정하려면 [Web App for Containers를 사용한 지속적인 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 개인 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 응용 프로그램을 변경 또는 추가할 수 있습니다.
 
 **스테이징 환경이 지원되나요?**
 
@@ -71,13 +72,13 @@ Azure Container Registry 또는 DockerHub 이미지에 대한 연속 통합/배�
 
 **Linux 웹앱을 사용할 때 내 응용 프로그램의 Git 배포가 실패합니다. 이 문제를 어떻게 해결할 수 있나요?**
 
-Linux 웹앱에 대한 Git 배포가 실패하면 다음 대체 옵션을 선택하여 응용 프로그램 코드를 배포할 수 있습니다.
+Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 선택하여 응용 프로그램 코드를 배포할 수 있습니다.
 
 - 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용하도록 Team Services Git 리포지토리 또는 GitHub 리포지토리에 앱의 소스 코드를 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
 
-- [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) 코드를 배포할 폴더로 이동합니다. 다음을 실행합니다.
+- [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) 코드를 배포할 폴더로 이동합니다. 다음 코드를 실행합니다.
 
-   ```
+   ```bash
    curl -X POST -u <user> --data-binary @<zipfile> https://{your-sitename}.scm.azurewebsites.net/api/zipdeploy
    ```
 
@@ -87,8 +88,9 @@ Linux 웹앱에 대한 Git 배포가 실패하면 다음 대체 옵션을 선택
 
 **Node.js 응용 프로그램에서 웹 소켓을 사용하려고 합니다. 특별한 설정이나 구성이 필요한가요?**
 
-예. 서버 쪽 Node.js 코드에서 `perMessageDeflate`를 비활성화해야 합니다. 예를 들어, socket.io를 사용하고 있다면 다음을 수행합니다.
-```
+예, 서버 쪽 Node.js 코드에서 `perMessageDeflate`를 비활성화해야 합니다. 예를 들어, socket.io를 사용하고 있다면 다음 코드를 사용합니다.
+
+```nodejs
 var io = require('socket.io')(server,{
   perMessageDeflate :false
 });
@@ -100,20 +102,20 @@ var io = require('socket.io')(server,{
 
 **작성기를 PHP 앱의 종속성 관리자로 지원하나요?**
 
-예. Git 배포 중에 Kudu는 사용자가 PHP 응용 프로그램을 배포하고 있음을 감지해야 하고(composer.lock 파일의 존재 덕분) 자동으로 작성기 설치를 트리거합니다.
+예, Git 배포 중에 Kudu는 사용자가 PHP 응용 프로그램을 배포하고 있음을 감지해야 합니다(composer.lock 파일의 존재 덕분). 그러면 Kudu가 작성기 설치를 트리거합니다.
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너
 
 **나만의 사용자 지정 컨테이너를 사용하고 있습니다. `/home/` 디렉터리에 대한 SMB 공유를 플랫폼에 탑재하려 합니다.**
 
-`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 앱 설정을 *true*로 설정하거나 앱 설정 전체를 제거하면 됩니다. 이렇게 하면 플랫폼 저장소가 변경될 때 컨테이너가 다시 시작됩니다. 
+`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 앱 설정을 *true*로 설정하여 수행할 수 있습니다. 이렇게 하면 플랫폼 저장소가 변경될 때 컨테이너가 다시 시작됩니다.
 
 >[!NOTE]
->`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 설정이 *false*인 경우 `/home/` 디렉터리는 스케일 인스턴스 간에 공유되지 않으며 여기서 작성된 파일은 다시 시작 후에 지속되지 않습니다.
+>`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 설정이 지정되지 않았거나 *false*인 경우 `/home/` 디렉터리는 스케일 인스턴스 간에 공유되지 않으며 여기서 작성된 파일은 다시 시작 후에 지속되지 않습니다.
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 
-컨테이너를 다시 시작하기 전에 플랫폼이 대기할 시간을 구성할 수 있습니다. 이를 수행하려면 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 설정을 원하는 값으로 설정합니다. 기본값은 230초이고 최대값은 600초입니다.
+컨테이너를 다시 시작하기 전에 플랫폼이 대기할 시간을 구성할 수 있습니다. 이를 수행하려면 `WEBSITES_CONTAINER_START_TIME_LIMIT` 앱 설정을 원하는 값으로 설정합니다. 기본값은 230초이고 최댓값은 1800초입니다.
 
 **개인 레지스트리 서버 URL의 형식은 무엇인가요?**
 
@@ -161,6 +163,6 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Linux의 Azure App Service란?](app-service-linux-intro.md)
-* [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md)
+- [Linux의 Azure App Service란?](app-service-linux-intro.md)
+- [Azure App Service에서 스테이징 환경 설정](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Web App for Containers를 사용한 연속 배포](./app-service-linux-ci-cd.md)

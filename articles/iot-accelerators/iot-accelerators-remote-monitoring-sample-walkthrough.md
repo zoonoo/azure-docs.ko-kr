@@ -1,31 +1,25 @@
 ---
 title: 원격 모니터링 솔루션의 아키텍처 - Azure | Microsoft Docs
 description: 원격 모니터링 솔루션 가속기의 아키텍처 둘러보기.
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-ms.assetid: 31fe13af-0482-47be-b4c8-e98e36625855
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 3effde81dfa48e9544d89153d40c160ff972d047
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
+ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34757436"
 ---
 # <a name="remote-monitoring-solution-accelerator-architecture"></a>원격 모니터링 솔루션 가속기 아키텍처
 
 원격 모니터링 [솔루션 가속기](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)할 수 있습니다.
 
-이 문서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
+이 문서에서는 작동 방식을 이해할 수 있도록 원격 모니터링 솔루션의 핵심 요소 중 일부를 안내합니다. 이 정보는 다음 항목을 도울 수 있습니다.
 
 * 솔루션의 문제를 해결합니다.
 * 솔루션을 사용자 지정하여 고유한 특정 요구 사항을 충족하는 방법을 계획합니다.
@@ -97,13 +91,13 @@ ms.lasthandoff: 05/20/2018
 
 [telemetry-agent](https://github.com/Azure/telemetry-agent-dotnet) 마이크로 서비스:
 
-* Cosmos DB에 원격 분석 데이터를 저장합니다.
+* Azure Cosmos DB에 원격 분석 데이터를 저장합니다.
 * 장치에서 원격 분석 스트림을 분석합니다.
 * 정의된 규칙에 따라 알람을 생성합니다.
 
-알람은 Cosmos DB에 저장됩니다.
+알람은 Azure Cosmos DB에 저장됩니다.
 
-`telemetry-agent` 마이크로 서비스를 통해 솔루션 포털은 장치에서 전송된 원격 분석 데이터를 읽을 수 있습니다. 또한 솔루션 포털은 이 서비스를 사용하여 다음을 수행합니다.
+[원격 분석 에이전트](https://github.com/Azure/telemetry-agent-dotnet) 마이크로 서비스를 통해 솔루션 포털은 장치에서 전송된 원격 분석 데이터를 읽을 수 있습니다. 또한 솔루션 포털은 이 서비스를 사용하여 다음을 수행합니다.
 
 * 알람을 트리거하는 임계값과 같은 모니터링 규칙을 정의합니다.
 * 지난 알람 목록을 검색합니다.
@@ -114,9 +108,9 @@ ms.lasthandoff: 05/20/2018
 
 [storage-adapter](https://github.com/Azure/pcs-storage-adapter-dotnet) 마이크로 서비스는 솔루션 가속기에 사용되는 기본 저장소 서비스 앞에 있는 어댑터입니다. 간단한 컬렉션 및 키-값 저장소를 제공합니다.
 
-솔루션 가속기의 표준 배포는 Cosmos DB를 기본 저장소 서비스로 사용합니다.
+솔루션 가속기의 표준 배포는 Azure Cosmos DB를 기본 저장소 서비스로 사용합니다.
 
-Cosmos DB 데이터베이스는 솔루션 가속기에 데이터를 저장합니다. **storage-adapter** 마이크로 서비스는 저장소 서비스에 액세스하는 솔루션의 다른 마이크로 서비스에 대한 어댑터 역할을 합니다.
+Azure Cosmos DB 데이터베이스는 솔루션 가속기에 데이터를 저장합니다. **storage-adapter** 마이크로 서비스는 저장소 서비스에 액세스하는 솔루션의 다른 마이크로 서비스에 대한 어댑터 역할을 합니다.
 
 ## <a name="presentation"></a>프레젠테이션
 
@@ -139,8 +133,10 @@ Cosmos DB 데이터베이스는 솔루션 가속기에 데이터를 저장합니
 
 소스 코드와 개발자 문서를 탐색하려면 다음 두 가지 주요 GitHub 리포지토리 중 하나를 시작하십시오.
 
-* [Azure IoT(.NET)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/)
-* [Azure IoT(Java)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
-* [원격 모니터링 아키텍처를 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture)
+* [Azure IoT(.NET)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [Azure IoT(Java)로 원격 모니터링을 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+
+자세한 솔루션 아키텍처 다이어그램:
+* [원격 모니터링 아키텍처를 위한 솔루션 가속기](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [솔루션 가속기 사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)을 참조하세요.

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 926f256de0974112c1571fe4d1d48b6e7f530362
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fc03fa2a12c9031d88404d5d8d9f821254b033bb
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211799"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34726332"
 ---
 # <a name="virtual-network-traffic-routing"></a>가상 네트워크 트래픽 라우팅
 
@@ -167,7 +167,9 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
         - 네트워크 주소 변환 및 전달, 또는 서브넷의 대상 리소스로 트래픽 프록시를 수행하고, 인터넷에 트래픽을 다시 반환할 수 있어야 합니다. 
     - **가상 네트워크 게이트웨이**: 게이트웨이가 ExpressRoute 가상 네트워크 게이트웨이인 경우 인터넷에 연결된 온-프레미스 장치는 ExpressRoute의 [사설 피어링](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering)을 통해 네트워크 주소 변환 및 전달 또는 서브넷의 대상 리소스로 트래픽 프록시를 수행할 수 있습니다. 
 
-  인터넷과 Azure 간에 가상 네트워크 게이트웨이 및 가상 어플라이언스를 사용하는 경우 [Azure와 온-프레미스 데이터 센터 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure와 인터넷 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+가상 네트워크가 Azure VPN 게이트웨이에 연결된 경우 대상이 0.0.0.0/0인 경로가 포함된 [게이트웨이 서브넷](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에 경로 테이블을 연결하지 않습니다. 그러면 게이트웨이가 제대로 작동하지 못할 수 있습니다.
+
+인터넷과 Azure 간에 가상 네트워크 게이트웨이 및 가상 어플라이언스를 사용하는 경우 [Azure와 온-프레미스 데이터 센터 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json) 및 [Azure와 인터넷 간의 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
 ## <a name="routing-example"></a>라우팅 예
 
@@ -259,5 +261,5 @@ BGP를 사용하여 Azure와 경로를 교환하면 보급된 각 접두사에 �
 - [경로 및 네트워크 가상 어플라이언스로 사용자 정의 경로 테이블 만들기](tutorial-create-route-table-portal.md)
 - [Azure VPN Gateway에서 BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [ExpressRoute에서 BGP 사용](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
-- [서브넷에 대한 모든 경로 보기](virtual-network-routes-troubleshoot-portal.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.
+- [서브넷에 대한 모든 경로 보기](diagnose-network-routing-problem.md) - 사용자 정의 경로 테이블에서는 서브넷에 대한 기본 경로 및 BGP 경로가 아닌 사용자 정의 경로만 보여줍니다. 모든 경로 보기에서 네트워크 인터페이스가 있는 서브넷에 대한 기본, BGP 및 사용자 정의 경로가 표시됩니다.
 - 가상 머신과 대상 IP 주소 간의 [다음 홉 유형을 확인합니다](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Azure Network Watcher 다음 홉 기능을 사용하면 트래픽이 서브넷에서 나가야 하는지 또는 생각하는 위치로 라우팅되는지 여부를 확인할 수 있습니다.

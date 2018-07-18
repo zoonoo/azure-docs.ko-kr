@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure AD(Azure Active Directory) 통과 인증 
 services: active-directory
 keywords: Azure AD Connect 통과 인증, GDPR, Azure AD에 대한 필수 구성 요소, SSO, Single Sign-On
 documentationcenter: ''
-author: swkrish
+author: billmath
 manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
@@ -12,15 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2018
+ms.date: 05/21/2018
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 910eb5bdd1b9d4a2a27a27c89812584bb068bec0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f53f8ffcf8354d35fa552f099302456fa5226ca8
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150626"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37915880"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>사용자 개인 정보 및 Azure Active Directory 통과 인증
 
@@ -29,13 +30,13 @@ ms.locfileid: "32150626"
 
 ## <a name="overview"></a>개요
 
-Azure AD 통과 인증은 EUII를 포함할 수 있는 다음 로그 형식을 만듭니다.
+Azure AD 통과 인증은 개인 데이터를 포함할 수 있는 다음 로그 형식을 만듭니다.
 
 - Azure AD Connect 추적 로그 파일.
 - 인증 에이전트 추적 로그 파일.
 - Windows 이벤트 로그.
 
-다음과 같은 두 가지 방법으로 통과 인증에 대한 사용자 개인 정보에 연결할 수 있습니다.
+다음과 같은 두 가지 방법으로 통과 인증에 대한 사용자 개인 정보 보호 수준을 높일 수 있습니다.
 
 1.  요청 시 사람에 대한 데이터를 추출하고 그 사람의 데이터를 설치에서 제거합니다.
 2.  데이터는 48시간 이상 데이터가 보존하지 않도록 합니다.

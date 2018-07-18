@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 80b112de1fd8417dd64d9d95b7a037ec876d18c7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32194671"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035355"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Linux에서 AzCopy를 사용하여 데이터 전송
 
@@ -35,7 +35,9 @@ AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터�
 ### <a name="installation-on-linux"></a>Linux에서 설치
 
 > [!NOTE]
-> 배포에 따라 이 [.NET Core 필수 구성 요소 문서](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)에 강조된 .NET Core 2.1 종속성을 설치해야 할 수도 있습니다. Ubuntu 16.04 및 RHEL 7처럼 가장 많이 사용되는 배포인 경우 설치할 필요가 없습니다.
+> 배포에 따라 이 [.NET Core 필수 구성 요소 문서](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)에 강조된 .NET Core 2.1 종속성을 설치해야 할 수도 있습니다. 
+>
+> RHEL 7 배포의 경우 ICU 및 libunwind 종속성을 설치합니다.```yum install -y libunwind icu```
 
 Linux(v7.2 이상)에 AzCopy를 설치하는 방법은 매우 간단합니다. tar 패키지를 추출하고 설치 스크립트를 실행하기만 하면 됩니다. 
 
@@ -723,4 +725,3 @@ Azure Storage 및 AzCopy에 대한 자세한 내용은 다음 리소스를 참�
 * [AzCopy: 다시 시작 가능 모드 및 SAS 토큰으로 데이터 전송(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: 크로스 계정 Blob 복사 사용(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
 * [AzCopy: Azure Blob 파일 업로드/다운로드(영문)](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
-

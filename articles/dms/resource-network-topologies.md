@@ -1,5 +1,5 @@
 ---
-title: Azure Database Migration Service를 사용한 Azure SQL DB 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지 | Microsoft Docs
+title: Azure Database Migration Service를 사용하는 Azure SQL Database 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지 | Microsoft Docs
 description: 데이터베이스 마이그레이션 서비스에 대한 원본 및 대상 구성을 알아봅니다.
 services: database-migration
 author: HJToland3
@@ -10,16 +10,16 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/06/2018
-ms.openlocfilehash: 5904864ffba656dab17e1549ed9832be4258a67f
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 06/21/2018
+ms.openlocfilehash: 9fcee103854209016d73e29b598c9f33d35c4b6c
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235403"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36316870"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용한 Azure SQL DB 관리되는 인스턴스 마이그레이션에 대한 네트워크 토폴로지
-이 아티클에서는 온-프레미스 SQL Server에서 Azure SQL Database 관리되는 인스턴스로의 원활한 마이그레이션 환경을 제공하기 위해 Azure Database Migration Service가 작동할 수 있는 다양한 네트워크 토폴로지에 대해 알아봅니다.
+이 문서에서는 온-프레미스 SQL Server에서 Azure SQL Database 관리되는 인스턴스로의 포괄적인 마이그레이션 환경을 제공하기 위해 Azure Database Migration Service에서 사용할 수 있는 다양한 네트워크 토폴로지에 대해 설명합니다.
 
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>하이브리드 워크로드에 대해 구성된 Azure SQL Database 관리되는 인스턴스 
 Azure SQL Database 관리되는 인스턴스가 온-프레미스 네트워크에 연결되어 있는 경우 이 토폴로지를 사용합니다. 이 방법은 가장 간소화된 네트워크 라우팅을 제공하고 마이그레이션 동안 최대 데이터 처리량을 제공합니다.
@@ -40,7 +40,7 @@ Azure SQL Database 관리되는 인스턴스가 온-프레미스 네트워크에
 
 **요구 사항**
 - Azure Database Migration Service가 이 시나리오에 사용하는 VNET은 https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 네트워크에도 연결되어야 합니다.
-- Azure SQL Database 관리되는 인스턴스 및 Azure Database Migration Service에 사용되는 VNET 간에 [VNET 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 설정해야 합니다.
+- Azure SQL Database 관리되는 인스턴스 및 Azure Database Migration Service에 사용되는 VNET 간에 [VNET 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 설정합니다.
 
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>클라우드 간 마이그레이션: 공유된 VNET
@@ -62,7 +62,7 @@ Azure SQL Database 관리되는 인스턴스가 온-프레미스 네트워크에
 ![격리된 VNET을 포함한 클라우드 간 마이그레이션에 대한 네트워크 토폴로지](media\resource-network-topologies\cloud-to-cloud-isolated.png)
 
 **요구 사항**
-- Azure SQL Database 관리되는 인스턴스 및 Azure Database Migration Service에 사용되는 VNET 간에 [VNET 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 설정해야 합니다.
+- Azure SQL Database 관리되는 인스턴스 및 Azure Database Migration Service에 사용되는 VNET 간에 [VNET 네트워크 피어링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 설정합니다.
 
 
 ## <a name="see-also"></a>참고 항목

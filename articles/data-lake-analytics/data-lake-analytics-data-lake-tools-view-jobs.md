@@ -1,26 +1,23 @@
 ---
-title: Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기 사용 | Microsoft 문서
-description: 'Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기를 사용하는 방법에 대해 알아보세요. '
+title: Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기 사용
+description: 이 문서에서는 Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기를 사용하는 방법을 설명합니다.
 services: data-lake-analytics
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
+editor: jasonwhowell
+ms.assetid: bdf27b4d-6f58-4093-ab83-4fa3a99b5650
+ms.topic: conceptual
 ms.date: 08/02/2017
-ms.author: jgao
-ms.openlocfilehash: cc9048566dd58733cd86aac0f9836763fa095843
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 6d7ebc8d14e82281e074ff52abd41a16871470c0
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34623233"
 ---
-# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics-jobs"></a>Azure Data Lake Analytics 작업용 작업 브라우저 및 작업 보기 사용
+# <a name="use-job-browser-and-job-view-for-azure-data-lake-analytics"></a>Azure Data Lake Analytics용 작업 브라우저 및 작업 보기 사용
 Azure Data Lake Analytics 서비스는 제출된 작업을 [쿼리 저장소](#query-store)에 보관합니다. 이 문서에서는 Azure Data Lake Tools for Visual Studio에서 작업 브라우저 및 작업 보기를 사용하여 기존 작업 정보를 찾는 방법에 대해 배웁니다. 
 
 기본적으로 Data Lake Analytics 서비스는 작업을 30일간 보존합니다. 만료 기간은 Azure Portal에서 사용자 지정 만료 정책을 구성하여 구성할 수 있습니다. 만료 후에는 작업 정보에 액세스할 수 없습니다. 

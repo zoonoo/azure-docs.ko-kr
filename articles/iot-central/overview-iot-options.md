@@ -1,19 +1,20 @@
 ---
 title: Microsoft Azure IoT 옵션 | Microsoft Docs
-description: Azure IoT Central, IoT Suite, 또는 IoT Hub를 사용하여 Azure IoT 솔루션을 구현하는 방법을 선택합니다.
-services: iot-central
+description: Azure IoT Central, IoT 솔루션 가속기 또는 IoT Hub를 사용하여 Azure IoT 솔루션을 구현하는 방법을 선택합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-ms.prod: microsoft-iot-central
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8ed524e87f820f6c1e2e05da0bcbc7241bdd1ec1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0314bf4d26fb0f777fd88debbf09814479ab225a
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201461"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34630530"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Azure IoT Central과 Azure IoT 옵션 비교
 
@@ -21,22 +22,22 @@ IoT 솔루션을 구현하기 위해 Microsoft Azure IoT Central과 Azure IoT는
 
 * [Azure IoT Central](overview-iot-central.md)은 모델 기반 접근 방식을 사용하여 클라우드 솔루션 개발에 대한 전문 지식이 없어도 엔터프라이즈급 IoT 솔루션을 구축할 수 있는 SaaS(Software-as-a-Service) 솔루션입니다.
 
-* [Azure IoT Suite](https://docs.microsoft.com/azure/iot-suite/)는 사용자 지정 IoT 솔루션의 개발을 가속화하는 데 사용할 수 있는 Azure PaaS(Platform-as-a-Service)에 구축된 [미리 구성된 솔루션](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-are-preconfigured-solutions)의 엔터프라이즈급 모음입니다.
+* [Azure IoT 솔루션 가속기](https://docs.microsoft.com/azure/iot-accelerators/)는 사용자 지정 IoT 솔루션의 개발을 가속화하는 데 사용할 수 있는 Azure PaaS(Platform-as-a-Service)에 구축된 [솔루션 가속기](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)의 엔터프라이즈급 모음입니다.
 
 ## <a name="azure-iot-hub"></a>Azure IoT Hub
 
-Azure IoT Hub는 Azure IoT Central 및 Azure IoT Suite 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub는 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
+Azure IoT Hub는 Azure IoT Central 및 Azure IoT 솔루션 가속기 모두에서 사용하는 Azure PaaS의 핵심입니다. IoT Hub는 수백만 개의 IoT 장치와 클라우드 솔루션 간의 안정적이고 안전한 양방향 통신을 지원할 수 있습니다. IoT Hub는 다음과 같은 IoT 구현 과제를 충족하는 데 도움을 줍니다.
 
 * 대용량 장치 연결 및 관리
 * 대용량 원격 분석 수집
 * 장치 명령 및 제어
 * 장치 보안 강화
 
-## <a name="compare-azure-iot-central-and-azure-iot-suite"></a>Azure IoT Central과 Azure IoT Suite 비교
+## <a name="compare-azure-iot-central-and-azure-iot-solution-accelerators"></a>Azure IoT Central과 Azure IoT 솔루션 가속기 비교
 
-Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT Suite 또는 Azure IoT Central을 사용할 필요가 없습니다. IoT Suite와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 IoT Suite와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
+Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분입니다. IoT Hub는 종단 간 IoT 솔루션을 자체적으로 제공하지 않는 개별 Azure 서비스입니다. IoT Hub는 모든 IoT 솔루션의 시작점으로 사용할 수 있으며, Azure IoT 솔루션 가속기 또는 Azure IoT Central을 사용할 필요가 없습니다. IoT 솔루션 가속기와 Azure IoT Central 모두 다른 Azure 서비스와 함께 IoT Hub를 사용합니다. 다음 표에는 요구 사항에 맞게 적절히 선택할 수 있도록 IoT 솔루션 가속기와 Azure IoT Central의 주요 차이점이 요약되어 있습니다.
 
-|     | Azure IoT Central | Azure IoT Suite |
+|     | Azure IoT Central | Azure IoT 솔루션 가속기 |
 | --- | ----------- | --------- |
 | 기본 사용                      | 자세한 서비스 사용자 지정이 필요하지 않은 간단한 IoT 솔루션의 출시 시간을 가속화합니다.                                                    | 최대한의 유연성이 필요한 사용자 지정 IoT 솔루션의 개발을 가속화합니다.                                                                                                                             |
 | 기본 PaaS 서비스에 대한 액세스 | SaaS - 완벽하게 관리되는 솔루션이며, 기본 서비스가 노출되지 않습니다.                                                                                            | 기본 Azure 서비스에 액세스하여 이를 관리하거나 필요에 따라 바꿀 수 있습니다.                                                                                                                    |
@@ -56,5 +57,5 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 선택한 제품 및 접근 방식에 따라 제안되는 단계는 다음과 같습니다.
 
 * **Azure IoT Central**: [Azure IoT Central](overview-iot-central.md).
-* **IoT Suite**: [미리 구성된 Azure IoT Suite 솔루션은 무엇입니까?](https://docs.microsoft.com/azure/iot-suite/iot-suite-what-are-preconfigured-solutions)
+* **IoT 솔루션 가속기**: [Azure IoT 솔루션 가속기란?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)
 * **IoT Hub**: [Azure IoT Hub 서비스 개요](https://docs.microsoft.com/azure/iot-hub/iot-hub-what-is-iot-hub)

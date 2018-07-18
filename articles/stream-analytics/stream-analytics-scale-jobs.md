@@ -9,11 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 2868ebd459f937f8621086b16c63f89842f376be
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 07/04/2018
+ms.locfileid: "34652545"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>처리량을 높이도록 Azure Stream Analytics 작업 크기 조정
 이 문서에서는 Streaming Analytics 작업에 대한 처리량을 증가시키기 위해 Stream Analytics 쿼리를 조정하는 방법을 보여 줍니다. 다음 가이드를 사용하여 더 높은 부하를 처리하고 더 많은 시스템 리소스(예: 추가 대역폭, 추가 CPU 리소스, 추가 메모리)를 활용하도록 작업 크기를 조정할 수 있습니다.
@@ -76,72 +77,6 @@ ms.lasthandoff: 05/04/2018
 > 이 쿼리 패턴에는 종종 많은 수의 하위 쿼리가 있으며 매우 크고 복잡한 토폴로지가 생성됩니다. 작업의 컨트롤러는 이러한 대량의 토폴로지를 처리하지 못할 수 있습니다. 원칙적으로, 1개 SU 작업의 경우 40개의 테넌트, 3개 SU 및 6개 SU 작업의 경우 60개의 테넌트 미만으로 유지하는 것이 좋습니다. 컨트롤러의 용량을 초과하는 경우 작업이 제대로 시작되지 않습니다.
 
 
-## <a name="an-example-of-stream-analytics-throughput-at-scale"></a>대규모 Stream Analytics 처리량 예제
-Stream Analytics 작업의 크기를 조정하는 방법을 이해하기 위해 Raspberry Pi 장치의 입력을 기반으로 실험을 수행했습니다. 이 실험을 통해 여러 스트리밍 단위 및 파티션의 처리량에 미치는 영향을 볼 수 있습니다.
-
-이 시나리오에서는 장치가 이벤트 허브로 센서 데이터(클라이언트)를 보냅니다. Streaming Analytics에서 데이터를 처리하고 경고 또는 통계를 다른 이벤트 허브에 대한 출력으로 보냅니다. 
-
-클라이언트는 JSON 형식의 센서 데이터를 보냅니다. 데이터 출력도 JSON 형식입니다. 데이터는 다음과 같이 표시됩니다.
-
-    {"devicetime":"2014-12-11T02:24:56.8850110Z","hmdt":42.7,"temp":72.6,"prss":98187.75,"lght":0.38,"dspl":"R-PI Olivier's Office"}
-
-다음 쿼리는 광원 스위치가 꺼진 경우 경고를 보내는 데 사용됩니다.
-
-    SELECT AVG(lght), "LightOff" as AlertText
-    FROM input TIMESTAMP BY devicetime 
-    PARTITION BY PartitionID
-    WHERE lght< 0.05 GROUP BY TumblingWindow(second, 1)
-
-### <a name="measure-throughput"></a>처리량 측정
-
-이 컨텍스트에서 처리량은 고정된 시간 동안 Stream Analytics가 처리한 입력 데이터의 양입니다. (10분 동안 측정했음) 입력 데이터에 대해 최상의 처리량을 달성하려면 데이터 스트림 입력 및 쿼리 모두 분할됩니다. 처리된 입력 이벤트 수를 측정하기 위해 **COUNT()** 를 쿼리에 포함합니다. 작업이 발생할 입력 이벤트를 단순히 기다리고 있지 않도록 입력 이벤트 허브의 각 파티션이 입력 데이터(약 300MB)로 미리 로드되었습니다.
-
-다음 표에서 스트리밍 단위 수와 이벤트 허브에서 해당 파티션 수를 늘렸을 때 나타나는 결과를 보여 줍니다.  
-
-<table border="1">
-<tr><th>입력 파티션</th><th>출력 파티션</th><th>스트리밍 단위</th><th>지속적인 처리량
-</th></td>
-
-<tr><td>12</td>
-<td>12</td>
-<td>6</td>
-<td>4.06MB/초</td>
-</tr>
-
-<tr><td>12</td>
-<td>12</td>
-<td>12</td>
-<td>8.06MB/s</td>
-</tr>
-
-<tr><td>48</td>
-<td>48</td>
-<td>48</td>
-<td>38.32MB/초</td>
-</tr>
-
-<tr><td>192</td>
-<td>192</td>
-<td>192</td>
-<td>172.67MB/초</td>
-</tr>
-
-<tr><td>480</td>
-<td>480</td>
-<td>480</td>
-<td>454.27MB/초</td>
-</tr>
-
-<tr><td>720</td>
-<td>720</td>
-<td>720</td>
-<td>609.69MB/초</td>
-</tr>
-</table>
-
-다음 그래프는 SU와 처리량 간의 관계를 시각화한 것입니다.
-
-![img.stream.analytics.perfgraph][img.stream.analytics.perfgraph]
 
 ## <a name="get-help"></a>도움말 보기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.

@@ -8,25 +8,27 @@ manager: mtillman
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 06/21/2018
 ms.author: maheshu
-ms.openlocfilehash: dadc20cdee68730fa1d81dd86b3ffa0b0022a5b1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2929f85b738171f7fb7f5b66af90e4e2ab54f5d0
+ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34586956"
+ms.lasthandoff: 06/22/2018
+ms.locfileid: "36317173"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Windows Server 가상 머신을 관리되는 도메인에 가입
 이 문서에서는 Azure Portal을 사용하여 Windows Server 가상 머신을 배포하는 방법을 보여줍니다. 그런 후 가상 머신을 Azure AD DS(Azure Active Directory Domain Services) 관리되는 도메인에 가입하는 방법을 보여줍니다.
 
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
+
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>1단계: Windows Server 가상 머신 만들기
-Azure AD DS가 설정된 가상 네트워크에 가입할 Windows 가상 머신을 만들려면 다음 단계를 수행합니다.
+Azure AD DS를 사용하도록 설정한 가상 네트워크에 조인되는 Windows 가상 머신을 만들려면 다음 단계를 수행합니다.
 
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창 맨 위에서 **새로 만들기**를 클릭합니다.
@@ -76,21 +78,21 @@ Azure AD DS가 설정된 가상 네트워크에 가입할 Windows 가상 머신�
     ![Windows 가상 머신에 연결](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
 
 2. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다.
-3. 로그온 프롬프트에서, 가상 머신을 만드는 동안 지정한 **로컬 관리자 자격 증명**을 입력합니다(예: *localhost\mahesh*).
-4. 로그인 프로세스 중에 인증서 경고가 표시되면 **예** 또는 **계속**을 선택하여 연결을 계속 진행합니다.
+3. 가상 머신을 만들 때 지정한 **로컬 관리자 자격 증명**을 입력합니다(예: *localhost\mahesh*).
+4. 로그인 프로세스 중에 인증서 경고가 표시되면 **예** 또는 **계속**을 선택하여 연결합니다.
 
 새로 만든 Windows 가상 머신에 로컬 관리자 자격 증명으로 로그온됩니다. 다음 단계는 가상 컴퓨터를 도메인에 가입하는 것입니다.
 
 
 ## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>3단계: Windows Server 가상 머신을 Azure AD DS 관리되는 도메인에 가입
-Windows Server 가상 머신을 Azure AD DS 관리되는 도메인에 가입하려면 다음 단계를 수행합니다.
+Windows Server 가상 머신을 Azure AD DS에서 관리되는 도메인에 조인하려면 다음 단계를 수행합니다.
 
 1. "2단계"에서 보여드린 것처럼 Windows Server VM에 연결합니다. **시작** 화면에서 **서버 관리자**를 엽니다.
 2. **서버 관리자** 창의 왼쪽 창에서 **로컬 서버**를 클릭합니다.
 
     ![가상 머신의 서버 관리자 창](./media/active-directory-domain-services-admin-guide/join-domain-server-manager.png)
 
-3. **속성**에서 **작업 그룹**을 선택합니다. 
+3. **속성**에서 **작업 그룹**을 선택합니다.
 4. **시스템 속성** 창에서 **변경**을 선택하여 도메인을 가입합니다.
 
     ![시스템 속성 창](./media/active-directory-domain-services-admin-guide/join-domain-system-properties.png)
@@ -99,7 +101,7 @@ Windows Server 가상 머신을 Azure AD DS 관리되는 도메인에 가입하�
 
     ![가입할 도메인 지정](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-domain.png)
 
-6. 도메인에 가입하려면 자격 증명을 입력하라는 메시지가 표시됩니다. *Azure AD DC 관리자 그룹에 속한 사용자*의 자격 증명을 지정해야 합니다. 이 그룹의 멤버만 관리되는 도메인에 컴퓨터를 가입할 수 있습니다.
+6. 도메인에 조인하기 위한 자격 증명을 입력하도록 요청받습니다. *Azure AD DC 관리자 그룹에 속한 사용자*에 대한 자격 증명을 사용합니다. 이 그룹의 멤버만 관리되는 도메인에 컴퓨터를 가입할 수 있습니다.
 
     ![자격 증명을 지정하는 Windows 보안 창](./media/active-directory-domain-services-admin-guide/join-domain-system-properties-specify-credentials.png)
 
@@ -115,7 +117,7 @@ Windows Server 가상 머신을 Azure AD DS 관리되는 도메인에 가입하�
      > 사용자의 UPN 접두사가 너무 긴 경우(예: *joehasareallylongname*) SAMAccountName이 자동으로 생성될 수 있습니다. Azure AD 테넌트에서 여러 사용자가 동일한 UPN 접미사(예: *bob*)를 사용하는 경우 SAMAccountName 형식이 서비스에서 자동으로 생성될 수 있습니다. 이 경우 UPN 형식을 사용하여 도메인에 안전하게 로그온할 수 있습니다.
      >
 
-8. 성공적으로 도메인을 가입하면 다음과 같은 시작 메시지가 표시됩니다.
+8. 도메인에 성공적으로 조인되면 다음과 같은 시작 메시지가 표시됩니다.
 
     ![도메인 시작](./media/active-directory-domain-services-admin-guide/join-domain-done.png)
 
@@ -123,30 +125,30 @@ Windows Server 가상 머신을 Azure AD DS 관리되는 도메인에 가입하�
 
 ## <a name="troubleshoot-joining-a-domain"></a>도메인 가입 문제 해결
 ### <a name="connectivity-issues"></a>연결 문제
-가상 머신이 도메인을 찾을 수 없는 경우 다음 방법 중 하나를 시도해봅니다.
+가상 머신에서 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 시도해 보세요.
 
-* 가상 머신이 Azure AD DS가 설정된 가상 네트워크와 동일한 가상 네트워크에 연결되어 있는지 확인합니다. 연결되지 않은 경우 가상 머신을 도메인에 연결할 수 없으므로 도메인에 가입할 수 없습니다.
+* Azure AD DS를 사용하도록 설정된 동일한 가상 네트워크에 가상 머신이 연결되어 있는지 확인합니다. 그렇지 않으면 가상 머신에서 도메인에 연결하거나 조인할 수 없습니다.
 
-* 가상 머신이 다른 가상 네트워크에 있는 경우 이 가상 네트워크가 Azure AD DS가 설정된 가상 네트워크에 연결되는지 확인합니다.
+* 가상 머신이 Azure AD DS를 사용하도록 설정된 가상 네트워크에 연결되는 가상 네트워크에 있는지 확인합니다.
 
-* 관리되는 도메인의 도메인 이름을 사용하여 도메인에 ping을 시도합니다(예: *ping contoso100.com*). 이렇게 할 수 없는 경우 Azure AD DS가 설정된 페이지에 표시된 도메인의 IP 주소에 ping을 시도합니다(예: *ping 10.0.0.4*). IP 주소에는 ping을 수행할 수 있지만 도메인에는 수행할 수 없는 경우 DNS가 잘못 구성되었을 수 있습니다. 도메인의 IP 주소를 가상 네트워크에 대한 DNS 서버로 구성했는지 확인합니다.
+* 관리되는 도메인의 DNS 도메인 이름에 대한 ping을 시도합니다(예: *ping contoso100.com*). 이렇게 할 수 없는 경우 Azure AD DS가 설정된 페이지에 표시된 도메인의 IP 주소에 ping을 시도합니다(예: *ping 10.0.0.4*). IP 주소는 ping할 수 있지만 도메인은 ping할 수 없는 경우 DNS가 잘못 구성되었을 수 있습니다. 도메인의 IP 주소를 가상 네트워크에 대한 DNS 서버로 구성했는지 확인합니다.
 
 * 가상 머신에서 DNS 확인자 캐시를 플러시합니다(*ipconfig /flushdns*).
 
 도메인 가입을 위한 자격 증명을 묻는 창이 표시되면 연결 문제는 없는 것입니다.
 
 ### <a name="credentials-related-issues"></a>자격 증명 관련 문제
-자격 증명 문제가 있고 도메인에 가입할 수 없는 경우 다음 방법을 시도해 봅니다.
+자격 증명에 문제가 있어 도메인에 조인할 수 없는 경우 다음 문제 해결 단계를 시도해 보세요.
 
-* UPN 형식을 사용하여 자격 증명을 지정해 봅니다. 테넌트에서 여러 사용자가 동일한 UPN 접두사를 사용하거나 UPN 접두사가 지나치게 긴 경우 사용자 계정에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 따라서 사용자 계정에 대한 SAMAccountName 형식은 온-프레미스 도메인에서 사용하거나 예상하는 것과 다를 수 있습니다.
+* UPN 형식을 사용하여 자격 증명을 지정해 봅니다. 테넌트에서 여러 사용자가 동일한 UPN 접두사를 사용하거나 UPN 접두사가 너무 긴 경우 사용자 계정에 대한 SAMAccountName이 자동으로 생성될 수 있습니다. 이러한 경우 사용자 계정에 대한 SAMAccountName 형식이 온-프레미스 도메인에서 필요하거나 사용하는 것과 다를 수 있습니다.
 
 * *AAD DC 관리자* 그룹에 속한 사용자 계정의 자격 증명을 사용해 봅니다.
 
-* 시작 가이드에 설명된 단계에 따라 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)했는지 확인합니다.
+* 관리되는 도메인에 대해 [암호 동기화를 사용하도록 설정](active-directory-ds-getting-started-password-sync.md)했는지 확인합니다.
 
-* 로그인하려면 Azure AD에 구성된 대로 사용자의 UPN(예: *bob@domainservicespreview.onmicrosoft.com*)을 사용해야 합니다.
+* Azure AD에 구성된 대로 사용자의 UPN(예: *bob@domainservicespreview.onmicrosoft.com*)을 사용하여 로그인했는지 확인합니다.
 
-* 시작 가이드에 지정된 대로 암호 동기화가 완료될 때까지 충분히 기다려야 합니다.
+* 시작 가이드에서 지정한 대로 암호 동기화가 완료될 때까지 충분히 기다립니다.
 
 ## <a name="related-content"></a>관련 콘텐츠
 * [Azure AD DS 시작 가이드](active-directory-ds-getting-started.md)

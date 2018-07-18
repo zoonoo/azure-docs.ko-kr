@@ -1,36 +1,40 @@
 ---
-title: Azure-SSIS Integration Runtime에 대한 유료 또는 라이선스 구성 요소 개발 | Microsoft Docs
-description: 이 문서에서는 ISV가 Azure-SSIS Integration Runtime에 대한 유료 또는 라이선스 사용자 지정 구성 요소를 개발하고 설치하는 방법을 설명합니다.
+title: Azure-SSIS 통합 런타임에 대한 라이선스 구성 요소 설치 | Microsoft Docs
+description: ISV가 Azure-SSIS 통합 런타임에 대한 유료 또는 라이선스 사용자 지정 구성 요소를 개발하고 설치하는 방법을 알아봄
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/13/2018
-ms.author: douglasl
-ms.openlocfilehash: e22ca4bd5b749e8752f800590938199e06abbd34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+author: swinarko
+ms.author: sawinark
+ms.reviewer: douglasl
+manager: craigg
+ms.openlocfilehash: 146dc8c4475a041f28d7fe7ca464dfbc104258c7
+ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36265957"
 ---
-# <a name="develop-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime에 대한 유료 또는 라이선스 사용자 지정 구성 요소 개발
+# <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 라이선스 사용자 지정 구성 요소 설치
 
-## <a name="problem---the-azure-ssis-ir-requires-a-different-approach"></a>문제 - Azure SSIS IR에는 다른 접근 방법이 필요함
+이 문서에서는 ISV가 Azure-SSIS 통합 런타임의 Azure에서 실행되는 SSIS(SQL Server Integration Services) 패키지에 대한 유료 또는 사용자 지정 구성 요소를 개발하고 설치하는 방법을 설명합니다.
 
-Azure-SSIS Integration Runtime은 기본적으로 사용자 지정 구성 요소의 온-프레미스 설치에 사용되는 일반적인 라이선싱 방법을 부적절하게 만드는 몇 가지 문제를 포함합니다.
+## <a name="the-problem"></a>문제
+
+Azure-SSIS Integration Runtime은 기본적으로 사용자 지정 구성 요소의 온-프레미스 설치에 사용되는 일반적인 라이선싱 방법을 부적절하게 만드는 몇 가지 문제를 포함합니다. 결과적으로 Azure SSIS IR에는 다른 접근 방법이 필요합니다.
 
 -   Azure-SSIS IR의 노드는 일시적이므로 언제든지 할당 또는 해제할 수 있습니다. 예를 들어, 노드를 시작 또는 중지하여 비용을 관리하거나 다양한 노드 크기를 확대 및 축소할 수 있습니다. 결과적으로, MAC 주소 또는 CPU ID가 같은 컴퓨터 관련 정보를 사용하여 특정 노드에 타사 구성 요소 라이선스를 바인딩하는 방식은 더 이상 가능하지 않습니다.
 
 -   또한 노드 수를 언제든지 축소하거나 확장할 수 있으므로 Azure-SSIS IR도 축소하거나 확장할 수 있습니다.
 
-## <a name="solution---windows-environment-variables-and-ssis-system-variables-for-license-binding-and-validation"></a>솔루션 - 라이선스 바인딩 및 유효성 검사를 위한 Windows 환경 변수 및 SSIS 시스템 변수
+## <a name="the-solution"></a>솔루션
 
-이전 섹션에 설명된 전형적인 라이선스 방법이 제한되기 때문에, Azure-SSIS IR은 타사 구성 요소에 대한 라이선스 바인딩 및 유효성 검사를 위한 Windows 환경 변수 및 SSIS 시스템 변수를 제공합니다. ISV는 이러한 변수를 사용하여 클러스터 ID 및 클러스터 노드 수 같은 Azure-SSIS IR에 대한 고유한 영구 정보를 얻을 수 있습니다. 이 정보가 있으면 ISV는 고객이 Azure-SSIS IR을 시작 또는 중지하거나, 규모를 확장 또는 축소하거나, 스케일 인 또는 스케일 아웃하거나, 어떤 방식으로든 다시 구성할 때 달라지지 않는 ID를 사용하여 해당 구성 요소에 대한 라이선스를 Azure SSIS IR(*클러스터로*)에 바인딩할 수 있습니다.
+이전 섹션에서 설명된 기존 라이선스 방법에 대한 제한의 결과로 Azure SSIS IR은 새 솔루션을 제공합니다. 이 솔루션은 라이선스 바인딩 및 타사 구성 요소의 유효성 검사를 위한 Windows 환경 변수 및 SSIS 시스템 변수를 사용합니다. ISV는 이러한 변수를 사용하여 클러스터 ID 및 클러스터 노드 수 같은 Azure-SSIS IR에 대한 고유한 영구 정보를 얻을 수 있습니다. 이 정보를 사용하여 ISV는 구성 요소에 대한 라이선스를 *클러스터로* Azure SSIS IR에 바인딩할 수 있습니다. 이 바인딩은 고객이 어떤 방식으로든 Azure-SSIS IR을 시작 또는 중지, 강화 또는 약화, 감축 또는 확장 또는 다시 구성할 경우 변경되지 않는 ID를 사용합니다.
 
 다음 다이어그램은 이러한 새 변수를 사용하는 타사 구성 요소에 대한 표준 설치, 정품 인증 및 라이선스 바인딩, 유효성 검사 흐름을 보여 줍니다.
 
@@ -70,6 +74,10 @@ Azure-SSIS Integration Runtime은 기본적으로 사용자 지정 구성 요소
                                                                                                                                
     }
     ```
+
+## <a name="isv-partners"></a>ISV 파트너
+
+이 블로그 게시물, [엔터프라이즈 버전, 사용자 지정 설치 및 ADF에서 SSIS에 대한 타사 확장성](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/)의 끝에서 Azure SSIS IR에 대한 해당 구성 요소 및 확장을 채택한 ISV 파트너의 목록을 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

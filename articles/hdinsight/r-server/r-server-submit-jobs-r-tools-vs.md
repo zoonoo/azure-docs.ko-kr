@@ -11,14 +11,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 06/27/2018
 ms.author: maxluk
-ms.openlocfilehash: c6f6e691ef4b317854aef1d7397d5fb840d25ff2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: eb7b538737e54b2c3d8a32e2ba65f7e0762a302c
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409325"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37047159"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Visual Studio용 R 도구에서 작업 제출
 
@@ -37,7 +37,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 3. SSH 인증에 대한 공용 및 개인 키가 필요합니다.
 <!-- {TODO tbd, no such file yet}[use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-windows.md) -->
 
-4. 컴퓨터에 [R Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)를 설치합니다. R Server는 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) 및 `RxSpark` 함수를 제공합니다.
+4. 컴퓨터에 [ML Server](https://msdn.microsoft.com/microsoft-r/rserver-install-windows)를 설치합니다. ML Server는 [`RevoScaleR`](https://msdn.microsoft.com/microsoft-r/scaler/scaler) 및 `RxSpark` 함수를 제공합니다.
 
 5. [PuTTY](http://www.putty.org/)를 설치하여 로컬 클라이언트에서 HDInsight 클러스터로 `RevoScaleR` 함수를 실행하기 위한 계산 컨텍스트를 제공합니다.
 
@@ -53,7 +53,7 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
 ## <a name="execute-local-r-methods"></a>로컬 R 메서드 실행
 
-1. [R Server HDInsight 클러스터](r-server-get-started.md)를 만듭니다.
+1. [HDInsight ML 서비스 클러스터](r-server-get-started.md)를 만듭니다.
 2. [RTVS 확장](https://docs.microsoft.com/visualstudio/rtvs/installation)을 설치합니다.
 3. [샘플 zip 파일](https://github.com/Microsoft/RTVS-docs/archive/master.zip)을 다운로드합니다.
 4. Visual Studio에서 `examples/Examples.sln`을 열어 솔루션을 시작합니다.
@@ -66,11 +66,11 @@ RTVS는 ggplot2 및 ggviz 등의 R 라이브러리, [R 코드 디버깅](https:/
 
     ![데이터 과학 설정...](./media/r-server-submit-jobs-r-tools-vs/workspace.png)
 
-## <a name="submit-jobs-to-an-hdinsight-r-cluster"></a>HDInsight R 클러스터에 작업 제출
+## <a name="submit-jobs-to-an-hdinsight-ml-services-cluster"></a>HDInsight ML 서비스 클러스터에 작업 제출
 
-PuTTY가 장착된 Windows 컴퓨터에서 Microsoft R Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 계산 컨텍스트를 만듭니다.
+PuTTY가 장착된 Windows 컴퓨터에서 Microsoft ML Server/Microsoft R Client를 사용하여, 로컬 클라이언트에서 HDInsight 클러스터로 분산 `RevoScaleR` 함수를 실행하는 계산 컨텍스트를 만들 수 있습니다. `RxSpark`를 통해 사용자 이름, Hadoop 클러스터의 Edge 노드, SSH 스위치 등을 지정하여 계산 컨텍스트를 만듭니다.
 
-1. Edge 노드의 호스트 이름을 찾으려면 Azure에서 HDInsight R 클러스터 창을 연 다음, 개요 창의 상단 메뉴에서 **SSH(보안 셸)** 를 선택합니다.
+1. 에지 노드의 호스트 이름을 찾으려면 Azure에서 HDInsight ML 서비스 클러스터 창을 연 다음, 개요 창의 상단 메뉴에서 **SSH(보안 셸)** 를 선택합니다.
 
     ![SSH(보안 셸)](./media/r-server-submit-jobs-r-tools-vs/ssh.png)
 
@@ -122,7 +122,7 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft R Server/Microsoft R Client
 
 5. `rxHadoopCopy`가 예제 데이터 폴더의 `people.json` 파일을 새로 만든 `/user/RevoShare/newUser` 폴더로 복사했는지 확인합니다.
 
-    1. Azure의 HDInsight R 클러스터 창의 왼쪽 메뉴에서 **저장소 계정**을 선택합니다.
+    1. Azure의 HDInsight ML 서비스 클러스터 창의 왼쪽 메뉴에서 **저장소 계정**을 선택합니다.
 
         ![Storage 계정](./media/r-server-submit-jobs-r-tools-vs/storage-accounts.png)
 
@@ -144,6 +144,6 @@ PuTTY가 장착된 Windows 컴퓨터에서 Microsoft R Server/Microsoft R Client
 
 ## <a name="next-steps"></a>다음 단계
 
-* [HDInsight의 R 서버에 대한 Compute 컨텍스트 옵션](r-server-compute-contexts.md)
+* [HDInsight의 ML Services에 대한 계산 컨텍스트 옵션](r-server-compute-contexts.md)
 * [ScaleR 및 SparkR 결합](../hdinsight-hadoop-r-scaler-sparkr.md)에서는 항공편 지연 예측의 예를 제공합니다.
 <!-- * You can also submit R jobs with the [R Studio Server](hdinsight-submit-jobs-from-r-studio-server.md) -->

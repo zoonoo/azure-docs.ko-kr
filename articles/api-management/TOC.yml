@@ -77,6 +77,8 @@
           href: edit-api.md
     - name: 프로비전 및 비율 크기 조정
       items:
+        - name: 용량 메트릭
+          href: api-management-capacity.md
         - name: 업그레이드 및 크기 조정
           href: upgrade-and-scale.md
         - name: 사용자 지정 도메인 구성
@@ -97,6 +99,8 @@
           href: api-management-howto-integrate-internal-vnet-appgateway.md
         - name: 상호 인증서 인증
           href: api-management-howto-mutual-certificates.md
+        - name: 프로토콜 및 암호 관리
+          href: api-management-howto-manage-protocols-ciphers.md
     - name: 개발자 환경 사용자 지정
       items:
         - name: 페이지 콘텐츠 및 레이아웃 수정
@@ -173,6 +177,8 @@
           href: api-management-howto-deploy-multi-region.md
         - name: Azure Event Hubs에 이벤트 기록
           href: api-management-howto-log-event-hubs.md
+        - name: Azure Application Insights를 사용하여 로그 요청
+          href: api-management-howto-app-insights.md
         - name: 백업/복원을 사용하여 DR 설정
           href: api-management-howto-disaster-recovery-backup-restore.md
         - name: 사용자 계정 관리

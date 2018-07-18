@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 0db2291b53c4fe7d2d0894a4c266ed60f78219de
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: cd89c41b43be1da339ca7dcc64110e7145a93903
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072235"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857333"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>문제 해결: Azure 지점 및 사이트 간 연결 문제
 
@@ -305,11 +305,11 @@ SMB 프로토콜은 파일 공유 액세스에 사용됩니다. 연결을 시작
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>오류: “해지 서버가 오프라인 상태이므로 해지 함수가 해지를 확인할 수 없습니다(오류 0x80092013).”
 
 ### <a name="causes"></a>원인
-이 오류 메시지는 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 없는 경우 발생합니다.  해지 검사를 수행하려면 이러한 두 사이트에 액세스해야 합니다.  이 문제는 일반적으로 프록시 서버가 구성된 클라이언트에서 발생합니다. 일부 환경에서 요청이 프록시 서버를 거치지 않을 경우 Edge 방화벽에서 거부됩니다.
+이 오류 메시지는 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.crl에 액세스할 수 없는 경우 발생합니다.  해지 검사를 수행하려면 이러한 두 사이트에 액세스해야 합니다.  이 문제는 일반적으로 프록시 서버가 구성된 클라이언트에서 발생합니다. 일부 환경에서 요청이 프록시 서버를 거치지 않을 경우 Edge 방화벽에서 거부됩니다.
 
 ### <a name="solution"></a>해결 방법
 
-프록시 서버 설정을 확인하여 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.cr에 액세스할 수 있는지 확인합니다.
+프록시 서버 설정을 확인하여 클라이언트가 http://crl3.digicert.com/ssca-sha2-g1.crl 및 http://crl4.digicert.com/ssca-sha2-g1.crl에 액세스할 수 있는지 확인합니다.
 
 ## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN 클라이언트 오류: RAS/VPN 서버에 구성된 정책 때문에 연결되지 않았습니다. (오류 812)
 

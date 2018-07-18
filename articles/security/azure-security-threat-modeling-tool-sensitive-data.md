@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8d7189ea4b01d43cea709e3300d8ed71d266f5c9
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: bfc1e8dd6acf2cba5b4622785aa3714a7ff037c9
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019418"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37031807"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>보안 프레임: 중요한 데이터 | Mitigations 
 | 제품/서비스 | 문서 |
@@ -410,7 +410,7 @@ Allow screen capture
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | .NET Framework 3 |
 | **특성**              | 해당 없음  |
-| **참조**              | [강화](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **참조**              | [강화](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_token) |
 | **단계** | 암호화되지 않은 채널을 통해 일반 텍스트 암호를 사용한 UsernameToken를 사용하면 SOAP 메시지를 찾아낼 수 있는 공격자에게 암호를 노출하게 됩니다. UsernameToken를 사용하는 서비스 공급자는 일반 텍스트로 전송된 암호를 허용할 수 있습니다. 암호화되지 않은 채널을 통해 일반 텍스트 암호는 보내면 SOAP 메시지를 찾아낼 수 있는 공격자에게 자격 증명을 노출할 수 있습니다. | 
 
 ### <a name="example"></a>예
@@ -429,7 +429,7 @@ clientCredentialType을 인증서 또는 Windows로 설정
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | 일반, .NET Framework 3 |
 | **특성**              | 보안 모드 - 전송, 보안 모드 - 메시지 |
-| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [보안 강화](https://vulncat.fortify.com/en/vulncat/index.html), [WCF 보안 CoDe Magazine의 기본 사항](http://www.codemag.com/article/0611051) |
+| **참조**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [보안 강화](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled), [WCF 보안 CoDe Magazine의 기본 사항](http://www.codemag.com/article/0611051) |
 | **단계** | 전송 또는 메시지 보안이 거부되지 않았습니다. 전송 또는 메시지 보안 없이 메시지를 전송하는 응용 프로그램은 메시지의 무결성이나 기밀성을 보장할 수 없습니다. WCF 보안 바인딩이 없음으로 설정되면 전송 및 메시지 보안이 모두 비활성화됩니다. |
 
 ### <a name="example"></a>예

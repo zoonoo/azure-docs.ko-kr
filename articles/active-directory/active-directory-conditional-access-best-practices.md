@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/15/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: c155e18ddc4f1713aa9c62a991f4e849e024c5da
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 88e6b1a64d4ceff64c1ee74a297e7af0c5a27379
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723663"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232237"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스 모범 사례
 
@@ -31,7 +31,7 @@ ms.locfileid: "34723663"
 - 알아야 할 사항 
 - 조건부 액세스 정책을 구성할 때 수행하지 말아야 할 사항. 
 
-이 문서에서는 [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md)에 간략히 나온 개념 및 용어에 익숙하다고 가정합니다.
+이 문서에서는 [Azure Active Directory의 조건부 액세스란?](active-directory-conditional-access-azure-portal.md)에 간략히 나온 개념 및 용어에 익숙하다고 가정합니다.
 
 
 
@@ -154,4 +154,4 @@ Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
+조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](active-directory-conditional-access-app-based-mfa.md)를 참조하세요.

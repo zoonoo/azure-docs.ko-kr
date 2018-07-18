@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/06/2017
+ms.date: 05/22/2018
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: f05b0baee3f11f498976377c69c38b3118f3c922
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 190d4713f5c84281bc2637fc0d8323a2dabf6f21
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358662"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34603766"
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Visual Studio Code 확장을 사용하여 Azure Resource Manager 템플릿 만들기
 이 문서에서는 Visual Studio Code에서 Azure Resource Manager 도구 확장을 설치하고 사용하는 이점을 설명합니다. 확장하지 않고 VS Code에서 Resource Manager 템플릿을 만들 수 있지만 확장은 템플릿을 개발을 간소화하는 자동 완성 옵션을 제공합니다. 템플릿에서 사용할 수 있는 템플릿 함수, 매개 변수 및 변수를 제공합니다.
@@ -171,7 +171,18 @@ Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure 
 
    ![변수 표시](./media/resource-manager-vscode-extension/show-variables.png) 
 
-10. **storageName** 변수를 선택합니다. 오른쪽 괄호를 추가합니다. 다음 예제에서는 출력 섹션을 보여줍니다.
+10. **storageName** 변수를 선택합니다. 이제 코드는 다음과 같습니다.
+
+   ```json
+   "storageUri": {
+      "type": "string",
+      "value": "[reference(variables('storageName'))"
+   }
+   ```
+   
+11. `reference`는 개체를 반환하지만 출력 값은 *문자열*로 설정되어 있으므로 앞의 코드는 작동하지 않습니다. 해당 개체에서 값 중 하나를 지정해야 합니다. 참조 함수는 모든 리소스 종류와 함께 사용할 수 있으므로 VS Code는 개체에 대한 속성을 제안하지 않습니다. 대신 [저장소 계정에 대해 반환된](/rest/api/storagerp/storageaccounts/getproperties) 하나의 값이 `.primaryEndpoints.blob`임을 찾을 수 있습니다. 
+
+   마지막 괄호 뒤에 해당 속성을 추가합니다. 오른쪽 괄호를 추가합니다. 다음 예제에서는 출력 섹션을 보여줍니다.
 
    ```json
    "outputs": { 
@@ -181,7 +192,7 @@ Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure 
        },
        "storageUri": {
          "type": "string",
-         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+         "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
        }
    }
    ```
@@ -249,7 +260,7 @@ Azure 솔루션 배포 및 관리와 관련된 개념을 이해하려면 [Azure 
     },
     "storageUri": {
       "type": "string",
-      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName'))).primaryEndpoints.blob]"
+      "value": "[reference(variables('storageName')).primaryEndpoints.blob]"
     }
   }
 }

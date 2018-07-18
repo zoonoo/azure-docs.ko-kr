@@ -1,26 +1,23 @@
 ---
-title: "Azure 명령줄 2.0 인터페이스를 사용하여 Azure Data Lake Store 시작 | Microsoft Docs"
-description: "Azure 플랫폼 간 명령줄 2.0을 사용하여 Data Lake Store 계정을 만들고 기본 작업을 수행합니다."
+title: Azure 명령줄 2.0 인터페이스를 사용하여 Azure Data Lake Storage Gen1 시작 | Microsoft Docs
+description: Azure 플랫폼 간 명령줄 2.0을 사용하여 Data Lake Store 계정을 만들고 기본 작업을 수행합니다.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: 4ffa0f4a-1cca-46ac-803d-1fc8538c685b
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: b93b9a801b3e5e1fd869cda7f3d67554e2d03195
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: acd1182fdc66374e9abbc4964207417a7de3aadb
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035494"
 ---
-# <a name="get-started-with-azure-data-lake-store-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Data Lake Store 시작
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure Data Lake Storage Gen1 시작
 > [!div class="op_single_selector"]
 > * [포털](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -28,7 +25,9 @@ ms.lasthandoff: 03/09/2018
 >
 > 
 
-Azure CLI 2.0을 사용하여 Azure Data Lake Store 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake Store에 대한 자세한 내용은 [Data Lake Store 개요](data-lake-store-overview.md)를 참조하세요.
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
+Azure CLI 2.0을 사용하여 Azure Data Lake Store 계정을 만들고 폴더 만들기, 데이터 파일 업로드 및 다운로드, 계정 삭제 등의 기본 작업을 수행하는 방법에 대해 알아봅니다. Data Lake Store에 대한 자세한 내용은 [Data Lake Storage Gen1 개요](data-lake-store-overview.md)를 참조하세요.
 
 Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명령줄 환경입니다. macOS, Linux 및 Windows에서 사용할 수 있습니다. 자세한 내용은 [Azure CLI 2.0 개요](https://docs.microsoft.com/cli/azure)를 참조하세요. 또한 명령 및 구문 전체 목록은 [Azure Data Lake Store CLI 2.0 참조](https://docs.microsoft.com/cli/azure/dls)에서도 확인할 수 있습니다.
 
@@ -53,7 +52,7 @@ Azure CLI 2.0은 Azure 리소스를 관리하기 위한 Azure의 새로운 명�
     az login
     ```
 
-    다음 단계에 사용할 코드를 가져옵니다. 웹 브라우저를 사용하여 https://aka.ms/devicelogin 페이지를 열고 인증 코드를 입력합니다. 자격 증명을 사용하여 로그인하라는 메시지가 표시됩니다.
+    다음 단계에 사용할 코드를 가져옵니다. 웹 브라우저를 사용하여 https://aka.ms/devicelogin 페이지를 열고 코드를 입력하여 인증합니다. 자격 증명을 사용하여 로그인하라는 메시지가 표시됩니다.
 
 2. 로그인하면 해당 창에 계정과 연결된 모든 Azure 구독이 나열됩니다. 특정 구독을 사용하려면 다음 명령을 사용합니다.
    

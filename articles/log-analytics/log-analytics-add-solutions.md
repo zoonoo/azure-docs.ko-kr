@@ -3,7 +3,7 @@ title: Azure Log Analytics 관리 솔루션 추가 | Microsoft Docs
 description: Azure의 관리 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 논리, 시각화 및 데이터 취득 규칙의 컬렉션입니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
@@ -11,16 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: magoedte
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f6ec6dd46d28518baf6f105dd232a4b0e77a8c6f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.component: na
+ms.openlocfilehash: 0cffdbcaa128dce52758e4b618b93dd763961361
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29395465"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131478"
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>작업 영역에 Azure Log Analytics 관리 솔루션 추가
 
@@ -124,7 +124,7 @@ Azure Marketplace는 [Log Analytics을 위한 관리 솔루션](https://azuremar
 
 
 ## <a name="data-collection-details"></a>데이터 수집 세부 정보
-다음 테이블은 Log Analytics 관리 솔루션 및 데이터 원본에 사용할 데이터 수집 방법 및 기타 세부 정보를 보여줍니다. 이 테이블은 [구독 가격 책정 계층](https://go.microsoft.com/fwlink/?linkid=827926)에 상응하는 솔루션 제품별로 분류되어 있습니다. Activity Log Analytics 솔루션은 모든 가격 책정 계층에서 무료로 사용할 수 있습니다.
+다음 테이블은 Log Analytics 관리 솔루션 및 데이터 원본에 사용할 데이터 수집 방법 및 기타 세부 정보를 보여줍니다. 이 테이블은 [구독 가격 책정 계층](https://go.microsoft.com/fwlink/?linkid=827926)에 상응하는 솔루션 제안별로 분류되어 있습니다. Activity Log Analytics 솔루션은 모든 가격 책정 계층에서 무료로 사용할 수 있습니다.
 
 Log Analytics Windows 에이전트 및 System Center Operations Manager 에이전트는 기본적으로 동일합니다. Windows 에이전트에는 Log Analytics 작업 영역에 연결하고 프록시를 통해 전달할 수 있는 추가적인 기능이 포함되어 있습니다. Operations Manager 에이전트를 사용하는 경우 Log Analytics와의 통신을 위해 OMS 에이전트로 타게팅되어야 합니다. 이 테이블의 Operations Manager 에이전트는 Operations Manager에 연결되는 OMS 에이전트입니다. 기존 Operations Manager 환경을 Log Analytics에 연결하기 위한 자세한 내용은 [Log Analytics에 Operations Manager 연결](log-analytics-om-agents.md)을 참조하세요.
 

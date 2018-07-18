@@ -7,16 +7,16 @@ ms.author: kehuan
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 60d65b17d4cbe8a45ff3fb62b06852d7b945e8f1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 29f493449d48df26919a98452fa7f832d653d45e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832862"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37861259"
 ---
 # <a name="document-collection-analysis"></a>문서 컬렉션 분석
 
@@ -75,7 +75,7 @@ ms.locfileid: "34832862"
 
 ## <a name="data-description"></a>데이터 설명
 
-이 시나리오에 사용된 데이터 집합은 미국 의회가 취한 각 입법 조치에 대한 텍스트 요약 및 관련된 메타 데이터를 포함합니다. 데이터는 미국 의회의 활동을 추적하고 미국인이 국가 입법 과정에 참여하도록 돕는 [GovTrack.us](https://www.govtrack.us/)에서 수집됩니다. 대량 데이터는 이 시나리오에 포함되지 않은 수동 스크립트를 사용하여 [이 링크](https://www.govtrack.us/data/congress/)를 통해 다운로드할 수 있습니다. 데이터를 다운로드하는 방법에 대한 세부 정보는 [GovTrack API 설명서](https://www.govtrack.us/developers/api)에서 찾을 수 있습니다.
+이 시나리오에 사용된 데이터 집합은 미국 의회가 취한 각 입법 조치에 대한 텍스트 요약 및 관련된 메타 데이터를 포함합니다. 데이터는 미국 의회의 활동을 추적하고 미국인이 국가 입법 과정에 참여하도록 돕는 [GovTrack.us](https://www.govtrack.us/)에서 수집됩니다. 대량 데이터는 이 시나리오에 포함되지 않은 수동 스크립트를 사용하여 [이 링크](https://www.govtrack.us/data/congress/)를 통해 다운로드할 수 있습니다. 데이터를 다운로드하는 방법에 대한 세부 정보는 [GovTrack API 설명서](https://www.govtrack.us/developers)에서 찾을 수 있습니다.
 
 ### <a name="data-source"></a>데이터 원본
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 00ae5db5fc7a327ae19e64c3d8adf653afd12677
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213115"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017898"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Reliable Actors 구성--ReliableDictionaryActorStateProvider
 ReliableDictionaryActorStateProvider의 기본 구성은 지정된 행위자에 대해 Visual Studio 패키지 루트의 Config 폴더에 생성된 settings.xml 파일을 변경하여 수정할 수 있습니다.
@@ -68,6 +68,10 @@ SharedLogSizeInMB는 모든 노드에서 기본 공유 로그를 위해 미리 �
 ## <a name="replicator-security-configuration"></a>복제자 보안 구성
 복제자 보안 구성은 복제하는 동안 사용되는 통신 채널을 보호하는 데 사용됩니다. 따라서 서비스는 서로의 복제 트래픽을 볼 수 없으므로 항상 사용 가능하게 설정한 데이터를 안전하게 보호할 수 있습니다.
 기본적으로 빈 보안 구성 섹션에서는 복제 보안이 되지 않습니다.
+
+> [!IMPORTANT]
+> Linux 노드에서 인증서는 PEM 형식이어야 합니다. Linux에서 인증서 찾기 및 구성에 대해 자세히 알아보려면 [Linux에서 인증서 구성](./service-fabric-configure-certificates-linux.md)을 참조하세요. 
+> 
 
 ### <a name="section-name"></a>섹션 이름
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig

@@ -11,11 +11,11 @@ ms.date: 3/23/2018
 ms.author: victorh
 ms.custom: mvc
 ms.openlocfilehash: 8c9dbc3a7c6435d2c7051d4a727896b9161b755a
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355001"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38317725"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 리디렉션으로 응용 프로그램 게이트웨이 만들기
 
@@ -33,7 +33,7 @@ Azure PowerShell을 사용하여 [응용 프로그램 게이트웨이](applicati
 
 ![URL 라우팅 예제](./media/tutorial-url-redirect-powershell/scenario.png)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 

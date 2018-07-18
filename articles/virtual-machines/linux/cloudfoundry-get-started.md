@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
 ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187762"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972294"
 ---
 # <a name="cloud-foundry-on-azure"></a>Azure의 Cloud Foundry
 
@@ -54,7 +54,8 @@ Pivotal Cloud Foundry는 독점적인 관리 도구 및 엔터프라이즈 지�
 
 ## <a name="azure-service-broker"></a>Service Broker
 
-Cloud Foundry는 상태 비저장 응용 프로그램 프로세스와 상태 저장 백업 서비스의 완전한 분리를 조장하는 ["twelve-factor app"](https://12factor.net/) 방법론을 장려합니다. [Service brokers](https://docs.cloudfoundry.org/services/api.html)는 응용 프로그램에 대한 백업 서비스를 바인딩하고 프로비전하는 일관적인 방법을 제공합니다. [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker)는 이러한 채널을 통해 Azure Storage 및 Azure SQL을 비롯한 주요한 Azure 서비스를 제공합니다.
+Cloud Foundry는 상태 비저장 응용 프로그램 프로세스와 상태 저장 백업 서비스의 완전한 분리를 조장하는 ["twelve-factor app"](https://12factor.net/) 방법론을 장려합니다. 
+  [Service brokers](https://docs.cloudfoundry.org/services/api.html)는 응용 프로그램에 대한 백업 서비스를 바인딩하고 프로비전하는 일관적인 방법을 제공합니다. [Azure Service Broker](https://github.com/Azure/meta-azure-service-broker)는 이러한 채널을 통해 Azure Storage 및 Azure SQL을 비롯한 주요한 Azure 서비스를 제공합니다.
 
 Pivotal Cloud Foundry를 사용하는 경우 Service Broker는 Pivotal Network의 [타일로도 제공](https://docs.pivotal.io/azure-sb/installing.html)됩니다.
 

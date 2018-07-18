@@ -14,11 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/03/2018
 ms.author: srrengar
-ms.openlocfilehash: af94e3270493f6967c4f8c484170751c098bf181
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 90a28162fb1f455c154ad4d2da7beac6bc785bc7
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36301039"
 ---
 # <a name="set-up-log-analytics-for-a-cluster"></a>클러스터에 대해 Log Analytics 설정
 
@@ -37,20 +38,20 @@ Log Analytics는 클러스터 수준 이벤트를 모니터링하기 위한 권�
 
 3. **만들기**를 선택합니다.
 
-    ![Marketplace의 OMS SF 분석](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
+    ![Marketplace에서 Service Fabric 분석](media/service-fabric-diagnostics-event-analysis-oms/service-fabric-analytics.png)
 
 4. Service Fabric 분석 만들기 창에서 **OMS 작업 영역** 필드에 대해 **작업 영역 선택**을 선택한 다음, **새 작업 영역 만들기**를 선택합니다. 필수 정보를 입력합니다. 단, Service Fabric 클러스터와 작업 영역에 대한 구독이 동일해야 합니다. 입력의 유효성이 검사되면 작업 영역이 배포되기 시작합니다. 배포에 몇 분밖에 걸리지 않습니다.
 
 5. 완료되면 Service Fabric 분석 만들기 창의 맨 아래에서 **만들기**를 다시 선택합니다. **OMS 작업 영역** 아래에 새 작업 영역이 표시되는지 확인합니다. 이 작업은 방금 만든 작업 영역에 솔루션을 추가합니다.
 
-Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터 이벤트가 저장된 저장소 계정에 OMS를 연결합니다. 
+Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터 이벤트가 저장된 저장소 계정에 Log Analytics를 연결합니다. 
 
 >[!NOTE]
 >Linux 클러스터에 대해서는 이 환경을 설정할 수 없습니다. 
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Log Analytics 작업 영역을 클러스터에 연결 
 
-1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 OMS 포털에 액세스할 수 있습니다.
+1. 클러스터에서 가져오는 진단 데이터에 작업 영역을 연결해야 합니다. Service Fabric 분석 솔루션을 만든 리소스 그룹으로 이동합니다. **ServiceFabric\<nameOfWorkspace\>** 를 선택하고 개요 페이지로 이동합니다. 여기서 솔루션 설정과 작업 영역 설정을 변경하고 Log Analytics 작업 영역에 액세스할 수 있습니다.
 
 2. 왼쪽 탐색 메뉴의 **작업 영역 데이터 원본**에서 **저장소 계정 로그**를 선택합니다.
 
@@ -64,16 +65,16 @@ Windows를 사용하는 경우 다음 단계를 계속 진행하여 클러스터
 
 7. **확인**을 선택하여 작업 영역을 클러스터 로그에 연결합니다.
 
-    ![OMS에 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
+    ![Log Analytics에 저장소 계정 로그 추가](media/service-fabric-diagnostics-event-analysis-oms/add-storage-account.png)
 
 이제 계정이 작업 영역의 데이터 원본에서 저장소 계정 로그의 일부로 표시됩니다.
 
-OMS Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 응용 프로그램 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
+Log Analytics 작업 영역에 추가한 Service Fabric 분석 솔루션이 이제 클러스터의 플랫폼 및 응용 프로그램 로그 표에 제대로 연결되었습니다. 같은 방식으로 작업 영역에 추가적인 원본을 추가할 수 있습니다.
 
 
-## <a name="deploy-oms-by-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 OMS 배포
+## <a name="deploy-log-analytics-by-using-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 Log Analytics 배포
 
-Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 템플릿은 새 OMS 작업 영역을 만들고, 작업 영역에 Service Fabric 솔루션을 추가하고, 적절한 저장소 테이블에서 데이터를 읽도록 구성합니다.
+Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 템플릿은 새 Log Analytics 작업 영역을 만들고, 작업 영역에 Service Fabric 솔루션을 추가하고, 적절한 저장소 테이블에서 데이터를 읽도록 구성합니다.
 
 [이 샘플 템플릿](https://github.com/krnese/azure-quickstart-templates/tree/master/service-fabric-oms)을 사용하고 요구 사항에 맞게 수정할 수 있습니다.
 
@@ -85,7 +86,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 �
         "type": "string",
         "defaultValue": "sfomsworkspace",
         "metadata": {
-            "description": "Name of your OMS Log Analytics Workspace"
+            "description": "Name of your Log Analytics Workspace"
         }
     },
     "omsRegion": {
@@ -97,21 +98,21 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 �
             "Southeast Asia"
         ],
         "metadata": {
-            "description": "Specify the Azure Region for your OMS workspace"
+            "description": "Specify the Azure Region for your Log Analytics workspace"
         }
     }
     ```
 
     `omsRegion` 값은 특정 값 집합을 준수해야 합니다. 클러스터 배포에 가장 가까운 값을 선택합니다.
 
-2. 응용 프로그램 로그를 OMS로 보내는 경우 먼저 `applicationDiagnosticsStorageAccountType` 및 `applicationDiagnosticsStorageAccountName`이 템플릿에 매개 변수로 포함되어 있는지 확인합니다. 포함되어 있지 않으면 변수 섹션에 추가하고 필요에 따라 값을 편집합니다. 앞의 형식에 따라 매개 변수로 포함할 수도 있습니다.
+2. 응용 프로그램 로그를 Log Analytics로 보내는 경우 먼저 `applicationDiagnosticsStorageAccountType` 및 `applicationDiagnosticsStorageAccountName`이 템플릿에 매개 변수로 포함되어 있는지 확인합니다. 포함되어 있지 않으면 변수 섹션에 추가하고 필요에 따라 값을 편집합니다. 앞의 형식에 따라 매개 변수로 포함할 수도 있습니다.
 
     ```json
     "applicationDiagnosticsStorageAccountType": "Standard_LRS",
     "applicationDiagnosticsStorageAccountName": "[toLower(concat('oms', uniqueString(resourceGroup().id), '3' ))]"
     ```
 
-3. Service Fabric OMS 솔루션을 템플릿의 변수에 추가합니다.
+3. Service Fabric 솔루션을 템플릿의 변수에 추가합니다.
 
     ```json
     "solution": "[Concat('ServiceFabric', '(', parameters('omsWorkspacename'), ')')]",
@@ -187,16 +188,16 @@ Resource Manager 템플릿을 사용하여 클러스터를 배포하는 경우 �
 
     Azure Resource Manager는 이 명령이 기존 리소스에 대한 업데이트임을 감지합니다. 기존 배포를 구동하는 템플릿과 제공된 새 템플릿 간의 변경 내용만 처리합니다.
 
-## <a name="deploy-oms-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 OMS 배포
+## <a name="deploy-log-analytics-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 Log Analytics 배포
 
-`New-AzureRmOperationalInsightsWorkspace` 명령을 사용하여 PowerShell을 통해 OMS Log Analytics 리소스를 배포할 수도 있습니다. 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 OMS Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
+`New-AzureRmOperationalInsightsWorkspace` 명령을 사용하여 PowerShell을 통해 Log Analytics 리소스를 배포할 수도 있습니다. 이 방법을 사용하려면 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.1.1)을 설치했는지 확인합니다. 이 스크립트를 사용하여 새 Log Analytics 작업 영역을 만들고 여기에 Service Fabric 솔루션을 추가합니다. 
 
 ```PowerShell
 
 $SubscriptionName = "<Name of your subscription>"
 $ResourceGroup = "<Resource group name>"
 $Location = "<Resource group location>"
-$WorkspaceName = "<OMS Log Analytics workspace name>"
+$WorkspaceName = "<Log Analytics workspace name>"
 $solution = "ServiceFabric"
 
 # Log in to Azure and access the correct subscription
@@ -215,11 +216,11 @@ Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup
 
 ```
 
-완료되면 이전 섹션의 단계에 따라 OMS Log Analytics를 해당 저장소 계정에 연결합니다.
+완료되면 이전 섹션의 단계에 따라 Log Analytics를 해당 저장소 계정에 연결합니다.
 
-PowerShell을 사용하여 OMS 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Log Analytics 관리](../log-analytics/log-analytics-powershell-workspace-configuration.md)를 참조하세요.
+PowerShell을 사용하여 Log Analytics 작업 영역에 다른 솔루션을 추가하거나 다른 수정 작업을 할 수도 있습니다. 자세한 내용은 [PowerShell을 사용하여 Log Analytics 관리](../log-analytics/log-analytics-powershell-workspace-configuration.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* 노드에 [OMS 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
+* 노드에 [Log Analytics 에이전트를 배포](service-fabric-diagnostics-oms-agent.md)하여 성능 카운터를 수집하고 컨테이너에 대한 docker 통계 및 로그를 수집합니다.
 * Log Analytics의 일부로 제공되는 [로그 검색 및 쿼리](../log-analytics/log-analytics-log-searches.md) 기능 알아보기
 * [뷰 디자이너를 사용하여 Log Analytics에서 사용자 지정 보기 만들기](../log-analytics/log-analytics-view-designer.md)

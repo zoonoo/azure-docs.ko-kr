@@ -8,6 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
+ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,18 +16,18 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: a74a16fa583ac3bc7ea2250f916e855a0bd9d1c1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: fabe19a7348591b4a299868dfc3e618c049198c3
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258315"
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35261188"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
 Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 장치 관리 소개](device-management-introduction.md)를 참조하세요.
 
-온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 장치를 연결하려는 경우 하이브리드 Azure AD 가입 장치를 구성하여 이를 수행할 수 있습니다. 토픽은 관련된 단계를 제공합니다. 
+온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 장치를 연결하려는 경우 하이브리드 Azure AD 가입 장치를 구성하여 이를 수행할 수 있습니다. 이 문서에서는 관련 단계를 제공합니다. 
 
 
 ## <a name="before-you-begin"></a>시작하기 전에
@@ -37,7 +38,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 아래에 언급된 구성 단계가 완료되면, 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. **자동 등록 동작을 원하지 않거나 제어된 롤아웃이 필요한 경우에는** 다른 구성 단계를 수행하기 전에 아래 “4단계: 배포 및 롤아웃 제어” 섹션의 지침에 따라 자동 롤아웃을 선별적으로 사용하거나 사용하지 않도록 설정하세요.  
 
-설명의 가독성을 높이기 위해 이 토픽에서는 다음 용어를 사용합니다. 
+설명의 가독성을 높이기 위해 이 문서에서는 다음 용어를 사용합니다. 
 
 - **Windows 현재 장치** - 이 용어는 Windows 10 또는 Windows Server 2016을 실행하는 도메인에 가입 된 장치를 말합니다.
 - **Windows 하위 수준 장치** - 이 용어는 Windows 10과 Windows Server 2016 중 어떤 것도 실행하지 않는 **지원되는** 도메인에 가입된 Windows 장치를 말합니다.  
@@ -56,7 +57,8 @@ Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 �
     - Windows Server 2012 R2
     - Windows Server 2012
     - Windows Server 2008 R2
-- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://aka.ms/hybrid/sso))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**.
+- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://aka.ms/hybrid/sso))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**. 
+- Azure AD 통과 인증을 사용할 경우 Windows 하위 수준 장치 등록이 지원되지 **않습니다**.
 - 로밍 프로필을 사용하는 장치에 대해서는 Windows 하위 수준 장치 등록이 지원되지 **않습니다**. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
 
 
@@ -80,8 +82,7 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 
 - https://enterpriseregistration.windows.net
 
-- https://login.microsoftonline.com
-
+- https://login.microsoftonline.com 허용
 - https://device.login.microsoftonline.com
 
 - 조직의 STS(페더레이션된 도메인)

@@ -2,23 +2,20 @@
 title: Azure Cosmos DB 진단 로깅 | Microsoft Docs
 description: 이 자습서를 사용하여 Azure Cosmos DB 로깅을 시작할 수 있습니다.
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 103d9d36ae1290f7af18be83f41bd9b83dbd3fbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 66ee0856851a301a6849b71b64cb904c925ad18d
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34612217"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Azure DB Cosmos DB 진단 로깅
 
@@ -47,7 +44,7 @@ Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한
 
 활동 로그는 진단 로그와 다릅니다. 활동 로그는 외부(_제어 평면_)의 리소스에 대한 작업 관련 데이터를 제공합니다. Azure Cosmos DB 컨텍스트에서 제어 평면 작업에는 컬렉션 만들기, 키 나열, 키 삭제, 데이터베이스 나열 등이 포함됩니다. 진단 로그는 리소스에 의해 내보내지며, 해당 리소스의 작업(_데이터 평면_)에 대한 정보를 제공합니다. 진단 로그에서 데이터 평면 작업의 예에는 Delete, Insert 및 ReadFeed가 있습니다.
 
-활동 로그(제어 평면 작업)는 본질적으로 더 다양한데, 호출자의 전체 전자 메일 주소, 호출자 IP 주소, 리소스 이름, 작업 이름 및 테넌트 ID 등을 포함할 수 있습니다. 활동 로그에는 몇 가지 데이터 [범주](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)가 있습니다. 이러한 범주의 스키마에 대한 전체 정보는 [Azure Activity Log 이벤트 스키마](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)를 참조하세요. 그러나 진단 로그는 PII 데이터가 제거되는 경우가 종종 있으므로 본질적으로 제한적일 수 있습니다. 호출자의 IP 주소는 있지만 마지막 팔분위가 제거됩니다.
+활동 로그(제어 평면 작업)는 본질적으로 더 다양한데, 호출자의 전체 전자 메일 주소, 호출자 IP 주소, 리소스 이름, 작업 이름 및 테넌트 ID 등을 포함할 수 있습니다. 활동 로그에는 몇 가지 데이터 [범주](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)가 있습니다. 이러한 범주의 스키마에 대한 전체 정보는 [Azure Activity Log 이벤트 스키마](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-activity-log-schema)를 참조하세요. 그러나 진단 로그는 개인 데이터가 제거되는 경우가 종종 있으므로 본질적으로 제한적일 수 있습니다. 호출자의 IP 주소는 있지만 마지막 팔분위가 제거됩니다.
 
 ### <a name="azure-metrics"></a>Azure 메트릭
 

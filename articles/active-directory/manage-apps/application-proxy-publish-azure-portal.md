@@ -11,15 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 6ab0e36fc0b4bd3f04d75499b6dfe734a9f72d4d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 8eb629396629a92503907439a64cca9d70747010
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34594125"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 응용 프로그램 게시
 
@@ -29,6 +30,9 @@ Azure AD(Active Directory) 응용 프로그램 프록시를 사용하면 인터�
 
 응용 프로그램 프록시를 처음 사용하는 경우 [온-프레미스 응용 프로그램에 보안된 원격 액세스를 제공하는 방법](application-proxy.md) 문서에서 이 기능에 대해 자세히 알아보세요.
 
+## <a name="before-you-begin"></a>시작하기 전에
+
+이 문서에서는 이미 커넥터를 설치 및 등록했다고 가정합니다. 설치 및 등록이 필요한 경우 [응용 프로그램 프록시 시작 및 커넥터 설치](application-proxy-enable.md)를 참조하세요.
 
 ## <a name="publish-an-on-premises-app-for-remote-access"></a>원격 액세스를 위한 온-프레미스 앱 게시
 

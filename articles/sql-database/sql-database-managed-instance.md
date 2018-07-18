@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: 0c4acf6e8e236d46a9db2b4ab730b8333e4f6ca6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648128"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37054656"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
@@ -39,7 +39,7 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 
 | | 사용 시나리오 | 
 | --- | --- | 
-|SQL Database 관리되는 인스턴스 |온-프레미스나 IaaS, 자체 제작 또는 ISV에서 제공하는 대량의 앱을 최소한의 마이그레이션 작업을 통해 마이그레이션하려는 고객에게는 관리되는 인스턴스를 제안합니다. Azure에서 완전 자동화 [DMS(Database Migration Service)](/sql/dma/dma-overview)를 사용하는 고객은 기본 VNET 지원을 통해 온-프레미스 SQL Server를 SQL Server 온-프레미스와 호환되고 고객의 인스턴스를 완벽하게 격리하는 관리되는 인스턴스로 이동할 수 있습니다.  Software Assurance와 함께 사용하면 Azure SQL Database 관리되는 인스턴스에서 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 기존 라이선스를 할인된 가격에 교환할 수 있습니다.  SQL Database 관리되는 인스턴스는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다. |
+|SQL Database 관리되는 인스턴스 |온-프레미스나 IaaS, 자체 제작 또는 ISV에서 제공하는 대량의 앱을 최소한의 마이그레이션 작업을 통해 마이그레이션하려는 고객에게는 관리되는 인스턴스를 제안합니다. Azure에서 완전 자동화 [DMS(Database Migration Service)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)를 사용하는 고객은 기본 VNET 지원을 통해 온-프레미스 SQL Server를 SQL Server 온-프레미스와 호환되고 고객의 인스턴스를 완벽하게 격리하는 관리되는 인스턴스로 이동할 수 있습니다.  Software Assurance와 함께 사용하면 Azure SQL Database 관리되는 인스턴스에서 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 기존 라이선스를 할인된 가격에 교환할 수 있습니다.  SQL Database 관리되는 인스턴스는 클라우드에서 높은 보안과 풍부한 프로그래밍 기능 영역이 필요한 SQL Server 인스턴스를 위한 최상의 마이그레이션 대상입니다. |
 |Azure SQL Database(단일 또는 풀) |**탄력적 풀**: 새 SaaS 다중 테넌트 응용 프로그램을 개발 중이거나 기존 온-프레미스 앱을 의도적으로 SaaS 다중 테넌트 앱으로 전환하려는 고객에게는 탄력적 풀을 제안합니다. 이 모델의 장점은 다음과 같습니다. <br><ul><li>비즈니스 모델을 라이선스 판매에서 서비스 구독 판매로 전환(ISV의 경우)</li></ul><ul><li>간편하고 완벽한 테넌트 격리</li></ul><ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul><ul><li>하드 한도에 도달하지 않고 규모 확장할 수 있는 가능성</li></ul>**단일 데이터베이스**: SaaS 다중 테넌트 이외의 새 앱을 개발 중이고 워크로드가 안정적이고 예측 가능한 고객에게는 단일 데이터베이스를 제안합니다. 이 모델의 장점은 다음과 같습니다.<ul><li>간단한 데이터베이스 중심 프로그래밍 모델</li></ul>  <ul><li>각 데이터베이스의 예측 가능한 성능</li></ul>|
 |SQL IaaS 가상 머신|운영 체제 또는 데이터베이스 서버를 사용자 지정해야 하는 고객 그리고 타사 앱을 SQL Server와 함께(같은 VM에서) 실행해야 하는 고객에게는 최적의 솔루션으로 SQL VM/IaaS를 제안합니다.|
 |||
@@ -186,11 +186,10 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 
 마이그레이션 방식에서는 Azure blob 저장소에 SQL을 백업합니다. Azure 저장소 blob에 저장된 백업을 관리되는 인스턴스에 바로 복원할 수 있습니다. 기존 SQL 데이터베이스를 관리되는 인스턴스로 복원하려면 다음을 수행하면 됩니다.
 
-- [DMS(데이터 마이그레이션 서비스)](/sql/dma/dma-overview)를 사용합니다. 데이터베이스 백업 파일에서 복원하는 방법을 보여 주는 자습서는 [DMS(Azure Database Migration Service)를 사용하여 관리되는 인스턴스로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+- [DMS(데이터 마이그레이션 서비스)](../dms/dms-overview.md)를 사용합니다. 데이터베이스 백업 파일에서 복원하는 방법을 보여 주는 자습서는 [DMS(Azure Database Migration Service)를 사용하여 관리되는 인스턴스로 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 - [T-SQL RESTORE 명령](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)을 사용합니다. 
   - Wide World Importers 표준 데이터베이스 백업 파일을 복원하는 방법을 보여 주는 자습서는 [관리되는 인스턴스에 백업 파일 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요. 이 자습서에서는 백업 파일을 Azure Blob 저장소에 업로드하고 SAS(보안 공유 액세스 서명) 키를 사용하여 보호해야 한다는 것을 보여 줍니다.
   - URL에서 복원하는 방법에 대한 자세한 내용은 [URL에서 네이티브 복원](sql-database-managed-instance-migrate.md#native-restore-from-url)을 참조하세요.
-- [BACPAC 파일에서 가져오기](sql-database-import.md)
 
 ## <a name="sql-features-supported"></a>지원되는 SQL 기능 
 
@@ -211,7 +210,8 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 - 관리되는 인스턴스는 전체 실제 경로 지정을 허용하지 않으므로 해당하는 모든 시나리오를 약간씩 다르게 지원해야 합니다. RESTORE DB는 WITH MOVE를 지원하지 않고, CREATE DB는 실제 경로를 허용하지 않고, BULK INSERT는 Azure Blob에서만 작동합니다. 
 - 관리되는 인스턴스는 Windows 인증의 클라우드 대안으로 [Azure AD 인증](sql-database-aad-authentication.md)을 지원합니다. 
 - 관리되는 인스턴스는 메모리 내 OLTP 개체가 포함된 데이터베이스의 XTP 파일 그룹 및 파일을 자동으로 관리합니다.
- 
+- 관리되는 인스턴스는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+
 ### <a name="managed-instance-administration-features"></a>관리되는 인스턴스 관리 기능  
 
 관리되는 인스턴스는 시스템 관리자가 비즈니스에 가장 중요한 문제에만 집중할 수 있게 해줍니다. 많은 시스템 관리자/DBA 활동을 수행할 필요가 없거나 아주 간단합니다. OS/RDBMS 설치 및 패치, 동적 인스턴스 크기 조정 및 구성, 백업, 데이터베이스 복제(시스템 데이터베이스 포함), 고가용성 구성, 상태 및 성능 모니터링 데이터 스트림 구성 등을 예로 들 수 있습니다. 

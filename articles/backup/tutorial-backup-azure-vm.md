@@ -1,26 +1,21 @@
 ---
-title: Azure에서 대규모로 Azure VM 백업 | Microsoft Docs
+title: Azure에서 대규모로 Azure VM 백업
 description: 이 자습서에서는 여러 Azure 가상 머신을 Recovery Services 자격 증명 모음에 백업하는 방법을 자세히 설명합니다.
 services: backup
-documentationcenter: ''
 author: markgalioto
 manager: carmonm
-editor: ''
 keywords: 가상 머신 백업; 백업 및 재해 복구
-ms.assetid: ''
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/06/2017
-ms.author: trinadhk;jimpark;markgal;
+ms.author: trinadhk
 ms.custom: mvc
-ms.openlocfilehash: 62cc623dc3130119c5ec803933012c5545d703e5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 863960e012a8e345434459ad16526c8971f00b6b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607007"
 ---
 # <a name="back-up-azure-virtual-machines-in-azure-at-scale"></a>Azure에서 대규모로 Azure 가상 머신 백업
 
@@ -57,13 +52,13 @@ Set-AzureRmRecoveryServicesBackupProperties  -vault $vault1 -BackupStorageRedund
 
 초기 백업을 실행하기 전에 자격 증명 모음 컨텍스트를 설정해야 합니다. 자격 증명 모음 컨텍스트는 자격 증명 모음에서 보호되는 데이터의 형식입니다. Recovery Services 자격 증명 모음을 만들면 기본 보호 및 보존 정책이 함께 제공됩니다. 기본 보호 정책은 매일 지정된 시간에 백업 작업을 트리거합니다. 기본 보존 정책은 매일 복구 지점을 30일 동안 유지합니다. 이 자습서에서는 기본 정책을 적용합니다. 
 
-**[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)**를 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 자격 증명 모음 컨텍스트가 설정되면 모든 후속 cmdlet에 적용됩니다. 
+**[Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)** 를 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 자격 증명 모음 컨텍스트가 설정되면 모든 후속 cmdlet에 적용됩니다. 
 
 ```powershell
 Get-AzureRmRecoveryServicesVault -Name myRSVault | Set-AzureRmRecoveryServicesVaultContext
 ```
 
-**[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)**을 사용하여 백업 작업을 트리거합니다. 백업 작업에서 복구 지점이 생성됩니다. 초기 백업인 경우 복구 지점이 전체 백업입니다. 후속 백업에서는 증분 복사가 수행됩니다.
+**[Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem)** 을 사용하여 백업 작업을 트리거합니다. 백업 작업에서 복구 지점이 생성됩니다. 초기 백업인 경우 복구 지점이 전체 백업입니다. 후속 백업에서는 증분 복사가 수행됩니다.
 
 ```powershell
 $namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureVM -Status Registered -FriendlyName "V2VM"

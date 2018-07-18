@@ -8,14 +8,14 @@ ms.reviewer: genemi
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/20/2018
 ms.author: sstein
-ms.openlocfilehash: aee8f8c830ac504b6688c02c2b262a0d87bc5278
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2194293d23e5db277f2ff7aa207c298533f74571
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646629"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36308869"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 응용 프로그램 개발 개요
 이 문서는 Azure SQL Database에 연결하기 위한 코드를 작성하면서 개발자가 알고 있어야 하는 기본적인 사항을 안내합니다.
@@ -33,9 +33,12 @@ ms.locfileid: "34646629"
 [cheetah](https://github.com/wunderlist/cheetah), [sql-cli](https://www.npmjs.com/package/sql-cli), [VS Code](https://code.visualstudio.com/)와 같은 오픈 소스 도구를 활용할 수 있습니다. 또한 Azure SQL Database는 [Visual Studio](https://www.visualstudio.com/downloads/) 및 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)와 같은 Microsoft 도구로 작동합니다.  Azure 관리 포털, PowerShell 및 REST API를 사용하면 추가 생산성을 얻을 수도 있습니다.
 
 ## <a name="resource-limitations"></a>리소스 제한
-Azure SQL Database는 리소스 관리와 제한 적용이라는 서로 다른 두 메커니즘을 사용하는 데이터베이스에서 사용 가능한 리소스를 관리합니다.
+Azure SQL Database는 리소스 관리와 제한 적용이라는 서로 다른 두 메커니즘을 사용하는 데이터베이스에서 사용 가능한 리소스를 관리합니다. 자세한 내용은 다음을 참조하세요.
 
-* 자세한 내용은 [Azure SQL Database DTU 기반 리소스 모델 제한](sql-database-dtu-resource-limits.md) 및 [Azure SQL Database vCore 기반 리소스 모델 제한(미리 보기)](sql-database-vcore-resource-limits.md)을 참조하세요.
+- [DTU 기반 리소스 모델 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-elastic-pools.md)
+- [DTU 기반 리소스 모델 제한 - 단일 데이터베이스](sql-database-dtu-resource-limits-elastic-pools.md)
+- [vCore 기반 리소스 제한 - 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md)
+- [vCore 기반 리소스 제한 - 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md)
 
 ## <a name="security"></a>보안
 Azure SQL Database는 액세스를 제한하고, 데이터를 보호하고, SQL Database의 활동을 모니터링하는 리소스를 제공합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Impala에서 데이터 복사(베타) | Microsoft Docs
+title: Azure Data Factory를 사용하여 Impala에서 데이터 복사 | Microsoft Docs
 description: 데이터 팩터리 파이프라인에서 복사 작업을 사용하여 Impala에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,24 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 73987d03cb96fa421d193504fe6eaf6c3b5ddb18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 366d0945bfac8546aa757648b6f797c2605a43ea
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34618772"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045870"
 ---
-# <a name="copy-data-from-impala-by-using-azure-data-factory-beta"></a>Azure Data Factory를 사용하여 Impala에서 데이터 복사(베타)
+# <a name="copy-data-from-impala-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Impala에서 데이터 복사
 
 이 문서에서는 Azure Data Factory에서 복사 작업을 사용하여 Impala에서 데이터를 복사하는 방법에 대해 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급 상태인 Data Factory 버전 1을 사용하는 경우 [버전 1의 복사 작업](v1/data-factory-data-movement-activities.md)을 참조하세요.
-
 > [!IMPORTANT]
-> 이 커넥터는 현재 베타 버전입니다. 사용해 보고 피드백을 제공할 수 있습니다. 프로덕션 환경에서는 사용하지 마세요.
+> 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 사용해 보고 피드백을 제공할 수 있습니다. 솔루션의 미리 보기 커넥터에 종속성을 적용하려면 [Azure 지원](https://azure.microsoft.com/support/)에 문의하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -38,7 +35,7 @@ Impala에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복�
 
 ## <a name="get-started"></a>시작하기
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 다음 섹션에서는 Impala 커넥터에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 속성에 대해 자세히 설명합니다.
 

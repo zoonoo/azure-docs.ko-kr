@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2018
 ms.author: barclayn
 ms.openlocfilehash: a64316eda25bd02f89b5afdd7b98c0193381d023
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893370"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970822"
 ---
 # <a name="pen-testing"></a>펜 테스트
 응용 프로그램 테스트 및 배포에 Azure를 사용하면 좋은 점 중 하나는 신속하게 환경을 얻을 수 있다는 점입니다.  자신의 온-프레미스 하드웨어 요청, 구입, “래킹과 스태킹(racking and stacking)”에 대해 걱정할 필요가 없습니다.

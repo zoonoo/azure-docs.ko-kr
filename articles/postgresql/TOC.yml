@@ -146,7 +146,21 @@
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-database-postgresql'
     - name: 동영상
-      href: videos.md
+      items:
+        - name: 제품 비디오
+          href: videos.md
+        - name: 방법 비디오 시리즈
+          items:
+            - name: 제품 기능 및 혜택 알아보기
+              href: 'https://aka.ms/postg-intro-vid'
+            - name: PostgreSQL 앱을 Azure로 마이그레이션
+              href: 'https://aka.ms/postg-migrate-vid'
+            - name: Cognitive Services를 사용하여 지능형 앱 빌드
+              href: 'https://aka.ms/postg-cogsvs-vid'
+            - name: OSBA를 사용하여 컨테이너 연결
+              href: 'https://aka.ms/postg-osba-vid'
+            - name: 앱의 데이터를 Power BI에 연결
+              href: 'https://aka.ms/postg-powerbi-vid'
     - name: 피드백 포럼
       href: 'https://feedback.azure.com/forums/597976-azure-database-for-postgresql'
     - name: 지역 가용성
@@ -155,5 +169,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20PostgreSQL"'
+    - name: 파트너
+      href: partners-migration-postgresql.md
     - name: 데이터베이스 마이그레이션 가이드
       href: 'https://datamigration.microsoft.com/'

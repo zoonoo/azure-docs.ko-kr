@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: 27da52a46b52e06a8ea4f80fa06487aca34c1c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fdf69003566f704354a17335b1f46fc3077aedbc
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606956"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598393"
 ---
 # <a name="install-azure-backup-server-v2"></a>Azure Backup Server v2 설치
 
@@ -47,15 +47,15 @@ Backup Server v1에서 Backup Server v2로 업그레이드하려면 설치에 �
 
 3. Microsoft Azure Backup Server 마법사의 **설치**에서 **Microsoft Azure Backup Server**를 선택합니다.
 
-  ![설치 관리자 - 설치 선택](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
+   ![설치 관리자 - 설치 선택](./media/backup-mabs-upgrade-to-v2/mabs-installer-s1.png)
 
 4. **시작** 페이지에서 경고를 검토하고 **다음**을 선택합니다.
 
-  ![설치 관리자 - 시작 페이지](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
+   ![설치 관리자 - 시작 페이지](./media/backup-mabs-upgrade-to-v2/mabs-installer-s2.png)
 
 5. 설치 마법사에서는 필수 구성 요소 확인을 수행하여 사용자 환경을 업그레이드할 수 있는지 확인합니다. **필수 구성 요소 확인** 페이지에서 **확인**을 선택합니다.
 
-  ![설치 관리자 - 필수 구성 요소 확인 페이지](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
+   ![설치 관리자 - 필수 구성 요소 확인 페이지](./media/backup-mabs-upgrade-to-v2/mabs-installer-s3-perform-checks.png)
 
 6. 사용자 환경은 필수 구성 요소 확인을 통과해야 합니다. 사용자 환경이 확인을 통과하지 못하면 문제를 확인하고 해결하세요. 그다음에 **다시 확인**을 선택합니다. 필수 구성 요소 확인을 통과한 후 **다음**을 선택합니다.
 
@@ -63,11 +63,11 @@ Backup Server v1에서 Backup Server v2로 업그레이드하려면 설치에 �
 
 7. **SQL 설정** 페이지에서 SQL 설치에 대한 관련 옵션을 선택하고 **확인 후 설치**를 선택합니다.
 
-  ![설치 관리자 - SQL 설정 페이지](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
+   ![설치 관리자 - SQL 설정 페이지](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5-sql-settings.png)
 
   확인은 몇 분 정도 걸립니다. 확인이 완료되면 **다음**을 선택합니다.
 
-  ![설치 관리자 - SQL 설정 확인 및 설치 단추](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and fix-settings.png)
+   ![설치 관리자 - SQL 설정 확인 및 설치 단추](./media/backup-mabs-upgrade-to-v2/mabs-installer-s5a-check-and-fix-settings.png)
 
 8. **설치 설정** 페이지에서 Backup Server가 설치된 위치 및 스크래치 위치를 변경합니다. **다음**을 선택합니다.
 

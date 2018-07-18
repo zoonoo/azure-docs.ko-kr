@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: 텍스트 분석 API 설명서
+metadata:
+  title: 텍스트 분석 API 설명서 - 자습서, API 참조 - Azure Cognitive Services  | Microsoft Docs
+  description: 텍스트 분석 API를 사용하여 텍스트에 대한 고급 자연어 처리를 수행하는 방법을 알아봅니다. 자습서에서는 작성 코드가 텍스트 분석 서비스를 사용하는 방법을 보여줍니다.
+  services: cognitive-services
+  author: HeidiSteen
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.component: text-analytics
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/07/2018
+  ms.author: heidist
+  ms.openlocfilehash: aee5b1c47d3db4f630c528707f03d175e52c2c4f
+  ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 07/11/2018
+  ms.locfileid: "38398635"
+abstract:
+  description: 텍스트 분석 API는 클라우드 기반 서비스로 원시 텍스트에 대한 고급 자연어 처리를 제공하며, 감정 분석, 핵심 구 추출 및 언어 감지 등 세 가지 주요 기능을 포함합니다. 빠른 시작, 자습서, 샘플의 여러 방법으로 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+sections:
+- title: 5분 빠른 시작
+  items:
+  - type: paragraph
+    text: 언어를 감지하고, 감정을 분석하고 핵심 구를 추출하여 텍스트 분석 API를 사용하기 시작합니다.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      text: C&#35;
+      href: quickstarts/csharp
+    - image:
+        src: media/index/logo_java.svg
+      text: 자바
+      href: quickstarts/java
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: quickstarts/nodejs
+    - image:
+        src: media/index/logo_python.svg
+      text: 파이썬
+      href: quickstarts/python
+    - image:
+        src: media/index/logo_go.svg
+      text: Go
+      href: quickstarts/go
+- title: 단계별 자습서
+  items:
+  - type: paragraph
+    text: 텍스트 분석 API를 사용하여 응용 프로그램을 개발하는 방법을 알아봅니다.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Power BI를 사용한 텍스트 분석</a>
+    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">PowerApps에서 텍스트 분석</a>
+- title: 참고 자료
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST (영문)
+      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">API 참조</a></p>

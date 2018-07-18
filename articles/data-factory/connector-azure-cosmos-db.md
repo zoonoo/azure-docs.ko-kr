@@ -10,25 +10,23 @@ ms.service: multiple
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/27/2018
+ms.topic: conceptual
+ms.date: 05/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 58e1c88629c21940e09efd6832d536c0b2b47ace
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37052769"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 복사
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-azure-documentdb-connector.md)
-> * [버전 2 - 미리 보기](connector-azure-cosmos-db.md)
+> * [버전 1](v1/data-factory-azure-documentdb-connector.md)
+> * [현재 버전](connector-azure-cosmos-db.md)
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(SQL API) 간 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 Azure Cosmos DB 커넥터](v1/data-factory-azure-documentdb-connector.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -111,8 +109,8 @@ Azure Cosmos DB 간 데이터를 복사하려면 데이터 집합의 type 속성
 
 Azure Cosmos DB와 같은 스키마 없는 데이터 저장소의 경우 복사 작업은 다음 방법 중 하나로 스키마를 유추합니다. 따라서 [JSON 문서를 있는 그대로 가져오기/내보내기](#importexport-json-documents)하려는 경우가 아닌 한 **구조** 섹션에서 데이터의 구조를 지정하는 것이 좋습니다.
 
-1. 데이터 집합 정의에서 **구조** 속성을 사용하여 데이터의 구조를 지정하는 경우 Data Factory 서비스는 이 구조를 스키마로 인식합니다. 이 경우 행에 열의 값이 포함되어 있지 않으면 null 값이 제공됩니다.
-2. 데이터 집합 정의에서 **구조** 속성을 사용하여 데이터의 구조를 지정하지 않는 경우 Data Factory 서비스는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 이 경우 첫 번째 행에 전체 스키마가 포함되어 있지 않으면 일부 열이 복사 작업의 결과에서 누락됩니다.
+*. 데이터 집합 정의에서 **구조** 속성을 사용하여 데이터의 구조를 지정하는 경우 Data Factory 서비스는 이 구조를 스키마로 인식합니다. 이 경우 행에 열의 값이 포함되어 있지 않으면 null 값이 제공됩니다.
+*. 데이터 집합 정의에서 **구조** 속성을 사용하여 데이터의 구조를 지정하지 않는 경우 Data Factory 서비스는 데이터의 첫 번째 행을 사용하여 스키마를 유추합니다. 이 경우 첫 번째 행에 전체 스키마가 포함되어 있지 않으면 일부 열이 복사 작업의 결과에서 누락됩니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -210,8 +208,8 @@ Azure Cosmos DB로 데이터를 복사하려면 복사 작업의 싱크 형식�
 
 이러한 스키마 독립적 복사를 수행하려면:
 
-- Cosmos DB 데이터 집합에서 "structure" 섹션을 지정하지 않고 복사 작업 Cosmos DB 원본/싱크에서 "nestingSeparator" 속성을 지정하지 않아야 합니다.
-- JSON 파일 간 가져오기/내보내기하는 경우 해당 파일 저장소 데이터 집합에서 형식 유형을 "JsonFormat"으로 지정하고 구성 "filePattern"을 올바르게 지정(자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format) 섹션 참조)한 다음 "structure" 섹션을 지정하지 말고 나머지 형식 설정을 건너뜁니다.
+* 데이터 복사 도구를 사용하는 경우, **“JSON 파일 또는 Cosmos DB 컬렉션으로 있는 그대로 내보내기”** 옵션을 선택합니다.
+* 작업을 작성할 때 복사 작업에서 Cosmos DB 데이터 집합의 “structure”(스키마) 섹션 및 Cosmos DB 원본/싱크의 “nestingSeparator” 속성을 지정하면 안 됩니다. JSON 파일에서 가져오기/내보내기를 수행하는 경우, 해당 파일 저장소 데이터 집합에서 형식 유형을 “JsonFormat”으로 지정하고 “filePattern”을 올바르게 구성합니다(자세한 내용은 [JSON 형식](supported-file-formats-and-compression-codecs.md#json-format) 섹션 참조). “structure”(스키마) 섹션을 지정하지 말고 나머지 형식 설정을 건너뜁니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md##supported-data-stores-and-formats)를 참조하세요.

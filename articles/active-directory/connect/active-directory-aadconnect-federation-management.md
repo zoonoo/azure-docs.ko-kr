@@ -1,12 +1,12 @@
 ---
-title: "Azure AD Connect - AD FS 관리 및 사용자 지정 | Microsoft Docs"
-description: "Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 PowerShell을 사용한 사용자 AD FS 로그인 환경의 사용자 지정입니다."
-keywords: "AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, O365, 페더레이션, 신뢰 당사자"
+title: Azure AD Connect - AD FS 관리 및 사용자 지정 | Microsoft Docs
+description: Azure AD Connect를 사용한 AD FS 관리 및 Azure AD Connect와 PowerShell을 사용한 사용자 AD FS 로그인 환경의 사용자 지정입니다.
+keywords: AD FS, ADFS, AD FS 관리, AAD Connect, 연결, 로그인, AD FS 사용자 지정, 트러스트 복구, O365, 페더레이션, 신뢰 당사자
 services: active-directory
-documentationcenter: 
-author: anandyadavmsft
+documentationcenter: ''
+author: billmath
 manager: mtillman
-editor: 
+editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
@@ -14,13 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
+ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 49acea5c08a10ba3b60d0db5f05e30d573f5e507
-ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
+ms.openlocfilehash: 5597d75da50853e85d6e94f1a5c7b5114068f671
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916999"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Active Directory Federation Services 관리 및 사용자 지정
 이 문서에서는 Azure AD(Azure Active Directory) Connect를 사용하여 AD FS(Active Directory Federation Services)를 관리 및 사용자 지정하는 방법을 설명합니다. 또한 AD FS 팜의 완벽한 구성을 위해 수행해야 할 수 있는 다른 일반적인 AD FS 작업을 포함합니다.
@@ -223,7 +225,7 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
-이 규칙은 단순히 사용자에 대해 채워진 **ms-ds-consistencyguid**가 없는 경우 **useguid**로 설정된 **idflag**라는 임시 플래그를 정의합니다. 이 이면에 숨겨진 논리는 AD FS가 빈 클레임을 허용하지 않는다는 사실입니다. 따라서 규칙 1에서 http://contoso.com/ws/2016/02/identity/claims/objectguid 및 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 클레임을 추가하면 사용자에 대해 값이 채워진 경우에만 **msdsconsistencyguid** 클레임을 갖게 됩니다. 채워지지 않은 경우 AD FS는 빈 값을 갖는 것을 확인하고 즉시 삭제합니다. 모든 개체에는 **objectGuid**가 있으므로 규칙 1이 실행된 후 항상 클레임이 발생합니다.
+이 규칙은 단순히 사용자에 대해 채워진 **ms-ds-consistencyguid**가 없는 경우 **useguid**로 설정된 **idflag**라는 임시 플래그를 정의합니다. 이 이면에 숨겨진 논리는 AD FS가 빈 클레임을 허용하지 않는다는 사실입니다. 따라서 규칙 1에 http://contoso.com/ws/2016/02/identity/claims/objectguid 및 http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid 클레임을 추가할 때는 해당 사용자에 대해 값이 입력되는 경우에만 **msdsconsistencyguid** 클레임으로 마칩니다. 채워지지 않은 경우 AD FS는 빈 값을 갖는 것을 확인하고 즉시 삭제합니다. 모든 개체에는 **objectGuid**가 있으므로 규칙 1이 실행된 후 항상 클레임이 발생합니다.
 
 **규칙 3: 있는 경우 변경이 불가능한 ID로 ms-ds-consistencyguid 발급**
 
@@ -244,31 +246,8 @@ Azure AD Connect에서는 개체가 Azure AD에 동기화되는 경우 원본 �
 > 이러한 규칙 시퀀스는 중요합니다.
 
 ### <a name="sso-with-a-subdomain-upn"></a>하위 도메인 UPN을 사용한 SSO
-[새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#addfeddomain)에 설명된 대로 Azure AD Connect를 사용하여 페더레이션될 도메인을 둘 이상 추가할 수 있습니다. 페더레이션된 루트 도메인이 자식도 포함하기 때문에 발급자 ID는 하위 도메인이 아닌 루트 도메인과 일치해야 하므로 UPN(사용자 계정 이름) 클레임을 수정해야 합니다.
 
-기본적으로 발급자 ID에 대한 클레임 규칙은 다음과 같이 설정됩니다.
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-![기본 발급자 ID 클레임](media/active-directory-aadconnect-federation-management/issuer_id_default.png)
-
-기본 규칙은 UPN 접미사를 가져다가 발급자 ID 클레임에 사용합니다. 예를 들어 John은 sub.contoso.com의 사용자이고 contoso.com은 Azure AD를 사용하여 페더레이션됩니다. John은 Azure AD에 로그인하는 동안 사용자 이름으로 john@sub.contoso.com을 입력합니다. AD FS에서 기본 발급자 ID 클레임 규칙은 다음과 같은 방식으로 처리합니다.
-
-    c:[Type
-    == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(john@sub.contoso.com, “.+@(?<domain>.+)“, “http://${domain}/adfs/services/trust/“));
-
-**클레임 값:** http://sub.contoso.com/adfs/services/trust/
-
-발급자 클레임 값에 루트 도메인을 포함시키려면 다음과 일치하도록 클레임 규칙을 변경합니다.
-
-    c:[Type == “http://schemas.xmlsoap.org/claims/UPN“]
-
-    => issue(Type = “http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid“, Value = regexreplace(c.Value, “^((.*)([.|@]))?(?<domain>[^.]*[.].*)$”, “http://${domain}/adfs/services/trust/“));
+[새 페더레이션된 도메인 추가](active-directory-aadconnect-federation-management.md#addfeddomain)에 설명된 대로 Azure AD Connect를 사용하여 페더레이션될 도메인을 둘 이상 추가할 수 있습니다. Azure AD Connect 버전 1.1.553.0 및 최신 버전은 issuerID에 대한 올바른 클레임 규칙을 자동으로 만듭니다. Azure AD Connect 버전 1.1.553.0 또는 최신 버전을 사용할 수 없는 경우 [Azure AD RPT 클레임 규칙](https://aka.ms/aadrptclaimrules) 도구를 사용하여 Azure AD 신뢰 당사자 트러스트에 대한 올바른 클레임 규칙을 만들고 설정하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 [사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)에 대해 알아봅니다.

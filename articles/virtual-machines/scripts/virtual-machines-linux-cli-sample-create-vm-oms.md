@@ -3,7 +3,7 @@ title: Azure CLI 스크립트 샘플 - OMS 모니터링을 사용하여 Linux VM
 description: Azure CLI 스크립트 샘플 - OMS 모니터링을 사용하여 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/27/2017
-ms.author: nepeters
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8a966d1d58067eb73937d3abfdef42396e5ba9a4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 92bc86a1db4aca563a089e20c3e19557517f2d9b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653419"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37932622"
 ---
 # <a name="monitor-a-vm-with-operations-management-suite"></a>Operations Management Suite를 사용하여 VM 모니터링
 
@@ -35,11 +35,11 @@ ms.locfileid: "34653419"
 
 [!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-monitor-oms/create-vm-monitor-oms.sh "Quick Create VM")]
 
-## <a name="clean-up-deployment"></a>배포 정리 
+## <a name="clean-up-deployment"></a>배포 정리
 
 다음 명령을 실행하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 

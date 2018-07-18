@@ -16,6 +16,8 @@
   items:
     - name: Azure CDN을 웹앱에 추가
       href: cdn-add-to-web-app.md
+    - name: HTTPS를 통해 사용자 지정 도메인을 사용하여 BLOB 액세스
+      href: cdn-storage-custom-domain-https.md
     - name: 사용자 지정 도메인 추가
       href: cdn-map-content-to-custom-domain.md
     - name: 사용자 지정 도메인에 HTTPS 구성
@@ -34,6 +36,10 @@
       href: cdn-china-delivery.md
     - name: HTTP/2 지원
       href: cdn-http2.md
+    - name: Verizon POP 목록 검색
+      href: cdn-pop-list-api.md
+    - name: Standard Verizon에서 Premium Verizon으로 마이그레이션
+      href: cdn-migrate.md
 - name: 방법 가이드
   items:
     - name: 콘텐츠 최적화
@@ -85,6 +91,8 @@
           href: cdn-resource-health.md
         - name: 규칙을 사용하여 동작 재정의
           href: cdn-rules-engine.md
+        - name: Traffic Manager 사용
+          href: cdn-traffic-manager.md
     - name: 분석
       href: cdn-log-analysis.md
       items:

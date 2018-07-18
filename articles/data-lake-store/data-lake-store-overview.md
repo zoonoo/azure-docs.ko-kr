@@ -1,26 +1,26 @@
 ---
-title: Azure Data Lake Store 개요 | Microsoft Docs
-description: Azure 데이터 레이크 저장소 및 기타 데이터 저장소를 통해 제공하는 값 이해
+title: Azure Data Lake Storage Gen1 개요 | Microsoft Docs
+description: Data Lake Storage Gen1(이전의 Azure Data Lake Store)이란 무엇이고 다른 데이터 저장소에 비교해 어떠한 가치가 있는지를 이해합니다.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
 manager: jhubbard
-editor: cgronlun
-ms.assetid: b3475057-9427-4492-a3af-25a802a23a79
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/26/2018
+ms.topic: conceptual
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 111906bc9e7e85e30a879d7bacff37edb4b204ac
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 4dff8f4ff9fc324d48391c0399677b64824493c6
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37035378"
 ---
-# <a name="overview-of-azure-data-lake-store"></a>Azure 데이터 레이크 저장소 개요
+# <a name="overview-of-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 개요
+
+[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
+
 Azure 데이터 레이크 저장소는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Azure 데이터 레이크를 사용하면 작동 및 예비 분석에 대해 한 곳에서 모든 크기, 형식 및 수집 속도의 데이터를 캡처할 수 있습니다.
 
 > [!TIP]
@@ -81,24 +81,8 @@ Hadoop 환경에서 새로운 파일 시스템인 AzureDataLakeFilesystem(adl://
 
 `adl://<data_lake_store_name>.azuredatalakestore.net`을(를) 사용하여 데이터 레이크 저장소의 데이터에 액세스할 수 있습니다. 데이터 레이크 저장소의 데이터에 액세스하는 방법에 대한 자세한 내용은 [저장된 데이터의 속성 보기](data-lake-store-get-started-portal.md#properties)
 
-## <a name="how-do-i-start-using-azure-data-lake-store"></a>Azure 데이터 레이크 저장소를 사용하여 어떻게 시작합니까?
-Azure Portal을 사용하여 데이터 레이크 저장소를 프로비전하는 방법은 [Azure Portal을 사용하여 데이터 레이크 저장소 시작](data-lake-store-get-started-portal.md)을 참조하세요. Azure 데이터 레이크를 프로비전하면 데이터 레이크 저장소를 통해 Azure 데이터 레이크 분석 또는 Azure HDInsight와 같은 빅 데이터 제공을 사용하는 방법을 배울 수 있습니다. 또한 .NET 응용 프로그램을 만들어 Azure 데이터 레이크 저장소 계정을 만들고 데이터 업로드, 데이터 다운로드 등과 같은 작업을 수행할 수 있습니다.
+## <a name="next-steps"></a>다음 단계
 
-* [Azure 데이터 레이크 분석 시작](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Portal을 사용하여 Data Lake Store 시작](data-lake-store-get-started-portal.md)
 * [.NET SDK를 사용하여 Azure 데이터 레이크 저장소 시작](data-lake-store-get-started-net-sdk.md)
-
-## <a name="data-lake-store-videos"></a>Data Lake 저장소 비디오
-학습을 위해 비디오를 선호하는 경우 Data Lake 저장소는 다양한 기능에 대한 비디오를 제공합니다.
-
-* [Azure Data Lake 저장소 계정 만들기](https://mix.office.com/watch/1k1cycy4l4gen)
-* [데이터 탐색기를 사용하여 Azure Data Lake 저장소에서 데이터 관리](https://mix.office.com/watch/icletrxrh6pc)
-* [Azure Data Lake 분석을 Azure Data Lake 저장소에 연결](https://mix.office.com/watch/qwji0dc9rx9k)
-* [Data Lake 분석을 통해 Azure Data Lake 저장소에 액세스](https://mix.office.com/watch/1n0s45up381a8)
-* [Azure HDInsight를 Azure Data Lake 저장소에 연결](https://mix.office.com/watch/l93xri2yhtp2)
-* [Hive 및 Pig를 통해 Azure Data Lake 저장소에 액세스](https://mix.office.com/watch/1n9g5w0fiqv1q)
-* [DistCp(Hadoop 분산 복사)를 사용하여 Azure Data Lake 저장소 간에 데이터 복사](https://mix.office.com/watch/1liuojvdx6sie)
-* [Apache Sqoop을 사용하여 관계형 원본 및 Azure Data Lake 저장소 간에 데이터 이동](https://mix.office.com/watch/1butcdjxmu114)
-* [Azure 데이터 팩터리를 사용하여 Azure Data Lake 저장소에 대한 데이터 오케스트레이션](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Azure Data Lake 저장소에서 데이터 보호](https://mix.office.com/watch/1q2mgzh9nn5lx)
-
+* [데이터 레이크 저장소와 함께 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

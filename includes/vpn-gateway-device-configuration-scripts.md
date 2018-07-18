@@ -19,7 +19,7 @@ ms.locfileid: "30326516"
 | --- | --- | --- |
 |시스코 | ISR| IOS 15.1(미리 보기)|
 |시스코 | ASA | ASA (*) RouteBased(IKEv2- BGP 없음), 9.8 미만 ASA  |
-|시스코 | ASA | ASA (*) RouteBased(IKEv2- BGP 없음), 9.8 이상 ASA  |
+|시스코 | ASA | ASA RouteBased(IKEv2- BGP 없음), 9.8 이상 ASA  |
 |Juniper | SRX_GA | 12.x|
 |Juniper | SSG_GA | ScreenOS 6.2.x|
 |Juniper | JSeries_GA | JunOS 12.x|

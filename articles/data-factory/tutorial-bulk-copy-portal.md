@@ -11,21 +11,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 01/10/2018
+ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 440b07b494b34db7ff3fcdf5d5ac830b165c339d
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6079784a21b5dea8929fcfa3d8f296477b3b9520
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30173286"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37083331"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 여러 테이블 대량 복사
 이 자습서에서는 **Azure SQL Database에서 Azure SQL Data Warehouse로 여러 테이블을 복사**하는 방법을 보여 줍니다. 다른 복사 시나리오에도 동일한 패턴을 적용할 수 있습니다. 예를 들어 SQL Server/Oracle에서 Azure SQL Database/Data Warehouse/Azure Blob으로 테이블을 복사하고, Blob에서 Azure SQL Database 테이블로 다른 경로를 복사합니다.
 
 > [!NOTE]
 > - Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
-> - 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 이 자습서에서 수행하는 단계는 대략적으로 다음과 같습니다.
 
@@ -83,7 +82,7 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
       
      ![새 데이터 팩터리 페이지](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
-   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialBulkCopyDF). Data Factory 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](naming-rules.md) 문서를 참조하세요.
+   Azure Data Factory의 이름은 **전역적으로 고유**해야 합니다. 이름 필드에 대해 다음과 같은 오류가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialBulkCopyDF). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory - 명명 규칙](naming-rules.md) 문서를 참조하세요.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
 3. 데이터 팩터리를 만들려는 위치에 Azure **구독**을 선택합니다. 
@@ -93,8 +92,8 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.   
          
       리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
-4. **버전**에 **V2(미리 보기)** 를 선택합니다.
-5. 데이터 팩터리의 **위치** 를 선택합니다. 현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 Data Factory V2를 사용하여 데이터 팩터리를 만들 수 있습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
+4. **버전**에 대해 **V2**를 선택합니다.
+5. 데이터 팩터리의 **위치** 를 선택합니다. Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 6. **대시보드에 고정**을 선택합니다.     
 7. **만들기**를 클릭합니다.
 8. 대시보드에서 **데이터 팩터리 배포 중** 상태의 타일이 표시됩니다. 
@@ -163,9 +162,9 @@ SQL Database와 SQL Data Warehouse 모두에서 Azure 서비스를 통해 SQL �
 ## <a name="create-datasets"></a>데이터 집합 만들기
 이 자습서에서는 데이터가 저장되는 위치를 지정하는 원본 및 싱크 데이터 집합을 만듭니다. 
 
-AzureSqlDatabaseDataset 입력 데이터 집합은 AzureSqlDatabaseLinkedService를 참조합니다. 연결된 서비스에서 데이터베이스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 집합은 원본 데이터가 포함된 데이터베이스와 테이블의 이름을 지정합니다. 
+**AzureSqlDatabaseDataset** 입력 데이터 집합은 **AzureSqlDatabaseLinkedService**를 참조합니다. 연결된 서비스에서 데이터베이스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 집합은 원본 데이터가 포함된 데이터베이스와 테이블의 이름을 지정합니다. 
 
-AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조합니다. 연결된 서비스에서 데이터 웨어하우스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 집합은 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
+**AzureSqlDWDataset** 출력 데이터 집합은 **AzureSqlDWLinkedService**를 참조합니다. 연결된 서비스에서 데이터 웨어하우스에 연결하기 위한 연결 문자열을 지정합니다. 데이터 집합은 데이터가 복사될 데이터베이스와 테이블을 지정합니다. 
 
 이 자습서에서는 원본 및 대상 SQL 테이블이 데이터 집합 정의에 하드 코드되지 않습니다. 대신 ForEach 활동에서 런타임에 테이블의 이름을 복사 활동으로 전달합니다. 
 
@@ -179,7 +178,6 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
     ![Azure SQL Database 선택](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
 3. 아래쪽의 속성 창에서 **이름**에 대해 **AzureSqlDatabaseDataset**를 입력합니다.
 
-    ![원본 데이터 집합 이름](./media/tutorial-bulk-copy-portal/source-dataset-general.png)
 4. **연결** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
@@ -193,14 +191,21 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
 1. 왼쪽 창에서 **+(더하기)**, **데이터 집합**을 차례로 클릭합니다. 
 2. **새 데이터 집합** 창에서 **Azure SQL Data Warehouse**를 선택하고 **마침**을 클릭합니다. **AzureSqlDWTable1**이라는 새 탭이 표시됩니다. 
 3. 아래쪽의 속성 창에서 **이름**에 대해 **AzureSqlDWDataset**를 입력합니다.
-4. **연결** 탭으로 전환하고, **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
-5. **매개 변수** 탭으로 전환하고 **+ 새로 만들기**를 클릭합니다.
+5. **매개 변수** 탭으로 전환하고, **+ 새로 만들기**를 클릭하고, 매개 변수 이름에 **DWTableName**을 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 **DWTableName** 끝에 **후행 공백 문자**가 없는지 확인합니다. 
 
-    ![원본 데이터 집합 연결 페이지](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter-button.png)
-6. 매개 변수 이름으로 **DWTableName**을 입력합니다. 페이지에서 이 이름을 복사/붙여넣는 경우 **DWTableName** 끝에 **후행 공백 문자**가 없는지 확인합니다. 
-7. **매개 변수화된 속성** 섹션에서 **tableName** 속성에 대해 `@{dataset().DWTableName}`을 입력합니다. 데이터 집합의 **tableName** 속성은 **DWTableName** 매개 변수에 대한 인수로 전달되는 값으로 설정됩니다. ForEach 활동은 테이블 목록을 반복하여 복사 활동에 값을 하나씩 전달합니다. 
-   
-    ![매개 변수 이름](./media/tutorial-bulk-copy-portal/dwtablename-tablename.png)
+    ![원본 데이터 집합 연결 페이지](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
+
+6. **연결** 탭으로 전환합니다. 
+
+    a. **연결된 서비스**에 대해 **AzureSqlDatabaseLinkedService**를 선택합니다.
+
+    나. **테이블**에서 **편집** 옵션을 선택하고, 테이블 이름 입력란을 선택한 다음, 아래에서 **동적 콘텐츠 추가** 링크를 클릭합니다. 
+    
+    ![매개 변수 이름](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
+
+    다. **동적 콘텐츠 추가** 페이지의 **매개 변수**에서 **DWTAbleName**을 클릭합니다. 그러면 자동으로 위쪽 식 텍스트 상자 `@dataset().DWTableName`을 채운 다음, **마침**을 클릭합니다. 데이터 집합의 **tableName** 속성은 **DWTableName** 매개 변수에 대한 인수로 전달되는 값으로 설정됩니다. ForEach 활동은 테이블 목록을 반복하여 복사 활동에 값을 하나씩 전달합니다. 
+
+    ![데이터 집합 매개 변수 작성기](./media/tutorial-bulk-copy-portal/dataset-parameter-builder.png)
 
 ## <a name="create-pipelines"></a>파이프라인 만들기
 이 자습서에서는 **IterateAndCopySQLTables** 및 **GetTableListAndTriggerCopyData**라는 두 개의 파이프라인을 만듭니다. 
@@ -217,63 +222,65 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
 1. 왼쪽 창에서 **+(더하기)**, **파이프라인**을 차례로 클릭합니다.
 
     ![새 파이프라인 메뉴](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. [속성] 창에서 파이프라인 이름을 **IterateAndCopySQLTables**로 변경합니다. 
+2. **일반** 탭에서 이름에 대해 **IterateAndCopySQLTables**를 지정합니다. 
 
-    ![파이프라인 이름](./media/tutorial-bulk-copy-portal/first-pipeline-name.png)
 3. **매개 변수** 탭으로 전환하고 다음 작업을 수행합니다. 
 
     1. **+새로 만들기**를 클릭합니다. 
     2. 매개 변수 **이름**에 대해 **tableList**를 입력합니다.
-    3. **유형**에 대해 **개체**를 선택합니다.
+    3. **형식**에 대해 **배열**을 선택합니다.
 
         ![파이프라인 매개 변수](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. **활동** 도구 상자에서 **반복 및 조건**을 펼치고, **ForEach** 활동을 파이프라인 디자인 화면으로 끌어서 놓습니다. 또한 **활동** 도구 상자에서 활동을 검색할 수도 있습니다. 아래쪽의 **속성** 창에서 **이름**에 대해 **IterateSQLTables**를 입력합니다. 
+4. **활동** 도구 상자에서 **반복 및 조건**을 펼치고, **ForEach** 활동을 파이프라인 디자인 화면으로 끌어서 놓습니다. 또한 **활동** 도구 상자에서 활동을 검색할 수도 있습니다. 
 
-    ![ForEach 활동 이름](./media/tutorial-bulk-copy-portal/for-each-activity-name.png)
-5. **설정** 탭으로 전환하고 **항목**에 대해 `@pipeline().parameters.tableList`를 입력합니다.
+    a. 아래쪽의 **일반** 탭에서 **이름**에 대해 **IterateSQLTables**를 입력합니다. 
+
+    나. **설정** 탭으로 전환하고, **항목**에 대한 입력란을 선택한 다음, 아래에서 **동적 콘텐츠 추가** 링크를 클릭합니다. 
 
     ![ForEach 활동 설정](./media/tutorial-bulk-copy-portal/for-each-activity-settings.png)
-6. **ForEach** 활동에 자식 활동을 추가하려면, **ForEach** 활동을 두 번 클릭하거나 **편집(연필 아이콘)** 을 클릭합니다. 활동을 선택할 때만 해당 활동에 대한 작업 링크가 표시됩니다. 
 
-    ![ForEach 활동 이름](./media/tutorial-bulk-copy-portal/edit-for-each-activity.png)
-7. **활동** 도구 상자에서 **데이터 흐름**을 펼치고, **복사** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, [속성] 창에서 이름을 **CopyData**로 변경합니다. 위쪽의 이동 경로 탐색 메뉴를 확인합니다. IterateAndCopySQLTable은 파이프라인 이름이고, IterateSQLTables는 ForEach 활동 이름입니다. 디자이너가 활동 범위에 있습니다. ForEach 편집기에서 파이프라인 편집기로 다시 전환하려면 이동 경로 탐색 메뉴에서 링크를 클릭합니다. 
+    다. **동적 콘텐츠 추가** 페이지에서 시스템 변수 및 함수 섹션을 접고, **매개 변수**에서 **tableList**를 클릭합니다. 그러면 자동으로 위쪽 식 텍스트 상자를 `@pipeline().parameter.tableList`로 채운 다음, **마침**을 클릭합니다. 
+
+    ![Foreach 매개 변수 작성기](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
+    
+    d. **작업** 탭으로 전환하고, **작업 추가**를 클릭하여 자식 작업을 **ForEach** 작업에 추가합니다.
+
+5. **작업** 도구 상자에서 **데이터 흐름**을 확장하고, **복사** 작업을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 위쪽의 이동 경로 탐색 메뉴를 확인합니다. IterateAndCopySQLTable은 파이프라인 이름이고, IterateSQLTables는 ForEach 활동 이름입니다. 디자이너가 활동 범위에 있습니다. ForEach 편집기에서 파이프라인 편집기로 다시 전환하려면 이동 경로 탐색 메뉴에서 링크를 클릭합니다. 
 
     ![ForEach의 복사](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-8. **원본** 탭으로 전환하고 다음 단계를 수행합니다.
+6. **원본** 탭으로 전환하고 다음 단계를 수행합니다.
 
     1. **원본 데이터 집합**에 대해 **AzureSqlDatabaseDataset**를 선택합니다. 
     2. **쿼리 사용**에 대해 **쿼리** 옵션을 선택합니다. 
-    3. **쿼리**에 대해 다음 SQL 쿼리를 입력합니다.
+    3. **쿼리** 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, **쿼리**에 대해 다음 식을 입력하고, **마침**을 선택합니다.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![원본 복사 설정](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-9. **싱크** 탭으로 전환하고 다음 단계를 수행합니다. 
+7. **싱크** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **싱크 데이터 집합**에 대해 **AzureSqlDWDataset**를 선택합니다.
+    2. DWTableName 매개 변수 값에 대해 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` 식을 스크립트로 입력하고, **마침**을 선택합니다.
     2. **Polybase 설정**을 펼치고 **Polybase 허용**을 선택합니다. 
     3. **유형 기본 사용** 옵션의 선택을 취소합니다. 
-    4. **정리 스크립트**에 대해 다음 SQL 스크립트를 입력합니다. 
+    4. **정리 스크립트** 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, 다음 식을 스크립트로 입력하고, **마침**을 선택합니다. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
 
         ![싱크 복사 설정](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
-10. **매개 변수** 탭으로 전환하고, 필요한 경우 아래로 스크롤하여 **DWTableName** 매개 변수가 있는 **싱크 데이터 집합** 섹션을 확인합니다. 이 매개 변수의 값을 `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]`으로 설정합니다.
 
-    ![싱크 복사 매개 변수](./media/tutorial-bulk-copy-portal/copy-sink-parameters.png)
-11. **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
+8. **설정** 탭으로 전환하고 다음 단계를 수행합니다. 
 
     1. **준비 사용**에 대해 **True**(사용)를 선택합니다.
     2. **저장소 계정 연결된 서비스**에 대해 **AzureStorageLinkedService**를 선택합니다.
 
         ![준비 사용](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
-12. 파이프라인 설정에 대한 유효성을 검사하려면 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>** 를 클릭합니다.
 
-    ![파이프라인 유효성 검사 보고서](./media/tutorial-bulk-copy-portal/first-pipeline-validation-report.png)
+9. 파이프라인 설정에 대한 유효성을 검사하려면 위쪽 파이프라인 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>** 를 클릭합니다.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>GetTableListAndTriggerCopyData 파이프라인 만들기
 
@@ -287,7 +294,6 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
     ![새 파이프라인 메뉴](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
 2. [속성] 창에서 파이프라인 이름을 **GetTableListAndTriggerCopyData**로 변경합니다. 
 
-    ![파이프라인 이름](./media/tutorial-bulk-copy-portal/second-pipeline-name.png)
 3. **활동** 도구 상자에서 **일반**을 펼치고, **조회** 활동을 파이프라인 디자이너 화면으로 끌어서 놓고, 다음 단계를 수행합니다.
 
     1. **이름**에 대해 **LookupTableList**를 입력합니다. 
@@ -315,7 +321,7 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
     2. **고급** 섹션을 펼칩니다. 
     3. **매개 변수** 섹션에서 **+ 새로 만들기**를 클릭합니다. 
     4. 매개 변수 **이름**에 대해 **tableList**를 입력합니다.
-    5. 매개 변수 **값**에 대해 `@activity('LookupTableList').output.value`를 입력합니다. 조회 활동의 결과 목록을 두 번째 파이프라인에 대한 입력으로 설정합니다. 결과 목록에는 데이터를 대상에 복사해야 하는 테이블 목록이 포함됩니다. 
+    5. 값 입력란을 선택하고, 아래에서 **동적 콘텐츠 추가**를 선택하고, `@activity('LookupTableList').output.value`를 테이블 이름 값으로 입력하고, **마침**을 선택합니다. 조회 활동의 결과 목록을 두 번째 파이프라인에 대한 입력으로 설정합니다. 결과 목록에는 데이터를 대상에 복사해야 하는 테이블 목록이 포함됩니다. 
 
         ![파이프라인 실행 활동 -설정 페이지](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
 7. 조회 활동에 붙어 있는 **녹색 상자**를 파이프라인 실행 활동의 왼쪽으로 끌어서 **조회** 활동을 **파이프라인 실행** 활동에 **연결**합니다.
@@ -323,17 +329,13 @@ AzureSqlDWDataset 출력 데이터 집합은 AzureSqlDWLinkedService를 참조�
     ![조회 활동 및 파이프라인 실행 활동 연결](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 8. 파이프라인에 대한 유효성을 검사하려면 도구 모음에서 **유효성 검사**를 클릭합니다. 유효성 검사 오류가 없는지 확인합니다. **파이프라인 유효성 검사 보고서**를 닫으려면 **>>** 를 클릭합니다.
 
-    ![두 번째 파이프라인 - 유효성 검사 보고서](./media/tutorial-bulk-copy-portal/second-pipeline-validation-report.png)
-9. 엔터티(데이터 집합, 파이프라인 등)를 Data Factory 서비스에 게시하려면 **모두 게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
-
-    ![게시 단추](./media/tutorial-bulk-copy-portal/publish.png)
+9. 엔터티(데이터 집합, 파이프라인 등)를 Data Factory 서비스에 게시하려면 창의 위쪽에서 **모두 게시**를 클릭합니다. 게시가 성공적으로 완료될 때까지 기다립니다. 
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 
-1. **GetTableListAndTriggerCopyData** 탭이 활성화되어 있는지 확인합니다. 
-2. **트리거**, **지금 트리거**를 차례로 클릭합니다. 
+파이프라인 **GetTableListAndTriggerCopyData**로 이동하고, **트리거**를 클릭하고, **지금 트리거**를 클릭합니다. 
 
-    ![지금 트리거](./media/tutorial-bulk-copy-portal/trigger-now.png)
+![지금 트리거](./media/tutorial-bulk-copy-portal/trigger-now.png)
 
 ## <a name="monitor-the-pipeline-run"></a>파이프라인 실행을 모니터링합니다.
 

@@ -6,7 +6,7 @@
 3. 장치에 설정하려는 언어를 선택하라는 메시지가 표시됩니다. 언어를 지정하고 **Enter**를 누릅니다.
    
     ![StorSimple 구성 및 등록 장치 1](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice1-gov-include.png)
-4. 표시되는 직렬 콘솔 메뉴에서 모든 권한으로 로그온할 수 있는 옵션 1을 선택합니다.
+4. 표시되는 직렬 콘솔 메뉴에서 옵션 1, **모든 권한으로 로그인**을 선택합니다.
    
     ![StorSimple 등록 장치 2](./media/storsimple-configure-and-register-device-gov-u2/HCS_RegisterYourDevice2-gov-include.png)
 5. 다음 단계를 수행하여 장치에 필요한 최소 네트워크 설정을 구성합니다.

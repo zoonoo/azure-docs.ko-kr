@@ -1,0 +1,29 @@
+- name: Linguistic Analysis API 설명서
+- name: 개요
+  items:
+    - name: Linguistic Analysis API란?
+      href: Home.md
+- name: 방법
+  items:
+    - name: 분석기 이름
+      href: Analyzer-Names.md
+    - name: 팀원 구문 분석
+      href: Constituency-Parsing.md
+    - name: 음성 부분 태그 지정
+      href: POS-tagging.md
+    - name: 문장 및 토큰
+      href: Sentences-and-Tokens.md
+    - name: 분석 메서드
+      href: AnalyzeMethod.md
+    - name: 분석기 메서드
+      href: AnalyzersMethod.md
+- name: 참고 자료
+  items:
+    - name: Linguistic Analysis API
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56ea598f778daf01942505ff/operations/56ea5a1cca73071fd4b102bb'
+    - name: Windows SDK
+      href: 'https://github.com/Microsoft/Cognitive-linguisticanalysis-windows'
+- name: 리소스
+  items:
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/555928-linguistic-analysis-api'

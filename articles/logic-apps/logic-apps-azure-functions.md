@@ -15,12 +15,12 @@ ms.workload: integration
 ms.custom: H1Hack27Feb2017
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: befdd7af0a91623af4c5ea0fd957141cad84eb53
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d8d07e2ba58b7067d59baf5f0a4ea3228d6aabbc
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297872"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36331175"
 ---
 # <a name="add-and-run-custom-code-for-logic-apps-through-azure-functions"></a>Azure Functions를 통해 Logic Apps에 대한 사용자 지정 코드 추가 및 실행
 
@@ -62,7 +62,7 @@ function start(req, res){
 
 ### <a name="create-a-function-from-logic-app-designer"></a>Logic App Designer에서 함수 만들기
 
-디자이너에서 node.js 웹후크 함수를 만들 수도 있습니다. 먼저 **내 영역의 Azure Functions** 를 선택하고 함수에 대한 컨테이너를 선택합니다. 컨테이너가 없으면 [Azure Functions 포털](https://functions.azure.com/signin)에서 만들어야 합니다. 그런 다음 **새로 만들기**를 선택합니다.  
+디자이너에서 node.js 웹후크 함수를 만들 수도 있습니다. 먼저 **내 영역의 Azure Functions** 를 선택하고 함수에 대한 컨테이너를 선택합니다. 컨테이너가 없으면 [Azure Functions 포털](https://functions.azure.com/)에서 만들어야 합니다. 그런 다음 **새로 만들기**를 선택합니다.  
 
 계산하려는 데이터를 기준으로 템플릿을 생성하려면 함수에 전달할 컨텍스트 개체를 지정합니다. 이 개체는 JSON 개체여야 합니다. 예를 들어, FTP 작업의 파일 콘텐츠를 전달하는 경우 상황에 맞는 페이로드는 다음 예제와 같습니다.
 

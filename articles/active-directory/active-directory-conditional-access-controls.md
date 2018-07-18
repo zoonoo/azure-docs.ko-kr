@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 조건부 액세스의 액세스 제어 | Microsoft Docs
+title: Azure Active Directory 조건부 액세스의 액세스 제어란? | Microsoft Docs
 description: Azure Active Directory 조건부 액세스의 액세스 제어가 작동하는 방식을 알아봅니다.
 services: active-directory
 keywords: 앱에 조건부 액세스, Azure AD로 조건부 액세스, 회사 리소스에 대한 액세스 보호, 조건부 액세스 정책
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/01/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 85c91ee7a03df221b2bf591aca6bf937c98313c7
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34723646"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37028951"
 ---
-# <a name="access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란? 
 
 [Azure AD(Azure Active Directory) 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 사용하여 권한 있는 사용자가 클라우드 앱에 액세스하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유(“when this happens”)에 대한 응답(“do this”)을 정의합니다. 
 
@@ -77,7 +77,7 @@ ms.locfileid: "34723646"
 
 ### <a name="compliant-device"></a>규정 준수 장치
 
-장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](active-directory-conditional-access-policy-connected-applications.md#managed-devices)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](device-management-introduction.md)되어 있고 MDM 솔루션 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다.
+장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](active-directory-conditional-access-policy-connected-applications.md#managed-devices)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](device-management-introduction.md)되어 있고 Intune(모든 장치 OS) 또는 Windows 10 장치에 대한 타사 MDM 시스템 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 장치 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
 
 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
 
@@ -173,6 +173,6 @@ SharePoint를 통해 제한된 액세스를 요구하는 방법을 알아보려�
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory에서 조건부 액세스 시작](active-directory-conditional-access-azure-portal-get-started.md)을 참조하세요.
+- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](active-directory-conditional-access-app-based-mfa.md)를 참조하세요.
 
 - 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)를 참조하세요. 

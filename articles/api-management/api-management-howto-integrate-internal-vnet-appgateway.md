@@ -5,7 +5,7 @@ services: api-management
 documentationcenter: ''
 author: solankisamir
 manager: kjoshi
-editor: antonba
+editor: vlvinogr
 ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: sasolank
-ms.openlocfilehash: 595abcaafdea5cde3f868567bac7fb9cf0ee424b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: c7d4351a9691c9787c42107306220e075f8648a0
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936108"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435126"
 ---
-# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합 
+# <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
 ##<a name="overview"> </a> 개요
- 
+
 Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual Network에서 API Management 서비스를 구성할 수 있습니다. Azure Application Gateway는 계층 7 부하 분산 장치를 제공하는 PAAS 서비스입니다. 역방향 프록시 서비스 역할을 하고 제품에 WAF(웹 응용 프로그램 방화벽)를 제공합니다.
 
 내부 VNET에서 프로비전된 API Management와 Application Gateway 프런트 엔드를 결합하면 다음 시나리오가 가능합니다.
 
 * 내부 소비자 및 외부 소비자의 소비에 대해 동일한 API Management 리소스를 사용합니다.
 * 단일 API Management 리소스를 사용하며 외부 소비자가 사용할 수 있는 API Management에서 정의된 API의 하위 집합을 갖습니다.
-* 공용 인터넷에서 API Management에 대한 액세스를 켜기 및 끄기로 전환하는 턴키 방법을 제공합니다. 
+* 공용 인터넷에서 API Management에 대한 액세스를 켜기 및 끄기로 전환하는 턴키 방법을 제공합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,7 +53,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 ## <a name="before-you-begin"> </a> 시작하기 전에
 
 1. 웹 플랫폼 설치 관리자를 사용하는 Azure PowerShell cmdlet의 최신 버전을 설치합니다. **다운로드 페이지** 의 [Windows PowerShell](https://azure.microsoft.com/downloads/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)섹션에서 최신 버전을 다운로드하여 설치할 수 있습니다.
-2. Virtual Network를 만들고 API Management 및 Application Gateway에 대한 별도 서브넷을 만듭니다. 
+2. Virtual Network를 만들고 API Management 및 Application Gateway에 대한 별도 서브넷을 만듭니다.
 3. Virtual Network에 대한 사용자 지정 DNS 서버를 만들려면 배포를 시작하기 전에 수행합니다. Virtual Network의 새 서브넷에서 만든 가상 머신이 모든 Azure 서비스 끝점을 확인하고 액세스할 수 있도록 하여 작동을 이중으로 확인합니다.
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API Management 및 Application Gateway 간에 통합을 만드는 데 무엇이 필요한가요?
@@ -66,7 +66,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 * **사용자 정의 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
 * **사용자 지정 도메인 인증서:** 인터넷에서 API Management에 액세스하려면 Application Gateway 프런트 엔드 DNS 이름에 대한 해당 호스트 이름의 CNAME을 매핑해야 합니다. 이렇게 하면 API Management에 전달되는 Application Gateway에 전송되는 호스트 이름 헤더 및 인증서를 APIM에서 유효한 것으로 인식할 수 있습니다.
 
-## <a name="overview-steps"> </a> API Management 및 Application Gateway 통합에 필요한 단계 
+## <a name="overview-steps"> </a> API Management 및 Application Gateway 통합에 필요한 단계
 
 1. Resource Manager에 대한 리소스 그룹을 만듭니다.
 2. Application Gateway에 대한 Virtual Network, 서브넷 및 공용 IP를 만듭니다. API Management에 대한 다른 서브넷을 만듭니다.
@@ -164,14 +164,14 @@ $apimService = New-AzureRmApiManagement -ResourceGroupName "apim-appGw-RG" -Loca
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>API Management에서 사용자 지정 도메인 이름 설정
 
 ### <a name="step-1"></a>1단계
-도메인에 개인 키로 인증서를 업로드합니다. 이 예에서는 `*.contoso.net`입니다. 
+도메인에 개인 키로 인증서를 업로드합니다. 이 예에서는 `*.contoso.net`입니다.
 
 ```powershell
 $certUploadResult = Import-AzureRmApiManagementHostnameCertificate -ResourceGroupName "apim-appGw-RG" -Name "ContosoApi" -HostnameType "Proxy" -PfxPath <full path to .pfx file> -PfxPassword <password for certificate file> -PassThru
 ```
 
 ### <a name="step-2"></a>2단계
-인증서가 업로드되면 예제 인증서가 도메인 `*.contoso.net`에 대한 권한을 제공하는 대로 호스트 이름 `api.contoso.net`을 사용하여 프록시에 대한 호스트 이름 구성 개체를 만듭니다. 
+인증서가 업로드되면 예제 인증서가 도메인 `*.contoso.net`에 대한 권한을 제공하는 대로 호스트 이름 `api.contoso.net`을 사용하여 프록시에 대한 호스트 이름 구성 개체를 만듭니다.
 
 ```powershell
 $proxyHostnameConfig = New-AzureRmApiManagementHostnameConfiguration -CertificateThumbprint $certUploadResult.Thumbprint -Hostname "api.contoso.net"
@@ -236,8 +236,8 @@ $listener = New-AzureRmApplicationGatewayHttpListener -Name "listener01" -Protoc
 API Management 서비스 `ContosoApi` 프록시 도메인 끝점에 사용자 지정 프로브를 만듭니다. 경로 `/status-0123456789abcdef`는 모든 API Management 서비스에서 호스트되는 기본 상태 끝점입니다. `api.contoso.net`을 사용자 지정 프로브 호스트 이름으로 지정하여 SSL 인증서로 보호합니다.
 
 > [!NOTE]
-> 호스트 이름 `contosoapi.azure-api.net`은 서비스 `contosoapi`가 공용 Azure에서 생성될 때 구성된 기본 프록시 호스트 이름입니다. 
-> 
+> 호스트 이름 `contosoapi.azure-api.net`은 서비스 `contosoapi`가 공용 Azure에서 생성될 때 구성된 기본 프록시 호스트 이름입니다.
+>
 
 ```powershell
 $apimprobe = New-AzureRmApplicationGatewayProbeConfig -Name "apimproxyprobe" -Protocol "Https" -HostName "api.contoso.net" -Path "/status-0123456789abcdef" -Interval 30 -Timeout 120 -UnhealthyThreshold 8
@@ -291,7 +291,7 @@ $dummyPathRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "nonexistenta
 
 ### <a name="step-11"></a>11단계
 
-백 엔드 풀에 대한 URL 규칙 경로를 구성합니다. 이를 통해 공개적으로 노출되는 API Management에서 일부 API만을 선택합니다. 예를 들어 `Echo API` (/echo/), `Calculator API` (/calc/) 등이 있으면 인터넷에서 `Echo API`에만 액세스할 수 있도록 합니다. 
+백 엔드 풀에 대한 URL 규칙 경로를 구성합니다. 이를 통해 공개적으로 노출되는 API Management에서 일부 API만을 선택합니다. 예를 들어 `Echo API` (/echo/), `Calculator API` (/calc/) 등이 있으면 인터넷에서 `Echo API`에만 액세스할 수 있도록 합니다.
 
 다음 예제에서는 백 엔드 "apimProxyBackendPool"에 트래픽을 라우팅하는 "/echo/" 경로에 대한 간단한 규칙을 만듭니다.
 
@@ -305,7 +305,7 @@ $echoapiRule = New-AzureRmApplicationGatewayPathRuleConfig -Name "externalapis" 
 $urlPathMap = New-AzureRmApplicationGatewayUrlPathMapConfig -Name "urlpathmap" -PathRules $echoapiRule, $dummyPathRule -DefaultBackendAddressPool $dummyBackendPool -DefaultBackendHttpSettings $dummyBackendSetting
 ```
 
-위의 단계를 수행하면 Application Gateway를 통한 경로 "/echo"에 대한 요청만이 허용됩니다. API Management에서 구성된 다른 API에 대한 요청은 인터넷에서 액세스될 때 Application Gateway에서 404 오류를 throw합니다. 
+위의 단계를 수행하면 Application Gateway를 통한 경로 "/echo"에 대한 요청만이 허용됩니다. API Management에서 구성된 다른 API에 대한 요청은 인터넷에서 액세스될 때 Application Gateway에서 404 오류를 throw합니다.
 
 ### <a name="step-12"></a>12단계
 
@@ -340,7 +340,7 @@ $appgw = New-AzureRmApplicationGateway -Name $applicationGatewayName -ResourceGr
 
 ## <a name="cname-the-api-management-proxy-hostname-to-the-public-dns-name-of-the-application-gateway-resource"></a>API Management 프록시 호스트 이름을 Application Gateway 리소스의 공용 DNS 이름으로 CNAME합니다.
 
-게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 쉽게 사용할 수 없는 동적으로 할당된 DNS 이름이 필요합니다. 
+게이트웨이가 생성되면 다음 단계는 통신에 대한 프런트 엔드를 구성하는 것입니다. 공용 IP를 사용할 때 Application Gateway는 쉽게 사용할 수 없는 동적으로 할당된 DNS 이름이 필요합니다.
 
 Application Gateway의 DNS 이름은 APIM 프록시 호스트 이름(예: 위의 예제에서 `api.contoso.net`)을 이 DNS 이름으로 가리키는 CNAME 레코드를 만드는 데 사용되어야 합니다. 프런트 엔드 IP CNAME 레코드를 구성하려면 PublicIPAddress 요소를 사용하여 Application Gateway 및 관련 IP/DNS 이름에 대한 세부 정보를 검색합니다. A 레코드를 사용할 경우 게이트웨이를 다시 시작할 때 VIP가 변경될 수 있으므로 권장되지 않습니다.
 

@@ -15,11 +15,11 @@ ms.workload: TBD
 ms.date: 02/07/2017
 ms.author: alkohli
 ms.openlocfilehash: 3fb246b1515e7a637e6cff6499bf324c3f80dd45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109811"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38232192"
 ---
 # <a name="install-update-04-on-your-storsimple-virtual-array"></a>StorSimple 가상 배열에 업데이트 0.4 설치
 

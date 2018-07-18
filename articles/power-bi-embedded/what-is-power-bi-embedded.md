@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 01/04/2018
+ms.date: 05/31/2018
 ms.author: maghan
-ms.openlocfilehash: 1bc641e210a5bd965c5cdbf41efe853e9b297132
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8d68a950438a332cdf8ddd8d4f13a316c87aa0a5
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34715924"
 ---
-# <a name="about-power-bi-embedded"></a>Power BI Embedded 정보
+# <a name="what-is-power-bi-embedded"></a>Power BI Embedded란?
 
 Power BI Embedded는 ISV와 개발자가 Power BI 기능을 사용하는 방법을 간소화하는 데 사용됩니다. Power BI Embedded는 멋진 시각적 개체, 보고서 및 대시보드를 앱에 빠르게 추가할 수 있도록 하여 Power BI 기능을 간소화합니다. Microsoft Azure 기반 앱과 마찬가지로 Machine Learning 및 IoT와 같은 서비스가 사용됩니다. ISV는 앱에서 탐색하기 쉬운 데이터 탐색을 가능하게 하여 고객이 상황에 맞는 신속하고 정확한 결정을 내릴 수 있도록 합니다.
 
@@ -30,7 +31,7 @@ Power BI Embedded는 ISV와 개발자가 Power BI 기능을 사용하는 방법�
 
 Power BI Embedded를 통해 ISV와 개발자가 Power BI API를 사용하여 앱에 인텔리전스를 포함시키는 방법에 대한 유연성이 추가되었습니다. Microsoft의 세계 최고 수준 분석 엔진을 앱에 도입함으로써 ISV와 개발자는 최소한의 개발 노력을 활용하여 시장 진입 시간을 단축하고 스스로를 차별화할 수 있습니다. 개발자는 시각적 분석 기능을 개발하는 대신 고객의 요구 사항을 충족시키기 위한 솔루션에 주력할 수 있습니다. 또한 Power BI Embedded를 사용하면 이미 익숙한 개발 환경(Visual Studio 및 Azure)에서 작업할 수 있습니다.
 
-Power BI Premium을 사용하는 Power BI 콘텐츠가 내장된 기존 앱이 있나요? 앱을 제공하는 ISV나 개발자 또는 앱을 사용하는 조직은 조치가 필요하지 않습니다. 귀하와 귀하의 고객은 중단 없이 이러한 앱을 계속 사용할 수 있습니다. Power BI 작업 영역 컬렉션을 기반으로 하는 기존 앱이 있고 융합된 API 화면 및 새로운 용량 기반 Azure SKU를 활용하는 데 관심이 있는 경우 마이그레이션 가이드 문서를 참조하십시오.
+Power BI Premium을 사용하는 Power BI 콘텐츠가 포함된 기존 앱이 있나요? 앱을 제공하는 ISV나 개발자 또는 앱을 사용하는 조직은 조치가 필요하지 않습니다. 귀하와 귀하의 고객은 중단 없이 이러한 앱을 계속 사용할 수 있습니다. Power BI 작업 영역 컬렉션을 기반으로 하는 기존 앱이 있고 융합된 API 화면 및 새로운 용량 기반 Azure SKU를 활용하는 데 관심이 있는 경우 마이그레이션 가이드 문서를 참조하십시오.
 
 ## <a name="comparing-power-bi-embedded-with-power-bi-premium"></a>Power BI Embedded와 Power BI Premium 비교
 

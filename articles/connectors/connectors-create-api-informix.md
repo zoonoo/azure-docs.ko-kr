@@ -1,25 +1,22 @@
 ---
-title: "Logic Apps에서 Informix 커넥터 추가 | Microsoft Docs"
-description: "REST API 매개 변수를 사용하는 Informix 커넥터 개요"
-services: 
-documentationcenter: 
+title: IBM Informix 데이어베이스에 연결 - Azure Logic Apps | Microsoft Docs
+description: IBM Informix REST API 및 Azure Logic Apps로 리소스 관리
 author: gplarsen
-manager: anneta
-editor: 
-tags: connectors
-ms.assetid: ca2393f0-3073-4dc2-8438-747f5bc59689
-ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: plarsen
 ms.date: 09/26/2016
-ms.author: plarsen; ladocs
-ms.openlocfilehash: b3b352b185b7dfeee12ac9bee1b72cb740add5b8
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35296039"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Informix 커넥터 시작
 Informix용 Microsoft 커넥터는 Logic Apps를 IBM Informix 데이터베이스에 저장된 리소스에 연결합니다. Informix 커넥터는 TCP/IP 네트워크를 통해 원격 Informix 서버 컴퓨터와 통신하는 Microsoft 클라이언트를 포함합니다. Azure 가상화에서 실행되는 Windows용 IBM Informix와 같은 클라우드 데이터베이스, 온-프레미스 데이터 게이트웨이를 사용하는 온-프레미스 데이터베이스를 포함합니다. IBM Informix 플랫폼 및 버전의 [지원되는](connectors-create-api-informix.md#supported-informix-platforms-and-versions) 목록을 참조하세요(이 항목에서).
@@ -61,7 +58,7 @@ Logic Apps에 대해 자세히 알아보려면 [논리 앱 만들기](../logic-a
 2. **트리거** 목록에서 **되풀이**를 선택합니다. 
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다.  
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
-5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 테이블 가져오기(미리 보기)**를 선택합니다.
+5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 테이블 가져오기(미리 보기)** 를 선택합니다.
    
    ![](./media/connectors-create-api-informix/InformixconnectorActions.png)  
 6. **Informix - 테이블 가져오기** 구성 창에서 **온-프레미스 데이터 게이트웨이를 통해 연결**을 사용할 수 있게 하는 **확인란**을 선택합니다. 설정이 클라우드에서 온-프레미스로 변경되었는지 확인합니다.
@@ -131,7 +128,7 @@ Informix 테이블의 모든 행을 가져오는 논리 앱 작업을 만들 수
 2. **트리거** 목록에서 **되풀이**를 선택합니다. 
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
-5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 가져오기(미리 보기)**를 선택합니다.
+5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 가져오기(미리 보기)** 를 선택합니다.
 6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다.
 7. **연결** 구성 창에서 **새로 만들기**를 선택합니다. 
    
@@ -168,7 +165,7 @@ Informix 테이블에서 한 행을 추가하는 논리 앱 작업을 만들 수
 2. **트리거** 목록에서 **되풀이**를 선택합니다. 
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
-5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 삽입(미리 보기)**을 선택합니다.
+5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 삽입(미리 보기)** 을 선택합니다.
 6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
 7. **연결** 구성 창에서 연결을 선택하려면 선택합니다. 예를 들어 **hisdemo2**를 선택합니다.
    
@@ -195,7 +192,7 @@ Informix 테이블에서 한 행을 가져오는 논리 앱 작업을 만들 수
 2. **트리거** 목록에서 **되풀이**를 선택합니다. 
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
-5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 가져오기(미리 보기)**를 선택합니다.
+5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 가져오기(미리 보기)** 를 선택합니다.
 6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
 7. **연결** 구성 창에서 기존 연결을 선택하려면 선택합니다. 예를 들어 **hisdemo2**를 선택합니다.
    
@@ -223,7 +220,7 @@ Informix 테이블에서 한 행을 변경하는 논리 앱 작업을 만들 수
 2. **트리거** 목록에서 **되풀이**를 선택합니다. 
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
-5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 업데이트(미리 보기)**를 선택합니다.
+5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 업데이트(미리 보기)** 를 선택합니다.
 6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
 7. **연결** 구성 창에서 기존 연결을 선택하려면 선택합니다. 예를 들어 **hisdemo2**를 선택합니다.
    
@@ -250,7 +247,7 @@ Informix 테이블에서 한 행을 제거하는 논리 앱 작업을 만들 수
 2. **트리거** 목록에서 **되풀이**를 선택합니다. 
 3. **되풀이** 트리거에서 **편집**, **빈도** 드롭다운 목록을 차례로 선택하여 **일**을 선택한 다음 **간격**을 선택하여 **7**을 입력합니다. 
 4. **+ 새 단계** 상자를 선택한 다음 **작업 추가**를 선택합니다.
-5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 삭제(미리 보기)**를 선택합니다.
+5. **작업** 목록의 **추가 작업 검색** 편집 상자에 **informix**를 입력한 다음 **Informix - 행 삭제(미리 보기)** 를 선택합니다.
 6. **행 가져오기(미리 보기)** 작업에서 **연결 변경**을 선택합니다. 
 7. **연결** 구성 창에서 기존 연결을 선택합니다. 예를 들어 **hisdemo2**를 선택합니다.
    

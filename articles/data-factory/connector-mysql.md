@@ -10,24 +10,22 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: d7dea9a3d9eabdc9e4cdf21e6e584b745d22a54e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: bb3179f1db077aacc7e36acf16486ee77a7f36e7
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37051266"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MySQL에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-onprem-mysql-connector.md)
-> * [버전 2 - 미리 보기](connector-mysql.md)
+> * [버전 1](v1/data-factory-onprem-mysql-connector.md)
+> * [현재 버전](connector-mysql.md)
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 MySQL 데이터베이스에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. GA(일반 공급) 상태인 Data Factory 버전 1 서비스를 사용 중인 경우 [V1의 MySQL 커넥터](v1/data-factory-onprem-mysql-connector.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -37,13 +35,9 @@ MySQL 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 MySQL 커넥터를 사용하려면 다음을 수행해야 합니다.
+MySQL 데이터베이스에 공개적으로 액세스할 수 없는 경우, 자체 호스팅 Integration Runtime을 설정해야 합니다. 자체 호스팅 통합 런타임에 대한 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md) 문서를 참조하세요. Integration Runtime은 버전 3.7부터 시작하는 기본 제공 MySQL 드라이버를 제공하므로 수동으로 드라이버를 설치할 필요가 없습니다.
 
-- 자체 호스팅 통합 런타임을 설정합니다. 자세한 내용은 [자체 호스팅 통합 런타임](create-self-hosted-integration-runtime.md)을 참조하세요.
-- 통합 런타임 컴퓨터에 [Microsoft Windows용 MySQL 커넥터/Net](https://dev.mysql.com/downloads/connector/net/) 버전 6.6.5 이상을 설치합니다. 이 32비트 드라이버는 64비트 IR과 호환 가능합니다.
-
-> [!TIP]
-> "원격측에서 전송 스트림을 닫았으므로 인증에 실패했습니다." 오류가 발생할 경우 MySQL 커넥터/Net을 더 높은 버전으로 업그레이드하는 방안을 고려해 보세요.
+3.7 이전 버전의 자체 호스팅 IR에서는 Integration Runtime 머신에 [Microsoft Windows용 MySQL 커넥터/Net](https://dev.mysql.com/downloads/connector/net/) 버전 6.6.5~6.10.7을 설치해야 합니다. 이 32비트 드라이버는 64비트 IR과 호환 가능합니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -58,14 +52,40 @@ MySQL 연결된 서비스에 다음 속성이 지원됩니다.
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **MySql**로 설정해야 합니다. | 예 |
-| 서버 | MySQL 서버의 이름입니다. | 예 |
-| 데이터베이스 | MySQL 데이터베이스의 이름입니다. | 예 |
-| schema | 데이터베이스에서 스키마의 이름입니다. | 아니요 |
-| 사용자 이름 | MySQL 데이터베이스에 연결할 사용자 이름을 지정합니다. | 예 |
-| 암호 | 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+| connectionString | Azure Database for MySQL 인스턴스에 연결하는 데 필요한 정보를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 자체 호스팅 Integration Runtime 또는 Azure Integration Runtime을 사용할 수 있습니다(데이터 저장소를 공개적으로 액세스할 수 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+
+일반적인 연결 문자열은 `Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>`입니다. 사례에 따라 다음과 같은 더 많은 속성을 설정할 수 있습니다.
+
+| 자산 | 설명 | 옵션 | 필수 |
+|:--- |:--- |:--- |:--- |:--- |
+| SSLMode | 이 옵션은 MySQL에 연결할 때 드라이버에서 SSL 암호화 및 확인을 사용하는지 여부를 지정합니다. 예: `SSLMode=<0/1/2/3/4>`| 사용 안 함(0) / 기본 설정(1) **(기본값)** / 필요(2) / VERIFY_CA(3) / VERIFY_IDENTITY(4) | 아니오 |
+| UseSystemTrustStore | 이 옵션은 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 예: `UseSystemTrustStore=<0/1>;`| 사용(1) / 사용 안 함(0)**(기본값)** | 아니오 |
 
 **예제:**
+
+```json
+{
+    "name": "MySQLLinkedService",
+    "properties": {
+        "type": "MySql",
+        "typeProperties": {
+            "connectionString": {
+                 "type": "SecureString",
+                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+다음 페이로드에서 MySQL 연결된 서비스를 사용하는 경우, 있는 그대로도 지원되지만 앞으로 새 옵션을 사용하는 것이 좋습니다.
+
+**이전 페이로드:**
 
 ```json
 {
@@ -170,13 +190,14 @@ MySQL에서 데이터를 복사하는 경우 MySQL 데이터 형식에서 Azure 
 |:--- |:--- |
 | `bigint` |`Int64` |
 | `bigint unsigned` |`Decimal` |
-| `bit` |`Decimal` |
+| `bit(1)` |`Boolean` |
+| `bit(M), M>1`|`Byte[]`|
 | `blob` |`Byte[]` |
-| `bool` |`Boolean` |
+| `bool` |`Int16` |
 | `char` |`String` |
 | `date` |`Datetime` |
 | `datetime` |`Datetime` |
-| `decimal` |`Decimal` |
+| `decimal` |`Decimal, String` |
 | `double` |`Double` |
 | `double precision` |`Double` |
 | `enum` |`String` |

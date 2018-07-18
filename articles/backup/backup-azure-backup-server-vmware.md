@@ -1,23 +1,19 @@
 ---
-title: "Azure Backup Server를 사용하여 VMware 서버 백업 | Microsoft Docs"
-description: "Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버를 Azure 또는 디스크에 백업합니다. 이 문서에서는 VMware 워크로드를 백업(또는 보호)하기 위한 단계별 지침을 제공합니다."
+title: Azure Backup Server를 사용하여 VMware 서버 백업
+description: Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버를 Azure 또는 디스크에 백업합니다. 이 문서에서는 VMware 워크로드를 백업(또는 보호)하기 위한 단계별 지침을 제공합니다.
 services: backup
-documentationcenter: 
 author: markgalioto
 manager: carmonm
-ms.assetid: 6b131caf-de85-4eba-b8e6-d8a04545cd9d
 ms.service: backup
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/24/2017
-ms.author: markgal;
-ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: adigan
+ms.openlocfilehash: 9cf3c9d5df11e19045cd47a41d7ab9ac93bdf700
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34605426"
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Azure에 VMware 서버 백업
 
@@ -92,7 +88,7 @@ Azure Backup Server는 VMware vCenter Server 버전 6.5, 6.0 및 5.5를 백업�
 
     ![인증서 대상 폴더](./media/backup-azure-backup-server-vmware/certificate-store-selected.png)
 
-    **신뢰할 수 있는 루트 인증 기관** 폴더가 인증서 저장소로 확인됩니다. **다음**을 누릅니다.
+    **신뢰할 수 있는 루트 인증 기관** 폴더가 인증서 저장소로 확인됩니다. **다음**을 클릭합니다.
 
     ![인증서 저장소 폴더](./media/backup-azure-backup-server-vmware/certificate-import-wizard2.png)
 
@@ -366,7 +362,7 @@ System Center Data Protection Manager 또는 Azure Backup Server를 사용해 �
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
-10. **온라인 백업 일정 지정** 페이지에서 디스크 백업에서 복구 지점을 생성하기 위한 일정을 지정합니다. 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다. 온라인 백업 일정에 만족한다면 **다음**을 클릭합니다.
+10. **온라인 Backup 일정 지정** 페이지에서 디스크 백업에서 복구 지점을 생성하기 위한 일정을 지정합니다. 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다. 온라인 백업 일정에 만족한다면 **다음**을 클릭합니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 57cb06fcee029f72dd1cf81ef086985fdda3f45f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783862"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903050"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
-이 문서에서는 클라이언트 쪽에 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
+이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
 
 라이브 스트리밍 비디오에서 캡션 및 광고 지원에 대한 정보는 [지원되는 캡션 및 Ad 삽입 표준](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads)을 참조하세요.
 
@@ -32,15 +32,15 @@ ms.locfileid: "33783862"
 > 
 
 ## <a id="insert_ads_into_media"></a>미디어에 광고 삽입
-Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 장치에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 응용 프로그램을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어:목록에 삽입할 수 있는 광고는 세 가지입니다.
+Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 장치에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 응용 프로그램을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. media:list에는 세 가지 유형의 광고를 삽입할 수 있습니다.
 
 * **선형** -기본 비디오를 일시 중지하는 전체 프레임 광고
 * **비선형** -기본 비디오를 재생할 때 표시되는 오버레이 광고로, 일반적으로 플레이어 내에 배치된 로고나 기타 정적 이미지
 * **동반** -플레이어 외부에 표시되는 광고
 
-광고는 기본 비디오 타임 라인에 언제든지 배치할 수 있습니다. 플레이어에 광고를 재생하는 시기 및 재생하는 광고를 알려야 합니다. 이 작업은 표준 XML 기반 파일 집합을 사용하여 수행됩니다. VAST(Video Ad Service Template), VMAP(Digital Video Multiple Ad Playlist), MAST(Media Abstract Sequencing Template) 및 VPAID(Digital Video Player Ad Interface Definition). VAST 파일은 표시할 광고를 지정합니다. VMAP 파일은 다양한 광고를 재생하고 VAST XML을 포함하는 시기를 지정합니다. 또한 MAST 파일은 VAST XML도 포함할 수 있는 광고를 시퀀스하는 다른 방법입니다. VPAID 파일은 비디오 플레이어와 광고 또는 광고 서버 간의 인터페이스를 정의합니다.
+광고는 기본 비디오 타임 라인에 언제든지 배치할 수 있습니다. 플레이어에 광고를 재생하는 시기 및 재생하는 광고를 알려야 합니다. 이 작업은 표준 XML 기반 파일 집합을 사용하여 수행됩니다. VAST(Video Ad Service Template), VMAP(Digital Video Multiple Ad Playlist), MAST(Media Abstract Sequencing Template) 및 VPAID(Digital Video Player Ad Interface Definition). VAST 파일은 표시할 광고를 지정합니다. VMAP 파일은 다양한 광고를 언제 재생할지를 지정합니다(이 파일에 VAST XML이 포함됨). MAST 파일을 사용하여 광고의 순서를 지정할 수도 있습니다(이 파일에도 VAST XML이 포함됨). VPAID 파일은 비디오 플레이어와 광고 또는 광고 서버 간의 인터페이스를 정의합니다.
 
-각 플레이어 프레임워크는 서로 다르게 작동하고 각각 별도의 문서에서 설명합니다. 이 문서에서는 광고 삽입에 사용되는 기본 메커니즘을 설명합니다. 비디오 플레이어 응용 프로그램이 광고 서버에서 광고를 요청합니다. 광고 서버는 다양한 방법으로 응답할 수 있습니다.
+각 플레이어 프레임워크는 서로 다르게 작동하고 각각 별도의 문서에서 설명합니다. 이 문서에서는 광고 삽입에 사용되는 기본 메커니즘을 설명합니다. 비디오 플레이어 응용 프로그램은 광고 서버에서 광고를 요청합니다. 광고 서버는 다양한 방법으로 응답할 수 있습니다.
 
 * VAST 파일 반환
 * VMAP 파일 반환(포함된 VAST와 함께)
@@ -94,7 +94,7 @@ VAST 파일은 표시할 광고를 지정합니다. 다음 XML은 선형 광고�
     </VAST>
 ```
 
-선형 광고는 <**Linear**> 요소로 설명됩니다. 광고 기간, 추적 이벤트, 클릭 방문, 클릭 추적 및 다양한 **MediaFile** 요소를 지정합니다. 추적 이벤트는 <**TrackingEvents**> 요소 내에서 지정되고, 이를 통해 광고 서버에서 광고를 보는 동안 발생하는 다양한 이벤트를 추적할 수 있습니다. 이 경우 start, midpoint, complete 및 expand 이벤트가 추적됩니다. start 이벤트는 광고가 표시될 때 발생합니다. midpoint 이벤트는 광고 타임라인의 50% 이상이 표시되었을 때 발생합니다. complete 이벤트는 광고가 끝까지 실행되었을 때 발생합니다. expand 이벤트는 사용자가 비디오 플레이어를 전체 화면으로 확장할 때 발생합니다. 광고 방문은 <**VideoClicks**> 요소 내의 <**ClickThrough**> 요소로 지정되고, 사용자가 광고를 클릭할 때 표시할 리소스에 대한 URI를 지정합니다. 클릭 추적은 <**VideoClicks**> 요소 내의 <**ClickTracking**> 요소로 지정되고, 사용자가 광고를 클릭할 때 플레이어에서 요청할 추적 리소스를 지정합니다. <**MediaFile**> 요소는 광고의 특정 인코딩에 대한 정보를 지정합니다. <**MediaFile**> 요소가 둘 이상 있으면 비디오 플레이어에서 플랫폼에 가장 적합한 인코딩을 선택할 수 있습니다. 
+선형 광고는 <**Linear**> 요소로 설명됩니다. 광고 기간, 추적 이벤트, 클릭 방문, 클릭 추적 및 다양한 **MediaFile** 요소를 지정합니다. 추적 이벤트는 <**TrackingEvents**> 요소 내에서 지정되고, 이를 통해 광고 서버에서 광고를 보는 동안 발생하는 다양한 이벤트를 추적할 수 있습니다. 이 경우 start, midpoint, complete 및 expand 이벤트가 추적됩니다. start 이벤트는 광고가 표시될 때 발생합니다. midpoint 이벤트는 광고 타임라인의 50% 이상이 표시되었을 때 발생합니다. complete 이벤트는 광고가 끝까지 실행되었을 때 발생합니다. expand 이벤트는 사용자가 비디오 플레이어를 전체 화면으로 확장할 때 발생합니다. 광고 방문은 <**VideoClicks**> 요소 내의 <**ClickThrough**> 요소로 지정되고, 사용자가 광고를 클릭할 때 표시할 리소스에 대한 URI를 지정합니다. 클릭 추적은 <**VideoClicks**> 요소 내의 <**ClickTracking**> 요소에서 지정되고, 사용자가 광고를 클릭할 때 플레이어에서 요청할 추적 리소스를 지정합니다. <**MediaFile**> 요소는 광고의 특정 인코딩에 대한 정보를 지정합니다. <**MediaFile**> 요소가 둘 이상 있으면 비디오 플레이어에서 플랫폼에 가장 적합한 인코딩을 선택할 수 있습니다. 
 
 선형 광고는 지정된 순서대로 표시될 수 있습니다. 이렇게 하려면 VAST 파일에 다른 <Ad> 요소를 추가하고 시퀀스 특성을 사용하여 순서를 지정합니다. 다음 예제에서는 이에 대해 설명합니다.
 
@@ -168,9 +168,9 @@ Application/x-javascript – 리소스가 HTML <**script**> 태그에 표시됩�
 
 Application/x-shockwave-flash – 리소스가 Flash Player에 표시됩니다.
 
-**IFrameResource**는 IFrame에 표시할 수 있는 HTML 리소스를 설명합니다. **HTMLResource**는 웹 페이지에 삽입할 수 있는 HTML 코드 조각을 설명합니다. **TrackingEvents**는 추적 이벤트와 이벤트가 발생할 때 요청할 URI를 지정합니다. 이 샘플에서 acceptInvitation 및 collapse 이벤트가 추적됩니다. **NonLinearAds** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **TrackingEvents** 요소는 **NonLinear** 요소가 아닌 **NonLinearAds** 요소 내에 있습니다.
+**IFrameResource**는 IFrame에 표시할 수 있는 HTML 리소스를 설명합니다. **HTMLResource**는 웹 페이지에 삽입할 수 있는 HTML 코드 조각을 설명합니다. **TrackingEvents**는 추적 이벤트와 이벤트가 발생할 때 요청할 URI를 지정합니다. 이 샘플에서는 acceptInvitation 및 collapse 이벤트가 추적됩니다. **NonLinearAds** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **TrackingEvents** 요소는 **NonLinear** 요소가 아닌 **NonLinearAds** 요소 내에 있습니다.
 
-동반 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소에는 하나 이상의 <Companion> 요소가 포함될 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 동반 광고를 포함할 수 있고 플레이어 응용 프로그램은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
+캠페인(Companion) 광고는 <CompanionAds> 요소 내에서 정의됩니다. <CompanionAds> 요소에는 하나 이상의 <Companion> 요소가 포함될 수 있습니다. 각 <Companion> 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 <StaticResource>, <IFrameResource> 또는 <HTMLResource>를 포함할 수 있습니다. VAST 파일은 여러 캠페인 광고를 포함할 수 있고 플레이어 응용 프로그램은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](http://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>디지털 VMAP(Video Multiple Ad Playlist) 파일 사용
 VMAP 파일을 사용하여 광고가 발생하는 시기, 각 광고가 지속되는 기간, 광고 시간 내에 표시될 수 있는 광고 수, 광고 시간 중에 표시될 수 있는 광고 유형을 지정할 수 있습니다. 단일 광고를 정의하는 예제 VMAP 파일은 다음과 같습니다.
@@ -276,7 +276,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 <AdBreak> 요소�
     </vmap:VMAP>
 ```
 
-<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.org/VMAP.pdf를 참조하세요.
+<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.net/VMAP.pdf를 참조하세요.
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>MAST(Media Abstract Sequencing Template) 파일 사용
 MAST 파일을 사용하여 광고가 표시되는 시기를 정의하는 트리거를 지정할 수 있습니다. 재생 전 광고, 재생 중 광고 및 재생 후 광고에 대한 트리거를 포함하는 예제 MAST 파일은 다음과 같습니다.
@@ -327,14 +327,14 @@ MAST 파일을 사용하여 광고가 표시되는 시기를 정의하는 트리
 
 MAST 파일은 하나의 **triggers** 요소를 포함하는 **MAST** 요소로 시작합니다. <triggers> 요소는 광고가 재생되는 시기를 정의하는 **trigger** 요소를 하나 이상 포함합니다. 
 
-**trigger** 요소는 광고 재생이 시작되는 시기를 지정하는 **startConditions** 요소를 포함합니다. **startConditions** 요소는 <condition> 요소를 하나 이상 포함합니다. 각 <condition>이 true로 평가되면 <condition>이 각각 **startConditions** 또는 **endConditions** 요소 안에 포함되는지에 따라 트리거가 시작되거나 취소됩니다. 여러 <condition> 요소가 있으면 암시적 OR로 처리되고, 모든 조건이 true로 평가되어 트리거가 시작됩니다. <condition> 요소는 중첩될 수 있습니다. 자식 <condition> 요소가 기본 설정되면 암시적 AND로 처리되고, 트리거가 시작되려면 모든 조건이 true로 평가되어야 합니다. <condition> 요소는 조건을 정의하는 다음 특성을 포함합니다. 
+**trigger** 요소는 광고 재생을 언제 시작할지를 지정하는 **startConditions** 요소를 포함합니다. **startConditions** 요소는 <condition> 요소를 하나 이상 포함합니다. 각 <condition>이 true로 평가되면 <condition>이 각각 **startConditions** 또는 **endConditions** 요소 안에 포함되는지에 따라 트리거가 시작되거나 취소됩니다. 여러 <condition> 요소가 있으면 암시적 OR로 처리되고, 모든 조건이 true로 평가되어 트리거가 시작됩니다. <condition> 요소는 중첩될 수 있습니다. 자식 <condition> 요소가 기본 설정되면 암시적 AND로 처리되고, 트리거가 시작되려면 모든 조건이 true로 평가되어야 합니다. <condition> 요소는 조건을 정의하는 다음 특성을 포함합니다. 
 
 1. **type** – 조건, 이벤트 또는 속성 유형을 지정
 2. **name** – 평가 중에 사용할 속성 또는 이벤트의 이름
 3. **value** – 속성을 평가할 기준 값
 4. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(나머지)
 
-**endConditions**도 <condition> 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. <trigger> 요소에는 <source> 요소를 하나 이상 포함하는 <sources> 요소도 포함됩니다. <source> 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 이 예제에서는 VAST 응답에 대한 URI가 제공됩니다. 
+**endConditions**도 <condition> 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. <trigger> 요소에는 <source> 요소를 하나 이상 포함하는 <sources> 요소도 포함됩니다. <source> 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다. 
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -383,7 +383,7 @@ Microsoft.PlayerFramework.Xaml.Samples 솔루션을 열면 프로젝트 내에 �
 이들 샘플에서는 각각 플레이어 프레임워크에서 정의된 MediaPlayer 클래스를 사용합니다. 대부분 샘플에서는 다양한 광고 응답 형식에 대한 지원을 추가하는 플러그 인을 사용합니다. ProgrammaticAdPage 샘플에서는 MediaPlayer 인스턴스를 프로그래밍 방식으로 조작합니다.
 
 ### <a name="adpodpage-sample"></a>AdPodPage 샘플
-이 샘플에서는 AdSchedulerPlugin을 사용하여 광고를 표시할 시기를 정의합니다. 이 예제에서 재생 중 광고는 5초 후 재생되도록 예약됩니다. 광고 포드(순서대로 표시할 광고 그룹)는 광고 서버에서 반환되는 VAST 파일로 지정됩니다. VAST 파일에 대한 URI는 <RemoteAdSource> 요소에서 지정됩니다.
+이 샘플에서는 AdSchedulerPlugin을 사용하여 광고를 표시할 시기를 정의합니다. 이 예제에서는 재생 중 광고(중간 광고: mid-roll)가 5초 후에 재생되도록 예약 설정됩니다. 광고 포드(순서대로 표시할 광고 그룹)는 광고 서버에서 반환되는 VAST 파일로 지정됩니다. VAST 파일에 대한 URI는 <RemoteAdSource> 요소에서 지정됩니다.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -471,7 +471,7 @@ AdSchedulerPlugin에 대한 자세한 내용은 [Windows 8 및 Windows Phone 8�
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4"/>
 ```
 
-ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarker를 추가하여 광고가 표시되어야 하는 시기를 지정하고, VAST 파일에 대한 URI를 지정하여 RemoteAdSource를 로드하는 MarkerReached 이벤트에 대한 처리기를 추가하고, 광고를 재생합니다.
+ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarker를 추가하여 광고가 언제 표시되는지를 지정한 다음, MarkerReached 이벤트에 대한 처리기를 추가합니다(이 처리기는 VAST 파일에 대한 URI를 지정하여 RemoteAdSource를 로드한 다음, 광고를 재생함).
 
 ```csharp
     public sealed partial class ProgrammaticAdPage : Microsoft.PlayerFramework.Samples.Common.LayoutAwarePage
@@ -530,7 +530,7 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 ```
 
 ### <a name="vastlinearcompanionpage"></a>VastLinearCompanionPage
-이 샘플에서는 AdSchedulerPlugin을 사용하여 재생 중 선형 광고를 동반 광고와 함께 예약하는 방법을 보여줍니다. <RemoteAdSource> 요소는 VAST 파일의 위치를 지정합니다.
+이 샘플에서는 AdSchedulerPlugin을 사용하여 재생 중 선형 광고를 캠페인(companion) 광고와 함께 예약하는 방법을 보여줍니다. <RemoteAdSource> 요소는 VAST 파일의 위치를 지정합니다.
 
 ```xml
     <mmppf:MediaPlayer Grid.Row="1"  x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">
@@ -574,7 +574,7 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 ```
 
 ### <a name="vmappage"></a>VMAPPage
-이 샘플에서는 VmapSchedulerPlugin을 사용하여 VMAP 파일을 통해 광고를 예약합니다. VMAP 파일에 대한 URI는 <VmapSchedulerPlugin> 요소의 Source 특성으로 지정합니다.
+이 샘플에서는 VmapSchedulerPlugin을 사용하여 VMAP 파일을 사용하는 광고 예약을 설정합니다. VMAP 파일에 대한 URI는 <VmapSchedulerPlugin> 요소의 Source 특성으로 지정합니다.
 
 ```xml
     <mmppf:MediaPlayer x:Name="player" Source="http://smf.blob.core.windows.net/samples/videos/bigbuck.mp4">

@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: b01e4498e63ab989b0b78246636cba50ed4f82d6
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943215"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098820"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>다중 비트 전송률 스트림을 만드는 온-프레미스 인코더를 사용한 라이브 스트리밍
 
@@ -146,7 +146,7 @@ KeyFrameInterval 및 FragmentsPerSegment를 둘 다 명시적으로 설정하는
 
 채널을 만들 때 미리 보기 URL을 가져올 수 있습니다. 사용자가 URL을 가져오기 위해 채널이 **실행 중** 상태일 필요는 없습니다. 채널이 데이터를 수집하기 시작한 후에 스트림을 미리 볼 수 있습니다.
 
-현재 미리 보기 스트림은 지정된 입력 형식에 관계없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 제공될 수 있습니다. [부드러운 스트리밍 상태 모니터링](http://smf.cloudapp.net/healthmonitor) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure Portal에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
+현재 미리 보기 스트림은 지정된 입력 형식에 관계없이 조각화된 MP4(부드러운 스트리밍) 형식으로만 제공될 수 있습니다. [부드러운 스트리밍 상태 모니터링](http://playready.directtaps.net/smoothstreaming/) 플레이어를 사용하여 부드러운 스트림을 테스트할 수 있습니다. Azure Portal에 호스팅된 플레이어를 사용하여 스트림을 볼 수도 있습니다.
 
 #### <a name="allowed-ip-addresses"></a>허용된 IP 주소
 끝점을 미리 보려면 연결이 허용된 IP 주소를 정의할 수 있습니다. 지정된 IP 주소가 없는 경우 모든 IP 주소가 허용됩니다. 허용된 IP 주소를 다음 중 하나로 지정할 수 있습니다.

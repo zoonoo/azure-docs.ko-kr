@@ -1,28 +1,28 @@
 ---
-title: Azure SQL Data Sync(미리 보기) 설정 | Microsoft Docs
-description: 이 자습서에서는 Azure SQL Data Sync(미리 보기) 설정 방법을 보여 줍니다.
+title: Azure SQL 데이터 동기화 설정 | Microsoft Docs
+description: 이 자습서에서는 Azure SQL 데이터 동기화 설정 방법을 보여줍니다.
 services: sql-database
-author: douglaslms
+author: allenwux
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: douglasl
+ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7598484a20d2d719c84e1789664ac2b40c2d0639
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: df7ca91d403374e8d320822f5fa384a866fac0ae
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647853"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37025524"
 ---
-# <a name="set-up-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 설정
+# <a name="set-up-sql-data-sync"></a>SQL 데이터 동기화 설정
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 하이브리드 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 새 동기화 그룹을 완벽하게 구성하고 설정한 일정에 동기화합니다.
 
 이 자습서에서는 사용자가 SQL Database 및 SQL Server를 사용해본 경험이 있다고 가정합니다. 
 
-SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
 
 SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 문서를 참조하세요.
 -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
@@ -199,7 +199,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 ### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL 데이터 동기화가 테이블을 완벽하게 만들어 프로비전하나요?
 
-동기화 스키마 테이블이 대상 데이터베이스에 아직 만들어지지 않았으면 SQL 데이터 동기화(미리 보기)가 사용자가 선택한 열로 해당 테이블을 만듭니다.  그러나 다음과 같은 이유로 이 동작에서 완전히 충실한 스키마가 만들어지지는 않습니다.
+동기화 스키마 테이블이 대상 데이터베이스에 아직 만들어지지 않았으면 SQL 데이터 동기화가 사용자가 선택한 열로 해당 테이블을 만듭니다. 그러나 다음과 같은 이유로 이 동작에서 완전히 충실한 스키마가 만들어지지는 않습니다.
 
 -   사용자가 선택한 열만 대상 테이블에 만들어집니다. 원본 테이블의 일부 열이 동기화 그룹에 속하지 않으면 해당 열은 대상 테이블에서 프로비전되지 않습니다.
 
@@ -215,7 +215,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 이러한 제한 때문에 다음이 권장됩니다.
 -   프로덕션 환경에서는 완전히 충실한 스키마를 직접 프로비전합니다.
--   서비스 테스트에는 SQL 데이터 동기화(미리 보기)의 자동 프로비전 기능이 잘 작동합니다.
+-   서비스 테스트에는 SQL 데이터 동기화의 자동 프로비전 기능이 잘 작동합니다.
 
 ### <a name="why-do-i-see-tables-that-i-did-not-create"></a>내가 만들지 않은 테이블이 표시되는 이유는 무엇인가요?  
 데이터 동기화는 변경 내용 추적을 위해 데이터베이스에 추가 테이블을 만듭니다. 해당 테이블을 삭제하지 마세요. 삭제하면 데이터 동기화의 작동이 중지됩니다.
@@ -246,7 +246,7 @@ SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제는 다음 �
 
 ### <a name="why-do-i-need-a-client-agent"></a>클라이언트 에이전트가 왜 필요한가요?
 
-SQL 데이터 동기화(미리 보기) 서비스는 클라이언트 에이전트를 통해 SQL Server 데이터베이스와 통신합니다. 이 보안 기능은 방화벽 뒤에 있는 데이터베이스와의 직접 통신을 방지합니다. SQL 데이터 동기화(미리 보기) 서비스가 에이전트와 통신할 때는 암호화된 연결과 고유 토큰 또는 *에이전트 키*를 사용합니다. SQL Server 데이터베이스는 연결 문자열과 에이전트 키를 사용하여 에이전트를 인증합니다. 이러한 설계는 데이터에 높은 수준의 보안을 제공합니다.
+SQL 데이터 동기화 서비스는 클라이언트 에이전트를 통해 SQL Server 데이터베이스와 통신합니다. 이 보안 기능은 방화벽 뒤에 있는 데이터베이스와의 직접 통신을 방지합니다. SQL 데이터 동기화 서비스가 에이전트와 통신할 때는 암호화된 연결과 고유 토큰 또는 *에이전트 키*를 사용합니다. SQL Server 데이터베이스는 연결 문자열과 에이전트 키를 사용하여 에이전트를 인증합니다. 이러한 설계는 데이터에 높은 수준의 보안을 제공합니다.
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>실행할 수 있는 로컬 에이전트의 UI의 인스턴스는 얼마나 되나요?
 
@@ -258,7 +258,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
 ### <a name="how-do-i-change-my-agent-key"></a>내 에이전트 키는 어떻게 변경하나요?
 
-에이전트 키는 에이전트에서 한 번만 사용할 수 있습니다. 제거 후 새 에이전트를 설치하면 재사용할 수 없고 여러 에이전트에서 사용할 수도 없습니다. 기존 에이전트에 대해 새 키를 만들어야 할 경우, 클라이언트 에이전트와 SQL 데이터 동기화(미리 보기) 서비스에 같은 키가 기록되도록 해야 합니다.
+에이전트 키는 에이전트에서 한 번만 사용할 수 있습니다. 제거 후 새 에이전트를 설치하면 재사용할 수 없고 여러 에이전트에서 사용할 수도 없습니다. 기존 에이전트에 대해 새 키를 만들어야 할 경우, 클라이언트 에이전트와 SQL 데이터 동기화 서비스에 같은 키가 기록되도록 해야 합니다.
 
 ### <a name="how-do-i-retire-a-client-agent"></a>클라이언트 에이전트는 어떻게 사용 중지하나요?
 
@@ -270,7 +270,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 
 1. 원하는 컴퓨터에 에이전트를 설치합니다.
 
-2. SQL 데이터 동기화(미리 보기) 포털에 로그인하고 새 에이전트에 대해 에이전트 키를 다시 생성합니다.
+2. SQL 데이터 동기화 포털에 로그인하고 새 에이전트에 대해 에이전트 키를 다시 생성합니다.
 
 3. 새 에이전트의 UI를 사용하여 새 에이전트 키를 제출합니다.
 

@@ -1,24 +1,21 @@
 ---
-title: 응용 프로그램의 형식 - Azure AD B2C | Microsoft Docs
+title: Azure Active Directory B2C의 응용 프로그램 유형 | Microsoft Docs
 description: Azure Active Directory B2C에서 빌드할 수 있는 응용 프로그램의 유형입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.assetid: bb9d4abe-0db7-4bd9-b0c4-2f43b2c9cf33
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: davidmu1
-ms.openlocfilehash: 0329cb9e49196f77ba12940e5987487eb2b6fda9
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.component: B2C
+ms.openlocfilehash: 63bf3725eddd14d665e51427a65a339116ceb09b
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34710086"
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: 응용 프로그램 유형
 Azure AD(Azure Active Directory) B2C는 다양한 최신 앱 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 또는 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 기반으로 합니다. 이 문서에서는 선호하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 앱 유형에 대해 간략하게 설명합니다. 또한 [응용 프로그램 빌드를 시작](active-directory-b2c-overview.md)하기 전에 대략적인 시나리오에 대한 이해를 돕습니다

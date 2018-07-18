@@ -1,8 +1,8 @@
 ---
-title: "Azure Application Insights 데이터 모델 | Microsoft Docs"
-description: "JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다."
+title: Azure Application Insights 데이터 모델 | Microsoft Docs
+description: JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: 86aef6ba93224bbbb41bc7e651aaeec394fd8718
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ee6597b78ac8de8fc3a7f3796010f22919243b23
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35294897"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
 이 테이블은 [Application Insights](app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
@@ -31,7 +32,7 @@ ms.lasthandoff: 11/01/2017
 * 날짜와 시간은 UTC이며 ISO 형식 `yyyy-MM-DDThh:mm:ss.sssZ`
 
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
     // A server report about an HTTP request
     {
     "request": [
@@ -114,7 +115,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="context"></a>Context
 모든 유형의 원격 분석에는 컨텍스트 섹션이 함께 제공됩니다. 이러한 모든 필드가 모든 데이터 요소와 함께 전송되는 것은 아닙니다.
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |사용자 지정 속성 매개 변수에 의해 설정되는 키-값 문자열 쌍입니다. 키 최대 길이가 100이고, 값 최대 길이가 1024입니다. 100개 이상의 고유 값, 속성을 검색할 수 있지만 구분에 사용할 수 없습니다. ikey당 최대 키는 200개입니다. |
 | context.custom.metrics [0] |object [ ] |사용자 지정 측정 매개 변수 및 TrackMetrics에 의해 설정된 키-값 쌍입니다. 키 최대 길이가 100이고, 값은 숫자가 될 수 있습니다. |
@@ -151,12 +152,12 @@ ms.lasthandoff: 11/01/2017
 | context.user.authAcquisitionDate |string |[인증된 사용자](app-insights-api-custom-events-metrics.md#authenticated-users) |
 | context.user.isAuthenticated |부울 | |
 | internal.data.documentVersion |string | |
-| internal.data.id |string | |
+| internal.data.id |string | 항목이 Application Insights에 수집된 경우 할당된 고유 ID |
 
 ## <a name="events"></a>이벤트
 [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | event [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | event [0] name |string |이벤트 이름입니다.  최대 길이 250 |
@@ -167,7 +168,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="exceptions"></a>예외
 서버 및 브라우저의 [예외](app-insights-asp-net-exceptions.md) 를 보고합니다.
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | basicException [0] assembly |string | |
 | basicException [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
@@ -196,7 +197,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="trace-messages"></a>추적 메시지
 [TrackTrace](app-insights-api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](app-insights-asp-net-trace-logs.md)에서 전송합니다.
 
-| Path | 형식 | 참고 |
+| path | type | 참고 |
 | --- | --- | --- |
 | message [0] loggerName |string | |
 | message [0] parameters |string | |
@@ -206,7 +207,7 @@ ms.lasthandoff: 11/01/2017
 ## <a name="remote-dependency"></a>원격 종속성
 TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](app-insights-asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | remoteDependency [0] async |부울 | |
 | remoteDependency [0] baseName |string | |
@@ -227,7 +228,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 ## <a name="requests"></a>요청
 [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | request [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
@@ -245,7 +246,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 
 컨텍스트 값은 클라이언트 OS 및 브라우저 버전을 표시합니다.
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | clientPerformance [0] clientProcess.value |정수 |HTML 수신 완료부터 페이지 표시까지 걸리는 시간입니다. |
 | clientPerformance [0] name |string | |
@@ -262,7 +263,7 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](ap
 ## <a name="page-views"></a>페이지 보기
 trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md#page-views)에서 전송
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | view [0] count |정수 |100/([샘플링](app-insights-sampling.md) 속도) 예: 4 =&gt; 25%. |
 | view [0] durationMetric.value |정수 |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
@@ -272,10 +273,10 @@ trackPageView() 또는 [stopTrackPage](app-insights-api-custom-events-metrics.md
 | view [0] urlData.hashTag |string | |
 | view [0] urlData.host |string | |
 
-## <a name="availability"></a>Availability
+## <a name="availability"></a>가용성
 [가용성 웹 테스트](app-insights-monitor-web-app-availability.md)를 보고합니다.
 
-| Path | 형식 | 참고 |
+| path | type | 메모 |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |string |Availability |
 | availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
@@ -296,7 +297,7 @@ TrackMetric()에서 생성합니다.
 
 메트릭 값은 context.custom.metrics[0]에서 찾을 수 있습니다.
 
-예:
+예: 
 
     {
      "metric": [ ],
@@ -322,7 +323,7 @@ TrackMetric()에서 생성합니다.
     }
 
 ## <a name="about-metric-values"></a>메트릭 값 정보
-메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예:
+메트릭 보고서 및 기타 다른 곳의 메트릭 값은 모두 표준 개체 구조를 사용하여 보고됩니다. 예: 
 
       "durationMetric": {
         "name": "contoso.org",

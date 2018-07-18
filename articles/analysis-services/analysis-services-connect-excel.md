@@ -3,22 +3,24 @@ title: Excel을 사용하여 Azure Analysis Services에 연결 | Microsoft Docs
 description: Excel을 사용하여 Azure Analysis Services 서버에 연결하는 방법에 대해 알아봅니다.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b3ab749b4610f57e19ad1af0fc74d41340d7555b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 807496584acb3f93fccd3495de005792b769b37f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192992"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37443002"
 ---
 # <a name="connect-with-excel"></a>Excel로 연결
 
-서버를 만들고 테이블 형식의 모델을 배포하면 클라이언트가 데이터에 연결하여 탐색을 시작할 수 있습니다.
+서버를 만들고 테이블 형식의 모델을 배포하면 클라이언트가 데이터에 연결하여 탐색을 시작할 수 있습니다. 
 
+## <a name="before-you-begin"></a>시작하기 전에
+로그인에 사용하는 계정은 읽기 이상의 권한이 있는 모델 데이터베이스 역할에 속해야 합니다. 자세한 내용은 [인증 및 사용자 권한](analysis-services-manage-users.md)을 참조하세요. 
 
 ## <a name="connect-in-excel"></a>Excel에서 연결
 
@@ -31,7 +33,7 @@ Excel 2016에서 Get Data를 사용하여 Excel에서 서버에 연결합니다.
 2. 데이터 연결 마법사에서 **서버 이름**에 프로토콜 및 URI를 포함하여 서버 이름을 입력합니다. 예를 들어 asazure://westcentralus.asazure.windows.net/advworks 같이 입력합니다. 그런 다음 **로그온 자격 증명**에서 **다음 사용자 이름 및 암호 사용**을 선택하고 조직 사용자 이름(예: nancy@adventureworks.com 및 암호)을 입력합니다.
 
     > [!IMPORTANT]
-    > Microsoft 계정, Live ID, Yahoo, Gmail 등을 사용하여 로그인하거나 다단계 인증을 사용하여 로그인해야 하는 경우 암호 필드를 비워 둡니다. 다음을 클릭하면 암호를 묻는 메시지가 표시됩니다.
+    > Microsoft 계정, Live ID, Yahoo, Gmail 등을 사용하여 로그인하거나 다단계 인증을 사용하여 로그인해야 하는 경우 암호 필드를 비워 둡니다. 다음을 클릭하면 암호를 묻는 메시지가 표시됩니다. 
 
     ![Excel 로그온에서 연결](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 

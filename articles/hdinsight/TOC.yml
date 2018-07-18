@@ -12,7 +12,7 @@
   href: ./kafka/apache-kafka-introduction.md
 - name: Storm
   href: ./storm/apache-storm-overview.md
-- name: R 서버
+- name: ML 서비스
   href: ./r-server/r-server-overview.md
 - name: 엔터프라이즈 준비
   href: ./domain-joined/apache-domain-joined-introduction.md

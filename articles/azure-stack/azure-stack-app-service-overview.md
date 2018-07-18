@@ -12,26 +12,28 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2018
+ms.date: 06/28/2018
 ms.author: brenduns
 ms.reviewer: anwestg
-ms.openlocfilehash: 1884574bcb39a1cbbd95b481adabdd06ebd499a9
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 42258a352b05d97341f20c13bf837e1398dd8979
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29386081"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099965"
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Azure Stack 개요에 대한 App Service
+
 *적용 대상: Azure 스택 통합 시스템과 Azure 스택 개발 키트*
 
 Azure 스택 앱 서비스를 azure은 Azure 스택을 사용할 수 있는 Microsoft Azure의 플랫폼으로-서비스 (PaaS) 제품입니다. 서비스 고객-내부 또는 외부 있습니다-웹, API 및 Azure 함수를 만들기 위한 모든 플랫폼 이나 장치의 응용 프로그램. 온-프레미스 응용 프로그램과 앱을 통합할 수 있으며 조직의 비즈니스 프로세스를 자동화 있습니다. Azure 스택 클라우드 운영자는 선택한 VM 리소스 공유 또는 전용된 Vm으로 완전히 관리 되는 가상 컴퓨터 (Vm)에서 고객 앱을 실행할 수 있습니다.
 
-Azure 앱 서비스에는 비즈니스 프로세스를 자동화 하 고 호스팅 클라우드에 Api에 대 한 기능이 포함 됩니다. 단일 통합 서비스로 Azure 앱 서비스 사용 하면-웹 사이트, RESTful Api 및 비즈니스 프로세스-다양 한 구성 요소를 작성 합니다. 단일 솔루션으로.
+Azure 앱 서비스를 사용 하면 호스팅 클라우드의 Api 및 비즈니스 프로세스를 자동화할 수 있습니다. 단일 통합 서비스로 Azure 앱 서비스 사용 하면-웹 사이트, RESTful Api 및 비즈니스 프로세스-다양 한 구성 요소를 결합 단일 솔루션으로.
 
 ## <a name="why-offer-azure-app-service-on-azure-stack"></a>Azure 스택 Azure 앱 서비스를 제공 하는 이유
 
 다음은 App Service의 몇 가지 주요 기능입니다.
+
 - **여러 언어 및 프레임 워크**: 응용 프로그램 서비스에 ASP.NET, Node.js, Java, PHP 및 Python에 대 한 고급 지원 합니다. 앱 서비스 Vm에서 Windows PowerShell 및 기타 스크립트 또는 실행 파일을 실행할 수도 있습니다.
 - **DevOps 최적화**: 연속 통합 및 로컬 Git, GitHub, BitBucket 인 배포를 설정 합니다. 테스트 및 준비 환경을 통해 업데이트를 승격 합니다. Azure PowerShell 또는 플랫폼 간 명령줄 인터페이스 (CLI)를 사용 하 여 앱 서비스에서 앱을 관리 합니다.
 - **Visual Studio 통합**: Visual Studio에서 전용된 도구를 만들고 응용 프로그램 배포 작업을 간소화 합니다.
@@ -47,10 +49,11 @@ Azure 앱 서비스에는 비즈니스 프로세스를 자동화 하 고 호스�
 Word 앱 여기 작업 실행 전용으로 사용 하는 호스팅 리소스를 참조 합니다. 예를 들어 "웹앱"의 경우 함께 브라우저에 대한 기능을 제공하는 계산 리소스와 응용 프로그램 코드를 모두 웹앱으로 생각하는 것이 익숙할 것입니다. 하지만 앱 서비스 웹 앱 호스팅 응용 프로그램 코드에 대 한 Azure 스택 제공 하는 계산 리소스입니다.
 
 여러 앱 서비스 앱에서 다른 종류의 응용 프로그램으로 구성 될 수 있습니다. 예를 들어 응용 프로그램은 웹 프런트 엔드 이루어져 RESTful API 백 엔드를 수행할 수 있습니다.
+
 - 프런트 엔드와 api를 단일 웹앱에 배포합니다.
 - 프런트 엔드 코드를 웹앱에 배포하고 백 엔드 코드를 API 앱에 배포합니다.
 
-   ![](media/azure-stack-app-service-overview/image01.png)
+   ![모니터링 데이터와 응용 프로그램 서비스 개요](media/azure-stack-app-service-overview/image01.png)
 
 ## <a name="what-is-an-app-service-plan"></a>App Service 계획의 정의
 
@@ -60,12 +63,11 @@ Azure에서 공유 및 전용 작업 자가 있습니다. 공유 작업자 고�
 
 ## <a name="portal-features"></a>포털의 기능
 
-Azure 스택 앱 서비스는 Azure 앱 서비스 사용 하는 백 엔드에서 true 인 동일한 UI를 사용 합니다. 일부 기능이 해제 되 고 Azure 스택 정상 작동 되지 않습니다. 아직 이러한 기능을 사용 하려면는 서비스나 Azure 관련 기대가 다음 Azure 스택의 사용할 수 없습니다.
+Azure 스택 앱 서비스 Azure 앱 서비스 사용 하는 동일한 UI를 사용 하 여, 백 엔드에서 마찬가지입니다. 그러나 일부 기능이 해제 되 고 Azure 스택 정상 작동 되지 않습니다. Azure 관련 기대 수준 또는 해당 기능이 필요한 서비스를 Azure 스택의 현재 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
 
 - [Azure 스택 앱 서비스를 시작 하기 전에](azure-stack-app-service-before-you-get-started.md)
 - [앱 서비스 리소스 공급자를 설치 합니다.](azure-stack-app-service-deploy.md)
 
-또한을 수행 하려면 다른 [플랫폼 서비스 (PaaS) 서비스로](azure-stack-tools-paas-services.md)처럼는 [SQL Server 리소스 공급자](azure-stack-sql-resource-provider-deploy.md) 및 [MySQL 리소스 공급자](azure-stack-mysql-resource-provider-deploy.md)합니다.
+또한을 수행 하려면 다른 [플랫폼 서비스 (PaaS) 서비스로](azure-stack-tools-paas-services.md)와 같은 [SQL Server 리소스 공급자](azure-stack-sql-resource-provider-deploy.md) 및 [MySQL 리소스 공급자](azure-stack-mysql-resource-provider-deploy.md)합니다.

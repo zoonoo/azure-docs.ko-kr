@@ -1,21 +1,21 @@
 ---
-title: 'Azure Active Directory B2C: B2C 테넌트로 전환 | Microsoft Docs'
-description: Active Directory B2C 테넌트의 컨텍스트로 전환하는 방법
+title: Azure Active Directory B2C에서 B2C 테넌트로 전환 | Microsoft Docs
+description: Active Directory B2C 테넌트의 컨텍스트로 전환하는 방법입니다.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
 manager: mtillman
-editor: ''
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/13/2017
 ms.author: davidmu
-ms.openlocfilehash: 6469636ee05c2b28a24b1d559f0ee7569e784393
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: B2C
+ms.openlocfilehash: 9b8ff03ff90a0962a6a890cf7cc99e7134559b7f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442972"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트로 전환
 

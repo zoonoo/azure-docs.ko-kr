@@ -2,21 +2,25 @@
 
 # 개요
 ## [리소스 관리자란?](resource-group-overview.md)
-## [리소스 공급자 및 형식](resource-manager-supported-services.md)
 ## [Resource Manager 및 클래식 배포](resource-manager-deployment-model.md)
-## [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)
-## [관리 그룹으로 리소스 구성](management-groups-overview.md)
 
 # 시작하기
 ## [템플릿 만들기 및 배포](resource-manager-create-first-template.md)
 ## [템플릿에 VS Code 확장](resource-manager-vscode-extension.md)
 ## [Resource Manager와 Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
+# 개념
+## [리소스 공급자 및 형식](resource-manager-supported-services.md)
+## [관리 그룹](management-groups-overview.md)
+## [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+## [클라우드 일관성을 위한 템플릿](templates-cloud-consistency.md)
+
 # 방법
 ## 템플릿 만들기
 ### [템플릿 섹션](resource-group-authoring-templates.md)
 #### [매개 변수](resource-manager-templates-parameters.md)
 #### [변수](resource-manager-templates-variables.md)
+#### [함수](resource-group-authoring-templates.md#functions)
 #### [리소스](resource-manager-templates-resources.md)
 #### [Outputs](resource-manager-templates-outputs.md)
 ### [연결된 템플릿 및 중첩된 템플릿](resource-group-linked-templates.md)
@@ -44,7 +48,7 @@
 ## 관리
 ### [Azure PowerShell](powershell-azure-resource-manager.md)
 ### [Azure CLI](xplat-cli-azure-resource-manager.md)
-### [Azure Portal](resource-group-portal.md)
+### [Azure 포털](resource-group-portal.md)
 ### [태그를 사용하여 리소스 구성](resource-group-using-tags.md)
 ### [새 그룹 또는 구독으로 리소스 이동](resource-group-move-resources.md)
 ### [EA 구독 만들기](programmatically-create-subscription.md)
@@ -56,7 +60,7 @@
 ### 서비스 주체 만들기
 #### [Azure PowerShell](resource-group-authenticate-service-principal.md)
 #### [Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Azure Portal](resource-group-create-service-principal-portal.md)
+#### [Azure 포털](resource-group-create-service-principal-portal.md)
 ### [구독에 액세스하는 인증 API](resource-manager-api-authentication.md)
 ### [리소스 잠금](resource-group-lock-resources.md)
 

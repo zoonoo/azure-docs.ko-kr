@@ -1,25 +1,22 @@
 ---
-title: Azure Logic Apps의 Dropbox 커넥터 | Microsoft Docs
-description: Azure 앱 서비스로 논리 앱을 만듭니다. Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.
-services: logic-apps
-documentationcenter: .net,nodejs,java
+title: Dropbox에 연결 - Azure Logic Apps | Microsoft Docs
+description: Dropbox REST API 및 Azure Logic Apps를 사용하여 파일 업로드 및 관리
 author: ecfan
-manager: anneta
-editor: ''
-tags: connectors
-ms.assetid: cb0ae033-aba7-4ac9-beaa-be561a0f0cac
-ms.service: logic-apps
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
+manager: jeconnoc
+ms.author: estfan
 ms.date: 07/15/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 7ac72cf5b18fa19bc0294abc67bf0a7089774a89
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.topic: article
+ms.service: logic-apps
+services: logic-apps
+ms.reviewer: klam, LADocs
+ms.suite: integration
+tags: connectors
+ms.openlocfilehash: 77203788a6329ed4c5b58419fbcf48a48da91b30
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/16/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35295050"
 ---
 # <a name="get-started-with-the-dropbox-connector"></a>Dropbox 커넥터 시작
 Dropbox에 연결하여 파일을 관리합니다. Dropbox에서 파일 업로드, 업데이트, 가져오기 및 삭제와 같은 다양한 작업을 수행할 수 있습니다.

@@ -1,16 +1,33 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: yuemlu
+ms.service: storage
+ms.topic: include
+ms.date: 06/05/2018
+ms.author: yuemlu
+ms.custom: include file
+ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
+ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/05/2018
+ms.locfileid: "34806301"
+---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>비용 효율적인 Standard Storage와 관리되지 않는 Azure VM 디스크 및 관리 Azure VM 디스크
 
-Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드를 실행하는 VM에 대해 안정적인 저비용 디스크 지원을 제공합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. Standard Storage를 사용하면 데이터가 HDD(하드 디스크 드라이브)에 저장됩니다. VM 작업 시 개발/테스트 시나리오 및 덜 중요한 워크로드에는 표준 저장소 디스크를 사용하고 중요 업무용 프로덕션 응용 프로그램에는 프리미엄 저장소 디스크를 사용할 수 있습니다. Standard Storage는 모든 Azure 지역에서 사용할 수 있습니다. 
+Azure Standard Storage는 대기 시간에 영향을 받지 않는 워크로드를 실행하는 VM에 대해 안정적인 저비용 디스크 지원을 제공합니다. 또한 Blob, 테이블, 큐 및 파일을 지원합니다. Standard Storage를 사용하면 데이터가 HDD(하드 디스크 드라이브)에 저장됩니다. VM 작업 시 개발/테스트 시나리오 및 덜 중요한 워크로드에는 표준 SSD 및 HDD 디스크를 사용하고 중요 업무용 프로덕션 응용 프로그램에는 프리미엄 SSD 디스크를 사용할 수 있습니다. Standard Storage는 모든 Azure 지역에서 사용할 수 있습니다. 
 
-이 문서는 VM 디스크에 대한 표준 저장소 사용에 중점을 두고 있습니다. Blob, 테이블, 큐 및 파일이 포함된 저장소 사용에 대한 자세한 내용은 [저장소 소개](../articles/storage/common/storage-introduction.md)를 참조하세요.
+이 문서는 표준 SSD 및 HDD 디스크 사용에 중점을 두고 있습니다. Blob, 테이블, 큐 및 파일이 포함된 저장소 사용에 대한 자세한 내용은 [저장소 소개](../articles/storage/common/storage-introduction.md)를 참조하세요.
 
 ## <a name="disk-types"></a>디스크 유형
 
 Azure VM에 표준 디스크를 만드는 방법은 두 가지입니다.
 
-**관리되지 않는 디스크**: VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 저장소 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 256TB의 저장소를 허용합니다.
+**관리되지 않는 디스크**: 이 유형의 디스크는 VM 디스크에 해당하는 VHD 파일을 저장하는 데 사용되는 저장소 계정을 관리하는 원래 방법입니다. VHD 파일은 저장소 계정에 페이지 Blob으로 저장됩니다. 관리되지 않는 디스크는 DSv2 및 GS 시리즈와 같은 Premium Storage를 주로 사용하는 VM을 비롯한 모든 Azure VM 크기에 연결될 수 있습니다. Azure VM은 여러 표준 디스크 연결을 지원하며 VM당 최대 256TB의 저장소를 허용합니다.
 
-[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): 이 기능은 VM 디스크에 사용되는 저장소 계정을 관리해 줍니다. 필요한 디스크의 유형(프리미엄 또는 표준)과 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다. 저장소 계정에 대한 확장성 한도 내에 머무르기 위해 다수의 저장소 계정에 디스크를 배치하려고 고심할 필요가 없습니다. Azure가 알아서 처리해 드립니다.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): 이 기능은 VM 디스크에 사용되는 저장소 계정을 관리해 줍니다. 필요한 디스크의 유형(프리미엄 SSD, 표준 SSD 또는 표준 HDD)과 크기를 지정하면 Azure가 알아서 디스크를 만들고 관리해줍니다. 저장소 계정에 대한 확장성 한도 내에 머무르기 위해 다수의 저장소 계정에 디스크를 배치하려고 고심할 필요가 없습니다. Azure가 알아서 처리해 드립니다.
 
 두 가지 유형의 디스크를 모두 사용할 수 있지만 많은 기능의 이점을 활용하려면 Managed Disks를 사용하는 것이 좋습니다.
 
@@ -27,7 +44,9 @@ Standard Storage의 기능 중 일부를 살펴보겠습니다. 자세한 내용
 
 **Standard Storage**: Azure Standard Storage는 Azure Disks, Azure Blobs, Azure Files, Azure Tables 및 Azure Queues를 지원합니다. 표준 저장소 서비스를 사용하려면 [Azure Storage 계정 만들기](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account)에서 시작하세요.
 
-**표준 저장소 디스크:** 표준 저장소 디스크는 Premium Storage에 사용되는 시리즈-사이즈(예: DSv2 및 GS 시리즈) VM을 비롯한 모든 Azure VM에 연결될 수 있습니다. 표준 저장소 디스크는 하나의 VM에만 연결될 수 있습니다. 하지만 VM에는 이러한 디스크를 한 개 이상, 해당 VM 크기에 정의된 최대 디스크 개수만큼 연결할 수 있습니다. 사양에 대한 자세한 내용은 표준 저장소 확장성 및 성능 목표에 관한 다음 섹션에서 설명하겠습니다. 
+**표준 SSD 디스크:** 표준 SSD 디스크는 HDD 표준 디스크보다 더 안정적인 성능을 제공하며, 현재 미리 보기로 사용할 수 있습니다. 표준 SSD 디스크의 지역 가용성에 대한 자세한 내용은 [표준 SSD 디스크(미리 보기)의 지역 가용성](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions)을 참조하세요.
+
+**표준 HDD 디스크:** 표준 HDD 디스크는 Premium Storage에 사용되는 시리즈-사이즈(예: DSv2 및 GS 시리즈) VM을 비롯한 모든 Azure VM에 연결될 수 있습니다. 표준 HDD 디스크는 하나의 VM에만 연결될 수 있습니다. 하지만 VM에는 이러한 디스크를 한 개 이상, 해당 VM 크기에 정의된 최대 디스크 개수만큼 연결할 수 있습니다. 사양에 대한 자세한 내용은 표준 저장소 확장성 및 성능 목표에 관한 다음 섹션에서 설명하겠습니다.
 
 **표준 페이지 Blob**: 표준 페이지 Blob은 VM의 영구적인 디스크를 보존하는 데 사용되며 다른 유형의 Azure Blob처럼 REST를 통해 직접 액세스할 수도 있습니다. [페이지 Blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs)은 임의 읽기 및 쓰기 작업용으로 최적화된 512바이트 페이지 컬렉션입니다. 
 
@@ -82,7 +101,7 @@ Storage 서비스에서 VHD 파일은 페이지 Blob입니다. 페이지 Blob의
 
 표준 저장소 계정에서 페이지 Blob에 대한 REST 작업을 수행하는 방법에 대한 자세한 내용은 [Azure Storage 서비스 REST API](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference)를 참조하세요.
 
-### <a name="managed-disks"></a>Managed Disks
+### <a name="managed-disks"></a>관리 디스크
 
 관리 디스크에 대한 스냅숏은 관리 디스크의 읽기 전용 복사본이며 표준 관리 디스크로 저장됩니다. 증분 스냅숏은 현재 Managed Disks에 지원되지 않지만 향후 지원될 예정입니다.
 
@@ -116,7 +135,7 @@ Standard Storage, Virtual Machines 및 Managed Disks 가격 책정에 대한 자
 
 ## <a name="azure-backup-service-support"></a>Azure Backup 서비스 지원 
 
-관리되지 않는 디스크가 포함된 가상 컴퓨터는 Azure Backup을 사용하여 백업할 수 있습니다. [자세한 내용](../articles/backup/backup-azure-vms-first-look-arm.md).
+관리되지 않는 디스크가 포함된 가상 머신은 Azure Backup을 사용하여 백업할 수 있습니다. [자세한 내용](../articles/backup/backup-azure-vms-first-look-arm.md).
 
 Azure Backup 서비스를 Managed Disks와 함께 사용하면 시간 기반 백업, 손쉬운 VM 복원 및 백업 보존 정책을 사용하여 백업 작업을 만들 수도 있습니다. 자세한 내용은 [Managed Disks로 VM에 Azure Backup 서비스 사용](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)을 참조하세요.
 

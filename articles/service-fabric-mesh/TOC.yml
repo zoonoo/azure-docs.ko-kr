@@ -1,0 +1,63 @@
+- name: Service Fabric Mesh 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Service Fabric Mesh 정보
+      href: service-fabric-mesh-overview.md
+- name: 빠른 시작
+  items:
+    - name: Hello World 배포
+      href: service-fabric-mesh-quickstart-deploy-container.md
+    - name: 웹 응용 프로그램 만들기 및 배포
+      href: service-fabric-mesh-quickstart-dotnet-core.md
+- name: 자습서
+  items:
+    - name: 다중 서비스 웹앱 만들기 및 배포
+      items:
+        - name: 1 - ASP.NET Core 응용 프로그램 빌드
+          href: service-fabric-mesh-tutorial-create-dotnetcore.md
+        - name: 2- 응용 프로그램 디버그
+          href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
+        - name: 3- 응용 프로그램 배포
+          href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
+- name: 개념
+  items:
+    - name: 용어
+      href: service-fabric-mesh-terminology.md
+    - name: Service Fabric 리소스
+      href: service-fabric-mesh-service-fabric-resources.md
+    - name: 모니터링 및 진단
+      href: service-fabric-mesh-monitoring-diagnostics.md
+    - name: 저장 상태
+      href: service-fabric-mesh-storing-state.md
+- name: 방법 가이드
+  items:
+    - name: 개발 환경 설정
+      href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
+    - name: Service Fabric Mesh CLI 설정
+      href: service-fabric-mesh-howto-setup-cli.md
+    - name: .NET Core 마이크로 서비스 앱 배포
+      href: service-fabric-mesh-howto-deploy-app-template.md
+    - name: 개인 레지스트리의 앱 배포
+      href: service-fabric-mesh-howto-deploy-app-private-registry.md
+    - name: Azure Files 볼륨을 사용하여 상태 저장
+      href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
+    - name: 앱에서 독립적으로 마이크로 서비스 크기 조정
+      href: service-fabric-mesh-howto-app-scale-out.md
+- name: 리소스
+  items:
+    - name: 일반적인 질문
+      href: service-fabric-mesh-faq.md
+    - name: 샘플 응용 프로그램
+      href: 'https://github.com/Azure-Samples/service-fabric-mesh'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=service-fabric-mesh'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/search?q=service-fabric-mesh'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=service-fabric-mesh'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=service-fabric-mesh'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'

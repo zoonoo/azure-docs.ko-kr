@@ -12,15 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/06/2018
+ms.date: 05/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b642d6de9fd9265d7f7ee11b827a36d20e5bcce7
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: eb7576c48d3836eec8051d849cefe4c5ec6658c9
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34699209"
 ---
-# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO 플러그 인에 대한 FAQ 
+# <a name="faq-for-the-azure-active-directory-sso-plug-in"></a>Azure Active Directory SSO 플러그 인에 대한 FAQ
+
+이 플러그 인과 관련된 쿼리가 있으면 아래 FAQ를 참조하세요.
 
 ## <a name="what-does-the-plug-in-do"></a>플러그 인은 무엇을 수행하나요?
 
@@ -38,13 +41,13 @@ ms.lasthandoff: 04/05/2018
 
 플러그 인에서는 이러한 버전을 지원합니다.
 
-* Jira Core 및 소프트웨어: 6.0 ~ 7.2.2 
-* Jira Service Desk: 3.0 ~ 3.2 
+* Jira Core 및 소프트웨어: 6.0 ~ 7.8
+* Jira Service Desk: 3.0 ~ 3.2
 * Confluence: 5.0 ~ 5.10
 
 ## <a name="is-the-plug-in-free-or-paid"></a>플러그 인은 무료인가요, 유료인가요?
 
-무료 추가 기능입니다. Atlassian Marketplace에서 설치할 수 있습니다.
+무료 추가 기능입니다.
 
 ## <a name="do-i-need-to-restart-jira-or-confluence-after-i-deploy-the-plug-in"></a>플러그 인을 배포한 후 Jira 또는 Confluence를 다시 시작해야 하나요?
 
@@ -52,7 +55,7 @@ ms.lasthandoff: 04/05/2018
 
 ## <a name="how-do-i-get-support-for-the-plug-in"></a>플러그 인에 대한 지원을 받으려면 어떻게 하나요?
 
-[Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 연락합니다. 팀은 24-48 업무 시간 안에 응답합니다. 
+이 플러그 인에 필요한 지원은 [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의할 수 있습니다. 팀은 24-48 업무 시간 안에 응답합니다.
 
 또한 Azure Portal 채널을 통해 Microsoft 지원 티켓을 발급할 수 있습니다.
 

@@ -3,27 +3,27 @@ title: '문제 해결: 다운로드한 Azure Active Directory 활동 로그의 �
 description: 다운로드한 Azure Active Directory 활동 로그에서 누락된 데이터에 대한 해결 방법을 제공합니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: compliance-reports
 ms.date: 01/15/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6878ff8175514b97fbeab70b932349ce400394dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d0638404ec6f5b6d13aa207ef54913c1bd3ecc1a
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34589868"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36232230"
 ---
-# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-have-downloaded"></a>다운로드한 Azure Active Directory 활동 로그에서 데이터를 찾을 수 없습니다.
+# <a name="i-cant-find-any-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>다운로드한 Azure Active Directory 활동 로그에서 데이터를 찾을 수 없습니다.
 
 
 ## <a name="symptoms"></a>증상
@@ -35,7 +35,7 @@ ms.locfileid: "34589868"
 
 ## <a name="cause"></a>원인
 
-Azure Portal에서 활동 로그를 다운로드할 때 크기를 가장 최근에 정렬된 120,000개의 레코드로 제한합니다. 
+Azure Portal에서 활동 로그를 다운로드할 때 크기를 가장 최근에 먼저 정렬된 5000개의 레코드로 제한합니다. 
 
 ## <a name="resolution"></a>해결 방법
 

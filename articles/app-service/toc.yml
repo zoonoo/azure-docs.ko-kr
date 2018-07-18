@@ -55,8 +55,6 @@
       href: ../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fcdn%2ftoc.json
     - name: 사용자 인증
       href: app-service-web-tutorial-auth-aad.md
-    - name: VSTS 및 CI/CD가 있는 Azure App Service에 앱 배포
-      href: 'https://docs.microsoft.com/learn/deploy-apps-to-azure/index'
 - name: 샘플
   items:
     - name: Azure CLI
@@ -168,6 +166,8 @@
           href: app-service-configure-premium-tier.md
         - name: 여러 인스턴스로 규모 확장
           href: ../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service%2ftoc.json
+        - name: 고밀도 호스팅
+          href: app-service-high-density-hosting.md
     - name: 앱 모니터링
       items:
         - name: 할당량 및 경고
@@ -276,3 +276,11 @@
               href: app-service-web-open-source-technologies-faq.md
             - name: 구성 및 관리 FAQ
               href: app-service-web-configuration-and-management-faq.md
+    - name: IP 주소 변경
+      items:
+        - name: 인바운드 IP 주소
+          href: ip-address-change-inbound.md
+        - name: 아웃 바운드 IP 주소
+          href: ip-address-change-outbound.md
+        - name: SSL 주소
+          href: ip-address-change-ssl.md

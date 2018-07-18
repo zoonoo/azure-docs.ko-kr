@@ -26,8 +26,8 @@
 4. Intel MPI Library를 설치합니다. Intel에서 이 라이브러리를 [구입 및 다운로드](https://software.intel.com/intel-mpi-library/)하거나 [평가판](https://registrationcenter.intel.com/en/forms/?productid=1740)을 다운로드합니다.
 
   ```bash
- wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
-   ```
+  wget http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/9278/l_mpi_p_5.1.3.223.tgz
+  ```
  
  Intel MPI 5.x 런타임만 지원됩니다.
  

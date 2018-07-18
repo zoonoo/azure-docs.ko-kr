@@ -12,14 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 05/31/2018
+ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8b972978743fee33c7b7080cdf9d290bdbb619e
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 968636848b9cba9c0976aa366952e56838623cc4
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055089"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34698818"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect 사용자 로그인 옵션
 Azure Active Directory(Azure AD) Connect를 사용하면 사용자가 동일한 암호를 사용하여 온-프레미스 및 클라우드 리소스 모두에 로그인할 수 있습니다. 이 문서에서는 Azure AD에 로그인할 때 사용하려는 ID 선택에 도움이 되도록 모든 ID 모델의 주요 개념에 대해 설명합니다.
@@ -48,6 +49,8 @@ Office 365 하이브리드 시나리오에 대한 테넌트를 설정합니다.|
 온-프레미스 Multi-Factor Authentication 솔루션을 사용합니다.|||x|
 
 *경량 에이전트를 통해
+
+인증 방법을 선택하는 방법에 대한 자세한 내용은 [Azure Active Directory 하이브리드 ID 솔루션에 대한 올바른 인증 방법 선택](../../security/azure-ad-choose-authn.md)을 참조하세요.
 
 ### <a name="password-hash-synchronization"></a>암호 해시 동기화
 암호 해시 동기화를 수행하면 사용자 암호의 해시는 온-프레미스 Active Directory에서 Azure AD로까지 동기화됩니다. 암호를 변경하거나 온-프레미스에서 다시 설정하면, 새 암호 해시가 Azure AD와 즉시 동기화되므로 사용자는 클라우드 리소스와 온-프레미스 리소스에 항상 동일한 암호를 사용할 수 있습니다. 암호는 Azure AD로 전송되거나 일반 텍스트로 Azure AD에 저장되지 않습니다. 암호 해시 동기화를 암호 쓰기 저장과 함께 사용하여 Azure AD에서 재설정한 자체 서비스 암호를 사용할 수 있습니다.

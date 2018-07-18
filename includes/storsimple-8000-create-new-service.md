@@ -3,7 +3,7 @@
 
 #### <a name="to-create-a-new-service"></a>새 서비스를 만들려면
 
-1. Microsoft 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그온합니다.
+1. Microsoft 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. Azure Portal에서 **리소스 만들기**를 클릭하고 Marketplace에서 **모두 보기**를 클릭합니다.
 

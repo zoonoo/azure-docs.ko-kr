@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/30/2018
 ms.author: sethm
-ms.openlocfilehash: 1b2c9b3a0b7565e7de40d4dc0e623a62313b79db
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dde7691d2fe4503de8a671d7f29e36558d474699
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32775526"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440396"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 
@@ -57,7 +57,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 
 ## <a name="get-started-with-premium-messaging"></a>프리미엄 메시징 시작
 
-프리미엄 메시징 시작은 간단하며 프로세스는 표준 메시징의 프로세스와 비슷합니다. 먼저 [Azure Portal](https://portal.azure.com)에서 [네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **가격 책정 계층 선택** 아래에서 **프리미엄**을 선택합니다.
+프리미엄 메시징 시작은 간단하며 프로세스는 표준 메시징의 프로세스와 비슷합니다. 먼저 [Azure Portal](https://portal.azure.com)에서 [네임스페이스를 만듭니다](service-bus-create-namespace-portal.md). **가격 책정 계층**에서 **프리미엄**을 선택했는지 확인합니다. **전체 가격 책정 세부 정보 보기**를 클릭하여 각 계층에 대해 자세히 알아봅니다.
 
 ![create-premium-namespace][create-premium-namespace]
 
@@ -65,7 +65,7 @@ Service Bus 메시징의 *프리미엄* 계층은 중요 업무용 응용 프로
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
+Service Bus 메시지에 대해 자세히 알아보려면 다음 링크를 참조하세요.
 
 * [Azure Service Bus 프리미엄 메시징 소개(블로그 게시물)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure Service Bus 프리미엄 메시징 소개(Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)

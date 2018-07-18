@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0544daf310d40ea419cb6a46cbbf308ebc924715
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 334f696d79cf801facf7c5301b2240b69f7134f7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34709328"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444381"
 ---
 # <a name="azure-active-directory-b2c-add-linkedin-as-an-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 ID 공급자로 LinkedIn 추가
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "34709328"
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다.
 
 ## <a name="step-1-create-a-linkedin-account-application"></a>1단계: LinkedIn 계정 응용 프로그램 만들기
-Azure AD B2C(Azure Active Directory B2C)에서 LinkedIn을 ID 공급자로 사용하려면 LinkedIn 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. [LinkedIn 등록 페이지](https://LinkedIn.com/signup)로 이동하여 LinkedIn 응용 프로그램을 등록할 수 있습니다.
+Azure AD B2C(Azure Active Directory B2C)에서 LinkedIn을 ID 공급자로 사용하려면 LinkedIn 응용 프로그램을 만들고 올바른 매개 변수를 제공해야 합니다. [LinkedIn 등록 페이지](https://www.linkedin.com/start/join)로 이동하여 LinkedIn 응용 프로그램을 등록할 수 있습니다.
 
 1. [LinkedIn 응용 프로그램 관리](https://www.linkedin.com/secure/developer?newapp=) 웹 사이트로 이동하고, LinkedIn 계정 자격 증명으로 로그인한 다음 **응용 프로그램 만들기**를 선택합니다.
 

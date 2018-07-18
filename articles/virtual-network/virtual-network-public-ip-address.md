@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: jdial
-ms.openlocfilehash: c28d409bbdb7a4100f2bb9f00ff6f58a13855ea4
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4345199ed952b6d0e044d4ac99c29c47c477780d
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305058"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36287071"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>공용 IP 주소 만들기, 변경 또는 삭제
 
@@ -70,7 +70,7 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 |도구|명령|
 |---|---|
-|CLI|[az network public-ip create](/cli/azure/network/public-ip?toc=%2fazure%2fvirtual-network%2ftoc.json#az_network_public_ip_create)|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create)|
 |PowerShell|[New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)|
 
 ## <a name="view-change-settings-for-or-delete-a-public-ip-address"></a>공용 IP 주소 보기, 설정 변경 또는 삭제
@@ -89,8 +89,18 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 |도구|명령|
 |---|---|
-|CLI|[az network public-ip-list](/cli/azure/network/public-ip#az_network_public_ip_list): 공용 IP 주소를 나열함, [az network public-ip-show](/cli/azure/network/public-ip#az_network_public_ip_show): 설정을 표시함, [az network public-ip update](/cli/azure/network/public-ip#az_network_public_ip_update): 업데이트함, [az network public-ip delete](/cli/azure/network/public-ip#az_network_public_ip_delete): 삭제함|
-|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress): 공용 IP 주소 개체를 검색하고 해당 설정을 확인함, [Set-AzureRmPublicIpAddress](/powershell/resourcemanager/azurerm.network/set-azurermpublicipaddress): 설정을 업데이트함, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress): 삭제함|
+|CLI|[az network public-ip list](/cli/azure/network/public-ip#az-network-public-ip-list): 공용 IP 주소를 나열함, [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show): 설정을 표시함, [az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update): 업데이트함, [az network public-ip delete](/cli/azure/network/public-ip#az-network-public-ip-delete): 삭제함|
+|PowerShell|[Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress): 공용 IP 주소 개체를 검색하고 해당 설정을 확인함, [Set-AzureRmPublicIpAddress](/powershell/module/azurerm.network/set-azurermpublicipaddress): 설정을 업데이트함, [Remove-AzureRmPublicIpAddress](/powershell/module/azurerm.network/remove-azurermpublicipaddress): 삭제함|
+
+## <a name="assign-a-public-ip-address"></a>공용 IP 주소 할당
+
+다음 리소스에 공용 IP 주소를 할당하는 방법을 알아봅니다.
+
+- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) VM(만드는 경우), 또는 [기존 VM](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- [인터넷 연결 Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure VPN Gateway를 사용하여 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Azure Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="permissions"></a>권한
 
@@ -107,4 +117,3 @@ Portal에서는 IPv4와 IPv6용으로 하나씩 두 개의 공용 IP 주소 리�
 
 - [PowerShell](powershell-samples.md) 또는 [Azure CLI](cli-samples.md) 샘플 스크립트를 사용하거나 Azure [Resource Manager 템플릿](template-samples.md)을 사용하여 공용 IP 주소 만들기
 - 공용 IP 주소에 대한 [Azure 정책](policy-samples.md) 만들기 및 적용
-- [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Azure Virtual Machine, [Azure 인터넷 연결 Azure Load Balancer](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure Application Gateway](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Azure VPN Gateway를 사용하는 사이트 간 연결](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Azure 가상 머신 확장 집합](../virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 만들 때 공용 IP 주소 할당

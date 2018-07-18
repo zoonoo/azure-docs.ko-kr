@@ -1,20 +1,21 @@
 ---
-title: "Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리"
-description: "Azure CLI 명령줄을 사용하여 Azure Database for MySQL 방화벽 규칙을 만들고 관리하는 방법을 설명합니다."
+title: Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
+description: Azure CLI 명령줄을 사용하여 Azure Database for MySQL 방화벽 규칙을 만들고 관리하는 방법을 설명합니다.
 services: mysql
 author: ajlam
 ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: b142d08379f8a8fde20178668a4c1343f08aedbc
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 1bb60a1d6f14f0dc81047a2ffdd514724954fb14
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35266060"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리
 관리자는 서버 수준 방화벽 규칙을 사용하여 특정 IP 주소 또는 IP 주소 범위에서 MySQL용 Azure Database 서버에 대한 액세스를 관리할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. MySQL용 Azure Database 방화벽에 대한 개요는 [MySQL용 Azure Database 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조하세요.
@@ -42,7 +43,7 @@ az login
 ```
 이 명령은 다음 단계에서 사용할 코드를 출력합니다.
 
-2. 웹 브라우저를 사용하여 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 페이지를 열고 코드를 입력합니다.
+2. 웹 브라우저를 사용하여 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 페이지를 연 다음, 제공된 코드를 입력하세요.
 
 3. 프롬프트가 나타나면 Azure 자격 증명을 사용하여 로그인합니다.
 

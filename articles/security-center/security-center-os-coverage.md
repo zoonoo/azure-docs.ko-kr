@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/15/2018
+ms.date: 06/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 86e8c1c8f0d8654c86b851e3ae7296476f38b94e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 1bb0b61fe8a74edd35bb096fd295aedc67f6efb3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756904"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335893"
 ---
 # <a name="supported-platforms-in-azure-security-center"></a>Azure Security Center에서 지원되는 플랫폼
 클래식 및 리소스 관리자 배포 모델을 둘 다 사용하여 생성된 VM(가상 머신) 및 컴퓨터에 대해 보안 상태 모니터링과 권장 사항이 제공됩니다.
@@ -42,12 +42,14 @@ ms.locfileid: "34756904"
 ## <a name="supported-platforms-for-linux-computers-and-vms"></a>Linux 컴퓨터 및 VM에 대해 지원되는 플랫폼
 지원되는 Linux 운영 체제:
 
-* Ubuntu 버전 12.04, 14.04, 16.04, 16.10
-* Debian 버전 7, 8
-* CentOS 버전 6.\*, 7.*
-* RHEL(Red Hat Enterprise Linux) 버전 6.\*, 7.\*
-* SUSE Linux Enterprise Server(SLES) 버전 11 SP4+, 12.\*
-* Oracle Linux 버전 6.\*, 7.\*
+* Ubuntu 버전 12.04 LTS, 14.04 LTS, 16.04 LTS
+* Debian 버전 6, 7, 8, 9
+* CentOS 버전 5, 6, 7
+* RHEL(Red Hat Enterprise Linux) 버전 5, 6, 7
+* SLES(SUSE Linux Enterprise Server) 버전 11, 12
+* Oracle Linux 버전 5, 6, 7
+* Amazon Linux 2012.09~2017
+* Openssl 1.1.0은 x86_64 플랫폼(64 비트)에서만 지원
 
 > [!NOTE]
 > Linux 운영 체제에서는 아직 가상 컴퓨터 동작 분석을 사용할 수 없습니다.

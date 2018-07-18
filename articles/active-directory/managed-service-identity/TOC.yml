@@ -66,6 +66,8 @@
           href: qs-configure-powershell-windows-vm.md
         - name: Azure Resource Manager 템플릿
           href: qs-configure-template-windows-vm.md
+        - name: REST (영문)
+          href: qs-configure-rest-vm.md
         - name: Azure SDK
           href: qs-configure-sdk-windows-vm.md
     - name: Azure VMSS에 대한 ID 구성
@@ -78,6 +80,8 @@
           href: qs-configure-powershell-windows-vmss.md
         - name: Azure Resource Manager 템플릿
           href: qs-configure-template-windows-vmss.md
+        - name: REST (영문)
+          href: qs-configure-rest-vmss.md
     - name: VM MSI 사용
       items:
         - name: 액세스 토큰 획득
@@ -96,6 +100,8 @@
           href: how-to-manage-ua-identity-powershell.md
         - name: Azure Resource Manager 템플릿
           href: how-to-manage-ua-identity-arm.md
+        - name: REST (영문)
+          href: how-to-manage-ua-identity-rest.md
 - name: 참고 자료
   items:
     - name: CLI

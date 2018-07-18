@@ -1,25 +1,26 @@
 ---
-title: Azure SQL Data Sync(미리 보기) 문제 해결 | Microsoft Docs
-description: Azure SQL 데이터 동기화(미리 보기)와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다.
+title: Azure SQL 데이터 동기화 문제 해결 | Microsoft Docs
+description: Azure SQL 데이터 동기화와 관련된 일반적인 문제를 해결하는 방법을 알아봅니다.
 services: sql-database
-ms.date: 04/01/2018
-ms.topic: article
+ms.date: 06/20/2018
+ms.topic: conceptual
 ms.service: sql-database
-author: douglaslMS
-ms.author: douglasl
+author: allenwux
+ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 6e29c93f37017a88aa4b6d69168e649f7397d56b
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: daa4ecd3ddf0e770049a81c771a8da52bac5be7f
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37021394"
 ---
-# <a name="troubleshoot-issues-with-sql-data-sync-preview"></a>SQL 데이터 동기화(미리 보기) 문제 해결
+# <a name="troubleshoot-issues-with-sql-data-sync"></a>SQL 데이터 동기화 문제 해결
 
-이 문서에서는 Azure SQL 데이터 동기화(미리 보기)의 알려진 문제를 해결하는 방법을 설명합니다. 문제에 대한 해결 방법이 있으면 여기에 제공됩니다.
+이 문서에서는 Azure SQL 데이터 동기화의 알려진 문제를 해결하는 방법을 설명합니다. 문제에 대한 해결 방법이 있으면 여기에 제공됩니다.
 
-SQL 데이터 동기화(미리 보기)에 대한 개요는 [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
 
 ## <a name="sync-issues"></a>동기화 문제
 
@@ -27,7 +28,7 @@ SQL 데이터 동기화(미리 보기)에 대한 개요는 [Azure SQL 데이터 
 
 #### <a name="description-and-symptoms"></a>설명 및 증상
 
-에이전트와 연결된 온-프레미스 데이터베이스에 대한 SQL 데이터 동기화(미리 보기) 포털 UI에서 동기화에 실패합니다. 에이전트를 실행하는 로컬 컴퓨터에서 System.IO.IOException 오류가 이벤트 로그에 표시됩니다. 이 오류는 디스크 공간이 부족함을 나타냅니다.
+에이전트와 연결된 온-프레미스 데이터베이스에 대한 SQL 데이터 동기화 포털 UI에서 동기화에 실패합니다. 에이전트를 실행하는 로컬 컴퓨터에서 System.IO.IOException 오류가 이벤트 로그에 표시됩니다. 이 오류는 디스크 공간이 부족함을 나타냅니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -37,7 +38,7 @@ SQL 데이터 동기화(미리 보기)에 대한 개요는 [Azure SQL 데이터 
 
 #### <a name="description-and-symptoms"></a>설명 및 증상
 
-SQL 데이터 동기화(미리 보기)의 동기화 그룹이 오랫 동안 처리 중 상태입니다. 또한 **중지** 명령에 응답하지 않으며 로그에 새 항목이 없다고 표시됩니다.
+SQL 데이터 동기화의 동기화 그룹이 오랫동안 처리 중 상태입니다. 또한 **중지** 명령에 응답하지 않으며 로그에 새 항목이 없다고 표시됩니다.
 
 #### <a name="cause"></a>원인
 
@@ -47,14 +48,14 @@ SQL 데이터 동기화(미리 보기)의 동기화 그룹이 오랫 동안 처�
 
 -   **클라이언트 에이전트가 설치되지 않았거나 누락되었습니다.** 클라이언트 에이전트가 설치되지 않았거나 누락된 경우:
 
-    1. SQL 데이터 동기화(미리 보기) 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.
+    1. SQL 데이터 동기화 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.
     2. 온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.
 
 -   **SQL 데이터 동기화 서비스가 중지되었습니다.**
 
     1. **시작** 메뉴에서 **서비스**를 검색합니다.
     2. 검색 결과에서 **서비스**선택합니다.
-    3. **SQL 데이터 동기화(미리 보기)** 서비스를 찾습니다.
+    3. **SQL 데이터 동기화** 서비스를 찾습니다.
     4. 서비스 상태가 **중지됨**인 경우 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **시작**을 선택합니다.
 
 #### <a name="resolution"></a>해결 방법
@@ -69,7 +70,7 @@ SQL 데이터 동기화(미리 보기)의 동기화 그룹이 오랫 동안 처�
 
 #### <a name="cause"></a>원인
 
-SQL 데이터 동기화(미리 보기) 프로비전 프로세스는 이름이 같지만 스키마가 서로 다른 테이블에 동일한 추적 테이블을 사용합니다. 이로 인해 두 테이블의 변경 내용이 동일한 추적 테이블에 반영됩니다. 이렇게 하면 동기화 중에 데이터가 이상하게 변경됩니다.
+SQL 데이터 동기화 프로비전 프로세스는 이름이 같지만 스키마가 서로 다른 테이블에 동일한 추적 테이블을 사용합니다. 이로 인해 두 테이블의 변경 내용이 동일한 추적 테이블에 반영됩니다. 이렇게 하면 동기화 중에 데이터가 이상하게 변경됩니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -108,10 +109,10 @@ SQL 데이터 동기화(미리 보기) 프로비전 프로세스는 이름이 �
 ### <a name="i-see-this-message-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-it"></a>"\<column\> 열에 NULL 값을 삽입할 수 없습니다. 열에는 Null을 사용할 수 없습니다."라는 오류 메시지를 받았습니다. 이 오류는 어떤 의미이며 오류를 수정할 수 있는 방법은 무엇인가요? 
 이 오류 메시지는 다음 두 가지 문제 중 하나가 발생했음을 나타냅니다.
 -  테이블에 기본 키가 없습니다. 이 문제를 해결하려면 동기화하는 모든 테이블에 기본 키를 추가합니다.
--  CREATE INDEX 문에 WHERE 절이 있습니다. 데이터 동기화(미리 보기)는 이러한 상황을 처리하지 않습니다. 이 문제를 해결하려면 WHERE 절을 제거하거나 수동으로 모든 데이터베이스를 변경합니다. 
+-  CREATE INDEX 문에 WHERE 절이 있습니다. 데이터 동기화는 이러한 상황을 처리하지 않습니다. 이 문제를 해결하려면 WHERE 절을 제거하거나 수동으로 모든 데이터베이스를 변경합니다. 
  
-### <a name="how-does-data-sync-preview-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>데이터 동기화(미리 보기)에서는 어떻게 순환 참조가 처리되나요? 즉, 여러 동기화 그룹에서 동일한 데이터가 동기화되어 결과적으로 계속 변경되는 경우 어떻게 처리되나요?
-데이터 동기화(미리 보기)에서는 순환 참조가 처리되지 않습니다. 순환 참조가 발생하지 않도록 해야 합니다. 
+### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>데이터 동기화에서는 어떻게 순환 참조가 처리되나요? 즉, 여러 동기화 그룹에서 동일한 데이터가 동기화되어 결과적으로 계속 변경되는 경우 어떻게 처리되나요?
+데이터 동기화에서는 순환 참조가 처리되지 않습니다. 순환 참조가 발생하지 않도록 해야 합니다. 
 
 ## <a name="client-agent-issues"></a>클라이언트 에이전트 문제
 
@@ -130,27 +131,6 @@ SQL 데이터 동기화(미리 보기) 프로비전 프로세스는 이름이 �
 
 또한 Windows Installer에서 수행한 모든 설치에 대한 로깅을 켤 수 있습니다. Microsoft 기술 자료 문서 [Windows Installer 로깅을 설정하는 방법](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)은 Windows Installer에 대한 로깅을 켜기 위한 원클릭 솔루션을 제공합니다. 또한 로그의 위치도 제공합니다.
 
-### <a name="my-client-agent-doesnt-work"></a>클라이언트 에이전트가 작동하지 않음
-
-#### <a name="description-and-symptoms"></a>설명 및 증상
-
-클라이언트 에이전트를 사용하려고 할 때 다음 메시지가 표시됩니다.
-
-“예외와 함께 동기화가 실패했습니다. www.microsoft.com/.../05:GetBatchInfoResult 매개 변수를 deserialize하려는 동안 오류가 발생했습니다. 자세한 내용은 InnerException을 참조하세요.”
-
-“내부 예외 메시지: ‘Microsoft.Synchronization.ChangeBatch’ 형식은 기본 생성자가 없으므로 잘못된 컬렉션 형식입니다.”
-
-#### <a name="cause"></a>원인
-
-SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니다. 이 메시지의 가장 일반적인 원인은 다음 중 하나입니다.
-
--   Windows 8 Developer Preview를 실행 중입니다.
--   .NET Framework 4.5를 설치했습니다.
-
-#### <a name="resolution"></a>해결 방법
-
-클라이언트 에이전트를 Windows 8 Developer Preview를 실행하지 않거나 .NET Framework 4.5가 설치되어 있지 않은 컴퓨터에 설치하도록 합니다.
-
 ### <a name="my-client-agent-doesnt-work-after-i-cancel-the-uninstall"></a>제거를 취소한 후 클라이언트 에이전트가 작동하지 않음
 
 #### <a name="description-and-symptoms"></a>설명 및 증상
@@ -159,7 +139,7 @@ SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니�
 
 #### <a name="cause"></a>원인
 
-이 문제는 SQL 데이터 동기화(미리 보기) 클라이언트 에이전트가 자격 증명을 저장하지 않기 때문에 발생합니다.
+이 문제는 SQL 데이터 동기화 클라이언트 에이전트가 자격 증명을 저장하지 않기 때문에 발생합니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -214,18 +194,18 @@ SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니�
 
 에이전트의 암호를 현재 서버 암호로 업데이트합니다.
 
-1. SQL 데이터 동기화(미리 보기) 클라이언트 에이전트 미리 보기 서비스를 찾습니다.  
+1. SQL 데이터 동기화 클라이언트 에이전트 서비스를 찾습니다.  
     a. **시작**을 선택합니다.  
     나. 검색 상자에 **services.msc**를 입력합니다.  
     다. 검색 결과에서 **서비스**선택합니다.  
-    d. **서비스** 창에서 **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기**에 대한 항목으로 스크롤합니다.  
-2. 마우스 오른쪽 단추로 **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기**를 클릭한 후 **중지**를 선택합니다.
-3. 마우스 오른쪽 단추로 **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기**를 클릭한 후 **속성**을 선택합니다.
-4. **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기 속성**에서 **로그인** 탭을 선택합니다.
+    d. **서비스** 창에서 **SQL 데이터 동기화 에이전트**에 대한 항목으로 스크롤합니다.  
+2. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **중지**를 선택합니다.
+3. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **속성**을 선택합니다.
+4. **SQL 데이터 동기화 에이전트 속성**에서 **로그인** 탭을 선택합니다.
 5. **암호** 상자에 암호를 입력합니다.
 6. **암호 확인** 상자에 암호를 다시 입력합니다.
 7. **적용**을 선택한 다음 **확인**을 선택합니다.
-8. **서비스** 창에서 **SQL 데이터 동기화(미리 보기) 에이전트 미리 보기** 서비스를 마우스 오른쪽 단추로 클릭한 다음 **시작**을 클릭합니다.
+8. **서비스** 창에서 **SQL 데이터 동기화 에이전트** 서비스를 마우스 오른쪽 단추로 클릭한 다음, **시작**을 클릭합니다.
 9. **서비스** 창을 닫습니다.
 
 ### <a name="i-cant-submit-the-agent-key"></a>에이전트 키를 제출할 수 없음
@@ -238,17 +218,16 @@ SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니�
 
 계속 진행하기 전에 다음 조건을 확인합니다.
 
--   SQL 데이터 동기화(미리 보기) Windows 서비스가 실행 중입니다.  
--   SQL 데이터 동기화(미리 보기) 미리 보기 Windows 서비스에 대한 서비스 계정에 네트워크 액세스 권한이 있습니다.    
--   클라이언트 에이전트가 로케이터 서비스에 연결할 수 있습니다. 다음 레지스트리 키에 값 https://locator.sync.azure.com/LocatorServiceApi.svc:가 있는지 확인합니다.  
-    -   x86 컴퓨터: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`  
-    -   x64 컴퓨터: `HKEY\_LOCAL\_MACHINE\\SOFTWARE\\Wow6432Node\\Microsoft\\SQL Azure Data Sync\\LOCATORSVCURI`
+-   SQL 데이터 동기화 Windows 서비스가 실행 중입니다.  
+-   SQL 데이터 동기화 Windows 서비스에 대한 서비스 계정에 네트워크 액세스 권한이 있습니다.    
+-   아웃바운드 1433 포트가 로컬 방화벽 규칙에서 열립니다.
+-   로컬 IP는 메타데이터 데이터베이스 동기화에 대한 서버 또는 데이터베이스 방화벽 규칙에 추가됩니다.
 
 #### <a name="cause"></a>원인
 
 에이전트 키는 각 로컬 에이전트를 고유하게 식별합니다. 키는 다음 두 가지 조건을 충족해야 합니다.
 
--   SQL 데이터 동기화(미리 보기) 서버와 로컬 컴퓨터의 클라이언트 에이전트 키가 동일해야 합니다.
+-   SQL 데이터 동기화 서버와 로컬 컴퓨터의 클라이언트 에이전트 키가 동일해야 합니다.
 -   클라이언트 에이전트 키는 한 번만 사용할 수 있습니다.
 
 #### <a name="resolution"></a>해결 방법
@@ -272,7 +251,7 @@ SQL 데이터 동기화(미리 보기) 설치에 대한 알려진 문제입니�
 
 #### <a name="description-and-symptoms"></a>설명 및 증상
 
-SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된 로컬 끝점(즉, 데이터베이스)을 연결할 수 없는 경우 클라이언트 에이전트를 삭제할 수 없습니다.
+SQL 데이터 동기화 클라이언트 에이전트에 등록된 로컬 엔드포인트(즉, 데이터베이스)에 연결할 수 없는 경우 클라이언트 에이전트를 삭제할 수 없습니다.
 
 #### <a name="cause"></a>원인
 
@@ -295,8 +274,8 @@ SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된
 2. 구성 요소 서비스 패널을 엽니다.  
     a. 작업 표시줄에서 검색 상자에 **services.msc**를 입력합니다.  
     나. 검색 결과에서 **서비스**를 두 번 클릭합니다.  
-3. **SQL 데이터 동기화(미리 보기) 미리 보기** 서비스를 중지합니다.
-4. **SQL 데이터 동기화(미리 보기) 미리 보기** 서비스를 다시 시작합니다.  
+3. **SQL 데이터 동기화** 서비스를 중지합니다.
+4. **SQL 데이터 동기화** 서비스를 다시 시작합니다.  
 5. 앱을 다시 엽니다.
 
 ## <a name="setup-and-maintenance-issues"></a>설치 및 유지 관리 문제
@@ -335,12 +314,12 @@ SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된
 
 -   클라이언트 에이전트가 온라인 상태인지 확인한 다음 다시 시도합니다.
 -   클라이언트 에이전트가 설치되지 않았거나 누락된 경우:  
-    a. SQL 데이터 동기화(미리 보기) 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.  
+    a. SQL 데이터 동기화 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.  
     나. 온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.
--   SQL 데이터 동기화(미리 보기) 서비스가 실행 중인지 확인합니다.  
+-   SQL 데이터 동기화 서비스가 실행 중인지 확인합니다.  
     a. **시작** 메뉴에서 **서비스**를 검색합니다.  
     나. 검색 결과에서 **서비스**선택합니다.  
-    다. **SQL 데이터 동기화(미리 보기) 미리 보기** 서비스를 찾습니다.  
+    다. **SQL 데이터 동기화** 서비스를 찾습니다.  
     d. 서비스 상태가 **중지됨**인 경우 서비스 이름을 마우스 오른쪽 단추로 클릭하고 **시작**을 선택합니다.
 -   SQL Database 및 SQL Server 데이터베이스가 모두 온라인 상태인지 확인합니다.
 -   프로비전 또는 동기화 프로세스가 완료될 때까지 기다린 후 동기화 그룹 삭제를 다시 시도합니다.
@@ -361,7 +340,7 @@ SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된
     a. **시작** 메뉴를 선택합니다.  
     나. 검색 상자에 **services.msc**를 입력합니다.  
     다. 검색 결과 창의 **프로그램** 섹션에서 **서비스**를 두 번 클릭합니다.  
-    d. **SQL 데이터 동기화(미리 보기)** 서비스를 마우스 오른쪽 단추로 클릭합니다.  
+    d. **SQL 데이터 동기화** 서비스를 마우스 오른쪽 단추로 클릭합니다.  
     e. 서비스가 실행 중인 경우 중지합니다.  
     f. 서비스를 마우스 오른쪽 단추로 클릭한 다음 **시작**을 선택합니다.  
     g. 데이터베이스가 여전히 등록된 상태인지 여부를 확인합니다. 더 이상 등록되지 않은 경우 완료된 것입니다. 그렇지 않은 경우 다음 단계를 진행합니다.
@@ -391,7 +370,7 @@ SQL 데이터 동기화(미리 보기) 클라이언트 에이전트에 등록된
 
 #### <a name="cause"></a>원인
 
-SQL 데이터 동기화(미리 보기)는 45일 이상(데이터베이스가 오프라인 상태가 된 시점부터 계산) 오프라인 상태인 데이터베이스를 서비스에서 제거합니다. 데이터베이스가 45일 이상 오프라인 상태였다가 다시 온라인 상태가 된 경우 상태는 **만료**입니다.
+SQL 데이터 동기화는 45일 이상(데이터베이스가 오프라인 상태가 된 시점부터 계산) 오프라인 상태인 데이터베이스를 서비스에서 제거합니다. 데이터베이스가 45일 이상 오프라인 상태였다가 다시 온라인 상태가 된 경우 상태는 **만료**입니다.
 
 #### <a name="resolution"></a>해결 방법
 
@@ -421,14 +400,14 @@ SQL 데이터 동기화(미리 보기)는 45일 이상(데이터베이스가 오
 
 #### <a name="description-and-symptoms"></a>설명 및 증상
 
-동기화 그룹을 연결된 SQL 데이터 동기화(미리 보기) 클라이언트 에이전트를 제거/중지한 후 3분 이내에 삭제할 수 없습니다.
+동기화 그룹을 연결된 SQL 데이터 동기화 클라이언트 에이전트를 제거/중지한 후 3분 이내에 삭제할 수 없습니다.
 
 #### <a name="resolution"></a>해결 방법
 
 1. 연결된 동기화 에이전트가 온라인 상태일 때 동기화 그룹을 제거합니다(권장).
-2. 에이전트가 오프라인이지만 설치된 경우 온-프레미스 컴퓨터에서 온라인 상태로 전환합니다. 에이전트의 상태가 SQL 데이터 동기화(미리 보기) 포털에서 **온라인**으로 표시되기를 기다립니다. 그런 다음 동기화 그룹을 제거합니다.
+2. 에이전트가 오프라인이지만 설치된 경우 온-프레미스 컴퓨터에서 온라인 상태로 전환합니다. 에이전트의 상태가 SQL 데이터 동기화 포털에서 **온라인**으로 표시되기를 기다립니다. 그런 다음 동기화 그룹을 제거합니다.
 3. 에이전트가 제거되어서 오프라인 상태인 경우  
-    a.  SQL 데이터 동기화(미리 보기) 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.  
+    a.  SQL 데이터 동기화 설치 폴더에서 에이전트 XML 파일(있는 경우)을 제거합니다.  
     나.  온-프레미스 컴퓨터(같거나 다른 컴퓨터일 수 있음)에 에이전트를 설치합니다. 그런 다음 오프라인으로 표시된 에이전트에 대해 포털에서 생성된 에이전트 키를 제출합니다.  
     다. 동기화 그룹을 삭제합니다.
 
@@ -437,16 +416,16 @@ SQL 데이터 동기화(미리 보기)는 45일 이상(데이터베이스가 오
 손실되거나 손상된 데이터베이스를 백업에서 복원하면 데이터베이스가 속한 동기화 그룹에서 데이터의 일치성이 유지되지 않을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-SQL 데이터 동기화(미리 보기)에 대한 자세한 내용은 다음 항목을 참조하세요.
+SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하세요.
 
--   [Azure SQL 데이터 동기화(미리 보기)를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)  
--   [Azure SQL 데이터 동기화(미리 보기) 설정](sql-database-get-started-sql-data-sync.md)  
--   [Azure SQL 데이터 동기화(미리 보기)에 대한 모범 사례](sql-database-best-practices-data-sync.md)  
--   [Log Analytics를 사용하여 Azure SQL 데이터 동기화(미리 보기) 모니터링](sql-database-sync-monitor-oms.md)  
--   SQL 데이터 동기화(미리 보기) 구성 방법을 보여주는 전체 PowerShell 예제:  
+-   [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)  
+-   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)  
+-   [Azure SQL 데이터 동기화 모범 사례](sql-database-best-practices-data-sync.md)  
+-   [Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)  
+-   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:  
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [SQL 데이터 동기화(미리 보기) REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 SQL Database에 대한 자세한 내용은 다음 항목을 참조하세요.
 

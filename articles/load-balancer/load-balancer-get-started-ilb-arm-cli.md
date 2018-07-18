@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2017
+ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: d90a4e74b6ad3bb95e91ad3a5327c887a87784bd
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30264475"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38676089"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 VM 부하를 분산하는 내부 부하 분산 장치 만들기
 
@@ -47,7 +47,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ```azurecli-interactive
   az network vnet create \
-    --name myVnet
+    --name myVnet \
     --resource-group myResourceGroupILB \
     --location eastus \
     --subnet-name mySubnet
@@ -108,36 +108,9 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 일부 VM을 배포하고 부하 분산 장치를 테스트하려면, 먼저 지원되는 가상 네트워크 리소스를 만듭니다.
 
-###  <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
-가상 네트워크에 대한 인바운드 연결을 정의하는 네트워크 보안 그룹을 만듭니다. 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
-
-```azurecli-interactive
-  az network nsg create \
-    --resource-group myResourceGroupILB \
-    --name myNetworkSecurityGroup
-```
-
-### <a name="create-a-network-security-group-rule"></a>네트워크 보안 그룹 규칙 만들기
-
-포트 80을 통한 인바운드 연결을 허용하는 네트워크 보안 그룹 규칙을 만듭니다.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroupILB \
-    --nsg-name myNetworkSecurityGroup \
-    --name myNetworkSecurityGroupRuleHTTP \
-    --protocol tcp \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 300
-```
 ### <a name="create-nics"></a>NIC 만들기
 
-[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 두 개의 네트워크 인터페이스를 만들고, 개인 IP 주소 및 네트워크 보안 그룹에 연결합니다. 
+[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 두 개의 네트워크 인터페이스를 만들고, 개인 IP 주소에 연결합니다. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -146,7 +119,6 @@ for i in `seq 1 2`; do
     --name myNic$i \
     --vnet-name myVnet \
     --subnet mySubnet \
-    --network-security-group myNetworkSecurityGroup \
     --lb-name myLoadBalancer \
     --lb-address-pools myBackEndPool
 done
@@ -249,7 +221,7 @@ VM을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
 ```azurecli-interactive
   az network lb show \
-    --name myLoadBalancer
+    --name myLoadBalancer \
     --resource-group myResourceGroupILB
 ``` 
 ![부하 분산 장치 테스트](./media/load-balancer-get-started-ilb-arm-cli/load-balancer-test.png)

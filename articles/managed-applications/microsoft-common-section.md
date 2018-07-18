@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2018
+ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e6d7d5d7b205d275c72e96df527a354b072a9dd3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 90ffae3dd8b05041c34d766e464eb68f793f6066
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260972"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37062981"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI 요소
 제목 아래에 하나 이상의 요소를 그룹화하는 컨트롤입니다.
@@ -31,17 +31,17 @@ ms.locfileid: "34260972"
 {
   "name": "section1",
   "type": "Microsoft.Common.Section",
-  "label": "Some section",
+  "label": "Example section",
   "elements": [
     {
-      "name": "element1",
+      "name": "text1",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 1"
+      "label": "Example text box 1"
     },
     {
-      "name": "element2",
+      "name": "text2",
       "type": "Microsoft.Common.TextBox",
-      "label": "Some text box 2"
+      "label": "Example text box 2"
     }
   ],
   "visible": true
@@ -56,7 +56,7 @@ ms.locfileid: "34260972"
 `elements`에 있는 요소의 출력 값에 액세스하려면 [basics()](create-uidefinition-functions.md#basics) 또는 [steps()](create-uidefinition-functions.md#steps) 함수와 점 표기법을 사용합니다.
 
 ```json
-basics('section1').element1
+steps('configuration').section1.text1
 ```
 
 `Microsoft.Common.Section` 형식의 요소에는 출력 값 자체가 없습니다.

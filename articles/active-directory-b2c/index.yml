@@ -7,16 +7,17 @@ metadata:
   services: active-directory-b2c
   author: davidmu1
   manager: mtillman
-  ms.service: active-directory-b2c
+  ms.service: active-directory
+  ms.component: B2C
   ms.topic: landing-page
   ms.date: 03/29/2018
   ms.author: davidmu
-  ms.openlocfilehash: 000874bd089583cfc75dfa0a4d28769b91808a11
-  ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+  ms.openlocfilehash: a70e3fe60291a0ee50dbaa4bd3caa460ff12ffef
+  ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 04/30/2018
-  ms.locfileid: "32308868"
+  ms.lasthandoff: 06/20/2018
+  ms.locfileid: "36284268"
 abstract:
   description: Azure AD(Azure Active Directory) B2C는 응용 프로그램을 사용할 때 고객이 자신의 프로필을 등록, 로그인 및 관리하는 방법을 사용자 지정하고 제어할 수 있는 ID 관리 서비스입니다. 여기에는 iOS, Android 및 .NET용으로 개발된 응용 프로그램이 포함됩니다. Azure AD B2C를 사용하면 고객의 ID를 보호하면서 이러한 작업을 수행할 수 있습니다. 빠른 시작, 자습서 및 샘플을 통해 Azure AD B2C를 사용하는 방법에 대해 알아봅니다.
   aside:

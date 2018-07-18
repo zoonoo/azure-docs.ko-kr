@@ -8,22 +8,24 @@ manager: mtillman
 editor: curtand
 ms.assetid: d76ae997-2279-46dd-bfc5-c0ee29718096
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: b91ffb0965516a8e3f6678a6607ab0b26a0c2a67
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fceeb9655562d7abf6930cc484b4a9eb275ee81e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34586851"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36330804"
 ---
 # <a name="join-a-red-hat-enterprise-linux-7-virtual-machine-to-a-managed-domain"></a>Red Hat Enterprise Linux 7 가상 컴퓨터를 관리되는 도메인에 가입
 이 문서에서는 Red Hat Enterprise Linux(RHEL) 7 가상 머신을 Azure AD 도메인 서비스 관리되는 도메인에 가입하는 방법을 보여 줍니다.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 이 문서에 나열된 작업을 수행하려면 다음이 필요합니다.  
@@ -84,17 +86,17 @@ sudo vi /etc/hosts
     sudo realm discover CONTOSO100.COM
     ```
 
-     > [!NOTE] 
+     > [!NOTE]
      > **문제 해결:** *영역 검색*을 통해 관리되는 도메인을 찾을 수 없는 경우 다음을 수행합니다.
      * 해당 도메인을 가상 머신에서 연결 가능한지 확인합니다(ping 시도).
      * 또한 관리되는 도메인을 사용할 수 있는 동일한 가상 네트워크에 가상 머신을 확실히 배포했는지 확인합니다.
      * 가상 네트워크가 관리되는 도메인의 도메인 컨트롤러를 가리키도록 DNS 서버 설정을 업데이트했는지 확인합니다.
      >
 
-2. Kerberos를 초기화합니다. SSH 터미널에서 다음 명령을 입력합니다. 
+2. Kerberos를 초기화합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
-    > [!TIP] 
-    > * 'AAD DC 관리자' 그룹에 속한 사용자를 지정해야 합니다. 
+    > [!TIP]
+    > * 'AAD DC 관리자' 그룹에 속한 사용자를 지정해야 합니다.
     > * 도메인 이름을 대문자로 지정하지 않으면 kinit가 실패합니다.
     >
 
@@ -102,9 +104,9 @@ sudo vi /etc/hosts
     kinit bob@CONTOSO100.COM
     ```
 
-3. 컴퓨터를 도메인에 가입합니다. SSH 터미널에서 다음 명령을 입력합니다. 
+3. 컴퓨터를 도메인에 가입합니다. SSH 터미널에서 다음 명령을 입력합니다.
 
-    > [!TIP] 
+    > [!TIP]
     > 이전 단계에서 지정한 동일한 사용자 계정을 사용합니다.
     >
 

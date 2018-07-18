@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/07/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 2018f5b7051f2b6906372dad3319c763974b93b1
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 49702349b1c2476f5743122b33cb3375e54df191
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355188"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930099"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 웹앱 만들기
 
@@ -76,7 +76,7 @@ Maven에서 배포하려면 *pom.xml* 파일의 `<build>` 요소 내에 다음 �
       <plugin>
         <groupId>com.microsoft.azure</groupId> 
         <artifactId>azure-webapp-maven-plugin</artifactId> 
-        <version>1.1.0</version>
+        <version>1.2.0</version>
         <configuration> 
           <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
           <appName>YOUR_WEB_APP</appName> 
@@ -106,7 +106,39 @@ Maven에서 배포하려면 *pom.xml* 파일의 `<build>` 요소 내에 다음 �
 | `YOUR_RESOURCE_GROUP` | 웹앱을 만들 새 리소스 그룹의 이름입니다. 앱의 모든 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 앱과 연결된 모든 리소스가 삭제됩니다. 이 값을 고유한 새 리소스 그룹(예: *TestResources*)으로 업데이트합니다. 이 리소스 그룹 이름을 사용하여 이후 섹션에서 모든 Azure 리소스를 정리합니다. |
 | `YOUR_WEB_APP` | 앱 이름은 Azure(YOUR_WEB_APP.azurewebsites.net)에 배포할 때 웹앱의 호스트 이름의 일부가 됩니다. 이 값을 Java 앱을 호스팅할 새 Azure 웹앱의 고유 이름(예: *contoso*)으로 업데이트합니다. |
 
-구성의 `linuxRuntime` 요소는 응용 프로그램과 함께 사용되는 기본 제공 Linux 이미지를 제어합니다.
+구성의 `linuxRuntime` 요소는 응용 프로그램과 함께 사용되는 기본 제공 Linux 이미지를 제어합니다. 지원되는 모든 런타임 스택은 [이 링크](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin#runtime-stacks)에서 찾을 수 있습니다. 
+
+
+> [!NOTE] 
+> 이 문서에서는 WAR 파일로만 작업합니다. 하지만 플러그 인은 *pom.xml* 파일의 `<build>` 요소 내에 있는 다음 플러그 인 정의를 사용하여 JAR 웹 응용 프로그램을 지원합니다.
+>
+>```xml
+>    <plugins>
+>      <plugin>
+>        <groupId>com.microsoft.azure</groupId> 
+>        <artifactId>azure-webapp-maven-plugin</artifactId> 
+>        <version>1.2.0</version>
+>        <configuration> 
+>          <resourceGroup>YOUR_RESOURCE_GROUP</resourceGroup> 
+>          <appName>YOUR_WEB_APP</appName> 
+>          <linuxRuntime>jre8</linuxRuntime>   
+>          <!-- This is to make sure the jar file will not be occupied during the deployment -->
+>          <stopAppDuringDeployment>true</stopAppDuringDeployment>
+>          <deploymentType>ftp</deploymentType> 
+>          <resources> 
+>              <resource> 
+>                  <directory>${project.basedir}/target</directory> 
+>                  <targetPath>webapps</targetPath> 
+>                  <includes> 
+>                      <!-- Currently it is required to set as app.jar -->
+>                      <include>app.jar</include> 
+>                  </includes>  
+>              </resource> 
+>          </resources> 
+>        </configuration>
+>      </plugin>
+>    </plugins>
+>```    
 
 다음 명령을 실행하고 모든 지시에 따라 Azure CLI로 인증합니다.
 

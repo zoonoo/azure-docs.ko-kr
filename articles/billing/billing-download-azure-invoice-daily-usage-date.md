@@ -2,13 +2,12 @@
 title: Azure 청구서 및 일간 사용 현황 데이터 다운로드 | Microsoft Docs
 description: Azure 청구서 및 일간 사용 현황 데이터를 다운로드하는 방법을 설명합니다.
 keywords: 청구서, 청구서 다운로드, azure 청구서, azure 사용 현황
-services: ''
+services: billing
 documentationcenter: ''
 author: genlin
 manager: tonguyen
 editor: ''
 tags: billing
-ms.assetid: 6d568d1d-3bd6-4348-97d0-1098b5fe0661
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: genli
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e57e3898c5e843dcc130746a10e78b0681303670
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 59ee992518b5e529f486415f962c6f26881875f1
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34607415"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용 현황 데이터 다운로드 또는 보기
 [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에서 청구서를 다운로드하거나 전자 메일로 전송할 수 있습니다. 일간 사용 현황을 다운로드하려면 [Azure Account Center](https://account.azure.com/Subscriptions)로 이동합니다. 계정 관리자와 같은 특정 역할만 청구서 및 사용 현황 정보를 확인할 권한이 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
 이 문서는 EA(기업 계약) 고객에게는 적용되지 않습니다. EA 고객인 경우 청구서는 등록 관리자에게 직접 전송됩니다.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="get-your-invoice-in-email-pdf"></a>전자 메일로 청구서 받기(.pdf)
 Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 구성할 수 있습니다. 지원 서비스, 기업 계약, Azure in Open 등의 특정 구독에는 이 기능이 제공되지 않을 수도 있습니다.
@@ -39,13 +38,18 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
     
 2. **옵트인**을 클릭하고 조건에 동의합니다.
 
-    ![옵트인 흐름을 보여주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
+    ![옵트인 흐름 2단계를 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep2.PNG)
  
-3. 규약에 동의하면 추가 수취인을 구성할 수 있습니다.
+3. 규약에 동의하면 추가 수취인을 구성할 수 있습니다. 받는 사람이 제거된 경우 전자 메일 주소는 더 이상 저장되지 않습니다. 생각이 바뀌었다면 제거한 받는 사람을 다시 추가해야 합니다.
 
-    ![옵트인 흐름을 보여주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
+    ![옵트인 흐름 3단계를 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep3.PNG)
     
 이 단계를 따른 후 전자 메일을 받지 못하면 [프로필의 통신 기본 설정](https://account.windowsazure.com/profile)에서 전자 메일 주소가 올바른지 확인합니다.
+
+### <a name="opt-out-from-getting-your-invoice-in-email"></a>전자 메일로 청구서 받기 옵트아웃
+전자 메일로 청구서를 받지 않으려면 전자 메일로 보낸 청구서 옵트아웃을 클릭합니다. 그러면 전자 메일로 청구서를 받기 위해 설정된 모든 전자 메일 주소가 제거됩니다. 다시 옵트인한 경우 받는 사람을 다시 구성해야 합니다.
+
+ ![옵트아웃 흐름을 보여 주는 스크린샷](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
 ## <a name="download-invoice-from-azure-portal-pdf"></a>Azure Portal에서 청구서 다운로드(.pdf)
 

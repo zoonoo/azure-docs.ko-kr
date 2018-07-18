@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: jgao
-ms.openlocfilehash: 0feb1e344d70207d48e4ef07f5b45790425727ad
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200319"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37017940"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>.NET SDK를 사용하여 HDInsight의 Hadoop 클러스터 관리
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-[HDInsight .NET SDK](https://msdn.microsoft.com/library/mt271028.aspx)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
+[HDInsight .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)를 사용하여 HDInsight 클러스터를 관리하는 방법을 알아봅니다.
 
 **필수 구성 요소**
 
@@ -271,7 +271,7 @@ foreach (var key in results.Configuration.Keys)
 [HDInsight에 데이터 업로드][hdinsight-upload-data]를 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-* [HDInsight .NET SDK 참조 설명서](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK 참조 설명서](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Azure Portal을 사용하여 HDInsight 관리][hdinsight-admin-portal]
 * [명령줄 인터페이스를 사용하여 HDInsight 관리][hdinsight-admin-cli]
 * [HDInsight 클러스터 만들기][hdinsight-provision]

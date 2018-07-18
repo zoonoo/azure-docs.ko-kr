@@ -11,26 +11,31 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
+ms.topic: conceptual
+ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 5c2201292eb085dcc043e4257580c7971dbaffbd
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 0ad22562bd1f36bba7c0ab99fe504e82645033d3
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "23655415"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131413"
 ---
 # <a name="filters-in-log-analytics-views"></a>Log Analytics 보기의 필터
 [Log Analytics 보기](log-analytics-view-designer.md)에서 **필터**를 사용하면 사용자가 뷰 자체를 수정하지 않고 특정 속성의 값으로 뷰에서 데이터를 필터링할 수 있습니다.  예를 들어, 보기의 사용자가 특정 컴퓨터 또는 컴퓨터 집합의 데이터에 대한 보기를 필터링하도록 허용할 수 있습니다.  단일 보기에 여러 필터를 만들어서 사용자가 여러 속성별로 필터링하도록 허용할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
 
 ## <a name="using-a-filter"></a>필터 사용
-**필터**를 클릭하여 보기에 대한 필터 창을 엽니다.  그러면 보기에 사용할 수 있는 모든 필터에 대한 시간 범위 및 값을 선택할 수 있습니다.  필터를 선택하면 사용 가능한 값의 목록이 표시됩니다.  하나 이상의 값을 선택하거나 입력할 수 있습니다. 보기는 지정된 값을 필터링하도록 자동으로 업데이트됩니다. 
+보기에 대한 데이터 시간 범위를 변경할 수 있는 드롭다운을 열려면 보기 상단의 데이터 시간 범위를 클릭합니다.
 
-필터에 대한 값을 선택하지 않으면 해당 필터가 보기에 적용되지 않습니다.  필터에 대한 모든 값을 제거하면 해당 필터가 더 이상 적용되지 않습니다.
+![필터 예제](media/log-analytics-view-designer/filters-example-time.png)
+
+보기에 대해 정의된 사용자 지정 필터를 사용하여 필터를 추가하려면 **+** 를 클릭합니다. 드롭다운에서 필터에 대한 값을 선택하거나 값을 입력합니다. **+** 를 클릭하여 필터를 계속 추가합니다. 
 
 
-![필터 예제](media/log-analytics-view-designer/filters-example.png)
+![필터 예제](media/log-analytics-view-designer/filters-example-custom.png)
+
+필터에 대한 모든 값을 제거하면 해당 필터가 더 이상 적용되지 않습니다.
 
 
 ## <a name="creating-a-filter"></a>필터 만들기

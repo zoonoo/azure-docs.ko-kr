@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: 60b447148c5cef24c061274a84620a8221efc430
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
+ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207947"
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34701355"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -76,7 +76,7 @@ Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 
 
 
 ## <a name="prerequisites"></a>필수 조건 
-Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 같습니다. 이 가이드에서는 Azure PowerShell 또는 Azure CLI를 사용하여 새 클러스터를 만드는 방법을 다룹니다. 필수 조건은 다음과 같습니다. 
+Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 같습니다. 이 가이드에서는 Azure PowerShell 또는 Azure CLI를 사용하여 새 클러스터를 만드는 방법을 다룹니다. 필수 조건은 다음과 같습니다.
 
 -  [Azure PowerShell 4.1 이상][azure-powershell] 또는 [Azure CLI 2.0 이상][azure-CLI]
 -  [AzureRM.ServiceFabric](https://docs.microsoft.com/powershell/module/azurerm.servicefabric) 및 [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)에서 Service Fabric 모듈에 대한 세부 정보를 찾을 수 있습니다.
@@ -86,20 +86,19 @@ Linux나 Windows 클러스터 모두 보안 클러스터를 만드는 개념은 
 
 이 문서에서는 Service Fabric RM PowerShell 및 CLI 모듈을 사용하여 클러스터를 배포하고, PowerShell 및 CLI 모듈 명령을 여러 시나리오에서 허용합니다. 각각에 대해 알아보겠습니다. 요구 사항을 충족하는 시나리오를 선택합니다. 
 
-- 시스템 생성 자체 서명된 인증서를 사용하여 새 클러스터 만들기
-    - 기본 클러스터 템플릿 사용
-    - 이미 있는 템플릿 사용
-- 이미 소유한 인증서를 사용하여 새 클러스터 만들기
-    - 기본 클러스터 템플릿 사용
-    - 이미 있는 템플릿 사용
+- 새 클러스터 만들기 
+    - 시스템 생성 자체 서명된 인증서 사용
+    - 이미 소유한 인증서 사용
+
+기본 클러스터 템플릿 또는 이미 있는 템플릿을 사용할 수 있습니다.
 
 ### <a name="create-new-cluster----using-a-system-generated-self-signed-certificate"></a>시스템 생성 자체 서명된 인증서를 사용하여 새 클러스터 만들기
 
 시스템에서 자체 서명된 인증서를 생성하고 클러스터를 보호하는 데 사용하려는 경우 다음 명령을 사용하여 클러스터를 만듭니다. 이 명령은 클러스터 보안을 위해 사용되는 기본 클러스터 인증서를 설정하고, 해당 인증서를 사용하여 관리 작업을 수행할 관리자 액세스를 설정합니다.
 
-### <a name="login-in-to-azure"></a>Azure에 로그인합니다.
+### <a name="login-to-azure"></a>Azure에 로그인
 
-```Powershell
+```PowerShell
 Connect-AzureRmAccount
 Set-AzureRmContext -SubscriptionId <guid>
 ```
@@ -108,7 +107,7 @@ Set-AzureRmContext -SubscriptionId <guid>
 azure login
 az account set --subscription $subscriptionId
 ```
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module-to-set-up-the-cluster"></a>모듈에서 제공되는 기본 5개 노드 1 nodetype 템플릿을 사용하여 클러스터 설정
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module-to-set-up-the-cluster"></a>모듈에서 제공되는 기본 5개 노드 1개 노드 형식 템플릿을 사용하여 클러스터 설정
 
 최소 매개 변수를 지정하여 클러스터를 신속하게 만드는 다음 명령 사용
 
@@ -116,7 +115,7 @@ az account set --subscription $subscriptionId
 
 아래 명령은 Windows 및 Linux 클러스터를 만드는 경우에도 작동합니다. 해당하는 OS를 지정하면 됩니다. 또한 PowerShell/CLI 명령은 CertificateOutputFolder에 지정된 인증서를 출력하지만 인증서 폴더가 이미 만들어졌는지 확인합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
-```Powershell
+```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"
 $vaultName="myvault"
@@ -207,7 +206,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 결국 다른 용도로 사용할 CA 서명 인증서인 경우 키 자격 증명 모음에 특별히 고유한 리소스 그룹을 제공하는 것이 좋습니다. Key Vault를 자체 리소스 그룹에 배치하는 것이 좋습니다. 이렇게 하면 키 및 암호는 유실하지 않고 Service Fabric 클러스터가 있는 리소스 그룹과 같은 계산 및 저장소 리소스 그룹을 제거할 수 있습니다. **키 자격 증명 모음을 포함하는 리소스 그룹은 해당 그룹을 사용하는 클러스터와 _동일한 지역에 있어야_ 합니다.**
 
 
-#### <a name="use-the-default-5-node-1-nodetype-template-that-ships-in-the-module"></a>모듈에서 제공되는 기본 5개 노드 1 nodetype 템플릿 사용
+#### <a name="use-the-default-5-node-1-node-type-template-that-ships-in-the-module"></a>모듈에서 제공되는 기본 5개 노드 1개 노드 형식 템플릿 사용
 사용되는 템플릿은 [Azure 샘플: Windows 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure-NSG) 및 [Ubuntu 템플릿](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeTypes-Secure)에서 사용할 수 있습니다.
 
 ```PowerShell
@@ -244,7 +243,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 #### <a name="use-the-custom-template-that-you-have"></a>기존의 사용자 지정 템플릿 사용 
 필요에 맞게 사용자 지정 템플릿을 작성해야 하는 경우 [Azure Service Fabric 템플릿 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)에서 사용할 수 있는 템플릿 중 하나로 시작하는 것이 좋습니다. 아래 [클러스터 템플릿 사용자 지정][customize-your-cluster-template] 섹션의 설명 및 지침에 따릅니다.
 
-이미 사용자 지정 템플릿이 있는 경우 템플릿 및 매개 변수 파일에 있는 모든 세 개의 인증서 관련 매개 변수 이름이 다음과 같고 값에는 다음과 같이 null인지 두 번 확인하도록 합니다.
+이미 사용자 지정 템플릿이 있는 경우 템플릿 및 매개 변수 파일에 있는 모든 세 개의 인증서 관련 매개 변수 이름이 다음과 같고 값에는 다음과 같이 Null인지 두 번 확인하도록 합니다.
 
 ```Json
    "certificateThumbprint": {
@@ -334,7 +333,7 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 3. zip 파일의 압축을 풉니다.
 4. `SetupApplications.ps1`을 실행하고 TenantId, ClusterName 및 WebApplicationReplyUrl을 매개 변수로 제공합니다. 예: 
 
-```powershell
+```PowerShell
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
@@ -363,7 +362,7 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인�
 
 <a id="customize-arm-template" ></a>
 
-## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>서비스 패브릭 클러스터 Resource Manager 템플릿 만들기
+## <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Service Fabric 클러스터 Resource Manager 템플릿 만들기
 Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작성하려는 사용자를 위한 섹션입니다. 템플릿이 있다면 다시 돌아가서 PowerShell 또는 CLI 모듈을 사용하여 배포합니다. 
 
 샘플 Resource Manager 템플릿은 [GitHub의 Azure 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates)에서 사용할 수 있습니다. 이러한 템플릿은 클러스터 템플릿의 시작점으로 사용할 수 있습니다.
@@ -372,7 +371,7 @@ Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작�
 이 가이드에서는 [5 노드 보안 클러스터][service-fabric-secure-cluster-5-node-1-nodetype] 예제 템플릿과 템플릿 매개 변수를 사용합니다. `azuredeploy.json`와 `azuredeploy.parameters.json`을 컴퓨터에 다운로드하고 선호하는 텍스트 편집기로 두 파일을 엽니다.
 
 ### <a name="add-certificates"></a>인증서 추가
-인증서 키를 포함하는 Key Vault 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 매개 변수 파일(azuredeploy.parameters.json)에 해당 키 자격 증명 모음 매개 변수 및 값을 추가합니다. 
+인증서 키를 포함하는 Key Vault를 참조하여 Cluster Resource Manager 템플릿에 인증서를 추가합니다. Resource Manager 템플릿 매개 변수 파일(azuredeploy.parameters.json)에 해당 키 자격 증명 모음 매개 변수 및 값을 추가합니다. 
 
 #### <a name="add-all-certificates-to-the-virtual-machine-scale-set-osprofile"></a>가상 머신 확장 집합 osProfile에 모든 인증서 추가
 클러스터에 설치된 모든 인증서는 확장 집합 리소스(Microsoft.Compute/virtualMachineScaleSets)의 osProfile 섹션에 구성되어야 합니다. 이 작업은 리소스 공급자에게 인증서를 VM에 설치하도록 지시합니다. 이 설치에는 클러스터 인증서와, 응용 프로그램에 사용하려는 모든 응용 프로그램 보안 인증서가 포함됩니다.
@@ -503,11 +502,10 @@ Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작�
 ### <a name="populate-the-parameter-file-with-the-values"></a>이 값으로 매개 변수 파일을 채웁니다.
 마지막으로, Key Vault 및 Azure AD PowerShell 명령의 출력 값을 매개 변수 파일을 채우는 데 사용합니다.
 
-Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터 인증서 정보를 채우지 않아도 됩니다. 시스템에서 클러스터 보안을 위해 자체 서명된 인증서를 생성하려는 경우 Null로만 유지합니다. 
+Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터 인증서 정보를 채울 필요가 없습니다. 시스템에서 클러스터 보안을 위해 자체 서명 인증서를 생성하려는 경우 Null로만 유지합니다. 
 
 > [!NOTE]
 > 이러한 빈 매개 변수 값을 선택하고 채우는 RM 모듈의 경우 매개 변수 이름은 아래 이름과 일치해야 합니다.
->
 
 ```json
 "clusterCertificateThumbprint": {
@@ -524,9 +522,9 @@ Azure Service Fabric RM PowerShell 모듈을 사용하려는 경우 클러스터
 },
 ```
 
-응용 프로그램 인증서를 사용하거나 키 자격 증명 모음에 업로드한 기존 클러스터를 사용하는 경우 이 정보를 가져와서 채워야 합니다. 
+응용 프로그램 인증서를 사용하거나 키 자격 증명 모음에 업로드한 기존 클러스터를 사용하는 경우 이 정보를 가져와서 채워야 합니다.
 
-RM 모듈에는 사용자에게 Azure AD 구성을 생성하는 기능이 없습니다. 따라서 클라이언트 액세스를 위해 Azure AD를 사용하려는 경우 사용자가 입력해야 합니다.
+RM 모듈에는 Azure AD 구성을 생성하는 기능이 없으므로 클라이언트 액세스에 Azure AD를 사용하려는 경우 채워야 합니다.
 
 ```json
 {
@@ -582,6 +580,16 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templa
 다음 다이어그램은 Key Vault 및 Azure AD 구성이 Resource Manager 템플릿 어디에 적합한지 보여 줍니다.
 
 ![리소스 관리자 종속성 맵][cluster-security-arm-dependency-map]
+
+
+## <a name="encrypting-the-disks-attached-to-your-windows-cluster-nodevirtual-machine-instances"></a>Windows 클러스터 노드/가상 머신 인스턴스에 연결된 디스크 암호화
+
+노드에 연결된 디스크(OS 드라이브 및 기타 관리 디스크)를 암호화하기 위해 Azure Disk Encryption을 활용합니다. Azure Disk Encryption은 [Windows 가상 머신 디스크를 암호화](service-fabric-enable-azure-disk-encryption-windows.md)할 수 있게 하는 새로운 기능입니다. Azure Disk Encryption은 Windows의 산업 표준 [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) 기능을 활용하여 OS 볼륨에 대한 볼륨 암호화를 제공합니다. 또한 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)에 통합되어 있습니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다. 
+
+## <a name="encrypting-the-disks-attached-to-your-linux-cluster-nodevirtual-machine-instances"></a>Linux 클러스터 노드/가상 머신 인스턴스에 연결된 디스크 암호화
+
+노드에 연결된 디스크(데이터 드라이브 및 기타 관리 디스크)를 암호화하기 위해 Azure Disk Encryption을 활용합니다. Azure Disk Encryption은 [Linux 가상 머신 디스크를 암호화](service-fabric-enable-azure-disk-encryption-linux.md)할 수 있게 하는 새로운 기능입니다. Azure Disk Encryption은 Linux의 산업 표준 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 활용하여 데이터 디스크에 대한 볼륨 암호화를 제공합니다. 또한 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/)에 통합되어 있습니다. 이 솔루션은 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다. 
+
 
 ## <a name="create-the-cluster-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 클러스터 만들기 
 

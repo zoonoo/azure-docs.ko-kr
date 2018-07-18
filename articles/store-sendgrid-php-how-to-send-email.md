@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
 ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
 ms.locfileid: "23059928"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
@@ -109,7 +109,7 @@ SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램
          print_r($failures);
      }
 
-### <a name="web-api"></a>웹 API
+### <a name="web-api"></a>Web API
 PHP의 [curl 함수][curl function] 를 사용하여 SendGrid 웹 API를 사용하여 전자 메일을 보냅니다.
 
     <?php
@@ -230,7 +230,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
 
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 
-예제:
+예:
 
     <?php
 
@@ -285,7 +285,7 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
 
     php composer.phar require sendgrid/sendgrid 2.1.1
 
-예제:    
+예:    
 
     <?php
      /*
@@ -385,7 +385,7 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 
 * SendGrid 설명서: <https://sendgrid.com/docs>
 * SendGrid PHP 라이브러리: <https://github.com/sendgrid/sendgrid-php>
-* Azure 고객을 위한 SendGrid 특가 제공: <https://sendgrid.com/windowsazure.html>
+* Azure 고객을 위한 SendGrid 특별 제공: <https://sendgrid.com/windowsazure.html>
 
 자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
 

@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 05/11/2018
 ms.author: genli
 ms.openlocfilehash: 654ff5a80f13941686e0a11c197e9cd9c99f5ee2
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072405"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38618586"
 ---
 # <a name="troubleshoot-a-windows-classic-vm-by-attaching-the-os-disk-to-a-recovery-vm"></a>OS 디스크를 복구 VM에 연결하여 Windows 클래식 VM의 문제 해결
 

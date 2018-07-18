@@ -8,23 +8,20 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: effe33182435d2a4afbad3356c6840070ba96325
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f198efe9ff5e4862a3bbe872ab50e5848c9dbb5c
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631431"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030583"
 ---
-# <a name="securing-azure-iot-edge---preview"></a>Azure IoT Edge 보안 - 미리 보기
+# <a name="securing-azure-iot-edge"></a>Securing Azure IoT Edge
 
 지능형 에지 보안은 종단간 IoT 솔루션의 작동에 대한 확신을 제공하기 위해 필요합니다. Azure IoT Edge는 다양한 위험 프로필, 배포 시나리오로 확장될 수 있는 보안을 위해 설계되었으며 모든 Azure 서비스에서 기대하는 것과 동일한 보호 기능을 제공합니다.
 
 Azure IoT Edge는 다른 하드웨어에서 실행되고 Linux와 Windows를 모두 지원하며 다양한 배포 시나리오에 적용할 수 있습니다.  평가된 위험은 솔루션 소유권, 배포 지리, 데이터 민감도, 개인 정보 보호, 응용 프로그램 수직 및 규정 요구 사항을 비롯한 여러 고려 사항에 따라 다릅니다.  특정 시나리오에 대한 구체적인 솔루션을 제공하는 대신 규모에 맞게 설계된 철저한 원칙을 기반으로 확장 가능한 보안 프레임워크를 설계하는 것이 좋습니다. 
  
 이 문서에서는 보안 프레임워크의 개요를 제공합니다. 자세한 내용은 [지능형 에지 보안][lnk-edge-blog]을 참조하세요.
-
->[!NOTE]
->아래 설명된 보안 프레임워크는 현재 제품에 추가되고 있으며 Azure IoT Edge의 일반 공급 릴리스에서 제공될 예정입니다. 이 제품은 현재 전체 보안 프레임워크가 필요한 전체 프로덕션 배포가 아닌 에지 솔루션의 개발 및 프로토타입을 허용하는 릴리스인 공개 미리 보기 중에 있습니다.   
 
 ## <a name="standards"></a>표준
 

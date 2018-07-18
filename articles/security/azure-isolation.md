@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6f01c2938462f3912928e183fcec215a52a3ee48
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: b112eee0e33654657bc6a57eec528c8a93bb077a
+ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010883"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37018417"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 공용 클라우드에서 격리
 ##  <a name="introduction"></a>소개
@@ -121,7 +121,7 @@ ISO/IEC 27001과 같은 감사된 인증을 갖춘 비즈니스 서비스는 합
 
 데이터를 삭제하면 Microsoft Azure는 캐시된 복사본 또는 백업 복사본을 모두 포함하여 데이터를 삭제합니다. 범위 내 서비스의 경우 삭제는 보존 기간 종료 후 90일 이내에 발생합니다. (범위 내 서비스는 [Online Services 약관](http://aka.ms/Online-Services-Terms)의 데이터 처리 조항 섹션에 정의되어 있습니다.)
 
-저장소로 사용되는 디스크 드라이브에 하드웨어 장애가 발생하면 Microsoft에서 교체하거나 복구하기 위해 제조업체에 반환하기 전에 안전하게 [지워지거나 제거됩니다](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data). 어떤 방법으로도 데이터를 복구할 수 없도록 드라이브의 데이터를 덮어씁니다.
+저장소로 사용되는 디스크 드라이브에 하드웨어 장애가 발생하면 Microsoft에서 교체하거나 복구하기 위해 제조업체에 반환하기 전에 안전하게 [지워지거나 제거됩니다](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data). 어떤 방법으로도 데이터를 복구할 수 없도록 드라이브의 데이터를 덮어씁니다.
 
 ## <a name="compute-isolation"></a>Compute 격리
 Microsoft Azure는 응용 프로그램 또는 엔터프라이즈의 요구 사항을 충족하도록 자동으로 확장하거나 축소할 수 있는 다양한 계산 인스턴스와 서비스를 포함하는 클라우드 기반 컴퓨팅 서비스를 제공합니다. 이러한 계산 인스턴스와 서비스는 여러 수준에서 격리를 제공하여 고객이 요구하는 구성에서 유연성을 유지하면서 데이터를 보호합니다.

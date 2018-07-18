@@ -1,11 +1,11 @@
 ---
-title: "Azure 게스트 OS에 대한 지원 가능성 및 사용 중지 정책 가이드 | Microsoft Docs"
-description: "클라우드 서비스에서 사용하는 Azure 게스트 OS에 대해 Microsoft가 지원하는 내용에 대한 정보를 제공합니다."
+title: Azure 게스트 OS에 대한 지원 가능성 및 사용 중지 정책 가이드 | Microsoft Docs
+description: Cloud Services에서 사용하는 Azure 게스트 OS에 대해 Microsoft가 지원하는 내용에 대한 정보를 제공합니다.
 services: cloud-services
 documentationcenter: na
 author: raiye
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 919dd781-4dc6-4e50-bda8-9632966c5458
 ms.service: cloud-services
 ms.devlang: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34608565"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 게스트 OS 지원 가능성 및 사용 중지 정책
-이 페이지의 정보는 클라우드 서비스 작업자 및 웹 역할(PaaS)에 대해 Azure 게스트 운영 체제([게스트 OS](cloud-services-guestos-update-matrix.md))와 관련됩니다. 가상 컴퓨터(IaaS)에 적용되지 않습니다.
+이 페이지의 정보는 Cloud Services 작업자 및 웹 역할(PaaS)에 대해 Azure 게스트 운영 체제([게스트 OS](cloud-services-guestos-update-matrix.md))와 관련됩니다. Virtual Machines(IaaS)에 적용되지 않습니다.
 
 Microsoft는 게시된 게스트 OS에 대한 [지원 정책을 제공합니다](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). 지금 읽고 있는 페이지는 정책 구현 방식을 설명합니다.
 
@@ -33,9 +34,7 @@ Microsoft는 게시된 게스트 OS에 대한 [지원 정책을 제공합니다]
 
 세 개 이상의 제품군 또는 릴리스가 지원되는 경우도 있습니다. 공식 게스트 OS 지원 정보가 [Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스(cloud-services-guestos-update-matrix.md)에](cloud-services-guestos-update-matrix.md)표시됩니다.
 
-## <a name="when-a-guest-os-family-or-version-is-retired"></a>게스트 OS 제품군 또는 버전 사용 중지된 경우
-Windows Server 운영 체제의 새 공식 버전 릴리스 이후에 새 게스트 OS **&gt;제품군** 이 도입되었습니다. 새 게스트 OS 제품군이 도입될 때마다 Microsoft는 가장 오래된 게스트 OS 제품군을 사용 중지합니다.
-
+## <a name="when-a-guest-os-version-is-retired"></a>게스트 OS 버전 사용 중지
 새 게스트 OS **버전은** 최신 MSRC 업데이트를 통합하기 위해 매달 도입됩니다. 정기적인 매월 업데이트로 인해 게스트 OS 버전은 보통 출시 후 60일 즈음에 비활성화됩니다. 사용할 수 있는 각 제품군에 대해 최소 두 버전의 게스트 OS를 유지합니다.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>게스트 OS 제품군 사용 중지 시 프로세스
@@ -45,7 +44,7 @@ Windows Server 운영 체제의 새 공식 버전 릴리스 이후에 새 게스
 
 1. Microsoft는 고객에게 사용 중지를 알립니다.
 2. Azure SDK의 최신 버전은 사용 중지된 게스트 OS 제품군을 지원하지 않습니다.
-3. 클라우드 서비스의 새로운 배포 및 재배포가 사용 중지된 제품군에서 허용되지 않습니다.
+3. Cloud Services의 새로운 배포 및 재배포가 사용 중지된 제품군에서 허용되지 않습니다.
 
 Microsoft는 "만료 날짜"라고 하는 전환 기간의 마지막날까지 최신 MSRC 업데이트를 통합하는 새 게스트 OS 버전을 계속 도입합니다. 만료일에도 여전히 실행 중인 Cloud Services는 Azure SLA에 따라 지원되지 않습니다. Microsoft의 판단에 따라 해당 날짜 이후에 이 서비스를 강제로 업그레이드, 삭제 또는 중지할 수 있습니다.
 
@@ -75,7 +74,7 @@ Cloud Services를 디자인하기 위한 최신 게스트 OS 제품군을 사용
 
 **내 웹 응용 프로그램을 사용하려면 OS와 밀접하게 통합되어야 하는 경우 어떻게 하나요?**
 
-웹 응용 프로그램 아키텍처가 운영 체제의 기본 기능에 의존할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure 가상 컴퓨터](https://azure.microsoft.com/documentation/scenarios/virtual-machines/) (IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
+웹 응용 프로그램 아키텍처가 운영 체제의 기본 기능에 의존할 경우 [시작 작업](cloud-services-startup-tasks.md) 또는 기타 확장성 메커니즘과 같은 플랫폼 지원 기능을 사용합니다. 또는 [Azure Virtual Machines](https://azure.microsoft.com/documentation/scenarios/virtual-machines/)(IaaS – 서비스로서의 인프라)를 사용할 수도 있으며, 기본 운영 체제를 유지 관리하게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 최신 [게스트 OS 릴리스](cloud-services-guestos-update-matrix.md)를 검토합니다.

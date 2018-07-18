@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: larryfr
-ms.openlocfilehash: d382293ce815f24ad635b50c920d7988b664d79c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d030bdaf4c68a7e2ec9d11cdd8a2f55eccfbd67d
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169611"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081170"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>HDInsight에서 Hadoop과 Pig 사용
 
@@ -55,7 +55,7 @@ Pig를 사용하면 원하는 출력을 생산하기 위해 데이터가 통과�
 
 또한 Pig Latin는 사용자가 Pig Latin의 모델에 어려운 논리를 구현하는 외부 구성 요소를 적용할 수 있도록 사용자 정의 함수(UDF)를 지원합니다.
 
-Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1](http://pig.apache.org/docs/r0.7.0/piglatin_ref1.html) 및 [Pig Latin 참조 설명서 2](http://pig.apache.org/docs/r0.7.0/piglatin_ref2.html)를 참조하십시오.
+Pig Latin에 대한 자세한 내용은 [Pig Latin 참조 설명서 1](http://archive.cloudera.com/cdh/3/pig/piglatin_ref1.html) 및 [Pig Latin 참조 설명서 2](http://archive.cloudera.com/cdh/3/pig/piglatin_ref2.html)를 참조하십시오.
 
 Pig와 UDF를 사용하는 예로, 다음 문서를 참조하십시오:
 

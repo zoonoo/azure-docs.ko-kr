@@ -3,7 +3,7 @@ title: 빠른 시작 - Azure Portal에서 Linux VM 만들기 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Linux 가상 머신을 만드는 방법을 배웁니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/24/2018
-ms.author: iainfou
+ms.date: 07/03/2018
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18ac0291bff2c0fbfffdd5dfa3097f8a6acb561f
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34012886"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37447961"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
 Azure Portal을 통해 Azure VM(가상 머신)을 만들 수 있습니다. 이 방법은 VM 및 관련 리소스를 만드는 브라우저 기반 사용자 인터페이스를 제공합니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Ubuntu를 실행하는 Azure에서 Linux VM(가상 머신)을 배포하는 방법을 보여줍니다. 작업에서 VM을 보려면 VM에 SSH를 수행하고 NGINX 웹 서버를 설치합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-ssh-key-pair"></a>SSH 키 쌍 만들기
 
@@ -63,7 +63,7 @@ http://portal.azure.com에서 Azure Portal에 로그인
 
     ![VM 크기를 보여 주는 스크린샷](./media/quick-create-portal/create-linux-vm-portal-sizes.png)
 
-5. **설정** 아래에서 기본값을 그대로 두고 **확인**을 선택합니다.
+5. **설정** 페이지의 **네트워크** > **네트워크 보안 그룹** > **공용 인바운드 포트 선택**에서 **HTTP** 및 **SSH(22)** 를 선택합니다. 나머지는 기본값으로 두고 **확인**을 선택합니다.
 
 6. 요약 페이지에서 **만들기**를 선택하여 VM 배포를 시작합니다.
 
@@ -99,14 +99,6 @@ sudo apt-get -y install nginx
 
 여기까지 마쳤으면 SSH 세션을 `exit`하고 Azure Portal에서 VM 속성으로 돌아갑니다.
 
-## <a name="open-port-80-for-web-traffic"></a>웹 트래픽에 대해 포트 80 열기
-
-NSG(네트워크 보안 그룹)는 인바운드 및 아웃바운드 트래픽의 보안을 유지합니다. Azure Portal에서 VM이 만들어지면 SSH 연결의 포트 22 인바운드 규칙이 만들어집니다. 이 VM이 웹 서버를 호스트하기 때문에 포트 80에 NSG 규칙을 만들어야 합니다.
-
-1. VM 개요 페이지에서 **네트워킹**을 선택합니다.
-2. 기존 인바운드 및 아웃바운드 규칙 목록이 표시됩니다. **인바운드 포트 규칙 추가**를 선택합니다.
-3. 맨 위에서 **기본** 옵션을 선택한 다음, 사용 가능한 서비스 목록에서 *HTTP*를 선택합니다. 포트 80, 우선 순위 및 이름이 자동으로 입력됩니다.
-4. 규칙을 만들려면 **추가**를 선택합니다.
 
 ## <a name="view-the-web-server-in-action"></a>실제로 작동 중인 웹 서버 보기
 

@@ -3,7 +3,7 @@ title: Azure Data Factory를 사용하여 증분 방식으로 여러 테이블 �
 description: 이 자습서에서는 델타 데이터를 증분 방식으로 온-프레미스 SQL Server 데이터베이스의 여러 테이블에서 Azure SQL 데이터베이스로 복사하는 Azure Data Factory 파이프라인을 만듭니다.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 8f59ffb2011ad43173881d4ced231e4820fcf5f8
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.author: yexu
+ms.openlocfilehash: 377cb9df8ce09581a5fd5d9d7a7d55368daf44ca
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30184509"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082447"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 데이터 증분 로드
 이 자습서에서는 델타 데이터를 온-프레미스 SQL Server의 여러 테이블에서 Azure SQL 데이터베이스로 로드하는 파이프라인이 있는 Azure 데이터 팩터리를 만듭니다.    
@@ -37,9 +37,6 @@ ms.locfileid: "30184509"
 > * 원본 테이블의 데이터를 추가 또는 업데이트합니다.
 > * 파이프라인을 다시 실행하고 모니터링합니다.
 > * 최종 결과를 검토합니다.
-
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. 일반 공급되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 ## <a name="overview"></a>개요
 이 솔루션을 만드는 중요한 단계는 다음과 같습니다. 
@@ -77,7 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`이라는 테이블을 만듭니다.
+3. 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.
 
     ```sql
     create table customer_table
@@ -116,7 +113,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **서버 탐색기**에서 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **새 쿼리**를 선택합니다.
 
-3. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`이라는 테이블을 만듭니다.  
+3. SQL 데이터베이스에 대해 다음 SQL 명령을 실행하여 `customer_table` 및 `project_table`(이)라는 테이블을 만듭니다.  
     
     ```sql
     create table customer_table
@@ -271,7 +268,7 @@ END
     The specified Data Factory name 'ADFIncMultiCopyTutorialFactory' is already in use. Data Factory names must be globally unique.
     ```
 * Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할 사용자 계정이 참여자 또는 소유자 역할의 구성원이거나, Azure 구독의 관리자여야 합니다.
-* 현재 미국 동부, 미국 동부 2 및 유럽 서부 지역에서만 Data Factory 버전 2를 사용하여 데이터 팩터리를 만들 수 있습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
+* Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, SQL Database 등) 및 계산(Azure HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
 [!INCLUDE [data-factory-create-install-integration-runtime](../../includes/data-factory-create-install-integration-runtime.md)]
 
@@ -280,13 +277,13 @@ END
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
 데이터 팩터리에서 연결된 서비스를 만들어 데이터 저장소를 연결하고 계산 서비스를 데이터 팩터리에 연결합니다. 이 섹션에서는 온-프레미스 SQL Server 데이터베이스와 SQL 데이터베이스에 연결된 서비스를 만듭니다. 
 
-### <a name="create-the-sql-server-linked-service"></a>SQL Server 연결된 서비스 만들기
+### <a name="create-the-sql-server-linked-service"></a>SQL Server에 연결된 서비스 만들기
 이 단계에서 온-프레미스 SQL Server 데이터베이스를 데이터 팩터리에 연결합니다.
 
-1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 SqlServerLinkedService.json이라는 JSON 파일을 만듭니다. Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 적절한 섹션을 선택합니다. 로컬 폴더가 아직 없으면 만듭니다. 
+1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 SqlServerLinkedService.json이라는 JSON 파일을 만듭니다. Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다. 로컬 폴더가 아직 없으면 만듭니다. 
 
     > [!IMPORTANT]
-    > Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 적절한 섹션을 선택합니다.
+    > Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다.
 
     SQL 인증을 사용하는 경우 다음 JSON 정의를 복사합니다.
 
@@ -334,7 +331,7 @@ END
     }    
     ```
     > [!IMPORTANT]
-    > - Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 적절한 섹션을 선택합니다.
+    > - Microsoft SQL Server에 연결하는 데 사용하는 인증을 기반으로 올바른 섹션을 선택합니다.
     > - &lt;integration runtime name>을 사용자의 통합 런타임 이름으로 바꿉니다.
     > - 파일을 저장하기 전에 &lt;servername>, &lt;databasename>, &lt;username> 및 &lt;password>를 SQL Server 데이터베이스 값으로 바꿉니다.
     > - 슬래시 문자(`\`)를 사용자 계정 또는 서버 이름에 사용해야 할 경우 이스케이프 문자(`\`)를 사용합니다. 예는 `mydomain\\myuser`입니다.
@@ -356,7 +353,7 @@ END
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerLinkedService
     ```
 
-### <a name="create-the-sql-database-linked-service"></a>SQL 데이터베이스 연결된 서비스 만들기
+### <a name="create-the-sql-database-linked-service"></a>SQL 데이터베이스에 연결된 서비스 만들기
 1. C:\ADFTutorials\IncCopyMultiTableTutorial 폴더에 다음 내용이 포함된 AzureSQLDatabaseLinkedService.json이라는 JSON 파일을 만듭니다. (ADF 폴더가 없으면 해당 폴더를 만듭니다.) 파일을 저장하기 전에 &lt;server&gt;, &lt;database name&gt;, &lt;user id&gt; 및 &lt;password&gt;를 SQL Server 데이터베이스 이름, 데이터베이스 이름, 사용자 ID 및 암호로 바꿉니다. 
 
     ```json
@@ -412,7 +409,7 @@ END
    
     ```
 
-    테이블 이름은 더미 이름입니다. 파이프 라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
+    테이블 이름은 더미 이름입니다. 파이프라인의 복사 작업은 전체 테이블을 로드하는 대신 SQL 쿼리를 사용하여 데이터를 로드합니다.
 
 2. **Set-AzureRmDataFactoryV2Dataset** cmdlet을 실행하여 SourceDataset 데이터 집합을 만듭니다.
     
@@ -513,9 +510,9 @@ END
 ## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 파이프라인에서는 테이블 이름 목록을 매개 변수로 사용합니다. ForEach 작업은 테이블 이름 목록을 반복하고 다음 작업을 수행합니다. 
 
-1. 조회 작업을 사용하여 이전 워터마크 값을 검색합니다(초기 값 또는 마지막 반복에서 사용된 값).
+1. 조회 작업을 사용하여 이전 워터마크 값(초기 값 또는 마지막 반복에서 사용된 값)을 검색합니다.
 
-2. 조회 작업을 사용하여 새로운 워터마크 값을 검색합니다(원본 테이블의 워터마크 열의 최대값).
+2. 조회 작업을 사용하여 새로운 워터마크 값(원본 테이블의 워터마크 열의 최대값)을 검색합니다.
 
 3. 복사 작업을 사용하여 원본 데이터베이스에서 대상 데이터베이스로 2개의 워터마크 값 사이에 데이터를 복사합니다.
 
@@ -695,7 +692,7 @@ END
         ]
     }
     ```
-2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 실행합니다. 자리 표시자를 자신의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
+2. **Invoke-AzureRmDataFactoryV2Pipeline** cmdlet을 사용하여 IncrementalCopyPipeline 파이프라인을 실행합니다. 자리 표시자를 사용자의 리소스 그룹 및 데이터 팩터리 이름으로 바꿉니다.
 
     ```powershell
     $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName -ParameterFile ".\Parameters.json"        
@@ -724,7 +721,7 @@ END
 
     ![활동 실행](media\tutorial-incremental-copy-multiple-tables-powershell\monitor-activity-runs-5.png)
 
-7. **파이프라인 실행** 보기로 돌아가려면 이미지와 같이 **파이프라인**을 클릭합니다. 
+7. **파이프라인 실행** 보기로 돌아가려면 이미지에서와 같이 **파이프라인**을 선택합니다. 
 
 ## <a name="review-the-results"></a>결과 검토
 SQL Server Management Studio에서 대상 SQL 데이터베이스에 대해 다음 쿼리를 실행하여 데이터가 원본 테이블에서 대상 테이블로 복사되었는지 확인합니다. 

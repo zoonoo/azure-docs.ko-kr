@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/11/2018
 ms.author: sethm
-ms.openlocfilehash: 50fd07e4c979cfb415589ba721adb7998cfbe7bd
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4650bb3b24172e2c649a67f52e37294fb1bb7e4f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410712"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38506270"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 
@@ -146,8 +146,10 @@ Service Bus 네임스페이스에서 만든 규칙(필터)의 이름입니다.
                         "[parameters('serviceBusSubscriptionName')]"
                     ],
                     "properties": {
-                        "filter": {
-                            "sqlExpression": "StoreName = 'Store1'"
+                        "filterType": "SqlFilter",
+                        "sqlFilter": {
+                            "sqlExpression": "StoreName = 'Store1'",
+                            "requiresPreprocessing": "false"
                         },
                         "action": {
                             "sqlExpression": "set FilterTag = 'true'"

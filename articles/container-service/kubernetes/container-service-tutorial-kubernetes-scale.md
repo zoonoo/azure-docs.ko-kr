@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: f643c09f00b23cd14e85e83ed0cf7ab7a13c7646
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162826"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098535"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes Pod 및 Kubernetes 인프라 크기 조정
 
@@ -39,7 +39,7 @@ ms.locfileid: "32162826"
 
 ## <a name="manually-scale-pods"></a>수동으로 Pod 크기 조정
 
-따라서 Azure Vote 프런트 엔드 및 Redis 인스턴스가 각각 단일 복제본으로 배포되었습니다. 확인하려면 [kubectl get](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get) 명령을 실행합니다.
+따라서 Azure Vote 프런트 엔드 및 Redis 인스턴스가 각각 단일 복제본으로 배포되었습니다. 확인하려면 [kubectl get](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 실행합니다.
 
 ```azurecli-interactive
 kubectl get pods
@@ -53,13 +53,13 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-[kubectl scale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#scale) 명령을 사용하여 수동으로 `azure-vote-front` 배포의 Pod 수를 변경합니다. 이 예제에서는 수를 5로 늘립니다.
+[kubectl scale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale) 명령을 사용하여 수동으로 `azure-vote-front` 배포의 Pod 수를 변경합니다. 이 예제에서는 수를 5로 늘립니다.
 
 ```azurecli-interactive
 kubectl scale --replicas=5 deployment/azure-vote-front
 ```
 
-[kubectl get pods](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#get)를 실행하여 Kubernetes에서 Pod를 만들고 있는지 확인합니다. 1분 정도 지나면 추가 Pod가 실행되고 있습니다.
+[kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get)를 실행하여 Kubernetes에서 Pod를 만들고 있는지 확인합니다. 1분 정도 지나면 추가 Pod가 실행되고 있습니다.
 
 ```azurecli-interactive
 kubectl get pods
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-다음 예제에서는 [kubectl autoscale](https://kubernetes.io/docs/user-guide/kubectl/v1.6/#autoscale) 명령을 사용하여 `azure-vote-front` 배포의 Pod 수를 자동으로 조정합니다. 여기서는 CPU 사용률이 50%를 초과하면 자동 크기 조정기가 Pod를 최대 10개로 늘립니다.
+다음 예제에서는 [kubectl autoscale](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale) 명령을 사용하여 `azure-vote-front` 배포의 Pod 수를 자동으로 조정합니다. 여기서는 CPU 사용률이 50%를 초과하면 자동 크기 조정기가 Pod를 최대 10개로 늘립니다.
 
 
 ```azurecli-interactive

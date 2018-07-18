@@ -12,13 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/03/2017
+ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1bb3827036f0d8957ac0830f707da71dd4cd373
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887432"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의
 주어진 리소스에 대해 해당 리소스를 배포하기 전에 존재해야 하는 다른 리소스가 있을 수 있습니다. 예를 들어 SQL 데이터베이스를 배포하려면 SQL Server가 있어야 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다. 
@@ -54,12 +55,12 @@ Resource Manager는 리소스 간의 종속성을 평가한 후 종속된 순서
 
 ```json
 "dependsOn": [
-  "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-  "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+  "[resourceId('Microsoft.Network/loadBalancers', variables('loadBalancerName'))]",
+  "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]"
 ]
 ``` 
 
-dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 수 있지만 왜 그렇게 하는지에 대한 이유를 이해하는 것이 중요합니다. 예를 들어, 리소스가 상호 연결되는 방식을 문서화하려면, dependsOn은 올바른 접근 방법이 아닙니다. 배포 후 dependsOn 요소에 어떤 리소스가 정의되었는지 쿼리할 수 없습니다. dependsOn을 사용하면 Resource Manager는 종속성이 있는 두 리소스를 병렬로 배포하지 않으므로 배포 시간에 잠재적으로 영향을 줍니다. 리소스 간의 관계를 문서화하려면 [리소스 연결](/rest/api/resources/resourcelinks)을 대신 사용합니다.
+dependsOn을 사용하여 리소스 간의 관계를 매핑하도록 선택할 수 있지만 왜 그렇게 하는지에 대한 이유를 이해하는 것이 중요합니다. 예를 들어, 리소스가 상호 연결되는 방식을 문서화하려면, dependsOn은 올바른 접근 방법이 아닙니다. 배포 후 dependsOn 요소에 어떤 리소스가 정의되었는지 쿼리할 수 없습니다. dependsOn을 사용하면 Resource Manager는 종속성이 있는 두 리소스를 병렬로 배포하지 않으므로 배포 시간에 잠재적으로 영향을 줍니다. 
 
 ## <a name="child-resources"></a>자식 리소스
 resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리소스를 지정할 수 있습니다. 자식 리소스는 5개 수준 깊이까지만 정의할 있습니다. 자식 리소스 및 부모 리소스 간에 암시적 종속성은 생성되지 않습니다. 부모 리소스 다음에 자식 리소스를 배포해야 하는 경우 dependsOn 속성을 사용하여 해당 종속성을 확실하게 명시해야 합니다. 
@@ -106,11 +107,19 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 ]
 ```
 
-## <a name="reference-function"></a>reference 함수
-[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. 참조 식은 한 리소스가 다른 리소스에 종속되어 있음을 암시적으로 선언합니다. 일반적인 형식:
+## <a name="reference-and-list-functions"></a>reference 및 list 함수
+[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. [list* 함수](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list)는 목록 작업에서 리소스에 대한 값을 반환합니다.  참조 및 목록 식은 참조된 리소스가 동일한 템플릿에 배포되고 해당 이름(리소스 ID 아님)에 따라 참조되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 리소스 ID를 reference 또는 list 함수로 전달하는 경우 암시적 참조가 생성되지 않습니다.
+
+reference 함수의 일반 형식은 다음과 같습니다.
 
 ```json
 reference('resourceName').propertyPath
+```
+
+listKeys 함수의 일반 형식은 다음과 같습니다.
+
+```json
+listKeys('resourceName', 'yyyy-mm-dd')
 ```
 
 다음 예제에서 CDN 끝점은 CDN 프로필에 명시적으로 종속되고 웹앱에 암시적으로 종속됩니다.
@@ -140,7 +149,7 @@ reference('resourceName').propertyPath
 
 * 종속성을 최대한 적게 설정합니다.
 * 자식 리소스가 부모 리소스에 종속되도록 설정합니다.
-* **reference** 함수를 사용하여 속성을 공유해야 하는 리소스 간에 암시적 종속성을 설정합니다. 암시적 종속성을 이미 정의한 경우에는 명시적 종속성(**dependsOn**)을 추가하지 않습니다. 이러한 방법은 불필요한 종속성이 포함될 위험을 줄여줍니다. 
+* **reference** 함수를 사용하고 리소스 이름을 전달하여 속성을 공유해야 하는 리소스 간에 암시적 종속성을 설정합니다. 암시적 종속성을 이미 정의한 경우에는 명시적 종속성(**dependsOn**)을 추가하지 않습니다. 이러한 방법은 불필요한 종속성이 포함될 위험을 줄여줍니다. 
 * 다른 리소스의 기능을 사용하지 않고 리소스를 **만들** 수 없는 경우 종속성을 설정합니다. 리소스가 배포 후에만 상호 작용하는 경우에는 종속성을 설정하지 않습니다.
 * 종속성을 명시적으로 설정하지 않고 계단식으로 배열되도록 합니다. 예를 들어 가상 머신은 가상 네트워크 인터페이스에 종속되고 가상 네트워크 인터페이스는 가상 네트워크 및 공용 IP 주소에 종속됩니다. 따라서 가상 머신은 세 가지 모든 리소스보다 나중에 배포되지만 가상 머신이 세 가지 모든 리소스에 종속된다고 명시적으로 설정하지 않습니다. 이러한 방법은 종속성 순서를 명확히 하고 나중에 템플릿을 쉽게 변경할 수 있도록 합니다.
 * 배포하기 전에 값을 확인할 수 있으면 종속성 없이 리소스 배포를 시도해 봅니다. 예를 들어 구성 값에 다른 리소스의 이름이 필요하면 종속성이 불필요할 수 있습니다. 일부 리소스는 다른 리소스의 존재를 확인하기 때문에 이 지침이 항상 해당되는 것은 아닙니다. 오류가 표시되면 종속성을 추가합니다. 

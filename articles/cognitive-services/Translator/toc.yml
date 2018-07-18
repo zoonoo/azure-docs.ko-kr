@@ -1,0 +1,173 @@
+- name: Translator Text API 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Translator Text API란?
+      href: translator-info-overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 'C#'
+      items:
+        - name: 텍스트 번역
+          href: quickstart-csharp-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-csharp-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-csharp-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-csharp-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-csharp-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-csharp-sentences.md
+    - name: Go
+      items:
+        - name: 텍스트 번역
+          href: quickstart-go-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-go-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-go-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-go-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-go-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-go-sentences.md
+    - name: 자바
+      items:
+        - name: 텍스트 번역
+          href: quickstart-java-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-java-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-java-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-java-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-java-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-java-sentences.md
+    - name: Node.js
+      items:
+        - name: 텍스트 번역
+          href: quickstart-nodejs-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-nodejs-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-nodejs-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-nodejs-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-nodejs-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-nodejs-sentences.md
+    - name: PHP
+      items:
+        - name: 텍스트 번역
+          href: quickstart-php-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-php-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-php-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-php-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-php-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-php-sentences.md
+    - name: 파이썬
+      items:
+        - name: 텍스트 번역
+          href: quickstart-python-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-python-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-python-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-python-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-python-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-python-sentences.md
+    - name: Ruby
+      items:
+        - name: 텍스트 번역
+          href: quickstart-ruby-translate.md
+        - name: 텍스트 스크립트 변환
+          href: quickstart-ruby-transliterate.md
+        - name: 텍스트로부터 언어 식별
+          href: quickstart-ruby-detect.md
+        - name: 대체 번역 가져오기
+          href: quickstart-ruby-dictionary.md
+        - name: 지원되는 언어 가져오기
+          href: quickstart-ruby-languages.md
+        - name: 텍스트의 문장 길이 가져오기
+          href: quickstart-ruby-sentences.md
+- name: 개념
+  items:
+    - name: 지원되는 언어
+      href: languages.md
+    - name: 텍스트 번역 사용자 지정 및 개선
+      href: customization.md
+    - name: API가 문자를 계산하는 방법
+      href: character-counts.md
+- name: 방법 가이드
+  items:
+    - name: Translator Text API에 등록
+      href: translator-text-how-to-signup.md
+    - name: V3 텍스트 API로 마이그레이션
+      href: migrate-to-v3.md
+    - name: 불경한 언어 필터링 추가
+      href: profanity-filtering.md
+    - name: 단어 맞춤 정보 받기
+      href: word-alignment.md
+    - name: 동적 사전 기능 사용
+      href: dynamic-dictionary.md
+    - name: WPF로 Translator Text 앱 만들기
+      href: tutorial-wpf-translation-csharp.md
+- name: 참고 자료
+  items:
+    - name: v3 Translator Text API 참조
+      href: reference/v3-0-reference.md
+      items:
+        - name: 언어
+          href: reference/v3-0-languages.md
+        - name: 번역
+          href: reference/v3-0-translate.md
+        - name: 음역
+          href: reference/v3-0-transliterate.md
+        - name: 감지
+          href: reference/v3-0-detect.md
+        - name: BreakSentence
+          href: reference/v3-0-break-sentence.md
+        - name: 사전 조회
+          href: reference/v3-0-dictionary-lookup.md
+        - name: 사전 예제
+          href: reference/v3-0-dictionary-examples.md
+    - name: v2 Translator Text API 참조(사용되지 않음)
+      href: reference/v2-0-reference.md
+      items:
+        - name: 텍스트 변환
+          href: transform-text.md
+        - name: CTF(Collaborative Translation Framework) 보고 사용 방법
+          href: ctf-reporting.md
+        - name: N-Best 번역 반환
+          href: return-n-best-translations.md
+- name: 리소스
+  items:
+    - name: GitHub의 코드 샘플
+      href: 'https://aka.ms/TranslatorGitHub'
+    - name: FAQ
+      href: 'https://www.microsoft.com/translator/faq.aspx'
+    - name: 기술 자료
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132647-translator'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/558796-translator'

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 663277bfe347f42fa7ee241f5acddf4a3dca9268
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633515"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444187"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>장치 및 모듈 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어
 
@@ -168,13 +168,13 @@ SELECT * FROM devices.modules
 장치 및 devices.modules 컬렉션 간의 조인을 허용하지 않습니다. 장치 간에 모듈 쌍을 쿼리하려는 경우 태그에 따라 수행합니다. 이 쿼리는 검색 상태와 함께 모든 장치에서 모든 모듈 쌍을 반환합니다.
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning'
+Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
 이 쿼리는 검색 상태와 함께 모든 모듈 쌍을 반환하지만 지정된 하위 집합의 장치에서만 반환합니다.
 
 ```sql
-Select * from devices.modules where reported.properties.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
 ```
 
 ### <a name="c-example"></a>C# 예제

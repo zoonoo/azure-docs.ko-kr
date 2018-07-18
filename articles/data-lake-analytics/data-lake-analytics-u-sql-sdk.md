@@ -1,28 +1,24 @@
 ---
-title: Azure Data Lake U-SQL SDK를 사용하여 U-SQL 로컬 실행 및 테스트 규모 조정 | Microsoft Docs
-description: Azure Data Lake U-SQL SDK를 사용하여 로컬 워크스테이션의 명령줄 및 프로그래밍 인터페이스로 U-SQL 작업 로컬 실행 및 테스트 크기를 조정하는 방법을 알아봅니다.
+title: Azure Data Lake U-SQL SDK를 사용하여 U-SQL 작업을 로컬로 실행 및 테스트
+description: 로컬 워크스테이션에서 명령줄 및 프로그래밍 인터페이스를 사용하여 U-SQL 작업을 로컬로 실행 및 테스트하는 방법을 알아봅니다.
 services: data-lake-analytics
-documentationcenter: ''
-author: ''
-manager: ''
-editor: ''
-ms.assetid: ''
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 03/01/2017
+author: yanacai
 ms.author: yanacai
-ms.openlocfilehash: 55242bcf644ca0e7f30cfe7eada2130451c36e64
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+manager: kfile
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 03/01/2017
+ms.openlocfilehash: 11a2bfdcda09a071667cc034ef1ff42794b73a33
+ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/04/2018
+ms.locfileid: "34737074"
 ---
-# <a name="scale-u-sql-local-run-and-test-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 로컬 실행 및 테스트 규모 조정
+# <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Azure Data Lake U-SQL SDK를 사용하여 U-SQL 실행 및 테스트
 
-U-SQL 스크립트를 개발할 때 클라우드로 제출하기 전에 로컬에서 U-SQL 스크립트를 실행하고 테스트하는 것이 일반적입니다. Azure Data Lake는 이 시나리오에 대해 Azure Data Lake U-SQL SDK라는 Nuget 패키지를 제공합니다. 이를 통해 U-SQL 로컬 실행 및 테스트 규모를 쉽게 조정할 수 있습니다. 이 U-SQL 테스트를 CI(연속 통합) 시스템에 통합하여 컴파일 및 테스트를 자동화할 수도 있습니다.
+U-SQL 스크립트를 개발할 때 클라우드로 제출하기 전에 로컬에서 U-SQL 스크립트를 실행하고 테스트하는 것이 일반적입니다. Azure Data Lake는 이 시나리오에 대해 Azure Data Lake U-SQL SDK라는 Nuget 패키지를 제공합니다. 이를 통해 U-SQL 실행 및 테스트 규모를 쉽게 조정할 수 있습니다. 이 U-SQL 테스트를 CI(연속 통합) 시스템에 통합하여 컴파일 및 테스트를 자동화할 수도 있습니다.
 
 GUI 도구를 사용하여 U-SQL 스크립트를 수동으로 로컬 실행 및 디버깅하는 방법에 관심이 있는 경우 Azure Data Lake Tools for Visual Studio를 사용할 수 있습니다. [여기](data-lake-analytics-data-lake-tools-local-run.md)에서 자세히 알아볼 수 있습니다.
 
@@ -212,12 +208,12 @@ U-SQL 스크립트를 컴파일하고 작업 디렉터리, 참조 어셈블리 �
 
 다음은 **compile**에 대한 선택적 인수입니다.
 
-|인수|설명|
-|--------|-----------|
-|-DataRoot [기본값 '']|메타데이터 실행을 위한 루트 데이터입니다. **LOCALRUN_DATAROOT** 환경 변수로 기본 설정합니다.|
-|-MessageOut [기본값 '']|콘솔의 메시지를 파일에 덤프합니다.|
-|-Parallel [기본값 '1']|지정된 병렬 처리 수준으로 생성된 로컬 실행 단계를 실행하는 표시기입니다.|
-|-Verbose [기본값 'False']|런타임의 자세한 출력을 보여주는 표시기입니다.|
+|인수|기본값|설명|
+|--------|-------------|-----------|
+|-DataRoot | '' |메타데이터 실행을 위한 루트 데이터입니다. **LOCALRUN_DATAROOT** 환경 변수로 기본 설정합니다.|
+|-MessageOut | '' |콘솔의 메시지를 파일에 덤프합니다.|
+|-Parallel | '1' |지정된 병렬 처리 수준으로 생성된 로컬 실행 단계를 실행하는 표시기입니다.|
+|-Verbose | 'False' |런타임의 자세한 출력을 보여주는 표시기입니다.|
 
 사용 예는 다음과 같습니다.
 
@@ -337,13 +333,13 @@ LocalRunHelper.exe는 U-SQL 로컬 컴파일, 실행 등을 위한 프로그래�
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|매개 변수|유형|설명|
+|매개 변수|type|설명|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|출력 메시지의 경우 콘솔을 사용하도록 null로 설정|
 
 **속성**
 
-|자산|유형|설명|
+|자산|type|설명|
 |--------|----|-----------|
 |AlgebraPath|string|대수 파일의 경로입니다(대수 파일은 컴파일 결과 중 하나임).|
 |CodeBehindReferences|string|스크립트에 추가 코드 숨김 참조가 있으면 경로를 ';'으로 구분합니다.|

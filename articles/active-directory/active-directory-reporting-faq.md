@@ -3,24 +3,24 @@ title: Azure Active Directory 보고 FAQ | Microsoft Docs
 description: Azure Active Directory 보고 FAQ입니다.
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: priyamohanram
 manager: mtillman
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 05/10/2018
-ms.author: rolyon
+ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bf253e0b8451b3798360a657485289f089239c70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34588593"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335060"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 보고 FAQ
 
@@ -72,7 +72,7 @@ ms.locfileid: "34588593"
 
 **Q: Azure Portal에서 몇 개의 레코드를 다운로드할 수 있습니까?**
 
-**A:** Azure Portal에서 최대 120,000개의 레코드를 다운로드할 수 있습니다. 레코드는 *가장 최근* 순으로 정렬되며 기본적으로 가장 최근의 120,000개의 레코드를 볼 수 있습니다. 
+**A:** Azure Portal에서 최대 5,000개의 레코드를 다운로드할 수 있습니다. 레코드는 *가장 최근* 순으로 정렬되며, 기본적으로 가장 최근의 5,000개 레코드를 가져옵니다.
 
 ---
 
@@ -84,7 +84,7 @@ ms.locfileid: "34588593"
 
 **Q: Premium 라이선스는 어떻게 받을 수 있나요?**
 
-**A:** 이 질문에 대한 답변은 [Azure Active Directory Premium 시작하기](active-directory-get-started-premium.md)를 참조하세요.
+**A:** 이 질문에 대한 답변은 [Azure Active Directory Premium 시작하기](fundamentals/active-directory-get-started-premium.md)를 참조하세요.
 
 ---
 

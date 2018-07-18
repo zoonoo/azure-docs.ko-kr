@@ -16,11 +16,11 @@ ms.date: 10/26/2017
 ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
 ms.openlocfilehash: 6256ffe9f616ec35f97f792545c72dbb25b3efa6
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28979367"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38318326"
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Azure에서 Python 웹앱 만들기
 
@@ -186,7 +186,7 @@ git push azure master
 
 ![Azure Portal의 App Service 페이지](media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-detail.png)
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 페이지를 제공합니다.
+왼쪽 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니다.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

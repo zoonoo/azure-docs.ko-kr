@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: 8f477282e49104e9b034e11656ff50c2a67545f7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 585dcd120c42562b1520d4454f9d04e445553101
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195875"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096195"
 ---
 # <a name="what-is-azure-redis-cache"></a>Azure Redis Cache란?
 
@@ -27,7 +27,7 @@ Azure Redis Cache는 인기 있는 오픈 소스 [Redis Cache](https://redis.io/
 
 Azure Redis Cache는 메모리 내 데이터 구조 저장소, 분산된 비관계형 데이터베이스 및 메시지 브로커로 사용할 수 있습니다. Redis 엔진의 낮은 대기 시간의 처리량이 높은 성능을 이용하여 응용 프로그램 성능이 향상됩니다.
 
-Azure Redis Cache는 Microsoft에서 관리하고, Azure 내에서 호스팅되며, Azure 내 모든 응용 프로그램에 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 사용자에게 제공합니다.
+Azure Redis Cache는 Microsoft에서 관리하고, Azure 내에서 호스팅되며, Azure 내부 또는 외부의 모든 응용 프로그램에 액세스할 수 있는 안전한 전용 Redis Cache에 대한 액세스를 사용자에게 제공합니다.
 
 ## <a name="why-use-azure-redis-cache"></a>Azure Redis Cache를 사용하는 이유
 
@@ -77,6 +77,7 @@ Basic | 단일 노드 캐시. 이 계층은 여러 메모리 크기(250MB - 53GB
 
 * [ASP.NET 웹앱 빠른 시작](cache-web-app-howto.md) Azure Redis Cache를 사용하는 간단한 ASP.NET 웹앱을 만듭니다.
 * [.NET 빠른 시작](cache-dotnet-how-to-use-azure-redis-cache.md) Azure Redis Cache를 사용하는 .NET 앱을 만듭니다.
+* [.NET Core 빠른 시작](cache-dotnet-core-quickstart.md) Azure Redis Cache를 사용하는 .NET Core 앱을 만듭니다.
 * [Node.js 빠른 시작](cache-nodejs-get-started.md) Azure Redis Cache를 사용하는 간단한 Node.js 앱을 만듭니다.
 * [Java 빠른 시작](cache-java-get-started.md) Azure Redis Cache를 사용하는 간단한 Java 앱을 만듭니다.
 * [Python 빠른 시작](cache-python-get-started.md) Azure Redis Cache를 사용하는 Python 앱을 만듭니다.

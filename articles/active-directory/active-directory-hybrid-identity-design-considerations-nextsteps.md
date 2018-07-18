@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e63df0832431ddc1502ab7b07c60c8d4abf59ac4
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4ac8e517e68f7cbba3019fa27065468b387c1b65
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801493"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36284673"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory 하이브리드 ID 디자인 고려 사항 - 다음 단계
 요구 사항을 정의하고 모바일 장치 관리 솔루션에 대한 모든 옵션을 검토했으므로 사용자와 조직에 적합한 지원 인프라 배포에 대한 다음 단계를 수행할 준비가 되었습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "34801493"
 ## <a name="hybrid-identity-resources"></a>하이브리드 ID 리소스
 다음 리소스를 모니터링하면 모바일 장치 관리 솔루션에 대한 최신 뉴스 및 업데이트를 확인할 수 있습니다.
 
-* [Microsoft Enterprise Mobility 블로그](http://blogs.technet.com/b/enterprisemobility/)
+* [Microsoft Enterprise Mobility 블로그](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Microsoft In The Cloud 블로그](http://blogs.technet.com/b/in_the_cloud/)
 * [Microsoft Intune 블로그](http://blogs.technet.com/b/microsoftintune/)
 * [Microsoft System Center Configuration Manager 블로그](http://blogs.technet.com/b/configurationmgr/)

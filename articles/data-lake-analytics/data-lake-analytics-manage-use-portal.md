@@ -1,30 +1,27 @@
 ---
-title: Azure Portal을 사용하여 Azure Data Lake Analytics 관리 | Microsoft Docs
-description: 데이터 레이크 분석 계정, 데이터 원본, 사용자, 작업을 관리하는 방법에 대해 알아봅니다.
+title: Azure Portal을 사용하여 Azure Data Lake Analytics 관리
+description: 이 문서에서는 Azure Portal을 사용하여 Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
 services: data-lake-analytics
-documentationcenter: ''
-author: saveenr
-manager: kfile
-editor: cgronlun
-ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 12/05/2016
+author: saveenr
 ms.author: saveenr
-ms.openlocfilehash: 99b638279b38ce3b583208ec0b80617f9046a6d7
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+manager: kfile
+editor: jasonwhowell
+ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
+ms.topic: conceptual
+ms.date: 12/05/2016
+ms.openlocfilehash: dcf1a853f00f047a6d8beb8599a5b74c7f8f084d
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771384"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969513"
 ---
-# <a name="manage-azure-data-lake-analytics-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
+# <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Data Lake Analytics 관리
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Azure Portal을 사용하여 Azure Data Lake Analytics 계정, 계정 데이터 원본, 사용자 및 작업을 관리하는 방법을 알아봅니다. 다른 도구 사용에 대한 관리 항목을 보려면 페이지 위쪽의 탭을 클릭합니다.
+이 문서에서는 Azure Portal을 사용하여 Azure Data Lake Analytics 계정, 데이터 원본, 사용자 및 작업을 관리하는 방법을 설명합니다.
+
 
 <!-- ################################ -->
 <!-- ################################ -->
@@ -169,4 +166,4 @@ Data Lake Analytics 개발자 역할을 사용하여 U-SQL 개발자가 Data Lak
 
 * [Azure Data Lake Analytics 개요](data-lake-analytics-overview.md)
 * [Azure PowerShell을 사용하여 Azure Data Lake Analytics 관리](data-lake-analytics-manage-use-powershell.md)
-* [정책을 사용하여 Azure Data Lake Analytics 관리](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-policies)
+* [정책을 사용하여 Azure Data Lake Analytics 관리](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-policies)

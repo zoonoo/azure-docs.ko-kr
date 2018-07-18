@@ -11,28 +11,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 80cec0bc8136142f30ea7b957de819379b1bb139
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c0a07cb872ec87bbf39237b74990a1fc7a74e9e8
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34619136"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053258"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [버전 1 - GA](v1/data-factory-data-movement-security-considerations.md)
-> * [버전 2 - 미리 보기](data-movement-security-considerations.md)
+> * [버전 1](v1/data-factory-data-movement-security-considerations.md)
+> * [현재 버전](data-movement-security-considerations.md)
 
 이 문서에서는 Azure Data Factory의 데이터 이동 서비스가 데이터를 보호하는 데 사용하는 기본 보안 인프라에 대해 설명합니다. Data Factory 관리 리소스는 Azure 보안 인프라를 기반으로 하며 Azure가 제공하는 모든 가능한 보안 수단을 사용합니다.
 
-> [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Data Factory 버전 2에 적용됩니다. 일반 공급(GA)되는 Data Factory 버전 1 서비스를 사용하는 경우 [Data Factory 버전 1의 데이터 이동 보안 고려 사항](v1/data-factory-data-movement-security-considerations.md)을 참조하세요.
-
 Data Factory 솔루션에서 하나 이상의 데이터 [파이프라인](concepts-pipelines-activities.md)를 만듭니다. 파이프라인은 함께 작업을 수행하는 활동의 논리적 그룹화입니다. 이 파이프라인은 데이터 팩터리가 작성된 지역에 상주합니다. 
 
-Data Factory는 미국 동부 및 미국 동부 2 및 유럽 서부 지역(버전 2 미리 보기)에서만 사용할 수 있지만 데이터 이동 서비스는 [여러 지역에서 전역적으로](concepts-integration-runtime.md#azure-ir) 제공됩니다. 데이터 이동 서비스가 해당 지역에 아직 배포되지 않은 경우 대체 지역을 사용하도록 서비스에 명시적으로 지시하지 않는 한 Data Factory 서비스는 데이터가 지리적인 영역/지역을 벗어나지 않도록 합니다. 
+Data Factory가 몇몇 지역에서만 지원되더라도 데이터 이동 서비스는 [전역적으로 지원](concepts-integration-runtime.md#integration-runtime-location)되며 데이터 준수, 효율성 및 네트워크 송신 비용 감소를 보장합니다. 
 
 Azure Data Factory는 인증서를 사용하여 암호화된 클라우드 데이터 저장소에 대한 링크된 서비스 자격 증명을 제외한 모든 데이터를 저장하지 않습니다. Data Factory를 사용하면 데이터 기반 워크플로를 만들어서 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 [계산 서비스](compute-linked-services.md)를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 SDK 및 Azure Monitor를 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
 
@@ -42,7 +39,7 @@ Data Factory를 사용한 데이터 이동은 다음에 대해 인증을 받았�
 -   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
 -   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
 
-Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://www.microsoft.com/trustcenter)를 방문해 보세요.
+Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있다면 [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/default.aspx)를 방문해 보세요.
 
 이 문서에서는 다음 두 가지 데이터 이동 시나리오에서 보안 고려 사항을 검토합니다. 
 

@@ -16,11 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6b01a4c88f3dbb4d24566e514fd5989cda11005a
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34639346"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure Network Watcher란?
 
@@ -48,11 +49,11 @@ Azure Network Watcher는 Azure 가상 네트워크의 리소스를 모니터링 
 
 ### <a name="diagnose-network-traffic-filtering-problems-to-or-from-a-vm"></a>VM에 대한 네트워크 트래픽 필터링 문제 진단
 
-VM을 배포하는 경우, Azure는 VM에 대한 트래픽을 허용하거나 거부할 수 있는 여러 기본 보안 규칙을 VM에 적용합니다. Azure의 기본 규칙을 재정의하거나 추가 규칙을 만들 수 있습니다. 어느 시점엔가 VM은 보안 규칙 때문에 다른 리소스와 통신할 수 없게 될 수 있습니다. *IP 흐름 확인* 기능을 사용하면 원본 및 대상 IPv4 주소, 포트, 프로토콜(TCP 또는 UDP) 및 트래픽 방향(인바운드 또는 아웃바운드)를 지정할 수 있습니다. 이때 IP 흐름 확인이 통신을 테스트하고 연결이 성공인지 실패인지 알립니다. 연결이 실패인 경우 IP 흐름 확인이 통신을 허용하거나 거부한 보안 규칙이 무엇인지 알리므로 문제를 해결할 수 있습니다. [IP 흐름 확인](network-watcher-ip-flow-verify-overview.md)에 대해 자세히 알아봅니다.
+VM을 배포하는 경우, Azure는 VM에 대한 트래픽을 허용하거나 거부할 수 있는 여러 기본 보안 규칙을 VM에 적용합니다. Azure의 기본 규칙을 재정의하거나 추가 규칙을 만들 수 있습니다. 어느 시점엔가 VM은 보안 규칙 때문에 다른 리소스와 통신할 수 없게 될 수 있습니다. *IP 흐름 확인* 기능을 사용하면 원본 및 대상 IPv4 주소, 포트, 프로토콜(TCP 또는 UDP) 및 트래픽 방향(인바운드 또는 아웃바운드)를 지정할 수 있습니다. 이때 IP 흐름 확인이 통신을 테스트하고 연결이 성공인지 실패인지 알립니다. 연결이 실패인 경우 IP 흐름 확인이 통신을 허용하거나 거부한 보안 규칙이 무엇인지 알리므로 문제를 해결할 수 있습니다. [가상 머신 네트워크 트래픽 필터 문제 진단](diagnose-vm-network-traffic-filtering-problem.md) 자습서를 완료하여 IP 흐름 확인에 대해 자세히 알아봅니다.
 
 ### <a name="diagnose-network-routing-problems-from-a-vm"></a>VM에서 네트워크 경로 설정 문제 진단
 
-가상 네트워크를 만들 때 Azure는 네트워크 트래픽에 대한 여러 기본 아웃바운드 경로를 만듭니다. 가상 네트워크에 배포된 VM 같은 모든 리소스에서 시작되는 아웃바운드 트래픽은 Azure의 기본 경로를 기반으로 경로 설정됩니다. Azure의 기본 경로를 재정의하거나 추가 경로를 만들 수 있습니다. VM이 특정 경로 때문에 다른 리소스와 더 이상 통신할 수 없다는 것을 알 수 있습니다. *다음 홉* 기능을 사용하면 원본 및 대상 IPv4 주소를 지정할 수 있습니다. 그러면 다음 홉이 통신을 테스트하고 트래픽을 경로 설정하는 데 사용한 다음 홉 형식이 무엇인지 알립니다. 이때 경로를 제거, 변경 또는 추가하거나 경로 설정 문제를 해결할 수 있습니다. [다음 홉](network-watcher-next-hop-overview.md?) 기능에 대해 자세히 알아봅니다.
+가상 네트워크를 만들 때 Azure는 네트워크 트래픽에 대한 여러 기본 아웃바운드 경로를 만듭니다. 가상 네트워크에 배포된 VM 같은 모든 리소스에서 시작되는 아웃바운드 트래픽은 Azure의 기본 경로를 기반으로 경로 설정됩니다. Azure의 기본 경로를 재정의하거나 추가 경로를 만들 수 있습니다. VM이 특정 경로 때문에 다른 리소스와 더 이상 통신할 수 없다는 것을 알 수 있습니다. *다음 홉* 기능을 사용하면 원본 및 대상 IPv4 주소를 지정할 수 있습니다. 그러면 다음 홉이 통신을 테스트하고 트래픽을 경로 설정하는 데 사용한 다음 홉 형식이 무엇인지 알립니다. 이때 경로를 제거, 변경 또는 추가하거나 경로 설정 문제를 해결할 수 있습니다. [다음 홉](diagnose-vm-network-routing-problem.md) 기능에 대해 자세히 알아봅니다.
 
 ### <a name="connection-troubleshoot"></a>VM에서의 아웃바운드 연결 진단
 
@@ -64,7 +65,7 @@ VM을 배포하는 경우, Azure는 VM에 대한 트래픽을 허용하거나 �
 
 ### <a name="diagnose-problems-with-an-azure-virtual-network-gateway-and-connections"></a>Azure 가상 네트워크 게이트웨이 및 연결에 대한 문제 진단
 
-가상 네트워크 게이트웨이는 온-프레미스 리소스와 Azure 가상 네트워크 간의 연결을 제공합니다. 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. *VPN 진단* 기능은 게이트웨이 및 연결을 진단하는 기능을 제공합니다. VPN 진단은 게이트웨이 또는 게이트웨이 연결의 상태를 진단하며 게이트웨이 및 게이트웨이 연결을 사용할 수 있는지 여부를 알립니다. 게이트웨이 또는 연결을 사용할 수 없는 경우 VPN 진단이 그 이유를 알려 주므로 문제를 해결할 수 있습니다. [VPN 진단](network-watcher-troubleshoot-overview.md)에 대해 자세히 알아봅니다.
+가상 네트워크 게이트웨이는 온-프레미스 리소스와 Azure 가상 네트워크 간의 연결을 제공합니다. 게이트웨이 및 해당 연결을 모니터링하는 것은 통신이 끊기지 않도록 하는 데 중요합니다. *VPN 진단* 기능은 게이트웨이 및 연결을 진단하는 기능을 제공합니다. VPN 진단은 게이트웨이 또는 게이트웨이 연결의 상태를 진단하며 게이트웨이 및 게이트웨이 연결을 사용할 수 있는지 여부를 알립니다. 게이트웨이 또는 연결을 사용할 수 없는 경우 VPN 진단이 그 이유를 알려 주므로 문제를 해결할 수 있습니다. [네트워크 간 통신 문제 진단](diagnose-communication-problem-between-networks.md) 자습서를 완료하여 VPN 진단에 대해 자세히 알아봅니다.
 
 ### <a name="determine-relative-latencies-between-azure-regions-and-internet-service-providers"></a>Azure 지역과 인터넷 서비스 공급자 간의 상대 대기 시간 결정
 
@@ -90,7 +91,7 @@ Network Watcher에 대해 Azure 지역 간 및 인터넷 서비스 공급자 간
 
 ![트래픽 분석](./media/network-watcher-monitoring-overview/traffic-analytics.png)
 
-[NSG 흐름 로그](network-watcher-nsg-flow-logging-overview.md) 및 [트래픽 분석](traffic-analytics.md)에 대해 자세히 알아봅니다.
+[가상 머신 간 로그 네트워크 트래픽](network-watcher-nsg-flow-logging-portal.md) 자습서를 완료하여 NSG 흐름 로그 및 [트래픽 분석](traffic-analytics.md)을 구현하는 방법에 대해 자세히 알아봅니다.
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>네트워크 리소스에 대한 진단 로그 보기
 

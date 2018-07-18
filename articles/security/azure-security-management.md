@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: f5630c8cb9c0ca13210c62652f8d7f2e98f94438
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366650"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857483"
 ---
 # <a name="security-management-in-azure"></a>Azure의 보안 관리
 Azure 구독자는 관리 워크스테이션, 개발자 PC, 심지어 작업별 사용 권한을 가진 최종 사용자 장치 등 여러 장치에서 자신의 클라우드 환경을 관리할 수 있습니다. 경우에 따라, 관리 기능은 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)과 같은 웹 기반 콘솔을 통해 수행됩니다. 다른 경우, 가상 사설망(VPN), 터미널 서비스, 클라이언트 응용 프로그램 프로토콜 또는 (프로그래밍 방식의) Azure 서비스 관리 API(SMAPI)를 통해 온-프레미스 시스템에서 Azure에 직접 연결할 수 있습니다. 또한 클라이언트 끝점은 태블릿이나 스마트폰 같이 조인 또는 격리되고 관리되지 않는 도메인이 될 수 있습니다.
@@ -93,7 +93,7 @@ Azure는 Azure 클라우드 서비스 및 가상 머신을 관리하는 관리�
 * 실행 제한. 실행 관리에 필요한 미리 정의된 실행 파일 집합만 허용합니다("기본 거부"라고도 함). 기본적으로 사용자는 허용 목록에 명시적으로 정의되지 않은 한 모든 프로그램을 실행하는 권한이 거부됩니다.
 * 최소 권한. 관리 워크스테이션 사용자는 로컬 컴퓨터에 대해 어떠한 관리 권한도 가지지 않습니다. 때문에 시스템 구성 또는 시스템 파일을 의도적이든 또는 실수로든 변경할 수 없습니다.
 
-Active Directory Domain Services(AD DS)의 [그룹 정책 개체](https://www.microsoft.com/download/details.aspx?id=2612)(GPO)를 사용하고 로컬 관리 도메인을 통해 이를 모든 관리 계정에 적용함으로써 이 모두를 적용할 수 있습니다.
+Active Directory Domain Services(AD DS)의 [그룹 정책 개체](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy)(GPO)를 사용하고 로컬 관리 도메인을 통해 이를 모든 관리 계정에 적용함으로써 이 모두를 적용할 수 있습니다.
 
 ### <a name="managing-services-applications-and-data"></a>서비스, 응용 프로그램 및 데이터 관리
 Azure 클라우드 서비스 구성은 Windows PowerShell 명령줄 인터페이스 또는 이러한 RESTful 인터페이스를 활용하는 사용자 지정 응용 프로그램을 경유하여 Azure 포털 또는 SMAPI를 통해 수행됩니다. 이러한 메커니즘을 사용하여 서비스에는 Azure Active Directory(Azure AD), Azure Storage, Azure Websites 및 Azure Virtual Network 등이 있습니다.
@@ -224,8 +224,8 @@ Azure 클라우드 서비스, Virtual Machines 및 응용 프로그램을 관리
 이 문서에서 참조하는 특정 항목뿐만 아니라 Azure 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 데 다음 리소스를 사용할 수 있습니다.
 
 * [권한 있는 액세스 보안](https://technet.microsoft.com/library/mt631194.aspx) - Azure 관리를 위한 보안 관리 워크스테이션의 설계 및 구축에 대한 기술 세부 정보를 가져옵니다.
-* [Microsoft 보안 센터](https://www.microsoft.com/TrustCenter/Security/AzureSecurity) - Azure 패브릭 및 Azure에서 실행되는 워크로드를 보호하는 Azure 플랫폼 기능에 대해 알아봅니다.
-* [Microsoft 보안 응답 센터](http://www.microsoft.com/security/msrc/default.aspx) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 [secure@microsoft.com](mailto:secure@microsoft.com)로 전자 메일을 보낼 수 있습니다.
+* [Microsoft 보안 센터](https://microsoft.com/en-us/trustcenter/cloudservices/azure) - Azure 패브릭 및 Azure에서 실행되는 워크로드를 보호하는 Azure 플랫폼 기능에 대해 알아봅니다.
+* [Microsoft 보안 응답 센터](https://technet.microsoft.com/en-us/security/dn440717.aspx) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 [secure@microsoft.com](mailto:secure@microsoft.com)로 전자 메일을 보낼 수 있습니다.
 * [Azure 보안 블로그](http://blogs.msdn.com/b/azuresecurity/) – Azure 보안 버전을 최신 상태로 유지합니다.
 
 <!--Image references-->

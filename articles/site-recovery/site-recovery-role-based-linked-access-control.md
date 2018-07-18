@@ -1,27 +1,22 @@
 ---
 title: 역할 기반 액세스 제어를 사용하여 Azure Site Recovery 관리 | Microsoft Docs
 description: 이 문서에서는 RBAC(역할 기반 Access Control)를 적용 및 사용하여 Azure Site Recovery 배포를 관리하는 방법을 설명합니다.
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/11/2018
+ms.date: 07/06/2018
+author: mayanknayar
+ms.topic: conceptual
 ms.author: manayar
-ms.openlocfilehash: 072e3bc2e1a13476b43fb72c8631453e2ffa3b27
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dfd880b6ff3a7e199ea259acc5e5ec59f89c897d
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071608"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919729"
 ---
-# <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>역할 기반 Access Control을 사용하여 Azure Site Recovery 관리
+# <a name="use-role-based-access-control-to-manage-site-recovery-access"></a>역할 기반 액세스 제어를 사용하여 Site Recovery 액세스 관리
 
 Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
 
@@ -33,7 +28,7 @@ Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기�
 
 더 많은 제어를 위해 사용자 고유의 역할을 정의하려는 경우 Azure의 [사용자 지정 역할 작성](../role-based-access-control/custom-roles.md) 방법을 참조하세요.
 
-## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>새 Virtual Machines에 대한 복제를 사용하도록 설정하는 데 필요한 사용 권한
+## <a name="permissions-required-to-enable-replication-for-new-virtual-machines"></a>새 가상 머신에 복제를 사용하는 데 필요한 권한
 Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 때 연결된 사용자의 액세스 수준이 유효한지 확인하여 사용자에게 Site Recovery에 제공되는 Azure 리소스를 사용하는 데 필요한 권한이 있는지 검토됩니다.
 
 새 가상 머신에 대한 복제를 사용하도록 설정하려면 사용자에게 다음 권한이 있어야 합니다.

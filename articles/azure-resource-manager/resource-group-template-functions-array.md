@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: eb24535956140632da73807364b6f3ff7b91a416
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: cdc8222675a9f0099edccb24310bcea03bf963f4
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360243"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929682"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수 
 
@@ -77,7 +77,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
         },
         "stringToConvert": {
             "type": "string",
-            "defaultValue": "a"
+            "defaultValue": "efgh"
         },
         "objectToConvert": {
             "type": "object",
@@ -108,7 +108,7 @@ Resource Manager는 배열 및 개체 작업을 위한 여러 함수를 제공�
 | 이름 | type | 값 |
 | ---- | ---- | ----- |
 | intOutput | 배열 | [1] |
-| stringOutput | 배열 | ["a"] |
+| stringOutput | 배열 | ["efgh"] |
 | objectOutput | 배열 | [{"a": "b", "c": "d"}] |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.

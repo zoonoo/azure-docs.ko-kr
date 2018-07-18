@@ -1,6 +1,6 @@
 ---
-title: BulkExecutor Java 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행 | Microsoft Docs
-description: Azure Cosmos DB의 BulkExecutor Java 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서 대량 가져오기 및 업데이트를 수행합니다.
+title: Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행 | Microsoft Docs
+description: Azure Cosmos DB의 Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서 대량 가져오기 및 업데이트를 수행합니다.
 keywords: Java Bulk Executor
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 77135ec5f62636d1dd634361da345b00d98ad918
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f241a98cdcc847ddb579b86b51034d1438ee1395
+ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34610245"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36300716"
 ---
-# <a name="use-bulkexecutor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>BulkExecutor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
+# <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 데이터에서 대량 작업 수행
 
-이 자습서는 Azure Cosmos DB Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. BulkExecutor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [BulkExecutor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의의 문서를 생성하고, Azure Cosmos DB 컬렉션으로 대량 가져오기를 수행하는 Java 응용 프로그램을 빌드합니다. 가져온 후 문서의 일부 속성을 대량 업데이트합니다. 
+이 자습서는 Azure Cosmos DB Bulk Executor Java 라이브러리를 사용하여 Azure Cosmos DB 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의의 문서를 생성하고, Azure Cosmos DB 컬렉션으로 대량 가져오기를 수행하는 Java 응용 프로그램을 빌드합니다. 가져온 후 문서의 일부 속성을 대량 업데이트합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -197,7 +197,7 @@ BulkUpdateAsync API를 사용하여 기존 문서를 업데이트할 수 있습�
 
 ## <a name="performance-tips"></a>성능 팁 
 
-BulkExecutor 라이브러리를 사용하는 경우 성능 향상을 위해 다음 사항을 고려합니다.
+Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다음 사항을 고려합니다.
 
 * 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure VM에서 응용 프로그램을 실행합니다.  
 * 더 높은 처리량을 달성하려면:  
@@ -211,6 +211,6 @@ BulkExecutor 라이브러리를 사용하는 경우 성능 향상을 위해 다�
 
     
 ## <a name="next-steps"></a>다음 단계
-* Maven 패키지 세부 정보 및 BulkExecutor Java 라이브러리의 릴리스 정보를 알아보려면 [BulkExecutor SDK 세부 정보](sql-api-sdk-bulk-executor-java.md)를 참조하세요.
+* Maven 패키지 세부 정보 및 Bulk Executor Java 라이브러리의 릴리스 정보를 알아보려면 [Bulk Executor SDK 세부 정보](sql-api-sdk-bulk-executor-java.md)를 참조하세요.
 
 

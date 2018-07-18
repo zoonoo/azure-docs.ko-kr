@@ -17,12 +17,12 @@ ms.workload: big-data
 ms.date: 04/26/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 359b458d5fa9089fd7f35f94cd3f0265dc8ea3c9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2750ddaba4b3fe25e18b6d3b7e9a65656165818f
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179064"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446608"
 ---
 # <a name="connect-to-hdinsight-hadoop-using-ssh"></a>SSH를 사용하여 HDInsight(Hadoop)에 연결
 
@@ -32,7 +32,7 @@ HDInsight는 Hadoop 클러스터 내에서 노드의 운영 체제로 Linux(Ubun
 
 | 주소 | 포트 | 다음에 연결... |
 | ----- | ----- | ----- |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 에지 노드(HDInsight의 R Server) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | 에지 노드(HDInsight의 ML 서비스) |
 | `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | 에지 노드(에지 노드가 있는 경우 다른 클러스터 형식) |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | 기본 헤드 노드 |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | 보조 헤드 노드 |
@@ -137,7 +137,19 @@ SSH 사용자 계정 암호를 변경하는 방법에 대한 내용은 [HDInsigh
 
 ## <a id="domainjoined"></a>인증: 도메인에 조인된 HDInsight
 
-__도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH와 연결한 후에 `kinit` 명령을 사용해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
+__도메인에 조인된 HDInsight 클러스터__를 사용하는 경우 SSH 로컬 사용자와 연결한 후에 `kinit` 명령을 사용해야 합니다. 이 명령은 도메인 사용자 및 암호를 묻는 메시지를 표시하고 클러스터와 연결된 Azure Active Directory 도메인을 사용하여 세션을 인증합니다.
+
+도메인 계정을 사용하여 ssh가 가능하도록 도메인에 조인된 각 노드(예: 헤드 노드, 에지 노드)에서 Kerberos 인증을 사용할 수도 있습니다. 이렇게 하려면 sshd 구성 파일을 편집합니다.
+```bash
+sudo vi /etc/ssh/sshd_config
+```
+주석 처리를 제거하고 `KerberosAuthentication`을 `yes`로 변경합니다.
+
+```bash
+sudo service sshd restart
+```
+
+언제든지 `klist` 명령을 사용하여 Kerberos 인증이 성공했는지 확인할 수 있습니다.
 
 자세한 내용은 [도메인에 조인된 HDInsight 구성](./domain-joined/apache-domain-joined-configure.md)을 참조하세요.
 

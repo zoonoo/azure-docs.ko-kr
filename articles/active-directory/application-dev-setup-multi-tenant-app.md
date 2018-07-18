@@ -3,22 +3,23 @@ title: 새 다중 테넌트 응용 프로그램을 구성하는 방법 | Microso
 description: 응용 프로그램을 다중 테넌트로 구성하는 방법과 다중 테넌트 응용 프로그램이 작동하는 방식 알아보기
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
-ms.openlocfilehash: 72cc4f0e5937787ec235d33e1f563bce8eebdf0d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.author: barbkess
+ms.openlocfilehash: 49304dd30b8bf2e4428fd676033f3372c2c69ba0
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26614805"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332119"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>새 다중 테넌트 응용 프로그램을 구성하는 방법
 

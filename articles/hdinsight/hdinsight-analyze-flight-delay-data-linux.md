@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 46c80f326c8210ac3282cf128058cee91ff3836c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1abc0a8ed9aec1082a4710647f6c03c87e1fd1d2
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770840"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098232"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
@@ -320,6 +320,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
 
 HDInsight에서 데이터 사용에 대한 자세한 내용은 다음 문서를 참조하세요.
 
+* [자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드](../storage/data-lake-storage/tutorial-extract-transform-load-hive.md)
 * [HDInsight에서 Hive 사용][hdinsight-use-hive]
 * [HDInsight에서 Pig 사용][hdinsight-use-pig]
 * [HDInsight의 Hadoop용 Java MapReduce 프로그램 개발][hdinsight-develop-mapreduce]

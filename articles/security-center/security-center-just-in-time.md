@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2018
 ms.author: terrylan
-ms.openlocfilehash: e293f085eb6c4c90b26ac6035d50d74f5cdd7269
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 60a5de16f4146e112a85d74634c662e228a0854f
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366891"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34640560"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time를 사용하여 가상 머신 액세스 관리
 
@@ -42,7 +42,7 @@ Just-In-Time VM(가상 컴퓨터) 액세스를 사용하면 Azure VM으로의 �
 
 Just-In-Time이 활성화되면 Security Center는 NSG 규칙을 만들어 Azure VM으로의 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 Just-In-Time 솔루션에 의해 제어됩니다.
 
-사용자가 VM에 액세스를 요청하면 Security Center는 해당 사용자에게 VM에 대한 쓰기 액세스 권한을 제공하는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한이 있는지 확인합니다. 쓰기 권한이 있는 경우 요청이 승인되고 Security Center가 지정된 시간 동안 선택된 포트로의 인바운드 트래픽을 허용하도록 NSG(네트워크 보안 그룹)을 자동으로 구성합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다.
+사용자가 VM에 액세스를 요청하면 Security Center는 해당 사용자에게 VM에 대한 쓰기 액세스 권한을 제공하는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md) 권한이 있는지 확인합니다. 쓰기 권한이 있는 경우 요청이 승인되고 Security Center가 지정된 시간 동안 선택된 포트로의 인바운드 트래픽을 허용하도록 NSG(네트워크 보안 그룹)을 자동으로 구성합니다. 시간이 만료되면 Security Center에서 NSG를 이전 상태로 복원합니다. 단, 이미 설정된 연결은 중단되지 않습니다.
 
 > [!NOTE]
 > Security Center Just-In-Time VM 액세스는 현재 Azure Resource Manager를 통해 배포된 VM만 지원합니다. 클래식 및 Resource Manager 배포 모델에 대한 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.

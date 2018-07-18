@@ -3,19 +3,19 @@ title: Azure Migrate를 사용하여 검색 및 평가 크기 조정 | Microsoft
 description: Azure Migrate 서비스를 사용하여 많은 수의 온-프레미스 컴퓨터를 평가하는 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
-ms.topic: article
-ms.date: 05/18/2018
+ms.topic: conceptual
+ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: c8943aec1c81abb34b646180df48bcc55764ca24
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365334"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36214694"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
-이 문서에서는 [Azure Migrate](migrate-overview.md)를 사용하여 많은 수의 온-프레미스 가상 머신을 평가하는 방법을 설명합니다. Azure Migrate는 Azure로의 마이그레이션에 적합한지를 확인하기 위해 컴퓨터를 평가합니다. 서비스는 Azure에서 실행되는 컴퓨터의 크기 조정 및 비용 예상을 제공합니다.
+Azure Migrate에는 프로젝트당 1500개의 컴퓨터 제한이 있습니다. 이 문서에서는 [Azure Migrate](migrate-overview.md)를 사용하여 많은 수의 온-프레미스 가상 머신을 평가하는 방법을 설명합니다.   
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -24,7 +24,9 @@ ms.locfileid: "34365334"
 - **사용 권한**: vCenter Server에서 .OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다.
 - **통계 구성**: vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 수준이 3보다 낮은 경우 평가가 작동하지만 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우에 권장되는 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 합니다.
 
-## <a name="plan-azure-migrate-projects"></a>Azure Migrate 프로젝트 계획
+## <a name="plan-your-migration-projects-and-discoveries"></a>마이그레이션 프로젝트 및 검색 계획
+
+단일 Azure Migrate 수집기는 여러 vCenter Server에서 검색을 지원하며(차례로) 여러 마이그레이션 프로젝트에 대한 검색도 지원합니다(차례로). 수집기는 화재에서 작동하고 모델을 잊으며, 검색이 완료되면 동일한 수집기를 사용하여 다른 vCenter Server에서 데이터를 수집하거나 다양한 마이그레이션 프로젝트에 보낼 수 있습니다.
 
 다음과 같은 제한에 따라 검색 및 평가를 계획합니다.
 
@@ -34,25 +36,35 @@ ms.locfileid: "34365334"
 | 검색  | 1,500             |
 | 평가 | 1,500             |
 
-<!--
-- If you have fewer than 400 machines to discover and assess, you need a single project and a single discovery. Depending on your requirements, you can either assess all the machines in a single assessment or split the machines into multiple assessments.
-- If you have 400 to 1,000 machines to discover, you need a single project with a single discovery. But you will need multiple assessments to assess these machines, because a single assessment can hold up to 400 machines.
-- If you have 1,001 to 1,500 machines, you need a single project with two discoveries in it.
-- If you have more than 1,500 machines, you need to create multiple projects, and perform multiple discoveries, according to your requirements. For example:
-    - If you have 3,000 machines, you can set up two projects with two discoveries, or three projects with a single discovery.
-    - If you have 5,000 machines, you can set up four projects: three with a discovery of 1,500 machines, and one with a discovery of 500 machines. Alternatively, you can set up five projects with a single discovery in each one.
-      -->
-
-## <a name="plan-multiple-discoveries"></a>여러 검색 계획
-
-하나 이상의 프로젝트에 여러 검색 작업을 수행하기 위해 동일한 Azure Migrate Collector를 사용할 수 있습니다. 이러한 계획 고려 사항을 고려하세요.
+이러한 계획 고려 사항을 고려하세요.
 
 - Azure Migrate Collector를 사용하여 검색할 때 vCenter Server 폴더, 데이터 센터, 클러스터 또는 호스트로 검색 범위를 설정할 수 있습니다.
 - 둘 이상의 검색을 수행하려면 vCenter Server에서 검색할 VM이 1,500대 컴퓨터 제한을 지원하는 폴더, 데이터 센터, 클러스터 또는 호스트에 위치하는지 확인합니다.
 - 평가 목적을 위해 동일한 프로젝트 및 평가 내에서 컴퓨터 간 상호 종속성을 유지하는 것이 좋습니다. vCenter Server에서 종속 컴퓨터가 평가를 위해 동일한 폴더, 데이터 센터 또는 클러스터에 있는지 확인합니다.
 
+시나리오에 따라 아래 설명된 대로 검색을 분할할 수 있습니다.
 
-## <a name="create-a-project"></a>프로젝트 만들기
+### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>1500VM 미만의 여러 vCenter Server
+
+사용자 환경에 여러 vCenter Server가 있고 가상 머신의 총 수가 1500보다 작은 경우 단일 수집기 및 단일 마이그레이션 프로젝트를 사용하여 모든 vCenter Server에서 모든 가상 머신을 검색할 수 있습니다. 수집기에서는 한 번에 하나의 vCenter Server를 검색하므로 모든 vCenter Server에 대해 차례로 동일한 수집기를 실행하고, 동일한 마이그레이션 프로젝트에 대해 수집기를 가리킬 수 있습니다. 모든 검색이 완료되면 컴퓨터에 대한 평가를 만들 수 있습니다.
+
+### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>1500VM 초과의 여러 vCenter Server
+
+vCenter Server당 1500개 미만의 가상 머신이 있는 여러 vCenter Server가 있지만 모든 vCenter Server에 대해 1500개 초과의 VM이 있는 경우 여러 마이그레이션 프로젝트를 만들어야 합니다(하나의 마이그레이션 프로젝트에서 1500개의 VM만을 보유할 수 있음). vCenter Server당 마이그레이션 프로젝트를 만들고 검색을 분할하여 이 작업을 수행할 수 있습니다. 단일 수집기를 사용하여 각 vCenter Server를 검색할 수 있습니다(차례로). 동시에 검색을 시작하려는 경우 동시에 여러 어플라이언스를 배포하고 검색을 실행할 수도 있습니다.
+
+### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>단일 vCenter Server에서 1500개 이상의 컴퓨터
+
+단일 vCenter Server에 1500개 초과의 가상 머신이 있는 경우 검색을 여러 마이그레이션 프로젝트로 분할해야 합니다. 검색을 분할하기 위해 어플라이언스에서 범위 필드를 활용하고 검색하려는 호스트, 클러스터, 폴더 또는 데이터 센터를 지정할 수 있습니다. 예를 들어 vCenter Server에 1000VM이 있는 폴더(Folder1)와 800VM이 있는 폴더(Folder2)로 두 개의 폴더가 있는 경우 단일 수집기를 사용하고 두 개의 검색을 수행할 수 있습니다. 첫 번째 검색에서 Folder1을 범위로 지정하고 첫 번째 마이그레이션 프로젝트로 가리킬 수 있으며, 첫 번째 검색이 완료되면 동일한 수집기를 사용하고, 해당 범위를 Folder2로 마이그레이션 프로젝트 세부 정보를 두 번째 마이그레이션 프로젝트로 변경하고 두 번째 검색을 수행할 수 있습니다.
+
+### <a name="multi-tenant-environment"></a>다중 테넌트 환경
+
+테넌트 간에 공유되는 환경을 사용하고 있는데 다른 테넌트의 구독에서 한 테넌트의 VM을 검색하지 않으려는 경우 수집기 어플라이언스에서 범위 필드를 사용하여 검색의 범위를 지정할 수 있습니다. 테넌트가 호스트를 공유하는 경우 특정 테넌트에 속한 VM만 읽기 전용 액세스 권한이 있는 자격 증명을 만든 다음, 수집기 어플라이언스에서 이 자격 증명을 사용하고 검색을 수행하는 호스트로 범위를 지정합니다. 또는 공유 호스트에서 vCenter Server에 폴더를 만들 수도 있습니다(예: tenant1에 대한 folder1 및 tenant2에 대한 folder2). tenant1에 대한 VM을 folder1로 옮기고 tenant2에 대한 VM을 folder2로 옮긴 다음, 적절한 폴더를 지정하여 그에 따라 수집기에서 검색 범위를 지정합니다.
+
+## <a name="discover-on-premises-environment"></a>온-프레미스 환경 검색
+
+계획이 준비가 되면 온-프레미스 가상 머신의 검색을 시작할 수 있습니다.
+
+### <a name="create-a-project"></a>프로젝트 만들기
 
 요구 사항에 따라 Azure Migrate 프로젝트를 만듭니다.
 
@@ -62,11 +74,11 @@ ms.locfileid: "34365334"
 4. 새 리소스 그룹을 만듭니다.
 5. 프로젝트를 만들 위치를 지정하고 **만들기**를 선택합니다. 다른 대상 위치에서 VM을 평가할 수도 있습니다. 프로젝트에 대해 지정된 위치는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다.
 
-## <a name="set-up-the-collector-appliance"></a>수집기 어플라이언스 설정
+### <a name="set-up-the-collector-appliance"></a>수집기 어플라이언스 설정
 
 Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 만듭니다. 이 VM은 온-프레미스 VMware VM을 검색하고 이에 대한 메타데이터를 Azure Migrate 서비스에 보냅니다. 수집기 어플라이언스를 설정하려면 OVA 파일을 다운로드하고 온-프레미스 vCenter Server로 가져옵니다.
 
-### <a name="download-the-collector-appliance"></a>수집기 어플라이언스를 다운로드 합니다.
+#### <a name="download-the-collector-appliance"></a>수집기 어플라이언스를 다운로드 합니다.
 
 프로젝트가 여러 개인 경우 수집기 어플라이언스는 vCenter Server에 한 번만 다운로드해야 합니다. 어플라이언스를 다운로드하고 설정한 후에 각 프로젝트에 대해 실행하고 고유한 프로젝트 ID와 키를 지정합니다.
 
@@ -75,7 +87,7 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 3. **프로젝트 자격 증명 복사**에서 프로젝트에 대한 ID 및 키를 복사합니다. 수집기를 구성하는 경우 필요합니다.
 
 
-### <a name="verify-the-collector-appliance"></a>수집기 어플라이언스를 확인합니다.
+#### <a name="verify-the-collector-appliance"></a>수집기 어플라이언스를 확인합니다.
 
 배포하기 전에 OVA 파일이 안전한지 확인합니다.
 
@@ -121,7 +133,7 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
     SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
     SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
 
-## <a name="create-the-collector-vm"></a>수집기 VM을 만듭니다.
+### <a name="create-the-collector-vm"></a>수집기 VM을 만듭니다.
 
 다운로드한 파일을 vCenter Server에 가져옵니다.
 
@@ -137,7 +149,7 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 7. **네트워크 매핑**에서 수집기 VM이 연결할 네트워크를 지정합니다. 메타데이터를 Azure로 전송하려면 네트워크에 인터넷 연결이 필요합니다.
 8. 설정을 검토하고 확인한 다음 **마침**을 선택합니다.
 
-## <a name="identify-the-id-and-key-for-each-project"></a>각 프로젝트에 대한 ID 및 키 식별
+### <a name="identify-the-id-and-key-for-each-project"></a>각 프로젝트에 대한 ID 및 키 식별
 
 프로젝트가 여러 개인 경우 각 프로젝트에 대한 ID 및 키를 식별했는지 확인합니다. VM을 검색하기 위해 수집기를 실행하는 경우 키가 필요합니다.
 
@@ -145,7 +157,7 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 2. **프로젝트 자격 증명 복사**에서 프로젝트에 대한 ID 및 키를 복사합니다.
     ![프로젝트 자격 증명 복사](./media/how-to-scale-assessment/copy-project-credentials.png)
 
-## <a name="set-the-vcenter-statistics-level"></a>vCenter 통계 수준 설정
+### <a name="set-the-vcenter-statistics-level"></a>vCenter 통계 수준 설정
 검색하는 동안 수집되는 성능 카운터 목록은 다음과 같습니다. 이러한 카운터는 기본적으로 vCenter Server의 다양한 수준에서 사용할 수 있습니다.
 
 모든 카운터는 올바르게 수집되도록 통계 수준에 대한 가장 높은 일반적인 수준(3)을 설정하는 것이 좋습니다. vCenter가 낮은 수준으로 설정된 경우 몇 가지 카운터만 완벽히 수집되고 나머지는 0으로 설정됩니다. 그러면 평가는 불완전한 데이터를 표시합니다.
@@ -166,7 +178,7 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 > [!WARNING]
 > 방금 더 높은 통계 수준을 설정한 경우 성능 카운터를 생성하는 데 하루가 걸립니다. 따라서 하루 뒤에 검색을 실행하는 것이 좋습니다.
 
-## <a name="run-the-collector-to-discover-vms"></a>VM을 검색하려면 수집기를 실행합니다.
+### <a name="run-the-collector-to-discover-vms"></a>VM을 검색하려면 수집기를 실행합니다.
 
 수행해야 하는 각 검색마다 수집기를 실행하여 필요한 범위에서 VM을 검색합니다. 검색을 차례로 실행합니다. 동시 검색은 지원되지 않으며, 각 검색은 다른 범위에 있어야 합니다.
 
@@ -194,7 +206,7 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
 7.  **컬렉션 진행률 보기**에서 검색 프로세스를 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다.
 
 
-### <a name="verify-vms-in-the-portal"></a>포털에서 VM 확인
+#### <a name="verify-vms-in-the-portal"></a>포털에서 VM 확인
 
 검색 시간은 검색 중인 VM이 얼마나 많은지에 달려 있습니다. 일반적으로 100대의 VM인 경우 수집기가 실행을 완료한 후에 검색을 완료하기까지 약 1시간이 걸립니다.
 

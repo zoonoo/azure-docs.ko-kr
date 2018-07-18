@@ -1,29 +1,25 @@
 ---
-title: "Switch 문 - 특정 값에 따라 단계 실행 - Azure Logic Apps | Microsoft Docs"
-description: "논리 앱에서 개체, 식 또는 토큰의 값에 따라 다른 단계를 실행합니다."
+title: 워크플로에 switch 문 추가 - Azure Logic Apps | Microsoft Docs
+description: Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 제어하는 switch 문을 만드는 방법입니다.
 services: logic-apps
-keywords: "Switch 문"
-author: ecfan
-manager: anneta
-editor: 
-documentationcenter: 
-ms.assetid: 
 ms.service: logic-apps
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.date: 03/05/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: e1f515189be8a5659af0f6c29b3fac0550abc9f9
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.topic: article
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
+ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/05/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35299619"
 ---
-# <a name="switch-statements-run-different-steps-based-on-specific-values-in-logic-apps"></a>Switch 문: 논리 앱에서 특정 값에 따라 다른 단계 실행
+# <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 실행하는 switch 문 만들기
 
-개체, 식 또는 토큰의 값에 따라 다른 단계를 수행하려면 *switch* 문을 사용합니다. 이 구조는 개체, 식 또는 토큰을 평가하고 결과와 일치하는 케이스를 선택하며 해당 케이스에 대해서만 단계를 실행합니다. switch 문이 실행되는 경우 하나의 케이스만 결과와 일치해야 합니다.
+개체, 식 또는 토큰의 값에 따라 특정 작업을 실행하려면 *switch* 문을 추가합니다. 이 구조는 개체, 식 또는 토큰을 평가하고, 결과와 일치하는 케이스를 선택하고, 해당 케이스에 대한 특정 작업만 실행합니다. switch 문이 실행되는 경우 하나의 케이스만 결과와 일치해야 합니다.
 
 예를 들어 이메일에서 선택한 옵션에 따라 다른 단계를 수행하는 논리 앱이 필요하다고 가정합니다. 이 예에서 논리 앱은 웹 사이트의 RSS 피드에서 새 콘텐츠를 확인합니다. RSS 피드에 새 항목이 나타나면 논리 앱에서 승인자에게 이메일을 보냅니다. 승인자가 "승인" 또는 "거부"를 선택하는지 여부에 따라 논리 앱에서 서로 다른 단계를 수행합니다.
 

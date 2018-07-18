@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: a856c59191a1e35b78d1ab6c2c88ab5288ea1419
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836486"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37055709"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>차량 원격 분석 솔루션 플레이 북: 솔루션에 대한 심층 분석
 이 메뉴는 다음 플레이 북의 섹션에 연결됩니다. 
@@ -35,7 +35,7 @@ ms.locfileid: "34836486"
 * 시뮬레이션된 차량 신호 및 진단 데이터 집합
 * 차량 카탈로그
 
-다음 스크린샷에 표시된 것처럼 차량 텔레매틱스 시뮬레이터가 이 솔루션의 일부로 포함되어 있습니다. 이 기능은 지정된 시기에 차량 상태 및 운전 패턴에 해당하는 신호를 내보냅니다. 요구 사항에 따라 사용자 지정할 차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션을 다운로드하려면 [차량 텔레매틱스 시뮬레이터](http://go.microsoft.com/fwlink/?LinkId=717075)를 클릭하세요. 차량 카탈로그에는 VIN(차량 등록 번호)을 모델에 매핑하는 참조 데이터 집합이 포함되어 있습니다.
+다음 스크린샷에 표시된 것처럼 차량 텔레매틱스 시뮬레이터가 이 솔루션의 일부로 포함되어 있습니다. 이 기능은 지정된 시기에 차량 상태 및 운전 패턴에 해당하는 신호를 내보냅니다.  차량 카탈로그에는 VIN(차량 등록 번호)을 모델에 매핑하는 참조 데이터 집합이 포함되어 있습니다. 참고: Vehicle Telematics Simulator Visual Studio Solution 데이터 집합은 이제 사용할 수 없습니다. 
 
 ![차량 텔레매틱스 시뮬레이터](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig1-vehicle-telematics-simulator.png)
 
@@ -363,7 +363,7 @@ Stream Analytics의 기간 이동 기능에 대해 자세히 알아보려면 [�
 
 이 패턴은 LOB(기간 업무) 응용 프로그램을 실시간 분석 흐름과 통합하려는 시나리오에도 적용할 수 있습니다. 이러한 시나리오에는 경고, 알림 및 메시징이 포함됩니다.
 
-사용자 지정을 위한 RealtimeDashboardApp Visual Studio 솔루션을 다운로드하려면 [RealtimeDashboardApp 다운로드](http://go.microsoft.com/fwlink/?LinkId=717078)를 참조하세요. 
+참고: RealtimeDashboardApp Visual Studio 솔루션용 데이터는 이제 사용할 수 없습니다.
 
 #### <a name="execute-the-real-time-dashboard-application"></a>**실시간 대시보드 응용 프로그램 실행**
 1. RealtimeDashboardApp의 압축을 풀고 로컬로 저장합니다.
@@ -669,10 +669,9 @@ Power BI는 실시간 데이터 및 예측 분석 시각화를 위해 이 솔루
 
 ### <a name="references"></a>참조
 
-* [차량 텔레매틱스 시뮬레이터 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717075) 
 * [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)
 * [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 * [스트림 수집을 위한 Azure Event Hubs SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-* [Azure Data Factory 데이터 이동 기능](../../data-factory/v1/data-factory-data-movement-activities.md)
-* [Azure Data Factory .NET 작업](../../data-factory/v1/data-factory-use-custom-activities.md)
+* [Azure Data Factory 데이터 이동 기능](../../data-factory/copy-activity-overview.md)
+* [Azure Data Factory .NET 작업](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [샘플 데이터 준비에 사용되는 Azure Data Factory .NET 작업 Visual Studio 솔루션](http://go.microsoft.com/fwlink/?LinkId=717077) 

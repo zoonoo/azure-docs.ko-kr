@@ -13,12 +13,12 @@ ms.service: azure
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 9f9099c0ebd65ba84e171314e6f04d858648a805
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 905cedd6ee781ca163731a6f71b083acfc11b5eb
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800740"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36332374"
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Microsoft 하이브리드 ID 솔루션
 [Microsoft Azure AD(Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) 하이브리드 ID 솔루션을 사용하면 온-프레미스의 사용자를 계속 관리하면서 온-프레미스 디렉터리 개체를 Azure AD와 동기화할 수 있습니다. 온-프레미스 Windows Server Active Directory와 Azure AD와의 동기화를 계획할 때는 맨 먼저 동기화된 ID를 사용할지 또는 페더레이션 ID를 사용할지를 결정해야 합니다. 동기화된 ID 및 선택적으로 암호 해시를 사용하여 사용자는 같은 암호로 온-프레미스 및 클라우드 기반 조직 리소스에 모두 액세스할 수 있습니다. SSO(Single Sign-On) 또는 온-프레미스 MFA와 같은 고급 시나리오 요구 사항의 경우 AD FS(Active Directory Federation Services)를 배포하여 ID를 페더레이션해야 합니다. 
@@ -53,7 +53,7 @@ Office 365, SaaS 응용 프로그램 및 기타 Azure AD 기반 리소스에 사
 - 사용자의 유효성이 검사되는 포리스트의 도메인에 연결
 
 ## <a name="federated-identity-ad-fs"></a>페더레이션 ID(AD FS)
-사용자가 Office 365 및 다른 클라우드 서비스에 액세스하는 방식을 더 세밀하게 제어하려면 [AD FS(Active Directory Federation Services)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server-2016)를 사용하여 SSO(Single Sign-On)와의 디렉터리 동기화를 설정하면 됩니다. 사용자의 로그인을 AD FS와 페더레이션하면 사용자 자격 증명의 유효성을 검사하는 인증이 온-프레미스 서버에 위임됩니다. 이 모델에서는 온-프레미스 Active Directory 자격 증명이 Azure AD에 전달되지 않습니다.
+사용자가 Office 365 및 다른 클라우드 서비스에 액세스하는 방식을 더 세밀하게 제어하려면 [AD FS(Active Directory Federation Services)](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server)를 사용하여 SSO(Single Sign-On)와의 디렉터리 동기화를 설정하면 됩니다. 사용자의 로그인을 AD FS와 페더레이션하면 사용자 자격 증명의 유효성을 검사하는 인증이 온-프레미스 서버에 위임됩니다. 이 모델에서는 온-프레미스 Active Directory 자격 증명이 Azure AD에 전달되지 않습니다.
 
 ![페더레이션 ID](./media/choose-hybrid-identity-solution/federated-identity.png)
 

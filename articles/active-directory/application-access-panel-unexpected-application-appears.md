@@ -3,23 +3,24 @@ title: 응용 프로그램이 액세스 패널에 표시되는 방식 | Microsof
 description: 응용 프로그램이 액세스 패널에 표시되는 문제 해결
 services: active-directory
 documentationcenter: ''
-author: ajamess
+author: barbkess
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: asteen
+ms.author: barbkess
 ms.reviewr: japere
-ms.openlocfilehash: 0d4203ea39adf027d783a482198f523e18cbc246
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: a67ce71ab49d00d7d9425714ad43cd4a6ee842f3
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34054329"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36333533"
 ---
 # <a name="how-applications-appear-on-the-access-panel"></a>응용 프로그램이 액세스 패널에 표시되는 방식
 

@@ -13,19 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e21c08d418022430400ff14baedc1759d2d16069
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 27e7d6f22678bf33ffd81fb34472fe4add3f9a15
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30171566"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37045469"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터를 복사하는 데이터 팩터리 파이프라인을 만듭니다. 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는, 자체 호스팅된 통합 런타임을 생성하고 사용합니다.
 
 > [!NOTE]
-> 이 문서는 현재 미리 보기 상태인 Azure Data Factory 버전 2에 적용됩니다. 일반 공급되는 Data Factory 버전 1을 사용하는 경우 [Data Factory 버전 1 설명서](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
-> 
 > 이 문서에서는 Data Factory를 자세히 소개하지 않습니다. 자세한 내용은 [Data Factory 소개](introduction.md)를 참조하세요. 
 
 이 자습서에서는 다음 단계를 수행합니다.
@@ -128,21 +126,21 @@ ms.locfileid: "30171566"
    
    ![새 데이터 팩터리 만들기](./media/tutorial-hybrid-copy-portal/new-azure-data-factory-menu.png)
 3. **새 데이터 팩터리** 페이지의 **이름** 아래에서 **ADFTutorialDataFactory**를 입력합니다. 
-      
+   
      ![새 데이터 팩터리 페이지](./media/tutorial-hybrid-copy-portal/new-azure-data-factory.png)
- 
-   데이터 팩터리 이름은 *전역적으로 고유*해야 합니다. 이름 필드에 대해 다음과 같은 오류 메시지가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
-  
+
+데이터 팩터리 이름은 *전역적으로 고유*해야 합니다. 이름 필드에 대해 다음과 같은 오류 메시지가 표시되면 데이터 팩터리의 이름을 변경합니다(예: yournameADFTutorialDataFactory). Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
+
    ![새 데이터 팩터리 이름](./media/tutorial-hybrid-copy-portal/name-not-available-error.png)
 4. 데이터 팩터리를 만들 Azure **구독**을 선택합니다.
 5. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
-     
+   
       - **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다.
-         
+        
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-6. **버전** 아래에서 **V2(미리 보기)** 를 선택합니다.
+6. **버전**에서 **V2**를 선택합니다.
 7. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 지역에 있을 수 있습니다.
 8. **대시보드에 고정**을 선택합니다. 
 9. **만들기**를 선택합니다.
@@ -160,42 +158,55 @@ ms.locfileid: "30171566"
 1. **시작** 페이지에서 **파이프라인 만들기**를 선택합니다. 파이프라인이 자동으로 만들어집니다. 파이프라인이 트리 뷰에 표시되고 편집기가 열립니다. 
 
    ![시작 페이지](./media/tutorial-hybrid-copy-portal/get-started-page.png)
+
 2. **속성** 창의 아래쪽에 있는 **일반** 탭의 **이름**에서 **SQLServerToBlobPipeline**을 입력합니다.
 
    ![파이프라인 이름](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
+
 3. **활동** 도구 상자에서 **데이터 흐름**을 펼칩니다. **복사** 활동을 파이프라인 디자인 화면으로 끌어서 놓습니다. 활동 이름을 **CopySqlServerToAzureBlobActivity**로 설정합니다.
 
    ![작업 이름](./media/tutorial-hybrid-copy-portal/copy-activity-name.png)
+
 4. **속성** 창에서 **원본** 탭으로 이동하고 **+ 새로 만들기**를 클릭합니다.
 
    ![원본 탭](./media/tutorial-hybrid-copy-portal/source-dataset-new-button.png)
+
 5. **새 데이터 집합** 창에서 **SQL Server**를 검색합니다. **SQL Server**를 선택한 다음, **마침**을 선택합니다. **SqlServerTable1**이라는 제목의 새 탭이 표시됩니다. 또한 왼쪽의 트리 뷰에도 **SqlServerTable1** 데이터 집합이 표시됩니다. 
 
    ![SQL Server 선택](./media/tutorial-hybrid-copy-portal/select-sql-server.png)
+
 6. **속성** 창의 아래쪽에 있는 **일반** 탭의 **이름**에서 **SqlServerDataset**를 입력합니다.
-    
+
    ![원본 데이터 집합 이름](./media/tutorial-hybrid-copy-portal/source-dataset-name.png)
+
 7. **연결** 탭으로 이동하고 **+ 새로 만들기**를 선택합니다. 이 단계에서는 원본 데이터 저장소(SQL Server 데이터베이스)에 대한 연결을 만듭니다. 
 
    ![원본 데이터 집합에 연결](./media/tutorial-hybrid-copy-portal/source-connection-new-button.png)
-8. **새 연결된 서비스** 창에서 **새 Integration Runtime**을 선택합니다. 이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅 통합 런타임은 컴퓨터의 SQL Server 데이터베이스에서 Blob 저장소로 데이터를 복사하는 구성 요소입니다. 
+
+8. **새 연결된 서비스** 창에서 **이름**을 **SqlServerLinkedService**로 추가합니다. **통합 런타임을 통해 연결**에서 **새로 만들기**를 선택합니다. 이 섹션에서는 자체 호스팅 Integration Runtime을 만들고 이를 Microsoft SQL Server 데이터베이스와 함께 온-프레미스 컴퓨터에 연결합니다. 자체 호스팅 통합 런타임은 컴퓨터의 SQL Server 데이터베이스에서 Blob 저장소로 데이터를 복사하는 구성 요소입니다. 
 
    ![새 통합 런타임](./media/tutorial-hybrid-copy-portal/new-integration-runtime-button.png)
+
 9. **Integration Runtime 설정** 창에서 **사설망**, **다음**을 차례로 선택합니다. 
 
    ![사설망 선택](./media/tutorial-hybrid-copy-portal/select-private-network.png)
+
 10. 통합 런타임에 대한 이름을 입력하고 **다음**을 선택합니다.
-    
+
     ![통합 런타임 이름](./media/tutorial-hybrid-copy-portal/integration-runtime-name.png)
+
 11. **옵션 1: 빠른 설치** 섹션 아래에서 **이 컴퓨터에 대한 빠른 설치를 시작하려면 여기를 클릭하십시오**를 선택합니다. 
 
     ![빠른 설치 링크](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+
 12. **Integration Runtime(자체 호스팅) 빠른 설치** 창에서 **닫기**를 선택합니다. 
 
     ![Integration Runtime(자체 호스팅) 빠른 설치](./media/tutorial-hybrid-copy-portal/integration-runtime-setup-successful.png)
-13. 웹 브라우저의 **Integration Runtime 설정** 창에서 **마침**을 선택합니다. 
 
-    ![통합 런타임 설정](./media/tutorial-hybrid-copy-portal/click-finish-integration-runtime-setup.png)
+13. **새 연결된 서비스** 창의 **통합 런타임을 통해 연결**에서는 위에서 만든 **통합 런타임**을 선택했는지 확인합니다. 
+
+    ![](./media/tutorial-hybrid-copy-portal/select-integration-runtime.png)
+
 14. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
 
     a. **이름** 아래에서 **SqlServerLinkedService**를 입력합니다.
@@ -212,9 +223,10 @@ ms.locfileid: "30171566"
 
     g. **연결 테스트**를 클릭합니다. 이 단계를 수행하여 만든 자체 호스팅 통합 런타임을 통해 Data Factory에서 SQL Server 데이터베이스에 연결할 수 있는지 확인합니다.
 
-    h. 연결된 서비스를 저장하려면 **저장**을 선택합니다.
+    h. 연결된 서비스를 저장하려면 **마침**을 선택합니다.
 
-       ![새 연결된 서비스 설정](./media/tutorial-hybrid-copy-portal/sql-server-linked-service-settings.png)
+       
+
 15. 원본 데이터 집합이 열려 있는 창으로 다시 전환됩니다. **속성** 창의 **연결**에서 다음 단계를 수행합니다. 
 
     a. **연결된 서비스**에서 **SqlServerLinkedService**가 표시되는지 확인합니다.
@@ -222,21 +234,27 @@ ms.locfileid: "30171566"
     나. **테이블**에서 **[dbo].[emp]** 를 선택합니다.
 
     ![원본 데이터 집합 연결 정보](./media/tutorial-hybrid-copy-portal/source-dataset-connection.png)
+
 16. **SQLServerToBlobPipeline**이 있는 탭으로 이동하거나 트리 뷰에서 **SQLServerToBlobPipeline**을 선택합니다. 
 
     ![파이프라인 탭](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+
 17. **속성** 창의 아래쪽에 있는 **싱크** 탭으로 이동하고 **+ 새로 만들기**를 선택합니다. 
 
     ![싱크 탭](./media/tutorial-hybrid-copy-portal/sink-dataset-new-button.png)
+
 18. **새 데이터 집합** 창에서 **Azure Blob Storage**를 선택합니다. 그런 다음, **마침**을 선택합니다. 데이터 집합에 대해 열린 새 탭이 표시됩니다. 또한 트리 뷰에도 데이터 집합이 표시됩니다. 
 
     ![Blob 저장소 선택](./media/tutorial-hybrid-copy-portal/select-azure-blob-storage.png)
+
 19. **이름**에서 **AzureBlobDataset**를 입력합니다.
 
     ![싱크 데이터 집합 이름](./media/tutorial-hybrid-copy-portal/sink-dataset-name.png)
+
 20. **속성** 창의 아래쪽에 있는 **연결** 탭으로 이동합니다. **연결된 서비스** 옆에 있는 **+ 새로 만들기**를 선택합니다. 
 
     ![새 연결된 서비스 단추](./media/tutorial-hybrid-copy-portal/new-storage-linked-service-button.png)
+
 21. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
 
     a. **이름** 아래에서 **AzureStorageLinkedService**를 입력합니다.
@@ -248,28 +266,39 @@ ms.locfileid: "30171566"
     d. **저장**을 선택합니다.
 
     ![Storage 연결된 서비스 설정](./media/tutorial-hybrid-copy-portal/azure-storage-linked-service-settings.png) 
-22.  싱크 데이터 집합이 열려 있는 창으로 다시 전환됩니다. **연결** 탭에서 다음 단계를 수행합니다. 
 
-        a. **연결된 서비스**에서 **AzureStorageLinkedService**가 선택되어 있는지 확인합니다.
+22. 싱크 데이터 집합이 열려 있는 창으로 다시 전환됩니다. **연결** 탭에서 다음 단계를 수행합니다. 
 
-        나. **파일 경로**의 **폴더** 부분에 대해 **adftutorial/fromonprem**을 입력합니다. 출력 폴더가 adftutorial 컨테이너에 없으면 Data Factory에서 출력 폴더를 자동으로 만듭니다.
+       a. **연결된 서비스**에서 **AzureStorageLinkedService**가 선택되어 있는지 확인합니다.
 
-        다. **파일 경로**의 **파일 이름** 부분에 대해 `@CONCAT(pipeline().RunId, '.txt')`를 입력합니다.
+       나. **파일 경로**의 **폴더**/ **디렉터리** 부분에 대해 **adftutorial/fromonprem**을 입력합니다. 출력 폴더가 adftutorial 컨테이너에 없으면 Data Factory에서 출력 폴더를 자동으로 만듭니다.
 
-     ![싱크 데이터 집합에 연결](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+       다. **파일 경로**의 **파일 이름** 부분에 대해 **동적 콘텐츠 추가**를 선택합니다.   
+
+    ![동적 파일 이름 값](./media/tutorial-hybrid-copy-portal/file-name.png)
+
+       d. `@CONCAT(pipeline().RunId, '.txt')`를 추가하고, **마침**을 선택합니다. 그러면 PipelineRunID.txt로 파일을 이름을 바꿉니다. 
+
+    ![파일 이름을 확인하기 위한 동적 식](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
+
+    ![싱크 데이터 집합에 연결](./media/tutorial-hybrid-copy-portal/sink-dataset-connection.png)
+
 23. 파이프라인이 열려 있는 탭으로 이동하거나 트리 뷰에서 파이프라인을 선택합니다. **싱크 데이터 집합**에서 **AzureBlobDataset**가 선택되어 있는지 확인합니다. 
 
     ![싱크 데이터 집합 선택](./media/tutorial-hybrid-copy-portal/sink-dataset-selected.png)
+
 24. 파이프라인 설정에 대한 유효성을 검사하려면 파이프라인에 대한 도구 모음에서 **유효성 검사**를 선택합니다. **파이프 유효성 검사 보고서**를 닫으려면 **닫기**를 선택합니다. 
 
     ![파이프라인 유효성 검사](./media/tutorial-hybrid-copy-portal/validate-pipeline.png)
+
 25. 만든 엔터티를 데이터 팩터리에 게시하려면 **모두 게시**를 선택합니다.
 
     ![게시 단추](./media/tutorial-hybrid-copy-portal/publish-button.png)
+
 26. **게시 성공** 팝업이 표시될 때까지 기다립니다. 게시 상태를 확인하려면 왼쪽의 **알림 표시** 링크를 선택합니다. 알림 창을 닫으려면 **닫기**를 선택합니다. 
 
     ![게시 성공](./media/tutorial-hybrid-copy-portal/publishing-succeeded.png)
-    
+
 
 ## <a name="trigger-a-pipeline-run"></a>파이프라인 실행 트리거
 파이프라인에 대한 도구 모음에서 **트리거**를 선택한 다음, **지금 트리거**를 선택합니다.
@@ -286,15 +315,9 @@ ms.locfileid: "30171566"
     ![작업 실행 모니터링](./media/tutorial-hybrid-copy-portal/activity-runs.png)
 
 ## <a name="verify-the-output"></a>출력 확인
-파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem*이라는 출력 폴더를 만듭니다. 출력 폴더에서 *dbo.emp.txt* 파일이 표시되는지 확인합니다. 
+파이프라인은 자동으로 `adftutorial` Blob 컨테이너에서 *fromonprem*이라는 출력 폴더를 만듭니다. 출력 폴더에서 *[pipeline().RunId].txt* 파일이 표시되는지 확인합니다. 
 
-1. Azure Portal의 **adftutorial** 컨테이너 창에서 출력 폴더를 보려면 **새로 고침**을 선택합니다.
-
-    ![만든 출력 폴더](media/tutorial-hybrid-copy-portal/fromonprem-folder.png)
-2. 폴더 목록에서 `fromonprem`을 선택합니다. 
-3. `dbo.emp.txt`이라는 파일이 표시됨을 확인합니다.
-
-    ![출력 파일](media/tutorial-hybrid-copy-portal/fromonprem-file.png)
+![출력 파일 이름 확인](./media/tutorial-hybrid-copy-portal/sink-output.png)
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ffd12d03dffb5deafc8605cc7352bd71d588d235
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: afcd39e6512ac7bcb46f56df157822efa463113e
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866739"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449308"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -39,7 +39,7 @@ SSPR을 사용하지 않는 경우에도 사용자는 암호 재설정 포털에
 
 어떠한 경우에도 최대 100명의 받는 사람에게 알림이 제공됩니다.
 
-다양한 관리자 역할과 각 역할을 할당하는 방법에 대해 자세히 알아보려면 [Azure Active Directory에서 관리자 역할 할당](../active-directory-assign-admin-roles-azure-portal.md)을 참조하세요.
+다양한 관리자 역할과 각 역할을 할당하는 방법에 대해 자세히 알아보려면 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
 ### <a name="disable-contact-your-administrator-emails"></a>“관리자에게 문의” 메일 사용 안 함
 
@@ -69,7 +69,7 @@ AD FS 로그인 페이지에 링크를 추가하려면 AD FS 서버에서 아래
     * *whr* 매개 변수를 암호 재설정 페이지에 전달(예: "https://login.microsoftonline.com/?whr=contoso.com")
     * *username* 매개 변수를 암호 재설정 페이지에 전달(예: "https://login.microsoftonline.com/?username=admin@contoso.com")
 
-회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](../customize-branding.md)에서 찾습니다.
+회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)에서 찾습니다.
 
 ### <a name="directory-name"></a>디렉터리 이름
 

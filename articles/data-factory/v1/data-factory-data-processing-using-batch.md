@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ad883248097fd84e2fa064515b6c7a5232aaa3d3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621941"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37050576"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 > [!NOTE]
-> 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 서비스의 버전 2를 사용 중인 경우 [Data Factory 버전 2의 사용자 지정 작업](../transform-data-using-dotnet-custom-activity.md)을 참조하세요.
+> 이 문서는 일반 공급되는 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용하는 경우, [Data Factory의 사용자 지정 작업](../transform-data-using-dotnet-custom-activity.md)을 참조하세요.
 
 이 문서에서는 예약된 자동 방식으로 대규모 데이터 집합을 이동 및 처리하는 샘플 솔루션의 아키텍처에 대해 설명합니다. 또한 Data Factory 및 Azure Batch를 사용하여 솔루션을 구현하는 종합적인 연습 과정을 제공합니다.
 

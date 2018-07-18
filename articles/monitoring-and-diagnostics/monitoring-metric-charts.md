@@ -1,24 +1,19 @@
 ---
-title: "Azure Monitor 메트릭 탐색기 | Microsoft Docs"
-description: "Azure Monitor 메트릭 탐색기의 새로운 기능 알아보기"
+title: Azure Monitor 메트릭 탐색기
+description: Azure Monitor 메트릭 탐색기의 새로운 기능 알아보기
 author: vgorbenko
-manager: Victor.Mushkatin
-editor: mrbullwinkle
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.assetid: 2397596a-071f-4d49-8893-bec5f735bd7b
-ms.service: monitoring-and-diagnostics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+services: azure-monitor
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
-ms.openlocfilehash: 537dd6d64fe49093dd73d8040cde5a9153a7bd5c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: metrics
+ms.openlocfilehash: a2611f89d9eef1ec6bac34389fa4db833aecc087
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35264091"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor 메트릭 탐색기
 
@@ -43,7 +38,7 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 ### <a name="network-throughput"></a>네트워크 처리량
 (이 메트릭에는 차원이 없습니다.)
 
- |Timestamp        | 메트릭 값 | 
+ |타임 스탬프        | 메트릭 값 | 
    | ------------- |:-------------| 
    | 8/9/2017 8:14 | 1,331.8Kbps | 
    | 8/9/2017 8:15 | 1,141.4Kbps |
@@ -53,7 +48,7 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
 
 ### <a name="network-throughput--two-dimensions-ip-and-direction"></a>네트워크 처리량 +2 차원("IP" 및 "방향")
 
-| Timestamp          | 차원 "IP" | 차원 "방향" | 메트릭 값| 
+| 타임 스탬프          | 차원 "IP" | 차원 "방향" | 메트릭 값| 
    | ------------- |:-----------------|:------------------- |:-----------|  
    | 8/9/2017 8:14 | IP="192.168.5.2" | 방향="전송"    | 646.5Kbps |
    | 8/9/2017 8:14 | IP="192.168.5.2" | 방향="수신" | 420.1Kbps |
@@ -72,7 +67,7 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
    > 이전 메트릭 환경의 일부 기능은 새 메트릭 탐색기에서 아직 사용할 수 없습니다. 새로운 환경이 미리 보기로 제공되는 반면 Azure Monitor의 이전(비차원) 메트릭 보기를 계속 사용할 수 있습니다. 
 
 1. Azure 포털 열기
-2. 새 **모니터** 탭으로 이동하고 **메트릭(미리 보기)**을 선택합니다.
+2. 새 **모니터** 탭으로 이동하고 **메트릭(미리 보기)** 을 선택합니다.
 
    ![메트릭 미리 보기 이미지](./media/monitoring-metric-charts/001.png)
 
@@ -83,7 +78,7 @@ Microsoft Azure의 메트릭은 지남에 따라 수집되고 저장된 일련�
    > [!NOTE]
    >Azure 구독이 여러 개 있는 경우 메트릭 탐색기는 포털 설정 -> 구독 목록별 필터에서 선택된 모든 구독에 걸쳐 리소스를 끌어옵니다. 이를 변경하려면 화면 맨 위에서 포털 설정 기어 아이콘을 클릭하고 사용하려는 구독을 선택합니다.
 
-4. 메트릭 선택하기 전에 일부 리소스 형식(예: 저장소 계정 및 가상 컴퓨터)에서 **하위 서비스**를 선택해야 합니다. 각 하위 서비스는 다른 하위 서비스가 아닌 해당 하위 서비스와 관련된 고유한 메트릭 집합을 가집니다.
+4. 메트릭 선택하기 전에 일부 리소스 형식(예: Storage Accounts 및 Virtual Machines)에서 **하위 서비스**를 선택해야 합니다. 각 하위 서비스는 다른 하위 서비스가 아닌 해당 하위 서비스와 관련된 고유한 메트릭 집합을 가집니다.
 
    예를 들어 각 Azure Storage에는 저장소 계정의 모든 부분인 하위 서비스 "Blob", "파일", "큐" 및 "테이블"에 대한 메트릭이 있습니다. 그러나 "큐 메시지 수" 메트릭은 다른 저장소 계정 하위 서비스가 아닌 "큐" 하위 서비스에 자연스럽 게 적용됩니다.
 

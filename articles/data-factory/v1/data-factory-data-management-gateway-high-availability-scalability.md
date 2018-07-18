@@ -10,19 +10,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: d04500e770bf43278b88c2f980a10693590c7d16
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
+ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37053839"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
-> 이 문서는 GA(일반 공급) 상태인 Data Factory 버전 1에 적용됩니다. 미리 보기 상태인 Data Factory 버전 2 서비스를 사용 중인 경우 [버전 2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요. 
+> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요. 
 
 
 이 문서에서는 데이터 관리 게이트웨이/통합을 사용하여 고가용성 및 확장성 솔루션을 구성하는 방법에 대해 설명합니다.    
@@ -43,7 +44,7 @@ ms.lasthandoff: 03/23/2018
 
 Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 있으며, 이는 논리 게이트웨이에서 노드를 추가하거나 제거할지 여부를 결정하는 데 도움이 됩니다. 
 
-## <a name="architecture"></a>건축 
+## <a name="architecture"></a>아키텍처 
 다음 다이어그램에서는 데이터 관리 게이트웨이의 확장성 및 가용성 기능에 대한 아키텍처 개요를 제공합니다. 
 
 ![데이터 관리 게이트웨이 - 고가용성 및 확장성](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)

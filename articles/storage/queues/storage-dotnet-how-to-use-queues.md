@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 04/16/2018
+ms.date: 06/13/2018
 ms.author: tamram
-ms.openlocfilehash: 749bc318af331100c8c2079d58c8e3ca395f4a49
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 685f333fd0659db54c9d6bf4b061cf4c9aec7cda
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527317"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38722748"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>.NET을 사용하여 Azure 큐 저장소 시작
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -36,8 +36,6 @@ Azure 큐 저장소는 응용 프로그램 구성 요소 간에 클라우드 메
 * [.NET용 Azure 구성 관리자](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
 * [Azure 저장소 계정](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#create-a-storage-account)
 
-[!INCLUDE [storage-dotnet-client-library-version-include](../../../includes/storage-dotnet-client-library-version-include.md)]
-
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
@@ -55,7 +53,7 @@ using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Queue storage types
 
 ### <a name="copy-your-credentials-from-the-azure-portal"></a>Azure Portal에서 자격 증명 복사
 
-샘플 코드에서 저장소 계정에 대한 액세스를 인증해야 합니다. 인증을 위해 연결 문자열 형태로 저장소 계정 자격 증명을 응용 프로그램에 제공합니다. 저장소 계정 자격 증명을 보려면:
+샘플 코드에서 저장소 계정에 대한 액세스 권한을 부여해야 합니다. 권한을 부여하려면 연결 문자열 형태로 저장소 계정 자격 증명을 응용 프로그램에 제공합니다. 저장소 계정 자격 증명을 보려면:
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 저장소 계정을 찾습니다.

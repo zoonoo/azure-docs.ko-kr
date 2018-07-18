@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5c6ff5ac909e2dc6918f85d39beb781952ee6dd0
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: e0146be345215701cf1afe86345afc286933d51b
+ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27593099"
+ms.lasthandoff: 06/25/2018
+ms.locfileid: "36750971"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Xamarin.Android 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -30,10 +30,10 @@ ms.locfileid: "27593099"
 
 이 자습서에서는 자습서 [Xamarin Android 앱 만들기]에서 클라이언트 프로젝트를 업데이트하여 Azure Mobile Apps의 오프라인 기능을 지원합니다. 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 프로젝트에 데이터 액세스 확장 패키지를 추가해야 합니다. 서버 확장 패키지에 대한 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-오프라인 동기화 기능에 대한 자세한 내용은 [증분 동기화]항목을 참조하세요.
+오프라인 동기화 기능에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화]항목을 참조하세요.
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>오프라인 기능을 지원하도록 클라이언트 앱 업데이트
-Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext]를 초기화합니다. 그런 다음 [IMobileServiceSyncTable][IMobileServiceSyncTable] 인터페이스를 통해 테이블을 참조합니다. SQLite는 장치의 로컬 저장소로 사용됩니다.
+Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리오에서 로컬 데이터베이스를 조작할 수 있습니다. 앱에서 이러한 기능을 사용하려면 로컬 저장소에서 [SyncContext]를 초기화합니다. [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet) 인터페이스를 통해 테이블을 참조합니다. SQLite는 장치의 로컬 저장소로 사용됩니다.
 
 1. Visual Studio에서 [Xamarin Android 앱 만들기] 자습서에서 완료한 프로젝트에서 NuGet 패키지 관리자를 엽니다.  **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 패키지를 검색하고 설치합니다.
 2. ToDoActivity.cs 파일을 열고 `#define OFFLINE_SYNC_ENABLED` 정의의 주석 처리를 제거합니다.
@@ -61,10 +61,10 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 3. (선택 사항) SQL Server 개체 탐색기 또는 Fiddler와 같은 REST 도구를 사용하여 업데이트된 데이터를 봅니다. Azure 모바일 앱 백 엔드 데이터베이스와 로컬 저장소 간에 데이터는 동기화되었습니다.
 4. 앱에서 로컬 저장소에서 완료할 몇 개 항목 옆의 확인란을 클릭합니다.
 
-   `CheckItem`은 `SyncAsync`를 호출하여 Mobile App 백 엔드와 전체 항목을 동기화합니다. `SyncAsync` 는 푸시와 끌어오기를 둘 다 호출합니다. **클라이언트가 변경한 테이블에 대해 끌어오기를 실행할 때마다 푸시도 항상 자동으로 실행됩니다**. 따라서 로컬 저장소의 모든 테이블 및 관계가 동기화된 상태로 유지될 수 있습니다. 이 동작으로 예기치 않은 푸시가 발생할 수도 있습니다. 이 동작에 대한 자세한 내용은 [증분 동기화]를 참조하세요.
+   `CheckItem`은 `SyncAsync`를 호출하여 Mobile App 백 엔드와 전체 항목을 동기화합니다. `SyncAsync` 는 푸시와 끌어오기를 둘 다 호출합니다. **클라이언트가 변경한 테이블에 대해 끌어오기를 실행할 때마다 푸시도 항상 자동으로 실행됩니다**. 따라서 로컬 저장소의 모든 테이블 및 관계가 동기화된 상태로 유지될 수 있습니다. 이 동작으로 예기치 않은 푸시가 발생할 수도 있습니다. 이 동작에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화]를 참조하세요.
 
 ## <a name="review-the-client-sync-code"></a>클라이언트 동기화 코드 검토
-자습서 [Xamarin Android 앱 만들기] 를 완료한 경우 다운로드한 Xamarin 클라이언트 프로젝트는 로컬 SQLite 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이미 자습서 코드에 포함된 내용에 대한 간략한 개요입니다. 기능의 개념적 개요는 [증분 동기화]를 참조하세요.
+자습서 [Xamarin Android 앱 만들기] 를 완료한 경우 다운로드한 Xamarin 클라이언트 프로젝트는 로컬 SQLite 데이터베이스를 사용하여 오프라인 동기화를 지원하는 코드를 포함합니다. 이미 자습서 코드에 포함된 내용에 대한 간략한 개요입니다. 기능의 개념적 개요는 [Azure Mobile Apps에서 오프라인 데이터 동기화]를 참조하세요.
 
 * 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. `ToDoActivity.OnCreate()`가 `ToDoActivity.InitLocalStoreAsync()`를 실행하는 경우 로컬 저장소 데이터베이스를 초기화합니다. 이 메서드는 Azure Mobile Apps 클라이언트 SDK에서 제공하는 `MobileServiceSQLiteStore` 클래스를 사용하여 로컬 SQLite 데이터베이스를 만듭니다.
 
@@ -96,7 +96,7 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
 
     제공되는 코드는 `ToDoActivity.SyncAsync()` 를 호출하여 todoitem목록이 새로 고쳐지거나 todoitem이 더해지거나 완료될 때마다 동기화합니다. 로컬 변경이 수행될 때마다 코드가 동기화됩니다.
 
-    제공된 코드에서 원격 `TodoItem` 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 `PushAsync`로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 *Azure Mobile Apps에서 오프라인 데이터 동기화* 에서 [증분 동기화]섹션을 참조하세요.
+    제공된 코드에서 원격 `TodoItem` 테이블에 있는 모든 레코드를 쿼리하지만 쿼리 ID 및 쿼리를 `PushAsync`로 전달하여 레코드를 필터링할 수도 있습니다. 자세한 내용은 *Azure Mobile Apps에서 오프라인 데이터 동기화* 에서 [Azure Mobile Apps에서 오프라인 데이터 동기화]섹션을 참조하세요.
 
         // ToDoActivity.cs
         private async Task SyncAsync()
@@ -112,12 +112,12 @@ Azure 모바일 앱 오프라인 기능을 사용하면 오프라인 시나리�
         }
 
 ## <a name="additional-resources"></a>추가 리소스
-* [증분 동기화]
+* [Azure Mobile Apps에서 오프라인 데이터 동기화]
 * [Azure Mobile Apps .NET SDK 사용 방법][8]
 
 <!-- URLs. -->
 [Xamarin Android 앱 만들기]: ../app-service-mobile-xamarin-android-get-started.md
-[증분 동기화]: ../app-service-mobile-offline-data-sync.md
+[Azure Mobile Apps에서 오프라인 데이터 동기화]: ../app-service-mobile-offline-data-sync.md
 
 <!-- Images -->
 

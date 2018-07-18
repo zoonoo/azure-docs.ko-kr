@@ -1,23 +1,30 @@
 ---
 ms.topic: include
-ms.openlocfilehash: 8e710bebf979b60f61552593ae550e95a8340d2b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 509d2bc3f58c57a3e2e15eed2ea2c70ed17856f3
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34307569"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37063700"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제
 
-가상 머신에 대해 선불 결제하고 Azure Reserved VM(Virtual Machine) Instances를 사용하여 비용을 절감합니다. 자세한 내용은 [Azure Reserved Instances 제품](https://azure.microsoft.com/pricing/reserved-vm-instances/)을 참조하세요.
+가상 머신에 대해 선불 결제하고 Azure Reserved VM(Virtual Machine) Instances를 사용하여 비용을 절감합니다. 자세한 내용은 [Azure Reserved VM Instances 제품](https://azure.microsoft.com/pricing/reserved-vm-instances/)을 참조하세요.
 
-[Azure Portal](https://portal.azure.com)에서 Azure Reserved Instances를 구입할 수 있습니다. 예약 인스턴스를 구입하려면:
+[Azure Portal](https://portal.azure.com)에서 Azure 예약 인스턴스를 구입할 수 있습니다. 예약 인스턴스를 구입하려면:
 -   사용자가 하나 이상의 Enterprise 또는 종량제 구독에 대해 소유자 역할이어야 합니다.
 -   Enterprise 구독의 경우 [EA 포털](https://ea.azure.com)에서 예약 인스턴스 구매가 활성화되어야 합니다.
 -   CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리자 에이전트 또는 판매 에이전트만 예약 인스턴스를 구매할 수 있습니다.
 
-## <a name="buy-a-reserved-instance"></a>예약 인스턴스 구입
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+[!IMPORTANT]
+예약 구매를 위한 적절한 VM 크기를 확인하려면 아래 설명된 방법 중 하나를 사용해야 합니다.
+
+## <a name="determine-the-right-vm-size-before-purchase"></a>구매하기 전에 적절한 VM 크기를 결정합니다.
+1. 예약 구매를 위한 적절한 VM 크기를 결정하려면 사용 파일 또는 사용량 API의 AdditionalInfo 필드를 참조하세요. 이러한 필드는 VM의 S 버전과 S 이외의 버전을 구분하지 않으므로 미터 하위 범주 또는 제품 필드의 값을 사용하지 마세요.
+2. Powershell, Azure Resource Manager 또는 Azure Portal의 VM 세부 정보를 사용하여 정확한 VM 크기 정보를 얻을 수도 있습니다.
+
+## <a name="buy-a-reserved-virtual-machine-instance"></a>예약 가상 머신 인스턴스 구매
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
 3. **추가**를 선택하여 새 예약 인스턴스를 구입합니다.
 4. 필수 필드를 입력합니다. 사용자가 선택한 특성과 일치하는 VM 인스턴스를 실행하면 예약 인스턴스 할인을 받을 수 있습니다. 할인을 받을 실제 VM 인스턴스 수는 선택한 범위 및 수량에 따라 달라집니다.
@@ -43,15 +50,15 @@ ms.locfileid: "34307569"
 ## <a name="next-steps"></a>다음 단계 
 예약 인스턴스 할인은 예약 인스턴스 범위 및 특성과 일치하는 실행 중인 가상 머신 수에 자동으로 적용됩니다. [Azure Portal](https://portal.azure.com), PowerShell, CLI 또는 API를 통해 예약 인스턴스의 범위를 업데이트할 수 있습니다. 
 
-예약 인스턴스를 관리하는 방법을 알아보려면 [Azure Reserved Instances 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조하세요.
+예약 인스턴스를 관리하는 방법을 알아보려면 [Azure 예약 인스턴스 관리](../articles/billing/billing-manage-reserved-vm-instance.md)를 참조하세요.
 
-Azure Reserved Instance에 대한 자세한 내용은 다음 아티클을 참조하세요.
+Azure 예약 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [예약 인스턴스를 사용하여 가상 머신에서 비용 절감](../articles/billing/billing-save-compute-costs-reservations.md)
-- [Azure Reserved Instances 관리](../articles/billing/billing-manage-reserved-vm-instance.md)
-- [Reserved Instance 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
+- [Azure Reserved VM Instances란?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Azure에서 예약 인스턴스 관리](../articles/billing/billing-manage-reserved-vm-instance.md)
+- [예약 인스턴스 할인이 적용되는 방식 이해](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [종량제 구독에서 예약 인스턴스 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage.md)
-- [Enterprise 등록의 예약 인스턴스 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
+- [기업 등록계약의 예약 인스턴스 사용량 이해](../articles/billing/billing-understand-reserved-instance-usage-ea.md)
 - [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](../articles/billing/billing-reserved-instance-windows-software-costs.md)
 - [파트너 센터 CSP(클라우드 솔루션 공급자) 프로그램의 예약 인스턴스](https://docs.microsoft.com/partner-center/azure-reservations)
 

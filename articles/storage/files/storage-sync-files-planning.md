@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 160f01c3094548277e1f68e0002954ae63c79ce6
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
+ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738338"
+ms.lasthandoff: 06/23/2018
+ms.locfileid: "36335842"
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
 Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -145,6 +145,12 @@ Azure File Sync 및 DFS-R을 나란히 사용하려면
 
 자세한 내용은 [DFS 복제 개요](https://technet.microsoft.com/library/jj127250)를 참조하세요.
 
+### <a name="sysprep"></a>Sysprep
+Azure File Sync 에이전트가 설치되어 있는 서버에서 sysprep 사용은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
+
+### <a name="windows-search"></a>Windows 검색
+클라우드 계층화가 서버 엔드포인트에서 활성화되면 더 이상 사용되지 않는 파일은 건너뛰고 Windows 검색을 통해 인덱싱되지 않습니다. 계층화되지 않은 파일은 제대로 인덱싱됩니다.
+
 ### <a name="antivirus-solutions"></a>바이러스 백신 솔루션
 바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신 제품은 계층화된 파일의 회수를 발생할 수 있습니다. 계층화된 파일에는 "오프라인" 특성이 설정되어 있으므로 오프라인 파일 읽기를 건너뛰도록 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 
 
@@ -158,6 +164,11 @@ Azure File Sync 및 DFS-R을 나란히 사용하려면
 
 ### <a name="backup-solutions"></a>백업 솔루션
 바이러스 백신 솔루션과 같은 백업 솔루션은 계층화된 파일이 회수되도록 할 수 있습니다. 온-프레미스 백업 제품을 사용하지 않고 클라우드 백업 솔루션을 사용하여 Azure 파일 공유를 백업하는 것이 좋습니다.
+
+온-프레미스 백업 솔루션을 사용하는 경우 클라우드 계층화가 비활성화된 동기화 그룹의 서버에서 백업을 수행해야 합니다. 서버 엔드포인트 위치에서 파일을 복원하는 경우 파일 수준 복원 옵션을 사용합니다. 복원된 파일은 동기화 그룹의 모든 엔드포인트에 동기화되고 기존 파일은 백업에서 복원된 버전으로 대체됩니다.
+
+> [!Note]  
+> 응용 프로그램 인식, 볼륨 수준 및 BMR(bare-metal) 복원 옵션은 예기치 않은 결과를 초래할 수 있으며 현재 지원되지 않습니다. 이러한 복원 옵션은 향후 릴리스에서 지원될 예정입니다.
 
 ### <a name="encryption-solutions"></a>암호화 솔루션
 암호화 솔루션에 대한 지원은 구현되는 방식에 따라 달라집니다. Azure 파일 동기화와 함께 작동하는 기능
@@ -180,6 +191,7 @@ Azure File Sync는 다음 지역에서 미리 보기로만 사용할 수 있습�
 | 지역 | 데이터 센터 위치 |
 |--------|---------------------|
 | 오스트레일리아 동부 | 뉴사우스웨일스 |
+| 오스트레일리아 남동부 | 빅토리아 |
 | 캐나다 중부 | 토론토 |
 | 캐나다 동부 | 퀘벡 시티 |
 | 미국 중부 | 아이오와 |
@@ -189,6 +201,7 @@ Azure File Sync는 다음 지역에서 미리 보기로만 사용할 수 있습�
 | 북유럽 | 아일랜드 |
 | 동남아시아 | 싱가포르 |
 | 영국 남부 | 런던 |
+| 영국 서부 | 카디프 |
 | 서유럽 | 네덜란드 |
 | 미국 서부 | 캘리포니아 |
 

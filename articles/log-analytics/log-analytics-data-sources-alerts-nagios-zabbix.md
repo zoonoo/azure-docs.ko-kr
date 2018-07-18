@@ -9,16 +9,18 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 04c56b7b7726d9ca603f2ff38acfabc887ecaf34
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.component: na
+ms.openlocfilehash: 240e56e3e482b81d6336f7d6d2a1f5688953ecd8
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131554"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-oms-agent-for-linux"></a>Linux용 OMS 에이전트에서 Log Analytics에 Nagios 및 Zabbix의 경고 수집 
 [Nagios](https://www.nagios.org/) 및 [Zabbix](http://www.zabbix.com/)는 오픈 소스 모니터링 도구입니다. [다른 원본의 경고](log-analytics-alerts.md)와 함께 분석하기 위해 이러한 도구에서 Log Analytics로 경고를 수집할 수 있습니다.  이 문서에서는 이러한 시스템에서 경고를 수집하도록 Linux용 OMS 에이전트를 구성하는 방법을 설명합니다.
@@ -56,7 +58,7 @@ Linux용 OMS 에이전트는 최대 버전 4.2.x의 Nagios, 최대 버전 2.x의
     ```
 
 ### <a name="configuring-zabbix-alert-collection"></a>Zabbix 경고 수집 구성
-Zabbix 서버에서 경고를 수집하려면 *일반 텍스트*에서 사용자 및 암호를 지정해야 합니다.  이상적인 방법은 아니지만 사용자를 생성하고 모니터링 권한만 부여하는 것이 좋습니다.
+Zabbix 서버에서 경고를 수집하려면 *일반 텍스트*에서 사용자 및 암호를 지정해야 합니다.  이상적이지는 않지만 읽기 전용 권한을 가진 Zabbix 사용자를 만들어 관련 경고를 catch하는 것이 좋습니다.
 
 Nagios 서버에서 경고를 수집하려면 다음 단계를 수행합니다.
 
@@ -73,7 +75,7 @@ Nagios 서버에서 경고를 수집하려면 다음 단계를 수행합니다.
 
 2. omsagent 디먼 다시 시작
 
-    sudo sh /opt/microsoft/omsagent/bin/service_control restart
+    `sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## <a name="alert-records"></a>경고 레코드

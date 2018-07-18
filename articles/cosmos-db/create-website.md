@@ -73,7 +73,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment6.png)
 7. 배포가 완료되면 리소스 그룹 창이 열립니다.
    ![리소스 그룹 창 스크린샷](./media/create-website/TemplateDeployment7.png)  
-8. 응용 프로그램을 사용하려면 웹앱 URL로 이동합니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net)이 됨).  다음과 같은 웹 응용 프로그램이 표시됩니다.
+8. 응용 프로그램을 사용하려면 웹앱 URL로 이동합니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net) 이 됨).  다음과 같은 웹 응용 프로그램이 표시됩니다.
    
    ![샘플 Todo 응용 프로그램](./media/create-website/image2.png)
 9. 계속해서 웹앱에서 몇 가지 작업을 만든 다음, Azure Portal의 리소스 그룹 창으로 돌아옵니다. 리소스 목록에서 Azure Cosmos DB 계정 리소스를 클릭한 다음 **데이터 탐색기**를 클릭합니다.

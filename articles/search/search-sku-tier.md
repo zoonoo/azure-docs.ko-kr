@@ -7,14 +7,14 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/12/2018
+ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: bbf535c5b446fd654331374d29c106b6e43d55f5
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 241d24746d82a359b4bbf4febbbaaf91180dd23e
+ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34266883"
+ms.lasthandoff: 06/19/2018
+ms.locfileid: "36210927"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Azure Search에 대한 가격 책정 계층 선택
 
@@ -39,7 +39,7 @@ Azure Search에서는 특정 가격 책정 계층 또는 SKU에서 [서비스가
 용량은 *복제본* 및 *파티션*으로 구조화됩니다. 복제본은 각 복제본이 인덱스의 부하 분산된 복사본 하나를 호스팅하는 경우 검색 서비스의 인스턴스입니다. 예를 들어 복제본 6개가 있는 서비스에는 서비스에 로드된 모든 인덱스의 복사본 6개가 있습니다. 파티션은 인덱스를 저장하고 검색 가능한 데이터를 자동으로 분할합니다. 곧, 2개의 파티션은 인덱스를 반으로 분할하고 3개의 파티션은 3등분합니다. *파티션 크기*는 용량을 기준으로 계층 간을 구분하는 기본 기능입니다.
 
 > [!NOTE]
-> 모든 **표준** 계층은 [유연한 조합 복제본 및 파티션](search-capacity-planning.md#chart)을 지원하므로 분산을 변경하여 [속도 또는 저장소에 대해 시스템에 가중치](search-performance-optimization.md)를 줄 수 있습니다. **기본**은 고가용성에 대한 복제본 3개를 제공하지만 파티션만 있습니다. **무료** 계층은 전용 리소스를 제공하지 않습니다. 컴퓨팅 리소스는 여러 무료 서비스에서 공유하기 때문입니다.
+> 모든 **표준** 계층은 [유연한 조합 복제본 및 파티션](search-capacity-planning.md#chart)을 지원하므로 분산을 변경하여 [속도 또는 저장소에 대해 시스템에 가중치](search-performance-optimization.md)를 줄 수 있습니다. **기본**은 고가용성에 대한 복제본 3개를 제공하지만 파티션은 하나만 있습니다. **무료** 계층은 전용 리소스를 제공하지 않습니다. 컴퓨팅 리소스는 여러 무료 서비스에서 공유하기 때문입니다.
 
 ### <a name="limits"></a>제한
 

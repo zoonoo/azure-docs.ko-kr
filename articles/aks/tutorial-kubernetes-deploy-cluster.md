@@ -2,59 +2,97 @@
 title: Azure의 Kubernertes 자습서 - 클러스터 배포
 description: AKS 자습서 - 클러스터 배포
 services: container-service
-author: neilpeterson
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/24/2018
-ms.author: nepeters
+ms.date: 06/29/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e4e4e7c3956f396024513a4c48722dfb86e89151
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c8698f16138e9baeb9c9c1142a5d0c8937a69d1b
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341402"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
-Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. AKS를 통해 프로덕션이 준비된 Kubernetes 클러스터를 간단하고 빠르게 프로비저닝할 수 있습니다. 총 8부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 완료되는 단계는 다음과 같습니다.
+Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제공합니다. AKS를 사용하면 프로덕션 준비 Kubernetes 클러스터를 신속하게 프로비전할 수 있습니다. 총 7부 중 3부인 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포됩니다. 완료되는 단계는 다음과 같습니다.
 
 > [!div class="checklist"]
+> * 리소스 상호 작용에 대한 서비스 사용자 만들기
 > * Kubernetes AKS 클러스터 배포
 > * Kubernetes CLI(kubectl) 설치
 > * kubectl 구성
 
-후속 자습서에서는 Azure 투표 응용 프로그램을 클러스터에 배포하고 확장/업데이트하며, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
+후속 자습서에서 Azure Vote 응용 프로그램은 클러스터에 배포되고, 크기가 조정되며, 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이전 자습서에서는 컨테이너 이미지를 만들어 Azure Container Registry 인스턴스에 업로드했습니다. 이러한 단계를 아직 수행하지 않았으나 수행하려는 경우 [자습서 1 - 컨테이너 이미지 만들기][aks-tutorial-prepare-app]로 돌아갑니다.
 
-## <a name="enable-aks-preview"></a>AKS 미리 보기 사용
+## <a name="create-a-service-principal"></a>서비스 주체 만들기
 
-AKS가 미리 보기 상태인 경우 새 클러스터를 만들려면 구독에서 기능 플래그가 필요합니다. 사용하려는 구독의 수에 관계 없이 이 기능을 요청할 수 있습니다. `az provider register` 명령을 사용하여 AKS 공급자를 등록합니다.
+AKS 클러스터가 다른 Azure 리소스와 상호 작용할 수 있도록 Azure Active Directory 서비스 사용자를 사용합니다. Azure CLI 또는 포털에서 이 서비스 주체를 자동으로 생성하거나 추가 사용 권한을 미리 만고 할당할 수 있습니다. 이 자습서에서는 서비스 사용자를 만들고, 이전 자습서에서 만든 ACR(Container Registry) 인스턴스에 대한 액세스 권한을 부여한 다음, AKS 클러스터를 만듭니다.
+
+[az ad sp create-for-rbac][]를 사용하여 서비스 사용자를 만듭니다. `--skip-assignment` 매개 변수는 다른 추가 사용 권한이 할당되지 않도록 제한합니다.
 
 ```azurecli
-az provider register -n Microsoft.ContainerService
+az ad sp create-for-rbac --skip-assignment
 ```
 
-등록하면 이제 AKS를 사용하여 Kubernetes 클러스터를 만들 준비가 되었습니다.
+다음 예제와 유사하게 출력됩니다.
+
+```
+{
+  "appId": "e7596ae3-6864-4cb8-94fc-20164b1588a9",
+  "displayName": "azure-cli-2018-06-29-19-14-37",
+  "name": "http://azure-cli-2018-06-29-19-14-37",
+  "password": "52c95f25-bd1e-4314-bd31-d8112b293521",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
+}
+```
+
+*appId* 및 *암호*를 기록해 둡니다. 다음 단계에서 이러한 값을 사용합니다.
+
+## <a name="configure-acr-authentication"></a>ACR 인증 구성
+
+ACR에 저장된 이미지에 액세스하려면 AKS 서비스 사용자에게 ACR에서 이미지를 끌어올 수 있는 올바른 권한을 부여해야 합니다.
+
+먼저 [az acr show][]를 사용하여 ACR 리소스 ID를 가져옵니다. `<acrName>` 레지스트리 이름을 ACR 인스턴스의 이름 및 ACR 인스턴스가 있는 리소스 그룹으로 업데이트합니다.
+
+```azurecli
+az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv
+```
+
+ACR에 저장된 이미지를 사용하도록 AKS 클러스터에 대한 올바른 액세스 권한을 부여하려면 [az role assignment create][]를 사용하여 역할 할당을 만듭니다. `<appId`> 및 `<acrId>`를 이전 두 단계에서 수집한 값으로 바꿉니다.
+
+```azurecli
+az role assignment create --assignee <appId> --role Reader --scope <acrId>
+```
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myAKSCluster` 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서][aks-tutorial-prepare-acr]에서 만든 것입니다.
+이제 [az aks create][]를 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서][aks-tutorial-prepare-acr]에서 만들었습니다. 서비스 사용자를 만든 이전 단계에서 고유한 `<appId>` 및 `<password>`를 제공합니다.
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create \
+    --name myAKSCluster \
+    --resource-group myResourceGroup \
+    --node-count 1 \
+    --generate-ssh-keys \
+    --service-principal <appId> \
+    --client-secret <password>
 ```
 
-몇 분 후 배포가 완료되고 json 형식의 AKS 배포 관련 정보가 반환됩니다.
+몇 분 후에 배포가 완료되고 JSON 형식의 AKS 배포 관련 정보가 반환됩니다.
 
 ## <a name="install-the-kubectl-cli"></a>kubectl CLI 설치
 
 클라이언트 컴퓨터에서 Kubernetes 클러스터에 연결하려면 Kubernetes 명령줄 클라이언트인 [kubectl][kubectl]을 사용합니다.
 
-Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. 로컬로 설치하려면 다음 명령을 실행합니다.
+Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. [az aks install-cli][]를 사용하여 로컬로 설치할 수도 있습니다.
 
 ```azurecli
 az aks install-cli
@@ -62,10 +100,10 @@ az aks install-cli
 
 ## <a name="connect-with-kubectl"></a>Kubectl로 연결
 
-Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 다음 명령을 실행합니다.
+Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면[az aks get-credentials][]를 사용합니다. 다음 예제에서는 *myResourceGroup*에서 AKS 클러스터 이름 *myAKSCluster*에 대한 자격 증명을 가져옵니다.
 
 ```azurecli
-az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+az aks get-credentials --name myAKSCluster --resource-group myResourceGroup
 ```
 
 클러스터에 대한 연결을 확인하려면 [kubectl get nodes][kubectl-get] 명령을 실행합니다.
@@ -77,32 +115,8 @@ kubectl get nodes
 출력
 
 ```
-NAME                          STATUS    AGE       VERSION
-k8s-myAKSCluster-36346190-0   Ready     49m       v1.7.9
-```
-
-이 자습서를 마치면 AKS 클러스터가 워크로드에 대해 준비됩니다. 이후 자습서에서는 다중 컨테이너 응용 프로그램이 이 클러스터에 배포, 규모 확장, 업데이트 및 모니터링됩니다.
-
-## <a name="configure-acr-authentication"></a>ACR 인증 구성
-
-인증은 AKS 클러스터와 ACR 레지스트리 간에 구성되어야 합니다. 여기에는 ACR 레지스트리에서 이미지를 가져오도록 AKS ID에 적절한 권한을 부여하는 작업이 포함됩니다.
-
-먼저 AKS에 구성된 서비스 주체의 ID를 가져옵니다. 리소스 그룹 이름 및 AKS 클러스터 이름을 환경에 맞게 업데이트합니다.
-
-```azurecli
-CLIENT_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query "servicePrincipalProfile.clientId" --output tsv)
-```
-
-ACR 레지스트리 리소스 ID를 가져옵니다. 레지스트리 이름을 ACR 레지스트리의 이름으로 업데이트하고 리소스 그룹을 ACR 레지스트리가 있는 리소스 그룹으로 업데이트합니다.
-
-```azurecli
-ACR_ID=$(az acr show --name <acrName> --resource-group myResourceGroup --query "id" --output tsv)
-```
-
-적절한 액세스 권한을 부여하는 역할 할당을 만듭니다.
-
-```azurecli
-az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
+NAME                       STATUS    ROLES     AGE       VERSION
+aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.6
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -110,6 +124,7 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 이 자습서에서는 Kubernetes 클러스터가 AKS에 배포되었습니다. 다음 단계가 완료되었습니다.
 
 > [!div class="checklist"]
+> * 리소스 상호 작용에 대한 서비스 사용자 만들기
 > * Kubernetes AKS 클러스터 배포
 > * Kubernetes CLI(kubectl) 설치
 > * kubectl 구성
@@ -127,3 +142,9 @@ az role assignment create --assignee $CLIENT_ID --role Reader --scope $ACR_ID
 [aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+[az ad sp create-for-rbac]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
+[az acr show]: /cli/azure/acr#az-acr-show
+[az role assignment create]: /cli/azure/role/assignment#az-role-assignment-create
+[az aks create]: /cli/azure/aks#az-aks-create
+[az aks install-cli]: /cli/azure/aks#az-aks-install-cli
+[az aks get-credentials]: /cli/azure/aks#az-aks-get-credentials

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 57d14b6aa6caca0cc9b075723d4c350b0a50c9f8
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117540"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857534"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Git을 사용하여 API Management 서비스 구성을 저장 및 구성하는 방법
 
@@ -219,15 +219,15 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="apis-folder"></a>apis 폴더
 `apis` 폴더에는 다음 항목을 포함한 서비스 인스턴스의 각 API에 대한 폴더가 포함되어 있습니다.
 
-* `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://msdn.microsoft.com/library/azure/dn781423.aspx#GetAPI)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#EntityProperties)의 `description` 속성에 해당합니다.
-* `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://msdn.microsoft.com/library/azure/dn781423.aspx#OperationProperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
+* `apis\<api name>\configuration.json` - API에 대한 구성이며 백 엔드 서비스 URL 및 작업에 관한 정보를 포함하고 있습니다. 이는 `application/json` 형식의 `export=true`을 사용한 [특정 API 가져오기](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get)를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `apis\<api name>\api.description.html` - API에 대한 설명이며 [API 엔터티](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property)의 `description` 속성에 해당합니다.
+* `apis\<api name>\operations\` - 이 폴더는 작업을 API에 매핑하는 `<operation name>.description.html` 파일을 포함하고 있습니다. 각 파일은 REST API에서 [작업 엔터티](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties)의 `description` 속성에 매핑되는 API의 단일 작업에 대한 설명을 포함하고 있습니다.
 
 ### <a name="groups-folder"></a>groups 폴더
 `groups` 폴더는 서비스 인스턴스에 정의된 각 그룹에 대한 폴더를 포함하고 있습니다.
 
-* `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](https://msdn.microsoft.com/library/azure/dn776329.aspx#GetGroup) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://msdn.microsoft.com/library/azure/dn776329.aspx#EntityProperties)의 `description` 속성에 해당합니다.
+* `groups\<group name>\configuration.json` - 그룹에 대한 구성입니다. 이는 [특정 그룹 가져오기](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `groups\<group name>\description.html` - 그룹에 대한 설명이며 [그룹 엔터티](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity)의 `description` 속성에 해당합니다.
 
 ### <a name="policies-folder"></a>policies 폴더
 `policies` 폴더에는 서비스 인스턴스에 대한 정책 설명이 포함되어 있습니다.
@@ -246,8 +246,8 @@ REST API를 사용하여 이 작업을 수행하는 방법은 [REST API를 사�
 ### <a name="products-folder"></a>products 폴더
 `products` 폴더는 서비스 인스턴스에 정의된 각 제품에 대한 폴더를 포함하고 있습니다.
 
-* `products\<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](https://msdn.microsoft.com/library/azure/dn776336.aspx#GetProduct) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
-* `products\<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](https://msdn.microsoft.com/library/azure/dn776336.aspx#Product)의 `description` 속성에 해당합니다.
+* `products\<product name>\configuration.json` - 제품에 대한 구성입니다. 이는 [특정 제품 가져오기](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) 를 호출하려는 경우 반환되는 것과 같은 정보입니다.
+* `products\<product name>\product.description.html` - 제품에 대한 설명이며 REST API에서 [제품 엔터티](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity)의 `description` 속성에 해당합니다.
 
 ### <a name="templates"></a>템플릿
 `templates` 폴더에는 서비스 인스턴스의 [전자 메일 템플릿](api-management-howto-configure-notifications.md) 에 대한 구성이 포함되어 있습니다.

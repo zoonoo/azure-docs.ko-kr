@@ -13,13 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/20/2018
+ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: deb2a768d766f3fcfa5523b5b3e77b85c0b87b9c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
+ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34823566"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>ExpressRoute 및 사이트 간 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -28,7 +29,16 @@ ms.lasthandoff: 04/28/2018
 > 
 > 
 
-사이트 간 VPN과 ExpressRoute가 공존하는 연결을 구성하면 여러 장점이 있습니다. 사이트 간 VPN을 ExpressRoute에 대한 안전한 장애 조치(failover) 경로로 구성할 수 있습니다. 또는 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되어 있지 않은 사이트에 연결할 수 있습니다. 이 문서에서는 두 시나리오를 모두 구성하는 단계를 설명합니다. 이 문서는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다. 이 구성은 Azure 포털에서 사용할 수 없습니다.
+사이트 간 VPN과 ExpressRoute가 공존하는 연결을 구성하면 여러 장점이 있습니다.
+
+* 사이트 간 VPN을 ExpressRoute에 대한 안전한 장애 조치(failover) 경로로 구성할 수 있습니다. 
+* 또는 사이트 간 VPN을 사용하여 ExpressRoute를 통해 연결되어 있지 않은 사이트에 연결할 수 있습니다. 
+
+이 문서에서는 두 시나리오를 모두 구성하는 단계를 설명합니다. 이 문서는 Resource Manager 배포 모델에 적용되며 PowerShell을 사용합니다. 이 구성은 Azure 포털에서 사용할 수 없습니다.
+
+>[!NOTE]
+>ExpressRoute 회로를 통해 사이트 간 VPN을 만들려면 [이 문서](site-to-site-vpn-over-microsoft-peering.md)를 참조하세요.
+>
 
 ## <a name="limits-and-limitations"></a>제한 및 제한 사항
 * **통과 라우팅이 지원되지 않습니다.** 사이트 간 VPN을 통해 연결된 로컬 네트워크와 ExpressRoute를 통해 연결된 로컬 네트워크 사이는 Azure를 통해 라우팅할 수 없습니다.

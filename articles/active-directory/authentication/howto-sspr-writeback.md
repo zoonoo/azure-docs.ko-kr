@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1c44b2738fb21450c5a37f715c995a3e7aecc4a6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 164760355077e2b905aa0e0f03e1efaf28941e55
+ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33868828"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36296890"
 ---
 # <a name="password-writeback-overview"></a>암호 쓰기 저장 개요
 
-비밀번호 쓰기 저장을 사용하면 암호를 온-프레미스 Active Directory에 쓸 수 있도록 Azure AD(Azure Active Directory)를 구성할 수 있습니다. 비밀번호 쓰기 저장을 사용하면 복잡한 온-프레미스 SSPR(셀프 서비스 암호 재설정) 솔루션을 설정 및 관리할 필요가 없게 되며 사용자가 어디에 있든 상관 없이 온-프레미스 암호를 재설정할 수 있는 편리한 클라우드 기반 방법을 제공합니다. 비밀번호 쓰기 저장은 [Azure Active Directory 버전](../active-directory-whatis.md)의 현재 구독자가 설정하여 사용할 수 있는 [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) 구성 요소입니다.
+비밀번호 쓰기 저장을 사용하면 암호를 온-프레미스 Active Directory에 쓸 수 있도록 Azure AD(Azure Active Directory)를 구성할 수 있습니다. 비밀번호 쓰기 저장을 사용하면 복잡한 온-프레미스 SSPR(셀프 서비스 암호 재설정) 솔루션을 설정 및 관리할 필요가 없게 되며 사용자가 어디에 있든 상관 없이 온-프레미스 암호를 재설정할 수 있는 편리한 클라우드 기반 방법을 제공합니다. 비밀번호 쓰기 저장은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)의 현재 구독자가 설정하여 사용할 수 있는 [Azure Active Directory Connect](./../connect/active-directory-aadconnect.md) 구성 요소입니다.
 
 비밀번호 쓰기 저장에서 제공하는 기능은 다음과 같습니다.
 
@@ -129,7 +129,7 @@ SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계�
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
-라이선스에 대한 정보는 [비밀번호 쓰기 저장에 필요한 라이선스](concept-sspr-licensing.md#licenses-required-for-password-writeback) 또는 다음 사이트를 참조하세요.
+라이선스에 대한 정보는 [비밀번호 쓰기 저장에 필요한 라이선스](concept-sspr-licensing.md) 또는 다음 사이트를 참조하세요.
 
 * [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)

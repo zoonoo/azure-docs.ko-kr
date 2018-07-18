@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/16/2018
+ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: d2480936ed54ec58ba289eae1ba605a16e27f0b3
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34271673"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34637534"
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -98,7 +98,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 두 가지 사�
 
 | 조치                                                          | 필요한 Azure 권한 | 메모 |
 |-----------------------------------------------------------------|--------------------------|-------|
-| 관리 솔루션 추가 및 제거                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | |
+| 관리 솔루션 추가 및 제거                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | 이러한 사용 권한은 리소스 그룹 또는 구독 수준에서 권한을 부여 받아야 합니다. |
 | 가격 책정 계층 변경                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
 | *Backup* 및 *Site Recovery* 솔루션 타일에서 데이터 보기 | 관리자 / 공동 관리자 | 클래식 배포 모델을 사용하여 배포된 리소스 액세스 |
 | Azure Portal에서 작업 영역 만들기                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/workspaces/*` ||
@@ -125,11 +125,14 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 
 
 *Log Analytics 참가자* 역할의 멤버는 다음을 수행할 수 있습니다.
-- 모든 모니터링 데이터 읽기 
-- Automation 계정 만들기 및 구성
-- 관리 솔루션 추가 및 제거
-- 저장소 계정 키 읽기 
-- Azure Storage에서 로그 수집 구성
+- 모든 모니터링 데이터 읽기  
+- Automation 계정 만들기 및 구성  
+- 관리 솔루션 추가 및 제거    
+    > [!NOTE] 
+    > 이러한 두 작업을 성공적으로 수행하려면 이러한 사용 권한은 리소스 그룹 또는 구독 수준에서 권한을 부여 받아야 합니다.  
+
+- 저장소 계정 키 읽기   
+- Azure Storage에서 로그 수집 구성  
 - 다음을 포함한 Azure 리소스의 모니터링 설정 편집
   - VM에 VM 확장 추가
   - 모든 Azure 리소스에 대한 Azure 진단 구성
@@ -157,7 +160,7 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 - 리소스 그룹 - 리소스 그룹에서 모든 작업 영역에 대한 액세스
 - 리소스 - 지정된 작업 영역에만 액세스
 
-[사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
+정확한 액세스 제어를 보장하기 위해 리소스 수준(작업 영역)에서 할당을 수행하는 것이 좋습니다.  [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
 
 ### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure 사용자 역할 및 Log Analytics 포털 사용자 역할
 사용자가 Log Analytics 작업 영역에서 Azure 읽기 권한 이상을 보유하는 경우 Log Analytics 작업 영역을 볼 때 **OMS 포털** 태스크를 클릭하여 Log Analytics 포털을 열 수 있습니다.

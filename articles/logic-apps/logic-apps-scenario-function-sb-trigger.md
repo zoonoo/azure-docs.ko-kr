@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/23/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 89fcd88643bd793935e7476ef32641ffa5ff4713
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6bc845e4ec329d308ed87770d0dec6a7d5e447c7
+ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299796"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37030956"
 ---
 # <a name="scenario-trigger-a-logic-app-with-azure-functions-and-azure-service-bus"></a>시나리오: Azure Functions 및 Azure Service Bus를 사용하여 논리 앱 트리거
 
@@ -39,7 +39,7 @@ Azure Functions로 장기 실행 수신기 또는 작업을 배포하는 데 필
 ## <a name="build-the-function"></a>함수 빌드
 다음으로 트리거로 작동하고 큐에 수신 대기하는 함수를 만들어야 합니다.
 
-1. [Azure Functions 포털](https://functions.azure.com/signin)에서 **새 함수**를 선택한 다음 **ServiceBusQueueTrigger - C#** 템플릿을 선택합니다.
+1. [Azure Functions 포털](https://functions.azure.com/)에서 **새 함수**를 선택한 다음 **ServiceBusQueueTrigger - C#** 템플릿을 선택합니다.
    
     ![Azure Functions 포털][2]
 2. Service Bus 큐에 대한 연결이 Azure Service Bus SDK `OnMessageReceive()` 수신기를 사용하도록 구성합니다.

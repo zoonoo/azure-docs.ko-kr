@@ -11,11 +11,11 @@ ms.custom: ''
 ms.service: cost-management
 manager: dougeby
 ms.openlocfilehash: 254a7f2904a63381a4eeec02ee32b19890703ae1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296633"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38310108"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>개별 Azure 구독 등록 및 비용 데이터 보기
 
@@ -33,7 +33,7 @@ Azure 구독을 사용하여 Azure Cost Management에 등록합니다. 등록하
 3. **Cost Management** 페이지에서 **Cost Management로 이동**을 클릭하여 새 창에 Cloudyn 등록 페이지를 엽니다.
 4. Cloudyn 포털 평가판 등록 페이지에서 회사 이름을 입력하고 **Azure 개별 등록 소유자**를 선택하고 **다음**을 클릭합니다. 계정 이름 및 테넌트 ID를 형식에 자동으로 추가합니다.  
     ![평가판 등록](./media/quick-register-azure-sub/trial-reg-ind.png)
-5. 구독에 연결된 **제품 ID - 이름**을 선택합니다. 구독에 대한 속도 ID가 무엇인지 잘 모르는 경우 Azure 청구서를 보고 **제품 ID**를 찾아볼 수 있습니다.
+5. 구독에 연결된 **제안 ID - 이름**을 선택합니다. 구독에 대한 속도 ID가 무엇인지 잘 모르는 경우 Azure 청구서를 보고 **제안 ID**를 찾아볼 수 있습니다.
 6. 사용 약관에 동의하면 정보의 유효성을 검사하고 **다음**을 클릭합니다.
 7. **추가 데이터 수집** 페이지에서 **다음**을 클릭하여 Cloudyn이 Azure 리소스 데이터를 수집할 권한을 부여합니다. 수집되는 데이터에는 구독의 사용량, 성능, 청구 및 태그 데이터가 포함됩니다.  
     ![추가 데이터 수집](./media/quick-register-azure-sub/gather-additional.png)

@@ -8,21 +8,21 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/29/2017
+ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: f03b2f3d295ed7d3986c45ecb80078190a2cd935
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: f81a087a2595db41dbe84a54ad1fd01adf043515
+ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613886"
+ms.lasthandoff: 06/27/2018
+ms.locfileid: "37060406"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 소셜 네트워크 디자인
-광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 우리는 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
+광범위하게 상호 연결된 사회에서 살고 있다는 것은 삶의 어느 시점에서 **소셜 네트워크**의 일부가 된다는 것을 의미합니다. 소셜 네트워크를 사용하여 친구, 동료, 가족 등과 연락하거나, 때로는 공통의 관심사를 가진 사람들과 열정을 공유합니다.
 
-엔지니어 또는 개발자로서 우리는 이러한 네트워크가 데이터를 저장하고 상호 연결하는 방법 또는 특정 틈새 시장을 위한 새로운 소셜 네트워크를 만들거나 설계하는 데 활용되어 왔을 수 있는 방법이 궁금할 수 있습니다. 특히 이 모든 데이터가 어떻게 저장되는지가 매우 궁금할 때 더욱 그렇습니다.
+엔지니어 또는 개발자는 이러한 네트워크가 데이터를 저장하고 상호 연결하는 방법 또는 특정 틈새 시장을 위한 새로운 소셜 네트워크를 만들거나 설계하는 데 활용되었을 수 있는 방법이 궁금할 수 있습니다. 특히 이 모든 데이터가 어떻게 저장되는지가 매우 궁금할 때 더욱 그렇습니다.
 
-사용자가 사진, 동영상 또는 음악과 같은 관련 미디어와 함께 문서를 게시할 수 있는 새롭고 참신한 소셜 네트워크를 만든다고 가정해 보겠습니다. 사용자는 게시물에 의견을 달고 평점을 매길 수 있습니다. 기본 웹 사이트 방문 페이지에는 사용자가 보고 상호 작용할 수 있는 게시물 피드가 있을 것입니다. 처음에는 실제로 복잡하게 들리지 않겠지만 간단한 설명을 위해 이에 대한 내용은 생략하겠습니다(관계별 영향을 받는 사용자 지정 사용자 피드를 자세히 살펴볼 수 있지만 이는 이 문서의 목표를 벗어남).
+사용자가 사진, 동영상 또는 음악과 같은 관련 미디어와 함께 문서를 게시할 수 있는 새롭고 참신한 소셜 네트워크를 만든다고 가정해 보겠습니다. 사용자는 게시물에 의견을 달고 평점을 매길 수 있습니다. 기본 웹 사이트 방문 페이지에는 사용자가 보고 상호 작용할 수 있는 게시물 피드가 있을 것입니다. 처음에는 복잡하게 들리지 않겠지만 간단한 설명을 위해 이에 대한 내용은 생략하겠습니다(관계별 영향을 받는 사용자 지정 사용자 피드를 자세히 살펴볼 수 있지만 이는 이 문서의 목표를 벗어남).
 
 그렇다면 데이터는 어디에 어떻게 저장될까요?
 
@@ -36,7 +36,7 @@ ms.locfileid: "34613886"
 
 이 시나리오에서 SQL이 최선의 선택이 아닌 이유는 무엇일까요? 단일 게시물의 구조를 살펴봅시다. 웹사이트나 응용 프로그램에 이 게시물을 나타내려면 테이블 조인 8개(!)로 쿼리를 수행해야 합니다. 단지 게시물 하나를 나타내기 위해서 말입니다. 이제 동적으로 로드되어 화면에 나타나는 게시물 스트림을 그려보면 어디를 향하고 있는지 볼 수 있습니다.
 
-물론 이 많은 조인으로 수천 개의 쿼리를 해결할 정도의 방대한 SQL 인스턴스를 사용하여 콘텐츠를 제공할 수 있지만 보다 간단한 솔루션이 있는 데 그래야 하는 이유가 있을까요?
+물론 이 많은 조인으로 수천 개의 쿼리를 해결할 정도의 엄청난 SQL 인스턴스를 사용하여 콘텐츠를 제공할 수 있지만 보다 간단한 솔루션이 있는 데 그래야 하는 이유가 있을까요?
 
 ## <a name="the-nosql-road"></a>NoSQL
 이 문서에서는 Azure의 NoSQL 데이터베이스 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)를 사용하여 비용 효율적인 방법으로 소셜 플랫폼의 데이터를 모델링하고 [Gremlin Graph API](../cosmos-db/graph-introduction.md) 같은 다른 Azure Cosmos DB 기능을 활용하는 방법을 안내합니다. [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 접근 방식을 사용하여 데이터를 JSON 형식으로 저장하고 [역정규화](https://en.wikipedia.org/wiki/Denormalization)를 적용하면 이전의 복잡한 게시물을 단일 [문서](https://en.wikipedia.org/wiki/Document-oriented_database)로 변환할 수 있습니다.
@@ -137,7 +137,7 @@ Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md)를 사�
 ## <a name="the-ladder-pattern-and-data-duplication"></a>"사다리" 패턴 및 데이터 중복
 게시물을 참조하는 JSON 문서에서 볼 수 있듯이 하나의 사용자가 여러 번 발생합니다. 이는 이러한 역정규화가 주어진 경우 사용자를 나태는 정보가 여러 곳에 표시될 수 있음을 의미합니다.
 
-데이터 중복이 발생하도록 둔 것은 더 빠른 쿼리를 허용하기 위해서입니다. 그 부작용으로 인한 문제는 일부 작업으로 인해 사용자의 데이터가 변경된 경우 해당 사용자가 지금까지 수행한 모든 활동을 찾아서 모두 업데이트해야 한다는 점입니다. 그다지 실용적으로 들리지 않죠, 그렇죠?
+데이터 중복이 발생하도록 둔 것은 더 빠른 쿼리를 허용하기 위해서입니다. 그 부작용으로 인한 문제는 일부 작업으로 인해 사용자의 데이터가 변경된 경우 해당 사용자가 지금까지 수행한 모든 활동을 찾아서 모두 업데이트해야 한다는 점입니다. 실용적으로 들리지 않죠, 그렇죠?
 
 각 활동에 대해 응용 프로그램에 표시하는 사용자의 주요 특성을 식별하여 문제를 해결할 수 있습니다. 게시물을 응용 프로그램에 시각적으로 표시하고 만든 사람의 이름과 사진만 표시했을 뿐인데 "createdBy" 특성에 해당 사용자의 모든 데이터가 저장되는 이유는 무엇일까요? 각 의견에 대해 사용자의 사진만 표시하면 나머지 정보는 필요 없습니다. 바로 여기에 "사다리 패턴"이 적용됩니다.
 
@@ -150,7 +150,7 @@ Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md)를 사�
         "address":"742 Evergreen Terrace",
         "birthday":"1983-05-07",
         "email":"john@doe.com",
-        "twitterHandle":"@john",
+        "twitterHandle":"\@john",
         "username":"johndoe",
         "password":"some_encrypted_phrase",
         "totalPoints":100,
@@ -175,7 +175,7 @@ Azure Cosmos DB [Gremlin Graph API](../cosmos-db/graph-introduction.md)를 사�
         "surname":"Doe",
         "username":"johndoe"
         "email":"john@doe.com",
-        "twitterHandle":"@john"
+        "twitterHandle":"\@john"
     }
 
 그리고 게시물은 다음과 유사합니다.
@@ -212,7 +212,7 @@ Azure Search에 대한 자세한 내용은 [Hitchhiker의 검색 가이드](http
 
 이제 간단한 데이터베이스 및 파일에서 이러한 패턴과 정보를 추출하려면 수학 박사가 필요하다고 생각하겠지만 그렇지 않습니다.
 
-[Cortana Intelligence 제품군](https://www.microsoft.com/en/server-cloud/cortana-analytics-suite/overview.aspx)의 일부인 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)은 완전히 관리되는 클라우드 서비스로서, 간단한 끌어서 놓기 인터페이스에서 알고리즘을 사용하여 워크플로를 만들거나, [R](https://en.wikipedia.org/wiki/R_\(programming_language\))에서 사용자 고유의 알고리즘을 코딩하거나, 이미 빌드되고 즉시 사용 가능한 API(예: [텍스트 분석](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator](https://www.microsoft.com/moderator) 또는 [추천](https://gallery.cortanaanalytics.com/MachineLearningAPI/Recommendations-2))를 사용할 수 있도록 해줍니다.
+[Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx)의 일부인 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/)은 완전히 관리되는 클라우드 서비스로서, 간단한 끌어서 놓기 인터페이스에서 알고리즘을 사용하여 워크플로를 만들거나, [R](https://en.wikipedia.org/wiki/R_\(programming_language\))에서 사용자 고유의 알고리즘을 코딩하거나, 이미 빌드되고 즉시 사용 가능한 API(예: [텍스트 분석](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2), [Content Moderator 또는 [추천](https://gallery.azure.ai/Solution/Recommendations-Solution))를 사용할 수 있도록 해줍니다.
 
 이러한 Machine Learning 시나리오를 달성하려면 [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/)를 사용하여 다양 한 원본에서 정보를 수집하고 [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/)을 사용하여 정보를 처리하고 Azure Machine Learning에서 처리할 수 있는 출력을 생성할 수 있습니다.
 

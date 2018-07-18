@@ -11,12 +11,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: mvc
 ms.date: 03/27/2018
-ms.openlocfilehash: 4d68ee7f38c317b4ee42f5b40cc4c4196114e159
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525651"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437623"
 ---
 # <a name="what-is-stream-analytics"></a>Stream Analytics란 무엇인가요?
 
@@ -40,7 +40,7 @@ Azure Stream Analytics는 Azure Event Hub, Azure IoT Hub로 수집된 스트리�
 * Power BI 대시보드에 실시간 시각화에 대한 데이터를 보냅니다.
 * 다른 Azure 저장소 서비스에 데이터를 보관합니다.
 
-다음 이미지에서는 Stream Analytics 파이프라인을 보여줍니다. Stream Analytics 작업은 모두를 사용하거나 입력하고 출력하는 경우 선택된 설정을 사용할 수 있습니다. 이 이미지는 데이터가 Stream Analytics에 전송되고, 저장소 또는 프레젠테이션과 같은 다른 작업에 대해 분석되고 전송되는 방법을 보여줍니다.
+다음 이미지는 Stream Analytics 파이프라인을 보여주며, Stream Analytics 작업은 입력 및 출력 집합 전체 또는 선택한 일부만 사용할 수 있습니다. 이 이미지는 데이터가 Stream Analytics에 전송되고, 저장소 또는 프레젠테이션과 같은 다른 작업에 대해 분석되고 전송되는 방법을 보여줍니다.
 
 ![Stream Analytics 파이프라인](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
 

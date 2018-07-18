@@ -13,11 +13,11 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.openlocfilehash: 7434de9fa176f608655606772e079cb7631dde93
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600423"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38698655"
 ---
 # <a name="create-a-virtual-machine-and-storage-account-for-a-scalable-application"></a>확장 가능한 응용 프로그램에 필요한 가상 머신 및 저장소 계정 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "31600423"
 > * 가상 머신 만들기
 > * 사용자 지정 스크립트 확장 구성
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

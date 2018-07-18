@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2017
+ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 158a0f6d948172ec7d986703e9fa95dd19bdde6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 351f3e34f5050d922655a633ec89f51d191b946e
+ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592265"
+ms.lasthandoff: 06/20/2018
+ms.locfileid: "36291968"
 ---
 # <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: 인스턴스에 대한 특별한 고려 사항
 Azure AD Connect는 Azure AD 및 Office 365의 전세계 인스턴스로 가장 많이 사용됩니다. 그러나 다른 인스턴스도 있고 URL 및 기타 특별한 고려 사항에 대한 다른 요구 사항을 포함합니다.
@@ -38,8 +38,6 @@ Azure AD 테넌트에 로그인할 경우 onmicrosoft.de 도메인의 계정을 
 
 Microsoft Cloud 독일에 현재 표시되지 않는 기능은 다음과 같습니다.
 
-* **Azure AD Connect Health**를 사용할 수 없습니다.
-* **자동 업데이트**를 사용할 수 없습니다.
 * **비밀번호 쓰기 저장**은 Azure AD Connect 버전 1.1.570.0 이상에서 미리 보기로 제공됩니다.
 * 다른 Azure AD Premium 서비스를 사용할 수 없습니다.
 
@@ -61,8 +59,6 @@ Microsoft Cloud 독일에 현재 표시되지 않는 기능은 다음과 같습�
 
 Microsoft Azure Government 클라우드에 현재 표시되지 않는 기능은 다음과 같습니다.
 
-* **Azure AD Connect Health**를 사용할 수 없습니다.
-* **자동 업데이트**를 사용할 수 없습니다.
 * **비밀번호 쓰기 저장**은 Azure AD Connect 버전 1.1.570.0 이상에서 미리 보기로 제공됩니다.
 * 다른 Azure AD Premium 서비스를 사용할 수 없습니다.
 

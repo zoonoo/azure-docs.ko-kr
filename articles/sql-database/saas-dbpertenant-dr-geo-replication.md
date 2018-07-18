@@ -7,14 +7,15 @@ author: AyoOlubeko
 manager: craigg
 ms.service: sql-database
 ms.custom: saas apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: 3b2b1b767b26d844046d545e3d587621c5d14995
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "34645796"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 응용 프로그램 재해 복구
 
@@ -87,7 +88,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 ## <a name="review-the-healthy-state-of-the-application"></a>응용 프로그램의 정상 상태 검토
 
 복구 프로세스를 시작하기 전에 응용 프로그램의 정상 상태를 검토합니다.
-1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net - &lt;user&gt;를 배포의 사용자 값으로 바꿈)를 엽니다.
+1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net - &lt;user&gt;를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
     * 페이지 아래쪽으로 스크롤하여 바닥글에서 카탈로그 서버 이름과 위치를 확인합니다. 위치는 앱을 배포한 지역입니다.
     *팁: 위치 위를 마우스로 가리키면 디스플레이가 확대됩니다.*
     ![원래 지역의 이벤트 허브 정상 상태](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
@@ -201,7 +202,7 @@ Traffic Manager에서 응용 프로그램 엔드포인트를 사용하지 않도
  
     ![오프라인 Events Hub](media/saas-dbpertenant-dr-geo-replication/events-hub-offlinemode.png) 
 
-    * 오프라인 테넌트의 이벤트 페이지를 직접 열면 '테넌트 오프라인' 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 .&lt;user&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline 페이지](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png)를 열어 봅니다. 
+    * 오프라인 테넌트의 이벤트 페이지를 직접 열면 '테넌트 오프라인' 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall ![Contoso Offline 페이지](media/saas-dbpertenant-dr-geo-replication/dr-in-progress-offline-contosoconcerthall.png)를 열어 봅니다. 
 
 ### <a name="provision-a-new-tenant-in-the-recovery-region"></a>복구 지역에 새 테넌트 프로비전
 기존의 모든 테넌트 데이터베이스가 장애 조치(Failover)되기 전에도 복구 지역에 새 테넌트를 프로비전할 수 있습니다.  

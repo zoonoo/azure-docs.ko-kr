@@ -7,14 +7,15 @@ author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.custom: scale out apps
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: 86a5bc31639cbbcdac1468f3bc2e35a547068882
-ms.sourcegitcommit: 3a4ebcb58192f5bf7969482393090cb356294399
+ms.openlocfilehash: 32cfa2e9bd48dd4e27da5c4010391c032d67d96b
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34644725"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 응용 프로그램을 배포하고 탐색합니다.
 
@@ -53,7 +54,7 @@ ms.lasthandoff: 04/06/2018
     > 일부 인증 및 서버 방화벽은 데모 목적으로 의도적으로 보호되지 않습니다. 각각의 응용 프로그램 배포에 대한 **새 리소스 그룹을 만듭니다**.  기존 리소스 그룹을 사용하지 마세요. 이 응용 프로그램이나 여기에서 만든 리소스를 프로덕션에 사용하지 마세요. 관련된 결제를 중지하려면 응용 프로그램을 완료할 때 모든 리소스 그룹을 삭제합니다.
 
     리소스 이름에는 소문자, 숫자 및 하이픈만 사용하는 것이 가장 좋습니다.
-    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>**입니다.  \<venueName\>의 경우 장소 이름을 공백 없이 대체합니다. \<user\>의 경우 아래의 사용자 값을 대체합니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
+    * **리소스 그룹** - 새로 만들기를 선택한 후 리소스 그룹의 이름을 소문자로 입력합니다. 권장 패턴은 **wingtip-sa-\<venueName\>-\<user\>** 입니다.  \<venueName\>의 경우 장소 이름을 공백 없이 대체합니다. \<user\>의 경우 아래의 사용자 값을 대체합니다.  이 패턴을 사용하면 리소스 그룹 이름은 *wingtip-sa-contosoconcerthall-af1*, *wingtip-sa-dogwooddojo-af1*, *wingtip-sa-fabrikamjazzclub-af1*이 될 수 있습니다.
     * 드롭다운 목록에서 **위치**를 선택합니다.
 
     * **사용자** - 이니셜에 숫자를 더한 짧은 사용자 값이 좋습니다(예: *af1*).

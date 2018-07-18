@@ -1,0 +1,84 @@
+- name: Bing Custom Search 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: Bing Custom Search란?
+      href: overview.md
+- name: REST API 빠른 시작
+  expanded: true
+  items:
+    - name: 첫 번째 인스턴스 만들기
+      href: quick-start.md
+    - name: 'C#'
+      href: call-endpoint-csharp.md
+    - name: 자바
+      href: call-endpoint-java.md
+    - name: Node.js
+      href: call-endpoint-nodejs.md
+    - name: 파이썬
+      href: call-endpoint-python.md
+- name: SDK 빠른 시작
+  items:
+    - name: SDK 샘플 개요
+      href: sdk.md
+    - name: 'Custom Search SDK C# 빠른 시작'
+      href: custom-search-sdk-quickstart.md
+- name: 자습서
+  items:
+    - name: Custom Search 웹 페이지 빌드
+      href: ./tutorials/custom-search-web-page.md
+- name: 샘플
+  items:
+    - name: 코드 샘플
+      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Custom+Search'
+- name: 방법 가이드
+  items:
+    - name: 사용자 지정 검색 환경 구성
+      href: define-your-custom-view.md
+    - name: 사용자 지정 검색 호출
+      href: search-your-custom-view.md
+    - name: 호스팅된 UI 환경 구성
+      href: hosted-ui.md
+    - name: 사용자 지정 검색 공유
+      href: share-your-custom-search.md
+    - name: 사용자 지정 자동 제안 환경 구성
+      href: define-custom-suggestions.md
+    - name: 사용자 지정 제안 가져오기
+      href: get-custom-suggestions.md
+    - name: 적중 항목 강조 표시 처리
+      href: hit-highlighting.md
+    - name: 웹 페이지 페이징
+      href: page-webpages.md
+- name: 참고 자료
+  items:
+    - name: Bing Custom Autosuggest API 참조
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference'
+    - name: Bing Custom Image Search API 참조
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference'
+    - name: Bing Custom Search API 참조
+      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference'
+    - name: Bing Search API 사용 및 표시 요구 사항
+      href: use-and-display-requirements.md
+- name: 리소스
+  items:
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/search?q=bing+custom+search'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 기술 자료
+      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
+    - name: API 키 가져오기
+      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api'
+    - name: 사용해 보세요.
+      href: 'https://aka.ms/bingcustomsearchtryit'
+    - name: Bing Custom Search 끝점
+      href: endpoint-custom.md
+    - name: 지원되는 국가 및 마켓
+      href: supported-countries-markets.md

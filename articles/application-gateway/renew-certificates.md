@@ -6,20 +6,20 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 05/18/2018
 ms.author: victorh
-ms.openlocfilehash: b125f707e8de17764701e981736a53492e5e756c
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b44a57fe8ebcc985d3ab66ea04936a1558d00863
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34356946"
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34598269"
 ---
 # <a name="renew-application-gateway-certificates"></a>Application Gateway 인증서 갱신
 
 응용 프로그램 게이트웨이에 SSL 암호화를 구성한 경우 어느 시점이 되면 인증서를 갱신해야 합니다.
 
-Azure Portal 또는 Azure PowerShell을 사용하여 수신기와 연결된 인증서를 갱신할 수 있습니다.
+Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 수신기와 연결된 인증서를 갱신할 수 있습니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -33,7 +33,7 @@ Azure Portal 또는 Azure PowerShell을 사용하여 수신기와 연결된 인�
 
 Azure PowerShell을 사용하여 인증서를 갱신하려면 다음 cmdlet을 사용합니다.
 
-```PowerShell
+```azurepowershell-interactive
 $appgw = Get-AzureRmApplicationGateway `
   -ResourceGroupName <ResourceGroup> `
   -Name <AppGatewayName>
@@ -45,6 +45,16 @@ $password = ConvertTo-SecureString `
 
 set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+```
+## <a name="azure-cli"></a>Azure CLI
+
+```azurecli-interactive
+az network application-gateway ssl-cert update \
+  -n "<CertName>" \
+  --gateway-name "<AppGatewayName>" \
+  -g "ResourceGroupName>" \
+  --cert-file <PathToCerFile> \
+  --cert-password "<password>"
 ```
 
 ## <a name="next-steps"></a>다음 단계

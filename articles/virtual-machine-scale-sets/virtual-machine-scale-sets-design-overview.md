@@ -1,9 +1,9 @@
 ---
-title: "Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항 | Microsoft Docs"
-description: "Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항에 대해 알아보기"
-keywords: "linux 가상 머신, 가상 머신 크기 집합"
+title: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항 | Microsoft Docs
+description: Azure Virtual Machine Scale Sets에 대한 디자인 고려 사항에 대해 알아보기
+keywords: linux 가상 머신, 가상 머신 크기 집합
 services: virtual-machine-scale-sets
-documentationcenter: 
+documentationcenter: ''
 author: gatneil
 manager: jeconnoc
 editor: tysonn
@@ -16,36 +16,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: efb9f7f7daa5dbb8cd3120b21ef812106fdc7fb9
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 8c9253caad8b85b25e3142429c1e23be6f92dd64
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34652402"
 ---
 # <a name="design-considerations-for-scale-sets"></a>확장 집합 디자인 고려 사항
 이 문서에서는 Virtual Machine Scale Sets를 설계할 때 고려할 사항에 대해 논의합니다. Virtual Machine Scale Sets에 대한 자세한 내용은 [Virtual Machine Scale Sets 개요](virtual-machine-scale-sets-overview.md)를 참조하세요.
 
 ## <a name="when-to-use-scale-sets-instead-of-virtual-machines"></a>가상 머신 대신 확장 집합을 사용하는 경우
-일반적으로 확장 집합은 유사한 구성을 가진 일련의 컴퓨터로 구성된 고가용성 인프라를 배포하는 데 유용합니다. 그러나 일부 기능은 확장 집합에서만 사용할 수 있고, 다른 일부 기능은 VM에서만 사용할 수 있습니다. 각 기술을 언제 사용할지에 대한 정보를 바탕으로 의사 결정을 내리려면 먼저, 일반적으로 사용되는 기능 중 확장 집합에서는 사용 가능하지만 VM에서는 사용할 수 없는 기능 몇 가지를 살펴보면 됩니다.
+일반적으로 확장 집합은 구성이 유사한 일련의 컴퓨터로 구성된 고가용성 인프라를 배포하는 데 유용합니다. 그러나 일부 기능은 확장 집합에서만 사용할 수 있고, 다른 일부 기능은 VM에서만 사용할 수 있습니다. 각 기술을 언제 사용할지에 대한 정보를 바탕으로 의사 결정을 내리려면 먼저, 일반적으로 사용되는 기능 중 확장 집합에서는 사용 가능하지만 VM에서는 사용할 수 없는 기능 몇 가지를 살펴보면 됩니다.
 
 ### <a name="scale-set-specific-features"></a>확장 집합 특정 기능
 
-- 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 “용량” 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 훨씬 더 간단합니다.
+- 확장 집합 구성을 지정하고 나면 추가 VM을 병렬로 배포하도록 *용량* 속성을 업데이트할 수 있습니다. 이 방법은 다수의 개별 VM을 병렬로 배포하는 작업을 오케스트레이션하는 스크립트를 작성하는 것보다 좋습니다.
 - [Azure 자동 크기 조정을 사용하여 확장 집합의 크기를 자동으로 조정](./virtual-machine-scale-sets-autoscale-overview.md)할 수 있지만 개별 VM의 경우는 불가능합니다.
 - [확장 집합 VM을 이미지로 다시 설치](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-a-vm)할 수 있지만 [개별 VM의 경우는 불가능합니다](https://docs.microsoft.com/rest/api/compute/virtualmachines).
-- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](./virtual-machine-scale-sets-design-overview.md)할 수 있습니다. 개별 VM에 대해서는 사용자 지정 코드를 작성하지 않는 한 이렇게 할 수 없습니다.
+- 안정성 향상과 배포 시간 단축을 위해 확장 집합 VM을 [오버프로비전](./virtual-machine-scale-sets-design-overview.md)할 수 있습니다. 이 작업을 수행하는 사용자 지정 코드를 작성하지 않는 한 개별 VM을 과도하게 프로비전할 수 없습니다.
 - 확장 집합 내 전체 VM에 대한 업그레이드 롤아웃을 수월하게 만들도록 [업그레이드 정책](./virtual-machine-scale-sets-upgrade-scale-set.md)을 지정할 수 있습니다. 개별 VM의 경우 업데이트를 직접 오케스트레이션해야 합니다.
 
 ### <a name="vm-specific-features"></a>VM 특정 기능
 
 일부 기능은 현재 VM에서만 사용할 수 있습니다.
 
-- 특정 개별 VM에 데이터 디스크를 연결할 수 있지만, 연결된 데이터 디스크는 확장 집합의 모든 VM에 대해 구성됩니다.
-- 비어 있지 않은 데이터 디스크를 개별 VM에 연결할 수 있지만 확장 집합의 VM에는 연결할 수 없습니다.
-- 개별 VM의 스냅숏을 만들 수 있지만 확장 집합의 VM의 스냅숏은 만들 수 없습니다.
 - 개별 VM에서 이미지를 캡처할 수 있지만 확장 집합의 VM에서는 캡처할 수 없습니다.
-- 네이티브 디스크에서 관리되는 디스크로 개별 VM을 마이그레이션할 수 있지만, 확장 집합의 VM에 대해서는 불가능합니다.
-- 개별 VM NIC에 IPv6 공용 IP 주소를 할당할 수 있지만, 확장 집합의 VM에 대해서는 불가능합니다. 개별 VM이나 확장 집합 VM 앞에 놓인 부하 분산 장치에 IPv6 공용 IP 주소를 할당할 수 있습니다.
+- 네이티브 디스크에서 관리 디스크로 개별 VM을 마이그레이션할 수 있지만, 확장 집합의 VM 인스턴스는 마이그레이션할 수 없습니다.
+- 개별 VM 가상 NIC(네트워크 인터페이스 카드)에 IPv6 공용 IP 주소를 할당할 수 있지만 확장 집합의 VM 인스턴스에 대해서는 이렇게 할 수 없습니다. 개별 VM이나 확장 집합 VM 앞에 놓인 부하 분산 장치에 IPv6 공용 IP 주소를 할당할 수 있습니다.
 
 ## <a name="storage"></a>Storage
 

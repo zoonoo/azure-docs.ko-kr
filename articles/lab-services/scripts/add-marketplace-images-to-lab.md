@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell 스크립트: 마켓플레이스 이미지를 Azure Lab Services의 사용자 지정 랩에 추가 | Microsoft Docs'
-description: 이 PowerShell 스크립트는 마켓플레이스 이미지를 Azure Lab Services의 사용자 지정 랩에 추가합니다.
+title: 'PowerShell 스크립트: Azure DevTest Labs의 랩에 마켓플레이스 이미지 추가 | Microsoft Docs'
+description: 이 PowerShell 스크립트는 Azure DevTest Labs의 랩에 마켓플레이스 이미지를 추가합니다.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 64d168c132edce4ecd128b795fbfa5ab2607cb19
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9a65237b3eba6c9878d73148f0143f20dd60dd79
+ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "34636551"
 ---
-# <a name="use-powershell-to-add-a-marketplace-image-to-a-custom-lab"></a>PowerShell을 사용하여 마켓플레이스 이미지를 사용자 지정 랩에 추가
+# <a name="use-powershell-to-add-a-marketplace-image-to-a-lab-in-azure-devtest-labs"></a>PowerShell을 사용하여 Azure DevTest Labs의 랩에 마켓플레이스 이미지 추가
 
-이 샘플 PowerShell 스크립트는 마켓플레이스 이미지를 Azure Lab Services의 사용자 지정 랩에 추가합니다.
+이 샘플 PowerShell 스크립트는 Azure DevTest Labs의 랩에 마켓플레이스 이미지를 추가합니다. 
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## <a name="prerequisites"></a>필수 조건
-* **사용자 지정 랩**. 스크립트를 사용하려면 기존 사용자 지정 랩이 있어야 합니다. 
+* **랩**. 스크립트를 사용하려면 기존 랩이 있어야 합니다. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/add-marketplace-images-to-lab/add-marketplace-images-to-lab.ps1 "Add marketplace images to a lab")]
 
 ## <a name="script-explanation"></a>스크립트 설명
 

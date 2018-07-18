@@ -184,7 +184,19 @@
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
     - name: 동영상
-      href: videos.md
+      items:
+        - name: 제품 비디오
+          href: videos.md
+        - name: 방법 비디오 시리즈
+          items:
+            - name: 제품 기능 및 혜택 알아보기
+              href: 'https://aka.ms/mysql-intro-vid'
+            - name: MySQL 앱을 Azure로 마이그레이션
+              href: 'https://aka.ms/mysql-migrate-vid'
+            - name: Web Apps 빌드 및 배포
+              href: 'https://aka.ms/mysql-webapps-vid'
+            - name: OSBA를 사용하여 컨테이너 연결
+              href: 'https://aka.ms/mysql-osba-vid'
     - name: 기능 요청
       href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'
     - name: 지역 가용성
@@ -193,5 +205,7 @@
       href: 'https://azure.microsoft.com/support/options/'
     - name: 고객 사례
       href: 'https://customers.microsoft.com/en-us/search?sq="Azure%20Database%20for%20MySQL%20"'
+    - name: 파트너
+      href: partners-migration-mysql.md
     - name: 데이터베이스 마이그레이션 가이드
       href: 'https://datamigration.microsoft.com/'

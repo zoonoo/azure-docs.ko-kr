@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 06/20/2018
 ms.author: carlrab
-ms.openlocfilehash: 613fc4d914635f46d09552858706975006fcbff6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2956dfab3b9c1e6e8de54648dae9d2be99788ac2
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650471"
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36309217"
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Azure SQL Database에서 성능 튜닝
 
@@ -25,7 +25,7 @@ Azure SQL Database는 데이터베이스의 성능을 개선하는 데 사용할
 - 응용 프로그램을 튜닝하고 성능을 향상시킬 수 있는 몇 가지 모범 사례를 적용합니다. 
 - 데이터에 대해 보다 효율적으로 작동하도록 인덱스 및 쿼리를 변경하여 데이터베이스를 튜닝합니다.
 
-[DTU 기반 모델 리소스 제한](sql-database-dtu-resource-limits.md) 및 [vCore 기반 모델 리소스 제한(미리 보기)](sql-database-vcore-resource-limits.md)이 사용자의 요구를 충족하는지를 사용자가 결정해야 하므로 수동적인 방법을 사용합니다. 그렇지 않으면 응용 프로그램 또는 데이터베이스 코드를 다시 작성하고 변경 내용을 배포해야 합니다.
+요구 사항을 충족하는 리소스 양을 결정해야 하기 때문에 수동 메서드입니다. 그렇지 않으면 응용 프로그램 또는 데이터베이스 코드를 다시 작성하고 변경 내용을 배포해야 합니다.
 
 ## <a name="increasing-performance-tier-of-your-database"></a>데이터베이스의 성능 계층 늘리기
 
@@ -271,8 +271,8 @@ Azure SQL Database 내에서 확장형 아키텍처를 사용하는 경우 응�
 일부 데이터베이스 응용 프로그램에는 읽기 작업이 많은 워크로드가 포함되어 잇습니다. 캐싱 계층을 통해 데이터베이스의 부하를 줄이고 Azure SQL Database를 사용하여 데이터베이스를 지원하는 데 필요한 성능 수준을 줄일 수 있습니다. [Azure Redis Cache](https://azure.microsoft.com/services/cache/)를 사용하면 읽기 작업이 많은 워크로드에서 데이터를 한 번만(또는 구성 방식에 따라 응용 프로그램 계층 시스템당 한 번만) 읽고 해당 데이터를 Azure SQL Database 밖에 저장할 수 있습니다. 그러면 데이터베이스 부하(CPU 및 읽기 IO)가 감소하지만, 캐시에서 읽는 데이터가 데이터베이스에 있는 데이터와 동기화되지 않을 수 있어 트랜잭션 일관성에 영향을 미칠 수 있습니다. 많은 응용 프로그램에서 비일관성이 어느 정도 허용되지만 모든 워크로드에 대해 허용되는 것은 아닙니다. 응용 프로그램 계층 캐싱 전략을 구현할 경우 응용 프로그램 요구 사항을 완전히 이해해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* DTU 기반 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [DTU 기반 모델 리소스 제한](sql-database-dtu-resource-limits.md)을 참조하세요.
-* vCore 기반 서비스 계층에 대한 자세한 내용은 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 및 [vCore 기반 모델 리소스 제한(미리 보기)](sql-database-vcore-resource-limits.md)을 참조하세요.
+* DTU 기반 서비스 계층에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 참조하세요.
+* vCore 기반 서비스 계층에 대한 자세한 내용은 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요.
 * 탄력적 풀에 대한 자세한 내용은 [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)을 참조하세요.
 * 성능 및 탄력적 풀에 대한 자세한 내용은 [탄력적 풀을 고려 하는 경우](sql-database-elastic-pool-guidance.md)
 

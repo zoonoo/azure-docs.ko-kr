@@ -2,49 +2,41 @@
 title: Azure Database for MySQL의 제한 사항
 description: 이 문서에서는 Azure Database for MySQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
-ms.service: mysql-database
+ms.service: mysql
 ms.topic: article
-ms.date: 03/20/2018
-ms.openlocfilehash: 2fa69182b4238cfd19fcc9571e4327512e9528c1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.date: 06/21/2018
+ms.openlocfilehash: 2fc224445f89a0b0b4afdc0ef1d0eb1b25b45f36
+ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 06/21/2018
+ms.locfileid: "36311197"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량, 저장소 엔진 지원, 권한 지원, 데이터 조작 명령문 지원 및 기능 제한 사항에 대해 설명합니다. 또한 MySQL 데이터베이스 엔진에 적용할 수 있는 [일반적인 제한 사항](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html)도 참조하세요.
 
-## <a name="service-tier-maximums"></a>서비스 계층 최대값
-Azure Database for MySQL에는 서버를 만들 때 선택할 수 있는 여러 서비스 계층이 있습니다. 자세한 내용은 [Azure Database for MySQL 가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.  
+## <a name="maximum-connections"></a>최대 연결 수
+가격 책정 계층 및 vCores당 최대 연결 수는 다음과 같습니다. 
 
-각 서비스 계층에는 다음과 같은 최대 연결 수, 계산 단위 및 저장소가 있습니다. 
+|**가격 책정 계층**|**vCore**| **최대 연결**|
+|---|---|---|
+|Basic| 1| 50|
+|Basic| 2| 100|
+|범용| 2| 300|
+|범용| 4| 625|
+|범용| 8| 1250|
+|범용| 16| 2500|
+|범용| 32| 5,000|
+|메모리 최적화| 2| 600|
+|메모리 최적화| 4| 1250|
+|메모리 최적화| 8| 2500|
+|메모리 최적화| 16| 5,000|
 
-|**가격 책정 계층**| **계산 세대**|**vCore**| **최대 연결**|
-|---|---|---|---|
-|Basic| 4세대| 1| 50|
-|Basic| 4세대| 2| 100|
-|Basic| 5세대| 1| 50|
-|Basic| 5세대| 2| 100|
-|범용| 4세대| 2| 300|
-|범용| 4세대| 4| 625|
-|범용| 4세대| 8| 1250|
-|범용| 4세대| 16| 2500|
-|범용| 4세대| 32| 5,000|
-|범용| 5세대| 2| 300|
-|범용| 5세대| 4| 625|
-|범용| 5세대| 8| 1250|
-|범용| 5세대| 16| 2500|
-|범용| 5세대| 32| 5,000|
-|메모리 최적화| 5세대| 2| 600|
-|메모리 최적화| 5세대| 4| 1250|
-|메모리 최적화| 5세대| 8| 2500|
-|메모리 최적화| 5세대| 16| 5,000|
-
-너무 많은 연결에 도달하면 다음 오류가 나타날 수 있습니다.
+연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류 1040(08004): 너무 많은 연결이 있습니다.
 
 ## <a name="storage-engine-support"></a>저장소 엔진 지원
@@ -68,31 +60,29 @@ Azure Database for MySQL에는 서버를 만들 때 선택할 수 있는 여러 
 ## <a name="data-manipulation-statement-support"></a>데이터 조작 명령문 지원
 
 ### <a name="supported"></a>지원됨
-- LOAD DATA INFILE - 지원되지만, UNC 경로(XSMB를 통해 탑재된 Azure 저장소)로 전달되는 [LOCAL] 매개 변수를 지정해야 합니다.
+- `LOAD DATA INFILE`은 지원되지만 `[LOCAL]` 매개 변수를 지정하고 UNC 경로(SMB를 통해 탑재된 Azure 저장소)로 전달해야 합니다.
 
 ### <a name="unsupported"></a>지원되지 않음
-- SELECT ... INTO OUTFILE
+- `SELECT ... INTO OUTFILE`
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 
 ### <a name="scale-operations"></a>크기 조정 작업
-- 가격 책정 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본, 범용 및 메모리 최적화 가격 책정 계층 사이의 전환을 말합니다.
+- 기본 가격 책정 계층 간의 동적 크기 조정은 현재 지원되지 않습니다.
 - 서버 저장소 크기를 줄이는 것은 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다.
 
 ### <a name="point-in-time-restore"></a>특정 시점 복원
-- 다른 서비스 계층 및/또는 Compute 단위 및 저장소 크기로 복원할 수 없습니다.
+- PITR 기능을 사용하면 새 서버가 기반으로 하는 서버와 동일한 구성으로 새 서버가 만들어집니다.
 - 삭제된 서버 복원은 지원되지 않습니다.
-
-## <a name="functional-limitations"></a>기능 제한 사항
 
 ### <a name="subscription-management"></a>구독 관리
 - 구독 및 리소스 그룹에서 미리 생성된 서버를 동적으로 이동하는 것은 현재 지원되지 않습니다.
 
 ## <a name="current-known-issues"></a>현재 알려진 문제
-- 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 버전 관리를 가져오려면 MySQL 프롬프트에서 select version(); 명령을 입력합니다.
+- 연결이 설정된 후에 MySQL 서버 인스턴스에서 잘못된 서버 버전을 표시합니다. 올바른 서버 인스턴스 엔진 버전을 설치하려면 `select version();` 명령을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [각 서비스 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md)

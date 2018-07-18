@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0410e0176d5c853e1110fe3460c7d9314e7fd397
-ms.sourcegitcommit: 83ea7c4e12fc47b83978a1e9391f8bb808b41f97
+ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29712375"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436012"
 ---
 # <a name="what-is-api-management"></a>API Management란?
 
@@ -32,8 +32,10 @@ APIM(API Management)을 사용하여 조직은 외부, 파트너 및 내부의 �
 API Management를 사용하려면 관리자가 API를 만듭니다. 각 API는 하나 이상의 작업으로 구성되며, 각 API는 하나 이상의 제품에 추가할 수 있습니다. API를 사용하려면 개발자는 해당 API가 포함된 제품을 구독합니다. 그런 다음 적용 중인 사용 정책에 따라 API의 작업을 호출할 수 있습니다. 일반적인 시나리오는 다음과 같습니다.
 
 * **모바일 인프라 보안** 
-* **ISV 파트너 시스템 사용** 
-* **내부 API 프로그램 실행** 
+* 
+  **ISV 파트너 시스템 사용**
+* 
+  **내부 API 프로그램 실행**
 
 시스템은 다음 구성 요소로 구성되어 있습니다.
 

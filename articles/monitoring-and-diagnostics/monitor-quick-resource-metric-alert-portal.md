@@ -1,20 +1,20 @@
 ---
-title: 메트릭 값이 조건을 충족할 경우 알림 받기 | Microsoft Docs
+title: 메트릭 값이 조건을 충족할 경우 알림 받기
 description: 사용자가 논리 앱에 대한 메트릭을 만드는 데 도움이 되는 빠른 시작 가이드
 author: anirudhcavale
-manager: orenr
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: monitoring-and-diagnostics
+services: azure-monitor
+ms.service: azure-monitor
 ms.topic: quickstart
 ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 0bbb7d7036c18675a64171a8bbf5c7fa46d53336
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: alerts
+ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
+ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 06/11/2018
+ms.locfileid: "35263051"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>메트릭 값이 조건을 충족할 경우 알림 받기
 
@@ -24,7 +24,7 @@ Azure Monitor를 통해 많은 Azure 리소스에 대한 메트릭을 사용할 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
@@ -69,7 +69,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. **메트릭** 탭을 선택하고 논리 앱에 대한 **구독**, **리소스 그룹**, **리소스 종류** 및 **리소스** 정보를 입력합니다.
 
-3. 메트릭 목록에서 **실행 시작됨**을 선택합니다.
+3. 메트릭 목록에서 **실행 실패함**을 선택합니다.
 
 4. 차트의 **시간 범위**를 수정하여 지난 시간에 대한 데이터를 표시합니다.
 

@@ -8,11 +8,12 @@ ms.topic: include
 ms.date: 03/11/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5940be8c13a85e256055d6bd6362c9cd93323ee4
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: dfbedd7945231f4449735cc2f909b64190dcbe05
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38746253"
 ---
 Azure VM(가상 머신)을 만들 때 [VNet(가상 네트워크)](../articles/virtual-network/virtual-networks-overview.md)을 만들거나 기존 VNet을 사용해야 합니다. 또한 VNet에서 VM을 액세스하는 방법도 결정해야 합니다. [리소스를 만들기 전에 계획을 수립](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)하고 [네트워킹 리소스의 제한](../articles/azure-subscription-service-limits.md#networking-limits)을 이해해야 합니다.
 
@@ -67,7 +68,7 @@ VM의 IP 주소를 동일하게 유지하려면 정적 할당 방법을 명시�
 
 | 방법 | 설명 |
 | ------ | ----------- |
-| [Azure Portal](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | 기본적으로 공용 IP 주소는 동적이며, VM을 중지하거나 삭제할 때 이와 연결된 주소가 변경될 수 있습니다. VM에서 항상 동일한 공용 IP 주소를 사용하도록 하려면 정적 공용 IP 주소를 만들어야 합니다. 기본적으로 포털은 VM을 만들 때 동적 개인 IP 주소를 NIC에 할당합니다. 이 IP 주소는 VM을 만든 후에 고정으로 변경할 수 있습니다.|
+| [Azure 포털](../articles/virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | 기본적으로 공용 IP 주소는 동적이며, VM을 중지하거나 삭제할 때 이와 연결된 주소가 변경될 수 있습니다. VM에서 항상 동일한 공용 IP 주소를 사용하도록 하려면 정적 공용 IP 주소를 만들어야 합니다. 기본적으로 포털은 VM을 만들 때 동적 개인 IP 주소를 NIC에 할당합니다. 이 IP 주소는 VM을 만든 후에 고정으로 변경할 수 있습니다.|
 | [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | Dynamic 또는 Static인 **-AllocationMethod** 매개 변수와 함께 [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress)를 사용합니다. |
 | [Azure CLI](../articles/virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | Dynamic 또는 Static인 **--allocation-method** 매개 변수와 함께 [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create)를 사용합니다. |
 | [템플릿](../articles/virtual-network/template-samples.md) | 템플릿을 사용하여 공용 IP 주소를 배포하기 위한 지침으로 [공용 IP 주소를 사용하는 Virtual Network의 네트워크 인터페이스](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet)를 사용합니다. |
@@ -88,7 +89,7 @@ VNet을 설정할 때 사용 가능한 주소 공간과 서브넷을 포함하�
 
 | 방법 | 설명 |
 | ------ | ----------- |
-| [Azure Portal](../articles/virtual-network/quick-create-portal.md) | Azure에서 VM을 만들 때 VNet을 만들도록 하는 경우 VNet 이름은 해당 VNet을 포함하는 리소스 그룹 이름과 **-vnet**의 조합입니다. 주소 공간은 10.0.0.0/24이고, 필수 서브넷 이름은 **default**이며, 서브넷 주소 범위는 10.0.0.0/24입니다. |
+| [Azure 포털](../articles/virtual-network/quick-create-portal.md) | Azure에서 VM을 만들 때 VNet을 만들도록 하는 경우 VNet 이름은 해당 VNet을 포함하는 리소스 그룹 이름과 **-vnet**의 조합입니다. 주소 공간은 10.0.0.0/24이고, 필수 서브넷 이름은 **default**이며, 서브넷 주소 범위는 10.0.0.0/24입니다. |
 | [Azure PowerShell](../articles/virtual-network/quick-create-powershell.md) | [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) 및 [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork)를 사용하여 서브넷 및 VNet을 만듭니다. [Add-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/add-azurermvirtualnetworksubnetconfig)를 사용하여 기존 VNet에 서브넷을 추가할 수도 있습니다. |
 | [Azure CLI](../articles/virtual-network/quick-create-cli.md) | 서브넷과 VNet은 동시에 만들어집니다. [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create)에 서브넷 이름으로 **--subnet-name** 매개 변수를 제공합니다. |
 | Template | VNet 및 서브넷을 만드는 가장 쉬운 방법은 [두 개의 서브넷이 있는 Virtual Network](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)와 같은 기존 템플릿을 다운로드하고 요구에 맞게 수정하는 것입니다. |
@@ -109,7 +110,7 @@ VM 및 VNet을 계획할 때는 NSG를 [계획](../articles/virtual-network/virt
 
 | 방법 | 설명 |
 | ------ | ----------- |
-| [Azure Portal](../articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md) | Azure Portal에서 VM을 만들 때 NSG가 자동으로 만들어지고 포털에서 만든 NIC에 연결됩니다. NSG 이름은 VM 이름과 **-nsg**의 조합입니다. 이 NSG에는 1000으로 설정된 우선 순위, RDP로 설정된 서비스, TCP로 설정된 프로토콜, 3389로 설정된 포트 및 Allow로 설정된 작업이 포함된 인바운드 규칙이 있습니다. VM에 대해 다른 인바운드 트래픽을 허용하려면 해당 NSG에 추가 규칙을 추가해야 합니다. |
+| [Azure 포털](../articles/virtual-network/tutorial-filter-network-traffic.md) | Azure Portal에서 VM을 만들 때 NSG가 자동으로 만들어지고 포털에서 만든 NIC에 연결됩니다. NSG 이름은 VM 이름과 **-nsg**의 조합입니다. 이 NSG에는 1000으로 설정된 우선 순위, RDP로 설정된 서비스, TCP로 설정된 프로토콜, 3389로 설정된 포트 및 Allow로 설정된 작업이 포함된 인바운드 규칙이 있습니다. VM에 대해 다른 인바운드 트래픽을 허용하려면 해당 NSG에 추가 규칙을 추가해야 합니다. |
 | [Azure PowerShell](../articles/virtual-network/tutorial-filter-network-traffic.md) | [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig)를 사용하고 필요한 규칙 정보를 제공합니다. [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup)을 사용하여 NSG를 만듭니다. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig)를 사용하여 NSG를 서브넷에 구성합니다. [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)를 사용하여 NSG를 VNet에 추가합니다. |
 | [Azure CLI](../articles/virtual-network/tutorial-filter-network-traffic-cli.md) | [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create)를 사용하여 NSG를 처음으로 만듭니다. [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create)를 사용하여 규칙을 NSG에 추가합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet#update)를 사용하여 NSG를 서브넷에 추가합니다. |
 | [템플릿](../articles/virtual-network/template-samples.md) | 템플릿을 사용하여 네트워크 보안 그룹을 배포하기 위한 지침으로 [네트워크 보안 그룹 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create)를 사용합니다. |
@@ -158,7 +159,7 @@ VM을 만들고 나중에 해당 VM을 VNet으로 마이그레이션하려는 �
 
 | 방법 | 설명 |
 | ------ | ----------- |
-| [Azure Portal](../articles/virtual-machines/windows/quick-create-portal.md) | 단일 NIC를 사용하는 VM을 만들기 위해 앞에서 설명한 기본 네트워크 설정을 사용합니다. 여러 NIC를 사용하는 VM을 만들려면 다른 방법을 사용해야 합니다. |
+| [Azure 포털](../articles/virtual-machines/windows/quick-create-portal.md) | 단일 NIC를 사용하는 VM을 만들기 위해 앞에서 설명한 기본 네트워크 설정을 사용합니다. 여러 NIC를 사용하는 VM을 만들려면 다른 방법을 사용해야 합니다. |
 | [Azure PowerShell](../articles/virtual-machines/windows/tutorial-manage-vm.md) | [Add-AzureRmVMNetworkInterface](/powershell/module/azurerm.compute/add-azurermvmnetworkinterface)를 사용하여 이전에 만든 NIC를 VM 구성에 추가합니다. |
 | [Azure CLI](../articles/virtual-machines/linux/create-cli-complete.md) | VM을 만들고 개별 단계로 작성되는 Vnet, 서브넷 및 NIC에 연결합니다. |
 | [템플릿](../articles/virtual-machines/windows/ps-template.md) | 템플릿을 사용하여 VM을 배포하기 위한 지침으로 [매우 간단한 Windows VM 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)(영문)를 사용합니다. |
@@ -170,4 +171,4 @@ VM용 Azure 가상 네트워크를 관리하는 방법에 대한 VM별 단계는
 
 - [사용자 정의 경로 및 IP 전달](../articles/virtual-network/virtual-networks-udr-overview.md)을 구성하는 방법에 대해 알아봅니다. 
 - [VNet 간 연결](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)을 구성하는 방법에 대해 알아봅니다.
-- [경로 문제 해결](../articles/virtual-network/virtual-network-routes-troubleshoot-portal.md) 방법에 대해 알아봅니다.
+- [경로 문제 해결](../articles/virtual-network/diagnose-network-routing-problem.md) 방법에 대해 알아봅니다.
