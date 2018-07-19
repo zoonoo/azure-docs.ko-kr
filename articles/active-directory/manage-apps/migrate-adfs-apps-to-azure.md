@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 71fa305c0151ba2ff319694cdd3df55bf351e0c5
-ms.sourcegitcommit: e34afd967d66aea62e34d912a040c4622a737acb
+ms.openlocfilehash: d3548e7640fa8ab59f7b11c66cf1d9492f23cf99
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36946273"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044371"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>AD FS 온-프레미스 앱을 Azure로 마이그레이션 
 
@@ -202,7 +202,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
 !["할당 추가" 창](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 http://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
+액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 http://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
 
 ![Salesforce 및 ServiceNow 앱이 있는 액세스 패널의 예](media/migrate-adfs-apps-to-azure/migrate8.png)
 

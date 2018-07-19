@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: e2a625c733aac82b5db8529f2d770d31578a6246
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3a6d4b41d3b3994af08ba5492e542b7c31a9ebfe
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220423"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-klue"></a>자습서: Klue와 Azure Active Directory 통합
 
@@ -239,7 +239,7 @@ Klue에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Klue 타일을 클릭하면 Klue 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

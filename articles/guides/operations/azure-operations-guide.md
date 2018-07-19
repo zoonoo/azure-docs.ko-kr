@@ -3,7 +3,7 @@ title: Azure IT 운영자를 위한 시작 가이드 | Microsoft Docs
 description: Azure IT 운영자를 위한 시작 가이드
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: themichaelbender-ms
 manager: timlt
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/12/2017
-ms.author: iainfou
-ms.openlocfilehash: f79f727ed46f85866f59468be418ba8975c17bd8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: mibender
+ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099496"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072337"
 ---
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>클라우드 컴퓨팅 및 Microsoft Azure 소개
 
@@ -141,13 +141,11 @@ Azure 서비스에 대한 자세한 내용은 [Azure 서비스 설명서](https:
 
 ### <a name="datacenters-and-regions"></a>데이터 센터 및 지역
 
-
 Azure는 전 세계 여러 지역에서 일반적으로 사용 가능한 글로벌 클라우드 플랫폼입니다. Azure에서 서비스, 응용 프로그램 또는 VM을 프로비저닝할 때 지역을 선택하라는 메시지가 나타납니다. 선택한 지역은 응용 프로그램이 실행되는 특정 데이터 센터를 나타냅니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.
 
 Azure를 사용할 때 얻을 수 있는 장점 중 하나는 전 세계의 다양한 데이터 센터에 응용 프로그램을 배포할 수 있다는 것입니다. 선택한 지역은 응용 프로그램의 성능에 영향을 줄 수 있습니다. 네트워크 요청 대기 시간을 줄이기 위해 고객에게 가장 가까운 지역을 선택하는 것이 좋습니다. 특정 국가에서 앱을 배포하기 위한 법적 요건을 충족하는 지역을 선택할 수도 있습니다.
 
 ### <a name="azure-portal"></a>Azure portal
-
 
 Azure Portal은 Azure 리소스 및 서비스를 만들고 관리하고 제거하는 데 사용할 수 있는 웹 기반 응용 프로그램입니다. Azure Portal은 https://portal.azure.com에 있습니다. 여기에는 Azure 리소스 관리를 위해 사용자 지정 가능한 대시보드 및 도구가 포함되어 있습니다. 또한 청구 및 구독 정보를 제공합니다. 자세한 내용은 [Microsoft Azure Portal 개요](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 및 [포털을 통해 Azure 리소스 관리](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)를 참조하세요.
 
@@ -165,7 +163,6 @@ Azure Resource Manager 템플릿은 리소스 그룹에 배포할 하나 이상�
 
 ### <a name="automation"></a>Automation
 
-
 Azure Portal을 사용하여 리소스를 만들고 관리하고 삭제하는 작업 외에도 PowerShell 또는 Azure CLI(명령줄 인터페이스)를 사용하여 이러한 작업을 자동화할 수 있습니다.
 
 **Azure PowerShell**
@@ -178,9 +175,7 @@ Azure 명령줄 인터페이스는 명령줄에서 Azure 리소스를 만들고 
 
 **REST API** Azure는 Azure Portal UI를 지원하는 REST API 집합을 기반으로 합니다. 또한 대부분의 REST API는 인터넷 사용 장치에서 Azure 리소스와 앱을 프로그래밍 방식으로 프로비저닝하고 관리할 수 있도록 지원됩니다. 자세한 내용은 [Azure REST SDK 참조](https://docs.microsoft.com/rest/api/index)를 참조하세요.
 
-
 ## <a name="azure-subscriptions"></a>Azure 구독
-
 
 구독은 Azure 계정에 연결된 Azure 서비스의 논리적 그룹입니다. 단일 Azure 계정에 여러 구독이 포함될 수 있습니다. Azure 서비스에 대한 청구는 구독 단위로 이루어집니다. Azure 구독에는 구독에 대한 모든 권한을 가진 계정 관리자와 구독의 모든 서비스를 제어할 수 있는 서비스 관리자가 있습니다. 관리자 외에도 RBAC를 통해 Azure 리소스를 세부적으로 제어할 수 있는 권한을 개별 계정에 부여할 수 있습니다.
 
@@ -200,10 +195,7 @@ Azure 서비스를 사용하려면 먼저 구독이 있어야 합니다. 여러 
 
 **기업계약**: 기업계약을 체결하면 내년에 Azure에서 특정 수의 서비스를 사용하겠다는 약정을 하고, 그 금액을 미리 지불합니다. 이 약정은 1년 동안 사용됩니다. 약정 금액을 초과하면 초과 비용을 후불로 지불할 수 있습니다. 약정 금액에 따라 Azure에서 서비스에 대한 할인을 받을 수 있습니다.
 
-
-
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Azure 구독에 대한 관리 액세스 권한 부여
-
 
 여러 계정 관리자 역할을 사용할 수 있으며 언제든지 변경할 수 있습니다. 두 가지 주요 역할이 있습니다.
 
@@ -215,13 +207,11 @@ Azure 서비스를 사용하려면 먼저 구독이 있어야 합니다. 여러 
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Azure Portal에서 청구 정보 보기
 
-
 Azure의 중요한 구성 요소 중 하나가 청구 정보를 볼 수 있는 기능입니다. Azure Portal은 Azure 청구에 대한 상세한 정보를 제공합니다.
 
 자세한 내용은 [Azure 청구 송장 및 일간 사용 현황 데이터를 다운로드하는 방법](../../billing/billing-download-azure-invoice-daily-usage-date.md)을 참조하세요.
 
 ### <a name="get-billing-information-from-billing-apis"></a>청구 API에서 청구 정보 가져오기
-
 
 포털에서 청구서를 보는 것 외에도 Azure 청구 REST API를 통해 스크립트 또는 프로그램을 사용하여 청구 정보에 액세스할 수 있습니다.
 
@@ -262,7 +252,6 @@ Resource Manager에는 관련 리소스의 사용자 지정 가능한 배포 및
 -   같은 태그를 공유하는 리소스 그룹에 대한 비용을 확인하여 조직의 청구를 명확히 할 수 있습니다.
 
 ### <a name="tips-for-creating-resource-groups"></a>리소스 그룹 만들기를 위한 팁
-
 
 리소스 그룹에 대한 결정을 내릴 때는 다음 팁을 고려하세요.
 
@@ -347,7 +336,6 @@ Azure Portal을 사용하거나, Azure PowerShell 모듈을 통한 자동화를 
 Azure Portal을 사용하여 가상 머신을 배포하려는 경우 활성 Azure 구독 및 웹 브라우저에 대한 액세스만 필요합니다. 다양한 구성을 사용하는 다양한 운영 체제 이미지를 선택할 수 있습니다. 모든 저장소 및 네트워킹 요구 사항은 배포 중에 구성됩니다. 자세한 내용은 [Windows](../../virtual-machines/windows/quick-create-portal.md) 및 [Linux](../../virtual-machines/linux/quick-create-portal.md)에 대한 "Azure Portal에서 가상 머신 만들기"를 참조하세요.
 
 Azure Portal에서 가상 머신을 배포하는 것 외에도 포털에서 Azure Resource Manager 템플릿을 배포할 수 있습니다. 이렇게 하면 모든 리소스가 템플릿에 정의된 대로 배포되고 구성됩니다. 자세한 내용은 [Resource Manager 템플릿과 Azure Portal로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-portal.md)를 참조하세요.
-
 
 **PowerShell**
 

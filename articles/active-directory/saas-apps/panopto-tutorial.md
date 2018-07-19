@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6bddeabdf608e5acb7d3bcaa390fa6289b5de3bf
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6ca6a99687079beaef25c72d4cea8de5984e6c50
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226122"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>자습서: Panopto와 Azure Active Directory 통합
 
@@ -240,7 +240,7 @@ Panopto를 프로비전하는 사용자를 구성할 작업 항목이 없습니�
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Panopto 타일을 클릭하면 Panopto 응용 프로그램의 로그인 페이지가 자동으로 표시됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

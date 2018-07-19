@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 260656ed17fecb0cac30b7970e9a2b76be42d8ea
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fe1960fb07a7cb62246f0eefe9563d6ee2b13f5c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230161"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>자습서: SAML SSO for Confluence by resolution GmbH와 Azure Active Directory 통합
 
@@ -317,7 +317,7 @@ SAML SSO for Confluence by resolution GmbH에서 프로비전은 수동 작업�
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 [액세스 패널]에서 [SAML SSO for Confluence by resolution GmbH] 타일을 클릭하면 SAML SSO for Confluence by resolution GmbH 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [Azure 시작](../active-directory-saas-access-panel-introduction.md)을 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [Azure 시작](../user-help/active-directory-saas-access-panel-introduction.md)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: jeedes
-ms.openlocfilehash: e27bc853db6236165d77f2fb3418bab1170400b2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4c126b3bf08174886b3668cd54c76b72d113ba76
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227706"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047113"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>자습서: ForeSee CX Suite와 Azure Active Directory 통합
 
@@ -113,7 +113,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 
     ![ForeSee CX Suite 도메인 및 URL Single Sign-On 정보](./media/foreseecxsuite-tutorial/tutorial_foreseen_uploadconfig.png)
 
-    나. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고, **업로드**를 클릭합니다.
+    나. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
 
     다. **서비스 공급자 메타데이터 파일**이 성공적으로 업로드되면, 아래와 같이 **ForeSee CX Suite 도메인 및 URL** 섹션 텍스트 상자에 **식별자** 값이 자동으로 채워집니다.
 
@@ -211,7 +211,7 @@ ForeSee CX Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 ForeSee CX Suite 타일을 클릭하면 ForeSee CX Suite 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

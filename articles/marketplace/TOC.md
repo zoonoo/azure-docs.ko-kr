@@ -28,14 +28,6 @@
 ### 지원  
 #### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)  
 
-### 게시 가이드  
-#### [Azure Marketplace 컨설팅 서비스](consulting-services.md)  
-#### [Azure Marketplace SaaS 앱 기술 게시 가이드](marketplace-saas-applications-technical-publishing-guide.md) 
-#### [Azure Active Directory를 사용하여 Marketplace 평가판 사용](./enable-trial-using-azure-ad.md)  
-
-### [마켓플레이스를 통한 비즈니스 성장](./grow-your-business-with-azure-marketplace.md)  
-#### [기본 설정 솔루션](./preferred-solutions.md) 
-
 ## [클라우드 파트너 포털](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  
 
 ## 리소스  

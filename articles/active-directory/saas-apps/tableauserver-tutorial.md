@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: be600fa6707e86e483e21f638d0d80515f9372b4
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 4c88d6a8b22e4c5c19112c30e15bc960bc8ed1b5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294995"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045226"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>자습서: Tableau Server와 Azure Active Directory 통합
 
@@ -160,7 +160,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
   
    나. **Single Sign-On에 SAML 사용**확인란을 선택합니다.
    
-   다. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL(예: http://tableau_server )입니다. http://localhost을 사용하는 것은 권장되지 않습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/))은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **로그온 URL** 텍스트 상자에 붙여넣습니다.
+   다. Tableau Server 반환 URL - Tableau Server 사용자가 액세스하는 URL(예: http://tableau_server)입니다. http://localhost을 사용하는 것은 권장되지 않습니다. 후행 슬래시가 있는 URL(예: http://tableau_server/))은 지원되지 않습니다. **Tableau Server 반환 URL**을 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **로그온 URL** 텍스트 상자에 붙여넣습니다.
    
    d. SAML 엔터티 ID - 엔터티 ID는 IdP에 대한 Tableau Server 설치를 고유하게 식별합니다. 원하는 경우 여기에 Tableau Server URL을 다시 입력할 수 있지만 반드시 Tableau Server URL을 입력해야 하는 것은 아닙니다. **SAML 엔터티 ID**를 복사하여 **Tableau Server 도메인 및 URL** 섹션의 Azure AD **식별자** 텍스트 상자에 붙여넣습니다.
      
@@ -257,7 +257,7 @@ Tableau Server에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Tableau Server 타일을 클릭하면 Tableau Server 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [Azure 시작](../active-directory-saas-access-panel-introduction.md)을 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [Azure 시작](../user-help/active-directory-saas-access-panel-introduction.md)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

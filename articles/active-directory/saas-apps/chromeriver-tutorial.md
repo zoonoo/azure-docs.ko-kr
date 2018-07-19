@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeedes
-ms.openlocfilehash: e91bf648a7113b95ac5ff55f2c287b7e2c20dacb
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1c93f0dccceffa0b5d3389732aa108a47e5c8af7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217200"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>자습서: Chromeriver과 Azure Active Directory 통합
 
@@ -209,7 +209,7 @@ Chromeriver의 경우 사용자 계정을 [Chromeriver 지원팀](https://www.ch
 
 이 섹션은 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트하기 위한 것입니다.
 
-액세스 패널에서 Chromeriver 타일을 클릭하면 Chromeriver 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 Chromeriver 타일을 클릭하면 Chromeriver 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

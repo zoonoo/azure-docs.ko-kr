@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2017
 ms.author: jeedes
-ms.openlocfilehash: 15929f5ba8c19190a72344ecf70662d34f9f4454
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cdc883adb321d4efffd1580bdb730f998f9b5b47
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36231698"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39051900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>자습서: Lucidchart와 Azure Active Directory 통합
 
@@ -225,7 +225,7 @@ Lucidchart를 프로비전하는 사용자를 구성할 작업 항목이 없습�
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Lucidchart 타일을 클릭하면 Lucidchart 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

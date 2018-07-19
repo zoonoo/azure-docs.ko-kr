@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 16b715261329544687fd78ed9c022d7392cc32d9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901479"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044053"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>자습서: Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault에 액세스 
 
@@ -51,7 +51,7 @@ ms.locfileid: "37901479"
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
 3. 가상 머신 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
 
-    ![대체 이미지 텍스트](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 드롭다운에서 가상 머신의 **구독**을 선택합니다.
 5. 가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
@@ -66,7 +66,7 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
 3. **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
 4. **저장**을 클릭하여 구성을 저장합니다.
 
-    ![대체 이미지 텍스트](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+    ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Key Vault에 저장된 비밀 액세스 권한을 VM에 부여  
 
@@ -83,7 +83,7 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
 7. **확인**을 클릭하여 새 액세스 정책 추가를 완료하고, **확인**을 클릭하여 액세스 정책 선택을 완료합니다. 
 8. **만들기**를 클릭하여 Key Vault 만들기를 완료합니다. 
 
-    ![대체 이미지 텍스트](../media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
+    ![대체 이미지 텍스트](../managed-service-identity/media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
 다음으로는 VM에서 실행되는 코드를 사용하여 나중에 비밀을 검색할 수 있도록 Key Vault에 암호를 추가합니다. 
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 77d26d860462b1a82315bf1385bccf62047e3da3
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e28918fe9e26221738fe234ad41923c58a6ac260
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33866671"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049024"
 ---
 # <a name="azure-ad-self-service-password-reset-for-the-it-professional"></a>IT 전문가를 위한 Azure AD 셀프 서비스 암호 재설정
 
@@ -65,5 +65,5 @@ Azure AD SSPR은 사용 중인 구독에 따라 다음과 같이 세 가지 등�
 
 * SSPR을 시작할 준비가 되었나요? [Azure AD 셀프 서비스 암호 재설정을 설정](quickstart-sspr.md)해 보세요.
 * [출시 가이드](howto-sspr-deployment.md)의 지침을 참고하여 사용자를 위한 성공적인 SSPR 배포를 계획해 보세요.
-* [암호 재설정 또는 변경](../active-directory-passwords-update-your-own-password.md)
-* [셀프 서비스 암호 재설정 등록](../active-directory-passwords-reset-register.md)
+* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)

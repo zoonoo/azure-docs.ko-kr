@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 42833323cbebf25ce2ca14e6ab7ec4fa5adbfd15
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206947"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044580"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Reliable Services 수명 주기 개요
 > [!div class="op_single_selector"]
@@ -79,7 +79,10 @@ Azure Service Fabric Reliable Services의 수명 주기를 고려할 경우 수�
     - 서비스가 현재 주 서비스인 경우 서비스의 `StatefulServiceBase.RunAsync()` 메서드가 호출됩니다.
 4. 모든 복제본 수신기의 `OpenAsync()` 호출이 완료되고 `RunAsync()`가 호출되면 `StatefulServiceBase.OnChangeRoleAsync()`가 호출됩니다. 이 호출은 서비스에서 드물게 재정의됩니다.
 
-상태 비저장 서비스와 마찬가지로 수신기가 만들어지고 열리는 순서와 **RunAsync**가 호출되는 순서 사이에는 조정되지 않습니다. 조정이 필요한 경우 해결 방법은 거의 동일합니다. 상태 저장 서비스에 대한 한 가지 추가 사례가 있습니다. 즉 통신 수신기에 도달한 호출에는 일부 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md) 내에 보관된 정보가 필요합니다. 신뢰할 수 있는 컬렉션을 읽기 가능하거나 쓰기 가능하게 되고 **RunAsync**가 시작하기 전에 통신 수신기를 열 수 있기 때문에 일부 추가 조정이 필요합니다. 가장 간단하고 일반적인 솔루션은 통신 수신기에서 클라이언트가 사용하는 오류 코드를 반환하여 요청을 다시 시도하는 것입니다.
+상태 비저장 서비스와 마찬가지로 수신기가 만들어지고 열리는 순서와 **RunAsync**가 호출되는 순서 사이에는 조정되지 않습니다. 조정이 필요한 경우 해결 방법은 거의 동일합니다. 상태 저장 서비스에 대한 한 가지 추가 사례가 있습니다. 즉 통신 수신기에 도달한 호출에는 일부 [신뢰할 수 있는 컬렉션](service-fabric-reliable-services-reliable-collections.md) 내에 보관된 정보가 필요합니다.
+
+   > [!NOTE]  
+   > 신뢰할 수 있는 컬렉션을 읽기 가능하거나 쓰기 가능하게 되고 **RunAsync**가 시작하기 전에 통신 수신기를 열 수 있기 때문에 일부 추가 조정이 필요합니다. 가장 간단하고 일반적인 솔루션은 통신 수신기에서 클라이언트가 사용하는 오류 코드를 반환하여 요청을 다시 시도하는 것입니다.
 
 ## <a name="stateful-service-shutdown"></a>상태 저장 서비스 종료
 상태 비저장 서비스와 마찬가지로 종료 중 수명 주기 이벤트는 시작 시와 동일하지만 역방향으로 이뤄집니다. 상태 저장 서비스가 종료되면 다음과 같은 이벤트가 발생합니다.

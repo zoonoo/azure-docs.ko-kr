@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 45dedd8c4d6ae2f9b54873d87f82c2e605a8c2aa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38451702"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049472"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -157,7 +157,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 지침에 따라 ServiceNow를 구성합니다. |  |
 | ServiceNow 앱의 “프로비전” 블레이드에서 “자동” 프로비전을 사용하도록 설정합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](manage-apps/configure-automatic-user-provisioning-portal.md) |
 | 프로비전이 완료되는 동안 몇 분 정도 기다립니다.  그 사이에 프로비전 보고서를 확인할 수 있습니다. |  |
-| 액세스할 수 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
+| 액세스할 수 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인 | [액세스 패널이란?](user-help/active-directory-saas-access-panel-introduction.md) |
 | 방금 만든 응용 프로그램의 타일을 클릭합니다. 액세스 권한을 확인합니다. |  |
 | 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md) |
 
@@ -188,8 +188,8 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 | 액세스할 수 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인 |  |
-| 방금 만든 응용 프로그램의 타일을 클릭합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
-| 응용 프로그램 자격 증명을 제공합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| 방금 만든 응용 프로그램의 타일을 클릭합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
+| 응용 프로그램 자격 증명을 제공합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 브라우저를 닫고 로그인을 반복합니다. 이때 사용자는 응용 프로그램에 원활하게 액세스할 수 있어야 합니다. |  |
 | 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md) |
 
@@ -308,7 +308,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | SaaS 응용 프로그램(페더레이션 SSO 또는 암호 SSO)이 이미 구성됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) |
 | #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
 | 그룹 소유자에 대한 자격 증명을 사용할 수 있음 | [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](fundamentals/active-directory-manage-groups.md) |
-| 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
+| 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>단계
@@ -318,7 +318,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 응용 프로그램에 대한 액세스 권한이 부여된 그룹을 식별하고 해당 그룹의 소유자를 구성합니다.| [Azure Active Directory에서 그룹의 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | 그룹 소유자로 로그인하여 액세스 패널의 [그룹] 탭에서 그룹 멤버 자격을 확인합니다. | [Azure Active Directory Groups Management page](https://account.activedirectory.windowsazure.com/r#/groups)(Azure Active Directory 그룹 관리 페이지) |
 | 테스트할 정보 근로자를 추가합니다. |  |
-| 정보 근로자로 로그인하여 타일을 사용할 수 있는지 확인합니다. | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
+| 정보 근로자로 로그인하여 타일을 사용할 수 있는지 확인합니다. | [액세스 패널이란?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 ### <a name="considerations"></a>고려 사항
 
@@ -332,7 +332,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | SaaS 응용 프로그램(페더레이션 SSO 또는 암호 SSO)이 이미 구성됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) |
 | #1에서 응용 프로그램에 대한 액세스 권한이 할당된 클라우드 그룹이 식별됨 | 문서 블록: [SaaS 페더레이션 SSO 구성](#saas-federated-sso-configuration) <br/>[Azure Active Directory에서 그룹 만들기 및 구성원 추가](fundamentals/active-directory-groups-create-azure-portal.md) |
-| 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](active-directory-saas-access-panel-introduction.md) |
+| 앱에 액세스하는 정보 근로자에 대한 자격 증명이 식별됨 | [액세스 패널이란?](user-help/active-directory-saas-access-panel-introduction.md) |
 
 
 ### <a name="steps"></a>단계
@@ -380,7 +380,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 테넌트에서 셀프 서비스 암호 관리 사용. | [IT 관리자에 대한 Azure Active Directory 암호 재설정](active-directory-passwords-update-your-own-password.md) |
+| 테넌트에서 셀프 서비스 암호 관리 사용. | [IT 관리자에 대한 Azure Active Directory 암호 재설정](user-help/active-directory-passwords-update-your-own-password.md) |
 | 온-프레미스에서 암호를 관리하도록 암호 쓰기 저장 사용. 이 작업에는 특정 Azure AD Connect 버전이 필요합니다. | [암호 쓰기 저장 필수 구성 요소](authentication/howto-sspr-writeback.md) |
 | 이 기능을 사용할 PoC 사용자를 식별하고 보안 그룹의 구성원인지 확인. 사용자는 기능을 완전히 소개할 수 있는 관리자가 아닌 사용자여야 합니다. | [사용자 지정: Azure AD 암호 관리: 암호 재설정에 대한 액세스 제한](authentication/howto-sspr-writeback.md) |
 
@@ -395,7 +395,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 2단계에서 구성한 셀프 서비스 암호 재설정 데이터를 제공합니다. | https://aka.ms/ssprsetup |
 | 브라우저를 닫습니다. |  |
 | 4단계에서 사용한 정보 근로자로 로그인 프로세스를 다시 시작합니다. |  |
-| 암호를 재설정합니다. | [고유 암호 업데이트: 내 암호 재설정](active-directory-passwords-update-your-own-password.md) |
+| 암호를 재설정합니다. | [고유 암호 업데이트: 내 암호 재설정](user-help/active-directory-passwords-update-your-own-password.md) |
 | 새 암호로 Azure AD 및 온-프레미스 리소스에 로그인해 보세요. |  |
 
 ### <a name="considerations"></a>고려 사항
@@ -428,7 +428,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 ### <a name="considerations"></a>고려 사항
 
 1. 이 문서 블록의 PoC 단계에서는 로그인할 때마다 사용자에 대한 MFA를 명시적으로 설정합니다. 더 많은 대상 시나리오에서 MFA를 적용하는 ID 보호 및 조건부 액세스와 같은 다른 도구가 있습니다. POC에서 프로덕션으로 이동할 때 이를 고려할 수 있습니다.
-2. 이 문서 블록의 PoC 단계에서는 편의를 위해 전화 통화를 MFA 방법으로 명시적으로 사용합니다. POC에서 프로덕션으로 전환할 때 가능하면 항상 [Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md)와 같은 응용 프로그램을 두 번째 요소로 사용하는 것이 좋습니다.
+2. 이 문서 블록의 PoC 단계에서는 편의를 위해 전화 통화를 MFA 방법으로 명시적으로 사용합니다. POC에서 프로덕션으로 전환할 때 가능하면 항상 [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md)와 같은 응용 프로그램을 두 번째 요소로 사용하는 것이 좋습니다.
 참고 항목: [DRAFT NIST Special Publication 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html)(DRAFT NIST 특별 간행물 800-63B)
 
 ## <a name="mfa-conditional-access-for-saas-applications"></a>SaaS 응용 프로그램에 대한 MFA 조건부 액세스
@@ -553,7 +553,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 엔터프라이즈 PKI에서 사용자 인증서가 프로비전된 장치(Windows, iOS 또는 Android) | [사용자 인증서 배포](https://msdn.microsoft.com/library/cc770857.aspx) |
 | ADFS를 통해 페더레이션된 Azure AD 도메인 | [Azure AD Connect 및 페더레이션](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Active Directory 인증서 서비스 개요](https://technet.microsoft.com/library/hh831740.aspx)|
-| iOS 장치의 경우 Microsoft Authenticator 앱이 설치됨 | [Microsoft Authenticator 앱 시작](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| iOS 장치의 경우 Microsoft Authenticator 앱이 설치됨 | [Microsoft Authenticator 앱 시작](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>단계
 

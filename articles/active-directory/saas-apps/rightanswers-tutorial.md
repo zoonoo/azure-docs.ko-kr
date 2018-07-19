@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 45912e3aa0621ea9bfd24202392eda1a53addf80
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9f87c0a9c705e5a87b16abf97afba10165c80425
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222422"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39045574"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>자습서: RightAnswers와 Azure Active Directory 통합
 
@@ -208,7 +208,7 @@ Azure AD 사용자가 RightAnswers에 로그인할 수 있도록 하려면 Right
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
-SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+SSO 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 ## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)

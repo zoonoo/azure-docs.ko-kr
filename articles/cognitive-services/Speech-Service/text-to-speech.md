@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: d7ec8648a8428558264c9bfd4d923523b90cce07
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37855943"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071133"
 ---
 # <a name="about-the-text-to-speech-api"></a>Text to Speech API 정보
 
@@ -42,4 +42,4 @@ Microsoft **Text-to-Speech** 서비스는 45개 이상의 언어 및 로캘로 7
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-windows.md)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

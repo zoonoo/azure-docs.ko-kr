@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: ea976f7ac80f0c485320713117c9ff2b484a287b
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128693"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049414"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -118,7 +118,7 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 
 모든 사용자가 두 가지 이상의 인증 방법을 구성했기를 바랍니다. 다시 로그인을 시도하도록 지시하지만 로그인 페이지에서 다른 인증 방법을 선택하도록 알려 줍니다.
 
-사용자에게 [최종 사용자 문제 해결 가이드](end-user/current/multi-factor-authentication-end-user-troubleshoot.md)를 안내해줄 수 있습니다.
+사용자에게 [최종 사용자 문제 해결 가이드](../user-help/multi-factor-authentication-end-user-troubleshoot.md)를 안내해줄 수 있습니다.
 
 
 **Q: 내 사용자 중 하나가 계정에 로그인할 수 없는 경우 어떻게 해야 하나요?**
@@ -131,7 +131,7 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 
 **Q: 사용자가 비브라우저 앱에 로그인할 수 없으면 어떻게 하나요?**
 
-조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-mfasettings.md#app-passwords)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](end-user/current/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호*와 사용자 이름을 사용하여 로그인해야 합니다.
+조직에서 레거시 클라이언트를 계속 사용하고 [앱 암호 사용을 허용](howto-mfa-mfasettings.md#app-passwords)한 경우 사용자는 자신의 사용자 이름 및 암호로 이러한 레거시 클라이언트에 로그인할 수 없습니다. 대신, [앱 암호를 설정](../user-help/multi-factor-authentication-end-user-app-passwords.md)해야 합니다. 사용자는 로그인 정보를 지우고(삭제)하고 앱을 다시 시작한 후 일반 암호 대신 *앱 암호*와 사용자 이름을 사용하여 로그인해야 합니다.
 
 조직에 레거시 클라이언트가 없는 경우 사용자가 앱 암호를 만들도록 허용하지 않아야 합니다.
 

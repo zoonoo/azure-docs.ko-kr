@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 85c8f58fecf2a652db73a44650d26a3c9faf33e2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 63a1004e5eabe754640eeb375e37cfe8b403da13
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36223096"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>자습서: Jobbadmin과 Azure Active Directory 통합
 
@@ -209,7 +209,7 @@ Azure AD 사용자가 Jobbadmin에 로그인할 수 있도록 하려면 Jobbadmi
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Jobbadmin 타일을 클릭하면 Jobbadmin 응용 프로그램의 로그인 페이지가 표시됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

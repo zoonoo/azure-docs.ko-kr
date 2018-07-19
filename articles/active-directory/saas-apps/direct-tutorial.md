@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: e74138deda20ebb4fbb83ceaa3304dcca82767e7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ad0aed1ded41a422160679dc238ee8814cac4b71
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228852"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39053328"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-direct"></a>자습서: Azure Active Directory와 Direct 통합
 
@@ -213,7 +213,7 @@ Direct에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     나. 표시되는 텍스트 상자에 `subdomain`을 입력하고 ‘다음’을 누르면 **Direct** 응용 프로그램에 자동으로 로그온됩니다.
     
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

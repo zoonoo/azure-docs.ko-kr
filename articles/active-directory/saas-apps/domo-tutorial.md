@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 43745e43cd7df4a91cf0080816c4ed423f352f3d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ddc3df7aacad7ad31c41da99916b252b6496a989
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219349"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054151"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>자습서: Domo와 Azure Active Directory 통합
 
@@ -246,7 +246,7 @@ Domo에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 액세스 패널에서 Domo 타일을 클릭하면 Domo 응용 프로그램에 자동으로 로그온됩니다.
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

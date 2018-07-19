@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: 282869295f26f85683a2d28706280c4bf62fa54b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b83f452300295078e4edf797ec2ef2f0c5223031
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221379"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>자습서: Directions on Microsoft과 Azure Active Directory 통합
 
@@ -217,7 +217,7 @@ Directions on Microsoft을 프로비전하는 사용자를 구성할 작업 항�
  
 액세스 패널에서 Directions on Microsoft 타일을 클릭하면 Directions on Microsoft 응용 프로그램에 자동으로 로그온됩니다.
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

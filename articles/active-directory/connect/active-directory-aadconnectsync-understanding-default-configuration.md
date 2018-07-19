@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f4278dc3af1074b6de299444d2b205396bc0a9c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7be5569654cb537260117ecd452e58cff9824a88
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34595311"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044777"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect 동기화: 기본 구성 이해
 이 문서는 기본 구성 규칙을 설명합니다. 규칙 및 해당 규칙이 구성에 어떤 영향을 주는지를 문서화합니다. 또한 Azure AD Connect 동기화의 기본 구성을 안내합니다. 목표는 판독기로 선언적 프로비전이라고 명명된 구성 모델이 실제 예제에서 작동하는 방식을 이해하는 것입니다. 이 문서에서는 설치 마법사를 사용하여 Azure AD Connect 동기화를 설치한 뒤 구성하는 상황을 가정합니다.
@@ -77,9 +77,9 @@ ms.locfileid: "34595311"
 
 * 연락처는 메일을 사용할 수 있어야 합니다. 다음 규칙을 통해 확인합니다.
   * `IsPresent([proxyAddresses]) = True)`. proxyAddresses 특성을 채워야 합니다.
-  * 기본 전자 메일 주소는 proxyAddresses 특성 또는 메일 특성에서 찾을 수 있습니다. @의 유무는 콘텐츠가 전자 메일 주소인지 확인하는 데 사용됩니다. 이 두 가지 규칙 중 하나가 True로 평가되어야 합니다.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))` "SMTP:"가 있는 항목이 있나요? 있다면 문자열에서 @를 찾을 수 있나요?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)` 메일 특성이 채워지나요? 그리고 채워진다면 문자열에서 @를 찾을 수 있나요?
+  * 기본 전자 메일 주소는 proxyAddresses 특성 또는 메일 특성에서 찾을 수 있습니다. \@의 존재는 콘텐츠가 전자 메일 주소인지 확인하는 데 사용됩니다. 이 두 가지 규칙 중 하나가 True로 평가되어야 합니다.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))` "SMTP:"가 있는 항목이 있나요? 있다면 문자열에서 \@을 찾을 수 있나요?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)` 메일 특성이 채워지나요? 그리고 채워진다면 문자열에서 \@을 찾을 수 있나요?
 
 다음 연락처 개체는 Azure AD에 동기화되지 **않습니다** .
 

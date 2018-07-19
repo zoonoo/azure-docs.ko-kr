@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: b61465e9f38a5a461802d4ab46a7221c557b4595
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: fb57ab0f746fcad702c18032b9da1a9ec820b809
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308145"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39052420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-keeper-password-manager--digital-vault"></a>자습서: Keeper Password Manager & Digital Vault와 Azure Active Directory 통합
 
@@ -208,7 +208,7 @@ Keeper Password Manager & Digital Vault에 로그인할 수 있도록 Azure AD �
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Keeper Password Manager & Digital Vault 타일을 클릭하면 Keeper Password Manager & Digital Vault 응용 프로그램의 로그인 페이지가 표시됩니다. 인증에 성공하면 응용 프로그램으로 가져와야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에서 Keeper Password Manager & Digital Vault 타일을 클릭하면 Keeper Password Manager & Digital Vault 응용 프로그램의 로그인 페이지가 표시됩니다. 인증에 성공하면 응용 프로그램으로 가져와야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

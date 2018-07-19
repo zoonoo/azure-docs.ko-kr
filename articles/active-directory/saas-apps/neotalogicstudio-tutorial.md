@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: jeedes
-ms.openlocfilehash: 01987f3a5f2a37d7cf2b16202310b7d442c9d7a8
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5861d709e238e5da07cd6a44fefdcc456422ad9d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285834"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-neota-logic-studio"></a>자습서: Neota Logic Studio와 Azure Active Directory 통합
 
@@ -204,7 +204,7 @@ Neota Logic Studio에서 Azure AD Single Sign-On을 구성하고 테스트하려
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Neota Logic Studio 타일을 클릭하면 조직 로그온 페이지로 리디렉션됩니다. 로그인이 성공한 후 Neota Logic Studio 응용 프로그램에 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 Neota Logic Studio 타일을 클릭하면 조직 로그온 페이지로 리디렉션됩니다. 로그인이 성공한 후 Neota Logic Studio 응용 프로그램에 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: ba24422f7ff5759153a6e067cc61251b43a7a091
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3e3546a5161c62c137af0a29daf5140133f91eb6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286935"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046110"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>자습서: PurelyHR과 Azure Active Directory 통합
 
@@ -228,7 +228,7 @@ Azure AD 사용자가 PurelyHR에 로그인할 수 있도록 하려면 PurelyHR�
 
 액세스 패널에서 Absorb LMS 타일을 클릭하면 Absorb LMS 응용 프로그램에 자동으로 로그온됩니다.
 
-액세스 패널에 대한 자세한 내용은 [Azure 시작](../active-directory-saas-access-panel-introduction.md)을 참조하세요.
+액세스 패널에 대한 자세한 내용은 [Azure 시작](../user-help/active-directory-saas-access-panel-introduction.md)을 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 204910ff6e02eafd62eeb56bf82b77b91b3cb5ad
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 6945966d4a701ea6e2684b7da766c8b6c9f9a283
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099612"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049051"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법
 
@@ -71,7 +71,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 5. 열리는 팝업 창에서 선택한 내용을 확인합니다. 
 
-사용자를 사용으로 설정한 후 전자 메일을 통해 알립니다. 다음에 로그인할 때 등록하도록 요구된다고 알려줍니다. 또한 조직에서 최신 인증을 지원하지 않는 비브라우저 앱을 사용하는 경우 앱 암호를 만들어야 합니다. 또한 사용자가 시작할 수 있도록 [Azure MFA 최종 사용자 가이드](end-user/current/multi-factor-authentication-end-user.md)에 연결되는 링크를 포함할 수도 있습니다.
+사용자를 사용으로 설정한 후 전자 메일을 통해 알립니다. 다음에 로그인할 때 등록하도록 요구된다고 알려줍니다. 또한 조직에서 최신 인증을 지원하지 않는 비브라우저 앱을 사용하는 경우 앱 암호를 만들어야 합니다. 또한 사용자가 시작할 수 있도록 [Azure MFA 최종 사용자 가이드](../user-help/multi-factor-authentication-end-user.md)에 연결되는 링크를 포함할 수도 있습니다.
 
 ### <a name="use-powershell"></a>PowerShell 사용
 [Azure AD PowerShell](/powershell/azure/overview)을 사용하여 사용자 상태를 변경하려면 `$st.State`를 변경합니다. 여기에는 세 가지 상태가 있습니다.

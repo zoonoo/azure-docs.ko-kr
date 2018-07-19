@@ -3,7 +3,7 @@ title: Service Fabric CLI 스크립트 샘플 - 클러스터의 응용 프로그
 description: Service Fabric CLI 스크립트 샘플 - Service Fabric 클러스터에서 프로비전된 응용 프로그램 나열.
 services: service-fabric
 documentationcenter: ''
-author: Thraka
+author: TylerMSFT
 manager: timlt
 editor: ''
 tags: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 04/13/2018
-ms.author: adegeo
+ms.author: twhitney
 ms.custom: ''
-ms.openlocfilehash: 2a58a9d534116dbdd486f1319f3d87e1d2ba24ef
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bea88460ecaa093a0719d627e3608fd1d530727b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642770"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070201"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>Service Fabric 클러스터에서 실행 중인 응용 프로그램 목록
 

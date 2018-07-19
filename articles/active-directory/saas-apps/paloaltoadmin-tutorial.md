@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a296c1e358bffa70ed88ba40380266e8731afd8
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b39879cc8548139879a3039c5e0c6b924e83c107
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211590"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39046674"
 ---
-# <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Palo Alto Networks - Admin UI와 Azure Active Directory 통합
+# <a name="integrate-azure-active-directory-with-palo-alto-networks---admin-ui"></a>Azure Active Directory와 Palo Alto Networks - Admin UI의 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 Palo Alto Networks - Admin UI를 통합하는 방법에 대해 알아봅니다.
 
 Azure AD와 Palo Alto Networks - Admin UI를 통합하면 다음과 같은 이점을 얻을 수 있습니다.
 
 - Palo Alto Networks - Admin UI에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
-- 사용자가 해당 Azure AD 계정으로 Palo Alto Networks - Admin UI에 자동으로 로그온(SSO, Single Sign-on)되도록 설정할 수 있습니다.
+- 사용자가 본인 Azure AD 계정으로 Palo Alto Networks - Admin UI에 자동으로 로그온(SSO, Single Sign-on)하도록 할 수 있습니다.
 - 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 응용 프로그램 액세스 및 Single Sign-On이란 무엇인가요?](../manage-apps/what-is-single-sign-on.md)를 참조하세요.
@@ -68,7 +68,7 @@ Azure AD와 Palo Alto Networks - Admin UI의 통합을 구성하려면 다음과
 
     !["엔터프라이즈 응용 프로그램" 창][2]
     
-3. 새 응용 프로그램을 추가하려면 이 창의 맨 위쪽에 있는 **새 응용 프로그램** 단추를 선택합니다.
+3. 새 응용 프로그램을 추가하려면 창의 맨 위쪽에 있는 **새 응용 프로그램** 단추를 선택합니다.
 
     !["새 응용 프로그램" 단추][3]
 
@@ -80,15 +80,15 @@ Azure AD와 Palo Alto Networks - Admin UI의 통합을 구성하려면 다음과
 
 이 섹션에서는 "Britta Simon"이라는 테스트 사용자를 기반으로 Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테스트합니다.
 
-Single Sign-On이 작동하려면 Azure AD에서 Palo Alto Networks - Admin UI 사용자와 이 사용자에 대응하는 Azure AD의 사용자에 대해 알고 있어야 합니다. 즉, Azure AD 사용자와 Palo Alto Networks - Admin UI의 동일한 사용자 간에 연결 관계가 형성되어야 합니다.
+Single Sign-On이 작동하려면 Azure AD에서 Palo Alto Networks - Admin UI 사용자와 이 사용자에 대응하는 Azure AD의 사용자를 식별해야 합니다. 즉, Azure AD 사용자와 Palo Alto Networks - Admin UI의 동일한 사용자 간에 연결 관계가 설정되어 있어야 합니다.
 
 링크 관계를 설정하려면 Azure AD의 *사용자 이름* 값을 Palo Alto Networks - Admin UI *사용자 이름*으로 할당합니다.
 
-Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 5개 섹션에서 구성 요소를 완료해야 합니다.
+Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 이어지는 5개 섹션의 단계별 구성 요소를 따라 완료합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
-다음과 같이 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Palo Alto Networks - Admin UI 응용 프로그램에서 Single Sign-On을 구성합니다.
+다음 단계에 따라 Azure Portal에서 Azure AD Single Sign-On을 사용하도록 설정하고 Palo Alto Networks - Admin UI 응용 프로그램에서 Single Sign-On을 구성합니다.
 
 1. Azure Portal의 **Palo Alto Networks - Admin UI** 응용 프로그램 통합 페이지에서 **Single Sign-On**을 선택합니다.
 
@@ -109,14 +109,14 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
     다. **회신 URL** 상자에 *https://\<고객 방화벽 FQDN>:443/SAML20/SP/ACS* 형식으로 ACS(Assertion Consumer Service) URL을 입력합니다.
     
     > [!NOTE] 
-    > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트합니다. 이러한 값을 얻으려면 [Palo Alto Networks - Admin UI 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의합니다. 
+    > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트하세요. 이러한 값을 얻으려면 [Palo Alto Networks - Admin UI 클라이언트 지원 팀](https://support.paloaltonetworks.com/support)에 문의합니다. 
  
-4. Palo Alto Networks - Admin UI 응용 프로그램은 특정 형식의 SAML 어설션을 기대하므로 다음 이미지에 나와 있는 것처럼 클레임을 구성하세요. 다음과 같이 **응용 프로그램 통합** 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다.
+4. Palo Alto Networks - Admin UI 응용 프로그램은 특정 형식의 SAML 어설션을 예상하므로 다음 이미지에 나와 있는 것처럼 클레임을 구성하세요. 다음 단계를 따라 **응용 프로그램 통합** 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다.
     
     ![SAML 토큰 특성 목록](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_attribute.png)
     
    > [!NOTE]
-   > 특성 값은 예시일 뿐이므로 *username* 및 *adminrole*에 적절한 값을 매핑하세요. 방화벽에서 특정 가상 시스템에 대한 관리자 액세스를 제한하는 데 사용되는 다른 선택적 특성 *accessdomain*이 있습니다.
+   > 특성 값은 예시일 뿐이므로 *username* 및 *adminrole*에 적절한 값을 매핑하세요. 또한 선택적 특성인 *accessdomain*이 있으며, 이 특성은 방화벽에서 특정 가상 시스템에 대한 관리자 액세스를 제한하는 데 사용됩니다.
    >
         
     | 특성 이름 | 특성 값 |
@@ -139,7 +139,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
     d. **확인**을 선택합니다.
 
     > [!NOTE]
-    > 특성에 대한 자세한 내용은 다음 아티클을 참조하세요.
+    > 특성에 대한 자세한 내용은 다음 문서를 참조하세요.
     > * [Admin UI(adminrole)에 대한 관리 역할 프로필](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile)
     > * [Admin UI(accessdomain)에 대한 장치 액세스 도메인](https://www.paloaltonetworks.com/documentation/80/pan-os/web-interface-help/device/device-access-domain)
     >
@@ -186,7 +186,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
   
     나. **확인**을 선택합니다.
 
-12. Palo Alto Networks Firewall Admin UI에서 **장치**를 선택한 후 **관리자 역할**을 선택합니다.
+12. Palo Alto Networks Firewall의 Admin UI에서 **장치**를 선택한 후 **관리자 역할**을 선택합니다.
 
 13. **추가** 단추를 선택합니다. 
 
@@ -195,7 +195,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
 
     ![Palo Alto Networks 관리자 역할 구성](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_adminrole.png)
   
-15. Firewall Admin UI에서 **장치**를 선택한 후 **인증 프로필**을 선택합니다.
+15. Firewall의 Admin UI에서 **장치**를 선택한 후 **인증 프로필**을 선택합니다.
 
 16. **추가** 단추를 선택합니다. 
 
@@ -273,7 +273,7 @@ Palo Alto Networks - Admin UI에서 Azure AD Single Sign-On을 구성하고 테�
  
 ### <a name="create-a-palo-alto-networks---admin-ui-test-user"></a>Palo Alto Networks - Admin UI 테스트 사용자 만들기
 
-Palo Alto Networks - Admin UI는 Just-In-Time 사용자 프로비전을 지원합니다. 사용자 아직 없을 경우 인증 성공 후 시스템에 사용자가 자동으로 생성됩니다. 사용자를 만들기 위해 별다른 조치를 취할 필요가 없습니다.
+Palo Alto Networks - Admin UI는 Just-In-Time 사용자 프로비저닝을 지원합니다. 사용자가 아직 없을 경우 인증 성공 후 시스템에 사용자가 자동으로 생성됩니다. 사용자를 만들기 위해 별다른 조치를 취할 필요가 없습니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
@@ -309,7 +309,7 @@ Palo Alto Networks - Admin UI는 Just-In-Time 사용자 프로비전을 지원�
 
 액세스 패널에서 Palo Alto Networks - Admin UI 타일을 선택하면 Palo Alto Networks - Admin UI 응용 프로그램에 자동으로 로그온됩니다.
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c7bf7efe76f9fdee6a5508131c4d86d503a87366
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5807ab0090f401c02599db40f110b7a9b1504060
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217071"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39047055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>자습서: Kudos와 Azure Active Directory 통합
 
@@ -251,7 +251,7 @@ Kudos의 경우 프로비전은 수동 작업입니다.
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 Kudos 타일을 클릭하면 Kudos 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 Kudos 타일을 클릭하면 Kudos 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
