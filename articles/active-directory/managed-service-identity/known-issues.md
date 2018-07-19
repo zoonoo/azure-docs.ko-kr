@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c48d03b6e8a3d850d02d2c36c35915f8214b00e8
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906219"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035815"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
@@ -85,7 +85,7 @@ Set-AzureRmVMExtension -Name <extension name>  -Type <extension Type>  -Location
 
 VM에서 관리되는 서비스 ID를 활성화하는 경우 VM 또는 해당 리소스 그룹에 "Automation 스크립트" 기능을 사용하려고 할 때 다음과 같은 오류가 표시됩니다.
 
-![MSI 자동화 스크립트 내보내기 오류](../media/msi-known-issues/automation-script-export-error.png)
+![MSI 자동화 스크립트 내보내기 오류](../managed-service-identity/media/msi-known-issues/automation-script-export-error.png)
 
 현재 관리되는 서비스 ID VM 확장은 리소스 그룹 템플릿으로 해당 스키마를 내보내는 기능을 지원하지 않습니다. 결과적으로 생성된 템플릿은 리소스에서 관리되는 서비스 ID를 활성화하는 구성 매개 변수를 표시하지 않습니다. [템플릿을 사용하여 VM 관리되는 서비스 ID 구성](qs-configure-template-windows-vm.md)의 예제를 수행하여 이러한 섹션을 수동으로 추가할 수 있습니다.
 

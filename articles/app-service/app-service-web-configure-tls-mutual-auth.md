@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2016
 ms.author: naziml
-ms.openlocfilehash: bdf8731b2a5028f47c2baf6f164d75123f716ebb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 894a77be05de131ab122f18c62d209e9829357f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857642"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056211"
 ---
 # <a name="how-to-configure-tls-mutual-authentication-for-web-app"></a>웹앱에 대 한 TLS 상호 인증을 구성하는 방법
 ## <a name="overview"></a>개요
@@ -51,7 +51,7 @@ ms.locfileid: "37857642"
 
 https://resources.azure.com을 사용하여 `clientCertEnabled` 속성을 `true`로 전환할 수도 있습니다.
 
-> **참고:** Powershell에서 ARMClient를 실행하는 경우 역 틱(`)을 사용하여 JSON 파일에 대한 @ 기호를 이스케이프해야 합니다.
+> **참고:** Powershell에서 ARMClient를 실행하는 경우 역 틱(`)을 사용하여 JSON 파일에 대한 \@ 기호를 이스케이프해야 합니다.
 > 
 > 
 

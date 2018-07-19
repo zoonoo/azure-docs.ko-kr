@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 313f4915a8c522ae2b9fc5ebbbe85fdfb4741cc4
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969581"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005835"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
@@ -51,6 +51,14 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 ![트리거 유형을 이벤트로 선택](media/how-to-create-event-trigger/event-based-trigger-image3.png)
 
+### <a name="map-trigger-properties-to-pipeline-parameters"></a>트리거 속성을 파이프라인 매개 변수에 매핑
+
+특정 Blob에 대해 이벤트 트리거가 실행되면 이벤트는 Blob의 폴더 경로와 파일 이름을 `@triggerBody().folderPath` 및 `@triggerBody().fileName` 속성에 캡처합니다. 파이프라인에서 이러한 속성 값을 사용하려면 속성을 파이프라인 매개 변수에 매핑해야 합니다. 속성을 매개 변수에 매핑한 후 파이프라인 전체에서 `@pipeline.parameters.parameterName` 식을 통해 트리거가 캡처한 값에 액세스할 수 있습니다.
+
+![속성을 파이프라인 매개 변수에 매핑](media/how-to-create-event-trigger/event-based-trigger-image4.png)
+
+예를 들어, 앞의 스크린샷에서 트리거는 `.csv`로 끝나는 Blob 경로가 저장소 계정에 생성될 때 실행되도록 구성됩니다. 따라서 확장명이 `.csv`인 Blob이 저장소 계정의 어디서든 만들어지면 `folderPath` 및 `fileName` 속성이 새 Blob의 위치를 캡처합니다. 예를 들어, `@triggerBody().folderPath`에는 `/containername/foldername/nestedfoldername` 등의 값이 있고, `@triggerBody().fileName`에는 `filename.csv` 등의 값이 있습니다. 예제에서 이러한 값은 파이프라인 매개 변수 `sourceFolder` 및 `sourceFile`에 매핑됩니다. 파이프라인 전체에서 해당 값을 각각 `@pipeline.parameters.sourceFolder` 및 `@pipeline.parameters.sourceFile`로 사용할 수 있습니다.
+
 ## <a name="json-schema"></a>JSON 스키마
 
 다음 표에는 이벤트 기반 트리거와 관련된 스키마 요소의 개요가 제공됩니다.
@@ -75,14 +83,6 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 > [!NOTE]
 > 컨테이너 및 폴더, 컨테이너 및 파일, 컨테이너, 폴더 및 파일을 지정할 때마다 경로의 `/blobs/` 세그먼트를 포함해야 합니다.
-
-## <a name="map-trigger-properties-to-pipeline-parameters"></a>트리거 속성을 파이프라인 매개 변수에 매핑
-
-특정 Blob에 대해 이벤트 트리거가 실행되면 이벤트는 Blob의 폴더 경로와 파일 이름을 `@triggerBody().folderPath` 및 `@triggerBody().fileName` 속성에 캡처합니다. 파이프라인에서 이러한 속성 값을 사용하려면 속성을 파이프라인 매개 변수에 매핑해야 합니다. 속성을 매개 변수에 매핑한 후 파이프라인 전체에서 `@pipeline.parameters.parameterName` 식을 통해 트리거가 캡처한 값에 액세스할 수 있습니다.
-
-![속성을 파이프라인 매개 변수에 매핑](media/how-to-create-event-trigger/event-based-trigger-image4.png)
-
-예를 들어, 앞의 스크린샷에서 트리거는 `.csv`로 끝나는 Blob 경로가 저장소 계정에 생성될 때 실행되도록 구성됩니다. 따라서 확장명이 `.csv`인 Blob이 저장소 계정의 어디서든 만들어지면 `folderPath` 및 `fileName` 속성이 새 Blob의 위치를 캡처합니다. 예를 들어, `@triggerBody().folderPath`에는 `/containername/foldername/nestedfoldername` 등의 값이 있고, `@triggerBody().fileName`에는 `filename.csv` 등의 값이 있습니다. 예제에서 이러한 값은 파이프라인 매개 변수 `sourceFolder` 및 `sourceFile`에 매핑됩니다. 파이프라인 전체에서 해당 값을 각각 `@pipeline.parameters.sourceFolder` 및 `@pipeline.parameters.sourceFile`로 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 트리거에 대한 자세한 내용은 [파이프라인 실행 및 트리거](concepts-pipeline-execution-triggers.md#triggers)를 참조하세요.

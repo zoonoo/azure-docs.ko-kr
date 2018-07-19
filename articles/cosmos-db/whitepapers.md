@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: sngun
-ms.openlocfilehash: f39f3f73dd70808a40caea2b3a11aca22ae72d66
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 23445e2243a2824be95ef6d94eb13342d884e0c8
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109640"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072251"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB 백서 
 
@@ -22,7 +22,6 @@ ms.locfileid: "37109640"
 
 | **백서** | **설명** |
 | --- | --- |
-| [NoSQL 데이터베이스 클라우드 서비스의 총 소유 비용](https://aka.ms/cosmosdb-tco-paper) |이 백서에서는 서로 다른 배포 구성(예: 온-프레미스 데이터베이스, 클라우드 인프라를 사용하는 데이터베이스)에서 소프트웨어를 소유하고 운영하는 데 소요되는 총 비용을 비교합니다. 이 백서에서는 높음, 낮음 및 중간 사용 유형에 대한 총 소유 비용 견적도 제공합니다. |
 |[Azure Cosmos DB를 사용한 스키마에 구애 받지 않는 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) | 이 백서에서는 Azure Cosmos DB의 인덱싱 하위 시스템을 설명합니다. 이 백서에서는 문서 표현, 쿼리 언어, 문서 인덱싱 방법, 핵심 인덱스 지원 및 초기 프로덕션 경험 등과 같은 Azure Cosmos DB 기능이 포함되어 있습니다.|
 | [Azure Cosmos DB 및 개인 데이터](https://servicetrust.microsoft.com/ViewPage/TrustDocuments?command=Download&downloadType=Document&downloadId=87cc6456-4b23-473c-94d3-6c713b8b8956&docTab=6d000410-c9e9-11e7-9a91-892aae8839ad_FAQ_and_White_Papers)| 이 백서에서는 클라우드 기반 데이터베이스, 온-프레미스 데이터베이스 또는 두 가지 모두를 관리하고 데이터베이스 시스템의 개인 데이터를 현재 규칙에 따라 처리하고 보호해야 하는 Azure Cosmos DB 고객을 위한 지침을 제공합니다. |
 

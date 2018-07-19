@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1ba9f827abeb0c0cf6430089e1fb504288550737
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900466"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035244"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신 확장 집합 MSI(관리 서비스 ID) 구성
 
@@ -56,7 +56,7 @@ ms.locfileid: "37900466"
 
 3. "관리 서비스 ID"에서 "예"를 선택하여 VM에서 시스템 할당 ID를 사용하도록 설정한 다음, **저장**을 클릭합니다. 이 작업을 완료하려면 60초 이상 걸릴 수 있습니다.
 
-   [![구성 페이지 스크린샷](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   [![구성 페이지 스크린샷](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 관리 서비스 ID 제거
 
@@ -68,7 +68,7 @@ MSI가 더 이상 필요하지 않은 가상 머신 확장 집합이 있는 경�
 
 3. "관리 서비스 ID"에서 "아니오"를 선택하여 VM에서 시스템 할당 ID를 사용하지 않도록 설정한 다음, 저장을 클릭합니다. 이 작업을 완료하려면 60초 이상 걸릴 수 있습니다.
 
-   ![구성 페이지 스크린샷](../media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
+   ![구성 페이지 스크린샷](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)  
 
 ## <a name="related-content"></a>관련 콘텐츠
 

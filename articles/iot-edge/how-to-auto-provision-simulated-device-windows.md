@@ -8,12 +8,12 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0a973b248022cf3c0497f72bc2fcdd45a6527e65
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 46970d5628df3b46ec88df998a328928f60e15b4
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115819"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090234"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전
 
@@ -87,12 +87,6 @@ Stop-Service iotedge -NoWait
 sleep 5
 Start-Service iotedge
 ```
-
-IoT Edge 런타임이 실행되고 있는지 확인합니다. 
-
-   ```bash
-   sudo systemctl status iotedge
-   ```
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 

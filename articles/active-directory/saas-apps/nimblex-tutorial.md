@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 63b70e38f4c4f804c9be520480c7562834d42598
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 7b5dc6d892741f63596589a48ad5d45891b14c21
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871207"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>자습서: Azure Active Directory와 Nimblex 통합
 
@@ -228,7 +228,7 @@ Nimblex에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Nimblex 타일을 클릭하면 Nimblex 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

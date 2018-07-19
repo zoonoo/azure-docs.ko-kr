@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 2d0a4df20ef513b2a6524ba92656a7f861da8458
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c59f4291726b24b7c96bb60d0497c1578a3e4b0f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115472"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39048184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>자습서: Bomgar Remote Support와 Azure Active Directory 통합
 
@@ -197,7 +197,7 @@ Bomgar Remote Support에서 Azure AD Single Sign-On을 구성하고 테스트하
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Bomgar Remote Support 타일을 클릭하면 Bomgar Remote Support 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

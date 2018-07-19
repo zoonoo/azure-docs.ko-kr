@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 76430fa5652e98cba86c41433f376e27dbb1639a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446863"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054882"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -112,7 +112,7 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 | 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 |[SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 |[Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 대한 자동 장치 등록을 사용하도록 설정하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />- [Windows 8.1 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md)<br />- [Windows 7 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| 2단계 확인에 Microsoft Authenticator 앱을 사용하는 방법 |[Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
+| 2단계 확인에 Microsoft Authenticator 앱을 사용하는 방법 |[Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
 
 조건부 액세스는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
@@ -180,7 +180,7 @@ Azure AD 액세스 패널은 최종 사용자가 자신의 앱을 시작하고 �
 | 문서 가이드 |  |
 |:---:| --- |
 | 사용자에게 Single Sign-On 앱을 배포하는 데 사용할 수 있는 다양한 옵션의 비교 |[사용자에게 Azure AD 통합 응용 프로그램 배포](manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users) |
-| MyApps에 해당하는 액세스 패널 및 해당 모바일의 개요 |[액세스 패널 및 MyApps 소개](active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
+| MyApps에 해당하는 액세스 패널 및 해당 모바일의 개요 |[액세스 패널 및 MyApps 소개](user-help/active-directory-saas-access-panel-introduction.md)<br />— [iOS](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.myapps) |
 | Office 365 웹 사이트에서 Azure AD 앱에 액세스하는 방법 |[Office 365 앱 시작 관리자 사용](https://support.office.com/en-us/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a) |
 | Intune 관리된 브라우저 모바일 앱에서 Azure AD 앱에 액세스하는 방법 |[Intune Managed Browser](https://technet.microsoft.com/library/dn878029.aspx)<br />— [iOS](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8)<br />— [Android](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser) |
 | 딥 링크를 사용하여 Single Sign-On을 시작하도록 Azure AD 앱에 액세스하는 방법 |[앱에 직접 로그온 링크 가져오기](manage-apps/what-is-single-sign-on.md#direct-sign-on-links-for-federated-password-based-or-existing-apps) |
