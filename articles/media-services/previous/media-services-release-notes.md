@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: e2512a2af05ee7101713886c3ae1b5c6c74dd3db
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5ef1ca201bc564949ee65f81970d0b040679d6b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018541"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38671428"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
@@ -366,7 +366,7 @@ Azure Media Services 패키지 작성 도구 및 암호기에 대한 다음 버�
 
 ## <a id="may_changes_14"></a>2014년 5월 릴리스
 ### <a id="may_14_changes"></a>일반 Media Services 업데이트
-이제 [동적 패키징]을 사용하여 HLS 버전 3을 스트리밍할 수 있습니다. HLS 버전 3를 스트리밍하려면 원래 로케이터 경로에 *.ism/manifest(format=m3u8-aapl-v3) 형식을 추가합니다. 자세한 내용은 [이 블로그](http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/)를 참조하세요.
+이제 [동적 패키징]을 사용하여 HLS 버전 3을 스트리밍할 수 있습니다. HLS 버전 3를 스트리밍하려면 원래 로케이터 경로에 *.ism/manifest(format=m3u8-aapl-v3) 형식을 추가합니다. 자세한 내용은 [이 포럼](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3)을 참조하세요.
 
 이제 동적 패키징에서는 PlayReady를 통해 정적으로 암호화된 부드러운 스트리밍을 기반으로 하여 PlayReady로 암호화된 HLS(버전 3 및 버전 4)도 배달할 수 있습니다. PlayReady로 부드러운 스트리밍을 암호화하는 방법에 대한 자세한 내용은 [PlayReady로 부드러운 스트리밍 보호](http://msdn.microsoft.com/library/azure/dn189154.aspx)를 참조하세요.
 
@@ -396,7 +396,7 @@ Media Services .NET SDK의 현재 버전은 3.0.0.5입니다. 다음이 업데�
 * OrderBy 문에서 LINQ 쿼리 사용에 관련된 문제가 수정되었습니다.
 * [GitHub]의 테스트 솔루션이 단위 기반 테스트와 시나리오 기반 테스트로 분할되었습니다.
 
-변경 내용에 대한 자세한 내용은 [Media Services .NET SDK 3.0.0.1 및 3.0.0.2 릴리스](http://www.gtrifonov.com/2014/02/07/windows-azure-media-services-.net-sdk-3.0.0.2-release/)를 참조하세요.
+변경 내용에 대한 자세한 내용은 [Media Services .NET SDK 3.0.0.1 및 3.0.0.2 릴리스](http://gtrifonov.com/2014/02/07/windows-azure-media-services-net-sdk-3-0-0-2-release/index.html)를 참조하세요.
 
 버전 3.0.0.3에서 다음과 같은 사항이 변경되었습니다.
 

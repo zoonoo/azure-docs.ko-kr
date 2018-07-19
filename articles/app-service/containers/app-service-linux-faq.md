@@ -1,11 +1,11 @@
 ---
 title: Linux의 Azure App Service에 대한 FAQ | Microsoft Docs
 description: Linux의 Azure App Service에 대한 FAQ.
-keywords: Azure App Service, 웹앱, faq, linux, oss
+keywords: Azure App Service, 웹앱, FAQ, Linux, OS, 컨테이너에 대한 웹앱, 다중 컨테이너, 다중 컨테이너
 services: app-service
 documentationCenter: ''
-author: ahmedelnably
-manager: cfowler
+author: yili
+manager: apurvajo
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/18/2018
-ms.author: msangapu
-ms.openlocfilehash: 5b3b3d3946b56ff53ad74c2ab93a646baa787d05
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 06/26/2018
+ms.author: yili
+ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36222980"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916859"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -66,7 +66,7 @@ Node.js의 경우 PM2 구성 파일 또는 스크립트 파일을 지정합니�
 
 예.
 
-***웹 배포*를 사용하여 내 웹앱을 설정할 수 있나요?**
+***WebDeploy/MSDeploy*를 사용하여 내 웹앱을 배포할 수 있나요?**
 
 예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 *false*로 설정해야 합니다.
 
@@ -144,6 +144,35 @@ SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 
 **사용자 지정 컨테이너에서 HTTPS를 구현해야 하나요?**
 
 아니요. 플랫폼에서는 공유 프런트 엔드에서 HTTPS 종료를 처리합니다.
+
+## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Docker Compose 및 Kubernetes를 사용한 다중 컨테이너
+
+**다중 컨테이너를 사용하도록 ACR(Azure Container Registry)을 구성하려면 어떻게 할까요?**
+
+다중 컨테이너에서 ACR을 사용하기 위해 **모든 컨테이너 이미지**는 동일한 ACR 레지스트리 서버에 호스트되어야 합니다. 동일한 레지스트리 서버에 위치하면 응용 프로그램 설정을 만든 다음, Docker Compose 또는 Kubernetes 구성 파일을 업데이트하여 ACR 이미지 이름을 포함해야 합니다.
+
+다음 응용 프로그램 설정을 만듭니다.
+
+- DOCKER_REGISTRY_SERVER_USERNAME
+- DOCKER_REGISTRY_SERVER_URL(전체 URL, 예: https://<server-name>.azurecr.io)
+- DOCKER_REGISTRY_SERVER_PASSWORD(ACR 설정에서 관리자 액세스 사용)
+
+구성 파일 내에서 다음 예제와 같이 ACR 이미지를 참조합니다.
+
+```yaml
+image: <server-name>.azurecr.io/<image-name>:<tag>
+```
+
+**인터넷에 액세스할 수 있는 컨테이너를 알려면 어떻게 할까요?**
+
+- 하나의 컨테이너만이 액세스에 열릴 수 있습니다.
+- 포트 80 및 8080만이 액세스될 수 있습니다(노출된 포트)
+
+우선 순위로 액세스할 수 있는 컨테이너를 결정하는 규칙은 다음과 같습니다.
+
+- 컨테이너 이름으로 설정된 응용 프로그램 설정 `WEBSITES_WEB_CONTAINER_NAME`
+- 포트 80 또는 8080을 정의하는 첫 번째 컨테이너
+- 위의 조건이 모두 true가 아닌 경우 파일에 정의된 첫 번째 컨테이너는 액세스될 수 있습니다(노출됨).
 
 ## <a name="pricing-and-sla"></a>가격 및 SLA
 

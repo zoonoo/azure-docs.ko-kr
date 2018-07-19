@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 2d636eb381710c5e8341e24af8cd157a627348ef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053839"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37113343"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요. 
 
 
 이 문서에서는 데이터 관리 게이트웨이/통합을 사용하여 고가용성 및 확장성 솔루션을 구성하는 방법에 대해 설명합니다.    
@@ -165,7 +165,7 @@ Integration Runtime 노드 간의 통신 보안에 사용되는 TLS/SSL 인증�
 - 인증서는 공개적으로 신뢰할 수 있는 X509 v3 인증서여야 합니다. 공용(타사) CA(인증 기관)에서 발급한 인증서를 사용하는 것이 좋습니다.
 - 각 Integration Runtime 노드는 자격 증명 관리자 응용 프로그램을 실행하는 클라이언트 컴퓨터 뿐만 아니라 이 인증서를 신뢰해야 합니다. 
 > [!NOTE]
-> 자격 증명 관리자 응용 프로그램은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/개인 데이터 저장소와 동일한 네트워크 내의 어떤 컴퓨터에서도 실행할 수 있습니다.
+> 자격 증명 관리자 응용 프로그램은 복사 마법사/Azure Portal에서 자격 증명을 안전하게 설정하는 데 사용됩니다. 또한 이 프로그램은 온-프레미스/개인 데이터 저장소와 동일한 네트워크 내의 어떤 머신에서도 실행할 수 있습니다.
 - 와일드 카드 인증서가 지원됩니다. FQDN 이름이 **node1.domain.contoso.com**인 경우 ***. domain.contoso.com**을 인증서의 주체 이름으로 사용할 수 있습니다.
 - SAN 인증서는 현재 제한 때문에 주체 대체 이름의 마지막 항목만 사용되고 다른 항목은 무시되므로 권장되지 않습니다. 예: 해당 SAN이 **node1.domain.contoso.com** 및 **node2.domain.contoso.com**인 SAN 인증서가 있으며 해당 FQDN이 **node2.domain.contoso.com**인 컴퓨터에만 이 인증서를 사용할 수 있습니다.
 - Windows Server 2012 R2에서 지원하는 SSL 인증서의 키 크기는 모두 지원됩니다.

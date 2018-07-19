@@ -10,12 +10,12 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b110f83274b2b42896bd18fb364c355ecc97a028
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34258263"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867956"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -57,6 +57,7 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **Ignore** - 기호화된 링크가 무시되고 참조된 파일/디렉터리를 포함하지 않습니다.<br>**Follow** - 재귀 중에 기호화된 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
 
 > [!NOTE]
 > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
@@ -75,6 +76,13 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 |Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
 |경로 입력     | 파일을 확인할 경로입니다. 예: "c:\temp\myfile.txt"       |
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
+
+## <a name="configure-file-content-tracking"></a>파일 콘텐츠 추적 구성
+
+파일 콘텐츠 변경 내용 추적을 사용하여 파일의 변경 이전과 이후의 콘텐츠를 볼 수 있습니다. 이 기능은 Windows 및 Linux 파일에 지원되고, 파일 각각의 변경 내용의 경우 파일의 콘텐츠는 저장소 계정에 저장되고 변경 이전과 이후의 파일을 인라인으로 또는 나란히 보여줍니다. 자세한 내용은 [추적된 파일의 콘텐츠 보기](change-tracking-file-contents.md)를 참조하세요.
+
+![파일의 변경 내용 보기](./media/change-tracking-file-contents/view-file-changes.png)
 
 ### <a name="configure-windows-registry-keys-to-track"></a>추적할 Windows 레지스트리 키 구성
 
@@ -125,11 +133,22 @@ Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일�
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
 | Linux 파일 | 15분 |
-| Windows 서비스 | 30분 |
+| Windows 서비스 | 10초에서 30분</br> 기본값: 30분 |
 | Linux 데몬 | 5분 |
 | Windows 소프트웨어 | 30분 |
 | Linux 소프트웨어 | 5분 |
 
+### <a name="windows-service-tracking"></a>Windows 서비스 추적
+
+Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를 구성하려면로 **변경 내용 추적**으로 이동합니다. **Windows 서비스** 탭의 **설정 편집**에는 Windows 서비스에 대한 컬렉션 빈도를 10초에서 30분 사이로 변경할 수 있는 슬라이더가 있습니다. 원하는 빈도에 슬라이더 막대를 이동하면 자동으로 저장됩니다.
+
+![Windows 서비스 슬라이더](./media/automation-change-tracking/windowservices.png)
+
+에이전트는 변경 내용을 추적하고, 에이전트의 성능을 최적화합니다. 임계값을 너무 높게 설정하여 서비스가 원래 상태로 되돌려지면 변경 내용은 누락될 수 있습니다. 빈도를 더 작은 값으로 설정하면 누락될 수 있는 변경 내용을 파악할 수 있습니다.
+
+> [!NOTE]
+> 에이전트가 10초 간격으로 변경 내용을 추적하는 동안 데이터를 포털에 표시하는 데 몇 분 정도가 걸립니다. 포털에 표시하는 시간 동안 변경 내용이 추적되고 기록됩니다.
+  
 ### <a name="registry-key-change-tracking"></a>레지스트리 키 변경 내용 추적
 
 레지스트리 키의 변경 내용을 모니터링하는 목적은 타사 코드 및 맬웨어가 활성화될 수 있는 확장성 지점을 정확하게 찾기 위한 것입니다. 다음 목록에서는 미리 구성된 레지스트리 키의 목록을 보여 줍니다. 이러한 키는 구성되어 있지만 사용할 수 없습니다. 이러한 레지스트리 키를 추적하려면 각 레지스트리 키를 사용하도록 설정해야 합니다.

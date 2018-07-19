@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 508b2f615819f20a717065d8fff25beff64957d5
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a519cd242b88916d1a11df47c0b7450594848ef5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263432"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920552"
 ---
 # <a name="archive-the-azure-activity-log"></a>Azure 활동 로그 보관
 이 문서에서는 Azure 포털, PowerShell Cmdlet 또는 플랫폼 간 CLI를 사용하여 저장소 계정에서 [**Azure 활동 로그**](monitoring-overview-activity-logs.md)를 보관하는 방법을 보여 줍니다. 이 옵션은 감사, 정적 분석 또는 백업을 위해 활동 로그를 90일 이상(보존 정책에 대해 모든 권한으로) 유지하려는 경우에 유용합니다. 90일 이내로 이벤트를 보관해야 하는 경우 활동 로그는 보관 활성화 없이 Azure 플랫폼에 90일 동안 보관되므로 저장소 계정에 보관을 설정할 필요가 없습니다.
 
+> [!WARNING]
+> 저장소 계정에서 로그 데이터의 형식이 2018년 11월 1일에 JSON 줄로 변경됩니다. [새 형식을 처리하도록 도구를 업데이트하는 방법과 영향에 대한 설명은 이 아티클을 참조하세요.](./monitor-diagnostic-logs-append-blobs.md) 
+>
+> 
+
 ## <a name="prerequisites"></a>필수 조건
-시작하기 전에 활동 로그를 보관하려면 [저장소 계정을 만들](../storage/common/storage-create-storage-account.md#create-a-storage-account) 어야 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 진단 로그 및 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 활동 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다. 사용하는 저장소 계정은 Blob 저장소 계정이 아닌 범용 저장소 계정이어야 합니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
+시작하기 전에 활동 로그를 보관하려면 [저장소 계정을 만들](../storage/common/storage-create-storage-account.md#create-a-storage-account) 어야 합니다. 모니터링 데이터에 대한 액세스를 보다 잘 제어할 수 있도록 다른 비 모니터링 데이터가 저장된 기존 저장소 계정을 사용하지 않는 것이 좋습니다. 그러나 저장소 계정에 대한 진단 로그 및 메트릭을 보관하는 경우 중앙 위치에서 모든 모니터링 데이터를 유지하도록 활동 로그에 대해 해당 저장소 계정을 사용하는 것이 합리적일 수 있습니다. 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
 
 > [!NOTE]
 >  현재는 보안 가상 네트워크 뒤에 있는 저장소 계정에 데이터를 보관할 수 없습니다.
@@ -37,7 +42,7 @@ ms.locfileid: "35263432"
 3. 표시되는 블레이드에서 **저장소 계정에 내보내기** 에 대한 상자를 선택하고 저장소 계정을 선택합니다.
    
     ![저장소 계정 설정](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
-4. 슬라이더 또는 텍스트 상자를 사용하여 저장소 계정에 활동 로그 이벤트를 보관해야 할 일 수를 정의합니다. 데이터를 저장소 계정에 무기한으로 유지하려는 경우 이 숫자를 0으로 설정합니다.
+4. 슬라이더 또는 텍스트 상자를 사용하여 저장소 계정에 활동 로그 이벤트를 보관해야 할 일 수(0~365)를 정의합니다. 데이터를 저장소 계정에 무기한으로 유지하려는 경우 이 숫자를 0으로 설정합니다. 365보다 많은 일 수를 입력해야 하는 경우 아래에 설명된 PowerShell 또는 CLI 메서드를 사용합니다.
 5. **저장**을 클릭합니다.
 
 ## <a name="archive-the-activity-log-via-powershell"></a>PowerShell을 통해 활동 로그 보관
@@ -80,23 +85,23 @@ ms.locfileid: "35263432"
 | 범주 |예 |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 ## <a name="storage-schema-of-the-activity-log"></a>활동 로그의 저장소 스키마
-보관을 설정한 후 활동 로그 이벤트가 발생하는 즉시 저장소 계정에 저장소 컨테이너가 만들어집니다. 컨테이너 내의 Blob은 활동 로그 및 진단 로그와 동일한 형식을 따릅니다. 해당 Blob의 구조는 다음과 같습니다.
+보관을 설정한 후 활동 로그 이벤트가 발생하는 즉시 저장소 계정에 저장소 컨테이너가 만들어집니다. 컨테이너 내의 Blob은 다음과 같이 설명된 활동 로그 및 진단 로그에 대해 동일한 명명 규칙을 따릅니다.
 
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
-> 
-> 
+```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/{subscription ID}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
 
 예를 들어 Blob 이름은 다음과 같습니다.
 
-> insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
-> 
-> 
+```
+insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/y=2016/m=08/d=22/h=18/m=00/PT1H.json
+```
 
 각 PT1H.json Blob은 Blob URL에 지정된 시간 내에서 발생한 이벤트의 JSON Blob을 포함합니다(예: h=12). 현재 시간 동안 이벤트는 발생하는 순서대로 PT1H.json 파일에 추가됩니다. 활동 로그 이벤트는 시간당 개별 Blob으로 나뉘므로 분 값(m=00)은 항상 00입니다.
 
 PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배열에 저장됩니다.
 
-```
+``` JSON
 {
     "records": [
         {

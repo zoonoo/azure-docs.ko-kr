@@ -1,9 +1,9 @@
 ---
-title: 서비스 공급자에 대한 Log Analytics 기능 | Microsoft Docs
+title: 서비스 공급자의 Log Analytics | Microsoft Docs
 description: Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
+author: MeirMen
 manager: jochan
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
@@ -11,76 +11,77 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/22/2016
-ms.author: richrund
-ms.openlocfilehash: 6934e92df562099122eaede39fd26cf51cf1ee44
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 07/05/2018
+ms.author: meirm
+ms.component: na
+ms.openlocfilehash: ad0a3b8e0ee5f1114ea1db95cfe2f4176b8e2ddb
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31593052"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931993"
 ---
-# <a name="log-analytics-features-for-service-providers"></a>서비스 공급자에 대한 Log Analytics 기능
+# <a name="log-analytics-for-service-providers"></a>서비스 공급자의 Log Analytics
 Log Analytics는 MSP(Managed Service Providers), 대기업, ISV(Independent Software Vendor)를 지원하며 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리하고 모니터링할 수 있도록 합니다. 
 
 대기업은 서비스 공급자와 많은 유사성을 공유하는데, 특히 중앙 IT 팀이 다양한 사업부의 IT 관리를 담당한다는 점이 그렇습니다. 간단한 설명을 위해 이 문서에서는 *서비스 공급자*라는 용어를 사용하지만 기업 및 기타 고객에 대해서도 같은 기능을 사용할 수 있습니다.
 
-## <a name="cloud-solution-provider"></a>클라우드 솔루션 공급자
 [CSP(클라우드 솔루션 공급자)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 프로그램에 참여하는 파트너 및 서비스 공급자에게는 Log Analytics가 [Azure CSP 구독](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)에서 사용할 수 있는 Azure 서비스 중 하나입니다. 
 
-Log Analytics의 경우 다음 기능을 *클라우드 솔루션 공급자* 구독에서 사용할 수 있습니다.
+## <a name="architectures-for-service-providers"></a>서비스 공급자의 아키텍처
 
-*CSP(클라우드 솔루션 공급자)* 는 다음을 수행할 수 있습니다.
+Log Analytics 작업 영역은 관리자에게 메서드를 제공하여 흐름 및 로그의 격리를 제어하고 특정 비즈니스 요구 사항을 해결하는 로그 아키텍처를 만듭니다. [이 아티클](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access)에서는 작업 영역 관리와 관련된 일반적인 고려 사항을 설명합니다. 서비스 공급자에게는 추가 고려 사항이 있습니다.
 
-* 테넌트(고객) 구독에 Log Analytics 작업 영역을 만듭니다.
-* 테넌트에서 만든 작업 영역에 액세스합니다. 
-* Azure 사용자 관리를 사용하여 작업 영역에 대한 사용자 액세스를 추가 및 제거합니다. OMS 포털의 테넌트 작업 영역에서 설정의 사용자 관리 페이지를 사용할 수 없는 경우
-  * Log Analytics에서는 아직 역할 기반 액세스를 지원하지 않으므로 Azure 포털에서 사용자에게 `reader` 권한을 부여하여 OMS 포털에서 구성을 변경할 수 있습니다.
+Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가지 아키텍처를 사용할 수 있습니다.
 
-테넌트의 구독에 로그인하려면 테넌트 식별자를 지정해야 합니다. 테넌트 식별자는 보통 로그인하는 데 사용한 전자 메일 주소의 마지막 부분입니다.
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. 배포됨 - 로그는 고객의 테넌트에 있는 작업 영역에 저장됩니다. 
 
-* OMS 포털에서 포털에 대한 URL에 `?tenant=contoso.com`을 추가합니다. 위치(예:`mms.microsoft.com/?tenant=contoso.com`
-* PowerShell에서는 `Connect-AzureRmAccount` cmdlet을 사용할 때 `-Tenant contoso.com` 매개 변수를 사용합니다.
-* Azure 포털에서 `OMS portal` 링크를 사용하여 선택한 작업 영역에 대한 OMS 포털을 열고 로그인하면 테넌트 식별자가 자동으로 추가됩니다.
+이 아키텍처에서 작업 영역은 해당 고객의 모든 로그에 사용되는 고객의 테넌트에서 배포됩니다. 서비스 공급자 관리자는 [Azure Active Directory 게스트 사용자(B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b)를 사용하여 이 작업 영역에 대한 액세스 권한이 부여되었습니다. 서비스 공급자 관리자는 Azure Portal에서 고객의 디렉터리로 전환되어 이러한 작업 영역에 액세스할 수 있어야 합니다.
 
-CSP(클라우드 솔루션 공급자)의 *고객*은 다음을 수행할 수 있습니다.
+이 아키텍처의 장점은 다음과 같습니다.
+* 고객은 고유한 [역할 기반 액세스](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview)를 사용하여 로그에 대한 액세스 권한을 관리할 수 있습니다.
+* 각 고객은 보존 및 데이터 제한과 같은 해당 작업 영역의 설정이 서로 다를 수 있습니다.
+* 규정 및 준수를 위해 고객을 서로 격리합니다.
+* 각 작업 영역에 대한 요금이 고객의 구독에 롤인됩니다.
+* 로그는 에이전트 기반이 아닌 모든 형식의 리소스에서 수집될 수 있습니다. 예: Azure 감사
 
-* CSP 구독에서 Log Analytics 작업 영역 만들기
-* CSP가 만든 작업 영역에 액세스
-  * Azure 포털에서 `OMS portal` 링크를 사용하여 선택한 작업 영역에 대한 OMS 포털을 열고 로그인
-* OMS 포털의 설정에서 사용자 관리 페이지 보기 및 사용
+이 아키텍처의 단점은 다음과 같습니다.
+* 서비스 공급자의 경우 한 번에 많은 수의 고객 테넌트를 관리하기가 어렵습니다.
+* 서비스 공급자 관리자는 고객 디렉터리에서 프로비전되어야 합니다.
+* 서비스 공급자는 해당 고객 간에 데이터를 분석할 수 없습니다.
 
-> [!NOTE]
-> Log Analytics에 대해 포함된 Backup 및 Site Recovery 솔루션을 Recovery Services 자격 증명 모음에 연결할 수 없으며 CSP 구독에서 구성할 수 없습니다. 
-> 
-> 
+### <a name="2-central---logs-are-stored-in-workspace-located-in-the-service-provider-tenant"></a>2. 중부 - 로그는 서비스 공급자 테넌트에 있는 작업 영역에 저장됩니다.
 
-## <a name="managing-multiple-customers-using-log-analytics"></a>Log Analytics를 사용하여 여러 고객 관리
-관리하는 고객마다 Log Analytics 작업 영역을 만드는 것이 좋습니다. Log Analytics 작업 영역이 제공하는 정보:
+이 아키텍처에서 로그는 고객의 테넌트에 저장되지 않고 서비스 공급자의 구독 내의 중앙 위치에만 저장됩니다. 고객의 VM에 설치된 에이전트는 작업 영역 ID 및 암호 키를 사용하여 이 작업 영역에 해당 로그를 보내도록 구성됩니다.
 
-* 저장할 데이터에 대한 지리적 위치입니다. 
-* 대금 청구에 대한 세분성 
-* 데이터 격리 
-* 고유한 구성
+이 아키텍처의 장점은 다음과 같습니다.
+* 쉽게 다수의 고객을 관리하고 다양한 백 엔드 시스템에 통합할 수 있습니다.
+* 서비스 공급자에게는 함수 및 저장된 쿼리와 같은 로그 및 다양한 아티팩트에 대한 전체 소유권이 있습니다.
+* 서비스 공급자는 모든 고객 간에 분석을 수행할 수 있습니다.
 
-고객당 작업 영역을 만들면 각 고객의 데이터를 별도로 유지하고 각 고객의 사용 현황을 추적할 수도 있습니다.
+이 아키텍처의 단점은 다음과 같습니다.
+* 이 아키텍처는 에이전트 기반 VM 데이터에만 적용 가능하고, PaaS, SaaS 및 Azure 패브릭 데이터 원본을 다루지 않습니다.
+* 단일 작업 영역으로 병합된 고객 간에 데이터를 구분하기가 어려울 수 있습니다. 이렇게 하려면 유일한 방법은 컴퓨터의 FQDN(정규화된 도메인 이름)을 사용하거나 Azure 구독 ID를 통해서 수행하는 것입니다. 
+* 모든 고객의 모든 데이터는 단일 청구서 및 동일한 보존 및 구성 설정을 사용하여 동일한 지역에 저장됩니다.
+* Azure 진단 및 Azure 감사와 같은 Azure 패브릭 및 PaaS 서비스에는 리소스와 동일한 테넌트에 있는 작업 영역이 필요합니다. 따라서 중앙 작업 영역에 로그를 보낼 수 없습니다.
+* 모든 고객의 모든 VM 에이전트는 동일한 작업 영역 ID 및 키를 사용하여 중앙 작업 영역에 인증됩니다. 다른 고객을 방해하지 않고 특정 고객의 로그를 차단하는 방법은 없습니다.
 
-여러 작업 영역을 만들어야 하는 시기와 이유에 대한 자세한 내용은 [Log Analytics에 대한 액세스 관리](log-analytics-manage-access.md#determine-the-number-of-workspaces-you-need)에 설명되어 있습니다.
 
-고객 작업 영역의 생성 및 구성은 [PowerShell](log-analytics-powershell-workspace-configuration.md), [Resource Manager 템플릿](log-analytics-template-workspace-configuration.md), [REST API](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/)를 사용하여 자동화할 수 있습니다.
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. 하이브리드 - 로그는 고객의 테넌트에 있는 작업 영역에 저장되고 그 중 일부는 중앙 위치로 끌어옵니다.
 
-작업 영역 구성을 위해 Resource Manager 템플릿을 사용하면 작업 영역을 만들고 구성하는 데 사용할 수 있는 마스터 구성을 활용할 수 있습니다. 사용자 요구 사항에 따라 자동으로 구성된 작업 영역이 고객에 대해 생성되는 것을 확신할 수 있습니다. 요구 사항을 업데이트하면 템플릿이 업데이트된 후 기존 작업 영역에 다시 적용됩니다. 이 프로세스는 기존 작업 영역이 새로운 표준을 충족하는지도 확인합니다.    
+두 가지 옵션 중 세 번째 아키텍처 조합입니다. 로그가 각 고객에게 로컬인 첫 번째 분산 아키텍처에 기반하지만 로그의 중앙 리포지토리를 만드는 일부 메커니즘을 사용합니다. 보고 및 분석을 위해 중앙 위치로 로그의 일부를 끌어옵니다. 이 부분은 적은 수의 데이터 형식 또는 일별 통계와 같은 작업 요약일 수 있습니다.
 
-여러 Log Analytics 작업 영역을 관리할 때는 [경고](log-analytics-alerts.md) 기능을 사용하여 각 작업 영역을 기존의 티켓 시스템/운영 콘솔과 통합하는 것이 좋습니다. 기존 시스템과 통합되므로 지원 담당자는 친숙한 프로세스를 계속 진행할 수 있습니다. Log Analytics는 각 작업 영역에서 사용자가 지정한 경고 기준을 정기적으로 확인하고 작업이 필요하면 경고를 생성합니다.
+Log Analytics에서 중앙 위치를 구현하는 두 가지 옵션이 있습니다.
 
-데이터에 대한 개인 설정된 보기는 Azure Portal의 [대시보드](../azure-portal/azure-portal-dashboards.md) 기능을 사용하세요.  
+1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](log-analytics-data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 이외의 다른 옵션은 [Azure Logic App](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)을 사용하는 것입니다.
 
-작업 영역 전반의 데이터를 요약하는 경영진 수준 보고서를 얻기 위해서는 Log Analytics와 [PowerBI](log-analytics-powerbi.md)의 통합을 사용하면 됩니다. 다른 보고 시스템과 통합이 필요한 경우 Search API(PowerShell 또는 [REST](log-analytics-log-search-api.md)를 통해)를 사용하여 쿼리를 실행하고 검색 결과를 내보낼 수 있습니다.
+2. 중앙 위치인 Power BI: Power BI는 다양한 작업 영역이 Log Analytics와 [Power BI](log-analytics-powerbi.md) 간의 통합을 사용하여 데이터를 내보내는 경우 중앙 위치로 작동할 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 템플릿](log-analytics-template-workspace-configuration.md)을 사용하여 작업 영역 생성 및 구성 자동화
 * [PowerShell](log-analytics-powershell-workspace-configuration.md)을 사용하여 작업 영역 생성 자동화 
 * [경고](log-analytics-alerts.md)를 사용하여 기존 시스템과 통합
-* [PowerBI](log-analytics-powerbi.md)를 사용하여 요약 보고서 생성
+* [Power BI](log-analytics-powerbi.md)를 사용하여 요약 보고서 생성
 

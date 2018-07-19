@@ -2,7 +2,7 @@
 title: Azure Active Directory ID 보호 플레이 북 | Microsoft Docs
 description: Azure AD ID 보호를 사용하여 손상된 ID 및 장치를 악용하는 공격자의 능력을 제한하고 이전에 손상이 우려되거나 손상된 ID 또는 장치를 보호할 수 있는 방법을 알아봅니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: ff4a8bfb5a92f0969aef726893bebb6aacd4d942
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: c0fd22bb9abb0710b9b4601777a0f0256386af77
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714309"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473941"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory ID 보호 플레이 북
 
@@ -104,8 +104,8 @@ ms.locfileid: "34714309"
 취약점은 잘못된 행위자에 의해 악용될 수 있는 Azure AD 환경의 단점입니다. 현재 3가지 유형의 취약점은 Azure AD의 다른 기능을 활용하는 Azure AD ID 보호에 표시됩니다. 이러한 기능이 설정되면 이러한 취약성이 ID 보호 대시보드에 자동으로 표시됩니다.
 
 * Azure AD [Multi-Factor Authentication](authentication/multi-factor-authentication.md)
-* Azure AD [Cloud App Discovery](manage-apps/cloud-app-discovery.md).
-* Azure AD [Privileged Identity Management](active-directory-privileged-identity-management-configure.md). 
+* Azure AD [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery).
+* Azure AD [Privileged Identity Management](privileged-identity-management/pim-configure.md). 
 
 
 ## <a name="testing-security-policies"></a>보안 정책 테스트

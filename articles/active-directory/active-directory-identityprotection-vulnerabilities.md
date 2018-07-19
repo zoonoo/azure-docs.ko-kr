@@ -2,7 +2,7 @@
 title: Azure Active Directory ID 보호에서 검색하는 취약성 | Microsoft Docs
 description: Azure Active Directory ID 보호에서 검색하는 취약성에 대한 개요입니다.
 services: active-directory
-keywords: Azure Active Directory ID 보호, 클라우드 앱 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
+keywords: Azure Active Directory ID 보호, 클라우드 검색, 응용 프로그램 관리, 보안, 위험, 위험 수준, 취약점, 보안 정책
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 9ee926ff7cf44041c1969d541ca225395ba31a2f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 804ee23a8e27eda89861ef820d266f93013d7ffe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34713697"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307333"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Azure Active Directory ID 보호에서 검색하는 취약성
 취약점은 공격자에 의해 악용될 수 있는 환경의 단점입니다. 이러한 취약성을 해결하여 조직에서 보안 상태를 개선하고 공격자가 이러한 취약성을 악용하지 않도록 방지하는 것이 좋습니다.
@@ -47,9 +47,9 @@ Multi-Factor Authentication은 사용자 인증에 두 번째 계층의 보안�
 
 오늘날 기업에서 IT 부서는 해당 조직의 사용자가 작업하는 데 사용하고 있는 일부 클라우드 응용 프로그램을 인지하지 못하는 경우가 있습니다. 관리자가 회사 데이터에 대한 무단 액세스, 데이터 유출 가능성 및 기타 보안 위험에 대해 우려하는 원인을 쉽게 확인합니다. 
 
-Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 프로그램을 검색하고 이러한 응용 프로그램을 관리하도록 Cloud App Discovery를 배포하는 것이 좋습니다.
+Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 프로그램을 검색하고 이러한 응용 프로그램을 관리하도록 Cloud Discovery를 배포하는 것이 좋습니다.
 
-자세한 내용은 [Cloud App Discovery를 사용하여 관리되지 않은 클라우드 응용 프로그램 찾기](manage-apps/cloud-app-discovery.md)를 참조하세요.
+자세한 내용은 [Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)를 참조하세요.
 
 ## <a name="security-alerts-from-privileged-identity-management"></a>Privileged Identity Management에서 보안 경고
 이 취약점을 사용하여 조직에서 권한있는 ID에 대한 경고를 검색하고 해결할 수 있습니다.  
@@ -58,7 +58,7 @@ Azure Active Directory를 사용하여 관리되지 않은 클라우드 응용 �
 
 조직에서 Azure AD Privileged Identity Management를 사용하여 Azure AD 및 기타 Microsoft 온라인 서비스(Office 365 또는 Microsoft Intune 등)에서 권한 있는 ID 및 리소스에 대한 액세스를 관리, 제어, 모니터링하는 것이 좋습니다.
 
-자세한 내용은 [Azure AD Privileged Identity Management](active-directory-privileged-identity-management-configure.md)를 참조하세요. 
+자세한 내용은 [Azure AD Privileged Identity Management](privileged-identity-management/pim-configure.md)를 참조하세요. 
 
 ## <a name="see-also"></a>참고 항목
 * [Azure Active Directory ID 보호](active-directory-identityprotection.md)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 32cc1a436521574917c8e52b2fa4e045d32a4f09
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062577"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930310"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -151,11 +151,14 @@ Set-AzureRmContext -SubscriptionId $RunAsConnection.SubscriptionID | Write-Verbo
 Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 ```
 
+> [!IMPORTANT]
+> **Add-AzureRmAccount**는 이제 **Connect-AzureRMAccount**에 대한 별칭입니다. 라이브러리를 항목을 검색할 때 **Connect-AzureRMAccount**가 표시되지 않는 경우 **Add-AzureRmAccount**를 사용하거나 Automation 계정에서 모듈을 업데이트할 수 있습니다.
+
 *Export-RunAsCertificateToHybridWorker* Runbook을 `.ps1` 확장명의 컴퓨터에 저장합니다. Runbook을 Automation 계정으로 가져오고 편집하여 `$Password` 변수 값을 사용자 고유의 암호로 변경합니다. 실행 계정을 사용하여 Runbook을 실행 및 인증하는 Hybrid Worker 그룹을 대상으로 Runbook을 게시한 후 실행합니다. 이 작업 스트림은 인증서를 로컬 컴퓨터 저장소로 가져오려는 시도를 보고하는데, 구독에 정의된 Automation 계정 수에 따라 그리고 인증이 성공했는지 여부에 따라 여러 줄로 표시합니다.
 
 ## <a name="job-behavior"></a>작업 동작
 
-Hybrid Runbook Worker의 작업은 Azure 샌드박스에서 실행될 때보다 약간 다르게 처리됩니다. 한 가지 중요한 차이점은 Hybrid Runbook Worker의 작업 기간에는 제한이 없다는 것입니다. 장기 실행 Runbook이 있는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터가 다시 부팅되는 경우와 같이 다시 시작하여 복원할 수 있는지 확인하려고 합니다. 하이브리드 작업자 호스트 컴퓨터가 다시 부팅되면, 실행 중인 모든 Runbook 작업이 처음부터 다시 시작되거나 PowerShell 워크플로 Runbook의 마지막 검사점에서 다시 시작됩니다. Runbook 작업이 4회 이상 다시 시작되면 일시 중단됩니다.
+Hybrid Runbook Worker의 작업은 Azure 샌드박스에서 실행될 때보다 약간 다르게 처리됩니다. 한 가지 중요한 차이점은 Hybrid Runbook Worker의 작업 기간에는 제한이 없다는 것입니다. Azure 샌드박스에서 실행된 Runbook은 [공평 분배](automation-runbook-execution.md#fair-share)로 인해 3시간으로 제한됩니다. 장기 실행 Runbook이 있는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터가 다시 부팅되는 경우와 같이 다시 시작하여 복원할 수 있는지 확인하려고 합니다. 하이브리드 작업자 호스트 컴퓨터가 다시 부팅되면, 실행 중인 모든 Runbook 작업이 처음부터 다시 시작되거나 PowerShell 워크플로 Runbook의 마지막 검사점에서 다시 시작됩니다. Runbook 작업이 4회 이상 다시 시작되면 일시 중단됩니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 

@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65aad3244ce49e77bdd2e207bf14cf2e7ef459b9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 32ad5ef4f297a64f0925febb247ccb117dffedf0
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195365"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928593"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 
@@ -111,6 +111,13 @@ Runbook을 테스트하고 게시했지만, 지금까지 아무 것도 유용하
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
    ```
+
+   > [!IMPORTANT]
+   > **Add-AzureRmAccount** 및 **Login-AzureRmAccount**는 **Connect-AzureRMAccount**의 별칭입니다. **Connect-AzureRMAccount** cmdlet이 없는 경우 **Add-AzureRmAccount** 또는 **Login-AzureRmAccount**를 사용하거나 Automation 계정의 [모듈을 최신 버전으로 업테이트](automation-update-azure-modules.md)하면 됩니다. 
+
+> [!NOTE]
+> 새 Automation 계정을 만든 경우에도 [모듈을 업데이트](automation-update-azure-modules.md)해야 할 수 있습니다.
+
 5. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 6. **시작** 을 클릭하여 테스트를 시작합니다. 일단 완료되면 다음과 비슷한 출력을 수신하여 계정의 기본 정보를 표시해야 합니다. 이를 통해 자격 증명이 유효한지 확인됩니다.<br><br> ![인증](media/automation-first-runbook-textual/runbook-auth-output.png)
 

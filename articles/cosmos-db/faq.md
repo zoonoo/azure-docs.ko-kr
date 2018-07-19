@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: ed69d4de56d23210cc9133d74ab81530f924b5ae
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261562"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37859703"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -116,6 +116,11 @@ Azure Cosmos DB는 [Azure 지역](https://azure.microsoft.com/regions/) 페이�
 
 지역을 설정할 때 Azure Cosmos DB는 국가 및 정부 클라우드를 따른다는 점을 염두에 두어야 합니다. 즉, [국가 지역](https://azure.microsoft.com/global-infrastructure/)에 계정을 만든 경우 해당 [국가 지역](https://azure.microsoft.com/global-infrastructure/) 외부로 복제할 수 없습니다. 마찬가지로 외부 계정에서 다른 국가 위치로 복제할 수 없습니다. 
 
+### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>컨테이너 수준 처리량 프로비전에서 데이터베이스 수준 처리량 프로비전으로 전환할 수 있나요? 또는 그 반대로 가능한가요?
+
+컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컬렉션을 만든 다음, [bulk executor library](bulk-executor-overview.md) 또는 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 마이그레이션해야 합니다.
+
+
 ## <a name="develop-against-the-sql-api"></a>SQL API에 대해 개발
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>SQL API에 대해 어떻게 개발을 시작하나요?
@@ -131,12 +136,16 @@ GitHub에서 SQL API [.NET](sql-api-dotnet-samples.md), [Java](https://github.co
 예, SQL API를 통해 응용 프로그램은 스키마 정의 또는 힌트 없이 임의의 JSON 문서를 저장할 수 있습니다. Azure Cosmos DB SQL 쿼리 인터페이스를 통해 쿼리에 즉시 데이터를 사용할 수 있습니다.  
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>SQL API에서 ACID 트랜잭션을 지원하나요?
-예, SQL API는 JavaScript 저장 프로시저 및 트리거로 표현되는 문서 간 트랜잭션을 지원합니다. 동시에 실행되는 다른 코드 및 사용자 요청과 "모두 분리되거나 전혀 분리되지 않으므로" 트랜잭션은 범위가 각 컬렉션 내의 단일 파티션으로 지정되고 ACID 시맨틱으로 실행됩니다. JavaScript 응용 프로그램 코드의 서버 쪽 실행을 통해 예외가 발생하는 경우 전체 트랜잭션이 롤백됩니다. 트랜잭션에 대한 자세한 내용은 [데이터베이스 프로그램 트랜잭션](programming.md#database-program-transactions)을 참조하세요.
+예, SQL API는 JavaScript 저장 프로시저 및 트리거로 표현되는 문서 간 트랜잭션을 지원합니다. 동시에 실행되는 다른 코드 및 사용자 요청과 "모두 분리되거나 전혀 분리되지 않으므로" 트랜잭션은 범위가 각 컨테이너 내의 단일 파티션으로 지정되고 ACID 시맨틱으로 실행됩니다. JavaScript 응용 프로그램 코드의 서버 쪽 실행을 통해 예외가 발생하는 경우 전체 트랜잭션이 롤백됩니다. 트랜잭션에 대한 자세한 내용은 [데이터베이스 프로그램 트랜잭션](programming.md#database-program-transactions)을 참조하세요.
 
-### <a name="what-is-a-collection"></a>컬렉션이란 무엇인가요?
-컬렉션은 문서 및 관련 JavaScript 응용 프로그램 논리의 그룹입니다. 컬렉션은 처리량 및 사용한 저장소에 따라 [비용](performance-levels.md)이 결정되는 청구 가능 엔터티입니다. 컬렉션은 하나 이상의 파티션 또는 서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 저장소 또는 처리량을 처리하도록 확장할 수 있습니다.
+### <a name="what-is-a-container"></a>컨테이너란?
+컨테이너는 문서 및 관련 JavaScript 응용 프로그램 논리의 그룹입니다. 컨테이너는 처리량 및 사용한 저장소에 따라 [비용](performance-levels.md)이 결정되는 청구 가능 엔터티입니다. 컨테이너는 하나 이상의 파티션 또는 서버에 걸쳐 있을 수 있으며 크기가 거의 무제한인 저장소 또는 처리량을 처리하도록 확장할 수 있습니다. 
 
-컬렉션은 Azure Cosmos DB의 청구 엔터티이기도 합니다. 각 컬렉션은 프로비전된 처리량 및 사용된 저장소 공간에 따라 시간 단위로 요금이 청구됩니다. 자세한 내용은 [Azure Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/)을 참조하세요. 
+* SQL 및 MongoDB API 계정의 경우 컨테이너는 컬렉션에 매핑됩니다. 
+* Cassandra 및 Table API 계정의 경우 컨테이너는 테이블에 매핑됩니다. 
+* Gremlin API 계정의 경우 컨테이너는 Graph에 매핑됩니다. 
+
+컨테이너는 Azure Cosmos DB의 청구 엔터티이기도 합니다. 각 컨테이너는 프로비전된 처리량 및 사용된 저장소 공간에 따라 시간 단위로 요금이 청구됩니다. 자세한 내용은 [Azure Cosmos DB 가격 책정](https://azure.microsoft.com/pricing/details/cosmos-db/)을 참조하세요. 
 
 ### <a name="how-do-i-create-a-database"></a>데이터베이스를 어떻게 만드나요?
 [컬렉션 추가](create-sql-api-dotnet.md#create-collection)의 설명대로 [Azure Portal](https://portal.azure.com)을 사용하거나 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 중 하나를 사용하거나 [REST API](/rest/api/cosmos-db/)를 사용하여 데이터베이스를 만들 수 있습니다. 
@@ -165,7 +174,7 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 * [Azure Cosmos DB용 데이터베이스 마이그레이션 도구](import-data.md)에 설명된 대로 데이터 마그레이션 도구를 사용합니다.
 * [Azure Cosmos DB에 대한 서버 쪽 JavaScript 프로그래밍](programming.md)에 설명된 대로 저장 프로시저를 사용합니다.
 
-### <a name="i-have-setup-my-collection-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>지연 인덱싱을 사용하도록 내 컬렉션을 설정했습니다. 내 쿼리가 예상된 결과를 반환하지 않습니다. 
+### <a name="i-have-setup-my-container-to-use-lazy-indexing-i-see-that-my-queries-do-not-return-expected-results"></a>지연 인덱싱을 사용하도록 내 컨테이너를 설정했습니다. 내 쿼리가 예상된 결과를 반환하지 않습니다. 
 인덱싱 섹션에서 설명했듯이 지연 인덱싱으로 이 동작이 발생할 수 있습니다. 항상 모든 응용 프로그램에 일관된 인덱싱을 사용해야 합니다. 
 
 
@@ -180,7 +189,7 @@ SQL API는 JavaScript 저장 프로시저 및 트리거를 통해 언어 통합 
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>개체 계층 구조에서 사용 권한이 허용되나요?
 
-ResourceTokens를 사용한 사용 권한 만들기는 컬렉션 수준 및 해당 하위 항목에서 허용됩니다(예: 문서, 첨부 파일). 이는 데이터베이스에서 권한을 생성하려고 하거나 계정 수준이 현재 허용되지 않음을 의미합니다.
+ResourceTokens를 사용한 사용 권한 만들기는 컨테이너 수준 및 해당 하위 항목에서 허용됩니다(예: 문서, 첨부 파일). 이는 데이터베이스에서 권한을 생성하려고 하거나 계정 수준이 현재 허용되지 않음을 의미합니다.
 
 
 ## <a name="develop-against-the-api-for-mongodb"></a>API for MongoDB에 대해 개발
@@ -280,9 +289,6 @@ Azure Portal을 사용하여 데이터를 찾을 수 있습니다. 또한 Table 
 [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)를 사용할 수 있습니다.
 
 이전에 지정된 형식으로 연결 문자열을 가져오는 유연성이 있는 도구에서 새 Table API를 지원할 수 있습니다. 테이블 도구 목록은 [Azure Storage Client 도구](../storage/common/storage-explorers.md) 페이지에 나와 있습니다. 
-
-### <a name="do-powershell-or-azure-cli-work-with-the-table-api"></a>PowerShell 또는 Azure CLI를 Table API에서 사용할 수 있나요?
-[PowerShell](table-powershell.md)에 대해 지원됩니다. Azure CLI 지원은 현재 제공되지 않습니다.
 
 ### <a name="is-the-concurrency-on-operations-controlled"></a>제어되는 작업에 대한 동시성이 있나요?
 예, 낙관적 동시성은 ETag 메커니즘 사용을 통해 제공됩니다. 
@@ -410,7 +416,7 @@ Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Table API의 가격은 어떻게 계산하나요? 
 가격은 할당된 TableThroughput에 따라 달라집니다. 
 
-### <a name="how-do-i-handle-any-throttling-on-the-tables-in-table-api-offering"></a>Table API 제품에서 테이블에 대한 제한을 처리하려면 어떻게 할까요? 
+### <a name="how-do-i-handle-any-rate-limiting-on-the-tables-in-table-api-offering"></a>Table API 제안에서 테이블에 대한 속도 제한을 처리하려면 어떻게 할까요? 
 요청 속도가 기본 컨테이너 또는 컨테이너 집합에 대해 프로비전된 처리량의 용량을 초과하면 오류가 발생하고, SDK에서 다시 시도 정책을 적용하여 호출을 다시 시도합니다.
 
 ### <a name="why-do-i-need-to-choose-a-throughput-apart-from-partitionkey-and-rowkey-to-take-advantage-of-the-table-api-offering-of-azure-cosmos-db"></a>Azure Cosmos DB의 Table API 제품을 활용하기 위해 PartitionKey 및 RowKey와 별도로 처리량을 선택해야 하는 이유는 무엇인가요?

@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 06/21/2018
 ms.author: richrund
-ms.openlocfilehash: 12172e81ed6b4d79ee200ee1ca79803ad58d6d19
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.component: na
+ms.openlocfilehash: 8a92bf7b031899ee75fbf2bb2fdfd7dced3bc1ad
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263533"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38481993"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Log Analytics의 Azure 네트워킹 모니터링 솔루션
 
@@ -78,6 +79,7 @@ Application Gateway에는 다음 로그가 지원됩니다.
 * ApplicationGatewayFirewallLog
 
 Application Gateway에는 다음 메트릭이 지원됩니다.
+
 
 * 5분 처리량
 
@@ -140,6 +142,12 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Log Analytics의 Azure 네트워크 보안 그룹 분석 솔루션
 
 ![Azure 네트워크 보안 그룹 분석 기호](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+
+> [!NOTE]
+> 해당 기능이 [트래픽 분석](../network-watcher/traffic-analytics.md)으로 대체되었으므로 네트워크 보안 그룹 분석 솔루션은 커뮤니티 지원으로 이동합니다.
+> - 이제 솔루션은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/)에서 지원되고 곧 Azure Marketplace에서 더 이상 지원되지 않습니다.
+> - 이미 해당 작업 영역에 솔루션을 추가한 기존 고객의 경우 변경 없이 계속 작동됩니다.
+> - Microsoft는 진단 설정을 사용하여 NSG 진단 로그를 작업 영역으로 전송하도록 계속 지원합니다.
 
 네트워크 보안 그룹에는 다음 로그가 지원됩니다.
 

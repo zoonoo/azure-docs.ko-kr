@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 61369fbf864db28ee0a9415bbb87dca2a185ed43
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 2480ad464f2fc716cf68672387a189aeb92f5737
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809678"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37918835"
 ---
 # <a name="sap-hana-on-azure-operations-guide"></a>Azure의 SAP HANA 운영 가이드
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영을 위한 지침을 제공합니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -95,7 +95,20 @@ IOPS 및 저장소 처리량에서 저장소 유형 및 해당 SLA의 목록을 
 
 RAID 아래의 Azure VHD 수 누적은 IOPS 및 저장소 처리량 측면의 누적입니다. 따라서 3 x P30 Azure Premium Storage 디스크에 대해 RAID 0을 설정하는 경우 IOPS의 세 배 및 단일 Azure Premium Storage P30 디스크의 저장소 처리량의 세 배를 제공해야 합니다.
 
-hana/data 및 /hana/log에 사용되는 디스크에 대한 Premium Storage 캐싱을 구성하지 마십시오. 이러한 볼륨을 빌드하는 모든 디스크는 해당 디스크의 캐싱을 '없음'으로 설정해야 합니다.
+아래 캐싱 권장 사항은 다음과 같이 나열된 SAP HANA에 대한 I/O 특성을 가정하고 있습니다.
+
+- HANA 데이터 파일에 대한 읽기 워크로드가 거의 없습니다. 예외는 HANA에 데이터를 로드할 때 HANA 인스턴스를 다시 시작하거나 Azure VM을 다시 부팅한 후에 발생하는 대규모 I/O입니다. 데이터 파일에 대한 대규모 I/O의 또 다른 사례는 HANA 데이터베이스 백업일 수 있습니다. 대부분의 경우 모든 데이터 파일 볼륨을 완전히 읽어야 하므로 결과적으로 읽기 캐싱은 의미가 없습니다.
+- HANA 저장점 및 HANA 크래시 복구를 기반으로 데이터 파일에 대한 쓰기가 갑작스럽게 발생합니다. 저장점 쓰기는 비동기이며 사용자 트랜잭션을 유지하지 않습니다. 크래시 복구 중에 데이터 쓰기는 시스템이 다시 빠르게 응답하기 위해 성능이 중요합니다. 그러나 크래시 복구는 예외적인 상황이어야 합니다.
+- HANA 다시 실행 파일에는 읽기가 거의 없습니다. 트랜잭션 로그 백업, 크래시 복구를 수행하는 경우 또는 HANA 인스턴스를 다시 시작하는 단계의 대규모 I/O는 예외입니다.  
+- SAP HANA 다시 실행 로그 파일에 대한 기본 부하는 쓰기입니다. 워크로드의 특성에 따라 4KB 정도의 작은 I/O 또는 다른 경우 1MB 이상의 I/O 크기가 있을 수 있습니다. SAP HANA 다시 실행 로그에 대한 쓰기 대기 시간은 성능이 중요합니다.
+- 모든 쓰기는 신뢰할 수 있는 방식으로 디스크에 유지되어야 합니다.
+
+SAP HANA에서 관찰한 이러한 I/O 패턴의 결과로 Azure Premium Storage를 사용하여 서로 다른 볼륨에 대한 캐싱은 다음과 같이 설정됩니다.
+
+- hana/data - 캐싱 없음
+- /hana/log - 캐싱 없음 - M 시리즈에 대한 예외(이 문서의 뒷부분 참조)
+- /hana/shared - 읽기 캐싱
+
 
 VM의 크기를 조정하거나 결정할 때도 전체 VM I/O 처리량을 고려하세요. 전체 VM 저장소 처리량은 [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) 문서에 설명되어 있습니다.
 

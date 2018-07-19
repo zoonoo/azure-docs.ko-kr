@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 8bcc89f9ec7c73fd1f690e00e831fbd5b960eef9
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 5d5ddd83a2335e7a08bac587aa627f1dcae9738c
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850011"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970903"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory의 장치 관리 소개
 
@@ -75,8 +75,8 @@ Azure AD 가입 장치의 목표는 단순화하는 것입니다.
 ![Azure AD 등록 장치](./media/device-management-introduction/02.png)
 
 다음 방법 중 하나를 사용하여 Azure AD Join을 배포할 수 있습니다. 
- - [Windows Autopilot](https://docs.microsoft.com/en-us/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [대량 배포](https://docs.microsoft.com/en-us/intune/windows-bulk-enroll)
+ - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [대량 배포](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [셀프 서비스 환경](device-management-azuread-joined-devices-frx.md) 
 
 **Azure AD Join**은 클라우드 우선(즉, 온-프레미스 인프라 사용을 줄이기 위해 주로 클라우드 서비스를 사용) 또는 클라우드 전용(온-프레미스 인프라가 없음)을 원하는 조직을 위해 개발되었습니다. Azure AD Join을 배포할 수 있는 조직의 크기 또는 종류에 대한 제한은 없습니다. Azure AD Join은 하이브리드 환경에서도 잘 작동하며, 클라우드 및 온-프레미스 앱과 리소스에도 액세스할 수 있습니다.

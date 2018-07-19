@@ -7,16 +7,16 @@ manager: shivamg
 keywords: Azure Backup Server; 워크로드 보호; 워크로드 백업
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/14/2018
+ms.date: 7/10/2018
 ms.author: adigan
-ms.openlocfilehash: 13b3a5f8530c9f91ca23072c320513b8107df061
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 67243aca9f5f578402ff79422783148af53798c6
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605810"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38546020"
 ---
-# <a name="preparing-to-back-up-workloads-using-azure-backup-server"></a>Azure Backup 서버를 사용하여 워크로드 백업 준비
+# <a name="install-and-configure-azure-backup-server"></a>Azure Backup Server 설치 및 구성
 > [!div class="op_single_selector"]
 > * [Azure Backup 서버](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
@@ -224,7 +224,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
 Azure에 대한 액세스를 차단하고 있는 방화벽 또는 프록시가 있는 경우 방화벽/프록시 프로필에서 다음 도메인 주소를 허용 목록에 추가해야 합니다.
 
-* www.msftncsi.com
+* `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
 * \*.WindowsAzure.com
 * \*.microsoftonline.com

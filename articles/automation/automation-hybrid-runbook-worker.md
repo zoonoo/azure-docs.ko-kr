@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be79f0111cb569509cb05b24c99f86d4ca9534b0
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e834a1cfa7eba3c1ff12523982e6704c73ef8078
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064501"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38488511"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Hybrid Runbook Worker를 사용하여 데이터 센터 또는 클라우드의 리소스 자동화
 
@@ -95,9 +95,9 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ### <a name="hybrid-worker-role"></a>Hybrid Worker 역할
 
-Hybrid Runbook Worker에서 Log Analytics에 연결하고 등록하려면 이 섹션에서 설명하는 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다. [Microsoft Monitoring Agent에서 Log Analytics에 연결하는 데 필요한 포트 및 URL](../log-analytics/log-analytics-agent-windows.md)과 함께 이 액세스 권한이 있어야 Log Analytics에 연결할 수 있습니다.
+Hybrid Runbook Worker에서 Log Analytics에 연결하고 등록하려면 이 섹션에서 설명하는 포트 번호 및 URL에 대한 액세스 권한이 있어야 합니다. [Microsoft Monitoring Agent에서 Log Analytics에 연결하는 데 필요한 포트 및 URL](../log-analytics/log-analytics-agent-windows.md)과 함께 이 액세스 권한이 있어야 Log Analytics에 연결할 수 있습니다. 
 
-에이전트와 Log Analytics 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다.
+에이전트와 Log Analytics 서비스 간의 통신에 프록시 서버를 사용하는 경우 적절한 리소스에 액세스할 수 있는지 확인합니다. 방화벽을 사용하여 인터넷 액세스를 제한하는 경우 액세스를 허용하도록 방화벽을 구성해야 합니다. OMS 게이트웨이를 프록시로 사용하면 하이브리드 작업자에 대해 구성되었는지 확인합니다. 이 작업을 수행하는 방법에 대한 지침은 [Automation Hybrid Worker에 대한 OMS 게이트웨이 구성](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers)을 참조하세요.
 
 Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 포트와 URL이 필요합니다.
 
@@ -105,6 +105,8 @@ Hybrid Runbook Worker 역할에서 Automation 역할과 통신하려면 다음 �
 * 글로벌 URL: *.azure-automation.net
 * US Gov 버지니아의 전역 URL: *.azure-automation.us
 * 에이전트 서비스: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+예외를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영합니다.
 
 특정 지역에 대해 정의된 Automation 계정이 있는 경우 해당 지역 데이터 센터에 대한 통신을 제한할 수 있습니다. 다음 표에서는 각 지역에 대한 DNS 레코드를 제공합니다.
 

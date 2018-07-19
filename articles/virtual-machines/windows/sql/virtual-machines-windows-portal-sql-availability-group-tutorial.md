@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/09/2017
 ms.author: mikeray
-ms.openlocfilehash: 40a8cd256164bb66e82c651e58d37b1afbb4a652
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287806"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38531582"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>수동으로 Azure VM에서 Always On 가용성 그룹 구성
 
@@ -86,7 +86,7 @@ ms.locfileid: "36287806"
 
    ![클러스터 속성](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/42_IPProperties.png)
 
-3. **고정 IP 주소**를 선택하고 주소 입력란에 APIPA(자동 개인 IP 주소) 범위 169.254.255.254~169.254.0.1의 사용 가능한 주소를 지정합니다. 이 예제에서는 해당 범위에 어떤 주소도 사용 가능합니다. 예: `169.254.0.1`. 그런 다음 **확인**을 클릭합니다.
+3. **고정 IP 주소**를 선택하고 가상 머신과 동일한 서브넷에서 사용 가능한 주소를 지정합니다.
 
 4. **클러스터 코어 리소스** 섹션에서 클러스터 이름을 마우스 오른쪽 단추로 클릭하고 **온라인 상태로 전환**을 클릭합니다. 그런 다음 두 리소스가 모두 온라인 상태로 전환될 때까지 기다립니다. 클러스터 이름 리소스가 온라인 상태가 되면 새 AD 컴퓨터 계정으로 DC 서버를 업데이트합니다. 이 AD 계정을 사용하여 나중에 가용성 그룹 클러스터형 서비스를 실행합니다.
 
@@ -188,7 +188,7 @@ ms.locfileid: "36287806"
 
     ![AlwaysOn 가용성 그룹 사용](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. **Apply**를 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭합니다.
+4. **적용**을 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭합니다.
 
 5. SQL Server 서비스를 다시 시작합니다.
 
@@ -341,7 +341,7 @@ Repeat these steps on the second SQL Server.
 
 ## <a name="create-an-azure-load-balancer"></a>Azure Load Balancer 만들기
 
-Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 보유합니다. 이 섹션에서는 Azure Portal에서 부하 분산 장치를 만드는 방법을 요약합니다.
+Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기 및 Windows Server 장애 조치(failover) 클러스터의 IP 주소를 보유합니다. 이 섹션에서는 Azure Portal에서 부하 분산 장치를 만드는 방법을 요약합니다.
 
 1. Azure Portal에서 SQL Server가 있는 리소스 그룹으로 이동하여 **+추가**를 클릭합니다.
 2. **부하 분산 장치**를 검색합니다. Microsoft에서 게시한 부하 분산 장치를 선택합니다.
@@ -370,7 +370,7 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
 
 부하 분산 장치를 구성하려면 백 엔드 풀, 프로브를 만들고 부하 분산 규칙을 설정해야 합니다. Azure Portal에서 이러한 작업을 수행할 수 있습니다.
 
-### <a name="add-backend-pool"></a>백 엔드 풀 추가
+### <a name="add-backend-pool-for-the-availability-group-listener"></a>가용성 그룹 수신기에 대한 백 엔드 풀 추가
 
 1. Azure Portal에서 가용성 그룹으로 이동합니다. 새로 만든 부하 분산 장치를 보려면 보기를 새로 고쳐야 할 수도 있습니다.
 
@@ -416,6 +416,46 @@ Azure Virtual Machines에서 SQL Server 가용성 그룹에는 부하 분산 장
    | **포트** | 가용성 그룹 수신기용 포트 사용 | 1435 |
    | **백 엔드 포트** | 이 필드는 부동 IP가 직접 서버 반환에 대해 설정된 경우 사용하지 않습니다. | 1435 |
    | **프로브** |프로브에 대해 지정한 이름 | SQLAlwaysOnEndPointProbe |
+   | **세션 지속성** | 드롭다운 목록 | **없음** |
+   | **유휴 시간 제한** | TCP 연결을 열린 상태로 유지하는 시간(분) | 4 |
+   | **부동 IP(Direct Server Return)** | |사용 |
+
+   > [!WARNING]
+   > 직접 서버 반환은 만드는 동안 설정됩니다. 이는 변경할 수 없습니다.
+
+1. **확인**을 클릭하여 부하 분산 규칙을 설정합니다.
+
+### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>WSFC에 대한 프런트 엔드 IP 주소 추가
+
+WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다. 
+
+1. 포털에서 WSFC에 대한 새 프런트 엔드 IP 구성을 추가합니다. 클러스터 코어 리소스에서 WSFC에 대해 구성한 IP 주소를 사용합니다. IP 주소를 고정으로 설정합니다. 
+
+1. 부하 분산 장치를 클릭하고 **상태 프로브**, **+추가**를 차례로 클릭합니다.
+
+1. 다음과 같이 상태 프로브를 설정합니다.
+
+   | 설정 | 설명 | 예
+   | --- | --- |---
+   | **Name** | 텍스트 | WSFCEndPointProbe |
+   | **프로토콜** | TCP 선택 | TCP |
+   | **포트** | 사용하지 않는 모든 포트 | 58888 |
+   | **간격**  | 프로브 시도 간격(초) |5 |
+   | **비정상 임계값** | 가상 머신이 비정상 상태로 간주되기 위한 연속된 프로브 실패 횟수  | 2 |
+
+1. **확인**을 클릭하여 상태 프로브를 설정합니다.
+
+1. 부하 분산 규칙을 설정합니다. **부하 분산 규칙**을 클릭하고 **+추가**를 클릭합니다.
+
+1. 부하 분산 규칙을 다음과 같이 설정합니다.
+   | 설정 | 설명 | 예
+   | --- | --- |---
+   | **Name** | 텍스트 | WSFCPointListener |
+   | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. |
+   | **프로토콜** | TCP 선택 |TCP |
+   | **포트** | 가용성 그룹 수신기용 포트 사용 | 58888 |
+   | **백 엔드 포트** | 이 필드는 부동 IP가 직접 서버 반환에 대해 설정된 경우 사용하지 않습니다. | 58888 |
+   | **프로브** |프로브에 대해 지정한 이름 | WSFCEndPointProbe |
    | **세션 지속성** | 드롭다운 목록 | **없음** |
    | **유휴 시간 제한** | TCP 연결을 열린 상태로 유지하는 시간(분) | 4 |
    | **부동 IP(Direct Server Return)** | |사용 |

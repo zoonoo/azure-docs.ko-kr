@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/29/2018
+ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 807af10c0655d9d1728a80a47d1f8f9c2a16fb84
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c8f043fdcaa7554d73be6ac3928a37630baab845
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654286"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38630424"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
-Linux를 실행하는 Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA 그래픽 드라이버를 설치해야 합니다. 이 문서에서는 N 시리즈 VM을 배포한 후의 드라이버 설치 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 설치 정보도 사용할 수 있습니다.
+Linux를 실행하는 Azure N 시리즈 VM의 GPU 기능을 최대한 활용하려면 NVIDIA GPU 드라이버를 설치해야 합니다. [NVIDIA GPU 드라이버 확장](../extensions/hpccompute-gpu-linux.md)은 N 시리즈 VM에 적절한 NVIDIA CUDA 또는 GRID 드라이버를 설치합니다. Azure CLI 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 배포판 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](../extensions/hpccompute-gpu-linux.md)를 참조하세요.
+
+GPU 드라이버를 수동으로 설치하려는 경우 이 문서는 지원되는 배포판, 드라이버 및 설치 및 확인 단계를 제공합니다. [Windows VM](../windows/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대한 드라이버 수동 설치 정보도 제공합니다.
 
 N 시리즈 VM 사양, 저장소 용량 및 디스크 세부 정보는 [GPU Linux VM 크기](sizes-gpu.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 참조하세요. 
 
@@ -302,7 +304,7 @@ GPU 장치 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이�
  
 
 ### <a name="x11-server"></a>X11 서버
-NV VM에 대한 원격 연결을 위해 X11 서버가 필요한 경우 그래픽의 하드웨어 가속화가 가능하기 때문에 [x11vnc](http://www.karlrunge.com/x11vnc/)가 권장됩니다. M60 장치의 BusID는 xconfig 파일에 수동으로 추가해야 합니다(Ubuntu 16.04 LTS의 `etc/X11/xorg.conf`, CentOS 7.3의 `/etc/X11/XF86config` 또는 Red Hat Enterprise Server 7.3). 다음과 유사한 `"Device"` 섹션을 추가합니다.
+NV VM에 대한 원격 연결을 위해 X11 서버가 필요한 경우 그래픽의 하드웨어 가속화가 가능하기 때문에 [x11vnc](http://www.karlrunge.com/x11vnc/)가 권장됩니다. M60 장치의 BusID를 X11 구성 파일(일반적으로 `etc/X11/xorg.conf`)에 직접 추가해야 합니다. 다음과 유사한 `"Device"` 섹션을 추가합니다.
  
 ```
 Section "Device"
@@ -310,7 +312,7 @@ Section "Device"
     Driver         "nvidia"
     VendorName     "NVIDIA Corporation"
     BoardName      "Tesla M60"
-    BusID          "your-BusID:0:0:0"
+    BusID          "PCI:0@your-BusID:0:0"
 EndSection
 ```
  
@@ -319,16 +321,23 @@ EndSection
 실행하여 소수점 BusID를 찾을 수 있음
 
 ```bash
-echo $((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'
 ```
  
-BusID는 VM이 다시 할당되거나 다시 부팅될 때를 변경할 수 있습니다. 따라서 스크립트를 만들어서 VM이 다시 부팅될 때 X11 구성에서 BusID를 업데이트할 수도 있습니다. 예를 들어, 다음과 같은 콘텐츠의 `busidupdate.sh`(또는 사용자가 선택한 다른 이름)라는 스크립트를 만듭니다.
+BusID는 VM이 다시 할당되거나 다시 부팅될 때를 변경할 수 있습니다. 따라서 스크립트를 만들어서 VM이 다시 부팅될 때 X11 구성에서 BusID를 업데이트할 수도 있습니다. 예를 들어, 다음과 유사한 콘텐츠의 `busidupdate.sh`(또는 사용자가 선택한 다른 이름)라는 스크립트를 만듭니다.
 
 ```bash 
 #!/bin/bash
-BUSID=$((16#`/usr/bin/nvidia-smi --query-gpu=pci.bus_id --format=csv | tail -1 | cut -d ':' -f 1`))
+XCONFIG="/etc/X11/xorg.conf"
+OLDBUSID=`awk '/BusID/{gsub(/"/, "", $2); print $2}' ${XCONFIG}`
+NEWBUSID=`nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'`
 
-if grep -Fxq "${BUSID}" /etc/X11/XF86Config; then     echo "BUSID is matching"; else   echo "BUSID changed to ${BUSID}" && sed -i '/BusID/c\    BusID          \"PCI:0@'${BUSID}':0:0:0\"' /etc/X11/XF86Config; fi
+if [[ "${OLDBUSID}" == "${NEWBUSID}" ]] ; then
+        echo "NVIDIA BUSID not changed - nothing to do"
+else
+        echo "NVIDIA BUSID changed from \"${OLDBUSID}\" to \"${NEWBUSID}\": Updating ${XCONFIG}" 
+        sed -e 's|BusID.*|BusID          '\"${NEWBUSID}\"'|' -i ${XCONFIG}
+fi
 ```
 
 그런 다음, 스크립트가 부팅 시 루트로 호출되도록 `/etc/rc.d/rc3.d`에 업데이트 스크립트에 대한 항목을 만듭니다.

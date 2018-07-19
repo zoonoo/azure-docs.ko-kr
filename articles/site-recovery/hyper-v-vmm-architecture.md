@@ -4,14 +4,14 @@ description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레�
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/02/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 39a397edd17327a91882535fbd00222a4ae4dddc
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0319e4d1cdbd20c39772c659a3e5a1580d8b925b
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894299"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919651"
 ---
 # <a name="hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제
 
@@ -37,8 +37,8 @@ ms.locfileid: "33894299"
 
 1. 초기 복제가 트리거되면 [Hyper-V VM 스냅숏](https://technet.microsoft.com/library/dd560637.aspx)이 생성됩니다.
 2. VM의 가상 하드 디스크는 보조 위치에 하나씩 복제됩니다.
-3. 초기 복제가 진행되는 동안 디스크 변경이 발생하는 경우 
-4. 초기 복제가 완료되면 델타 복제가 시작됩니다. Hyper-V 복제본 복제 추적기는 변경 내용을 Hyper-V 복제 로그(.hrl)로 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 위치로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다.
+3. 초기 복제 진행 중에 디스크가 변경될 경우, Hyper-V 복제 로그(.hrl)로 Hyper-V 복제본 복제 추적자가 이러한 변경 내용을 추적합니다. 이러한 로그 파일은 디스크와 동일한 폴더에 있습니다. 각 디스크에는 보조 위치로 전송되는 .hrl 파일이 연결되어 있습니다. 초기 복제 진행 중에는 스냅숏과 로그 파일이 디스크 리소스를 사용합니다.
+4. 초기 복제가 완료되면 VM 스냅숏은 삭제되고 델타 복제가 시작됩니다.
 5. 로그의 델타 디스크 변경 내용이 동기화되고 부모 디스크로 병합합니다.
 
 

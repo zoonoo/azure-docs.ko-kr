@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: a4c83e495e269cdca35844a699d714b55cf1f500
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 173423c1a578500a990d6a7b43017d06ea96f6e7
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643314"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38704903"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Azure에 온-프레미스 물리적 서버에 대한 재해 복구 설정
 
@@ -124,19 +124,25 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
 
 시작하기 전에 다음을 수행하세요. 
 
-- 구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화되었는지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
-- 컴퓨터에서 다음 URL에 액세스할 수 있는지 확인합니다. [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+#### <a name="verify-time-accuracy"></a>시간 정확도 확인
+구성 서버 컴퓨터에서 시스템 시계가 [시간 서버](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service)와 동기화되었는지 확인합니다. 서로 일치해야 합니다. 15분 빠르거나 늦은 경우 설치가 실패할 수 있습니다.
 
-- IP 주소 기반 방화벽 규칙은 Azure와의 통신을 허용해야 합니다.
-- [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다.
-- 구독하는 Azure 지역과 미국 서부에 해당하는 IP 주소 범위를 허용하세요(Access Control 및 ID 관리에 사용됨).
+#### <a name="verify-connectivity"></a>연결 확인
+컴퓨터에서 사용자 환경을 기반으로 다음 URL에 액세스할 수 있는지 확인합니다. 
 
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
+
+IP 주소 기반 방화벽 규칙은 HTTPS(443) 포트를 통해 위에 나열된 모든 Azure URL에 대한 통신을 허용해야 합니다. IP 범위를 간소화하고 제한하려면 URL 필터링을 수행하는 것이 좋습니다.
+
+- **상업용 IP** - [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/confirmation.aspx?id=41653) 및 HTTPS(443) 포트를 허용합니다. AAD, 백업, 복제 및 저장소 URL을 지원하기 위해 구독의 Azure 지역에 대한 IP 주소 범위를 허용합니다.  
+- **정부 IP** - AAD, 백업, 복제 및 저장소 URL을 지원하기 위해 모든 USGov 지역(버지니아, 텍사스, 애리조나 및 아이오와)의 [Azure Government 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=57063) 및 HTTPS(443) 포트를 허용합니다.  
+
+#### <a name="run-setup"></a>설치 프로그램 실행
 로컬 관리자 권한으로 통합 설치를 실행하여 구성 서버를 설치합니다. 프로세스 서버 및 마스터 대상 서버도 기본적으로 구성 서버에 설치됩니다.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 등록이 완료되면 자격 증명 모음의 **설정** > **서버** 페이지에 구성 서버가 표시됩니다.
-
 
 ## <a name="set-up-the-target-environment"></a>대상 환경 설정
 

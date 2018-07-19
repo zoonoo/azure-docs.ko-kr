@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: dc01a775579455ae24c95ecc6f3858ce28149dea
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232130"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38971077"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
 
@@ -75,9 +75,10 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |50008|토큰에서 SAML 어설션이 누락되었거나 잘못 구성되었습니다. 페더레이션 공급자에게 문의하세요.|
 |50010|토큰 대상 그룹이 구성되지 않았으므로 응용 프로그램에 대한 대상 그룹 URI 유효성 검사가 실패했습니다. 응용 프로그램 소유자에게 문의하세요.|
 |50011|회신 주소가 누락되었거나, 잘못 구성되었거나, 응용 프로그램에 대해 구성된 회신 주소와 일치하지 않습니다. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)에 나열된 해결 방법을 사용해 보세요. 그래도 문제가 계속되면 응용 프로그램 소유자 또는 응용 프로그램 관리자에게 문의하세요.|
+|50012| 인증에 실패했음을 나타내는 일반적인 오류 메시지입니다. 요청에서 자격 증명 또는 클레임이 누락되었거나 잘못된 경우와 같은 이유로 발생할 수 있습니다. 요청이 올바른 자격 증명 및 클레임과 함께 전송되었는지 확인합니다. |
 |50013|어설션이 여러 가지 이유로 유효하지 않습니다. 즉 토큰 발급자가 유효한 시간 범위 내의 API 버전과 일치하지 않거나, 만료되었거나, 잘못된 형식으로 되어 있습니다. 또는 어설션의 새로 고침 토큰이 주 새로 고침 토큰이 아닙니다.|
 |50017|다음과 같은 이유로 인증 유효성 검사에 실패했습니다.<ul><li>신뢰할 수 있는 인증서 목록에서 발급한 인증서를 찾을 수 없습니다.</li><li>필요한 CrlSegment를 찾을 수 없습니다.</li><li>신뢰할 수 있는 인증서 목록에서 발급한 인증서를 찾을 수 없습니다.</li><li>델타 CRL 배포 지점이 해당 CRL 배포 지점 없이 구성되어 있습니다.</li><li>시간 제한 문제로 인해 유효한 CRL 세그먼트를 검색할 수 없습니다.</li><li>CRL을 다운로드할 수 없습니다.</li></ul>테넌트 관리자에게 문의하세요.|
-|50020|사용자에게 권한이 없습니다. 버전 문제로 인해 토큰을 발급할 수 없습니다. 발급자 이름이 지정되지 않았습니다. 발급자 이름에 문제(null 또는 최대 길이)가 있습니다. 응용 프로그램 소유자에게 문의하세요.|
+|50020|사용자는 다음 이유 중 하나로 권한이 없습니다.<ul><li>사용자는 v1 엔드포인트에서 MSA 계정으로 로그인하려고 합니다.</li><li>사용자가 테넌트에 존재하지 않습니다.</li></ul> 응용 프로그램 소유자에게 문의하세요.|
 |50027|다음과 같은 이유로 JWT 토큰이 잘못되었습니다.<ul><li>nonce 클레임 또는 sub 클레임이 포함되지 않았습니다.</li><li>주체 식별자가 일치하지 않습니다.</li><li>idToken 클레임에 중복된 클레임이 있습니다.</li><li>예기치 않은 발급자입니다.</li><li>예기치 않은 대상 그룹입니다.</li><li>유효한 시간 범위 내에 있지 않습니다. </li><li>토큰 형식이 잘못되었습니다.</li><li>발급자의 외부 ID 토큰에서 서명을 확인하지 못했습니다.</li></ul>응용 프로그램 소유자에게 문의하세요.|
 |50029|URI가 잘못되었습니다. 도메인 이름에 잘못된 문자가 있습니다. 테넌트 관리자에게 문의하세요.|
 |50034|사용자가 디렉터리에 없습니다. 테넌트 관리자에게 문의하세요.|
@@ -99,7 +100,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |50089|흐름 토큰이 만료되었습니다. 인증에 실패했습니다. 사용자가 사용자 이름-암호를 사용하여 다시 로그인해 보세요.|
 |50097|장치 인증이 필요합니다. DeviceId -DeviceAltSecId 클레임이 null이거나 장치 식별자에 해당하는 장치가 없습니다.|
 |50099|JWT 서명이 잘못되었습니다. 응용 프로그램 소유자에게 문의하세요.|
-|50105|로그인한 사용자가 로그인한 응용 프로그램의 역할에 할당되지 않았습니다. 응용 프로그램에 사용자를 할당하세요. 참조 항목: [https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/en-us/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
+|50105|로그인한 사용자가 로그인한 응용 프로그램의 역할에 할당되지 않았습니다. 응용 프로그램에 사용자를 할당하세요. 참조 항목: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#user-not-assigned-a-role)|
 |50107|요청된 페더레이션 영역 개체가 존재하지 않습니다. 테넌트 관리자에게 문의하세요.|
 |50120|JWT 헤더에 문제가 있습니다. 테넌트 관리자에게 문의하세요.|
 |50124|클레임 변환에 잘못된 입력 매개 변수가 포함되어 있습니다. 테넌트 관리자에게 문의하여 정책을 업데이트하세요.|
@@ -173,7 +174,10 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |81001|사용자의 Kerberos 티켓이 너무 큽니다. 사용자가 너무 많은 그룹에 속해 있고 Kerberos 티켓에 너무 많은 그룹 멤버 자격이 포함된 경우 이 오류가 발생할 수 있습니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도합니다.|
 |81005|인증 패키지가 지원되지 않습니다|
 |81007|Seamless SSO에 대한 테넌트를 사용할 수 없습니다.|
-
+|90010|다양한 이유로 요청이 지원되지 않습니다. 예를 들어 요청이 지원되지 않는 요청 메서드(POST 메서드만 지원됨)를 사용하여 이루어졌거나 요청된 토큰 서명 알고리즘이 지원되지 않습니다. 응용 프로그램 개발자에게 문의하세요.|
+|90014| 프로토콜 메시지에 대한 필수 필드가 누락되었습니다. 응용 프로그램 소유자에게 문의하세요. 응용 프로그램 소유자인 경우 로그인 요청에 대한 모든 필요한 매개 변수가 있는지 확인합니다. |
+|90072| 먼저 계정을 테넌트에서 외부 사용자로 추가해야 합니다. 다른 Azure AD 계정으로 로그아웃했다가 다시 로그인합니다.|
+|90094| 권한 부여를 위해서는 관리자 권한이 필요합니다. 테넌트 관리자에게 이 응용 프로그램에 대한 동의를 제공하도록 요청하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

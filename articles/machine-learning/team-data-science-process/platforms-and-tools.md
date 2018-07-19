@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3d4d217fba55b8329937575042f0ac909aad09e9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838479"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951144"
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>데이터 과학 팀 프로젝트용 플랫폼 및 도구
 
@@ -39,7 +39,7 @@ TDSP를 사용하는 데이터 과학 팀에서 사용할 수 있는 데이터 �
 
 ## <a name="data-science-virtual-machine-dsvm"></a>DSVM(데이터 과학 Virtual Machine)
 
-Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상 컴퓨터에는 데이터 과학 모델링 및 개발 작업을 위한 인기 있는 도구가 포함되어 있습니다. 이러한 도구는 다음과 같습니다.
+Microsoft에서 Windows 및 Linux 모두에 제공하는 데이터 과학 가상 머신에는 데이터 과학 모델링 및 개발 작업을 위한 인기 있는 도구가 포함되어 있습니다. 이러한 도구는 다음과 같습니다.
 
 - Microsoft R Server Developer Edition 
 - Enthought Python 배포
@@ -102,9 +102,9 @@ Azure 파일 저장소를 프로젝트 팀 구성원과 프로젝트 데이터�
 
 R Services(In-Database)는 새 정보를 발견할 수 있는 지능형 응용 프로그램을 개발하고 배포하기 위한 플랫폼을 제공합니다. R 커뮤니티에서 제공하는 많은 패키지를 포함하여 풍부하고 강력한 R 언어를 사용하여 SQL Server 데이터에서 모델을 만들고 예측을 생성할 수 있습니다. R Services(In-Database)는 R 언어를 SQL Server와 통합하므로 분석이 데이터와 가깝게 유지되며, 이에 따라 데이터 이동과 관련된 비용 및 보안 위험이 제거됩니다.
 
-R Services(In-Database)는 포괄적인 SQL Server 도구 및 기술 집합을 통해 오픈 소스 R 언어를 지원합니다. 탁월한 성능, 보안, 안정성 및 관리 효율성을 제공합니다. 편리하고 친숙한 도구를 사용하여 R 솔루션을 배포할 수 있습니다. 프로덕션 응용 프로그램에서 R 런타임을 호출하고 Transact-SQL을 사용하여 예측 및 시각적 개체를 검색할 수 있습니다. 또한 ScaleR 라이브러리를 사용하여 R 솔루션의 규모와 성능을 향상시킵니다. 자세한 내용은 [SQL Server R Services](https://msdn.microsoft.com/library/mt604845.aspx)를 참조하세요.
+R Services(In-Database)는 포괄적인 SQL Server 도구 및 기술 집합을 통해 오픈 소스 R 언어를 지원합니다. 탁월한 성능, 보안, 안정성 및 관리 효율성을 제공합니다. 편리하고 친숙한 도구를 사용하여 R 솔루션을 배포할 수 있습니다. 프로덕션 응용 프로그램에서 R 런타임을 호출하고 Transact-SQL을 사용하여 예측 및 시각적 개체를 검색할 수 있습니다. 또한 ScaleR 라이브러리를 사용하여 R 솔루션의 규모와 성능을 향상시킵니다. 자세한 내용은 [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services)를 참조하세요.
 
-Microsoft의 TDSP 팀은 SQL Server 2016 R Services에서 R 프로그래머용 및 SQL 개발자용 데이터 과학 솔루션을 빌드하는 방법을 보여 주는 두 가지 종단 간 연습을 게시했습니다. **R 프로그래머**의 경우 [데이터 과학 종단 간 연습](https://msdn.microsoft.com/library/mt612857.aspx)을 참조하세요. **SQL 개발자**의 경우 [SQL 개발자용 In-Database 고급 분석(자습서)](https://msdn.microsoft.com/library/mt683480.aspx)을 참조하세요.
+Microsoft의 TDSP 팀은 SQL Server 2016 R Services에서 R 프로그래머용 및 SQL 개발자용 데이터 과학 솔루션을 빌드하는 방법을 보여 주는 두 가지 종단 간 연습을 게시했습니다. **R 프로그래머**의 경우 [데이터 과학 종단 간 연습](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)을 참조하세요. **SQL 개발자**의 경우 [SQL 개발자용 In-Database 고급 분석(자습서)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)을 참조하세요.
 
 
 ## <a name="appendix"></a>부록: 데이터 과학 프로젝트를 설정하는 도구

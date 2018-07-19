@@ -7,16 +7,16 @@ ms.author: serinak
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 8a0d26a1ba1ca5fa7a3bd5cfca078ee6c94b229d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 94a1f3bbba83e8e71cf9440b5ded0784f4616c99
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831578"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38674158"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 질문과 대답
 
@@ -113,11 +113,11 @@ Azure Machine Learning Workbench는 전문 데이터 과학자를 위해 만든 
 
 **Workbench는 IDE인가요?**
 
-번호 Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 또한 [AI용 Visual Studio Code 도구](https://www.visualstudio.com/downloads/ai-tools-vscode)를 사용해 볼 수 있습니다.
+아니요. Machine Learning Workbench는 Jupyter Notebooks, Visual Studio Code 및 PyCharm 같은 인기 있는 IDE에 대한 자매 제품으로 설계되었지만 완전한 기능을 하는 IDE가 아닙니다. Machine Learning Workbench는 몇 가지 기본적인 텍스트 편집 기능을 제공하지만 디버깅, IntelliSense 및 기타 널리 사용되는 IDE 기능을 지원하지 않습니다. 코드 배포, 편집 및 디버깅을 위해서는 사용자가 즐겨 쓰는 IDE를 사용하는 것이 좋습니다. 또한 [AI용 Visual Studio Code 도구](https://www.visualstudio.com/downloads/ai-tools-vscode)를 사용해 볼 수 있습니다.
 
 **Azure Machine Learning Workbench 사용은 유료입니까?**
 
-번호 Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. 에서도 확인할 수 있습니다.  
+아니요. Azure Machine Learning Workbench는 무료 응용 프로그램입니다. 필요한 만큼 많은 컴퓨터에 많은 사용자를 위해 다운로드할 수 있습니다. Azure Machine Learning Workbench를 사용하려면 실험 계정이 있어야 합니다. 에서도 확인할 수 있습니다.  
 
 **명령줄 기능을 지원하나요?**
 
@@ -172,4 +172,4 @@ Workbench의 데이터 준비 도구는 현재 다음 형식에서의 수집을 
 
 **Azure Machine Learning은 Microsoft Cognitive Toolkit와 어떤 관계가 있나요?**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)는 새 도구 및 서비스에서 지원하는 많은 프레임워크 중 하나입니다. Cognitive Toolkit은 Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence 및 Recurrent Networks 등 인기 있는 기계 학습 모델을 사용하고 조합할 수 있는 통합된 심층 학습 도구 키트입니다. Microsoft Cognitive Toolkit에 대한 자세한 내용을 확인하려면 당사 [제품 설명서](https://docs.microsoft.com/cognitive-toolkit/)를 참조하세요. 
+[Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)는 새 도구 및 서비스에서 지원하는 많은 프레임워크 중 하나입니다. Cognitive Toolkit은 Feed-Forward Deep Neural Networks, Convolutional Nets, Sequence-to-Sequence 및 Recurrent Networks 등 인기 있는 기계 학습 모델을 사용하고 조합할 수 있는 통합된 심층 학습 도구 키트입니다. Microsoft Cognitive Toolkit에 대한 자세한 내용을 확인하려면 당사 [제품 설명서](https://docs.microsoft.com/cognitive-toolkit/)를 참조하세요. 

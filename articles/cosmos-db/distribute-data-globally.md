@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 4f548e180ca315013d5ca91118041cac2e622520
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611452"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856643"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Azure Cosmos DB로 데이터를 글로벌 배포하는 방법
 Azure는 어디에나 존재합니다. 전 세계 50개 이상의 지역에서 사용되며 계속해서 확장 중입니다. 이처럼 전 세계에서 사용되기 때문에 Azure가 개발자에게 제공하는 차별화된 이점 중 하나는 전 세계에 분산된 응용 프로그램을 간편하게 빌드, 배포 및 관리할 수 있다는 점입니다. 
@@ -22,7 +22,7 @@ Azure는 어디에나 존재합니다. 전 세계 50개 이상의 지역에서 �
 [Azure Cosmos DB](../cosmos-db/introduction.md)는 업무에 중요한 응용 프로그램에 대한 Microsoft의 전역 분산 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB는 [업계 최고의 포괄적인 SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/)로 지원되는 턴키 전역 분산, 전 세계적으로 [처리량 및 저장소의 탄력적인 확장](../cosmos-db/partition-data.md), 99번째 백분위수의 1자리 수 밀리초 크기 대기 시간, [잘 정의된 5개 일관성 모델](consistency-levels.md), 보장된 고가용성을 제공합니다. Azure Cosmos DB는 사용자가 스키마 또는 인덱스 관리를 처리하지 않아도 되도록 [모든 데이터를 자동으로 인덱싱](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)합니다. 문서, 키-값, 그래프 및 열 패밀리 데이터 모델을 지원하는 다중 모델 서비스입니다. 기본적으로 클라우드 서비스인 Azure Cosmos DB는 다중 테넌트 및 전역 배포를 사용하여 처음부터 세심하게 설계되었습니다.
 
 
-![Azure Cosmos DB 컬렉션을 분할하여 세 하위 지역에 분산](./media/distribute-data-globally/global-apps.png)
+![Azure Cosmos DB 컨테이터를 분할하여 세 하위 지역에 분산](./media/distribute-data-globally/global-apps.png)
 
 **단일 Azure Cosmos DB 컨테이너를 분할하여 여러 Azure 하위 지역에 분산**
 
@@ -92,7 +92,7 @@ Azure Cosmos DB는 하나 이상의 하위 지역에서 가동 중단이 발생�
 ### <a id="MultiHomingAPIs"></a>Azure Cosmos DB의 멀티 호밍
 Azure Cosmos DB는 *논리적*(지역에 관계없음) 또는 *물리적*(지역에 한정) 엔드포인트를 사용하여 데이터베이스와 상호 작용할 수 있습니다. 논리적 엔드포인트를 사용하면 장애 조치(failover) 시 응용 프로그램을 투명하게 멀티 호밍할 수 있습니다. 물리적 엔드포인트는 읽기와 쓰기를 특정 지역에 리디렉션할 수 있는 세분화된 응용 프로그램 제어 기능을 제공합니다.
 
-[SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Gremlin API](../cosmos-db/tutorial-global-distribution-graph.md), [테이블 API](../cosmos-db/tutorial-global-distribution-table.md) 및 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md)에 대한 읽기 기본 설정을 구성하는 방법은 이러한 문서에서 찾을 수 있습니다.
+[SQL API](../cosmos-db/tutorial-global-distribution-sql-api.md), [Table API](../cosmos-db/tutorial-global-distribution-table.md) 및 [MongoDB API](../cosmos-db/tutorial-global-distribution-mongodb.md)에 대한 읽기 기본 설정을 구성하는 방법은 이러한 아티클에서 찾을 수 있습니다.
 
 ### <a id="TransparentSchemaMigration"></a>투명하고 일관적인 데이터베이스 스키마 및 인덱스 마이그레이션 
 Azure Cosmos DB는 [스키마에 구애받지 않습니다](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf). 고유한 디자인의 데이터베이스 엔진은 Azure Cosmos DB가 사용자에게 스키마 또는 보조 인덱스를 요청하지 않고도 수집하는 모든 데이터를 자동으로 그리고 동적으로 인덱싱할 수 있도록 합니다. 따라서 데이터베이스 스키마 및 인덱스 마이그레이션에 대해 걱정하거나 스키마 변경의 다단계 응용 프로그램 출시를 조정하는 일 없이 전역에 분산된 응용 프로그램을 신속하게 반복할 수 있습니다. Azure Cosmos DB는 사용자가 명시적으로 수행한 인덱싱 정책 변경이 성능 또는 가용성 저하로 이어지지 않도록 보장합니다.  
@@ -171,7 +171,8 @@ Azure Cosmos DB의 일관성 SLA는 100%의 읽기 요청이 사용자가 지정
 
 
 ### <a id="ConsistencyAndAvailability"></a>일관성과 가용성의 관계
-[CAP 정리](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)의 [불가능성 결과](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)는 오류 발생 시 시스템이 가용성을 유지하고 선형화 가능한 일관성을 제공하기란 사실상 불가능하다는 것을 증명합니다. 데이터베이스 서비스는 CP 또는 AP 중에 선택해야 합니다. CP 시스템은 선형화 가능한 일관성을 위해 가용성을 포기하는 반면 AP 시스템은 가용성을 위해 [선형화 가능한 일관성](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)을 포기합니다. Azure Cosmos DB는 요청된 일관성 모델을 결코 위반하지 않으며, 따라서 형식적으로 CP 시스템이 됩니다. 그러나 실제로 일관성은 모 아니면 도의 문제가 아닙니다. 일관성 스펙트럼을 따라 선형화 가능한 일관성과 결과적 일관성 사이에는 잘 정의된 일관성 모델이 여러 개 있습니다. Azure Cosmos DB에서는 실제 시나리오에 적용 가능하고 사용에 직관적인 여러 완화된 일관성 모델을 식별합니다. Azure Cosmos DB는 [아직은 평범한 수준이지만 잘 정의된 여러 개의 일관성 모델](consistency-levels.md), 모든 단일 지역 데이터베이스 계정에 대한 99.99% 가용성 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 및 쓰기 가용성을 제공하여 일관성과 가용성 간의 교환을 처리합니다. 
+
+  [CAP 정리](https://people.eecs.berkeley.edu/~brewer/cs262b-2004/PODC-keynote.pdf)의 [불가능성 결과](http://www.glassbeam.com/sites/all/themes/glassbeam/images/blog/10.1.1.67.6951.pdf)는 오류 발생 시 시스템이 가용성을 유지하고 선형화 가능한 일관성을 제공하기란 사실상 불가능하다는 것을 증명합니다. 데이터베이스 서비스는 CP 또는 AP 중에 선택해야 합니다. CP 시스템은 선형화 가능한 일관성을 위해 가용성을 포기하는 반면 AP 시스템은 가용성을 위해 [선형화 가능한 일관성](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf)을 포기합니다. Azure Cosmos DB는 요청된 일관성 모델을 결코 위반하지 않으며, 따라서 형식적으로 CP 시스템이 됩니다. 그러나 실제로 일관성은 모 아니면 도의 문제가 아닙니다. 일관성 스펙트럼을 따라 선형화 가능한 일관성과 결과적 일관성 사이에는 잘 정의된 일관성 모델이 여러 개 있습니다. Azure Cosmos DB에서는 실제 시나리오에 적용 가능하고 사용에 직관적인 여러 완화된 일관성 모델을 식별합니다. Azure Cosmos DB는 [아직은 평범한 수준이지만 잘 정의된 여러 개의 일관성 모델](consistency-levels.md), 모든 단일 지역 데이터베이스 계정에 대한 99.99% 가용성 및 모든 다중 지역 데이터베이스 계정에 대한 99.999% 읽기 및 쓰기 가용성을 제공하여 일관성과 가용성 간의 교환을 처리합니다. 
 
 ### <a id="ConsistencyAndAvailability"></a>일관성과 대기 시간의 관계
 보다 포괄적인 CAP 정리의 변형은 [PACELC](http://cs-www.cs.yale.edu/homes/dna/papers/abadi-pacelc.pdf)라고 하며 이 변형 역시 안정적인 상태에서 대기 시간과 일관성의 균형을 고려합니다. 안정적인 상태에서 데이터베이스 시스템은 일관성과 대기 시간 사이에서 선택해야 합니다. 완화된 일관성 모델(비동기 복제 및 로컬 읽기 및 쓰기 쿼럼을 통해 지원)이 여러 개 있는 Azure Cosmos DB는 모든 읽기 및 쓰기가 각각 읽기 및 쓰기 하위 지역에 로컬이 되도록 보장합니다. 따라서 Azure Cosmos DB는 지정된 일관성 모델에 대한 지역 내에서 짧은 대기 시간을 보장합니다.  
@@ -187,7 +188,7 @@ Azure Cosmos DB의 일관성 SLA는 100%의 읽기 요청이 사용자가 지정
 ## <a id="ThroughputGuarantees"></a>처리량 보장 
 Azure Cosmos DB는 요구 사항 및 수요에 따라 다양한 지역의 처리량(및 저장소)을 탄력적으로 확장할 수 있습니다. 
 
-![Azure Cosmos DB가 컬렉션을 분산 및 분할](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
+![Azure Cosmos DB에서 분산 및 분할한 컨테이너](../cosmos-db/media/introduction/azure-cosmos-db-global-distribution.png)
 
 **단일 Azure Cosmos DB 컨테이너는 가로로 분할된 다음(지역 내에서 세 개의 리소스 파티션에서), 세 개의 Azure 지역에 걸쳐 전역적으로 분산됨**
 

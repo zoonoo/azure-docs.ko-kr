@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 5e7e6608003b365d5516ca2e94a51c0710ad1125
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061356"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887473"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -37,62 +37,6 @@ ms.locfileid: "37061356"
 Azure Portal을 사용하여 함수를 개발하는 경우 트리거 및 바인딩은 *function.json* 파일에서 구성됩니다. 포털은 이 구성에 대한 UI를 제공하지만 **고급 편집기**로 변경하여 파일을 직접 편집할 수 있습니다.
 
 클래스 라이브러리를 만들기 위해 Visual Studio를 사용하여 함수를 개발하는 경우 특성으로 메서드 및 매개 변수를 데코레이트하여 트리거 및 바인딩을 구성합니다.
-
-## <a name="supported-bindings"></a>지원되는 바인딩
-
-[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
-
-미리 보기 상태 바인딩 또는 프로덕션 용도로 승인된 바인딩에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
-
-## <a name="register-binding-extensions"></a>바인딩 확장 등록
-
-일부 개발 환경에서는 사용하려는 바인딩을 명시적으로 *등록*해야 합니다. 바인딩 확장은 NuGet 패키지에 제공되며 확장을 등록하려면 패키지를 설치합니다. 다음 테이블은 바인딩 확장을 등록하는 방법과 시기를 나타냅니다.
-
-|개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
-|---------|---------|---------|
-|Azure portal|자동|[자동(프롬프트)](#azure-portal-development)|
-|Azure Functions 핵심 도구를 사용하는 로컬|자동|[핵심 도구 CLI 명령 사용](#local-development-azure-functions-core-tools)|
-|Visual Studio 2017을 사용하는 C# 클래스 라이브러리|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|
-|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#c-class-library-with-visual-studio-code)|
-
-다음과 같은 바인딩 유형은 HTTP, 타이머 및 Azure Storage(Blob, 큐 및 테이블)와 같은 환경 및 모든 버전에서 자동으로 등록되기 때문에 명시적인 등록이 필요하지 않은 예외 항목입니다. 
-
-### <a name="azure-portal-development"></a>Azure Portal 개발
-
-함수를 만들거나 바인딩을 추가할 때 트리거 또는 바인딩에 대한 확장에 등록이 필요한 경우 메시지가 표시됩니다. **설치**를 클릭하여 프롬프트에 응답하고 확장을 등록합니다. 소비 계획에 대해 설치는 최대 10분이 소요될 수 있습니다.
-
-지정된 함수 앱에 대해 각 확장을 한 번만 등록하면 됩니다. 
-
-### <a name="local-development-azure-functions-core-tools"></a>Azure Functions 핵심 도구 로컬 개발
-
-[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
-
-<a name="local-csharp"></a>
-### <a name="c-class-library-with-visual-studio-2017"></a>Visual Studio 2017을 통한 C# 클래스 라이브러리
-
-**Visual Studio 2017**의 경우 다음 예제와 같이 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령을 사용하여 패키지 관리자 콘솔에서 패키지를 설치할 수 있습니다.
-
-```powershell
-Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
-```
-
-지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
-
-예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
-
-### <a name="c-class-library-with-visual-studio-code"></a>Visual Studio Code를 통한 C# 클래스 라이브러리
-
-**Visual Studio Code**의 경우 다음 예제와 같이 .NET Core CLI에서 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용하여 명령 프롬프트에서 패키지를 설치할 수 있습니다.
-
-```terminal
-dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
-```
-
-.NET Core CLI는 Azure Functions 2.x 개발에만 사용할 수 있습니다.
-
-지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
-
-예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
 
 ## <a name="example-trigger-and-binding"></a>예제 트리거 및 바인딩
 
@@ -202,6 +146,66 @@ function generateRandomId() {
      public string MobileNumber { get; set; }
  }
 ```
+
+## <a name="supported-bindings"></a>지원되는 바인딩
+
+[!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+미리 보기 상태 바인딩 또는 프로덕션 용도로 승인된 바인딩에 대한 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
+
+## <a name="register-binding-extensions"></a>바인딩 확장 등록
+
+일부 개발 환경에서는 사용하려는 바인딩을 명시적으로 *등록*해야 합니다. 바인딩 확장은 NuGet 패키지에 제공되며 확장을 등록하려면 패키지를 설치합니다. 다음 테이블은 바인딩 확장을 등록하는 방법과 시기를 나타냅니다.
+
+|개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
+|---------|---------|---------|
+|Azure portal|자동|[자동(프롬프트)](#azure-portal-development)|
+|Azure Functions 핵심 도구를 사용하는 로컬|자동|[핵심 도구 CLI 명령 사용](#local-development-azure-functions-core-tools)|
+|Visual Studio 2017을 사용하는 C# 클래스 라이브러리|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|[NuGet 도구 사용](#c-class-library-with-visual-studio-2017)|
+|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#c-class-library-with-visual-studio-code)|
+
+다음과 같은 바인딩 유형은 HTTP, 타이머 및 Azure Storage(Blob, 큐 및 테이블)와 같은 환경 및 모든 버전에서 자동으로 등록되기 때문에 명시적인 등록이 필요하지 않은 예외 항목입니다. 
+
+### <a name="azure-portal-development"></a>Azure Portal 개발
+
+이 섹션은 Functions 2.x에만 적용됩니다. 바인딩 확장은 Functions 1.x에서 명시적으로 등록될 필요가 없습니다.
+
+함수를 만들거나 바인딩을 추가할 때 트리거 또는 바인딩에 대한 확장에 등록이 필요한 경우 메시지가 표시됩니다. **설치**를 클릭하여 프롬프트에 응답하고 확장을 등록합니다. 소비 계획에 대해 설치는 최대 10분이 소요될 수 있습니다.
+
+지정된 함수 앱에 대해 각 확장을 한 번만 등록하면 됩니다. 
+
+### <a name="local-development-azure-functions-core-tools"></a>Azure Functions 핵심 도구 로컬 개발
+
+이 섹션은 Functions 2.x에만 적용됩니다. 바인딩 확장은 Functions 1.x에서 명시적으로 등록될 필요가 없습니다.
+
+[!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
+
+<a name="local-csharp"></a>
+### <a name="c-class-library-with-visual-studio-2017"></a>Visual Studio 2017을 통한 C# 클래스 라이브러리
+
+**Visual Studio 2017**의 경우 다음 예제와 같이 [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 명령을 사용하여 패키지 관리자 콘솔에서 패키지를 설치할 수 있습니다.
+
+```powershell
+Install-Package Microsoft.Azure.WebJobs.ServiceBus --Version <target_version>
+```
+
+지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
+
+예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
+
+### <a name="c-class-library-with-visual-studio-code"></a>Visual Studio Code를 통한 C# 클래스 라이브러리
+
+**Visual Studio Code**의 경우 다음 예제와 같이 .NET Core CLI에서 [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용하여 명령 프롬프트에서 패키지를 설치할 수 있습니다.
+
+```terminal
+dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
+```
+
+.NET Core CLI는 Azure Functions 2.x 개발에만 사용할 수 있습니다.
+
+지정된 바인딩에 사용할 패키지의 이름은 해당 바인딩에 대한 참조 문서에 제공됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
+
+예제의 `<target_version>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열되어 있습니다. Functions 참조 1.x 또는 2.x에 해당하는 주요 버전은 바인딩에 대한 참조 문서에 지정되어 있습니다.
 
 ## <a name="binding-direction"></a>바인딩 방향
 
@@ -526,7 +530,7 @@ public static void Run(
       "name": "blobContents",
       "type": "blob",
       "direction": "in",
-      "path": "strings/{BlobName.FileName}.{BlobName.Extension}",
+      "path": "strings/{BlobName}",
       "connection": "AzureWebJobsStorage"
     },
     {

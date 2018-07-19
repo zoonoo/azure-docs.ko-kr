@@ -3,7 +3,7 @@ title: Azure Cloud Services 및 ASP.NET 시작 | Microsoft 문서
 description: ASP.NET MVC 및 Azure를 사용하여 다중 계층 앱을 만드는 방법을 알아보세요. 이 앱은 웹 역할 및 작업자 역할을 사용하여 클라우드 서비스에서 실행되며 Entity Framework, SQL Database 및 Azure Storage 큐와 Blob를 사용합니다.
 services: cloud-services, storage
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
-ms.author: adegeo
-ms.openlocfilehash: 66ece0affbafc219add2ef5c4da34f29ab34e058
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: jeconnoc
+ms.openlocfilehash: 819a2f81ca5403a3656bf713cf0ee3ae58050a4b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860023"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003116"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure Cloud Services 및 ASP.NET 시작
 
@@ -278,7 +278,7 @@ Visual Studio UI를 사용하여 구성한 역할 환경 설정은 ContosoAdsClo
 </Role>
 ```
 
-`<Instances>` 설정은 Azure가 작업자 역할 코드를 실행할 가상 컴퓨터의 수를 지정합니다. [다음 단계](#next-steps) 섹션에는 클라우드 서비스 규모 확장에 대한 자세한 정보로 연결되는 링크가 있습니다.
+`<Instances>`설정은 Azure가 작업자 역할 코드를 실행할 가상 컴퓨터의 수를 지정합니다. [다음 단계](#next-steps) 섹션에는 클라우드 서비스 규모 확장에 대한 자세한 정보로 연결되는 링크가 있습니다.
 
 ### <a name="deploy-the-project-to-azure"></a>Azure에 프로젝트 배포
 1. **솔루션 탐색기**에서 **ContosoAdsCloudService** 클라우드 프로젝트를 마우스 오른쪽 단추로 클릭한 후 **게시**를 선택합니다.

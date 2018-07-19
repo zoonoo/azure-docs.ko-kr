@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/18/2018
+ms.date: 06/29/2018
 ms.author: rolyon
-ms.openlocfilehash: 2919ce1d7c57b7a92420ac11b61503caa1fdd3b0
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36267560"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856419"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 Azure AD 사용 약관을 시작하는 방법을 설명합니다.
@@ -30,7 +30,7 @@ Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하�
 Azure AD 사용 약관으로 다음과 같은 일을 할 수 있습니다.
 - 직원 또는 게스트가 서비스에 액세스하려면 사용 약관에 동의하도록 요구.
 - 조직의 모든 사용자에 대한 일반 사용 약관 제공.
-- 사용자 특성을 기반으로 하는 특정 사용 약관 제공(예: [동적 그룹](active-directory-groups-dynamic-membership-azure-portal.md)을 사용하여 의사와 간호사, 국내 직원과 해외 직원에게 맞는 사용 약관을 각각 제공).
+- 사용자 특성을 기반으로 하는 특정 사용 약관 제공(예: [동적 그룹](users-groups-roles/groups-dynamic-membership.md)을 사용하여 의사와 간호사, 국내 직원과 해외 직원에게 맞는 사용 약관을 각각 제공).
 - Salesforce 같은 비즈니스 영향력이 높은 응용 프로그램에 액세스할 때 특정 사용 약관 제공.
 - 여러 언어로 사용 약관 제공.
 - 사용 약관에 동의한 또는 동의하지 않은 사용자 나열.
@@ -157,7 +157,7 @@ Azure AD 사용 약관은 PDF 형식을 사용하여 콘텐츠를 제공합니�
 기본적으로 삭제된 사용자는 30일 동안 Azure AD에 삭제된 상태로 남아 있지만, 이 기간 동안 관리자는 필요한 경우 삭제된 사용자를 복원할 수 있습니다.  30일 후 해당 사용자가 영구적으로 삭제됩니다.  또한 Azure Active Directory 포털을 사용하여 전역 관리자는 해당 기간이 만료되기 전에 명시적으로 [최근에 삭제된 사용자를 영구적으로 삭제](fundamentals/active-directory-users-restore.md)할 수 있습니다.  사용자가 영구적으로 삭제됐으므로 추후 해당 사용자에 대한 데이터가 현재 사용 약관에서 제거됩니다.  삭제된 사용자에 대한 감사 정보는 감사 로그에 남아 있습니다.
 
 ## <a name="policy-changes"></a>정책 변경 내용
-조건부 액세스 정책은 즉시 적용됩니다. 이 경우 관리자에게 “sad 클라우드” 또는 “Azure AD 토큰 문제”가 표시되기 시작합니다. 관리자는 새 정책을 충족하기 위해 로그아웃했다가 다시 로그인해야 합니다.
+조건부 액세스 정책은 즉시 적용됩니다. 이 경우 관리자에게 "sad 클라우드" 또는 "Azure AD 토큰 문제"가 표시되기 시작합니다. 관리자는 새 정책을 충족하기 위해 로그아웃했다가 다시 로그인해야 합니다.
 
 >[!IMPORTANT]
 > 범위에 있는 사용자는 다음과 같은 경우 새 정책을 충족하기 위해 로그아웃 및 로그인해야 합니다.
@@ -167,10 +167,10 @@ Azure AD 사용 약관은 PDF 형식을 사용하여 콘텐츠를 제공합니�
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q: 사용자가 사용 약관에 동의했는지 어떻게 볼 수 있나요?**</br>
-A: 사용 약관 옆의 동의 아래에 있는 숫자를 클릭할 수 있습니다.  자세한 내용은 참조 [사용 약관에 동의한 사람 및 거부한 사람 보기](#view-who-has-accepted-and-declined)를 참조하세요.  또한 사용 약관에 동의한 사용자는 감사 로그에 기록됩니다. Azure AD 감사 로그를 검색하여 결과를 볼 수 있습니다.  
+A: 사용 약관 블레이드에서 **수락** 아래에 있는 숫자를 클릭합니다. 감사 로그에서 동의 작업을 확인하거나 검색할 수도 있습니다. 자세한 내용은 [사용 약관에 동의한 사람 및 거부한 사람 보기](#view-who-has-accepted-and-declined) 및 [감사 로그 보기](#view-audit-logs)를 참조하세요.
 
 **Q: 사용 약관 조건을 변경한 경우 사용자가 다시 동의해야 하나요?**</br>
-A: 예, 관리자는 사용 약관 조건을 변경할 수 있으며 새 조건에 대해 재동의를 요구할 수 있습니다.
+A: 예, 관리자는 사용 약관 조건을 변경할 수 있으며 사용자에게 새 조건에 대한 재동의를 요구할 수 있습니다.
 
 **Q: 사용 약관에서 다중 언어를 지원할 수 있나요?**</br>
 A: 예.  현재 관리자가 단일 사용 약관에 대해 구성할 수는 18개의 다른 언어가 있습니다. 
@@ -179,13 +179,16 @@ A: 예.  현재 관리자가 단일 사용 약관에 대해 구성할 수는 18�
 A: 사용 약관은 로그인 환경 중에 트리거됩니다.
 
 **Q: 사용 약관을 대상으로 지정할 수 있는 응용 프로그램은 무엇인가요?**</br>
-A: 최신 인증을 사용하는 엔터프라이즈 응용 프로그램에 조건부 액세스 정책을 만들 수 있습니다.  자세한 내용은 [엔터프라이즈 응용 프로그램](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-view-azure-portal)을 참조하세요.
+A: 최신 인증을 사용하는 엔터프라이즈 응용 프로그램에 조건부 액세스 정책을 만들 수 있습니다.  자세한 내용은 [엔터프라이즈 응용 프로그램](./manage-apps/view-applications-portal.md)을 참조하세요.
 
 **Q: 특정 사용자 또는 앱에 여러 사용 약관을 추가할 수 있나요?**</br>
 A: 예, 해당 그룹 또는 응용 프로그램을 대상으로 하는 조건부 액세스 정책을 여러 개 작성하면 가능합니다. 사용자가 여러 사용 약관 범위에 속하는 경우 한 번에 하나의 사용 약관에 동의합니다.
  
 **Q: 사용자가 사용 약관을 거부하는 경우 어떻게 되나요?**</br>
 A: 사용자는 응용 프로그램에 액세스할 수 없습니다. 액세스할 수 있으려면 다시 로그인하여 약관에 동의해야 합니다.
+ 
+**Q: 이전에 동의한 사용 약관의 수락을 취소할 수 있나요?**</br>
+A: [이전에 수락한 사용 약관을 검토](#how-users-can-review-their-terms-of-use)할 수 있지만 현재 수락을 취소할 방법이 없습니다.
  
 **Q: 정보가 얼마나 오래 저장되나요?**</br>
 A: 사용자 수 및 동의/거부한 사용자 명단은 사용 약관의 수명 기간 동안 저장됩니다. 감사 로그는 30일 동안 저장됩니다.

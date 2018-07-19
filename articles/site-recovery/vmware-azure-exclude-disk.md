@@ -3,15 +3,15 @@ title: Azure Site Recovery를 사용하여 보호에서 디스크 제외 | Micro
 description: VMware에서 Azure로의 복제에서 VM 디스크를 제외하는 이유와 방법에 대해 설명합니다.
 author: nsoneji
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.workload: storage-backup-recovery
+ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 59c8d38d94604a9950693d6bb73b6263f9cdb23b
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: e7c9c1db52dc23c576782ffa8b21426c75230c51
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285093"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921283"
 ---
 # <a name="exclude-disks-from-replication-for-vmware-to-azure-scenario"></a>VMware에서 Azure 시나리오의 복제에서 디스크를 제외
 
@@ -50,7 +50,7 @@ ms.locfileid: "36285093"
 
 >[!NOTE]
 >
-> * 이미 모바일 서비스가 설치된 디스크만 제외할 수 있습니다. 모바일 서비스는 복제를 사용하도록 설정된 후 푸시 메커니즘만 사용하여 설치되기 때문에 모바일 서비스를 수동으로 설치해야 합니다.
+> * 이미 모바일 서비스가 설치된 VM에서만 디스크를 제외할 수 있습니다. 모바일 서비스는 복제를 사용하도록 설정된 후 푸시 메커니즘만 사용하여 설치되기 때문에 모바일 서비스를 수동으로 설치해야 합니다.
 > * 기본 디스크만 복제에서 제외할 수 있습니다. 운영 체제 또는 동적 디스크를 제외할 수 없습니다.
 > * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 컴퓨터에 대한 보호를 해제한 다음 다시 사용하도록 설정해야 합니다.
 > * 응용 프로그램 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 응용 프로그램이 실행할 수 있도록 디스크를 Azure에서 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.

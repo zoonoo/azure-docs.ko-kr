@@ -14,18 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/27/2018
 ms.author: jomolesk
-ms.openlocfilehash: e627019f6219509c21ca6245ee1f7f54f2e1669a
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "33894316"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37113234"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 ## <a name="overview"></a>개요
 
-**Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족할 수 있는 동시에 의료 데이터를 안전하게 수집, 저장, 분석 및 상호 작용하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
+
+  **Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI는 Azure PaaS 솔루션의 턴키 배포를 제공하여 업계의 규정 준수 요구 사항을 충족할 수 있는 동시에 의료 데이터를 안전하게 수집, 저장, 분석 및 상호 작용하는 방법을 보여 줍니다. 청사진을 사용하면 규제되는 데이터가 있는 고객을 위해 클라우드 채택 및 활용을 촉진할 수 있습니다.**
 
 Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI 청사진은 HIPAA(HIPAA, 건강 보험 양도 및 책임에 관한 법) 및 HITRUST(Health Information Trust Alliance)를 지원하는 안전한 PaaS(Platform as a Service) 환경을 종단 간 솔루션으로 배포하는 데 도움이 되는 도구와 지침을 제공합니다. 이 솔루션을 사용하면 안전한 다중 계층 클라우드 환경에서 개인 및 비개인 의료 레코드를 수집, 저장, 분석 및 상호 작용할 수 있습니다. 일반 참조 아키텍처를 사용하며 Microsoft Azure 적용을 간소화하도록 설계되었습니다. 제공되는 이 아키텍처는 배포 부담과 비용을 줄이기 위해 클라우드 기반 방식을 찾고 있는 조직의 요구 사항에 적합한 종단 간 솔루션을 보여 줍니다.
 
