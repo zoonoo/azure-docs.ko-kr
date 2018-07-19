@@ -10,18 +10,37 @@ ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 717cf6b2abfb529313699836b790bd3f07844a67
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 891206e88173d72a0bacf6694a331c4ad8cc9acc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867956"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069450"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
 이 문서에서는 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 및 Linux 파일, Windows 레지스트리 키, Windows 서비스 및 Linux 디먼의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
 
 모니터링되는 서버에 있는 설치된 소프트웨어, Windows 서비스, Windows 레지스트리/파일 및 Linux 디먼에 대한 변경 내용은 처리를 위해 클라우드의 Log Analytics 서비스로 보내집니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
+
+## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
+
+Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식적으로 지원됩니다.
+
+* Windows Server 2008 SP1(서비스 팩 1) 이상
+* Windows 7 SP1 이상.
+
+## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
+
+다음 Linux 배포판이 공식적으로 지원됩니다. 하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다. 다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.  
+
+* Amazon Linux 2012.09 ~ 2015.09(x86/x64)
+* CentOS Linux 5, 6 및 7(x86/x64)  
+* Oracle Linux 5, 6 및 7(x86/x64)
+* Red Hat Enterprise Linux Server 5, 6 및 7(x86/x64)
+* Debian GNU/Linux 6, 7, 8(x86/x64)
+* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS(x86/x64)
+* SUSE Linux Enterprise Server 11 및 12(x86/x64)
 
 ## <a name="enable-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 사용
 
