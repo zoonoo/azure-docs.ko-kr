@@ -176,7 +176,7 @@
     - name: 고객 데이터 요청
       href: iot-dps-customer-data-requests.md
     - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: Device Explorer 도구
       href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
     - name: iothub-diagnostics 도구

@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: danlep
-ms.openlocfilehash: 954a67ed126b505c9ba0da81b3ace0d25e840adb
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f07b3ce85641f34462c97d16bbed8cf9e2e50652
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128591"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114544"
 ---
 # <a name="get-started-with-batch-rendering"></a>Batch Rendering 시작 
 
@@ -47,7 +47,7 @@ Windows Server 2016의 렌더링 노드:
 - Blender(2.79)
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Batch Rendering을 사용하려면 다음을 수행해야 합니다.
 
@@ -72,7 +72,7 @@ Batch는 렌더링처럼 계산 집약적인 작업을 **계산 노드** **풀**
 
 Batch 풀 및 계산 노드에 대한 자세한 내용은 [Batch를 사용하여 대규모 병렬 계산 솔루션 개발](batch-api-basics.md)의 [풀](batch-api-basics.md#pool) 및 [Compute 노드](batch-api-basics.md#compute-node) 섹션을 참조하세요.
 
-### <a name="jobs"></a>작업
+### <a name="jobs"></a>교육
 
 Batch **작업**은 풀의 계산 노드에서 실행되는 작업 컬렉션입니다. 렌더링 작업을 제출하면 Batch에서 작업을 여러 작업으로 분할하고 실행할 작업을 풀의 계산 노드에 분산합니다.
 
@@ -123,7 +123,7 @@ Maya를 사용하면 다음을 수행할 수 있습니다.
 
 3ds Max Batch Labs 템플릿을 사용하면 Batch Rendering을 통해 VRay와 Arnold 장면을 렌더링할 수 있습니다. VRay 및 Arnold를 위한 템플릿에는 두 가지 변형이 있습니다. 하나는 표준 장면을 위한 것이고, 다른 하나는 자산과 텍스처에 대한 3DS Max 경로 파일(.mxp 파일)이 필요한 더 복잡한 장면을 위한 것입니다. 3ds Max Batch Labs 템플릿에 대한 자세한 내용은 GitHub의 [BatchLabs 데이터](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) 리포지토리를 참조하세요.
 
-또한 [Batch Python SDK](https://docs.microsoft.com/azure/batch/batch-python-tutorial)를 사용하여 렌더링을 기존 파이프라인과 통합할 수 있습니다.
+또한 [Batch Python SDK](/python/api/overview/azure/batch)를 사용하여 렌더링을 기존 파이프라인과 통합할 수 있습니다.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Maya용 Batch 플러그 인을 사용하여 렌더링 작업 제출
@@ -176,7 +176,7 @@ Batch 및 Storage 계정을 인증한 후에는 렌더링 작업에 사용할 �
 
 - **이 작업에 사용할 풀을 자동 프로비전**할 수 있습니다(기본 옵션). 이 옵션을 선택하면 Batch에서 현재 작업에 대한 배타적인 풀을 만들고, 렌더링 작업이 완료되면 자동으로 해당 풀을 삭제합니다. 이 옵션은 완료할 렌더링 작업이 하나인 경우에 이상적입니다.
 - **기존의 영구 풀을 다시 사용할 수 있습니다**. 유휴 상태인 기존 풀이 있는 경우 드롭다운 목록에서 해당 풀을 선택하여 렌더링 작업을 실행할 풀로 지정할 수 있습니다. 기존의 영구 풀을 다시 사용하면 풀을 프로비전하는 데 필요한 시간이 단축됩니다.  
-- **새 영구 풀**을 만들 수 있습니다. 이 옵션을 선택하면 작업 실행에 사용할 새 풀을 만듭니다. 작업이 완료되어도 풀을 삭제하지 않으므로 이후 작업에 다시 사용할 수 있습니다. 렌더링 작업을 지속적으로 실행해야 하는 경우 이 옵션을 선택합니다. 후속 작업에서 **기존 영구 풀 다시 사용**을 선택하여 첫 번째 작업에서 만든 영구 풀을 사용할 수 있습니다.
+- **새 영구 풀을 만들 수 있습니다**. 이 옵션을 선택하면 작업 실행에 사용할 새 풀을 만듭니다. 작업이 완료되어도 풀을 삭제하지 않으므로 이후 작업에 다시 사용할 수 있습니다. 렌더링 작업을 지속적으로 실행해야 하는 경우 이 옵션을 선택합니다. 후속 작업에서 **기존 영구 풀 다시 사용**을 선택하여 첫 번째 작업에서 만든 영구 풀을 사용할 수 있습니다.
 
 ![풀, OS 이미지, VM 크기 및 라이선스 지정](./media/batch-rendering-service/submit.png)
 
@@ -237,7 +237,7 @@ Maya에서 선택한 렌더링 엔진이 지원되지 않으면 플러그 인에
 
 - 장면 파일의 위치 
 - 현재 프로젝트의 _sourceimages_ 디렉터리
-- 현재 작업 디렉터리 
+- 현재 작업 디렉터리. 
 
 그래도 자산을 찾을 수 없으면 해당 자산에 경고 아이콘이 표시됩니다.
 

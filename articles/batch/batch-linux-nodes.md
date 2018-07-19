@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 06/01/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3faa9e811216cc930354b76903519a66f3d3587
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 713583a6a184a583145c610b4e014f56941efa4c
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128814"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113514"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Batch 풀에서 Linux 계산 노드 프로비전
 
@@ -324,10 +324,7 @@ Azure Batch는 Azure Cloud Services 및 Azure Virtual Machines 기술을 기반�
 [응용 프로그램 패키지](batch-application-packages.md)를 사용하여 Batch 노드에 응용 프로그램을 배포하는 경우에도 응용 프로그램 패키지에서 사용하는 Azure Storage 리소스에 대한 요금이 청구됩니다. 일반적으로 Azure Storage 비용은 최소입니다. 
 
 ## <a name="next-steps"></a>다음 단계
-### <a name="batch-python-tutorial"></a>Batch Python 자습서
-Python을 사용하여 Batch로 작업하는 방법에 대한 자세한 자습서를 보려면 [Azure Batch Python 클라이언트 시작](batch-python-tutorial.md)을 확인합니다. 함께 제공되는 [코드 샘플][github_samples_pyclient]에는 가상 컴퓨터 구성을 가져오기 위한 다른 기법을 보여 주는 도우미 함수(`get_vm_config_for_distro`)가 포함되어 있습니다.
 
-### <a name="batch-python-code-samples"></a>Batch Python 코드 샘플
 GitHub의 [azure-batch-samples][github_samples] 리포지토리에 있는 [Python 코드 샘플][github_samples_py]에는 풀, 작업 및 태스크 만들기와 같은 일반적인 Batch 작업 수행 방법을 보여 주는 스크립트가 포함되어 있습니다. Python 샘플과 함께 제공되는 [추가 정보][github_py_readme]에는 필요한 패키지를 설치하는 방법에 대한 세부 정보가 있습니다.
 
 [api_net]: http://msdn.microsoft.com/library/azure/mt348682.aspx

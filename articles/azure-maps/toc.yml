@@ -22,8 +22,16 @@
   items:
     - name: 확대/축소 수준 및 타일 그리드
       href: zoom-levels-and-tile-grid.md
-    - name: 지원되는 검색 범주
-      href: supported-search-categories.md
+    - name: 서비스 적용 범위
+      items:
+        - name: 지오코딩
+          href: geocoding-coverage.md
+        - name: 트래픽
+          href: traffic-coverage.md
+        - name: 렌더링
+          href: render-coverage.md
+        - name: 라우팅
+          href: routing-coverage.md
     - name: 지원되는 언어
       href: supported-languages.md
 - name: 방법 가이드
@@ -64,22 +72,14 @@
           href: map-accessibility.md
 - name: 참고 자료
   items:
-    - name: 서비스 적용 범위
-      items:
-        - name: 지오코딩
-          href: geocoding-coverage.md
-        - name: 트래픽
-          href: traffic-coverage.md
-        - name: 렌더링
-          href: render-coverage.md
-        - name: 라우팅
-          href: routing-coverage.md
     - name: API 및 매개 변수 확장
       items:
         - name: 차량 소비 모델
           href: consumption-model.md
         - name: GeoJSON 형식 확장
           href: extend-geojson.md
+        - name: 지원되는 검색 범주
+          href: supported-search-categories.md
     - name: REST (영문)
       items:
         - name: Render Service
@@ -129,7 +129,7 @@
     - name: Azure IoT 개발자 센터
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs'
     - name: 가격

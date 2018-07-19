@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 866575a483e705e1c972a0b56d98f26e9cf0c631
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 872ca1dcd48c953180227580d805838c94ea232d
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798124"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115547"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Windows PowerShell 스크립트를 사용하여 개발 및 테스트 환경에 게시
 
@@ -36,7 +36,7 @@ Azure 개발 시 Visual Studio에서 PowerShell을 사용하기 위한 추가 �
 
 ## <a name="generating-the-publish-scripts"></a>게시 스크립트 생성
 
-새 프로젝트를 만들 때 [이 지침](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure App Service에서 웹앱용 게시 스크립트를 생성](app-service/app-service-web-get-started-dotnet.md)할 수도 있습니다.
+새 프로젝트를 만들 때 [이 지침](virtual-machines/windows/classic/web-app-visual-studio.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 따라 웹 사이트를 호스팅하는 가상 컴퓨터의 게시 스크립트를 생성할 수 있습니다. 또한 [Azure App Service에서 웹앱용 게시 스크립트를 생성](app-service/scripts/app-service-powershell-deploy-github.md)할 수도 있습니다.
 
 ## <a name="scripts-that-visual-studio-generates"></a>Visual Studio에서 생성하는 스크립트
 

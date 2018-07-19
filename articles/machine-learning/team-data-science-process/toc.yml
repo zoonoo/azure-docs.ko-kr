@@ -243,8 +243,8 @@
       maintainContext: true
     - name: Cortana Intelligence 파트너 솔루션
       items:
-        - name: Cortana 인텔리전스 갤러리
-          href: 'https://gallery.cortanaintelligence.com'
+        - name: Azure AI 갤러리
+          href: 'https://gallery.azure.ai'
         - name: Cortana Intelligence 게시 가이드
           href: cortana-intelligence-appsource-publishing-guide.md
         - name: Cortana Intelligence 솔루션 평가 도구
