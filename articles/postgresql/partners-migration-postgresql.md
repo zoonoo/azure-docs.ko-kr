@@ -6,14 +6,14 @@ author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
-ms.topic: article
-ms.date: 07/11/2018
-ms.openlocfilehash: 06a1fef9b440404f63f2a51f575854b10daa4d30
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.topic: conceptual
+ms.date: 07/18/2018
+ms.openlocfilehash: b138f1c0a4d3822be29b71dc0ee921d854d5fdfd
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681609"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115375"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>Azure Database for PostgreSQL 마이그레이션 파트너
 Azure Database for PostgreSQL 솔루션을 광범위하게 지원하려면 다양한 업계 선도 파트너 및 도구에서 선택합니다. 이 문서에서는 Azure Database for PostgreSQL를 지원하는 마이그레이션 솔루션을 제공하는 Microsoft 파트너 기업을 중점적으로 소개합니다.
@@ -42,7 +42,7 @@ Microsoft의 다른 파트너에 대해 자세히 알려면 [Microsoft 파트너
 [dbbest_website]:https://www.dbbest.com/technologies/azure-database-service-mysql-postgresql//
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
-[credativ_website]:https://credativ.com
+[credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
 
 <!--Get Started Links-->
 <!--Datasheet Links-->
