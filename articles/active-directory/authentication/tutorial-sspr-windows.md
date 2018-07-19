@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3b767da394f6337a1110ad171f19ad789fa044d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2a6fbd9e52e07141ae1d8c630bde6ab23801fb18
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972984"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054504"
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>로그인 화면에서 Azure AD 암호 재설정
 
@@ -99,7 +99,7 @@ Intune을 사용하여 로그온 화면에 암호 재설정 링크를 사용하�
 
 이제 사용자가 로그인을 시도하면 셀프 서비스 암호 재설정 환경을 제공하는 암호 재설정 링크가 로그인 화면에 표시됩니다. 사용자는 이 기능을 사용하면 다른 장치를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
-이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](../active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)에서 찾을 수 있습니다.
+이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)에서 찾을 수 있습니다.
 
 ## <a name="common-issues"></a>일반적인 문제
 

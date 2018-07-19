@@ -3,7 +3,7 @@ title: Azure 진단으로 Cloud Services 응용 프로그램의 흐름 추적 | 
 description: Azure 응용 프로그램에 추적 메시지를 추가하여 디버깅, 성능 측정, 모니터링, 트래픽 분석 등을 할 수 있습니다.
 services: cloud-services
 documentationcenter: .net
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 09934772-cc07-4fd2-ba88-b224ca192f8e
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
-ms.author: adegeo
-ms.openlocfilehash: 7551ae2e3a7c5f3ff6010bf34e7600da1028d67f
-ms.sourcegitcommit: d1f35f71e6b1cbeee79b06bfc3a7d0914ac57275
+ms.author: jeconnoc
+ms.openlocfilehash: 2ba97e43616386a0ff8459316bfc4d3ddfe241a0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2018
-ms.locfileid: "29461247"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39000898"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Azure 진단으로 Cloud Services 응용 프로그램의 흐름 추적
 추적은 실행되는 동안 응용 프로그램의 실행을 모니터링하는 방법입니다. [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx), [System.Diagnostics.Debug](https://msdn.microsoft.com/library/system.diagnostics.debug.aspx) 및 [System.Diagnostics.TraceSource](https://msdn.microsoft.com/library/system.diagnostics.tracesource.aspx) 클래스를 사용하여 로그의 오류 및 응용 프로그램 실행, 텍스트 파일 또는 차후 분석을 위한 다른 장치에 대한 정보를 기록할 수 있습니다. 추적에 대한 자세한 내용은 [응용 프로그램을 추적 및 계측](https://msdn.microsoft.com/library/zs6s4h68.aspx)을 참조하세요.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.openlocfilehash: 09527d5e204d2bbc7ebe56cc56288e79e7f1507b
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 25a61f03989e2a531e83ea2750c51d2deb92e650
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217316"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040184"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>자습서: Lynda.com과 Azure Active Directory 통합
 
@@ -200,7 +200,7 @@ Lynda.com을 프로비전하는 사용자를 구성할 작업 항목이 없습�
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
-Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: a9b0ddbd8d0a348d00e57526e6d248e59a8a1e79
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903960"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056177"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>자습서: Windows VM 관리 ID를 사용하여 Azure Storage에 액세스
 
@@ -58,7 +58,7 @@ ms.locfileid: "37903960"
 5.  가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
 6.  VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 
-    ![대체 이미지 텍스트](../media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
+    ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
 ## <a name="enable-managed-identity-on-your-vm"></a>VM에서 관리 ID 활성화
 
@@ -80,7 +80,7 @@ ms.locfileid: "37903960"
 5. **구독** 및 **리소스 그룹**은 이전 단계에서 VM을 만들 때 지정한 것과 일치합니다.
 6. **만들기**를 클릭합니다.
 
-    ![새 저장소 계정 만들기](../media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
+    ![새 저장소 계정 만들기](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
 ## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Blob 컨테이너 만들기 및 저장소 계정에 파일 업로드
 
@@ -91,12 +91,12 @@ ms.locfileid: "37903960"
 3. 페이지 맨 위에서 **+ 컨테이너**를 클릭합니다.
 4. **새 컨테이너** 아래에서 컨테이너에 대한 이름을 입력하고 **공용 액세스 수준** 아래에서 기본값을 유지합니다.
 
-    ![저장소 컨테이너 만들기](../media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
+    ![저장소 컨테이너 만들기](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. 선택한 편집기를 사용하여 로컬 컴퓨터에서 *hello world.txt*라는 파일을 만듭니다.  파일을 열고 "Hello world! :)"라는 텍스트(따옴표 제외)를 추가한 다음, 저장합니다. 
 6. 컨테이너 이름을 클릭한 다음, **업로드**를 클릭하여 새로 만든 컨테이너에 파일을 추가합니다.
 7. **Blob 업로드** 창의 **파일** 아래에서 폴더 아이콘을 클릭하고 로컬 컴퓨터에서 **hello_world.txt**라는 파일을 찾고, 파일을 선택한 다음, **업로드**를 클릭합니다.
-    ![텍스트 파일 업로드](~/articles/active-directory/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
+    ![텍스트 파일 업로드](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>VM에 Azure Storage 컨테이너에 대한 액세스 권한 부여 
 

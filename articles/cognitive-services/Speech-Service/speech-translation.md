@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 43fcde887c21794989aa43540a214ef34893a630
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a569c968d444c36ceb3bce4779d2eca39c21f9bc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382841"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069203"
 ---
 # <a name="about-the-speech-translation-api"></a>Speech Translation API 정보
 
@@ -42,5 +42,5 @@ Microsoft의 번역 엔진의 기반에는 SMT(통계적 기계 번역)와 NMT(�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-windows.md)
+* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

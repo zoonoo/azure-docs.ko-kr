@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: e407a95d3ac858ea7180a75f9fbfc399860ad378
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: f0ee486d9ff4c05269da23866edad281aa627889
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912018"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113897"
 ---
 # <a name="azure-stream-analytics-event-order-considerations"></a>Azure Stream Analytics 이벤트 순서 고려 사항
 
@@ -22,7 +22,7 @@ ms.locfileid: "30912018"
 
 이벤트의 임시 데이터 스트림에서는 각 이벤트에 타임스탬프가 할당됩니다. Azure Stream Analytics는 도착 시간이나 응용 프로그램 시간 중 하나를 사용하여 각 이벤트에 타임스탬프를 할당합니다. 이벤트에 할당된 타임스탬프는 **System.Timestamp** 열에 있습니다. 
 
-도착 시간은 이벤트가 소스에 도달하면 입력 소스에서 할당됩니다. 이벤트 허브 입력의 경우 **EventEnqueuedTime** 속성을 사용하고 Blob 입력의 경우 [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) 속성을 사용하여 도착 시간에 액세스할 수 있습니다. 
+도착 시간은 이벤트가 소스에 도달하면 입력 소스에서 할당됩니다. Event Hubs 입력의 경우 **EventEnqueuedUtcTime** 속성을 사용하고, IoT Hub의 경우 **IoTHub.EnqueuedTime** 속성을 사용하고, Blob 입력의 경우 [BlobProperties.LastModified](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.lastmodified?view=azurestorage-8.1.3) 속성을 사용하여 도착 시간에 액세스할 수 있습니다. 
 
 응용 프로그램 시간은 이벤트 생성 시에 할당되며 페이로드의 일부분입니다. 응용 프로그램 시간을 기준으로 이벤트를 처리하려면 select 쿼리에서 **Timestamp by** 절을 사용합니다. **Timestamp by** 절이 없으면 이벤트는 도착 시간을 기준으로 처리됩니다. 
 
@@ -111,7 +111,7 @@ Stream Analytics가 “잘못된 순서 허용 시간” 이내에 수신된 이
 
 구성은 예제 2와 동일합니다. 그러나 파티션 중 하나에서 데이터가 부족할 경우 추가 지연 도착 허용 시간만큼 출력이 지연될 수 있습니다.
 
-## <a name="handling-event-producers-with-differing-timelines"></a>다른 타임라인으로 이벤트 생산자 처리
+## <a name="handling-event-producers-with-differing-timelines-with-substreams"></a>"하위 스트림"을 사용하여 다른 타임라인의 이벤트 생산자 처리
 경우에 따라 단일 입력 이벤트 스트림에는 개별 장치와 같은 여러 이벤트 생산자에서 시작되는 이벤트가 포함됩니다. 이전에 설명한 이유로 인해 이러한 이벤트가 잘못된 순서로 도착할 수 있습니다. 이러한 시나리오에서는 이벤트 생산자 전체에는 잘못된 순서가 많을 수 있지만 단일 생산자 이벤트 내의 잘못된 순서는 적거나 존재하지 않을 수 있습니다.
 
 Azure Stream Analytics는 잘못된 순서 이벤트를 처리하기 위한 일반적인 메커니즘을 제공합니다. 이러한 메커니즘을 사용하면 지연(낙오된 이벤트가 시스템에 도달하기를 기다리는 동안), 삭제되거나 조정된 이벤트 또는 두 이벤트가 모두 처리됩니다.

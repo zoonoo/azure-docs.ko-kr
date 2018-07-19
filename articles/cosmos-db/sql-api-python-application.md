@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a1a6ef61934c765eced259ddc535c018acf52fb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9efd7103ce9545f099506f49b2add7f7721cd7a7
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38629053"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126765"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Python Flask 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
@@ -135,7 +135,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 2. 다음 코드를 forms.py 파일에 추가한 다음 파일을 저장합니다.
 
 ```python
-from flask.ext.wtf import Form
+from flask_wtf import Form
 from wtforms import RadioField
 
 class VoteForm(Form):

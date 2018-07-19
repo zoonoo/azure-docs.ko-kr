@@ -15,12 +15,12 @@ ums.workload: na
 ms.date: 06/07/2018
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 5aab890340fcdd87e1b3788d8bcca903c43da1da
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 2f97a2e8ad38bb3c78333cc2c8eedad8f520e68a
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235749"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036805"
 ---
 # <a name="azure-log-integration-with-azure-diagnostics-logging-and-windows-event-forwarding"></a>Azure 진단 로깅 및 Windows 이벤트 전달과의 Azure Log Integration
 
@@ -175,7 +175,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 8. C:\Program Files\Microsoft Azure Log Integration으로 이동합니다.
 9. 다음 명령을 실행합니다. `Azlog source add <FriendlyNameForTheSource> WAD <StorageAccountName> <StorageKey>`.
  
-  예:
+  예제:
   
   `Azlog source add Azlogtest WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -183,7 +183,7 @@ Azure Log Integration 서비스는 서비스가 설치된 컴퓨터에서 원격
 
   `Azlog source add <FriendlyNameForTheSource>.<SubscriptionID> WAD <StorageAccountName> <StorageKey>`
   
-  예:
+  예제:
   
   `Azlog source add Azlogtest.YourSubscriptionID WAD Azlog9414 fxxxFxxxxxxxxywoEJK2xxxxxxxxxixxxJ+xVJx6m/X5SQDYc4Wpjpli9S9Mm+vXS2RVYtp1mes0t9H5cuqXEw==`
 
@@ -229,6 +229,7 @@ Azure Activity Log는 Azure에서 발생하는 구독 수준 이벤트에 대한
     ```Azlog.exe authorize subscriptionId``` 예제:
 
 ```AZLOG.exe authorize ba2c2367-d24b-4a32-17b5-4443234859```
+
 4.  다음 폴더에서 Azure Active Directory 감사 로그 JSON 파일을 만들었는지 확인합니다.
     - C:\Users\azlog\AzureResourceManagerJson
     - C:\Users\azlog\AzureResourceManagerJsonLD

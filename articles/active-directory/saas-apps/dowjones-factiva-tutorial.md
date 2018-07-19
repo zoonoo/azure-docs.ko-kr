@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 5157e12e2afd40b8cfbc948e984747274764a276
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1a1a868302c4cd140d799fdf4962a0badf060c98
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218183"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043114"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dow-jones-factiva"></a>자습서: Dow Jones Factiva와 Azure Active Directory 통합
 
@@ -195,7 +195,7 @@ Dow Jones Factiva에서 Azure AD Single Sign-On을 구성하고 테스트하려�
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 [액세스 패널]에서 [Dow Jones Factiva] 타일을 클릭하면 Dow Jones Factiva 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

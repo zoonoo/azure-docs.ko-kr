@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/25/2018
+ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7bee84e1ce473c27730b3fe84aa0a580baeba7c2
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4f73b6d735997b663ca6769aaceaf363b6d3eda7
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36940164"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346487"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -30,7 +30,7 @@ ms.locfileid: "36940164"
 리소스의 위치는 변경할 수 없습니다. 리소스를 이동할 때는 새 리소스 그룹으로만 이동됩니다. 새 리소스 그룹은 다른 위치를 가질 수 있지만 리소스의 위치는 변경되지 않습니다.
 
 > [!NOTE]
-> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제품을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제품으로 전환](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
+> 이 문서에서는 기존 Azure 계정 제품 내에서 리소스를 이동하는 방법을 설명합니다. 기존 리소스를 계속 사용하면서 실제로 Azure 계정 제안을 변경하려는 경우(예: 종량제 요금에서 선불로 업그레이드) [Azure 구독을 다른 제안으로 전환](../billing/billing-how-to-switch-azure-offer.md)을 참조하세요.
 >
 >
 
@@ -119,19 +119,26 @@ ms.locfileid: "36940164"
 * Application Insights
 * Analysis Services
 * Automation
+* Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Maps
 * Azure Relay
+* Azure Stack - 등록
+* Azure Migrate
 * Batch
-* Bing 지도
+* BizTalk Services
+* Bot 서비스
 * CDN
 * Cloud Services - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Cognitive Services
+* Container Registry
 * Content Moderator
 * Data Catalog
-* Data Factory - V1은 이동될 수 있지만 V2 이동(미리 보기)은 지원되지 않습니다.
+* Data Factory
 * Data Lake Analytics
 * Data Lake Store
 * DNS
+* Event Grid
 * Event Hubs
 * HDInsight 클러스터 - [HDInsight 제한 사항](#hdinsight-limitations) 참조
 * IoT Hub
@@ -145,14 +152,15 @@ ms.locfileid: "36940164"
 * Notification Hubs
 * Operational Insights
 * 운영 관리
+* 포털 대시보드
 * Power BI - Power BI Embedded 및 Power BI Workspace Collection 모두
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
 * Redis Cache
 * Scheduler
 * 검색
-* 서버 관리
 * Service Bus
 * Service Fabric
+* SignalR Service
 * Storage
 * 저장소(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 * Stream Analytics - 실행 중 상태일 때는 Stream Analytics 작업을 이동할 수 없습니다.
@@ -175,20 +183,24 @@ ms.locfileid: "36940164"
 * Application Gateway
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
-* Azure Migrate
-* BizTalk Services
+* Azure Database Migration
+* Azure Databricks
+* Batch AI
 * 인증서 - App Service Certificate를 이동할 수 있지만 업로드된 인증서에는 [제한](#app-service-limitations)이 있습니다.
 * 컨테이너 서비스
-* DevTest Labs - 동일한 구독에서 새 리소스 그룹으로 이동은 가능하지만, 구독 간 이동은 가능하지 않습니다.
 * Dynamics LCS
 * Express 경로
 * Kubernetes 서비스
+* Lab Services - 동일한 구독에서 새 리소스 그룹으로 이동은 가능하지만, 구독 간 이동은 가능하지 않습니다.
 * 부하 분산 장치 - [부하 분산 장치 제한 사항](#lb-limitations) 참조
 * Managed Applications
 * Managed Disks - [Virtual Machines 제한 사항](#virtual-machines-limitations) 참조
+* Microsoft Genomics
 * 공용 IP - [공용 IP 제한 사항](#pip-limitations) 참조
 * Recovery Services 자격 증명 모음 - Recovery Services 자격 증명 모음과 연결된 Compute, Network 및 Storage 리소스도 이동하지 않습니다. [Recovery Services 제한 사항](#recovery-services-limitations)을 참조하세요.
+* Azure의 SAP HANA
 * 보안
+* Site Recovery
 * StorSimple 장치 관리자
 * Virtual Networks(클래식) - [클래식 배포 제한 사항](#classic-deployment-limitations)
 

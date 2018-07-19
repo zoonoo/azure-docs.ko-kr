@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: bf25ae5703a632005dd73820fc05347f7b5e16a6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 1d5e7683050c5e1e4216b81e23554724f12d45f9
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097498"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054712"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -292,7 +292,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 
 사용자가 초기 등록을 하는 동안 앱 암호를 만들 수 있습니다. 사용자가 등록 프로세스의 끝에서 앱 암호를 만드는 옵션이 있습니다.
 
-사용자는 등록 후 앱 암호를 만들 수도 있습니다. Azure Portal 또는 Office 365 포털에서 해당 설정을 통해 앱 암호를 변경할 수 있습니다. 사용자에 대한 자세한 내용과 세부 단계는 [Azure Multi-factor Authentication에서 앱 암호란?](end-user/current/multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
+사용자는 등록 후 앱 암호를 만들 수도 있습니다. Azure Portal 또는 Office 365 포털에서 해당 설정을 통해 앱 암호를 변경할 수 있습니다. 사용자에 대한 자세한 내용과 세부 단계는 [Azure Multi-factor Authentication에서 앱 암호란?](../user-help/multi-factor-authentication-end-user-app-passwords.md)을 참조하세요.
 
 <a name="remember-multi-factor-authentication-for-devices-that-users-trust"></a>
 ## <a name="remember-multi-factor-authentication-for-trusted-devices"></a>신뢰할 수 있는 장치용 Multi-Factor Authentication 저장
@@ -301,7 +301,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 >[!IMPORTANT]
 >계정 또는 장치가 손상된 경우 신뢰할 수 있는 장치의 Multi-Factor Authentication을 저장해두는 것이 보안에 도움이 될 수 있습니다. 회사 계정이 손상되거나 신뢰할 수 있는 장치를 분실 또는 도난당한 경우 [모든 장치에서 Multi-Factor Authentication을 복원](howto-mfa-userdevicesettings.md#restore-mfa-on-all-remembered-devices-for-a-user)해야 합니다.
 >
->복원 작업은 모든 장치에서 신뢰할 수 있는 상태를 해지하며, 사용자는 2단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](end-user/current/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
+>복원 작업은 모든 장치에서 신뢰할 수 있는 상태를 해지하며, 사용자는 2단계 인증을 다시 수행해야 합니다. [2단계 인증을 위한 설정 관리](../user-help/multi-factor-authentication-end-user-manage-settings.md#require-two-step-verification-again-on-a-device-youve-marked-as-trusted)의 내용에 따라 사용자에게 자신의 장치에서 Multi-Factor Authentication을 복원하도록 지시할 수도 있습니다.
 >
 
 ### <a name="how-the-feature-works"></a>기능의 작동 원리
@@ -341,7 +341,7 @@ Multi-Factor Authentication 저장 기능을 사용하도록 설정한 후 사�
 
 _선택 가능한 인증 방법_ 기능을 사용하여 사용자가 사용할 수 있는 인증 방법을 선택할 수 있습니다. 다음 표에서는 이러한 방법의 간략한 개요를 제공합니다.
 
-사용자가 Azure Multi-Factor Authentication에 자신의 계정을 등록한 경우, 사용하도록 설정한 옵션에서 원하는 인증 방법을 선택합니다. 사용자 등록 프로세스에 대한 지침은 [2단계 인증에 내 계정 설정](end-user/current/multi-factor-authentication-end-user-first-time.md)에 제공됩니다.
+사용자가 Azure Multi-Factor Authentication에 자신의 계정을 등록한 경우, 사용하도록 설정한 옵션에서 원하는 인증 방법을 선택합니다. 사용자 등록 프로세스에 대한 지침은 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md)에 제공됩니다.
 
 | 방법 | 설명 |
 |:--- |:--- |

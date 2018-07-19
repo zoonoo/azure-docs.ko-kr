@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a8ac62986eb7eb184ae6d102a956ee051e3aa88a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063513"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345385"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -35,9 +35,9 @@ Azure Automation 계정에서 직접 가상 머신에 업데이트 관리를 사
 
 ![업데이트 관리 프로세스 흐름](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-컴퓨터에서 업데이트 준수를 검색한 후 에이전트에서 Azure Log Analytics에 정보를 대량으로 전달합니다. Windows 컴퓨터에서 준수 검사는 기본적으로 12시간마다 수행됩니다. 
+컴퓨터에서 업데이트 준수를 검색한 후 에이전트에서 Azure Log Analytics에 정보를 대량으로 전달합니다. Windows 컴퓨터에서 준수 검사는 기본적으로 12시간마다 수행됩니다.
 
-검사 일정 외에도, MMA가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 내에 업데이트 준수 검사가 시작됩니다. 
+검사 일정 외에도, MMA가 다시 시작되면 업데이트 설치 전과 업데이트 설치 후 15분 내에 업데이트 준수 검사가 시작됩니다.
 
 Linux 컴퓨터에서 준수 검사는 기본적으로 3시간마다 수행됩니다. MMA 에이전트가 다시 시작되면 15분 이내에 준수 검사가 시작됩니다.
 
@@ -86,7 +86,7 @@ Windows 에이전트는 WSUS 서버와 통신하도록 구성되거나 Microsoft
 
 #### <a name="linux"></a>Linux
 
-Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 사설 또는 공용일 수 있습니다. 여러 Log Analytics 작업 영역에 보고하도록 구성된 Linux용 OMS(Operations Management Suite) 에이전트는 이 솔루션에서 지원되지 않습니다.
+Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 업데이트 리포지토리는 사설 또는 공용일 수 있습니다. 업데이트 관리와 상호 작용하는 데 TLS 1.1 또는 TLS 1.2가 필요합니다. 여러 Log Analytics 작업 영역에 보고하도록 구성된 Linux용 OMS(Operations Management Suite) 에이전트는 이 솔루션에서 지원되지 않습니다.
 
 Linux용 OMS 에이전트를 설치하고 최신 버전을 다운로드하는 방법에 대한 내용은 [Linux용 Operations Management Suite 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조하세요. Windows용 OMS 에이전트를 설치하는 방법은 [Windows용 Operations Management Suite 에이전트](../log-analytics/log-analytics-windows-agent.md)를 참조하세요.
 
@@ -115,6 +115,9 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 * 업데이트 배포 MP
 
 솔루션 관리 팩이 업데이트되는 방법에 대한 자세한 내용은 [Log Analytics에 Operations Manager 연결](../log-analytics/log-analytics-om-agents.md)을 참조하세요.
+
+> [!NOTE]
+> Operations Manger 에이전트가 있는 시스템을 업데이트 관리로 완전히 관리할 수 있으려면 에이전트를 Microsoft Monitoring Agent로 업데이트해야 합니다. 에이전트를 업데이트하는 방법을 알아보려면 [Operations Manager 에이전트를 업그레이드하는 방법](/system-center/scom/deploy-upgrade-agents.md)을 참조하세요.
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>비 Azure 컴퓨터가 등록되어 있는지 확인
 
@@ -260,6 +263,8 @@ sudo yum -q --security check-update
 |\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 
 Hybrid Runbook Worker에 필요한 포트에 대한 자세한 내용은 [Hybrid Worker 역할 포트](automation-hybrid-runbook-worker.md#hybrid-worker-role)를 참조하세요.
+
+예외를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 반영합니다.
 
 ## <a name="search-logs"></a>로그 검색
 

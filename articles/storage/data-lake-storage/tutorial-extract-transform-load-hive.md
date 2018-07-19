@@ -1,24 +1,24 @@
 ---
 title: '자습서: HDInsight에서 Hive를 사용하여 ETL(추출, 변환, 로드) 작업 수행 - Azure'
 description: HDInsight에서 Hive를 사용하여 원시 CSV 데이터 집합에서 데이터를 추출하고, 변환한 다음, Sqoop을 사용하여 변환된 데이터를 Azure SQL 데이터베이스로 로드하는 방법을 알아봅니다.
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 8f5771ac860d40eab979bf9be92b18da8f5d850d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 4f71a4e0570695abbe580ffc16b3361d5cd71ac1
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342371"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136489"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Hive를 사용하여 데이터 추출, 변환 및 로드
 
@@ -59,10 +59,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 2. 페이지에서 다음 값을 선택합니다.
 
-   | 이름 | 값 |
+   | Name | 값 |
    | --- | --- |
-   | 필터 연도 |2013 |
-   | 필터 기간 |1월 |
+   | Filter Year |2013 |
+   | Filter Period |January |
    | 필드 |Year, FlightDate, UniqueCarrier, Carrier, FlightNum, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
    기타 모든 필드 지우기
 
@@ -279,7 +279,7 @@ Hive 작업의 일부로 .csv 파일에서 **지연**이라는 Hive 테이블로
     databaseName       dbo             delays        BASE TABLE
     ```
 
-5. `1>` 프롬프트에 `exit`를 입력하여 tsql 유틸리티를 종료합니다.
+5. `exit` at the `1>`를 입력하여 tsql 유틸리티를 종료합니다.
 
 
 ## <a name="export-data-to-sql-database-using-sqoop"></a>Sqoop을 사용하여 SQL 데이터베이스로 데이터 내보내기

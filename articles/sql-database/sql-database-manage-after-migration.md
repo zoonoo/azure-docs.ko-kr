@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: migration
-ms.openlocfilehash: d97e0bf94b911936cacf04f7f26c172b9975c56f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ab6a66821905901515258842176ce24e485a54e3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061647"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110615"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>클라우드의 새 DBA - Azure SQL Database의 데이터베이스 관리
 
@@ -66,7 +66,8 @@ SQL Database는 보안 및 개인 정보 보호를 매우 중대하게 실행합
 - 실제 데이터 보호([TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 및 [AE[Always Encrypted]](/sql/relational-databases/security/encryption/always-encrypted-database-engine)). 
 - 중요 및 권한 있는 데이터에 대한 액세스 제어([행 수준 보안](/sql/relational-databases/security/row-level-security) 및 [동적 데이터 마스킹](/sql/relational-databases/security/dynamic-data-masking)).
 
-[Azure Security Center](https://azure.microsoft.com/services/security-center/)는 Azure, 온-프레미스 및 기타 클라우드에서 실행되는 작업 전반에 걸친 중앙 집중식 보안 관리를 제공합니다. [감사](sql-database-auditing.md) 및 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)와 같은 필수 SQL Database 보호가 모든 리소스에 구성되었는지 보고, 고유의 요구 사항에 따라 정책을 만들 수 있습니다.
+
+  [Azure Security Center](https://azure.microsoft.com/services/security-center/)는 Azure, 온-프레미스 및 기타 클라우드에서 실행되는 작업 전반에 걸친 중앙 집중식 보안 관리를 제공합니다. [감사](sql-database-auditing.md) 및 [TDE[투명한 데이터 암호화]](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)와 같은 필수 SQL Database 보호가 모든 리소스에 구성되었는지 보고, 고유의 요구 사항에 따라 정책을 만들 수 있습니다.
 
 ### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>어떤 사용자 인증 방법이 Microsoft Azure SQL Database에서 제공됩니까?
 SQL Database에서 [두 가지 사용자 인증 방법](sql-database-control-access.md#authentication)이 제공됩니다. 
@@ -254,7 +255,7 @@ SQL Database는 특정 부류의 데이터 손상을 자동으로 데이터 손�
 ### <a name="how-do-i-synchronize-data-between-sql-database-and-sql-server"></a>SQL Database와 SQL Server 사이에 데이터를 동기화하려면 어떻게 합니까?
 이 목적을 달성하는 여러 가지 방법이 있습니다. 
 - **[Data Sync](sql-database-sync-data.md)** – 이 기능은 여러 온-프레미스 SQL Server 데이터베이스와 SQL Database 사이에 양방향으로 데이터를 동기화하도록 도와 줍니다. 온-프레미스 SQL Server 데이터베이스와 동기화하려면 로컬 컴퓨터에 동기화 에이전트를 설치 및 구성하고 아웃바운드 TCP 포트 1433을 열어야 합니다.
-- **[트랜잭션 복제](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은 [트랜잭션 복제 사용](sql-database-cloud-migrate.md#method-2-use-transactional-replication) 참조
+- **[트랜잭션 복제](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – 트랜잭션 복제를 사용하여 온-프레미스에서 Azure SQL DB까지의 데이터를 게시자인 온-프레미스 및 구독자인 Azure SQL DB와 동기화할 수 있습니다. 현재 이 설정만 지원됩니다. 가동 중지 시간을 최소화하면서 온-프레미스 데이터를 Azure SQL로 마이그레이션하는 방법은 [트랜잭션 복제 사용](sql-database-cloud-migrate.md#method-2-use-transactional-replication)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [SQL Database](sql-database-technical-overview.md)에 대해 알아봅니다.

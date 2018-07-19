@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ea6ffa9d07be719c43ca33cfca76876c161d69bc
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ff1f6fcae1d21d47b5ee0263b4e038287a588991
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048474"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008232"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -67,7 +67,8 @@ HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 �
 
 ### <a name="machine-learning-and-spark"></a>Machine Learning 및 Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md)는 Azure에서 호스팅되는 [Spark](http://spark.apache.org/) 제품으로, 메모리 내 처리를 사용하여 빅 데이터 분석을 향상시키는 통합형 오픈 소스 병렬 데이터 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. 
+
+  [HDInsight Spark](../spark/apache-spark-overview.md)는 Azure에서 호스팅되는 [Spark](http://spark.apache.org/) 제품으로, 메모리 내 처리를 사용하여 빅 데이터 분석을 향상시키는 통합형 오픈 소스 병렬 데이터 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. 
 
 이 분산 환경에 알고리즘 모델링 기능을 제공하는 확장성 있는 세 가지 기계 학습 라이브러리가 있습니다.
 
@@ -85,7 +86,7 @@ HDInsight의 일부로서, 대량 데이터 집합 및 모델과 함께 사용�
 
 ### <a name="spark-and-deep-learning"></a>Spark 및 딥 러닝
 
-[딥 러닝](https://www.microsoft.com/research/group/dltc/)은 인간 두뇌의 생물학적 프로세스에서 영감을 얻은 *DNN(딥 신경망)* 을 사용하는 기계 학습의 한 분야입니다. 많은 연구자들은 딥 러닝이 인공 지능에 대한 유망한 접근 방식이라고 봅니다. 딥 러닝의 예로 언어 변환기, 이미지 인식 시스템 및 컴퓨터 추론이 있습니다. 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신 알고리즘 및 기술에 관심이 있는 학생들이 광범위하게 사용하고 있습니다. 
+[딥 러닝](https://www.microsoft.com/research/group/dltc/)은 인간 두뇌의 생물학적 프로세스에서 영감을 얻은 *DNN(딥 신경망)* 을 사용하는 기계 학습의 한 분야입니다. 많은 연구자들은 딥 러닝이 인공 지능에 대한 유망한 접근 방식이라고 봅니다. 딥 러닝의 예로 언어 변환기, 이미지 인식 시스템 및 컴퓨터 추론이 있습니다. 딥 러닝에서 자체의 작업을 진행하도록 지원하기 위해 Microsoft는 추가 비용이 없고 사용하기 쉬운 오픈 소스 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)를 개발했습니다. 이 도구 키트는 광범위한 Microsoft 제품, 규모에 맞게 딥 러닝을 배포해야 하는 요구 사항이 있는 전세계 회사 및 최신 알고리즘 및 기술에 관심이 있는 학생들이 광범위하게 사용하고 있습니다. 
 
 ## <a name="scenario---score-images-to-identify-patterns-in-urban-development"></a>시나리오 - 도시 개발 패턴을 식별하기 위한 이미지 점수 매기기
 

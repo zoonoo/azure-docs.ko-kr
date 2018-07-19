@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 3e3cebd47a259c7c297d6df0eaf76a350111f2e3
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8907619b802d93cee4463a80155f38ce9030948f
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319268"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37129674"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health: 버전 릴리스 내역
 Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect Health를 정기적으로 업데이트합니다. 이 문서는 출시된 버전 및 기능을 나열합니다.
@@ -29,6 +29,13 @@ Azure Active Directory 팀은 새로운 기능과 성능으로 Azure AD Connect 
 * 동기화를 위한 Azure AD Connect Health - 포털에서 중복된 특성 동기화 오류 진단 및 수정 
 
 **에이전트 업데이트:** 
+*  AD DS용 Azure AD Connect Health 에이전트(버전 3.1.7.0)    
+   1. .NET Framework를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제에 대한 핫픽스 기술 자료 릴리스
+
+*   AD FS용 Azure AD Connect Health Agent(버전 3.1.7.0)  
+   1. .NET Framework를 사용한 모니터링 에이전트에서 나타나는 높은 CPU 문제에 대한 핫픽스 기술 자료 릴리스  
+   2. ADFS Server 2016 보조 서버에서 수정 결과 테스트
+   
 *   AD FS용 Azure AD Connect Health Agent(버전 3.1.2.0)  
    1. 버전 3.0.244.0용으로 특별히 작성된 에이전트 메모리 관리 및 관련 경고에 대한 핫픽스
 

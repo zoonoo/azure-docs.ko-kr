@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 02/01/2018
 ms.author: garye
 ms.reviewer: gibattag
-ms.openlocfilehash: 3697dd0628f0028cb486139e92c032f0d757c6ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed5f19b23375ecb83e19274c7405e9a1208a7985
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374487"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036157"
 ---
 # <a name="create-a-cognitive-services-apis-account-in-the-azure-portal"></a>Azure Portal에서 Cognitive Services API 계정 만들기
 
@@ -73,6 +73,6 @@ Cognitive Services 계정이 성공적으로 배포되면 대시보드에서 타
 
 몇 가지 예제 Cognitive Services API 사용에 대한 빠른 시작 가이드는 다음을 참조하세요.
 
- - [Computer Vision C# 빠른 시작](/computer-vision/quickstarts/csharp.md)
- - [텍스트 분석 및 Python](/text-analytics/quickstarts/python.md)
- - [Face API 및 JavaScript](/face/quickstarts/javascript.md)
+ - [Computer Vision C# 빠른 시작](computer-vision/quickstarts/csharp.md)
+ - [텍스트 분석 및 Python](text-analytics/quickstarts/python.md)
+ - [Face API 및 JavaScript](face/quickstarts/javascript.md)

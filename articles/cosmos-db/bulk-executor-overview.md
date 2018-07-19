@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: 893888904b6afc583c3c20b94d08eb3255a98cad
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 7c490aa958cf9e78c260dd0fbcf7952b55d8d88c
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36303994"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096179"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 대량 실행기 라이브러리 개요
  
@@ -33,7 +33,7 @@ Azure Cosmos DB는 다음을 지원하기 위해 탄력적으로 스케일 아�
  
 * 컨테이너에 할당된 처리량을 사용하는 데 필요한 클라이언트 쪽 계산 리소스를 크게 줄여 줍니다. 대량 가져오기 API를 사용하여 데이터를 작성하는 단일 스레드 응용 프로그램은 클라이언트 컴퓨터의 CPU를 사용하면서 동시에 데이터를 작성하는 멀티 스레드 응용 프로그램에 비해 10회 이상의 쓰기 처리량을 달성합니다.  
 
-* 응용 프로그램 논리 작성의 지루한 작업을 추상화하여 요청 제한, 요청 시간 제한 및 다른 일시적 예외를 라이브러리 내에서 효과적으로 처리합니다.  
+* 응용 프로그램 논리 작성의 지루한 작업을 추상화하여 요청의 속도 제한, 요청 시간 제한 및 다른 일시적 예외를 라이브러리 내에서 효과적으로 처리합니다.  
 
 * 응용 프로그램이 스케일 아웃할 대량 작업을 수행할 수 있도록 간소화된 메커니즘을 제공합니다. Azure VM에서 실행되는 단일 대량 실행기 인스턴스는 500K RU/s 이상을 사용할 수 있으며, 사용자는 개별 클라이언트 VM에서 추가 인스턴스를 추가하여 더 높은 처리량 속도를 얻을 수 있습니다.  
  
@@ -47,7 +47,7 @@ Azure Cosmos DB는 다음을 지원하기 위해 탄력적으로 스케일 아�
 
 ![Bulk Executor 아키텍처](./media/bulk-executor-overview/bulk-executor-architecture.png)
 
-Bulk Executor 라이브러리는 컬렉션에 할당된 처리량을 최대로 활용합니다. 각 Azure Cosmos DB 파티션 키 범위에 대해  [AIMD 스타일 정체 제어 메커니즘](https://tools.ietf.org/html/rfc5681)을 사용하여 제한 및 제한 시간을 효율적으로 처리합니다. 
+Bulk Executor 라이브러리는 컬렉션에 할당된 처리량을 최대로 활용합니다. 각 Azure Cosmos DB 파티션 키 범위에 대해  [AIMD 스타일 정체 제어 메커니즘](https://tools.ietf.org/html/rfc5681)을 사용하여 속도 제한 및 제한 시간을 효율적으로 처리합니다. 
 
 ## <a name="next-steps"></a>다음 단계 
   

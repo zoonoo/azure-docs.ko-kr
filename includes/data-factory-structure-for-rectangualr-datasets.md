@@ -3,12 +3,12 @@
 
 각 열에는 다음 속성이 포함됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | --- | --- | --- |
-| name |열의 이름입니다. |예 |
-| type |열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. |아니요 |
-| culture |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "en-us"입니다. |아니요 |
-| format |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 형식 문자열입니다. |아니요 |
+| 이름 |열의 이름입니다. |예 |
+| 형식 |열의 데이터 형식입니다. 형식 정보를 지정해야 할 시기에 대한 자세한 내용은 아래의 형식 변환 섹션을 참조하세요. |아니오 |
+| culture |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 .NET 기반 culture입니다. 기본값은 "en-us"입니다. |아니오 |
+| format |지정된 형식이 .NET 형식 Datetime 또는 Datetimeoffset일 때 사용할 형식 문자열입니다. |아니오 |
 
 다음 샘플에서는 3개의 열 즉, userid, name 및 lastlogindate가 있는 테이블에 대한 구조 섹션 JSON을 보여줍니다.
 
@@ -36,9 +36,9 @@
 * Int16
 * Int32 
 * Int64
-* Single
+* 단일
 * Double
-* DECIMAL
+* 10진수
 * Byte[]
 * Bool
 * 문자열 

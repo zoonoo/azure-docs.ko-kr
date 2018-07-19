@@ -10,21 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 856ae994e49f809ca2ef906ba6cdc7f8624dd201
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33870025"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057364"
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>신속한 Azure AD 셀프 서비스 암호 재설정 배포
 
 > [!IMPORTANT]
-> **로그인하는 데 문제가 있나요?** [Azure AD 암호를 잊어버렸어요. 도와주세요!](../active-directory-passwords-update-your-own-password.md)를 참조하세요.
+> **로그인하는 데 문제가 있나요?** [Azure AD 암호를 잊어버렸어요. 도와주세요!](../user-help/active-directory-passwords-update-your-own-password.md)를 참조하세요.
 
 IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용자에게 자신의 암호 또는 계정을 재설정하거나 잠금 해제할 수 있는 권한을 간단하게 부여할 수 있습니다. 이 시스템에는 오용 또는 남용에 대해 경고하는 알림과 함께 사용자가 언제 시스템에 액세스하는지 추적하는 구체적인 보고서가 포함되어 있습니다.
 
-이 가이드에서는 이미 여러분이 작업 평가판 또는 사용이 허가된 Azure AD(Azure Active Directory) 테넌트를 갖고 있다고 가정합니다. Azure AD 설정과 관련하여 도움이 필요한 경우 [Azure AD 시작하기](../get-started-azure-ad.md)를 참조하세요.
+이 가이드에서는 이미 여러분이 작업 평가판 또는 사용이 허가된 Azure AD(Azure Active Directory) 테넌트를 갖고 있다고 가정합니다. Azure AD 설정과 관련하여 도움이 필요한 경우 [Azure AD 시작하기](../fundamentals/get-started-azure-ad.md)를 참조하세요.
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Azure AD 테넌트에 대한 SSPR 사용 설정
 
@@ -62,7 +62,7 @@ IT 관리자는 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용�
    * 사용자에게 암호 재설정에 대해 알림.
    * 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림.
 
-현재는 Azure AD 테넌트에 SSPR을 구성했습니다. 이제는 관리자가 개입하지 않고 사용자가 [셀프 서비스 암호 재설정 등록](../active-directory-passwords-reset-register.md) 및 [암호 재설정 또는 변경](../active-directory-passwords-update-your-own-password.md) 문서의 지침을 사용하여 자신의 암호를 업데이트할 수 있습니다. 클라우드 전용인 경우 여기서 멈출 수 있습니다. 또는 다음 섹션을 계속 진행하여 온-프레미스 Active Directory 도메인과 암호 동기화를 구성할 수 있습니다.
+현재는 Azure AD 테넌트에 SSPR을 구성했습니다. 이제는 관리자가 개입하지 않고 사용자가 [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md) 및 [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md) 문서의 지침을 사용하여 자신의 암호를 업데이트할 수 있습니다. 클라우드 전용인 경우 여기서 멈출 수 있습니다. 또는 다음 섹션을 계속 진행하여 온-프레미스 Active Directory 도메인과 암호 동기화를 구성할 수 있습니다.
 
 > [!TIP]
 > 관리자가 아닌 사용자로 SSPR을 테스트합니다. Microsoft가 Azure 관리자 계정에 강력한 인증 요구 사항을 적용하기 때문입니다. 관리자 암호 정책에 대한 자세한 내용은 [암호 정책](concept-sspr-policy.md#administrator-password-policy-differences) 문서를 참조하세요.
@@ -95,8 +95,8 @@ Azure AD에 온-프레미스 ID 동기화를 사용하려면 조직의 서버에
 다음 문서에서는 Azure AD를 통한 암호 재설정에 대한 추가 정보를 제공합니다.
 
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
-* [암호 재설정 또는 변경](../active-directory-passwords-update-your-own-password.md)
-* [셀프 서비스 암호 재설정 등록](../active-directory-passwords-reset-register.md)
+* [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
+* [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
 * [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [사용자가 사용할 수 있는 인증 방법은 무엇입니까?](concept-sspr-howitworks.md#authentication-methods)

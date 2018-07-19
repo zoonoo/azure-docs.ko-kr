@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 13f746697a7e694da79a6e376b45f95529049a44
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5a6fa3f2bb6ab76bf323fe3ca829797878f5e774
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401964"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100507"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -74,14 +74,14 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
     * **다음**을 클릭합니다.
 
-4. **저장소**의 경우 Azure Storage(WASB) 또는 Data Lake Store를 기본 저장소로 사용할지 여부를 지정합니다. 자세한 내용은 아래 테이블을 살펴보세요.
+4. **저장소**의 경우 Azure Storage(WASB) 또는 Data Lake Storage를 기본 저장소로 사용할지 여부를 지정합니다. 자세한 내용은 아래 테이블을 살펴보세요.
 
     ![Azure Portal에서 새 클러스터 만들기](./media/hdinsight-hadoop-create-linux-cluster-portal/hdinsight-create-cluster-storage.png "Azure Portal에서 새 클러스터 만들기")
 
     | Storage                                      | 설명 |
     |----------------------------------------------|-------------|
-    | **기본 저장소인 Azure Storage Blob**   | <ul><li>**기본 저장소 형식**으로 **Azure Storage**를 선택합니다. 그런 다음 Azure 구독의 일부인 저장소 계정을 지정하고 저장소 계정을 선택하려는 경우 **선택 방법**에서 **내 구독**을 선택할 수 있습니다. 그렇지 않으면 **선택키**를 클릭하고 Azure 구독 외부에서 선택하려는 저장소 계정에 대한 정보를 제공합니다.</li><li>**기본 컨테이너**의 경우 포털에서 제안한 기본 컨테이너 이름을 사용하거나 고유한 이름을 지정하도록 선택할 수 있습니다.</li><li>WASB를 기본 저장소를 사용하는 경우 선택적으로 **추가 Storage 계정**을 클릭하여 클러스터와 연결할 추가 Storage 계정을 지정합니다. **Azure Storage 키**의 경우 **저장소 키 추가**를 클릭한 다음, Azure 구독 또는 다른 구독에서 저장소 계정 액세스 키를 제공하여 저장소 계정을 제공할 수 있습니다.</li><li>WASB를 기본 저장소로 사용하는 경우 선택적으로 **Data Lake Store 액세스**를 클릭하여 Azure Data Lake Store를 추가 저장소로 지정할 수 있습니다. 자세한 내용은 [Azure 포털을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.</li></ul> |
-    | **기본 저장소로 Azure Data Lake Store** | **기본 저장소 유형**으로 **Data Lake Store**를 선택하고 지침은 [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md) 문서를 참조하세요. |
+    | **기본 저장소인 Azure Storage Blob**   | <ul><li>**기본 저장소 형식**으로 **Azure Storage**를 선택합니다. 그런 다음 Azure 구독의 일부인 저장소 계정을 지정하고 저장소 계정을 선택하려는 경우 **선택 방법**에서 **내 구독**을 선택할 수 있습니다. 그렇지 않으면 **선택키**를 클릭하고 Azure 구독 외부에서 선택하려는 저장소 계정에 대한 정보를 제공합니다.</li><li>**기본 컨테이너**의 경우 포털에서 제안한 기본 컨테이너 이름을 사용하거나 고유한 이름을 지정하도록 선택할 수 있습니다.</li><li>WASB를 기본 저장소를 사용하는 경우 선택적으로 **추가 Storage 계정**을 클릭하여 클러스터와 연결할 추가 Storage 계정을 지정합니다. **Azure Storage 키**의 경우 **저장소 키 추가**를 클릭한 다음, Azure 구독 또는 다른 구독에서 저장소 계정 액세스 키를 제공하여 저장소 계정을 제공할 수 있습니다.</li><li>WASB를 기본 저장소로 사용하는 경우 선택적으로 **Data Lake Store 액세스**를 클릭하여 Azure Data Lake Storage를 추가 저장소로 지정할 수 있습니다. 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.</li></ul> |
+    | **기본 저장소로 Azure Data Lake Storage** | **기본 저장소 유형**으로 **Azure Data Lake Storage Gen1** 또는 **Azure Data Lake Storage Gen2(미리 보기)** 를 선택한 다음, [빠른 시작 : HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)에서 지침을 참조하세요. |
     | **외부 Metastore**                      | 필요에 따라 SQL Database를 지정하여 클러스터와 연결된 Hive 및 Oozie 메타데이터를 저장할 수 있습니다. **Hive용 SQL Database 사용**에 대해 SQL Database를 클릭하고 데이터베이스의 사용자 이름/암호를 입력합니다. Oozie 메타데이터에 대해 이러한 단계를 반복합니다.<br><br>metastores에 대한 Azure SQL Database를 사용하는 동안 몇 가지 고려 사항입니다. <ul><li>메타스토어에 사용되는 Azure SQL 데이터베이스는 Azure HDInsight를 비롯한 다른 Azure 서비스로의 연결을 허용해야 합니다. Azure SQL 데이터베이스 대시보드의 오른쪽에서 서버 이름을 클릭합니다. 이 서버는 SQL 데이터베이스 인스턴스가 실행되는 서버입니다. 서버 보기에서 **구성**을 클릭하고 **Azure 서비스**에 대해 **예**를 클릭한 다음 **저장**을 클릭합니다.</li><li>Metastore를 만들 때 클러스터를 만드는 프로세스가 실패할 수 있으므로 대시 또는 하이픈을 포함하는 데이터베이스 이름을 사용하지 않습니다.</li></ul> |
 
     **다음**을 클릭합니다. 

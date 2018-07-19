@@ -17,6 +17,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-get-intent.md
+            - name: Go
+              href: luis-get-started-go-get-intent.md
             - name: 자바
               href: luis-get-started-java-get-intent.md
             - name: JavaScript
@@ -33,6 +35,8 @@
           items:
             - name: 'C#'
               href: luis-get-started-cs-add-utterance.md
+            - name: Go
+              href: luis-get-started-go-add-utterance.md
             - name: 자바
               href: luis-get-started-java-add-utterance.md
             - name: JavaScript
@@ -125,7 +129,7 @@
       items:
         - name: 대화형 테스트
           href: luis-concept-test.md
-        - name: 일괄 처리 테스트
+        - name: 일괄 테스트
           href: luis-concept-batch-test.md
     - name: Enterprise
       items:
@@ -191,7 +195,7 @@
       items:
         - name: 대화형 테스트
           href: interactive-test.md
-        - name: 일괄 처리 테스트
+        - name: 일괄 테스트
           href: luis-how-to-batch-test.md
     - name: 앱 게시
       href: luis-how-to-publish-app.md
@@ -220,7 +224,7 @@
             - name: PowerShell로 끝점 사용량 보기
               href: luis-how-to-manage-from-cloud-shell.md
             - name: Traffic Manager를 사용하여 키에 끝점 할당량 분산
-              href: traffic-manager.md
+              href: luis-traffic-manager.md
     - name: V2 API로 마이그레이션
       href: migration-v1-to-v2.md
     - name: 프로그래밍 방식으로 영역 찾기

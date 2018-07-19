@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: edc44f0ab2d2cc737807dd8ad543997cdd75bd43
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035211"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344303"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>투명한 게이트웨이 역할을 하는 Windows IoT Edge 장치 만들기
 
@@ -38,46 +38,56 @@ ms.locfileid: "37035211"
 ## <a name="prerequisites"></a>필수 조건
 1.  Windows 장치에 투명 게이트웨이로 사용하려는 [Azure IoT Edge 런타임을 설치][lnk-install-windows-x64]합니다.
 
-1. Windows용 OpenSSL을 가져옵니다. 다양한 방법으로 OpenSSL을 설치할 수 있습니다. 여기의 지침에서는 vcpkg를 사용하여 이를 수행합니다.
-   1. 관리자 PowerShell에서 다음 명령 실행을 사용하여 vcpkg를 다운로드 및 설치합니다. OpenSSL을 설치하려는 디렉터리로 이동하고, 이 `$VCPKGDIR`을 호출합니다.
+1. Windows용 OpenSSL을 가져옵니다. 다양한 방법으로 OpenSSL을 설치할 수 있습니다.
 
-   ```PowerShell
-   git clone https://github.com/Microsoft/vcpkg
-   cd vcpkg
-   .\bootstrap-vcpkg.bat
-   .\vcpkg integrate install
-   .\vcpkg install openssl:x64-windows
-   ```
+   >[!NOTE]
+   >Windows 장치에 OpenSSL이 이미 설치되어 있으면 이 단계를 건너뛰어도 되지만 `%PATH%` 환경 변수에서 `openssl.exe`를 사용할 수 있는지 확인하세요.
 
-   1. 환경 변수 `OPENSSL_ROOT_DIR`을 `$VCPKGDIR\vcpkg\packages\openssl_x64-windows`로 설정하고 `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl`을 `PATH` 환경 변수에 추가합니다.
+   * [타사 OpenSSL 이진 파일](https://wiki.openssl.org/index.php/Binaries)을 다운로드하여 설치합니다(예: [SourceForge의 이 프로젝트](https://sourceforge.net/projects/openssl/)).
+   
+   * 사용자가 직접 또는 [vcpkg](https://github.com/Microsoft/vcpkg)를 통해 OpenSSL 소스 코드를 다운로드하고 컴퓨터에서 이진 파일을 빌드합니다. 아래 나열된 지침을 따르면 vcpkg를 사용하여 Windows 컴퓨터에서 소스 코드를 다운로드하고, OpenSSL을 컴파일 및 설치하는 과정을 편리하게 단계별로 진행할 수 있습니다.
+
+      1. vcpkg를 설치하려는 디렉터리로 이동합니다. 여기서부터는 $VCPKGDIR이라고 부르겠습니다. 지침에 따라 [vcpkg](https://github.com/Microsoft/vcpkg)를 다운로드하고 설치합니다.
+   
+      1. vcpkg가 설치되면 powershell 프롬프트에서 다음 명령을 실행하여 Windows x64용 OpenSSL 패키지를 설치합니다. 이 작업을 완료하는 데 일반적으로 약 5분이 걸립니다.
+
+         ```PowerShell
+         .\vcpkg install openssl:x64-windows
+         ```
+      1. `openssl.exe` 파일을 호출할 수 있도록 `$VCPKGDIR\vcpkg\packages\openssl_x64-windows\tools\openssl`을 `PATH` 환경 변수에 추가합니다.
+
+1. 작업하려는 디렉터리로 이동합니다. 여기서부터는 $WRKDIR이라고 부르겠습니다.  모든 파일은 이 디렉터리에서 생성됩니다.
+   
+   cd $WRKDIR
 
 1.  다음 명령을 사용하여 비프로덕션 필수 인증서를 생성하는 스크립트를 가져옵니다. 이 스크립트를 통해 인증서가 투명한 게이트웨이를 설정하도록 만들 수 있습니다.
 
-   ```PowerShell
-   git clone https://github.com/Azure/azure-iot-sdk-c.git
-   ```
+      ```PowerShell
+      git clone https://github.com/Azure/azure-iot-sdk-c.git
+      ```
 
-1. 작업하려는 디렉터리로 이동합니다. 여기서부터는 $WRKDIR이라고 부르겠습니다.  모든 파일은 이 디렉터리에서 생성됩니다.
+1. 구성 및 스크립트 파일을 작업 디렉터리로 복사합니다. 또한 openssl_root_ca.cnf 구성 파일을 사용하도록 환경 변수 OPENSSL_CONF를 설정합니다.
 
-   cd $WRKDIR
-
-1. 구성 및 스크립트 파일을 작업 디렉터리로 복사합니다.
    ```PowerShell
    copy azure-iot-sdk-c\tools\CACertificates\*.cnf .
    copy azure-iot-sdk-c\tools\CACertificates\ca-certs.ps1 .
+   $env:OPENSSL_CONF = "$PWD\openssl_root_ca.cnf"
    ```
 
 1. 다음 명령을 실행하여 스크립트를 실행하도록 PowerShell을 활성화합니다.
+
    ```PowerShell
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
 1. 스크립트에서 사용된 함수를 다음 명령을 사용하여 도트 소싱으로 PowerShell의 전역 네임스페이스로 가져옵니다.
+   
    ```PowerShell
    . .\ca-certs.ps1
    ```
 
-1. OpenSSL이 올바르게 설치되었는지 확인하고, 다음 명령을 실행하여 기존 인증서와 이름 충돌이 없는지 확인합니다.
+1. OpenSSL이 올바르게 설치되었는지 확인하고, 다음 명령을 실행하여 기존 인증서와 이름 충돌이 없는지 확인합니다. 문제가 있으면 스크립트에 시스템에서 이러한 문제를 수정하는 방법에 대한 설명이 표시됩니다.
+
    ```PowerShell
    Test-CACertsPrerequisites
    ```
@@ -85,30 +95,18 @@ ms.locfileid: "37035211"
 ## <a name="certificate-creation"></a>인증서 만들기
 1.  소유자 CA 인증서 및 중간 인증서를 만듭니다. 모두 `$WRKDIR`에 배치합니다.
 
-   ```PowerShell
-   New-CACertsCertChain rsa
-   ```
-
-   스크립트를 실행한 결과 다음 인증서 및 키가 생성됩니다.
-   * 인증서
-      * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
-      * `$WRKDIR\certs\azure-iot-test-only.intermediate.cert.pem`
-   * 구성
-      * `$WRKDIR\private\azure-iot-test-only.root.ca.key.pem`
-      * `$WRKDIR\private\azure-iot-test-only.intermediate.key.pem`
+      ```PowerShell
+      New-CACertsCertChain rsa
+      ```
 
 1.  아래 명령을 사용하여 Edge 장치 CA 인증서 및 개인 키를 만듭니다.
 
    >[!NOTE]
    > 게이트웨이의 DNS 호스트 이름과 동일한 이름을 사용하지 **마십시오**. 이렇게 하면 이러한 인증서에 대한 클라이언트 인증이 실패합니다.
 
-      ```PowerShell
-      New-CACertsEdgeDevice "<gateway device name>"
-      ```
-
-   스크립트 실행의 결과 다음과 같은 인증서 및 키가 생성됩니다.
-   * `$WRKDIR\certs\new-edge-device.*`
-   * `$WRKDIR\private\new-edge-device.key.pem`
+   ```PowerShell
+   New-CACertsEdgeDevice "<gateway device name>"
+   ```
 
 ## <a name="certificate-chain-creation"></a>인증서 체인 생성
 아래 명령을 사용하여 소유자 CA 인증서, 중간 인증서 및 Edge 장치 CA 인증서에서 인증서 체인을 만듭니다. 이 체인을 체인 파일에 배치하면 투명한 게이트웨이로 작동하는 Edge 장치에서 쉽게 설치할 수 있습니다.
@@ -116,6 +114,11 @@ ms.locfileid: "37035211"
    ```PowerShell
    Write-CACertsCertificatesForEdgeDevice "<gateway device name>"
    ```
+
+   스크립트 실행의 결과 다음과 같은 인증서 및 키가 생성됩니다.
+   * `$WRKDIR\certs\new-edge-device.*`
+   * `$WRKDIR\private\new-edge-device.key.pem`
+   * `$WRKDIR\certs\azure-iot-test-only.root.ca.cert.pem`
 
 ## <a name="installation-on-the-gateway"></a>게이트웨이에 설치
 1.  $WRKDIR에서 Edge 장치의 지정된 위치로 다음 파일을 복사합니다. 여기를 $CERTDIR이라고 부르겠습니다. Edge 장치에서 인증서를 생성한 경우 이 단계를 건너뜁니다.
@@ -128,11 +131,11 @@ ms.locfileid: "37035211"
 
 ```yaml
 certificates:
-  device_ca_cert: "$CERTDIR\certs\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR\private\new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem"
+  device_ca_cert: "$CERTDIR\\certs\\new-edge-device-full-chain.cert.pem"
+  device_ca_pk: "$CERTDIR\\private\\new-edge-device.key.pem"
+  trusted_ca_certs: "$CERTDIR\\certs\\azure-iot-test-only.root.ca.cert.pem"
 ```
-## <a name="deploy-edgehub-to-the-gateway"></a>EdgeHub를 게이트웨이에 배포
+## <a name="deploy-edgehub-to-the-gateway"></a>게이트웨이에 Edge Hub 배포
 Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치에 모듈을 배포할 수 있다는 것입니다. 이 섹션에서는 비어 있는 배포를 만들었습니다. 그러나 다른 모듈을 표시하지 않더라도 Edge Hub는 자동으로 모든 배포에 추가됩니다. Edge Hub는 Edge 장치에서 투명한 게이트웨이로 작동시키는 데 필요한 유일한 모듈입니다. 따라서 비어 있는 배포를 만들면 충분합니다. 
 1. Azure Portal에서 IoT Hub로 이동합니다.
 2. **IoT Edge**로 이동하고 게이트웨이로 사용할 IoT Edge 장치를 선택합니다.
@@ -163,7 +166,11 @@ OS 인증서 저장소에서 이 인증서를 설치하면 모든 응용 프로�
  
     다음과 같은 메시지가 표시됩니다. "/etc/ssl/certs에서 인증서 업데이트... 1개 추가됨, 0개 제거됨. 완료."
 
-* Windows - [이](https://msdn.microsoft.com/en-us/library/cc750534.aspx) 문서에서는 인증서 가져오기 마법사를 사용하여 Windows 장치에서 이 작업을 수행하는 방법을 자세히 설명합니다.
+* Windows - Windows 호스트에서 CA 인증서를 설치하는 방법의 예제는 다음과 같습니다.
+  * 시작 메뉴에서 “컴퓨터 인증서 관리”를 입력합니다. 그러면 `certlm` 유틸리티가 실행됩니다.
+  * 인증서 로컬 컴퓨터 --> 신뢰할 수 있는 루트 인증서 --> 인증서로 이동한 후 마우스 오른쪽 단추로 모든 작업 --> 가져오기를 클릭하여 인증서 가져오기 마법사를 시작합니다.
+  * 지시에 따라 단계를 수행하고 인증서 파일 $CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem을 가져옵니다.
+  * 완료되면 "가져오기에 성공했습니다." 메시지가 표시됩니다.
 
 ### <a name="application-level"></a>응용 프로그램 수준
 .NET 응용 프로그램의 경우 다음 코드 조각을 추가하여 PEM 형식의 인증서를 신뢰할 수 있습니다. `$CERTDIR\certs\azure-iot-test-only.root.ca.cert.pem`을 사용하여 `certPath` 변수를 초기화합니다.

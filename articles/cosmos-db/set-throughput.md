@@ -7,28 +7,28 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: d8b7ed593fcd307e6709c17bafbcb5a22661dc83
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285776"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444269"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 설정 및 가져오기
 
-Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테이너 또는 컨테이너 집합에 대한 처리량을 설정할 수 있습니다. 컨테이너 집합에 대한 처리량을 프로비전할 때 모든 컨테이너가 프로비전된 처리량을 공유합니다. 개별 컨테이너에 대해 처리량을 프로비전하면 해당 특정 컨테이너의 처리량이 예약 보증됩니다. 반면에 데이터베이스에 대한 처리량을 프로비전하면 해당 데이터베이스에 속한 모든 컨테이너에서 처리량을 공유 할 수 있습니다. Azure Cosmos DB 데이터베이스에서 전용 처리량을 가진 컨테이너는 물론 처리량을 공유하는 컨테이너 집합을 가질 수 있습니다. 
+Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos DB 컨테이너 또는 컨테이너 집합에 대한 처리량을 설정할 수 있습니다. 
 
-프로비전된 처리량에 따라 Azure Cosmos DB는 컨테이너를 호스트하는 실제 파티션을 할당하고 확장됨에 따라 파티션에서 데이터를 분할/균형 조정합니다.
+**개별 컨테이너에 대한 처리량 프로비전:** 컨테이너 집합에 대한 처리량을 프로비전할 때 모든 컨테이너가 프로비전된 처리량을 공유합니다. 개별 컨테이너에 대해 처리량을 프로비전하면 해당 특정 컨테이너의 처리량이 예약 보증됩니다. 개별 컨테이너 수준에서 RU/초를 할당할 때 컨테이너를 *고정* 또는 *무제한*으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 무제한 컨테이너를 만들려면 최소 1,000RU/s 처리량과 [파티션 키](partition-data.md)를 지정해야 합니다. 데이터는 여러 파티션에 분할되어야 하므로 카디널리티가 높은(백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 고유 값이 많은 파티션 키를 선택하면 컨테이너/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장될 수 있습니다. 
 
-개별 컨테이너 수준에서 RU/초를 할당할 때 컨테이너를 *고정* 또는 *무제한*으로 만들 수 있습니다. 고정 크기 컨테이너는 최대 제한 10GB 및 10,000RU/s 처리량을 설정할 수 있습니다. 무제한 컨테이너를 만들려면 최소 1,000RU/s 처리량과 [파티션 키](partition-data.md)를 지정해야 합니다. 데이터는 여러 파티션에 분할되어야 하므로 카디널리티가 높은(백~수백만 개의 고유 값) 파티션 키를 선택해야 합니다. 고유 값이 많은 파티션 키를 선택하면 컨테이너/테이블/그래프 및 요청이 Azure Cosmos DB에서 균일하게 확장될 수 있습니다. 
+**컨테이너 또는 데이터베이스 집합에 대한 처리량 프로비전:** 데이터베이스에 대한 처리량을 프로비전하면 해당 데이터베이스에 속한 모든 컨테이너에서 처리량을 공유 할 수 있습니다. Azure Cosmos DB 데이터베이스에서 전용 처리량을 가진 컨테이너는 물론 처리량을 공유하는 컨테이너 집합을 가질 수 있습니다. 컨테이너 집합에서 RU/초를 할당할 때 이 집합에 속하는 컨테이너는 *무제한* 컨테이너로 처리되어야 하며 파티션 키를 지정해야 합니다.
 
-컨테이너 집합에서 RU/초를 할당할 때 이 집합에 속하는 컨테이너는 *무제한* 컨테이너로 처리되어야 하며 파티션 키를 지정해야 합니다.
+프로비전된 처리량에 따라 Azure Cosmos DB는 컨테이너를 호스트하는 실제 파티션을 할당하고 확장됨에 따라 파티션에서 데이터를 분할/균형 조정합니다. 컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컬렉션을 만든 다음, [bulk executor library](bulk-executor-overview.md) 또는 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 마이그레이션해야 합니다. 다음 이미지에서는 다양한 수준의 처리량 프로비전을 보여 줍니다.
 
 ![개별 컨테이너 및 컨테이너의 집합에 대한 요청 단위 프로비저닝](./media/request-units/provisioning_set_containers.png)
 
-이 문서에서는 Azure Cosmos DB 계정에 대한 여러 단계의 처리량을 구성하는 데 필요한 단계를 안내합니다. 
+다음 섹션에서는 Azure Cosmos DB 계정에 대한 여러 단계의 처리량을 구성하는 데 필요한 단계를 알아봅니다. 
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Azure Portal을 사용하여 처리량 프로비전
 
@@ -88,6 +88,8 @@ Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos
 
 다음은 처리량 예약 전략을 결정하는 데 도움이 되는 몇 가지 고려 사항입니다.
 
+### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>데이터베이스 수준에서 처리량을 프로비전할 때 고려 사항
+
 다음과 같은 경우 데이터베이스 수준(즉, 컨테이너 집합인 경우)에서 처리량을 프로비전하는 것이 좋습니다.
 
 * 일부 또는 전체 컨테이너에 걸쳐 처리량을 공유할 수 있는 컨테이너 수가 12개 이상인 경우.  
@@ -97,6 +99,8 @@ Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos
 * 데이터베이스 수준에서 풀링된 처리량을 사용함으로써 작업 부하에 예기치 않은 스파이크를 고려하려는 경우.  
 
 * 개별 컨테이너에서 처리량을 설정하는 대신 데이터베이스 내의 컨테이너 집합에서 집계된 처리량을 얻는 데 관심이 있습니다.
+
+### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>컨테이너 수준에서 처리량을 프로비전할 때 고려 사항
 
 다음과 같은 경우에는 개별 컨테이너에서 처리량을 프로비전하는 것이 좋습니다.
 
@@ -135,6 +139,7 @@ Azure Portal을 사용하거나 클라이언트 SDK를 사용하여 Azure Cosmos
 
 ## <a name="set-throughput-by-using-sql-api-for-net"></a>SQL API for .NET를 사용하여 처리량 설정
 
+### <a name="set-throughput-at-the-container-level"></a>컨테이너 수준에서 처리량 설정
 다음은 SQL API의 .NET SDK를 사용하여 개별 컨테이너에 대해 초당 3,000개 요청 단위로 컨테이너를 만들기 위한 코드 조각입니다.
 
 ```csharp
@@ -147,6 +152,8 @@ await client.CreateDocumentCollectionAsync(
     myCollection,
     new RequestOptions { OfferThroughput = 3000 });
 ```
+
+### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>컨테이너 집합에 대해 또는 데이터베이스 수준에서 처리량 설정
 
 다음은 SQL API의 .NET SDK를 사용하여 컨테이너 집합에서 초당 100,000개 요청 단위를 프로비저닝하기 위한 코드 조각입니다.
 
@@ -177,7 +184,7 @@ await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollectio
 
 Azure Cosmos DB는 처리량의 예약 모델에서 작동합니다. 즉, 활발하게 *사용된* 처리량에 관계없이 *예약된* 처리량에 따라 요금이 청구됩니다. 응용 프로그램의 부하, 데이터 및 사용 패턴이 변하면 그에 따라 SDK를 통해 또는 [Azure Portal](https://portal.azure.com)을 사용하여 예약된 RU 수를 간단하게 늘리거나 줄일 수 있습니다.
 
-각 컨테이너 또는 컨테이너 집합은 프로비전된 처리량에 대한 메타데이터가 있는 Azure Cosmos DB의 `Offer` 리소스에 매핑됩니다. 컨테이너에 해당하는 제품 리소스를 조회한 다음 새 처리량 값으로 업데이트하여 할당된 처리량을 변경할 수 있습니다. 다음 코드 조각에서는 .NET SDK를 사용하여 컨테이너 처리량을 5,000RU/s로 변경합니다. 처리량을 변경한 후 기존 Azure Portal 창을 새로 고침해야만 변경된 처리량이 표시됩니다. 
+각 컨테이너 또는 컨테이너 집합은 프로비전된 처리량에 대한 메타데이터가 있는 Azure Cosmos DB의 `Offer` 리소스에 매핑됩니다. 컨테이너에 해당하는 제품 리소스를 조회한 다음, 새 처리량 값으로 업데이트하여 할당된 처리량을 변경할 수 있습니다. 다음 코드 조각에서는 .NET SDK를 사용하여 컨테이너 처리량을 5,000RU/s로 변경합니다. 처리량을 변경한 후 기존 Azure Portal 창을 새로 고침해야만 변경된 처리량이 표시됩니다. 
 
 ```csharp
 // Fetch the resource to be updated

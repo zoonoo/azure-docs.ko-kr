@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 04/04/2018
+ms.date: 06/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9149405e2778557a94815812fdf4966d38a3149c
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308458"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084963"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -40,7 +40,7 @@ SQL Database는 자동화된 백업 및 선택적 데이터베이스 복제를 �
 
 SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업과 매시간 차등 데이터베이스 백업, 그리고 5~10분 간격으로 트랜잭션 로그 백업을 모두 자동으로 수행합니다. [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하는 경우 이러한 백업은 표준 및 프리미엄 서비스 계층의 데이터베이스에 대해서는 35일 동안, 기본 서비스 계층의 데이터베이스에 대해서는 7일 동안 RA-GRS 저장소에 저장됩니다. 서비스 계층에 대한 보존 기간이 비즈니스 요구 사항에 맞지 않으면 [서비스 계층을 변경](sql-database-single-database-scale.md)하여 보존 기간을 늘릴 수 있습니다. [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 사용하는 경우 범용 및 중요 비즈니스용 계층에서 백업 보존은 최대 35일로 구성할 수 있습니다. 데이터 센터 가동 중단으로부터 보호하기 위해 전체 및 차등 데이터베이스 백업도 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)로 복제됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요.
 
-지원되는 최대 PITR 보존 기간이 응용 프로그램에 대해 충분하지 않을 경우에 데이터베이스에 대한 LTR(장기 보존) 정책을 구성하여 확장할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+지원되는 최대 PITR(Point-in-Time 복원) 보존 기간이 응용 프로그램에 대해 충분하지 않을 경우에 데이터베이스에 대한 LTR(장기 보존) 정책을 구성하여 확장할 수 있습니다. 자세한 내용은 [자동화된 백업](sql-database-automated-backups.md) 및 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 이러한 자동 데이터베이스 백업을 사용하여 다양한 중단 이벤트에서 데이터 센터 내로 및 다른 데이터 센터로 데이터베이스를 복구할 수 있습니다. 자동 데이터베이스 백업을 사용할 경우 예상 복구 시간은 동일한 지역에서 동시에 복구되는 총 데이터베이스 수, 데이터베이스 크기, 트랜잭션 로그 크기 및 네트워크 대역폭에 따라 좌우됩니다. 복구 시간은 일반적으로 12시간 미만입니다. 대규모이거나 활성 데이터베이스를 복구하는 데 더 많은 시간이 걸릴 수 있습니다. 복구 시간에 대한 자세한 내용은 [데이터베이스 복구 시간](sql-database-recovery-using-backups.md#recovery-time)을 참조하세요. 다른 데이터 영역을 복구할 때 잠재적인 데이터 손실은 시간별 차등 데이터베이스 백업의 지역 중복 저장소별로 1시간으로 제한됩니다.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 1fd426a7d1adfa9a09a4b1f9c6580fcd35c9683c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 7c792511616502a7ce83ac1a240d449efe547df5
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226139"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>자습서: itslearning과 Azure Active Directory 통합
 
@@ -207,7 +207,7 @@ Itslearning에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
   ![로그인](./media/itslearning-tutorial/login.png)
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: dfd28c5abea668e704fb5ee8b02d85d552e9ae77
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd59e7956855de52750614c800a46e6bf817cd14
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098875"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054780"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -305,7 +305,7 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
  
 ## <a name="configure-multi-factor-authentication"></a>Multi-Factor Authentication 구성
 
-Multi-Factor Authentication에 대해 사용자를 구성할 때 도움이 필요한 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 및 [2단계 인증에 내 계정 설정](end-user/current/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
+Multi-Factor Authentication에 대해 사용자를 구성할 때 도움이 필요한 경우 [사용자 또는 그룹에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md) 및 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md) 문서를 참조하세요.
 
 ## <a name="install-and-configure-the-nps-extension"></a>NPS 확장 설치 및 구성
 

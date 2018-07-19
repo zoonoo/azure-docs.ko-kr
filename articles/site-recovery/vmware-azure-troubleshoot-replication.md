@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: f305f552d576f58914bc33351331f1da3c68bc23
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951651"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126020"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>VMware VM 및 실제 서버에 대한 복제 문제 해결
 
@@ -74,25 +74,7 @@ Azure Site Recovery를 사용하여 VMware 가상 머신 또는 물리적 서버
 
 * **프로세스 서버의 URL 기반 방화벽이 액세스를 차단하지 않는지 확인**: 서버에서 URL 기반 방화벽 규칙을 사용하는 경우 다음 URL이 방화벽 구성에 추가되었는지 확인합니다.
 
-  `*.accesscontrol.windows.net:` - Access Control 및 Identity Management에 사용됨
-
-  `*.backup.windowsazure.com:` - 복제 데이터 전송 및 오케스트레이션에 사용됨
-
-  `*.blob.core.windows.net:` 복제된 데이터를 저장하는 저장소 계정에 액세스하는 데 사용됨
-
-  `*.hypervrecoverymanager.windowsazure.com:` - 복제 관리 작업 및 오케스트레이션에 사용됨
-
-  `time.nist.gov` 및 `time.windows.com`: 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인하는 데 사용됨
-
-**Azure Government 클라우드**의 URL:
-
-`* .ugv.hypervrecoverymanager.windowsazure.us`
-
-`* .ugv.backup.windowsazure.us`
-
-`* .ugi.hypervrecoverymanager.windowsazure.us`
-
-`* .ugi.backup.windowsazure.us`
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 
 * **프로세스 서버의 프록시 설정이 액세스를 차단하지 않는지 확인합니다**.  프록시 서버를 사용하는 경우 DNS 서버에서 프록시 서버 이름을 확인하는지 확인합니다.
 구성 서버 설치 시 제공한 것을 확인하려면 레지스트리 키로 이동합니다.

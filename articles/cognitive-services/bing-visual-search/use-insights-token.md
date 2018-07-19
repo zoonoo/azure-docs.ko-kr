@@ -10,19 +10,19 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 6470bb5b7b5b8404683d1ae6fd4f16f0436982ef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 569ae89a712d14fb36989e756f99725dce398c0a
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377671"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126561"
 ---
 # <a name="using-an-insights-token-to-get-insights-about-an-image"></a>인사이트 토큰을 사용하여 이미지에 대한 중요 정보 얻기
 
 Bing Visual Search API는 사용자가 제공하는 이미지에 대한 정보를 반환합니다. 이미지의 URL, 인사이트 토큰을 사용하거나 이미지를 업로드하여 이미지를 제공할 수 있습니다. 이러한 옵션에 대한 내용은 [Bing Visual Search API란?](overview.md)을 참조하세요. 이 문서에서는 인사이트 토큰 사용을 보여 줍니다. 이미지를 업로드하여 중요 정보를 얻는 방법을 보여 주는 예제에 대해서는 빠른 시작([C#](quickstarts\csharp.md) | [Java](quickstarts\java.md) | [Node.js](quickstarts\nodejs.md) | [Python](quickstarts\python.md))을 참조하세요.
 
 
-Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더를 포함해야 하고 해당 `name` 매개 변수는 "knowledgeRequest"로 설정되어야 합니다. `imageInfo` 개체에 대한 자세한 내용은 [요청](#the-request)을 참조하세요.
+Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더를 포함해야 하고, 해당 `name` 매개 변수는 "knowledgeRequest"로 설정해야 합니다. `imageInfo` 개체에 대한 자세한 내용은 [요청](#the-request)을 참조하세요.
 
 ```json
 {
@@ -62,7 +62,8 @@ Content-Disposition: form-data; name="knowledgeRequest"
 
 인사이트 토큰을 사용하는 예제를 보려면 [C#](#using-csharp) | [Java](#using-java) | [Node.js](#using-nodejs) | [Python](#using-python)을 참조하세요.
 
-<a name="csharp" />
+<a name="using-csharp" />
+
 ## <a name="using-c"></a>C# 사용
 
 ### <a name="prerequisites"></a>필수 조건
@@ -237,14 +238,13 @@ namespace VisualSearchInsightsToken
 }
 ```
 
-
-
+<a name="using-java" />
 
 ## <a name="using-java"></a>Java 사용
 
 ### <a name="prerequisites"></a>필수 조건
 
-코드를 컴파일 및 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
@@ -357,11 +357,12 @@ public class InsightsToken {
 
 
 <a name="using-nodejs" />
+
 ## <a name="using-nodejs"></a>Node.js 사용
 
 ### <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)가 필요합니다.
+이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)이 필요합니다.
 
 이 빠른 시작에서는 [평가판](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) 구독 키 또는 유료 구독 키를 사용할 수 있습니다.
 
@@ -375,7 +376,7 @@ public class InsightsToken {
   ```  
   npm install request  
   ```  
-3. form-data 모듈을 설치합니다.  
+3. 다음과 같이 form-data 모듈을 설치합니다.  
   ```  
   npm install form-data  
   ```  
@@ -422,7 +423,7 @@ function requestCallback(err, res, body) {
 ```
 
 
-
+<a name="using-python" />
 
 ## <a name="using-python"></a>Python 사용
 

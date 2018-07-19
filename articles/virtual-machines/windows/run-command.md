@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: ddbac24020110e32792286a1ac64070316cfb081
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ad0366d333266af0b16a7acaaa4519f20a951a80
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332717"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342711"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>명령 실행을 사용하여 Windows VM에서 PowerShell 스크립트 실행
 
@@ -35,8 +35,7 @@ ms.locfileid: "36332717"
 * 한 번에 한 스크립트씩 실행 가능
 * 실행 중인 스크립트는 취소할 수 없음
 * 스크립트를 실행할 수 있는 최대 시간은 90분으로 이후는 시간 초과
-
-**PermissionsConfig-OrchestratorUsersGroup***GroupName***-OrchestratorUser***UserName***\-remote** 
+* 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.
 
 ## <a name="run-a-command"></a>명령 실행
 

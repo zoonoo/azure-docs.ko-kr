@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: de52521824c146f63fb16e2690e2a24167ae2efe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e6b263c1eb9fe3b151f0a51b5da9a92b8ced4549
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333915"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37109745"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Azure Virtual Network 서비스 엔드포인트를 사용하여 Azure Cosmos DB 계정에 보안 액세스
 
@@ -249,7 +249,7 @@ NSG 태그에 대해 자세히 알아보려면 [가상 네트워크 서비스 �
 
 이러한 두 가지 기능은 Azure Cosmos DB 자산의 격리를 보장하고 보안하기 위해 서로를 보완합니다. IP 방화벽을 사용하여 고정 IP가 Azure Cosmos DB 계정에 액세스할 수 있는지 확인합니다.  
 
-### <a name="can-an-on-premise-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>Azure Virtual Network 게이트웨이(VPN) 또는 Express 경로 게이트웨이를 통해 연결되는 온-프레미스 장치의 IP 주소가 Azure Cosmos DB 계정에 액세스할 수 있나요?  
+### <a name="can-an-on-premises-devices-ip-address-that-is-connected-through-azure-virtual-network-gatewayvpn-or-express-route-gateway-access-azure-cosmos-db-account"></a>Azure Virtual Network 게이트웨이(VPN) 또는 Express 경로 게이트웨이를 통해 연결되는 온-프레미스 장치의 IP 주소가 Azure Cosmos DB 계정에 액세스할 수 있나요?  
 
 온-프레미스 장치의 IP 주소 또는 IP 주소 범위는 Azure Cosmos DB 계정에 액세스하기 위해 고정 IP 목록에 추가됩니다.  
 

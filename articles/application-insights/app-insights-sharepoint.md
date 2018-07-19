@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/01/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 9eb7f74a365b51431aabd78de3c6d36c3c969bb6
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 3a7d657a21b414d51375f912513ae045adec6d6e
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992381"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
 Azure Application Insights는 응용 프로그램의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.
@@ -33,7 +34,7 @@ Azure Application Insights는 응용 프로그램의 가용성, 성능 및 사�
 
 ```HTML
 <!-- 
-To collect end-user usage analytics about your application, 
+To collect user behavior analytics tools about your application, 
 insert the following script into each page you want to track.
 Place this code immediately before the closing </head> tag,
 and before any other scripts. Your first data will appear 
@@ -83,18 +84,6 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ![](./media/app-insights-sharepoint/09-search.png)
 
 더 많은 데이터를 기대하는 경우 몇 초 후에 새로고침을 클릭합니다.
-
-개요 블레이드에서 **사용 현황 분석** 을 클릭하여 사용자, 세션 및 페이지 보기에 대한 차트를 확인합니다.
-
-![](./media/app-insights-sharepoint/06-usage.png)
-
-자세한 정보를 보려면 차트를 클릭합니다. 예: 페이지 보기:
-
-![](./media/app-insights-sharepoint/07-pages.png)
-
-또는 사용자:
-
-![](./media/app-insights-sharepoint/08-users.png)
 
 ## <a name="capturing-user-id"></a>사용자 ID 캡처
 표준 웹 페이지 코드 조각은 SharePoint에서 사용자 ID를 캡처하지 않지만 약간 수정하여 캡처할 수 있습니다.

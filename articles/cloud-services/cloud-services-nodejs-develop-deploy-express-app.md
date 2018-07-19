@@ -3,7 +3,7 @@ title: Azure Cloud Services에 Node.js 앱 빌드 및 배포
 description: Azure Cloud Services에 Express.js 응용 프로그램 빌드 및 배포
 services: cloud-services
 documentationcenter: nodejs
-author: thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: adegeo
-ms.openlocfilehash: 8bb78330591b0557b036a161eb83e47b41a8fd43
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: jeconnoc
+ms.openlocfilehash: ac62baae2ececf257d22f8220d472c1bcb5ee082
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010111"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012181"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Azure Cloud Services에서 Express를 사용하여 Node.js 웹 응용 프로그램 빌드 및 배포
 
@@ -119,7 +119,7 @@ Azure PowerShell 창에서 **Publish-AzureServiceProject** cmdlet을 사용하�
 ![Express 페이지를 표시하는 웹 브라우저입니다. URL은 현재 Azure에서 호스트되어 있음을 나타냅니다.](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 [Node.js 개발자 센터](/develop/nodejs/)를 참조하세요.
+자세한 내용은 [Node.js 개발자 센터](https://docs.microsoft.com/en-us/javascript/azure/?view=azure-node-latest)를 참조하세요.
 
 [Node.js Web Application]: http://www.windowsazure.com/develop/nodejs/tutorials/getting-started/
 [Express]: http://expressjs.com/

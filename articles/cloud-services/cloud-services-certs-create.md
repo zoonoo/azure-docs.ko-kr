@@ -3,7 +3,7 @@ title: Cloud Services 및 관리 인증서 | Microsoft Docs
 description: Microsoft Azure에서 인증서를 만들고 사용하는 방법 알아보기
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: fc70d00d-899b-4771-855f-44574dc4bfc6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 6a1e4f5316cc0321c1409f9e48daeae6ee483bf6
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.author: jeconnoc
+ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29969205"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001442"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Azure Cloud Services 인증서 개요
 인증서는 Azure에서 클라우드 서비스([서비스 인증서](#what-are-service-certificates))와 관리 API([관리 인증서](#what-are-management-certificates))를 통한 인증에 사용됩니다. 이 항목에서는 두 가지 인증서 형식에 대한 일반적인 개요와 인증서를 [만들고](#create) Azure에 [배포하는](#deploy) 방법을 살펴봅니다.

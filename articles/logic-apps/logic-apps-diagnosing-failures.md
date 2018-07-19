@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: logic-apps
 ms.date: 10/15/2017
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 5af99821305fe6daab8a213d0351c5a1c5936461
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298793"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37441535"
 ---
 # <a name="troubleshoot-and-diagnose-logic-app-failures"></a>논리 앱 오류 문제 해결 및 진단
 
@@ -105,15 +105,15 @@ ms.locfileid: "35298793"
 
 ## <a name="perform-runtime-debugging"></a>런타임 디버깅 수행
 
-디버깅에 도움이 되도록 하려면 트리거 및 실행 기록을 검토하는 한편 워크플로에 진단 단계를 추가할 수 있습니다. 예를 들어, HTTP 요청을 검사하고 정확한 해당 크기, 모양 및 형식을 확인할 수 있도록 [RequestBin](http://requestb.in) 서비스를 사용하는 단계를 추가할 수 있습니다.
+디버깅에 도움이 되도록 하려면 트리거 및 실행 기록을 검토하는 한편 워크플로에 진단 단계를 추가할 수 있습니다. 예를 들어, HTTP 요청을 검사하고 정확한 해당 크기, 모양 및 형식을 확인할 수 있도록 [Webhook Tester](https://webhook.site/) 서비스를 사용하는 단계를 추가할 수 있습니다.
 
-1. 개인 전용으로 브라우저에서만 표시할 수 있도록 RequestBin를 만듭니다.
+1. [Webhook Tester](https://webhook.site/)를 방문하고 생성된 고유한 URL을 복사합니다.
 
 2. 논리 앱에서 테스트하려는 본문 콘텐츠(예: 식, 다른 단계 출력)를 포함하는 HTTP POST 작업을 추가합니다.
 
-3. RequestBin의 URL을 HTTP POST 작업에 붙여넣습니다.
+3. Webhook Tester의 URL을 HTTP POST 작업에 붙여 넣습니다.
 
-4. 요청이 Logic Apps에서 생성될 때 형성되는 방식을 검토하려면 논리 앱을 실행하고 RequestBin을 새로 고칩니다.
+4. 요청이 Logic Apps에서 생성될 때 형성되는 방식을 검토하려면 논리 앱을 실행하고 Webhook Tester에서 자세한 내용을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 06f316a7c96ff266e9f4593fa3a9ac871b2979aa
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf6df6dd87de56ca3c8180d5377e35d9be9bbd79
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33929775"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036448"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Azure Portal을 사용하여 리소스에 관리 서비스 ID 액세스 권한 할당
 
@@ -41,20 +41,20 @@ MSI(관리되는 서비스 ID)를 사용하여 Azure 리소스를 구성한 후�
 
 3. Azure 가상 머신의 경우 리소스의 **액세스 제어(IAM)** 페이지를 선택하고 **+ 추가**를 선택합니다. 그런 다음 **역할**을 지정하고, **Virtual Machine 액세스 권한을 할당**하고, 리소스가 있는 해당 **구독** 및 **리소스 그룹**을 지정합니다. 검색 기준 영역 아래에 리소스가 표시되어야 합니다. 리소스를 선택하고 **저장**을 선택합니다. 
 
-   ![액세스 제어(IAM) 스크린샷](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
+   ![액세스 제어(IAM) 스크린샷](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-before.png)  
    Azure 가상 머신 확장 집합의 경우 리소스의 **액세스 제어(IAM)** 페이지를 선택하고 **+ 추가**를 선택합니다. 그런 다음, **역할**, **다음에 대한 액세스 할당**을 지정합니다. 검색 조건 영역 아래에서 가상 머신 확장 집합을 검색합니다. 리소스를 선택하고 **저장**을 선택합니다.
    
-   ![액세스 제어(IAM) 스크린샷](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
+   ![액세스 제어(IAM) 스크린샷](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-before.png)  
 
 4. 주 **액세스 제어(IAM)** 페이지로 돌아오면 리소스 MSI에 해당하는 새 항목이 표시됩니다.
 
     Azure 가상 머신:
 
-   ![액세스 제어(IAM) 스크린샷](../media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
+   ![액세스 제어(IAM) 스크린샷](../managed-service-identity/media/msi-howto-assign-access-portal/assign-access-control-iam-blade-after.png)
 
     Azure 가상 머신 확장 집합:
 
-    ![액세스 제어(IAM) 스크린샷](../media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
+    ![액세스 제어(IAM) 스크린샷](../managed-service-identity/media/msi-howto-assign-access-vmss-portal/assign-access-control-vmss-iam-blade-after.png)
 
 ## <a name="troubleshooting"></a>문제 해결
 

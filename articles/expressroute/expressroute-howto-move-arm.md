@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/03/2017
+ms.date: 06/28/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 20914eec070452186295f6d87a85ea0675ebaf4c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0c3a1a57a89d716245dc075e47b7970cb228ff50
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060089"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37100456"
 ---
 # <a name="move-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 
@@ -97,9 +97,7 @@ Resource Manager 환경에 로그인하고 새 리소스 그룹을 만듭니다.
 Move-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-> [!NOTE]
-> 클래식 모드에서 ExpressRoute 회로에는 지역에 연결되는 개념이 없습니다. Resource Manager(ARM)에서 모든 리소스를 Azure 지역에 매핑해야 합니다. Move-AzureRmExpressRouteCircuit cmdlet에 지정된 지역은 기술적으로 모든 지역이 될 수 있습니다. 조직 용도로 피어링 위치를 가장 잘 나타내는 지역을 선택할 수 있습니다.
-> 
+클래식 모드에서 ExpressRoute 회로에는 지역에 연결되는 개념이 없습니다. 그렇지만 Resource Manager에서 모든 리소스를 Azure 지역에 매핑해야 합니다. Move-AzureRmExpressRouteCircuit cmdlet에 지정된 지역은 기술적으로 모든 지역이 될 수 있습니다. 조직 용도로 피어링 위치를 가장 잘 나타내는 지역을 선택할 수 있습니다.
 
 > [!NOTE]
 > 이동이 완료되면 이전 cmdlet에 나열된 새 이름을 사용하여 리소스 주소를 지정합니다. 회로는 기본적으로 이름이 바뀝니다.

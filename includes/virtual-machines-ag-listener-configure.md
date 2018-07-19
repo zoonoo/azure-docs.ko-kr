@@ -88,5 +88,30 @@
 
     나. 클러스터 노드 중 하나에서 PowerShell 스크립트를 실행하여 클러스터 매개 변수를 설정합니다.  
 
+WSFC 클러스터 IP 주소에 대한 클러스터 매개 변수를 설정하려면 위의 단계를 반복합니다.
+
+1. WSFC 클러스터 IP 주소의 IP 주소 이름을 가져옵니다. **클러스터 코어 리소스**의 **장애 조치(Failover) 클러스터 관리자** 아래에서 **서버 이름**을 찾습니다.
+
+1. **IP 주소**를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+
+1. IP 주소의 **이름**을 복사합니다. `Cluster IP Address`일 수 있습니다. 
+
+1. <a name="setwsfcparam"></a>PowerShell에서 클러스터 매개 변수를 설정합니다.
+    
+    a. 다음 PowerShell 스크립트를 SQL Server 인스턴스 중 하나에 복사합니다. 사용자 환경에 맞게 변수를 업데이트합니다.     
+    
+    ```PowerShell
+    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+    $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
+    $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+    [int]$ProbePort = <nnnnn>
+    
+    Import-Module FailoverClusters
+    
+    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+    ```
+
+    나. 클러스터 노드 중 하나에서 PowerShell 스크립트를 실행하여 클러스터 매개 변수를 설정합니다.  
+
     > [!NOTE]
     > SQL Server 인스턴스가 별도의 지역에 있는 경우 PowerShell 스크립트를 두 번 실행해야 합니다. 처음으로 첫 번째 지역에서 `$ILBIP` 및 `$ProbePort`를 사용합니다. 다음으로 두 번째 지역에서 `$ILBIP` 및 `$ProbePort`를 사용합니다. 클러스터 네트워크 이름과 클러스터 IP 리소스 이름은 동일합니다. 

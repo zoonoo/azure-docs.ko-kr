@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f7c3820624a4ef27e2ece4d902f2c033b6a6f48f
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9b41ca1eedcf69b23557c079e018d69de9fb907c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061223"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114370"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 미리 보기 계층 구조 네임스페이스
 
@@ -27,7 +27,7 @@ Azure Data Lake Storage Gen2 미리 보기를 사용하여 개체 저장소 규�
 
 다음과 같은 이점은 Blob 데이터를 통해 계층 구조 네임스페이스를 구현하는 파일 시스템과 연결됩니다.
 
-- **원자성 디렉터리 조작**: 개체 저장소는 경로 세그먼트를 표시하기 위해 슬래시(/)를 개체 이름에 포함하는 규칙을 사용하여 디렉터리 계층 구조의 근사치를 구합니다. 이 규칙은 개체 구성 시에 정상적으로 작동하지만 디렉터리 이동, 이름 바꾸기 또는 삭제 등의 작업에 대한 지원을 제공하지 않습니다. 실제 디렉터리가 없으면 응용 프로그램은 디렉터리 수준 작업을 수행하기 위해 수백만 개의 개별 Blob을 처리해야 할 수 있습니다. 반대로, 계층 구조 네임스페이스는 단일 항목(부모 디렉터리)을 업데이트하여 이러한 작업을 처리합니다. 
+- **원자성 디렉터리 조작**: 개체 저장소는 경로 세그먼트를 표시하기 위해 슬래시(/)를 개체 이름에 포함하는 규칙을 사용하여 디렉터리 계층 구조의 근사치를 구합니다. 이 규칙은 개체 구성 시에 작동하지만 디렉터리 이동, 이름 바꾸기 또는 삭제 등의 작업에 대한 지원을 제공하지 않습니다. 실제 디렉터리가 없으면 응용 프로그램은 디렉터리 수준 작업을 수행하기 위해 수백만 개의 개별 Blob을 처리해야 할 수 있습니다. 반대로, 계층 구조 네임스페이스는 단일 항목(부모 디렉터리)을 업데이트하여 이러한 작업을 처리합니다. 
 
     많은 빅 데이터 분석 프레임워크의 경우, 이러한 극적인 최적화가 특히 중요합니다. Hive, Spark 등의 도구는 임시 위치에 출력을 쓴 다음 작업이 끝날 때 위치 이름을 바꿉니다. 계층 구조 네임스페이스가 없으면 이 이름 바꾸기에는 분석 프로세스 자체보다 더 오랜 시간이 걸릴 수 있습니다. 작업 대기 시간이 단축되면 분석 워크로드의 TCO(총 소유 비용)가 낮아집니다.
 

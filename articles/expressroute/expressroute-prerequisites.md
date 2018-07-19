@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 332bfba0664391b6126669c4c89e38d1af4cf4fa
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: b4358d1ccffd31d1f347f1872237620bee081251
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30265087"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989362"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 필수 구성 요소 및 검사 목록
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 다음 섹션에 나열된 다음 요구 사항을 충족하는지 확인해야 합니다.
@@ -65,6 +65,6 @@ ExpressRoute에서 Dynamics 365를 사용하도록 설정하려는 경우 Dynami
 * ExpressRoute 연결 공급자를 찾습니다. [ExpressRoute 파트너 및 피어링 위치](expressroute-locations.md)를 확인하세요.
 * [라우팅](expressroute-routing.md), [NAT](expressroute-nat.md) 및 [QoS](expressroute-qos.md)에 대한 요구 사항을 참조합니다.
 * ExpressRoute 연결을 구성합니다.
-  * [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md)
-  * [라우팅 구성](expressroute-howto-routing-classic.md)
-  * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-classic.md)
+  * [ExpressRoute 회로 만들기](expressroute-howto-circuit-arm.md)
+  * [라우팅 구성](expressroute-howto-routing-arm.md)
+  * [VNet을 ExpressRoute 회로에 연결](expressroute-howto-linkvnet-arm.md)

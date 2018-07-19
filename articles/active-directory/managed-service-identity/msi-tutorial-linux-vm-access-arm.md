@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 1195161a0c4045620447439bf9361b7c4c0189ae
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 06abd7867a99c20597ed17faf6fa61b91f70baaa
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904393"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007709"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>자습서: Linux VM에서 사용자 할당 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -58,7 +58,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
 3. 가상 머신 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
 
-    ![Linux VM 만들기](~/articles/active-directory/media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+    ![Linux VM 만들기](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. 드롭다운에서 가상 머신의 **구독**을 선택합니다.
 5. 가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.

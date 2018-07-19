@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b6de3094e903c3584aa4a57e7792e4b07711f74a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937141"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054640"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -52,7 +52,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 ### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Azure 및 Office 365 Marketplace에서 응용 프로그램 홍보
 **이미 Azure AD를 사용 중인 수백만 개의 조직에 응용 프로그램을 홍보합니다.**  이러한 마켓플레이스를 검색하고 찾아보는 사용자는 자격 있는 클라우드 서비스 고객이 되어 이미 하나 이상의 클라우드 서비스를 사용하고 있습니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/)에서 응용 프로그램 홍보하기에 대해 자세히 알아보세요.
 
-**사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
+**사용자가 응용 프로그램에 등록하면 사용자의 Azure AD 액세스 패널 및 Office 365 앱 시작 관리자에 표시됩니다.**  사용자가 나중에 응용 프로그램으로 쉽고 빠르게 돌아갈 수 있어 사용자 참여를 향상시킵니다. [Azure AD 액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 대해 자세히 알아보세요.
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>장치와 서비스 및 서비스와 서비스 간의 안전한 통신
 **서비스 및 장치의 ID 관리에 Azure AD를 사용하면 써야 할 코드를 줄일 수 있으며 IT 담당자가 액세스를 관리할 수 있습니다.**  서비스 및 장치는 OAuth를 사용하여 Azure AD에서 토큰을 가져올 수 있으며 이 토큰으로 웹 API에 액세스할 수 있습니다. Azure AD를 사용하면 복잡한 인증 코드를 작성할 필요가 없습니다. 서비스 및 장치의 ID가 Azure AD에 저장되므로 IT 담당자는 키 및 해지를 응용 프로그램에서 별도로 수행하지 않고도 한 곳에서 관리할 수 있습니다.

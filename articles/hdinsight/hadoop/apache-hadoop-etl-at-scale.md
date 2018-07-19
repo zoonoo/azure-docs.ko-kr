@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 2f34233a68bec506d9f69426d779aee8e493d759
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9314b8ae8dceb29a9aee63ba3093ab191d4fdef3
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31402066"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37115836"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -85,7 +85,7 @@ ADLS(Azure Data Lake Store)는 HDFS와 호환되는 분석 데이터를 위한 �
 
 * Azure ExpressRoute: Azure ExpressRoute를 사용하면 Azure 데이터 센터와 온-프레미스 인프라 사이의 사설 연결을 만들 수 있습니다. 이러한 연결은 대량의 데이터를 전송할 때 신뢰할 수 있는 옵션을 제공합니다. 자세한 내용은 [Azure ExpressRoute 설명서](../../expressroute/expressroute-introduction.md)를 참조하세요.
 
-* "오프라인" 데이터 업로드: [Azure Import/Export 서비스](../../storage/common/storage-import-export-service.md)를 사용하여 데이터가 포함된 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그런 다음 [Azure Data Factory](../../data-factory/v1/data-factory-azure-datalake-connector.md) 또는 [AdlCopy 도구](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blob에서 Data Lake Store로 데이터를 복사할 수 있습니다.
+* "오프라인" 데이터 업로드: [Azure Import/Export 서비스](../../storage/common/storage-import-export-service.md)를 사용하여 데이터가 포함된 하드 디스크를 Azure 데이터 센터로 보낼 수 있습니다. 데이터는 먼저 Azure Storage Blob에 업로드됩니다. 그런 다음 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) 또는 [AdlCopy 도구](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)를 사용하여 Azure Storage Blob에서 Data Lake Store로 데이터를 복사할 수 있습니다.
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 

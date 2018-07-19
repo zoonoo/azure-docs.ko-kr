@@ -2,18 +2,18 @@
 title: Azure SQL 데이터 동기화에 대한 모범 사례 | Microsoft Docs
 description: Azure SQL 데이터 동기화의 구성 및 실행에 대한 모범 사례를 알아봅니다.
 services: sql-database
-ms.date: 04/01/2018
+ms.date: 07/03/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: b53c72f1df4f2fc2509d91220d08aff4682b6620
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025348"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445163"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -85,6 +85,7 @@ SQL 데이터 동기화는 기본 데이터베이스 자동 프로비전을 제�
 -   CHECK 제약 조건은 프로비전되지 않습니다.  
 -   원본 테이블의 기존 트리거는 프로비전되지 않습니다.  
 -   보기 및 저장 프로시저는 대상 데이터베이스에 생성되지 않습니다.
+-   외래 키 제약 조건에 대한 UPDATE CASCADE 및 ON DELETE CASCADE 작업은 대상 테이블에서 다시 생성되지 않습니다.
 
 #### <a name="recommendations"></a>권장 사항
 

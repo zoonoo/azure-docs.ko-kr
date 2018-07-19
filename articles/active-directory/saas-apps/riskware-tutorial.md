@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 06/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 2062ba20b09e8e42fd094fbff628f5e76b5ea00f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d234b34f7583441f496fb96d37166c5472cadb4c
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225792"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110830"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>자습서: Riskware와 Azure Active Directory 통합
 
@@ -67,7 +67,7 @@ Riskware의 Azure AD 통합을 구성하려면 갤러리의 Riskware를 관리�
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
@@ -101,7 +101,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/riskware-tutorial/tutorial_riskware_samlbase.png)
 
 3. **Riskware 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -113,7 +113,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     |--|--|
     | UAT|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
     | PROD| `https://riskcloud.net/prod?ccode=<COMPANYCODE>` |
-    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` | 
+    | DEMO| `https://riskcloud.net/demo?ccode=<COMPANYCODE>` |
     |||
 
     나. **식별자(엔터티 ID)** 텍스트 상자에 URL을 입력합니다.
@@ -121,10 +121,10 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     |--|--|
     | UAT| `https://riskcloud.net/uat` |
     | PROD| `https://riskcloud.net/prod` |
-    | DEMO| `https://riskcloud.net/demo` | 
+    | DEMO| `https://riskcloud.net/demo` |
     |||
 
-    > [!NOTE] 
+    > [!NOTE]
     > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Riskware 클라이언트 지원 팀](mailto:support@pansoftware.com.au)에 문의하세요.
 
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
@@ -137,11 +137,11 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 6. **Riskware 구성** 섹션에서 **Riskware 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
-    ![Riskware 구성](./media/riskware-tutorial/tutorial_riskware_configure.png) 
+    ![Riskware 구성](./media/riskware-tutorial/tutorial_riskware_configure.png)
 
 7. 다른 웹 브라우저 창에서 Riskware 회사 사이트에 관리자로 로그인합니다.
 
-8. 오른쪽 상단에 있는 **유지 관리**를 클릭하여 유지 관리 페이지를 엽니다. 
+8. 오른쪽 상단에 있는 **유지 관리**를 클릭하여 유지 관리 페이지를 엽니다.
 
     ![Riskware 구성 유지 관리](./media/riskware-tutorial/tutorial_riskware_maintain.png)
 
@@ -159,16 +159,16 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     다. **설명** 텍스트 상자에 SSO용 AZURE 구성과 같은 설명을 입력합니다.
 
-    d. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **Single Sign On 페이지** 텍스트 상자에 붙여넣습니다.
+    d. **Single Sign-On URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
 
     e. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 페이지** 텍스트 상자에 붙여넣습니다.
 
-    f. **게시 양식 필드** 텍스트 상자에 SamlResponse와 같은 SAML이 포함된 게시 응답에 있는 필드 이름을 입력합니다.
+    f. **게시 양식 필드** 텍스트 상자에 SAMLResponse와 같은 SAML이 포함된 게시 응답에 있는 필드 이름을 입력합니다.
 
     g. **XML ID 태그 이름** 텍스트 상자에 SAML 응답에서 고유 식별자를 포함하는 NameID와 같은 특성을 입력합니다.
 
     h. Azure Portal에서 다운로드한 **메타데이터 Xml**을 메모장에서 열고 메타데이터 파일에서 인증서를 복사하여 **인증서** 텍스트 상자에 붙여넣습니다.
-    
+
     i. **소비자 URL** 텍스트 상자에 지원 팀으로부터 받은 **회신 URL** 값을 붙여넣습니다.
 
     j. **발급자** 텍스트 상자에 지원 팀으로부터 받은 **식별자** 값을 붙여넣습니다.
@@ -176,9 +176,9 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!Note]
     > 이러한 값을 얻으려면 [Riskware 클라이언트 지원 팀](mailto:support@pansoftware.com.au)에 문의하세요.
 
-    k. 게시 매개 변수로 SAML 요청을 전달하려면 **POST 사용**을 선택합니다.
+    k. **POST 사용** 확인란을 선택합니다.
 
-    l. SP에서 시작한 SAML 요청을 허용하는 SSO를 전달하려면 **SAML 요청 사용**을 선택합니다.
+    l. **SAML 요청 사용** 확인란을 선택합니다.
 
     m. **저장**을 클릭합니다.
 
@@ -213,7 +213,7 @@ Riskware에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
- 
+
 ### <a name="create-a-riskware-test-user"></a>Riskware 테스트 사용자 만들기
 
 Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware로 프로비전되어야 합니다. Riskware의 경우 수동으로 프로비전합니다.
@@ -230,8 +230,8 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
     ![Riskware 구성 피플](./media/riskware-tutorial/tutorial_riskware_people.png)
 
-4. **세부 정보** 탭 아래에서 다음 단계를 수행합니다.
-    
+4. **세부 정보** 탭을 선택하고 다음 단계를 수행합니다.
+
     ![Riskware 구성 세부 정보](./media/riskware-tutorial/tutorial_riskware_details.png)
 
     a. 직원과 같은 **사람 유형**을 선택합니다.
@@ -240,7 +240,7 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
     다. **성** 텍스트 상자에 사용자의 성(예: **Simon**)을 입력합니다.
 
-5. **보안** 탭에서 다음 단계를 수행합니다.    
+5. **보안** 탭에서 다음 단계를 수행합니다.
 
     ![Riskware 구성 보안](./media/riskware-tutorial/tutorial_riskware_security.png)
 
@@ -254,8 +254,8 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
     ![Riskware 구성 조직](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-    a. **조직** 섹션에서 **수준1** 조직으로 조직을 선택합니다.
-    
+    a. 옵션을 **Level1** 조직으로 선택합니다.
+
     나. **사용자의 주 작업 공간** 섹션에서 **위치** 텍스트 상자에 사용자의 위치를 입력합니다.
 
     다. **직원** 섹션에서 일반과 같은 **직원 상태**를 선택합니다.
@@ -266,7 +266,7 @@ Azure AD 사용자가 Riskware에 로그인할 수 있도록 하려면 Riskware�
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Riskware에 대한 액세스 권한을 부여합니다.
 
-![사용자 역할 할당][200] 
+![사용자 역할 할당][200]
 
 **Britta Simon을 Riskware에 할당하려면 다음 단계를 수행합니다.**
 

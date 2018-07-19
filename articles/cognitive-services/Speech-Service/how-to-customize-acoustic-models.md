@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 3e247b6f81a9306cbad630d42c3a41d8ce3045a5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 32dc9015f5e1a58d02571eb84e6ceeb0e9e8582d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345127"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069042"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>자습서: 사용자 지정 어쿠스틱 모델 만들기
 
@@ -144,5 +144,5 @@ Azure portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 ## <a name="next-steps"></a>다음 단계
 
 - [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-- [C#에서 음성을 인식하는 방법](quickstart-csharp-windows.md)
+- [C#에서 음성을 인식하는 방법](quickstart-csharp-dotnet-windows.md)
 - [Git 샘플 데이터](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

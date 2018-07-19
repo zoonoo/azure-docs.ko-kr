@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 2a6118bd23c6e8319ad4fa26a266948a4dad1b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 23b5373f4986c4a3d113baebe9e04ce65b9a9df0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939181"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39062972"
 ---
 지금까지 응용 프로그램에서 작업하는 유일한 개발자인 것처럼 응용 프로그램 코드를 실행했습니다. 이 섹션에서는 Azure Dev Spaces에서 팀 개발을 간소화하는 방법에 대해 알아봅니다.
 * 필요에 따라 공유 개발 공간 또는 고유한 개발 공간에서 작업하여 개발자 팀이 동일한 환경에서 작업하도록 설정합니다.
@@ -45,7 +45,7 @@ Azure Dev Spaces를 사용하면 Azure에서 *공유* 개발 공간을 설정할
 > [!Note]
 > 계속 진행하기 전에 두 서비스에 대한 모든 VS Code 창을 닫고 각 서비스의 루트 폴더에서 `azds up -d`를 실행하세요. 이는 미리 보기 제한 사항입니다.
 
-서비스가 현재 실행 중인 곳을 자세히 살펴보겠습니다. `azds list` 명령을 실행하면 다음과 유사한 결과가 표시됩니다.
+서비스가 현재 실행 중인 곳을 자세히 살펴보겠습니다. `azds list-up` 명령을 실행하면 다음과 유사한 결과가 표시됩니다.
 
 ```
 Name         Space     Chart              Ports   Updated     Access Points

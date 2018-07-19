@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6c46ada7fc95d5789512f8f7c7842852e6a86b69
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: d608378f9b3ff3179f9e37ef13f88c65a645d018
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248991"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112989"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Azure DNS 및 Traffic Manager를 사용하여 재해 복구
 
@@ -59,7 +59,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 이 문서에 제공된 솔루션을 설명하는 데 광범위하게 사용되는 DNS의 몇 가지 개념을 이해해야 합니다.
 - **DNS A 레코드** - A 레코드는 도메인을 IPv4 주소로 가리키는 포인터입니다. 
-- **CNAME 또는 정식 이름** - 이 레코드 유형은 다른 DNS 레코드를 가리키는 데 사용됩니다. CNAME은 IP 응답으로 응답하지 않고, IP 주소를 포함하는 레코드에 대한 포인터로 응답합니다. 
+- **CNAME 또는 정식 이름** - 이 레코드 유형은 다른 DNS 레코드를 가리키는 데 사용됩니다. CNAME은 IP 주소로 응답하지 않고, IP 주소를 포함하는 레코드에 대한 포인터로 응답합니다. 
 - **가중 라우팅** - 서비스 끝점에 가중치를 연결한 다음, 할당된 가중치를 기준으로 트래픽을 분배하도록 선택할 수 있습니다. 이 라우팅 방법은 Traffic Manager 내에서 사용할 수 있는 네 개의 트래픽 라우팅 메커니즘 중 하나입니다. 자세한 내용은 [가중 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#weighted)을 참조하세요.
 - **우선 순위 라우팅** - 우선 순위 라우팅은 끝점의 상태 확인을 기반으로 합니다. 기본적으로 Azure Traffic Manager는 우선순위가 가장 높은 끝점에 모든 트래픽을 보내고, 장애 또는 재해 발생 시 Traffic Manager는 트래픽을 보조 끝점으로 라우팅합니다. 자세한 내용은 [우선 순위 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#priority)을 참조하세요.
 
@@ -140,7 +140,7 @@ Azure Traffic Manager로 장애 조치(failover)를 구성하는 단계는 다�
 이름이 contoso123인 새 Azure Traffic Manager 프로필을 만들고 라우팅 방법을 우선 순위로 선택합니다. 연결할 기존 리소스 그룹이 있는 경우 기존 리소스 그룹을 선택하고, 없는 경우에는 새 리소스 그룹을 만듭니다.
 
 ![Traffic Manager 프로필 만들기](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-‘그림 - Traffic Manager 프로필 만들기’**
+ *‘그림 - Traffic Manager 프로필 만들기’*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>2단계: Traffic Manager 프로필 내에서 끝점 만들기
 

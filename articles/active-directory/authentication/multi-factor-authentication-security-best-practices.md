@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 1e143c8c17d5cbc3403d90f7a354d5300265d679
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: f1df6544ea7ca5a0f84bfb164982d816633d7fbe
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100388"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39054406"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 지침
 
@@ -106,5 +106,5 @@ Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사�
 이 문서에서는 Azure MFA에 대한 몇 가지 모범 사례를 강조하지만 MFA 배포를 계획하는 동안에도 사용할 수 있는 다른 리소스가 있습니다. 아래 목록에는 이 프로세스 중에 도움이 될 수 있는 몇 가지 주요 문서가 있습니다.
 
 * [Azure Multi-Factor Authentication에서 보고서](howto-mfa-reporting.md)
-* [2단계 확인 등록 환경](end-user/current/multi-factor-authentication-end-user-first-time.md)
+* [2단계 확인 등록 환경](../user-help/multi-factor-authentication-end-user-first-time.md)
 * [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)

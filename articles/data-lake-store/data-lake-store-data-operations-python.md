@@ -8,16 +8,15 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 6e92eed5e4083c9b8063318b2a9139e20f53de1a
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: fa1c42a7bb9a06b2ea790e883ec7da6caa41d6b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011961"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-store-using-python"></a>Python을 사용한 Azure Data Lake Store에서의 파일 시스템 작업
 > [!div class="op_single_selector"]
@@ -131,6 +130,6 @@ pip install azure-datalake-store
 * [Python을 사용한 Data Lake Store에서의 계정 관리 작업](data-lake-store-get-started-python.md).
 
 ## <a name="see-also"></a>참고 항목
-* [Azure Data Lake Store Python(계정 관리) 참조](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html)
+
 * [Azure Data Lake Store Python(파일 시스템) 참조](http://azure-datalake-store.readthedocs.io/en/latest)
 * [Azure Data Lake 저장소와 호환되는 오픈 소스 빅 데이터 응용 프로그램](data-lake-store-compatible-oss-other-applications.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: d9ed4134cfb8047d5d6839979cd89ba37ff0c3f8
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701355"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444364"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -115,6 +115,10 @@ az account set --subscription $subscriptionId
 
 아래 명령은 Windows 및 Linux 클러스터를 만드는 경우에도 작동합니다. 해당하는 OS를 지정하면 됩니다. 또한 PowerShell/CLI 명령은 CertificateOutputFolder에 지정된 인증서를 출력하지만 인증서 폴더가 이미 만들어졌는지 확인합니다. 이 명령은 VM SKU와 같은 다른 매개 변수를 사용합니다.
 
+> [!NOTE]
+> 아래 Powershell 명령은 Azure Resource Manager PowerShell 6.1 이후 버전에서만 작동합니다. Azure Resource Manager PowerShell의 현재 버전을 확인하려면 PowerShell 명령 "Get-Module AzureRM"을 실행합니다. Azure Resource Manager PowerShell 버전을 업그레이드하려면 다음 링크를 따릅니다. https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0
+>
+>
 ```PowerShell
 $resourceGroupLocation="westus"
 $resourceGroupName="mycluster"

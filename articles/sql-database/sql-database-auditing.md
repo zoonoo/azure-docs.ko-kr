@@ -9,12 +9,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 06/24/2018
 ms.author: giladm
-ms.openlocfilehash: 0646667caab594556cc3c2043bc36905acef6e54
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: f187a5fe1541f5508e55443abe80fc295ee63c87
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751046"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37081458"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 Azure SQL Database 감사는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 기록합니다. 또한
@@ -62,20 +62,18 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 다음 섹션에서는 Azure Portal을 사용하여 감사 구성을 설명합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. 감사할 SQL Database/SQL Server의 **설정** 블레이드로 이동합니다. **설정** 블레이드에서 **감사 및 위협 감지**를 선택합니다.
+2. SQL 데이터베이스/서버 창의 보안 제목 아래에 있는 **감사**로 이동합니다.
 
     <a id="auditing-screenshot"></a> ![탐색 창][1]
 3. 서버 감사 정책을 선호하면 데이터베이스 감사 블레이드에서 **서버 설정 보기** 링크를 선택할 수 있습니다. 그런 다음 서버 감사 설정을 보거나 수정할 수 있습니다. 서버 감사 정책은 이 서버의 모든 기존 및 새로 만든 데이터베이스에 적용됩니다.
 
     ![탐색 창][2]
-4. 데이터베이스 수준에서의 BLOB 감사를 선호할 경우 **감사**에 대해 **설정**을 선택하고 **감사 형식**에 대해 **BLOB**을 선택합니다.
+4. 데이터베이스 수준에서 감사를 사용하도록 설정하려면 **감사**를 **켜짐**으로 전환합니다.
 
-    서버 Blob 감사가 활성화되면 데이터베이스 구성 감사가 서버 Blob 감사와 나란히 존재하게 됩니다.
+    서버 감사를 사용하는 경우 데이터베이스 구성 감사가 서버 감사와 나란히 존재합니다.
 
     ![탐색 창][3]
 5. **감사 로그 저장소** 블레이드를 열려면 **저장소 세부 정보**를 선택합니다. 로그를 저장할 Azure 저장소 계정 및 보존 기간을 선택합니다. 이전 로그는 삭제됩니다. 그런 후 **OK**를 클릭합니다.
-    >[!TIP]
-    >감사 보고서 템플릿을 활용하려면 감사되는 모든 데이터베이스에 동일한 저장소 계정을 사용합니다.
 
     <a id="storage-screenshot"></a> ![탐색 창][4]
 6. 감사 이벤트를 사용자 지정하려면 [PowerShell cmdlet](#subheading-7) 또는 [REST API](#subheading-9)를 통해 다음 작업을 수행합니다.
@@ -102,7 +100,8 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
     **감사 레코드** 블레이드가 열리고, 여기서 로그를 볼 수 있습니다.
 
     - **감사 레코드** 블레이드의 맨 위쪽에서 **필터**를 클릭하여 특정 날짜를 볼 수 있습니다.
-    - 서버 정책 또는 데이터베이스 정책 감사에서 생성된 감사 레코드 사이를 전환할 수 있습니다.
+    - **감사 원본**을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 *데이터베이스 감사 정책*에서 생성된 감사 레코드 간을 전환할 수 있습니다.
+    - **SQL 삽입 감사 레코드만 표시** 확인란을 선택하여 SQL 삽입 관련 감사 레코드만 볼 수 있습니다.
 
        ![탐색 창][8]
 
@@ -147,8 +146,8 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 * 서버 수준(**권장**): **주 서버** 및 **보조 서버** 둘 다에서 감사를 켭니다. 주 데이터베이스 및 보조 데이터베이스가 해당하는 서버 수준 정책에 따라 독립적으로 감사됩니다.
 
 * 데이터베이스 수준: 보조 데이터베이스에 대한 데이터베이스 수준 감사는 주 데이터베이스 감사 설정에서만 구성될 수 있습니다.
-   * Blob 감사는 서버가 아니라 *주 데이터베이스 자체*에서 활성화해야 합니다.
-   * 주 데이터베이스에서 Blob 감사가 활성화되면 보조 데이터베이스에서도 활성화됩니다.
+   * 감사는 서버가 아니라 *주 데이터베이스 자체*에서 활성화해야 합니다.
+   * 주 데이터베이스에서 감사가 활성화되면 보조 데이터베이스에서도 활성화됩니다.
 
     >[!IMPORTANT]
     >데이터베이스 수준 감사에서 보조 데이터베이스의 저장소 설정은 주 데이터베이스와 동일하기 때문에 지역 간 트래픽이 발생합니다. 서버 수준 감사만 활성화하고 모든 데이터베이스에 대해 데이터베이스 수준 감사를 비활성화로 유지하는 것이 좋습니다.
@@ -204,7 +203,6 @@ Blob 감사 로그를 볼 수 있는 여러 가지 방법이 있습니다.
 * [서버 Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/createorupdate)
 * [데이터베이스 Blob 감사 정책 가져오기](https://docs.microsoft.com/en-us/rest/api/sql/database%20auditing%20settings/get)
 * [서버 Blob 감사 정책 가져오기](https://docs.microsoft.com/en-us/rest/api/sql/server%20auditing%20settings/get)
-* [서버 Blob 감사 작업 결과 가져오기](https://msdn.microsoft.com/library/azure/mt771862.aspx)
 
 WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입니다.
 * [데이터베이스 *확장된* Blob 감사 정책 만들기 또는 업데이트](https://docs.microsoft.com/en-us/rest/api/sql/database%20extended%20auditing%20settings/createorupdate)

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 178102990462235b9b39f2ed1ad0e43395118daf
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064511"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110731"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure(큰 인스턴스)에서 SAP HANA를 설치하고 구성하는 방법
 
@@ -32,7 +32,8 @@ ms.locfileid: "37064511"
 
 자주 사용하는 다른 정의는 다음과 같습니다.
 - **큰 인스턴스 스탬프:** SAP HANA TDI 인증을 받았고 Azure 내에서 SAP HANA 인스턴스를 전용으로 실행하는 하드웨어 인프라 스택입니다.
-- **Azure(큰 인스턴스)에서 SAP HANA:** 다양한 Azure 지역에서 큰 인스턴스 스탬프로 배포된 SAP HANA TDI 인증 하드웨어에서 HANA 인스턴스를 실행하는 Azure 제품에 대한 공식적인 이름입니다. 관련 용어인 **HANA 큰 인스턴스**는 Azure(큰 인스턴스)에서 SAP HANA의 줄임말이며 기술 배포 가이드에 널리 사용됩니다.
+- 
+  **Azure(큰 인스턴스)에서 SAP HANA:** 다양한 Azure 지역에서 큰 인스턴스 스탬프로 배포된 SAP HANA TDI 인증 하드웨어에서 HANA 인스턴스를 실행하는 Azure 제품에 대한 공식적인 이름입니다. 관련 용어인 **HANA 큰 인스턴스**는 Azure(큰 인스턴스)에서 SAP HANA의 줄임말이며 기술 배포 가이드에 널리 사용됩니다.
 
 
 SAP HANA 설치는 사용자가 진행하며 Azure(큰 인스턴스) 서버에 새 SAP HANA가 전달된 후에 작업을 시작할 수 있습니다. 그리고 Azure VNet과 HANA 큰 인스턴스 유닛 사이의 연결이 설정된 후에 가능합니다. 
@@ -163,7 +164,8 @@ SLES 12에서 SAP HANA 구현에 적용할 수 있는 SAP Support Note:
 - [SAP Support Note #171356 – SAP Software on Linux: 일반 정보](https://launchpad.support.sap.com/#/notes/1984787)(영문)
 - [SAP Support Note #1391070 – Linux UUID 솔루션](https://launchpad.support.sap.com/#/notes/1391070)(영문)
 
-[SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. RHEL 7.2 및 최신 릴리스만 지원되는 기본 Azure VM에 비해 HANA Large Instances는 RHEL 6.7도 지원합니다. 그러나 RHEL 7.x 버전을 사용하는 것이 좋습니다.
+
+  [SAP HANA용 Red Hat Enterprise Linux](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana)(영문)는 HANA 큰 인스턴스에서 SAP HANA를 실행하기 위한 또 다른 제품입니다. RHEL 6.7 및 7.2 릴리스를 사용할 수 있습니다. RHEL 7.2 및 최신 릴리스만 지원되는 기본 Azure VM에 비해 HANA Large Instances는 RHEL 6.7도 지원합니다. 그러나 RHEL 7.x 버전을 사용하는 것이 좋습니다.
 
 Red Hat 관련 링크에 있는 유용한 추가 SAP 정보:
 - [Red Hat Linux 사이트의 SAP HANA](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat)

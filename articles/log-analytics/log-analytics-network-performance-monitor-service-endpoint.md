@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics의 네트워크 성능 모니터 솔루션 | Microsoft Docs
-description: 네트워크 성능 모니터에서 서비스 끝점 관리자 기능을 사용하여 열린 TCP 포트가 있는 모든 끝점에 대한 네트워크 연결을 모니터링합니다.
+description: 네트워크 성능 모니터에서 서비스 연결 모니터 기능을 사용하여 열린 TCP 포트가 있는 모든 엔드포인트에 대한 네트워크 연결을 모니터링합니다.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: f6196c1403ded7bb8a72ee5483c2c2056b0e8020
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.component: na
+ms.openlocfilehash: 3c9352e8e4aee7817b1195c15f74503e86e597ea
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030712"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37434922"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 
@@ -78,7 +79,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 10. 모니터링 조건을 선택합니다. 임계값을 입력하여 상태 이벤트 생성에 대한 사용자 지정 임계값을 설정할 수 있습니다. 조건 값이 선택한 네트워크 또는 서브네트워크 쌍에 선택된 임계값을 초과할 경우 상태 이벤트가 생성됩니다. 
 11. **저장**을 선택하여 구성을 저장합니다. 
 
-    ![서비스 끝점 모니터 테스트 구성](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![서비스 연결 모니터 테스트 구성](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
 
 
 
@@ -86,11 +87,11 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 네트워크 성능 모니터 대시보드 보기로 이동합니다. 만든 다른 테스트의 상태 요약을 가져오려면 **서비스 연결 모니터** 페이지를 확인합니다. 
 
-![서비스 끝점 모니터 페이지](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![서비스 연결 모니터 페이지](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
 
 타일을 선택하여 **테스트** 페이지에서 테스트의 세부 정보를 봅니다. 왼쪽 표에서는 모든 테스트에 대한 지정 시간 상태와 서비스 응답 시간, 네트워크 대기 시간 및 패킷 손실 값을 볼 수 있습니다. 네트워크 상태 레코더 컨트롤을 사용하여 이전의 다른 시간에 대한 네트워크 스냅숏을 볼 수 있습니다. 조사하려는 표에서 테스트를 선택합니다. 오른쪽 창의 차트에서 손실, 대기 시간 및 응답 시간 값의 기록 추세를 볼 수 있습니다. 각 노드의 성능을 확인하려면 **테스트 세부 정보** 링크를 선택합니다.
 
-![서비스 끝점 모니터 테스트](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![서비스 연결 모니터 테스트](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
 
 **테스트 노드** 보기에서 각 노드의 네트워크 연결을 확인할 수 있습니다. 성능이 저하된 노드를 선택합니다. 응용 프로그램이 느리게 실행되는 것으로 확인된 노드입니다.
 
@@ -98,15 +99,15 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 * **응용 프로그램 문제:** 응답 시간이 갑자기 증가하지만 네트워크 대기 시간이 일정한 경우 네트워크는 제대로 작동하고 있으며 응용 프로그램 끝에 문제가 있는 것을 의미합니다. 
 
-    ![서비스 끝점 모니터 응용 프로그램 문제](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![서비스 연결 모니터 응용 프로그램 문제](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
 
 * **네트워크 문제:** 응답 시간이 해당하는 네트워크 대기 시간과 더불어 갑자기 증가하는 경우 네트워크 대기 시간의 증가로 인해 응답 시간이 증가하는 것을 의미합니다. 
 
-    ![서비스 끝점 모니터 네트워크 문제](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![서비스 연결 모니터 네트워크 문제](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
 
 네트워크로 인한 문제인지 확인한 후에 **토폴로지** 보기 링크를 선택하여 토폴로지 맵에서 문제가 있는 홉을 식별합니다. 예제가 다음 이미지에 표시됩니다. 노드와 응용 프로그램 끝점 사이의 총 105ms 대기 시간 중에서 96ms가 빨간색으로 표시된 홉 때문입니다. 문제가 있는 홉을 식별한 후에 정정 작업을 수행할 수 있습니다. 
 
-![서비스 끝점 모니터 테스트](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![서비스 연결 모니터 테스트](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>진단 
 

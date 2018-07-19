@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b09bb295d889255dada0cebbb9ded2379d95d23
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34710239"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440956"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -38,7 +38,7 @@ Azure AD B2C(Azure Active Directory B2C)에서 Twitter를 ID 공급자로 사용
 
     나. **웹 사이트** 상자에 **https://login.microsoftonline.com**을 붙여넣습니다. 
 
-    다. **콜백 URL** 상자에 **https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/oauth2/authresp**를 붙여넣습니다. {*tenant*}를 사용자의 테넌트 이름(예: contosob2c.onmicrosoft.com)으로 바꿉니다. HTTPS 체계를 사용 중인지 확인합니다. 
+    다. 4. **Callback URL**(콜백 URL)에 `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`를 입력합니다. **{tenant}** 를 테넌트의 이름(예: contosob2c.onmicrosoft.com)으로 바꾸고 **{policyId}** 를 정책 ID(예: b2c_1_policy)로 바꿔야 합니다.  **콜백 URL은 모두 소문자여야 합니다.** Twitter 로그인을 사용하는 모든 정책에 대한 콜백 URL을 추가해야 합니다. 응용 프로그램에서 사용 중인 경우 ` login.microsoftonline.com` 대신 `b2clogin.com`을 사용해야 합니다.
 
     d. 페이지 아래쪽에 있는 약관을 읽고 동의한 후 **Twitter 응용 프로그램 만들기**를 선택합니다.
 

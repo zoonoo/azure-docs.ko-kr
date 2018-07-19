@@ -2,7 +2,7 @@
 
 
 ## <a name="viewing-your-tags-in-the-usage-details"></a>사용량 세부 정보에서 태그 보기
-리소스 관리자를 통해 계산, 네트워크 및 저장소 리소스에 배치된 태그는 [청구 포털](https://account.windowsazure.com/)의 사용량 세부 정보에 채워집니다.
+리소스 관리자를 통해 Compute, Network 및 Storage 리소스에 배치된 태그는 [청구 포털](https://account.windowsazure.com/)의 사용량 세부 정보에 채워집니다.
 
 **사용량 세부 정보 다운로드** 를 클릭하여 구독의 사용량 세부 정보를 표시합니다.
 

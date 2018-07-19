@@ -10,17 +10,17 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 85f8632aae8a70b1282155881dbca6b25734a6c5
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2f2177b289ba9d13ba635bddcd61748e1e8ab0d1
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936400"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39062931"
 ---
 ### <a name="run-the-service"></a>서비스 실행
 
 1. F5 키를 눌러(또는 터미널 창에서 `azds up` 입력) 서비스를 실행합니다. 새로 선택한 공간인 `default/scott`에서 서비스가 자동으로 실행됩니다. 
-1. `azds list`를 다시 실행하여 서비스가 자체 공간에서 실행되는지 확인할 수 있습니다. 첫째, `mywebapi` 인스턴스가 `default/scott` 공간에서 실행되고 있는지 확인합니다(`default`에서 실행되는 버전은 여전히 실행되지만 나열되지 않음). 둘째, `webfrontend`의 액세스 지점 URL에 텍스트 "scott.s."가 접두사로 있는지 확인합니다. 이 URL은 `default/scott` 공간에서 고유합니다. 이 특수 URL은 "scott URL"로 전송된 요청이 일단 `default/scott` 공간의 서비스로 라우팅을 시도하고, 시도가 실패하면 `default` 공간의 서비스로 대체됨을 나타냅니다.
+1. `azds list-up`를 다시 실행하여 서비스가 자체 공간에서 실행되는지 확인할 수 있습니다. 첫째, `mywebapi` 인스턴스가 `default/scott` 공간에서 실행되고 있는지 확인합니다(`default`에서 실행되는 버전은 여전히 실행되지만 나열되지 않음). 둘째, `webfrontend`의 액세스 지점 URL에 텍스트 "scott.s."가 접두사로 있는지 확인합니다. 이 URL은 `default/scott` 공간에서 고유합니다. 이 특수 URL은 "scott URL"로 전송된 요청이 일단 `default/scott` 공간의 서비스로 라우팅을 시도하고, 시도가 실패하면 `default` 공간의 서비스로 대체됨을 나타냅니다.
 
 ```
 Name         Space          Chart              Ports   Updated     Access Points

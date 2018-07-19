@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5627d0fa99cee4f289787e3fccf83a4c6fa228e0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221270"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>자습서: Vodeclic과 Azure Active Directory 통합
 
@@ -211,7 +211,7 @@ Vodeclic에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 액세스 패널에서 Vodeclic 타일을 선택하면 Vodeclic 응용 프로그램에 자동으로 로그온됩니다.
 
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

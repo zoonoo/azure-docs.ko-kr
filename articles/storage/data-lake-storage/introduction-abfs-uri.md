@@ -10,12 +10,12 @@ manager: jahogg
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 75edf6dc7382a8a2ece7c25edd09aeacfe1c5189
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a6130d8440b16e5a72c939fc07f6bf32c0946418
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060062"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114295"
 ---
 # <a name="use-the-azure-data-lake-storage-gen2-uri"></a>Azure Data Lake Storage Gen2 URI 사용
 
@@ -25,15 +25,7 @@ Azure Data Lake Storage Gen2 미리 보기와 호환되는 [Hadoop 파일 시스
 
 Data Lake Storage Gen2에 대한 URI 구문은 저장소 계정이 Data Lake Storage Gen2를 기본 파일 시스템으로 포함하도록 설정되었는지 여부에 따라 다릅니다.
 
-주소를 지정할 Data Lake Storage Gen2 지원 계정이 계정을 만드는 동안 기본 파일 시스템으로 설정되는 경우, 줄임 URI 구문은 다음과 같습니다.
-
-<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
-
-1. **경로**: 디렉터리 구조의 슬래시 구분 기호(`/`) 표시입니다.
-
-2. **파일 이름**: 개별 파일의 이름입니다.
-
-주소를 지정할 Data Lake Storage Gen2 지원 계정이 기본 파일 시스템이 ‘아닌’ 경우, URI 구문은 다음과 같습니다.
+주소를 지정할 Data Lake Storage Gen2 지원 계정이 계정을 만드는 동안 기본 파일 시스템으로 설정되지 **않은** 경우, 줄임 URI 구문은 다음과 같습니다.
 
 <pre>abfs[s]<sup>1</sup>://&lt;file_system&gt;<sup>2</sup>@&lt;account_name&gt;<sup>3</sup>.dfs.core.widows.net/&lt;path&gt;<sup>4</sup>/&lt;file_name&gt;<sup>5</sup></pre>
 
@@ -46,6 +38,15 @@ Data Lake Storage Gen2에 대한 URI 구문은 저장소 계정이 Data Lake Sto
 4. **경로**: 디렉터리 구조의 슬래시 구분 기호(`/`) 표시입니다.
 
 5. **파일 이름**: 개별 파일의 이름입니다. 이 매개 변수는 디렉터리의 주소를 지정하는 경우, 선택 사항입니다.
+
+그렇지만 주소를 지정할 계정이 계정을 만드는 동안 기본 파일 시스템으로 설정되지 않은 경우, 줄임 URI 구문은 다음과 같습니다.
+
+<pre>/&lt;path&gt;<sup>1</sup>/&lt;file_name&gt;<sup>2</sup></pre>
+
+1. **경로**: 디렉터리 구조의 슬래시 구분 기호(`/`) 표시입니다.
+
+2. **파일 이름**: 개별 파일의 이름입니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

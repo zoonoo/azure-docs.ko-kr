@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 4fb4a01e10baf835a1e967e9c865241d07b6639d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fe876db13cc5fb97f827a80a328003a7d2585adc
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212226"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory 통합
 
@@ -248,7 +248,7 @@ Require SAML authentication for all users now(모든 사용자에게 SAML 인증
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 
 Single Sign-On 설정을 테스트하려면 액세스 패널을 엽니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스

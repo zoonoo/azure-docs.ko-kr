@@ -26,6 +26,10 @@
   items:
     - name: 이벤트 프로세서 호스트 개요
       href: event-hubs-event-processor-host.md
+    - name: IP 연결 필터
+      href: event-hubs-ip-filtering.md
+    - name: Virtual Network 서비스 엔드포인트
+      href: event-hubs-service-endpoints.md
     - name: 프로그래밍 가이드
       href: event-hubs-programming-guide.md
     - name: Event Grid와 통합
@@ -150,7 +154,7 @@
     - name: FAQ
       href: event-hubs-faq.md
     - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: 학습 경로
       href: 'https://azure.microsoft.com/documentation/learning-paths/event-hubs/'
     - name: 가격

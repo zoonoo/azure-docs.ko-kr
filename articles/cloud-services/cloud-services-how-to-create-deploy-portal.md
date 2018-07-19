@@ -3,7 +3,7 @@ title: 클라우드 서비스를 만들고 배포하는 방법 | Microsoft Docs
 description: Azure 포털을 사용하여 클라우드 서비스를 만들고 배포하는 방법을 알아봅니다.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: adegeo
-ms.openlocfilehash: 96b92690cd164b1012380f82a1d1bd3336350e57
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: jeconnoc
+ms.openlocfilehash: 57109848bf78311ea4d601b135c5dd304d613aeb
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388087"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008130"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>클라우드 서비스를 만들고 배포하는 방법
 Azure 포털은 클라우드 서비스를 만들고 배포하는 두 가지 방법으로 *빨리 만들기* 및 *사용자 지정 만들기*를 제공합니다.

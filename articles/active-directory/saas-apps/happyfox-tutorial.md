@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: jeedes
-ms.openlocfilehash: f6d0710dd268796bef7f0a340f8eb2bfbee6b1f2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3dc516e24f140ad5ef7443a4cff5962e7d584065
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218016"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042370"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-happyfox"></a>자습서: HappyFox와 Azure Active Directory 통합
 
@@ -230,7 +230,7 @@ HappyFox에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 2. **'SAML'** 단추를 클릭하여 Azure AD 계정으로 HappyFox에 로그인합니다.
 
-액세스 패널에 대한 자세한 내용은 [Azure 시작](../active-directory-saas-access-panel-introduction.md)을 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [Azure 시작](../user-help/active-directory-saas-access-panel-introduction.md)을 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

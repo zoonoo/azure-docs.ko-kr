@@ -101,7 +101,7 @@
     - name: 고객 데이터 요청
       href: time-series-insights-customer-data-requests.md
     - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: 요금 계산기

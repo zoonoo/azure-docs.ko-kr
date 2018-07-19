@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 93972c88676cceef07b39b4a4ed34bab5b74cbd3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 850c5ac4df8ff3bd0e35567060b3b90dad7baacc
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334876"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342694"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>명령 실행을 사용하여 Linux VM에서 셸 스크립트 실행
 
@@ -36,6 +36,7 @@ ms.locfileid: "36334876"
 * 정보를 요청하는 스크립트(대화형 모드)는 지원되지 않습니다.
 * 실행 중인 스크립트는 취소할 수 없음
 * 스크립트를 실행할 수 있는 최대 시간은 90분으로 이후는 시간 초과
+* 스크립트의 결과를 반환하려면 VM에서의 아웃바운드 연결이 필요합니다.
 
 ## <a name="azure-cli"></a>Azure CLI
 

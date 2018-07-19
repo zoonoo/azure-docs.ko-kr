@@ -5,7 +5,7 @@
 
 ## <a name="attach-an-empty-disk"></a>빈 디스크 연결
 1. Azure CLI 1.0을 열고 [Azure 구독에 연결](/cli/azure/authenticate-azure-cli)합니다. Azure 서비스 관리 모드(`azure config mode asm`)에 있는지 확인합니다.
-2. `azure vm disk attach-new`을 입력하여 다음 예와 같이 새 디스크를 만들고 연결합니다. *myVM*을 Linux 가상 컴퓨터의 이름으로 바꾸고 디스크의 크기(GB)를 지정합니다. 이 예제에는 *100GB*입니다.
+2. `azure vm disk attach-new`을 입력하여 다음 예와 같이 새 디스크를 만들고 연결합니다. *myVM*을 Linux Virtual Machine의 이름으로 바꾸고 디스크의 크기(GB)를 지정합니다. 이 예제에는 *100GB*입니다.
 
     ```azurecli
     azure vm disk attach-new myVM 100
@@ -78,17 +78,17 @@
     info:    vm disk create command OK
     ```
    
-   `azure vm disk upload` 명령을 사용하여 특정 저장소 계정에 VHD를 업로드할 수도 있습니다. Azure 가상 컴퓨터의 데이터 디스크를 관리하는 명령에 대한 자세한 내용은 [여기](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
+   `azure vm disk upload` 명령을 사용하여 특정 저장소 계정에 VHD를 업로드할 수도 있습니다. Azure 가상 머신의 데이터 디스크를 관리하는 명령에 대한 자세한 내용은 [여기](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
 
-4. 이제 원하는 VHD를 가상 컴퓨터에 연결합니다.
+4. 이제 원하는 VHD를 가상 머신에 연결합니다.
    
     ```azurecli
     azure vm disk attach myVM myVhd
     ```
    
-   *myVM*을 가상 컴퓨터의 이름으로 바꾸고 *myVHD*를 원하는 VHD로 바꿔야 합니다.
+   *myVM*을 가상 머신의 이름으로 바꾸고 *myVHD*를 원하는 VHD로 바꿔야 합니다.
 
-5. 다음과 같이 `azure vm disk list <virtual-machine-name>`명령을 사용하여 디스크가 가상 컴퓨터에 연결되어 있는지 확인할 수 있습니다.
+5. 다음과 같이 `azure vm disk list <virtual-machine-name>`명령을 사용하여 디스크가 가상 머신에 연결되어 있는지 확인할 수 있습니다.
    
     ```azurecli
     azure vm disk list myVM
@@ -111,7 +111,7 @@
     ```
 
 > [!NOTE]
-> 데이터 디스크를 추가한 후 가상 컴퓨터가 디스크를 저장소에 사용할 수 있도록 가상 컴퓨터에 로그온한 다음 디스크를 초기화해야 합니다(디스크를 초기화하는 실행하는 방법에 대한 자세한 내용은 다음 단계를 참조하세요).
+> 데이터 디스크를 추가한 후 가상 머신이 디스크를 저장소에 사용할 수 있도록 가상 머신에 로그온한 다음 디스크를 초기화해야 합니다(디스크를 초기화하는 실행하는 방법에 대한 자세한 내용은 다음 단계를 참조하세요).
 > 
 > 
 

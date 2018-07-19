@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d37dbb85dc85ee8bae0447f18f771dc658de18e3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 0c677b88228097efcaa30399160dfdafa1c01788
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060241"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096345"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -49,7 +49,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 | **필수 패키지** | **설명** | **최소 버전**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C 라이브러리| 2.5-12 |
-|Openssl| OpenSSL 라이브러리 | 0.9.8e 또는 1.0|
+|Openssl| OpenSSL 라이브러리 | 1.0(TLS 1.1 및 TLS 1.2가 지원됨)|
 |Curl | cURL 웹 클라이언트 | 7.15.5|
 |Python-ctypes | |
 |PAM | 플러그형 인증 모듈|

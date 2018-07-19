@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: c608c1b40c7b4cdaedb2b7e7a609ad65c6357584
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 85e67be406b3d9723476821adfb09fc4db8dc1d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344219"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068576"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>자습서: 사용자 지정 언어 모델 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "37344219"
 
 Cognitive Services 계정이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/try/cognitive-services/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [Cognitive Services 구독](https://customspeech.ai/Subscriptions) 페이지를 열어 Cognitive Services 계정이 구독에 연결되어 있는지 확인합니다.
 
@@ -51,7 +51,7 @@ Azure portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 
 언어 데이터에 대한 기본 요구 사항이 다음 표에 요약되어 있습니다.
 
-| 속성 | 값 |
+| 자산 | 값 |
 |----------|-------|
 | 텍스트 인코딩 | UTF-8 BOM|
 | 줄당 발언의 # | 1 |
@@ -66,7 +66,7 @@ Azure portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 
 사용자 지정 **음성을 텍스트로 변환** 언어 모델에 대해 다음 언어가 지원됩니다.
 
-[지원되는 언어](supported-languages.md)의 전체 목록에 대해 클릭합니다.
+[지원되는 언어](supported-languages.md)의 전체 목록을 보려면 클릭
 
 ## <a name="import-the-language-data-set"></a>언어 데이터 집합 가져오기
 
@@ -76,17 +76,17 @@ Azure portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 
 새 데이터 집합을 가져오기 위해 "언어 데이터 집합" 행에서 "가져오기" 단추를 클릭하면 해당 사이트는 새 데이터 집합을 업로드하기 위한 페이지를 표시합니다. 향후에 데이터 집합을 확인할 수 있도록 이름 및 설명을 입력하고 로캘을 선택합니다. 다음으로, "파일 선택" 단추를 사용하여 언어 데이터의 텍스트 파일을 찾습니다. 그 후 "가져오기"를 클릭하면 데이터 집합이 업로드됩니다. 데이터 집합 크기에 따라 가져오는 데 몇 분이 걸릴 수 있습니다.
 
-![시도](media/stt/speech-language-datasets-import.png)
+![다음을 시도해 보세요.](media/stt/speech-language-datasets-import.png)
 
 가져오기가 완료되면 언어 데이터 테이블로 반환되고 언어 데이터 집합에 해당하는 항목이 표시됩니다. 고유 ID(GUID)가 할당되었음에 유의합니다. 데이터에는 또한 현재 상태를 반영하는 상태가 있습니다. 해당 상태는 처리를 위해 큐 대기하는 동안 "대기 상태"이며, 유효성 검사를 통과하는 동안 "처리 상태"이고, 데이터가 사용할 준비가 되면 "완료 상태"에 있게 됩니다. 데이터 유효성 검사는 데이터의 일부 텍스트 정규화 및 파일의 텍스트에 대한 일련의 검사를 수행합니다.
 
 상태가 "완료"이면 "보고서 보기"를 클릭하여 언어 데이터 확인 보고서를 볼 수 있습니다. 확인을 통과하고 실패한 발언 수가 실패한 발언에 대한 세부 정보와 함께 표시됩니다. 아래 예제에서 두 가지 예제가 부적절한 문자 때문에 확인에 실패했습니다.(이 데이터 집합에서 첫 번째 줄에는 두 개의 TAB 문자가 있고 두 번째 줄에는 ASCII 인쇄 가능한 문자 집합 외의 여러 문자가 있는 반면 세 번째 줄은 비어 있습니다.)
 
-![시도](media/stt/speech-language-datasets-report.png)
+![다음을 시도해 보세요.](media/stt/speech-language-datasets-report.png)
 
 언어 데이터 집합의 상태가 "완료"이면 사용자 지정 언어 모델을 만드는 데 사용될 수 있습니다.
 
-![시도](media/stt/speech-language-datasets.png)
+![다음을 시도해 보세요.](media/stt/speech-language-datasets.png)
 
 ## <a name="create-a-custom-language-model"></a>사용자 지정 언어 모델 만들기
 
@@ -98,7 +98,7 @@ Azure portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 
 5.  아래 예제에서 기본 언어 모델을 지정한 후 "언어 데이터" 드롭다운 메뉴를 사용하여 사용자 지정에 사용하려는 언어 데이터 집합을 선택합니다.
 
-![시도](media/stt/speech-language-models-create2.png)
+![다음을 시도해 보세요.](media/stt/speech-language-models-create2.png)
 
 음향 모델 만들기와 마찬가지로 처리가 완료되면 새 모델의 오프라인 테스트 수행을 필요에 따라 선택할 수 있습니다. 모델 평가에는 어쿠스틱 데이터 집합이 필요합니다.
 
@@ -115,5 +115,5 @@ Azure portal에서 Speech Service 구독을 만드는 방법에 대한 자세한
 ## <a name="next-steps"></a>다음 단계
 
 - [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-- [C#에서 음성을 인식하는 방법](quickstart-csharp-windows.md)
+- [C#에서 음성을 인식하는 방법](quickstart-csharp-dotnet-windows.md)
 - [Git 샘플 데이터](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)

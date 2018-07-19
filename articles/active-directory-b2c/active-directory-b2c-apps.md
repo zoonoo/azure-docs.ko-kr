@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu1
 ms.component: B2C
-ms.openlocfilehash: 63bf3725eddd14d665e51427a65a339116ceb09b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: d306d27f448ab9dd95e891b81f27b69e11f05495
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34710086"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37442069"
 ---
 # <a name="azure-active-directory-b2c-types-of-applications"></a>Azure Active Directory B2C: 응용 프로그램 유형
 Azure AD(Azure Active Directory) B2C는 다양한 최신 앱 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 또는 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 기반으로 합니다. 이 문서에서는 선호하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 앱 유형에 대해 간략하게 설명합니다. 또한 [응용 프로그램 빌드를 시작](active-directory-b2c-overview.md)하기 전에 대략적인 시나리오에 대한 이해를 돕습니다
@@ -38,8 +38,7 @@ Azure AD B2C에 전송되는 각 요청은 **정책**을 지정합니다. 정책
 5. 리소스 서버가 보안 토큰의 유효성을 검사하여 액세스 권한을 부여할 수 있는지 확인합니다.
 6. 앱이 주기적으로 보안 토큰을 새로 고칩니다.
 
-<!-- TODO: Need a page for libraries to link to -->
-이러한 단계는 빌드 중인 앱의 유형에 따라 약간씩 다를 수 있습니다.
+<!-- TODO: Need a page for libraries to link to --> 이러한 단계는 빌드 중인 앱의 유형에 따라 약간씩 다를 수 있습니다.
 
 ## <a name="web-apps"></a>웹 앱
 서버에서 호스팅되며 브라우저를 통해 액세스하는 웹앱(.NET, PHP, Java, Ruby, Python, Node.js 등)의 경우 Azure AD B2C는 모든 사용자 환경에 [OpenID Connect](active-directory-b2c-reference-protocols.md) 를 지원합니다. 여기에는 로그인, 등록 및 프로필 관리가 포함됩니다. OpenID Connect의 Azure AD B2C 구현에서 웹앱은 Azure AD로 인증 요청을 발급하여 이러한 사용자 환경을 시작합니다. 요청의 결과는 `id_token`입니다. 이 보안 토큰은 사용자의 ID를 나타냅니다. 또한 클레임 형태로 사용자에 대한 정보를 제공합니다.

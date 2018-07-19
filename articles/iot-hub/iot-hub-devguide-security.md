@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: dobett
-ms.openlocfilehash: 04823409b209d1f35a27452321cfd37d30097dde
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808777"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37444398"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -36,13 +36,16 @@ IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. �
 [권한](#iot-hub-permissions)은 다음과 같은 방식으로 부여할 수 있습니다.
 
 * **IoT hub 수준 공유 액세스 정책**. 공유 액세스 정책은 모든 조합의 [권한](#iot-hub-permissions)을 부여할 수 있습니다. [Azure portal][lnk-management-portal]에서 또는 프로그래밍 방식으로 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 사용하여 정책을 정의할 수 있습니다. 새로 만든 IoT Hub에는 다음과 같은 기본 정책이 있습니다.
+  
+  | 공유 액세스 정책 | 권한 |
+  | -------------------- | ----------- |
+  | iothubowner | 모든 권한 |
+  | 서비스 | **ServiceConnect** 권한 |
+  | device | **DeviceConnect** 권한 |
+  | registryRead | **RegistryRead** 권한 |
+  | registryReadWrite | **RegistryRead** 및 **RegistryWrite** 권한 |
 
-  * **iothubowner**: 모든 사용 권한이 있는 정책입니다.
-  * **service**: **ServiceConnect** 사용 권한이 있는 정책입니다.
-  * **device**: **DeviceConnect** 권한이 있는 정책입니다.
-  * **registryRead**: **RegistryRead** 권한이 있는 정책입니다.
-  * **registryReadWrite**: **RegistryRead** 및 RegistryWrite 권한이 있는 정책입니다.
-  * **장치 단위 보안 자격 증명**. 각 IoT Hub는 [ID 레지스트리][lnk-identity-registry]를 포함합니다. 이 ID 레지스트리의 각 장치의 경우 해당 장치 끝점으로 범위가 지정된 **DeviceConnect** 사용 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
+* **장치 단위 보안 자격 증명**. 각 IoT Hub는 [ID 레지스트리][lnk-identity-registry]를 포함합니다. 이 ID 레지스트리의 각 장치의 경우 해당 장치 끝점으로 범위가 지정된 **DeviceConnect** 사용 권한을 부여하는 보안 자격 증명을 구성할 수 있습니다.
 
 예를 들어 일반적인 IoT 솔루션에서는 다음이 적용됩니다.
 
@@ -462,7 +465,7 @@ IoT Hub 액세스를 제어하는 방법에 대해 알아봤으니 다음과 같
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-openssl]: https://www.openssl.org/
-[lnk-selfsigned]: https://technet.microsoft.com/library/hh848633
+[lnk-selfsigned]: https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate
 
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-sas-tokens]: iot-hub-devguide-security.md#security-tokens

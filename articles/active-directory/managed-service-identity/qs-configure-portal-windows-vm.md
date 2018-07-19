@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 9d9c18d576f3975d4c8272efff7161366f3f53fe
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901360"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035944"
 ---
 # <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Azure Portal을 사용하여 VM MSI(관리 서비스 ID) 구성
 
@@ -59,7 +59,7 @@ ms.locfileid: "37901360"
     > [!NOTE]
     > VM에 사용자 할당 ID를 추가하는 작업은 현재 Azure Portal을 통해 지원되지 않습니다.
 
-   ![구성 페이지 스크린샷](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
+   ![구성 페이지 스크린샷](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Azure VM에서 관리 서비스 ID 제거
 
@@ -74,7 +74,7 @@ ms.locfileid: "37901360"
     > [!NOTE]
     > VM에 사용자 할당 ID를 추가하는 작업은 현재 Azure Portal을 통해 지원되지 않습니다.
 
-   ![구성 페이지 스크린샷](../media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+   ![구성 페이지 스크린샷](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
 
 ## <a name="related-content"></a>관련 콘텐츠
 

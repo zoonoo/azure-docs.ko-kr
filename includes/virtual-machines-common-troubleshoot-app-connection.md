@@ -9,11 +9,11 @@ ms.date: 05/17/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: ab668a905b435287a4eaf96ff04b2fa5b54deb1d
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36313516"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38764725"
 ---
 Azure VM(가상 머신)에서 실행되는 응용 프로그램을 시작 또는 연결할 수 없는 다양한 이유가 있습니다. 이유로는 응용 프로그램이 실행되지 않거나 예상된 포트에서 수신 대기하지 않거나, 수신 포트가 차단되었거나, 네트워킹 규칙이 응용 프로그램에 트래픽을 올바르게 전달하지 않는 등의 경우가 포함됩니다. 이 문서에서는 문제를 찾고 해결하는 체계적인 방법을 설명합니다.
 

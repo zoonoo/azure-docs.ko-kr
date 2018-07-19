@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 95eca05d695e039f59b71caa4d730f4e1f84fc97
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337301"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446880"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리되는 인스턴스 및 SQL Server 간의 T-SQL 차이점 
 
@@ -398,9 +398,12 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 각 관리되는 인스턴스에는 Azure Premium 디스크 공간에 대해 예약된 최대 35TB의 저장소가 있으며 각 데이터베이스 파일은 별도의 실제 디스크에 배치됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용되지 않는 공간은 변경될 수 있지만 Azure Premium 디스크 크기의 총 합계는 35TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 관리되는 인스턴스는 내부 조각화로 인해 저장소 크기에 대한 35TB Azure 제한을 초과할 수 있습니다. 
 
-예를 들어 관리되는 인스턴스는 4TB 디스크를 사용하는 1.2TB 크기의 하나의 파일 및 각각 128GB 크기의 248개의 디스크에 있는 1GB의 248개의 파일을 가질 수 있습니다. 이 예제에서 전체 디스크 저장소 크기는 1x4TB + 248x128GB = 35TB입니다. 그러나 데이터베이스에 대한 총 예약된 인스턴스 크기는 1x1.2TB + 248x1GB = 1.4TB입니다. 특정 상황에서 매우 구체적인 파일의 배포로 인해 관리되는 인스턴스는 예상치 못한 Azure Premium 디스크 저장소 용량 한도에 도달할 수 있음을 보여줍니다. 
+예를 들어, 관리되는 인스턴스에는 크기가 1.2TB인 하나의 파일이 4TB 디스크에 있을 수 있고, 크기가 1GB인 파일 248개가 별도의 128GB 디스크에 있을 수 있습니다. 이 예제에서는 다음이 적용됩니다. 
+* 전체 디스크 저장소 크기는 1x4TB + 248x128GB = 35TB입니다. 
+* 인스턴스에서 데이터베이스에 대해 예약된 총 공간은 1 x 1.2TB + 248 x 1GB = 1.4TB입니다.
+여기서는 특정 상황에서 매우 구체적인 파일의 배포로 인해 관리되는 인스턴스는 예상치 못한 연결된 Azure Premium 디스크에 대해 예약된 35TB 용량에 도달할 수 있음을 보여 줍니다. 
 
-기존 데이터베이스에 오류가 없으며 새 파일이 추가되지 않으면 문제 없이 증가시킬 수 있지만 새 데이터베이스는 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 디스크 드라이브에 대한 충분한 공간이 없기 때문에 생성 또는 복원될 수 없습니다. 이 경우 반환되는 오류가 명확하지 않습니다.
+이 예제에서 기존 데이터베이스는 계속 작동하며, 새 파일이 추가되지 않으면 문제 없이 커질 수 있습니다. 그러나 모든 데이터베이스의 총 크기가 인스턴스 크기 제한에 도달하지 않더라도 새 디스크 드라이브에 대한 충분한 공간이 없기 때문에 새 데이터베이스를 만들거나 복원할 수 없습니다. 이 경우 반환되는 오류가 명확하지 않습니다.
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>데이터베이스 복원 중 잘못된 SAS 키 구성
 

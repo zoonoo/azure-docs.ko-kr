@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: cd517d7e652b38c7ecf28a17657936698416413a
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035204"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435476"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
@@ -87,15 +87,37 @@ Windows Registry Editor Version 5.00
 
 ## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 구성
 
-`C:\ProgramData\iotedge\config.yaml`의 구성 파일을 사용하여 디먼을 구성할 수 있습니다. <!--[automatically via Device Provisioning Service][lnk-dps] or--> [장치 연결 문자열][lnk-dcs]을 사용하여 수동으로 에지 장치를 구성할 수 있습니다.
+디먼은 `C:\ProgramData\iotedge\config.yaml`에 있는 구성 파일을 사용하여 구성할 수 있습니다.
 
-수동 구성의 경우, **config.yaml**의 **provisioning:** 섹션에 장치 연결 문자열을 입력합니다.
+에지 장치는 [장치 연결 문자열을 사용하여 수동으로][lnk-dcs] 또는 [Device Provisioning Service를 통해 자동으로][lnk-dps] 구성할 수 있습니다.
 
-```yaml
-provisioning:
-  source: "manual"
-  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-```
+* 수동 구성의 경우, **수동** 프로비전 모드의 주석 처리를 제거합니다. **device_connection_string**의 값을 IoT Edge 장치의 연결 문자열로 업데이트합니다.
+
+   ```yaml
+   provisioning:
+     source: "manual"
+     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   # provisioning: 
+   #   source: "dps"
+   #   global_endpoint: "https://global.azure-devices-provisioning.net"
+   #   scope_id: "{scope_id}"
+   #   registration_id: "{registration_id}"
+   ```
+
+* 자동 구성의 경우 **dps** 프로비전 모드의 주석 처리를 제거합니다. **scope_id** 및 **registration_id**의 값을 IoT Hub DPS 인스턴스 및 TPM이 있는 IoT Edge 장치의 값으로 업데이트합니다. 
+
+   ```yaml
+   # provisioning:
+   #   source: "manual"
+   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+  
+   provisioning: 
+     source: "dps"
+     global_endpoint: "https://global.azure-devices-provisioning.net"
+     scope_id: "{scope_id}"
+     registration_id: "{registration_id}"
+   ```
 
 PowerShell에서 `hostname` 명령을 사용하여 에지 장치의 이름을 가져온 다음, 구성 yaml에서 **hostname:** 의 값으로 설정합니다. 예: 
 
@@ -112,30 +134,38 @@ PowerShell에서 `hostname` 명령을 사용하여 에지 장치의 이름을 �
   hostname: "edgedevice-1"
 ```
 
-그런 다음, 구성의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**에 대한 IP 주소와 포트를 제공해야 합니다.
+그런 다음, 구성의 **connect:** 및 **listen:** 섹션에서 **workload_uri** 및 **management_uri**에 대한 IP 주소와 포트를 제공합니다.
 
-IP 주소의 경우, PowerShell 창에 `ipconfig`를 입력하고 아래 예에 표시된 **vEthernet(DockerNAT)** 인터페이스의 IP 주소를 선택합니다(사용자 시스템의 IP 주소는 다를 수 있음).
+IP 주소를 검색하려면 PowerShell 창에서 `ipconfig`를 입력합니다. 다음 예제와 같이  **vEthernet(DockerNAT)** 인터페이스의 IP 주소를 복사합니다(시스템의 IP 주소가 다를 수 있음).
 
 ![DockerNat][img-docker-nat]
 
+구성 파일의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**를 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 IP 주소로 바꿉니다. 
+
 ```yaml
 connect:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-구성의 **listen:** 섹션에 동일한 주소를 입력합니다. 예: 
+구성 파일의 **listen:** 섹션에서 IP 주소를 게이트웨이 주소로 사용하여 동일한 주소를 입력합니다.
 
 ```yaml
 listen:
-  management_uri: "http://10.0.75.1:15580"
-  workload_uri: "http://10.0.75.1:15581"
+  management_uri: "http://<GATEWAY_ADDRESS>:15580"
+  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-PowerShell 창에서 **management_uri** 주소를 사용하여 환경 변수 **IOTEDGE_HOST**를 만듭니다. 예를 들면 다음과 같습니다.
+PowerShell 창에서 **management_uri** 주소를 사용하여 **IOTEDGE_HOST** 환경 변수를 만듭니다.
 
 ```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://10.0.75.1:15580")
+[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
+```
+
+다시 부팅 사이에 환경 변수를 그대로 유지합니다.
+
+```powershell
+SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
 ```
 
 마지막으로, **moby_runtime:** 아래에서 **network:** 설정의 주석 처리가 제거되고 **azure-iot-edge**로 설정되었는지 확인합니다.
@@ -155,6 +185,9 @@ Start-Service iotedge
 ```
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
+
+이전 섹션의 **수동 구성** 단계를 사용한 경우 IoT Edge 런타임을 장치에 성공적으로 프로비전하고 실행해야 합니다. **자동 구성** 단계를 사용한 경우 사용자를 대신하여 런타임에서 장치를 IoT 허브에 등록할 수 있도록 몇 가지 추가 단계를 수행해야 합니다. 다음 단계는 [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable)을 참조하세요.
+
 
 다음과 같은 방법으로 IoT Edge 서비스의 상태를 확인할 수 있습니다. 
 
@@ -191,8 +224,8 @@ Edge 런타임을 제대로 설치하는 데 문제가 있는 경우, [문제 �
 
 <!-- Links -->
 [lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: ../iot-hub/quickstart-send-telemetry-dotnet.md#register-a-device
-[lnk-dps]: how-to-simulate-dps-tpm.md
+[lnk-dcs]: how-to-register-device-portal.md
+[lnk-dps]: how-to-auto-provision-simulated-device-windows.md
 [lnk-oci]: https://www.opencontainers.org/
 [lnk-moby]: https://mobyproject.org/
 [lnk-trouble]: troubleshoot.md

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 690a58a939e6866bfcdf80d05e52d7bfc7fd3586
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635606"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004356"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 장치 인증
 
@@ -42,7 +42,7 @@ X.509 CA 인증서는 각 장치에 대한 인증서 체인 맨 위에 있습니
 
 X.509 CA 인증서를 획득하는 방법에 관계없이, 항상 해당 개인 키를 비밀리에 유지하고 보호하도록 하세요.  이러한 노력은 X.509 CA 인증에서 신뢰를 구축하는 데 필요합니다. 
 
-이 기능 설명 전체에서 시험적으로 사용할 수 있는 [자체 서명된 CA 인증서를 만드는](iot-hub-security-x509-create-certificates.md#createcerts) 방법을 알아보세요.
+이 기능 설명 전체에서 시험적으로 사용할 수 있는 [자체 서명된 CA 인증서를 만드는](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아보세요.
 
 ## <a name="sign-devices-into-the-certificate-chain-of-trust"></a>신뢰할 수 있는 인증서 체인에 장치 서명
 
@@ -50,11 +50,11 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
 
-여기에서는 장치에 서명할 때 완료되는 [인증서 체인 생성](iot-hub-security-x509-create-certificates.md#createcertchain) 방법을 알아봅니다.
+여기에서는 장치에 서명할 때 완료되는 [인증서 체인 생성](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 방법을 알아봅니다.
 
 ## <a name="how-to-register-the-x509-ca-certificate-to-iot-hub"></a>IoT Hub에 X.509 CA 인증서를 등록하는 방법
 
-등록 및 연결 동안 장치를 인증에 사용되는 X.509 CA 인증서를 IoT 허브에 등록합니다.  X.509 CA 인증서 등록은 인증서 파일 업로드 및 소유 증명으로 구성되는 2단계 프로세스입니다.
+등록 및 연결 중에 장치를 인증에 사용하는 X.509 CA 인증서를 IoT Hub에 등록합니다.  X.509 CA 인증서 등록은 인증서 파일 업로드 및 소유 증명으로 구성되는 2단계 프로세스입니다.
 
 업로드 프로세스에서는 인증서를 포함하는 파일이 업로드됩니다.  이 파일에 개인 키는 절대 포함하지 않아야 합니다.
 
@@ -70,7 +70,7 @@ X.509 CA 인증서의 소유자는 암호화 방식으로 중간 CA에 서명하
 
 ## <a name="authenticating-devices-signed-with-x509-ca-certificates"></a>X.509 CA 인증서로 서명된 장치 인증
 
-X.509 CA 인증서가 등록되고 신뢰할 수 있는 인증서 체인에 장치가 서명되면 장치가 연결될 때(처음인 경우도 해당) 장치를 인증하기만 하면 됩니다.  X.509 CA에서 서명한 장치가 연결되면 유효성 검사를 위해 인증서 체인을 업로드합니다. 체인에는 모든 중간 CA 및 장치 인증서가 포함됩니다.  이 정보를 사용하여 IoT 허브는 두 단계 프로세스로 장치를 인증합니다.  IoT Hub는 암호화 방식으로 인증서 체인의 내부 일관성이 유지되는지 확인하고 장치에 소유 증명 챌린지를 발급합니다.  IoT Hub는 장치에서 성공적인 소유 증명 응답을 받으면 장치를 인증된 것으로 선언합니다.  이 선언에서는 장치의 개인 키가 보호되며 해당 장치만 이 챌린지에 성공적으로 응답할 수 있다고 가정합니다.  개인 키를 보호하기 위해 장치에 HSM(하드웨어 보안 모듈)과 같은 보안 칩을 사용하는 것이 좋습니다.
+X.509 CA 인증서가 등록되고 신뢰할 수 있는 인증서 체인에 장치가 서명되면 장치가 연결될 때(처음인 경우도 해당) 장치를 인증하기만 하면 됩니다.  X.509 CA에서 서명한 장치가 연결되면 유효성 검사를 위해 인증서 체인을 업로드합니다. 체인에는 모든 중간 CA 및 장치 인증서가 포함됩니다.  이 정보를 사용하여 IoT Hub는 두 단계 프로세스로 장치를 인증합니다.  IoT Hub는 암호화 방식으로 인증서 체인의 내부 일관성이 유지되는지 확인하고 장치에 소유 증명 챌린지를 발급합니다.  IoT Hub는 장치에서 성공적인 소유 증명 응답을 받으면 장치를 인증된 것으로 선언합니다.  이 선언에서는 장치의 개인 키가 보호되며 해당 장치만 이 챌린지에 성공적으로 응답할 수 있다고 가정합니다.  개인 키를 보호하기 위해 장치에 HSM(하드웨어 보안 모듈)과 같은 보안 칩을 사용하는 것이 좋습니다.
 
 IoT Hub에 장치가 성공적으로 연결되면 인증 프로세스가 완료되며, 제대로 설정된 것입니다.
 

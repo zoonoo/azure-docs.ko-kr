@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 025ff3dea365ab75af55f107da1fb7331861eb06
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166372"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036492"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>온-프레미스 컴퓨터에서 Azure에 배포된 HPC 팩 클러스터로 HPC 작업 제출
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -90,7 +90,7 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 
 1. 헤드 노드에서 로컬 컴퓨터 계정의 Microsoft Management Console에 인증서 스냅인을 추가합니다. 스냅인을 추가하는 단계는 [MMC에 인증서 스냅인 추가](https://technet.microsoft.com/library/cc754431.aspx)를 참조하세요.
 2. 콘솔 트리에서 **인증서 - 로컬 컴퓨터** > **개인**을 확장한 다음 **인증서**를 클릭합니다.
-3. [1단계: 헤드 노드에 웹 구성 요소 설치 및 구성](#step-1:-install-and-configure-the-web-components-on-the-head-node)에서 HPC Pack 웹 구성 요소에 구성한 인증서를 찾습니다(예: CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+3. [1단계: 헤드 노드에 웹 구성 요소 설치 및 구성](#step-1-install-and-configure-the-web-components-on-the-head-node)에서 HPC Pack 웹 구성 요소에 구성한 인증서를 찾습니다(예: CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
 4. 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **내보내기**를 클릭합니다.
 5. 인증서 내보내기 마법사에서 **다음**을 클릭하고 **아니요, 개인 키를 내보내지 않습니다.** 를 선택합니다.
 6. 마법사의 나머지 단계를 따라 인증서를 DER 인코딩 이진 X.509(.CER) 형식으로 내보냅니다.

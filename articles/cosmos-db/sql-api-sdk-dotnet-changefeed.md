@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f69742d111555e776a968454bdc004ba171e6336
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937420"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37113720"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -41,39 +41,10 @@ ms.locfileid: "36937420"
 
 ## <a name="release-notes"></a>릴리스 정보
 
-### <a name="stable-builds"></a>안정적인 빌드
+### <a name="v2-builds"></a>v2 빌드
 
-### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
-* 자세한 로깅을 추가했습니다.
-* 보류 중인 작업 예측을 여러 번 호출할 때 DocumentClient 누수를 수정했습니다.
-
-### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* 보류 중인 작업 예측에서 해결합니다.
-
-### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* 안정성 향상
-  * 일부 파티션에서 관찰자를 중지할 수 있는 취소된 작업 문제의 처리를 수정합니다.
-* 수동 검사점 설정 지원
-* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
-
-### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
-* .NET Standard 2.0에 대한 지원을 추가합니다. 이제 패키지는 `netstandard2.0` 및 `net451` 프레임워크 모니커를 지원합니다.
-* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.17.0 이상과 호환 가능합니다.
-* [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 버전 1.5.1 이상과 호환 가능합니다.
-
-### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* 변경 피드가 비어 있거나 보류 중인 작업이 없을 때 예상되는 남은 작업을 계산할 때 발생하는 문제를 해결했습니다.
-* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.13.2 이상과 호환 가능합니다.
-
-### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* 변경 피드에서 처리될 나머지 작업의 추정치를 얻을 수 있는 메서드가 추가되었습니다.
-* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.13.2 이상과 호환 가능합니다.
-
-### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
 * GA SDK
-* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.14.1 이하와 호환 가능합니다.
-
-### <a name="pre-release-builds"></a>시험판 빌드
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * 다음 문제가 수정됨:
@@ -108,6 +79,39 @@ ms.locfileid: "36937420"
 * v1 API를 사용하여 100% 이전 버전과 호환 가능합니다.
 * 새 코드 기준입니다.
 * [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21.1 이상과 호환 가능합니다.
+
+### <a name="v1-builds"></a>v1 빌드
+
+### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
+* 자세한 로깅을 추가했습니다.
+* 보류 중인 작업 예측을 여러 번 호출할 때 DocumentClient 누수를 수정했습니다.
+
+### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
+* 보류 중인 작업 예측에서 해결합니다.
+
+### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
+* 안정성 향상
+  * 일부 파티션에서 관찰자를 중지할 수 있는 취소된 작업 문제의 처리를 수정합니다.
+* 수동 검사점 설정 지원
+* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.21 이상과 호환
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* .NET Standard 2.0에 대한 지원을 추가합니다. 이제 패키지는 `netstandard2.0` 및 `net451` 프레임워크 모니커를 지원합니다.
+* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.17.0 이상과 호환 가능합니다.
+* [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 버전 1.5.1 이상과 호환 가능합니다.
+
+### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+* 변경 피드가 비어 있거나 보류 중인 작업이 없을 때 예상되는 남은 작업을 계산할 때 발생하는 문제를 해결했습니다.
+* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.13.2 이상과 호환 가능합니다.
+
+### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+* 변경 피드에서 처리될 나머지 작업의 추정치를 얻을 수 있는 메서드가 추가되었습니다.
+* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.13.2 이상과 호환 가능합니다.
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* GA SDK
+* [SQL .NET SDK](sql-api-sdk-dotnet.md) 버전 1.14.1 이하와 호환 가능합니다.
+
 
 ## <a name="release--retirement-dates"></a>릴리스 및 사용 중지 날짜
 Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적어도 SDK 사용 중지 **12개월** 전에 알림을 제공합니다.

@@ -2,18 +2,19 @@
 title: Azure Kubernetes에서 Helm을 사용하여 컨테이너 배포
 description: Helm 패키징 도구를 사용하여 AKS Kubernetes 클러스터에 컨테이너 배포
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/13/2018
-ms.author: nepeters
+ms.date: 06/13/2018
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 70e13fb377be3ec501cce5170ed391aac8cb6e5d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 531e6d9368b2bf91c48fd41b1e9330879b0df49a
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101840"
 ---
 # <a name="use-helm-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Helm 사용
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 05/14/2018
 
 ## <a name="install-helm-cli"></a>Helm CLI 설치
 
-Helm CLI는 개발 시스템에서 실행되는 클라이언트로, Helm 차트가 있는 응용 프로그램을 시작, 중지 및 관리할 수 있습니다.
+Helm CLI는 개발 시스템에서 실행되는 클라이언트로, Helm이 있는 응용 프로그램을 시작, 중지 및 관리할 수 있습니다.
 
 Azure Cloud Shell을 사용하는 경우 Helm CLI가 이미 설치되어 있습니다. Mac에서 Helm CLI를 설치하려면 `brew`를 사용합니다. 추가 설치 옵션은 [Helm 설치][helm-install-options]를 참조하세요.
 
@@ -48,24 +49,47 @@ Bash completion has been installed to:
 🍺  /usr/local/Cellar/kubernetes-helm/2.6.2: 50 files, 132.4MB
 ```
 
+## <a name="create-service-account"></a>서비스 계정 만들기
+
+RBAC 지원 클러스터에서 Helm을 구성하려면 먼저 서비스 계정과 Tiller 서비스에 대한 역할 바인딩이 필요합니다. RBAC 지원 클러스터에서 Helm/Tiller를 보호하는 방법에 대한 자세한 내용은 [Tiller, 네임스페이스 및 RBAC][tiller-rbac]를 참조하세요. 클러스터가 RBAC를 사용할 수 없는 경우 이 단계를 건너뜁니다.
+
+파일 `helm-rbac.yaml`을 만들고 다음 YAML에 복사합니다.
+
+```
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: tiller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+  - kind: ServiceAccount
+    name: tiller
+    namespace: kube-system
+```
+
+`kubectl create` 명령을 사용하여 서비스 계정 및 역할 바인딩을 만듭니다.
+
+```
+kubectl create -f helm-rbac.yaml
+```
+
+RBAC 지원 클러스터를 사용하는 경우 Tiller가 클러스터에 대해 가져야 하는 액세스 수준에 대한 옵션이 제공됩니다. 구성 옵션에 대한 자세한 내용은 [Helm: 역할 기반 액세스 제어][helm-rbac]를 참조하세요.
+
 ## <a name="configure-helm"></a>Helm 구성
 
-[helm init][helm-init] 명령은 Kubernetes 클러스터에 Helm 구성 요소를 설치하고 클라이언트 쪽 구성을 만드는 데 사용됩니다. 다음 명령을 실행하여 AKS 클러스터에 Helm을 설치하고 Helm 클라이언트를 구성하세요.
-
-```azurecli-interactive
-helm init --upgrade --service-account default
-```
-
-출력
+이제 [helm init][helm-init] 명령을 사용하여 tiller를 설치합니다. 클러스터가 RBAC를 사용할 수 없는 경우 `--service-account` 인수 및 값을 제거합니다.
 
 ```
-$HELM_HOME has been configured at /Users/neilpeterson/.helm.
-
-Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
-
-Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
-For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
-Happy Helming!
+helm init --service-account tiller
 ```
 
 ## <a name="find-helm-charts"></a>Helm 차트 찾기
@@ -115,42 +139,56 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Helm 차트 실행
 
-NGINX 수신 컨트롤러를 배포하려면 [helm install][helm-install] 명령을 사용합니다.
+Helm 차트를 사용하여 Wordpress를 배포하려면 [helm install][helm-install] 명령을 사용합니다.
 
 ```azurecli-interactive
-helm install stable/nginx-ingress --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+helm install stable/wordpress
 ```
 
 다음과 유사한 출력이 표시되지만, Kubernetes 배포 사용 방법에 대한 지침 등의 추가 정보가 포함되어 있습니다.
 
 ```
-NAME:   tufted-ocelot
-LAST DEPLOYED: Thu Oct  5 00:48:04 2017
+NAME:   bilging-ibex
+LAST DEPLOYED: Tue Jun  5 14:31:49 2018
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
+==> v1/Pod(related)
+NAME                                     READY  STATUS   RESTARTS  AGE
+bilging-ibex-mariadb-7557b5474-dmdxn     0/1    Pending  0         1s
+bilging-ibex-wordpress-7494c545fb-tskhz  0/1    Pending  0         1s
+
+==> v1/Secret
+NAME                    TYPE    DATA  AGE
+bilging-ibex-mariadb    Opaque  2     1s
+bilging-ibex-wordpress  Opaque  2     1s
+
 ==> v1/ConfigMap
-NAME                                    DATA  AGE
-tufted-ocelot-nginx-ingress-controller  1     5s
+NAME                        DATA  AGE
+bilging-ibex-mariadb        1     1s
+bilging-ibex-mariadb-tests  1     1s
+
+==> v1/PersistentVolumeClaim
+NAME                    STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
+bilging-ibex-mariadb    Pending  default  1s
+bilging-ibex-wordpress  Pending  default  1s
 
 ==> v1/Service
-NAME                                         CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-tufted-ocelot-nginx-ingress-controller       10.0.140.10  <pending>    80:30486/TCP,443:31358/TCP  5s
-tufted-ocelot-nginx-ingress-default-backend  10.0.34.132  <none>       80/TCP                      5s
+NAME                    TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)                     AGE
+bilging-ibex-mariadb    ClusterIP     10.0.76.164   <none>       3306/TCP                    1s
+bilging-ibex-wordpress  LoadBalancer  10.0.215.250  <pending>    80:30934/TCP,443:31134/TCP  1s
 
 ==> v1beta1/Deployment
-NAME                                         DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-tufted-ocelot-nginx-ingress-controller       1        1        1           0          5s
-tufted-ocelot-nginx-ingress-default-backend  1        1        1           1          5s
+NAME                    DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
+bilging-ibex-mariadb    1        1        1           0          1s
+bilging-ibex-wordpress  1        1        1           0          1s
 ...
 ```
 
-Kubernetes에서 NGINX 수신 컨트롤러를 사용하는 방법에 대한 자세한 내용은 [NGINX Ingress Controller][nginx-ingress](NGINX 수신 컨트롤러)를 참조하세요.
+## <a name="list-helm-releases"></a>Helm 릴리스 나열
 
-## <a name="list-helm-charts"></a>Helm 차트 목록 표시
-
-클러스터에 설치된 차트 목록을 보려면 [helm list][helm-list] 명령을 사용합니다.
+클러스터에 설치된 릴리스 목록을 보려면 [helm list][helm-list] 명령을 사용합니다.
 
 ```azurecli-interactive
 helm list
@@ -159,8 +197,8 @@ helm list
 출력
 
 ```
-NAME            REVISION    UPDATED                     STATUS      CHART               NAMESPACE
-bilging-ant     1           Thu Oct  5 00:11:11 2017    DEPLOYED    nginx-ingress-0.8.7 default
+NAME            REVISION    UPDATED                     STATUS      CHART           NAMESPACE
+bilging-ibex    1           Tue Jun  5 14:31:49 2018    DEPLOYED    wordpress-1.0.9 default
 ```
 
 ## <a name="next-steps"></a>다음 단계
@@ -172,14 +210,15 @@ Kubernetes 차트 관리 방법에 대한 자세한 내용은 Helm 설명서를 
 
 <!-- LINKS - external -->
 [helm]: https://github.com/kubernetes/helm/
-[helm-documentation]: https://github.com/kubernetes/helm/blob/master/docs/index.md
+[helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
 [helm-install]: https://docs.helm.sh/helm/#helm-install
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
 [helm-repo-update]: https://docs.helm.sh/helm/#helm-repo-update
 [helm-search]: https://docs.helm.sh/helm/#helm-search
-[nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: richagi
-ms.openlocfilehash: 19d602570337b101e4a5cf759fc56822313c631c
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 74e56480c5bbf86ee6cbc059431d7d5a328dfcec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098008"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049068"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>NPS(네트워크 정책 서버) 확장 및 Azure AD를 사용하여 원격 데스크톱 게이트웨이 인프라 통합
 
@@ -95,7 +95,7 @@ Azure AD 사용자가 MFA를 사용하도록 설정하려면 [클라우드에서
 ### <a name="configure-accounts-for-two-step-verification"></a>2단계 인증에 대한 계정 구성
 계정에서 MFA를 사용하도록 설정하면 2단계 인증을 사용하여 인증한 두 번째 인증 요소에 사용할 신뢰할 수 있는 장치를 성공적으로 구성할 때까지는 MFA 정책이 적용되는 리소스에 로그인할 수 없습니다.
 
-[Azure Multi-Factor Authentication은 무엇을 의미하나요?](end-user/current/multi-factor-authentication-end-user.md)의 단계에 따라 사용자 계정으로 MFA용 장치를 이해하고 제대로 구성하세요.
+[Azure Multi-Factor Authentication은 무엇을 의미하나요?](../user-help/multi-factor-authentication-end-user.md)의 단계에 따라 사용자 계정으로 MFA용 장치를 이해하고 제대로 구성하세요.
 
 ## <a name="install-and-configure-nps-extension"></a>NPS 확장 설치 및 구성
 이 섹션에서는 원격 데스크톱 게이트웨이에서 클라이언트 인증에 Azure MFA를 사용하도록 RDS 인프라를 구성하는 방법에 대해 설명합니다.

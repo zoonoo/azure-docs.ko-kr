@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 18ac9fcf5a8b0c66d3c9e3d3b4e3064099e201c4
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287612"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040996"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>자습서: ScaleX Enterprise와 Azure Active Directory 통합
 
@@ -255,7 +255,7 @@ Azure AD 사용자가 ScaleX Enterprise에 로그인할 수 있도록 하려면 
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 ScaleX Enterprise 타일을 클릭하면 ScaleX Enterprise 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에서 ScaleX Enterprise 타일을 클릭하면 ScaleX Enterprise 응용 프로그램에 자동으로 로그온됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 
 ## <a name="additional-resources"></a>추가 리소스

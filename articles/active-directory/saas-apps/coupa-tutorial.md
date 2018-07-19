@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2017
+ms.date: 06/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 3c3fde3aefe02dd3919378d39afeff7cded763fc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 36c7bfeece12fe2bb2738e50de03ba2c8fc07bfa
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215565"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>자습서: Coupa와 Azure Active Directory 통합
 
@@ -60,14 +60,14 @@ Azure AD와 Coupa 통합을 구성하려면 갤러리에서 관리되는 SaaS �
 
 **갤러리에서 Coupa를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
@@ -103,21 +103,33 @@ Coupa에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/coupa-tutorial/tutorial_coupa_samlbase.png)
 
 3. **Coupa 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Coupa 도메인 및 URL Single Sign-On 정보](./media/coupa-tutorial/tutorial_coupa_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `http://<companyname>.Coupa.com`
+    a. **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://<companyname>.coupahost.com`
 
-    나. **식별자** 텍스트 상자에서 `<companyname>.coupahost.com` 패턴을 사용하여 URL을 입력합니다.
+    > [!NOTE]
+    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Coupa 클라이언트 지원 팀](https://success.coupa.com/Support/Contact_Us?)에 문의하세요.
 
-    다. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<companyname>.coupahost.com/sp/ACS.saml2`
+    나. **식별자** 텍스트 상자에 URL을 입력합니다.
 
-    > [!NOTE] 
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 식별자 및 회신 URL로 값을 업데이트합니다. 이러한 값을 얻으려면 [Coupa 클라이언트 지원 팀](https://success.coupa.com/Support/Contact_Us?)에 문의하세요. 자습서의 뒷부분에 설명되어 있는 메타데이터의 회신 URL 값을 가져옵니다.
+    | Environment  | URL |
+    |:-------------|----|
+    | 샌드박스 | `devsso35.coupahost.com`|
+    | 프로덕션 | `prdsso40.coupahost.com`|
+    | | |
+
+    다. **회신 URL** 텍스트 상자에 URL을 입력합니다.
+
+    | Environment | URL |
+    |------------- |----|
+    | 샌드박스 | `https://devsso35.coupahost.com/sp/ACS.saml2`|
+    | 프로덕션 | `https://prdsso40.coupahost.com/sp/ACS.saml2`|
+    | | |
 
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -130,24 +142,18 @@ Coupa에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 6. Coupa 회사 사이트에 관리자 권한으로 로그인합니다.
 
 7. **설치 \> 보안 제어**로 이동합니다.
-   
+
    ![보안 제어](./media/coupa-tutorial/ic791900.png "보안 제어")
 
 8. **Coupa 자격 증명을 사용하여 로그인** 섹션에서 다음 단계를 수행합니다.
 
     ![Coupa SP 메타데이터](./media/coupa-tutorial/ic791901.png "Coupa SP 메타데이터")
-    
-    a. **SAML을 사용하여 로그인**을 선택합니다.
-    
-    나. 컴퓨터에 Coupa 메타데이터 파일을 다운로드하려면 **SP 메타데이터 다운로드 및 가져오기**를 클릭합니다. 메타데이터를 열고 **AssertionConsumerService 인덱스/URL** 값을 복사하고 **Coupa 도메인 및 URL** 섹션의 **회신 URL** 텍스트 상자에 값을 붙여넣습니다. 
-    
-    다. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 메타데이터를 업로드합니다.
-    
-    d. **저장**을 클릭합니다.
 
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
+    a. **SAML을 사용하여 로그인**을 선택합니다.
+
+    나. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 메타데이터를 업로드합니다.
+
+    다. **저장**을 클릭합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -180,7 +186,7 @@ Coupa에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     다. **암호 표시** 확인란을 선택한 다음 **암호** 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
- 
+
 ### <a name="create-a-coupa-test-user"></a>Coupa 테스트 사용자 만들기
 
 Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프로비전되어야 합니다.  
@@ -192,39 +198,39 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 1. **Coupa** 회사 사이트에 관리자 권한으로 로그인합니다.
 
 2. 위쪽 메뉴에서 **설정**을 클릭한 다음 **사용자**를 클릭합니다.
-   
+
    ![사용자](./media/coupa-tutorial/ic791908.png "사용자")
 
 3. **만들기**를 클릭합니다.
-   
+
    ![사용자 만들기](./media/coupa-tutorial/ic791909.png "사용자 만들기")
 
 4. **사용자 만들기** 섹션에서 다음 단계를 수행합니다.
-   
+
    ![사용자 세부 정보](./media/coupa-tutorial/ic791910.png "사용자 세부 정보")
-   
+
    a. 관련된 텍스트 상자에 프로비전할 유효한 Azure Active Directory 계정의 **로그인**, **이름**, **성**, **Single Sign-On ID**, **전자 메일** 특성을 입력합니다.
 
-   나. **만들기**를 클릭합니다.   
-   
+   나. **만들기**를 클릭합니다.
+
    >[!NOTE]
-   >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크가 포함된 전자 메일을 받습니다. 
-   > 
+   >Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크가 포함된 전자 메일을 받습니다.
+   >
 
 >[!NOTE]
->다른 Coupa 사용자 계정 생성 도구 또는 Coupa가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다. 
+>다른 Coupa 사용자 계정 생성 도구 또는 Coupa가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
 이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 Britta Simon에게 Coupa에 대한 액세스 권한을 부여합니다.
 
-![사용자 역할 할당][200] 
+![사용자 역할 할당][200]
 
 **Britta Simon을 Coupa에 할당하려면 다음 단계를 수행합니다.**
 
 1. Azure Portal에서 응용 프로그램 보기를 연 다음 디렉터리 보기로 이동하고 **엔터프라이즈 응용 프로그램**으로 이동한 후 **모든 응용 프로그램**을 클릭합니다.
 
-    ![사용자 할당][201] 
+    ![사용자 할당][201]
 
 2. 응용 프로그램 목록에서 **Coupa**를 선택합니다.
 
@@ -243,13 +249,13 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
 7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
-    
+
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Coupa 타일을 클릭하면 Coupa 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -269,4 +275,3 @@ Azure AD 사용자가 Coupa에 로그인할 수 있도록 하려면 Coupa로 프
 [201]: ./media/coupa-tutorial/tutorial_general_201.png
 [202]: ./media/coupa-tutorial/tutorial_general_202.png
 [203]: ./media/coupa-tutorial/tutorial_general_203.png
-

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2797c9f18364a2321bea885592690793271d8b8e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: e9fd28ac21ce843655697c5d58849d940e305fce
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062192"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344957"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 미리 보기 사용
 
@@ -43,13 +43,13 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장�
 
 ![Hadoop 클러스터는 HDFS API를 사용하여 Blob Storage의 구조적 및 비구조적 데이터에 액세스하고 저장합니다.](./media/use-hdi-cluster/HDI.ABFS.Arch.png "HDInsight Storage 아키텍처")
 
-HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들어:
+HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 대한 액세스를 제공합니다. 정규화된 URI를 사용하여 이 파일 시스템에 액세스할 수 있습니다. 예를 들면 다음과 같습니다.
 
-    hdfs://<namenodehost>/<path>
+    hdfs://<NAME_NODE_HOST>/<PATH>
 
-또한 HDInsight를 통해 Azure Data Lake Storage에 저장된 데이터에 액세스할 수 있습니다. 구문은 다음과 같습니다:
+또한 HDInsight를 통해 Azure Data Lake Storage에 저장된 데이터에 액세스할 수 있습니다. 구문은 다음과 같습니다.
 
-    abfs[s]://<file_system>@<accountname>.dfs.core.widows.net/<path>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<path>
 
 다음은 HDInsight 클러스터와 Azure Storage 계정을 사용하는 경우 고려 사항입니다.
 
@@ -62,7 +62,7 @@ HDInsight는 컴퓨터 노드에 로컬로 연결된 분산 파일 시스템에 
  
 * **클러스터에 연결되지 않은 저장소 계정의 개인 파일 시스템**에서는 WebHCat 작업을 제출할 때 저장소 계정을 정의하지 않는 경우 파일 시스템의 파일에 액세스할 수 없습니다. 이렇게 제한하는 이유는 이 문서의 뒷부분에 설명되어 있습니다.
 
-만들기 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 %HADOOP_HOME%/conf/core-site.xml에 저장됩니다. HDInsight의 기본 동작은 core-site.xml 파일에 정의된 저장소 계정을 사용하는 것입니다. [Ambari](/hdinsight/hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
+만들기 프로세스에서 정의된 저장소 계정과 해당 키는 클러스터 노드의 *%HADOOP_HOME%/conf/core-site.xml*에 저장됩니다. HDInsight의 기본 동작은 *core-site.xml* 파일에 정의된 저장소 계정을 사용하는 것입니다. [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
 
 Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업은 저장소 계정 및 메타데이터 설명을 포함할 수 있습니다. (이 방식은 저장소 계정이 있는 Pig에는 적합하지만 메타데이터에는 적합하지 않습니다.) 자세한 내용은 [대체 Storage 계정 및 Metastore와 HDInsight 클러스터 사용](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
 
@@ -73,28 +73,33 @@ Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 여러 WebHCat 작업�
 HDFS 대신 Azure Storage에 데이터를 저장할 경우 몇 가지 이점이 있습니다:
 
 * **데이터 다시 사용 및 공유:** HDFS의 데이터는 계산 클러스터 내에 있습니다. 계산 클러스터에 액세스할 수 있는 응용 프로그램만 HDFS API를 통해 데이터를 사용할 수 있습니다. Azure Storage의 데이터는 HDFS API 또는 [Blob Storage REST API][blob-storage-restAPI]를 통해 액세스할 수 있습니다. 따라서 데이터의 생성과 소비에 더 많은 응용 프로그램(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
-* **데이터 보관:** Azure Storage에 데이터를 저장하면 계산에 사용된 HDInsight 클러스터를 사용자 데이터 손실 없이 안전하게 삭제할 수 있습니다.
-* **데이터 저장 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Azure Storage에 저장하는 것보다 비용이 많이 드는데, 이는 계산 클러스터의 비용이 Azure Storage의 비용보다 비싸기 때문입니다. 또한 계산 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
-* **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 만드는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Storage에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
-* **지역에서 복제:** Azure Storage를 지역에서 복제할 수 있습니다. 이 경우 지리적 복구와 데이터 중복 기능이 제공되지만, 지역에서 복제된 위치에 대한 장애 조치(Failover)는 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 추가 비용을 감수할 만큼 가치 있는 데이터에 한해서만 현명하게 사용하는 것이 좋습니다.
-* **데이터 수명 주기 관리:** 모든 파일 시스템의 모든 데이터는 가치가 매우 높고 액세스가 빈번한 상태에서 가치가 낮아지고 액세스가 감소되는 상태를 거쳐 보관되거나 삭제되는 수명 주기를 거칩니다. Azure Storage에는 수명 주기 단계에 적합하게 데이터를 계층화하는 데이터 계층화 및 수명 주기 관리 정책이 제공됩니다.
 
-특정 MapReduce 작업과 패키지는 Azure Storage에 전혀 저장하고 싶지 않을 만한 중간 결과를 생성할 수 있습니다. 그런 경우에는 로컬 HDFS에 데이터를 저장하도록 선택할 수 있습니다. 실제로 HDInsight는 Hive 작업 및 기타 프로세스에서 생성되는 이러한 중간 결과 중 일부에 DFS를 사용합니다.
+* **데이터 보관:** Azure Storage에 데이터를 저장하면 계산에 사용된 HDInsight 클러스터를 사용자 데이터 손실 없이 안전하게 삭제할 수 있습니다.
+
+* **데이터 저장 비용:** 데이터를 장기간 저장하는 경우 네이티브 DFS에 저장하는 것이 Azure Storage에 저장하는 것보다 비용이 많이 드는데, 이는 계산 클러스터의 비용이 Azure Storage의 비용보다 비싸기 때문입니다. 또한 계산 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
+
+* **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 만드는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Storage에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡한 프로세스가 될 수 있습니다.
+
+* **지역에서 복제:** Azure Storage 데이터를 지역에서 복제할 수 있습니다. 이 기능을 사용하면 지리적 복구와 데이터 중복 기능이 제공되지만, 지역에서 복제된 위치로의 장애 조치(Failover)를 지원하면 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 신중하게 선택해야 하며, 추가 비용을 감수할 만큼 가치 있는 데이터에만 사용하는 것이 좋습니다.
+
+* **데이터 수명 주기 관리:** 모든 파일 시스템의 모든 데이터는 자체 수명 주기를 거칩니다. 처음에는 데이터가 매우 가치 있고 자주 액세스되었다가 덜 중요해지고 덜 자주 액세스되며, 최종적으로는 보관이나 삭제가 필요해집니다. Azure Storage에는 수명 주기 단계에 적합하게 데이터를 계층화하는 데이터 계층화 및 수명 주기 관리 정책이 제공됩니다.
+
+특정 MapReduce 작업과 패키지는 Azure Storage에 전혀 저장하고 싶지 않을 만한 중간 결과를 생성할 수 있습니다. 그런 경우에는 로컬 HDFS에 데이터를 저장하도록 선택할 수 있습니다. 실제로 HDInsight는 Hive 작업 및 기타 프로세스에서 생성되는 이러한 중간 결과 중 일부에 네이티브 HDFS 구현(DFS라고도 함)을 사용합니다.
 
 > [!NOTE]
-> 대부분의 HDFS 명령(예: `ls`, `copyFromLocal` 및 `mkdir`)은 여전히 예상대로 작동합니다. `fschk` 및 `dfsadmin`과 같은 기본 HDFS 구현(DFS라고 함)에 해당하는 명령만 Azure Storage에서 다르게 동작합니다.
+> 대부분의 HDFS 명령(예: `ls`, `copyFromLocal` 및 `mkdir`)은 여전히 예상대로 작동합니다. `fschk` 및 `dfsadmin`과 같은 DFS에 해당하는 명령만 Azure Storage에서 다르게 동작합니다.
 
 ## <a name="create-an-data-lake-storage-file-system"></a>Data Lake Storage 파일 시스템 만들기
 
-파일 시스템을 사용하려면 먼저 [Azure Storage 계정][azure-storage-create]을 만듭니다. 이 프로세스의 일부로 저장소 계정이 만들어지는 Azure 지역을 지정합니다. 클러스터와 저장소 계정은 동일한 지역에서 호스팅되어야 합니다. Hive Metastore SQL Server 데이터베이스 및 Oozie Metastore SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
+파일 시스템을 사용하려면 먼저 [Azure Storage 계정][azure-storage-create]을 만듭니다. 이 프로세스의 일부로 저장소 계정이 만들어지는 Azure 지역을 지정합니다. 클러스터와 저장소 계정은 동일한 지역에서 호스트되어야 합니다. Hive Metastore SQL Server 데이터베이스 및 Oozie Metastore SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
 
 어디에 있든, 만들어진 각 Blob은 Azure Data Lake Storage 계정의 파일 시스템에 속합니다. 
 
-기본 Data Lake Storage 파일 시스템은 작업 기록 및 로그와 같은 클러스터별 정보를 저장합니다. 기본 Data Lake Storage 파일 시스템을 여러 HDInsight 클러스터와 공유하지 마십시오. 이 경우 작업 기록이 손상될 수 있습니다. 각 클러스터에 다른 파일 시스템을 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 파일 시스템을 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제된 HBase 클러스터에서 사용되는 기본 Blob 컨테이너를 사용하여 새 HBase 클러스터를 만듦으로써 HBase 테이블 스키마 및 데이터를 실제로 보존할 수 있습니다.
+기본 Data Lake Storage 파일 시스템은 작업 기록 및 로그와 같은 클러스터별 정보를 저장합니다. 기본 Data Lake Storage 파일 시스템을 여러 HDInsight 클러스터와 공유하지 마세요. 이 경우 작업 기록이 손상될 수 있습니다. 각 클러스터에 다른 파일 시스템을 사용하고 기본 저장소 계정 대신 모든 관련 클러스터 배포에 지정된 연결 저장소 계정에서 공유 데이터를 배치하는 것이 좋습니다. 연결된 저장소 계정에 대한 자세한 내용은 [HDInsight 클러스터 만들기][hdinsight-creation]를 참조하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 저장소 파일 시스템을 다시 사용할 수 있습니다. HBase 클러스터의 경우 HBase 클러스터에서 사용되는 기본 Blob 컨테이너를 사용하여 새 HBase 클러스터를 만듦으로써 HBase 테이블 스키마 및 데이터를 보존할 수 있습니다.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
-### <a name="use-the-azure-portal"></a>Azure 포털 사용
+### <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 포털에서 HDInsight 클러스터를 만드는 경우 저장소 계정 세부 정보를 제공할 수 있는 옵션(아래 스크린샷 참조)이 있습니다. 추가 저장소 계정을 클러스터와 연결할지 여부를 지정할 수도 있으며, 연결하려는 경우, 추가 저장소에 사용할 수 있는 저장소 옵션 중 하나를 선택합니다.
 
@@ -105,7 +110,7 @@ HDFS 대신 Azure Storage에 데이터를 저장할 경우 몇 가지 이점이 
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
-[Azure PowerShell을 설치하고 구성한][powershell-install] 경우 Azure PowerShell 프롬프트에서 다음 코드를 사용하여 저장소 계정 및 컨테이너를 만들 수 있습니다.
+[Azure PowerShell을 설치하고 구성][powershell-install]한 경우 Azure PowerShell 프롬프트에서 다음 코드를 사용하여 저장소 계정 및 컨테이너를 만들 수 있습니다.
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
 
@@ -142,22 +147,30 @@ HDFS 대신 Azure Storage에 데이터를 저장할 경우 몇 가지 이점이 
 
 [!INCLUDE [use-latest-version](../../../includes/hdinsight-use-latest-cli.md)]
 
-[Azure CLI를 설치 및 구성한](../../cli-install-nodejs.md)경우, 다음 명령을 사용하여 저장소 계정 및 컨테이너를 사용할 수 있습니다.
+[Azure CLI를 설치 및 구성](../../cli-install-nodejs.md)한 경우, 다음 명령을 사용하여 저장소 계정 및 컨테이너를 사용할 수 있습니다.
 
-    azure storage account create <storageaccountname> --type LRS --is-hns-enabled true
+```bash
+az storage account create \
+    --name <STORAGE_ACCOUNT_NAME> \
+    --resource-group <RESOURCE_GROUP_NAME> \
+    --location westus2 \
+    --sku Standard_LRS \
+    --kind StorageV2 \
+    --Enable-hierarchical-namespace true
+```
 
 > [!NOTE]
-> Data Lake Storage Gen2의 공개 미리 보기 기간에는 `--type LRS`만 지원됩니다. 미리 보기 프로그램 전체에서 추가 중복 옵션이 제공될 예정입니다.
+> Data Lake Storage Gen2의 공개 미리 보기 기간에는 `--sku Standard_LRS`만 지원됩니다.
 
 저장소 계정에 생성된 지리적 지역을 지정하라는 메시지가 표시됩니다. HDInsight 클러스터를 만들려는 동일한 지역에 저장소 계정을 만듭니다.
 
 저장소 계정을 만든 후 다음 명령을 사용하여 저장소 계정 키를 검색합니다.
 
-    azure storage account keys list <storageaccountname>
+    azure storage account keys list <STORAGE_ACCOUNT_NAME>
 
 컨테이너를 만들려면 다음 명령을 사용합니다.
 
-    azure storage container create <containername> --account-name <storageaccountname> --account-key <storageaccountkey>
+    azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
 > 컨테이너를 만드는 것은 Azure Data Lake Storage에서 파일 시스템을 만드는 것과 동의어입니다.
@@ -166,31 +179,30 @@ HDFS 대신 Azure Storage에 데이터를 저장할 경우 몇 가지 이점이 
 
 HDInsight에서 Azure Storage의 파일에 액세스하기 위한 URI 구성표는 다음과 같습니다.
 
-    abfs[s]://<FileSystem>@<AccountName>.dfs.core.widows.net/<path>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
 
 URI 체계는 암호화되지 않은 액세스(*abfs:* 접두사가 있음)와 SSL로 암호화된 액세스(*abfs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *abfss*를 사용하는 것이 좋습니다.
 
-&lt;FileSystem&gt;은 파일 시스템 Azure Data Lake Storage의 경로를 식별합니다.
-&lt;AccountName&gt;은 Azure Storage 계정 이름을 식별합니다. FQDN(정규화된 도메인 이름)이 필요합니다.
+* &lt;FILE_SYSTEM_NAME&gt;은 파일 시스템 Azure Data Lake Storage의 경로를 식별합니다.
+* &lt;ACCOUNT_NAME&gt;은 Azure Storage 계정 이름을 식별합니다. FQDN(정규화된 도메인 이름)이 필요합니다.
 
-&lt;FileSystem&gt; 또는 &lt;AccountName&gt;에 대한 값이 지정되지 않으면 기본 파일 시스템이 사용됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용할 수 있습니다. 예를 들어, HDInsight 클러스터와 함께 제공되는 *hadoop-mapreduce-examples.jar* 파일을 가리킬 때 다음 경로 중 하나를 사용할 수 있습니다.
-
-    abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
-    abfs:///example/jars/hadoop-mapreduce-examples.jar
-    /example/jars/hadoop-mapreduce-examples.jar
+    &lt;FILE_SYSTEM_NAME&gt; 및 &lt;ACCOUNT_NAME&gt;에 대한 값이 둘 다 지정되지 않으면 기본 파일 시스템이 사용됩니다. 기본 파일 시스템의 파일에 대해서는 상대 경로나 절대 경로를 사용할 수 있습니다. 예를 들어, HDInsight 클러스터와 함께 제공되는 *hadoop-mapreduce-examples.jar* 파일을 가리킬 때 다음 경로 중 하나를 사용할 수 있습니다.
+    
+        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs:///example/jars/hadoop-mapreduce-examples.jar
+        /example/jars/hadoop-mapreduce-examples.jar
 
 > [!NOTE]
 > HDInsight 버전 2.1 및 1.6 클러스터에서는 파일 이름이*hadoop-examples.jar*입니다.
 
-&lt;경로&gt;는 파일 또는 디렉터리 HDFS 경로 이름입니다.
+* &lt;PATH&gt;는 파일 또는 디렉터리 HDFS 경로 이름입니다.
 
 > [!NOTE]
-> HDInsight 외부에서 파일을 사용할 때 대부분의 유틸리티는 ABFS 형식을 인식하지 않으며 대신 `example/jars/hadoop-mapreduce-examples.jar`와 같은 기본 경로 형식을 예상합니다.
-> 
-
+> HDInsight 외부에서 파일을 사용할 때 대부분의 유틸리티는 ABFS 형식을 인식하지 않으며 대신 `example/jars/hadoop-mapreduce-examples.jar`과 같은 기본 경로 형식을 예상합니다.
+ 
 ## <a name="use-additional-storage-accounts"></a>추가 저장소 계정 사용
 
-HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Storage 계정을 지정합니다. 만들기 프로세스 중이나 클러스터를 만든 후에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 만들기](/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
+HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Storage 계정을 지정합니다. 만들기 프로세스 중이나 클러스터를 만든 후에 이 저장소 계정 외에도 동일한 Azure 구독 또는 다른 Azure 구독에서 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 만들기](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
 
 > [!WARNING]
 > HDInsight 클러스터와 다른 위치에서는 추가 저장소 계정을 사용할 수 없습니다.
@@ -207,9 +219,9 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 * [distcp를 사용하여 Azure Data Lake Storage에 데이터 수집](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[hdinsight-creation]: /hdinsight/hdinsight-hadoop-provision-linux-clusters.md
+[hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md
 
 [blob-storage-restAPI]: http://msdn.microsoft.com/library/windowsazure/dd135733.aspx
-[azure-storage-create]: /storage/common/storage-create-storage-account.md
+[azure-storage-create]: ../common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/use-hdi-cluster/HDI.PowerShell.BlobCommands.png

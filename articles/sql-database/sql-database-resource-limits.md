@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/02/2018
 ms.author: carlrab
-ms.openlocfilehash: 6806b0c5b5e5ac5e1189f628786f0c8f9b223395
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 403490f47ac171d4a302d2b68af65375bbdc26cd
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750954"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345722"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL Database 리소스 제한 개요 
 
@@ -27,10 +27,11 @@ ms.locfileid: "36750954"
 | 서버당 데이터베이스 | 5,000 |
 | 모든 지역에서 구독당 서버의 기본 수 | 20 |
 | 모든 지역에서 구독당 서버의 최대 수 | 200 |
+| 서버당 DTU/eDTU 할당량 | 54,000 |
 |||
 
 > [!NOTE]
-> 기본 양보다 더 많은 서버 할당량을 얻으려면 문제 유형 "할당량"을 사용하여 구독을 위한 Azure Portal에서 새 지원 요청을 제출할 수 있습니다.
+> 기본 양보다 더 많은 DTU/eDTU 할당량 또는 더 많은 서버를 얻으려면 문제 유형 "할당량"을 사용하여 구독을 위한 Azure Portal에서 새 지원 요청을 제출할 수 있습니다. 서버당 DTU/eDTU 할당량 및 데이터베이스 제한은 서버당 탄력적 풀의 수를 제한합니다. 
 
 > [!IMPORTANT]
 > 데이터베이스 수가 서버당 제한에 근접하면 다음이 발생할 수 있습니다.

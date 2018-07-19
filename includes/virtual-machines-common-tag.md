@@ -1,8 +1,8 @@
 
 
 
-## <a name="tagging-a-virtual-machine-through-templates"></a>템플릿을 통해 가상 컴퓨터에 태그 지정
-먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) 은 계산(가상 컴퓨터), 저장소(저장소 계정) 및 네트워크(공용 IP 주소, 가상 네트워크 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. 이 템플릿은 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.
+## <a name="tagging-a-virtual-machine-through-templates"></a>템플릿을 통해 Virtual Machine에 태그 지정
+먼저 템플릿을 통한 태그 지정을 살펴보겠습니다. [이 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags) 은 Compute(Virtual Machine), Storage(Storage 계정) 및 네트워크(공용 IP 주소, Virtual Network 및 네트워크 인터페이스) 리소스에 태그를 배치합니다. 이 템플릿은 Windows VM에 대한 것이지만 Linux VM에도 적용할 수 있습니다.
 
 **템플릿 링크** 에서 [Azure에 배포](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-tags)단추를 클릭합니다. 이렇게 하면 이 템플릿을 배포할 수 있는 [Azure 포털](https://portal.azure.com/) 로 이동합니다.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 311e58f01fac6d7786992b3c11e4b1b7c02ca838
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36304124"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082526"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 아티클에서는 클래스룸 랩 생성 및 구성, 모든 클래스룸 랩 보기 또는 클래스룸 랩 삭제 방법을 설명합니다.
@@ -86,8 +86,8 @@ ms.locfileid: "36304124"
 2. 이제 **게시** 단추를 선택합니다. 만들려는 VM 수, 즉 랩에 허용되는 사용자 수에 따라 이 프로세스를 완료하는 데 다소 시간이 걸릴 수 있습니다.
     
     > [!IMPORTANT]
-    > 템플릿을 공용으로 사용할 수 있게 되면 템플릿에 대한 액세스를 비공개로 변경할 수 없습니다. 
-4. **가상 머신** 페이지로 전환하고, **할당되지 않음** 상태인 가상 머신 5대가 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. 
+    > 템플릿이 게시되면 게시를 취소할 수 없습니다. 
+4. **가상 머신** 페이지로 전환하고, **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. 
 
     ![가상 머신](../media/tutorial-setup-classroom-lab/virtual-machines.png)
 5. VM이 만들어질 때까지 기다립니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 

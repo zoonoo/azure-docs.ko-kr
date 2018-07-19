@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: jdial
-ms.openlocfilehash: c3f4a64c9e11d17899987bbe818506f61c415e3f
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 81809660bdda957eb4502e02799b9f7f5538ae51
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757062"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37114026"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
 
@@ -35,7 +35,7 @@ NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 �
 
 ## <a name="enable-logging"></a>로깅 사용
 
-[Azure Portal](#azure-portal) 또는 [PowerShell](#powershell)을 사용하여 진단 로깅을 활성화할 수 있습니다.
+[Azure Portal](#azure-portal), [PowerShell](#powershell) 또는 [Azure CLI](#azure-cli)를 사용하여 진단 로깅을 활성화할 수 있습니다.
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -57,7 +57,7 @@ NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 �
 
 ### <a name="powershell"></a>PowerShell
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 컴퓨터에서 PowerShell을 실행하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈, 버전 6.1.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행하는 경우 *AzureRM* PowerShell 모듈, 버전 6.1.1 이상이 필요합니다. 컴퓨터에서 `Get-Module -ListAvailable AzureRM`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. PowerShell을 로컬로 실행 중인 경우 `Login-AzureRmAccount`를 실행하여 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
 
 진단 로깅을 활성화하려면 기존 NSG의 ID가 필요합니다. 기존 NSG가 없는 경우 [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup)을 사용하여 만들 수 있습니다.
 
@@ -69,12 +69,12 @@ $Nsg=Get-AzureRmNetworkSecurityGroup `
   -ResourceGroupName myResourceGroup
 ```
 
-세 가지 대상 유형에 대한 진단 로그를 작성할 수 있습니다. 자세한 내용은 [로그 대상](#log-destinations)을 참조하세요. 이 문서에서 로그는 예를 들어 *Log Analytics* 대상으로 전송됩니다. [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace)를 사용하여 기존 Log Analytics 작업 영역을 검색합니다. 예를 들어 *LaWorkspaces*라는 리소스 그룹에서 *myLaWorkspace*라는 기존 작업 영역을 검색하려면 다음 명령을 입력합니다.
+세 가지 대상 유형에 대한 진단 로그를 작성할 수 있습니다. 자세한 내용은 [로그 대상](#log-destinations)을 참조하세요. 이 문서에서 로그는 예를 들어 *Log Analytics* 대상으로 전송됩니다. [Get-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightsworkspace)를 사용하여 기존 Log Analytics 작업 영역을 검색합니다. 예를 들어 *myWorkspaces*라는 리소스 그룹에서 *myWorkspace*라는 기존 작업 영역을 검색하려면 다음 명령을 입력합니다.
 
 ```azurepowershell-interactive
 $Oms=Get-AzureRmOperationalInsightsWorkspace `
-  -ResourceGroupName LaWorkspaces `
-  -Name myLaWorkspace
+  -ResourceGroupName myWorkspaces `
+  -Name myWorkspace
 ```
 
 기존 작업 영역이 없는 경우 [New-AzureRmOperationalInsightsWorkspace](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace)를 사용하여 만들 수 있습니다.
@@ -89,6 +89,41 @@ Set-AzureRmDiagnosticSetting `
 ```
 
 둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에 `-Categories` 옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
+
+로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
+
+### <a name="azure-cli"></a>Azure CLI
+
+[Azure Cloud Shell](https://shell.azure.com/bash) 뒤에 오는 명령 또는 컴퓨터에서 Azure CLI를 사용하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 CLI를 실행하는 경우 버전 2.0.38 이상이 필요합니다. 컴퓨터에서 `az --version`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요. CLI를 로컬로 실행 중인 경우 `az login`를 실행하고 [필요한 권한](virtual-network-network-interface.md#permissions)을 가진 계정으로 Azure에 로그인해야 합니다.
+
+진단 로깅을 활성화하려면 기존 NSG의 ID가 필요합니다. 기존 NSG가 없는 경우 [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 만들 수 있습니다.
+
+[az network nsg show](/cli/azure/network/nsg#az-network-nsg-show)를 사용하여 진단 로깅을 활성화하려는 네트워크 보안 그룹을 검색합니다. 예를 들어 *myResourceGroup*이라는 리소스 그룹에 존재하는 *myNsg*라는 NSG를 검색하려면 다음 명령을 입력합니다.
+
+```azurecli-interactive
+nsgId=$(az network nsg show \
+  --name myNsg \
+  --resource-group myResourceGroup \
+  --query id \
+  --output tsv)
+```
+
+세 가지 대상 유형에 대한 진단 로그를 작성할 수 있습니다. 자세한 내용은 [로그 대상](#log-destinations)을 참조하세요. 이 문서에서 로그는 예를 들어 *Log Analytics* 대상으로 전송됩니다. 자세한 내용은 [로그 범주](#log-categories)를 참조하세요. 
+
+[az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create)를 사용하여 NSG에 대한 진단 로깅을 활성화합니다. 다음 예제에서는 *myWorkspaces*라는 리소스 그룹에 있는 *myWorkspace*라는 기존 작업 영역에 이벤트 및 카운터 범주 데이터와 이전에 검색한 NSG의 ID를 로깅합니다.
+
+```azurecli-interactive
+az monitor diagnostic-settings create \
+  --name myNsgDiagnostics \
+  --resource $nsgId \
+  --logs '[ { "category": "NetworkSecurityGroupEvent", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } }, { "category": "NetworkSecurityGroupRuleCounter", "enabled": true, "retentionPolicy": { "days": 30, "enabled": true } } ]' \
+  --workspace myWorkspace \
+  --resource-group myWorkspaces
+```
+
+기존 작업 영역에 없는 경우 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [PowerShell](/powershell/module/azurerm.operationalinsights/new-azurermoperationalinsightsworkspace)을 사용하여 만들 수 있습니다. 로그를 활성화할 수 있는 두 가지 범주의 로깅이 있습니다. 
+
+특정 범주에 대한 데이터만 로깅하려는 경우 이전 명령에서 데이터를 로깅하지 않으려는 범주를 제거합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
 
 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
 

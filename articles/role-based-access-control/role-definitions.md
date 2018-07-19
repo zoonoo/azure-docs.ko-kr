@@ -1,6 +1,6 @@
 ---
 title: Azure RBAC의 역할 정의 이해 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어)의 역할 정의 및 Azure에서 리소스에 대해 세분화된 액세스를 관리하기 위해 사용자 지정 역할을 정의하는 방법을 알아봅니다.
+description: Azure에서 리소스에 대해 세분화된 액세스를 관리하기 위해 RBAC(역할 기반 액세스 제어)의 역할 정의에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -8,19 +8,19 @@ manager: mtillman
 ms.assetid: ''
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/18/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 9bb7808f2b483fe9cd7d22c6df3fe80d4a98f1f4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1d594b91b85a1bad3bbaa69bc27e62a4829a5661
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266859"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37438290"
 ---
 # <a name="understand-role-definitions"></a>역할 정의 이해
 
@@ -47,7 +47,7 @@ type
 
 작업은 다음과 같은 형식의 문자열로 지정됩니다.
 
-- `Microsoft.{ProviderName}/{ChildResourceType}/{action}`
+- `{Company}.{ProviderName}/{resourceType}/{action}`
 
 작업 문자열의 `{action}` 부분은 리소스 종류에서 수행할 수 있는 작업의 유형을 지정합니다. 예를 들어 `{action}`에 표시되는 부분 문자열은 다음과 같습니다.
 
@@ -94,7 +94,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 ## <a name="management-and-data-operations-preview"></a>관리 및 데이터 작업(미리 보기)
 
-관리 작업에 대한 역할 기반 액세스 제어는 역할 정의의 `actions` 및 `notActions` 섹션에 지정됩니다. Azure의 관리 작업에 대한 몇 가지 예는 다음과 같습니다.
+관리 작업에 대한 역할 기반 액세스 제어는 역할 정의의 `actions` 및 `notActions` 속성에 지정됩니다. Azure의 관리 작업에 대한 몇 가지 예는 다음과 같습니다.
 
 - 저장소 계정에 대한 액세스 관리
 - Blob 컨테이너 만들기, 업데이트 또는 삭제
@@ -104,13 +104,13 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 
 이전에는 역할 기반 액세스 제어가 데이터 작업에 사용되지 않았습니다. 데이터 작업에 대한 권한 부여는 리소스 공급자에 따라 다양합니다. 관리 작업에 사용되는 것과 동일한 역할 기반 액세스 제어 권한 부여 모델이 데이터 작업(현재 미리 보기)으로 확장되었습니다.
 
-데이터 작업을 지원하기 위해 새로운 데이터 섹션이 역할 정의 구조에 추가되었습니다. 데이터 작업은 `dataActions` 및 `notDataActions` 섹션에서 지정됩니다. 이러한 데이터 섹션을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `dataActions` 및 `notDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
+데이터 작업을 지원하기 위해 새로운 데이터 속성이 역할 정의 구조에 추가되었습니다. 데이터 작업은 `dataActions` 및 `notDataActions` 속성에서 지정됩니다. 이러한 데이터 속성을 추가함으로써 관리와 데이터 간의 분리가 유지됩니다. 이렇게 하면 와일드카드(`*`)와 함께 현재 역할 할당을 사용하여 갑자기 데이터에 액세스하는 것을 방지할 수 있습니다. `dataActions` 및 `notDataActions`에서 지정할 수 있는 데이터 작업은 다음과 같습니다.
 
 - 컨테이너의 Blob 목록 읽기
 - 컨테이너에 Storage Blob 쓰기
 - 큐의 메시지 삭제
 
-다음은 [Storage Blob 데이터 판독기(미리 보기)](built-in-roles.md#storage-blob-data-reader-preview) 역할 정의입니다. 여기에는 `actions` 및 `dataActions` 섹션의 작업이 모두 포함됩니다. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
+다음은 [Storage Blob 데이터 판독기(미리 보기)](built-in-roles.md#storage-blob-data-reader-preview) 역할 정의입니다. 여기에는 `actions` 및 `dataActions` 속성의 작업이 모두 포함됩니다. 이 역할을 사용하면 Blob 컨테이너 및 기본 Blob 데이터를 읽을 수 있습니다.
 
 ```json
 [
@@ -142,7 +142,7 @@ JSON 형식의 [기여자](built-in-roles.md#contributor) 역할 정의가 있�
 ]
 ```
 
-데이터 작업만 `dataActions` 및 `notDataActions` 섹션에 추가할 수 있습니다. 리소스 공급자는 `isDataAction` 속성을 `true`로 설정하여 데이터 작업을 식별합니다. `isDataAction`이 `true`인 작업 목록을 보려면 [리소스 공급자 작업](resource-provider-operations.md)을 참조하세요. 데이터 작업이 없는 역할은 역할 정의 내에 `dataActions` 및 `notDataActions` 섹션이 없어도 됩니다.
+데이터 작업만 `dataActions` 및 `notDataActions` 속성에 추가할 수 있습니다. 리소스 공급자는 `isDataAction` 속성을 `true`로 설정하여 데이터 작업을 식별합니다. `isDataAction`이 `true`인 작업 목록을 보려면 [리소스 공급자 작업](resource-provider-operations.md)을 참조하세요. 데이터 작업이 없는 역할은 역할 정의 내에 `dataActions` 및 `notDataActions` 속성이 없어도 됩니다.
 
 모든 관리 작업 API 호출에 대한 권한 부여는 Azure Resource Manager에서 처리합니다. 데이터 작업 API 호출에 대한 권한 부여는 리소스 공급자 또는 Azure Resource Manager에 의해 처리됩니다.
 
@@ -190,7 +190,7 @@ Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-role
 
 ## <a name="actions"></a>actions
 
-`actions` 권한은 역할에서 액세스 권한을 부여하는 관리 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. `actions`에서 사용할 수 있는 관리 작업의 몇 가지 예제는 다음과 같습니다.
+`actions` 권한은 역할에서 수행할 수 있는 관리 작업을 지정합니다. Azure 리소스 공급자의 보안 개체 작업을 식별하는 작업 문자열 모음입니다. `actions`에서 사용할 수 있는 관리 작업의 몇 가지 예제는 다음과 같습니다.
 
 | 작업 문자열    | 설명         |
 | ------------------- | ------------------- |
@@ -210,7 +210,7 @@ Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-role
 
 ## <a name="dataactions-preview"></a>dataActions(미리 보기)
 
-`dataActions` 권한은 역할이 해당 개체 내의 데이터에 대한 액세스 권한을 부여하는 데이터 작업을 지정합니다. 예를 들어 사용자가 저장소 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 저장소 계정 내의 Blob을 읽을 수 있습니다. `dataActions`에서 사용할 수 있는 데이터 작업의 몇 가지 예제는 다음과 같습니다.
+`dataActions` 권한은 역할에서 해당 개체 내의 데이터에 대해 수행할 수 있는 데이터 작업을 지정합니다. 예를 들어 사용자가 저장소 계정에 대한 Blob 데이터 읽기 액세스 권한이 있는 경우 해당 저장소 계정 내의 Blob을 읽을 수 있습니다. `dataActions`에서 사용할 수 있는 데이터 작업의 몇 가지 예제는 다음과 같습니다.
 
 | 작업 문자열    | 설명         |
 | ------------------- | ------------------- |
@@ -229,11 +229,9 @@ Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-role
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-`assignableScopes` 섹션에서는 역할을 할당할 수 있는 범위(관리 그룹(현재 미리 보기 상태임), 구독, 리소스 그룹 또는 리소스)를 지정합니다. 역할이 필요한 구독 또는 리소스 그룹에만 역할을 할당할 수 있도록 하며, 나머지 구독 또는 리소스 그룹에 대해 혼란스러운 사용자 환경이 아닙니다. 하나 이상의 관리 그룹, 구독, 리소스 그룹 또는 리소스 ID를 사용해야 합니다.
+`assignableScopes` 속성에서는 역할을 할당할 수 있는 범위(관리 그룹(현재 미리 보기 상태임), 구독, 리소스 그룹 또는 리소스)를 지정합니다. 역할이 필요한 구독 또는 리소스 그룹에만 역할을 할당할 수 있도록 하며, 나머지 구독 또는 리소스 그룹에 대해 혼란스러운 사용자 환경이 아닙니다. 하나 이상의 관리 그룹, 구독, 리소스 그룹 또는 리소스 ID를 사용해야 합니다.
 
-기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `assignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 사용자 지정 역할에는 루트 범위를 사용할 수 없습니다. 시도하면 권한 부여 오류가 발생합니다.
-
-유효한 할당 가능한 범위의 예는 다음과 같습니다.
+기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `assignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 
 | 시나리오 | 예 |
 |----------|---------|
@@ -242,86 +240,9 @@ Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-role
 | 역할은 네트워크 리소스 그룹에만 할당할 수 있습니다. | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
 | 역할은 모든 범위에 할당할 수 있습니다. | `"/"` |
 
-## <a name="assignablescopes-and-custom-roles"></a>assignableScopes 및 사용자 지정 역할
+사용자 지정 역할에 대한 내용은 `assignableScopes` [사용자 지정 역할](custom-roles.md)을 참조하세요.
 
-사용자 지정 역할에 대한 `assignableScopes` 섹션에서는 사용자 지정 역할을 만들거나 삭제하거나 수정하거나 표시할 수 있는 사용자를 제어합니다.
-
-| Task | 작업 | 설명 |
-| --- | --- | --- |
-| 사용자 지정 역할 만들기/삭제 | `Microsoft.Authorization/ roleDefinition/write` | 사용자 지정 역할의 모든 `assignableScopes`에 이 작업이 부여된 사용자는 해당 범위에서 사용할 사용자 지정 역할을 만들거나 삭제할 수 있습니다. 예를 들어 구독, 리소스 그룹 및 리소스의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)가 있습니다. |
-| 사용자 지정 역할 수정 | `Microsoft.Authorization/ roleDefinition/write` | 사용자 지정 역할의 모든 `assignableScopes`에 이 작업이 부여된 사용자는 해당 범위에의 사용자 지정 역할을 수정할 수 있습니다. 예를 들어 구독, 리소스 그룹 및 리소스의 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator)가 있습니다. |
-| 사용자 지정 역할 보기 | `Microsoft.Authorization/ roleDefinition/read` | 범위에서 이 작업이 부여된 사용자는 해당 범위에서 할당에 사용할 수 있는 사용자 지정 역할을 볼 수 있습니다. 모든 기본 제공 역할을 통해 사용자 지정 역할을 할당할 수 있습니다. |
-
-## <a name="role-definition-examples"></a>역할 정의 예제
-
-다음 예제에서는 Azure CLI를 사용하여 표시되는 [읽기 권한자](built-in-roles.md#reader) 역할 정의를 보여 줍니다.
-
-```json
-[
-  {
-    "additionalProperties": {},
-    "assignableScopes": [
-      "/"
-    ],
-    "description": "Lets you view everything, but not make any changes.",
-    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "name": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
-    "permissions": [
-      {
-        "actions": [
-          "*/read"
-        ],
-        "additionalProperties": {},
-        "dataActions": [],
-        "notActions": [],
-        "notDataActions": []
-      }
-    ],
-    "roleName": "Reader",
-    "roleType": "BuiltInRole",
-    "type": "Microsoft.Authorization/roleDefinitions"
-  }
-]
-```
-
-다음 예제에서는 Azure PowerShell을 사용하여 표시되는 가상 머신을 모니터링하고 다시 시작하기 위한 사용자 지정 역할을 보여 줍니다.
-
-```json
-{
-  "Name":  "Virtual Machine Operator",
-  "Id":  "88888888-8888-8888-8888-888888888888",
-  "IsCustom":  true,
-  "Description":  "Can monitor and restart virtual machines.",
-  "Actions":  [
-                  "Microsoft.Storage/*/read",
-                  "Microsoft.Network/*/read",
-                  "Microsoft.Compute/*/read",
-                  "Microsoft.Compute/virtualMachines/start/action",
-                  "Microsoft.Compute/virtualMachines/restart/action",
-                  "Microsoft.Authorization/*/read",
-                  "Microsoft.Resources/subscriptions/resourceGroups/read",
-                  "Microsoft.Insights/alertRules/*",
-                  "Microsoft.Insights/diagnosticSettings/*",
-                  "Microsoft.Support/*"
-  ],
-  "NotActions":  [
-
-                 ],
-  "DataActions":  [
-
-                  ],
-  "NotDataActions":  [
-
-                     ],
-  "AssignableScopes":  [
-                           "/subscriptions/{subscriptionId1}",
-                           "/subscriptions/{subscriptionId2}",
-                           "/subscriptions/{subscriptionId3}"
-                       ]
-}
-```
-
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 * [기본 제공 역할](built-in-roles.md)
 * [사용자 지정 역할](custom-roles.md)

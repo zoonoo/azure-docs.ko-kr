@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/6/2017
 ms.author: jeedes
-ms.openlocfilehash: e39bd40a25333f6b2e323439d29e2a85e67d20d5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: ad5c8a61a83211147f5e4929a4f4f6fab738ba32
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284933"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39043757"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apptio"></a>자습서: Apptio와 Azure Active Directory 통합
 
@@ -223,7 +223,7 @@ Apptio에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Apptio 타일을 클릭하면 Apptio 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요. 
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요. 
 
 ## <a name="additional-resources"></a>추가 리소스
 

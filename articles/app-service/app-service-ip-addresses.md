@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: cephalin
-ms.openlocfilehash: 906a5d511615c57b6ff807ac240a838c63917e66
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 752f9d82afafaf7324c0c63c0d7377b952fe0716
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788079"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003149"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 
@@ -67,4 +67,4 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 원본 IP 주소에서 인바운드 트래픽을 제한하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [고정 IP 제한](app-service-ip-addresses.md)
+> [고정 IP 제한](app-service-ip-restrictions.md)
