@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5aa716f91a3155e81ef8dc7c436b4a9a5811238b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c9a1d605f6cf2ef9dae3a5549e3848931d508394
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34723255"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082746"
 ---
 # <a name="configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory의 엔터프라이즈 응용 프로그램에 대해 SAML 토큰에서 발급된 역할 클레임 구성
 
@@ -56,7 +56,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     ![속성 페이지](./media/active-directory-enterprise-app-role-management/tutorial_app_properties.png)
 
-6. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 열고 다음 단계를 수행합니다.
+6. 또 다른 창에서 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 열고 다음 단계를 수행합니다.
 
     a. 테넌트의 전역 관리자 또는 공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 

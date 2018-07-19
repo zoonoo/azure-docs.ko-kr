@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92bd7190832da6ee9da7d1679b9f27b66a15e3a4
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904308"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004883"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>자습서: Linux VM용 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스
 
@@ -52,7 +52,7 @@ ms.locfileid: "37904308"
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
 3. 가상 머신 정보를 입력합니다. **인증 유형**으로 **SSH 공용 키** 또는 **암호**를 선택합니다. 생성된 자격 증명을 사용하면 VM에 로그인할 수 있습니다.
 
-   ![가상 머신 생성용 "기본" 창](../media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
+   ![가상 머신 생성용 "기본" 창](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
 
 4. **구독** 목록에서 가상 머신에 대한 구독을 선택합니다.
 5. 가상 머신을 만들 대상이 되는 새 리소스 그룹을 선택하려면 **리소스 그룹** > **새로 만들기**를 선택합니다. 완료하면 **확인**을 선택합니다.
@@ -65,7 +65,7 @@ VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure A
 1. **Virtual Machine**에 대해 MSI를 사용하도록 설정할 가상 머신을 선택합니다.
 2. 왼쪽 창에서 **구성**을 선택합니다.
 3. **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택합니다. 사용하지 않도록 설정하려면 **아니요**를 선택합니다.
-   !["Azure Active Directory에 등록" 선택](../media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
+   !["Azure Active Directory에 등록" 선택](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. **저장**을 선택합니다.
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>VM에 Azure Data Lake Store에 대한 액세스 권한 부여

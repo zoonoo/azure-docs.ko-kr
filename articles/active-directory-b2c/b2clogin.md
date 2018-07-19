@@ -6,16 +6,16 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c41c02acaeffa170d55f3c59f34a4b1ecae1c523
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 1d42d9a97244eeff501b9d02b0f143d6ef0c91b2
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712456"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37440633"
 ---
 # <a name="using-b2clogincom"></a>b2clogin.com 사용
 
@@ -24,8 +24,8 @@ ms.locfileid: "34712456"
 >
 
 이제 `login.microsoftonline.com`을 사용하는 대신 `<YourTenantName>.b2clogin.com`을 통해 Azure AD B2C 서비스를 사용하는 옵션이 제공됩니다.  여기에는 많은 이점이 있습니다.
-* 동일한 쿠키 헤더 크기 제한을 다른 Microsoft 제품과 더 이상 공유하지 못함
-* URL에서 Microsoft에 대한 모든 참조를 제거할 수 있음(`<YourTenantName>.onmicrosoft.com`을 테넌트 ID로 바꿀 수 있음)
+* 다른 Microsoft 제품과 동일한 쿠키 헤더 크기 제한을 더 이상 공유하지 않습니다.
+* URL에서 Microsoft에 대한 모든 참조를 제거할 수 있습니다(`<YourTenantName>.onmicrosoft.com`을 테넌트 ID로 바꿀 수 있음). 예: `https://<tenantname>.b2clogin.com/tfp/<tenantname>/<policyname>/v2.0/.well-known/openid-configuration`
 
  b2clogin.com 활용하기 위해서는 다음 중 일부를 설정해야 합니다.
 

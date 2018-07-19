@@ -3,7 +3,7 @@ title: Azure Application Insights 앱 데이터 보기 | Microsoft Docs
 description: Application Insights 커넥터 솔루션을 사용하여 성능 문제를 진단하고 Application Insights를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,19 +11,23 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 854ec70c897b6a561fdec056228f82ccec3ae16c
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.component: na
+ms.openlocfilehash: 2312b0ed51be7079da3e53b27c269adfb761044d
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186236"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131629"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights 커넥터관 리 솔루션(미리 보기)
 
 ![Application Insights 기호](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> [cross-resource queries](log-analytics-cross-workspace-search.md)를 지원하면 Application Insights 커넥터 관리 솔루션이 더 이상 필요하지 않고 사용되지 않습니다. 7월부터 새 Application Insights 리소스를 Log Analytics 작업 영역에 연결할 수 없게 됩니다. 기존 링크 및 대시보드는 2018년 11월까지 서비스될 예정입니다. 자세한 내용은 [Azure로 이동하는 OMS 포털](log-analytics-oms-portal-transition.md)을 참조하세요.
 
 Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Application Insights](../application-insights/app-insights-overview.md)를 통해 모니터링하는 경우 사용자가 해당 앱으로 수행하는 작업을 파악하는 데 도움이 됩니다. 개발자가 Application Insights에서 참조하는 것과 동일한 응용 프로그램 원격 분석 뷰를 Log Analytics에서 사용할 수 있습니다. 그러나 Log Analytics와 Application Insights 앱을 통합하는 경우 작업 및 응용 프로그램 데이터가 한 곳에 있게 되므로 응용 프로그램에 대한 가시성이 향상됩니다. 동일한 뷰가 있으면 앱 개발자와 공동 작업을 수행하는 데 도움이 됩니다. 공통 뷰는 응용 프로그램 및 플랫폼 문제를 감지하고 해결하는 데 소요되는 시간을 줄일 수 있습니다.
 
@@ -42,7 +46,7 @@ Application Insights 커넥터 솔루션은 성능 문제를 진단하고 [Appli
 | --- | --- | --- |
 | [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 솔루션이 Windows 에이전트에서 정보를 수집하지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 솔루션이 Linux 에이전트에서 정보를 수집하지 않습니다. |
-| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니요 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
+| [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | 솔루션이 연결된 SCOM 관리 그룹의 에이전트에서 정보를 수집하지 않습니다. |
 | [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | 솔루션이 Azure Storage에서 정보를 수집하지 않습니다. |
 
 ## <a name="prerequisites"></a>필수 조건
@@ -157,7 +161,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 솔루션은 연결된 Application Insights 앱에서 다음과 같은 원격 분석 유형의 데이터를 수신합니다.
 
-- Availability
+- 가용성
 - 예외
 - 요청
 - 페이지 보기 - 작업 영역에서 페이지 보기를 받으려면 앱에서 해당 정보를 수집하도록 구성해야 합니다. 자세한 내용은 [PageViews](../application-insights/app-insights-api-custom-events-metrics.md#page-views)를 참조하세요.
@@ -173,7 +177,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 자산 | 설명 |
 | --- | --- |
-| 유형 | ApplicationInsights |
+| type | ApplicationInsights |
 | ClientIP |   |
 | TimeGenerated | 레코드 시간 |
 | ApplicationId | Application Insights 앱의 계측 키 |
@@ -199,7 +203,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 자산 | 설명 |
 | --- | --- |
-| TelemetryType | Availability |
+| TelemetryType | 가용성 |
 | AvailabilityTestName | 웹 테스트의 이름 |
 | AvailabilityRunLocation | Http 요청의 지리적 소스 |
 | AvailabilityResult | 웹 테스트의 성공 결과 표시 |
@@ -222,7 +226,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 ### <a name="exception-specific-fields"></a>예외 관련 필드
 
-| 유형 | ApplicationInsights |
+| type | ApplicationInsights |
 | --- | --- |
 | TelemetryType | 예외 |
 | ExceptionType | 예외 형식 |
@@ -241,7 +245,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 | 자산 | 설명 |
 | --- | --- |
-| 유형 | ApplicationInsights |
+| type | ApplicationInsights |
 | TelemetryType | 요청 |
 | ResponseCode | 클라이언트에 보낸 HTTP 응답 |
 | RequestSuccess | 성공 또는 실패를 표시합니다. True 또는 False입니다. |

@@ -1,9 +1,9 @@
 ---
 title: Log Analytics의 Azure SQL Analytics 솔루션 | Microsoft Docs
-description: Azure SQL Analytics 솔루션을 통해 Azure SQL Database를 관리할 수 있습니다.
+description: Azure SQL 분석 솔루션을 통해 Azure SQL Database 관리
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
@@ -11,24 +11,26 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: magoedte
-ms.openlocfilehash: 722a10e853f6d61bb5349e92754954e3bb199225
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.component: na
+ms.openlocfilehash: f57a47677f752a644975a25fa746d78bced5d766
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133498"
 ---
-# <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Log Analytics에 Azure SQL Analytics(미리 보기)를 사용하여 Azure SQL Database 모니터링
+# <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
 ![Azure SQL 분석 기호](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure Log Analytics의 Azure SQL 분석 솔루션은 중요한 SQL Azure 성능 메트릭을 수집하여 시각화합니다. 솔루션으로 수집한 메트릭을 사용하여 사용자 지정 모니터링 규칙 및 경고를 만들 수 있습니다. 그리고 여러 Azure 구독 및 탄력적 풀 간에 Azure SQL Database 및 탄력적 풀 메트릭을 모니터링하고 이를 시각화할 수 있습니다. 또한 솔루션은 응용 프로그램 스택의 각 계층에서 문제를 식별할 수도 있습니다.  [Azure 진단 메트릭](log-analytics-azure-storage.md)과 Log Analytics 뷰를 함께 사용하여 모든 Azure SQL Databases 및 탄력적 풀에 대한 데이터를 단일 Log Analytics 작업 영역에 표시합니다.
+Azure SQL 분석은 여러 탄력적 풀 및 구독 간 규모에 맞게 Azure SQL Database의 성능을 모니터링하기 위한 클라우드 모니터링 솔루션입니다. 이 솔루션은 성능 문제 해결에 대한 기본 제공 인텔리전스를 사용하여 중요한 Azure SQL Database 성능 메트릭을 수집하고 시각화합니다. 
+
+솔루션으로 수집한 메트릭을 사용하여 사용자 지정 모니터링 규칙 및 경고를 만들 수 있습니다. 솔루션은 응용 프로그램 스택의 각 계층에서 문제를 식별할 수 있습니다. Azure 진단 메트릭과 Log Analytics 뷰를 함께 사용하여 모든 Azure SQL Databases 및 탄력적 풀에 대한 데이터를 단일 Log Analytics 작업 영역에 표시합니다. Log Analytics를 통해 구조적 및 비구조적 데이터를 수집하고, 상관 관계를 지정하며 시각화할 수 있습니다.
 
 현재, 이 미리 보기 솔루션은 작업 영역당 최대 150,000개의 Azure SQL Database 및 5,000개의 SQL 탄력적 풀을 지원합니다.
-
-Log Analytics에 대해 제공되는 다른 도구처럼 Azure SQL 분석 솔루션은 Azure 리소스의 상태에 대한 알림(이 경우, Azure SQL Database)을 모니터링하고 수신할 수 있습니다. Microsoft Azure SQL Database는 Azure 클라우드에서 실행되는 응용 프로그램에 친숙한 SQL Server와 유사한 기능을 제공하는 확장성 있는 관계형 데이터베이스 서비스입니다. Log Analytics를 통해 구조적 및 비구조적 데이터를 수집하고, 상관 관계를 지정하며 시각화할 수 있습니다.
 
 Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적인 사용 시나리오에 대해서는 포함된 비디오를 참조하세요.
 
@@ -37,39 +39,34 @@ Azure SQL Analytics 솔루션 사용에 대한 실무 중심 개요와 일반적
 
 ## <a name="connected-sources"></a>연결된 소스
 
-Azure SQL 분석 솔루션은 Log Analytics 서비스에 연결하는 데 에이전트를 사용하지 않습니다.
-
-다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
+Azure SQL 분석은 Azure SQL Database 및 탄력적 풀에 대한 진단 원격 분석의 스트리밍을 지원하는 클라우드 모니터링 솔루션입니다. Log Analytics 서비스에 연결하기 위해 에이전트를 사용하지 않으므로 솔루션은 Windows, Linux 또는 SCOM 리소스를 사용하여 연결을 지원하지 않습니다(아래 호환성 테이블을 참조하세요.)
 
 | 연결된 소스 | 지원 | 설명 |
 | --- | --- | --- |
+| **[Azure 진단](log-analytics-azure-storage.md)** | **예** | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |
 | [Windows 에이전트](log-analytics-windows-agent.md) | 아니오 | 직접 Windows 에이전트는 솔루션에 사용되지 않습니다. |
 | [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 직접 Linux 에이전트는 솔루션에 사용되지 않습니다. |
 | [SCOM 관리 그룹](log-analytics-om-agents.md) | 아니오 | SCOM 에이전트에서 Log Analytics로 직접 연결은 솔루션에 사용되지 않습니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | Log Analytics는 저장소 계정의 데이터를 읽지 않습니다. |
-| [Azure 진단](log-analytics-azure-storage.md) | 예 | Azure 메트릭 및 로그 데이터는 Azure에 의해 직접 Log Analytics에 전송됩니다. |
-
-## <a name="prerequisites"></a>필수 조건
-
-- Azure 구독. 없는 경우 [무료](https://azure.microsoft.com/free/) 구독을 하나 만들 수 있습니다.
-- Log Analytics 작업 영역. 기존 항목을 사용하거나 이 솔루션 사용을 시작하기 전에 [새로 만들 수 있습니다.](log-analytics-quick-create-workspace.md)
-- Azure SQL Database 및 탄력적 풀에 대한 Azure 진단을 사용하도록 설정하고 [Log Analytics에 데이터를 보내도록 구성](../sql-database/sql-database-metrics-diag-logging.md)합니다.
 
 ## <a name="configuration"></a>구성
 
 Azure SQL 분석 솔루션을 작업 영역에 추가하려면 다음 단계를 수행합니다.
 
-1. [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview)에서 또는 [솔루션 갤러리에서 Log Analytics 솔루션 추가](log-analytics-add-solutions.md)에서 설명하는 프로세스를 사용하여 작업 영역에 Azure SQL 분석 솔루션을 추가합니다.
-2. Azure Portal에서 **리소스 만들기** > **모니터링 + 관리**를 클릭합니다.  
+1. [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/Microsoft.AzureSQLAnalyticsOMS?tab=Overview)에서 작업 영역에 Azure SQL 분석 솔루션을 추가합니다.
+2. Azure Portal에서 **+ 리소스 만들기**를 클릭한 다음, **Azure SQL 분석**을 검색합니다.  
     ![모니터링 + 관리](./media/log-analytics-azure-sql/monitoring-management.png)
-3. **모니터링 + 관리** 목록에서 **모두 표시**를 클릭합니다.
-4. **권장** 목록에서 **자세히**를 클릭한 후 새 목록에서 **Azure SQL 분석(미리 보기)** 을 찾아 선택합니다.  
-    ![Azure SQL Analytics 솔루션](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. **Azure SQL 분석(미리 보기)** 영역에서 **만들기**를 클릭합니다.  
+3. 목록에서 **Azure SQL 분석(미리 보기)** 선택
+4. **Azure SQL 분석(미리 보기)** 영역에서 **만들기**를 클릭합니다.  
     ![만들기](./media/log-analytics-azure-sql/portal-create.png)
-6. **새 솔루션 만들기** 영역에서 솔루션을 추가할 작업 영역을 선택한 후 **만들기**를 클릭합니다.  
+5. **새 솔루션 만들기** 영역에서 새 작업 영역을 만들거나 솔루션을 추가할 기존 작업 영역을 선택한 다음, **만들기**를 클릭합니다.  
     ![작업 영역에 추가](./media/log-analytics-azure-sql/add-to-workspace.png)
 
+### <a name="configure-azure-sql-databases-and-elastic-pools-to-stream-diagnostics-telemetry"></a>진단 원격 분석을 스트림하려면 Azure SQL Database 및 Elastic Pool 구성
+
+Azure SQL Database 및/또는 Elastic Pool의 성능을 모니터링하기 위해 작업 영역에서 Azure SQL 분석 솔루션을 만들었으면 해당 진단 원격 분석을 솔루션에 스트림하기 위해 모니터링하려는 Azure SQL Database 및 탄력적 풀 리소스 **각각을 구성**해야 합니다.
+
+- Azure SQL Database 및 탄력적 풀에 대한 Azure 진단을 사용하도록 설정하고 [Log Analytics에 데이터를 보내도록 구성](../sql-database/sql-database-metrics-diag-logging.md)합니다.
 
 ### <a name="to-configure-multiple-azure-subscriptions"></a>Azure 구독을 여러 개 구성하려면
 

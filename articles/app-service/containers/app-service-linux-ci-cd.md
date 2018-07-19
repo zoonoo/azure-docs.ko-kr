@@ -4,8 +4,8 @@ description: Web App for Containers의 Docker 컨테이너 레지스트리에서
 keywords: Azure App Service, Linux, OSS
 services: app-service
 documentationcenter: ''
-author: ahmedelnably
-manager: cfowler
+author: msangapu
+manager: jeconnoc
 editor: ''
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.service: app-service
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2017
-ms.author: aelnably;msangapu
-ms.openlocfilehash: ac35dbd041de50ab8aae1a0fb4c00fe3917a7297
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/29/2018
+ms.author: msangapu
+ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168329"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130968"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
@@ -54,7 +54,8 @@ Docker 허브 연속 배포를 구성하려는 앱의 이름을 선택합니다.
 az webapp deployment container show-cd-url --name sname1 --resource-group rgname
 ```
 
-웹후크 URL에는 `https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook` 끝점이 필요합니다.
+웹후크 URL을 적어둡니다. 다음 섹션에서 필요합니다.
+`https://<publishingusername>:<publishingpwd>@<sitename>.scm.azurewebsites.net/docker/hook`
 
 Azure Portal에서 웹앱 게시 프로필을 다운로드하여 `publishingusername` 및 `publishingpwd`를 구할 수 있습니다.
 
@@ -62,29 +63,10 @@ Azure Portal에서 웹앱 게시 프로필을 다운로드하여 `publishinguser
 
 ## <a name="add-a-webhook"></a>웹후크 추가
 
-### <a name="azure-container-registry"></a>Azure Container Registry
+웹후크를 추가하려면 다음 가이드의 단계를 수행합니다.
 
-1. 레지스트리 포털 페이지에서 **웹후크**를 선택합니다.
-2. 새 웹후크를 만들려면 **추가**를 선택합니다. 
-3. **웹후크 만들기** 창에서 웹후크에 이름을 지정합니다. 웹후크 URI의 경우 이전 섹션에서 가져온 URL을 입력합니다.
-
-범위를 컨테이너 이미지를 포함하는 리포지토리로 정의해야 합니다.
-
-![웹후크 스크린샷](./media/app-service-webapp-service-linux-ci-cd/step3ACRWebhook-1.png)
-
-이미지를 업데이트할 때 자동으로 웹앱을 새 이미지로 업데이트합니다.
-
-### <a name="docker-hub"></a>Docker 허브
-
-Docker 허브 페이지에서 **웹후크**를 선택한 다음, **웹후크 만들기**를 선택합니다.
-
-![웹후크 1을 추가하는 스크린샷](./media/app-service-webapp-service-linux-ci-cd/step3-1.png)
-
-웹후크 URL의 경우 이전에 가져온 URL을 입력합니다.
-
-![웹후크 2를 추가하는 스크린샷](./media/app-service-webapp-service-linux-ci-cd/step3-2.png)
-
-이미지를 업데이트할 때 자동으로 웹앱을 새 이미지로 업데이트합니다.
+- 웹후크 URL을 사용하는 [Azure Container Registry](../../container-registry/container-registry-webhook.md)
+- [Docker 허브에 대한 웹후크](https://docs.docker.com/docker-hub/webhooks/)
 
 ## <a name="next-steps"></a>다음 단계
 

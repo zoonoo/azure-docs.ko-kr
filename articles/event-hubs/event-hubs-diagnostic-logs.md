@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/30/2018
+ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 451fc42f573db2b60985912cfa63617e04f09e6c
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: fd7b85d18aeb1674ad7a5e67dd9ac65345c56887
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28932718"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37435034"
 ---
 # <a name="event-hubs-diagnostic-logs"></a>Event Hubs 진단 로그
 
@@ -31,7 +31,7 @@ Azure Event Hubs에 대해 다음 두 가지 유형의 로그를 볼 수 있습�
 
 ## <a name="enable-diagnostic-logs"></a>진단 로그 활성화
 
-진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 사용하도록 설정하려면:
+진단 로그는 기본적으로 해제되어 있습니다. 진단 로그를 활성화하려면 다음 단계를 수행합니다.
 
 1.  [Azure Portal](https://portal.azure.com)의 **모니터링 + 관리**에서 **진단 로그**를 클릭합니다.
 
@@ -70,7 +70,7 @@ Event Hubs는 다음 두 가지 범주에 대한 진단 로그를 캡처합니�
 
 보관 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-이름 | 설명
+Name | 설명
 ------- | -------
 TaskName | 실패한 작업에 대한 설명입니다.
 ActivityId | 추적에 사용되는 내부 ID입니다.
@@ -82,7 +82,7 @@ archiveStep | ArchiveFlushWriter
 startTime | 실패 시작 시간입니다.
 failures | 실패가 발생한 횟수입니다.
 durationInSeconds | 실패 기간입니다.
-전하는 말씀 | 오류 메시지입니다.
+Message | 오류 메시지입니다.
 카테고리 | ArchiveLogs
 
 다음 코드는 보관 로그 JSON 문자열에 대한 예입니다.
@@ -108,7 +108,7 @@ durationInSeconds | 실패 기간입니다.
 
 작업 로그 JSON 문자열에는 다음 표에 나열된 요소가 포함되어 있습니다.
 
-이름 | 설명
+Name | 설명
 ------- | -------
 ActivityId | 추적 목적에 사용되는 내부 ID입니다.
 EventName | 작업 이름입니다.  
@@ -139,5 +139,5 @@ Example:
 
 ## <a name="next-steps"></a>다음 단계
 * [Event Hubs 소개](event-hubs-what-is-event-hubs.md)
-* [이벤트 허브 API 개요](event-hubs-api-overview.md)
-* [이벤트 허브 시작](event-hubs-dotnet-standard-getstarted-send.md)
+* [Event Hubs API 개요](event-hubs-api-overview.md)
+* [Event Hubs 시작](event-hubs-dotnet-standard-getstarted-send.md)

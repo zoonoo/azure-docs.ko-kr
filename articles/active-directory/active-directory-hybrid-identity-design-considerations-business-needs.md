@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/18/2017
+ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 68a7e71cf374f10b4c5ced3e64da36138b0d2e4d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: a641464e04421b90de15cd953bb8a0fbf9b687d3
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34800727"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084725"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>하이브리드 ID 솔루션에 대한 ID 요구 사항 확인
 하이브리드 ID 솔루션을 설계하는 첫 번째 단계는 이 솔루션을 활용하는 비즈니스 조직에 대한 요구 사항을 결정하는 것입니다.  하이브리드 ID는 지원 역할(인증을 제공하여 다른 모든 클라우드 솔루션을 지원)로 시작하고 사용자에 대한 새 워크로드의 잠금을 해제하는 새롭고 흥미로운 기능을 계속하여 제공합니다.  사용자에 대해 채택하려는 이러한 워크로드 또는 서비스는 하이브리드 ID 설계에 대한 요구 사항을 결정합니다.  이러한 서비스와 워크로드는 온-프레미스 및 클라우드에서 하이브리드 ID를 활용해야 합니다.  
@@ -58,7 +58,7 @@ ms.locfileid: "34800727"
 * 이 통합이 현재 운영 중입니까 아니면 파일럿입니까?
 
 > [!NOTE]
-> 모든 앱 및 클라우드 서비스의 정확한 매핑이 되지 않은 경우 클라우드 앱 검색 도구를 사용할 수 있습니다. 이 도구는 조직의 모든 비즈니스 및 소비자 클라우드 앱에 가시성이 있는 IT 부서를 제공할 수 있습니다. 따라서 사용 패턴 및 클라우드 응용 프로그램에 액세스하는 사용자에 대한 세부 정보를 포함하여 조직의 섀도 IT를 더 쉽게 발견할 수 있습니다. 시작하려면 [클라우드 앱 검색](manage-apps/cloud-app-discovery.md)을 참조하세요.
+> Cloud Discovery는 70개가 넘는 위험 요소를 기준으로 순위 및 점수가 매겨진 16,000개 클라우드 앱의 Microsoft Cloud App Security 클라우드 앱 카탈로그에 대한 트래픽 로그를 분석하여 클라우드 사용, 섀도 IT 및 조직에 발생하는 위험 섀도 IT에 대해 진행 중인 가시성을 제공합니다. 시작하려면 [Cloud Discovery 설정](/cloud-app-security/set-up-cloud-discovery)을 참조하세요.
 > 
 > 
 

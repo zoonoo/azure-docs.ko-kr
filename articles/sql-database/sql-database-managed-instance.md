@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: bonova
-ms.openlocfilehash: e606b38c626c1a4dd335c40926e89a7cf0cec17a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054656"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37082508"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
@@ -122,7 +122,8 @@ vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 �
 | 포털 지원 | 예|
 |||
 
-\* 가상 코어는 하드웨어 세대를 선택할 수 있는 옵션이 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. 
+
+  \* 가상 코어는 하드웨어 세대를 선택할 수 있는 옵션이 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. 
 
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수 
 
@@ -210,7 +211,7 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 - 관리되는 인스턴스는 전체 실제 경로 지정을 허용하지 않으므로 해당하는 모든 시나리오를 약간씩 다르게 지원해야 합니다. RESTORE DB는 WITH MOVE를 지원하지 않고, CREATE DB는 실제 경로를 허용하지 않고, BULK INSERT는 Azure Blob에서만 작동합니다. 
 - 관리되는 인스턴스는 Windows 인증의 클라우드 대안으로 [Azure AD 인증](sql-database-aad-authentication.md)을 지원합니다. 
 - 관리되는 인스턴스는 메모리 내 OLTP 개체가 포함된 데이터베이스의 XTP 파일 그룹 및 파일을 자동으로 관리합니다.
-- 관리되는 인스턴스는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요.
+- 관리되는 인스턴스는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database 및 관리되는 인스턴스에서 SSIS 기능을 비교하려면 [SQL Database 및 관리되는 인스턴스 비교(미리 보기)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
 
 ### <a name="managed-instance-administration-features"></a>관리되는 인스턴스 관리 기능  
 

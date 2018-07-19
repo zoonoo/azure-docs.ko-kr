@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ed1179663823bc5a16f3ef348a649731814cdd5a
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 76430fa5652e98cba86c41433f376e27dbb1639a
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293095"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37446863"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "35293095"
 | 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 | 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](manage-apps/application-proxy-troubleshoot.md) |
 | 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 해시 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
-| 동적 그룹 멤버 자격 |[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
+| 동적 그룹 멤버 자격 |[동적 그룹 멤버 자격 문제 해결](users-groups-roles/groups-troubleshooting.md) |
 
 ## <a name="single-sign-on-sso"></a>SSO(Single Sign-On)
 ### <a name="federated-single-sign-on-sign-into-many-apps-using-one-identity"></a>페더레이션된 Single Sign-On: 하나의 ID를 사용하여 많은 앱에 로그인
@@ -54,8 +54,8 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 문서 가이드 |  |
 |:---:| --- |
 | 페더레이션 및 다른 형식의 로그온 소개 |[Azure AD로 Single Sign-On](manage-apps/what-is-single-sign-on.md) |
-| Single Sign-On 구성 단계로 단순하게 Azure AD와 사전 통합된 수천 개의 SaaS 앱 |[Azure AD 응용 프로그램 갤러리 시작](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[페더레이션을 지원하는 사전 통합된 앱의 전체 목록](active-directory-saas-tutorial-list.md)<br /><br />[Azure AD 앱 갤러리에 앱을 추가하는 방법](active-directory-app-gallery-listing.md) |
-| [Salesforce](active-directory-saas-salesforce-tutorial.md), [ServiceNow](active-directory-saas-servicenow-tutorial.md), [Google Apps](active-directory-saas-google-apps-tutorial.md), [Workday](active-directory-saas-workday-tutorial.md) 등과 같이 앱에 Single Sign-On을 구성하는 방법에 대한 150개 이상의 앱 자습서 |[Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](active-directory-saas-tutorial-list.md) |
+| Single Sign-On 구성 단계로 단순하게 Azure AD와 사전 통합된 수천 개의 SaaS 앱 |[Azure AD 응용 프로그램 갤러리 시작](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[페더레이션을 지원하는 사전 통합된 앱의 전체 목록](saas-apps/tutorial-list.md)<br /><br />[Azure AD 앱 갤러리에 앱을 추가하는 방법](active-directory-app-gallery-listing.md) |
+| [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md) 등과 같이 앱에 Single Sign-On을 구성하는 방법에 대한 150개 이상의 앱 자습서 |[Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](saas-apps/tutorial-list.md) |
 | Single Sign-On 구성을 수동으로 설정하고 사용자 지정하는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 없는 앱에 대한 Single Sign-On을 구성하는 방법](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md) |
 | SAML 프로토콜을 사용하는 페더레이션된 앱에 대한 문제 해결 가이드 |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
 | 앱 인증서의 만료 날짜를 구성하는 방법 및 인증서를 갱신하는 방법 |[Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
@@ -112,23 +112,18 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 | 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 |[SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 |[Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 대한 자동 장치 등록을 사용하도록 설정하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />- [Windows 8.1 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md)<br />- [Windows 7 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
-| 2단계 확인에 Microsoft Authenticator 앱을 사용하는 방법 |[Microsoft Authenticator](../multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md) |
+| 2단계 확인에 Microsoft Authenticator 앱을 사용하는 방법 |[Microsoft Authenticator](authentication/end-user/current/microsoft-authenticator-app-how-to.md) |
 
 조건부 액세스는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
 ## <a name="apps--azure-ad"></a>앱 및 Azure AD
-### <a name="cloud-app-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>클라우드 앱 검색: 조직에서 사용된 SaaS 앱 찾기
-Cloud App Discovery는 IT 부서가 조직 전체에서 사용되고 있는 SaaS 앱을 배우는 데 도움이 됩니다. 앱 사용 및 인기를 측정할 수 있으므로 IT 부서는 IT 제어로 가져오고 Azure AD와 통합되는 과정에서 가장 이득을 얻을 응용 프로그램을 결정할 수 있습니다.
+### <a name="cloud-discovery-find-which-saas-apps-are-being-used-in-your-organization"></a>Cloud Discovery: 조직에서 사용되는 SaaS 앱 찾기
+Cloud Discovery는 70개가 넘는 위험 요인에 따라 순위와 점수가 매겨진 16,000개가 넘는 클라우드 앱으로 구성된 Microsoft Cloud App Security의 클라우드 앱 카탈로그에 대한 트래픽 로그를 분석하여 클라우드 사용, 섀도 IT 및 섀도 IT에서 조직에 초래할 수 있는 위험에 대한 지속적인 가시성을 제공합니다.
 
 | 문서 가이드 |  |
 |:---:| --- |
-| 작동 방법의 일반적인 개요 |[클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기](manage-apps/cloud-app-discovery.md) |
-| 개인 정보 취급 방침의 질문에 대한 답을 사용하여 작동 원리 자세히 알아보기 |[보안 및 개인정보 취급 방침 고려 사항](active-directory-cloudappdiscovery-security-and-privacy-considerations.md) |
-| 질문과 대답 |[클라우드 앱 검색에 대한 FAQ](http://social.technet.microsoft.com/wiki/contents/articles/24037.cloud-app-discovery-frequently-asked-questions.aspx) |
-| Cloud App Discovery를 배포하기 위한 자습서 |[그룹 정책 배포 가이드](http://social.technet.microsoft.com/wiki/contents/articles/30965.cloud-app-discovery-group-policy-deployment-guide.aspx)<br /><br />[System Center 배포 가이드](http://social.technet.microsoft.com/wiki/contents/articles/30968.cloud-app-discovery-system-center-deployment-guide.aspx)<br /><br />[사용자 지정 포트로 프록시 서버에 설치](active-directory-cloudappdiscovery-registry-settings-for-proxy-services.md) |
-| 클라우드 앱 검색 에이전트에 대한 업데이트의 변경 로그 |[변경 로그](http://social.technet.microsoft.com/wiki/contents/articles/24616.cloud-app-discovery-agent-changelog.aspx) |
+| 작동 방법의 일반적인 개요 |[Cloud Discovery 설정](/cloud-app-security/set-up-cloud-discovery) |
 
-Cloud App Discovery는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
 ### <a name="automatically-provision-and-deprovision-user-accounts-in-saas-apps"></a>SaaS 앱에서 사용자 계정 자동으로 프로비전 및 프로비전 해제
 Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용자 ID 생성, 관리 및 제거를 자동화합니다. Azure AD와 SaaS 앱 간의 기존 ID를 일치시키고 동기화하며 사용자가 조직을 떠날 때 계정을 자동으로 비활성화하여 액세스를 제어합니다.
@@ -160,10 +155,10 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 
 | 문서 가이드 |  |
 |:---:| --- |
-| Azure AD 액세스 관리 기능의 개요 |[앱에 대한 액세스 관리 소개](manage-apps/what-is-access-management.md)<br /><br />[Azure AD에서 액세스 관리가 작동하는 방식](active-directory-manage-groups.md)<br /><br />[그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스를 관리하는 방법](active-directory-accessmanagement-group-saasapps.md) |
-| 앱 및 그룹의 셀프 서비스 관리 사용 |[셀프 서비스 응용 프로그램 관리](active-directory-self-service-application-access.md)<br /><br />[셀프 서비스 그룹 관리](active-directory-accessmanagement-self-service-group-management.md) |
-| Azure AD에서 그룹을 설정하기 위한 지침 |[보안 그룹을 만드는 방법](active-directory-groups-create-azure-portal.md)<br /><br />[그룹의 소유자를 지정하는 방법](active-directory-accessmanagement-managing-group-owners.md)<br /><br />["모든 사용자" 그룹을 사용하는 방법](active-directory-accessmanagement-dedicated-groups.md) |
-| 동적 그룹을 사용하여 자동으로 특성 기반 멤버 자격 규칙을 사용하는 그룹 멤버 자격 채우기 |[동적 그룹 구성원: 고급 규칙](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[동적 그룹 멤버 자격 문제 해결](active-directory-accessmanagement-troubleshooting.md) |
+| Azure AD 액세스 관리 기능의 개요 |[앱에 대한 액세스 관리 소개](manage-apps/what-is-access-management.md)<br /><br />[Azure AD에서 액세스 관리가 작동하는 방식](fundamentals/active-directory-manage-groups.md)<br /><br />[그룹을 사용하여 SaaS 응용 프로그램에 대한 액세스를 관리하는 방법](users-groups-roles/groups-saasapps.md) |
+| 앱 및 그룹의 셀프 서비스 관리 사용 |[셀프 서비스 응용 프로그램 관리](active-directory-self-service-application-access.md)<br /><br />[셀프 서비스 그룹 관리](users-groups-roles/groups-self-service-management.md) |
+| Azure AD에서 그룹을 설정하기 위한 지침 |[보안 그룹을 만드는 방법](fundamentals/active-directory-groups-create-azure-portal.md)<br /><br />[그룹의 소유자를 지정하는 방법](fundamentals/active-directory-accessmanagement-managing-group-owners.md)<br /><br />["모든 사용자" 그룹을 사용하는 방법](active-directory-accessmanagement-dedicated-groups.md) |
+| 동적 그룹을 사용하여 자동으로 특성 기반 멤버 자격 규칙을 사용하는 그룹 멤버 자격 채우기 |[동적 그룹 구성원: 고급 규칙](active-directory-groups-dynamic-membership-azure-portal.md)<br /><br />[동적 그룹 멤버 자격 문제 해결](users-groups-roles/groups-troubleshooting.md) |
 
 그룹 기반 응용 프로그램 액세스 관리는 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)에 사용할 수 있습니다. 셀프 서비스 그룹 관리, 셀프 서비스 응용 프로그램 관리 및 동적 그룹은 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 기능입니다.
 
@@ -205,7 +200,7 @@ Azure Active Directory는 여러 보고서 및 경고를 제공하여 응용 프
 Azure Active Directory의 다른 버전에 포함된 보고서를 보려면 [여기를 클릭](active-directory-view-access-usage-reports.md)합니다.
 
 ## <a name="see-also"></a>참고 항목
-[Azure Active Directory란?](active-directory-whatis.md)
+[Azure Active Directory란?](fundamentals/active-directory-whatis.md)
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/)
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 9f2fd54a1ce3cf8900b04545a258a32f9aa3e31a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647190"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130263"
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Azure Recovery Services 자격 증명 모음을 사용하여 Azure SQL Database 장기 백업 보존을 구성 및 복원
 
@@ -265,6 +265,55 @@ $restoredDb
 
 > [!NOTE]
 > 여기에서 SQL Server Management Studio를 사용하여 복원된 데이터베이스에 연결하고, 이 데이터베이스에서 약간의 데이터를 추출하여 기존 데이터베이스에 복사하거나 기존 데이터베이스를 삭제하고 복원된 데이터베이스 이름을 기존 데이터베이스 이름으로 변경하는 등 필요한 작업을 수행할 수 있습니다. [특정 시점 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
+
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 백업을 정리하는 방법
+
+2018년 7월 1일부터 LTR V1 API가 사용되지 않으며 Recovery Service 자격 증명 모음의 모든 기존 백업은 SQL Database에서 관리되는 LTR 저장소 컨테이너에 마이그레이션됩니다. 원래 백업에 더 이상 요금이 청구되지 않도록 하기 위해 마이그레이션 이후 자격 증명 모음에서 제거됩니다. 그러나 자격 증명 모음에 잠금을 배치하는 경우 백업이 유지됩니다. 불필요한 요금을 방지하려면 다음 스크립트를 사용하여 Recovery Service 자격 증명 모음에서 이전 백업을 수동으로 제거할 수 있습니다. 
+
+```PowerShell
+<#
+.EXAMPLE
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+#>
+[CmdletBinding()]
+Param (
+    [Parameter(Mandatory = $true, HelpMessage="The vault subscription ID")]
+    $SubscriptionId,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault resource group name")]
+    $ResourceGroup,
+
+    [Parameter(Mandatory = $true, HelpMessage="The vault name")]
+    $VaultName
+)
+
+Login-AzureRmAccount
+
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+
+$vaults = Get-AzureRmRecoveryServicesVault
+$vault = $vaults | where { $_.Name -eq $VaultName }
+
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+$containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
+
+ForEach ($container in $containers)
+{
+   $canDeleteContainer = $true  
+   $ItemCount = 0
+   Write-Host "Working on container" $container.Name
+   $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
+   ForEach ($item in $items)
+   {
+          write-host "Deleting item" $item.name
+          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+   }
+
+   Write-Host "Deleting container" $container.Name
+   Unregister-AzureRmRecoveryServicesBackupContainer -Container $container
+}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

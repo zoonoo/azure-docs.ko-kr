@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/26/2018
+ms.date: 07/18/2018
 ms.author: jingwang
-ms.openlocfilehash: c139b68421061362f40856af55ad0338118ab49a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051885"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125251"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce 간에 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -302,15 +302,15 @@ Salesforce에서 데이터를 복사할 경우 Salesforce 데이터 형식에서
 |:--- |:--- |
 | 자동 번호 |문자열 |
 | 확인란 |BOOLEAN |
-| 통화 |Double |
+| 통화 |10진수 |
 | Date |Datetime |
 | 날짜/시간 |Datetime |
 | Email |문자열 |
 | Id |문자열 |
 | 관계 조회 |문자열 |
 | 다중 선택 선택 목록 |문자열 |
-| Number |Double |
-| 백분율 |Double |
+| Number |10진수 |
+| 백분율 |10진수 |
 | Phone |문자열 |
 | 선택 목록 |문자열 |
 | 텍스트 |문자열 |

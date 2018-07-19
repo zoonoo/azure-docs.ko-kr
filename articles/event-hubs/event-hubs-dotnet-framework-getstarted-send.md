@@ -12,18 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/01/2018
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: feb4332f8f6b5ab26067b5c80a376cdee62c7739
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: 0886c220dfe926c7dfd9fa378ebb3c13fc900cbf
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984989"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37860040"
 ---
 # <a name="send-events-to-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs로 이벤트 전송
-
-## <a name="introduction"></a>소개
 
 Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후 저장소 클러스터를 사용하여 데이터를 저장하거나 실시간 분석 공급자를 사용하여 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 응용 프로그램 아키텍처의 핵심 구성 요소입니다.
 
@@ -31,7 +29,7 @@ Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의 이�
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-* [Microsoft Visual Studio 2015 이상](http://visualstudio.com). 이 자습서의 스크린샷에서는 Visual Studio 2017을 사용합니다.
+* [Microsoft Visual Studio 2017 이상](http://visualstudio.com).
 * 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 무료 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/free/)을 참조하세요.
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Event Hubs 네임스페이스 및 Event Hub 만들기
@@ -60,8 +58,8 @@ Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의 이�
 5. **Program** 클래스에 다음 필드를 추가하고, 이전 섹션에서 만든 Event Hub 이름과 이전에 저장한 네임스페이스 수준 연결 문자열로 위치 지정자 값을 대체합니다.
    
   ```csharp
-  static string eventHubName = "{Event Hub name}";
-  static string connectionString = "{send connection string}";
+  static string eventHubName = "Your Event Hub name";
+  static string connectionString = "namespace connection string";
   ```
 6. **Program** 클래스에 다음 메서드를 추가합니다.
    
@@ -103,6 +101,7 @@ Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의 이�
 축하합니다! 이제 Event Hub에 메시지를 보냈습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 Event Hub를 만들고 데이터를 보내는 작업 중인 응용 프로그램을 구축했으므로 다음 시나리오로 진행할 수 있습니다.
 
 * [이벤트 프로세서 호스트를 사용하여 이벤트 수신](event-hubs-dotnet-framework-getstarted-receive-eph.md)

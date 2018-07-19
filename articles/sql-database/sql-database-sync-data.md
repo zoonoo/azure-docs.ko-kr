@@ -7,19 +7,21 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: bb5a383828e98c773c079dcea8e3cf37f9a068f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 56117953c6cd11b952a312e15cd4515895021e10
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017438"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342660"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
 SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다.
+
+## <a name="architecture-of-sql-data-sync"></a>SQL 데이터 동기화의 아키텍처
 
 데이터 동기화는 동기화 그룹의 개념에 기반합니다. 동기화 그룹은 동기화하려는 데이터베이스의 그룹입니다.
 
@@ -29,7 +31,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   **동기화 방향**은 양방향일 수도 있고 한 방향으로만 전달될 수 있습니다. 즉, 동기화 방향은 *허브에서 구성원*이거나 *구성원에게서 허브* 또는 양쪽 모두일 수 있습니다.
 
--   **동기화 간격**은 동기화가 발생하는 간격입니다.
+-   **동기화 간격**은 동기화가 발생하는 빈도를 설명합니다.
 
 -   **충돌 해결 정책**은 그룹 수준 정책으로 *허브 우선*일 수도 있고 *구성원 우선*일 수도 있습니다.
 
@@ -39,7 +41,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 -   **동기화 데이터베이스**는 데이터 동기화에 대한 메타데이터 및 로그를 포함합니다. 동기화 데이터베이스는 허브 데이터베이스와 동일한 지역에 있는 Azure SQL Database여야 합니다. 동기화 데이터베이스는 생성된 고객 및 소유한 고객입니다.
 
 > [!NOTE]
-> 온-프레미스 데이터베이스를 사용하는 경우 [로컬 에이전트를 구성](sql-database-get-started-sql-data-sync.md#add-on-prem)해야 합니다.
+> 온-프레미스 데이터베이스를 구성원 데이터베이스로 사용하는 경우 [로컬 동기화 에이전트를 설치 및 구성](sql-database-get-started-sql-data-sync.md#add-on-prem)해야 합니다.
 
 ![데이터베이스 간 데이터 동기화](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -73,9 +75,27 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
     -   *허브 우선*을 선택하는 경우 허브의 변경 내용은 항상 구성원의 변경 내용을 덮어씁니다.
     -   *구성원 우선*을 선택하는 경우 구성원의 변경 내용은 항상 허브의 변경 내용을 덮어씁니다. 구성원이 둘 이상인 경우 최종 값은 먼저 동기화된 구성원에 따라 달라집니다.
 
-## <a name="sync-req-lim"></a>요구 사항 및 제한 사항
+## <a name="get-started-with-sql-data-sync"></a>SQL 데이터 동기화 시작
 
-### <a name="general-considerations"></a>일반적인 고려 사항
+### <a name="set-up-data-sync-in-the-azure-portal"></a>Azure Portal에서 데이터 동기화 설정
+
+-   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
+
+### <a name="set-up-data-sync-with-powershell"></a>PowerShell을 사용하여 데이터 동기화 설정
+
+-   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
+
+-   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
+
+### <a name="review-the-best-practices-for-data-sync"></a>데이터 동기화의 모범 사례 검토
+
+-   [Azure SQL 데이터 동기화 모범 사례](sql-database-best-practices-data-sync.md)
+
+### <a name="did-something-go-wrong"></a>뭔가 잘못된 경우
+
+-   [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
+
+## <a name="consistency-and-performance"></a>일관성과 성능
 
 #### <a name="eventual-consistency"></a>결과적 일관성
 데이터 동기화가 트리거 기반이기 때문에 트랜잭션 일관성이 보장되지 않습니다. Microsoft는 결과적으로 모든 변경 내용을 적용하고 데이터 동기화가 데이터 손실을 발생하지 않도록 보장합니다.
@@ -84,6 +104,8 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용 추적을 위해 사용자 데이터베이스에 추가 테이블을 만듭니다. 이러한 변경 내용 추적 작업은 데이터베이스 워크로드에 영향을 줍니다. 서비스 계층을 평가하고 필요한 경우 업그레이드합니다.
 
 동기화 그룹 만들기 동안 프로비전 및 프로비전 해제, 업데이트 및 삭제는 데이터베이스 성능에 영향을 줄 수 있습니다. 
+
+## <a name="sync-req-lim"></a>요구 사항 및 제한 사항
 
 ### <a name="general-requirements"></a>일반 요구 사항
 
@@ -110,6 +132,14 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 -   XMLSchemaCollection(XML 지원)
 
 -   Cursor, Timestamp, Hierarchyid
+
+#### <a name="unsupported-column-types"></a>지원되지 않는 열 형식
+
+데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예: 
+
+-   계산된 열입니다.
+
+-   임시 테이블에 대한 시스템에서 생성된 열입니다.
 
 #### <a name="limitations-on-service-and-database-dimensions"></a>서비스 및 데이터베이스 차원에 대한 제한 사항
 
@@ -147,7 +177,8 @@ SQL 데이터 동기화는 공용 클라우드가 지원되는 모든 지역에�
 -   구독이 동일한 테넌트에 속하며 모든 구독에 대해 사용 권한이 있는 경우, Azure Portal에서 동기화 그룹을 구성할 수 있습니다.
 -   그렇지 않으면 PowerShell을 사용하여 서로 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
    
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>데이터 동기화를 사용하여 프로덕션 데이터베이스에서 빈 데이터베이스로 데이터를 시드한 다음 동기화된 상태로 유지할 수 있나요? 
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-sync-them"></a>데이터 동기화를 사용하여 프로덕션 데이터베이스에서 빈 데이터베이스로 데이터를 시드한 다음, 동기화할 수 있나요?
+
 예. 원본에서 스크립팅하여 수동으로 새 데이터베이스에 스키마를 만듭니다. 스키마를 만든 후 테이블을 동기화 그룹에 추가하여 데이터를 복사하고 동기화된 상태로 유지합니다.
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>내 데이터베이스를 백업 및 복원하는 데 SQL 데이터 동기화를 사용해야 할까요?
@@ -176,20 +207,30 @@ SQL 데이터 동기화 서비스에서는 Federation Root Database를 제한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
+### <a name="update-the-schema-of-a-synced-database"></a>동기화된 데이터베이스의 스키마 업데이트
 
--   [Azure SQL 데이터 동기화 설정](sql-database-get-started-sql-data-sync.md)
--   [Azure SQL 데이터 동기화 모범 사례](sql-database-best-practices-data-sync.md)
+동기화 그룹에서 데이터베이스의 스키마를 업데이트해야 하나요? 스키마 변경 내용은 자동으로 복제되지 않습니다. 일부 솔루션의 경우 다음 문서를 참조하세요.
+
+-   [Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화](sql-database-update-sync-schema.md)
+
+-   [PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트](scripts/sql-database-sync-update-schema.md)
+
+### <a name="monitor-and-troubleshoot"></a>모니터링 및 문제 해결
+
+예상대로 SQL 데이터 동기화를 수행하나요? 활동을 모니터링하고 문제를 해결하려면 다음 문서를 참조하세요.
+
 -   [Log Analytics를 사용하여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
+
 -   [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 
--   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
-    -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
-    -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
+### <a name="learn-more-about-azure-sql-database"></a>Azure SQL Database에 대한 자세한 정보
 
--   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
-
-SQL Database에 대한 자세한 내용은 다음을 참조하세요.
+SQL 데이터베이스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 -   [SQL Database 개요](sql-database-technical-overview.md)
+
 -   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
+
+### <a name="developer-reference"></a>개발자 참조
+
+-   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)

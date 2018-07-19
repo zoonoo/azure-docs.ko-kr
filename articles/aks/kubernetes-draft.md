@@ -2,19 +2,19 @@
 title: AKS 및 Azure Container Registry에서 Draft 사용
 description: AKS 및 Azure Container Registry에서 Draft 사용
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 03/29/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a5dfecefb6ce1d74e02c64371a864a6d3b07a2e1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8f273a5a2c47b25dc339fd63df127d141fe2f8e2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257318"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130246"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Draft 사용
 
@@ -58,11 +58,11 @@ Draft는 컨테이너 이미지를 로컬에서 빌드한 다음, 로컬 레지�
 
 ### <a name="create-trust-between-aks-cluster-and-acr"></a>AKS 클러스터와 ACR 사이의 트러스트 만들기
 
-AKS 클러스터와 ACR 레지스트리 간에 트러스트를 설정하려면 ACR 리포지토리 범위를 통해 참가자 역할을 추가하여 AKS가 사용된 Azure Active Directory 서비스 주체를 수정합니다. 이렇게 하려면 다음 명령을 실행합니다. _&lt;aks-rg-name&gt;_ 및 _&lt;aks-cluster-name&gt;_ 을 AKS 클러스터의 이름 및 리소스 그룹으로 교체하고 _&lt;acr-rg-nam&gt;_ 및 _&lt;acr-repo-name&gt;_ 을 트러스트를 만들려는 ACR 리포지토리의 리소스 그룹 및 리포지토리 이름으로 바꾸십시오.
+AKS 클러스터와 ACR 레지스트리 간에 트러스트를 설정하려면 ACR 레지스트리 범위를 통해 기여자 역할을 추가하여 AKS가 사용된 Azure Active Directory 서비스 사용자를 수정합니다. 이렇게 하려면 다음 명령을 실행하여 _&lt;aks-rg-name&gt;_ 및 _&lt;aks-cluster-name&gt;_ 을 AKS 클러스터의 이름 및 리소스 그룹으로 교체하고 _&lt;acr-rg-nam&gt;_ 및 _&lt;acr-registry-name&gt;_ 을 트러스트를 만들려는 ACR 레지스트리의 리소스 그룹 및 레지스트리 이름으로 바꿉니다.
 
 ```console
 export AKS_SP_ID=$(az aks show -g <aks-rg-name> -n <aks-cluster-name> --query "servicePrincipalProfile.clientId" -o tsv)
-export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-repo-name> --query "id" -o tsv)
+export ACR_RESOURCE_ID=$(az acr show -g <acr-rg-name> -n <acr-registry-name> --query "id" -o tsv)
 az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role contributor
 ```
 

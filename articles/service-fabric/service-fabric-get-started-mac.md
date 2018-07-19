@@ -2,24 +2,24 @@
 title: Azure Service Fabric에서 작업하도록 Mac OS X에서 개발 환경 설정 | Microsoft Docs
 description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Mac OS X에서 응용 프로그램을 빌드할 수 있습니다.
 services: service-fabric
-documentationcenter: java
-author: sayantancs
+documentationcenter: linux
+author: suhuruli
 manager: timlt
 editor: ''
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
 ms.service: service-fabric
-ms.devlang: java
+ms.devlang: linux
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
-ms.author: saysa
-ms.openlocfilehash: 15df54d37ffe26b9e1e6228591716fef9ae12dc8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: suhuruli
+ms.openlocfilehash: 87721428e1cd8a5360dcecc5f29225f813705a4f
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641869"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344759"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Mac OS X에서 개발 환경 설정
 > [!div class="op_single_selector"]
@@ -129,6 +129,8 @@ Azure Service Fabric은 Mac OS X에서 기본적으로 실행되지 않습니다
  다음은 Mac용 컨테이너에서 실행하는 로컬 클러스터의 알려진 제한 사항입니다. 
  
  * DNS 서비스가 실행되지 않으며 지원되지 않음 [문제 #132](https://github.com/Microsoft/service-fabric/issues/132)
+
+ * 현재 컨테이너 응용 프로그램은 이 로컬 클러스터에 배포될 수 없음
 
 ## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Mac에서 Service Fabric CLI(sfctl) 설정
 

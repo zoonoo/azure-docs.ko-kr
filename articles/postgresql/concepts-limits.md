@@ -2,19 +2,19 @@
 title: PostgreSQL용 Azure 데이터베이스의 제한 사항
 description: 이 문서는 Azure Database for PostgreSQL에 대한 연결 수 및 저장소 엔진 옵션과 같은 제한 사항을 설명합니다.
 services: postgresql
-author: kamathsun
-ms.author: sukamat
+author: rachel-msft
+ms.author: raagyema
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 06/04/2018
-ms.openlocfilehash: 5cd829236d8d8a58e68f7bf766790aa3f0cb656e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 06/30/2018
+ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757419"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343301"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -43,8 +43,8 @@ Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기
 
 ## <a name="functional-limitations"></a>기능 제한 사항
 ### <a name="scale-operations"></a>크기 조정 작업
-1.  가격 책정 계층 간 서버의 동적 크기 조정은 현재 지원되지 않습니다. 즉, 기본, 범용 또는 메모리 최적화 계층 사이의 전환을 말합니다.
-2.  서버 저장소 크기를 줄이는 것은 현재 지원되지 않습니다.
+- 기본 가격 책정 계층 간의 동적 크기 조정은 현재 지원되지 않습니다.
+- 서버 저장소 크기를 줄이는 것은 현재 지원되지 않습니다.
 
 ### <a name="server-version-upgrades"></a>서버 버전 업그레이드
 - 주 데이터베이스 엔진 버전 간에 자동화된 마이그레이션은 현재 지원되지 않습니다.
@@ -52,9 +52,12 @@ Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기
 ### <a name="subscription-management"></a>구독 관리
 - 구독 및 리소스 그룹에서 서버를 동적으로 이동하는 것은 현재 지원되지 않습니다.
 
+### <a name="vnet-service-endpoints"></a>VNET 서비스 엔드포인트
+- VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
+
 ### <a name="point-in-time-restore-pitr"></a>PITR(특정 시점 복원)
-1.  PITR 기능을 사용하면 새 서버가 기반으로 하는 서버와 동일한 구성으로 새 서버가 만들어집니다.
-2.  삭제된 서버 복원은 지원되지 않습니다.
+- PITR 기능을 사용하면 새 서버가 기반으로 하는 서버와 동일한 구성으로 새 서버가 만들어집니다.
+- 삭제된 서버 복원은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [각 가격 책정 계층에서 사용할 수 있는 기능](concepts-pricing-tiers.md) 이해

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 565ceb179d8cf749842bb58ab25a8b3d946efa12
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4dd9218b982860e62e04b46fb5d07e5553407599
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608650"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37130855"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Azure Batch CLI 템플릿 및 파일 전송 사용(미리 보기)
 
@@ -258,7 +258,7 @@ az batch file download --file-group ffmpeg-output --local-path
 
 템플릿 및 파일 전송 지원은 현재 Azure CLI에만 추가되었습니다. 목표는 연구원, IT 사용자와 같이 Batch API를 사용하여 코드를 개발할 필요가 없는 사용자로 Batch를 사용할 수 있는 대상 그룹을 확장하는 것입니다. Azure, Batch 및 Batch에서 실행하는 응용 프로그램에 대한 지식이 사용자는 코딩 없이 풀 및 작업 생성을 위해 템플릿을 만들 수 있습니다. Batch 및 응용 프로그램에 대한 세부 정보가 없는 사용자는 템플릿 매개 변수를 사용하여 템플릿을 사용할 수 있습니다.
 
-Azure CLI에 Batch 확장을 사용해 보고 이 문서의 주석이나 [Azure Batch 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=azurebatch)을 통해 피드백이나 의견을 제공해주세요.
+Azure CLI에 Batch 확장을 사용해 보고 이 아티클의 주석이나 [Batch 커뮤니티 리포지토리](https://github.com/Azure/Batch)를 통해 피드백이나 의견을 제공해주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

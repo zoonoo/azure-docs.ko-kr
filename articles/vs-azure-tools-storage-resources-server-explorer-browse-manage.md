@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 8/24/2017
 ms.author: ghogen
-ms.openlocfilehash: c9828504ab40a1e62c107f218fda024be6330c23
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dd867462ce3a1841aa4e2e8943f2c2619d168b08
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061746"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37112323"
 ---
 # <a name="browse-and-manage-storage-resources-by-using-server-explorer"></a>서버 탐색기로 저장소 리소스 찾아보기 및 관리
 
@@ -219,7 +219,7 @@ Azure 테이블 저장소는 많은 양의 구조화된 데이터를 저장합�
 1. 쿼리 작성을 마친 경우 대화 상자를 닫습니다. 쿼리의 결과 텍스트 형식이 WCF Data Services 필터로 텍스트 상자에 나타납니다.
 1. 쿼리를 실행하려면 녹색 삼각형 아이콘을 선택합니다.
 
-또한 필터 텍스트 상자에 WCF Data Services 필터 문자열을 직접 입력한 경우 테이블 디자이너에 표시되는 엔터티 데이터를 필터링할 수 있습니다. 이러한 종류의 문자열은 SQL WHERE 절과 유사하지만 HTTP 요청으로 서버에 전송됩니다. 필터 문자열을 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 대한 필터 문자열 생성](https://msdn.microsoft.com/library/azure/ff683669.aspx)을 참조하세요.
+또한 필터 텍스트 상자에 WCF Data Services 필터 문자열을 직접 입력한 경우 테이블 디자이너에 표시되는 엔터티 데이터를 필터링할 수 있습니다. 이러한 종류의 문자열은 SQL WHERE 절과 유사하지만 HTTP 요청으로 서버에 전송됩니다. 필터 문자열을 생성하는 방법에 대한 자세한 내용은 [테이블 디자이너에 대한 필터 문자열 생성](https://docs.microsoft.com/azure/vs-azure-tools-table-designer-construct-filter-strings)을 참조하세요.
 
 다음 그림에서는 유효한 필터 문자열의 예를 보여줍니다.
 

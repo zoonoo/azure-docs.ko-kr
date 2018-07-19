@@ -10,15 +10,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: bwren
-ms.openlocfilehash: 5719dc3719739fb561626e307ee295729752c1fa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.component: na
+ms.openlocfilehash: e47e8cbd209ea34317ca9b176a2c4b0fef10a2b2
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297756"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133602"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 OMS 포털을 사용해 주셔서 감사합니다. 모니터링 및 관리 서비스에 대한 많은 투자를 계속 지원하는 것이 좋습니다. 고객에게 반복적으로 듣는 한 피드백은 단일 사용자 환경이 온-프레미스와 Azure 워크로드를 모니터링 및 관리해야 한다는 것입니다. Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위한 대시보드, 리소스를 찾기 위한 지능형 검색, 리소스 관리를 위한 태그 지정 같은 기능을 통해 다양한 관리 환경을 제공합니다. 모니터링 및 관리 워크플로를 간소화하고 통합하기 위해 Azure Portal에 OMS 포털 기능을 추가하기 시작했습니다. OMS 포털 기능 대부분이 이제 Azure Portal에 포함되었음을 알리게 되어 기쁩니다. 사실, Traffic Manager 같은 새 기능 중 일부는 Azure Portal에서만 사용할 수 있습니다. 아직 Azure Portal로 이동하는 과정에 있는 5개 솔루션이 가장 강력하므로 남은 격차가 별로 없습니다. 이러한 기능을 사용하지 않는 경우 Azure Portal 등을 사용하여 OMS 포털에서 하던 모든 것을 수행할 수 있습니다. 아직 그렇게 하지 않은 경우 지금 Azure Portal의 사용을 시작하는 것이 좋습니다! 
@@ -94,7 +95,7 @@ OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 네트워크 보안 그룹 분석
-[Azure 네트워크 보안 그룹 분석 솔루션](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](../network-watcher/traffic-analytics.md)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
+[Azure 네트워크 보안 그룹 분석 솔루션](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 응용 프로그램 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 응용 프로그램 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
 
 이 솔루션은 NSG 흐름 로그를 분석하고 다음에 대한 인사이트를 제공합니다.
 
@@ -105,7 +106,7 @@ OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대
 - 악성 트래픽, 인터넷에 열려 있는 포트, 인터넷 액세스를 시도하는 응용 프로그램 또는 VM을 포함한 보안입니다.
 - 과도한 프로비전 또는 미달 사용이라는 문제를 제거하는 데 도움이 되는 용량 사용률입니다.
 
-Log Analytics에 NSG 로그를 보내려면 진단 설정에 계속 의존할 수 있으므로 기존 저장된 검색, 경고 및 대시보드는 계속 작동하게 됩니다. 이미 솔루션을 설치한 고객은 추가 공지가 있을 때까지 솔루션을 계속 사용할 수 있습니다. 6월 20일부터 NSG 솔루션은 마켓플레이스에서 제거되고 커뮤니티를 통해 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights)으로 사용할 수 있게 됩니다.
+Log Analytics에 NSG 로그를 보내려면 진단 설정에 계속 의존할 수 있으므로 기존 저장된 검색, 경고 및 대시보드는 계속 작동하게 됩니다. 이미 솔루션을 설치한 고객은 추가 공지가 있을 때까지 솔루션을 계속 사용할 수 있습니다. 6월 20일부터 네트워크 보안 그룹 분석 솔루션은 마켓플레이스에서 제거되고 커뮤니티를 통해 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Operationalinsights)으로 사용할 수 있게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - OMS 포털에서 Azure Portal로 이동에 대한 지침은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](log-analytics-oms-portal-faq.md)을 참조하세요.

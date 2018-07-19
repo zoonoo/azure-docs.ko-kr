@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: fa6f93231cba46e29206ec312fb82ad120ed45f6
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: c715ea3a3c4e113ec419919d240716517c28ffb8
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31517627"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37099523"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-store"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Store의 데이터 분석
 
@@ -28,7 +28,7 @@ ms.locfileid: "31517627"
 
 * Azure Data Lake Store 계정 [Azure Portal을 사용하여 Azure Data Lake Store 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
-* Data Lake Store를 저장소로 사용하는 Azure HDInsight Spark 클러스터 - [Azure Portal을 사용하여 Data Lake Store로 HDInsight 클러스터 만들기](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)에 나오는 지침을 따릅니다.
+* Data Lake Store를 저장소로 사용하는 Azure HDInsight Spark 클러스터 - [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)의 지침을 따르세요.
 
     
 ## <a name="prepare-the-data"></a>데이터 준비

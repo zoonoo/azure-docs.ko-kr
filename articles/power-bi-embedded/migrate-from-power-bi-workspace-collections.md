@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/28/2017
 ms.author: maghan
-ms.openlocfilehash: d138b0c26ffc0a44947f79811fd586dda7df4509
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: de20d532112ca73f34f7cb603d043579c28179d6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419099"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071235"
 ---
 # <a name="how-to-migrate-power-bi-workspace-collection-content-to-power-bi-embedded"></a>Power BI 작업 영역 컬렉션 콘텐츠를 Power BI Embedded로 마이그레이션하는 방법
 
@@ -118,17 +118,17 @@ Power BI 작업 영역 컬렉션에서 Power BI Embedded로의 콘텐츠 복사�
 
 **흐름**
 
-1. GET https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources를 호출하고 수신하는 연결 문자열을 저장합니다.
+1. GET `https://api.powerbi.com/v1.0/collections/{collection_id}/workspaces/{wid}/datasets/{dataset_id}/Default.GetBoundGatewayDataSources`를 호출하고 수신하는 연결 문자열을 저장합니다.
 2. Power BI 작업 영역 컬렉션 작업 영역에서 PBIX 다운로드 API를 호출합니다.
 3. PBIX를 저장합니다.
 4. Power BI Embedded 작업 영역에 대한 PBIX 가져오기를 호출합니다.
-5. 호출하여 연결 문자열 업데이트 - POST https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections
-6. 호출하여 GW ID 및 데이터 원본 ID 가져오기 - GET https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources
-7. 호출하여 사용자의 자격 증명 업데이트 - PATCH https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}
+5. 호출하여 연결 문자열 업데이트 - POST `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.SetAllConnections`
+6. 호출하여 GW ID 및 데이터 원본 ID 가져오기 - GET `https://api.powerbi.com/v1.0/myorg/datasets/{dataset_id}/Default.GetBoundGatewayDataSources`
+7. 호출하여 사용자의 자격 증명 업데이트 - PATCH `https://api.powerbi.com/v1.0/myorg/gateways/{gateway_id}/datasources/{datasource_id}`
 
 #### <a name="old-dataset-and-reports"></a>이전 데이터 집합 및 보고서
 
-2016년 10월 이전에 업로드한 보고서는 PBIX 다운로드 기능을 지원하지 않습니다.
+2016년 10월 이전에 업로드한 보고서는 PBIX 다운로드 기능을 지원하지 않습니다. 
 
 **흐름**
 

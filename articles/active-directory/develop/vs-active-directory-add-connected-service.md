@@ -12,11 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: a87ed8630f86cf004a05cdb2ae8b34c479cdaf32
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "34594084"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Visual Studio에서 연결된 서비스를 사용하여 Azure Active Directory 추가
 
@@ -29,6 +30,7 @@ Azure Active Directory(Azure AD)를 사용하여 ASP.NET MVC 웹 응용 프로�
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 계정: Azure 계정이 없는 경우 [평가판을 등록](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)하거나 [Visual Studio 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다.
+- **Visual Studio 2015** 이상 [Visual Studio 2017 지금 다운로드](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs)
 
 ### <a name="connect-to-azure-active-directory-using-the-connected-services-dialog"></a>연결된 서비스 대화 상자를 사용하여 Azure Active Directory에 연결
 

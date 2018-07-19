@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/2018
 ms.author: trinadhk
-ms.openlocfilehash: d6e78d46f0886b06cb1cf3577c16c8bc4f842bab
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a5828b4e4f42c349246845bd003e874fb0352bae
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607262"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008079"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 가상 머신 백업 문제 해결
 아래 표에 나열된 정보를 참조하여 Azure Backup을 사용하는 동안 발생하는 오류를 해결할 수 있습니다.
@@ -139,7 +139,7 @@ VM 백업은 기본 저장소에 대한 스냅숏 명령 실행을 사용합니�
 
 1. Azure 데이터 센터 IP 범위를 허용 목록에 추가합니다.
    * 허용 목록에 추가할 [Azure datacenter IP](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 가져옵니다.
-   * [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창(관리자 권한으로 실행)을 통해 Azure VM 내에서 이 cmdlet을 실행합니다.
+   * [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창(관리자 권한으로 실행)을 통해 Azure VM 내에서 이 cmdlet을 실행합니다.
    * IP에 대한 액세스를 허용하도록 NSG(있는 경우)에 규칙을 추가합니다.
 2. HTTP 트래픽을 보내는 경로 만들기
    * 일부 네트워크 제한이 있는 경우(예: 네트워크 보안 그룹) 트래픽을 라우팅하는 HTTP 프록시 서버를 배포합니다. HTTP 프록시 서버를 배포하는 단계는 [여기](backup-azure-arm-vms-prepare.md#establish-network-connectivity)에서 찾을 수 있습니다.

@@ -9,22 +9,22 @@ editor: bagovind
 ms.assetid: b547c5a5-2da2-4372-9938-481cb962d2d6
 ms.service: role-based-access-control
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/29/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e1e46d5fb786b09a4c006b61f52b3ac99aafd555
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0abf0a5971435fc3842a93e79d39468cba5c74da
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266508"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445214"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Azure Active Directory에서 전역 관리자에 대한 액세스 권한 상승
 
-사용자가 Azure AD(Azure Active Directory)에서 [전역 관리자](../active-directory/active-directory-assign-admin-roles-azure-portal.md#global-administrator)인 경우 다음을 수행하려는 경우가 있을 수 있습니다.
+사용자가 Azure AD(Azure Active Directory)에서 [전역 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator)인 경우 다음을 수행하려는 경우가 있을 수 있습니다.
 
 - 사용자가 액세스 권한을 상실할 때 Azure 구독에 대한 액세스 권한 다시 얻기
 - 다른 사용자 또는 사용자 자신에게 Azure 구독에 대한 액세스 권한 부여
@@ -220,4 +220,5 @@ Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
 ## <a name="next-steps"></a>다음 단계
 
 - [REST를 사용하는 역할 기반 액세스 제어](role-assignments-rest.md)
-- [액세스 할당 관리](role-assignments-users.md)
+- [PIM(Privileged Identity Management)을 사용하여 Azure 리소스에 대한 액세스 관리](pim-azure-resource.md)
+- [조건부 액세스로 Azure Management에 대한 액세스 관리](conditional-access-azure-management.md)

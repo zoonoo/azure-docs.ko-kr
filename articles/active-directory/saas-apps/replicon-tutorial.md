@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 70a67f5205ee9b1249d3db2cda3eb4af9acabe31
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 10f4749524c4d4b35b83e5637d35f4ef9a8f9ab6
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230178"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>자습서: Replicon과 Azure Active Directory 통합
 
@@ -179,7 +179,7 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 이 섹션은 Replicon에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Replicon은 기본적으로 사용하도록 설정되어 있는 자동 사용자 프로비저닝을 지원합니다. 자동 사용자 프로비저닝을 구성하는 방법에 대한 자세한 내용은 [여기서](replicon-provisioning-tutorial.md) 확인할 수 있습니다.
 
-**사용자를 수동으로 만들어야 하는 경우 다음 단계를 수행합니다.**
+**사용자를 수동으로 만들어야 할 경우 다음 단계를 수행합니다.**
 
 1. 웹 브라우저 창에서 Replicon 회사 사이트에 관리자로 로그인합니다.
 
@@ -243,7 +243,7 @@ Replicon에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
 액세스 패널에서 Replicon 타일을 클릭하면 Replicon 응용 프로그램에 자동으로 로그온됩니다.
-액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 참조하세요.
+액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 

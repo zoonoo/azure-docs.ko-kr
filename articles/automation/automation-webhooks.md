@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e047dffa86915b0cd6e8829ea27e0335e7f88cb2
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757159"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37345714"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
@@ -86,11 +86,11 @@ $WebhookData 매개 변수의 **WebhookName** 속성을 확인하여 webhook에�
 
 Azure 포털에서 runbook에 연결된 새 webhook를 만들려면 다음 절차를 수행합니다.
 
-1. Azure Portal의 **Runbook 블레이드**에서 해당 세부 정보 블레이드를 표시하도록 webhook를 시작할 Runbook을 클릭합니다.
-1. 페이지 맨 위에서 **웹후크**를 클릭하여 **웹후크 추가** 페이지를 엽니다.
-1. **새 웹후크 만들기**를 클릭하여 **웹후크 페이지 만들기**를 엽니다.
-1. webhook의 **이름**, **만료 날짜**와 사용 여부를 지정합니다. 이러한 속성에 대한 자세한 내용은 [webhook 세부 정보](#details-of-a-webhook) 를 참조하십시오.
-1. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook를 만들고 나면 URL을 다시 검색할 수 없습니다.**
+1. Azure Portal의 **Runbook 블레이드**에서 해당 세부 정보 블레이드를 표시하도록 webhook를 시작할 Runbook을 클릭합니다. Runbook **상태**가 **게시**됐는지 확인합니다.
+2. 페이지 맨 위에서 **웹후크**를 클릭하여 **웹후크 추가** 페이지를 엽니다.
+3. **새 웹후크 만들기**를 클릭하여 **웹후크 페이지 만들기**를 엽니다.
+4. webhook의 **이름**, **만료 날짜**와 사용 여부를 지정합니다. 이러한 속성에 대한 자세한 내용은 [webhook 세부 정보](#details-of-a-webhook) 를 참조하십시오.
+5. 복사 아이콘을 클릭하고 Ctrl+C를 눌러 webhook의 URL을 복사합니다. 그런 다음 안전한 곳에 기록합니다. **webhook를 만들고 나면 URL을 다시 검색할 수 없습니다.**
 
    ![Webhook URL](media/automation-webhooks/copy-webhook-url.png)
 

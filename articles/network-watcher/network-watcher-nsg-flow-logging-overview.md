@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: c6a24fbca37d6aa1d775a70c708a139dfb70b813
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ae4edb82fa5e192a30d297dae82199bb7efca0c2
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182428"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37344974"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -33,7 +33,7 @@ NSG(네트워크 보안 그룹) 흐름 로그는 NSG를 통해 수신 및 송신
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
-다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 1일에서 365일까지 로그 보존 정책을 설정할 수 있습니다. 보존 정책을 설정하지 않으면 로그는 계속 유지됩니다.
+다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 1일에서 2147483647일까지 로그 보존 정책을 설정할 수 있습니다. 보존 정책을 설정하지 않으면 로그는 계속 유지됩니다.
 
 ## <a name="log-file"></a>로그 파일
 

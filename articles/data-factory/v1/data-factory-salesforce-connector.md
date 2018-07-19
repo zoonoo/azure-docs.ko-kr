@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 98f7494c87683eda858da5970e12073ce2204303
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a9dba65591479033a892615ff053eebd0862851e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048290"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125673"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce에서 데이터 이동
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -72,7 +72,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 | 자산 | 설명 | 필수 |
 | --- | --- | --- |
 | 형식 |형식 속성은 **Salesforce**로 설정되어야 합니다. |예 |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> - 기본값은 " https://login.salesforce.com "입니다. <br> - 샌드박스에서 데이터를 복사하려면 " https://test.salesforce.com "을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 " https://[domain].my.salesforce.com "을 지정합니다. |아니오 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> - 기본값은 "https://login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "https://test.salesforce.com"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니오 |
 | 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | 암호 |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
@@ -289,15 +289,15 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 | --- | --- |
 | 자동 번호 |문자열 |
 | 확인란 |BOOLEAN |
-| 통화 |Double |
+| 통화 |10진수 |
 | Date |Datetime |
 | 날짜/시간 |Datetime |
 | Email |문자열 |
 | Id |문자열 |
 | 관계 조회 |문자열 |
 | 다중 선택 선택 목록 |문자열 |
-| Number |Double |
-| 백분율 |Double |
+| Number |10진수 |
+| 백분율 |10진수 |
 | Phone |문자열 |
 | 선택 목록 |문자열 |
 | 텍스트 |문자열 |

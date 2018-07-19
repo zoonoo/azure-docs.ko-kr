@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: fauhse
-ms.openlocfilehash: 5014c8204b6b6da539a41aaa3308d8787fb517a7
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738533"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342729"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure File Sync 프록시 및 방화벽 설정
 Azure File Sync는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -51,9 +51,17 @@ Azure File Sync 에이전트는 Azure에 대해 [ExpressRoute](../../expressrout
 Azure File Sync는 Azure로 연결될 수 있는 모든 방식에 작동하며, 대역폭, 대기 시간과 같은 다양한 네트워크 특성에 맞게 자동으로 조정되고 미세 조정을 위한 관리 제어 기능을 제공합니다. 현재는 일부 기능을 사용할 수 없습니다. 특정 동작을 구성하려는 경우 [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670)를 통해 알려주세요.
 
 ## <a name="proxy"></a>Proxy
-Azure File Sync는 현재 머신 차원의 프록시 설정을 지원합니다. 전체 서버 트래픽이 이 프록시를 통해 라우팅되므로 이 프록시 설정은 Azure File Sync 에이전트에 투명합니다.
+Azure File Sync는 앱별 및 머신 차원의 프록시 설정을 지원합니다.
 
-앱별 프록시 설정은 현재 개발 중이며, 향후 Azure File Sync 에이전트 릴리스에서 지원될 예정입니다. 따라서 Azure File Sync 트래픽에 적절하게 프록시를 구성할 수 있습니다.
+전체 서버 트래픽이 프록시를 통해 라우팅되므로 머신 차원의 프록시 설정은 Azure File Sync 에이전트에 투명합니다.
+
+앱별 프록시 설정은 Azure File Sync 트래픽에 적절하게 프록시를 구성할 수 있습니다. 앱별 프록시 설정은 에이전트 버전 3.0.12.0 이상에서 지원되며 에이전트 설치 중 또는 Set-StorageSyncProxyConfiguration PowerShell cmdlet을 사용하여 구성될 수 있습니다.
+
+앱별 프록시 설정을 구성하기 위한 PowerShell 명령입니다.
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
 
 ## <a name="firewall"></a>방화벽
 이전 섹션에서 설명한 것처럼 포트 443을 아웃바운드로 열어 두어야 합니다. 데이터 센터, 분기 또는 지역의 정책에 따라, 이 포트를 통한 트래픽을 특정 도메인으로 추가로 제한하는 것이 바람직하거나 필요할 수 있습니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: fe55c84964d10be971c0f1d64d2c70313098a4ee
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: bf262a42751e02c939696e4c8554fc19f5a4f4bd
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215712"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37111204"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>자습서: Kantega SSO for FishEye/Crucible과 Azure Active Directory 통합
 
@@ -133,7 +133,7 @@ Kantega SSO for FishEye/Crucible에서 Azure AD Single Sign-On을 구성하고 �
 
     ![Configure Single Sign-On](./media/kantegassoforfisheyecrucible-tutorial/tutorial_general_400.png)
     
-7. 다른 웹 브라우저 창에서 FishEye/Crucible 온-프레미스 서버에 관리자로 로그인합니다.
+7. 다른 웹 브라우저 창에서 FishEye/Crucible 온-프레미스 서버에 관리자 권한으로 로그인합니다.
 
 8. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
@@ -261,7 +261,7 @@ Azure AD 사용자가 FishEye/Crucible에 로그인할 수 있도록 하려면 F
 
 **사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
 
-1. Crucible 온-프레미스 서버에 관리자로 로그인합니다.
+1. Crucible 온-프레미스 서버에 관리자 권한으로 로그인합니다.
 
 2. 마우스로 톱니바퀴를 가리키고 **사용자**를 클릭합니다.
 

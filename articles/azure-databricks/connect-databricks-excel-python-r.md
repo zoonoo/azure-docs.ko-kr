@@ -11,14 +11,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: bbf75a03fb771aa415a26e151614cecfaa14c485
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 333ff3ac3de053eae604ffeab600df7d35874f69
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598881"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37085235"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
 
@@ -99,6 +99,9 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 Excel 통합 문서에 데이터가 있으면 분석 작업을 수행할 수 있습니다.
 
 ## <a name="connect-from-r"></a>R에서 연결
+
+> [!NOTE]
+> 이 섹션에서는 Azure Databricks를 사용하여 데스크톱에서 실행되는 R Studio 클라이언트를 통합하는 방법에 대해 설명합니다. Azure Databricks 클러스터에서 R Studio를 사용하는 방법에 대한 지침은 [Azure Databricks의 R Studio](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html)를 참조하세요.
 
 이 섹션에서는 R 언어 IDE를 사용하여 Azure Databricks에서 사용할 수 있는 데이터를 참조합니다. 시작하기 전에 컴퓨터에 다음을 설치해야 합니다.
 

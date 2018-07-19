@@ -1,6 +1,6 @@
 ---
 title: Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행 | Microsoft Docs
-description: Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서 대량 가져오기 및 업데이트를 수행합니다.
+description: Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 컨테이너에 문서 대량 가져오기 및 업데이트를 수행합니다.
 keywords: .NET Bulk Executor
 services: cosmos-db
 author: tknandu
@@ -10,16 +10,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: ramkris
-ms.openlocfilehash: b09fd415c442c1e605987a6b25fd938ce04ce5c1
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 804906e1c1b361b9274dbc8fa3ab1cb204e27dfc
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36300774"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857279"
 ---
 # <a name="using-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB에서 대량 작업 수행
 
-이 자습서는 Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 컬렉션에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 Azure Cosmos DB 컬렉션으로 임의로 생성된 문서를 대량으로 가져오는 샘플 .NET 응용 프로그램을 통해 안내합니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
+이 자습서에서는 Azure Cosmos DB의 Bulk Executor .NET 라이브러리를 사용하여 Azure Cosmos DB 컨테이너에 문서를 가져오고 업데이트하는 데 관한 지침을 제공합니다. Bulk Executor 라이브러리와 방대한 처리량 및 저장소를 활용하는 방법에 대한 자세한 내용은 [Bulk Executor 라이브러리 개요](bulk-executor-overview.md) 문서를 참조하세요. 이 자습서에서는 임의로 생성된 문서를 Azure Cosmos DB 컨테이너에 대량으로 가져오는 샘플 .NET 응용 프로그램을 안내합니다. 가져온 후에는 특정 문서 필드에서 수행할 작업으로 패치를 지정하여 가져온 데이터를 대량으로 업데이트할 수 있는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -170,11 +170,11 @@ Bulk Executor 라이브러리를 사용하는 경우 성능 향상을 위해 다
 
 * 최상의 성능을 위해 Cosmos DB 계정 작성 지역과 동일한 지역의 Azure 가상 머신에서 응용 프로그램을 실행합니다.  
 
-* 특정 Cosmos DB 컬렉션에 해당하는 단일 가상 머신 내에서 전체 응용 프로그램에 대한 단일 BulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
+* 특정 Cosmos DB 컨테이너에 해당하는 단일 가상 머신 내에서 전체 응용 프로그램에 대한 단일 BulkExecutor 개체를 인스턴스화하는 것이 좋습니다.  
 
-* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 응용 프로그램 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컬렉션의 처리량을 사용할 수 없는 경우(컬렉션의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.  
+* 단일 대량 작업 API 실행은 클라이언트 컴퓨터의 CPU 및 네트워크 IO의 대규모 청크를 사용하기 때문입니다. 이는 내부적으로 여러 작업을 생성되며 발생합니다. 대량 작업 API 호출을 각각 실행하는 응용 프로그램 내에서 여러 동시 작업이 발생하지 않도록 하십시오. 단일 가상 머신에서 실행되는 단일 대량 작업 API 호출에서 전체 컨테이너의 처리량을 사용할 수 없는 경우(컨테이너의 처리량이 1백만 RU/s 미만인 경우) 대량 작업 API 호출을 동시에 실행하도록 개별 가상 머신을 만드는 것이 좋습니다.  
 
-* InitializeAsync()가 대상 Cosmos DB 컬렉션 파티션 맵으로 BulkExecutor 개체를 인스턴스화한 후 호출되는지 확인합니다.  
+* InitializeAsync()가 대상 Cosmos DB 컨테이너 파티션 맵을 가져오기 위해 BulkExecutor 개체를 인스턴스화한 후 호출되는지 확인합니다.  
 
 * 응용 프로그램의 App.Config에서 성능 향상을 위해 **gcServer**를 사용할 수 있도록 설정되었는지 확인합니다.
   ```xml  

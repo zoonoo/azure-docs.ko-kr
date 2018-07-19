@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c6602bdd90c82568a50ad7354d7abb7c6a472ae
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287751"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341095"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>지속성 함수의 인스턴스 관리(Azure Functions)
 
@@ -81,6 +81,7 @@ module.exports = function (context, input) {
 * **CustomStatus**: JSON 형식의 사용자 지정 오케스트레이션 상태입니다. 
 * **Output**: JSON 값의 함수 출력입니다(함수가 완료된 경우). 오케스트레이터 함수가 실패하면 이 속성에 오류 세부 정보가 포함됩니다. 오케스트레이터 함수가 종료되면 이 속성에 제공된 종료 이유가 포함됩니다(있는 경우).
 * **RuntimeStatus**: 다음 값 중 하나입니다.
+    * **보류 중**: 인스턴스는 일정이 있지만 아직 실행을 시작하지 않았습니다.
     * **실행 중**: 인스턴스가 실행되기 시작했습니다.
     * **완료됨**: 인스턴스가 정상적으로 완료되었습니다.
     * **ContinuedAsNew(새 기록으로 계속됨)**: 인스턴스가 새 기록으로 다시 시작되었습니다. 일시적인 상태입니다.

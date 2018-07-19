@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: ea8b5db946d6b35ea4583d9170ec36e5f95e16cd
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: 71c0cebf676d29308fe9f4942350ae96d3bedcf6
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972554"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340834"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>지속성 함수의 단일 항목 오케스트레이터(Azure Functions)
 
@@ -59,6 +59,9 @@ public static async Task<HttpResponseMessage> RunSingle(
 ```
 
 기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 하지만 이 경우 인스턴스 ID가 URL에서 경로 데이터에 전달됩니다. 이 코드는 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_)를 호출하여 지정된 ID를 갖는 인스턴스가 이미 실행되고 있는지 확인합니다. 실행되고 있지 않으면 해당 ID를 사용하여 인스턴스가 만들어집니다.
+
+> [!NOTE]
+> 이 샘플에는 잠재적 경합 상태가 있습니다. **HttpStartSingle**의 두 인스턴스가 올바르게 실행되는 경우 결과는 싱글톤의 다르게 만든 두 개 인스턴스로서 한 인스턴스가 다른 것을 덮어쓸 수 있습니다. 요구 사항에 따라 바람직하지 않은 부작용이 있을 수 있습니다. 이러한 이유로 두 요청이 이 트리거 함수를 동시에 실행할 수 없도록 하는 것이 중요합니다.
 
 오케스트레이터 함수의 구현 세부 정보는 실제로 중요하지 않습니다. 시작하고 완료하는 일반 오케스트레이터 함수일 수 있거나 무기한 실행하는 오케스트레이터 함수일 수 있습니다(즉, [영구 오케스트레이션](durable-functions-eternal-orchestrations.md)). 중요한 점은 한 번에 하나의 인스턴스만 실행된다는 점입니다.
 

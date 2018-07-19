@@ -3,19 +3,20 @@ title: Azure SQL Database 메트릭 및 진단 로깅 | Microsoft Docs
 description: 리소스 사용, 연결 및 쿼리 실행 통계를 저장하도록 Azure SQL Database를 구성하는 방법을 알아봅니다.
 services: sql-database
 documentationcenter: ''
-author: veljko-msft
+author: Danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: vvasic
-ms.openlocfilehash: c9126080db4d8091b672a9250c68a5c5590e10c7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34650182"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346028"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -49,8 +50,8 @@ Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그�
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): CPU, LOG, LOCKING 등 쿼리가 대기된 항목을 알리는 쿼리 대기 통계에 대한 정보를 포함합니다.
 - [Errors](sql-database-metrics-diag-logging.md#errors-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
 - [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다.
-- [Time-outs](sql-database-metrics-diag-logging.md#time-outs-dataset): 이 데이터베이스에서 발생한 SQL 오류에 대한 정보를 포함합니다.
-- [Blockings](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스에서 발생한 차단 이벤트에 대한 정보를 포함합니다.
+- [Timeouts](sql-database-metrics-diag-logging.md#time-outs-dataset): 데이터베이스에서 발생한 시간 제한에 대한 정보를 포함합니다.
+- [Blocks](sql-database-metrics-diag-logging.md#blockings-dataset): 데이터베이스에서 발생한 차단 이벤트에 대한 정보를 포함합니다.
 - [SQLInsights](sql-database-metrics-diag-logging.md#intelligent-insights-dataset): Intelligent Insights를 포함합니다. [Intelligent Insights에 대해 자세히 알아보세요.](sql-database-intelligent-insights.md)
 - **Audit** / **SQLSecurityAuditEvents**: 현재 사용할 수 없습니다.
 

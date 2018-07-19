@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: larryfr
-ms.openlocfilehash: 856a94b0cf64a20fbe9267b76422c47d88d21f43
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 500b6ef33bb70cd5138067d88303b7db9121e867
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32778906"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37102089"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>스크립트 동작을 사용하여 Linux 기반 HDInsight 클러스터 사용자 지정
 
@@ -58,7 +58,7 @@ Azure 구독의 관리자/소유자가 아닌 경우 적어도 HDInsight 클러�
 
 * HDInsight 클러스터에서 액세스할 수 있는 URI에 저장되어야 합니다. 가능한 저장소 위치는 다음과 같습니다.
 
-    * HDInsight 클러스터에서 액세스할 수 있는 **Azure Data Lake Store** 계정 - HDInsight에서 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [Azure Data Lake Store에서 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+    * HDInsight 클러스터에서 액세스할 수 있는 **Azure Data Lake Store** 계정 - HDInsight에서 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
         Data Lake Store에 저장된 스크립트를 사용하는 경우 URI 형식은 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`입니다.
 
@@ -173,9 +173,7 @@ HDInsight는 HDInsight 클러스터에서 다음 구성 요소를 설치하는 �
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>클러스터를 만드는 동안 Azure Portal에서 스크립트 동작 사용
 
-1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다. __클러스터 요약__ 섹션에 도달하면 중지합니다.
-
-2. __클러스터 요약__ 섹션에서 __고급 설정__에 대한 __편집__ 링크를 선택합니다.
+1. [HDInsight에서 Hadoop 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)에서 설명한 대로 클러스터를 만들기 시작합니다. 클러스터를 만드는 동안 __클러스터 요약__ 페이지로 이동합니다. __클러스터 요약__ 페이지에서 __고급 설정__에 대한 __편집__ 링크를 선택합니다.
 
     ![고급 설정 링크](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
 

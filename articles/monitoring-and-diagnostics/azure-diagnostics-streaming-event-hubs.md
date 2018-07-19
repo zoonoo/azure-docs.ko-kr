@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 98e788d87b0ce03eece35868391aadd5233217b0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267716"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341238"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure 진단 데이터 스트리밍
 Azure 진단에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -389,9 +389,11 @@ namespace EventHubListener
 </ServiceConfiguration>
 ```
 
-가상 머신에 대한 Json 기반 설정은 다음과 같습니다.
+가상 머신에 대한 JSON 설정은 다음과 같습니다.
+
+공용 설정
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -487,8 +489,11 @@ namespace EventHubListener
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+보호 설정
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",

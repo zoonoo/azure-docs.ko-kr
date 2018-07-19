@@ -2,19 +2,19 @@
 title: AKS에서 Azure File 사용
 description: AKS에서 Azure 디스크 사용
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d3e92902e711ba2b1664c6497ecb66f035ea9308
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597504"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098348"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure Files가 포함된 영구적 볼륨
 
@@ -24,7 +24,7 @@ ms.locfileid: "34597504"
 
 ## <a name="create-storage-account"></a>저장소 계정 만들기
 
-Azure 파일 공유를 Kubernetes 볼륨으로 동적으로 생성하는 경우 AKS **노드** 리소스 그룹에 들어 있는 모든 저장소 계정을 사용할 수 있습니다. [az resource show][az-resource-show] 명령으로 리소스 그룹 이름을 가져옵니다.
+Azure 파일 공유를 Kubernetes 볼륨으로 동적으로 생성하는 경우 AKS **노드** 리소스 그룹에 들어 있는 모든 저장소 계정을 사용할 수 있습니다. 이는 AKS 클러스터에 대한 리소스 프로비전에서 만들어진 `MC_` 접두사가 있는 계정입니다. [az resource show][az-resource-show] 명령으로 리소스 그룹 이름을 가져옵니다.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -40,13 +40,15 @@ MC_myResourceGroup_myAKSCluster_eastus
 az storage account create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name mystorageaccount --location eastus --sku Standard_LRS
 ```
 
+> Azure Files는 현재 표준 저장소에서만 작동합니다. 프리미엄 저장소를 사용하는 경우 볼륨이 프로비전되지 않습니다.
+
 ## <a name="create-storage-class"></a>저장소 클래스 만들기
 
 저장소 클래스는 Azure 파일 공유를 만드는 방법을 정의하는 데 사용됩니다. 클래스에 특정 저장소 계정을 지정할 수 있습니다. 저장소 계정을 지정하지 않으면 `skuName` 및 `location`을 지정해야 하고, 연결된 리소스 그룹의 모든 저장소 계정이 일치하는지 평가됩니다.
 
 Azure 파일의 Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
 
-파일 `azure-file-sc.yaml`을 만들고 다음 매니페스트에 복사합니다. `storageAccount`를 대상 저장소 계정의 이름으로 업데이트합니다.
+파일 `azure-file-sc.yaml`을 만들고 다음 매니페스트에 복사합니다. `storageAccount`를 대상 저장소 계정의 이름으로 업데이트합니다. `mountOptions`에 대한 자세한 내용은 [탑재 옵션] 섹션을 참조하세요.
 
 ```yaml
 kind: StorageClass
@@ -54,8 +56,13 @@ apiVersion: storage.k8s.io/v1
 metadata:
   name: azurefile
 provisioner: kubernetes.io/azure-file
+mountOptions:
+  - dir_mode=0777
+  - file_mode=0777
+  - uid=1000
+  - gid=1000
 parameters:
-  storageAccount: mystorageaccount
+  skuName: Standard_LRS
 ```
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 저장소 클래스를 만듭니다.
@@ -206,3 +213,4 @@ Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알�
 [az-storage-create]: /cli/azure/storage/account#az_storage_account_create
 [az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
 [az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[mount-options]: #mount-options

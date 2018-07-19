@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: larryfr
-ms.openlocfilehash: 9ca8be3066254ade37c858bd62f9ce6a2e2be902
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 5f6609018f2582ebfc6e2ecbe48bde6a6f2d0f5d
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018385"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37098263"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -284,7 +284,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __공개적으로 읽을 수 있는 URI__ 예를 들어 OneDrive, Dropbox 또는 다른 파일 호스팅 서비스에 저장된 데이터에 대한 URL
 
-* HDInsight 클러스터와 연결된 __Azure Data Lake Store 계정__ HDInsight와 함께 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [Data Lake Store를 사용하여 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+* HDInsight 클러스터와 연결된 __Azure Data Lake Store 계정__ HDInsight에서 Azure Data Lake Store를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
     > [!NOTE]
     > HDInsight에서 Data Lake Store에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.

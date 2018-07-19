@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f3c3c8db93ae638cfc0bf82ee26ff2e26646d49
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 176ed1718818b24866620d86d7eff4d9af1d378f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220277"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39050877"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>자습서: SAP Cloud Platform과 Azure Active Directory 통합
 
@@ -41,7 +41,7 @@ SAP Cloud Platform과 Azure AD 통합을 구성하려면 다음 항목이 필요
 - Azure AD 구독
 - SAP Cloud Platform Single Sign-On이 설정된 구독
 
-이 자습서를 완료한 후 SAP Cloud Platform에 할당한 Azure AD 사용자가 [액세스 패널 소개](../active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
+이 자습서를 완료한 후 SAP Cloud Platform에 할당한 Azure AD 사용자가 [액세스 패널 소개](../user-help/active-directory-saas-access-panel-introduction.md)를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다.
 
 >[!IMPORTANT]
 >사용자 고유의 응용 프로그램을 배포하거나 SAP Cloud Platform 계정에 대 한 single sign 테스트하도록 응용 프로그램을 구독해야 합니다. 이 자습서에서는 응용 프로그램이 계정에 배포됩니다.

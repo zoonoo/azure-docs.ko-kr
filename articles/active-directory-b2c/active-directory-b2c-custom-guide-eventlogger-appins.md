@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b37e61763b34e320ffb4078600e08b1d32330a1
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 300a8a15552fe1e8ec9d6b434a14a31b3d827f19
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34709967"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445588"
 ---
 # <a name="track-user-behavior-in-azure-ad-b2c-journeys-by-using-application-insights"></a>Application Insights를 사용하여 Azure AD B2C 경험의 사용자 동작 추적
 
@@ -286,7 +286,6 @@ Referenced using {OIDC:One of the property names below}
 |  MaxAge | max_age | 해당 없음 |
 | clientid | client_id | 해당 없음 |
 | 사용자 이름 | login_hint | 해당 없음 |
-| 암호 | domain_hint | 해당 없음 |
 |  리소스 | resource| 해당 없음 |
 | AuthenticationContextReferences | acr_values | 해당 없음 |
 
@@ -304,11 +303,11 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 https://login.microsoftonline.com/sampletenant.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_signup_signin&client_id=e1d2612f-c2bc-4599-8e7b-d874eaca1ae1&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fjwt.ms&scope=openid&response_type=id_token&prompt=login&app_session=0a2b45c&loyalty_number=1234567
 
 ```
-Application Insights 이벤트에 `Input Claim` 요소를 추가하여 클레임을 추가할 수 있습니다.
+Application Insights 이벤트에 `Input Claim` 요소를 추가하여 클레임을 추가할 수 있습니다. 이벤트의 속성은 {property:NAME} 구문을 통해 추가되며, 여기서 NAME은 이벤트에 추가되는 속성입니다. 예: 
 
 ```
-<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="app_session" DefaultValue="{OAUTH-KV:app_session}" />
-<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="loyalty_number" DefaultValue="{OAUTH-KV:loyalty_number}" />
+<InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />
+<InputClaim ClaimTypeReferenceId="loyalty_number" PartnerClaimType="{property:loyalty_number}" DefaultValue="{OAUTH-KV:loyalty_number}" />
 ```
 
 ### <a name="other-system-claims"></a>기타 시스템 클레임

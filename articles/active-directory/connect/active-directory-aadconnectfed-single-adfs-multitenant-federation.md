@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6c9c4b7db93810cac4518885eb86572b2be7ca05
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 91436af0aa26c079d5cd2cc19d16a1ff0354e860
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915343"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126595"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>AD FS의 단일 인스턴스를 사용하여 Azure AD의 여러 인스턴스를 페더레이션
 
@@ -60,7 +60,7 @@ Azure AD PowerShell 세션에서 다음 단계를 수행합니다. fabrikam.com 
     Connect-MsolService
 fabrikam.com 관리되는 도메인을 페더레이션된 도메인으로 변환합니다.
 
-    Convert-MsolDomainToFederated -DomainName anandmsft.com -Verbose -SupportMultipleDomain
+    Convert-MsolDomainToFederated -DomainName fabrikam.com -Verbose -SupportMultipleDomain
  
 위의 작업에서는 동일한 AD FS를 통해 fabrikam.com 도메인을 페더레이션합니다. 두 도메인 모두에 대해 Get-MsolDomainFederationSettings를 사용하여 도메인 설정을 확인할 수 있습니다.
 

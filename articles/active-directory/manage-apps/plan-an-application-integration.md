@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/15/2018
+ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 183c5f3196653ce9519c0742db7a67cd36c63fb9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c60d736798adbbcb47b94172768dc8b8e5c366fe
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35292840"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088450"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>응용 프로그램과 Azure Active Directory 통합 시작 가이드
 ## <a name="overview"></a>개요
@@ -61,8 +61,8 @@ ms.locfileid: "35292840"
 * Azure 구독 및 Azure Active Directory입니다.  Azure 구독이 아직 없는 경우 Azure를 30일 동안 무료로 사용해 볼 수 있습니다. [사용해 보세요!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Azure AD와 응용 프로그램 통합
-### <a name="finding-unsanctioned-cloud-applications-with-cloud-app-discovery"></a>클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기
-위에서 설명한 대로 지금까지 조직에서 관리하지 않은 응용 프로그램이 있을 수 있습니다.  인벤토리 프로세스의 일부로 허용되지 않은 클라우드 응용 프로그램을 찾을 수 있습니다. [클라우드 앱 검색을 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기](cloud-app-discovery.md)를 참조하세요.
+### <a name="finding-unsanctioned-cloud-applications-with-cloud-discovery"></a>Cloud Discovery를 사용하여 허용되지 않은 클라우드 응용 프로그램 찾기
+위에서 설명한 대로 지금까지 조직에서 관리하지 않은 응용 프로그램이 있을 수 있습니다.  인벤토리 프로세스의 일부로 허용되지 않은 클라우드 응용 프로그램을 찾을 수 있습니다. [Cloud Discovery 설정](/cloud-app-security/set-up-cloud-discovery.md)을 참조하세요.
 
 ### <a name="authentication-types"></a>인증 형식
 응용 프로그램에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 응용 프로그램을 사용하는 응용 프로그램과 사용될 수 있습니다. Azure AD와 함께 사용할 응용 프로그램 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [암호 기반 Single Sign On](what-is-single-sign-on.md)을 참조하세요.
@@ -73,9 +73,9 @@ Microsoft Azure AD 응용 프로그램 프록시를 사용하여 어디서든 �
 ### <a name="integrating-applications-with-azure-ad"></a>Azure AD와 응용 프로그램 통합
 다음 문서에서는 응용 프로그램을 Azure AD와 통합하는 여러 가지 방법을 설명하고 일부 지침을 제공합니다.
 
-* [사용할 Active Directory 결정](../active-directory-administer.md)
+* [사용할 Active Directory 결정](../fundamentals/active-directory-administer.md)
 * [Azure 응용 프로그램 갤러리에서 응용 프로그램 사용](what-is-single-sign-on.md)
-* [SaaS 응용 프로그램 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
+* [SaaS 응용 프로그램 통합 자습서 목록](../saas-apps/tutorial-list.md)
 
 ## <a name="managing-access-to-applications"></a>응용 프로그램에 대한 액세스 관리
 다음 문서는 응용 프로그램이 Azure AD와 통합되면 Azure AD 커넥터 및 Azure AD를 사용하여 응용 프로그램에 대한 액세스를 관리할 수 있는 방법을 설명합니다.

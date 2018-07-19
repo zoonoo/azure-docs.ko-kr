@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 01/26/2018
+ms.date: 06/08/2018
 ms.author: tdykstra
-ms.openlocfilehash: 7e0fb3cee8d4ec72e1ec44f7444264fabb1dd202
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6678109414eaa71ced369e87e1cd15544fee5ee5
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724733"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723435"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -30,7 +30,7 @@ Event Grid는 *게시자*에서 발생하는 이벤트를 알리기 위해 HTTP 
 
 이벤트 *처리기*는 이벤트를 수신하고 처리합니다. Azure Functions는 [Event Grid 이벤트를 처리를 기본적으로 지원하는 Azure 서비스](../event-grid/overview.md#event-handlers) 중 하나입니다. 이 문서에서는 Event Grid에서 이벤트가 수신될 때 Event Grid 트리거를 사용하여 함수를 호출하는 방법을 알아봅니다.
 
-원할 경우 HTTP 트리거를 사용하여 Event Grid 이벤트를 처리할 수 있습니다. 관련 내용은 이 문서 뒷부분에서 [HTTP 트리거를 Event Grid 트리거로 사용](#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
+원할 경우 HTTP 트리거를 사용하여 Event Grid 이벤트를 처리할 수 있습니다. 관련 내용은 이 문서 뒷부분에서 [HTTP 트리거를 Event Grid 트리거로 사용](#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요. 현재는, 이벤트가 [CloudEvents 스키마](../event-grid/cloudevents-schema.md)를 통해 전달되는 경우, Azure Functions 앱에 대해 Event Grid 트리거를 사용할 수 없습니다. 대신, HTTP 트리거를 사용합니다.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -331,45 +331,44 @@ http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextens
 
 또는 HTTP PUT을 전송하여 키 값을 직접 지정할 수 있습니다.
 
-## <a name="local-testing-with-requestbin"></a>RequestBin을 사용한 로컬 테스트
-
-> [!NOTE]
-> 현재 RequestBin 사이트를 사용할 수 없지만, 그 대신 https://hookbin.com에 이 방법을 사용할 수 있습니다. 해당 사이트가 중지된 경우 [ngrok](#local-testing-with-ngrok)를 사용하면 됩니다.
+## <a name="local-testing-with-viewer-web-app"></a>뷰어 웹앱을 사용한 로컬 테스트
 
 Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에서 로컬 컴퓨터로 전달된 Event Grid HTTP 요청을 가져와야 합니다. 이 작업을 수행하는 한 가지 방법은 온라인으로 요청을 캡처하고 로컬 컴퓨터에서 수동으로 다시 전송하는 것입니다.
 
-2. [RequestBin 끝점을 만듭니다](#create-a-RequestBin-endpoint).
-3. RequestBin 끝점으로 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-an-event-grid-subscription).
-4. RequestBin 사이트에서 [요청을 생성](#generate-a-request)하고 요청 본문을 복사합니다.
+2. 이벤트 메시지를 캡처하는 [뷰어 웹앱을 만듭니다](#create-a-viewer-web-app).
+3. 뷰어 앱에 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-an-event-grid-subscription).
+4. [요청을 생성](#generate-a-request)하고 뷰어 앱에서 요청 본문을 복사합니다.
 5. Event Grid 트리거 함수의 localhost URL에 [요청을 수동으로 게시](#manually-post-the-request)합니다.
 
 테스트가 완료되면 끝점을 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI 명령을 사용합니다.
 
-### <a name="create-a-requestbin-endpoint"></a>RequestBin 끝점 만들기
+### <a name="create-a-viewer-web-app"></a>뷰어 웹앱 만들기
 
-RequestBin은 HTTP 요청을 수락하고 요청 본문을 표시하는 오픈 소스 도구입니다. http://requestb.in URL은 Azure Event Grid에서 특수하게 처리됩니다. 테스트를 용이하게 진행하기 위해 Event Grid는 구독 유효성 검사 요청에 대한 올바른 응답을 요구하지 않고, RequestBin URL로 이벤트를 전송합니다. 다른 테스트 도구 하나(http://hookbin.com)는 동일하게 처리됩니다.
+이벤트 메시지 캡처를 간소화하기 위해 이벤트 메시지를 표시하는, [미리 작성된 웹앱](https://github.com/dbarkol/azure-event-grid-viewer)을 배포할 수 있습니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
-처리량이 높은 경우에는 RequestBin 사용이 적합하지 않습니다. 한 번에 둘 이상의 이벤트를 푸시하면 도구에서 모든 이벤트가 표시되지 않을 수 있습니다.
+**Azure에 배포**를 선택하여 구독에 솔루션을 배포합니다. Azure Portal에서 매개 변수에 대한 값을 제공합니다.
 
-끝점을 만듭니다.
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fdbarkol%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
 
-![RequestBin 끝점 만들기](media/functions-bindings-event-grid/create-requestbin.png)
+배포가 완료될 때까지 몇 분 정도 걸릴 수 있습니다. 배포가 성공된 후 실행하는지 확인하려면 웹앱을 봅니다. 웹 브라우저에서 `https://<your-site-name>.azurewebsites.net`으로 이동합니다.
 
-끝점 URL을 복사합니다.
+참조하는 사이트에 이벤트가 아직 게시되지 않았습니다.
 
-![RequestBin 끝점 복사](media/functions-bindings-event-grid/save-requestbin-url.png)
+![새 사이트 보기](media/functions-bindings-event-grid/view-site.png)
 
 ### <a name="create-an-event-grid-subscription"></a>Event Grid 구독 만들기
 
-테스트하려는 유형의 Event Grid 구독을 만들고 RequestBin 끝점에 제공합니다. 구독을 만드는 방법에 대한 내용은 이 문서 앞부분에 나오는 [구독 만들기](#create-a-subscription)를 참조하세요.
+테스트할 유형의 Event Grid 구독을 만들고 이벤트 알림의 끝점으로 웹앱의 URL을 지정합니다. 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다. 따라서 전체 URL은 `https://<your-site-name>.azurewebsites.net/api/updates`입니다.
+
+Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내용은 Event Grid 문서에서 [사용자 지정 이벤트 만들기 - Azure Portal](../event-grid/custom-event-quickstart-portal.md)을 참조하세요.
 
 ### <a name="generate-a-request"></a>요청 생성
 
-RequestBin 끝점으로의 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다. RequestBin 페이지에 요청이 표시되면 요청 본문을 복사합니다.
+웹앱 끝점에 대한 HTTP 트래픽을 생성하는 이벤트를 트리거합니다.  예를 들어, Blob 저장소 구독을 만든 경우 Blob을 업로드하거나 삭제합니다. 웹앱에 요청이 표시되면 요청 본문을 복사합니다.
 
 구독 유효성 검사 요청이 먼저 수신됩니다. 유효성 검사 요청은 모두 무시하고 이벤트 요청을 복사합니다.
 
-![RequestBin에서 요청 본문 복사](media/functions-bindings-event-grid/copy-request-body.png)
+![웹앱에서 요청 본문 복사](media/functions-bindings-event-grid/view-results.png)
 
 ### <a name="manually-post-the-request"></a>수동으로 요청 게시
 
@@ -467,14 +466,18 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 ## <a name="use-an-http-trigger-as-an-event-grid-trigger"></a>HTTP 트리거를 Event Grid 트리거로 사용
 
-Event Grid 이벤트는 HTTP 요청으로 수신되므로, Event Grid 트리거 대신 HTTP 트리거를 사용하여 이벤트를 처리할 수 있습니다. 이렇게 하는 한 가지 가능한 이유는 함수를 호출하는 끝점 URL을 보다 강력하게 제어할 수 있기 때문입니다. 
+Event Grid 이벤트는 HTTP 요청으로 수신되므로, Event Grid 트리거 대신 HTTP 트리거를 사용하여 이벤트를 처리할 수 있습니다. 이렇게 하는 한 가지 가능한 이유는 함수를 호출하는 끝점 URL을 보다 강력하게 제어할 수 있기 때문입니다. 다른 이유는 [CloudEvents 스키마](../event-grid/cloudevents-schema.md)에서 이벤트를 수신해야 하는 경우입니다. 현재, Event Grid 트리거는 CloudEvents 스키마를 지원하지 않습니다. 이 섹션의 예제는 Event Grid 스키마와 CloudEvents 스키마 둘 다에 대한 솔루션을 보여 줍니다.
 
 HTTP 트리거를 사용하는 경우, 다음과 같이 Event Grid 트리거가 자동으로 수행하는 작업에 대한 코드를 작성해야 합니다.
 
 * 유효성 검사 응답을 [구독 유효성 검사 요청](../event-grid/security-authentication.md#webhook-event-delivery)으로 보냅니다.
 * 요청 본문에 포함된 이벤트 배열의 요소별로 한 번씩 함수를 호출합니다.
 
-HTTP 트리거에 대한 다음 샘플 C# 코드는 Event Grid 트리거 동작을 시뮬레이트합니다.
+함수를 로컬로 호출하거나 Azure에서 실행할 때 사용할 URL에 대한 내용은 [HTTP 트리거 바인딩 참조 설명서](functions-bindings-http-webhook.md)를 참조하세요.
+
+### <a name="event-grid-schema"></a>Event Grid 스키마
+
+HTTP 트리거에 대한 다음 샘플 C# 코드는 Event Grid 트리거 동작을 시뮬레이트합니다. Event Grid 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
 
 ```csharp
 [FunctionName("HttpTrigger")]
@@ -512,7 +515,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-HTTP 트리거에 대한 다음 샘플 JavaScript 코드는 Event Grid 트리거 동작을 시뮬레이트합니다.
+HTTP 트리거에 대한 다음 샘플 JavaScript 코드는 Event Grid 트리거 동작을 시뮬레이트합니다. Event Grid 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
 
 ```javascript
 module.exports = function (context, req) {
@@ -522,10 +525,12 @@ module.exports = function (context, req) {
     // If the request is for subscription validation, send back the validation code.
     if (messages.length > 0 && messages[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
         context.log('Validate request received');
-        context.res = { status: 200, body: JSON.stringify({validationResponse: messages[0].data.validationCode}) }
+        var code = messages[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
     }
     else {
         // The request is not for subscription validation, so it's for one or more events.
+        // Event Grid schema delivers events in an array.
         for (var i = 0; i < messages.length; i++) {
             // Handle one event.
             var message = messages[i];
@@ -540,7 +545,70 @@ module.exports = function (context, req) {
 
 이벤트 처리 코드는 `messages` 배열을 통해 루프로 들어갑니다.
 
-함수를 로컬로 호출하거나 Azure에서 실행할 때 사용할 URL에 대한 내용은 [HTTP 트리거 바인딩 참조 설명서](functions-bindings-http-webhook.md)를 참조하세요. 
+### <a name="cloudevents-schema"></a>CloudEvents 스키마
+
+HTTP 트리거에 대한 다음 샘플 C# 코드는 Event Grid 트리거 동작을 시뮬레이트합니다.  CloudEvents 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
+
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
+{
+    log.Info("C# HTTP trigger function processed a request.");
+
+    var requestmessage = await req.Content.ReadAsStringAsync();
+    var message = JToken.Parse(requestmessage);
+
+    if (message.Type == JTokenType.Array)
+    {
+        // If the request is for subscription validation, send back the validation code.
+        if (string.Equals((string)message[0]["eventType"],
+        "Microsoft.EventGrid.SubscriptionValidationEvent",
+        System.StringComparison.OrdinalIgnoreCase))
+        {
+            log.Info("Validate request received");
+            return req.CreateResponse<object>(new
+            {
+                validationResponse = message[0]["data"]["validationCode"]
+            });
+        }
+    }
+    else
+    {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        log.Info($"Source: {message["source"]}");
+        log.Info($"Time: {message["eventTime"]}");
+        log.Info($"Event data: {message["data"].ToString()}");
+    }
+
+    return req.CreateResponse(HttpStatusCode.OK);
+}
+```
+
+HTTP 트리거에 대한 다음 샘플 JavaScript 코드는 Event Grid 트리거 동작을 시뮬레이트합니다. CloudEvents 스키마에 전달된 이벤트의 경우, 이 예제를 사용합니다.
+
+```javascript
+module.exports = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    var message = req.body;
+    // If the request is for subscription validation, send back the validation code.
+    if (message.length > 0 && message[0].eventType == "Microsoft.EventGrid.SubscriptionValidationEvent") {
+        context.log('Validate request received');
+        var code = message[0].data.validationCode;
+        context.res = { status: 200, body: { "ValidationResponse": code } };
+    }
+    else {
+        // The request is not for subscription validation, so it's for an event.
+        // CloudEvents schema delivers one event at a time.
+        var event = JSON.parse(message);
+        context.log('Source: ' + event.source);
+        context.log('Time: ' + event.eventTime);
+        context.log('Data: ' + JSON.stringify(event.data));
+    }
+    context.done();
+};
+```
 
 ## <a name="next-steps"></a>다음 단계
 

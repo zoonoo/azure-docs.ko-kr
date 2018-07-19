@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/12/2018
 ms.author: tdykstra
-ms.openlocfilehash: d1dec6f2da4f6fcbeb38585fc6a1cfcd9d622c4a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d89170f796355b734facc5e08ad1815a2b865d49
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764590"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342095"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
 
@@ -159,8 +159,11 @@ ms.locfileid: "33764590"
     "MaxConcurrentOrchestratorFunctions": 10,
     "AzureStorageConnectionStringName": "AzureWebJobsStorage",
     "TraceInputsAndOutputs": false,
+    "LogReplayEvents": false,
     "EventGridTopicEndpoint": "https://topic_name.westus2-1.eventgrid.azure.net/api/events",
-    "EventGridKeySettingName":  "EventGridKey"
+    "EventGridKeySettingName":  "EventGridKey",
+    "EventGridPublishRetryCount": 3,
+    "EventGridPublishRetryInterval": "00:00:30"
   }
 }
 ```
@@ -178,8 +181,11 @@ ms.locfileid: "33764590"
 |MaxConcurrentOrchestratorFunctions |현재 컴퓨터에 있는 프로세서 수의 10배입니다.|단일 호스트 인스턴스에서 동시에 처리할 수 있는 작업 함수는 최대 수입니다.|
 |AzureStorageConnectionStringName |AzureWebJobsStorage|기본 Azure Storage 리소스를 관리하는 데 사용되는 Azure Storage 연결 문자열이 있는 앱 설정의 이름입니다.|
 |TraceInputsAndOutputs |false|함수 호출의 입출력을 추적할지 여부를 나타내는 값입니다. 함수 실행 이벤트를 추적할 때의 기본 동작은 함수 호출에 대한 직렬화된 입출력에 바이트 수를 포함하는 것입니다. 이를 통해 로그를 블로트하거나 실수로 로그에 중요한 정보를 노출하지 않고도, 표시될 입출력에 대한 최소한의 정보를 제공할 수 있습니다. 이 속성을 true로 설정하면 기본 함수 로깅이 함수 입출력의 전체 내용을 기록하게 됩니다.|
-|EventGridTopicEndpoint ||Azure Event Grid 사용자 지정 항목 끝점의 URL입니다. 이 속성이 설정되면 오케스트레이션 수명 주기 알림 이벤트가 이 끝점에 게시됩니다.|
-|EventGridKeySettingName ||`EventGridTopicEndpoint`에서 Azure Event Grid 사용자 지정 항목으로 인증하는 데 사용되는 키를 포함하는 앱 설정의 이름입니다.
+|LogReplayEvents|false|Application Insights에 이벤트를 재생하는 오케스트레이션을 작성할 것인지 여부를 나타내는 값입니다.|
+|EventGridTopicEndpoint ||Azure Event Grid 사용자 지정 항목 끝점의 URL입니다. 이 속성이 설정되면 오케스트레이션 수명 주기 알림 이벤트가 이 끝점에 게시됩니다. 이 속성은 앱 설정 해결을 지원합니다.|
+|EventGridKeySettingName ||`EventGridTopicEndpoint`에서 Azure Event Grid 사용자 지정 항목으로 인증하는 데 사용되는 키를 포함하는 앱 설정의 이름입니다.|
+|EventGridPublishRetryCount|0|Event Grid 항목에 게시가 실패하는 경우 다시 시도 횟수입니다.|
+|EventGridPublishRetryInterval|5분|*hh:mm:ss* 형식으로 Event Grid 게시 다시 시도 간격입니다.|
 
 이중 대부분은 성능 최적화를 위한 것입니다. 자세한 내용은 [성능 및 크기 조정](durable-functions-perf-and-scale.md)을 참조하세요.
 

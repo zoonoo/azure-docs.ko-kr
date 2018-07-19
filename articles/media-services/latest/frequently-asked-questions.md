@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: juliako
-ms.openlocfilehash: 7fe59763162ca53ea0256d5902aeece90525f214
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 098a34aba8e5ce23f64d4bb07e3b9622aa2adb8e
+ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660153"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37110423"
 ---
 # <a name="azure-media-services-v3-preview-frequently-asked-questions"></a>Azure Media Services v3(미리 보기) 질문과 대답
 
@@ -30,7 +30,7 @@ ms.locfileid: "34660153"
 
 Media Services 팀이 v3에서 RU를 제거하고 있습니다. 하지만 필요한 서비스 작업이 아직 완료되지 않았습니다. 그때까지 고객이 Azure Portal 또는 AMS v2 API를 사용하여 [미디어 처리 크기 조정](../previous/media-services-scale-media-processing-overview.md)에서 설명한 대로 RU를 설정해야 합니다. 
 
-S3 RU는 **VideoAnalyzerPreset** 및 **AudioAnalyzerPreset** V3 미리 설정에 필요합니다.
+**VideoAnalyzerPreset** 및/또는 **AudioAnalyzerPreset**을 사용하는 경우 Media Services 계정을 10개의 S3 미디어 예약 단위로 설정합니다.
 
 ## <a name="does-v3-asset-have-no-assetfile-concept"></a>V3 Asset에는 AssetFile 개념이 없나요?
 

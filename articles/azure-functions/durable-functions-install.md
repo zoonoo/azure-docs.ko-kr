@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4dd4bbb9c382b772f8f60b259844e7e471ec73e3
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762356"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37343266"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>지속성 함수 확장 및 샘플 설치(Azure Functions)
 
@@ -49,7 +49,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 샘플을 시작할 때와 같은 지침을 따르지만 *.zip* 파일을 다운로드하는 대신 다음 단계를 수행합니다.
 
 1. 함수 앱 프로젝트를 만듭니다.
-2. *패키지 관리*를 사용하는 다음 NuGet 패키지 참조를 검색하고 Microsoft.Azure.WebJobs.Extensions.DurableTask v1.4.0 프로젝트에 추가합니다(이 패키지를 검색하려면 *시험판 포함* 선택).
+2. *패키지 관리*를 사용하여 다음 NuGet 패키지 참조를 검색하고 Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0 프로젝트에 추가합니다.
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -79,7 +79,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 3. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Twilio Extension을 설치합니다.
 
@@ -101,7 +101,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 3. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 4. 명령 프롬프트/터미널 창에서 다음을 실행하여 npm 패키지를 복원합니다.
     
@@ -122,7 +122,7 @@ Visual Studio Code는 주요 플랫폼인 Windows, macOS 및 Linux를 포함하�
 2. 명령 프롬프트/터미널 창에서 다음을 실행하여 Azure Functions Durable Extension을 설치합니다.
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.4.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
     ```
 3. 다음 명령을 실행하여 함수 앱 프로젝트를 만듭니다.
 

@@ -1,24 +1,26 @@
 ---
-title: "Azure Log Analytics의 IIS 로그 | Microsoft Docs"
-description: "IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, Log Analytics 작업 영역에 생성되는 레코드에 대한 자세한 정보를 제공합니다."
+title: Azure Log Analytics의 IIS 로그 | Microsoft Docs
+description: IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  이 문서에서는 IIS 로그 수집을 구성하는 방법을 설명하고, Log Analytics 작업 영역에 생성되는 레코드에 대한 자세한 정보를 제공합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.assetid: cec5ff0a-01f5-4262-b2e8-e3db7b7467d2
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/07/2018
+ms.date: 06/12/2018
 ms.author: bwren
-ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
-ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
+ms.comopnent: na
+ms.openlocfilehash: 65320e7d3cc97a3d53fd1a00fbbeab5559c02fce
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133549"
 ---
 # <a name="iis-logs-in-log-analytics"></a>Log Analytics의 IIS 로그
 IIS(인터넷 정보 서비스)는 Log Analytics에서 수집할 수 있는 로그 파일에 사용자 활동을 저장합니다.  
@@ -33,10 +35,10 @@ Log Analytics는 NCSA 또는 IIS 네이티브 형식의 로그를 수집하지 �
 
 [Log Analytics 설정의 데이터 메뉴](log-analytics-data-sources.md#configuring-data-sources)에서 Log Analytics의 IIS 로그를 구성합니다.  **W3C 형식 IIS 로그 파일 수집**을 선택하는 것 외에 다른 구성은 필요 없습니다.
 
-IIS 로그 수집을 사용하도록 설정하는 경우 각 서버에서 IIS 로그 롤오버 설정을 구성하는 것이 좋습니다.
 
 ## <a name="data-collection"></a>데이터 수집
-Log Analytics는 연결된 각 원본에서 대략 15분마다 IIS 로그 항목을 수집합니다.  에이전트는 수집하는 각 이벤트 로그에 해당 위치를 기록합니다.  에이전트가 오프라인 상태로 전환된 경우 Log Analytics는 마지막으로 오프라인 상태가 유지된 위치에서 이벤트를 수집하며, 이는 에이전트가 오프라인 상태에 있는 동안 해당 이벤트가 생성된 경우에도 마찬가지입니다.
+Log Analytics는 로그가 닫히고 새 로그가 만들어질 때마다 각 에이전트에서 IIS 로그 항목을 수집합니다. 이 빈도는 기본적으로 하루에 한 번인 IIS 사이트에 대한 **로그 파일 롤오버 일정** 설정에 의해 컨트롤됩니다. 예를 들어 설정이 **시간별**인 경우 Log Analytics는 매시간 로그를 수집합니다.  예를 들어 설정이 **일별**인 경우 Log Analytics는 24시간마다 로그를 수집합니다.
+
 
 ## <a name="iis-log-record-properties"></a>IIS 로그 레코드 속성
 IIS 로그 레코드는 **W3CIISLog** 형식이며, 다음 표의 속성이 있습니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 4829ea88e0b6507159c192c111acf8ec7e5088e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ce5acda7e2beca1f3d6367708d5b96a5275b2c7f
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764018"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37340700"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>지속성 함수의 진단(Azure Functions)
 
@@ -67,7 +67,17 @@ Application Insights로 내보낸 추적 데이터에 대한 자세한 정보는
 }
 ```
 
-기본적으로 모든 추적 이벤트를 내보냅니다. 예외 상황에서만 추적 이벤트를 내보내는 경우 `Host.Triggers.DurableTask`를 `"Warning"` 또는 `"Error"`로 설정하여 데이터의 양을 줄일 수 있습니다.
+기본적으로 모든 재생되지 않는 추적 이벤트를 내보냅니다. 예외 상황에서만 추적 이벤트를 내보내는 경우 `Host.Triggers.DurableTask`를 `"Warning"` 또는 `"Error"`로 설정하여 데이터의 양을 줄일 수 있습니다.
+
+자세한 오케스트레이션 재생 이벤트를 내보내도록 설정하려면 다음에 표시된 대로 `durableTask` 아래의 `host.json` 파일에서 `LogReplayEvents`를 `true`로 설정할 수 있습니다.
+
+```json
+{
+    "durableTask": {
+        "logReplayEvents": true
+    }
+}
+```
 
 > [!NOTE]
 > 기본적으로 데이터를 너무 자주 내보내지 않도록 방지하기 위해 Azure Functions 런타임에서 Application Insights 원격 분석을 샘플링합니다. 이로 인해 짧은 기간 동안 많은 수명 주기 이벤트가 발생하면 추적 정보가 손실될 수 있습니다. [Azure Functions 모니터링 문서](functions-monitoring.md#configure-sampling)에서는 이 동작을 구성하는 방법에 대해 설명합니다.
@@ -87,7 +97,7 @@ traces
 | extend state = customDimensions["prop__state"]
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend sequenceNumber = tolong(customDimensions["prop__sequenceNumber"]) 
-| where isReplay == false
+| where isReplay != true
 | where instanceId == targetInstanceId
 | sort by timestamp asc, sequenceNumber asc
 | project timestamp, functionName, state, instanceId, sequenceNumber, appName = cloud_RoleName
@@ -112,7 +122,7 @@ traces
 | extend state = tostring(customDimensions["prop__state"])
 | extend isReplay = tobool(tolower(customDimensions["prop__isReplay"]))
 | extend output = tostring(customDimensions["prop__output"])
-| where isReplay == false
+| where isReplay != true
 | summarize arg_max(timestamp, *) by instanceId
 | project timestamp, instanceId, functionName, state, output, appName = cloud_RoleName
 | order by timestamp asc

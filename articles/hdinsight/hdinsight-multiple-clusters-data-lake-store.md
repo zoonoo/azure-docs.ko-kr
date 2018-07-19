@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 48e5a8d270701c43276e1d248d8ea4dc748d15b2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1d073732b5dd9b9867813d9ffcfad5caa1131d81
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404570"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37101696"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-store-account"></a>Azure Data Lake Store 계정으로 여러 HDInsight 클러스터 사용
 
 HDInsight 버전 3.5 이상에서는 기본 파일 시스템으로 Azure Data Lake Store 계정을 사용하여 HDInsight 클러스터를 만들 수 있습니다.
-Data Lake Store는 많은 양의 데이터 호스팅 뿐만 아니라 단일 Data Lake Store 계정을 공유하는 여러 HDInsight 클러스터 호스팅에 적합하도록 만드는 제한되지 않은 저장소를 지원합니다. 저장소로 Data Lake Store를 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [Data Lake Store를 사용하여 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+Data Lake Store는 많은 양의 데이터 호스팅 뿐만 아니라 단일 Data Lake Store 계정을 공유하는 여러 HDInsight 클러스터 호스팅에 적합하도록 만드는 제한되지 않은 저장소를 지원합니다. Data Lake Store를 저장소로 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
 이 문서에서는 Data Lake Store 관리자에게 여러 **활성** HDInsight 클러스터에서 사용할 수 있는 단일 및 공유 Data Lake Store 계정 설정에 대한 권장 사항을 제공합니다. 이러한 권장 사항은 여러 보안 호스팅 뿐만 아니라 공유 Data Lake Store 계정에서 비보안 Hadoop 클러스터에도 적용됩니다.
 
@@ -51,7 +51,7 @@ HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려�
 - **서비스 주체**는 계정과 연결된 AAD(Azure Active Directory) 서비스 주체입니다.
 - **FINGRP**는 재무 부서의 사용자를 포함하는 AAD에서 만든 사용자 그룹입니다.
 
-AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체도 만듦) [AAD 응용 프로그램을 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. AAD에서 사용자 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 그룹 관리](../active-directory/active-directory-groups-create-azure-portal.md)를 참조하세요.
+AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체도 만듦) [AAD 응용 프로그램을 만들기](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)를 참조하세요. AAD에서 사용자 그룹을 만드는 방법에 대한 자세한 내용은 [Azure Active Directory에서 그룹 관리](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)를 참조하세요.
 
 몇 가지 고려할 주요 사항은 다음과 같습니다.
 
@@ -97,6 +97,6 @@ AAD 응용 프로그램을 만드는 방법에 대한 지침은(서비스 주체
 
 ## <a name="see-also"></a>참고 항목
 
-* [Data Lake 저장소를 저장소로 사용하여 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
+* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 
 

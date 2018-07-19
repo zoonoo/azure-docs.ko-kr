@@ -1,23 +1,25 @@
 ---
-title: "Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털 | Microsoft Docs"
-description: "이 문서에서는 로그 분석을 만들고 편집하는 데 Azure Log Analytics에서 사용할 수 있는 포털을 설명합니다."
+title: Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털 | Microsoft Docs
+description: 이 문서에서는 로그 분석을 만들고 편집하는 데 Azure Log Analytics에서 사용할 수 있는 포털을 설명합니다.
 services: log-analytics
-documentationcenter: 
+documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: 
+editor: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/26/2017
+ms.topic: conceptual
+ms.date: 06/11/2018
 ms.author: magoedte; bwren
-ms.openlocfilehash: b205f226d95d94b938a70a834ac0147e76d459ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: na
+ms.openlocfilehash: e2ea0bf1fb3f1c63f4e6f037e465e8fdfd9a4374
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133495"
 ---
 # <a name="portals-for-creating-and-editing-log-queries-in-azure-log-analytics"></a>Azure Log Analytics에서 로그 쿼리를 만들고 편집하기 위한 포털 | Microsoft Docs
 
@@ -37,9 +39,16 @@ Log Analytics를 통해 다양한 장소에서 로그 검색을 사용하여 작
 ![고급 분석 포털](media/log-analytics-log-search-portals/advanced-analytics-portal.png)
 
 
-고급 기능 덕분에 일반적으로 쿼리를 만들고 편집하는 기본 도구로써 고급 분석 포털을 사용하게 될 것입니다.  쿼리가 예상대로 작동하는 것으로 판단되면, 복사하여 로그 검색 페이지 또는 뷰 디자이너와 같은 다른 곳에 붙여넣습니다.  고급 분석 포털은 여러 줄이 포함된 쿼리를 지원하므로 이 포털에서 쿼리를 복사하는 경우 다음 사항을 고려해야 합니다.
+고급 기능 덕분에 일반적으로 쿼리를 만들고 편집하는 기본 도구로써 고급 분석 포털을 사용하게 될 것입니다.  쿼리가 예상대로 작동하는 것으로 판단되면, 복사하여 로그 검색 페이지 또는 뷰 디자이너와 같은 다른 곳에 붙여넣습니다.  
 
-- 복사하여 다른 위치에 붙여넣기 전에 쿼리에서 주석을 제거해야 합니다.  줄 앞에 슬래시(//) 두 개를 삽입하면 주석을 달 수 있습니다.  여러 줄 쿼리를 한 줄로 붙여넣는 경우 줄 바꿈이 제거됩니다.  주석이 포함되는 경우 첫 번째 주석 이후의 모든 문자는 주석의 일부로 간주됩니다.
+### <a name="firewall-requirements"></a>방화벽 요구 사항
+Advanced Analytics 포털에 액세스하려면 브라우저가 다음 주소에 액세스해야 합니다.  브라우저가 방화벽을 통해 Azure Portal에 액세스하는 경우 이 주소에 대한 액세스를 활성화해야 합니다.
+
+| Uri | IP | 포트 |
+|:---|:---|:---|
+| portal.loganalytics.io | 동적 | 80,443 |
+| api.loganalytics.io    | 동적 | 80,443 |
+| docs.loganalytics.io   | 동적 | 80,443 |
 
 
 ## <a name="next-steps"></a>다음 단계

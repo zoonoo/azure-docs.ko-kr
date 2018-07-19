@@ -2,24 +2,24 @@
 title: Hadoop, Spark, Kafka, HBase 또는 R Server에 대한 클러스터 설정 - Azure HDInsight
 description: 브라우저, Azure CLI, Azure PowerShell, REST 또는 SDK에서 Hadoop, Kafka, Spark, HBase, R Server 또는 HDInsight의 Storm 클러스터를 설정합니다.
 keywords: hadoop 클러스터 설정, kafka 클러스터 설정, spark 클러스터 설정, hadoop에서 클러스터란
-services: hdinsight
+services: storage
 documentationcenter: ''
 author: jamesbak
 manager: jahogg
 tags: azure-portal
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 9c037b35af19b94b6655cf7d1d45ba6b6182879c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 725e79596a919cba4214dba8b3cc86e9bb48cc79
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346589"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136641"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>빠른 시작: HDInsight에서 클러스터 설정
 
@@ -38,7 +38,7 @@ Data Lake Storage는 이 빠른 시작에서 데이터 계층으로 사용됩니
 
 | 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK) | 
 | --- |:---:|:---:|:---:|:---:|
-| [Azure Portal](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
+| [Azure 포털](../../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure 데이터 팩터리](../../hdinsight/hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
 | [Azure CLI(버전 1.0)](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](../../hdinsight/hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
@@ -56,7 +56,7 @@ Data Lake Storage는 이 빠른 시작에서 데이터 계층으로 사용됩니
 * [리소스 그룹 이름](#resource-group-name)
 * [클러스터 유형 및 구성](#cluster-types) 
 * [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-user-name)
-* [위치](#location)
+* [위치](#location):
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중지](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

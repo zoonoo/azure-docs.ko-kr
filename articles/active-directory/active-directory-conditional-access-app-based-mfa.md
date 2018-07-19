@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2018
+ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 1501ca1c036a8db1d53b9b27170d9ae05d41f797
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 0a2cddec1308b96b960cd0bbc5ccae9fd1a1a9a7
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724118"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37449397"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구 
 
@@ -42,8 +42,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 - **Azure AD Premium Edition에 대한 액세스 권한** - Azure AD 조건부 액세스는 Azure AD Premium 기능입니다. 
 
-- **Isabella Simonsen이라고 하는 테스트 계정** - 테스트 계정을 만드는 방법을 모르는 경우 [클라우드 기반 사용자 추가](add-users-azure-active-directory.md#add-cloud-based-users)를 참조하세요.
+- **Isabella Simonsen이라고 하는 테스트 계정** - 테스트 계정을 만드는 방법을 모르는 경우 [클라우드 기반 사용자 추가](fundamentals/add-users-azure-active-directory.md#add-cloud-based-users)를 참조하세요.
 
+
+## <a name="test-your-sign-in"></a>로그인 테스트
+
+이 단계의 목표는 조건부 액세스 정책 없이 로그인 환경의 첫 느낌을 살펴보는 것입니다.
+
+**환경을 초기화하려면:**
+
+1. Azure Portal에 Isabella Simonsen으로 로그인합니다.
+
+2. 로그아웃합니다.
 
 
 ## <a name="create-your-conditional-access-policy"></a>조건부 액세스 정책 만들기 
@@ -69,7 +79,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 **조건부 액세스 정책을 구성하려면:**
 
-1. 전역 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
 
 2. Azure Portal의 왼쪽 탐색 모음에서 **Azure Active Directory**를 클릭합니다. 
 
@@ -179,7 +189,7 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 
     다. **선택**을 클릭합니다.
 
-    d. **선택** 페이지에서 Microsoft Azure 관리**를 선택한 다음, **선택**을 클릭합니다.
+    d. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 다음, **선택**을 클릭합니다.
 
     e. 클라우드 앱 페이지에서 **완료**를 클릭합니다.
 
@@ -199,7 +209,7 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 
 테스트 사용자 및 조건부 액세스 정책이 더 이상 필요 없으면 삭제합니다.
 
-- Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](add-users-azure-active-directory.md#delete-users-from-azure-ad)를 참조하세요.
+- Azure AD 사용자를 삭제하는 방법을 모르겠으면 [Azure AD에서 사용자 삭제](fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad)를 참조하세요.
 
 - 정책을 삭제하려면 정책을 선택하고, 빠른 실행 도구 모음에서 **삭제**를 클릭합니다.
 
@@ -208,5 +218,6 @@ what if 정책 평가 도구를 초기화하려면 다음을 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 조건부 액세스](active-directory-conditional-access-azure-portal.md)를 참조하세요.
-
+> [!div class="nextstepaction"]
+> [허용할 사용 약관 필요](./active-directory-conditional-access-tou.md)
+> [세션 위험이 감지되면 액세스 차단](./active-directory-conditional-access-app-sign-in-risk.md)

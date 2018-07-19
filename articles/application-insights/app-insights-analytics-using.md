@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 07/02/2018
 ms.reviewer: danha
 ms.author: mbullwin
-ms.openlocfilehash: 7f8f49cf88bda8e485d2365281c13680ef796196
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: aa86e2f3b1fb147ab167c948475a5207693143c2
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295522"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37341565"
 ---
 # <a name="using-analytics-in-application-insights"></a>Application Insights에서 Analytics 사용
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
@@ -151,7 +151,7 @@ IntelliSense에 사용할 수 있는 연산자 및 식 요소를 지정하라는
 
 차트를 대시보드에 고정할 때 특정 단순화가 적용됩니다.
 
-**시간 제한:** 쿼리는 지난 14일로 자동으로 제한됩니다. 이는 쿼리에 `where timestamp > ago(14d)`를 포함한 것과 같습니다.
+**시간 제한:** 쿼리는 지난 30일로 자동으로 제한됩니다. 이는 쿼리에 `where timestamp > ago(30d)`를 포함한 것과 같습니다.
 
 **Bin 수 제한:** 수많은 불연속 막대(일반적으로 가로 막대형 차트)가 있는 차트를 표시할 경우 덜 채워진 막대가 하나의 "기타" 막대로 자동으로 그룹화됩니다. 예를 들어 다음 쿼리는
 

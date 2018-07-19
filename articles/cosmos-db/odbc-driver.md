@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 11e0a4e38739a775d977cf76b72d4dc92942a7b0
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725094"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37096512"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -63,7 +63,7 @@ Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 �
 4. Azure Cosmos DB 계정에 연결할 수 있는지 확인하려면 **테스트** 단추를 클릭합니다. 
 5. **고급 옵션**을 클릭하고 다음 값을 설정합니다.
     - **쿼리 일관성**: 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
-    - **재시도 횟수**: 초기 요청이 서비스 조정으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
+    - **재시도 횟수**: 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
     - **스키마 파일**: 다양한 옵션이 있습니다.
         - 기본적으로 이 항목을 있는 그대로(비어 있음) 두면 드라이버는 첫 번째 페이지 데이터에서 모든 컬렉션을 검색하여 각 컬렉션의 스키마를 확인합니다. 이 작업을 컬렉션 매핑이라고 합니다. 정의된 스키마 파일이 없이 경우 이 드라이버는 각 드라이버 세션을 검색하므로, DSN을 사용하는 응용 프로그램의 시작 시간이 더 늘어날 수 있습니다. 따라서 DSN에 대한 스키마 파일을 항상 연결하는 것이 좋습니다.
         - 스키마 파일이 이미 있는 경우([스키마 편집기](#schema-editor)를 사용하여 만들었을 수 있음) **찾아보기**를 클릭하고 해당 파일로 이동한 후 **저장**을 클릭하고 **확인**을 클릭합니다.

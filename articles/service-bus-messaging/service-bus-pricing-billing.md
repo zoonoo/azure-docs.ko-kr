@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/22/2017
-ms.locfileid: "27159789"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37448410"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus 가격 및 대금 청구
 
@@ -39,7 +39,10 @@ Service Bus는 다음 두 미터를 큐와 토픽/구독에 사용합니다.
 
 **프리미엄** 계층은 각 고객의 작업이 따로 실행되도록 CPU 및 메모리 계층에서 리소스 격리를 제공합니다. 이 리소스 컨테이너를 *메시징 단위*라고 합니다. 각 프리미엄 네임스페이스에는 하나 이상의 메시징 단위가 할당됩니다. 각 Service Bus 프리미엄 네임스페이스에 대해 1, 2 또는 4 메시징 단위를 구입할 수 있습니다. 요금은 24시간 단위 또는 일별 요금으로 부과되더라도 단일 워크로드 또는 엔터티가 여러 메시징 단위에 걸쳐 있을 수 있고 메시징 단위 수를 변경할 수도 있습니다. 그 결과, Service Bus 기반 솔루션에 대해 예측 가능하고 반복 가능한 성능이 구현됩니다. 이로 인해 예측 가능성 및 가용성도 높아질 뿐 아니라 속도도 더 빨라집니다.
 
-표준 기본 계층 기본 요금은 Azure 구독별로 매월 한 번만 청구됩니다. 즉, 표준 계층 Service Bus 네임스페이스를 하나 만든 후에는 추가 기본 요금을 발생시키지 않으면서 동일한 Azure 구독에서 추가로 표준 네임스페이스를 원하는 만큼 만들 수 있습니다.
+> [!NOTE]
+> 토픽 및 구독은 표준 또는 프리미엄 가격 책정 계층에서만 사용할 수 있습니다. 기본 계층은 큐만 지원합니다.
+
+표준 계층 기본 요금은 Azure 구독당 매월 한 번만 청구됩니다. 즉, 표준 계층 Service Bus 네임스페이스를 하나 만든 후에는 추가 기본 요금을 발생시키지 않으면서 동일한 Azure 구독에서 추가로 표준 네임스페이스를 원하는 만큼 만들 수 있습니다.
 
 다음 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/) 표에서는 표준 및 프리미엄 계층 간의 기능적 차이점에 대해 요약합니다.
 

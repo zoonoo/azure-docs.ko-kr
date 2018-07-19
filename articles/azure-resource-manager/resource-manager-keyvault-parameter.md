@@ -4,27 +4,34 @@ description: 배포하는 동안 키 자격 증명 모음의 비밀을 매개 �
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 editor: tysonn
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/11/2018
+ms.date: 07/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6a6c1f10b5a46633785d9c26a766df9334fe1cb0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3a29319a0d478537dfc4905ee77865b8fea64587
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359097"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598410"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달
 
-배포 중에 보안 값(예: 암호)을 매개 변수로 전달해야 할 경우 [Azure Key Vault](../key-vault/key-vault-whatis.md)에서 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. 리소스를 배포할 때마다 수동으로 비밀 값을 입력하지 않아도 됩니다. Key Vault는 배포하는 리소스 그룹과는 다른 구독에 있을 수 있습니다. Key Vault를 참조할 때는 구독 ID를 포함합니다.
+배포 중에 보안 값(예: 암호)을 매개 변수로 전달해야 할 경우 [Azure Key Vault](../key-vault/key-vault-whatis.md)에서 값을 검색할 수 있습니다. 매개 변수 파일에서 Key Vault 및 비밀을 참조하여 이 값을 검색합니다. 해당 Key Vault ID만 참조하므로 이 값은 절대 노출되지 않습니다. Key Vault는 배포하는 리소스 그룹과는 다른 구독에 있을 수 있습니다.
 
-Key Vault를 만들 때는 *enabledForTemplateDeployment* 속성을 *true*로 설정합니다. 이 값을 true로 설정하면 배포 중에 Resource Manager 템플릿으로부터의 액세스가 허용됩니다.
+## <a name="enable-access-to-the-secret"></a>비밀에 대한 액세스를 사용하도록 설정
+
+템플릿 배포 중에 키 자격 증명 모음에 액세스하는 데 필요한 두 가지 중요한 조건이 있습니다.
+
+1. 키 자격 증명 모음 속성 `enabledForTemplateDeployment`가 `true`여야 합니다.
+2. 템플릿을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 사용자에게 키 자격 증명 모음에 대한 `Microsoft.KeyVault/vaults/deploy/action` 권한이 있어야 합니다. [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다.
+
+[관리되는 응용 프로그램](../managed-applications/overview.md) 템플릿과 함께 Key Vault를 사용하는 경우, **어플라이언스 리소스 공급자** 서비스 주체에 액세스를 허용해야 합니다. 자세한 내용은 [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md)(Azure Managed Applications를 배포할 때 Key Vault 비밀 액세스)를 참조하세요.
+
 
 ## <a name="deploy-a-key-vault-and-secret"></a>키 자격 증명 모음 및 비밀 배포
 
@@ -60,10 +67,6 @@ New-AzureRmKeyVault `
 $secretvalue = ConvertTo-SecureString $password -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName $vaultname -Name "examplesecret" -SecretValue $secretvalue
 ```
-
-## <a name="enable-access-to-the-secret"></a>비밀에 대한 액세스를 사용하도록 설정
-
-새 Key Vault를 사용하든, 기존 Key Vault를 사용하든, 템플릿을 배포하는 사용자가 비밀에 액세스할 수 있어야 합니다. 비밀을 참조하는 템플릿을 배포하는 사용자에게는 Key Vault에 대한 `Microsoft.KeyVault/vaults/deploy/action` 권한이 있어야 합니다. [소유자](../role-based-access-control/built-in-roles.md#owner) 및 [참여자](../role-based-access-control/built-in-roles.md#contributor) 역할 모두 이 액세스 권한을 부여합니다.
 
 ## <a name="reference-a-secret-with-static-id"></a>정적 ID로 비밀 참조
 

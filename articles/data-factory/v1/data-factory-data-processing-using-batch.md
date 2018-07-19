@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f6b2be357ad53a1852973d40e221da3d41b09ffb
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: b097a85ee97fb815106803ab95f3e4f6edde4896
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050576"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136675"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 > [!NOTE]
@@ -975,7 +975,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
   * [Batch의 기본 사항](../../batch/batch-technical-overview.md)
   * [Batch 기능 개요](../../batch/batch-api-basics.md)
   * [Azure Portal에서 Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)
-  * [.NET용 Batch 클라이언트 라이브러리 시작](../../batch/batch-dotnet-get-started.md)
+  * [.NET용 Batch 클라이언트 라이브러리 시작](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
 [batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

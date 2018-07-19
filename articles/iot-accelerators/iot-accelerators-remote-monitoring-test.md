@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8a528265acc3e0bee24da6c1b6130082815b9fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628262"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37088461"
 ---
 # <a name="create-a-new-simulated-device"></a>시뮬레이션된 새 장치 만들기
 
@@ -191,15 +191,15 @@ ms.locfileid: "34628262"
 
 장치 시뮬레이션 서비스를 수정하면 변경 내용을 테스트하도록 로컬로 실행할 수 있습니다. 장치 시뮬레이션 서비스를 로컬로 실행하기 전에 다음과 같이 가상 머신에서 실행 중인 인스턴스를 중지해야 합니다.
 
-1. **device-simulation** 서비스의 **CONTAINER ID**를 찾으려면 가상 머신에 연결된 SSH 세션에서 다음 명령을 실행합니다.
+1. **device-simulation-dotnet** 서비스의 **컨테이너 ID**를 찾으려면 가상 머신에 연결된 SSH 세션에서 다음 명령을 실행합니다.
 
     ```sh
     docker ps
     ```
 
-    **device-simulation** 서비스의 컨테이너 ID를 적어 둡니다.
+    **device-simulation-dotnet** 서비스의 컨테이너 ID를 적어둡니다.
 
-1. **device-simulation** 컨테이너를 중지하려면 다음 명령을 실행합니다.
+1. **device-simulation-dotnet** 컨테이너를 중지하려면 다음 명령을 실행합니다.
 
     ```sh
     docker stop container-id-from-previous-step
@@ -248,12 +248,6 @@ ms.locfileid: "34628262"
 ## <a name="create-a-simulated-device-type"></a>시뮬레이트된 장치 유형 만들기
 
 장치 시뮬레이션 서비스에서 새 장치 유형을 만드는 가장 쉬운 방법은 기존 유형을 복사하고 수정하는 것입니다. 다음 단계에서는 기본 제공 **냉각기** 장치를 복사하여 새 **전구** 장치를 만드는 방법을 보여 줍니다.
-
-1. Visual Studio에서 **device-simulation.sln** 솔루션 파일을 **device-simulation** 리포지토리의 로컬 복제본에서 엽니다.
-
-1. 솔루션 탐색기에서 **SimulationAgent** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **디버그**를 선택합니다.
-
-1. **환경 변수** 섹션에서 **PCS\_IOTHUB\_CONNSTRING** 변수를 이전에 적어 두었던 IoT Hub 연결 문자열로 편집합니다. 그런 다음, 변경 사항을 저장합니다.
 
 1. 솔루션 탐색기에서 **WebService** 프로젝트를 마우스 오른쪽 단추로 클릭하고 **속성**을 선택한 다음, **디버그**를 선택합니다.
 
@@ -385,18 +379,21 @@ ms.locfileid: "34628262"
 1. 다음 코드 조각과 같이 **main** 함수를 편집하여 동작을 구현합니다.
 
     ```js
-    function main(context, previousState) {
+    function main(context, previousState, previousProperties) {
 
-      // Restore the global state before generating the new telemetry, so that
-      // the telemetry can apply changes using the previous function state.
-      restoreState(previousState);
+        // Restore the global device properties and the global state before
+        // generating the new telemetry, so that the telemetry can apply changes
+        // using the previous function state.
+        restoreSimulation(previousState, previousProperties);
 
-      state.temperature = vary(200, 5, 150, 250);
+        state.temperature = vary(200, 5, 150, 250);
 
-      // Make this flip every so often
-      state.status = flip(state.status);
+        // Make this flip every so often
+        state.status = flip(state.status);
 
-      return state;
+        updateState(state);
+
+        return state;
     }
     ```
 
@@ -545,11 +542,11 @@ ms.locfileid: "34628262"
 
     스크립트는 **테스팅** 태그를 이미지에 추가합니다.
 
-1. SSH를 사용하여 Azure에서 솔루션의 가상 머신에 연결합니다. 그런 다음, **앱** 폴더로 이동하여 **docker-compose.yaml** 파일을 편집합니다.
+1. SSH를 사용하여 Azure에서 솔루션의 가상 머신에 연결합니다. 그런 다음, **앱** 폴더로 이동하여 **docker-compose.yml** 파일을 편집합니다.
 
     ```sh
     cd /app
-    sudo nano docker-compose.yaml
+    sudo nano docker-compose.yml
     ```
 
 1. Docker 이미지를 사용하도록 장치 시뮬레이션 서비스에 대한 항목을 편집합니다.
@@ -605,7 +602,7 @@ ms.locfileid: "34628262"
 
 다음 단계에서는 기본 제공 **냉각기** 장치를 정의하는 파일을 찾는 방법을 보여 줍니다.
 
-1. 아직 그렇게 하지 않은 경우 다음 명령을 사용하여 로컬 컴퓨터에 **장치-시뮬레이션** GitHub 리포지토리를 복제합니다.
+1. 아직 그렇게 하지 않은 경우 다음 명령을 사용하여 로컬 머신에 **device-simulation-dotnet** GitHub 리포지토리를 복제합니다.
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
@@ -673,9 +670,9 @@ ms.locfileid: "34628262"
 
 ### <a name="test-the-chiller-device-type"></a>냉각기 장치 유형 테스트
 
-업데이트된 **냉각기** 장치 유형을 테스트하기 위해 먼저 **device-simulation** 서비스의 로컬 복사본을 실행하여 장치 유형이 예상대로 동작하는지 테스트합니다. 업데이트된 장치 유형을 로컬로 테스트 및 디버그하면 컨테이너를 다시 빌드하고 **장치-시뮬레이션** 서비스를 Azure로 다시 배포할 수 있습니다.
+업데이트된 **냉각기** 장치 유형을 테스트하기 위해 먼저 **device-simulation-dotnet** 서비스의 로컬 복사본을 실행하여 장치 유형이 예상대로 동작하는지 테스트합니다. 업데이트된 장치 유형을 로컬로 테스트 및 디버그하면 컨테이너를 다시 빌드하고 **device-simulation-dotnet** 서비스를 Azure로 다시 배포할 수 있습니다.
 
-**장치-시뮬레이션** 서비스를 로컬에서 실행하는 경우 원격 분석 솔루션에 원격 분석 데이터를 보냅니다. **장치** 페이지에서 업데이트된 유형의 인스턴스를 프로비전할 수 있습니다.
+**device-simulation-dotnet** 서비스를 로컬에서 실행하는 경우 원격 분석 솔루션에 원격 분석 데이터를 보냅니다. **장치** 페이지에서 업데이트된 유형의 인스턴스를 프로비전할 수 있습니다.
 
 변경 내용을 로컬로 테스트 및 디버그하려면 이전 섹션인 [전구 장치 유형을 로컬로 테스트](#test-the-lightbulb-device-type-locally)를 참조하세요.
 

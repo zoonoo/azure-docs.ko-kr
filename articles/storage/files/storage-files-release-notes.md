@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: wgries
-ms.openlocfilehash: 946311c42088d3a5840eb35387c8a552d3d5d70f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c1ca8146db8c5d67be53ba4e30d8ab0218aca104
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34735647"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37128761"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -25,7 +25,8 @@ Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| 새로 고침 2 | 3.0.12.0 | 2018년 5월 22일 | 지원됨(권장 버전) |
+| 6월 업데이트 롤업 | 3.0.13.0 | 2018년 6월 29일 | 지원됨(권장 버전) |
+| 새로 고침 2 | 3.0.12.0 | 2018년 5월 22일 | 지원됨 |
 | 4월 업데이트 롤업 | 2.3.0.0 | 2018년 5월 8일 | 지원됨 |
 | 3월 업데이트 롤업 | 2.2.0.0 | 2018년 3월 12일 | 지원됨 |
 | 2월 업데이트 롤업 | 2.1.0.0 | 2018년 2월 28일 | 지원됨 |
@@ -37,6 +38,12 @@ Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-30130"></a>에이전트 버전 3.0.13.0
+다음 릴리스 정보는 2018년 6월 29일 릴리스된 Azure File Sync 에이전트의 버전 3.0.13.0에 대한 것입니다. 이러한 정보는 버전 3.0.12.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
+
+이 릴리스에는 다음과 같은 수정 사항이 포함됩니다.
+- 서버를 기존 동기화 그룹에 추가하거나 재분석 지점이 서버의 서버 엔드포인트 위치에 존재하는 경우 동기화에 실패합니다.
 
 ## <a name="agent-version-30120"></a>에이전트 버전 3.0.12.0
 다음 릴리스 정보는 2018년 5월 22일 릴리스된 Azure File Sync 에이전트의 버전 3.0.12.0에 대한 것입니다.

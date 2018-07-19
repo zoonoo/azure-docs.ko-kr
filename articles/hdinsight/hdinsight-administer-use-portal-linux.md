@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: jgao
-ms.openlocfilehash: b672b777e9a60f2f3d978947c06290db48e6766c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bcfa7a6b9a2ebd60ec804fe8a61c26300f003a5e
+ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627026"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37097787"
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure 포털을 사용하여 HDInsight의 Hadoop 클러스터 관리
 
@@ -105,7 +105,7 @@ NoRegisteredProviderFound 오류 또는 MissingSubscriptionRegistration 오류�
     * **모니터링**: Azure Log Analytics에서 클러스터를 모니터링합니다.
     * **속성**: 클러스터 속성을 표시합니다.
     * **Storage 계정**: Storage 계정 및 키를 봅니다. 저장소 계정은 클러스터를 만드는 과정에서 구성됩니다.
-    * **Data Lake Store 액세스**: Data Lake Stores에 대한 액세스를 구성합니다.  [Azure Portal을 사용하여 Data Lake Store가 있는 HDInsight 클러스터 만들기](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요.
+    * **Data Lake Store 액세스**: Data Lake Stores에 대한 액세스를 구성합니다.  [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
     * **리소스 상태**: [Azure Resource Health 개요](../service-health/resource-health-overview.md)를 참조하세요.
     * **새 지원 요청**: Microsoft 지원에 지원 티켓을 만들 수 있습니다.
     

@@ -3,7 +3,7 @@ title: 클라우드 서비스에 대해 SSL 구성 | Microsoft Docs
 description: 웹 역할에 대해 HTTPS 끝점을 지정하는 방법 및 응용 프로그램 보안을 위해 SSL 인증서를 업로드하는 방법에 대해 알아봅니다. 이 예제는 Azure 포털을 사용합니다.
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 ms.assetid: 371ba204-48b6-41af-ab9f-ed1d64efe704
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
-ms.author: adegeo
-ms.openlocfilehash: 0e053ad7f1033317948b6ef0856984b21e56e425
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.author: jeconnoc
+ms.openlocfilehash: e3e7d271375cd9c3f49d8fedd963b5234dab7902
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24859779"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001527"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Azure에서 응용 프로그램에 대한 SSL 구성
 

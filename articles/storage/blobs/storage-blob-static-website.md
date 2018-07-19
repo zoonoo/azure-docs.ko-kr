@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: 7021a0499547818d702d14aecb9d8e451a820181
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025323"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131612"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Azure Storage에서 정적 웹 사이트 호스팅(미리 보기)
 Azure Storage는 이제 Azure에서 비용 효율적이고 확장 가능한 최신 웹 응용 프로그램을 배포할 수 있도록 하는 정적 웹 사이트를 호스팅을 제공합니다(미리 보기). 정적 웹 사이트에서 웹 페이지는 정적 콘텐츠 및 JavaScript 또는 기타 클라이언트 쪽 코드를 포함합니다. 반면 동적 웹 사이트는 서버 쪽 코드에 따라 다르며 [Azure Web Apps](/app-service/app-service-web-overview.md)를 사용하여 호스팅할 수 있습니다.
@@ -43,6 +43,9 @@ Azure Storage에서 웹 응용 프로그램 호스팅을 시작하려면 Azure P
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
 정적 웹 사이트 사용의 일부로 생성된 "$web" 컨테이너에 웹 자산을 업로드합니다. Azure Portal에서 직접 수행하거나 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 전체 디렉터리 구조를 업로드할 수 있습니다. 구성한 이름으로 인덱스 문서를 포함해야 합니다. 이 예제에서 문서의 이름은 "index.html"입니다.
+
+> [!NOTE]
+> 문서 이름은 대/소문자를 구분하므로 저장소파의 일 이름과 정확히 일치해야 합니다.
 
 마지막으로 웹 엔드포인트로 이동하여 웹 사이트를 테스트합니다.
 

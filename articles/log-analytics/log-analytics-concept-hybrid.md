@@ -3,7 +3,7 @@ title: Azure Log Analytics를 사용하여 환경에서 데이터 수집 | Micro
 description: 이 항목에서는 Log Analytics를 사용하여 데이터를 수집하고 온-프레미스 또는 다른 클라우드 환경에 호스트된 컴퓨터를 모니터링하는 방법을 이해할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: magoedte
-ms.openlocfilehash: 5bf1e12c958fef0cb20eaad8cece8cadb380c196
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: na
+ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235943"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133522"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집
 
@@ -96,7 +97,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](/log-analytic
 예: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
-> 암호에 “@”과 같은 특수 문자를 사용하는 경우 값이 잘못 구문 분석되므로 프록시 연결 오류가 발생합니다.  이 문제를 해결하려면 [URLDecode](https://www.urldecoder.org/)와 같은 도구를 사용하여 URL에서 암호를 인코드합니다.  
+> 암호에 “\@”과 같은 특수 문자를 사용하는 경우 값이 잘못 구문 분석되므로 프록시 연결 오류가 발생합니다.  이 문제를 해결하려면 [URLDecode](https://www.urldecoder.org/)와 같은 도구를 사용하여 URL에서 암호를 인코드합니다.  
 
 ## <a name="install-and-configure-agent"></a>에이전트 설치 및 구성 
 요구 사항에 따라 다른 방법을 사용하여 Log Analytics와 온-프레미스 컴퓨터를 직접 연결할 수 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.

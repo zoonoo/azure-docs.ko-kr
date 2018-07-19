@@ -1,20 +1,17 @@
 ---
 title: 'BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역 | Microsoft Docs'
 description: Azure 지역 쌍을 통해 데이터 센터 오류 중 응용 프로그램의 복원성을 유지하는 방법에 대해 알아봅니다.
-services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: carmonm
 ms.service: multiple
 ms.topic: article
-ms.date: 05/09/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: e2c288af881fa925c1680efdb0f86deec60b7510
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 13a2b78b50b1b10975a90c1da38810f1a62a6bb5
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302681"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37436912"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -32,8 +29,8 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 |:--- |:--- |:--- |
 | 아시아 |동아시아 |동남아시아 |
 | 오스트레일리아 |오스트레일리아 동부 |오스트레일리아 남동부 |
-| 오스트레일리아 |오스트레일리아 중부 |오스트레일리아 중부(2) |
-| 브라질 |브라질 남부(2) |미국 중남부 |
+| 오스트레일리아 |오스트레일리아 중부 |오스트레일리아 중부 2 |
+| 브라질 |브라질 남부 2 |미국 중남부 |
 | 캐나다 |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
 | 유럽 |북유럽 |서유럽 |

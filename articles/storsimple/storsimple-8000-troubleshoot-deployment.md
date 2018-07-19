@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: d6642231bf9d012b0015902c82d2bfde3b86285c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61719d482a4db1c737bbe38277f2ac3b2d684b63
+ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112261"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37342436"
 ---
 # <a name="troubleshoot-storsimple-device-deployment-issues"></a>StorSimple 장치 배포 문제 해결
 ## <a name="overview"></a>개요
@@ -69,7 +69,7 @@ ms.locfileid: "23112261"
 * 장치를 등록합니다.
 
 ## <a name="errors-during-the-required-network-settings"></a>필요한 네트워크 설정 중 오류
-| 번호 | 오류 메시지 | 가능한 원인 | 권장 작업 |
+| 아니요. | 오류 메시지 | 가능한 원인 | 권장 작업 |
 | --- | --- | --- | --- |
 | 1 |Invoke-HcsSetupWizard:이 명령은 활성 컨트롤러에서만 실행할 수 있습니다. |수동 컨트롤러에서 구성을 수행합니다. |활성 컨트롤러에서 이 명령을 실행합니다. 자세한 내용은 [장치에서 활성 컨트롤러 식별](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device)을 참조하세요. |
 | 2 |Invoke-HcsSetupWizard: 장치가 준비되지 않았습니다. |데이터 0에 대한 네트워크 연결 문제가 있습니다. |데이터 0에 대한 실제 네트워크 연결을 확인합니다. |
@@ -103,7 +103,7 @@ ms.locfileid: "23112261"
 
 장치 관리자 및 StorSimple Snapshot Manager 암호를 설정할 때 다음 오류 중 하나 이상이 발생할 수 있습니다.
 
-| 번호 | 오류 메시지 | 권장 작업 |
+| 아니요. | 오류 메시지 | 권장 작업 |
 | --- | --- | --- |
 | 1 |암호는 최대 길이를 초과합니다. |장치 관리자 암호는 8자에서 15자 사이여야 합니다. |
 | 2 |암호가 필요한 길이에 맞지 않습니다. |장치 관리자 암호는 8자에서 15자 사이여야 합니다.|
@@ -126,7 +126,7 @@ StorSimple 장치 관리자 서비스를 통해 Azure Portal에서 암호를 재
 ## <a name="errors-during-device-registration"></a>장치 등록 중 오류
 Microsoft Azure에서 실행되는 StorSimple 장치 관리자 서비스를 사용하여 장치를 등록합니다. 장치를 등록하는 동안 다음 문제 중 하나 이상이 발생할 수 있습니다.
 
-| 번호 | 오류 메시지 | 가능한 원인 | 권장 작업 |
+| 아니요. | 오류 메시지 | 가능한 원인 | 권장 작업 |
 | --- | --- | --- | --- |
 | 1 |오류 350027: StorSimple 장치 관리자를 사용하여 장치를 등록하지 못했습니다. | |몇 분간 기다린 다음 작업을 다시 시도하세요. 문제가 지속되면, [Microsoft 지원에 문의](storsimple-8000-contact-microsoft-support.md)하세요. |
 | 2 |오류 350013: 장치를 등록 하는 중에 오류가 발생했습니다. 잘못된 서비스 등록 키 때문일 수 있습니다. | |올바른 서비스 등록 키로 장치를 다시 등록하십시오. 자세한 내용은 [서비스 등록 키 받기](storsimple-8000-manage-service.md#get-the-service-registration-key)를 참조하세요. |
@@ -189,7 +189,7 @@ StorSimple은 StorSimple 솔루션 문제를 해결하는데 사용할 수 있�
    * 인터페이스가 정상 상태이지만 사용 불가능한 경우 **ifIndex** 상태가 **표시되지 않음**으로 나타납니다.
    * 인터페이스가 없는 경우 이 목록에 나타나지 않습니다. StorSimple 장치 관리자 서비스 UI에서는 이 인터페이스가 계속 실패한 상태로 표시됩니다.
 
-이 cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell cmdlet 참조의 [GetNetAdapter](https://technet.microsoft.com/library/jj130867.aspx)로 이동합니다.
+이 cmdlet을 사용하는 방법에 대한 자세한 내용은 Windows PowerShell cmdlet 참조의 [Get-NetAdapter](https://docs.microsoft.com/powershell/module/netadapter/get-netadapter?view=win10-ps)로 이동합니다.
 
 다음 섹션에서는 샘플 `Get-NetAdapter` cmdlet의 출력 샘플을 표시합니다.
 
@@ -280,7 +280,7 @@ Ping이 비활성화된 경우 ping을 활성화하여 이 cmdlet과 연결 문�
    
    * ErrorCode.CiSApplianceAgentNotOnline
    * ErrorCode.CisPowershellScriptHcsError – Get-ClusterResource를 실행할 때 예외가 있음을 나타냅니다.
-4. ACS(액세스 제어 서비스) 토큰을 확인합니다. 웹 예외가 발생한 경우, 게이트웨이 문제, 프록시 인증 누락, 잘못된 DNS 또는 인증 오류의 결과일 수 있습니다. 다음 오류가 표시될 수 있습니다.
+4. ACS(Access Control Service) 토큰을 확인합니다. 웹 예외가 발생한 경우, 게이트웨이 문제, 프록시 인증 누락, 잘못된 DNS 또는 인증 오류의 결과일 수 있습니다. 다음 오류가 표시될 수 있습니다.
    
    * ErrorCode.CiSApplianceGateway – HttpStatusCode.BadGateway 예외를 표시합니다. 이름 확인자 서비스는 호스트 이름을 확인할 수 없습니다.
    * ErrorCode.CiSApplianceProxy – HttpStatusCode.ProxyAuthenticationRequired 예외(HTTP 상태 코드 407)를 표시합니다. 클라이언트는 프록시 서버와 인증할 수 없습니다.

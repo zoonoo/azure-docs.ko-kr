@@ -3,7 +3,7 @@ title: Azure Log Analytics에 Windows 컴퓨터 연결 | Microsoft Docs
 description: 이 문서에서는 MMA(Microsoft Monitoring Agent)를 사용하여 다른 클라우드 또는 온-프레미스에 호스트된 Windows 컴퓨터를 Log Analytics에 연결하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
-ms.openlocfilehash: 342387edb3793358d041702eaa6d76b462aef527
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: df61ef74d95dd9305fa8d97758bf07bcb40d54a6
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637415"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37131389"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -32,7 +33,7 @@ Log Analytics를 사용하여 로컬 데이터 센터 또는 기타 클라우드
 * 수동 설치. 설치 프로그램은 설치 마법사를 사용하여 컴퓨터에서 실행하거나, 명령줄에서 실행하거나, 기존 소프트웨어 배포 도구를 사용하여 배포할 수 있습니다.
 * Azure Automation DSC(Desired State Configuration). 환경에 이미 배포된 Windows 컴퓨터용 스크립트를 사용하여 Azure Automation에서 DSC 사용.  
 * PowerShell 스크립트.
-* Azure Stack에서 온-프레미스로 Windows를 실행하는 가상 머신용 Resource Manager 템플릿.  
+* Azure Stack에서 Windows 온-프레미스를 실행하는 가상 머신의 Resource Manager 템플릿.  
 
 지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-concept-hybrid.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-concept-hybrid.md#network-firewall-requirements)을 검토합니다.
 

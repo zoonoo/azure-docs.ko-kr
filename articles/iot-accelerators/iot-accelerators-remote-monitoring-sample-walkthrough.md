@@ -1,6 +1,6 @@
 ---
-title: 원격 모니터링 솔루션의 아키텍처 - Azure | Microsoft Docs
-description: 원격 모니터링 솔루션 가속기의 아키텍처 둘러보기.
+title: 원격 모니터링 솔루션 가속기 개요 - Azure | Microsoft Docs
+description: 원격 모니터링 솔루션 가속기의 개요입니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,14 +8,14 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: af7feb6c95a7de1d2211378c5eb71f09907221ff
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: a8b5d9e3917c854cb255a35d3bbc901bcce52c24
+ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757436"
+ms.lasthandoff: 06/28/2018
+ms.locfileid: "37084532"
 ---
-# <a name="remote-monitoring-solution-accelerator-architecture"></a>원격 모니터링 솔루션 가속기 아키텍처
+# <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
 원격 모니터링 [솔루션 가속기](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)는 원격 위치에서 여러 컴퓨터에 대한 종단간 모니터링 솔루션을 구현합니다. 솔루션은 비즈니스 시나리오의 제네릭 구현을 제공하는 핵심 Azure 서비스를 결합합니다. 솔루션을 고유한 구현을 위한 시작점으로 사용하고 사용자의 특정 비즈니스 요구 사항에 맞게 [사용자 지정](../iot-accelerators/iot-accelerators-remote-monitoring-customize.md)할 수 있습니다.
 

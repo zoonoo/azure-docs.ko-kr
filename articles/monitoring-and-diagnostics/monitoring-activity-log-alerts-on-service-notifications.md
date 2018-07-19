@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 01dc3a3c6489b694af26c78ae3b4756f3e8f00b7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1e79fee75b2361dd7da8c46c175a5a6532089ad6
+ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263119"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37437242"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -25,6 +25,9 @@ Azure에서 Azure 구독에 서비스 상태 알림을 전송할 때 경고를 �
 - 영향을 받는 구독
 - 영향을 받는 서비스
 - 영향을 받는 하위 지역
+
+> [!NOTE]
+> 서비스 상태 알림은 리소스 상태 이벤트에 대한 경고를 전송하지 않습니다.
 
 다음과 같이 경고를 받는 사람도 구성할 수 있습니다.
 

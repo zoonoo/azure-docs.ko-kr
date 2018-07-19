@@ -3,7 +3,7 @@ title: Azure Log Analytics 및 OMS 포털에서 작업 영역 관리 | Microsoft
 description: 사용자, 계정, 작업 영역 및 Azure 계정에 대한 다양한 관리 작업을 사용하여 Azure Log Analytics 및 OMS 포털에서 작업 영역을 관리할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -11,15 +11,16 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: magoedte
-ms.openlocfilehash: 80ce7337717376b05dc9539abaf49b1a933a78f2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: na
+ms.openlocfilehash: 3b4e0f978cc7d23d0157b78fd2dff27096d2768b
+ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637534"
+ms.lasthandoff: 06/29/2018
+ms.locfileid: "37133482"
 ---
 # <a name="manage-workspaces"></a>작업 영역 관리
 
@@ -29,7 +30,7 @@ Log Analytics에 대한 액세스를 관리하려면 작업 영역에 관련된 
 
 1. Azure 구독이 있어야 합니다.
 2. 작업 영역 이름을 선택합니다.
-3. 구독과 작업 영역을 연결합니다.
+3. 작업 영역을 구독 및 리소스 그룹 중 하나와 연결합니다.
 4. 지리적 위치를 선택합니다.
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>필요한 작업 영역의 수 결정
@@ -40,15 +41,14 @@ Azure 구독당 여러 작업 영역을 포함할 수 있으며 이들 간의 �
 현재 작업 영역은 다음을 제공합니다.
 
 * 데이터 저장소의 지리적 위치
-* 대금 청구에 대한 세분성
-* 데이터 격리
-* 구성 범위
+* 다른 사용자 액세스 권한을 정의하기 위한 데이터 격리
+* 보존 및 데이터 최대화 같은 설정 구성에 대한 범위
 
-위의 특성을 기반으로 다음과 같은 경우 여러 작업 영역을 만드는 것이 좋습니다.
+사용 관점에서 가능한 한 적은 작업 영역을 만드는 것이 좋습니다. 관리 및 쿼리 환경을 쉽고 빠르게 합니다. 그러나 위의 특성을 기반으로 다음과 같은 경우 여러 작업 영역을 만드는 것이 좋습니다.
 
 * 글로벌 회사이며 데이터 주권 또는 규정 준수 때문에 특정 지역에 저장된 데이터가 필요합니다.
 * Azure를 사용하고 있으며 작업 영역을 자신이 관리하는 Azure 리소스와 같은 지역에 두어서 아웃바운드 데이터 전송 요금을 피하려고 합니다.
-* 용도를 바탕으로 서로 다른 부서 또는 비즈니스 그룹에 요금을 할당하려고 합니다. 각 부서 또는 비즈니스 그룹에 대한 작업 영역을 만들면 Azure 청구 및 사용량 명세서에 각 작업 영역의 요금이 따로 표시됩니다.
+* 용도를 바탕으로 서로 다른 부서 또는 비즈니스 그룹에 요금을 할당하려고 합니다. 자체 Azure 구독에서 각 부서 또는 비즈니스 그룹에 대한 작업 영역을 만드는 경우.
 * 관리되는 서비스 공급자이며 자신이 관리하는 각 고객에 대한 Log Analytics 데이터를 다른 고객의 데이터와 격리되게 유지해야 합니다.
 * 여러 고객을 관리하며 각 고객/부서/비즈니스 그룹의 고유 데이터를 보지만 다른 고객/부서/비즈니스 그룹에 대한 데이터를 보지 않기를 원합니다.
 
@@ -58,7 +58,7 @@ System Center Operations Manager를 사용하는 경우 각 Operations Manager �
 
 ### <a name="workspace-information"></a>작업 영역 정보
 
-Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다. OMS 포털에서 세부 정보를 볼 수도 있습니다.
+Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다. 
 
 #### <a name="view-workspace-information-in-the-azure-portal"></a>Azure Portal에서 작업 영역 정보 보기
 
@@ -71,28 +71,8 @@ Azure Portal에서 작업 영역에 대한 세부 정보를 볼 수 있습니다
 
 
 ## <a name="manage-accounts-and-users"></a>계정 및 사용자 관리
-각 작업 영역에는 여러 계정이 연결될 수 있으며, 각 계정(Microsoft 계정 또는 조직 계정)이 여러 개의 작업 영역에 액세스할 수 있습니다.
+각 작업 영역에는 여러 계정이 연결될 수 있으며, 각 계정이 여러 개의 작업 영역에 액세스할 수 있습니다. 액세스는 [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md)를 통해 관리됩니다. 이러한 액세스 권한은 Azure Portal 및 API 액세스 모두에 적용됩니다.
 
-기본적으로 작업 영역을 만든 Microsoft 계정 또는 조직 계정이 작업 영역의 관리자가 됩니다.
-
-Log Analytics 작업 영역에 대한 액세스를 제어하는 두 가지 사용 권한 모델이 있습니다.
-
-1. 레거시 Log Analytics 사용자 역할
-2. [Azure 역할 기반 액세스](../active-directory/role-based-access-control-configure.md)
-
-다음 표에서는 각 사용 권한 모델을 사용하여 설정할 수 있는 액세스를 요약합니다.
-
-|                          | Log Analytics 포털 | Azure portal | API(PowerShell 포함) |
-|--------------------------|----------------------|--------------|----------------------------|
-| Log Analytics 사용자 역할 | 예                  | 아니오           | 아니오                         |
-| Azure 역할 기반 액세스  | 예                  | 예          | 예                        |
-
-> [!NOTE]
-> Log Analytics는 사용 권한 모델로 Azure 역할 기반 액세스를 사용하도록 전환 중이며 이는 Log Analytics 사용자 역할을 대체합니다.
->
->
-
-레거시 Log Analytics 사용자 역할은 [Log Analytics 포털](https://mms.microsoft.com)에서 수행한 활동에 대한 액세스만 제어합니다.
 
 다음 활동에도 Azure 권한이 필요합니다.
 
@@ -115,21 +95,23 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 - 모든 모니터링 데이터 검색 및 보기 
 - 모든 Azure 리소스에 대한 Azure 진단 구성 보기를 포함해 모니터링 설정 보기
 
+Log Analytics 독자 역할에는 다음 Azure 작업이 포함됩니다.
+
 | type    | 사용 권한 | 설명 |
 | ------- | ---------- | ----------- |
-| 조치 | `*/read`   | 다음을 포함해 모든 리소스 및 리소스 구성을 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정 |
+| 조치 | `*/read`   | 모든 Azure 리소스 및 리소스 구성 보는 기능. 볼 수 있습니다. <br> 가상 머신 확장 상태 <br> 리소스에 대한 Azure 진단 구성 <br> 모든 리소스의 모든 속성 및 설정 |
 | 조치 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 로그 검색 v2 쿼리를 수행할 수 있습니다. |
 | 조치 | `Microsoft.OperationalInsights/workspaces/search/action` | 로그 검색 v1 쿼리를 수행할 수 있습니다. |
 | 조치 | `Microsoft.Support/*` | 지원 사례를 열 수 있습니다. |
-|동작 없음 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 데이터 컬렉션 API를 사용하고 에이전트를 설치하는 데 필요한 작업 영역 키를 읽지 못하게 합니다. |
+|동작 없음 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 데이터 컬렉션 API를 사용하고 에이전트를 설치하는 데 필요한 작업 영역 키 읽는 것 방지. 사용자가 작업 영역에 새 리소스 추가 방지 |
 
 
 *Log Analytics 참가자* 역할의 멤버는 다음을 수행할 수 있습니다.
-- 모든 모니터링 데이터 읽기  
+- Log Analytics 독자로서 모든 모니터링 데이터 읽기  
 - Automation 계정 만들기 및 구성  
 - 관리 솔루션 추가 및 제거    
     > [!NOTE] 
-    > 이러한 두 작업을 성공적으로 수행하려면 이러한 사용 권한은 리소스 그룹 또는 구독 수준에서 권한을 부여 받아야 합니다.  
+    > 마지막 두 작업을 성공적으로 수행하려면 이 사용 권한은 리소스 그룹 또는 구독 수준에서 권한을 부여 받아야 합니다.  
 
 - 저장소 계정 키 읽기   
 - Azure Storage에서 로그 수집 구성  
@@ -139,6 +121,8 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 
 > [!NOTE] 
 > 가상 머신을 완전히 제어하기 위해 가상 머신으로 가상 머신 확장을 추가할 수 있는 기능을 사용할 수 있습니다.
+
+Log Analytics 기여자 역할에는 다음 Azure 작업이 포함됩니다.
 
 | 사용 권한 | 설명 |
 | ---------- | ----------- |
@@ -162,103 +146,8 @@ Azure의 Log Analytics에는 기본 제공되는 2개의 사용자 역할이 있
 
 정확한 액세스 제어를 보장하기 위해 리소스 수준(작업 영역)에서 할당을 수행하는 것이 좋습니다.  [사용자 지정 역할](../active-directory/role-based-access-control-custom-roles.md)을 사용하여 필요한 특정 권한이 있는 역할을 만듭니다.
 
-### <a name="azure-user-roles-and-log-analytics-portal-user-roles"></a>Azure 사용자 역할 및 Log Analytics 포털 사용자 역할
-사용자가 Log Analytics 작업 영역에서 Azure 읽기 권한 이상을 보유하는 경우 Log Analytics 작업 영역을 볼 때 **OMS 포털** 태스크를 클릭하여 Log Analytics 포털을 열 수 있습니다.
-
-Log Analytics 포털을 열 때 레거시 Log Analytics 사용자 역할을 사용하도록 전환합니다. Log Analytics 포털에서 역할 할당이 없는 경우 서비스에서 [작업 영역에 대해 보유한 Azure 권한을 확인](https://docs.microsoft.com/rest/api/authorization/permissions#Permissions_ListForResource)합니다.
-Log Analytics 포털의 역할 할당은 다음과 같이 사용하여 결정합니다.
-
-| 조건                                                   | 할당된 Log Analytics 사용자 역할 | 메모 |
-|--------------------------------------------------------------|----------------------------------|-------|
-| 사용자 계정이 레거시 Log Analytics 사용자 역할에 속함     | 지정된 Log Analytics 사용자 역할 | |
-| 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> 작업 영역에 대한 전체 Azure 권한(`*` 권한 <sup>1</sup>) | 관리자 ||
-| 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> 작업 영역에 대한 전체 Azure 권한(`*` 권한 <sup>1</sup>) <br> `Microsoft.Authorization/*/Delete` 및 `Microsoft.Authorization/*/Write`의 *not actions* | 기여자 ||
-| 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> Azure 읽기 권한 | 읽기 전용 ||
-| 사용자 계정이 레거시 Log Analytics 사용자 역할에 속하지 않음 <br> Azure 권한이 인식되지 않음 | 읽기 전용 ||
-| CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있음 | 관리자 | 일반적으로 CSP의 고객 |
-| CSP(클라우드 솔루션 공급자) 관리 구독용 <br> 로그인한 계정이 작업 영역에 연결된 Azure Active Directory 내에 있지 않음 | 기여자 | 일반적으로 CSP |
-
-<sup>1</sup> 역할 정의에 대한 자세한 내용은 [Azure 권한](../active-directory/role-based-access-control-custom-roles.md)을 참조하세요. 역할을 평가할 경우 `*`의 작업이 `Microsoft.OperationalInsights/workspaces/*`와 동일하지 않습니다.
-
-Azure Portal에 대해 주의해야 할 사항:
-
-* http://mms.microsoft.com을 사용하여 OMS 포털에 로그인하면 **작업 영역 선택** 목록이 표시됩니다. 이 목록은 Log Analytics 사용자 역할을 보유하는 작업 영역만 포함합니다. Azure 구독으로 액세스 권한이 있는 작업 영역을 보려면 테넌트를 URL의 일부로 지정해야 합니다. 예제: `mms.microsoft.com/?tenant=contoso.com` 테넌트 식별자는 로그인하는 데 사용하는 전자 메일 주소의 마지막 부분인 경우가 있습니다.
-* Azure 사용 권한을 통해 액세스 권한을 가진 포털로 직접 이동하려면 URL의 일부로 리소스를 지정해야 합니다. PowerShell을 사용하여 이 URL을 가져올 수 있습니다.
-
-  예: `(Get-AzureRmOperationalInsightsWorkspace).PortalUrl`
-
-  URL은 다음과 같습니다. `https://eus.mms.microsoft.com/?tenant=contoso.com&resource=%2fsubscriptions%2faaa5159e-dcf6-890a-a702-2d2fee51c102%2fresourcegroups%2fdb-resgroup%2fproviders%2fmicrosoft.operationalinsights%2fworkspaces%2fmydemo12`
-
-### <a name="managing-users-in-the-oms-portal"></a>OMS 포털에서 사용자 관리
-사용자를 관리하고 설정 페이지의 **계정** 탭에 있는 **사용자 관리** 탭에서 그룹화합니다.   
-
-![사용자 관리](./media/log-analytics-manage-access/setup-workspace-manage-users.png)
-
-
-#### <a name="add-a-user-to-an-existing-workspace"></a>기존 작업 영역에 사용자 추가
-작업 영역에 사용자 또는 그룹을 추가하려면 다음 단계를 따르세요.
-
-1. OMS 포털에서 **설정** 타일을 클릭합니다.
-2. **계정** 탭을 클릭한 다음 **사용자 관리** 탭을 클릭합니다.
-3. **사용자 관리** 섹션에서 추가할 계정 유형: **조직 계정**, **Microsoft 계정**, **Microsoft 지원**을 선택합니다.
-
-   * Microsoft 계정을 선택했다면 Microsoft 계정에 연결된 사용자의 메일 주소를 입력합니다.
-   * 조직 계정을 선택했다면 사용자 또는 그룹의 이름이나 메일 별칭의 일부를 입력하며 일치하는 사용자 및 그룹의 목록이 드롭다운 상자에 표시됩니다. 사용자 또는 그룹을 선택합니다.
-   * Microsoft 지원을 사용하여 문제 해결을 돕기 위해 Microsoft 지원 엔지니어 또는 다른 Microsoft 직원에게 작업 영역에 대한 임시 액세스 권한을 부여할 수 있습니다.
-
-     > [!NOTE]
-     > 최상의 성능을 얻으려면 단일 OMS 계정과 연결된 Active Directory 그룹 수를 세 개(관리자용 그룹 한 개, 참여자용 한 개 및 읽기 전용 사용자용 한 개)로 제한합니다. 더 많은 그룹을 사용하면 Log Analytics 성능에 영향을 줄 수 있습니다.
-     >
-     >
-4. 추가할 사용자 또는 그룹의 유형: **관리자**, **참여자** 또는 **읽기 전용 사용자**를 선택합니다.  
-5. **추가**를 클릭합니다.
-
-   Microsoft 계정을 추가하는 경우 작업 영역에 가입하라는 초대가 제공한 메일로 전송됩니다. 사용자는 OMS에 가입하라는 초대의 지침을 따른 후 작업 영역에 액세스할 수 있습니다.
-   조직 계정을 추가하는 경우 사용자가 즉시 Log Analytics에 액세스할 수 있습니다.  
-
-#### <a name="edit-an-existing-user-type"></a>기존 사용자 유형 편집
-OMS 계정과 연결된 사용자의 계정 역할을 변경할 수 있습니다. 다음과 같은 역할 옵션이 있습니다.
-
-* *관리자*: 사용자를 관리하고, 모든 경고를 보고 작업하며, 서버를 추가 및 제거할 수 있습니다.
-* *참여자*: 모든 경고를 보고 작업하며 서버를 추가 및 제거할 수 있습니다.
-* *읽기 전용사용자*: 읽기 전용으로 표시된 사용자는 다음을 할 수 없습니다.
-
-  1. 솔루션을 추가/제거합니다. 솔루션 갤러리를 숨깁니다.
-  2. **내 대시보드**에서 타일을 추가/수정/제거합니다.
-  3. **설정** 페이지를 봅니다. 페이지를 숨깁니다.
-  4. Search 뷰에서 PowerBI 구성, 저장된 검색 및 경고 태스크를 숨깁니다.
-
-#### <a name="to-edit-an-account"></a>계정을 편집하려면
-1. OMS 포털에서 **설정** 타일을 클릭합니다.
-2. **계정** 탭을 클릭한 다음 **사용자 관리** 탭을 클릭합니다.
-3. 변경하려는 사용자에 대한 역할을 선택합니다.
-4. 확인 대화 상자에서 **예**를 클릭합니다.
-
-### <a name="remove-a-user-from-a-workspace"></a>작업 영역에서 사용자 제거
-작업 영역에서 사용자를 제거하려면 다음 단계를 따르세요. 사용자 제거는 작업 영역을 닫지 않습니다. 대신, 사용자와 작업 영역 간의 연결이 제거됩니다. 사용자가 여러 작업 영역과 연결된 경우에는 OMS에 계속 로그인하여 다른 작업 영역을 볼 수 있습니다.
-
-1. OMS 포털에서 **설정** 타일을 클릭합니다.
-2. **계정** 탭을 클릭한 다음 **사용자 관리** 탭을 클릭합니다.
-3. 제거하려는 사용자 이름 옆에 있는 **제거**를 클릭합니다.
-4. 확인 대화 상자에서 **예**를 클릭합니다.
-
-### <a name="add-a-group-to-an-existing-workspace"></a>기존 작업 영역에 그룹 추가
-1. 이전의 "기존 작업 영역에 사용자를 추가하려면" 섹션에서 1~4단계를 수행합니다.
-2. **사용자/그룹 선택**에서 **그룹**을 선택합니다.  
-   ![기존 작업 영역에 그룹 추가](./media/log-analytics-manage-access/add-group.png)
-3. 추가할 그룹의 표시 이름 또는 전자 메일 주소를 입력합니다.
-4. 목록 결과에서 그룹을 선택한 다음 **추가**를 클릭합니다.
-
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Azure 구독에 기존 작업 영역 연결
 2016년 9월 26일 이후에 만들어진 모든 작업 영역은 만들 때 Azure 구독에 연결되어야 합니다. 이 날짜 이전에 만들어진 작업 영역은 로그인할 때 작업 영역에 연결되어야 합니다. Azure Portal에서 작업 영역을 만들거나 작업 영역을 Azure 구독에 연결하면 Azure Active Directory가 조직 계정으로 연결됩니다.
-
-### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-oms-portal"></a>작업 영역을 OMS 포털의 Azure 구독에 연결하려면
-
-- OMS 포털에 로그인할 때 Azure 구독을 선택하라는 메시지가 표시됩니다. 작업 영역에 연결할 구독을 선택한 다음 **링크**를 클릭합니다.  
-    ![Azure 구독 연결](./media/log-analytics-manage-access/required-link.png)
-
-    > [!IMPORTANT]
-    > 작업 영역을 연결하려면 Azure 계정에 연결하려는 작업 영역에 대한 액세스 권한이 이미 있어야 합니다.  즉, Azure Portal에 액세스하는 데 사용하는 계정은 작업 영역에 액세스하는 데 사용하는 계정과 **동일**해야 합니다. 그렇지 않은 경우 [기존 작업 영역에 사용자 추가](#add-a-user-to-an-existing-workspace)를 참조하십시오.
 
 ### <a name="to-link-a-workspace-to-an-azure-subscription-in-the-azure-portal"></a>작업 영역을 Azure Portal의 Azure 구독에 연결하려면
 1. [Azure 포털](http://portal.azure.com)에 로그인합니다.
@@ -353,18 +242,6 @@ OMS 포털을 사용하여 가격 책정 계층을 변경하려면 Azure 구독�
 독립 실행형 및 OMS 가격 책정 계층을 사용하는 경우 데이터를 최대 2년(730일) 동안 유지할 수 있습니다. 기본값인 31일보다 오래 저장된 데이터는 데이터 보존 요금이 발생합니다. 가격 책정에 대한 자세한 내용은 [초과 요금](https://azure.microsoft.com/pricing/details/log-analytics/)을 참조하세요.
 
 데이터 보존의 길이를 변경하려면 [Log Analytics에서 데이터 볼륨 및 보존을 제어하여 비용 관리](log-analytics-manage-cost-storage.md)를 참조하세요.
-
-## <a name="change-an-azure-active-directory-organization-for-a-workspace"></a>작업 영역의 Azure Active Directory 조직 변경
-
-작업 영역의 Azure Active Directory 조직을 변경할 수 있습니다. Azure Active Directory 조직을 변경하면 해당 디렉터리의 사용자 및 그룹을 작업 영역에 추가할 수 있습니다.
-
-### <a name="to-change-the-azure-active-directory-organization-for-a-workspace"></a>작업 영역의 Azure Active Directory 조직을 변경하려면
-
-1. OMS 포털의 설정 페이지에서 **계정**을 클릭한 다음 **사용자 관리** 탭을 클릭합니다.  
-2. 조직 계정에 대한 정보를 검토한 다음 **조직 변경**을 클릭합니다.  
-    ![조직 변경](./media/log-analytics-manage-access/manage-access-add-adorg01.png)
-3. Azure Active Directory 도메인의 관리자에 대한 ID 정보를 입력합니다. 나중에, 작업 영역이 Azure Active Directory 도메인에 연결되어 있다는 내용의 승인이 표시됩니다.  
-    ![연결 된 작업 영역 승인](./media/log-analytics-manage-access/manage-access-add-adorg02.png)
 
 
 ## <a name="delete-a-log-analytics-workspace"></a>Log Analytics 작업 영역 삭제

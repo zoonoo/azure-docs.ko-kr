@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft Azure Virtual Datacenter: 네트워크 측면 | Microsoft Docs'
+title: 'Azure 가상 데이터 센터: 네트워크 측면'
 description: Azure에서 가상 데이터 센터를 구축하는 방법을 알아봅니다.
 services: networking
 author: tracsman
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: a62d52e30b04b525dc8ff685ed6c3033d6029542
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
+ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942448"
+ms.lasthandoff: 07/03/2018
+ms.locfileid: "37445384"
 ---
-# <a name="microsoft-azure-virtual-datacenter-a-network-perspective"></a>Microsoft Azure Virtual Datacenter: 네트워크 측면
+# <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure 가상 데이터 센터: 네트워크 측면
 **Microsoft Azure**: 더 빠른 이동, 비용 절감, 온-프레미스 앱 및 데이터 통합
 
 ## <a name="overview"></a>개요
@@ -232,11 +232,15 @@ IT 인프라 팀의 주요 작업 중 하나는 엔터프라이즈에서 IP 주�
 
 대부분의 대기업은 여러 개의 도메인을 관리하고 있습니다. Azure DNS는 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용될 수 있습니다. 예를 들어 Azure 외부 부하 분산 장치(또는 WAF)의 VIP(가상 IP 주소)는 Azure DNS 레코드의 A 레코드에 등록될 수 있습니다.
 
-[**Azure Load Balancer**][ALB] Azure Load Balancer는 고가용성 계층 4(TCP, UDP) 서비스를 제공하여 들어오는 트래픽을 부하 분산 집합에 정의된 서비스 인스턴스 간에 분산할 수 있도록 합니다. 프런트 엔드 끝점(공용 IP 끝점 또는 개인 IP 끝점)에서 부하 분산 장치로 전송된 트래픽은 주소 변환과 관계없이 백 엔드 IP 주소 풀 집합(예: 네트워크 가상 어플라이언스 또는 VM)으로 다시 배포될 수 있습니다.
+
+  [
+  **Azure Load Balancer**][ALB] Azure Load Balancer는 고가용성 계층 4(TCP, UDP) 서비스를 제공하여 들어오는 트래픽을 부하 분산 집합에 정의된 서비스 인스턴스 간에 분산할 수 있도록 합니다. 프런트 엔드 끝점(공용 IP 끝점 또는 개인 IP 끝점)에서 부하 분산 장치로 전송된 트래픽은 주소 변환과 관계없이 백 엔드 IP 주소 풀 집합(예: 네트워크 가상 어플라이언스 또는 VM)으로 다시 배포될 수 있습니다.
 
 또한 Azure Load Balancer는 다양한 서버 인스턴스의 상태를 검사할 수 있으며, 프로브가 응답하지 않을 경우 부하 분산 장치는 비정상 인스턴스로의 트래픽 전송을 중지합니다. vDC에서는 허브(예: NVA로 트래픽 분산) 및 스포크(다중 계층 응용 프로그램의 다른 VM 간에 트래픽을 분산하는 등의 작업 수행)에 외부 부하 분산 장치가 유지될 수 있습니다.
 
-[**Application Gateway**][AppGW] Microsoft Azure Application Gateway는 전용 가상 어플라이언스이며 ADC(응용 프로그램 배달 컨트롤러)를 서비스로 제공하여 다양한 계층 7 부하 분산 기능을 제공합니다. 따라서 사용자는 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수 있습니다. 또한 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅 및 단일 Application Gateway의 여러 웹 사이트를 호스트할 수 있는 능력을 비롯한 다른 계층 7 라우팅 기능이 제공됩니다. WAF(웹 응용 프로그램 방화벽) 또한 Application Gateway WAF SKU의 일부로 제공됩니다. 이 SKU 기능은 일반적인 웹 취약점 및 악용으로부터 웹 응용 프로그램을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다. 
+
+  [
+  **Application Gateway**][AppGW] Microsoft Azure Application Gateway는 전용 가상 어플라이언스이며 ADC(응용 프로그램 배달 컨트롤러)를 서비스로 제공하여 다양한 계층 7 부하 분산 기능을 제공합니다. 따라서 사용자는 Application Gateway에 CPU 집약적인 SSL 종료를 오프로드하여 웹 팜 생산성을 최적화할 수 있습니다. 또한 들어오는 트래픽의 라운드 로빈 배포, 쿠키 기반 세션 선호도, URL 경로 기반 라우팅 및 단일 Application Gateway의 여러 웹 사이트를 호스트할 수 있는 능력을 비롯한 다른 계층 7 라우팅 기능이 제공됩니다. WAF(웹 응용 프로그램 방화벽) 또한 Application Gateway WAF SKU의 일부로 제공됩니다. 이 SKU 기능은 일반적인 웹 취약점 및 악용으로부터 웹 응용 프로그램을 보호합니다. Application Gateway는 인터넷 연결 게이트웨이, 내부 전용 게이트웨이 또는 둘의 조합으로 구성할 수 있습니다. 
 
 [**공용 IP**][PIP] 일부 Azure 기능을 사용하면 서비스 끝점을 공용 IP 주소에 연결할 수 있으므로 인터넷에서 리소스에 액세스할 수 있습니다. 끝점에서는 NAT(Network Address Translation)를 사용하여 트래픽을 Azure Virtual Network상의 내부 주소와 포트로 라우팅합니다. 이 경로가 외부 트래픽을 가상 네트워크 내부로 전달하는 기본 방법입니다. 공용 IP 주소는 사용자가 구성하여 어떤 트래픽을 안으로 들이며, 가상 네트워크의 어느 부분에서 어떻게 전환하느냐를 결정할 수 있습니다.
 
