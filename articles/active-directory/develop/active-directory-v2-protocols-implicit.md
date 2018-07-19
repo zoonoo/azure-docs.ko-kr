@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 07fbda30cdc76e5e4e82b79954d0b0a56e032b50
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 676e23f3136836975616865a9b9dc97605a97929
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34158390"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866256"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 프로토콜 - 암시적 흐름을 사용하는 SPA
 v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을 사용하여 단일 페이지 앱에 사용자를 로그인할 수 있습니다. 주로 브라우저에서 실행되는 단일 페이지 앱 및 기타 JavaScript 앱에는 인증과 관련된 흥미로운 난제가 몇 가지 있습니다.
@@ -51,7 +51,7 @@ v2.0 끝점을 사용하면, Microsoft 개인 계정 및 회사/학교 계정을
 사용자를 앱에 처음으로 로그인하려면 [OpenID Connect](active-directory-v2-protocols-oidc.md) 권한 부여 요청을 보내고 2.0 끝점으로부터 `id_token`을 받습니다.
 
 > [!IMPORTANT]
-> ID 토큰을 성공적으로 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **[암시적 권한 부여](active-directory-v2-protocols-implicit.md)** 를 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류, 즉 "'response_type' 입력 매개 변수에 제공된 값은 이 클라이언트에 허용되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
+> ID 토큰을 성공적으로 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **[암시적 권한 부여](active-directory-v2-protocols-implicit.md)** 가 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류, 즉 "'response_type' 입력 매개 변수에 제공된 값은 이 클라이언트에 허용되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
 
 ```
 // Line breaks for legibility only
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 이 요청을 실행하려면 아래 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 `id_token`과 함께 `https://localhost/myapp/`으로 리디렉션됩니다.
+> 이 요청을 실행하려면 아래 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 `id_token` 과 함께 `https://localhost/myapp/` 으로 리디렉션됩니다.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token+token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 > 
 > 

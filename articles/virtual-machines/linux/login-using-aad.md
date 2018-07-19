@@ -3,7 +3,7 @@ title: Azure Active Directory 자격 증명을 사용하여 Linux VM에 로그�
 description: 이 방법 문서에서는 사용자 로그인을 위해 Azure Active Directory 인증을 사용하도록 Linux VM을 만들고 구성하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/16/2018
-ms.author: iainfou
-ms.openlocfilehash: 96cc7aeb5fd1c64dc3793a801a4a5b759e7558b9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 06/17/2018
+ms.author: cynthn
+ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652875"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37933955"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure에서 Azure Active Directory 인증을 사용하여 Linux 가상 머신에 로그인(미리 보기)
 
@@ -46,8 +46,9 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
 | 배포 | 버전 |
 | --- | --- |
 | CentOS | CentOS 6.9 및 CentOS 7.4 |
-| RedHat Enterprise Linux | RHEL 7 | 
-| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04 및 Ubuntu Server 17.10 |
+| Debian | Debian 9 |
+| RedHat Enterprise Linux | RHEL 6, RHEL 7 | 
+| Ubuntu Server | Ubuntu 14.04 LTS, Ubuntu Server 16.04, Ubuntu Server 17.10 및 Ubuntu Server 18.04 |
 
 현재 이 기능의 미리 보기 기간 동안 다음과 같은 Azure 지역이 지원됩니다.
 
@@ -178,4 +179,4 @@ Access denied
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](../../active-directory/active-directory-whatis.md) 및 [Azure Active Directory를 시작하는 방법](../../active-directory/get-started-azure-ad.md)을 참조하세요.
+Azure Active Directory에 대한 자세한 내용은 [Azure Active Directory란?](../../active-directory/fundamentals/active-directory-whatis.md) 및 [Azure Active Directory를 시작하는 방법](../../active-directory/fundamentals/get-started-azure-ad.md)을 참조하세요.

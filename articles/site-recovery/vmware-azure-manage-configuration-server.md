@@ -3,15 +3,15 @@ title: Azure Site Recovery를 사용하여 VMware 재해 복구를 위한 구성
 description: 이 아티클에서는 Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구를 위해 기존 구성 서버를 관리하는 방법을 설명합니다.
 author: rayne-wiselman
 ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 06/20/2018
+ms.topic: article
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 753e123c660b1aacea1157157f0e580e15c47536
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287408"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37916913"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware VM에 대해 구성 서버 관리
 
@@ -96,21 +96,18 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 
 1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**로 이동합니다.
 2. 업데이트를 사용할 수 있는 경우 **에이전트 버전** > 열에 링크가 표시됩니다.
-
-    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update2.png)
-
-1. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
+    ![업데이트](./media/vmware-azure-manage-configuration-server/update2.png)
+3. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
 
     ![주 지역에서](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. 두 번 클릭하여 설치 관리자를 실행합니다.
-2. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다. **예**를 클릭하여 업그레이드를 시작합니다. 
-3. 업그레이드가 완료되면 서버 구성의 유효성을 검사합니다.
+5. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다. **예**를 클릭하여 업그레이드를 시작합니다.
+6. 업그레이드가 완료되면 서버 구성의 유효성을 검사합니다.
 
     ![주 지역에서](./media/vmware-azure-manage-configuration-server/update3.png)
-
-4. **마침**을 클릭하여 설치 관리자를 닫습니다.
-
+    
+7. **마침**을 클릭하여 설치 관리자를 닫습니다.
 
 ## <a name="delete-or-unregister-a-configuration-server"></a>구성 서버 삭제 또는 등록 취소
 
@@ -150,7 +147,12 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
 > [!NOTE]
 > 구성 서버의 강제 삭제를 위해서는 Remove-AzureRmSiteRecoveryFabric에 **-Force** 옵션을 사용할 수 있습니다.
  
+## <a name="generate-configuration-server-passphrase"></a>구성 서버 암호 생성
 
+1. 구성 서버에 로그인한 후 관리자로 명령 프롬프트 창을 엽니다.
+2. 디렉터리를 bin 폴더로 변경하려면 **cd %ProgramData%\ASR\home\svsystems\bin** 명령을 실행합니다.
+3. 암호 파일을 생성하려면 **genpassphrase.exe -v > MobSvc.passphrase**를 실행합니다.
+4. 암호는 **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**에 있는 파일에 저장됩니다.
 
 ## <a name="renew-ssl-certificates"></a>SSL 인증서 갱신
 

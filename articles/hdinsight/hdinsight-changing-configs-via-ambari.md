@@ -1,23 +1,20 @@
 ---
 title: Ambari로 클러스터 구성 최적화 - Azure HDInsight | Microsoft Docs
 description: Ambari 웹 UI를 사용하여 HDInsight 클러스터를 구성하고 최적화합니다.
-documentationcenter: ''
 author: ashishthaps
 manager: jhubbard
 editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: f3c1edc767ab07bcdd8b09a0e40e291cbd1f3d9a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406187"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951219"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -182,7 +179,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 | 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | 아니요 |
+| Gzip | Gzip | DEFLATE | .gz | 아니오 |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
 | Snappy | 해당 없음 | Snappy | Snappy | 아니오 |
@@ -245,9 +242,9 @@ Hive에서는 각 파티션을 미리 정의하지 않고 테이블에 레코드
 
 2. 동적 파티션 모드를 *strict*로 변경합니다. strict 모드에서는 적어도 하나의 파티션이 static이어야 합니다. 이렇게 하면 WHERE 절에서 파티션 필터가 없는 쿼리를 방지합니다. 즉 *strict*는 모든 파티션을 검색하는 쿼리를 방지합니다. Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.dynamic.partition.mode`를 **strict**로 설정합니다. 기본값은 **nonstrict**입니다.
  
-3. 생성될 동적 파티션 수를 제한하려면 `hive.exec.max.dynamic.partitions` 매개 변수를 수정합니다. 기본값은 5,000입니다.
+3. 생성되는 동적 파티션 수를 제한하려면 `hive.exec.max.dynamic.partitions` 매개 변수를 수정합니다. 기본값은 5000입니다.
  
-4. 노드당 동적 파티션의 총 수를 제한하려면 `hive.exec.max.dynamic.partitions.pernode`를 수정합니다. 기본값은 2,000입니다.
+4. 노드당 동적 파티션의 총 수를 제한하려면 `hive.exec.max.dynamic.partitions.pernode`를 수정합니다. 기본값은 2000입니다.
 
 ### <a name="enable-local-mode"></a>로컬 모드 사용
 

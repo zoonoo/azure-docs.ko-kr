@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 0141694b87664a83872f7b270631d454f863d5a8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5077982bdef4d0e8fbf1ab485566909b4dc97a8a
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046169"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857381"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Azure Data Factory의 If 조건 작업
 If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 동일한 기능을 제공합니다. 조건이 `true`로 평가되면 작업 집합을 평가하고, 조건이 `false`로 평가되면 다른 작업 집합을 평가합니다. 
@@ -69,9 +69,9 @@ If 조건 작업은 if 문에서 프로그래밍 언어로 제공하는 것과 �
 -------- | ----------- | -------------- | --------
 이름 | if 조건 작업의 이름입니다. | 문자열 | 예
 형식 | **IfCondition**으로 설정해야 함 | 문자열 | 예
-식 | true 또는 false로 평가되어야 하는 식입니다. | 예
-ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | 예
-ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | 예
+식 | true 또는 false로 평가되어야 하는 식입니다. | 결과 형식이 부울인 식 | 예
+ifTrueActivities | 식이 `true`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
+ifFalseActivities | 식이 `false`로 평가될 때 실행되는 작업 집합입니다. | 배열 | 예
 
 ## <a name="example"></a>예
 이 샘플의 파이프라인에서는 입력 폴더의 데이터를 출력 폴더로 복사합니다. 출력 폴더는 파이프라인 매개 변수 routeSelection의 값에 의해 결정됩니다. routeSelection의 값이 true이면 데이터가 outputPath1로 복사됩니다. 또한 routeSelection의 값이 false이면 데이터가 outputPath2로 복사됩니다. 

@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a0cd077b1c6530c5794c92f131dffb814f5b341d
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 747ba9c51181c62b45bb060810391ca54f4c044e
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157720"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869102"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 및 OpenID Connect 프로토콜
 OpenID Connect는 웹 응용 프로그램에 사용자를 안전하게 로그인하는 데 사용할 수 있는 OAuth 2.0 기반의 인증 프로토콜입니다. v2.0 끝점의 OpenID Connect 구현을 사용하는 경우 로그인 및 API 액세스를 웹 기반 앱에 추가할 수 있습니다. 이 문서에서는 언어 독립적인 방식으로 이를 수행하는 방법을 보여 주며, Microsoft 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
@@ -85,7 +85,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 * 요청은 `nonce` 매개 변수를 포함해야 합니다.
 
 > [!IMPORTANT]
-> ID 토큰을 성공적으로 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **[암시적 권한 부여](active-directory-v2-protocols-implicit.md)** 를 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류, 즉 "'response_type' 입력 매개 변수에 제공된 값은 이 클라이언트에 허용되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
+> ID 토큰을 성공적으로 요청하려면 [등록 포털](https://apps.dev.microsoft.com)의 앱 등록에서 웹 클라이언트에 대한 **[암시적 권한 부여](active-directory-v2-protocols-implicit.md)** 가 사용하도록 설정되어 있어야 합니다. 사용하도록 설정되어 있지 않으면 `unsupported_response` 오류, 즉 "'response_type' 입력 매개 변수에 제공된 값은 이 클라이언트에 허용되지 않습니다. 필요한 값은 'code'입니다."가 반환됩니다.
 
 예: 
 

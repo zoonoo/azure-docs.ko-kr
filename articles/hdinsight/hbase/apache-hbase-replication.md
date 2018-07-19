@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: jgao
-ms.openlocfilehash: 56b2b5ae9d3e4a0e682ec3dd47cd5cc30ebf6d58
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077329"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951124"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 
@@ -62,7 +62,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>별도의 2개 지역에 2개 가상 네트워크 설정
 
-두 개의 다른 지역에 두 개의 가상 네트워크를 만들고 VNet 간에 VPN 연결을 만들려면 생성할 다음 이미지를 클릭합니다. 템플릿은 [공용 Blob 저장소]](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)에 저장됩니다.
+두 개의 서로 다른 지역에 두 개의 가상 네트워크를 만들고 VNet 간에 VPN 연결을 만드는 템플릿을 사용하려면 다음 **Azure에 배포** 단추를 선택합니다. 템플릿 정의는 [공용 Blob Storage](https://hditutorialdata.blob.core.windows.net/hbaseha/azuredeploy.json)에 저장됩니다.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 

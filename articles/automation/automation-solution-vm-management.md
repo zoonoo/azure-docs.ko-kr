@@ -6,18 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2018
+ms.date: 06/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 67f6119dd1fccc126131979148c001b9d1815175
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8675223162527cc5b2bc45dc5521aac07edaf36c
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906339"
 ---
 # <a name="startstop-vms-during-off-hours-solution-preview-in-azure-automation"></a>Azure Automation의 작업 시간 외 VM 시작/중지 솔루션(미리 보기)
 
-작업 시간 외 VM 시작/중지 솔루션은 사용자 정의 일정에 따라 Azure Virtual Machines를 시작 및 중지하고, Azure Log Analytics를 통해 중요 정보를 제공하고, [SendGrid](https://azuremarketplace.microsoft.com/marketplace/apps/SendGrid.SendGrid?tab=Overview)를 사용하여 선택적 이메일을 전송합니다. 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM이 둘 다 지원됩니다.
+작업 시간 외 VM 시작/중지 솔루션은 사용자 정의 일정에 따라 Azure Virtual Machines를 시작 및 중지하고, Azure Log Analytics를 통해 인사이트를 제공하고, [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 사용하여 선택적 메일을 전송합니다. 대부분의 시나리오에서 Azure Resource Manager 및 클래식 VM이 둘 다 지원됩니다.
 
 이 솔루션은 서버가 없는 저렴한 리소스를 사용하여 비용을 줄이려는 사용자에게 분산된 자동화 기능을 제공합니다. 이 솔루션을 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
@@ -33,16 +34,6 @@ ms.lasthandoff: 05/16/2018
 
   > [!NOTE]
   > VM 일정을 관리하는 Runbook은 모든 지역의 VM을 대상으로 할 수 있습니다.
-
-* VM Runbook 시작 및 중지가 완료될 때 이메일 알림을 전송하려면 Azure Marketplace에서 등록하는 동안 **예**를 선택하여 SendGrid를 배포합니다.
-
-  > [!IMPORTANT]
-  > SendGrid는 타사 서비스입니다. 지원에 관해서는 [SendGrid](https://sendgrid.com/contact/)에 문의하시기 바랍니다.
-
-  SendGrid의 제한 사항은 다음과 같습니다.
-
-  * 사용자 구독당 최대 1개의 SendGrid 계정
-  * 구독당 최대 2개의 SendGrid 계정
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
@@ -78,8 +69,8 @@ ms.lasthandoff: 05/16/2018
    여기에서는 다음을 묻는 메시지가 표시됩니다.
    * **대상 ResourceGroup 이름**을 지정합니다. 이는 이 솔루션에서 관리되는 VM을 포함하는 리소스 그룹 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 구독 내 모든 리소스 그룹의 VM을 대상으로 하려는 경우에는 와일드카드 사용이 지원됩니다. 이 값은 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupNames** 변수에 저장됩니다.
    * **VM 제외 목록(문자열)** 을 지정합니다. 이는 대상 리소스 그룹에서 하나 이상의 가상 머신 이름입니다. 이름은 두 개 이상 입력할 수 있으며 각 이름을 쉼표로 구분해야 하고 대/소문자는 구분되지 않습니다. 와일드카드를 사용할 수 있습니다. 이 값은 **External_ExcludeVMNames** 변수에 저장됩니다.
-   * **일정**을 선택합니다. 이는 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간입니다. 기본적으로 일정은 UTC 표준 시간대로 구성됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedule)을 참조하세요.
-   * SendGrid에서 **전자 메일 알림** 받으려면 기본값인 **예**를 그대로 두고 유효한 전자 메일 주소를 제공합니다. **아니요**를 선택했지만 나중에 이메일 알림을 수신하고자 한다면, **External_EmailToAddress** 변수를 쉼표로 구분된 유효한 이메일 주소로 업데이트한 다음, **External_IsSendEmail** 변수를 **예** 값으로 수정할 수 있습니다.
+   * **일정**을 선택합니다. 이는 대상 리소스 그룹의 VM을 시작하고 중지하는 되풀이 날짜 및 시간입니다. 기본적으로 일정은 지금부터 30분 동안 구성됩니다. 다른 지역을 선택할 수는 없습니다. 솔루션을 구성한 후 일정을 특정 표준 시간대로 구성하려면 [시작 및 종료 일정 수정](#modify-the-startup-and-shutdown-schedule)을 참조하세요.
+   * 작업 그룹에서 **메일 알림**을 받으려면 기본값인 **예**를 그대로 두고 유효한 메일 주소를 제공합니다. **아니요**를 선택하지만 나중에 메일 알림을 수신하려면 쉼표로 구분된 유효한 메일 주소로 만들어진 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 업데이트하면 됩니다.
 
     > [!IMPORTANT]
     > **대상 ResourceGroup 이름**의 기본값은 **&ast;** 입니다. 이것은 구독에 포함된 모든 VM을 대상으로 합니다. 솔루션에서 구독의 모든 VM을 대상으로 지정하지 않으려면 일정을 사용하기 전에 이 값을 리소스 그룹 이름 목록으로 업데이트해야 합니다.
@@ -133,7 +124,7 @@ ms.lasthandoff: 05/16/2018
 2. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 **True**로 설정하여 **SequencedStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
 3. 쉼표로 구분된 VM 목록(VM1,VM2,VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
 4. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
-5. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 Runbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM**이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
+5. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 monitoring-and-diagnostics/monitoring-action-groupsrunbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM**이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
 
 ### <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a>시나리오 3: CPU 사용률에 따라 자동으로 시작/중지
 
@@ -162,8 +153,8 @@ ms.lasthandoff: 05/16/2018
 
 CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 일정 중 하나를 사용하도록 설정하여 시작해야 합니다.
 
-* 구독 및 리소스 그룹으로 시작 작업 대상 지정. **Scheduled-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 1](#scenario-1:-daily-stop/start-vms-across-a-subscription-or-target-resource-groups)의 단계를 참조하세요.
-* 구독, 리소스 그룹 및 태그별로 시작 작업 대상 지정. **Sequenced-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 2](#scenario-2:-sequence-the-stop/start-vms-across-a-subscription-using-tags)의 단계를 참조하세요.
+* 구독 및 리소스 그룹으로 시작 작업 대상 지정. **Scheduled-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 1](#scenario-1-startstop-vms-on-a-schedule)의 단계를 참조하세요.
+* 구독, 리소스 그룹 및 태그별로 시작 작업 대상 지정. **Sequenced-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 2](#scenario-2-startstop-vms-in-sequence-by-using-tags)의 단계를 참조하세요.
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
@@ -201,19 +192,13 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 |External_AutoStop_Threshold | *External_AutoStop_MetricName* 변수에 지정된 Azure 경고 규칙에 대한 임계값입니다. 백분율 값의 범위는 1에서 100까지입니다.|
 |External_AutoStop_TimeAggregationOperator | 조건을 평가하기 위해 선택한 기간 크기에 적용되는 시간 집계 연산자입니다. 사용 가능한 값은 **Average**, **Minimum**, **Maximum**, **Total** 및 **Last**입니다.|
 |External_AutoStop_TimeWindow | Azure에서 경고를 트리거하기 위해 선택된 메트릭을 분석하는 기간입니다. 이 매개 변수는 시간 간격 형식의 입력을 허용합니다. 가능한 값은 5분에서 6시간 사이입니다.|
-|External_EmailFromAddress | 전자 메일 보낸 사람을 지정합니다.|
-|External_EmailSubject | 전자 메일의 제목 줄에 대한 텍스트를 지정합니다.|
-|External_EmailToAddress | 이메일의 받는 사람을 지정합니다. 쉼표를 사용하여 이름을 구분합니다.|
 |External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다.|
-|External_IsSendEmail | 완료 시 이메일 알림을 보내기 위한 옵션을 지정합니다. **Yes** 또는 **No**(전자 메일을 보내지 않으려면)를 지정합니다. 초기 배포 동안 이메일 알림을 활성화하지 않은 경우 이 옵션은 **No**여야 합니다.|
 |External_Start_ResourceGroupNames | 시작 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |External_Stop_ResourceGroupNames | 중지 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |Internal_AutomationAccountName | Automation 계정의 이름을 지정합니다.|
 |Internal_AutoSnooze_WebhookUri | AutoStop 시나리오에 대해 호출되는 Webhook URI를 지정합니다.|
 |Internal_AzureSubscriptionId | Azure 구독 ID를 지정합니다.|
 |Internal_ResourceGroupName | Automation 계정 리소스 그룹 이름을 지정합니다.|
-|Internal_SendGridAccountName | SendGrid 계정 이름을 지정합니다.|
-|Internal_SendGridPassword | SendGrid 계정 암호를 지정합니다.|
 
 모든 시나리오에서 **AutoStop_CreateAlert_Parent**, **SequencedStartStop_Parent** 및 **ScheduledStartStop_Parent** Runbook에 대해 쉼표로 구분된 VM 목록을 제공하는 경우를 제외하고 대상 VM을 지정하는 데 **External_Start_ResourceGroupNames**, **External_Stop_ResourceGroupNames** 및 **External_ExcludeVMNames** 변수가 필요합니다. 즉, 시작 및 중지 작업이 진행되려면 VM이 대상 리소스 그룹에 있어야 합니다. 이 논리는 구독 또는 리소스 그룹을 대상으로 지정하며 새로 만든 VM에서 작업이 상속된다는 측면에서 Azure 정책과 유사하게 작동합니다. 이 방법을 사용하면 모든 VM에 대해 별도 일정을 유지하고 시작 및 중지를 전체적으로 관리할 필요가 없습니다.
 
@@ -298,11 +283,21 @@ Time | runbook 작업이 실행된 날짜 및 시간입니다.|
 
 ## <a name="configure-email-notifications"></a>전자 메일 알림 구성
 
-솔루션이 배포된 후 이메일 알림을 구성하려면 다음 3가지 변수를 수정합니다.
+솔루션이 배포된 후 메일 알림을 변경하려면 배포 중에 만들어진 작업 그룹을 수정합니다.  
 
-* External_EmailFromAddress: 보낸 사람의 이메일 주소를 지정합니다.
-* External_EmailToAddress: 알림 이메일을 받을 쉼표로 구분된 이메일 주소 목록입니다(user@hotmail.com, user@outlook.com).
-* External_IsSendEmail: 이메일을 받도록 **예**로 설정합니다. 이메일 알림을 사용하지 않도록 설정하려면 **아니요**로 설정합니다.
+Azure Portal에서 [모니터] -> [작업 그룹]으로 이동합니다. **StartStop_VM_Notication**이라는 작업 그룹을 선택합니다.
+
+![Automation 업데이트 관리 솔루션 페이지](media/automation-solution-vm-management/azure-monitor.png)
+
+**StartStop_VM_Notification** 페이지의 **세부 정보** 아래에서 **세부 정보 편집**을 클릭합니다. 그러면 **메일/SMS/푸시/음성** 페이지가 열립니다. 메일 주소를 업데이트하고 **확인**을 클릭하여 변경 내용을 저장합니다.
+
+![Automation 업데이트 관리 솔루션 페이지](media/automation-solution-vm-management/change-email.png)
+
+또는 작업 그룹에 추가 작업을 추가할 수 있습니다. 작업 그룹에 대한 자세한 내용은 [작업 그룹](../monitoring-and-diagnostics/monitoring-action-groups.md)을 참조하세요.
+
+솔루션이 가상 머신을 종료할 때 전송되는 예제 메일은 다음과 같습니다.
+
+![Automation 업데이트 관리 솔루션 페이지](media/automation-solution-vm-management/email.png)
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>시작 및 종료 일정 수정
 

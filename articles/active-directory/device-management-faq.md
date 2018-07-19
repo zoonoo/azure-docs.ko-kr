@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 60b77f5956cb627905eb955995652098337c4dea
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311117"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901139"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
 
@@ -86,7 +86,8 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 3.  `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`을 입력합니다.
 
 ---
-**Q: 장치에서 Azure AD 조인 장치를 로컬로 조인 해제하려면 어떻게 하나요?
+**Q: 장치에서 Azure AD 조인 장치를 로컬로 조인 해제하려면 어떻게 하나요?**
+
 **A:** 
 - 하이브리드 Azure AD 조인 장치의 경우, 예약된 작업이 장치를 다시 등록하지 않도록 자동 등록을 꺼야 합니다. 그런 다음, 관리자 권한으로 명령 프롬프트를 열고 `dsregcmd.exe /debug /leave`를 입력합니다. 또는 여러 장치에서 이 명령을 스크립트로 실행하여 대량으로 조인 해제할 수 있습니다.
 
@@ -94,11 +95,17 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 ---
 
+**Q: 사용자가 Azure AD 조인 장치에서 프린터를 검색할 수 없습니다. Azure AD 조인 장치에서 어떻게 인쇄를 사용하도록 설정할 수 있나요?**
+
+**A:** Azure AD 조인 장치용 프린터를 배포하려면 [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)(하이브리드 클라우드 인쇄)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
+
+---
+
 **Q: Azure Portal에서 중복된 장치 항목이 나타나는 이유는 무엇인가요?**
 
 **A:**
 
--   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 조인 해제했다가 다시 조인하면 중복된 항목이 나타날 수 있습니다. 
+-   Windows 10 및 Windows Server 2016의 경우 같은 장치를 반복해서 가입 해제했다가 다시 가입하면 중복된 항목이 나타날 수 있습니다. 
 
 -   회사 또는 학교 계정 추가를 사용한 경우 회사 또는 학교 계정 추가를 사용하는 각 Windows 사용자는 장치 이름이 같은 새 장치 레코드를 만들게 됩니다.
 
@@ -124,6 +131,11 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 ---
 
+**Q: 일부 사용자가 Azure AD 조인 장치에서 MFA 프롬프트를 확인하지 못하는 이유는 무엇인가요?**
+
+**A:** 사용자가 다단계 인증을 사용하여 Azure AD에 장치를 조인하거나 등록하는 경우, 장치 자체는 해당 특정 사용자에 대한 신뢰할 수 있는 두 번째 요소가 됩니다. 이후에 동일한 사용자가 장치에 로그인하고 응용 프로그램에 액세스할 때마다 Azure AD는 장치를 두 번째 요소로 간주하고 사용자가 추가 MFA 프롬프트 없이 응용 프로그램에 원활하게 액세스할 수 있도록 합니다. 이 동작은 해당 장치에 로그인하는 다른 사용자에게 적용되지 않으므로, 해당 장치에 액세스하는 다른 모든 사용자에게 MFA가 필요한 응용 프로그램에 액세스하기 전에 MFA 인증 질문이 표시됩니다.
+
+---
 
 **Q: Azure Portal에서 사용자 정보에 장치 레코드가 표시되고 장치에 등록된 상태로 표시됩니다. 조건부 액세스를 사용할 수 있게 제대로 설정되어 있는 것인가요?**
 
@@ -173,5 +185,6 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 
 - [Windows 하위 수준 클라이언트에 대한 Azure AD 도메인 조인 컴퓨터의 자동 등록 문제 해결](device-management-troubleshoot-hybrid-join-windows-legacy.md)
  
+
 ---
 

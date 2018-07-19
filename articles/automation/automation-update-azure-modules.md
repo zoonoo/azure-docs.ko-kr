@@ -9,18 +9,21 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe263346d8794b3dc85b6420d8b9b02efa5f9684
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193508"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929035"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
-기본적으로 각 Automation 계정에 가장 일반적인 Azure PowerShell 모듈이 제공됩니다. Azure 팀이 Azure 모듈을 정기적으로 업데이트하므로 포털에서 새 버전을 사용할 수 있으면 Automation 계정에서 모듈을 업데이트하는 방법이 제공됩니다.  
+기본적으로 각 Automation 계정에 가장 일반적인 Azure PowerShell 모듈이 제공됩니다. Azure 팀이 Azure 모듈을 정기적으로 업데이트하므로 포털에서 새 버전을 사용할 수 있으면 Automation 계정에서 모듈을 업데이트하는 방법이 제공됩니다.
 
 제품 그룹에 의해 모듈이 정기적으로 업데이트되므로 매개 변수의 이름이 바뀌거나 cmdlet을 완전히 사용 중단하는 등 변경 유형에 따라 Runbook에 부정적인 영향을 미칠 수 있는 변경 사항이 포함된 cmdlet에 발생할 수 있습니다. 자동화하는 프로세스 및 Runbook에 영향을 주지 않으려면 계속하기 전에 테스트 및 유효성 검사를 수행하는 것이 좋습니다. 이 용도의 전용 Automation 계정이 없는 경우 하나 만들어 PowerShell 모듈 업데이트와 같은 반복적인 변경 외에도 Runbook을 개발하는 동안 다양한 시나리오와 순열을 테스트하는 데 사용하는 것이 좋습니다 결과 유효성을 검사하고 필요한 변경 사항을 적용한 후에는 수정이 필요한 모든 Runbook의 마이그레이션 조정을 계속하고 프로덕션 환경에서 설명된 대로 다음과 같은 업데이트를 수행합니다.
+
+> [!NOTE]
+> 새 자동화 계정에 최신 모듈이 없을 수도 있습니다.
 
 ## <a name="updating-azure-modules"></a>Azure 모듈 업데이트
 
@@ -44,7 +47,7 @@ ms.locfileid: "34193508"
 > [!NOTE]
 > Azure Automation은 예약된 새 작업이 실행될 때 Automation 계정의 최신 모듈을 사용합니다.    
 
-Runbook에서 이러한 Azure PowerShell 모듈의 cmdlet을 사용하는 경우 최신 모듈을 사용하도록 매달 이 업데이트 프로세스를 수행하는 것이 좋습니다.
+Runbook에서 이러한 Azure PowerShell 모듈의 cmdlet을 사용하는 경우 최신 모듈을 사용하도록 매달 이 업데이트 프로세스를 수행하는 것이 좋습니다. Azure Automation은 모듈을 업데이트할 때 AzureRunAsConnection 연결을 사용하여 인증합니다. 서비스 주체가 만료되었거나 구독 수준에 더 이상 존재하지 않는 경우, 모듈 업데이트가 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 9346ed6b26b4fa4a7875354153b6847938253d1e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9d72bc885bdaaed521042df236dd722b80533186
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657012"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37867004"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
@@ -33,7 +33,7 @@ Azure 가상 머신에서 실행되는 SAP HANA에 대한 백업 가이드에서
 
 SAP HANA는 타사 백업 도구에서 SAP HANA와 직접 통합할 수 있게 하는 백업 API를 제공합니다. (이 내용은 이 가이드의 범위를 벗어납니다.) 현재 이 API를 기반으로 하여 SAP HANA와 Azure Backup 서비스를 직접 통합할 수는 없습니다.
 
-SAP HANA는 공식적으로 Azure VM 유형 GS5에서 OLAP 워크로드에 대한 추가 제한 사항이 있는 단일 인스턴스로 지원됩니다(SAP 웹 사이트의 [공인 IaaS 플랫폼 찾기](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html)(영문) 참조). 이 문서는 Azure의 SAP HANA에 대한 새 제품이 출시됨에 따라 업데이트될 예정입니다.
+SAP HANA는 Azure M-Series와 같은 다양한 Azure VM 유형에서 공식적으로 지원됩니다. SAP HANA 인증 Azure VM의 전체 목록을 보려면 [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)(공인 IaaS 플랫폼 찾기)를 확인하세요. 이 문서는 Azure의 SAP HANA에 대한 새 제품이 출시됨에 따라 업데이트될 예정입니다.
 
 또한 Azure에서 사용할 수 있는 SAP HANA 하이브리드 솔루션도 있으며, 이 경우 SAP HANA는 물리적 서버에서 가상화되지 않은 상태로 실행됩니다. 그러나 이 SAP HANA Azure 백업 가이드에서는 SAP HANA가 &quot;큰 인스턴스&quot;에서 실행되는 것이 아니라 Azure VM에서 실행되는 순수한 Azure 환경을 다루고 있습니다. 저장소 스냅숏을 기반으로 하는 &quot;큰 인스턴스&quot;에 대한이 백업 솔루션에 대한 자세한 내용은 [Azure의 SAP HANA(큰 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md)를 참조하세요.
 
@@ -175,7 +175,7 @@ Azure Backup 서비스는 암호화된 VM/디스크를 처리할 수 있습니�
 
 ### <a name="test-virtual-machine-on-azure"></a>Azure에서 Virtual Machine 테스트
 
-Azure GS5 VM의 SAP HANA 설치는 다음과 같은 백업/복원 테스트에 사용되었습니다.
+테스트를 수행하기 위해 다음과 같은 백업/복원 테스트에 Azure GS5 VM의 SAP HANA 설치를 사용했습니다. 원칙은 M-Series VM의 경우와 동일합니다.
 
 ![그림: HANA 테스트 VM에 대한 Azure Portal 개요의 일부](media/sap-hana-backup-guide/image007.png)
 

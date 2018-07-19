@@ -1,5 +1,5 @@
 ---
-title: 데이터 팩터리를 사용하여 Oracle 간 데이터 복사 | Microsoft Docs
+title: Data Factory를 사용하여 Oracle 간 데이터 복사 | Microsoft Docs
 description: Azure Data Factory를 사용하여 온-프레미스 Oracle 데이터베이스 간 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe1ca45b0f79781b2fa17bfb605df03d334cc8d1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 10535e75a32a9f95e759340cf14d693f43639473
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046716"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856844"
 ---
-# <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Oracle 간 데이터 복사
+# <a name="copy-data-to-or-from-on-premises-oracle-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 Oracle 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [버전 1](data-factory-onprem-oracle-connector.md)
 > * [버전 2(현재 버전)](../connector-oracle.md)
@@ -103,6 +103,10 @@ Data Factory는 데이터 관리 게이트웨이를 사용하여 온-프레미�
 | gatewayName | 온-프레미스 Oracle 서버에 연결하는 데 사용되는 게이트웨이 이름입니다. |예 |
 
 **예제: Microsoft 드라이버 사용:**
+
+>[!TIP]
+>“ORA-01025: UPI parameter out of range”(ORA-01025: UPI 매개 변수가 범위를 벗어남) 오류가 표시되고 Oracle이 8i 버전인 경우 연결 문자열에 `WireProtocolMode=1`을 추가하고 다시 시도합니다.
+
 ```json
 {
     "name": "OnPremisesOracleLinkedService",

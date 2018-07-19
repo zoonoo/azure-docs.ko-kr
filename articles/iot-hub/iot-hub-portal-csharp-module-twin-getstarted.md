@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: b4502dfc8f856516989326c8d748a5d13fdba02b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4b4b193751606883548e25e731dcece4ae72ba7b
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634593"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38666894"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -26,12 +26,12 @@ ms.locfileid: "34634593"
 2. .NET 장치 SDK를 사용하여 장치에서 모듈을 업데이트하는 방법.
 
 > [!NOTE]
-> 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 내용은 [Azure IoT SDK][lnk-hub-sdks]를 참조하세요.
+> 장치와 솔루션 백 엔드에서 실행하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK][lnk-hub-sdks]를 참고하세요.
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * Visual Studio 2015 또는 Visual Studio 2017.
-* 활성 Azure 계정. (계정이 없는 경우 몇 분 만에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.)
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정][lnk-free-trial]을 만들 수 있습니다.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -143,18 +143,17 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
     ```
 
     이 코드 샘플에서는 AMQP 프로토콜을 사용하여 모듈 쌍을 검색하고 reported 속성을 업데이트하는 방법을 보여 줍니다. 공개 미리 보기에서는 모듈 쌍 작업에 대해서만 AMQP를 지원합니다.
-    ```
 
-## Run the apps
+## <a name="run-the-apps"></a>앱 실행
 
-You are now ready to run the apps. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for the console app. And then press F5 to start both apps running. 
+이제 앱을 실행할 준비가 되었습니다. 솔루션 탐색기의 Visual Studio에서 솔루션을 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 클릭합니다. **여러 개의 시작 프로젝트**를 선택하고 **시작**을 콘솔 앱에 대한 작업으로 선택합니다. 그런 다음, F5 키를 눌러 두 앱을 모두 실행합니다. 
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-To continue getting started with IoT Hub and to explore other IoT scenarios, see:
+계속해서 IoT Hub을 시작하고 다른 IoT 시나리오를 탐색하려면 다음을 참조하세요.
 
-* [Get started with IoT Hub module identity and module twin using .NET backup and .NET device][lnk-csharp-csharp-getstarted]
-* [Getting started with IoT Edge][lnk-iot-edge]
+* [.NET 백업 및 .NET 장치를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작][lnk-csharp-csharp-getstarted]
+* [IoT Edge 시작][lnk-iot-edge]
 
 
 <!-- Images. -->

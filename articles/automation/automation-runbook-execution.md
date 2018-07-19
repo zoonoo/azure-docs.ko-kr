@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff58e22f8b9b837ec272cd2cd6193da80a7b718e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b9bfc0df01dd8fc8a6a1b7aed5ade466164a82f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195423"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930055"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -137,7 +137,7 @@ Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
 
 Azure Automation에서는 클라우드의 모든 Runbook 간에 리소스를 공유할 수 있도록 3시간 동안 작업을 실행한 후 일시적으로 언로드합니다. 이 시간 동안 [PowerShell 기반 Runbook](automation-runbook-types.md#powershell-runbooks) 작업은 중지되며 다시 시작되지 않습니다. 작업 상태에는 **Stopped**이 표시됩니다. 이 유형의 Runbook은 검사점을 지원하지 않으므로 항상 처음부터 다시 시작됩니다.
 
-[PowerShell 워크플로 기반 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)은 마지막 [검사점](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints)에서 다시 시작됩니다. 3시간을 실행한 후 runbook 작업은 서비스에 의해 일시 중단되고 해당 상태에 **Running, waiting for resources**가 표시됩니다. 샌드박스를 사용할 수 있게 되면 Runbook은 Automation 서비스에 의해 자동으로 다시 시작되고 마지막 검사점부터 계속됩니다. 이것은 일시 중단/다시 시작에 대한 정상적인 PowerShell 워크플로 동작입니다. Runbook이 3시간의 런타임을 초과하면 3회까지 프로세스가 반복됩니다. 세 번째 프로세스가 다시 시작된 후에도 runbook이 3시간 내에 완료되지 못하면 runbook 작업은 실패하고 작업 상태에 **Failed, waiting for resources**가 표시됩니다. 이 경우 오류와 함께 다음 예외가 발생합니다.
+[PowerShell 워크플로 기반 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)은 마지막 [검사점](https://docs.microsoft.com/system-center/sma/overview-powershell-workflows#bk_Checkpoints)에서 다시 시작됩니다. 3시간을 실행한 후 Runbook 작업은 서비스에 의해 일시 중단되고 해당 상태에 **Running, waiting for resources**가 표시됩니다. 샌드박스를 사용할 수 있게 되면 Runbook은 Automation 서비스에 의해 자동으로 다시 시작되고 마지막 검사점부터 계속됩니다. 이것은 일시 중단/다시 시작에 대한 정상적인 PowerShell 워크플로 동작입니다. Runbook이 3시간의 런타임을 초과하면 3회까지 프로세스가 반복됩니다. 세 번째 프로세스가 다시 시작된 후에도 runbook이 3시간 내에 완료되지 못하면 runbook 작업은 실패하고 작업 상태에 **Failed, waiting for resources**가 표시됩니다. 이 경우 오류와 함께 다음 예외가 발생합니다.
 
 *작업이 동일한 검사점에서 반복적으로 제거되었기 때문에 실행을 계속할 수 없습니다. Runbook이 해당 상태를 유지하지 않고 시간이 오래 걸리는 작업을 수행하지 않는지 확인하세요.*
 
@@ -145,7 +145,9 @@ Azure Automation에서는 클라우드의 모든 Runbook 간에 리소스를 공
 
 Runbook에 검사점이 없거나 작업이 언로드되기 전에 첫 번째 검사점에 도달하지 않은 경우에는 처음부터 다시 시작됩니다.
 
-Runbook을 만들 때 두 검사점 간의 모든 활동을 실행할 시간을 3시간을 초과하지 않도록 해야 합니다. 이 3시간 제한에 도달하거나 오래 실행되는 작업이 중단되지 않도록 하기 위해 Runbook에 검사점을 추가해야 할 수도 있습니다. 예를 들어 Runbook에서 대용량 SQL 데이터베이스의 인덱스를 다시 작성할 수 있습니다. 이 단일 작업이 공평 분배 제한 내에 완료되지 않으면 작업이 언로드되고 처음부터 다시 시작됩니다. 이 경우 다시 인덱싱 작업을 여러 단계로 나눈 다음(예: 한 번의 하나의 테이블을 다시 인덱싱하도록) 작업이 완료할 마지막 작업 이후에 다시 시작될 수 있도록 각 작업 뒤에 검사점을 삽입해야 합니다.
+장기 실행 작업의 경우, [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior)를 사용하는 것이 좋습니다. Hybrid Runbook Worker는 공평 분배에 의해 제한되지 않으며, Runbook을 실행할 수 있는 기간에 대한 제한이 없습니다.
+
+Azure에서 PowerShell 워크플로 Runbook을 사용하는 경우, Runbook을 만들 때 두 검사점 간의 작업을 실행하는 시간이 3시간을 초과하지 않도록 해야 합니다. 이 3시간 제한에 도달하거나 오래 실행되는 작업이 중단되지 않도록 하기 위해 Runbook에 검사점을 추가해야 할 수도 있습니다. 예를 들어 Runbook에서 대용량 SQL 데이터베이스의 인덱스를 다시 작성할 수 있습니다. 이 단일 작업이 공평 분배 제한 내에 완료되지 않으면 작업이 언로드되고 처음부터 다시 시작됩니다. 이 경우 다시 인덱싱 작업을 여러 단계로 나눈 다음(예: 한 번의 하나의 테이블을 다시 인덱싱하도록) 작업이 완료할 마지막 작업 이후에 다시 시작될 수 있도록 각 작업 뒤에 검사점을 삽입해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

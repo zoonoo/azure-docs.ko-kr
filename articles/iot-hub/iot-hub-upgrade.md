@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 472115f166adc5385b6f46b2f3ac5ef75a6cde92
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637279"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37903067"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>IoT Hub를 업그레이드하는 방법
 
@@ -45,7 +45,7 @@ IoT Hub를 다운그레이드하려면 단위를 제거하고 IoT Hub 크기를 
 4. 허브에서 단위 수를 변경하려면 **IoT Hub 단위** 아래 새 값을 입력합니다. 
 5. **저장**을 선택하여 변경 내용을 저장합니다. 
 
-이제 IoT Hub가 조정되었으며 구성은 변경되지 않았습니다. 
+이제 IoT Hub가 조정되었으며 구성은 변경되지 않았습니다. 기본 계층 IoT Hub에 대한 파티션 제한은 8입니다. 기본 계층에서 표준 계층으로 마이그레이션할 때 이 제한은 변경되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

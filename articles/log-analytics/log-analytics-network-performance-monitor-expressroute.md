@@ -1,6 +1,6 @@
 ---
 title: Azure Log Analytics의 네트워크 성능 모니터 솔루션 | Microsoft Docs
-description: 네트워크 성능 모니터에서 ExpressRoute 관리자 기능을 사용하여 Azure ExpressRoute 통해 지사와 Azure 간의 끝점 간 연결 및 성능을 모니터링할 수 있습니다.
+description: 네트워크 성능 모니터의 ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 종단 간 연결 및 성능을 모니터링할 수 있습니다.
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 55308c2f144ea90636fb477f82c19fd3f8276af5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 27169193a468d98be879164b80e63fffde419002
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131131"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38633352"
 ---
-# <a name="expressroute-manager"></a>ExpressRoute 관리자
+# <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
-[네트워크 성능 모니터](log-analytics-network-performance-monitor.md)에서 Azure ExpressRoute 관리자 기능을 사용하여 Azure ExpressRoute 통해 지사와 Azure 간의 끝점 간 연결 및 성능을 모니터링할 수 있습니다. 주요 이점은 다음과 같습니다. 
+[네트워크 성능 모니터](log-analytics-network-performance-monitor.md)의 Azure ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 종단 간 연결 및 성능을 모니터링할 수 있습니다. 주요 이점은 다음과 같습니다. 
 
 - 구독에 연결된 ExpressRoute 회로의 자동 검색
 - ExpressRoute에 대한 회로, 피어링 및 Azure Virtual Network 수준에서 대역폭 사용률, 손실 및 대기 시간 추적

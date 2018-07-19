@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/10/2018
+ms.date: 07/03/2018
 ms.author: shlo
-ms.openlocfilehash: c07199887faf073d19007f1ef410c193bbdbf3ee
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049369"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859281"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타데이터 가져오기 작업
 GetMetadata 작업은 Azure Data Factory에서 모든 데이터의 **메타데이터**를 검색하는 데 사용할 수 있습니다. 이 작업은 다음과 같은 시나리오에서 사용할 수 있습니다.
@@ -34,7 +34,7 @@ GetMetadata 작업은 Azure Data Factory에서 모든 데이터의 **메타데�
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-GetMetadata 작업은 데이터 집합을 필수 입력으로 사용하고, 작업 출력으로 사용할 수 있는 메타데이터 정보를 출력합니다. 현재 검색 가능한 해당 메타데이터가 있는 다음 커넥터가 지원됩니다.
+GetMetadata 작업은 데이터 집합을 필수 입력으로 사용하고, 작업 출력으로 사용할 수 있는 메타데이터 정보를 출력합니다. 현재 검색 가능한 해당 메타데이터가 있는 다음 커넥터가 지원되며 지원되는 최대 메타데이터 크기는 최대 **1MB**입니다.
 
 >[!NOTE]
 >자체 호스팅 Integration Runtime에서 GetMetadata 작업을 실행하면 최신 기능이 3.6 버전 이상에서 지원됩니다. 

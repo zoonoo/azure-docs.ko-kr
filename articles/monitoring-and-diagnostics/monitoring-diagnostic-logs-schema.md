@@ -5,22 +5,44 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 6/08/2018
+ms.date: 7/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 45595893a199b845c8b010bc1e2545b89aa688cd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264982"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37921232"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
-[Azure 리소스 진단 로그](monitoring-overview-of-diagnostic-logs.md)는 해당 리소스의 작업을 설명하는 Azure 리소스에서 내보낸 로그입니다. 이러한 로그는 리소스 종류별로 다릅니다. 이 문서에서는 각 서비스에서 내보내는 이벤트에 대해 지원되는 서비스 및 이벤트 스키마 집합에 대해 간략히 설명합니다. 또한 이 문서에는 리소스 종류당 사용 가능한 로그 범주의 전체 목록이 포함되어 있습니다.
+[Azure 리소스 진단 로그](monitoring-overview-of-diagnostic-logs.md)는 해당 리소스의 작업을 설명하는 Azure 리소스에서 내보낸 로그입니다. Azure Monitor를 통해 사용할 수 있는 모든 진단 로그는 일반적인 최상위 수준 스키마를 공유하며, 각 서비스가 자체 이벤트에 대한 고유한 속성을 유연성 있게 내보낼 수 있습니다.
 
-## <a name="supported-services-and-schemas-for-resource-diagnostic-logs"></a>리소스 진단 로그에 대해 지원되는 서비스 및 스키마
-리소스 진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다.   
+리소스 종류(`resourceId` 속성에 제공) 및 `category`가 조합되어 스키마를 고유하게 식별합니다. 이 문서에서는 진단 로그의 최상위 수준 스키마를 설명하고 각 서비스의 스키마에 대한 링크를 제공합니다.
+
+## <a name="top-level-diagnostic-logs-schema"></a>최상위 수준 진단 로그 스키마
+
+| Name | 필수/선택 | 설명 |
+|---|---|---|
+| 실시간 | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
+| ResourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. |
+| operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우, RBAC 작업 이름입니다(예: Microsoft.Storage/storageAccounts/blobServices/blobs/Read). 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
+| operationVersion | 옵션 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: http://myservice.windowsazure.net/object?api-version=2016-06-01)). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
+| 카테고리 | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 “감사”, “작동”, “실행” 및 “요청”입니다. |
+| resultType | 옵션 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| resultSignature | 옵션 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |
+| resultDescription | 옵션 | 이 작업에 대한 정적 텍스트 설명입니다(예: “저장소 파일 가져오기”). |
+| durationMS | 옵션 | 밀리초 단위의 작업 기간입니다. |
+| callerIpAddress | 옵션 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
+| CorrelationId | 옵션 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: “시작됨” 및 “성공”) 경우, 동일한 상관 관계 ID를 공유합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
+| ID | 옵션 | 작업을 수행한 사용자 또는 응용 프로그램의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
+| Level | 옵션 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| location | 옵션 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
+| properties | 옵션 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 사용자 지정/고유 속성은 스키마의 “파트 B”에 넣어야 합니다. |
+
+## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>리소스 진단 로그의 서비스 특정 스키마
+리소스 진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다. 이 목록은 진단 로그를 제공하는 모든 서비스와 서비스 및 범주 특정 스키마(해당하는 경우)에 대한 링크를 보여 줍니다.
 
 | 서비스 | 스키마 및 문서 |
 | --- | --- |

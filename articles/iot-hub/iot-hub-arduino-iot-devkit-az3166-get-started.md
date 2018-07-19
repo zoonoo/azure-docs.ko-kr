@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: ce20ae800887d8c9e865ecec46d0cf9a49fb7c3c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cf9ee5339c53eb4f9c74f6b5f251a7963555d676
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631628"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928752"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub-in-the-cloud"></a>클라우드에서 Azure IoT Hub에 IoT DevKit AZ3166 연결
 
@@ -285,7 +285,7 @@ VS Code에서 다음 단계에 따라 직렬 모니터를 열고 설정합니다
 다음과 같은 결과가 표시되면 샘플 응용 프로그램은 성공적으로 실행됩니다.
 
 * 직렬 모니터는 아래 스크린샷의 내용으로 동일한 정보를 표시합니다.
-* MXChip IoT DevKit의 LED가 깜박입니다.
+* MXChip IoT DevKit의 RGB LED가 깜박입니다.
 
 ![VS Code의 최종 출력](media/iot-hub-arduino-devkit-az3166-get-started/mini-solution/connect-iothub/result-serial-output.png)
 

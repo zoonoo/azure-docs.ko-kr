@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: caabe0fea6286c9439e8929b054d771868dcb6f1
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 6445bcdc361bcda3beb6abcb6196fecc9c6c0024
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272151"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952878"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Solr 설치 및 사용
 
@@ -149,21 +149,27 @@ ms.locfileid: "34272151"
            http://localhost:8983/solr/replication?command=backup
 
        다음과 같은 응답이 표시됩니다.
-
-           <?xml version="1.0" encoding="UTF-8"?>
-           <response>
+            
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+          <response>
              <lst name="responseHeader">
                <int name="status">0</int>
                <int name="QTime">9</int>
              </lst>
-             <str name="status">OK</str>
-           </response>
-   2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 만든 클러스터의 경우 이 경로는 **C:\apps\dist\solr-4.7.2\example\solr\collection1\data**입니다. 이 위치에서 **snapshot.* timestamp***와 비슷한 이름으로 만든 스냅숏 폴더가 표시됩니다.
+            <str name="status">OK</str>
+          </response>
+      ```
+      
+   2. 원격 세션에서 {SOLR_HOME}\{Collection}\data로 이동합니다. 샘플 스크립트를 통해 생성된 클러스터의 경우, `C:\apps\dist\solr-4.7.2\example\solr\collection1\data`여야 합니다. 이 위치에서 **snapshot.* timestamp***와 비슷한 이름으로 만든 스냅숏 폴더가 표시됩니다.
+   
    3. 스냅숏 폴더를 압축하고 Azure Blob 저장소에 업로드합니다. Hadoop 명령줄에서 다음 명령을 사용하여 스냅숏 폴더의 위치로 이동합니다.
 
-             hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
+      hadoop fs -CopyFromLocal snapshot._timestamp_.zip /example/data
+      ```
 
-       이 명령은 스냅숏을 클러스터와 연결된 기본 Storage 계정 내의 컨테이너 아래에 있는 /example/data/에 복사합니다.
+   이 명령은 스냅숏을 클러스터와 연결된 기본 Storage 계정 내의 컨테이너 아래에 있는 /example/data/에 복사합니다.
 
 ## <a name="install-solr-using-aure-powershell"></a>Aure PowerShell을 사용하여 Solr 설치
 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)을 참조하세요.  샘플은 Azure PowerShell을 사용하여 Spark를 설치하는 방법을 보여줍니다. [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)을 사용하도록 스크립트를 사용자 지정해야 합니다.

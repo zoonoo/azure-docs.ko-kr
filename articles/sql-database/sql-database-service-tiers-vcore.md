@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/23/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: bfa32796b40033a13d1ced9f8431bd19492e6498
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309582"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859938"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>vCore 서비스 계층, 계산, 메모리, 저장소 및 IO 리소스 선택
 
@@ -25,8 +25,8 @@ ms.locfileid: "36309582"
 ||**범용**|**중요 비즈니스**|
 |---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 예산 중심의 균형 잡히고 확장 가능한 계산 및 저장소 옵션을 제공합니다.|IO 요구 사항이 높은 비즈니스 응용 프로그램입니다. 여러 개의 격리된 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다.|
-|컴퓨팅|1~80개 vCore, 4세대 및 5세대 |1~80개 vCore, 4세대 및 5세대|
-|메모리|코어당 7GB |코어당 7GB |
+|컴퓨팅|1~80 vCore, Gen4 및 Gen5 |1~80 vCore, Gen4 및 Gen5|
+|메모리|Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB | Gen4: 코어당 7GB<br>Gen5: 코어당 5.5GB |
 |Storage|프리미엄 원격 저장소, 5GB-4TB|로컬 SSD 저장소, 5GB~4TB|
 |IO 처리량(근사치)|vCore당 500 IOPS(최대 7,000 IOPS)|vCore당 5000 IOPS(최대 200,000 IOPS)|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정](sql-database-read-scale-out.md), 영역 중복 HA|
@@ -63,7 +63,8 @@ MDF 및 LDF의 현재 총 크기를 모니터링하려면 [sp_spaceused](https:/
 데이터베이스 백업 저장소는 SQL Database의 PITR(특정 시점 복원) 및 LTR(장기 보존) 기능을 지원하기 위해 할당됩니다. 이 저장소는 각 데이터베이스에 대해 개별적으로 할당되며 데이터베이스당 별도의 두 가지 요금으로 청구됩니다. 
 
 - **PITR**: 개별 데이터베이스 백업은 RA-GRS 저장소에 자동으로 복사됩니다. 새 백업이 만들어지면 저장소 크기가 동적으로 증가합니다.  저장소는 주별 전체 백업, 일별 차등 백업 및 5분마다 복사되는 트랜잭션 로그 백업에 사용됩니다. 저장소 사용량은 데이터베이스 변경률과 보존 기간에 따라 다릅니다. 각 데이터베이스에 대한 개별적인 보존 기간은 7-35일 사이에서 구성할 수 있습니다. 데이터 크기의 1배에 해당하는 최소 저장소 크기는 추가 비용 없이 제공됩니다. 대부분의 데이터베이스에서 이 크기는 7일간의 백업을 저장하기에 충분합니다.
-- **LTR**: SQL Database는 전체 백업의 장기 보존을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하도록 설정하면 이러한 백업이 RA-GRS 저장소에 자동으로 저장되지만 백업이 복사되는 빈도를 제어할 수 있습니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 이 구성은 LTR 백업에 사용되는 저장소의 크기를 정의합니다. LTR 가격 계산기를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+- 
+  **LTR**: SQL Database는 전체 백업의 장기 보존을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하도록 설정하면 이러한 백업이 RA-GRS 저장소에 자동으로 저장되지만 백업이 복사되는 빈도를 제어할 수 있습니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 이 구성은 LTR 백업에 사용되는 저장소의 크기를 정의합니다. LTR 가격 계산기를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="azure-hybrid-use-benefit"></a>AHUB(Azure Hybrid Use Benefit)
 

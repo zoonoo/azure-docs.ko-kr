@@ -15,12 +15,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: robmcm
-ms.openlocfilehash: fa19f3dc7dded712102d4ba9b66dd4df1bfd20dd
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 6ea1d249b7f9aec3a45923b162a97ce7f83d0d31
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29397600"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37901156"
 ---
 # <a name="ruby-on-rails-web-application-on-an-azure-vm"></a>Azure VM의 Ruby on Rails 웹 응용 프로그램
 이 자습서에서는 Azure에서 Linux 가상 머신을 사용하여 Ruby on Rails 웹 사이트를 호스트하는 방법을 보여줍니다.  
@@ -100,7 +100,7 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
     [2015-06-09 23:34:23] INFO  WEBrick::HTTPServer#start: pid=27766 port=3000
 
 ## <a name="add-an-endpoint"></a>끝점 추가
-1. [Azure Portal] [https://portal.azure.com] 로 이동하고 VM을 선택합니다.
+1. [Azure Portal][https://portal.azure.com]로 이동하고 VM을 선택합니다.
 
 2. 페이지의 왼쪽 가장자리에 있는 **설정**에서 **끝점**을 선택합니다.
 
@@ -129,7 +129,7 @@ SSH를 통해 로그인한 경우.다음 명령을 실행합니다.
     ![기본 Rails 페이지][default-rails-cloud]
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 수동으로 대부분의 단계를 수행했습니다. 프로덕션 환경의 개발 컴퓨터에 앱을 작성하고 Azure VM에 배포합니다. 또한 대부분의 프로덕션 환경은 Rails 응용 프로그램을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 응용 프로그램의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다. 자세한 내용은 http://rubyonrails.org/deploy/를 참조하세요.
+이 자습서에서는 수동으로 대부분의 단계를 수행했습니다. 프로덕션 환경의 개발 컴퓨터에 앱을 작성하고 Azure VM에 배포합니다. 또한 대부분의 프로덕션 환경은 Rails 응용 프로그램을 다른 서버 프로세스(예: Apache 또는 NginX)와 함께 호스트하며 이러한 서버 프로세스는 Rails 응용 프로그램의 여러 인스턴스로 라우팅하여 정적 리소스를 제공하는 요청을 처리합니다. 자세한 내용은 http://guides.rubyonrails.org/routing.html을 참조하세요.
 
 Ruby on Rails에 대해 자세히 알아보려면 [Ruby on Rails 가이드][rails-guides](영문)를 방문하세요.
 

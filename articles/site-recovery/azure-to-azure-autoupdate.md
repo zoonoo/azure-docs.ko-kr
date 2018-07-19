@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: add80b17c76e7262f55e50cd07d4e9b053cfa1ff
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209834"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922751"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure에서 Azure 복제로 Mobility Service 자동 업데이트
 
@@ -29,6 +29,11 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 
 > [!NOTE]
 > 자동 업데이트를 설정해도 Azure VM을 다시 부팅할 필요가 없으며 진행 중인 복제가 영향을 받지도 않습니다.
+
+> [!NOTE]
+> 자동화 계정에서 사용하는 작업에 대한 청구는 그 달에 사용된 작업 실행 시간(분)을 기반으로 하며, 기본적으로 500분은 자동화 계정의 무료 단위로 포함됩니다. 일별 작업 실행은 **몇 초에서 1분** 사이이며, **크레딧으로 충분**합니다.
+
+포함되는 무료 단위(매월)**   작업 실행 시간 요금 500분 ₹0.14/분
 
 ## <a name="enable-automatic-updates"></a>자동 업데이트 사용
 
@@ -64,7 +69,7 @@ Site Recovery에서 업데이트를 관리하도록 허용하면 자격 증명 �
 자동 업데이트를 사용하려고 했으나 실패한 경우 아래를 참조하여 문제를 해결할 수 있습니다.
 
 **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에게 기여자 역할을 부여할 권한이 없습니다. 
-- 권장 조치: 로그인한 계정에 '기여자' 역할이 할당되었는지 확인한 후 작업을 다시 시도합니다.
+- 권장 조치: 로그인한 계정에 '기여자' 역할이 할당되었는지 확인한 후 작업을 다시 시도합니다. 올바른 권한을 할당하는 방법에 대한 자세한 내용은 [이](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 문서를 참조하세요.
  
 자동 업데이트가 켜져 있으면 Site Recovery 서비스가 대부분의 문제를 해결하며 사용자는 '**복구**' 단추를 클릭해야 합니다.
 

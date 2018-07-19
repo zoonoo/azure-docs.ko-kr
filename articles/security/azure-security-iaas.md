@@ -12,36 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 1a6ff01274c4a47730ffe45275aed9d122994260
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366276"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723775"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
-작업을 Azure IaaS(Infrastructure as a Service)로 이동할 생각이라면 몇 가지 고려 사항에 대해 이미 잘 알고 있다는 사실을 인식하게 될 것입니다. 이미 가상 환경 보안을 설정해본 적이 있을 수 있습니다. Azure IaaS로 이동하면 가상 환경 보안 유지에 기존 전문 지식을 활용할 수 있으며 자산 보호에 도움이 되는 몇 가지 새로운 옵션도 사용할 수 있습니다.
-
-온-프레미스 리소스를 일대일로 Azure로 가져오지 않는다는 가정 하에 시작해보겠습니다. 새로운 해결 과제 및 새로운 옵션 때문에 기존 설계, 도구 및 프로세스를 다시 평가할 기회를 얻게 됩니다.
+대부분 IaaS(Infrastructure as a Service) 시나리오에서 [Azure VM(가상 머신)](https://docs.microsoft.com/azure/virtual-machines/)은 클라우드 컴퓨팅을 사용하는 조직에 주요 워크로드입니다. 이 사실은 조직이 워크로드를 클라우드에 천천히 마이그레이션하고 싶은 [하이브리드 시나리오](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx)에서 특히 명백합니다. 이러한 시나리오에서 [IaaS에 대한 일반적인 보안 고려 사항](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)을 따르고 모든 VM에 보안 모범 사례를 적용합니다.
 
 보안에 대한 사용자의 책임은 클라우드 서비스의 형식에 기반합니다. 다음 차트에는 Microsoft와 여러분 모두에 대한 책임의 균형이 요약되어 있습니다.
 
-
 ![책임 영역](./media/azure-security-iaas/sec-cloudstack-new.png)
 
+보안 요구 사항은 다양한 워크로드 유형을 포함한 여러 요인에 따라 달라집니다. 이러한 모범 사례 중 어떤 것도 혼자서는 시스템 보안을 유지할 수는 없습니다. 보안의 다른 요소와 마찬가지로, 적절한 옵션을 선택하고 각 솔루션의 간극을 해소하면서 서로 어떻게 보완할 수 있는지 파악해야 합니다.
 
-조직의 보안 요구를 충족하는 데 도움을 주기 위해 Azure에서 사용할 수 있는 옵션 일부를 살펴보겠습니다. 다양한 유형의 작업에 대한 보안 요구 사항이 다를 수 있는 점을 염두에 두십시오. 이러한 모범 사례 중 어떤 것도 혼자서는 시스템 보안을 유지할 수는 없습니다. 보안의 다른 요소와 마찬가지로, 적절한 옵션을 선택하고 각 솔루션의 간극을 해소하면서 서로 어떻게 보완할 수 있는지 파악해야 합니다.
+이 문서에서는 각각 VM에 대한 고객과 Microsoft의 고유한 직접 경험으로부터 파생된 다양한 VM 보안 모범 사례를 설명합니다.
+
+모범 사례는 의견의 일치를 기반으로 하며 현재 Azure 플랫폼 기능 및 기능 집합과 함께 작동합니다. 시간이 지남에 따라 의견 및 기술이 변경될 수 있으므로 이 문서는 해당 변경 내용을 반영하기 위해 업데이트됩니다.
 
 ## <a name="use-privileged-access-workstations"></a>권한 있는 액세스 워크스테이션 사용
 
-조직에서 관리자는 권한이 상승된 계정을 사용하여 작업을 수행하므로 사이버 공격을 받기 쉽습니다. 일반적으로 이러한 공격은 악의적이기 보다는 기존 구성 및 프로세스에서 허용하기 때문에 초래됩니다. 이러한 사용자 대부분은 개념적 관점에서 위험을 이해하면서도 해당 단계를 여전히 선택하게 됩니다.
+조직에서 관리자는 권한이 상승된 계정을 사용하여 작업을 수행하므로 사이버 공격을 받기 쉽습니다. 이는 악의적인 활동의 결과가 아닐 수 있지만, 기존 구성 및 프로세스에서 허용하기 때문에 발생합니다. 이러한 사용자 대부분은 개념적 관점에서 위험을 이해하면서도 해당 단계를 여전히 선택하게 됩니다.
 
 전자 메일을 확인하고 인터넷을 검색하는 등의 작업은 위험하지 않은 것처럼 보이지만 악의적인 행위자에 의해 손상되도록 상승된 계정을 노출할 수 있습니다. 검색 활동, 특수하게 작성된 전자 메일 또는 기타 기술은 기업에 대한 액세스 권한을 얻는 데 사용될 수 있습니다. 모든 Azure 관리 작업을 수행할 때 SAW(보안 관리 워크스테이션)를 사용하는 것을 강력하게 권장합니다. SAW는 실수로 인한 손상에 대한 노출을 줄이는 방법입니다.
 
-PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 장치에서 분리하면 매우 강력한 보호 효과를 얻을 수 있습니다. 이 분리는 피싱 공격, 응용 프로그램 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격의 영향으로 제한됩니다. (키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)
+PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 장치에서 분리하면 매우 강력한 보호 효과를 얻을 수 있습니다. 이 분리는 피싱 공격, 응용 프로그램 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격의 영향으로 제한됩니다. (키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)
 
 PAW 방법은 개별적으로 할당된 관리 계정을 사용하는 체계적이고 권장되는 방법의 확장입니다. 관리 계정은 표준 사용자 계정과는 별도입니다. PAW는 이러한 중요한 계정에 대해 신뢰할 수 있는 워크스테이션을 제공합니다.
 
@@ -65,7 +65,7 @@ Azure 구독을 관리하는 계정과 가상 머신에 로그인할 수 있는 
 
 ## <a name="limit-and-constrain-administrative-access"></a>관리 액세스 제한
 
-Azure 구독을 관리할 수 있는 계정을 보호하는 것은 매우 중요합니다. 이러한 계정이 노출되면 데이터의 기밀성 및 무결성을 보장하기 위해 수행할 수 있는 다른 모든 단계의 가치도 떨어지게 됩니다. 최근에 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden)에 따르면, 내부 공격이 조직의 전반적인 보안에 큰 위협을 초래합니다.
+Azure 구독을 관리할 수 있는 계정을 보호하는 것은 중요합니다. 이러한 계정이 노출되면 데이터의 기밀성 및 무결성을 보장하기 위해 수행할 수 있는 다른 모든 단계의 가치도 떨어지게 됩니다. 최근에 [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden)에 따르면, 내부 공격이 조직의 전반적인 보안에 큰 위협을 초래합니다.
 
 다음과 유사한 기준으로 개인에 대한 관리 권한을 평가합니다.
 
@@ -75,14 +75,13 @@ Azure 구독을 관리할 수 있는 계정을 보호하는 것은 매우 중요
 
 권한을 부여하는 알려진 다른 모든 대안과 각 대안이 허용되지 않는 이유를 기록하세요.
 
-적시 관리 방법을 사용하면 상승된 권한이 필요하지 않은 기간 동안 이러한 권한이 있는 계정이 불필요하게 존재하는 경우를 방지할 수 있습니다. 관리자가 해당 작업을 수행할 수 있게 제한된 시간 동안 계정 권한이 상승됩니다. 그런 다음 교대 근무가 끝나거나 작업이 완료되면 해당 권한이 제거됩니다.
+Just-In-Time 관리를 사용하면 상승된 권한이 필요하지 않은 기간 동안 이러한 권한이 있는 계정이 불필요하게 존재하는 경우를 방지할 수 있습니다. 관리자가 해당 작업을 수행할 수 있게 제한된 시간 동안 계정 권한이 상승됩니다. 그런 다음 교대 근무가 끝나거나 작업이 완료되면 해당 권한이 제거됩니다.
 
-[Privileged Identity Management](../active-directory/active-directory-privileged-identity-management-configure.md)를 사용하여 조직의 액세스를 관리, 모니터링 및 제어할 수 있습니다. 이 기능은 조직에서 개인이 수행하는 작업을 파악하는 데 도움이 됩니다. 또한 적격 관리자 개념을 도입하여 Azure AD에 Just-in-Time 관리가 적용됩니다. 이러한 개별 사용자는 관리자 권한을 부여 받을 수 있는 계정이 있습니다. 이러한 유형의 사용자는 활성화 프로세스를 진행할 수 있으며 제한된 시간 동안 관리 권한이 부여됩니다.
-
+[Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)를 사용하여 조직의 액세스를 관리, 모니터링 및 제어할 수 있습니다. 이 기능은 조직에서 개인이 수행하는 작업을 파악하는 데 도움이 됩니다. 또한 적격 관리자 개념을 도입하여 Azure AD에 Just-in-Time 관리가 적용됩니다. 이러한 개별 사용자는 관리자 권한을 부여 받을 수 있는 계정이 있습니다. 이러한 유형의 사용자는 활성화 프로세스를 진행할 수 있으며 제한된 시간 동안 관리 권한이 부여됩니다.
 
 ## <a name="use-devtest-labs"></a>DevTest Lab 사용
 
-실습 및 개발 환경에서 Azure를 사용하면 조직은 하드웨어 조달로 인한 시간 지연을 해소하여 테스트 및 개발을 민첩하게 진행할 수 있습니다. 아쉽게도 Azure에 익숙하지 못할 수도 있고 빠르게 채택하려고 하지 않을 수도 있으므로 관리자는 별 제한 없이 권한을 할당받을 수 있습니다. 이러한 위험으로 인해 조직은 의도치 않게 내부 공격에 노출될 수 있습니다. 일부 사용자는 필요한 것보다 더 많은 권한을 부여받을 수 있습니다.
+랩 및 개발 환경용 Azure를 사용하면 하드웨어 조달에 따른 지연이 발생하지 않습니다. 따라서 조직이 민첩하게 테스트 및 개발할 수 있습니다. 반면, Azure에 익숙하지 않거나 빠르게 채택되도록 지원하려는 관리자는 권한을 과도하게 할당할 수 있습니다. 이러한 위험으로 인해 조직은 의도치 않게 내부 공격에 노출될 수 있습니다. 일부 사용자는 필요한 것보다 더 많은 권한을 부여받을 수 있습니다.
 
 [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) 서비스는 [Azure 역할 기반 Access Control(RBAC)](../role-based-access-control/overview.md)을 사용합니다. RBAC를 사용하면 팀 내의 책임을 사용자가 작업을 수행하는 데 필요한 액세스 권한 수준만 부여되는 역할로 구분할 수 있습니다. RBAC에는 미리 정의된 역할(소유자, 실습 사용자 및 참가자)이 제공됩니다. 이러한 역할을 사용하여 외부 파트너에게 권한을 할당하고 공동 작업을 간소화할 수도 있습니다.
 
@@ -97,11 +96,9 @@ Azure DevTest Lab의 기능은 다음과 같습니다.
 - 셀프 서비스 기능을 통해 사용자가 템플릿을 사용하여 실습을 프로비전할 수 있음
 - 사용량 관리 및 제한
 
-![DevTest Lab을 사용하여 실습 만들기](./media/azure-security-iaas/devtestlabs.png)
+![DevTest Labs](./media/azure-security-iaas/devtestlabs.png)
 
 DevTest Lab 사용과 관련된 추가 비용은 없습니다. 실습, 정책, 템플릿 및 아티팩트를 생성하는 것은 무료입니다. 가상 머신, 저장소 계정 및 가상 네트워크와 같은 실험 내에서 사용하는 Azure 리소스에 대해서만 비용을 지불합니다.
-
-
 
 ## <a name="control-and-limit-endpoint-access"></a>끝점 액세스 제어 및 제한
 
@@ -109,17 +106,24 @@ Azure에서 실습 또는 프로덕션 시스템을 호스트할 경우 인터�
 
 Azure에는 관리 끝점에 대한 액세스를 제한하는 데 도움이 되는 기술이 있습니다. Azure에서는 [NSG](../virtual-network/security-overview.md)(네트워크 보안 그룹)을 사용할 수 있습니다. 배포에 Azure Resource Manager를 사용할 경우 NSG가 모든 네트워크에서 관리 끝점(RDP 또는 SSH)으로의 액세스를 제한합니다. NSG와 관련해서는 라우터 ACL을 떠올려보세요. 라우터 ACL을 사용하여 Azure 네트워크의 다양한 세그먼트 간에 진행되는 네트워크 통신을 엄격히 제어할 수 있습니다. 이러한 방식은 경계 네트워크 또는 기타 격리된 네트워크에서 네트워크를 만드는 것과 비슷합니다. 트래픽을 검사하지는 않지만 네트워크 구분에 도움이 됩니다.
 
+가상 머신에 대한 액세스를 제한하는 보다 동적인 방법은 Azure Security Center의 [Just-In-Time 관리](../security-center/security-center-just-in-time.md)를 사용하는 것입니다. Security Center는 Azure VM을 잠그고, 필요한 경우 액세스를 제공할 수 있습니다. 프로세스는 RBAC([역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md))에 따라 필요한 권한이 있는지 확인한 후 요청한 사용자에게 액세스를 허용하는 방식으로 작동합니다. 그런 다음, Azure Security Center에서 인바운드 트래픽을 허용하는 데 필요한 NSG(네트워크 보안 그룹)를 만듭니다.
 
-Azure에서는 온-프레미스 네트워크에서 [사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 구성할 수 있습니다. 사이트 간 VPN은 클라우드로 온-프레미스 네트워크를 확장합니다. 이를 통해 로컬 네트워크 이외 다른 위치에서의 액세스를 허용하지 않도록 NSG를 수정할 수도 있으므로 NSG를 사용할 또 다른 기회를 얻게 됩니다. 그런 후 먼저 VPN 통해 Azure 네트워크에 연결하여 관리가 수행되도록 요구할 수 있습니다.
+### <a name="site-to-site-vpnvpn-gatewayvpn-gateway-howto-site-to-site-resource-manager-portalmd"></a>[사이트 간 VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+
+사이트 간 VPN은 클라우드로 온-프레미스 네트워크를 확장합니다. 이를 통해 로컬 네트워크 이외 다른 위치에서의 액세스를 허용하지 않도록 NSG를 수정할 수도 있으므로 NSG를 사용할 또 다른 기회를 얻게 됩니다. 그런 후 먼저 VPN 통해 Azure 네트워크에 연결하여 관리가 수행되도록 요구할 수 있습니다.
 
 사이트 간 VPN 옵션은 Azure에서 온-프레미스 리소스와 밀접하게 통합되는 프로덕션 시스템을 호스트하는 경우에 가장 유용할 수 있습니다.
 
-또는 온-프레미스 리소스에 액세스할 필요가 없는 시스템을 관리하려는 경우 [지점 및 사이트 간](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) 옵션을 사용할 수도 있습니다. 이러한 시스템은 자체 Azure Virtual Network에 격리될 수 있습니다. 관리자는 관리 워크스테이션에서 Azure 호스트 환경으로 VPN을 수행할 수 있습니다.
+### <a name="point-to-sitevpn-gatewayvpn-gateway-howto-point-to-site-rm-psmd"></a>[지점 및 사이트 간](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+
+온-프레미스 리소스에 액세스할 필요가 없는 시스템을 관리하려는 경우입니다. 이러한 시스템은 자체 Azure Virtual Network에 격리될 수 있습니다. 관리자는 관리 워크스테이션에서 Azure 호스트 환경으로 VPN을 수행할 수 있습니다.
 
 >[!NOTE]
 >VPN 옵션 중 하나를 사용하여 인터넷에서 관리 끝점에 대한 액세스를 허용하지 않도록 NSG의 ACL을 다시 구성할 수 있습니다.
 
-고려해야 할 또 다른 옵션은 [원격 데스크톱 게이트웨이](../active-directory/authentication/howto-mfaserver-nps-rdg.md) 배포입니다. 이러한 배포를 사용하여 HTTPS를 통해 원격 데스크톱 서버에 안전하게 연결하면서 이러한 연결을 보다 세부적으로 제어할 수 있습니다.
+### <a name="remote-desktop-gatewayactive-directoryauthenticationhowto-mfaserver-nps-rdgmd"></a>[원격 데스크톱 게이트웨이](../active-directory/authentication/howto-mfaserver-nps-rdg.md)
+
+원격 데스크톱 게이트웨이를 사용하면 HTTPS를 통해 원격 데스크톱 서버에 안전하게 연결하면서 이러한 연결을 보다 세부적으로 제어할 수 있습니다.
 
 액세스해야 하는 기능에는 다음이 포함됩니다.
 
@@ -127,6 +131,12 @@ Azure에서는 온-프레미스 네트워크에서 [사이트 간 VPN](../vpn-ga
 - 스마트 카드 인증 또는 Azure Multi-Factor Authentication
 - 다른 사용자가 게이트웨이를 통해 연결할 수 있는 시스템 제어
 - 장치 및 디스크 리디렉션 제어
+
+### <a name="vm-availability"></a>VM 가용성
+
+VM에서 고가용성이 필요한 중요한 응용 프로그램을 실행하는 경우, 여러 개의 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md)에서 최소 2개 이상의 VM을 생성하세요.
+
+또한 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)에서는 부하 분산된 VM이 동일한 가용성 집합에 속해야 합니다. 이러한 VM을 인터넷에서 액세스해야 할 경우 [인터넷 연결 부하 분산 장치](../load-balancer/load-balancer-internet-overview.md)를 구성해야 합니다.
 
 ## <a name="use-a-key-management-solution"></a>키 관리 솔루션 사용
 
@@ -136,14 +146,13 @@ Microsoft는 FIPS 140-2 Level 2 유효성 검사가 적용된 HSM(하드웨어 �
 
 Azure를 구독하는 사용자는 Key Vault를 만들고 사용할 수 있습니다. Key Vault에는 개발자와 보안 관리자의 혜택이 있지만, 조직에서 Azure 서비스를 관리하는 관리자가 구현하고 관리할 수 있습니다.
 
-
 ## <a name="encrypt-virtual-disks-and-disk-storage"></a>가상 디스크 및 디스크 저장소 암호화
 
 [Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)는 디스크를 이동하여 얻어지는 무단 액세스로부터 발생하는 데이터 도난 위협 또는 노출을 해결합니다. 다른 보안 제어 방법을 우회하기 위해 디스크를 다른 시스템에 추가할 수도 있습니다. 디스크 암호화는 Windows에서는 [BitLocker](https://technet.microsoft.com/library/hh831713)를, Linux에서는 DM-Crypt를 사용하여 운영 체제 및 데이터 드라이브를 암호화합니다. Azure Disk Encryption은 Key Vault와 통합되어 암호화 키를 제어 및 관리할 수 있도록 합니다. 표준 VM 및 Premium Storage가 있는 VM에 이 기능을 사용할 수 있습니다.
 
 자세한 내용은 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](azure-security-disk-encryption.md)을 참조하세요.
 
-[Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)는 미사용 데이터를 보호합니다. 저장소 계정 수준에서 사용되도록 설정됩니다. 데이터 센터에 기록될 때 데이터를 암호화하고, 사용자가 액세스할 때 자동으로 암호가 해독됩니다. 다음과 같은 시나리오가 지원됩니다.
+[Azure Storage 서비스 암호화](../storage/common/storage-service-encryption.md)는 미사용 데이터를 보호하는 데 도움이 됩니다. 저장소 계정 수준에서 사용되도록 설정됩니다. 데이터 센터에 기록될 때 데이터를 암호화하고, 사용자가 액세스할 때 자동으로 암호가 해독됩니다. 다음과 같은 시나리오가 지원됩니다.
 
 - 블록 Blob, 추가 Blob 및 페이지 Blob의 암호화
 - 온-프레미스에서 Azure로 가져온 보관된 VHD 및 템플릿의 암호화
@@ -163,6 +172,7 @@ Azure Storage 암호화를 계속 진행하기 전에 다음 두 가지 제한 �
 IaaS 배포에서는 작업 환경의 기타 서버 또는 워크스테이션과 마찬가지로, 배포하는 시스템의 관리도 사용자가 책임져야 합니다. 패치, 보안 강화, 권한 할당 및 시스템 유지 관리와 관련된 기타 작업도 모두 사용자의 책임입니다. 온-프레미스 리소스와 긴밀하게 통합되는 시스템의 경우 바이러스 백신, 맬웨어 방지, 패치 및 백업 등을 위해 온-프레미스에서 사용하는 것과 동일한 도구 및 절차를 사용할 수도 있습니다.
 
 ### <a name="harden-systems"></a>시스템 보안 강화
+
 Azure IaaS의 모든 가상 머신은 설치된 응용 프로그램에 필요한 서비스 끝점만 노출되도록 보안을 강화해야 합니다. Windows 가상 머신의 경우 [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx) 솔루션에 대한 기준으로 Microsoft에서 게시하는 권장 지침을 따르세요.
 
 Security Compliance Manager는 무료 도구입니다. 그룹 정책 및 System Center Configuration Manager를 사용하여 데스크톱, 기존 데이터 센터, 사설 및 공용 클라우드를 빠르게 구성하고 관리할 수 있습니다.
@@ -178,12 +188,12 @@ Security Compliance Manager를 사용하여 두 가지 방법으로 컴퓨터의
 
 프로덕션 환경과는 별도로 호스트되는 환경의 경우 가상 머신 및 클라우드 서비스를 보호하는 데 사용할 수 있는 맬웨어 방지 확장이 있습니다. 이 확장은 [Azure Security Center](../security-center/security-center-intro.md)에 통합됩니다.
 
-
 [Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고, 제외 이벤트 컬렉션 및 [PowerShell 지원](https://msdn.microsoft.com/library/dn771715.aspx)과 같은 기능이 포함됩니다.
 
 ![Azure 맬웨어 방지](./media/azure-security-iaas/azantimalware.png)
 
-### <a name="install-the-latest-security-updates"></a>최신 보안 업데이트 설치
+### <a name="install-the-latest-security-updates"></a>최신 보안 업데이트 설치 
+
 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure 호스트 가상 머신이 인터넷에 액세스할 수 있어야 하는 응용 프로그램 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 타사 응용 프로그램의 취약점을 패치하지 않을 경우 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
 
 ### <a name="deploy-and-test-a-backup-solution"></a>백업 솔루션 배포 및 테스트
@@ -192,12 +202,13 @@ Security Compliance Manager를 사용하여 두 가지 방법으로 컴퓨터의
 
 Azure로 이동되는 프로덕션 작업은 가능한 경우 기존 백업 솔루션과 통합되어야 합니다. 또는 [Azure Backup](../backup/backup-azure-arm-vms.md)을 사용하여 백업 요구를 보다 쉽게 처리할 수 있습니다.
 
-
 ## <a name="monitor"></a>모니터
 
-[Security Center](../security-center/security-center-intro.md)는 Azure 리소스의 보안 상태를 지속적으로 평가하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
+### <a name="security-centersecurity-centersecurity-center-intromd"></a>[보안 센터](../security-center/security-center-intro.md)
 
-이러한 예로 다음이 포함됩니다.
+Security Center는 Azure 리소스의 보안 상태를 지속적으로 평가하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
+
+다음은 이러한 템플릿의 예입니다.
 
 - 맬웨어 방지 프로그램을 프로비전하여 악성 소프트웨어 식별 및 제거 지원
 - 네트워크 보안 그룹 및 가상 머신에 대한 트래픽 제어 규칙 구성
@@ -209,7 +220,9 @@ Azure로 이동되는 프로덕션 작업은 가능한 경우 기존 백업 솔�
 
 ![Azure Security Center 정책](./media/azure-security-iaas/security-center-policies.png)
 
-[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md)란 온-프레미스 및 클라우드 인프라를 관리 및 보호하도록 도와주는 Microsoft의 클라우드 기반 IT 관리 솔루션입니다. Operations Management Suite는 클라우드 기반 서비스로 구현되므로 인프라 서비스에 대한 최소한의 투자로 빠르게 배포할 수 있습니다.
+### <a name="operations-management-suiteoperations-management-suiteoperations-management-suite-overviewmd"></a>[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 
+
+Operations Management Suite는 온-프레미스 및 클라우드 인프라를 관리하고 보호하는 데 도움이 되는 Microsoft 클라우드 기반 IT 관리 솔루션입니다. Operations Management Suite는 클라우드 기반 서비스로 구현되므로 인프라 서비스에 대한 최소한의 투자로 빠르게 배포할 수 있습니다.
 
 새로운 기능이 자동으로 제공되므로 지속적 유지 관리 및 업그레이드 비용을 절감할 수 있습니다. Operations Management Suite는 System Center Operations Manager와도 통합됩니다. 이 솔루션은 [보안 및 규정 준수](../operations-management-suite/oms-security-getting-started.md)를 포함하여 Azure 작업을 더 잘 관리하는 데 도움이 되는 다양한 구성 요소를 포함합니다.
 
@@ -224,6 +237,16 @@ Operations Management Suite에서 보안 및 규정 준수 기능을 사용하�
 다음 스크린샷에서는 Operations Management Suite에서 표시할 수 있는 정보의 예를 보여 줍니다.
 
 ![Operations Management Suite 보안 기준](./media/azure-security-iaas/oms-security-baseline.png)
+
+### <a name="monitor-vm-performance"></a>VM 성능 모니터링
+
+리소스 남용은 VM 프로세스가 소비해야 하는 것보다 더 많은 리소스를 소비하는 경우 문제가 될 수 있습니다. VM의 성능 문제로 인해 가용성의 보안 원칙을 위반하는 서비스 중단이 발생할 수 있습니다. 이러한 이유로 문제가 발생하는 동안 VM 액세스를 적극적으로, 또한 정상적인 작업 중 측정된 기준 성능에 대해 사전 대처식으로 모니터링해야 합니다.
+
+[Azure 진단 로그 파일](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/)을 분석하여 VM 리소스를 모니터링하고 성능 및 가용성을 손상시킬 수 있는 잠재적인 문제를 식별할 수 있습니다. Azure 진단 확장은 Windows 기반 VM에 모니터링 및 진단 기능을 제공합니다. 확장을 [Azure Resource Manager 템플릿](../virtual-machines/windows/extensions-diagnostics-template.md)에 속하도록 포함시켜서 이러한 기능을 사용하도록 설정할 수 있습니다.
+
+또한 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md)를 사용하여 리소스 상태에 대한 가시성도 얻을 수 있습니다.
+
+VM 성능을 모니터링하지 않는 조직은 성능 패턴의 특정 변경 내용이 정상 또는 비정상인지 확인하지 못합니다. VM이 정상보다 더 많은 리소스를 소비하는 경우 이러한 비정상은 외부 리소스의 잠재적인 공격 또는 VM에서 손상된 프로세스가 실행 중임을 나타낼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

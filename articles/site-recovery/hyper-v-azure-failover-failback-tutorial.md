@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6a34187a87c6ecda461357a1c2fc8747ddf4b056
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f758939964045ed373703a211d4cbef00f0e42e7
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294295"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919549"
 ---
 # <a name="failover-and-failback-hyper-v-vms-replicated-to-azure"></a>복제된 Hyper-V VM을 Azure로 장애 조치(failover) 및 장애 복구(failback)
 
@@ -38,22 +38,26 @@ VM에서 스냅숏이 없으며 장애 복구(failback) 시 온-프레미스 VM�
 장애 조치(failover)및 장애 복구(failback)는 다음 3단계로 진행됩니다.
 
 1. **Azure에 장애 조치(failover)**: Hyper-V VM을 온-프레미스에서 Azure로 장애 조치(failover)합니다.
-2. **온-프레미스로 장애 복구(failback)**: 가능한 경우 Azure VM을 온-프레미스 사이트로 장애 조치(failover)합니다. VM을 온-프레미스 Hyper-V VM으로 다시 복제하기 시작합니다. 초기 데이터 동기화 후 Azure VM을 온-프레미스 사이트로 장애 조치장애 조치(failover)합니다.  
-3. **온-프레미스 VM에 역방향 복제**: 데이터가 장애 복구(failback)된 후에 온-프레미스 VM을 역방향 복제하여 Azure로 복제를 시작합니다.
+2. **온-프레미스로 장애 복구(failback)**: 온-프레미스 사이트를 사용할 수 있는 경우, Azure VM을 온-프레미스 사이트로 장애 조치(failover)합니다. Azure에서 온-프레미스로 데이터 동기화를 시작하고, 완료되면 온-프레미스에서 VM을 실행합니다.  
+3. **온-프레미스 VM에 역방향 복제**: 온-프레미스로 장애 복구(failback)된 후에 온-프레미스 VM을 역방향 복제하여 Azure로 복제를 시작합니다.
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 
 장애 조치(failover) 전에 VM 속성을 확인하고 VM이 [Azure 요구 사항](hyper-v-azure-support-matrix.md#replicated-vms)을 충족하는지 확인합니다.
 
-1. **보호 항목**에서 **복제된 항목** > <VM-name>을 클릭합니다.
+**보호된 항목**에서 **복제된 항목** > VM을 클릭합니다.
 
-2. **복제된 항목** 창에서 VM 정보, 상태 및 사용 가능한 최신 복구 지점을 검토합니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
-     - **계산 및 네트워크**에서 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당될 IP 주소를 비롯한 VM 설정 및 네트워크 설정을 수정할 수 있습니다. 관리 디스크는 Azure에서 Hyper-V로의 장애 복구(failback)용으로 지원되지 않습니다.
-      - **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
+2. **복제된 항목** 창에 VM 정보, 상태 및 최신 사용 가능한 복구 지점의 요약이 제공됩니다. 자세한 내용을 보려면 **속성**을 클릭합니다.
+
+3. **계산 및 네트워크**에서 Azure 이름, 리소스 그룹, 대상 크기, [가용성 집합](../virtual-machines/windows/tutorial-availability-sets.md) 및 관리되는 디스크 설정을 수정할 수 있습니다.
+
+4. 장애 조치(failover) 후 Azure VM이 배치될 네트워크/서브넷 및 할당되는 IP 주소를 포함한 네트워크 설정을 보고 수정할 수 있습니다.
+
+5. **디스크**에서 VM의 운영 체제 및 데이터 디스크에 대한 정보를 볼 수 있습니다.
 
 ## <a name="failover-to-azure"></a>Azure에 장애 조치
 
-1. **설정** > **복제된 항목**에서 VM > **장애 조치(Failover)** 를 클릭합니다.
+1. **설정** > **복제된 항목**에서 VM > **장애 조치(failover)** 를 클릭합니다.
 2. **장애 조치(failover)** 에서 **최신** 복구 지점을 선택합니다. 
 3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM 종료를 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. 장애 조치(failover)를 확인하고 **커밋**을 클릭합니다. 그러면 사용 가능한 복구 지점이 모두 삭제됩니다.

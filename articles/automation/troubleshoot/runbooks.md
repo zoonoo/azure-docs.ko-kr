@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: bb340b8439927f191bc4a22f385d85d4e21b1cdb
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064531"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929352"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -204,6 +204,20 @@ runbook은 다양한 이유로 일시 중단될 수 있습니다. 일시 중단�
 #### <a name="resolution"></a>해결 방법
 
 이 문제를 방지하기 위한 문서화된 해결 방법은 워크플로에서 검사점을 사용하는 것입니다. 자세한 내용은 [PowerShell 워크플로 학습](../automation-powershell-workflow.md#checkpoints)을 참조하세요. "공평 분배" 및 검사점에 대한 자세한 설명은 [Runbook에서 검사점 사용](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) 블로그 문서에서 확인 수 있습니다.
+
+### <a name="long-running-runbook"></a>시나리오: 장기 실행 Runbook이 완료되지 않음
+
+#### <a name="issue"></a>문제
+
+이 동작은 Azure Automation 내의 프로세스에 대한 “공평 분배” 모니터링으로 인해 Azure 샌드박스에서 의도적으로 설계된 동작으로, Runbook이 3시간 넘게 실행되는 경우, 자동으로 Runbook을 일시 중단합니다.
+
+#### <a name="cause"></a>원인
+
+Runbook이 Azure 샌드박스의 공평 분배에서 허용되는 3시간 한도를 초과하여 실행됨
+
+#### <a name="resolution"></a>해결 방법
+
+권장 솔루션은 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. Hybrid Worker는 Azure 샌드박스처럼 [공평 분배](../automation-runbook-execution.md#fair-share)의 3시간 Runbook 한도로 제한되지 않습니다.
 
 ## <a name="common-errors-when-importing-modules"></a>모듈을 가져올 때 발생하는 일반적인 오류
 

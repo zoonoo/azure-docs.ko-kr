@@ -2,7 +2,6 @@
 title: 'Eclipse용 Azure 도구 키트: HDInsight Spark용 Scala 응용 프로그램 만들기 | Microsoft Docs'
 description: Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 Eclipse IDE에서 직접 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
-documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
@@ -10,16 +9,15 @@ tags: azure-portal
 ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: cd54c4abeaa58c1b78f67c55eb5e8856dc5bb0c4
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 6b1198e4cea4cae62881464ddbddd56c84275909
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010866"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952793"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -43,8 +41,10 @@ Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Scala로 작�
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>Eclipse용 Azure 도구 키트의 HDInsight 도구 및 Scala 플러그 인 설치
+
 ### <a name="install-azure-toolkit-for-eclipse"></a>Eclipse용 Azure 도구 키트 설치
 Eclipse용 HDInsight Tools는 Eclipse용 Azure 도구 키트의 일부분으로 제공됩니다. 설치 지침은 [Eclipse용 Azure 도구 키트 설치](https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-installation)를 참조하세요.
+
 ### <a name="install-the-scala-plug-in"></a>Scala 플러그 인 설치
 Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여부를 자동으로 검색합니다. **확인**을 선택하여 계속 진행한 다음 Eclipse Marketplace에서 해당 플러그 인을 설치하는 지침을 따릅니다.
 
@@ -70,9 +70,10 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
    
    ![클러스터 이름을 확장하여 리소스 표시](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
-<h2 id="linkcluster">클러스터 연결</h2>
-Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결할 수 있고 도메인 사용자 이름(예: user1@contoso.com)을 사용하여 보안 Hadoop 클러스터를 연결할 수 있습니다.
-1. **Azure Explorer**에서 **Link a cluster**(클러스터 연결)를 클릭합니다.
+## <a name="link-a-cluster"></a>클러스터 연결
+Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 수 있습니다. 마찬가지로, 도메인에 가입된 HDInsight 클러스터의 경우, user1@contoso.com과 같이 도메인 및 사용자 이름을 사용하여 연결할 수 있습니다.
+
+1. **Azure Explorer**에서 **클러스터 연결**을 클릭합니다.
 
    ![클러스터 연결 상황에 맞는 메뉴](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
@@ -230,7 +231,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
    ![Spark 응용 프로그램 로컬 실행 결과](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
 ## <a name="known-problems"></a>알려진 문제
-클러스터를 연결하는 경우 저장소의 자격 증명을 제공하는 것이 좋습니다.
+클러스터를 연결하는 경우 저장소 자격 증명을 제공하는 것이 좋습니다.
 
 ![대화형 로그인](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 

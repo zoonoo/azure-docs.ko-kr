@@ -2,20 +2,20 @@
 title: Azure SQL Database 데이터 검색 및 분류 | Microsoft Docs
 description: Azure SQL Database 데이터 검색 및 분류
 services: sql-database
-author: giladm
+author: giladmit
 manager: craigg
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 07/10/2018
 ms.author: giladm
-ms.openlocfilehash: 673286c8dc9ec688199fe80cf5a763f249192de5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: cc093bebb4b3c39140d6fa5370a78d59168990fa
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646782"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950813"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL Database 데이터 검색 및 분류
 데이터 검색 및 분류(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 **검색**, **분류**, **레이블 지정** & **보호**를 위해 Azure SQL Database에 내장된 고급 기능을 제공합니다.
@@ -49,55 +49,66 @@ ms.locfileid: "34646782"
 
 2. Azure SQL Database 창의 보안 머리글 아래에 있는 **Advanced Threat Protection**으로 이동합니다. Advanced Threat Protection을 클릭하여 사용하도록 설정한 다음 **데이터 검색 및 분류(미리 보기)** 카드를 클릭합니다.
 
-   ![데이터베이스 검색](./media/sql-data-discovery-and-classification/data_classification.png) 
+   ![데이터베이스 검색](./media/sql-data-discovery-and-classification/data_classification.png)
 
 3. **개요** 탭은 특정 스키마 부분, 정보 유형 및 레이블만을 보도록 또한 필터링할 수 있는 모든 분류된 열의 상세 목록을 포함하여, 데이터베이스의 현재 분류 상태 요약을 포함합니다. 아직 어떠한 열도 분류하지 않았다면 [5 단계로 건너뜁니다](#step-5).
 
-   ![현재 분류 상태 요약](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png) 
+   ![현재 분류 상태 요약](./media/sql-data-discovery-and-classification/2_data_classification_overview_dashboard.png)
 
 4. 보고서를 Excel 형식으로 다운로드하려면 창의 위쪽 메뉴에서 **내보내기** 옵션을 클릭합니다.
 
-   ![Excel로 내보내기](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png) 
+   ![Excel로 내보내기](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
 5.  <a id="step-5"></a>데이터 분류를 시작하려면 창의 위쪽에 있는 **분류 탭**을 클릭합니다.
 
-    ![데이터 분류](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png) 
+    ![데이터 분류](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. 분류 엔진은 잠재적으로 중요한 데이터를 포함하는 열에 대해 데이터베이스를 스캔하여 **권장되는 열 분류** 목록을 제공합니다. 분류 권장 사항 보기 및 적용하기
 
     * 권장된 열 분류 목록을 보려면 창의 맨 아래에서 권장 사항 패널을 클릭합니다.
-    
-      ![데이터 분류](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png) 
+
+      ![데이터 분류](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
     * 권장 사항 목록을 검토합니다. 특정 열에 대한 권장 사항을 받아 들이려면 관련 행의 왼쪽 열에 있는 확인란을 선택합니다. 또한 권장 사항 테이블 헤더에 있는 확인란을 선택하여 *모든 권장 사항*을 수락됨으로 표시할 수 있습니다.
 
-       ![권장 사항 목록 검토](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png) 
+       ![권장 사항 목록 검토](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
     * 선택한 권장 사항을 적용하려면 파란색인 **선택한 권장 사항을 받아들임** 단추를 클릭합니다.
 
-      ![권장 사항 적용](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png) 
+      ![권장 사항 적용](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
 7. 또한 열을 대안으로 또는 권장 사항에 기반을 둔 분류에 **수동으로 분류**할 수 있습니다.
 
     * 창의 위쪽 메뉴에서 **분류 추가**를 클릭합니다.
-  
-      ![수동으로 분류 추가](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png) 
+
+      ![수동으로 분류 추가](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
     * 열리는 컨텍스트 창에서 분류하고자 하는 스키마 > 테이블 > 열 및 정보 유형 및 민감도 레이블을 선택합니다. 컨텍스트 창의 아래쪽에 있는 파란색 **분류 추가** 단추를 클릭합니다.
 
-      ![분류할 열 선택](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png) 
+      ![분류할 열 선택](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
 8. 분류를 완료하고 새 분류 메타데이터로 데이터베이스 열을 영구적으로 레이블(태그)을 붙이려면 창의 위쪽 메뉴에서 **저장**을 클릭합니다.
 
-   ![저장](./media/sql-data-discovery-and-classification/10_data_classification_save.png) 
+   ![저장](./media/sql-data-discovery-and-classification/10_data_classification_save.png)
 
 ## <a id="subheading-3"></a>중요한 데이터에 대한 액세스 감사
 
 정보 보호 패러다임의 중요한 측면은 중요한 데이터에 대한 액세스를 모니터링하는 기능입니다. [Azure SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)는 *data_sensitivity_information*이라는 감사 로그에 새 필드를 포함하도록 개선되어, 쿼리에서 반환된 실제 데이터의 민감도 분류(레이블)를 기록합니다.
 
-![감사 로그](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png) 
+![감사 로그](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>다음 단계
+## <a id="subheading-4"></a>자동/프로그래밍 방식 분류
+
+T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이스에 대한 모든 분류를 검색할 수 있습니다.
+
+> [!NOTE]
+> T-SQL을 사용하여 레이블을 관리하는 경우, 열에 추가된 레이블이 조직 정보 보호 정책(포털 권장 사항에 표시되는 레이블 집합)에 있는지 확인되지 않습니다. 따라서 이 확인 작업은 사용자가 수행해야 합니다.
+
+* 하나 이상의 열 분류 추가/업데이트: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+* 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+* 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+
+## <a id="subheading-5"></a>다음 단계
 
 - [SQL Advanced Threat Protection](sql-advanced-threat-protection.md)에 대해 자세히 알아보기
 - 분류된 중요한 데이터에 대한 액세스를 모니터링 및 감사하기 위해 [Azure SQL Database 감사](https://docs.microsoft.com/azure/sql-database/sql-database-auditing)를 구성하는 것이 좋습니다.
@@ -106,4 +117,5 @@ ms.locfileid: "34646782"
 [SQL Data Discovery & Classification overview]: #subheading-1
 [Discovering, classifying & labeling sensitive columns]: #subheading-2
 [Auditing access to sensitive data]: #subheading-3
-[Next Steps]: #subheading-4
+[Automated/Programmatic classification]: #subheading-4
+[Next Steps]: #subheading-5

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6fda373f832d6e24d1252587a19c88b0f464dda6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5065399f161bcaee2f9518236a28f0f5faa0ea5b
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232090"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902030"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>미리 보기: Azure AD 암호 보호 배포
 
@@ -103,7 +103,7 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
          이 예제는 현재 로그인한 사용자가 루트 도메인에 대한 Active Directory 도메인 관리자이기도 한 경우에만 작동합니다. 다른 방법은 -ForestCredential 매개 변수를 통해 필요한 도메인 자격 증명을 제공하는 것입니다.
 
          > [!NOTE]
-         > 환경에 여러 프록시 서버가 설치되어있는 경우 위의 절차가 실행되는 특정 프록시 서버는 중요하지 않습니다.
+         > 사용자 환경에 여러 프록시 서버가 설치되어있는 경우, 위의 절차에서 지정하는 프록시 서버는 중요하지 않습니다.
 
          > [!TIP]
          > cmdlet이 실행을 완료하기 전에 지정된 Azure 테넌트에 대해 처음 실행될 때 상당한 지연(수 초)이 발생할 수 있습니다. 오류가 보고되지 않는 한 이 지연은 경고로 간주되어서는 안됩니다.

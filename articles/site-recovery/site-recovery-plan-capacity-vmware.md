@@ -4,15 +4,15 @@ description: Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.date: 07/06/2018
 ms.topic: conceptual
-ms.date: 06/20/2018
 ms.author: rayne
-ms.openlocfilehash: 30e4534fbc235a228ac887ddc3336f09909b4fa6
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 905798acd5836c31953714d7984cfb19f16cecab
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287357"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920800"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-replication-with-azure-site-recovery"></a>Azure Site Recovery를 사용하여 VMware 복제를 위한 용량 및 크기 조정 계획
 
@@ -107,24 +107,10 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
 
 ## <a name="deploy-additional-process-servers"></a>추가 프로세스 서버 배포
 
-배포 규모를 200대 이상으로 규모 확장해야 하거나 총 이탈률이 2TB를 초과하는 경우 트래픽 볼륨을 처리할 추가 프로세스가 필요합니다. 다음 지침에 따라 프로세스 서버를 설정합니다. 서버를 설정한 후 이를 사용하도록 원본 컴퓨터를 마이그레이션할 수 있습니다.
-
-1. **Site Recovery 서버**에서 구성 서버를 클릭한 다음 **프로세스 서버**를 클릭합니다.
-
-    ![프로세스 서버를 추가하는 Site Recovery 서버 옵션의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps1.png)
-2. **서버 형식**에서 **프로세스 서버(온-프레미스)** 를 클릭합니다.
-
-    ![프로세스 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
-3. Site Recovery 통합 설치 프로그램 파일을 다운로드하고 실행하여 프로세스 서버를 설치합니다. 이렇게 하면 자격 증명 모음에도 등록됩니다.
-4. **시작하기 전에**에서 **배포 규모 확장을 위해 추가 프로세스 서버 추가**를 선택합니다.
-5. 구성 서버를 [설정](#step-2-set-up-the-source-environment) 했을 때 수행한 것과 동일한 방식으로 마법사를 완료합니다.
-
-    ![Azure Site Recovery 통합 설치 마법사의 스크린샷](./media/site-recovery-vmware-to-azure/add-ps1.png)
-6. **구성 서버 세부 정보**에서 구성 서버의 IP 주소 및 암호를 지정합니다. 암호를 가져오려면 구성 서버에서 **[SiteRecoveryInstallationFolder]\home\sysystems\bin\genpassphrase.exe –n**을 실행합니다.
-
-    ![구성 서버 세부 정보 페이지의 스크린샷](./media/site-recovery-vmware-to-azure/add-ps2.png)
+배포 규모를 200대 이상으로 규모 확장해야 하거나 총 이탈률이 2TB를 초과하는 경우 트래픽 볼륨을 처리할 추가 프로세스가 필요합니다. [이 문서](vmware-azure-set-up-process-server-scale.md)에 제공된 지침에 따라 프로세스 서버를 설정합니다. 서버를 설정한 후 서버를 사용하도록 원본 머신을 마이그레이션할 수 있습니다.
 
 ### <a name="migrate-machines-to-use-the-new-process-server"></a>새 프로세스 서버를 사용하도록 컴퓨터 마이그레이션
+
 1. **설정** > **Site Recovery 서버**에서 구성 서버를 클릭한 다음 **프로세스 서버**를 확장합니다.
 
     ![프로세스 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps2.png)
@@ -133,6 +119,30 @@ VMware 복제를 위해 [Azure Site Recovery Deployment Planner](https://aka.ms/
     ![구성 서버 대화 상자의 스크린샷](./media/site-recovery-vmware-to-azure/migrate-ps3.png)
 3. **대상 프로세스 서버 선택**에서 사용할 새 프로세스 서버를 선택한 다음 서버가 처리할 가상 머신을 선택합니다. 서버에 대한 정보를 얻으려면 정보 아이콘을 클릭합니다. 부하 결정을 할 때 도움이 되도록 선택된 각 가상 머신을 새 프로세스 서버로 복제하는 데 필요한 평균 공간이 표시됩니다. 새 프로세스 서버로 복제를 시작하려면 확인 표시를 클릭합니다.
 
+## <a name="deploy-additional-master-target-servers"></a>추가 마스터 대상 서버 배포
+
+다음 시나리오에서는 추가 마스터 대상 서버가 필요합니다.
+
+1. Linux 기반 가상 머신을 보호하려는 경우
+2. 구성 서버에서 사용할 수 있는 마스터 대상 서버가 VM의 데이터 저장소에 액세스할 수 없는 경우
+3. 마스터 대상 서버의 총 디스크 수(서버의 로컬 디스크 수 + 보호할 디스크 수)가 60개 디스크를 초과하는 경우
+
+**Linux 기반 가상 머신**에 대해 새 마스터 대상 서버를 추가하려면 [여기를 클릭](vmware-azure-install-linux-master-target.md)합니다.
+
+**Windows 기반 가상 머신**의 경우, 아래에 제공된 지침을 따르세요.
+
+1. **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버**로 이동합니다.
+2. 필수 구성 서버 > **+마스터 대상 서버**를 클릭합니다.![ add-master-target-server.png](media/site-recovery-plan-capacity-vmware/add-master-target-server.png)
+3. 통합 설정을 다운로드하고 VM에서 실행하여 마스터 대상 서버를 설정합니다.
+4. **마스터 대상 설치** > **다음**을 선택합니다. ![choose-MT.PNG](media/site-recovery-plan-capacity-vmware/choose-MT.PNG)
+5. 기본 설치 위치를 선택하고 **설치**를 클릭합니다. ![MT-installation](media/site-recovery-plan-capacity-vmware/MT-installation.PNG)
+6. **구성으로 이동**을 클릭하여 마스터 대상을 구성 서버에 등록합니다. ![MT-proceed-configuration.PNG](media/site-recovery-plan-capacity-vmware/MT-proceed-configuration.PNG)
+7. 구성 서버의 IP 주소 및 암호를 입력합니다. 암호를 생성하는 방법을 알아보려면 [여기를 클릭](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)합니다.![cs-ip-passphrase](media/site-recovery-plan-capacity-vmware/cs-ip-passphrase.PNG)
+8. **등록**을 클릭하고, 등록 후에 **마침**을 클릭합니다.
+9. 등록에 성공하면, 포털에서 **Recovery Services 자격 증명 모음** > **Site Recovery 인프라** > **구성 서버** > 관련 구성 서버의 마스터 대상 서버 아래에 이 서버가 나열됩니다.
+
+ >[!NOTE]
+ >[여기](https://aka.ms/latestmobsvc)서 Windows용 마스터 대상 서버 통합 설정의 최신 버전을 다운로드할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

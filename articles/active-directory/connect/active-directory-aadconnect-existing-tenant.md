@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 726d8998d24a630808186eea417f236fdbfb565e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44d9aa988e8344f76ddb5430e2aacbd4c818c033
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725210"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38969404"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: 기존 테넌트가 있는 경우
 Azure AD Connect를 사용하는 방법에 대한 항목 중 대부분은 새 Azure AD 테넌트로 시작하고 여기에는 사용자 또는 다른 개체가 없다고 가정하고 있습니다. 그러나 이미 Azure AD 테넌트로 시작하여 사용자와 다른 개체를 제공한 후에 Connect를 사용하려는 경우 이 문서가 도움이 됩니다.
@@ -48,6 +48,9 @@ Azure AD가 Connect에서 나오는 개체의 특성 값과 동일하고 Azure A
 이전 섹션과 경고는 계획에 고려되어야 합니다. 온-프레미스 AD DS에 반영되지 않은 변경을 Azure AD에서 많이 수행한 경우에는 개체를 Azure AD Connect와 동기화하기 전에 업데이트된 값으로 AD DS를 채우는 방법을 계획해야 합니다.
 
 개체를 소프트 일치로 일치시키는 경우 Azure AD의 개체에 **sourceAnchor**가 추가되어 나중에 하드 일치를 사용할 수 있습니다.
+
+>[!IMPORTANT]
+> Azure Active Directory의 기존 관리 계정과 온-프레미스 계정을 동기화하지 않는 것이 좋습니다.
 
 ### <a name="hard-match-vs-soft-match"></a>하드 일치 및 소프트 일치
 Connect를 새로 설치하는 경우 소프트 일치와 하드 일치 사이에 실질적인 차이가 없습니다. 차이점은 재해 복구 상황에 있습니다. Azure AD Connect를 사용하여 서버를 잃어버린 경우 데이터 손실 없이 새 인스턴스를 다시 설치할 수 있습니다. sourceAnchor가 있는 개체는 초기 설치 시 Connect로 보내집니다. 그런 다음 Azure AD에서 동일하게 수행하는 것보다 훨씬 빠른 클라이언트(Azure AD Connect)에서 일치를 평가할 수 있습니다. 하드 일치는 Connect와 Azure AD 모두에서 평가되지만, 소프트 일치는 Azure AD에서만 평가됩니다.

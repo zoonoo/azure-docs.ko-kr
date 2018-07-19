@@ -3,7 +3,7 @@ title: Azure에서 Linux VM에 대한 원격 데스크톱 사용 | Microsoft Doc
 description: Azure에서 그래픽 도구를 사용하여 Linux VM에 연결하도록 원격 데스크톱(xrdp)을 설치 및 구성하는 방법 알아보기
 services: virtual-machines-linux
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: iainfou
-ms.openlocfilehash: fb3639b8ce5c50773bec0ee429e1fa2f7277671b
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: cynthn
+ms.openlocfilehash: 5e79cfa2c428323d8531bec7eab875a2dace4ff2
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716621"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934215"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결
 Azure의 Linux VM(가상 머신)은 SSH(보안 셸) 연결을 사용하여 명령줄에서 일반적으로 관리됩니다. Linux를 처음 사용하거나 빠른 문제 해결 시나리오의 경우 원격 데스크톱을 사용하는 편이 더 쉬울 수 있습니다. 이 문서에서는 Resource Manager 배포 모델을 사용하여 Linux VM에 대해 데스크톱 환경([xfce](https://www.xfce.org)) 및 원격 데스크톱([xrdp](http://www.xrdp.org))을 설치하고 구성하는 방법에 대해 자세히 설명합니다.
@@ -101,6 +101,8 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 인증한 후에 xfce 데스크톱 환경이 로드되면 다음 예제와 유사합니다.
 
 ![xrdp를 통한 xfce 데스크톱 환경](./media/use-remote-desktop/xfce-desktop-environment.png)
+
+로컬 RDP 클라이언트가 NLA(네트워크 수준 인증)를 사용하는 경우, 해당 연결 설정을 사용하지 않도록 설정해야 할 수 있습니다. XRDP는 현재 NLA를 지원하지 않습니다. [FreeRDP](http://www.freerdp.com) 등 NLA를 지원하는 대체 RDP 솔루션을 확인할 수도 있습니다.
 
 
 ## <a name="troubleshoot"></a>문제 해결

@@ -7,14 +7,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand how to create zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 07/09/2018
 ms.author: cherylmc
-ms.openlocfilehash: c484358bf98f0121cfc3ce270b162b01c75b5b09
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: fa349555a5effd41ca519cbd5a29005203d79543
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096236"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952558"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones---preview"></a>Azure Availability Zones에서 영역 중복 가상 네트워크 게이트웨이 만들기 - 미리 보기
 
@@ -207,10 +207,6 @@ $gwipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GwIPConf1 -Subnet $
 
 가상 네트워크 게이트웨이를 만듭니다.
 
->[!NOTE]
->이때 게이트웨이 SKU를 지정할 수 없습니다. SKU는 자동으로 기본값이 ExpressRoute에 대해 ErGw1AZ, VPN Gateway에 대해 VpnGw1AZ가 설정됩니다.
->
-
 ### <a name="for-expressroute"></a>ExpressRoute의 경우
 
 ```azurepowershell-interactive
@@ -236,6 +232,10 @@ New-AzureRmVirtualNetworkGateway -ResourceGroup $RG1 -Location $Location1 -Name 
 ### <a name="what-will-change-when-i-enroll"></a>내가 등록하면 무엇이 변경되나요?
 
 사용자 관점에서 미리 보기 중에 영역 중복성이 포함된 게이트웨이를 배포할 수 있습니다. 즉, Azure Availability Zones 간에 게이트웨이의 모든 인스턴스가 배포되고, 각 가용성 영역은 다른 장애 및 업데이트 도메인입니다. 이렇게 하면 사용자 게이트웨이가 영역 오류에 대해 더 안정적이고, 사용 가능하며, 복원력이 증가합니다.
+
+### <a name="can-i-use-the-azure-portal"></a>Azure Portal을 사용할 수 있나요?
+
+예, 미리 보기에 대해 Azure Portal을 사용할 수 있습니다. 그러나 PowerShell을 사용하여 등록해야 합니다. 등록하지 않으면 미리 보기 중에 포털을 사용할 수 없습니다.
 
 ### <a name="what-regions-are-available-for-the-preview"></a>미리 보기는 어떤 지역에서 사용할 수 있나요?
 

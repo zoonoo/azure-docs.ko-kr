@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services API-CLI 2.0 액세스 | Microsoft Docs
+title: Azure Media Services API 액세스 - Azure CLI | Microsoft Docs
 description: Azure Media Services API에 액세스하려면 이 방법의 단계를 따르도록 합니다.
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 9295c3f9dfabc8ef7749758e926df443843720a1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e20cac5f1063589bdbfee0f384ac6af5a39811ed
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639778"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38723695"
 ---
-# <a name="access-azure-media-services-api-with-cli-20"></a>CLI 2.0을 사용하여 Azure Media Services API에 액세스
+# <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Media Services API 액세스
  
 Azure Media 서비스 API에 연결하려면 Azure AD 서비스 주체 인증을 사용해야 합니다. 응용 프로그램이 다음 매개 변수가 있는 Azure AD 토큰을 요청해야 합니다.
 
@@ -28,7 +28,7 @@ Azure Media 서비스 API에 연결하려면 Azure AD 서비스 주체 인증을
 * REST Media Services의 리소스 URI
 * Azure AD 응용 프로그램 값: 클라이언트 ID 및 클라이언트 암호.
 
-이 문서에서는 CLI 2.0을 사용하여 Azure AD 응용 프로그램 및 서비스 주체를 만들고 Azure Media Services 리소스에 액세스하는 데 필요한 값을 얻는 방법을 보여줍니다.
+이 문서에서는 Azure CLI를 사용하여 Azure AD 응용 프로그램과 서비스 주체를 만들고 Azure Media Services 리소스에 액세스하는 데 필요한 값을 얻는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>필수 조건 
 
@@ -40,7 +40,7 @@ Azure Media 서비스 API에 연결하려면 Azure AD 서비스 주체 인증을
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -51,4 +51,4 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 항목에서 
 
 ## <a name="see-also"></a>참고 항목
 
-[CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
+[Azure CLI](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)

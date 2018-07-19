@@ -6,27 +6,23 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/13/2017
+ms.date: 7/10/2018
 ms.author: sogup
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 49361aef774e9eb5a0995bc106e73b236a71b0bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 16620678c38dcdc1564d8cb18f3393352170cefe
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441134"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38598427"
 ---
 # <a name="back-up-and-restore-encrypted-virtual-machines-with-azure-backup"></a>Azure Backup으로 암호화된 가상 머신을 백업 및 복원 
 이 문서에서는 Azure Backup을 사용하여 VM(가상 머신)을 백업하고 복원하는 단계에 대해 설명합니다. 또한 지원되는 시나리오, 필수 조건 및 오류 사례에 대한 문제 해결 조치에 대한 자세한 정보도 제공합니다.
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
 
- * 암호화된 VM의 백업 및 복원은 Azure Resource Manager 배포 모델을 사용하는 VM에 대해서만 지원됩니다. 클래식 배포 모델을 사용하는 VM에는 지원되지 않습니다. <br>
- * 암호화된 VM의 백업 및 복원은 Azure Disk Encryption을 사용하는 Windows 및 Linux VM 모두에 지원됩니다. 디스크 암호화는 업계 표준인 Windows의 BitLocker 기능과 Linux의 dm-crypt 기능을 사용하여 디스크 암호화를 제공합니다. <br>
- 
- 다음 표에서는 BEK(BitLocker 암호화 키) 전용 및 KEK(Key Encryption Key) 암호화된 VM에 지원되는 시나리오를 나타냅니다.
- 
- 
+ 암호화된 VM의 백업 및 복원은 Azure Resource Manager 배포 모델을 사용하는 VM에 대해서만 지원됩니다. 클래식 배포 모델을 사용하는 VM에는 지원되지 않습니다. 암호화된 VM의 백업 및 복원은 Azure Disk Encryption을 사용하는 Windows 및 Linux VM에 대해 지원됩니다. 디스크 암호화는 업계 표준인 Windows의 BitLocker 기능과 Linux의 dm-crypt 기능을 사용하여 디스크 암호화를 제공합니다. 다음 표에서는 VM에 대한 암호화 형식 및 지원을 보여 줍니다.
+
    |  | BEK + KEK VM | BEK 전용 VM |
    | --- | --- | --- |
    | **관리되지 않는 VM**  | 예 | 예  |

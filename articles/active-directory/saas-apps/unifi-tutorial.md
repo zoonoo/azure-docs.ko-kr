@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 589366bc3a079cdf1cacc21982cd03a1ff6d74ce
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0aa3ec013e93ddb89cd6982c01a38411f67b34c4
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220780"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866351"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>자습서: UNIFI와 Azure Active Directory 통합
 
@@ -148,7 +148,7 @@ UNIFI에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **공급자 이름** 텍스트 상자에 ID 공급자의 이름을 입력합니다.
 
-    나. **공급자 URL** 텍스트 상자에 Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 붙여넣습니다.
+    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **공급자 URL** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 다운로드한 인증서를 메모장에서 열고 **---BEGIN CERTIFICATE---** 및 **---END CERTIFICATE---** 태그를 제거하고 나머지 내용을 **인증서** 텍스트 상자에 붙여넣습니다.
 

@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: f6f6c59195fdc79959a1964c1f2770c3b6a68b22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264554"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917230"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
-**Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다.
+**Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 저장소 또는 Event Hubs로 스트리밍](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](./monitoring-diagnostic-logs-schema.md)의 매핑은 문서의 끝에 제공되어 있습니다.
 
 ## <a name="administrative"></a>관리
 이 범주에는 Resource Manager를 통해 수행한 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드가 포함되어 있습니다. 이 범주에 표시되는 이벤트의 유형의 예로는 "가상 머신 만들기", "네트워크 보안 그룹 삭제" 등이 있습니다. 사용자나 응용 프로그램이 Resource Manager를 사용하여 취하는 모든 동작은 특정 리소스 종류에 대한 작업으로 모델링됩니다. 작업 유형이 쓰기, 삭제 또는 동작이면 해당 작업의 시작 및 성공이나 실패 레코드가 모두 관리 범주에 기록됩니다. 관리 범주에는 구독의 역할 기반 액세스 제어 변경 내용도 포함됩니다.
@@ -115,7 +115,7 @@ ms.locfileid: "35264554"
 | 권한 부여 |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
 | caller |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. |
 | channels |"Admin", "Operation" 값 중 하나여야 합니다. |
-| claims |Resource Manager에서 이 작업을 수행하기 위해 사용자 또는 응용 프로그램을 인증하는 데 Active Directory에서 사용하는 JWT 토큰입니다. |
+| claims |Active Directory에서 사용자 또는 응용 프로그램이 리소스 관리자를 통해 이 작업을 수행할 수 있도록 인증하는 데 사용하는 JWT 토큰입니다. |
 | CorrelationId |일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
 | description |이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |이벤트의 고유 식별자입니다. |
@@ -550,7 +550,7 @@ ms.locfileid: "35264554"
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |이 권장 사항이 적용되는 리소스의 리소스 공급자 이름(예: "MICROSOFT.COMPUTE") |
 | resourceType |이 권장 사항이 적용되는 리소스의 리소스 종류 이름(예: "MICROSOFT.COMPUTE/virtualmachines") |
-| ResourceId |권장 사항이 적용되는 리소스의 리소스 id |
+| ResourceId |권장 사항이 적용되는 리소스의 리소스 ID입니다. |
 | status | 항상 "활성" |
 | submissionTimestamp |이벤트를 쿼리할 수 있게 되는 타임스탬프입니다. |
 | subscriptionId |Azure 구독 ID입니다. |
@@ -560,6 +560,30 @@ ms.locfileid: "35264554"
 | properties.recommendationImpact| 권장 사항의 영향. 가능한 값은 "높음", "보통" 또는 "낮음" |
 | properties.recommendationRisk| 권장 사항의 위험. 가능한 값은 "오류", "경고", "없음" |
 
+## <a name="mapping-to-diagnostic-logs-schema"></a>진단 로그 스키마에 매핑
+
+Azure 활동 로그를 저장소 계정 또는 Event Hubs 네임스페이스로 스트리밍하는 경우, 데이터는 [Azure 진단 로그 스키마](./monitoring-diagnostic-logs-schema.md)를 따릅니다. 다음은 위의 스키마에서 진단 로그 스키마로의 속성 매핑입니다.
+
+| 진단 로그 스키마 속성 | 활동 로그 REST API 스키마 속성 | 메모 |
+| --- | --- | --- |
+| 실시간 | eventTimestamp |  |
+| ResourceId | ResourceId | subscriptionId, resourceType, resourceGroupName은 모두 resourceId에서 유추됩니다. |
+| operationName | operationName.value |  |
+| 카테고리 | 작업 이름의 일부 | 작업 유형 분류 - “쓰기”/“삭제”/“작업” |
+| resultType | status.value | |
+| resultSignature | substatus.value | |
+| resultDescription | description |  |
+| durationMS | 해당 없음 | 항상 0 |
+| callerIpAddress | httpRequest.clientIpAddress |  |
+| CorrelationId | CorrelationId |  |
+| ID | 클레임 및 권한 부여 속성 |  |
+| Level | Level |  |
+| location | 해당 없음 | 이벤트가 처리된 위치입니다. ‘리소스 위치가 아니라 이벤트가 처리된 위치입니다. 이 속성은 향후 업데이트에서 제거됩니다.’ |
+| properties | properties.eventProperties |  |
+| properties.eventCategory | 카테고리 | properties.eventCategory가 없을 경우, category는 “Administrative”입니다. |
+| properties.eventName | eventName |  |
+| properties.operationId | operationId |  |
+| properties.eventProperties | properties |  |
 
 
 ## <a name="next-steps"></a>다음 단계

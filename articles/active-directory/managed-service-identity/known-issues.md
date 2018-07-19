@@ -10,17 +10,17 @@ ms.assetid: 2097381a-a7ec-4e3b-b4ff-5d2fb17403b6
 ms.service: active-directory
 ms.component: msi
 ms.devlang: ''
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 552f9e7cae4d7f46ea1548cfe7d9482bff79e5bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 05096050dfc29aebd2859b298eef884dcd9a1111
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33930989"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906219"
 ---
 # <a name="faqs-and-known-issues-with-managed-service-identity-msi-for-azure-active-directory"></a>Azure Active Directory용 MSI(관리 서비스 ID)의 FAQ 및 알려진 문제
 
@@ -60,7 +60,7 @@ Azure IaaS에서 지원되는 모든 Linux 배포를 IMDS 엔드포인트를 통
 참고: MSI VM 확장은 다음 Linux 배포만 지원합니다.
 - CoreOS Stable
 - CentOS 7.1
-- RedHat 7.2
+- Red Hat 7.2
 - Ubuntu 15.04
 - Ubuntu 16.04
 
@@ -128,7 +128,8 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 - DNS 조회 오류로 인해 VM으로의 VM 확장 프로비저닝이 실패할 수 있습니다. VM을 다시 시작한 후에 다시 시도하세요. 
 - '존재하지 않는' 사용자 할당 ID를 추가하면 VM에 장애가 발생합니다. 
 - 이름에 특수 문자(예: 밑줄)가 있는 사용자 할당 ID를 만드는 기능은 지원되지 않습니다.
-- 사용자 할당 ID 이름은 종단 간 시나리오에 대해 24자로 제한됩니다. 이름이 24자를 초과하는 사용자 할당 ID는 할당되지 않습니다.  
+- 사용자 할당 ID 이름은 종단 간 시나리오에 대해 24자로 제한됩니다. 이름이 24자를 초과하는 사용자 할당 ID는 할당되지 않습니다.
+- 관리 ID 가상 머신 확장을 사용하는 경우, 사용자 할당 관리 ID 32개까지 지원됩니다. 관리 ID 가상 머신 확장을 사용하지 않는 경우, 512개까지 지원됩니다.  
 - 두 번째 사용자 할당 ID를 추가할 때는 VM 확장용 토큰을 요청하는 데 clientID를 사용하지 못할 수 있습니다. 이 문제를 완화하려면 다음의 두 bash 명령을 사용하여 MSI VM 확장을 다시 시작합니다.
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

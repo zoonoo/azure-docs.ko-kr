@@ -11,18 +11,18 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 0648a7555cb94543dadf5d73e0187927a90f5b5a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526521"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857947"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
 중첩된 가상화는 Azure Virtual Machines의 Dv3 및 Ev3 시리즈에서 지원됩니다. 이 기능은 개발, 테스트, 교육 및 데모 환경과 같은 시나리오를 지원하는 데 큰 유연성을 제공합니다. 
 
-이 문서에서는 Azure VM에서 중첩된 가상화를 사용하도록 설정하고 해당 게스트 가상 머신에 인터넷 연결을 구성하는 방법을 단계별로 설명합니다.
+모든 Dv3 및 Ev3 계열 가상 머신은 추가된 구성 없이 중첩된 가상화를 지원합니다.  이 문서에서는 Azure VM에서 Hyper-V를 사용하도록 설정하고 해당 게스트 가상 머신에 대한 인터넷 연결을 구성하는 방법을 단계별로 설명합니다.
 
 ## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Dv3 또는 Ev3 시리즈 Azure VM 만들기
 

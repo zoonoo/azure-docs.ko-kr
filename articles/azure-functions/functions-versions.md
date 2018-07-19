@@ -12,26 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: 9f916aaa8032ff519709d73a1c1f51195f811686
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919358"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38602120"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
- Azure Functions 런타임 주 버전은 1.x 및 2.x입니다. 이 문서에서는 주 버전을 선택하는 방법을 설명합니다.
-
-> [!IMPORTANT] 
-> 런타임 1.x는 프로덕션용으로 승인된 유일한 버전입니다.
+ Azure Functions 런타임 주 버전에는 1.x 및 2.x의 두 가지가 있습니다. 1.x만 프로덕션용으로 승인되었습니다. 이 문서에서는 미리 보기로 제공되고 있는 2.x의 새로운 기능에 대해 설명합니다.
 
 | 런타임 | 상태 |
 |---------|---------|
 |1.x|일반 공급(GA)|
 |2.x|미리 보기|
 
-특정 버전에 맞게 함수 앱 또는 개발 환경을 구성하는 방법은 [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md) 및 [로컬로 Azure Functions 코딩 및 테스트](functions-run-local.md)를 참조하세요.
+> [!NOTE] 
+> 이 문서에서는 클라우드 서비스 Azure Functions를 참조합니다. Azure Functions를 온-프레미스로 실행할 수 있는 제품에 대한 자세한 내용은 [Azure Functions 런타임 개요](functions-runtime-overview.md)를 참조하세요.
 
 ## <a name="cross-platform-development"></a>교차 플랫폼 개발
 
@@ -65,8 +63,8 @@ ms.locfileid: "28919358"
 
 ## <a name="next-steps"></a>다음 단계
 
-> [!div class="nextstepaction"]
-> [로컬 개발 환경에서 2.0 런타임을 대상으로 지정](functions-run-local.md)
+자세한 내용은 다음 리소스를 참조하세요.
 
-> [!div class="nextstepaction"]
-> [런타임 버전에 대한 릴리스 정보 참조](https://github.com/Azure/azure-webjobs-sdk-script/releases)
+* [Azure Functions를 로컬에서 코딩 및 테스트](functions-run-local.md)
+* [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)
+* [릴리스 정보](https://github.com/Azure/azure-functions-host/releases)

@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: dc1e3fd3984d0ccbfb0565a3216ec907894e88ea
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: c4cc8035e83ca97971050a5b6ced5bbc912ac791
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37028951"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928321"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어란? 
 
@@ -77,7 +77,7 @@ ms.locfileid: "37028951"
 
 ### <a name="compliant-device"></a>규정 준수 장치
 
-장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](active-directory-conditional-access-policy-connected-applications.md#managed-devices)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](device-management-introduction.md)되어 있고 Intune(모든 장치 OS) 또는 Windows 10 장치에 대한 타사 MDM 시스템 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 장치 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
+장치 기반인 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목적은 [관리 장치](active-directory-conditional-access-policy-connected-applications.md#managed-devices)에서 구성된 리소스에 대한 액세스 권한만을 부여하는 것입니다. 관리 장치를 정의해야 하는 한 가지 옵션은 준수 장치가 필요합니다. 이 옵션을 선택하면 조건부 액세스 정책에서는 Azure Active Directory에 [등록](device-management-introduction.md)되어 있고 Intune(모든 장치 OS) 또는 Windows 10 장치에 대한 타사 MDM 시스템 규격으로 표시되는 장치의 액세스 시도에 액세스할 수 있는 권한을 부여합니다. Windows 10 이외의 장치 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다.
 
 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
 
@@ -111,7 +111,7 @@ Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 
 
 ## <a name="custom-controls"></a>사용자 지정 컨트롤
 
-사용자 지정 컨트롤은 Azure Active Directory Premium P2 버전의 기능입니다. 사용자 지정 컨트롤을 사용하는 경우 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션합니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. Azure Active Directory가 응답을 확인하고 사용자가 성공적으로 인증되거나 유효성이 확인되면 사용자는 조건부 액세스 흐름을 계속합니다.
+사용자 지정 컨트롤은 Azure Active Directory Premium P1 버전의 기능입니다. 사용자 지정 컨트롤을 사용하는 경우 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션합니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. Azure Active Directory가 응답을 확인하고 사용자가 성공적으로 인증되거나 유효성이 확인되면 사용자는 조건부 액세스 흐름을 계속합니다.
 
 이러한 컨트롤을 사용하면 특정 외부 또는 사용자 지정 서비스를 조건부 액세스 컨트롤로 사용할 수 있으며 조건부 액세스 기능을 일반적으로 확장할 수 있습니다.
 

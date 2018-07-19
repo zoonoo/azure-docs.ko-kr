@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: fboylu
-ms.openlocfilehash: ff2e1660ffcc1f397697b27084e000371c7c84f3
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 816ba560ccb9b06414dff8ffaea054e88d216b10
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938012"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972386"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>예측 유지 관리 솔루션에 대한 Azure AI 가이드
 
@@ -415,7 +415,7 @@ PdM에서 정상 예제보다 소수 클래스를 구성하는 오류에 더 관
 | # | 제목 | 설명 |
 |--:|:------|-------------|
 | 1 | [Azure 예측 유지 관리 Machine Learning 샘플](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |다음 N번째 단위에서 오류를 예측하는 PdM 샘플입니다. 이 샘플은 Azure ML Workbench 프로젝트로 작성되었으며 PdM 초보자에게 가장 적합합니다. 이 샘플과 관련된 [추가 설명서](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance)입니다.|
-| 2 | [Azure 예측 유지 관리 솔루션 템플릿](https://github.com/Azure/AI-PredictiveMaintenance) | 여러 PdM 시나리오를 설명하는 종단 간 프레임워크입니다. 이 템플릿에서는 두 가지 시나리오를 제공합니다. 첫 번째는 실시간 오류 조건 분류의 새로운 사용 사례입니다. 두 번째 시나리오는 솔루션 [1]을 이 솔루션 템플릿으로 단순히 통합한 것입니다. 동일하게 배포된 인프라를 다시 사용하여 다른 기존 또는 새로운 시나리오를 추가하는 방법을 보여줍니다.|
+| 2 | [Azure 예측 유지 관리 솔루션 템플릿](https://github.com/Azure/AI-PredictiveMaintenance) | IoT 원격 모니터링의 컨텍스트에서 예측 유지 관리 시나리오를 지원할 수 있는 전체 Azure 인프라 및 ML 모델링을 보여 주는 오픈 소스 솔루션 템플릿입니다. |
 | 3 | [예측 유지 관리에 대한 딥 러닝](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | [이 샘플의 블로그 게시물](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance)에서 예측 유지 관리에 LSTM(Long Short-Term Memory) 네트워크(되풀이 신경망의 클래스)를 사용하는 데모 솔루션을 포함한 Azure Notebook입니다.|
 | 4 | [R의 예측 유지 관리 모델링 가이드](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | R에서 스크립트를 사용하는 PdM 모델링 가이드입니다.|
 | 5 | [우주 항공에 대한 Azure 예측 유지 관리](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | 비행기 유지 관리에 대해 Azure ML v1.0에 기반한 첫 번째 PdM 솔루션 템플릿 중 하나입니다. 이 가이드는 이 프로젝트에서 시작되었습니다. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/19/2018
 ms.author: jroth
-ms.openlocfilehash: 9d3fbbab76f16a8546c431d5acf913bf419edeb4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798158"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888911"
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례
 
@@ -39,7 +39,7 @@ ms.locfileid: "31798158"
 
 | 영역 | 최적화 |
 | --- | --- |
-| [VM 크기](#vm-size-guidance) |SQL Enterprise Edition [DS3](../sizes-general.md) 이상<br/><br/>SQL Standard 및 Web Edition [DS2](../sizes-general.md) 이상 |
+| [VM 크기](#vm-size-guidance) |SQL Enterprise Edition [DS3_v2](../sizes-general.md) 이상<br/><br/>SQL Standard 및 Web Edition [DS2_v2](../sizes-general.md) 이상 |
 | [Storage](#storage-guidance) |[Premium Storage](../premium-storage.md)를 사용합니다. 표준 저장소는 개발/테스트에만 권장됩니다.<br/><br/>동일한 지역에 SQL Server VM 및 [저장소 계정](../../../storage/common/storage-create-storage-account.md)을 유지합니다.<br/><br/>저장소 계정의 Azure [지역 중복 저장소](../../../storage/common/storage-redundancy.md) (지역에서 복제)를 사용하지 않도록 설정합니다. |
 | [디스크](#disks-guidance) |[P30 디스크](../premium-storage.md#scalability-and-performance-targets)를 적어도 2개 이상 사용합니다(1개는 로그 파일용, 1개는 데이터 파일 및 TempDB용. 또는 디스크 두 개 이상을 스트라이프하고 모든 파일을 단일 볼륨에 저장).<br/><br/>데이터베이스 저장소나 로깅을 위해 운영 체제 또는 임시 디스크를 사용하지 않습니다.<br/><br/>데이터 파일 및 TempDB 데이터 파일을 호스트하는 디스크에서 읽기 캐싱을 사용하도록 설정합니다.<br/><br/>로그 파일을 호스트하는 디스크에서는 캐싱을 사용하도록 설정하지 마세요.<br/><br/>중요: Azure VM 디스크에 대한 캐시 설정을 변경하는 경우 SQL Server 서비스를 중지합니다.<br/><br/>IO 처리량이 증가하도록 여러 Azure 데이터 디스크를 스트라이프합니다.<br/><br/>문서화된 할당 크기로 포맷합니다. |
 | [I/O](#io-guidance) |데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/>데이터 파일에 대해 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/>데이터베이스에서 자동 확장을 제한합니다.<br/><br/>데이터베이스에서 자동 축소를 사용하지 않도록 설정합니다.<br/><br/>시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/>SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/>기본 백업 및 데이터베이스 파일 위치를 설정합니다.<br/><br/>잠긴 페이지를 사용하도록 설정합니다.<br/><br/>SQL Server 성능 픽스를 적용합니다. |
@@ -49,10 +49,12 @@ ms.locfileid: "31798158"
 
 ## <a name="vm-size-guidance"></a>VM 크기 지침
 
-성능이 중요한 응용 프로그램의 경우 다음 [가상 머신 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 사용하는 것이 좋습니다.
+성능이 중요한 응용 프로그램의 경우 다음 [가상 머신 크기](../sizes.md)를 사용하는 것이 좋습니다.
 
-* **SQL Server Enterprise Edition**: DS3 이상
-* **SQL Server Standard 및 Web Edition**: DS2 이상
+* **SQL Server Enterprise Edition**: DS3_v2 이상
+* **SQL Server Standard 및 Web Edition**: DS2_v2 이상
+
+[DSv2 시리즈](../sizes-general.md#dsv2-series) VM은 최고의 성능을 위해 권장되는 프리미엄 저장소를 지원합니다. 여기서 권장하는 크기는 기준이며 선택하는 실제 시스템 크기는 워크로드 요구 사항에 따라 다릅니다. DSv2 시리즈 VM은 다양한 워크로드에 적합한 범용 VM인 반면, 다른 머신 크기는 특정 워크로드 유형에 맞게 최적화됩니다. 예를 들어, [M 시리즈](../sizes-memory.md#m-series)는 최대 SQL Server 워크로드를 위한 최고 vCPU 개수 및 메모리를 제공합니다. [GS 시리즈](../sizes-memory.md#gs-series) 및 [DSv2 시리즈 11-15](../sizes-memory.md#dsv2-series-11-15)는 큰 메모리 요구 사항에 맞게 최적화됩니다. 이러한 시리즈는 둘 다 [제한된 코어 크기](../../windows/constrained-vcpu.md)로 사용할 수 있어 계산 요구 사항이 더 적은 워크로드의 비용이 절감됩니다. [Ls 시리즈](../sizes-storage.md) 머신은 높은 디스크 처리량 및 IO에 맞게 최적화됩니다. 특정 SQL Server 워크로드를 고려하고 VM 시리즈 및 크기 선택 시 이를 적용해야 합니다.
 
 ## <a name="storage-guidance"></a>저장소 지침
 

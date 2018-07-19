@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 05720e6c290b0b54e5b6d5170a6eb22306e9cb04
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 957a68c80f9fcc07ef6f84b2b08f344745a58d95
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30282201"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866027"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health에 대한 질문과 대답
 이 문서에는 Azure AD(Azure Active Directory) Connect Health에 대한 FAQ(질문과 대답)가 포함되어 있습니다. 이 FAQ에서는 청구 모델, 기능, 제한 및 지원을 포함한 서비스 사용 방법에 대해 다룹니다.
@@ -62,8 +62,16 @@ ms.locfileid: "30282201"
 
 **Q: Azure AD Connect Health가 Azure Germany 클라우드를 지원하나요?**
 
-Azure AD Connect Health에는 Azure Germany에 [설치](active-directory-aadconnect-health-agent-install.md)가 있습니다. 독일어를 사용하는 클라우드 고객의 모든 데이터는 Azure Germany 클라우드 내에서 보관됩니다.
+[동기화 오류 보고서 기능](active-directory-aadconnect-health-sync.md#object-level-synchronization-error-report-preview)을 제외하면 Germany 클라우드에서 Azure AD Connect Health가 지원되지 않습니다. 
 
+| 역할 | 기능 | 독일 클라우드에서 지원됨 |
+| ------ | --------------- | --- |
+| 동기화용 Connect Health | 모니터링/인사이트/경고/분석 | 아니오 |
+|  | 동기화 오류 보고서 | 예 |
+| ADFS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니오 |
+| ADDS용 Connect Health | 모니터링/인사이트/경고/분석 | 아니오 |
+
+동기화용 Connect Health의 에이전트 연결을 보장하려면 그에 따라 [설치 요구 사항](active-directory-aadconnect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints)을 구성하세요.   
 
 ## <a name="installation-questions"></a>설치 관련 질문
 
@@ -86,7 +94,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 응용 프로그램 �
 
 **Q: Azure AD Connect Health Agent를 설치하는 동안 내 서버를 재부팅해야 하나요?**
 
-번호 에이전트를 설치하는 데 서버를 재부팅할 필요는 없습니다. 그러나 일부 필수 구성 요소 설치 단계에서 서버를 재부팅해야 할 수 있습니다.
+아니요. 에이전트를 설치하는 데 서버를 재부팅할 필요는 없습니다. 그러나 일부 필수 구성 요소 설치 단계에서 서버를 재부팅해야 할 수 있습니다.
 
 예를 들어 Windows Server 2008 R2에 .NET 4.5 Framework를 설치하는 경우 서버를 재부팅해야 합니다.
 
@@ -103,7 +111,7 @@ Microsoft Azure AD Connect Health 에이전트, AD FS, 웹 응용 프로그램 �
 
 **Q: Azure AD Connect Health는 HTTP 프록시에 연결할 때 기본 인증을 지원하나요?**
 
-번호 기본 인증에 필요한 임의 사용자 이름/암호를 지정하는 메커니즘은 현재 지원되지 않습니다.
+아니요. 기본 인증에 필요한 임의 사용자 이름/암호를 지정하는 메커니즘은 현재 지원되지 않습니다.
 
 **Q: Azure AD Connect Health Agent가 작동하도록 하기 위해 열어야 하는 방화벽 포트는 무엇인가요?**
 

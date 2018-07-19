@@ -14,18 +14,18 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: d253562e0ecb0d53739a4cdc5f9747e33d7e1171
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0bc88a510c05e88351b4ac7d69839a37c0e4fdd8
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764403"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970492"
 ---
 # <a name="durable-functions-overview"></a>지속성 함수 개요
 
 *지속성 함수*는 서버를 사용하지 않는 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](functions-overview.md) 및 [Azure WebJobs](../app-service/web-sites-create-web-jobs.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다.
 
-이 확장을 통해 *오케스트레이터 함수*라는 새 유형의 함수에서 상태 저장 워크플로를 정의할 수 있습니다. 다음은 오케스트레이터 함수의 이점 중 일부입니다.
+이 확장을 통해 [*오케스트레이터 함수*](durable-functions-types-features-overview.md#orchestrator-functions)라는 새 유형의 함수에서 상태 저장 워크플로를 정의할 수 있습니다. 다음은 오케스트레이터 함수의 이점 중 일부입니다.
 
 * 코드에서 워크플로를 정의합니다. JSON 스키마 또는 디자이너가 필요하지 않습니다.
 * 다른 함수를 동기적 및 비동기적으로 호출할 수 있습니다. 호출된 함수의 출력은 지역 변수에 저장할 수 있습니다.
@@ -340,7 +340,7 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 
 이 확장에서 사용하는 이벤트 소싱 사용은 투명합니다. 내부적으로 오케스트레이터 함수의 `await` 연산자는 오케스트레이터 스레드의 제어를 지속성 작업 프레임워크 디스패처에 다시 생성합니다. 그런 다음 디스패처는 오케스트레이터에서 예약한 새 작업(예: 하나 이상의 자식 함수 호출 또는 지속성 타이머 예약)을 저장소에 커밋합니다. 이 투명한 커밋 작업은 오케스트레이션 인스턴스의 *실행 기록*에 추가됩니다. 기록은 저장소 테이블에 저장됩니다. 그런 다음 커밋 작업은 실제 작업을 예약하는 큐에 메시지를 추가합니다. 이 시점에서 오케스트레이터 함수는 메모리에서 언로드할 수 있습니다. Azure Functions 소비 계획을 사용하는 경우 이에 대한 청구가 중지됩니다.  수행할 작업이 더 많이 있으면 함수가 다시 시작되고 해당 상태도 다시 구성됩니다.
 
-오케스트레이션 함수에서 더 많은 작업(예: 응답 메시지 수신 또는 영구 타이머 만료)을 수행해야 하는 경우, 오케스트레이터가 다시 활성화하고 로컬 상태를 다시 작성하기 위해 전체 함수를 처음부터 다시 실행합니다. 이 재생 중에 코드에서 함수를 호출하려고 하면(또는 다른 비동기 작업을 수행하는 경우) 지속성 작업 프레임워크는 현재 오케스트레이션의 *실행 기록*을 참조합니다. 작업 함수가 이미 실행되었음을 알고 있고 일부 결과를 생성한 경우 해당 함수의 결과를 재생하고 오케스트레이터 코드는 계속 실행됩니다. 함수 코드가 끝나거나 새 비동기 작업을 예약한 지점에 도달할 때까지 이 작업은 계속됩니다.
+오케스트레이션 함수에서 더 많은 작업(예: 응답 메시지 수신 또는 영구 타이머 만료)을 수행해야 하는 경우, 오케스트레이터가 다시 활성화하고 로컬 상태를 다시 작성하기 위해 전체 함수를 처음부터 다시 실행합니다. 이 재생 중에 코드에서 함수를 호출하려고 하면(또는 다른 비동기 작업을 수행하는 경우) 지속성 작업 프레임워크는 현재 오케스트레이션의 *실행 기록*을 참조합니다. [활동 함수](durable-functions-types-features-overview.md#activity-functions)가 이미 실행되었음을 알고 있고 일부 결과를 생성한 경우, 해당 함수의 결과를 재생하고 오케스트레이터 코드는 계속 실행됩니다. 함수 코드가 끝나거나 새 비동기 작업을 예약한 지점에 도달할 때까지 이 작업은 계속됩니다.
 
 ### <a name="orchestrator-code-constraints"></a>오케스트레이터 코드 제약 조건
 
@@ -348,7 +348,7 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 
 ## <a name="language-support"></a>언어 지원
 
-현재 C#(Functions v1 및 v2) 및 JavaScript(Functions v2만)가 지속성 함수에 대해 지원되는 유일한 언어입니다. 여기에는 오케스트레이터 함수 및 작업 함수가 포함됩니다. 나중에 Azure Functions에서 지원하는 모든 언어에 대한 지원을 추가할 예정입니다. Azure Functions [GitHub 리포지토리 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)을 참조하여 추가 언어 지원 작업의 최신 상태를 확인하세요.
+현재 C#(Functions v1 및 v2), F# 및 JavaScript(Functions v2만)가 지속성 함수에 대해 지원되는 유일한 언어입니다. 여기에는 오케스트레이터 함수 및 작업 함수가 포함됩니다. 나중에 Azure Functions에서 지원하는 모든 언어에 대한 지원을 추가할 예정입니다. Azure Functions [GitHub 리포지토리 문제 목록](https://github.com/Azure/azure-functions-durable-extension/issues)을 참조하여 추가 언어 지원 작업의 최신 상태를 확인하세요.
 
 ## <a name="monitoring-and-diagnostics"></a>모니터링 및 진단
 
@@ -384,7 +384,7 @@ public static async Task Run(string instanceId, DurableOrchestrationClient clien
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [지속성 함수 설명서 참조 계속](durable-functions-bindings.md)
+> [지속성 함수 설명서 참조 계속](durable-functions-types-features-overview.md)
 
 > [!div class="nextstepaction"]
 > [지속성 함수 확장 및 샘플 설치](durable-functions-install.md)

@@ -15,15 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: c3402c824b70d357b68e71ed7cb5783a7489b2b0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d9d9bfc6f8571ab30804d76b9ab9490b0d2e43c7
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837381"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37934195"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스의 데이터를 사용하여 Azure Machine Learning을 통해 고급 분석 수행
-
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 온-프레미스 데이터로 작업하는 기업에서는 종종 기계 학습 워크로드를 위해 클라우드의 규모와 민첩성을 활용하려고 합니다. 하지만 클라우드로 온-프레미스 데이터를 이동하여 현재 비즈니스 프로세스 및 워크플로를 중단하지 않으려고 합니다. 이제 Azure Machine Learning은 온-프레미스 SQL Server 데이터베이스의 데이터를 읽은 다음, 이 데이터를 사용하여 교육을 하고 모델 점수를 매길 수 있도록 지원합니다. 더 이상 클라우드 및 온-프레미스 서버 간에 데이터를 수동으로 복사하고 동기화할 필요가 없습니다. 대신 Azure Machine Learning Studio의 **데이터 가져오기** 모듈은 교육 및 점수 매기기 작업을 위해 온-프레미스 SQL Server 데이터베이스에서 직접 데이터를 읽을 수 있습니다.
@@ -39,44 +38,46 @@ ms.locfileid: "34837381"
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="install-the-microsoft-data-management-gateway"></a>Microsoft 데이터 관리 에이전트 게이트웨이 설치
-Azure Machine Learning에서 온-프레미스 SQL Server 데이터베이스에 액세스하려면 Microsoft 데이터 관리 게이트웨이를 다운로드한 후 설치해야 합니다. Machine Learning Studio에서 게이트웨이 연결을 구성할 경우, 아래에 설명된 **데이터 게이트웨이 다운로드 및 등록** 대화 상자를 사용하여 게이트웨이를 다운로드하고 설치할 수 있습니다.
+## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>Data Factory 자체 호스팅 통합 런타임 설치
+Azure Machine Learning에서 온-프레미스 SQL Server 데이터베이스에 액세스하려면 Data Factory 자체 호스팅 통합 런타임(이전의 데이터 관리 게이트웨이)을 다운로드하고 설치해야 합니다. Machine Learning Studio에서 연결을 구성할 때 아래에 설명된 **데이터 게이트웨이 다운로드 및 등록** 대화 상자를 사용하여 IR(Integration Runtime)을 다운로드하고 설치할 수 있습니다.
 
-또한 [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하고 실행하여 사전에 데이터 관리 게이트웨이를 설치할 수도 있습니다.
-사용 중인 컴퓨터에 맞게 32비트 또는 64비트로 최신 버전을 선택합니다. MSI는 유지된 모든 설정을 사용하여 기존 데이터 관리 게이트웨이를 최신 버전으로 업그레이드하는 데 사용할 수 있습니다.
 
-이 게이트웨이를 사용하려면 다음 필수 조건이 필요합니다.
+[Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=39717)에서 MSI 설치 패키지를 다운로드하고 실행하여 IR을 미리 설치할 수도 있습니다. MSI를 사용하여 모든 설정을 유지하면서 기존 IR을 최신 버전으로 업그레이드할 수도 있습니다.
 
-* 지원되는 Windows 운영 체제 버전은 Windows 7, Windows 8/8.1, Windows Server 10, Windows Server 2008 R2, Windows Server 2012 및 Windows Server 2012 R2입니다.
-* 게이트웨이 컴퓨터에 대한 권장 구성은 최소한 2GHz, 4개 코어, 8GB RAM 및 80GB 디스크입니다.
-* 호스트 컴퓨터가 최대 절전 모드인 경우 게이트웨이가 데이터 요청에 응답하지 않습니다. 따라서 게이트웨이를 설치하기 전에 컴퓨터에서 전원 계획을 적절하게 구성하세요. 컴퓨터가 최대 절전 모드로 구성된 경우 게이트웨이 설치에서 메시지가 표시됩니다.
+Data Factory 자체 호스팅 통합 런타임에는 다음과 같은 필수 조건이 있습니다.
+
+* Data Factory 자체 호스팅 통합에는 .NET Framework 4.6.1 이상이 있는 64비트 운영 체제가 필요합니다.
+* 지원되는 Windows 운영 체제 버전은 Windows 10 , Windows Server 2012, Windows Server 2012 R2, Windows Server 2016입니다. 
+* IR 머신에 대한 권장 구성은 최소한 2GHz, 코어 CPU 4개, 8GB RAM 및 80GB 디스크입니다.
+* 호스트 머신이 최대 절전 모드이면 IR이 데이터 요청에 응답하지 않습니다. 따라서 IR을 설치하기 전에 컴퓨터에서 전원 계획을 적절하게 구성합니다. 머신이 최대 절전 모드로 구성된 경우, IR 설치에서 메시지가 표시됩니다.
 * 복사 활동은 특정 주기에 실행되므로 컴퓨터에서 리소스 사용(CPU, 메모리)은 유휴 시간 사용량이 가장 많을 때와 동일한 패턴을 따릅니다. 리소스 사용률은 이동하는 데이터 양에 따라 달라집니다. 여러 복사 작업이 진행 중인 경우 사용량이 많은 시간 동안 리소스 사용량이 증가하는 것을 볼 수 있습니다. 위에 나열된 최소 구성이 기술적으로는 충분하지만 데이터 이동에 대한 특정 부하에 따라 최소 구성보다 더 많은 리소스를 사용하는 구성이 좋습니다.
 
-데이터 관리 게이트웨이를 설정 및 사용하는 경우 다음을 고려합니다.
+Data Factory 자체 호스팅 통합 런타임을 설정하고 사용하는 경우, 다음 사항을 고려하세요.
 
-* 단일 컴퓨터에 데이터 관리 게이트웨이 인스턴스를 하나만 설치할 수 있습니다.
-* 여러 온-프레미스 데이터 원본에 대해 단일 게이트웨이를 사용할 수 있습니다.
-* 여러 다른 컴퓨터의 여러 게이트웨이를 동일한 온-프레미스 데이터 원본에 연결할 수 있습니다.
-* 한 번에 하나의 작업 영역에 대해서만 게이트웨이를 구성합니다. 현재, 작업 영역 간에 게이트웨이를 공유할 수 없습니다.
-* 단일 작업 영역에 대해 여러 게이트웨이를 구성할 수 있습니다. 예를 들어 개발 중에는 테스트 데이터 원본에 연결된 게이트웨이를 사용하고, 운영할 준비가 되면 프로덕션 게이트웨이를 사용할 수 있습니다.
-* 게이트웨이가 데이터 원본과 같은 컴퓨터에 있을 필요는 없습니다. 그러나 게이트웨이를 데이터 원본 가까이에 배치하면 게이트웨이가 데이터 원본에 연결하는 데 걸리는 시간을 줄일 수 있습니다. 게이트웨이와 데이터 원본이 리소스를 경합하지 않도록 온-프레미스 데이터 원본을 호스트하는 컴퓨터가 아닌 다른 컴퓨터에 게이트웨이를 설치하는 것이 좋습니다.
-* 컴퓨터에 Power BI 또는 Azure Data Factory 시나리오를 처리할 게이트웨이가 이미 설치된 경우 다른 컴퓨터에 Azure Machine Learning을 위한 별도의 게이트웨이를 설치하세요.
+* 단일 컴퓨터에 IR 인스턴스를 한 개만 설치할 수 있습니다.
+* 여러 온-프레미스 데이터 원본에 대해 단일 IR을 사용할 수 있습니다.
+* 서로 다른 컴퓨터의 여러 IR을 동일한 온-프레미스 데이터 원본에 연결할 수 있습니다.
+* 한 번에 하나의 작업 영역에 대해서만 IR을 구성합니다. 현재, 작업 영역 간에 IR을 공유할 수는 없습니다.
+* 단일 작업 영역에 대해 여러 IR을 구성할 수 있습니다. 예를 들어, 개발 중에는 테스트 데이터 원본에 연결된 IR을 사용하고, 운영할 준비가 되면 프로덕션 IR을 사용할 수 있습니다.
+* IR이 데이터 원본과 동일한 머신에 있을 필요는 없습니다. 그러나 게이트웨이를 데이터 원본 가까이에 배치하면 게이트웨이가 데이터 원본에 연결하는 데 걸리는 시간을 줄일 수 있습니다. 게이트웨이와 데이터 원본이 리소스를 경합하지 않도록 온-프레미스 데이터 원본을 호스트하는 머신이 아닌 다른 머신에 IR을 설치하는 것이 좋습니다.
+* 컴퓨터에 Power BI 또는 Azure Data Factory 시나리오를 처리할 IR이 이미 설치되어 있는 경우, 다른 컴퓨터에 Azure Machine Learning을 위한 별도의 IR을 설치합니다.
 
   > [!NOTE]
-  > 동일한 컴퓨터에서 데이터 관리 게이트웨이와 Power BI 게이트웨이를 둘 다 실행할 수는 없습니다.
+  > 동일한 컴퓨터에서 Data Factory 자체 호스팅 통합 런타임과 Power BI Gateway를 실행할 수는 없습니다.
   >
   >
-* 다른 데이터에 대해 Azure ExpressRoute를 사용하는 경우에도 Azure Machine Learning용 데이터 관리 게이트웨이를 사용해야 합니다. ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. 데이터 관리 게이트웨이를 사용하여 Machine Learning과 데이터 원본 간의 연결을 설정합니다.
+* 다른 데이터에 Azure ExpressRoute를 사용하는 경우에도 Azure Machine Learning에는 Data Factory 자체 호스팅 통합 런타임을 사용해야 합니다. ExpressRoute를 사용하더라도 데이터 원본은 방화벽으로 보호되는 온-프레미스 데이터 원본으로 취급해야 합니다. Data Factory 자체 호스팅 통합 런타임을 사용하여 Machine Learning과 데이터 원본 간의 연결을 설정합니다.
 
-[데이터 관리 게이트웨이](../../data-factory/v1/data-factory-data-management-gateway.md) 문서에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
+[Data Factory의 통합 런타임](../../data-factory/concepts-integration-runtime.md) 문서에서 설치 필수 조건, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>온-프레미스 SQL Server 데이터베이스의 데이터를 Azure 기계 학습으로 수신
-이 연습에서는 Azure Machine Learning 작업 영역에서 데이터 관리 게이트웨이를 설정하고 구성한 후 온-프레미스 SQL Server 데이터베이스에서 데이터를 읽습니다.
+이 연습에서는 Azure Machine Learning 작업 영역에서 Azure Data Factory Integration Runtime을 설정하고, 구성한 다음, 온-프레미스 SQL Server 데이터베이스에서 데이터를 읽습니다.
 
 > [!TIP]
 > 시작하기 전에 `studio.azureml.net`에 대한 브라우저의 팝업 차단을 사용하지 않도록 설정합니다. Google Chrome 브라우저를 사용하는 경우 Google Chrome 웹 저장소 [Click Once App Extension](https://chrome.google.com/webstore/search/clickonce?_category=extensions)에서 사용할 수 있는 일부 플러그 인 중에서 하나를 다운로드하여 설치합니다.
 >
->
+> [!NOTE]
+> Azure Data Factory 자체 호스팅 통합 런타임은 이전에 데이터 관리 게이트웨이라고 했습니다. 단계별 자습서에서는 계속 게이트웨이로 부릅니다.  
 
 ### <a name="step-1-create-a-gateway"></a>1단계: 게이트웨이 만들기
 첫 번째 단계는 온-프레미스 SQL 데이터베이스에 액세스하기 위한 게이트웨이를 만들고 설정하는 것입니다.
@@ -92,7 +93,7 @@ Azure Machine Learning에서 온-프레미스 SQL Server 데이터베이스에 �
 5. 데이터 게이트웨이 다운로드 및 등록 대화 상자에서 게이트웨이 등록 키를 클립보드에 복사합니다.
 
     ![다운로드 및 데이터 게이트웨이 등록](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
-6. <span id="note-1" class="anchor"></span>Microsoft 데이터 관리 게이트웨이를 아직 다운로드해서 설치하지 않은 경우 **데이터 관리 게이트웨이 다운로드**를 클릭합니다. 이렇게 하면 필요한 게이트웨이 버전을 선택하고 다운로드한 후 설치할 수 있는 Microsoft 다운로드 센터로 이동하게 됩니다. [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
+6. <span id="note-1" class="anchor"></span>Microsoft 데이터 관리 게이트웨이를 아직 다운로드해서 설치하지 않은 경우 **데이터 관리 게이트웨이 다운로드**를 클릭합니다. 이렇게 하면 필요한 게이트웨이 버전을 선택하고 다운로드한 후 설치할 수 있는 Microsoft 다운로드 센터로 이동하게 됩니다. [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)문서의 시작 섹션에서 설치 필수 구성 요소, 설치 단계 및 문제 해결 팁에 대한 자세한 정보를 찾을 수 있습니다.
 7. 게이트웨이가 설치되면 데이터 관리 게이트웨이 구성 관리자가 열리고 **게이트웨이 등록** 대화 상자가 표시됩니다. 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣고 **등록**을 클릭합니다.
 8. 게이트웨이가 이미 설치되어 있는 경우 데이터 관리 게이트웨이 구성 관리자를 실행합니다. **키 변경**을 클릭하고 이전 단계에서 클립보드에 복사한 **게이트웨이 등록 키**를 붙여 넣고 **확인**을 클릭합니다.
 9. 설치가 완료되면 Microsoft 데이터 관리 게이트웨이 구성 관리자에 대한 **게이트웨이 등록** 대화 상자가 표시됩니다. 이전 단계에서 클립보드에 복사한 게이트웨이 등록 키를 붙여 넣고 **등록**을 클릭합니다.
@@ -123,7 +124,7 @@ Azure Machine Learning에서 온-프레미스 SQL Server 데이터베이스에 �
 Azure Machine Learning의 게이트웨이 설정 프로세스를 마쳤습니다.
 이제 온-프레미스 데이터를 사용할 준비가 되었습니다.
 
-각 작업 영역에 대한 스튜디오에서 여러 게이트웨이를 만들고 설정할 수 있습니다. 예를 들어 개발 중에는 테스트 데이터 원본에 연결하기 위한 게이트웨이를 사용하고 프로덕션 데이터 원본에 연결할 때는 다른 게이트웨이를 사용할 수 있습니다. Azure Machine Learning 기능을 사용하면 회사 환경에 따라 여러 게이트웨이를 유연하게 설정할 수 있습니다. 현재는 작업 영역 간에 게이트웨이를 공유할 수 없으며 단일 컴퓨터에 게이트웨이 하나만 설치할 수 있습니다. 자세한 내용은 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)을 참조하세요.
+각 작업 영역에 대한 스튜디오에서 여러 게이트웨이를 만들고 설정할 수 있습니다. 예를 들어 개발 중에는 테스트 데이터 원본에 연결하기 위한 게이트웨이를 사용하고 프로덕션 데이터 원본에 연결할 때는 다른 게이트웨이를 사용할 수 있습니다. Azure Machine Learning 기능을 사용하면 회사 환경에 따라 여러 게이트웨이를 유연하게 설정할 수 있습니다. 현재는 작업 영역 간에 게이트웨이를 공유할 수 없으며 단일 컴퓨터에 게이트웨이 하나만 설치할 수 있습니다. 자세한 내용은 [온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)을 참조하세요.
 
 ### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>2단계: 게이트웨이를 사용하여 온-프레미스 데이터 원본에서 데이터 읽기
 게이트웨이를 설정한 후에 실험에 온-프레미스 SQL Server 데이터베이스의 데이터를 입력하는 **데이터 가져오기** 모듈을 추가할 수 있습니다.

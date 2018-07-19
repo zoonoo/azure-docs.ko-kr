@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/16/2018
+ms.date: 07/05/2018
 ms.author: jeedes
-ms.openlocfilehash: 7a0f9e54b920ee2c16a141ee62d22784f75c0af6
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 79b0aa9ae435defa980b4da0c8d376fdb69542f3
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224165"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-cloud"></a>자습서: Cisco Cloud와 Azure Active Directory 통합
 
@@ -101,7 +101,7 @@ Cisco Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/ciscocloud-tutorial/tutorial_ciscocloud_samlbase.png)
 
 3. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **Cisco Cloud 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
@@ -117,19 +117,45 @@ Cisco Cloud에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     ![Cisco Cloud 도메인 및 URL Single Sign-On 정보](./media/ciscocloud-tutorial/tutorial_ciscocloud_url1.png)
 
     **로그온 URL** 텍스트 상자에 URL을 입력합니다. `https://<subdomain>.cloudapps.cisco.com`
-     
-    > [!NOTE] 
+
+    > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 해당 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Cisco Cloud 클라이언트 지원 팀](mailto:cpr-ops@cisco.com)에 문의하세요.
 
-5. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+5. Cisco Cloud 응용 프로그램에는 특정 형식의 SAML 어설션이 필요합니다. 이 응용 프로그램에 대해 다음 클레임을 구성합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 이러한 특성의 값을 관리할 수 있습니다.
+ 다음 스크린샷에서는 이에 대한 예제를 보여줍니다.
+
+    ![Configure Single Sign-On](./media/ciscocloud-tutorial/attribute.png)
+
+6. **사용자 특성** 섹션에서 **기타 모든 사용자 특성 보기 및 편집**을 클릭하고 특성을 확장합니다. 표시된 각 특성에 대해 다음 단계를 수행합니다.
+
+    | 특성 이름 | 특성 값 |
+    | ---------------| ----------------|
+    | country      |user.country |
+    | company      |user.companyname |
+
+    a. **특성 추가**를 클릭하여 **특성 추가** 대화 상자를 엽니다.
+
+    ![Configure Single Sign-On](./media/ciscocloud-tutorial/tutorial_attribute_04.png)
+
+    ![Configure Single Sign-On](./media/ciscocloud-tutorial/tutorial_attribute_05.png)
+
+    나. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
+
+    다. **값** 목록에서 해당 행에 대해 표시된 특성을 입력합니다.
+
+    d. **네임스페이스** 값을 비워 둡니다.
+
+    e. **Ok**를 클릭합니다.
+
+7. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
 
     ![인증서 다운로드 링크](./media/ciscocloud-tutorial/tutorial_ciscocloud_certificate.png)
 
-6. **저장** 단추를 클릭합니다.
+8. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/ciscocloud-tutorial/tutorial_general_400.png)
 
-7. **Cisco Cloud** 쪽에서 Single Sign-On을 구성하려면, **앱 페더레이션 메타데이터 URL**을 [Cisco Cloud 지원 팀](mailto:cpr-ops@cisco.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+9. **Cisco Cloud** 쪽에서 Single Sign-On을 구성하려면, **앱 페더레이션 메타데이터 URL**을 [Cisco Cloud 지원 팀](mailto:cpr-ops@cisco.com)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

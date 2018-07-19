@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 3/13/2017
+ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 819888800b9663f9b920fbaf11b30ad28287a0b5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658726"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902302"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>저장소 스냅숏에 기반한 SAP HANA 백업
 
@@ -28,9 +28,9 @@ ms.locfileid: "34658726"
 
 단일 인스턴스 통합(all-in-one) 데모 시스템에 VM 백업 기능을 사용하는 경우 OS 수준에서 HANA 백업을 관리하는 대신 VM 백업을 수행하는 것이 좋습니다. 다른 방법으로는 Azure Blob 스냅숏을 만들어 가상 머신에 연결된 개별 가상 디스크의 복사본을 만들고 HANA 데이터 파일을 유지하는 것입니다. 그러나 중요한 점은 시스템 가동 중에 VM 백업 또는 디스크 스냅숏을 만들 때 앱 일관성을 유지하는 것입니다. [Azure Virtual Machines의 SAP HANA Backup 가이드](sap-hana-backup-guide.md) 관련 문서의 _저장소 스냅숏을 만들 때의 SAP HANA 데이터 일관성_을 참조하세요. SAP HANA에는 이러한 종류의 저장소 스냅숏을 지원하는 기능이 있습니다.
 
-## <a name="sap-hana-snapshots"></a>SAP HANA 스냅숏
+## <a name="sap-hana-snapshots-as-central-part-of-application-consistent-backups"></a>응용 프로그램 일치 백업의 중심 부분인 SAP HANA 스냅숏
 
-저장소 스냅숏 만들기를 지원하는 SAP HANA 기능이 있습니다. 그러나 2016년 12월 현재 단일 컨테이너 시스템에는 제한이 있습니다. 다중 테넌트 컨테이너 구성에서는 이러한 종류의 데이터베이스 스냅숏을 지원하지 않습니다([저장소 스냅숏 만들기(SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)(영문) 참조).
+SAP HANA에는 저장소 스냅숏 만들기를 지원하는 기능이 있습니다. 단일 컨테이너 시스템에는 제한이 있습니다. 둘 이상의 테넌트가 포함된 SAP HANA MCS를 다루는 시나리오에서는 이러한 종류의 SAP HANA 데이터베이스 스냅숏을 지원하지 않습니다([Create a Storage Snapshot (SAP HANA Studio)](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a0/3f8f08501e44d89115db3c5aa08e3f/content.htm)(저장소 스냅숏 만들기(SAP HANA Studio)) 참조).
 
 다음과 같이 작동합니다.
 
@@ -59,7 +59,9 @@ SAP HANA가 스냅숏 준비 모드에 있는 동안 저장소 스냅숏을 실�
 
 ## <a name="hana-vm-backup-via-azure-backup-service"></a>Azure Backup 서비스를 통한 HANA VM 백업
 
-2016년 12월 현재 Azure Backup 서비스의 백업 에이전트는 Linux VM에서 사용할 수 없습니다. 파일/디렉터리 수준에서 Azure Backup을 사용하려면 SAP HANA 백업 파일을 Windows VM에 복사한 다음 백업 에이전트를 사용합니다. 그렇지 않으면 전체 Linux VM 백업만 Azure Backup 서비스를 통해 수행할 수 있습니다. 자세한 내용은 [Azure Backup의 기능에 대한 개요](../../../backup/backup-introduction-to-azure-backup.md)를 참조하세요.
+Azure Backup 서비스의 백업 에이전트는 Linux VM에서 사용할 수 없습니다. 또한 Windows에서 VSS를 통해 제공하는 것과 유사한 기능이 Linux에는 없습니다.  파일/디렉터리 수준에서 Azure Backup을 사용하려면 SAP HANA 백업 파일을 Windows VM에 복사한 다음 백업 에이전트를 사용합니다. 
+
+그렇지 않으면 전체 Linux VM 백업만 Azure Backup 서비스를 통해 수행할 수 있습니다. 자세한 내용은 [Azure Backup의 기능에 대한 개요](../../../backup/backup-introduction-to-azure-backup.md)를 참조하세요.
 
 Azure Backup 서비스는 VM을 백업하고 복원하는 옵션을 제공합니다. 이 서비스 및 작동 방법에 대한 자세한 내용은 [Azure에서 VM 백업 인프라 계획](../../../backup/backup-azure-vms-introduction.md) 문서에 있습니다.
 
@@ -75,52 +77,32 @@ _&quot;응용 프로그램은 복원된 데이터에 대해 고유한 &quot;수�
 
 _&quot;저장소 스냅숏을 만든 후 가능한 한 빨리 확인하거나 중단하는 것이 좋습니다. 저장소 스냅숏을 준비하거나 만드는 동안 스냅숏 관련 데이터는 고정(freeze)됩니다. 스냅숏 관련 데이터가 고정된 상태에서도 데이터베이스에서 변경할 수 있습니다. 이러한 변경으로 인해 고정된 스냅숏 관련 데이터가 변경되지는 않습니다. 대신 변경 내용은 저장소 스냅숏과 별도로 데이터 영역의 위치에 기록됩니다. 변경 내용은 로그에도 기록됩니다. 그러나 스냅숏 관련 데이터가 고정된 상태로 유지될수록 데이터 볼륨이 커질 수 있습니다.&quot;_
 
-Azure Backup은 Azure VM 확장을 통해 파일 시스템 일관성을 처리합니다. 이러한 VM 확장은 독립 실행형으로 제공되지 않으며 Azure Backup 서비스와 함께 사용해야 합니다. 그럼에도 불구하고 SAP HANA 스냅숏을 관리하여 앱 일관성을 보장해야 합니다.
+Azure Backup은 Azure VM 확장을 통해 파일 시스템 일관성을 처리합니다. 이러한 VM 확장은 독립 실행형으로 제공되지 않으며 Azure Backup 서비스와 함께 사용해야 합니다. 그럼에도 불구하고 SAP HANA 스냅숏을 만들고 삭제하는 스크립트를 제공하여 앱 일관성을 보장해야 합니다.
 
-Azure Backup에는 다음 두 가지 주요 단계가 있습니다.
+Azure Backup에는 다음 네 가지 주요 단계가 있습니다.
 
+- 준비 스크립트 실행 - 스크립트가 SAP HANA 스냅숏을 만들어야 함
 - 스냅숏 만들기
+- 사후 스냅숏 스크립트 실행 - 스크립트가 준비 스크립트에서 생성된 SAP HANA를 삭제해야 함
 - 자격 증명 모음에 데이터 전송
 
-스냅숏을 만드는 Azure Backup 서비스 단계가 완료되면 SAP HANA 스냅숏을 확인할 수 있습니다. Azure Portal에서 확인하는 데 몇 분이 걸릴 수 있습니다.
+이러한 스크립트를 복사할 위치 및 Azure Backup의 정확한 작동 방식에 대한 자세한 내용은 다음 문서를 확인하세요.
 
-![그림: Azure Backup 서비스의 백업 작업 목록 일부](media/sap-hana-backup-storage-snapshots/image014.png)
+- [Azure에서 VM 백업 인프라 계획](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
+- [Azure Linux VM의 응용 프로그램 일치 백업](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
 
-이 그림에서는 HANA 테스트 VM을 백업하는 데 사용된 Azure Backup 서비스의 백업 작업 목록 일부를 보여 줍니다.
 
-![Azure Portal에서 백업 작업을 클릭하여 작업 세부 정보 표시](media/sap-hana-backup-storage-snapshots/image015.png)
 
-작업 세부 정보를 표시하려면 Azure Portal에서 백업 작업을 클릭합니다. 여기에서 두 단계를 볼 수 있습니다. 완료된 스냅숏 단계가 표시되는 데 몇 분이 걸릴 수 있습니다. 대부분의 시간이 데이터 전송 단계에서 소요됩니다.
+이 시점에 Microsoft는 SAP HANA용으로 준비 스크립트 및 사후 스냅숏 스크립트를 게시하지 않았습니다. 고객 또는 시스템 통합자가 해당 스크립트를 만들고 위에 참조된 문서를 기반으로 절차를 구성해야 합니다.
 
-## <a name="hana-vm-backup-automation-via-azure-backup-service"></a>Azure Backup 서비스를 통한 HANA VM 백업 자동화
 
-앞에서 설명한 대로 Azure Backup 스냅숏 단계가 완료되면 SAP HANA 스냅숏을 수동으로 확인할 수 있지만, 관리자가 Azure Portal에서 백업 작업 목록을 모니터링하지 않을 수 있으므로 자동화를 고려하는 것이 좋습니다.
+## <a name="restore-from-application-consistent-backup-against-a-vm"></a>VM에 대한 응용 프로그램 일치 백업에서 복원
+Azure Backup에서 사용된 응용 프로그램 일치 백업의 복원 프로세스는 [Azure Virtual Machine 백업에서 파일 복구](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) 문서에 설명되어 있습니다. 
 
-다음은 Azure PowerShell cmdlet을 통해 이 기능을 수행할 수 있는 방법에 대해 설명합니다.
+> [!IMPORTANT]
+> [Azure Virtual Machine 백업에서 파일 복구](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm) 문서에는 디스크 스트라이프 집합을 사용할 때 나열된 예외 및 단계 목록이 있습니다. 스트라이프 디스크는 SAP HANA용 일반 VM 구성일 수 있습니다. 따라서 문서를 읽고 문서에 나열된 경우에 대한 복원 프로세스를 테스트해야 합니다. 
 
-![hana-backup-vault라는 이름으로 만든 Azure Backup 서비스](media/sap-hana-backup-storage-snapshots/image016.png)
 
-Azure Backup 서비스를 &quot;hana-backup-vault&quot;라는 이름으로 만들었습니다. **Get-AzureRmRecoveryServicesVault -Name hana-backup-vault** PS 명령은 해당 개체를 검색합니다. 이 개체는 다음 그림과 같이 백업 컨텍스트를 설정하는 데 사용됩니다.
-
-![현재 진행 중인 백업 작업 확인](media/sap-hana-backup-storage-snapshots/image017.png)
-
-올바른 컨텍스트를 설정한 후 현재 진행 중인 백업 작업을 확인한 다음 작업 세부 정보를 찾을 수 있습니다. 하위 작업 목록에는 Azure Backup 작업의 스냅숏 단계가 이미 완료되었는지 여부가 표시됩니다.
-
-```
-$ars = Get-AzureRmRecoveryServicesVault -Name hana-backup-vault
-Set-AzureRmRecoveryServicesVaultContext -Vault $ars
-$jid = Get-AzureRmRecoveryServicesBackupJob -Status InProgress | select -ExpandProperty jobid
-Get-AzureRmRecoveryServicesBackupJobDetails -Jobid $jid | select -ExpandProperty subtasks
-```
-
-![Completed(완료됨) 상태가 될 때까지 폴링하는 루프 값](media/sap-hana-backup-storage-snapshots/image018.png)
-
-작업 세부 정보가 변수에 저장되면 첫 번째 배열 항목으로 이동하여 상태 값을 검색하는 것은 PS 구문입니다. 자동화 스크립트를 완료하려면 &quot;Completed&quot;로 바뀔 때까지 루프의 값을 폴링합니다.
-
-```
-$st = Get-AzureRmRecoveryServicesBackupJobDetails -Jobid $jid | select -ExpandProperty subtasks
-$st[0] | select -ExpandProperty status
-```
 
 ## <a name="hana-license-key-and-vm-restore-via-azure-backup-service"></a>Azure Backup 서비스를 통한 HANA 라이선스 키 및 VM 복원
 
@@ -144,7 +126,7 @@ Azure Backup 서비스를 사용하는 대신 Azure VHD의 Blob 스냅숏을 Pow
 
 이 방법은 더욱 유연하지만 다음과 같이 이 문서의 앞부분에서 설명한 문제를 해결하지는 않습니다.
 
-- 여전히 SAP HANA가 일관된 상태인지 확인해야 합니다.
+- SAP HANA 스냅숏을 만들어 SAP HANA가 일치 상태인지 확인해야 합니다.
 - 임대가 있다고 알리는 오류로 인해 VM 할당이 취소된 경우에도 OS 디스크를 덮어쓸 수 없습니다. VM을 삭제한 후에만 작동하므로 새 고유 VM ID를 가져오고 새 SAP 라이선스를 설치해야 합니다.
 
 ![Azure VM의 데이터 디스크만 복원할 수 있습니다.](media/sap-hana-backup-storage-snapshots/image021.png)

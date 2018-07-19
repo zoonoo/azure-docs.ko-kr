@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 26d5fe3cf96f7a63b725f1b46d85e453a8aa6ada
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34613968"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858809"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Azure Functions를 통한, 서버를 사용하지 않는 데이터베이스 컴퓨팅
 
@@ -27,8 +27,8 @@ ms.locfileid: "34613968"
 Azure Cosmos DB 및 Azure Functions를 사용하면 다음과 같은 방법으로 데이터베이스와 서버를 사용하지 않는 앱을 통합할 수 있습니다.
 
 * Azure Functions에서 이벤트 구동 **Azure Cosmos DB 트리거**를 만듭니다. 이 트리거는 [변경 피드](change-feed.md) 스트림을 사용하여 Azure Cosmos DB 컨테이너에서 변경 내용을 모니터링합니다. 컨테이너를 변경하면 변경 피드 스트림이 트리거로 전송되고, 트리거가 Azure Functions를 호출합니다.
-* 또는 **입력 바인딩**을 사용하여 Azure Functions를 Azure Cosmos DB 컬렉션에 바인딩합니다. 입력 바인딩은 함수가 실행될 때 컨테이너에서 데이터를 읽습니다.
-* **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컬렉션에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
+* 또는 **입력 바인딩**을 사용하여 Azure Functions를 Azure Cosmos DB 컨테이너에 바인딩합니다. 입력 바인딩은 함수가 실행될 때 컨테이너에서 데이터를 읽습니다.
+* **출력 바인딩**을 사용하여 함수를 Azure Cosmos DB 컨테이너에 바인딩합니다. 출력 바인딩은 함수가 완료될 때 컨테이너에 데이터를 씁니다.
 
 > [!NOTE]
 > 이때 Azure Cosmos DB 트리거, 입력 바인딩 및 출력 바인딩은 SQL API 및 Graph API 계정에서만 작동합니다.
@@ -58,7 +58,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 4. 변경 피드를 통해 모든 변경 내용이 스트리밍되기 때문에 센서 데이터 컬렉션에 대한 데이터 변경 시마다 트리거가 호출됩니다.
 5. 임계값 조건은 센서 데이터를 보증 부서에 보내기 위해 함수에 사용됩니다.
 6. 또한 온도가 특정 값을 초과하는 경우 소유자에게도 경고가 전송됩니다.
-7. 함수의 **출력 바인딩**은 다른 Azure Cosmos DB 컬렉션의 자동차 레코드를 업데이트하여 검사 엔진 이벤트에 대한 정보를 저장합니다.
+7. 함수의 **출력 바인딩**은 다른 Azure Cosmos DB 컨테이너의 자동차 레코드를 업데이트하여 검사 엔진 이벤트에 대한 정보를 저장합니다.
 
 다음 그림은 Azure Portal에서 이 트리거에 대해 기록되는 코드를 보여 줍니다.
 
@@ -95,7 +95,7 @@ IoT 구현에서는 검사 엔진 라이트가 커넥티드 자동차에 표시�
 
 소매 구현에서 사용자가 바구니에 항목을 추가할 때 이제 선택적 비즈니스 파이프라인 구성 요소에 대한 함수를 유연하게 만들고 호출할 수 있습니다.
 
-**구현:** 하나의 컬렉션을 수신 대기하는 여러 Azure Cosmos DB 트리거
+**구현:** 하나의 컨테이너를 수신 대기하는 여러 Azure Cosmos DB 트리거
 
 1. 각각에 Azure Cosmos DB 트리거를 추가하여 여러 Azure Functions를 만들 수 있으며, 모두 쇼핑 카트 데이터의 동일한 변경 피드를 수신 대기합니다. 여러 함수가 동일한 변경 피드를 수신 대기하면 각 함수에 새 임대 컬렉션이 필요합니다. 임대 컬렉션에 대한 자세한 내용은 [변경 피드 프로세서 라이브러리 이해](change-feed.md#understand-cf)를 참조하세요.
 2. 사용자 쇼핑 카트에 새 항목을 추가할 때마다 쇼핑 카트 컨테이너의 변경 피드를 통해 각 함수가 독립적으로 호출됩니다.
@@ -130,7 +130,7 @@ Azure Cosmos DB는 다음과 같은 이유로 서버를 사용하지 않는 컴�
 
 * **스키마 사용 안 함**. Azure Cosmos DB는 스키마를 사용하지 않으므로 Azure Functions의 모든 데이터 출력을 처리할 수 있습니다. 이 “모두 처리” 방법을 사용하면 모두 Azure Cosmos DB에 출력되는 다양한 함수를 간단히 만들 수 있습니다.
 
-* **확장 가능한 처리량**. Azure Cosmos DB에서 즉시 처리량을 확장 및 축소할 수 있습니다. 동일한 컬렉션을 쿼리하고 쓰는 수백 또는 수천 개의 함수가 있는 경우 [RU/s](request-units.md)를 확장하여 부하를 처리할 수 있습니다. 모든 함수는 할당된 RU/s를 사용하여 병렬로 작동할 수 있으며 데이터 [일관성](consistency-levels.md)이 보장됩니다.
+* **확장 가능한 처리량**. Azure Cosmos DB에서 즉시 처리량을 확장 및 축소할 수 있습니다. 동일한 컨테이너를 쿼리하고 쓰는 수백 또는 수천 개의 함수가 있는 경우, [RU/s](request-units.md)를 확장하여 부하를 처리할 수 있습니다. 모든 함수는 할당된 RU/s를 사용하여 병렬로 작동할 수 있으며 데이터 [일관성](consistency-levels.md)이 보장됩니다.
 
 * **글로벌 복제** Azure Cosmos DB 데이터를 [전 세계](distribute-data-globally.md)에 복제하여 대기 시간을 줄이고 사용자에게 가장 가까운 지역에 데이터를 배치할 수 있습니다. 모든 Azure Cosmos DB 쿼리와 마찬가지로, 이벤트 구동 트리거의 데이터는 사용자에게 가장 가까운 Azure Cosmos DB에서 읽은 데이터입니다.
 

@@ -12,14 +12,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 27dfdec4e833a2f30963157ba2f4d95232e21270
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267335"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37922741"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Site Recovery를 사용하여 다중 계층 SAP NetWeaver 응용 프로그램 배포 보호
 
@@ -83,7 +83,7 @@ ABAP 응용 프로그램 서버에 대한 로그온 그룹을 관리하기 위�
 
 장애 조치 클러스터 환경을 지원하기 위해 [SIOS DataKeeper 클러스터 버전](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8)에서 클러스터 노드가 소유한 독립 디스크를 복제하여 클러스터 공유 볼륨 기능을 수행합니다. Azure는 기본적으로 공유 디스크를 지원하지 않으므로 SIOS에서 제공하는 솔루션이 필요합니다. 
 
-클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 이 변경에 따라 SIOS 또는 Central Services VM의 다른 공유 디스크 솔루션에 대한 요구 사항이 제거되었습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(저장소 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다. 
+클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(저장소 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다. 
  > [!NOTE]
  > 현재 Azure Site Recovery는 직접 저장소 공간을 사용하여 가상 머신의 충돌 일관성 지점 복제만 지원합니다. 
 

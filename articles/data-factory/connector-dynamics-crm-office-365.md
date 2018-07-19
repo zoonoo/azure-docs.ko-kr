@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e2c7e7d5a8f359eb811f67a7502f5fc11c05baba
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047329"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859377"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Dynamics 365(Common Data Service) 또는 Dynamics CRM 간에 데이터 복사
 
@@ -61,7 +61,7 @@ Dynamics 연결 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | 형식 | 형식 속성은 **Dynamics**로 설정해야 합니다. | 예 |
 | deploymentType | Dynamics 인스턴스의 배포 유형입니다. Dynamics Online에 대해 **"Online"** 이어야 합니다. | 예 |
-| serviceUri | Dynamics 인스턴스의 서비스 URL(예: `https://adfdynamics.crm.dynamics.com`). | 예 |
+| serviceUri | Dynamics 인스턴스의 서비스 URL(예: `https://adfdynamics.crm.dynamics.com` ). | 예 |
 | authenticationType | Dynamics 서버에 연결하기 위한 인증 유형입니다. Dynamics Online에 대해 **"Office365"** 를 지정합니다. | 예 |
 | 사용자 이름 | Dynamics에 연결할 사용자 이름을 지정합니다. | 예 |
 | 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
@@ -210,6 +210,9 @@ Dynamics에서 데이터를 복사하려면 복사 작업의 원본 형식을 **
 | 형식 | 복사 작업 원본의 형식 속성을 **DynamicsSource**로 설정해야 합니다. | 예 |
 | 쿼리 | FetchXML은 Dynamics에 사용되는 전용 쿼리 언어(온라인 및 온-프레미스)입니다. 다음 예제를 참조하세요. 자세한 내용은 [FeachXML로 쿼리 작성](https://msdn.microsoft.com/library/gg328332.aspx)을 참조하세요. | 아니요(데이터 집합의 "entityName"이 지정된 경우) |
 
+>[!NOTE]
+>PK 열은 FetchXML 쿼리에서 구성한 열 프로젝트에 포함되지 않은 경우에도 항상 복사됩니다.
+
 **예제:**
 
 ```json
@@ -330,7 +333,7 @@ Dynamics에서 데이터를 복사하는 경우 Dynamics 데이터 형식에서 
 | AttributeType.Double | Double | ✓ | ✓ |
 | AttributeType.EntityName | 문자열 | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | Guid | ✓ | ✓ |
+| AttributeType.Lookup | Guid | ✓ | ✓(연결된 단일 유형 포함) |
 | AttributeType.ManagedProperty | BOOLEAN | ✓ | |
 | AttributeType.Memo | 문자열 | ✓ | ✓ |
 | AttributeType.Money | 10진수 | ✓ | ✓ |

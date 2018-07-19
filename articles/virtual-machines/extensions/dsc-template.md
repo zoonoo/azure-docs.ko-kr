@@ -16,19 +16,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: dacoulte
-ms.openlocfilehash: 8d1e8b4d529936a2401c734b2eff1f0c02dae352
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: d007869bb8bad1a2f0775a1ab2c1bf5d27c1cb8f
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307869"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866226"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Desired State Configuration 확장과 Azure Resource Manager 템플릿
 
 이 문서에서는 [DSC(Desired State Configuration) 확장 처리기](dsc-overview.md)를 위한 Azure Resource Manager 템플릿에 대해 설명합니다.
 
 > [!NOTE]
-> 약간 다른 스키마 예제가 제공될 수 있습니다. 스키마 변경은 2016년 10월 릴리스에서 수행되었습니다. 자세한 내용은 [이전 형식에서 업데이트](#update-from-the-previous-format)를 참조하세요.
+> 약간 다른 스키마 예제가 제공될 수 있습니다. 스키마 변경은 2016년 10월 릴리스에서 수행되었습니다. 자세한 내용은 [이전 형식에서 업데이트](#update-from-a-previous-format)를 참조하세요.
 
 ## <a name="template-example-for-a-windows-vm"></a>Windows VM의 템플릿 예제
 

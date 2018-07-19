@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: c818ff0df5cb1f1b3d20c726b20b30c418f53061
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266964"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37923471"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -33,7 +33,7 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 
 **서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
-Hyper-V(Virtual Machine Manager 없이 실행 중) | Windows Server 2016, 최신 업데이트가 포함된 Windows Server 2012 R2 | Site Recovery에서 Hyper-V 사이트를 구성하는 경우 Windows Server 2016과 2012 R2를 실행하는 호스트를 함께 포함할 수는 없습니다.<br/><br/> Windows Server 2016을 실행 중인 호스트에 있는 VM의 경우에는 대체 위치로의 복구가 지원되지 않습니다.
+Hyper-V(Virtual Machine Manager 없이 실행 중) | Windows Server 2016(서버 코어 설치 포함), Windows Server 2012 R2 최신 업데이트 | Site Recovery에서 Hyper-V 사이트를 구성하는 경우 Windows Server 2016과 2012 R2를 실행하는 호스트를 함께 포함할 수는 없습니다.<br/><br/> Windows Server 2016을 실행 중인 호스트에 있는 VM의 경우에는 대체 위치로의 복구가 지원되지 않습니다.
 Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager를 사용하는 경우 Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리되어야 합니다.<br/><br/> Windows Server 2016 및 2012 R2에서 실행 중인 Hyper-V 호스트가 모두 포함된 Virtual Machine Manager 클라우드는 현재 지원되지 않습니다.<br/><br/> 기존 Virtual Machine Manager 2012 R2 서버에서 2016으로의 업그레이드를 포함하는 환경은 지원되지 않습니다.
 
 

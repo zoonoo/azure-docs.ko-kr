@@ -14,24 +14,24 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d86a2b702eac4fc976fd59ca24fd7122a76005b4
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061680"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37920817"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
-> [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [피드](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)를 구독하여 Azure AD(Azure Active Directory)의 새로운 기능에 대한 최신 정보를 얻으세요.
+> [![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [피드](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us)를 구독하면 업데이트를 위해 이 페이지를 다시 방문해야 할 때 알림을 받을 수 있습니다.
 
 Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확인할 수 있도록 이 문서에서는 다음과 같은 정보를 제공합니다.
 
--   최신 릴리스
--   알려진 문제
--   버그 수정
--   사용되지 않는 기능
--   변경 계획
+- 최신 릴리스
+- 알려진 문제
+- 버그 수정
+- 사용되지 않는 기능
+- 변경 계획
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
 
@@ -40,8 +40,8 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 ### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>변경 통지: Azure AD 활동 로그 API를 사용하여 앱에 대한 위임된 사용 권한 부여 흐름에 대한 보안 수정
 
 **유형:** 변경 계획  
-**서비스 범주:** 모니터링 및 보고  
-**제품 기능:** 보고
+**서비스 범주:** 보고  
+**제품 기능:** 모니터링 및 보고
 
 더 강력한 보안 적용으로 인해 [Azure AD 활동 로그 API](https://aka.ms/aadreportsapi)에 액세스하는 데 위임된 사용 권한 부여 흐름을 사용하는 앱에 대한 사용 권한을 변경해야 했습니다. 이 변경 내용은 **2018년 6월 26일**에 발생합니다.
 
@@ -64,7 +64,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 ### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>PCI DSS 준수를 위해 Azure AD 서비스에 연결하도록 TLS 설정 구성
 
 **유형:** 새로운 기능  
-**서비스 범주:** 새로운 기능  
+**서비스 범주:** 해당 없음  
 **제품 기능:** 플랫폼
 
 TLS(전송 계층 보안)는 통신하는 두 응용 프로그램 간에 개인 정보 보호 및 데이터 무결성을 제공하는 프로토콜이며 현재 가장 널리 사용되는 보안 프로토콜입니다.
@@ -172,7 +172,8 @@ MFA 배포 가이드를 보려면 GitHub의 [Identity Deployment Guides](https:/
 ### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD 위임된 앱 관리 역할이 공개 미리 보기 상태입니다.
 
 **유형:** 새로운 기능  
-**서비스 범주:** 엔터프라이즈 앱 **제품 기능:** 액세스 제어
+**서비스 범주:** 엔터프라이즈 앱  
+**제품 기능:** 액세스 제어
 
 관리자는 전역 관리자 역할을 할당하지 않고도 앱 관리 작업을 위임할 수 있습니다. 새로운 역할과 기능은 다음과 같습니다.
 

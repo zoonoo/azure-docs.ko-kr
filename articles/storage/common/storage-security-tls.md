@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 5c21df2b3bdeee6ac7c3956fe1cafa4f947dd6dd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035361"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866528"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Azure Storage 클라이언트에 대한 보안 TLS 사용
 
@@ -86,3 +86,4 @@ Fiddler를 사용하여 TLS 1.2를 실제로 사용하는지 확인할 수 있�
 ## <a name="see-also"></a>참고 항목
 
 * [TLS(전송 계층 보안)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [Java 클라이언트에서 TLS 사용](https://www.java.com/en/configure_crypto.html)

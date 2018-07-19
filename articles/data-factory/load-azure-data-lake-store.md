@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 로드 | Microsoft Docs
-description: Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 복사
+title: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드 | Microsoft Docs
+description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 복사
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 25df96664f6b5fe9da26bee43bc726e05504e5b8
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055518"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37857204"
 ---
-# <a name="load-data-into-azure-data-lake-store-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터 로드
+# <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
 
-[Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)는 빅 데이터 분석 작업을 위한 엔터프라이즈 수준 하이퍼 스케일 리포지토리입니다. Azure Data Lake를 사용하면 크기, 유형 및 수집 속도에 관계없이 모든 데이터를 캡처할 수 있습니다. 데이터는 운영 및 탐색적 분석을 위해 단일 위치에서 캡처됩니다.
+[Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md)(이전의 Azure Data Lake Store)은 빅 데이터 분석 워크로드를 위한 엔터프라이즈 수준의 하이퍼스케일 리포지토리입니다. Azure Data Lake를 사용하면 크기, 유형 및 수집 속도에 관계없이 모든 데이터를 캡처할 수 있습니다. 데이터는 운영 및 탐색적 분석을 위해 단일 위치에서 캡처됩니다.
 
 Azure Data Factory는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 분석 솔루션을 빌드할 때 서비스를 사용하여 레이크를 기존 시스템의 데이터로 채우면 시간을 절약할 수 있습니다.
 
