@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 02/22/2018
+ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: b357a3231dac6dfa54cb02fe921baf771c0880f4
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 84b5bf3be09083a69216802fc7f557de1a7f0ee6
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186294"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917536"
 ---
 # <a name="monitoring-and-troubleshooting-azure-site-recovery"></a>Azure Site Recovery 모니터링 및 문제 해결
 
@@ -156,13 +156,13 @@ Azure Site Recovery 대시보드 페이지의 다양한 부분을 10분마다 �
 >[!div class="mx-tdBreakAll"]
 >|복제 시나리오  | VM 상태  | 인프라 보기 사용 가능  |
 >|---------|---------|---------|
->|두 온-프레미스 사이트 간에 복제하는 가상 머신     | -        | 아니요      |
+>|두 온-프레미스 사이트 간에 복제하는 가상 머신     | -        | 아니오      |
 >|모두     | 장애 조치됨         |  아니오       |
 >|Azure 두 영역 간에 복제하는 가상 머신     | 진행 중인 초기 복제 또는 보호됨         | 예         |
 >|Azure에 복제하는 VMware 가상 머신     | 진행 중인 초기 복제 또는 보호됨        | 예        |
 >|Azure에 복제하는 VMware 가상 머신     | 온-프레미스 VMware 사이트에 다시 복제되는 장애 조치된 가상 머신         | 아니오        |
 >|Azure에 복제하는 Hyper-V 가상 머신     | 진행 중인 초기 복제 또는 보호됨        | 예       |
->|Azure에 복제하는 Hyper-V 가상 머신     | 장애 조치/장애 복구 진행 중        |  아니요       |
+>|Azure에 복제하는 Hyper-V 가상 머신     | 장애 조치/장애 복구 진행 중        |  아니오       |
 
 
 ### <a name="7-recovery-plans"></a>7. 복구 계획

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 4ae64fefb58840214104a4e1cb338ec404fac1a8
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 32f45b66c4b1d22da3ffc4310a8a47c17319301f
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235416"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38302826"
 ---
 # <a name="back-up-sql-server-database-in-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -78,7 +78,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 
 ## <a name="supported-operating-systems-and-versions-of-sql-server"></a>지원되는 운영 체제 및 SQL Server 버전
 
-지원되는 다음 운영 체제 및 SQL Server 버전은 SQL 마켓플레이스 Azure 가상 머신 및 마켓플레이스 가상 머신이 아닌 가상 머신(SQL Server가 수동으로 설치됨)에 적용됩니다.
+다음 운영 체제가 지원됩니다. SQL 마켓플레이스 Azure 가상 머신 및 마켓플레이스가 아닌 가상 머신(SQL Server가 수동으로 설치됨)이 지원됩니다.
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
 
@@ -131,7 +131,7 @@ SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하�
 
 ## <a name="set-permissions-for-non-marketplace-sql-vms"></a>마켓플레이스 SQL VM이 아닌 VM에 대한 사용 권한 설정
 
-가상 머신을 백업하려면 Azure Backup에 **AzureBackupWindowsWorkload** 확장이 설치되어 있어야 합니다. Azure Marketplace 가상 머신을 사용하는 경우 [SQL Server 데이터베이스 검색](backup-azure-sql-database.md#discover-sql-server-databases)으로 건너뜁니다. SQL 데이터베이스를 호스팅하는 가상 머신을 Azure Marketplace에서 만들지 않은 경우에는 다음 섹션을 완료하여 확장을 설치하고 적절한 권한을 설정합니다. **AzureBackupWindowsWorkload** 확장 외에 SQL 데이터베이스를 보호하려면 Azure Backup에 sysadmin 권한이 필요합니다. 가상 머신에서 데이터베이스를 검색하는 동안 Azure Backup은 NT Service\AzureWLBackupPluginSvc라는 계정을 만듭니다. Azure Backup에서 SQL 데이터베이스를 검색하려면 NT Service\AzureWLBackupPluginSvc 계정에 SQL 로그인과 SQL sysadmin 권한이 있어야 합니다. 다음 절차에서는 이러한 권한을 제공하는 방법을 설명합니다.
+가상 머신을 백업하려면 Azure Backup에 **AzureBackupWindowsWorkload** 확장이 설치되어 있어야 합니다. Azure Marketplace 가상 머신을 사용하는 경우 [SQL Server 데이터베이스 검색](backup-azure-sql-database.md#discover-sql-server-databases)으로 건너뜁니다. SQL 데이터베이스를 호스팅하는 가상 머신을 Azure Marketplace에서 만들지 않은 경우에는 다음 섹션을 완료하여 확장을 설치하고 적절한 권한을 설정합니다. **AzureBackupWindowsWorkload** 확장 외에 SQL 데이터베이스를 보호하려면 Azure Backup에 sysadmin 권한이 필요합니다. 가상 머신에서 데이터베이스를 검색하는 동안 Azure Backup은 NT Service\AzureWLBackupPluginSvc라는 계정을 만듭니다. Azure Backup에서 SQL 데이터베이스를 검색하려면 NT Service\AzureWLBackupPluginSvc 계정에 SQL 및 SQL sysadmin 권한이 있어야 합니다. 다음 절차에서는 이러한 권한을 제공하는 방법을 설명합니다.
 
 권한을 구성하려면:
 
@@ -168,13 +168,13 @@ SQL Server 데이터베이스를 백업하기 전에 다음 조건을 확인하�
 
 ### <a name="fixing-sql-sysadmin-permissions"></a>SQL sysadmin 권한 수정
 
-설치를 진행하는 동안 **UserErrorSQLNoSysadminMembership** 오류가 표시되면 SQL sysadmin 권한이 있는 계정을 사용하여 SSMS(SQL Server Management Studio)에 로그인합니다. 특별한 권한이 필요한 경우가 아니라면 Windows 인증을 사용하여 계정을 인식할 수 있습니다.
+설치를 진행하는 동안 **UserErrorSQLNoSysadminMembership** 오류가 표시되면 SQL sysadmin 권한이 있는 계정을 사용하여 SSMS(SQL Server Management Studio)에 로그인합니다. 특별한 사용 권한이 필요하지 않으면 Windows 인증이 작동해야 합니다.
 
 1. SQL Server에서 **Security/Logins** 폴더를 엽니다.
 
     ![SQL Server를 열고 security 및 login 폴더를 열어서 계정을 확인합니다.](./media/backup-azure-sql-database/security-login-list.png)
 
-2. Logins 폴더를 마우스 오른쪽 단추로 클릭하여 **새 로그인**을 선택하고 [로그인 - 신규] 대화 상자에서 **검색**을 클릭합니다.
+2. Logins 폴더를 마우스 오른쪽 단추로 클릭하여 **새 로그인**을 선택하고 로그인 - 새로 만들기 대화 상자에서 **검색**을 클릭합니다.
 
     ![[로그인 - 신규] 대화 상자에서 검색 열기](./media/backup-azure-sql-database/new-login-search.png)
 
@@ -209,11 +209,11 @@ Azure Backup은 SQL Server 인스턴스의 모든 데이터베이스를 검색�
 1. [Azure Portal](https://portal.azure.com/)에서 구독에 로그인합니다.
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
 
-    ![주 메뉴에서 [모든 서비스] 옵션을 선택합니다.](./media/backup-azure-sql-database/click-all-services.png) <br/>
+    ![주 메뉴에서 모든 서비스 옵션 선택](./media/backup-azure-sql-database/click-all-services.png) <br/>
 
-3. [모든 서비스] 대화 상자에서 *Recovery Services*를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**이 보이면 선택합니다.
+3. 모든 서비스 대화 상자에서 *Recovery Services*를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**이 보이면 선택합니다.
 
-    ![[모든 서비스] 대화 상자에서 Recovery Services 입력](./media/backup-azure-sql-database/all-services.png) <br/>
+    ![모든 서비스 대화 상자에서 Recovery Services 입력](./media/backup-azure-sql-database/all-services.png) <br/>
 
     구독의 Recovery Services 자격 증명 모음 목록이 표시됩니다. 
 
@@ -251,7 +251,7 @@ Azure Backup은 SQL Server 인스턴스의 모든 데이터베이스를 검색�
 
 - 가상 머신에 **AzureBackupWindowsWorkload** 확장을 설치합니다. SQL 데이터베이스 백업은 에이전트가 없는 솔루션입니다. 즉 가상 머신에 설치된 확장을 사용하기 때문에 SQL 데이터베이스에 에이전트가 설치되지 않습니다.
 
-- 가상 머신에 서비스 계정인 **NT Service\AzureWLBackupPluginSvc**를 만듭니다. 모든 백업 및 복원 작업에는 서비스 계정이 사용됩니다. **NT Server\AzureWLBackupPluginSvc**에는 SQL sysadmin 권한이 필요합니다. 모든 SQL Marketplace 가상 머신에는 SqlIaaSExtension이 설치되어 있으며 AzureBackupWindowsWorkload는 SQLIaaSExtension을 사용하여 필요한 권한을 자동으로 받습니다. 가상 머신에 SqlIaaSExtension이 설치되어 있지 않으면 DB 검색 작업이 실패하고 **UserErrorSQLNoSysAdminMembership**이라는 오류 메시지가 나타납니다. 백업을 위해 sysadmin 권한을 추가하려면 [마켓플레이스 SQL VM이 아닌 VM에 대한 Azure Backup 권한 설정](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms)의 지침을 따르십시오.
+- 가상 머신에 서비스 계정인 **NT Service\AzureWLBackupPluginSvc**를 만듭니다. 모든 백업 및 복원 작업에는 서비스 계정이 사용됩니다. **NT Service\AzureWLBackupPluginSvc**에는 SQL sysadmin 권한이 필요합니다. 모든 SQL Marketplace 가상 머신에는 SqlIaaSExtension이 설치되어 있으며 AzureBackupWindowsWorkload는 SQLIaaSExtension을 사용하여 필요한 권한을 자동으로 받습니다. 가상 머신에 SqlIaaSExtension이 설치되어 있지 않으면 DB 검색 작업이 실패하고 **UserErrorSQLNoSysAdminMembership**이라는 오류 메시지가 나타납니다. 백업을 위해 sysadmin 권한을 추가하려면 [마켓플레이스 SQL VM이 아닌 VM에 대한 Azure Backup 권한 설정](backup-azure-sql-database.md#set-permissions-for-non--marketplace-sql-vms)의 지침을 따르십시오.
 
     ![VM 및 데이터베이스 선택](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -286,7 +286,7 @@ SQL 데이터베이스에 대한 보호를 구성하려면:
     Azure Backup 서비스는 독립 실행형 데이터베이스는 물론 SQL AlwaysOn 가용성 그룹이 있는 모든 SQL 인스턴스를 표시합니다. SQL 인스턴스에서 독립 실행형 데이터베이스를 보려면 인스턴스 이름 옆의 펼침 단추를 클릭하여 데이터베이스를 봅니다. 다음 이미지는 독립 실행형 인스턴스 및 Always On 가용성 그룹의 예를 보여줍니다.
 
     > [!NOTE]
-    > 전체 및 차등 백업은 주 노드에서 발생하며 이것은 SQL 플랫폼에 제한 사항이 있기 때문입니다. 로그 백업은 백업 기본 설정을 기반으로 발생할 수 있습니다. 이러한 제한 사항이 있기 때문에 주 노드를 등록해야 합니다.
+    > SQL Always On 가용성 그룹의 경우에 SQL 백업 기본 설정을 사용합니다. 하지만 SQL 플랫폼 제한 사항이 있기 때문에 전체 및 차등 백업은 주 노드에서 발생해야 합니다. 로그 백업은 백업 기본 설정을 기반으로 발생할 수 있습니다. 이러한 제한 사항이 있기 때문에 주 노드를 가용성 그룹에 등록해야 합니다.
     >
 
     ![SQL 인스턴스에 있는 데이터베이스 목록](./media/backup-azure-sql-database/discovered-databases.png)
@@ -394,13 +394,16 @@ SQL 데이터베이스에 대한 보호를 구성하려면:
 
 8. 백업 정책을 모두 편집했으면 **확인**을 클릭합니다. 
 
-   ![차등 보존 범위](./media/backup-azure-sql-database/differential-backup-policy.png)
+   ![새 정책 적용](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>SQL 데이터베이스 복원
 
 Azure Backup은 트랜잭션 로그 백업을 사용하여 특정 날짜나 시간, 특정 시간의 초까지 개별 데이터베이스를 복원하는 기능을 제공합니다. 제공하는 복원 시간에 따라 Azure Backup은 데이터를 복원하는 데 필요한 전체, 차등 및 로그 백업 체인을 자동으로 결정합니다.
 
 또는 구체적인 전체 또는 차등 백업을 선택하여 특정 시간보다는 특정 복구 지점으로 복원할 수 있습니다.
+ > [!Note]
+ > “마스터” 테이터베이스 복원을 트리거하기 전에 시작 옵션 “-m AzureWorkloadBackup”을 사용하여 단일 사용자 모드로 SQL Server를 시작하세요. -m에 대한 인수는 클라이언트 이름입니다. 이 클라이언트는 연결을 열기 위해 허용됩니다. 모든 시스템 데이터베이스(모델, 마스터, msdb)의 경우 복원을 트리거하기 전에 SQL 에이전트 서비스를 중지하세요. 이러한 DB에 대한 연결을 도용하려고 할 수 있는 응용 프로그램을 닫습니다.
+>
 
 데이터베이스를 복원하려면
 
@@ -442,6 +445,10 @@ Azure Backup은 트랜잭션 로그 백업을 사용하여 특정 날짜나 시�
 ### <a name="restore-to-an-alternate-location"></a>대체 위치에 복원
 
 이 절차는 대체 위치에 데이터를 복원하는 과정을 안내합니다. 복원할 때 데이터베이스를 덮어쓰려면 [데이터베이스 복원 및 덮어쓰기](backup-azure-sql-database.md#restore-and-overwrite-the-database) 섹션으로 이동하세요. 이 절차에서는 Recovery Services 자격 증명 모음이 열려있고 [복원 구성] 메뉴에 있다고 가정합니다. 그렇지 않은 경우 [SQL 데이터베이스 복원](backup-azure-sql-database.md#restore-a-sql-database) 섹션부터 시작하세요.
+
+> [!NOTE]
+> 동일한 Azure 지역에서 SQL Server에 데이터베이스를 복원할 수 있습니다. 대상 서버는 Recovery Services 자격 증명 모음에 등록되어야 합니다. 
+>
 
 **서버** 드롭다운 메뉴에는 Recovery Services 자격 증명 모음에 등록된 SQL 서버만 표시됩니다. 원하는 서버가 **서버** 목록에 없는 경우에는 [SQL Server 데이터베이스 검색](backup-azure-sql-database.md#discover-sql-server-databases)을 참조하여 서버를 찾으십시오. 데이터베이스를 검색하는 동안 새로운 서버를 찾으면 Recovery Services 자격 증명 모음에 등록됩니다.
 
@@ -607,10 +614,40 @@ Azure Backup은 트랜잭션 로그 백업을 사용하여 특정 날짜나 시�
 * SQL Server 등록 취소
 
 ### <a name="monitor-jobs"></a>작업 모니터링
+엔터프라이즈 클래스 솔루션인 Azure Backup은 고급 Backup 경고 및 오류에 대한 알림을 제공합니다(아래의 백업 경고 섹션 참조). 특별한 작업을 모니터링하려는 경우 요구 사항에 따라 다음 옵션 중 하나를 사용할 수 있습니다.
 
-Azure Backup은 모든 백업 작업에 대해 SQL 네이티브 API를 사용합니다. 네이티브 API를 사용하면 msdb 데이터베이스의 [SQL backupset 테이블](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017)에서 모든 작업 정보를 가져올 수 있습니다. 또한 Azure Backup은 백업 작업 포털에서 수동으로 트리거된 작업이나 임시 작업을 모두 표시합니다. 포털에서 사용할 수 있는 작업에는 모든 백업 구성 작업, 복원 작업, 데이터베이스 등록 및 검색 작업, 백업 중지 작업 등이 있습니다. 예약된 모든 작업은 OMS Log Analytics을 통해 모니터링할 수도 있습니다. Log Analytics를 사용하면 작업 혼란이 제거되고 특정 작업을 모니터링하거나 필터링할 수 있도록 세분화된 유연성이 제공됩니다.
-
+#### <a name="use-azure-portal-for-all-adhoc-operations"></a>모든 임시 작업에 Azure Portal 사용
+Azure Backup은 백업 작업 포털에서 수동으로 트리거된 작업이나 임시 작업을 모두 표시합니다. 포털에서 사용할 수 있는 작업에는 모든 백업 구성 작업, 수동으로 트리거된 백업 작업, 복원 작업, 데이터베이스 등록 및 검색 작업, 백업 중지 작업 등이 있습니다. 
 ![고급 구성 메뉴](./media/backup-azure-sql-database/jobs-list.png)
+
+> [!NOTE]
+> 전체, 차등 및 로그 백업을 비롯한 예약된 모든 백업 작업은 포털에 표시되지 않으며 아래에 설명된 대로 SQL Server Management Studio를 사용하여 모니터링될 수 있습니다.
+>
+
+#### <a name="use-sql-server-management-studio-for-backup-jobs"></a>백업 작업에 SQL Server Management Studio 사용
+Azure Backup은 모든 백업 작업에 대해 SQL 네이티브 API를 사용합니다. 네이티브 API를 사용하면 msdb 데이터베이스의 [SQL backupset 테이블](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017)에서 모든 작업 정보를 가져올 수 있습니다.
+
+다음 예제는 **DB1**이라는 데이터베이스에 대한 모든 백업 작업을 페치하는 쿼리입니다. 고급 모니터링에 대한 쿼리를 사용자 지정합니다.
+```
+select CAST (
+Case type
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
+server_name,
+machine_name,
+backup_start_date,
+backup_finish_date,
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+ 
+```
 
 ### <a name="backup-alerts"></a>백업 경고
 
@@ -711,6 +748,42 @@ SQL 데이터베이스에 대한 보호를 중지할 때 **백업 데이터 보�
 5. 보호된 서버 메뉴에서 보호된 서버를 마우스 오른쪽 단추로 클릭하고 **삭제**를 선택합니다. 
 
    ![데이터베이스 보호 다시 시작](./media/backup-azure-sql-database/delete-protected-server.png)
+
+## <a name="sql-database-backup-faq"></a>SQL 데이터베이스 백업 FAQ
+
+다음 섹션에서는 SQL 데이터베이스 백업에 대한 추가 정보를 제공합니다.
+
+### <a name="can-i-throttle-the-speed-of-the-sql-backup-policy-so-it-minimizes-impact-on-the-sql-server"></a>SQL Server에 미치는 영향을 최소화하도록 SQL 백업 정책의 속도를 제한할 수 있나요?
+
+예, 백업 정책을 실행하는 속도를 제한할 수 있습니다. 설정을 변경하려면:
+
+1. SQL Server의 `C:\Program Files\Azure Workload Backup\bin` 폴더에서 **TaskThrottlerSettings.json**을 엽니다.
+
+2. **TaskThrottlerSettings.json** 파일에서 **DefaultBackupTasksThreshold**를 더 낮은 값(예: 5)으로 변경합니다.
+
+3. 변경 내용을 저장하고 파일을 닫습니다.
+
+4. SQL Server에서 작업 관리자를 열고 **Azure Backup 워크로드 코디네이터 서비스**를 다시 시작합니다.
+
+### <a name="can-i-run-a-full-backup-from-a-secondary-replica"></a>보조 복제본에서 전체 백업을 실행할 수 있나요?
+
+아니요, 이 기능은 지원되지 않습니다.
+
+### <a name="do-successful-backup-jobs-create-alerts"></a>성공한 백업 작업이 경고를 만드나요?
+
+아니요. 성공한 백업 작업에서는 경고를 생성하지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다.
+
+### <a name="are-scheduled-backup-job-details-shown-in-the-jobs-menu"></a>예약된 백업 작업 세부 정보가 작업 메뉴에서 표시되나요?
+
+아니요. 작업 메뉴에서는 임시 작업 세부 정보를 보여주지만 예약된 백업 작업을 표시하지 않습니다. 예약된 백업 작업에 실패한 경우 실패한 작업 경고에서 모든 세부 정보를 찾을 수 있습니다. 예약된 모든 임시 백업 작업을 모니터링하려는 경우 [SQL Server Management Studio를 사용합니다](backup-azure-sql-database.md#use-sql-server-management-studio-for-backup-jobs).
+
+### <a name="if-i-select-a-sql-server-will-future-databases-automatically-be-added"></a>SQL Server를 선택하면 향후 데이터베이스가 자동으로 추가되나요?
+
+아니요. SQL Server에 대한 보호를 구성하면 서버 수준에서 확인란을 선택하는 경우 모든 데이터베이스가 추가됩니다. 그러나 보호를 구성한 후에 SQL Server에 데이터베이스를 추가하는 경우 수동으로 새 데이터베이스를 추가하여 보호해야 합니다. 데이터베이스는 구성된 보호에 자동으로 포함되지 않습니다.
+
+### <a name="if-i-change-the-recovery-model-how-do-i-restart-protection"></a>복구 모델을 변경하는 경우 보호를 다시 시작해야 하나요?
+
+복구 모델을 변경한 경우 전체 백업을 트리거하면 로그 백업이 예상 대로 시작됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

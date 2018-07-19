@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 69bc7d71e804ca33b984699ee30a44774542803f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960494"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125922"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -121,7 +121,7 @@ IoT의 컨텍스트에서 일반적으로 장치는 데이터를 수집하거나
 [IoT Hub](#iot-hub)를 통해 장치에서 재부팅, 공장 재설정 수행 및 펌웨어 업데이트 수정을 비롯한 일반적인 장치 관리 패턴을 수행할 수 있습니다.
 
 ## <a name="device-rest-api"></a>장치 REST API
-장치에서 [장치 REST API](https://docs.microsoft.com/rest/api/iothub/device/device)를 사용하여 장치-클라우드 메시지를 IoT Hub로 보내고 IoT Hub에서 [클라우드-장치](#cloud-to-device) 메시지를 수신할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [장치 SDK](#azure-iot-device-sdks)를 사용해야 합니다.
+장치에서 [장치 REST API](https://docs.microsoft.com/rest/api/iothub/device)를 사용하여 장치-클라우드 메시지를 IoT Hub로 보내고 IoT Hub에서 [클라우드-장치](#cloud-to-device) 메시지를 수신할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [장치 SDK](#azure-iot-device-sdks)를 사용해야 합니다.
 
 ## <a name="device-provisioning"></a>장치 프로비전
 [장치 프로비전](#device-data)은 솔루션 저장소에 초기 장치 데이터를 추가하는 프로세스입니다. 새 장치를 허브에 연결하도록 하려면 장치 ID 및 키를 IoT Hub [ID 레지스트리](#identity-registry)에 추가해야 합니다. 프로비전 프로세스의 일부로, 다른 솔루션 저장소에서 장치 특정 데이터를 초기화해야 할 수 있습니다.
@@ -225,7 +225,7 @@ IoT Hub에서 [기본 제공 끝점](#built-in-endpoints) 또는 [사용자 지�
 SASL PLAIN은 [AMQP](#advanced-message-queue-protocol) 프로토콜에서 보안 토큰을 전송하는 데 사용하는 프로토콜입니다.
 
 ## <a name="service-rest-api"></a>서비스 REST API
-솔루션 백 엔드에서 [서비스 REST API](https://docs.microsoft.com/rest/api/iothub/service/service)를 사용하여 장치를 관리할 수 있습니다. API를 사용하면 [장치 쌍](#device-twin) 속성을 검색 및 업데이트하고 [직접 메서드](#direct-method)를 호출하고 [작업](#job)을 예약할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.
+솔루션 백 엔드에서 [서비스 REST API](https://docs.microsoft.com/rest/api/iothub/service)를 사용하여 장치를 관리할 수 있습니다. API를 사용하면 [장치 쌍](#device-twin) 속성을 검색 및 업데이트하고 [직접 메서드](#direct-method)를 호출하고 [작업](#job)을 예약할 수 있습니다. 일반적으로 IoT Hub 자습서에 나와 있는 것보다 상위 수준의 [서비스 SDK](#azure-iot-service-sdks)를 사용해야 합니다.
 
 ## <a name="shared-access-signature"></a>공유 액세스 서명
 공유 액세스 서명(SAS)은 SHA-256 보안 해시 또는 URI에 따른 인증 메커니즘입니다. SAS 인증에는 _공유 액세스 정책_과 _공유 액세스 서명_(토큰이라고 부름)의 두 구성 요소가 있습니다. 장치는 SAS를 사용하여 IoT Hub를 인증합니다. [백 엔드 앱](#back-end-app)도 SAS를 사용하여 IoT Hub에서 서비스 지향 끝점을 인증합니다. 일반적으로 앱이 IoT Hub와 연결을 설정하기 위해 사용하는 [연결 문자열](#connection-string)에 SAS 토큰을 포함합니다.
