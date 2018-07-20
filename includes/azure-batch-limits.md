@@ -3,8 +3,8 @@
 | 구독당 지역별 Batch 계정 | 1 - 3 |50 |
 | Batch 계정당 전용 코어 | 10 - 100 | 해당 없음<sup>1</sup> |
 | Batch 계정당 낮은 우선 순위의 코어 수 | 10 - 100 | 해당 없음<sup>2</sup> |
-| Batch 계정당 활성 작업 및 작업 일정<sup>3</sup> | 20 - 100 | 5000<sup>4</sup> |
-| Batch 계정당 풀 | 20 - 100 | 2500 |
+| Batch 계정당 활성 작업 및 작업 일정<sup>3</sup> | 100 - 300 | 2500<sup>4</sup> |
+| Batch 계정당 풀 | 20 - 100 | 500 |
 
 > [!NOTE]
 > 기본 제한은 Batch 계정을 만드는 데 사용되는 구독 유형에 따라 달라집니다. 표시된 코어 할당량은 Batch 서비스 모드의 Batch 계정에 대한 할당량입니다. [배치 계정에서 할당량을 봅니다](../articles/batch/batch-quota-limit.md#view-batch-quotas). 

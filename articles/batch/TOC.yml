@@ -121,18 +121,14 @@
           href: batch-get-resource-counts.md
         - name: 효율적으로 리소스 쿼리
           href: batch-efficient-list-queries.md
-    - name: 개발자 도구 사용
+    - name: 스크립팅 도구 사용
       items:
-        - name: Batch .NET 사용
-          href: batch-dotnet-get-started.md
-        - name: Batch Python 사용
-          href: batch-python-tutorial.md
-        - name: Batch Node.js 사용
-          href: batch-nodejs-get-started.md
         - name: PowerShell cmdlet 사용
           href: batch-powershell-cmdlets-get-started.md
         - name: Azure CLI 사용
           href: batch-cli-get-started.md
+    - name: Batch Node.js SDK 사용
+      href: batch-nodejs-get-started.md
 - name: 참고 자료
   items:
     - name: Azure CLI

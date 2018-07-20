@@ -24,7 +24,8 @@
 ## [SAP HANA 백업 개요](sap-hana-backup-guide.md)
 ## [SAP HANA 파일 수준 백업](sap-hana-backup-file-level.md)
 ## [SAP HANA 저장소 스냅숏 백업](sap-hana-backup-storage-snapshots.md)
-# Azure Virtual Machines의 SAP NetWeaver
+# Azure Virtual Machines의 SAP NetWeaver 및 Business One
+## [Azure Virtual Machines의 SAP Business One](business-one-azure.md)
 ## [Windows/SQL Server SAP CAL 배포 가이드에 SAP IDES](cal-ides-erp6-erp7-sp3-sql.md)
 ## [Azure Linux VM의 SAP NetWeaver](suse-quickstart.md)
 ## [Azure에서 SAP NetWeaver 계획 및 구현](planning-guide.md)

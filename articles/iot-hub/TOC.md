@@ -67,6 +67,44 @@
 ### [X.509 CA 인증서 보안 개념](iot-hub-x509ca-concept.md)
 
 # 방법 가이드
+## 계획
+### [IoT Hub와 Event Hubs 비교](iot-hub-compare-event-hubs.md)
+### [올바른 계층 선택](iot-hub-scaling.md)
+### [고가용성 및 재해 복구](iot-hub-ha-dr.md)
+### [추가 프로토콜 지원](iot-hub-protocol-gateway.md)
+### [메시지와 이벤트 라우팅 비교](iot-hub-event-grid-routing-comparison.md)
+## [개발](iot-hub-how-to.md)
+### [개발자 가이드](iot-hub-devguide.md)
+#### [장치-클라우드 기능 가이드](iot-hub-devguide-d2c-guidance.md)
+#### [클라우드-장치 기능 가이드](iot-hub-devguide-c2d-guidance.md)
+#### [메시지 보내기 및 받기](iot-hub-devguide-messaging.md)
+##### [IoT Hub에 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
+##### [기본 제공 끝점에서 장치-클라우드 메시지 읽기](iot-hub-devguide-messages-read-builtin.md)
+##### [IoT Hub 이벤트에 대응](iot-hub-event-grid.md)
+##### [장치-클라우드 메시지에 대한 사용자 지정 끝점 및 라우팅 규칙 사용](iot-hub-devguide-messages-read-custom.md)
+##### [IoT Hub에서 클라우드-장치 메시지 보내기](iot-hub-devguide-messages-c2d.md)
+##### [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)
+##### [통신 프로토콜 선택](iot-hub-devguide-protocols.md)
+#### [장치에서 파일 업로드](iot-hub-devguide-file-upload.md)
+#### [장치 ID 관리](iot-hub-devguide-identity-registry.md)
+#### [IoT Hub에 대한 액세스 제어](iot-hub-devguide-security.md)
+#### [쌍 장치 이해](iot-hub-devguide-device-twins.md)
+#### [모듈 트윈스 이해](iot-hub-devguide-module-twins.md)
+#### [장치에서 직접 메서드 호출](iot-hub-devguide-direct-methods.md)
+#### [여러 장치에서 작업 예약](iot-hub-devguide-jobs.md)
+#### [IoT Hub 끝점](iot-hub-devguide-endpoints.md)
+#### [쿼리 언어](iot-hub-devguide-query-language.md)
+#### [할당량 및 제한](iot-hub-devguide-quotas-throttling.md)
+#### [가격 책정 예](iot-hub-devguide-pricing.md)
+#### [MQTT 지원](iot-hub-mqtt-support.md)
+#### [용어](iot-hub-devguide-glossary.md)
+### [장치 및 서비스 SDK 사용](iot-hub-devguide-sdks.md)
+#### [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
+##### [IoTHubClient 사용](iot-hub-device-sdk-c-iothubclient.md)
+##### [직렬 변환기 사용](iot-hub-device-sdk-c-serializer.md)
+#### [제한된 장치에 대한 개발](iot-hub-devguide-develop-for-constrained-devices.md)
+#### [모바일 장치용 개발](iot-hub-how-to-develop-for-mobile-devices.md)
+#### [연결 및 신뢰할 수 있는 메시징 관리](iot-hub-reliability-features-in-sdks.md)
 
 ## 개발
 ### [C용 IoT 장치 SDK 사용](iot-hub-device-sdk-c-intro.md)
@@ -180,9 +218,11 @@
 # 관련 항목
 ## 솔루션 
 ### [IoT 솔루션 가속기](/azure/iot-accelerators) 
-### [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
+### 
+  [IoT Central](https://docs.microsoft.com/microsoft-iot-central/) 
 ## 플랫폼 서비스 
-### [IoT Hub](/azure/iot-hub) 
+### 
+  [IoT Hub](/azure/iot-hub) 
 ### [IoT Hub Device Provisioning 서비스](/azure/iot-dps)
 ### [IoT 서비스 SDK](/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks)
 ### [Maps](/azure/azure-maps) 
@@ -200,7 +240,7 @@
 ## [IoT용 Azure Certified 장치 카탈로그](https://catalog.azureiotsuite.com/)
 ## [Azure IoT 개발자 센터](https://azure.microsoft.com/develop/iot/)
 ## [고객 데이터 요청](iot-hub-customer-data-requests.md)
-## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=internet-of-things)
+## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=iot)
 ## [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)
 ## [DeviceExplorer 도구](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)
 ## [iothub-diagnostics 도구](https://github.com/Azure/iothub-diagnostics)

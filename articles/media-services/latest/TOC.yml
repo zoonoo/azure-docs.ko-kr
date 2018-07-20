@@ -77,6 +77,8 @@
       items:
         - name: AES-128 사용 - .NET
           href: protect-with-aes128.md
+        - name: DRM 사용 - .NET
+          href: protect-with-drm.md
 - name: 참고 자료
   items:
     - name: OpenAPI 사양(Swagger)

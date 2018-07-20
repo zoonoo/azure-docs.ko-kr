@@ -145,6 +145,8 @@
           href: functions-develop-vs.md
         - name: 핵심 도구 개발
           href: functions-run-local.md
+        - name: IntelliJ IDEA 개발
+          href: functions-create-maven-intellij.md
         - name: 연결 관리
           href: manage-connections.md
         - name: 오류 처리

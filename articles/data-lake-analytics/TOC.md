@@ -59,6 +59,9 @@
 #### [사용자 지정 코드](data-lake-analytics-u-sql-develop-with-python-r-csharp-in-vscode.md)
 #### [로컬 실행 및 디버그](data-lake-tools-for-vscode-local-run-and-debug.md)
 
+## U-SQL 작업 예약
+### [SSIS를 사용하여 작업 예약](data-lake-analytics-schedule-jobs-ssis.md)
+
 ## 연속 통합 및 연속 배포
 ### [개요](data-lake-analytics-cicd-overview.md)
 ### [테스트 설정](data-lake-analytics-cicd-test.md)

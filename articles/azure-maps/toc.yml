@@ -82,6 +82,8 @@
           href: supported-search-categories.md
     - name: REST (영문)
       items:
+        - name: 지리적 위치 서비스
+          href: 'https://docs.microsoft.com/rest/api/maps/geolocation'
         - name: Render Service
           href: 'https://docs.microsoft.com/rest/api/maps/render'
         - name: Route Service

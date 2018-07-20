@@ -49,6 +49,8 @@
           href: aad-integration.md
         - name: Virtual Kubelet 사용
           href: virtual-kubelet.md
+        - name: 클러스터 Autoscaler 사용
+          href: autoscaler.md
         - name: Terraform을 사용하여 AKS 배포
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true

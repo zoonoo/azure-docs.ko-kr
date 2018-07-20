@@ -9,17 +9,17 @@
   items:
     - name: Hello World 배포
       href: service-fabric-mesh-quickstart-deploy-container.md
-    - name: 웹 응용 프로그램 만들기 및 배포
+    - name: Azure Service Fabric Mesh에 웹앱 만들기 및 배포
       href: service-fabric-mesh-quickstart-dotnet-core.md
 - name: 자습서
   items:
-    - name: 다중 서비스 웹앱 만들기 및 배포
+    - name: '다중 서비스 Service Fabric Mesh 웹앱 만들기, 디버그 및 배포'
       items:
-        - name: 1 - ASP.NET Core 응용 프로그램 빌드
+        - name: 1- Service Fabric Mesh 웹앱 빌드
           href: service-fabric-mesh-tutorial-create-dotnetcore.md
-        - name: 2- 응용 프로그램 디버그
+        - name: 2- Service Fabric Mesh 웹앱 디버그
           href: service-fabric-mesh-tutorial-debug-service-fabric-mesh-app.md
-        - name: 3- 응용 프로그램 배포
+        - name: 3- Service Fabric Mesh 웹앱 배포
           href: service-fabric-mesh-tutorial-deploy-service-fabric-mesh-app.md
 - name: 개념
   items:

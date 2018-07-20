@@ -27,9 +27,9 @@
       href: apache-spark-use-bi-tools.md
     - name: 스트리밍 작업 실행
       href: apache-spark-eventhub-streaming.md
-    - name: 기계 학습 응용 프로그램 만들기
+    - name: 기계 학습 앱 만들기
       href: apache-spark-ipython-notebook-machine-learning.md
-    - name: IntelliJ를 사용하여 Spark 응용 프로그램 만들기
+    - name: IntelliJ에서 Spark 앱 만들기
       href: apache-spark-create-standalone-application.md
 - name: 방법
   items:
