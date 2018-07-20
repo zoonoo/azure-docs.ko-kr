@@ -230,9 +230,9 @@
     - name: 프로그래밍 방식으로 영역 찾기
       items:
         - name: 'C# 사용'
-          href: find-region-csharp.md
+          href: luis-find-region-csharp.md
         - name: Node.js 사용
-          href: find-region-nodejs.md
+          href: luis-find-region-nodejs.md
 - name: 참고 자료
   items:
     - name: 사용자 개인 정보
