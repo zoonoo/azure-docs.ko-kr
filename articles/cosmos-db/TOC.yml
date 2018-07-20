@@ -118,6 +118,8 @@ items:
                         href: sql-api-dotnetcore-get-started.md
                       - name: 자바
                         href: sql-api-java-get-started.md
+                      - name: 비동기 Java
+                        href: sql-api-async-java-get-started.md
                       - name: Node.js
                         href: sql-api-nodejs-get-started.md
                   - name: 웹앱 만들기
@@ -412,38 +414,50 @@ items:
                 href: cassandra-import-data.md
   - name: 방법 가이드
     items:
-      - name: 키 및 일관성
-        href: manage-account.md
-      - name: 처리량
-        href: set-throughput.md
-      - name: 방화벽 지원
-        href: firewall-support.md
-      - name: 가상 네트워크 서비스 엔드포인트 설정
-        href: vnet-service-endpoint.md
-      - name: 메트릭
-        href: use-metrics.md
-      - name: 모니터 SLA
-        href: monitor-accounts.md
-      - name: 백업 및 복원
-        href: online-backup-and-restore.md
-      - name: 지역별 장애 조치
-        href: regional-failover.md
-      - name: 진단 로깅
-        href: logging.md
-      - name: '저장 프로시저, 트리거 및 UDF'
-        href: programming.md
-      - name: BulkExecutor 개요
+      - name: 관리
+        items:
+          - name: Powershell을 사용하여 관리
+            href: manage-account-with-powershell.md
+          - name: 저장소 탐색기를 사용하여 관리
+            href: storage-explorer.md
+          - name: 데이터 탐색기를 사용하여 관리
+            href: data-explorer.md
+          - name: 관리 키 및 일관성 수준
+            href: manage-account.md
+          - name: 처리량
+            href: set-throughput.md
+          - name: 자동으로 데이터 만료
+            href: time-to-live.md
+          - name: 진단 로깅
+            href: logging.md
+      - name: 데이터 보호
+        items:
+          - name: 방화벽 지원
+            href: firewall-support.md
+          - name: 가상 네트워크 서비스 엔드포인트 설정
+            href: vnet-service-endpoint.md
+      - name: 모니터
+        items:
+          - name: 메트릭으로 모니터링
+            href: use-metrics.md
+          - name: 모니터 SLA
+            href: monitor-accounts.md
+      - name: Backup 및 복원
+        items:
+          - name: 온라인 백업 및 복원
+            href: online-backup-and-restore.md
+          - name: 지역별 장애 조치
+            href: regional-failover.md
+      - name: 자동화
+        items:
+          - name: '저장 프로시저, 트리거 및 UDF'
+            href: programming.md
+          - name: 다중 마스터 설치
+            href: multi-master-workaround.md
+      - name: Bulk Executor 라이브러리
         href: bulk-executor-overview.md
       - name: 비용 효율적인 읽기 및 쓰기
         href: key-value-store-cost.md
-      - name: 자동으로 데이터 만료
-        href: time-to-live.md
-      - name: Powershell을 사용하여 관리
-        href: manage-account-with-powershell.md
-      - name: 저장소 탐색기를 사용하여 관리
-        href: storage-explorer.md
-      - name: 다중 마스터 설치
-        href: multi-master-workaround.md
   - name: 리소스
     items:
       - name: 쿼리 참고 자료
