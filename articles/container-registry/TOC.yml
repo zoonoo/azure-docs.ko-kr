@@ -67,7 +67,7 @@
           href: container-registry-auth-service-principal.md
         - name: Azure Container Instances
           href: container-registry-auth-aci.md
-        - name: Azure Container Service
+        - name: AKS(Azure Kubernetes Service)
           href: container-registry-auth-aks.md
 - name: 참고 자료
   items:

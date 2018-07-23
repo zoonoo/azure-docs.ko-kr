@@ -23,8 +23,6 @@
       href: app-service-web-get-started-php.md
     - name: Java 앱 만들기
       href: app-service-web-get-started-java.md
-    - name: Python 앱 만들기
-      href: app-service-web-get-started-python.md
     - name: 정적 HTML 사이트 만들기
       href: app-service-web-get-started-html.md
 - name: 자습서
@@ -41,8 +39,6 @@
           href: app-service-web-tutorial-nodejs-mongodb-app.md
         - name: MySQL을 사용하는 Java
           href: app-service-web-tutorial-java-mysql.md
-        - name: PostgreSQL을 사용하는 Python
-          href: app-service-web-tutorial-python-postgresql.md
     - name: SQL DB를 안전하게 액세스
       href: app-service-web-tutorial-connect-msi.md
     - name: RESTful API 호스트

@@ -89,14 +89,6 @@
       href: /powershell/module/azurerm.eventgrid
     - name: REST (영문)
       href: /rest/api/eventgrid
-    - name: 템플릿 리소스
-      items:
-        - name: 이벤트 구독
-          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
-        - name: 토픽
-          href: /azure/templates/microsoft.eventgrid/topics
-    - name: SDK
-      href: sdk-overview.md
     - name: 구독 스키마
       href: subscription-creation-schema.md
     - name: 이벤트 스키마
@@ -106,6 +98,8 @@
           href: event-schema-subscriptions.md
         - name: Blob 저장소
           href: event-schema-blob-storage.md
+        - name: Container Registry
+          href: event-schema-container-registry.md
         - name: Event Hubs
           href: event-schema-event-hubs.md
         - name: IoT Hub
@@ -116,6 +110,14 @@
           href: event-schema-resource-groups.md
         - name: Service Bus
           href: event-schema-service-bus.md
+    - name: 템플릿 리소스
+      items:
+        - name: 이벤트 구독
+          href: /azure/templates/microsoft.eventgrid/eventsubscriptions
+        - name: 토픽
+          href: /azure/templates/microsoft.eventgrid/topics
+    - name: SDK
+      href: sdk-overview.md
 - name: 리소스
   items:
     - name: Azure 로드맵
