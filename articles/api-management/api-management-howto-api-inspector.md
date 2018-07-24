@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 01a9120af2fb240eed1463613f7a6f946a9c16ed
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: cf9c56fa2ba75dc5b5ad4af59d111a0124f1a9df
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934695"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057330"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>요청 추적을 사용하여 API 디버그
 
@@ -44,6 +44,12 @@ ms.locfileid: "33934695"
 3. **GetSpeakers** 작업을 선택합니다.
 4. **테스트** 탭으로 전환합니다.
 5. 값이 **true**로 설정된 **Ocp-Apim-Trace**라는 HTTP 헤더를 포함해야 합니다.
+
+    ![API 추적 헤더](media/api-management-howto-api-inspector/api-management-tracing-header.png)
+
+    > [!NOTE]
+    > Ocp-Apim-Subscription-Key가 자동으로 채워지지 않는 경우 개발자 포털로 이동하여 프로필 페이지에 키를 노출하면 이 값을 가져올 수 있습니다.
+
 6. **"보내기"** 를 클릭하여 API 호출을 수행합니다. 
 7. 호출이 완료될 때까지 기다립니다. 
 8. **API 콘솔**의 **추적** 탭으로 이동합니다. **인바운드**, **백 엔드**, **아웃바운드** 링크 중 하나를 클릭하여 자세한 추적 정보로 이동할 수 있습니다.

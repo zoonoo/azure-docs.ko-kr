@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dcc384fad0479c66211fe31e547ad7076150b58e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 256c951b5bf193f5ee5bfe5f70c3549ef17a4d9b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611231"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071981"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Azure Cosmos DB 시작
 
@@ -68,7 +68,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 멀티모델 데이터�
     * Azure Cosmos DB의 데이터베이스 엔진은 스키마에서 완전히 자유로우며 스키마나 인덱스 없이 자신이 수집한 모든 데이터를 자동으로 인덱싱하며 매우 빠르게 쿼리를 제공합니다. 
 
 * **낮은 소유 비용**
-    * 관리되지 않는 솔루션 또는 온-프레미스 NoSQL 솔루션보다 5-10배 정도 [비용 효율적입니다](https://aka.ms/cosmos-db-tco-paper).
+    * 관리되지 않는 솔루션 또는 온-프레미스 NoSQL 솔루션보다 5-10배 정도 비용 효과적입니다.
     * AWS DynamoDB 또는 Google Spanner보다 3배 저렴합니다.
 
 ## <a name="capability-comparison"></a>기능 비교

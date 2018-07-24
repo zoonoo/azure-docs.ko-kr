@@ -7,37 +7,37 @@ manager: jwillis
 ms.service: storage
 ms.workload: storage
 ms.topic: get-started-article
-ms.date: 07/03/2018
+ms.date: 07/14/2018
 ms.author: hux
-ms.openlocfilehash: 6efc50bfee54c38511fb3346f1341f81741d14eb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ea4a6f0d1ff6e78d97fbc64b8a23406172ebf36
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445430"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072417"
 ---
 # <a name="azure-storage-account-options"></a>Azure Storage 계정 옵션
 
 ## <a name="overview"></a>개요
 Azure Storage에서는 다양한 가격 책정 및 기능을 지원하는 세 가지 고유한 계정 옵션을 제공합니다. 저장소 계정을 만들기 전에 응용 프로그램에 적합한 옵션을 결정하는 데 이러한 차이점을 고려합니다. 세 가지 다른 저장소 계정 옵션은 다음과 같습니다.
 
-* **범용 v2(GPv2)** 계정 
-* **범용 v1(GPv1)** 계정
-* **Blob 저장소** 계정
+* [**GPv2(범용 v2)** 계정](#general-purpose-v2-accounts)
+* [**GPv1(범용 v1)** 계정](#general-purpose-v1-accounts)
+* [**Blob 저장소** 계정](#blob-storage-accounts)
 
 각 유형의 계정은 다음 섹션에 자세히 설명되어 있습니다.
 
 ## <a name="storage-account-options"></a>Storage 계정 옵션
 
-### <a name="general-purpose-v2"></a>범용 v2
+### <a name="general-purpose-v2-accounts"></a>범용 v2 계정
 
-범용 v2(GPv2) 계정은 Blob, 파일, 큐 및 테이블에 대한 모든 최신 기능을 지원하는 저장소 계정입니다. GPv2 계정은 모든 API 및 GPv1 및 Blob 저장소 계정에서 지원되는 기능을 지원합니다. 또한 해당 계정 유형에서 동일한 내구성, 가용성, 확장성 및 성능 기능을 지원합니다. GPv2 계정에 대한 가격 책정은 기가바이트당 가장 낮은 가격 및 업계에서 경쟁력 있는 트랜잭션 가격을 제공하도록 설계되었습니다.
+범용 v2(GPv2) 계정은 Blob, 파일, 큐 및 테이블에 대한 모든 최신 기능을 지원하는 저장소 계정입니다. GPv2 계정은 GPv1(범용 v1) 및 Blob 저장소 계정에서 지원하는 모든 API, 서비스 및 기능을 지원합니다. 모든 저장소 계정 유형에서 제공하는 것과 동일한 내구성, 가용성, 확장성 및 성능을 유지합니다. GPv2 계정에 대한 가격 책정은 기가바이트당 가장 낮은 가격 및 업계에서 경쟁력 있는 트랜잭션 가격을 제공하도록 설계되었습니다.
 
 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 
 
-GPv2 저장소 계정의 블록 Blob의 경우 액세스 패턴에 따라 계정 수준에서 핫 및 쿨 저장소 계정 중에 하나를 선택하고 Blob 수준에서 핫, 쿨 및 보관 계층 중에 하나를 선택할 수 있습니다. 핫, 쿨 및 보관 저장소 계층에 매우 드물게, 드물게 그리고 자주 액세스하는 데이터를 저장하여 비용을 최적화합니다. 
+GPv2 저장소 계정의 블록 Blob의 경우 사용 패턴에 따라 계정 수준에서 핫 또는 쿨 저장소 액세스 계층을 선택하고 Blob 수준에서 핫, 쿨 또는 보관 액세스 계층을 선택할 수 있습니다. 핫, 쿨 및 보관 저장소 계층에 자주 액세스하고, 드물게 액세스하고 거의 액세스하지 않는 데이터를 저장하여 저장소 및 트랜잭션 비용을 최적화합니다. 
 
-GPv2 저장소 계정은 계정 수준에서 **액세스 계층** 특성을 노출하며, 기본 저장소 계정 계층을 **핫** 또는 **쿨**로 지정합니다. 기본 저장소 계정 계층은 Blob 수준에서 명시적 계층 집합이 없는 모든 Blob에 적용됩니다. 데이터의 사용 패턴에 변화가 있으면 언제든 이 저장소 계층 간을 전환할 수 있습니다. **보관 계층**은 Blob 수준에서만 적용할 수 있습니다.
+GPv2 저장소 계정은 계정 수준에서 **액세스 계층** 특성을 노출하며, 기본 저장소 계정 계층을 **핫** 또는 **쿨**로 지정합니다. 기본 저장소 계정 계층은 Blob 수준에서 명시적 계층 집합이 없는 모든 Blob에 적용됩니다. 데이터의 사용 패턴에 변화가 있으면 언제든 이 저장소 계층 간을 전환할 수 있습니다. **보관** 계층은 Blob 수준에서만 적용할 수 있습니다.
 
 > [!NOTE]
 > 저장소 계층을 변경하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 및 대금 청구](#pricing-and-billing)를 참조하세요.
@@ -46,7 +46,10 @@ GPv2 저장소 계정은 계정 수준에서 **액세스 계층** 특성을 노�
 
 ### <a name="upgrade-a-storage-account-to-gpv2"></a>저장소 계정을 GPv2로 업그레이드
 
-사용자는 언제든지 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 이 변경 내용은 되돌릴 수 없으며 다른 변경 내용이 허용되지 않습니다.
+사용자는 언제든지 Azure Portal, PowerShell 또는 Azure CLI를 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 이 변경 내용은 되돌릴 수 없으며 다른 계정 유형 변경은 허용되지 않습니다. 기존 저장소 계정을 평가하는 데 대한 자세한 내용은 [GPv2 저장소 계정 평가 및 마이그레이션](#evaluating-and-migrating-to-gpv2-storage-accounts) 섹션을 참조하세요.
+* [Azure Portal을 사용하여 GPv2로 업그레이드](#upgrade-with-azure-portal)
+* [PowerShell을 사용하여 GPv2로 업그레이드](#upgrade-with-powershell)
+* [Azure CLI를 사용하여 GPv2로 업그레이드](#upgrade-with-azure-cli)
 
 #### <a name="upgrade-with-azure-portal"></a>Azure Portal을 사용하여 업그레이드
 Azure Portal을 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 업그레이드하려면 [Azure Portal](https://portal.azure.com)에 로그인한 후 저장소 계정을 선택합니다. **설정** > **구성**을 선택합니다. 업그레이드 프로세스에 대한 메모와 함께 **업그레이드** 단추가 보일 것입니다.
@@ -67,7 +70,7 @@ Azure CLI를 사용하여 GPv1 또는 Blob Storage 계정을 GPv2 계정으로 �
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
 ```` 
 
-### <a name="general-purpose-v1"></a>범용 v1
+### <a name="general-purpose-v1-accounts"></a>범용 v1 계정
 
 범용 v1(GPv1) 계정은 모든 Azure Storage 서비스에 대한 액세스를 제공하지만 최신 기능 또는 기가바이트당 가장 낮은 가격 책정이 포함되지 않을 수 있습니다. 예를 들어 쿨 저장소 및 보관 저장소는 GPv1에서 지원되지 않습니다. GPv1 트랜잭션의 경우 가격 책정이 낮으므로 높은 변동 또는 높은 읽기 비율을 가진 워크로드가 이 계정 형식에서 유용할 수 있습니다.
 
@@ -196,14 +199,19 @@ Blob 저장소 계정은 GPv2와 동일한 블록 Blob 기능을 지원하지만
 * 기존 GPv1 저장소 계정이 있고 올바른 저장소 계층을 사용하여 GPv2 저장소 계정에 대한 변경을 평가하려고 합니다.
 * GPv2 저장소 계정을 사용하도록 결정했거나 이미 저장소 계정이 하나 있고 핫 또는 쿨 저장소 계층을 사용해야 하는지 여부를 평가하려고 합니다.
 
-두 경우에 첫 번째 우선 순위는 GPv2 저장소 계정에 저장된 데이터를 저장하고 액세스하는 비용을 예측하고 현재 비용과 비교하는 것입니다.
+두 경우에 첫 번째 우선 순위는 GPv2 저장소 계정에 저장된 데이터를 저장하고 액세스하고 운영하는 비용을 산정하고 현재 비용과 비교하는 것입니다.
 
 ## <a name="evaluating-gpv2-storage-account-tiers"></a>GPv2 저장소 계정 계층 평가
 
 GPv2 저장소 계정에 저장된 데이터를 저장하고 액세스하는 비용을 예상하기 위해 기존 사용 패턴을 평가하거나 예상된 사용 패턴을 계산해야 합니다. 일반적으로 다음을 파악해야 합니다.
 
-* 저장소 사용량 – 데이터 저장 규모 및 월 기준 변화
-* 저장소 액세스 패턴 - 계정에서 읽고 쓰는 데이터의 크기(새 데이터 포함) 데이터 액세스에 사용되는 트랜잭션 양 및 트랜잭션 유형
+* 데이터 저장소 사용량(GB)
+    - 저장소 계정에 저장되는 데이터의 양
+    - 월간 데이터 볼륨 변경 추이, 새 데이터가 기존 데이터를 계속 대체하는지 여부
+* 저장소 액세스 패턴(작업 및 데이터 전송)
+    - 읽어오는 데이터(송신)의 양과 저장소 계정에 기록되는 데이터(수신)의 양 
+    - 저장소 계정의 데이터에 대해 발생하는 작업의 수
+    - 데이터를 처리하는 작업 (읽기 및 쓰기)의 종류
 
 ## <a name="monitoring-existing-storage-accounts"></a>기존 저장소 계정 모니터링
 
@@ -244,7 +252,7 @@ Blob 저장소에 대한 데이터 액세스 패턴을 모니터링하려면 API
 트랜잭션은 서로 다른 가격이 책정되므로 Blob Storage 계정에 대한 트랜잭션 비용을 예상하려면 트랜잭션을 3개의 그룹으로 세분화해야 합니다.
 
 * *'PutBlob'*, *'PutBlock'*, *'PutBlockList'*, *'AppendBlock'*, *'ListBlobs'*, *'ListContainers'*, *'CreateContainer'*, *'SnapshotBlob'* 및 *'CopyBlob'* 과 같은 쓰기 트랜잭션
-* *'DeleteBlob'* 및 *'DeleteContainer'* 와 같은 삭제 트랜잭션
+* *'GetBlob'* 와 같은 읽기 트랜잭션.
 * 모든 다른 트랜잭션.
 
 GPv1 저장소 계정에 대한 트랜잭션 비용을 예상하려면 작업/API에 관계 없이 모든 트랜잭션을 집계해야 합니다.

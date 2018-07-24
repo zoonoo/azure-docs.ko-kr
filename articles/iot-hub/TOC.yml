@@ -291,6 +291,8 @@
           items:
             - name: iothub-explorer를 사용하여 클라우드 장치 메시지 관리
               href: iot-hub-explorer-cloud-device-messaging.md
+            - name: VS Code용 Azure IoT Toolkit으로 클라우드 장치 메시징 관리
+              href: iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
             - name: Azure Blob Storage에 IoT Hub 메시지 저장
               href: iot-hub-store-data-in-azure-table-storage.md
             - name: Power BI에서 데이터 시각화

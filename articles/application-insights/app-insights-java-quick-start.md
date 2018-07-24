@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 12/12/2017
+ms.date: 07/11/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7248e2477a217c769bd232b87a8e510fcfd59790
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c0a1caca1c7b026965d2a83211c87d49db53c4ca
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798443"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991632"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Java 웹 응용 프로그램 모니터링 시작
 
@@ -89,25 +89,25 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. 이제 계측 키를 검색한 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 응용 프로그램에 대한 세부 정보를 볼 수 있습니다.
 
-   ![Application Insights 개요 메뉴](./media/app-insights-java-quick-start/0008-j.png)
+   ![Application Insights 개요 메뉴](./media/app-insights-java-quick-start/overview-001.png)
 
-2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **앱 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
+2. 응용 프로그램 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **응용 프로그램 맵**을 클릭합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-   ![응용 프로그램 맵](./media/app-insights-java-quick-start/005-j.png)
+   ![응용 프로그램 맵](./media/app-insights-java-quick-start/application-map-001.png)
 
 3. **앱 분석** 아이콘![ 응용 프로그램 맵 아이콘](./media/app-insights-java-quick-start/006.png)을 클릭합니다. 그러면 Application Insights에서 수집한 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights 분석**이 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
    ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/app-insights-java-quick-start/0010-j.png)
 
-4. **개요** 페이지로 돌아가서 **상태 개요 타임라인**을 검사합니다.  이 대시보드는 들어오는 요청의 수, 해당 요청의 기간 및 발생한 모든 오류를 포함하여 응용 프로그램 상태에 대한 통계를 제공합니다.
+4. **개요** 페이지로 돌아가서 KPI 그래프를 검사합니다.  이 대시보드는 들어오는 요청의 수, 해당 요청의 기간 및 발생한 모든 오류를 포함하여 응용 프로그램 상태에 대한 통계를 제공합니다.
 
-   ![상태 개요 타임라인 그래프](./media/app-insights-java-quick-start/0009-j.png)
+   ![상태 개요 타임라인 그래프](./media/app-insights-java-quick-start/overview-perf.png)
 
    **페이지 보기 로드 시간** 차트를 **클라이언트 쪽 원격 분석** 데이터로 채우도록 하려면 이 스크립트를 추적하려는 각 페이지에 추가합니다.
 
    ```HTML
    <!-- 
-   To collect end-user usage analytics about your application, 
+   To collect user behavior analytics about your application, 
    insert the following script into each page you want to track.
    Place this code immediately before the closing </head> tag,
    and before any other scripts. Your first data will appear 

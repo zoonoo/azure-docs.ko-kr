@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: overview
 ms.date: 02/27/2018
 ms.author: marsma
-ms.openlocfilehash: 22be921c7ab437e08d8ea5032befb8671dc90ed0
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1bc890abc8b406ae75f292f37775e4cb62cf0473
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163370"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115278"
 ---
 # <a name="quotas-and-region-availability-for-azure-container-instances"></a>Azure Container Instances에 대한 할당량 및 지역 가용성
 
@@ -31,6 +31,7 @@ Azure Container Instances를 지정된 CPU 및 메모리 제한을 사용하여 
 | -------- | -- | :---: | :-----------: |
 | 미국 서부, 미국 동부, 유럽 서부, 북유럽 | Linux | 4 | 14 |
 | 미국 서부 2, 동남 아시아 | Linux | 2 | 7 |
+| 오스트레일리아 동부, 미국 동부 2, 미국 중부 | Linux | 1 | 1.5 |
 | 미국 서부, 미국 동부, 유럽 서부, 북유럽 | Windows | 4 | 14 |
 | 미국 서부 2, 동남 아시아 | Windows | 2 | 3.5 |
 

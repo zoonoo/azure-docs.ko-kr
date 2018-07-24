@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 07/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 1962a4aac8e2d15caf4ec33998da1985d3b8a9af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ee83446bb08e66c7f325bdd5585b8cc0484a74e
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38306476"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090931"
 ---
 # <a name="import-a-function-app-as-an-api"></a>API로 함수 앱 가져오기
 
@@ -34,7 +34,8 @@ ms.locfileid: "38306476"
 ## <a name="prerequisites"></a>필수 조건
 
 + 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
-+ 구독에 함수 앱이 있는지 확인합니다. 자세한 내용은 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)를 참조하세요.
++ 구독에 Azure 함수 앱이 있는지 확인합니다. 자세한 내용은 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)를 참조하세요.
++ Azure 함수 앱의 [OpenAPI 정의 만들기](../azure-functions/functions-openapi-definition.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -56,6 +57,24 @@ ms.locfileid: "38306476"
     * **Starter**
     * **무제한**   
 7. **만들기**를 선택합니다.
+
+## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Azure API Management에서 Azure Functions 키 채우기
+
+가져온 Azure Functions를 키로 보호하는 경우 Azure API Management에서는 **명명된 값**을 자동으로 만들지만 항목을 비밀로 채우지 않습니다. 각 항목에 대해 아래 단계를 수행해야 합니다.  
+
+1. API Management 인스턴스에서 **명명된 값** 탭으로 이동합니다.
+2. 항목을 클릭하고 사이드바에서 **값 표시**를 누릅니다.
+
+    ![명명된 값](./media/import-function-app-as-api/apim-named-values.png)
+
+3. 콘텐츠가 *{Azure Function 이름}에 대한 코드*와 비슷한 경우 가져온 Azure Functions 앱으로 이동하고 Azure Function으로 이동합니다.
+4. Azure Function의 인증 메서드에 따라 원하는 Azure Function의 **관리** 섹션으로 이동하고 관련 키를 복사합니다.
+
+    ![함수 앱](./media/import-function-app-as-api/azure-functions-app-keys.png)
+
+5. **명명된 값**의 텍스트 상자에 키를 붙여넣고 **저장**을 클릭합니다.
+
+    ![함수 앱](./media/import-function-app-as-api/apim-named-values-2.png)
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
 

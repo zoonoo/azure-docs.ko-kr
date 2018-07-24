@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/08/2018
+ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f9648e15c720c076a65e84a95f4160f27eec598d
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2cda30c85ce8a8dc9b7a6c0134b7cabc58b842a4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068601"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115323"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -39,9 +39,9 @@ Azure Key Vault에 응용 프로그램 비밀을 중앙 집중식으로 저장�
 
 Azure Key Vault에 응용 프로그램의 키 또는 비밀이 저장된 후 응용 프로그램에서 특정 버전의 비밀을 검색할 수 있는 URI를 사용하여 필요한 정보에 안전하게 액세스할 수 있습니다. 비밀 정보를 보호하기 위해 사용자 지정 코드를 작성할 필요가 없습니다.
 
-### <a name="securely-store-secrets"></a>비밀을 안전하게 저장
+### <a name="securely-store-secrets-and-keys"></a>안전하게 비밀 및 키 저장
 
-Azure에서는 업계 표준 알고리즘, 키 길이 및 HSM(하드웨어 보안 모듈)을 사용하여 키를 보호합니다. 사용되는 HSM은 FIPS(Federal Information Processing Standards) 140-2 수준 2 유효성 검사를 통과했습니다.
+Azure에서는 업계 표준 알고리즘, 키 길이 및 HSM(하드웨어 보안 모듈)을 사용하여 비밀 및 키를 보호합니다. 사용되는 HSM은 FIPS(Federal Information Processing Standards) 140-2 수준 2 유효성 검사를 통과했습니다.
 
 Key Vault에 액세스하려면 호출자(사용자 또는 응용 프로그램)가 액세스할 수 있도록 적절한 인증 및 권한 부여가 필요합니다. 인증은 호출자의 ID를 확인하는 반면 권한 부여는 수행할 수 있는 작업을 결정합니다.
 
@@ -49,7 +49,7 @@ Key Vault에 액세스하려면 호출자(사용자 또는 응용 프로그램)�
 
 Azure Key Vault는 소프트웨어 또는 하드웨어 HSM으로 보호될 수 있습니다. 추가 보증이 필요한 경우, HSM 경계를 절대로 떠나지 않는 HSM(하드웨어 보안 모듈)에서 키를 가져오거나 생성할 수 있습니다. Microsoft는 Thales 하드웨어 보안 모듈을 사용합니다. Thales 도구를 사용하여 HSM에서 Azure Key Vault로 키를 이동할 수 있습니다.
 
-마지막으로 Azure Key Vault는 Microsoft에서 키를 보거나 추출할 수 없게 설계되어 있습니다.
+마지막으로 Azure Key Vault는 Microsoft에서 데이터를 보거나 추출할 수 없게 설계되어 있습니다.
 
 ### <a name="monitor-access-and-use"></a>액세스 및 사용 모니터링
 

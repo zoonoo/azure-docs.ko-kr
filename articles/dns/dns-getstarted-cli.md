@@ -1,48 +1,37 @@
 ---
-title: Azure CLI 2.0을 사용하여 Azure DNS 시작 | Microsoft Docs
-description: Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. Azure CLI 2.0을 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
+title: 빠른 시작 - Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
+description: 빠른 시작 - Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. Azure CLI를 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
 services: dns
-documentationcenter: na
-author: KumuD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
+author: vhorne
 ms.service: dns
-ms.devlang: azurecli
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: kumud
-ms.openlocfilehash: d24eaa4974f8bff09b337384e4fd139edb6ebd70
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.topic: quickstart
+ms.date: 7/16/2018
+ms.author: victorh
+ms.openlocfilehash: 3fb39558ff99c35786dedc133a9d1d1a450b5928
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30175242"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090125"
 ---
-# <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure DNS 시작
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
-
-이 문서에서는 Windows, Mac 및 Linux용 플랫폼 간 Azure CLI 2.0을 사용하여 첫 번째 DNS 영역 및 레코드를 만드는 단계를 안내합니다. Azure Portal 또는 Azure PowerShell을 사용하여 이 단계를 수행할 수도 있습니다.
+이 문서에서는 Windows, Mac 및 Linux에서 사용할 수 있는 Azure CLI를 사용하여 첫 번째 DNS 영역 및 레코드를 만드는 단계를 안내합니다. [Azure Portal](dns-getstarted-portal.md)이나 [Azure PowerShell](dns-getstarted-powershell.md)을 사용하여 이 단계를 수행할 수도 있습니다.
 
 DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 아래에서는 이러한 각 단계에 대해 설명합니다.
 
-이 지침에서는 이미 Azure CLI 2.0을 설치했고, 로그인했다고 가정합니다. 도움말은 [Azure CLI 2.0을 사용하여 DNS 영역을 관리하는 방법](dns-operations-dnszones-cli.md)을 참조하세요.
-
 Azure DNS는 이제 사설 DNS 영역(현재는 공개 미리 보기)도 지원합니다. 사설 DNS 영역에 대해 자세히 알아보려면 [사설 도메인에 Azure DNS 사용](private-dns-overview.md)을 참조하세요. 사설 DNS 영역을 만드는 방법은 [CLI를 사용하여 Azure DNS 사설 영역 시작](./private-dns-getstarted-cli.md)을 참조하세요.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
 
-DNS 영역을 만들기 전에 DNS 영역을 포함할 리소스 그룹이 생성됩니다. 다음은 명령을 표시합니다.
+DNS 영역을 만들기 전에 DNS 영역을 포함할 리소스 그룹을 만듭니다.
 
 ```azurecli
-az group create --name MyResourceGroup --location "West US"
+az group create --name MyResourceGroup --location "East US"
 ```
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
@@ -64,8 +53,6 @@ DNS 레코드를 만들려면 `az network dns record-set [record type] add-recor
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
 ```
-
-두 개 이상의 레코드가 있는 레코드 집합, 대체 TTL 값 등 다른 레코드 유형을 알아보거나 기존 레코드를 수정하려면 [Azure CLI 2.0을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
 
 ## <a name="view-records"></a>레코드 보기
 
@@ -107,7 +94,7 @@ az network dns zone show -g MyResourceGroup -n contoso.com -o json
 
 ## <a name="delete-all-resources"></a>모든 리소스 삭제
  
-이 문서에서 만든 모든 리소스를 삭제하려면 다음 단계를 수행합니다.
+더 이상 필요하지 않은 경우 리소스 그룹을 삭제하면 이 빠른 시작에서 만든 모든 리소스를 삭제할 수 있습니다.
 
 ```azurecli
 az group delete --name MyResourceGroup
@@ -115,8 +102,7 @@ az group delete --name MyResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요.
+Azure CLI를 사용하여 첫 번째 DNS 영역과 레코드를 만들었으면 사용자 지정 도메인에서 웹앱의 레코드를 만들 수 있습니다.
 
-Azure DNS에서 DNS 영역 관리에 대한 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 영역 관리](dns-operations-dnszones-cli.md)를 참조하세요.
-
-Azure DNS에서 DNS 레코드 관리에 대한 자세한 내용은 [Azure CLI 2.0을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-cli.md)를 참조하세요.
+> [!div class="nextstepaction"]
+> [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기](./dns-web-sites-custom-domain.md)

@@ -9,25 +9,25 @@ ms.topic: tutorial
 ms.date: 02/22/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 7b962ccd8349996cd33cc3960391cba8fce549ad
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 22f7f9aee791d315300ffdc4dc9f708a80a5baf7
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33934382"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39127413"
 ---
 # <a name="tutorial-scale-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 크기 조정
 
 자습서를 수행하고 있다면 AKS에서 작동하는 Kubernetes 클러스터가 있으며 Azure Voting 앱을 배포한 상태입니다.
 
-총 8부 중 5부인 이 자습서에서는 앱의 Pod 규모를 확장하고 Pod 자동 크기 조정을 시도합니다. Azure VM 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 완료된 작업은 다음과 같습니다.
+7개 중 5단계인 이 자습서에서는 앱의 Pod를 스케일 아웃하고 Pod 자동 크기 조정을 시도합니다. Azure VM 노드 수를 조정하여 워크로드 호스팅을 위한 클러스터 용량을 변경하는 방법도 알아봅니다. 완료된 작업은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Kubernetes Azure 노드 크기 조정
 > * 수동으로 Kubernetes Pod 크기 조정
 > * 앱 프런트 엔드를 실행하는 Pod 자동 크기 조정 구성
 
-후속 자습서에서는 Azure Vote 응용 프로그램을 업데이트하고, Kubernetes 클러스터를 모니터링하도록 Log Analytics를 구성합니다.
+후속 자습서에서 Azure Vote 응용 프로그램은 새 버전으로 업데이트됩니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -71,7 +71,7 @@ az aks scale --resource-group=myResourceGroup --name=myAKSCluster --node-count 3
 kubectl get pods
 ```
 
-출력
+출력:
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -91,7 +91,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 kubectl get pods
 ```
 
-출력
+출력:
 
 ```
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -105,7 +105,12 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>Pod 자동 크기 조정
 
-Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 CPU 사용률 또는 다른 선택 메트릭에 따라 배포에서 Pod 수를 조정할 수 있게 해줍니다.
+Kubernetes는 [수평 Pod 자동 크기 조정][kubernetes-hpa]을 지원하여 CPU 사용률 또는 다른 선택 메트릭에 따라 배포에서 Pod 수를 조정할 수 있게 해줍니다. [메트릭 서버][metrics-server]는 Kubernetes에 리소스 사용률을 제공하는 데 사용됩니다. 메트릭 서버를 설치하려면 `metrics-server` GitHub 리포지토리를 복제하고 예제 리소스 정의를 설치합니다. 이러한 YAML 정의의 콘텐츠를 참조하려면 [Kuberenetes 1.8+에 대한 메트릭 서버][metrics-server-github]를 참조하세요.
+
+```console
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+kubectl create -f metrics-server/deploy/1.8+/
+```
 
 자동 크기 조정기를 사용하려면 Pod에 CPU 요청 및 제한이 정의되어 있어야 합니다. `azure-vote-front` 배포에서 프런트 엔드 컨테이너는 0.25 CPU를 요청하며 제한은 0.5 CPU입니다. 설정은 다음과 같습니다.
 
@@ -119,7 +124,6 @@ resources:
 
 다음 예제에서는 [kubectl autoscale][kubectl-autoscale] 명령을 사용하여 `azure-vote-front` 배포의 Pod 수를 자동으로 조정합니다. 여기서는 CPU 사용률이 50%를 초과하면 자동 크기 조정기가 Pod를 최대 10개로 늘립니다.
 
-
 ```azurecli
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 ```
@@ -130,7 +134,7 @@ kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 kubectl get hpa
 ```
 
-출력
+출력:
 
 ```
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
@@ -158,6 +162,8 @@ Azure Vote 앱에 최소 부하를 적용한 상태로 몇 분이 지나면 Pod 
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale
 [kubernetes-hpa]: https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/
+[metrics-server-github]: https://github.com/kubernetes-incubator/metrics-server/tree/master/deploy/1.8%2B
+[metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/core-metrics-pipeline/
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md

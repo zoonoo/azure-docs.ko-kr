@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: anithaa
 ms.custom: ''
-ms.openlocfilehash: e7e79d51b59d82ebf91d68f0714b8eb7bcaafbe6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a8ff6abd392b91ba553a92ac161421ced5a045bb
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443633"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136471"
 ---
 # <a name="virtual-network-service-endpoints"></a>Virtual Network 서비스 엔드포인트
 
@@ -31,10 +31,12 @@ VNet(Virtual Network) 서비스 끝점은 직접 연결을 통해 가상 네트�
 - **[Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**: 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 지역에서 일반 공급됩니다.
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 일반 공급됩니다. 
-- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 미리 보기로 제공됩니다.
-- **PostgreSQL 및 MySQL용 Azure 데이터베이스 서비스**: 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 미리 보기로 제공됩니다.
+- **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 모든 Azure 공용 클라우드 지역에서 미리 보기 상태로 제공됩니다.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기로 제공됩니다.
-- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기로 제공됩니다.
+- **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 현재 미리 보기 상태로 제공됩니다.
+- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**: 현재 미리 보기 상태로 제공됩니다.
+- **[Azure Database for PostgreSQL 서버](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 미리 보기 상태로 제공됩니다.
+- **[Azure Database for MySQL 서버](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: 데이터베이스 서비스를 사용할 수 있는 Azure 지역에서 미리 보기 상태로 제공됩니다.
 
 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 확인하세요.
 

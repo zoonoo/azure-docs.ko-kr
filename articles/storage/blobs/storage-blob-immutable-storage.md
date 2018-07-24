@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 195537b271c442b954d6d6e6fa8d1491c07822e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970247"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070011"
 ---
 # <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Azure Blob Storage의 변경할 수 없는 저장소 기능(미리 보기)
 
@@ -178,11 +178,11 @@ Blob의 변경할 수 없는 저장소 기능은 모든 종류의 BLOB에 사용
 
 ***잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 컨테이너를 삭제하려고 시도하면 어떻게 되나요?**
 
-잠긴 시간 기반 보존 정책 또는 법적 보존이 있는 BLOB이 하나 이상 있는 경우 컨테이너 삭제 작업이 실패합니다. BLOB에 활성 보존 기간이 없고 법적 보존이 없는 경우 컨테이너 삭제 작업이 성공합니다. 컨테이너를 삭제하려면 먼저 BLOB을 삭제해야 합니다.
+잠긴 시간 기반 보존 정책 또는 법적 보존이 있는 BLOB이 하나 이상 있는 경우 컨테이너 삭제 작업이 실패합니다. 데이터가 [일시 삭제](storage-blob-soft-delete.md)되어도 마찬가지 입니다. BLOB에 활성 보존 기간이 없고 법적 보존이 없는 경우 컨테이너 삭제 작업이 성공합니다. 컨테이너를 삭제하려면 먼저 BLOB을 삭제해야 합니다. 
 
 **WORM 컨테이너에 *잠긴* 시간 기반 보존 정책 또는 법적 보존이 있는 저장소 계정을 삭제하려고 시도하면 어떻게 되나요?**
 
-법적 보존 또는 보존 기간이 활성화된 BLOB이 있는 WORM 컨테이너가 하나 이상 있는 경우 저장소 계정 삭제 작업이 실패합니다.  저장소 계정을 삭제하려면 먼저 모든 WORM 컨테이너를 삭제해야 합니다.  컨테이너 삭제에 대한 내용은 질문 2를 참조하세요.
+법적 보존 또는 보존 기간이 활성화된 BLOB이 있는 WORM 컨테이너가 하나 이상 있는 경우 저장소 계정 삭제 작업이 실패합니다.  저장소 계정을 삭제하려면 먼저 모든 WORM 컨테이너를 삭제해야 합니다.  컨테이너 삭제에 대한 내용은 앞의 질문을 참조하세요.
 
 **BLOB이 변경할 수 없는 상태인 경우 BLOB 계층(핫, 쿨, 콜드) 간에 데이터를 이동할 수 있나요?**
 

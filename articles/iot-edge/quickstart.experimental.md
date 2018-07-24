@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5bde54a65160c58d8bfba2f6c4c3b6a4317e46ed
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540234"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115588"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -54,6 +54,8 @@ IoT Edge 장치에 대해 사용하고 있는 컴퓨터에서 다음 필수 구�
 Azure Portal에서 IoT Hub를 만들어 빠른 시작을 시작합니다.
 ![IoT Hub 만들기][3]
 
+이 빠른 시작에서 만든 모든 리소스를 유지 관리하고 관리하는 데 사용할 수 있는 리소스 그룹에서 IoT Hub를 만듭니다. **IoTEdgeResources**와 같이 기억하기 쉬운 항목을 호출합니다. 빠른 시작 및 자습서의 모든 리소스를 한 그룹에 배치하여 해당 리소스를 함께 관리하고 테스트를 완료할 때 쉽게 제거할 수 있습니다. 
+
 [!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
@@ -81,14 +83,15 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
 
 2. IoT Edge 서비스 패키지를 다운로드합니다.
 
-  ```powershell
-  Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-  Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-  Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-  rmdir C:\ProgramData\iotedge\iotedged-windows
-  $env:Path += ";C:\ProgramData\iotedge"
-  SETX /M PATH "$env:Path"
-  ```
+   ```powershell
+   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
+   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
+   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
+   rmdir C:\ProgramData\iotedge\iotedged-windows
+   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   ```
 
 3. vcruntime을 설치합니다.
 
@@ -160,7 +163,7 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
   SETX /M IOTEDGE_HOST "http://<ip_address>:15580"
   ```
 
-6. `config.yaml` 파일에서 **연결 설정** 섹션을 찾습니다. 이전 섹션에서 연 포트 및 IP 주소를 사용하여 **management_uri** 및 **workload_uri** 값을 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 해당 IP 주소로 바꿉니다. 
+6. `config.yaml` 파일에서 **연결 설정** 섹션을 찾습니다. 이전 섹션에서 연 포트 및 IP 주소를 사용하여 **management_uri** 및 **workload_uri** 값을 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 DockerNAT IP 주소로 바꿉니다.
 
    ```yaml
    connect: 
@@ -249,14 +252,55 @@ iotedge logs tempSensor -f
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-IoT Edge 자습서를 테스트하려면 이 빠른 시작에서 구성한 시뮬레이션된 장치를 사용할 수 있습니다. tempSensor 모듈이 IoT Hub에 데이터를 보내지 못하게 하려면 다음 명령을 사용하여 IoT Edge 서비스를 중지하고 장치에서 생성된 컨테이너를 삭제합니다. IoT Edge 장치로 컴퓨터를 다시 사용하려는 경우 해당 서비스를 시작해야 합니다. 
+IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하고 설정한 장치를 사용할 수 있습니다. 그렇지 않으면 만든 Azure 리소스를 삭제하고 장치에서 IoT Edge 런타임을 제거할 수 있습니다. 
+
+### <a name="delete-azure-resources"></a>Azure 리소스 삭제
+
+새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 유지하려는 모든 해당 리소스 그룹에 있는 경우 정리하려는 개별 리소스를 삭제합니다. 
+
+리소스 그룹을 제거하려면 이러한 단계를 수행합니다. 
+
+1. [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
+2. **이름을 기준으로 필터링...** 텍스트 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다. 
+3. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
+4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 클릭합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+
+### <a name="remove-the-iot-edge-runtime"></a>IoT Edge 런타임 제거
+
+향후 테스트에서 IoT Edge 장치를 사용하려는 경우 tempSensor 모듈이 IoT Hub에 데이터를 보내지 못하게 하려면 다음 명령을 사용하여 IoT Edge 서비스를 중지하고 장치에서 생성된 컨테이너를 삭제합니다. 
 
    ```powershell
    Stop-Service iotedge -NoWait
-   docker rm -f $(docker ps -aq)
    ```
 
-생성한 IoT Hub가 더 이상 필요하지 않은 경우 Azure Portal을 사용하여 리소스 및 리소스와 연결된 모든 장치를 제거할 수 있습니다. IoT Hub의 개요 페이지로 이동하여 **삭제**를 선택합니다. 
+테스트를 다시 시작할 준비가 되면 서비스를 다시 시작할 수 있습니다.
+
+   ```powershell
+   Start-Service iotedge
+   ```
+
+장치에서 설치를 제거하려면 다음 명령을 사용합니다.  
+
+IoT Edge 런타임을 제거합니다.
+
+   ```powershell
+   cmd /c sc delete iotedge
+   rm -r c:\programdata\iotedge
+   ```
+
+IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치에는 계속 남아 있습니다. 모든 컨테이너를 봅니다.
+
+   ```powershell
+   docker ps -a
+   ```
+
+IoT Edge 런타임에 의해 장치에서 만들어진 컨테이너를 삭제합니다. tempSensor 컨테이너를 다르게 부른 경우 컨테이너의 이름을 변경합니다. 
+
+   ```powershell
+   docker rm -f tempSensor
+   docker rm -f edgeHub
+   docker rm -f edgeAgent
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

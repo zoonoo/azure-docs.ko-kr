@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/09/2018
 ms.author: ganesr
-ms.openlocfilehash: 998d4f8017af51a21e13695a8491e9b6bd62af9a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7fd2dd870338dc6778d192658143d14d9d9895cc
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930531"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072149"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 라우팅 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 라우팅을 설치하고 관리해야 합니다. 일부 연결 공급자는 라우팅을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 이 서비스를 제공하는지를 확인합니다. 제공하지 않는 경우 다음 요구 사항을 준수해야 합니다.
@@ -221,7 +221,7 @@ Microsoft에서 보급하는 모든 경로는 적절한 커뮤니티 값으로 �
 > 
 > 
 
-### <a name="bgp-community-support-in-national-clouds-preview"></a>National 클라우드에서 BGP 커뮤니티 지원(미리 보기)
+### <a name="bgp-community-support-in-national-clouds"></a>국가별 클라우드에서 BGP 커뮤니티 지원
 
 | **국가별 클라우드 Azure 지역**| **BGP 커뮤니티 값** |
 | --- | --- |

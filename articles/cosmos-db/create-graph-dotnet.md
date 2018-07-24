@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: bbe60fb6a6371551f588d5472ac304148a4a1aa7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27cfb391c5c47ef44c443e2603da62fe5d6a3122
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453419"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113048"
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: Graph API를 사용한 .NET Framework 또는 Core 응용 프로그램 빌드
 
@@ -75,7 +75,7 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
 다음 코드 조각은 모두 Program.cs 파일에서 가져옵니다.
 
@@ -153,21 +153,25 @@ Visual Studio 2017이 이미 설치되어 있는 경우 [Visual Studio 2017 업�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. [Azure Portal](http://portal.azure.com/)에서 **키**를 클릭합니다. 
+1. [Azure Portal](http://portal.azure.com/)에서 그래프 데이터베이스 계정으로 이동합니다. **개요** 탭에 두 개의 엔드포인트가 표시됩니다. 
+ 
+   **.NET SDK URI** - Microsoft.Azure.Graphs 라이브러리를 사용하여 그래프 계정에 연결한 경우 이 값이 사용됩니다. 
 
-    URI 값의 첫 번째 부분을 복사합니다.
+   **Gremlin 엔드포인트** - Gremlin.Net 라이브러리를 사용하여 그래프 계정에 연결하는 경우 이 값이 사용됩니다.
 
-    ![Azure Portal에서 선택키 보기 및 복사, 키 페이지](./media/create-graph-dotnet/keys.png)
+    ![엔드포인트 복사](./media/create-graph-dotnet/endpoint.png)
+
+   이 샘플을 실행하려면 **Gremlin 엔드포인트** 값을 복사하고, 끝에서 포트 번호를 삭제합니다. 즉, URI는 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.com`입니다.
 
 2. Program.cs에서 줄 19에 있는 `hostname` 변수의 `your-endpoint` 자리에 값을 붙여넣습니다. 
 
-    `"private static string hostname = "your-endpoint.gremlin.cosmosdb.azure.com";`
+    `"private static string hostname = "<your cosmos db account name>.gremlin.cosmosdb.azure.com";`
 
     엔드포인트 값은 이제 다음과 같이 표시됩니다.
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.com";`
 
-3. 포털에서 **기본 키** 값을 복사하여 `authkey` 변수 자리에 붙여넣고, 줄 21의 `"your-authentication-key"` 자리 표시자를 바꿉니다. 
+3. 다음으로, **키** 탭으로 이동하고, 포털에서 **기본 키** 값을 복사하여 `authkey` 변수 자리에 붙여넣고, 줄 21의 `"your-authentication-key"` 자리 표시자를 바꿉니다. 
 
     `private static string authKey = "your-authentication-key";`
 

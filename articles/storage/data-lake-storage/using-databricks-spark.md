@@ -1,29 +1,29 @@
 ---
-title: DataBricks에서 Spark를 사용하여 Azure Data Lake Storage Gen2 미리 보기 데이터에 액세스 | Microsoft Docs
-description: DataBricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 저장소 계정의 데이터에 액세스하는 방법을 알아봅니다.
+title: Azure Databricks에서 Spark를 사용하여 Azure Data Lake Storage Gen2 미리 보기 데이터에 액세스 | Microsoft Docs
+description: Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 저장소 계정의 데이터에 액세스하는 방법을 알아봅니다.
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
 manager: twooley
 ms.component: data-lake-storage-gen2
-ms.service: hdinsight
+ms.service: storage
 ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 27ed860c7dd3b979a25860d453231de74d3f46be
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096919"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136406"
 ---
-# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-databricks-using-spark"></a>자습서: DataBricks에서 Spark를 사용하여 Azure Data Lake Storage Gen2 미리 보기 데이터에 액세스
+# <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>자습서: Azure Databricks에서 Spark를 사용하여 Azure Data Lake Storage Gen2 미리 보기 데이터에 액세스
 
-이 자습서에서는 DataBricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 미리 보기 지원 계정의 데이터를 쿼리하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 미리 보기 지원 계정의 데이터를 쿼리하는 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * DataBricks 클러스터 만들기
+> * Databricks 클러스터 만들기
 > * 저장소 계정으로 비구조적 데이터 수집
 > * Azure Function을 트리거하여 데이터 처리
 > * Blob 저장소의 데이터에 대한 분석 실행
@@ -47,11 +47,11 @@ ms.locfileid: "37096919"
 
 계정 이름과 키는 모두 이 자습서의 이후 단계에서 필요합니다. 텍스트 편집기를 열고 나중에 참조할 수 있도록 계정 이름과 키를 별도로 보관합니다.
 
-## <a name="create-a-databricks-cluster"></a>DataBricks 클러스터 만들기
+## <a name="create-a-databricks-cluster"></a>Databricks 클러스터 만들기
 
-다음 단계는 데이터 작업 영역을 만들기 위해 [DataBricks 클러스터](https://docs.azuredatabricks.net/)를 만듭니다.
+다음 단계는 데이터 작업 영역을 만들기 위해 [Databricks 클러스터](https://docs.azuredatabricks.net/)를 만듭니다.
 
-1. [DataBricks 서비스](https://ms.portal.azure.com/#create/Microsoft.Databricks)를 만들고 이름을 **myFlightDataService**로 지정합니다(서비스를 만들 때 *대시보드에 고정* 확인란을 선택함).
+1. [Databricks 서비스](https://ms.portal.azure.com/#create/Microsoft.Databricks)를 만들고 이름을 **myFlightDataService**로 지정합니다(서비스를 만들 때 *대시보드에 고정* 확인란을 선택함).
 2. **작업 영역 시작**을 클릭하여 새 브라우저 창에서 작업 영역을 엽니다.
 3. 왼쪽 탐색 모음에서 **클러스터**를 클릭합니다.
 4. **클러스터 만들기**를 클릭합니다.
@@ -85,9 +85,9 @@ set ACCOUNT_KEY=<ACCOUNT_KEY>
 azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbricks/folder1/On_Time --recursive 
 ```
 
-### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>DataBricks Notebook을 사용하여 CSV를 Parquet로 변환합니다.
+### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Databricks Notebook을 사용하여 CSV를 Parquet로 변환
 
-브라우저에서 DataBricks를 다시 열고 다음 단계를 실행합니다.
+브라우저에서 Databricks를 다시 열고 다음 단계를 실행합니다.
 
 1. 탐색 모음의 왼쪽 위에서 **Azure Databricks**를 선택합니다.
 2. 페이지 아래쪽의 중간에 있는 **새로 만들기** 섹션 아래에서 **Notebook**을 선택합니다.
@@ -116,7 +116,7 @@ azcopy cp "<DOWNLOAD_FILE_PATH>" https://<ACCOUNT_NAME>.dfs.core.windows.net/dbr
 
 ## <a name="explore-data-using-hadoop-distributed-file-system"></a>Hadoop 분산 파일 시스템을 사용하여 데이터 탐색
 
-DataBricks 작업 영역으로 돌아가서 왼쪽 탐색 모음에서 **최근** 아이콘을 클릭합니다.
+Databricks 작업 영역으로 돌아가서 왼쪽 탐색 모음에서 **최근** 아이콘을 클릭합니다.
 
 1. **비행 데이터 분석** 노트북을 클릭합니다.
 2. **Ctrl+Alt+N**을 눌러 새 셀을 만듭니다.

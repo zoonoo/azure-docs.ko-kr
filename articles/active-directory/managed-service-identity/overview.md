@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: 3d6df04df8ceac1f868e64f0e8fbc7eb0fa317e3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38547976"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006933"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Azure 리소스용 관리 서비스 ID란?
 
@@ -40,7 +40,7 @@ ms.locfileid: "38547976"
 
 다음 예제는 시스템 할당 ID가 Azure Virtual Machines에서 작동하는 방식을 보여줍니다.
 
-![Virtual Machine 관리 ID 예제](overview/msi-vm-vmextension-imds-example.png)
+![Virtual Machine 관리 ID 예제](media/overview/msi-vm-vmextension-imds-example.png)
 
 1. Azure Resource Manager가 VM에서 시스템 할당 ID를 사용하도록 설정하라는 메시지를 받습니다.
 2. Azure Resource Manager가 Azure AD에서 VM의 ID를 나타내는 서비스 주체를 만듭니다. 서비스 주체는 이 구독이 신뢰하는 Azure AD 테넌트에서 작성됩니다.
@@ -101,6 +101,7 @@ ms.locfileid: "38547976"
 | Azure 기능    | [Azure App Service 또는 Azure Functions를 통한 관리 서비스 ID 사용](/azure/app-service/app-service-managed-service-identity) |
 | Azure Service Bus  | [Azure Service Bus를 통한 관리 서비스 ID 사용](../../service-bus-messaging/service-bus-managed-service-identity.md) |
 | Azure Event Hubs   | [Azure Event Hubs를 통한 관리 서비스 ID 사용](../../event-hubs/event-hubs-managed-service-identity.md) |
+| Azure API Management | [Azure API Management를 통한 관리 서비스 ID 사용](../../api-management/api-management-howto-use-managed-service-identity.md) |
 
 ## <a name="which-azure-services-support-managed-service-identity"></a>관리 서비스 ID를 지원하는 Azure 서비스
 

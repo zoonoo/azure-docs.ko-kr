@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/06/2017
 ms.author: eamono
-ms.openlocfilehash: 9a4d6ecf19fc96a9c7b92cf246effbf3948fb478
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/07/2017
-ms.locfileid: "26349072"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049867"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation과 Event Grid 통합
 
@@ -32,20 +32,23 @@ ms.locfileid: "26349072"
 > * Event Grid 구독을 만듭니다.
 > * Runbook을 트리거하는 VM을 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 Azure Event Grid 구독에서 트리거된 Runbook을 담을 [Azure Automation 계정](../automation/automation-offering-get-started.md)이 필요합니다.
 
+* `AzureRM.Tags` 모듈을 Automation 계정에 로드해야 합니다. Azure Automation에 모듈을 가져오는 방법을 알아보려면 [Azure Automation에서 모듈을 가져오는 방법](../automation/automation-update-azure-modules.md)을 참조하세요.
+
 ## <a name="import-an-event-grid-sample-runbook"></a>Event Grid 샘플 Runbook 가져오기
+
 1. Automation 계정을 열고 **Runbook** 페이지를 선택합니다.
 
    ![Runbook 선택](./media/ensure-tags-exists-on-new-virtual-machines/select-runbooks.png)
 
 2. **갤러리 찾아보기** 단추를 선택합니다.
 
-3. **Event Grid**를 검색하고 **Azure Automation과 Event grid 통합**을 선택합니다. 
+3. **Event Grid**를 검색하고 **Azure Automation과 Event grid 통합**을 선택합니다.
 
     ![갤러리 Runbook 가져오기](media/ensure-tags-exists-on-new-virtual-machines/gallery-event-grid.png)
 
@@ -53,7 +56,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 5. 가져온 후 **편집**을 선택하여 Runbook 소스를 확인합니다. **게시** 단추를 선택합니다.
 
+> [!NOTE]
+> 스크립트의 74행에는 `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`로 변경된 행이 있어야 합니다. `-Tags` 매개 변수가 이제 `-Tag`가 되었습니다.
+
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>선택적 Microsoft Teams 웹후크 만들기
+
 1. Microsoft Teams에서 채널 이름 옆의 **기타 옵션**을 선택하고 **커넥터**를 선택합니다.
 
     ![Microsoft Teams 연결](media/ensure-tags-exists-on-new-virtual-machines/teams-webhook.png)
@@ -67,6 +74,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 5. **마침**을 클릭하여 웹후크를 저장합니다.
 
 ## <a name="create-a-webhook-for-the-runbook"></a>Runbook에 대한 웹후크 만들기
+
 1. Watch-VMWrite Runbook을 엽니다.
 
 2. **웹후크**를 선택하고 **웹후크 추가** 단추를 선택합니다.

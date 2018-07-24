@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,develop databases
 ms.topic: tutorial
-ms.date: 6/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: c89b03baccc7e20ae945da154fbd78d5d0dac376
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 6f12c44c2d65eef7e8d3345ec79b812304fe9791
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311034"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091546"
 ---
 # <a name="tutorial-design-your-first-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 첫 번째 Azure SQL Database 디자인
 
@@ -31,7 +31,7 @@ Azure SQL Database는 Microsoft Cloud(Azure)의 관계형 DBaaS(Database-As-A-Se
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
    >[!NOTE]
-   > 이 자습서를 사용하기 위해 여기서는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하지만, 사용자는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 선택 옵션을 사용할 수도 있습니다. 
+   > 이 자습서를 사용하기 위해 여기서는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하지만, 사용자는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 선택 옵션을 사용할 수도 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -77,7 +77,7 @@ Azure SQL Database는 일련의 정의된 [계산 및 저장소 리소스](sql-d
 
 5. **선택**을 클릭합니다.
 
-6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU나 vCore 개수 및 저장소 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU/vCore 및 저장소 수에 대한 옵션을 살펴봅니다. 이 자습서를 사용하기 위해 여기서는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하지만, 사용자는 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 선택 옵션을 사용할 수도 있습니다. 
+6. **가격 책정 계층**을 클릭하여 서비스 계층, DTU나 vCore 개수 및 저장소 크기를 지정합니다. 각 서비스 계층에 대해 사용할 수 있는 DTU/vCore 및 저장소 수에 대한 옵션을 살펴봅니다. 이 자습서를 사용하기 위해 여기서는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하지만, 사용자는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 선택 옵션을 사용할 수도 있습니다. 
 
 7. 이 자습서에서는 **표준** 서비스 계층을 선택한 다음 슬라이더를 사용하여 **100DTU(S3)** 및 **400**GB 저장소를 선택합니다.
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fe0d3836046ad143e746503210099ee5c640a08
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129101"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114442"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -504,7 +504,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 
 ## <a name="next-steps"></a>다음 단계
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
-* [.NET용 Azure Batch 라이브러리 시작](batch-dotnet-get-started.md)에서 샘플 Batch 응용 프로그램을 단계별로 안내합니다. 또한 Linux 계산 노드에서 워크로드를 실행하는 [Python 버전](batch-python-tutorial.md) 자습서가 있습니다.
+* [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 응용 프로그램 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
 * Batch 솔루션을 개발하는 동안 사용하기 위해 [BatchLabs][batch_labs]를 다운로드 및 설치합니다. BatchLabs를 사용하여 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있습니다. 
 * MSDN에서 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [Batch 커뮤니티 리포지토리](https://github.com/Azure/Batch) 및 [Azure Batch 포럼][batch_forum]을 비롯한 커뮤니티 리소스를 참조하세요. 
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: da81f26109eb140135eb972fd28e487139470b82
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a69bfbe4c062012e82ca49233226eb1fcb8eb75e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032912"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113543"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>빠른 시작: Visual Studio용 Azure Stream Analytics 도구를 사용하여 Stream Analytics 작업 만들기
 
@@ -71,6 +71,11 @@ Stream Analytics 작업을 정의하기 전에 작업에 대한 입력으로 구
 4. 프로젝트 **이름**, **위치** 및 **솔루션 이름**을 입력하고, **확인**을 선택합니다.
 
    ![Stream Analytics 프로젝트 만들기](./media/stream-analytics-quick-create-vs/create-stream-analytics-project.png)
+
+Azure Stream Analytics 프로젝트에 포함된 요소를 확인합니다.
+
+   <img src="./media/stream-analytics-quick-create-vs/stream-analytics-project.png" alt="Azure Stream Analytics project elements" width="300px"/>
+
 
 ## <a name="choose-the-required-subscription"></a>필수 구독 선택
 

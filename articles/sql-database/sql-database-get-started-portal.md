@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 07/16/2018
 ms.author: sachinp
-ms.openlocfilehash: 264397fee8ea37321841a4130cb5977219861053
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 172ee6c2200334a57ebaa073d7ff530d19b2f07d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345426"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090533"
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Azure Portal에서 Azure SQL Database 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "37345426"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
   >[!NOTE]
-  >이 자습서에서는 DTU 기반 구매 모델을 사용하지만 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)도 사용할 수 있습니다.
+  >이 자습서에서는 DTU 기반 구매 모델을 사용하지만 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)도 사용할 수 있습니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 

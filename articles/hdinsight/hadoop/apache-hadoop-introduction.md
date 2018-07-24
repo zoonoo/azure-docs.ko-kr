@@ -1,25 +1,22 @@
 ---
-title: HDInsight, Hadoop 및 Spark 기술 스택이란? - Azure | Microsoft Docs
+title: HDInsight, Hadoop 및 Spark 기술 스택이란? - Azure
 description: HDInsight, Hadoop 및 Spark 기술 스택 및 구성 요소(빅 데이터 분석을 위한 Kafka, Hive, Storm 및 HBase 포함)를 소개합니다.
 keywords: Azure Hadoop, Hadoop Azure, Hadoop 소개, Hadoop 기술 스택, Hadoop 소개, Hadoop 클러스터란?, Hadoop 용도
 services: hdinsight
-documentationcenter: ''
 author: cjgronlund
+ms.author: cgronlun
 manager: jhubbard
-editor: cgronlun
 ms.assetid: e56a396a-1b39-43e0-b543-f2dee5b8dd3a
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
-ms.devlang: na
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: cgronlun
-ms.openlocfilehash: b84389c1d52c0c43f1e71da3eed86f4057b85559
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c7bed171a3b866f4b1f94d6a5348dd25d8820f2b
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051385"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115344"
 ---
 # <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Azure HDInsight 및 Hadoop 기술 스택이란?
 
@@ -89,7 +86,7 @@ HDInsight를 사용하여 데이터에서 중요한 통찰력을 추출하는 �
 ## <a name="cluster-types-in-hdinsight"></a>HDInsight의 클러스터 형식
 HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 클러스터 형식 및 클러스터 사용자 지정 기능이 포함됩니다. HDInsight는 다음 클러스터 형식을 제공합니다.
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: 프레임워크는 병렬로 일괄 처리 데이터를 처리하고 분석하기 위해 [HDFS](#hdfs), [YARN](#yarn) 리소스 관리 및 간단한 [MapReduce](#mapreduce) 프로그래밍 모델을 사용합니다.
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**: 프레임워크는 병렬로 일괄 처리 데이터를 처리하고 분석하기 위해 HDFS, YARN 리소스 관리 및 간단한 MapReduce 프로그래밍 모델을 사용합니다.
 
 * **[Apache Spark](http://spark.apache.org/)**: 메모리 내 처리를 지원하여 빅데이터 분석 응용 프로그램의 성능을 향상시키는 오픈 소스 병렬 처리 프레임워크입니다. [HDInsight의 Apache Spark란?](../spark/apache-spark-overview.md)을 참조하세요.
 

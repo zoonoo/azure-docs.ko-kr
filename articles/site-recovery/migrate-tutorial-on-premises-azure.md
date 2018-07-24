@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 07/16/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b297e2ef2f4c276b9183d1874e104d686b304a14
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bc04483c35162c0b461fd03c63aaa894b1bc199a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919124"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070680"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -40,7 +40,10 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 ## <a name="prerequisites"></a>필수 조건
 
-반가상화 드라이버에서 내보낸 장치는 지원되지 않습니다.
+- 반가상화 드라이버에서 내보낸 장치는 지원되지 않습니다.
+ 
+> [!WARNING]
+> 물리적 서버와 같은 VM을 처리하여 XenServer와 같은 다른 가상화 플랫폼(VMware, Hyper-V 이외)에서 VM을 마이그레이션할 수 있습니다. 단, 이 방법은 Microsoft의 테스트 및 유효성 검증을 거치지 않았으며 작동하지 않을 수도 있습니다. 예를 들어 XenServer 플랫폼에서 실행 중인 VM은 마이그레이션을 시작하기 전에 VM에서 XenServer 도구 및 반가상화 저장소와 네트워크 드라이버가 제거되지 않으면 Azure에서 실행되지 않을 수 있습니다.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
@@ -109,7 +112,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 1. **설정** > **복제된 항목**에서 컴퓨터 > **장애 조치(Failover)** 를 클릭합니다.
 2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 최신 복구 지점을 선택합니다.
 3. 암호화 키 설정은 이 시나리오와 관련이 없습니다.
-4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 가상 머신을 종료하려고 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 가상 머신을 종료하려고 시도합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 5. Azure VM이 예상대로 Azure에 표시되는지 확인합니다.
 6. **복제된 항목**에서 VM를 마우스 오른쪽 단추로 클릭하고 **마이그레이션 완료**를 클릭합니다. 그러면 마이그레이션 프로세스가 완료되고, VM에 대한 복제가 중지되고, VM에 대한 Site Recovery 청구가 중지됩니다.
 
@@ -124,7 +127,7 @@ BCDR(비즈니스 지속성 및 재해 복구)을 위해 [Azure Site Recovery](s
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 온-프레미스 VM을 Azure VM으로 마이그레이션했습니다. 이제 Azure VM에 대해 재해 복구를 구성할 수 있습니다.
-
-> [!div class="nextstepaction"]
-> 온-프레미스 사이트에서 마이그레이션한 후 Azure VM에 대해 [재해 복구를 설정](azure-to-azure-replicate-after-migration.md)합니다.
+이 자습서에서는 온-프레미스 VM을 Azure VM으로 마이그레이션했습니다. VM 마이그레이션이 성공하고 나면:
+- 마이그레이션된 VM에 대해 [재해 복구를 설정](azure-to-azure-replicate-after-migration.md)합니다.
+- Azure의 [안전하고 잘 관리되는 클라우드](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) 기능을 활용하여 Azure에서 VM을 관리하세요.
+  

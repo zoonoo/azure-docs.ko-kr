@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 06/06/2018
+ms.date: 07/17/2018
 ms.author: marsma
-ms.openlocfilehash: a0772d1009021ca64b448710c5353407a5492fae
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: e4c1efbf4c2c844bae971fa1136e0fe3bed18bcc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809872"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112966"
 ---
 # <a name="container-instance-logging-with-azure-log-analytics"></a>Azure Log Analytics를 사용한 컨테이너 인스턴스 로깅
 
@@ -43,9 +43,26 @@ Log Analytics 작업 영역 ID 및 기본 키를 가져오려면:
 
 ## <a name="create-container-group"></a>컨테이너 그룹 만들기
 
-Log Analytics 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용할 수 있는 컨테이너 그룹을 만들 수 있습니다. 다음 예에서는 단일 [fluentd][fluentd] 컨테이너로 컨테이너 그룹을 만듭니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
+Log Analytics 작업 영역 ID와 기본 키를 알고 있으므로 로깅을 사용할 수 있는 컨테이너 그룹을 만들 수 있습니다.
 
-먼저 단일 컨테이너가 있는 컨테이너 그룹을 새 파일에 정의하는 다음 YAML을 복사합니다. `LOG_ANALYTICS_WORKSPACE_ID` 및 `LOG_ANALYTICS_WORKSPACE_KEY`를 이전 단계에서 구한 값으로 바꾼 후 파일을 **deploy-aci.yaml**로 저장합니다.
+다음 예제에서는 단일 [fluentd][ fluentd] 컨테이너를 사용하여 컨테이너 그룹을 만드는 두 가지 방법인 Azure CLI 및 YAML 템플릿의 Azure CLI를 보여줍니다. Fluentd 컨테이너는 기본 구성에서 여러 줄의 출력을 생성합니다. 이 출력은 Log Analytics 작업 영역으로 전송되므로 로그를 보고 쿼리하는 방법을 보여주기에 효과적입니다.
+
+### <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
+
+Azure CLI를 사용하여 배포하려면 [az container create][az-container-create] 명령에서 `--log-analytics-workspace` 및 `--log-analytics-workspace-key` 매개 변수를 지정합니다. 다음 명령을 실행하기 전에 이전 단계에서 얻은 값으로 두 작업 영역 값을 바꾸고 리소스 그룹 이름을 업데이트합니다.
+
+```azurecli-interactive
+az container create \
+    --resource-group myResourceGroup \
+    --name mycontainergroup001 \
+    --image fluent/fluentd \
+    --log-analytics-workspace <WORKSPACE_ID> \
+    --log-analytics-workspace-key <WORKSPACE_KEY>
+```
+
+### <a name="deploy-with-yaml"></a>YAML을 사용하여 배포
+
+YAML을 사용하여 컨테이너 그룹을 배포하려는 경우 이 메서드를 사용합니다. 다음 YAML은 단일 컨테이너로 컨테이너 그룹을 만듭니다. 새 파일에 YAML을 복사한 다음, `LOG_ANALYTICS_WORKSPACE_ID` 및 `LOG_ANALYTICS_WORKSPACE_KEY`를 이전 단계에서 구한 값으로 바꿉니다. 파일을 **deploy-aci.yaml**로 저장합니다.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -75,7 +92,7 @@ type: Microsoft.ContainerInstance/containerGroups
 그리고 다음 명령을 실행하여 컨테이너 그룹을 배포합니다. `myResourceGroup`은 구독의 리소스 그룹으로 바꿉니다(또는 먼저 "myResourceGroup"이라는 리소스 그룹 만들기).
 
 ```azurecli-interactive
-az container create -g myResourceGroup -n mycontainergroup001 -f deploy-aci.yaml
+az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
 ```
 
 명령 실행 즉시 Azure에서 배포 세부 정보가 포함된 응답이 수신되어야 합니다.
@@ -135,3 +152,4 @@ Azure Log Analytics에서 로그를 쿼리하고 경고를 구성하는 방법�
 [query_lang]: https://docs.loganalytics.io/
 
 <!-- LINKS - Internal -->
+[az-container-create]: /cli/azure/container#az-container-create

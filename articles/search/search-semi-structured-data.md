@@ -1,21 +1,21 @@
 ---
-title: Azure 클라우드 저장소에서 반구조화된 데이터 검색
-description: Azure Search를 사용하여 반구조화된 BLOB 데이터 검색.
-author: roygara
+title: Azure Search의 Azure 클라우드 저장소에서 반구조화된 데이터 검색을 위한 자습서 | Microsoft Docs
+description: 이 자습서에서는 Azure Search를 사용하여 반구조화된 Azure Blob 데이터를 검색하는 방법을 알아봅니다.
+author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/12/2017
-ms.author: v-rogara
-ms.openlocfilehash: 7579862e132724d101e4267023afd9e3336bc3b1
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.date: 07/12/2018
+ms.author: heidist
+ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795044"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005080"
 ---
-# <a name="part-2-search-semi-structured-data-in-cloud-storage"></a>2부: 클라우드 저장소에 반구조화된 데이터 검색
+# <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>자습서: Azure 클라우드 저장소에서 반구조화된 데이터 검색
 
 두 부분으로 구성된 이 자습서에서는 Azure Search를 사용하여 반구조화된 데이터 및 구조화되지 않은 데이터를 검색하는 방법을 배웁니다. [1부](../storage/blobs/storage-unstructured-search.md)에서는 구조화되지 않은 데이터를 검색하는 단계를 설명하며, 저장소 계정 만들기와 같이 이 자습서에 중요한 필수 구성 요소도 포함되어 있습니다. 
 
@@ -28,14 +28,16 @@ ms.locfileid: "31795044"
 > * 컨테이너를 크롤링하고 검색 가능한 콘텐츠를 추출하는 Azure Search 인덱스 및 인덱서를 만들고 채우기
 > * 방금 만든 인덱스 검색
 
-> [!NOTE]
-> 이 자습서에서는 현재 Azure Search의 미리 보기 기능인 JSON 배열 지원을 사용합니다. 포털에서는 사용할 수 없습니다. 이러한 이유로 이 기능을 제공하는 미리 보기 REST API와 API를 호출하는 REST 클라이언트 도구가 사용됩니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * 저장소 계정 및 검색 서비스 만들기를 제공하는 [이전 자습서](../storage/blobs/storage-unstructured-search.md) 완료.
 
 * REST 클라이언트 설치 및 HTTP 요청을 구성하는 방법에 대한 이해. 이 자습서에서는 [Postman](https://www.getpostman.com/)을 사용하고 있습니다. 특정 REST 클라이언트를 이미 익숙하게 사용하고 있다면 다른 REST 클라이언트를 자유롭게 사용할 수 있습니다.
+
+> [!NOTE]
+> 이 자습서에서는 현재 Azure Search의 미리 보기 기능인 JSON 배열 지원을 사용합니다. 포털에서는 사용할 수 없습니다. 이러한 이유로 이 기능을 제공하는 미리 보기 REST API와 API를 호출하는 REST 클라이언트 도구가 사용됩니다.
 
 ## <a name="set-up-postman"></a>Postman 설정
 
@@ -55,9 +57,9 @@ Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 
 
 샘플에는 예제 JSON 파일이 들어 있습니다. 이 파일은 원래 [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)에서 가져온 텍스트 파일이었습니다. 편의를 위해 JSON으로 변환했습니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인
+## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](http://portal.azure.com) 에 로그인합니다.
+[Azure 포털](http://portal.azure.com)에 로그인합니다.
 
 ## <a name="upload-the-sample-data"></a>샘플 파일 업로드
 
@@ -277,15 +279,13 @@ Azure Portal을 열고 검색 서비스로 다시 이동합니다. 이전 자습
 
 `$filter` 매개 변수는 인덱스를 만들 때 필터링 가능으로 표시된 메타데이터에서만 작동합니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Search에서 다음 방법 등을 사용하여 반구조화된 데이터를 검색하는 방법을 배웠습니다.
-
-> [!div class="checklist"]
-> * REST API를 사용하여 Azure Search Service 만들기
-> * Azure Search Service를 사용하여 컨테이너 검색
-
-검색에 대해 더 자세한 내용을 알아보려면 이 링크를 참조하세요.
+AI 지원 알고리즘을 인덱서 파이프라인에 연결할 수 있습니다. 다음 단계로 다음 자습서를 계속 진행합니다.
 
 > [!div class="nextstepaction"]
 > [Azure Blob Storage에서 문서 인덱싱](search-howto-indexing-azure-blob-storage.md)

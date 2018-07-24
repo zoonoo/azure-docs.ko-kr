@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/22/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 91bb57f49f8c92967275d340410e22381adad19e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f795333e8af2f09800dedc0b65030c42165d6bbb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114278"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068906"
 ---
 # <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Service Fabric Windows 클러스터 배포
 
@@ -45,11 +45,11 @@ ms.locfileid: "37114278"
 > * [클러스터의 런타임 업그레이드](service-fabric-tutorial-upgrade-cluster.md)
 > * [Service Fabric을 사용하여 API Management 배포](service-fabric-tutorial-deploy-api-management.md)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 없는 경우 [평가판 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Service Fabric SDK 및 PowerShell 모듈](service-fabric-get-started.md)을 설치합니다.
 * [Azure PowerShell 모듈 버전 4.1 이상](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)을 설치합니다.
 
@@ -97,7 +97,7 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 * [역방향 프록시](service-fabric-reverseproxy.md) 사용
 * [DNS 서비스](service-fabric-dnsservice.md) 사용
 * 브론즈의 [내구성 수준](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
-* 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
+ * 실버의 [안정성 수준](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster)(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19000(템플릿 매개 변수에서 구성 가능)
 * 클라이언트 연결 엔드포인트: 19080(템플릿 매개 변수에서 구성 가능)
 
@@ -139,13 +139,13 @@ Windows 클러스터는 다음과 같은 특성으로 배포됩니다.
 
 |매개 변수|예제 값|메모|
 |---|---||
-|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다. |
-|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다.|
-|clusterName|mysfcluster123| 클러스터의 이름입니다. |
+|adminUserName|vmadmin| 클러스터 VM에 대한 관리자 사용자 이름입니다.[VM의 사용자 이름 요구 사항](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm) |
+|adminPassword|Password#1234| 클러스터 VM에 대한 관리자 암호입니다. [VM의 암호 요구 사항](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm)|
+|clusterName|mysfcluster123| 클러스터의 이름입니다. 문자와 숫자만 포함할 수 있습니다. 길이는 3자에서 23자 사이일 수 있습니다.|
 |location|southcentralus| 클러스터의 위치입니다. |
-|certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 지문 값을 입력합니다. 예를 들면 "6190390162C988701DB5676EB81083EA608DCCF3"과 같습니다.</p>. |
+|certificateThumbprint|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 지문 값을 입력합니다. 예를 들면 “6190390162C988701DB5676EB81083EA608DCCF3”과 같습니다.</p>에서도 확인할 수 있습니다. |
 |certificateUrlValue|| <p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다. </p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 인증서 URL을 입력합니다. 예: "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
-|sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT"와 같습니다.</p>|
+|sourceVaultValue||<p>자체 서명된 인증서를 만들거나 인증서 파일을 제공하는 경우 값은 비워두어야 합니다.</p><p>이전에 키 자격 증명 모음에 업로드된 기존 인증서를 사용하려면 원본 자격 증명 모음 값을 입력합니다. 예를 들면 “/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT”와 같습니다.</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
 
