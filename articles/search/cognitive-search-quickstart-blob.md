@@ -3,16 +3,17 @@ title: '빠른 시작: 포털을 사용하여 Azure Search에서 인식 검색 �
 description: Azure Portal에서 샘플 데이터를 사용하여 데이터 추출, 자연어 및 이미지 처리 기술을 보여주는 예제입니다.
 manager: cgronlun
 author: HeidiSteen
+services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: c5b6036efa4fcd6b7b8d756fa20d63952482518e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640264"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003699"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>빠른 시작: 기술 및 샘플 데이터를 사용하여 인식 검색 파이프라인 만들기
 
@@ -123,7 +124,7 @@ Azure Search 서비스 대시보드 페이지로 돌아가서 명령 모음에�
 
 **인덱스 사용자 지정**에서 필드를 특성을 검토하여 인덱스에서 어떻게 사용되는지 살펴봅니다. 검색 가능은 필드를 검색할 수 있다는 뜻입니다. 조회 가능은 결과에 반환될 수 있다는 뜻입니다. 
 
-`content` 필드에서 조회 가능을 제거하는 방안을 고려해 보세요. BLOB에서는 이 필드가 수천 줄이 되어 **Search 탐색기** 같은 도구에서 읽기 어려울 수 있습니다.
+`content` 필드에서 조회 가능을 제거하는 방안을 고려해 보세요. Blob에서는 이 필드가 수천 줄이 되어 **Search 탐색기** 같은 도구에서 읽기 어려울 수 있습니다.
 
 인덱스를 수락하려면 **확인**을 클릭합니다.
 
@@ -148,7 +149,7 @@ Azure Search 서비스 대시보드 페이지로 돌아가서 명령 모음에�
 
 ## <a name="query-in-search-explorer"></a>Search 탐색기에서 쿼리
 
-인덱스를 만든 후에는 인덱스에서 문서를 반환하는 쿼리를 제출할 수 있습니다. 포털에서 **Search 탐색기**를 사용하여 쿼리를 실행하고 결과를 검토합니다. 
+인덱스를 만든 후에는 인덱스에서 문서를 반환하는 쿼리를 제출할 수 있습니다. 포털에서 **Search 탐색기**를 사용하여 쿼리를 실행하고 결과를 봅니다. 
 
 1. 검색 서비스 대시보드 페이지의 명령 모음에서 **Search 탐색기**를 클릭합니다.
 

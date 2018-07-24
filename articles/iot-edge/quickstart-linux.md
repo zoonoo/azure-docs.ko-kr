@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5346467dff40832aa35799ee3d532e99bf14d569
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38482077"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005818"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포
 
@@ -76,7 +76,7 @@ Azure Portal에서 IoT Hub를 만들어 빠른 시작을 시작합니다.
 1. 새 리소스 그룹에 IoT Hub를 만듭니다. 다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브의 고유한 이름으로 바꿉니다.
 
    ```azurecli-interactive
-   az iot hub create --resource-group TestResources --name {hub_name} --sku F1 
+   az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
    구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. 
@@ -250,12 +250,11 @@ IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하�
 
 새 리소스 그룹에서 가상 머신 및 IoT 허브를 만든 경우 해당 그룹 및 모든 관련 리소스를 삭제할 수 있습니다. 유지하려는 모든 해당 리소스 그룹에 있는 경우 정리하려는 개별 리소스를 삭제합니다. 
 
-리소스 그룹을 제거하려면 이러한 단계를 수행합니다. 
+**IoTEdgeResources** 그룹을 제거합니다. 
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
-2. **이름을 기준으로 필터링...** 텍스트 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다. 
-3. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
-4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 클릭합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+   ```azurecli-interactive
+   az group delete --name IoTEdgeResources 
+   ```
 
 ### <a name="remove-the-iot-edge-runtime"></a>IoT Edge 런타임 제거
 

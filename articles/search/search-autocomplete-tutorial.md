@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가 | Microsoft Docs'
+title: Azure Search를 사용하여 검색 상자에 자동 완성을 추가하는 자습서 | Microsoft Docs
 description: Azure Search 자동 완성 및 제안 API를 사용하여 데이터 중심 응용 프로그램의 최종 사용자 환경을 개선하는 방법 예제.
 manager: pablocas
 author: mrcarter8
@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 06/25/2018
+ms.date: 07/11/2018
 ms.author: mcarter
-ms.openlocfilehash: 90e99e7d44183d70f4e348c7b9070001fa3c6329
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7120080bfdc188c150c7065e1c0639ab8c04f173
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101060"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989688"
 ---
 # <a name="tutorial-add-auto-complete-to-your-search-box-using-azure-search"></a>자습서: Azure Search를 사용하여 검색 상자에 자동 완성 추가 
 

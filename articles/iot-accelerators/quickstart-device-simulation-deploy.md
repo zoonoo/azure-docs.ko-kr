@@ -9,18 +9,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: f3a252d6f7c49a65e0c548599b1958825b134ee8
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967018"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005036"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>빠른 시작: 클라우드 기반 장치 시뮬레이션 솔루션 배포 및 실행
 
 이 빠른 시작에서는 IoT 솔루션을 테스트하는 데 사용하기 위해 Azure IoT 장치 시뮬레이션 솔루션 가속기를 배포하는 방법을 보여줍니다. 솔루션 가속기를 배포한 후 **시뮬레이션** 페이지를 사용하여 시뮬레이션을 만들고 실행합니다.
-
-## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작을 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -88,7 +86,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 추가 탐색하려는 경우 장치 시뮬레이션 솔루션 가속기를 배포된 대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
 
 ![솔루션 삭제](media/quickstart-device-simulation-deploy/deletesolution.png)
 
@@ -96,7 +94,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 이 빠른 시작에서는 장치 시뮬레이션 솔루션 가속기를 배포하고 IoT 장치 시뮬레이션을 실행했습니다.
 
-시뮬레이션에서 기존 IoT Hub를 사용하는 방법을 알아보려면 방법 가이드를 참조하세요.
+시뮬레이션에서 기존 IoT Hub를 사용하는 방법을 알아보려면 다음의 방법 가이드를 참조하세요.
 
 > [!div class="nextstepaction"]
 > [장치 시뮬레이션 솔루션 가속기와 함께 기존 IoT 허브 사용](iot-accelerators-device-simulation-choose-hub.md)

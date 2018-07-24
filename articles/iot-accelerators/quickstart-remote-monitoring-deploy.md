@@ -7,22 +7,20 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e3eff46299ecfbfe39b57bc2cf5ed4a655a6d7f1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8dd630650498f3698fea3ed03882fe8c5c3d338e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088036"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004321"
 ---
-# <a name="quickstart-deploy-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 배포
+# <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>빠른 시작: 클라우드 기반 원격 모니터링 솔루션 시도
 
-이 빠른 시작에서는 Azure IoT 원격 모니터링 솔루션 가속기를 배포하여 IoT 장치에 대한 클라우드 기반 원격 모니터링 솔루션으로 사용하는 방법을 보여줍니다. 솔루션 가속기를 배포한 후 솔루션 **대시보드** 페이지를 사용하여 시뮬레이션된 장치를 맵에서 시각화하면 **유지 관리** 페이지가 시뮬레이션된 냉각기 장치의 압력 경고에 응답합니다.
+이 빠른 시작에서는 Azure IoT 원격 모니터링 솔루션 가속기를 배포하여 클라우드 기반 원격 모니터링 시뮬레이션을 실행하는 방법을 보여줍니다. 솔루션 가속기를 배포한 후 솔루션 **대시보드** 페이지를 사용하여 시뮬레이션된 장치를 맵에서 시각화하면 **유지 관리** 페이지가 시뮬레이션된 냉각기 장치의 압력 경고에 응답합니다. 학습 도구로 또는 고유한 구현을 위한 시작점으로 이 솔루션 가속기를 사용할 수 있습니다.
 
-기본 배포에서는 Contoso라는 회사의 원격 모니터링 솔루션 가속기를 구성합니다. Contoso는 다양한 물리적 환경에 배포된 냉각기와 같이 선별된 다양한 장치 유형을 관리합니다. 냉각기는 원격 모니터링 솔루션 가속기에 온도, 습도 및 압력 원격 분석 데이터를 보냅니다.
-
-## <a name="prerequisites"></a>필수 조건
+초기 배포에서는 Contoso라는 회사의 원격 모니터링 솔루션 가속기를 구성합니다. Contoso는 다양한 물리적 환경에 배포된 냉각기와 같이 선별된 다양한 장치 유형을 관리합니다. 냉각기는 원격 모니터링 솔루션 가속기에 온도, 습도 및 압력 원격 분석 데이터를 보냅니다.
 
 이 빠른 시작을 완료하려면 활성 Azure 구독이 필요합니다.
 
@@ -42,9 +40,9 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 **.NET**을 언어로 선택합니다. Java 및 .NET 구현에는 동일한 기능이 있습니다.
 
-원격 모니터링 솔루션 가속기에 **솔루션 이름** 을 입력합니다.
+원격 모니터링 솔루션 가속기에 **솔루션 이름** 을 입력합니다. 이 빠른 시작에서는 **contoso-rm2**를 호출합니다.
 
-솔루션 가속기를 배포하는 데 사용할 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
+솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **서유럽**을 사용하고 있습니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
 **솔루션 만들기**를 배포를 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 
@@ -52,7 +50,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 ## <a name="sign-in-to-the-solution"></a>솔루션에 로그인
 
-Azure 구독에 대한 배포가 완료되면 원격 모니터링 솔루션 가속기 대시보드에 로그인할 수 있습니다.
+Azure 구독에 배포가 완료되면 솔루션 타일에 녹색 확인 표시 및 **준비**가 표시됩니다. 이제 원격 모니터링 솔루션 가속기 대시보드에 로그인할 수 있습니다.
 
 **프로비전된 솔루션** 페이지에서 새 원격 모니터링 솔루션 가속기를 선택합니다.
 
@@ -68,7 +66,7 @@ Azure 구독에 대한 배포가 완료되면 원격 모니터링 솔루션 가�
 
 ## <a name="view-your-devices"></a>장치 보기
 
-솔루션 대시보드에 Contoso의 장치에 대한 다음 정보가 표시됩니다.
+솔루션 대시보드에 Contoso의 시뮬레이션된 장치에 대한 다음 정보가 표시됩니다.
 
 * **장치 통계**에는 경고에 대한 요약 및 총 장치 수가 표시됩니다. 기본 배포에서 Contoso에는 서로 다른 유형의 시뮬레이션된 장치가 10개 있습니다.
 
@@ -110,7 +108,7 @@ Contoso 운영자는 솔루션 대시보드에서 장치를 모니터링 할 수
 
 [![장치 선택 및 작업 예약](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenanceschedule-expanded.png#lightbox)
 
-**작업** 패널에서 **실행 메서드**를 선택한 다음, **EmergencyValveRelease** 메서드를 선택하고 작업 이름 **ChillerPressureRelease**를 추가하고 **적용**을 클릭합니다. 이 설정은 즉시 실행하는 작업을 만듭니다.
+**작업** 패널에서 **메서드 실행**, **EmergencyValveRelease** 메서드를 차례로 합니다. 작업 이름**ChillerPressureRelease**을 추가하고 **적용**을 클릭합니다. 이 설정은 즉시 실행하는 작업을 만듭니다.
 
 작업 상태를 확인하려면 **유지 관리** 페이지로 돌아가서 **작업** 보기에서 작업 목록을 봅니다. 몇 초 정도 기다리면 냉각기에 대한 밸브 압력을 해제하기 위해 작업이 실행된 것을 확인할 수 있습니다.
 
@@ -132,7 +130,7 @@ Contoso 운영자는 솔루션 대시보드에서 장치를 모니터링 할 수
 
 자습서를 계속 진행하려는 경우 배포된 원격 모니터링 솔루션 가속기를 그대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요하지 않은 경우 이를 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
 
 ![솔루션 삭제](media/quickstart-remote-monitoring-deploy/deletesolution.png)
 
@@ -140,7 +138,7 @@ Contoso 운영자는 솔루션 대시보드에서 장치를 모니터링 할 수
 
 이 빠른 시작에서는 원격 모니터링 솔루션 가속기를 배포했고 기본 Contoso 배포에서 시뮬레이션된 장치를 사용하여 모니터링 작업을 완료했습니다.
 
-연결된 장치에서 펌웨어를 업데이트하는 방법을 알아보려면 솔루션 가속기에서 자산을 구성하고 다음 자습서로 계속 진행하세요.
+시뮬레이션된 장치를 사용하는 솔루션 가속기에 대해 자세히 알려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [자습서: IoT 장치 모니터링](iot-accelerators-remote-monitoring-monitor.md)

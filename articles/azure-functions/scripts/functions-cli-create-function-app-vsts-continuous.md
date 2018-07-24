@@ -4,17 +4,17 @@ description: 함수 앱 만들기 및 Visual Studio Team Services의 함수 코�
 services: functions
 keywords: ''
 author: syntaxc4
-ms.author: cfowler
-ms.date: 01/09/2018
+ms.author: glenga
+ms.date: 07/03/2018
 ms.topic: sample
 ms.service: functions
 ms.custom: mvc
-ms.openlocfilehash: 0bd2e0896758b4d9f019b0c9520c5e9e1f3afd94
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 1b54cfebd3ae36fc8025aeb4ea9c91d336bc5343
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29842350"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988955"
 ---
 # <a name="create-a-function-app-and-deploy-function-code-from-visual-studio-team-services"></a>함수 앱 만들기 및 Visual Studio Team Services의 함수 코드 배포
 
@@ -47,10 +47,10 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service 계획을 만듭니다. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Git 또는 Mercurial 리포지토리를 사용하여 함수 앱에 연결합니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 저장소 계정을 만듭니다. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
+| [az functionapp deployment source config](https://docs.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Git 또는 Mercurial 리포지토리를 사용하여 함수 앱에 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

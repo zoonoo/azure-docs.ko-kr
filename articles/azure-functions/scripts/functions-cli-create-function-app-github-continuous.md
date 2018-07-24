@@ -6,16 +6,16 @@ ms.service: functions
 keywords: ''
 ms.devlang: azurecli
 author: syntaxc4
-ms.author: cfowler
-ms.date: 01/09/2018
+ms.author: glenga
+ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 720ead07aa35540f61f1dc8e15b79ac9d58669be
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: b44126f6bf191ee57bfea7017a4f4d87a57c01f1
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29842731"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989863"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Azure에서 GitHub로부터 배포되는 함수 앱 만들기
 
@@ -49,9 +49,8 @@ Azure CLI를 로컬로 사용하는 경우 버전 2.0 이상을 설치해서 사
 | 명령 | 메모 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | App Service 계획을 만듭니다. |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/appservice/web#az_appservice_web_delete) |
-| [az appservice web source-control config](https://docs.microsoft.com/cli/azure/appservice/web/source-control#az_appservice_web_source_control_config) | Git 또는 Mercurial 리포지토리를 사용하여 함수 앱에 연결합니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 저장소 계정을 만듭니다. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만들어 Git 또는 Mercurial 리포지토리와 연결합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

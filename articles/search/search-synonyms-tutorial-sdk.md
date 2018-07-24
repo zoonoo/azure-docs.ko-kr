@@ -1,28 +1,34 @@
 ---
-title: Azure Search에서 동의어 자습서 | Microsoft Docs
-description: Azure Search의 인덱스에 동의어 기능을 추가합니다.
+title: Azure Search에서 동의어 C# 자습서 | Microsoft Docs
+description: 이 자습서에서 Azure Search의 인덱스에 동의어 기능을 추가합니다.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/20/2018
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 5482185a4a4cc8b76c1094ce12a7ac52985ec57c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182092"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990564"
 ---
-# <a name="synonym-c-tutorial-for-azure-search"></a>Azure Search에 대한 동의어 C# 자습서
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>자습서: C#에서 Azure Search에 대 한 동의어 추가
 
-동의어는 입력 용어와 의미상 동일하다고 간주되는 용어를 비교하여 쿼리를 확장합니다. 예를 들어 "car"를 "automobile" 또는 "vehicle"이라는 용어를 포함하는 문서와 비교합니다.
+동의어는 입력 용어와 의미상 동일하다고 간주되는 용어를 비교하여 쿼리를 확장합니다. 예를 들어 "car"를 "automobile" 또는 "vehicle"이라는 용어를 포함하는 문서와 비교합니다. 
 
-Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*을 통해 *동의어 맵*에 정의됩니다. 여러 동의어 맵을 만들고 모든 인덱스에 사용할 수 있는 서비스 전반 리소스로 게시한 다음 필드 수준에서 사용할 용어를 참조합니다. Azure Search에서는 쿼리 시 인덱스를 검색하는 것 외에도 용어가 쿼리에서 사용되는 필드에 지정된 경우 동의어 맵에서 조회를 수행합니다.
+Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*을 통해 *동의어 맵*에 정의됩니다. 이 자습서에서는 기존 인덱스가 포함된 동의어를 추가 및 사용하기 위한 필수 단계를 설명합니다. 다음 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 매핑 규칙을 만들고 게시하여 동의어를 사용하도록 설정 
+> * 쿼리 문자열에서 동의어 맵 참조
+
+여러 동의어 맵을 만들고 모든 인덱스에 사용할 수 있는 서비스 전반 리소스로 게시한 다음 필드 수준에서 사용할 용어를 참조합니다. Azure Search에서는 쿼리 시 인덱스를 검색하는 것 외에도 용어가 쿼리에서 사용되는 필드에 지정된 경우 동의어 맵에서 조회를 수행합니다.
 
 > [!NOTE]
-> 동의어 기능은 최신 API 및 SDK 버전에서 지원됩니다(api-버전=2017-11-11, SDK 버전 5.0.0). 지금은 Azure Portal 지원이 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
+> 동의어는 최신 API 및 SDK 버전에서 지원됩니다(api-버전=2017-11-11, SDK 버전 5.0.0). 지금은 Azure Portal 지원이 없습니다. 동의어에 대한 Azure Portal 지원이 사용자에게 유용한 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에서 피드백을 제공해 주세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -73,7 +79,7 @@ Azure Search에서 동의어는 동등한 용어를 연결하는 *매핑 규칙*
 
 ## <a name="before-queries"></a>"이전" 쿼리
 
-`RunQueriesWithNonExistentTermsInIndex`에서 "five star", "internet", "economy AND hotel"로 검색 쿼리를 실행했습니다.
+`RunQueriesWithNonExistentTermsInIndex`에서 "five star", "internet", "economy AND hotel"로 검색 쿼리를 실행합니다.
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
 results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
@@ -159,8 +165,13 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ## <a name="sample-application-source-code"></a>샘플 응용 프로그램 소스 코드
 [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms)에서 이 연습에 사용된 샘플 응용 프로그램의 전체 소스 코드를 찾을 수 있습니다.
 
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Search에서 동의어를 사용하는 방법](search-synonyms.md) 검토
-* [동의어 REST API 설명서](https://aka.ms/rgm6rq) 검토
-* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/)에 대한 참고 자료를 찾아봅니다.
+이 자습서에서는 매핑 규칙을 만들고 게시한 다음, 쿼리에서 동의어 맵을 호출하기 위해 C# 코드에서 [동의어 REST API](https://aka.ms/rgm6rq)를 보여줬습니다. 추가 정보는 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) 및 [REST API](https://docs.microsoft.com/rest/api/searchservice/) 참조 설명서에서 찾을 수 있습니다.
+
+> [!div class="nextstepaction"]
+> [Azure Search에서 동의어를 사용하는 방법](search-synonyms.md)

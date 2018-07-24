@@ -6,14 +6,14 @@ author: tamram
 manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
-ms.date: 04/05/2018
+ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: 0ae4e196c81e767b2bbee4340f5d99b9f803df3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 30741e48adbdb621317c13ec286b419bed2f9ea1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653657"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001544"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -140,6 +140,7 @@ Storage 서비스에 사용할 수 있는 기본적인 종류의 두 가지 암�
 
 미사용 Azure SSE(저장소 서비스 암호화)를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure Storage는 저장소를 유지하기 전에 데이터를 자동으로 암호화하고 검색하기 전에 암호를 해독합니다. 암호화, 암호 해독 및 키 관리는 사용자에게 완전히 투명하게 처리됩니다.
 
+
 SSE는 모든 성능 계층(표준 및 프리미엄), 모든 배포 모델(Azure Resource Manager 및 클래식) 및 모든 Azure Storage 서비스(Blob, 큐, 테이블 및 파일)의 데이터를 자동으로 암호화합니다. SSE는 Azure Storage 성능에 영향을 주지 않습니다.
 
 미사용 SSE 암호화에 대한 자세한 내용은 [미사용 데이터에 대한 Azure 저장소 서비스 암호화](storage-service-encryption.md)를 참조하세요.
@@ -169,12 +170,14 @@ AzCopy는 [Azure 데이터 이동 라이브러리](https://www.nuget.org/package
 
 Azure Import/Export 서비스는 저장소 계정 간에 대량의 Blob 데이터를 가져오거나 내보내는 데 사용할 수 있습니다. 여러 하드 드라이브를 준비하고 Azure 데이터 센터에 전자 메일로 보내면 여기에서 하드 드라이브 간에 데이터를 전송하고 하드 드라이브를 다시 사용자에게 보냅니다. Import/Export 서비스에 대한 자세한 내용은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.
 
+빠르고 저렴하고 신뢰할 수 있는 방법으로 저장소 계정에 대량의 Blob 데이터를 가져오려면 Azure Data Box 디스크를 사용할 수도 있습니다. Microsoft는 40TB 용량의 암호화된 SSD(solid-state disk)를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크를 구성하고, USB 연결을 통해 디스크에 데이터를 복사하고, Azure에 다시 디스크를 제공합니다. Azure 데이터 센터에서 데이터는 자동으로 드라이브에서 클라우드로 업로드됩니다. 이 솔루션에 대한 자세한 내용은 [Azure Data Box 디스크 개요](https://docs.microsoft.com/azure/databox/data-box-disk-overview)로 이동합니다.
+
 ## <a name="pricing"></a>가격
 
 Azure Storage에서 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
 ## <a name="storage-apis-libraries-and-tools"></a>Storage API, 라이브러리 및 도구
-Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure Storage 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
+Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언어로 액세스할 수 있습니다. 또한 Azure Storage는 많이 사용되는 몇 가지 언어를 위한 프로그래밍 라이브러리를 제공합니다. 이 라이브러리는 동기/비동기 호출, 작업 일괄 처리, 예외 관리, 자동 재시도, 작업자 동작 등과 같은 세부 사항을 처리하여 Azure Storage 작업의 많은 측면을 간소화합니다. 현재 이 라이브러리는 파이프라인의 다른 라이브러리와 함께 다음 언어 및 플랫폼에 대해 사용할 수 있습니다.
 
 ### <a name="azure-storage-data-api-and-library-references"></a>Azure Storage 데이터 API 및 라이브러리 참조
 * [Storage 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/)

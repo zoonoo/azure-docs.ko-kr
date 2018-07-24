@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c72ae695c33bf9147bce7f326e8501ce2a88bb33
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916605"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990866"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>다른 Azure 지역에 Azure VM 복제
 
@@ -34,7 +34,7 @@ Azure Portal ( http://portal.azure.com ) 에 로그인합니다.
 
 1. Azure Portal에서 **가상 머신**를 클릭한 다음 복제할 VM을 선택합니다.
 
-2. **설정**에서 **재해 복구**를 클릭합니다.
+2. **작업**에서 **재해 복구**를 클릭합니다.
 3. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.
 4. 이 빠른 시작에서는 다른 기본 설정을 그대로 적용합니다.
 5. **복제 활성화**를 클릭합니다. VM에 대해 복제를 활성화하는 작업이 시작됩니다.

@@ -13,15 +13,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: ''
-ms.date: 01/22/2018
+ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 092e0681b0491fc1c54c19e234aafdac6d428fd1
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9154cef897d38e617c2f9dccdc8a47fe1af72104
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843224"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989464"
 ---
 # <a name="create-an-azure-function-that-connects-to-an-azure-cosmos-db"></a>Azure Cosmos DB에 연결하는 Azure Function 만들기
 
@@ -47,12 +47,10 @@ ms.locfileid: "29843224"
 
 | 명령 | 메모 |
 |---|---|
-| [az login](https://docs.microsoft.com/cli/azure/reference-index#az_login) | Azure에 로그인합니다. |
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 위치와 함께 리소스 그룹 만들기 |
-| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account) | 저장소 계정 만들기 |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az_functionapp_create) | 새로운 함수 앱 만들기 |
-| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_create) | cosmosdb 데이터베이스 만들기 |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 정리 |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 위치와 함께 리소스 그룹 만들기 |
+| [az storage accounts create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 저장소 계정 만들기 |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 서버를 사용하지 않는 [소비 계획](../functions-scale.md#consumption-plan)에서 함수 앱을 만듭니다. |
+| [az cosmosdb create](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-create) | Azure Cosmos DB 데이터베이스를 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

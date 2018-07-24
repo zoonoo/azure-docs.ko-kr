@@ -4,18 +4,19 @@ description: Application Insights 및 App Center를 사용하여 모니터링하
 services: application-insights
 keywords: ''
 author: mrbullwinkle
-ms.author: daviste; mbullwin
-ms.date: 10/05/2017
+ms.author: mbullwin
+ms.date: 07/11/2018
 ms.service: application-insights
+ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 252d16a5c4ef2d1f8230746dff681f7fbf5f44b1
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33867954"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988928"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>App Center 및 Application Insights를 사용하여 모바일 앱 분석 시작
 
@@ -144,7 +145,7 @@ Application Insights는 분석 도구인 App Center에서 제공하는 것 이�
 
    사용자 흐름 도구는 일부 시작 이벤트 후 사용자가 보낼 이벤트를 시각화합니다. 사용자가 앱을 통해 탐색하는 방법을 전반적으로 이해하는 데 유용하며, 많은 사용자가 앱에서 마음을 바꾸거나 같은 작업을 계속 반복하는 곳을 알아낼 수도 있습니다.
 
-   사용자 흐름뿐만 아니라, Application Insights에는 구체적인 질문에 답변할 수 있는 다양한 다른 사용률 분석 도구가 있습니다.
+   사용자 흐름뿐만 아니라, Application Insights에는 구체적인 질문에 답변할 수 있는 다양한 다른 사용자 행동 분석 도구가 있습니다.
 
    * **깔대기** - 전환률을 분석하고 모니터링합니다.
    * **보존** - 시간에 따라 앱에서 사용자를 얼마나 잘 보존하고 있는지 분석합니다.

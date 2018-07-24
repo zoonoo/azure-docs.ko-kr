@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2018
+ms.date: 07/11/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 463ac7ee3e640f8bc275adb9e6ac27cc3e6a037a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e78528783d57d31e1eb9bcda82fa9acccf69dde
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127962"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005252"
 ---
 # <a name="what-is-azure-log-analytics"></a>Azure Log Analytics란?
 Log Analytics는 다양한 원본에서 원격 분석 및 기타 데이터를 수집하고 응용 프로그램 및 리소스의 작업에 대한 통찰력을 제공하는 쿼리 언어 및 분석 엔진을 제공하여 Azure 관리에서 중심적인 역할을 수행합니다.  로그 검색 및 보기를 통해 Log Analytics 데이터와 직접 상호 작용하거나 Application Insights 또는 Azure Security Center 같은 Log Analytics에 데이터를 저장하는 다른 Azure 서비스에서 분석 도구를 사용할 수도 있습니다.  
@@ -41,12 +41,12 @@ Log Analytics는 다양한 원본에서 데이터를 수집합니다.  수집이
 
 Log Analytics에 데이터를 수집하기 위한 메서드는 다음과 같습니다.
 
-- Azure 리소스에서 수집하는 로그 및 메트릭을 복사하려면 Azure Monitor를 구성합니다.
-- [Windows](log-analytics-windows-agent.md) 및 [Linux](log-analytics-linux-agents.md) 가상 머신에서 에이전트는 구성하는 [데이터 소스](log-analytics-data-sources.md)에 따라 게스트 운영 체제 및 응용 프로그램에서 Log Analytics로 원격 분석을 전송합니다.  
-- 에이전트에서 데이터를 수집하려면 [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)을 Log Analytics에 연결합니다.
+- Azure 리소스에서 수집하는 [로그 및 메트릭](../monitoring/monitoring-data-collection.md#types-of-monitoring-data)을 복사하려면 Azure Monitor를 구성합니다.
+- [Azure Storage](log-analytics-azure-storage-iis-table.md)에 쓸 원격 분석을 수집합니다.
+- [Windows](log-analytics-windows-agent.md) 및 [Linux](log-analytics-linux-agents.md) 가상 머신에서 에이전트는 구성하는 [데이터 소스](log-analytics-data-sources.md)에 따라 게스트 운영 체제 및 응용 프로그램에서 Log Analytics로 원격 분석을 전송합니다. 에이전트는 방화벽 액세스가 없거나 [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md)을 통해 연결하지 못할 경우 [OMS 게이트웨이](log-analytics-oms-gateway.md)를 통해 직접 연결할 수 있습니다.
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/) 및 [Azure Security Center](https://docs.microsoft.com/azure/security-center/) 같은 Azure 서비스는 아무런 구성 없이 Log Analytics에 직접 데이터를 저장합니다.
 - Log Analytics cmdlet를 사용하여 PowerShell 명령줄 또는 [Azure Automation Runbook](../automation/automation-runbook-types.md)에서 데이터를 작성합니다.
-- 사용자 지정 요구 사항이 있는 경우 [HTTP 데이터 수집기 API](log-analytics-data-collector-api.md)를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 작성할 수 있습니다.
+- 사용자 지정 요구 사항이 있는 경우 [HTTP 데이터 수집기 API](log-analytics-data-collector-api.md)를 사용하여 REST API 클라이언트에서 Log Analytics로 데이터를 작성하거나 [Azure Logic App](https://docs.microsoft.com/azure/logic-apps/)을 사용하여 사용자 지정 워크플로에서 데이터를 작성할 수 있습니다.
 
 
 ![Log Analytics 구성 요소](media/log-analytics-overview/collecting-data.png)

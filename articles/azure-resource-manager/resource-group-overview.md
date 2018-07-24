@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/25/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 576558f7ab3ae9a0e3ceebb65d19f689b4836022
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 9b8f87f3cf09fef020ceed0166dd1652617ef605
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958819"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126612"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 응용 프로그램에 대한 인프라는 일반적으로 가상 머신, 저장소 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. Azure 리소스 관리자를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다. 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다. 
@@ -63,7 +63,9 @@ Azure Resource Manager가 처음이라면 익숙하지 않은 용어가 있을 �
 3. 명령적 명령을 실행하여 앱 또는 컴퓨터를 시작하거나 중지하는 등 리소스를 관리합니다.
 4. 리소스 그룹에서 동일한 수명 주기로 리소스를 정렬합니다. 리소스의 모든 다른 구성에 태그를 사용합니다.
 
-엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance)를 참조하세요.
+엔터프라이즈에서 리소스 관리자를 사용하여 구독을 효과적으로 관리할 수 있는 방법에 대한 지침은 [Azure 엔터프라이즈 스캐폴드 - 규범적 구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json)를 참조하세요.
+
+Azure, Azure 소버린 클라우드 및 Azure Stack에서 사용할 수 있는 Resource Manager 템플릿을 만드는 방법에 대한 권장 사항은 [클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발](templates-cloud-consistency.md)을 참조하세요.
 
 ## <a name="resource-groups"></a>리소스 그룹
 리소스 그룹을 정의할 때 고려해야 할 몇 가지 중요한 요인이 있습니다.
@@ -283,6 +285,7 @@ Azure SDK는 여러 언어 및 플랫폼에 사용할 수 있습니다. 이러�
 * 템플릿을 만드는 자세한 연습은 [첫 번째 Azure Resource Manager 템플릿 만들기](resource-manager-create-first-template.md)를 참조하세요.
 * 템플릿에서 사용할 수 있는 함수를 이해하려면 [템플릿 함수](resource-group-template-functions.md)
 * Resource Manager로 Visual Studio를 사용하는 방법에 대한 정보는 [Visual Studio를 통해 Azure 리소스 그룹 생성 및 배포](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 참조하세요.
+* 리소스를 클래식에서 ARM으로 마이그레이션하는 방법에 대한 내용은 [클래식에서 Azure Resource Manager로 마이그레이션](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager)을 참조하세요.
 
 이 개요에 대한 비디오 데모는 다음과 같습니다.
 

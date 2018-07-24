@@ -13,15 +13,15 @@ ms.workload: na
 ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
-ms.date: 04/10/2017
+ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: fd4c69036960364e12aeea5d9e5f65e7b36eff0d
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9b6779ac7778b721ff566c8553433853dbadbf13
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843479"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988264"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>함수 앱에 사용자 지정 SSL 인증서 바인딩
 
@@ -29,6 +29,7 @@ ms.locfileid: "29843479"
 
 * 도메인 등록 기관의 DNS 구성 페이지 액세스
 * 업로드하고 바인딩하려는 SSL 인증서에 사용할 유효한 .PFX 파일 및 암호
+* 웹앱의 기본 도메인 이름을 가리키는 사용자 지정 도메인에 A 레코드를 구성했습니다. 자세한 내용은 [Azure App Service에 대한 사용자 지정 도메인 지침 매핑](https://aka.ms/appservicecustomdns)을 참조합니다.
 
 SSL 인증서를 바인딩하려면 함수 앱이 소비 계획이 아니라 App Service 계획에서 생성되어야 합니다.
 
@@ -50,15 +51,16 @@ CLI를 로컬로 설치하고 사용하려는 경우 Azure CLI 버전 2.0 이상
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | SSL 인증서를 바인딩하는 데 필요한 App Service 계획을 만듭니다. |
-| [az functionapp create]() | 함수 앱을 만듭니다. |
-| [az appservice web config hostname add](https://docs.microsoft.com/cli/azure/appservice/web/config/hostname#az_appservice_web_config_hostname_add) | 함수 앱에 사용자 지정 도메인을 매핑합니다. |
-| [az appservice web config ssl upload](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_upload) | 함수 앱에 SSL 인증서를 업로드합니다. |
-| [az appservice web config ssl bind](https://docs.microsoft.com/cli/azure/appservice/web/config/ssl#az_appservice_web_config_ssl_bind) | 함수 앱에 업로드한 SSL 인증서를 바인딩합니다. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-create) | 함수 앱에 필요한 저장소 계정을 만듭니다. |
+| [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az-appservice-plan-create) | SSL 인증서를 바인딩하는 데 필요한 App Service 계획을 만듭니다. |
+| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | App Service 계획의 함수 앱을 만듭니다. |
+| [az functionapp config hostname add](https://docs.microsoft.com/cli/azure/functionapp/config/hostname#az-functionapp-config-hostname-add) | 함수 앱에 사용자 지정 도메인을 매핑합니다. |
+| [az functionapp config ssl upload](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-upload) | 함수 앱에 SSL 인증서를 업로드합니다. |
+| [az functionapp config ssl bind](https://docs.microsoft.com/cli/azure/functionapp/config/ssl#az-functionapp-config-ssl-bind) | 함수 앱에 업로드한 SSL 인증서를 바인딩합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](https://docs.microsoft.com/cli/azure)를 참조하세요.
 
-추가 App Service CLI 스크립트 샘플은 [Azure App Service 설명서]()에서 확인할 수 있습니다.
+추가 App Service CLI 스크립트 샘플은 [Azure App Service 설명서](../functions-cli-samples.md)에서 확인할 수 있습니다.

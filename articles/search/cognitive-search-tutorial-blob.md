@@ -1,20 +1,20 @@
 ---
-title: '자습서: Azure Search에서 인식 검색 API 호출 | Microsoft Docs'
-description: 데이터 추출 및 변환을 위한 Azure Search 인덱싱의 데이터 추출, 자연어 및 이미지 AI 처리 예제입니다.
+title: Azure Search에서 인식 검색 API 호출에 대한 자습서 | Microsoft Docs
+description: 이 자습서에서는 데이터 추출 및 변환을 위한 Azure Search 인덱싱의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 알아봅니다.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 05/01/2018
+ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 0bca64675ed656373d6a73ca772fa713ad36a57e
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757573"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991922"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>자습서: 인식 검색 API(미리 보기)를 호출하는 방법 알아보기
 
@@ -23,8 +23,8 @@ ms.locfileid: "34757573"
 이 자습서에서는 다음 작업을 수행할 REST API 호출을 만듭니다.
 
 > [!div class="checklist"]
-> * 인덱스로 라우팅되는 원본 데이터를 보강하는 인덱싱 파이프라인 만들기
-> * 샘플 데이터 집합에 기본 제공 기술 사용: 엔터티 인식, 언어 감지, 텍스트 조작, 핵심 구 추출
+> * 인덱스로 라우팅되는 샘플 데이터를 보강하는 인덱싱 파이프라인 만들기
+> * 기본 제공 기술 적용: 엔터티 인식, 언어 감지, 텍스트 조작, 핵심 구 추출
 > * 기술 집합에서 입력을 출력에 매핑하여 여러 기술을 연결하는 방법을 알아봅니다
 > * 요청을 실행하고 결과 검토
 > * 추가 개발을 위해 인덱스 및 인덱서 다시 설정

@@ -1,22 +1,22 @@
 ---
 title: Azure Search에서 Azure SQL Databases를 인덱싱하는 방법에 대한 자습서 | Microsoft Docs
-description: 검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다.
+description: 이 자습서에서 검색 가능한 데이터를 추출하고 Azure Search 인덱스에 입력하기 위해 Azure SQL Databases를 탐색합니다.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/10/2017
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: abf121ec369d84dd307416d2c08971d9096de4a8
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799518"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38988798"
 ---
-# <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Azure Search 인덱서를 사용하여 Azure SQL Databases를 탐색하는 방법
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>자습서: Azure Search 인덱서를 사용하여 Azure SQL Databases 탐색
 
 이 자습서에서는 샘플 Azure SQL Database에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 보여줍니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에 Azure SQL Database의 인덱서가 가장 널리 사용됩니다. 
 
@@ -33,15 +33,15 @@ ms.locfileid: "31799518"
 > * 인덱스 검색
 > * 포털에서 인덱서 구성 보기
 
-## <a name="prerequisites"></a>필수 조건
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-* 활성 Azure 계정. 아직 구독하지 않은 경우 [평가판](https://azure.microsoft.com/free/)에 등록할 수 있습니다. 
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Search 서비스. 설정하는 도움말은 [검색 서비스 만들기](search-create-service-portal.md)를 참조하세요.
 
 * 인덱서 사용되는 외부 데이터 원본을 제공하는 Azure SQL Database입니다. 샘플 솔루션은 SQL 데이터 파일을 제공하여 테이블을 만듭니다.
 
-* Visual Studio 2017. 체험 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)을 사용할 수 있습니다. 
+* Visual Studio 2017. [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) 평가판을 사용할 수 있습니다. 
 
 > [!Note]
 > 체험 Azure Search 서비스를 사용하는 경우 세 가지 인덱스, 세 가지 인덱서 및 세 가지 데이터 원본으로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 서비스에 새 리소스를 허용하는 공간이 있는지 확인합니다.
@@ -269,21 +269,14 @@ Azure Portal의 검색 서비스 개요 페이지에서 맨 위에 있는 **검�
 
   ![인덱서 및 데이터 원본 타일](./media/search-indexer-tutorial/tiles-portal.png)
 
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이러한 서비스를 계속 사용하지 않으려면 Azure Portal에서 이러한 단계에 따라 이 자습서에서 만든 리소스를 모두 삭제합니다. 
-
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 클릭한 다음 만든 리소스의 이름을 클릭합니다. 
-2. 리소스 그룹 페이지에서 **리소스 그룹 삭제**를 클릭하고 텍스트 상자에서 삭제할 리소스의 이름을 입력한 다음 **삭제**를 클릭합니다.
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용 및 기타 지원되는 데이터 원본에 관련된 작업은 다음 문서를 참조하세요.
+AI 지원 알고리즘을 인덱서 파이프라인에 연결할 수 있습니다. 다음 단계로 다음 자습서를 계속 진행합니다.
 
-* [Azure SQL Database 또는 Azure 가상 머신의 SQL Server](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Azure Table Storage](search-howto-indexing-azure-tables.md)
-* [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
-* [Azure Search Blob 인덱서를 사용하여 CSV Blob 인덱싱](search-howto-index-csv-blobs.md)
-* [Azure Search Blob 인덱서를 사용하여 JSON Blob 인덱싱](search-howto-index-json-blobs.md)
-
+> [!div class="nextstepaction"]
+> [Azure Blob Storage에서 문서 인덱싱](search-howto-indexing-azure-blob-storage.md)

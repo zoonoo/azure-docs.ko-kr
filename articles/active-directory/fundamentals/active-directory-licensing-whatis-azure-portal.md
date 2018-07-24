@@ -15,12 +15,12 @@ ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c6800e5a00d2fb837538141571c105a1d21e4374
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860464"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39005234"
 ---
 # <a name="group-based-licensing-basics-in-azure-active-directory"></a>Azure Active Directory에서 그룹 기반 라이선스 기본
 
@@ -30,8 +30,8 @@ Office 365, Enterprise Mobility + Security, Dynamics 365 및 기타 유사한 �
 
 이러한 문제를 해결하기 위해 이제는 Azure AD에 그룹 기반 라이선스가 포함됩니다. 그룹에 제품 라이선스를 하나 이상 할당할 수 있습니다. Azure AD는 그룹의 모든 멤버에게 라이선스가 할당되도록 합니다. 그룹에 참가하는 새 멤버에게는 적절한 라이선스가 할당됩니다. 멤버가 그룹을 떠날 때 해당 라이선스가 제거됩니다. 이렇게 하면 사용자 기준으로 조직 및 부서 구조에 변경 내용을 반영하기 위해 PowerShell을 통해 라이선스 관리를 자동화할 필요가 없습니다.
 
->[!NOTE]
->이 기능은 현재 공개 미리 보기로 제공됩니다. 변경 내용을 되돌리거나 제거할 준비를 해야 합니다. 이 기능은 공개 미리 보기 동안 모든 유료 Azure AD(Azure Active Directory) 라이선스 계획에서 사용할 수 있습니다. 그러나 기능이 일반 공급되면 일부 기능에는 하나 이상의 Azure Active Directory Premium 라이선스가 필요할 수도 있습니다.
+>[!Note]
+>그룹 기반 라이선싱은 Azure AD(Azure Active Directory)의 공개 미리 보기 기능이며 모든 유료 Azure AD 라이선스 계획에서 사용할 수 있습니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ## <a name="features"></a>기능
 
