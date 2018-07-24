@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: v-deasim
 ms.custom: mvc
-ms.openlocfilehash: f66aaa23a631bd71494587683aab87a74a5aef20
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261273"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036890"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 끝점에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 끝점을 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -54,7 +54,7 @@ Azure CDN 끝점에 사용자 지정 도메인을 사용하려면 먼저 해당 
 
 프로덕션 중인 기존 도메인을 매핑할 경우 특별한 고려 사항이 있습니다. Azure Portal에서 사용자 지정 도메인을 등록하는 동안 도메인에 짧은 가동 중지 시간이 발생할 수 있습니다. 웹 트래픽을 중단하지 않도록 방지하려면 먼저 Azure cdnverify 하위 도메인을 포함한 CDN 끝점 호스트 이름에 사용자 지정 도메인을 매핑하여 임시 CNAME 매핑을 만듭니다. 이 메서드를 사용하여 DNS 매핑이 발생하는 동안 사용자가 중단 없이 도메인에 액세스할 수 있습니다. 
 
-그렇지 않으면 처음으로 사용자 지정 도메인을 사용하고 프로덕션 트래픽이 실행되는 경우 직접 사용자 지정 도메인을 CDN 끝점에 매핑할 수 있습니다. [영구 사용자 지정 도메인 매핑](#map-permanent-custom-domain)으로 진행합니다.
+그렇지 않으면 처음으로 사용자 지정 도메인을 사용하고 프로덕션 트래픽이 실행되는 경우 직접 사용자 지정 도메인을 CDN 끝점에 매핑할 수 있습니다. [영구 사용자 지정 도메인 매핑](#map-the-permanent-custom-domain)으로 진행합니다.
 
 cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
@@ -109,7 +109,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
 
 사용자 지정 도메인을 등록한 후에 CDN 끝점에 추가할 수 있습니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인하고 사용자 지정 도메인에 매핑하려는 끝점을 포함하는 CDN 프로필로 이동합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 사용자 지정 도메인에 매핑하려는 엔드포인트를 포함하는 CDN 프로필로 이동합니다.
     
 2. **CDN 프로필** 페이지에서 사용자 지정 도메인과 연결할 CDN 끝점을 선택합니다.
 

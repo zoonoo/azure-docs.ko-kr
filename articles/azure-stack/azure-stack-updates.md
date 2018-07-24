@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: mabrigg
-ms.openlocfilehash: 43ec962c91b354d8f07f1be8885b89424d00e452
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 484f04dc2ed523d3f979b0ba857c92f90d9d32ad
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069862"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215814"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Azure Stack 개요에 대 한 업데이트 관리
 
 *적용 대상: Azure Stack 통합 시스템*
 
-Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 한 각 월의 네 번째 화요일 주위를 놓습니다. 업데이트 알림 조직에 도달 하는 특정 알림 프로세스에 대 한 OEM을 요청 합니다. 아래에서이 문서 라이브러리에서 확인할 수 있습니다 **개요** > **릴리스** 현재 지원 되는 릴리스에 대 한 정보에 대 한 합니다. 
+Microsoft update 패키지 일반적으로 Azure Stack 통합 시스템에 대 한 각 월의 네 번째 화요일 주위를 놓습니다. 업데이트 알림 조직에 도달 하는 특정 알림 프로세스에 대 한 OEM을 요청 합니다. 이 문서 라이브러리에서 확인할 수 있습니다 **개요** > **릴리스** 현재 지원 되는 릴리스에 대 한 정보에 대 한 합니다. 
 
 각 릴리스의 Microsoft 소프트웨어 업데이트는 단일 업데이트 패키지로 제공 됩니다. Azure Stack 운영자로 가져올 수 있습니다, 설치 및 이러한의 설치 진행률을 모니터링 관리자 포털에서 패키지를 업데이트 합니다. 
 
