@@ -105,6 +105,10 @@
           href: quickstart-ruby-languages.md
         - name: 텍스트의 문장 길이 가져오기
           href: quickstart-ruby-sentences.md
+- name: 자습서
+  items:
+    - name: Translator Text에 대한 WPF 앱 만들기
+      href: tutorial-wpf-translation-csharp.md
 - name: 개념
   items:
     - name: 지원되는 언어
@@ -125,8 +129,6 @@
       href: word-alignment.md
     - name: 동적 사전 기능 사용
       href: dynamic-dictionary.md
-    - name: WPF로 Translator Text 앱 만들기
-      href: tutorial-wpf-translation-csharp.md
 - name: 참고 자료
   items:
     - name: v3 Translator Text API 참조

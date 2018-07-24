@@ -157,8 +157,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 블로그
       href: 'http://blogs.msdn.com/b/streamanalytics/'
-    - name: 동영상
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: 피드백 포럼
       href: 'http://feedback.azure.com/forums/270577-azure-stream-analytics'
     - name: 포럼
@@ -172,7 +170,7 @@
     - name: 스택 오버플로
       href: 'http://stackoverflow.com/questions/tagged/azure-stream-analytics'
     - name: 동영상
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=stream-analytics'
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
     - name: 고객 사례 연구
       href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
     - name: 백서 - 실시간 이벤트 처리

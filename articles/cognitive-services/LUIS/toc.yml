@@ -79,6 +79,10 @@
           href: luis-tutorial-batch-testing.md
         - name: 패턴 사용
           href: luis-tutorial-pattern.md
+        - name: 역할 사용
+          href: luis-tutorial-pattern-roles.md
+        - name: Pattern.any 엔터티 사용
+          href: luis-tutorial-pattern-any.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -194,7 +198,7 @@
     - name: 테스트
       items:
         - name: 대화형 테스트
-          href: interactive-test.md
+          href: luis-interactive-test.md
         - name: 일괄 테스트
           href: luis-how-to-batch-test.md
     - name: 앱 게시
@@ -226,7 +230,7 @@
             - name: Traffic Manager를 사용하여 키에 끝점 할당량 분산
               href: luis-traffic-manager.md
     - name: V2 API로 마이그레이션
-      href: migration-v1-to-v2.md
+      href: luis-migration-api-v1-to-v2.md
     - name: 프로그래밍 방식으로 영역 찾기
       items:
         - name: 'C# 사용'

@@ -140,33 +140,13 @@
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [인증서 사용](active-directory-reporting-api-with-certificates.md)
 
-## 암호 관리
-### [암호 개요](authentication/active-directory-passwords-overview.md)
+## 암호 관리(active-directory/authentication/concept-sspr-howitworks.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](user-help/active-directory-passwords-update-your-own-password.md)
 #### [암호 모범 사례](active-directory-secure-passwords.md)
 #### [셀프 서비스 암호 재설정 등록](user-help/active-directory-passwords-reset-register.md)
-### [SSPR 작동 방법](authentication/concept-sspr-howitworks.md)
-### [SSPR 배포 가이드](authentication/howto-sspr-deployment.md)
-### [SSPR 및 Windows 10](authentication/tutorial-sspr-windows.md)
-### [SSPR 정책](authentication/concept-sspr-policy.md)
-### [SSPR 사용자 지정](authentication/concept-sspr-customization.md)
-### [SSPR 데이터 요구 사항](authentication/howto-sspr-authenticationdata.md)
-### [SSPR 보고](authentication/howto-sspr-reporting.md)
-### [스마트 잠금](authentication/howto-password-smart-lockout.md)
-### [취약한 암호 제거](authentication/concept-password-ban-bad.md)
-### [금지된 암호 목록 구성](authentication/howto-password-ban-bad.md)
-### [온-프레미스 통합](authentication/concept-password-ban-bad-on-premises.md)
-### [Azure AD 암호 보호 배포](authentication/howto-password-ban-bad-on-premises.md)
-### [Azure AD 암호 보호 구성](authentication/howto-password-ban-bad-on-premises-operations.md)
-### [Azure AD 암호 보호 모니터링](authentication/howto-password-ban-bad-on-premises-troubleshoot.md)
 ### IT 관리자: 암호 재설정
 #### [Azure 포털](fundamentals/active-directory-users-reset-password-azure-portal.md)
-### [라이선스 SSPR](authentication/concept-sspr-licensing.md)
-### [비밀번호 쓰기 저장](authentication/howto-sspr-writeback.md)
-### [문제 해결](authentication/active-directory-passwords-troubleshoot.md)
-### [FAQ](authentication/active-directory-passwords-faq.md)
-
 
 ## 장치 관리
 ### [소개](device-management-introduction.md)

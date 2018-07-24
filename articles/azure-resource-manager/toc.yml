@@ -15,6 +15,13 @@
       href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
     - name: 템플릿 만들기 - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+- name: 자습서
+  expanded: true
+  items:
+    - name: 암호화된 저장소 계정 만들기
+      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+    - name: 여러 리소스 만들기
+      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
 - name: 개념
   items:
     - name: 리소스 공급자 및 형식
