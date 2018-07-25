@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba85e075c39251b0b3d7c4b8bc3f8d53a1afadf7
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 6a9b44ed56774466bae2f0f5d48b5e012382721b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30316820"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865236"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
 
@@ -68,7 +68,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 이 코드 조각은 태스크 ID가 "Flowers"인 종속 태스크를 만듭니다. "Flowers" 태스크는 "Rain" 및 "Sun" 태스크에 따라 달라집니다. "Rain" 및 "Sun" 태스크를 성공적으로 완료한 후에 "Flowers" 태스크를 계산 노드에서 실행되도록 예약합니다.
 
 > [!NOTE]
-> 태스크가 **완료** 상태이고 해당 **종료 코드**가 `0`인 경우 성공적으로 완료되었다고 간주됩니다. 즉, Batch .NET에서 `Completed`의 [CloudTask][net_cloudtask].[State][net_taskstate] 속성 값 및 CloudTask의 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 속성 값은 `0`입니다.
+> 기본적으로 태스크가 **완료** 상태이고 해당 **종료 코드**가 `0`인 경우 성공적으로 완료되었다고 간주됩니다. 즉, Batch .NET에서 `Completed`의 [CloudTask][net_cloudtask].[State][net_taskstate] 속성 값 및 CloudTask의 [TaskExecutionInformation][net_taskexecutioninformation].[ExitCode][net_exitcode] 속성 값은 `0`입니다. 변경 방법에 대해서는 [종속성 작업](#dependency-actions) 섹션을 참조하세요.
 > 
 > 
 
@@ -121,7 +121,9 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 종속성을 만들려면 [CloudTask][net_cloudtask]의 [DependsOn][net_dependson] 속성을 채우는 경우 범위에서 처음 및 최신 태스크 ID를 [TaskDependencies][net_taskdependencies].[OnIdRange][net_onidrange] 고정 메서드에 제공합니다.
 
 > [!IMPORTANT]
-> 종속성에 대한 태스크 ID 범위를 사용하는 경우 범위의 태스크 ID는 정수 값의 문자열 *표시여야* 합니다.
+> 종속성에 대해 태스크 ID 범위를 사용할 경우 ID가 정수 값을 나타내는 태스크만 범위에 따라 선택됩니다. 따라서 범위 `1..10`에서 태스크 `3` 및 `7`이 선택되지만 `5flamingoes`는 선택되지 않습니다. 
+> 
+> 범위 종속성을 평가할 때 선행 0은 의미가 없으므로 문자열 식별자 `4`, `04` 및 `004`는 해당 범위 *내에* 있게 되고, 모두 태스크 `4`로 취급되므로 첫 번째로 완료되는 태스크가 종속성을 충족합니다.
 > 
 > **충족**으로 설정된 종속성 작업에 매핑되는 오류를 성공적으로 완료하거나 해결하여 범위에 있는 모든 태스크가 종속성을 충족해야 합니다. 자세한 내용은 [종속성 작업](#dependency-actions) 섹션을 참조하세요.
 >

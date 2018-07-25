@@ -3,8 +3,8 @@ title: Azure Marketplace 및 AppSource 게시자 가이드 | Azure
 description: 앱 및 서비스 게시자에 대한 Azure Marketplace 및 AppSource 개요
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
@@ -12,108 +12,81 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: e40b3a9f1454e892e07f7749ba900cd74c42c339
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 0572caa1cd09c164d6c5a53bfe1c143bccffd535
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309234"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37859091"
 ---
 # <a name="azure-marketplace-and-appsource-publisher-guide"></a>Azure Marketplace 및 AppSource 게시자 가이드  
 
-## <a name="overview"></a>개요  
-마켓플레이스의 상점에 대한 게시자 가이드를 시작합니다.
-*  AppSource  
-*  Azure Marketplace  
+## <a name="overview"></a>개요 
 
-신규 및 기존 게시자(여러분)는 이 가이드를 사용하여 다음 토픽에 대해 자세히 알아보세요. 
-*   Azure Marketplace 및 AppSource 상점 사용 방법
-*   앱 및 제품 제시 방법  
-*   Microsoft와 협력하여 비즈니스를 확장하는 방법  
+Marketplace 게시자 가이드를 시작합니다. 이 가이드는 신규 및 기존 게시자가 Azure Marketplace(www.azuremarketplace.com) 및 AppSource(www.appsource.com) 상점의 애플리케이션 및 서비스를 나열하여 이러한 상점에서 Microsoft와의 파트너 사업을 성장시키는 방식을 이해하는 데 도움을 주기 위해 작성되었습니다.  
 
-다음 토픽을 보다 잘 이해할 수 있습니다.
-*   마켓플레이스에 상점을 나열하면 어떤 이점이 있나요?  
-*   상점을 사용하는 방법  
-*   본인의 제품 및 서비스에 적합한 상점  
-*   게시할 수 있는 앱과 제품의 종류  
-*   각 게시 옵션에 대한 기술 및 비즈니스 요구 사항  
-*   게시 전 자산 검사 목록 작성 방법  
-*   게시자가 되는 방법  
-*   제품을 만들고 게시할 위치  
-*   목록을 최적화하고 Go-to-market 리소스를 사용하여 영향력을 미치는 방법  
-*   도움말 및 지원을 받을 위치  
+이 가이드는 다음 항목을 설명합니다. 
+*   마켓플레이스의 정의 및 작동 방식 
+*   Azure Marketplace 및 AppSource 상점 간의 차이점 
+*   마켓플레이스에 참여하여 얻을 수 있는 이점 
+*   게시자가 되고 응용 프로그램 또는 서비스를 나열하는 방법 
+*   비즈니스 성장 방법 
 
-마켓플레이스 또는 게시 가이드에 대한 질문이나 의견은 [cloudmarketplace@microsoft.com](mailto:cloudmarketplace@microsoft.com)에 이메일로 보내주세요.  
+이 가이드에는 응용 프로그램 및 서비스를 나열하기 전에 이해해야 하는 단계에 대한 기술 및 비즈니스 정보가 포함되어 있습니다. 이 페이지의 왼쪽에 있는 탐색 모음을 사용하여 이 가이드의 다른 섹션으로 이동한 후 핵심 항목으로 직접 이동할 수 있습니다.   
+
+Azure Marketplace 및 AppSource에 대한 추가 질문이 있는 경우 문제 유형 > Marketplace 온보딩에서 메시지를 보내주세요. Marketplace 게시자 온보딩 팀에서 도움을 드리겠습니다. 
 
 ---  
 
-## <a name="benefits"></a>이점  
+## <a name="benefits-of-participating-in-the-marketplace"></a>마켓플레이스에 참여할 경우의 혜택 
 
-### <a name="benefits-of-participating-on-the-marketplace"></a>마켓플레이스에 참여할 때의 이점  
-마켓플레이스의 상점은 Microsoft와 공동 GTM(Go-To-Market) 활동을 하기 위한 런치패드입니다.  
-*   AppSource  
-*   Azure Marketplace  
+Marketplace는 Microsoft와 연합해서 Go-to-market 활동을 진행하기 위한 출발점이면서 비즈니스 성장을 가속화합니다. 마켓플레이스 제품은 출시 프로모션, 수요 창출, 공동 판매 및 마케팅을 통해 클라우드 비즈니스 엔진의 핵심이 될 수 있습니다. 마켓플레이스 참여는 무료로 진행됩니다.  
 
-상점은 공동 판매 파트너십 기회를 제공합니다. 다음 역할 중 하나에서 앱 또는 제품을 사용하기로 선택할 수 있습니다.  
-*   클라우드 비즈니스 엔진의 핵심부  
-*   비즈니스 성장을 위한 플라이휠 
+우리의 목표는 Microsoft 고객을 당사 파트너 에코시스템에서 제공하는 최상의 솔루션에 연결하는 것입니다. 이를 위해 온보딩에서 게시 및 성장에 이르는 전체 과정을 지원해드립니다. 
 
-마켓플레이스에서 다음과 같은 기능을 사용하여 비즈니스를 확장하도록 선택할 수 있습니다.  
-*    출시 프로모션  
-*    수요 창출  
-*    공동 판매 및 마케팅  
+마켓플레이스의 기능을 활용하여 다음과 같이 비즈니스를 성장시켜보세요. 
 
-마켓플레이스 상점에 참여하기 위한 비용은 없습니다. Microsoft는 여러분을 Microsoft 파트너가 제공하는 최적의 솔루션과 서비스에 연결하는 일에 집중합니다. 
+### <a name="expand-to-new-markets-and-segments-and-generate-new-sales-opportunities"></a>새로운 시장 및 부문을 확장하고 새로운 영업 기회를 창출합니다.
 
-마켓플레이스의 기능을 활용하여 비즈니스를 성장시킬 수 있습니다.  
+마켓플레이스에서 솔루션 포트폴리오를 활용하여 새로운 시장, 부문 및 Microsoft 클라우드 사용자에게 다가갑니다. 새 마케팅 잠재 고객을 창출하고 매출로 이어지도록 합니다. 공동 마케팅 및 영업 활동을 활용하여 더 많은 고객을 확보합니다.  
 
-#### <a name="generate-leads-and-sales-opportunities"></a>잠재 고객 및 판매 기회를 창출합니다.  
-마켓플레이스의 상점에 확장된 솔루션 포트폴리오를 제공하여 새로운 시장을 개척합니다. 마켓플레이스 제품을 업셀하고 교차 판매합니다.  
+### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>기존 및 신규 고객으로 비즈니스 가치를 개선하고 거래 규모를 늘립니다. 
 
-#### <a name="enhance-business-value-and-increase-deal-size-with-existing-and-new-customers"></a>기존 및 신규 고객으로 비즈니스 가치를 개선하고 거래 규모를 늘립니다.  
-워크로드를 Azure로 이동한 후 거래 규모를 늘리고 고객 문제를 해결합니다. 특정 워크로드 및 산업 시나리오를 대상으로 하는 전체 솔루션을 판매하여 판매 주기를 줄이고 거래 수익성을 증대합니다.  
+클라우드로 워크로드를 이동한 후 고객 문제를 해결하여 솔루션을 업셀 및 교차 판매합니다. 마켓플레이스를 통해 판매하거나 배포하는 경우, 특정 워크로드 및 산업 시나리오를 대상으로 하는 전체 솔루션을 판매하여 판매 주기를 줄이고, 프로젝트를 가속화하고, 거래 수익성을 높일 수 있습니다. 
+  
+### <a name="get-actionable-insights"></a>실행 가능한 인사이트 획득 
 
-#### <a name="get-actionable-insights"></a>실행 가능한 인사이트 획득  
-여러분의 성공이 곧 우리의 성공입니다. Cloud 파트너 포털을 사용하여 목록 성과에 대한 인사이트를 얻을 수 있습니다. 성능, 잠재 고객 및 앱의 캠페인 활동을 극대화하는 방법에 대한 정보를 얻을 수 있습니다.  
+사용할 수 있는 인사이트 및 분석을 통해 품목의 성과에 대한 정보를 얻을 수 있습니다. 캠페인 성능, 주문과 결제 및 솔루션에 대한 캠페인 활동을 극대화하는 방법에 대한 정보를 얻을 수 있습니다.  
 
->[!NOTE]
->Office를 확장하는 앱은 Office 앱 게시 프로세스를 통해 인사이트에 액세스해야 합니다.  
+### <a name="marketplace-go-to-market-benefits"></a>마켓플레이스 Go-To-Market 혜택 
 
-### <a name="go-to-market-benefits"></a>Go-To-Market 혜택  
-상점을 사용하여 수백만 명의 고객에게 솔루션을 보여줄 수 있습니다. 마켓플레이스에서 새롭게 등록하면 마켓플레이스에서 제품 인지도를 높일 수 있도록 무료 GTM 혜택이 자동으로 제공됩니다.  
+마켓플레이스의 새 품목은 파트너가 마켓플레이스에서 사업을 성장시키는 데 도움이 되는 다양한 무료 혜택을 받을 수 있습니다. 이러한 혜택은 다음 범주로 구분됩니다. 
 
- Microsoft와 공동 GTM 활동을 수행하기 위한 첫 번째 단계는 제품을 상점에 게시하는 것입니다.  상점은 공동 판매 파트너십 기회를 제공합니다. 모든 신규 앱 및 제품에는 Microsoft 고객에게 앱 또는 제품 인지도를 높일 수 있도록 무료 GTM 혜택이 자동으로 제공됩니다. GTM 혜택에는 여러 공동 마케팅 및 공동 판매 활동이 포함됩니다.  공동 마케팅 및 공동 판매 활동은 다음을 통해 솔루션의 인지도를 높이고 매출을 높일 수 있도록 설계되었습니다.
-*   Microsoft 브랜드  
-*   Microsoft 채널  
-*   Microsoft 고객 및 파트너  
+*   기술: 응용 프로그램의 출시를 준비하는 데 필요한 모든 기능이 제공됩니다. 기술 지원, 응용 프로그램 디자인 및 아키텍처 디자인부터 개발 및 테스트를 위한 Azure 크레딧까지 모든 혜택을 누릴 수 있습니다. 
 
-추가 조치를 취할 필요가 없습니다. 제품을 게시하면 Microsoft GTM 팀에서 배달 절차를 시작하기 위해 연결을 취할 것입니다.  
-*   Microsoft GTM 혜택 및 마켓플레이스에서 비즈니스를 확장하는 방법에 대한 자세한 내용은 [partner.microsoft.com/reach-customers/gtm](https://partner.microsoft.com/reach-customers/gtm)에서 Microsoft Go-To-Market 서비스 페이지를 참조하세요.  
+*   공동 마케팅: 제품을 출시하는 데 필요한 모든 기능이 제공됩니다. 무료 Go-to-Market 출시 기본 사항에 액세스하여 솔루션 출시 및 홍보에 대한 도움을 받을 수 있습니다. 추가적인 Microsoft 마케팅 캠페인을 포함할 자격이 있으며 마켓플레이스에서 잠재 고객을 공략할 수 있습니다.  
+
+*   공동 판매: 마켓플레이스를 통해 Microsoft와 함께 판매를 시작하고 가속화할 수 있습니다. 프로그램 및 지원에 액세스하여 Microsoft 팀과의 공동 판매를 촉진합니다.  
+
+일단 마켓플레이스에 [솔루션을 제출](https://azuremarketplace.microsoft.com/sell/signup)하면 온보딩 팀에서 게시 환경 지원을 위해 사용자에게 연락합니다.  
+
+Microsoft Go-to-Market 혜택 및 마켓플레이스에서 비즈니스를 확장하는 방법에 대한 자세한 내용은 [Microsoft Go-To-Market 서비스 페이지](https://partner.microsoft.com/reach-customers/gtm)를 참조하세요.
 
 ---  
+## <a name="marketplace-and-storefronts"></a>마켓플레이스 및 상점 
 
-## <a name="storefronts"></a>상점  
-Microsoft는 마켓플레이스에 두 가지 상점을 제공합니다. 상점을 사용하여 제품을 등록하고, 평가판을 제공하고, Microsoft 고객과 직접 거래할 수 있습니다.  
-*   AppSource와 Azure Marketplace 비교
-    *   상점에 대한 자세한 내용은 [AppSource와 Azure Marketplace 비교](./comparing-appsource-azure-marketplace.md)의 AppSource와 Azure Marketplace 비교 페이지를 참조하세요.
-*   AppSource 
-    *   AppSource에 대한 자세한 내용은 [AppSource를 사용하여 비즈니스 확장](./grow-your-business-with-appsource.md)의 AppSource를 사용하여 비즈니스 확장 페이지를 참조하세요.  
-*   Azure Marketplace 
-    *   Azure Marketplace에 대한 자세한 내용은 [Azure Marketplace로 비즈니스 확장](./grow-your-business-with-azure-marketplace.md)의 Azure Marketplace로 비즈니스 확장 페이지를 참조하세요.  
+Microsoft는 마켓플레이스에서 두 개의 고유한 상점인 AppSource와 Azure Marketplace를 제공합니다. 마켓플레이스 상점은 대상 고객 및 Microsoft 클라우드 제품에 맞게 조정되어 고객이 필요한 정확한 제품을 쉽게 찾도록 도와줍니다. 
 
-상점을 통해 디지털 변환을 가속화하는 앱 및 서비스를 찾고, 사용해보고, 구입할 수 있습니다. 상점은 Microsoft 고객 및 파트너에 대한 접근성을 향상하여 비즈니스를 성장시키는 데 도움이 됩니다.  
- 
-각 상점은 게시 투자 효율을 극대화하는 특수 옵션을 제공합니다. 다음 표에는 이러한 옵션이 요약되어 있습니다.  
+상점을 선택하려면 먼저 자신의 솔루션에 대한 대상 그룹을 찾습니다. 아래 표를 사용하여 다음을 결정합니다. 
 
-|  | AppSource | Azure Marketplace |  
-|:--- |:--- |:--- |  
-| 대상 사용자 | 기간 업무 의사 결정권자<table> <tr> <th>전문가 역할 </th> </tr> <tr> <td>회계</td> </tr> <tr> <td>조달</td> </tr> <tr> <td>제조</td> </tr> </table> | IT 전문가 및 개발자<table> <tr> <th>전문가 역할 </th> </tr> <tr> <td>DevOps</td> </tr> <tr> <td>DBA</td> </tr> <tr> <td>SecOps</td> </tr> </table> |  
+|  | AppSource | Azure Marketplace |
+|:--- |:--- |:--- |
+| 대상 사용자 | 기간 업무 의사 결정권자 | IT 전문가 및 개발자 | 
 | 기본 제공 또는 확장 | Azure<br />Dynamics 365<br />Office 365<br />Power BI<br />PowerApps | Azure |  
-| 솔루션 및 서비스 유형 | 완료된 기간 업무 클라우드 앱<br />Office 365 추가 기능 | 인프라 솔루션<br />전문 서비스 |  
-| 제품 유형 | 컨설팅 서비스<br />연락처<br />평가판<br />지금 가져오기<br />시험 사용 | Azure 앱: 관리되는 앱<br />Azure 앱: 솔루션 템플릿<br />컨설팅 서비스<br />연락처<br />평가판<br />가상 머신 |  
-| 앱 컨텍스트에 따라 사용자에게<br />앱 및 서비스에 대한 액세스를 제공하는<br />앱 내 환경 | Dynamics 365<br />Office 365<br />Office 클라이언트 앱<br />Power BI | Azure portal<br />Azure Resource Manager CLI |  
+
+각 상점은 비즈니스 기회를 극대화하기 위한 특수한 옵션과 기능을 제공합니다. 상점에 대한 자세한 비교 결과를 보려면 [AppSource 및 Azure Marketplace 비교](./comparing-appsource-azure-marketplace.md)를 참조하세요. 
 
 ---   
 

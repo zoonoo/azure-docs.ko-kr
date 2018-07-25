@@ -6,19 +6,22 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e16130dc41418b22f2dea4ceae5e0a90ed963161
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36939938"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37928735"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답) 
 이 페이지는 Azure AD(Azure Active Directory) B2C에 대한 자주 묻는 질문에 응답합니다. 업데이트를 계속 확인합니다.
+
+### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Azure Portal에서 Azure AD B2C 확장에 액세스할 수 없는 이유는 무엇인가요?
+Azure AD 확장이 작동하지 않는 경우에는 일반적으로 두 가지 이유가 있습니다.  Azure AD B2C에서는 디렉터리의 사용자 역할이 전역 관리자여야 합니다.  액세스 권한이 있어야 한다고 생각되면 관리자에게 문의하세요.  전역 관리자 권한이 있는 경우 Azure Active Directory 디렉터리가 아닌 Azure AD B2C 디렉터리에 있어야 합니다.  [여기에서 Azure AD B2C 디렉터리를 만드는 방법](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)에 대한 지침을 확인할 수 있습니다.
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>기존의 직원 기반 Azure AD 테넌트에서 Azure AD B2C 기능을 사용할 수 있나요?
 Azure AD 및 Azure AD B2C는 별개 제품으로, 동일한 테넌트에서 함께 사용할 수 없습니다.  Azure AD 테넌트는 조직을 나타냅니다.  Azure AD B2C 테넌트는 신뢰 당사자 응용 프로그램에서 사용할 ID 컬렉션을 나타냅니다.  사용자 지정 정책(공개 미리 보기)을 통해 Azure AD B2C가 Azure AD로 페더레이션되어 조직의 직원을 인증할 수 있습니다.
@@ -97,9 +100,9 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 ### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Azure AD B2C가 제공하는 보고 및 감사 기능은 무엇인가요? Azure AD Premium과 동일한가요?
 아니요, Azure AD B2C는 Azure AD Premium과 동일한 보고서 집합을 지원하지 않습니다. 하지만 많은 공통점이 있습니다.
 
-* **로그인 보고서**는 Azure Portal(Azure Active Directory > 활동 > 로그인)에서만 사용 가능하며 그래프 API로 제공되지 않습니다. 요약 정보와 함께 각 로그인 레코드를 제공합니다.
-* **감사 보고서**는 Azure Portal(Azure Active Directory > 활동 > 감사 로그)에서만 사용 가능하며 그래프 API로 제공되지 않습니다. 관리 작업 및 응용 프로그램 작업을 모두 포함합니다. 
-* **사용 현황 보고서**는 [사용 현황 보고 API](active-directory-b2c-reference-usage-reporting-api.md)를 통해서만 제공되며 Azure Portal을 통해 사용할 수 없습니다. 사용자 수, 로그인 수 및 MFA 크기가 포함됩니다. 
+* **로그인 보고서**는 요약 정보와 함께 각 로그인 레코드를 제공합니다.
+* **감사 보고서**는 관리 작업 및 응용 프로그램 작업을 모두 포함합니다. 
+* **사용 현황 보고서**는 사용자 수, 로그인 수 및 MFA 크기를 포함합니다. 
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Azure AD B2C에서 제공하는 페이지의 UI를 지역화할 수 있습니까? 어떤 언어가 지원되나요?
 예!  공개 미리 보기로 제공되는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 참조하세요.  36개 언어에 대한 번역이 제공되며, 모든 문자열을 요구에 맞게 재정의할 수 있습니다.

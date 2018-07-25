@@ -5,21 +5,17 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 0d3a779eb2cccf242bcd42d82c1a90048b3512ab
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783378"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37888370"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -35,7 +31,7 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Azure AD 도메인 사용자 계정으로 Event Hubs 사용
 
-다음 섹션에서는 로그인하기 위해 대화형 Azure AD 사용자 로그인을 요구하는 응용 프로그램 예제를 만들고 실행하기 위한 단계, Event Hubs에 해당 사용자 계정에 대한 액세스 권한을 부여하는 방법 및 해당 ID를 사용하여 Event Hubs에 액세스하는 방법을 설명합니다. 
+다음 섹션에서는 로그인하기 위해 대화형 Azure AD 사용자 로그온을 요구하는 응용 프로그램 예제를 만들고 실행하기 위한 단계, Event Hubs에 해당 사용자 계정에 대한 액세스 권한을 부여하는 방법 및 해당 ID를 사용하여 Event Hubs에 액세스하는 방법을 설명합니다. 
 
 이 소개에서는 [Github에 있는 코드](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Rbac/EventHubsSenderReceiverRbac/)인 간단한 콘솔 응용 프로그램을 설명합니다.
 
@@ -69,8 +65,8 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 - `tenantId`: **TenantId** 값으로 설정합니다.
 - `clientId`: **ApplicationId** 값으로 설정합니다. 
-- `clientSecret`: 클라이언트 암호를 사용하여 로그온하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
-- `eventHubNamespaceFQDN`: 새로 만든 Event Hubs 네임스페이스의 전체 DNS 이름으로 설정합니다(예: `example.servicebus.windows.net`).
+- `clientSecret`: 클라이언트 암호를 사용하여 로그인하려는 경우 Azure AD에서 만듭니다. 또한 네이티브 앱 대신 웹앱 또는 API를 사용합니다. 또한 앱을 이전에 만든 네임스페이스의 **액세스 제어(IAM)** 에 추가합니다.
+- `eventHubNamespaceFQDN`: 새로 만든 Event Hubs 네임스페이스의 정규화된 DNS 이름으로 설정합니다(예: `example.servicebus.windows.net`).
 - `eventHubName`: 만든 이벤트 허브의 이름으로 설정합니다.
 - 이전 단계에서 앱에 지정된 리디렉션 URI입니다.
  

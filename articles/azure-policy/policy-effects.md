@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 1566cf2b61749121c4eaff5a32b0a940f3341f7e
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751781"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856949"
 ---
 # <a name="understanding-policy-effects"></a>Policy 효과 이해
 
@@ -125,7 +125,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트하는 �
 
 ## <a name="audit"></a>감사
 
-비호환 리소스가 평가되는 경우 감사 로그에서 경고 이벤트를 만드는 데 감사 효과가 사용되지만 요청을 중단하지 않습니다.
+비호환 리소스가 평가되는 경우 활동 로그에서 경고 이벤트를 만드는 데 감사 효과가 사용되지만 요청을 중단하지 않습니다.
 
 ### <a name="audit-evaluation"></a>감사 평가
 

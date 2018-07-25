@@ -4,14 +4,14 @@ description: Azure Migrate 서비스를 사용하여 많은 수의 온-프레미
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: dd7524c0114589e0c145cb4c03b0f531d58ce950
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214694"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37919865"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -23,6 +23,31 @@ Azure Migrate에는 프로젝트당 1500개의 컴퓨터 제한이 있습니다.
 - **vCenter 계정**: vCenter Server에 액세스하려면 읽기 전용 계정이 필요합니다. Azure Migrate는 이 계정을 사용하여 온-프레미스 VM을 검색합니다.
 - **사용 권한**: vCenter Server에서 .OVA 형식으로 파일을 가져와 VM을 만들려면 사용 권한이 필요합니다.
 - **통계 구성**: vCenter Server에 대한 통계 설정은 배포를 시작하기 전에 수준 3으로 설정되어야 합니다. 수준이 3보다 낮은 경우 평가가 작동하지만 저장소 및 네트워크에 대한 성능 데이터는 수집되지 않습니다. 이 경우에 권장되는 크기는 CPU 및 메모리의 성능 데이터와 디스크 및 네트워크 어댑터의 구성 데이터를 기반으로 합니다.
+
+
+### <a name="set-up-permissions"></a>권한 설정
+
+Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware 서버에 대한 액세스가 필요합니다. VMware 계정에는 다음 권한이 필요합니다.
+
+- 사용자 유형: 읽기 전용 사용자(최소)
+- 권한: 데이터 센터 개체 –> 자식 개체에 전파, role=Read-only
+- 세부 정보: 사용자는 데이터 센터 수준에서 할당되며 데이터 센터의 모든 개체에 대한 액세스 권한이 있습니다.
+- 액세스를 제한하려는 경우 자식에 전파 개체를 사용하여 액세스 권한 없음 역할을 자식 개체(vSphere 호스트, 데이터 저장소, VM 및 네트워크)에 할당합니다.
+
+테넌트 환경에 배포하는 경우 다음과 같은 한 가지 설정 방법이 있습니다.
+
+1.  테넌트당 1명의 사용자를 만들고 [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 특정 테넌트에 속하는 모든 VM에 읽기 전용 권한을 할당합니다. 그런 다음, 해당 자격 증명으로 검색을 수행합니다. RBAC는 해당 vCenter 사용자가 테넌트 특정 VM에만 액세스할 수 있도록 합니다.
+2. 다음 예제에 설명된 대로 다른 테넌트 사용자인 User#1 및 User#2에 대해 RBAC를 설정합니다.
+
+    - **사용자 이름** 및 **암호**에서, 수집기가 VM을 검색하기 위해 사용할 읽기 전용 계정 자격 증명을 지정합니다.
+    - Datacenter1 - User#1 및 User#2에 대해 읽기 전용 권한을 부여합니다. 개별 VM에서 권한을 설정하게 되므로 모든 자식 개체에 해당 권한을 전파하지 마세요.
+
+      - VM1(Tenant#1) (User#1에게 읽기 전용 권한)
+      - VM2(Tenant#1) (User#1에게 읽기 전용 권한)
+      - VM3(Tenant#2) (User#2에게 읽기 전용 권한)
+      - VM4(Tenant#2) (User#2에게 읽기 전용 권한)
+
+   - User#1 자격 증명을 사용하여 검색을 수행하는 경우 VM1 및 VM2만 검색됩니다.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>마이그레이션 프로젝트 및 검색 계획
 
@@ -100,6 +125,14 @@ Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM�
    사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 
 3. 생성된 해시가 다음 설정과 일치하는지 확인합니다.
+
+    OVA 버전 1.0.9.12의 경우
+
+    **알고리즘** | **해시 값**
+    --- | ---
+    MD5 | d0363e5d1b377a8eb08843cf034ac28a
+    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
     OVA 버전 1.0.9.8의 경우
 

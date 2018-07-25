@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2018
+ms.date: 07/03/2018
 ms.author: damaerte
-ms.openlocfilehash: cffa67509690f4c594182fbe8104f0620da56bee
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc0633a9cc607325b48998791cb12631ecd0d7
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608953"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856490"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -52,16 +52,6 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ## <a name="powershell-troubleshooting"></a>PowerShell 문제 해결
 
-### <a name="no-home-directory-persistence"></a>$Home 디렉터리 지속성 없음
-
-- **세부 정보**: 응용 프로그램(예: git, vim 및 기타)이 `$Home`에 쓰는 모든 데이터가 PowerShell 세션 간에 유지되지 않습니다.
-- **해결 방법**: PowerShell 프로필에서 `clouddrive`에 있는 응용 프로그램 특정 폴더인 $Home에 대한 바로 가기 링크를 만듭니다.
-
-### <a name="ctrlc-doesnt-exit-out-of-a-cmdlet-prompt"></a>Ctrl+C는 Cmdlet 프롬프트를 종료하지 않습니다.
-
-- **세부 정보**: Cmdlet 프롬프트를 종료하고자 할 때 `Ctrl+C`은 프롬프트를 종료하지 않습니다.
-- **해결 방법**: 프롬프트를 종료하려면 `Ctrl+C` 다음 `Enter`를 누릅니다.
-
 ### <a name="gui-applications-are-not-supported"></a>GUI 응용 프로그램은 지원되지 않습니다.
 
 - **세부 정보**: 사용자가 GUI 앱을 시작하는 경우 프롬프트는 반환하지 않습니다. 예를 들어 사용자가 2단계 인증을 사용할 수 있는 개인 GitHub 리포지토리를 복제할 경우 2단계 인증을 완료하기 위한 대화 상자가 표시됩니다.  
@@ -75,18 +65,8 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Azure VM의 원격 관리 문제 해결
 
 - **세부 정보**: WinRM에 대한 기본 Windows 방화벽 설정으로 인해 사용자가 다음 오류를 보게 될 수도 있습니다.`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **해결 방법**: VM이 실행되고 있는지 확인합니다. VM 상태를 알아보려면 `Get-AzureRmVM -Status`을 실행할 수 있습니다.  다음으로 모든 서브넷에서 WinRM 연결을 허용하도록 원격 VM에 새 방화벽 규칙을 추가합니다. 예를 들어
-
- ``` Powershell
- New-NetFirewallRule -Name 'WINRM-HTTP-In-TCP-PSCloudShell' -Group 'Windows Remote Management' -Enabled True -Protocol TCP -LocalPort 5985 -Direction Inbound -Action Allow -DisplayName 'Windows Remote Management - PSCloud (HTTP-In)' -Profile Public
- ```
- [Azure 사용자 지정 스크립트 확장](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-customscript)을 사용하면 새 방화벽 규칙을 추가하기 위해 원격 VM에 로그온하는 것을 피할 수 있습니다.
- 위의 스크립트를 예를 들어 `addfirerule.ps1`이란 파일에 저장하고, Azure Storage 컨테이너로 업로드할 수 있습니다.
- 그런 후에 다음 명령을 시돱니다.
-
- ``` Powershell
- Get-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup | Set-AzureRmVMCustomScriptExtension -VMName MyVM1 -FileUri https://mystorageaccount.blob.core.windows.net/mycontainer/addfirerule.ps1 -Run 'addfirerule.ps1' -Name myextension
- ```
+- **해결 방법**: `Enable-AzureRmVMPSRemoting`을 실행하여 대상 컴퓨터에서 PowerShell 원격 기능의 모든 측면을 사용하도록 설정합니다.
+ 
 
 ### <a name="dir-caches-the-result-in-azure-drive"></a>`dir`은 결과를 Azure 드라이브로 캐시합니다.
 
@@ -133,21 +113,39 @@ Cloud Shell은 대화형 사용 사례를 위한 것입니다. 따라서 비대�
 
 ## <a name="powershell-limitations"></a>PowerShell 제한 사항
 
-### <a name="slow-startup-time"></a>느린 시작 시간
+### <a name="azuread-module-name"></a>`AzureAD` 모듈 이름
 
-Azure Cloud Shell의 PowerShell(미리 보기)은 미리 보기 중에 초기화하는 데 최대 60초가 걸릴 수 있습니다.
+`AzureAD` 모듈 이름은 현재 `AzureAD.Standard.Preview`이며, 이 모듈은 동일한 기능을 제공합니다.
+
+### <a name="sqlserver-module-functionality"></a>`SqlServer` 모듈 기능
+
+Cloud Shell에 포함된 `SqlServer` 모듈은 PowerShell Core에 대해 평가판 지원만 제공합니다. 특히 `Invoke-SqlCmd`는 아직 사용할 수 없습니다.
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Azure 드라이브에서 만들 때 기본 파일 위치:
 
-PowerShell cmdlet을 사용하여 사용자가 Azure 드라이브 아래에 파일을 만들 수 없습니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 C:\Users 폴더에 저장됩니다. 
+PowerShell cmdlet을 사용하여 사용자가 Azure 드라이브 아래에 파일을 만들 수 없습니다. 사용자가 vim 또는 nano 등의 다른 도구를 사용하여 새 파일을 만들 때 파일은 기본적으로 `$HOME` 폴더에 저장됩니다. 
 
 ### <a name="gui-applications-are-not-supported"></a>GUI 응용 프로그램은 지원되지 않습니다.
 
 사용자가 Windows 대화 상자를 만드는 명령을 실행할 경우(예: `Connect-AzureAD` 또는 `Connect-AzureRmAccount`) `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)` 같은 오류 메시지가 표시됩니다.
 
-## <a name="gdpr-compliance-for-cloud-shell"></a>Cloud Shell에 대한 GDPR 규정 준수
+### <a name="tab-completion-crashes-psreadline"></a>탭 완성 기능이 PSReadline와 충돌합니다.
 
-Azure Cloud Shell은 개인 데이터를 중대하게 사용하며, Azure Cloud Shell 서비스에 의해 캡처되고 저장되는 데이터는 가장 최근에 사용된 셸, 기본 설정된 글꼴 크기, 기본 설정된 글꼴 유형 및 clouddrive로 백업하는 파일 공유 세부 정보와 같은 환경에 대한 기본값을 제공하는 데 사용됩니다. 이 데이터를 내보내거나 삭제하려는 경우 다음 지침을 포함합니다.
+PSReadline에서 사용자의 EditMode를 Emacs로 설정하고, 해당 사용자가 탭 완성을 통해 가능한 모든 항목을 표시하려고 하는데, 창 크기가 너무 작아서 가능한 모든 항목이 표시되지는 못할 경우 PSReadline 작동이 중단됩니다.
+
+### <a name="large-gap-after-displaying-progress-bar"></a>진행률 표시줄을 표시한 후 큰 간격이 생깁니다.
+
+사용자가 `Azure:` 드라이브에 있는 동안 탭 완성 기능처럼 진행률 표시줄을 표시하는 작업을 수행할 경우, 커서가 제대로 설정되지 않고, 진행률 표시줄이 이전에 있던 위치에 간격이 나타날 수 있습니다.
+
+### <a name="random-characters-appear-inline"></a>임의의 문자가 인라인으로 표시됩니다.
+
+커서 위치 시퀀스 코드(예: `5;13R`)가 사용자 입력에 나타날 수 있습니다.  문자는 수동으로 제거할 수 있습니다.
+
+## <a name="personal-data-in-cloud-shell"></a>Cloud Shell에서 개인 데이터
+
+Azure Cloud Shell은 개인 데이터를 중대하게 사용하며, Azure Cloud Shell 서비스에 의해 캡처되고 저장되는 데이터는 가장 최근에 사용된 셸, 기본 설정된 글꼴 크기, 기본 설정된 글꼴 유형 및 클라우드 드라이브로 백업하는 파일 공유 세부 정보와 같은 환경에 대한 기본값을 제공하는 데 사용됩니다. 이 데이터를 내보내거나 삭제하려는 경우 다음 지침을 포함합니다.
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ### <a name="export"></a>내보내기
 사용자 설정을 **내보내기** 위해 Cloud Shell은 다음 명령을 실행하여 기본 설정된 셸, 글꼴 크기 및 글꼴 종류 등을 저장합니다.

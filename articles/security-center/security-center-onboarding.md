@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/14/2017
+ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: d83beecfc5a8f6b8a01c64e809bc84c6fd0238bf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416492"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38479464"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다.  60일 동안 표준 계층을 무료로 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
@@ -42,7 +42,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 ## <a name="upgrade-an-azure-subscription"></a>Azure 구독 업그레이드
 모든 구독을 표준으로 업그레이드하려면 다음을 수행합니다.
-1. Security Center 주 메뉴 아래에서 **온보딩**을 선택합니다.
+1. Security Center 주 메뉴에서 **고급 보안으로 온보딩**을 선택합니다.
 2. Security Center의 **고급 보안으로 온보딩** 아래에 온보딩할 수 있는 구독이 나열됩니다. **표준 계획 적용**을 선택하여 나열된 모든 구독을 업그레이드할 수 있습니다.
 
   ![모든 구독 업그레이드][1]
@@ -113,8 +113,8 @@ Security Center에서 비 Azure 컴퓨터의 보안 태세를 모니터링할 �
 
    ![개요][5]
 
-2. **계산** 타일을 선택합니다.
-3. **계산** 아래에서 **컴퓨터 추가**를 선택합니다.
+2. **계산 및 앱**을 선택합니다.
+3. **계산 및 앱** 아래에서 **컴퓨터 추가**를 선택합니다.
 
    ![계산 블레이드][6]
 

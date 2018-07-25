@@ -2,19 +2,19 @@
 title: AKS에서 Azure 디스크 사용
 description: AKS에서 Azure 디스크 사용
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/21/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4af4620ff7a17cae76c4d5f2cf1a30ce4a3dccd8
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f807264dc2c2e07ccd175fb1b0427b7ce9e9f524
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34597070"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868248"
 ---
 # <a name="volumes-with-azure-disks"></a>Azure 디스크가 포함된 볼륨
 
@@ -49,6 +49,12 @@ az disk create \
 ```console
 /subscriptions/<subscriptionID>/resourceGroups/MC_myAKSCluster_myAKSCluster_eastus/providers/Microsoft.Compute/disks/myAKSDisk
 ```
+> [!NOTE]
+> Azure 관리 디스크는 특정 크기가 되면 SKU에서 요금이 청구됩니다. 이러한 SKU의 범위는 S4 또는 P4 디스크에 대한 32GiB에서 S50 또는 P50 디스크에 대한 4TiB입니다. 또한 프리미엄 관리 디스크의 처리량 및 IOPS 성능은 SKU 및 AKS 클러스터에서 노드의 인스턴스 크기에 따라 달라집니다. [Managed Disks의 가격 책정 및 성능][managed-disk-pricing-performance]을 참조하세요.
+
+> [!NOTE]
+> 별도의 리소스 그룹에서 디스크를 만들어야 하는 경우 클러스터에 대한 AKS(Azure Kubernetes Service) 서비스 주체를 `Contributor` 역할의 디스크를 포함하는 리소스 그룹에도 추가해야 합니다. 
+>
 
 ## <a name="mount-disk-as-volume"></a>볼륨으로 디스크 탑재
 
@@ -94,6 +100,7 @@ Azure 디스크를 사용하는 Kubernetes 볼륨에 대해 자세히 알아봅�
 <!-- LINKS - external -->
 [kubernetes-disks]: https://github.com/kubernetes/examples/blob/master/staging/volumes/azure_disk/README.md
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
+[managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 
 <!-- LINKS - internal -->
 [az-disk-list]: /cli/azure/disk#az_disk_list

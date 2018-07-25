@@ -4,14 +4,14 @@ description: Azure Migrate에 대한 질문과 대답 해결
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/10/2018
 ms.author: snehaa
-ms.openlocfilehash: db47f774dd4f73692d0b6ab2c4a511f687864e37
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 3f035f38b1ad68e9e39d151ffad3fc650a0a1d80
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285708"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952752"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - FAQ(질문과 대답)
 
@@ -19,9 +19,22 @@ ms.locfileid: "36285708"
 
 ## <a name="general"></a>일반
 
+### <a name="does-azure-migrate-support-assessment-of-only-vmware-workloads"></a>Azure Migrate가 VMware 워크로드의 평가만 지원하나요?
+
+예. Azure Migrate는 현재, VMware 워크로드의 평가만 지원합니다. Hyper-V 및 물리적 서버에 대한 지원은 향후 제공될 예정입니다.
+
+### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate에는 VMware 환경을 검색하기 위해 vCenter Server가 필요한가요?
+
+네, Azure Migrate에는 VMware 환경을 검색하기 위한 vCenter Server가 필요합니다. vCenter Server에서 관리되지 않는 ESXi 호스트의 검색은 지원되지 않습니다.
+
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Azure Migrate는 Azure Site Recovery와 어떻게 다른가요?
 
 Azure Migrate는 온-프레미스 워크로드를 검색하고 Azure로 마이그레이션을 계획할 때 도움이 되는 평가 서비스입니다. 재해 복구 솔루션과 함께 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure)를 사용하면 온-프레미스 워크로드를 Azure의 IaaS VM으로 마이그레이션하는 데 유용합니다.
+
+### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>평가를 위해 Azure Migrate를 사용할 때와 Map Toolkit을 사용할 때 어떤 차이가 있나요?
+
+[Azure Migrate](migrate-overview.md)는 온-프레미스 워크로드를 Azure로 마이그레이션하기 위한 준비 및 평가에 도움이 되는 마이그레이션 평가를 제공합니다. [MAP(Microsoft Assessment and Planning) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826)에는 다른 기능이 있습니다. 예를 들어, 최신 버전의 Windows 클라이언트 및 서버 운영 체제에 대한 마이그레이션 계획, 소프트웨어 사용 현황 추적 등이 있습니다. 이러한 시나리오의 경우 MAP Toolkit을 계속 사용합니다.
+
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Azure Migrate는 Azure Site Recovery Deployment Planner와 어떻게 다른가요?
 
@@ -29,19 +42,23 @@ Azure Migrate는 마이그레이션 계획 도구이며 Azure Site Recovery Depl
 
 **VMware에서 Azure로의 마이그레이션**: 온-프레미스 워크로드를 Azure로 마이그레이션하려는 경우 마이그레이션 계획에 Azure Migrate를 사용합니다. Azure Migrate는 온-프레미스 워크로드를 평가하고 Azure로 마이그레이션하는 데 유용한 지침, 통찰력 및 메커니즘을 제공합니다. 마이그레이션 계획이 준비되면 Azure Site Recovery 및 Azure Database Migration Service 같은 서비스를 사용하여 컴퓨터를 Azure로 마이그레이션할 수 있습니다.
 
-**Hyper-V에서 Azure로의 마이그레이션**: Azure Migrate는 현재 Azure로의 마이그레이션에 대해 VMware 가상 머신에 대한 평가만 지원합니다. Hyper-V에 대한 지원은 Azure Migrate에 대해 준비 중입니다. 그때까지는 ASR Deployment Planner를 사용할 수 있습니다. Azure Migrate에서 Hyper-V 지원을 사용할 수 있게 되면 Hyper-V 워크로드의 마이그레이션 계획에 Azure Migrate를 사용할 수 있습니다.
+**Hyper-V에서 Azure로의 마이그레이션**: Azure Migrate는 현재 Azure로의 마이그레이션에 대해 VMware 가상 머신에 대한 평가만 지원합니다. Hyper-V에 대한 지원은 Azure Migrate에 대해 준비 중입니다. 그때까지는 Site Recovery Deployment Planner를 사용할 수 있습니다. Azure Migrate에서 Hyper-V 지원을 사용할 수 있게 되면 Hyper-V 워크로드의 마이그레이션 계획에 Azure Migrate를 사용할 수 있습니다.
 
-**VMware/Hyper-V에서 Azure로의 재해 복구**: ASR(Azure Site Recovery)을 사용하여 Azure에서 DR(재해 복구)을 수행하려는 경우 DR 계획에 ASR Deployment Planner를 사용합니다. ASR Deployment Planner는 온-프레미스 환경에 대한 심도 있는 ASR 특정 평가를 수행합니다. 가상 머신의 복제, 장애 조치(failover) 등 성공적인 DR 작업을 위해 ASR에 필요한 권장 사항을 제공합니다.  
-
-### <a name="does-azure-migrate-need-vcenter-server-to-discover-a-vmware-environment"></a>Azure Migrate에는 VMware 환경을 검색하기 위해 vCenter Server가 필요한가요?
-
-네, Azure Migrate에는 VMware 환경을 검색하기 위한 vCenter Server가 필요합니다. vCenter Server에서 관리되지 않는 ESXi 호스트의 검색은 지원되지 않습니다.
+**VMware/Hyper-V에서 Azure로의 재해 복구**: Azure Site Recovery(Site Recovery)를 사용하여 Azure에서 DR(재해 복구)을 수행하려는 경우 DR 계획에 Site Recovery Deployment Planner를 사용합니다. Site Recovery Deployment Planner는 온-프레미스 환경에 대한 심도 있는 ASR 특정 평가를 수행합니다. 가상 머신의 복제, 장애 조치(failover) 등 성공적인 DR 작업을 위해 Site Recovery에 필요한 권장 사항을 제공합니다.  
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Azure Migrate에서 지원되는 Azure 지역은 어디인가요?
 
-Azure Migrate는 현재 프로젝트 위치로 미국 동부 및 미국 중서부를 지원합니다. 미국 중서부 및 미국 동부에서만 마이그레이션 프로젝트를 만들 수 있더라도 [여러 대상 위치](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)에 대해 여전히 컴퓨터를 평가할 수 있습니다. 프로젝트 위치는 검색된 데이터를 저장하는 데에만 사용됩니다.
+Azure Migrate는 현재 마이그레이션 프로젝트 위치로 미국 동부 및 미국 중서부를 지원합니다. 미국 중서부 및 미국 동부에서만 마이그레이션 프로젝트를 만들 수 있더라도 [여러 대상 위치](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)에 대해 여전히 컴퓨터를 평가할 수 있습니다. 프로젝트 위치는 검색된 데이터를 저장하는 데에만 사용됩니다.
 
-## <a name="discovery"></a>검색
+### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>온-프레미스 사이트에서 Azure Migrate로 연결하려면 어떻게 하나요?
+
+이 연결은 인터넷을 통해 진행되거나 공용 피어링을 통해 ExpressRoute를 사용할 수 있습니다.
+
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>.OVA 템플릿으로 VM 설정을 강화할 수 있나요?
+
+Azure Migrate 어플라이언스가 작동하는 데 필요한 통신 및 방화벽 규칙이 그대로 유지되기만 하면, 추가 구성 요소(예: 바이러스 백신)를 .OVA 템플릿에 추가할 수 있습니다.   
+
+## <a name="discovery-and-assessment"></a>검색 및 평가
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Azure Migrate에서는 어떤 데이터를 수집하나요?
 
@@ -75,17 +92,29 @@ Azure Migrate는 어플라이언스 기반 검색 및 에이전트 기반 검색
 
 수집기 어플라이언스에서 수집한 데이터는 마이그레이션 프로젝트를 만들면서 사용자가 지정한 Azure 위치에 저장됩니다. 데이터는 Microsoft 구독에 안전하게 저장되며, 사용자가 Azure Migrate 프로젝트를 삭제하는 경우 삭제됩니다.
 
-종속성 시각화의 경우 VM에 에이전트를 설치하는 경우 종속성 에이전트에서 수집된 데이터는 사용자의 구독에서 만든 OMS 작업 영역 내 미국에 저장됩니다. 이 데이터는 사용자가 자신의 구독에서 OMS 작업 영역을 삭제하면 삭제됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
-
-### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>수집기가 vCenter Server 및 Azure Migrate 서비스와 통신하는 방법은 어떻게 되나요?
-
-수집기 어플라이언스는 어플라이언스의 사용자가 제공한 자격 증명을 사용하여 vCenter Server(포트 443)에 연결합니다. vCenter Server에서 관리되는 VM에 대한 메타데이터를 수집하도록 VMware PowerCLI를 사용하여 vCenter Server를 쿼리합니다. vCenter Server에서 지난 한 달 동안의 각 VM에 대한 성능 기록뿐 아니라 VM에 대한 두 구성 데이터(코어, 메모리, 디스크, NIC 등)를 수집합니다. 그런 다음, 평가를 위해 수집된 메타데이터가 Azure Migrate 서비스로 전송됩니다(https를 통해 인터넷으로). [자세히 알아보기](concepts-collector.md)
+종속성 시각화의 경우 VM에 에이전트를 설치하는 경우 종속성 에이전트에서 수집된 데이터는 사용자의 구독에서 만든 OMS 작업 영역 내 미국에 저장됩니다. 구독에서 OMS 작업 영역을 삭제하면 이 데이터가 삭제됩니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>데이터는 미사용 및 전송 중에 암호화되나요?
 
 예, 수집된 데이터는 미사용 및 전송 중 모두에서 암호화됩니다. 어플라이언스에서 수집된 메타데이터는 Azure Migrate 서비스로 https를 통해 인터넷으로 안전하게 전송됩니다. 수집된 메타데이터는 [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) 및 Microsoft 구독의 [Azure blob 저장소](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)에 저장되고 미사용 암호화됩니다.
 
 종속성 에이전트에서 수집된 데이터도 전송 중에 암호화(보안 https 채널)되며, 사용자의 구독에서 Log Analytics 작업 영역에 저장됩니다. 또한 미사용 시에도 암호화됩니다.
+
+### <a name="how-does-the-collector-communicate-with-the-vcenter-server-and-the-azure-migrate-service"></a>수집기가 vCenter Server 및 Azure Migrate 서비스와 통신하는 방법은 어떻게 되나요?
+
+수집기 어플라이언스는 어플라이언스의 사용자가 제공한 자격 증명을 사용하여 vCenter Server(포트 443)에 연결합니다. vCenter Server에서 관리되는 VM에 대한 메타데이터를 수집하도록 VMware PowerCLI를 사용하여 vCenter Server를 쿼리합니다. vCenter Server에서 지난 한 달 동안의 각 VM에 대한 성능 기록뿐 아니라 VM에 대한 두 구성 데이터(코어, 메모리, 디스크, NIC 등)를 수집합니다. 그런 다음, 평가를 위해 수집된 메타데이터가 Azure Migrate 서비스로 전송됩니다(https를 통해 인터넷으로). [자세히 알아보기](concepts-collector.md)
+
+### <a name="can-i-connect-the-same-collector-appliance-to-multiple-vcenter-servers"></a>여러 vCenter 서버에 동일한 수집기 어플라이언스를 연결할 수 있나요?
+
+예. 여러 vCenter 서버를 검색하는 데 단일 수집기 어플라이언스를 사용할 수 있지만 동시 검색은 가능하지 않습니다. 검색을 차례대로 실행해야 합니다.
+
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery에서 사용되는 .OVA 템플릿이 Azure Migrate에서 사용되는 .OVA와 통합되나요?
+
+현재는 통합이 없습니다. Site Recovery의 .OVA 템플릿은 VMware VM/물리적 서버 복제를 위해 Site Recovery 구성 서버를 설정하는 데 사용됩니다. Azure Migrate에서 사용되는 .OVA는 마이그레이션 평가를 위해 vCenter 서버에서 관리되는 VMware VM을 검색하는 데 사용됩니다.
+
+### <a name="i-changed-my-machine-size-can-i-rerun-the-assessment"></a>내 컴퓨터 크기를 변경했습니다. 평가를 다시 실행할 수 있나요?
+
+평가하려는 VM에서 설정을 변경하는 경우 수집기 어플라이언스를 사용하여 검색을 다시 트리거합니다. 어플라이언스에서 이 작업을 수행하려면 **수집 다시 시작** 옵션을 사용합니다. 컬렉션 완료된 후 업데이트된 평가 결과를 얻으려면 포털에서 평가에 대한 **다시 계산** 옵션을 선택합니다.
 
 ### <a name="how-can-i-discover-a-multi-tenant-environment-in-azure-migrate"></a>Azure Migrate에서 다중 테넌트 환경을 검색하려면 어떻게 해야 하나요?
 

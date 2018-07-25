@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 306032ece4feda0e8132db1e95c4a229472e6c04
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3630d4d694452f2c619e707d1e2e58f1bfe71c0e
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34643501"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858955"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 감사
 
@@ -52,8 +52,9 @@ SQL Data Warehouse 데이터베이스 감사를 사용하여 다음을 수행할
 > * 특정 데이터베이스에 대해 다른 *저장소 계정* 또는 *보존 기간*을 사용할 수 있습니다.
 > * 서버의 나머지 데이터베이스와는 다른 특정 데이터베이스에 대해 이벤트 형식이나 범주를 감사하려 합니다. 예를 들어 특정 데이터베이스에 대해서만 감사해야 하는 테이블 삽입이 있을 수 있습니다.
 > * 현재 데이터베이스 수준 감사로만 지원되는 위협 감지를 사용하려고 합니다.
->
 
+> [!IMPORTANT]
+>Azure SQL Data Warehouse 또는 Azure SQL Data Warehouse가 있는 서버에서 감사를 사용하도록 설정하면 이전에 일시 중지된 경우에도 **Data Warehouse가 다시 시작됩니다**. **감사를 사용하도록 설정한 후에 Data Warehouse를 일시 중지해야 합니다**.
 
 ## <a id="subheading-5"></a>모든 데이터베이스에 대한 서버 수준 감사 설정
 

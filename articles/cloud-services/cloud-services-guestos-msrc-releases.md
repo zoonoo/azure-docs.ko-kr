@@ -12,17 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 7/6/2018
 ms.author: raiye
-ms.openlocfilehash: aaf91f8394ac4fd4fa6372c6c0f17ff92178589e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737540"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37902166"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+## <a name="june-guest-os"></a>게스트 OS 6월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 18-06 | [4284880] |Windows 10 보안 |5.20 |2018년 6월 12일 |
+| Rel 18-06 | [4284867] |Windows 보안 전용 |2.75 |2018년 6월 12일 |
+| Rel 18-06 | [4284846] |Windows 보안 전용 |3.62 |2018년 6월 12일 |
+| Rel 18-06 | [4284878] |Windows 보안 전용 |4.55 |2018년 6월 12일 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |2018년 6월 12일 |
+| Rel 18-06 | [4287903] |깜박임 |3.62, 4.75, 5.20 |2018년 6월 12일 |
+| 해당 없음 | [4103718] |5월 비보안 롤업 |2.75 |2018년 5월 8일 |
+| 해당 없음 | [4103730] |5월 비보안 롤업 |3.62 |2018년 5월 8일 |
+| 해당 없음 | [4103725] |5월 비보안 롤업 |4.55 |2018년 5월 8일 |
+| 해당 없음 | [4040980], [4040977] |9월 17일 .NET 비보안 롤업 |2.75 |2017년 11월 14일 |
+| 해당 없음 | [4095874] |5월 .NET 3.5 비보안 릴리스 |2.75 |2018년 5월 8일 |
+| 해당 없음 | [4096495] |5월 .NET 4.x 비보안 릴리스 |2.75 |2018년 5월 8일 |
+| 해당 없음 | [4040975] |9월 17일 .NET 비보안 롤업 |3.62 |2017년 11월 14일 |
+| 해당 없음 | [4095872] |5월 .NET 3.5 비보안 릴리스 |3.62 |2018년 5월 8일 |
+| 해당 없음 | [4096494] |5월 .NET 4.x 비보안 릴리스 |3.62 |2018년 5월 8일 |
+| 해당 없음 | [4096416] |5월 .NET 4.5x 비보안 릴리스 |3.62 |2018년 5월 8일 |
+| 해당 없음 | [4040974], [4040972] |9월 17일 .NET 비보안 롤업 |4.55 |2017년 11월 14일 |
+| 해당 없음 | [4043763] |10월 17일 .NET 비보안 롤업 |4.55 |2017년 9월 12일 |
+| 해당 없음 | [4095876] |5월 .NET 4.x 비보안 릴리스 |4.55 |2018년 5월 8일 |
+| 해당 없음 | [4096417] |5월 .NET 4.5x 비보안 릴리스 |4.55 |2018년 5월 8일 |
+| 해당 없음 | [4132216] |5월 SSU |5.20 |2018년 5월 8일 |
 
 ## <a name="may-guest-os"></a>게스트 OS 5월
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -648,6 +673,32 @@ ms.locfileid: "34737540"
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 응용 프로그램 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+
+
+[4284880]: http://support.microsoft.com/kb/4284880
+[4284867]: http://support.microsoft.com/kb/4284867
+[4284846]: http://support.microsoft.com/kb/4284846
+[4284878]: http://support.microsoft.com/kb/4284878
+[4230450]: http://support.microsoft.com/kb/4230450
+[4287903]: http://support.microsoft.com/kb/4287903
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103718]: http://support.microsoft.com/kb/4103718
+[4103730]: http://support.microsoft.com/kb/4103730
+[4103725]: http://support.microsoft.com/kb/4103725
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040977]: http://support.microsoft.com/kb/4040977
+[4095874]: http://support.microsoft.com/kb/4095874
+[4096495]: http://support.microsoft.com/kb/4096495
+[4040975]: http://support.microsoft.com/kb/4040975
+[4095872]: http://support.microsoft.com/kb/4095872
+[4096494]: http://support.microsoft.com/kb/4096494
+[4096416]: http://support.microsoft.com/kb/4096416
+[4040974]: http://support.microsoft.com/kb/4040974
+[4040972]: http://support.microsoft.com/kb/4040972
+[4043763]: http://support.microsoft.com/kb/4043763
+[4095876]: http://support.microsoft.com/kb/4095876
+[4096417]: http://support.microsoft.com/kb/4096417
+[4132216]: http://support.microsoft.com/kb/4132216
 
 [4103721]: http://support.microsoft.com/kb/4103721
 [4103727]: http://support.microsoft.com/kb/4103727 

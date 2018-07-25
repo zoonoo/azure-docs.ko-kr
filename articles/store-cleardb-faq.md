@@ -2,28 +2,30 @@
 title: Azure App Service를 사용하는 ClearDB MySQL 데이터베이스에 대한 FAQ | Microsoft Docs
 description: Azure App Service를 사용하는 ClearDB MySQL 데이터베이스를 사용하는 방법에 대한 일반적인 질문에 대한 답변입니다.
 documentationcenter: php
-services: ''
+services: mysql
 author: sunbuild
 manager: yochayk
-editor: ''
 tags: mysql
-ms.assetid: c2ed5e78-6d7d-4d0c-b7ee-a52ae41ceab8
 ms.service: multiple
 ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: 8186e86bd7a441fcefb0759d75ded6f063a4722f
-ms.sourcegitcommit: e19742f674fcce0fd1b732e70679e444c7dfa729
+ms.openlocfilehash: ff36a67cd09dd1e5cb5635be17d1dd76fc824d1a
+ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28948039"
+ms.lasthandoff: 07/09/2018
+ms.locfileid: "37917077"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.
+
+> [!IMPORTANT]
+> 2018년 6월 13일을 기준으로 ClearDB는 Microsoft에서 요금이 청구되는 Azure 기반 고객을 ClearDB를 사용하는 직접 청구 모델로 전환했습니다. 이 문서의 정보는 이전 내용입니다. 더 이상 Azure에서 만든 ClearDB 데이터베이스를 만들거나 업그레이드할 수 없습니다.
+>
+> 자세한 내용 및 다음 단계를 보려면 [ClearDB 서비스 계획으로 변경](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/)을 참조하세요.
+
 
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Azure에서 MySQL을 사용하려면 어떤 옵션이 필요한가요?
 여러 옵션이 있습니다.
@@ -42,7 +44,6 @@ ClearDB는 MySQL 호스팅 서비스이며 MySQL 인프라를 관리합니다. A
 * [무료 평가판](https://azure.microsoft.com/pricing/free-trial/): Microsoft Azure 서비스에서 사용할 크레딧이 포함되어 있지만 타사 리소스의 구매에는 사용할 수 없습니다. 타사 서비스 또는 유료 MySQL 데이터베이스를 구매하려면 신용 카드가 설정된 구독을 사용해야 합니다. Web Apps의 경우 무료 ClearDB MySQL 데이터베이스를 만들 수 있습니다.
 * [MSDN 구독](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) 및 **MSDN 개발 테스트 종량제**: 무료 평가판과 유사한 MSDN 구독을 사용하려면 신용 카드로 ClearDB의 유료 MySQL 솔루션을 구매해야 합니다.
 * [EA(기업계약)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA 고객은 Azure Marketplace(타사)에서 구매한 모든 제품에 대해 EA 분기별로 별도의 통합 청구서로 청구됩니다. 모든 마켓플레이스에서 구매한 제품은 현금 약정 금액과 별도로 청구됩니다. 현재 아제르바이잔, 크로아티아, 노르웨이 및 푸에르토리코에서 등록한 고객은 Azure 저장소를 사용할 수 없습니다. 
-* [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): Web Apps용 무료 ClearDB 데이터베이스만 만들 수 있습니다. 만들 수 있는 무료 ClearDB MySQL 데이터베이스의 수에는 제한이 없습니다. 이 서비스는 평가판 용도로만 제공되므로 무료 데이터베이스를 프로덕션 웹앱에서 사용해서는 안 됩니다.
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>왜 Azure Marketplace에서 웹앱+ MySQL에 대해 3.50달러가 청구되었나요?
 기본 데이터베이스 옵션은 3.50달러인 Titan입니다. 데이터베이스를 만드는 동안 비용이 표시되지 않으므로 의도하지 않은 데이터베이스를 실수로 구매할 수도 있습니다. 환경을 개선할 방법을 찾으려고 노력하고 있습니다. 그 전까지는 **만들기**를 클릭하고 리소스를 배포하기 전에 웹앱 및 데이터베이스에 대해 선택한 가격 책정 계층을 모두 확인해야 합니다.
@@ -75,7 +76,7 @@ Web Apps의 경우 기본이나 더 높은 가격 책정 계층을 사용합니�
 데이터베이스 관련 문제에 대해서는 [ClearDB 지원](https://www.cleardb.com/developers/help/support) 에 문의하세요. Azure 구독 정보를 제공해야 하므로 준비합니다.
 
 ## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>ClearDB MySQL 데이터베이스 클러스터 솔루션에 대한 추가 사용자를 만들 수 있나요?
-번호 추가 사용자를 만들 수는 없지만 ClearDB 데이터베이스 클러스터에서 추가 데이터베이스를 만들 수 있습니다.  
+아니요. 추가 사용자를 만들 수는 없지만 ClearDB 데이터베이스 클러스터에서 추가 데이터베이스를 만들 수 있습니다.  
 
 ## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Basic/Pro 시리즈 데이터베이스를 오늘날 Planetary 계획처럼 ClearDB 포털에서 전체 업그레이드할 수 있나요?
 예, Basic 시리즈 데이터베이스는 전체 업그레이드(Basic 60 ~ Basic 500)할 수 있습니다. Pro 시리즈는 Pro 60을 제외하고 전체 업그레이드(Pro 125 ~ Pro 1000)할 수 있습니다. 현재 Pro 60 데이터베이스 업그레이드는 지원되지 않습니다. 

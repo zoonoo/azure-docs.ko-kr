@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: b25e97b0f0d0b6f63134a774856eb7ec8f77b679
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 03f335634b7ce1fe4aa6251d6ec21922ed9b84c8
+ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30837441"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37887490"
 ---
 # <a name="plans-and-billing-in-azure-scheduler"></a>Azure Scheduler의 버전 및 요금 청구
 ## <a name="job-collection-plans"></a>작업 컬렉션 버전
@@ -57,7 +57,7 @@ P20 Premium 청구 가능 단위는 최대 5,000개의 P20 Premium 작업 컬렉
 P20 Premium 작업 컬렉션은 P10 Premium 작업 컬렉션과 동일한 기능을 제공하지만, 작업 컬렉션당 훨씬 더 많은 수의 작업을 지원하며, P10 Premium에 비해 총 작업 수도 훨씬 더 많으므로 확장성도 높아집니다.
 
 ## <a name="billing-and-active-status"></a>청구 및 활성 상태
-전체 구독이 청구상의 문제로 일시적으로 비활성화되지 않는 한 작업 컬렉션은 항상 활성 상태입니다. 작업 컬렉션이 청구되지 않게 하는 유일한 방법은 *Free* 버전으로 설정하거나 작업 컬렉션을 삭제하는 것입니다.
+전체 구독이 청구상의 문제로 일시적으로 비활성화되지 않는 한 작업 컬렉션은 항상 활성 상태입니다. 작업 컬렉션이 청구되지 않게 하는 유일한 방법은 작업 컬렉션을 삭제하는 것입니다.
 
 단일 작업에서 작업 컬렉션 안의 모든 작업을 비활성화할 수 있으나 작업 컬렉션의 청구 상태가 바뀌지는 않으며 작업 컬렉션은 *계속* 청구됩니다. 마찬가지로 빈 작업 컬렉션도 활성 상태로 간주되어 청구됩니다.
 

@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: 523b986f66a2e48685e9707903194856f0dcf4a2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: bceec3e85a54eb0e8b542d40ab20536ab41a50f0
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "23059928"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38718943"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었습니다.
@@ -47,7 +47,7 @@ Azure PHP 응용 프로그램에서 SendGrid를 사용하기 위해 특별한 �
 SendGrid에서 제공하는 SMTP 또는 웹 API를 사용하여 전자 메일을 보낼 수 있습니다.
 
 ### <a name="smtp-api"></a>SMTP API
-SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer*를 사용합니다. [http://swiftmailer.org/download][http://swiftmailer.org/download] v5.3.0에서 *Swift Mailer* 라이브러리를 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 전자 메일 보내기에는<span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> 및 <span class="auto-style2">Swift\_Message</span> 클래스의 인스턴스 생성, 적절한 속성 설정 및 <span class="auto-style2">Swift\_Mailer::send</span> 메서드 호출이 포함됩니다.
+SendGrid SMTP API를 사용하여 메일을 보내려면 PHP 응용 프로그램에서 메일을 보내기 위한 구성 요소 기반 라이브러리인 *Swift Mailer*를 사용합니다. [http://swiftmailer.org/download][https://swiftmailer.symfony.com/] v5.3.0에서 *Swift Mailer* 라이브러리를 다운로드할 수 있습니다([Composer]를 사용하여 Swift Mailer 설치). 라이브러리를 사용하여 전자 메일 보내기에는<span class="auto-style2">Swift\_SmtpTransport</span>, <span class="auto-style2">Swift\_Mailer</span> 및 <span class="auto-style2">Swift\_Message</span> 클래스의 인스턴스 생성, 적절한 속성 설정 및 <span class="auto-style2">Swift\_Mailer::send</span> 메서드 호출이 포함됩니다.
 
     <?php
      include_once "vendor/autoload.php";
@@ -230,7 +230,7 @@ SMTP API를 사용하여 첨부 파일을 보내는 프로세스에는 Swift Mai
 
     'files['.$fileName.']' => '@'.$filePath.'/'.$fileName
 
-예:
+예제:
 
     <?php
 
@@ -285,7 +285,7 @@ SendGrid는 '필터' 사용을 통해 추가 메일 기능을 제공합니다. �
 
     php composer.phar require sendgrid/sendgrid 2.1.1
 
-예:    
+예제:    
 
     <?php
      /*

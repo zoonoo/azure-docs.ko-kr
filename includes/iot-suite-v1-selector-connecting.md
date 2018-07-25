@@ -1,7 +1,24 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: iot-accelerators
+author: dominicbetts
+ms.service: iot-accelerators
+ms.topic: include
+ms.date: 05/30/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 55920b6c147626f68f51b9e0479949330c71a748
+ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 06/01/2018
+ms.locfileid: "38756429"
+---
 > [!div class="op_single_selector"]
 > * [Windows에서 C](../articles/iot-suite/iot-suite-v1-connecting-devices.md)
 > * [Linux에서 C](../articles/iot-suite/iot-suite-v1-connecting-devices-linux.md)
-> * [Node.JS](../articles/iot-suite/iot-suite-v1-connecting-devices-node.md)
+> * [Node.js](../articles/iot-suite/iot-suite-v1-connecting-devices-node.md)
 > 
 > 
 
@@ -16,7 +33,7 @@
 
 장치는 솔루션 대시보드에서 호출된 메서드 및 솔루션 대시보드에 설정된 desired 속성 값에 응답할 수도 있습니다.
 
-이 자습서를 완료하려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
+이 자습서를 완료하려면 활성 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 평가판][lnk-free-trial]을 참조하세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 장치에 대한 코드를 작성하기 전에, 미리 구성된 원격 모니터링 솔루션을 프로비전하고 이 솔루션에 새로운 사용자 지정 장치를 프로비전해야 합니다.
@@ -24,13 +41,13 @@
 ### <a name="provision-your-remote-monitoring-preconfigured-solution"></a>미리 구성된 사용자의 원격 모니터링 솔루션 프로비전
 이 자습서에서 만드는 장치는 미리 구성된 [원격 모니터링][lnk-remote-monitoring] 솔루션의 인스턴스에 데이터를 전송합니다. Azure 계정에서 미리 구성된 원격 모니터링 솔루션을 미리 프로비전하지 않은 경우 다음 단계를 사용합니다.
 
-1. <https://www.azureiotsuite.com/> 페이지에서 솔루션을 만들려면 **+**를 클릭합니다.
+1. <https://www.azureiotsolutions.com/> 페이지에서 **+** 를 클릭하여 솔루션을 만듭니다.
 2. **원격 모니터링** 패널에서 **선택**을 클릭하여 솔루션을 만듭니다.
 3. **원격 모니터링 솔루션 만들기** 페이지에서 선택한 **솔루션 이름**을 입력하고, 배포하려는 **지역**을 선택한 후, 사용하려는 Azure 구독을 선택합니다. 그런 다음 **솔루션 만들기**를 클릭합니다.
 4. 프로비전 프로세스가 완료될 때까지 기다립니다.
 
 > [!WARNING]
-> 미리 구성된 솔루션에서는 청구 가능한 Azure 서비스를 사용합니다. 불필요한 비용을 방지하기 위해 완료된 후에는 미리 구성된 솔루션을 구독에서 제거해야 합니다. <https://www.azureiotsuite.com/> 페이지를 방문하여 미리 구성된 솔루션을 구독에서 완전히 제거할 수 있습니다.
+> 미리 구성된 솔루션에서는 청구 가능한 Azure 서비스를 사용합니다. 불필요한 비용을 방지하기 위해 완료된 후에는 미리 구성된 솔루션을 구독에서 제거해야 합니다. <https://www.azureiotsolutions.com/> 페이지를 방문하여 미리 구성된 솔루션을 구독에서 완전히 제거할 수 있습니다.
 > 
 > 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2018
 ms.author: ergreenl
-ms.openlocfilehash: 9eefbdb8acd7dff14817c8358a05ae0f91e5eb11
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 360c6c98227e52f0540b00ef136888d3d143b9fb
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218880"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951077"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 경고 문제 해결
 이 문서에서는 관리되는 도메인에서 발생할 수 있는 경고에 대한 문제 해결 가이드를 제공합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "36218880"
 | AADDS105 | *응용 프로그램 ID가 “d87dcbc6-a371-462e-88e3-28ad15ec4e64”인 서비스 주체가 삭제된 다음, 다시 생성됩니다. 다시 만들기를 수행할 경우 관리되는 도메인을 서비스하는 데 필요한 Azure AD Domain Services 리소스에 일치하지 않는 권한이 남게 됩니다. 관리되는 도메인에서 암호 동기화에 영향이 있을 수 있습니다.* | [암호 동기화 응용 프로그램이 만료됨](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *관리되는 도메인은 [date]에 Azure AD와 마지막으로 동기화되었습니다. 사용자가 관리되는 도메인에서 로그인할 수 없거나 그룹 멤버 자격이 Azure AD와 동기화되지 않을 수 있습니다.* | [잠시 후에 동기화가 수행되지 않았습니다.](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *관리되는 도메인은 마지막으로 [date]에 백업되었습니다.* | [잠시 후에 백업이 수행되지 않았습니다.](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *관리되는 도메인에 대한 보안 LDAP 인증서는 XX에 만료됩니다.* | [보안 LDAP 인증서 만료](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *관리되는 도메인에 대한 보안 LDAP 인증서는 [date]]에 만료됩니다.* | [보안 LDAP 인증서 만료](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *해당 도메인과 연결된 Azure 구독이 활성 상태가 아니기 때문에 관리되는 도메인은 일시 중단됩니다.* | [비활성화된 구독으로 인한 일시 중단](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *관리되는 도메인은 잘못된 구성으로 인해 일시 중단됩니다. 서비스는 오랜 시간 동안 관리되는 도메인의 도메인 컨트롤러를 관리하거나, 패치하거나, 업데이트할 수 없었습니다.* | [잘못된 구성으로 인한 일시 중단](#aadds504-suspension-due-to-an-invalid-configuration) |
 
@@ -112,6 +112,9 @@ ms.locfileid: "36218880"
 
 관리되는 도메인의 구성에서 문제를 나타낼 수 있는 모든 경고에 대한 [도메인의 상태를 확인](active-directory-ds-check-health.md)합니다. 경우에 따라 구성 관련 문제는 관리되는 도메인을 동기화하는 Microsoft의 기능을 차단할 수 있습니다. 경고를 해결할 수 있는 경우 두 시간 동안 대기하고 동기화가 완료되었는지를 다시 확인합니다.
 
+관리되는 도메인에서 동기화가 중지되는 몇 가지 일반적인 원인은 다음과 같습니다.
+- 관리되는 도메인에서 네트워크 연결이 차단된 경우. 네트워크의 문제를 확인하는 방법에 대한 자세한 내용은 [네트워크 보안 그룹 문제 해결](active-directory-ds-troubleshoot-nsg.md) 방법과 [Azure AD Domain Services의 네트워크 요구 사항](active-directory-ds-networking.md)을 읽어보세요.
+-  암호 동기화가 설정되지 않았거나 완료되지 않은 경우. 암호 동기화를 설정하려면 [이 문서](active-directory-ds-getting-started-password-sync.md)를 읽어보세요.
 
 ## <a name="aadds501-a-backup-has-not-been-taken-in-a-while"></a>AADDS501: 잠시 후에 백업이 수행되지 않았습니다.
 
@@ -132,6 +135,9 @@ ms.locfileid: "36218880"
 
 **해결 방법:**
 
+> [!WARNING]
+> 관리되는 도메인이 장시간 동안 일시 중단될 경우 삭제될 위험이 있습니다. 가능한 한 빠르게 일시 중단을 해결하는 것이 좋습니다. 자세한 내용은 [이 문서](active-directory-ds-suspension.md)를 참조하세요.
+
 서비스를 복원하려면 관리되는 도메인에 연결된 [Azure 구독을 갱신](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable)합니다.
 
 ## <a name="aadds504-suspension-due-to-an-invalid-configuration"></a>AADDS504: 잘못된 구성으로 인한 일시 중단
@@ -142,7 +148,11 @@ ms.locfileid: "36218880"
 
 **해결 방법:**
 
+> [!WARNING]
+> 관리되는 도메인이 장시간 동안 일시 중단될 경우 삭제될 위험이 있습니다. 가능한 한 빠르게 일시 중단을 해결하는 것이 좋습니다. 자세한 내용은 [이 문서](active-directory-ds-suspension.md)를 참조하세요.
+
 관리되는 도메인의 구성에서 문제를 나타낼 수 있는 모든 경고에 대한 [도메인의 상태를 확인](active-directory-ds-check-health.md)합니다. 이러한 경고를 해결할 수 있는 경우 수행합니다. 이후에 구독을 다시 활성화하려면 지원에 문의하세요.
+
 
 ## <a name="contact-us"></a>문의처
 [지원이 필요하거나 피드백을 공유하려면](active-directory-ds-contact-us.md)Azure Active Directory Domain Services 제품 팀에 문의하세요.

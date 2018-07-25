@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/29/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0264f92fa10bd503a2811ce40ee0b8d4edd5f3b1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1813367a2d143f75fb51a3160dd00219c709c57b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34669835"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37935809"
 ---
 ## <a name="supported-distributions-and-drivers"></a>지원되는 배포판 및 버전
 
@@ -34,7 +34,7 @@ Microsoft는 가상 워크스테이션으로 사용되는 NV 시리즈 VM 또는
 
 | 배포 | 드라이버 |
 | --- | -- |
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 또는 7.4<br/><br/>CentOS 기반 7.3 또는 7.4 | NVIDIA GRID 6.0, 드라이버 분기 R390|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3 또는 7.4<br/><br/>CentOS 기반 7.3 또는 7.4 | NVIDIA GRID 6.2, 드라이버 분기 R390|
 
 
 

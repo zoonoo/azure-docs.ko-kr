@@ -4,15 +4,15 @@ description: Collector 어플라이언스에 대한 개요 및 구성 방법을 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: d0f36370f5093f8c1d06c83a62532b3854597fa4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211672"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37951042"
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -176,7 +176,7 @@ Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 �
 정적 메타데이터를 프로젝트에 보내는 데 최대 15분이(선택한 범위에 있는 가상 머신의 수를 기반으로) 소요됩니다. 정적 메타데이터를 포털에서 사용할 수 있게 되면, 포털에 컴퓨터 목록이 표시되고 그룹 만들기를 시작할 수 있습니다. 컬렉션 작업이 완료되고 프로젝트가 데이터를 처리할 때까지 평가를 생성할 수 없습니다. Collector에서 컬렉션 작업이 완료된 후, 포털에서 성능 데이터를 사용할 수 있게 되기까지는 선택한 범위에 있는 가상 머신의 수에 따라 최대 1시간이 걸릴 수 있습니다.
 
 ## <a name="locking-down-the-collector-appliance"></a>수집기 어플라이언스 잠금
-수집기 어플라이언스에서 지속적인 Windows 업데이트를 실행하는 것이 좋습니다. 수집기가 45일 동안 업데이트되지 않으면, 수집기는 컴퓨터를 자동 종료하기 시작합니다. 검색을 실행 중인 경우 45일의 기간이 경과되어도 컴퓨터는 꺼지지 않습니다. 검색 작업이 완료된 후 컴퓨터가 꺼집니다. 45일 이상 수집기를 사용 중인 경우 Windows 업데이트를 실행하여 컴퓨터를 항상 업데이트된 상태로 유지하는 것이 좋습니다.
+수집기 어플라이언스에서 지속적인 Windows 업데이트를 실행하는 것이 좋습니다. 수집기가 60일 동안 업데이트되지 않으면, 수집기는 컴퓨터를 자동 종료하기 시작합니다. 검색을 실행 중인 경우 60일의 기간이 경과되어도 컴퓨터는 꺼지지 않습니다. 검색 작업이 완료된 후 컴퓨터가 꺼집니다. 45일 이상 수집기를 사용 중인 경우 Windows 업데이트를 실행하여 컴퓨터를 항상 업데이트된 상태로 유지하는 것이 좋습니다.
 
 또한 다음 단계를 통해 어플라이언스를 보호하는 것이 좋습니다.
 1. 관리자 암호를 권한이 없는 주체와 공유하거나 잃어버리지 마십시오.

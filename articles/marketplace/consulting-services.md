@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7cd902f289d0743b4aecf004f5f64a04024aa790
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312086"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37950409"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace 컨설팅 서비스
 Azure Marketplace의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표를 제공합니다. Azure Marketplace는 Microsoft 시스템 통합자(SI) 파트너의 컨설팅 서비스 솔루션 목록을 지원합니다. 
 
-이러한 컨설팅 서비스 제품은 고객별로 참여합니다. 범위와 기간이 정해져 있으며, 고정 가격이나 무료일 수 있고, 정의된 결과가 있습니다. 잠재 고객은 간편하게 파트너의 연락을 요청할 수 있습니다. 파트너는 CRM 시스템에서 알림을 받고 48시간 내에 요청에 응답하려고 합니다.
+이러한 컨설팅 서비스 제품은 고객별로 참여합니다. 게시자에게는 목록 형식, 고정된 범위 및 기간, 고정 가격 또는 무료를 결정할 수 있는 옵션이 제공되고 고객을 위한 정의된 결과물이 있습니다. 파트너는 CRM 시스템에서 알림을 받고 48시간 내에 요청에 응답하려고 합니다.
 
 ## <a name="consulting-services-in-azure-marketplace-vs-appsource-storefront"></a>Azure Marketplace의 컨설팅 서비스와 AppSource Storefront 비교
 마켓플레이스 상점은 대상 고객 및 Microsoft 클라우드 제품에 맞게 조정되어 고객이 필요한 정확한 제품을 찾도록 도와줍니다. 각 상점은 전문화된 게시 옵션을 제공하여 게시 투자를 극대화하는 데 도움을 줍니다. 다음 표에서는 이러한 옵션을 요약합니다.
@@ -37,7 +37,8 @@ Azure Marketplace의 컨설팅 서비스는 Microsoft 파트너에게 고객과 
 |제품 환경 내      |Azure 관리 포털|Dynamics 365, Office 365, Office 클라이언트 앱| 
 |기타      |Azure Stack을 통한 온-프레미스 게시|Dynamics 및 Power BI용 컨설팅 서비스|
 
-Azure Marketplace의 컨설팅 서비스는 Azure 기술 솔루션 및 서비스에 중점을 두고 기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다.
+>[!Note]
+>Azure Marketplace의 컨설팅 서비스는 *Azure 기술 솔루션 및 서비스*에 중점을 두고 기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다.
 
 
 Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스 제품은 AppSource에 나열할 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)을 참조하세요. 
@@ -71,8 +72,16 @@ SI 파트너는 다음 18개 국가에 대한 컨설팅 서비스 제품을 제�
 
 Azure Marketplace 컨설팅 서비스는 오스트레일리아, 캐나다, 영국 및 미국에서 가장 먼저 출시됩니다. 그 외 국가의 카탈로그는 파트너가 유의미한 수의 경쟁력 있는 엄선된 서비스 제품을 제출하여 Microsoft의 승인을 받은 후에 게시됩니다.
 
+## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Azure Marketplace에서 컨설팅 서비스를 등록하는 방법
+먼저 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup)에서 컨설팅 서비스를 등록합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
+
+**등록 후 예상 결과** 온보딩 팀이 영업일 기준 1~3일 이내에 CPP(Cloud 파트너 포털) 로그인 정보를 포함하는 환영 전자 메일로 연락을 드립니다. [Cloud 파트너 포털](https://cloudpartner.azure.com)은 게시자가 목록 정보 및 제안을 제출하는 제품 목록 포털입니다. 
+
+>[!Note]
+>파트너는 게시자가 되려면 한 번만 등록하면 됩니다. 환영 전자 메일 및 Cloud 파트너 포털 로그인을 받게 되면 게시자는 다른 목록 형식을 게시하기 위해 다시 등록할 필요가 없습니다. 
+
 ## <a name="prepare-your-publishing-artifacts"></a>게시 아티팩트 준비
-서비스를 지정하기 전에도 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다. 
+등록 전에 목록을 통해 서비스 및 솔루션의 가치를 대상 고객에게 설명하는 데 도움이 될 만한 콘텐츠를 수집하고 준비할 수 있습니다. 
 
 |새 게시자에 대한 설정  |
 |---------|
@@ -142,3 +151,12 @@ Azure Marketplace에 컨설팅 서비스 제품을 나열하려면 다음 단계
 |워크샵    |   선택한 제공 기간에 따라, 매일, 매주 또는 매월 자세한 주제를 포함합니다. 워크샵에서 다룰 학습 목적 또는 기타 결과물 결정     |   상위 검색 엔진 최적화 키워드로 제품 요약 최적화      |
 
 Cloud 파트너 포털 내에서 [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown)을 사용하여 목록에 서식을 추가할 수 있습니다. 이것은 목록을 정리하는 데 도움이 되는 간단한 디자인 언어입니다. 
+
+**샘플 Markdown 참고 사항**
+*   사본 블록 맨 앞과 맨 끝에 공백 없이 *를 추가하여 기울임꼴 만들기(예: *content*)
+* ":" 콜론 뒤에 줄 바꿈 포함
+*   글머리 기호용 "*" 뒤에 공백(예: *(space)Content)
+*    ### <a name="space-for-heading-ex-spaceagendadeliverables"></a>제목용 공백(예: ###(space)Agenda/Deliverables)
+*   제목 다음에 줄 바꿈
+*   ** = bold (No space)(예: **No Space**) •   제품 요약을 기울임꼴로 표시 •   Agenda 및 Deliverables는 제목임
+

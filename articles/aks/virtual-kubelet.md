@@ -1,6 +1,6 @@
 ---
 title: AKS(Azure Kubernetes Service) 클러스터에서 Virtual Kubelet 실행
-description: Virtual Kubelet을 사용하여 Azure Container Instances에서 Kubernetes 컨테이너를 실행합니다.
+description: AKS(Azure Kubernetes Service)에서 Virtual Kubelet을 사용하여 Azure Container Instances에서 Linux 및 Windows 컨테이너를 실행하는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
@@ -8,14 +8,14 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 04fdb1620dc6e7147ed10ae6eeeaeb3eeae14b62
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097362"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952481"
 ---
-# <a name="virtual-kubelet-with-aks"></a>AKS를 사용한 Virtual Kubelet
+# <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
 ACI(Azure Container Instances)는 Azure에서 실행 중인 컨테이너에 호스팅된 환경을 제공합니다. ACI를 사용할 때는 기본 계산 인프라를 관리할 필요가 없습니다. Azure에서 사용자 대신 관리합니다. ACI에서 컨테이너를 실행할 때는 실행 중인 각 컨테이너에 초당 요금이 청구됩니다.
 
@@ -32,7 +32,38 @@ Azure Container Instances에 Virtual Kubelet 공급자를 사용할 때 표준 K
 
 또한 Azure CLI 버전 **2.0.33** 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-[Helm](https://docs.helm.sh/using_helm/#installing-helm)은 Virtual Kubelet을 설치하기 위해 필요합니다.
+Virtual Kubelet을 설치하려면 [Helm](https://docs.helm.sh/using_helm/#installing-helm)도 필요합니다.
+
+### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
+
+AKS 클러스터에서 RBAC가 지원될 경우 Tiller에서 사용할 수 있게 서비스 계정 및 역할 바인딩을 만들어야 합니다. 자세한 내용은 [Helm 역할 기반 액세스 제어][helm-rbac].를 참조하세요.
+
+Virtual Kubelet에 대해 *ClusterRoleBinding*도 만들어야 합니다. 바인딩을 만들려면 *rbac-virtualkubelet.yaml*이라는 파일을 만들고 다음 정의를 붙여넣습니다.
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: virtual-kubelet
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: default
+```
+
+[kubectl apply][kubectl-apply]를 사용하여 바인딩을 적용하고 다음 예제와 같이 *rbac-virtualkubelet.yaml* 파일을 지정합니다.
+
+```
+$ kubectl apply -f rbac-virtual-kubelet.yaml
+
+clusterrolebinding.rbac.authorization.k8s.io/virtual-kubelet created
+```
+
+이제 Virtual Kubelet을 AKS 클러스터에 계속 설치할 수 있습니다.
 
 ## <a name="installation"></a>설치
 
@@ -61,7 +92,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 Virtual Kubelet이 설치되었는지 확인하려면 [kubectl get nodes][kubectl-get] 명령을 사용하여 Kubernetes 노드 목록을 반환합니다.
 
-```console
+```
 $ kubectl get nodes
 
 NAME                                    STATUS    ROLES     AGE       VERSION
@@ -102,13 +133,13 @@ spec:
 
 [kubectl create][kubectl-create] 명령을 사용하여 응용 프로그램을 실행합니다.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
 `-o wide` 인수와 [kubectl get pods][kubectl-get] 명령을 사용하여 예약된 노드를 포함한 Pod 목록을 출력합니다. `aci-helloworld` Pod는 `virtual-kubelet-virtual-kubelet-linux` 노드에서 예약되었습니다.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -145,13 +176,13 @@ spec:
 
 [kubectl create][kubectl-create] 명령을 사용하여 응용 프로그램을 실행합니다.
 
-```azurecli-interactive
+```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
 `-o wide` 인수와 [kubectl get pods][kubectl-get] 명령을 사용하여 예약된 노드를 포함한 Pod 목록을 출력합니다. `nanoserver-iis` Pod는 `virtual-kubelet-virtual-kubelet-win` 노드에서 예약되었습니다.
 
-```console
+```
 $ kubectl get pods -o wide
 
 NAME                                READY     STATUS    RESTARTS   AGE       IP             NODE
@@ -182,3 +213,5 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet
+[helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply

@@ -5,15 +5,15 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 03/09/2018
+ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 638b52edb554b6bddb206943fca42b03bdc69060
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 033ae1de25fbaada0c2bce715e6bdd71818b341a
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "30845134"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37906805"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -32,6 +32,10 @@ Fs 시리즈는 Premium Storage 외에도 F 시리즈의 모든 기능을 제공
 ## <a name="fsv2-series-sup1sup"></a>Fsv2 시리즈 <sup>1</sup>
 
 ACU: 195~210
+
+Premium Storage: 지원됨
+
+Premium Storage 캐싱: 지원됨
 
 | 크기             | vCPU 수 | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
@@ -53,6 +57,10 @@ ACU: 195~210
 
 ACU: 210-250
 
+Premium Storage: 지원됨
+
+Premium Storage 캐싱: 지원됨
+
 | 크기 | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 저장소 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4,000/32(12) |3,200/48 |2 / 750 |
@@ -71,6 +79,10 @@ MBps = 초당 10^6바이트, GiB = 1024^3바이트
 ## <a name="f-series"></a>F 시리즈
 
 ACU: 210-250
+
+Premium Storage: 지원되지 않음
+
+Premium Storage 캐싱: 지원되지 않음
 
 | 크기         | vCPU | 메모리: GiB | 임시 저장소(SSD) GiB | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 데이터 디스크/처리량: IOPS | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

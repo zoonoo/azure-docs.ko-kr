@@ -8,22 +8,28 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 07/05/2018
 ms.author: clemensv
-ms.openlocfilehash: 7716ff503bd492cc4b5d510758cb20d74eb82a4f
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f8874a1d9db754485e9624596465560981bd6425
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035678"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858048"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus에서 Virtual Network 서비스 엔드포인트 사용
 
-[VNet(Virtual Network) 서비스 엔드포인트][vnet-sep]와 Service Bus를 통합하면 양쪽 엔드에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다. 
+[VNet(Virtual Network) 서비스 끝점][vnet-sep]와 Service Bus를 통합하면 양쪽 끝에서 네트워크 트래픽 경로를 보호하여 가상 네트워크에 바인딩된 가상 머신과 같은 워크로드의 메시징 기능에 대한 액세스를 보호할 수 있습니다. 
 
 적어도 하나의 가상 네트워크 서브넷 서비스 엔드포인트에 바인딩되도록 구성하면 해당하는 Service Bus 네임스페이스는 권한이 부여된 가상 네트워크를 제외한 곳의 트래픽을 더 이상 허용하지 않습니다. 가상 네트워크 큐브 뷰에서 Service Bus 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다.
 
 메시징 서비스 엔드포인트의 관찰 가능한 네트워크 주소가 공용 IP 범위에 있음에도 서브넷에 바인딩된 워크로드와 해당하는 Service Bus 네임스페이스 간에 격리된 개인 관계가 생성됩니다.
+
+## <a name="enable-service-endpoints-with-service-bus"></a>Service Bus에서 서비스 끝점을 사용하도록 설정
+
+Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다. 
+
+Service Bus에서 VNet 서비스 끝점을 사용할 경우의 중요한 고려 사항은 표준 및 프리미엄 계층 Service Bus 네임스페이스를 혼합하는 응용 프로그램에서는 이러한 끝점을 사용하지 않아야 한다는 것입니다. 표준 계층은 VNet을 지원하지 않으므로, 끝점은 프리미엄 계층 네임스페이스로만 제한됩니다. VNet은 표준 네임스페이스로의 트래픽을 차단합니다. 
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>VNet 통합에서 사용하도록 설정한 고급 보안 시나리오 
 

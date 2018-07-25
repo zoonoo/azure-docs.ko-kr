@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 5cbe6f1f8f15e9da8e1fe6961d3da9b9e2a31e4b
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
+ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806386"
+ms.lasthandoff: 07/07/2018
+ms.locfileid: "37909966"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM의 고성능 Premium Storage 및 관리 디스크
 Azure Premium Storage는 입력/출력(I/O) 사용량이 많은 워크로드가 있는 VM(가상 머신)에서 대기 시간이 짧은 고성능 디스크 지원을 제공합니다. Premium Storage를 사용하는 VM 디스크는 SSD(반도체 드라이브)에 데이터를 저장합니다. 프리미엄 저장소의 속도 및 성능을 활용하기 위해 기존 VM 디스크를 Premium Storage로 마이그레이션할 수 있습니다.
@@ -52,7 +52,7 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 * **Premium Storage 디스크**
 
-    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 DS 시리즈, DSv2 시리즈, GS 시리즈, Ls 시리즈, Fs 시리즈 및 Esv3 시리즈 VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB) 등, 7가지 디스크 크기 중에서 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
+    Premium Storage는 특정 크기-시리즈 VM에 연결할 수 있는 VM 디스크를 지원합니다. Premium Storage는 다양한 Azure VM을 지원합니다. P4(32GB), P6(64GB), P10(128GB), P20(512GB), P30(1024GB), P40(2048GB), P50(4095GB) 등, 7가지 디스크 크기 중에서 선택할 수 있습니다. P4 및 P6 디스크 크기는 아직 Managed Disks에 대해서만 지원됩니다. 디스크 크기마다 자체 성능 사양이 있습니다. 응용 프로그램 요구 사항에 따라 하나 이상의 디스크를 VM에 연결할 수 있습니다. 사양에 대한 자세한 내용은 [Premium Storage 확장성 및 성능 목표](#scalability-and-performance-targets)에서 설명합니다.
 
 * **프리미엄 페이지 Blob**
 
@@ -78,16 +78,16 @@ Premium Storage 기능 중 일부는 다음과 같습니다.
 
 ## <a name="supported-vms"></a>지원되는 VM
 
-Premium Storage는 B 시리즈, DS 시리즈, DSv2 시리즈, DSv3 시리즈, Esv3 시리즈, GS 시리즈, Ls 시리즈, M 시리즈 및 Fs 시리즈 VM을 지원합니다. 이러한 VM 유형에는 표준 및 프리미엄 저장소 디스크를 사용할 수 있습니다. Premium Storage와 호환되지 않는 VM 시리즈에서는 프리미엄 저장소 디스크를 사용할 수 없습니다.
+Premium Storage는 다양한 Azure VM에서 지원됩니다. 이러한 VM 유형에는 표준 및 프리미엄 저장소 디스크를 사용할 수 있습니다. Premium Storage와 호환되지 않는 VM 시리즈에서는 프리미엄 저장소 디스크를 사용할 수 없습니다.
 
 
 Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windows VM 크기](../articles/virtual-machines/windows/sizes.md)를 참조하세요. Azure에서 Linux용 VM 유형 및 크기에 대한 자세한 내용은 [Linux VM 크기](../articles/virtual-machines/linux/sizes.md)를 참조하세요.
 
-다음은 DS 시리즈, DSv2 시리즈, GS 시리즈, Ls 시리즈 및 Fs 시리즈 VM의 일부 기능입니다.
+다음은 Premium Storage 사용 VM에서 지원되는 기능 중 일부입니다.
 
-* **클라우드 서비스**
+* **가용성 집합**
 
-    DS 시리즈 VM만 포함하는 클라우드 서비스에 DS 시리즈 VM을 추가할 수 있습니다. DS 시리즈가 아닌 VM 유형을 포함하는 기존 클라우드 서비스에 DS 시리즈 VM을 추가하지 마세요. DS 시리즈 VM만 실행하는 새 클라우드 서비스에 기존 VHD를 마이그레이션할 수 있습니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 가상 IP 주소를 사용하려는 경우, [예약된 IP 주소](../articles/virtual-network/virtual-networks-instance-level-public-ip.md)를 사용합니다. GS 시리즈 VM만 포함하는 기존 클라우드 서비스에 GS 시리즈 VM을 추가할 수 있습니다.
+    DS 시리즈 VM 예제를 사용하여 DS 시리즈 M을 DS 시리즈 VM만 있는 클라우드 서비스에 추가할 수 있습니다. DS 시리즈가 아닌 VM 유형을 포함하는 기존 클라우드 서비스에 DS 시리즈 VM을 추가하지 마세요. DS 시리즈 VM만 실행하는 새 클라우드 서비스에 기존 VHD를 마이그레이션할 수 있습니다. DS 시리즈 VM을 호스트하는 새 클라우드 서비스에 동일한 가상 IP 주소를 사용하려는 경우, [예약된 IP 주소](../articles/virtual-network/virtual-networks-instance-level-public-ip.md)를 사용합니다.
 
 * **운영 체제 디스크**
 
@@ -104,7 +104,13 @@ Azure에서 Windows용 VM 유형 및 크기에 대한 자세한 내용은 [Windo
 
 * **캐시**
 
-    Premium Storage를 지원하는 크기 시리즈의 VM에는 높은 수준의 처리량 및 대기 시간을 얻을 수 있는 고유의 캐싱 기능이 있습니다. 이 캐싱 기능은 기본적인 프리미엄 저장소 디스크 성능을 능가합니다. 프리미엄 저장소 디스크의 디스크 캐싱 정책은 **ReadOnly**, **ReadWrite** 또는 **None**으로 설정할 수 있습니다. 기본 디스크 캐싱 정책은 모든 프리미엄 데이터 디스크에 대해서는 **ReadOnly**이고 운영 체제 디스크에 대해서는 **ReadWrite**입니다. 최적의 응용 프로그램 성능을 얻으려면 올바른 캐시 설정을 사용해야 합니다. 예를 들어 SQL Server 데이터 파일처럼 읽기 작업이 많거나 읽기 전용인 데이터 디스크의 경우에는 디스크 캐싱 정책을 **ReadOnly**로 설정하세요. SQL Server 로그 파일처럼 쓰기 작업이 많거나 쓰기 전용인 데이터 디스크의 경우에는 디스크 캐싱 정책을 **None**으로 설정하세요. [Premium Storage를 사용한 성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)에서 Premium Storage로 디자인을 최적화하는 자세한 방법을 알아보세요.
+    Premium Storage를 지원하는 VM(Virtual Machines)에는 처리량을 한 차원 높이고 대기 시간을 줄이기 위한 고유의 캐싱 기능이 있습니다. 해당 캐싱 기능은 기본적인 프리미엄 저장소 디스크 성능을 능가합니다. 모든 VM이 캐싱을 지원하는 것은 아니므로 VM 사양에서 관심 있는 VM 크기를 검토하세요.  캐싱을 지원하는 VM은 해당 사양에 "최대 캐시 및 임시 저장소 처리량" 측정값이 표시됩니다.  또한 VM 제목 바로 아래에도 이와 같이 지정됩니다.
+    
+    캐싱을 사용할 경우 프리미엄 저장소 디스크의 디스크 캐싱 정책을 **ReadOnly**, **ReadWrite** 또는 **None**으로 설정할 수 있습니다. 기본 디스크 캐싱 정책은 모든 프리미엄 데이터 디스크에 대해서는 **ReadOnly**이고 운영 체제 디스크에 대해서는 **ReadWrite**입니다. 최적의 응용 프로그램 성능을 얻으려면 올바른 캐시 설정을 사용해야 합니다. 
+    
+    예를 들어, SQL Server 데이터 파일처럼 읽기 작업이 많거나 읽기 전용인 데이터 디스크의 경우에는 디스크 캐싱 정책을 **ReadOnly**로 설정하세요. SQL Server 로그 파일처럼 쓰기 작업이 많거나 쓰기 전용인 데이터 디스크의 경우에는 디스크 캐싱 정책을 **None**으로 설정하세요. 
+    
+    [Premium Storage를 사용한 성능을 위한 디자인](../articles/virtual-machines/windows/premium-storage-performance.md)에서 Premium Storage로 디자인을 최적화하는 자세한 방법을 알아보세요.
 
 * **분석**
 

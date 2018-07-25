@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: f4a02bb7a7c46e7a0e3c75b870c522eae8294339
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 62e7c601b70f3560dcc324c28f10f7d8e00bb9ed
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040008"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865334"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Python에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
@@ -31,7 +31,9 @@ Twilio는 개발자가 응용 프로그램에 음성, VoIP 및 메시징을 포�
 **Twilio SMS** 를 사용하면 응용 프로그램에서 문자 메시지를 보내고 받을 수 있습니다.
 **Twilio 클라이언트** 를 통해서는 전화, 태블릿 또는 브라우저에서 VoIP 통화를 하고 WebRTC를 지원할 수 있습니다.
 
-## <a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
+## 
+  <a id="Pricing">
+  </a>Twilio 가격 책정 및 특별 제공
 Azure 고객은 Twilio 계정을 업그레이드할 때 [특별 제공][special_offer] 10달러의 Twilio 크레딧을 받습니다. 이 Twilio 크레딧은 모든 Twilio 사용량에 적용될 수 있습니다. 10달러의 크레딧은 전화 번호 및 메시지 또는 통화 대상의 위치에 따라 SMS 메시지를 1,000개 보내거나 최대 1000분간 인바운드 음성을 받을 수 있는 금액입니다. 이 [Twilio 크레딧][special_offer]을 충전하고 시작하세요.
 
 Twilio는 종량제 서비스입니다. 설정 수수료는 없으며 언제든 계정을 종료할 수 있습니다. [Twilio 가격 책정][twilio_pricing]에서 자세한 내용을 볼 수 있습니다.
@@ -78,23 +80,23 @@ Twilio 계정을 사용할 준비가 되었다면 [Twilio 체험][try_twilio]에
 Twilio 계정을 등록하면 계정 SID 및 인증 토큰을 받게 됩니다. 둘 다 Twilio API 통화를 하는 데 필요합니다. 계정에 대한 무단 액세스를 방지하려면 인증 토큰을 안전하게 유지하십시오. 계정 SID 및 인증 토큰은 [Twilio 콘솔][twilio_console]의 **ACCOUNT SID** 및 **AUTH TOKEN** 필드에서 각각 확인할 수 있습니다.
 
 ## <a id="create_app"></a>Python 응용 프로그램 만들기
-Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Python 응용 프로그램은 Twilio 서비스를 사용하는 다른 Python 응용 프로그램과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 Python에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 Python용 Twilio 라이브러리][twilio_python]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. Python용 Twilio 라이브러리 사용에 대한 자세한 내용은 [http://readthedocs.org/docs/twilio-python/en/latest/index.html][twilio_lib_docs]을 참조하세요.
+Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Python 응용 프로그램은 Twilio 서비스를 사용하는 다른 Python 응용 프로그램과 차이가 없습니다. Twilio 서비스가 REST 기반이고 여러 가지 방법으로 Python에서 호출될 수 있기는 하지만, 이 문서에서는 [GitHub의 Python용 Twilio 라이브러리][twilio_python]와 Twilio 서비스를 사용하는 방법을 집중적으로 설명합니다. Python용 Twilio 라이브러리를 사용하는 방법에 대한 자세한 내용은 [http://readthedocs.org/docs/twilio-python/en/latest/index.html][twilio_lib_docs]를 참조하세요.
 
-먼저, 새 Python 웹 응용 프로그램의 호스트 역할을 할 [새 Azure Linux VM을 설정][azure_vm_setup]합니다. 가상 컴퓨터가 실행되면 아래 설명된 대로 공개 포트에 응용 프로그램을 표시해야 합니다.
+먼저, 새 Python 웹 응용 프로그램의 호스트 역할을 할 [새 Azure Linux VM을 설정][azure_vm_setup]합니다. Virtual Machine이 실행되면 아래 설명된 대로 공개 포트에 응용 프로그램을 표시해야 합니다.
 
 ### <a name="add-an-incoming-rule"></a>수신 규칙 추가
   1. [네트워크 보안 그룹][azure_nsg] 페이지로 이동합니다.
-  2. 가상 컴퓨터와 일치하는 네트워크 보안 그룹을 선택합니다.
+  2. Virtual Machine과 일치하는 네트워크 보안 그룹을 선택합니다.
   3. **포트 80**에 대한 **발신 규칙**을 추가합니다. 모든 주소에서의 수신을 허용해야 합니다.
 
 ### <a name="set-the-dns-name-label"></a>DNS 이름 레이블 설정
   1. [공용 IP 주소][azure_ips] 페이지로 이동합니다.
-  2. 가상 컴퓨터와 일치하는 공용 IP를 선택합니다.
+  2. Virtual Machine과 일치하는 공용 IP를 선택합니다.
   3. **구성** 섹션에서 **DNS 이름 레이블**을 설정합니다. 이 예제의 경우 *your-domain-label*.centralus.cloudapp.azure.com 같이 표시됩니다.
 
-SSH를 통해 가상 컴퓨터에 연결할 수 있으면 선택한 웹 프레임워크를 설치할 수 있습니다(Python에서 가장 잘 알려진 두 개의 웹 프레임워크는 [Flask](http://flask.pocoo.org/) 및 [Django](https://www.djangoproject.com)임). `pip install` 명령을 실행하여 둘 중 하나를 설치할 수 있습니다.
+SSH를 통해 Virtual Machine에 연결할 수 있으면 선택한 웹 프레임워크를 설치할 수 있습니다(Python에서 가장 잘 알려진 두 개의 웹 프레임워크는 [Flask](http://flask.pocoo.org/) 및 [Django](https://www.djangoproject.com)임). `pip install` 명령을 실행하여 둘 중 하나를 설치할 수 있습니다.
 
-포트 80에서만 트래픽을 허용하도록 가상 컴퓨터를 구성했다는 점에 유의하세요. 따라서 이 포트를 사용하도록 응용 프로그램을 구성해야 합니다.
+포트 80에서만 트래픽을 허용하도록 Virtual Machine을 구성했다는 점에 유의하세요. 따라서 이 포트를 사용하도록 응용 프로그램을 구성해야 합니다.
 
 ## <a id="configure_app"></a>Twilio 라이브러리를 사용하도록 응용 프로그램 구성
 다음과 같은 두 가지 방법으로 Python용 Twilio 라이브러리를 사용하도록 응용 프로그램을 구성할 수 있습니다.
@@ -113,7 +115,7 @@ Python용 Twilio 라이브러리를 설치한 후 Python 파일로 라이브러�
 
         import twilio
 
-자세한 내용은 [https://github.com/twilio/twilio-python/blob/master/README.md][twilio_github_readme]를 참조하세요.
+자세한 내용은 [https://github.com/twilio/twilio-python/blob/master/README.md][twilio_github_readme]을 참조하세요.
 
 ## <a id="howto_make_call"></a>방법: 발신 전화 걸기
 다음은 발신 전화를 거는 방법을 보여 줍니다. 또한 이 코드는 Twilio 제공 사이트를 사용하여 TwiML(Twilio Markup Language) 응답을 반환합니다. **from_number** 및 **to_number** 전화 번호의 값을 바꾸고 코드를 실행하기 전에 Twilio 계정에 대한 **from_number** 전화 번호를 확인해야 합니다.
@@ -127,7 +129,7 @@ Python용 Twilio 라이브러리를 설치한 후 Python 파일로 라이브러�
     account_sid = "your_twilio_account_sid"
     auth_token = "your_twilio_authentication_token"
 
-    # The number of the phone initiating the the call.
+    # The number of the phone initiating the call.
     # This should either be a Twilio number or a number that you've verified
     from_number = "NNNNNNNNNNN"
 
@@ -174,7 +176,7 @@ Python용 Twilio 라이브러리를 설치한 후 Python 파일로 라이브러�
                                      body=message)
 
 ## <a id="howto_provide_twiml_responses"></a>방법: 고유한 웹 사이트에서 TwiML 응답 제공
-응용 프로그램에서 Twilio API 호출을 시작하면 Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위 예제에서는 Twilio 제공 URL인 [http://twimlets.com/message][twimlet_message_url]를 사용합니다. TwiML은 Twilio에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어 [http://twimlets.com/message][twimlet_message_url]를 클릭하면 빈 `<Response>` 요소가 표시됩니다. 또 다른 예로, [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world]를 클릭하면 `<Say>` 요소를 포함하는 `<Response>` 요소가 표시됩니다.
+응용 프로그램에서 Twilio API 호출을 시작하면 Twilio에서 TwiML 응답을 반환해야 하는 URL로 요청을 보냅니다. 위의 예제에서는 Twilio 제공 URL [http://twimlets.com/message][twimlet_message_url]을 사용합니다. TwiML은 Twilio에서 사용되도록 설계되었지만 브라우저에서도 TwiML을 볼 수 있습니다. 예를 들어, [http://twimlets.com/message][twimlet_message_url]을 클릭하여 빈 `<Response>` 요소를 확인합니다. 또 다른 예로 [http://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world]를 클릭하여 `<Say>` 요소를 포함하는 `<Response>` 요소를 확인합니다.
 
 Twilio 제공 URL을 사용하지 않고 HTTP 응답을 반환하는 고유한 사이트를 만들 수 있습니다. XML 응답을 반환하는 모든 언어로 사이트를 만들 수 있습니다. 이 항목에서는 TwiML을 만들기 위해 Python를 사용 중이라고 가정합니다.
 
@@ -203,7 +205,7 @@ Django 사용:
     response.say("Hello world.")
     print(str(response))
 
-TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml_reference]을 참조하세요.
+TwiML에 대한 자세한 내용은 [https://www.twilio.com/docs/api/twiml][twiml_reference]를 참조하세요.
 
 Python 응용 프로그램이 TwiML 응답을 제공하도록 설정된 경우 `client.calls.create` 메서드에 전달되는 URL로 Python 응용 프로그램의 URL을 사용합니다. 예를 들어 **MyTwiML**이라는 웹 응용 프로그램이 Azure 호스티드 서비스에 배포되어 있으면 다음 예제에 표시된 것처럼 URL을 웹후크로 사용할 수 있습니다.
 

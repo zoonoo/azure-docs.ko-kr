@@ -16,12 +16,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: cb80423266d3e9c0b3cac31821965ad92c0420d9
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4114e32053410689c0482816a46376947023972
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299361"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930276"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>시나리오: 논리 앱에 대한 예외 처리 및 오류 로깅
 
@@ -440,7 +440,7 @@ API 앱에서 발생한 로그 응답 메시지입니다.
 
 Azure Cosmos DB의 모든 문서에는 고유 ID가 있어야 합니다. `PatientId` 를 사용하고 Unix 타임스탬프 값(double)으로 변환되는 타임스탬프를 추가합니다. 값을 잘라서 소수 자릿수 값을 제거합니다.
 
-[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs)에서 오류 컨트롤러 API의 소스 코드를 확인할 수 있습니다.
+[GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/LogicAppsExceptionManagementApi/Controllers/LogController.cs)에서 오류 컨트롤러 API의 소스 코드를 확인할 수 있습니다.
 
 다음 구문을 사용하여 논리 앱에서 API를 호출합니다.
 

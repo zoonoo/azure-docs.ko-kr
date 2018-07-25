@@ -5,25 +5,23 @@ services: event-hubs
 documentationcenter: na
 author: sethmanheim
 manager: timlt
-editor: ''
-ms.assetid: 2c6273de-0106-47e5-b45d-59040e51f2c5
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 07/03/2018
 ms.author: sethm
-ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 22fcedfdb1921c941250b63f09bfa7fcff9c2f1b
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783131"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37856708"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Event Hubs 메시징 예외
 
-이 문서에는 Event Hubs API를 포함하여 Azure Service Bus 메시징 API 라이브러리에서 생성되는 몇 가지 예외가 나열되어 있습니다. 이 참조는 변경될 수 있으므로 나중에 다시 업데이트를 확인하세요.
+이 문서에는 .NET Framework Event Hubs API를 포함하여 Azure Service Bus 메시징 API 라이브러리에서 생성되는 몇 가지 예외가 나열되어 있습니다. 이 참조는 변경될 수 있으므로 나중에 다시 업데이트를 확인하세요.
 
 ## <a name="exception-categories"></a>예외 범주
 
@@ -60,7 +58,6 @@ Event Hubs API는 다음 범주에 해당하는 예외와, 해당 예외의 해�
 이는 소비자별 그룹 수준에서 최대 수신자 수(5)가 이미 열려 있는 경우에 발생할 수 있습니다.
 
 ### <a name="event-hubs"></a>Event Hubs
-
 Event Hubs는 이벤트 허브당 20개의 소비자 그룹으로 제한됩니다. 더 만들려고 하면 [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception)을 받습니다. 
 
 ## <a name="timeoutexception"></a>TimeoutException
@@ -88,7 +85,7 @@ Event Hubs의 경우 시간 제한은 연결 문자열의 일부로 또는 [Serv
 
 2. Event Hubs 네임스페이스에 충분한 처리량 단위가 없습니다([Azure Portal](https://portal.azure.com)의 Event Hubs 네임스페이스 창에서 **메트릭** 화면을 확인할 수 있음). 포털에는 집계된(1분) 정보가 표시되지만 우리는 실시간으로 처리량을 측정하게 되므로 예상값에 불과합니다.
 
-    해결 방법: 네임스페이스의 처리량 단위를 늘리면 도움이 될 수 있습니다. 포털의 Event Hubs 네임스페이스 화면에 있는 **규모** 창에서 이 작업을 수행할 수 있습니다.
+    해결 방법: 네임스페이스의 처리량 단위를 늘리면 도움이 될 수 있습니다. 포털의 Event Hubs 네임스페이스 화면에 있는 **규모** 창에서 이 작업을 수행할 수 있습니다. 또는 [자동 팽창](event-hubs-auto-inflate.md)을 사용할 수 있습니다.
 
 ### <a name="error-code-50001"></a>오류 코드 50001
 
@@ -96,6 +93,7 @@ Event Hubs의 경우 시간 제한은 연결 문자열의 일부로 또는 [Serv
 
 
 ## <a name="next-steps"></a>다음 단계
+
 Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [Event Hubs 개요](event-hubs-what-is-event-hubs.md)

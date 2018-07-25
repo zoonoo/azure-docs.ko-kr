@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 10b5fbe0a03d3ea712edc9df603bbcea5e188a02
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5529a4510b6d9f005dc46165e1be799585e5a153
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296535"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38756223"
 ---
 다음은 Azure Active Directory 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
 | Category | 제한 |
 | --- | --- |
-| 디렉터리 |단일 사용자는 최대 20개의 Azure Active Directory 디렉터리에 연결될 수 있습니다.<br />가능한 조합의 예: <ul> <li>사용자 한 명이 20개의 디렉터리를 만드는 경우</li><li>사용자 한 명이 20개의 디렉터리에 멤버로 추가된 경우</li><li>사용자 한 명이 10개의 디렉터리를 만들고 나중에 다른 사용자가 다른 10개의 디렉터리에 이 사용자를 추가한 경우</li></ul> |
+| 디렉터리 |단일 사용자는 최대 500개의 Azure Active Directory 디렉터리에 연결될 수 있습니다.<br />가능한 조합의 예: <ul> <li>사용자 한 명이 500개의 디렉터리를 만드는 경우</li><li>사용자 한 명이 500개의 디렉터리에 멤버로 추가된 경우</li><li>사용자 한 명이 250개의 디렉터리를 만들고 나중에 다른 사용자가 다른 250개의 디렉터리에 이 사용자를 추가한 경우</li></ul> |
 | 도메인 | 관리되는 도메인 이름은 900개까지 추가할 수 있습니다. 온-프레미스 Active Directory와의 페더레이션을 위해 모든 도메인을 설정하는 경우 각 디렉터리에서 도메인 이름을 450개까지 추가할 수 있습니다. |
 | 개체 |<ul><li>Azure Active Directory 무료 버전의 사용자는 단일 디렉터리에 최대 50만 개의 개체를 만들 수 있습니다.</li><li>관리자가 아닌 사용자는 250개 이하의 개체를 만들 수 있습니다.</li></ul> |
 | 스키마 확장 |<ul><li>문자열 형식 확장은 최대 256자까지 가능합니다. </li><li>이진 형식 확장은 256바이트로 제한됩니다.</li><li>단일 개체에 100개의 확장 값(모든 형식 및 모든 응용 프로그램)을 작성할 수 있습니다.</li><li>“User”, “Group”, “TenantDetail”, “Device”, “Application” 및 “ServicePrincipal” 엔터티만 “String” 형식 또는 “Binary” 형식의 단일 값 특성으로 확장할 수 있습니다.</li><li>스키마 확장은 Graph API 버전 1.21 미리 보기에서만 사용할 수 있습니다. 확장을 등록하려면 응용 프로그램에 쓰기 권한이 있어야 합니다.</li></ul> |

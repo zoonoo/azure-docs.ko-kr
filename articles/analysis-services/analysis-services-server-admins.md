@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ec1630f4de70f77c13e335c68aff16180e524c12
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 9d8f74bd66fc7c980c4fc5f83492aad7d8a4aa5c
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36307811"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37866970"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 서버 관리자는 서버가 상주하는 테넌트의 Azure AD(Azure Active Directory)에서 유효한 사용자 또는 보안 그룹이어야 합니다. Azure Portal 또는 SSMS의 서버 속성에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
@@ -22,7 +22,7 @@ ms.locfileid: "36307811"
 > 보안 그룹에는 `True`로 설정된 `MailEnabled` 속성이 있어야 합니다.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Azure Portal을 사용하여 서버 관리자를 추가하려면
-1. 서버에 대한 포털에서 **Analysis Services 관리자**를 클릭합니다.
+1. 포털에서 서버에 대해 **Analysis Services 관리자**를 클릭합니다.
 2. **\<서버 이름> - Analysis Services 관리자**에서 **추가**를 클릭합니다.
 3. **서버 관리자 추가**에서 Azure AD의 사용자 계정을 선택하거나 이메일 주소를 통해 외부 사용자를 초대합니다.
 

@@ -50,7 +50,7 @@ Log Analytics는 최근에 새로운 쿼리 언어를 구현했습니다.  이 �
 |                        | Type=Event &#124; top 100 | Event &#124; take 100 |
 | 문자열 비교      | Type=Event Computer=srv01.contoso.com   | Event &#124; where Computer == "srv01.contoso.com" |
 |                        | Type=Event Computer=contains("contoso") | Event &#124; where Computer contains "contoso" (not case sensitive)<br>Event &#124; where Computer contains_cs "Contoso" (case sensitive) |
-|                        | Type=Event Computer=RegEx("\@contoso@")  | Event &#124; where Computer matches regex ".*contoso*" |
+|                        | Type=Event Computer=RegEx("\@contoso \@\")  | Event &#124; where Computer matches regex ".*contoso*" |
 | 날짜 비교        | Type=Event TimeGenerated > NOW-1DAYS | Event &#124; where TimeGenerated > ago(1d) |
 |                        | Type=Event TimeGenerated>2017-05-01 TimeGenerated<2017-05-31 | Event &amp;#124; where TimeGenerated between (datetime(2017-05-01) . datetime(2017-05-31)) |
 | 부울 비교     | Type=Heartbeat IsGatewayInstalled=false  | Heartbeat \| where IsGatewayInstalled == false |

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
 ms.openlocfilehash: 8160752b0116c3ef3e6b6ab7920bb35e471f180b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24010806"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38687698"
 ---
 # <a name="connect-your-raspberry-pi-3-to-the-remote-monitoring-solution-and-enable-remote-firmware-updates-using-c"></a>Raspberry Pi 3를 원격 모니터링 솔루션에 연결하고 C를 사용하여 원격 펌웨어 업데이트를 사용하도록 설정
 
@@ -123,7 +123,7 @@ chmod +x ~/iot-remote-monitoring-c-raspberrypi-getstartedkit/advanced/1.0/build.
 
 1. **메서드 호출** 페이지의 **메서드** 드롭다운에서 **InitiateFirmwareUpdate**를 선택합니다.
 
-1. **FWPackageURI** 필드에 합니다 **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**을 입력합니다. 이 보관 파일에는 펌웨어 버전 2.0 구현이 포함됩니다.
+1. **FWPackageURI** 필드에 **https://github.com/Azure-Samples/iot-remote-monitoring-c-raspberrypi-getstartedkit/raw/master/advanced/2.0/package/remote_monitoring.zip**를 입력합니다. 이 보관 파일에는 펌웨어 버전 2.0 구현이 포함됩니다.
 
 1. **InvokeMethod**를 선택합니다. Raspberry Pi의 앱은 솔루션 대시보드로 승인 메시지를 전송합니다. 그런 다음 새 버전의 펌웨어를 다운로드하여 펌웨어 업데이트 프로세스를 시작합니다.
 

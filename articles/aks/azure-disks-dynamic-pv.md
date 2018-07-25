@@ -1,78 +1,77 @@
 ---
-title: AKS에서 Azure 디스크 사용
-description: AKS에서 Azure 디스크 사용
+title: Azure Kubernetes Service를 사용하여 영구 볼륨 만들기
+description: Azure 디스크를 사용하여 AKS(Azure Kubernetes Service)에서 Pod에 대한 영구 볼륨을 만드는 방법 알아보기
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 07/10/2018
 ms.author: iainfou
-ms.openlocfilehash: ddac68b2a47fc830055b9dd5bd705802cc29c52f
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 14617b57f59c068aa015c9bfea9b4d18520b4152
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095929"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38473685"
 ---
-# <a name="persistent-volumes-with-azure-disks"></a>Azure 디스크가 포함된 영구적 볼륨
+# <a name="create-persistent-volumes-with-azure-disks-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)용 Azure 디스크를 사용하여 영구 볼륨 만들기
 
-영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 저장소 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. Kubernetes 영구적 볼륨에 대한 자세한 내용은 [Kubernetes 영구적 볼륨][kubernetes-volumes]을 참조하세요.
-
-이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 Azure 디스크와 함께 영구 볼륨을 사용하는 방법을 자세히 설명합니다.
+영구적 볼륨은 Kubernetes Pod와 함께 사용하기 위해 프로비전된 저장소 부분을 나타냅니다. 하나 이상의 Pod에서 영구적 볼륨을 사용할 수 있으며 동적 또는 정적으로 프로비전할 수 있습니다. Kubernetes 영구적 볼륨에 대한 자세한 내용은 [Kubernetes 영구적 볼륨][kubernetes-volumes]을 참조하세요. 이 문서에서는 AKS(Azure Kubernetes Service) 클러스터에서 Azure 디스크와 함께 영구 볼륨을 사용하는 방법을 설명합니다.
 
 > [!NOTE]
-> Azure 디스크는 액세스 모드 형식 ReadWriteOnce만 사용하여 탑재할 수 있으며, 이 모드는 단일 AKS 노드에서만 사용할 수 있습니다. 여러 노드에서 영구 볼륨을 공유해야 하는 경우, [Azure 파일][azure-files-pvc]을 사용하는 것이 좋습니다.
+> Azure 디스크는 *액세스 모드* 형식 *ReadWriteOnce*만 사용하여 탑재할 수 있으며, 이 모드는 단일 AKS 노드에서만 사용할 수 있습니다. 여러 노드에서 영구 볼륨을 공유해야 하는 경우, [Azure 파일][azure-files-pvc]을 사용하는 것이 좋습니다.
 
 ## <a name="built-in-storage-classes"></a>기본 제공 저장소 클래스
 
 저장소 클래스를 사용하여 영구적 볼륨에서 저장소 단위를 동적으로 생성되는 방법을 정의합니다. Kubernetes 저장소 클래스에 대한 자세한 내용은 [Kubernetes 저장소 클래스][kubernetes-storage-classes]를 참조하세요.
 
-모든 AKS 클러스터에는 Azure 디스크에 작동하도록 구성된 2개의 미리 만들어진 저장소 클래스가 포함되어 있습니다. `default` 저장소 클래스는 표준 Azure 디스크를 프로비전합니다. `managed-premium` 저장소 클래스는 프리미엄 Azure 디스크를 프로비전합니다. 클러스터의 AKS 노드가 프리미엄 저장소를 사용하는 경우 `managed-premium` 클래스를 선택합니다.
+모든 AKS 클러스터에는 Azure 디스크에 작동하도록 구성된 2개의 미리 만들어진 저장소 클래스가 포함되어 있습니다. *default* 저장소 클래스는 표준 Azure 디스크를 프로비전합니다. *managed-premium* 저장소 클래스는 프리미엄 Azure 디스크를 프로비전합니다. 클러스터의 AKS 노드가 프리미엄 저장소를 사용하는 경우 *managed-premium* 클래스를 선택합니다.
 
-[kubectl get sc][kubectl-get] 명령을 사용하여 미리 생성된 저장소 클래스를 확인합니다.
+[kubectl get sc][kubectl-get] 명령을 사용하여 미리 생성된 저장소 클래스를 확인합니다. 다음 예제에서는 AKS 클러스터 내에서 사용할 수 있는 미리 생성된 저장소 클래스를 보여 줍니다.
 
-```console
+```
+$ kubectl get sc
+
 NAME                PROVISIONER                AGE
 default (default)   kubernetes.io/azure-disk   1h
 managed-premium     kubernetes.io/azure-disk   1h
 ```
 
 > [!NOTE]
-> 영구 볼륨 클레임은 GiB로 지정되지만 Azure 관리 디스크는 특정 크기에 대한 SKU로 청구됩니다. 이러한 SKU의 범위는 S4 또는 P4 디스크에 대한 32GiB에서 S50 또는 P50 디스크에 대한 4TiB입니다. 또한 프리미엄 관리 디스크의 처리량 및 IOPS 성능은 SKU 및 AKS 클러스터에서 노드의 인스턴스 크기에 따라 달라집니다. [Managed Disks의 가격 책정 및 성능][managed-disk-pricing-performance]을 참조하세요.
+> 영구 볼륨 클레임은 GiB로 지정되지만 Azure 관리 디스크는 특정 크기에 대한 SKU로 청구됩니다. 이러한 SKU의 범위는 S4 또는 P4 디스크에 대한 32GiB에서 S50 또는 P50 디스크에 대한 4TiB입니다. 또한 프리미엄 관리 디스크의 처리량 및 IOPS 성능은 SKU 및 AKS 클러스터에서 노드의 인스턴스 크기에 따라 달라집니다. 자세한 내용은 [Managed Disks의 가격 책정 및 성능][managed-disk-pricing-performance]을 참조하세요.
 
-## <a name="create-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
+## <a name="create-a-persistent-volume-claim"></a>영구적 볼륨 클레임 만들기
 
 PVC(영구적 볼륨 클레임)을 사용하여 저장소 클래스를 기반으로 하는 저장소를 자동으로 프로비전합니다. 이 경우에 PVC는 미리 생성된 저장소 클래스 중 하나를 사용하여 표준 또는 프리미엄 Azure 관리 디스크를 만들 수 있습니다.
 
 파일 `azure-premium.yaml`을 만들고 다음 매니페스트에 복사합니다.
 
-`managed-premium` 저장소 클래스를 주석에서 지정하고 클레임이 `ReadWriteOnce` 액세스 권한으로 크기가 `5GB`인 디스크를 요청합니다.
+*managed-premium* 저장소 클래스를 주석에서 지정하고 클레임이 *ReadWriteOnce* 액세스 권한으로 크기가 *5GB*인 디스크를 요청합니다.
 
 ```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: azure-managed-disk
-  annotations:
-    volume.beta.kubernetes.io/storage-class: managed-premium
 spec:
   accessModes:
   - ReadWriteOnce
+  storageClassName: managed-premium
   resources:
     requests:
       storage: 5Gi
 ```
 
-[kubectl apply][kubectl-apply] 명령을 사용하여 영구 볼륨 클레임을 만듭니다.
+[kubectl apply][kubectl-apply] 명령을 사용하여 영구 볼륨 클레임을 만들고 *azure-premium.yaml* 파일을 지정합니다.
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-premium.yaml
 ```
 
-## <a name="using-the-persistent-volume"></a>영구적 볼륨 사용
+## <a name="use-the-persistent-volume"></a>영구적 볼륨 사용
 
-영구적 볼륨 클레임이 생성되고 디스크가 성공적으로 프로비전되면 디스크에 액세스하여 Pod를 만들 수 있습니다. 다음 매니페스트는 영구적 볼륨 클레임 `azure-managed-disk`을 사용하여 `/mnt/azure` 경로에 Azure 디스크를 탑재하는 Pod를 만듭니다.
+영구적 볼륨 클레임이 생성되고 디스크가 성공적으로 프로비전되면 디스크에 액세스하여 Pod를 만들 수 있습니다. 다음 매니페스트는 영구적 볼륨 클레임 *azure-managed-disk*을 사용하여 `/mnt/azure` 경로에 Azure 디스크를 탑재하는 Pod를 만듭니다.
 
 파일 `azure-pvc-disk.yaml`을 만들고 다음 매니페스트에 복사합니다.
 
@@ -96,7 +95,7 @@ spec:
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 Pod를 만듭니다.
 
-```azurecli-interactive
+```console
 kubectl apply -f azure-pvc-disk.yaml
 ```
 

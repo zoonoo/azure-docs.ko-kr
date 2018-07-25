@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: a6bd63598781a60c2dd717c07b96fcb498a67d30
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636609"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38972403"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 Azure Key Vault를 사용하면 Microsoft Azure 환경 내에서 암호화 키를 저장하고 사용할 수 있습니다. Key Vault는 여러 키 유형과 알고리즘을 지원하며, 고부가 가치 키에 HSM(하드웨어 보안 모듈)을 사용할 수 있습니다. 또한 Key Vault를 통해 사용자는 비밀을 안전하게 저장할 수 있습니다. 비밀은 특정 의미 체계가 없는 제한된 크기의 옥텟 개체입니다. Key Vault는 키와 비밀을 기반으로 하는 인증서를 지원하고 자동 갱신 기능을 추가합니다.
@@ -122,7 +122,7 @@ Azure Key Vault의 암호화 키는 JWK[JSON 웹 키] 개체로 표현됩니다.
 -   **RSA**: 2,048비트 RSA 키입니다. Key Vault에서 소프트웨어로 처리되지만 사용되지 않을 때 HSM에 있는 시스템 키를 사용하여 암호화되어 저장되는 "소프트" 키입니다. 클라이언트는 기존 RSA 키를 가져오거나 Azure Key Vault에서 생성하도록 요청할 수 있습니다.  
 -   **RSA-HSM**: HSM에서 처리되는 RSA 키입니다. RSA-HSM 키는 Azure Key Vault HSM 보안 권역 중 하나에서 보호됩니다(격리를 유지하기 위해 지역별로 보안 권역이 있음). 클라이언트는 소프트 형식으로 또는 호환되는 HSM 장치에서 내보내는 방식으로 RSA 키를 가져오거나 Azure Key Vault에서 생성하도록 요청할 수 있습니다. 이 키 유형은 HSM 키 자료를 전송하기 위해 가져오는 JWK에 T 특성을 추가합니다.  
 
-     지리적 경계에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/en-us/support/trust-center/privacy/)를 참조하세요.  
+     지리적 경계에 대한 자세한 내용은 [Microsoft Azure 보안 센터](https://azure.microsoft.com/support/trust-center/privacy/)를 참조하세요.  
 
 ###  <a name="BKMK_RSAAlgorithms"></a> RSA 알고리즘  
  Azure Key Vault의 RSA 키에서 지원되는 알고리즘 식별자는 다음과 같습니다.  
@@ -172,7 +172,7 @@ Azure Key Vault에서 키 개체에 대해 지원하는 작업은 다음과 같�
 -   **백업**: 키를 보호된 형식으로 내보냅니다.  
 -   **복원**: 이전에 백업한 키를 가져옵니다.  
 
-자세한 내용은 [키 작업](/rest/api/keyvault/key-operations.md)을 참조하세요.  
+자세한 내용은 [키 작업](/rest/api/keyvault/key-operations)을 참조하세요.  
 
 키가 Azure Key Vault에 만들어지면 해당 키를 사용하여 수행할 수 있는 암호화 작업은 다음과 같습니다.  
 
@@ -281,7 +281,7 @@ Azure Key Vault에서 관리되는 비밀에 대한 액세스 제어는 해당 �
 -   *delete*: 비밀 삭제  
 -   *all*: 모든 권한  
 
-비밀을 사용하는 방법에 대한 자세한 내용은 [비밀 작업](/rest/api/keyvault/secret-operations.md)을 참조하세요.  
+비밀을 사용하는 방법에 대한 자세한 내용은 [비밀 작업](/rest/api/keyvault/secret-operations)을 참조하세요.  
 
 ###  <a name="BKMK_SecretTags"></a> 비밀 태그  
 응용 프로그램 관련 메타데이터를 태그 형식으로 추가로 지정할 수 있습니다. Azure Key Vault는 최대 15개의 태그를 지원하며, 각 태그는 256자 이름과 256자의 값을 가질 수 있습니다.  
@@ -443,9 +443,9 @@ Key Vault를 사용하면 서로 다른 발급자 구성으로 여러 발급자 
 
 ## <a name="additional-information-for-certificates"></a>인증서에 대한 추가 정보
 
-- [인증서 및 정책](/rest/api/keyvault/certificates-and-policies.md)
-- [인증서 발급자](/rest/api/keyvault/certificate-issuers.md)
-- [인증서 연락처](/rest/api/keyvault/certificate-contacts.md)
+- [인증서 및 정책](/rest/api/keyvault/certificates-and-policies)
+- [인증서 발급자](/rest/api/keyvault/certificate-issuers)
+- [인증서 연락처](/rest/api/keyvault/certificate-contacts)
 
 ## <a name="see-also"></a>참고 항목
 

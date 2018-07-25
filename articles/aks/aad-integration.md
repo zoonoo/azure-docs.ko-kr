@@ -2,25 +2,25 @@
 title: Azure Kubernetes Service와 Azure Active Directory 통합
 description: Azure Active Directory 사용 Azure Kubernetes Service 클러스터를 만드는 방법.
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 6/17/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7d157d50bbcd25edd9cd6693a71fb04535cbeb79
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: e75577ae917cbe14a123ff5e2d44da2edc8062ef
+ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937384"
+ms.lasthandoff: 07/11/2018
+ms.locfileid: "38307316"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>AKS와 Azure Active Directory 통합 - 미리 보기
 
 사용자 인증을 위해 Azure Active Directory를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서 Azure Active Directory 인증 토큰을 사용하여 Azure Kubernetes Service 클러스터에 로그인할 수 있습니다. 또한 클러스터 관리자는 사용자 ID 또는 디렉터리 그룹 구성원 자격에 따라 Kubernetes 역할 기반 액세스 제어를 구성할 수 있습니다.
 
-이 문서에서는 AKS 및 Azure AD에 대한 모든 필요한 필수 구성 요소 만들기, Azure AD 사용 클러스터 배포 및 AKS 클러스터에서 단순 RBAC 역할 만들기에 대해 자세히 설명합니다.
+이 문서에서는 AKS 및 Azure AD에 대한 모든 필요한 필수 구성 요소 만들기, Azure AD 사용 클러스터 배포 및 AKS 클러스터에서 단순 RBAC 역할 만들기에 대해 자세히 설명합니다. 기존의 RBAC 비지원 AKS 클러스터는 현재 RBAC 사용을 위해 업데이트할 수 없습니다.
 
 > [!IMPORTANT]
 > AKS(Azure Kubernetes Service) RBAC와 Azure AD 통합은 현재 **미리 보기** 상태입니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
@@ -59,19 +59,21 @@ Kubernetes 클러스터 내부에서 인증 토큰을 확인하는 데 Webhook �
 
 4. Azure AD 응용 프로그램으로 돌아와서 **설정** > **필요한 권한** > **추가** > **API 선택** > **Microsoft Graph** > **선택**을 선택합니다.
 
-  **응용 프로그램 사용 권한** 아래에서 **디렉터리 데이터 읽기** 옆을 체크합니다.
+  ![Graph API 선택](media/aad-integration/graph-api.png)
+
+5. **응용 프로그램 사용 권한** 아래에서 **디렉터리 데이터 읽기** 옆을 체크합니다.
 
   ![응용 프로그램 그래프 사용 권한 설정](media/aad-integration/read-directory.png)
 
-5. **위임된 사용 권한**  아래에서 **로그인 및 사용자 프로필 읽기** 및 **디렉터리 데이터 읽기** 옆을 체크합니다. 완료되면 업데이트를 저장합니다.
+6. **위임된 사용 권한**  아래에서 **로그인 및 사용자 프로필 읽기** 및 **디렉터리 데이터 읽기** 옆을 체크합니다. 완료되면 업데이트를 저장합니다.
 
   ![응용 프로그램 그래프 사용 권한 설정](media/aad-integration/delegated-permissions.png)
 
-6. **완료** 및 **사용 권한 부여**를 선택하여 이 단계를 완료합니다. 현재 계정이 테넌트 관리자가 아닌 경우 이 단계가 실패합니다.
+7. **완료**를 선택하고 API 목록에서 *Microsoft Graph*를 선택 한 후 **권한 부여**를 선택합니다. 현재 계정이 테넌트 관리자가 아닌 경우 이 단계가 실패합니다.
 
   ![응용 프로그램 그래프 사용 권한 설정](media/aad-integration/grant-permissions.png)
 
-7. 응용 프로그램으로 돌아오고 **응용 프로그램 ID**를 기록해 둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Server application ID`이라고 합니다.
+8. 응용 프로그램으로 돌아오고 **응용 프로그램 ID**를 기록해 둡니다. Azure AD 사용 AKS 클러스터를 배포할 때 이 값은 `Server application ID`이라고 합니다.
 
   ![응용 프로그램 ID 가져오기](media/aad-integration/application-id.png)
 
@@ -154,7 +156,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-Azure AD 그룹의 모든 구성원에 대해 역할 바인딩을 만들 수도 있습니다. 다음 매니페스트는 `kubernetes-admin` 그룹의 모든 구성원에서 클러스터에 대한 관리자 액세스를 제공합니다.
+Azure AD 그룹의 모든 구성원에 대해 역할 바인딩을 만들 수도 있습니다. Azure AD 그룹은 그룹 개체 ID를 사용하여 합니다.
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -168,7 +170,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
-   name: "kubernetes-admin"
+   name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
 ```
 
 RBAC를 사용하여 Kubernetes 클러스터 보호에 대한 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조하세요.
@@ -195,6 +197,12 @@ aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
 ```
 
 완료되면 인증 토큰이 캐시됩니다. 토큰이 만료되거나 Kubernetes config 파일이 다시 생성될 때 로그인할지를 묻는 메시지가 다시 표시됩니다.
+
+성공적으로 로그인한 후 인증 오류 메시지가 표시되는 경우 로그인하는 사용자가 Azure AD에서 게스트가 아닌지 확인합니다(다른 디렉터리에서 페더레이션된 로그인을 사용하는 경우 게스트인 경우가 종종 있음).
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

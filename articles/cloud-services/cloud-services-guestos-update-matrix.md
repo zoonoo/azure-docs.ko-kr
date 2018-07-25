@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/1/2018
+ms.date: 7/3/2018
 ms.author: raiye
-ms.openlocfilehash: dd6a9b3e8777c6efa4d6db07d4d65c86463f6cfe
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
+ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063615"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38970165"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 게스트 OS 릴리스 및 SDK 호환성 매트릭스
 Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 제공합니다. 이 정보는 게스트 OS를 사용하지 않도록 설정하기 전에 업그레이드 경로를 계획하는 데 도움이 됩니다. [Azure 게스트 OS 업데이트 설정][Azure Guest OS Update Settings]의 설명에 따라 *자동* 게스트 OS 업데이트를 사용하도록 역할을 구성하는 경우, 이 페이지를 읽지 않아도 됩니다.
@@ -43,6 +43,10 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 게스트 OS를 업데이트하는 방법에 대해 불확실한가요? [이것][cloud updates]을 확인하세요.
 
 ## <a name="news-updates"></a>새 업데이트
+
+###### <a name="july-3-2018"></a>**2018년 7월 3일**
+6월 게스트 OS가 릴리스되었습니다.
+
 ###### <a name="june-1-2018"></a>**2018년 6월 1일**
 5월 게스트 OS가 릴리스되었습니다.
 
@@ -70,9 +74,6 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 ###### <a name="november-8-2017"></a>**2017년 11월 8일**
 10월 게스트 OS가 릴리스되었습니다.
 
-###### <a name="october-6-2017"></a>**2017년 10월 6일**
-9월 게스트 OS가 릴리스되었습니다. Windows Server 2016 9월 릴리스의 경우 netfx3이 기본적으로 사용됩니다. 고객은 워크플로에서 4.x 런타임과 함께 .NET 2.x 앱을 실행해야 하는 경우 또는 .NET 2.x 앱 실행 시 오류가 발생하여 .NET 4.x 앱을 실행한 경우 ‘dism /online /disable-feature /featurename:netfx3’을 OnStart에 추가해야 합니다.
-
 
 
 ## <a name="releases"></a>릴리스
@@ -89,8 +90,9 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.20_201806-01 |2018년 7월 3일 |Post 5.22 |TBD |
 | WA-GUEST-OS-5.19_201805-01 |2018년 6월 1일 |Post 5.21 |TBD |
-| WA-GUEST-OS-5.18_201804-01 |2018년 5월 4일 |Post 5.20 |TBD |
+|~~WA-GUEST-OS-5.18_201804-01~~ |2018년 5월 4일 |2018년 7월 3일 |TBD |
 |~~WA-GUEST-OS-5.17_201803-01~~ |2018년 4월 6일 |2018년 6월 1일|TBD |
 |~~WA-GUEST-OS-5.16_201802-01~~ |2018년 3월 12일 |2018년 5월 4일 |TBD |
 |~~WA-GUEST-OS-5.15_201801-01~~ |2018년 1월 4일 |2018년 4월 6일 |TBD |
@@ -98,7 +100,6 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 |~~WA-GUEST-OS-5.13_201711-01~~ |2017년 12월 14일 |2018년 1월 4일|TBD |
 |~~WA-GUEST-OS-5.12_201710-02~~ |2017년 11월 8일 |2018년 1월 4일 |TBD |
 |~~WA-GUEST-OS-5.11_201709-01~~ |2017년 10월 6일 |2017년 12월 14일 |TBD |
-|~~WA-GUEST-OS-5.10_201708-01~~ |2017년 8월 24일 |2017년 12월 14일 |TBD |
 
 
 ## <a name="family-4-releases"></a>제품군 4 릴리스
@@ -113,8 +114,9 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.55_201806-01 |2018년 7월 3일 |Post 4.57 |TBD |
 | WA-GUEST-OS-4.54_201805-01 |2018년 6월 1일 |Post 4.56 |TBD |
-| WA-GUEST-OS-4.53_201804-01 |2018년 5월 4일 |Post 4.55 |TBD |
+|~~WA-GUEST-OS-4.53_201804-01~~ |2018년 5월 4일 |2018년 7월 3일 |TBD |
 |~~WA-GUEST-OS-4.52_201803-01~~ |2018년 4월 6일 |2018년 6월 1일 |TBD |
 |~~WA-GUEST-OS-4.51_201802-01~~ |2018년 3월 12일 |2018년 5월 4일 |TBD |
 |~~WA-GUEST-OS-4.50_201801-01~~ |2018년 1월 4일 |2018년 4월 6일 |TBD |
@@ -122,7 +124,6 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 |~~WA-GUEST-OS-4.48_201711-01~~ |2017년 12월 14일 |2018년 1월 4일 |TBD |
 |~~WA-GUEST-OS-4.47_201710-02~~ |2017년 11월 8일 |2018년 1월 4일 |TBD |
 |~~WA-GUEST-OS-4.46_201709-01~~ |2017년 10월 6일 |2017년 12월 14일 |TBD |
-|~~WA-GUEST-OS-4.45_201708-01~~ |2017년 8월 24일 |2017년 12월 14일 |TBD |
 
 
 
@@ -138,8 +139,9 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.62_201806-01 |2018년 7월 3일 |Post 3.64 |TBD |
 | WA-GUEST-OS-3.61_201805-01 |2018년 6월 1일 |Post 3.63 |TBD |
-| WA-GUEST-OS-3.60_201804-01 |2018년 5월 4일 |Post 3.62 |TBD |
+|~~WA-GUEST-OS-3.60_201804-01~~ |2018년 5월 4일 |2018년 7월 3일 |TBD |
 |~~WA-GUEST-OS-3.59_201803-01~~ |2018년 4월 6일 |2018년 6월 1일 |TBD |
 |~~WA-GUEST-OS-3.58_201802-01~~ |2018년 3월 19일 |2018년 5월 4일 |TBD |
 |~~WA-GUEST-OS-3.57_201801-01~~ |2018년 1월 29일 |2018년 4월 6일 |TBD |
@@ -162,8 +164,9 @@ Cloud Services용 최신 Azure 게스트 OS릴리스에 대한 최신 정보를 
 
 | 구성 문자열 | 릴리스 날짜 | 비활성화 날짜 | 만료 날짜 |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.75_201806-01 |2018년 7월 3일 |Post 2.77 |TBD |
 | WA-GUEST-OS-2.74_201805-01 |2018년 6월 1일 |Post 2.76 |TBD |
-| WA-GUEST-OS-2.73_201804-01 |2018년 5월 4일 |Post 2.75 |TBD |
+|~~WA-GUEST-OS-2.73_201804-01~~ |2018년 5월 4일 |2018년 7월 3일 |TBD |
 |~~WA-GUEST-OS-2.72_201803-01~~ |2018년 4월 6일 |2018년 6월 1일 |TBD |
 |~~WA-GUEST-OS-2.71_201802-01~~ |2018년 3월 12일 |2018년 5월 4일 |TBD |
 |~~WA-GUEST-OS-2.70_201801-01~~ |2018년 1월 29일 |2018년 4월 6일 |TBD |
@@ -229,7 +232,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 ## <a name="guest-os-supportability-and-retirement-policy"></a>게스트 OS 지원 가능성 및 사용 중지 정책
 게스트 OS 지원 가능성 및 사용 중지 정책은 [여기][retirepolicy]에 설명됩니다.
 
-[cloud updates]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-update-azure-service
+[cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service
 [게스트 OS 업데이트 RSS 피드]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
@@ -242,7 +245,7 @@ Microsoft Azure는 지속적으로 업데이트를 릴리스하고 있습니다.
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
 [azuresupport]: http://azure.microsoft.com/support/options/
 [net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
-[msrc]: https://technet.microsoft.com/en-us/security/dn440717.aspx
+[msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
 [restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
