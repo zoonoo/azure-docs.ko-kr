@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 237f0d2b25230528c64bd47edd10ebae62750a0c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345385"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115676"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -209,7 +209,7 @@ Azure Marketplace에서 사용할 수 있는 RHEL(주문형 Red Hat Enterprise L
 
 ## <a name="create-or-edit-an-update-deployment"></a>업데이트 배포 만들기 또는 편집
 
-새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. **새 업데이트 배포** 창이 열립니다. 다음 표에 설명된 속성의 값을 입력합니다.
+새 업데이트 배포를 만들려면 **업데이트 배포 예약**을 선택합니다. **새 업데이트 배포** 창이 열립니다. 다음 표에 설명된 속성의 값을 입력하고 **만들기**를 클릭합니다.
 
 | 자산 | 설명 |
 | --- | --- |

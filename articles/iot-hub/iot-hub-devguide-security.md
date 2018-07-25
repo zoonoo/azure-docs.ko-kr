@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 43eb988915fb917923ab968d22b9b7f0ee36c0f5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 754449dcf759820c8bb99d082c3a5ba2792f02c8
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444398"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126326"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -35,7 +35,7 @@ IoT Hub 끝점에 액세스하려면 적절한 권한이 있어야 합니다. �
 
 [권한](#iot-hub-permissions)은 다음과 같은 방식으로 부여할 수 있습니다.
 
-* **IoT hub 수준 공유 액세스 정책**. 공유 액세스 정책은 모든 조합의 [권한](#iot-hub-permissions)을 부여할 수 있습니다. [Azure portal][lnk-management-portal]에서 또는 프로그래밍 방식으로 [IoT Hub 리소스 공급자 REST API][lnk-resource-provider-apis]를 사용하여 정책을 정의할 수 있습니다. 새로 만든 IoT Hub에는 다음과 같은 기본 정책이 있습니다.
+* **IoT hub 수준 공유 액세스 정책**. 공유 액세스 정책은 모든 조합의 [권한](#iot-hub-permissions)을 부여할 수 있습니다. [Azure Portal][lnk-management-portal]에서, [IoT Hub 리소스 REST API][lnk-resource-provider-apis]를 사용하여 프로그래밍 방식으로 또는 [az iot hub policy](https://docs.microsoft.com/cli/azure/iot/hub/policy?view=azure-cli-latest) CLI를 사용하여 정책을 정의할 수 있습니다. 새로 만든 IoT Hub에는 다음과 같은 기본 정책이 있습니다.
   
   | 공유 액세스 정책 | 권한 |
   | -------------------- | ----------- |
@@ -91,7 +91,9 @@ HTTPS는 **권한 부여** 요청 헤더에서 유효한 토큰을 포함하여 
 
 사용자 이름(DeviceId는 대/소문자 구분): `iothubname.azure-devices.net/DeviceId`
 
-암호([장치 탐색기][lnk-device-explorer] 도구를 통해 SAS 토큰 생성): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+암호([Device Explorer][lnk-device-explorer] 도구 또는 CLI 확장 명령 [az iot hub generate-sas-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-generate-sas-token)을 사용하여 SAS 토큰을 생성할 수 있음):
+
+`SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-sdks]는 서비스에 연결할 때 토큰을 자동으로 생성합니다. 일부 경우에 Azure IoT SDK는 모든 프로토콜 또는 모든 인증 방법을 지원하지 않습니다.
@@ -268,7 +270,7 @@ device1의 모든 기능에 액세스 권한을 부여하는 결과는 다음과
 `SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697`
 
 > [!NOTE]
-> .NET [장치 탐색기][lnk-device-explorer] 도구 또는 플랫폼 간 Python 기반 [Azure CLI 2.0에 대한 IoT 확장][lnk-IoT-extension-CLI-2.0] 명령줄 유틸리티를 사용하여 SAS 토큰을 생성할 수 있습니다.
+> .NET [Device Explorer][lnk-device-explorer] 도구, Python 기반의 플랫폼 간 [Azure CLI 2.0용 IoT 확장][lnk-IoT-extension-CLI-2.0] 명령줄 유틸리티 또는 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 SAS 토큰을 생성할 수 있습니다.
 
 ### <a name="use-a-shared-access-policy"></a>공유 액세스 정책 사용
 
@@ -348,11 +350,13 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 장치는 인증을 위해 X.509 인증서 또는 보안 토큰 중 하나만 사용할 수 있습니다.
 
-인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서에 대한 개념적 이해](iot-hub-x509ca-concept.md)를 참조하세요.
+인증 기관을 사용한 인증에 대한 자세한 내용은 [X.509 CA 인증서를 사용한 장치 인증](iot-hub-x509ca-overview.md)을 참조하세요.
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>장치에 대해 X.509 인증서 등록
 
 [C#에 대한 Azure IoT 서비스 SDK][lnk-service-sdk](버전 1.0.8+)는 인증을 위해 X.509 인증서를 사용하는 장치의 등록을 지원합니다. 장치 가져오기/내보내기 같은 기타 API에서도 X.509 인증서를 지원합니다.
+
+CLI 확장 명령 [az iot hub device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest)를 사용하여 장치에 대한 X.509 인증서를 구성할 수도 있습니다.
 
 ### <a name="c-support"></a>C\# 지원
 

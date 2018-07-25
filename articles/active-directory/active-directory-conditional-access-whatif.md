@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 897f1b96f0861fb13ba0e6c2427b621ea6a12a06
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 34f6efaac00f4aa17ea6a53ab51da69b84591e35
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750085"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113031"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 what if 도구란?
 
@@ -50,6 +50,10 @@ ms.locfileid: "36750085"
 
 
 평가가 완료되면 이 도구는 영향을 받는 정책에 대한 보고서를 생성합니다.
+
+
+> [!NOTE]
+> 현재 What If 도구는 중첩 그룹을 지원하지 않습니다. 사용자가 그룹에 포함되고 해당 그룹이 조건부 액세스 정책에 사용되는 다른 그룹의 멤버인 경우, what if 도구는 해당 정책의 효과를 사용자에게 올바르게 표시하지 않습니다. 
 
 
 ## <a name="running-the-tool"></a>도구 실행

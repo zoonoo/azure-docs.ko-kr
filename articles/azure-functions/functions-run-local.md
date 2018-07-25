@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: 5c582b080ec6f2cff801758fc4bff4f7d07fd7df
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083072"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126217"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -62,7 +62,7 @@ npm install -g azure-functions-core-tools
 
 다음 단계에서는 npm을 사용하여 Windows에 핵심 도구를 설치합니다. [Chocolatey](https://chocolatey.org/)를 사용할 수도 있습니다. 자세한 내용은 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)를 참조하세요.
 
-1. [Windows용 .NET Core 2.0](https://www.microsoft.com/net/download/windows)을 설치합니다.
+1. [Windows용 .NET Core 2.1](https://www.microsoft.com/net/download/windows)을 설치합니다.
 
 2. [Node.js](npm 포함)를 설치합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
 
@@ -76,7 +76,7 @@ npm install -g azure-functions-core-tools
 
 다음 단계에서는 Homebrew를 사용하여 macOS에 핵심 도구를 설치합니다.
 
-1. [macOS용 .NET Core 2.0](https://www.microsoft.com/net/download/macos)을 설치합니다.
+1. [macOS용 .NET Core 2.1](https://www.microsoft.com/net/download/macos)을 설치합니다.
 
 2. 아직 설치되지 않은 경우 [Homebrew](https://brew.sh/)를 설치합니다.
 
@@ -91,7 +91,7 @@ npm install -g azure-functions-core-tools
 
 다음 단계에서는 [APT](https://wiki.debian.org/Apt)를 사용하여 Ubuntu/Debian Linux 배포판에 핵심 도구를 설치합니다. 다른 Linux 배포판의 경우 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux)를 참조하세요.
 
-1. [Linux용 .NET Core 2.0](https://www.microsoft.com/net/download/linux)을 설치합니다.
+1. [Linux용 .NET Core 2.1](https://www.microsoft.com/net/download/linux)을 설치합니다.
 
 2. Microsoft 제품 키를 신뢰할 수 있는 키로 등록합니다.
 
@@ -137,6 +137,7 @@ func init MyFunctionProj
 Select a worker runtime:
 dotnet
 node
+java
 ```
 
 위쪽/아래쪽 화살표 키를 사용하여 언어를 선택한 다음, Enter 키를 누릅니다. 출력은 JavaScript 프로젝트에 대한 다음 예제와 유사합니다.
@@ -151,6 +152,9 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
 로컬 Git 리포지토리 없이 프로젝트를 만들려면 `--no-source-control [-n]` 옵션을 사용합니다.
+
+> [!IMPORTANT]
+> 기본적으로 핵심 도구 버전 2.x에서는 .NET 런타임에 대한 함수 앱 프로젝트를 [C# 클래스 프로젝트](functions-dotnet-class-library.md)(.csproj)로 만듭니다. 이러한 C# 프로젝트는 Visual Studio 2017 또는 Visual Studio Code에서 사용할 수 있으며, 테스트 도중 및 Azure에 게시할 때 컴파일됩니다. 버전 1.x 및 포털에서 생성되는 것과 동일한 C# 스크립트(.csx) 파일을 만들고 작업하려는 경우, 함수를 만들고 배포할 때 `--csx` 매개 변수를 포함해야 합니다.
 
 ## <a name="register-extensions"></a>확장 등록
 
@@ -177,7 +181,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
     "CORS": "*"
   },
   "ConnectionStrings": {
-    "SQLConnectionString": "Value"
+    "SQLConnectionString": "<sqlclient-connection-string>"
   }
 }
 ```
@@ -189,7 +193,7 @@ local.settings.json 파일은 앱 설정, 연결 문자열 및 Azure Functions �
 | **호스트** | 이 섹션의 설정은 로컬에서 실행할 때 Functions 호스트 프로세스를 사용자 지정합니다. |
 | **LocalHttpPort** | 로컬 Functions 호스트(`func host start` 및 `func run`)를 실행할 때 사용되는 기본 포트를 설정합니다. `--port` 명령줄 옵션이 이 값보다 우선합니다. |
 | **CORS** | [CORS(원본 간 리소스 공유)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)에 허용된 원본을 정의합니다. 원본은 공백 없이 쉼표로 구분된 목록으로 제공됩니다. 와일드카드 값(\*)이 지원되므로 모든 원본에서 요청할 수 있습니다. |
-| **ConnectionStrings** | 함수 바인딩에서 사용하는 연결 문자열에 대해 이 컬렉션을 사용하지 마십시오. 이 컬렉션은 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx) 같은 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져와야 하는 프레임 워크에서만 사용합니다. 이 개체의 연결 문자열은 공급자 유형이 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)인 환경에 추가됩니다. 이 컬렉션의 항목은 다른 앱 설정을 사용하여 Azure에 게시되지 않습니다. 이러한 값을 함수 앱에 대한 **응용 프로그램 설정**의 **연결 문자열** 섹션에 명시적으로 추가해야 합니다. |
+| **ConnectionStrings** | 함수 바인딩에서 사용하는 연결 문자열에 대해 이 컬렉션을 사용하지 마십시오. 이 컬렉션은 일반적으로 [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx) 같은 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져오는 프레임워크에서만 사용됩니다. 이 개체의 연결 문자열은 공급자 유형이 [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)인 환경에 추가됩니다. 이 컬렉션의 항목은 다른 앱 설정을 사용하여 Azure에 게시되지 않습니다. 이러한 값을 함수 앱 설정의 **연결 문자열** 컬렉션에 명시적으로 추가해야 합니다. 함수 코드에서 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx)을 만드는 경우, **응용 프로그램 설정**에 다른 연결과 함께 연결 문자열 값을 저장해야 합니다. |
 
 이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 다음 언어별 참조 항목의 Environment 변수 섹션을 참조하세요.
 
@@ -271,8 +275,9 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 | 인수     | 설명                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--language -l`**| C#, F# 또는 JavaScript와 같은 템플릿 프로그래밍 언어 이 옵션은 버전 1.x에서 필요합니다. 버전 2.x에서는 이 옵션을 사용하지 않거나 프로젝트의 기본 언어를 선택합니다. |
-| **`--template -t`** | 템플릿 이름은 다음 값 중 하나일 수 있습니다.<br/><ul><li>`Blob trigger`</li><li>`Cosmos DB trigger`</li><li>`Event Grid trigger`</li><li>`HTTP trigger`</li><li>`Queue trigger`</li><li>`SendGrid`</li><li>`Service Bus Queue trigger`</li><li>`Service Bus Topic trigger`</li><li>`Timer trigger`</li></ul> |
+| **`--template -t`** | `func templates list` 명령을 사용하여 지원되는 각 언어에 대해 사용 가능한 템플릿의 전체 목록을 확인합니다.   |
 | **`--name -n`** | 함수 이름 |
+| **`--csx`** | (버전 2.x) 버전 1.x 및 포털에서 사용되는 것과 동일한 C# 스크립트(.csx) 템플릿을 생성합니다. |
 
 예를 들어 단일 명령에서 JavaScript HTTP 트리거를 만들려면 다음을 실행합니다.
 

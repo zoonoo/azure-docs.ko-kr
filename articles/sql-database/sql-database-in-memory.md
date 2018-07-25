@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop databases
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 07/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: a21ce5c9cbf5517733a6b491124e51b163f6c2b9
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309302"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092406"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -93,7 +93,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 ### <a name="data-size-and-storage-for-columnstore-indexes"></a>columnstore 인덱스의 데이터 크기 및 저장소
 
-columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라서 인덱스의 크기에 대한 유일한 제한은 전체 최대 데이터베이스 크기이며 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 문서에서 설명합니다.
+columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라서 인덱스의 크기에 대한 유일한 제한은 전체 최대 데이터베이스 크기이며 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 문서에서 설명합니다.
 
 클러스터형 columnstore 인덱스를 사용하는 경우 기본 Table Storage에 칼럼 형식 압축을 사용합니다. 이러한 압축을 사용하면 사용자 데이터의 저장소 공간을 크게 줄일 수 있습니다. 즉, 데이터베이스에 더 많은 데이터를 담을 수 있습니다. 또한 [칼럼 형식 보관 압축](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression)을 사용하여 압축량을 더욱 늘릴 수 있습니다. 수행할 수 있는 압축량은 데이터의 특성에 따라 달라지지만 10배 압축은 일반적이지 않습니다.
 
@@ -153,7 +153,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 #### <a name="installation-steps"></a>설치 단계
 
-1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
+1. [Azure Portal](https://portal.azure.com/)에서 서버에 프리미엄 또는 중요 비즈니스용 데이터베이스를 만듭니다. AdventureWorksLT 샘플 데이터베이스에 **소스**를 설정합니다. 자세한 지침은 [첫 번째 Azure SQL Database 만들기](sql-database-get-started-portal.md)를 참조하세요.
 
 2. SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx)를 사용하여 데이터베이스에 연결합니다.
 
@@ -521,7 +521,7 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 #### <a name="tools"></a>도구
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure 포털](https://portal.azure.com/)
 
 - [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)
 

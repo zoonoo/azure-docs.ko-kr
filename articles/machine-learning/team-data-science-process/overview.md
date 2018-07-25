@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: 474efbf3a9255e4699c27c6b0bfcc30ff54c4b45
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971454"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125762"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 
@@ -67,7 +67,7 @@ TDSP에서 주기의 각 단계에 대한 목표, 작업 및 설명서 아티팩
 
 다음 다이어그램은 이러한 작업(세로 축)에 대한 수명 주기(가로 축)의 각 역할에 관련된 작업(파란색) 및 아티팩트(녹색)의 그리드 뷰를 제공합니다. 
 
-![TDSP 역할 및 작업](./media/overview/tdsp-tasks-by-roles.png)
+[ ![TDSP 역할 및 작업](./media/overview/tdsp-tasks-by-roles.png) ](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>표준화된 프로젝트 구조
 
@@ -81,7 +81,7 @@ TDSP에서는 폴더 구조와 표준 위치에 꼭 있어야 하는 파일들�
 - ROC 곡선 또는 MSE와 같은 모델 성능 측정
 
 
-![TDSP 디렉터리](./media/overview/tdsp-dir-structure.png)
+[ ![TDSP 디렉터리](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
 디렉터리 구조는 [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate)에서 복제할 수 있습니다.
 
@@ -98,7 +98,7 @@ TDSP는 공유 분석 및 저장소 인프라를 관리하기 위해 다음의 �
 
 다음은 여러 프로젝트를 진행하면서 다양한 클라우드 분석 인프라 구성 요소를 공유하는 팀의 예입니다.
 
-![TDSP 인프라](./media/overview/tdsp-analytics-infra.png)
+[ ![TDSP 인프라](./media/overview/tdsp-analytics-infra.png) ](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>프로젝트 실행을 위한 도구 및 유틸리티

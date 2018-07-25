@@ -7,23 +7,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 05/17/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: b2f3c454ba84c7b892096cc42dcbe2706ab6159f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8edf66d8ee61b2d0896ed8249ea286b0f3de7de5
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648295"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092847"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
 
 여러 응용 프로그램에서는 규정, 규정 준수 또는 기타 비즈니스를 목적으로 Azure SQL Database의 [자동 백업](sql-database-automated-backups.md)에서 제공하는 데이터베이스 백업을 7-35일 넘게 보존하도록 요구합니다. LTR(장기 보존) 기능을 사용하여 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) Blob 저장소에 최대 10년 동안 지정된 SQL 데이터베이스 전체 백업을 저장할 수 있습니다. 그런 다음, 새 데이터베이스로 모든 백업을 복원할 수 있습니다.
-
-> [!IMPORTANT]
-> 장기 보존은 현재 미리 보기 상태입니다. 이 기능은 이전 미리 보기의 일부분으로 Azure Services Recovery Service 자격 증명 모음에 저장된 기존 백업이 SQL Azure 저장소로 마이그레이션됩니다.<!-- and available in the following regions: Australia East, Australia Southeast, Brazil South, Central US, East Asia, East US, East US 2, India Central, India South, Japan East, Japan West, North Central US, North Europe, South Central US, Southeast Asia, West Europe, and West US.-->
->
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL Database의 장기 보존 작동 방법
 
@@ -34,7 +30,6 @@ ms.locfileid: "34648295"
 -  W=0, M=0, Y=5, WeekOfYear=3
 
    매년 세 번째 전체 백업이 5년 동안 유지됩니다.
-
 - W=0, M=3, Y=0
 
    매월 첫 번째 전체 백업이 3개월 동안 유지됩니다.
@@ -61,6 +56,14 @@ W=12주(84일), M=12개월(365일), Y=10년(3650일), WeekOfYear=15(4월 15일 �
 1. LTR 복사본은 Azure 저장소 서비스에서 생성되므로 복사 프로세스는 기존 데이터베이스에 성능 영향을 주지 않습니다.
 2. 이 정책은 향후 백업에 적용됩니다. 예: 지정된 WeekOfYear가 정책이 구성된 지난 해인 경우 첫 번째 LTR 백업은 다음 해에 만들어집니다. 
 3. LTR 저장소에서 데이터베이스를 복원하기 위해 해당 타임스탬프에 따라 특정 백업을 선택할 수 있습니다.   데이터베이스는 원본 데이터베이스와 동일한 구독 아래의 기존 서버로 복원될 수 있습니다. 
+> 
+
+## <a name="geo-replication-and-long-term-backup-retention"></a>지역 복제 및 장기 백업 보존
+
+활성 지역 복제 또는 장애 조치(failover) 그룹을 비즈니스 연속성 솔루션으로 사용하는 경우, 최종 장애 조치(failover)를 준비하고 지역 보조 데이터베이스에 동일한 LTR 정책을 구성해야 합니다. 이렇게 해도 백업이 보조 데이터베이스에서 생성되지 않으므로 LTR 저장소 비용이 증가하지 않습니다. 보조 데이터베이스가 주 데이터베이스가 되는 경우에만 백업이 생성됩니다. 이 방법으로 장애 조치(failover)가 트리거되고 주 데이터베이스가 보조 지역으로 이동될 때 LTR 백업이 중단 없이 생성되도록 합니다. 
+
+> [!NOTE]
+원본 주 데이터베이스는 장애 조치(failover)를 유발하는 중단에서 복구되면 새 보조 데이터베이스가 됩니다. 따라서 백업 생성이 다시 시작되지 않고 기존 LTR 정책은 다시 주 데이터베이스가 될 때까지 적용되지 않습니다. 
 > 
 
 ## <a name="configure-long-term-backup-retention"></a>장기 백업 보존 구성

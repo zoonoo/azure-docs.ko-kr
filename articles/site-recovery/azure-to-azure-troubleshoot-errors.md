@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 344ed971dd4a869cfbdc363222d772dcc3191199
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916043"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113857"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 간 VM 복제 문제 해결
 
@@ -177,6 +177,13 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>"복제를 사용하도록 설정"에서 선택할 Azure VM을 표시할 수 없음
 
+ **원인 1: 리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있음** <br>
+현재 Azure Site Recovery에서는 원본 지역 리소스 그룹과 가상 머신이 같은 위치에 있어야 합니다. 같은 위치에 있지 않으면 보호 기간에 가상 머신을 찾을 수 없습니다.
+
+**원인 2: 리소스 그룹이 선택한 구독에 포함되지 않음** <br>
+제공된 구독에 포함되지 않은 경우, 보호 시 리소스 그룹을 찾을 수 없습니다. 리소스 그룹이 사용 중인 구독에 속하는지 확인합니다.
+
+ **원인 3: 부실 구성** <br>
 복제를 사용하려는 VM이 보이지 않는 경우 Azure VM에 남아 있는 부실한 Site Recovery 구성이 그 원인일 수 있습니다. 다음과 같은 경우 Azure VM에 부실 구성이 남겨질 수 있습니다.
 
 - Site Recovery를 사용하여 Azure VM에 대해 복제를 사용하도록 설정한 후 VM에서 명시적으로 복제를 사용하지 않도록 설정하지 않으면서 Site Recovery 자격 증명 모음을 삭제했습니다.
@@ -185,6 +192,11 @@ VM에 연결된 새 디스크는 초기화되어야 합니다.
 ### <a name="fix-the-problem"></a>문제 해결
 
 [부실 ASR 구성 스크립트를 제거](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)하고 Azure VM의 부실 Site Recovery 구성을 제거할 수 있습니다. 부실 구성을 제거하면 VM이 보일 것입니다.
+
+## <a name="unable-to-select-virtual-machine-for-protection"></a>보호를 위해 가상 머신을 선택할 수 없음 
+ **원인 1: 가상 머신의 일부 확장이 실패하거나 응답하지 않는 상태로 설치됨** <br>
+ [가상 머신] > [설정] > [확장]으로 이동하여 실패한 상태의 확장자가 있는지 확인합니다. 실패한 확장을 제거하고 가상 머신 보호를 다시 시도합니다.<br>
+ **원인 2: [VM의 프로비저닝 상태가 잘못됨](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>VM의 프로비전 상태가 잘못되었습니다(오류 코드 150019).
 
@@ -200,6 +212,7 @@ VM에서 복제를 사용하도록 설정하려면 프로비전 상태가 **성�
 
 - **provisioningState**가 **실패**이면 지원 서비스에 문제 해결을 위한 세부 정보를 문의합니다.
 - **provisioningState**가 **업데이트 중**이면 또 다른 확장을 배포할 수 있습니다. VM에서 계속 진행되는 작업이 있는지 확인한 후, 해당 작업이 완료될 때까지 기다렸다가 실패한 Site Recovery **복제 사용** 작업을 다시 시도합니다.
+
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM+/볼륨 섀도 복사본 서비스 오류(오류 코드 151025)

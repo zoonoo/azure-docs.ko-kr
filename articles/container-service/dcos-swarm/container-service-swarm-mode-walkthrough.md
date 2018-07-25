@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: 46e93953ba8db141b99b14aa78674e85b343adbc
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4a592a20d009b269f1e8f7079311caa4c33cf613
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903401"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113109"
 ---
 # <a name="deploy-docker-ce-cluster"></a>Docker CE 클러스터 배포
 
@@ -30,18 +30,18 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작
 
 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.
 
-다음 예제에서는 *ukwest* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+다음 예제에서는 *westus2* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location ukwest
+az group create --name myResourceGroup --location westus2
 ```
 
-출력
+출력:
 
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "ukwest",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -53,12 +53,12 @@ az group create --name myResourceGroup --location ukwest
 
 ## <a name="create-docker-swarm-cluster"></a>Docker Swarm 클러스터 만들기
 
-[az acs create](/cli/azure/acs#az_acs_create) 명령을 사용하여 Azure Container Service에서 Docker CE 클러스터를 만듭니다. 
+[az acs create](/cli/azure/acs#az_acs_create) 명령을 사용하여 Azure Container Service에서 Docker CE 클러스터를 만듭니다. Docker CE의 사용 가능한 지역에 대한 자세한 내용은 [Docker CE의 ACS 지역](https://github.com/Azure/ACS/blob/master/announcements/2017-08-04_additional_regions.md)을 참조하세요.
 
 다음 예제에서는 하나의 Linux 마스터 노드와 세 개의 Linux 에이전트 노드가 있는 *mySwarmCluster*라는 클러스터를 만듭니다.
 
 ```azurecli-interactive
-az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group myResourceGroup --generate-ssh-keys
+az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#az_acs_create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
@@ -74,7 +74,7 @@ az acs create --name mySwarmCluster --orchestrator-type swarm --resource-group m
 az acs list --resource-group myResourceGroup --query '[*].{Master:masterProfile.fqdn,Agent:agentPoolProfiles[0].fqdn}' -o table
 ```
 
-출력
+출력:
 
 ```bash
 Master                                                               Agent
@@ -124,7 +124,7 @@ services:
 docker stack deploy azure-vote --compose-file azure-vote.yaml
 ```
 
-출력
+출력:
 
 ```bash
 Creating network azure-vote_default

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 51b9f7bfd25da7dfd4ae9038f8dab70e9232b944
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 2e6b63e3ff48d4234bceadfe0556a8af92d9f8cc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724584"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136590"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -50,14 +50,16 @@ Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 
 
 언어 관련 예제를 참조하세요.
 
-* [C# 단일 엔터티 읽기](#input---c-example-1)
-* [C# 여러 엔터티 읽기](#input---c-example-2)
-* [C# 스크립트 - 하나의 읽기 엔터티](#input---c-script-example-1)
-* [C# 스크립트 - 여러 개의 읽기 엔터티](#input---c-script-example-2)
-* [F#](#input---f-example-2)
+* [C# 단일 엔터티 읽기](#input---c-example---one-entity)
+* [C# IQueryable에 바인딩](#input---c-example---iqueryable)
+* [C# CloudTable에 바인딩](#input---c-example---cloudtable)
+* [C# 스크립트 단일 엔터티 읽기](#input---c-script-example---one-entity)
+* [C# 스크립트 IQueryable에 바인딩](#input---c-script-example---iqueryable)
+* [C# 스크립트 CloudTable에 바인딩](#input---c-script-example---cloudtable)
+* [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
-### <a name="input---c-example-1"></a>입력 - C# 예제 1
+### <a name="input---c-example---one-entity"></a>입력 - C# 예제 - 단일 엔터티
 
 다음 예제에서는 단일 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 
 
@@ -84,7 +86,7 @@ public class TableStorage
 }
 ```
 
-### <a name="input---c-example-2"></a>입력 - C# 예제 2
+### <a name="input---c-example---iqueryable"></a>입력 - C# 예제 - IQueryable
 
 다음 예제에서는 여러 테이블 행을 읽을 수 있는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. `MyPoco` 클래스가 `TableEntity`에서 파생됩니다.
 
@@ -110,10 +112,58 @@ public class TableStorage
 }
 ```
 
-  > [!NOTE]
-  > `IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 [CloudTable paramName 메서드 매개 변수를 사용](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+### <a name="input---c-example---cloudtable"></a>입력 - C# 예제 - CloudTable
 
-### <a name="input---c-script-example-1"></a>입력 - C# 스크립트 예 1
+`IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. 다음은 Azure Functions 로그 테이블을 쿼리하는 2.x 함수 예제입니다.
+
+```csharp
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+namespace FunctionAppCloudTable2
+{
+    public class LogEntity : TableEntity
+    {
+        public string OriginalName { get; set; }
+    }
+    public static class CloudTableDemo
+    {
+        [FunctionName("CloudTableDemo")]
+        public static async Task Run(
+            [TimerTrigger("0 */1 * * * *")] TimerInfo myTimer, 
+            [Table("AzureWebJobsHostLogscommon")] CloudTable cloudTable,
+            TraceWriter log)
+        {
+            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+            TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+                TableQuery.CombineFilters(
+                    TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+                        "FD2"),
+                    TableOperators.And,
+                    TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+                        "t")));
+
+            // Execute the query and loop through the results
+            foreach (LogEntity entity in 
+                await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+            {
+                log.Info(
+                    $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+            }
+        }
+    }
+}
+```
+
+CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Storage 시작](../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
+
+`CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+
+### <a name="input---c-script-example---one-entity"></a>입력 - C# 스크립트 예제 - 단일 엔터티
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. 
 
@@ -162,7 +212,7 @@ public class Person
 }
 ```
 
-### <a name="input---c-script-example-2"></a>입력 - C# 스크립트 예 2
+### <a name="input---c-script-example---iqueryable"></a>입력 - C# 스크립트 예제 - IQueryable
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 메시지에 지정된 파티션 키의 엔터티를 읽습니다.
 
@@ -212,6 +262,68 @@ public class Person : TableEntity
     public string Name { get; set; }
 }
 ```
+
+### <a name="input---c-script-example---cloudtable"></a>입력 - C# 스크립트 예제 - CloudTable
+
+`IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 `CloudTable` 메서드 매개 변수를 사용합니다. 다음은 Azure Functions 로그 테이블을 쿼리하는 2.x 함수 예제입니다.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "cloudTable",
+      "type": "table",
+      "connection": "AzureWebJobsStorage",
+      "tableName": "AzureWebJobsHostLogscommon",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+```csharp
+#r "Microsoft.WindowsAzure.Storage"
+using Microsoft.WindowsAzure.Storage.Table;
+using System;
+using System.Threading.Tasks;
+
+public static async Task Run(TimerInfo myTimer, CloudTable cloudTable, TraceWriter log)
+{
+    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+
+    TableQuery<LogEntity> rangeQuery = new TableQuery<LogEntity>().Where(
+    TableQuery.CombineFilters(
+        TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, 
+            "FD2"),
+        TableOperators.And,
+        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThan, 
+            "a")));
+
+    // Execute the query and loop through the results
+    foreach (LogEntity entity in 
+    await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
+    {
+        log.Info(
+            $"{entity.PartitionKey}\t{entity.RowKey}\t{entity.Timestamp}\t{entity.OriginalName}");
+    }
+}
+
+public class LogEntity : TableEntity
+{
+    public string OriginalName { get; set; }
+}
+```
+
+CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Storage 시작](../cosmos-db/table-storage-how-to-use-dotnet.md)을 참조하세요.
+
+`CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
 ### <a name="input---f-example"></a>입력 - F# 예제
 
@@ -648,7 +760,7 @@ Table Storage 출력 바인딩은 다음과 같은 시나리오를 지원합니�
 
   C# 또는 C# 스크립트에서 `ICollector<T> paramName` 또는 `IAsyncCollector<T> paramName` 메서드 매개 변수를 사용하여 출력 테이블 엔터티에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. `T`는 추가하려는 엔터티의 스키마를 지정합니다. 일반적으로 `T`는 `TableEntity`에서 파생되거나 `ITableEntity`을 구현하지만 반드시 그런 것은 아닙니다. *function.json* 또는 `Table` 특성 생성자의 파티션 키와 행 키의 값은 이 시나리오에서 사용되지 않습니다.
 
-  대신 Azure Storage SDK를 사용하여 테이블에 쓰는 `CloudTable paramName` 메서드 매개 변수를 사용합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
+  대신 Azure Storage SDK를 사용하여 테이블에 쓰는 `CloudTable` 메서드 매개 변수를 사용합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다. `CloudTable`에 바인딩하는 코드 예제는 이 문서의 앞부분에 있는 [C#](#input---c-example---cloudtable) 또는 [C# 스크립트](#input---c-script-example---cloudtable)에 대한 입력 바인딩 예제를 참조하세요.
 
 * **JavaScript에서 하나 이상의 행 쓰기**
 

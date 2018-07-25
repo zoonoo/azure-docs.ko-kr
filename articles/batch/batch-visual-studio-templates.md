@@ -15,19 +15,19 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98a5af1c0b321b7f9acf2bfd936a16d22088babf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 5a44c249a957050afb500decd094183c71d6ca5e
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128863"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114099"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Visual Studio 프로젝트 템플릿을 사용하여 Batch 솔루션 빠르게 시작
 
 Batch용 **작업 관리자** 및 **태스크 프로세서 Visual Studio 템플릿**은 최소한의 노력으로 Batch에서 계산 집약적 워크로드를 구현 및 실행하는 데 도움이 되는 코드를 제공합니다. 이 문서에서는 이러한 템플릿을 설명하고 템플릿을 사용하는 방법에 대한 지침을 제공합니다.
 
 > [!IMPORTANT]
-> 이 문서에서는 이러한 두 템플릿에 해당하는 정보만 다루며 사용자가 Batch 서비스 및 이와 관련된 주요 개념(풀, 계산 노드, 작업 및 태스크, 작업 관리자 태스크, 환경 변수 및 기타 관련 정보)에 익숙하다고 가정합니다. 보다 자세한 내용은 [Azure Batch의 기본 사항](batch-technical-overview.md), [개발자를 위한 Batch 기능 개요](batch-api-basics.md) 및 [.NET용 Azure Batch 라이브러리 시작](batch-dotnet-get-started.md)을 참조하세요.
+> 이 문서에서는 이러한 두 템플릿에 해당하는 정보만 다루며 사용자가 Batch 서비스 및 이와 관련된 주요 개념(풀, 계산 노드, 작업 및 태스크, 작업 관리자 태스크, 환경 변수 및 기타 관련 정보)에 익숙하다고 가정합니다. 자세한 내용은 [Azure Batch의 기본 사항](batch-technical-overview.md) 및 [개발자를 위한 Batch 기능 개요](batch-api-basics.md)를 참조하세요.
 > 
 > 
 

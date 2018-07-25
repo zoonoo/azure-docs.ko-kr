@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 2fb5a7cbca4df0faa06864f580814f31cc2b609c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114404"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091867"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
 
@@ -76,7 +76,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 #### <a name="billing-and-licensing-basics"></a>청구 및 라이선스 기본 사항
 
-현재 **SQL Database**는 서비스로 판매되며, 각기 다른 리소스 요금이 책정된 여러 서비스 계층에서 사용할 수 있습니다. 모두 선택하는 서비스 계층과 성능 수준을 기준으로 고정 요금이 시간당 청구됩니다. SQL Database 관리되는 인스턴스에서 사용자 라이선스를 가져올 수도 있습니다. 고유한 라이선스 가져오기에 대한 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 참조하세요. 또한 일반 [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/)으로 발신 인터넷 트래픽에 대해 요금이 청구됩니다. 응용 프로그램의 다양한 처리량 요구에 맞게 서비스 계층과 성능 수준을 동적으로 조정할 수 있습니다. 현재 지원되는 서비스 계층에 대한 최신 정보는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 참조하세요. 비용을 줄이고 사용량 급증을 수용하기 위해 [탄력적 풀](sql-database-elastic-pool.md)을 만들어 데이터베이스 인스턴스 간에 리소스를 공유할 수도 있습니다.
+현재 **SQL Database**는 서비스로 판매되며, 각기 다른 리소스 요금이 책정된 여러 서비스 계층에서 사용할 수 있습니다. 모두 선택하는 서비스 계층과 성능 수준을 기준으로 고정 요금이 시간당 청구됩니다. SQL Database 관리되는 인스턴스에서 사용자 라이선스를 가져올 수도 있습니다. 고유한 라이선스 가져오기에 대한 자세한 내용은 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)을 참조하세요. 또한 일반 [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/)으로 발신 인터넷 트래픽에 대해 요금이 청구됩니다. 응용 프로그램의 다양한 처리량 요구에 맞게 서비스 계층과 성능 수준을 동적으로 조정할 수 있습니다. 현재 지원되는 서비스 계층에 대한 최신 정보는 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요. 비용을 줄이고 사용량 급증을 수용하기 위해 [탄력적 풀](sql-database-elastic-pool.md)을 만들어 데이터베이스 인스턴스 간에 리소스를 공유할 수도 있습니다.
 
 **SQL Database**에서 데이터베이스 소프트웨어는 Microsoft에서 구성, 패치 적용 및 업그레이드를 수행하며 이는 관리 비용을 줄입니다. 또한 [기본 제공 백업](sql-database-automated-backups.md) 기능을 사용하여 비용을 크게 절감할 수 있으며, 특히 데이터베이스 수가 많을 경우 그 효과가 큽니다. 
 

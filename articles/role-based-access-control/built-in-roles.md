@@ -1,6 +1,6 @@
 ---
 title: Azure의 기본 제공 역할 | Microsoft Docs
-description: 이 항목에서는 Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할에 대해 설명합니다. actions, notActions, dataActions 및 notDataActions를 나열합니다.
+description: 이 항목에서는 Azure의 RBAC(역할 기반 액세스 제어) 기본 제공 역할에 대해 설명합니다. Actions, NotActions, DataActions 및 NotDataActions를 나열합니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/28/2018
+ms.date: 07/17/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c5624de13d5d31320beb85aff67c61addaffcbea
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437929"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136845"
 ---
 # <a name="built-in-roles-in-azure"></a>Azure의 기본 제공 역할
 [RBAC(역할 기반 액세스 제어)](overview.md)에는 사용자, 그룹 및 서비스 주체를 할당할 수 있는 여러 기본 제공 역할 정의가 있습니다. 역할 할당은 Azure의 리소스에 대한 액세스를 제어하는 방법입니다. 기본 제공 역할이 조직의 특정 요구 사항을 충족하지 않는 경우 [사용자 지정 역할](custom-roles.md)을 만들면 됩니다.
@@ -28,7 +28,7 @@ ms.locfileid: "37437929"
 기본 제공 역할은 계속 발전하고 있습니다. 최신 역할 정의를 가져오려면 [Get-AzureRmRoleDefinition](/powershell/module/azurerm.resources/get-azurermroledefinition) 또는 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용하세요.
 
 ## <a name="built-in-role-descriptions"></a>기본 제공 역할 설명
-다음 표에서는 기본 제공 역할을 간략하게 설명합니다. 각 역할의 `actions`, `notActions`, `dataActions` 및 `notDataActions` 목록을 보려면 역할 이름을 클릭합니다.
+다음 표에서는 기본 제공 역할을 간략하게 설명합니다. 각 역할의 `Actions`, `NotActions`, `DataActions` 및 `NotDataActions` 목록을 보려면 역할 이름을 클릭합니다.
 
 
 | 기본 제공 역할 | 설명 |
@@ -78,6 +78,8 @@ ms.locfileid: "37437929"
 | [논리 앱 운영자](#logic-app-operator) | 논리 앱을 읽고, 설정하고, 해제할 수 있습니다. |
 | [관리 ID 기여자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. |
 | [관리 ID 운영자](#managed-identity-operator) | 사용자 할당 ID를 읽고 할당합니다. |
+| [관리 그룹 참가자](#management-group-contributor) | 관리 그룹 참가자 역할 |
+| [관리 그룹 읽기 권한자](#management-group-reader) | 관리 그룹 읽기 권한자 역할 |
 | [Monitoring Contributor](#monitoring-contributor) | 모든 모니터링 데이터를 읽고 모니터링 설정을 편집할 수 있음 [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 | [Monitoring Reader](#monitoring-reader) | 모든 모니터링 데이터를 읽을 수 있음(메트릭, 로그 등) [Azure Monitor에서의 역할, 권한 및 보안 시작](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)도 참조하세요. |
 | [네트워크 기여자](#network-contributor) | 네트워크를 관리할 수 있지만 액세스할 수는 없습니다. |
@@ -617,7 +619,7 @@ ms.locfileid: "37437929"
 > | Microsoft.ClassicNetwork/virtualNetworks/join/action | 가상 네트워크를 조인합니다. |
 > | Microsoft.ClassicNetwork/virtualNetworks/read | 가상 네트워크를 가져옵니다. |
 > | Microsoft.ClassicStorage/storageAccounts/disks/read | 저장소 계정 디스크를 반환합니다. |
-> | Microsoft.ClassicStorage/storageAccounts/images/read | 저장소 계정 이미지를 반환합니다. |
+> | Microsoft.ClassicStorage/storageAccounts/images/read | 저장소 계정 이미지를 반환합니다. (사용되지 않음, 대신 ‘Microsoft.ClassicStorage/storageAccounts/vmImages’ 사용) |
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | 저장소 계정의 액세스 키를 나열합니다. |
 > | Microsoft.ClassicStorage/storageAccounts/read | 지정된 계정의 저장소 계정을 반환합니다. |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
@@ -826,6 +828,7 @@ ms.locfileid: "37437929"
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당을 읽습니다. |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | 랩 계정에서 랩을 만듭니다. |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | 랩 계정 아래의 각 크기 범주에 대한 지역별 가용성 정보 가져오기 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 
@@ -945,7 +948,29 @@ ms.locfileid: "37437929"
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
-> | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | Microsoft.Support/* | 지원 티켓을 만들고 관리합니다. |
+
+## <a name="management-group-contributor"></a>관리 그룹 참가자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 관리 그룹 참가자 역할 |
+> | **Id** | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | **Actions** |  |
+> | Microsoft.Management/managementGroups/delete | 관리 그룹을 삭제합니다. |
+> | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
+> | Microsoft.Management/managementGroups/subscriptions/delete | 관리 그룹에서 구독의 연결을 해제합니다. |
+> | Microsoft.Management/managementGroups/subscriptions/write | 기존 구독을 관리 그룹과 연결합니다. |
+> | Microsoft.Management/managementGroups/write | 관리 그룹을 만들거나 업데이트합니다. |
+
+## <a name="management-group-reader"></a>관리 그룹 읽기 권한자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 관리 그룹 읽기 권한자 역할 |
+> | **Id** | ac63b705-f282-497d-ac71-919bf39d939d |
+> | **Actions** |  |
+> | Microsoft.Management/managementGroups/read | 인증된 사용자의 관리 그룹을 나열합니다. |
 
 ## <a name="monitoring-contributor"></a>모니터링 참가자
 > [!div class="mx-tableFixed"]
@@ -957,18 +982,18 @@ ms.locfileid: "37437929"
 > | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
+> | Microsoft.Insights/actiongroups/* |  |
 > | Microsoft.Insights/AlertRules/* | 경고 규칙 읽기/쓰기/삭제 |
 > | Microsoft.Insights/components/* | Application Insights 구성 요소 읽기/쓰기/삭제 |
 > | Microsoft.Insights/DiagnosticSettings/* | 진단 설정 읽기/쓰기/삭제 |
 > | Microsoft.Insights/eventtypes/* | 구독에서 활동 로그 이벤트(관리 이벤트)를 나열합니다. 이 권한은 활동 로그에 대한 프로그래밍 방식 및 포털 액세스 모두에 적용 가능합니다. |
 > | Microsoft.Insights/LogDefinitions/* | 이 권한은 사용자 포털을 통해 활동 로그에 액세스해야 하는 사용자에게 필요합니다. 활동 로그의 로그 범주를 나열합니다. |
+> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/MetricDefinitions/* | 메트릭 정의(리소스에 사용 가능한 메트릭 형식 목록)를 읽습니다. |
 > | Microsoft.Insights/Metrics/* | 리소스에 대한 메트릭을 읽습니다. |
 > | Microsoft.Insights/Register/Action | Microsoft Insights 공급자를 등록합니다. |
-> | Microsoft.Insights/webtests/* | Application Insights 웹 테스트를 읽거나 쓰거나 삭제합니다. |
-> | Microsoft.Insights/actiongroups/* |  |
-> | Microsoft.Insights/metricalerts/* |  |
 > | Microsoft.Insights/scheduledqueryrules/* |  |
+> | Microsoft.Insights/webtests/* | Application Insights 웹 테스트 읽기/쓰기/삭제 |
 > | Microsoft.OperationalInsights/workspaces/intelligencepacks/* | Log Analytics 솔루션 팩 읽기/쓰기/삭제 |
 > | Microsoft.OperationalInsights/workspaces/savedSearches/* | Log Analytics의 저장된 검색 읽기/쓰기/삭제 |
 > | Microsoft.OperationalInsights/workspaces/search/action | 검색 쿼리를 실행합니다. |
@@ -976,6 +1001,7 @@ ms.locfileid: "37437929"
 > | Microsoft.OperationalInsights/workspaces/storageinsightconfigs/* | Log Analytics 저장소 정보 구성 읽기/쓰기/삭제 |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
+> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-reader"></a>모니터링 읽기 권한자
 > [!div class="mx-tableFixed"]

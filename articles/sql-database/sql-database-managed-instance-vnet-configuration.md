@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: a51923738642b0e6a8ffd420b3cf433f7e869f59
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: dbd747fd3ec53b1221536609d6355ff5b4691977
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309336"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091607"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 대한 VNet 구성
 
@@ -59,8 +59,9 @@ Azure [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.m
 
 - Azure는 고유한 요구 사항으로 인해 서브넷에서 5개의 IP 주소를 사용합니다. 
 - 범용 인스턴스마다 두 개의 주소가 필요합니다. 
+- 각 중요 비즈니스용 인스턴스에는 4개의 주소가 필요합니다.
 
-**예제**: 8개의 관리되는 인스턴스를 사용할 계획입니다. 즉, 5+8*2=21개의 IP 주소가 필요합니다. IP 범위가 2의 거듭제곱으로 정의되므로 32개(2^5)의 IP 주소라는 IP 범위가 필요합니다. 따라서 /27 서브넷 마스크를 포함하는 서브넷을 예약해야 합니다. 
+**예**: 세 개의 범용 및 두 개의 중요 비즈니스용 Managed Instance를 포함하도록 계획합니다. 즉, 5 + 3 * 2 + 2 * 4 = 19개 IP 주소가 필요합니다. IP 범위가 2의 거듭제곱으로 정의되므로 32개(2^5)의 IP 주소라는 IP 범위가 필요합니다. 따라서 /27 서브넷 마스크를 포함하는 서브넷을 예약해야 합니다. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instances"></a>관리되는 인스턴스의 새로운 가상 네트워크 만들기 
 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/03/2018
+ms.date: 07/17/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 98e2f88c85d21cde2ecc7196f93d531a80b14d13
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f1a6a11f827248d098c018390e9ae5557d9c22d1
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449398"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113379"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하여 세션 위험이 감지되면 액세스 차단  
 
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-your-conditional-access-policy"></a>조건부 액세스 정책 만들기 
 
-이 빠른 시작에서 시나리오는 Tor 브라우저에서의 로그인을 사용하여 감지된 **익명 IP 주소에서 로그인** 위험 이벤트를 생성합니다. 이 위험 이벤트의 위험 수준은 보통입니다.   
+이 빠른 시작에서 시나리오는 Tor 브라우저에서의 로그인을 사용하여 감지된 **익명 IP 주소에서 로그인** 위험 이벤트를 생성합니다. 이 위험 이벤트의 위험 수준은 보통입니다. 이 위험 이벤트에 응답하려면 로그인 위험 조건을 보통으로 설정합니다. 프로덕션 환경에서는 로그인 위험 조건을 높음 또는 보통 이상으로 설정해야 합니다.     
 
 이 섹션에서는 필요한 조건부 액세스 정책을 만드는 방법을 보여줍니다. 정책에서 다음을 설정합니다.
 
@@ -70,10 +70,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 |---     | --- |
 | 개요 | Alain Charon  |
 | 클라우드 앱 | 모든 클라우드 앱 |
+| 로그인 위험 | 중간 |
 | 허용 | 액세스 차단 |
  
 
-![정책 만들기](./media/active-directory-conditional-access-app-sign-in-risk/115.png)
+![정책 만들기](./media/active-directory-conditional-access-app-sign-in-risk/130.png)
 
  
 
@@ -126,11 +127,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     나. **Done**을 클릭합니다.
 
+10. **조건**을 클릭합니다. 
+
+    ![액세스 제어](./media/active-directory-conditional-access-app-sign-in-risk/19.png)
+
+11. **조건** 페이지에서:
+
+    ![로그인 위험 수준](./media/active-directory-conditional-access-app-sign-in-risk/21.png)
+
+    a. **로그인 위험**을 클릭합니다.
+ 
+    나. **구성**으로 **예**를 클릭합니다.
+
+    다. 로그인 위험 수준으로 **보통**을 선택합니다.
+
+    d. **선택**을 클릭합니다.
+
+    e. **조건** 페이지에서 **완료**를 클릭합니다.
+
+
+
 10. **액세스 제어** 섹션에서 **허용**을 클릭합니다.
 
     ![액세스 제어](./media/active-directory-conditional-access-app-sign-in-risk/10.png)
 
-11. **부여** 페이지에서:
+11. **권한 부여** 페이지에서:
 
     ![조건부 액세스](./media/active-directory-conditional-access-app-sign-in-risk/105.png)
 

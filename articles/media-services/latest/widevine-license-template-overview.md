@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: juliako
-ms.openlocfilehash: e3af5efd253458401c13f6174d9567f932482eb0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e54aff6e42d19755d274393d4221578cf5595cc5
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133442"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112793"
 ---
-# <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요
+# <a name="widevine-license-template-overview"></a>Widevine 라이선스 템플릿 개요 
 
-Azure Media Services를 사용하여 Google Widevine 라이선스를 구성하고 요청할 수 있습니다. 플레이어가 Widevine으로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청이 전송되어 라이선스를 얻습니다. 라이선스 서비스가 요청을 승인하면 서비스에서 라이선스를 발급합니다. 클라이언트로 전송되며 지정된 콘텐츠를 암호 해독하고 재생하는 데 사용됩니다.
+Azure Media Services를 사용하면 **Google Widevine**을 사용하여 콘텐츠를 암호화할 수 있습니다. 또한 Media Services는 Widevine 라이선스를 제공하는 서비스를 제공합니다. Azure Media Services API를 사용하여 Widevine 라이선스를 구성할 수 있습니다. 플레이어가 Widevine으로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청이 전송되어 라이선스를 얻습니다. 라이선스 서비스가 요청을 승인하면 서비스에서 라이선스를 발급합니다. 클라이언트로 전송되며 지정된 콘텐츠를 암호 해독하고 재생하는 데 사용됩니다.
 
 Widevine 라이선스 요청 형식은 JSON 메시지입니다.  
 
@@ -74,7 +74,7 @@ Widevine 라이선스 요청 형식은 JSON 메시지입니다.
 | parse_only |Boolean, true 또는 false |라이선스 요청이 구문 분석되지만 라이선스는 발급되지 않습니다. 그러나 라이선스 요청의 값이 응답에 반환됩니다. |
 
 ## <a name="content-key-specs"></a>콘텐츠 키 사양
-기존 정책이 있는 경우 콘텐츠 키 사양에 값을 지정할 필요가 없습니다. 이 콘텐츠와 연관된 기존 정책은 HDCP(High-bandwidth Digital Content Protection), CGMS(Copy General Management System) 등의 출력 보호를 확인하는 데 사용됩니다. 기존 정책이 Widevine 라이선스 서버에 등록되지 않은 경우 콘텐츠 공급자가 라이선스 요청에 값을 삽입할 수 있습니다.   
+기존 정책이 있는 경우, 콘텐츠 키 사양에 값을 지정할 필요가 없습니다. 이 콘텐츠와 연관된 기존 정책은 HDCP(High-bandwidth Digital Content Protection), CGMS(Copy General Management System) 등의 출력 보호를 확인하는 데 사용됩니다. 기존 정책이 Widevine 라이선스 서버에 등록되지 않은 경우, 콘텐츠 공급자가 라이선스 요청에 값을 삽입할 수 있습니다.   
 
 use_policy_overrides_exclusively 옵션에 관계없이 모든 트랙에 대해 각 content_key_specs 값을 지정해야 합니다. 
 
@@ -114,88 +114,95 @@ Media Services는 Widevine 라이선스를 구성할 수 있는 클래스를 제
 
 템플릿을 구성하려면 다음을 수행할 수 있습니다.
 
-1.  JSON 문자열 직접 생성/하드 코딩합니다(오류가 발생할 수 있음).
+### <a name="directly-construct-a-json-string"></a>JSON 문자열을 직접 구성
+
+이 방법은 오류가 발생할 수 있습니다. [필요한 클래스 정의 및 JSON으로 직렬화](#classes)에 설명된 다른 방법을 사용하는 것이 좋습니다.
 
     ```csharp
-        ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
+    ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
         WidevineTemplate = @"{""allowed_track_types"":""SD_HD"",""content_key_specs"":[{""track_type"":""SD"",""security_level"":1,""required_output_protection"":{""hdcp"":""HDCP_V2""}}],""policy_overrides"":{""can_play"":true,""can_persist"":true,""can_renew"":false}}"
     };
     ```
 
-2.  해당 JSON 속성에 매핑한 속성을 사용하여 필요한 클래스를 생성하고 JSON 문자열로 직렬화하기 전에 인스턴스화합니다. 이러한 클래스의 예제 및 인스턴스화하고 직렬화하는 방법은 다음과 같습니다.
+### <a id="classes"></a> 필요한 클래스 정의 및 JSON으로 직렬화
+
+#### <a name="define-classes"></a>클래스 정의
+
+다음 예제는 Widevine JSON 스키마에 매핑되는 클래스 정의의 예를 보여 줍니다. 클래스를 JSON 문자열로 직렬화하기 전에 인스턴스화할 수 있습니다.  
 
     ```csharp
-    public class policy_overrides
+    public class PolicyOverrides
     {
-        public bool can_play { get; set; }
-        public bool can_persist { get; set; }
-        public bool can_renew { get; set; }
-        public int rental_duration_seconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int playback_duration_seconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
-        public int license_duration_seconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public bool CanPlay { get; set; }
+        public bool CanPersist { get; set; }
+        public bool CanRenew { get; set; }
+        public int RentalDurationSeconds { get; set; }    //Indicates the time window while playback is permitted. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int PlaybackDurationSeconds { get; set; }  //The viewing window of time after playback starts within the license duration. A value of 0 indicates that there is no limit to the duration. Default is 0.
+        public int LicenseDurationSeconds { get; set; }   //Indicates the time window for this specific license. A value of 0 indicates that there is no limit to the duration. Default is 0.
     }
 
-    public class content_key_spec
+    public class ContentKeySpec
     {
-        public string track_type { get; set; }
-        public int security_level { get; set; }
-        public output_protection required_output_protection { get; set; }
+        public string TrackType { get; set; }
+        public int SecurityLevel { get; set; }
+        public OutputProtection RequiredOutputProtection { get; set; }
     }
 
-    public class output_protection
+    public class OutputProtection
     {
-        public string hdcp { get; set; }
+        public string HDCP { get; set; }
     }
 
-    public class widevine_template
+    public class WidevineTemplate
     {
-        public string allowed_track_types { get; set; }
-        public content_key_spec[] content_key_specs { get; set; }
-        public policy_overrides policy_overrides { get; set; }
+        public string AllowedTrackTypes { get; set; }
+        public ContentKeySpec[] ContentKeySpecs { get; set; }
+        public PolicyOverrides PolicyOverrides { get; set; }
     }
     ```
 
-### <a name="configure-the-license"></a>라이선스 구성
+#### <a name="configure-the-license"></a>라이선스 구성
 
 이전 섹션에 정의된 클래스를 사용하여 [WidevineTemplate](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.contentkeypolicywidevineconfiguration.widevinetemplate?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_ContentKeyPolicyWidevineConfiguration_WidevineTemplate)을 구성하는 데 사용되는 JSON을 만듭니다.
 
 ```csharp
-void ConfigureLicense()
+private static ContentKeyPolicyWidevineConfiguration ConfigureWidevineLicenseTempate()
 {
-    widevine_template objwidevine_template = new widevine_template()
+    WidevineTemplate template = new WidevineTemplate()
     {
-        allowed_track_types = "SD_HD",
-        content_key_specs = new content_key_spec[]
+        AllowedTrackTypes = "SD_HD",
+        ContentKeySpecs = new ContentKeySpec[]
         {
-            new content_key_spec()
+            new ContentKeySpec()
             {
-                track_type = "SD",
-                security_level = 1,
-                required_output_protection = new output_protection()
+                TrackType = "SD",
+                SecurityLevel = 1,
+                RequiredOutputProtection = new OutputProtection()
                 {
-                hdcp = "HDCP_V2"
+                    HDCP = "HDCP_V2"
                 }
             }
         },
-        policy_overrides = new policy_overrides()
+        PolicyOverrides = new PolicyOverrides()
         {
-            can_play = true,
-            can_persist = true,
-            can_renew = false,
-            license_duration_seconds = 2592000,
-            playback_duration_seconds = 10800,
-            rental_duration_seconds = 604800,
+            CanPlay = true,
+            CanPersist = true,
+            CanRenew = false,
+            RentalDurationSeconds = 2592000,
+            PlaybackDurationSeconds = 10800,
+            LicenseDurationSeconds = 604800,
         }
     };
 
     ContentKeyPolicyWidevineConfiguration objContentKeyPolicyWidevineConfiguration = new ContentKeyPolicyWidevineConfiguration
     {
-        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(objwidevine_template)
+        WidevineTemplate = Newtonsoft.Json.JsonConvert.SerializeObject(template)
     };
+    return objContentKeyPolicyWidevineConfiguration;
 }
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-[개요](content-protection-overview.md)
+[DRM으로 보호](protect-with-drm.md)하는 방법 확인

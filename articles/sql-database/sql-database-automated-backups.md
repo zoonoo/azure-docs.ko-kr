@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 05/25/2018
+ms.date: 07/18/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 558480d0e58a92277a0c56d0f197ee3b5c1c3f60
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "35640157"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136607"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -26,7 +26,7 @@ SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS
 
 ## <a name="what-is-a-sql-database-backup"></a>SQL Database 백업이란?
 
-SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 목적으로 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](http://msdn.microsoft.com/library/ms175526.aspx) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 일반적으로 트랜잭션 로그 백업은 데이터베이스 활동의 성능 수준 및 양에 따른 빈도로 5 - 10분마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
+SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 목적으로 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](http://msdn.microsoft.com/library/ms175526.aspx) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 트랜잭션 로그 백업은 일반적으로 5~10분마다 발생하고 데이터베이스 작업량과 성능 수준에 따라 빈도가 결정되며, 차등 백업은 일반적으로 12시간마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
 
 
 이러한 백업을 사용하여 다음을 수행할 수 있습니다.
@@ -42,7 +42,7 @@ SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 
 > 
 
 ## <a name="how-long-are-backups-kept"></a>백업은 얼마 동안 유지되나요?
-각 SQL Database 백업에는 데이터베이스의 서비스 계층을 기반으로 하는 기본 보존 기간이 있으며, 이 기간은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)과 [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md) 간에 차이가 있습니다. 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-backup-retention-period)을 참조하세요.
+각 SQL Database 백업에는 데이터베이스의 서비스 계층을 기반으로 하는 기본 보존 기간이 있으며, 이 기간은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)과 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 간에 차이가 있습니다. 데이터베이스의 백업 보존 기간을 업데이트할 수 있습니다. 자세한 내용은 [백업 보존 기간 변경](#how-to-change-backup-retention-period)을 참조하세요.
 
 데이터베이스를 삭제하면 SQL Database는 온라인 데이터베이스에 하는 것과 동일한 방식으로 백업을 유지합니다. 예를 들어, 보존 기간이 7일인 기본 데이터베이스를 삭제하는 경우, 4일 된 백업은 앞으로 3일 동안 더 저장됩니다.
 
@@ -62,14 +62,9 @@ DTU 기반 구매 모델을 사용하여 만든 데이터베이스의 기본 보
 
 현재 PITR 보존 기간을 늘리면 SQL Database는 더 긴 보존 기간에 도달할 때까지 기존 백업을 유지합니다.
 
-### <a name="pitr-retention-for-the-vcore-based-service-tiers-preview"></a>vCore 기반 서비스 계층(미리 보기)의 PITR 보존
-
-미리 보기 중에는 vCore 기반 구매 모델을 사용하여 만든 데이터베이스의 PITR 보존 기간이 7일로 설정됩니다. 관련 저장소는 무료로 포함됩니다.    
-
-
 ## <a name="how-often-do-backups-happen"></a>백업이 얼마나 자주 수행됩니까?
 ### <a name="backups-for-point-in-time-restore"></a>지정 시간 복원에 대한 백업
-SQL Database는 전체 백업, 차등 백업 및 트랜잭션 로그 백업을 자동으로 생성하여 PITR(지정 시간 복원)에 대한 셀프 서비스를 지원합니다. 전체 데이터베이스 백업은 매주 생성되고, 차등 데이터베이스 백업은 몇 시간마다 생성되며, 트랜잭션 로그 백업은 5~10분마다 생성됩니다. 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 일반적으로 30분 내에 완료되지만 데이터베이스의 크기가 상당히 큰 경우에는 더 오래 걸릴 수 있습니다. 예를 들어, 복원된 데이터베이스 또는 데이터베이스 사본에 대한 초기 백업은 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 모든 데이터베이스 백업의 정확한 타이밍은 전반적인 시스템 워크로드를 감안하여 SQL Database 서비스에 의해 결정됩니다.
+SQL Database는 전체 백업, 차등 백업 및 트랜잭션 로그 백업을 자동으로 생성하여 PITR(지정 시간 복원)에 대한 셀프 서비스를 지원합니다. 전체 데이터베이스 백업은 매주 생성되고, 차등 데이터베이스 백업은 일반적으로 12시간마다 생성되며, 트랜잭션 로그 백업은 일반적으로 5~10분마다 발생하고 데이터베이스 작업량과 성능 수준에 따라 빈도가 결정됩니다. 첫 번째 전체 백업은 데이터베이스를 만든 후에 즉시 예약됩니다. 일반적으로 30분 내에 완료되지만 데이터베이스의 크기가 상당히 큰 경우에는 더 오래 걸릴 수 있습니다. 예를 들어, 복원된 데이터베이스 또는 데이터베이스 사본에 대한 초기 백업은 더 오래 걸릴 수 있습니다. 첫 번째 전체 백업 후에 모든 향후 백업은 자동으로 예약되며 백그라운드에서 자동으로 관리됩니다. 모든 데이터베이스 백업의 정확한 타이밍은 전반적인 시스템 워크로드를 감안하여 SQL Database 서비스에 의해 결정됩니다.
 
 PITR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)로 보호됩니다.
 

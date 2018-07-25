@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: carlrab
-ms.openlocfilehash: 01f213c7cf5f6be3ef84601a50bb4455422faf22
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 5503ffaf8a429221a0a0730fc999cb7a90f43785
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311187"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092123"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools-preview"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한(미리 보기)
+# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한
 
 이 아티클에서는 vCore 기반 구매 모델을 사용하여 풀링된 데이터베이스 및 Azure SQL Database 탄력적 풀에 대한 리소스 제한을 자세히 제공합니다.
 

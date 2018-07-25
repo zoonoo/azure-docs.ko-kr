@@ -1,6 +1,6 @@
 ---
-title: HDInsight에서 Pig와 함께 DataFu 사용 - Azure | Microsoft Docs
-description: DataFu는 Hadoop과 함께 사용하기 위한 라이브러리의 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다.
+title: HDInsight에서 Pig와 함께 Apache DataFu 사용 - Azure | Microsoft Docs
+description: Apache DataFu Pig는 Hadoop에서 Pig와 함께 사용하기 위한 라이브러리 컬렉션입니다. HDInsight 클러스터에서 Pig와 함께 DataFu를 사용하는 방법에 대해 알아봅니다.
 services: hdinsight
 documentationcenter: ''
 author: Blackmist
@@ -13,18 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 04/10/2018
+ms.date: 06/16/2018
 ms.author: larryfr
-ms.openlocfilehash: 30243d0b7db41fbe19c60d6c11d56fb7e801797b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 51949e763b77aede6df8a8ff6affa3892adbed21
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401009"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090217"
 ---
-# <a name="use-datafu-with-pig-on-hdinsight"></a>HDInsight에서 pig와 함께 DataFu 사용
+# <a name="use-apache-datafu-pig-with-pig-on-hdinsight"></a>HDInsight에서 pig와 함께 Apache DataFu Pig 사용
 
-HDInsight과 함께 DataFu를 사용하는 방법에 대해 알아봅니다. DataFu는 Hadoop에서 Pig와 함께 사용하기 위한 오픈 소스 라이브러리의 컬렉션입니다.
+HDInsight에서 Apache DataFu Pig를 사용하는 방법을 알아봅니다.
+
+DataFu Pig는 Hadoop에서 Pig와 함께 사용하기 위한 오픈 소스 라이브러리의 컬렉션입니다.
+DataFu Pig에 대한 자세한 내용은 [https://datafu.apache.org/](https://datafu.apache.org/)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,20 +47,41 @@ HDInsight과 함께 DataFu를 사용하는 방법에 대해 알아봅니다. Dat
 >
 > Windows 기반 또는 Linux 기반 클러스터 버전 3.3 이상 클러스터를 사용하는 경우 이 섹션을 건너뛸 수 있습니다.
 
-Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니다. 다음 단계를 따라 DataFu를 HDInsight 클러스터에 추가합니다.
+Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니다. 다음 단계를 사용하여 필요한 버전을 찾고 HDInsight 클러스터에 추가합니다.
+
+> [!WARNING]
+> DataFu 버전에는 HDInsight에서 충족되지 않는 요구 사항이 있을 수 있습니다. 예를 들어, 이전 버전의 DataFu를 사용하는 경우, HDInsight에 포함된 것과 다른 버전의 Pig가 필요할 수 있습니다.
+
+### <a name="find-a-version"></a>버전 찾기
+
+1. 웹 브라우저에서 https://mvnrepository.com/artifact/org.apache.datafu/datafu-pig로 이동하여 필요한 버전을 찾습니다.
+
+2. 연결된 버전 번호를 선택합니다.
+
+3. __모두 보기__를 선택하여 모든 파일을 표시합니다.
+
+4. 파일 목록에서 .jar 파일을 찾습니다. 일반적으로 이 파일은 모든 종속성을 포함하므로 나열된 가장 큰 파일입니다. 링크를 마우스 오른쪽 단추로 클릭하고 링크 주소를 복사합니다.
+
+### <a name="download-datafu-to-hdinsight"></a>HDInsight로 DataFu 다운로드
 
 1. SSH를 사용하여 Linux 기반 HDInsight 클러스터에 연결합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-2. 다음 명령을 사용하여 wget 유틸리티를 사용하여 DataFu jar 파일을 다운로드하거나 브라우저에 링크를 복사하여 붙여 넣어 다운로드를 시작합니다.
+2. 다음 명령을 사용하여 wget 유틸리티를 통해 DataFu jar 파일을 다운로드합니다.
+
+    > [!IMPORTANT]
+    > 명령의 링크를 이전에 복사한 URL으로 바꿉니다.
 
     ```
-    wget http://central.maven.org/maven2/com/linkedin/datafu/datafu/1.2.0/datafu-1.2.0.jar
+    wget http://central.maven.org/maven2/org/apache/datafu/datafu-pig/1.4.0/datafu-pig-1.4.0.jar
     ```
 
 3. 그런 다음 HDInsight 클러스터의 기본 저장소에 파일을 업로드합니다. 기본 저장소에 파일을 배치하면 클러스터의 모든 노드에 사용할 수 있습니다.
 
+    > [!IMPORTANT]
+    > 파일 이름의 버전 번호를 다운로드한 버전으로 바꿉니다.
+
     ```
-    hdfs dfs -put datafu-1.2.0.jar /example/jars
+    hdfs dfs -put datafu-pig-1.4.0.jar /example/jars
     ```
 
     > [!NOTE]
@@ -70,9 +94,9 @@ Maven 리포지토리에서 DataFu를 다운로드하고 설치할 수 있습니
 > [!IMPORTANT]
 > 이전 섹션의 단계에 따라 DataFu를 수동으로 설치한 경우 사용하기 전에 등록해야 합니다.
 >
-> * 클러스터에서 Azure Storage를 사용하는 경우 `wasb://` 경로를 사용합니다. 예: `register wasb:///example/jars/datafu-1.2.0.jar`
+> * 클러스터에서 Azure Storage를 사용하는 경우 `wasb://` 경로를 사용합니다. 예: `register wasb:///example/jars/datafu-pig-1.4.0.jar`
 >
-> * 클러스터에서 Azure Data Lake Store를 사용하는 경우 `adl://` 경로를 사용합니다. 예: `register adl://home/example/jars/datafu-1.2.0.jar`
+> * 클러스터에서 Azure Data Lake Store를 사용하는 경우 `adl://` 경로를 사용합니다. 예: `register adl://home/example/jars/datafu-pig-1.4.0.jar`
 
 종종 DataFu 함수에 대한 별칭을 정의합니다. 다음 예제에서는 `SHA`의 별칭을 정의합니다.
 
@@ -121,5 +145,5 @@ DUMP mask;
 
 DataFu 또는 Pig에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-* [Apache DataFu Pig 가이드](http://datafu.incubator.apache.org/docs/datafu/guide.html)
+* [Apache DataFu Pig Getting Started](https://datafu.apache.org/docs/datafu/getting-started.html)(Apache DataFu Pig 시작).
 * [HDInsight에서 Pig 사용](hdinsight-use-pig.md)

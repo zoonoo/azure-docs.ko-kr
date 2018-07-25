@@ -4,21 +4,21 @@ description: Azure Data Factory에서 다양한 유형의 통합 런타임을 �
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
-manager: ''
+manager: craigg
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2017
+ms.date: 07/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 523d50623257d3944342cb174174e27bd4731248
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045248"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113260"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임 모니터링  
 **통합 런타임**은 서로 다른 네트워크 환경에서 다양한 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 계산 인프라입니다. Data Factory는 세 가지 유형의 통합 런타임을 제공합니다.
@@ -192,6 +192,24 @@ Azure-SSIS 통합 런타임은 SSIS 패키지 실행 전용 Azure 가상 머신(
 | Started | Azure-SSIS 통합 런타임의 노드가 할당/준비되었으며 SSIS 패키지를 배포/실행할 준비가 되었습니다. |
 | 중지 중  | Azure-SSIS 통합 런타임의 노드가 해제되고 있습니다. |
 | 중지됨 | Azure-SSIS 통합 런타임의 노드가 해제되었고 청구가 중단되었습니다. |
+
+### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Azure Portal에서 Azure-SSIS 통합 런타임 모니터링
+
+다음 스크린샷은 모니터링할 Azure-SSIS IR를 선택하는 방법을 보여주고 표시되는 정보의 예를 제공합니다.
+
+![모니터링할 Azure-SSIS 통합 런타임 선택](media/monitor-integration-runtime/monitor-azure-ssis-ir-image1.png)
+
+![Azure-SSIS 통합 런타임 정보 보기](media/monitor-integration-runtime/monitor-azure-ssis-ir-image2.png)
+
+### <a name="monitor-the-azure-ssis-integration-runtime-with-powershell"></a>PowerShell을 사용하여 Azure-SSIS 통합 런타임 모니터링
+
+다음 예제와 같은 스크립트를 사용하여 Azure-SSIS IR의 상태를 확인합니다.
+
+```powershell
+Get-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $AzureSSISName -ResourceGroupName $ResourceGroupName -Status
+```
+
+### <a name="more-info-about-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 자세한 정보
 
 Azure-SSIS 통합 런타임에 대한 자세한 내용은 다음 문서를 참조하세요.
 

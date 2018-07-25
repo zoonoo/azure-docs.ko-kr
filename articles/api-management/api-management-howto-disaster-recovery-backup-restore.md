@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: 3fcd2fc4162cfbf549be979e15745934c2e4c6ff
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28019282"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090880"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -51,7 +51,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 ### <a name="create-an-azure-active-directory-application"></a>Azure Active Directory 응용 프로그램 만들기
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. 해당 API Management 서비스 인스턴스가 포함된 구독을 사용하여 **앱 등록** 탭으로 이동합니다.
+2. API Management 서비스 인스턴스를 포함하는 구독을 사용하여 **Azure Active Directory**의 **앱 등록** 탭으로 이동합니다(Azure Active Directory > [관리/앱 등록]).
 
     > [!NOTE]
     > Azure Active Directory 기본 디렉토리에 사용자의 계정이 표시되지 않는 경우, 계정에 필요한 사용 권한을 부여하려면 Azure 구독의 관리자에게 문의하세요.
@@ -112,11 +112,14 @@ namespace GetTokenResourceManagerRequests
 
     ![Endpoints][api-management-endpoint]
 2. **설정** 페이지로 이동하여 `{application id}`를 가져온 값으로 바꿉니다.
-3. **리디렉션 URI** 탭에서 URL을 바꾸면 Azure Active Directory 응용 프로그램입니다.
+3. `{redirect uri}`를 Azure Active Directory 응용 프로그램의 **리디렉션 URI** 탭에 있는 값으로 바꿉니다.
 
     값이 지정되면 코드 예제에서는 다음 예제와 유사한 토큰을 반환해야 합니다.
 
     ![신뢰][api-management-arm-token]
+
+    > [!NOTE]
+    > 토큰은 특정 기간 후에 만료될 수 있습니다. 코드 샘플을 다시 실행하여 새 토큰을 생성합니다.
 
 ## <a name="calling-the-backup-and-restore-operations"></a>백업 및 복원 작업 호출
 
@@ -134,7 +137,7 @@ API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니�
 설명:
 
 * `subscriptionId` - 백업할 API Management 서비스를 포함하는 구독의 ID입니다.
-* `resourceGroupName` - 'Api-Default-{service-region}' 형식의 문자열입니다. 여기서 `service-region`은 백업할 API Management 서비스가 호스트되는 Azure 지역(예: `North-Central-US`)을 식별합니다.
+* `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 * `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
 * `api-version` - `2014-02-14`(으)로 대체
 
@@ -193,8 +196,9 @@ Backup은 오랫동안 실행되는 작업으로, 완료되려면 몇 분이 걸
 > 백업을 복원할 서비스의 **SKU**는 복원하려는 백업된 서비스의 SKU와 **일치해야** 합니다.
 >
 > 복원 작업이 진행되는 동안 API, 정책, 개발자 포털 모양 등의 서비스 구성에 적용된 **변경 내용**을 **덮어쓸 수 있습니다**.
->
->
+
+> [!NOTE]
+> 백업 및 복원 작업은 각각 Powershell *Backup-AzureRmApiManagement* 및 *Restore-AzureRmApiManagement* 명령을 사용하여 수행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 백업/복원 프로세스의 서로 다른 두 연습에 대한 다음 Microsoft 블로그를 체크아웃합니다.

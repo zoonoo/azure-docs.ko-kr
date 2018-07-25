@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 07/13/2018
 ms.author: sedusch
-ms.openlocfilehash: cac2f91a25907be824e3fd3517736d921c3fde64
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9ce95bcf15d0186c1baea3df407d0fc0c4200f45
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923431"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115479"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -38,6 +38,11 @@ SBD 장치에는 iSCSI 대상 서버 역할을 하고 SBD 장치를 제공하는
 가상 머신 하나를 추가로 투자하지 않으려면 Azure 펜스 에이전트를 사용할 수도 있습니다. 단점은 리소스 중지가 실패하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 장애 조치(failover)에 10~15분이 걸릴 수 있습니다.
 
 ![SLES의 Pacemaker 개요](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
+
+>[!IMPORTANT]
+> Linux Pacemaker 클러스터 노드 및 SBD 장치를 계획하고 배포할 경우, 전체 클러스터 구성의 전체적인 안정성을 제공하려면 관련된 VM과 SBD 장치를 호스트하는 VM 간의 라우팅이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)와 같은 다른 장치를 통과하지 않아야 합니다. 그렇지 않으면 NVA에 관련된 문제 및 유지 관리 이벤트가 전체 클러스터 구성의 안정성에 부정적인 영향을 줄 수 있습니다. 이러한 장애가 발생하지 않도록 하려면 Linux Pacemaker 클러스터 노드 및 SBD 장치를 계획하고 배포할 때 클러스터 노드와 SBD 장치 간의 트래픽을 NVA 및 유사한 장치를 통해 라우트하는 NVA 라우팅 규칙 또는 [사용자 정의 라우팅 규칙](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview)을 정의하지 마세요. 
+>
+
 
 ## <a name="sbd-fencing"></a>SBD 펜싱
 

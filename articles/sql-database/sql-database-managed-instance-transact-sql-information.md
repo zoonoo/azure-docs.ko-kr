@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 80d06a6c40fa804c543a1cee9dc75b57b293beaf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 89544ea72a4356fb8d4f3a192e6fc546eb6b3cff
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446880"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092013"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 관리되는 인스턴스 및 SQL Server 간의 T-SQL 차이점 
 
@@ -267,7 +267,7 @@ HDFS 또는 Azure Blob 저장소의 파일을 참조하는 외부 테이블은 �
 
 ### <a name="replication"></a>복제 
  
-복제는 아직 지원되지 않습니다. 복제에 대한 자세한 내용은 [SQL Server 복제](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication)를 참조하세요.
+복제는 Managed Instance에서 지원됩니다. 복제에 대한 자세한 내용은 [SQL Server 복제](http://review.docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)를 참조하세요.
  
 ### <a name="restore-statement"></a>RESTORE 문 
  
@@ -371,11 +371,11 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 지원되지 않는 옵션은 다음과 같습니다. 
 - `FILESTREAM` 
 - `FILETABLE` 
-- `EXTERNAL TABLE` 
+- `EXTERNAL TABLE`
 - `MEMORY_OPTIMIZED`  
 
 테이블 만들기 및 변경에 대한 자세한 내용은 [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) 및 [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql)을 참조하세요.
- 
+
 ## <a name="Changes"></a> 동작 변경 
  
 다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.  

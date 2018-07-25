@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/13/2017
+ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: adfce1195a6a322e0225ee09a45148001d0167c8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592132"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089964"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
-이 기능은 빌드 1.1.105.0(2016년 2월에 발표됨)에서 도입되었습니다.
+이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](active-directory-aadconnect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](active-directory-aadconnect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
 
 ## <a name="overview"></a>개요
 **자동 업그레이드** 기능을 통해 아주 쉽게 Azure AD Connect 설치를 항상 최신 상태로 유지할 수 있습니다. 이 기능은 Express 설치 및 DirSync 업그레이드에 대해 기본적으로 사용되도록 설정되어 있습니다. 새 버전이 출시되면 설치가 자동으로 업그레이드됩니다.

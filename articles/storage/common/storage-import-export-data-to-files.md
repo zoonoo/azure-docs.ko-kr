@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4349b471f960e7844511c473bffcd2177a34e055
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660329"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113480"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 
@@ -30,6 +30,14 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 - [지원되는 형식](storage-import-export-requirements.md#supported-disks)에 속한 적절한 개수의 디스크가 있어야 합니다. 
 - [지원되는 OS 버전](storage-import-export-requirements.md#supported-operating-systems)을 실행하는 Windows 시스템이 있어야 합니다.
 - Windows 시스템에서 [WAImportExport 버전 2를 다운로드](https://www.microsoft.com/download/details.aspx?id=55280)합니다. `waimportexport` 기본 폴더에 압축을 풉니다. 예: `C:\WaImportExport`
+- FedEx/DHL 계정이 있습니다. 
+    - 계정은 유효해야 하고, 잔액이 있어야 하며, 반품 기능이 있어야 합니다.
+    - 내보내기 작업의 추적 번호를 생성합니다.
+    - 모든 작업에는 별도의 추적 번호가 있어야 합니다. 추적 번호가 동일한 여러 작업은 지원되지 않습니다.
+    - 운송업체 계정이 없는 경우, 다음으로 이동합니다.
+        - [FedEX 계정 만들기](https://www.fedex.com/en-us/create-account.html) 또는 
+        - [DHL 계정 만들기](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+ 
 
 
 ## <a name="step-1-prepare-the-drives"></a>1단계: 드라이브 준비
@@ -142,6 +150,9 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
     - 운송업체에서 만든 유효한 운송업체 계정 번호를 입력합니다. 가져오기 작업이 완료되면 Microsoft는 이 계정을 사용하여 사용자에게 드라이브를 배송합니다. 
     - 완전하고 유효한 연락처 이름, 전화 번호, 이메일, 주소, 구/군/시, 우편 번호, 시/도 및 국가/지역을 제공합니다.
 
+        > [!TIP] 
+        > 단일 사용자의 메일 주소를 지정하는 대신 그룹 메일을 제공합니다. 이렇게 하면 관리자가 자리를 비운 경우에도 알림을 받을 수 있습니다.
+
        ![가져오기 작업 만들기 - 3단계](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
    
@@ -159,6 +170,10 @@ Import/Export 서비스는 Azure Storage로 Azure Files의 가져오기만을 �
 ## <a name="step-4-update-the-job-with-tracking-information"></a>4단계: 추적 정보를 사용하여 작업 업데이트
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
+
+## <a name="step-5-verify-data-upload-to-azure"></a>5단계: Azure에 대한 데이터 업로드 확인
+
+완료될 때까지 작업을 추적합니다. 작업이 완료되면 데이터가 Azure에 업로드되었는지 확인합니다. 업로드가 성공했음을 확인한 후에만 온-프레미스 데이터를 삭제합니다.
 
 ## <a name="samples-for-journal-files"></a>업무 일지 파일에 대한 샘플
 

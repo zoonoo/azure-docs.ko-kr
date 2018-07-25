@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/09/2018
 ms.author: aljo
-ms.openlocfilehash: fbe3dde48fa1be79356ff1cb9e47c46832d8cdaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8f1d2634fd2efd624d1000f2fbc0400af4af11
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212758"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136811"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Azure 포털을 사용하여 Azure에서 서비스 패브릭 클러스터 만들기
 > [!div class="op_single_selector"]
 > * [Azure 리소스 관리자](service-fabric-cluster-creation-via-arm.md)
-> * [Azure Portal](service-fabric-cluster-creation-via-portal.md)
+> * [Azure 포털](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -71,9 +71,7 @@ Service Fabric을 사용하기 위해 클라이언트 인증 인증서를 Key Va
 * 응용 프로그램 구성 값의 암호화 및 암호 해독
 * 복제 중에 노드 간 데이터 암호화 
 
-Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서를 구성할 수 없습니다. 클러스터 설치 시에 응용 프로그램 인증서를 구성하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다. 만든 클러스터에 응용 프로그램 인증서를 추가할 수도 있습니다.
-
-</a "create-cluster-portal" ></a>
+[Azure Portal을 통해 클러스터를 만드는](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-fabric/service-fabric-cluster-creation-via-portal.md) 경우, 응용 프로그램 인증서를 구성할 수 없습니다. 클러스터 설치 시에 응용 프로그램 인증서를 구성하려면 [Azure Resource Manager를 사용하여 클러스터를 만들어야][create-cluster-arm] 합니다. 만든 클러스터에 응용 프로그램 인증서를 추가할 수도 있습니다.
 
 ## <a name="create-cluster-in-the-azure-portal"></a>Azure 포털에서 클러스터 만들기
 
@@ -121,7 +119,7 @@ Azure 포털을 통해 클러스터를 만들 때 응용 프로그램 인증서�
 5. **단일 노드 클러스터 및 3 노드 클러스터** - 테스트용으로만 사용되며 실행 중인 프로덕션 워크로드에는 지원되지 않습니다.
 6. 사용자 지정 끝점을 구성합니다. 이 필드를 사용하면 Azure Load Balancer를 통해 응용 프로그램에 대한 공용 인터넷에 노출하려고 하는 쉼표로 구분된 포트 목록을 입력할 수 있습니다. 예를 들어 클러스터에 웹 응용 프로그램을 배포하려는 경우 여기에 "80"을 입력하여 포트 80의 트래픽이 클러스터로 이동되도록 허용합니다. 끝점에 대한 자세한 내용은 [응용 프로그램과 통신][service-fabric-connect-and-communicate-with-services]을 참조하세요.
 7. 클러스터 **진단**을 구성합니다. 기본적으로 문제 해결을 돕기 위해 클러스터에서 진단이 활성화됩니다. 진단을 사용하지 않으려면 **상태** 토글을 **사용 안 함**로 변경합니다. 진단을 끄지 **않는** 것이 좋습니다. 이미 Application Insights 프로젝트가 생성되어 있는 경우 응용 프로그램 추적이 프로젝트로 라우팅되도록 해당 키를 제공합니다.
-8. 클러스터를 설정할 패브릭 업그레이드 모드를 선택합니다. 시스템이 사용 가능한 최신 버전을 자동으로 선택하고 클러스터를 최신 버전으로 업그레이드하도록 하려면 **자동**을 선택합니다. 지원되는 버전을 선택하려는 경우 모드를 **수동**으로 설정합니다. 패브릭 업그레이드 모드에 대한 자세한 내용은 [service-fabric-cluster-upgrade 문서][service-fabric-cluster-upgrade]를 참조하세요.
+8. 클러스터를 설정할 패브릭 업그레이드 모드를 선택합니다. 시스템이 사용 가능한 최신 버전을 자동으로 선택하고 클러스터를 최신 버전으로 업그레이드하도록 하려면 **자동**을 선택합니다. 지원되는 버전을 선택하려는 경우 모드를 **수동**으로 설정합니다. 패브릭 업그레이드 모드에 대한 자세한 내용은 [service-fabric-cluster-upgrade document.][service-fabric-cluster-upgrade]를 참조하세요.
 
 > [!NOTE]
 > 지원되는 버전의 Service Fabric이 실행되는 클러스터만 지원합니다. **수동** 모드를 선택하면 사용자가 직접 클러스터를 지원되는 버전으로 업그레이드해야 합니다. > 
@@ -227,9 +225,7 @@ Powershell 또는 CLI를 사용하여 클러스터에 대한 관리 작업을 �
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node -->
-[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
-[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
+<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.mdd
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

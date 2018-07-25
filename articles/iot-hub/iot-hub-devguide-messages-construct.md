@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 1d84fa5ca580a1e56ba9ce17dece9ad9680c74c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a1296565384e60117d883a1f1407362482ba1a3e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633930"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125016"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>IoT Hub 메시지 만들기 및 읽기
 
@@ -65,11 +65,11 @@ IoT Hub는 실제 페이로드만을 고려하여 프로토콜 진단 방식으�
 
 IoT Hub의 메시지 크기 제한에 대한 자세한 내용은 [IoT Hub 할당량 및 제한][lnk-quotas]을 참조하세요.
 
-다양한 프로그래밍 언어로 IoT Hub 메시지를 만들고 읽는 방법을 배우려면 [시작하기][lnk-get-started] 자습서를 참조하세요.
+다양한 프로그래밍 언어로 IoT Hub 메시지를 만들고 읽는 방법을 알아보려면 [빠른 시작][lnk-get-started]을 참조하세요.
 
 [lnk-messaging]: iot-hub-devguide-messaging.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-c2d]: iot-hub-devguide-messages-c2d.md
 [lnk-d2c]: iot-hub-devguide-messages-d2c.md

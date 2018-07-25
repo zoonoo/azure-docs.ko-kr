@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/26/2018
 ms.author: rnagpal
-ms.openlocfilehash: 391948af7fe00e0a5e6171d5322c09c05fcd1cc3
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798477"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126714"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
@@ -37,6 +37,10 @@ ms.locfileid: "34798477"
 >
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+* Microsoft.Azure.Storage.Common 및 Microsoft.Azure.DocumentDB에 대한 Nuget 패키지 종속성이 수정되었습니다.
+* JsonConvert.DefaultSettings가 구성된 경우, 테이블 serialization에 대한 버그 수정입니다.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * 직접 모드에서 잘못된 형식의 Etag에 대한 유효성 검사를 추가했습니다.
@@ -65,6 +69,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [1.1.3](#1.1.3) |2018년 7월 17일|--- |
 | [1.1.1](#1.1.1) |2018년 3월 26일|--- |
 | [1.1.0](#1.1.0) |2018년 2월 21일|--- |
 | [1.0.0](#1.0.0) |2017년 11월 15일|--- |

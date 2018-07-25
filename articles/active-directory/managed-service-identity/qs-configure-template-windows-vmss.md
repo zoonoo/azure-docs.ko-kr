@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 9f550af869ccfc44ba4d840f54503ad017cdaf95
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ab3982c85cfb008bde08495f8cb8aa86d066d8c0
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901214"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114857"
 ---
 # <a name="configure-a-vmss-managed-service-identity-by-using-a-template"></a>템플릿을 사용하여 VMSS 관리 서비스 ID 구성
 
@@ -55,7 +55,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 1. 템플릿을 편집기에 로드하고 `resources` 섹션 내에서 원하는 `Microsoft.Compute/virtualMachineScaleSets` 리소스를 찾습니다. 사용 중인 편집기와 템플릿을 편집 중인 배포(새 배포 또는 기존 배포)에 따라 실제 리소스는 다음 스크린샷과 약간 다를 수 있습니다.
    
-   ![템플릿의 스크린샷 - VM 찾기](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
+   ![템플릿의 스크린샷 - VM 찾기](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
 
 2. 시스템 할당 ID를 사용하도록 설정하려면 동일한 수준의 `"identity"` 속성을 `"type": "Microsoft.Compute/virtualMachineScaleSets"` 속성으로 추가합니다. 다음 구문을 사용합니다.
 
@@ -91,7 +91,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 4. 작업을 완료하면 템플릿은 다음과 같이 표시됩니다.
 
-   ![업데이트 이후 템플릿의 스크린샷](../media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ![업데이트 이후 템플릿의 스크린샷](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 시스템 할당 ID를 사용하지 않도록 설정
 
@@ -113,6 +113,9 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 1. `resources` 요소 아래에 다음 항목을 추가하여 사용자 할당 ID를 VMSS에 할당합니다.  `<USERASSIGNEDIDENTITY>`를 직접 만든 사용자 할당 ID의 이름으로 바꿔야 합니다.
 
+   > [!Important]
+   > 다음 예제에 표시된 `<USERASSIGNEDIDENTITYNAME>` 값은 변수에 저장되어야 합니다.  또한 Resource Manager 템플릿에서 사용자 할당 ID를 가상 머신에 할당하는 현재 지원되는 구현의 경우, API 버전이 다음 예제의 버전과 일치해야 합니다. 
+
     ```json
     {
         "name": "[variables('vmssName')]",
@@ -121,7 +124,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/<USERASSIGNEDIDENTITY>)']"
+                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
             ]
         }
 

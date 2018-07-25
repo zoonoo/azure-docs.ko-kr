@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 9418525e60f255787f39a42657ee0dbdbd46957d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096936"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126353"
 ---
 > [!div class="op_single_selector"]
 > * [비동기 Java](performance-tips-async-java.md)
@@ -39,7 +39,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
    * 게이트웨이 모드(기본값)
       
-     게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다. 엄격한 방화벽으로 제한된 회사 네트워크 내에서 응용 프로그램을 실행하는 경우, 표준 HTTPS 포트 및 단일 끝점을 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우 성능 유지를 위해 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다.
+     게이트웨이 모드는 모든 SDK 플랫폼에서 지원되며 기본 구성입니다. 엄격한 방화벽으로 제한된 회사 네트워크 내에서 응용 프로그램을 실행하는 경우, 표준 HTTPS 포트 및 단일 끝점을 사용하기 때문에 게이트웨이 모드가 최상의 선택입니다. 그러나 게이트웨이 모드의 경우 성능 유지를 위해 Azure Cosmos DB에서 데이터를 읽거나 쓸 때마다 네트워크 홉이 추가됩니다. 이 때문에 직접 모드는 네트워크 홉이 적기 때문에 더 나은 성능을 제공합니다. 제한된 개수의 소켓 연결이 있는 환경에서 응용 프로그램을 실행하는 경우(예: Azure Functions를 사용할 때 또는 사용량 플랜을 사용 중인 경우)에도 게이트웨이 연결 모드를 사용하는 것이 좋습니다. 
 
    * 직접 모드
 

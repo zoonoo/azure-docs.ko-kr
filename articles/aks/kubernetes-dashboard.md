@@ -1,40 +1,55 @@
 ---
 title: 웹 UI를 사용하여 Azure Kubernetes 클러스터 관리
-description: AKS에서 Kubernetes 대시보드 사용
+description: AKS(Azure Kubernetes Service)와 함께 기본 제공 Kubernetes 웹 UI 대시보드를 사용하는 방법을 알아봅니다.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 02/24/2018
+ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b56751750d5c0731a79b3229106a6bc2a5eccac9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100428"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091141"
 ---
-# <a name="kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)와 Kubernetes 대시보드
+# <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하여 Kubernetes 대시보드에 액세스
 
-Azure CLI를 사용하여 Kubernetes 대시보드를 시작할 수 있습니다. 이 문서는 Azure CLI를 사용하여 Kubernetes 대시보드를 시작하는 과정 및 기본적인 일부 대시보드 작업 과정도 안내합니다. Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
+Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드가 포함됩니다. 이 문서에서는 Azure CLI를 사용하여 Kubernetes 대시보드에 액세스하는 방법을 보여준 후 일부 기본적인 대시보드 작업 과정을 안내합니다. Kubernetes 대시보드에 대한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 AKS 클러스터를 만들고 클러스터와 kubectl 연결을 설정했다고 가정합니다. 이러한 항목이 필요한 경우 [AKS 빠른 시작][aks-quickstart]을 참조하세요.
+이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. AKS 클러스터를 만들어야 하는 경우, [AKS 빠른 시작][aks-quickstart]을 참조하세요.
 
-또한 Azure CLI 버전 2.0.27 이상이 설치되고 구성되어 있어야 합니다. 버전을 찾으려면 az --version을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+또한 Azure CLI 버전 2.0.27 이상이 설치되고 구성되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="start-kubernetes-dashboard"></a>Kubernetes 대시보드 시작
 
-`az aks browse` 명령을 사용하여 Kubernetes 대시보드를 시작합니다. 이 명령을 실행할 때 리소스 그룹과 클러스터 이름을 바꿉니다.
+Kubernetes 대시보드를 시작하려면 [az aks browse][az-aks-browse] 명령을 사용합니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에 *myAKSCluster*라는 클러스터의 대시보드를 엽니다.
 
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
 이 명령은 개발 시스템과 Kubernetes API 사이에 프록시를 만들고 웹 브라우저에서 Kubernetes 대시보드를 엽니다.
+
+### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
+
+AKS 클러스터에서 RBAC를 사용하는 경우, 대시보드에 올바르게 액세스하려면 먼저 *ClusterRoleBinding*을 만들어야 합니다. 바인딩을 만들려면 다음 예제와 같이 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 명령을 사용합니다. 
+
+> [!WARNING]
+> 이 샘플 바인딩은 추가 인증 구성 요소를 적용하지 않으므로 사용이 안전하지 않을 수 있습니다. Kubernetes 대시보드는 URL 액세스 권한을 가진 모든 사용자에게 열립니다. Kubernetes 대시보드를 공개적으로 공개하지 마세요.
+>
+> 전달자 토큰 또는 사용자 이름/암호와 같은 메커니즘을 사용하여 대시보드에 액세스할 수 있는 사용자와 사용자가 가진 권한을 제어할 수 있습니다. 이를 통해 대시보드를 더 안전하게 사용할 수 있습니다. 다른 인증 방법 사용에 대한 자세한 내용은 [액세스 제어][dashboard-authentication]에 대한 Kubernetes 대시보드 wiki를 참조하세요.
+
+```console
+kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard
+```
+
+이제 RBAC 지원 클러스터의 Kubernetes 대시보드에 액세스할 수 있습니다. Kubernetes 대시보드를 시작하려면 이전 단계에서 설명한 대로 [az aks browse][az-aks-browse] 명령을 사용합니다.
 
 ## <a name="run-an-application"></a>응용 프로그램 실행
 
@@ -81,7 +96,11 @@ Kubernetes 대시보드에 대한 자세한 내용은 Kubernetes 설명서를 �
 
 <!-- LINKS - external -->
 [kubernetes-dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+[dashboard-authentication]: https://github.com/kubernetes/dashboard/wiki/Access-control
+[kubectl-create-clusterrolebinding]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#-em-clusterrolebinding-em-
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[az-aks-browse]: /cli/azure/aks#az-aks-browse

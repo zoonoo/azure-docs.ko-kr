@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: d41e83c11f33b0bcbe4ea632332f2cd8bb12313f
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3b99a82b59cbba22d30a4325e246c308a2042ad5
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714115"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136310"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>하위 수준 장치에 조인된 하이브리드 Azure Active Directory 문제 해결 
 
@@ -56,6 +56,8 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 - 초기 등록 / 장치 조인은 로그온 또는 잠금 / 잠금 해제 시 시도를 수행하도록 구성됩니다. 작업 스케줄러 작업에 의해 트리거되는 5분 지연이 있을 수 있습니다. 
 
 - 운영 체제의 다시 설치나 수동 재등록이 수행되면 Azure AD에서 새 등록이 생성되어 Azure Portal의 사용자 정보 탭에 여러 항목이 생성될 수 있습니다. 
+
+- Windows 7 SP1 또는 Windows Server 2008 R2 SP1의 경우, [KB4284842](https://support.microsoft.com/en-us/help/4284842)가 설치되어 있는지 확인합니다. 이 업데이트는 암호를 변경한 후 고객이 보호된 키에 액세스할 수 없어서 발생하는 이후의 인증 실패를 방지합니다.
 
 ## <a name="step-1-retrieve-the-registration-status"></a>1단계: 등록 상태 검색 
 

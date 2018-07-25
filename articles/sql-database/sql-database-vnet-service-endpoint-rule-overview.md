@@ -3,26 +3,29 @@ title: Azure SQL Database에 대한 가상 네트워크 서비스 끝점 및 규
 description: 서브넷을 Virtual Network 서비스 끝점으로 표시합니다. 그런 다음 해당 끝점을 가상 네트워크 규칙으로 Azure SQL Database의 ACL에 추가합니다. 그러면 SQL Database가 해당 서브넷에 있는 모든 가상 머신과 다른 노드에서 보낸 통신을 수락합니다.
 services: sql-database
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 06/05/2018
-ms.reviewer: genemi
+ms.date: 07/18/2018
+ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: d708d55c64306636910a85b5b490e25ecc794bd6
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34802598"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39127500"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Azure SQL Database에 대한 Virtual Network 서비스 끝점 및 규칙 사용
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Azure SQL Database 및 SQL Data Warehouse에 대해 Virtual Network 서비스 끝점 및 규칙 사용
 
-*가상 네트워크 규칙*은 Azure SQL Database 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+*가상 네트워크 규칙*은 Azure [SQL Database](sql-database-technical-overview.md) 또는 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 서버가 가상 네트워크의 특정 서브넷에서 보낸 통신을 수락할지 여부를 제어하는 하나의 방화벽 보안 기능입니다. 이 문서에서는 경우에 따라 가상 네트워크 규칙 기능이 Azure SQL Database에 대한 통신을 안전하게 허용하기 위한 가장 좋은 옵션인 이유를 설명합니다.
+
+> [!NOTE]
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 가상 네트워크 규칙을 만들려면 먼저 참조할 규칙에 대한 [가상 네트워크 서비스 끝점][vm-virtual-network-service-endpoints-overview-649d]이 있어야 합니다.
-
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>가상 네트워크 규칙을 만드는 방법
 
@@ -141,7 +144,6 @@ Azure SQL Database의 경우 가상 네트워크 규칙 기능에는 다음과 �
 Azure SQL Database에 대해 서비스 끝점을 사용하는 경우 다음 고려 사항을 검토합니다.
 
 - **Azure SQL Database 공용 IP에 대한 아웃 바운드가 필요함**: 연결을 허용하려면 Azure SQL Database IP에 대해 NSG(네트워크 보안 그룹)를 열어야 합니다. Azure SQL Database에 대해 NSG [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하면 됩니다.
-- **Azure Database for PostgreSQL 및 Azure Database for MySQL이 지원되지 않음**: Azure Database for PostgreSQL 및 Azure Database for MySQL에 대해 서비스 끝점이 지원되지 않습니다. SQL Database에 서비스 끝점을 사용하도록 설정하면 이러한 서비스에 대한 연결이 끊어집니다. 이 문제에 대한 완화 방법이 있으며 자세한 내용은 *dmalik@microsoft.com*에 문의하세요.
 
 #### <a name="expressroute"></a>ExpressRoute
 

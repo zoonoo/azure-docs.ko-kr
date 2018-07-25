@@ -7,19 +7,22 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: 4a25543fd9cbcd0928f06419c6ddb9b5ed2e2488
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b367ddafc659db4dc4b8d658ac9dc007c4671b8c
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645286"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092854"
 ---
 # <a name="create-and-manage-scaled-out-azure-sql-databases-using-elastic-jobs-preview"></a>탄력적 작업을 사용하여 규모가 확장된 Azure SQL Database 만들기 및 관리(미리 보기)
 
 
-**Elastic Database 작업** 은 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업을 실행하여 데이터베이스 그룹의 관리를 간소화합니다. Elastic Database 작업은 현재 Azure Portal 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure Portal 화면은 [탄력적 풀(미리 보기)](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [Elastic Database 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [Elastic Database 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+**Elastic Database 작업** 은 스키마 변경, 자격 증명 관리, 참조 데이터 업데이트, 성능 데이터 수집 또는 테넌트(고객) 원격 분석 수집 등의 관리 작업을 실행하여 데이터베이스 그룹의 관리를 간소화합니다. Elastic Database 작업은 현재 Azure Portal 및 PowerShell cmdlet을 통해 사용할 수 있습니다. 그러나 Azure Portal 화면은 [탄력적 풀](sql-database-elastic-pool.md)의 모든 데이터베이스에서 실행되도록 기능이 제한됩니다. [Elastic Database 클라이언트 라이브러리](sql-database-elastic-scale-introduction.md)를 사용하여 만든 분할된 데이터베이스 집합 또는 사용자 정의 컬렉션을 포함하여 데이터베이스의 그룹에서 스크립트의 추가 기능 및 실행에 액세스하려면 [PowerShell을 사용하여 작업 만들기 및 관리](sql-database-elastic-jobs-powershell.md)를 참조하세요. 작업에 대한 자세한 내용은 [Elastic Database 작업 개요](sql-database-elastic-jobs-overview.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 * Azure 구독. 무료 평가판에 대해서는 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 887611f1293e276070df51ac06df51a994161ec1
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112198"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112708"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure의 관리 솔루션에 대한 데이터 수집 상세 정보
 이 문서에는 Microsoft에서 제공하는 [관리 솔루션](monitoring-solutions.md) 목록과 자세한 설명서 링크가 포함되어 있습니다.  메서드 및 Log Analytics로 데이터를 수집하는 빈도에 대한 정보도 제공합니다.  이 문서의 정보를 사용하여 제공되는 여러 솔루션을 식별하고 여러 관리 솔루션의 데이터 흐름 및 연결 요구 사항을 이해할 수 있습니다. 
@@ -53,7 +53,7 @@ ms.locfileid: "37112198"
 | [Automation Hybrid Worker](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | 해당 없음 |
 | [Azure Application Gateway 분석](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
 | **관리 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure 저장소** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
-| [Azure 네트워크 보안 그룹 분석](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
+| [Azure 네트워크 보안 그룹 분석(사용되지 않음)](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
 | [Azure SQL Analytics(미리 보기)](../log-analytics/log-analytics-azure-sql.md) | Windows | | | | | | 1분 |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 알림 시 |
 | [용량 및 성능(미리 보기)](../log-analytics/log-analytics-capacity.md) |Windows |&#8226; |&#8226; | | |&#8226; |도착 시 |
@@ -72,7 +72,7 @@ ms.locfileid: "37112198"
 | [System Center Operations Manager 평가(미리 보기)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7일 |
 | [업데이트 관리](../operations-management-suite/oms-solution-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |하루에 최소 2회 및 업데이트를 설치하고 15분 후 |
 | [업그레이드 준비](https://docs.microsoft.com/windows/deployment/upgrade/upgrade-readiness-get-started) | Windows | &#8226; |  |  |  |  | 2일 |
-| [VMware 모니터링(미리 보기)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3분 |
+| [VMware 모니터링(사용되지 않음)](../log-analytics/log-analytics-vmware.md) | Linux | &#8226; |  |  |  |  | 3분 |
 | [Wire Data 2.0(미리 보기)](../log-analytics/log-analytics-wire-data.md) |Windows(2012 R2/8.1 이상) |&#8226; |&#8226; | | | | 1분 |
 
 

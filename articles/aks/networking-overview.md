@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 06/15/2018
+ms.date: 07/16/2018
 ms.author: marsma
-ms.openlocfilehash: 207accc30e10c4e2bed5b713fc59e2f9ad86a876
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: cb7b27b178197cde040e1d106ed5a5ee20905823
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311097"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115798"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 네트워크 구성
 
@@ -27,8 +27,8 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 
 ## <a name="advanced-networking"></a>고급 네트워킹
 
-**고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다.
-고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
+
+  **고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다. 고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
 
 고급 네트워킹용으로 구성된 AKS 클러스터의 노드는 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다.
 
@@ -45,9 +45,6 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 * 서비스 끝점이 사용되도록 설정된 서브넷의 Pod는 Azure 서비스(예: Azure Storage 및 SQL DB)에 안전하게 연결될 수 있습니다.
 * UDR(사용자 정의 경로)을 사용하여 Pod에서 네트워크 가상 어플라이언스로 트래픽을 라우팅합니다.
 * Pod는 공용 인터넷의 리소스에 액세스할 수 있습니다. 또한 기본 네트워킹의 기능도 제공합니다.
-
-> [!IMPORTANT]
-> 고급 네트워킹용으로 구성된 AKS 클러스터의 각 노드는 Azure Portal을 사용하여 구성되는 경우 최대 **30개의 Pod**를 호스트할 수 있습니다.  Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 maxPods 속성을 수정하여 최댓값만 변경할 수 있습니다. Azure CNI 플러그 인에서 사용하기 위해 프로비전된 각 VNet은 **4096개의 구성된 IP 주소**로 제한됩니다.
 
 ## <a name="advanced-networking-prerequisites"></a>고급 네트워킹 필수 구성 요소
 
@@ -67,19 +64,36 @@ AKS 클러스터에 대한 IP 주소 계획은 노드 및 Pod에 대한 하나 �
 
 | 주소 범위 / Azure 리소스 | 한도 및 크기 조정 |
 | --------- | ------------- |
-| 가상 네트워크 | Azure VNet은 /8만큼 클 수 있지만 4096개의 구성된 IP 주소만을 가질 수 있습니다. |
-| 서브넷 | 노드 및 Pod를 수용할 수 있을 만큼 크기가 커야 합니다. 최소 서브넷 크기를 계산하려면: (노드 수) + (노드 수 * 노드당 Pod) 50 노드 클러스터의 경우: (50) + (50 * 30) = 1,550, 서브넷은 /21 이상이어야 합니다. |
+| 가상 네트워크 | Azure VNet은 /8만큼 클 수 있지만 16,000개의 구성된 IP 주소만을 가질 수 있습니다. |
+| 서브넷 | 클러스터에서 프로비전될 수 있는 노드, 포드와 모든 Kubernetes 및 Azure 리소스를 수용할 만큼 커야 합니다. 예를 들어, 내부 Azure Load Balancer를 배포하는 경우, 해당 프런트 엔드 IP는 공용 IP가 아닌 클러스터 서브넷에서 할당됩니다. <p/>‘최소’ 서브넷 크기를 계산하려면: `(number of nodes) + (number of nodes * pods per node)` <p/>50 노드 클러스터의 예: `(50) + (50 * 30) = 1,550`(/21 이상) |
 | Kubernetes 서비스 주소 범위 | 이 범위는 이 VNet 또는 이 VNet에 연결된 모든 네트워크 요소에서 사용하지 말아야 합니다. 서비스 주소 CIDR은 /12보다 작아야 합니다. |
 | Kubernetes DNS 서비스 IP 주소 | 클러스터 서비스 검색에서 사용되는 Kubernetes 서비스 주소 범위 내의 IP 주소입니다(kube-dns). |
 | Docker 브리지 주소 | 노드에서 Docker 브리지 IP 주소로 사용되는 IP 주소(CIDR 표기법)입니다. 172.17.0.1/16의 기본값 |
 
-앞서 언급한 것처럼 Azure CNI 플러그 인에서 사용하기 위해 프로비전된 각 VNet은 **4096개의 구성된 IP 주소**로 제한됩니다. 고급 네트워킹용으로 구성된 클러스터의 각 노드는 최대 **30개의 Pod**를 호스트할 수 있습니다.
+Azure CNI 플러그 인에서 사용하기 위해 프로비전된 각 VNet은 **16,000개의 구성된 IP 주소**로 제한됩니다.
+
+## <a name="maximum-pods-per-node"></a>노드당 최대 포드
+
+AKS 클러스터의 노드당 기본 최대 포드 수는 기본 및 고급 네트워킹과 클러스터 배포 방법에 따라 다릅니다.
+
+### <a name="default-maximum"></a>기본 최댓값
+
+* 기본 네트워킹: **노드당 110개 포드**
+* 고급 네트워킹: **노드당 30개 포드**
+
+### <a name="configure-maximum"></a>최댓값 구성
+
+배포 방법에 따라 AKS 클러스터의 노드당 최대 포드 수를 수정할 수 있습니다.
+
+* **Azure CLI**: [az aks create][az-aks-create] 명령을 사용하여 클러스터를 배포할 때 `--max-pods` 인수를 지정합니다.
+* **Resource Manager 템플릿**: Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 [ManagedClusterAgentPoolProfile] 개체에 `maxPods` 속성을 지정합니다.
+* **Azure Portal**: Azure Portal로 클러스터를 배포할 경우에는 노드당 최대 포드 수를 수정할 수 없습니다. 고급 네트워킹 클러스터는 Azure Portal에 배포할 경우, 노드당 30개 포드로 제한됩니다.
 
 ## <a name="deployment-parameters"></a>배포 매개 변수
 
 AKS 클러스터를 만들 때 고급 네트워킹에서 다음 매개 변수를 구성할 수 있습니다.
 
-**가상 네트워크**: Kubernetes 클러스터를 배포하려는 VNet입니다. 클러스터에 대해 새 VNet을 만들려는 경우 *새로 만들기*를 선택하고 *가상 네트워크 만들기* 섹션의 단계를 따릅니다.
+**가상 네트워크**: Kubernetes 클러스터를 배포하려는 VNet입니다. 클러스터에 대해 새 VNet을 만들려는 경우 *새로 만들기*를 선택하고 *가상 네트워크 만들기* 섹션의 단계를 따릅니다. VNet은 16,000개의 구성된 IP 주소로 제한됩니다.
 
 **서브넷**: 클러스터를 배포하려는 VNet 내의 서브넷입니다. 클러스터에 대해 VNet에 새 서브넷을 만들려는 경우 *새로 만들기*를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다.
 
@@ -125,10 +139,6 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 다음과 같은 질문과 대답이 **고급** 네트워킹 구성에 적용됩니다.
 
-* *Azure CLI를 사용하여 고급 네트워킹을 구성할 수 있나요?*
-
-  아니요. 현재, 고급 네트워킹은 Azure Portal에서 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때만 사용할 수 있습니다.
-
 * *내 클러스터 서브넷에 VM을 배포할 수 있나요?*
 
   아니요. Kubernetes 클러스터에서 사용되는 서브넷에 VM을 배포하는 것은 지원되지 않습니다. VM은 동일한 VNet의 다른 서브넷에 배포할 수 있습니다.
@@ -139,7 +149,7 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 
 * *구성 가능한 노드로 배포할 수 있는 Pod의 최대 수는 얼마나 되나요?*
 
-  기본적으로 각 노드는 최대 30개의 포드를 호스트할 수 있습니다. Resource Manager 템플릿을 사용하여 클러스터를 배포할 때 `maxPods` 속성을 수정하여 최댓값만 변경할 수 있습니다.
+  예. Azure CLI 또는 Resource Manager 템플릿을 사용하여 클러스터를 배포할 경우입니다. [노드당 최대 포드](#maximum-pods-per-node)를 참조하세요.
 
 * *AKS 클러스터를 만드는 동안 만든 서브넷에 대해 추가 속성을 구성하려면 어떻게 해야 하나요? 예를 들어, 서비스 끝점을 구성한다고 가정해보세요.*
 
@@ -177,3 +187,4 @@ ACS 엔진을 사용하여 만든 Kubernetes 클러스터는 [kubenet][kubenet] 
 <!-- LINKS - Internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: aks-ssh.md
+[ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object

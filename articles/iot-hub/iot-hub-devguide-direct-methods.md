@@ -6,14 +6,14 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 06/01/2018
+ms.date: 07/17/2018
 ms.author: nberdy
-ms.openlocfilehash: da9672c7a924411136928d8d04e54c2c62a014b9
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 881262816fc8bd634b7f577fd05aa0c8c062e4ca
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736680"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126527"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 IoT Hub를 사용하면 클라우드의 장치에서 직접 메서드를 호출할 수 있습니다. 직접 메서드는 사용자가 지정한 시간 제한을 초과하는 즉시 성공하거나 실패한다는 점에서 HTTP 호출과 비슷한 디바이스와의 요청-응답 상호 작용을 나타냅니다. 이 방법은 즉각적인 조치 과정이 장치의 응답 여부에 따라 달라지는 시나리오에서 유용합니다.
@@ -46,7 +46,12 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
 ### <a name="method-invocation"></a>메서드 호출
 장치의 직접 메서드 호출은 다음을 포함하는 HTTP 호출입니다.
 
-* 장치별 *URI*(`{iot hub}/twins/{device id}/methods/`)
+* 장치와 관련된 *요청 URI* 및 [API 버전](/rest/api/iothub/service/invokedevicemethod):
+
+    ```http
+    https://fully-qualified-iothubname.azure-devices.net/twins/{deviceId}/methods?api-version=2018-06-30
+    ```
+
 * POST *메서드*
 * *헤더* - 권한 부여, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩을 포함합니다.
 * 다음과 같은 형식의 투명한 JSON *본문*:
@@ -63,6 +68,25 @@ desired 속성, 직접 메서드 또는 클라우드-장치 메시지 사용에 
     ```
 
 시간 제한은 초 단위입니다. 시간 제한이 설정되지 않으면 기본값이 30초로 설정됩니다.
+
+#### <a name="example"></a>예
+
+`curl`을 사용하는 기본 예제는 아래를 참조하세요. 
+
+```bash
+curl -X POST \
+  https://iothubname.azure-devices.net/twins/myfirstdevice/methods?api-version=2018-06-30 \
+  -H 'Authorization: SharedAccessSignature sr=iothubname.azure-devices.net&sig=x&se=x&skn=iothubowner' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "methodName": "reboot",
+    "responseTimeoutInSeconds": 200,
+    "payload": {
+        "input1": "someInput",
+        "input2": "anotherInput"
+    }
+}'
+```
 
 ### <a name="response"></a>response
 백 엔드 앱은 다음을 포함하는 응답을 수신합니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: cc6837ab14aa8fb36317da52cf011ddbd7e464be
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972234"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126054"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -165,6 +165,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 - 클러스터 기본 NodeType을 시스템 서비스 전용으로 지정하고 배포 제약 조건을 사용하여 보조 NodeType에 응용 프로그램을 배포하는 것이 좋습니다.
 - 권장 VM SKU는 표준 D3 또는 표준 D3_V2이거나 14GB 이상의 로컬 SSD를 포함하는 동급 수준입니다.
 - 지원되는 최소 사용 VM SKU는 표준 D1 또는 표준 D1_V2이거나 14GB 이상의 로컬 SSD를 포함하는 동급 수준입니다. 
+- 14GB 로컬 SSD는 최소 요구 사항입니다. 권장 사항은 최소 50GB입니다. 워크로드를 위해, 특히 Windows 컨테이너를 실행하는 경우, 더 큰 디스크가 필요합니다. 
 - 프로덕션 작업에는 표준 A0과 같은 부분 코어 VM SKU가 지원되지 않습니다.
 - 표준 A1 SKU는 성능상의 이유로 프로덕션 워크로드에 지원되지 않습니다.
 

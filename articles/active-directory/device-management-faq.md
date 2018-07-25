@@ -15,16 +15,18 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 864f790db48d3d4542ed56a4c7272a198df5bd56
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 10d6b81915432d9f41c0d4751f98cbf380ff2d13
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901139"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136573"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 장치 관리 FAQ
 
+**Q: Android 또는 iOS BYOD 장치를 등록할 수 있나요?**
 
+**A:** 예, 하이브리드 고객만 Azure 장치 등록 서비스를 사용하여 등록할 수 있습니다. AD FS의 온-프레미스 장치 등록 서비스에서는 지원되지 않습니다.
 
 **Q: macOS 장치를 등록하려면 어떻게 할까요?**
 
@@ -98,6 +100,11 @@ Azure Portal에서 모든 장치 보기를 사용해야 합니다. PowerShell [G
 **Q: 사용자가 Azure AD 조인 장치에서 프린터를 검색할 수 없습니다. Azure AD 조인 장치에서 어떻게 인쇄를 사용하도록 설정할 수 있나요?**
 
 **A:** Azure AD 조인 장치용 프린터를 배포하려면 [Hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy)(하이브리드 클라우드 인쇄)를 참조하세요. 하이브리드 클라우드 인쇄를 배포하려면 온-프레미스 Windows Server가 필요합니다. 현재는 클라우드 기반 인쇄 서비스를 사용할 수 없습니다. 
+
+---
+
+**Q: 원격 Azure AD 조인 장치에 연결하려면 어떻게 하나요?**
+**A:** 자세한 내용은 https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc 문서를 참조하세요.
 
 ---
 

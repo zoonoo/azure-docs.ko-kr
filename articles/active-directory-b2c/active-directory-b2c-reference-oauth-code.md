@@ -10,26 +10,26 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6baeba9cc7e631c6dbdf2284db484dc5f95adcce
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9fb2d2ccabf79a95a108d4ecf39a4957fc9ffff4
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444204"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113677"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C: OAuth 2.0 인증 코드 흐름
 장치에 설치된 앱에서 OAuth 2.0 인증 코드 권한 부여를 사용하여 Web API와 같은 보호된 리소스에 대한 액세스 권한을 얻을 수 있습니다. OAuth 2.0의 Azure AD B2C(Azure Active Directory B2C) 구현을 사용하면 모바일 및 데스크톱 앱에 등록, 로그인 및 기타 ID 관리 작업을 추가할 수 있습니다. 이 문서는 언어 독립적입니다. 이 문서에서는 오픈 소스 라이브러리를 사용하지 않고 HTTP 메시지를 보내고 받는 방법을 설명합니다.
 
 <!-- TODO: Need link to libraries -->
 
-OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](http://tools.ietf.org/html/rfc6749)에서 설명합니다. [웹앱](active-directory-b2c-apps.md#web-apps) 및 [기본적으로 설치된 앱](active-directory-b2c-apps.md#mobile-and-native-apps)을 포함하여 대부분의 앱 형식에서 인증 및 권한 부여에 사용할 수 있습니다. OAuth 2.0 인증 코드 흐름을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md#the-basics)를 통해 보안된 리소스에 액세스하는 데 사용할 수 있는 *액세스 토큰*을 앱이 안전하게 획득할 수 있습니다.
+OAuth 2.0 인증 코드 흐름은 [OAuth 2.0 사양의 섹션 4.1](http://tools.ietf.org/html/rfc6749)에서 설명합니다. 웹 응용 프로그램 및 기본적으로 설치된 응용 프로그램을 포함하여 대부분의 [응용 프로그램 형식](active-directory-b2c-apps.md)에서 인증 및 권한 부여에 사용할 수 있습니다. OAuth 2.0 인증 코드 흐름을 사용하여 [권한 부여 서버](active-directory-b2c-reference-protocols.md)를 통해 보안된 리소스에 액세스하는 데 사용할 수 있는 응용 프로그램에 대한 액세스 토큰을 안전하게 획득할 수 있습니다.
 
-이 문서에서는 **공용 클라이언트** OAuth 2.0 인증 코드 흐름을 중점적으로 다룹니다. 공용 클라이언트는 보안 암호의 무결성을 안전하게 유지하기 위해 신뢰할 수 없는 클라이언트 응용 프로그램입니다. 모바일 앱, 데스크톱 앱 및 기본적으로 장치에서 실행되고 액세스 토큰이 필요한 모든 응용 프로그램이 포함됩니다. 
+이 문서에서는 **공용 클라이언트** OAuth 2.0 인증 코드 흐름을 중점적으로 다룹니다. 공용 클라이언트는 보안 암호의 무결성을 안전하게 유지하기 위해 신뢰할 수 없는 클라이언트 응용 프로그램입니다. 모바일 앱, 데스크톱 응용 프로그램 및 기본적으로 장치에서 실행되고 액세스 토큰이 필요한 모든 응용 프로그램이 포함됩니다. 
 
 > [!NOTE]
 > Azure AD B2C를 사용하여 ID 관리를 웹앱에 추가하려면 OAuth 2.0 대신 [OpenID Connect](active-directory-b2c-reference-oidc.md)를 사용합니다.
 
-Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. Azure AD B2C는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 기본 제공 정책을 사용하면 OAuth 2.0을 통해 등록, 로그인 및 프로필 관리와 같은 사용자 환경을 앱에 추가할 수 있습니다. 이 문서에서는 OAuth 2.0 및 정책을 사용하여 네이티브 응용 프로그램에서 이러한 환경을 각각 구현하는 방법을 설명합니다. 또한 Web API에 액세스하기 위한 액세스 토큰을 얻는 방법을 보여 줍니다.
+Azure AD B2C는 단순한 인증 및 권한 부여 보다 더 많은 작업으로 표준 OAuth 2.0의 흐름을 확장합니다. Azure AD B2C는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 기본 제공 정책을 사용하면 OAuth 2.0을 통해 등록, 로그인 및 프로필 관리와 같은 사용자 환경을 응용 프로그램에 추가할 수 있습니다. 이 문서에서는 OAuth 2.0 및 정책을 사용하여 네이티브 응용 프로그램에서 이러한 환경을 각각 구현하는 방법을 설명합니다. 또한 Web API에 액세스하기 위한 액세스 토큰을 얻는 방법을 보여 줍니다.
 
 이 문서의 예제 HTTP 요청에서는 샘플 Azure AD B2C 디렉터리인 **fabrikamb2c.onmicrosoft.com**을 사용합니다. 또한 응용 프로그램 예제 및 정책도 사용합니다. 이러한 값을 사용하여 직접 요청을 시도하거나 사용자 고유의 값으로 바꿀 수 있습니다.
 [사용자 고유의 Azure AD B2C 디렉터리, 응용 프로그램 및 정책을 가져오는](#use-your-own-azure-ad-b2c-directory) 방법을 알아봅니다.
@@ -189,7 +189,7 @@ POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
 Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | 매개 변수 | Required? | 설명 |

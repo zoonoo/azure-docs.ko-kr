@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 07/16/2018
 ms.author: sstein
-ms.openlocfilehash: af0cb98d679125d20b3f4b7819012bee70e04cd1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645500"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092531"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 응용 프로그램의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 
@@ -207,5 +207,5 @@ Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류
 ## <a name="next-steps"></a>다음 단계
 * [Azure SQL Database 기능](sql-database-features.md)에 대해 알아봅니다.
 * [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)에 대해 알아봅니다.
-* [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)에 대해 알아봅니다.
+* [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)에 대해 알아봅니다.
 

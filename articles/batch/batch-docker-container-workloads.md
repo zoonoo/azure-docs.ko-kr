@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 06/04/2018
 ms.author: danlep
-ms.openlocfilehash: 8ef9d5a8e5212f6715769eecf4fde92a6d0b9d44
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060520"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39090965"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Azure Batch에서 컨테이너 응용 프로그램 실행
 
@@ -42,7 +42,9 @@ Azure Batch를 사용하면 Azure에서 많은 수의 일괄 처리 계산 작�
 
 ### <a name="limitations"></a>제한 사항
 
-* Batch는 Linux 풀에서 실행되는 컨테이너에 대해서만 RDMA 지원을 제공합니다.
+* Batch는 Linux 풀에서 실행되는 컨테이너에 대한 RDMA 지원만 제공합니다.
+
+* Windows 컨테이너 워크로드의 경우, 풀에 대한 멀티 코어 VM 크기를 선택하는 것이 좋습니다.
 
 ## <a name="supported-virtual-machine-images"></a>지원되는 가상 머신 이미지
 

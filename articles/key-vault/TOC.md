@@ -7,7 +7,7 @@
 ## [Key Vault 만들기 - CLI](quick-create-cli.md)
 ## [Key Vault 만들기 - PowerShell](quick-create-powershell.md)
 ## [Key Vault 만들기 - Portal](quick-create-portal.md)
-
+## [Key Vault에서 읽기 - .NET](quick-create-net.md)
 # 자습서
 ## [키 자격 증명 모음에서 비밀 읽기](tutorial-web-application-keyvault.md)
 ## [Key Vault 시작하기](key-vault-get-started.md)

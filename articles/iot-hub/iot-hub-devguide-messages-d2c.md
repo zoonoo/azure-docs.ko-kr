@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 6096d726d7a00a4ddf8047edeebb74ab3f151e51
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: be87b00f27f0d0b25cd77a0634ab1c653a85e5ac
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808260"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126445"
 ---
 # <a name="send-device-to-cloud-messages-to-iot-hub"></a>IoT Hub에 장치-클라우드 메시지 보내기
 
@@ -71,13 +71,13 @@ IoT Hub와 Event Hubs의 차이점에 대한 자세한 내용은 [Azure IoT Hub 
 
 장치-클라우드 메시지를 보내는 데 사용할 수 있는 SDK에 대한 자세한 내용은 [Azure IoT SDK][lnk-sdks]를 참조하세요.
 
-[시작하기][lnk-get-started] 자습서에서는 시뮬레이트된 장치와 물리적 장치 둘 다에서 장치-클라우드 메시지를 보내는 방법을 보여 줍니다. 자세한 내용은 [경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리][lnk-d2c-tutorial] 자습서를 참조하세요.
+[빠른 시작][lnk-get-started]에서는 시뮬레이션된 장치에서 장치-클라우드 메시지를 보내는 방법을 보여 줍니다. 자세한 내용은 [경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리][lnk-d2c-tutorial] 자습서를 참조하세요.
 
 [lnk-devguide-builtin]: iot-hub-devguide-messages-read-builtin.md
 [lnk-devguide-custom]: iot-hub-devguide-messages-read-custom.md
 [lnk-comparison]: iot-hub-compare-event-hubs.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/

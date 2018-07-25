@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 899e5dc13dfaf7d7545955e7b4b73939c3275d3f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930310"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39126510"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -160,9 +160,69 @@ Get-AzureRmAutomationAccount | Select-Object AutomationAccountName
 
 Hybrid Runbook Worker의 작업은 Azure 샌드박스에서 실행될 때보다 약간 다르게 처리됩니다. 한 가지 중요한 차이점은 Hybrid Runbook Worker의 작업 기간에는 제한이 없다는 것입니다. Azure 샌드박스에서 실행된 Runbook은 [공평 분배](automation-runbook-execution.md#fair-share)로 인해 3시간으로 제한됩니다. 장기 실행 Runbook이 있는 경우, 하이브리드 작업자를 호스팅하는 컴퓨터가 다시 부팅되는 경우와 같이 다시 시작하여 복원할 수 있는지 확인하려고 합니다. 하이브리드 작업자 호스트 컴퓨터가 다시 부팅되면, 실행 중인 모든 Runbook 작업이 처음부터 다시 시작되거나 PowerShell 워크플로 Runbook의 마지막 검사점에서 다시 시작됩니다. Runbook 작업이 4회 이상 다시 시작되면 일시 중단됩니다.
 
+## <a name="run-only-signed-runbooks"></a>서명된 Runbook만 실행
+
+일부 구성을 사용하여 서명된 Runbook만 실행하도록 Hybrid Runbook Worker를 구성할 수 있습니다. 다음 섹션에서는 서명된 Runbook을 실행하도록 Hybrid Runbook Worker를 설정하는 방법과 Runbook에 서명하는 방법을 설명합니다.
+
+> [!NOTE]
+> 서명된 Runbook만 실행하도록 하Hybrid Runbook Worker를 구성하고 나면, 서명되지 **않은** Runbook은 Worker에서 실행되지 않습니다.
+
+### <a name="create-signing-certificate"></a>서명 인증서 만들기
+
+다음 예제에서는 Runbook에 서명하는 데 사용할 수 있는 자체 서명된 인증서를 만듭니다. 샘플은 인증서를 만들고 내보냅니다. 나중에 인증서를 Hybrid Runbook Worker로 가져옵니다. 지문도 반환되며, 나중에 인증서를 참조하는 데 사용됩니다.
+
+```powershell
+# Create a self signed runbook that can be used for code signing
+$SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
+                                        -Subject "CN=contoso.com" `
+                                        -KeyAlgorithm RSA `
+                                        -KeyLength 2048 `
+                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+                                        -KeyExportPolicy Exportable `
+                                        -KeyUsage DigitalSignature `
+                                        -Type CodeSigningCert
+
+
+# Export the certificate so that it can be imported to the hybrid workers
+Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Retrieve the thumbprint for later use
+$SigningCert.Thumbprint
+```
+
+### <a name="configure-the-hybrid-runbook-workers"></a>Hybrid Runbook Worker 구성
+
+생성된 인증서를 그룹의 각 Hybrid Runbook Worker에 복사합니다. 다음 스크립트를 실행하여 인증서를 가져오고, Runbook에서 서명 유효성 검사를 사용하도록 Hybrid Worker를 구성합니다.
+
+```powershell
+# Install the certificate into a location that will be used for validation.
+New-Item -Path Cert:\LocalMachine\AutomationHybridStore
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\AutomationHybridStore
+
+# Import the certificate into the trusted root store so the certificate chain can be validated
+Import-Certificate -FilePath .\hybridworkersigningcertificate.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+# Configure the hybrid worker to use signature validation on runbooks.
+Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocation "Cert:\LocalMachine\AutomationHybridStore"
+```
+
+### <a name="sign-your-runbooks-using-the-certificate"></a>인증서를 사용하여 Runbook에 서명
+
+Hybrid Runbook Worker가 서명된 Runbook만 사용하도록 구성되어 있습니다. Hybrid Runbook Worker에서 사용할 Runbook에 서명해야 합니다. 다음 샘플 PowerShell을 사용하여 Runbook에 서명합니다.
+
+```powershell
+$SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
+Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
+```
+
+Runbook이 서명되고 나면, Automation 계정으로 가져오고 서명 블록과 함께 게시해야 합니다. Runbook을 가져오는 방법에 대한 자세한 내용은 [파일의 Runbook을 Azure Automation으로 가져오기](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation)를 참조하세요.
+
 ## <a name="troubleshoot"></a>문제 해결
 
-Runbook이 성공적으로 완료되지 않고 작업 요약에서 **일시 중단됨** 상태를 표시하는 경우, [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.
+Runbook이 성공적으로 완료되지 않으면 [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

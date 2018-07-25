@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
+ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 59d6b960a40910b8b2fe72f6c3b149608ee8b8ad
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: d9b89329e2a9bdb26c9aa1d12bc181c61518dcb8
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798073"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39116166"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Azure에서 Linux 데이터 과학 Virtual Machine을 사용하여 데이터 과학
 이 연습에서는 Linux 데이터 과학 VM을 사용하여 몇 가지 일반 데이터 과학 작업을 수행하는 방법을 보여 줍니다. Linux DSVM(데이터 과학 Virtual Machine)은 데이터 분석 및 기계 학습에 흔히 사용되는 도구 모음과 함께 미리 설치된, Azure에서 사용 가능한 가상 머신 이미지입니다. 주요 소프트웨어 구성 요소는 [Linux 데이터 과학 Virtual Machine 프로비전](linux-dsvm-intro.md) 항목에 항목별로 나와 있습니다. VM 이미지를 사용하면 각 도구를 개별적으로 설치하고 구성할 필요 없이 몇 분 내에 데이터 과학 작업을 쉽게 시작할 수 있습니다. 필요한 경우 VM을 쉽게 확장하고 사용하지 않을 때 중지할 수 있습니다. 따라서 이 리소스는 탄력적이고 비용 효율적입니다.
@@ -42,7 +42,7 @@ Linux 데이터 과학 Virtual Machine을 사용하려면 먼저 다음이 있�
 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합은 4601개의 예제만 포함하는 비교적 작은 데이터 집합입니다. 이 데이터 집합은 리소스 요구 사항을 적절하게 유지하도록 하므로 데이터 과학 VM의 몇 가지 주요 기능을 보여 줄 때 사용하기 적합한 크기입니다.
 
 > [!NOTE]
-> 이 연습은 D2 v2 크기의 Linux 데이터 과학 Virtual Machine에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
+> 이 연습은 D2 v2 크기의 Linux Data Science Virtual Machine(CentOS Edition)에서 만들었습니다. 이 크기의 DSVM은 이 연습의 절차를 처리할 수 있습니다.
 >
 >
 
@@ -77,12 +77,8 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
     git clone https://github.com/Azure/Azure-MachineLearning-DataScience.git
 
-터미널 창을 열고 R 대화형 콘솔을 통해 새 R 세션을 시작합니다.
+터미널 창을 열고 R 대화형 콘솔을 통해 새 R 세션을 시작하거나, 머신에 사전 설치된 RStudio를 사용합니다.
 
-> [!NOTE]
-> 다음 절차에 RStudio를 사용할 수도 있습니다. RStudio를 설치하려면 터미널에서 다음 명령을 실행합니다. `./Desktop/DSVM\ tools/installRStudio.sh`
->
->
 
 데이터를 가져오고 환경을 설정하려면 다음을 실행합니다.
 
@@ -193,6 +189,7 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
 **AzureML** 패키지를 로드한 다음 DSVM의 R 세션에서 토큰 및 작업 영역 ID로 변수 값을 설정합니다.
 
+    if(!require("AzureML")) install.packages("AzureML")
     require(AzureML)
     wsAuth = "<authorization-token>"
     wsID = "<workspace-id>"
@@ -207,29 +204,28 @@ R을 사용하여 데이터를 검사하고 몇 가지 기본 Machine Learning�
 
 입력으로 기능을 사용하고 예측된 값을 반환 하는 예측 함수가 필요합니다.
 
-    predictSpam <- function(char_freq_dollar, word_freq_remove, word_freq_hp) {
-        predictDF <- predict(model.rpart, data.frame("char_freq_dollar" = char_freq_dollar,
-        "word_freq_remove" = word_freq_remove, "word_freq_hp" = word_freq_hp))
-        return(colnames(predictDF)[apply(predictDF, 1, which.max)])
+    predictSpam <- function(newdata) {
+      predictDF <- predict(model.rpart, newdata = newdata)
+      return(colnames(predictDF)[apply(predictDF, 1, which.max)])
     }
+
 
 **publishWebService** 함수를 사용하여 AzureML에 predictSpam 함수를 게시합니다.
 
-    spamWebService <- publishWebService("predictSpam",
-        "spamWebService",
-        list("char_freq_dollar"="float", "word_freq_remove"="float","word_freq_hp"="float"),
-        list("spam"="int"),
-        wsID, wsAuth)
+    spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
+
 
 이 함수는 **predictSpam** 함수를 가져와서 입력 및 출력이 정의된 **spamWebService**라는 웹 서비스를 만들고 새 끝점에 대한 정보를 반환합니다.
 
-다음 명령을 사용하여 API 끝점 및 액세스 키를 포함하여 게시된 웹 서비스의 세부 정보를 봅니다.
+다음 명령을 통해 API 끝점 및 액세스 키를 포함하여 게시된 최신 웹 서비스의 세부 정보를 봅니다.
 
-    spamWebService[[2]]
+    s<-tail(services(ws, name = "spamWebService"), 1)
+    ep <- endpoints(ws,s)
+    ep
 
 테스트 집합의 처음 10개의 행에 대해 작업을 수행하려면
 
-    consumeDataframe(spamWebService$endpoints[[1]]$PrimaryKey, spamWebService$endpoints[[1]]$ApiLocation, smallTestSet[1:10, 1:3])
+    consume(ep, smallTestSet[1:10, ])
 
 
 ## <a name="use-other-tools-available"></a>사용 가능한 다른 도구 사용
@@ -285,7 +281,7 @@ spambase 데이터 집합의 일부를 읽고 scikit-learn에서 벡터 컴퓨�
 
 AzureML 끝점을 게시하는 방법을 보여 주기 위해 이전에 R 모델을 게시할 때처럼 3개의 변수를 사용하여 더 간단한 모델을 만들어 보겠습니다.
 
-    X = data.ix[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
+    X = data[["char_freq_dollar", "word_freq_remove", "word_freq_hp"]]
     y = data.ix[:, 57]
     clf = svm.SVC()
     clf.fit(X, y)

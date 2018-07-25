@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: dbdd9c70fc135561eb0e60e5932e446bcfa3759b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627504"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075760"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기에 대한 질문과 대답
 
@@ -207,5 +207,5 @@ IoT Hub로 전송된 데이터를 볼 수 없는 경우 시뮬레이션에 문�
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
 * [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
-* [연결된 팩터리 솔루션 가속기 개요](iot-accelerators-connected-factory-overview.md)
-* [처음부터 IoT 보안을 고려](securing-iot-ground-up.md)
+* [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
+* [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)

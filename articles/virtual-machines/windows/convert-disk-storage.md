@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 19979240e13ac822921b7f43a158d171aeea0123
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 62cb906000999e6ed97be76c4fe9b15e9ec1cb91
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34365239"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092473"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Azure 관리 디스크 저장소를 표준에서 프리미엄으로, 또 그 반대로 변환
 
-Managed Disks는 [프리미엄](premium-storage.md)(SSD 기반) 및 [표준](standard-storage.md)(HDD 기반)이라는 두 가지 저장소 옵션을 제공합니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 두 가지 옵션 사이를 쉽게 전환할 수 있습니다. 이 기능은 관리되지 않는 디스크에 사용할 수 없습니다. 하지만 두 옵션 사이를 쉽게 전환하도록 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
+Managed Disks는 세 가지 저장소 옵션인 [프리미엄 SSD](../windows/premium-storage.md), 표준 SSD(미리 보기) 및 [표준 HDD](../windows/standard-storage.md)를 제공합니다. 성능 요구 사항에 따라 최소한의 가동 중지 시간으로 옵션 사이를 쉽게 전환할 수 있습니다. 이 항목은 현재 관리되지 않는 디스크에 지원되지 않습니다. 하지만 디스크 유형 사이를 쉽게 전환하도록 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)할 수 있습니다.
 
 이 문서는 Azure PowerShell을 사용하여 관리 디스크를 표준에서 프리미엄으로, 또 그 반대로 변환하는 방법을 설명합니다. 설치 또는 업그레이드가 필요한 경우 [Azure PowerShell 설치 및 구성](/powershell/azure/install-azurerm-ps.md)을 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
 * 변환은 기존 유지 관리 기간 동안 디스크 저장소의 마이그레이션을 예약하도록 VM의 재시작이 필요합니다. 
-* 관리되지 않는 디스크를 사용하는 경우 이 문서를 사용하여 두 가지 저장소 옵션 사이로 전환하려면 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)해야 합니다. 
+* 관리되지 않는 디스크를 사용하는 경우, 이 문서를 사용하여 저장소 옵션 사이로 전환하려면 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md)해야 합니다. 
 * 이 아티클에서는 Azure PowerShell 모듈 버전 6.0.0 이상이 필요합니다. ` Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 또한 `Connect-AzureRmAccount`을 실행하여 Azure와 연결해야 합니다.
 
 
@@ -47,7 +47,7 @@ $rgName = 'yourResourceGroup'
 $vmName = 'yourVM'
 
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 
 # Premium capable size
 # Required only if converting storage from standard to premium
@@ -89,13 +89,13 @@ $diskName = 'yourDiskName'
 # resource group that contains the managed disk
 $rgName = 'yourResourceGroupName'
 # Choose between StandardLRS and PremiumLRS based on your scenario
-$storageType = 'PremiumLRS'
+$storageType = 'Premium_LRS'
 # Premium capable size 
 $size = 'Standard_DS2_v2'
 
 $disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
 
-# Get the ARM resource to get name and resource group of the VM
+# Get parent VM resource
 $vmResource = Get-AzureRmResource -ResourceId $disk.diskId
 
 # Stop and deallocate the VM before changing the storage type
@@ -107,6 +107,36 @@ $vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName
 # Skip this step if converting storage from premium to standard
 $vm.HardwareProfile.VmSize = $size
 Update-AzureRmVM -VM $vm -ResourceGroupName $rgName
+
+# Update the storage type
+$diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB
+Update-AzureRmDisk -DiskUpdate $diskUpdateConfig -ResourceGroupName $rgName `
+-DiskName $disk.Name
+
+Start-AzureRmVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
+```
+
+## <a name="convert-a-managed-disk-from-standard-hdd-to-standard-ssd-and-vice-versa"></a>관리 디스크를 표준 HDD에서 표준 SSD로, 또 그 반대로 변환
+
+다음 예제에서는 VM의 단일 디스크를 표준 HDD에서 표준 SSD로, 또 그 반대로 전환하는 방법을 보여 줍니다.
+
+```azurepowershell-interactive
+
+$diskName = 'yourDiskName'
+# resource group that contains the managed disk
+$rgName = 'yourResourceGroupName'
+# Choose between Standard_LRS and StandardSSD_LRS based on your scenario
+$storageType = 'StandardSSD_LRS'
+
+$disk = Get-AzureRmDisk -DiskName $diskName -ResourceGroupName $rgName
+
+# Get parent VM resource
+$vmResource = Get-AzureRmResource -ResourceId $disk.ManagedBy
+
+# Stop and deallocate the VM before changing the storage type
+Stop-AzureRmVM -ResourceGroupName $vmResource.ResourceGroupName -Name $vmResource.Name -Force
+
+$vm = Get-AzureRmVM $vmResource.ResourceGroupName -Name $vmResource.ResourceName 
 
 # Update the storage type
 $diskUpdateConfig = New-AzureRmDiskUpdateConfig -AccountType $storageType -DiskSizeGB $disk.DiskSizeGB

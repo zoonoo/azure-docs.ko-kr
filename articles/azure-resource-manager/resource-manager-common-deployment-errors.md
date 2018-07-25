@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/08/2018
+ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3ecc1a9557c7854a0771decb3cc7f7597bcd87dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34360022"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091325"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -104,7 +104,21 @@ ms.locfileid: "34360022"
 
 ### <a name="deployment-errors"></a>배포 오류
 
-작업이 유효성 검사를 통과했지만, 배포 중에 실패하는 경우 알림에 오류가 표시됩니다. 알림을 선택합니다.
+작업이 유효성 검사를 통과하지만 배포 중에 실패하면 배포 오류가 표시됩니다.
+
+PowerShell을 통해 배포 오류 코드 및 메시지를 보려면 다음을 사용합니다.
+
+```azurepowershell-interactive
+(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+```
+
+Azure CLI를 통해 배포 오류 코드 및 메시지를 보려면 다음을 사용합니다.
+
+```azurecli-interactive
+az group deployment operation list --name exampledeployment -g examplegroup --query "[*].properties.statusMessage"
+```
+
+포털에서 알림을 선택합니다.
 
 ![알림 오류](./media/resource-manager-common-deployment-errors/notification.png)
 
@@ -118,59 +132,91 @@ ms.locfileid: "34360022"
 
 ## <a name="enable-debug-logging"></a>디버그 로깅 활성화
 
-무엇이 잘못되었는지 알려면 요청 및 응답에 대한 정보가 더 필요한 경우가 있습니다. PowerShell 또는 Azure CLI를 사용하여, 배포 중에 추가 정보가 기록되도록 요청할 수 있습니다.
+무엇이 잘못되었는지 알려면 요청 및 응답에 대한 정보가 더 필요한 경우가 있습니다. 배포 중에 추가 정보가 기록되도록 요청할 수 있습니다. 
 
-- PowerShell
+### <a name="powershell"></a>PowerShell
 
-   PowerShell에서 **DeploymentDebugLogLevel** 매개 변수를 All, ResponseContent 또는 RequestContent로 설정합니다.
+PowerShell에서 **DeploymentDebugLogLevel** 매개 변수를 All, ResponseContent 또는 RequestContent로 설정합니다.
 
-  ```powershell
-  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-  ```
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Name exampledeployment `
+  -ResourceGroupName examplegroup `
+  -TemplateFile c:\Azure\Templates\storage.json `
+  -DeploymentDebugLogLevel All
+```
 
-   요청 내용을 다음 cmdlet으로 검토합니다.
+요청 내용을 다음 cmdlet으로 검토합니다.
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.request `
+| ConvertTo-Json
+```
 
-   또는 응답 내용을 다음으로 검토합니다.
+또는 응답 내용을 다음으로 검토합니다.
 
-  ```powershell
-  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-  ```
+```powershell
+(Get-AzureRmResourceGroupDeploymentOperation `
+-DeploymentName exampledeployment `
+-ResourceGroupName examplegroup).Properties.response `
+| ConvertTo-Json
+```
 
-   이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
+이 정보를 통해 템플릿의 값이 잘못 설정되었는지 확인할 수 있습니다.
 
-- Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
-   다음 명령을 사용하여 배포 작업을 검토합니다.
+현재 Azure CLI는 디버그 로깅 켜기를 지원하지 않지만 디버그 로깅을 검색할 수 있습니다.
 
-  ```azurecli
-  az group deployment operation list --resource-group ExampleGroup --name vmlinux
-  ```
+다음 명령을 사용하여 배포 작업을 검토합니다.
 
-- 중첩된 템플릿
+```azurecli
+az group deployment operation list \
+  --resource-group examplegroup \
+  --name exampledeployment
+```
 
-   중첩된 템플릿에 대한 디버그 정보를 기록하려면 **debugSetting** 요소를 사용합니다.
+다음 명령으로 요청 내용을 검사합니다.
 
-  ```json
-  {
-      "apiVersion": "2016-09-01",
-      "name": "nestedTemplate",
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-          "mode": "Incremental",
-          "templateLink": {
-              "uri": "{template-uri}",
-              "contentVersion": "1.0.0.0"
-          },
-          "debugSetting": {
-             "detailLevel": "requestContent, responseContent"
-          }
-      }
-  }
-  ```
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.request
+```
+
+다음 명령으로 응답 내용을 검사합니다.
+
+```azurecli
+az group deployment operation list \
+  --name exampledeployment \
+  -g examplegroup \
+  --query [].properties.response
+```
+
+### <a name="nested-template"></a>중첩된 템플릿
+
+중첩된 템플릿에 대한 디버그 정보를 기록하려면 **debugSetting** 요소를 사용합니다.
+
+```json
+{
+    "apiVersion": "2016-09-01",
+    "name": "nestedTemplate",
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+            "uri": "{template-uri}",
+            "contentVersion": "1.0.0.0"
+        },
+        "debugSetting": {
+           "detailLevel": "requestContent, responseContent"
+        }
+    }
+}
+```
 
 ## <a name="create-a-troubleshooting-template"></a>문제 해결 템플릿 만들기
 

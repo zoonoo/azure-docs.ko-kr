@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8490dcba35cfeabb3da589f3d079571d5e98d3b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acbef216c182e5de80515258841af59d9529908
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969207"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39114882"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>템플릿을 사용하여 VM 관리 서비스 ID 구성
 
@@ -59,7 +59,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    > 이 예제에서는 `vmName`, `storageAccountName`, `nicName` 등을 템플릿에 정의한 것으로 가정합니다.
    >
 
-   ![템플릿의 스크린샷 - VM 찾기](../media/msi-qs-configure-template-windows-vm/template-file-before.png) 
+   ![템플릿의 스크린샷 - VM 찾기](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-before.png) 
 
 3. 시스템 할당 ID를 사용하도록 설정하려면 동일한 수준의 `"identity"` 속성을 `"type": "Microsoft.Compute/virtualMachines"` 속성으로 추가합니다. 다음 구문을 사용합니다.
 
@@ -99,7 +99,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
 
 5. 작업을 완료하면 템플릿은 다음과 같이 표시됩니다.
 
-   ![업데이트 이후 템플릿의 스크린샷](../media/msi-qs-configure-template-windows-vm/template-file-after.png)
+   ![업데이트 이후 템플릿의 스크린샷](../managed-service-identity/media/msi-qs-configure-template-windows-vm/template-file-after.png)
 
 ### <a name="assign-a-role-the-vms-system-assigned-identity"></a>VM의 시스템 할당 ID에 역할 할당
 
@@ -174,6 +174,10 @@ VM에서 시스템 할당 ID를 사용하도록 설정한 후 해당 VM이 만�
  ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Azure VM에 사용자 할당 ID 할당
 
 1. `resources` 요소 아래에 다음 항목을 추가하여 사용자 할당 ID를 VM에 할당합니다.  `<USERASSIGNEDIDENTITY>`를 직접 만든 사용자 할당 ID의 이름으로 바꿔야 합니다.
+   
+   > [!Important]
+   > 다음 예제에 표시된 `<USERASSIGNEDIDENTITYNAME>` 값은 변수에 저장되어야 합니다.  또한 Resource Manager 템플릿에서 사용자 할당 ID를 가상 머신에 할당하는 현재 지원되는 구현의 경우, API 버전이 다음 예제의 버전과 일치해야 합니다.
+    
     ```json
     {
         "apiVersion": "2017-12-01",

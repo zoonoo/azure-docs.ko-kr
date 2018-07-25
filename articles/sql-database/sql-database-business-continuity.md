@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 06/27/2018
+ms.date: 07/16/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 18c162e03030fc4277fa0a7b3e953bf780574a21
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084963"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092293"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -38,7 +38,7 @@ SQL Database는 자동화된 백업 및 선택적 데이터베이스 복제를 �
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>지정 시간 복원을 사용하여 데이터베이스 복구
 
-SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업과 매시간 차등 데이터베이스 백업, 그리고 5~10분 간격으로 트랜잭션 로그 백업을 모두 자동으로 수행합니다. [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하는 경우 이러한 백업은 표준 및 프리미엄 서비스 계층의 데이터베이스에 대해서는 35일 동안, 기본 서비스 계층의 데이터베이스에 대해서는 7일 동안 RA-GRS 저장소에 저장됩니다. 서비스 계층에 대한 보존 기간이 비즈니스 요구 사항에 맞지 않으면 [서비스 계층을 변경](sql-database-single-database-scale.md)하여 보존 기간을 늘릴 수 있습니다. [vCore 기반 구매 모델(미리 보기)](sql-database-service-tiers-vcore.md)을 사용하는 경우 범용 및 중요 비즈니스용 계층에서 백업 보존은 최대 35일로 구성할 수 있습니다. 데이터 센터 가동 중단으로부터 보호하기 위해 전체 및 차등 데이터베이스 백업도 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)로 복제됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요.
+SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 매주 전체 데이터베이스 백업과 매시간 차등 데이터베이스 백업, 그리고 5~10분 간격으로 트랜잭션 로그 백업을 모두 자동으로 수행합니다. [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)을 사용하는 경우 이러한 백업은 표준 및 프리미엄 서비스 계층의 데이터베이스에 대해서는 35일 동안, 기본 서비스 계층의 데이터베이스에 대해서는 7일 동안 RA-GRS 저장소에 저장됩니다. 서비스 계층에 대한 보존 기간이 비즈니스 요구 사항에 맞지 않으면 [서비스 계층을 변경](sql-database-single-database-scale.md)하여 보존 기간을 늘릴 수 있습니다. [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용하는 경우, 범용 및 중요 비즈니스용 계층에서 백업 보존은 최대 35일로 구성할 수 있습니다. 데이터 센터 가동 중단으로부터 보호하기 위해 전체 및 차등 데이터베이스 백업도 [쌍을 이루는 데이터 센터](../best-practices-availability-paired-regions.md)로 복제됩니다. 자세한 내용은 [자동 데이터베이스 백업](sql-database-automated-backups.md)을 참조하세요.
 
 지원되는 최대 PITR(Point-in-Time 복원) 보존 기간이 응용 프로그램에 대해 충분하지 않을 경우에 데이터베이스에 대한 LTR(장기 보존) 정책을 구성하여 확장할 수 있습니다. 자세한 내용은 [자동화된 백업](sql-database-automated-backups.md) 및 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
 
@@ -57,19 +57,19 @@ SQL Database는 데이터 손실로부터 비즈니스를 보호하기 위해 �
 
 빠른 복구가 필요한 경우 [활성 지역 복제](sql-database-geo-replication-overview.md)(다음에 설명)를 사용합니다. 35일이 지난 기간에서 데이터를 복구해야 하는 경우 [장기 보존](sql-database-long-term-retention.md)을 사용합니다. 
 
-### <a name="use-active-geo-replication-and-auto-failover-groups-in-preview-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>활성 지역 복제 및 자동 장애 조치 그룹(미리 보기 상태)을 사용하여 복구 시간을 줄이고 복구와 연결된 데이터 손실을 제한합니다.
+### <a name="use-active-geo-replication-and-auto-failover-groups-to-reduce-recovery-time-and-limit-data-loss-associated-with-a-recovery"></a>활성 지역 복제 및 자동 장애 조치(failover) 그룹을 사용하여 복구 시간을 줄이고 복구와 연결된 데이터 손실 제한
 
 업무 중단이 발생할 경우 데이터베이스 복구를 위해 데이터베이스 백업을 사용하는 것 외에도 [활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하여 선택한 지역에서 최대 4개의 읽기 가능한 보조 데이터베이스가 유지되도록 데이터베이스를 구성할 수 있습니다. 이러한 보조 데이터베이스는 비동기 복제 메커니즘을 사용하여 주 데이터베이스와 동기화된 상태를 유지합니다. 이 기능은 데이터 센터 가동 중단 발생 시 또는 응용 프로그램 업그레이드 기간에 업무 중단을 방지하기 위해 사용됩니다. 지리적으로 분산된 사용자에게 읽기 전용 쿼리에 대한 향상된 쿼리 성능을 제공하기 위해 활성 지역 복제를 사용할 수도 있습니다.
 
-자동화된 투명 장애 조치를 사용하려면 SQL Database의 [자동 장애 조치 그룹](sql-database-geo-replication-overview.md) 기능(미리 보기 상태)을 사용하여 지역에서 복제된 데이터베이스를 그룹으로 구성해야 합니다.
+자동화된 투명 장애 조치(failover)를 사용하려면 SQL Database의 [자동 장애 조치(failover) 그룹](sql-database-geo-replication-overview.md) 기능을 사용하여 지역에서 복제된 데이터베이스를 그룹으로 구성해야 합니다.
 
-주 데이터베이스가 예기치 않게 오프라인 상태가 되거나 유지 관리 작업을 위해 오프라인 상태로 전환해야 할 경우 보조 데이터베이스를 빠르게 주 데이터베이스로 승격하고(장애 조치(faiilover)라고도 함) 승격된 주 데이터베이스에 연결하도록 응용 프로그램을 구성할 수 있습니다. 응용 프로그램이 장애 조치(failover) 그룹 수신기를 사용하여 데이터베이스에 연결하는 경우 장애 조치(failover) 후 SQL 연결 문자열 구성을 변경할 필요가 없습니다. 계획된 장애 조치를 사용할 경우 데이터는 손실되지 않습니다. 계획되지 않은 장애 조치를 사용하는 경우 비동기 복제의 특성으로 인해 아주 최근에 발생한 트랜잭션에 대해 약간의 데이터 손실이 발생합니다. 자동 장애 조치 그룹(미리 보기 상태)을 사용하여 잠재적 데이터 손실을 최소화하도록 장애 조치 정책을 사용자 지정할 수 있습니다. 장애 조치(failover) 후, 계획에 따라 또는 데이터 센터가 다시 온라인 상태가 될 때 장애 복구(failback)를 수행할 수 있습니다. 모든 경우에 사용자는 적은 양의 가동 중지 시간을 경험하며 다시 연결해야 합니다.
+주 데이터베이스가 예기치 않게 오프라인 상태가 되거나 유지 관리 작업을 위해 오프라인 상태로 전환해야 할 경우 보조 데이터베이스를 빠르게 주 데이터베이스로 승격하고(장애 조치(faiilover)라고도 함) 승격된 주 데이터베이스에 연결하도록 응용 프로그램을 구성할 수 있습니다. 응용 프로그램이 장애 조치(failover) 그룹 수신기를 사용하여 데이터베이스에 연결하는 경우 장애 조치(failover) 후 SQL 연결 문자열 구성을 변경할 필요가 없습니다. 계획된 장애 조치를 사용할 경우 데이터는 손실되지 않습니다. 계획되지 않은 장애 조치를 사용하는 경우 비동기 복제의 특성으로 인해 아주 최근에 발생한 트랜잭션에 대해 약간의 데이터 손실이 발생합니다. 자동 장애 조치(failover) 그룹을 사용하여 잠재적 데이터 손실을 최소화하도록 장애 조치(failover) 정책을 사용자 지정할 수 있습니다. 장애 조치(failover) 후, 계획에 따라 또는 데이터 센터가 다시 온라인 상태가 될 때 장애 복구(failback)를 수행할 수 있습니다. 모든 경우에 사용자는 적은 양의 가동 중지 시간을 경험하며 다시 연결해야 합니다.
 
 > [!IMPORTANT]
-> 활성 지역 복제 및 자동 장애 조치 그룹(미리 보기 상태)을 사용하려면 SQL Server에서 구독 소유자이거나 관리 권한을 보유해야 합니다. 구독에 대한 권한을 통해 Azure Portal, PowerShell 또는 REST API를 사용하거나, Azure 구독 사용 권한을 사용하거나, SQL Server 사용 권한이 있는 Transact-SQL을 사용하여 구성하고 장애 조치할 수 있습니다.
+> 활성 지역 복제 및 자동 장애 조치(failover) 그룹을 사용하려면 SQL Server에서 구독 소유자이거나 관리 권한을 보유해야 합니다. 구독에 대한 권한을 통해 Azure Portal, PowerShell 또는 REST API를 사용하거나, Azure 구독 사용 권한을 사용하거나, SQL Server 사용 권한이 있는 Transact-SQL을 사용하여 구성하고 장애 조치할 수 있습니다.
 > 
 
-응용 프로그램이 다음 조건에 맞는 경우 활성 지역 복제 및 자동 장애 조치 그룹(미리 보기 상태)을 사용합니다.
+응용 프로그램이 다음 조건에 맞는 경우, 활성 지역 복제 및 자동 장애 조치(failover) 그룹을 사용합니다.
 
 * 중요 업무용입니다.
 * 24시간 이상의 가동 중지 시간을 허용하지 않는 SLA(서비스 수준 약정)가 있습니다.
@@ -126,7 +126,7 @@ Azure 포털 또는 PowerShell을 사용하여 삭제된 데이터베이스를 �
 적절한 준비 없이 장애 조치나 데이터베이스 복구 이후에 응용 프로그램을 온라인 상태로 전환하면 추가 시간이 소요되고, 바쁜 업무 중 문제 해결이 필요할 수도 있어 비효율적입니다.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>지역에서 복제된 보조 데이터베이스로 장애 조치
-활성 지역 복제 및 자동 장애 조치 그룹(미리 보기 상태)을 복구 메커니즘으로 사용할 경우 자동 장애 조치 정책을 구성하거나 [수동 장애 조치](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group)를 사용할 수 있습니다. 일단 장애 조치가 시작되면 보조 데이터베이스는 새로운 주 데이터베이스로 승격되며, 새 트랜잭션을 기록하고 쿼리에 응답할 준비를 갖춥니다. 이때 최소한의 데이터 손실이 있을 수 있으나 아직 복제되지 않습니다. 장애 조치(failover) 프로세스 디자인에 대한 자세한 내용은 [클라우드 재해 복구를 위해 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md)을 참조하세요.
+활성 지역 복제 및 자동 장애 조치(failover) 그룹을 복구 메커니즘으로 사용할 경우, 자동 장애 조치(failover) 정책을 구성하거나 [수동 장애 조치(failover)](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group)를 사용할 수 있습니다. 일단 장애 조치가 시작되면 보조 데이터베이스는 새로운 주 데이터베이스로 승격되며, 새 트랜잭션을 기록하고 쿼리에 응답할 준비를 갖춥니다. 이때 최소한의 데이터 손실이 있을 수 있으나 아직 복제되지 않습니다. 장애 조치(failover) 프로세스 디자인에 대한 자세한 내용은 [클라우드 재해 복구를 위해 응용 프로그램 디자인](sql-database-designing-cloud-solutions-for-disaster-recovery.md)을 참조하세요.
 
 > [!NOTE]
 > 데이터 센터가 다시 온라인 상태가 되면 이전 주 데이터베이스는 새 주 데이터베이스에 자동으로 다시 연결되고 보조 데이터베이스가 됩니다. 주 데이터베이스를 다시 원래 지역으로 재배치해야 할 경우 계획된 장애 조치를 수동으로 시작할 수 있습니다(장애 복구). 

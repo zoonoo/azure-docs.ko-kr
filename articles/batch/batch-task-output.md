@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb8b1ca3514e27221e95cb2def823c8f89d151e5
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b578abfa6fc0a10edc5daab40f8a0eea5e6653d9
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30312446"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39115065"
 ---
 # <a name="persist-job-and-task-output"></a>작업 및 태스크 출력 유지
 
@@ -127,3 +127,4 @@ GitHub의 [PersistOutputs][github_persistoutputs] 샘플 프로젝트는 .NET용
 [nuget_package]: https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files
 [portal]: https://portal.azure.com
 [storage_explorer]: http://storageexplorer.com/
+[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs 

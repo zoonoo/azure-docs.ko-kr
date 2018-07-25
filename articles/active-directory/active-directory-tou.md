@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 06/29/2018
+ms.date: 07/18/2018
 ms.author: rolyon
-ms.openlocfilehash: 7833c9da2303d119f0cb421f21bea455ab449898
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856419"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136658"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 Azure AD 사용 약관을 시작하는 방법을 설명합니다.
@@ -86,7 +86,7 @@ Azure AD 사용 약관은 PDF 형식을 사용하여 콘텐츠를 제공합니�
 
     ![TOU 추가](media/active-directory-tou/create-tou.png)
 
-## <a name="view-who-has-accepted-and-declined"></a>사용 약관에 동의한 사람 및 거부한 사람 보기
+## <a name="view-report-of-who-has-accepted-and-declined"></a>사용 약관에 동의/거부한 사람에 대한 보고서 보기
 [사용 약관] 블레이드에는 사용 약관에 동의한 사용자 및 거부한 사용자 수가 표시됩니다. 이러한 사용자 수 및 동의/거부한 사용자 명단은 사용 약관의 수명 기간 동안 저장됩니다.
 
 1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
@@ -97,10 +97,10 @@ Azure AD 사용 약관은 PDF 형식을 사용하여 콘텐츠를 제공합니�
 
     ![감사 이벤트](media/active-directory-tou/accepted-tou.png)
 
-## <a name="view-audit-logs"></a>감사 로그 보기
+## <a name="view-azure-ad-audit-logs"></a>Azure AD 감사 로그 보기
 추가 작업을 확인할 수 있도록 Azure AD 사용 약관에 감사 로그가 포함되어 있습니다. 각 사용자 동의는 30일 동안 저장된 감사 로그에서 이벤트를 트리거합니다. 포털에서 이러한 로그를 살펴보거나 .csv 파일로 다운로드할 수 있습니다.
 
-감사 로그를 시작하려면 다음 절차를 따릅니다.
+Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
 
@@ -167,10 +167,19 @@ Azure AD 사용 약관은 PDF 형식을 사용하여 콘텐츠를 제공합니�
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q: 사용자가 사용 약관에 동의했는지 어떻게 볼 수 있나요?**</br>
-A: 사용 약관 블레이드에서 **수락** 아래에 있는 숫자를 클릭합니다. 감사 로그에서 동의 작업을 확인하거나 검색할 수도 있습니다. 자세한 내용은 [사용 약관에 동의한 사람 및 거부한 사람 보기](#view-who-has-accepted-and-declined) 및 [감사 로그 보기](#view-audit-logs)를 참조하세요.
+A: 사용 약관 블레이드에서 **수락** 아래에 있는 숫자를 클릭합니다. Azure AD 감사 로그에서 동의 작업을 보거나 검색할 수도 있습니다. 자세한 내용은 [사용 약관에 동의/거부한 사람에 대한 보고서 보기](#view-who-has-accepted-and-declined) 및 [Azure AD 감사 로그 보기](#view-azure-ad-audit-logs)를 참조하세요.
+ 
+**Q: 정보가 얼마나 오래 저장되나요?**</br>
+A: 사용 약관 보고서에 있는, 사용 약관에 동의/거부한 사용자 수는 사용 약관의 수명 기간 동안 저장됩니다. Azure AD 감사 로그는 30일 동안 저장됩니다.
 
-**Q: 사용 약관 조건을 변경한 경우 사용자가 다시 동의해야 하나요?**</br>
+**Q: 사용 약관 보고서와 Azure AD 감사 로그에 표시되는 동의 수가 다른 이유는 무엇인가요?**</br>
+A: 사용 약관 보고서는 사용 약관의 수명 기간 동안 저장되는 반면, Azure AD 감사 로그는 30일 동안 저장됩니다. 또한 사용 약관 보고서에는 사용자의 현재 동의 상태만 표시됩니다. 예를 들어, 사용자가 거부한 후 동의할 경우, 사용 약관 보고서에는 해당 사용자의 동의만 표시됩니다. 기록을 확인해야 하는 경우, Azure AD 감사 로그를 사용할 수 있습니다.
+
+**Q: 사용 약관 조건을 변경한 경우, 사용자가 다시 동의해야 하나요?**</br>
 A: 예, 관리자는 사용 약관 조건을 변경할 수 있으며 사용자에게 새 조건에 대한 재동의를 요구할 수 있습니다.
+
+**Q: 사용 약관 PDF 문서에 하이퍼링크가 있는 경우, 최종 사용자가 하이퍼링크를 클릭할 수 있나요?**</br>
+A: PDF는 기본적으로 JPEG로 렌더링되므로 하이퍼링크를 클릭할 수 없습니다. 사용자는 **보는 데 문제가 있나요? 여기를 클릭하세요.** 를 선택하여 하이퍼링크가 지원되는 네이티브 PDF를 렌더링할 수 있습니다.
 
 **Q: 사용 약관에서 다중 언어를 지원할 수 있나요?**</br>
 A: 예.  현재 관리자가 단일 사용 약관에 대해 구성할 수는 18개의 다른 언어가 있습니다. 
@@ -189,6 +198,7 @@ A: 사용자는 응용 프로그램에 액세스할 수 없습니다. 액세스�
  
 **Q: 이전에 동의한 사용 약관의 수락을 취소할 수 있나요?**</br>
 A: [이전에 수락한 사용 약관을 검토](#how-users-can-review-their-terms-of-use)할 수 있지만 현재 수락을 취소할 방법이 없습니다.
- 
-**Q: 정보가 얼마나 오래 저장되나요?**</br>
-A: 사용자 수 및 동의/거부한 사용자 명단은 사용 약관의 수명 기간 동안 저장됩니다. 감사 로그는 30일 동안 저장됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Active Directory의 조건부 액세스 모범 사례](active-directory-conditional-access-best-practices.md)

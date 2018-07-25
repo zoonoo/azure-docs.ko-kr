@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: e53e8ed27cfc048f24bda4ef92fcd2a50a85ed07
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0cb2e04d788bce2d3a5f6bc46632b9ae18b6467f
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794119"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112919"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Azure 테이블 저장소 및 Visual Studio 연결된 서비스를 시작하는 방법
 
@@ -36,49 +36,51 @@ ASP.NET Core 프로젝트의 테이블에 액세스하려면 Azure 테이블 저
 
 1. 필요한 `using` 문을 추가합니다.
 
-    ```cs
-    using Microsoft.Framework.Configuration;
+    ```csharp
     using Microsoft.WindowsAzure.Storage;
     using Microsoft.WindowsAzure.Storage.Table;
     using System.Threading.Tasks;
-    using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-1. 저장소 계정 정보를 나타내는 `CloudStorageAccount` 개체를 가져옵니다. Azure 서비스 구성에서 저장소 연결 문자열 및 저장소 계정 정보를 가져오려면 다음 코드를 사용합니다.
+1. 저장소 계정 정보를 나타내는 `CloudStorageAccount` 개체를 가져옵니다. appSettings.json의 저장소 연결 문자열에서 찾을 수 있는 저장소 계정 이름과 계정 키를 사용하여 다음 코드를 사용합니다.
 
-    ```cs
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```csharp
+        CloudStorageAccount storageAccount = new CloudStorageAccount(
+            new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+                "<name>", "<account-key>"), true);
     ```
 
 1. 저장소 계정의 테이블 개체를 참조하려면 `CloudTableClient` 개체를 가져옵니다.
 
-    ```cs
+    ```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
     ```
 
 1. 특정 테이블과 엔터티를 참조하려면 `CloudTable` 참조 개체를 가져옵니다.
 
-    ```cs
+    ```csharp
     // Get a reference to a table named "peopleTable"
     CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
     ```
 
 ## <a name="create-a-table-in-code"></a>코드에서 테이블 만들기
 
-Azure 테이블을 만들려면 ``CreateIfNotExistsAsync()`를 호출합니다.
+Azure 테이블을 만들려면 비동기 메서드를 만들고 그 안에서 `CreateIfNotExistsAsync()`를 호출합니다.
 
-```cs
-// Create the CloudTable if it does not exist
-await peopleTable.CreateIfNotExistsAsync();
+```csharp
+async void CreatePeopleTableAsync()
+{
+    // Create the CloudTable if it does not exist
+    await peopleTable.CreateIfNotExistsAsync();
+}
 ```
-
+    
 ## <a name="add-an-entity-to-a-table"></a>테이블에 엔터티 추가
 
 테이블에 엔터티를 추가하려면 엔터티의 속성을 정의하는 클래스를 만듭니다. 다음 코드는 고객의 이름을 행 키로 사용하고 성을 파티션 키로 사용하는 `CustomerEntity` 엔터티 클래스를 정의합니다.
 
-```cs
+```csharp
 public class CustomerEntity : TableEntity
 {
     public CustomerEntity(string lastName, string firstName)
@@ -97,7 +99,7 @@ public class CustomerEntity : TableEntity
 
 엔터티와 관련된 테이블 작업은 이전에 [코드에서 테이블 액세스](#access-tables-in-code)에서 만든 `CloudTable` 개체를 사용합니다. `TableOperation` 개체는 수행할 작업을 나타냅니다. 다음 코드 예제에서는 `CloudTable` 개체 및 `CustomerEntity` 개체를 만드는 방법을 보여 줍니다. 작업을 준비하기 위해 고객 엔터티를 테이블에 삽입하는 `TableOperation`이 생성됩니다. 마지막으로, `CloudTable.ExecuteAsync`를 호출하여 작업이 실행됩니다.
 
-```cs
+```csharp
 // Create a new customer entity.
 CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
 customer1.Email = "Walter@contoso.com";
@@ -114,7 +116,7 @@ await peopleTable.ExecuteAsync(insertOperation);
 
 하나의 쓰기 작업으로 테이블에 여러 엔터티를 삽입할 수 있습니다. 다음 코드 예제에서는 두 개의 엔터티 개체("Jeff Smith" 및 "Ben Smith")를 만들고 `Insert` 메서드를 사용하여 `TableBatchOperation` 개체에 이 두 개체를 추가한 다음 `CloudTable.ExecuteBatchAsync`를 호출하여 작업을 시작합니다.
 
-```cs
+```csharp
 // Create the batch operation.
 TableBatchOperation batchOperation = new TableBatchOperation();
 
@@ -140,7 +142,7 @@ await peopleTable.ExecuteBatchAsync(batchOperation);
 
 테이블에서 파티션의 모든 엔터티를 쿼리하려면 `TableQuery` 개체를 사용합니다. 다음 코드 예제에서는 'Smith'가 파티션 키인 엔터티에 대한 필터를 지정합니다. 이 예제에서는 쿼리 결과에 있는 각 엔터티의 필드를 콘솔에 출력합니다.
 
-```cs
+```csharp
 // Construct the query operation for all customer entities where PartitionKey="Smith".
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>().Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
 
@@ -163,7 +165,7 @@ do
 
 단일 특정 엔터티를 가져오는 쿼리를 작성할 수 있습니다. 다음 코드에서는 `TableOperation` 개체를 사용하여 'Ben Smith'라는 고객을 지정합니다. 이 메서드는 컬렉션 대신 하나의 엔터티만 반환하며, `TableResult.Result`의 반환된 값은 `CustomerEntity` 개체입니다. 쿼리에 파티션과 행 키를 모두 지정하는 것이 `Table`에서 단일 엔터티를 검색하는 가장 빠른 방법입니다.
 
-```cs
+```csharp
 // Create a retrieve operation that takes a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
@@ -181,12 +183,12 @@ else
 
 엔터티를 찾은 후 삭제할 수 있습니다. 다음 코드는 "Ben Smith"라는 고객 엔터티를 찾아서 삭제합니다.
 
-```cs
+```csharp
 // Create a retrieve operation that expects a customer entity.
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
 // Execute the operation.
-TableResult retrievedResult = peopleTable.Execute(retrieveOperation);
+TableResult retrievedResult = await peopleTable.ExecuteAsync(retrieveOperation);
 
 // Assign the result to a CustomerEntity object.
 CustomerEntity deleteEntity = (CustomerEntity)retrievedResult.Result;

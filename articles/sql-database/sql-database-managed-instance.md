@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1dec40871b8842cb5e41d48c759d1f4fa85d7b66
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082508"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091996"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
@@ -64,13 +64,13 @@ Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Databas
 | --- | --- |
 |하드웨어를 구입하고 관리할 필요가 없음 <br>기본 인프라 관리를 위한 오버헤드가 없음 <br>신속한 프로비전 및 서비스 크기 조정 <br>자동 패치 적용 및 버전 업그레이드 <br>다른 PaaS 데이터 서비스와 통합 |99.99% 작동 시간 SLA  <br>기본적으로 고가용성 제공 <br>자동 백업으로 데이터 보호 <br>고객이 구성 가능한 백업 보존 기간(공개 미리 보기에서는 7일로 고정) <br>사용자가 시작하는 백업 <br>지정 시간 데이터베이스 복원 기능 |
 |**보안 및 규정 준수** | **관리**|
-|격리된 환경(VNet 통합, 단일 테넌트 서비스, 전용 계산 및 저장소) <br>전송 중 데이터 암호화 <br>Azure AD 인증, Single Sign-On 지원 <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>SQL 감사 <br>위협 감지 |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스 
+|격리된 환경(VNet 통합, 단일 테넌트 서비스, 전용 계산 및 저장소) <br>투명한 데이터 암호화<br>Azure AD 인증, Single Sign-On 지원 <br>Azure SQL 데이터베이스와 동일한 표준 준수 <br>SQL 감사 <br>위협 감지 |서비스 프로비전 및 크기 조정을 자동화하는 Azure Resource Manager API <br>수동 서비스 프로비전 및 크기 조정을 위한 Azure Portal 기능 <br>데이터 마이그레이션 서비스 
 
 ![Single Sign-On](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>vCore 기반 구매 모델(미리 보기)
+## <a name="vcore-based-purchasing-model"></a>vCore 기반 구매 모델
 
-vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소의 크기를 조정할 수 있습니다. 또한 vCore 모델은 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.
+vCore 기반 구매 모델은 유연성, 제어, 투명성 및 온-프레미스 워크로드 요구 사항을 클라우드로 전환하는 직관적인 방법을 제공합니다. 이 모델을 통해 워크로드 요구 사항에 따라 계산, 메모리 및 저장소의 크기를 조정할 수 있습니다. 또한 vCore 모델은 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 통해 비용을 최대 30%까지 절약할 수 있습니다.
 
 가상 코어는 하드웨어 세대 중에서 선택할 수 있는 옵션과 함께 제공되는 논리 CPU를 나타냅니다.
 - 4세대 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며,
@@ -81,13 +81,20 @@ vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 �
 ||4세대|5세대|
 |----|------|-----|
 |하드웨어|Intel E5-2673 v3(Haswell) 2.4 GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어)|Intel E5-2673 v4(Broadwell) 2.3 GHz 프로세서, 고속 eNVM SSD, vCore = 1LP(하이퍼스레드)|
-|성능 수준|8, 16, 24개 vCore|8, 16, 24, 32, 40개 vCore|
+|성능 수준|8, 16, 24개 vCore|8, 16, 24, 32, 40, 64, 80개 vCore|
 |메모리|vCore당 7GB|vCore당 5.5GB|
 ||||
 
-## <a name="managed-instance-service-tier"></a>관리되는 인스턴스 서비스 계층
+## <a name="managed-instance-service-tiers"></a>Managed Instance 서비스 계층
 
-관리되는 인스턴스는 처음에는 일반적인 가용성 및 공통 IO 대기 시간 요구 사항을 가진 응용 프로그램을 위해 설계된 단일 서비스 계층(범용)에서 사용할 수 있습니다.
+Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다.
+- **범용**: 일반적인 가용성 및 공통 IO 대기 시간 요구 사항이 있는 응용 프로그램용으로 설계됩니다.
+- **중요 비즈니스용**: 고가용성 및 낮은 IO 대기 시간 요구 사항이 있는 응용 프로그램용으로 설계됩니다.
+ 
+> [!IMPORTANT]
+> 서비스 계층을 범용에서 중요 비즈니스용으로 변경하거나 그 반대로 변경하는 기능은 공개 미리 보기에서 지원되지 않습니다. 데이터베이스를 다른 서비스 계층의 인스턴스로 마이그레이션하려면 새 인스턴스를 만들고, 원본 인스턴스에서 특정 시점 복원으로 데이터베이스를 복원한 후, 더 이상 필요하지 않은 경우, 원본 인스턴스를 삭제할 수 있습니다. 
+
+### <a name="general-purpose-service-tier"></a>범용 서비스 계층
 
 다음 목록에서는 범용 서비스 계층의 주요 특징을 설명합니다. 
 
@@ -101,15 +108,15 @@ vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 �
  
 ![범용 서비스 계층](./media/sql-database-managed-instance/general-purpose-service-tier.png) 
 
-다음 표에서는 범용 서비스 계층의 주요 특징을 설명합니다.
+다음 목록에서는 범용 서비스 계층의 주요 특징을 설명합니다.
 
 |기능 | 설명|
 |---|---|
-| vCore 수* | 8, 16, 24개(4세대)<br>8, 16, 24, 32, 40개(5세대)|
+| vCore 수* | 8, 16, 24개(4세대)<br>8, 16, 24, 32, 40, 64, 80(5세대)|
 | SQL Server 버전/빌드 | SQL Server(최신 버전 사용 가능) |
 | 최소 저장소 크기 | 32GB |
 | 최대 저장소 크기 | 8 TB |
-| 데이터베이스당 최대 저장소 | 8 TB |
+| 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
 | 예상 저장소 IOPS | 데이터 파일당 500-7500 IOPS(데이터 파일에 따라 다름). [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) 보기 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
 | 데이터베이스당 로그 파일(로그) 수 | 1 | 
@@ -125,6 +132,35 @@ vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 �
 
   \* 가상 코어는 하드웨어 세대를 선택할 수 있는 옵션이 함께 제공되는 논리 CPU를 나타냅니다. Gen 4 논리 CPU는 Intel E5-2673 v3(Haswell) 2.4GHz 프로세서를 기반으로 하며, Gen 5 논리 CPU는 Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서를 기반으로 합니다. 
 
+### <a name="business-critical-service-tier"></a>중요 비즈니스 서비스 계층
+
+중요 비즈니스용 서비스 계층은 IO 요구 사항이 높은 응용 프로그램용으로 빌드됩니다. 여러 개의 격리된 Always On 복제본을 사용하여 실패에 대한 최고 수준의 복원력을 제공합니다. 다음 다이어그램은 이 서비스 계층의 기본 아키텍처를 보여 줍니다.
+
+![중요 비즈니스 서비스 계층](./media/sql-database-managed-instance/business-critical-service-tier.png)  
+
+다음 목록에서는 중요 비즈니스용 서비스 계층의 주요 특징을 설명합니다. 
+-   최고의 성능과 HA 요구 사항을 가진 대부분의 비즈니스 응용 프로그램용으로 설계됨 
+-   초고속 SSD 저장소(4세대의 최대 1TB 및 5세대의 최대 4TB)와 함께 제공됨 - 인스턴스당 최대 100개 데이터베이스 지원 
+
+|기능 | 설명|
+|---|---|
+| vCore 수* | 8, 16, 24개(4세대)<br>8, 16, 24, 32, 40, 64, 80(5세대)|
+| SQL Server 버전/빌드 | SQL Server(최신 버전 사용 가능) |
+| 추가 기능 | [메모리 내 OLTP](sql-database-in-memory.md)<br> 1개의 추가 읽기 전용 복제본([읽기 확장](sql-database-read-scale-out.md))
+| 최소 저장소 크기 | 32GB |
+| 최대 저장소 크기 | 4세대: 1TB(모든 vCore 크기<br> 5세대:<ul><li>8, 16개 vCore의 경우 1TB</li><li>24개 vCore의 경우 2TB</li><li>40, 60, 80개 vCore의 경우 4TB</ul>|
+| 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
+| 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
+| 데이터베이스당 로그 파일(로그) 수 | 1 | 
+| 관리되는 자동 백업 | 예 |
+| HA | [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)을 기반으로 함 |
+| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
+| 자동 소프트웨어 패치 | 예 |
+| VNet - Azure Resource Manager 배포 | 예 |
+| VNet - 클래식 배포 모델 | 아니오 |
+| 포털 지원 | 예|
+|||
+
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수 
 
 ### <a name="managed-instance-security-isolation"></a>관리되는 인스턴스 보안 격리 
@@ -135,9 +171,15 @@ vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 �
 - SQL 엔드포인트가 개인 IP 주소를 통해서만 노출되므로 개인 Azure 또는 하이브리드 네트워크에서 안전하게 연결
 - 전용 기본 인프라(계산, 저장소)를 제공하는 단일 테넌트
 
-다음 다이어그램은 격리 설계를 설명합니다. 
+다음 다이어그램은 응용 프로그램에 대한 다양한 연결 옵션을 설명합니다. 
 
 ![고가용성](./media/sql-database-managed-instance/application-deployment-topologies.png)  
+
+서브넷 수준의 VNet 통합 및 네트워킹 정책 적용에 대한 자세한 내용은 [Azure SQL Database 관리되는 인스턴스에 대한 VNet 구성](sql-database-managed-instance-vnet-configuration.md) 및 [응용 프로그램을 Azure SQL Database 관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요. 
+
+> [!IMPORTANT]
+> 동일한 서브넷에서 보안 요구 사항에 따라 허용되는 곳마다 여러 개의 관리되는 인스턴스를 배치하면 추가적인 이점을 얻을 수 있습니다. 인스턴스를 동일한 서브넷에 배치하면 네트워킹 인프라 유지 관리가 크게 단순화되고 인스턴스 프로비저닝 시간이 단축됩니다. 긴 프로비저닝 기간은 첫 번째로 관리되는 인스턴스를 서브넷에 배포하는 비용과 관련되기 때문입니다.
+
 
 ### <a name="auditing-for-compliance-and-security"></a>규정 준수 및 보안에 대한 감사 
 
@@ -148,6 +190,11 @@ vCore 기반 구매 모델(미리 보기)은 유연성, 제어, 투명성 및 �
 관리되는 인스턴스는 전송 계층 보안을 사용하여 이동 중인 데이터를 암호화함으로써 데이터를 보호합니다.
 
 전송 계층 보안 외에도, SQL Database 관리되는 인스턴스는 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용하여 전송 중인 데이터, 미사용 데이터, 쿼리를 처리 중인 데이터를 보호하는 기능을 제공합니다. Always Encrypted는 중요한 데이터의 도용을 비롯한 위반에 대해 최상의 데이터 보안을 제공하는 업계 최고의 기능입니다. 예를 들어 Always Encrypted를 사용하여 쿼리를 처리하는 동안에도 신용 카드 번호가 데이터베이스에 암호화되어 저장됩니다. 또한 해당 데이터를 처리해야 하는 권한이 부여된 직원 또는 응용 프로그램에 의해 사용 시점에 암호를 해독할 수 있습니다. 
+
+### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화 
+[TDE(투명한 데이터 암호화)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)는 Azure SQL Managed Instance 데이터 파일을 암호화하고, 이를 미사용 데이터 암호화라고 합니다. TDE는 데이터 및 로그 파일에 대한 실시간 I/O 암호화 및 암호 해독을 수행합니다. 암호화에는 복구 중에 사용 가능하도록 데이터베이스 부트 레코드에 저장된 DEK(데이터베이스 암호화 키)가 사용됩니다. 투명한 데이터 암호화를 사용하여 Managed Instance의 모든 데이터베이스를 보호할 수 있습니다. TDE는 저장소 미디어의 도용으로부터 보호하기 위해 많은 규정 준수 표준에 필요한 정지된 암호화 기술로써 SQL에서 입증되었습니다. 공개 미리 보기 기간에는 자동 키 관리 모델이 지원됩니다(PaaS 플랫폼에서 수행됨). 
+
+암호화된 데이터베이스를 SQL Managed Instance로 마이그레이션하는 작업은 Azure DMS(Database Migration Service) 또는 네이티브 복원을 통해 지원됩니다. 네이티브 복원을 사용하여 암호화된 데이터베이스를 마이그레이션하려면 SQL Server 온-프레미스 또는 SQL Server VM에서 Managed Instance로 기존 TDE 인증서를 마이그레이션해야 합니다. 마이그레이션 옵션에 대한 자세한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
 ### <a name="dynamic-data-masking"></a>동적 데이터 마스킹 
 
@@ -211,7 +258,7 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 - 관리되는 인스턴스는 전체 실제 경로 지정을 허용하지 않으므로 해당하는 모든 시나리오를 약간씩 다르게 지원해야 합니다. RESTORE DB는 WITH MOVE를 지원하지 않고, CREATE DB는 실제 경로를 허용하지 않고, BULK INSERT는 Azure Blob에서만 작동합니다. 
 - 관리되는 인스턴스는 Windows 인증의 클라우드 대안으로 [Azure AD 인증](sql-database-aad-authentication.md)을 지원합니다. 
 - 관리되는 인스턴스는 메모리 내 OLTP 개체가 포함된 데이터베이스의 XTP 파일 그룹 및 파일을 자동으로 관리합니다.
-- 관리되는 인스턴스는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database 및 관리되는 인스턴스에서 SSIS 기능을 비교하려면 [SQL Database 및 관리되는 인스턴스 비교(미리 보기)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview).
+- 관리되는 인스턴스는 SSIS(SQL Server Integration Services)를 지원하며 SSIS 패키지를 저장하는 SSIS 카탈로그(SSISDB)를 호스트할 수 있지만, ADF(Azure Data Factory)의 관리되는 Azure-SSIS IR(Integration Runtime)에서 실행됩니다. [ADF에서 Azure-SSIS IR 만들기](https://docs.microsoft.com/en-us/azure/data-factory/create-azure-ssis-integration-runtime)를 참조하세요. SQL Database 및 관리되는 인스턴스에서 SSIS 기능을 비교하려면 [SQL Database 및 관리되는 인스턴스 비교(미리 보기)](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-and-managed-instance-preview)를 참조하세요.
 
 ### <a name="managed-instance-administration-features"></a>관리되는 인스턴스 관리 기능  
 
@@ -226,3 +273,4 @@ Azure Database Migration Service는 가동 중지 시간을 최소화하면서 �
 - VNet 구성에 대한 자세한 내용은 [관리되는 인스턴스 VNet 구성](sql-database-managed-instance-vnet-configuration.md)을 참조하세요.
 - 백업 파일에서 관리되는 인스턴스를 만들고 데이터베이스를 복원하는 방법에 대한 자습서는 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 - Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 관리되는 인스턴스 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
+- 가격 정보는 [SQL Database Managed Instance 가격](https://azure.microsoft.com/pricing/details/sql-database/managed/)을 참조하세요.

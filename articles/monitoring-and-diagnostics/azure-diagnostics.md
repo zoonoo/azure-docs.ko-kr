@@ -6,15 +6,15 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 07/13/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: b4ec82112ea0defcea4f687abaad7d96627cb902
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b00d774ec59755288b8660d238c7b8dfc9a89eab
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267682"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39089896"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Azure 진단 확장이란?
 Azure 진단 확장은 배포된 응용 프로그램에서 진단 데이터를 수집할 수 있도록 하는 Azure 내의 에이전트입니다. 다양한 원본에서 진단 확장을 사용할 수 있습니다. Azure Cloud Service(클래식) 웹 및 작업자 역할, Virtual Machines, 가상 머신 확장 집합 및 Service Fabric에서 현재 지원되고 있습니다. 다른 Azure 서비스에는 여러 진단 메서드가 있습니다. [Azure의 모니터링 개요](monitoring-overview.md)를 참조하세요. 
@@ -32,10 +32,12 @@ Azure 진단 확장은 다음과 같은 유형의 데이터를 수집할 수 있
 | Windows 이벤트 로그 |Windows 이벤트 로깅 시스템으로 전송된 정보 |
 | .NET 이벤트 원본 |.NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 클래스를 사용하여 이벤트를 작성하는 코드 |
 | IIS 로그 |IIS 웹 사이트에 대한 정보 |
-| 매니페스트 기반 ETW |모든 프로세스에서 생성된 Windows 이벤트용 이벤트 추적 |
+| 매니페스트 기반 ETW |모든 프로세스에서 생성된 ETW(Windows용 이벤트 추적) 이벤트.(1) |
 | 크래시 덤프 |응용 프로그램 크래시가 발생할 경우의 프로세스 상태에 대한 정보 |
 | 사용자 지정 오류 로그 |응용 프로그램 또는 서비스에서 생성한 로그 |
 | Azure 진단 인프라 로그 |진단 자체에 대한 정보입니다. |
+
+(1) ETW 공급자 목록을 가져오려면 정보를 수집할 머신의 콘솔 창에서 `c:\Windows\System32\logman.exe query providers`를 실행합니다. 
 
 ## <a name="data-storage"></a>데이터 저장소
 확장은 해당 데이터를 지정한 [Azure Storage 계정](azure-diagnostics-storage.md)에 저장합니다. 

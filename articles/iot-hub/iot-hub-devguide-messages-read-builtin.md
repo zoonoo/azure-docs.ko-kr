@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: a09cc42763787890a4dabf17b1a1a87e7427ba37
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 912bb0dd3e48e53134ad848119ae7428b380b88d
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808539"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39124939"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>기본 제공 끝점에서 장치-클라우드 메시지 읽기
 
@@ -65,14 +65,14 @@ IoT Hub를 노출하는 이벤트 허브와 호환 가능한 끝점으로 사용
 
 IoT Hub 끝점에 대한 자세한 내용은 [IoT Hub 끝점][lnk-endpoints]을 참조하세요.
 
-[시작][lnk-get-started] 자습서에서는 시뮬레이션된 장치에서 장치-클라우드 메시지를 보내고 기본 제공 끝점에서 메시지를 읽는 방법을 설명합니다. 자세한 내용은 [경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리][lnk-d2c-tutorial] 자습서를 참조하세요.
+[빠른 시작][lnk-get-started]에서는 시뮬레이션된 장치에서 장치-클라우드 메시지를 보내고 기본 제공 끝점에서 메시지를 읽는 방법을 보여 줍니다. 자세한 내용은 [경로를 사용하여 IoT Hub 장치-클라우드 메시지 처리][lnk-d2c-tutorial] 자습서를 참조하세요.
 
 장치-클라우드 메시지를 사용자 지정 끝점으로 라우팅하려면 [장치-클라우드 메시지에 대해 메시지 라우팅 및 사용자 지정 끝점 사용][lnk-custom]을 참조하세요.
 
 [img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
 
 [lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: iot-hub-get-started.md
+[lnk-get-started]: quickstart-send-telemetry-node.md
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
 [lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/

@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/16/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: a9874681d59d193fc3c3d0fd4271e2a6a0fb0dc6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2283b7559bb0dc7e8333949a8e6382d562162123
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060386"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39092490"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
@@ -46,21 +46,18 @@ Azure는 사용자의 가동 중단 시간을 최소화하면서 운영 체제, 
 
 고가용성은 표준 [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server)을 사용하여 구현됩니다. 모든 데이터베이스는 고객 워크로드에 액세스할 수 있는 주 데이터베이스 하나와 데이터 복사본을 포함하는 보조 프로세스가 몇 개 있는 데이터베이스 노드의 클러스터입니다. 주 노드는 어떤 이유로든 주 노드의 작동이 중단되는 경우 보조 복제본의 데이터를 사용할 수 있도록 하기 위해 변경 내용을 보조 노드로 지속적으로 푸시합니다 장애 조치(failover)는 SQL Server 데이터베이스 엔진에 의해 처리됩니다. 보조 복제본 하나가 주 노드가 되고 클러스터에 충분한 노드를 보장하기 위해 새로운 보조 복제본이 만들어집니다. 워크로드는 새로운 주 노드에 자동으로 리디렉션됩니다. 장애 조치(failover) 시간은 밀리초 단위로 측정되며 새로운 주 인스턴스는 즉시 요청을 처리할 준비가 됩니다.
 
-## <a name="zone-redundant-configuration-preview"></a>영역 중복 구성(미리 보기)
+## <a name="zone-redundant-configuration"></a>영역 중복 구성
 
-로컬 저장소 구성에 대한 쿼럼 집합 복제본은 기본적으로 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)이 도입되면 쿼럼 집합의 여러 복제본을 동일한 지역의 서로 다른 가용성 영역에 배치할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 영역 중복 구성을 통해 데이터베이스 중복성을 추가로 만들지 않으므로 프리미엄 또는 중요 비즈니스용(미리 보기) 서비스 계층에서 가용성 영역을 사용하는 경우 추가 비용 없이 사용할 수 있습니다. 영역 중복 데이터베이스를 선택하면 응용 프로그램 논리를 변경하지 않고도 치명적인 데이터 센터 중단을 포함하여 훨씬 더 큰 실패 집합에 탄력적인 프리미엄 또는 중요 비즈니스용(미리 보기) 데이터베이스를 만들 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀(미리 보기)을 영역 중복 구성으로 변환할 수도 있습니다.
+로컬 저장소 구성에 대한 쿼럼 집합 복제본은 기본적으로 동일한 데이터 센터에 만들어집니다. [Azure 가용성 영역](../availability-zones/az-overview.md)이 도입되면 쿼럼 집합의 여러 복제본을 동일한 지역의 서로 다른 가용성 영역에 배치할 수 있습니다. 단일 실패 지점을 제거하기 위해 제어 링은 세 개의 GW(게이트웨이 링)로 여러 영역에 걸쳐 복제됩니다. 특정 게이트웨이 링에 대한 라우팅은 [ATM(Azure Traffic Manager)](../traffic-manager/traffic-manager-overview.md)에서 제어됩니다. 영역 중복 구성을 통해 데이터베이스 중복성을 추가로 만들지 않으므로 프리미엄 또는 중요 비즈니스용 서비스 계층에서 가용성 영역을 사용하는 경우, 추가 비용 없이 사용할 수 있습니다. 영역 중복 데이터베이스를 선택하면 응용 프로그램 논리를 변경하지 않고도 치명적인 데이터 센터 중단을 포함하여 훨씬 더 큰 실패 집합에 탄력적인 프리미엄 또는 중요 비즈니스용 데이터베이스를 만들 수 있습니다. 기존 프리미엄 또는 중요 비즈니스용 데이터베이스 또는 풀을 영역 중복 구성으로 변환할 수도 있습니다.
 
 영역 중복 쿼럼 집합에서는 복제본이 서로 간에 약간 떨어져 있는 서로 다른 데이터 센터에 있기 때문에, 네트워크 대기 시간이 늘어나면 커밋 시간이 늘어나고, 이에 따라 일부 OLTP 작업의 성능에 영향을 줄 수 있습니다. 언제든지 영역 중복 설정을 사용하지 않도록 설정하여 단일 영역 구성으로 돌아갈 수 있습니다. 이 프로세스는 데이터 작업의 크기이며 일반 SLO(서비스 수준 목표) 업데이트와 비슷합니다. 프로세스가 완료되면 데이터베이스 또는 풀이 영역 중복 링에서 단일 영역 링으로 또는 그 반대로 마이그레이션됩니다.
-
-> [!IMPORTANT]
-> 영역 중복 데이터베이스 및 탄력적 풀은 현재 프리미엄 서비스 계층에서만 지원됩니다. 공개 미리 보기로 있는 동안 백업 및 감사 레코드는 RA-GRS 저장소에 저장되므로 전체 영역 중단 시 자동으로 사용되지 않을 수 있습니다. 
 
 다음 다이어그램에서는 고가용성 아키텍처의 영역 중복 버전을 보여 줍니다.
  
 ![고가용성 아키텍처 영역 중복](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>읽기 확장
-설명한 대로 프리미엄 및 중요 비즈니스용(미리 보기) 서비스 계층은 단일 영역 및 영역 중복 구성 모두에서 고가용성을 위해 쿼럼 집합 및 Always On 기술을 활용합니다. Always On의 이점 중 하나는 복제본이 항상 트랜잭션 측면에서 일관된 상태에 있다는 점입니다. 복제본이 주 데이터베이스와 동일한 성능 수준을 가지기 때문에 응용 프로그램은 추가 비용 없이 읽기 전용 작업을 제공하기 위해 해당 추가 용량을 활용할 수 있습니다(읽기 확장). 이러한 방식으로 읽기 전용 쿼리는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 읽기 확장 기능은 분석과 같은 논리적으로 구분된 읽기 전용 작업을 포함하는 응용 프로그램을 위한 것이므로 주 데이터베이스에 연결하지 않고 이 추가 용량을 활용할 수 있습니다. 
+설명한 대로 프리미엄 및 중요 비즈니스용 서비스 계층은 단일 영역 및 영역 중복 구성 모두에서 고가용성을 위해 쿼럼 집합 및 Always On 기술을 활용합니다. Always On의 이점 중 하나는 복제본이 항상 트랜잭션 측면에서 일관된 상태에 있다는 점입니다. 복제본이 주 데이터베이스와 동일한 성능 수준을 가지기 때문에 응용 프로그램은 추가 비용 없이 읽기 전용 작업을 제공하기 위해 해당 추가 용량을 활용할 수 있습니다(읽기 확장). 이러한 방식으로 읽기 전용 쿼리는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 읽기 확장 기능은 분석과 같은 논리적으로 구분된 읽기 전용 작업을 포함하는 응용 프로그램을 위한 것이므로 주 데이터베이스에 연결하지 않고 이 추가 용량을 활용할 수 있습니다. 
 
 특정 데이터베이스에서 읽기 확장 기능을 사용하려면, 데이터베이스를 만들 때 또는 나중에 [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) 또는 [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlet을 호출하는 PowerShell을 사용하거나 [데이터베이스 - 만들기 또는 업데이트](/rest/api/sql/databases/createorupdate) 방법을 사용하는 Azure Resource Manager REST API를 통해 해당 구성을 변경하여 명시적으로 사용하도록 설정해야 합니다.
 

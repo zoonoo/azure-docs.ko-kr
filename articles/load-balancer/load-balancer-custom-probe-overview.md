@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/8/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 0aab72fdf48589a72707ae87f90af11f65f35088
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dd92fca89e3bdb123be46a52708feec1c939f7cc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176791"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112725"
 ---
 # <a name="understand-load-balancer-probes"></a>Load Balancer 프로브 이해
 
-Azure Load Balancer는 상태 프로브를 사용하여 새 흐름 받아야 하는 백 엔드 풀 인스턴스를 결정합니다. 상태 프로브가 실패하면 Load Balancer는 해당 비정상 인스턴스로 새 흐름을 전송하는 것을 중지하며, 해당 인스턴스의 기존 흐름은 영향을 받지 않습니다.  모든 백 엔드 풀 인스턴스 프로브가 다운되면 백 엔드 풀의 모든 인스턴스에서 모든 기존 흐름이 시간 초과됩니다.
+Azure Load Balancer는 상태 프로브를 사용하여 새 흐름 받아야 하는 백 엔드 풀 인스턴스를 결정합니다.   상태 프로브를 사용하여 백 엔드 인스턴스에서 응용 프로그램 오류를 검색할 수 있습니다.  또한 응용 프로그램의 상태 프로브 응답을 사용하여 부하 또는 계획된 가동 중지 시간을 관리하기 위해 백 엔드 인스턴스에 새 흐름을 계속 보내거나 새 흐름 보내기를 중지할지에 대한 신호를 Load Balancer에 보낼 수도 있습니다.
 
-클라우드 서비스 역할(작업자 역할 및 웹 역할)은 프로브 모니터링에 게스트 에이전트를 사용합니다. Load Balancer 뒤의 VM을 사용하는 경우 TCP 또는 HTTP 사용자 지정 상태 프로브를 구성해야 합니다.
+상태 프로브는 정상 백 엔드 인스턴스에 대한 새 흐름이 설정되는지 여부를 관리합니다. 상태 프로브가 실패하면 Load Balancer에서 각 비정상 인스턴스에 대한 새 연결 보내기를 중지합니다.  설정된 TCP 연결은 상태 프로브 실패 후에 계속됩니다.  기존 UDP 흐름은 비정상 인스턴스에서 백 엔드 풀의 다른 정상 인스턴스로 이동합니다.
+
+백 엔드 풀에 대한 모든 프로브가 실패하면 기본 Load Balancer가 백 엔드 풀에 대한 모든 기존 TCP 흐름을 종료하지만, 표준 Load Balancer는 설정된 TCP 흐름이 계속되도록 허용합니다. 새 흐름은 백 엔드 풀로 전송되지 않습니다.  백 엔드 풀에 대한 모든 프로브가 실패하면 기본 및 표준 Load Balancer에 대한 모든 기존 UDP 흐름이 종료됩니다.
+
+클라우드 서비스 역할(작업자 역할 및 웹 역할)은 프로브 모니터링에 게스트 에이전트를 사용합니다. Load Balancer 뒤의 IaaS VM과 함께 Cloud Services를 사용하는 경우, TCP 또는 HTTP 사용자 지정 상태 프로브를 구성해야 합니다.
 
 ## <a name="understand-probe-count-and-timeout"></a>프로브 수 및 시간 제한 이해
 

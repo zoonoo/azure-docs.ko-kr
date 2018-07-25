@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9f0d0b9732b2af36a0411329cede01a9b8cc8efc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 76f2bed22d62895e1c537a807ff729c0ba56fbf6
+ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920817"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39136760"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -34,6 +34,44 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 - 변경 계획
 
 이 페이지는 매월 업데이트되므로 정기적으로 다시 방문해 주세요.
+
+---
+
+## <a name="july-2018"></a>2018년 7월
+
+### <a name="improvements-to-azure-active-directory-email-notifications"></a>Azure Active Directory 메일 알림에 대한 개선
+
+**유형:** 변경 계획  
+**서비스 범주:** 기타  
+**제품 기능:** ID 수명 주기 관리
+ 
+**2018년 7월 말**에 Azure AD(Azure Active Directory) 메일은 다음 서비스에서 전송된 경우, 보낸 사람 메일 주소 및 보낸 사람 표시 이름을 변경하고 업데이트된 디자인을 사용합니다.
+ 
+- Azure AD 액세스 검토
+- Azure AD Connect Health 
+- Azure AD ID 보호 
+- Azure AD Privileged Identity Management
+- 엔터프라이즈 앱 인증서 만료 알림
+- 엔터프라이즈 앱 서비스 프로비저닝 알림
+ 
+메일 알림은 다음 메일 주소 및 표시 이름에서 전송됩니다.
+
+- 메일 주소: azure-noreply@microsoft.com
+- 표시 이름: Microsoft Azure
+ 
+새 메일 디자인의 몇 가지 예제와 자세한 내용은 [Azure AD PIM의 메일 알림](https://go.microsoft.com/fwlink/?linkid=2005832)을 참조하세요.
+
+---
+
+### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>로그인 활동 로그를 통해 레거시 인증 보기
+
+**유형:** 새로운 기능  
+**서비스 범주:** 보고  
+**제품 기능:** 모니터링 및 보고
+ 
+로그인 활동 로그에 **클라이언트 앱** 필드가 도입되어 레거시 인증을 사용하는 사용자를 고객이 볼 수 있습니다. 고객은 로그인 MS Graph API를 사용하거나 **클라이언트 앱** 컨트롤을 사용하여 레거시 인증을 필터링할 수 있는 Azure AD 포털에서 로그인 활동 로그를 통해 이 정보에 액세스할 수 있습니다. 자세한 내용은 설명서를 참조하세요.
+
+---
 
 ## <a name="june-2018"></a>2018년 6월
 
@@ -242,16 +280,6 @@ Azure AD 사용 약관의 관리 작업에 대한 Microsoft Graph API가 추가�
 **제품 기능:** SSO
  
 사용자는 이제 Azure AD에 대한 내 앱 보안 로그인 확장을 사용하여 회사 네트워크 외부에서도 내부 URL을 통해 응용 프로그램에 액세스할 수 있습니다. 이는 액세스 패널 브라우저 확장이 설치되어 있는 모든 브라우저에서 Azure AD 응용 프로그램 프록시를 사용하여 게시한 모든 응용 프로그램에 사용할 수 있습니다. URL 리디렉션 기능은 사용자가 확장에 로그인하면 자동으로 활성화됩니다. 확장은 [Edge](https://go.microsoft.com/fwlink/?linkid=845176), [Chrome](https://go.microsoft.com/fwlink/?linkid=866367) 및 [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)에서 사용할 수 있습니다.
-
----
-
-### <a name="view-legacy-authentications-through-sign-ins-activity-logs"></a>로그인 활동 로그를 통해 레거시 인증 보기
-
-**유형:** 새로운 기능  
-**서비스 범주:** 보고  
-**제품 기능:** 모니터링 및 보고
- 
-로그인 활동 로그에 **클라이언트 앱** 필드가 도입되어 레거시 인증을 사용하는 사용자를 고객이 볼 수 있습니다. 고객은 로그인 MS Graph API를 사용하거나 **클라이언트 앱** 컨트롤을 사용하여 레거시 인증을 필터링할 수 있는 Azure AD 포털에서 로그인 활동 로그를 통해 이 정보에 액세스할 수 있습니다. 자세한 내용은 설명서를 참조하세요.
 
 ---
  

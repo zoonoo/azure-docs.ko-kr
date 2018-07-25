@@ -1,20 +1,20 @@
 ---
 title: Azure SQL Database 서비스 - vCore | Microsoft Docs
-description: vCore 기반 구매 모델(미리 보기)을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다.
+description: vCore 기반 구매 모델을 사용하면 계산 및 저장소 리소스의 크기를 독립적으로 조정하고, 온-프레미스 성능에 맞추고, 가격을 최적화할 수 있습니다.
 services: sql-database
 author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/23/2018
+ms.date: 07/16/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: dec995d0b9177e4fb88c836c3ea0fef25a3b3ba3
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859938"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39091495"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>vCore 서비스 계층, 계산, 메모리, 저장소 및 IO 리소스 선택
 
@@ -30,11 +30,9 @@ ms.locfileid: "37859938"
 |Storage|프리미엄 원격 저장소, 5GB-4TB|로컬 SSD 저장소, 5GB~4TB|
 |IO 처리량(근사치)|vCore당 500 IOPS(최대 7,000 IOPS)|vCore당 5000 IOPS(최대 200,000 IOPS)|
 |가용성|1개 복제본, 읽기 크기 조정 없음|3개 복제본, 1개 [읽기 크기 조정](sql-database-read-scale-out.md), 영역 중복 HA|
-|Backup|RA-GRS, 7-35일(기본값: 7일)|RA-GRS, 7-35일(기본값: 7일)*|
+|Backup|RA-GRS, 7-35일(기본값: 7일)|RA-GRS, 7-35일(기본값: 7일)|
 |메모리 내|해당 없음|지원됨|
 |||
-
-\* 미리 보기 동안에는 백업 보존 기간을 구성할 수 없으며 7일로 고정됩니다.
 
 > [!IMPORTANT]
 > vCore의 계산 용량이 1개 미만인 경우 DTU 기반 구매 모델을 사용합니다.
@@ -68,7 +66,7 @@ MDF 및 LDF의 현재 총 크기를 모니터링하려면 [sp_spaceused](https:/
 
 ## <a name="azure-hybrid-use-benefit"></a>AHUB(Azure Hybrid Use Benefit)
 
-vCore 기반 구매 모델(미리 보기)에서 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 기존 라이선스를 SQL Database의 할인된 가격으로 교환할 수 있습니다. 이 Azure 혜택에서는 온-프레미스 SQL Server 라이선스를 통해 Software Assurance가 있는 온-프레미스 SQL Server 라이선스를 사용하여 Azure SQL Database에서 최대 30%까지 절약할 수 있습니다.
+vCore 기반 구매 모델에서 [SQL Server에 대한 Azure 하이브리드 사용 혜택](../virtual-machines/windows/hybrid-use-benefit-licensing.md)을 사용하여 기존 라이선스를 SQL Database의 할인된 가격으로 교환할 수 있습니다. 이 Azure 혜택에서는 온-프레미스 SQL Server 라이선스를 통해 Software Assurance가 있는 온-프레미스 SQL Server 라이선스를 사용하여 Azure SQL Database에서 최대 30%까지 절약할 수 있습니다.
 
 ![가격 책정](./media/sql-database-service-tiers/pricing.png)
 
