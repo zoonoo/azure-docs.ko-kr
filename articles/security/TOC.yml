@@ -19,7 +19,7 @@
     - name: Azure 클라우드에서 격리
       href: azure-isolation.md
     - name: 하이브리드 네트워크 아키텍처 보안
-      href: 'https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2Fazure%2Fsecurity%2Ftoc.json'
+      href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 보안 기술 기능
       href: azure-security-technical-capabilities.md
 - name: 데이터 보안 및 암호화
@@ -46,11 +46,11 @@
             - name: 문제 해결
               href: azure-security-disk-encryption-tsg.md
         - name: Azure VM 암호화
-          href: ../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-disk-encryption.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Storage 보안
       href: security-storage-overview.md
     - name: 저장소 보안 지침
-      href: ../storage/common/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json
+      href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: 플랫폼 및 인프라
   items:
     - name: 인프라 보안
@@ -104,7 +104,7 @@
         - name: DDoS Protection
           href: azure-ddos-best-practices.md
         - name: 경계 보안
-          href: ../best-practices-network-security.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
 - name: 응용 프로그램
   items:
     - name: PaaS
@@ -116,15 +116,15 @@
           href: security-paas-applications-using-storage.md
         - name: PaaS용 DB 모범 사례
           href: security-paas-applications-using-sql.md
-        - name: IoT
-          href: security-internet-of-things-overview.md
-          items:
-            - name: IoT 보안 모범 사례
-              href: ../iot-accelerators/iot-security-best-practices.md
-            - name: IoT 보안
-              href: '../iot-accelerators/iot-security-architecture.md#security-in-iot'
-            - name: IoT 배포 보안 유지
-              href: ../iot-accelerators/iot-accelerators-security-deployment.md
+    - name: IoT
+      href: security-internet-of-things-overview.md
+      items:
+        - name: IoT 보안 모범 사례
+          href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+        - name: IoT 보안
+          href: '../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot'
+        - name: IoT 배포 보안 유지
+          href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Service Fabric 보안
       href: azure-service-fabric-security-overview.md
       items:
@@ -138,7 +138,7 @@
     - name: 감사 및 로깅
       items:
         - name: 보안 관리
-          href: ../security-center/security-center-intro.md?toc=%2fazure%2fsecurity%2ftoc.json
+          href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
         - name: 원격 관리 보안
           href: azure-security-management.md
         - name: Azure 로그 통합
