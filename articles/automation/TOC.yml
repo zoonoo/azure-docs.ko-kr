@@ -99,6 +99,8 @@
           href: automation-runbook-output-and-messages.md
         - name: 소스 제어 통합
           href: automation-source-control-integration.md
+        - name: Graphical Runbook SDK로 Runbook 만들기
+          href: graphical-runbook-sdk.md
     - name: 자동화
       items:
         - name: Runbook 시작
