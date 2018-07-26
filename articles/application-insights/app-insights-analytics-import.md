@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 688d620e19a8a6f536d134d9c4d7c837ec06bbdc
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293624"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989760"
 ---
 # <a name="import-data-into-analytics"></a>Analytics로 데이터 가져오기
 
@@ -116,15 +116,16 @@ JSON 형식
 ]
 ```
  
-각 열은 위치, 이름 및 형식으로 식별됩니다. 
+각 열은 위치, 이름 및 형식으로 식별됩니다.
 
 * 위치 – 구분된 파일 형식인 경우 매핑된 값의 위치입니다. JSON 형식인 경우 매핑된 키의 jpath입니다.
 * 이름 - 열의 표시 이름입니다.
 * 유형 – 해당 열의 데이터 형식입니다.
  
-샘플 데이터가 사용되었고 파일 형식이 구분된 경우 스키마 정의에서 모든 열을 매핑하고 마지막에 새 열을 추가해야 합니다. 
-
-JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 스키마 정의가 샘플 데이터에서 발견되는 모든 키를 매핑할 필요가 없습니다. 샘플 데이터에 포함되지 않은 열도 매핑할 수 있습니다. 
+> [!NOTE]
+> 샘플 데이터가 사용되었고 파일 형식이 구분된 경우 스키마 정의에서 모든 열을 매핑하고 마지막에 새 열을 추가해야 합니다.
+> 
+> JSON은 데이터의 부분 매핑을 허용합니다. 따라서 JSON 형식의 스키마 정의가 샘플 데이터에서 발견되는 모든 키를 매핑할 필요가 없습니다. 샘플 데이터에 포함되지 않은 열도 매핑할 수 있습니다. 
 
 ## <a name="import-data"></a>데이터 가져오기
 

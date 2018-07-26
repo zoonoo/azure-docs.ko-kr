@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 7740da505f7635944536252d60ec2c2039295975
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36323388"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001806"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Azure Application Insights와 Azure API Management를 통합하는 방법
 
@@ -50,6 +50,9 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 6. 방금 계측 키가 있는 Azure Application Insights 로거를 만들었습니다. 이제 목록에 표시됩니다.  
     ![Application Insights 로거](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
+> [!NOTE]
+> 내부적으로 Application Insights 인스턴스의 계측 키를 포함하는 API Management 인스턴스에 [로거](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) 엔터티가 만들어집니다.
+
 ## <a name="enable-application-insights-logging-for-your-api"></a>API에 대한 Application Insights 로깅 사용
 
 1. **Azure Portal**에서 **Azure API Management 서비스 인스턴스**로 이동합니다.
@@ -63,6 +66,9 @@ Azure Application Insight를 사용하려면 먼저 서비스의 인스턴스를
 8. **샘플링(%)** 으로 **100**을 입력하고, **항상 오류 로깅** 확인란을 선택합니다.
 9. **본문의 첫 번째 바이트 수** 필드에서 **1024**를 입력합니다.
 10. **저장**을 클릭합니다.
+
+> [!NOTE]
+> 내부적으로 이름이 'applicationinsights'인 [진단](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) 엔터티가 API 수준에서 만들어집니다.
 
 | 설정 이름                        | 값 형식                        | 설명                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

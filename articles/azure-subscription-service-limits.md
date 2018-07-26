@@ -1,26 +1,21 @@
 ---
-title: Azure 구독 제한 및 할당량 | Microsoft Docs
+title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 여기에는 최대값과 함께 제한을 늘리는 방법에 대한 정보가 포함됩니다.
-services: ''
-documentationcenter: ''
+services: multiple
 author: rothja
 manager: jeffreyg
-editor: ''
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2018
+ms.date: 07/13/2018
 ms.author: byvinyal
-ms.openlocfilehash: 1d67266bf599a4dc57fc2e9e0d1c5f9f2562346c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8b023540f57cb69fc1d2773ef533364f64820359
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38610775"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069542"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간 경과에 따라 이 목록은 더 많은 플랫폼에 적용되도록 확장 및 업데이트됩니다.
@@ -52,6 +47,8 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure Database for MySQL](#azure-database-for-mysql)
+* [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Redis 캐시(영문)](#azure-redis-cache-limits)
@@ -69,6 +66,7 @@ Azure 가격에 대한 자세한 정보는 [Azure 가격 책정 개요](https://
 * [Database Migration Service](#database-migration-service-limits)
 * [DNS](#dns-limits)
 * [Event Hubs](#event-hubs-limits)
+* [Azure Firewall](#azure-firewall-limits)
 * 
   [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning 서비스](#iot-hub-device-provisioning-service-limits)
@@ -154,6 +152,9 @@ Azure 리소스 관리자 및 Azure 리소스 그룹을 사용하는 경우 다�
 #### <a name="dns-limits"></a>DNS 제한
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
 
+#### <a name="azure-firewall-limits"></a>Azure Firewall 제한
+[!INCLUDE [azure-firewall-limits](../includes/firewall-limits.md)]
+
 ### <a name="storage-limits"></a>저장소 제한
 Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](storage/common/storage-scalability-targets.md)를 참조하세요.
 
@@ -216,6 +217,12 @@ Azure Files 한도에 대한 자세한 내용은 [Azure Files 확장성 및 성�
 
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB 제한
 Azure Cosmos DB는 어떠한 응용 프로그램의 요구도 처리하도록 처리량과 저장소 크기를 조정할 수 있는 뛰어난 확장성의 데이터베이스입니다. Azure Cosmos DB가 제공하는 규모에 대한 궁금한 사항은 askcosmosdb@microsoft.com에 메일을 보내 주세요.
+
+### <a name="azure-database-for-mysql"></a>Azure Database for MySQL
+Azure Database for MySQL 제한은 [Azure Database for MySQL의 제한 사항](mysql/concepts-limits.md)을 참조하세요.
+
+### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
+Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한 사항](postgresql/concepts-limits.md)을 참조하세요.
 
 ### <a name="mobile-engagement-limits"></a>모바일 참여 제한
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]

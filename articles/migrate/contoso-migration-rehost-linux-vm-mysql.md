@@ -4,31 +4,37 @@ description: Contoso가 Azure VM 및 Azure MySQL로 마이그레이션하여 온
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 15a429c033cfd1598dd01b5c8cd2743c397dacdb
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fbb70bd20b89bb1b711630ba54fe31806292385c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225520"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002231"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso 마이그레이션: 온-프레미스 Linux 앱을 Azure VM 및 Azure MySQL에 다시 호스트
 
-이 문서에서는 Contoso가 Azure 및 Azure MySQL로 마이그레이션하여 온-프레미스 2계층 Linux 서비스 데스크 앱(osTicket)을 다시 호스트하는 방법을 보여 줍니다.
+이 문서에서는 Contoso가 Azure 및 Azure MySQL로 마이그레이션하여 온-프레미스 2계층 Linux 서비스 데스크 앱(osTicket)을 다시 호스트하는 방법을 보여줍니다.
 
-이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 보여 주는 문서 시리즈 중 여덟 번째입니다. 시리즈에는 배경 정보 및 마이그레이션 인프라를 설정하고 다양한 유형의 마이그레이션을 실행하는 방법을 보여 주는 시나리오가 포함되어 있습니다. 시나리오가 점점 더 복잡해지므로 점차 문서를 추가할 예정입니다.
+이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 보여주는 문서 시리즈 중 하나입니다. 시리즈에는 배경 정보 및 마이그레이션 인프라를 설정하고 다양한 유형의 마이그레이션을 실행하는 방법을 보여 주는 시나리오가 포함되어 있습니다. 시나리오가 점점 더 복잡해지고 시간이 지남에 따라 문서도 계속 추가될 것입니다.
 
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
-[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대한 개요를 제공합니다. | 사용 가능
-[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 Contoso 마이그레이션 시나리오에 동일한 인프라가 사용됩니다. | 사용 가능
-[문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
-[문서 4: Azure VM 및 SQL 관리되는 인스턴스에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하는 방법을 보여 줍니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 웹 VM을 마이그레이션하고 [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) Service를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 5: Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery 서비스를 사용하여 SmartHotel을 Azure IaaS VM으로 마이그레이션하는 방법을 보여 줍니다.
-[문서 6: Azure VM 및 SQL Server 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 SQL Server 가용성 그룹으로 마이그레이션합니다. | 사용 가능
-[문서 7: Linux 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Azure Site Recovery를 사용하여 osTicket Linux 앱을 Azure IaaS VM으로 마이그레이션하는 방법을 보여 줍니다.
-문서 8: Linux 앱을 Azure VM 및 Azure MySQL 서버에 다시 호스트(본 문서) | Contoso가 osTicket Linux 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery를 사용하여 VM을 마이그레이션하고 MySQL Workbench를 사용하여 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
+[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법에 대해 설명합니다. 동일한 인프라가 모든 Contoso 마이그레이션 시나리오에 사용됩니다. | 사용 가능
+[문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 Contoso에서 실행하는 방법을 보여 줍니다. [Azure Migrate](migrate-overview.md) 서비스를 사용하여 앱 VM을 평가하고, [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 4: Azure VM 및 SQL 관리되는 인스턴스에 다시 호스팅](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하는 방법을 보여 줍니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 웹 VM을 마이그레이션하고 [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) Service를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 5: Azure VM에 다시 호스팅](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery 서비스를 사용하여 SmartHotel을 Azure IaaS VM으로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 6: Azure VM 및 SQL Server 가용성 그룹에 다시 호스팅](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery와 Database Migration Service를 사용하여 각각 앱 VM과 앱 데이터베이스를 SQL Server 가용성 그룹으로 마이그레이션합니다. | 사용 가능
+[문서 7: Azure VM에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm.md) | Contoso가 Azure Site Recovery를 사용하여 osTicket Linux 앱을 Azure IaaS VM으로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+문서 8: Linux 앱을 Azure VM 및 Azure MySQL 서버에 다시 호스트 | Contoso가 osTicket Linux 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery를 사용하여 VM을 마이그레이션하고 MySQL Workbench를 사용하여 Azure MySQL 서버 인스턴스로 마이그레이션합니다. | 이 문서의 내용:
+[문서 9: Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso가 SmartHotel 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 사용 가능
+[문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso가 지속적인 업데이트를 위해 GitHub와 통합된, 여러 사이트의 Azure Web Apps로 Linux osTicket 앱을 마이그레이션하는 방법을 보여줍니다. Azure MySQL 인스턴스로 앱 데이터베이스를 마이그레이션합니다. | 사용 가능
+[문서 11: VSTS에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso가 해당 온-프레미스 TFS(Team Foundation Server) 배포를 Azure에서 VSTS(Visual Studio Team Services)로 마이그레이션하는 방법을 보여줍니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 웹앱 계층을 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 아키텍처를 변경합니다. | 사용 가능
+[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 App Services, Azure Kubernetes, Azure Functions, Cognitive services 및 Cosmos DB를 포함한 다양한 Azure 기능 및 서비스를 사용하여 해당 SmartHotel 앱을 다시 빌드하는 방법을 보여줍니다. | 사용 가능
+
 
 이 문서에서 Contoso는 2계층 Linux Apache MySQL PHP(LAMP) 서비스 데스크 앱(osTicket)을 Azure로 마이그레이션합니다. 이 오픈 소스 앱을 사용하려면 [GitHub](https://github.com/osTicket/osTicket)에서 다운로드할 수 있습니다.
 
@@ -58,7 +64,7 @@ Contoso 클라우드 팀은 최상의 마이그레이션 방법을 확인하기 
 
 - 앱이 두 개의 VM인 OSTICKETWEB 및 OSTICKETMYSQL에 계층화되어 있습니다.
 - VM은 VMware ESXi 호스트 **contosohost1.contoso.com**(버전 6.5)에 있습니다.
-- VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**vcenter.contoso.com**)를 통해 관리됩니다.
+- VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**vcenter.contoso.com**)에서 관리합니다.
 - Contoso는 온-프레미스 데이터 센터(contoso-datacenter)와 온-프레미스 도메인 컨트롤러(**contosodc1**)를 갖고 있습니다.
 - OSTICKETWEB의 웹 계층 앱은 Azure IaaS VM으로 마이그레이션됩니다.
 - 앱 데이터베이스는 Azure Database for MySQL PaaS 서비스로 마이그레이션됩니다.
@@ -67,7 +73,7 @@ Contoso 클라우드 팀은 최상의 마이그레이션 방법을 확인하기 
     - 웹 VM은 프런트 엔드 서브넷(PROD-FE-EUS2)에 상주합니다.
     - 데이터베이스 인스턴스는 데이터베이스 서브넷(PROD-DB-EUS2)에 상주합니다.
 - 앱 데이터베이스는 MySQL 도구를 사용하여 Azure MySQL로 마이그레이션됩니다.
-- Contoso 데이터 센터의 온-프레미스 VM은 마이그레이션이 완료된 후 해제됩니다.
+- 마이그레이션이 완료되면 Contoso 데이터 센터의 온-프레미스 VM은 서비스 해제됩니다.
 
 
 ![시나리오 아키텍처](./media/contoso-migration-rehost-linux-vm-mysql/architecture.png) 
@@ -108,7 +114,7 @@ Contoso는 다음과 같이 마이그레이션 프로세스를 완료합니다.
 --- | ---
 **Azure 구독** | 이 시리즈의 이전 문서에서 이미 구독을 생성했을 것입니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.<br/><br/> 무료 계정을 만드는 경우 구독 관리자로서 모든 작업을 수행할 수 있습니다.<br/><br/> 기존 구독을 사용하고 관리자가 아닌 경우 관리자와 협력하여 소유자 또는 기여자 권한을 할당받아야 합니다.<br/><br/> 보다 세부적인 권한이 필요한 경우 [이 문서](../site-recovery/site-recovery-role-based-linked-access-control.md)를 검토합니다. 
 **Azure 인프라** | Contoso는 [마이그레이션을 위한 Azure 인프라](contoso-migration-infrastructure.md)에 설명된 대로 Azure 인프라를 설정합니다.<br/><br/> Site Recovery 고유의 [네트워크](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) 및 [저장소](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) 요구 사항에 대해 자세히 알아보세요.
-**온-프레미스 서버** | 온-프레미스 vCenter Server는 5.5, 6.0 또는 6.5 버전을 실행해야 합니다.<br/><br/> 5.5, 6.0 또는 6.5 버전을 실행하는 ESXi 호스트<br/><br/> ESXi 호스트에서 실행되는 하나 이상의 VMware VM
+**온-프레미스 서버** | 온-프레미스 vCenter Server에서 5.5, 6.0 또는 6.5 버전을 실행해야 합니다.<br/><br/> 5.5, 6.0 또는 6.5 버전을 실행하는 ESXi 호스트<br/><br/> ESXi 호스트에서 실행되는 하나 이상의 VMware VM
 **온-프레미스 VM** | Site Recovery를 사용한 마이그레이션에 대해 지원되는 [Linux VM 요구 사항을 검토](https://docs.microsoft.com//azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines)합니다.<br/><br/> 지원되는 [Linux 파일 및 저장소 시스템](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage)을 확인합니다.<br/><br/> VM은 [Azure 요구 사항](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements)을 충족해야 합니다.
 
 
@@ -233,7 +239,7 @@ Contoso는 주 지역인 미국 동부 2 지역에 MySQL 데이터베이스 인�
 ### <a name="set-a-protection-goal"></a>보호 목표 설정
 
 1. 자격 증명 모음의 자격 증명 모음 이름(ContosoVMVault) 아래에서 복제 목표를 설정합니다(**시작** > **Site Recovery** > **인프라 준비**).
-2. 해당 머신이 온-프레미스에 있고, VMware VM이며, Azure에 복제하려 한다고 지정합니다.
+2. 자체 컴퓨터가 온-프레미스에 있고, VMware VM이며, Azure로 복제하려고 한다고 지정합니다.
 
     ![복제 목표](./media/contoso-migration-rehost-linux-vm-mysql/replication-goal.png)
 
@@ -251,7 +257,7 @@ Contoso는 원본 환경을 구성해야 합니다. 이 작업을 위해 OVF 템
 - 프로세스 서버 - 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하고 캐싱, 압축 및 암호화를 사용하여 최적화하며 복제 데이터를 Azure 저장소로 전송합니다.
 - 또한 프로세스 서버는 복제하려는 VM에 모바일 서비스를 설치하고 온-프레미스 VMware VM의 자동 검색을 수행합니다.
 
-Contoso는 다음과 같이 단계를 수행합니다.
+Contoso는 다음 단계를 수행합니다.
 
 
 1. **인프라 준비** > **원본** > **구성 서버**에서 OVF 템플릿을 다운로드합니다.
@@ -262,7 +268,7 @@ Contoso는 다음과 같이 단계를 수행합니다.
 
     ![OVF 템플릿](./media/contoso-migration-rehost-linux-vm-mysql/vcenter-wizard.png)
 
-3. VM을 처음 켜면 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
+3. VM을 처음 작동하면 Windows Server 2016 설치 환경으로 부팅됩니다. 사용권 계약에 동의하고 관리자 암호를 입력합니다.
 4. 설치가 완료되면 VM에 관리자 권한으로 로그인합니다. 처음 로그인하면 Azure Site Recovery 구성 도구가 기본적으로 실행됩니다.
 5. 도구에서 자격 증명 모음에 구성 서버를 등록하는 데 사용할 이름을 지정합니다.
 6. VM이 Azure에 연결할 수 있는지 도구에서 확인합니다.
@@ -272,8 +278,8 @@ Contoso는 다음과 같이 단계를 수행합니다.
 
 8. 도구에서 몇 가지 구성 작업을 수행한 후 다시 부팅합니다.
 9. 머신에 다시 로그인하면 구성 서버 관리 마법사가 자동으로 시작됩니다.
-10. 마법사에서 복제 트래픽을 수신할 NIC를 선택합니다. 구성된 후에는 이 설정을 변경할 수 없습니다.
-11. 구독과 리소스 그룹, 구성 서버를 등록할 자격 증명 모음을 선택합니다.
+10. 마법사에서 복제 트래픽을 받을 NIC를 선택합니다. 이 설정은 구성된 후에 변경할 수 없습니다.
+11. 구성 서버를 등록할 구독, 리소스 그룹 및 자격 증명 모음을 선택합니다.
 
     ![자격 증명 모음](./media/contoso-migration-rehost-linux-vm-mysql/cswiz1.png) 
 
@@ -291,7 +297,7 @@ Contoso는 다음과 같이 단계를 수행합니다.
 이제 Contoso가 대상 복제 설정을 입력합니다.
 
 1. **인프라 준비** > **대상**에서 대상 설정을 선택합니다.
-2. Site Recovery는 지정된 대상에 Azure Storage 계정 및 네트워크가 있는지 확인합니다.
+2. Site Recovery에서 지정된 대상에 Azure 저장소 계정과 네트워크가 있는지 확인합니다.
 
 
 ### <a name="create-a-replication-policy"></a>복제 정책 만들기
@@ -301,8 +307,8 @@ Contoso는 다음과 같이 단계를 수행합니다.
 1. **인프라 준비** > **복제 설정** > **복제 정책** >  **만들기 및 연결**에서 **ContosoMigrationPolicy** 정책을 만듭니다.
 2. 다음 기본 설정을 사용합니다.
     - **RPO 임계값**: 기본값은 60분입니다. 이 값은 복구 지점을 만드는 빈도를 지정합니다. 연속 복제가 이 제한을 초과하면 경고가 생성됩니다.
-    - **복구 지점 보존**. 기본값은 24시간입니다. 이 값은 각 복구 지점에 대해 지속될 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
-    - **앱 일치 스냅숏 빈도**. 기본값은 1시간입니다. 이 값은 응용 프로그램 일치 스냅숏이 만들어지는 빈도를 지정합니다.
+    - **복구 지점 보존**: 기본값은 24시간입니다. 이 값은 각 복구 지점에 대한 보존 기간을 지정합니다. 복제된 VM은 하나의 시간대에서 임의의 시점으로 복구할 수 있습니다.
+    - **앱 일치 스냅숏 빈도**: 기본값은 1시간입니다. 이 값은 응용 프로그램 일치 스냅숏이 만들어지는 빈도를 지정합니다.
  
         ![복제 정책 만들기](./media/contoso-migration-rehost-linux-vm-mysql/replication-policy.png)
 
@@ -339,7 +345,7 @@ Contoso는 다음과 같이 단계를 수행합니다.
      ![모바일 서비스](./media/contoso-migration-rehost-linux-vm-mysql/linux-mobility.png)
 
 5. **복제 설정** > **복제 설정 구성**에서 올바른 복제 정책이 적용되었는지 확인하고 **복제 사용**을 선택합니다. 모바일 서비스가 자동으로 설치됩니다.
-6.  **작업**에서 복제 진행률을 추적합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
+6.  **작업**에서 복제 진행 상황을 추적합니다. **보호 완료** 작업이 실행된 후에는 컴퓨터가 장애 조치(failover)를 수행할 준비가 되어 있습니다.
 
 
 **도움이 더 필요하세요?**
@@ -380,14 +386,14 @@ Contoso는 빠른 테스트 장애 조치(failover)를 실행한 다음, VM을 �
 테스트 장애 조치(failover)를 실행하면 마이그레이션 전에 모든 요소가 예상대로 작동하는지 확인하는 데 도움이 됩니다. 
 
 1. Contoso는 사용할 수 있는 최근 특정 시점(**최근에 처리됨**)으로 테스트 장애 조치(failover)를 실행합니다.
-2. 장애 조치(failover)를 트리거하기 전에 Site Recovery가 원본 VM 종료를 시도하도록 **장애 조치(failover)를 시작하기 전에 머신을 종료합니다.** 를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. 
-3. 다음과 같이 테스트 장애 조치(failover)가 실행됩니다. 
+2. 장애 조치를 트리거하기 전에 Site Recovery에서 원본 VM 종료를 시도하도록 **장애 조치를 시작하기 전에 머신 종료**를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. 
+3. 테스트 장애 조치가 다음과 같이 실행됩니다. 
 
     - 필수 구성 요소 확인은 마이그레이션에 필요한 모든 조건이 충족되었는지 확인하기 위해 실행합니다.
     - 장애 조치(failover)는 데이터를 처리하며 이 데이터에서 Azure VM이 만들어질 수 있습니다. 최신 복구 지점을 선택하는 경우 해당 데이터에서 복구 지점이 만들어집니다.
     - 이전 단계에서 처리한 데이터를 사용하여 Azure VM이 만들어집니다.
 
-3. 장애 조치(failover)가 완료되면 Azure Portal에 Azure VM 복제본이 표시됩니다. Contoso는 VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다. 
+3. 장애 조치가 완료되면 Azure Portal에 Azure VM 복제본이 표시됩니다. Contoso는 VM의 크기가 적당하고, VM이 올바른 네트워크에 연결되어 있으며 실행 중인지 확인합니다. 
 4. 확인한 후 장애 조치(failover)를 정리하고 모든 관찰 내용을 기록 및 저장합니다.
 
 ### <a name="migrate-the-vm"></a>VM 마이그레이션
@@ -416,7 +422,7 @@ VM을 마이그레이션하기 위해 Contoso는 VM을 포함하는 복구 계�
 
 **도움이 더 필요하세요?**
 
-- 테스트 장애 조치(failover) 실행에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure). 
+- 테스트 장애 조치를 실행하는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/tutorial-dr-drill-azure). 
 - 복구 계획을 만드는 방법에 대해 [알아보세요](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans).
 - Azure로 장애 조치(failover)하는 방법을 [알아보세요](https://docs.microsoft.com/azure/site-recovery/site-recovery-failover).
 
@@ -452,7 +458,7 @@ VM을 마이그레이션하기 위해 Contoso는 VM을 포함하는 복구 계�
     ![DNS 업데이트](./media/contoso-migration-rehost-linux-vm-mysql/update-dns.png) 
 
 
-##  <a name="clean-up-after-migration"></a>마이그레이션 이후 정리
+##  <a name="clean-up-after-migration"></a>마이그레이션 후 정리
 
 마이그레이션이 완료되면 osTicket 앱 계층이 Azure VM에서 실행됩니다.
 
@@ -475,7 +481,7 @@ Contoso 보안 팀은 VM과 데이터베이스를 검토하여 보안 문제를 
 - 디스크 암호화 및 Azure KeyVault를 사용하여 VM 디스크의 데이터 보안을 유지하는 것도 고려합니다.
 - VM과 데이터베이스 인스턴스 간의 통신에 SSL이 구성되어 있지 않습니다. 데이터베이스 트래픽을 해킹할 수 없도록 하려면 이 작업을 수행해야 합니다.
 
-VM 보안 방법에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
+VM 보안 모범 사례에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
 
 ### <a name="backups"></a>Backup
 

@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 1015600343886333655a921f2e0944ebb676f3e6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050130"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069266"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션
 
@@ -91,7 +91,7 @@ SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사�
 
 [Azure Storage](https://azure.microsoft.com/services/storage/)에서 사용 가능한 온-프레미스 SQL Server 또는 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 가져온 네이티브 백업(.bak 파일)의 복원은 SQL DB 관리되는 인스턴스의 주요 기능 중 하나이며, 오프라인 데이터베이스 마이그레이션을 빠르고 쉽게 수행할 수 있도록 합니다. 
 
-다음 다이어그램에서는 개괄적인 프로세스를 설명합니다.
+다음 다이어그램은 프로세스의 상위 수준 개요를 제공합니다.
 
 ![마이그레이션 흐름](./media/sql-database-managed-instance-migration/migration-flow.png)
 
@@ -105,7 +105,8 @@ SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사�
 |Azure Storage에서 관리되는 인스턴스로 복원|[SAS CREDENTIAL을 사용하여 URL에서 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> 시스템 데이터베이스의 복원은 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 이러한 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
+> - [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)로 보호된 데이터베이스를 원시 복원 옵션을 사용하여 Azure SQL Managed Instance로 마이크레이션하는 경우에는 데이터베이스를 복원하기 전에 온-프레미스 또는 IaaS SQL Server의 해당 인증서를 마이그레이션해야 합니다. 자세한 단계는 [관리되는 인스턴스로 TDE 인증서 마이그레이션](sql-database-managed-instance-migrate-tde-certificate.md)을 참조하세요.
+> - 시스템 데이터베이스의 복원은 지원되지 않습니다. master 또는 msdb 데이터베이스에 저장된 인스턴스 수준 개체를 마이그레이션하려면, 이러한 개체를 스크립팅하고 대상 인스턴스에서 T-SQL 스크립트를 실행하는 것이 좋습니다.
 
 SAS 자격 증명을 사용하여 관리되는 인스턴스에 데이터베이스 백업을 복원하는 전체 자습서는 [백업에서 관리되는 인스턴스 복원](sql-database-managed-instance-restore-from-backup-tutorial.md)을 참조하세요.
 

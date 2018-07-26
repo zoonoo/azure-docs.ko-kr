@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: f9ab9b9af81bf1827c2da646908e204bd051706b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6635906b6aae418fa3754f1152fae3e0d8903ffc
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970937"
+ms.locfileid: "38989768"
 ---
 # <a name="application-insights-for-aspnet-core"></a>ASP.NET Core용 Application Insights
 
@@ -188,7 +188,7 @@ namespace DotNetCore
 
 1. IIS Express를 클릭하여 앱 실행 ![Visual Studio IIS Express 아이콘 스크린샷](./media/app-insights-asp-net-core/004-iis-express.png)
 
-2. 브라우저 주소 표시줄에서 URL을 복사합니다. 형식 http://localhost:{random 포트 번호}
+2. 브라우저 주소 표시줄에서 URL을 복사합니다. 형식은 `http://localhost:{random port number}`입니다.
 
    ![브라우저의 URL 주소 표시줄 스크린샷](./media/app-insights-asp-net-core/0013-copy-url.png)
 

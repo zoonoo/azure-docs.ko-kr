@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 4382c3001f6b0a9227407beccb483347bccb387c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195018"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036873"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Azure Search에서 전체 텍스트 검색의 작동 방식
 
@@ -185,7 +185,7 @@ Spacious,||air-condition*+"Ocean view"
 
 ### <a name="exceptions-to-lexical-analysis"></a>어휘 분석의 예외 
 
-어휘 분석은 완전한 용어가 필요한 쿼리 유형, 즉 용어 쿼리 또는 구 쿼리에만 적용됩니다. 불완전한 용어가 사용된 쿼리, 다시 말해서 접두사 쿼리, 와일드 카드 쿼리, regex 쿼리 또는 유사 항목 쿼리에는 적용되지 않습니다. 우리 예제의 *air-condition\** 이라는 용어가 사용된 접두사 쿼리를 포함하여 이러한 쿼리 유형은 분석 단계를 건너뛰고 쿼리 트리에 직접 추가됩니다. 이러한 유형의 쿼리 용어에 수행되는 유일한 변환 작업은 소문자 변환입니다.
+어휘 분석은 완전한 용어가 필요한 쿼리 유형, 즉 용어 쿼리 또는 구 쿼리에만 적용됩니다. 불완전한 용어가 사용된 쿼리, 다시 말해서 접두사 쿼리, 와일드 카드 쿼리, regex 쿼리 또는 유사 항목 쿼리에는 적용되지 않습니다. 우리 예제의 `air-condition*`이라는 용어가 사용된 접두사 쿼리를 포함하여 이러한 쿼리 유형은 분석 단계를 건너뛰고 쿼리 트리에 직접 추가됩니다. 이러한 유형의 쿼리 용어에 수행되는 유일한 변환 작업은 소문자 변환입니다.
 
 <a name="stage3"></a>
 

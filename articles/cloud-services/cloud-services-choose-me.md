@@ -1,9 +1,9 @@
 ---
-title: Azure 계산 옵션 - Azure Cloud Services | Microsoft Docs
-description: Azure 계산 호스팅 옵션 및 작동 방식에 대해 알아봅니다. App Service, Azure Cloud Services 및 Virtual Machines
+title: Azure Cloud Services란 | Microsoft Docs
+description: Azure Cloud Services에 대해 알아봅니다.
 services: cloud-services
 documentationcenter: ''
-author: Thraka
+author: jpconnock
 manager: timlt
 ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
 ms.service: multiple
@@ -12,22 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
-ms.openlocfilehash: 2871a8c02db0ffc6d9033724e7c9f4a454afef8e
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: jeconnoc
+ms.openlocfilehash: 6af4533a4ab374071b904cc4b03ca239a3e83364
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29120287"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011661"
 ---
-# <a name="should-i-choose-azure-cloud-services-or-something-else"></a>Azure Cloud Services 또는 다른 항목을 선택해야 합니까?
-Azure Cloud Services가 적절한 선택입니까? Azure는 응용 프로그램을 실행하기 위한 여러 호스팅 모델을 제공합니다. 각각 서로 다른 서비스 집합을 제공합니다. 정확하게 수행하려는 항목에 따라 선택이 달라집니다.
-
-[!INCLUDE [compute-table](../../includes/compute-options-table.md)]
-
-<a name="tellmecs"></a>
-
-## <a name="tell-me-about-azure-cloud-services"></a>Azure Cloud Services에 대한 설명
+# <a name="overview-of-azure-cloud-services"></a>Azure Cloud Services 개요
 Azure Cloud Services는 [PaaS(Platform-as-a-Service)](https://azure.microsoft.com/overview/what-is-paas/)의 예입니다. [Azure App Service](../app-service/app-service-web-overview.md)와 마찬가지로 이 기술은 확장성이 있고 안정적이며 운영 비용이 저렴한 응용 프로그램을 지원하도록 설계되었습니다. App Service가 VM(가상 머신)에서 호스팅되는 것과 마찬가지로 Azure Cloud Services도 동일합니다. 하지만, VM보다 자세히 제어해야 합니다. 자체 소프트웨어를 Azure Cloud Services를 사용하는 VM에 설치하고 원격으로 액세스할 수 있습니다.
 
 ![Azure Cloud Services 다이어그램](./media/cloud-services-choose-me/diagram.png)

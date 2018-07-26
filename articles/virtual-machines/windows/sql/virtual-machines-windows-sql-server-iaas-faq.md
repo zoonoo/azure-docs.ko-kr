@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 03/20/2018
+ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: e0254cd16c27597c3d52aed19b4c4ece49bac765
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 48df858095cb867954460ec858567e41ed330063
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366395"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012071"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-azure-virtual-machines"></a>Windows Azure Virtual Machines에서 실행되는 SQL Server에 대한 FAQ(질문과 대답)
 
@@ -55,7 +55,7 @@ ms.locfileid: "34366395"
 
 1. **가상 머신 갤러리에 표시되지 않은 구성을 설정할 수 있습니까(예: Windows 2008 R2 + SQL Server 2012)?**
 
-   번호 SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
+   아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 제공된 이미지 중 하나를 선택해야 합니다.
 
 ## <a name="creation"></a>만들기
 
@@ -71,11 +71,11 @@ ms.locfileid: "34366395"
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
-   두 가지 방법으로 이 작업을 수행할 수 있습니다. [라이선스를 지원하는 가상 머신 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 프로비전할 수 있습니다. 다른 옵션은 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치하는 것입니다. 라이선싱의 이유로 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 가능해야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
+   두 가지 방법으로 이 작업을 수행할 수 있습니다. [라이선스를 지원하는 가상 머신 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 프로비전할 수 있으며, 이는 또한 BYOL(사용자 라이선스 필요)로 알려져 있습니다. 다른 옵션은 SQL Server 설치 미디어를 Windows Server VM으로 복사한 다음 VM에 SQL Server를 설치하는 것입니다. 그러나 SQL Server를 수동으로 설치하는 경우 포털 통합이 없고 SQL Server IaaS 에이전트 확장이 지원되지 않으므로 자동화된 Backup 및 자동화된 패칭 등의 기능은 이 시나리오에서는 작동하지 않습니다. 이러한 이유로 BYOL 갤러리 이미지 중 하나를 사용하는 것이 좋습니다. Azure VM에서 BYOL 또는 사용자 고유의 SQL Server 미디어를 사용하려면 [Azure에서 Software Assurance를 통한 라이선스 이동](https://azure.microsoft.com/pricing/license-mobility/)이 있어야 합니다. 자세한 내용은 [SQL Server Azure VM에 대한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md)을 참조하세요.
 
 1. **종량제 갤러리 이미지 중 하나에서 만들어진 경우 사용자 고유의 SQL Server 라이선스를 사용하도록 VM을 변경할 수 있나요?**
 
-   번호 초 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. [BYOL 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 사용하여 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
+   아니요. 초 단위로 요금이 부과되는 라이선스에서 사용자 라이선스 사용으로 전환할 수 없습니다. [BYOL 이미지](virtual-machines-windows-sql-server-iaas-overview.md#BYOL) 중 하나를 사용하여 새 Azure 가상 머신을 만든 다음 표준 [데이터 마이그레이션 기법](virtual-machines-windows-migrate-sql.md)을 사용하여 데이터베이스를 새 서버로 마이그레이션합니다.
 
 1. **대기/장애 조치(failover)에만 사용되는 경우 Azure VM에서 SQL Server 라이선스 비용을 지불해야 하나요?**
 
@@ -116,9 +116,12 @@ ms.locfileid: "34366395"
 
    예. [Windows Server 2016에서 Windows 장애 조치 클러스터를 만들고](virtual-machines-windows-portal-sql-create-failover-cluster.md) 클러스터 저장소에 대한 S2D(저장소 공간 다이렉트)를 사용할 수 있습니다. 또는 [Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions)에 설명된 대로 타사 클러스터링 또는 저장소 솔루션을 사용할 수 있습니다.
 
+   > [!IMPORTANT]
+   > 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 이 확장은 자동화된 Backup 및 패칭 같은 기능 및 SQL용 일부 포털 기능을 지원합니다. 이 기능은 에이전트를 제거한 후 SQL VM에 대해 작동하지 않습니다.
+
 1. **SQL VM과 SQL Database는 어떤 점이 다릅니까?**
 
-   개념적으로 Azure 가상 머신에서 SQL Server를 실행하는 것은 원격 데이터 센터에 SQL Server를 실행하는 것과 크게 다르지 않습니다. 반면, [SQL Database](../../../sql-database/sql-database-technical-overview.md) 는 DaaS(Database-as-a-Service)를 제공합니다. SQL Database에서는 데이터베이스를 호스팅하고 있는 컴퓨터에 액세스할 수 없습니다. 전체 비교를 보려면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
+   개념적으로 Azure 가상 머신에서 SQL Server를 실행하는 것은 원격 데이터 센터에 SQL Server를 실행하는 것과 크게 다르지 않습니다. 반면, [SQL Database](../../../sql-database/sql-database-technical-overview.md)는 DaaS(Database-as-a-Service)를 제공합니다. SQL Database에서는 데이터베이스를 호스팅하고 있는 컴퓨터에 액세스할 수 없습니다. 전체 비교를 보려면 [클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)를 참조하세요.
 
 1. **Azure VM에 SQL Data Tools를 설치하려면 어떻게 해야 합니까?**
 

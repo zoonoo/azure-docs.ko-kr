@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9cb7a076ea922b9868bd439d160aec96f044e3b6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 02c068fc70748584583b2c71659b1a1abdc0a46d
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32157478"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035774"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -65,7 +65,7 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 * `E3_GetIsClear`: 특정 위치의 현재 기상 조건을 확인하는 작업 함수입니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
-다음 섹션에서는 C# 스크립팅에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+다음 섹션에서는 C# 스크립팅 및 JavaScript에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
  
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>날씨 모니터링 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 
@@ -75,7 +75,13 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 다음은 이 함수를 구현하는 코드입니다.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
@@ -88,11 +94,13 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 **MonitorRequests**를 여러 개 보내면 오케스트레이터 인스턴스를 동시에 여러 개 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
 
-## <a name="strongly-typed-data-transfer"></a>강력한 형식의 데이터 전송
+## <a name="strongly-typed-data-transfer-net-only"></a>강력한 형식의 데이터 전송(.NET만 해당)
 
-오케스트레이터에는 여러 개의 데이터가 필요하므로 강력한 형식의 데이터 전송에는 [공유 POCO 개체](functions-reference-csharp.md#reusing-csx-code)가 사용됩니다. [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+오케스트레이터에는 여러 개의 데이터가 필요하므로 C# 및 C# 스크립트에서 강력한 형식의 데이터 전송에는 [공유 POCO 개체](functions-reference-csharp.md#reusing-csx-code)가 사용됩니다. [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+
+JavaScript 샘플은 매개 변수로 기본 JSON 개체를 사용합니다.
 
 ## <a name="helper-activity-functions"></a>도우미 작업 함수
 
@@ -100,9 +108,15 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
 
-그리고 구현은 다음과 같습니다. 데이터 전송에 사용되는 POCO와 마찬가지로 API 호출을 처리하고 응답 JSON을 구문 분석하는 논리는 공유 클래스로 추상화됩니다. [Visual Studio 샘플 코드](#run-the-sample)의 일부로 찾을 수 있습니다.
+그리고 구현은 다음과 같습니다. 데이터 전송에 사용되는 POCO와 마찬가지로 API 호출을 처리하고 응답 JSON을 구문 분석하는 논리는 C#에서 공유 클래스로 추상화됩니다. [Visual Studio 샘플 코드](#run-the-sample)의 일부로 찾을 수 있습니다.
+
+### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
 **E3_SendGoodWeatherAlert** 함수는 Twilio 바인딩을 사용하여 최종 사용자에게 걷기 좋은 시간임을 알리는 SMS 메시지를 보냅니다 *function.json*은 간단합니다.
 
@@ -110,7 +124,13 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 SMS 메시지를 보내는 코드는 다음과 같습니다.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
 ## <a name="run-the-sample"></a>샘플 실행
 
@@ -131,6 +151,9 @@ RetryAfter: 10
 
 {"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > 현재 JavaScript 오케스트레이션 시작 함수는 인스턴스 관리 URI를 반환할 수 없습니다. 이 기능은 이후 릴리스에서 추가될 예정입니다.
 
 **E3_Monitor** 인스턴스가 시작되어 요청 받은 위치의 현재 기상 조건을 쿼리합니다. 날씨가 맑으면 알림을 보낼 작업 함수를 호출하고 그렇지 않으면 타이머를 설정합니다. 타이머가 만료되면 오케스트레이션이 다시 시작됩니다.
 

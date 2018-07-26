@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/07/2018
-ms.openlocfilehash: 86af0101d84fe9cd44211a931567a85d7b5166e0
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 07/12/2018
+ms.openlocfilehash: c911b096af6662e11afb4c4262b92c239d252c36
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261613"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990230"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-using-dms"></a>DMS를 사용하여 Azure SQL Database Managed Instance로 SQL Server 마이그레이션
 Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인스턴스에서 [Azure SQL Database 관리되는 인스턴스](../sql-database/sql-database-managed-instance.md)로 마이그레이션할 수 있습니다. 수동 작업이 필요한 추가적인 방법은 [SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션](../sql-database/sql-database-managed-instance-migrate.md) 문서를 참조하세요.
@@ -133,7 +133,7 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 ## <a name="specify-target-details"></a>대상 세부 정보 지정
 
-1.  **대상 세부 정보** 화면에서 대상에 대한 연결 세부 정보를 지정합니다. 대상은 **AdventureWorks2012** 데이터베이스가 마이그레이션될 미리 프로비저닝된 Azure SQL Database 관리되는 인스턴스입니다.
+1.  **대상 세부 정보** 화면에서 대상에 대한 연결 세부 정보를 지정합니다. 대상은 **AdventureWorks2012** 데이터베이스가 마이그레이션될 미리 프로비전된 Azure SQL Database Managed Instance입니다.
 
     Azure SQL Database 관리되는 인스턴스를 아직 프로비저닝하지 않은 경우 인스턴스를 프로비저닝하는 데 도움이 되는 링크에 대해 **아니요**를 선택합니다. 프로젝트 생성은 계속 진행할 수 있으며, Azure SQL Database 관리되는 인스턴스가 준비되면 이 특정 프로젝트로 돌아가서 마이그레이션을 실행합니다.   
  
@@ -157,9 +157,15 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
 
 3.  **원본 데이터베이스 선택** 화면에서 마이그레이션할 원본 데이터베이스를 선택합니다.
 
-    ![원본 데이터베이스 선택](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases1.png)
+    ![원본 데이터베이스 선택](media\tutorial-sql-server-to-managed-instance\dms-select-source-databases2.png)
 
-4.  **저장**을 선택한 다음, **마이그레이션 설정 구성** 화면에서 다음 세부 정보를 입력합니다.
+4.  **저장**을 선택한 다음, **로그인 선택** 화면에서 마이그레이션할 로그인을 선택합니다.
+
+    현재 릴리스에서만 SQL 로그인 마이그레이션을 지원합니다.
+
+    ![로그인 선택](media\tutorial-sql-server-to-managed-instance\dms-select-logins.png)
+
+5. **저장**을 선택한 다음, **마이그레이션 설정 구성** 화면에서 다음 세부 정보를 입력합니다.
 
     | | |
     |--------|---------|
@@ -168,29 +174,31 @@ Azure Database Migration Service를 사용하여 온-프레미스 SQL Server 인
     |**암호** | 사용자에 대한 암호입니다. |
     |**저장소 계정 설정** | Azure SQL Database 관리되는 인스턴스로 데이터베이스를 마이그레이션하는 데 사용되며 백업 파일을 업로드하는 저장소 계정 컨테이너에 대한 액세스 권한이 있는 Azure Database Migration Service를 제공하는 SAS URI입니다. [Blob 컨테이너에 대한 SAS URI를 가져오는 방법을 알아봅니다](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
     
-    ![마이그레이션 설정 구성](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings1.png)
+    ![마이그레이션 설정 구성](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings2.png)
 
 5.  **저장**을 선택한 다음, **마이그레이션 요약** 화면의 **활동 이름** 텍스트 상자에서 마이그레이션 활동의 이름을 지정합니다.
 
-6. **유효성 검사 옵션** 섹션을 확장하여 **유효성 검사 옵션 선택** 화면을 표시하고, 마이그레이션된 데이터베이스의 쿼리 정확도를 검사할지 여부를 지정한 다음, **저장**을 선택합니다.  
+    ![마이그레이션 요약](media\tutorial-sql-server-to-managed-instance\dms-migration-summary2.png)
 
-    ![마이그레이션 요약](media\tutorial-sql-server-to-managed-instance\dms-migration-summary1.png)
+6. **유효성 검사 옵션** 섹션을 확장하여 **유효성 검사 옵션 선택** 화면을 표시하고, 마이그레이션된 데이터베이스의 쿼리 정확도를 검사할지 여부를 지정한 다음, **저장**을 선택합니다.  
 
 7. **마이그레이션 실행**을 선택합니다.
 
     마이그레이션 작업 창이 나타나고, 작업 상태는 **보류 중**입니다.
 
-   ![마이그레이션 작업 보류 중](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-pending.png)
-
 ## <a name="monitor-the-migration"></a>마이그레이션 모니터링
 
-1. 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 마이그레이션 상태가 **완료됨**으로 표시될 때까지 디스플레이를 업데이트합니다.
+1. 마이그레이션 작업 화면에서 **새로 고침**을 선택하여 화면을 업데이트합니다.
  
-   ![마이그레이션 작업 완료됨](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-finished.png)
+   ![진행 중인 마이그레이션 작업](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-in-progress.png)
 
-2. 마이그레이션이 완료되면 **보고서 다운로드**를 선택하여 마이그레이션 프로세스와 관련된 세부 정보가 나열된 보고서를 받습니다.
+2. 데이터베이스 및 로그인 범주를 더 확장하여 각 서버 개체의 마이그레이션 상태를 모니터링할 수 있습니다.
+
+   ![진행 중인 마이그레이션 작업](media\tutorial-sql-server-to-managed-instance\dms-migration-activity-monitor.png)
+
+3. 마이그레이션이 완료되면 **보고서 다운로드**를 선택하여 마이그레이션 프로세스와 관련된 세부 정보가 나열된 보고서를 받습니다.
  
-3. 대상 Azure SQL Database 관리되는 인스턴스 환경에서 대상 데이터베이스를 확인합니다.
+4. 대상 Azure SQL Database 관리되는 인스턴스 환경에서 대상 데이터베이스를 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

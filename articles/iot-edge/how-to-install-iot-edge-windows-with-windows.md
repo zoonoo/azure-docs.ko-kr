@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 3d34628a5a47788bca8cdafcb6e199a0c2cb3bcc
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 18a1481b72904b0ac9c27e100271dc0fd0666baf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437844"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001765"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
@@ -52,8 +52,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 다음을 사용하여 vcruntime을 설치합니다. IoT Core Edge 장치에서는 이 단계를 건너뛰어도 됩니다.
@@ -142,7 +143,7 @@ IP 주소를 검색하려면 PowerShell 창에서 `ipconfig`를 입력하고, �
 
 ![nat][img-nat]
 
-구성 파일의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**를 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 IP 주소로 바꿉니다. 
+구성 파일의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**를 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 vEthernet IP 주소로 바꿉니다.
 
 ```yaml
 connect:
@@ -150,7 +151,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-구성 파일의 **listen:** 섹션에서 IP 주소를 게이트웨이 주소로 사용하여 동일한 주소를 입력합니다.
+**listen:** 섹션에 동일한 주소를 입력합니다.
 
 ```yaml
 listen:
@@ -164,7 +165,7 @@ PowerShell 창에서 **management_uri** 주소를 사용하여 **IOTEDGE_HOST** 
 [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
 ```
 
-다시 부팅할 때마다 환경 변수를 그대로 유지합니다.
+다시 부팅 사이에 환경 변수를 그대로 유지합니다.
 
 ```powershell
 SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"

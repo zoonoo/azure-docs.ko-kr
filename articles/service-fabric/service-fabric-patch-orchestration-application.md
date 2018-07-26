@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: cbd5a0ea5fbeb7becbfc33bf72af73425630bff6
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970723"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036941"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Service Fabric 클러스터에서 Windows 운영 체제 패치
 
@@ -148,7 +148,7 @@ sfpkg 형식의 응용 프로그램은 [sfpkg 링크](https://go.microsoft.com/f
 |**매개 변수**        |**형식**                          | **세부 정보**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | 캐시되어야 하는 Windows 업데이트 결과의 최대 수입니다. <br>기본값은 3000입니다. <br> - 노드 수는 20입니다. <br> - 매월 노드에서 발생하는 업데이트 수는 5입니다. <br> - 작업당 결과 수는 10일 수 있습니다. <br> - 지난 3개월 동안의 결과를 저장해야 합니다. |
-|TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. Windows 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. Windows 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. 최대, 한 업그레이드 도메인에 속하는 모든 노드가 Windows 업데이트에 해당될 수 있습니다.
+|TaskApprovalPolicy   |열거형 <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy는 Service Fabric 클러스터 노드에서 Windows 업데이트를 설치하기 위해 코디네이터 서비스에서 사용하는 정책을 나타냅니다.<br>                         허용되는 값은 다음과 같습니다. <br>                                                           <b>NodeWise</b>. Windows 업데이트가 한 번에 하나의 노드에 설치됩니다. <br>                                                           <b>UpgradeDomainWise</b>. Windows 업데이트가 한 번에 하나의 업그레이드 도메인에 설치됩니다. 최대, 한 업그레이드 도메인에 속하는 모든 노드가 Windows 업데이트에 해당될 수 있습니다.<br> 클러스터에 대한 가장 적합한 정책을 결정하는 방법은 [FAQ](#frequently-asked-questions) 섹션을 참조하세요.
 |LogsDiskQuotaInMB   |long  <br> (기본값: 1024)               |패치 오케스트레이션 앱 로그의 최대 크기(MB)로, 노드에서 로컬로 유지될 수 있습니다.
 | WUQuery               | string<br>(기본값: "IsInstalled = 0")                | Windows 업데이트를 가져올 쿼리입니다. 자세한 내용은 [WuQuery](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)를 참조하세요.
 | InstallWindowsOSOnlyUpdates | BOOLEAN <br> (기본값: True)                 | 이 플래그를 사용하면 Windows 운영 체제 업데이트를 설치할 수 있습니다.            |
@@ -304,19 +304,36 @@ Q. **클러스터가 비정상 상태이나 긴급한 운영 체제 업데이트
 
 a. 클러스터 상태가 정상이 아닌 경우 패치 오케스트레이션 앱은 업데이트를 설치하지 않습니다. 패치 오케스트레이션 앱 워크플로의 차단을 해제하기 위해 클러스터를 정상 상태로 전환하려고 합니다.
 
-Q. **클러스터에 패치를 실행하는 데 시간이 너무 오래 걸리는 이유는 무엇인가요?**
+Q. **내 클러스터에 대해 TaskApprovalPolicy를 'NodeWise' 또는 'UpgradeDomainWise'로 설정해야 하나요?**
 
-a. 패치 오케스트레이션 앱에 필요한 시간은 대개 다음과 같은 요인에 따라 달라집니다.
+a. 'UpgradeDomainWise'를 통해 병렬로 업그레이드 도메인에 속하는 모든 노드를 패치하여 전체 클러스터를 더 빠르게 패치할 수 있습니다. 즉, 전체 업그레이드 도메인에 속하는 노드가 패치 프로세스 중에 사용할 수 없게 됩니다([사용 안 함](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) 상태임).
 
-- 코디네이터 서비스 정책 
-  - 기본 정책인 `NodeWise`에 따라, 한 번에 하나의 노드에만 패치를 적용합니다. 특히 클러스터의 크기가 큰 경우 `UpgradeDomainWise` 정책을 사용하여 클러스터의 패치 적용 속도를 빠르게 하는 것이 좋습니다.
-- 다운로드 및 설치에 사용할 수 있는 업데이트 수 
-- 업데이트를 다운로드하고 설치하는 데 필요한 평균 시간, 1-2시간을 넘지 않아야 함
-- VM 및 네트워크 대역폭의 성능
+반대로 'NodeWise' 정책은 한 번에 하나의 노드를 패치합니다. 즉, 전체 클러스터 패치에 더 많은 시간이 걸립니다. 하지만 최대 하나의 노드가 패치 프로세스 중에 사용할 수 없게 됩니다([사용 안 함](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) 상태임).
+
+클러스터가 주기를 패치하는 동안 업그레이드 도메인의 N-1(N은 클러스터에 있는 업그레이드 도메인의 총합) 숫자에서 실행되도록 허용할 수 있는 경우 정책을 'UpgradeDomainWise'으로 설정할 수 있습니다. 그렇지 않으면 'NodeWise'로 설정합니다.
+
+Q. **노드를 패치하는 데 시간이 얼마나 걸리나요?**
+
+a. 노드를 패치하는 데 몇 분(예: [Windows Defender 정의 업데이트](https://www.microsoft.com/wdsi/definitions))에서 몇 시간(예: [Windows 누적 업데이트](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update))이 걸릴 수 있습니다 시간 . 노드를 패치하는 데 필요한 시간은 대부분 다음에 따라 달라집니다. 
+ - 업데이트 크기
+ - 패치하는 창에 적용해야 하는 업데이트 수
+ - 업데이트를 설치하고, (필요한 경우) 노드를 다시 부팅하고, 다시 부팅 후 설치 단계를 완료하는 데 걸리는 시간
+ - VM/머신 성능 및 네트워크 상태
+
+Q. **전체 클러스터를 패치하는 데 시간이 얼마나 걸리나요?**
+
+a. 전체 클러스터를 패치하는 데 필요한 시간은 다음과 같은 요인에 따라 달라집니다.
+
+- 노드를 패치하는 데 필요한 시간
+- 코디네이터 서비스 정책 기본 정책인 `NodeWise`에 따라, 한 번에 하나의 노드에만 패치를 적용합니다. 그러면 `UpgradeDomainWise`보다 느려집니다. 예를 들어 각각 4개의 노드가 포함된 5개의 업그레이드 도메인이 있는 20개의 노드(동일한 형식의 노드) 클러스터를 패치하기 위해 노드를 패치하는 데 최대 1시간이 걸리는 경우입니다.
+    - 정책이 `NodeWise`인 경우 전체 클러스터를 패치하는 데 최대 20시간이 걸립니다.
+    - 정책이 `UpgradeDomainWise`인 경우 최대 5시간이 걸립니다.
+- 클러스터 로드 - 각 패치 작업에서는 고객 워크로드를 클러스터에서 사용 가능한 다른 노드로 재배치해야 합니다. 패치를 진행 중인 노드는 이 시간 동안 [사용 안 함](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) 상태입니다. 클러스터가 거의 최대 부하를 실행하는 경우 프로세스를 사용하지 않도록 설정하는 데 시간이 오래 걸립니다. 따라서 전체 패치 프로세스는 이러한 스트레스 조건에서 느려질 수 있습니다.
+- 패치 중에 클러스터 상태 오류 - [클러스터의 상태](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction)의 [저하](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error)는 패치 프로세스를 중단합니다. 그러면 전체 클러스터를 패치하는 데 필요한 전체 시간에 추가됩니다.
 
 Q. **REST API를 통해 가져온 Windows Update 결과에 표시된 일부 업데이트가 컴퓨터에서 Windows Update 기록에서 표시되지 않는 이유는 무엇인가요?**
 
-a. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서만 나타납니다. 예를 들어 Windows Defender 업데이트는 Windows Server 2016의 Windows Update 기록에 표시되지 않습니다.
+a. 일부 제품 업데이트는 해당하는 업데이트/패치 기록에서만 나타납니다. 예를 들어 Windows Defender 업데이트는 Windows Server 2016의 Windows Update 기록에 표시되거나 되지 않을 수 있습니다.
 
 Q. **패치 오케스트레이션 앱을 사용하여 개발자 클러스터(1노드 클러스터)에 패치를 적용할 수 있나요?**
 

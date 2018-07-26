@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/21/2018
 ms.author: vidarmsft
-ms.openlocfilehash: d57229ad79909aa0334cc623d727b733a1ec73f9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5845fd246b20d29739eb6d60bbc8621489ccc0d6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34652011"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011941"
 ---
 # <a name="storsimple-data-manager-solution-overview"></a>StorSimple 데이터 관리자 솔루션 개요
 
@@ -85,6 +85,14 @@ StorSimple 데이터 관리자는 StorSimple 형식에서 네이티브 형식으
 ## <a name="managing-personal-information"></a>개인 정보 관리
 
 StorSimple Data Manager는 개인 정보를 수집하거나 표시하지 않습니다. 자세한 내용은 [보안 센터](https://www.microsoft.com/trustcenter)에서 Microsoft 개인 정보 취급 방침을 검토합니다.
+
+## <a name="known-limitations"></a>알려진 제한 사항
+
+서비스에는 현재 다음과 같은 제한 사항이 있습니다.
+- StorSimple Data Manager는 현재 BitLocker 암호화된 볼륨으로 작동되지 않습니다. 암호화된 드라이브를 사용하여 서비스를 실행하려는 경우 작업 오류가 표시됩니다.
+- 파일의 일부 메타데이터(ACL 포함)는 변환된 데이터 내에 유지되지 않습니다.
+- 이 서비스는 NTFS 볼륨에서만 작동합니다.
+- 파일 경로 길이는 256자 이하이어야 하며 그렇지 않은 경우 작업이 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: d862cd0223609d80c511362edbcc0ed6dd512b1f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 5cdaba2a280221fa5fa9274ebfa6cafa18e7690c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859150"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39055018"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory의 식과 함수
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,14 +41,14 @@ ms.locfileid: "37859150"
 ```
 
 ## <a name="expressions"></a>식  
-식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식이면 at 기호(\@)를 제거하여 식의 본문을 추출합니다. @으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 @@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
+식은 JSON 문자열 값에서 어느 위치에나 나타날 수 있으며 그 결과 항상 다른 JSON 값이 발생합니다. JSON 값이 식이면 at 기호(\@)를 제거하여 식의 본문을 추출합니다. \@으로 시작되는 리터럴 문자열이 필요한 경우 해당 문자열은 \@\@을 사용하여 이스케이프 처리해야 합니다. 다음 예제는 식의 작동 방식을 보여 줍니다.  
   
 |JSON 값|결과|  
 |----------------|------------|  
 |"parameters"|'parameters' 문자가 반환됩니다.|  
 |"parameters[1]"|'parameters[1]' 문자가 반환됩니다.|  
-|“\@@”|\'\@\'를 포함하는 1개 문자열이 반환됩니다.|  
-|“\@”|' \@\'를 포함하는 2개 문자열이 반환됩니다.|  
+|"\@\@"|'\@'를 포함하는 1개 문자열이 반환됩니다.|  
+|“\@”|'\@'를 포함하는 2개 문자열이 반환됩니다.|  
   
  *문자열 보간*이라는 기능을 사용하면 식이 `@{ ... }`로 묶인 문자열 내부에 나타날 수도 있습니다. 예: `"name" : "First Name: @{pipeline().parameters.firstName} Last Name: @{pipeline().parameters.lastName}"`  
   
@@ -62,7 +62,7 @@ ms.locfileid: "37859150"
 |“\@{pipeline().parameters.myNumber}”| `42`를 *문자열*로 반환합니다.|  
 |"Answer is: @{pipeline().parameters.myNumber}"| `Answer is: 42` 문자열을 반환합니다.|  
 |“\@concat(‘Answer is: ’, string(pipeline().parameters.myNumber))”| `Answer is: 42` 문자열을 반환합니다.|  
-|“Answer is: \@@{pipeline().parameters.myNumber}”| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
+|"대답은 다음과 같습니다. \@\@{pipeline().parameters.myNumber}"| `Answer is: @{pipeline().parameters.myNumber}` 문자열을 반환합니다.|  
   
 ### <a name="examples"></a>예
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 503dfc0c7606d44a1b9ab635aa0d479df61f3820
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: f4a9c14a63e2cab84ccc20f8f36b272d21eb8332
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435476"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004187"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Linux 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
@@ -50,8 +50,9 @@ Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.z
 Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
 Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
 rmdir C:\ProgramData\iotedge\iotedged-windows
-$env:Path += ";C:\ProgramData\iotedge"
-SETX /M PATH "$env:Path"
+$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
+$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
+Set-ItemProperty -Path $sysenv -Name Path -Value $path
 ```
 
 다음을 사용하여 vcruntime을 설치합니다.
@@ -140,7 +141,7 @@ IP 주소를 검색하려면 PowerShell 창에서 `ipconfig`를 입력합니다.
 
 ![DockerNat][img-docker-nat]
 
-구성 파일의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**를 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 IP 주소로 바꿉니다. 
+구성 파일의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**를 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 DockerNAT IP 주소로 바꿉니다. 
 
 ```yaml
 connect:
@@ -148,7 +149,7 @@ connect:
   workload_uri: "http://<GATEWAY_ADDRESS>:15581"
 ```
 
-구성 파일의 **listen:** 섹션에서 IP 주소를 게이트웨이 주소로 사용하여 동일한 주소를 입력합니다.
+**listen:** 섹션에서 동일한 주소를 입력합니다.
 
 ```yaml
 listen:

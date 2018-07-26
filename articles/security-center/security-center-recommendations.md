@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 권장 사항 관리 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: TerryLan
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/04/2018
+ms.date: 07/12/2018
 ms.author: terrylan
-ms.openlocfilehash: 72070f46309adb526901192752fe421a3846398b
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34364253"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006617"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
 이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -76,7 +76,7 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 | [구독에 대해 데이터 수집 활성화](security-center-enable-data-collection.md) |각 구독과 모든 Azure VM(VIrtual Machines) 및 비 Azure 컴퓨터에 대한 보안 정책에서 데이터 수집을 켜는 것이 좋습니다. |
 | [보안 구성 수정](security-center-remediate-os-vulnerabilities.md) |OS 구성을 권장 보안 구성 규칙에 맞추도록 권장합니다. 예를 들어 암호 저장을 허용하지 않습니다. |
 | [시스템 업데이트 적용](security-center-apply-system-updates.md) |누락된 시스템 보안 및 중요 업데이트를 Windows 및 Linux VM과 컴퓨터에 배포하는 것이 좋습니다. |
-| [Just-In-Time 네트워크 액세스 제어 적용](security-center-just-in-time.md) | Just-In-Time VM 액세스만 적용해야 합니다. Just-In-Time 기능은 미리 보기로 제공되며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
+| [Just-In-Time 네트워크 액세스 제어 적용](security-center-just-in-time.md) | Just-In-Time VM 액세스만 적용해야 합니다. Just-In-Time 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
 | [시스템 업데이트 후 다시 부팅](security-center-apply-system-updates.md#reboot-after-system-updates) |시스템 업데이트 적용 프로세스를 완료하려면 VM을 다시 부팅하는 것이 좋습니다. |
 | [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다. </br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
 | [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
@@ -95,7 +95,35 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
 | [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
 | [Azure Storage 계정에 암호화 사용](security-center-enable-encryption-for-storage-account.md) | 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다. SSE(Storage 서비스 암호화)는 Azure Storage에 기록되는 데이터를 암호화하고 검색 전 해독하는 방식으로 작동합니다. SSE는 현재 Azure Blob service에만 사용할 수 있으며 블록 blob, 페이지 blob 및 추가 blob에 사용할 수 있습니다. 자세한 내용을 알아보려면 [미사용 데이터에 대한 Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.</br>SSE는 Resource Manager 저장소 계정에만 지원됩니다. |
-
+| [적응형 응용 프로그램 제어 사용](security-center-adaptive-application.md) | Windows VM에서 적응형 응용 프로그램 제어를 적용하는 것이 좋습니다. 이 기능은 미리 보기로 제공되며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
+| App Service에 HTTPS를 통해서만 액세스 가능 | HTTPS만을 통해 App Service의 액세스를 제한하는 것이 좋습니다. |
+| 웹 응용 프로그램에 대해 웹 소켓이 사용되지 않도록 설정됨| 웹 응용 프로그램 내에서 웹 소켓 사용을 주의 깊게 검토하는 것이 좋습니다.  웹 소켓 프로토콜은 다양한 유형의 보안 위협에 취약합니다. |
+| 웹 응용 프로그램에 대한 사용자 지정 도메인 사용 | 사용자 지정 도메인을 사용하여 피싱 및 기타 DNS 관련 공격 같은 일반적인 공격에서 웹 응용 프로그램을 보호하는 것이 좋습니다. |
+| 웹 응용 프로그램에 대한 IP 제한 구성 | 응용 프로그램에 액세스할 수 있는 IP 주소 목록을 정의하는 것이 좋습니다.  IP 제한 사항을 사용하여 일반적인 공격으로부터 웹 응용 프로그램을 보호합니다. |
+| 응용 프로그램에 액세스하는 모든('*') 리소스를 허용하지 마십시오. | WEBSITE_LOAD_CERTIFICATES 매개 변수를 ‘*’로 설정하지 않는 것이 좋습니다. 매개 변수를 '*'로 설정하는 것은 모든 인증서가 웹 응용 프로그램 개인 인증서 저장소로 로드되는 것을 의미합니다.  사이트는 런타임 시 모든 인증서에 대한 액세스가 필요하지 않으므로 최소 권한의 원칙이 악용될 수 있습니다. |
+| CORS에서 모든 리소스가 응용 프로그램에 액세스하도록 허용하지 않아야 함 | 필요한 도메인만 웹 응용 프로그램과 상호 작용할 수 있도록 하는 것이 좋습니다. CORS(교차 원본 리소스 공유)는 웹 응용 프로그램에 액세스하는 모든 도메인을 허용하지 않아야 합니다. |
+| 웹 응용 프로그램에 대해 지원되는 최신 .NET Framework 사용 | 최신 보안 클래스에 대해 최신 .NET Framework 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
+| 웹 응용 프로그램에 대해 지원되는 최신 Java 버전 사용 | 최신 보안 클래스에 대해 최신 Java 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
+| 웹 응용 프로그램에 대해 지원되는 최신 PHP 버전 사용 | 최신 보안 클래스에 대해 최신 PHP 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
+| [웹 응용 프로그램 방화벽 추가](security-center-add-web-application-firewall.md) |웹 끝점에 WAF(웹 응용 프로그램 방화벽)를 배포하는 것이 좋습니다. 공개 인바운드 웹 포트(80,443)으로 연결된 네트워크 보안 그룹에 있는 모든 공용 연결 IP(인스턴스 수준 IP 또는 부하 분산된 IP)에 대해 WAF 권장 사항이 표시됩니다.</br></br>Security Center에서는 가상 머신과 App Service 환경에 있는 웹 응용 프로그램을 대상으로 한 공격을 방어할 수 있도록 WAF를 프로비전할 것을 권장합니다. ASE(App Service 환경)는 Azure App Service의 [프리미엄](https://azure.microsoft.com/pricing/details/app-service/) 서비스 계획 옵션으로, Azure App Service 앱의 안전한 실행을 위해 완전히 격리된 전용 환경을 제공합니다. ASE에 대한 자세한 내용을 보려면 [App Service Environment 설명서](../app-service/environment/intro.md)를 참조하세요.</br></br>기존 WAF 배포에 이러한 응용 프로그램을 추가하여 보안 센터에서 여러 웹 응용 프로그램을 보호할 수 있습니다. |
+| [응용 프로그램 보호 완료](security-center-add-web-application-firewall.md#finalize-application-protection) |WAF 구성을 완료하려면 트래픽 경로가 WAF 어플라이언스로 전환되어야 합니다. 이 권장 사항을 따르면 필요한 설정 변경이 완료됩니다. |
+| 웹 응용 프로그램에 대해 지원되는 최신 Node.js 버전 사용 | 최신 보안 클래스에 대해 최신 Node.js 버전을 사용하는 것이 좋습니다. 오래된 클래스 및 형식을 사용하면 응용 프로그램이 취약해질 수 있습니다. |
+| CORS에서 모든 리소스가 함수 앱에 액세스하도록 허용하지 않아야 함 | 필요한 도메인만 웹 응용 프로그램과 상호 작용할 수 있도록 하는 것이 좋습니다. CORS(교차 원본 리소스 공유)는 함수 응용 프로그램에 액세스하는 모든 도메인을 허용하지 않아야 합니다. |
+| 함수 앱에 대해 사용자 지정 도메인 사용 | 사용자 지정 도메인을 사용하여 피싱 및 기타 DNS 관련 공격 같은 일반적인 공격에서 함수 앱을 보호하는 것이 좋습니다. |
+| 함수 앱에 대한 IP 제한 구성 | 응용 프로그램에 액세스할 수 있는 IP 주소 목록을 정의하는 것이 좋습니다. IP 제한 사항을 사용하여 일반적인 공격으로부터 함수 앱을 보호합니다. |
+| 함수 앱에 HTTPS를 통해서만 액세스 가능 | HTTPS만을 통해 함수 앱의 액세스를 제한하는 것이 좋습니다. |
+| 함수 앱에 대해 원격 디버깅을 해제해야 함 | 더 이상 사용할 필요가 없는 경우 함수 앱에 대한 디버깅을 해제하는 것이 좋습니다. 원격 디버깅에 함수 앱에서 열리는 인바운드 포트가 필요합니다. |
+| 함수 앱에 대해 웹 소켓이 사용되지 않도록 설정됨 | 함수 앱 내에서 웹 소켓 사용을 주의 깊게 검토하는 것이 좋습니다. 웹 소켓 프로토콜은 다양한 유형의 보안 위협에 취약합니다. |
+| 하나의 구독에 둘 이상의 소유자 지정 | 관리자 액세스 중복성을 유지하려면 둘 이상의 구독 소유자를 지정하는 것이 좋습니다. |
+| 구독에 최대 3명의 소유자 지정 | 보안이 침해된 소유자의 위반 가능성을 줄이려면 최소 3명의 구독 소유자를 지정하는 것이 좋습니다. |
+| 구독에 대한 소유자 권한이 있는 계정에 대해 MFA 사용 | 계정 또는 리소스 위반을 방지하려면 관리자 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용하는 것이 좋습니다. |
+| 구독에 대한 쓰기 권한이 있는 계정에 대해 MFA 사용 | 계정 또는 리소스 위반을 방지하려면 쓰기 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용하는 것이 좋습니다. |
+| 구독에 대한 읽기 권한이 있는 계정에 대해 MFA 사용 | 계정 또는 리소스 위반을 방지하려면 읽기 권한이 있는 모든 구독 계정에 대해 MFA(Multi-factor Authentication)를 사용하는 것이 좋습니다. |
+| 구독에서 읽기 권한이 있는 외부 계정 제거 | 모니터링되지 않는 액세스를 방지하려면 읽기 권한이 있는 외부 계정을 구독에서 제거하는 것이 좋습니다. |
+| 구독에서 쓰기 권한이 있는 외부 계정 제거 | 모니터링되지 않는 액세스를 방지하려면 쓰기 권한이 있는 외부 계정을 구독에서 제거하는 것이 좋습니다. |
+| 구독에서 소유자 권한이 있는 외부 계정 제거 | 모니터링되지 않는 액세스를 방지하려면 소유자 권한이 있는 외부 계정을 구독에서 제거하는 것이 좋습니다. |
+| 구독에서 더 이상 사용되지 않는 계정 제거 | 구독에서 더 이상 사용되지 않는 계정을 제거하는 것이 좋습니다. |
+| 구독에서 더 이상 사용되지 않는 소유자 권한이 있는 계정 제거 | 구독에서 더 이상 사용되지 않는 소유자 권한이 있는 계정을 제거하는 것이 좋습니다. |
 필터링을 수행하고 권장 사항을 해제할 수 있습니다.
 
 1. **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.

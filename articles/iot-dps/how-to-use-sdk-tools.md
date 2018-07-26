@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: afc7059f3b066ac5f3c9b49d543bc2b3e52ad6af
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 647f54d8252c594a280f81d661a3de6270bf692b
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631125"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001350"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>SDK에서 제공된 도구를 사용하여 프로비전할 개발을 간소화하는 방법
 IoT Hub Device Provisioning 서비스는 안전하고 확장 가능한 방식으로 Just-In-Time 무인 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 프로비전 프로세스를 간소화합니다.  X.509 인증서 또는 TPM(신뢰할 수 있는 플랫폼 모듈)의 형식인 보안 증명이 필요합니다.  Microsoft는 [다른 보안 하드웨어 파트너](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)와도 협력하여 IoT 배포를 보호하는 경우에 신뢰성을 향상시킵니다. 하드웨어 보안 요구 사항을 이해하는 것은 개발자에게 매우 어려울 수 있습니다. 개발자가 프로비전 서비스와 통신하는 클라이언트를 작성하는 편의 계층을 사용할 수 있도록 일련의 Azure IoT Provisioning SDK가 제공됩니다. 또한 SDK에서는 개발에서 보안 증명을 간소화하기 위한 도구 집합뿐만 아니라 일반적인 시나리오에 대한 샘플을 제공합니다.
@@ -34,9 +34,9 @@ git clone https://github.com/Azure/azure-iot-sdk-java.git
 [X.509 인증서](https://docs.microsoft.com/azure/iot-dps/concepts-security#x509-certificates)를 증명 메커니즘으로 사용하여 프로덕션의 크기를 조정하고 장치 프로비전을 간소화할 수 있습니다.  [여러 가지 방법으로](https://docs.microsoft.com/azure/iot-hub/iot-hub-x509ca-overview#how-to-get-an-x509-ca-certificate) X.509 인증서를 가져옵니다.
 * 프로덕션 환경에서는 공용 루트 인증 기관에서 X.509 CA 인증서를 구입하는 것이 좋습니다.
 * 환경 테스트를 위해 다음을 사용하여 X.509 루트 인증서 또는 X.509 인증서 체인을 생성할 수 있습니다.
-    * OpenSSL: 이 [방법 가이드](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates)에서는 [OpenSSL](https://www.openssl.org/)을 사용하여 X.509 인증서를 만들고 서명하는 샘플 PowerShell 스크립트를 살펴봅니다.  또한 인증서 생성에 다른 언어의 스크립트를 사용할 수도 있습니다.
+    * OpenSSL: 인증서 생성을 위해 스크립트를 사용할 수 있습니다.
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
-        * [PowerShell](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
+        * [PowerShell 또는 Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
     * DICE(장치 ID 컴퍼지션 엔진) 에뮬레이터: DICE는 TLS 프로토콜 및 X.509 클라이언트 인증서에 기반한 암호화 장치 ID 및 증명에 사용할 수 있습니다.  DICE를 사용하는 장치 ID에 대해 자세히 [알아봅니다](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/).
 

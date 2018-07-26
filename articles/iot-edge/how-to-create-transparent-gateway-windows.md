@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 96ca5a7ec8b0c87984ea2c76af446d7a8b5504a1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 96a0443a66bb826496c6af42fe6479c0a53ac964
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344303"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036087"
 ---
 # <a name="create-a-windows-iot-edge-device-that-acts-as-a-transparent-gateway"></a>투명한 게이트웨이 역할을 하는 Windows IoT Edge 장치 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "37344303"
 >[!NOTE]
 >현재 상황:
 > * 게이트웨이가 IoT Hub와의 연결이 끊긴 경우 다운스트림 장치는 게이트웨이를 통해 인증할 수 없습니다.
-> * IoT Edge 장치는 IoT Edge 게이트웨이에 연결할 수 없습니다.
+> * Edge 가능 장치는 IoT Edge 게이트웨이에 연결할 수 없습니다. 
 > * 다운스트림 장치는 파일 업로드를 사용할 수 없습니다.
 
 투명한 게이트웨이를 만들 때 다운스트림 장치에 게이트웨이를 안전하게 연결하기가 어렵습니다. Azure IoT Edge를 사용하면 PKI 인프라를 사용하여 이러한 장치 간에 안전한 TLS 연결을 설정할 수 있습니다. 이 경우에 투명한 게이트웨이로 작동하는 IoT Edge 장치에 다운스트림 장치를 연결할 수 있습니다.  장치를 잠재적인 악성 게이트웨이가 아닌 게이트웨이에 연결하려고 하기 때문에 적절한 보안을 유지하려면 다운스트림 장치가 Edge 장치의 ID를 확인해야 합니다.

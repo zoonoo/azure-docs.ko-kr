@@ -1,29 +1,29 @@
 ---
 title: Azure IoT Central 응용 프로그램 만들기 | Microsoft Docs
 description: 관리자로서 Azure IoT Central 응용 프로그램을 만드는 방법을 알아봅니다.
+services: iot-central
+ms.service: iot-central
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 03/20/2018
+ms.date: 07/09/2018
 ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39992a1cc36d00a64ee6430cad5f24af3e1e1157
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1fbe3ea142e1dd738cd341f57d2b8f48b539ac75
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629289"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003769"
 ---
 # <a name="create-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램 만들기
 
-[응용 프로그램 만들기](https://apps.microsoftiotcentral.com/create) 페이지에서 Microsoft Azure IoT Central 응용 프로그램을 만들 수 있습니다. Azure IoT Central 응용 프로그램을 만들려면 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 이 문서에는 각 필드에 대한 자세한 내용이 포함되어 있습니다.
+[응용 프로그램 만들기](https://apps.microsoftiotcentral.com/create) 페이지에서 Microsoft Azure IoT Central 응용 프로그램을 만들 수 있습니다. Azure IoT Central 응용 프로그램을 만들려면 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래의 각 필드에 대한 자세한 내용이 있습니다.
 
 ![응용 프로그램 만들기 페이지](media\howto-create-application\image1.png)
 
 ## <a name="payment-plan"></a>결제 계획
 
-평가판 또는 유료 응용 프로그램을 만들 수 있습니다. 이 페이지에서 평가판 및 유료 응용 프로그램에 대해 자세히 알아보세요.
+평가판 또는 유료 응용 프로그램을 만들 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 평가판 및 유료 응용 프로그램에 대해 자세히 알아보세요.
 
 ## <a name="application-name"></a>응용 프로그램 이름
 
@@ -33,7 +33,7 @@ ms.locfileid: "34629289"
 
 응용 프로그램 URL은 응용 프로그램의 링크입니다. 브라우저에서 URL의 책갈피를 저장하거나 다른 사람들과 공유할 수 있습니다.
 
-응용 프로그램의 이름을 입력하면 응용 프로그램 URL이 자동으로 생성됩니다. 원한다면 응용 프로그램의 다른 URL을 선택해도 됩니다. 각 Azure IoT URL URL은 고유해야 합니다. 선택한 URL이 이미 사용 중인 경우 오류 메시지가 표시됩니다.
+응용 프로그램의 이름을 입력하면 응용 프로그램 URL이 자동으로 생성됩니다. 원한다면 응용 프로그램의 다른 URL을 선택해도 됩니다. 각 Azure IoT Central URL은 Azure IoT Central 내에서 고유해야 합니다. 선택한 URL이 이미 사용 중인 경우 오류 메시지가 표시됩니다.
 
 ## <a name="directory"></a>디렉터리
 
@@ -49,7 +49,7 @@ Azure Active Directory 테넌트가 없는 경우 Azure 구독을 만들면 자�
 
 Azure 구독을 사용하여 Azure 서비스 인스턴스를 만들 수 있습니다. Azure IoT Central은 액세스 권한이 있는 모든 Azure 구독을 자동으로 찾아서 **응용 프로그램 만들기** 페이지의 드롭다운에 표시합니다. 새 Azure IoT Central 응용 프로그램을 만들 Azure 구독을 선택하세요.
 
-Azure 구독이 아직 없는 경우 이 페이지에서 만들 수 있습니다. Azure 구독을 만든 후 다시 **응용 프로그램 만들기** 페이지로 돌아갑니다. **Azure 구독** 드롭다운에 새 구독이 표시됩니다.
+Azure 구독이 아직 없는 경우 [Azure 등록 페이지](https://aka.ms/createazuresubscription)에서 만들 수 있습니다. Azure 구독을 만든 후 다시 **응용 프로그램 만들기** 페이지로 돌아갑니다. **Azure 구독** 드롭다운에 새 구독이 표시됩니다.
 
 자세한 내용은 [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)을 참조하세요.
 
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 이 페이지에서 만들 수 있습니다
 
 Azure IoT Central 응용 프로그램을 만들 지역을 선택합니다. 일반적으로 최적의 성능을 얻으려면 장치와 물리적으로 가장 가까운 지역을 선택해야 합니다.
 
-자세한 내용은 [Azure 지역](https://docs.microsoft.com/en-us/azure/guides/developer/azure-developer-guide#azure-regions)을 참조하세요.
+자세한 내용은 [Azure 지역](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#azure-regions)을 참조하세요.
 
 Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 제품](https://azure.microsoft.com/regions/services/) 페이지에서 확인할 수 있습니다.
 

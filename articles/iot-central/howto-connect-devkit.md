@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d7b92359e8875c281fd460f1f5307a7941c11c1f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261579"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049455"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결
 
@@ -82,7 +82,8 @@ ms.locfileid: "35261579"
 | type            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 장치 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | location   | 해당 없음       |
+| 장치 속성 | 장치 위치   | location  | location    |
+| 텍스트            | 제조 일자     | manufacturedIn   | 해당 없음       |
 
 
 ### <a name="add-a-real-device"></a>실제 장치 추가
@@ -91,8 +92,8 @@ Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 �
 
 ## <a name="prepare-the-devkit-device"></a>DevKit 장치 준비
 
-> [!TIP]
-> DevKit 장치 문제 해결 지침은 [IoT DevKit 시작](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/)을 참조하세요.
+> [!NOTE]
+> 이전에 장치를 사용했고 WiFi 자격 증명을 저장했으며 다른 WiFi 네트워크, 연결 문자열 또는 원격 분석 측정값을 사용하도록 장치를 다시 구성하려면 보드의 **A** 및 **B** 단추를 동시에 누릅니다. 이 방법이 작동하지 않으면 **재설정** 단추를 눌러 다시 시도합니다.
 
 DevKit 장치를 준비하려면:
 
@@ -127,7 +128,7 @@ DevKit 장치를 준비하려면:
     - WiFi 네트워크 암호 
     - LCD 장치에 표시된 PIN 코드 
     - 장치의 연결 문자열. 
-      `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device`에서(오른쪽 위) 연결 문자열을 찾을 수 있습니다. 
+      오른쪽 위에서 \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` 연결 문자열을 찾을 수 있습니다. 
     - 사용 가능한 모든 원격 분석 측정값을 선택합니다. 
 
 1. **장치 구성**을 선택하면 이 페이지가 표시됩니다.
@@ -136,8 +137,7 @@ DevKit 장치를 준비하려면:
 
 1. 장치의 **재설정** 단추를 누릅니다.
 
-> [!NOTE]
-> 다른 WiFi 네트워크, 연결 문자열 또는 원격 분석 측정값을 사용하도록 장치를 다시 구성하려면 보드의 **A** 및 **B** 단추를 동시에 누릅니다. 이 방법이 작동하지 않으면 **재설정** 단추를 눌러 다시 시도합니다. 
+
 
 ## <a name="view-the-telemetry"></a>원격 분석 보기
 
@@ -153,19 +153,24 @@ DevKit 장치가 다시 시작되면 장치에 다음과 같은 화면이 표시
 
 1. **Device Explorer**를 사용하여 추가한 실제 MXChip 장치에 대한 **측정값** 페이지로 이동합니다.
 
-    ![실제 장치로 이동](media/howto-connect-devkit/realdevice.png)
+    ![실제 장치로 이동](media/howto-connect-devkit/realdevicenew.png)
 
 1. **측정값** 페이지에서 MXChip 장치에서 보낸 원격 분석 데이터를 볼 수 있습니다.
 
-    ![실제 장치의 원격 분석 데이터 보기](media/howto-connect-devkit/realtelemetry.png)
+    ![실제 장치의 원격 분석 데이터 보기](media/howto-connect-devkit/devicetelemetrynew.png)
 
-1. **속성** 페이지에서 장치에서 전송된 마지막 다이 번호를 볼 수 있습니다.
+1. **속성** 페이지에서는 장치에서 보고된 마지막 다이 번호 및 장치 위치를 볼 수 있습니다.
 
-    ![장치 속성 보기](media/howto-connect-devkit/deviceproperties.png)
+    ![장치 속성 보기](media/howto-connect-devkit/devicepropertynew.png)
 
 1. **설정** 페이지에서 MXChip 장치의 설정을 업데이트할 수 있습니다.
 
-    ![장치 설정 보기](media/howto-connect-devkit/settings.png)
+    ![장치 설정 보기](media/howto-connect-devkit/devicesettingsnew.png)
+
+1. **대시보드** 페이지에서는 위치 지도를 볼 수 있습니다.
+
+    ![장치 대시보드 보기](media/howto-connect-devkit/devicedashboardnew.png)
+
 
 ## <a name="download-the-source-code"></a>소스 코드 다운로드
 

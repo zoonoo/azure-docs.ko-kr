@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 3a68435866e6fb5bf0210144e53918c35b416449
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 14854960aa8db50507b407d4fab7c4113618235c
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910652"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071549"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>Azure Redis Cache를 모니터링하는 방법
 Azure Redis Cache에서는 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용하여 캐시 인스턴스를 모니터링하기 위한 몇 가지 옵션을 제공합니다. 메트릭을 보고, 메트릭 차트를 시작 보드에 고정하고, 모니터링 차트의 날짜 및 시간 범위를 사용자 지정하고, 차트에서 메트릭을 추가 및 제거하고, 특정 조건이 충족될 경우의 경고를 설정할 수 있습니다. 이러한 도구는 Azure Redis Cache 인스턴스의 상태를 모니터링할 수 있게 해주며 캐싱 응용 프로그램 관리에 도움이 됩니다.
@@ -99,20 +99,24 @@ Azure Monitor에서 메트릭을 사용하는 방법에 대한 자세한 내용�
 | 메트릭 | 설명 |
 | --- | --- |
 | 캐시 적중 |지정한 보고 간격 동안 성공한 키 조회 수입니다. 이 값은 Redis [INFO](http://redis.io/commands/info) 명령에서 `keyspace_hits`에 매핑됩니다. |
+| 캐시 대기 시간(미리 보기) | 캐시의 대기 시간은 캐시의 노드 간 대기 시간에 따라 계산됩니다. 이 메트릭은 마이크로초 단위로 측정되고, "평균", "최소" 및 "최대"라는 3차원이 있습니다. 해당 차원은 각각 지정된 보고 간격 동안 캐시의 평균, 최소 및 최대 대기 시간을 나타냅니다. |
 | 캐시 누락 |지정한 보고 간격 동안 실패한 키 조회 수입니다. 이 값은 Redis INFO 명령에서 `keyspace_misses` 에 매핑됩니다. 캐시 누락이 반드시 캐시에 문제가 있음을 의미하는 것은 아닙니다. 예를 들어 캐시 배제 프로그래밍 패턴을 사용하는 경우 응용 프로그램은 먼저 캐시에서 항목을 찾습니다. 항목이 캐시에 없으면(캐시 누락) 데이터베이스에서 항목을 검색하고 다음 검색을 위해 캐시에 항목을 추가합니다. 캐시 누락은 캐시 배제 프로그래밍 패턴의 일반적인 동작입니다. 캐시 누락 수가 예상보다 높은 경우 캐시를 채우고 캐시에서 읽는 응용 프로그램 논리를 검사합니다. 메모리 압력 때문에 캐시에서 항목이 제거되고 있는 경우 캐시 누락이 있을 수 있으며 메모리 압력을 모니터링하는 데 더 유용한 메트릭은 `Used Memory` 또는 `Evicted Keys`입니다. |
-| 연결된 클라이언트 |지정한 보고 간격 동안 캐시에 설정된 클라이언트 연결 수입니다. 이 값은 Redis INFO 명령에서 `connected_clients` 에 매핑됩니다. [연결 제한](cache-configure.md#default-redis-server-configuration) 에 도달하면 캐시에 대한 후속 연결 시도가 실패합니다. 활성 클라이언트 응용 프로그램이 없는 경우에도 내부 프로세스 및 연결 때문에 연결된 클라이언트 인스턴스가 여전히 몇 개 있을 수 있습니다. |
-| 제거된 키 |지정한 보고 간격 동안 `maxmemory` 제한 때문에 캐시에서 제거된 항목의 수입니다. 이 값은 Redis INFO 명령에서 `evicted_keys` 에 매핑됩니다. |
-| 만료된 키 |지정한 보고 간격 동안 캐시에서 만료된 항목의 수입니다. 이 값은 Redis INFO 명령에서 `expired_keys` 에 매핑됩니다. |
-| 전체 키  | 이전 보고 기간 동안 캐시에 있는 최대 키 수입니다. 이 값은 Redis INFO 명령에서 `keyspace` 에 매핑됩니다. 기본 메트릭 시스템의 제한으로 인해 클러스터링이 사용되도록 설정된 캐시에서 전체 키는 보고 간격 동안 최대 키 수를 가진 분할된 데이터베이스의 최대 키 수를 반환합니다.  |
-| 가져오기 |지정한 보고 간격 동안 캐시에서 수행된 가져오기 작업의 수입니다. 이 값은 모든 Redis INFO 명령 `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` 및 `cmdstat_getrange` 값의 합계이며 보고 간격 동안의 캐시 적중 및 누락 합계에 해당합니다. |
-| Redis 서버 부하 |Redis 서버가 작업을 처리하는 중이며 유휴 상태로 메시지를 대기하고 있지 않은 주기 비율입니다. 이 카운터가 100이 되면 Redis 서버가 성능 한계에 도달하여 CPU가 더 빨리 작업을 처리할 수 없습니다. Redis 서버 부하가 높으면 클라이언트에 시간 제한 예외가 표시됩니다. 이 경우 강화나 여러 캐시로의 데이터 분할을 고려해야 합니다. |
-| 설정 |지정한 보고 간격 동안 캐시에 수행된 설정 작업의 수입니다. 이 값은 모든 Redis INFO 명령 `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` 및 `cmdstat_setnx` 값의 합계입니다. |
-| 총 작업 |지정한 보고 간격 동안 캐시 서버에서 처리한 총 명령 수입니다. 이 값은 Redis INFO 명령에서 `total_commands_processed` 에 매핑됩니다. Azure Redis Cache가 pub/sub에만 사용되는 경우 `Cache Hits`, `Cache Misses`, `Gets` 또는 `Sets`에 대한 메트릭은 없으나 pub/sub 작업의 캐시 사용량을 반영하는 `Total Operations` 메트릭은 있습니다. |
-| 사용된 메모리 |지정한 보고 간격 동안 캐시의 키/값 쌍에 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO 명령에서 `used_memory` 에 매핑됩니다. 메타데이터 또는 조각화를 포함하지 않습니다. |
-| 사용된 메모리 RSS |조각화 및 메타데이터를 포함하여 지정한 보고 간격 동안 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO 명령에서 `used_memory_rss` 에 매핑됩니다. |
-| CPU |지정한 보고 간격 동안의 Azure Redis Cache 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)\% Processor Time` 성능 카운터에 매핑됩니다. |
 | 캐시 읽기 |지정한 보고 간격 동안 캐시에서 읽은 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 컴퓨터를 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. **이 값은 캐시에서 사용되는 네트워크 대역폭에 해당합니다. 서버 쪽 네트워크 대역폭 제한에 대한 경고를 설정하려면 `Cache Read` 카운터를 사용하여 경고를 생성합니다. 다양한 캐시 가격 책정 계층 및 크기에 대해 관찰된 대역폭 제한은 [이 테이블](cache-faq.md#cache-performance)을 참조하세요.** |
 | 캐시 쓰기 |지정한 보고 간격 동안 캐시에 쓰는 초당 메가바이트(MB/s) 단위의 데이터 양입니다. 이 값은 캐시를 호스트하는 가상 머신을 지원하는 네트워크 인터페이스 카드에서 가져오며 Redis에 특정한 값이 아닙니다. 이 값은 클라이언트에서 캐시로 전송되는 데이터의 네트워크 대역폭에 해당됩니다. |
+| 연결된 클라이언트 |지정한 보고 간격 동안 캐시에 설정된 클라이언트 연결 수입니다. 이 값은 Redis INFO 명령에서 `connected_clients` 에 매핑됩니다. [연결 제한](cache-configure.md#default-redis-server-configuration) 에 도달하면 캐시에 대한 후속 연결 시도가 실패합니다. 활성 클라이언트 응용 프로그램이 없는 경우에도 내부 프로세스 및 연결 때문에 연결된 클라이언트 인스턴스가 여전히 몇 개 있을 수 있습니다. |
+| CPU |지정한 보고 간격 동안의 Azure Redis Cache 서버 CPU 사용률(%)입니다. 이 값은 운영 체제 `\Processor(_Total)\% Processor Time` 성능 카운터에 매핑됩니다. |
+| 오류 | 지정된 보고 간격 동안 캐시에서 특정 오류 및 성능 문제가 발생할 수 있습니다. 이 메트릭에는 여러 오류 형식을 나타내는 8차원이 있지만 나중에 더 추가될 수 있습니다. 이제 표시된 오류 형식은 다음과 같습니다. <br/><ul><li>**장애 조치** – 캐시가 장애 조치하는 경우(슬레이브가 마스터로 승격)</li><li>**충돌** – 캐시가 노드 중 하나에서 예기치 않게 충돌하는 경우</li><li>**데이터 손실** - 캐시에 데이터 손실이 발생하는 경우</li><li>**UnresponsiveClients** – 클라이언트가 서버에서 데이터를 충분히 빠르게 읽고 있지 않은 경우</li><li>**AOF** – AOF 지속성과 관련된 문제가 발생하는 경우</li><li>**RDB** – RDB 지속성과 관련된 문제가 발생하는 경우</li><li>**가져오기** – 가져오기 RDB와 관련된 문제가 발생하는 경우</li><li>**내보내기** – 내보내기 RDB와 관련된 문제가 발생하는 경우</li></ul> |
+| 제거된 키 |지정한 보고 간격 동안 `maxmemory` 제한 때문에 캐시에서 제거된 항목의 수입니다. 이 값은 Redis INFO 명령에서 `evicted_keys` 에 매핑됩니다. |
+| 만료된 키 |지정한 보고 간격 동안 캐시에서 만료된 항목의 수입니다. 이 값은 Redis INFO 명령에서 `expired_keys` 에 매핑됩니다.|
+| 가져오기 |지정한 보고 간격 동안 캐시에서 수행된 가져오기 작업의 수입니다. 이 값은 모든 Redis INFO 명령 `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit` 및 `cmdstat_getrange` 값의 합계이며 보고 간격 동안의 캐시 적중 및 누락 합계에 해당합니다. |
+| 초당 작업 | 지정한 보고 간격 동안 캐시 서버에서 초당 처리한 총 명령 수입니다.  이 값은 Redis INFO 명령의 "instantaneous_ops_per_sec"에 매핑됩니다. |
+| Redis 서버 부하 |Redis 서버가 작업을 처리하는 중이며 유휴 상태로 메시지를 대기하고 있지 않은 주기 비율입니다. 이 카운터가 100이 되면 Redis 서버가 성능 한계에 도달하여 CPU가 더 빨리 작업을 처리할 수 없습니다. Redis 서버 부하가 높으면 클라이언트에 시간 제한 예외가 표시됩니다. 이 경우 강화나 여러 캐시로의 데이터 분할을 고려해야 합니다. |
+| 설정 |지정한 보고 간격 동안 캐시에 수행된 설정 작업의 수입니다. 이 값은 모든 Redis INFO 명령 `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange` 및 `cmdstat_setnx` 값의 합계입니다. |
+| 전체 키  | 이전 보고 기간 동안 캐시에 있는 최대 키 수입니다. 이 값은 Redis INFO 명령에서 `keyspace` 에 매핑됩니다. 기본 메트릭 시스템의 제한으로 인해 클러스터링이 사용되도록 설정된 캐시에서 전체 키는 보고 간격 동안 최대 키 수를 가진 분할된 데이터베이스의 최대 키 수를 반환합니다.  |
+| 총 작업 |지정한 보고 간격 동안 캐시 서버에서 처리한 총 명령 수입니다. 이 값은 Redis INFO 명령에서 `total_commands_processed` 에 매핑됩니다. Azure Redis Cache가 pub/sub에만 사용되는 경우 `Cache Hits`, `Cache Misses`, `Gets` 또는 `Sets`에 대한 메트릭은 없으나 pub/sub 작업의 캐시 사용량을 반영하는 `Total Operations` 메트릭은 있습니다. |
+| 사용된 메모리 |지정한 보고 간격 동안 캐시의 키/값 쌍에 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO 명령에서 `used_memory` 에 매핑됩니다. 메타데이터 또는 조각화를 포함하지 않습니다. |
+| 사용된 메모리 비율 | 지정된 보고 간격 동안 사용되는 총 메모리의 %입니다.  백분율을 계산하기 위해 Redis INFO 명령의 "used_memory" 값을 참조합니다. |
+| 사용된 메모리 RSS |조각화 및 메타데이터를 포함하여 지정한 보고 간격 동안 사용된 캐시 메모리의 양(MB)입니다. 이 값은 Redis INFO 명령에서 `used_memory_rss` 에 매핑됩니다. |
 
 <a name="operations-and-alerts"></a>
 ## <a name="alerts"></a>Alerts

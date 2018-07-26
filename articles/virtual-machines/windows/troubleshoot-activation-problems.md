@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 11e90a79f45e54f3842d103d290c17254d0e75fc
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 3dc6466083a3dd6882933b8acdd7d64e4a8acd04
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34071496"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006991"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Windows Azure 가상 컴퓨터 정품 인증 문제 해결
 
@@ -49,7 +49,7 @@ Windows Azure VM을 활성화하려고 할 때 다음 샘플과 유사한 오류
 >[!NOTE]
 >사이트 간 VPN 및 강제 터널링을 사용하는 경우 [강제 터널링을 사용하여 KMS 정품 인증을 활성화하도록 Azure 사용자 지정 경로 사용](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx)을 참조하세요. 
 >
->ExpressRoute를 사용하고 기본 경로가 게시된 경우 [Azure VM이 ExpressRoute를 통해 활성화되지 못했습니다.](https://blogs.technet.microsoft.com/jpaztech/2016/05/16/azure-vm-may-fail-to-activate-over-expressroute/)를 참조하세요.
+>ExpressRoute를 사용하고 기본 경로가 게시된 경우 [Azure VM이 ExpressRoute를 통해 활성화되지 못했습니다.](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx)를 참조하세요.
 
 ### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>1단계 적절한 KMS 클라이언트 설정 키 구성(Windows Server 2016 및 Windows Server 2012 R2용)
 
@@ -79,7 +79,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
 
 ### <a name="step-2-verify-the-connectivity-between-the-vm-and-azure-kms-service"></a>2단계 VM과 Azure KMS 서비스 간의 연결 확인
 
-1. [Psping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) 도구를 활성화하지 않는 VM의 로컬 폴더에 다운로드하고 압축합니다. 
+1. [PSping](http:/technet.microsoft.com/sysinternals/jj729731.aspx) 도구를 활성화하지 않는 VM의 로컬 폴더에 다운로드하고 압축합니다. 
 
 2. 시작하고 Windows PowerShell에서 검색하고 Windows PowerShell을 마우스 오른쪽 단추로 클릭한 다음 관리자 권한으로 실행을 선택합니다.
 
@@ -119,7 +119,7 @@ Windows Server 2016 또는 Windows Server 2012 R2의 사용자 지정 이미지�
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>Azure Marketplace에서 Windows Server 2016을 만들었습니다. Windows Server 2016을 활성화하기 위해 KMS 키를 구성해야 하나요? 
  
-번호 Azure Marketplace의 이미지는 적절한 KMS 클라이언트 설정 키를 이미 구성했습니다. 
+아니요. Azure Marketplace의 이미지는 적절한 KMS 클라이언트 설정 키를 이미 구성했습니다. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>VM이 Azure HUB(Hybrid Use Benefit)를 사용하는지 여부와 상관없이 동일하게 Windows 정품 인증이 작동하나요? 
  

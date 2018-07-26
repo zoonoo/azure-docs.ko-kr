@@ -13,11 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: kumud
-ms.openlocfilehash: 00a56a2683e95e70bb13acd6b936e766f044e1cd
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 7ee3dbdcd4d8b2627273a871aec94583b6c5dd6a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058125"
 ---
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기
 
@@ -41,7 +42,7 @@ Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP
 
 ## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. 사용자 지정 도메인에 대한 A 레코드 만들기
 
-A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 IPv4 주소에 @을 A 레코드로 할당합니다.
+A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 IPv4 주소에 \@를 A 레코드로 할당합니다.
 
 ### <a name="step-1"></a>1단계
 
@@ -53,7 +54,7 @@ $rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -
 
 ### <a name="step-2"></a>2단계
 
-할당된 $rs 변수를 사용하여 이전에 만든 레코드 집합 "\@\" 에 IPv4 값을 추가합니다. 할당된 IPv4 값은 웹앱의 IP 주소가 됩니다.
+할당된 $rs 변수를 사용하여 이전에 만든 레코드 집합 "\@" 에 IPv4 값을 추가합니다. 할당된 IPv4 값은 웹앱의 IP 주소가 됩니다.
 
 웹앱의 IP 주소를 찾으려면 [Azure App Service에서 사용자 지정 도메인 이름 구성](../app-service/app-service-web-tutorial-custom-domain.md)의 단계를 따르세요.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기) | Microsoft Docs
-description: 응용 프로그램을 데이터 손실로부터 보호하기 위해 Service Fabric의 정기적인 백업 및 복원 기능을 사용합니다.
+title: 빠른 시작 - Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기) | Microsoft Docs
+description: Service Fabric의 주기적 백업 및 복원 기능을 사용하여 응용 프로그램 데이터의 주기적인 데이터 백업을 사용하도록 설정합니다.
 services: service-fabric
 documentationcenter: .net
 author: hrushib
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: e9bc85cec6cb1d0e35aa71f4e1934c057dbf946d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5666ed4226104104b91b6f964abeb0490ef80866
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114530"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38990747"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기)
+# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>빠른 시작: Azure Service Fabric에서 정기적인 백업 및 복원(미리 보기)
 > [!div class="op_single_selector"]
 > * [Azure의 클러스터](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [독립 실행형 클러스터](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -223,10 +223,11 @@ FailureError            :
 ## <a name="preview-limitation-caveats"></a>미리 보기 제한/주의 사항
 - PowerShell cmdlet에 기본 제공 Service Fabric이 없습니다.
 - Service Fabric CLI에 대한 지원이 없습니다.
-- 자동화된 백업 제거에 대한 지원이 없습니다. 백업의 수동 정리가 필요합니다.
+-  자동화된 백업 제거에 대한 지원이 없습니다. [백업 보존 스크립트](https://github.com/Microsoft/service-fabric-scripts-and-templates/tree/master/scripts/BackupRetentionScript)는 백업 제거를 위한 스크립트 기반 외부 자동화를 설정하는 데 참조될 수 있습니다.
 - Linux에서 Service Fabric 클러스터에 대한 지원이 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
+- [정기 백업 구성 이해](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [백업 복원 REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent.png

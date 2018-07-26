@@ -6,18 +6,20 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 83ba437e699eb150e86e6c89e478377394966419
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232680"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008419"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
 Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소 및 Azure Files로 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크에 있는 데이터를 Azure Blob 저장소 또는 Azure Files로 가져올 수 있습니다. 
+
+Azure Import/Export 서비스를 사용하려면 사용자 고유의 디스크를 제공해야 합니다. Microsoft에서 제공하는 디스크를 사용하여 데이터를 전송하려는 경우 Azure Data Box Disk를 사용하여 Azure로 데이터를 가져올 수 있습니다. Microsoft는 주문당 40TB 용량의 암호화된 SSD(solid-state disk)를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크를 구성하고, USB 3.0 연결을 통해 디스크에 데이터를 복사하고, Azure에 다시 디스크를 제공할 수 있습니다. 자세한 내용은 [Azure Data Box Disk 개요](https://docs.microsoft.com/azure/databox/data-box-disk-overview)로 이동합니다.
 
 ## <a name="azure-importexport-usecases"></a>Azure Import/Export 사용 사례
 

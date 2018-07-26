@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 07/13/2018
 ms.author: babanisa
-ms.openlocfilehash: a2cccbb4feaa7b6f3f51ac7204af4a3e1efc6349
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625596"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044552"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid에서 CloudEvents 스키마 사용
 
@@ -73,9 +73,9 @@ CloudEvents v0.1에서는 다음과 같은 속성을 사용할 수 있습니다.
 
 자세한 내용은 [CloudEvents 사양](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes)을 참조하세요.
 
-## <a name="configure-event-grid-for-cloudevents"></a>CloudEvents에 대한 Event Grid 구성
+`content-type`을 제외하고 CloudEvents 스키마 및 Event Grid 스키마에 배달된 이벤트에 대한 헤더 값은 동일합니다. CloudEvents 스키마의 경우 헤더 값은 `"content-type":"application/cloudevents+json; charset=utf-8"`입니다. Event Grid 스키마의 경우 헤더 값은 `"content-type":"application/json; charset=utf-8"`입니다.
 
-현재, Azure Event Grid에서는 **미국 중서부**, **미국 중부** 및 **유럽 북부**에서 CloudEvents JSON 형식의 입출력이 미리 보기로 지원됩니다.
+## <a name="configure-event-grid-for-cloudevents"></a>CloudEvents에 대한 Event Grid 구성
 
 CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사용할 수 있습니다. Blob Storage 이벤트 및 IoT Hub 이벤트와 같은 시스템 이벤트와 사용자 지정 이벤트에 CloudEvents를 사용할 수 있습니다. 또한 온라인 상태에서 이러한 이벤트를 변환할 수도 있습니다.
 
@@ -91,7 +91,7 @@ CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사�
 
 ### <a name="input-schema"></a>입력 스키마
 
-사용자 지정 토픽에 대한 입력 스키마를 CloudEvents로 설정하려면 토픽 `--input-schema cloudeventv01schema`를 만들 때 Azure CLI에서 다음 매개 변수를 사용합니다. 이제 사용자 지정 토픽의 들어오는 이벤트는 CloudEvents v0.1 형식을 갖습니다.
+사용자 지정 토픽에 대한 입력 스키마를 CloudEvents로 설정하려면 사용자 지정 토픽 `--input-schema cloudeventv01schema`를 만들 때 Azure CLI에서 다음 매개 변수를 사용합니다. 이제 사용자 지정 토픽의 들어오는 이벤트는 CloudEvents v0.1 형식을 갖습니다.
 
 Event Grid 토픽을 만들려면 다음을 사용합니다.
 
@@ -124,7 +124,7 @@ az eventgrid event-subscription create \
   --event-delivery-schema cloudeventv01schema
 ```
 
-현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마용으로 구성된 이벤트 구독은 각 이벤트를 개별적으로 수신합니다. 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용해야 합니다.
+현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마용으로 구성된 이벤트 구독은 각 이벤트를 개별적으로 수신합니다. 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용해야 합니다. CloudEvents 스키마에서 이벤트를 수신하는 HTTP 트리거를 구현하는 예제는 [HTTP 트리거를 Event Grid 트리거로 사용](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

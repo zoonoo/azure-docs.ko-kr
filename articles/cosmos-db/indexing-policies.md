@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: d867079b9a5546dc9555697a9066472e4e470977
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 240c0e1f39833e4dc4c4ad410f50ff03df0b5734
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298300"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072166"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB는 데이터를 어떻게 인덱싱하나요?
 
@@ -144,6 +144,7 @@ Azure Cosmos DB는 JSON 문서 및 인덱스를 트리로 모델링합니다. �
 
 다음 예제에서는 범위 인덱스를 사용하고 사용자 지정 전체 자릿수 값이 20바이트인 특정 경로를 구성합니다.
 
+```
     var collection = new DocumentCollection { Id = "rangeSinglePathCollection" };    
 
     collection.IndexingPolicy.IncludedPaths.Add(
@@ -164,7 +165,74 @@ Azure Cosmos DB는 JSON 문서 및 인덱스를 트리로 모델링합니다. �
         });
 
     collection = await client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("db"), pathRange);
+```
 
+인덱싱에 대해 경로를 추가하면 해당 경로 내의 숫자 및 문자열이 모두 인덱싱됩니다. 따라서 문자열에만 인덱싱을 정의하더라도 Azure Cosmos DB는 숫자에 대한 기본 정의도 추가합니다. 즉, Azure Cosmos DB에는 인덱싱 정책에서 경로를 제외하는 기능이 있지만 특정 경로에서 형식을 제외하는 기능은 없습니다. 다음은 예제입니다. 모든 경로(Path =  "/*" 및 Path =  "/\"attr1\"/?")에 대해 하나의 인덱스만이 지정되지만 숫자 데이터 형식도 결과에 추가됩니다.
+
+```
+var indices = new[]{
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 }// <- note: only 1 index specified
+                    },
+                    Path =  "/*"
+                },
+                new IncludedPath  {
+                    Indexes = new Collection<Index>
+                    {
+                        new RangeIndex(DataType.String) { Precision = 3 } // <- note: only 1 index specified
+                    },
+                    Path =  "/\"attr1\"/?"
+                }
+            };...
+
+            foreach (var index in indices)
+            {
+                documentCollection.IndexingPolicy.IncludedPaths.Add(index);
+            }
+```
+
+인덱스 생성 결과:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        },
+        {
+            "path": "/\"attr\"/?",
+            "indexes": [
+                {
+                    "kind": "Range",
+                    "dataType": "String",
+                    "precision": 3
+                },
+                {
+                    "kind": "Range",
+                    "dataType": "Number",
+                    "precision": -1
+                }
+            ]
+        }
+    ],
+}
+```
 
 ### <a name="index-data-types-kinds-and-precisions"></a>인덱스 데이터 형식, 종류 및 전체 자릿수
 경로에 대한 인덱싱 정책을 구성하는 여러 옵션이 있습니다. 모든 경로에 대해 하나 이상의 인덱싱 정의를 지정할 수 있습니다.

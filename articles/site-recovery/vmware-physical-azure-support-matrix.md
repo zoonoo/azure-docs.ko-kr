@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 07/13/2018
 ms.author: raynew
-ms.openlocfilehash: cb01e71ae45ae8a7e37e8ab5cdf60e3b3fcb9983
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919763"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070912"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -24,13 +24,13 @@ ms.locfileid: "37919763"
 **시나리오** | **세부 정보**
 --- | ---
 VMware VM | 온-프레미스 VMware VM을 Azure로 복제. Azure Portal에서 또는 [PowerShell](vmware-azure-disaster-recovery-powershell.md)을 사용하여 이 시나리오를 배포할 수 있습니다.
-물리적 서버 | 온-프레미스 Windows/Linux 실제 서버를 Azure로 복제. Azure Portal에서 이 시나리오를 배포할 수 있습니다.
+물리적 서버 | 온-프레미스 Windows/Linux 실제 서버를 Azure로 복제 Azure Portal에서 이 시나리오를 배포할 수 있습니다.
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
 **서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
-VMware | vCenter Server 6.5, 6.0 또는 5.5 또는 vSphere 6.5, 6.0 또는 5.5 | vCenter Server를 사용하는 것이 좋습니다.<br/><br/> vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버 구성 요소는 구성 서버에서 실행되므로 전용 프로세스 서버를 설정하지 않으면, 구성 서버를 설정한 네트워크가 여기에 해당합니다.
+VMware | vCenter Server 6.7, 6.5, 6.0이나 5.5 또는 vSphere 6.7, 6.5, 6.0이나 5.5 | vCenter Server를 사용하는 것이 좋습니다.<br/><br/> vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버 구성 요소는 구성 서버에서 실행되므로 전용 프로세스 서버를 설정하지 않으면, 구성 서버를 설정한 네트워크가 여기에 해당합니다.
 물리적 | 해당 없음
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery 구성 서버
@@ -61,8 +61,9 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 **구성 요소** | **세부 정보**
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
-Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 Windows 2016 Nano Server는 지원되지 않습니다.
-Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4 <br/><br/>CentOS: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/>SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4 <br/><br/>복제된 컴퓨터를 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.
+Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 </br></br>  [SP2 이상을 사용하는 Windows Server 2008 - 32비트 및 64비트](migrate-tutorial-windows-server-2008.md)(마이그레이션만 해당) </br></br> * *Windows 2016 Nano Server는 지원되지 않습니다.*
+Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.5 <br/><br/>CentOS: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.5 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (지원되는 커널 버전)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/></br>* *복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.*
+
 
 >[!NOTE]
 >
@@ -70,21 +71,22 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4
 >
 > - 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.
 >
+> - Red Hat Enterprise Linux 5.2 ~ 5.11 또는 CentOS 5.2 ~ 5.11을 실행하는 서버에는 머신을 Azure에서 부팅하기 위해 LIS(Linux Integration Services) 구성 요소를 설치해야 합니다.
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 커널 버전
 
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
+14.04 LTS | 9.18 | 3.13.0-24-generic에서 3.13.0-153-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-130-generic |
 14.04 LTS | 9.17 | 3.13.0-24-generic에서 3.13.0-149-generic까지,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-127-generic까지 |
 14.04 LTS | 9.16 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-119-generic |
 14.04 LTS | 9.15 | 3.13.0-24-generic to 3.13.0-144-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-119-generic |
-14.04 LTS | 9.14 | 3.13.0-24-generic에서 3.13.0-142-generic<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic에서 4.4.0-116-generic |
 |||
+16.04 LTS | 9.18 | 4.4.0-21-generic에서 4.4.0-130-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic |
 16.04 LTS | 9.17 | 4.4.0-21-generic에서 4.4.0-127-generic까지,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-43-generic까지 |
 16.04 LTS | 9.16 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-38-generic까지 |
 16.04 LTS | 9.15 | 4.4.0-21-generic to 4.4.0-119-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-38-generic까지 |
-16.04 LTS | 9.14 | 4.4.0-21-generic에서 4.4.0-116-generic<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-36-generic까지 |
 
 
 ### <a name="debian-kernel-versions"></a>Debian 커널 버전
@@ -92,13 +94,18 @@ Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.4
 
 **지원되는 릴리스** | **Azure Site Recovery Mobility Service 버전** | **커널 버전** |
 --- | --- | --- |
-Debian 7 | 9.17 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
-Debian 7 | 9.14, 9.15, 9.16 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.17, 9.18 | 3.2.0-4-amd64에서 3.2.0-6-amd64까지, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.15, 9.16 | 3.2.0-4-amd64에서 3.2.0-5-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.17 | 3.16.0-4-amd64에서 3.16.0-6-amd64까지, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64까지 |
+Debian 8 | 9.17, 9.18 | 3.16.0-4-amd64에서 3.16.0-6-amd64까지, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64까지 |
 Debian 8 | 9.16 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.6-amd64 |
-Debian 8 | 9.14, 9.15 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
+Debian 8 | 9.15 | 3.16.0-4-amd64에서 3.16.0-5-amd64, 4.9.0-0.bpo.4-amd64에서 4.9.0-0.bpo.5-amd64 |
 
+### <a name="suse-linux-enterprise-server-12-supported-kernel-versions"></a>SUSE Linux Enterprise Server 12 지원되는 커널 버전
+
+**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default에서 3.12.74-60.64.96-default</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default에서 4.4.121-92.85-default</br></br>SP3 4.4.73-5-default에서 4.4.138-94.39-default |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux 파일 시스템/게스트 저장소
 

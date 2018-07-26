@@ -5,31 +5,36 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: fb987c95afc0f77386f4f78c44f3c6825f86ee43
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: fa6fb4ffe1eea98392b2199f379431b0dffc6774
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36232220"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006569"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 마이그레이션: Azure로 마이그레이션하기 위한 온-프레미스 워크로드 평가
 
 이 문서에서는 Contoso가 Azure로 마이그레이션하기 위한 준비 과정에서 온-프레미스 SmartHotel 앱을 평가하는 방법을 보여 줍니다.
 
-이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 설명하는 문서 시리즈의 세 번째 문서입니다. 이 문서 시리즈에는 배경 정보와 마이그레이션 인프라를 설정하고, 마이그레이션을 위한 온-프레미스 리소스의 적합성을 평가하고, 다양한 유형의 마이그레이션을 실행하는 방법을 설명하는 일련의 배포 시나리오가 담겨 있습니다. 시나리오가 점점 더 복잡해지므로 점차 문서를 추가할 예정입니다.
+이 문서는 가상 회사 Contoso가 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 설명하는 문서 시리즈의 세 번째 문서입니다. 이 문서 시리즈에는 배경 정보와 마이그레이션 인프라를 설정하고, 마이그레이션을 위한 온-프레미스 리소스의 적합성을 평가하고, 다양한 유형의 마이그레이션을 실행하는 방법을 설명하는 일련의 배포 시나리오가 담겨 있습니다. 시나리오가 점점 더 복잡해지고 시간이 지남에 따라 문서도 계속 추가될 것입니다.
 
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
-[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대한 개요를 제공합니다. | 사용 가능
-[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 Contoso 마이그레이션 시나리오에 동일한 인프라가 사용됩니다. | 사용 가능
-문서 3: 온-프레미스 리소스 평가(이 문서)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
-[문서 4: Azure VM 및 SQL 관리되는 인스턴스에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하는 방법을 보여 줍니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) Service를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 5: Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery만 사용하여 SmartHotel 앱 VM을 마이그레이션하는 방법을 보여 줍니다.
-[문서 6: Azure VM 및 SQL Server 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 SQL Server 가용성 그룹으로 마이그레이션합니다. | 사용 가능
-[문서 7: Linux 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Azure Site Recovery를 사용하여 osService Linux 앱을 마이그레이션하는 방법을 보여 줍니다.
-[문서 8: Linux 앱을 Azure VM 및 Azure MySQL 서버에 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 통해 VM을 마이그레이션하고 MySQL Workbench를 통해 Azure MySQL 서버 인스턴스로 마이그레이션하여 osService Linux 앱을 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
+[문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso가 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법을 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 사용 가능
+문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. Contoso가 [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 이 문서의 내용:
+[문서 4: 앱을 Azure VM 및 SQL Managed Instance에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery 서비스를 사용하여 SmartHotel 앱 VM을 Azure VM으로 마이그레이션하는 방법을 보여줍니다. | 사용 가능
+[문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Contoso가 Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호하는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
+[문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 8: Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고 MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 9: Azure Web Apps 및 Azure SQL 데이터베이스에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso가 SmartHotel 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 사용 가능
+[문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso가 지속적인 업데이트를 위해 GitHub와 통합된, 여러 사이트의 Azure Web Apps로 Linux osTicket 앱을 마이그레이션하는 방법을 보여줍니다. Azure MySQL 인스턴스로 앱 데이터베이스를 마이그레이션합니다. | 사용 가능
+[문서 11: VSTS에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso가 해당 온-프레미스 TFS(Team Foundation Server) 배포를 Azure에서 VSTS(Visual Studio Team Services)로 마이그레이션하는 방법을 보여줍니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 웹앱 계층을 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 아키텍처를 변경합니다. | 사용 가능
+[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 App Services, Azure Kubernetes, Azure Functions, Cognitive services 및 Cosmos DB를 포함한 다양한 Azure 기능 및 서비스를 사용하여 해당 SmartHotel 앱을 다시 빌드하는 방법을 보여줍니다. | 사용 가능
 
 
 ## <a name="overview"></a>개요
@@ -46,17 +51,17 @@ OSTicket<br/><br/> Contoso 서비스 데스크 앱 | MySQL PHP(LAMP)를 사용�
 ## <a name="current-architecture"></a>현재 아키텍처
 
 
-다음은 현재 Contoso 온-프레미스 인프라를 보여 주는 다이어그램입니다.
+다음은 현재의 Contoso 온-프레미스 인프라를 보여 주는 다이어그램입니다.
 
 ![Contoso 아키텍처](./media/contoso-migration-assessment/contoso-architecture.png)  
 
-- Contoso는 미국 동부 뉴욕 시에 하나의 주 데이터 센터가 있습니다.
-- 미국에는 세 개의 로컬 지점이 더 있습니다.
-- 주 데이터 센터는 파이버 메트로 이더넷 연결(500mbps)을 사용하는 인터넷에 연결되어 있습니다.
-- 각 지점은 IPSec VPN 터널을 통해 주 데이터 센터로 다시 연결되는 비즈니스 클래스 연결을 사용하여 인터넷에 로컬로 연결되어 있습니다. 이렇게 하면 전체 네트워크가 영구적으로 연결될 수 있으며 인터넷 연결이 최적화됩니다.
-- 주 데이터 센터는 VMware로 완전하게 가상화되어 있습니다. vCenter Server 6.5를 통해 관리되는 두 개의 ESXi 6.5 가상화 호스트가 있습니다.
-- Contoso는 ID 관리용 Active Directory와 내부 네트워크의 DNS 서버를 사용합니다.
-- 데이터 센터의 도메인 컨트롤러는 VMware VM에서 실행됩니다. 로컬 지점의 도메인 컨트롤러는 실제 서버에서 실행됩니다.
+- Contoso에는 미국 동부의 뉴욕 시에 위치한 하나의 주 데이터 센터가 있습니다.
+- 미국 전역에 세 개의 지점이 추가로 있습니다.
+- 주 데이터 센터는 파이버 메트로 이더넷 연결(500mbps)을 통해 인터넷에 연결됩니다.
+- 각 지점은 IPSec VPN 터널을 통해 주 데이터 센터로 다시 연결되는 비즈니스 클래스 연결을 통해 인터넷에 로컬로 연결됩니다. 이렇게 하면 전체 네트워크가 영구적으로 연결되고 인터넷 연결이 최적화됩니다.
+- 주 데이터 센터는 VMware를 통해 완벽하게 가상화됩니다. vCenter Server 6.5에서 관리되는 두 개의 ESXi 6.5 가상화 호스트가 있습니다.
+- Contoso에서 ID 관리에는 Active Directory를 사용하고, 내부 네트워크에는 DNS 서버를 사용합니다.
+- 데이터 센터의 도메인 컨트롤러는 VMware VM에서 실행됩니다. 지점의 도메인 컨트롤러는 실제 서버에서 실행됩니다.
 
 
 
@@ -64,11 +69,11 @@ OSTicket<br/><br/> Contoso 서비스 데스크 앱 | MySQL PHP(LAMP)를 사용�
 
 ## <a name="business-drivers"></a>비즈니스 영향 요소
 
-IT 리더십 팀은 비즈니스 파트너와의 긴밀한 협력을 통해 다음과 같이 기업이 이러한 마이그레이션으로 달성하고자 하는 바를 잘 이해하고 있습니다.
+IT 리더십 팀은 비즈니스 파트너와 긴밀히 협력하여 회사에서 이러한 마이그레이션을 통해 달성하려는 목표와 관련하여 다음과 같이 파악했습니다.
 
-- **비즈니스 성장 문제 해결**: Contoso는 성장 중이므로 온-프레미스 시스템과 인프라에 부담이 있습니다.
-- **효율성 증가**: Contoso는 불필요한 프로시저를 제거하고 개발자와 사용자가 사용할 프로세스를 간소화해야 합니다.  이 회사는 IT를 빠른 상태로 유지하고 시간이나 비용을 낭비하지 않도록 하여 고객 요구 사항을 더 빠르게 제공해야 합니다.
-- **민첩성 향상**: Contoso IT는 비즈니스 요구 사항에 대한 응답성을 더욱 높여야 합니다. 글로벌 경제에서 성공을 거두려면 시장의 변화보다 더 빠르게 대응할 수 있어야 합니다.  비즈니스에 방해 요인이 되어서는 안 됩니다.
+- **비즈니스 성장 대응**: Contoso는 성장하고 있으며, 이에 따라 온-프레미스 시스템과 인프라에 부담을 주고 있습니다.
+- **효율성 증대**: Contoso는 불필요한 프로시저를 제거하고 개발자와 사용자를 위한 프로세스를 간소화해야 합니다.  회사에서 IT 속도를 높이고 시간이나 비용을 낭비하지 않도록 하여 고객 요구 사항을 더 빠르게 제공해야 합니다.
+- **민첩성 향상**: Contoso IT에서 비즈니스 요구 사항에 대해 더 빠르게 응답해야 합니다. 글로벌 경제에서 성공할 수 있으려면 시장의 변화에 더 빠르게 대응할 수 있어야 합니다.  사업상의 걸림돌이 되지 않아야 합니다.
 - **확장**: Contoso IT는 성공적인 비즈니스 성장에 따라 동일한 속도로 확장할 수 있는 시스템을 제공해야 합니다.
 
 ## <a name="assessment-goals"></a>평가 목표
@@ -98,7 +103,7 @@ Contoso는 평가를 위해 Microsoft 도구를 사용합니다. 이러한 도�
 
 ![마이그레이션 평가 아키텍처를 설치합니다.](./media/contoso-migration-assessment/migration-assessment-architecture.png)
 
-- Contoso는 일반적인 엔터프라이즈 조직을 나타내는 가상 이름입니다. 
+- Contoso는 일반적인 엔터프라이즈 조직을 나타내는 가상 이름입니다.
 - Contoso는 온-프레미스 데이터 센터(**contoso-datacenter**)와 온-프레미스 도메인 컨트롤러(CONTOSODC1, CONTOSODC2)가 있습니다.
 - VMware VM은 6.5 버전을 실행하는 VMware ESXI 호스트에 있습니다. 호스트: **contosohost1**, **contosohost2**
 - VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**venter**)를 통해 관리됩니다.
@@ -161,7 +166,7 @@ Contoso가 평가를 수행하는 방법은 다음과 같습니다.
 이제 Contoso는 평가를 실행하여 SmartHotel 앱에 사용되는 온-프레미스 SQL Server를 분석할 수 있습니다.
 
 1. Database Migration Assistant에서 **새로 만들기**를 클릭하고, **평가**를 선택하고, 평가에 프로젝트 이름 **SmartHotel**을 지정합니다.
-2. **원본 서버 유형**을 **Azure Virtual Machines의 SQL Server**로 선택합니다. 
+2. **원본 서버 유형**을 **Azure Virtual Machines의 SQL Server**로 선택합니다.
 
     ![원본 선택](./media/contoso-migration-assessment/dma-assessment-1.png)
 
@@ -181,7 +186,7 @@ Contoso가 평가를 수행하는 방법은 다음과 같습니다.
 
 3. **원본 추가**에서 평가하려는 데이터베이스를 추가하고 **다음**을 클릭하여 평가를 시작합니다.
 4. 평가가 만들어집니다.
-    
+
     ![평가 만들기](./media/contoso-migration-assessment/dma-assessment-4.png)
 
 5. **결과 검토**에서 평가 결과를 볼 수 있습니다.
@@ -223,7 +228,7 @@ Contoso는 Azure Migrate가 평가할 VM을 자동으로 검색하는 데 사용
 
 ### <a name="set-up-a-vmware-account"></a>VMware 계정 설정
 
- VM 검색에는 다음 속성이 있는, vCenter의 읽기 전용 계정이 필요합니다. 
+ VM 검색에는 다음 속성이 있는, vCenter의 읽기 전용 계정이 필요합니다.
 
 - 사용자 유형: 읽기 전용 사용자(최소).
 - 권한: 데이터 센터 개체 –> 자식 개체에 전파, role=Read-only.
@@ -294,14 +299,13 @@ VM을 배포하기 전에 Contoso는 .OVA 파일이 안전한지 확인합니다
 2. 다음 명령을 실행하여 OVA에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 생성된 해시는 이러한 설정과 일치해야 합니다(버전 1.0.9.7).
+3. 생성된 해시는 이러한 설정과 일치해야 합니다(버전 1.0.9.12).
 
-    **알고리즘** | **해시 값**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | d0363e5d1b377a8eb08843cf034ac28a
+SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
 ### <a name="create-the-collector-appliance"></a>수집기 어플라이언스 만들기
 
@@ -346,7 +350,7 @@ VM을 배포하기 전에 Contoso는 .OVA 파일이 안전한지 확인합니다
 
 7. Contoso는 **수집 진행 상황 보기**에서 검색을 모니터링하고 VM에서 수집한 메타데이터가 범위 내에 있는지 확인합니다. 수집기는 대략적인 검색 시간을 제공합니다.
 
-    ![수집 진행 중](./media/contoso-migration-assessment/collector-collection-process.png) 
+    ![수집 진행 중](./media/contoso-migration-assessment/collector-collection-process.png)
 
 
 
@@ -396,8 +400,8 @@ Contoso가 평가하려는 VM 간의 종속성을 보려면 앱 VM에 에이전�
 2. **에이전트 설치 옵션**에서 **Azure Log Analytics에 에이전트 연결** > **다음**을 선택합니다.
 
     ![MMA 설치](./media/contoso-migration-assessment/mma-install.png)
-    
-5. 포털에서 복사한 작업 영역 ID와 키를 **Azure Log Analytics**에 붙여넣습니다. 
+
+5. 포털에서 복사한 작업 영역 ID와 키를 **Azure Log Analytics**에 붙여넣습니다.
 
     ![MMA 설치](./media/contoso-migration-assessment/mma-install2.png)
 
@@ -428,7 +432,7 @@ Contoso가 평가하려는 VM 간의 종속성을 보려면 앱 VM에 에이전�
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
     ```
- 
+
 
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Linux VM에 Dependency Agent 설치

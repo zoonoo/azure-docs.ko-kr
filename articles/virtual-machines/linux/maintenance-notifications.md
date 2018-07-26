@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 12a3c4556de21bb0c0dd6b09458943fb03092532
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 543c30b4d2c960f3c7453369162a62dc4606d06e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866130"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39068630"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Linux 가상 머신에 대한 계획된 유지 관리 처리
 
@@ -101,7 +101,7 @@ MaintenanceRedeployStatus의 다음과 같은 값이 반환됩니다.
 `IsCustomerInitiatedMaintenanceAllowed`가 true로 설정되는 경우 다음 호출이 VM에서 유지 관리를 시작합니다.
 
 ```azure-cli
-az vm perform-maintenance rgName vmName 
+az vm perform-maintenance -g rgName -n vmName 
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
@@ -160,7 +160,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **Q: Virtual Machine Scale Sets의 경우에 환경이란?**
 
-**A:** 이제 계획된 유지 관리는 Virtual Machine Scale Sets에 지원됩니다. 셀프 서비스 유지 관리를 시작하는 방법에 대한 지침은 Virtual Machine Scale Set 문서에서 "방법-> 관리-> 계획된 유지 관리" 섹션을 참조하세요.
+**A:** 이제 계획된 유지 관리는 Virtual Machine Scale Sets에 지원됩니다. 셀프 서비스 유지 관리를 시작하는 방법에 대한 지침은 [VMSS에 대한 계획된 유지 관리](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) 문서를 참조하세요.
 
 **Q: Cloud Services(웹/작업자 역할) 및 Service Fabric의 경우에 환경이란?**
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 0174aa2288bbb95cc5cfc796446893fde00a8964
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 477fa7e10fab0afadb28d7749009f87e82d9b6ba
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344354"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035397"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Linux(x64)에서 Azure IoT Edge 런타임 설치
 
@@ -56,9 +56,7 @@ sudo apt-get upgrade
 
 ## <a name="install-the-container-runtime"></a>컨테이너 런타임 설치 
 
-Azure IoT Edge는 [OCI 호환][lnk-oci] 컨테이너 런타임(예: Docker)을 사용합니다. 에지 장치에 Docker CE/EE를 설치한 경우 Azure IoT Edge에서 개발하고 테스트하는 데 계속 사용할 수 있습니다. 
-
-프로덕션 시나리오의 경우 아래에서 제공된 [Moby-based][lnk-moby] 엔진을 사용하는 것이 좋습니다. Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 완전히 호환 가능합니다.
+Azure IoT Edge는 [OCI 호환][lnk-oci] 컨테이너 런타임을 사용합니다. 프로덕션 시나리오의 경우 아래에서 제공된 [Moby-based][lnk-moby] 엔진을 사용하는 것이 좋습니다. Azure IoT Edge에서 공식적으로 지원되는 유일한 컨테이너 엔진입니다. Docker CE/EE 컨테이너 이미지는 Moby 런타임과 호환 가능합니다.
 
 apt-get을 업데이트합니다.
 

@@ -1,21 +1,21 @@
 ---
-title: 예측 유지 관리 솔루션 가속기 연습 - Azure | Microsoft Docs
-description: Azure IoT 예측 유지 관리 솔루션 가속기에 대한 연습입니다.
+title: 예측 유지 관리 솔루션 가속기 개요 - Azure | Microsoft Docs
+description: Azure IoT 예측 유지 관리 솔루션 가속기에 대한 개요입니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 11/14/2017
+ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: e29975558801b4ffccd38d4485306d25ecaec0aa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e7c6c8d017e4371919088ec414d3108939ca4a19
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659960"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036257"
 ---
-# <a name="predictive-maintenance-solution-accelerator-walkthrough"></a>예측 유지 관리 솔루션 가속기 연습
+# <a name="predictive-maintenance-solution-accelerator-overview"></a>예측 유지 관리 솔루션 가속기 개요
 
 예측 유지 관리 솔루션 가속기는 오류가 발생할 가능성이 있는 경우 지점을 예측하는 비즈니스 시나리오에 대한 종단 간 솔루션입니다. 유지 관리를 최적화하는 등의 작업에 솔루션 가속기를 사전에 사용할 수 있습니다. 솔루션은 IoT Hub, Stream Analytics 및 [Azure Machine Learning][lnk-machine-learning] 작업 영역과 같은 주요 Azure IoT 솔루션 가속기 서비스를 결합합니다. 이 작업 영역에는 공용 샘플 데이터 집합에 따라 항공기 엔진의 RUL(잔여 수명)을 예측하는 모델이 포함되어 있습니다. 솔루션은 IoT 비즈니스 시나리오를 시작점으로 구현하여 고유한 특정 비즈니스 요구 사항을 충족하는 솔루션을 계획하고 구현합니다.
 
@@ -30,6 +30,16 @@ ms.locfileid: "34659960"
 녹색 항목은 항공기 엔진을 나타내는 시뮬레이션된 장치입니다. 시뮬레이션된 장치에 대한 자세한 내용은 [시뮬레이션된 장치](#simulated-devices) 섹션에서 알아볼 수 있습니다.
 
 회색 항목은 *장치 관리* 기능을 구현하는 구성 요소를 나타냅니다. 예측 유지 관리 솔루션 가속기의 현재 릴리스에서는 이러한 리소스를 프로비전하지 않습니다. 장치 관리에 대한 자세한 내용은 [솔루션 가속기 원격 모니터링][lnk-remote-monitoring]을 참조합니다.
+
+## <a name="azure-resources"></a>Azure 리소스
+
+Azure 포털에서 선택한 솔루션 이름을 가진 리소스 그룹으로 이동하여 프로비전된 리소스를 볼 수 있습니다.
+
+![가속기 리소스][img-resource-group]
+
+솔루션 가속기를 프로비전할 때 Machine Learning 작업 영역에 대한 링크가 포함된 전자 메일을 수신합니다. 또한 프로비전된 솔루션에 대한 [Microsoft Azure IoT Solution Accelerators][lnk-azureiotsuite] 페이지에서 Machine Learning 작업 영역으로 이동할 수 있습니다. 솔루션이 **준비** 상태일 때 이 페이지에 타일이 제공됩니다.
+
+![Machine Learning 모델][img-machine-learning]
 
 ## <a name="simulated-devices"></a>시뮬레이션된 장치
 
@@ -61,6 +71,11 @@ IoT Hub는 장치 명령 승인을 제공합니다.
 ## <a name="machine-learning"></a>Machine Learning
 Machine Learning 구성 요소는 실제 항공기 엔진에서 수집된 데이터에서 파생된 모델을 사용합니다. [azureiotsuite.com][lnk-azureiotsuite] 페이지의 솔루션 타일에서 Machine Learning 작업 영역으로 이동할 수 있습니다. 솔루션이 **준비** 상태일 때 타일이 제공됩니다.
 
+Azure Machine Learning 모델은 IoT 솔루션 가속기 서비스를 통해 수집되는 장치 원격 분석에서 작동하는 이러한 기능을 보여주기 위한 템플릿으로 사용할 수 있습니다. Microsoft는 공개적으로 사용 가능한 데이터<sup>\[1\]</sup>을 기반으로 하는 항공기 엔진의 [회귀 모델][lnk_regression_model] 및 해당 모델을 사용하는 방법에 대한 단계별 지침을 구축했습니다.
+
+Azure IoT 예측 유지 관리 솔루션 가속기는 이 템플릿에서 만든 회귀 모델을 사용합니다. 모델은 Azure 구독에 배포되고 자동으로 생성된 API를 통해 노출됩니다. 이 솔루션은 4개(총 100개 중)의 엔진을 나타내는 테스트 데이터의 하위 집합과 4개(총 21개 중)의 센서 데이터 스트림을 포함합니다. 이 데이터는 학습된 모델을 통해 정확한 결과를 제공하는 데 충분합니다.
+
+*\[1\] A. Saxena and K. Goebel(2008). "Turbofan 엔진 성능 저하 시뮬레이션 데이터 집합", NASA Ames Prognostics Data Repository(https://c3.nasa.gov/dashlink/resources/139/), NASA Ames Research Center, Moffett Field, CA*)
 
 ## <a name="next-steps"></a>다음 단계
 지금까지 예측 유지 관리 솔루션 가속기의 주요 구성 요소를 살펴보았으며 이를 사용자 지정할 수 있습니다.
@@ -71,10 +86,13 @@ IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습�
 * [처음부터 IoT 보안을 고려][lnk-security-groundup]
 
 [img-architecture]: media/iot-accelerators-predictive-walkthrough/architecture.png
+[img-resource-group]: media/iot-accelerators-predictive-walkthrough/resource-group.png
+[img-machine-learning]: media/iot-accelerators-predictive-walkthrough/machine-learning.png
 
-[lnk-remote-monitoring]: iot-accelerators-remote-monitoring-explore.md
+[lnk-remote-monitoring]: quickstart-predictive-maintenance-deploy.md
 [lnk-cortana-analytics]: http://gallery.cortanaintelligence.com/Collection/Predictive-Maintenance-Template-3
 [lnk-azureiotsuite]: https://www.azureiotsolutions.com/
 [lnk-faq]: iot-accelerators-faq.md
-[lnk-security-groundup]:securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up
 [lnk-machine-learning]: https://azure.microsoft.com/services/machine-learning/
+[lnk_regression_model]: http://gallery.cortanaanalytics.com/Collection/Predictive-Maintenance-Template-3

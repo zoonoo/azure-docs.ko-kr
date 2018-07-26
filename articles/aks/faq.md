@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/25/2018
+ms.date: 07/11/2018
 ms.author: iainfou
-ms.openlocfilehash: ffd81835de82cc5a00b3f6705a7607a51bb3bfa0
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096454"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001248"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -21,17 +21,7 @@ ms.locfileid: "37096454"
 
 ## <a name="which-azure-regions-provide-the-azure-kubernetes-service-aks-today"></a>현재 AKS(Azure Kubernetes Service)는 어떤 Azure 지역에서 제공되나요?
 
-- 오스트레일리아 동부
-- 캐나다 중부
-- 캐나다 동부
-- 미국 중부
-- 미국 동부
-- 미국 동부2
-- 북유럽
-- 영국 남부
-- 서유럽
-- 미국 서부
-- 미국 서부 2
+전체 목록은 Azure Kubernetes Service [지역 및 가용성][aks-regions] 설명서를 참조하세요.
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>보안 업데이트가 AKS 에이전트 노드에 적용되나요?
 
@@ -76,7 +66,7 @@ AKS는 기본적으로 현재는 Azure Key Vault와 통합되지 않습니다. �
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Windows Server 컨테이너를 AKS에서 실행할 수 있습니까?
 
-Windows Server 컨테이너를 실행하려면 Windows Server 기반 노드를 실행해야 합니다. Windows 서버 기반 노드는 현재 AKS에서 사용할 수 없습니다. Azure에서 Kubernetes에 Windows Server 컨테이너를 실행해야 하는 경우 [acs-engine에 대한 설명서](https://github.com/Azure/acs-engine/blob/master/docs/kubernetes/windows.md)를 참조하세요.
+Windows Server 컨테이너를 실행하려면 Windows Server 기반 노드를 실행해야 합니다. Windows 서버 기반 노드는 현재 AKS에서 사용할 수 없습니다. 단, Virtual Kubelet을 사용하여 Azure Container Instances에서 Windows 컨테이너를 예약하여 AKS 클러스터의 일부로 관리할 수 있습니다. 자세한 내용은 [AKS를 통한 Virtual Kubelet 사용][virtual-kubelet]을 참조하세요.
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 
@@ -87,6 +77,11 @@ Windows Server 컨테이너를 실행하려면 Windows Server 기반 노드를 �
 ## <a name="does-aks-offer-a-service-level-agreement"></a>AKS는 서비스 수준 계약을 제공합니까?
 
 SLA(서비스 수준 계약)에서, 공급자는 게시된 서비스 수준이 충족되지 않을 경우 고객에게 서비스 비용을 배상하는 것에 동의합니다. AKS 자체는 무료이므로 배상할 비용이 없으며 따라서 공식 SLA가 없습니다. 그러나 Kubernetes API 서버의 가용성을 99.5% 이상으로 유지하기 위해 노력하고 있습니다.
+
+<!-- LINKS - internal -->
+
+[aks-regions]: ./container-service-quotas.md
+[virtual-kubelet]: virtual-kubelet.md
 
 <!-- LINKS - external -->
 [auto-scaler]: https://github.com/kubernetes/autoscaler

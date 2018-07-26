@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: ea16a9828bfb989c49f3cc8d656122b3083ee66a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 26e01ccab3693c672130462104078c16526aa921
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34702077"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38992497"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>가상 네트워크 서브넷 추가, 변경 또는 삭제
 
@@ -44,7 +44,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 3. **설정**에서 **서브넷**을 선택합니다.
 4. **+서브넷**을 선택합니다.
 5. 다음 매개 변수에 대한 값을 입력합니다.
-    - **이름:** 가상 네트워크 내에서 고유해야 합니다.
+    - **이름:** 가상 네트워크 내에서 고유해야 합니다. 다른 Azure 서비스와의 호환성을 극대화하기 위해 이름의 첫 문자는 글자를 사용하는 것이 좋습니다. 예를 들어 Azure Application Gateway는 이름이 숫자로 시작하는 서브넷에는 배포되지 않습니다.
     - **주소 범위:** 범위는 가상 네트워크의 주소 공간 내에서 고유해야 합니다. 범위는 가상 네트워크 내에서 다른 서브넷 주소 범위와 겹칠 수 없습니다. CIDR(Classless Inter-Domain Routing) 표기법을 사용하여 주소 공간을 지정해야 합니다. 예를 들어 주소 공간이 10.0.0.0/16인 가상 네트워크에서 서브넷 주소 공간을 10.0.0.0/24로 정의할 수 있습니다. 지정할 수 있는 최소 범위는 /29이며, 서브넷에 대해 8개의 IP 주소를 제공합니다. Azure는 프로토콜 준수를 위해 각 서브넷의 첫 번째 및 마지막 주소를 예약합니다. 세 개의 추가 주소가 Azure 서비스를 사용하기 위해 예약되어 있습니다. 결과적으로 주소 범위가 /29인 서브넷을 정의하면 서브넷에 사용할 수 있는 3개의 IP 주소가 만들어집니다. 가상 네트워크를 VPN Gateway에 연결하려면 게이트웨이 서브넷을 만들어야 합니다. [게이트웨이 서브넷에 대한 특정 주소 범위 고려 사항](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)에서 대해 자세히 알아보세요. 특정 조건에서는 서브넷을 추가한 후에 주소 범위를 변경할 수 있습니다. 서브넷 주소 범위를 변경하는 방법에 대한 자세한 내용은 [서브넷 설정 변경](#change-subnet-settings)을 참조하세요.
     - **네트워크 보안 그룹**: 0개 또는 1개의 기존 네트워크 보안 그룹을 서브넷에 연결하여 서브넷에 대한 인바운드 및 아웃바운드 네트워크 트래픽을 필터링할 수 있습니다. 네트워크 보안 그룹은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [네트워크 보안 그룹](security-overview.md) 및 [네트워크 보안 그룹을 만드는 방법](tutorial-filter-network-traffic.md)에 대해 알아봅니다.
     - **경로 테이블**: 0개 또는 1개의 기존 경로 테이블을 서브넷에 연결하여 다른 네트워크에 대한 네트워크 트래픽 라우팅을 제어할 수 있습니다. 경로 테이블은 가상 네트워크와 동일한 구독 및 위치에 있어야 합니다. [Azure 라우팅](virtual-networks-udr-overview.md) 및 [경로 테이블을 만드는 방법](tutorial-create-route-table-portal.md)에 대해 알아봅니다.
@@ -68,7 +68,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](#permi
 4. 서브넷의 목록에서 설정을 변경할 서브넷을 선택합니다. 다음 설정을 변경할 수 있습니다.
 
     - **주소 범위:** 서브넷 내에 배포된 리소스가 없는 경우 주소 범위를 변경할 수 있습니다. 서브넷에 리소스가 있으면 먼저 다른 서브넷으로 리소스를 이동하거나 서브넷에서 삭제해야 합니다. 리소스 이동 또는 삭제를 수행하는 단계는 리소스에 따라 다릅니다. 서브넷에 있는 리소스를 이동 또는 삭제하는 방법에 대해 알아보려면 이동 또는 삭제하려는 각 리소스 종류의 설명서를 참조하세요. [서브넷 추가](#add-a-subnet)의 5단계에서 **주소 범위**에 대한 제약 조건을 참조하세요.
-    - **사용자**: 기본 제공 역할 또는 사용자 지정 역할을 사용하여 서브넷에 대한 액세스를 제어할 수 있습니다. 역할과 사용자를 할당하여 서브넷에 액세스하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-access)를 참조하세요.
+    - **사용자**: 기본 제공 역할 또는 사용자 지정 역할을 사용하여 서브넷에 대한 액세스를 제어할 수 있습니다. 역할과 사용자를 할당하여 서브넷에 액세스하는 방법에 대한 자세한 내용은 [역할 할당을 사용하여 Azure 리소스에 대한 액세스 관리](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access)를 참조하세요.
     - **네트워크 보안 그룹** 및 **경로 테이블**: [서브넷 추가](#add-a-subnet)의 5단계를 참조하세요.
     - **서비스 끝점**: [서브넷 추가](#add-a-subnet)의 5단계에서 서비스 끝점을 참조하세요. 기존 서브넷에 대해 서비스 끝점을 사용하도록 설정할 경우, 서브넷의 리소스에서 실행 중인 중요 작업이 없는지 확인합니다. 서비스 끝점은 서브넷에 있는 모든 네트워크 인터페이스의 경로를 *0.0.0.0/0* 주소 접두사를 사용하고 다음 홉 유형이 *인터넷*인 기본 경로 사용에서 서비스의 주소 접두사를 사용하고 다음 홉 유형이 *VirtualNetworkServiceEndpoint*인 새 경로 사용으로 전환합니다. 전환 중에, 열려 있는 TCP 연결이 종료될 수 있습니다. 모든 네트워크 인터페이스에서 서비스로 들어오는 트래픽 흐름이 새 경로로 업데이트될 때까지 서비스 끝점을 사용할 수 없습니다. 라우팅에 대한 자세한 내용은 [라우팅 개요](virtual-networks-udr-overview.md)를 참조하세요.
 5. **저장**을 선택합니다.

@@ -2,7 +2,7 @@
 title: 지속성 함수의 인간 상호 작용 및 시간 제한 - Azure
 description: Azure Functions의 지속성 함수 확장에서 인간 상호 작용 및 시간 제한을 처리하는 방법을 알아봅니다.
 services: functions
-author: cgillum
+author: kashimiz
 manager: cfowler
 editor: ''
 tags: ''
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/19/2018
+ms.date: 07/11/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 071a9ffb8305a30b0fedeaa49c4a95d91fbce6c1
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a62baf64e35dfad55f76138e2f1aaef65dd434be
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30168404"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036308"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
@@ -51,7 +51,7 @@ ms.locfileid: "30168404"
 * **E4_SmsPhoneVerification**
 * **E4_SendSmsChallenge**
 
-다음 섹션에서는 C# 스크립팅에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+다음 섹션에서는 C# 스크립팅 및 JavaScript에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
  
 ## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 확인 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드) 
 
@@ -61,7 +61,13 @@ ms.locfileid: "30168404"
 
 다음은 이 함수를 구현하는 코드입니다.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
 시작되면 이 오케스트레이터 함수에서 다음을 수행합니다.
 
@@ -76,7 +82,7 @@ ms.locfileid: "30168404"
 > 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이는 `CurrentUtcDateTime` 속성이 타이머 만료 시간을 계산하는 데 사용되며, 이 속성이 오케스트레이터 코드의 이 시점에 있는 모든 재생에서 동일한 값을 반환하기 때문입니다. 이 경우 `Task.WhenAny`를 반복적으로 호출할 때마다 동일한 `winner`가 발생하도록 하는 것이 중요합니다.
 
 > [!WARNING]
-> 챌린지 응답이 수락되고 타이머가 더 이상 만료될 필요가 없으면 위의 예제와 같이 [CancellationTokenSource를 사용하여 타이머를 취소](durable-functions-timers.md)하는 것이 중요합니다.
+> 챌린지 응답이 수락되고 타이머가 더 이상 만료될 필요가 없으면 위의 예제와 같이 [타이머를 취소](durable-functions-timers.md)하는 것이 중요합니다.
 
 ## <a name="send-the-sms-message"></a>SMS 메시지 전송
 
@@ -86,7 +92,13 @@ ms.locfileid: "30168404"
 
 다음은 4자리 챌린지 코드를 생성하고 SMS 메시지를 보내는 코드입니다.
 
+### <a name="c"></a>C#
+
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+
+### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
+
+[!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
 이 **E4_SendSmsChallenge** 함수는 프로세스가 충돌하거나 재생되는 경우에도 한 번만 호출됩니다. 이는 최종 사용자가 여러 개의 SMS 메시지를 받지 않으려고 하기 때문에 좋습니다. `challengeCode` 반환 값은 자동으로 유지되므로 오케스트레이터 함수는 항상 올바른 코드를 인식하고 있습니다.
 
@@ -109,6 +121,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
+
+   > [!NOTE]
+   > 현재 JavaScript 오케스트레이션 시작 함수는 인스턴스 관리 URI를 반환할 수 없습니다. 이 기능은 이후 릴리스에서 추가될 예정입니다.
 
 오케스트레이터 함수는 제공된 전화 번호를 받는 즉시 임의로 생성된 4자리 확인 코드&mdash;(예: *2168*)가 있는 SMS 메시지를 보냅니다. 그런 다음 이 함수는 90초 동안 응답을 기다립니다.
 

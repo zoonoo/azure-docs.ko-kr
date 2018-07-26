@@ -11,12 +11,12 @@ ms.workload: azure
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 55b083ac5384e749098338d2f3b7b24bfe16fe8f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fd13dc94e0199aac04ae86aaf003ea9a70fa50d5
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696568"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070558"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Azure Blob 저장소 및 Visual Studio 연결된 서비스 시작(ASP.NET)
 
@@ -135,11 +135,11 @@ Blob 컨테이너는 Blob 및 폴더의 중첩된 계층 구조입니다. 이 �
 
 1. **솔루션 탐색기**에서 **Views** 폴더를 마우스 오른쪽 단추로 클릭합니다.
 
-2. 상황에 맞는 메뉴에서 **추가** > **새 폴더**를 선택합니다. 새 폴더 이름을 *Blobs*로 지정합니다. 
+1. **Blob** 폴더가 없는 경우 만듭니다. 상황에 맞는 메뉴에서 **추가** > **새 폴더**를 선택합니다. 새 폴더 이름을 *Blobs*로 지정합니다. 
  
 1. **솔루션 탐색기**에서 **뷰** 폴더를 확장하고 **Blob**을 마우스 오른쪽 단추로 클릭합니다.
 
-4. 상황에 맞는 메뉴에서 **추가** > **뷰**를 선택합니다.
+1. 상황에 맞는 메뉴에서 **추가** > **뷰**를 선택합니다.
 
 1. **뷰 추가** 대화 상자에서 뷰 이름으로 **CreateBlobContainer**를 입력하고 **추가**를 선택합니다.
 

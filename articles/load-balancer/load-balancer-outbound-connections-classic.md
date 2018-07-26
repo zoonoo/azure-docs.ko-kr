@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: f6452d8f88b91fe0cbf144ce951b84ba4cec0047
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: bd446923f84d22537b7a49a8ef6124f343141d73
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939824"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069913"
 ---
 # <a name="outbound-connections-classic"></a>아웃바운드 연결(클래식)
 
@@ -121,6 +121,8 @@ Azure에서 지정된 공용 IP 주소를 공유하는 VM 또는 웹 작업자 �
 배포 크기를 변경하면 설정된 흐름 중 일부에 영향을 줄 수 있습니다. 백 엔드 풀 크기가 증가하여 그 다음 계층으로 전환되면 그 다음으로 큰 백 앤드 풀 계층으로 전환되는 동안 미리 할당된 SNAT 포트의 절반이 회수됩니다. 회수된 SNAT 포트와 연결된 흐름은 시간이 초과되며 다시 설정해야 합니다. 미리 할당된 포트를 사용할 수 있는 한, 새 흐름이 즉시 성공합니다.
 
 배포 크기가 줄고 더 낮은 계층으로 전환되면 사용 가능한 SNAT 포트 수가 늘어납니다. 이 경우 기존에 할당된 SNAT 포트와 각각의 흐름은 영향을 받지 않습니다.
+
+클라우드 서비스를 다시 배포하거나 변경하는 경우 인프라는 실제와 같이 많은 최대 두 번까지 백 엔드 풀을 일시적으로 보고할 수 있습니다. Azure는 차례로 예상보다 적은 인스턴스당 SNAT 포트를 미리 할당합니다.  그러면 SNAT 포트 소모의 확률을 일시적으로 증가시킬 수 있습니다. 결국 풀 크기는 실제 크기로 전환되고 Azure는 미리 할당된 SNAT 포트를 위의 테이블에 따라 예상된 수로 자동으로 증가시킵니다.  이 동작은 의도적이며 구성할 수 없습니다.
 
 SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP가 별도로 유지 관리됨), 다음 조건에서 해제됩니다.
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 04/30/2018
 ms.author: estfan
-ms.openlocfilehash: 6a4e113c6816540e303210c3f1c96d81146cf5db
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300184"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39059235"
 ---
 # <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>워크플로 정의 언어 스키마로 Logic Apps 워크플로 정의
 
@@ -125,7 +125,7 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 "rainbowColorsCount": 7 
 ```
 
-실행 시간까지 존재하지 않는 값이 있을 수 있습니다. 이러한 값을 표시하려면 실행 시간에 평가되는 *식*을 사용할 수 있습니다. 식은 하나 이상의 [함수](#functions), [연산자](#operators), 변수, 명시적인 값 또는 상수를 포함하는 시퀀스입니다. 워크플로 정의에서 식 앞에 at 기호(@)를 붙여 JSON 문자열 값의 어디에서나 식을 사용할 수 있습니다. JSON 값을 나타내는 식을 계산하는 경우 식 본문은 다른 JSON 값에서 결과 및 @ 문자를 제거하여 추출합니다. 
+실행 시간까지 존재하지 않는 값이 있을 수 있습니다. 이러한 값을 표시하려면 실행 시간에 평가되는 *식*을 사용할 수 있습니다. 식은 하나 이상의 [함수](#functions), [연산자](#operators), 변수, 명시적인 값 또는 상수를 포함하는 시퀀스입니다. 워크플로 정의에서 식 앞에 at 기호(\@)를 붙여 JSON 문자열 값의 어디에서나 식을 사용할 수 있습니다. JSON 값을 나타내는 식을 계산하는 경우 식 본문은 다른 JSON 값에서 결과 및 \@ 문자를 제거하여 추출합니다. 
 
 예를 들어 이전에 정의된 `customerName` 속성의 경우 식에서 [매개 변수()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 함수를 사용하여 속성 값을 얻고 해당 값을 `accountName` 속성에 할당할 수 있습니다.
 
@@ -134,7 +134,7 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 "accountName": "@parameters('customerName')"
 ```
 
-*문자열 보간*은 @ 문자와 중괄호({})로 래핑된 문자열 내에 여러 개의 식을 사용할 수 있게 합니다. 구문은 다음과 같습니다.
+*문자열 보간*은 \@ 문자와 중괄호({})로 래핑된 문자열 내에 여러 개의 식을 사용할 수 있게 합니다. 구문은 다음과 같습니다.
 
 ```json
 @{ "<expression1>", "<expression2>" }
@@ -146,7 +146,7 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 "customerName": "First name: @{parameters('firstName')} Last name: @{parameters('lastName')}"
 ```
 
-@ 문자로 시작하는 리터럴 문자열이 있는 경우 @ 문자 앞에 이스케이프 문자(@ @)로서 다른 @ 문자를 붙입니다.
+\@ 문자로 시작하는 리터럴 문자열이 있는 경우 \@ 문자 앞에 이스케이프 문자(\@\@)로서 다른 \@ 문자를 붙입니다.
 
 이러한 예제는 식의 평가 방식을 보여 줍니다.
 
@@ -154,8 +154,8 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 |------------|--------| 
 | "Sophia Owen" | 이러한 문자 'Sophia Owen'을 반환 |
 | "배열[1]" | 이러한 문자 '배열[1]'을 반환 |
-| "\@\@\" | 이러한 문자를 한 문자열 \' \@\'로 반환 |   
-| \" \@\" | 이러한 문자를 두 문자열 '\@\'로 반환 |
+| "\@\@" | 이러한 문자를 한 문자열 '\@'로 반환 |   
+| “\@” | 이러한 문자를 두 문자열 '\@'로 반환 |
 |||
 
 이 예제에서는 "myBirthMonth"를 "1월", "myAge"를 숫자 42와 동일하게 정의하는 것으로 가정합니다.  
@@ -169,13 +169,13 @@ Json을 사용하면 예를 들어 디자인 타임 시 존재하는 리터럴 �
 
 | JSON 식 | 결과 |
 |-----------------|--------| 
-| "@parameters('myBirthMonth')" | 이 문자열 "1월"을 반환 |  
-| "@{parameters('myBirthMonth')}" | 이 문자열 "1월"을 반환 |  
-| "@parameters('myAge')" | 이 숫자 42를 반환 |  
-| "@{parameters('myAge')}" | 이 숫자 "42"를 문자열로 반환 |  
-| "내 나이는 @{parameters('myAge')}살" | 이 문자열 "내 나이는 42살"을 반환 |  
-| "@concat('My age is ', string(parameters('myAge')))" | 이 문자열 "내 나이는 42살"을 반환 |  
-| "내 나이는 @{parameters('myAge')}살" | 식이 포함된 이 문자열 "내 나이는 @{parameters('myAge')}살'을 반환 | 
+| "\@parameters('myBirthMonth')" | 이 문자열 "1월"을 반환 |  
+| "\@{parameters('myBirthMonth')}" | 이 문자열 "1월"을 반환 |  
+| "\@parameters('myAge')" | 이 숫자 42를 반환 |  
+| "\@{parameters('myAge')}" | 이 숫자 "42"를 문자열로 반환 |  
+| "내 나이는 \@{parameters('myAge')}살" | 이 문자열 "내 나이는 42살"을 반환 |  
+| "\@('내 나이는 ', string(parameters('myAge')))" | 이 문자열 "내 나이는 42살"을 반환 |  
+| "내 나이는 \@\@{parameters('myAge')}살" | 식이 포함된 이 문자열 "내 나이는 \@{parameters('myAge')}살'을 반환 | 
 ||| 
 
 Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 작성기를 통해 식을 만들 수 있습니다. 
@@ -241,10 +241,10 @@ Logic Apps Designer에서 시각적으로 작업하는 경우 예를 통해 식 
 
 | Task | 식에서 함수 구문 | 
 | ---- | -------------------------------- | 
-| 함수에 해당 항목을 전달하여 항목으로 작업을 수행합니다. | "@<*functionName*>(<*item*>)" | 
-| 1. 중첩된 `parameters()` 함수를 사용하여 *parameterName* 값을 가져옵니다. </br>2. 해당 값을 *functionName*에 전달하여 결과로 작업을 수행합니다. | "@<*functionName*>(parameters('<*parameterName*>'))" | 
-| 1. 중첩된 내부 함수 *functionName*에서 결과를 가져옵니다. </br>2. 외부 함수 *functionName2*에 결과를 전달합니다. | "@<*functionName2*>(<*functionName*>(<*item*>))" | 
-| 1. *functionName*에서 결과를 가져옵니다. </br>2. 결과가 속성 *propertyName*이 있는 개체인 경우 해당 속성의 값을 가져옵니다. | "@<*functionName*>(<*item*>).<*propertyName*>" | 
+| 함수에 해당 항목을 전달하여 항목으로 작업을 수행합니다. | "\@<*functionName*>(<*item*>)" | 
+| 1. 중첩된 `parameters()` 함수를 사용하여 *parameterName* 값을 가져옵니다. </br>2. 해당 값을 *functionName*에 전달하여 결과로 작업을 수행합니다. | "\@<*functionName*>(parameters('<*parameterName*>'))" | 
+| 1. 중첩된 내부 함수 *functionName*에서 결과를 가져옵니다. </br>2. 외부 함수 *functionName2*에 결과를 전달합니다. | "\@<*functionName2*>(<*functionName*>(<*item*>))" | 
+| 1. *functionName*에서 결과를 가져옵니다. </br>2. 결과가 속성 *propertyName*이 있는 개체인 경우 해당 속성의 값을 가져옵니다. | "\@<*functionName*>(<*item*>).<*propertyName*>" | 
 ||| 
 
 예를 들어 `concat()` 함수는 두 개 이상의 문자열 값을 매개 변수로 사용할 수 있습니다. 이 함수는 이러한 문자열을 하나의 문자열로 결합합니다. 문자열 리터럴, 예를 들어 "Sophia" 및 "Owen"을 전달하여 결합된 문자열 "SophiaOwen"을 가져올 수 있습니다.

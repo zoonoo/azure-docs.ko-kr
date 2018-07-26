@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ffd774477881be6b7f46dd38bbc88c8d019223aa
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317207"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036754"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD의 선택적 클레임(미리 보기)
 
@@ -48,31 +48,35 @@ ms.locfileid: "36317207"
 기본적으로 응용 프로그램에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다.  응용 프로그램에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)을 참조하세요. 
 
 > [!Note]
->이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 JWT에 포함될 수 있습니다.  또한 현재, 선택적 클레임이 AAD 사용자에 대해서만 지원되는 동안 MSA 지원이 추가됩니다.  v2.0 끝점에서 MSA에 선택적 클레임 지원이 있는 경우 사용자 유형 열은 AAD 또는 MSA 사용자에 대해 클레임을 사용할 수 있는지를 나타냅니다.  
+>이러한 클레임 대부분은 토큰 유형 열에 명시된 경우를 제외하고 SAML 토큰이 아닌 v1.0 및 v2.0 토큰에 대한 JWT에 포함될 수 있습니다.  또한 현재, 선택적 클레임이 AAD 사용자에 대해서만 지원되는 동안 MSA 지원이 추가됩니다.  v2.0 끝점에서 MSA에 선택적 클레임 지원이 있는 경우 사용자 유형 열은 AAD 또는 MSA 사용자에 대해 클레임을 사용할 수 있는지를 나타냅니다.  
 
 **표 2: 표준 선택적 클레임 집합**
 
-| Name                     | 설명                                                                                                                                                                                     | 토큰 형식 | 사용자 유형 | 메모                                                                                                                                                                                                                                                                                   |
-|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다.  OpenID Connect 사양을 참조하세요.                                                                                                                                | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_region_scope`      | 리소스 테넌트의 지역입니다.                                                                                                                                                                   | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `signin_state`             | 로그인 상태 클레임입니다.                                                                                                                                                                             | JWT        |           | 6개의 플래그 반환 값:<br> "dvc_mngd": 장치가 관리됩니다.<br> "dvc_cmp": 장치가 규격입니다.<br> "dvc_dmjd": 장치가 도메인에 가입되어 있습니다.<br> "dvc_mngd_app": 장치가 MDM을 통해 관리됩니다.<br> "inknownntwk": 장치가 알려진 네트워크 내부에 있습니다.<br> "kmsi": 로그인 유지가 사용되었습니다. <br> |
-| `controls`                 | 조건부 액세스 정책에 의해 적용되는 세션 컨트롤이 포함된 다중 값 클레임입니다.                                                                                                       | JWT        |           | 3개 값:<br> "app_res": 앱이 좀 더 세분화된 제한 사항을 적용해야 합니다. <br> "ca_enf": 조건부 액세스 적용이 지연되었으며 여전히 필요합니다. <br> "no_cookie": 이 토큰은 브라우저에서 쿠키를 교환하는 데 충분하지 않습니다. <br>                              |
-| `home_oid`                 | 게스트 사용자의 경우 사용자의 홈 테넌트에 있는 사용자의 개체 ID입니다.                                                                                                                           | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `sid`                      | 세션 기준 사용자 로그아웃에 사용되는 세션 ID입니다.                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `platf`                    | 장치 플랫폼입니다.                                                                                                                                                                                 | JWT        |           | 장치 유형을 확인할 수 있는 관리 장치로 제한됩니다.                                                                                                                                                                                                                              |
-| `verified_primary_email`   | 사용자의 PrimaryAuthoritativeEmail에서 소싱됩니다.                                                                                                                                               | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.                                                                                                                                             | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `enfpolids`                | 강제 적용된 정책 ID입니다. 현재 사용자에 대해 평가된 정책 ID의 목록입니다.                                                                                                         | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `vnet`                     | VNET 지정자 정보입니다.                                                                                                                                                                     | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `fwd`                      | IP 주소입니다.  요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우).                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `ctry`                     | 사용자의 국가입니다.                                                                                                                                                                                  | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `tenant_ctry`              | 리소스의 테넌트 국가입니다.                                                                                                                                                                       | JWT        |           |                                                                                                                                                                                                                                                                                         |
-| `acct`    | 테넌트의 사용자 계정 상태입니다.  사용자가 테넌트의 구성원인 경우 값은 `0`입니다.  게스트인 경우 값은 `1`입니다.  | JWT, SAML | | |
-| `upn`                      | UserPrincipalName 클레임입니다.  이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다. | JWT, SAML  |           | 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash`                                                                                                                                                                 |
+| Name                        | 설명   | 토큰 형식 | 사용자 유형 | 메모  |
+|-----------------------------|----------------|------------|-----------|--------|
+| `auth_time`                | 사용자가 마지막으로 인증받은 시간입니다.  OpenID Connect 사양을 참조하세요.| JWT        |           |  |
+| `tenant_region_scope`      | 리소스 테넌트의 지역입니다. | JWT        |           | |
+| `signin_state`             | 로그인 상태 클레임입니다.   | JWT        |           | 6개의 플래그 반환 값:<br> "dvc_mngd": 장치가 관리됩니다.<br> "dvc_cmp": 장치가 규격입니다.<br> "dvc_dmjd": 장치가 도메인에 가입되어 있습니다.<br> "dvc_mngd_app": 장치가 MDM을 통해 관리됩니다.<br> "inknownntwk": 장치가 알려진 네트워크 내부에 있습니다.<br> "kmsi": 로그인 유지가 사용되었습니다. <br> |
+| `controls`                 | 조건부 액세스 정책에 의해 적용되는 세션 컨트롤이 포함된 다중 값 클레임입니다.  | JWT        |           | 3개 값:<br> "app_res": 앱이 좀 더 세분화된 제한 사항을 적용해야 합니다. <br> "ca_enf": 조건부 액세스 적용이 지연되었으며 여전히 필요합니다. <br> "no_cookie": 이 토큰은 브라우저에서 쿠키를 교환하는 데 충분하지 않습니다. <br>  |
+| `home_oid`                 | 게스트 사용자의 경우 사용자의 홈 테넌트에 있는 사용자의 개체 ID입니다.| JWT        |           | |
+| `sid`                      | 세션 기준 사용자 로그아웃에 사용되는 세션 ID입니다. | JWT        |           |         |
+| `platf`                    | 장치 플랫폼입니다.    | JWT        |           | 장치 유형을 확인할 수 있는 관리 장치로 제한됩니다.|
+| `verified_primary_email`   | 사용자의 PrimaryAuthoritativeEmail에서 소싱됩니다.      | JWT        |           |         |
+| `verified_secondary_email` | 사용자의 SecondaryAuthoritativeEmail에서 소싱됩니다.   | JWT        |           |        |
+| `enfpolids`                | 강제 적용된 정책 ID입니다. 현재 사용자에 대해 평가된 정책 ID의 목록입니다.  | JWT |  |  |
+| `vnet`                     | VNET 지정자 정보입니다.    | JWT        |           |      |
+| `fwd`                      | IP 주소입니다.| JWT    |   | 요청 클라이언트의 원래 IPv4 주소를 추가합니다(VNET 내에 있는 경우). |
+| `ctry`                     | 사용자의 국가입니다. | JWT |           | Azure AD는 표시되고 클레임의 값이 FR, JP, SZ 등과 같은 표준 두 글자 국가 번호인 경우 `ctry` 선택적 클레임을 반환합니다. |
+| `tenant_ctry`              | 리소스의 테넌트 국가입니다. | JWT | | |
+| `xms_pdl`          | 기본 설정 데이터 위치   | JWT | | 다중 지역 테넌트의 경우 사용자가 있는 지리적 지역을 보여주는 세 글자 코드입니다.  자세한 내용은 [기본 설정 데이터 위치에 대한 Azure AD Connect 설명서](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-preferreddatalocation)를 참조합니다. <br> 예를 들어 아시아 태평양의 경우 `APC`입니다. |
+| `xms_pl`                   | 사용자 기본 설정 언어  | JWT ||설정되는 경우 사용자의 기본 설정 언어입니다.  게스트 액세스 시나리오에서 해당 홈 테넌트의 원본 위치입니다.  형식이 지정된 LL-CC("en-us"). |
+| `xms_tpl`                  | 테넌트 기본 설정 언어| JWT | | 설정된 경우 리소스 테넌트의 기본 설정 언어입니다.  형식이 지정된 LL("en"). |
+| `ztdid`                    | 무인 배포 ID | JWT | | [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)에 사용된 장치 ID |
+| `acct`             | 테넌트의 사용자 계정 상태입니다.   | JWT, SAML | | 사용자가 테넌트의 구성원인 경우 값은 `0`입니다.  게스트인 경우 값은 `1`입니다.  |
+| `upn`                      | UserPrincipalName 클레임입니다.  | JWT, SAML  |           | 이 클레임은 자동으로 포함되지만, 추가 속성을 연결하여 게스트 사용자 사례에서 해당 동작을 수정하기 위해 선택적 클레임으로 지정할 수 있습니다.  <br> 추가 속성: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 
 ### <a name="v20-optional-claims"></a>V2.0 선택적 클레임
-이러한 클레임은 항상 v1.0 토큰에 포함되지만, 요청되지 않을 경우 v2.0 토큰에서 제거됩니다.  이러한 클레임은 JWT(ID 토큰 및 액세스 토큰)에 대해서만 적용 가능합니다.  
+이러한 클레임은 항상 v1.0 토큰에 포함되지만, 요청되지 않을 경우 v2.0 토큰에 포함되지 않습니다.  이러한 클레임은 JWT(ID 토큰 및 액세스 토큰)에 대해서만 적용 가능합니다.  
 
 **표 3: V2.0 전용 선택적 클레임**
 
@@ -95,7 +99,7 @@ ms.locfileid: "36317207"
 
 | 속성 이름                                     | 추가 속성 이름                                                                                                             | 설명 |
 |---------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `upn`                                                 |                                                                                                                                      |             |
+| `upn`                                                 |                                                                                                                                      |  SAML 및 JWT 응답 모두에 사용할 수 있습니다.            |
 | | `include_externally_authenticated_upn`              | 리소스 테넌트에 저장된 게스트 UPN을 포함합니다.  예를 들어 `foo_hometenant.com#EXT#@resourcetenant.com`                            |             
 | | `include_externally_authenticated_upn_without_hash` | 해시 표시(`#`)가 밑줄(`_`)로 바뀐다는 점을 제외하고 위와 같습니다(예: `foo_hometenant.com_EXT_@resourcetenant.com`). |             
 
@@ -118,7 +122,7 @@ ms.locfileid: "36317207"
 }
 ```
 
-이 OptionalClaims 개체를 통해 ID 토큰이 클라이언트에 반환되어 추가 홈 테넌트 및 리소스 테넌트 정보와 함께 다른 UPN을 포함하게 됩니다.  
+이 OptionalClaims 개체를 통해 ID 토큰이 클라이언트에 반환되어 추가 홈 테넌트 및 리소스 테넌트 정보와 함께 다른 UPN을 포함하게 됩니다.  사용자가 인증에 대해 다른 IDP를 사용하는 테넌트의 게스트인 경우 토큰에서 `upn` 클레임만 변경합니다. 
 
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
@@ -131,14 +135,13 @@ ms.locfileid: "36317207"
    {
        "idToken": [
              { 
-                   "name": "upn", 
-                   "essential": false, 
-                   "additionalProperties": [ "include_externally_authenticated_upn"]  
+                   "name": "auth_time", 
+                   "essential": false
               }
         ],
  "accessToken": [ 
              {
-                    "name": "auth_time", 
+                    "name": "ipaddr", 
                     "essential": false
               }
         ],

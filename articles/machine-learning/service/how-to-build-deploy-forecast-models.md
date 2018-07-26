@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: mattcon
 author: matthewconners
-ms.date: 05/07/2018
-ms.openlocfilehash: 44093dfde926b92d1617b85d27e362a8e40e5c56
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.date: 07/13/2018
+ms.openlocfilehash: 60eecf134f067d68326fc23ade8ed2a5a7ae7ac4
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888673"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39070344"
 ---
 # <a name="build-and-deploy-forecasting-models-with-azure-machine-learning"></a>Azure Machine Learning으로 예측 모델 작성 및 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "37888673"
    - Azure Machine Learning 모델 관리 계정
    - Azure Machine Learning Workbench 설치 
 
-    이 세 가지를 아직 만들거나 설치하지 않은 경우 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../service/quickstart-installation.md) 문서를 참조하세요.
+ 이 세 가지를 아직 만들거나 설치하지 않은 경우 [Azure Machine Learning 빠른 시작 및 Workbench 설치](../service/quickstart-installation.md) 문서를 참조하세요.
 
 1. Azure Machine Learning Package for Forecasting을 설치해야 합니다. [패키지를 설치하는 방법은 여기](https://aka.ms/aml-packages/forecasting)를 참조하세요.
 
@@ -77,6 +77,7 @@ import pkg_resources
 from datetime import timedelta
 import matplotlib
 matplotlib.use('agg')
+%matplotlib inline
 from matplotlib import pyplot as plt
 
 from sklearn.linear_model import Lasso, ElasticNet
@@ -84,12 +85,12 @@ from sklearn.ensemble import RandomForestRegressor, GradientBoostingRegressor
 from sklearn.neighbors import KNeighborsRegressor
 
 from ftk import TimeSeriesDataFrame, ForecastDataFrame, AzureMLForecastPipeline
-from ftk.tsutils import last_n_periods_split
+from ftk.ts_utils import last_n_periods_split
 
 from ftk.transforms import TimeSeriesImputer, TimeIndexFeaturizer, DropColumns
 from ftk.transforms.grain_index_featurizer import GrainIndexFeaturizer
-from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS
-from ftk.models.forecasterunion import ForecasterUnion
+from ftk.models import Arima, SeasonalNaive, Naive, RegressionForecaster, ETS, BestOfForecaster
+from ftk.models.forecaster_union import ForecasterUnion
 from ftk.model_selection import TSGridSearchCV, RollingOriginValidator
 
 from azuremltkbase.deployment import AMLSettings
@@ -502,12 +503,11 @@ whole_tsdf.loc[pd.IndexSlice['1990-06':'1990-09', 2, 'dominicks'], ['Quantity']]
 
 
 ```python
-%matplotlib inline
 whole_tsdf.ts_report()
 ```
 
     --------------------------------  Data Overview  ---------------------------------
-    <class 'ftk.dataframets.TimeSeriesDataFrame'>
+    <class 'ftk.time_series_data_frame.TimeSeriesDataFrame'>
     MultiIndex: 28947 entries, (1990-06-20 23:59:59, 2, dominicks) to (1992-10-07 23:59:59, 137, tropicana)
     Data columns (total 17 columns):
     week            28947 non-null int64
@@ -662,12 +662,6 @@ whole_tsdf.ts_report()
 
 
 ![png](./media/how-to-build-deploy-forecast-models/output_15_6.png)
-
-![png](./media/how-to-build-deploy-forecast-models/output_59_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
-![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
- 
 
 
 ## <a name="integrate-with-external-data"></a>외부 데이터와 통합
@@ -892,7 +886,7 @@ whole_tsdf.head()
 
 ## <a name="preprocess-data-and-impute-missing-values"></a>데이터 전처리 및 누락 값 대체
 
-[ftk.tsutils.last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) 유틸리티 함수를 사용하여 학습 집합과 테스트 집합으로 데이터를 분할하는 것부터 시작합니다. 결과 집합에는 각 시계열의 최근 40개 관측이 포함됩니다. 
+[last_n_periods_split](https://docs.microsoft.com/en-us/python/api/ftk.ts_utils?view=azure-ml-py-latest) 유틸리티 함수를 사용하여 학습 집합과 테스트 집합으로 데이터를 분할하는 것부터 시작합니다. 결과 집합에는 각 시계열의 최근 40개 관측이 포함됩니다. 
 
 
 ```python
@@ -974,7 +968,7 @@ print(ts_regularity[ts_regularity['regular'] == False])
     [213 rows x 2 columns]
     
 
-대부분의 계열(249개 중 213개)이 불규칙한 것을 볼 수 있습니다. 누락된 판매 수량 값을 채우려면 [대체 변환](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer?view=azure-ml-py-latest)이 필요합니다. 많은 대체 옵션이 있지만 다음 샘플 코드에서는 선형 보간을 사용합니다.
+대부분의 계열(249개 중 213개)이 불규칙한 것을 볼 수 있습니다. 누락된 판매 수량 값을 채우려면 [대체 변환](https://docs.microsoft.com/en-us/python/api/ftk.transforms.ts_imputer.timeseriesimputer?view=azure-ml-py-latest)이 필요합니다. 많은 대체 옵션이 있지만 다음 샘플 코드에서는 선형 보간을 사용합니다.
 
 
 ```python
@@ -1040,7 +1034,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### <a name="combine-multiple-models"></a>여러 모델 통합
 
-[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union.forecasterunion?view=azure-ml-py-latest) 추정을 통해 여러 추정을 결합하고 코드 한 줄로 맞춤/예측을 수행할 수 있습니다.
+[ForecasterUnion](https://docs.microsoft.com/en-us/python/api/ftk.models.forecaster_union?view=azure-ml-py-latest) 추정을 통해 여러 추정을 결합하고 코드 한 줄로 맞춤/예측을 수행할 수 있습니다.
 
 
 ```python
@@ -1205,10 +1199,10 @@ test_feature_tsdf = pipeline_ml.transform(test_tsdf)
 print(train_feature_tsdf.head())
 ```
 
-    F1 2018-05-04 11:00:54,308 INFO azureml.timeseries - pipeline fit_transform started. 
-    F1 2018-05-04 11:01:02,545 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:08.237301
-    F1 2018-05-04 11:01:02,576 INFO azureml.timeseries - pipeline transforms started. 
-    F1 2018-05-04 11:01:19,048 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:16.471961
+    F1 2018-06-14 23:10:03,472 INFO azureml.timeseries - pipeline fit_transform started. 
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline fit_transform finished. Time elapsed 0:00:03.845078
+    F1 2018-06-14 23:10:07,317 INFO azureml.timeseries - pipeline transforms started. 
+    F1 2018-06-14 23:10:16,499 INFO azureml.timeseries - pipeline transforms finished. Time elapsed 0:00:09.182314
                                            feat  price  AGE60  EDUC  ETHNIC  \
     WeekLastDay         store brand                                           
     1990-06-20 23:59:59 2     dominicks    1.00   1.59   0.23  0.25    0.11   
@@ -1370,13 +1364,16 @@ all_errors.sort_values('MedianAPE')
 
 일부 Machine Learning 모델은 추가된 기능과 계열 간의 유사성을 활용하여 예측 정확도를 높일 수 있었습니다.
 
-**교차 유효성 검사 및 매개 변수 비우기**    
+### <a name="cross-validation-parameter-and-model-sweeping"></a>교차 유효성 검사, 매개 변수 및 모델 비우기    
 
-이 패키지는 일부 기존 기계 학습 함수를 예측 응용 프로그램에 맞게 변경합니다.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator)는 예측 프레임워크에 알려진 것과 그렇지 않은 것을 존중하면서 일시적으로 교차 유효성 검사를 수행합니다. 
+이 패키지는 일부 기존 기계 학습 함수를 예측 응용 프로그램에 맞게 변경합니다.  [RollingOriginValidator](https://docs.microsoft.com/python/api/ftk.model_selection.cross_validation.rollingoriginvalidator?view=azure-ml-py-latest)는 예측 프레임워크에 알려진 것과 그렇지 않은 것을 존중하면서 일시적으로 교차 유효성 검사를 수행합니다. 
 
 아래 그림에서 각 사각형은 한 시점의 데이터를 나타냅니다. 파란 사각형은 학습을 나타내고 주황색 사각형은 각 폴드의 테스트를 나타냅니다. 테스트 데이터는 가장 큰 학습 시점 이후의 시점에서 나와야 합니다. 그렇지 않으면 이후 데이터가 학습 데이터로 유출되어 모델 평가가 유효하지 않게 됩니다. 
-
 ![png](./media/how-to-build-deploy-forecast-models/cv_figure.PNG)
+
+**매개 변수 비우기**  
+[TSGridSearchCV](https://docs.microsoft.com/en-us/python/api/ftk.model_selection.search.tsgridsearchcv?view=azure-ml-py-latest) 클래스는 지정된 매개 변수 값을 철저히 검색하고 `RollingOriginValidator`를 사용하여 최적의 매개 변수를 찾기 위해 매개 변수 성능을 평가합니다.
+
 
 ```python
 # Set up the `RollingOriginValidator` to do 2 folds of rolling origin cross-validation
@@ -1395,6 +1392,102 @@ print('Best paramter: {}'.format(randomforest_cv_fitted.best_params_))
 
     Best paramter: {'estimator__n_estimators': 100}
     
+
+**모델 비우기**  
+`BestOfForecaster` 클래스는 지정된 모델 목록에서 최상의 성능을 가진 모델을 선택합니다. 또한 `TSGridSearchCV`와 마찬가지로 교차 유효성 검사 및 성능 평가에 대해 RollingOriginValidator를 사용합니다.  
+여기에서는 `BestOfForecaster`의 사용을 보여주는 두 가지 모델의 목록을 전달합니다.
+
+
+```python
+best_of_forecaster = BestOfForecaster(forecaster_list=[('naive', naive_model), 
+                                                       ('random_forest', random_forest_model)])
+best_of_forecaster_fitted = best_of_forecaster.fit(train_feature_tsdf,
+                                                   validator=RollingOriginValidator(n_step=20, max_horizon=40))
+best_of_forecaster_prediction = best_of_forecaster_fitted.predict(test_feature_tsdf)
+best_of_forecaster_prediction.head()
+```
+
+
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>PointForecast</th>
+      <th>DistributionForecast</th>
+      <th>수량</th>
+    </tr>
+    <tr>
+      <th>WeekLastDay</th>
+      <th>store</th>
+      <th>brand</th>
+      <th>ForecastOriginTime</th>
+      <th>ModelName</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1992-01-08 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>9299.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>11712.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-15 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>10259.20</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>4032.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-22 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>6828.80</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>6336.00</td>
+    </tr>
+    <tr>
+      <th>1992-01-29 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>16633.60</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>13632.00</td>
+    </tr>
+    <tr>
+      <th>1992-02-05 23:59:59</th>
+      <th>2</th>
+      <th>dominicks</th>
+      <th>1992-01-01 23:59:59</th>
+      <th>random_forest</th>
+      <td>12774.40</td>
+      <td>&lt;scipy.stats._distn_infrastructure.rv_frozen o...</td>
+      <td>45120.00</td>
+    </tr>
+  </tbody>
+</table>
+
+
 
 **최종 파이프라인 작성**   
 최상의 모델을 확인했으니 모든 변환기와 최상의 모델을 사용하여 최종 파이프라인을 빌드하고 맞추면 됩니다. 
@@ -1416,9 +1509,62 @@ print('Median of APE of final pipeline: {0}'.format(final_median_ape))
     Median of APE of final pipeline: 42.54336821266968
     
 
-## <a name="operationalization-deploy-and-consume"></a>운영화: 배포 및 소비
+## <a name="visualization"></a>시각화
+`ForecastDataFrame` 클래스는 예측 결과를 시각화하고 분석하기 위한 플롯 함수를 제공합니다. 데이터를 포함한 자주 사용되는 차트를 사용합니다. 사용할 수 있는 모든 함수에 대한 플롯 함수에 대해 아래 샘플 Notebook을 참조하세요. 
 
-이 섹션에서는 파이프라인을 Azure Machine Learning 웹 서비스로 배포하고 학습 및 채점을 위해 사용합니다. 배포된 웹 서비스를 채점하면 모델이 다시 학습되어 새 데이터에 대한 예측이 생성됩니다.
+`show_error` 함수는 임의의 열별로 집계된 성능 메트릭을 표시합니다. 기본적으로 `show_error` 함수는 `ForecastDataFrame`의 `grain_colnames`별로 집계합니다. 특히 시계열 수가 많은 경우에 최고 또는 최악의 성능을 가진 조직/그룹을 식별하는 데 유용합니다. `show_error`의 `performance_percent` 인수를 사용하면 성능 간격을 지정하고 노이즈/그룹의 하위 집합 오류를 표시할 수 있습니다.
+
+최하위 5% 성능을 가진 노이즈를 표시합니다(예: 최상위 5% MedianAPE).
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0.95, 1))
+```
+
+![png](./media/how-to-build-deploy-forecast-models/output_59_0.png)
+
+
+최상위 5% 성능을 가진 노이즈를 표시합니다(예: 최하위 5% MedianAPE).
+
+
+```python
+fig, ax = best_of_forecaster_prediction.show_error(err_name='MedianAPE', err_fun=calc_median_ape, performance_percent=(0, 0.05))
+```
+
+
+![png](./media/how-to-build-deploy-forecast-models/output_61_0.png)
+
+
+전반적인 성능에 대한 아이디어가 있다면 특히 잘못 수행된 개별 노이즈를 탐색하는 것이 좋습니다. `plot_forecast_by_grain` 메서드는 지정된 노이즈의 예측 및 실제를 표시합니다. 여기에서는 `show_error` 플롯에서 검색된 최상의 성능을 가진 노이즈 및 최하의 성능을 가진 노이즈를 표시합니다.
+
+
+```python
+fig_ax = best_of_forecaster_prediction.plot_forecast_by_grain(grains=[(33, 'tropicana'), (128, 'minute.maid')])
+```
+
+
+![png](./media/how-to-build-deploy-forecast-models/output_63_0.png)
+
+
+
+![png](./media/how-to-build-deploy-forecast-models/output_63_1.png)
+
+
+
+## <a name="additional-notebooks"></a>추가 Notebook
+AMLPF의 주요 기능에 대해 자세히 알아보려면 자세한 내용 및 각 기능의 예제와 함께 다음과 같은 Notebook을 참조하세요.  
+[TimeSeriesDataFrame의 Notebook](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Introduction_to_TimeSeriesDataFrames.ipynb)  
+[데이터 랭글링의 Notebook](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Data_Wrangling_Sample.ipynb)  
+[변환기의 Notebook](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Forecast_Package_Transforms.ipynb)  
+[모델의 Notebook](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/AMLPF_models_sample_notebook.ipynb)  
+[교차 유효성 검사의 Notebook](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Time_Series_Cross_Validation.ipynb)  
+[지연 변환기 및 OriginTime의 Notebook](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Constructing_Lags_and_Explaining_Origin_Times.ipynb)  
+[플롯 함수의 Notebook](https://azuremlftkrelease.blob.core.windows.net/samples/feature_notebooks/Plotting_Functions_in_AMLPF.ipynb)
+
+## <a name="operationalization"></a>운영화
+
+이 섹션에서는 파이프라인을 Azure Machine Learning 웹 서비스로 배포하고 학습 및 채점을 위해 사용합니다.
+현재 적합한 파이프라인만이 배포에 대해 지원됩니다. 배포된 웹 서비스를 채점하면 모델이 다시 학습되어 새 데이터에 대한 예측이 생성됩니다.
 
 ### <a name="set-model-deployment-parameters"></a>모델 배포 매개 변수 설정
 
@@ -1485,7 +1631,7 @@ aml_deployment = ForecastWebserviceFactory(deployment_name=deployment_name,
                                            aml_settings=aml_settings, 
                                            pipeline=pipeline_deploy,
                                            deployment_working_directory=deployment_working_directory,
-                                           ftk_wheel_loc='https://azuremlpackages.blob.core.windows.net/forecasting/azuremlftk-0.1.18055.3a1-py3-none-any.whl')
+                                           ftk_wheel_loc='https://azuremlftkrelease.blob.core.windows.net/dailyrelease/azuremlftk-0.1.18165.29a1-py3-none-any.whl')
 ```
 
 ### <a name="create-the-web-service"></a>웹 서비스 만들기

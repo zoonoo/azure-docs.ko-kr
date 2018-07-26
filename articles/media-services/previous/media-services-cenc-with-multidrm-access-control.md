@@ -1,28 +1,29 @@
 ---
-title: '다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 설계 및 구현 | Microsoft Docs'
+title: Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계 | Microsoft Docs
 description: Microsoft 부드러운 스트리밍 클라이언트 이식 키트 라이선스를 얻는 방법에 대해 알아보세요.
 services: media-services
 documentationcenter: ''
 author: willzhan
 manager: cfowler
 editor: ''
-ms.assetid: 7814739b-cea9-4b9b-8370-538702e5c615
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 8f072f13909190eee194565673ccfa1f381f7503
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39075588"
 ---
-# <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>다중 DRM 및 Access Control이 포함된 CENC: Azure 및 Azure Media Services에서 참조 디자인 및 구현
- 
-## <a name="introduction"></a>소개
+# <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
+
+## <a name="overview"></a>개요
+
 OTT(Over-the-Top) 또는 온라인 스트리밍 솔루션을 위한 DRM(디지털 권한 관리) 하위 시스템을 디자인하고 구축하는 것은 복잡한 작업입니다. 일반적으로 운영자/온라인 비디오 공급자는 이러한 작업을 전문화된 DRM 서비스 공급자에게 아웃소싱합니다. 이 문서의 목표는 OTT 또는 온라인 스트리밍 솔루션에서 종단 간 DRM 하위 시스템의 참조 디자인 및 구현을 제공하는 것입니다.
 
 이 문서는 OTT 또는 온라인 스트리밍/멀티 스크린 솔루션의 DRM 하위 시스템에서 작업 중인 엔지니어 또는 DRM 하위 시스템에 관심이 있는 모든 독자를 대상으로 합니다. 독자는 PlayReady, Widevine, FairPlay 또는 Adobe Access 등 한 가지 이상의 DRM 기술에 대해 잘 알고 있다고 가정합니다.
@@ -40,7 +41,8 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 *  [Azure Media Services에서 Google Widevine 라이선스 전달 서비스 발표](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
 * [다중 DRM 스트림을 배달하기 위해 Azure Media Services에서 Google Widevine 패키징 추가](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/)  
 
-### <a name="overview-of-this-article"></a>이 문서의 개요
+### <a name="goals-of-the-article"></a>문서의 목표
+
 이 문서의 목표는 다음과 같습니다.
 
 * 다중 DRM의 CENC를 사용하는 DRM 하위 시스템에 대한 참조 디자인을 제공합니다.
@@ -61,7 +63,6 @@ Microsoft는 몇몇 주요 기업들과 더불어 DASH 및 CENC의 적극적인 
 | **Windows 10 장치(Windows PC, Windows 태블릿, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>범용 Windows 플랫폼 |DASH(HLS의 경우 PlayReady는 지원되지 않음)<br/><br/>DASH, 부드러운 스트리밍(HLS의 경우 PlayReady는 지원되지 않음) |
 | **Android 장치(전화, 태블릿, TV)** |Widevine |크롬/EME |DASH, HLS |
 | **iOS(iPhone, iPad), OS X 클라이언트 및 Apple TV** |FairPlay |Safari 8+/EME |HLS |
-
 
 각 DRM에 대한 배포의 현재 상태를 고려하면 서비스는 일반적으로 가장 좋은 방법으로 모든 유형의 끝점을 해결하도록 2개 또는 3개의 DRM을 구현해야 합니다.
 
@@ -214,8 +215,9 @@ DRM 하위 시스템은 다음 구성 요소를 포함할 수 있습니다.
     | **DRM** | **브라우저** | **자격이 있는 사용자에 대한 결과** | **자격이 없는 사용자에 대한 결과** |
     | --- | --- | --- | --- |
     | **PlayReady** |Windows 10의 Microsoft Edge 또는 Internet Explorer 11 |합격 |불합격 |
-    | **Widevine** |Windows 10의 Chrome |합격 |불합격 |
-    | **FairPlay** |TBD | | |
+    | **Widevine** |Chrome, Firefox, Opera |합격 |불합격 |
+    | **FairPlay** |macOS의 Safari      |합격 |불합격 |
+    | **AES-128** |최신 브라우저  |합격 |불합격 |
 
 ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한 내용은 [Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기준으로 콘텐츠 키 배달 제한](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/)을 참조하세요.
 
@@ -224,7 +226,7 @@ ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한
 Azure AD에 대한 내용:
 
 * [Azure Active Directory 개발자 가이드](../../active-directory/active-directory-developers-guide.md)에서 개발자 정보를 찾을 수 있습니다.
-* [Azure AD 테넌트 디렉터리 관리](../../active-directory/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
+* [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
 
 ### <a name="some-issues-in-implementation"></a>구현에 대한 몇 가지 문제
 구현 문제에 대한 도움을 얻으려면 다음 문제 해결 정보를 참조하세요.

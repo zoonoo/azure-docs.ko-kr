@@ -1,23 +1,23 @@
 ---
 title: Azure IoT Central 응용 프로그램에서 이벤트 규칙 만들기 및 관리 | Microsoft Docs
 description: Azure IoT Central 이벤트 규칙을 사용하여 장치를 거의 실시간으로 모니터링하고, 규칙이 트리거되면 이메일 보내기 등의 작업을 자동으로 호출합니다.
+services: iot-central
 author: ankitgupta
 ms.author: ankitgup
 ms.date: 04/29/2018
-ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
-manager: peterpr
-ms.openlocfilehash: 30223fdca9d848ddc407981bf4a3ca683a10575a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.topic: article
+ms.prod: microsoft-iot-central
+manager: timlt
+ms.openlocfilehash: ede7748b1471136cf792c2b30b7c90e12b0b274a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628371"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006851"
 ---
-# <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 이벤트 규칙을 만들고 알림 설정
+# <a name="create-an-event-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 이벤트 규칙 만들기 및 작업 설정
 
-Microsoft Azure IoT Central을 사용하여 원격으로 연결된 장치를 모니터링할 수 있습니다. Azure IoT Central 규칙을 사용하여 장치를 거의 실시간으로 모니터링하고, 규칙이 트리거되면 이메일 보내기 등의 작업을 자동으로 호출합니다. 클릭 몇 번으로 장치 데이터를 모니터링하는 조건을 구성하고 호출할 작업을 구성할 수 있습니다. 이 문서에서는 이벤트 모니터링 규칙을 자세히 설명합니다.
+Microsoft Azure IoT Central을 사용하여 원격으로 연결된 장치를 모니터링할 수 있습니다. Azure IoT Central 규칙을 사용하여 장치를 거의 실시간으로 모니터링하고, 이메일 보내기 또는 규칙 조건이 충족될 때 Microsoft Flow에서 워크플로를 트리거하는 등의 작업을 자동으로 호출합니다. 클릭 몇 번으로 장치 데이터를 모니터링하는 조건을 구성하고 호출할 작업을 구성할 수 있습니다. 이 문서에서는 이벤트 모니터링 규칙을 자세히 설명합니다.
 
 Azure IoT Central은 [이벤트 측정값](howto-set-up-template.md)을 사용하여 장치 데이터를 캡처합니다. 측정 유형마다 측정을 정의하는 키 특성이 있습니다. 각 장치 측정 유형을 모니터링하다가 규칙이 트리거되면 경고를 생성하는 규칙을 만들 수 있습니다. 선택한 장치 이벤트를 장치에서 보고하면 이벤트 규칙이 트리거됩니다.
 
@@ -29,15 +29,15 @@ Azure IoT Central은 [이벤트 측정값](howto-set-up-template.md)을 사용�
 
 1. 아직 규칙을 하나도 만들지 않은 경우 다음 화면이 표시됩니다.
 
-    ![규칙 없음](media\howto-create-event-rules\image1.png)
+    ![규칙 없음](media/howto-create-event-rules/image1.png)
 
 1. **규칙** 탭에서 **+ 새 규칙**을 선택하면 만들 수 있는 규칙 유형이 표시됩니다.
 
-    ![규칙 유형](media\howto-create-event-rules\image2.png)
+    ![규칙 유형](media/howto-create-event-rules/image2.png)
 
 1. **이벤트**를 클릭하여 규칙 작성 양식을 엽니다.
 
-    ![이벤트 규칙](media\howto-create-event-rules\image3.png)
+    ![이벤트 규칙](media/howto-create-event-rules/image3.png)
 
 1. 이 장치 템플릿에서 규칙을 식별하는 데 도움이 되는 이름을 선택합니다.
 
@@ -53,27 +53,32 @@ Azure IoT Central은 [이벤트 측정값](howto-set-up-template.md)을 사용�
 
 1. 필요에 따라 장치에서 보고하는 이벤트의 특정 값을 모니터링하려는 경우 값을 제공할 수도 있습니다. 예를 들어 장치에서 오류 코드가 다른 동일한 이벤트를 보고하는 경우 규칙 조건의 값으로 오류 코드를 제공하면 장치에서 해당 특정 값을 이벤트 페이로드로 보내는 경우에만 규칙이 트리거됩니다. 이 값을 비워 두면 이벤트 값에 관계 없이 장치에서 이벤트를 보낼 때마다 규칙이 트리거됩니다.
 
-    ![이벤트 조건 추가](media\howto-create-event-rules\image4.png)
+    ![이벤트 조건 추가](media/howto-create-event-rules/image4.png)
 
     > [!NOTE]
     > 이벤트 규칙 조건을 정의할 때 이벤트 측정값을 하나 이상 선택해야 합니다.
 
-### <a name="configure-the-action"></a>작업 구성
+1. **저장**을 클릭하여 규칙을 저장합니다. 몇 분 이내에 규칙이 적용되어 응용 프로그램으로 전송되는 이벤트의 모니터링이 시작됩니다.
 
-이 섹션에서는 작업을 추가하여 조건이 일치할 때 규칙이 하는 일을 지정하는 방법을 보여줍니다.
+### <a name="add-an-action"></a>작업 추가
 
-1. **작업** 옆에 있는 **+** 기호를 선택합니다. 사용 가능한 작업 목록을 표시됩니다. 공개 미리 보기 기간에는 **이메일** 작업만 지원됩니다.
+이 섹션에서는 규칙에 작업을 추가하는 방법을 보여줍니다. 이메일 작업을 추가하는 방법을 보여주지만 규칙에 [Microsoft Flow 작업을 추가](howto-add-microsoft-flow.md)하여 규칙이 트리거될 때 Microsoft Flow에서 워크플로를 시작할 수도 있습니다.
 
-    ![작업 추가](media\howto-create-event-rules\image5.png)
+> [!NOTE]
+> 이 때 단일 규칙에 1개의 작업만 연결할 수 있습니다.
+
+1. **작업** 옆에 있는 **+** 기호를 선택합니다. 사용 가능한 작업 목록을 표시됩니다.
+
+    ![작업 추가](media/howto-create-event-rules/image5.png)
 
 1. **이메일** 작업을 선택하고, **받는 사람** 필드에 유효한 이메일 주소를 입력하고, 규칙이 트리거될 때 이메일 본문에 표시할 메모를 입력합니다.
 
     > [!NOTE]
     > 응용 프로그램에 추가되어 한 번 이상 로그인한 사용자에게만 이메일이 발송됩니다. Azure IoT Central에서 [사용자 관리](howto-administer.md)에 대해 자세히 알아보세요.
 
-   ![작업 구성](media\howto-create-event-rules\image6.png)
+   ![작업 구성](media/howto-create-event-rules/image6.png)
 
-1. 규칙을 저장하려면 **저장**을 선택합니다. 몇 분 이내에 규칙이 적용되어 응용 프로그램으로 전송되는 이벤트의 모니터링이 시작됩니다. 규칙에 지정된 조건이 일치하는 경우 규칙이 구성된 이메일 작업을 트리거합니다.
+1. **저장**을 클릭합니다. 몇 분 이내에 규칙이 적용되어 응용 프로그램으로 전송되는 이벤트의 모니터링이 시작됩니다. 규칙에 지정된 조건이 일치하는 경우 규칙이 구성된 이메일 작업을 트리거합니다.
 
 ## <a name="parameterize-the-rule"></a>규칙 매개 변수화
 
@@ -96,4 +101,5 @@ Azure IoT Central은 [이벤트 측정값](howto-set-up-template.md)을 사용�
 Azure IoT Central 응용 프로그램에서 규칙을 만드는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [장치를 관리하는 방법](howto-manage-devices.md).
+> [규칙에 Microsoft Flow 작업을 추가하는 방법](howto-add-microsoft-flow.md)
+> [장치를 관리하는 방법](howto-manage-devices.md)

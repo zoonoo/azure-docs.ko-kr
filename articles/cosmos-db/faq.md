@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 30ebe4f990dc65e53c34673f0948d3aa2240385c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: fb8ae3b6225b2029ced3687083777ae47cb54acf
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37859703"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002333"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -120,6 +120,9 @@ Azure Cosmos DB는 [Azure 지역](https://azure.microsoft.com/regions/) 페이�
 
 컨테이너 및 데이터베이스 수준 처리량 프로비전은 별개의 제안이며 이를 전환하려면 원본에서 대상으로 데이터를 마이그레이션해야 합니다. 즉, 새 데이터베이스 또는 새 컬렉션을 만든 다음, [bulk executor library](bulk-executor-overview.md) 또는 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)를 사용하여 데이터를 마이그레이션해야 합니다.
 
+### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>파티션 키를 사용하여 고정 컬렉션을 만드는 방법
+
+현재 .Net SDK의 [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) 메서드 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create)를 사용하여 파티션 키 처리량이 있는 컬렉션을 만들 수 있습니다. Azure Portal을 사용하여 고정 컬렉션 만들기는 현재 지원되지 않습니다.  
 
 ## <a name="develop-against-the-sql-api"></a>SQL API에 대해 개발
 

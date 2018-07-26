@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 07/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 04b8ac9437b2859480b96ff5b46b34518dcc0883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 88ff30ec90427f16ebd82259c17ee8cbb2644be2
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447271"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071597"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
@@ -23,10 +23,10 @@ ms.locfileid: "37447271"
 
 |다운로드  |제품 버전  | 
 |---------|---------|
-|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.492      |
-|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.492      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.1.0.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.1.0.0     |
+|[MSOLAP(amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.1.594      |
+|[MSOLAP(x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.1.594      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   15.3.1.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    15.3.1.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 및 ADOMD(NuGet 패키지)
 
@@ -34,8 +34,8 @@ AMO(Analysis Services Management Objects) 및 ADOMD 클라이언트 라이브러
 
 |패키지  | 제품 버전  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.1.0.0      |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.1.0.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    15.3.1     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   15.3.1     |
 
 NuGet 패키지 어셈블리 AssemblyVersion은 의미 체계 버전 지정 MAJOR.MINOR.PATCH를 따릅니다. NuGet 참조는 GAC에 다른 버전이 있더라도(MSI 설치의 결과) 필요한 버전을 로드합니다. 패치는 각 릴리스에 대해 증가합니다. AMO 및 ADOMD 버전은 동기 상태로 유지됩니다.
 

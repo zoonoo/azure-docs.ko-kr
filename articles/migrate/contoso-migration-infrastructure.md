@@ -5,14 +5,14 @@ services: azure-migrate
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: bf1406c8e361e0a1433b0e26c477c3c34e987fcf
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6f535d98ea9e1312e4d5f197d121c8d12c109449
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38562761"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39002282"
 ---
 # <a name="contoso---deploy-a-migration-infrastructure"></a>Contoso - 마이그레이션 인프라 배포
 
@@ -21,25 +21,30 @@ ms.locfileid: "38562761"
 - Contoso에만 적용되는 샘플 아키텍처입니다.
 - 이 문서에서 설명하는 모든 요소가 필요한지 여부는 마이그레이션 전략에 따라 달라집니다. 예를 들어 Azure에서 클라우드 네이티브 앱만 빌드하는 경우 덜 복잡한 네트워킹 구조가 필요할 수 있습니다.
 
-이 문서는 가상의 회사인 Contoso에서 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 설명하는 문서 시리즈의 두 번째 문서입니다. 이 시리즈에는 배경 정보 및 마이그레이션 인프라를 설정하고, 온-프레미스 리소스에 대한 마이그레이션 적합성을 평가하고, 여러 유형의 마이그레이션을 실행하는 방법을 보여 주는 일단의 배포 시나리오가 포함되어 있습니다. 시나리오가 점점 더 복잡해지고 시간이 지남에 따라 문서도 계속 추가될 것입니다.
+이 문서는 가상의 회사인 Contoso에서 온-프레미스 리소스를 Microsoft Azure 클라우드로 마이그레이션하는 방법을 설명하는 문서 시리즈의 두 번째 문서입니다. 이 시리즈에는 마이그레이션 인프라를 설정하고, 마이그레이션을 위한 온-프레미스 리소스의 적합성을 평가하고, 다양한 유형의 마이그레이션을 실행하는 방법을 보여주는 정보와 배포 시나리오가 담겨 있습니다. 시나리오가 점점 더 복잡해지고 시간이 지남에 따라 문서도 계속 추가될 것입니다.
 
 **문서** | **세부 정보** | **상태**
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | Contoso 마이그레이션 전략, 문서 시리즈 및 사용할 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
-문서 2: Azure 인프라 배포(이 문서) | Contoso에서 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법에 대해 설명합니다. 동일한 인프라가 모든 Contoso 마이그레이션 시나리오에 사용됩니다. | 사용 가능
-[문서 3: 온-프레미스 리소스 평가](contoso-migration-assessment.md) | VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 Contoso에서 실행하는 방법을 보여 줍니다. [Azure Migrate](migrate-overview.md) 서비스를 사용하여 앱 VM을 평가하고, [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
-[문서 4: Azure VM 및 SQL 관리되는 인스턴스에 다시 호스팅](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso에서 SmartHotel 앱을 Azure로 마이그레이션하는 방법을 보여 줍니다. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)와 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 각각 앱 프런트 엔드 VM과 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
-[문서 5: Azure VM에 다시 호스팅](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery만 사용하여 SmartHotel 앱 VM을 마이그레이션하는 방법을 보여 줍니다.
-[문서 6: Azure VM 및 SQL Server 가용성 그룹에 다시 호스팅](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Site Recovery와 Database Migration Service를 사용하여 각각 앱 VM과 앱 데이터베이스를 SQL Server 가용성 그룹으로 마이그레이션합니다. | 사용 가능
-[문서 7: Azure VM에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm.md) | Contoso에서 Linux osTicket 앱을 Azure VM으로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
-[문서 8: Azure VM 및 Azure MySQL 서버에 Linux 앱 다시 호스팅](contoso-migration-rehost-linux-vm-mysql.md) | Contoso에서 Site Recovery를 사용하여 Linux osTicket 앱 VM을 마이그레이션하고, MySQL Workbench에서 Azure MySQL 서버 인스턴스로 마이그레이션(백업 및 복원)하는 방법을 보여 줍니다. | 사용 가능
+문서 2: Azure 인프라 배포 | Contoso에서 마이그레이션을 위해 온-프레미스 및 Azure 인프라를 준비하는 방법에 대해 설명합니다. 모든 마이그레이션 문서에 동일한 인프라가 사용됩니다. | 이 문서의 내용:
+[문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가](contoso-migration-assessment.md)  | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱 평가를 실행하는 방법을 보여 줍니다. Contoso가 [Azure Migrate](migrate-overview.md) 서비스로 앱 VM을 평가하고 [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)로 앱 SQL Server 데이터베이스를 평가합니다. | 사용 가능
+[문서 4: 앱을 Azure VM 및 SQL 관리되는 인스턴스에 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel 앱에 대해 Azure로의 리프트 앤 시프트 마이그레이션을 실행하는 방법을 보여줍니다. Contoso는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고 [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 SQL 관리되는 인스턴스로 마이그레이션합니다. | 사용 가능
+[문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso가 Site Recovery 서비스를 사용하여 SmartHotel 앱 VM을 Azure VM으로 마이그레이션하는 방법을 보여줍니다. | 사용 가능
+[문서 6: 앱을 Azure VM 및 SQL Server Always On 가용성 그룹에 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso에서 SmartHotel 앱을 마이그레이션하는 방법을 보여 줍니다. Contoso가 Site Recovery를 사용하여 앱 VM을 마이그레이션하고 Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹에서 보호하는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
+[문서 7: Azure VM에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 리프트 앤 시프트 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 8: Azure VM 및 Azure MySQL에서 Linux 앱 다시 호스트](contoso-migration-rehost-linux-vm-mysql.md) | Contoso가 Site Recovery를 사용하여 Linux osTicket 앱을 Azure VM으로 마이그레이션하고 MySQL Workbench를 사용하여 앱 데이터베이스를 Azure MySQL 서버 인스턴스로 마이그레이션하는 방법을 보여 줍니다. | 사용 가능
+[문서 9: Azure Web Apps 및 Azure SQL Database에서 앱 리팩터링](contoso-migration-refactor-web-app-sql.md) | Contoso가 SmartHotel 앱을 Azure 웹앱으로 마이그레이션하고, 앱 데이터베이스를 Azure SQL Server 인스턴스로 마이그레이션하는 방법 시연 | 사용 가능
+[문서 10: Azure Web Apps 및 Azure MySQL에서 Linux 앱 리팩터링](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso가 지속적인 업데이트를 위해 GitHub와 통합된, 여러 사이트의 Azure Web Apps로 Linux osTicket 앱을 마이그레이션하는 방법을 보여줍니다. Azure MySQL 인스턴스로 앱 데이터베이스를 마이그레이션합니다. | 사용 가능
+[문서 11: VSTS에서 TFS 리팩터링](contoso-migration-tfs-vsts.md) | Contoso가 해당 온-프레미스 TFS(Team Foundation Server) 배포를 Azure에서 VSTS(Visual Studio Team Services)로 마이그레이션하는 방법을 보여줍니다. | 사용 가능
+[문서 12: Azure 컨테이너 및 Azure SQL Database에서 앱 아키텍처 변경](contoso-migration-rearchitect-container-sql.md) | Contoso가 SmartHotel 앱을 Azure로 마이그레이션하고 아키텍처를 변경하는 방법을 보여줍니다. 웹앱 계층을 Windows 컨테이너 및 Azure SQL Database의 앱 데이터베이스로 아키텍처를 변경합니다. | 사용 가능
+[문서 13: Azure에서 앱 다시 빌드](contoso-migration-rebuild.md) | Contoso가 App Services, Azure Kubernetes, Azure Functions, Cognitive services 및 Cosmos DB를 포함한 다양한 Azure 기능 및 서비스를 사용하여 해당 SmartHotel 앱을 다시 빌드하는 방법을 보여줍니다. | 사용 가능
 
-이 문서에서 Contoso는 마이그레이션 시나리오를 완료하는 데 필요한 모든 인프라 요소를 설정합니다. 
+이 문서에서 Contoso는 모든 마이그레이션 시나리오를 완료하는 데 필요한 모든 인프라 요소를 설정합니다. 
 
 
 ## <a name="overview"></a>개요
 
-Azure로 마이그레이션하려면 먼저 Contoso에서 인프라를 준비해야 합니다.  여기서 일반적으로 고려해야 하는 광범위한 5가지 영역은 다음과 같습니다.
+Azure로 마이그레이션하려면 먼저 Contoso에서 Azure 인프라를 준비해야 합니다.  여기서 일반적으로 고려해야 하는 광범위한 5가지 영역은 다음과 같습니다.
 
 **1단계: Azure 구독**: Azure를 구입하고 Azure 플랫폼 및 서비스와 상호 작용하려면 어떻게 합니까?  
 **2단계: 하이브리드 ID**: 마이그레이션 후에 온-프레미스 및 Azure 리소스에 대한 액세스를 관리하고 제어하려면 어떻게 합니까? ID 관리를 클라우드로 확장하거나 전환하려면 어떻게 합니까?  
@@ -88,10 +93,10 @@ Contoso에서 [EA(기업 계약)](https://azure.microsoft.com/pricing/enterprise
 
 ### <a name="manage-subscriptions"></a>구독 관리
 
-Azure에 대한 약정 금액이 지불된 후에는 Contoso에서 구독을 관리하는 방법을 파악해야 합니다. EA를 유지하고 있으므로 설정할 수 있는 Azure 구독의 수는 제한되지 않습니다.
+Azure에 대한 약정 금액이 지불된 후에는 Contoso에서 Azure 구독을 관리하는 방법을 파악해야 합니다. EA를 유지하고 있으므로 설정할 수 있는 Azure 구독의 수는 제한되지 않습니다.
 
 - Azure 기업 등록 계약은 회사에서 Azure 서비스를 만들고 사용하는 방법을 정의하고 핵심 거버넌스 구조를 정의합니다.
-- 첫 번째 단계로서, Contoso는 기업 등록 계약을 위한 엔터프라이즈 비계라고 하는 구조를 결정했습니다. 비계를 이해하고 설계하는 데 도움을 받기 위해 [이 문서](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance)를 사용했습니다.
+- 첫 번째 단계로서, Contoso는 기업 등록 계약을 위한 엔터프라이즈 등록이라고 하는 구조를 결정했습니다. 비계를 이해하고 설계하는 데 도움을 받기 위해 [이 문서](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-subscription-governance)를 사용했습니다.
 - 지금은 Contoso에서 구독을 관리하기 위해 기능적 접근 방식을 사용하도록 결정했습니다.
     - 회사 내부에는 Azure 예산을 통제하는 단일 IT 부서가 있습니다. 이 부서는 구독이 있는 유일한 그룹이 됩니다.
     - 앞으로 이 모델을 확장하여 다른 회사 그룹도 기업 등록 계약에 속한 부서로 조인할 수 있습니다.
@@ -136,7 +141,7 @@ IAM(ID 및 액세스 관리)을 사용하여 Azure 리소스에 대한 사용자
 
 ### <a name="create-an-azure-ad"></a>Azure AD 만들기
 
-Contoso는 Azure 구독에 포함된 Azure AD 체험 버전을 사용하고 있습니다. 다음과 같이 새 AD 디렉터리를 추가합니다.
+Contoso는 Azure 구독에 포함된 Azure AD Free 버전을 사용하고 있습니다. 다음과 같이 새 AD 디렉터리를 추가합니다.
 
 1. [Azure Portal](http://portal.azure.com/)에서 Contoso는 **리소스 만들기** > **ID** > **Azure Active Directory**로 차례로 이동합니다.
 2. **디렉터리 만들기**에서 디렉터리 이름, 초기 도메인 이름 및 Azure AD 디렉터리를 만들어야 하는 지역을 지정합니다.
@@ -228,7 +233,7 @@ Contoso에서 온-프레미스 및 클라우드에서 리소스에 액세스하�
 
 5. **구성 준비 완료**에서 **구성이 완료되면 동기화 프로세스 시작**을 클릭하여 동기화를 즉시 시작합니다. 그런 다음, 설치합니다.
 
-
+다음 사항에 유의하세요.
 - Contoso가 Azure에 직접 연결됩니다. 온-프레미스 AD가 프록시 뒤에 있는 경우 이 [문서](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity)를 참조하세요.
 - 첫 번째 동기화 후에 온-프레미스 AD 개체가 Azure AD에 표시됩니다.
 
@@ -664,7 +669,7 @@ Contoso는 **가상 머신 SKU 허용** 기본 제공 정책 정의를 사용하
 
 Contoso는 오랫동안 ITIL 프레임워크를 사용하여 시스템을 관리해 왔습니다. 프레임워크의 가장 중요한 측면 중 하나는 변경 제어이며, Contoso는 Azure 배포에서 변경 제어를 구현하려고 합니다.
 
-Contoso에서 구현하려는 잠금은 는 다음과 같습니다.
+Contoso에서 구현하려는 잠금은 다음과 같습니다.
 
 - 모든 프로덕션 또는 장애 조치 구성 요소는 읽기 전용 잠금이 있는 리소스 그룹에 있어야 합니다.  즉, 프로덕션 항목을 수정하거나 삭제하려면 잠금을 제거해야 합니다. 
 - 비프로덕션 리소스 그룹에는 CanNotDelete 잠금이 있습니다. 즉, 권한이 있는 사용자가 리소스를 읽거나 수정할 수 있지만 삭제할 수는 없습니다.
@@ -772,7 +777,7 @@ Azure Disk Encryption은 Azure Key Vault와 통합되어 키 자격 증명 모�
 
 ## <a name="conclusion"></a>결론
 
-이 문서에서 Contoso는 Azure 인프라를 설정하고, Azure 구독, 하이브리드 식별, 재해 복구, 네트워킹, 거버넌스 및 보안에 대한 인프라 정책을 설정하거나 계획했습니다. 
+이 문서에서 Contoso는 Azure 구독, 하이브리드 식별, 재해 복구, 네트워킹, 거버넌스 및 보안에 대한 Azure 인프라와 정책을 설정했습니다. 
 
 Contoso에서 여기서 완료한 모든 단계가 클라우드로 마이그레이션하는 데 필요하지는 않습니다. 여기서는 모든 유형의 마이그레이션에 사용할 수 있고, 복원력과 확장성이 있는, 안전한 네트워크 인프라를 계획하려고 했습니다. 
 

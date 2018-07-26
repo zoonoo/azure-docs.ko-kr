@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: cf24810c0aa414e751e55df163563f013c1a0081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9d71efa35713500911c67d1df15612b64c8e97da
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969948"
+ms.locfileid: "38990832"
 ---
 # <a name="trusted-internet-connection-guidance"></a>TIC(Trusted Internet Connections) 지침
 
@@ -250,4 +250,3 @@ Network Watcher가 모니터링하는 지역의 네트워크는 “다음 홉”
 
 *: 2018년 5월 기준 Azure Government의 공개 미리 보기  
 **: 2018년 5월 기준 Azure Government의 비공개 미리 보기
-

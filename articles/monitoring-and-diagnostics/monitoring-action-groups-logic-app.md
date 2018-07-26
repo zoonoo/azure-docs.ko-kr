@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 14e562234152d2f1f2f2d2b57b34cd5724d3dd14
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753096"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049190"
 ---
 # <a name="create-a-logic-app-action"></a>논리 앱 작업 만들기
 
@@ -187,10 +187,10 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 -  9-10단계는 동일합니다.
 -  11-14 단계의 경우 다음 프로세스를 사용합니다.
 
-   1. **+** **새 단계**를 선택한 다음, **조건 추가**를 선택합니다. 입력 데이터가 이러한 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.
+   1. **+** **새 단계**를 선택한 다음, **조건 추가**를 선택합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.  버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("0.1.1").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다.   
        - `schemaId == Microsoft.Insights/activityLogs`
        - `eventSource == ServiceHealth`
-       - `version == 0.1.1`
+       - `version == "0.1.1"`
 
       ![“Service Health 페이로드 조건”](media/monitoring-action-groups/service-health-payload-condition.png "Service Health 페이로드 조건")
 
@@ -275,10 +275,10 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 - 9-10단계는 동일합니다.
 - 11-14 단계의 경우 다음 프로세스를 사용합니다.
 
-   1. **+** **새 단계**를 선택한 다음, **조건 추가**를 선택합니다. 입력 데이터가 이러한 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다.
+   1. **+** **새 단계**를 선택한 다음, **조건 추가**를 선택합니다. 입력 데이터가 아래 값과 일치하는 경우에만 논리 앱을 실행하도록 다음 조건을 설정합니다. 버전 값을 텍스트 상자에 입력할 때 숫자 형식이 아닌 문자열로 계산되도록 주위에 따옴표를 배치합니다("2.0").  페이지에 반환하는 경우 시스템은 따옴표를 표시하지 않지만 기본 코드는 여전히 문자열 형식을 유지 관리합니다. 
        - `schemaId == AzureMonitorMetricAlert`
-       - `version == 2.0`
-
+       - `version == "2.0"`
+       
        ![“메트릭 경고 페이로드 조건”](media/monitoring-action-groups/metric-alert-payload-condition.png "메트릭 경고 페이로드 조건")
 
    1. **if true** 조건에서 **For each** 루프 및 Microsoft Teams 작업을 추가합니다. HTML과 동적 콘텐츠의 조합을 사용하여 메시지를 정의합니다.

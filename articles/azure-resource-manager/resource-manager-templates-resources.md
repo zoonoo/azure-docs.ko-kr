@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1619f3bfdf49820ec529947ea02d1602a7b2aa8c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723455"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39007164"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스 섹션
 
@@ -30,7 +30,7 @@ ms.locfileid: "38723455"
 ```json
 "resources": [
   {
-      "condition": "<boolean-value-whether-to-deploy>",
+      "condition": "<true-to-deploy-this-resource>",
       "apiVersion": "<api-version-of-resource>",
       "type": "<resource-provider-namespace/resource-type-name>",
       "name": "<name-of-the-resource>",
@@ -83,7 +83,7 @@ ms.locfileid: "38723455"
 
 | 요소 이름 | 필수 | 설명 |
 |:--- |:--- |:--- |
-| condition | 아니오 | 리소스 배포 여부를 나타내는 부울 값입니다. |
+| condition | 아니오 | 리소스가 이 배포 중 프로비전되는지 여부를 나타내는 부울 값입니다. `true`인 경우 리소스는 배포하는 동안 만들어집니다. `false`인 경우 리소스는 이 배포에 대해 건너뛰어집니다. |
 | apiVersion |예 |리소스를 만들 때 사용하는 REST API의 버전입니다. |
 | 형식 |예 |리소스 유형입니다. 이 값은 리소스 공급자의 네임스페이스와 리소스 형식을 조합한 값입니다(예: **Microsoft.Storage/storageAccounts**). |
 | 이름 |예 |리소스의 이름입니다. 이 이름은 RFC3986에 정의된 URI 구성 요소 제한을 따라야 합니다. 또한 리소스 이름을 외부에 노출하는 Azure 서비스는 다른 ID를 스푸핑하려는 시도가 아님을 확인하기 위해 이름의 유효성을 검사합니다. |
@@ -100,7 +100,7 @@ ms.locfileid: "38723455"
 
 ## <a name="condition"></a>조건
 
-배포 중 리소스를 만들지 여부를 결정해야 하는 경우, `condition` 요소를 사용합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 배포됩니다. 값이 false이면 리소스가 배포되지 않습니다. 예를 들어 새 저장소 계정 배포 여부 또는 기존 저장소 계정 사용 여부를 지정하려면 다음을 사용합니다.
+배포 중 리소스를 만들지 여부를 결정해야 하는 경우, `condition` 요소를 사용합니다. 이 요소 값은 true 또는 false로 확인됩니다. 값이 true이면 리소스가 만들어집니다. 값이 false이면 리소스가 만들어지지 않습니다. 일반적으로 새 리소스를 만들거나 기존 리소스를 사용하려는 경우 이 값을 사용합니다. 예를 들어 새 저장소 계정 배포 여부 또는 기존 저장소 계정 사용 여부를 지정하려면 다음을 사용합니다.
 
 ```json
 {

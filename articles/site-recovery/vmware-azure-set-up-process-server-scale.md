@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: ade47c59a8db673869ce8c60a062a2a6a6656ca2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38689003"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056612"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>확장성을 위해 추가 프로세스 서버 설정
 
@@ -31,9 +31,9 @@ VMware 복제에 대해 [용량 계획](site-recovery-plan-capacity-vmware.md)�
 
 | **추가 프로세스 서버** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터** |
 | --- | --- | --- | --- |
-|4개 vCPU(2개 소켓 * 2코어 @ 2.5GHz), 8GB 메모리 |300GB |250GB 이하 |85대 이하의 컴퓨터를 복제합니다. |
-|8개 vCPU(2개 소켓 * 4코어 @ 2.5GHz), 12GB 메모리 |600GB |250GB ~ 1TB |85-150대 컴퓨터를 복제합니다. |
-|12개 vCPU(2개 소켓 * 6코어 @ 2.5GHz), 24GB 메모리 |1TB |1TB ~ 2TB |150-225대 컴퓨터를 복제합니다. |
+|4개 vCPU(2개 소켓 * 2코어 \@ 2.5GHz) 8GB 메모리 |300GB |250GB 이하 |85대 이하의 컴퓨터를 복제합니다. |
+|8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 |600GB |250GB ~ 1TB |85-150대 컴퓨터를 복제합니다. |
+|12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) 24GB 메모리 |1TB |1TB ~ 2TB |150-225대 컴퓨터를 복제합니다. |
 
 ### <a name="prerequisites"></a>필수 조건
 

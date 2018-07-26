@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a13c83fc0d35be1aec87cb5f2d2b19b0bf27f1bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37133522"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003321"
 ---
 # <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Log Analytics를 사용하여 환경의 컴퓨터에서 데이터 수집
 
@@ -50,9 +50,6 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * Windows Server 2008 SP1(서비스 팩 1) 이상
 * Windows 7 SP1 이상.
 
-> [!NOTE]
-> Windows용 에이전트는 TLS(전송 계층 보안) 1.0 및 1.1만 지원합니다.  
-
 ## <a name="supported-linux-operating-systems"></a>지원되는 Linux 운영 체제
 다음 Linux 배포판이 공식적으로 지원됩니다.  하지만 Linux 에이전트는 나열되지 않은 그 밖의 배포에서 실행이 가능할 수 있습니다.  다른 설명이 없는 한, 나열된 각 주 버전의 모든 부 버전이 지원됩니다.  
 
@@ -63,6 +60,9 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 * Debian GNU/Linux 6, 7, 8(x86/x64)
 * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS(x86/x64)
 * SUSE Linux Enterprise Server 11 및 12(x86/x64)
+
+## <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
+Log Analytics로 전송 중인 데이터를 보호하려면 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 에이전트를 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**.  자세한 내용은 [TLS 1.2를 사용하여 안전하게 데이터 보내기](log-analytics-data-security.md#sending-data-securely-using-tls-12)를 검토하세요. 
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
 아래 정보는 Linux 및 Windows 에이전트가 Log Analytics와 통신하는 데 필요한 프록시 및 방화벽 구성 정보를 나열합니다.  

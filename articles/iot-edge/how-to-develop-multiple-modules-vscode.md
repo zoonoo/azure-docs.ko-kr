@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 4e9aac5f19fa75613dee2aba3853a0243d7d966b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 31fe210b87a052438956d813db0d104e0f2cdb6e
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048263"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041256"
 ---
 # <a name="develop-an-iot-edge-solution-with-multiple-modules-in-visual-studio-code"></a>Visual Studio Code에서 여러 모듈을 사용하여 IoT Edge 솔루션 개발
 
@@ -74,5 +74,7 @@ Visual Studio Code의 여러 모듈을 사용하여 Azure IoT Edge 솔루션을 
 
 Visual Studio Code에서 Azure IoT Edge를 개발하는 다른 시나리오에 대해 알아봅니다.
 
-* [VS Code에서 C# 모듈 개발](how-to-develop-csharp-module.md)
-* [VS Code에서 C# 함수 개발](how-to-develop-csharp-function.md)
+* [C#](how-to-develop-csharp-module.md) 또는 [Node.js](how-to-develop-node-module.md)를 사용하여 VS Code에서 모듈을 개발합니다.
+* [C#](how-to-develop-csharp-function.md)을 사용하여 VS Code에서 Azure Functions를 개발합니다.
+
+IoT Edge 장치의 모듈을 개발하려면 [Azure IoT Hub SDK를 이해하고 사용](../iot-hub/iot-hub-devguide-sdks.md)합니다.

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: dd5b9f196f911011d9dd606d46f515b88d338531
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d7330623ac5c9322b067951406920f8c0264f69c
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635579"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39012251"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -33,7 +33,7 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 다음 중 한 가지 방법으로 인증서를 얻을 수 있습니다.
 - *루트 CA(인증 기관)* 에서 X.509 인증서를 구입합니다. 이 방법은 프로덕션 환경에 권장됩니다.
 또는
-- [OpenSSL](https://www.openssl.org/)과 같은 타사 도구를 사용하여 자체적인 X.509 인증서를 만듭니다. 이 방법은 테스트 및 개발 목적으로 사용할 수 있습니다. [PowerShell을 사용하여 X.509 인증서를 만드는 방법](iot-hub-security-x509-create-certificates.md) 문서의 *X.509 인증서 만들기* 및 *X.509 인증서 체인 만들기* 섹션은 OpenSSL 및 PowerShell을 사용하여 인증서를 작성하는 샘플 PowerShell 스크립트를 단계별로 안내합니다. PowerShell 대신 **Bash** 셸을 사용하려면 [CA 인증서 관리 샘플](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)에서 관련 섹션을 참조하세요. 이 자습서의 나머지 부분에서는 *방법* 가이드의 OpenSSL 환경 설정을 사용하여 Azure IoT Hub의 종단 간 X.509 보안을 단계별로 안내합니다.
+- [OpenSSL](https://www.openssl.org/)과 같은 타사 도구를 사용하여 자체적인 X.509 인증서를 만듭니다. 이 방법은 테스트 및 개발 목적으로 사용할 수 있습니다. PowerShell 또는 Bash를 사용하여 테스트 CA 인증서를 생성하는 방법에 대한 정보는 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 참조합니다. 이 자습서의 나머지 부분에서는 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 지침에 따라 생성된 테스트 CA 인증서를 사용합니다.
 
 
 <a id="registercerts"></a>
@@ -59,7 +59,7 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 
    ![인증서 확인](./media/iot-hub-security-x509-get-started/verify-cert.png)  
 
-8. 이제 서명을 생성하는 X.509 CA 인증서와 연결된 개인 키로 이 *확인 코드*에 서명해야 합니다. 이 서명 프로세스를 수행하는 데 사용할 수 있는 도구(예: OpenSSL)가 있습니다. 이것을 [소유 증명](https://tools.ietf.org/html/rfc5280#section-3.1)이라고 합니다. 이전 섹션에서 샘플 PowerShell 스크립트를 사용한 경우 [X.509 CA 인증서 소유 증명](iot-hub-security-x509-create-certificates.md#signverificationcode) 섹션에 언급된 스크립트를 실행합니다.
+8. 이제 서명을 생성하는 X.509 CA 인증서와 연결된 개인 키로 이 *확인 코드*에 서명해야 합니다. 이 서명 프로세스를 수행하는 데 사용할 수 있는 도구(예: OpenSSL)가 있습니다. 이것을 [소유 증명](https://tools.ietf.org/html/rfc5280#section-3.1)이라고 합니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 3단계는 확인 코드를 생성합니다.
  
 9. 위의 8단계에서 생성된 서명을 포털의 IoT Hub에 업로드합니다. Azure Portal의 **인증서 세부 정보** 블레이드에서 **확인 인증서 .pem 또는 .cer 파일입니다.** 로 이동하여 서명을 선택합니다. 예를 들어 옆에 있는 _파일 탐색기_ 아이콘을 사용하여 샘플 PowerShell 명령으로 생성된 *VerifyCert4.cer*을 선택합니다.
 
@@ -86,9 +86,9 @@ IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인증서�
 
 ## <a name="authenticate-your-x509-device-with-the-x509-certificates"></a>X.509 인증서로 X.509 장치 인증
 
-X.509 장치를 인증하려면 먼저 CA 인증서로 장치에 서명해야 합니다. 리프 장치의 서명은 일반적으로 제조 공장에서 수행되며 제조 도구가 이에 따라 활성화됩니다. 장치가 한 제조업체에서 다른 제조업체로 이동함에 따라 각 제조업체의 서명 작업은 체인 내에서 중간 인증서로 캡처됩니다. 최종 결과는 CA 인증서에서 장치의 리프 인증서까지의 인증서 체인입니다. 이전 섹션에서 PowerShell 스크립트를 사용한 적이 있다면 [CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트](iot-hub-security-x509-create-certificates.md) 문서의 *장치에 리프 X.509 인증서 만들기* 섹션에 언급된 스크립트를 실행하여 이 프로세스를 시뮬레이트할 수 있습니다.
+X.509 장치를 인증하려면 먼저 CA 인증서로 장치에 서명해야 합니다. 리프 장치의 서명은 일반적으로 제조 공장에서 수행되며 제조 도구가 이에 따라 활성화됩니다. 장치가 한 제조업체에서 다른 제조업체로 이동함에 따라 각 제조업체의 서명 작업은 체인 내에서 중간 인증서로 캡처됩니다. 최종 결과는 CA 인증서에서 장치의 리프 인증서까지의 인증서 체인입니다. [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 4단계는 장치 인증서를 생성합니다.
 
-다음으로 IoT Hub에 등록된 X.509 장치를 시뮬레이트하는 C# 응용 프로그램을 만드는 방법을 보여줍니다. 시뮬레이트된 장치에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 장치 응용 프로그램만 만듭니다. 이 시뮬레이트된 장치에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 응용 프로그램을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 프로그램에서는 [CA 서명 X.509 인증서를 관리하는 PowerShell 스크립트](iot-hub-security-x509-create-certificates.md) 문서에 언급된 PowerShell 스크립트를 수행했다고 가정합니다.
+다음으로 IoT Hub에 등록된 X.509 장치를 시뮬레이트하는 C# 응용 프로그램을 만드는 방법을 보여줍니다. 시뮬레이트된 장치에서 허브로 온도 및 습도 값을 전송합니다. 이 자습서에서는 장치 응용 프로그램만 만듭니다. 이 시뮬레이트된 장치에서 보낸 이벤트에 응답을 보낼 IoT Hub 서비스 응용 프로그램을 작성하는 것은 독자가 연습하도록 남겨두었습니다. C# 응용 프로그램은 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)의 단계를 수행했다고 가정합니다.
 
 1. Visual Studio에서 콘솔 응용 프로그램 프로젝트 템플릿을 사용하여 새 Visual C# Windows 클래식 데스크톱 프로젝트를 만듭니다. 프로젝트의 이름을 **SimulateX509Device**로 지정합니다.
    ![Visual Studio에서 X.509 장치 프로젝트 만들기](./media/iot-hub-security-x509-get-started/create-device-project.png)
@@ -163,7 +163,7 @@ X.509 장치를 인증하려면 먼저 CA 인증서로 장치에 서명해야 �
     }
     ```
    이 코드는 X.509 장치에 대한 연결 문자열을 만들어서 IoT Hub에 연결합니다. 연결이 완료되면 온도 및 습도 이벤트를 허브에 보내고 응답을 기다립니다. 
-7. 이 응용 프로그램은 *.pfx* 파일에 액세스하기 때문에 *관리자* 모드에서 실행해야 합니다. Visual Studio 솔루션을 빌드합니다. **관리자**로 새 명령 창을 열고 이 솔루션이 포함된 폴더로 이동합니다. 솔루션 폴더 내의 *bin/Debug* 경로로 이동합니다. _관리자_ 명령 창에서 **SimulateX509Device.exe** 응용 프로그램을 실행합니다. 장치가 허브에 성공적으로 연결되어 이벤트를 보내는 것이 표시되어야 합니다. 
+7. 이 응용 프로그램은 *.pfx* 파일에 액세스하므로 *관리자* 모드에서 실행해야 할 수 있습니다. Visual Studio 솔루션을 빌드합니다. **관리자**로 새 명령 창을 열고 이 솔루션이 포함된 폴더로 이동합니다. 솔루션 폴더 내의 *bin/Debug* 경로로 이동합니다. _관리자_ 명령 창에서 **SimulateX509Device.exe** 응용 프로그램을 실행합니다. 장치가 허브에 성공적으로 연결되어 이벤트를 보내는 것이 표시되어야 합니다. 
    ![장치 앱 실](./media/iot-hub-security-x509-get-started/device-app-success.png)
 
 ## <a name="see-also"></a>참고 항목

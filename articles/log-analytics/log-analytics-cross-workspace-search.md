@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a8d5465a2a9aaf9cf686a8e135a1f537cc60c6b5
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: e7ca3bcb3c3322c0eba12d7f9eb2ee2bc7b7600c
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129254"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049850"
 ---
 # <a name="perform-cross-resource-log-searches-in-log-analytics"></a>Log Analytics에서 리소스 간 로그 검색 수행  
 
@@ -32,7 +32,7 @@ ms.locfileid: "37129254"
 쿼리에 다른 작업 영역을 참조하려면 [*workspace*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/workspace()) 식별자를 사용하고 Application Insights의 앱의 경우 [*app*](https://docs.loganalytics.io/docs/Language-Reference/Scope-functions/app()) 식별자를 사용합니다.  
 
 ### <a name="identifying-workspace-resources"></a>작업 영역 리소스 식별
-다음 예제에서는 현재 작업 영역과 *contosoretail-it*이라는 작업 영역의 업데이트 테이블에서 요약된 업데이트 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
+다음 예제에서는 현재 작업 영역과 *contosoretail-it*이라는 작업 영역의 업데이트 테이블에서 요약된 로그 수를 반환하기 위한 Log Analytics 작업 영역의 쿼리를 보여줍니다. 
 
 작업 영역 식별은 여러 가지 방법으로 수행될 수 있습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "37129254"
 
 * 정규화된 이름 - 구독 이름, 리소스 그룹 및 구성 요소 이름이 *subscriptionName/resourceGroup/componentName* 형식으로 구성된 작업 영역의 "전체 이름"입니다. 
 
-    `workspace('contoso/contosoretail/development').requests | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
 
     >[!NOTE]
     >Azure 구독 이름은 고유하지 않기 때문에 이 식별자는 모호할 수 있습니다. 
@@ -59,7 +59,7 @@ ms.locfileid: "37129254"
 
     예: 
     ``` 
-    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Event | count
+    workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail").Update | count
     ```
 
 ### <a name="identifying-an-application"></a>응용 프로그램 식별
@@ -88,6 +88,17 @@ Application Insights에서 응용 프로그램 식별은 *app(Identifier)* 식�
     예: 
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
+    ```
+
+### <a name="performing-a-query-across-multiple-resources"></a>여러 리소스에서 쿼리 수행
+리소스 인스턴스 중 하나에서 여러 리소스를 쿼리할 수 있습니다. 이러한 항목은 작업 영역 및 앱이 결합된 것일 수 있습니다.
+    
+두 개의 작업 영역에서 쿼리에 대한 예제:    
+    ```
+    union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d5-9cb1-p43069212nb4").Update
+    | where TimeGenerated >= ago(1h)
+    | where UpdateState == "Needed"
+    | summarize dcount(Computer) by Classification
     ```
 
 ## <a name="next-steps"></a>다음 단계

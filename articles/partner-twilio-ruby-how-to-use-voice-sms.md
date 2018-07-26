@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 69e50e7fe0e1f302e96c309878b8dea6869dff4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41b5383dd319f2cb6fad4316e963f86dd7a4bc61
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23039888"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036611"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-ruby"></a>Ruby에서 음성 및 SMS 기능을 위해 Twilio를 사용하는 방법
 이 가이드에서는 Azure에서 Twilio API 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 이 문서의 시나리오에서는 전화 통화를 걸고 SMS(Short Message Service) 메시지를 보냅니다. 응용 프로그램에서 음성 및 SMS 사용 방법과 Twilio에 대한 자세한 내용은 [다음 단계](#NextSteps) 섹션을 참조하십시오.
@@ -29,7 +29,9 @@ Twilio는 기존 웹 언어와 기술을 사용하여 음성 및 SMS 응용 프�
 
 **Twilio 음성** 을 통해 응용 프로그램에서 전화를 걸고 받을 수 있습니다. **Twilio SMS** 를 사용하면 응용 프로그램에서 SMS 메시지를 작성하고 받을 수 있습니다. **Twilio 클라이언트** 를 사용하면 응용 프로그램에서 모바일 연결을 비롯한 기존 인터넷 연결을 통해 음성 통신을 사용할 수 있습니다.
 
-## <a id="Pricing"></a>Twilio 가격 책정 및 특별 제공
+## 
+  <a id="Pricing">
+  </a>Twilio 가격 책정 및 특별 제공
 Twilio 가격 책정 정보는 [Twilio 가격 책정][twilio_pricing]에서 확인할 수 있습니다. Azure 고객은 [특별 제공][special_offer](문자 1000통 또는 인바운드 통화 1000분의 무료 크레딧)을 받습니다. 이 제공에 등록하거나 추가 정보를 얻으려면 [http://ahoy.twilio.com/azure][special_offer]를 방문하세요.  
 
 ## <a id="Concepts"></a>개념
@@ -118,7 +120,7 @@ Twilio 서비스를 사용하고 Azure에서 실행되고 있는 Ruby 응용 프
     sid = "your_twilio_account_sid";
     token = "your_twilio_authentication_token";
 
-    # The number of the phone initiating the the call.
+    # The number of the phone initiating the call.
     # This should either be a Twilio number or a number that you've verified
     from = "NNNNNNNNNNN";
 
@@ -194,4 +196,4 @@ Twilio 서비스에 관한 기본적인 사항들을 익혔으며 자세한 내�
 [twilio_support]: http://www.twilio.com/help/contact
 [twilio_quickstarts]: http://www.twilio.com/docs/quickstart
 [sinatra]: http://www.sinatrarb.com/
-[azure_vm_setup]: http://www.windowsazure.com/develop/ruby/tutorials/web-app-with-linux-vm/
+[azure_vm_setup]: https://docs.microsoft.com/azure/virtual-machines/linux/classic/ruby-rails-web-app

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2018
+ms.date: 07/12/2018
 ms.author: shlo
-ms.openlocfilehash: e654cc23d6a558469ea238fc5ade82b44562f9a2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 4b3828e1857d17a128de346449d5cf2041709e50
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050372"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39041078"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
 Azure Data Factory는 데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소에서 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 일정을 조정하며, Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 계산 서비스를 사용하여 데이터를 처리/변환하고, 사용할 BI(비즈니스 인텔리전스) 응용 프로그램의 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수 있습니다.
@@ -76,6 +76,11 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 
 ## <a name="features"></a>기능
 
+#### <a name="select-a-data-factory-to-monitor"></a>모니터링할 데이터 팩터리 선택
+왼쪽 상단에 있는 **Data Factory** 아이콘에 커서를 올려 놓습니다. azure 구독 목록 및 모니터링하려는 Data Factory를 보려면 ‘화살표’ 아이콘을 클릭합니다.
+
+![데이터 팩터리 선택](media/monitor-visually/select-datafactory.png)
+
 #### <a name="rich-ordering-and-filtering"></a>풍부한 정렬 및 필터링
 
 파이프라인 실행을 실행 시작을 기준으로 내림차순/오름차순으로 정렬하고 파이프라인 실행을 다음 열을 기준으로 필터링합니다.
@@ -88,7 +93,7 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 
 ![Filter](media/monitor-visually/filter.png)
 
-#### <a name="addremove-columns-to-list-view"></a>목록 보기에 열 추가/제거
+#### <a name="addremove-columns-in-list-view"></a>목록 보기에 열 추가/제거
 마우스 오른쪽 버튼으로 목록 보기 헤더를 클릭하고 목록 보기에 표시하려는 열을 선택합니다
 
 ![열](media/monitor-visually/columns.png)
@@ -96,10 +101,22 @@ Data Factory v2 파이프라인에 대해 각 파이프라인 실행을 보여�
 #### <a name="reorder-column-widths-in-list-view"></a>목록 보기의 열 너비 재정렬
 열 헤더에 커서를 올려 놓아 목록 보기에서 열 너비를 늘리거나 줄입니다
 
-#### <a name="select-data-factory"></a>데이터 팩터리 선택
-왼쪽 상단에 있는 ‘Data Factory’ 아이콘에 커서를 올려 놓습니다. azure 구독 목록 및 모니터링하려는 Data Factory를 보려면 ‘화살표’ 아이콘을 클릭합니다.
+#### <a name="user-properties"></a>사용자 속성
 
-![데이터 팩터리 선택](media/monitor-visually/select-datafactory.png)
+모니터링할 수 있는 엔터티가 되도록 파이프라인 작업 속성을 사용자 속성으로 승격할 수 있습니다. 예를 들어 파이프라인에서 복사 작업의 **원본** 및 **대상** 속성을 사용자 속성으로 승격할 수 있습니다. **자동 생성**을 선택하여 복사 작업의 **원본** 및 **대상** 사용자 속성을 생성할 수도 있습니다.
+
+![사용자 속성 만들기](media/monitor-visually/monitor-user-properties-image1.png)
+
+> [!NOTE]
+> 최대 5개의 파이프라인 작업 속성만을 사용자 속성으로 승격할 수 있습니다.
+
+사용자 속성을 만든 후에 모니터링 목록 보기에서 모니터링할 수 있습니다. 복사 작업의 원본이 테이블 이름인 경우 원본 테이블 이름을 활동 실행 목록 보기의 열로 모니터링할 수 있습니다.
+
+![사용자 속성을 제외한 활동 실행 목록](media/monitor-visually/monitor-user-properties-image2.png)
+
+![활동 실행 목록에 사용자 속성에 대한 열 추가](media/monitor-visually/monitor-user-properties-image3.png)
+
+![사용자 속성의 열을 포함한 활동 실행 목록](media/monitor-visually/monitor-user-properties-image4.png)
 
 #### <a name="guided-tours"></a>둘러보기
 파이프라인 및 작업 실행을 모니터링하는 방법에 대한 단계별 지침을 확인하려면 왼쪽 하단의 ‘정보 아이콘’을 클릭하고 ‘둘러보기’를 클릭합니다.

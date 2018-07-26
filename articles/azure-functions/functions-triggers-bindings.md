@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
 ms.author: tdykstra
-ms.openlocfilehash: 1b22357b201306ec09e586bfa52fbe9a821250da
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 912176df2681f890cf3bbe6f69395ad39c9263fc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887473"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004900"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions 트리거 및 바인딩 개념
 
@@ -32,7 +32,7 @@ ms.locfileid: "37887473"
 
 입력 및 출력 *바인딩*은 코드에서 데이터에 연결하기 위한 선언적 방식을 제공합니다. 바인딩은 선택 사항이며 함수는 여러 개의 입력 및 출력 바인딩을 가질 수 있습니다. 
 
-트리거 및 바인딩을 통해 작업하는 서비스 세부 정보의 하드 코딩을 방지할 수 있습니다. 함수는 함수 매개 변수에서 데이터를 수신합니다(예: 큐 메시지의 콘텐츠). 함수의 반환 값, `out` 매개 변수 또는 [collector 개체](functions-reference-csharp.md#writing-multiple-output-values)를 사용하여 데이터를 보냅니다(예: 큐 메시지를 만들기 위해).
+트리거 및 바인딩을 통해 작업하는 서비스 세부 정보의 하드 코딩을 방지할 수 있습니다. 함수는 함수 매개 변수에서 데이터를 수신합니다(예: 큐 메시지의 콘텐츠). 함수의 반환 값을 사용하여 데이터를 보냅니다(예를 들어 큐 메시지를 만들기 위해). C# 및 C# 스크립트에서 데이터를 보내는 또 다른 방법은 `out` 매개 변수 및 [수집기 개체](functions-reference-csharp.md#writing-multiple-output-values)입니다.
 
 Azure Portal을 사용하여 함수를 개발하는 경우 트리거 및 바인딩은 *function.json* 파일에서 구성됩니다. 포털은 이 구성에 대한 UI를 제공하지만 **고급 편집기**로 변경하여 파일을 직접 편집할 수 있습니다.
 
@@ -224,9 +224,11 @@ dotnet add package Microsoft.Azure.WebJobs.ServiceBus --version <target_version>
 * C# 클래스 라이브러리에서 출력 바인딩 특성을 메서드 반환 값에 적용합니다.
 * 다른 언어에서 *function.json*의 `name` 속성을 `$return`에 설정합니다.
 
-한 항목 초과를 작성해야 하는 경우 반환 값 대신 [collector 개체](functions-reference-csharp.md#writing-multiple-output-values)를 사용합니다. 여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
+여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
 
-언어 관련 예제를 참조하세요.
+C# 및 C# 스크립트에서 데이터를 출력 바인딩으로 보내는 또 다른 방법은 `out` 매개 변수 및 [수집기 개체](functions-reference-csharp.md#writing-multiple-output-values)입니다.
+
+반환 값 사용 방법을 보여주는 언어별 예제를 참조하세요.
 
 * [C#](#c-example)
 * [C# 스크립트(.csx)](#c-script-example)

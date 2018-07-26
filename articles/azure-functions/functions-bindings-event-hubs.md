@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 7ea233f3d5b0e0b6ad1470af146f963fce6c4e94
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970675"
+ms.locfileid: "38989591"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 
@@ -367,6 +367,8 @@ Event Hubs 트리거는 몇 가지 [메타데이터 속성](functions-triggers-b
 ## <a name="output"></a>출력
 
 Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 씁니다. 이벤트를 쓰려면 이벤트 허브에 대한 보내기 사용 권한이 있어야 합니다.
+
+필요한 패키지 참조가 작동하는지 확인합니다. [Functions 1.x](#packages---functions-1.x) 또는 [Functions 2.x](#packages---functions-2.x) 
 
 ## <a name="output---example"></a>출력 - 예제
 

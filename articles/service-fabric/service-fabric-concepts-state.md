@@ -1,5 +1,5 @@
 ---
-title: Azure 마이크로 서비스에서 상태 정의 및 관리| Microsoft Docs
+title: Azure Service Fabric 마이크로 서비스에서 상태 관리| Microsoft Docs
 description: 서비스 패브릭에서 서비스 상태를 정의하고 관리하는 방법
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 46d2e27b9cdcb03213648982c7e9a0576838bc92
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: eaa38e864da2525b640fa101ecc807f89de8eeaf
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213098"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072200"
 ---
 # <a name="service-state"></a>서비스 상태
 **서비스 상태**는 서비스가 작동하기 위해 필요한 메모리 내 또는 디스크의 데이터를 나타냅니다. 예를 들어 서비스가 작업을 수행하기 위해 읽고 쓰는 데이터 구조 및 멤버 변수를 포함합니다. 서비스의 구성 방식에 따라 디스크에 저장되어 있는 파일이나 기타 리소스도 포함할 수 있습니다. 예를 들어 데이터베이스가 데이터 및 트랜잭션 로그를 저장하는 데 사용하는 파일이 있습니다.

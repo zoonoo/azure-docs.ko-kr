@@ -3,35 +3,27 @@ title: Azure Marketplace SaaS 응용 프로그램 기술 게시 가이드
 description: Azure Marketplace에 SaaS 응용 프로그램을 게시하는 단계별 가이드 및 게시 검사 목록
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 documentationcenter: ''
-author: BrentL-Collabera
-manager: ''
-editor: BrentL-Collabera
+author: keithcharlie
+manager: nunoc
+editor: keithcharlie
 ms.assetid: ''
 ms.service: marketplace
 ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: pabutler
-ms.openlocfilehash: 2ac8119e36843e38e334fb5772ea4ade9962b4f9
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 07/09/2018
+ms.author: keithcharlie
+ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809474"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056405"
 ---
-# <a name="saas-applications-technical-publishing-guide"></a>SaaS 응용 프로그램 기술 게시 가이드
+# <a name="saas-applications-offer-publishing-guide"></a>SaaS 응용 프로그램 제품 게시 가이드
 
-Azure Marketplace SaaS 응용 프로그램 기술 게시 가이드를 시작합니다. 이 가이드는 향후 게시자 및 기존 게시자가 SaaS 응용 프로그램 제품을 사용하여 Azure Marketplace에 응용 프로그램과 서비스를 나열하는 데 도움을 주기 위해 작성되었습니다. 
-
-SaaS 제품을 게시하는 방법을 더 잘 이해하기 위해 이 가이드는 다음 섹션으로 구분됩니다.
-* 제품 개요
-* 비즈니스 요구 사항
-* 기술적인 요구 사항
-* 게시 프로세스
-* Azure Active Directory를 사용하여 체험 지원
-* Marketplace에 대한 Azure AD 통합 인증
+SaaS 응용 프로그램은. "연락처", "지금 사용해 보기" 및 "지금 가져오기" 작업에 대한 세 개의 다른 호출을 사용하여 마켓플레이스에 게시할 수 있습니다 이 가이드에서는 각각에 대한 요구 사항을 비롯한 세 가지 옵션을 설명합니다. 
 
 ## <a name="offer-overview"></a>제품 개요  
 
@@ -43,7 +35,7 @@ SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다
 | Azure 마켓플레이스 | 아니오 | 예(SaaS 앱) |   
 
 **목록:** 나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 거래 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
-**평가판/거래:** 고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
+**평가판/트랜잭션:** 고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
 
 | SaaS 앱 제품 | 비즈니스 요구 사항 | 기술적인 요구 사항 |  
 | --- | --- | --- |  
@@ -51,20 +43,29 @@ SaaS 응용 프로그램은 모두 Azure 상점에서 사용할 수 있습니다
 | **PowerBI/Dynamics** | 예 | 예(Azure AD 통합) |  
 | **SaaS 앱**| 예 | 예(Azure AD 통합) |     
 
-Marketplace 상점 및 각 게시 옵션의 설명에 대한 자세한 내용은 [Marketplace 게시자 가이드](https://aka.ms/sellerguide) 및 [게시 옵션](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#select-a-publishing-option)을 참조하세요.
+## <a name="saas-list"></a>SaaS 목록
 
-## <a name="business-requirements"></a>비즈니스 요구 사항
-SaaS 제품 비즈니스 요구 사항은 기술 요구 사항과 병렬로 완료될 수 있습니다. 대부분의 비즈니스 요구 사항 및 정보는 Cloud 파트너 포털에 있는 SaaS 제품을 빌드할 때 수집됩니다. 비즈니스 요구 사항은 다음과 같습니다. 
-* 참여 정책에 동의
-* Microsoft와의 통합 
-* 제품의 대상 식별
-* 사용할 잠재 고객 관리 정의 및 결정
-* 개인 정보 취급 방침 및 사용 약관 설정
-* 고객 지원팀 연락처 정의  
+평가판이 없고 청구 기능이 없는 SaaS 목록의 작업에 대한 호출은 "연락처"입니다. 
 
-자세한 내용은 [마켓플레이스 게시에 대한 필수 구성 요소](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide#prerequisites-for-marketplace-publishing) 항목에서 찾을 수 있습니다.
+SaaS 응용 프로그램을 나열하도록 Azure Active Directory를 구성할 필요가 없습니다. 
 
-## <a name="technical-requirements"></a>기술적인 요구 사항
+|요구 사항  |세부 정보  |
+|---------|---------|
+|앱이 SaaS 제품입니다.  |   사용자의 솔루션은 SaaS 제품이며 다중 테넌트 SaaS 제품을 제공합니다.      |
+
+
+## <a name="saas-trial"></a>SaaS 평가판
+
+평가판, SaaS(Software-as-a-Service) 기반 평가판을 사용하여 솔루션을 제공합니다. 평가판은 제한된 사용 또는 제한된 기간 평가판 계정으로 표시될 수 있습니다. 
+
+
+|요구 사항  |세부 정보  |
+|---------|---------|
+|앱이 SaaS 제품입니다.  |   사용자의 솔루션은 SaaS 제품이며 다중 테넌트 SaaS 제품을 제공합니다.      |
+|앱이 AAD를 사용하도록 설정됩니다.     |   고객이 도메인으로 리디렉션될 수 있고 고객과 직접 트랜잭션합니다.       |
+
+
+## <a name="saas-trial-technical-requirements"></a>SaaS 평가판 기술 요구 사항
 
 SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게시할 Azure AD(Azure Active Directory)와 게시자가 통합되기만 하면 됩니다. Azure AD와 응용 프로그램의 통합은 문서화가 잘 되어있으며 이를 위해 Microsoft는 다수의 SDK와 리소스가 제공됩니다.  
 
@@ -96,32 +97,7 @@ SaaS 응용 프로그램에 대한 기술 요구 사항은 간단합니다. 게�
 * [IT 전문가용 Microsoft Azure 콘텐츠 시리즈: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 또한 Azure Active Directory에서는 서비스 업데이트를 확인하는 사이트를 제공합니다.   
-* [Azure AD 서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)
-
-지원이 필요하면 다음 리소스를 사용하세요.
-* [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
-
-## <a name="publishing-process"></a>게시 프로세스
-
-SaaS 게시 프로세스에는 기술 및 비즈니스 단계가 있습니다.  Azure Active Directory를 개발하고 통합하는 대부분의 작업은 제품의 비즈니스 요구 사항을 충족하는 데 필요한 작업과 병렬로 수행될 수 있습니다. 대량의 비즈니스 요구 사항은 SaaS 앱 제품 구성 Cloud 파트너 포털의 일부입니다.  
-다음 다이어그램에서는 평가판/거래 제품에 대한 주요 게시 단계를 보여줍니다.  
-
-![SaaS 게시 단계](./media/marketplace-saas-applications-technical-publishing-guide/saaspublishingsteps.png)  
-
-다음 표에서는 각 주요 게시 단계를 설명합니다.  
-
-| 게시 단계 | 설명 |   
-| --- | --- |  
-| **SaaS 응용 프로그램 만들기** | Cloud 파트너 포털에 로그인하고, **새로 만들기**를 선택한 다음, **SaaS 앱** 제품을 선택합니다. |  
-| **Azure AD와 통합 만들기** | 이전 섹션에 설명된 기술 요구를 따라 SaaS 제품을 Azure AD와 통합합니다. |  
-| **제품 설정 지정**| 모든 SaaS 제품 초기 정보를 입력합니다. 사용하려는 제품 ID 및 제품 이름입니다. |     
-| **기술 정보 설정** | 이 제품에 대한 기술 정보를 입력합니다. SaaS 응용 프로그램의 경우 솔루션의 URI 및 제품의 취득 형식 단추(무료, 평가판 또는 연락처)가 필요합니다. |  
-| **시험 사용(선택 사항)** | 대개 다른 형식의 Marketplace 제품에 필요한 평가판의 선택적 형식입니다. 게시자의 구독 및 최종 사용자에게 배포된 평가판이 있을 수 있습니다. |  
-| **제품 상점 자료 설정**| 이 섹션에서 게시자는 로고, 마케팅 자료, 법률 문서를 연결하고 업로드하며, 잠재 고객 관리 시스템을 구성합니다. |
-| **제품 연락처 설정** | SaaS 제품에 대한 엔지니어링 팀 연락처 및 고객 지원팀 연락처 정보를 모두 입력합니다. |  
-| **SaaS 앱 Azure AD 통합 확인** | 게시하기 위해 SaaS 앱을 제출하기 전에 앱이 Azure AD와 통합되었는지 확인해야 합니다. |  
-| **제품 게시**| 제품 및 기술 자산을 완료한 후에 제품을 제출할 수 있습니다. 그러면 게시를 위해 솔루션 템플릿을 테스트하고, 유효성을 검사하고, 인증하고, 승인하는 게시 프로세스를 시작합니다. |
+* [Azure AD 서비스 업데이트](https://azure.microsoft.com/updates/?product=active-directory)|
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Azure Active Directory를 사용하여 체험 지원  
 
@@ -154,3 +130,25 @@ Azure AD 페더레이션 SSO를 처음 사용하는 경우 다음을 수행합�
 * 고객별로 '시험 사용' 개발
 * SSO를 통해 다중 테넌트 샘플 데모 앱을 빌드합니다.
 
+## <a name="saas-subscriptions"></a>SaaS 구독
+
+SaaS 앱 제품 유형을 사용하면 고객이 SaaS 기반, 기술 솔루션을 구독으로 구매할 수 있습니다. SaaS 앱에 대해 다음 요구 사항이 충족되어야 합니다.
+- 매월 정액으로 서비스 가격을 책정하고 요금을 청구합니다.
+- 언제든지 서비스를 업그레이드하거나 취소할 방법을 제공합니다.
+Microsoft는 상거래를 주도합니다. Microsoft는 사용자를 대신하여 고객에게 요금을 청구합니다. 구독으로서 SaaS 앱의 요금을 청구하려면 자신의 구독 관리 서비스 API를 사용하도록 설정해야 합니다. 구독 관리 서비스 API는 Azure Resource Manager API와 직접 통신해야 합니다. 구독 관리 서비스 API는 서비스 프로비저닝, 업그레이드 및 취소를 지원해야 합니다.
+
+| 요구 사항 | 세부 정보 |  
+|:--- |:--- |  
+|청구 및 계량 | 제품은 월정액으로 가격이 책정됩니다. 사용량 기반 가격 책정 및 사용량 기반 "현실화" 기능은 이번에 지원되지 않습니다. |  
+|취소 | 제품은 언제든지 고객에 의해 취소될 수 있습니다. |  
+|트랜잭션 방문 페이지 | 사용자가 SaaS 서비스 계정을 만들고 관리할 수 있는 Azure 공동 브랜드 트랜잭션 방문 페이지를 호스트합니다. |   
+| 구독 API | SaaS 구독과 상호 작용할 수 있는 서비스를 노출하여 사용자 계정 및 서비스 계획을 생성하고, 업데이트하고, 삭제합니다. 24시간 내에 중요한 API 변경 내용이 지원되어야 합니다. 중요하지 않은 API 변경 내용은 정기적으로 릴리스됩니다. |  
+
+## <a name="next-steps"></a>다음 단계
+아직 수행하지 않았다면 
+
+- Marketplace에서 [등록](https://azuremarketplace.microsoft.com/sell)
+
+새 제품을 등록하고 만들거나 기존에서 작업하는 경우
+
+- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com)

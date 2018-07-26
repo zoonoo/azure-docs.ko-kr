@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2017
+ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: ba2466f58b3af0ef208474adb3e4c7ff184ceccc
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018649"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036849"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -73,15 +73,21 @@ Azure 구독에 대한 앱 액세스 권한을 부여합니다.
 
 다음 예에서는 Azure PowerShell을 사용하여 앱을 등록하는 방법을 보여 줍니다. 이 명령이 작동하려면 최신 버전(2016년 8월)의 Azure PowerShell이 있어야 합니다.
 
-    $app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```azurepowershell-interactive
+$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+```
 
 AD 응용 프로그램으로 로그인하려면 응용 프로그램 ID 및 암호가 필요합니다. 이전 명령에서 반환된 응용 프로그램 ID를 보려면 다음을 사용합니다.
 
-    $app.ApplicationId
+```azurepowershell-interactive
+$app.ApplicationId
+```
 
 다음 예에서는 Azure CLI를 사용하여 앱을 등록하는 방법을 보여 줍니다.
 
-    azure ad app create --name {app name} --home-page https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available true
+```azurecli-interactive
+az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
+```
 
 결과에는 응용 프로그램으로 인증을 수행할 때 필요한 AppId가 포함됩니다.
 

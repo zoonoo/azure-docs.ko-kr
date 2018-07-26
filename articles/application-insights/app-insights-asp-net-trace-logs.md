@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5ffb758fe5fa42be6323de06afbfb38068ae1926
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b1cd2e8d7649de48f34efb0c7d839e17906a29bf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969173"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044988"
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Application Insights에서 .NET 추적 로그 탐색
 ASP.NET 응용 프로그램에서 진단 추적에 NLog, log4Net 또는 System.Diagnostics.Trace를 사용하는 경우 [Azure Application Insights][start]로 로그를 보내서 탐색 및 검색할 수 있습니다. 서비스를 제공하는 각 사용자 요청과 연결된 추적을 식별하고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있도록 로그가 응용 프로그램에서 들어오는 다른 원격 분석과 병합됩니다.
@@ -65,7 +65,7 @@ System.Diagnostics.Trace를 사용하는 경우 web.config에 항목을 추가�
 
    * Microsoft.ApplicationInsights.TraceListener (to capture System.Diagnostics.Trace calls)
    * Microsoft.ApplicationInsights.EventSourceListener (to capture EventSource events)
-   * Microsoft.ApplicationInsights.EtwListener (to capture ETW events)
+   * Microsoft.ApplicationInsights.EtwCollector(ETW 이벤트 캡쳐)
    * Microsoft.ApplicationInsights.NLogTarget
    * Microsoft.ApplicationInsights.Log4NetAppender
 

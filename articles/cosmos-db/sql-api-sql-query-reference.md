@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 10/18/2017
 ms.author: laviswa
-ms.openlocfilehash: 13337e7979a378382df5e62661b04bac8dffa689
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798834"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39042013"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 구문 참조
 
@@ -460,7 +460,7 @@ ORDER BY <sort_specification>
   
 -   `parameter_name`  
   
-     지정된 매개 변수 이름의 값을 나타냅니다. 매개 변수 이름에는 첫 번째 문자로 @가 하나 있어야 합니다.  
+     지정된 매개 변수 이름의 값을 나타냅니다. 매개 변수 이름에는 첫 번째 문자로 \@가 하나 있어야 합니다.  
   
  **설명**  
   
@@ -1854,7 +1854,7 @@ SELECT
 |[낮은](#bk_lower)|[LTRIM](#bk_ltrim)|[바꾸기](#bk_replace)|  
 |[복제](#bk_replicate)|[역방향](#bk_reverse)|[오른쪽](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[하위 문자열](#bk_substring)|  
-|[위](#bk_upper)|||  
+|[ToString](#bk_tostring)|[위](#bk_upper)|||  
   
 ####  <a name="bk_concat"></a> CONCAT  
  둘 이상의 문자열 값을 연결한 결과인 문자열을 반환합니다.  
@@ -2367,7 +2367,80 @@ SELECT SUBSTRING("abc", 1, 1)
 ```  
 [{"$1": "b"}]  
 ```  
+####  <a name="bk_tostring"></a> ToString  
+ 스칼라 식의 문자열 표현을 반환합니다. 
   
+ **구문**  
+  
+```  
+ToString(<expr>)
+```  
+  
+ **인수**  
+  
+-   `expr`  
+  
+     유효한 스칼라 식입니다.  
+  
+ **반환 형식**  
+  
+ 문자열 식을 반환합니다.  
+  
+ **예**  
+  
+ 다음 예제에서는 다른 형식에서 ToString이 동작하는 방법을 보여줍니다.   
+  
+```  
+SELECT ToString(1.0000), ToString("Hello World"), ToString(NaN), ToString(Infinity),
+ToString(IS_STRING(ToString(undefined))), IS_STRING(ToString(0.1234), ToString(false), ToString(undefined))
+```  
+  
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"$1": "1", "$2": "Hello World", "$3": "NaN", "$4": "Infinity", "$5": "false", "$6": true, "$7": "false"}]  
+```  
+ 다음 입력을 지정합니다.
+```  
+{"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
+```    
+ 다음 예제에서는 CONCAT와 같은 다른 문자열 함수를 사용하여 ToString을 사용할 수 있는 방법을 보여줍니다.   
+ 
+```  
+SELECT 
+CONCAT(ToString(p.Weight), p.WeightUnits) 
+FROM p in c.Products 
+```  
+
+ 결과 집합은 다음과 같습니다.  
+  
+```  
+[{"$1":"4lb" },
+ {"$1":"32kg"},
+ {"$1":"400g" },
+ {"$1":"8999mg" }]
+
+```  
+다음 입력을 지정합니다.
+```
+{"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
+```
+ 다음 예제에서는 REPLACE와 같은 다른 문자열 함수를 사용하여 ToString을 사용할 수 있는 방법을 보여줍니다.   
+```
+SELECT 
+    n.id AS nutrientID,
+    REPLACE(ToString(n.nutritionValue), "6", "9") AS nutritionVal
+FROM food 
+JOIN n IN food.nutrients
+```
+ 결과 집합은 다음과 같습니다.  
+ ```
+[{"nutrientID":"305"},
+{"nutrientID":"306","nutritionVal":"30"},
+{"nutrientID":"307","nutritionVal":"912"},
+{"nutrientID":"308","nutritionVal":"90"},
+{"nutrientID":"309","nutritionVal":"null"}]
+ ```  
 ####  <a name="bk_upper"></a> UPPER  
  소문자 데이터를 대문자로 변환한 후에 문자열 식을 반환합니다.  
   

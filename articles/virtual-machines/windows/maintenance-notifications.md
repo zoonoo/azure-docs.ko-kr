@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: 32d61367790a2b0b43e92c427a366f58e3c12ae9
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 609a688ba2915e57916a6e5e9ea0cbdc66ccdd6a
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888986"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069559"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Windows 가상 머신에 대한 계획된 유지 관리 알림 처리
 
@@ -187,7 +187,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **Q: Virtual Machine Scale Sets의 경우에 환경이란?**
 
-**A:** 이제 계획된 유지 관리는 가상 머신 확장 집합에 지원됩니다. 셀프 서비스 유지 관리를 시작하는 방법에 대한 지침은 가상 머신 확장 집합 문서에서 "방법-> 관리-> 계획된 유지 관리" 섹션을 참조하세요.
+**A:** 이제 계획된 유지 관리는 Virtual Machine Scale Sets에 지원됩니다. 셀프 서비스 유지 관리를 시작하는 방법에 대한 지침은 [VMSS에 대한 계획된 유지 관리](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) 문서를 참조하세요.
 
 **Q: Cloud Services(웹/작업자 역할) 및 Service Fabric의 경우에 환경이란?**
 

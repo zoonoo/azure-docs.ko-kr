@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ec396e8a1ad36e85e1291995345ca1de24668d0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128063"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39001908"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -107,19 +107,43 @@ IoT Edge 보안 디먼이 실행되면 컨테이너의 로그를 확인하여 �
 
 ### <a name="view-the-messages-going-through-the-edge-hub"></a>Edge 허브를 따라 메시지 확인
 
-Edge Hub에 표시되는 메시지를 확인하여, edgeAgent 및 edgeHub 런타임 컨테이너에서 제공되는 자세한 로그를 통해 장치 속성 업데이트에 대한 정보를 수집합니다. 이러한 컨테이너에서 자세한 로그를 켜려면 `RuntimeLogLevel` 환경 변수를 설정합니다. 
+Edge Hub에 표시되는 메시지를 확인하여, edgeAgent 및 edgeHub 런타임 컨테이너에서 제공되는 자세한 로그를 통해 장치 속성 업데이트에 대한 정보를 수집합니다. 이러한 컨테이너에서 자세한 로그를 켜려면 yaml 구성 파일에서 `RuntimeLogLevel`을 설정합니다. 파일을 열려면:
 
 Linux에서:
-    
-   ```cmd
-   export RuntimeLogLevel="debug"
+
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
    ```
-    
+
 Windows에서:
-    
-   ```powershell
-   [Environment]::SetEnvironmentVariable("RuntimeLogLevel", "debug")
+
+   ```cmd
+   notepad C:\ProgramData\iotedge\config.yaml
    ```
+
+기본적으로 `agent` 요소는 아래와 같은 모양입니다.
+
+   ```yaml
+   agent:
+     name: edgeAgent
+     type: docker
+     env: {}
+     config:
+       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       auth: {}
+   ```
+
+`env: {}`을 다음으로 바꿉니다.
+
+> [!WARNING]
+> YAML 파일은 들여쓰기로 탭을 포함할 수 없습니다. 2 공백을 대신 사용합니다.
+
+   ```yaml
+   env:
+     RuntimeLogLevel: debug
+   ```
+
+파일을 저장하고 IoT Edge 보안 관리자를 다시 시작합니다.
 
 IoT Hub 및 IoT Edge 장치 간에 전송되는 메시지를 확인할 수도 있습니다. Visual Studio Code용 [Azure IoT 도구 키트](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 확장을 사용하여 이러한 메시지를 확인합니다. 자세한 지침은 [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)(Azure IoT로 개발할 때 사용할 수 있는 편리한 도구)를 참조하세요.
 
@@ -236,5 +260,41 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
       notepad C:\ProgramData\iotedge\config.yaml
       ```
 
+## <a name="stability-issues-on-resource-constrained-devices"></a>리소스가 제한된 장치의 안정성 문제 
+Raspberry Pi와 같이 제한된 장치를 사용하는 경우, 특히 이 장치를 게이트웨이로 사용하는 경우에는 안정성 문제가 발생할 수 있습니다. 증상에는 에지 허브 모듈의 메모리 부족 예외가 있으며, 다운스트림 장치를 연결할 수 없거나 몇 시간 후 장치가 원격 분석 메시지를 보내지 않습니다.
+
+### <a name="root-cause"></a>근본 원인
+에지 런타임에 속하는 에지 허브는 기본적으로 성능에 최적화되어 있으며 많은 양의 메모리를 할당하려고 합니다. 이런 상황이 제한된 에지 장치에는 이상적이지 않으며 안정성 문제를 유발할 수 있습니다.
+
+### <a name="resolution"></a>해결 방법
+에지 허브에 대해 환경 변수 **OptimizeForPerformance**를 **false**로 설정합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
+
+UI의 경우: 
+
+포털의 *장치 세부 정보*->*모듈 설정*->*고급 Edge 런타임 설정 구성*에서 *에지 허브*에 대해 *false*로 설정된 *OptimizeForPerformance*라는 환경 변수를 만듭니다.
+
+![optimizeforperformance][img-optimize-for-perf]
+
+**또는**
+
+배포 매니페스트의 경우:
+
+```json
+  "edgeHub": {
+    "type": "docker",
+    "settings": {
+      "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+      "createOptions": <snipped>
+    },
+    "env": {
+      "OptimizeForPerformance": {
+          "value": "false"
+      }
+    },
+```
+
 ## <a name="next-steps"></a>다음 단계
 IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iotedge/issues)하세요. 
+
+<!-- Images -->
+[img-optimize-for-perf]: ./media/troubleshoot/OptimizeForPerformanceFalse.png

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ddce312d6299a7749f1a40a83f67ce3c26876591
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 4410adfd5788b06163b8da18b96d2f8a9c350ac8
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714003"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011431"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Azure Portal을 사용하여 장치 관리
 
@@ -198,6 +198,9 @@ BitLocker 키를 보거나 복사하려면, 장치의 소유자 또는 다음 �
 - 보안 관리자
 - 보안 읽기 권한자
 - Intune 서비스 관리자
+
+> [!NOTE]
+> 하이브리드 Azure AD 조인 Windows 10 장치에는 소유자가 없습니다. 따라서 소유자로 장치를 찾으려는 경우 찾지 못하면 장치 ID로 검색합니다.
 
 
 ## <a name="audit-logs"></a>감사 로그

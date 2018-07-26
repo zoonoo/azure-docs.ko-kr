@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 88bd895cb3a384f1ada0394fe2da206aca86b981
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a5a6a43c41760e22a7aeb0e97aacc145c69957ff
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38670933"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006399"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Azure에서 OpenSUSE Linux를 실행하는 가상 머신에 MySQL 설치
 
@@ -33,13 +33,13 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 Azure CLI 버�
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>OpenSUSE Linux를 실행하는 가상 머신 만들기
 
-먼저 리소스 그룹을 만듭니다. 다음 예제에서는 *mySQSUSEResourceGroup* 리소스 그룹의 이름을 지정하고 *미국 동부* 지역에 해당 리소스 그룹을 만듭니다.
+먼저 리소스 그룹을 만듭니다. 이 예제에서 리소스 그룹은 *mySQSUSEResourceGroup*으로 이름이 지정되고 *미국 동부* 지역에 만들어집니다.
 
 ```azurecli-interactive
 az group create --name mySQLSUSEResourceGroup --location eastus
 ```
 
-VM을 만듭니다. 다음 예제에서는 *myVM* VM의 이름을 지정합니다. 또한*Standard_D2s_v3* VM 크기를 사용하지만, 워크로드에 가장 적합한 것으로 생각되는 [VM 크기](sizes.md)를 선택해야 합니다.
+VM을 만듭니다. 이 예제에서 VM은 *myVM*으로 이름이 지정되고 VM 크기는 *Standard_D2s_v3*이지만 워크로드에 가장 적합한 것으로 생각되는 [VM 크기](sizes.md)를 선택해야 합니다.
 
 ```azurecli-interactive
 az vm create --resource-group mySQLSUSEResourceGroup \
@@ -96,17 +96,30 @@ systemctl is-enabled mysql
 
 이 경우 반환되는 값은 enabled입니다.
 
+서버를 다시 시작합니다.
+
+```bash
+sudo reboot
+```
+
 
 ## <a name="mysql-password"></a>MySQL 암호
 
 설치한 후 MySQL 루트 암호는 기본적으로 비어있습니다. **mysql\_secure\_installation** 스크립트를 실행하여 MySQL을 보호합니다. 스크립트에서 MySQL 루트 암호 변경, 익명 사용자 계정 삭제, 원격 루트 로그인 비활성화, 테스트 데이터베이스 제거, 권한 테이블 다시 로드 등의 작업을 수행하라는 메시지를 표시합니다. 
+
+서버가 다시 부팅되면 VM으로 다시 ssh합니다.
+
+```azurecli-interactive  
+ssh 10.111.112.113
+```
+
 
 
 ```bash
 mysql_secure_installation
 ```
 
-## <a name="log-in-to-mysql"></a>MySQL에 로그인
+## <a name="sign-in-to-mysql"></a>MySQL에 로그인
 
 이제 로그인하여 MySQL 프롬프트에 진입할 수 있습니다.
 
@@ -136,7 +149,7 @@ GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
 데이터베이스 사용자 이름과 암호는 데이터베이스에 연결하는 스크립트에서만 사용됩니다.  데이터베이스 사용자 계정 이름에 시스템에 있는 실제 사용자 계정을 반영할 필요는 없습니다.
 
-다른 컴퓨터에서 로그인을 사용하도록 설정합니다. 다음 예제에서 로그인하려는 컴퓨터의 IP 주소는 *10.112.113.114*입니다.
+다른 컴퓨터에서 로그인을 사용하도록 설정합니다. 이 예제에서 로그인을 허용하는 컴퓨터의 IP 주소는 *10.112.113.114*입니다.
 
 ```   
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';

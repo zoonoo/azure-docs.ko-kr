@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45179f8f1f46be764144bdc22d5bab3548e9401d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2b4e2a19b5d5f6491ff3db24489b361040a52280
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346062"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035577"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>투명한 게이트웨이 역할을 하는 Linux IoT Edge 장치 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "37346062"
 >[!NOTE]
 >현재 상황:
 > * 게이트웨이가 IoT Hub와의 연결이 끊긴 경우 다운스트림 장치는 게이트웨이를 통해 인증할 수 없습니다.
-> * IoT Edge 장치는 IoT Edge 게이트웨이에 연결할 수 없습니다.
+> * Edge 가능 장치는 IoT Edge 게이트웨이에 연결할 수 없습니다. 
 > * 다운스트림 장치는 파일 업로드를 사용할 수 없습니다.
 
 투명한 게이트웨이를 만들 때 다운스트림 장치에 게이트웨이를 안전하게 연결하기가 어렵습니다. Azure IoT Edge를 사용하면 PKI 인프라를 사용하여 이러한 장치 간에 안전한 TLS 연결을 설정할 수 있습니다. 이 경우에 투명한 게이트웨이로 작동하는 IoT Edge 장치에 다운스트림 장치를 연결할 수 있습니다.  장치를 잠재적인 악성 게이트웨이가 아닌 게이트웨이에 연결하려고 하기 때문에 적절한 보안을 유지하려면 다운스트림 장치가 Edge 장치의 ID를 확인해야 합니다.
@@ -181,7 +181,7 @@ IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림
    { "routes":{ "sensorToAIInsightsInput1":"FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO BrokeredEndpoint(\"/modules/ai_insights/inputs/input1\")", "AIInsightsToIoTHub":"FROM /messages/modules/ai_insights/outputs/output1 INTO $upstream" } }
    ```
 
-메시지 라우팅에 대한 자세한 내용은 [모듈 컴퍼지션 아티클][lnk-module-composition]을 참조하세요.
+메시지 라우팅에 대한 자세한 내용은 [모듈 컴퍼지션 문서][lnk-module-composition]를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해][lnk-module-dev]
@@ -192,6 +192,7 @@ IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림
 <!-- Links -->
 [lnk-install-linux-x64]: ./how-to-install-iot-edge-linux.md
 [lnk-install-linux-arm]: ./how-to-install-iot-edge-linux-arm.md
+[lnk-module-composition]: ./module-composition.md
 [lnk-devicesdk]: ../iot-hub/iot-hub-devguide-sdks.md
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md
 [lnk-tutorial1-lin]: tutorial-simulate-device-linux.md

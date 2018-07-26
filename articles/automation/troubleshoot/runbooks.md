@@ -4,16 +4,16 @@ description: Azure Automation Runbook을 사용하여 문제를 해결하는 방
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b96d723f6c7ca423343c0586f59770abb55ada9f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 286a777e16dea72e38b316e86ba57e1811888eec
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929352"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39044869"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -94,6 +94,31 @@ Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Dire
 Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../azure-resource-manager/resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
+
+### <a name="not-recognized-as-cmdlet"></a>시나리오: 누락된 cmdlet으로 인해 Runbook이 실패합니다.
+
+#### <a name="issue"></a>문제
+
+다음 예제와 비슷한 오류가 발생하여 Runbook이 실패합니다.
+
+```
+The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 다음과 같은 원인으로 인해 발생할 수 있습니다.
+
+1. cmdlet을 포함하는 모듈을 자동화 계정으로 가져오지 않습니다.
+2. cmdlet을 포함하는 모듈을 가져오지만 만료되었습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+다음 작업 중 하나를 완료하여 이 오류를 해결할 수 있습니다.
+
+모듈이 Azure 모듈인 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md)을 참조하여 자동화 계정에서 모듈을 업데이트하는 방법을 알아봅니다.
+
+별도 모듈인 경우 모듈을 Automation 계정에 가져왔는지 확인합니다.
 
 ### <a name="job-attempted-3-times"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못했습니다.
 

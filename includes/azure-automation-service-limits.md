@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 6b6e4afa7c8b18c8ce9af8c6abd371b4321e3343
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b71e6d41dcdd7efb2d179486f9195c14dae97194
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34852044"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39037859"
 ---
 | 리소스 | 최대 제한 |메모|
 | --- | --- |---|
@@ -25,6 +25,7 @@ ms.locfileid: "34852044"
 | 샌드박스당 허용되는 디스크 공간의 최대 크기**<sup>1</sup>** |1 GB |Azure 샌드박스에만 적용됩니다.|
 | 샌드박스에 지정된 최대 메모리 양**<sup>1</sup>** |400 MB |Azure 샌드박스에만 적용됩니다.|
 | 샌드박스당 허용되는 최대 네트워크 소켓 수**<sup>1</sup>** |1000 |Azure 샌드박스에만 적용됩니다.|
+| Runbook당 허용된 최대 런타임**<sup>1</sup>** |3시간 |Azure 샌드박스에만 적용됩니다.|
 | 구독에서 Automation 계정의 최대 수 |제한 없음 ||
 |단일 Hybrid Runbook Worker에서 실행할 최대 동시 작업 수|50 ||
 

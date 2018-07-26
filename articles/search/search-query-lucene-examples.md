@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: liamca
-ms.openlocfilehash: a3baa17906e3bfede8a7fc5f8a0bfbde9d2a57ce
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 24fa427ad67a953020370a16b4d156c82a0a1cf6
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951025"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036669"
 ---
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Lucene은 Azure Search에서 퀴리를 만들기 위해 구문 예제를 쿼리합니다.
 Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)을 사용하거나, [Azure 검색의 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)를 대신 사용할 수 있습니다. Lucene 쿼리 파서는 필드 범위 쿼리, 유사 항목 검색, 근접 검색, 용어 상승, 정규식 검색 등의 더 복잡한 쿼리 구조를 지원합니다.
@@ -69,7 +69,7 @@ Azure Search를 위한 쿼리를 구성할 때는 [단순 쿼리 구문](https:/
 ## <a name="fuzzy-search-example"></a>유사 항목 검색 예제
 유사 항목 검색은 용어에서 구조가 유사한 일치 항목을 찾습니다. [Lucene 문서](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html)에 따라 유사 항목 검색은 [다메라우-레펜슈타인(Damerau-Levenshtein) 거리](https://en.wikipedia.org/wiki/Damerau%e2%80%93Levenshtein_distance)에 기반합니다.
 
-유사 항목 검색을 수행하려면 편집 거리를 지정하는 0과 2 사이의 값을 선택적 매개 변수로 포함하여 단일 단어의 끝에 물결표(“~”) 기호를 추가합니다. 예를 들어, "blue~" 또는 "blue~1"은 blue, blues 및 glue를 반환합니다.
+유사 항목 검색을 수행하려면 편집 거리를 지정하는 0과 2 사이의 값을 선택적 매개 변수로 포함하여 단일 단어의 끝에 물결표`~` 기호를 추가합니다. 예를 들어, `blue~` 또는 `blue~1`은 blue, blues 및 glue를 반환합니다.
 
 **예제 3** -- 다음 쿼리 조각을 마우스 오른쪽 단추로 클릭합니다. 이 쿼리는 associate라는 용어가 포함된 직업을 검색합니다(맞춤법이 틀린 경우).
 

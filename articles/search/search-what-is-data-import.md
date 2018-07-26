@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: e54b89d31042d43a14379dea6daffd3e7763a64a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6c3756e721847a8cb746f5dc755ccd90bfebe9f0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796963"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008277"
 ---
 # <a name="indexing-in-azure-search"></a>Azure Search의 인덱싱
 > [!div class="op_single_selector"]
@@ -59,12 +59,12 @@ Azure Search에서는 [검색 인덱스](search-what-is-an-index.md)에 로드�
 
 포털을 사용하는 한 가지 장점으로 Azure Search에서 일반적으로 원본 데이터 집합의 메타데이터를 읽음으로써 기본 인덱스 스키마를 생성할 수 있다는 것입니다. 인덱스를 처리할 때까지 생성된 인덱스를 수정할 수 있으며, 그 후에는 다시 인덱싱할 필요가 없는 스키마만 편집할 수 있습니다. 스키마에 직접 적용하려는 변경 내용이 있으면 인덱스를 다시 작성해야 합니다. 
 
-## <a name="verify-data-import-with-search-explorer"></a>Search Explorer를 사용하여 데이터 가져오기 확인
+## <a name="verify-data-import-with-search-explorer"></a>검색 탐색기를 사용하여 데이터 가져오기 확인
 
 문서 업로드에 대한 사전 검사를 수행하는 빠른 방법은 포털에서 **검색 탐색기**를 사용하는 것입니다. 탐색기를 사용하면 코드를 작성할 필요 없이 인덱스를 쿼리할 수 있습니다. 검색 환경은 [간단한 구문](/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 기본 [searchMode 쿼리 매개 변수](/rest/api/searchservice/search-documents)를 기반으로 합니다. 결과는 JSON으로 반환되므로 전체 문서를 검사할 수 있습니다.
 
 > [!TIP]
-> 수많은 [Azure Search 코드 샘플](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)에는 포함되거나 쉽게 사용할 수 있는 데이터 집합이 있어 손쉽게 시작할 수 있는 방법을 제공합니다. 또한 포털에서는 작은 부동산 데이터 집합("realestate-us-sample")으로 구성된 샘플 인덱서 및 데이터 원본도 제공합니다. 샘플 데이터 원본에 미리 구성된 인덱서를 실행하면 인덱스가 [검색 탐색기] 또는 작성한 코드로 쿼리할 수 있는 문서로 만들어지고 로드됩니다.
+> 수많은 [Azure Search 코드 샘플](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)에는 포함되거나 쉽게 사용할 수 있는 데이터 집합이 있어 손쉽게 시작할 수 있는 방법을 제공합니다. 또한 포털에서는 작은 부동산 데이터 집합("realestate-us-sample")으로 구성된 샘플 인덱서 및 데이터 원본도 제공합니다. 샘플 데이터 원본에 미리 구성된 인덱서를 실행하면 인덱스가 검색 탐색기 또는 작성한 코드로 쿼리할 수 있는 문서로 만들어지고 로드됩니다.
 
 ## <a name="see-also"></a>참고 항목
 

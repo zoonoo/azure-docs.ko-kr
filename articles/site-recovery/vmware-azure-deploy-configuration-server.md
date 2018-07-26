@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 240f5270d083fa5f4742f3ed2cd61feee2b635ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718960"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056762"
 ---
 # <a name="deploy-a-configuration-server"></a>구성 서버 배포
 
@@ -38,9 +38,9 @@ Azure에 대한 VMware VM과 물리적 서버 재해 복구를 위해 [Azure Sit
 
 | **CPU** | **메모리** | **캐시 디스크 크기** | **데이터 변경률** | **보호된 컴퓨터** |
 | --- | --- | --- | --- | --- |
-| 8개 vCPU(2개 소켓 * 4코어 @ 2.5GHz) |16GB |300GB |500GB 이하 |100대 미만의 컴퓨터를 복제합니다. |
-| 12개 vCPU(2개 소켓 * 6코어 @ 2.5GHz) |18GB |600GB |500GB ~ 1TB |100 ~ 150대 컴퓨터를 복제합니다. |
-| 16개 vCPU(2개 소켓 * 8코어 @ 2.5GHz) |32GB |1TB |1TB ~ 2TB |150 ~ 200대 컴퓨터를 복제합니다. |
+| 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz) |16GB |300GB |500GB 이하 |100대 미만의 컴퓨터를 복제합니다. |
+| 12개 vCPU(2개 소켓 * 6코어 \@ 2.5GHz) |18GB |600GB |500GB ~ 1TB |100 ~ 150대 컴퓨터를 복제합니다. |
+| 16개 vCPU(2개 소켓 * 8코어 \@ 2.5GHz) |32GB |1TB |1TB ~ 2TB |150 ~ 200대 컴퓨터를 복제합니다. |
 
 둘 이상의 VMware VM을 복제하는 경우 [용량 계획 고려 사항](/site-recovery-plan-capacity-vmware.md)을 참조하세요. VMware 복제를 위한 [Deployment Planner 도구](site-recovery-deployment-planner.md)를 실행합니다.
 

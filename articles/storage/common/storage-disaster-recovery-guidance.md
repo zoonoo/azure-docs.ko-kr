@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 1/19/2017
+ms.date: 07/15/2018
 ms.author: tamram
-ms.openlocfilehash: 3c313025917bba06675d3b2d844a6740fab89fbc
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 160fe756458e067125b9d696fd0cdb929774446e
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30323154"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072037"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>Azure Storage 중단이 발생할 경우 수행할 작업
 Microsoft에서는 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 경우에 따라 강제적으로 우리의 제어 영향을 벗어나 하나 이상의 지역에서 계획되지 않은 서비스 중단이 발생되는 경우가 있습니다. 이러한 드문 경우를 처리할 수 있도록 Azure Storage 서비스에 대해 다음과 같은 높은 수준의 지침을 제공합니다.
@@ -65,9 +65,8 @@ Azure 서비스 상태를 확인하는 권장 방법은 [Azure 서비스 상태 
 저장소 데이터를 정기적으로 백업하는 몇 가지 권장 접근 방식이 있습니다.
 
 * VM 디스크- [Azure Backup 서비스](https://azure.microsoft.com/services/backup/) 를 사용하여 Azure 가상 머신에서 사용하는 VM 디스크를 백업합니다.
-* 블록 Blob – 각 블록 Blob의 [스냅숏](https://msdn.microsoft.com/library/azure/hh488361.aspx)을 만들거나 [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 또는 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)를 사용하여 다른 지역에 있는 다른 저장소 계정에 Blob을 복사합니다.
+* 블록 Blob – [일시 삭제](../blobs/storage-blob-soft-delete.md)를 설정하여 개체 수준 삭제 및 덮어쓰기에 대해 보호하거나 [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md) 또는 [Azure 데이터 이동 라이브러리](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)를 사용하여 다른 지역에 있는 다른 저장소 계정에 Blob을 복사합니다.
 * 테이블 – [AzCopy](storage-use-azcopy.md) 를 사용하여 다른 지역에 있는 다른 저장소 계정으로 테이블 데이터를 내보냅니다.
 * 파일 – [AzCopy](storage-use-azcopy.md) 또는 [Azure PowerShell](storage-powershell-guide-full.md)을 사용하여 다른 지역에 있는 다른 저장소 계정에 파일을 복사합니다.
 
 RA-GRS 기능을 충분히 활용하는 응용 프로그램 생성에 대한 자세한 내용은 [RA-GRS Storage를 사용하여 항상 사용 가능한 응용 프로그램 설계](../storage-designing-ha-apps-with-ragrs.md)를 참조하세요.
-

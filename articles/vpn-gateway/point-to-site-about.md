@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2668d92b5b933f7ccf8ebcccbe7ea77ea6ea1e86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8cdc80e8e4f8d3feb36ca82740d5610e60716ec6
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721431"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003362"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
@@ -58,7 +58,7 @@ AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자�
 
 또한 RADIUS 서버는 다른 외부 ID 시스템과 통합할 수도 있습니다. 이렇게 하면 다단계 옵션을 포함하여 P2S VPN에 대한 많은 인증 옵션이 제공됩니다.
 
-![point-to-site]](./media/point-to-site-about/p2s.png "Point-to-Site")
+![지점 및 사이트 간](./media/point-to-site-about/p2s.png "지점 및 사이트 간")
 
 ## <a name="what-are-the-client-configuration-requirements"></a>클라이언트 구성 요구 사항은 어떻게 되나요?
 

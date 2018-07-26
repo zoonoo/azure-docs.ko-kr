@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: 95dbd80e740210c3800a0af10071875a6d6f0939
-ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
+ms.openlocfilehash: 855ea6c34082b859bb5b5b6e69b3e3f2fa54eb4a
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2018
-ms.locfileid: "27785529"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056466"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>StorSimple 장치에 대한 기술 사양 및 규정 준수
 
@@ -41,10 +41,10 @@ EBOD 엔클로저는 580 W PCM을 사용하며 기본 엔클로저는 764 W PCM�
 | 최대 유입 전류 |20A |20A |
 | 전원 요소 수정 |> 95% 정격 입력 전압 |> 95% 정격 입력 전압 |
 | 고주파 |EN61000-3-2를 충족합니다. |EN61000-3-2를 충족합니다. |
-| 출력 |5V 대기 전압 @ 2.0A |5V 대기 전압 @ 2.7A |
-| +5V @ 42A |+5V @ 40A | |
-| +12V @ 38A |+12V @ 38A | |
-| 핫 플러그형 |적용 |적용 |
+| 출력 |5V 대기 전압 \@ 2.0 A |5V 대기 전압 \@ 2.7 A |
+| +5V \@ 42 A |+5V \@ 40 A | |
+| +12V \@ 38 A |+12V \@ 38 A | |
+| 핫 플러그형 |예 |예 |
 | 스위치 및 LED |AC ON/OFF 스위치와 4개의 상태 표시기 LED |AC ON/OFF 스위치와 6개의 상태 표시기 LED |
 | 냉각 엔클로저 |가변 팬 속도 제어를 사용한 냉각팬 축 |가변 팬 속도 제어를 사용한 냉각팬 축 |
 
@@ -127,8 +127,8 @@ StorSimple 장치에는 8100 및 8600에 대한 하드 디스크 드라이브 �
 | 기류 |시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. 랙 문 및 장애물때문에 생성된 역 압력은 5 파스칼(0.5mm 수면계)을 초과해서는 안됩니다. |
 | 작동 가능 고도 |최대 작동 온도가 7000 피트 이상에서 5°로 지정된 -30m에서 3045m까지(-100피트 ~ 10, 000피트)입니다. |
 | 작동 불가능 고도 |-305m ~ 12,192m(-1,000피트 ~ 40,000피트) |
-| 충격, 작동 |5g 10 ms ½ sine |
-| 충격, 작동 불가능 |30g 10 ms ½ sine |
+| 충격, 작동 |5g 10ms ½sine |
+| 충격, 작동 불가능 |30g 10ms ½sine |
 | 진동, 작동 |0.21g RMS 5-500Hz 임의 |
 | 진동, 작동 불가능 |1.04g RMS 2-200Hz 임의 |
 | 진동, 재배치 |3g 2-200Hz sine |

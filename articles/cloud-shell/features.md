@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Shell의 Bash 기능 | Microsoft Docs
+title: Azure Cloud Shell 기능 | Microsoft Docs
 description: Azure Cloud Shell의 Bash 기능의 개요
 services: Azure
 documentationcenter: ''
@@ -12,52 +12,54 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 07/13/2018
 ms.author: juluk
-ms.openlocfilehash: b61dda5b56ca3cc8ef827a06aaedac701ca79f8f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 09c3ca23aafc8519b9e3ad57d030f066bb153e26
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850205"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39056194"
 ---
-# <a name="features--tools-for-bash-in-azure-cloud-shell"></a>Azure Cloud Shell의 Bash 기능 및 도구
+# <a name="features--tools-for-azure-cloud-shell"></a>Azure Cloud Shell에 대한 기능 및 도구
 
 [!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
 
-> [!TIP]
-> 또한 [PowerShell](features-powershell.md)에 대한 기능 및 도구를 사용할 수 있습니다.
-
-Azure Cloud Shell의 Bash는 `Ubuntu 16.04 LTS`에서 실행됩니다.
+Azure Cloud Shell은 `Ubuntu 16.04 LTS`에서 실행됩니다.
 
 ## <a name="features"></a>기능
 
 ### <a name="secure-automatic-authentication"></a>안전한 자동 인증
 
-Azure Cloud Shell의 Bash는 Azure CLI 2.0에 대한 계정 액세스를 안전하고 자동으로 인증합니다.
-
-### <a name="ssh-into-azure-linux-virtual-machines"></a>Azure Linux 가상 머신에 SSH
-
-Azure CLI 2.0에서 Linux VM을 만들면 기본 SSH 키를 만들고 `$Home` 디렉터리에 배치할 수 있습니다. SSH 키를 `$Home`에 배치하면 Azure Cloud Shell에서 Azure Linux VM에 직접 SSH를 연결할 수 있습니다. 키는 파일 공유에서 acc_<user>.img에 보관되어, 파일 공유나 키에 대한 액세스를 사용하거나 공유할 때 모범 사례를 활용합니다.
+Cloud Shell은 Azure CLI 2.0 및 Azure PowerShell에 대한 계정 액세스를 안전하게 자동으로 인증합니다.
 
 ### <a name="home-persistence-across-sessions"></a>여러 세션에 걸친 $Home 지속성
 
 세션 간에 파일을 유지하기 위해 Cloud Shell에서는 처음 시작할 때 Azure 파일 공유 연결을 안내합니다.
 작업이 완료되면 Azure Cloud Shell은 이후의 모든 세션에 대해 저장소(`$Home\clouddrive`로 장착됨)를 자동으로 연결합니다.
-또한 Azure Cloud Shell의 Bash에서 `$Home` 디렉터리는 Azure 파일 공유에서 .img로 유지됩니다.
-`$Home` 외부에 있는 파일 및 컴퓨터 상태는 세션 간에 지속 되지 않습니다.
+또한 `$Home` 디렉터리는 Azure 파일 공유에서 .img로 유지됩니다.
+`$Home` 외부에 있는 파일 및 컴퓨터 상태는 세션 간에 지속 되지 않습니다. SSH 키와 같은 비밀을 저장하는 경우 모범 사례를 사용합니다. [Azure Key Vault와 같은 서비스에는 설치에 대한 자습서가 있습니다](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Azure Cloud Shell에서 Bash의 보관 파일에 대해 자세히 알아보기](persisting-shell-storage.md)
+[Cloud Shell에서 파일을 유지하는 방법에 대해 자세히 알아보기](persisting-shell-storage.md)
 
-### <a name="integration-with-open-source-tooling"></a>오픈 소스 도구와 통합
+### <a name="azure-drive-azure"></a>Azure 드라이브(Azure:)
 
-Cloud Shell의 Bash는 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 위해 사전 구성된 인증을 포함하고 있습니다. 예제 연습에서 사용해 보십시오.
+Azure Cloud Shell의 PowerShell(미리 보기)은 Azure 드라이브(`Azure:`)에서 시작됩니다.
+Azure 드라이브는 파일 시스템 탐색과 비슷하게 Compute, 네트워크, Storage 등과 같은 Azure 리소스를 쉽게 검색 및 탐색할 수 있습니다.
+사용하는 드라이브에 관계 없이 이러한 리소스를 관리하기 위해 친숙한 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure)을 계속 사용할 수 있습니다.
+Azure Portal에서 또는 Azure PowerShell cmdlet을 통해 직접 만들어진 Azure 리소스에 대한 변경 내용은 Azure 드라이브에 반영됩니다.  `dir -Force`를 실행하여 리소스를 새로 고칠 수 있습니다.
+
+![](media/features-powershell/azure-drive.png)
+
+### <a name="deep-integration-with-open-source-tooling"></a>오픈 소스 도구와 완벽한 통합
+
+Cloud Shell은 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도구를 위해 사전 구성된 인증을 포함하고 있습니다. 예제 연습에서 사용해 보십시오.
 
 ## <a name="tools"></a>도구
 
 |Category   |Name   |
 |---|---|
-|Linux 도구            |bash<br> sh<br> tmux<br> dig<br>               |
+|Linux 도구            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
 |Azure 도구            |[Azure CLI 2.0](https://github.com/Azure/azure-cli) 및 [1.0](https://github.com/Azure/azure-xplat-cli)<br> [AZCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy)<br> [Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) |
 |텍스트 편집기           |vim<br> nano<br> emacs       |
 |소스 제어         |git                    |
@@ -70,7 +72,7 @@ Cloud Shell의 Bash는 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도�
 
 |언어   |버전   |
 |---|---|
-|.NET       |2.0.0       |
+|.NET Core  |2.0.0       |
 |Go         |1.9        |
 |자바       |1.8        |
 |Node.js    |8.9.4      |
@@ -79,4 +81,6 @@ Cloud Shell의 Bash는 Terraform, Ansible, Chef InSpec 같은 오픈 소스 도�
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Cloud Shell의 Bash 빠른 시작](quickstart.md) <br>
-[Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/)
+[Cloud Shell의 PowerShell(미리 보기) 빠른 시작](quickstart-powershell.md) <br>
+[Azure CLI 2.0에 대한 자세한 정보](https://docs.microsoft.com/cli/azure/) <br>
+[Microsoft Azure PowerShell에 관해 알아보기](https://docs.microsoft.com/powershell/azure/) <br>

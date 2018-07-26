@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 397ab30b252fbfa121b763b005907764d2b15f20
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33781932"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004849"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
@@ -103,7 +103,7 @@ ms.locfileid: "33781932"
 
     ![기본 선택](./media/devtest-lab-create-environment-from-arm/choose-a-base.png)
   
-1. **추가** 창에서 **환경 이름** 값을 입력합니다. 환경 이름은 랩에서 사용자에게 표시되는 이름입니다. 나머지 입력 필드는 Azure Resource Manager 템플릿에 정의되어 있습니다. 기본값이 템플릿에 정의되어 있거나 `azuredeploy.parameter.json` 파일이 있으면 해당 입력 필드에 기본값이 표시되어 있습니다. *보안 문자열* 형식의 매개 변수에는 랩의 [개인 비밀 저장소](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store)에 저장된 비밀을 사용할 수 있습니다.
+1. **추가** 창에서 **환경 이름** 값을 입력합니다. 환경 이름은 랩에서 사용자에게 표시되는 이름입니다. 나머지 입력 필드는 Azure Resource Manager 템플릿에 정의되어 있습니다. 기본값이 템플릿에 정의되어 있거나 `azuredeploy.parameter.json` 파일이 있으면 해당 입력 필드에 기본값이 표시되어 있습니다. *보안 문자열* 형식의 매개 변수에는 Azure Key Vault에 저장된 비밀을 사용할 수 있습니다. 키 자격 증명 모음에 비밀을 저장하고 랩 리소스를 만들 때 이 비밀을 사용하는 방법을 알아보려면 [Azure Key Vault에 비밀 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조하세요.  
 
     ![창 추가](./media/devtest-lab-create-environment-from-arm/add.png)
 

@@ -8,12 +8,12 @@ ms.date: 05/24/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f756d65fa167b3812772088aec7232d08b04b9f
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 7f01464c4b9063f20a83c3626d7f92a5e0524f7a
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937335"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38989128"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -210,9 +210,13 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `type`
 - `location`
 - `tags`
-- `tags.tagName`
-- `tags[tagName]`
+- `tags.<tagName>`
+  - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
+  - 예: `tags.CostCenter` 여기서 **CostCenter**는 태그의 이름입니다.
+- `tags[<tagName>]`
   - 이 대괄호 구문은 마침표가 포함된 태그 이름을 지원합니다.
+  - 여기서 **\<tagName\>** 은 조건의 유효성을 검사하기 위한 태그 이름입니다.
+  - 예: `tags.[Acct.CostCenter]` 여기서 **Acct.CostCenter**는 태그의 이름입니다.
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
 
 ### <a name="alternative-accessors"></a>대체 접근자

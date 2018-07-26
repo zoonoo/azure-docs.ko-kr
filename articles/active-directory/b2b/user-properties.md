@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/25/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 65fd23ecf81aebdb1fe74f800d20df6414c18317
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 0cfd7888acf942e4af875c37c2472ff086f9119b
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259728"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39057895"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 공동 작업 사용자 속성
 
@@ -85,6 +85,9 @@ Azure AD(Azure Active Directory) B2B 공동 작업 사용자는 UserType이 Gues
 기본 게스트 사용자 제한을 해제하여 회사 디렉터리의 게스트 사용자에게 구성원과 동일한 권한을 부여할 수 있습니다.
 
 ![게스트 사용자 제한 제거](media/user-properties/remove-guest-limitations.png)
+
+## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
+예. 기본적으로 게스트 개체는 조직의 전역 주소 목록에 표시되지 않지만 볼 수 있도록 Azure Active Directory PowerShell을 사용할 수 있습니다. 자세한 내용은 [Office 365 그룹의 게스트 액세스](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)에서 **게스트 개체를 전역 주소 목록에 표시할 수 있나요?** 를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

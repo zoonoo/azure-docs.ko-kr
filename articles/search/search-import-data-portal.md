@@ -1,22 +1,22 @@
 ---
 title: 포털에서 Azure Search로 데이터 가져오기 | Microsoft Docs
-description: Azure Portal에서 Azure Search 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 NoSQL Azure Cosmos DB, Blob Storage, Table Storage, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링합니다.
+description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure VM에 있는 Cosmos DB, Blob Storage, 테이블 저장소, SQL Database 및 SQL Server에서 Azure 데이터를 크롤링하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: cgronlun
-tags: Azure Portal
 services: search
 ms.service: search
-ms.topic: quickstart
-ms.date: 05/01/2017
+ms.topic: conceptual
+ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: ee27b63a5df658ff5d575f0599dadd1cbafd3c18
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795887"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004949"
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>포털을 사용하여 Azure Search로 데이터 가져오기
+# <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Search 인덱스로 데이터를 가져오는 방법
+
 Azure Portal에는 인덱스에 데이터를 로드하기 위한 **데이터 가져오기** 마법사가 Azure Search 대시보드에 제공됩니다. 
 
   ![명령 모음에서 데이터 가져오기][1]
@@ -26,8 +26,6 @@ Azure Portal에는 인덱스에 데이터를 로드하기 위한 **데이터 가
 * 동일한 Azure 구독에서 외부 데이터 원본에 연결
 * 원본 데이터 구조를 기반으로 하는 수정 가능한 인덱스 스키마 생성
 * 데이터 원본에서 검색된 행 집합을 사용하여 JSON 문서를 인덱스로 로드
-
-Azure Cosmos DB에서 샘플 데이터를 사용하여 이 워크플로를 시도해 볼 수 있습니다. 지침은 [Azure Portal에서 Azure Search 시작](search-get-started-portal.md) 을 방문하세요.
 
 > [!NOTE]
 > Azure Cosmos DB 대시보드에서 **데이터 가져오기** 마법사를 시작하여 해당 데이터 원본에 대한 인덱싱을 단순화할 수 있습니다. 왼쪽 탐색에서 **컬렉션** > **Azure Search 추가**로 이동하여 시작합니다.
@@ -45,8 +43,10 @@ Azure Cosmos DB에서 샘플 데이터를 사용하여 이 워크플로를 시�
 
 ## <a name="connect-to-your-data"></a>데이터에 연결
 1. [Azure Portal](https://portal.azure.com)에 로그인하여 서비스 대시보드를 엽니다. 표시줄에서 **모든 서비스**를 클릭하면 현재 구독에서 기존 "검색 서비스"를 검색할 수 있습니다. 
-2. 명령 모음에서 **데이터 가져오기** 를 클릭하여 데이터 블레이드 가져오기를 엽니다.  
-3. **데이터에 연결** 을 클릭하여 인덱서에 의해 사용되는 데이터 원본 정의를 지정합니다. 구독 내 데이터 원본의 경우 마법사는 일반적으로 연결 정보를 감지하고 참고하여 전체 구성 요구 사항을 최소화할 수 있습니다.
+
+1. 명령 모음에서 **데이터 가져오기** 를 클릭하여 데이터 블레이드 가져오기를 엽니다.
+
+1. **데이터에 연결** 을 클릭하여 인덱서에 의해 사용되는 데이터 원본 정의를 지정합니다. 구독 내 데이터 원본의 경우 마법사는 일반적으로 연결 정보를 감지하고 참고하여 전체 구성 요구 사항을 최소화할 수 있습니다.
 
 |  |  |
 | --- | --- |
@@ -61,25 +61,32 @@ Azure Cosmos DB에서 샘플 데이터를 사용하여 이 워크플로를 시�
 임시 인덱스는 일반적으로 데이터 집합에서 유추됩니다. 필드를 추가, 편집 또는 삭제하여 스키마를 완료합니다. 또한 필드 수준에서 특성을 설정하여 해당 후속 검색 동작을 결정합니다.
 
 1. **대상 인덱스 사용자 지정**에서 각 문서를 고유하게 식별하는 데 사용한 이름 및 **키**를 지정합니다. 키는 문자열이어야 합니다. 필드 값에 공백이나 대시가 포함되는 경우 **데이터 가져오기** 에서 고급 옵션을 설정하여 이러한 문자에 대한 유효성 검사를 표시하지 않도록 합니다.
-2. 나머지 필드를 검토하고 수정합니다. 필드 이름 및 형식은 일반적으로 채워집니다. 인덱스가 만들어지기 전까지는 데이터 형식을 변경할 수 있습니다. 나중에 변경하면 다시 빌드해야 합니다.
-3. 다음과 같이 각 필드에 대한 인덱스 특성을 설정합니다.
+
+1. 나머지 필드를 검토하고 수정합니다. 필드 이름 및 형식은 일반적으로 채워집니다. 인덱스가 만들어지기 전까지는 데이터 형식을 변경할 수 있습니다. 나중에 변경하면 다시 빌드해야 합니다.
+
+1. 다음과 같이 각 필드에 대한 인덱스 특성을 설정합니다.
    
    * 검색 가능은 검색 결과에 필드를 반환합니다.
    * 필터링 가능을 선택하면 필드를 필터 식에서 참조할 수 있습니다.
    * 정렬 가능을 선택하면 필드를 정렬에 사용할 수 있습니다.
    * 패싯 가능을 통해 필드를 패싯 탐색에 사용할 수 있습니다.
    * 검색 가능을 통해 전체 텍스트를 검색할 수 있습니다.
-4. 필드 수준에서 언어 분석기를 지정 하려는 경우 **분석기** 탭을 클릭합니다. 언어 분석기만이 이번에 지정될 수 있습니다. 사용자 지정 분석기 또는 키워드, 패턴, 등과 같은 비언어 분석기를 사용하려면 코드가 필요합니다.
+
+1. 필드 수준에서 언어 분석기를 지정 하려는 경우 **분석기** 탭을 클릭합니다. 언어 분석기만이 이번에 지정될 수 있습니다. 사용자 지정 분석기 또는 키워드, 패턴, 등과 같은 비언어 분석기를 사용하려면 코드가 필요합니다.
    
    * **검색 가능** 을 클릭하여 필드에서 전체 텍스트 검색을 지정하고 분석기 드롭 다운 목록을 사용하도록 설정합니다.
    * 원하는 분석기를 선택합니다. 자세한 내용은 [여러 언어의 문서에 대한 인덱스 만들기](search-language-support.md)를 참조하세요.
-5. **확인기** 를 클릭하여 선택한 필드에 미리 입력 쿼리 제안을 사용할 수 있도록 합니다.
+
+1. **확인기** 를 클릭하여 선택한 필드에 미리 입력 쿼리 제안을 사용할 수 있도록 합니다.
 
 ## <a name="import-your-data"></a>데이터 가져오기
 1. **데이터 가져오기**에 인덱서의 이름을 입력합니다. 데이터 가져오기 마법사의 제품이 인덱서라는 점에 유의하세요. 나중에 이 항목을 보거나 편집하려는 경우 마법사를 다시 실행하기 보다 포털에서 해당 항목을 선택합니다. 
-2. 서비스가 프로비전되는 지역의 시간대에 따라 일정을 지정합니다.
-3. 고급 옵션을 설정하여 문서를 삭제할 경우 인덱싱을 계속할 수 있는지에 대한 임계값을 지정합니다. 또한 **키** 필드에 공백 및 슬래시를 포함하도록 허용되는지를 지정할 수 있습니다.  
-4. **확인**을 클릭하여 인덱스를 만들고 데이터를 가져옵니다.
+
+1. 서비스가 프로비전되는 지역의 시간대에 따라 일정을 지정합니다.
+
+1. 고급 옵션을 설정하여 문서를 삭제할 경우 인덱싱을 계속할 수 있는지에 대한 임계값을 지정합니다. 또한 **키** 필드에 공백 및 슬래시를 포함하도록 허용되는지를 지정할 수 있습니다.  
+
+1. **확인**을 클릭하여 인덱스를 만들고 데이터를 가져옵니다.
 
 포털에서 인덱싱을 모니터링할 수 있습니다. 문서를 로드할 때 정의한 인덱스에 대한 문서 수가 증가합니다. 종종 포털 페이지에서 가장 최근 업데이트를 선택하는 데 몇 분이 걸릴 수 있습니다.
 
@@ -89,7 +96,7 @@ Azure Cosmos DB에서 샘플 데이터를 사용하여 이 워크플로를 시�
 
 포털에는 **검색 탐색기**가 있으므로 코드를 작성하지 않고도 인덱스를 쿼리할 수 있습니다. 모든 인덱스에서 [검색 탐색기](search-explorer.md)를 사용할 수 있습니다.
 
-검색 환경은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 기본 [searchMode 쿼리 매개 변수(https://docs.microsoft.com/rest/api/searchservice/search-documents)]를 기반으로 합니다. 
+검색 환경은 [간단한 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 기본 [searchMode 쿼리 매개 변수](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 기반으로 합니다. 
 
 결과는 자세한 정보 표시 형식의 JSON으로 반환되므로 전체 문서를 검사할 수 있습니다.
 

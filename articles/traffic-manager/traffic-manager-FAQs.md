@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 29c7994485eeb2b3fdde52d1794704ecb51d65e5
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301068"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036924"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -63,9 +63,9 @@ Traffic Manager는 DNS 수준에서 응용 프로그램과 통합하므로 추�
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>'naked' 도메인 이름으로 Traffic Manager를 사용할 수 있나요?
 
-번호 DNS 표준은 CNAME이 동일한 이름의 다른 DNS 레코드와 함께 존재하는 것을 허용하지 않습니다. DNS 영역의 apex(또는 루트)는 항상 SOA 및 권한이 있는 NS 레코드라는 두 개의 기존 DNS 레코드를 포함합니다. 즉, DNS 표준을 위반하지 않고 영역 apex에 CNAME 레코드를 만들 수 없습니다.
+아니요. DNS 표준은 CNAME이 동일한 이름의 다른 DNS 레코드와 함께 존재하는 것을 허용하지 않습니다. DNS 영역의 apex(또는 루트)는 항상 SOA 및 권한이 있는 NS 레코드라는 두 개의 기존 DNS 레코드를 포함합니다. 즉, DNS 표준을 위반하지 않고 영역 apex에 CNAME 레코드를 만들 수 없습니다.
 
-Traffic Manager는 베니티 DNS 이름을 매핑하는 데 DNS CNAME 레코드가 필요합니다. 예를 들어 www.contoso.com을 Traffic Manager 프로필 DNS 이름 contoso.trafficmanager.net에 매핑합니다. 또한 Traffic Manager 프로필은 클라이언트가 연결해야 하는 끝점을 나타내는 보조 DNS CNAME을 반환합니다.
+Traffic Manager는 베니티 DNS 이름을 매핑하는 데 DNS CNAME 레코드가 필요합니다. 예를 들어 Traffic Manager 프로필 DNS 이름 `contoso.trafficmanager.net`에 `www.contoso.com`을 매핑합니다. 또한 Traffic Manager 프로필은 클라이언트가 연결해야 하는 끝점을 나타내는 보조 DNS CNAME을 반환합니다.
 
 이 문제를 해결하려면 naked 도메인 이름에서 다른 URL로 트래픽을 연결하는 HTTP 리디렉션을 사용하는 것이 좋습니다. 그런 다음 Traffic Manager를 사용할 수 있습니다. 예를 들어 naked 도메인 'contoso.com'에서는 사용자를 Traffic Manager DNS 이름을 가리키는 'www.contoso.com'으로 리디렉션할 수 있습니다.
 
@@ -370,7 +370,7 @@ Traffic Manager 요금 청구는 끝점 상태 검사 및 수백만 개의 DNS �
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>중첩 프로필이 성능에 영향을 미치나요?
 
-번호 중첩 프로필을 사용해도 성능에 미치는 영향은 없습니다.
+아니요. 중첩 프로필을 사용해도 성능에 미치는 영향은 없습니다.
 
 Traffic Manager 이름 서버는 각 DNS 쿼리를 처리하는 경우 프로필 계층 구조를 내부적으로 통과합니다. 상위 프로필에 대한 DNS 쿼리는 하위 프로필의 끝점에 대한 DNS 응답을 받을 수 있습니다. 단일 CNAME 레코드는 단일 프로필이나 중첩 프로필을 사용하는 경우 사용합니다. 계층 구조에서 각 프로필에 대한 CNAME 레코드를 만들 필요가 없습니다.
 

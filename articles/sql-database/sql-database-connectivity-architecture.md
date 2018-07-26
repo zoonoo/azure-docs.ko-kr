@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 628d1bd3c38237db1d49826646bba989e158ed99
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34644439"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39036771"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처 
 
@@ -49,6 +49,9 @@ Azure 내부에서 연결하는 경우 연결에는 기본적으로 **리디렉�
 Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시** 연결 정책이 있습니다. **프록시** 정책의 경우 TCP 세션이 Azure SQL Database 게이트웨이를 통해 설정되고 모든 후속 패킷이 게이트웨이를 통합니다. 아래 다이어그램은 이 트래픽 흐름을 보여줍니다.
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
+
+> [!IMPORTANT]
+> Azure SQL Database를 사용하여 서비스 엔드포인트를 사용하는 경우 정책은 기본적으로 **리디렉션**됩니다. 따라서 Vnet 내부에서 연결을 사용하도록 설정하려면 단지 게이트웨이 IP가 아니라 모든 Azure SQL Database IP 주소로 아웃바운드할 수 있어야 합니다. 이는 NSG(네트워크 보안 그룹) 서비스 태그의 도움으로 완료될 수 있습니다. 게이트웨이 IP로만 아웃바운드를 허용하려면 설정을 **프록시**로 변경하세요.
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 

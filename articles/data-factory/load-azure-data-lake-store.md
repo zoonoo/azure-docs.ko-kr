@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 7cdc4f0ef436fbd7ea3bdf1431b08be3b840290f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e401508fc5ffc1de666f727ffbb7790005384fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857204"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39003800"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
 
@@ -35,6 +35,7 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
 
 > [!NOTE]
 > 자세한 내용은 [Azure Data Factory를 사용하여 Azure Data Lake Store 간에 데이터 복사](connector-azure-data-lake-store.md)를 참조하세요.
+
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
@@ -109,7 +110,7 @@ Azure Data Factory를 사용하여 Azure Data Lake Store로 데이터를 로드�
    3. **다음**을 선택합니다.
    
    > [!IMPORTANT]
-   > 이 연습에서는 _관리되는 서비스 ID_를 사용하여 Data Lake Store를 인증합니다. [다음 지침](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)에 따라 Azure Data Lake Store에서 서비스 주체에 적절한 권한을 부여합니다.
+   > 이 연습에서는 _관리되는 서비스 ID_를 사용하여 Data Lake Store를 인증합니다. [다음 지침](connector-azure-data-lake-store.md#using-managed-service-identity-authentication)에 따라 Azure Data Lake Store에서 MSI에 적절한 권한을 부여합니다.
    
    ![Azure Data Lake Store 계정을 지정합니다.](./media/load-data-into-azure-data-lake-store/specify-adls.png)
 9. **출력 파일 또는 폴더 선택** 페이지에서 출력 폴더 이름으로 **copyfroms3**를 입력하고 **다음**을 선택합니다. 

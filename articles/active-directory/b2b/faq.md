@@ -6,23 +6,23 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: bc63e320053ec4e8dbb9f166a9a69bb24d91fa02
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 1ff2332e2867f99492d3da254282498d1627a5bf
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259740"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39058265"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 공동 작업 FAQ
 
 Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러한 질문과 대답(FAQ)은 새 항목을 포함하도록 정기적으로 업데이트됩니다.
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>B2B 공동 작업 게스트 사용자에게 더 직관적인 환경이 되도록 로그인 페이지를 사용자 지정할 수 있나요?
-그렇습니다. [이 기능에 대한 블로그 게시물](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)을 참조하세요. 조직의 로그인 페이지를 사용자 지정하는 방법에 대한 자세한 내용은 [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](../customize-branding.md)를 참조하세요.
+그렇습니다. [이 기능에 대한 블로그 게시물](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)을 참조하세요. 조직의 로그인 페이지를 사용자 지정하는 방법에 대한 자세한 내용은 [로그인 및 액세스 패널 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)를 참조하세요.
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B 공동 작업 사용자가 SharePoint Online 및 OneDrive에 액세스할 수 있습니까?
 예. 그러나 사용자 선택을 사용하여 SharePoint Online에서 기존 게스트 사용자를 검색하는 기능은 기본적으로 **꺼져** 있습니다. 기존 게스트 사용자를 검색하는 옵션을 설정하려면 **ShowPeoplePickerSuggestionsForGuestUsers**를 **켜기**로 설정합니다. 테넌트 수준 또는 사이트 컬렉션 수준에서 이 설정을 사용할 수 있습니다. Set-SPOTenant 및 Set-SPOSite cmdlet을 사용하여 이 설정을 변경할 수 있습니다. 구성원은 이러한 cmdlet을 사용하여 디렉터리에 있는 기존의 모든 게스트 사용자를 검색할 수 있습니다. 테넌트 범위에 대한 변경 내용은 이미 프로비전된 SharePoint Online 사이트에 영향을 주지 않습니다.
@@ -44,6 +44,9 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 공동 작업에 대한 이러�
 
 ### <a name="how-can-i-use-delayed-invitations"></a>지연된 초대는 어떻게 사용할 수 있나요?
 어떤 조직에서는 B2B 공동 작업 사용자를 추가하고 필요한 경우 응용 프로그램에 프로비전한 다음 초대를 보내려고 합니다. B2B 공동 작업 초대 API를 사용하여 온보딩 워크플로를 사용자 지정할 수 있습니다.
+
+### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
+예. 기본적으로 게스트 개체는 조직의 전역 주소 목록에 표시되지 않지만 볼 수 있도록 Azure Active Directory PowerShell을 사용할 수 있습니다. 자세한 내용은 [Office 365 그룹의 게스트 액세스](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)에서 **게스트 개체를 전역 주소 목록에 표시할 수 있나요?** 를 참조하세요.
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>게스트 사용자를 제한된 관리자로 지정할 수 있나요?
 그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.

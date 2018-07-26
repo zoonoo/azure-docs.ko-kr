@@ -8,17 +8,17 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 9521bd47db9676c70993c535f1207b3519123353
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633318"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004774"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
 ## <a name="quotas-and-throttling"></a>할당량 및 제한
-각 Azure 구독은 IoT Hub 최대 10개와 무료 허브 최대 1개를 가질 수 있습니다.
+각 Azure 구독은 IoT Hub 최대 50개와 무료 허브 최대 1개를 가질 수 있습니다.
 
 각 IoT 허브는 특정 계층에서 특정한 단위 수로 프로비전됩니다. 자세한 내용은 [Azure IoT Hub 가격 책정][lnk-pricing]을 참조하세요. 계층과 단위 수는 보낼 수 있는 메시지의 최대 일일 할당량을 결정합니다.
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 04fa23e059ee676ba0e7c48eeea3361b85af5415
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: e6d2d8dfd6f7a40158b098983bd34bbd5d8271f0
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261207"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049316"
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Azure Active Directory의 클레임 매핑(공개 미리 보기)
 
@@ -357,7 +357,7 @@ ID 요소는 클레임의 값을 제공할 원본의 속성을 식별합니다. 
 |TransformationMethod|예상 입력|예상 출력|설명|
 |-----|-----|-----|-----|
 |Join|string1, string2, 구분 기호|outputClaim|구분 기호를 사용하여 입력 문자열을 조인합니다. 예: string1:"foo@bar.com" , string2:"sandbox" , separator:"."는 outputClaim:"foo@bar.com.sandbox"를 생성합니다.|
-|ExtractMailPrefix|mail|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. @ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
+|ExtractMailPrefix|mail|outputClaim|메일 주소의 로컬 부분을 추출합니다. 예: mail:"foo@bar.com"은 outputClaim:"foo"를 생성합니다. \@ 기호가 없으면 원본 입력 문자열이 현재 그대로 반환됩니다.|
 
 **InputClaims:** InputClaims 요소를 사용하여 클레임 스키마 항목에서 변환에 데이터를 전달할 수 있습니다. 두 개의 특성인 **ClaimTypeReferenceId** 및 **TransformationClaimType**이 있습니다.
 

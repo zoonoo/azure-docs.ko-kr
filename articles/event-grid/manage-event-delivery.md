@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 07/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 65e79f492e96c418502e096b60992ba992868dd7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: e91ee640d18e2cf804be33fd130bf48737c9efb1
+ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035414"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39035672"
 ---
 # <a name="manage-event-grid-delivery-settings"></a>Event Grid 전송 설정 관리
 
@@ -36,7 +36,7 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --event-ttl 720
 ```
 
@@ -47,7 +47,7 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --max-delivery-attempts 18
 ```
 
@@ -77,11 +77,13 @@ az eventgrid event-subscription create \
   -g gridResourceGroup \
   --topic-name <topic_name> \
   --name <event_subscription_name> \
-  --endpoint <endpoint_URL>
+  --endpoint <endpoint_URL> \
   --deadletter-endpoint $storageid/blobServices/default/containers/$containername
 ```
 
 Event Grid를 사용하여 전송되지 않은 이벤트에 응답하려면 배달 못한 편지 Blob Storage에 대한 [이벤트 구독을 만듭니다](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 배달 못한 편지 Blob Storage가 전송되지 않은 이벤트를 수신할 때마다 Event Grid에서 처리기에 알립니다. 처리기는 전송되지 않은 이벤트를 조정하기 위해 수행할 작업으로 응답합니다. 
+
+배달 못한 편지를 해제하려면 이벤트 구독을 만드는 명령을 다시 실행하지만 `deadletter-endpoint`에 대한 값을 제공하지는 않습니다. 이벤트 구독을 삭제할 필요가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

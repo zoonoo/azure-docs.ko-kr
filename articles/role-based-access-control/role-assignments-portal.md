@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 07/11/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6544503353f085a9dd9b0fe7207bbf8d4e0bc9d0
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: aaa36d850516ff4d8e40b62c588347468da5c6d2
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435620"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008164"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>RBAC 및 Azure Portal을 사용하여 액세스 관리
 
@@ -88,7 +88,9 @@ ms.locfileid: "37435620"
 
    ![Azure Active Directory 사용자 Azure 리소스](./media/role-assignments-portal/aad-user-azure-resources.png)
 
-   Azure 리소스 블레이드에서, 선택한 사용자에게 할당된 역할을 볼 수 있습니다. 이 목록에는 여러분이 읽기 권한을 갖고 있는 리소스의 역할 할당만 포함됩니다. 예를 들어 다른 구독에서 여러분에게 없는 역할이 사용자에게 할당된 경우 해당 역할 할당은 목록에 표시되지 않습니다.
+   Azure 리소스 블레이드에서, 선택한 사용자 및 선택한 구독에 할당된 역할을 볼 수 있습니다. 이 목록에는 여러분이 읽기 권한을 갖고 있는 리소스의 역할 할당만 포함됩니다. 예를 들어 읽을 수 없는 역할이 사용자에게 할당된 경우 해당 역할 할당은 목록에 표시되지 않습니다.
+
+1. 여러 구독이 있는 경우 **구독** 드롭다운 목록을 선택하여 다른 구독에서 역할 할당을 확인할 수 있습니다.
 
 ## <a name="grant-access"></a>액세스 권한 부여
 
@@ -161,14 +163,6 @@ RBAC에서 액세스 권한을 제거하려면 역할 할당을 제거해야 합
 1. 표시되는 역할 할당 제거 메시지에서 **예**를 선택합니다.
 
 상속된 역할 할당은 제거할 수 없습니다. 상속된 역할 할당을 제거하려면 역할 할당이 만들어진 범위에서 역할 할당을 제거해야 합니다. **범위** 열에서 **상속됨** 옆쪽을 이 역할이 할당된 리소스로 이동하는 링크가 있습니다. 나열된 범위로 이동하여 역할 할당을 제거합니다.
-
-## <a name="other-tools-to-manage-access"></a>액세스를 관리하는 기타 도구
-
-Azure 포털 이외의 도구에서 Azure RBAC 명령을 사용하여 역할을 할당하고 액세스를 관리할 수 있습니다. 자세한 내용은 다음 링크를 참조하십시오.
-
-* [Azure PowerShell](role-assignments-powershell.md)
-* [Azure CLI](role-assignments-cli.md)
-* [REST API](role-assignments-rest.md)
 
 ## <a name="next-steps"></a>다음 단계
 

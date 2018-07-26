@@ -8,22 +8,22 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: juluk
-ms.openlocfilehash: 76ca4db28d99702532ae656a19f0d54b479a13fe
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: e47d203ab21afc6d07f425ae6367fbc536b13f1d
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248972"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39011831"
 ---
 # <a name="configure-liveness-probes"></a>활동성 프로브 구성
 
-컨테이너화된 응용 프로그램이 장기간 실행되어 손상되면 컨테이너를 다시 시작하여 복구해야 할 수도 있습니다. Azure Container Instances는 중요한 기능이 작동하지 않으면 컨테이너를 다시 시작하는 구성을 포함하는 활동성 프로브를 지원합니다. 
+컨테이너화된 응용 프로그램이 장기간 실행되어 손상되면 컨테이너를 다시 시작하여 복구해야 할 수도 있습니다. Azure Container Instances는 중요한 기능이 작동하지 않으면 컨테이너를 다시 시작하는 구성을 포함하는 활동성 프로브를 지원합니다.
 
 이 문서에서는 활동성 프로브가 포함된 컨테이너 그룹을 배포하는 방법을 설명하고, 시뮬레이션된 비정상 컨테이너를 다시 시작하는 방법을 보여줍니다.
 
 ## <a name="yaml-deployment"></a>YAML 배포
 
-다음 코드 조각이 포함된 `liveness-probe.yaml` 파일을 만듭니다. 이 파일은 결국 비정상 상태가 되는 NGNIX 컨테이너를 구성하는 컨테이너 그룹을 정의합니다. 
+다음 코드 조각이 포함된 `liveness-probe.yaml` 파일을 만듭니다. 이 파일은 결국 비정상 상태가 되는 NGNIX 컨테이너를 구성하는 컨테이너 그룹을 정의합니다.
 
 ```yaml
 apiVersion: 2018-06-01
@@ -45,7 +45,7 @@ properties:
           memoryInGB: 1.5
       livenessProbe:
         exec:
-            command: 
+            command:
                 - "cat"
                 - "/tmp/healthy"
         periodSeconds: 5
@@ -81,9 +81,9 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 처음 30초 안에는 시작 명령에서 만든 `healthy` 파일이 존재합니다. 활동성 명령이 `healthy` 파일의 존재 여부를 확인하면 상태 코드에서는 성공을 알리는 0을 반환하므로 다시 시작이 발생하지 않습니다.
 
-30초 후 `cat /tmp/healthy`가 실패하고 비정상 및 중지 이벤트가 발생합니다. 
+30초 후 `cat /tmp/healthy`가 실패하고 비정상 및 중지 이벤트가 발생합니다.
 
-이러한 이벤트는 Azure Portal 또는 Azure CLI 2.0에서 볼 수 있습니다.
+이러한 이벤트는 Azure Portal 또는 Azure CLI에서 볼 수 있습니다.
 
 ![포털 비정상 이벤트][portal-unhealthy]
 
@@ -101,7 +101,7 @@ Azure Portal에서 이벤트를 보면 `Unhealthy` 형식의 이벤트는 활동
 
 ## <a name="next-steps"></a>다음 단계
 
-필수 구성 요소 기능이 제대로 작동하지 않는 경우 자동으로 다시 시작되도록 작업 기반 시나리오에 활동성 프로브가 필요할 수 있습니다. 작업 기반 컨테이너 실행에 대한 자세한 내용은 [Azure Container Instances에서 컨테이너화된 작업 실행](container-instances-restart-policy.md)을 참조하세요.
+필수 구성 요소 함수가 제대로 작동하지 않는 경우 자동으로 다시 시작되도록 설정하려면 작업 기반 시나리오는 활동성 프로브가 필요할 수 있습니다. 작업 기반 컨테이너 실행에 대한 자세한 내용은 [Azure Container Instances에서 컨테이너화된 작업 실행](container-instances-restart-policy.md)을 참조하세요.
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-liveness-probe/unhealthy-killing.png

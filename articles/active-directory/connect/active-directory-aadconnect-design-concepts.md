@@ -16,12 +16,12 @@ ms.workload: Identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0a648d0733d9d81cc0e586f5fa54dc8d75d2f6f0
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801935"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "35640693"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: 설계 개념
 이 문서에서는 Azure AD Connect의 설계를 구현하는 중에 고려해야 할 영역을 설명합니다. 이 문서는 특정 영역을 심층 분석하고 이 개념을 다른 문서에서처럼 간단히 설명합니다.
@@ -44,7 +44,7 @@ sourceAnchor 특성은 *개체의 수명 동안 변경할 수 없는 속성*으�
 
 * 길이는 60자 미만이어야 합니다.
   * 문자가 a-z, A-Z 또는 0-9가 아니면 인코드되고 3개의 문자로 계산됩니다.
-* &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " @ _
+* &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * 전역적으로 고유해야 합니다.
 * 문자열, 정수 또는 이진이어야 합니다.
 * 사용자 이름은 변경되므로 이를 기반으로 할 수 없습니다.
@@ -61,7 +61,7 @@ SourceAnchor 특성은 대/소문자를 구분합니다. "JohnDoe"의 값은 "jo
 
 포리스트 및 도메인 간에 사용자를 이동하는 경우 변경되지 않거나 이동 중 사용자와 함께 이동할 수 있는 특성을 찾아야 합니다. 가상 특성을 도입하는 것이 좋습니다. GUID처럼 보이는 것을 포함할 수 있는 특성이 적합합니다. 개체가 생성되는 동안 새 GUID는 생성되고 사용자에게 표시됩니다. 동기화 엔진 서버에서 사용자 지정 동기화 규칙을 만들어 **objectGUID** 에 따라 이 값을 만들고 ADDS에서 선택한 특성을 업데이트할 수 있습니다. 개체를 이동할 때, 이 값의 콘텐츠도 복사했는지 확인합니다.
 
-다른 솔루션은 변경되지 않는 것을 알고 있는 기존 특성을 선택하는 것입니다. 일반적으로 사용되는 특성에는 **employeeID**가 있습니다. 문자를 포함하는 특성을 고려하는 경우 특성 값의 대/소문자가 변경될 수 있는 가능성이 없는지 확인합니다. 나쁜 속성은 사용자 이름의 해당 속성을 포함하여 사용할 수 없습니다. 결혼 또는 이혼해서 이름을 바꿔야 하는 경우에도 이 특성에서는 허용되지 않습니다. **userPrincipalName**, **mail** 및 **targetAddress**와 같은 특성을 Azure AD Connect 설치 마법사에서 선택할 수 없는 이유이기도 합니다. 이러한 특성은 sourceAnchor에서 허용되지 않는 "@" 문자도 포함하고 있습니다.
+다른 솔루션은 변경되지 않는 것을 알고 있는 기존 특성을 선택하는 것입니다. 일반적으로 사용되는 특성에는 **employeeID**가 있습니다. 문자를 포함하는 특성을 고려하는 경우 특성 값의 대/소문자가 변경될 수 있는 가능성이 없는지 확인합니다. 나쁜 속성은 사용자 이름의 해당 속성을 포함하여 사용할 수 없습니다. 결혼 또는 이혼해서 이름을 바꿔야 하는 경우에도 이 특성에서는 허용되지 않습니다. **userPrincipalName**, **mail** 및 **targetAddress**와 같은 특성을 Azure AD Connect 설치 마법사에서 선택할 수 없는 이유이기도 합니다. 이러한 특성은 sourceAnchor에서 허용되지 않는 “\@” 문자도 포함하고 있습니다.
 
 ### <a name="changing-the-sourceanchor-attribute"></a>SourceAnchor 특성 변경
 sourceAnchor 특성값은 개체가 Azure AD에 생성되고 ID가 동기화된 후에는 값을 변경할 수 없습니다.
@@ -180,7 +180,7 @@ Azure AD와 온-프레미스 디렉터리를 통합하는 동안 동기화 설�
 ### <a name="choosing-the-attribute-for-userprincipalname"></a>userPrincipalName의 특성 선택
 Azure에서 사용할 UPN의 값을 제공하기 위해 특성을 선택하는 경우 다음을 확인해야 합니다.
 
-* 특성 값은 UPN 구문(RFC 822)을 맞춥니다. 즉, username@domain 형식이어야 합니다.
+* 특성 값은 UPN 구문(RFC 822)을 맞춥니다. 즉, 사용자 이름\@도메인 형식이어야 합니다.
 * 값의 접미사는 Azure AD에서 확인된 사용자 지정 도메인 중 하나에 일치합니다.
 
 Express 설정에서 특성에 userPrincipalName을 선택할 것입니다. userPrincipalName 특성에 사용자가 Azure에 로그인하는 데 사용하려는 값이 포함되지 않은 경우 **사용자 지정 설치**를 선택해야 합니다.
@@ -188,7 +188,7 @@ Express 설정에서 특성에 userPrincipalName을 선택할 것입니다. user
 ### <a name="custom-domain-state-and-upn"></a>사용자 지정 도메인 상태 및 UPN
 UPN 접미사에 확인된 도메인이 있는지 확인해야 합니다.
 
-John은 contoso.com의 사용자입니다. 사용자를 Azure AD 디렉터리 contoso.onmicrosoft.com에 동기화한 후에 John이 Azure에 로그인하는 데 온-프레미스 UPN john@contoso.com 을 사용하려고 합니다. 이렇게 하려면 사용자를 동기화하기 전에 Azure AD에서 contoso.com을 사용자 지정 도메인으로 추가하고 확인해야 합니다. John의 UPN 접미사(예: contoso.com)가 Azure AD에서 확인된 도메인과 일치하지 않으면 Azure AD는 UPN 접미사를 contoso.onmicrosoft.com으로 바꿉니다.
+John은 contoso.com의 사용자입니다. 사용자를 Azure AD 디렉터리 contoso.onmicrosoft.com에 동기화한 후에 John이 Azure에 로그인하는 데 온-프레미스 UPN john\@contoso.com을 사용하려고 합니다. 이렇게 하려면 사용자를 동기화하기 전에 Azure AD에서 contoso.com을 사용자 지정 도메인으로 추가하고 확인해야 합니다. John의 UPN 접미사(예: contoso.com)가 Azure AD에서 확인된 도메인과 일치하지 않으면 Azure AD는 UPN 접미사를 contoso.onmicrosoft.com으로 바꿉니다.
 
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>라우팅할 수 있는 온-프레미스가 아닌 도메인 및 Azure AD에 대한 UPN
 일부 조직에는 라우팅할 수 없는 도메인(예: contoso.local) 또는 간단한 단일 레이블 도메인(예: contoso)이 있습니다. Azure AD에서 라우팅할 수 없는 도메인을 확인할 수 없습니다. Azure AD Connect는 Azure AD에서 확인된 도메인에 동기화할 수 있습니다. Azure AD 디렉터리를 만들면 라우팅 가능한 도메인을 만들고 다시 Azure AD에 대한 기본 도메인(예: contoso.onmicrosoft.com)이 됩니다. 따라서 기본 도메인(onmicrosoft.com)에 동기화하지 않으려는 경우 이 시나리오에서 라우팅할 수 있는 다른 도메인을 확인하는 데 필요하게 됩니다.
