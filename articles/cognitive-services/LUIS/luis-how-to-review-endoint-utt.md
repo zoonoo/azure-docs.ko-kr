@@ -2,19 +2,19 @@
 title: LUIS로 제안된 발화에 레이블 지정 | Microsoft Docs
 description: LUIS(Language Understanding)를 사용하여 제안된 발화에 레이블을 지정하면 활성 기계 학습의 성능을 향상시킬 수 있습니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2017
-ms.author: v-geberr
-ms.openlocfilehash: c695aed4bc6d2553c719f8dfe664634e2f3b2613
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37966838"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224554"
 ---
 # <a name="review-endpoint-utterances"></a>끝점 발화 검토
 
@@ -79,4 +79,4 @@ LUIS는 엔터티 토큰(단어)을 파란색으로 강조 표시된 엔터티 �
 
 ## <a name="next-steps"></a>다음 단계
 
-제안된 발화에 레이블을 지정한 후 성능이 얼마나 향상되는지 테스트하려면 위쪽 패널에서 **테스트**를 선택하여 테스트 콘솔에 액세스할 수 있습니다. 테스트 콘솔을 사용하여 앱을 테스트하는 방법에 대한 자세한 내용은 [앱 학습 및 테스트](interactive-test.md)를 참조하세요.
+제안된 발화에 레이블을 지정한 후 성능이 얼마나 향상되는지 테스트하려면 위쪽 패널에서 **테스트**를 선택하여 테스트 콘솔에 액세스할 수 있습니다. 테스트 콘솔을 사용하여 앱을 테스트하는 방법에 대한 자세한 내용은 [앱 학습 및 테스트](luis-interactive-test.md)를 참조하세요.

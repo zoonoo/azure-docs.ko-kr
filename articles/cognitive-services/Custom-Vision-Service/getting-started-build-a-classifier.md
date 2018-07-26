@@ -9,12 +9,12 @@ ms.component: custom-vision
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: 6dc271c13f53a445c7d1101f5264d890208bd03c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374774"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223372"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -83,8 +83,6 @@ Custom Vision Service를 사용하려면 먼저 분류자를 빌드해야 합니
     Custom Vision Service는 이미지당 최대 6MB까지 .jpg, .png 및 .bmp 형식의 학습 이미지를 허용합니다. 예측 이미지는 이미지당 최대 4MB까지 가능합니다. 가장 짧은 가장자리가 256픽셀인 이미지를 사용하는 것이 좋습니다. 가장 짧은 가장자리가 256픽셀보다 짧은 이미지는 Custom Vision Service에서 확장됩니다.
 
     ![이미지 추가 컨트롤은 왼쪽 위와 맨 아래 가운데 단추로 표시됩니다.](./media/getting-started-build-a-classifier/add-images01.png)
-
-    ![로컬 파일 찾아보기 단추는 맨 아래 가운데에 표시됩니다.](./media/getting-started-build-a-classifier/add-images02.png)
 
     >[!NOTE] 
     > REST API를 사용하여 URL에서 학습 이미지를 로드할 수 있습니다.

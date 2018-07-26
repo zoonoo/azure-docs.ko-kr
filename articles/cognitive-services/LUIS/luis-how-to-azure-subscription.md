@@ -2,19 +2,19 @@
 title: Azure 끝점 구독 관리 | Microsoft Docs
 description: 이 문서에서는 요금제에 따라 끝점에 대한 무제한 트래픽을 제공하기 위해 LUIS 계정에 대한 끝점 키 요금제를 만듭니다.
 services: cognitive-services
-author: v-geberr
-manager: Kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: dbcbdb0f806241c015e6fbc160465390bead7c37
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.author: diberry
+ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340776"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223282"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Azure 끝점 구독 키 관리
 

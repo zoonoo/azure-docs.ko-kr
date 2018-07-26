@@ -134,7 +134,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
       - **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
         
       리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-5. **버전**에서 **V2 **를 선택합니다.
+5. **버전** 에서 **V2**를 선택합니다.
 6. **위치** 아래에서 데이터 팩터리에 대한 위치를 선택합니다. 지원되는 위치만 드롭다운 목록에 표시됩니다. 데이터 팩터리에서 사용되는 데이터 저장소(예: Azure Storage, SQL Database) 및 계산(예: Azure HDInsight)은 다른 위치와 지역에 있을 수 있습니다.
 7. **대시보드에 고정**을 선택합니다. 
 8. **만들기**를 선택합니다.
@@ -164,7 +164,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
    ![SQL Server 선택](./media/tutorial-hybrid-copy-data-tool/select-source-data-store.png)
 
-5. 새로 연결된 서비스(SQL Server) **이름***에서 **SqlServerLinkedService**를 입력합니다. **통합 런타임을 통해 연결**에서 **+새로 만들기**를 선택합니다. 자체 호스팅 통합 런타임을 만들고, 컴퓨터에 다운로드하고, Data Factory에 등록해야 합니다. 자체 호스팅 통합 런타임은 온-프레미스 환경과 클라우드 간에 데이터를 복사합니다.
+5. 새로 연결된 서비스(SQL Server) **이름****에서 **SqlServerLinkedService**를 입력합니다. **통합 런타임을 통해 연결**에서 **+새로 만들기**를 선택합니다. 자체 호스팅 통합 런타임을 만들고, 컴퓨터에 다운로드하고, Data Factory에 등록해야 합니다. 자체 호스팅 통합 런타임은 온-프레미스 환경과 클라우드 간에 데이터를 복사합니다.
 
    ![자체 호스팅 통합 런타임 만들기](./media/tutorial-hybrid-copy-data-tool/create-integration-runtime-link.png)
 
@@ -222,7 +222,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
 16. **새로 연결된 서비스(Azure Blob Storage)** 대화 상자에서 다음 단계를 수행합니다. 
 
-     a. **이름**** 아래에서 **AzureStorageLinkedService**를 입력합니다.
+     a. **이름****아래에서 **AzureStorageLinkedService**를 입력합니다.
 
      나. **통합 런타임을 통해 연결**에서 **TutorialIntegrationRuntime**을 선택합니다.
 

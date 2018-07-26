@@ -11,12 +11,13 @@ ms.workload: data-management
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: ff36a67cd09dd1e5cb5635be17d1dd76fc824d1a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917077"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215206"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Azure App Service를 사용하는 ClearDB MySQLl 데이터베이스에 대한 FAQ
 이 FAQ는 Azure Web Apps용 ClearDB MySQL 데이터베이스의 사용 및 구매에 대한 일반적인 질문에 답변합니다.

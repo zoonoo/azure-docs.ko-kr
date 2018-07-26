@@ -2,19 +2,19 @@
 title: Azure에서 LUIS 앱에 미리 빌드된 도메인 사용 | Microsoft Docs
 description: LUIS(Language Understanding Intelligent Service) 응용 프로그램에서 미리 빌드된 도메인을 사용하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 72ca0def8528adae5e46a02fa5bfccd14a3b6ab4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382998"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224180"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>LUIS 앱에서 미리 빌드된 도메인 사용  
 

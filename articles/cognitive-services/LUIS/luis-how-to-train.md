@@ -2,19 +2,19 @@
 title: LUIS 앱 학습 - Azure | Microsoft Docs
 description: LUIS(Language Understanding)를 사용하여 모델을 학습합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8ec731ee2110b21a35d76d53fae4a1a6756fb5b8
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951817"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223187"
 ---
 # <a name="train-your-luis-app"></a>LUIS 앱 학습
 
@@ -45,5 +45,5 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 ## <a name="next-steps"></a>다음 단계
 
-* [LUIS로 제안된 음성에 레이블 지정](luis-how-to-review-endoint-utt.md) 
+* [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endoint-utt.md) 
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md) 
