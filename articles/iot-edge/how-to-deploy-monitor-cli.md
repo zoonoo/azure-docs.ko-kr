@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3dfb0fe0227fdd0ff1a43cb7b0a89eb9d3e066f4
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: b90c26eaa36c906dda904106b104c3dbf04a55ce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097940"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257983"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -144,7 +144,7 @@ Azure CLI 2.0을 사용하여 모듈을 배포하려면 배포 매니페스트�
 * **--labels** - 배포를 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 이름, 값 쌍입니다. 예를 들어 `HostPlatform, Linux` 또는 `Version, 3.0.1`와 같습니다.
 * **--content** - 배포 매니페스트 JSON에 대한 파일 경로입니다. 
 * **--hub-name** - 배포를 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용하여 원하는 구독으로 전환합니다.
-* **--target-condition** - 대상 조건을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 원하는 장치 쌍 속성을 기반으로 하며, 식 형식과 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`과 같습니다. 
+* **--target-condition** - 대상 조건을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`과 같습니다. 
 * **--priority** - 양의 정수입니다. 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 배포가 적용됩니다.
 
 ## <a name="monitor-a-deployment"></a>배포 모니터링

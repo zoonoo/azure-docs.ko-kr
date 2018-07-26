@@ -4,18 +4,18 @@ description: Azure AD 동적으로 금지된 암호를 사용하여 환경에서
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 89cbe386d87c6ccb81df7fabd86b197bb69e41e1
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36291958"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162017"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -64,7 +64,7 @@ Windows Server Active Directory용 Azure AD 암호 보호에는 Azure AD Premium
 
 ## <a name="what-do-users-see"></a>사용자에게 표시되는 내용
 
-사용자가 암호를 차단 목록에 있는 암호로 변경하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
+사용자가 암호를 금지된 문자열로 재설정하려고 하면 다음과 같은 오류 메시지가 표시됩니다.
 
 암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다. 다른 암호로 다시 시도하세요.
 

@@ -2,22 +2,22 @@
 title: Azure Stream Analytics의 JavaScript 사용자 정의 집계
 description: 이 문서에서는 Azure Stream Analytics에서 JavaScript 사용자 정의 집계로 고급 쿼리 역학을 수행하는 방법을 설명합니다.
 services: stream-analytics
-author: minhe-msft
-ms.author: minhe
-manager: santoshb
-ms.reviewer: jasonh
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: 718109d17309747a3c19f22921e4a316b0b88dc6
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: eb433a322f8077c947fd6db1aaa0e2266a109938
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30907326"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187057"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript 사용자 정의 집계(미리 보기)
-
+ 
 Azure Stream Analytics는 JavaScript로 작성된 UDA(사용자 정의 집계)를 지원하고 이를 통해 복잡한 상태 저장 비즈니스 논리를 구현할 수 있습니다. UDA 내에서 상태 데이터 구조, 상태 누적, 상태 누적 처분 및 집계 결과 계산의 모든 권한을 갖고 있습니다. 문서에서는 두 개의 서로 다른 JavaScript UDA 인터페이스, UDA를 만드는 단계 및 Stream Analytics 쿼리에서 창 기반 작업으로 UDA를 사용하는 방법을 소개합니다.
 
 ## <a name="javascript-user-defined-aggregates"></a>JavaScript 사용자 정의 집계

@@ -4,24 +4,25 @@ description: Azure Multi-Factor Authentication과 관련된 질문과 대답입�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: 00eab947120cdfa76de64536ddaa0600c2dff2ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: michmcla
+ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049414"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159844"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
 이 FAQ에서는 Azure Multi-factor Authentication 및 Multi-Factor Authentication 서비스 사용에 대한 일반적인 질문에 대한 답변을 제공합니다. 서비스 전반, 청구 모델, 사용자 경험 및 문제 해결에 대한 질문으로 세분화됩니다.
 
 ## <a name="general"></a>일반
+
 **Q: Azure Multi-Factor Authentication 서버는 사용자 데이터를 어떻게 처리하나요?**
 
 Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온-프레미스 서버에만 저장됩니다. 영구 사용자 데이터는 클라우드에 저장되지 않습니다. 사용자가 2단계 인증을 수행하는 경우 Multi-factor Authentication 서버는 인증을 위해 Azure Multi-factor Authentication 클라우드 서비스에 데이터를 보냅니다. Multi-factor Authentication 서버와 Multi-factor Authentication 클라우드 서비스 간의 통신에는 포트 443 아웃바운드를 통해 SSL(Secure Sockets Layer) 또는 TLS(전송 계층 보안)가 사용됩니다.
@@ -60,6 +61,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 이외의 국가에는 짧은 코드를 지원하지 않습니다.
 
 ## <a name="billing"></a>결제
+
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.
 
 **Q: 인증하는 데 사용되는 전화 통화 및 문자 메시지에 대한 요금이 조직에 부과되나요?**
@@ -119,7 +121,6 @@ MFA 공급자가 생성되면 Azure Active Directory(즉, “Azure AD 테넌트�
 모든 사용자가 두 가지 이상의 인증 방법을 구성했기를 바랍니다. 다시 로그인을 시도하도록 지시하지만 로그인 페이지에서 다른 인증 방법을 선택하도록 알려 줍니다.
 
 사용자에게 [최종 사용자 문제 해결 가이드](../user-help/multi-factor-authentication-end-user-troubleshoot.md)를 안내해줄 수 있습니다.
-
 
 **Q: 내 사용자 중 하나가 계정에 로그인할 수 없는 경우 어떻게 해야 하나요?**
 
@@ -196,8 +197,8 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 - 조직에서 사용자에게 적용된 MFA 등록 정책을 만들고 사용하도록 설정했습니다.
 - 사용자는 MFA에 대해 이전에 등록되었지만 관리자가 사용하지 않도록 설정한 인증 방법을 선택했습니다. 따라서 사용자는 MFA 등록 과정을 다시 거쳐서 새로운 기본 인증 방법을 선택해야 합니다.
 
-
 ## <a name="errors"></a>오류
+
 **Q: 사용자가 모바일 앱 알림을 사용할 때 "활성화된 계정에 대한 인증 요청이 아닙니다." 오류 메시지가 표시되면 사용자는 어떻게 해야 하나요?**
 
 모바일 앱에서 해당 계정을 제거하려면 이 절차에 따라 알린 다음 다시 추가합니다.
@@ -214,6 +215,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 이 오류를 해결하려면 관리 관련 작업용 사용자 계정과 비관리 관련 작업용 사용자 계정을 따로 두어야 합니다. 나중에 관리 계정과 비관리 계정 간의 사서함을 연결하면 비관리 계정을 사용하여 Outlook에 로그인할 수 있습니다. 이 해결책에 대한 자세한 내용은 [관리자에게 사용자의 사서함 내용을 열고 보는 기능을 제공하는](http://help.outlook.com/141/gg709759.aspx?sl=1) 방법을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 질문이 여기에서 답변되지 않은 경우 페이지의 맨 아래에 의견을 남겨 주세요. 또는 도움말을 얻는 몇 가지 추가 옵션은 다음과 같습니다.
 
 * [Microsoft 지원 기술 자료](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)에서 일반적인 기술 문제에 대한 솔루션을 검색합니다.

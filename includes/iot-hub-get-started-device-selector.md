@@ -1,8 +1,8 @@
 > [!div class="op_single_selector"]
 > * [Raspberry Pi 웹 시뮬레이터](../articles/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started.md)   
-> * [.NET를 사용하여 시뮬레이션된 장치](../articles/iot-hub/iot-hub-csharp-csharp-getstarted.md)
-> * [Java를 사용하여 시뮬레이션된 장치](../articles/iot-hub/iot-hub-java-java-getstarted.md)
-> * [Node.js를 사용하여 시뮬레이션된 장치](../articles/iot-hub/iot-hub-node-node-getstarted.md)
+> * [.NET를 사용하여 시뮬레이션된 장치](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
+> * [Java를 사용하여 시뮬레이션된 장치](../articles/iot-hub/quickstart-send-telemetry-java.md)
+> * [Node.js를 사용하여 시뮬레이션된 장치](../articles/iot-hub/quickstart-send-telemetry-node.md)
 > * [VS Code를 사용하는 IoT DevKit AZ3166](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Node.js를 사용하는 Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Python을 사용하는 Raspberry Pi](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)

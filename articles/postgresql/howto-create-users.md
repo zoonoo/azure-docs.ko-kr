@@ -9,12 +9,12 @@ manager: jhubbard
 ms.service: postgresql-database
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 87a73929185112190d5dd6698e014db225ebc08e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: be3be5769f1d9ad6138fcef851179ddc5cf6c0da
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574186"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144740"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>Azure Database for PostgreSQL 서버에서 사용자 만들기 
 이 문서에서는 Azure Database for PostgreSQL 서버에서 사용자를 만드는 방법을 설명합니다.
@@ -64,7 +64,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
    
    CREATE ROLE <db_user> WITH LOGIN NOSUPERUSER INHERIT CREATEDB NOCREATEROLE NOREPLICATION PASSWORD '<StrongPassword!>';
    
-   GRANT CONNECT ON DATABASE testdb TO <db_user>;
+   GRANT CONNECT ON DATABASE <newdb> TO <db_user>;
    ```
 
 4. 관리자 계정을 사용하면 데이터베이스의 개체를 보호하기 위해 추가 권한을 부여해야 할 수 있습니다. 데이터베이스 역할 및 권한에 대한 자세한 내용은 [PostgreSQL 설명서](https://www.postgresql.org/docs/current/static/ddl-priv.html)를 참조하세요. 예:  

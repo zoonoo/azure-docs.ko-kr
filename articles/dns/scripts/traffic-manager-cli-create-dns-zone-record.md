@@ -3,7 +3,7 @@ title: CLI 예제 - 도메인 이름에 대한 DNS 영역 및 레코드 만들�
 description: Azure CLI 스크립트 예제에서는 도메인 이름에 대한 DNS 영역 및 레코드를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: traffic-manager
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: tysonn
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: kumud
-ms.openlocfilehash: 3f9f272f6ae79ad39ba9d9ad09775f3082774a0c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: 7fd836301ddcb2a39212dcb39a5a8095e5c8e7e7
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32773164"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171187"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Azure CLI 스크립트 예제: DNS 영역 및 레코드 만들기
 

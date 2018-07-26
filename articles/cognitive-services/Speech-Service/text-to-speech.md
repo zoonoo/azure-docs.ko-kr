@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 227fae2f38189a5b8ed5b6eff359e09bedc8e628
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e3543c2056934372a2795bd50f340432ceec3b6d
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071133"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257949"
 ---
 # <a name="about-the-text-to-speech-api"></a>Text to Speech API 정보
 
@@ -35,7 +35,7 @@ Speech Service의 TTS(**Text to Speech**) API는 입력 텍스트를 자연스�
 
 ## <a name="voice-support"></a>음성 지원
 
-Microsoft **Text-to-Speech** 서비스는 45개 이상의 언어 및 로캘로 75가지 이상의 음성을 제공합니다. 이러한 표준 "음성 글꼴"을 사용하려는 경우 서비스의 REST API를 호출할 때 몇 개의 매개 변수를 사용해서 음성 이름을 지정하기만 하면 됩니다. 지원되는 음성에 대한 자세한 내용은 [지원되는 언어](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/supported-languages#text-to-speech)를 참조하세요. 
+Microsoft **Text-to-Speech** 서비스는 45개 이상의 언어 및 로캘로 75가지 이상의 음성을 제공합니다. 이러한 표준 "음성 글꼴"을 사용하려는 경우 서비스의 REST API를 호출할 때 몇 개의 매개 변수를 사용해서 음성 이름을 지정하기만 하면 됩니다. 지원되는 음성에 대한 자세한 내용은 [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/speech-service/supported-languages#text-to-speech)를 참조하세요. 
 
 독특한 음성을 응용 프로그램에 사용하려면 자체 음성 샘플에서 [사용자 지정 음성 글꼴](how-to-customize-voice-font.md)을 만들면 됩니다.
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ba187fd82fa6a698905313bfda2802324a9034d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097083"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185434"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>원격 모니터링 솔루션에 SIM 데이터 통합
 
@@ -67,7 +67,7 @@ Telefónica 계정이 올바르게 구성되고 장치가 연결되면 장치 �
 
 SIM 데이터를 Azure IoT 원격 모니터링에 통합하는 방법에 대한 개요를 알아보았습니다. 아래는 솔루션 가속화를 위해 제안되는 다음 단계입니다.
 
-* [Azure IoT 원격 모니터링 솔루션 운영](iot-accelerators-remote-monitoring-explore.md)
+* [Azure IoT 원격 모니터링 솔루션 운영](quickstart-remote-monitoring-deploy.md)
 * [고급 모니터링 수행](iot-accelerators-remote-monitoring-monitor.md)
 * [장치 관리](iot-accelerators-remote-monitoring-manage.md)
 * [장치 문제 해결](iot-accelerators-remote-monitoring-maintain.md)

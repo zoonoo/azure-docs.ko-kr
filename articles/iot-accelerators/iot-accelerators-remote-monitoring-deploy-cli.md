@@ -8,16 +8,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 736d0394b61bd2830a155d6ad714a2a8d19af82b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017512"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188020"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>CLI를 사용하여 원격 모니터링 솔루션 가속기 배포
 
-이 자습서는 원격 모니터링 솔루션 가속기를 프로비전하는 방법을 보여줍니다. CLI를 사용하여 솔루션을 배포합니다. azureiotsuite.com에서 웹 기반 UI를 사용하여 솔루션을 배포할 수도 있습니다. 이 옵션에 대해 알아보려면 [원격 모니터링 솔루션 가속기 배포](iot-accelerators-remote-monitoring-deploy.md)를 참조하세요.
+이 자습서는 원격 모니터링 솔루션 가속기를 프로비전하는 방법을 보여줍니다. CLI를 사용하여 솔루션을 배포합니다. azureiotsuite.com에서 웹 기반 UI를 사용하여 솔루션을 배포할 수도 있습니다. 이 옵션에 대해 알아보려면 [원격 모니터링 솔루션 가속기 배포](quickstart-remote-monitoring-deploy.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -135,6 +135,6 @@ CLI에 대한 자세한 내용은 [CLI를 사용하는 방법](https://github.co
 > * 솔루션 가속기 배포
 > * 솔루션 가속기에 로그인
 
-원격 모니터링 솔루션을 배포했으면 다음 단계는 [솔루션 대시보드의 기능을 탐색](./iot-accelerators-remote-monitoring-deploy.md)하는 것입니다.
+원격 모니터링 솔루션을 배포했으면 다음 단계는 [솔루션 대시보드의 기능을 탐색](./quickstart-remote-monitoring-deploy.md)하는 것입니다.
 
 <!-- Next tutorials in the sequence -->

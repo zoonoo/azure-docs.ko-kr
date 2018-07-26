@@ -2,7 +2,7 @@
 title: Azure SQL Database 관리되는 인스턴스 사용자 지정 DNS | Microsoft Docs
 description: 이 항목에서는 Azure SQL Database 관리되는 인스턴스를 사용하는 사용자 지정 DNS의 구성 옵션에 대해 설명합니다.
 services: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 05a7b600ae8672447126b79cda10ca94c6d0fb48
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d5bb2f2f4b79c4b03e631fc844a712f76fc69109
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649332"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258170"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 대한 사용자 지정 DNS 구성
 

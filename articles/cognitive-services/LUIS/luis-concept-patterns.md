@@ -3,19 +3,19 @@ title: 패턴의 예측 정확도를 늘리는 방법 알아보기 | Microsoft D
 titleSuffix: Azure
 description: 의도 예측 점수를 높이고 엔터티를 찾도록 패턴을 디자인하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4a23ebddc29c6c519e68a00ef6cbff107061c341
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888282"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225220"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다. 발언에 대한 패턴을 제공하여 LUIS는 예측에서 높은 신뢰도를 유지할 수 있습니다. 
@@ -95,7 +95,7 @@ How much does {Booktitle} cost and what format is it available in?
 
 패턴 `[find] email about {subject} [from {person}]'을 고려해 봅니다. 다음 발언에서 **subject** 및 **person** 엔터티는 올바르게 추출되고 올바르지 않게 추출됩니다.
 
-|발언|엔터티|올바른 추출|
+|발화|엔터티|올바른 추출|
 |--|--|:--:|
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
@@ -117,7 +117,7 @@ How much does {Booktitle} cost and what format is it available in?
 LUIS에서는 의도에 예제 발언이 없는 앱이 허용됩니다. 이 사용 방식은 패턴을 사용할 때만 허용됩니다. 각 패턴에는 하나 이상의 엔터티가 필요합니다. 패턴 전용 앱의 경우, 패턴에 기계 학습된 엔터티가 포함되면 안 됩니다. 이러한 엔터티에는 예제 발언이 필요하기 때문입니다. 
 
 ## <a name="best-practices"></a>모범 사례
-[모범 사례](luis-concept-best-practices.md)에 대해 알아봅니다.
+[모범 사례](luis-concept-best-practices.md)를 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

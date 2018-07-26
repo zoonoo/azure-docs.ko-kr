@@ -3,8 +3,8 @@
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |형식 속성은 **AzureStorage** |적용 |
-| connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |적용 |
+| 형식 |형식 속성은 **AzureStorage** |yes |
+| connectionString |connectionString 속성에 대한 Azure 저장소에 연결하는 데 필요한 정보를 지정합니다. |yes |
 
 Azure Storage에 대한 계정 키를 보거나 복사하는 단계는 [저장소 액세스 키 보기, 복사 및 다시 생성](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account)문서를 참조하세요.
 
@@ -36,8 +36,8 @@ Azure Storage SAS 연결된 서비스에서 SAS(공유 액세스 서명)을 사�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 |형식 속성은 **AzureStorageSas** |적용 |
-| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |적용 |
+| 형식 |형식 속성은 **AzureStorageSas** |yes |
+| sasUri |BLOB, 컨테이너, 테이블 등의 Azure Storage 리소스에 공유 액세스 서명 URI를 지정합니다.  |yes |
 
 **예제:**
 

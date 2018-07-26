@@ -4,18 +4,18 @@ description: 클라우드에서 Azure MFA 및 AD FS 시작 방법을 설명하�
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 05/29/2017
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: richagi
-ms.openlocfilehash: ce70641d9ccb3c86d1360a0aaf21a4817e2b3c5d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.reviewer: michmcla
+ms.openlocfilehash: 43d7f147a64e55359e43ba793e3fc57efa63c30c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317864"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159909"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 조직이 Azure Active Directory와 페더레이션되어 있는 경우 Azure Multi-Factor Authentication 또는 AD FS(Active Directory Federation Services)를 사용하여 Azure AD에서 액세스하는 리소스를 보호합니다. Azure Multi-Factor Authentication 또는 Active Directory Federation Services를 사용하여 Azure Active Directory 리소스를 보호하려면 다음 절차를 따르세요.
@@ -73,7 +73,7 @@ ms.locfileid: "36317864"
             => issue(claim = c);
     ![클라우드](./media/howto-mfa-adfs/trustedip5.png)
 13. **Finish**를 클릭합니다.
-14. **Apply**를 클릭합니다.
+14. **적용**을 클릭합니다.
 15. **Ok**를 클릭합니다.
 16. AD FS 관리를 닫습니다.
 

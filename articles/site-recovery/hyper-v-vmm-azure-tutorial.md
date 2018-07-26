@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c759ca51fde6c3ead782d48b709c5a40b321c166
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a6be34d96ec833005ff191fe7477b117ec045a04
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916135"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213745"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
@@ -111,7 +111,7 @@ Site Recovery가 호환되는 Azure 저장소 계정 및 네트워크가 하나 
 2. **정책 만들기 및 연결**에서 정책 이름을 **ContosoReplicationPolicy**로 지정합니다.
 3. 기본 설정을 그대로 적용하고 **확인**을 클릭합니다.
     - **복사 빈도**는 초기 복제 후 5분마다 델타 데이터가 복제됨을 나타냅니다.
-    - **복구 지점 보존**은 모든 복구 지점의 보존 기간이 2시간임을 나타냅니다
+    - **복구 지점 보존**은 모든 복구 지점의 보존 기간이 2시간임을 나타냅니다.
     - **앱 일치 스냅숏 빈도**는 앱 일치 스냅숏을 포함하는 복구 지점이 1시간마다 만들어짐을 나타냅니다.
     - **초기 복제 시작 시간**은 초기 복제가 즉시 시작됨을 나타냅니다.
     - **Azure에 저장된 데이터 암호화** -기본 설정인 **해제**는 Azure의 미사용 데이터는 암호화되지 않음을 나타냅니다.

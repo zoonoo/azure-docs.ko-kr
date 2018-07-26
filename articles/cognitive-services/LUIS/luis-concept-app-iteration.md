@@ -2,19 +2,19 @@
 title: LUIS 반복 앱 디자인 이해 - Azure | Microsoft Docs
 description: 최고의 데이터 추출을 얻으려면 LUIS를 학습시키기 위한 디자인 반복이 LUIS 앱에 필요합니다.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: v-geberr
-ms.openlocfilehash: e0467e4c41209c937f548edc0c40c05cae588f4c
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.author: diberry
+ms.openlocfilehash: 947350a1d0dcfb0caaca654768c3660fc1b146e1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888251"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225444"
 ---
 # <a name="authoring-cycle"></a>제작 주기
 LUIS는 모델 변경, 발화 예제, 게시 및 끝점 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 

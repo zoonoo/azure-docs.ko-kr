@@ -2,19 +2,19 @@
 title: Azure App Service - 동기화 네트워크 구성 | Microsoft Docs
 description: 이 아티클에서는 Azure App Service 호스팅 계획에 대한 네트워크 구성을 동기화하는 방법을 설명합니다.
 ms.service: sql-database
-author: srdjan-bozovic
+author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: ea8f4aae0324e201def6b9b6cd33b0e79042ebbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 57c4dd523a5dffc48a2d2d403d2a440a8d6cde95
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647972"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257897"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Azure App Service 호스팅 계획에 대한 네트워킹 구성 동기화
 

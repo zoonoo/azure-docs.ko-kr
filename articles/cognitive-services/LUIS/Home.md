@@ -2,19 +2,19 @@
 title: Azure의 LUIS(Language Understanding) 정보 | Microsoft Docs
 description: LUIS(Language Understanding)를 사용하여 기계 학습의 기능을 응용 프로그램으로 가져오는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: v-geberr
-ms.openlocfilehash: 1c68c586fb799a540f70804d181aa66b2bda9e97
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: 072176347adacbabc0a92f1c7e437f8233531003
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952541"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225461"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 LUIS(Language Understanding)는 사용자 지정 기계 학습을 사용자의 자연스러운 기존 언어 텍스트에 적용하여 전체적인 의미를 예측하고 관련된 자세한 정보를 추출하는 클라우드 기반 서비스입니다. 
@@ -86,7 +86,7 @@ LUIS는 엔터티를 식별하고 분류하는 몇 가지 방법을 제공합니
 
 * **사용자 지정 엔터티** LUIS는 기계 학습 엔터티, 특정 또는 리터럴 엔터티, 기계 학습 및 리터럴의 조합을 비롯하여 사용자 고유의 [엔터티](luis-concept-entity-types.md)를 식별하는 몇 가지 방법을 제공합니다.
 
-### <a name="example-utterances"></a>예제 발언
+### <a name="example-utterances"></a>예제 발화
 예제 [발언](luis-how-to-add-example-utterances.md)은 클라이언트 응용 프로그램이 이해해야 하는 사용자의 입력 텍스트입니다. "파리행 티켓 예약"과 같은 문장이나 "예약" 또는 “파리행 항공권”과 같은 문장 부분이 있을 수 있습니다. 발언이 항상 올바른 형식인 것은 아니며 특정 의도에 대해 여러 발언 변형이 있을 수 있습니다. 각 의도에 10~20개의 예제 발언을 추가하고 모든 발언에서 엔터티에 표시합니다.
 
 |예제 사용자 발언|의도|엔터티|

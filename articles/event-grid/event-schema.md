@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/06/2018
+ms.date: 07/20/2018
 ms.author: babanisa
-ms.openlocfilehash: 266ddced5f1949fa72508d914f76953101a7aac6
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902234"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186114"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid 이벤트 스키마
 
@@ -94,6 +94,7 @@ Event Grid는 단일 이벤트가 있는 배열의 구독자에게 이벤트를 
 데이터 개체의 속성에 대해 자세히 알아보려면 이벤트 원본을 참조하십시오.
 
 * [Azure 구독(관리 작업)](event-schema-subscriptions.md)
+* [컨테이너 레지스트리](event-schema-container-registry.md)
 * [Blob storage](event-schema-blob-storage.md)
 * [Event Hubs](event-schema-event-hubs.md)
 * 

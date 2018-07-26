@@ -4,18 +4,18 @@ description: Azure AD 암호 보호 미리 보기 로깅 및 일반 문제 해�
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: e5b3dc1bfa7c7890be83529e863907ec056f188f
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292018"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187352"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>미리 보기: Azure AD 암호 보호 모니터링, 보고 및 문제 해결
 
@@ -197,7 +197,7 @@ DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 �
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    $keywords 변수 값의 끝에 별표("*")를 생략하지 마십시오.
@@ -209,7 +209,7 @@ DC 에이전트 서비스 소프트웨어는 **Azure AD 암호 보호**라는 �
    ```
    $scp = “serviceConnectionPoint”
    $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
-   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -eq $keywords }
+   Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    `Get-ADObject` 명령을 통해 찾은 결과 개체는 `Remove-ADObject`에 파이프되거나 수동으로 삭제될 수 있습니다.

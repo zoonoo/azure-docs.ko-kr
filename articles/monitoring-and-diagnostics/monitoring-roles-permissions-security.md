@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 82ec2b71ee83d2ec697fa44521c103b11976f1ed
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264605"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248464"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 대해 단독으로 작업하는 팀원(지원 엔지니어, devops 엔지니어)이 있거나, 관리되는 서비스 공급자를 사용할 경우 이들에게 리소스 생성, 수정 또는 삭제 기능은 제한하면서 모니터링 데이터에 대해서만 액세스를 부여하고자 할 수 있씁니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
@@ -21,14 +21,14 @@ ms.locfileid: "35264605"
 ## <a name="built-in-monitoring-roles"></a>기본 제공 모니터링 역할
 Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세스를 제한하면서, 인프라 모니터링을 담당하는 사용자는 필요한 데이터를 확보 및 구성할 수 있게 지원하도록 설계되었습니다. Azure Monitor는 Monitoring Reader와Monitoring Contributor 등, 바로 사용할 수 있는 2가지 역할을 제공합니다.
 
-### <a name="monitoring-reader"></a>Monitoring Reader
+### <a name="monitoring-reader"></a>모니터링 읽기 권한자
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
 * 포털의 모니터링 대시보드를 확인하고 자체 개별 모니터링 대시보드를 만듭니다.
 * [Azure 경고](monitoring-overview-unified-alerts.md)에 정의된 경고 규칙 보기
 * [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md) 또는 [플랫폼 간 CLI](insights-cli-samples.md)를 사용하여 메트릭을 쿼리합니다.
 * 포털, Azure Monitor REST API, PowerShell cmdlet 또는 플랫폼 간 CLI를 사용하여 작업 로그를 쿼리합니다.
-* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 을 확인합니다.
+* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 확인합니다.
 * 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 봅니다.
 * 자동 크기 조정 설정을 봅니다.
 * 경고 활동 및 설정을 봅니다.
@@ -45,11 +45,11 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 > 
 > 
 
-### <a name="monitoring-contributor"></a>Monitoring Contributor
+### <a name="monitoring-contributor"></a>모니터링 참가자
 Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링 데이터를 볼 수 있으며, 모니터링 설정을 만들거나 수정할 수 있지만 다른 리소스는 수정할 수 없습니다. 이 역할은 Monitoring Reader 역할의 상위 집합이며, 조직의 모니터링 팀 구성원이거나 위의 권한 외에도 다음이 필요한 관리되는 서비스 제공자인 사용자에게 적합합니다.
 
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
-* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) 을 구성합니다.*
+* 리소스에 대한 [진단 설정](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 을 구성합니다.*
 * 구독에 대한 [로그 프로필](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 을 설정합니다.*
 * [Azure 경고](monitoring-overview-unified-alerts.md)를 통해 경고 규칙 활동 및 설정을 지정합니다.
 * Application Insights 웹 테스트 및 구성 요소를 만듭니다.

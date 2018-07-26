@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a318a1ef8b13b8fcb4f4401ac4d0e45037958d63
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127495"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247684"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Azure IoT Hub 장치 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법
 
@@ -111,3 +111,8 @@ Azure IoT Hub 장치 SDK는 Azure IoT Hub에 연결하고 메시지를 전송/�
 - [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 - [Node SDK](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
+## <a name="next-steps"></a>다음 단계
+- [장치 및 서비스 SDK 사용](.\iot-hub-devguide-sdks.md)
+- [C용 IoT 장치 SDK 사용](.\iot-hub-device-sdk-c-intro.md)
+- [제한된 장치에 대한 개발](.\iot-hub-devguide-develop-for-constrained-devices.md)
+- [모바일 장치용 개발](.\iot-hub-how-to-develop-for-mobile-devices.md)

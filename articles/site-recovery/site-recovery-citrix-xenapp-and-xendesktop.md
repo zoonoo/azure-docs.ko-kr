@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: c4bc8a1b2ab8f6569d6893f5c4fc16339ebddbe6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917213"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213636"
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 Citrix XenApp 및 XenDesktop 배포 복제
 
@@ -63,9 +63,9 @@ AD DNS 서버, SQL Database 서버, Citrix Delivery Controller, StoreFront 서�
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 이 문서에서 다루지 않는 내용 | 예
-**VMware** | 이 문서에서 다루지 않는 내용 | 예
-**물리적 서버** | 이 문서에서 다루지 않는 내용 | 예
+**Hyper-V** | 이 문서에서 다루지 않는 내용 | yes
+**VMware** | 이 문서에서 다루지 않는 내용 | yes
+**물리적 서버** | 이 문서에서 다루지 않는 내용 | yes
 
 ### <a name="versions"></a>버전
 고객은 Hyper-V 또는 VMware에서 실행되는 Virtual Machines 또는 물리적 서버로 XenApp 구성 요소를 배포할 수 있습니다. Azure Site Recovery는 Azure에 대한 실제 배포와 가상 배포를 모두 보호할 수 있습니다.
@@ -182,7 +182,7 @@ XenApp 구성 요소 VM에 대한 복제를 활성화한 후에는 복구 계획
 
 
    >[!NOTE]
-   >[위치](https://github.com/Azure/azure-quickstart-templates/blob/>master/asr-automation-recovery/scripts)에서 스크립트를 사용하여 장애 조치된 가상 컴퓨터의 새 IP로 DNS를 업데이트하거나, 필요한 경우 장애 조치된 가상 컴퓨터에 부하 분산 장치를 연결할 수 있습니다.
+   >[위치](https://github.com/Azure/azure-quickstart-templates/tree/master/asr-automation-recovery/scripts)에서 스크립트를 사용하여 장애 조치된 가상 컴퓨터의 새 IP로 DNS를 업데이트하거나, 필요한 경우 장애 조치된 가상 컴퓨터에 부하 분산 장치를 연결할 수 있습니다.
 
 
 ## <a name="doing-a-test-failover"></a>테스트 장애 조치 수행

@@ -8,22 +8,22 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 1b61c335dec2c641862c08fd6f752d78b2ee5866
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea36a3d4a2471cee6a18d70275aaf2e83ffc6f39
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056667"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159654"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan-preview"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기(미리 보기)
 
 이 자습서에서는 가상 WAN을 사용하여 IPsec/IKE(IKEv2) VPN 연결을 통해 Azure에서 리소스를 연결하는 방법을 보여줍니다. 이 연결 유형은 할당된 외부 연결 공용 IP 주소를 갖고 있는 온-프레미스에 있는 VPN 장치를 필요로 합니다. 가상 WAN에 대한 자세한 내용은 [가상 WAN 개요](virtual-wan-about.md)를 참조하세요.
 
 > [!NOTE]
-> 사이트가 많은 경우 일반적으로 [가상 WAN 파트너](https://aka.ms.virtualwan)를 사용하여 이러한 구성을 만듭니다. 하지만 네트워킹에 익숙하고 자신의 VPN 장치를 구성하는 데 능숙한 경우에는 구성을 직접 만들 수 있습니다.
+> 사이트가 많은 경우 일반적으로 [가상 WAN 파트너](https://aka.ms/virtualwan)를 사용하여 이러한 구성을 만듭니다. 하지만 네트워킹에 익숙하고 자신의 VPN 장치를 구성하는 데 능숙한 경우에는 구성을 직접 만들 수 있습니다.
 >
 
-![가상 WAN 다이어그램](./media/virtual-wan-about/virtualwan.png)
+![Virtual WAN 다이어그램](./media/virtual-wan-about/virtualwan.png)
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "39056667"
 
 ## <a name="enroll"></a>1. 미리 보기에 등록
 
-가상 WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 등록해야 합니다. 그렇지 않으면 포털에서 가상 WAN을 사용할 수 없습니다. 등록하려면 구독 ID로 **azurevirtualwan@microsoft.com**에 이메일을 전송합니다. 구독이 등록되면 이메일 회신을 받게 됩니다.
+Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 등록해야 합니다. 그렇지 않으면 포털에서 가상 WAN을 사용할 수 없습니다. 등록하려면 구독 ID로 **azurevirtualwan@microsoft.com**에 이메일을 전송합니다. 구독이 등록되면 이메일 회신을 받게 됩니다.
 
 ## <a name="vnet"></a>2. 가상 네트워크 만들기
 
@@ -159,9 +159,9 @@ VPN 장치 구성을 사용하여 온-프레미스 VPN 장치를 구성합니다
 
 ### <a name="understanding-the-vpn-device-configuration-file"></a>VPN 장치 구성 파일 이해
 
-장치 구성 파일은 온-프레미스 VPN 장치를 구성할 때 사용할 설정을 포함합니다. 이 파일을 볼 때 다음 정보를 확인하십시오.
+장치 구성 파일은 온-프레미스 VPN 장치를 구성할 때 사용할 설정을 포함합니다. 이 파일을 볼 때 다음 정보를 확인합니다.
 
-* **vpnSiteConfiguration -** 이 섹션에는 가상 WAN에 연결하는 사이트로 설정된 장치 세부 정보가 표시됩니다. 분기 장치의 이름과 공용 IP 주소를 포함합니다.
+* **vpnSiteConfiguration -** 이 섹션은 Virtual WAN에 연결된 사이트로 설정된 장치 정보를 나타냅니다. 여기에는 분기 장치의 이름 및 공용 IP 주소가 포함됩니다.
 * **vpnSiteConnections -** 이 섹션은 다음 항목에 대한 정보를 제공합니다.
 
     * 가상 허브 VNet의 **주소 공간**<br>예제:
@@ -174,13 +174,13 @@ VPN 장치 구성을 사용하여 온-프레미스 VPN 장치를 구성합니다
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * 가상 허브 vpngateway의 **IP 주소**. vpngateway에는 액티브-액티브 구성의 2개 터널로 구성된 각 연결이 있기 때문에 이 파일에 두 IP 주소가 모두 나열됩니다. 이 예제에서는 각 사이트에 대해 "Instance0"과 "Instance1"이 표시됩니다.<br>예제:
+    * 가상 허브 vpngateway의 **IP 주소**. vpngateway에는 활성-활성 구성의 2개 터널로 구성된 각 연결이 있기 때문에 이 파일에 두 IP 주소가 모두 나열됩니다. 이 예제에서는 각 사이트에 대한 “Instance0” 및 “Instance1”이 표시됩니다.<br>예제:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * BGP, 미리 공유한 키 등과 같은 **Vpngateway 연결 구성 세부 정보**. PSK는 자동으로 생성되는 미리 공유한 키입니다. 사용자 지정 PSK의 개요 페이지에서 연결을 언제든지 편집할 수 있습니다.
+    * BGP, 미리 공유한 키 등의 **Vpngateway 연결 구성 세부 정보**. PSK는 자동으로 생성되는 미리 공유한 키입니다. 사용자 지정 PSK의 개요 페이지에서 연결을 언제든지 편집할 수 있습니다.
   
 ### <a name="example-device-configuration-file"></a>예제 장치 구성 파일
 
@@ -325,7 +325,7 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 
 ## <a name="feedback"></a>미리 보기 피드백
 
-여러분의 의견에 감사드립니다. 문제를 보고하거나 가상 WAN에 대한 피드백(긍정적이거나 부정적인)을 제공하려면 <azurevirtualwan@microsoft.com>에 이메일을 보내세요. 제목 줄에서 “[]”에 회사 이름을 적어주세요. 문제를 보고하려는 경우 구독 ID도 보내주세요.
+여러분의 의견에 감사드립니다. 문제를 보고하거나 Virtual WAN에 대한 피드백(긍정적이거나 부정적인)을 제공하려면 <azurevirtualwan@microsoft.com>에 메일을 보내세요. 제목 줄에서 “[]”에 회사 이름을 적어주세요. 문제를 보고하려는 경우 구독 ID도 보내주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

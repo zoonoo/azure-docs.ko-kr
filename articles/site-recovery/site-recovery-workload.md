@@ -2,24 +2,17 @@
 title: Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까? | Microsoft Docs
 description: Azure Site Recovery 서비스에서 재해 복구를 사용하여 보호할 수 있는 워크로드를 설명합니다.
 services: site-recovery
-documentationcenter: ''
 author: rayne-wiselman
-manager: cfreeman
-editor: ''
-ms.assetid: 4953948f-26c0-4699-8fe7-59d3bfc1d3da
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: e0094b48bc602a1b59339458b430319f4a705d44
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 5295002e823dc864f0f0dcc67594f49b5431bce7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920112"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205955"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Azure Site Recovery로 어떤 워크로드를 보호할 수 있습니까?
 
@@ -61,7 +54,6 @@ Site Recovery는 지원되는 컴퓨터에서 실행 중인 모든 앱을 복제
 | 원격 데스크톱/VDI |Y |Y |Y |Y |Y|
 | Linux(운영 체제 및 앱) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
 | Dynamics AX |Y |Y |Y |Y |Y|
-| Oracle |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트) |예(Microsoft에서 테스트)|
 | Windows 파일 서버 |Y |Y |Y |Y |Y|
 | Citrix XenApp 및 XenDesktop |Y|해당 없음 |Y |해당 없음 |Y |
 
@@ -111,9 +103,9 @@ Azure Site Recovery를 사용하면 다음과 같이 Dynamics AX ERP 솔루션�
 
 | **RDS** |**Azure VM을 Azure에 복제** | **Hyper-V VM을 보조 사이트로 복제** | **Hyper-V VM을 Azure에 복제** | **VMware VM을 보조 사이트에 복제** | **VMware VM을 Azure에 복제** | **물리적 서버를 보조 사이트에 복제** | **물리적 서버를 Azure에 복제** |
 |---| --- | --- | --- | --- | --- | --- | --- |
-| **풀링된 가상 데스크톱(관리되지 않음)** |아니오|예 |아니오 |예 |아니오 |예 |아니오 |
-| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니오|예 |아니오 |예 |아니오 |예 |아니오 |
-| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |예|예 |예 |예 |예 |예 |예 |
+| **풀링된 가상 데스크톱(관리되지 않음)** |아니오|yes |아니오 |yes |아니오 |yes |아니오 |
+| **풀링된 가상 데스크톱(관리됨/UPD 없음)** |아니오|yes |아니오 |yes |아니오 |yes |아니오 |
+| **원격 응용 프로그램 및 데스크톱 세션(UPD 없음)** |yes|예 |예 |예 |예 |예 |yes |
 
 [Azure Site Recovery를 사용하여 RDS에 대한 재해 복구를 설정합니다](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 

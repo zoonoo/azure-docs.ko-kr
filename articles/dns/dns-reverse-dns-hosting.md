@@ -3,7 +3,7 @@ title: Azure DNS에서 역방향 DNS 조회 영역 호스트 | Microsoft Docs
 description: Azure DNS를 사용하여 IP 범위에 대한 역방향 DNS 조회 영역을 호스트하는 방법을 알아봅니다.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: kumud
-ms.openlocfilehash: c5d53838ffb77ff8d33fee9d10aea4a74f3c523c
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: victorh
+ms.openlocfilehash: b1c55e054d1113871e4f3753a11cd2bf62e42e67
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32773683"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173594"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Azure DNS에서 역방향 DNS 조회 영역 호스트
 

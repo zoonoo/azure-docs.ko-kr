@@ -3,19 +3,19 @@ title: LUIS(Language Understanding) API HTTP 응답 코드 - Azure | Microsoft D
 titleSuffix: Azure
 description: LUIS 작성 및 끝점 API에서 반환되는 HTTP 응답 코드 이해
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
 ms.date: 04/16/2018
-ms.author: v-geberr
-ms.openlocfilehash: 9c7381d9dc2ecf302c85c6b4f1f24b24a28d9ebe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 5fd64b5fa3e3c084aee1e63c5233ccffc93917ae
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374502"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237946"
 ---
 # <a name="luis-api-http-response-codes"></a>LUIS API HTTP 응답 코드
 [작성](https://aka.ms/luis-authoring-apis) 및 [끝점](https://aka.ms/luis-endpoint-apis) API는 HTTP 응답 코드를 반환합니다. 응답 메시지에는 요청과 관련된 정보가 포함되어 있지만 HTTP 응답 상태 코드는 일반적입니다. 

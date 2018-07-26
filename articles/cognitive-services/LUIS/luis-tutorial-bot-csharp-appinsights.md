@@ -3,19 +3,19 @@ title: C#을 사용하여 Application Insights에 LUIS 데이터 추가 | Micros
 titleSuffix: Azure
 description: C#을 사용하여 LUIS 응용 프로그램 및 Application Insights와 통합된 봇을 빌드합니다.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 52b6ae224b0e8da12eb4903f5100a6e5cc39704d
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: f1efe305f5659bfab50cee13ac30d56531cc6093
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35383298"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237794"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-web-app-bot"></a>웹앱 봇에서 Application Insights에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 저장소에 LUIS 응답 정보를 추가합니다. 해당 데이터가 있으면 Kusto 언어 또는 PowerBi로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
@@ -25,7 +25,7 @@ ms.locfileid: "35383298"
 > [!div class="checklist"]
 * 웹앱 봇에 Application Insights 추가
 * LUIS 쿼리 결과 캡처 및 Application Insights에 보내기
-* Application Insights에서 상위 의도, 점수 및 발화 쿼리
+* Application Insights에서 상위 의도, 점수 및 발언 쿼리
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -244,4 +244,4 @@ Application Insights 데이터에 추가할 수 있는 기타 정보에는 앱 I
 둘 이상의 LUIS 앱에 대해 동일한 끝점 구독을 사용하는 경우, 구독 ID 및 공유 키임을 나타내는 속성도 포함해야 합니다. 
 
 > [!div class="nextstepaction"]
-> [예제 발화에 대해 자세히 알아보기](luis-how-to-add-example-utterances.md)
+> [예제 발언에 대해 자세히 알아보기](luis-how-to-add-example-utterances.md)

@@ -7,14 +7,14 @@ ms.author: jasonh
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 8bee80647d692b60898880a85652189a684426f7
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: 426d7b15cd4a98d958ed02329f40becdfb177ceb
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32312976"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259282"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>IoT 장치에서 데이터를 처리하도록 Azure Stream Analytics 시작
 이 자습서에서는 IoT(사물 인터넷) 장치에서 데이터를 수집하기 위한 스트림 처리 논리를 만드는 방법을 배웁니다. 실제, IoT(사물 인터넷) 사용 사례를 사용하여 솔루션을 신속하고 경제적으로 구축하는 방법을 보여 줍니다.

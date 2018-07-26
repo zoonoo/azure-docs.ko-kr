@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5ba9b5534e986be1cbe55043a9acdd981d2ed7fd
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a918866ff5e206ea4d2dedde2711424924a478fe
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971740"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188072"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -25,7 +25,7 @@ ms.locfileid: "38971740"
 
 이 방법을 완료하려면 다음이 필요합니다.
 
-* [원격 모니터링 솔루션 가속기 배포](iot-accelerators-remote-monitoring-deploy.md).
+* [원격 모니터링 솔루션 가속기 배포](quickstart-remote-monitoring-deploy.md).
   * 원격 모니터링 솔루션은 이 문서에서 Azure 구독에 사용된 IoT 허브 및 Azure Stream Analytics 작업을 배포합니다.
 * [Azure Data Lake Store 배포](../data-lake-store/data-lake-store-get-started-portal.md)
   * Data Lake Store는 원격 모니터링 솔루션과 동일한 지역에 배포되어야 합니다.

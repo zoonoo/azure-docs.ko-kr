@@ -2,20 +2,19 @@
 title: LUIS의 미리 빌드된 엔터티 | Microsoft Docs
 description: 이 문서에는 LUIS(Language Understanding Intelligent Services)에 포함된 미리 빌드된 엔터티 목록이 포함되어 있습니다.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: cahann
-ms.reviewer: v-geberr
-ms.openlocfilehash: 0dc1dbf32114e989fd2b9c2be61bd531f7b5e839
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry
+ms.openlocfilehash: 95ff173a843e7ad18ec396a1130b2e2b4035f656
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347343"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248240"
 ---
 # <a name="prebuilt-entities"></a>미리 빌드된 엔터티
 
@@ -37,7 +36,7 @@ LUIS에는 날짜, 시간, 숫자, 측정값 및 통화 등, 일반적인 정보
 ## <a name="use-a-prebuilt-number-entity"></a>미리 빌드된 number 엔터티 사용
 미리 빌드된 엔터티가 응용 프로그램에 포함되어 있으면, 게시된 응용 프로그램에 해당 예측이 포함됩니다. 미리 빌드된 엔터티의 동작은 미리 학습되며 수정할 수 **없습니다**. 다음 단계에 따라 미리 빌드된 엔터티가 작동하는 방식을 확인하세요.
 
-1. **number** 엔터티를 앱에 추가하고 앱을 [학습](interactive-test.md) 및 [게시](luis-how-to-publish-app.md)합니다.
+1. **number** 엔터티를 앱에 추가하고 앱을 [학습](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)합니다.
 2. **앱 게시** 페이지에서 끝점 URL을 클릭하여 웹 브라우저에서 LUIS 끝점을 엽니다. 
 3. 숫자 식이 포함된 URL에 발언을 추가합니다. 예를 들어, `buy two plane ticktets`를 입력하면 LUIS는 `two`를 `builtin.number` 엔터티로, `2`를 `resolution` 필드의 해당 값으로 식별하는 것을 확인할 수 있습니다. `resolution` 필드는 숫자와 날짜를 클라이언트 응용 프로그램이 보다 쉽게 사용할 수 있는 정규 양식으로 해석하는 데 도움이 됩니다. 
 
@@ -70,7 +69,7 @@ LUIS는 표준 양식이 아닌 숫자를 지능적으로 인식할 수 있습�
 ## <a name="use-a-prebuilt-datetimev2-entity"></a>미리 빌드된 number datetimeV2 사용
 **datetimeV2** 미리 빌드된 엔터티는 날짜, 시간, 날짜 범위 및 시간 기간을 인식합니다. 다음 단계에 따라 `datetimeV2` 미리 빌드된 엔터티가 작동하는 방식을 확인하세요.
 
-1. **datetimeV2** 엔터티를 앱에 추가하고 앱을 [학습](interactive-test.md) 및 [게시](luis-how-to-publish-app.md)합니다.
+1. **datetimeV2** 엔터티를 앱에 추가하고 앱을 [학습](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)합니다.
 2. **앱 게시** 페이지에서 끝점 URL을 클릭하여 웹 브라우저에서 LUIS 끝점을 엽니다. 
 3. 날짜 범위가 포함된 URL에 발언을 추가합니다. 예를 들어, `book a flight tomorrow`를 입력하면 LUIS는 `tomorrow`를 `builtin.datetimeV2.date` 엔터티로, 내일 날짜를 `resolution` 필드의 해당 값으로 식별하는 것을 확인할 수 있습니다. 
 

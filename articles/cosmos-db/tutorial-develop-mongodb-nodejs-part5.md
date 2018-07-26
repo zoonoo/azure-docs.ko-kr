@@ -2,7 +2,7 @@
 title: Azure에 대한 MongoDB, Angular 및 노드 자습서 - 5부 | Microsoft Docs
 description: MongoDB에 사용하는 것과 정확히 동일한 API를 사용한 Azure Cosmos DB의 Angular 및 노드를 사용하여 MongoDB 앱을 만드는 방법에 대한 자습서 시리즈의 5부
 services: cosmos-db
-author: SnehaGunda
+author: johnpapa
 manager: kfile
 editor: ''
 ms.service: cosmos-db
@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/05/2017
-ms.author: sngun
+ms.author: john.papa
 ms.custom: mvc
-ms.openlocfilehash: 2b6e3f66c6fb16adf6a8a1c51af61afb26aad59f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 8674e5daee003ea0688ea8702362165ebb8ccfcf
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798664"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249209"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-5-use-mongoose-to-connect-to-azure-cosmos-db"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 5부: Mongoose를 사용하여 Azure Cosmos DB에 연결
 
@@ -219,7 +219,7 @@ ms.locfileid: "34798664"
 
 1. 이제 앱을 다시 실행하겠습니다. Visual Studio Code에서 모든 변경 내용을 저장하고, 왼쪽에서 **디버그** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)을 클릭하고 **디버깅 시작** 단추 ![Visual Studio Code의 디버그 아이콘](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)을 클릭합니다.
 
-3. 이제 브라우저로 돌아가서 개발자 도구 및 네트워크 탭을 연 다음 http://localhost:3000 로 이동하면 응용 프로그램이 있습니다.
+3. 이제 브라우저로 돌아가서 개발자 도구 및 네트워크 탭을 연 다음 http://localhost:3000로 이동하면 응용 프로그램이 있습니다.
 
     ![Azure Portal의 새 Azure Cosmos DB 계정](./media/tutorial-develop-mongodb-nodejs-part5/azure-cosmos-db-heroes-app.png)
 

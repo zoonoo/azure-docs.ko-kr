@@ -2,23 +2,23 @@
 title: '자습서: Azure Portal을 사용하여 Stream Analytics 작업을 만들고 관리 | Microsoft Docs'
 description: 이 자습서에서는 Azure Stream Analytics를 사용하여 전화 통화 스트림의 사기성 호출을 분석하는 방법에 대한 종단 간 일러스트레이션을 제공합니다.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 manager: kfile
 ms.service: stream-analytics
 ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 524b15747a275c76fec6c529e4f00d0da1b41420
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "32778192"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186233"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Power BI 대시보드에서 전화 통화 데이터를 분석하고 결과를 시각화하는 Stream Analytics 작업 만들기
-
+ 
 이 자습서에는 Azure Stream Analytics를 사용하여 클라이언트 응용 프로그램에서 생성한 샘플 전화 통화를 분석하는 방법을 보여줍니다. 클라이언트 응용 프로그램에서 생성한 전화 통화 데이터에는 일부 사기성 호출이 포함되어 있으며 이러한 호출을 필터링하는 Stream Analytics 작업을 정의하겠습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.

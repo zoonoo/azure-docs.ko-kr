@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2e7f3b0f01dbd6656413c233fcf64c46963d00ef
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917373"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214178"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Azure Active Directory 통과 인증 문제 해결
 
@@ -97,7 +97,7 @@ ms.locfileid: "37917373"
 
 테넌트에서 통과 인증을 사용하도록 설정했고 Azure AD Connect를 제거하려고 하면 "다른 통과 인증 에이전트가 다른 서버에 설치되어 있지 않으면 사용자가 Azure AD에 로그인할 수 없습니다."라는 경고 메시지가 표시됩니다.
 
-사용자 로그인이 중단되지 않도록 방지하려면 Azure AD Connect를 제거하기 전에 설정이 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)이어야 합니다.
+사용자 로그인이 중단되지 않도록 방지하려면 Azure AD Connect를 제거하기 전에 설정이 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)이어야 합니다.
 
 ## <a name="issues-with-enabling-the-feature"></a>기능 사용 관련 문제
 
@@ -112,18 +112,6 @@ Azure AD Connect가 설치된 서버가 [여기](active-directory-aadconnect-pas
 ### <a name="enabling-the-feature-failed-due-to-token-or-account-authorization-errors"></a>토큰 또는 계정 권한 부여 오류로 인해 기능을 사용하도록 설정하지 못함
 
 기능을 활성화할 때는 클라우드 전용 전역 관리자 계정을 사용해야 합니다. MFA(Multi-Factor Authentication) 사용 전역 관리자 계정에 알려진 문제점이 있습니다. 해결 방법으로 MFA를 일시적으로 해제하세요(작업 완료를 위해서만).
-
-## <a name="exchange-activesync-configuration-issues"></a>Exchange ActiveSync 구성 문제
-
-이들은 통과 인증에 대한 Exchange ActiveSync 지원을 구성할 때 일반적인 문제입니다.
-
-### <a name="exchange-powershell-issue"></a>Exchange PowerShell 문제
-
-“**'PerTenantSwitchToESTSEnabled' 매개 변수 이름과 일치하는 매개 변수를 찾을 수 없습니다\.**” 오류(`Set-OrganizationConfig` Exchange PowerShell 명령을 실행할 때)가 표시되는 경우 Microsoft 지원에 문의하세요.
-
-### <a name="exchange-activesync-not-working"></a>Exchange ActiveSync가 작동하지 않음
-
-구성을 적용하는 데 다소 시간이 걸립니다. 시간은 사용자 환경에 따라 달라집니다. 오랜 시간 동안 상황이 지속되면 Microsoft 지원에 문의합니다.
 
 ## <a name="collecting-pass-through-authentication-agent-logs"></a>통과 인증 에이전트 로그 수집
 

@@ -3,7 +3,7 @@ title: 사설 도메인에 Azure DNS 사용 | Microsoft Docs
 description: Microsoft Azure의 사설 DNS 호스팅 서비스에 대한 개요입니다.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2018
-ms.author: kumud
-ms.openlocfilehash: 0ee3b18b7f874c4f6b7b2c9c559aa7e393ad7d8d
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.author: victorh
+ms.openlocfilehash: 2ab7070a4cf46dae543af8d3e1d688e12ec1eb2a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34700607"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173645"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>사설 도메인에 Azure DNS 사용
 DNS(Domain Name System)는 서비스 이름을 해당 IP 주소로 변환(또는 확인)합니다. DNS 도메인에 대한 호스팅 서비스인 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공합니다. 인터넷 연결 DNS 도메인 지원 외에도 Azure DNS는 이제 사설 DNS 도메인을 미리 보기 기능으로 지원합니다. 

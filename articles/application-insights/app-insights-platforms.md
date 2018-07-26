@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 09/01/2016
-ms.author: mbullwin; olegan
-ms.openlocfilehash: 8aec8567fd15865887a5fe5ded8b45cad0290bf9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.reviewer: olegan
+ms.author: mbullwin
+ms.openlocfilehash: 4f474ad234c80a0dcb5a9f704a263a97e7df0cc1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174234"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>개발자 분석: 언어, 플랫폼 및 통합
 이러한 항목은 타사에서 제공하는 구현을 포함하여 이미 알고 있는 [Application Insights](app-insights-overview.md) 의 구현입니다.
@@ -62,7 +64,7 @@ ms.lasthandoff: 05/10/2018
 * [다른 항목](#projects)
 
 ## <a name="logging-frameworks"></a>로깅 프레임워크
-* [Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-diagnostic-search.md)
+* [Log4Net, NLog 또는 System.Diagnostics.Trace](app-insights-asp-net-trace-logs.md)
 * [Java, Log4J 또는 Logback](app-insights-java-trace-logs.md)
 * [의미 체계 로깅(SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - [의미 체계 로깅 응용 프로그램 블록](https://msdn.microsoft.com/library/dn440729.aspx)과 통합
 * [클라우드 기반 부하 테스트](http://blogs.msdn.com/b/visualstudioalm/archive/2015/07/30/getting-application-insights-counters-with-cloud-based-load-testing.aspx)

@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: f4e8a579e020e81540c1fd52e412c8e6184813d2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921215"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226563"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Hyper-V에서 Azure로 Site Recovery Deployment Planner
 
@@ -74,7 +74,7 @@ Azure Site Recovery Deployment Planner는 Hyper-V에서 Azure로 및 VMware에�
 
 | | **VMware에서 Azure로** |**Hyper-V에서 Azure로**|**Azure 간**|**Hyper-V에서 보조 사이트로**|**VMware에서 보조 사이트로**
 --|--|--|--|--|--
-지원되는 시나리오 |예|예|아니오|예*|아니오
+지원되는 시나리오 |yes|yes|아니오|예*|아니오
 지원되는 버전 | vCenter 6.5, 6.0 또는 5.5| Windows Server 2016, Windows Server 2012 R2 | 해당 없음 |Windows Server 2016, Windows Server 2012 R2|해당 없음
 지원되는 구성|vCenter, ESXi| Hyper-V 클러스터, Hyper-V 호스트|해당 없음|Hyper-V 클러스터, Hyper-V 호스트|해당 없음|
 Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할 수 있는 서버 수 |한 개(하나의 vCenter Server 또는 하나의 ESXi 서버에 속하는 VM을 한 번에 프로파일링할 수 있습니다.)|여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음 |여러 개(여러 호스트 또는 호스트 클러스터의 VM을 한 번에 프로파일링할 수 있습니다.)| 해당 없음
@@ -94,13 +94,13 @@ Azure Site Recovery Deployment Planner 실행 인스턴스당 프로파일링할
 ## <a name="steps-to-add-servers-into-trustedhosts-list"></a>서버를 TrustedHosts 목록에 추가하는 단계
 1.  도구를 배포할 VM에 TrustedHosts 목록에서 프로파일링할 모든 호스트가 있어야 합니다. 클라이언트를 Trustedhosts 목록에 추가하려면 VM의 관리자 권한 PowerShell에서 다음 명령을 실행합니다. VM은 Windows Server 2012 R2 또는 Windows Server 2016일 수 있습니다. 
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
 2.  프로파일링해야 하는 각 Hyper-V 호스트에는 다음이 필요합니다.
 
     a. TrustedHosts 목록에서 도구를 실행할 VM. Hyper-V의 관리자 권한 PowerShell에서 다음 명령을 실행합니다.
 
-            set-item wsman:\localhost\Client\TrustedHosts -value <ComputerName>[,<ComputerName>]
+            set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
     나. PowerShell 원격 기능을 사용할 수 있어야 합니다.
 

@@ -98,7 +98,7 @@
         - name: 텍스트 음성 변환 FAQ
           href: faq-text-to-speech.md
         - name: 번역기 FAQ
-          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+          href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

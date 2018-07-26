@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: cb25ae0e90189f0c808f561b20e45f08b49df0d6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3161715ac2ff212e2de8a27ff8f8eb53fb858b92
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299164"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186808"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>작업 예약 및 브로드캐스트(Java)
 
@@ -31,7 +31,7 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 이러한 각 기능에 대한 자세한 내용은 다음을 참조하세요.
 
 * 장치 쌍 및 속성: [장치 쌍 시작](iot-hub-java-java-twin-getstarted.md)
-* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드 사용](iot-hub-java-java-direct-methods.md)
+* 직접 메서드: [IoT Hub 개발자 가이드 - 직접 메서드](iot-hub-devguide-direct-methods.md) 및 [자습서: 직접 메서드 사용](quickstart-control-device-java.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -482,5 +482,5 @@ Azure IoT Hub를 사용하여 수백만 대의 장치를 업데이트하는 작�
 
 아래와 같이 실행할 방법을 알아보려면 다음 리소스를 참조하세요.
 
-* [IoT Hub 시작](iot-hub-java-java-getstarted.md) 자습서를 참조하여 장치에서 원격 분석을 보냅니다.
-* [직접 메서드 사용](iot-hub-java-java-direct-methods.md) 자습서를 참조하여 대화형으로(예: 사용자 제어 앱에서 팬 작동) 장치를 제어합니다.
+* [IoT Hub 시작](quickstart-send-telemetry-java.md) 자습서를 참조하여 장치에서 원격 분석을 보냅니다.
+* [직접 메서드 사용](quickstart-control-device-java.md) 자습서를 참조하여 대화형으로(예: 사용자 제어 앱에서 팬 작동) 장치를 제어합니다.

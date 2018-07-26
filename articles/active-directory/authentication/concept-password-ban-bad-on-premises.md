@@ -4,18 +4,18 @@ description: Azure AD 암호 보호 미리 보기를 사용하여 온-프레미�
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 0819a947229e633331253923654de56638a6c76a
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36292932"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158807"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>미리 보기: Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -46,7 +46,7 @@ Azure AD 암호 보호를 구성하는 소프트웨어 구성 요소는 세 가�
 
 전역 금지 암호 목록의 이점은 Azure AD(Azure Active Directory)의 모든 사용자에게 적용됩니다.
 
-사용자 지정 금지 암호 목록에는 Azure AD 기본 라이선스가 필요합니다.
+사용자 지정 금지 암호 목록에는 Azure AD Basic 라이선스가 필요합니다.
 
 Windows Server Active Directory용 Azure AD 암호 보호에는 Azure AD Premium 라이선스가 필요합니다. 
 

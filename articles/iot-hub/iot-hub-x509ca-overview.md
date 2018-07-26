@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: eebaf679ada9da554f8582ad89db4e7491dcc134
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004356"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185495"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>X.509 CA 인증서를 사용하여 장치 인증
 
@@ -30,7 +30,7 @@ X.509 CA 기능에서는 CA(인증 기관)를 사용하여 IoT Hub에 대한 장
 
 ## <a name="prerequisite"></a>필수 요소
 
-X.509 CA 기능을 사용하려면 IoT Hub 계정이 필요합니다.  IoT Hub 인스턴스가 아직 없는 경우 [IoT Hub 인스턴스를 만드는 방법을 알아봅니다](iot-hub-csharp-csharp-getstarted.md).
+X.509 CA 기능을 사용하려면 IoT Hub 계정이 필요합니다.  IoT Hub 인스턴스가 아직 없는 경우 [IoT Hub 인스턴스를 만드는 방법을 알아봅니다](quickstart-send-telemetry-dotnet.md).
 
 ## <a name="how-to-get-an-x509-ca-certificate"></a>X.509 CA 인증서를 가져오는 방법
 

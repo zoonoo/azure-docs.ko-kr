@@ -3,7 +3,7 @@ title: Azure DNS 메트릭 및 경고 | Microsoft Docs
 description: Azure DNS 메트릭 및 경고에 대해 알아봅니다.
 services: dns
 documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jennoc
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: kumud
-ms.openlocfilehash: 54c4df446ee5c1bf8d29dd6c33b304f39ce8f1b8
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.author: victorh
+ms.openlocfilehash: 17541cdc0fd017cf762c4af55e0a6be25dead9f1
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31591622"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171867"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Azure DNS 메트릭 및 경고
 Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공하는 DNS 도메인에 대한 호스팅 서비스입니다. 이 문서에서는 Azure DNS 서비스에 대한 메트릭 및 경고를 설명합니다.

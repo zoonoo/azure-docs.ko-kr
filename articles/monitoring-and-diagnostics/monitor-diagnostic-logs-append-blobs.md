@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 654c458c419db9e2849b55df45f389dd5d282f00
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b83c67e5c2ca47e73c1743d8eeaea03a8d92ea1f
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922721"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247855"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>저장소 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
 
@@ -32,7 +32,7 @@ Azure Monitor는 리소스 진단 데이터 및 활동 로그 데이터를 Azure
 * 이 변경은 모든 공용 클라우드 지역에서 동시에 적용됩니다. Azure 중국, Azure 독일 또는 Azure Government 클라우드에서는 변경이 아직 적용되지 않습니다.
 * 이 변경은 다음 데이터 형식에 영향을 줍니다.
   * [Azure 리소스 진단 로그](./monitoring-archive-diagnostic-logs.md)([여기서 리소스 목록 확인](./monitoring-diagnostic-logs-schema.md))
-  * [진단 설정을 통해 내보내지는 Azure 리소스 메트릭](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)
+  * [진단 설정을 통해 내보내지는 Azure 리소스 메트릭](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)
   * [로그 프로필을 통해 내보내지는 Azure 활동 로그 데이터](./monitoring-archive-activity-log.md)
 * 다음 경우에는 이 변경의 영향을 받지 않습니다.
   * 네트워크 흐름 로그

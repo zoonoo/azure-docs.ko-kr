@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 07/10/2018
+ms.date: 07/18/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 54cf6c356ec4bb51b123e48c52c5beebc990e59d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 67dd6ba9b94ed9d58d91fb644ce9ee9e44ae9e45
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009973"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159172"
 ---
 # <a name="what-is-azure-virtual-wan-preview"></a>Azure Virtual WAN이란? (미리 보기)
 
@@ -62,7 +62,7 @@ Virtual WAN을 구성하려면 그 전에 먼저 미리 보기에서 구독을 �
 
 ## <a name="feedback"></a>미리 보기 피드백
 
-여러분의 의견에 감사드립니다. 모든 문제를 보고하거나 Virtual WAN에 대한 피드백(긍정적이거나 부정적인)을 제공하려면 <azurevirtualwan@microsoft.com>에 이메일을 보내세요. 제목 줄에서 “[]”에 회사 이름을 적어주세요. 문제를 보고하려는 경우 구독 ID도 보내주세요.
+여러분의 의견에 감사드립니다. 문제를 보고하거나 Virtual WAN에 대한 피드백(긍정적이거나 부정적인)을 제공하려면 <azurevirtualwan@microsoft.com>에 메일을 보내세요. 제목 줄에서 “[]”에 회사 이름을 적어주세요. 문제를 보고하려는 경우 구독 ID도 보내주세요.
 
 ## <a name="next-steps"></a>다음 단계
 
