@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: laviswa
-ms.openlocfilehash: ee804ddc9e8fe9901173bb3d9357a273ea28057d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056820"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205972"
 ---
 # <a name="sql-queries-for-azure-cosmos-db"></a>Azure Cosmos DB에 대한 SQL 쿼리
 
@@ -522,7 +522,7 @@ Undefined </td>
 
 필터의 스칼라 식 결과가 Undefined인 경우 Undefined는 논리적으로 "true"가 아니므로 해당 문서가 결과에 포함되지 않습니다.
 
-### <a name="between-keyword"></a>BETWEEN 키워드
+## <a name="between-keyword"></a>BETWEEN 키워드
 또한 ANSI SQL에서처럼 값의 범위에 대한 쿼리를 표현하는 BETWEEN 키워드를 사용할 수 있습니다. 문자열이나 숫자에 BETWEEN을 사용할 수 있습니다.
 
 예를 들어 이 쿼리는 첫 번째 자식의 등급이 1-5(모두 포함)인 가족 문서를 모두 반환합니다. 
@@ -561,7 +561,7 @@ SQL API와 ANSI SQL에서 BETWEEN을 사용하는 경우의 주요 차이점은 
 | False |True |
 | Undefined |Undefined |
 
-### <a name="in-keyword"></a>IN 키워드
+## <a name="in-keyword"></a>IN 키워드
 IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확인하는 데 사용할 수 있습니다. 예를 들어 이 쿼리는 id가 "WakefieldFamily" 또는 "AndersenFamily" 중 하나인 가족 문서를 모두 반환합니다. 
 
     SELECT *
@@ -574,7 +574,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
 
-### <a name="ternary--and-coalesce--operators"></a>3항(?) 및 병합(??) 연산자
+## <a name="ternary--and-coalesce--operators"></a>3항(?) 및 병합(??) 연산자
 3항 및 병합 연산자를 사용하여 널리 사용되는 프로그래밍 언어(예: C# 및 JavaScript)와 유사하게 조건식을 작성할 수 있습니다. 
 
 3항(?) 연산자는 새로운 JSON 속성을 즉시 생성할 때 매우 간편하게 사용할 수 있습니다. 예를 들어 쿼리를 작성하여 아래에 표시된 대로 Beginner/Intermediate/Advanced와 같이 사람이 읽을 수 있는 형식으로 클래스 수준을 분류할 수 있습니다.
@@ -594,7 +594,7 @@ IN 키워드는 지정된 값이 목록에 있는 값과 일치하는지를 확�
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
 
-### <a id="EscapingReservedKeywords"></a>따옴표 붙은 속성 접근자
+## <a id="EscapingReservedKeywords"></a>따옴표 붙은 속성 접근자
 따옴표 붙은 속성 연산자 `[]`를 사용하여 속성에 액세스할 수도 있습니다. 예를 들어 `SELECT c.grade` and `SELECT c["grade"]` 와 동일합니다. 이 구문은 공백, 특수 문자가 포함되어 있거나 SQL 키워드 또는 예약어와 동일한 이름을 공유하는 속성을 이스케이프해야 할 때 유용합니다.
 
     SELECT f["lastName"]
@@ -682,7 +682,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
     }]
 
 
-### <a name="aliasing"></a>별칭 지정
+## <a name="aliasing"></a>별칭 지정
 이제 값의 별칭을 명시적으로 지정하여 위 예제를 확장하겠습니다. AS는 별칭 지정에 사용되는 키워드입니다. 두 번째 값을 `NameInfo`로 프로젝션하는 동안 표시되므로 선택 사항입니다. 
 
 쿼리에 동일한 이름을 가진 두 개의 속성이 있을 경우 프로젝션된 결과에서 구분되도록 별칭 지정을 사용하여 속성 중 하나 또는 둘 다의 이름을 바꾸어야 합니다.
@@ -708,7 +708,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
     }]
 
 
-### <a name="scalar-expressions"></a>스칼라 식
+## <a name="scalar-expressions"></a>스칼라 식
 속성 참조뿐 아니라 SELECT 절은 상수, 산술 식, 논리 식 등의 스칼라 식도 지원합니다. 예를 들어 다음은 단순한 "Hello World" 쿼리입니다.
 
 **쿼리**
@@ -754,7 +754,7 @@ SELECT 절(**`SELECT <select_list>`**)은 필수이며 ANSI-SQL과 같이 쿼리
     ]
 
 
-### <a name="object-and-array-creation"></a>개체 및 배열 만들기
+## <a name="object-and-array-creation"></a>개체 및 배열 만들기
 SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예제에서는 새 JSON 개체를 만들었습니다. 마찬가지로 아래 예제에 표시된 대로 배열을 생성할 수도 있습니다.
 
 **쿼리**
@@ -779,7 +779,7 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
       }
     ]
 
-### <a id="ValueKeyword"></a>VALUE 키워드
+## <a id="ValueKeyword"></a>VALUE 키워드
 **VALUE** 키워드는 JSON 값을 반환하는 방법을 제공합니다. 예를 들어 아래 표시된 쿼리는 `{$1: "Hello World"}` 대신 스칼라 `"Hello World"`를 반환합니다.
 
 **쿼리**
@@ -830,7 +830,7 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
     ]
 
 
-### <a name="-operator"></a>* 연산자
+## <a name="-operator"></a>* 연산자
 문서를 있는 그대로 프로젝션하는 특수 연산자(*)를 지원합니다. 사용할 경우 프로젝션되는 유일한 필드여야 `SELECT * FROM Families f`와 같은 쿼리는 유효하지만 `SELECT VALUE * FROM Families f ` 및 `SELECT *, f.id FROM Families f `와 같은 쿼리는 유효하지 않습니다.
 
 **쿼리**
@@ -859,7 +859,7 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
         "isRegistered": true
     }]
 
-### <a id="TopKeyword"></a>TOP 연산자
+## <a id="TopKeyword"></a>TOP 연산자
 쿼리에서 값의 수를 제한하는 데 TOP 키워드를 사용할 수 있습니다. TOP를 ORDER BY 절과 함께 사용하면 결과 집합이 정렬된 값의 처음 N개로 제한되고 그렇지 않은 경우 정의되지 않은 순서의 처음 N개 결과가 반환됩니다. SELECT 문에서는 항상 TOP 절과 함께 ORDER BY 절을 사용하는 것이 좋습니다. TOP의 영향을 받는 행을 예측 가능하게 나타내는 유일한 방법입니다. 
 
 **쿼리**
@@ -889,7 +889,7 @@ SQL API의 다른 주요 기능은 배열/개체 만들기입니다. 앞의 예�
 
 위에 나와 있는 것처럼 상수 값 또는 매개 변수가 있는 쿼리를 사용하는 변수 값과 함께 TOP를 사용할 수 있습니다. 자세한 내용은 아래의 매개 변수가 있는 쿼리를 참조하세요.
 
-### <a id="Aggregates"></a>집계 함수
+## <a id="Aggregates"></a>집계 함수
 `SELECT` 절에서 집계를 수행할 수도 있습니다. 집계 함수는 값 집합에서 계산을 수행하고 단일 값을 반환합니다. 예를 들어 다음 쿼리는 컬렉션 내에서 가족 문서의 수를 반환합니다.
 
 **쿼리**

@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001510"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258436"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -94,7 +94,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 ### <a name="step-3-specify-routes-optional"></a>3단계: 경로 지정(선택 사항)
 
-경로는 배포 내 모듈 간에 서로 통신하는 방식을 정의합니다. 기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT 허브에 전송됩니다.  
+경로는 배포 내 모듈 간에 서로 통신하는 방식을 정의합니다. 기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /\* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT Hub에 전송됩니다.  
 
 [경로 선언](module-composition.md#declare-routes)의 정보를 포함한 경로를 추가하거나 업데이트한 다음, **다음**을 선택하여 검토 섹션을 진행합니다.
 
@@ -106,7 +106,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 여러 배포에서 동일한 장치를 대상으로 할 수 있으므로 각 배포에 우선 순위 번호를 부여해야 합니다. 충돌하는 경우 우선 순위가 가장 높은 배포가 먼저 적용됩니다(높은 값은 높은 우선 순위를 나타냄). 두 배포의 우선 순위 번호가 동일하면 가장 최근에 만든 배포가 먼저 적용됩니다. 
 
 1. 배포 **우선 순위**에 대해 양의 정수를 입력합니다. 둘 이상의 배포가 동일한 장치를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 배포가 적용됩니다.
-1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 원하는 장치 쌍 속성을 기반으로 하며, 식 형식과 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.desired.devicemodel='4000x'`과 같습니다. 
+1. **대상 조건**을 입력하여 이 배포의 대상으로 지정할 장치를 결정합니다. 조건은 장치 쌍 태그 또는 보고되는 장치 쌍 속성을 기반으로 하며, 표현 형식이 일치해야 합니다. 예를 들면 `tags.environment='test'` 또는 `properties.reported.devicemodel='4000x'`과 같습니다. 
 1. **다음**을 선택하여 최종 단계로 이동합니다.
 
 ### <a name="step-5-review-template"></a>5단계: 템플릿 검토

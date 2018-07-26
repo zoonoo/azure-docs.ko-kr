@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 3ac5c00aa0c617659f7ac5d386003b8bc34aac81
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c5621d5e16e31104ee28cc521386a5c0ca290a8b
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075564"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187702"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -86,7 +86,7 @@ Eric Golpe의 블로그 게시물 [Azure AD 테넌트 삭제 연습(영문)](htt
 
 IoT 솔루션 가속기의 몇 가지 다른 기능을 탐색할 수도 있습니다.
 
-* [원격 모니터링 솔루션 가속기의 기능 탐색](iot-accelerators-remote-monitoring-explore.md)
+* [원격 모니터링 솔루션 가속기의 기능 탐색](quickstart-remote-monitoring-deploy.md)
 * [예측 유지 관리 솔루션 가속기 개요](iot-accelerators-predictive-overview.md)
 * [연결된 팩터리 솔루션 가속기 배포](quickstart-connected-factory-deploy.md)
 * [처음부터 IoT 보안을 고려](/azure/iot-fundamentals/iot-security-ground-up)

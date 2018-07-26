@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dkshir
-ms.openlocfilehash: d7330623ac5c9322b067951406920f8c0264f69c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 61aefe70b7091f666dbb40bec6a4f25437f489d3
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39012251"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186937"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
@@ -177,8 +177,8 @@ IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 
 * [Azure IoT Edge를 사용하여 에지 장치에 AI 배포][lnk-iotedge]
 
-[lnk-security-best-practices]: iot-hub-security-best-practices.md
-[lnk-security-architecture]: iot-hub-security-architecture.md
-[lnk-security-deployment]: iot-hub-security-deployment.md
+[lnk-security-best-practices]: ../iot-fundamentals/iot-security-best-practices.md
+[lnk-security-architecture]: ../iot-fundamentals/iot-security-architecture.md
+[lnk-security-deployment]: ../iot-fundamentals/iot-security-deployment.md
 
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
