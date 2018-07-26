@@ -46,6 +46,7 @@
 ## 사용자 관리
 ### [Azure AD에 새 사용자 추가](fundamentals/add-users-azure-active-directory.md)
 ### [사용자 프로필 관리](fundamentals/active-directory-users-profile-azure-portal.md)
+### [사용자 암호 다시 설정](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [공유 계정](active-directory-sharing-accounts.md)
 ### [관리자 역할에 사용자 할당](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [삭제된 사용자 복원](fundamentals/active-directory-users-restore.md)
@@ -82,7 +83,7 @@
 
 ## [그룹 및 구성원 관리](fundamentals/active-directory-manage-groups.md)
 ### 그룹 관리
-#### [Azure 포털](fundamentals/active-directory-groups-create-azure-portal.md)
+#### [Azure Portal](fundamentals/active-directory-groups-create-azure-portal.md)
 #### [Azure AD PowerShell for Graph(v2)](users-groups-roles/groups-settings-v2-cmdlets.md)
 #### [Azure AD PowerShell MSOnline](users-groups-roles/groups-settings-cmdlets.md)
 ### [그룹 구성원 관리](fundamentals/active-directory-groups-members-azure-portal.md)
@@ -103,7 +104,7 @@
 ### [삭제된 Office 365 그룹 복원](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md) 
 ### 고급 규칙 만들기
-#### [Azure 포털](users-groups-roles/groups-dynamic-membership.md)
+#### [Azure Portal](users-groups-roles/groups-dynamic-membership.md)
 ### [셀프 서비스 그룹 설정](users-groups-roles/groups-self-service-management.md)
 ### [문제 해결](users-groups-roles/groups-troubleshooting.md)
 
@@ -113,26 +114,32 @@
 ### [위험에 노출된 사용자](active-directory-reporting-security-user-at-risk.md)
 ### [위험한 로그인](active-directory-reporting-security-risky-sign-ins.md)
 ### [위험 이벤트](active-directory-reporting-risk-events.md)
+### [Azure Monitor를 사용한 로그 모니터링](reporting-azure-monitor-diagnostics-overview.md)
 ### [FAQ](active-directory-reporting-faq.md)
+
 ### 작업
 #### [명명된 위치 구성](active-directory-named-locations.md)
 #### [활동 보고서 보기](active-directory-reporting-migration.md)
-#### [Azure Active Directory Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Azure AD Power BI 콘텐츠 팩 사용](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [위험 플래그가 지정된 사용자 수정](active-directory-report-security-user-at-risk-remediation.md)
+#### [Azure 이벤트 허브로 활동 로그 경로 지정](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Azure Storage 계정에 활동 로그 보관](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Azure Monitor를 사용하여 활동 로그를 Splunk와 통합](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### 참고 자료
 #### [보존](active-directory-reporting-retention.md)
 #### [대기 시간](active-directory-reporting-latencies-azure-portal.md)
 #### [감사 활동 참조](active-directory-reporting-activity-audit-reference.md)
 #### [로그인 작업 오류 코드](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-Factor Authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-
+#### [Azure Monitor에서 감사 로그 스키마 해석](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Azure Monitor에서 로그인 로그 스키마 해석](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure Active Directory 활동 로그 콘텐츠 팩 오류](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Azure Active Directory Reporting API의 오류](active-directory-reporting-troubleshoot-graph-api.md)
-
+#### [Azure AD Active Directory 활동 로그 콘텐츠 팩 오류](active-directory-reporting-troubleshoot-
+#### [Azure AD 보고 API의 오류](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [프로그래밍 방식 액세스](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [필수 구성 요소](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -140,13 +147,11 @@
 #### [로그인 샘플](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [인증서 사용](active-directory-reporting-api-with-certificates.md)
 
-## 암호 관리(active-directory/authentication/concept-sspr-howitworks.md)
+## [암호 관리](authentication/concept-sspr-howitworks.md)
 ### 사용자 문서
 #### [암호 재설정 또는 변경](user-help/active-directory-passwords-update-your-own-password.md)
-#### [암호 모범 사례](active-directory-secure-passwords.md)
 #### [셀프 서비스 암호 재설정 등록](user-help/active-directory-passwords-reset-register.md)
-### IT 관리자: 암호 재설정
-#### [Azure 포털](fundamentals/active-directory-users-reset-password-azure-portal.md)
+
 
 ## 장치 관리
 ### [소개](device-management-introduction.md)
