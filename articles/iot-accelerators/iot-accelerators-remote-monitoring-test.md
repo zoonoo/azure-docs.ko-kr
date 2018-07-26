@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 33566bd31f320ccc21f32a256d96d89ee25198bb
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088461"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187726"
 ---
 # <a name="create-a-new-simulated-device"></a>시뮬레이션된 새 장치 만들기
 
@@ -87,7 +87,7 @@ ms.locfileid: "37088461"
 
 이 자습서를 수행하려면 다음이 필요합니다.
 
-* Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스. 원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../iot-accelerators/iot-accelerators-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
+* Azure 구독에서 원격 모니터링 솔루션의 배포된 인스턴스. 원격 모니터링 솔루션을 아직 배포하지 않은 경우 [원격 모니터링 솔루션 가속기 배포](../iot-accelerators/quickstart-remote-monitoring-deploy.md) 자습서를 완료해야 합니다.
 
 * Visual Studio 2017. Visual Studio 2017이 설치되지 않은 경우 체험판 [Visual Studio Community](https://www.visualstudio.com/free-developer-offers/) Edition을 다운로드할 수 있습니다.
 

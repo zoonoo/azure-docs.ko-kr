@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 91a89d5db7c763fc3fe275d6c01f5fe9dd9af3af
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 1dae926a3a368e518877b210fb1caf487688750c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125922"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187369"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -151,7 +151,7 @@ IoT Hub는 앱을 IoT Hub에 연결할 수 있도록 해주는 여러 [끝점](i
 IoT Hub에 전송된 [장치-클라우드](#device-to-cloud) 메시지를 읽으려면 허브에 있는 끝점에 연결하고 Event Hub 호환 메서드를 사용하여 해당 메시지를 읽을 수 있습니다. 모든 Event Hub 호환 메서드에는 [Event Hubs SDK](../event-hubs/event-hubs-programming-guide.md) 및 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 사용이 포함됩니다.
 
 ## <a name="field-gateway"></a>필드 게이트웨이
-필드 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능하며 일반적으로 장치와 함께 로컬로 배포됩니다. 자세한 내용은 [Azure IoT Hub란?](iot-hub-what-is-iot-hub.md)을 참조하세요.
+필드 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 장치의 연결이 가능하며 일반적으로 장치와 함께 로컬로 배포됩니다. 자세한 내용은 [Azure IoT Hub란?](about-iot-hub.md)을 참조하세요.
 
 ## <a name="free-account"></a>무료 계정
 [무료 Azure 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들어 IoT Hub 자습서를 완료하고 IoT Hub 서비스(및 기타 Azure 서비스)를 연습해볼 수 있습니다
@@ -168,7 +168,7 @@ IoT Hub에 전송된 [장치-클라우드](#device-to-cloud) 메시지를 읽으
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>IoT Hub
-IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 Azure 서비스입니다. 자세한 내용은 [Azure IoT Hub란?](iot-hub-what-is-iot-hub.md)을 참조하세요. [Azure 구독](#subscription)을 사용하여 IoT 메시징 워크로드를 처리하는 IoT Hub를 만들 수 있습니다.
+IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고 안전한 양방향 통신이 가능하도록 완전히 관리되는 Azure 서비스입니다. 자세한 내용은 [Azure IoT Hub란?](about-iot-hub.md)을 참조하세요. [Azure 구독](#subscription)을 사용하여 IoT 메시징 워크로드를 처리하는 IoT Hub를 만들 수 있습니다.
 
 ## <a name="iot-hub-metrics"></a>IoT Hub 메트릭
 [IoT Hub 메트릭](iot-hub-metrics.md)은 [Azure 구독](#subscription)의 IoT Hub 상태에 대한 데이터를 제공합니다. IoT Hub 메트릭을 통해 서비스와 연결된 장치의 전반적인 상태를 평가할 수 있습니다. IoT Hub 메트릭을 통해 Azure 지원 센터에 문의할 필요 없이 IoT Hub의 상황을 파악하고 근본 원인을 조사할 수 있습니다.
@@ -180,7 +180,7 @@ IoT Hub는 수백만의 장치와 솔루션 백 엔드 간에서 안정적이고
 [IoT Hub 리소스 REST API](https://docs.microsoft.com/rest/api/iothub/iothubresource)를 사용하여 허브 만들기, 업데이트 및 삭제와 같은 작업을 수행하는 [Azure 구독](#subscription)에서 IoT Hub를 관리할 수 있습니다.
 
 ## <a name="iot-solution-accelerators"></a>IoT 솔루션 가속기
-Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함께 패키징합니다. 이러한 솔루션을 통해 일반적인 IoT 시나리오의 종단 간 구현을 빠르게 시작합니다. 자세한 내용은 [Azure IoT 솔루션 가속기란?](../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)을 참조하세요.
+Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함께 패키징합니다. 이러한 솔루션을 통해 일반적인 IoT 시나리오의 종단 간 구현을 빠르게 시작합니다. 자세한 내용은 [Azure IoT 솔루션 가속기란?](../iot-accelerators/about-iot-accelerators.md)을 참조하세요.
 
 ## <a name="the-iot-extension-for-azure-cli-20"></a>Azure CLI 2.0에 대한 IoT 확장
 [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 플랫폼 간 명령줄 도구입니다. 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 장치를 관리하고 장치에서 메시지 및 파일을 보내고 받으며 IoT Hub 작업을 모니터링할 수 있습니다.
@@ -201,7 +201,7 @@ IoT Hub [작업 모니터링](iot-hub-operations-monitoring.md)을 사용하면 
 IoT Hub에서 장치 지향 또는 서비스 지향 끝점에 연결하는 경우 [연결 문자열](#connection-string)에는 액세스 권한을 부여하는 키가 포함됩니다. 장치를 [ID 레지스트리](#identity-registry)에 추가하거나 허브에 [공유 액세스 정책](#shared-access-policy)을 추가하는 경우 서비스에서 기본 및 보조 키를 생성합니다. 두 가지 키를 통해 키를 업데이트할 때 IoT Hub에 대한 액세스 권한을 잃지 않고도 한 키에서 다른 키로 롤오버가 가능합니다.
 
 ## <a name="protocol-gateway"></a>프로토콜 게이트웨이
-일반적으로 프로토콜 게이트웨이는 클라우드에 배포되며 [IoT Hub](#iot-hub)에 연결되는 장치에 대해 프로토콜 번역 서비스를 제공합니다. 자세한 내용은 [Azure IoT Hub란?](iot-hub-what-is-iot-hub.md)을 참조하세요.
+일반적으로 프로토콜 게이트웨이는 클라우드에 배포되며 [IoT Hub](#iot-hub)에 연결되는 장치에 대해 프로토콜 번역 서비스를 제공합니다. 자세한 내용은 [Azure IoT Hub란?](about-iot-hub.md)을 참조하세요.
 
 ## <a name="quotas-and-throttling"></a>할당량 및 제한
 [IoT Hub](#iot-hub) 사용에 적용되는 다양한 [할당량](iot-hub-devguide-quotas-throttling.md)이 있으며 대부분은 IoT Hub의 계층에 따라 달라집니다. [IoT Hub](#iot-hub)는 런타임 시 서비스 사용에 [제한](iot-hub-devguide-quotas-throttling.md)도 적용합니다.
