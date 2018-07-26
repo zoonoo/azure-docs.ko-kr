@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2e455d86bbe5f6376fa1c13d07cd6f8978ea1f40
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257469"
 documentType: LandingData
 title: Web Apps 설명서
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: fd9ef52162933ae054263f42ca7498e24b1d863b
-  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39172656"
 abstract:
   description: Azure Web Apps를 사용하면 인프라를 관리할 필요 없이 선택한 프로그래밍 언어로 웹 응용 프로그램을 빌드하고 호스팅할 수 있습니다. Azure Web Apps는 자동 크기 조정 및 고가용성을 제공하고, Windows 및 Linux를 지원하며, GitHub, Visual Studio Team Services 또는 Git 리포지토리에서 자동화된 배포를 지원합니다. 빠른 시작, 자습서 및 샘플을 통해 Azure Web Apps를 사용하는 방법을 알아보세요.
   aside:
@@ -55,6 +55,10 @@ sections:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: 자바
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
+      text: Python(on Linux)
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
     - image:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
       text: HTML

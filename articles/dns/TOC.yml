@@ -45,7 +45,7 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: 방법
   items:
-    - name: 사용자 지정 DNS 영역 및 레코드 만들기 - Azure CLI
+    - name: 개인 DNS 영역 및 레코드 만들기 - Azure CLI
       href: private-dns-getstarted-cli.md
     - name: DNS 영역 관리
       items:

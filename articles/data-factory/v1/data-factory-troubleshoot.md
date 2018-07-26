@@ -66,7 +66,7 @@ Azure PowerShell에서 올바른 Azure 계정 또는 구독을 사용하고 있�
 ### <a name="problem-input-slices-are-in-waiting-state-for-ever"></a>문제: 입력 조각이 무기한 대기 상태임
 이 조각은 다양한 이유로 인해 **대기 중** 상태일 수 있습니다. 일반적으로는 **external** 속성이 **true**로 설정되어 있지 않으면 이러한 상태가 설정됩니다. Azure Data Factory 범위 외에서 생성된 데이터 집합은 **external** 속성으로 표시되어야 합니다. 이 속성은 데이터가 외부에 있으며 데이터 팩터리 내의 파이프라인에서 지원되지 않음을 나타냅니다. 해당 저장소에서 데이터를 사용할 수 있으면 데이터 조각이 **Ready** 로 표시됩니다.
 
-**external** 속성의 사용 방법은 다음 예제를 참조하세요. external을 true로 설정할 경우 선택적으로 **externalData***를 지정할 수 있습니다.
+**external** 속성의 사용 방법은 다음 예제를 참조하세요. external을 true로 설정할 경우 선택적으로 **externalData**\*를 지정할 수 있습니다.
 
 이 속성에 대한 자세한 내용은 [데이터 집합](data-factory-create-datasets.md) 문서를 참조하세요.
 
