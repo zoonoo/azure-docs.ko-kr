@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093182"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264813"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Azure Stack에서 테 넌 트 등록 관리
 
@@ -35,6 +35,13 @@ PUT/New-azurermresource를 다시 호출할 수 있습니다, 테 넌 트와 연
 
 하나의 Azure 구독 테 넌 트에 연결할 수 있는지 참고 합니다. 두 번째 구독을 기존 테 넌 트를 추가 하려고 하면 첫 번째 구독이 과도 하 게 작성 된입니다. 
 
+### <a name="use-api-profiles"></a>API 사용 하 여 프로필
+
+이 문서의 cmdlet은 PowerShell을 실행 하는 경우 API 프로필을 지정 해야 합니다. API 프로필에는 Azure 리소스 공급자 및 해당 API 버전 집합을 나타냅니다. 예를 들어 여러 Azure 클라우드를 사용 하 여 상호 작용할 때 올바른 버전의 API 사용 하는 데 도움이 되는 전역 Azure 및 Azure Stack을 사용 하 여 작업 하는 경우. 프로필은 해당 릴리스 날짜와 일치 하는 이름으로 지정 됩니다. 이 기사와 함께 사용 해야 합니다 **2017-09-03** 프로필입니다.
+
+Azure Stack 및 API 프로필에 대 한 자세한 내용은 참조 하세요. [Azure Stack에서 관리 하는 API 버전 프로필](user/azure-stack-version-profiles.md)합니다. 를 시작 및 PowerShell 사용 하 여 API 프로필을 사용 하 여 실행에 대 한 참조 [Azure Stack에서 PowerShell 사용 하 여 API 버전 프로필](user/azure-stack-version-profiles-powershell.md)합니다.
+
+### <a name="parameters"></a>매개 변수
 
 | 매개 변수                  | 설명 |
 |---                         | --- |
