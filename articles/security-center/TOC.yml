@@ -169,7 +169,9 @@
 - name: 참고 자료
   items:
     - name: REST API
-      href: 'https://msdn.microsoft.com/library/mt704034(Azure.100).aspx'
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: 서비스 업데이트
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
 - name: 리소스
   items:
     - name: 사용자 데이터 관리

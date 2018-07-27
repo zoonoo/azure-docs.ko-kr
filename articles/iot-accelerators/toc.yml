@@ -44,6 +44,12 @@
       items:
         - name: 아키텍처
           href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: 장치 시뮬레이션
+      items:
+        - name: 장치 모델 스키마
+          href: iot-accelerators-device-simulation-device-schema.md
+        - name: 장치 모델 동작
+          href: iot-accelerators-device-simulation-device-behavior.md
     - name: azureiotsolutions.com에 대한 사용 권한
       href: iot-accelerators-permissions.md
 - name: 방법 가이드
