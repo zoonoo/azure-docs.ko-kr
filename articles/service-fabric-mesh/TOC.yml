@@ -45,6 +45,12 @@
       href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md
     - name: 앱에서 독립적으로 마이크로 서비스 크기 조정
       href: service-fabric-mesh-howto-app-scale-out.md
+- name: 참고 자료
+  items:
+    - name: Service Fabric 메시 리소스 공급자 REST API
+      href: /rest/api/servicefabric/sfmeshrp-index
+    - name: Service Fabric 클라이언트 리소스 REST API
+      href: '/rest/api/servicefabric/sfclient-index#service-fabric-resource-model'
 - name: 리소스
   items:
     - name: 일반적인 질문

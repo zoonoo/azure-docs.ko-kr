@@ -16,7 +16,7 @@
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure 앱: 솔루션 템플릿](./marketplace-solution-templates.md)
 #### [Azure 앱: 관리되는 응용 프로그램](./marketplace-managed-apps.md)
-#### [SaaS 앱 게시 가이드](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [SaaS 앱](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [컨테이너](./marketplace-containers.md)
 #### [컨설팅 서비스](./consulting-services.md)  
 #### [AppSource 앱](./appsource-offer-publishing-guide.md)

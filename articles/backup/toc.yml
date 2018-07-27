@@ -145,6 +145,8 @@
           href: backup-azure-reports-data-model.md
         - name: Azure Backup용 Log Analytics 데이터 모델
           href: backup-azure-log-analytics-data-model.md
+        - name: Azure Backup 중앙 보고 콘텐츠 팩 업데이트
+          href: backup-azure-central-reporting-updates.md
     - name: Data Protection Manager
       items:
         - name: Azure Portal에서 DPM 작업 준비

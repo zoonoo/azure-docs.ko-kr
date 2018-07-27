@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Azure에서 SSIS 패키지 실행
       items:
-        - name: Azure-SSIS IR을 가상 네트워크에 조인
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Azure-SSIS IR에 Azure AD 인증 사용
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Azure-SSIS IR을 위한 고성능 구성
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Azure-SSIS IR을 위한 Enterprise Edition 프로비전
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Azure-SSIS IR을 위한 설치 사용자 지정
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Azure-SSIS IR에 대한 라이선스가 있는 구성 요소 설치
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: SSIS 패키지 실행 작업으로 SSIS 패키지 실행
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: 저장 프로시저 작업으로 SSIS 패키지 실행
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS Integration Runtime 예약
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Azure-SSIS IR을 가상 네트워크에 조인
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure-SSIS IR에 Azure AD 인증 사용
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Azure-SSIS IR을 위한 Enterprise Edition 프로비전
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Azure-SSIS IR을 위한 설치 사용자 지정
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Azure-SSIS IR에 대한 라이선스가 있는 구성 요소 설치
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Azure-SSIS IR을 위한 고성능 구성
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Azure-SSIS IR을 위한 재해 복구 구성
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: 트리거 만들기
       items:
         - name: 일정 트리거 만들기

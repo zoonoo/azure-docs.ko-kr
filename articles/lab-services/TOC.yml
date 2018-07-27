@@ -133,6 +133,8 @@
               href: devtest-lab-manage-formulas.md
         - name: 아티팩트 관리
           items:
+            - name: 필수 아티팩트 지정
+              href: devtest-lab-mandatory-artifacts.md
             - name: 사용자 지정 아티팩트 만들기
               href: devtest-lab-artifact-author.md
             - name: 아티팩트 실패 진단

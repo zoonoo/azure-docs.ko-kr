@@ -138,7 +138,7 @@
 ### 문제 해결
 #### [누락된 감사 데이터](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [다운로드에서 누락된 데이터](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure AD Active Directory 활동 로그 콘텐츠 팩 오류](active-directory-reporting-troubleshoot-
+#### [Azure AD 활동 로그 콘텐츠 팩 오류](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Azure AD 보고 API의 오류](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [프로그래밍 방식 액세스](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [문제 해결](manage-apps/application-proxy-troubleshoot.md)
 
 ### 엔터프라이즈 앱 관리
+#### [응용 프로그램 추가](manage-apps/add-application-portal.md)
+#### [테넌트 앱 보기](manage-apps/view-applications-portal.md)
 #### [사용자 할당](manage-apps/assign-user-or-group-access-portal.md)
 #### [브랜딩 사용자 지정](manage-apps/change-name-or-logo-portal.md)
 #### [사용자 로그인 비활성화](manage-apps/disable-user-sign-in-portal.md)
 #### [사용자 제거](manage-apps/remove-user-or-group-access-portal.md)
-#### [내 앱 모두 보기](manage-apps/view-applications-portal.md)
+
 #### [사용자 계정 프로비전 관리](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [엔터프라이즈 앱에 대한 Single Sign-On 관리](manage-apps/configure-single-sign-on-portal.md)
 #### [SAML 앱에 대한 고급 인증서 서명](manage-apps/certificate-signing-options.md)

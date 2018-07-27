@@ -138,9 +138,9 @@
           items:
             - name: 장기 백업 보존
               href: sql-database-long-term-retention.md
-            - name: 장기 백업 보존 구성 - SQL 저장소
+            - name: Azure Blob Storage를 사용한 구성
               href: sql-database-long-term-backup-retention-configure.md
-            - name: 장기 백업 보존 구성 - Azure 자격 증명 모음(사용되지 않음)
+            - name: Azure 자격 증명 모음을 사용한 구성(사용되지 않음)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: 장애 조치(failover) 그룹 및 지역에서 복제
           items:
