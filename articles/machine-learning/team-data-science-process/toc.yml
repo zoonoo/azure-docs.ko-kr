@@ -26,8 +26,6 @@
       href: project-lead-tasks.md
     - name: 개별 참가자
       href: project-ic-tasks.md
-- name: 프로젝트 구조
-  href: 'https://github.com/Azure/Azure-TDSP-ProjectTemplate'
 - name: 프로젝트 계획
   href: team-data-science-process-project-templates.md
 - name: 개발
@@ -94,9 +92,6 @@
       href: team-data-science-process-for-devops.md
 - name: 방법
   items:
-    - name: Azure ML에서 TDSP 사용
-      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-      maintainContext: true
     - name: 데이터 과학 환경 설정
       href: environment-setup.md
       items:
@@ -218,6 +213,9 @@
               maintainContext: true
     - name: 프로덕션 환경에서 모델 배포
       href: deploy-models-in-production.md
+    - name: Azure ML에서 TDSP 사용
+      href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
+      maintainContext: true
 - name: 관련 항목
   items:
     - name: Azure Machine Learning - AML
@@ -235,28 +233,26 @@
           href: cortana-intelligence-appsource-evaluation-tool.md
     - name: Cortana 분석
       items:
-        - name: API
+        - name: 이상 감지
+          href: apps-anomaly-detection-api.md
+        - name: Cognitive Services
+          href: 'https://docs.microsoft.com/azure/cognitive-services/'
+        - name: 예측 유지 관리
           items:
-            - name: 이상 감지
-              href: apps-anomaly-detection-api.md
-            - name: Cognitive Services
-              href: 'https://docs.microsoft.com/azure/cognitive-services/'
-            - name: 예측 유지 관리
-              items:
-                - name: 개요
-                  href: cortana-analytics-playbook-predictive-maintenance.md
-                - name: 아키텍처
-                  href: cortana-analytics-architecture-predictive-maintenance.md
-                - name: 기술 가이드
-                  href: cortana-analytics-technical-guide-predictive-maintenance.md
-            - name: 차량 원격 분석
-              items:
-                - name: 개요
-                  href: cortana-analytics-playbook-vehicle-telemetry.md
-                - name: 플레이 북
-                  href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-                - name: 설정
-                  href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
+            - name: 개요
+              href: cortana-analytics-playbook-predictive-maintenance.md
+            - name: 아키텍처
+              href: cortana-analytics-architecture-predictive-maintenance.md
+            - name: 기술 가이드
+              href: cortana-analytics-technical-guide-predictive-maintenance.md
+        - name: 차량 원격 분석
+          items:
+            - name: 개요
+              href: cortana-analytics-playbook-vehicle-telemetry.md
+            - name: 플레이 북
+              href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
+            - name: 설정
+              href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: 리소스
   items:
     - name: 블로그
@@ -279,8 +275,6 @@
           href: 'https://newsignature.com/services/professional-services/advanced-analytics/'
         - name: Blue Granite
           href: 'https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations'
-        - name: Microsoft Consulting Services
-          href: 'https://www.microsoft.com/en-us/microsoftservices/business-analytics.aspx'
     - name: 관련된 Microsoft 리소스
       items:
         - name: MSDN 포럼
