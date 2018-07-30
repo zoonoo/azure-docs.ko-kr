@@ -3,7 +3,7 @@ title: Azure Security Center에서 적응 응용 프로그램 컨트롤 | Micros
 description: 이 문서에서는 Azure Security Center에서 적응 응용 프로그램 컨트롤을 사용하여 Azure VM에서 실행되는 응용 프로그램의 허용 목록을 나열하는 방법이 설명되어 있습니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: fa2f3c10687a02c5d0be8d7bb0ae88b2b0c38e19
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 07/19/2018
+ms.author: rkarlin
+ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989968"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161935"
 ---
-# <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Azure Security Center에서 적응 응용 프로그램 컨트롤(미리 보기)
+# <a name="adaptive-application-controls-in-azure-security-center"></a>Azure Security Center의 적응형 응용 프로그램 컨트롤
 이 연습을 통해 Azure Security Center에서 응용 프로그램 컨트롤을 구성하는 방법에 대해 알아봅니다.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Security Center의 적응 응용 프로그램 컨트롤이란 무엇입니까?
@@ -35,7 +35,7 @@ ms.locfileid: "38989968"
 - IT 기술을 사용하여 앱 사용을 통해 중요한 데이터에 대한 액세스를 제어할 수 있습니다.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>적응 응용 프로그램 컨트롤을 사용하는 방법은 무엇입니까?
-적응 응용 프로그램 컨트롤은 구성된 리소스 그룹에서 실행되도록 허용하는 응용 프로그램의 집합을 정의할 수 있습니다. 이 기능은 Windows 컴퓨터(모든 버전, 클래식 또는 Azure Resource Manager)에서만 사용할 수 있습니다. 다음 단계를 사용하여 Security Center에서 응용 프로그램 허용 목록을 구성할 수 있습니다.
+적응 응용 프로그램 컨트롤은 구성된 그룹에서 실행되도록 허용하는 응용 프로그램의 집합을 정의할 수 있습니다. 이 기능은 Windows 컴퓨터(모든 버전, 클래식 또는 Azure Resource Manager)에서만 사용할 수 있습니다. 다음 단계를 사용하여 Security Center에서 응용 프로그램 허용 목록을 구성할 수 있습니다.
 
 1. **Security Center** 대시보드를 엽니다.
 2. 왼쪽 창의 **고급 클라우드 방어** 아래에서 **적응형 응용 프로그램 제어**를 선택합니다.
@@ -87,12 +87,12 @@ ms.locfileid: "38989968"
 
 5. 선택이 완료되면 **만들기**를 선택합니다.
 
-기본적으로 Security Center는 항상*감사* 모드에서 응용 프로그램 컨트롤을 통해 사용할 수 있습니다. 허용 목록이 워크로드에 부정적인 영향을 주지 않는 것으로 확인되면 *적용* 모드로 변경할 수 있습니다.
-
-Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사항을 채우기 위해 최소 2주의 데이터를 필요로 합니다. Security Center 표준 계층의 새 고객은 먼저 VM의 그룹이 *권장 사항 없음* 탭 아래에 나타나는 동작을 예상해야 합니다.
-
+6. Security Center는 Windows 서버의 AppLocker 기본 기능을 활용하여 선택한 VM에 적절한 규칙을 적용합니다. 또한 Security Center는 기본적으로 감사 모드에서 항상 응용 프로그램 컨트롤을 사용할 수 있습니다. 허용 목록이 워크로드에 부정적인 영향을 주지 않는 것으로 확인되면 **적용** 모드로 변경할 수 있습니다. 자세한 내용은 [AppLocker 작동 방식](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref)을 참조하세요.
+ 
 > [!NOTE]
-> 보안 모범 사례는 Security Center가 항상 허용 목록에 있는 응용 프로그램에 대한 게시자 규칙을 만들려고 시도하고, 응용 프로그램에 게시자 정보가 없는 경우에만(즉, 서명되지 않음) 특정 EXE의 전체 경로에 대해 경로 규칙을 만드는 것입니다.
+> - Security Center는 기준을 만들고 VM의 그룹별로 고유한 권장 사항을 채우기 위해 최소 2주의 데이터를 필요로 합니다. Security Center 표준 계층의 새 고객은 먼저 VM의 그룹이 *권장 사항 없음* 탭 아래에 나타나는 동작을 예상해야 합니다.
+> - Security Center의 응용 프로그램 컨트롤은 이미 GPO 또는 로컬 보안 정책을 통해 AppLocker 정책이 설정된 VM을 지원하지 않습니다.
+> -  보안 모범 사례는 Security Center가 항상 허용 목록에 있는 응용 프로그램에 대한 게시자 규칙을 만들려고 시도하고, 응용 프로그램에 게시자 정보가 없는 경우에만(즉, 서명되지 않음) 특정 EXE의 전체 경로에 대해 경로 규칙을 만드는 것입니다.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>응용 프로그램 컨트롤을 사용하여 구성된 그룹의 편집 및 모니터링

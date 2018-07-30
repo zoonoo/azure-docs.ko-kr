@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: b05a16f4ecb37245eff8217ddc89b88403d346ac
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e86b80328c3717220b2771a1bf8f4232f9a51748
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668110"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215867"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>빠른 시작: Node.js 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -64,7 +64,7 @@ Azure Cosmos DB Cassandra API 미리 보기 프로그램에 액세스합니다. 
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started folder 폴더의 uprofile.js 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 C:\git-samples\azure-cosmos-db-cassandra-nodejs-getting-started folder 폴더의 uprofile.js 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
 * 사용자 이름 및 암호는 Azure Portal에서 연결 문자열 페이지를 통해 설정됩니다. 'path\to\cert'는 X509 인증서에 대한 경로를 제공합니다. 
 

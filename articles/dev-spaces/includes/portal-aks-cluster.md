@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967706"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189262"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967706"
 
    ![Kubernetes 구성 설정](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   완료되면 **다음: 네트워킹**을 선택합니다.
+   완료되면 **다음: 인증**을 선택합니다.
+
+1. RBAC(역할 기반 액세스 제어)에 대해 원하는 설정을 선택합니다. Azure Dev Spaces는 RBAC를 사용하거나 사용하지 않도록 설정한 클러스터를 지원합니다.
+
+    ![RBAC 설정](../media/common/k8s-RBAC.PNG)
 
 1. Http 응용 프로그램 라우팅을 사용하도록 설정합니다.
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967706"
 
     > [!IMPORTANT]
     > AKS 클러스터를 만들 때 Http 응용 프로그램 라우팅을 사용하도록 설정해야 합니다. 이 설정은 나중에 변경할 수 없습니다.
-
-1. RBAC(역할 기반 액세스 제어)에 대해 원하는 설정을 선택합니다. Azure Dev Spaces는 RBAC를 사용하거나 사용하지 않도록 설정한 클러스터를 지원합니다.
-
-    ![RBAC 설정](../media/common/k8s-RBAC.PNG)
 
 1. **검토 + 만들기**를 선택한 후 완료되면 **만들기**를 선택합니다.

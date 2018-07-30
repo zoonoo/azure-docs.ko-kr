@@ -2,19 +2,19 @@
 title: LUIS(Language Understanding)에서 엔드포인트 발언을 검토하는 자습서 - Azure| Microsoft Docs
 description: 이 자습서에서는 LUIS의 HR(인사 관리) 도메인에서 엔드포인트 발언을 검토하는 방법을 학습합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970509"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237216"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>자습서: 엔드포인트 발언 검토
 이 자습서에서는 LUIS HTTP 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 
@@ -61,7 +61,7 @@ ms.locfileid: "38970509"
     
     [ ![엔터티 보기 설정/해제가 강조 표시된 엔드포인트 발언 검토의 스크린샷](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png)](./media/luis-tutorial-review-endpoint-utterances/select-entities-view.png#lightbox)
 
-    |발언|올바른 의도|누락된 엔터티|
+    |발화|올바른 의도|누락된 엔터티|
     |:--|:--|:--|
     |자연어 처리의 작업을 찾고 있습니다|GetJobInfo|작업 - "자연어 처리"|
 

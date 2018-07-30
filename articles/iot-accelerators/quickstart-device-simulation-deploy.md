@@ -1,5 +1,5 @@
 ---
-title: Azure에서 장치 시뮬레이션 솔루션 배포 및 실행 | Microsoft Docs
+title: Azure에서 장치 시뮬레이션 솔루션 시도 및 실행 | Microsoft Docs
 description: 이 빠른 시작에서는 장치 시뮬레이션 Azure IoT 솔루션 가속기를 배포합니다. 시뮬레이션을 만들려면 솔루션 대시보드를 사용합니다.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/05/2018
 ms.author: dobett
-ms.openlocfilehash: fd4a637ebb05493bf0c0a940c3ff0cb56ad94c54
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 549a1b867ad35c6de42969722ba5a2bd28c8f99a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005036"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213159"
 ---
 # <a name="quickstart-deploy-and-run-a-cloud-based-device-simulation-solution"></a>빠른 시작: 클라우드 기반 장치 시뮬레이션 솔루션 배포 및 실행
 

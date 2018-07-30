@@ -2,19 +2,19 @@
 title: 위치 데이터를 가져오는 LUIS 앱을 만드는 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 의도를 사용하는 간단한 LUIS 앱 및 데이터를 추출하는 계층적 엔터티를 만드는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/04/2018
-ms.author: v-geberr
-ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: fb29e0a22331ce279d3dc8fc5a0044ae794d260b
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929589"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226087"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>자습서: 5. 계층적 엔터티 추가
 이 자습서에서는 컨텍스트에 따라 관련 데이터 부분을 찾는 방법을 보여 주는 앱을 만듭니다. 
@@ -126,7 +126,7 @@ LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 �
 
 3. 미리 작성된 엔터티 목록에서 **번호**를 선택하고 **완료**를 선택합니다.
 
-    ![미리 작성된 엔터티 대화 상자의 숫자 선택 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
+    ![number가 선택된 미리 빌드된 엔터티 대화 상자의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용을 인식하지 못합니다. 

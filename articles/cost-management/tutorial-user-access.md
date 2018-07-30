@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301610"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188185"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>자습서: Cost Management 데이터에 대한 액세스 할당
 
@@ -28,6 +28,8 @@ Azure 계약 또는 계정을 등록할 때 관리자 권한이 있는 계정이
 > [!div class="checklist"]
 > * 관리자 액세스 권한이 있는 사용자 만들기
 > * 사용자 액세스 권한이 있는 사용자 만들기
+> * 사용자 삭제
+> * 개인 데이터 삭제 또는 내보내기
 > * 엔터티 만들기 및 관리
 
 
@@ -42,7 +44,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이미 관리자 액세스 권한이 있지만 조직의 동료에게도 관리자 액세스 권한이 있어야 할 수도 있습니다. Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **사용자 관리**를 선택합니다. **새 사용자 추가**를 클릭하여 새 사용자를 추가합니다.
 
-사용자에 대해 필요한 정보를 입력합니다. 로그인 ID는 유효한 이메일 주소여야 합니다. 사용자가 다른 사용자를 만들고 수정할 수 있도록 하려면 사용자 관리를 허용하는 권한을 선택합니다. 받는 사람 목록 관리를 통해 사용자가 받는 사람 목록을 편집할 수 있습니다. **전자 메일로 사용자에게 알림**을 선택하면 Cloudyn의 전자 메일을 통해 사용자에게 로그인 정보가 포함된 링크를 보냅니다. 첫 번째 로그인에서 사용자는 암호를 설정합니다.
+사용자에 대해 필요한 정보를 입력합니다. **로그인 ID**는 유효한 이메일 주소여야 합니다. 사용자가 다른 사용자를 만들고 수정할 수 있도록 하려면 사용자 관리를 허용하는 권한을 선택합니다. 받는 사람 목록 관리를 통해 사용자가 받는 사람 목록을 편집할 수 있습니다. **전자 메일로 사용자에게 알림**을 선택하면 Cloudyn의 전자 메일을 통해 사용자에게 로그인 정보가 포함된 링크를 보냅니다. 첫 번째 로그인에서 사용자는 암호를 설정합니다.
 
 **사용자에게 관리자 액세스 권한 있음** 아래에서 조직의 루트 엔터티를 선택합니다. 루트를 선택한 상태로 두고 사용자 정보를 저장합니다. 루트 엔터티를 선택하면 사용자가 트리의 루트 엔터티뿐만 아니라 그 아래에 있는 모든 엔터티에 대한 관리자 권한을 가질 수 있습니다.  
   ![관리자 액세스 권한이 있는 새 사용자 추가](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 ![사용자 액세스 권한 이 있는 새 사용자 추가](.\media\tutorial-user-access\new-user-access.png)
 
 사용자를 추가하는 방법에 대한 자습서 비디오를 시청하려면 [Azure Cost Management에 사용자 추가](https://youtu.be/Nzn7GLahx30)를 참조하세요.
+
+## <a name="delete-a-user"></a>사용자 삭제
+
+사용자를 삭제하면 해당 사용자가 액세스할 수 있는 모든 엔터티가 그대로 유지됩니다. 사용자가 삭제되면 저장된 *개인* 보고서가 삭제됩니다. 사용자가 만든 *공용* 보고서는 삭제되지 않습니다.
+
+사용자는 자신을 제거할 수 없습니다.
+
+> [!WARNING]
+> 사용자를 삭제하면 복원할 수 없습니다.
+
+1.  Cloudyn 포털에서 오른쪽 위의 기어 기호를 클릭하고 **사용자 관리**를 선택합니다.
+2.  사용자 목록에서 삭제하려는 사용자를 선택하고 **사용자 삭제**(휴지통 기호)를 클릭합니다.
+3.  [사용자 삭제] 상자에서 **예**를 클릭하고 **확인**을 클릭합니다.
+
+
+## <a name="delete-or-export-personal-data"></a>개인 데이터 삭제 또는 내보내기
+
+Cloudyn에서 개인 데이터를 삭제하거나 내보내려면 지원 티켓을 만들어야 합니다. 생성된 지원 티켓은 공식 요청(데이터 주체 요청)의 역할을 합니다. 그러면 Microsoft는 프롬프트 작업을 수행하여 계정을 제거하고 고객 또는 개인 데이터 삭제합니다. 데이터 삭제 또는 내보내기를 요청하는 자세한 방법은 [Cloudyn 데이터의 데이터 주체 요청](https://www.cloudyn.com/cloudyn-gdpr-requests)을 참조하세요.
 
 ## <a name="create-and-manage-entities"></a>엔터티 만들기 및 관리
 
@@ -105,6 +125,8 @@ Azure 기업계약 사용자인 경우 계정 및 구독을 연결하는 방법�
 > [!div class="checklist"]
 > * 관리자 액세스 권한이 있는 사용자 만들기
 > * 사용자 액세스 권한이 있는 사용자 만들기
+> * 사용자 삭제
+> * 개인 데이터 삭제 또는 내보내기
 > * 엔터티 만들기 및 관리
 
 

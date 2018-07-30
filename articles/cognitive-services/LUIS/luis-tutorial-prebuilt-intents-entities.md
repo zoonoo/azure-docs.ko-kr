@@ -2,19 +2,19 @@
 title: Language Understanding에서 미리 빌드된 의도 및 엔터티를 추가하여 일반적인 데이터 추출 - Azure | Microsoft Docs
 description: 미리 빌드된 의도 및 엔터티를 사용하여 다양한 형식의 엔터티 데이터를 추출하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929052"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239038"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>자습서: 2. 미리 작성된 의도 및 엔터티 추가
 미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 

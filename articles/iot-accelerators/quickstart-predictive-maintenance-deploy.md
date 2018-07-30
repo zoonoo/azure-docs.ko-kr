@@ -1,5 +1,5 @@
 ---
-title: Azure에서 클라우드 기반 IoT 예측 유지 관리 솔루션 배포 | Microsoft Docs
+title: Azure에서 클라우드 기반 IoT 예측 유지 관리 솔루션 사용하기 | Microsoft Docs
 description: 이 빠른 시작에서는 예측 유지 관리 Azure IoT 솔루션 가속기를 배포하고 로그인하여 솔루션 대시보드를 사용합니다.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: 65c10f393efbeaa111e2b413a0568da053c04567
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 10ff6565ed8997a5cb87394aa0d743a0d94b67e0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001130"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144315"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>빠른 시작: 연결된 장치에서 예측 유지 관리 분석을 실행하는 클라우드 기반 솔루션 시도
 
@@ -40,7 +40,7 @@ Azure 계정 자격 증명을 사용하여 [azureiotsolutions.com](https://www.a
 
 **예측 유지 관리 솔루션 만들기** 페이지에서 예측 유지 관리 솔루션 가속기에 대한 고유한 **솔루션 이름**을 입력합니다. 이 빠른 시작에서는 **MyPredictiveMaintenance**를 사용하고 있습니다.
 
-솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **미국 동부**를 사용하고 있습니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
+솔루션 가속기를 배포하는 데 사용하려는 **구독** 및 **지역**을 선택합니다. 일반적으로, 자신에게 가장 가까운 지역을 선택합니다. 이 빠른 시작에서는 **Visual Studio Enterprise** 및 **미국 동부**를 사용합니다. 구독 내에서 [전역 관리자 또는 사용자](iot-accelerators-permissions.md)여야 합니다.
 
 **솔루션 만들기**를 배포를 시작합니다. 이 프로세스는 실행하는 데 5분 이상이 걸립니다.
 

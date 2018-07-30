@@ -2,19 +2,19 @@
 title: 두 가지 의도로 간단한 앱 만들기 - Azure | Microsoft Docs
 description: 이 빠른 시작에서는 엔터티 없이 두 의도를 사용하여 간단한 LUIS 앱을 들어 사용자 발화를 식별하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865814"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237777"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>자습서: 1. 사용자 지정 도메인으로 앱 빌드
 이 자습서에서는 **의도**를 사용하여 사용자가 앱에 제출한 발화(텍스트)를 기초로 사용자의 _의도_를 판단하는 방법을 보여 주는 앱을 만듭니다. 마치면 클라우드에서 실행되는 LUIS 엔드포인트를 갖게 됩니다.

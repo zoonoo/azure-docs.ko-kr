@@ -2,24 +2,25 @@
 title: 웹 응용 프로그램에서 Azure Key Vault 사용 자습서 | Microsoft Docs
 description: 이 자습서에서는 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115081"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171326"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>자습서: 웹 응용 프로그램에서 Azure Key Vault 사용
-이 자습서에서는 Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다. 웹 응용 프로그램에서 사용할 Azure Key Vault의 암호에 액세스하는 과정을 보여줍니다. 그런 다음, 자습서는 프로세스를 빌드하고 클라이언트 암호 대신 인증서를 사용합니다. 이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다. 
+
+이 자습서에서는 Azure의 웹 응용 프로그램에서 Azure Key Vault를 사용하는 방법을 알아볼 수 있습니다. 웹 응용 프로그램에서 사용할 Azure Key Vault의 암호에 액세스하는 과정을 보여줍니다. 그런 다음, 자습서는 프로세스를 빌드하고 클라이언트 암호 대신 인증서를 사용합니다. 이 자습서는 Azure에서 웹 응용 프로그램을 만들기 위한 기본 사항을 잘 알고 있는 웹 개발자를 대상으로 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
@@ -27,21 +28,21 @@ ms.locfileid: "37115081"
 > * web.config 파일에 응용 프로그램 설정 추가
 > * 액세스 토큰을 가져오는 메서드 추가
 > * 응용 프로그램 시작 시 토큰 검색
-> * 인증서 사용 인증 
+> * 인증서 사용 인증
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * Azure Key Vault의 암호에 대한 URI
-* Key Vault에 액세스할 수 있는 Azure Active Directory에 등록된 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호
-* 웹 응용 프로그램 이 자습서에서는 Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 보여줍니다.
+* 주요 자격 증명 모음에 액세스할 수 있는, Azure Active Directory에 등록된 웹 응용 프로그램의 클라이언트 ID 및 클라이언트 암호
+* 웹 응용 프로그램. 이 자습서에서는 Azure에 웹앱으로 배포된 ASP.NET MVC 응용 프로그램에 대한 단계를 보여줍니다.
 
 [Azure Key Vault 시작](key-vault-get-started.md) 단계를 완료하여 암호, 클라이언트 ID, 클라이언트 암호에 대한 URI를 가져오고 응용 프로그램을 등록합니다. 웹 응용 프로그램은 자격 증명 모음에 액세스하고 Azure Active Directory에 등록되어야 합니다. 또한 Key Vault에 대한 액세스 권한이 있어야 합니다. 그렇지 않으면 시작 자습서의 응용 프로그램 등록으로 돌아가서 나열된 단계를 반복합니다. Azure Web Apps을 만드는 방법에 대한 자세한 내용은 [Web Apps 개요](../app-service/app-service-web-overview.md)를 참조하세요.
 
-이 샘플은 수동으로 Azure Active Directory ID를 프로비전하는 방법을 사용합니다. 현재는 Azure AD ID를 자동으로 프로비전할 수 있는 [MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)라는 새로운 기능이 미리 보기에 포함되어 있습니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)에 대한 샘플 및 관련된 [App Service 및 Functions를 사용하는 MSI 자습서](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)를 참조하세요. 
+이 샘플은 수동으로 Azure Active Directory ID를 프로비전하는 방법을 사용합니다. [MSI(관리 서비스 ID)](https://docs.microsoft.com/azure/active-directory/msi-overview)를 대신 사용해야 합니다. MSI는 Azure AD ID를 자동으로 프로비전할 수 있습니다. 자세한 내용은 [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/)에 대한 샘플 및 관련된 [App Service 및 Functions를 사용하는 MSI 자습서](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)를 참조하세요. 또한 Key Vault 관련 [MSI 자습서](tutorial-web-application-keyvault.md)를 살펴볼 수 있습니다.
 
 
 ## <a id="packages"></a>NuGet 패키지 추가

@@ -2,19 +2,19 @@
 title: 감정 분석을 반환하는 LUIS 앱을 만드는 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서 감정 분석을 LUIS 앱에 추가하여 긍정, 부정 및 중립 감정에 대한 발언을 분석하는 방법을 설명합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930609"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223622"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>자습서: 9.  감정 분석 추가
 이 자습서에서는 긍정, 부정 및 중립 감정을 발언에서 추출하는 방법을 보여주는 앱을 만듭니다.
@@ -39,7 +39,7 @@ ms.locfileid: "37930609"
 
 다음 발언에서는 감정의 예제를 보여줍니다.
 
-|데이터|Score|발언|
+|데이터|Score|발화|
 |:--|:--|:--|
 |긍정|0.91 |John W. Smith는 파리에서 훌륭한 프레젠테이션을 했습니다.|
 |긍정|0.84 |jill-jones@mycompany.com은 Parker 판매 권유 작업을 훌륭히 해냈습니다.|

@@ -1,22 +1,22 @@
 ---
-title: 경고를 사용하여 원격 모니터링 솔루션에서 장치 문제 해결 - Azure | Microsoft Docs
+title: 경고를 사용하여 원격 모니터링 솔루션에서 장치 문제 해결 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 경고를 사용하여 원격 모니터링 솔루션 가속기에 연결된 장치의 문제를 확인하고 해결하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081791"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159386"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>장치 문제 해결 및 수정
+# <a name="troubleshoot-and-fix-device-issues"></a>장치 문제 해결 및 수정
 
 이 자습서에서는 원격 모니터링 솔루션 가속기를 사용하여 연결된 IoT 장치의 문제를 확인하고 해결합니다. 솔루션 가속기 대시보드에서 경고를 사용하여 문제를 확인한 다음, 원격 작업을 실행하여 문제를 해결합니다.
 
@@ -28,11 +28,9 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 > * 장치의 경고 조사
 > * 장치의 문제 해결
 
-## <a name="prerequisites"></a>필수 조건
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 자습서를 수행하려면 Azure 구독에서 원격 모니터링 솔루션 가속기의 배포된 인스턴스가 필요합니다.
-
-원격 모니터링 솔루션 가속기를 아직 배포하지 않은 경우 [클라우드 기반 원격 모니터링 솔루션 배포](quickstart-remote-monitoring-deploy.md) 빠른 시작을 완료해야 합니다.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>경고 조사
 
@@ -58,7 +56,7 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 경고를 승인하면 발생 항목 상태가 **승인됨**으로 변경됩니다.
 
-목록에서 온도 경고를 발생시키는 **프로토타입** 장치를 확인할 수 있습니다.
+경고가 발생한 장치 목록에서 온도 경고를 발생시키는 **프로토타입** 장치를 확인할 수 있습니다.
 
 [![경고를 유발하는 장치 나열](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -66,11 +64,11 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 
 **프로토타입** 장치의 문제를 해결하려면 장치에서 **DecreaseTemperature** 메서드를 호출해야 합니다.
 
-장치에서 작동하려면 장치 목록에서 선택한 다음 **작업**을 선택합니다. **프로토타입** 장치 모델은 장치에서 지원해야 하는 6개의 메서드를 지정합니다.
+장치에 조치를 취하려면 경고가 발생한 장치 목록에서 해당 장치를 선택한 다음, **작업**을 선택합니다. **프로토타입** 장치 모델은 다음과 같은 6가지 메서드를 지원합니다.
 
 [![장치에서 지원하는 메서드 보기](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-**DecreaseTemperature**를 선택하고 작업 이름을 **DecreaseTemperature**로 설정합니다. 그런 다음 **적용**을 선택합니다.
+**DecreaseTemperature**를 선택하고 작업 이름을 **DecreaseTemperature**로 설정합니다. 그런 다음 **적용**을 클릭합니다.
 
 [![온도를 낮추는 작업 만들기](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -81,6 +79,8 @@ Contoso는 필드에서 새로운 **프로토타입** 장치를 테스트하고 
 **대시보드** 페이지의 원격 분석 데이터를 보면 장치의 온도가 낮아진 것을 확인할 수 있습니다.
 
 [![온도 감소보기](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

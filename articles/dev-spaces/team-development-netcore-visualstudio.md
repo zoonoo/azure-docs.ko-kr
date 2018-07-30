@@ -11,12 +11,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: 93c9f42df1136f242a5a04dc3056e0b1595cfb02
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: facf2de40c555ccd79fe73543a85f0b5cc150450
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37933445"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247486"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 
@@ -127,7 +127,7 @@ Visual Studio 내에서 서비스를 F5 또는 Ctrl+F5로 누르면 사용할 �
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
-6. **공간 추가** 대화 상자에서 공간에 대한 이름을 입력하고 **확인**을 클릭합니다. 새 공간 이름에 사용자 이름(예: "scott")을 사용하면 해당 사용자가 작업 중인 공간이 동료에게 식별될 수 있습니다.
+6. **공간 추가** 대화 상자에서 부모 공간을 **기본값**으로 설정하고 새 공간의 이름을 입력합니다. 새 공간 이름에 사용자 이름(예: "scott")을 사용하면 해당 사용자가 작업 중인 공간이 동료에게 식별될 수 있습니다. **확인**을 클릭합니다.
 
     ![](media/get-started-netcore-visualstudio/AddSpace.png)
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7a127f53985f39913c83958be1f1730c64b33a76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001954"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145321"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -223,7 +223,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 >- 관리 디스크 상태 저장소 액세스.
 >- Windows 진단
 >
-> 마지막으로 처리되는 *모두 거부* 응용 프로그램 규칙 컬렉션을 만들어 이 기본 제공 인프라 규칙 컬렉션을 재정의할 수 있습니다. 항상 인프라 규칙 컬렉션 전에 처리됩니다. 인프라 규칙 컬렉션에 없는 모든 항목은 기본적으로 거부됩니다.
+> 마지막으로 처리되는 *모두 거부* 응용 프로그램 규칙 컬렉션을 만들어 이 기본 제공 인프라 규칙 컬렉션을 재정의할 수 있습니다. 항상 인프라 규칙 컬렉션 전에 처리됩니다. 인프라 규칙 컬렉션에 없는 항목은 기본적으로 거부됩니다.
 
 ## <a name="configure-network-rules"></a>네트워크 규칙 구성
 
@@ -235,7 +235,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 6. **규칙** 아래에서 **이름**에 **AllowDNS**를 입력합니다.
 8. **프로토콜**의 경우 **TCP**를 선택합니다.
 9. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
-10. 대상 주소에 **209.244.0.3, 209.244.0.4**를 입력
+10. 대상 주소에 **209.244.0.3,209.244.0.4**를 입력합니다.
 11. **대상 포트**에 **53**을 입력합니다.
 12. **추가**를 클릭합니다.
 

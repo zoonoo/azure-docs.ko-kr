@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 04/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4dbb8b7abf6da77115d0e1d12621ec20ec60d174
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcb142b8b648f3f02855cb211789a4dee62183c0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035203"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145583"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -81,7 +81,7 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 사항에 유의�
 
 * Kubernetes에 대한 서비스 주체는 클러스터 구성의 일부입니다. 그러나 클러스터를 배포하는 데에는 이 ID를 사용하지 마세요.
 * 모든 서비스 주체는 Azure AD 응용 프로그램과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 응용 프로그램 이름(예: `https://www.contoso.org/example`)과 연결할 수 있습니다. 응용 프로그램에 대한 URL은 실제 끝점일 필요가 없습니다.
-* 서비스 주체 **클라이언트 ID**를 지정하는 경우 `appId`(이 문서에서 표시한 대로) 또는 해당되는 `name` 서비스 주체(예: `https://www.contoso.org/example`)의 값을 사용합니다.
+* 서비스 사용자 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
 * Kubernetes 클러스터의 마스터 및 노드 VM에서 서비스 주체 자격 증명은 `/etc/kubernetes/azure.json` 파일에 저장됩니다.
 * `az aks create` 명령을 사용하여 서비스 주체를 자동으로 생성하는 경우 서비스 주체 자격 증명은 명령을 실행하는 데 사용되는 컴퓨터의 `~/.azure/aksServicePrincipal.json` 파일에 기록됩니다.
 * `az aks create`로 만든 AKS 클러스터를 삭제해도 자동으로 생성된 서비스 주체는 삭제되지 않습니다. 서비스 주체를 삭제하려면 먼저 [az ad app list][az-ad-app-list]로 서비스 주체에 대한 ID를 가져옵니다. 다음 예제에서는 *myAKSCluster*라는 클러스터에 대해 쿼리한 다음, [az ad app delete][az-ad-app-delete]로 앱 ID를 삭제합니다. 이러한 이름을 고유한 값으로 바꿉니다.

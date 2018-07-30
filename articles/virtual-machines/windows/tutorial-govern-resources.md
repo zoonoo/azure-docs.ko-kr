@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/21/2018
+ms.date: 07/20/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 42f7d767162f2f403b2cf921e31a38b711a3c773
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a785a18ac4aec3006397b6d681c476f8acf982a7
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38477697"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205676"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows 가상 머신 거버넌스에 대해 알아보기
 
@@ -51,7 +51,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 가상 머신 솔루션을 관리하기 위해서는 일반적으로 필요한 액세스 권한을 제공하는 세 가지 리소스 특정 역할이 있습니다.
 
-* [Virtual Machine 기여자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Virtual Machine 참가자](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [네트워크 기여자](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Storage 계정 기여자](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
@@ -76,13 +76,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 일반적으로 *네트워크 참가자*와 *Storage 계정 참가자*를 위한 프로세스를 반복해 배포된 리소스를 관리하도록 사용자가 할당됐는지 확인합니다. 이 문서에서는 이러한 단계를 건너뛸 수 있습니다.
 
-## <a name="azure-policies"></a>Azure 정책
+## <a name="azure-policy"></a>Azure Policy
 
-[!INCLUDE [Resource Manager governance policy](../../../includes/resource-manager-governance-policy.md)]
-
-### <a name="apply-policies"></a>정책 적용
-
-사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) 명령을 사용합니다.
+[Azure Policy](../../azure-policy/azure-policy-introduction.md)는 구독의 모든 리소스가 회사 표준을 따르도록 관리하는 데 유용합니다. 사용 중인 구독에 이미 여러 개의 정책 정의가 있습니다. 사용 가능한 정책 정의를 보려면 [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) 명령을 사용합니다.
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType

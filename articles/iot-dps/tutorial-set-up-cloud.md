@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e334ff0c8dec3a9611b60f64e565111064d10c18
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38619285"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145539"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 장치 프로비전을 위한 클라우드 리소스 구성
 
@@ -28,9 +28,9 @@ ms.locfileid: "38619285"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-device-provisioning-service-instance-and-get-the-id-scope"></a>Device Provisioning Service 인스턴스 만들기 및 ID 범위 가져오기
 
@@ -50,9 +50,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
    ![포털에서 DPS에 대한 기본 정보 입력](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
-5. **만들기**를 클릭합니다.
-6. *ID 범위*는 등록 ID를 식별하는 데 사용되고 등록 ID가 고유함을 보장합니다. 이 값을 얻으려면 **개요**를 클릭하여 Device Provisioning Service의 **기본 정보** 페이지를 엽니다. **ID 범위** 값을 나중에 사용할 임시 위치에 복사합니다.
-7. 또한 **서비스 끝점** 값을 적어 놓거나 나중에 사용할 임시 위치에 복사합니다. 
+5. **만들기**를 클릭합니다. 몇 분 후 Device Provisioning Service 인스턴스가 생성되고 **개요** 페이지가 표시됩니다.
+6. 나중에 사용할 수 있도록 새 서비스 인스턴스의 **개요** 페이지에서 **ID 범위** 값을 복사합니다. 이 값은 등록 ID를 식별하는 데 사용되며, 등록 ID의 고유성을 보장합니다.
+7. 나중에 사용할 수 있도록 **서비스 엔드포인트** 값도 복사합니다. 
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -65,8 +65,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 1. **모든 리소스** 페이지에서 이전에 만든 Device Provisioning Service 인스턴스를 클릭합니다.
 2. Device Provisioning Service 페이지에서 **연결된 IoT Hub**를 클릭합니다.
 3. **추가**를 클릭합니다.
-4. **IoT Hub에 링크 추가** 페이지에서 라디오 단추를 사용하여 연결된 IoT Hub가 현재 구독 또는 다른 구독 중 어디에 있는지를 지정합니다. 그런 다음 IoT Hub 이름을 **IoT Hub** 상자에서 선택합니다.
-5. **저장**을 클릭합니다.
+4. **IoT Hub에 대한 연결 추가** 페이지에서 다음 정보를 입력하고 **저장**을 클릭합니다.
+
+    * **구독:** IoT Hub를 포함하는 구독을 선택해야 합니다. 다른 구독에 상주하는 IoT Hub에 연결할 수 있습니다.
+    * **IoT Hub:** 이 Device Provisioning Service 인스턴스와 연결할 IoT Hub 이름을 선택합니다.
+    * **액세스 정책:** IoT Hub에 연결하는 데 사용할 자격 증명으로 **iothubowner**를 선택합니다.
 
    ![포털에서 DPS에 연결할 허브 이름 연결](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
@@ -75,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 할당 정책은 IoT Hub에 장치를 할당하는 방법을 결정하는 IoT Hub Device Provisioning Service 설정입니다. 세 가지의 지원되는 할당 정책이 있습니다. 
 
 1. **최소 대기 시간**: 장치가 대기 시간이 가장 낮은 허브를 기준으로 IoT Hub에 프로비전됩니다.
-2. **균등 가중치 배포**(기본값): 연결된 IoT Hub들은 동일하게 해당 허브에 프로비전된 장치를 갖게 됩니다. 기본 설정입니다. 장치를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
+2. **균등 가중치 배포**(기본값): 연결된 IoT Hub들은 동일하게 해당 허브에 프로비전된 장치를 갖게 됩니다. 이 설정은 기본값입니다. 장치를 단 하나의 IoT Hub에 프로비전하려는 경우 이 설정을 유지할 수 있습니다. 
 3. **등록 목록을 통한 고정 구성**: 등록 목록에서 원하는 IoT Hub의 사양을 Device Provisioning Service 수준 할당 정책보다 우선합니다.
 
 할당 정책을 설정하려면 Device Provisioning Service 페이지에서 **할당 정책 관리**를 클릭합니다. 할당 정책이 **균등 가중치 배포**(기본값)로 설정되어 있는지 확인합니다. 변경하려면 변경 후 **저장**을 클릭합니다.

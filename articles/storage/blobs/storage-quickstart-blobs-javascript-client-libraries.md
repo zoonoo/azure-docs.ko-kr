@@ -10,12 +10,12 @@ ms.service: storage
 ms.author: cshoe
 ms.date: 04/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: 3d01788050779ea5d6e67b345f048775f8e98e9e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8bde281eab22fc720e2e2420f22ff4eb0a610b93
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31419107"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216592"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -49,7 +49,7 @@ Azure Portal로 돌아가서 저장소 계정을 선택합니다. 새 CORS 규�
 [!INCLUDE [Open the Azure cloud shell](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-shared-access-signature"></a>공유 액세스 서명 만들기
-SAS(공유 액세스 서명)는 Blob 저장소에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키나 연결 문자열을 없이도 인증할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
+SAS(공유 액세스 서명)는 Blob 저장소에 대한 요청을 인증하기 위해 브라우저에서 실행되는 코드에 사용됩니다. SAS를 사용하면 클라이언트는 계정 액세스 키 또는 연결 문자열 없이 저장소 리소스에 대한 액세스 권한을 부여할 수 있습니다. SAS에 대한 자세한 내용은 [SAS(공유 액세스 서명) 사용](../common/storage-dotnet-shared-access-signature-part-1.md)을 참조하세요.
 
 SAS는 Azure Cloud Shell 또는 Azure Storage 탐색기를 통해 Azure CLI를 사용하여 만들 수 있습니다. 다음 표에서는 CLI를 사용하여 SAS를 생성하기 위해 값을 제공해야 하는 매개 변수에 대해 설명합니다.
 

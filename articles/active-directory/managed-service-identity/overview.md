@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006933"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237872"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Azure 리소스용 관리 서비스 ID란?
 
@@ -59,7 +59,7 @@ ms.locfileid: "39006933"
 6. 3단계에서 구성한 클라이언트 ID 및 인증서를 사용하여 5단계에서 지정한 대로 액세스 토큰을 요청하는 Azure AD에 대한 호출이 생성됩니다. Azure AD가 JWT(JSON Web Token) 액세스 토큰을 반환합니다.
 7. 코드가 Azure AD 인증을 지원하는 서비스에 대한 호출에서 액세스 토큰을 전송합니다.
 
-아래에는 동일한 다이어그램을 통해 사용자 할당이 Azure Virtual Machines에서 작동하는 방식을 보여 주는 예가 나와 있습니다.
+아래에는 동일한 다이어그램을 통해 사용자가 할당된 관리 ID가 Azure Virtual Machines에서 작동하는 방식을 보여주는 예제가 나와 있습니다.
 
 1. Azure Resource Manager가 사용자 할당 ID를 만들라는 요청을 받습니다.
 2. Azure Resource Manager가 Azure AD에서 사용자 할당 ID를 나타내는 서비스 주체를 만듭니다. 서비스 주체는 이 구독이 신뢰하는 Azure AD 테넌트에서 작성됩니다.

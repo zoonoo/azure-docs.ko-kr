@@ -1,5 +1,5 @@
 ---
-title: Azure에 솔루션을 배포하여 산업용 IoT 장치 관리하기 | Microsoft Docs
+title: Azure에서 솔루션을 사용하여 산업용 IoT 장치 관리하기 | Microsoft Docs
 description: 이 빠른 시작에서는 연결된 팩터리 Azure IoT 솔루션 가속기를 배포하고 로그인하여 솔루션 대시보드를 사용합니다.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ce4d32c80040ec658070a3fa3132e34931a6755a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072647"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144516"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>빠른 시작: 클라우드 기반 솔루션으로 산업용 IoT 장치 관리해 보기
 

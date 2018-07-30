@@ -3,20 +3,19 @@ title: Azure에서 클라우드 저장소 응용 프로그램 모니터링 및 �
 description: 진단 도구, 메트릭 및 경고를 사용하여 클라우드 응용 프로그램 문제를 해결하고 모니터링합니다.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ad64384ff17b1666f88ba99e04ec345015e07276
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418189"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206057"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>클라우드 저장소 응용 프로그램 모니터링 및 문제 해결
 
@@ -30,9 +29,9 @@ ms.locfileid: "31418189"
 > * 잘못된 SAS 토큰을 사용하여 테스트 트래픽 실행
 > * 로그 다운로드 및 분석
 
-[Azure Storage 분석](../common/storage-analytics.md)은 저장소 계정에 대한 로깅 및 메트릭 데이터를 제공합니다. 이 데이터는 저장소 계정 상태에 대한 정보를 제공합니다. 저장소 계정에 대해 가시성을 확보하려면 먼저 데이터 컬렉션을 설정해야 합니다. 이 프로세스 동안 로깅 켜기, 메트릭 구성 및 경고 설정이 진행됩니다.
+[Azure Storage 분석](../common/storage-analytics.md)은 저장소 계정에 대한 로깅 및 메트릭 데이터를 제공합니다. 이 데이터는 저장소 계정 상태에 대한 정보를 제공합니다. Azure 저장소 분석에서 데이터를 수집하기 위해 로깅, 메트릭 및 경고를 구성할 수 있습니다. 이 프로세스 동안 로깅 켜기, 메트릭 구성 및 경고 설정이 진행됩니다.
 
-저장소 계정의 로깅 및 메트릭은 Azure Portal의 **진단** 탭에서 사용하도록 설정합니다. 다음과 같이 두 가지 유형의 메트릭이 있습니다. **집계** 메트릭은 수신/송신, 가용성, 대기 시간 및 성공 비율과 같은 메트릭을 수집합니다. 이러한 메트릭은 Blob, 큐, 테이블 및 파일 서비스에 대해 집계됩니다. **API당**은 Azure Storage 서비스 API에서 각 저장소 작업에 대해 동일한 메트릭 집합을 수집합니다. 저장소 로깅을 통해 저장소 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 Azure 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업의 세부 정보를 볼 수 있습니다. 또한 시간 초과, 제한 및 권한 부여 오류와 같은 실패한 요청의 이유를 볼 수 있습니다.
+저장소 계정의 로깅 및 메트릭은 Azure Portal의 **진단** 탭에서 사용하도록 설정합니다. 저장소 로깅을 통해 저장소 계정의 성공한 요청 및 실패한 요청에 대한 세부 정보를 기록할 수 있습니다. 이러한 로그를 사용하여 Azure 테이블, 큐 및 Blob에 대한 읽기, 쓰기 및 삭제 작업의 세부 정보를 볼 수 있습니다. 또한 시간 초과, 제한 및 권한 부여 오류와 같은 실패한 요청의 이유를 볼 수 있습니다.
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -42,11 +41,11 @@ ms.locfileid: "31418189"
 
 왼쪽 메뉴에서 **리소스 그룹**을 선택하고 **myResourceGroup**을 선택한 후 리소스 목록에서 저장소 계정을 선택합니다.
 
-**진단**에서 **상태**를 **켜기**로 설정합니다. **Blob 속성** 아래의 모든 옵션이 활성화되었는지 확인합니다.
+**진단 설정(클래식)** 에서 **상태**를 **켜기**로 설정합니다. **Blob 속성** 아래의 모든 옵션이 활성화되었는지 확인합니다.
 
 완료되면 **저장**을 클릭합니다.
 
-![진단 창](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![진단 창](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>경고 사용
 
@@ -54,34 +53,33 @@ ms.locfileid: "31418189"
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Azure Portal의 저장소 계정으로 이동합니다.
 
-왼쪽 메뉴에서 **리소스 그룹**을 선택하고 **myResourceGroup**을 선택한 후 리소스 목록에서 저장소 계정을 선택합니다.
+**모니터링** 섹션에서 **경고(클래식)** 를 선택합니다.
 
-**모니터링** 섹션에서 **경고 규칙**을 선택합니다.
+**메트릭 경고(클래식) 추가**를 선택하고 필요한 정보를 입력하여 **규칙 추가** 양식을 완료합니다. **메트릭** 드롭다운에서 `SASClientOtherError`를 선택합니다. 경고에서 첫 번째 오류 시 트리거하도록 허용하려면 **조건** 드롭다운에서 **다음보다 크거나 같음**을 선택합니다.
 
-**+경고 추가**를 선택하고 **경고 규칙 추가**에서 필요한 정보를 입력합니다. **메트릭** 드롭다운에서 `SASClientOtherError`를 선택합니다.
-
-![진단 창](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![진단 창](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## <a name="simulate-an-error"></a>오류 시뮬레이트
 
-올바른 경고를 시뮬레이트하려면 저장소 계정에서 존재하지 않는 Blob을 요청하려고 할 수 있습니다. 이렇게 하려면 `<incorrect-blob-name>` 값을 존재하지 않는 값으로 바꿉니다. 다음 코드 예제를 여러 번 실행하여 실패한 blob 요청을 시뮬레이트합니다.
+올바른 경고를 시뮬레이트하려면 저장소 계정에서 존재하지 않는 Blob을 요청하려고 할 수 있습니다. 다음 명령에는 저장소 컨테이너 이름이 필요합니다. 기존 컨테이너의 이름을 사용하거나 이 예제의 목적을 위해 새로 만들 수 있습니다.
+
+자리 표시자를 실제 값으로 바꾸고(`<INCORRECT_BLOB_NAME>`이 존재하지 않는 값으로 설정되었는지 확인) 명령을 실행합니다.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <incorrect-blob-name> \
+    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-key <STORAGE_ACCOUNT_KEY> \
+    --container-name <CONTAINER_NAME> \
+    --name <INCORRECT_BLOB_NAME> \
     --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
+    --expiry `date --date="next day" +%Y-%m-%d`)
 
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
+curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCORRECT_BLOB_NAME>?$sasToken
 ```
 
 다음 그림은 이전 예제를 사용하여 실행된 시뮬레이트된 오류를 기반으로 하는 경고 예제입니다.
 
- ![경고 예제](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![경고 예제](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
 ## <a name="download-and-view-logs"></a>로그 다운로드 및 보기
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: charwen,cherylmc
-ms.openlocfilehash: 9b0e19ac859d3f0185c42a79353651996fcbf631
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823566"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259258"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>ExpressRoute 및 사이트 간 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
     가상 네트워크가 아직 없는 경우 이 절차에서는 Resource Manager 배포 모델을 사용하여 새 가상 네트워크를 만들고 새 ExpressRoute 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다. 가상 네트워크를 구성하려면 [새 가상 네트워크 및 공존 연결을 만들려면](#new) 섹션의 단계를 따릅니다.
 * 이미 Resource Manager 배포 모델 VNet이 있는 경우
   
-    기존 사이트 간 VPN 또는 ExpressRoute에 연결된 가상 네트워크가 이미 있을 수 있습니다. 이 시나리오에서 게이트웨이 서브넷 마스크가 /28 이상인 경우 기존 게이트웨이를 삭제해야 합니다. [기존 VNet에 대해 공존 연결을 구성하려면](#add) 섹션에서는 게이트웨이를 삭제한 다음 새 ExpressRoute 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다.
+    기존 사이트 간 VPN 또는 ExpressRoute에 연결된 가상 네트워크가 이미 있을 수 있습니다. 이 시나리오에서 게이트웨이 서브넷 마스크가 /28 이하(/28, /29 등)인 경우 기존 게이트웨이를 삭제해야 합니다. [기존 VNet에 대해 공존 연결을 구성하려면](#add) 섹션에서는 게이트웨이를 삭제한 다음 새 ExpressRoute 및 사이트 간 VPN 연결을 만드는 과정을 안내합니다.
   
     게이트웨이를 삭제하고 다시 만드는 경우 프레미스 간 연결에 대한 가동 중지 시간을 갖습니다. 그러나 VM 및 서비스는 그렇게 구성된 경우 게이트웨이를 구성하는 동안 부하 분산 장치를 통해 계속 통신할 수 있습니다.
 
@@ -91,7 +91,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
   Select-AzureRmSubscription -SubscriptionName 'yoursubscription'
   $location = "Central US"
   $resgrp = New-AzureRmResourceGroup -Name "ErVpnCoex" -Location $location
-  $VNetASN = 65010
+  $VNetASN = 65515
   ```
 3. 게이트웨이 서브넷을 포함하여 가상 네트워크를 만듭니다. 가상 네트워크 만들기에 대한 자세한 내용은 [가상 네트워크 만들기](../virtual-network/manage-virtual-network.md#create-a-virtual-network)를 참조하세요. 서브넷 만들기에 대한 자세한 내용은 [서브넷 만들기](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet)를 참조하세요.
    

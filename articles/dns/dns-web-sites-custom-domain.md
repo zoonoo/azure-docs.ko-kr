@@ -1,108 +1,103 @@
 ---
-title: 웹앱에 대한 사용자 지정 DNS 레코드 만들기 | Microsoft Docs
-description: Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만드는 방법입니다.
+title: 자습서 - 웹앱에 대한 사용자 지정 Azure DNS 레코드 만들기
+description: 이 자습서에서는 Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만듭니다.
 services: dns
-documentationcenter: na
-author: KumudD
-manager: jeconnoc
-ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
+author: vhorne
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
-ms.author: kumud
-ms.openlocfilehash: 7ee3dbdcd4d8b2627273a871aec94583b6c5dd6a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.topic: tutorial
+ms.date: 7/20/2018
+ms.author: victorh
+ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058125"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39204945"
 ---
-# <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
-Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인을 호스트할 수 있습니다. 예를 들어, Azure 웹앱을 만드는 중이며 사용자가 contoso.com 또는 www.contoso.com을 FQDN으로 사용하여 액세스하도록 설정하려고 합니다.
+웹앱에 대한 사용자 지정 도메인을 호스트하도록 Azure DNS를 구성할 수 있습니다. 예를 들어 FQDN(정규화된 도메인 이름)으로 contoso.com 또는 www.contoso.com을 사용하여 Azure 웹앱을 만들고 사용자가 액세스하게 할 수 있습니다.
 
-이렇게 하려면, 두 개의 레코드를 만들어야 합니다.
+> [!NOTE]
+> Contoso.com은 이 자습서 전체에서 예로 사용됩니다. Contoso.com을 고유한 도메인 이름으로 바꾸세요.
+
+바꾸려면 다음과 같은 세 가지 레코드를 만들어야 합니다.
 
 * contoso.com을 가리키는 루트 "A" 레코드
+* 확인을 위한 루트 "TXT" 레코드
 * A 레코드를 가리키는 www 이름에 대한 "CNAME" 레코드
 
 Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP 주소가 변경되면 A 레코드를 수동으로 업데이트해야 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
-시작하기 전에, 먼저 Azure DNS에서 DNS 영역을 만들고 등록 기관의 영역을 Azure DNS로 위임해야 합니다.
+> [!div class="checklist"]
+> * 사용자 지정 도메인에 대한 A 및 TXT 레코드 만들기
+> * 사용자 지정 도메인에 대한 CNAME 레코드 만들기
+> * 새 레코드 테스트
+> * 웹앱에 사용자 지정 호스트 이름 추가
+> * 사용자 지정 호스트 이름 테스트
 
-1. DNS 영역을 만들려면 [DNS 영역 만들기](dns-getstarted-create-dnszone.md)의 단계를 수행합니다.
-2. DNS를 Azure DNS로 위임하려면 [DNS domain delegation](dns-domain-delegation.md)(DNS 도메인 위임)의 단계를 수행합니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+
+## <a name="prerequisites"></a>필수 조건
+
+- [App Service 앱을 만들거나](../app-service/app-service-web-get-started-html.md) 다른 자습서를 위해 만든 앱을 사용합니다.
+
+- Azure DNS에서 DNS 영역을 만들고 등록 기관의 영역을 Azure DNS로 위임합니다.
+
+   1. DNS 영역을 만들려면 [DNS 영역 만들기](dns-getstarted-create-dnszone.md)의 단계를 수행합니다.
+   2. 영역을 Azure DNS로 위임하려면 [DNS 도메인 위임](dns-domain-delegation.md)의 단계를 수행합니다.
 
 영역을 만들어서 Azure DNS에 위임한 후에는, 사용자 지정 도메인에 대한 레코드를 만들 수 있습니다.
 
-## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. 사용자 지정 도메인에 대한 A 레코드 만들기
+## <a name="create-an-a-record-and-txt-record"></a>A 레코드 및 TXT 레코드 만들기
 
-A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 IPv4 주소에 \@를 A 레코드로 할당합니다.
+A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 웹앱 IPv4 주소를 사용하여 "@"을 A 레코드로 할당합니다. @은 일반적으로 루트 도메인을 나타냅니다.
 
-### <a name="step-1"></a>1단계
+### <a name="get-the-ipv4-address"></a>IPv4 주소 가져오기
 
-A 레코드를 만들고 $rs 변수에 할당합니다.
+Azure Portal의 App Services 페이지 왼쪽 탐색 영역에서 **사용자 지정 도메인**을 선택합니다. 
 
-```powershell
-$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
-```
+![사용자 지정 도메인 메뉴](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-### <a name="step-2"></a>2단계
+**사용자 지정 도메인** 페이지에서 앱의 IPv4 주소를 복사합니다.
 
-할당된 $rs 변수를 사용하여 이전에 만든 레코드 집합 "\@" 에 IPv4 값을 추가합니다. 할당된 IPv4 값은 웹앱의 IP 주소가 됩니다.
+![Azure 앱에 대한 포털 탐색](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-웹앱의 IP 주소를 찾으려면 [Azure App Service에서 사용자 지정 도메인 이름 구성](../app-service/app-service-web-tutorial-custom-domain.md)의 단계를 따르세요.
+### <a name="create-the-a-record"></a>A 레코드 만들기
 
 ```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
+New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
+ -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="create-the-txt-record"></a>TXT 레코드 만들기
 
-레코드 집합의 변경 내용을 커밋합니다. `Set-AzureRMDnsRecordSet`를 사용하여 레코드 집합의 변경 내용을 Azure DNS로 업로드합니다.
+App Services는 구성 시에만 이 레코드를 사용하여 사용자 지정 도메인을 소유하고 있는지 확인합니다. App Service에서 사용자 지정 도메인의 유효성을 검사하고 구성한 후 이 TXT 레코드를 삭제할 수 있습니다.
 
 ```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
+ -Name `"@" -RecordType "txt" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 
-## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2. 사용자 지정 도메인에 대한 CNAME 레코드 만들기
+## <a name="create-the-cname-record"></a>CNAME 레코드 만들기
 
 Azure DNS에서 이미 도메인을 관리하고 있는 경우( [DNS 도메인 위임](dns-domain-delegation.md)참조), 다음 예제를 사용하여 contoso.azurewebsites.net에 대한 CNAME 레코드를 만들 수 있습니다.
 
-### <a name="step-1"></a>1단계
+Azure PowerShell을 열고 새 CNAME 레코드를 만듭니다. 이 예제에서는 웹앱 contoso.azurewebsites.net에 대한 별칭을 사용하여 "contoso.com"이라는 DNS 영역에 "TTL(Time to Live)" 600초인 레코드 집합 형식 CNAME을 만듭니다.
 
-PowerShell을 열고 새 CNAME 레코드 집합을 만든 다음 $rs 변수에 할당합니다. 이 예제에서는 "contoso.com"이라는 DNS 영역에 "time to live"가 600초인 레코드 집합 형식 CNAME이 생성됩니다.
-
-```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
-```
-
-다음 예제는 응답입니다.
-
-```
-Name              : www
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
-
-### <a name="step-2"></a>2단계
-
-CNAME 레코드 집합을 만든 후에는 웹앱을 가리키는 별칭 값을 만들어야 합니다.
-
-이전에 할당된 변수 "$rs"를 통해 아래 PowerShell 명령을 사용하여 웹앱 contoso.azurewebsites.net에 대한 별칭을 만들 수 있습니다.
+### <a name="create-the-record"></a>레코드 만들기
 
 ```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
+ -Name "www" -RecordType "CNAME" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -cname "contoso.azurewebsites.net")
 ```
 
 다음 예제는 응답입니다.
@@ -118,15 +113,9 @@ Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
     Tags              : {}
 ```
 
-### <a name="step-3"></a>3단계
+## <a name="test-the-new-records"></a>새 레코드 테스트
 
-`Set-AzureRMDnsRecordSet` cmdlet을 사용하여 변경 내용을 커밋합니다.
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
-
-아래와 같이 nslookup으로 "www.contoso.com"을 쿼리하여 레코드가 올바르게 생성되었는지 확인할 수 있습니다.
+아래와 같이 nslookup으로 "www.contoso.com" 및 "contoso.com"을 쿼리하여 레코드가 올바르게 생성되었는지 확인할 수 있습니다.
 
 ```
 PS C:\> nslookup
@@ -143,62 +132,55 @@ Address:  <ip of web app service>
 Aliases:  www.contoso.com
 contoso.azurewebsites.net
 <instance of web app service>.vip.azurewebsites.windows.net
+
+> contoso.com
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+Name:    contoso.com
+Address:  <ip of web app service>
+
+> set type=txt
+> contoso.com
+
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+contoso.com text =
+
+        "contoso.azurewebsites.net"
 ```
+## <a name="add-custom-host-names"></a>사용자 지정 호스트 이름 추가
 
-## <a name="create-an-awverify-record-for-web-apps"></a>웹앱에 대한 "awverify" 레코드 만들기
-
-웹앱에 대해 A 레코드를 사용하려는 경우 사용자 지정 도메인의 소유자가 맞는지 확인하도록 검증 프로세스를 수행해야 합니다. 이 검증 단계는 "awverify"라는 특수 CNAME 레코드를 만들어 수행됩니다. 이 섹션은 A 레코드에만 적용됩니다.
-
-### <a name="step-1"></a>1단계
-
-"awverify" 레코드를 만듭니다. 아래 예제에서는 contoso.com에 대한 "awverify" 레코드를 만들어서 사용자 지정 도메인에 대한 소유권을 확인합니다.
+이제 웹앱에 사용자 지정 호스트 이름을 추가할 수 있습니다.
 
 ```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
+set-AzureRmWebApp `
+ -Name contoso `
+ -ResourceGroupName MyAzureResourceGroup `
+ -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
 ```
+## <a name="test-the-custom-host-names"></a>사용자 지정 호스트 이름 테스트
 
-다음 예제는 응답입니다.
+브라우저를 열고 `http://www.<your domainname>` 및 `http://<you domain name>`으로 이동합니다.
 
-```
-Name              : awverify
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
+> [!NOTE]
+> `http://` 접두사가 포함되었는지 확인합니다. 포함되지 않으면 브라우저가 URL을 예측하려고 시도할 수 있습니다.
 
-### <a name="step-2"></a>2단계
+두 URL이 동일한 페이지를 표시할 것입니다. 예: 
 
-"awverify" 레코드 집합이 생성되면, CNAME 레코드 집합 별칭을 할당합니다. 아래 예제에서는 CNAME 레코드 집합 별칭을 awverify.contoso.azurewebsites.net에 할당합니다.
+![Contoso 앱 서비스](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
-```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
-```
 
-다음 예제는 응답입니다.
+## <a name="clean-up-resources"></a>리소스 정리
 
-```
-    Name              : awverify
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
-    RecordType        : CNAME
-    Records           : {awverify.contoso.azurewebsites.net}
-    Tags              : {}
-```
-
-### <a name="step-3"></a>3단계
-
-아래 명령과 같이 `Set-AzureRMDnsRecordSet cmdlet`을 사용하여 변경 내용을 커밋합니다.
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
+이 자습서에서 만든 리소스가 더 이상 필요 없다면 **myresourcegroup** 리소스 그룹을 삭제해도 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Configuring a custom domain name for App Service](../app-service/app-service-web-tutorial-custom-domain.md) (앱 서비스에 대한 사용자 지정 도메인 이름 구성)의 단계에 따라 사용자 지정 도메인을 사용하도록 웹앱을 구성합니다.
+Azure DNS 서설 영역을 만드는 방법을 알아봅니다.
+
+> [!div class="nextstepaction"]
+> [PowerShell을 사용하여 Azure DNS 사설 영역 시작](private-dns-getstarted-powershell.md)

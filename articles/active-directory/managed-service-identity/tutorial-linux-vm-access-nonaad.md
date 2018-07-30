@@ -1,6 +1,6 @@
 ---
-title: Linux VM MSI를 사용하여 Azure Key Vault 액세스
-description: Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다.
+title: Linux VM 관리 서비스 ID를 사용하여 Azure Key Vault 액세스
+description: Linux VM 관리 서비스 ID를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: e775ed9d918e53b8381a010691c679d80e7dd216
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 54a763a768a57692cf0298c07f23fb4ed84f758f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044053"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258153"
 ---
-# <a name="tutorial-use-a-linux-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>자습서: Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault에 액세스 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-key-vault"></a>자습서: Linux VM 관리 서비스 ID를 사용하여 Azure Key Vault에 액세스 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux Virtual Machine에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 해당 ID를 사용하여 Azure Key Vault에 액세스하는 방법을 보여 줍니다. 부트스트랩 역할을 하는 Key Vault를 사용하면 클라이언트 응용 프로그램에서 비밀을 사용하여 Azure AD(Active Directory)로 보호되지 않는 리소스에 액세스할 수 있습니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 
+이 자습서에서는 Linux Virtual Machine에 대해 관리 서비스 ID를 사용하도록 설정한 다음, 해당 ID를 사용하여 Azure Key Vault에 액세스하는 방법을 보여줍니다. 부트스트랩 역할을 하는 Key Vault를 사용하면 클라이언트 응용 프로그램에서 비밀을 사용하여 Azure AD(Active Directory)로 보호되지 않는 리소스에 액세스할 수 있습니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 
 
 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Linux Virtual Machine에서 MSI를 사용하도록 설정 
+> * Linux Virtual Machine에서 관리 서비스 ID를 사용하도록 설정 
 > * Key Vault에 저장된 비밀 액세스 권한을 VM에 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져온 다음 Key Vault에서 비밀을 검색하는 데 사용 
  
@@ -45,7 +45,7 @@ ms.locfileid: "39044053"
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux Virtual Machine 만들기
 
-이 자습서에서는 새 Linux VM을 만듭니다. 기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
+이 자습서에서는 새 Linux VM을 만듭니다. 또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
@@ -57,20 +57,20 @@ ms.locfileid: "39044053"
 5. 가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
 6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 지원되는 디스크 형식 필터를 변경합니다. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 
-## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정
 
-Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
+Virtual Machine 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
 
-1. MSI를 사용하도록 설정할 **Virtual Machine**을 선택합니다.
+1. 관리 서비스 ID를 사용하도록 설정할 **Virtual Machine**을 선택합니다.
 2. 왼쪽 탐색 모음에서 **구성**을 클릭합니다.
-3. **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
+3. **관리 서비스 ID**가 표시됩니다. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
 4. **저장**을 클릭하여 구성을 저장합니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Key Vault에 저장된 비밀 액세스 권한을 VM에 부여  
 
-코드는 MSI를 사용하여 Azure Active Directory 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. 그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. 이러한 서비스와 함께 MSI를 사용하려면 Azure Key Vault에 서비스 자격 증명을 저장하고 MSI를 사용하여 Key Vault에 액세스하여 자격 증명을 검색합니다. 
+코드는 관리 서비스 ID를 사용하여 Azure Active Directory 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다. 그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. 이러한 서비스와 함께 관리 서비스 ID를 사용하려면 Azure Key Vault에 서비스 자격 증명을 저장하고 관리 서비스 ID를 사용하여 Key Vault에 액세스하여 자격 증명을 검색합니다. 
 
 먼저 Key Vault를 만들고 VM ID에 Key Vault 액세스 권한을 부여해야 합니다.   
 
@@ -100,7 +100,7 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
  
 1. Portal에서 Linux VM으로 이동한 다음 **개요**에서 **연결**을 클릭합니다. 
 2. 선택한 SSH 클라이언트를 사용하여 VM에 **연결**합니다. 
-3. 터미널 창에서 CURL을 사용하여 로컬 MSI 끝점에 대한 요청을 수행해 Azure Key Vault용 액세스 토큰을 가져옵니다.  
+3. 터미널 창에서 CURL을 사용하여 로컬 관리 서비스 ID 엔드포인트에 대한 요청을 만들어서 Azure Key Vault에 대한 액세스 토큰을 가져옵니다.  
  
     액세스 토큰에 대한 CURL 요청은 다음과 같습니다.  
     

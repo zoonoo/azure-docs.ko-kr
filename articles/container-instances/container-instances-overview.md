@@ -6,15 +6,15 @@ author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 03/29/2018
+ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 2da61d52e43857237f6e231c03ea62ba5eefdadd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 953d1dfd633f2fee52a2e6d197c6f32e7ab053f7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33767974"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160453"
 ---
 # <a name="azure-container-instances"></a>Azure Container Instances
 
@@ -47,6 +47,8 @@ Azure Container Instances를 통해 상태를 검색하고 유지하려면 [Azur
 Azure Container Instances는 동일한 API로 Windows 및 Linux 컨테이너를 모두 예약할 수 있습니다. [컨테이너 그룹](container-instances-container-groups.md)을 만들 때는 OS 종류만 지정합니다.
 
 일부 기능은 현재 Linux 컨테이너에 제한됩니다. 저희는 Windows 컨테이너에 모든 기능을 제공하기 위해 노력 중이며, [Azure Container Instances에 대한 할당량 및 지역 가용성](container-instances-quotas.md)에서 현재 플랫폼의 차이점을 확인할 수 있습니다.
+
+Azure Container Instances는 LTSC(장기 서비스 채널) 버전 기반의 Windows 이미지를 지원합니다. 1709 및 1803 같은 SAC(Windows 반기 채널) 릴리스는 지원되지 않습니다.
 
 ## <a name="co-scheduled-groups"></a>공동 예약된 그룹
 

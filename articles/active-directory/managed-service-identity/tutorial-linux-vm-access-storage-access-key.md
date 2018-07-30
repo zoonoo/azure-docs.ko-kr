@@ -1,6 +1,6 @@
 ---
-title: Linux VM MSI를 사용하여 Azure Storage 액세스
-description: Linux VM MSI(관리 서비스 ID)를 사용하여 Azure Storage에 액세스하는 프로세스를 안내하는 자습서입니다.
+title: Linux VM 관리 서비스 ID를 사용하여 Azure Storage에 액세스
+description: Linux VM 관리 서비스 ID를 사용하여 Azure Storage에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: eee0787518a17826d6256cb9b7dad8f4547f5663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: aa0736452d7dc06c5a1a6c2710024a5fdc626af1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048847"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258714"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>자습서: Linux VM 관리 서비스 ID를 사용하여 액세스 키를 통해 Azure Storage 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux Virtual Machine에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 해당 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
+이 자습서에서는 Linux Virtual Machine에 대해 관리 서비스 ID를 사용하도록 설정한 다음, 해당 ID를 사용하여 저장소 계정 액세스 키를 검색하는 방법을 보여줍니다. Storage SDK를 사용하는 등의 저장소 작업을 수행할 때 일반적인 방식으로 저장소 액세스 키를 사용할 수 있습니다. 이 자습서의 경우 Azure CLI를 사용하여 Blob을 업로드하고 다운로드합니다. 다음 방법을 알게 됩니다.
 
 > [!div class="checklist"]
-> * Linux Virtual Machine에서 MSI를 사용하도록 설정 
+> * Linux Virtual Machine에서 관리 서비스 ID를 사용하도록 설정 
 > * 리소스 관리자의 저장소 계정 액세스 키에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져와서 리소스 관리자에서 저장소 액세스 키를 검색하는 데 사용  
 
@@ -44,7 +44,7 @@ ms.locfileid: "39048847"
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux 가상 머신 만들기
 
-이 자습서에서는 새 Linux VM을 만듭니다. 기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
+이 자습서에서는 새 Linux VM을 만듭니다. 또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
 
 1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
 2. **Compute**를 선택한 후 **Ubuntu Server 16.04 LTS**를 선택합니다.
@@ -56,20 +56,20 @@ ms.locfileid: "39048847"
 5. 가상 머신을 만들 새 **리소스 그룹**을 선택하려면 **새로 만들기**를 선택합니다. 완료되면 **확인**을 클릭합니다.
 6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 지원되는 디스크 형식 필터를 변경합니다. 설정 블레이드에서 기본값을 그대로 유지하고 **확인**을 클릭합니다.
 
-## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정
 
-Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.  
+Virtual Machine 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.  
 
 1. 새 가상 머신의 리소스 그룹을 찾고 이전 단계에서 만든 가상 머신을 선택합니다.
 2. 왼쪽에 있는 VM “설정”에서 **구성**을 클릭합니다.
-3. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
+3. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다.
 4. **저장**을 클릭하여 구성을 저장합니다.
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>저장소 계정 만들기 
 
-저장소 계정이 아직 없는 경우 이제 하나 만들게 됩니다.  또한 이 단계를 건너뛰고 기존 저장소 계정의 키에 대한 VM MSI 액세스 권한을 부여할 수 있습니다. 
+저장소 계정이 아직 없는 경우 이제 하나 만들게 됩니다.  또한 이 단계를 건너뛰고 기존 저장소 계정의 키에 대한 VM 관리 서비스 ID 액세스 권한을 부여할 수 있습니다. 
 
 1. Azure Portal의 왼쪽 위에 있는 **+/새 서비스 만들기** 단추를 클릭합니다.
 2. **저장소**를 클릭하면 **저장소 계정**, 새 “저장소 계정 만들기” 패널이 표시됩니다.
@@ -91,9 +91,9 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
 
     ![저장소 컨테이너 만들기](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>저장소 계정 액세스 키를 사용하도록 VM의 MSI 액세스 부여
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>저장소 계정 액세스 키를 사용하도록 VM의 관리 서비스 ID 액세스 부여
 
-Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 MSI를 사용하여 리소스 관리자에서 저장소 계정 액세스 키를 검색하고, 해당 키를 사용하여 저장소에 액세스할 수 있습니다.  이 단계에서는 저장소 계정에 키에 대한 VM MSI 액세스를 부여합니다.   
+Azure Storage는 Azure AD 인증을 기본적으로 지원하지 않습니다.  그러나 관리 서비스 ID를 사용하여 Resource Manager에서 저장소 계정 액세스 키를 검색하고, 해당 키를 사용하여 저장소에 액세스할 수 있습니다.  이 단계에서 저장소 계정의 키에 대한 VM 관리 서비스 ID 액세스 권한을 부여합니다.   
 
 1. 새로 만든 저장소 계정으로 다시 이동합니다.
 2. 왼쪽 패널의 **액세스 제어(IAM)** 링크를 클릭합니다.  

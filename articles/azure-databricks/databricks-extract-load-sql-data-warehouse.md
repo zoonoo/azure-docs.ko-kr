@@ -1,24 +1,22 @@
 ---
-title: '자습서: Azure Databricks를 사용하여 ETL 작업 수행 | Microsoft Docs'
+title: '자습서: Azure Databricks를 사용하여 ETL 작업 수행'
 description: Data Lake Store에서 Azure Databricks로 데이터를 추출하고 데이터를 전송한 다음, Azure SQL Data Warehouse에 데이터를 로드하는 방법을 알아봅니다.
 services: azure-databricks
-documentationcenter: ''
 author: nitinme
+ms.author: nitinme
 manager: cgronlun
 editor: cgronlun
 ms.service: azure-databricks
 ms.custom: mvc
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: Active
-ms.date: 03/23/2018
-ms.author: nitinme
-ms.openlocfilehash: c3aa87f2c74175d1b61a8db6a9c7a0318a408658
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 07/23/2018
+ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223833"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -59,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역을 만듭니다. 
 
-1. Azure Portal에서 **리소스 만들기** > **데이터 + 분석** > **Azure Databricks**를 차례로 선택합니다. 
+1. Azure Portal에서 **리소스 만들기** > **데이터 + 분석** > **Azure Databricks**를 차례로 선택합니다.
 
     ![Azure Portal의 Databricks](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Azure Portal의 Databricks")
 
@@ -194,22 +192,6 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
 
    ![테넌트 ID](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
 
-### <a name="associate-service-principal-with-azure-data-lake-store"></a>서비스 사용자를 Azure Data Lake Store에 연결
-
-이 섹션에서는 Azure Data Lake Store 계정을 앞에서 만든 Azure Active Directory 서비스 사용자와 연결합니다. 이렇게 하면 Azure Databricks에서 Data Lake Store 계정에 액세스할 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com)에서, 앞에서 만든 Data Lake Store 계정을 선택합니다.
-
-2. 왼쪽 창에서 **액세스 제어** > **추가**를 선택합니다.
-
-    ![Data Lake Store 액세스 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access.png "Data Lake Store 액세스 추가")
-
-3. **권한 추가**에서 서비스 사용자에게 할당할 역할을 선택합니다. 이 자습서에서는 **소유자**를 선택합니다. **다음에 대한 액세스 할당**에서 **Azure AD, 사용자, 그룹 또는 응용 프로그램**을 선택합니다. **선택**에는 앞에서 만든 서비스 사용자의 이름을 입력하여 선택할 서비스 사용자 수를 줄입니다.
-
-    ![서비스 사용자 선택](./media/databricks-extract-load-sql-data-warehouse/select-service-principal.png "서비스 사용자 선택")
-
-    앞에서 만든 서비스 사용자를 선택한 다음, **저장**을 선택합니다. 이제 서비스 사용자가 Azure Data Lake Store 계정과 연결되었습니다.
-
 ## <a name="upload-data-to-data-lake-store"></a>데이터 레이크 저장소에 데이터 업로드
 
 이 섹션에서는 Data Lake Store에 샘플 데이터 파일을 업로드합니다. 이 파일은 Azure Databricks의 뒷부분에서 변환을 수행하는 데 사용됩니다. 이 자습서에서 사용하는 샘플 데이터(**small_radio_json.json**)는 이 [Github 리포지토리](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)에서 받을 수 있습니다.
@@ -229,6 +211,53 @@ Azure Databricks에서 Data Lake Store 계정에 액세스하려면 앞에서 �
     ![업로드 옵션](./media/databricks-extract-load-sql-data-warehouse/upload-data.png "업로드 옵션")
 
 5. 이 자습서에서는 Data Lake Store의 루트에 데이터 파일을 업로드했습니다. 이제 `adl://<YOUR_DATA_LAKE_STORE_ACCOUNT_NAME>.azuredatalakestore.net/small_radio_json.json`에서 이 파일을 사용할 수 있습니다.
+
+## <a name="associate-service-principal-with-azure-data-lake-store"></a>서비스 사용자를 Azure Data Lake Store에 연결
+
+이 섹션에서는 Azure Data Lake Store 계정의 데이터를 사용자가 만든 Azure Active Directory 서비스 사용자와 연결합니다. 이렇게 하면 Azure Databricks에서 Data Lake Store 계정에 액세스할 수 있습니다. 이 문서의 시나리오의 경우 Data Lake Store의 데이터를 읽어 SQL Data Warehouse의 테이블을 채웁니다. [Data Lake Store의 Access Control 개요](../data-lake-store/data-lake-store-access-control.md#common-scenarios-related-to-permissions)에 따라 Data Lake Store의 파일에 대한 읽기 액세스 권한을 가지려면 다음이 있어야 합니다.
+
+- 파일에 이르는 폴더 구조의 모든 폴더에 대한 **실행** 권한
+- 파일 자체에 대한 **읽기** 권한
+
+다음 단계를 수행하여 이러한 사용 권한을 부여합니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 앞에서 만든 Data Lake Store 계정을 선택한 다음, **데이터 탐색기**를 선택합니다.
+
+    ![데이터 탐색기 시작](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-data-explorer.png "데이터 탐색기 시작")
+
+2. 이 시나리오에서는 샘플 데이터 파일이 폴더 구조의 루트에 있으므로 폴더 루트에서 **실행** 권한을 할당해야 합니다. 이렇게 하려면 데이터 탐색기의 루트에서 **액세스**를 선택합니다.
+
+    ![폴더에 대한 ACL 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-1.png "폴더에 대한 ACL 추가")
+
+3. **액세스**에서 **추가**를 선택합니다.
+
+    ![폴더에 대한 ACL 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-2.png "폴더에 대한 ACL 추가")
+
+4. **권한 할당**에서 **사용자 또는 그룹 선택**을 클릭하고 이전에 만든 Azure Active Directory 서비스 사용자를 검색합니다.
+
+    ![Data Lake Store 액세스 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Data Lake Store 액세스 추가")
+
+    할당하려는 AAD 서비스 사용자를 선택하고 **선택**을 클릭합니다.
+
+5. **권한 할당**에서 **권한 선택** > **실행**을 클릭합니다. 다른 기본값을 그대로 유지하고 **권한 선택**, **권한 할당** 아래에서 **확인**을 선택합니다.
+
+    ![Data Lake Store 액세스 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-4.png "Data Lake Store 액세스 추가")
+
+6. 데이터 탐색기로 다시 이동하고 이제 읽기 사용 권한을 할당하려는 파일을 클릭합니다. **파일 미리 보기**에서 **액세스**를 선택합니다.
+
+    ![Data Lake Store 액세스 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-1.png "Data Lake Store 액세스 추가")
+
+7. **액세스**에서 **추가**를 선택합니다. **권한 할당**에서 **사용자 또는 그룹 선택**을 클릭하고 이전에 만든 Azure Active Directory 서비스 사용자를 검색합니다.
+
+    ![Data Lake Store 액세스 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-folder-3.png "Data Lake Store 액세스 추가")
+
+    할당하려는 AAD 서비스 사용자를 선택하고 **선택**을 클릭합니다.
+
+8. **권한 할당**에서 **권한 선택** > **읽기**를 클릭합니다. **권한 선택**, **권한 할당** 아래에서 **확인**을 선택합니다.
+
+    ![Data Lake Store 액세스 추가](./media/databricks-extract-load-sql-data-warehouse/add-adls-access-file-2.png "Data Lake Store 액세스 추가")
+
+    서비스 사용자는 이제 Azure Data Lake Store에서 샘플 데이터 파일을 읽을 수 있는 충분한 권한을 가집니다.
 
 ## <a name="extract-data-from-data-lake-store"></a>Data Lake Store에서 데이터 추출
 
@@ -283,6 +312,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 1. 먼저 앞에서 만든 데이터 프레임에서 *이름*, *성*, *성별*, *위치* 및 *수준* 열만 검색합니다.
 
         val specificColumnsDf = df.select("firstname", "lastname", "gender", "location", "level")
+        specificColumnsDf.show()
 
     다음 코드 조각과 같은 출력이 표시됩니다.
 
@@ -313,7 +343,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 
 2.  열 **수준**을 **subscription_type**으로 지정하도록 이 데이터를 추가로 변환할 수 있습니다.
 
-        val renamedColumnsDF = specificColumnsDf.withColumnRenamed("level", "subscription_type")
+        val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDF.show()
 
     다음 코드 조각과 같은 출력이 표시됩니다.
@@ -347,7 +377,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 
 이 섹션에서는 변환된 데이터를 Azure SQL Data Warehouse로 업로드합니다. Azure Databricks용 Azure SQL Data Warehouse 커넥터를 사용하여 데이터 프레임을 SQL 데이터 웨어하우스의 테이블로 직접 업로드할 수 있습니다.
 
-앞서 언급했듯이, SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 저장소로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간의 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
+앞서 언급했듯이, SQL 데이터 웨어하우스 커넥터는 Azure Blob Storage를 임시 저장소 위치로 사용하여 Azure Databricks와 Azure SQL Data Warehouse 간의 데이터를 업로드합니다. 따라서 저장소 계정에 연결하는 구성을 먼저 제공해야 합니다. 이 문서의 필수 구성 요소로 이미 계정을 만들어 두셨을 것입니다.
 
 1. Azure Databricks에서 Azure Storage 계정에 액세스하기 위한 구성을 입력합니다.
 
@@ -357,7 +387,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 
 2. Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 이동하는 데 사용되는 임시 폴더를 지정합니다.
 
-        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
 
 3. 다음 코드 조각을 실행하여 Azure Blob Storage 액세스 키를 구성에 저장합니다. 이렇게 하면 액세스 키를 노트북에서 일반 텍스트로 유지할 필요가 없습니다.
 
@@ -376,13 +406,13 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. 다음 코드 조각을 실행하여 변환된 데이터 프레임, **renamedColumnsDF**를 SQL 데이터 웨어하우스에 테이블로 로드합니다. 이 코드 조각은 SQL 데이터베이스에 **SampleTable**이라는 테이블을 만듭니다.
+5. 다음 코드 조각을 실행하여 변환된 데이터 프레임, **renamedColumnsDf**를 SQL 데이터 웨어하우스에 테이블로 로드합니다. 이 코드 조각은 SQL 데이터베이스에 **SampleTable**이라는 테이블을 만듭니다. Azure SQL DW에는 마스터 키가 필요합니다.  SQL Server Management Studio에서 "CREATE MASTER KEY" 명령을 실행하여 마스터 키를 만들 수 있습니다.
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
         
-        renamedColumnsDF.write
+        renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall) 
             .option("dbtable", "SampleTable")
@@ -395,7 +425,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 
     ![샘플 테이블 확인](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "샘플 테이블 확인")
 
-7. select 쿼리를 실행하여 테이블의 콘텐츠를 확인합니다. **renamedColumnsDF** 데이터 프레임과 똑같은 데이터가 있어야 합니다.
+7. select 쿼리를 실행하여 테이블의 콘텐츠를 확인합니다. **renamedColumnsDf** 데이터 프레임과 똑같은 데이터가 있어야 합니다.
 
     ![샘플 테이블 콘텐츠 확인](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "샘플 테이블 콘텐츠 확인")
 

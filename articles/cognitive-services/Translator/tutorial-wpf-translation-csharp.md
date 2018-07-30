@@ -1,30 +1,29 @@
 ---
-title: C#, Azure Cognitive Services를 사용하여 Microsoft Translator WPF 앱을 작성하는 방법 | Microsoft Docs
-description: Translator 텍스트 서비스를 사용하여 텍스트 번역, 지원되는 언어의 현지화된 목록 가져오기 등을 수행하는 방법을 알아봅니다.
+title: '자습서: C#을 사용하여 Translator Text에 대한 WPF 응용 프로그램 작성 | Microsoft Docs'
+titleSuffix: Microsoft Cognitive Services
+description: 이 자습서에서는 Translator Text API를 사용하여 C#을 통해 WPF 응용 프로그램을 빌드하여 텍스트를 번역하고, 지원되는 언어의 지역화된 목록을 가져오는 등의 방법을 알아봅니다.
 services: cognitive-services
-author: Jann-Skotdal
-manager: chriswendt1
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: translator-text
-ms.devlang: csharp
-ms.topic: article
-ms.date: 10/25/2017
-ms.author: v-jansko
-ms.openlocfilehash: fb58fd087de09561a0ea930748562e595d3dde1c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: tutorial
+ms.date: 07/20/2018
+ms.author: nolachar
+ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374366"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214920"
 ---
-# <a name="how-to-write-a-microsoft-translator-wpf-application-in-c"></a>C#에서 Microsoft Translator WPF 응용 프로그램을 작성하는 방법
+# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>자습서: C&#35;을 사용하여 Translator Text에 대한 WPF 응용 프로그램 작성
 
-이 자습서에서는 Azure의 Microsoft Cognitive Services에 포함된 Microsoft Translator Text API(V3)를 사용하여 대화형 텍스트 번역 도구를 빌드합니다. 이 문서에서 배울 내용은 다음과 같습니다.
+이 자습서에서는 Azure의 Microsoft Cognitive Services에 포함된 Translator Text API(V3)를 사용하여 대화형 텍스트 번역 도구를 빌드합니다. 이 문서에서 배울 내용은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * 서비스에서 지원하는 언어에 대한 짧은 코드 목록 요청
-> * 이러한 언어 코드에 해당하는 현지화된 언어 이름 목록 검색
-> * 사용자가 입력한 텍스트를 다른 언어로 번역한 버전 가져오기
+> * 서비스에서 지원되는 언어 목록 가져오기
+> * 사용자가 입력한 텍스트를 다른 언어로 번역 실행
 
 이 응용 프로그램은 두 가지 다른 Microsoft Cognitive Services와의 통합 기능도 제공합니다.
 
@@ -37,7 +36,7 @@ ms.locfileid: "35374366"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 수행하려면 Community 버전을 포함하여 임의의 Visual Studio 2017 버전이 필요합니다.
+Windows에서 이 코드를 실행하려면 [Visual Studio 2017](https://www.visualstudio.com/downloads/)이 필요합니다. 체험 Community Edition을 사용해도 됩니다.
 
 프로그램에서 사용되는 세 가지 Azure 서비스에 대한 구독 키도 필요합니다. Azure 대시보드에서 Translator Text 서비스에 대한 키를 가져올 수 있습니다. 체험 가격 책정 계층에서는 매월 최대 2백만 자를 무료로 번역할 수 있습니다.
 
@@ -46,7 +45,7 @@ ms.locfileid: "35374366"
 이 자습서의 소스 코드는 아래에서 확인할 수 있습니다. 구독 키는 `MainWindow.xaml.cs`의 소스 코드에 `TEXT_TRANSLATION_API_SUBSCRIPTION_KEY` 등의 변수로 복사해야 합니다.
 
 > [!IMPORTANT]
-> 텍스트 분석 서비스는 여러 지역에서 사용할 수 있습니다. 자습서 소스 코드의 URI는 평가판에 사용되는 지역인 `westus` 지역에 있습니다. 다른 지역에 구독이 있는 경우 이 URI를 적절하게 업데이트합니다.
+> 텍스트 분석 서비스는 여러 지역에서 사용할 수 있습니다. 이 자습서 소스 코드의 URI는 평가판에 사용되는 지역인 `westus` 지역에 있습니다. 다른 지역에 구독이 있는 경우 이 URI를 적절하게 업데이트합니다.
 
 ## <a name="source-code"></a>소스 코드
 
@@ -56,7 +55,7 @@ Microsoft Translator Text API의 소스 코드입니다. 앱을 실행하려면 
 
 응용 프로그램의 기능을 제공하는 코드 숨김 파일입니다.
 
-```cs
+```csharp
 using System;
 using System.Windows;
 using System.Net;
@@ -74,9 +73,9 @@ using Newtonsoft.Json;
 namespace MSTranslatorTextDemo
 {
     /// <summary>
-    /// This WPF application demonstrates the use of the Microsoft Translator Text API to translate a brief text string
-    /// one language to another. The langauges are selected from a drop-down menu. The text of the translation is displayed.
-    /// The source language may optionally be automatically detected.  English text is spell-checked.
+    /// This WPF application demonstrates the use of the Microsoft Translator Text API to translate a brief text string from
+    /// one language to another. The languages are selected from a drop-down menu. The text of the translation is displayed.
+    /// The source language may optionally be automatically detected. English text is spell-checked.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -97,7 +96,7 @@ namespace MSTranslatorTextDemo
 
         public MainWindow()
         {
-            // at least show an error dialog when we get an unexpected error
+            // at least show an error dialog if there's an unexpected error
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
             if (TEXT_TRANSLATION_API_SUBSCRIPTION_KEY.Length != 32
@@ -166,7 +165,7 @@ namespace MSTranslatorTextDemo
 
             HttpWebResponse response = (HttpWebResponse)detectLanguageWebRequest.GetResponse();
 
-            // read and and parse JSON response
+            // read and parse JSON response
             var responseStream = response.GetResponseStream();
             var jsonString = new StreamReader(responseStream, Encoding.GetEncoding("utf-8")).ReadToEnd();
             dynamic jsonResponse = serializer.DeserializeObject(jsonString);
@@ -352,18 +351,18 @@ namespace MSTranslatorTextDemo
         <Label x:Name="toLabel" Content="Translate to:" HorizontalAlignment="Left" Margin="304,58,0,0" VerticalAlignment="Top" FontSize="14"/>
 
         <Button x:Name="TranslateButton" Content="Translate" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" Width="114" Height="31" Click="TranslateButton_Click" FontSize="14" TabIndex="4" IsDefault="True"/>
-        <ComboBox x:Name="ToLanguageComboBox" 
-                HorizontalAlignment="Left" 
-                Margin="306,88,0,0" 
-                VerticalAlignment="Top" 
+        <ComboBox x:Name="ToLanguageComboBox"
+                HorizontalAlignment="Left"
+                Margin="306,88,0,0"
+                VerticalAlignment="Top"
                 Width="175" FontSize="14" TabIndex="2">
 
         </ComboBox>
         <Label x:Name="fromLabel" Content="Translate from:" HorizontalAlignment="Left" Margin="40,58,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="FromLanguageComboBox" 
-            HorizontalAlignment="Left" 
-            Margin="42,88,0,0" 
-            VerticalAlignment="Top" 
+        <ComboBox x:Name="FromLanguageComboBox"
+            HorizontalAlignment="Left"
+            Margin="42,88,0,0"
+            VerticalAlignment="Top"
             Width="175" FontSize="14" TabIndex="1"/>
         <Label x:Name="TranslatedTextLabel" Content="Translation appears here" HorizontalAlignment="Left" Margin="39,255,0,0" VerticalAlignment="Top" Width="620" FontSize="14" Height="85" BorderThickness="0"/>
     </Grid>
@@ -372,7 +371,7 @@ namespace MSTranslatorTextDemo
 
 ## <a name="service-endpoints"></a>서비스 끝점
 
-Microsoft Translator 서비스에는 다양한 번역 기능을 제공하는 많은 끝점이 있습니다. 이 자습서에서 사용하는 끝점은 다음과 같습니다.
+Microsoft Translator 서비스에는 다양한 번역 기능을 제공하는 많은 엔드포인트가 있습니다. 이 자습서에서 사용하는 엔드포인트는 다음과 같습니다.
 
 |||
 |-|-|
@@ -381,7 +380,7 @@ Microsoft Translator 서비스에는 다양한 번역 기능을 제공하는 많
 
 ## <a name="the-translation-app"></a>번역 앱
 
-Microsoft Translator 응용 프로그램의 사용자 인터페이스는 WPF(Windows Presentation Foundation)를 사용하여 빌드되었습니다. 다음 단계에 따라 Visual Studio에서 새 WPF 프로젝트를 만듭니다.
+번역 응용 프로그램의 사용자 인터페이스는 WPF(Windows Presentation Foundation)를 사용하여 빌드되었습니다. 다음 단계에 따라 Visual Studio에서 새 WPF 프로젝트를 만듭니다.
 
 * **파일** 메뉴에서 **새로 만들기 > 프로젝트**를 선택합니다.
 * 새 프로젝트 창에서 **설치됨 > 템플릿 > Visual C#** 을 엽니다. 사용 가능한 프로젝트 템플릿 목록이 대화 상자 가운데에 표시됩니다.
@@ -413,19 +412,19 @@ Microsoft Translator 응용 프로그램의 사용자 인터페이스는 WPF(Win
 * `TranslateButton`*(단추)* - 사용자가 이 단추를 클릭하거나 Enter 키를 눌러 텍스트를 번역합니다.
 * `TranslatedTextLabel`*(레이블)* - 사용자 텍스트에 대한 번역이 여기에 표시됩니다.
 
-이 폼의 고유한 버전을 만드는 경우 *똑같이* 만들 필요는 없습니다. 그러나 언어 이름이 잘리지 않도록 언어 드롭다운이 충분히 넓은지 확인합니다.
+이 폼의 고유한 버전을 만드는 경우 여기에 사용된 것과 *똑같이* 만들 필요는 없습니다. 그러나 언어 이름이 잘리지 않도록 언어 드롭다운이 충분히 넓은지 확인합니다.
 
 ## <a name="the-mainwindow-class"></a>MainWindow 클래스
 
 코드 숨김 파일 `MainWindow.xaml.cs`에는 프로그램이 작업을 수행하게 하는 코드가 포함됩니다. 작업은 다음 두 가지 경우에 수행됩니다.
 
-* 프로그램이 시작될 때. `MainWindow`가 인스턴스화되면 Translator의 `GetLanguagesForTranslate` 및 `GetLanguageNames` API를 사용하여 언어 목록을 검색하고 드롭다운 메뉴를 채웁니다. 이 작업은 각 세션을 시작할 때 한 번 수행됩니다.
+* 프로그램이 시작되고 `MainWindow`가 인스턴스화되면 Translator의  및 API를 사용하여 언어 목록을 검색하고 드롭다운 메뉴를 채웁니다. 이 작업은 각 세션을 시작할 때 한 번 수행됩니다.
 
-* 사용자가 **번역** 단추를 클릭하면 사용자가 선택한 언어 및 입력한 텍스트를 검색합니다. 그런 다음, `Translate` API를 호출하여 번역을 수행합니다. 다른 함수를 호출하여 텍스트의 언어를 확인하고 번역 전에 맞춤법을 수정할 수도 있습니다.
+* 사용자가 **번역** 단추를 클릭하면 사용자의 언어 선택 항목이 검색되고 입력한 텍스트 및 `Translate` API가 변역을 수행하기 위해 차례로 호출됩니다. 텍스트의 언어를 확인하고 번역 전에 맞춤법을 수정하기 위해 다른 함수도 호출될 수 있습니다.
 
-클래스를 시작하는 방법을 살펴보겠습니다.
+클래스의 시작 부분을 살펴보십시오.
 
-```cs
+```csharp
 public partial class MainWindow : Window
 {
     // Translator text subscription key from Microsoft Azure dashboard
@@ -445,7 +444,7 @@ public partial class MainWindow : Window
 
     public MainWindow()
     {
-        // at least show an error dialog when we get an unexpected error
+        // at least show an error dialog if there's an unexpected error
         AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
         if (TEXT_TRANSLATION_API_SUBSCRIPTION_KEY.Length != 32
@@ -477,11 +476,11 @@ public partial class MainWindow : Window
 
 응용 프로그램에서 실행하는 첫 번째 코드는 `MainWindow` 생성자입니다. 먼저 `HandleExceptions` 메서드를 전역 오류 처리기로 설정합니다. 이렇게 하면 예외가 처리되지 않을 경우 최소한 오류 메시지가 표시됩니다.
 
-다음에는 API 구독 키의 길이가 모두 정확히 32자인지 확인합니다. 32자가 아닌 경우 가장 가능성이 높은 이유는 *누군가*가 API 키(tsk)를 붙여넣지 않은 것입니다. 이 경우 오류 메시지를 표시하고 구제합니다. 이 테스트를 통과해도 키가 유효하다는 것은 아닙니다.
+다음에는 API 구독 키의 길이가 모두 정확히 32자인지 확인합니다. 32자가 아닌 경우 가장 가능성이 높은 이유는 *누군가*가 API 키를 붙여넣지 않은 것입니다. 이 경우 오류 메시지를 표시하고 구제합니다. 이 테스트를 통과해도 키가 유효하다는 것은 아닙니다.
 
 최소한 키 길이가 올바른 경우 `InitializeComponent()` 호출에서 주 응용 프로그램 창에 대한 XAML 설명을 찾아 로드하고 인스턴스화하여 사용자 인터페이스가 롤링되도록 합니다.
 
-마지막으로, 언어 드롭다운 메뉴를 설정합니다. 이 작업에는 세 개의 개별 메서드 호출이 필요합니다. 이러한 메서드에 대해서는 다음 섹션에서 자세히 설명합니다.
+마지막으로, 언어 드롭다운 메뉴를 설정합니다. 이 작업에는 다음 섹션에서 자세히 설명되어 있는 세 개의 별도 메서드 호출이 필요합니다.
 
 ## <a name="get-supported-languages"></a>지원되는 언어 가져오기
 
@@ -489,9 +488,9 @@ Microsoft Translator 서비스는 이 문서를 작성할 당시 총 61개 언�
 
 `Languages` API를 호출하여 지원되는 언어 목록을 가져옵니다.
 
-`Languages` API는 선택적 GET 쿼리 매개 변수인 *scope*를 사용합니다. *scope*에는 `translation`, `transliteration` 및 `dictionary`의 세 값 중 하나가 포함될 수 있습니다. 여기서는 `translation` 값을 사용합니다.
+`Languages` API는 선택적 GET 쿼리 매개 변수인 *scope*를 사용합니다. *scope*에는 `translation`, `transliteration` 및 `dictionary`의 세 값 중 하나가 포함될 수 있습니다. 이 코드는 `translation` 값을 사용합니다.
 
-`Languages` API는 선택적 HTTP 헤더인 `Accept-Language`도 사용합니다. 이 헤더의 값은 지원되는 언어의 이름이 반환되는 언어를 결정합니다. 값은 올바른 형식의 BCP 47 언어 태그여야 합니다. `en` 값을 사용하여 언어 이름을 영어로 가져옵니다.
+`Languages` API는 선택적 HTTP 헤더인 `Accept-Language`도 사용합니다. 이 헤더의 값은 지원되는 언어의 이름이 반환되는 언어를 결정합니다. 값은 올바른 형식의 BCP 47 언어 태그여야 합니다. 이 코드는 `en` 값을 사용하여 언어 이름을 영어로 가져옵니다.
 
 `Languages` API는 다음과 같이 표시되는 JSON 응답을 반환합니다.
 
@@ -512,11 +511,11 @@ Microsoft Translator 서비스는 이 문서를 작성할 당시 총 61개 언�
 }
 ```
 
-언어 코드(예: `af`) 및 언어 이름(예: `Afrikaans`)을 추출하려고 합니다. 여기서는 NewtonSoft.Json 메서드 [JsonConvert.DeserializeObject](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm)를 사용하여 이 작업을 수행합니다.
+언어 코드(예: `af`) 및 언어 이름(예: `Afrikaans`)을 추출할 수 있도록 이 코드는 NewtonSoft.Json 메서드 [JsonConvert.DeserializeObject](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm)를 사용합니다.
 
 이 배경 정보를 사용하여 언어 코드와 해당 이름을 검색하는 다음 메서드를 만듭니다.
 
-```cs
+```csharp
 private void GetLanguagesForTranslate()
 {
     // send request to get supported language codes
@@ -541,15 +540,15 @@ private void GetLanguagesForTranslate()
 }
 ```
 
-`GetLanguagesForTranslate()`는 먼저 HTTP 요청을 만듭니다. `scope=translation` 쿼리 문자열 매개 변수는 텍스트 번역을 지원하려는 언어를 지정합니다. Text Translation API 구독 키를 요청 헤더에 추가합니다. 또한 값이 `en`인 `Accept-Language` 헤더를 추가하여 지원되는 언어가 영어로 반환되도록 지정합니다.
+`GetLanguagesForTranslate()`는 먼저 HTTP 요청을 만듭니다. `scope=translation` 쿼리 문자열 매개 변수는 텍스트 번역을 지원하는 언어만을 요청합니다. Text Translation API 구독 키는 요청 헤더에 추가됩니다. 지원되는 언어가 영어로 반환되도록 값이 `en`인 `Accept-Language` 헤더가 추가됩니다.
 
-요청이 완료되면 JSON 응답을 구문 분석하고 사전으로 변환합니다. `languageCodes` 멤버 변수에 언어 코드를 추가합니다. 그런 다음, 언어 코드와 친숙한 언어 이름을 포함하는 키/값 쌍을 반복하고 `languageCodesAndTitles` 멤버 변수에 추가합니다. 폼의 드롭다운 메뉴에는 이름이 표시되지만 번역을 요청하려면 코드가 필요합니다.
+요청이 완료된 후 JSON 응답은 구문 분석되고 사전으로 변환된 다음, 언어 코드는 `languageCodes` 멤버 변수에 추가됩니다. 언어 코드와 친숙한 언어 이름을 포함하는 키/값 쌍이 반복되고 `languageCodesAndTitles` 멤버 변수에 추가됩니다. (폼의 드롭다운 메뉴에는 이름이 표시되지만 번역을 요청하려면 코드가 필요합니다.)
 
 ## <a name="populate-the-language-menus"></a>언어 메뉴 채우기
 
-대부분의 사용자 인터페이스는 XAML로 정의되므로 `InitializeComponent()` 호출 외에는 설정하는 데 많은 작업이 필요하지 않습니다. 대상 및 원본 드롭다운에 친숙한 언어 이름을 추가하기만 하면 되며, 이 작업은 `PopulateLanguageMenus()`에서 수행됩니다.
+대부분의 사용자 인터페이스는 XAML로 정의되므로 `InitializeComponent()` 호출 외에는 설정하는 데 많은 작업이 필요하지 않습니다. **원본** 및 **대상** 드롭다운에 친숙한 언어 이름을 추가하기만 하면 되며, 이 작업은 `PopulateLanguageMenus()`에서 수행됩니다.
 
-```cs
+```csharp
 private void PopulateLanguageMenus()
 {
     // Add option to automatically detect the source language
@@ -568,18 +567,18 @@ private void PopulateLanguageMenus()
 }
 ```
 
-메뉴 채우기는 `languageCodesAndTitles` 사전을 반복하고 “친숙한” 이름인 각 키를 두 메뉴에 모두 추가하면 되는 간단한 작업입니다. 메뉴를 채운 후 기본 대상 및 원본 언어를 감지(언어 자동 감지) 및 영어로 설정합니다.
+메뉴 채우기는 `languageCodesAndTitles` 사전을 반복하고 “친숙한” 이름인 각 키를 두 메뉴에 모두 추가하면 되는 간단한 작업입니다. 메뉴를 채운 후 기본 "대상" 및 "원본" 언어는 **감지**(언어 자동 감지) 및 **영어**로 설정됩니다.
 
 > [!TIP]
-> 메뉴에 대해 기본 선택 사항을 설정하지 않을 경우 사용자가 대상 또는 원본 언어를 선택하지 않고 **번역**을 클릭할 수 있습니다. 기본값을 사용하면 이 문제를 처리할 필요가 없습니다.
+> 메뉴에 대해 기본 선택 사항을 설정하지 않을 경우 사용자는 "대상" 또는 "원본" 언어를 선택하지 않고 **번역**을 클릭할 수 있습니다. 기본값을 사용하면 이 문제를 처리할 필요가 없습니다.
 
-이제 `MainWindow`가 초기화되어 사용자 인터페이스를 만들었습니다. 사용자가 **번역** 단추를 클릭할 때까지는 다시 제어하지 않습니다.
+이제 `MainWindow`가 초기화되고 사용자 인터페이스가 생성되었으므로 코드는 사용자가**변역** 단추를 클릭할 때까지 대기합니다.
 
 ## <a name="perform-translation"></a>번역 수행
 
 사용자가 **번역**을 클릭하면 WPF에서 여기에 표시된 `TranslateButton_Click()` 이벤트 처리기를 호출합니다.
 
-```cs
+```csharp
 private async void TranslateButton_Click(object sender, EventArgs e)
 {
     string textToTranslate = TextToTranslate.Text.Trim();
@@ -652,22 +651,22 @@ private async void TranslateButton_Click(object sender, EventArgs e)
 }
 ```
 
-여기서는 먼저 사용자가 입력한 텍스트와 함께 대상 및 원본 언어를 폼에서 검색합니다.
+첫 번째 단계는 사용자가 입력한 텍스트와 함께 "대상" 및 "원본" 언어를 폼에서 검색하는 것입니다.
 
-원본 언어가 감지로 설정된 경우 `DetectLanguage()`를 호출하여 텍스트 언어를 확인합니다. 텍스트 언어가 Translator API에서 지원하지 않는 언어이거나(번역할 수 있는 언어보다 훨씬 더 많은 언어가 감지될 수 있음) 텍스트 분석 API가 감지하지 못할 수 있습니다. 이 경우 사용자에게 알리는 메시지를 표시하고, 번역하지 않고 돌아갑니다.
+원본 언어가 **감지**로 설정된 경우 `DetectLanguage()`를 호출하여 텍스트 언어를 확인합니다. 텍스트 언어가 Translator API에서 지원하지 않는 언어이거나(번역할 수 있는 언어보다 훨씬 더 많은 언어가 감지될 수 있음) 텍스트 분석 API가 감지하지 못할 수 있습니다. 이 경우 사용자에게 알리는 메시지를 표시하고, 번역하지 않고 돌아갑니다.
 
 지정 또는 감지되었는지에 관계없이 원본 언어가 영어인 경우 `CorrectSpelling()`을 사용하여 텍스트 맞춤법을 검사하고 수정 사항을 적용합니다. 수정한 텍스트가 입력 필드에 다시 채워지므로 사용자가 수정된 것을 알 수 있습니다. 사용자는 번역 중인 텍스트 앞에 하이픈을 추가하여 맞춤법 수정을 표시하지 않을 수 있습니다.
 
-사용자가 텍스트를 입력하지 않았거나 대상 및 원본 언어가 동일한 경우에는 번역이 필요하지 않습니다. 이 경우 요청을 수행하지 않습니다.
+사용자가 텍스트를 입력하지 않았거나 "대상" 및 "원본" 언어가 동일한 경우에는 번역이 필요하지 않고 요청을 방지할 수 있습니다.
 
-번역 요청을 수행하는 코드를 숙지해야 합니다. URI를 빌드하고, 요청을 만들어 전송하고, 응답을 구문 분석합니다. 텍스트를 표시하기 위해 `TranslatedTextLabel` 컨트롤에 저장합니다.
+변역 요청을 수행하는 코드는 URI 작성, 요청 만들기, 보내기 및 응답 구문 분석과 친숙해 보여야 합니다. 텍스트를 표시하려면 `TranslatedTextLabel` 컨트롤에 보냅니다.
 
-POST 요청 본문에 있는 직렬화된 JSON 배열을 통해 `Translate` API에 텍스트를 전달합니다. JSON 배열에는 번역할 텍스트가 여러 개 포함될 수 있지만 여기서는 하나만 포함합니다.
+다음으로 POST 요청 본문에 있는 직렬화된 JSON 배열을 통해 `Translate` API에 텍스트를 전달합니다. JSON 배열에는 번역할 텍스트가 여러 개 포함될 수 있지만 여기서는 하나만 필요합니다.
 
 `X-ClientTraceId`라는 HTTP 헤더는 선택 사항입니다. 값은 GUID여야 합니다. 클라이언트가 제공하는 추적 ID는 요청이 예상대로 작동하지 않을 경우 요청을 추적하는 데 유용합니다. 그러나 유용하려면 클라이언트가 X-ClientTraceID 값을 기록해야 합니다. 클라이언트 추적 ID와 요청 날짜는 발생할 수 있는 문제를 Microsoft에서 진단하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 이 자습서에서는 Microsoft Translator 서비스에 대해 중점적으로 설명하므로 `DetectLanguage()` 및 `CorrectSpelling()` 메서드는 자세히 다루지 않습니다. 텍스트 분석 및 Bing Spell Check 서비스는 XML이 아닌 JSON으로 응답을 제공하며, 텍스트 분석에서는 요청도 JSON 형식으로 지정해야 합니다. 이미 확인한 메서드와의 코드 차이점은 이러한 특성으로 대부분 설명됩니다.
+> 이 자습서에서는 Microsoft Translator 서비스에 대해 중점적으로 설명하므로 `DetectLanguage()` 및 `CorrectSpelling()` 메서드는 자세히 다루지 않습니다. 텍스트 분석 및 Bing Spell Check 서비스는 XML이 아닌 JSON으로 응답을 제공하며, 텍스트 분석에서는 요청도 JSON 형식으로 지정해야 합니다. 여기에서 설명한 메서드와의 코드 차이점은 이러한 특성으로 대부분 설명됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

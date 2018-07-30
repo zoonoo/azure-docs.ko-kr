@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a66d845fcf7507613cda475bbc96225f8a7cc7eb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126876"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185400"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기
 
@@ -144,7 +144,7 @@ Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Visual Studio Code를 사용하여 템플릿을 만드는 방법과 Azure Portal Cloud Shell을 사용하여 템플릿을 배포하는 방법을 알아보았습니다. 이 빠른 시작에 사용된 템플릿에는 하나의 Azure 리소스만 포함되어 있습니다.  다음 자습서에서는 여러 리소스가 있는 템플릿을 개발합니다.  일부 리소스에는 종속 리소스가 있습니다.
+이 자습서에서는 Visual Studio Code를 사용하여 템플릿을 만드는 방법과 Azure Portal Cloud Shell을 사용하여 템플릿을 배포하는 방법을 알아보았습니다. 다음 자습서에서는 템플릿을 개발하는 방법과 템플릿 참조를 사용하는 방법을 자세히 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Visual Studio를 사용하여 템플릿 만들기](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+> [암호화된 저장소 계정 만들기](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

@@ -1,8 +1,8 @@
 ---
-title: Java를 사용하여 Azure Device Provisioning Service에 X.509 장치 등록 | Microsoft Docs
-description: Azure 빠른 시작 - Java 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 장치 등록
-author: dsk-2015
-ms.author: dkshir
+title: 이 빠른 시작에서는 Java를 사용하여 Azure Device Provisioning Service에 X.509 장치를 등록하는 방법을 보여줌 | Microsoft Docs
+description: 이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 장치를 등록합니다.
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/20/2017
 ms.topic: quickstart
 ms.service: iot-dps
@@ -10,51 +10,42 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: e9400c476179d801eb66f574373bf75cfb672d9d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 505aee35c839a0224ca158d918fc5e54dc6e0f28
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091087"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205768"
 ---
-# <a name="enroll-x509-devices-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 X.509 장치 등록
+# <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 장치 등록
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-다음 단계에서는 샘플 Java 응용 프로그램을 통해 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 시뮬레이션된 X.509 장치 그룹을 Azure IoT Hub Device Provisioning Service에 프로그래밍 방식으로 등록하는 방법을 보여 줍니다. Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
+이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 시뮬레이션된 장치 그룹을 프로그래밍 방식으로 등록하는 방법을 보여줍니다. 장치는 [등록 그룹](concepts-service.md#enrollment-group) 또는 [개별 등록](concepts-service.md#individual-enrollment)을 만들어 프로비전 서비스 인스턴스에 등록됩니다. 이 빠른 시작에는 두 가지 유형의 등록을 만드는 방법을 보여줍니다. 등록은 샘플 Java 응용 프로그램의 도움으로 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 생성됩니다. 
 
-계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service를 설정](./quick-setup-auto-provision.md)해야 합니다.
+이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 이미 만들었다고 예상합니다. 이러한 리소스를 아직 만들지 않은 경우 이 문서를 계속하기 전에 [Azure Portal을 사용하여 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)을 완료합니다.
 
-<a id="setupdevbox"></a>
+Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
 
-## <a name="prepare-the-development-environment"></a>개발 환경 준비 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-1. 컴퓨터에 [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 설치되어 있는지 확인합니다. 
+## <a name="prerequisites"></a>필수 조건
 
-2. Java 설치 환경 변수를 설정합니다. `PATH` 변수에는 *jdk1.8.x\bin* 디렉터리의 전체 경로가 포함되어야 합니다. 컴퓨터의 첫 번째 Java 설치인 경우 `JAVA_HOME`이라는 새 환경 변수를 만들고 *jdk1.8.x* 디렉터리의 전체 경로를 가리키도록 지정합니다. Windows 컴퓨터에서 이 디렉터리는 일반적으로 *C:\\Program Files\\Java\\* 폴더에 있으며, Windows 컴퓨터의 **제어판**에서 **시스템 환경 변수 편집**을 검색하여 환경 변수를 만들거나 편집할 수 있습니다. 
+* [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)을 설치합니다.
+* [Maven 3](https://maven.apache.org/download.cgi)을 설치합니다. 다음을 실행하여 현재 Maven 버전을 확인할 수 있습니다.
 
-  명령 창에서 다음 명령을 실행하여 Java가 컴퓨터에 성공적으로 설치되었는지 확인할 수 있습니다.
-
-    ```cmd\sh
-    java -version
-    ```
-
-3. 컴퓨터에서 [Maven 3](https://maven.apache.org/download.cgi)을 다운로드하고 추출합니다. 
-
-4. Maven이 추출된 폴더 내의 *apache-maven-3.x.x\\bin* 폴더를 가리키도록 `PATH` 환경 변수를 편집합니다. 명령 창에서 다음 명령을 실행하여 Maven이 성공적으로 설치되었는지 확인할 수 있습니다:
-
-    ```cmd\sh
+    ```cmd/sh
     mvn --version
     ```
 
-5. 컴퓨터에 [git](https://git-scm.com/download/)가 설치되어 있고 `PATH` 환경 변수에 추가되었는지 확인합니다. 
+* [Git](https://git-scm.com/download/)를 설치합니다.
 
 
 <a id="javasample"></a>
 
 ## <a name="download-and-modify-the-java-sample-code"></a>Java 샘플 코드 다운로드 및 수정
 
-이 섹션에서는 자체 서명된 X.509 인증서를 사용하고 다음에 유의해야 합니다.
+이 섹션에서는 자체 서명된 X.509 인증서를 사용하고 다음 사항에 유의해야 합니다.
 
 * 자체 서명된 인증서는 테스트 목적으로만 사용되며 프로덕션 환경에서 사용하지 마십시오.
 * 자체 서명된 인증서에 대한 기본 만료일은 1년입니다.
@@ -71,7 +62,7 @@ ms.locfileid: "39091087"
 
     1. 다음과 같이 포털에서 프로비전 서비스에 대한 `[Provisioning Connection String]`을 추가합니다.
         1. [Azure Portal](https://portal.azure.com)에서 프로비전 서비스로 이동합니다. 
-        2. **공유 액세스 정책**을 열고 *EnrollmentWrite* 권한이 있는 정책을 선택합니다.
+        2. **공유 액세스 정책**을 열고, *EnrollmentWrite* 권한이 있는 정책을 선택합니다.
         3. **기본 키 연결 문자열**을 복사합니다. 
 
             ![포털에서 프로비전 연결 문자열 가져오기](./media/quick-enroll-device-x509-java/provisioning-string.png)  

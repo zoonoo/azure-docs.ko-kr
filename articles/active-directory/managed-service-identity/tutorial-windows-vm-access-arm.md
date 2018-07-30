@@ -1,6 +1,6 @@
 ---
 title: Windows VM MSI를 사용하여 Azure Resource Manager 액세스
-description: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다.
+description: Windows VM 관리 서비스 ID를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bd314dd1543280cf2533e45f156ca634d15d1d2a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006967"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247247"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Windows VM MSI(관리 서비스 ID)를 사용하여 Resource Manager 액세스
+# <a name="use-a-windows-vm-managed-service-identity-to-access-resource-manager"></a>Windows VM 관리 서비스 ID를 사용하여 Resource Manager 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows VM(가상 머신)에 대해 MSI(관리 서비스 ID)를 사용하도록 설정하는 방법을 보여 줍니다. 그런 다음 해당 ID를 사용하여 Azure Resource Manager API에 액세스할 수 있습니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Windows VM(가상 머신)에 대해 관리 서비스 ID를 사용하도록 설정하는 방법을 보여 줍니다. 그런 다음 해당 ID를 사용하여 Azure Resource Manager API에 액세스할 수 있습니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Windows VM에서 MSI를 사용하도록 설정 
+> * Windows VM에서 관리 서비스 ID를 사용하도록 설정 
 > * VM에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져온 다음 Azure Resource Manager를 호출하는 데 사용
 
@@ -43,7 +43,7 @@ ms.locfileid: "39006967"
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 머신 만들기
 
-이 자습서에서는 새 Windows VM을 만듭니다.  기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
+이 자습서에서는 새 Windows VM을 만듭니다.  또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
 
 1.  Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
 2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
@@ -54,18 +54,18 @@ ms.locfileid: "39006967"
 
     ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정 
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정 
 
-VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
+VM 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
 
-1.  MSI를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
+1.  관리 서비스 ID를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
 2.  왼쪽 탐색 모음에서 **구성**을 클릭합니다. 
-3.  **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
+3.  **관리 서비스 ID**가 표시됩니다. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
 4.  **저장**을 클릭하여 구성을 저장합니다.  
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>VM에 Resource Manager의 리소스 그룹 액세스 권한 부여
-코드는 MSI를 사용하여 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  Azure Resource Manager는 Azure AD 인증을 지원합니다.  먼저 이 VM의 ID에 Azure Resource Manager의 리소스(이 예제에서는 VM이 포함된 리소스 그룹)에 대한 액세스 권한을 부여해야 합니다.  
+코드는 관리 서비스 ID를 사용하여 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  Azure Resource Manager는 Azure AD 인증을 지원합니다.  먼저 이 VM의 ID에 Azure Resource Manager의 리소스(이 예제에서는 VM이 포함된 리소스 그룹)에 대한 액세스 권한을 부여해야 합니다.  
 
 1.  **리소스 그룹**의 탭으로 이동합니다. 
 2.  **Windows VM**용으로 만든 특정 **리소스 그룹**을 선택합니다. 
@@ -84,7 +84,7 @@ VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure A
 1.  Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요**에서 **연결**을 클릭합니다. 
 2.  Windows VM을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다. 
 3.  이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다. 
-4.  Powershell의 Invoke-WebRequest를 사용하여 로컬 MSI 끝점에 대한 요청을 수행해 Azure Resource Manager용 액세스 토큰을 가져옵니다.
+4.  PowerShell의 Invoke-WebRequest를 사용하여 로컬 관리 서비스 ID 엔드포인트에 대한 요청을 수행해 Azure Resource Manager용 액세스 토큰을 가져옵니다.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

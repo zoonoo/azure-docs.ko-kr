@@ -1,41 +1,40 @@
 ---
-title: "Azure Portal을 사용하여 Azure DNS 시작 | Microsoft Docs"
-description: "Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. Azure Portal을 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다."
+title: 빠른 시작 - Azure Portal을 사용하여 DNS 영역 및 레코드 만들기
+description: Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. Azure Portal을 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
 services: dns
-documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
-editor: 
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: quickstart
+ms.date: 6/13/2018
+ms.author: victorh
+ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174652"
 ---
-# <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure DNS 시작
+# <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이름 확인을 위한 Azure DNS 구성
 
-> [!div class="op_single_selector"]
-> * [Azure 포털](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
+ 공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 contoso.com 도메인 이름을 구입한 경우 Azure DNS가 contoso.com 도메인을 호스트하고 www.contoso.com을 웹 서버 또는 웹앱의 IP 주소로 확인하도록 구성할 수 있습니다.
 
-이 문서에서는 Azure Portal을 사용하여 DNS 영역 및 레코드를 만드는 단계를 안내합니다. Azure PowerShell 또는 플랫폼 간 Azure CLI를 사용하여 이러한 단계를 수행할 수도 있습니다.
+이 빠른 시작에서는 테스트 도메인을 만들고, IP 주소 10.10.10.10으로 확인되는 'www'라는 주소 레코드를 만듭니다.
 
-DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 레코드가 생성됩니다. 마지막으로 DNS 영역을 인터넷에 게시하려면 도메인에 대한 이름 서버를 구성해야 합니다. 각 단계는 다음 단계에 설명되어 있습니다.
+이 빠른 시작에 사용되는 모든 이름 및 IP 주소는 예제일 뿐이며, 실제 시나리오를 반영하지 않습니다. 그러나 해당하는 경우 실제 시나리오도 설명되어 있습니다.
+
+<!---
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+--->
+
+DNS 영역은 특정 도메인에 대한 DNS 항목을 포함하는 데 사용됩니다. Azure DNS에서 도메인 호스팅을 시작하려면 해당 도메인 이름의 DNS 영역을 만들어야 합니다. 그러면 이 DNS 영역 안에 도메인의 각 DNS 항목(또는 레코드)이 생성됩니다. 다음은 이 작업을 수행하는 단계입니다.
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
 1. Azure 포털에 로그인합니다.
-2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 >**을 클릭한 다음, **DNS 영역**을 클릭하여 **DNS 영역 만들기** 페이지를 엽니다.
+2. 왼쪽 위에서 **+ 리소스 만들기**, **네트워킹**, **DNS 영역**을 차례로 클릭하여 **DNS 영역 만들기** 페이지를 엽니다.
 
     ![DNS 영역](./media/dns-getstarted-portal/openzone650.png)
 
@@ -44,61 +43,67 @@ DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 �
 
    | **설정** | **값** | **세부 정보** |
    |---|---|---|
-   |**Name**|contoso.com|DNS 영역의 이름|
+   |**Name**|contoso.xyz|이 예제의 DNS 영역 이름입니다. 아직 Azure DNS에서 구성되지 않은 한, 이 빠른 시작에서 원하는 값을 사용할 수 있습니다. 실제 값은 도메인 이름 등록 기관에서 구입한 도메인입니다.|
    |**구독**|[구독 이름]|DNS 영역을 만들 구독을 선택합니다.|
-   |**리소스 그룹**|**새로 만들기:** contosoDNSRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. 리소스 그룹에 대해 자세히 알아보려면 [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) 개요 문서를 참조하세요.|
-   |**위치**:|미국 서부||
+   |**리소스 그룹**|**새로 만들기:** dns-test|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다. |
+   |**위치**:|미국 동부||
 
-> [!NOTE]
-> 리소스 그룹은 리소스 그룹의 위치를 나타내며 DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "전역"이며 표시되지 않습니다.
+영역을 만드는 데 몇 분이 걸릴 수 있습니다.
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-다음 예제에서는 새로운 'A' 레코드를 만드는 과정을 안내합니다. 다른 레코드 유형을 알아보고 기존 레코드를 수정하려면 [Azure Portal을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-portal.md)를 참조하세요. 
+새 주소 레코드('A' 레코드)를 만듭니다. 'A' 레코드는 호스트 이름을 IP v4 주소로 확인하는 데 사용됩니다.
 
-1. DNS 영역을 만든 후 Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. 모든 리소스 페이지에서 **contoso.com** DNS 영역을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링...**에 **contoso.com**을 입력합니다. DNS 영역에 간편하게 액세스할 수 있는 상자입니다.
+1. Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. [모든 리소스] 페이지에서 **contoso.com** DNS 영역을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링...** 에 **contoso.xyz**를 입력합니다. DNS 영역에 간편하게 액세스할 수 있는 상자입니다.
 
 1. **DNS 영역** 페이지의 위쪽에서 **+ 레코드 집합**을 클릭하여 **레코드 집합 추가** 페이지를 엽니다.
 
-1. **레코드 집합 추가** 페이지에서 다음 값을 입력하고 **확인**을 클릭합니다. 이 예에서는 A 레코드를 만들 것입니다.
+1. **레코드 집합 추가** 페이지에서 다음 값을 입력하고 **확인**을 클릭합니다. 이 예에서는 'A' 레코드를 만듭니다.
 
    |**설정** | **값** | **세부 정보** |
    |---|---|---|
-   |**Name**|www|레코드 이름|
-   |**형식**|A| 만들 DNS 레코드 유형, 사용할 수 있는 값은 A, AAAA, CNAME, MX, NS, SRV, TXT 및 PTR입니다.  레코드 유형에 대한 자세한 내용은 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하세요.|
-   |**TTL**|1|DNS 요청의 Time-to-Live입니다.|
-   |**TTL 단위**|시간|TTL 값에 대한 시간 측정입니다.|
-   |**IP 주소**|ipAddressValue| 이 값은 DNS 레코드가 확인하는 IP 주소입니다.|
-
-## <a name="view-records"></a>레코드 보기
-
-DNS 영역 페이지의 아래쪽에서 DNS 영역에 대한 레코드를 볼 수 있습니다. 모든 영역에 생성된 기본 DNS 및 SOA 레코드와 사용자가 생성한 모든 새 레코드가 표시됩니다.
-
-![영역](./media/dns-getstarted-portal/viewzone500.png)
+   |**Name**|www|레코드 이름. IP 주소를 확인하려는 호스트에 사용할 이름입니다.|
+   |**형식**|A| 만들 DNS 레코드의 형식입니다. 'A' 레코드가 가장 일반적이지만, 메일 서버(MX), IP v6 주소(AAAA) 등에 대한 다른 레코드 형식도 있습니다. |
+   |**TTL**|1|DNS 요청의 Time-to-Live입니다. DNS 서버 및 클라이언트가 응답을 캐시할 수 있는 시간을 지정합니다.|
+   |**TTL 단위**|hours|TTL 값에 대한 시간 측정입니다.|
+   |**IP 주소**|10.10.10.10| 이 값은 'A' 레코드가 확인하는 IP 주소입니다. 이 빠른 시작의 테스트 값일 뿐입니다. 실제 사례에서는 웹 서버의 공용 IP 주소를 입력해야 합니다.|
 
 
-## <a name="update-name-servers"></a>이름 서버 업데이트
+이 빠른 시작에서는 실제 도메인 이름을 구매하지 않으므로 도메인 이름 등록자를 사용하여 Azure DNS를 이름 서버로 구성할 필요가 없습니다. 하지만 실제 시나리오에서는 인터넷 상의 누구든지 호스트 이름을 확인하여 웹 서버 또는 앱에 연결할 수 있게 설정할 것입니다. 실제 시나리오에 대한 자세한 내용은 [Azure DNS에 도메인 위임](dns-delegate-domain-azure-dns.md)을 참조하세요.
 
-DNS 영역 및 레코드가 적절히 설정되었다면 Azure DNS 이름 서버를 사용하도록 도메인 이름을 구성해야 합니다. 이렇게 하면 인터넷에 있는 다른 사용자가 DNS 레코드를 찾을 수 있습니다.
 
-영역에 대한 이름 서버는 Azure 포털에 제공됩니다.
+## <a name="test-the-name-resolution"></a>이름 확인 테스트
 
-![영역](./media/dns-getstarted-portal/viewzonens500.png)
+테스트 영역을 만들고 그 안에 테스트 'A' 레코드가 생겼으니, nslookup이라는 도구를 사용하여 이름 확인을 테스트할 수 있습니다. 
 
-이러한 이름 서버는 사용자가 도메인 이름을 구입한 도메인 이름 등록 기관에서 구성해야 합니다. 등록 기관에서 도메인의 이름 서버를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+1. 먼저 nslookup에 사용할 Azure DNS 이름 서버를 기록해 두어야 합니다. 
 
-## <a name="delete-all-resources"></a>모든 리소스 삭제
+   영역의 이름 서버는 DNS 영역 **개요** 페이지에 나열됩니다. 이름 서버 중 하나의 이름을 복사합니다.
 
-이 문서에서 만든 모든 리소스를 삭제하려면 다음 단계를 완료합니다.
+   ![영역](./media/dns-getstarted-portal/viewzonens500.png)
 
-1. Azure Portal의 **즐겨찾기** 창에서 **모든 리소스**를 클릭합니다. 모든 리소스 페이지에서 **MyResourceGroup** 리소스 그룹을 클릭합니다. 선택한 구독에 이미 여러 개의 리소스가 있는 경우 **이름을 기준으로 필터링...**에 **MyResourceGroup**을 입력합니다. 리소스 그룹에 간편하게 액세스할 수 있는 상자입니다.
-1. **MyResourceGroup** 페이지에서 **삭제** 단추를 클릭합니다.
-1. 포털에서 삭제할 리소스 그룹의 이름을 입력하여 리소스 그룹 삭제를 확인해야 합니다. **삭제**를 클릭하고, 리소스 그룹 이름으로 *MyResourceGroup*을 입력한 다음 **삭제**를 클릭합니다. 리소스 그룹을 삭제하면 리소스 그룹 내 모든 리소스가 삭제되므로 리소스 그룹을 삭제하기 전에 리소스 그룹의 콘텐츠를 항상 확인해야 합니다. 포털에서 리소스 그룹 내 포함된 모든 리소스가 삭제된 다음 리소스 그룹 자체가 삭제됩니다. 이 프로세스는 몇 분 정도 걸립니다.
+2. 이제 명령 프롬프트를 열고 다음 명령을 실행합니다.
+
+   ```
+   nslookup <host name> <name server>
+   
+   For example:
+
+   nslookup www.contoso.xyz ns1-08.azure-dns.com
+   ```
+
+다음 스크린샷과 비슷한 내용이 표시됩니다.
+
+![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+이름 확인이 올바르게 작동하는지 확인합니다. www.contoso.xyz는 여러분이 구성한 것처럼 10.10.10.10으로 확인됩니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+더 이상 필요 없어서 **dns-test** 리소스 그룹을 삭제하면 이 빠른 시작에서 만든 리소스가 삭제됩니다. 이렇게 하려면 **dns-test** 리소스 그룹을 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure DNS에 대한 자세한 내용은 [Azure DNS 개요](dns-overview.md)를 참조하세요.
-
-Azure DNS에서 DNS 레코드 관리에 대한 자세한 내용은 [Azure Portal을 사용하여 DNS 레코드 및 레코드 집합 관리](dns-operations-recordsets-portal.md)를 참조하세요.
-
+> [!div class="nextstepaction"]
+> [사용자 지정 도메인에서 웹앱에 대한 DNS 레코드 만들기](./dns-web-sites-custom-domain.md)

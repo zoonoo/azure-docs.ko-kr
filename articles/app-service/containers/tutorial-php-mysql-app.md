@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dd9c6f2969bfbcd1b2170c0685ab69b8b2ce70da
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317993"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224316"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 PHP 및 MySQL 웹앱 작성
 
@@ -152,7 +152,7 @@ PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ## <a name="create-mysql-in-azure"></a>Azure에서 MySQL 만들기
 
-이 단계에서는 [MySQL용 Azure 데이터베이스(미리 보기)](/azure/mysql)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 응용 프로그램을 구성합니다.
+이 단계에서는 [Azure Database for MySQL](/azure/mysql)에서 MySQL 데이터베이스를 만듭니다. 나중에 이 데이터베이스에 연결할 PHP 응용 프로그램을 구성합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -160,7 +160,7 @@ PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 
 ### <a name="create-a-mysql-server"></a>MySQL 서버 만들기
 
-[`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL(미리 보기)의 서버를 만듭니다.
+[`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create) 명령을 사용하여 Azure Database for MySQL의 서버를 만듭니다.
 
 다음 명령에서 _&lt;mysql_server_name>_ 자리 표시자를 고유한 MySQL 서버 이름으로 바꿉니다(유효한 문자: `a-z`, `0-9` 및 `-`). 이 이름은 MySQL 서버의 호스트 이름(`<mysql_server_name>.database.windows.net`)의 일부이며, 전역적으로 고유해야 합니다.
 
@@ -230,7 +230,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>Azure MySQL에 앱 연결
 
-이 단계에서는 MySQL용 Azure 데이터베이스(미리 보기)에서 만든 MySQL 데이터베이스에 PHP 응용 프로그램을 연결합니다.
+이 단계에서는 Azure Database for MySQL에서 만든 MySQL 데이터베이스에 PHP 응용 프로그램을 연결합니다.
 
 <a name="devconfig"></a>
 
@@ -254,7 +254,7 @@ MYSQL_SSL=true
 변경 내용을 저장합니다.
 
 > [!TIP]
-> MySQL 연결 정보를 보호하기 위해 이 파일은 이미 Git 리포지토리에서 제외됩니다(리포지토리 루트의 _.gitignore_ 참조). 나중에 MySQL용 Azure 데이터베이스(미리 보기)에서 데이터베이스에 연결하도록 App Service에서 환경 변수를 구성하는 방법에 대해 알아봅니다. 환경 변수를 사용하면 App Service에서 *.env* 파일이 필요하지 않습니다.
+> MySQL 연결 정보를 보호하기 위해 이 파일은 이미 Git 리포지토리에서 제외됩니다(리포지토리 루트의 _.gitignore_ 참조). 나중에 Azure Database for MySQL에서 데이터베이스에 연결하도록 App Service에서 환경 변수를 구성하는 방법에 대해 알아봅니다. 환경 변수를 사용하면 App Service에서 *.env* 파일이 필요하지 않습니다.
 >
 
 ### <a name="configure-ssl-certificate"></a>SSL 인증서 구성
@@ -277,7 +277,7 @@ MYSQL_SSL=true
 
 ### <a name="test-the-application-locally"></a>로컬에서 응용 프로그램 테스트
 
-_.env.production_을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 MySQL용 Azure 데이터베이스(미리 보기)에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
+_.env.production_을 환경 파일로 사용해서 Laravel 데이터베이스 마이그레이션을 실행하고 Azure Database for MySQL에서 MySQL 데이터베이스에 테이블을 만듭니다. _.env.production_에는 Azure의 MySQL 데이터베이스에 대한 연결 정보가 있습니다.
 
 ```bash
 php artisan migrate --env=production --force
@@ -299,7 +299,7 @@ php artisan serve --env=production
 
 해당 페이지에서 몇 가지 작업을 추가합니다.
 
-![PHP가 MySQL용 Azure 데이터베이스(미리 보기)에 데이터베이스에 성공적으로 연결됨](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![PHP가 Azure Database for MySQL에 성공적으로 연결됨](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 PHP를 중지하려면 터미널에서 `Ctrl + C`를 입력합니다.
 

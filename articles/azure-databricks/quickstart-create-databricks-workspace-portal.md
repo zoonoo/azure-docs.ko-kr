@@ -1,25 +1,22 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행 | Microsoft Docs'
+title: '빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행'
 description: 빠른 시작은 Azure Portal을 사용하여 Azure Databricks 작업 영역, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
+ms.service: azure-databricks
+author: jasonwhowell
+ms.author: jasonh
 manager: cgronlun
 editor: cgronlun
-ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232435"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225349"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -41,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Azure Portal의 Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Azure Portal의 Databricks")
 
-3. **Azure Databricks 서비스** 아래에서 Databricks 작업 영역을 만들기 위한 값을 제공합니다.
+2. **Azure Databricks 서비스** 아래에서 Databricks 작업 영역을 만들기 위한 값을 제공합니다.
 
     ![Azure Databricks 작업 영역 만들기](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Azure Databricks 작업 영역 만들기")
 
@@ -63,6 +60,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Databricks에서 Spark 클러스터 만들기
 
+> [!NOTE] 
+> 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/en-us/free/)을 참조하세요.  
+
 1. Azure Portal에서 사용자가 만든 Databricks 작업 영역으로 이동한 다음, **작업 영역 시작**을 클릭합니다.
 
 2. Azure Databricks 포털로 리디렉션됩니다. 포털에서 **클러스터**를 클릭합니다.
@@ -83,17 +83,37 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](https://docs.azuredatabricks.net/user-guide/clusters/create.html)를 참조하세요.
 
+
+## <a name="download-a-sample-data-file"></a>샘플 데이터 파일 다운로드
+샘플 JSON 데이터 파일을 다운로드하고 Azure Blob 저장소에 저장합니다.
+
+1. 이 샘플 JSON 데이터 파일을 [Github에서](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 로컬 컴퓨터로 다운로드합니다. 마우스 오른쪽 단추로 클릭하고 원시 파일을 로컬로 저장하도록 다른 이름으로 저장합니다. 
+
+2. 저장소 계정이 아직 없는 경우 만듭니다. 
+   - Azure Portal에서 **리소스 만들기**를 선택합니다.  **저장소** 범주를 선택하고, **저장소 계정**을 선택합니다.  
+   - 저장소 계정에 고유한 이름을 제공합니다.
+   - **계정 종류** 선택: **Blob Storage**
+   - **리소스 그룹** 이름을 선택합니다. Databricks 작업 영역을 만든 것과 동일한 리소스 그룹을 사용합니다.
+   
+   자세한 내용은 [Azure Blob 저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 
+
+3. Blob Storage 계정에 저장소 컨테이너를 만들고 컨테이너에 샘플 json 파일을 업로드합니다. Azure Portal 또는 [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
+
+   - Azure Portal에서 저장소 계정을 엽니다.
+   - **Blob**을 선택합니다.
+   - **+ 컨테이너**를 선택하여 새 빈 컨테이너를 만듭니다.
+   - 컨테이너에 **이름**을 제공합니다(예: `databricks`). 
+   - **개인(익명이 아닌 액세스)** 액세스 수준을 선택합니다.
+   - 컨테이너가 만들어지면 컨테이너 이름을 선택합니다.
+   - **업데이트** 단추를 선택합니다.
+   - **파일** 페이지에서 **폴더 아이콘**을 선택하여 업로드를 위해 `small_radio_json.json` 샘플 파일을 찾고 선택합니다. 
+   - **업로드**를 선택하여 파일을 업로드합니다.
+   
+   
 ## <a name="run-a-spark-sql-job"></a>Spark SQL 작업 실행
-
-이 섹션을 시작하기 전에 다음 필수 구성 요소를 완료해야 합니다.
-
-* [Azure Blob Storage 계정을 만듭니다](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* [Github에서](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 샘플 JSON 파일을 다운로드합니다. 
-* 사용자가 만든 Azure Blob Storage 계정에 샘플 JSON 파일을 업로드합니다. [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 파일을 업로드할 수 있습니다.
-
 다음 작업을 수행하여 Databricks에서 노트북을 만들고, Azure Blob 저장소 계정에서 데이터를 읽는 노트북을 구성한 다음, 이 데이터에 대해 Spark SQL 작업을 실행합니다.
 
-1. 왼쪽 창에서 **작업 영역**을 클릭합니다. **작업 영역** 드롭 다운에서 **만들기**를 클릭한 다음, **Notebook**을 클릭합니다.
+1. 왼쪽 창에서 **작업 영역**을 클릭합니다. **작업 영역** 드롭다운에서 **만들기**를 클릭한 다음, **Notebook**을 클릭합니다.
 
     ![Databricks에서 노트북 만들기](./media/quickstart-create-databricks-workspace-portal/databricks-create-notebook.png "Databricks에서 노트북 만들기")
 
@@ -170,7 +190,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     * **값**을 **수준**으로 설정합니다.
     * **집계**를 **COUNT**로 설정합니다.
 
-    **Apply**를 클릭합니다.
+    **적용**을 클릭합니다.
 
 9. 출력은 다음 스크린샷에 표시된 것처럼 시각적인 표시를 보여줍니다.
 

@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 47db87bf734674bd424fecd0f0f22bff9e2df5d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299257"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173508"
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
 
-비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 장치가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. 
+비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 장치가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure ML에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md)를 참조하세요.
 
 이 자습서에서 만드는 Azure Machine Learning 모듈은 장치에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다.
 
@@ -41,16 +41,16 @@ Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
 
 개발 컴퓨터에 다음 필수 구성 요소가 있어야 합니다. 
 * Azure Machine Learning 계정입니다. [Azure Machine Learning 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
-* 컴퓨터에 있는 Azure ML용 모듈 관리입니다. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](../machine-learning/desktop-workbench/deployment-setup-configuration.md)의 지침을 따릅니다.
+* 머신에 있는 Azure ML용 모델 관리. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](../machine-learning/desktop-workbench/deployment-setup-configuration.md)의 지침을 따릅니다. 배포 설정 과정에서 가능하다면 클러스터 대신 로컬 단계를 선택하는 것이 좋습니다.
 
 ### <a name="disable-process-identification"></a>프로세스 식별 사용 안 함
 
 >[!NOTE]
 >
 > 미리 보기로 있는 동안 Azure Machine Learning은 IoT Edge에서 기본적으로 사용하도록 설정된 프로세스 식별 보안 기능을 지원하지 않습니다. 
-> 이를 사용하지 않도록 설정하는 단계는 다음과 같습니다. 그러나 프로덕션 환경에서 사용하는 경우 이러한 단계는 적합하지 않습니다.
+> 이를 사용하지 않도록 설정하는 단계는 다음과 같습니다. 그러나 프로덕션 환경에서 사용하는 경우 이러한 단계는 적합하지 않습니다. Windows Edge 런타임 설치 단계에서 이 단계를 이미 완료했으므로 Linux에서만 이 단계를 수행하면 됩니다.
 
-프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **connect** 섹션에 **workload_uri** 및 **management_uri**에 대한 IP 주소와 포트를 제공해야 합니다.
+IoT Edge 장치에서 프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **연결** 섹션에서 **workload_uri** 및 **management_uri**의 IP 주소와 포트를 입력해야 합니다.
 
 먼저 IP 주소를 가져옵니다. 명령줄에 `ifconfig`를 입력하고 **docker0** 인터페이스의 IP 주소를 복사합니다.
 
@@ -131,7 +131,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 
 1. 만든 기계 학습 모듈을 추가합니다.
 
-    1. **추가**를 클릭하고 **Azure Machine Learning 모듈**을 선택합니다.
+    1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
     1. **이름** 필드에 `machinelearningmodule`을 입력합니다.
     1. **이미지** 필드에 이미지 주소(예: `<registry_name>.azurecr.io/machinelearningmodule:1`)를 입력합니다.
     1. **저장**을 선택합니다.

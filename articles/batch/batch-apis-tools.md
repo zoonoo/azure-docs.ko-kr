@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: get-started-article
 ms.date: 05/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4a47c7355e8dfea97f7dee6787da87444a7642c3
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 1e7ec091bb2e4ceee84b9451456b1e5b386dc648
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359325"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173931"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>Batch API 및 도구 개요
 
 Azure Batch를 통한 병렬 워크로드 처리는 일반적으로 [Batch API](#batch-development-apis)중 하나를 사용하여 프로그래밍 방식으로 수행됩니다. 클라이언트 응용 프로그램 또는 서비스는 Batch API를 통해 Batch 서비스와 통신할 수 있습니다. Batch API를 사용하면 가상 머신 또는 클라우드 서비스 중 하나인 계산 노드의 풀을 만들고 관리할 수 있습니다. 그런 다음 해당 노드에서 작업과 태스크를 실행하도록 예약할 수 있습니다. 
 
-조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md?toc=%2fazure%2fbatch%2ftoc.json)와 같은 도구에서 관리하는 대규모 워크플로의 일부로 Azure Batch를 사용할 수도 있습니다.
+조직의 대규모 워크로드를 효율적으로 처리하거나 고객에게 서비스 프런트 엔드를 제공할 수 있으므로 요청 시 또는 일정에 따라 작업 및 태스크를 단일, 수백 또는 수천 개의 노드에서 실행할 수 있습니다. 또한 [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md?toc=%2fazure%2fbatch%2ftoc.json)와 같은 도구에서 관리하는 대규모 워크플로의 일부로 Azure Batch를 사용할 수도 있습니다.
 
 > [!TIP]
 > Batch API에서 제공하는 기능을 좀더 자세히 알아볼 준비가 되면 [개발자를 위한 Batch 기능 개요](batch-api-basics.md)를 확인하세요.
@@ -67,7 +67,7 @@ Batch용 Azure Resource Manager API는 Batch 계정에 대한 프로그래밍 �
 Batch 응용 프로그램 및 서비스를 빌드 및 디버깅하는 데 도움이 될 수 있는 추가 도구는 다음과 같습니다.
 
 * [Azure Portal][portal]: Azure Portal에서 Batch 풀, 작업 및 태스크를 만들고 모니터링하고 삭제할 수 있습니다. 작업을 실행하는 동안 해당하는 리소스 풀 및 다른 리소스 풀에 대한 상태 정보를 보고 풀에 있는 계산 노드에서 파일을 다운로드할 수 있습니다. 예를 들어 문제를 해결하는 동안 실패한 작업의 `stderr.txt`를 다운로드할 수 있습니다. 또한 계산 노드에 로그인하는 데 사용할 수 있는 RDP(원격 데스크톱) 파일을 다운로드할 수 있습니다.
-* [Azure BatchLabs][batch_labs]: BatchLabs는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchLabs/)를 다운로드합니다.
+* [Azure Batch Explorer][batch_labs]: Batch Explorer(이전 이름은 BatchLabs)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다.
 * [Microsoft Azure Storage 탐색기][storage_explorer]: 엄격히 말해 Azure Batch 도구는 아니지만 저장소 탐색기는 Batch 솔루션을 개발 및 디버깅하는 동안 유용할 수 있는 또 다른 도구입니다.
 
 ## <a name="additional-resources"></a>추가 리소스
@@ -88,7 +88,7 @@ Batch 응용 프로그램 및 서비스를 빌드 및 디버깅하는 데 도움
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/azure/batch/
-[api_net_nuget]: https://www.nuget.org/packages/Azure.Batch/
+[api_net_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Batch/
 [api_rest_mgmt]: /rest/api/batchmanagement/
 [api_net_mgmt]: /dotnet/api/overview/azure/batch/management
 [api_net_mgmt_nuget]: https://www.nuget.org/packages/Microsoft.Azure.Management.Batch/
@@ -108,6 +108,6 @@ Batch 응용 프로그램 및 서비스를 빌드 및 디버깅하는 데 도움
 [free_account]: https://azure.microsoft.com/free/
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [msdn_benefits]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [storage_explorer]: http://storageexplorer.com/
 [portal]: https://portal.azure.com

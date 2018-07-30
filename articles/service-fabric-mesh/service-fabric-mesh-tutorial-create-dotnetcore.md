@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 692a384c3695001677b7a3d6161b77f3f015ad7c
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125872"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185672"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>자습서 - Service Fabric Mesh에 다중 서비스 웹 응용 프로그램 만들기, 디버그 및 배포
 
@@ -50,9 +50,11 @@ ms.locfileid: "39125872"
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 아직 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다.
+* Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
 * Service Fabric 런타임, SDK, Docker 및 Visual Studio 2017 설치가 포함된 [개발 환경을 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)했는지 확인합니다.
+
+* 이 자습서의 앱은 현재 영어 로캘을 사용하여 빌드해야 합니다.
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Service Fabric Mesh 프로젝트 만들기
 

@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967401"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205564"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Azure DevOps Project를 사용하여 기존 코드용 CI/CD 파이프라인 만들기
 
@@ -141,8 +141,8 @@ Azure Application Insights를 사용하면 응용 프로그램의 성능 및 사
 
 1. 경고에 대한 **이름**을 입력합니다.
 
-1. **원본 변경**을 위한 드롭다운을 선택합니다.  **App Service 리소스**를 선택합니다.
-
+1. **원본 변경**을 위한 드롭다운을 선택합니다.  **App Service 리소스**
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->를 선택합니다.
 1. 기본 경고는 **1초 보다 큰 서버 응답 시간**의 경우에 해당합니다.  **메트릭** 드롭다운을 선택하여 다양한 경고 메트릭을 검사합니다.  다양한 경고를 쉽게 구성하여 앱의 모니터링 기능을 개선할 수 있습니다.
 
 1. **이메일 소유자, 기여자 및 구독자를 통해 알림** 확인란을 선택합니다.  필요에 따라 Azure 논리 앱을 실행하여 경고가 발생하면 추가 작업을 수행할 수 있습니다.

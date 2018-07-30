@@ -1,6 +1,6 @@
 ---
 title: Linux VM용 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스
-description: Linux VM용 MSI(관리 서비스 ID)를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여주는 자습서입니다.
+description: Linux VM용 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ce38dabbe9aa69f7c54bb49888ad83e01a7c9522
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004883"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258833"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>자습서: Linux VM용 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Linux VM(가상 머신)용 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여줍니다. Azure는 MSI를 통해 사용자가 만든 ID를 자동으로 관리합니다. MSI를 사용하면 코드에 자격 증명을 삽입할 필요 없이 Azure AD(Azure Active Directory) 인증을 지원하는 서비스에 인증할 수 있습니다. 
+이 자습서에서는 Linux VM(가상 머신)용 관리 서비스 ID를 사용하여 Azure Data Lake Store에 액세스하는 방법을 보여줍니다. Azure는 관리 서비스 ID를 통해 사용자가 만든 ID를 자동으로 관리합니다. 관리 서비스 ID를 사용하면 코드에 자격 증명을 삽입할 필요 없이 Azure AD(Azure Active Directory) 인증을 지원하는 서비스에 인증할 수 있습니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * Linux VM에서 MSI를 사용하도록 설정 
+> * Linux VM에서 관리 서비스 ID를 사용하도록 설정 
 > * VM에 Azure Data Lake Store에 대한 액세스 권한 부여
 > * VM ID를 사용하여 액세스 토큰을 가져와서 Azure Data Lake Store에 액세스하는 데 사용하기
 
@@ -58,13 +58,13 @@ ms.locfileid: "39004883"
 5. 가상 머신을 만들 대상이 되는 새 리소스 그룹을 선택하려면 **리소스 그룹** > **새로 만들기**를 선택합니다. 완료하면 **확인**을 선택합니다.
 6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 설정 창에서 기본값을 유지하고 **확인**을 선택합니다.
 
-## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정
 
-VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
+VM 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. VM에서 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
 
-1. **Virtual Machine**에 대해 MSI를 사용하도록 설정할 가상 머신을 선택합니다.
+1. **Virtual Machine**에서 관리 서비스 ID를 사용하도록 설정할 가상 머신을 선택합니다.
 2. 왼쪽 창에서 **구성**을 선택합니다.
-3. **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택합니다. 사용하지 않도록 설정하려면 **아니요**를 선택합니다.
+3. **관리 서비스 ID**가 표시됩니다. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택합니다. 사용하지 않도록 설정하려면 **아니요**를 선택합니다.
    !["Azure Active Directory에 등록" 선택](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 4. **저장**을 선택합니다.
 
@@ -72,7 +72,7 @@ VM MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure A
 
 이제 Azure Data Lake Store에 있는 파일 및 폴더에 VM 액세스 권한을 부여할 수 있습니다. 이 단계에서는 기존 Data Lake Store 인스턴스를 사용하거나 새로 만들 수 있습니다. Azure Portal을 사용하여 Data Lake Store 인스턴스를 만들려면 이 [Azure Data Lake Store 빠른 시작](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)을 참조하세요. [Azure Data Lake Store 설명서](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)에는 Azure CLI 및 Azure PowerShell을 사용하는 빠른 시작도 있습니다.
 
-Data Lake Store에서 새 폴더를 만들고, 이 폴더의 파일을 읽고, 쓰고, 실행할 수 있는 MSI 권한을 부여합니다.
+Data Lake Store에서 새 폴더를 만들고, 해당 폴더에서 파일을 읽고, 쓰고, 실행할 수 있는 관리 서비스 ID 권한을 부여합니다.
 
 1. Azure Portal의 왼쪽 창에서 **Data Lake Store**를 선택합니다.
 2. 사용할 Data Lake Store 인스턴스를 선택합니다.
@@ -90,7 +90,7 @@ Data Lake Store에서 새 폴더를 만들고, 이 폴더의 파일을 읽고, �
 
 ## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>액세스 토큰 가져오기 및 Data Lake Store 파일 시스템 호출
 
-Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 MSI를 통해 얻은 액세스 토큰을 직접 수락할 수 있습니다. Data Lake Store 파일 시스템에 인증하려면 Azure AD에서 발급한 액세스 토큰을 Data Lake Store 파일 시스템 엔드포인트로 보냅니다. 액세스 토큰은 인증 헤더에 "Bearer \<ACCESS_TOKEN_VALUE\>" 형식으로 있습니다.  Azure AD 인증을 위한 Data Lake Store 지원에 대해 자세히 알아보려면 [Azure Active Directory를 사용하여 Data Lake Store 인증](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)을 참조하세요.
+Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 관리 서비스 ID를 통해 얻은 액세스 토큰을 직접 수락할 수 있습니다. Data Lake Store 파일 시스템에 인증하려면 Azure AD에서 발급한 액세스 토큰을 Data Lake Store 파일 시스템 엔드포인트로 보냅니다. 액세스 토큰은 인증 헤더에 "Bearer \<ACCESS_TOKEN_VALUE\>" 형식으로 있습니다.  Azure AD 인증을 위한 Data Lake Store 지원에 대해 자세히 알아보려면 [Azure Active Directory를 사용하여 Data Lake Store 인증](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)을 참조하세요.
 
 이 자습서에서는 cURL을 사용하여 REST 요청을 생성하여 Data Lake Store 파일 시스템용 REST API를 인증합니다.
 
@@ -101,7 +101,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 MSI�
 
 1. 포털에서 Linux VM으로 이동합니다. **개요**에서 **연결**을 선택합니다.  
 2. 원하는 SSH 클라이언트를 사용하여 VM에 연결합니다. 
-3. 터미널 창에서 cURL을 사용하여 Data Lake Store 파일 시스템에 액세스 토큰을 가져오도록 로컬 MSI 엔드포인트에 요청합니다. Data Lake Store의 리소스 식별자는 "https://datalake.azure.net/"입니다.  리소스 식별자에 후행 슬래시를 포함해야 합니다.
+3. 터미널 창에서 cURL을 사용하여 Data Lake Store 파일 시스템에 액세스 토큰을 가져오도록 로컬 관리 서비스 ID 엔드포인트에 요청합니다. Data Lake Store의 리소스 식별자는 "https://datalake.azure.net/"입니다.  리소스 식별자에 후행 슬래시를 포함해야 합니다.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   
@@ -180,7 +180,7 @@ Azure Data Lake Store는 기본적으로 Azure AD 인증을 지원하므로 MSI�
 
 Data Lake Store 파일 시스템에 다른 API를 사용하여 파일에 추가, 파일 다운로드 등을 수행할 수 있습니다.
 
-축하합니다! Linux VM용 MSI를 사용하여 Data Lake Store 파일 시스템을 인증받았습니다.
+축하합니다! Linux VM용 관리 서비스 ID를 사용하여 Data Lake Store 파일 시스템을 인증받았습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

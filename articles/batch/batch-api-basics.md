@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114442"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216311"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Batch를 사용하여 대규모 병렬 계산 솔루션 개발
 
@@ -505,7 +505,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 ## <a name="next-steps"></a>다음 단계
 * Batch 솔루션을 빌드하는 데 사용할 수 있는 [Batch API 및 도구](batch-apis-tools.md)에 대해 알아봅니다.
 * [Batch .NET 클라이언트 라이브러리](quick-run-dotnet.md) 또는 [Python](quick-run-python.md)을 사용하여 Batch 지원 응용 프로그램 개발에 대한 기본 사항을 알아봅니다. 이러한 빠른 시작에서는 Batch 서비스를 사용하여 여러 계산 노드에서 워크로드를 실행하는 응용 프로그램 예제를 단계별로 안내하며, Azure Storage를 사용하여 워크로드 파일을 준비하고 검색하는 방법을 설명합니다.
-* Batch 솔루션을 개발하는 동안 사용하기 위해 [BatchLabs][batch_labs]를 다운로드 및 설치합니다. BatchLabs를 사용하여 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있습니다. 
+* Batch 솔루션을 개발하는 동안 사용하기 위해 [Batch Explorer][batch_labs]를 다운로드 및 설치합니다. Batch Explorer를 사용하여 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있습니다. 
 * MSDN에서 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), [Batch 커뮤니티 리포지토리](https://github.com/Azure/Batch) 및 [Azure Batch 포럼][batch_forum]을 비롯한 커뮤니티 리소스를 참조하세요. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +516,7 @@ Batch 솔루션 내에서 태스크 오류와 응용 프로그램 오류를 모�
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

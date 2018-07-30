@@ -1,6 +1,6 @@
 ---
-title: Linux VM MSI를 사용하여 Azure Cosmos DB 액세스
-description: Linux VM에서 시스템 할당 MSI(관리 서비스 ID)를 사용하여 Azure Cosmos DB에 액세스하는 프로세스를 안내하는 자습서입니다.
+title: Linux VM 관리 서비스 ID를 사용하여 Azure Cosmos DB에 액세스
+description: Linux VM에서 시스템에서 할당한 관리 서비스 ID를 사용하여 Azure Cosmos DB에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 30962827d0a7fbc70c2ed4c642d9bb8a586124da
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: af148cd8b3eececb258057a8bf6a78216ec0e50a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904427"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258333"
 ---
-# <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>자습서: Linux VM MSI를 사용하여 Azure Cosmos DB 액세스 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>자습서: Linux VM 관리 서비스 ID를 사용하여 Azure Cosmos DB에 액세스 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-이 자습서에서는 Linux VM MSI를 만들어 사용하는 방법을 보여줍니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Linux VM 관리 서비스 ID를 만들어서 사용하는 방법을 보여줍니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * MSI가 활성화된 Linux VM 만들기 
+> * 활성화된 Linux VM 만들기
 > * Cosmos DB 계정 만들기
 > * Cosmos DB 계정에서 컬렉션을 만듭니다.
-> * Azure Cosmos DB 인스턴스에 대한 MSI 액세스 권한 부여
-> * Linux VM MSI의 `principalID` 검색
+> * Azure Cosmos DB 인스턴스에 대한 관리 서비스 ID 액세스 권한 부여
+> * Linux VM 관리 서비스 ID의 `principalID` 검색
 > * 액세스 토큰을 가져와 Azure Resource Manager를 호출하는 데 사용
 > * Cosmos DB 호출을 위해 Azure Resource Manager에서 액세스 키 가져오기
 
@@ -54,9 +54,9 @@ ms.locfileid: "37904427"
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Linux 가상 머신 만들기
 
-이 자습서에서는 Linux VM이 활성화된 새 MSI를 만듭니다.
+이 자습서에서는 Linux VM이 활성화된 새 관리 서비스 ID를 만듭니다.
 
-MSI 기반 VM을 만들려면:
+관리 서비스 ID 사용 VM을 만들려면:
 
 1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az_login)을 사용하여 먼저 Azure에 로그인합니다. VM을 배포하려는 Azure 구독과 연결된 계정을 사용하세요.
 
@@ -70,7 +70,7 @@ MSI 기반 VM을 만들려면:
    az group create --name myResourceGroup --location westus
    ```
 
-3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 MSI를 사용하여 *myVM*이라는 VM을 만듭니다. `--admin-username` 및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
+3. [az vm create](/cli/azure/vm/#az_vm_create)를 사용하여 VM을 만듭니다. 다음 예제에서는 `--assign-identity` 매개 변수의 요청에 따라 관리 서비스 ID를 사용하여 *myVM*이라는 VM을 만듭니다. `--admin-username` 및 `--admin-password` 매개 변수는 가상 머신 로그인을 위한 관리자 이름 및 암호 계정을 지정합니다. 이러한 값은 사용자 환경에 적절하게 업데이트합니다. 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -95,14 +95,14 @@ Cosmos DB 계정이 아직 없는 경우 지금 만듭니다. 이 단계를 건�
 2. **개요** 탭에서 **+/컬렉션 추가** 단추를 클릭하면 "컬렉션 추가" 패널이 슬라이드됩니다.
 3. 컬렉션에 데이터베이스 ID, 컬렉션 ID를 제공하고, 저장소 용량을 선택하고, 파티션 키를 입력하고, 처리량 값을 입력한 다음, **확인**을 클릭합니다.  이 자습서의 경우 데이터베이스 ID 및 컬렉션 ID로 "Test"를 사용하고, 고정된 저장소 용량 및 가장 낮은 처리량(400RU/s)을 선택하는 데 충분합니다.  
 
-## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>Linux VM MSI의 `principalID` 검색
+## <a name="retrieve-the-principalid-of-the-linux-vms-managed-service-identity"></a>Linux VM 관리 서비스 ID의 `principalID` 검색
 
-다음 섹션에서 Resource Manager의 Cosmos DB 계정 액세스 키에 액세스하려면 Linux VM의 MSI `principalID`를 검색합니다.  `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`(VM이 위치한 리소스 그룹) 및 `<VM NAME>` 매개 변수 값을 고유한 값으로 바꾸어야 합니다.
+다음 섹션에서 Resource Manager의 Cosmos DB 계정 액세스 키에 액세스하려면 Linux VM 관리 서비스 ID의 `principalID`를 검색합니다.  `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`(VM이 위치한 리소스 그룹) 및 `<VM NAME>` 매개 변수 값을 고유한 값으로 바꾸어야 합니다.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
-응답은 시스템에서 할당한 MSI의 세부 정보를 포함합니다(다음 섹션에서 사용할 보안 주체 ID 기록).
+응답은 시스템에서 할당한 관리 서비스 ID의 세부 정보를 포함합니다(다음 섹션에서 사용할 보안 주체 ID 기록).
 
 ```bash  
 {
@@ -114,11 +114,11 @@ az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE 
  }
 
 ```
-## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Cosmos DB 계정 액세스 키에 Linux VM MSI 액세스 부여
+## <a name="grant-your-linux-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Cosmos DB 계정 액세스 키에 대한 Linux VM 관리 서비스 ID 액세스 권한 부여
 
-Cosmos DB는 Azure AD 인증을 기본적으로 지원하지 않습니다. 그러나 MSI를 사용하여 Resource Manager에서 Cosmos DB 액세스 키를 검색한 다음, 해당 키를 사용하여 Cosmos DB에 액세스할 수 있습니다. 이 단계에서 Cosmos DB 계정에 키에 대한 MSI 액세스를 부여합니다.
+Cosmos DB는 Azure AD 인증을 기본적으로 지원하지 않습니다. 그러나 관리 서비스 ID를 사용하여 Resource Manager에서 Cosmos DB 액세스 키를 검색한 다음, 해당 키를 사용하여 Cosmos DB에 액세스할 수 있습니다. 이 단계에서 Cosmos DB 계정의 키에 대한 관리 서비스 ID 액세스 권한을 부여합니다.
 
-Azure CLI를 사용하여 Azure Resource Manager의 Cosmos DB 계정에 대해 MSI ID 액세스를 부여하려면 작업 환경의 `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<COSMOS DB ACCOUNT NAME>` 값을 업데이트합니다. `<MSI PRINCIPALID>`를 [Linux VM MSI의 principalID 검색](#retrieve-the-principalID-of-the-linux-VM's-MSI)의 `az resource show` 명령에서 반환된 `principalId` 속성으로 바꿉니다.  Cosmos DB는 액세스 키를 사용할 때 두 가지 수준의 세분성: 계정에 대한 읽기/쓰기 액세스 및 계정에 대한 읽기 전용 액세스를 지원합니다.  계정에 대한 읽기/쓰기 키를 가져오려는 경우 `DocumentDB Account Contributor` 역할을 할당하거나 계정에 대한 읽기 전용 키를 가져오려는 경우 `Cosmos DB Account Reader Role` 역할을 할당합니다.
+Azure CLI를 사용하여 Azure Resource Manager의 Cosmos DB 계정에 관리 서비스 ID 액세스 권한을 부여하려면 작업 환경의 `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<COSMOS DB ACCOUNT NAME>` 값을 업데이트합니다. `<MSI PRINCIPALID>`를 [Linux VM MSI의 principalID 검색](#retrieve-the-principalID-of-the-linux-VM's-MSI)의 `az resource show` 명령에서 반환된 `principalId` 속성으로 바꿉니다.  Cosmos DB는 액세스 키를 사용할 때 두 가지 수준의 세분성: 계정에 대한 읽기/쓰기 액세스 및 계정에 대한 읽기 전용 액세스를 지원합니다.  계정에 대한 읽기/쓰기 키를 가져오려는 경우 `DocumentDB Account Contributor` 역할을 할당하거나 계정에 대한 읽기 전용 키를 가져오려는 경우 `Cosmos DB Account Reader Role` 역할을 할당합니다.
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -140,7 +140,7 @@ az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --sc
 }
 ```
 
-## <a name="get-an-access-token-using-the-linux-vms-msi-and-use-it-to-call-azure-resource-manager"></a>Linux VM의 MSI를 사용하여 액세스 토큰을 가져온 다음, Azure Resource Manager를 호출하는 데 사용
+## <a name="get-an-access-token-using-the-linux-vms-managed-service-identity-and-use-it-to-call-azure-resource-manager"></a>Linux VM의 관리 서비스 ID를 통해 액세스 토큰을 가져오고 Azure Resource Manager를 호출하는 데 사용합니다.
 
 자습서의 나머지 부분에서는 이전에 만든 VM에서 작업합니다.
 

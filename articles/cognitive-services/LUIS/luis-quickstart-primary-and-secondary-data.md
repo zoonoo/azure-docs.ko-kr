@@ -2,19 +2,19 @@
 title: 데이터를 추출하는 LUIS 앱 만들기 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 의도를 사용하는 간단한 LUIS 앱 및 기계 학습 데이터를 추출하는 단순 엔터티를 만드는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: diberry
+ms.openlocfilehash: aafbf7d1b4a624d42e2caa96f9d3ebdfaee4efe6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952388"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238008"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>자습서: 7. 단순 엔터티 및 문구 목록 추가
 이 자습서에서는 **단순** 엔터티를 사용하여 발화에서 기계 학습 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.
@@ -39,7 +39,7 @@ ms.locfileid: "37952388"
 ## <a name="purpose-of-the-app"></a>앱의 용도
 이 앱은 발화에서 데이터를 가져오는 방법을 보여 줍니다. 챗봇에서 다음 발화를 살펴보겠습니다.
 
-|발언|추출 가능한 직무 이름|
+|발화|추출 가능한 직무 이름|
 |:--|:--|
 |새 회계 업무에 지원하려고 합니다.|회계|
 |엔지니어링 직위에 대한 내 이력서를 제출해 주세요.|엔지니어링|
@@ -93,7 +93,7 @@ ms.locfileid: "37952388"
 
 6. 더 많은 발화를 추가하고 직무 단어 또는 구를 **직무** 엔터티로 표시합니다. 직무 유형은 고용 서비스의 직업에서 일반적입니다. 특정 산업과 관련된 직무를 원하는 경우 직무 단어에서 해당 산업을 반영해야 합니다. 
 
-    |발언|직무 엔터티|
+    |발화|직무 엔터티|
     |:--|:--|
     |연구 개발 부서의 프로그램 관리자 직에 지원하고 있습니다.|프로그램 관리자|
     |인턴 요리사 직에 대한 내 지원서는 여기에 있습니다.|인턴 요리사|
@@ -119,7 +119,7 @@ ms.locfileid: "37952388"
 
 3. 발화 예제의 직무에 대한 레이블을 지정합니다.
 
-    |발언|직무 엔터티|
+    |발화|직무 엔터티|
     |:--|:--|
     |데이터베이스에 어떤 직무가 있나요?|데이터베이스|
     |회계 직무와 관련된 새 상황을 찾고 있습니다.|회계|

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/19/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 9ba8eae0fe9e68e4931bcdda989e59c59fd65edd
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6e3679a994a7340fc38bf98f370efd359785fd90
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293332"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214968"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>자습서: Azure Web Apps에 기존 사용자 지정 SSL 인증서 바인딩
 
@@ -70,7 +70,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 ### <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](https://portal.azure.com)을 엽니다.
+[Azure Portal](https://portal.azure.com)을 엽니다.
 
 ### <a name="navigate-to-your-web-app"></a>웹앱으로 이동
 
@@ -96,7 +96,7 @@ App Service에서 인증서를 사용하려면 인증서가 다음 요구 사항
 
 유료 계층(**B1**, **B2**, **B3**, 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**Apply**를 클릭합니다.
+**적용**을 클릭합니다.
 
 ![가격 책정 계층 선택](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
 

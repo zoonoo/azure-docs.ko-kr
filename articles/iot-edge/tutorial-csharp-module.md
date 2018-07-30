@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 12a17edc74ef0fbc573be0fc167aa7921e599341
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 2293390684a8dcdf5f32bbae8f04fe7317d389e2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005869"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258968"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C# IoT Edge 모듈 개발 및 시뮬레이트된 장치에 배포
 
@@ -57,15 +57,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-an-iot-edge-module-project"></a>IoT Edge 모듈 프로젝트 만들기
 다음 단계는 Visual Studio Code 및 Azure IoT Edge 확장을 사용하여 .NET Core 2.0 SDK를 기반으로 IoT Edge 모듈 프로젝트를 만듭니다.
-1. Visual Studio Code에서 **보기** > **통합 터미널**을 선택하여 VS Code 통합 터미널을 엽니다.
-2. **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
-3. 명령 팔레트에서 **Azure: 로그인** 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
-4. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
+
+1. Visual Studio Code에서 **보기** > **명령 팔레트**를 차례로 선택하여 VS Code 명령 팔레트를 엽니다. 
+2. 명령 팔레트에서 **Azure: 로그인** 명령을 입력 및 실행하고, 지침에 따라 Azure 계정에 로그인합니다. 이미 로그인한 경우 이 단계를 건너뛸 수 있습니다.
+3. 명령 팔레트에서 **Azure IoT Edge: 새로운 IoT Edge 솔루션** 명령을 입력하고 실행합니다. 명령 팔레트에서 다음 정보를 제공하여 솔루션을 만듭니다. 
 
    1. 솔루션을 만들 폴더를 선택합니다. 
    2. 솔루션에 대한 이름을 제공하거나 기본 **EdgeSolution**을 그대로 적용합니다.
    3. **C# 모듈**을 모듈 템플릿으로 선택합니다. 
-   4. 모듈의 이름을 **CSharpModule**로 지정합니다. 
+   4. 기본 모듈 이름을 **CSharpModule**로 바꿉니다. 
    5. 이전 섹션에서 만든 Azure Container Registry를 첫 번째 모듈에 대한 이미지 리포지토리로 지정합니다. **localhost:5000**을 복사한 로그인 서버 값으로 바꿉니다. 마지막 문자열은 \<레지스트리 이름\>.azurecr.io/csharpmodule과 같습니다.
 
 4.  VS Code 창은 모듈 폴더, \.vscode 폴더, 모듈 폴더, 배포 매니페스트 템플릿 파일, \.env 파일 등 IoT Edge 솔루션 작업 영역을 로드합니다. VS Code 탐색기에서 **modules** > **CSharpModule** > **Program.cs**를 차례로 엽니다.
@@ -105,6 +105,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     }
     ```
 
+8. **Init** 메서드는 사용할 모듈에 대한 통신 프로토콜을 선언합니다. MQTT 설정을 AMPQ 설정으로 바꿉니다. 
+
+   ```csharp
+   // MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
+   // ITransportSettings[] settings = { mqttSetting };
+
+   AmqpTransportSettings amqpSetting = new AmqpTransportSettings(TransportType.Amqp_Tcp_Only);
+   ITransportSettings[] settings = {amqpSetting};
+   ```
+
 8. **Init** 메서드에서 코드는 **ModuleClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. **Init** 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈에 제공됩니다. **ModuleClient**를 만든 후 코드는 모듈 쌍의 원하는 속성에서 **temperatureThreshold** 값을 읽습니다. 코드는 **input1** 엔드포인트를 통해 IoT Edge 허브에서 메시지를 수신하는 콜백을 등록합니다. **SetInputMessageHandlerAsync** 메서드를 새 메서드로 바꾸고, 업데이트에 대한 **SetDesiredPropertyUpdateCallbackAsync** 메서드를 원하는 속성에 추가합니다. 이 변경을 수행하려면 **Init** 메서드의 마지막 줄을 다음 코드로 바꾸세요.
 
     ```csharp
@@ -121,7 +131,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
     }
 
     // Attach a callback for updates to the module twin's desired properties.
-    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(onDesiredPropertiesUpdate, null);
+    await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
 
     // Register a callback for messages that are received by the module.
     await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
@@ -226,7 +236,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    ```
    첫 번째 섹션에서 복사한 Azure 컨테이너 레지스트리의 사용자 이름, 암호 및 로그인 서버를 사용합니다. 또는 Azure Portal에서 레지스트리의 **액세스 키** 섹션에서 이러한 값을 다시 검색할 수 있습니다.
 
-2. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 deployment.template.json 파일을 엽니다. 이 파일은 **$edgeAgent**에 **tempSensor** 및 **CSharpModule**이라는 두 모듈을 배포하도록 지시합니다. **CSharpModule.image** 값은 Linux amd64 버전의 이미지로 설정됩니다. 배포 매니페스트에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
+2. VS Code 탐색기에서 IoT Edge 솔루션 작업 영역에 있는 deployment.template.json 파일을 엽니다. 이 파일은 **$edgeAgent**에 **tempSensor** 및 **CSharpModule**이라는 두 모듈을 배포하도록 지시합니다. **CSharpModule.image** 값은 Linux amd64 버전의 이미지로 설정됩니다. 
+
+   IoT Edge 솔루션을 만들 때 변경한 기본 **SampleModule** 이름이 아닌 올바른 모듈 이름이 템플릿에 있는지 확인합니다.
+
+   배포 매니페스트에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
 
 3. deployment.template.json 파일에는 Docker 레지스트리 자격 증명을 저장하는 **registryCredentials** 섹션이 있습니다. 실제 사용자 이름 및 암호 쌍은 Git에서 무시하는 .env 파일에 저장됩니다.  
 
@@ -274,9 +288,9 @@ VS Code 통합 터미널에 태그와 함께 전체 컨테이너 이미지 주�
 
 <!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
 
-권장되는 다음 아티클을 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
+권장되는 다음 문서를 계속 진행하려는 경우 만든 리소스와 구성을 그대로 유지하고 다시 사용할 수 있습니다.
 
-그렇지 않으면 요금이 부과되지 않도록 이 아티클에서 만든 로컬 구성과 Azure 리소스를 삭제할 수 있습니다. 
+그렇지 않은 경우 요금 청구를 방지하도록 이 문서에서 만든 로컬 구성 및 Azure 리소스를 삭제할 수 있습니다. 
 
 > [!IMPORTANT]
 > Azure 리소스와 리소스 그룹을 삭제하면 되돌릴 수 없습니다. 이러한 항목을 삭제하면 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 보관하려는 리소스가 있는 기존 리소스 그룹 내에 IoT 허브를 만든 경우 리소스 그룹을 삭제하지 말고 IoT 허브 리소스만 삭제하면 됩니다.
@@ -293,7 +307,7 @@ az iot hub delete --name MyIoTHub --resource-group TestResources
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 **리소스 그룹**을 선택합니다.
 
-2. **이름을 기준으로 필터링** 텍스트 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다. 
+2. **이름을 기준으로 필터링** 텍스트 상자에 IoT 허브가 들어 있는 리소스 그룹의 이름을 입력합니다. 
 
 3. 결과 목록에서 리소스 그룹의 오른쪽에서 줄임표(**...**)를 선택한 다음, **리소스 그룹 삭제**를 선택합니다.
 

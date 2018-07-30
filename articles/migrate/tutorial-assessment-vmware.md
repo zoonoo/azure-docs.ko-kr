@@ -4,15 +4,15 @@ description: Azure Migrate 서비스를 사용하여 Azure로의 마이그레이
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 07/20/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0b1070e29c8dc9f088297622d16fb816a10a55c0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fab8e4f09062f671714dabd1dae86a1979e356d2
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970788"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172350"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Azure로의 마이그레이션에 대한 온-프레미스 VMware VM 검색 및 평가
 
@@ -54,7 +54,7 @@ Azure Migrate에서 평가를 위해 VM을 자동으로 검색하려면 VMware �
 ## <a name="create-a-project"></a>프로젝트 만들기
 
 1. Azure Portal에서 **리소스 만들기**를 클릭합니다.
-2. **Azure Migrate**를 검색하고 검색 결과에서 서비스 **Azure Migrate**을 선택합니다. 그런 다음 **Create**를 클릭합니다.
+2. **Azure Migrate**를 검색하고 검색 결과에서 서비스 **Azure Migrate**을 선택합니다. 그런 다음, **만들기**를 클릭합니다.
 3. 프로젝트에 대해 프로젝트 이름과 Azure 구독을 지정합니다.
 4. 새 리소스 그룹을 만듭니다.
 5. 프로젝트를 만들 위치를 지정한 다음 **만들기**를 클릭합니다. Azure Migrate 프로젝트는 미국 중서부 또는 미국 동부 지역에서만 만들 수 있습니다. 그러나 대상 Azure 위치에 대한 마이그레이션을 계속 계획할 수 있습니다. 프로젝트에 대해 지정된 위치는 온-프레미스 VM에서 수집된 메타데이터를 저장하는 데 사용됩니다.
@@ -170,7 +170,7 @@ Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM�
 
 
 
-### <a name="verify-vms-in-the-portal"></a>포털에서 VM을 확인합니다.
+### <a name="verify-vms-in-the-portal"></a>포털에서 VM 확인
 
 검색 시간은 검색 중인 VM이 얼마나 많은지에 달려 있습니다. 일반적으로 VM 100대의 경우, 수집기가 실행을 완료한 후 검색을 완료하기까지 약 1시간이 걸립니다.
 
@@ -227,9 +227,9 @@ Azure 준비 상태 및 크기 조정 외에도, Azure Migrate는 VM 마이그�
 
 #### <a name="confidence-rating"></a>신뢰 등급
 
-Azure Migrate의 각 평가는 별 1개~5개 사이의 신뢰 등급에 연결됩니다(별 1개가 가장 낮고 5개가 가장 높음). 신뢰 등급은 평가 계산에 필요한 데이터 요소의 가용성에 따라 평가에 할당됩니다. 평가의 신뢰 등급은 Azure Migrate에서 제공하는 권장 크기의 신뢰성을 추정하는 데 도움이 됩니다.
+Azure Migrate의 각 성능 기준 평가는 별 1개~5개 사이의 신뢰 등급에 연결됩니다(별 1개가 가장 낮고 5개가 가장 높음). 신뢰 등급은 평가 계산에 필요한 데이터 요소의 가용성에 따라 평가에 할당됩니다. 평가의 신뢰 등급은 Azure Migrate에서 제공하는 권장 크기의 신뢰성을 추정하는 데 도움이 됩니다. 신뢰 등급은 온-프레미스 평가에 적용되지 않습니다.
 
-평가의 신뢰 등급은 성능 기반인 크기 조정 조건을 사용하는 평가에서 더 유용합니다. 성능 기반 크기 조정의 경우 Azure Migrate에는 VM의 CPU 및 메모리 사용률 데이터가 필요합니다. 또한 VM에 연결된 각 디스크에는 디스크 IOPS 및 처리량 데이터가 필요합니다. 마찬가지로 VM에 연결된 각 네트워크 어댑터의 경우 성능 기반 크기 조정을 수행하려면 Azure Migrate에는 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 아래와 같이 평가의 신뢰 등급이 제공됩니다.
+성능 기반 크기 조정의 경우 Azure Migrate에는 VM의 CPU 및 메모리 사용률 데이터가 필요합니다. 또한 VM에 연결된 각 디스크에는 디스크 IOPS 및 처리량 데이터가 필요합니다. 마찬가지로 VM에 연결된 각 네트워크 어댑터의 경우 성능 기반 크기 조정을 수행하려면 Azure Migrate에는 네트워크 입/출력이 필요합니다. 위의 사용률 데이터를 vCenter Server에서 사용할 수 없는 경우 Azure Migrate가 권장하는 크기의 신뢰성이 떨어질 수 있습니다. 사용 가능한 데이터 요소의 백분율에 따라 아래와 같이 평가의 신뢰 등급이 제공됩니다.
 
    **데이터 요소 가용성** | **신뢰 등급**
    --- | ---

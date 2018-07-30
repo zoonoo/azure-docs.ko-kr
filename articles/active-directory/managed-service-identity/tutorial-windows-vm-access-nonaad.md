@@ -1,6 +1,6 @@
 ---
-title: Windows VM MSI를 사용하여 Azure Key Vault 액세스
-description: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault에 액세스하는 프로세스를 안내하는 자습서입니다.
+title: Windows VM 관리 서비스 ID를 사용하여 Azure Key Vault 액세스
+description: Windows VM 관리 서비스 ID를 사용하여 Azure Key Vault에 액세스하는 프로세스를 안내하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: aed990c01e781ae766f421c1dd34ad64f13985cf
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 81bab96b91bb71a91ea0b6046b16ef86c8d27061
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048741"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248064"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>자습서: Windows VM MSI(관리 서비스 ID)를 사용하여 Azure Key Vault 액세스 
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-key-vault"></a>자습서: Windows VM 관리 서비스 ID를 사용하여 Azure Key Vault 액세스 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-이 자습서에서는 Windows Virtual Machine에 대해 MSI(관리 서비스 ID)를 사용하도록 설정한 다음 해당 ID를 사용하여 Azure Key Vault에 액세스하는 방법을 보여 줍니다. 부트스트랩 역할을 하는 Key Vault를 사용하면 클라이언트 응용 프로그램에서 비밀을 사용하여 Azure AD(Active Directory)로 보호되지 않는 리소스에 액세스할 수 있습니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 
+이 자습서에서는 Windows Virtual Machine에 대해 관리 서비스 ID를 사용하도록 설정한 다음, 해당 ID를 사용하여 Azure Key Vault에 액세스하는 방법을 보여 줍니다. 부트스트랩 역할을 하는 Key Vault를 사용하면 클라이언트 응용 프로그램에서 비밀을 사용하여 Azure AD(Active Directory)로 보호되지 않는 리소스에 액세스할 수 있습니다. Azure에서 자동으로 관리되는 관리 서비스 ID를 사용하면 Azure AD 인증을 지원하는 서비스에 인증할 수 있으므로 코드에 자격 증명을 삽입할 필요가 없습니다. 
 
 다음 방법에 대해 알아봅니다.
 
@@ -47,7 +47,7 @@ ms.locfileid: "39048741"
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>새 리소스 그룹에 Windows 가상 머신 만들기
 
-이 자습서에서는 새 Windows VM을 만듭니다. 기존 VM에서 MSI를 사용하도록 설정할 수도 있습니다.
+이 자습서에서는 새 Windows VM을 만듭니다. 또한 기존 VM에서 관리 서비스 ID를 사용하도록 설정할 수 있습니다.
 
 1.  Azure Portal의 왼쪽 위에 있는 **리소스 만들기** 단추를 클릭합니다.
 2.  **Compute**를 선택한 후 **Windows Server 2016 Datacenter**를 선택합니다. 
@@ -58,20 +58,20 @@ ms.locfileid: "39048741"
 
     ![대체 이미지 텍스트](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>VM에서 MSI를 사용하도록 설정 
+## <a name="enable-managed-service-identity-on-your-vm"></a>VM에서 관리 서비스 ID를 사용하도록 설정 
 
-Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. MSI를 사용하도록 설정하면 Virtual Machine용으로 관리 ID를 만들도록 Azure에 지시하게 됩니다. MSI를 사용하도록 설정하면 그 배경에서는 두 작업이 수행됩니다. 즉 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성됩니다.
+Virtual Machine 관리 서비스 ID를 사용하면 코드에 자격 증명을 포함하지 않고도 Azure AD에서 액세스 토큰을 가져올 수 있습니다. 관리 서비스 ID를 사용하도록 설정하면 Virtual Machine용으로 관리 ID를 만들도록 Azure에 지시하게 됩니다. 내부적으로 관리 서비스 ID를 사용하도록 설정하면 해당 관리 ID를 만들기 위해 VM이 Azure Active Directory에 등록되고, VM에서 ID가 구성되는 두 가지 작업이 수행됩니다.
 
-1.  MSI를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
+1.  관리 서비스 ID를 사용하도록 설정할 **Virtual Machine**을 선택합니다.  
 2.  왼쪽 탐색 모음에서 **구성**을 클릭합니다. 
-3.  **관리 서비스 ID**가 표시됩니다. MSI를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
+3.  **관리 서비스 ID**가 표시됩니다. 관리 서비스 ID를 등록하고 사용하도록 설정하려면 **예**를 선택하고, 사용하지 않도록 설정하려면 아니요를 선택합니다. 
 4.  **저장**을 클릭하여 구성을 저장합니다.  
 
     ![대체 이미지 텍스트](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Key Vault에 저장된 비밀 액세스 권한을 VM에 부여 
  
-코드는 MSI를 사용하여 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. 이러한 서비스와 함께 MSI를 사용하려면 Azure Key Vault에 서비스 자격 증명을 저장하고 MSI를 사용하여 Key Vault에 액세스하여 자격 증명을 검색합니다. 
+코드는 관리 서비스 ID를 사용하여 Azure AD 인증을 지원하는 리소스에 인증하기 위한 액세스 토큰을 가져올 수 있습니다.  그러나 모든 Azure 서비스가 Azure AD 인증을 지원하지는 않습니다. 이러한 서비스와 함께 관리 서비스 ID를 사용하려면 Azure Key Vault에 서비스 자격 증명을 저장하고 관리 서비스 ID를 사용하여 Key Vault에 액세스하여 자격 증명을 검색합니다. 
 
 먼저 Key Vault를 만들고 VM ID에 Key Vault 액세스 권한을 부여해야 합니다.   
 
@@ -100,7 +100,7 @@ Virtual Machine MSI를 사용하면 코드에 자격 증명을 포함하지 않�
 
 PowerShell 4.3.1 이상이 설치되어 있지 않으면 [최신 버전을 다운로드하고 설치](https://docs.microsoft.com/powershell/azure/overview)해야 합니다.
 
-먼저 VM의 MSI를 사용하여 Key Vault에 인증하기 위한 액세스 토큰을 가져옵니다.
+먼저 VM의 관리 서비스 ID를 사용하여 Key Vault에 인증하기 위한 액세스 토큰을 가져옵니다.
  
 1. Portal에서 **Virtual Machines** -> Windows Virtual Machines로 이동한 다음 **개요**에서 **연결**을 클릭합니다.
 2. **Windows VM**을 만들 때 추가한 **사용자 이름**과 **암호**를 입력합니다.  

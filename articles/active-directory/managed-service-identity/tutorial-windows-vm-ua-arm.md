@@ -1,6 +1,6 @@
 ---
-title: Windows VM 사용자 할당 MSI를 사용하여 Azure Resource Manager에 액세스
-description: Windows VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 설명하는 자습서입니다.
+title: Windows VM 사용자 할당 관리 서비스 ID를 사용하여 Azure Resource Manager에 액세스
+description: Windows VM에서 사용자 할당 관리 서비스 ID를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 설명하는 자습서입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 67bb45f7bd27a142b978bedb48925cc41e8d1287
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904376"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248390"
 ---
-# <a name="tutorial-use-a-user-assigned-managed-service-identity-msi-on-a-windows-vm-to-access-azure-resource-manager"></a>자습서: Windows VM에서 사용자 할당 MSI(관리 서비스 ID)를 사용하여 Azure Resource Manager에 액세스
+# <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>자습서: Windows VM에서 사용자 할당 관리 서비스 ID를 사용하여 Azure Resource Manager에 액세스
 
 [!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
@@ -111,9 +111,9 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -IdentityID "/subscriptions/<SUBSCRIPTIONID>/resourcegroups/myResourceGroupVM/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
 ```
 
-## <a name="grant-your-user-assigned-msi-access-to-a-resource-group-in-azure-resource-manager"></a>사용자 할당 MSI에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
+## <a name="grant-your-user-assigned-managed-service-identity-access-to-a-resource-group-in-azure-resource-manager"></a>사용자 할당 관리 서비스 ID에 Azure Resource Manager의 리소스 그룹 액세스 권한 부여 
 
-MSI(관리 서비스 ID)는 Azure AD 인증을 지원하는 리소스 API를 인증하는 액세스 토큰을 요청하기 위해 코드에 사용할 수 있는 ID를 제공합니다. 이 자습서에서 코드는 Azure Resource Manager API에 액세스합니다. 
+관리 서비스 ID는 Azure AD 인증을 지원하는 리소스 API를 인증하는 액세스 토큰을 요청하기 위해 코드에 사용할 수 있는 ID를 제공합니다. 이 자습서에서 코드는 Azure Resource Manager API에 액세스합니다. 
 
 코드가 API에 액세스할 수 있으려면 그 전에 Azure Resource Manager의 리소스에 ID 액세스 권한을 부여해야 합니다. 이 경우에는 VM이 포함된 리소스 그룹입니다. `<SUBSCRIPTION ID>`의 값을 환경에 적합하게 업데이트합니다.
 
@@ -148,7 +148,7 @@ CanDelegate: False
 
 4. 이제 가상 머신에 대한 **원격 데스크톱 연결**을 만들었으므로 원격 세션에서 **PowerShell**을 엽니다.
 
-5. PowerShell의 `Invoke-WebRequest`를 사용하여 로컬 MSI 엔드포인트에 대한 요청을 수행해 Azure Resource Manager용 액세스 토큰을 가져옵니다.
+5. PowerShell의 `Invoke-WebRequest`를 사용하여 로컬 관리 서비스 ID 엔드포인트에 대한 요청을 수행해 Azure Resource Manager용 액세스 토큰을 가져옵니다.
 
     ```azurepowershell
     $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040850"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144196"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 Azure Maps는 웹 및 모바일 응용 프로그램에 정확한 지리적 컨텍스트를 제공할 수 있도록 최신 매핑 데이터로 지원되는 지리 공간적 서비스의 컬렉션입니다. 맵 렌더링, 관심 지점 검색, 관심 지점에 대한 라우팅, 교통 상황, 표준 시간대 및 위치에 대한 IP 서비스를 위한 REST API를 포함합니다. 익숙한 도구로 이러한 API를 사용하여 위치 정보를 Azure 솔루션에 통합하는 솔루션을 신속하게 개발하고 크기를 조정할 수 있습니다. REST API와 함께 여러 미디어를 통한 개발을 쉽고 유연하며 이식 가능하도록 웹 기반 JavaScript 제어를 제공합니다. 
@@ -92,6 +92,7 @@ Traffic Service는 개발자가 트래픽을 요구하는 웹 및 모바일 응�
 
 IP to Location은 제공된 IP 주소에 대한 두 글자 국가 번호를 검색할 수 있는 미리 보기 서비스입니다. 이 서비스는 지리적 위치를 기반으로 하는 응용 프로그램의 콘텐츠를 변경하여 사용자 환경을 개선할 수 있을 뿐만 아니라 특수 지정학적 제약 조건을 충족하도록 응용 프로그램을 조정할 수 있습니다. 
 
+IP to Location 서비스용 REST API에 대한 정보는 [Azure Maps Geolocation API](https://docs.microsoft.com/rest/api/maps/geolocation) 페이지를 참조하세요.
 
 ## <a name="programming-model"></a>프로그래밍 모델
 

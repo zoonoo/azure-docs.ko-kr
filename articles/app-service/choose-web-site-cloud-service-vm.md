@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1f7396ac761ce5eeb5a671d3b04aabf944c361b8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597929"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224958"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 비교
 ## <a name="overview"></a>개요
@@ -51,7 +51,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 | 다중 계층 아키텍처의 중간 계층 호스트 |X |X |X |X |App Service 웹앱은 REST API 중간 계층을 쉽게 호스트할 수 있고, [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 기능은 백그라운드 처리 작업을 호스트할 수 있습니다. 전용 웹 사이트에서 WebJobs를 실행하여 계층을 독립적으로 확장할 수 있습니다. |
 | 통합된 MySQL-as-a-Service 지원 |X |X | | | |
 | ASP.NET, 클래식 ASP, Node.js, PHP, Python 지원 |X |X |X |X |Service Fabric에서는 [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md)를 사용하여 웹 프런트 엔드를 만들거나 모든 유형의 응용 프로그램(Node.js, Java 등)을 [게스트 실행 파일](../service-fabric/service-fabric-guest-executables-introduction.md)로 배포할 수 있습니다. |
-| 다시 배포하지 않고 여러 인스턴스로 규모 확장 |X |X |X |X |Virtual Machines는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 컴퓨터 간에 요청을 라우팅하는 부하 분산 장치를 구성하고 유지 관리 또는 하드웨어 오류로 인해 모든 인스턴스가 동시에 다시 시작되지 않도록 선호도 그룹을 만들어야 합니다. |
+| 다시 배포하지 않고 여러 인스턴스로 규모 확장 |X |X |X |X |Virtual Machines는 여러 인스턴스로 규모 확장될 수 있지만 이러한 컴퓨터에서 실행되는 서비스가 이 규모 확장을 처리하도록 작성되어야 합니다. 부하 분산 장치에서 머신의 요청을 라우팅하도록 구성해야 하며, [가용성 집합](../virtual-machines/windows/manage-availability.md)에 둘 이상의 VM 인스턴스가 있는지 확인합니다. |
 | SSL 지원 |X |X |X |X |App Service 웹앱의 경우 사용자 지정 도메인 이름에 대한 SSL은 기본 및 표준 모드에서만 지원됩니다. 웹앱에 SSL을 사용하는 방법에 대한 자세한 내용은 [Azure 웹 사이트에 대한 SSL 인증서 구성](app-service-web-tutorial-custom-ssl.md)을 참조하세요. |
 | Visual Studio 통합 |X |X |X |X | |
 | 원격 디버깅 |X |X |X | | |

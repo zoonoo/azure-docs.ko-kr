@@ -11,12 +11,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0adabc3561ee989e0ce383a5d995a12c144b19b7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f662f1d7b39e1757786193911e9fd2623b0a09a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38237791"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214591"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>빠른 시작: Python 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -65,7 +65,7 @@ Azure Cosmos DB Cassandra API 미리 보기 프로그램에 액세스합니다. 
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 옵션입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 pyquickstart.py 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 코드 조각은 모두 pyquickstart.py 파일에서 가져옵니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
 * 사용자 이름 및 암호는 Azure Portal에서 연결 문자열 페이지를 통해 설정됩니다. path\to\cert를 X509 인증서 경로로 바꿉니다.
 

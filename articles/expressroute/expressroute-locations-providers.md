@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/22/2018
+ms.date: 07/23/2018
 ms.author: jaredro
-ms.openlocfilehash: 4e56e8ab1e31ec875f33bc47f745aa7b93e7788e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1a6a9eff6af6b2b87eaa543dea78bc77b623dc23
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116132"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216138"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -61,7 +61,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 
 | **지역** | **Azure 지역** | **ExpressRoute 위치** |
 | --- | --- | --- |
-| **미국 정부 클라우드** |미국 아이오와 주 정부, 미국 버지니아 주 정부, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 시애틀, 실리콘밸리, 워싱턴 DC |
+| **미국 정부 클라우드** |미국 아이오와 주 정부, 미국 버지니아 주 정부, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 피닉스, 샌안토니오, 시애틀, 실리콘밸리, 워싱턴 DC |
 | **중국** |중국 북부, 중국 동부 |베이징, 상하이 |
 | **독일** |독일 중부, 독일 동부 |베를린, 프랑크푸르트 |
 
@@ -122,6 +122,8 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 | **시카고** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** |Equinix, Megaport, Verizon |
 | **뉴욕** |Equinix, Level 3 Communications+, Verizon |
+| **Phoenix** | CenturyLink Cloud Connect |
+| **샌안토니오** | Megaport |
 | **실리콘밸리** | Equinix, Level 3 Communications |
 | **시애틀** | Equinix |
 | **워싱턴 DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -161,7 +163,7 @@ ExpressRoute는 모든 Azure 지역 및 위치에서 지원됩니다. 다음 맵
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
 | **위치**: | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
-| **암스테르담** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telia |
+| **암스테르담** | Equinix, Telecity | BICS, Eurofiber, Fastweb S.p.A, MainOne, Nianet, Post, Proximus, Telecom Italia Sparkle, Telia |
 | **시카고** | Equinix | Lightower, Windstream |
 | **댈러스** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **프랑크푸르트** | Telecity | BICS, Nianet, QSC AG |

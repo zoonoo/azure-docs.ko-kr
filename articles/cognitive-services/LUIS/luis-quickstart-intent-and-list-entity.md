@@ -2,19 +2,19 @@
 title: 정확한 텍스트 일치 나열된 데이터를 가져오도록 LUIS 앱을 만드는 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 의도 및 목록 엔터티를 사용하는 간단한 LUIS 앱을 만들어서 이 빠른 시작에서 데이터를 추출하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: da0491aae571f085a8cbe3cd372f905202e9db9b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 4ba2ba5d947a112f780579bf4b31ba38cb26ae03
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931068"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222973"
 ---
 # <a name="tutorial-4-add-list-entity"></a>자습서: 4. 목록 엔터티 추가
 이 자습서에서는 미리 정의된 목록과 일치하는 데이터를 가져오는 방법을 보여주는 앱을 만듭니다. 
