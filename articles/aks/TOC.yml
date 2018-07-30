@@ -89,6 +89,10 @@
         - name: Azure 컨테이너 상태 솔루션
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: 마스터 구성 요소 로그 보기
+          href: view-master-logs.md
+        - name: Kubelet 로그 보기
+          href: kubelet-logs.md
     - name: 응용 프로그램 개발 및 실행
       items:
         - name: Helm을 사용하여 응용 프로그램 실행
@@ -121,8 +125,6 @@
       items:
         - name: SSH 노드 액세스
           href: aks-ssh.md
-        - name: kubelet 로그 가져오기
-          href: kubelet-logs.md
 - name: 참고 자료
   items:
     - name: Azure CLI

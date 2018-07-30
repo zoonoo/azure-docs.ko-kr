@@ -83,6 +83,7 @@
 
 ## 페더레이션 서비스 관리
 ### [관리 및 사용자 지정](active-directory-aadconnect-federation-management.md)
+### [Azure AD Connect를 사용하여 Azure AD로 AD FS 트러스트 관리](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Azure AD의 여러 인스턴스를 AD FS의 단일 인스턴스로 페더레이션](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 

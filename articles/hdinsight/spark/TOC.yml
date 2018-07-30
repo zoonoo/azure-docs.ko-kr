@@ -209,6 +209,8 @@
       items:
         - name: 클러스터 리소스 관리
           href: apache-spark-resource-manager.md
+        - name: 확장된 기록 서버를 사용하여 Spark 응용 프로그램 관리
+          href: apache-azure-spark-history-server.md
         - name: Spark 설정 구성
           href: apache-spark-settings.md
         - name: Spark 작업 최적화
