@@ -6,18 +6,18 @@ author: v-geberr
 manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
-ms.topic: article
-ms.date: 06/11/2018
+ms.topic: tutorial
+ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 20950ced66497fb0dc96365975b37f244f677ce3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266382"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929052"
 ---
-# <a name="use-prebuilt-intents-and-entities-to-handle-common-intents-and-data"></a>미리 빌드된 의도 및 엔터티를 사용하여 일반적인 의도 및 데이터 처리
-미리 빌드된 의도 및 엔터티를 인사 관리 빠른 시작 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 
+# <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>자습서: 2. 미리 작성된 의도 및 엔터티 추가
+미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "36266382"
 * LUIS 쿼리 및 예측 응답 받기
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[사용자 지정 도메인](luis-quickstart-intents-only.md) 빠른 시작의 인사 관리 앱에 없는 경우 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github 리포지토리에서 JSON을 [LUIS][LUIS] 웹 사이트의 새 앱으로 [가져옵니다](create-new-app.md#import-new-app).
+이전 엔터티 자습서의 [인사 관리](luis-quickstart-intents-only.md) 앱이 없으면 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github 리포지토리의 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app).
 
 원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `prebuilts`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
 
@@ -52,8 +52,9 @@ LUIS는 일반적인 사용자 의도에 도움이 되도록 여러 가지 미�
     * Utilities.Cancel
     * Utilities.Confirm
     * Utilities.Help
-    * Utilities.Stop
     * Utilities.StartOver
+    * Utilities.Stop
+
 
 ## <a name="add-prebuilt-entities"></a>미리 빌드된 엔터티 추가
 LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 엔터티를 제공합니다. 
@@ -79,12 +80,14 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
 
     ![학습 완료 상태 표시줄](./media/luis-quickstart-intents-only/trained.png)
 
-2. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택하여 게시 페이지를 엽니다. 기본적으로 프로덕션 슬롯이 선택되어 있습니다. 프로덕션 슬롯 선택 항목 옆에 있는 **게시** 단추를 선택합니다. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+2. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택하여 게시 페이지를 엽니다. 
 
-    끝점 URL을 게시하거나 테스트하기 전에 Azure Portal에서 LUIS 키를 만들지 않아도 됩니다. 모든 LUIS 앱에는 작성을 위한 체험 시작 키가 있습니다. 이 키는 무제한 작성 및 [몇 개의 끝점 적중 횟수](luis-boundaries.md#key-limits)를 제공합니다. 
+3. 기본적으로 프로덕션 슬롯이 선택되어 있습니다. 프로덕션 슬롯 선택 항목 옆에 있는 **게시** 단추를 선택합니다. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+
+    끝점 URL을 게시하거나 테스트하기 전에 Azure Portal에서 LUIS 키를 만들지 않아도 됩니다. 모든 LUIS 앱에는 작성을 위한 무료 시작 키가 있습니다. 이 키는 무제한 작성 및 [몇 개의 끝점 적중 횟수](luis-boundaries.md#key-limits)를 제공합니다. 
 
 ## <a name="query-endpoint-with-an-utterance"></a>발화를 사용하여 끝점 쿼리
-**게시** 페이지의 아래쪽에서 **끝점** 링크를 선택합니다. 그러면 주소 표시줄에 끝점 URL이 표시된 다른 브라우저 창이 열립니다. 주소의 URL 끝으로 이동하고 `I want to cancel on March 3`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 
+**게시** 페이지의 아래쪽에서 **끝점** 링크를 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 있는 다른 브라우저 창이 열립니다. 주소의 URL 끝으로 이동하고 `I want to cancel on March 3`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 
 
 결과에서는 Utilities.Cancel 의도를 예측하고 March 3 날짜와 숫자 3을 추출했습니다. 
 
@@ -163,12 +166,15 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
     }
     ```
 
+3월 3일이 과거 또는 미래에 있을 때 발언이 언급되지 않았기 때문에 3월 3일에는 두 가지 값이 있습니다. 가정하거나 필요할 경우 설명을 요청하는 것은 LUIS 호출 응용 프로그램에 달렸습니다. 
+
 미리 빌드된 의도 및 엔터티를 쉽고 빠르게 추가하면 클라이언트 응용 프로그램에서 대화 관리를 추가하고 일반적인 데이터 형식을 추출할 수 있습니다. 
+
+## <a name="clean-up-resources"></a>리소스 정리
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 그러려면 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[엔터티에 대해 자세히 알아봅니다](luis-concept-entity-types.md). 
+> [!div class="nextstepaction"]
+> [앱에 정규식 엔터티 추가](luis-quickstart-intents-regex-entity.md)
 
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions

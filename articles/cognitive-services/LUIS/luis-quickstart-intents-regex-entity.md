@@ -2,19 +2,19 @@
 title: 정규식과 일치하는 데이터를 가져오는 LUIS 앱을 만드는 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 의도를 사용하는 간단한 LUIS 앱 및 데이터를 추출하는 정규식 엔터티를 만드는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929374"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238338"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>자습서: 3. 정규식 엔터티 추가
 이 자습서에서는 **정규식** 엔터티를 사용하여 발화에서 형식이 일관되게 지정된 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.

@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: fea311eb36c0654b45b2354cb283f1699be7257c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109344"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865814"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>자습서: 1. 사용자 지정 도메인으로 앱 빌드
 이 자습서에서는 **의도**를 사용하여 사용자가 앱에 제출한 발화(텍스트)를 기초로 사용자의 _의도_를 판단하는 방법을 보여 주는 앱을 만듭니다. 마치면 클라우드에서 실행되는 LUIS 엔드포인트를 갖게 됩니다.
@@ -188,7 +188,7 @@ JSON 결과는 최고 점수 매기기 의도를 식별합니다. 모든 점수�
 LUIS는 이 요청을 통해 수행됩니다. 챗봇 같은 호출 응용 프로그램은 topScoringIntent 결과를 취하고, 정보를 찾아(LUIS에 저장되지 않음) 질문에 답하거나 대화를 종료할 수 있습니다. 이것은 봇 또는 호출 응용 프로그에 대한 프로그램 방식의 옵션입니다. LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 그러려면 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 그러려면 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -2,19 +2,19 @@
 title: 주요 구문을 반환하는 LUIS 앱을 만드는 자습서 - Azure | Microsoft Docs
 description: 이 자습서에서는 LUIS 앱에 keyPhrase 엔터티를 추가하고 반환하여 주요 주제 문제에 대한 발언을 분석하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929555"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224265"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>자습서: 8. keyPhrase 엔터티 추가 
 이 자습서에서는 발화에서 핵심 주제를 추출하는 방법을 보여 주는 앱을 사용합니다.

@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: c5408d20a736f262e95ce7014c385b50521967ad
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: da0491aae571f085a8cbe3cd372f905202e9db9b
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127858"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37931068"
 ---
 # <a name="tutorial-4-add-list-entity"></a>자습서: 4. 목록 엔터티 추가
 이 자습서에서는 미리 정의된 목록과 일치하는 데이터를 가져오는 방법을 보여주는 앱을 만듭니다. 
@@ -30,7 +30,7 @@ ms.locfileid: "37127858"
 이 문서에서는 LUIS 앱을 작성하기 위한 [LUIS](luis-reference-regions.md#luis-website) 체험 계정이 필요합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[regex 엔터티](luis-quickstart-intents-regex-entity.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](create-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github 리포지토리에 있습니다.
+[regex 엔터티](luis-quickstart-intents-regex-entity.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-regex-HumanResources.json) Github 리포지토리에 있습니다.
 
 원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `list`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
 
@@ -83,7 +83,7 @@ mv john.w.smith@mycompany from office b-1234 to office h-4452
 
 4. 의도에 발화 예제를 추가합니다.
 
-    |예제 발언|
+    |예제 발화|
     |--|
     |John W. Smith를 B-1234에서 H-4452로 이동|
     |john.w.smith@mycompany.com을 사무실 h-4452에서 사무실 b-1234로 이동|
@@ -296,7 +296,7 @@ LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용�
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 다음 단계를 수행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식으로 작동하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위의 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위의 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
