@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128448"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929374"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>자습서: 3. 정규식 엔터티 추가
 이 자습서에서는 **정규식** 엔터티를 사용하여 발화에서 형식이 일관되게 지정된 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.
@@ -31,7 +31,7 @@ ms.locfileid: "37128448"
 이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md#luis-website) 계정이 필요합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[미리 작성된 엔터티](luis-tutorial-prebuilt-intents-entities.md) 자습서의 인사 관리 앱이 없으면 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 리포지토리의 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](create-new-app.md#import-new-app).
+[미리 작성된 엔터티](luis-tutorial-prebuilt-intents-entities.md) 자습서의 인사 관리 앱이 없으면 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json) Github 리포지토리의 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app).
 
 원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `regex`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
 
@@ -101,7 +101,7 @@ HRF는 인사 관리 양식을 나타냅니다.
 
 1. 왼쪽 패널에서 **엔터티**를 선택합니다.
 
-2. 엔터티 페이지에서 **새 엔터티 만들기** 단추를 선택합니다. 
+2. [엔터티] 페이지에서 **새 엔터티 만들기** 단추를 선택합니다. 
 
     [![새 엔터티 만들기 단추가 강조 표시된 엔터티 페이지의 스크린샷](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png#lightbox)
 
@@ -253,7 +253,7 @@ HRF는 인사 관리 양식을 나타냅니다.
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 양식 번호를 사용하여 타사 API를 검색할 수 있습니다. LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지 결정하고 해당 의도에 대한 데이터를 추출합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 상단 왼쪽 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 상단 왼쪽 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

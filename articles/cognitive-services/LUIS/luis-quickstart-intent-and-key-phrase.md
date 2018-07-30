@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340953"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929555"
 ---
-# <a name="tutorial-7-add-keyphrase-entity"></a>자습서: 7. keyPhrase 엔터티 추가 
+# <a name="tutorial-8-add-keyphrase-entity"></a>자습서: 8. keyPhrase 엔터티 추가 
 이 자습서에서는 발화에서 핵심 주제를 추출하는 방법을 보여 주는 앱을 사용합니다.
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ ms.locfileid: "37340953"
 이 문서에서는 LUIS 응용 프로그램을 작성하기 위해 체험 [LUIS](luis-reference-regions.md#publishing-regions) 계정을 사용할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
-[단순 엔터티](luis-quickstart-primary-and-secondary-data.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](create-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github 리포지토리에 있습니다.
+[단순 엔터티](luis-quickstart-primary-and-secondary-data.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github 리포지토리에 있습니다.
 
 원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `keyphrase`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
 
@@ -201,10 +201,9 @@ keyPhrase 엔터티 검색이 포함된 이 앱은 자연어 쿼리 의도를 �
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램은 발언에서 topScoringIntent 결과 및 keyPhrase 데이터를 사용하여 다음 단계를 진행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [앱에 감정 분석 추가](luis-quickstart-intent-and-sentiment-analysis.md)
-
