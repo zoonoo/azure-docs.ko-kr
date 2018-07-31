@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 1c33a75363eec2b4e338ba64e3d1ad877d8b1610
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "34757230"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144937"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -40,38 +40,40 @@ NSG에서는 VM에서 들어오고 나가는 트래픽 유형을 제어할 수 �
 2. Azure Portal 맨 위에 있는 검색 상자에 VM의 이름을 입력합니다. 검색 결과에 VM의 이름이 나타나면 선택합니다.
 3. **설정**에서 다음 그림에 표시된 것처럼 **네트워킹**을 선택합니다.
 
-    ![보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
+   ![보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    이전 그림에 나열된 규칙은 **myVMVMNic**라는 네트워크 인터페이스에 대한 것입니다. 두 개의 서로 다른 네트워크 보안 그룹에서 네트워크 인터페이스에 대한 **인바운드 포트 규칙**이 있습니다. **mySubnetNSG**: 네트워크 인터페이스가 있는 서브넷에 연결됩니다.
-        - **myVMNSG**: **myVMVMNic**라는 VM에서 네트워크 인터페이스에 연결됩니다.
+   이전 그림에 나열된 규칙은 **myVMVMNic**라는 네트워크 인터페이스에 대한 것입니다. 두 개의 서로 다른 네트워크 보안 그룹에서 네트워크 인터페이스에 대한 **인바운드 포트 규칙**이 있습니다.
+   
+   - **mySubnetNSG**: 네트워크 인터페이스가 있는 서브넷에 연결됩니다.
+   - **myVMNSG**: **myVMVMNic**라는 VM에서 네트워크 인터페이스에 연결됩니다.
 
-    **DenyAllInBound**라는 규칙은 [시나리오](#scenario)에 설명된 대로 인터넷에서 포트 80을 통해 VM에 대한 인바운드 통신을 방지하는 규칙입니다. 규칙은 인터넷을 포함하는 **원본**에 대한 *0.0.0.0/0*을 나열합니다. 더 높은 우선 순위(낮은 숫자)가 있는 다른 규칙은 포트 80 인바운드를 허용하지 않습니다. 인터넷에서 VM에 대한 포트 80 인바운드를 허용하려면 [문제 해결](#resolve-a-problem)을 참조하세요. 보안 규칙 및 Azure에서 적용하는 방법에 대해 자세히 알아보려면 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
+   **DenyAllInBound**라는 규칙은 [시나리오](#scenario)에 설명된 대로 인터넷에서 포트 80을 통해 VM에 대한 인바운드 통신을 방지하는 규칙입니다. 규칙은 인터넷을 포함하는 **원본**에 대한 *0.0.0.0/0*을 나열합니다. 더 높은 우선 순위(낮은 숫자)가 있는 다른 규칙은 포트 80 인바운드를 허용하지 않습니다. 인터넷에서 VM에 대한 포트 80 인바운드를 허용하려면 [문제 해결](#resolve-a-problem)을 참조하세요. 보안 규칙 및 Azure에서 적용하는 방법에 대해 자세히 알아보려면 [네트워크 보안 그룹](security-overview.md)을 참조하세요.
 
-    그림의 맨 아래에 **아웃바운드 포트 규칙**이 표시됩니다. 아래는 네트워크 인터페이스에 대한 아웃바운드 포트 규칙입니다. 그림은 각 NSG에 대한 4개의 인바운드 규칙만을 표시하지만 NSG에는 4개 이상의 규칙이 있을 수 있습니다. 그림에서 **원본** 및 **대상** 아래에 **VirtualNetwork**가 표시되고 **원본** 아래에 **AzureLoadBalancer**가 표시됩니다. **VirtualNetwork** 및 **AzureLoadBalancer**는 [서비스 태그](security-overview.md#service-tags)입니다. 서비스 태그는 보안 규칙 생성에 대한 복잡성을 최소화할 수 있는 IP 주소 접두사의 그룹을 나타냅니다.
+   그림의 맨 아래에 **아웃바운드 포트 규칙**이 표시됩니다. 아래는 네트워크 인터페이스에 대한 아웃바운드 포트 규칙입니다. 그림은 각 NSG에 대한 4개의 인바운드 규칙만을 표시하지만 NSG에는 4개 이상의 규칙이 있을 수 있습니다. 그림에서 **원본** 및 **대상** 아래에 **VirtualNetwork**가 표시되고 **원본** 아래에 **AzureLoadBalancer**가 표시됩니다. **VirtualNetwork** 및 **AzureLoadBalancer**는 [서비스 태그](security-overview.md#service-tags)입니다. 서비스 태그는 보안 규칙 생성에 대한 복잡성을 최소화할 수 있는 IP 주소 접두사의 그룹을 나타냅니다.
 
 4. VM이 실행 상태에 있는지 확인한 다음, 이전 그림에 표시된 것처럼 **효과적인 보안 규칙**을 선택하여 다음 그림에 표시된 효과적인 보안 규칙을 봅니다.
 
-    ![효과적인 보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
+   ![효과적인 보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    나열된 규칙은 3단계에서 표시된 것과 동일하지만 네트워크 인터페이스와 서브넷에 연결된 NSG에 대해 서로 다른 탭이 있습니다. 그림에서 볼 수 있듯이 처음 50개의 규칙만 표시됩니다. 모든 규칙을 포함하는 .csv 파일을 다운로드하려면 **다운로드**를 선택합니다.
+   나열된 규칙은 3단계에서 표시된 것과 동일하지만 네트워크 인터페이스와 서브넷에 연결된 NSG에 대해 서로 다른 탭이 있습니다. 그림에서 볼 수 있듯이 처음 50개의 규칙만 표시됩니다. 모든 규칙을 포함하는 .csv 파일을 다운로드하려면 **다운로드**를 선택합니다.
 
-    각 서비스 태그가 나타내는 접두사를 확인하려면 규칙을 선택합니다(예: **AllowAzureLoadBalancerInbound**라는 규칙). 다음 그림은 **AzureLoadBalancer** 서비스 태그에 대한 접두사를 보여줍니다.
+   각 서비스 태그가 나타내는 접두사를 확인하려면 규칙을 선택합니다(예: **AllowAzureLoadBalancerInbound**라는 규칙). 다음 그림은 **AzureLoadBalancer** 서비스 태그에 대한 접두사를 보여줍니다.
 
-    ![효과적인 보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
+   ![효과적인 보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/address-prefixes.png)
 
-    **AzureLoadBalancer** 서비스 태그는 하나의 접두사만을 나타내지만 다른 서비스 태그는 여러 개의 접두사를 나타냅니다.
+   **AzureLoadBalancer** 서비스 태그는 하나의 접두사만을 나타내지만 다른 서비스 태그는 여러 개의 접두사를 나타냅니다.
 
-4. 이전 단계는 **myVMVMNic**라는 네트워크 인터페이스에 대한 보안 규칙을 보여줬지만 일부 이전 그림에서 **myVMVMNic2**라는 네트워크 인터페이스도 확인했습니다. 이 예제의 VM에는 두 개의 연결된 네트워크 인터페이스가 있습니다. 효과적인 보안 규칙은 각 네트워크 인터페이스에 대해 다를 수 있습니다.
+5. 이전 단계는 **myVMVMNic**라는 네트워크 인터페이스에 대한 보안 규칙을 보여줬지만 일부 이전 그림에서 **myVMVMNic2**라는 네트워크 인터페이스도 확인했습니다. 이 예제의 VM에는 두 개의 연결된 네트워크 인터페이스가 있습니다. 효과적인 보안 규칙은 각 네트워크 인터페이스에 대해 다를 수 있습니다.
 
-    **myVMVMNic2** 네트워크 인터페이스에 대한 규칙을 보려면 선택합니다. 다음 그림에 표시된 것처럼 네트워크 인터페이스에는 **myVMVMNic** 네트워크 인터페이스와 해당 서브넷에 연결된 동일한 규칙이 있습니다. 두 네트워크 인터페이스가 동일한 서브넷에 있기 때문입니다. 서브넷에 NSG를 연결하면 해당 규칙이 서브넷의 모든 네트워크 인터페이스에 적용됩니다.
+   **myVMVMNic2** 네트워크 인터페이스에 대한 규칙을 보려면 선택합니다. 다음 그림에 표시된 것처럼 네트워크 인터페이스에는 **myVMVMNic** 네트워크 인터페이스와 해당 서브넷에 연결된 동일한 규칙이 있습니다. 두 네트워크 인터페이스가 동일한 서브넷에 있기 때문입니다. 서브넷에 NSG를 연결하면 해당 규칙이 서브넷의 모든 네트워크 인터페이스에 적용됩니다.
 
-    ![보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
+   ![보안 규칙 보기](./media/diagnose-network-traffic-filter-problem/view-security-rules2.png)
 
-    **myVMVMNic** 네트워크 인터페이스와 달리 **myVMVMNic2** 네트워크 인터페이스에는 연결된 네트워크 보안 그룹이 없습니다. 각 네트워크 인터페이스와 서브넷은 0개 또는 하나의 연결된 NSG를 가질 수 있습니다. 각 네트워크 인터페이스 또는 서브넷에 연결된 NSG는 동일하거나 다를 수 있습니다. 동일한 네트워크 보안 그룹을 선택한 만큼의 네트워크 인터페이스 및 서브넷에 연결할 수 있습니다.
+   **myVMVMNic** 네트워크 인터페이스와 달리 **myVMVMNic2** 네트워크 인터페이스에는 연결된 네트워크 보안 그룹이 없습니다. 각 네트워크 인터페이스와 서브넷은 0개 또는 하나의 연결된 NSG를 가질 수 있습니다. 각 네트워크 인터페이스 또는 서브넷에 연결된 NSG는 동일하거나 다를 수 있습니다. 동일한 네트워크 보안 그룹을 선택한 만큼의 네트워크 인터페이스 및 서브넷에 연결할 수 있습니다.
 
-효과적인 보안 규칙은 VM을 통해 표시되지만 다음을 통해서도 효과적인 보안 규칙을 볼 수 있습니다.
-- **개별 네트워크 인터페이스**: [네트워크 인터페이스를 보는](virtual-network-network-interface.md#view-network-interface-settings) 방법을 알아봅니다.
-- **개별 NSG**: [NSG를 보는](manage-network-security-group.md#view-details-of-a-network-security-group) 방법을 알아봅니다.
+효과적인 보안 규칙은 VM을 통해 표시되지만 다음과 같은 개별 항목을 통해서도 효과적인 보안 규칙을 볼 수 있습니다.
+- **네트워크 인터페이스**: [네트워크 인터페이스를 보는](virtual-network-network-interface.md#view-network-interface-settings) 방법을 알아봅니다.
+- **NSG**: [NSG를 보는](manage-network-security-group.md#view-details-of-a-network-security-group) 방법을 알아봅니다.
 
 ## <a name="diagnose-using-powershell"></a>PowerShell을 사용하여 진단
 

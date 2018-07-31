@@ -1,6 +1,6 @@
 ---
 title: Windows VM에서 데이터 디스크 분리 - Azure| Microsoft Docs
-description: Resource Manager 배포 모델을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리하는 방법을 알아봅니다.
+description: Resource Manager 배포 모델을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,16 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2017
+ms.date: 07/17/2018
 ms.author: cynthn
-ms.openlocfilehash: e56e9ce22cc9e2bad75c944c20bff812d8720d18
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 7a8221ff624e774901b02672cd95230f40727639
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913504"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144257"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
+
 가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 머신에서 디스크가 제거되지만, 저장소에서는 제거되지 않습니다.
 
 > [!WARNING]
@@ -31,6 +32,22 @@ ms.locfileid: "30913504"
 >
 
 디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 가상 머신에 다시 연결할 수 있습니다.
+
+
+## <a name="detach-a-data-disk-using-powershell"></a>PowerShell을 사용하여 데이터 디스크 분리
+
+PowerShell을 사용하여 데이터 디스크를 *작동 중* 제거(hot remove)할 수 있지만, VM에서 해당 디스크를 분리할 때 해당 디스크가 전혀 사용되고 있지 않아야 합니다.
+
+이 예제에서는 **myResourceGroup** 리소스 그룹의 VM **myVM**에서 **myDisk**라는 디스크를 제거합니다. 먼저 [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet을 사용하여 디스크를 제거합니다. 그런 후 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet으로 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
+
+```azurepowershell-interactive
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "myDisk"
+Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
+```
+
+디스크가 저장소에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
+
 
 ## <a name="detach-a-data-disk-using-the-portal"></a>포털을 사용하여 데이터 디스크 분리
 
@@ -42,24 +59,7 @@ ms.locfileid: "30913504"
 5. 디스크를 제거한 후에 창 상단에서 **저장**을 클릭합니다.
 6. 가상 머신 창에서 **개요**를 클릭한 다음 창 상단에서 **시작** 단추를 클릭하여 VM을 다시 시작합니다.
 
-
-
 디스크가 저장소에 유지되지만 더 이상 가상 머신에 연결되어 있지 않습니다.
-
-## <a name="detach-a-data-disk-using-powershell"></a>PowerShell을 사용하여 데이터 디스크 분리
-이 예제에서 첫 번째 명령은 [Get-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet을 사용하여 **RG11** 리소스 그룹에서 **MyVM07**이라는 가상 머신을 가져와서 **$VirtualMachine** 변수에 저장합니다.
-
-두 번째 줄은 [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk) cmdlet을 사용하여 가상 머신에서 DataDisk3이라는 데이터 디스크를 제거합니다.
-
-세 번째 줄은 [Update-AzureRmVM](/powershell/module/azurerm.compute/update-azurermvm) cmdlet을 사용하여 가상 머신의 상태를 업데이트하여 데이터 디스크 제거 프로세스를 완료합니다.
-
-```azurepowershell-interactive
-$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07"
-Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-Update-AzureRmVM -ResourceGroupName "RG11" -VM $VirtualMachine
-```
-
-자세한 내용은 [Remove-AzureRmVMDataDisk](/powershell/module/azurerm.compute/remove-azurermvmdatadisk)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 디스크를 다시 사용하려는 경우 [다른 VM에 연결](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)

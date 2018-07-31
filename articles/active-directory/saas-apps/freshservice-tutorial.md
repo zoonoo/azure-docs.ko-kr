@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/16/2017
+ms.date: 07/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 28a334cc43f8c14d2bf639b715e891cc6bb8c1cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: cccbe2052336012b9ac98b3e28dc6481cbf9aefb
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214453"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144535"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshservice"></a>자습서: Freshservice와 Azure Active Directory 통합
 
@@ -121,7 +121,7 @@ Freshservice에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
  
 4. **SAML 서명 인증서** 섹션에서 인증서의 **THUMBPRINT** 값을 복사합니다.
 
-    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png) 
+    ![Configure Single Sign-On](./media/freshservice-tutorial/tutorial_freshservice_certificate.png)
 
 5. **저장** 단추를 클릭합니다.
 
@@ -151,15 +151,11 @@ Freshservice에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     다. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **SAML 로그인 URL** 텍스트 상자에 붙여넣습니다.
 
-    d. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여 넣습니다.
+    d. Azure Portal에서 복사한 **로그아웃 URL** 값을 **로그아웃 URL** 텍스트 상자에 붙여넣습니다.
 
     e. Azure Portal에서 복사한 인증서의 **THUMBPRINT** 값을 **보안 인증서 지문** 텍스트 상자에 붙여넣습니다.
 
     f. 페이지 맨 아래에 있는 **저장**
-   
-> [!TIP]
-> 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
-> 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.

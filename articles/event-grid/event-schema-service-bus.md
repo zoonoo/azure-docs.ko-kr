@@ -6,14 +6,14 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 02/21/2018
+ms.date: 07/23/2018
 ms.author: babanisa
-ms.openlocfilehash: 991679eeb0f7c98606133750b193a5895f39178f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 39bf8df69f491aace546386b1b3aabce9ea6c696
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303320"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226546"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Service Bus에 대한 Azure Event Grid 이벤트 스키마
 
@@ -93,7 +93,7 @@ Service Bus는 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 자산 | type | 설명 |
 | -------- | ---- | ----------- |
-| nameSpaceName | string | 리소스가 있는 Service Bus 네임스페이스입니다. |
+| namespaceName | string | 리소스가 있는 Service Bus 네임스페이스입니다. |
 | requestUri | string | 이벤트를 내보내는 특정 큐 또는 구독의 URI입니다. |
 | entityType | string | 이벤트를 내보내는 Service Bus 엔터티의 유형(큐 또는 구독)입니다. |
 | queueName | string | 큐를 구독하는 경우 활성 메시지가 있는 큐입니다. 토픽/구독을 사용하는 경우 값이 null입니다. |

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: d7814b976529bf7032edd54e4afd574ce766e5dd
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919865"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215182"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>대규모 VMware 환경 검색 및 평가
 
@@ -101,7 +101,7 @@ vCenter Server당 1500개 미만의 가상 머신이 있는 여러 vCenter Serve
 
 ### <a name="set-up-the-collector-appliance"></a>수집기 어플라이언스 설정
 
-Azure Migrate는 수집기 어플라이언스라고 하는 온-프레미스 VM을 만듭니다. 이 VM은 온-프레미스 VMware VM을 검색하고 이에 대한 메타데이터를 Azure Migrate 서비스에 보냅니다. 수집기 어플라이언스를 설정하려면 OVA 파일을 다운로드하고 온-프레미스 vCenter Server로 가져옵니다.
+Azure Migrate는 수집기 어플라이언스로 알려진 온-프레미스 VM을 만듭니다. 이 VM은 온-프레미스 VMware VM을 검색하고 이에 대한 메타데이터를 Azure Migrate 서비스에 보냅니다. 수집기 어플라이언스를 설정하려면 OVA 파일을 다운로드하고 온-프레미스 vCenter Server로 가져옵니다.
 
 #### <a name="download-the-collector-appliance"></a>수집기 어플라이언스를 다운로드 합니다.
 

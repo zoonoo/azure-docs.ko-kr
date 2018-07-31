@@ -10,25 +10,22 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: protection
-ms.date: 03/04/2018
+ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: bbc87f529cb70b6f4b21984199ed87427b4e3108
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6553fdba463144c6eda1e35c0967e92a3c44aff6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506413"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225579"
 ---
-# <a name="different-administrative-role-in-azure-active-directory-pim"></a>Azure Active Directory PIM의 다른 관리자 역할
+# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>Azure AD PIM을 사용하여 관리할 수 있는 디렉터리 역할
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 조직의 사용자를 Azure AD의 다른 관리 역할에 할당할 수 있습니다. 이러한 역할 할당은 사용자를 추가 또는 제거하거나 서비스 설정을 변경하는 등 사용자가 Azure AD, Office 365, 기타 Microsoft Online Services, 연결된 응용 프로그램에서 수행할 수 있는 작업을 제어합니다.  
 
-> [!IMPORTANT]
-> Microsoft는 Azure Portal에서 [Azure AD 관리 센터](https://aad.portal.azure.com)를 사용하여 Azure AD를 관리하는 것을 권장합니다.
-
-전역 관리자는 `Add-MsolRoleMember` 및 `Remove-MsolRoleMember`와 같은 PowerShell cmdlet을 사용하거나 또는 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)에 설명된 대로 포털을 통해 사용자가 **영구적으로** Azure AD에서 역할에 할당되도록 업데이트할 수 있습니다.
+전역 관리자는 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)에 설명된 대로 포털을 통해 또는 [PowerShell 명령](/powershell/module/azuread#directory_roles)을 사용하여 Azure AD에서 역할에 **영구적으로** 할당된 사용자를 업데이트할 수 있습니다.
 
 Azure AD Privileged Identity Management(PIM)는 Azure AD에서 사용자에 대한 권한 있는 액세스의 정책을 관리합니다. PIM은 Azure AD에서 사용자에게 하나 이상의 역할을 할당하고, 다른 사용자를 역할에 영구적으로 할당하거나 또는 역할에 대해 적격이 되도록 할당할 수 있습니다. 사용자가 역할에 영구적으로 할당되거나 적격 역할 할당을 활성화하는 경우 해당 역할에 할당된 권한으로 Azure Active Directory, Office 365 및 기타 응용 프로그램을 관리할 수 있습니다.
 
@@ -66,7 +63,7 @@ PIM에서는 사용자가 [필요할 때 역할을 활성화](pim-how-to-add-rol
 ## <a name="roles-not-managed-in-pim"></a>PIM에서 관리되지 않는 역할
 위에서 언급한 것을 제외하고 Exchange Online 또는 SharePoint Online 내에 있는 역할은 Azure AD에 표시되지 않으므로 PIM에서 볼 수 없습니다. 이러한 Office 365 서비스에서 세분화된 역할 할당 변경에 대한 자세한 내용은 [Office 365의 사용 권한](https://support.office.com/article/Permissions-in-Office-365-da585eea-f576-4f55-a1e0-87090b6aaa9d)을 참조하세요.
 
-Azure 구독 및 리소스 그룹도 Azure AD에 표시되지 않습니다. Azure 구독을 관리하려면 [Azure 관리자 역할을 추가하거나 변경하는 방법](../../billing/billing-add-change-azure-subscription-administrator.md)을 참조하고, Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 Access Control](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
+Azure 구독 및 리소스 그룹도 Azure AD에 표시되지 않습니다. Azure 구독을 관리하려면 [Azure 관리자 역할을 추가하거나 변경하는 방법](../../billing/billing-add-change-azure-subscription-administrator.md)을 참조하고, Azure RBAC에 대한 자세한 내용은 [Azure 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
 <!--**The above links might be replaced by ones that are from within this documentation repository **-->
 

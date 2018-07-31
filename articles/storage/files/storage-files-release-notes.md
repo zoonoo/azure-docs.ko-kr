@@ -1,21 +1,21 @@
 ---
-title: Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보 | Microsoft Docs
-description: Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보
+title: Azure File Sync 에이전트에 대한 릴리스 정보 | Microsoft Docs
+description: Azure File Sync 에이전트에 대한 릴리스 정보
 services: storage
 author: wmgries
 manager: aungoo
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: c1ca8146db8c5d67be53ba4e30d8ab0218aca104
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 7422300ffe315e0a12812c38f9b823a125eaf344
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128761"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144791"
 ---
-# <a name="release-notes-for-the-azure-file-sync-agent-preview"></a>Azure File Sync 에이전트(미리 보기)에 대한 릴리스 정보
+# <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure File Sync 에이전트에 대한 릴리스 정보
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에서는 Azure File Sync 에이전트의 지원되는 버전에 대한 릴리스 정보를 제공합니다.
@@ -25,19 +25,69 @@ Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성
 
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
-| 6월 업데이트 롤업 | 3.0.13.0 | 2018년 6월 29일 | 지원됨(권장 버전) |
-| 새로 고침 2 | 3.0.12.0 | 2018년 5월 22일 | 지원됨 |
-| 4월 업데이트 롤업 | 2.3.0.0 | 2018년 5월 8일 | 지원됨 |
-| 3월 업데이트 롤업 | 2.2.0.0 | 2018년 3월 12일 | 지원됨 |
-| 2월 업데이트 롤업 | 2.1.0.0 | 2018년 2월 28일 | 지원됨 |
-| 새로 고침 1 | 2.0.11.0 | 2018년 2월 8일 | 지원됨 |
-| 1월 업데이트 롤업 | 1.4.0.0 | 2018년 1월 8일 | 지원됨 |
-| 11월 업데이트 롤업 | 1.3.0.0 | 2017년 11월 30일 | 지원됨 |
-| 10월 업데이트 롤업 | 1.2.0.0 | 2017년 10월 31일 | 지원됨 |
-| 초기 미리 보기 릴리스 | 1.1.0.0 | 2017년 9월 26일 | 지원됨 |
+| 일반 공급 | 3.1 | 2018년 7월 19일 | 지원됨(권장 버전) |
+| 6월 업데이트 롤업 | 3.0.13.0 | 2018년 6월 29일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 새로 고침 2 | 3.0.12.0 | 2018년 5월 22일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 4월 업데이트 롤업 | 2.3.0.0 | 2018년 5월 8일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 3월 업데이트 롤업 | 2.2.0.0 | 2018년 3월 12일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 2월 업데이트 롤업 | 2.1.0.0 | 2018년 2월 28일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 새로 고침 1 | 2.0.11.0 | 2018년 2월 8일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 1월 업데이트 롤업 | 1.4.0.0 | 2018년 1월 8일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 11월 업데이트 롤업 | 1.3.0.0 | 2017년 11월 30일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 10월 업데이트 롤업 | 1.2.0.0 | 2017년 10월 31일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
+| 초기 미리 보기 릴리스 | 1.1.0.0 | 2017년 9월 26일 | 에이전트 버전은 2018년 9월 4일에 만료됩니다. |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-3100"></a>에이전트 버전 3.1.0.0
+다음 릴리스 정보는 2018년 7월 19일 릴리스된 Azure File Sync 에이전트의 버전 3.1.0.0에 대한 것입니다.
+
+### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
+Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure File Sync 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+
+- 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
+- 에이전트는 Windows Server Core 또는 Nano Server 배포 옵션에서 지원되지 않습니다.
+- 에이전트는 Windows Server 2016 및 Windows Server 2012 R2에서만 지원됩니다.
+- 에이전트에는 2GB 이상의 실제 메모리가 필요합니다.
+- 저장소 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
+
+### <a name="interoperability"></a>상호 운용성
+- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 응용 프로그램은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure File Sync 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
+- FSRM(파일 서버 리소스 관리자) 또는 다른 파일 차단을 사용하지 마십시오. 파일 차단으로 인해 파일이 차단된 경우 파일 차단은 무한 동기화 실패를 발생시킬 수 있습니다.
+- Azure File Sync 에이전트가 설치되어 있는 서버에서 sysprep 실행은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
+- 데이터 중복 제거 및 클라우드 계층화는 동일한 볼륨에서 지원되지 않습니다.
+
+### <a name="sync-limitations"></a>동기화 제한 사항
+다음 항목은 동기화되지 않지만 시스템의 나머지 부분은 정상적으로 계속해서 작동합니다.
+- 2048자보다 긴 경로입니다.
+- 2KB보다 큰 경우 보안 설명자의 DACL(임의 액세스 제어 목록) 부분입니다. (이 문제는 단일 항목에 약 40개 이상의 ACE(액세스 제어 항목)가 있는 경우에만 적용됩니다.)
+- 감사에 사용되는 보안 설명자의 SACL(시스템 액세스 제어 목록) 부분입니다.
+- 확장된 특성
+- 대체 데이터 스트림
+- 재분석 지점
+- 하드 링크
+- 압축(서버 파일에서 설정하는 경우)은 변경 내용이 다른 끝점의 해당 파일에 대해 동기화할 때 유지되지 않습니다.
+- 데이터 읽기에서 서비스를 보호하는 EFS(또는 다른 사용자 모드 암호화)로 암호화된 파일
+
+    > [!Note]  
+    > Azure File Sync는 항상 전송 중인 데이터를 암호화합니다. 데이터는 Azure에서 미사용 시 상시 암호화됩니다.
+ 
+### <a name="server-endpoint"></a>서버 엔드포인트
+- 서버 엔드포인트는 NTFS 볼륨에서만 만들어질 수 있습니다. ReFS, FAT, FAT32 및 다른 파일 시스템은 현재 Azure File Sync에 의해 지원되지 않습니다.
+- 계층화된 파일은 서버 엔드포인트를 삭제하기 전에 파일이 회수되지 않은 경우 사용할 수 없게 됩니다.
+- 클라우드 계층화는 시스템 볼륨에서 지원되지 않습니다. 시스템 볼륨에 서버 끝점을 만들려면 서버 끝점을 만들 때 클라우드 계층화를 사용하지 않도록 설정합니다.
+- 장애 조치(failover) 클러스터링은 CSV(클러스터 공유 볼륨)가 아닌 클러스터된 디스크로만 지원됩니다.
+- 서버 엔드포인트는 중첩될 수 없습니다. 다른 엔드포인트와 병렬로 동일한 볼륨에 공존할 수 있습니다.
+- 서버 엔드포인트 내에 있는 OS 또는 응용 프로그램 페이징 파일을 저장하지 마십시오.
+- 서버는 이름이 바뀐 경우 포털의 서버 이름이 업데이트되지 않습니다. 포털에서 서버 이름을 업데이트하려면 서버 등록을 취소했다가 다시 등록합니다.
+
+### <a name="cloud-endpoint"></a>클라우드 엔드포인트
+- Azure File Sync는 Azure 파일 공유를 직접 변경하도록 지원합니다. 그러나 먼저 Azure 파일 공유의 변경 내용이 Azure File Sync 변경 검색 작업에서 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩 시작됩니다. 또한 REST 프로토콜을 통해 수행한 Azure 파일 공유 변경 내용은 SMB 마지막 수정 시간을 업데이트하지 않으며 동기화 기능에서 변경 내용으로 표시되지 않습니다.
+
+### <a name="cloud-tiering"></a>클라우드 계층화
+- 계층화된 파일이 Robocopy를 사용하여 다른 위치로 복사되는 경우 결과 파일은 계층화되지 않습니다. Robocopy에서 복사 작업에 해당 특성을 잘못 포함하므로 오프라인 특성을 설정할 수 있습니다.
+- SMB 클라이언트에서 파일 속성을 볼 때 오프라인 특성은 파일 메타데이터의 SMB 캐싱으로 인해 잘못 설정되도록 나타날 수 있습니다.
 
 ## <a name="agent-version-30130"></a>에이전트 버전 3.0.13.0
 다음 릴리스 정보는 2018년 6월 29일 릴리스된 Azure File Sync 에이전트의 버전 3.0.13.0에 대한 것입니다. 이러한 정보는 버전 3.0.12.0에 대해 나열된 릴리스 정보에 대한 추가 사항입니다.
@@ -49,7 +99,7 @@ Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성
 다음 릴리스 정보는 2018년 5월 22일 릴리스된 Azure File Sync 에이전트의 버전 3.0.12.0에 대한 것입니다.
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
-Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure File Sync(미리 보기) 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure File Sync(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure File Sync 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 - 에이전트 설치 패키지는 상승된(관리자) 권한으로 설치되어야 합니다.
 - 에이전트는 Windows Server Core 또는 Nano Server 배포 옵션에서 지원되지 않습니다.
@@ -58,7 +108,7 @@ Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하�
 - 저장소 동기화 에이전트(FileSyncSvc) 서비스는 SVI(시스템 볼륨 정보) 디렉터리가 압축된 볼륨에 있는 서버 엔드포인트를 지원하지 않습니다. 이 구성은 예기치 않은 결과를 발생시킵니다.
 
 ### <a name="interoperability"></a>상호 운용성
-- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 응용 프로그램은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure File Sync(미리 보기) 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
+- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 응용 프로그램은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure File Sync 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
 - FSRM(파일 서버 리소스 관리자) 또는 다른 파일 차단을 사용하지 마십시오. 파일 차단으로 인해 파일이 차단된 경우 파일 차단은 무한 동기화 실패를 발생시킬 수 있습니다.
 - Azure File Sync 에이전트가 설치되어 있는 서버에서 sysprep 실행은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
 - 데이터 중복 제거 및 클라우드 계층화는 동일한 볼륨에서 지원되지 않습니다.
@@ -119,7 +169,7 @@ Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하�
 다음 릴리스 정보는 2018년 2월 9일 릴리스된 Azure File Sync 에이전트의 버전 2.0.11.0에 대한 것입니다. 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
-Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure File Sync(미리 보기) 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure File Sync(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure File Sync 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 - 에이전트 설치 패키지(MSI)는 상승된(관리자) 권한으로 설치되어야 합니다.
 - 에이전트는 Windows Server Core 또는 Nano Server 배포 옵션에서 지원되지 않습니다.
@@ -127,7 +177,7 @@ Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하�
 - 에이전트에는 2GB 이상의 실제 메모리가 필요합니다.
 
 ### <a name="interoperability"></a>상호 운용성
-- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 응용 프로그램은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure File Sync(미리 보기) 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
+- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 응용 프로그램은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure File Sync 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
 - 이 릴리스는 DFS-R에 대한 지원을 추가합니다. 자세한 내용은 [계획 지침](storage-sync-files-planning.md#distributed-file-system-dfs)을 참조하세요.
 - FSRM(파일 서버 리소스 관리자) 또는 다른 파일 차단을 사용하지 마십시오. 파일 차단으로 인해 파일이 차단된 경우 파일 차단은 무한 동기화 실패를 발생시킬 수 있습니다.
 - 등록된 서버(VM 복제 포함)의 중복으로 예기치 않은 결과가 발생할 수 있습니다. 특히 동기화가 수렴되지 않을 수도 있습니다.
@@ -170,7 +220,7 @@ Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하�
 다음 릴리스 정보는 Azure File Sync 에이전트의 버전 1.1.0.0에 대한 것입니다(2017년 9월 9일 릴리스된, 초기 미리 보기). 
 
 ### <a name="agent-installation-and-server-configuration"></a>에이전트 설치 및 서버 구성
-Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure File Sync(미리 보기) 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure File Sync(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하는 방법에 대한 자세한 내용은 [Azure File Sync 배포에 대한 계획](storage-sync-files-planning.md) 및 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 - 에이전트 설치 패키지(MSI)는 상승된(관리자) 권한으로 설치되어야 합니다.
 - 에이전트는 Windows Server Core 또는 Nano Server 배포 옵션에서 지원되지 않습니다.
@@ -178,7 +228,7 @@ Windows Server와 함께 Azure File Sync 에이전트를 설치하고 구성하�
 - 에이전트에는 2GB 이상의 실제 메모리가 필요합니다.
 
 ### <a name="interoperability"></a>상호 운용성
-- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 응용 프로그램은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure File Sync(미리 보기) 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
+- 바이러스 백신, 백업, 그리고 계층화된 파일에 액세스하는 기타 응용 프로그램은 오프라인 특성을 존중하여 해당 파일의 내용 읽기를 건너뛰지 않는 경우 원치 않은 회수가 발생할 수 있습니다. 자세한 내용은 [Azure File Sync 문제 해결](storage-sync-files-troubleshoot.md)을 참조하세요.
 - FSRM 또는 다른 파일 차단을 사용하지 마십시오. 파일 차단으로 인해 파일이 차단된 경우 파일 차단은 무한 동기화 실패를 발생시킬 수 있습니다.
 - 등록된 서버(VM 복제 포함)의 중복으로 예기치 않은 결과가 발생할 수 있습니다. 특히 동기화가 수렴되지 않을 수도 있습니다.
 - 데이터 중복 제거 및 클라우드 계층화는 동일한 볼륨에서 지원되지 않습니다.

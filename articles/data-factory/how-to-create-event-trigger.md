@@ -10,20 +10,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/23/2018
 ms.author: douglasl
-ms.openlocfilehash: ecd5f242d2dcb5662376541ac0a9e75ce533b59f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 53ea7425f0497eca7c95ddefeaa09aa40259672b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005835"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216273"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>이벤트에 대한 응답으로 파이프라인을 실행하는 트리거 만들기
 
 이 문서에서는 Data Factory 파이프라인에서 만들 수 있는 이벤트 기반 트리거를 설명합니다.
 
 EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트에 대한 응답이 포함된 일반적인 데이터 통합 패턴입니다. 데이터 통합 시나리오에서는 Data Factory 고객이 이벤트를 기반으로 파이프라인을 트리거해야 하는 경우가 종종 있습니다. Data Factory가 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)와 통합되어 이벤트에서 파이프 라인을 트리거 할 수 있습니다.
+
+10분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
+
 
 > [!NOTE]
 > 이 문서에서 설명하는 통합은 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)에 따라 달라집니다. 구독이 Event Grid 리소스 공급자에 등록되어 있는지 확인합니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md#portal)을 참조하세요.
@@ -65,7 +70,7 @@ EDA(이벤트 기반 아키텍처)는 프로덕션, 검색, 소비 및 이벤트
 
 | **JSON 요소** | **설명** | **형식** | **허용되는 값** | **필수** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
-| **scope** | 저장소 계정의 Azure Resource Manager 리소스 ID입니다. | 문자열 | Azure Resource Manager ID | 예 |
+| **scope** | 저장소 계정의 Azure Resource Manager 리소스 ID입니다. | 문자열 | Azure Resource Manager ID | yes |
 | **events** | 이 트리거를 발생시키는 이벤트 유형입니다. | 배열    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | 예, 어떤 조합이든 가능합니다. |
 | **blobPathBeginsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 시작해야 합니다. 예를 들어, '/records/blobs/december/'는 records 컨테이너의 december 폴더에 있는 Blob에 대해서만 트리거를 발생시킵니다. | 문자열   | | blobPathBeginsWith, blobPathEndsWith 속성 중 하나 이상을 제공해야 합니다. |
 | **blobPathEndsWith** | Blob 경로는 발생시킬 트리거에 제공된 패턴으로 끝나야 합니다. 예를 들어, 'december/boxes.csv'는 december 폴더의 boxes라는 이름의 Blob에 대해서만 트리거를 발생시킵니다. | 문자열   | | blobPathBeginsWith, blobPathEndsWith 속성 중 하나 이상을 제공해야 합니다. |

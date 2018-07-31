@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: fbf713b2d52469ae12fc284e0a3d7e3bc369daeb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5f21f33678b8cf09d9dbd8966d42b1a5ebac9ffb
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34620506"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224655"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Databricks Notebook을 실행하여 데이터 변환
 
@@ -43,7 +43,12 @@ Databricks Notebook 활동에 대한 샘플 JSON 정의는 다음과 같습니�
             "baseParameters": {
                 "inputpath": "input/folder1/",
                 "outputpath": "output/"
-            }
+            },
+            "libraries": [
+                {
+                "jar": "dbfs:/docs/library.jar"
+                }
+            ]
         }
     }
 }
@@ -55,9 +60,63 @@ Databricks Notebook 활동에 대한 샘플 JSON 정의는 다음과 같습니�
 
 |자산|설명|필수|
 |---|---|---|
-|이름|파이프라인의 작업 이름입니다.|예|
+|이름|파이프라인의 작업 이름입니다.|yes|
 |description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니오|
-|형식|Databricks Notebook 활동의 경우 활동 유형은 DatabricksNotebook입니다.|예|
-|linkedServiceName|Databricks Notebook이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.|예|
-|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|예|
+|형식|Databricks Notebook 활동의 경우 활동 유형은 DatabricksNotebook입니다.|yes|
+|linkedServiceName|Databricks Notebook이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.|yes|
+|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|yes|
 |baseParameters|키-값 쌍의 배열입니다. 각 활동 실행에 기본 매개 변수를 사용할 수 있습니다. 노트북에서 지정되지 않은 매개 변수를 사용하는 경우, 노트북의 기본값이 사용됩니다. 매개 변수에 대한 자세한 정보는 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)을 참조하세요.|아니오|
+|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. \<문자열, 개체>의 배열일 수 있습니다.|아니오|
+
+
+## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동의 지원되는 라이브러리
+
+위의 Databricks 활동 정의에서 *jar*, *egg*, *maven*, *pypi*, *cran* 라이브러리 유형을 지정합니다.
+
+```json
+{
+    "libraries": [
+        {
+            "jar": "dbfs:/mnt/libraries/library.jar"
+        },
+        {
+            "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+        {
+            "maven": {
+                "coordinates": "org.jsoup:jsoup:1.7.2",
+                "exclusions": [ "slf4j:slf4j" ]
+            }
+        },
+        {
+            "pypi": {
+                "package": "simplejson",
+                "repo": "http://my-pypi-mirror.com"
+            }
+        },
+        {
+            "cran": {
+                "package": "ada",
+                "repo": "http://cran.us.r-project.org"
+            }
+        }
+    ]
+}
+
+```
+
+자세한 내용은 라이브러리 유형에 대한 [Databricks 설명서](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary)를 참조하세요.
+
+## <a name="how-to-upload-a-library-in-databricks"></a>Databricks에서 라이브러리를 업로드하는 방법
+
+#### <a name="using-databricks-workspace-uihttpsdocsazuredatabricksnetuser-guidelibrarieshtmlcreate-a-library"></a>[Azure Databricks 작업 영역 UI 사용](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+
+UI를 사용하여 추가된 라이브러리의 dbfs 경로를 얻으려면 [Databricks CLI(설치)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli)를 사용할 수 있습니다. 
+
+일반적으로 Jar 라이브러리는 UI를 사용하는 동안 dbfs:/FileStore/jars 아래에 저장됩니다. *databricks fs ls dbfs:/FileStore/jars* CLI를 통해 모두 나열할 수 있습니다.
+
+
+
+#### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Databricks CLI를 사용하여 라이브러리 복사](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+
+예제: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*

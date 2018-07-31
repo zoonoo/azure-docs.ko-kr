@@ -14,13 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 13/22/2018
+ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 425310f50cebc920a71090d2017dca2a6c135991
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216752"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Azure Virtual Machines에 SQL Server 장애 조치(Failover) 클러스터 인스턴스 구성
 
@@ -71,12 +72,15 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www
 다음 기술의 작동을 이해해야 합니다.
 
 - [Windows 클러스터 기술](http://technet.microsoft.com/library/hh831579.aspx)
--  [SQL Server 장애 조치(Failover) 클러스터 인스턴스](http://msdn.microsoft.com/library/ms189134.aspx)
+- [SQL Server 장애 조치(Failover) 클러스터 인스턴스](http://msdn.microsoft.com/library/ms189134.aspx)
 
 또한 다음 기술에 대한 기본적인 지식이 있어야 합니다.
 
 - [Windows Server 2016의 저장소 공간 다이렉트를 사용하는 하이퍼 수렴형 솔루션](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure 리소스 그룹](../../../azure-resource-manager/resource-group-portal.md)
+
+> [!IMPORTANT]
+> 이번에 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)은 Azure에서 SQL Server FCI에 대해 지원되지 않습니다. FCI에 참여하는 VM에서 확장을 제거하는 것이 좋습니다. 이 확장은 자동화된 Backup 및 패칭 같은 기능 및 SQL용 일부 포털 기능을 지원합니다. 이 기능은 에이전트를 제거한 후 SQL VM에 대해 작동하지 않습니다.
 
 ### <a name="what-to-have"></a>가지고 있어야 할 사항
 
@@ -103,7 +107,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www
 
    가상 머신에 대한 리소스 그룹을 만들지 않은 경우 Azure 가용성 집합을 만들 때 만듭니다. 가용성 집합을 만드는 데 Azure Portal을 사용하는 경우 다음 단계를 수행합니다.
 
-   - Azure Portal에서 **+**를 클릭하여 Azure Marketplace를 엽니다. **가용성 집합**을 검색합니다.
+   - Azure Portal에서 **+** 를 클릭하여 Azure Marketplace를 엽니다. **가용성 집합**을 검색합니다.
    - **가용성 집합**을 클릭합니다.
    - **만들기**를 클릭합니다.
    - **가용성 집합 만들기** 블레이드에서 다음 값을 설정합니다.
@@ -156,7 +160,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](http://www
 
 1. SQL Server 기반 가상 머신 이미지 중 하나를 사용하고 있는 경우 SQL Server 인스턴스를 제거합니다.
 
-   - **프로그램 및 기능**에서 **Microsoft SQL Server 2016(64비트)**을 마우스 오른쪽 단추로 클릭하고 **제거/변경**을 클릭합니다.
+   - **프로그램 및 기능**에서 **Microsoft SQL Server 2016(64비트)** 을 마우스 오른쪽 단추로 클릭하고 **제거/변경**을 클릭합니다.
    - **제거**를 클릭합니다.
    - 기본 인스턴스를 선택합니다.
    - **데이터베이스 엔진 서비스**에서 모든 기능을 제거합니다. **공유 기능**을 제거하지 마십시오. 다음 그림을 참조하세요.
@@ -232,7 +236,7 @@ UI에서 또는 PowerShell을 사용하여 클러스터의 유효성을 검사�
 UI를 사용하여 클러스터의 유효성을 검사하려면 가상 머신 중 하나에서 다음 단계를 수행합니다.
 
 1. **서버 관리자**에서 **도구**를 클릭한 다음 **장애 조치(Failover) 클러스터 관리자**를 클릭합니다.
-1. **장애 조치(Failover) 클러스터 관리자**에서 **작업**을 클릭한 다음 **구성 유효성 검사...**를 클릭합니다.
+1. **장애 조치(Failover) 클러스터 관리자**에서 **작업**을 클릭한 다음 **구성 유효성 검사...** 를 클릭합니다.
 1. **다음**을 클릭합니다.
 1. **서버 또는 클러스터 선택**에서 두 가상 머신의 이름을 입력합니다.
 1. **테스트 옵션**에서 **선택한 테스트만 실행**을 선택합니다. **다음**을 클릭합니다.
@@ -278,7 +282,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 액세스 키 및 컨테이너 URL을 저장합니다.
 
-1. 장애 조치 클러스터에 대한 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
+1. 장애 조치(Failover) 클러스터 쿼럼 감시를 구성합니다. UI에서 [사용자 인터페이스에서 쿼럼 감시 구성](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조하세요.
 
 ### <a name="add-storage"></a>저장소 추가
 
@@ -410,7 +414,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
    - **이름**: 부하 분산 규칙의 이름입니다.
    - **프런트 엔드 IP 주소**: SQL Server FCI 클러스터 네트워크 리소스에 대한 IP 주소를 사용합니다.
    - **포트**: SQL Server FCI TCP 포트에 대해 설정합니다. 기본 인스턴스 포트는 1433입니다.
-   - **백 엔드 포트**: 이 값은 **부동 IP(Direct Server Return)**를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.
+   - **백 엔드 포트**: 이 값은 **부동 IP(Direct Server Return)** 를 활성화할 때 **포트** 값과 동일한 포트를 사용합니다.
    - **백 엔드 풀**: 이전에 구성한 백 엔드 풀 이름을 사용합니다.
    - **상태 프로브**: 이전에 구성한 상태 프로브를 사용합니다.
    - **세션 지속성**: 없음.

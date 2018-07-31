@@ -1,5 +1,5 @@
 ---
-title: Azure File Sync 배포(미리 보기) | Microsoft Docs
+title: Azure File Sync 배포 | Microsoft Docs
 description: Azure File Sync를 배포하는 방법을 처음부터 끝까지 알아봅니다.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 808bc3908790c8d6dedf1d9f00a4c70b42c7c490
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867072"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215148"
 ---
-# <a name="deploy-azure-file-sync-preview"></a>Azure File Sync 배포(미리 보기)
-Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
+# <a name="deploy-azure-file-sync"></a>Azure File Sync 배포
+Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure File Sync 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
@@ -135,7 +135,7 @@ Azure File Sync 배포에서 가장 먼저 할 일은 선택한 그룹의 리소
 > 저장소 동기화 서비스는 배포된 구독 및 리소스 그룹에서 액세스 권한을 상속합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 저장소 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure 저장소로 데이터가 흐르도록 만들 수 있습니다.
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
-저장소 동기화 서비스를 배포하려면 [Azure Portal](https://portal.azure.com/)로 이동하여 *새로 만들기*를 클릭한 후 Azure File Sync를 검색합니다. 검색 결과에서 **Azure File Sync(미리 보기)** 를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
+저장소 동기화 서비스를 배포하려면 [Azure Portal](https://portal.azure.com/)로 이동하여 *새로 만들기*를 클릭한 후 Azure File Sync를 검색합니다. 검색 결과에서 **Azure File Sync**를 선택한 후 **만들기**를 선택하여 **저장소 동기화 배포** 탭을 엽니다.
 
 열리는 창에 다음 정보를 입력합니다.
 

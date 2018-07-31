@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ea7fb5951cd0b2925aa3dd5ae14b452292ba582c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917995"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215087"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 통과 인증 보안 심층 분석
 
@@ -37,14 +37,14 @@ ms.locfileid: "37917995"
 다음은 이 기능의 주요 보안 측면입니다.
 - 테넌트 간의 로그인 요청을 격리하는 안전한 멀티 테넌트 아키텍처를 기반으로 합니다.
 - 온-프레미스 암호가 어떤 형태로든 클라우드에 저장되지 않습니다.
-- 온-프레미스 인증 에이전트는 네트워크 내에서만 아웃바운드 연결을 설정한 암호 유효성 검사 요청만 수신 대기하고 응답합니다. DMZ(경계 네트워크)에 이러한 인증 에이전트를 설치해야 할 필요는 없습니다.
+- 온-프레미스 인증 에이전트는 네트워크 내에서만 아웃바운드 연결을 설정한 암호 유효성 검사 요청만 수신 대기하고 응답합니다. DMZ(경계 네트워크)에 이러한 인증 에이전트를 설치해야 할 필요는 없습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
 - 인증 에이전트에서 Azure AD로의 아웃바운드 통신에는 표준 포트(80 및 443)만 사용됩니다. 방화벽에서 인바운드 포트를 열지 않아도 됩니다. 
   - 인증된 모든 아웃바운드 통신에는 포트 443이 사용됩니다.
   - 포트 80은 통과 인증에서 해지된 인증서가 사용되지 않도록 CRL(인증서 해지 목록)을 다운로드하는 데만 사용됩니다.
   - 자세한 네트워크 요구 사항은 [Azure Active Directory 통과 인증: 빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites)을 참조하세요.
 - 사용자가 로그인 시 입력하는 암호는 먼저 클라우드에서 암호화된 뒤에 Active Directory에 대한 유효성 검사를 위해 온-프레미스 인증 에이전트에서 수신됩니다.
 - Azure AD 및 온-프레미스 인증 에이전트 간의 HTTPS 채널은 상호 인증으로 보호됩니다.
-- 통과 인증 기능은 조건부 액세스 정책(Azure Multi-Factor Authentication 등), ID 보호, 스마트 잠금과 같은 Azure AD의 클라우드 보호 기능과 원활하게 통합됩니다.
+- MFA(Multi-Factor Authentication)를 포함하는 [Azure AD 조건부 액세스 정책](../active-directory-conditional-access-azure-portal.md)을 사용하여 원활하게 작동하고, [레거시 인증을 차단](../active-directory-conditional-access-conditions.md)하고, [무차별 암호 대입 공격을 필터링](../authentication/howto-password-smart-lockout.md)하여 사용자 계정을 보호합니다.
 
 ## <a name="components-involved"></a>관련 구성 요소
 
@@ -156,7 +156,7 @@ Azure AD의 운영, 서비스 및 데이터 보안에 대한 일반적인 정보
 
 Azure AD에서 인증 에이전트의 신뢰를 갱신하기 위해:
 
-1. 인증 에이전트가 Azure AD를 몇 시간마다 주기적으로 ping하여 인증서를 갱신할 때인지 확인합니다. 
+1. 인증 에이전트가 Azure AD를 몇 시간마다 주기적으로 ping하여 인증서를 갱신할 때인지 확인합니다. 인증서가 만료되기 30일 전에 갱신됩니다.
     - 확인은 상호 인증된 HTTPS 채널을 통해 이루어지고, 등록 시 발급된 인증서가 사용됩니다.
 2. 갱신할 시간임을 확인한 경우 인증 에이전트가 새로운 공개 키와 개인 키 쌍을 생성합니다.
     - 키 쌍은 표준 RSA 2048비트 암호화를 사용하여 생성됩니다.
@@ -209,6 +209,7 @@ Azure AD는 새로운 소프트웨어 버전을 서명된 **Windows Installer �
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
+- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호합니다.
 - [작동 방법](active-directory-aadconnect-pass-through-authentication-how-it-works.md):- Azure AD 통과 인증이 작동하는 기본적인 방식을 알아봅니다.
 - [질문과 대답](active-directory-aadconnect-pass-through-authentication-faq.md): 자주 하는 질문과 대답을 살펴봅니다.

@@ -6,15 +6,15 @@ author: gabrtv
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: f6b8e964f4277150e104cd6d77db092aaa8553b4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33933277"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144587"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -28,7 +28,7 @@ AKS(Azure Kubernetes Service)를 사용하면 Kubernetes 클러스터를 업그�
 az aks get-upgrades --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-출력
+출력:
 
 ```console
 Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
@@ -36,16 +36,16 @@ Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
 default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.6
 ```
 
-업그레이드할 수 있는 버전으로 세 가지 버전, 즉 1.9.1, 1.9.2 및 1.9.6이 있습니다. `az aks upgrade` 명령을 사용하여 사용 가능한 최신 버전으로 업그레이드할 수 있습니다.  업그레이드 프로세스 중에는 노드를 신중하게 [통제하고 드레이닝][kubernetes-drain]하여 실행 중인 응용 프로그램의 중단을 최소화합니다.  클러스터 노드가 추가 및 제거되므로 클러스터 업그레이드를 시작하기 전에 워크로드를 처리하기에 충분한 추가 계산 용량이 있는지 확인합니다.
+업그레이드할 수 있는 버전으로 세 가지 버전, 즉 1.9.1, 1.9.2 및 1.9.6이 있습니다. `az aks upgrade` 명령을 사용하여 사용 가능한 최신 버전으로 업그레이드할 수 있습니다.  업그레이드 프로세스 동안 AKS는 클러스터에 새 노드를 추가한 후 노드를 한 번에 하나씩 신중하게 [차단 및 드레이닝][kubernetes-drain]하여 실행 중인 응용 프로그램에 대한 중단을 최소화합니다.
 
 > [!NOTE]
-> AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 1.7.x에서 1.8.x 또는 1.8.x에서 1.9.x로 업그레이드할 수 있지만, 1.7에서 1.9로 업그레이드할 수는 없습니다.
+> AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 1.8.x에서 1.9.x 또는 1.9.x에서 1.10.x로 업그레이드할 수 있지만, 1.8에서 1.10으로 업그레이드할 수는 없습니다.
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6
 ```
 
-출력
+출력:
 
 ```json
 {
@@ -107,7 +107,7 @@ az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes
 az aks show --name myAKSCluster --resource-group myResourceGroup --output table
 ```
 
-출력
+출력:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

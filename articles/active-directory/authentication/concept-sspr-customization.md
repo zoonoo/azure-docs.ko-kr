@@ -1,21 +1,21 @@
 ---
-title: 셀프 서비스 암호 재설정 사용자 지정 - Azure Active Directory
+title: Azure AD 셀프 서비스 암호 재설정 사용자 지정
 description: Azure AD 셀프 서비스 암호 재설정의 사용자 지정 옵션
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 23a2897142f5cba90513e8b79e4cd461f1dd25b7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054593"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222791"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Azure AD의 셀프 서비스 암호 재설정 기능 사용자 지정
 
@@ -24,8 +24,9 @@ Azure Active Directory(Azure AD)에서 셀프 서비스 암호 재설정(SSPR)�
 ## <a name="customize-the-contact-your-administrator-link"></a>“관리자에게 문의” 링크 사용자 지정
 
 SSPR을 사용하지 않는 경우에도 사용자는 암호 재설정 포털에서 “관리자에게 문의” 링크를 사용할 수 있습니다. 사용자가 이 링크를 선택하면 다음 중 하나가 수행됩니다.
-   * 관리자에게 사용자 암호 변경 지원을 요청하는 메일이 발송됩니다. 
-   * 관리자가 지정한 지원 URL이 사용자에게 전송됩니다. 
+
+   * 관리자에게 사용자 암호 변경 지원을 요청하는 메일이 발송됩니다.
+   * 관리자가 지정한 지원 URL이 사용자에게 전송됩니다.
 
 이 링크는 사용자가 이미 지원 질문에 사용하고 있는 메일 주소 또는 웹 사이트로 설정하는 것이 좋습니다.
 
@@ -45,9 +46,7 @@ SSPR을 사용하지 않는 경우에도 사용자는 암호 재설정 포털에
 
 관리자에게 암호 재설정 요청을 알리지 않으려는 경우 다음 구성을 사용할 수 있습니다.
 
-* 모든 최종 사용자에게 셀프 서비스 암호 재설정 사용 이 옵션은 **암호 재설정** > **속성** 아래에 있습니다.
-  
-  사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장되지 않습니다.*
+* 모든 최종 사용자에게 셀프 서비스 암호 재설정 사용 이 옵션은 **암호 재설정** > **속성** 아래에 있습니다. 사용자가 자신의 암호를 재설정할 수 없도록 하려면 빈 그룹에 대한 액세스 범위를 지정하면 됩니다. *이 옵션은 권장되지 않습니다.*
 * 사용자가 도움을 받을 수 있는 웹 URL 또는 mailto: 주소를 제공하는 고객 지원 센터 링크를 사용자 지정합니다. 이 옵션은 **암호 재설정** > **사용자 지정** >  **사용자 지정 기술 지원 팀 메일 또는 URL** 아래에 있습니다.
 
 ## <a name="customize-the-ad-fs-sign-in-page-for-sspr"></a>SSPR을 위해 AD FS 로그인 페이지 사용자 지정
@@ -56,7 +55,7 @@ AD FS(Active Directory Federation Services) 관리자는 [로그인 페이지 �
 
 AD FS 로그인 페이지에 링크를 추가하려면 AD FS 서버에서 아래 명령을 사용합니다. 이렇게 하면 사용자가 이 페이지에서 SSPR 워크플로우를 시작할 수 있습니다.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href=’https://passwordreset.microsoftonline.com’>Can’t access your account?</A></p>" ```
+``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>로그인 페이지와 액세스 패널의 디자인 사용자 지정
 

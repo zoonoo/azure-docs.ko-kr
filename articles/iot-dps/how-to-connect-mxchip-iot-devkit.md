@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: a5030c7363d02fe9600183e058f2ff3cc23e9475
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 300bde27f956b449d1e0e73f7efb54a13df27b0c
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750369"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145668"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Azure IoT Hub Device Provisioning 서비스 자동 프로비전을 사용하여 IoT Hub에 MXChip IoT DevKit 등록
 
@@ -67,7 +67,7 @@ DevKit를 만든 Device Provisioning Service 인스턴스에 연결하려면 다
 19e25a259d0c2be03a02d416c05c48ccd0cc7d1743458aae1cb488b074993eae
 ```
 
-각각의 두 문자는 보안 계산에서 16진수 값으로 사용됩니다. 위의 샘플 UDS는 다음과 같이 확인됩니다. `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
+이 문자열은 보안 계산에 사용되는 문자 쌍으로 구분됩니다. 위의 샘플 UDS는 다음과 같이 확인됩니다. `0x19`, `0xe2`, `0x5a`, `0x25`, `0x9d`, `0x0c`, `0x2b`, `0xe0`, `0x3a`, `0x02`, `0xd4`, `0x16`, `0xc0`, `0x5c`, `0x48`, `0xcc`, `0xd0`, `0xcc`, `0x7d`, `0x17`, `0x43`, `0x45`, `0x8a`, `0xae`, `0x1c`, `0xb4`, `0x88`, `0xb0`, `0x74`, `0x99`, `0x3e`, `0xae`.
 
 DevKit에 고유 장치 암호를 저장하려면 다음을 수행합니다.
 
@@ -90,7 +90,7 @@ DevKit에 고유 장치 암호를 저장하려면 다음을 수행합니다.
 
 ### <a name="windows"></a>Windows
 
-1. 파일 탐색기를 열고 이전에 복제한 Device Provisioning Service 샘플 코드를 포함하는 폴더로 이동합니다. **.build** 폴더에서 **DPS.ino.bin** 및 **DPS.ino.map**을 찾아 해당 코드를 포함하는 폴더에 복사합니다.
+1. 파일 탐색기를 열고 이전에 복제한 Device Provisioning Service 샘플 코드를 포함하는 폴더로 이동합니다. **.build** 폴더에서 **DPS.ino.bin** 및 **DPS.ino.map**을 찾아서 복사합니다.
   ![생성된 파일](./media/how-to-connect-mxchip-iot-devkit/generated-files.png)
   > [!NOTE]
   > Arduino에 대한 `built.path` 구성을 다른 폴더로 변경한 경우 구성한 폴더에서 해당 파일을 찾아야 합니다.
@@ -137,7 +137,7 @@ DevKit에서 Device Provisioning Service에 등록하는 과정을 시작합니�
 
 ![VS Code 출력](./media/how-to-connect-mxchip-iot-devkit/vscode-output.png)
 
-## <a name="verify-that-the-devkit-is-registered-with-azure-iot-hub"></a>DevKit가 Azure IoT 허브에 등록되었는지 확인
+## <a name="verify-that-the-devkit-is-registered-with-azure-iot-hub"></a>DevKit가 Azure IoT Hub에 등록되었는지 확인
 
 장치가 부팅되면 다음 작업이 수행됩니다.
 

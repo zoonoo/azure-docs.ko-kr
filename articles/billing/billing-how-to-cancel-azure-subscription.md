@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 07/18/2018
 ms.author: genli
-ms.openlocfilehash: 604e2ee6d2ac7e30813f8b4cd02253407c2b1e3f
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 0bd0fca54ae5bf4292564a15adf38b7586768450
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067438"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145454"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Azure 구독 취소
 
@@ -32,7 +32,7 @@ ms.locfileid: "34067438"
 * 서비스를 종료합니다. [관리 포털의 페이지 리소스](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources)로 이동한 후 실행 중인 가상 머신, 응용 프로그램 또는 기타 서비스를 모두 **중지**합니다.
 * 데이터를 마이그레이션하는 것이 좋습니다. [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요.
 
-유료 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)을 취소해도 6개월 중 남은 기간에 대해 월별 요금이 계속 청구됩니다.
+유료 Azure 지원 계획을 취소해도 남은 구독 기간에 대해 요금이 계속 청구됩니다. 자세한 내용은 [Azure 지원 계획](https://azure.microsoft.com/support/plans/)을 참조하세요.
 
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Azure Portal을 사용하여 구독 취소
 

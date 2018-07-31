@@ -9,19 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: c96e9825cddd0b60e67cd4752fab8f440ceaae76
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227840"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
-Azure Stream Analytics는 실행하는 작업의 성능 "가중치"를 SU(스트림 단위)에 집계합니다. SU는 작업을 실행하는 데 사용하는 컴퓨팅 리소스를 나타냅니다. SU는 CPU, 메모리의 혼합된 측정치 및 읽기/쓰기 속도를 기반으로 상대적 이벤트 처리 용량을 설명하는 방법을 제공합니다. 이러한 용량을 통해 쿼리 논리에 중점을 두고 Stream Analytics 작업을 적시에 실행하도록 하드웨어를 관리해야 할 필요성을 요약할 수 있습니다.
+SU(스트리밍 단위)는 작업을 실행하도록 할당된 컴퓨팅 리소스를 나타냅니다. SU 수가 클수록 작업에 더 많은 CPU 및 메모리 리소스가 할당됩니다. 이러한 용량을 통해 쿼리 논리에 중점을 두고 Stream Analytics 작업을 적시에 실행하도록 하드웨어를 관리해야 할 필요성을 요약할 수 있습니다.
 
 Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 위해 모든 처리를 메모리 안에서 수행합니다. 메모리가 부족하면 스트리밍 작업이 실패합니다. 결과적으로, 프로덕션 작업의 경우 스트리밍 작업의 리소스 사용을 모니터링하고 작업을 중단 없이 실행하기에 충분한 리소스가 할당되도록 확인해야 합니다.
 
-메트릭은 0~100% 범위의 백분율 수치입니다. 최소 사용되는 스트리밍 작업의 경우 SU % 사용률 메트릭은 보통 10~20% 범위입니다. 경우에 따른 사용량 급증을 대비하여 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다. 리소스 소진을 방지하기 위해 80% SU 사용률 메트릭에 대한 경고를 설정하는 것이 좋습니다. 자세한 내용은 [자습서: Azure Stream Analytics 작업에 대한 경고 설정](stream-analytics-set-up-alerts.md)을 참조하세요.
+0%에서 100% 범위의 SU % 사용률 메트릭은 워크로드의 메모리 사용량을 설명합니다. 최소 사용되는 스트리밍 작업의 경우 이 메트릭은 보통 10~20% 범위입니다. SU % 사용률이 낮고 입력 이벤트가 백로그되면, 워크로드에 더 많은 계산 리소스가 필요할 수 있으므로 SU 수를 늘려야 합니다. 경우에 따른 사용량 급증을 대비하여 SU 메트릭을 80% 이하로 유지하는 것이 가장 좋습니다. 리소스 소진을 방지하기 위해 80% SU 사용률 메트릭에 대한 경고를 설정하는 것이 좋습니다. 자세한 내용은 [자습서: Azure Stream Analytics 작업에 대한 경고 설정](stream-analytics-set-up-alerts.md)을 참조하세요.
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Stream Analytics 스트리밍 단위(SU) 구성
 1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
@@ -45,7 +46,7 @@ Azure Portal을 사용하여 작업 처리량을 추적할 수 있습니다.
 
 특정 작업에 필요한 SU 수 선택은 입력에 대한 파티션 구성 및 작업에 정의된 쿼리에 따라 달라집니다. **비율 크기 조정** 블레이드를 사용하면 올바른 SU 수를 설정할 수 있습니다. 필요한 것보다 많은 SU를 할당하는 것이 좋습니다. Stream Analytics 처리 엔진은 메모리를 추가로 할당하는 비용으로 대기 시간과 처리량을 최적화합니다.
 
-일반적으로 **파티션 기준**을 사용하지 않는 쿼리에 대해 6 SU로 시작하는 것이 좋습니다. 그런 다음 대표적인 데이터 양을 전달하고 SU % 사용률 메트릭을 시험한 후 SU 수를 수정하는 평가판 및 오류 메서드를 사용하여 가장 적절한 부분을 판단합니다.
+일반적으로 **파티션 기준**을 사용하지 않는 쿼리에 대해 6 SU로 시작하는 것이 좋습니다. 그런 다음 대표적인 데이터 양을 전달하고 SU % 사용률 메트릭을 시험한 후 SU 수를 수정하는 평가판 및 오류 메서드를 사용하여 가장 적절한 부분을 판단합니다. Stream Analytics 작업에 사용될 수 있는 최대 스트리밍 단위 수는 작업에 대해 정의된 쿼리의 단계 수와 각 단계에 대한 파티션 수에 따라 결정됩니다. 이러한 제한에 대한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job)에서 확인할 수 있습니다.
 
 올바른 SU 수 선택에 대한 자세한 내용은 [처리량을 높이기 위한 Azure Stream Analytic 작업 비율 크기 조정](stream-analytics-scale-jobs.md) 페이지를 참조하세요.
 

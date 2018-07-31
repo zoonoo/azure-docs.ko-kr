@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d5cd79a6336b2e5c4b3c5c6f5765d92cd602552
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048971"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215070"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 통과 인증: 질문과 대답
 
@@ -28,7 +28,7 @@ ms.locfileid: "39048971"
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Azure AD에 로그인하려면 통과 인증, 암호 해시 동기화 및 AD FS(Active Directory Federation Services) 중에서 어떤 방법을 선택해야 하나요?
 
-온-프레미스 환경 및 조직 요구 사항에 따라 다릅니다. [Azure AD Connect 사용자 로그인 옵션](active-directory-aadconnect-user-signin.md)을 검토하여 다양한 Azure AD 로그인 방법을 비교해 보세요.
+다양한 Azure AD 로그인 방법을 비교한 결과와 조직에 적합한 로그인 방법을 선택하는 방법을 보려면 [이 가이드](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)를 검토하세요.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>통과 인증은 무료 기능인가요?
 
@@ -48,7 +48,7 @@ ms.locfileid: "39048971"
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>암호 해시 동기화가 통과 인증을 대체하는 역할을 하나요?
 
-아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
+아니요. 통과 인증은 자동으로 암호 해시 동기화로 장애 조치하지 _않습니다_. [통과 인증이 현재 지원하지 않는 시나리오](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios)에 대한 대체 방식으로만 사용됩니다. 사용자 로그인 오류를 방지하려면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)에 대해 통과 인증을 구성해야 합니다.
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>통과 인증 에이전트와 동일한 서버에 [Azure AD 응용 프로그램 프록시](../manage-apps/application-proxy.md)를 설치할 수 있나요?
 
@@ -82,7 +82,7 @@ ms.locfileid: "39048971"
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>동일한 서버에 둘 이상의 통과 인증 에이전트를 설치할 수 있나요?
 
-아니요, 단일 서버에는 통과 인증 에이전트 하나만 설치할 수 있습니다. 고가용성에 대한 통과 인증을 구성하려면 [Azure Active Directory 통과 인증: 빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)의 지침을 따르세요.
+아니요, 단일 서버에는 통과 인증 에이전트 하나만 설치할 수 있습니다. 고가용성에 대한 통과 인증을 구성하려면 [Azure Active Directory 통과 인증: 빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)의 지침을 따르세요.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>통과 인증 에이전트를 제거하려면 어떻게 해야 하나요?
 
@@ -92,12 +92,7 @@ ms.locfileid: "39048971"
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>이미 AD FS를 사용하여 Azure AD에 로그인하고 있습니다. 통과 인증으로 전환하려면 어떻게 하나요?
 
-Azure AD 연결 마법사를 통해 로그인하는 방법으로 AD FS를 구성한 경우 사용자가 통과 인증에 로그인하는 데 사용하는 방법을 변경합니다. 이렇게 변경하면 테넌트에서 통과 인증을 사용할 수 있고, 페더레이션된 _모든_ 도메인이 관리되는 도메인으로 변환됩니다. 통과 인증은 이후의 모든 요청을 처리하여 테넌트에 로그인합니다. 현재, 서로 다른 도메인에서 AD FS 및 통과 인증을 함께 사용할 수 있도록 Azure AD Connect 내에서 지원되는 방법은 없습니다.
-
-AD FS가 Azure AD 연결 마법사 _외부_에서 로그인하는 방법으로 구성된 경우 사용자 로그인 방법을 통과 인증으로 변경합니다. 이 변경은 **구성 안 함** 옵션에서 수행할 수 있습니다. 이렇게 변경하면 테넌트에서 통과 인증을 사용할 수 있지만, 페더레이션된 모든 도메인이 계속 AD FS를 사용하여 로그인합니다. PowerShell을 사용하여 수동으로 이러한 페더레이션된 도메인 중 일부 또는 모두를 관리되는 도메인으로 변환합니다. 변경한 후에는 *통과 인증에서만* 모든 요청을 처리하여 관리되는 도메인에 로그인합니다.
-
->[!IMPORTANT]
->통과 인증은 클라우드 전용 Azure AD 사용자에 대한 로그인을 처리하지 않습니다.
+AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>다중 포리스트 Active Directory 환경에서 통과 인증을 사용할 수 있나요?
 
@@ -105,7 +100,7 @@ AD FS가 Azure AD 연결 마법사 _외부_에서 로그인하는 방법으로 �
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>설치해야 하는 통과 인증 에이전트 수는 몇 개인가요?
 
-여러 개의 통과 인증 에이전트를 설치하면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)이 보장됩니다. 그러나 인증 에이전트 간에 결정적 부하 분산을 제공하지는 않습니다.
+여러 개의 통과 인증 에이전트를 설치하면 [고가용성](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)이 보장됩니다. 그러나 인증 에이전트 간에 결정적 부하 분산을 제공하지는 않습니다.
 
 테넌트에 나타날 것으로 예상되는 로그인 요청의 최대 및 평균 로드를 고려하세요. 벤치마크의 경우, 단일 인증 에이전트는 표준 4코어 CPU, 16GB RAM 서버에서 초당 300~400건의 인증을 처리할 수 있습니다.
 
@@ -133,6 +128,7 @@ Azure AD Connect 마법사를 다시 실행하고 사용자 로그인 방법을 
 ## <a name="next-steps"></a>다음 단계
 - [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md): 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [빠른 시작](active-directory-aadconnect-pass-through-authentication-quick-start.md): Azure AD 통과 인증을 구성하고 실행합니다.
+- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [기술 심층 분석](active-directory-aadconnect-pass-through-authentication-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
 - [문제 해결](active-directory-aadconnect-troubleshoot-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.

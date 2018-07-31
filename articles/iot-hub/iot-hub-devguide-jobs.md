@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 35b8536b944df39d0d47bf3529698fc94e51110e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633947"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223799"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>여러 장치에서 작업 예약
 
@@ -84,7 +84,7 @@ queryCondition = "deviceId IN ['MyDevice1']
     }
 
 ## <a name="querying-for-progress-on-jobs"></a>작업 진행 상태 쿼리
-다음 코드 조각은 [작업 쿼리][lnk-query]를 위한 HTTPS 1.1 요청 세부 정보를 나타냅니다.
+다음 코드 조각은 작업 쿼리를 위한 HTTPS 1.1 요청 세부 정보를 나타냅니다.
 
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
 
@@ -94,6 +94,8 @@ queryCondition = "deviceId IN ['MyDevice1']
     User-Agent: <sdk-name>/<sdk-version>
 
 응답에서 continuationToken이 제공됩니다.  
+
+[장치 쌍, 작업 및 메시지 라우팅에 대한 IoT Hub 쿼리 언어][lnk-query]를 사용하여 각 장치에서 작업 실행 상태를 쿼리할 수 있습니다.
 
 ## <a name="jobs-properties"></a>작업 속성
 다음 목록은 작업 또는 작업 결과를 쿼리할 때 사용할 수 있는 속성 목록 및 해당 설명을 나타냅니다.
@@ -143,7 +145,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 [lnk-jobs-tutorial]: iot-hub-node-node-schedule-jobs.md
-[lnk-c2d-methods]: iot-hub-node-node-direct-methods.md
+[lnk-c2d-methods]: quickstart-control-device-node.md
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md

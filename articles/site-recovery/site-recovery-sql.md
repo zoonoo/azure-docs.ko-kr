@@ -2,24 +2,16 @@
 title: SQL Server 및 Azure Site Recovery를 사용한 응용 프로그램 복제 | Microsoft Docs
 description: 이 문서에서는 SQL Server 재해 기능의 Azure Site Recovery를 사용하여 SQL Server를 복제하는 방법을 설명합니다.
 services: site-recovery
-documentationcenter: ''
-author: prateek9us
-manager: gauravd
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: pratshar
-ms.openlocfilehash: c877f4bbc0ed14e859ff39f1d719a9cd0b787118
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 07/22/2018
+ms.author: raynew
+ms.openlocfilehash: fecf7366417a8a592578a425d8b028249c2681d7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920834"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216362"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server 재해 복구 및 Azure Site Recovery를 사용하여 SQL Server 보호
 
@@ -48,10 +40,10 @@ Site Recovery는 표에 요약된 대로 SQL Server를 보호할 수 있습니�
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 예 | 예
-**VMware** | 예 | 예
-**물리적 서버** | 예 | 예
-**Azure**|해당 없음| 예
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**물리적 서버** | yes | yes
+**Azure**|해당 없음| yes
 
 ### <a name="supported-sql-server-versions"></a>지원되는 SQL Server 버전
 지원되는 시나리오에 대해 이러한 SQL Server 버전이 지원됩니다.
@@ -78,7 +70,7 @@ Site Recovery는 재해 복구 솔루션을 제공하기 위해 표에 요약된
 
 | **버전** | **에디션** | **배포웹사이트를** | **온-프레미스에서 온-프레미스로** | **온-프레미스에서 Azure로** |
 | --- | --- | --- | --- | --- |
-| SQL Server 2014 또는 2012 |Enterprise |장애 조치 클러스터 인스턴스 |Always On 가용성 그룹 |Always On 가용성 그룹 |
+| SQL Server 2016, 2014 또는 2012 |Enterprise |장애 조치 클러스터 인스턴스 |Always On 가용성 그룹 |Always On 가용성 그룹 |
 || Enterprise |고가용성을 위한 Always On 가용성 그룹 |Always On 가용성 그룹 |Always On 가용성 그룹 | |
 || Standard |장애 조치 클러스터 인스턴스(FCI) |로컬 미러를 사용하는 Site Recovery 복제 |로컬 미러를 사용하는 Site Recovery 복제 | |
 || Enterprise 또는 Standard |독립 실행형 |Site Recovery 복제 |Site Recovery 복제 | |

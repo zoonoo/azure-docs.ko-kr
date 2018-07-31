@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/16/2018
+ms.date: 7/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 178c2c1d4f727241338d6d933cd5eecbbffe65bb
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 60a84609c6ec8c1733f0938c69ab683f01ecb975
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34303817"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224537"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Azure Blockchain Workbench 구성 참조
 
@@ -41,11 +41,11 @@ ms.locfileid: "34303817"
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| ApplicationName | 고유 응용 프로그램 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **ApplicationName**을 사용해야 합니다.  | 예 |
-| DisplayName | 응용 프로그램의 친숙한 표시 이름. | 예 |
+| ApplicationName | 고유 응용 프로그램 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **ApplicationName**을 사용해야 합니다.  | yes |
+| DisplayName | 응용 프로그램의 친숙한 표시 이름. | yes |
 | 설명 | 응용 프로그램에 대한 설명. | 아니오 |
-| ApplicationRoles | [ApplicationRoles](#application-roles)의 콜렉션. 응용 프로그램 내에서 작업하거나 참여할 수 있는 사용자 역할.  | 예 |
-| 워크플로 | [워크플로](#workflows) 컬렉션. 각 워크플로는 비즈니스 논리의 흐름을 제어하는​상태 시스템의 역할을 합니다. | 예 |
+| ApplicationRoles | [ApplicationRoles](#application-roles)의 콜렉션. 응용 프로그램 내에서 작업하거나 참여할 수 있는 사용자 역할.  | yes |
+| 워크플로 | [워크플로](#workflows) 컬렉션. 각 워크플로는 비즈니스 논리의 흐름을 제어하는​상태 시스템의 역할을 합니다. | yes |
 
 예를 들어 [구성 파일 예제](#configuration-file-example)를 참조하세요.
 
@@ -55,15 +55,15 @@ ms.locfileid: "34303817"
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| Name | 고유 워크플로 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **Name**을 사용해야 합니다. | 예 |
-| DisplayName | 워크플로의 친숙한 표시 이름. | 예 |
+| Name | 고유 워크플로 이름. 해당 스마트 계약은 적용 가능한 계약 클래스에 대해 동일한 **Name**을 사용해야 합니다. | yes |
+| DisplayName | 워크플로의 친숙한 표시 이름. | yes |
 | 설명 | 워크플로에 대한 설명. | 아니오 |
-| 개시 장치 | [ApplicationRoles](#application-roles)의 콜렉션. 워크플로에서 계약을 만들 권한이 있는 사용자에게 할당된 역할. | 예 |
-| StartState | 워크플로의 초기 상태 이름. | 예 |
-| properties | [식별자](#identifiers)의 콜렉션. 사용자 경험 도구에서 오프 체인으로 읽히거나 또는 시각화 될 수 있는 데이터를 나타냅니다. | 예 |
-| 생성자 | 워크플로의 인스턴스를 만들기 위한 입력 매개 변수를 정의합니다. | 예 |
-| Functions | 워크플로에서 실행할 수 있는 [함수](#functions) 컬렉션. | 예 |
-| 상태 | 워크플로 [상태](#states)의 컬렉션. | 예 |
+| 개시 장치 | [ApplicationRoles](#application-roles)의 콜렉션. 워크플로에서 계약을 만들 권한이 있는 사용자에게 할당된 역할. | yes |
+| StartState | 워크플로의 초기 상태 이름. | yes |
+| properties | [식별자](#identifiers)의 콜렉션. 사용자 경험 도구에서 오프 체인으로 읽히거나 또는 시각화 될 수 있는 데이터를 나타냅니다. | yes |
+| 생성자 | 워크플로의 인스턴스를 만들기 위한 입력 매개 변수를 정의합니다. | yes |
+| Functions | 워크플로에서 실행할 수 있는 [함수](#functions) 컬렉션. | yes |
+| 상태 | 워크플로 [상태](#states)의 컬렉션. | yes |
 
 예를 들어 [구성 파일 예제](#configuration-file-example)를 참조하세요.
 
@@ -76,6 +76,7 @@ ms.locfileid: "34303817"
 | address  | *계약* 또는 *사용자*와 같은 블록체인 주소 유형 |
 | bool     | Boolean 데이터 형식 |
 | 계약 | 계약 유형의 주소 |
+| enum     | 명명된 값의 열거형 집합입니다. 열거형 형식을 사용하는 경우 EnumValues 목록도 지정합니다. 태그 값은 255자로 제한됩니다. 유효한 값 문자에는 대/소문자(A-Z, a-z)와 숫자(0-9)가 포함됩니다. |
 | int      | Integer 데이터 형식 |
 | money    | Money 데이터 형식 |
 | state    | 워크플로 상태 |
@@ -84,13 +85,71 @@ ms.locfileid: "34303817"
 | 실시간     | Time 데이터 형식 |
 |`[ Application Role Name ]`| 응용 프로그램 역할에 지정된 임의의 이름. 사용자를 그 역할 유형에 해당하는 경우로 제한합니다. |
 
+### <a name="example-configuration-of-type-string"></a>문자열 형식의 예제 구성
+
+``` json
+{
+  "Name": "description",
+  "Description": "Descriptive text",
+  "DisplayName": "Description",
+  "Type": {
+    "Name": "string"
+  }
+}
+```
+
+### <a name="example-configuration-of-type-enum"></a>열거 형식의 예제 구성
+
+``` json
+{
+  "Name": "PropertyType",
+  "DisplayName": "Property Type",
+  "Description": "The type of the property",
+  "Type": {
+    "Name": "enum",
+    "EnumValues": ["House", "Townhouse", "Condo", "Land"]
+  }
+}
+```
+
+#### <a name="using-enumeration-type-in-solidity"></a>Solidity에서 열거 형식 사용
+
+구성에서 열거형이 정의되면 Solidity에서 열거 형식을 사용할 수 있습니다. 예를 들어, PropertyTypeEnum이라는 열거형을 정의할 수 있습니다.
+
+```
+enum PropertyTypeEnum {House, Townhouse, Condo, Land} PropertyTypeEnum public PropertyType; 
+```
+
+Blockchain Workbench에서 문자열 목록이 유효하고 일관된 선언이 되려면 구성 및 스마트 계약 간에 일치해야 합니다.
+
+할당 예제:
+
+```
+PropertyType = PropertyTypeEnum.Townhouse;
+```
+
+함수 매개 변수 예제: 
+
+``` 
+function AssetTransfer(string description, uint256 price, PropertyTypeEnum propertyType) public
+{
+    InstanceOwner = msg.sender;
+    AskingPrice = price;
+    Description = description;
+    PropertyType = propertyType;
+    State = StateType.Active;
+    ContractCreated();
+}
+
+```
+
 ## <a name="constructor"></a>생성자
 
 워크플로 인스턴스에 대한 입력 매개 변수를 정의합니다.
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| 매개 변수 | 스마트 계약을 시작하는 데 필요한 [식별자](#identifiers) 컬렉션. | 예 |
+| 매개 변수 | 스마트 계약을 시작하는 데 필요한 [식별자](#identifiers) 컬렉션. | yes |
 
 ### <a name="constructor-example"></a>생성자 예제
 
@@ -123,10 +182,10 @@ ms.locfileid: "34303817"
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| Name | 함수의 고유한 이름. 해당 스마트 계약은 적용 가능한 함수에 대해 동일한 **Name**을 사용해야 합니다. | 예 |
-| DisplayName | 함수의 친숙한 표시 이름. | 예 |
+| Name | 함수의 고유한 이름. 해당 스마트 계약은 적용 가능한 함수에 대해 동일한 **Name**을 사용해야 합니다. | yes |
+| DisplayName | 함수의 친숙한 표시 이름. | yes |
 | 설명 | 함수에 대한 설명 | 아니오 |
-| 매개 변수 | 함수의 매개 변수에 해당하는 [식별자](#identifiers)의 컬렉션. | 예 |
+| 매개 변수 | 함수의 매개 변수에 해당하는 [식별자](#identifiers)의 컬렉션. | yes |
 
 ### <a name="functions-example"></a>함수 예제
 
@@ -171,11 +230,11 @@ ms.locfileid: "34303817"
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| Name | 상태의 고유 이름. 해당 스마트 계약은 적용 가능한 상태에 대해 동일한 **Name**을 사용해야 합니다. | 예 |
-| DisplayName | 상태의 친숙한 표시 이름. | 예 |
+| Name | 상태의 고유 이름. 해당 스마트 계약은 적용 가능한 상태에 대해 동일한 **Name**을 사용해야 합니다. | yes |
+| DisplayName | 상태의 친숙한 표시 이름. | yes |
 | 설명 | 상태에 대한 설명. | 아니오 |
-| PercentComplete | Blockchain Workbench 사용자 인터페이스에 표시되는 정수 값은 비즈니스 논리 제어 흐름 내에서의 진행 상황을 보여줍니다. | 예 |
-| Style | 상태가 성공 또는 실패 상태인지 여부를 나타내는 시각적 힌트. 유효한 값은 다음 두 가지입니다. `Success` 또는 `Failure`. | 예 |
+| PercentComplete | Blockchain Workbench 사용자 인터페이스에 표시되는 정수 값은 비즈니스 논리 제어 흐름 내에서의 진행 상황을 보여줍니다. | yes |
+| Style | 상태가 성공 또는 실패 상태인지 여부를 나타내는 시각적 힌트. 유효한 값은 다음 두 가지입니다. `Success` 또는 `Failure`. | yes |
 | 전환 | 현재 상태에서 다음 상태 집합으로 [전환](#transitions) 가능한 컬렉션. | 아니오 |
 
 ### <a name="states-example"></a>상태 예제
@@ -242,10 +301,10 @@ ms.locfileid: "34303817"
 |-------|-------------|:--------:|
 | AllowedRoles | 전환을 시작하도록 허용된 응용 프로그램 역할 목록. 지정된 역할의 모든 사용자가 작업을 수행할 수 있습니다. | 아니오 |
 | AllowedInstanceRoles | 전환을 시작하도록 허용된 스마트 계약에 참여하거나 지정된 사용자 역할 목록. 인스턴스 역할은 워크플로 내의 **속성**에서 정의됩니다. AllowedInstanceRoles는 스마트 계약의 인스턴스에 참여하는 사용자를 나타냅니다. AllowedInstanceRoles는 계약 인스턴스에서 사용자 역할에 대한 작업을 수행하도록 제한하는 기능을 제공합니다.  예를 들어 AllowedRoles에서 역할을 지정하는 경우 계약(InstanceOwner)을 만든 사용자가 역할 유형(소유자)의 모든 사용자 대신 종료할 수도 있습니다. | 아니오 |
-| DisplayName | 전환의 친숙한 표시 이름. | 예 |
+| DisplayName | 전환의 친숙한 표시 이름. | yes |
 | 설명 | 전환에 대한 설명. | 아니오 |
-| 함수 | 전환을 시작하는 함수의 이름. | 예 |
-| NextStates | 성공적인 전환 후 잠재적인 다음 상태의 컬렉션. | 예 |
+| 함수 | 전환을 시작하는 함수의 이름. | yes |
+| NextStates | 성공적인 전환 후 잠재적인 다음 상태의 컬렉션. | yes |
 
 ### <a name="transitions-example"></a>전환 예제
 
@@ -285,7 +344,7 @@ ms.locfileid: "34303817"
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| Name | 응용 프로그램 역할의 고유한 이름입니다. 해당 스마트 계약은 적용 가능한 역할에 대해 동일한 **Name**을 사용해야 합니다. 기본 형식 이름은 예약되어 있습니다. [형식](#type)과 같은 이름으로 응용 프로그램 역할의 이름을 지정할 수 없습니다.| 예 |
+| Name | 응용 프로그램 역할의 고유한 이름입니다. 해당 스마트 계약은 적용 가능한 역할에 대해 동일한 **Name**을 사용해야 합니다. 기본 형식 이름은 예약되어 있습니다. [형식](#type)과 같은 이름으로 응용 프로그램 역할의 이름을 지정할 수 없습니다.| yes |
 | 설명 | 응용 프로그램 역할에 대한 설명. | 아니오 |
 
 ### <a name="application-roles-example"></a>응용 프로그램 역할 예제
@@ -308,8 +367,8 @@ ms.locfileid: "34303817"
 
 | 필드 | 설명 | 필수 |
 |-------|-------------|:--------:|
-| Name | 속성 또는 매개 변수의 고유 이름. 해당 스마트 계약은 적용 가능한 속성 또는 매개 변수에 대해 동일한 **Name**을 사용해야 합니다. | 예 |
-| DisplayName | 속성 또는 매개 변수의 친숙한 표시 이름. | 예 |
+| Name | 속성 또는 매개 변수의 고유 이름. 해당 스마트 계약은 적용 가능한 속성 또는 매개 변수에 대해 동일한 **Name**을 사용해야 합니다. | yes |
+| DisplayName | 속성 또는 매개 변수의 친숙한 표시 이름. | yes |
 | 설명 | 속성 또는 매개 변수에 대한 설명. | 아니오 |
 
 ### <a name="identifiers-example"></a>식별자 예제
