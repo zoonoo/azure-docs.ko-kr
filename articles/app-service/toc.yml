@@ -247,7 +247,7 @@
     - name: 쿡북
       items:
         - name: 참조 아키텍처
-          href: /azure/architecture/reference-architectures/app-service-web-app/
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
         - name: 배포 스크립트
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: 문제 해결

@@ -84,17 +84,17 @@
     - name: OpenAPI 사양(Swagger)
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview'
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest'
+      href: 'https://aka.ms/ams-v3-cli-ref'
     - name: REST (영문)
-      href: 'https://go.microsoft.com/fwlink/p/?linkid=873030'
+      href: 'https://aka.ms/ams-v3-rest-ref'
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet'
+      href: 'https://aka.ms/ams-v3-dotnet-ref'
     - name: 자바
-      href: 'https://docs.microsoft.com/java/api/overview/azure/mediaservices'
+      href: 'https://aka.ms/ams-v3-java-ref'
     - name: 파이썬
-      href: 'https://docs.microsoft.com/python/api/overview/azure/media-services?view=azure-python'
+      href: 'https://aka.ms/ams-v3-python-ref'
     - name: Node .js
-      href: 'https://docs.microsoft.com/en-us/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest'
+      href: 'https://aka.ms/ams-v3-nodejs-ref'
     - name: 이벤트 스키마
       href: media-services-event-schemas.md
     - name: DRM 라이선스
@@ -115,6 +115,21 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
+    - name: SDK
+      items:
+        - name: Azure CLI
+          href: 'https://aka.ms/ams-v3-cli'
+        - name: REST (영문)
+          href: 'https://aka.ms/ams-v3-rest-sdk'
+        - name: .NET
+          href: 'https://aka.ms/ams-v3-dotnet-sdk'
+        - name: 자바
+          href: 'https://aka.ms/ams-v3-java-sdk'
+        - name: 파이썬
+          href: 'https://aka.ms/ams-v3-python-sdk'
+        - name: Node .js
+          href: 'https://aka.ms/ams-v3-nodejs-sdk'
+    - name: 릴리스 정보
     - name: 릴리스 정보
       href: release-notes.md
     - name: 할당량 및 제한 사항

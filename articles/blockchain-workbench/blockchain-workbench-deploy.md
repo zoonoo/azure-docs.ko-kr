@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/17/2018
+ms.date: 7/13/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e226aadbe499d5905b1814bec5d042f67d898c18
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294852"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224299"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -213,9 +213,13 @@ Blockchain Workbench는 블록체인 응용 프로그램과 상호 작용하는 
 
 8.  **확인**을 클릭하여 Azure AD 매개 변수 구성 섹션을 완료합니다.
 
-9.  **네트워크 크기 및 성능** 설정을 완료합니다.
+9.  **네트워크 성능 및 설정**에서 새 블록체인 네트워크를 만들지 아니면 기존 인증 증명 블록체인 네트워크를 사용할지를 선택합니다.
 
-    ![네트워크 및 성능 설정](media/blockchain-workbench-deploy/blockchain-workbench-settings-network.png)
+    **새로 만들기**를 사용하는 경우:
+
+    *새로 만들기* 옵션은 단일 구성원의 구독 내에서 Ethereum PoA(인증 증명) 노드 집합을 만듭니다. 
+
+    ![네트워크 설정 및 성능](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-new.png)
 
     | 설정 | 설명  |
     |---------|--------------|
@@ -223,7 +227,23 @@ Blockchain Workbench는 블록체인 응용 프로그램과 상호 작용하는 
     | 저장소 성능 | 블록체인 네트워크에 대한 기본 VM 저장소 성능을 선택합니다. |
     | 가상 머신 크기 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
 
-10. **확인**을 선택하여 네트워크 크기와 성능 섹션을 완료합니다.
+    **기존 항목 사용**을 사용하는 경우:
+
+    *기존 항목 사용* 옵션을 사용하면 Ethereum PoA(인증 증명) 블록체인 네트워크를 지정할 수 있습니다. 끝점에는 다음과 같은 요구 사항이 적용됩니다.
+
+    * 끝점은 Ethereum PoA(인증 증명) 블록체인 네트워크여야 합니다.
+    * 끝점은 네트워크를 통해 공개적으로 액세스할 수 있어야 합니다.
+    * PoA 블록체인 네트워크는 가스 가격이 0으로 설정되도록 구성되어야 합니다(참고: Blockchain Workbench 계정에는 자금이 지원되지 않습니다. 자금이 필요한 경우 트랜잭션은 실패합니다.)
+
+    ![네트워크 설정 및 성능](media/blockchain-workbench-deploy/blockchain-workbench-settings-network-existing.png)
+
+    | 설정 | 설명  |
+    |---------|--------------|
+    | Ethereum RPC 끝점 | 기존 PoA 블록체인 네트워크의 RPC 끝점을 제공합니다. 끝점은 http://로 시작되고 포트 번호로 끝납니다. 예를 들어 `http://contoso-chain.onmicrosoft.com:8545` |
+    | 저장소 성능 | 블록체인 네트워크에 대한 기본 VM 저장소 성능을 선택합니다. |
+    | 가상 머신 크기 | 블록체인 네트워크에 대한 기본 VM 크기를 선택합니다. |
+
+10. **확인**을 클릭하여 네트워크 설정 및 성능을 완료합니다.
 
 11. **Azure Monitor** 설정을 완료합니다.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd23da29324dc5cb212c144f5bb303a46d6f4d42
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3fbf47eca2c623e55ff5e70095c04f16a1a1b3e6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868438"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215165"
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>하이브리드 Azure Active Directory 가입 장치를 구성하는 방법
 
@@ -97,7 +97,7 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 
 조직이 온-프레미스 AD에서 자동 관리(페더레이션되지 않은) 설정을 사용하고, ADFS를 사용하여 Azure AD에 페더레이션하지 않는 경우 Windows 10의 하이브리드 Azure AD 연결은 Azure AD에 동기화할 AD의 컴퓨터 개체에 의존합니다. 따라서 하이브리드 Azure AD를 연결해야 하는 컴퓨터 개체가 포함된 OU(조직 구성 단위)는 Azure AD Connect 동기화 구성에서 동기화에 대해 활성화되어 있어야 합니다.
 
-조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다.
+버전 1703 이하의 Windows 10 장치를 사용하며 조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우 Windows 10 컴퓨터에서 Azure AD에 등록할 수 있도록 WPAD(웹 프록시 자동 검색)를 구현해야 합니다. 
 
 ## <a name="configuration-steps"></a>구성 단계
 

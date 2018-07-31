@@ -91,6 +91,8 @@
       href: functions-best-practices.md
     - name: Functions 프록시
       href: functions-proxies.md
+    - name: IP 주소
+      href: ip-addresses.md
     - name: 온-프레미스 함수
       href: functions-runtime-overview.md
     - name: 지속성 함수

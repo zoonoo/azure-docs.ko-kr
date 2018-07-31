@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: edafc2e0c11f4395540081e4b09614f2beb70696
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115928"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145243"
 ---
 # <a name="grow-your-business-on-marketplace"></a>마켓플레이스에서 비즈니스 성장 
 AppSource 또는 Azure Marketplace에 제품을 게시한 후 Microsoft와 함께 공동 GTM(시장 진출) 활동을 수행하기 위한 실행 패드로 목록을 사용할 수 있습니다. 예를 들어, 트래픽을 마켓플레이스 제품으로 보내고 마켓플레이스 잠재 고객을 육성하는 것은 비즈니스 성장을 가속화하는 좋은 방법입니다. 이 문서에서는 마켓플레이스에서 비즈니스를 성장하기 위한 여러 가지 마케팅 모범 사례를 공유합니다.
@@ -215,7 +215,7 @@ MPN은 다음 항목에 대한 지침을 제공합니다.
 | IP Co-Sell 준비 완료 | Microsoft 판매자 및 다른 파트너와 직접 공동으로 작업하면서 고객 창출 기회를 포착하고 계정 계획을 세울 수 있는 IP Co-Sell 준비 프로그램에 참여할 수 있습니다. 여러분의 솔루션은 판매자 솔루션 카탈로그를 통해 Microsoft 판매자에게 표시됩니다. 여러분과 협력하고 우세한 Microsoft 판매자에게는 보상이 제공됩니다.<br /> 자격 요구 사항을 포함하여 Co-Sell 준비에 대한 자세한 내용은 [비즈니스 홍보](https://partner.microsoft.com/reach-customers/promote-your-business)를 참조하세요. |
 
 
-# <a name="azure-partner-revenue-attribution"></a>Azure 파트너 수익 기여도
+## <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
 Azure 소프트웨어 파트너의 솔루션은 Azure 구성 요소가 필요하거나 Azure 인프라에 직접 배포됩니다.  현재는 고객이 배포한 파트너 솔루션에서 고객이 프로비전한 Azure 리소스를 사용하는 경우, 파트너가 이러한 배포의 상태를 파악하기 어려울 뿐 아니라 Microsoft 판매 팀과 조율하기 위해 Azure 성장에 미친 영향을 파악하고 Microsoft 파트너 프로그램에 대한 크레딧을 받기 어렵습니다.   
 
@@ -291,8 +291,6 @@ client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
 
 >이 작업은 각 클라이언트에 대해 수행해야 하며, 전역 정적 구성이 없습니다. 클라이언트 팩터리 실행을 선택하여 모든 클라이언트가 이 작업을 수행하도록 할 수도 있습니다. 
 >[추가 참조 정보](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
-
-## <a name="registering-a-guid"></a>GUID 등록: 
 
 Azure PowerShell 또는 Azure CLI를 사용하여 배포에 태그를 지정하는 방법: AzurePowerShell을 통해 리소스를 배포하는 경우, 다음 방법을 사용하여 GUID를 추가할 수 있습니다.
 
@@ -398,11 +396,14 @@ SKU(SKU는 제품의 변형임) 등의 더 세분화된 수준에서 GUID를 추
 
 지원을 받으려면 아래 단계를 따르세요.
  1. [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)에 있는 지원 페이지를 방문합니다.
- 2. 사용량 연결 문제의 경우 - 문제 유형으로 **마켓플레이스 온보딩**, 범주로 **기타**를 선택하고 **요청 시작**을 클릭합니다.
-
-Azure Marketplace Cloud 파트너 포털 액세스 문제의 경우 - 문제 유형으로 **마켓플레이스 온보딩**, 범주로 **액세스 문제**를 선택하고 **요청 시작**을 클릭합니다.
+ 2. 사용량 연결 문제의 경우 - 문제 유형으로 **마켓플레이스 온보딩**, 범주로 **기타**를 선택하고 **요청 시작**을 클릭합니다. 
+>[!Note]
+>Azure Marketplace Cloud 파트너 포털 액세스 문제의 경우 - 문제 유형으로 **마켓플레이스 온보딩**, 범주로 **액세스 문제**를 선택하고 **요청 시작**을 클릭합니다.
  3. 다음 페이지에서 필수 필드를 작성하고 **계속**을 클릭합니다.
  4. 다음 페이지에서 자유 텍스트 필드를 작성합니다.  
+ 
+
+
  
 >[!Important] 
 >인시던트 제목에 **“ISV 사용량 추적”** 을 입력하고, 그 뒤에 있는 큰 자유 텍스트 필드에서 문제를 자세히 설명합니다.  양식의 나머지 부분을 작성하고 **제출**을 클릭합니다.
