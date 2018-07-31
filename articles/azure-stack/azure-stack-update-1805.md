@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: ba162a04d41d9ce6f0bf00e377b7717f78967e7f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 142ea08f026ad8d4b736fd62384eceb927cac359
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091775"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344235"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 업데이트
 
@@ -90,9 +90,11 @@ Azure Stack 1805 업데이트 빌드 번호는 **1.1805.1.47**합니다.
 이 빌드 버전에 대 한 설치 후 알려진된 문제는 다음과 같습니다.
 
 ### <a name="portal"></a>포털  
-- <!-- 2551834 - IS, ASDK --> 선택 하면 **개요** 관리자 또는 사용자의 정보를 포털에서 저장소 계정에 대 한 합니다 *Essentials* 창 표시 되지 않습니다.  권한 있는 끝점 (PEP)를 사용 하 여 모니터링 하 고 업데이트를 다시 시작, 참조 *권한 있는 끝점을 사용 하 여 Azure Stack의 업데이트 모니터링*합니다.  Azure Stack의 업데이트 관리 개요를 참조 하세요 *Azure Stack 개요에 대 한 업데이트 관리*합니다. 
+- <!-- TBD - IS ASDK --> 이 버전의 Azure Stack을 사용 하 여 OEM 확장 패키지를 사용 하 여 드라이버 업데이트를 적용할 수 없습니다.  이 문제에 대 한 해결 방법은 없습니다.
 
-  Azure Stack을 사용 하 여 업데이트를 적용 하는 방법에 대 한 자세한 내용은 참조 하세요. [Azure Stack의 업데이트 적용](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0)합니다. 
+- <!-- 2551834 - IS, ASDK --> 선택 하면 **개요** 관리자 또는 사용자의 정보를 포털에서 저장소 계정에 대 한 합니다 *Essentials* 창 표시 되지 않습니다.  같은 계정에 대 한 정보를 표시 하는 필수 창의 해당 *리소스 그룹*를 *위치*, 및 *구독 ID*합니다.  개요에 대 한 다른 옵션은 같은 액세스할 *서비스* 및 *모니터링*를 옵션으로 *탐색기에서 열기* 또는 *저장소 계정 삭제* . 
+
+  사용할 수 없는 정보를 보려면 다음을 사용 합니다 [Get-azurermstorageaccount](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccount?view=azurermps-6.2.0) PowerShell cmdlet. 
 
 - <!-- 2551834 - IS, ASDK --> 선택 하면 **태그** 관리자 또는 사용자 포털에서 저장소 계정에 대 한 정보를 로드 하지 못하는 표시 하지 않습니다.  
 
@@ -191,7 +193,7 @@ Azure Stack 1805 업데이트 빌드 번호는 **1.1805.1.47**합니다.
 
   현재, 만든 새 Vm에 대 한 새 공용 IP 주소만 사용 해야 합니다.
 
-  Azure Stack의 업데이트 관리 개요를 참조 하세요 *Azure Stack 개요에 대 한 업데이트 관리*합니다. 앞으로의 모든 새 아닌 원본 VM에 연결에서이 IP 주소 결과 통해 연결 하려고 시도 합니다.
+  새 VM에 IP 주소를 다시 할당 하는 경우에이 문제가 발생 (일반적으로 라고 한 *VIP 교체*). 앞으로의 모든 새 아닌 원본 VM에 연결에서이 IP 주소 결과 통해 연결 하려고 시도 합니다.
 
 - <!-- 2292271 - IS ASDK --> 제품 및 테 넌 트 구독을 사용 하 여 연결 된 계획의 일부인 네트워크 리소스에 대 한 할당량 한도 늘릴 경우 해당 구독에 새 제한이 적용 되지 않습니다. 그러나 할당량 증가 이후에 만든 새 구독에 새 제한이 적용지 않습니다.
 

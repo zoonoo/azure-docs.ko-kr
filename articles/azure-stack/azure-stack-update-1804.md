@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 496aea1195885c582d3529d7ddb43210aad5fea1
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990135"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344252"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 업데이트
 
@@ -99,6 +99,8 @@ Azure Stack 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 다음은 빌드에 대 한 설치 후 알려진된 문제 **20180513.1**합니다.
 
 #### <a name="portal"></a>포털
+- <!-- TBD - IS ASDK --> 이 버전의 Azure Stack을 사용 하 여 OEM 확장 패키지를 사용 하 여 드라이버 업데이트를 적용할 수 없습니다.  이 문제에 대 한 해결 방법은 없습니다.
+
 - <!-- 1272111 - IS --> 를 설치 하거나 Azure Stack의이 버전으로 업데이트 한 후 관리 포털에서 Azure Stack 배율 단위를 볼 수 수 없습니다.  
   해결 방법: 배율 단위에 대 한 정보를 보려면 PowerShell을 사용 합니다. 자세한 내용은 참조는 [도움말](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.3.0) 1.3.0 Azure Stack 모듈에 대 한 콘텐츠. 
 
@@ -187,7 +189,7 @@ Azure Stack 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 
   현재, 만든 새 Vm에 대 한 새 공용 IP 주소만 사용 해야 합니다.
 
-  Azure Stack의 업데이트 관리 개요를 참조 하세요 *Azure Stack 개요에 대 한 업데이트 관리*합니다. Azure Stack을 사용 하 여 업데이트를 적용 하는 방법에 대 한 자세한 내용은 참조 하세요. Azure Stack의 업데이트 적용합니다.
+  새 VM에 IP 주소를 다시 할당 하는 경우에이 문제가 발생 (일반적으로 라고 한 *VIP 교체*). 앞으로의 모든 새 아닌 원래 연결 된 VM에 연결에서이 IP 주소 결과 통해 연결 하려고 시도 합니다.
 
 - <!-- 2292271 - IS ASDK --> 제품 및 테 넌 트 구독을 사용 하 여 연결 된 계획의 일부인 네트워크 리소스에 대 한 할당량 한도 늘릴 경우 해당 구독에 새 제한이 적용 되지 않습니다. 그러나 할당량 증가 이후에 만든 새 구독에 새 제한이 적용지 않습니다. 
 
