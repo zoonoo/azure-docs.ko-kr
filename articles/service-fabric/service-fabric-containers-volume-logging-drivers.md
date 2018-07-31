@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
 ms.author: subramar
-ms.openlocfilehash: a5b75a7069375f503cbe25554eb7c04cba868413
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9bd370e8070816d62b22c1e3d5ad4b6cdd2da30a
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969608"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144954"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure Files 볼륨 드라이버(미리 보기)
 Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공하는 [Docker 볼륨 플러그 인](https://docs.docker.com/engine/extend/plugins_volume/)입니다. 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 응용 프로그램으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 응용 프로그램에 대한 Azure Files 기반 볼륨을 제공하는 것입니다.
@@ -36,6 +36,33 @@ Azure Files 볼륨 플러그 인은 Docker 컨테이너에 대한 [Azure Files](
 * [Azure Files 설명서](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share)의 지침을 따라 볼륨으로 사용할 Service Fabric 컨테이너 응용 프로그램에 대한 파일 공유를 만듭니다.
 
 * [Service Fabric 모듈을 사용하는 Powershell](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) 또는 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 설치가 필요합니다.
+
+* Hyperv 컨테이너를 사용하는 경우 다음 코드 조각을 ClusterManifest(로컬 클러스터), ARM 템플릿의 fabricSettings 섹션(Azure 클러스터) 또는 ClusterConfig.json(독립 실행형 클러스터)에 추가해야 합니다. 볼륨 이름 및 볼륨이 클러스터에서 수신 대기하는 포트를 지정해야 합니다. 
+
+ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. 이 예제에서 볼륨 이름은 **sfazurefile**이고 클러스터에 수신 대기 포트는 **19300**입니다.  
+
+``` xml 
+<Section Name="Hosting">
+  <Parameter Name="VolumePluginPorts" Value="sfazurefile:19300" />
+</Section>
+```
+
+ARM 템플릿의 fabricSettings 섹션(Azure 배포) 또는 ClusterConfig.json(독립 실행형 배포)에서 다음 코드 조각을 추가해야 합니다. 
+
+```json
+"fabricSettings": [
+  {
+    "name": "Hosting",
+    "parameters": [
+      {
+          "name": "VolumePluginPorts",
+          "value": "sfazurefile:19300"
+      }
+    ]
+  }
+]
+```
+
 
 ## <a name="deploy-the-service-fabric-azure-files-application"></a>Service Fabric Azure Files 응용 프로그램 배포
 
