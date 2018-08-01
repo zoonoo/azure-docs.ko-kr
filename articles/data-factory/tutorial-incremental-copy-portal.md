@@ -298,7 +298,7 @@ END
 24. 파이프라인 디자이너에서 **저장 프로시저 활동**을 선택하고, 이름을 **StoredProceduretoWriteWatermarkActivity**로 변경합니다. 
 
     ![저장 프로시저 활동 - 이름](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. **SQL 계정** 탭으로 전환하고, **연결된 서비스**에 대해 *AzureSqlDatabaseLinkedService**를 선택합니다. 
+25. **SQL 계정** 탭으로 전환하고, **연결된 서비스** 에 대해 *AzureSqlDatabaseLinkedService* 를 선택합니다. 
 
     ![저장 프로시저 활동 - SQL 계정](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. **저장 프로시저** 탭으로 전환하고 다음 단계를 수행합니다. 
