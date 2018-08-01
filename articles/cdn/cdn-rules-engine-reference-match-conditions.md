@@ -738,7 +738,7 @@ IOS 여부 | %{wurfl_vcap_is_ios} | 장치에서 iOS를 사용하는지 여부�
     
 - 각 항목을 하나의 공백으로 구분하여 여러 URL 경로를 지정합니다.
 
-   예: /marketing/asset.* /sales/*.htm
+   예: /marketing/asset.* /sales/\*.htm
 
 - URL의 쿼리 문자열은 무시됩니다.
     
