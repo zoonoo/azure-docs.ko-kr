@@ -39,8 +39,16 @@
         - name: 미사용 데이터 암호화
           href: azure-security-encryption-atrest.md
         - name: IaaS VM용 디스크 암호화
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: 디스크 암호화 필수 구성 요소
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Windows VM용 디스크 암호화
+              href: azure-security-disk-encryption-windows.md
+            - name: Linux VM용 디스크 암호화
+              href: azure-security-disk-encryption-linux.md
+            - name: 디스크 암호화에 대한 부록
+              href: azure-security-disk-encryption-appendix.md
             - name: 디스크 암호화 FAQ
               href: azure-security-disk-encryption-faq.md
             - name: 문제 해결
@@ -198,6 +206,16 @@
       items:
         - name: 상태 데이터 및 AI
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: 데이터 분석
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: 데이터 웨어하우스
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: IaaS 웹 응용 프로그램
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: PaaS 웹 응용 프로그램
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: 데이터 분석

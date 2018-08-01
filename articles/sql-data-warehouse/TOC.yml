@@ -111,8 +111,12 @@
           href: memory-and-concurrency-limits.md
         - name: Columnstore 압축
           href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: 모니터
-      href: sql-data-warehouse-manage-monitor.md
+    - name: 관리 효율성 및 모니터링
+      items:
+        - name: 모니터
+          href: sql-data-warehouse-manage-monitor.md
+        - name: 권장 사항
+          href: sql-data-warehouse-concept-recommendations.md
     - name: 데이터 웨어하우스 개발
       items:
         - name: 개요

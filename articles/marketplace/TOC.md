@@ -11,6 +11,7 @@
 ##### [Microsoft 계정 만들기](./guidelines.md)
 ##### [개발자 센터에 등록](./register-dev-center.md) 
 ##### [Azure Marketplace에 대한 청구 옵션](./billing-options-azure-marketplace.md)  
+##### [Azure 파트너 고객 사용량 특성](./azure-partner-customer-usage-attribution.md)
 
 ### 제안 형식별 게시 가이드 
 #### [Virtual Machines](./marketplace-virtual-machines.md)

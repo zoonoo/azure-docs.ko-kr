@@ -24,6 +24,9 @@
         - name: 관리되는 서비스 ID
           tocHref: /azure/active-directory/managed-service-identity/
           topicHref: /azure/active-directory/managed-service-identity/
+        - name: 사용자 도움말
+          tocHref: /azure/active-directory/user-help/
+          topicHref: /azure/active-directory/user-help/
         - name: B2C
           tocHref: /azure/active-directory-b2c/
           topicHref: /azure/active-directory-b2c/

@@ -51,6 +51,8 @@
           href: container-instances-liveness-probe.md
     - name: 관리
       items:
+        - name: 실행 중인 컨테이너 업데이트
+          href: container-instances-update.md
         - name: 명령 실행(exec)
           href: container-instances-exec.md
         - name: CPU 및 메모리 사용량 모니터링

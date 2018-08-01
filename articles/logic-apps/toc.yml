@@ -49,6 +49,8 @@
               href: logic-apps-control-flow-run-steps-group-scopes.md
         - name: 값을 저장하기 위한 변수 만들기
           href: logic-apps-create-variables-store-values.md
+        - name: 데이터 작업 수행
+          href: logic-apps-perform-data-operations.md
         - name: Azure Functions를 사용하여 사용자 지정 코드 추가
           href: logic-apps-azure-functions.md
         - name: Azure Functions를 사용하여 논리 앱 호출
@@ -282,6 +284,8 @@
     - name: '예제, 시나리오 및 연습'
       href: logic-apps-examples-and-scenarios.md
       items:
+        - name: 데이터 작업 - 코드 예제
+          href: logic-apps-data-operations-code-samples.md
         - name: 소셜 미디어 모니터링
           href: logic-apps-scenario-social-serverless.md
         - name: 서버를 사용하지 않는 앱 빌드 - Visual Studio

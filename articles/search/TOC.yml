@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: 데이터 검색
       items:
-        - name: 기본 쿼리 생성
+        - name: 쿼리 기본 사항
           href: search-query-overview.md
         - name: 검색 탐색기(포털)
           href: search-explorer.md
-        - name: 단순 쿼리 구문
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Lucene 쿼리 구문
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Lucene 쿼리 예제
+        - name: 간단한 구문의 예제
+          href: search-query-simple-examples.md
+        - name: 전체 구문의 예제
           href: search-query-lucene-examples.md
+        - name: 쿼리 참조
+          items:
+            - name: 단순 쿼리 구문
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Lucene 쿼리 구문
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: 페이징 결과
           href: search-pagination-page-layout.md
         - name: 관련성 튜닝
