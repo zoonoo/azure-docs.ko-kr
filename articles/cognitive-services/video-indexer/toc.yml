@@ -1,0 +1,46 @@
+- name: Video Indexer 설명서
+- name: 개요
+  items:
+    - name: Video Indexer란?
+      href: video-indexer-overview.md
+    - name: 개념
+      href: video-indexer-concepts.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 시작하기
+      href: video-indexer-get-started.md
+- name: 방법 가이드
+  items:
+    - name: v1에서 v2로 마이그레이션
+      href: migrate-from-v1-to-v2.md
+    - name: Azure에 연결
+      href: connect-to-azure.md
+    - name: Video Indexer API 사용
+      href: video-indexer-use-apis.md
+    - name: API를 사용하여 비디오 업로드 및 인덱싱
+      href: upload-index-videos.md
+    - name: Video Indexer 출력 검토
+      href: video-indexer-output-json-v2.md
+    - name: 비디오 내 정확한 시점 찾기
+      href: video-indexer-search.md
+    - name: Video Indexer 정보 보기 및 편집
+      href: video-indexer-view-edit.md
+    - name: 기존 비디오에서 비디오 정보 만들기
+      href: video-indexer-create-new.md
+    - name: 응용 프로그램에 위젯 포함
+      href: video-indexer-embed-widgets.md
+- name: 참고 자료
+  items:
+    - name: Video Indexer API
+      href: 'https://api-portal.videoindexer.ai/'
+- name: 리소스
+  items:
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/'
+    - name: UserVoice
+      href: 'https://cognitive.uservoice.com/forums/598144-video-indexer'
+    - name: 스택 오버플로
+      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'

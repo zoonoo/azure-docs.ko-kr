@@ -31,6 +31,8 @@
               href: tutorial-python-module.md
             - name: Node.js
               href: tutorial-node-module.md
+            - name: C
+              href: tutorial-c-module.md
     - name: SQL을 사용하여 데이터 로컬에 저장
       href: tutorial-store-data-sql-server.md
 - name: 개념
@@ -52,6 +54,9 @@
       href: iot-edge-as-gateway.md
     - name: 보안
       href: security.md
+      items:
+        - name: IoT Edge 보안 관리자
+          href: iot-edge-security-manager.md
     - name: 플랫폼 지원
       href: support.md
     - name: IoT Edge 용어집
@@ -90,6 +95,8 @@
           href: how-to-develop-csharp-module.md
         - name: Node.js
           href: how-to-develop-node-module.md
+        - name: C
+          href: how-to-develop-c-module.md
         - name: Azure 기능
           href: how-to-develop-csharp-function.md
         - name: 여러 모듈 개발

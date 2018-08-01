@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 19fb5d3cb793b6e1e8e715c41edf8cde5746278b
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 2a447931ea850c4ccbe618270de5fbbc9b9eaea7
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257925"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366599"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 등록
 Azure에서 마켓플레이스 항목을 다운로드 하 고 Microsoft에 다시 보고 하는 전자 상거래 데이터를 설정 하는 Azure를 사용 하 여 Azure Stack 개발 키트 ASDK () 설치를 등록할 수 있습니다. 마켓플레이스 배포를 포함 하 여 전체 Azure Stack 기능을 지원 하려면 등록이 필요 합니다. 마켓플레이스 배포 및 사용 보고와 같은 중요 한 Azure Stack 기능을 테스트할 수 있기 때문에 등록을 사용 하는 것이 좋습니다. Azure Stack 등록 한 후 Azure 상거래에 사용량이 보고 됩니다. 등록에 사용한 구독에서 볼 수 있습니다. 그러나 ASDK 사용자가 보고 하는 사용량에 대 한 요금이 청구 되지 않습니다.
@@ -45,9 +45,7 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
 
 1. 관리자 권한으로 PowerShell 콘솔을 엽니다.  
 
-2. Azure를 사용 하 여 ASDK 설치를 등록 하려면 다음 PowerShell 명령을 실행 합니다. Azure 구독 및 로컬 ASDK 설치 모두에 로그인 해야 합니다. 아직 Azure 구독이 없는 할 수 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.
-
-    실행 하는 경우 등록 스크립트를 Azure Stack의 둘 이상의 인스턴스에서 동일한 Azure 구독 ID를 사용 하 여를 실행 하는 경우 등록에 대 한 고유한 이름을 설정 합니다 **집합 AzsRegistration** cmdlet. 합니다 **RegistrationName** 매개 변수는 기본값인 **AzureStackRegistration**합니다. 그러나 Azure Stack의 둘 이상의 인스턴스에서 같은 이름을 사용할 경우 스크립트가 실패 합니다.
+2. Azure를 사용 하 여 ASDK 설치를 등록 하려면 다음 PowerShell 명령을 실행 합니다. Azure 구독 및 로컬 ASDK 설치 모두에 로그인 해야 합니다. 아직 Azure 구독이 없는 할 수 있습니다 [여기서 무료 Azure 계정을 만들](https://azure.microsoft.com/free/?b=17.06)합니다. Azure Stack 등록 비용 없이 Azure 구독에서 발생 합니다.  
 
   ```PowerShell  
   # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
@@ -62,12 +60,10 @@ Azure는 ASDK 등록 하려면 다음이 단계를 따릅니다.
   #Register Azure Stack
   $AzureContext = Get-AzureRmContext
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint AzS-ERCS01 `
       -BillingModel Development
-      -RegistrationName $RegistrationName
   ```
 3. 스크립트가 완료 되 면이 메시지가 표시 됩니다: **환경의 이제 등록 되 고 제공된 된 매개 변수를 사용 하 여 활성화 합니다.**
 
