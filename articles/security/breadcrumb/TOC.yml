@@ -10,5 +10,5 @@
   topicHref: /azure/index
   items:
     - name: 보안
-      tocHref: /architecture/azure/
+      tocHref: /architecture/reference-architecture/
       topicHref: /azure/security/index

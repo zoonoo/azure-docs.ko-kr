@@ -116,6 +116,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: 통합 런타임
       href: concepts-integration-runtime.md
+    - name: 이름 지정 규칙
+      href: naming-rules.md
 - name: 방법 가이드
   items:
     - name: 작성자
