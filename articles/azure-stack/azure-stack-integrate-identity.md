@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242940"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412868"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 데이터 센터 통합-Identity
 Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federation Services (AD FS)를 사용 하 여 Azure Stack을 배포할 수 있습니다. Azure Stack을 배포 하기 전에 선택을 해야 합니다. AD FS를 사용 하 여 배포를 오프 라인된 모드에서 Azure Stack 배포는 라고도 합니다.
@@ -26,7 +26,7 @@ Id 공급자로 Azure Active Directory (Azure AD) 또는 Active Directory Federa
 |---------|---------|---------|
 |결제|용량 이어야 합니다.<br> EA (기업 계약)만|용량 또는 지불으로-사용<br>EA 또는 CSP (클라우드 솔루션 공급자)|
 |ID|AD FS 여야 합니다.|Azure AD 또는 AD FS|
-|마켓플레이스 배포|지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
+|Marketplace |지원됨<br>BYOL 라이선싱|지원됨<br>BYOL 라이선싱|
 |등록|권장 되는, 이동식 미디어 필요<br> 와 별도 연결 된 장치입니다.|자동화|
 |패치 및 업데이트|필수, 이동식 미디어에 필요<br> 와 별도 연결 된 장치입니다.|업데이트 패키지를 직접 다운로드할 수 있습니다.<br> 인터넷에서 Azure Stack에.|
 

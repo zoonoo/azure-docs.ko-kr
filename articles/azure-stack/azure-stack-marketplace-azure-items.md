@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: c61e94191a20696a1fa8c8e632a83f980f256934
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 866f032e6bacc3a124ddffd9040ea81b598abcfe
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971094"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414796"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack에서 사용할 수 있는 azure Marketplace 항목
 
@@ -162,7 +162,7 @@ Microsoft Azure Stack에는 다음 Azure Marketplace 가상 머신 및 솔루션
 | ![Nginx](media/azure-stack-marketplace-azure-items/nginx.png) | [Nginx](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nginxstack) | 전체 PHP, MySQL 및 Nginx 개발 환경입니다. | Bitnami |
 | ![Noalyss](media/azure-stack-marketplace-azure-items/noalyss.png) | [Noalyss](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.noalyss) | 강력한 이중 항목 회계 시스템입니다. | Bitnami |
 | ![Node.js](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs) | 쉽게 빌드하기 위한 Javascript로 작성 된 오픈 소스 환경입니다. | Bitnami |
-| ![Node.js 고가용성 클러스터](media/azure-stack-marketplace-azure-items/nodejs.png) | [Node.js 고가용성 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js는 V8 JavaScript 엔진을 기반으로 하는 런타임 환경입니다. 해당 이벤트 구동, 비차단 I/O 모델을 사용 하면 신속 하 고 확장 가능한 데이터를 많이 사용 하는 서버 응용 프로그램을 개발 합니다. 이 솔루션에서는 공유 파일 시스템을 사용 하 여 Node.js 클러스터를 만들고 부하 분산 기능을 여러 Vm을 사용 합니다.  **이 솔루션 템플릿에 Debian 8, Linux 2.0 확장에 대 한 사용자 지정 스크립트 및 데이터베이스에도 필요합니다.**| Bitnami |
+| ![node.js 고가용성 클러스터](media/azure-stack-marketplace-azure-items/nodejs.png) | [node.js 고가용성 클러스터](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.nodejs-ha) | Node.js는 V8 JavaScript 엔진을 기반으로 하는 런타임 환경입니다. 해당 이벤트 구동, 비차단 I/O 모델을 사용 하면 신속 하 고 확장 가능한 데이터를 많이 사용 하는 서버 응용 프로그램을 개발 합니다. 이 솔루션에서는 공유 파일 시스템을 사용 하 여 Node.js 클러스터를 만들고 부하 분산 기능을 여러 Vm을 사용 합니다.  **이 솔루션 템플릿에 Debian 8, Linux 2.0 확장에 대 한 사용자 지정 스크립트 및 데이터베이스에도 필요합니다.**| Bitnami |
 | ![Odoo](media/azure-stack-marketplace-azure-items/odoo.png) | [Odoo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.odoo) | 비즈니스 프로세스를 효과적으로 연결 하는 ERP, CRM 시스템입니다. | Bitnami |
 | ![Open Atrium](media/azure-stack-marketplace-azure-items/openatrium.png) | [Open Atrium](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.openatrium) | 유연 하 고 다각적인 인트라넷 플랫폼입니다. | Bitnami |
 | ![OpenCart](media/azure-stack-marketplace-azure-items/opencart.png) | [OpenCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.opencart) | 온라인 점포에 대 한 무료 전자 상거래 플랫폼입니다. | Bitnami |

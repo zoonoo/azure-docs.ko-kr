@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 23b5b5d79f0f905d7c4a173247232ede2cad2877
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34806839"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412450"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API 버전 프로필을 사용 하 여 Azure Stack에서 Python 사용
 
@@ -121,7 +121,7 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
 
 6.  다음 변수를 설정 하 고 현재 shell에 이러한 환경 변수를 내보냅니다. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}
@@ -129,32 +129,29 @@ Azure Stack 사용자의 가상 머신에 대 한 일반적인 관리 작업을 
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  이 샘플을 실행 하려면 Ubuntu 16.04-LTS 및 windows Server 2012-R2-Datacenter 이미지에 Azure Stack 마켓플레이스에 이어야 합니다. 일 수 있습니다 이러한 [Azure에서 다운로드](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) 하거나 [플랫폼 이미지 리포지토리에 추가](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image)합니다.
 
-8. Run the sample.
+8. 샘플을 실행합니다.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## Notes
+## <a name="notes"></a>메모
 
-You may be tempted to try to retrieve a VM's OS disk by using
-`virtual_machine.storage_profile.os_disk`.
-In some cases, this may do what you want,
-but be aware that it gives you an `OSDisk` object.
-In order to update the OS Disk's size, as `example.py` does,
-you need not an `OSDisk` object but a `Disk` object.
-`example.py` gets the `Disk` object with the following:
+사용 하 여 VM의 OS 디스크를 검색 하려고 하 고 싶을 수도 있습니다 `virtual_machine.storage_profile.os_disk`합니다.
+경우에 따라이 수행할 수 있습니다 원하는 하지만 것 주의 `OSDisk` 개체입니다.
+OS 디스크의 크기를 업데이트 하기 위해 `example.py` 수행 해야 하지는 `OSDisk` 개체 있지만 `Disk` 개체입니다.
+`example.py` 가져옵니다는 `Disk` 다음 개체:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
-- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
-- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Azure Python 개발자 센터](https://azure.microsoft.com/develop/python/)
+- [Azure Virtual Machines 설명서](https://azure.microsoft.com/services/virtual-machines/)
+- [Virtual Machines에 대 한 학습 경로](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- Microsoft Azure 구독이 없는, 하는 경우 무료 평가판 계정을 얻을 수 있습니다 [여기](http://go.microsoft.com/fwlink/?LinkId=330212)합니다.

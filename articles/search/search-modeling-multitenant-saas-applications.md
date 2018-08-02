@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 765f9c4600f762efdd7d57681529751e99c13894
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797178"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364277"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>다중 테넌트 SaaS 응용 프로그램 및 Azure Search에 대한 디자인 패턴
 다중 테넌트 응용 프로그램은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 응용 프로그램입니다. 이 문서에서는 Azure Search를 사용하여 작성된 다중 테넌트 응용 프로그램에 대한 테넌트 격리 전략에 대해 설명합니다.
@@ -43,10 +43,8 @@ Azure Search에는 각 계층이 각기 다른 [제한 및 할당량](search-lim
 | 서비스당 최대 복제본 |3 |12 |12 |12 |12 |
 | 서비스당 최대 파티션 |1 |12 |12 |12 |3 |
 | 서비스당 최대 검색 단위(복제본*파티션) |3 |36 |36 |36 |36(파티션 최대 3개) |
-| 서비스당 최대 문서 |1백만 |1억 8천만 |7억 2천만 |14억 |6억 |
-| 서비스당 최대 저장소 |2 GB |300GB |1.2TB |2.4TB |600GB |
-| 파티션당 최대 문서 |1백만 |1천 5백만 |6천만 |1억 2천만 |2억 |
-| 파티션당 최대 저장소 |2 GB |25GB |100GB |200GB |200GB |
+| 서비스당 최대 저장소 |2GB |300GB |1.2TB |2.4TB |600GB |
+| 파티션당 최대 저장소 |2GB |25GB |100GB |200GB |200GB |
 | 서비스당 최대 인덱스 |5 |50 |200 |200 |3000(인덱서/파티션 최대 1000) |
 
 #### <a name="s3-high-density"></a>S3 고밀도
@@ -71,7 +69,8 @@ Azure Search에서는 테넌트의 데이터 및 작업 부하를 격리하는 �
 다중 테넌트 시나리오에서 응용 프로그램 개발자는 하나 이상의 검색 서비스를 사용하고 서비스, 인덱스 또는 둘 다에서 해당 테넌트를 나눕니다. Azure Search에서는 다중 테넌트 시나리오를 모델링할 때 몇 가지 일반적인 패턴을 따릅니다.
 
 1. *테넌트당 인덱스:* 각 테넌트는 다른 테넌트와 공유되는 검색 서비스 내의 자체 인덱스를 갖습니다.
-2. *테넌트당 서비스:* 각 테넌트는 자체 전용 Azure Search 서비스를 갖습니다. 이 검색 서비스는 가장 높은 수준의 데이터 및 워크로드 분리를 제공합니다.
+2. 
+  *테넌트당 서비스:* 각 테넌트는 자체 전용 Azure Search 서비스를 갖습니다. 이 검색 서비스는 가장 높은 수준의 데이터 및 워크로드 분리를 제공합니다.
 3. *두 가지 조합:* 좀 더 작은 테넌트에는 공유 서비스 내에서 개별 인덱스가 할당되지만, 좀 더 큰 활성 테넌트에는 전용 서비스가 할당됩니다.
 
 ## <a name="1-index-per-tenant"></a>1. 테넌트당 인덱스

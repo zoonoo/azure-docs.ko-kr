@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 142ea08f026ad8d4b736fd62384eceb927cac359
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344235"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414636"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 업데이트
 
@@ -72,7 +72,8 @@ Azure Stack 1805 업데이트 빌드 번호는 **1.1805.1.47**합니다.
 ## <a name="before-you-begin"></a>시작하기 전에    
 
 ### <a name="prerequisites"></a>필수 조건
-- Azure Stack을 설치 [1804 업데이트](azure-stack-update-1804.md) Azure Stack 1805 업데이트를 적용 하기 전에 합니다.    
+- Azure Stack을 설치 [1804 업데이트](azure-stack-update-1804.md) Azure Stack 1805 업데이트를 적용 하기 전에 합니다.  
+- 사용 가능한 최신 설치 [업데이트 또는 핫픽스 버전 1804](azure-stack-update-1804.md#post-update-steps)합니다.   
 - 1805 업데이트의 설치를 시작 하기 전에 실행할 [테스트 AzureStack](azure-stack-diagnostic-test.md) 하에 Azure Stack의 상태를 확인 하 고 발견 된 작동 문제를 해결 합니다. 또한 활성 경고를 검토 하 고 작업을 필요로 하는 해결 합니다. 
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제   

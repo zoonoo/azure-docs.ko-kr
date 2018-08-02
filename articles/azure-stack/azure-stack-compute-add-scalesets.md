@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34800643"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411909"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Azure Stack에서 Virtual Machine Scale Sets 사용 가능
 
@@ -33,8 +33,8 @@ Azure Stack에 가상 머신 확장 집합 자동 크기 조정을 지원 하지
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **마켓플레이스 배포**  
-    Azure Stack Marketplace 배포를 사용 하도록 설정 하려면 전역 Azure를 사용 하 여 등록 합니다. 지침을 따릅니다 [Azure 사용 하 여 Azure Stack 등록](azure-stack-registration.md)합니다.
+- **Marketplace**  
+    Marketplace에서 항목의 가용성을 사용 하도록 설정 하려면 전역 Azure를 사용 하 여 Azure Stack을 등록 합니다. 지침을 따릅니다 [Azure 사용 하 여 Azure Stack 등록](azure-stack-registration.md)합니다.
 - **운영 체제 이미지**  
     Azure Stack Marketplace에는 운영 체제 이미지를 추가 하지 않은 [Azure에서 Azure Stack marketplace 항목 추가](asdk/asdk-marketplace-item.md)합니다.
 

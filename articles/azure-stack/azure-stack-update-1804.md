@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344252"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413519"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 업데이트
 
@@ -80,7 +80,10 @@ Azure Stack 1804 업데이트 빌드 번호는 **20180513.1**합니다.
 ## <a name="before-you-begin"></a>시작하기 전에    
 
 ### <a name="prerequisites"></a>필수 조건
-- Azure Stack을 설치 [1803 업데이트](azure-stack-update-1803.md) Azure Stack 1804 업데이트를 적용 하기 전에 합니다.    
+- Azure Stack을 설치 [1803 업데이트](azure-stack-update-1803.md) Azure Stack 1804 업데이트를 적용 하기 전에 합니다.  
+  
+- 사용 가능한 최신 설치 [업데이트 또는 핫픽스 버전 1803](azure-stack-update-1803.md#post-update-steps)합니다. 
+
 
 ### <a name="known-issues-with-the-update-process"></a>업데이트 프로세스를 사용 하 여 알려진된 문제   
 - 1804 업데이트를 설치 하는 동안 경고 제목으로 표시 될 수 있습니다 *오류 – FaultType UserAccounts.New 템플릿을 누락 되었습니다.*  이러한 경고를 안전 하 게 무시할 수 있습니다. 이러한 경고 1804 업데이트가 완료 된 후 자동으로 닫힙니다.   

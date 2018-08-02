@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003616"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414428"
 ---
 # <a name="network-connectivity"></a>네트워크 연결
 이 문서에서는 Azure Stack 기존 네트워킹 환경에 통합 하는 방법을 결정 하는 데 Azure Stack 네트워크 인프라 정보를 제공 합니다. 
@@ -85,7 +85,7 @@ Azure Stack 서비스 사용할 수 있도록 사용자에 게 외부 Azure Stac
 ### <a name="ports-and-urls"></a>포트 및 Url
 Azure Stack 서비스 (같은 포털, Azure Resource Manager, DNS 등) 외부 네트워크에 사용할 수 있는 허용 하도록 설정 해야 이러한 끝점에 트래픽을 특정 Url, 포트 및 프로토콜입니다.
  
-배포의 경우 기존 프록시 서버에 투명 프록시 업링크를 허용 해야 합니다 특정 포트 및 Url 모두에 대 한 [인바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) 하 고 [아웃 바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) 통신 합니다. 이러한 포트 및 Url id, marketplace 배포, 패치 및 업데이트, 등록 및 사용 현황 데이터에 대 한 포함 합니다.
+배포의 경우 기존 프록시 서버에 투명 프록시 업링크를 허용 해야 합니다 특정 포트 및 Url 모두에 대 한 [인바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) 하 고 [아웃 바운드](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) 통신 합니다. 이러한 포트 및 Url id, marketplace, 패치 및 업데이트, 등록 및 사용 현황 데이터에 대 한 포함 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 [테두리 연결](azure-stack-border-connectivity.md)

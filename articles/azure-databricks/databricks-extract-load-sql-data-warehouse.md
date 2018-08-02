@@ -10,13 +10,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2018
-ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.date: 07/26/2018
+ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223833"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308799"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -344,7 +344,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 2.  열 **수준**을 **subscription_type**으로 지정하도록 이 데이터를 추가로 변환할 수 있습니다.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     다음 코드 조각과 같은 출력이 표시됩니다.
 
@@ -387,7 +387,7 @@ Azure Data Lake Store에서 Azure Databricks로 데이터를 추출했습니다.
 
 2. Azure Databricks와 Azure SQL Data Warehouse 간에 데이터를 이동하는 데 사용되는 임시 폴더를 지정합니다.
 
-        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
 3. 다음 코드 조각을 실행하여 Azure Blob Storage 액세스 키를 구성에 저장합니다. 이렇게 하면 액세스 키를 노트북에서 일반 텍스트로 유지할 필요가 없습니다.
 

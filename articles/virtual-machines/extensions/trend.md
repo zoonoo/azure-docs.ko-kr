@@ -3,7 +3,7 @@ title: VM에 Trend Micro Deep Security 설치 | Microsoft Docs
 description: 이 문서에서는 Azure에서 클래식 배포 모델을 사용하여 만든 VM에 Trend Micro 보안을 설치하고 구성하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: danis
-ms.openlocfilehash: 6098d310bcc6fe5df2378688b78277fc7e4b16bc
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: 7cddbce56dc136b706bc55c19e3ad700ef13073f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944775"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413771"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -83,7 +83,7 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 * [지침](http://go.microsoft.com/fwlink/?LinkId=404099) 
 
 ## <a name="additional-resources"></a>추가 리소스
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]
+[Windows Server를 실행하는 가상 머신에 로그온하는 방법]
 
 [Azure VM 확장 및 기능]
 
@@ -93,5 +93,5 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [3]: ./media/trend/SecurityAgentDetails.png
 
 <!-- Link references -->
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]:../windows/classic/connect-logon.md
+[Windows Server를 실행하는 가상 머신에 로그온하는 방법]:../windows/classic/connect-logon.md
 [Azure VM 확장 및 기능]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

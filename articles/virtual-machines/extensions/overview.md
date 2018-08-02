@@ -3,7 +3,7 @@ title: Azure 가상 머신 확장 및 기능 | Microsoft Docs
 description: Azure VM 확장 및 Azure 가상 머신에서 이 확장을 사용하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: 1fd4e1a67b6aa4cc66e62822c34606e2769890f8
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: roiyz
+ms.openlocfilehash: ec201f7f82aea97b9927b85a6b185fad51f6081d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866494"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412603"
 ---
 # <a name="azure-virtual-machine-extensions-and-features"></a>Azure 가상 머신 확장 및 기능
 Azure VM(Azure 가상 머신) 확장은 Azure VM에서 배포 후 구성 및 자동화 작업을 제공하는 작은 응용 프로그램이며, 기존 이미지를 사용하여 배포의 일부로 사용자 지정함으로써 사용자 지정 이미지를 작성하는 업무에서 벗어나게 할 수 있습니다.
