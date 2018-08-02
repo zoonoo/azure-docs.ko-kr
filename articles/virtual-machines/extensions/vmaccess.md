@@ -3,7 +3,7 @@ title: Azure Linux VM에 대한 액세스 다시 설정 | Microsoft Docs
 description: VMAccess 확장 및 Azure CLI 2.0을 사용하여 관리 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: danis
-ms.openlocfilehash: c023f226894d2fabb90736513e49a1ecca179d4f
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.author: roiyz
+ms.openlocfilehash: 51c203c746a5256924033ebe48d9ddfdc3823b16
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165794"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415896"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli-20"></a>Azure CLI 2.0에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
@@ -37,7 +37,7 @@ VM 액세스 확장은 다음 Linux 배포판에 대해 실행할 수 있습니�
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS 및 12.04 LTS |
 | Debian | Debian 7.9 이상, 8.2 이상 |
-| RedHat | RHEL 6.7+, 7.1+ |
+| Red Hat | RHEL 6.7+, 7.1+ |
 | Oracle Linux | 6.4 이상, 7.0 이상 |
 | Suse | 11 및 12 |
 | OpenSuse | openSUSE Leap 42.2+ |

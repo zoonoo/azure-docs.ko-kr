@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 07/30/2018
 ms.author: terrylan
-ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29529417"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363757"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>자습서: Azure Security Center로 리소스 보호
 Security Center는 액세스 및 응용 프로그램 제어를 통해 악성 활동을 차단하여 위협에 대한 노출을 제한합니다. Just-In-Time VM(가상 머신) 액세스는 지속적인 VM 액세스를 거부할 수 있도록 하여 공격에 대한 노출을 줄입니다. 대신, 필요한 경우에만 VM에 대한 제어 및 감사된 액세스를 제공합니다. 적응형 응용 프로그램 제어는 VM에서 실행할 수 있는 응용 프로그램을 제어하여 맬웨어로부터 VM을 강화합니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
@@ -38,8 +38,6 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="manage-vm-access"></a>VM 액세스 관리
 Just-In-Time VM 액세스를 사용하면 Azure VM에 대한 인바운드 트래픽을 잠가 공격에 대한 노출을 줄이는 동시에 VM에 쉽게 액세스하여 필요할 때 연결할 수 있습니다.
-
-Just-In-Time VM 액세스는 미리 보기로 제공됩니다.
 
 관리 포트는 항상 열려 있을 필요가 없습니다. 예를 들어 관리 또는 유지 관리 작업을 수행하기 위해 VM에 연결되는 동안에만 열려 있어야 합니다. Just-In-Time을 사용하는 경우 Security Center는 관리 포트에 대한 액세스를 제한하는 NSG(네트워크 보안 그룹) 규칙을 사용하여 공격자의 대상이 되지 않도록 합니다.
 
@@ -75,7 +73,7 @@ Just-In-Time VM 액세스는 미리 보기로 제공됩니다.
 ## <a name="harden-vms-against-malware"></a>맬웨어로부터 VM 강화
 적응형 응용 프로그램 제어는 구성된 리소스 그룹에서 실행할 수 있는 응용 프로그램 집합을 정의하는 데 도움이 되며, 이로 인해 특히 맬웨어로부터 VM을 강화할 수 있는 혜택이 있습니다. Security Center는 기계 학습을 통해 VM에서 실행 중인 프로세스를 분석하고 이러한 인텔리전스를 사용하여 허용 목록 규칙을 적용할 수 있습니다.
 
-적응형 응용 프로그램 제어는 미리 보기로 제공됩니다. 이 기능은 Windows 컴퓨터에서만 사용할 수 있습니다.
+이 기능은 Windows 컴퓨터에서만 사용할 수 있습니다.
 
 1. Security Center 주 메뉴로 돌아갑니다. **고급 클라우드 방어** 아래에서 **적응형 응용 프로그램 제어**를 선택합니다.
 

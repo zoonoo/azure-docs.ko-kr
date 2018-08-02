@@ -3,7 +3,7 @@ title: Azure Functions 테스트 | Microsoft Docs
 description: Postman, cURL 및 Node.js를 사용하여 Azure 함수를 테스트합니다.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/02/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b4f6bf89ec5c83a497666a8a410a156c5f9bb359
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083260"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344701"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -189,7 +189,7 @@ Postman에서 요청 본문을 사용하여 함수를 테스트하려면
 1. 함수 앱에 대한 [Azure Portal]에서 C#, F# 또는 JavaScript Blob 트리거 함수를 만듭니다. 모니터링할 경로를 Blob 컨테이너의 이름으로 설정합니다. 예: 
 
         files
-2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
+2. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음, **만들기**를 클릭합니다.
 3. 다음 텍스트를 사용하여 텍스트 파일을 만들고 저장합니다.
 
         A text file for blob trigger function testing.
@@ -252,7 +252,7 @@ Azure Functions 바인딩 사용에 대한 자세한 내용은 [Azure Functions 
 2. 큐 함수가 모니터링할 큐 이름을 입력합니다.
 
         queue-newusers
-3. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음 **Create**를 클릭합니다.
+3. 사용하려는 저장소 계정을 선택하거나 만들려면 **+** 단추를 클릭합니다. 그런 다음, **만들기**를 클릭합니다.
 4. 기본 큐 함수 템플릿 코드에 대한 로그 항목을 모니터링할 수 있도록 포털 브라우저 창을 그대로 열어 둡니다.
 
 #### <a name="create-a-timer-trigger-to-drop-a-message-in-the-queue"></a>큐에 메시지를 놓는 타이머 트리거 만들기
@@ -356,7 +356,7 @@ req.end(bodyString);
 ```
 
 
-출력
+출력:
 
     C:\Users\Wesley\testing\Node.js>node testHttpTriggerExample.js
     *** Sending name and address in body ***

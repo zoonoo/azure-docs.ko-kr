@@ -3,7 +3,7 @@ title: Flow, Logic Apps, Functions 및 WebJobs 비교 - Azure
 description: '통합 작업: Flow, Logic Apps, Functions 및 WebJobs에 최적화된 Microsoft 클라우드 서비스를 비교합니다.'
 services: functions,app-service\logic
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 tags: ''
 keywords: Microsoft Flow, Flow, Logic Apps, Azure Functions, Functions, Azure Webjobs, Webjobs, 이벤트 처리, 동적 계산, 서버가 없는 아키텍처
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/09/2018
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 9b9ef150a86a754d4ed328184eb02c1937008b7b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9e79cba0b186ace97609409f49369ac89b5a1eeb
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970141"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346286"
 ---
 # <a name="compare-flow-logic-apps-functions-and-webjobs"></a>Flow, Logic Apps, Functions 및 WebJobs 비교
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter
-ms.openlocfilehash: 193f0f74d7a8ebaee72105698c646b55a8159a3b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aec23339a6c29ab9645bf1d801c1a3b159b56d68
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38453453"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344190"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 자습서: Azure Cosmos DB를 사용한 웹 응용 프로그램 개발
 > [!div class="op_single_selector"]
@@ -237,7 +237,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. Azure Cosmos DB�
         using System.Configuration;
         using System.Linq.Expressions;
         using System.Threading.Tasks;
-        using System.Net
+        using System.Net;
         
     이제 이 코드를 
    

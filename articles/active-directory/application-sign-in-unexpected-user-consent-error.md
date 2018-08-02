@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: bad508c59983f463aaa3247fa653064dfa03ab20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 78c2bd9f7d4f2b89ffdf4056edc394edbe761795
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331080"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363240"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>응용 프로그램에 대한 동의를 수행할 때 예기치 않은 오류
 

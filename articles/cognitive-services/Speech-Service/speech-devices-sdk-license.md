@@ -1,21 +1,20 @@
 ---
-title: 음성 장치 SDK 라이선스 계약 | Microsoft Docs
+title: 음성 장치 SDK 라이선스 계약
 description: 음성 장치 SDK 라이선스 계약입니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a601c0307045ef3db8666c705e5b24fb365f532d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5d9fd0669302dbfbd4f1c3082643d6c03abc7019
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376422"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281966"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>음성 장치 SDK 라이선스 계약
 

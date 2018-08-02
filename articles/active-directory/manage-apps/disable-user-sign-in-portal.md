@@ -11,17 +11,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 86ff34bb0780811663d437a9183d0b688b69073d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 39e926a392cbd87eff23e25d9708792ec7c40a2c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35302996"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368711"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화
 Azure AD(Azure Active Directory)에서 사용자가 로그인하지 않도록 엔터프라이즈 응용 프로그램을 비활성화하는 것은 쉽습니다. 엔터프라이즈 앱을 관리하려면 적절한 권한이 있어야 하고 해당 디렉터리에 대한 전역 관리자여야 합니다.
@@ -41,7 +41,7 @@ Azure AD(Azure Active Directory)에서 사용자가 로그인하지 않도록 �
 8. **저장** 명령을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [내 그룹 모두 보기](../active-directory-groups-view-azure-portal.md)
+* [내 그룹 모두 보기](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [엔터프라이즈 앱에 사용자 또는 그룹 할당](assign-user-or-group-access-portal.md)
 * [엔터프라이즈 앱에서 사용자 또는 그룹 할당 제거](remove-user-or-group-access-portal.md)
 * [엔터프라이즈 앱의 이름 또는 로고 변경](change-name-or-logo-portal.md)

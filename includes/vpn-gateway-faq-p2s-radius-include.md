@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f9b597427c3731b28ec68a7bc518955eb5f829ce
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 8be1144bd01634dce0db7f3129406c57e1f7bdac
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197995"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359394"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ RADIUS 인증은 VpnGw1, VpnGw2 및 VpnGw3 SKU에서 사용할 수 있습니다.
  
 ### <a name="is-radius-authentication-supported-for-the-classic-deployment-model"></a>클래식 배포 모델에 RADIUS 인증이 지원되나요?
  
-번호 RADIUS 인증은 클래식 배포 모델에서 사용할 수 없습니다.
+아니요. RADIUS 인증은 클래식 배포 모델에서 사용할 수 없습니다.
  
 ### <a name="are-3rd-party-radius-servers-supported"></a>타사 RADIUS 서버가 지원되나요?
 
@@ -35,7 +35,7 @@ RADIUS 인증은 VpnGw1, VpnGw2 및 VpnGw3 SKU에서 사용할 수 있습니다.
  
 ### <a name="can-traffic-to-an-on-premises-radius-server-from-the-azure-vpn-gateway-be-routed-over-an-expressroute-connection"></a>ExpressRoute 연결을 통해 Azure VPN Gateway에서 온-프레미스 RADIUS 서버로 트래픽을 라우팅할 수 있나요?
 
-번호 사이트 간 연결을 통해서만 라우팅될 수 있습니다.
+아니요. 사이트 간 연결을 통해서만 라우팅될 수 있습니다.
  
 ### <a name="is-there-a-change-in-the-number-of-sstp-connections-supported-with-radius-authentication-what-is-the-maximum-number-of-sstp-and-ikev2-connections-supported"></a>RADIUS 인증으로 지원되는 SSTP 연결 수가 변경되었나요? 지원되는 SSTP 및 IKEv2 연결의 최대 수는 무엇인가요?
 
@@ -49,4 +49,4 @@ RADIUS 인증서 인증에서 인증 요청은 실제 인증서 유효성 검사
 
 ### <a name="does-radius-authentication-work-with-both-ikev2-and-sstp-vpn"></a>RADIUS 인증은 IKEv2 및 SSTP VPN 모두에서 작동합니까?
 
-예, RADIUS 인증은 IKEv2 및 SSTP VPN 모두에서 지원됩니다.  
+예, RADIUS 인증은 IKEv2 및 SSTP VPN 모두에서 지원됩니다. 

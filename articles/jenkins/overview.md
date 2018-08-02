@@ -1,22 +1,19 @@
 ---
 title: Jenkins 및 Azure 개요 | Microsoft Docs
 description: Azure에서 Jenkins 빌드 및 배포 자동화 서버를 호스트하고 Azure 계산 및 저장소 리소스를 사용하여 CI/CD(지속적인 통합 및 배포) 파이프라인을 확장합니다.
-services: jenkins
-author: rloutlaw
-manager: justhe
-ms.service: jenkins
-ms.devlang: NA
-ms.topic: article
-ms.workload: na
-ms.date: 08/22/2017
-ms.author: routlaw
-ms.custom: mvc
-ms.openlocfilehash: ca4a6cb886b0453848dc7b29e15de2063878a65d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.topic: overview
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/25/2018
+ms.openlocfilehash: ecb4ea7aee005cb539910b2cb25f0b84de7ba510
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30832676"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281558"
 ---
 # <a name="azure-and-jenkins"></a>Azure 및 Jenkins
 
@@ -51,4 +48,3 @@ Jenkins CI/CD 파이프라인의 일부로 Azure에 응용 프로그램을 배�
 
 - [Linux에서 Azure Web App](/azure/app-service/containers/app-service-linux-intro). 시작하려면 [자습서](java-deploy-webapp-tutorial.md)를 참조하세요.
 - [Azure Web App](/azure/app-service/app-service-web-overview). 시작하려면 [방법](deploy-Jenkins-app-service-plugin.md)을 참조하세요.
-

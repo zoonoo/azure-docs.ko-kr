@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008147"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264998"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -54,7 +54,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 3. 기존 [원격 SQL 데이터베이스](active-directory-aadconnect-existing-database.md)에 대해 Azure AD Connect를 설치합니다.
    문서에서는 로컬 SQL 데이터베이스를 사용하여 마이그레이션하는 방법을 보여 줍니다. 원격 SQL 데이터베이스를 사용하여 마이그레이션하는 경우, 이 프로세스의 5단계에서 Windows 동기화 서비스가 실행될 기존 서비스 계정도 입력해야 합니다. 다음은 이 동기화 엔진 서비스 계정에 대한 설명입니다.
    
-      **기존 서비스 계정 사용**: 기본적으로 Azure AD Connect는 사용할 동기화 서비스에 대한 가상 서비스 계정을 사용합니다. 원격 SQL Server 인스턴스를 사용하거나 인증이 필요한 프록시를 사용하는 경우, 도메인의 관리 서비스 계정 또는 서비스 계정을 사용하고 암호를 알고 있어야 합니다. 이러한 경우에 사용할 계정을 입력합니다. 설치를 실행하는 사용자가 서비스 계정에 대한 로그인 자격 증명을 만들 수 있도록 SQL의 시스템 관리자인지 확인합니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)을 참조하세요. 
+      **기존 서비스 계정 사용**: 기본적으로 Azure AD Connect는 사용할 동기화 서비스에 대한 가상 서비스 계정을 사용합니다. 원격 SQL Server 인스턴스를 사용하거나 인증이 필요한 프록시를 사용하는 경우, 도메인의 관리 서비스 계정 또는 서비스 계정을 사용하고 암호를 알고 있어야 합니다. 이러한 경우에 사용할 계정을 입력합니다. 설치를 실행하는 사용자가 서비스 계정에 대한 로그인 자격 증명을 만들 수 있도록 SQL의 시스템 관리자인지 확인합니다. 자세한 내용은 [Azure AD Connect 계정 및 권한](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)을 참조하세요. 
    
       최신 빌드를 사용하면 이제는 SQL 관리자가 대역 외에서 데이터베이스를 프로비전한 후 데이터베이스 소유권이 있는 Azure AD Connect 관리자가 설치할 수 있습니다. 자세한 내용은 [SQL 위임된 관리자 권한을 사용하여 Azure AD Connect 설치](active-directory-aadconnect-sql-delegation.md)를 참조하세요.
 

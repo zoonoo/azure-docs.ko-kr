@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: cb4620babd3a1ba5087ae9ebd2870c1ef404bb58
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156486"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368481"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시에서 사용자 지정 도메인 작업
 
@@ -38,7 +38,7 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 ### <a name="prerequisites"></a>필수 조건
 
 사용자 지정 도메인을 구성하기 전에 다음 요구 사항이 준비되어 있는지 확인합니다. 
-- [Azure Active Directory에 추가된 확인된 도메인](../add-custom-domain.md).
+- [Azure Active Directory에 추가된 확인된 도메인](../fundamentals/add-custom-domain.md).
 - PFX 파일 형태의 도메인에 대한 사용자 지정 인증서. 
 - [응용 프로그램 프록시를 통해 게시된](application-proxy-publish-azure-portal.md) 온-프레미스 앱.
 
@@ -72,7 +72,7 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 와일드카드가 원하는 외부 URL과 일치하는 한 와일드카드 인증서를 사용할 수 있습니다. 
 
 ### <a name="changing-the-domain"></a>도메인 변경
-모든 확인된 도메인은 응용 프로그램에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 응용 프로그램에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](../add-custom-domain.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 
+모든 확인된 도메인은 응용 프로그램에 대한 외부 URL 드롭다운 목록에 나타납니다. 도메인을 변경하려면 응용 프로그램에 대한 해당 필드를 업데이트합니다. 원하는 도메인이 목록에 없는 경우 [확인된 도메인으로 추가](../fundamentals/add-custom-domain.md)합니다. 연결된 인증서가 없는 도메인을 선택하는 경우 5-7단계를 수행하여 인증서를 추가합니다. 그런 다음 새 외부 URL에서 리디렉션할 DNS 레코드를 업데이트해야 합니다. 
 
 ### <a name="certificate-management"></a>인증서 관리
 응용 프로그램이 외부 호스트를 공유하지 않는 한 여러 응용 프로그램에 대해 동일한 인증서를 사용할 수 있습니다. 
@@ -84,6 +84,6 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 ## <a name="next-steps"></a>다음 단계
 * Azure AD 인증을 사용하여 게시된 앱에 대해 [Single Sign-On 사용](application-proxy-configure-single-sign-on-with-kcd.md)
 * 게시된 앱에 대해 [조건부 액세스 사용](application-proxy-integrate-with-sharepoint-server.md)
-* [Azure AD에 사용자 지정 도메인 이름 추가](../add-custom-domain.md)
+* [Azure AD에 사용자 지정 도메인 이름 추가](../fundamentals/add-custom-domain.md)
 
 

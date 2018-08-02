@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237777"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358141"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>자습서: 1. 사용자 지정 도메인으로 앱 빌드
 이 자습서에서는 **의도**를 사용하여 사용자가 앱에 제출한 발화(텍스트)를 기초로 사용자의 _의도_를 판단하는 방법을 보여 주는 앱을 만듭니다. 마치면 클라우드에서 실행되는 LUIS 엔드포인트를 갖게 됩니다.
@@ -32,7 +32,7 @@ ms.locfileid: "39237777"
 > * ApplyForJob 의도에 발화 예제 추가 
 > * 엔드포인트 학습, 게시 및 다시 쿼리 
 
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md#luis-website) 계정이 필요합니다.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>앱의 용도
 이 앱에는 몇 가지 의도가 있습니다. 첫 번째 의도 **`GetJobInformation`** 은 사용자가 회사 내에서 제공하는 업무에 관한 정보가 필요한 시점을 식별합니다. 두 번째 의도 **`None`** 은 모든 다른 발화의 형식을 식별합니다. 이 빠른 시작의 뒷부분에 나오는 세 번째 의도 `ApplyForJob`이 추가됩니다. 
@@ -49,8 +49,6 @@ ms.locfileid: "39237777"
     ![LUIS 새 앱](./media/luis-quickstart-intents-only/create-app.png)
 
 4. 해당 프로세스가 완료되면 앱에 **없음** 의도가 있는 **의도** 페이지가 표시됩니다. 
-
-    [![](media/luis-quickstart-intents-only/intents-list.png "의도 목록 페이지 스크린샷")](media/luis-quickstart-intents-only/intents-list.png#lightbox)
 
 ## <a name="create-getjobinformation-intention"></a>GetJobInformation 의도 만들기
 1. **새 의도 만들기**를 선택합니다. `GetJobInformation`이라는 새 의도 이름을 입력합니다. 이 의도는 사용자가 회사 내 공석에 관한 정보를 원할 때마다 예측됩니다.
@@ -90,16 +88,16 @@ ms.locfileid: "39237777"
 
     ![학습 단추](./media/luis-quickstart-intents-only/train-button.png)
 
-    웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
+2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
 
     ![학습 완료 상태 표시줄](./media/luis-quickstart-intents-only/trained.png)
 
-2. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택하여 게시 페이지를 엽니다. 기본적으로 프로덕션 슬롯이 선택되어 있습니다. 프로덕션 슬롯 선택 항목 옆에 있는 **게시** 단추를 선택합니다. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+## <a name="publish-app-to-endpoint"></a>엔드포인트에 앱 게시
 
-    끝점 URL을 게시하거나 테스트하기 전에 Azure Portal에서 LUIS 키를 만들지 않아도 됩니다. 모든 LUIS 앱에는 작성을 위한 무료 시작 키가 있습니다. 이 키는 무제한 작성 및 [몇 개의 끝점 적중 횟수](luis-boundaries.md#key-limits)를 제공합니다. 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>GetJobInformation 의도의 쿼리 엔드포인트
-1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 있는 다른 브라우저 창이 열립니다. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `I'm looking for a job with Natual Language Processing`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 이 발화는 4단계의 에제 발화와 전혀 다르므로 테스트에 적합하며 최고 점수 의도로 `GetJobInformation` 의도를 반환하게 됩니다. 
 
@@ -152,7 +150,10 @@ LUIS 웹 사이트에 대한 브라우저 탭으로 돌아가 업무에 지원�
     [앱을 학습하고 다시 게시합니다](#train-and-publish-the-app). 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>ApplyForJob 의도에 대한 쿼리 엔드포인트
-**게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 새 브라우저 창에서 URL의 마지막에 `Can I submit my resume for job 235986`을 입력합니다. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. 새 브라우저 창에서 URL의 마지막에 `Can I submit my resume for job 235986`을 입력합니다. 
 
     ```
     {

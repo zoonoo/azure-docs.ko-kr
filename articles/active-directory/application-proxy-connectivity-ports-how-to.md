@@ -11,16 +11,16 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: bc1ed4a0b49588bd9828bd64508caa50e92c304a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6c26fb7cf88a44e7392d6be934d9dfae43b31c08
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335675"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362785"
 ---
 # <a name="how-to-open-the-firewall-ports-required-for-an-application-proxy-application"></a>응용 프로그램 프록시 응용 프로그램에 필요한 방화벽 포트를 여는 방법
 

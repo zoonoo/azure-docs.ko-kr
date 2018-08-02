@@ -2,26 +2,22 @@
 title: Azure Active Directory 연결 장치 설정 | Microsoft Docs
 description: Azure Active Directory 연결 장치를 설정하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: f2d285735b92c3acd67dc741f344b836e791be04
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058465"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411712"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Azure Active Directory 연결 장치 설정
 
@@ -32,7 +28,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 ## <a name="prerequisites"></a>필수 조건
 
-Windows 10 장치를 조인하려면 장치를 등록할 수 있도록 장치 등록 서비스를 구성해야 합니다. Azure AD 테넌트에 장치를 조인할 수 있는 권한이 필요한 것 외에도, 구성된 장치 최대 수보다 적은 수의 장치를 등록해야 합니다. 자세한 내용은 [장치 설정 구성](../device-management-azure-portal.md#configure-device-settings)을 참조하세요.
+Windows 10 장치를 조인하려면 장치를 등록할 수 있도록 장치 등록 서비스를 구성해야 합니다. Azure AD 테넌트에 장치를 조인할 수 있는 권한이 필요한 것 외에도, 구성된 장치 최대 수보다 적은 수의 장치를 등록해야 합니다. 자세한 내용은 [장치 설정 구성](../devices/device-management-azure-portal.md#configure-device-settings)을 참조하세요.
 
 
 
@@ -120,16 +116,14 @@ Azure AD 포털에서 장치 설정을 검토할 수도 있습니다.
 
 ![연결됨](./media/device-management-azuread-joined-devices-setup/15.png)
 
-자세한 내용은 [장치 찾기](../device-management-azure-portal.md#locate-devices)를 참조하세요.
+자세한 내용은 [장치 찾기](../devices/device-management-azure-portal.md#locate-devices)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은 다음을 참조하세요. 
 
-- [Azure Active Directory의 장치 관리 소개](../device-management-introduction.md)
-- [Azure Portal을 사용하여 장치 관리](../device-management-azure-portal.md)
-- 
-
+- [Azure Active Directory의 장치 관리 소개](../devices/overview.md)
+- [Azure Portal을 사용하여 장치 관리](../devices/device-management-azure-portal.md)
 
 

@@ -10,17 +10,17 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 8c3cd66a376c1526f50201b7fd662c4faf650df5
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 618df9b4bcc4a1b6f44d9cabc29c797a2cabcc80
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161606"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366795"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 게시된 앱에 대해 하드 코드된 링크 리디렉션
 
@@ -31,7 +31,7 @@ Azure AD 응용 프로그램 프록시는 원격 사용자가 자신의 장치�
 
 테넌트에서 사용자 지정 도메인을 사용할 수 없는 경우 이 기능을 제공하기 위한 몇 가지 다른 옵션이 있습니다. 이러한 모든 기능은 사용자 지정 도메인 및 서로 간에 호환이 가능하므로 필요한 경우 다른 솔루션 및 사용자 지정을 구성할 수 있습니다. 
 
-**옵션 1: 관리되는 브라우저 사용** – 이 솔루션은 계획이 사용자가 Intune 관리되는 브라우저를 통해 응용 프로그램에 액세스하도록 요구하거나 권장하는 경우 적용될 수 있습니다. 모든 게시된 URL을 처리합니다. 
+**옵션 1: Managed Browser 사용** – 이 솔루션은 계획이 사용자가 Intune Managed Browser를 통해 응용 프로그램에 액세스하도록 요구하거나 권장하는 경우 적용될 수 있습니다. 모든 게시된 URL을 처리합니다. 
 
 **옵션 2: MyApps 확장 사용** – 이 솔루션은 사용자가 클라이언트 브라우저 확장을 설치할 것을 요구하지만 게시된 모든 URL 및 작업을 가장 유명한 브라우저로 처리합니다. 
 
@@ -46,9 +46,9 @@ Azure AD 응용 프로그램 프록시는 원격 사용자가 자신의 장치�
 >또는 링크 변환으로 구성해야 하는 응용 프로그램이 SharePoint인 경우 링크 매핑에 대한 다른 방법으로 [SharePoint 2013에 대한 대체 액세스 매핑 구성](https://technet.microsoft.com/library/cc263208.aspx)을 참조하세요. 
 
  
-### <a name="option-1-intune-managed-browser-integration"></a>옵션 1: Intune 관리 브라우저 통합 
+### <a name="option-1-intune-managed-browser-integration"></a>옵션 1: Intune Managed Browser 통합 
 
-Intune 관리 브라우저를 사용하여 응용 프로그램과 콘텐츠를 더욱 안전하게 보호할 수 있습니다. 이 솔루션을 사용하려면 Intune Managed Browser를 통해 사용자가 응용 프로그램에 액세스하도록 요구/권장해야 합니다. 응용 프로그램 프록시로 게시된 모든 내부 URL은 Managed Browser에서 인식하고 해당 외부 URL로 리디렉션됩니다. 이렇게 하면 모든 하드 코딩된 내부 URL이 작동하고 사용자가 브라우저로 이동하여 내부 URL을 직접 입력하면 사용자가 원격인 경우에도 작동합니다.  
+Intune Managed Browser를 사용하여 응용 프로그램과 콘텐츠를 더욱 안전하게 보호할 수 있습니다. 이 솔루션을 사용하려면 Intune Managed Browser를 통해 사용자가 응용 프로그램에 액세스하도록 요구/권장해야 합니다. 응용 프로그램 프록시로 게시된 모든 내부 URL은 Managed Browser에서 인식하고 해당 외부 URL로 리디렉션됩니다. 이렇게 하면 모든 하드 코딩된 내부 URL이 작동하고 사용자가 브라우저로 이동하여 내부 URL을 직접 입력하면 사용자가 원격인 경우에도 작동합니다.  
 
 이 옵션을 구성하는 방법을 비롯한 자세한 내용은 [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) 문서를 참조하세요.  
 

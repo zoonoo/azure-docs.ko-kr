@@ -3,17 +3,17 @@ title: C++에서 개체(Blob) 저장소를 사용하는 방법 - Azure | Microso
 description: Azure Blob(개체) 저장소를 사용하여 클라우드에 구조화되지 않은 데이터를 저장합니다.
 services: storage
 author: MichaelHauss
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: d3297ae7bc4a5ac7e2a43d9d44a05365004b685f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: 0564d8406a0ce885ec5d75377f6a165901a8aa25
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38298999"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397168"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>C++에서 Blob 저장소를 사용하는 방법
 

@@ -153,26 +153,23 @@
 
 
 ## 장치 관리
-### [소개](device-management-introduction.md)
-### [Azure Portal 사용](device-management-azure-portal.md)
-### [Azure AD 조인 계획](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [FAQ](device-management-faq.md)
+### [개요](devices/overview.md)
+### [Azure Portal 사용](devices/device-management-azure-portal.md)
+### [Azure AD 조인 계획](devices/azureadjoin-plan.md)
+### [FAQ](devices/faq.md)
 ### 작업
 #### [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](devices/hybrid-azuread-join-plan.md)
 #### [관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성](devices/hybrid-azuread-join-managed-domains.md)
 #### [페더레이션된 도메인용 하이브리드 Azure Active Directory 조인 구성](devices/hybrid-azuread-join-federated-domains.md)
 #### [장치의 하이브리드 Azure AD 조인을 제어하는 방법](devices/hybrid-azuread-join-control.md)
-
-
-
 #### [Azure AD 등록 Windows 10 장치 설정](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD 가입 장치 설정](user-help/device-management-azuread-joined-devices-setup.md)
 #### [하이브리드 Azure AD 가입 장치 설정](devices/hybrid-azuread-join-manual-steps.md)
 #### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
-#### [Windows 10 첫 실행 경험 중 Azure AD 조인](device-management-azuread-joined-devices-frx.md)
+#### [Windows 10 첫 실행 경험 중 Azure AD 조인](devices/azuread-joined-devices-frx.md)
 ### 문제 해결
-#### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [하이브리드 Azure AD 가입 레거시 Windows 장치](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+#### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [하이브리드 Azure AD 가입 레거시 Windows 장치](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ## 앱 관리
 ### [개요](manage-apps/what-is-application-management.md)

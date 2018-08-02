@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7495ac8b1414412dba9d62d0fb5668c6db364997
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215053"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325482"
 ---
 # <a name="what-is-azure-load-balancer"></a>Azure Load Balancer란?
 
@@ -123,20 +123,7 @@ _아직 필수적인 것은 아니지만 SKU를 명시적으로 지정하는 것
 >[!IMPORTANT]
 >표준 Load Balancer는 새로운 Load Balancer 제품으로, 기본 Load Balancer의 상위 기능입니다. 두 제품 간에는 중요하고 의도적인 차이가 있습니다. 또한 기본 Load Balancer로 가능한 종단 간 시나리오를 표준 Load Balancer로도 만들 수 있습니다. 기본 Load Balancer를 이미 사용하고 있는 경우, 표준 Load Balancer를 숙지하여 표준 및 기본 Load Balancer간 동작의 최신 변경 및 미치는 영향을 이해하는 것이 중요합니다. 이 섹션을 주의 깊게 검토하세요.
 
-| | 표준 SKU | 기본 SKU |
-| --- | --- | --- |
-| 백 엔드 풀 크기 | 최대 1,000개 인스턴스 | 최대 100개 인스턴스 |
-| 백 엔드 풀 끝점 | 단일 가상 네트워크의 가상 머신(가상 머신, 가용성 집합, 가상 머신 확장 집합 혼합 포함) | 단일 가용성 집합 또는 가상 머신 확장 집합의 가상 머신 |
-| 가용성 영역 | 인바운드 및 아웃바운드, 아웃바운드 흐름 매핑 생존 영역 장애, 영역 간 부하 분산을 위한 영역 중복 및 영역 프런트 엔드 | / |
-| 진단 | Azure Monitor, 바이트 및 패킷 카운터, 상태 프로브 상태, 연결 시도(TCP SYN), 아웃바운드 연결 상태(SNAT 성공 및 실패 흐름), 활성 데이터 평면 측정을 포함하는 다차원 메트릭 | 공용 Load Balancer 전용, SNAT 소모 경고, 백 엔드 풀 상태 수에 대한 Azure Log Analytics |
-| HA 포트 | 내부 Load Balancer | / |
-| 기본적으로 보안 적용 | 공용 IP 및 Load Balancer 끝점에 대해 기본적으로 닫혀 있으며, 네트워크 보안 그룹을 사용하여 트래픽이 흐르도록 명시적으로 허용해야 합니다. | 기본적으로 열려 있는 선택적 네트워크 보안 그룹 |
-| [아웃바운드 연결](load-balancer-outbound-connections.md) | 부하 분산 규칙별 옵트아웃이 적용되는 여러 프런트 엔드. 가상 머신이 아웃바운드 연결을 사용할 수 있도록 하려면 _반드시_ 아웃바운드 시나리오를 만들어야 합니다.  [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)에 아웃바운드 연결 없이 연결할 수 있으며,처리된 데이터 수는 고려되지 않습니다.  VNet 서비스 끝점으로 사용할 수 없는 Azure PaaS 서비스를 포함하는 모든 공용 IP 주소는 아웃바운드 연결을 통해 연결해야 하며, 처리된 데이터 수도 고려되어야 합니다. 내부 Load Balancer만 가상 머신에 작동할 경우 기본 SNAT를 통한 아웃바운드 연결은 사용할 수 없습니다. 아웃바운드 SNAT 프로그래밍은 인바운드 부하 분산 규칙의 프로토콜을 기준으로 하는 전송 프로토콜 기준 방식입니다. | 여러 프런트 엔드가 있을 때 임의로 선택되는 단일 프런트 엔드입니다.  내부 Load Balancer만 가상 머신에 작동할 경우 기본 SNAT가 사용됩니다. |
-| [여러 프런트 엔드](load-balancer-multivip-overview.md) | 인바운드 및 [아웃바운드](load-balancer-outbound-connections.md) | 인바운드 전용 |
-| [상태 프로브 다운 동작](load-balancer-custom-probe-overview.md) | TCP 연결은 인스턴스 프로브 __및__ 모든 프로브가 다운되어 있을 때 그대로 유지됩니다. | TCP 연결은 인스턴스 프로브가 다운되어 있을 때 그대로 유지됩니다. 모든 프로브가 다운되면 모든 TCP 연결이 종료됩니다. |
-| 관리 작업 | 대부분 작업을 30초 이내에 수행 | 일반적으로 60-90+초 |
-| SLA | 2개의 정상 가상 머신이 있는 데이터 경로에 대해 99.99% | VM SLA에서 암시적 | 
-| 가격 | 규칙의 수, 리소스와 연결해서 인바운드 또는 아웃바운드로 처리된 데이터에 따라 요금이 부과됩니다.  | 무료 |
+[!INCLUDE [comparison table](../../includes/load-balancer-comparison-table.md)]
 
 자세한 내용은 [Load Balancer에 대한 서비스 제한](https://aka.ms/lblimits)을 참조하세요. 표준 Load Balancer 세부 내용은 [개요](load-balancer-standard-overview.md), [가격](https://aka.ms/lbpricing) 및 [SLA](https://aka.ms/lbsla)를 참조하세요.
 

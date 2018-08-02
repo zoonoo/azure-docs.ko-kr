@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: 방법 가이드
   items:
-    - name: Log Analytics 작업 영역 만들기
-      href: log-analytics-quick-create-workspace.md
+    - name: 작업 영역 만들기
+      items:
+        - name: Azure Portal 사용
+          href: log-analytics-quick-create-workspace.md
     - name: 데이터 수집
       items:
         - name: 연결된 소스

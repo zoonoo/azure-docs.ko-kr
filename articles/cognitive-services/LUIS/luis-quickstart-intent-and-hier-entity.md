@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/04/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: fb29e0a22331ce279d3dc8fc5a0044ae794d260b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226087"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345361"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>자습서: 5. 계층적 엔터티 추가
 이 자습서에서는 컨텍스트에 따라 관련 데이터 부분을 찾는 방법을 보여 주는 앱을 만듭니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "39226087"
 > * 앱 학습 및 게시
 > * 앱의 엔드포인트를 쿼리하여 계층적 자식이 포함된 LUIS JSON 응답 확인 
 
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md#luis-website) 계정이 필요합니다.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [목록 엔터티](luis-quickstart-intent-and-list-entity.md) 자습서의 인사 관리 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json) Github 리포지토리에 있습니다.
@@ -57,12 +57,7 @@ mv Jill Jones from a-2349 to b-1298
 
 1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
 
-    [ ![오른쪽 위의 탐색 모음에서 강조 표시된 빌드가 있는 LUIS 앱의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
-
 2. 왼쪽 메뉴에서 **엔터티**를 선택합니다.
-
-    [ ![왼쪽 메뉴의 엔터티 단추가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
-
 
 3. 목록에서 숫자 엔터티 오른쪽에 있는 줄임표(***...***) 단추를 선택합니다. **삭제**를 선택합니다. 
 
@@ -72,8 +67,6 @@ mv Jill Jones from a-2349 to b-1298
 ## <a name="add-utterances-to-moveemployee-intent"></a>MoveEmployee 의도에 발언 추가
 
 1. 왼쪽 메뉴에서 **의도**를 선택합니다.
-
-    [ ![왼쪽 메뉴에서 의도가 강조 표시된 LUIS 앱의 스크린 샷](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-intents-button.png#lightbox)
 
 2. 의도 목록에서 **MoveEmployee**를 선택합니다.
 
@@ -89,10 +82,9 @@ mv Jill Jones from a-2349 to b-1298
     |x12345가 a-3459를 **떠나서** f-34567로 **향하도록** 설정하는 서류 작업 시작|
     |425-555-0000을 g-2323**에서 꺼내** hh-2345 **방향으로** 배치|
 
-    [엔터티 목록](luis-quickstart-intent-and-list-entity.md) 자습서에서 직원 이름, 이메일 주소, 내선 번호, 휴대폰 번호 또는 미국 사회 보장 번호를 사용하여 직원을 지정할 수 있습니다. 이러한 직원 번호는 발언에 사용됩니다. 이전 예제 발언에는 원래 위치와 대상 위치를 알려주는 여러 방법이 포함되어 있으며, 볼드로 표시되어 있습니다. 일부 발언에는 대상 위치만 있으며, 이는 의도된 것입니다. 이렇게 하면 원래 위치가 지정되지 않았을 때 이러한 위치를 발언에 배치하는 방법을 LUIS가 쉽게 이해할 수 있습니다.
-
     [ ![MoveEmployee 의도에 새 발언이 있는 LUIS의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png)](./media/luis-quickstart-intent-and-hier-entity/hr-enter-utterances.png#lightbox)
-     
+
+    [엔터티 목록](luis-quickstart-intent-and-list-entity.md) 자습서에서 직원 이름, 이메일 주소, 내선 번호, 휴대폰 번호 또는 미국 사회 보장 번호를 사용하여 직원을 지정할 수 있습니다. 이러한 직원 번호는 발언에 사용됩니다. 이전 예제 발언에는 원래 위치와 대상 위치를 알려주는 여러 방법이 포함되어 있으며, 볼드로 표시되어 있습니다. 일부 발언에는 대상 위치만 있으며, 이는 의도된 것입니다. 이렇게 하면 원래 위치가 지정되지 않았을 때 이러한 위치를 발언에 배치하는 방법을 LUIS가 쉽게 이해할 수 있습니다.     
 
 ## <a name="create-a-location-entity"></a>위치 엔터티 만들기
 LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 위치를 이해해야 합니다. 토큰(원시) 보기의 발언을 살펴보아야 하는 경우 **엔터티 보기**라는 레이블이 붙은 발언 위에 있는 표시줄에서 토글을 선택합니다. 스위치를 토글하면 컨트롤에 **토큰 보기**라는 레이블이 지정됩니다.
@@ -118,9 +110,7 @@ LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 �
 
 1. 왼쪽 탐색 메뉴에서 **엔터티**를 선택합니다.
 
-    [ ![왼쪽 탐색 창에서 강조 표시된 엔터티 단추의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entity-button-from-intent-page.png#lightbox)
-
-2. **미리 작성된 엔터티 관리** 단추를 선택합니다.
+2. **미리 빌드된 엔터티 관리** 단추를 선택합니다.
 
     [ ![미리 작성된 엔터티 관리가 강조 표시된 엔터티 목록의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-manage-prebuilt-button.png#lightbox)
 
@@ -140,119 +130,112 @@ LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용�
     ![학습 성공](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
-챗봇 또는 다른 응용 프로그램에서 LUIS 예측을 얻으려면 앱을 게시해야 합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택합니다. 
-
-2. 프로덕션 슬롯과 **게시** 단추를 선택합니다.
-
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "프로덕션 슬롯에 게시 단추가 강조 표시된 게시 페이지의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
-
-3. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
-1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 있는 다른 브라우저 창이 열립니다. 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "엔드포인트 URL이 강조 표시된 게시 페이지의 스크린샷")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
 
 2. 주소 표시줄의 URL 끝으로 이동하여 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 이 발화는 레이블이 있는 발화와 같지 않으므로 좋은 테스트이므로 추출된 계층적 엔터티와 함께 `MoveEmployee` 의도를 반환해야 합니다.
 
-```JSON
-{
-  "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9966052
-  },
-  "intents": [
-    {
+  ```JSON
+  {
+    "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
+    "topScoringIntent": {
       "intent": "MoveEmployee",
       "score": 0.9966052
     },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0325253047
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.006137873
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.00462633232
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.00415637763
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.00382325822
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00249120337
-    },
-    {
-      "intent": "None",
-      "score": 0.00130756292
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00119622645
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 1.26910036E-05
-    }
-  ],
-  "entities": [
-    {
-      "entity": "jill - jones @ mycompany . com",
-      "type": "Employee",
-      "startIndex": 18,
-      "endIndex": 41,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
+    "intents": [
+      {
+        "intent": "MoveEmployee",
+        "score": 0.9966052
+      },
+      {
+        "intent": "Utilities.Stop",
+        "score": 0.0325253047
+      },
+      {
+        "intent": "FindForm",
+        "score": 0.006137873
+      },
+      {
+        "intent": "GetJobInformation",
+        "score": 0.00462633232
+      },
+      {
+        "intent": "Utilities.StartOver",
+        "score": 0.00415637763
+      },
+      {
+        "intent": "ApplyForJob",
+        "score": 0.00382325822
+      },
+      {
+        "intent": "Utilities.Help",
+        "score": 0.00249120337
+      },
+      {
+        "intent": "None",
+        "score": 0.00130756292
+      },
+      {
+        "intent": "Utilities.Cancel",
+        "score": 0.00119622645
+      },
+      {
+        "intent": "Utilities.Confirm",
+        "score": 1.26910036E-05
       }
-    },
-    {
-      "entity": "x - 2345",
-      "type": "Locations::Origin",
-      "startIndex": 48,
-      "endIndex": 53,
-      "score": 0.8520272
-    },
-    {
-      "entity": "g - 23456",
-      "type": "Locations::Destination",
-      "startIndex": 58,
-      "endIndex": 64,
-      "score": 0.974032
-    },
-    {
-      "entity": "-2345",
-      "type": "builtin.number",
-      "startIndex": 49,
-      "endIndex": 53,
-      "resolution": {
-        "value": "-2345"
+    ],
+    "entities": [
+      {
+        "entity": "jill - jones @ mycompany . com",
+        "type": "Employee",
+        "startIndex": 18,
+        "endIndex": 41,
+        "resolution": {
+          "values": [
+            "Employee-45612"
+          ]
+        }
+      },
+      {
+        "entity": "x - 2345",
+        "type": "Locations::Origin",
+        "startIndex": 48,
+        "endIndex": 53,
+        "score": 0.8520272
+      },
+      {
+        "entity": "g - 23456",
+        "type": "Locations::Destination",
+        "startIndex": 58,
+        "endIndex": 64,
+        "score": 0.974032
+      },
+      {
+        "entity": "-2345",
+        "type": "builtin.number",
+        "startIndex": 49,
+        "endIndex": 53,
+        "resolution": {
+          "value": "-2345"
+        }
+      },
+      {
+        "entity": "-23456",
+        "type": "builtin.number",
+        "startIndex": 59,
+        "endIndex": 64,
+        "resolution": {
+          "value": "-23456"
+        }
       }
-    },
-    {
-      "entity": "-23456",
-      "type": "builtin.number",
-      "startIndex": 59,
-      "endIndex": 64,
-      "resolution": {
-        "value": "-23456"
-      }
-    }
-  ]
-}
-```
+    ]
+  }
+  ```
 
 ## <a name="could-you-have-used-a-regular-expression-for-each-location"></a>각 위치에 정규식을 사용할 수 있었나요?
 예, 원본 및 대상 역할을 사용하여 정규식을 만들고 패턴에 사용합니다.

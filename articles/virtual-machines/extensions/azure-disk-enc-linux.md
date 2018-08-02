@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: e7926fa488ad38784a3db96035055a80f841aed8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: ejarvi
+ms.openlocfilehash: 36e8875e91e2f04dbb60bab3211f07b2053e78f5
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449271"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414775"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -30,16 +30,15 @@ Azure Disk Encryption은 Linux에서 dm-crypt 서브 시스템을 활용하여 [
 ## <a name="prerequisites"></a>필수 조건
 
 필수 조건에 대한 전체 목록은 [Azure Disk Encryption 필수 조건](
-../../security/azure-security-disk-encryption.md#prerequisites)을 참조하세요.
+../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
 ### <a name="operating-system"></a>운영 체제
 
-Azure Disk Encryption은 현재 배포판 및 버전 선택에서 지원됩니다.  지원되는 Linux 배포판 목록은 [Azure Disk Encryption FAQ](../../security/azure-security-disk-encryption-faq.md#what-linux-distributions-does-azure-disk-encryption-support)를 참조하세요.
+Azure Disk Encryption은 현재 배포판 및 버전 선택에서 지원됩니다.  지원되는 Linux 배포판 목록은 [Azure Disk Encryption FAQ](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport)를 참조하세요.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-Linux용 Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage 및 패키지 관리 엔드포인트에 액세스하기 위한 인터넷 연결이 필요합니다.  자세한 내용은 [Azure Disk Encryption 필수 조건](
-../../security/azure-security-disk-encryption.md#prerequisites)을 참조하세요.
+Linux용 Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage 및 패키지 관리 엔드포인트에 액세스하기 위한 인터넷 연결이 필요합니다.  자세한 내용은 [Azure Disk Encryption 필수 조건](../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 

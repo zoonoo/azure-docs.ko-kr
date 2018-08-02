@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: diberry
-ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0ec6f002b35b1224118b62accda1f69e7be22fb8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239038"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358525"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>자습서: 2. 미리 작성된 의도 및 엔터티 추가
 미리 빌드된 의도 및 엔터티를 인사 관리 자습서 앱에 추가하여 의도 예측 및 데이터 추출을 빠르게 수행합니다. 
@@ -27,6 +27,8 @@ ms.locfileid: "39239038"
 * 학습 및 게시
 * LUIS 쿼리 및 예측 응답 받기
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## <a name="before-you-begin"></a>시작하기 전에
 이전 엔터티 자습서의 [인사 관리](luis-quickstart-intents-only.md) 앱이 없으면 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json) Github 리포지토리의 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app).
 
@@ -36,8 +38,6 @@ ms.locfileid: "39239038"
 LUIS는 일반적인 사용자 의도에 도움이 되도록 여러 가지 미리 빌드된 의도를 제공합니다.  
 
 1. 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
-
-    [ ![오른쪽 위의 탐색 모음에서 강조 표시된 빌드가 있는 LUIS 앱의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. **Add prebuilt domain intent**(미리 빌드된 도메인 의도 추가)를 선택합니다. 
 
@@ -72,24 +72,20 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
     ![number가 선택된 미리 빌드된 엔터티 대화 상자의 스크린샷](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다. 
 
-    ![학습 단추](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
+## <a name="publish-app-to-endpoint"></a>엔드포인트에 앱 게시
 
-    ![학습 완료 상태 표시줄](./media/luis-quickstart-intents-only/trained.png)
-
-2. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택하여 게시 페이지를 엽니다. 
-
-3. 기본적으로 프로덕션 슬롯이 선택되어 있습니다. 프로덕션 슬롯 선택 항목 옆에 있는 **게시** 단추를 선택합니다. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
-
-    끝점 URL을 게시하거나 테스트하기 전에 Azure Portal에서 LUIS 키를 만들지 않아도 됩니다. 모든 LUIS 앱에는 작성을 위한 무료 시작 키가 있습니다. 이 키는 무제한 작성 및 [몇 개의 끝점 적중 횟수](luis-boundaries.md#key-limits)를 제공합니다. 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>발화를 사용하여 끝점 쿼리
-**게시** 페이지의 아래쪽에서 **끝점** 링크를 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 있는 다른 브라우저 창이 열립니다. 주소의 URL 끝으로 이동하고 `I want to cancel on March 3`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 
 
-결과에서는 Utilities.Cancel 의도를 예측하고 March 3 날짜와 숫자 3을 추출했습니다. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. 주소의 URL 끝으로 이동하고 `I want to cancel on March 3`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 
+
+    결과에서는 Utilities.Cancel 의도를 예측하고 March 3 날짜와 숫자 3을 추출했습니다. 
 
     ```
     {
@@ -166,12 +162,13 @@ LUIS는 일반적인 데이터 추출을 위해 여러 가지 미리 빌드된 �
     }
     ```
 
-3월 3일이 과거 또는 미래에 있을 때 발언이 언급되지 않았기 때문에 3월 3일에는 두 가지 값이 있습니다. 가정하거나 필요할 경우 설명을 요청하는 것은 LUIS 호출 응용 프로그램에 달렸습니다. 
+    3월 3일이 과거 또는 미래에 있을 때 발언이 언급되지 않았기 때문에 3월 3일에는 두 가지 값이 있습니다. 가정하거나 필요할 경우 설명을 요청하는 것은 LUIS 호출 응용 프로그램에 달렸습니다. 
 
-미리 빌드된 의도 및 엔터티를 쉽고 빠르게 추가하면 클라이언트 응용 프로그램에서 대화 관리를 추가하고 일반적인 데이터 형식을 추출할 수 있습니다. 
+    미리 빌드된 의도 및 엔터티를 쉽고 빠르게 추가하면 클라이언트 응용 프로그램에서 대화 관리를 추가하고 일반적인 데이터 형식을 추출할 수 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 그러려면 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -48,7 +48,6 @@ Azure CLI 2.0에서는 새 에이전트 수를 포함한 컨테이너 서비스�
 
 * 클러스터에서 배포하는 조정자에 따라 클러스터에서 실행되는 컨테이너의 인스턴스 수를 개별적으로 조정할 수 있습니다. 예를 들어, DC/OS 클러스터의 경우 [Marathon UI](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md)를 사용하여 컨테이너 응용 프로그램의 인스턴스 수를 변경합니다.
 
-* 현재 컨테이너 서비스 클러스터에 있는 에이전트 노드의 자동 규모 조정은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Container Service에서 Azure CLI 2.0 명령을 사용하는 방법에 대한 [추가 예제](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md)를 참조하세요.

@@ -2,26 +2,22 @@
 title: Azure Active Directory 등록 장치 설정 | Microsoft Docs
 description: Azure Active Directory 등록 장치를 설정하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
-ms.component: devices
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 7ce632c76a86fb00101db6664e9e79615484f9a1
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0c38c0160cea51940ac5b04ee64095c6a6f25b5d
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058115"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414677"
 ---
 # <a name="set-up-azure-active-directory-registered-windows-10-devices"></a>Azure Active Directory 등록 Windows 10 장치 설정
 
@@ -32,7 +28,7 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-Windows 10 장치를 등록하려면 장치를 등록할 수 있도록 장치 등록 서비스를 구성해야 합니다. 또한 구성된 최댓값보다 적은 수의 장치가 등록되어야 합니다. 자세한 내용은 [장치 설정 구성](../device-management-azure-portal.md#configure-device-settings)을 참조하세요.
+Windows 10 장치를 등록하려면 장치를 등록할 수 있도록 장치 등록 서비스를 구성해야 합니다. 또한 구성된 최댓값보다 적은 수의 장치가 등록되어야 합니다. 자세한 내용은 [장치 설정 구성](../devices/device-management-azure-portal.md#configure-device-settings)을 참조하세요.
 
 ## <a name="what-you-should-know"></a>알아야 할 사항
 

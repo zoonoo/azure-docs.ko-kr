@@ -6,15 +6,15 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448369"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264964"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup에 대한 보고서를 구성하고 Power BI를 사용하여 이러한 보고서에 액세스하는 단계를 설명합니다. 이러한 단계를 수행한 후 Power BI로 직접 이동하여 모든 보고서를 확인하고, 보고서를 사용자 지정 및 생성할 수 있습니다. 
@@ -24,7 +24,6 @@ ms.locfileid: "37448369"
 2. Azure SQL, DPM 및 Azure Backup Server에 대한 보고서는 현재 지원되지 않습니다.
 3. 각 자격 증명 모음에 대해 동일한 저장소 계정이 구성된 경우 여러 자격 증명 모음과 구독의 보고서를 볼 수 있습니다. 선택한 Storage 계정이 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
 4. Power BI에서 보고서에 대해 예약된 새로 고침 빈도는 24시간입니다. Power BI에서 보고서의 임시 새로 고침을 수행할 수도 있으며, 이 경우 고객 저장소 계정의 최신 데이터가 보고서 렌더링에 사용됩니다. 
-5. Azure Backup 보고서는 현재 국가별 클라우드에서 지원되지 않습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 1. [Azure 저장소 계정](../storage/common/storage-create-storage-account.md#create-a-storage-account)을 만들어 보고서에 대해 구성합니다. 이 저장소 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
@@ -75,7 +74,7 @@ Azure Portal을 사용하여 Recovery Services 자격 증명 모음에 대한 �
 ## <a name="view-reports-in-power-bi"></a>Power BI에서 보고서 보기 
 Recovery Services 자격 증명 모음을 사용하여 보고서에 대한 저장소 계정을 구성한 후 보고 데이터가 흐름을 시작하기까지 약 24시간 정도 걸립니다. 저장소 계정을 설정하고 24시간 후에 Power BI에서 보고서를 보려면 다음 단계를 따르세요.
 1. Power BI에 [로그인](https://powerbi.microsoft.com/landing/signin/)합니다.
-2. **데이터 가져오기**를 클릭한 다음, 콘텐츠 팩 라이브러리의 **서비스**에서 **가져오기**를 클릭합니다. [콘텐츠 팩에 액세스하려면 Power BI 설명서](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/)에 있는 단계를 따르세요.
+2. **데이터 가져오기**를 클릭한 다음, 콘텐츠 팩 라이브러리의 **서비스**에서 **가져오기**를 클릭합니다. [콘텐츠 팩에 액세스하려면 Power BI 설명서](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/)에 있는 단계를 따르세요.
 
      ![콘텐츠 팩 가져오기](./media/backup-azure-configure-reports/content-pack-import.png)
 3. 검색 창에서 **Azure Backup**을 입력하고 **지금 가져오기**를 클릭합니다.

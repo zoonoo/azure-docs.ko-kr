@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 23d2c858fc51e35948bf83c6b5824b35020cb2e9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593370"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326193"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -43,7 +43,6 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * AD 스키마의 버전 및 포리스트 기능 수준은 Windows Server 2003 이상이어야 합니다. 도메인 컨트롤러는 스키마와 포레스트의 수준 요구 사항이 맞으면 어떤 버전도 실행할 수 있습니다.
 * **비밀번호 쓰기 저장** 기능을 사용하려는 경우 도메인 컨트롤러가 Windows Server 2008(최신 SP 포함) 이상에 있어야 합니다. 또한 DC가 Windows Server 2008(R2 이전 버전)에 있는 경우 [핫픽스 KB2386717](http://support.microsoft.com/kb/2386717)을 적용해야 합니다.
 * Azure AD에서 사용되는 도메인 컨트롤러는 쓰기 가능해야 합니다. RODC(읽기 전용 도메인 컨트롤러)를 사용하는 것은 **지원되지 않으며** Azure AD Connect는 쓰기 리디렉션을 따르지 않습니다.
-* SLD(단일 레이블 도메인)를 사용하는 온-프레미스 포리스트/도메인은 **지원되지 않습니다**.
 * "점으로 구분된"(이름에 마침표 "." 포함) NetBios 이름을 사용하는 온-프레미스 포리스트/도메인은 **지원되지 않습니다**.
 * [Active Directory 휴지통을 사용하도록 설정](active-directory-aadconnectsync-recycle-bin.md)하는 것이 좋습니다.
 
@@ -94,7 +93,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
     </system.net>
 ```
 
-* 프록시 서버에 인증이 필요한 경우 [서비스 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)이 도메인에 있어야 하고 사용자 지정 설정 설치 경로를 사용하여 [사용자 지정 서비스 계정](active-directory-aadconnect-get-started-custom.md#install-required-components)을 지정해야 합니다. 또한 Machine.config와 서로 다른 변경을 해야 합니다. machine.config에서 이 변경 내용을 적용하면 설치 마법사와 동기화 엔진이 프록시 서버의 인증 요청에 응답합니다. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)으로 전환됩니다. machine.config 섹션은 다음과 같이 표시됩니다.
+* 프록시 서버에 인증이 필요한 경우 [서비스 계정](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)이 도메인에 있어야 하고 사용자 지정 설정 설치 경로를 사용하여 [사용자 지정 서비스 계정](active-directory-aadconnect-get-started-custom.md#install-required-components)을 지정해야 합니다. 또한 Machine.config와 서로 다른 변경을 해야 합니다. machine.config에서 이 변경 내용을 적용하면 설치 마법사와 동기화 엔진이 프록시 서버의 인증 요청에 응답합니다. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)으로 전환됩니다. machine.config 섹션은 다음과 같이 표시됩니다.
 
 ```
     <system.net>
@@ -121,7 +120,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. Windows Server 버전에 따라 다음을 수행합니다.
 
 * Windows Server 2012R2
-  * Microsoft PowerShell은 기본적으로 설치되므로 별도의 작업이 필요하지 않습니다.
+  * Microsoft PowerShell은 기본적으로 설치되므로 추가적인 조치가 필요하지 않습니다.
   * .NET Framework 4.5.1 이후 릴리스는 Windows 업데이트를 통해 제공됩니다. 제어판에서 Windows Server에 최신 업데이트를 설치했는지 확인합니다.
 * Windows Server 2008R2 및 Windows Server 2012
   * 최신 버전의 Microsoft PowerShell은 **Windows Management Framework 4.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](http://www.microsoft.com/downloads)에서 찾을 수 있습니다.

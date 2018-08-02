@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1cafca2433cd96c0595a6124df82856d0c491a49
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224265"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282741"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>자습서: 8. keyPhrase 엔터티 추가 
 이 자습서에서는 발화에서 핵심 주제를 추출하는 방법을 보여 주는 앱을 사용합니다.
@@ -27,7 +27,7 @@ ms.locfileid: "39224265"
 > * 앱 학습 및 게시
 > * 앱의 엔드포인트를 쿼리하여 핵심 구가 포함된 LUIS JSON 응답 확인
 
-이 문서에서는 LUIS 응용 프로그램을 작성하기 위해 체험 [LUIS](luis-reference-regions.md#publishing-regions) 계정을 사용할 수 있습니다.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [단순 엔터티](luis-quickstart-primary-and-secondary-data.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json) Github 리포지토리에 있습니다.
@@ -50,8 +50,6 @@ ms.locfileid: "39224265"
 keyPhrase 미리 빌드된 엔터티를 추가하여 발언에서 주제 문제를 추출합니다.
 
 1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
-
-    [ ![오른쪽 위의 탐색 모음에서 강조 표시된 빌드가 있는 LUIS 앱의 스크린샷](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png)](./media/luis-quickstart-intent-and-key-phrase/hr-first-image.png#lightbox)
 
 2. 왼쪽 메뉴에서 **엔터티**를 선택합니다.
 
@@ -85,21 +83,12 @@ keyPhrase 미리 빌드된 엔터티를 추가하여 발언에서 주제 문제�
 
 ## <a name="publish-app-to-endpoint"></a>엔드포인트에 앱 게시
 
-1. 오른쪽 맨 위 탐색 창에서 **게시**를 선택합니다.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png "프로덕션 슬롯에 게시 단추가 강조 표시된 게시 페이지의 스크린샷")](media/luis-quickstart-intent-and-key-phrase/hr-publish-button-top-nav.png#lightbox)
-
-2. 프로덕션 슬롯과 **게시** 단추를 선택합니다.
-
-    [![](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png "프로덕션 슬롯에 게시 단추가 강조 표시된 게시 페이지의 스크린샷")](media/luis-quickstart-intent-and-key-phrase/hr-publish-to-production-expanded.png#lightbox)
-
-3. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
 
 ## <a name="query-the-endpoint-with-an-utterance"></a>발언을 사용하여 엔드포인트 쿼리
 
-1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 있는 다른 브라우저 창이 열립니다. 
-
-    ![엔드포인트 URL이 강조 표시된 게시 페이지 스크린샷](media/luis-quickstart-intent-and-key-phrase/hr-endpoint-url-inline.png )
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `does form hrf-123456 cover the new dental benefits and medical plan`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 

@@ -3,7 +3,7 @@ title: Azure Functions에서 연결을 관리하는 방법
 description: 정적 연결 클라이언트를 사용하여 Azure Functions에서 성능 문제를 방지하는 방법을 알아봅니다.
 services: functions
 documentationcenter: ''
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: functions
@@ -11,13 +11,13 @@ ms.workload: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: tdykstra
-ms.openlocfilehash: 9e5c56dc3679e9ffbd67d906ca7d971439319ee5
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.author: glenga
+ms.openlocfilehash: 86727355d36e16f5b3c7edef8ce666fb27805a80
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125379"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346303"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>Azure Functions에서 연결을 관리하는 방법
 

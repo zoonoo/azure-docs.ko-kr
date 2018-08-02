@@ -2,25 +2,22 @@
 title: Azure Active Directory에서 액세스 패널이란? | Microsoft Docs
 description: 다양한 액세스 패널(웹 브라우저, Android 앱, iPhone 및 iPad 앱)을 사용하여 SaaS 앱에 액세스하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
-author: MarkusVi
+author: eross-msft
 manager: mtillman
 ms.assetid: c0252d01-7e6e-4f79-a70e-600479577dfd
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/11/18
-ms.author: markvi
+ms.author: lizross
 ms.reviewer: asteen
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 31b6741163c9808c32d0f1ae3da8f6f1ffe794eb
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058425"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345946"
 ---
 # <a name="what-is-the-access-panel"></a>액세스 패널이란?
 

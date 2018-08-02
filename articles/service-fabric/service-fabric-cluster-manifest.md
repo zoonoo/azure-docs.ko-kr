@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e0fed608ac9dd02a6fe5563eefc30edb63d224b1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 37859a117c88238089a681e3814c2a52f62bfce4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205368"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412586"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>독립 실행형 Windows 클러스터에 대한 구성 설정
 이 문서에서는 ClusterConfig.json 파일을 사용하여 독립 실행형 Azure Service Fabric 클러스터를 구성하는 방법에 대해 설명합니다. 이 파일을 사용하여 오류 및 업그레이드 도메인 측면에서 네트워크 토폴로지뿐만 아니라 클러스터의 노드, 보안 구성에 관한 정보를 지정합니다.
@@ -47,9 +47,6 @@ ms.locfileid: "34205368"
 name 변수에 Service Fabric 클러스터에 친숙한 이름을 할당하여 해당 이름을 지정할 수 있습니다. clusterConfigurationVersion은 클러스터의 버전 번호입니다. Service Fabric 클러스터를 업그레이드할 때마다 늘려줍니다. apiVersion은 기본값으로 그대로 둡니다.
 
 ## <a name="nodes-on-the-cluster"></a>클러스터의 노드
-
-    <a id="clusternodes"></a>
-
 다음 코드 조각과 같이 nodes 섹션을 사용하여 Service Fabric 클러스터에서 노드를 구성할 수 있습니다.
 
     "nodes": [{
@@ -88,8 +85,6 @@ ClusterConfig.json의 properties 섹션은 다음과 같이 클러스터를 구�
 ### <a name="reliability"></a>안정성
 reliabilityLevel이라는 개념은 클러스터의 주 노드에서 실행될 수 있는 Service Fabric 시스템 서비스의 복사본 또는 인스턴스 수를 정의합니다. 이는 이러한 서비스의 안정성 및 클러스터의 안정성을 결정합니다. 값은 클러스터 생성 및 업그레이드 시 시스템에서 계산됩니다.
 
-    <a id="reliability"></a>
-
 ### <a name="diagnostics"></a>진단
 다음 코드 조각과 같이 diagnosticsStore 섹션에서 진단 및 문제 해결 노드 또는 클러스터 오류를 사용하도록 매개 변수를 구성할 수 있습니다. 
 
@@ -124,9 +119,6 @@ security 섹션은 보안 독립 실행형 Service Fabric 클러스터에 필요
 metadata는 보안 클러스터에 대한 설명이며, 설정에 따라 지정될 수 있습니다. ClusterCredentialType 및 ServerCredentialType은 클러스터 및 노드에서 구현하는 보안 종류를 결정합니다. 인증서 기반 보안의 경우 *X509*, Azure Active Directory 기반 보안의 경우 *Windows*로 설정할 수 있습니다. security 섹션의 나머지 부분은 보안 종류에 따라 설정됩니다. security 섹션의 나머지 부분을 채우는 방법에 대한 자세한 내용은 [독립 실행형 클러스터의 인증서 기반 보안](service-fabric-windows-cluster-x509-security.md) 또는 [독립 실행형 클러스터의 Windows 보안](service-fabric-windows-cluster-windows-security.md)을 참조하세요.
 
 ### <a name="node-types"></a>노드 유형
-
-    <a id="nodetypes"></a>
-
 nodeTypes 섹션에서는 클러스터에서 사용하는 노드 유형에 대해 설명합니다. 아래 코드 조각과 같이 클러스터에 하나 이상의 노드 유형을 지정해야 합니다. 
 
     "nodeTypes": [{

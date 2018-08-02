@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: 20fd51f8906861e725b80202235e1684c31fd562
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 3e36d9202c578294609b01eaf2731b1551ae67af
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268402"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282333"
 ---
 # <a name="other-machine-learning-products-and-services-from-microsoft"></a>Microsoft의 다른 기계 학습 제품 및 서비스
 
@@ -36,7 +36,7 @@ Microsoft에는 [Azure Machine Learning](overview-what-is-azure-ml.md) 외에도
 온-프레미스 또는 Microsoft SQL Server 내부에 모델을 학습 또는 배포해야 할 때 Microsoft Machine Learning 서비스를 사용합니다. Machine Learning 서비스로 빌드된 모델은 Azure Machine Learning 모델 관리를 사용하여 배포할 수 있습니다. 
 
 ## <a name="microsoft-machine-learning-server"></a>Microsoft Machine Learning 서버 
-[Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)는 R 및 Python 프로세스의 병렬 및 분산 워크로드를 호스트하고 관리하기 위한 엔터프라이즈 서버입니다. Microsoft Machine Learning Server는 Linux, Windows, Hadoop 및 Apache Spark에서 실행됩니다. 또한 [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/)에서도 사용할 수 있습니다. [Microsoft Machine Learning 패키지](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)를 사용하여 빌드된 솔루션을 위한 실행 엔진을 제공하며 다음과 같은 시나리오를 지원하도록 오픈 소스 R 및 Python을 확장합니다.
+[Microsoft Machine Learning Server](https://docs.microsoft.com/en-us/machine-learning-server/what-is-machine-learning-server)는 R 및 Python 프로세스의 병렬 및 분산 워크로드를 호스트하고 관리하기 위한 엔터프라이즈 서버입니다. Microsoft Machine Learning Server는 Linux, Windows, Hadoop 및 Apache Spark에서 실행됩니다. 또한 [HDInsight](https://azure.microsoft.com/services/hdinsight/r-server/)에서도 사용할 수 있습니다. [Microsoft Machine Learning 패키지](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)를 사용하여 빌드된 솔루션을 위한 실행 엔진을 제공하며 다음과 같은 시나리오를 지원하도록 오픈 소스 R 및 Python을 확장합니다.
 
 - 고성능 분석
 - 통계 분석

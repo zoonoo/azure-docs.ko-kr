@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/03/2018
-ms.author: danis
-ms.openlocfilehash: 1febf81745ed804de59113da4f48376e9564b68f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: roiyz
+ms.openlocfilehash: d95a1b510411f913a05762494dd48d6a5b6f84fd
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449454"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413674"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
 ## <a name="overview"></a>개요
 
-이 확장은 Linux N 시리즈 VM에서 NVIDIA GPU 드라이버를 설치합니다. VM 패밀리에 따라 확장은 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치할 때 NVIDIA 최종 사용자 사용권 계약의 사용 약관을 수락하고 동의합니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 가상 머신이 재부팅될 수 있습니다.
+이 확장은 Linux N 시리즈 VM에서 NVIDIA GPU 드라이버를 설치합니다. VM 패밀리에 따라 확장은 CUDA 또는 GRID 드라이버를 설치합니다. 이 확장을 사용하여 NVIDIA 드라이버를 설치하면 NVIDIA 최종 사용자 사용권 계약을 수락하고 이에 동의하게 됩니다. 설치 프로세스 중에 드라이버 설치를 완료하기 위해 가상 머신이 재부팅될 수 있습니다.
 
 확장은 [Windows N 시리즈 VM](hpccompute-gpu-windows.md)에서 NVIDIA GPU 드라이버를 설치하는 데 지원됩니다.
 
@@ -35,7 +35,7 @@ NVIDIA 최종 사용자 사용권 계약의 사용 약관은 https://go.microsof
 
 ### <a name="operating-system"></a>운영 체제
 
-이 확장에서 지원하는 OS는 다음과 같습니다.
+확장에서 지원하는 OS는 다음과 같습니다.
 
 | 배포 | 버전 |
 |---|---|
@@ -45,11 +45,11 @@ NVIDIA 최종 사용자 사용권 계약의 사용 약관은 https://go.microsof
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-NVIDIA GPU 드라이버에 대한 Microsoft Azure 확장은 대상 가상 머신이 인터넷에 연결되고 액세스 권한이 있어야 합니다.
+NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 확장에 대한 스키마를 보여줍니다.
+확장에 대한 스키마를 보여 주는 JSON은 다음과 같습니다.
 
 ```json
 {
@@ -142,7 +142,7 @@ az vm extension set `
 
 ### <a name="troubleshoot"></a>문제 해결
 
-확장 배포 상태에 대한 데이터는 Azure PowerShell 및 Azure CLI를 사용하여 Azure Portal에서 검색할 수 있습니다. 지정된 VM에 대한 확장의 배포 상태를 보려면 다음 명령을 실행합니다.
+확장 배포 상태에 대한 데이터는 Azure Portal에서 Azure PowerShell 및 Azure CLI를 사용하여 검색할 수 있습니다. 지정된 VM에 대한 확장의 배포 상태를 보려면 다음 명령을 실행합니다.
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName

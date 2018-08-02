@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
-ms.author: danis
-ms.openlocfilehash: f9b8c64aadf813ab1157820fc4051d48989e48c4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: ejarvi
+ms.openlocfilehash: 11ec26729b2239279dddc8cd62f6b658a4f7ed20
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449218"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413793"
 ---
 # <a name="azure-disk-encryption-for-windows-microsoftazuresecurityazurediskencryption"></a>Windows용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryption)
 
@@ -30,16 +30,16 @@ Azure Disk Encryption은 Bitlocker를 활용하여 Windows를 실행하는 Azure
 ## <a name="prerequisites"></a>필수 조건
 
 필수 조건에 대한 전체 목록은 [Azure Disk Encryption 필수 조건](
-../../security/azure-security-disk-encryption.md#prerequisites)을 참조하세요.
+../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
 ### <a name="operating-system"></a>운영 체제
 
-현재 Windows 버전에 대한 목록은 [Azure Disk Encryption 필수 조건](../../security/azure-security-disk-encryption.md#prerequisites)을 참조하세요.
+현재 Windows 버전에 대한 목록은 [Azure Disk Encryption 필수 조건](../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
 Azure Disk Encryption을 사용하려면 Active Directory, Key Vault, Storage 및 패키지 관리 엔드포인트에 액세스하기 위한 인터넷 연결이 필요합니다.  네트워크 보안 설정에 대한 자세한 내용은 [Azure Disk Encryption 필수 조건](
-../../security/azure-security-disk-encryption.md#prerequisites)을 참조하세요.
+../../security/azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
 ## <a name="extension-schema"></a>확장 스키마
 

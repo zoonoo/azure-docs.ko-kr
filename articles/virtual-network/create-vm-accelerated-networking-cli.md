@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/02/2018
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: 0f7f389df96f38bea3634bf712af3f9bf4bdde09
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 9ea843df4cf437b97f7fe1d62636a51f8201376e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893952"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414575"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>가속 네트워킹을 사용하는 Linux 가상 머신 만들기
 
@@ -219,9 +219,9 @@ vf_tx_dropped: 0
 ## <a name="enable-accelerated-networking-on-existing-vms"></a>기존 VM에서 가속 네트워킹 사용
 가속 네트워킹을 사용하지 않고 VM을 만든 경우 기존 VM에서 이 기능을 사용하도록 설정할 수 있습니다.  VM이 위에 설명된 다음 필수 조건을 충족하여 가속 네트워킹을 지원해야 합니다.
 
-* VM이 가속 네트워킹에 대해 지원되는 크기여야 합니다.
-* VM이 지원되는 Azure Gallery 이미지(및 Linux용 커널 버전)여야 합니다.
-* NIC에서 가속 네트워킹을 사용하도록 설정하기 전에 가용성 집합 또는 VMSS에 포함된 모든 VM을 중지/할당 취소해야 합니다.
+* VM은 가속화된 네트워킹에 대해 지원되는 크기이어야 함
+* VM은 지원되는 Azure Gallery 이미지(및 Linux용 커널 버전)이어야 함
+* 가용성 집합의 모든 VM 또는 VMSS는 모든 NIC에서 가속화된 네트워킹을 사용하기 전에 중지/할당 취소되어야 함
 
 ### <a name="individual-vms--vms-in-an-availability-set"></a>개별 VM 및 가용성 집합의 VM
 먼저 VM을 중지/할당 취소하거나, 가용성 집합인 경우 집합에 포함된 모든 VM을 중지/할당 취소합니다.
@@ -238,7 +238,7 @@ VM이 중지되면 해당 VM의 NIC에서 가속 네트워킹을 사용하도록
 
 ```azurecli
 az network nic update \
-    --name myVM -n myNic \
+    --name myNic \
     --resource-group myResourceGroup \
     --accelerated-networking true
 ```
@@ -251,7 +251,7 @@ az vm start --resource-group myResourceGroup \
 ```
 
 ### <a name="vmss"></a>VMSS
-VMSS는 약간 다르지만 동일한 워크플로를 따릅니다.  먼저 VM을 중지합니다.
+VMSS는 약간 차이는 있지만 동일한 워크플로를 따릅니다.  먼저, VM을 중지합니다.
 
 ```azurecli
 az vmss deallocate \
@@ -259,7 +259,7 @@ az vmss deallocate \
     --resource-group myrg
 ```
 
-VM이 중지되면 네트워크 인터페이스 아래의 가속 네트워킹 속성을 업데이트합니다.
+VM이 중지되면 네트워크 인터페이스 아래의 가속화된 네트워킹 속성을 업데이트합니다.
 
 ```azurecli
 az vmss update --name myvmss \
@@ -267,7 +267,7 @@ az vmss update --name myvmss \
     --set virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].enableAcceleratedNetworking=true
 ```
 
-VMSS에는 자동, 롤링, 수동의 세 가지 다른 설정으로 업데이트를 적용하는 VM 업그레이드가 있습니다.  이 지침에서는 다시 시작한 후 VMSS에서 변경 내용을 즉시 픽업하도록 정책이 자동으로 설정되었습니다.  변경 내용이 즉시 픽업되도록 정책을 자동으로 설정하려면 다음을 실행합니다. 
+VMSS에는 자동, 롤링, 수동의 세 가지 다른 설정으로 업데이트를 적용하는 VM 업그레이드가 있습니다.  이 지침에서는 다시 시작한 후 VMSS에서 변경 내용을 즉시 픽업하도록 정책이 자동으로 설정되었습니다.  변경 내용이 즉시 픽업되도록 정책을 자동으로 설정하려면: 
 
 ```azurecli
 az vmss update \
@@ -288,11 +288,11 @@ az vmss start \
 
 ### <a name="resizing-existing-vms-with-accelerated-networking"></a>가속 네트워킹을 사용하는 기존 VM 크기 조정
 
-가속 네트워킹을 사용하는 VM은 가속 네트워킹이 지원되는 VM으로만 크기 조정할 수 있습니다.  
+가속화된 네트워킹을 사용하는 VM은 가속화된 네트워킹을 지원하는 VM으로만 크기 조정할 수 있습니다.  
 
-크기 조정 작업을 통해 가속 네트워킹을 사용하는 VM을 가속 네트워킹이 지원되지 않는 VM 인스턴스로 크기 조정할 수 없습니다.  이러한 VM 중 하나의 크기를 조정하려면 다음을 수행합니다. 
+크기 조정 작업을 통해 가속화된 네트워킹을 사용하는 VM을 가속화된 네트워킹이 지원되지 않는 VM 인스턴스로 크기 조정할 수 없습니다.  이러한 VM 중 하나의 크기를 조정하려면 다음을 수행합니다. 
 
 * VM을 중지/할당 취소하거나, 가용성 집합/VMSS인 경우 집합/VMSS에 포함된 모든 VM을 중지/할당 취소합니다.
 * VM 또는 가용성 집합/VMSS인 경우, 집합/VMSS에 포함된 모든 VM의 NIC에서 가속 네트워킹을 사용하지 않도록 설정해야 합니다.
-* 가속 네트워킹이 사용되지 않으면 VM/가용성 집합/VMSS를 가속 네트워킹이 지원되지 않는 새 크기로 이동하고 다시 시작할 수 있습니다.  
+* 가속화된 네트워킹이 사용되지 않으면 VM/가용성 집합/VMSS를 가속화된 네트워킹이 지원되지 않는 새 크기로 이동하고 다시 시작할 수 있습니다.  
 
