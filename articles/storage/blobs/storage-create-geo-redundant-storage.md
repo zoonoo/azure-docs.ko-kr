@@ -3,19 +3,18 @@ title: Azure에서 응용 프로그램 데이터의 고가용성 지원 | Micros
 description: 읽기 액세스 지역 중복 저장소를 사용하여 응용 프로그램 데이터의 고가용성을 지원하세요.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
 ms.topic: tutorial
 ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 8cf96059b1bbfbad24bf28fec9ddb0aa930adbad
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.component: blobs
+ms.openlocfilehash: 7abd251751613224d062da5578e9c91a525599c9
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193777"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399035"
 ---
 # <a name="make-your-application-data-highly-available-with-azure-storage"></a>Azure Storage를 통해 응용 프로그램 데이터의 고가용성 지원
 
@@ -47,7 +46,7 @@ ms.locfileid: "32193777"
 * [Python용 Azure Storage SDK](https://github.com/Azure/azure-storage-python) 다운로드 및 설치
 * (선택 사항) [Fiddler](https://www.telerik.com/download/fiddler) 다운로드 및 설치
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
+# <a name="java-tabjava"></a>[Java] (#tab/java)
 
 * 명령줄에서 작동할 수 있게 [Maven](http://maven.apache.org/download.cgi) 설치 및 구성
 * [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 설치 및 구성
@@ -102,7 +101,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
+# <a name="java-tabjava"></a>[Java] (#tab/java)
 [샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/storage-java-ha-ra-grs)하고 storage-java-ragrs.zip 파일의 압축을 풉니다. 또한 [git](https://git-scm.com/)을 사용하여 개발 환경에 응용 프로그램 복사본을 다운로드할 수 있습니다. 샘플 프로젝트에는 기본 Java 응용 프로그램이 포함되어 있습니다.
 
 ```bash
@@ -148,7 +147,7 @@ Storage 개체 retry 함수는 선형 다시 시도 정책으로 설정됩니다
  
 다운로드하기 전에 Service 개체 [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 및 [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) 함수가 정의됩니다. 이러한 함수는 다운로드가 성공적으로 완료되거나, 다운로드가 실패하고 다시 시도할 때 발생하는 이벤트 처리기를 정의합니다.  
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
+# <a name="java-tabjava"></a>[Java] (#tab/java)
 다운로드한 응용 프로그램 폴더로 범위가 지정된 터미널 또는 명령 프롬프트를 열어 응용 프로그램을 실행할 수 있습니다. 여기에서 `mvn compile exec:java`를 입력하여 응용 프로그램을 실행합니다. 그런 다음, 응용 프로그램은 **HelloWorld.png** 이미지를 디렉터리에서 저장소 계정으로 업로드하고, 이미지가 보조 RA-GRS 끝점에 복제되었는지 확인합니다. 검사가 완료되면 다운로드하는 끝점을 다시 보고하는 동안 응용 프로그램은 이미지를 반복해서 다운로드하기 시작합니다.
 
 Storage 개체 retry 함수는 선형 다시 시도 정책을 사용하도록 설정됩니다. retry 함수는 요청을 다시 시도할지 여부를 결정하고, 각 다시 시도 사이에 대기할 시간(초)을 지정합니다. **BlobRequestOptions**의 **LocationMode** 속성은 **PRIMARY\_THEN\_SECONDARY**로 설정됩니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
@@ -250,7 +249,7 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-tabjava"></a>[Java](#tab/java)
+# <a name="java-tabjava"></a>[Java] (#tab/java)
 
 **BlobRequestOptions**의 **LocationMode** 속성이 **PRIMARY\_THEN\_SECONDARY**로 설정된 경우 Java를 사용하여 콜백 처리기를 정의할 필요가 없습니다. 이렇게 하면 **HelloWorld.png**를 다운로드하려고 할 때 기본 위치에 도달하지 못한 경우 보조 위치로 자동으로 전환할 수 있습니다.
 

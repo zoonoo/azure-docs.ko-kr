@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 59ae7e83bc2b76cb679b0baf1f5739f28ec7046c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d868a59dd5d00dea410cbe8c373263e13903d3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248283"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413147"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 조건이란? 
 
@@ -152,7 +152,7 @@ ms.locfileid: "39248283"
 
 - 웹 응용 프로그램 액세스를 차단하지만, 모바일 및 데스크톱 응용 프로그램 액세스는 허용합니다.
 
-이 조건을 웹 SSO 및 최신 인증 프로토콜에 적용할 수 있습니다. Microsoft Exchange ActiveSync를 사용하는 메일 응용 프로그램에도 적용할 수 있습니다. 예제는 대부분의 스마트폰에 있는 기본 메일 앱입니다. 현재 레거시 프로토콜을 사용하는 클라이언트 앱은 Azure AD Federation Services로 보호해야 합니다.
+이 조건을 웹 SSO 및 최신 인증 프로토콜에 적용할 수 있습니다. Microsoft Exchange ActiveSync를 사용하는 메일 응용 프로그램에도 적용할 수 있습니다. 예제는 대부분의 스마트폰에 있는 기본 메일 앱입니다. 
 
 Microsoft Office 365 Exchange Online이 선택한 유일한 클라우드 앱인 경우에만 클라이언트 앱 조건을 선택할 수 있습니다.
 
