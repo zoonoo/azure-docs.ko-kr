@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 496c32e70ad58f64b31c1f6fcf913884fcd4abc1
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 5a6c5498b4607719199363b5f6d93d3b42ccec0d
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348238"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37967577"
 ---
 조직에는 대규모 컴퓨팅 요구 사항이 있습니다. 이러한 큰 계산 작업에는 엔지니어링 설계 및 분석, 재무 위험 계산, 이미지 렌더링, 복잡한 모델링, 몬테카를로 시뮬레이션 등이 포함됩니다. 
 
@@ -59,7 +59,7 @@ HPC용으로 설계된 Linux 및 Windows VM 이미지 및 솔루션은 [Azure Ma
 * [Windows 및 Linux용 Azure 데이터 과학 VM](../articles/machine-learning/machine-learning-data-science-virtual-machine-overview.md)
 * [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 * [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
-* [Lustre용 Intel Cloud Edition](https://azuremarketplace.microsoft.com/marketplace/apps/intel.lustre-cloud-edition-eval?tab=Overview)
+* [Lustre용 Intel Cloud Edition](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
 
  

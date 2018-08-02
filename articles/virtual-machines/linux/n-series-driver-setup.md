@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 06/19/2018
+ms.date: 07/30/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c8f043fdcaa7554d73be6ac3928a37630baab845
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630424"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364503"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -225,7 +225,7 @@ NVIDIA GRID 드라이버를 NV 시리즈 VM에 설치하려면 각 VM에 대한 
 8. 다음 줄을 `/etc/nvidia/gridd.conf`에 추가합니다.
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 
@@ -289,7 +289,7 @@ NVIDIA GRID 드라이버를 NV 시리즈 VM에 설치하려면 각 VM에 대한 
 8. 다음 줄을 `/etc/nvidia/gridd.conf`에 추가합니다.
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. VM 다시 부팅하고 계속해서 설치를 확인합니다.
 

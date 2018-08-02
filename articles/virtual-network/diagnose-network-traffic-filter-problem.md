@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144937"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364015"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -152,7 +152,7 @@ az vm show \
 
 ## <a name="interpret-command-output"></a>명령 출력 해석
 
-문제를 진단하는 데 [PowerShell](#diangose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용했는지 여부에 관계 없이 다음 정보를 포함하는 출력을 받습니다.
+문제를 진단하는 데 [PowerShell](#diagnose-using-powershell) 또는 [Azure CLI](#diagnose-using-azure-cli)를 사용했는지 여부에 관계 없이 다음 정보를 포함하는 출력을 받습니다.
 
 - **NetworkSecurityGroup**: 네트워크 보안 그룹의 ID입니다.
 - **연결**: 네트워크 보안 그룹이 *NetworkInterface* 또는 *서브넷*에 연결되었는지 여부입니다. NSG가 둘 다에 연결된 경우 출력은 각 NSG에 대해 **NetworkSecurityGroup**, **Association** 및 **EffectiveSecurityRules**로 반환됩니다. 효과적인 보안 규칙을 보기 위해 명령을 실행하기 직전에 NSG가 연결되거나 연결 해제되면 명령 출력에 변경 내용이 반영될 때까지 몇 초 정도 기다려야 할 수 있습니다.
