@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: afeac0cdb24593f5b7614a145021eefd7b376be9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 70a8c9018cdc2929abc85336211beecf82bf32cb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904028"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188049"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-rest-api-calls"></a>REST API 호출을 사용하여 사용자 할당 ID 만들기, 나열 또는 삭제
 
@@ -36,6 +36,9 @@ ms.locfileid: "37904028"
 - Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
 - [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔을 설치](/azure/install-azure-cli)합니다.
 - Azure CLI 로컬 콘솔을 사용하는 경우, 사용자 할당 관리 ID 정보를 배포하거나 검색하려는 Azure 구독과 연결된 계정으로 `az login`을 사용하여 Azure에 로그인합니다.
+- 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
+    - [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)는 사용자 할당 ID를 만들고 읽고(나열하고), 업데이트하고 삭제하는 역할을 합니다.
+    - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator)는 사용자 할당 ID의 속성을 읽는(나열하는) 역할을 합니다.
 - `az account get-access-token`을 통해 전달자 액세스 토큰을 검색하여 다음 사용자 할당 관리 ID 작업을 수행합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -54,7 +57,7 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
 
-사용자 할당 관리 ID를 나열하려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다.  `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<ACCESS TOKEN>` 값을 원하는 값으로 바꿉니다.
+사용자 할당 관리 ID를 나열하려면 Azure Resource Manager API에 다음 CURL 요청을 사용합니다. `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` 및 `<ACCESS TOKEN>` 값을 원하는 값으로 바꿉니다.
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"

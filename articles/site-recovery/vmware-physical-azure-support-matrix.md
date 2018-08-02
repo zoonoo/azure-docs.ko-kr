@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: a02218922a4d4238abf752190293a788504e0cfb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070912"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173795"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -61,7 +61,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 **구성 요소** | **세부 정보**
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
-Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 </br></br>  [SP2 이상을 사용하는 Windows Server 2008 - 32비트 및 64비트](migrate-tutorial-windows-server-2008.md)(마이그레이션만 해당) </br></br> * *Windows 2016 Nano Server는 지원되지 않습니다.*
+Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 </br></br>  [SP2 이상을 사용하는 Windows Server 2008 - 32비트 및 64비트](migrate-tutorial-windows-server-2008.md)(마이그레이션만 해당) </br></br> Windows 2016 Nano Server는 지원되지 않습니다.
 Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.5 <br/><br/>CentOS: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.5 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (지원되는 커널 버전)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/></br>* *복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.*
 
 
@@ -120,7 +120,12 @@ HP CCISS 저장소 컨트롤러가 있는 물리적 서버 | 지원되지 않습
 사용 가능한 공간 요구 사항| /root 파티션: 2GB <br/><br/> 설치 폴더: 250MB
 XFSv5 | XFS 파일 시스템의 XFSv5 기능(예: 메타데이터 체크섬)은 모바일 서비스 버전 9.10 이상에서 지원됩니다. xfs_info 유틸리티를 사용하여 파티션에 대한 XFS 수퍼 블록을 확인합니다. ftype이 1로 설정되면 XFSv5 기능이 사용 중입니다.
 
+## <a name="vmdisk-management"></a>VM/디스크 관리
 
+**작업** | **세부 정보**
+--- | ---
+복제된 VM에서 디스크 크기 조정 | 지원됩니다.
+복제된 VM에 디스크 추가 | VM에 대한 복제를 사용하지 않도록 설정하고, 디스크를 추가한 다음, 복제를 다시 사용하도록 설정합니다. 복제 VM에 디스크를 추가하는 기능은 현재 지원되지 않습니다.
 
 ## <a name="network"></a>네트워크
 
@@ -142,39 +147,39 @@ XFSv5 | XFS 파일 시스템의 XFSv5 기능(예: 메타데이터 체크섬)은 
 
 **구성 요소** | **지원됨**
 --- | ---
-Azure ExpressRoute | 예
-ILB | 예
-ELB | 예
-Azure Traffic Manager | 예
-다중 NIC | 예
-예약된 IP 주소 | 예
-IPv4 | 예
-원본 IP 주소 유지 | 예
-Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | 예
+Azure ExpressRoute | yes
+ILB | yes
+ELB | yes
+Azure Traffic Manager | yes
+다중 NIC | yes
+예약된 IP 주소 | yes
+IPv4 | yes
+원본 IP 주소 유지 | yes
+Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | yes
 가속 네트워킹 | 아니오
 
 ## <a name="storage"></a>Storage
 **구성 요소** | **지원됨**
 --- | ---
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
-호스트 SAN(iSCSI/FC) | 예
+호스트 SAN(iSCSI/FC) | yes
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 VMDK | 예
+게스트/서버 VMDK | yes
 게스트/서버 EFI/UEFI| 부분(Windows Server 2012 이상 VMware 가상 머신에서만 Azure로 마이그레이션) </br></br> 표 끝에 있는 메모를 참조하세요.
 게스트/서버 공유 클러스터 디스크 | 아니오
 게스트/서버 암호화된 디스크 | 아니오
 게스트/서버 NFS | 아니오
 게스트/서버 SMB 3.0 | 아니오
-게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
-게스트/서버 디스크 > 1 TB | 예<br/><br/>최대 4,095GB
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
-4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | 예
-스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br><br/>논리 볼륨 관리(LVM)| 예
+게스트/서버 RDM | yes<br/><br/> 물리적 서버의 경우 해당 없음
+게스트/서버 디스크 > 1 TB | yes<br/><br/>최대 4,095GB
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | yes
+4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | yes
+스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br><br/>논리 볼륨 관리(LVM)| yes
 게스트/서버 - 저장소 공간 | 아니오
 게스트/서버 디스크 핫 추가/제거 | 아니오
-게스트/서버 - 디스크 제외 | 예
+게스트/서버 - 디스크 제외 | yes
 게스트/서버 다중 경로(MPIO) | 아니오
 
 > [!NOTE]
@@ -189,14 +194,14 @@ Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | �
 
 **구성 요소** | **지원됨**
 --- | ---
-로컬 중복 저장소 | 예
-지역 중복 저장소 | 예
-읽기 액세스 지역 중복 저장소 | 예
+로컬 중복 저장소 | yes
+지역 중복 저장소 | yes
+읽기 액세스 지역 중복 저장소 | yes
 쿨 저장소 | 아니오
 핫 저장소| 아니오
 블록 Blob | 아니오
-휴지 상태의 암호화(Storage 서비스 암호화)| 예
-Premium Storage | 예
+휴지 상태의 암호화(Storage 서비스 암호화)| yes
+Premium Storage | yes
 Import/Export 서비스 | 아니오
 대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니오
 범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니오
@@ -205,9 +210,9 @@ Import/Export 서비스 | 아니오
 
 **기능** | **지원됨**
 --- | ---
-가용성 집합 | 예
-HUB | 예
-관리 디스크 | 예
+가용성 집합 | yes
+HUB | yes
+관리 디스크 | yes
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 

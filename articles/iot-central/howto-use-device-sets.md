@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: ef1fa64a276926a35dbf98646317bfe29200bb22
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261681"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206074"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 장치 집합 사용
 
@@ -112,13 +112,13 @@ ms.locfileid: "35261681"
     ![대시보드 맵 저장](media/howto-use-device-sets/LocationMaps3.png)
 
 
-5. 이제 연산자가 장치 집합 대시보드를 볼 때 한 번에 모든 장치 위치를 시각화하려면 위치 맵을 포함해 지금까지 구성한 모든 타일을 볼 수 있습니다!
+5. 이제 연산자가 장치 집합 대시보드를 볼 때 한 번에 모든 장치 위치를 시각화하려면 위치 맵을 포함해 지금까지 구성한 모든 타일을 볼 수 있습니다! 
 
     ![대시보드 맵 연산자 보기](media/howto-use-device-sets/LocationMaps4.png)
 
     지도를 원하는 크기로 크기를 조정할 수 있습니다.
 
-
+    맵에서 핀을 클릭하면 장치 정보, 이름 및 위치가 표시됩니다. 팝업 항목을 클릭하여 장치 속성 페이지로 이동할 수 있습니다.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>장치 집합에 대한 목록 구성

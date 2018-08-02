@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: f8cf5a46e1d1e3242fd46900b56f7d8cf15d3fc5
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 48056d6e2988dd674351aca83526032175c355b6
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082526"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214396"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 아티클에서는 클래스룸 랩 생성 및 구성, 모든 클래스룸 랩 보기 또는 클래스룸 랩 삭제 방법을 설명합니다.
 
 ## <a name="prerequisites"></a>필수 조건
-랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 소유자는 [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 문서의 단계에 따라 랩 작성자 역할에 사용자를 추가할 수 있습니다.
+랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 랩 소유자는 [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 문서의 단계에 따라 랩 작성자 역할에 다른 사용자를 추가할 수 있습니다.
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
 
 1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다.
-2. **새 랩** 창에서 다음 작업을 수행합니다. 
+2. **로그인**을 선택하고 자격 증명을 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다.
+3. **새 랩** 창에서 다음 작업을 수행합니다. 
     1. 클래스룸 랩의 **이름**을 지정합니다. 
     2. 클래스룸에서 사용할 가상 머신의 **크기**를 선택합니다.
     3. 가상 머신을 만드는 데 사용할 **이미지**를 선택합니다.

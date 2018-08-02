@@ -1,5 +1,5 @@
 ---
-title: Azure 파일 동기화(미리 보기) 배포에 대한 계획 | Microsoft Docs
+title: Azure File Sync 배포에 대한 계획 | Microsoft Docs
 description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
 services: storage
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2017
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 1927ab29e82836c60b2ba36c3eec0acf49778082
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335842"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214886"
 ---
-# <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Azure 파일 동기화(미리 보기) 배포에 대한 계획
-Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화합니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
+# <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
+Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
 
 이 문서에서는 Azure File Sync 배포에 대한 중요 고려 사항을 설명합니다. [Azure Files 배포에 대한 계획](storage-files-planning.md)도 읽어보는 것이 좋습니다. 
 
@@ -149,7 +149,7 @@ Azure File Sync 및 DFS-R을 나란히 사용하려면
 Azure File Sync 에이전트가 설치되어 있는 서버에서 sysprep 사용은 지원되지 않으며 예기치 않은 결과가 발생할 수 있습니다. 에이전트 설치 및 서버 등록은 서버 이미지 배포 및 sysprep 최소 설치 완료 후 발생해야 합니다.
 
 ### <a name="windows-search"></a>Windows 검색
-클라우드 계층화가 서버 엔드포인트에서 활성화되면 더 이상 사용되지 않는 파일은 건너뛰고 Windows 검색을 통해 인덱싱되지 않습니다. 계층화되지 않은 파일은 제대로 인덱싱됩니다.
+클라우드 계층화가 서버 엔드포인트에서 활성화되면 계층화된 파일은 건너뛰고 Windows 검색을 통해 인덱싱되지 않습니다. 계층화되지 않은 파일은 제대로 인덱싱됩니다.
 
 ### <a name="antivirus-solutions"></a>바이러스 백신 솔루션
 바이러스 백신은 알려진 악성 코드 파일을 검색하는 방식으로 작동하기 때문에 바이러스 백신 제품은 계층화된 파일의 회수를 발생할 수 있습니다. 계층화된 파일에는 "오프라인" 특성이 설정되어 있으므로 오프라인 파일 읽기를 건너뛰도록 솔루션을 구성하는 방법을 소프트웨어 공급업체에 문의하세요. 
@@ -180,13 +180,13 @@ Azure 파일 동기화와 함께 작동하지 않는 기능
 
 - NTFS EFS(암호화 파일 시스템)
 
-일반적으로 Azure File Sync는 BitLocker처럼 파일 시스템 아래에 있는 암호화 솔루션 및 BitLocker와 같은 파일 형식으로 구현된 솔루션과의 상호 운용성을 지원해야 합니다. 파일 시스템 위에 있는 솔루션(예: NTFS EFS)에 대해서는 특별한 상호 운용성이 설정되지 않았습니다.
+일반적으로 Azure File Sync는 BitLocker처럼 파일 시스템 아래에 있는 암호화 솔루션 및 Azure Information Protection과 같은 파일 형식으로 구현된 솔루션과의 상호 운용성을 지원해야 합니다. 파일 시스템 위에 있는 솔루션(예: NTFS EFS)에 대해서는 특별한 상호 운용성이 설정되지 않았습니다.
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>다른 HSM(계층적 저장소 관리) 솔루션
 다른 HSM 솔루션은 Azure File Sync와 함께 사용하면 안 됩니다.
 
 ## <a name="region-availability"></a>지역 가용성
-Azure File Sync는 다음 지역에서 미리 보기로만 사용할 수 있습니다.
+Azure File Sync는 다음 지역에서만 사용할 수 있습니다.
 
 | 지역 | 데이터 센터 위치 |
 |--------|---------------------|
@@ -205,7 +205,29 @@ Azure File Sync는 다음 지역에서 미리 보기로만 사용할 수 있습�
 | 서유럽 | 네덜란드 |
 | 미국 서부 | 캘리포니아 |
 
-미리 보기에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원됩니다.
+Azure File Sync에서는 Storage 동기화 서비스와 동일한 지역에 있는 Azure 파일 공유와의 동기화만 지원합니다.
+
+### <a name="azure-disaster-recovery"></a>Azure 재해 복구
+Azure 지역의 손실에 대해 보호하려면 Azure File Sync가 [GRS(지역 중복 저장소) 중복](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) 옵션과 통합해야 합니다. GRS 저장소는 일반적으로 상호 작용하는 주 지역의 저장소 및 쌍을 이루는 보조 지역의 저장소 간에 비동기 블록 복제를 사용하여 작동합니다. Azure 지역이 일시적 또는 영구적으로 오프라인으로 전환하게 하는 재해 발생 시 Microsoft는 쌍을 이루는 지역에 저장소를 장애 조치(failover)합니다. 
+
+지역 중복 저장소 및 Azure File Sync 간의 장애 조치 통합을 지원하려면 모든 Azure File Sync 지역이 저장소로 사용되는 보조 지역과 일치하는 해당 보조 지역과 쌍을 이루어야 합니다. 이러한 쌍은 다음과 같습니다.
+
+| 주 지역      | 쌍을 이루는 지역      |
+|---------------------|--------------------|
+| 오스트레일리아 동부      | 오스트레일리아 남동부 |
+| 오스트레일리아 남동부 | 오스트레일리아 동부     |
+| 캐나다 중부      | 캐나다 동부        |
+| 캐나다 동부         | 캐나다 중부     |
+| 미국 중부          | 미국 동부 2          |
+| 동아시아           | 동남아시아     |
+| 미국 동부             | 미국 서부            |
+| 미국 동부 2           | 미국 중부         |
+| 북유럽        | 서유럽        |
+| 동남아시아      | 동아시아          |
+| 영국 남부            | 영국 서부            |
+| 영국 서부             | 영국 남부           |
+| 서유럽         | 북유럽       |
+| 미국 서부             | 미국 동부            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Azure 파일 동기화 에이전트 업데이트 정책
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

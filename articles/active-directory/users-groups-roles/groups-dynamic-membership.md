@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869094"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248892"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 동적 그룹 멤버 자격에 대한 특성 기반 규칙 만들기
-Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 동적 그룹 멤버 자격을 사용하도록 설정하기 위한 사용자 지정 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Azure Active Directory의 특성 기준 멤버십으로 동적 그룹 만들기
+
+Azure AD(Azure Active Directory)에서 그룹에 대해 동적 멤버십을 사용하기 위해 복합 특성 기준 규칙을 만들 수 있습니다. 이 문서는 특성 및 사용자 또는 장치에 대한 동적 멤버 자격 규칙을 만드는 구문에 대해 자세히 설명합니다. 보안 그룹 또는 Office 365 그룹에서 동적 멤버 자격에 대한 규칙을 설정할 수 있습니다.
 
 사용자 또는 장치의 특성이 변경될 때 변경 내용이 그룹 추가 또는 제거를 트리거할지를 확인하기 위해 시스템은 디렉터리에서 모든 동적 그룹 규칙을 평가합니다. 사용자 또는 장치가 그룹에 대한 규칙을 만족하면 해당 그룹의 멤버로 추가됩니다. 규칙을 더 이상 만족하지 않는 경우 제거됩니다.
 
@@ -34,6 +35,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 > 지금 사용자의 특성을 기반으로 하는 장치 그룹을 만들 수 없습니다. 장치 멤버 자격 규칙은 디렉터리에 있는 장치 개체의 즉각적인 특성만 참조할 수 있습니다.
 
 ## <a name="to-create-an-advanced-rule"></a>고급 규칙을 만들려면
+
 1. 전역 관리자 또는 사용자 계정 관리자인 계정으로 [Azure AD 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. **사용자 및 그룹**을 선택합니다.
 3. **모든 그룹**을 선택하고 **새 그룹**을 선택합니다.
@@ -58,6 +60,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 
 **멤버 자격 처리** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.
+
 * **평가 중**: 그룹 변경 내용이 수신되었으며 업데이트가 평가 중입니다.
 * **처리 중**: 업데이트가 처리 중입니다.
 * **업데이트 완료**: 처리가 완료되었으며 적용 가능한 모든 업데이트가 수행되었습니다.
@@ -65,6 +68,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 * **업데이트 일시 중지됨**: 관리자가 동적 멤버 자격 규칙 업데이트를 일시 중지했습니다. MembershipRuleProcessingState가 “일시 중지됨”으로 설정됩니다.
 
 **마지막으로 업데이트된 멤버 자격** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.
+
 * &lt;**날짜 및 시간**&gt;: 멤버 자격이 마지막으로 업데이트된 시간입니다.
 * **진행 중**: 업데이트가 현재 진행 중입니다.
 * **알 수 없음**: 마지막 업데이트 시간을 검색할 수 없습니다. 그룹이 새로 작성되고 있기 때문일 수 있습니다.
@@ -74,6 +78,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 ![처리 오류 메시지](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>고급 규칙 본문 생성
+
 그룹의 동적 멤버 자격에 대해 만들 수 있는 고급 규칙은 기본적으로 세 부분으로 구성되며 true 또는 false 결과를 생성하는 이진 식입니다. 세 부분은 다음과 같습니다.
 
 * 왼쪽 매개 변수
@@ -96,6 +101,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 > 따옴표(")를 포함하는 문자열은 ' 문자를 사용하여 이스케이프해야 합니다(예: user.department -eq \`"Sales").
 
 ## <a name="supported-expression-rule-operators"></a>지원되는 식 규칙 연산자
+
 다음 표에는 지원되는 모든 식 규칙 연산자와 고급 규칙 본문에 사용할 수 있는 해당 구문이 나와 있습니다.
 
 | 연산자 | 구문 |
@@ -114,6 +120,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 ## <a name="operator-precedence"></a>연산자 우선 순위
 
 모든 연산자는 낮은 우선 순위에서 높은 우선 순위로 아래에 나열됩니다. 같은 줄의 연산자는 같은 우선 순위에 있습니다.
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 모든 연산자는 하이픈(-) 접두사를 사용하거나 사용하지 않을 수 있습니다. 괄호는 우선 순위가 요구 사항을 충족하지 않을 경우에 필요합니다.
 예: 
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 이는 다음과 동등합니다.
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>-In 및 -notIn 연산자 사용
 
 사용자 특성의 값을 다양한 값과 비교하려면 -In 또는 -notIn 연산자를 사용할 수 있습니다. 다음은 -In 연산자를 사용하는 예제입니다.
@@ -140,6 +152,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 
 
 ## <a name="query-error-remediation"></a>쿼리 오류 수정
+
 다음 표에서는 일반적인 오류와 이를 수정하는 방법을 나열하고 있습니다.
 
 | 쿼리 구문 분석 오류 | 잘못된 사용법 | 수정된 사용법 |
@@ -149,9 +162,11 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | 오류: 쿼리 컴파일 오류입니다. |1. (user.department -eq "Sales") (user.department -eq "Marketing")<br/><br/>2. (user.userPrincipalName -match "*@domain.ext") |1. 연산자가 없습니다. 두 개의 조인 조건자(-and 또는 -or)를 사용합니다.<br/><br/>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br/><br/>2. -match와 함께 사용되는 정규식 오류입니다.<br/><br/>(user.userPrincipalName -match “.*@domain.ext”) 또는 (user.userPrincipalName -match “\@domain.ext$”)|
 
 ## <a name="supported-properties"></a>지원되는 속성
+
 다음은 고급 규칙에 사용할 수 있는 모든 사용자 속성입니다.
 
 ### <a name="properties-of-type-boolean"></a>부울 형식의 속성
+
 허용되는 연산자
 
 * -eq
@@ -163,6 +178,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
+
 허용되는 연산자
 
 * -eq
@@ -206,6 +222,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
+
 허용되는 연산자
 
 * -contains
@@ -217,6 +234,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>다중 값 속성
+
 허용되는 연산자
 
 * -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
@@ -225,6 +243,7 @@ Azure AD(Azure Active Directory)에서 그룹에 대해 복잡한 특성 기반 
 | properties | 값 | 사용 현황 |
 | --- | --- | --- |
 | assignedPlans |컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. -any 및 -all 연산자를 사용하여 각각 컬렉션의 항목 중 하나 또는 모두에 조건을 적용할 수 있습니다. 예: 
 
@@ -234,7 +253,7 @@ assignedPlans는 사용자에게 할당된 모든 서비스 계획을 나열하�
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(Guid 식별자는 Exchange Online(계획 2) 서비스 계획을 식별합니다.)
+(GUID 식별자는 Exchange Online(계획 2) 서비스 계획을 식별합니다.)
 
 > [!NOTE]
 > 예를 들어 특정 정책 집합이 포함된 대상으로 지정하는 데 Office 365(또는 기타 Microsoft 온라인 서비스) 기능을 사용하기 위해 모든 사용자를 식별하려는 경우에 유용합니다.
@@ -242,6 +261,16 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 다음 식은 Intune 서비스("SCO" 서비스 이름으로 식별)와 연결된 서비스 계획이 있는 모든 사용자를 선택합니다.
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>밑줄(\_) 구문 사용
+
+밑줄(\_) 구문은 동적 그룹에 사용자나 장치를 추가하기 위한 다중 값 문자열 컬렉션 속성 중 하나에서 특정 값의 발생과 일치합니다. -any 또는 -all 연산자와 함께 사용합니다.
+
+규칙에서 밑줄(\_)을 사용하여 user.proxyAddress(user.otherMails와 같은 작동)를 기준으로 멤버를 추가하는 예입니다. 이 규칙은 그룹에 "contoso"를 포함하는 프록시 그룹의 모든 사용자를 추가합니다.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Null 값 사용
@@ -256,14 +285,17 @@ user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabi
 
 확장 특성은 온-프레미스 Windows Server AD에서 동기화되고 "ExtensionAttributeX" 형식을 사용하며 여기서 X는 1 - 15입니다.
 확장 특성을 사용하는 규칙의 예는 다음과 같습니다.
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-사용자 지정 특성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 응용 프로그램에서 동기화되고 “user.extension_[GUID]\__[Attribute]” 형식입니다. 여기서 [GUID]는 AAD에서 특성을 만든 응용 프로그램에 대한 AAD의 고유한 식별자이고 [Attribute]는 만들어진 특성의 이름입니다.
-사용자 지정 특성을 사용하는 규칙의 예는 다음과 같습니다.
+
+사용자 지정 특성은 온-프레미스 Windows Server AD 또는 연결된 SaaS 응용 프로그램에서 동기화되고 “user.extension_[GUID]\__[Attribute]” 형식입니다. 여기서 [GUID]는 AAD에서 특성을 만든 응용 프로그램에 대한 Azure AD의 고유한 식별자이고 [Attribute]는 만들어진 특성의 이름입니다. 사용자 지정 특성을 사용하는 규칙의 예는 다음과 같습니다.
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 사용자 지정 특성 이름은 Graph Explorer를 사용하여 사용자의 특성을 쿼리하거나 특성 이름을 검색하여 디렉터리에서 찾을 수 있습니다.
 
 ## <a name="direct-reports-rule"></a>"직접 보고" 규칙

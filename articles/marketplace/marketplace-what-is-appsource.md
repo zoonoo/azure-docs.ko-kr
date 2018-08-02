@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7da3ae1ca0fc59b0d606a22e9c00b8e7b58674ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2814e5f8641e9287b94eb23b719601c75afe9c9f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335094"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214835"
 ---
 # <a name="what-is-appsource"></a>AppSource란?
 AppSource는 Microsoft 파트너가 Microsoft 지원 온라인 상점을 통해 고객에게 기술과 서비스를 검색할 수 있도록 합니다. AppSource 게시자는 AppSource에 비즈니스 사용자를 끌어들여 기간 업무 SaaS 응용 프로그램과 구현 서비스를 찾고, 사용해 보고, 가져옴으로써 비즈니스 결과를 이끌어내고 가치 창출 시간을 단축할 수 있습니다. 
@@ -38,8 +38,10 @@ AppSource를 통해 Office 365, Dynamics 365, Power BI 및 PowerApps와 같은 M
 *   **Dynamics 365 for Customer Engagement**: 판매, 고객 서비스, 현장 서비스 및 프로젝트 서비스 자동화 응용 프로그램이 포함된 CRM(고객 관계 관리) 솔루션입니다.
 *   **Dynamics NAV Managed Service**: Microsoft **Dynamics NAV**는 중간 규모의 조직을 위한 ERP(전사적 자원 관리) 소프트웨어 제품군입니다. 이 서비스는 제조, 유통, 정부, 소매 및 기타 산업에 전문화된 기능을 제공합니다.
 *   **Power BI**: 비즈니스 분석 시각화 솔루션입니다.
-*   **Consulting Offers**: Microsoft 파트너가 제공하는 서비스로 고객이 전문 기술 솔루션을 이해하고, 시험하고, 구현할 수 있습니다.
-*   **Cortana Intelligence**: Cortana Intelligence Suite는 Azure에서 제공하는 독립적이지만 완전히 통합된 데이터 및 분석 플랫폼 도구 모음입니다.
+*   
+  **Consulting Offers**: Microsoft 파트너가 제공하는 서비스로 고객이 전문 기술 솔루션을 이해하고, 시험하고, 구현할 수 있습니다.
+*   
+  **Cortana Intelligence**: Cortana Intelligence Suite는 Azure에서 제공하는 독립적이지만 완전히 통합된 데이터 및 분석 플랫폼 도구 모음입니다.
 *   **Office 365**: 클라우드의 최신 작업 공간입니다. Microsoft Word, PowerPoint, Excel 및 OneNote를 사용하여 무료로 공동 작업합니다.
 
 ### <a name="office-365"></a>Office 365
@@ -56,7 +58,8 @@ Enterprise Edition을 구축하는 경우 [게시 프로세스 및 지침](https
 
 ### <a name="consulting-offers"></a>Consulting Offers
 고객이 디지털 변환을 용이하게 하거나 솔루션 또는 응용 프로그램을 구현하는 데 도움이 되는 서비스를 제공하는 경우 이 서비스를 AppSource에 대한 컨설팅 제품으로 제공할 수 있습니다. 
-[지침을 검토하고 제품을 제출하는 방법을 알아보세요](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf "AppSource - 파트너 목록 지침").
+
+  [지침을 검토하고 제품을 제출하는 방법을 알아보세요](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf "AppSource - 파트너 목록 지침").
 
 ### <a name="cortana-intelligence"></a>Cortana Intelligence
 [Cortana Intelligence AppSource 게시 가이드](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-intelligence-appsource-publishing-guide "Cortana Intelligence AppSource - 게시 가이드")
@@ -72,7 +75,7 @@ Enterprise Edition을 구축하는 경우 [게시 프로세스 및 지침](https
 | Dynamics NAV Managed Service | 아니오 | 라이선스 기반 제품에는 Azure AD 통합이 필요하지 않습니다. |
 | Power BI | 아니오 | 라이선스 기반 제품에는 Azure AD 통합이 필요하지 않습니다. |
 | Consulting Offers | 아니오 | 서비스는 웹 환경을 통하지 않고 파트너가 조정합니다. |
-| Cortana Intelligence | 예 | Azure AD는 원활한 고객 환경을 보장하고 최상위 잠재 고객을 끌어들이는 모범 사례입니다. |
+| Cortana Intelligence | yes | Azure AD는 원활한 고객 환경을 보장하고 최상위 잠재 고객을 끌어들이는 모범 사례입니다. |
 | SaaS Apps(이전의 Web Apps) | 기본 설정 | Azure AD는 원활한 고객 환경을 보장하고 최상위 잠재 고객을 끌어들이는 모범 사례입니다. |
 ###### <a name="table-appsource-offerings-that-require-azure-active-directory-integration"></a>표: Azure Active Directory 통합이 필요한 AppSource 제품
 

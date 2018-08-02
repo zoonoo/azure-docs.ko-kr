@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bbd826b636bebca90eacba43ca879a725cddf7d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: aab03c92bee0d3b69062cdcb179eebbb5c0fc8f8
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971077"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160249"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 활동 보고서 오류 코드
 
@@ -59,6 +59,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 
 |오류|설명|
 |---|---|
+|16000|이것은 오류 조건이 아닌 내부 구현 세부 정보입니다. 이 참조를 무시해도 됩니다.|
 |20001|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
 |20012|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
 |20033|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
@@ -174,6 +175,7 @@ Azure Portal을 사용하여 로그인 데이터에 액세스하는 대신 [보�
 |81001|사용자의 Kerberos 티켓이 너무 큽니다. 사용자가 너무 많은 그룹에 속해 있고 Kerberos 티켓에 너무 많은 그룹 멤버 자격이 포함된 경우 이 오류가 발생할 수 있습니다. 사용자의 그룹 멤버 자격 수를 줄이고 다시 시도합니다.|
 |81005|인증 패키지가 지원되지 않습니다|
 |81007|Seamless SSO에 대한 테넌트를 사용할 수 없습니다.|
+|81012|오류 조건이 아닙니다. Azure AD에 로그인하려고 시도하는 사용자가 장치에 로그인한 사용자와 다르다는 것을 나타냅니다. 로그에서 이 코드를 무시해도 됩니다.|
 |90010|다양한 이유로 요청이 지원되지 않습니다. 예를 들어 요청이 지원되지 않는 요청 메서드(POST 메서드만 지원됨)를 사용하여 이루어졌거나 요청된 토큰 서명 알고리즘이 지원되지 않습니다. 응용 프로그램 개발자에게 문의하세요.|
 |90014| 프로토콜 메시지에 대한 필수 필드가 누락되었습니다. 응용 프로그램 소유자에게 문의하세요. 응용 프로그램 소유자인 경우 로그인 요청에 대한 모든 필요한 매개 변수가 있는지 확인합니다. |
 |90072| 먼저 계정을 테넌트에서 외부 사용자로 추가해야 합니다. 다른 Azure AD 계정으로 로그아웃했다가 다시 로그인합니다.|

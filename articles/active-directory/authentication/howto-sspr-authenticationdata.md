@@ -4,18 +4,18 @@ description: Azure AD 셀프 서비스 암호 재설정의 데이터 요구 사�
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: ea6bf503eeba9e904c492a858139490b523a10cc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8fe6282d956d7f399aff9f7aa250c5061dc887
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044178"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159569"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
@@ -47,20 +47,19 @@ Azure AD Connect에서 기본 설정을 사용한 경우 다음과 같은 매핑
 
 ![연락처][Contact]
 
-전화 필드가 채워지고 휴대폰이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 번호를 볼 수 있습니다. 
+전화 필드가 채워지고 휴대폰이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 번호를 볼 수 있습니다.
 
 대체 전화 필드는 암호 재설정에 사용되지 않습니다.
 
 이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 이메일을 볼 수 있습니다.
 
-대체 이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지에서 해당 이메일을 볼 수 **없지만** 암호 재설정 워크플로 중 볼 수 있습니다. 
-
+대체 이메일 필드가 채워지고 이메일이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지에서 해당 이메일을 볼 수 **없지만** 암호 재설정 워크플로 중 볼 수 있습니다.
 
 ## <a name="security-questions-and-answers"></a>보안 질문 및 답변
 
-본인 확인 질문과 답변은 Azure AD 테넌트에 안전하게 저장되며 사용자가 [SSPR 등록 포털](https://aka.ms/ssprsetup)을 통해서만 액세스할 수 있습니다. 관리자는 다른 사용자의 질문과 답변 내용을 보거나 수정할 수 없습니다.
+본인 확인 질문과 답변은 Azure AD 테넌트에 안전하게 저장되며 사용자가 [SSPR 등록 포털](https://aka.ms/ssprsetup)을 통해서만 액세스할 수 있습니다. 관리자는 다른 사용자의 질문과 답변 내용을 보거나, 설정하거나, 수정할 수 없습니다.
 
-### <a name="what-happens-when-a-user-registers"></a>사용자가 등록하면 어떻게 되나요?
+## <a name="what-happens-when-a-user-registers"></a>사용자가 등록하면 어떻게 되나요?
 
 사용자가 등록하면 등록 페이지에서 다음 필드를 설정합니다.
 

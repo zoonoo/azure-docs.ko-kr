@@ -1,45 +1,47 @@
 ---
-title: 라이선스 셀프 서비스 암호 재설정 - Azure Active Directory
+title: Azure Active Directory 셀프 서비스 암호 라이선스 발급
 description: Azure AD 셀프 서비스 암호 재설정 라이선스 요구 사항
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e185b67ae73b86b5f1c3b6cda884de05eb89c6fd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 83054c505689768c14d168841764a4557c3e1f8b
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049087"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159001"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
-Azure Active Directory(Azure AD) 암호 재설정이 올바르게 작동하려면 해당 사용자의 *조직에서 최소 하나의 라이선스가 할당되어 있어야 합니다*. 사용자가 해당 라이선스가 적용되는 모든 기능을 직간접적으로 활용하려면 적절한 라이선스가 필요합니다.
+Azure AD(Azure Active Directory)는 Free, Basic, Premium P1, Premium P2의 네 가지 버전으로 제공됩니다. 변경, 재설정, 잠금 해제, 쓰기 저장 등 여러 Azure AD 버전에서 제공되는 여러 기능이 모여서 셀프 서비스 암호 재설정을 구성합니다. 이 문서에서는 차이점을 설명하려고 합니다. 각 Azure AD 버전에 포함된 기능에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
-* **클라우드 전용 사용자**: Office 365 유료 SKU 또는 Azure AD Basic
-* **클라우드** 또는 **온-프레미스 사용자**: Azure AD Premium P1 또는 P2, Enterprise Mobility + Security(EMS) 또는 Microsoft 365
+## <a name="compare-editions-and-features"></a>버전 및 기능 비교
 
-## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
+Azure AD 셀프 서비스 암호 재설정은 사용자 단위로 라이선스가 부여되며, 조직에서는 규정이 준수될 수 있도록 사용자에게 적절한 라이선스를 할당해야 합니다.
 
-**셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제는 Azure AD의 프리미엄 기능입니다**. 라이선스에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+* 클라우드 사용자를 위한 셀프 서비스 암호 변경
+   * 저는 **클라우드 전용 사용자**이며 암호를 알고 있습니다.
+      * 암호를 **변경**하고 싶습니다.
+   * 이 기능은 Azure AD의 모든 버전에 포함되어 있습니다.
 
-비밀번호 쓰기 저장을 사용하려면 테넌트에 다음과 같은 라이선스 중 하나가 할당되어 있어야 합니다.
+* 클라우드 사용자를 위한 셀프 서비스 암호 재설정
+   * 저는 **클라우드 전용 사용자**이며 암호가 기억 나지 않습니다.
+      * 제가 알고 있는 다른 암호로 **변경**하고 싶습니다.
+   * 이 기능은 Azure AD Basic, Premium P1 또는 Premium P2 버전에 포함되어 있습니다.
 
-* Azure AD Premium P1
-* Azure AD Premium P2
-* Enterprise Mobility + Security E3 또는 A3
-* Enterprise Mobility + Security E5 또는 A5
-* Microsoft 365 E3 또는 A3
-* Microsoft 365 E5 또는 A5
-* Microsoft 365 F1
+* **온-프레미스 쓰기 저장**으로 셀프 서비스 암호 재설정/변경/잠금 해제
+   * 저는 **하이브리드 사용자**이고, 저의 온-프레미스 Active Directory 사용자 계정은 Azure AD Connect를 사용하여 저의 Azure AD 계정과 동기화됩니다. 암호가 기억 나지 않아 또는 암호가 잠겨서 암호를 변경하고 싶습니다.
+      * 암호를 변경하거나 알고 있는 암호로 재설정하거나 계정을 잠금 해제한 **후** 변경 내용을 온-프레미스 Active Directory와 동기화하고 싶습니다.
+   * 이 기능은 Azure AD Premium P1 또는 Premium P2 버전에 포함되어 있습니다.
 
 > [!WARNING]
-> 독립 실행형 Office 365 라이선스 요금제는 *비밀번호 쓰기 저장을 지원하지 않습니다*. 비밀번호 쓰기 저장을 사용하려면 위의 요금제 중 하나가 필요합니다.
+> 독립 실행형 Office 365 라이선스 요금제는 **비밀번호 쓰기 저장을 지원하지 않으며**, 이 기능을 사용하려면 Azure AD Premium P1 또는 Premium P2 버전이 필요합니다.
 >
 
 아래와 같은 페이지에서 라이선스와 요금에 대한 자세한 정보를 확인할 수 있습니다.

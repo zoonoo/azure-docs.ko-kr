@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/23/2017
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f8639cbb5c7ba86b4786f3d0b913d64bad59ad66
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917519"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259122"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -41,9 +41,15 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 자세한 내용은 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
 
+* **지원되는 Azure AD Connect 토폴로지 사용**: [여기](active-directory-aadconnect-topologies.md)에서 설명한 Azure AD Connect의 지원되는 토폴로지 중 하나를 사용하는지 확인합니다.
+
 * **도메인 관리자 자격 증명 설정**: 각 Active Directory 포리스트에 대한 도메인 관리자 자격 증명이 있어야 합니다.
     * Azure AD Connect를 통해 Azure AD에 동기화합니다.
     * Seamless SSO를 사용하도록 설정할 사용자를 포함합니다.
+    
+* **최신 인증 사용하도록 설정**: 이 기능에 대한 테넌트에서 [최신 인증](https://aka.ms/modernauthga)을 사용하도록 설정해야 합니다.
+
+* **최신 버전의 Office 365 클라이언트 사용**: Office 365 클라이언트(Outlook, Word, Excel 등)를 사용하여 자동 로그온 환경을 가져오려면 버전 16.0.8730.xxxx 이상이 필요합니다.
 
 ## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
@@ -77,21 +83,27 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
-기능을 사용자에게 롤아웃하려면 Active Directory의 그룹 정책을 사용하여 사용자의 인트라넷 영역 설정에 다음 Azure AD URL을 추가해야 합니다.
+아래 제공된 지침을 사용하여 사용자에게 원활한 SSO를 점진적으로 롤아웃할 수 있습니다. Active Directory의 그룹 정책을 사용하여 모든 또는 선택된 사용자의 인트라넷 영역 설정에 다음 Azure AD URL을 추가하기 시작합니다.
 
 - https://autologon.microsoftazuread-sso.com
-
 
 또한 그룹 정책을 통해 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**이라는 인트라넷 영역 정책 설정을 활성화해야 합니다. 
 
 >[!NOTE]
-> 다음 지침은 Windows의 Internet Explorer 및 Google Chrome(Internet Explorer와 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. Mac에서 Mozilla Firefox 및 Google Chrome을 설정하는 방법에 대한 지침은 다음 섹션을 참조하세요.
+> 다음 지침은 Windows의 Internet Explorer 및 Google Chrome(Internet Explorer와 신뢰할 수 있는 사이트 URL 집합을 공유하는 경우)에서만 작동합니다. macOS에서 Mozilla Firefox 및 Google Chrome을 설정하는 방법에 대한 지침은 다음 섹션을 참조하세요.
 
 ### <a name="why-do-you-need-to-modify-users-intranet-zone-settings"></a>사용자의 인트라넷 영역 설정을 수정해야 하는 이유
 
 기본적으로 브라우저는 특정 URL에서 올바른 영역(인터넷 또는 인트라넷)을 자동으로 계산합니다. 예를 들어 “http://contoso/” 은 인트라넷 영역에 매핑되지만, "http://intranet.contoso.com/" 는 인터넷 영역에 매핑됩니다(URL에 마침표가 포함되어 있기 때문). 브라우저는 URL이 브라우저의 인트라넷 영역에 명시적으로 추가되지 않는 한 클라우드 엔드포인트(예: Azure AD URL)에 Kerberos 티켓을 보내지 않습니다.
 
-### <a name="detailed-steps"></a>자세한 단계
+사용자의 인트라넷 영역 설정을 수정하는 두 가지 방법이 있습니다.
+
+| 옵션 | 관리 고려 사항 | 사용자 환경 |
+| --- | --- | --- |
+| 그룹 정책 | 관리자가 인트라넷 영역 설정의 편집을 잡금니다. | 사용자가 고유한 설정을 수정할 수 없습니다. |
+| 그룹 정책 기본 설정 |  관리자가 인트라넷 영역 설정을 편집하도록 허용합니다. | 사용자가 고유한 설정을 수정할 수 있습니다. |
+
+### <a name="group-policy-option---detailed-steps"></a>"그룹 정책" 옵션 - 자세한 단계
 
 1. 그룹 정책 관리 편집기 도구를 엽니다.
 2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
@@ -123,6 +135,32 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 
     ![SSO(Single sign-on)](./media/active-directory-aadconnect-sso/sso12.png)
 
+### <a name="group-policy-preference-option---detailed-steps"></a>"그룹 정책 기본 설정" 옵션 - 자세한 단계
+
+1. 그룹 정책 관리 편집기 도구를 엽니다.
+2. 일부 또는 모든 사용자에게 적용되는 그룹 정책을 편집합니다. 예를 들어 **기본 도메인 정책**은 다음과 같습니다.
+3. **사용자 구성** > **기본 설정** > **Windows 설정** > **레지스트리** > **새로 만들기** > **레지스트리 항목**으로 이동합니다.
+
+    ![SSO(Single sign-on)](./media/active-directory-aadconnect-sso/sso15.png)
+
+4. 적절한 필드에서 다음 값을 입력하고 **확인**을 클릭합니다.
+   - **키 경로**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
+   - **값 이름**: ***https***
+   - **값 형식**: ***REG_DWORD***
+   - **값 데이터**: ***00000001***
+ 
+    ![SSO(Single sign-on)](./media/active-directory-aadconnect-sso/sso16.png)
+ 
+    ![SSO(Single sign-on)](./media/active-directory-aadconnect-sso/sso17.png)
+
+6. **사용자 구성** > **관리 템플릿** > **Windows 구성 요소** > **Internet Explorer** > **인터넷 제어판** > **보안 페이지** > **인트라넷 영역**을 찾아봅니다. 그런 다음 **스크립트를 통해 상태 표시줄에 대한 업데이트 허용**을 선택합니다.
+
+    ![SSO(Single sign-on)](./media/active-directory-aadconnect-sso/sso11.png)
+
+7. 정책 설정을 활성화한 다음, **확인**을 선택합니다.
+
+    ![SSO(Single sign-on)](./media/active-directory-aadconnect-sso/sso12.png)
+
 ### <a name="browser-considerations"></a>브라우저 고려 사항
 
 #### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox(모든 플랫폼)
@@ -134,15 +172,15 @@ Mozilla Firefox는 Kerberos 인증을 자동으로 사용하지 않습니다. �
 4. 필드에 https://autologon.microsoftazuread-sso.com 을 입력합니다.
 5. **확인**을 선택한 다음, 브라우저를 다시 엽니다.
 
-#### <a name="safari-mac-os"></a>Safari(Mac OS)
+#### <a name="safari-macos"></a>Safari(macOS)
 
-Mac OS를 실행하는 컴퓨터가 AD에 가입되어 있는지 확인합니다. AD 가입에 지침은 [Active Directory와 통합 OS X에 대한 모범 사례](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf)를 참조하세요.
+macOS를 실행하는 머신이 AD에 가입되어 있는지 확인합니다. AD 가입에 지침은 [Active Directory와 통합 OS X에 대한 모범 사례](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf)를 참조하세요.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome(모든 플랫폼)
 
-환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL( https://autologon.microsoftazuread-sso.com) )도 해당 정책 설정에 추가해야 합니다.
+환경에서 [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) 또는 [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) 정책 설정을 재정의한 경우 Azure AD의 URL(https://autologon.microsoftazuread-sso.com))도 해당 정책 설정에 추가해야 합니다.
 
-#### <a name="google-chrome-mac-os-only"></a>Google Chrome(Mac OS에만 해당)
+#### <a name="google-chrome-macos-only"></a>Google Chrome(macOS에만 해당)
 
 Mac OS 및 기타 Windows가 아닌 플랫폼에서 Google Chrome의 경우 통합 인증을 위해 Azure AD URL을 허용 목록에 추가하는 방법은 [Chromium 프로젝트 정책 목록](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist)을 참조하세요.
 
@@ -169,7 +207,12 @@ Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamles
 
 ## <a name="step-5-roll-over-keys"></a>5단계: 키 롤오버
 
-2단계에서, Azure AD Connect는 Seamless SSO를 사용하도록 설정한 모든 Active Directory 포리스트에서 컴퓨터 계정(Azure AD를 나타냄)을 만듭니다. 더 자세히 알아보려면 [Azure Active Directory Seamless Single Sign-On: 기술 심층 분석](active-directory-aadconnect-sso-how-it-works.md)을 참조하세요. 향상된 보안을 위해 이러한 컴퓨터 계정의 Kerberos 암호 해독 키를 주기적으로 롤오버하는 것이 좋습니다. 키를 롤오버하는 방법에 대한 지침은 [Azure Active Directory Seamless Single Sign-On: 질문과 대답](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)을 참조하세요.
+2단계에서, Azure AD Connect는 Seamless SSO를 사용하도록 설정한 모든 Active Directory 포리스트에서 컴퓨터 계정(Azure AD를 나타냄)을 만듭니다. 더 자세히 알아보려면 [Azure Active Directory Seamless Single Sign-On: 기술 심층 분석](active-directory-aadconnect-sso-how-it-works.md)을 참조하세요.
+
+>[!IMPORTANT]
+>컴퓨터 계정의 Kerberos 암호 해독 키가 유출된 경우 해당 AD 포리스트의 사용자에 대한 Kerberos 티켓을 생성하는 데 사용될 수 있습니다. 그런 다음, 악의적인 행위자는 손상된 사용자에 대한 Azure AD 로그인을 가장할 수 있습니다. 적어도 30일마다 한 번씩 Kerberos 암호 해독 키를 주기적으로 롤오버하는 것이 좋습니다.
+
+키를 롤오버하는 방법에 대한 지침은 [Azure Active Directory Seamless Single Sign-On: 질문과 대답](active-directory-aadconnect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account)을 참조하세요. 자동화된 배포 키를 소개하는 기능을 개발하고 있습니다.
 
 >[!IMPORTANT]
 >이 기능을 사용하도록 설정한 후에는 이 단계를 _즉시_ 수행할 필요가 없습니다. 적어도 30일마다 Kerberos 암호 해독 키를 롤오버합니다.

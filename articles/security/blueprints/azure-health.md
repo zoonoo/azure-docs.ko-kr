@@ -3,23 +3,18 @@ title: Azure 의료 분석 청사진
 description: HIPAA/HITRUST 의료 분석 청사진을 배포하기 위한 지침입니다.
 services: security
 documentationcenter: na
-author: jomolesk
-manager: mbaldwin
-editor: tomsh
+author: RajeevRangappa
 ms.assetid: 26566e0a-0a54-49f4-a91d-48e20b7cef71
 ms.service: security
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/27/2018
-ms.author: jomolesk
-ms.openlocfilehash: f58466bb4cc90823d8e75e0371b400ee674e8b5d
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 07/23/2018
+ms.author: rarangap
+ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113234"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214944"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
@@ -32,7 +27,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 ![](images/components.png)
 
-이 솔루션은 의료 정보를 전자적으로 교환하기 위한 세계 표준인 FHIR(Fast Healthcare Interoperability Resources)을 사용하여 형식화된 샘플 데이터 집합을 사용하고 안전한 방식으로 저장하도록 설계되었습니다. 고객은 Azure Machine Learning을 사용하여 강력한 비즈니스 인텔리전스 도구 및 분석을 활용하여 샘플 데이터에 대한 예측을 검토할 수 있습니다. Azure Machine Learning에서 용이하게 수행할 수 있는 실험 종류의 한 가지 예로, 청사진에는 환자가 병원 시설에서 체류하는 기간을 예측하기 위한 샘플 데이터 집합, 스크립트 및 도구가 포함되어 있습니다. 
+이 솔루션은 의료 정보를 전자적으로 교환하기 위한 세계 표준인 FHIR(Fast Healthcare Interoperability Resources)을 사용하여 형식화된 샘플 데이터 집합을 사용하고 안전한 방식으로 저장하도록 설계되었습니다. 고객은 Azure Machine Learning Studio를 사용하여 강력한 비즈니스 인텔리전스 도구 및 분석을 활용하여 샘플 데이터에 대한 예측을 검토할 수 있습니다. Azure Machine Learning Studio에서 용이하게 수행할 수 있는 실험 종류의 한 가지 예로, 청사진에는 환자가 병원 시설에서 체류하는 기간을 예측하기 위한 샘플 데이터 집합, 스크립트 및 도구가 포함되어 있습니다. 
 
 이 청사진은 고객이 특정 요구 사항에 맞게 조정하여 임상 및 운영 사용 사례 시나리오를 모두 해결하는 새로운 Azure Machine Learning 실험을 개발하기 위해 모듈식 기반으로 제공됩니다. 이는 배포 시 안전하고 준수하도록 설계되었습니다. 그러나 고객이 역할을 올바르게 구성하고 모든 수정 사항을 구현해야 합니다. 다음 사항에 유의하세요.
 
@@ -67,7 +62,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
 
 기본 아키텍처는 다음과 같은 구성 요소로 이루어집니다.
 
--   **[위협 모델](https://aka.ms/healththreatmodel)** 포괄적인 위협 모델은 [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168)에서 사용할 수 있는 tm7 형식으로 제공되어 솔루션의 구성 요소, 이들 간의 데이터 흐름 및 트러스트 경계를 보여 줍니다. 이 모델은 기계 학습 구성 요소 또는 다른 수정 사항을 개발할 때 고객이 시스템 인프라에서 발생할 수 있는 잠재적 위험 요소를 이해하는 데 도움이 됩니다.
+-   **[위협 모델](https://aka.ms/healththreatmodel)** 포괄적인 위협 모델은 [Microsoft Threat Modeling Tool](https://www.microsoft.com/en-us/download/details.aspx?id=49168)에서 사용할 수 있는 tm7 형식으로 제공되어 솔루션의 구성 요소, 이들 간의 데이터 흐름 및 트러스트 경계를 보여 줍니다. 이 모델은 Machine Learning Studio 구성 요소 또는 다른 수정 사항을 개발할 때 고객이 시스템 인프라에서 발생할 수 있는 잠재적 위험 요소를 이해하는 데 도움이 됩니다.
 
 -   **[고객 구현 매트릭스](https://aka.ms/healthcrmblueprint)** Microsoft Excel 통합 문서에는 관련 HITRUST 요구 사항이 나와 있으며, Microsoft와 고객이 각각의 HITRUST 요구 사항을 충족시키는 방법에 대해 설명합니다.
 
@@ -108,7 +103,7 @@ Azure 보안 및 규정 준수 청사진 - HIPAA/HITRUST 의료 데이터 및 AI
  ### <a name="data-scientist"></a>데이터 과학자
 
 
-데이터 과학자는 Azure Machine Learning 서비스를 운영합니다. 데이터를 가져오고, 내보내고, 관리하고, 보고서를 실행할 수 있습니다. 데이터 과학자는 환자 데이터에 액세스할 수 있지만 관리자 권한은 없습니다.
+데이터 과학자는 Azure Machine Learning Studio를 운영합니다. 데이터를 가져오고, 내보내고, 관리하고, 보고서를 실행할 수 있습니다. 데이터 과학자는 환자 데이터에 액세스할 수 있지만 관리자 권한은 없습니다.
 
 -   기본 제공 역할 할당: [저장소 계정 참가자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor)
 
@@ -149,12 +144,12 @@ CMIO는 의료 조직의 정보학/기술과 의료 전문가 간의 격차를 �
 ## <a name="example-use-case"></a>사용 사례 예제
 
 
-이 청사진에 포함된 사용 사례 예제는 청사진을 사용하여 클라우드의 의료 데이터에 대한 기계 학습 및 분석을 활성화하는 방법을 보여 줍니다. Contosoclinic은 미국에 있는 작은 병원입니다. 병원 네트워크 관리자는 운영 작업 효율성을 높이고 제공할 수 있는 진료의 품질을 향상시키기 위해 Azure Machine Learning을 사용하여 입원 당시의 환자 체류 기간을 더 효율적으로 예측하려고 합니다.
+이 청사진에 포함된 사용 사례 예제는 청사진을 사용하여 클라우드의 의료 데이터에 대한 기계 학습 및 분석을 활성화하는 방법을 보여 줍니다. Contosoclinic은 미국에 있는 작은 병원입니다. 병원 네트워크 관리자는 운영 작업 효율성을 높이고 제공할 수 있는 진료의 품질을 향상시키기 위해 Azure Machine Learning Studio를 사용하여 입원 당시의 환자 체류 기간을 더 효율적으로 예측하려고 합니다.
 
 ### <a name="predicting-length-of-stay"></a>체류 기간 예측
 
 
-사용 사례 예제 시나리오에서는 Azure Machine Learning을 사용하여 환자 입원에서 가져온 의료 세부 정보와 이전 환자로부터 집계된 과거 데이터를 비교하여 새로 입원한 환자의 체류 기간을 예측합니다.
+사용 사례 예제 시나리오에서는 Azure Machine Learning Studio를 사용하여 환자 입원에서 가져온 의료 세부 정보와 이전 환자로부터 집계된 과거 데이터를 비교하여 새로 입원한 환자의 체류 기간을 예측합니다.
 청사진에는 솔루션의 학습 및 예측 기능을 보여 주기 위해 익명화된 대규모 의료 레코드 집합이 포함되어 있습니다. 프로덕션 배포에서 고객은 자신의 레코드를 사용하여 환경, 시설 및 환자의 고유한 세부 정보를 반영하는 더 정확한 예측을 위해 솔루션을 학습합니다.
 
 ### <a name="users-and-roles"></a>사용자 및 역할
@@ -357,8 +352,8 @@ Han은 ISO, SOC 및 HiTrust에 대한 감사 경험이 있는 공인 감사자�
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   Machine Learning 웹 서비스에 대해 [로깅을 사용하도록 설정](/azure/machine-learning/studio/web-services-logging)됩니다.
-- [Machine Learning](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다. [Workbench를 통합](/azure/machine-learning/desktop-workbench/using-git-ml-project)하면 실험 관리를 간소화할 수 있습니다.
+-   Machine Learning Studio 웹 서비스에 대해 [로깅을 사용하도록 설정](/azure/machine-learning/studio/web-services-logging)합니다.
+- [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) Workbench를 사용하면 솔루션 집합을 예측하는 기능을 제공하는 실험을 개발할 필요가 있습니다. [Workbench를 통합](/azure/machine-learning/desktop-workbench/using-git-ml-project)하면 실험 관리를 간소화할 수 있습니다.
 
 ## <a name="security"></a>보안
 

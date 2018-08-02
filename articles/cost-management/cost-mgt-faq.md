@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 07/20/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 0742e1e96e03840f138dde2bca7b2bcda1e49dfe
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 255056390cdbdbee49eba47f8168618929b386c8
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298412"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39187260"
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Azure Cost Management에 대한 질문과 대답
 
@@ -139,6 +139,14 @@ Cloudyn은 이전 날짜의 전체 데이터를 사용할 수 있을 때 이전 
 
 Azure에서 Cloudyn으로 데이터를 보내는 데 지연이 발생하면 데이터가 계속 Azure에 기록됩니다. 연결이 복원되면 데이터가 Cloudyn으로 전송됩니다.
 
+## <a name="cost-fluctuations-in-cloudyn-cost-reports"></a>Cloudyn 비용 보고서의 비용 변동
+
+비용 보고서는 클라우드 서비스 공급자가 업데이트된 청구 파일을 보낼 때마다 비용 변동을 표시할 수 있습니다. 일반적인 일별 또는 월별 보고 일정 외에 클라우드 서비스 공급자에게서 새 파일을 받을 경우 비용 변동이 발생합니다. 비용 변경은 Cloudyn 다시 계산으로 발생하지 않습니다. 
+
+월 전체에 걸쳐 클라우드 서비스 공급자가 보낸 모든 청구 파일은 일별 비용을 예측한 결과입니다. 때때로 데이터는 자주 - 경우에 따라 하루에도 여러 번 업데이트됩니다. Azure보다는 AWS를 사용하여 더 자주 업데이트됩니다. 이전 달에 대한 비용 청구 계산을 완료하고 최종 청구 파일을 받을 때 비용 총계는 안정적으로 유지되어야 합니다. 대개 그 달의 10일까지입니다.
+
+클라우드 서비스 공급자에게서 비용 조정을 받을 경우 변경이 발생합니다. 크레딧 수신은 하나의 예제입니다. 해당 월을 마감한 지 몇 개월 후에 변경이 발생할 수 있습니다. 클라우드 서비스 공급자가 다시 계산을 할 때마다 변경 내용이 표시됩니다. Cloudyn은 모든 조정이 다시 계산되는지 확인하기 위해 해당 기록 데이터를 업데이트합니다. 또한 비용이 보고서에 정확하게 표시되는지 확인합니다.
+
 ## <a name="how-can-a-direct-csp-configure-cloudyn-access-for-indirect-csp-customers-or-partners"></a>직접 CSP가 간접 CSP 고객 또는 파트너를 위해 Cloudyn 액세스를 구성하는 방법은 무엇인가요?
 
 지침은 [Cloudyn에서 간접 CSP 액세스 구성](quick-register-csp.md#configure-indirect-csp-access-in-cloudyn)을 참조하세요.
@@ -149,7 +157,7 @@ Azure Resource Manager 액세스를 추가하고 데이터를 수집한 후에�
 
 ## <a name="is-cost-managementcloudyn-agent-based"></a>Cost Management/Cloudyn 에이전트 기반인가요?
 
-번호 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
+아니요. 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn 보고서는 보고서당 두 개 이상의 AD 테넌트를 표시합니까?
 

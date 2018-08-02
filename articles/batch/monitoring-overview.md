@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: fd4226254e076957ac8651f9172f1f3f82427a60
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5a321ef7dca86993a913a283fe7b9b076c127d94
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001833"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171258"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 
@@ -63,7 +63,7 @@ Batch 응용 프로그램에서 Batch API를 사용하여 작업, 태스크, 노
   > Application Insights를 사용하는 추가 비용이 발생할 수 있습니다. [가격 책정 옵션](https://azure.microsoft.com/pricing/details/application-insights/)을 참조하세요. 
   >
 
-* [BatchLabs](https://github.com/Azure/BatchLabs)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchLabs/)를 다운로드합니다. 필요에 따라 BatchLabs의 VM 성능 카운터 같은 [Application Insights 데이터를 표시](https://github.com/Azure/batch-insights)하도록 Batch 솔루션을 구성합니다.
+* [Batch Explorer](https://github.com/Azure/BatchExplorer)는 Azure Batch 응용 프로그램을 만들고, 디버그하고, 모니터링할 수 있도록 하는 무료의 풍부한 기능을 가진 독립 실행형 클라이언트 도구입니다. Mac, Linux 또는 Windows의 경우 [설치 패키지](https://azure.github.io/BatchExplorer/)를 다운로드합니다. 필요에 따라 Batch Explorer의 VM 성능 카운터 같은 [Application Insights 데이터를 표시](https://github.com/Azure/batch-insights)하도록 Batch 솔루션을 구성합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

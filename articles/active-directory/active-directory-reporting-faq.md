@@ -15,21 +15,22 @@ ms.component: compliance-reports
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8d627abfe7b686eeeb5a65c4515e184f4ce62f4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d069d0e74c1bc10baa4d14cdb91c137203495ae2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335060"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247411"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory 보고 FAQ
 
 이 문서에는 Azure AD(Azure Active Directory) 보고에 대한 질문과 대답이 포함되어 있습니다. 자세한 내용은 [Azure Active Directory 보고](active-directory-reporting-azure-portal.md)를 참조하세요. 
 
+## <a name="getting-started"></a>시작 
+
 **Q: https://graph.windows.net/&lt;tenant-name&gt;/reports/ 엔드포인트 API를 사용하여 Azure AD 감사 및 통합 응용 프로그램 사용 보고서를 프로그래밍 방식으로 보고 시스템에 끌어오고 있습니다. 어떤 방식으로 전환해야 하나요?**
 
 **A:** [API 참조 설명서](https://developer.microsoft.com/graph/)에서 새로운 API를 사용하여 [작업 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)에 액세스하는 방법을 알아보세요. 이 끝점에는 이전 API 끝점에서 가져온 모든 데이터를 제공하는 두 개의 보고서(감사 및 로그인)가 있습니다. 이 새 끝점에는 앱 사용, 장치 사용 및 사용자 로그인 정보를 가져오는 데 사용할 수 있는 Azure AD Premium 라이선스가 있는 로그인 보고서도 있습니다.
-
 
 --- 
 
@@ -38,6 +39,34 @@ ms.locfileid: "36335060"
 **A:** [ID 보호 위험 이벤트 API](active-directory-identityprotection-graph-getting-started.md)를 사용하여 Microsoft Graph를 통해 보안 검색에 액세스할 수 있습니다. 이 새로운 형식은 고급 필터링, 필드 선택 등을 사용하여 데이터를 보다 유연하게 쿼리할 수 있도록 하고, 위험 이벤트를 SIEM 및 기타 데이터 수집 도구에 보다 쉽게 통합하기 위해 한 가지 형식으로 표준화합니다. 데이터가 다른 형식으로 되어 있으므로 이전 쿼리를 새 쿼리로 대체할 수 없습니다. 그러나 [새로운 API는 Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent)를 사용합니다. 이것은 O365 또는 Azure AD와 같은 API에 대한 Microsoft 표준입니다. 따라서 필요한 작업이 현재 MS Graph 투자를 확장하거나 이러한 새 표준 플랫폼으로의 전환을 시작하도록 지원할 수 있습니다.
 
 --- 
+
+**Q: Premium 라이선스는 어떻게 받을 수 있나요?**
+
+**A:** 이 질문에 대한 답변은 [Azure Active Directory Premium 시작하기](fundamentals/active-directory-get-started-premium.md)를 참조하세요.
+
+---
+
+**Q: Premium 라이선스를 받은 후 활동 데이터를 보는 데 얼마나 걸리나요?**
+
+**A:** 무료 라이선스로서 활동 데이터가 이미 있는 경우 동일한 데이터를 볼 수 있습니다. 모든 데이터가 없으면 1일이나 2일 정도 걸립니다.
+
+---
+
+**Q: Azure AD Premium 라이선스를 받은 후 지난 달의 데이터를 볼 수 있습니까?**
+
+**A:**: 최근에 Premium 버전(평가판 버전을 포함)으로 전환한 경우 최대 7일간 데이터를 볼 수 있습니다. 데이터가 누적된 경우 최대 30일간 볼 수 있습니다.
+
+---
+
+**Q: Azure Portal에서 해당 활동 로그인을 보거나 API를 통해 데이터를 가져오기 위해 전역 관리자 권한이 필요한가요?**
+
+**A:** 아니요. Azure Portal에서 또는 API를 통해 보고 데이터를 가져오려면 **보안 읽기 권한자**, **보안 관리자** 또는 **전역 관리자**여야 합니다.
+
+---
+
+
+## <a name="activity-logs"></a>활동 로그
+
 
 **Q: Azure Portal에서 활동 로그 (감사 및 로그인)의 데이터 보존은 어떻게 됩니까?** 
 
@@ -51,11 +80,6 @@ ms.locfileid: "36335060"
 
 ---
 
-**Q: Azure Portal에서 해당 활동 로그인을 보거나 API를 통해 데이터를 가져오기 위해 전역 관리자 권한이 필요한가요?**
-
-**A:** 아니요. Azure Portal에서 또는 API를 통해 보고 데이터를 가져오려면 **보안 읽기 권한자**, **보안 관리자** 또는 **전역 관리자**여야 합니다.
-
----
 
 **Q: Azure Portal을 통해 Office 365 활동 로그 정보를 얻을 수 있습니까?**
 
@@ -82,23 +106,7 @@ ms.locfileid: "36335060"
 
 ---
 
-**Q: Premium 라이선스는 어떻게 받을 수 있나요?**
-
-**A:** 이 질문에 대한 답변은 [Azure Active Directory Premium 시작하기](fundamentals/active-directory-get-started-premium.md)를 참조하세요.
-
----
-
-**Q: Premium 라이선스를 받은 후 활동 데이터를 보는 데 얼마나 걸리나요?**
-
-**A:** 무료 라이선스로서 활동 데이터가 이미 있는 경우 동일한 데이터를 볼 수 있습니다. 모든 데이터가 없으면 1일이나 2일 정도 걸립니다.
-
----
-
-**Q: Azure AD Premium 라이선스를 받은 후 지난 달의 데이터를 볼 수 있습니까?**
-
-**A:**: 최근에 Premium 버전(평가판 버전을 포함)으로 전환한 경우 최대 7일간 데이터를 볼 수 있습니다. 데이터가 누적된 경우 최대 30일간 볼 수 있습니다.
-
----
+## <a name="risky-sign-ins"></a>위험한 로그인
 
 **Q: ID 보호에 위험 이벤트가 있지만 모든 로그인에서 해당 로그인이 표시되는 것은 아닙니다. 이것은 예상된 동작인가요?**
 
@@ -129,3 +137,35 @@ ms.locfileid: "36335060"
 **A:** 환경에서 모든 위험한 로그인을 파악할 수 있도록 하기 위해 Azure AD Identity Protection 구독자만 감지하기 위한 로그인에 대해 "추가 위험이 있는 로그인이 감지됨" 함수를 자리 표시자로 표시합니다.
 
 ---
+
+## <a name="conditional-access"></a>조건부 액세스
+
+**Q: 이 기능의 새로운 점**
+
+**A:** 이제 고객은 모든 로그인 보고서를 통해 조건부 액세스 정책의 문제를 해결할 수 있습니다. 고객은 조건부 액세스 상태를 검토하고 로그인에 적용된 정책의 세부 정보와 각 정책의 결과를 자세히 알아볼 수 있습니다. 
+
+**Q: 어떻게 시작하나요?**
+
+**A:** 시작하기:
+    * [Azure Portal](https://portal.azure.com)에서 로그인으로 이동합니다. 
+    * 문제를 해결할 로그인을 클릭합니다.
+    * **조건부 액세스** 탭으로 이동합니다. 여기서는 로그인에 영향을 미친 정책과 각 정책의 결과를 볼 수 있습니다. 
+    
+**Q: 조건부 액세스 상태에 가능한 모든 값**
+
+**A:** 조건부 액세스 상태는 다음 값을 가질 수 있습니다.
+    * **적용되지 않음**: 범위 내 사용자 및 앱에 CA 정책이 없음을 의미합니다. 
+    * **성공**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되었음을 의미합니다. 
+    * **실패**: 범위의 사용자 및 앱에 CA 정책이 있으며 CA 정책이 충족되지 않았음을 의미합니다. 
+    
+**Q: 조건부 액세스 정책 결과에 가능한 모든 값**
+
+**A:** 조건부 액세스 정책은 다음 결과를 가질 수 있습니다.
+    * **성공**: 정책이 충족되었습니다.
+    * **오류**: 정책이 충족되지 않았습니다.
+    * **적용되지 않음**: 정책 조건이 충족되지 않았기 때문일 수 있습니다.
+    * **사용 안 함**: 정책이 사용 안 함 상태이기 때문입니다. 
+    
+**Q: 모든 로그인 보고서의 정책 이름이 CA 정책 이름과 일치하지 않습니다. 그 이유는 무엇일까요?**
+
+**A:** 모든 로그인 보고서의 정책 이름은 로그인 시점의 CA 정책 이름을 기준으로 합니다. 나중, 즉 로그인 후에 정책 이름을 업데이트했다면 이 값이 CA의 정책 이름과 일관되지 않을 수 있습니다.

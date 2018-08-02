@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 0d098b7befe5426db4aff503e9633623b1249dbf
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: db621cdd6d38cb2f235c45c9bfcb76677ed6ba17
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660416"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39227905"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -1022,7 +1022,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 ```
 
 ## <a name="controlling-access-with-shared-access-signatures"></a>공유 액세스 서명을 사용하여 액세스 제어
-SAS(공유 액세스 서명) 토큰을 사용하여 클라이언트 응용 프로그램이 테이블 서비스에 직접 인증하지 않고도 테이블 엔터티를 직접 수정(및 쿼리)하도록 할 수 있습니다. 일반적으로 응용 프로그램에서 SAS를 사용할 경우 세 가지 주요 이점이 있습니다.  
+코드에 저장소 계정 키가 포함되지 않아도 SAS(공유 액세스 서명) 토큰을 사용하여 클라이언트 응용 프로그램에서 테이블 엔터티를 수정(및 쿼리)할 수 있게 합니다. 일반적으로 응용 프로그램에서 SAS를 사용할 경우 세 가지 주요 이점이 있습니다.  
 
 * 해당 장치가 Table service의 엔터티에 액세스하고 수정할 수 있도록 하기 위해 보안되지 않는 플랫폼(예: 모바일 장치)에 저장소 계정 키를 배포할 필요가 없습니다.  
 * 웹 및 작업자 역할이 엔터티를 관리하면서 수행하는 일부 작업을 최종 사용자 컴퓨터 및 모바일 장치와 같은 클라이언트 장치로 오프로드할 수 있습니다.  

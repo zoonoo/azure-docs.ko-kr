@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: timlt
-ms.openlocfilehash: ede7748b1471136cf792c2b30b7c90e12b0b274a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c5697f6d4ca2c9d9948b7cdd005a6a75bdabb246
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006851"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222568"
 ---
 # <a name="create-an-event-rule-and-set-up-an-action-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 이벤트 규칙 만들기 및 작업 설정
 
@@ -62,7 +62,9 @@ Azure IoT Central은 [이벤트 측정값](howto-set-up-template.md)을 사용�
 
 ### <a name="add-an-action"></a>작업 추가
 
-이 섹션에서는 규칙에 작업을 추가하는 방법을 보여줍니다. 이메일 작업을 추가하는 방법을 보여주지만 규칙에 [Microsoft Flow 작업을 추가](howto-add-microsoft-flow.md)하여 규칙이 트리거될 때 Microsoft Flow에서 워크플로를 시작할 수도 있습니다.
+이 예에서는 규칙에 작업을 추가하는 방법을 보여 줍니다. 여기서는 이메일 작업을 추가하는 방법을 보여 주지만 다음과 같은 다른 작업도 추가할 수 있습니다.
+-  [Microsoft Flow 작업](howto-add-microsoft-flow.md): 규칙이 트리거되면 Microsoft Flow에서 워크플로를 시작합니다.
+- [웹후크 작업](howto-create-webhooks.md): 규칙이 트리거되면 다른 서비스에 알립니다.
 
 > [!NOTE]
 > 이 때 단일 규칙에 1개의 작업만 연결할 수 있습니다.

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: dc1f8581df5dc7c5728094577298ba078cc2c527
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343301"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171775"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>PostgreSQL용 Azure 데이터베이스의 제한 사항
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다.
@@ -52,11 +52,12 @@ Azure 시스템에는 Azure Database for PostgreSQL 서버를 모니터링하기
 ### <a name="subscription-management"></a>구독 관리
 - 구독 및 리소스 그룹에서 서버를 동적으로 이동하는 것은 현재 지원되지 않습니다.
 
-### <a name="vnet-service-endpoints"></a>VNET 서비스 엔드포인트
+### <a name="vnet-service-endpoints"></a>VNet 서비스 끝점
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
-### <a name="point-in-time-restore-pitr"></a>PITR(특정 시점 복원)
-- PITR 기능을 사용하면 새 서버가 기반으로 하는 서버와 동일한 구성으로 새 서버가 만들어집니다.
+### <a name="restoring-a-server"></a>서버 복원
+- PITR 기능을 사용하면 기반으로 하는 서버와 동일한 가격 책정 계층 구성을 사용하여 새 서버가 만들어집니다.
+- 복원 동안 만든 새 서버에는 원래 서버에 존재했던 방화벽 규칙이 없습니다. 방화벽 규칙은 새 서버에 대해 개별적으로 설정돼야 합니다.
 - 삭제된 서버 복원은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계

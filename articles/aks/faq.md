@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: iainfou
-ms.openlocfilehash: 915f74df69596b1677a0e03770e076ae50efc609
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001248"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205251"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -37,7 +37,7 @@ Azure는 자동으로 야간 일정에 따라 클러스터의 노드에 보안 �
 
 ## <a name="does-aks-support-kubernetes-role-based-access-control-rbac"></a>AKS는 Kubernetes RBAC(역할 기반 액세스 제어)를 지원합니까?
 
-예, RBAC는 Azure CLI 또는 Azure Resource Manager 템플릿에서 AKS 클러스터 배포하는 경우 사용할 수 있습니다. 이 기능은 곧 Azure Portal에서 공개될 예정입니다.
+예, RBAC는 [Azure CLI 또는 Azure Resource Manager 템플릿에서 AKS 클러스터를 배포](https://docs.microsoft.com/en-us/azure/aks/aad-integration)하는 경우 사용할 수 있습니다. 이 기능은 곧 Azure Portal에서 공개될 예정입니다.
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>AKS가 지원하는 Kubernetes 허용 컨트롤러는 무엇인가요? 이를 구성할 수 있나요?
 
@@ -59,6 +59,10 @@ AKS는 다음과 같은 [허용 컨트롤러][admission-controllers]를 지원�
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>AKS를 기존 가상 네트워크에 배포할 수 있습니까?
 
 예, [고급 네트워킹 기능](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/aks/networking-overview.md)을 사용하여 AKS 클러스터를 기존 가상 네트워크에 배포할 수 있습니다.
+
+## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Kubernetes API 서버가 내 가상 네트워크 내에서만 액세스할 수 있도록 제한할 수 있습니까?
+
+지금은 없습니다. Kubernetes API 서버는 공용의 정규화된 도메인 이름(FQDN)으로 공개됩니다. [Kubernetes RBAC(역할 기반 액세스 제어) 및 AAD(Azure Active Directory)](https://docs.microsoft.com/en-us/azure/aks/aad-integration)를 사용하여 클러스터에 대한 액세스를 제어해야 합니다.
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Azure Key Vault는 AKS와 통합되나요?
 

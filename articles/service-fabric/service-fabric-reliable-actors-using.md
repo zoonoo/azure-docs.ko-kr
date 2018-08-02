@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 41548c3395fa0c8f56e62cfcfb7338a2d53f040f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212894"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205523"
 ---
 # <a name="implementing-service-level-features-in-your-actor-service"></a>행위자 서비스에서 서비스 수준 기능 구현
 [서비스 계층](service-fabric-reliable-actors-platform.md#service-layering)에 설명된 대로 행위자 서비스 자체는 신뢰할 수 있는 서비스입니다.  `ActorService`에서 파생된 고유한 서비스를 작성할 수 있고 다음과 같이 StatefulService를 상속하는 경우와 동일한 방식으로 서비스 수준 기능을 구현할 수 있습니다.
@@ -149,33 +149,62 @@ public class Program
 ## <a name="implementing-actor-backup-and-restore"></a>행위자 백업 및 복원 구현
 사용자 지정 행위자 서비스가 `ActorService`에 이미 나타난 원격 수신기를 활용하여 행위자 데이터를 백업하는 메서드를 노출할 수 있습니다.  예를 들어 [행위자 Backup 및 복원](service-fabric-reliable-actors-backup-and-restore.md)을 참조하세요.
 
+## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Remoting V2(InterfaceCompatible) 스택을 사용하는 작업자
+Remoting V2(즉, InterfaceCompatible V2_1) 스택에는 V2 Remoting 스택의 모든 기능이 포함됩니다. 게다가 Remoting V1 스택과 호환되는 인터페이스 스택이지만 V2 및 V1과 역으로 호환되지는 않습니다. 서비스 가용성에 영향을 주지 않고 V1에서 V2_1로 업그레이드하려면 아래 [문서](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability)을 따릅니다.
+
+Remoting V2_1 스택을 사용하려면 다음과 같은 변경 내용이 필요합니다.
+ 1. 다음과 같은 어셈블리 특성을 작업자 인터페이스에 추가합니다.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+   ```
+
+ 2. 시작하려면 V2 스택을 사용하여 ActorService 및 Actor Client 프로젝트를 빌드하고 업그레이드합니다.
+
+#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>서비스 가용성에 영향을 주지 않고 Remoting V2(InterfaceCompatible) Stack으로 Actor Service 업그레이드.
+이 변경은 2단계 업그레이드입니다. 열거된 순서에 따라 단계를 따릅니다.
+
+1.  다음과 같은 어셈블리 특성을 작업자 인터페이스에 추가합니다. 이 특성은 ActorService인 V1(기존)과 V2_1 Listener에 대한 두 가지 수신기를 시작합니다. 이 변경을 통해 ActorService를 업그레이드합니다.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+  ```
+
+2. 위의 업그레이드를 마친 후 ActorClients를 업그레이드합니다.
+이 단계를 수행하려면 Actor Proxy가 Remoting V2_1 스택을 사용 중인지 확인합니다.
+
+3. 이 단계는 선택 사항입니다. V1 수신기를 제거하려면 위의 특성을 변경합니다.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
+    ```
+
 ## <a name="actor-using-remoting-v2-stack"></a>원격 V2 스택을 사용하는 작업자
 이제 사용자는 2.8 nuget 패키지와 함께 Remoting V2 스택을 사용할 수 있습니다. 이 스택은 성능이 우수하며 사용자 지정 직렬화와 같은 기능을 제공합니다. Remoting V2는 기존 Remoting 스택(이제부터 V1 Remoting 스택이라 함)과 호환되지 않습니다.
 
 Remoting V2 스택을 사용하려면 다음과 같은 변경 내용이 필요합니다.
  1. 다음과 같은 어셈블리 특성을 작업자 인터페이스에 추가합니다.
    ```csharp
-   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
  2. 시작하려면 V2 스택을 사용하여 ActorService 및 Actor Client 프로젝트를 빌드하고 업그레이드합니다.
 
-### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>서비스 가용성에 영향을 주지 않고 Remoting V2 Stack으로 Actor Service 업그레이드.
+#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>서비스 가용성에 영향을 주지 않고 Remoting V2 Stack으로 Actor Service 업그레이드.
 이 변경은 2단계 업그레이드입니다. 열거된 순서에 따라 단계를 따릅니다.
 
 1.  다음과 같은 어셈블리 특성을 작업자 인터페이스에 추가합니다. 이 특성은 ActorService인 V1(기존)과 V2 Listener에 대한 두 가지 수신기를 시작합니다. 이 변경을 통해 ActorService를 업그레이드합니다.
 
   ```csharp
-  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
 2. 위의 업그레이드를 마친 후 ActorClients를 업그레이드합니다.
 이 단계를 수행하려면 Actor Proxy가 Remoting V2 스택을 사용 중인지 확인합니다.
 
-3. 이 단계는 옵션입니다. V1 수신기를 제거하려면 위의 특성을 변경합니다.
+3. 이 단계는 선택 사항입니다. V1 수신기를 제거하려면 위의 특성을 변경합니다.
 
     ```csharp
-    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>다음 단계

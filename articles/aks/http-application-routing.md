@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 4484031b20e625f81ba8b3869110e90df189323e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c26a85a50bf4e7272b229bac8a8b9aa8c1ae364
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116973"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238525"
 ---
 # <a name="http-application-routing"></a>HTTP 응용 프로그램 라우팅
 
@@ -60,12 +60,12 @@ AKS 클러스터를 배포할 때 Azure Portal을 통해 HTTP 응용 프로그�
 
 HTTP 응용 프로그램 라우팅 솔루션은 다음과 같이 주석 처리된 수신 리소스에서만 트리거될 수 있습니다.
 
-```
+```yaml
 annotations:
   kubernetes.io/ingress.class: addon-http-application-routing
 ```
 
-**samples-http-application-routing.yaml**이라는 파일을 만들고 다음 YAML을 복사합니다. 줄 43에서, 이 문서의 마지막 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
+**samples-http-application-routing.yaml**이라는 파일을 만들고 다음 YAML을 복사합니다. 줄 43에서, 이 문서의 이전 단계에서 수집한 DNS 영역 이름으로 `<CLUSTER_SPECIFIC_DNS_ZONE>`을 업데이트합니다.
 
 
 ```yaml
@@ -119,7 +119,7 @@ spec:
 
 [kubectl apply][kubectl-apply] 명령을 사용하여 리소스를 만듭니다.
 
-```
+```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
 deployment "party-clippy" created
@@ -129,7 +129,7 @@ ingress "party-clippy" created
 
 cURL 또는 브라우저를 사용하여 samples-http-application-routing.yaml 파일의 호스트 섹션에 지정된 호스트 이름으로 이동합니다. 인터넷을 통해 응용 프로그램을 사용할 수 있기까지 최대 1분 정도 걸릴 수 있습니다.
 
-```
+```bash
 $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
  _________________________________
@@ -150,6 +150,14 @@ $ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
 
 ```
 
+## <a name="remove-http-routing"></a>HTTP 라우팅 제거
+
+Azure CLI를 사용하여 HTTP 라우팅 솔루션을 제거할 수 있습니다. 이렇게 하려면 AKS 클러스터 및 리소스 그룹 이름을 대체하는 다음 명령을 실행합니다.
+
+```azurecli
+az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myAKSCluster --no-wait
+```
+
 ## <a name="troubleshoot"></a>문제 해결
 
 외부 DNS 응용 프로그램의 응용 프로그램 로그를 보려면 [kubectl logs][kubectl-logs] 명령을 사용합니다. 로그에서 A 및 TXT DNS 레코드가 성공적으로 만들어졌음을 확인합니다.
@@ -167,7 +175,7 @@ Azure Portal의 DNS 영역 리소스에서 이러한 레코드를 볼 수도 있
 
 [kubectl logs][kubectl-logs] 명령을 사용하여 Nginx 수신 컨트롤러에 대한 응용 프로그램 로그를 봅니다. 로그에서 수신 리소스 `CREATE` 및 컨트롤러 다시 로드를 확인합니다. 모든 HTTP 작업이 기록됩니다.
 
-```
+```bash
 $ kubectl logs -f deploy/addon-http-application-routing-nginx-ingress-controller -n kube-system
 
 -------------------------------------------------------------------------------
@@ -208,7 +216,7 @@ I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully re
 
 이 문서에서 만든 연결된 Kubernetes 개체를 제거합니다.
 
-```
+```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
 deployment "party-clippy" deleted

@@ -2,19 +2,17 @@
 title: 원본 환경 설정(Azure에 대한 물리적 서버) | Microsoft Docs
 description: 이 문서에서는 온-프레미스 환경을 설정하여 Windows 또는 Linux를 실행 중인 물리적 서버를 Azure에 복제하기 시작하는 방법을 설명합니다.
 services: site-recovery
-documentationcenter: ''
-author: AnoopVasudavan
-manager: gauravd
+author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 00b09db97e597521de5c73eeefab77b0dfa1304d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 07/21/2018
+ms.author: raynew
+ms.openlocfilehash: 0cbba45ce49667293d8f16bf370424acd70ff78b
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38671025"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213489"
 ---
 # <a name="set-up-the-source-environment-physical-server-to-azure"></a>원본 환경 설정(Azure에 대한 물리적 서버)
 
@@ -23,8 +21,9 @@ ms.locfileid: "38671025"
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 다음 항목을 이미 가지고 있다고 가정합니다.
-1. [Azure Portal](http://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
-3. 구성 서버를 설치할 물리적 컴퓨터
+- [Azure Portal](http://portal.azure.com "Azure Portal")의 Recovery Services 자격 증명 모음
+- 구성 서버를 설치할 물리적 컴퓨터
+- 구성 서버를 설치하는 컴퓨터에서 TLS 1.0을 사용하지 않도록 설정 한 경우 TLs 1.2를 사용하도록 설정하고 .NET Framework 버전 4.6 이상이 컴퓨터에 설치되어 있는지(강력한 암호화를 사용하지 않도록 설정하여) 확인합니다. [자세히 알아보기](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>구성 서버 최소 요구 사항
 다음 테이블에는 구성 서버에 대한 최소 하드웨어, 소프트웨어 및 네트워크 요구 사항이 나와 있습니다.
@@ -63,7 +62,7 @@ ms.locfileid: "38671025"
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> 명령줄을 통해 구성 서버를 설치할 수 있습니다. 자세한 내용은 [명령줄 도구를 사용하여 구성 서버 설치](http://aka.ms/installconfigsrv)를 참조하세요.
+> 명령줄을 통해 구성 서버를 설치할 수 있습니다. [자세히 알아보기](physical-manage-configuration-server.md#install-from-the-command-line).
 
 
 ## <a name="common-issues"></a>일반적인 문제

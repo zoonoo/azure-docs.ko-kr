@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069266"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247213"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션
 
@@ -24,7 +24,7 @@ ms.locfileid: "39069266"
 
 SQL Database 관리되는 인스턴스는 기존 SQL Database 서비스의 확장으로, 단일 데이터베이스와 탄력적 풀과 함께 세 번째 배포 옵션을 제공합니다.  이 응용 프로그램은 응용 프로그램을 다시 설계하지 않고도 완전히 관리되는 PaaS로 데이터베이스로 리프트 앤 시프트 방식으로 이동할 수 있도록 설계되었습니다. SQL Database 관리되는 인스턴스는 온-프레미스 SQL Server 프로그래밍 모델과의 호환성이 뛰어나고, 대부분의 SQL Server 기능과 함께 제공되는 도구 및 서비스에 대한 창조적인 지원을 제공합니다.
 
-개괄적인 응용 프로그램 마이그레이션 프로세스는 다음 다이어그램과 같습니다.
+높은 수준에서 응용 프로그램 마이그레이션 프로세스는 다음과 같습니다.
 
 ![마이그레이션 프로세스](./media/sql-database-managed-instance-migration/migration-process.png)
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2018
+ms.date: 07/19/2018
 ms.author: fauhse
-ms.openlocfilehash: 7d86082abb6412072af44a6b2d794bcf536fa18d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 39888772a257e9dc00e5a93736d8676ac6891a16
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342729"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161744"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure File Sync 프록시 및 방화벽 설정
 Azure File Sync는 온-프레미스 서버를 Azure Files에 연결하여, 다중 사이트 동기화 및 클라우드 계층화 기능을 사용하도록 설정합니다. 따라서 온-프레미스 서버가 인터넷에 연결되어야 합니다. IT 관리자는 서버가 Azure 클라우드 서비스에 연결하는 최상의 경로를 결정해야 합니다.
@@ -27,7 +27,7 @@ Azure File Sync는 온-프레미스 서버를 Azure Files에 연결하여, 다�
 이 문서에서는 서버를 Azure File Sync에 성공적이면서 안전하게 연결하기 위해 사용할 수 있는 특정 요구 사항 및 옵션에 대해 설명합니다.
 
 > [!Important]
-> Azure File Sync에서는 저장소 계정에 대한 방화벽 및 가상 네트워크를 아직 지원하지 않습니다. 
+> Azure File Sync에서는 저장소 계정에 대한 방화벽 및 가상 네트워크를 아직 지원하지 않습니다.
 
 ## <a name="overview"></a>개요
 Azure File Sync는 Windows Server, Azure 파일 공유 및 일부 기타 Azure 서비스 간에 오케스트레이션 서비스로 작동하여, 동기화 그룹에 설명된 대로 데이터를 동기화합니다. Azure File Sync가 제대로 작동하려면 다음 Azure 서비스와 통신하도록 서버를 구성해야 합니다.
@@ -39,7 +39,6 @@ Azure File Sync는 Windows Server, Azure 파일 공유 및 일부 기타 Azure �
 
 > [!Note]  
 > Windows Server의 Azure File Sync 에이전트는 클라우드 서비스에 대한 모든 요청을 시작하므로, 방화벽 관점에서 아웃바운드 트래픽만 고려하면 됩니다. <br /> Azure File Sync 에이전트와 연결을 시작하는 Azure 서비스는 없습니다.
-
 
 ## <a name="ports"></a>포트
 Azure File Sync는 파일 데이터 및 메타데이터를 HTTPS를 통해서만 이동하며 아웃바운드로 포트 443이 열려 있도록 요구합니다.
@@ -79,26 +78,27 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 > [!Important]
 > &ast;.one.microsoft.com에 대한 트래픽을 허용할 때 서버에서 동기화 서비스 이외의 위치로 트래픽이 전달될 수 있습니다. 하위 도메인에서 더 많은 Microsoft 서비스를 사용할 수 있습니다.
 
-&ast;.one.microsoft.com이 너무 광범위한 경우 Azure File Sync 인스턴스의 명시적인 지역별 인스턴스만 허용하여 서버 통신을 제한할 수 있습니다. 선택할 인스턴스는 서버를 배포 및 등록한 저장소 동기화 서비스의 지역에 따라 다릅니다. 이 지역은 바로 서버에 대해 허용해야 하는 지역입니다. 곧 새 비즈니스 연속성 기능을 위해 추가 URL이 지원될 예정입니다. 
+&ast;.one.microsoft.com이 너무 광범위한 경우 Azure File Sync 인스턴스의 명시적인 지역별 인스턴스로의 통신만 허용하여 서버 통신을 제한할 수 있습니다. 선택할 인스턴스는 서버를 배포 및 등록한 저장소 동기화 서비스의 지역에 따라 다릅니다. 이 지역을 아래 표에서는 "기본 엔드포인트 URL"이라고 부릅니다.
 
-| 지역 | Azure File Sync 지역별 끝점 URL |
-|--------|---------------------------------------|
-| 오스트레일리아 동부 | https://kailani-aue.one.microsoft.com |
-| 캐나다 중부 | https://kailani-cac.one.microsoft.com |
-| 미국 동부 | https://kailani1.one.microsoft.com |
-| 동남아시아 | https://kailani10.one.microsoft.com |
-| 영국 남부 | https://kailani-uks.one.microsoft.com |
-| 서유럽 | https://kailani6.one.microsoft.com |
-| 미국 서부 | https://kailani.one.microsoft.com |
+BCDR(비즈니스 연속성 및 재해 복구)을 위해 GRS(지역 중복 저장소) 저장소 계정에서 Azure 파일 공유를 지정했을 수도 있습니다. 이 경우 Azure 파일 공유는 지속적인 지역 정전 시 쌍을 이루는 지역에 장애 조치(failover)됩니다. Azure File Sync는 동일한 지역 쌍을 저장소로 사용합니다. 따라서 GRS 저장소 계정을 사용하는 경우 서버가 Azure File Sync의 쌍을 이루는 지역과 통신할 수 있도록 추가 URL을 설정해야 합니다. 아래 표에서는 이것을 "쌍을 이루는 지역"이라고 부릅니다. 마찬가지로 Traffic Manager 프로필 URL도 사용하도록 설정해야 합니다. 이렇게 하면 장애 조치 시 네트워크 트래픽을 쌍을 이루는 지역으로 원활하게 다시 라우팅할 수 있으며, 이것을 아래 표에서는 "검색 URL"이라고 부릅니다.
 
-> [!Important]
-> 이러한 자세한 방화벽 규칙을 정의하는 경우 이 문서를 자주 확인하고 방화벽 규칙을 업데이트하여, 방화벽 설정에서 오래되었거나 불완전한 URL 목록으로 인한 서비스 중단을 방지하세요.
+| 지역 | 기본 엔드포인트 URL | 쌍을 이루는 지역 | 검색 URL | |---|---| | --------|| ---------------------------------------| | 오스트레일리아 동부 | https://kailani-aue.one.microsoft.com | 오스트레일리아 남동부 | https://kailani-aue.one.microsoft.com | | 오스트레일리아 남동부 | https://kailani-aus.one.microsoft.com | 오스트레일리아 동부 | https://tm-kailani-aus.one.microsoft.com | | 캐나다 중부 | https://kailani-cac.one.microsoft.com | 캐나다 동부 | https://tm-kailani-cac.one.microsoft.com | | 캐나다 동부 | https://kailani-cae.one.microsoft.com | 캐나다 중부 | https://tm-kailani.cae.one.microsoft.com | | 미국 중부 | https://kailani-cus.one.microsoft.com | 미국 동부 2 | https://tm-kailani-cus.one.microsoft.com | | 동아시아 | https://kailani11.one.microsoft.com | 동남 아시아 | https://tm-kailani11.one.microsoft.com | | 미국 동부 | https://kailani1.one.microsoft.com | 미국 서부 | https://tm-kailani1.one.microsoft.com | | 미국 동부 2 | https://kailani-ess.one.microsoft.com | 미국 중부 | https://tm-kailani-ess.one.microsoft.com | | 북유럽 | https://kailani7.one.microsoft.com | 유럽 서부 | https://tm-kailani7.one.microsoft.com | | 동남 아시아 | https://kailani10.one.microsoft.com | 동아시아 | https://tm-kailani10.one.microsoft.com | | 영국 남부 | https://kailani-uks.one.microsoft.com | 영국 서부 | https://tm-kailani-uks.one.microsoft.com | | 영국 서부 | https://kailani-ukw.one.microsoft.com | 영국 남부 | https://tm-kailani-ukw.one.microsoft.com | | 유럽 서부 | https://kailani6.one.microsoft.com | 북유럽 | https://tm-kailani6.one.microsoft.com | | 미국 서부 | https://kailani.one.microsoft.com | 미국 동부 | https://tm-kailani.one.microsoft.com |
+
+- LRS(로컬 중복 저장소) 또는 ZRS(영역 중복 저장소) 저장소 계정을 사용하는 경우 "기본 엔드포인트 URL" 아래에 나열된 URL을 사용하도록 설정하기만 하면 됩니다.
+
+- GRS(전역 중복 저장소) 저장소 계정을 사용하는 경우 세 URL을 사용하도록 설정합니다.
+
+**예:** `"West US"`에 저장소 동기화 서비스를 배포하고 서버를 등록합니다. 여기서 서버가 통신할 수 있는 URL은 다음과 같습니다.
+
+> - https://kailani.one.microsoft.com(기본 엔드포인트: 미국 서부)
+> - https://kailani1.one.microsoft.com(쌍을 이루는 장애 조치 지역: 미국 동부)
+> - https://tm-kailani.one.microsoft.com(주 지역의 검색 URL)
 
 ## <a name="summary-and-risk-limitation"></a>요약 및 위험 제한
-이 문서의 앞부분에 나오는 목록에는 Azure File Sync가 현재 통신하는 URL이 포함되어 있습니다. 방화벽은 이러한 도메인의 응답 뿐만 아니라 아웃바운드 트래픽도 허용할 수 있어야 합니다. Microsoft는 이 목록을 업데이트 상태로 유지하려고 합니다.
+이 문서의 앞부분에 나오는 목록에는 Azure File Sync가 현재 통신하는 URL이 포함되어 있습니다. 방화벽은 이러한 도메인의 아웃바운드 트래픽을 허용할 수 있어야 합니다. Microsoft는 이 목록을 업데이트 상태로 유지하려고 합니다.
 
-방화벽 규칙을 제한하는 도메인을 설정하는 것도 보안을 강화하는 방법이 될 수 있습니다. 이러한 방화벽 구성이 사용될 경우 시간이 지남에 따라 URL이 추가되거나 변경될 수 있다는 점에 유의해야 합니다. 따라서 최신 에이전트의 테스트 배포에서 한 Azure File Sync 에이전트 버전에서 다른 버전으로 변경 관리 프로세스를 진행하면서 이 문서의 표를 확인하는 것도 유용한 방법입니다. 이러한 방식으로, 가장 최근 에이전트가 요구한 도메인에 대한 트래픽을 허용하도록 방화벽을 구성할 수 있습니다.
+방화벽 규칙을 제한하는 도메인을 설정하는 것도 보안을 강화하는 방법이 될 수 있습니다. 이러한 방화벽 구성을 사용하는 경우 시간이 지남에 따라 URL이 추가되고 변경될 수 있다는 점에 유의해야 합니다. 이 문서를 정기적으로 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
-- [Azure File Sync(미리 보기) 배포](storage-sync-files-deployment-guide.md)
+- [Azure File Sync 배포](storage-sync-files-deployment-guide.md)

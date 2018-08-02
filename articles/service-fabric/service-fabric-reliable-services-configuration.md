@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866181"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249022"
 ---
 # <a name="configure-stateful-reliable-services"></a>상태 저장 Reliable Services 구성
 Reliable Services에는 두 가지 구성 설정 집합이 있습니다. 한 집합은 클러스터의 모든 Reliable Services에 대해 전역인 반면 다른 집합은 특정 Reliable Services에 한정됩니다.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |이 복제본과 함께 사용되는 공유 로그 파일을 식별하는 데 사용할 고유한 GUID를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 됩니다. 그러나 SharedLogId가 지정된 경우 SharedLogPath도 지정해야 합니다. |
 | SharedLogPath |정규화된 경로 이름 |"" |이 복제본의 공유 로그 파일을 생성할 정규화된 경로를 지정합니다. 일반적으로 서비스는 이 설정을 사용해서는 안 됩니다. 그러나 SharedLogPath가 지정된 경우 SharedLogId도 지정해야 합니다. |
 | SlowApiMonitoringDuration |초 |300 |관리되는 API 호출에 대한 모니터링 간격을 설정합니다. 예: 사용자 제공 백업 콜백 함수. 이 간격이 지나면 상태 경고 보고서가 상태 관리자로 전송됩니다. |
+| LogTruncationIntervalSeconds |초 |0 |각 복제본에서 로그 잘림이 시작되는 구성 가능한 간격입니다. 로그 크기뿐 아니라 시간을 기준으로 로그가 잘리도록 하는 데 사용합니다. 이 설정은 신뢰할 수 있는 디렉터리에서 삭제된 항목을 강제 제거합니다. 따라서 삭제된 항목이 적절한 시기에 제거되게 하는 데 사용할 수 있습니다. |
 
 ### <a name="sample-configuration-via-code"></a>코드를 통한 샘플 구성
 ```csharp

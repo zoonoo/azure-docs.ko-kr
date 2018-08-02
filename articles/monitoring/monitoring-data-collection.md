@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/06/2018
 ms.author: bwren
-ms.openlocfilehash: d3ebd512f8244de74c009ac8a2936ed8e817dad9
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: efbf0907f3ed75957159c38a536bd31e88a0dbb3
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992465"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213302"
 ---
 # <a name="collecting-monitoring-data-in-azure"></a>Azure의 모니터링 데이터 수집
 이 문서에서는 Azure의 응용 프로그램 및 서비스와 분석에 사용된 도구에서 수집된 모니터링 데이터의 개요를 제공합니다. 

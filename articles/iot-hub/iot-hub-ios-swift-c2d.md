@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 62647620f6bbeadecfa778f91855ef1eee5240dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0bdedeb7338d30f448d4c6a6a991365cbb54c1ed
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34634282"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213601"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>IoT Hub(iOS)를 사용하여 클라우드-장치 메시지 보내기
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -49,7 +49,7 @@ Azure IoT Hub는 수백만 개의 장치와 솔루션 백 엔드 간에 안정�
 ## <a name="simulate-an-iot-device"></a>IoT 장치 시뮬레이션
 이 섹션에서는 IoT Hub에서 클라우드-장치 메시지를 수신하는 Swift 응용 프로그램을 실행하는 iOS 장치를 시뮬레이션합니다. 
 
-이것은 [장치에서 IoT Hub로 원격 분석 데이터 보내기]에서 만드는 샘플 장치입니다. 이미 샘플 장치를 실행 중인 경우 이 섹션을 건너뛰어도 됩니다.
+이것은 [장치에서 IoT Hub로 원격 분석 데이터 보내기] 문서에서 만드는 샘플 장치입니다. 이미 샘플 장치를 실행 중인 경우 이 섹션을 건너뛰어도 됩니다.
 
 ### <a name="install-cocoapods"></a>CocoaPods 설치
 

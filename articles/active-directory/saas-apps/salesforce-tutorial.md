@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 07/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 64b94baeaede9b05e953b69324648c63d97cea8e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a453e2d16edecda9753c2940a745b260a3a2b893
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045441"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>자습서: Salesforce와 Azure Active Directory 통합
 
@@ -60,14 +60,14 @@ Salesforce의 Azure AD 통합을 구성하려면 갤러리의 Salesforce를 관�
 
 **갤러리에서 Salesforce를 추가하려면 다음 단계를 수행합니다.**
 
-1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다. 
+1. **[Azure Portal](https://portal.azure.com)** 의 왼쪽 탐색 창에서 **Azure Active Directory** 아이콘을 클릭합니다.
 
     ![Azure Active Directory 단추][1]
 
 2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
-    
+
 3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
@@ -103,26 +103,26 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/salesforce-tutorial/tutorial_salesforce_samlbase.png)
 
 3. **Salesforce 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Salesforce 도메인 및 URL Single Sign-On 정보](./media/salesforce-tutorial/tutorial_salesforce_url.png)
-    
+
     a. **로그온 URL** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
-    
+
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 
     개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
+
     나. **식별자** 텍스트 상자에 다음 패턴으로 값을 입력합니다.
-    
+
     엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
 
     개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
-    
-    > [!NOTE] 
+
+    > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Salesforce 클라이언트 지원 팀](https://help.salesforce.com/support)에 문의하세요.
 
 4. **SAML 서명 인증서** 섹션에서 **인증서**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
@@ -170,14 +170,14 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     나. **발급자** 필드에 Azure Portal에서 복사한 **SAML 엔터티 ID** 값을 붙여넣습니다.
 
     다. **엔터티 ID**입력란에 다음 패턴을 사용하여 Salesforce 도메인 이름을 입력합니다.
-      
+
       * 엔터프라이즈 계정: `https://<subdomain>.my.salesforce.com`
       * 개발자 계정: `https://<subdomain>-dev-ed.my.salesforce.com`
-      
+
     d. **파일 선택**을 클릭하고 Azure Portal에서 다운로드한 인증서 파일을 찾아 선택하여 **ID 공급자 인증서**를 업로드합니다.
 
     e. **SAML ID 유형**으로 다음 옵션 중 하나를 선택합니다.
-    
+
       * 사용자의 Salesforce 사용자 이름이 SAML 어설션에 전달되는 경우 **어설션에 사용자의 Salesforce 사용자 이름 포함**을 선택합니다.
 
       * 사용자 개체의 페더레이션 ID가 SAML 어설션에 전달되는 경우 **어설션에 사용자 개체의 페더레이션 ID 포함**을 선택합니다.
@@ -189,7 +189,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
     g. **서비스 공급자가 시작한 요청 바인딩**에서 **HTTP 리디렉션**을 선택합니다.
 
     h. **ID 공급자 로그인 URL** 텍스트 상자에 Azure Portal에서 복사한 **Single Sign-On 서비스 URL** 값을 붙여넣습니다.
-    
+
     i. 마지막으로 **저장**을 클릭하여 SAML Single Sign-On 설정을 적용합니다.
 
 14. Salesforce의 왼쪽 탐색 패널에서 **회사 설정**을 클릭하여 관련 섹션을 확장하고 **내 도메인**을 클릭합니다.
@@ -200,7 +200,7 @@ Salesforce에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-edit-auth-config.png)
 
-16. **인증 구성** 섹션에서 SAML SSO 구성의 **인증 서비스**로 **로그인 페이지**를 선택한 다음 **저장**을 클릭합니다.
+16. **인증 구성** 섹션에서, SAML SSO 구성의 **인증 서비스**로 **AzureSSO**를 선택하고 **저장**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/salesforce-tutorial/sf-auth-config.png)
 

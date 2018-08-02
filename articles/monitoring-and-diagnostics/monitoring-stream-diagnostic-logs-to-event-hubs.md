@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: c59b9982f5ba5a4fa52ab36df5ebb6995b2d45b0
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085092"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258187"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
 포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI 2.0을 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)** 를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
@@ -22,16 +22,16 @@ ms.locfileid: "37085092"
 진단 로그의 스트리밍 기능을 사용할 수 있는 몇 가지 방법은 다음과 같습니다.
 
 * **타사 로깅 및 원격 분석 시스템으로 로그 스트림** – 모든 진단 로그를 단일 이벤트 허브로 스트리밍하여 로그 데이터를 타사 SIEM 또는 로그 분석 도구로 파이프할 수 있습니다.
-* **“실행 부하 과다 경로” 데이터를 PowerBI로 스트리밍하여 서비스 상태 보기** – Event Hubs, Stream Analytics 및 PowerBI를 사용하여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. [이 설명서 문서는 Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 PowerBI를 사용하는 방법에 대한 훌륭한 개요를 제공합니다](../stream-analytics/stream-analytics-power-bi-dashboard.md). 다음은 진단 로그로 설정하는 방법에 대한 몇 가지 팁입니다.
+* **“실행 부하 과다 경로” 데이터를 Power BI로 스트리밍하여 서비스 상태 보기** – Event Hubs, Stream Analytics 및 Power BI를 사용하여 Azure 서비스에서 진단 데이터를 거의 실시간 정보로 간편하게 변환할 수 있습니다. [이 설명서 아티클은 Event Hubs를 설정하고 Stream Analytics로 데이터를 처리하며 출력으로 Power BI를 사용하는 방법에 대한 훌륭한 개요를 제공합니다](../stream-analytics/stream-analytics-power-bi-dashboard.md). 다음은 진단 로그로 설정하는 방법에 대한 몇 가지 팁입니다.
 
   * 진단 로그의 범주에 대한 이벤트 허브는 포털에서 해당 옵션을 선택하거나 PowerShell을 통해 사용하도록 설정하면 자동으로 생성되므로 **insights-** 로 시작하는 이름의 네임스페이스에서 이벤트 허브를 선택할 수 있습니다.
-  * 다음 SQL 코드는 모든 로그 데이터를 PowerBI 테이블로 간단히 구문 분석하는 데 사용할 수 있는 샘플 Stream Analytics 쿼리입니다.
+  * 다음 SQL 코드는 모든 로그 데이터를 Power BI 테이블로 간단히 구문 분석하는 데 사용할 수 있는 샘플 Stream Analytics 쿼리입니다.
 
     ```sql
     SELECT
     records.ArrayValue.[Properties you want to track]
     INTO
-    [OutputSourceName – the PowerBI source]
+    [OutputSourceName – the Power BI source]
     FROM
     [InputSourceName] AS e
     CROSS APPLY GetArrayElements(e.records) AS records
@@ -46,7 +46,7 @@ ms.locfileid: "37085092"
 > [!WARNING]
 > Compute 리소스(예: VM 또는 서비스 패브릭)에서 진단 로그를 사용 및 스트리밍하려면 [여러 단계 집합을 거쳐야 합니다](../event-hubs/event-hubs-streaming-azure-diags-data.md).
 
-설정을 구성하는 사용자에게 두 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있는 한, Event Hubs 네임스페이스가 로그를 내보내는 리소스와 동일한 구독이 아니어도 됩니다.
+설정을 구성하는 사용자에게 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있다면 Event Hubs 네임스페이스가 리소스를 내보내는 로그와 동일한 구독에 위치하지 않아도 됩니다. 구독은 모두 동일한 AAD 테넌트의 일부입니다.
 
 > [!NOTE]
 > 진단 설정을 통한 다차원 메트릭 보내기는 현재 지원되지 않습니다. 차원이 있는 메트릭은 차원 값 전체에서 집계된 플랫 단일 차원 메트릭으로 내보내집니다.
@@ -195,5 +195,6 @@ Windows Azure 진단 에이전트를 사용하여 Compute 리소스에서 진단
 
 ## <a name="next-steps"></a>다음 단계
 
+* [Azure Monitor를 사용하여 Azure Active Directory 로그 스트리밍](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
 * [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

@@ -12,20 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: abe439cc91a003137c116f57c0cc8bbb61430114
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593455"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214696"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
 
-## <a name="what-is-password-hash-synchronization"></a>암호 해시 동기화 정의
+## <a name="what-is-password-hash-synchronization"></a>암호 해시 동기화란?
 암호를 잊어버려서 작업을 수행하지 못할 확률은 기억해야 하는 암호의 수와 관련됩니다. 기억할 암호가 많을 수록 잊을 확률이 높습니다. 암호 다시 설정 및 기타 암호 관련 문제에 대한 질문 및 호출은 많은 helpdesk 리소스가 필요합니다.
 
 암호 해시 동기화는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure AD 인스턴스로 사용자 암호를 동기화하는 데 사용되는 기능입니다.
@@ -33,14 +33,14 @@ ms.locfileid: "34593455"
 
 ![Azure AD Connect의 정의](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)
 
-암호의 수를 줄여서 사용자는 암호를 하나만 유지해야 합니다. 암호 해시 동기화를 사용하면 다음을 수행하는 데 도움이 됩니다.
+암호 동기화로 인해 암호의 개수가 줄어드므로 사용자는 하나의 암호만 관리하면 됩니다. 암호 해시 동기화를 사용하면 다음과 같은 이점이 있습니다.
 
 * 사용자의 생산성 향상.
 * 지원 센터 비용 절감.  
 
 또한 [AD FS(Active Directory Federation Services)와 페더레이션](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Configuring-AD-FS-for-user-sign-in-with-Azure-AD-Connect)을 사용하도록 선택하는 경우, 필요에 따라 AD FS 인프라에 장애가 발생할 경우 백업으로 암호 해시 동기화를 설정할 수 있습니다.
 
-암호 해시 동기화는 Azure AD Connect 동기화를 통한 디렉터리 동기화 기능 구현의 확장판입니다. 사용자 환경에서 암호 해시 동기화를 사용하려면 다음이 필요합니다.
+암호 해시 동기화는 Azure AD Connect 동기화를 통한 디렉터리 동기화 기능 구현의 확장판입니다. 사용자 환경에서 암호 해시 동기화를 사용하려면 다음을 수행해야 합니다.
 
 * Azure AD Connect 설치.  
 * 온-프레미스 Active Directory 인스턴스 및 Azure Active Directory 인스턴스 간에 디렉터리 동기화 구성.
@@ -58,7 +58,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 암호를 동기화 하기 위해, Azure AD Connect 동기화는 온-프레미스 Active Directory 인스턴스에서 암호 해시를 추출합니다. Azure Active Directory 인증 서비스로 동기화 되기 전에 암호 해시에 추가적인 보안 처리가 적용됩니다. 암호는 각 사용자 기본별로 동기화되고 시간 순서대로 동기화됩니다.
 
-암호 해시 동기화 과정의 실제 흐름은 DisplayName 또는 메일 주소와 같은 사용자 데이터 동기화와 비슷합니다. 그러나 암호는 다른 특성에 대한 표준 디렉터리 동기화 창보다 더 자주 동기화됩니다. 암호 해시 동기화 프로세스는 2분마다 실행됩니다. 이 프로세스의 빈도를 수정할 수 없습니다. 암호를 동기화할 경우 기존 클라우드 암호를 덮어씁니다.
+암호 해시 동기화 과정의 실제 데이터 흐름은 DisplayName 또는 메일 주소와 같은 사용자 데이터의 동기화와 비슷합니다. 그러나 암호는 다른 특성에 대한 표준 디렉터리 동기화 창보다 더 자주 동기화됩니다. 암호 해시 동기화 프로세스는 2분마다 실행됩니다. 이 프로세스의 빈도를 수정할 수 없습니다. 암호를 동기화할 경우 기존 클라우드 암호를 덮어씁니다.
 
 암호 해시 동기화 기능을 사용하도록 처음으로 설정하면 범위 내 모든 사용자 암호에 대한 초기 동기화를 수행합니다. 동기화할 사용자 암호의 하위 집합을 명시적으로 정의할 수 없습니다.
 
@@ -68,7 +68,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 암호 동기화는 현재 로그인된 사용자에게 아무런 영향도 미치지 않습니다.
 클라우드 서비스에 로그온해 있는 동안, 동기화된 암호가 변경되더라도 현재 클라우드 세션이 즉시 영향을 받지는 않습니다. 하지만, 클라우드 서비스에서 다시 인증을 요구하면 새 암호를 제공해야 합니다.
 
-사용자는 회사 네트워크에 로그인되어 있는지 여부에 관계없이 Azure AD에 인증하려면 회사 자격 증명을 다시 입력해야 합니다. 하지만 사용자가 로그인 시 로그인 유지(KMSI) 확인란을 선택하면 이러한 패턴을 최소화할 수 있습니다. 이 확인란을 선택하면 짧은 기간 동안 인증을 우회하는 세션 쿠키가 설정됩니다. KMSI 동작은 Azure AD 관리자가 설정 또는 해제할 수 있습니다.
+사용자는 회사 네트워크에 로그인되어 있는지 여부에 관계없이 Azure AD에 인증하려면 회사 자격 증명을 다시 입력해야 합니다. 하지만 사용자가 로그인 시 로그인 유지(KMSI) 확인란을 선택하면 이러한 패턴을 최소화할 수 있습니다. 이 확인란을 선택하면 180일 동안 인증을 우회하는 세션 쿠키가 설정됩니다. KMSI 동작은 Azure AD 관리자가 설정 또는 해제할 수 있습니다. 또한 회사 네트워크에 연결된 회사 장치에 있을 때 사용자가 자동으로 로그인되는 [Seamless SSO](active-directory-aadconnect-sso.md)를 켜서 암호 프롬프트를 줄일 수 있습니다.
 
 > [!NOTE]
 > 암호 동기화는 Active Directory의 개체 형식 사용자에만 지원됩니다. iNetOrgPerson 개체 형식에 대해 지원되지 않습니다.
@@ -99,10 +99,6 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 사용자 인증은 조직의 고유한 Active Directory 인스턴스가 아닌 Azure AD에 대해 이루어집니다. 암호 데이터가 어떤 형태로든 프레미스를 벗어난다는 점을 조직에서 염려하는 경우 Azure AD에 저장된 SHA256 암호 데이터, 즉 원래 MD4 해시의 해시가 Active Directory에 저장된 것보다 훨씬 안전하다는 사실을 고려하십시오. 뿐만 아니라 이 SHA256 해시는 해독이 불가능하기 때문에 조직의 Active Directory 환경으로 가져와서 pass-the-hash 공격에서 유효한 사용자 암호로 표시할 수 없습니다.
 
-
-
-
-
 ### <a name="password-policy-considerations"></a>암호 정책 고려 사항
 암호 해시 동기화를 사용할 경우, 영향을 받는 두 가지 정책이 있습니다.
 
@@ -121,7 +117,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 온-프레미스 환경에서 만료된 동기화된 암호를 사용하여 클라우드 서비스에 계속 로그인할 수 있습니다. 클라우드 암호는 온-프레미스 환경에서 다음에 암호를 변경할 때 업데이트됩니다.
 
 #### <a name="account-expiration"></a>계정 만료
-조직에서 사용자 계정 관리의 일환으로 accountExpires 특성을 사용하는 경우 이 특성이 Azure AD와 동기화되지 않는다는 점에 주의해야 합니다. 결과적으로 암호 해시 동기화를 위해 구성된 환경의 만료된 Active Directory 계정은 Azure AD에서 계속 활성 상태입니다. 계정이 만료되면 워크플로 작업에서 사용자의 Azure AD 계정을 비활성화하는 PowerShell 스크립트를 트리거하는 것이 좋습니다. 반대로 계정이 켜지면 Azure AD 인스턴스도 켜져야 합니다.
+조직에서 사용자 계정 관리의 일환으로 accountExpires 특성을 사용하는 경우 이 특성이 Azure AD와 동기화되지 않는다는 점에 주의해야 합니다. 결과적으로 암호 해시 동기화를 위해 구성된 환경의 만료된 Active Directory 계정은 Azure AD에서 계속 활성 상태입니다. 계정이 만료되면 워크플로 작업에서 사용자의 Azure AD 계정을 비활성화하는 PowerShell 스크립트를 트리거하는([Set-AzureADUser](https://docs.microsoft.com/powershell/module/azuread/set-azureaduser?view=azureadps-2.0) cmdlet를 사용하는) 것이 좋습니다. 반대로 계정이 켜지면 Azure AD 인스턴스도 켜져야 합니다.
 
 ### <a name="overwrite-synchronized-passwords"></a>동기화된 암호 덮어쓰기
 관리자는 Windows PowerShell을 사용하여 사용자 암호를 수동으로 재설정할 수 있습니다.
@@ -134,21 +130,14 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 ### <a name="additional-advantages"></a>추가적인 이점
 
-- 일반적으로 암호 해시 동기화는 페더레이션 서비스보다 구현에 더 가깝습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다. 
+- 일반적으로 암호 해시 동기화는 페더레이션 서비스보다 더 쉽게 구현할 수 있습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다.
 - 페더레이션 외에 암호 해시 동기화를 사용하도록 설정할 수도 있습니다. 페더레이션 서비스에 중단이 발생하는 경우 대체 서비스로 사용될 수 있습니다.
 
-
-
-
-
-
-
-
-
-
-
-
 ## <a name="enable-password-hash-synchronization"></a>암호 해시 동기화 사용
+
+>[!IMPORTANT]
+>AD FS(또는 기타 페더레이션 기술)에서 암호 해시 동기화로 마이그레이션하는 경우 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
+
 **기본 설정** 옵션을 사용하여 Azure AD Connect를 설치할 경우, 암호 해시 동기화를 사용하도록 자동으로 설정됩니다. 자세한 내용은 [기본 설정을 사용하여 Azure AD Connect 시작](active-directory-aadconnect-get-started-express.md)을 참조하세요.
 
 Azure AD Connect를 설치할 때 사용자 지정 설정을 사용하는 경우 사용자 로그인 페이지에서 암호 해시 동기화를 사용할 수 있습니다. 자세한 내용은 [Azure AD Connect의 사용자 지정 설치](active-directory-aadconnect-get-started-custom.md)를 참조하세요.

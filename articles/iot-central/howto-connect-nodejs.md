@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 42ede975f2cfde2d9c0a61d15ba1af412a88c556
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628541"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206040"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 응용 프로그램에 일반 클라이언트 응용 프로그램 연결(Node.js)
 
@@ -25,6 +25,8 @@ ms.locfileid: "34628541"
 
 1. Azure IoT Central 응용 프로그램. 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](howto-create-application.md)를 참조하세요.
 1. [Node.js](https://nodejs.org/) 버전 4.0.0 이상이 설치된 개발 컴퓨터. 명령줄에서 `node --version` 명령을 실행하여 버전을 확인할 수 있습니다. Node.js는 다양한 운영 체제에 사용할 수 있습니다.
+
+## <a name="create-a-device-template"></a>장치 템플릿 만들기
 
 Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성이 정의된 장치 템플릿이 필요합니다.
 
@@ -89,11 +91,11 @@ Azure IoT Central 응용 프로그램에서 다음 측정값 및 장치 속성�
 
 테이블에 표시된 필드 이름을 장치 템플릿에 똑같이 입력합니다. 필드 이름이 일치하지 않으면 장치에서 설정 값을 받을 수 없습니다.
 
-### <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 장치 추가
 
 Azure IoT Central 응용 프로그램에서, 자신이 만든 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
 
-## <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
+### <a name="create-a-nodejs-application"></a>Node.js 응용 프로그램 만들기
 
 다음 단계에서는 응용 프로그램에 추가한 실제 장치를 구현하는 클라이언트 응용 프로그램을 만드는 방법을 보여줍니다.
 

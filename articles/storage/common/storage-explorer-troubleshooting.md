@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 531ca6d781ae62aacd85dce600e3ea8b46ccf360
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: eeb23b52d5910c3da39d29d3a9c47f598ed5fc5a
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32777080"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188683"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage 탐색기 문제 해결 가이드
 
@@ -31,7 +31,7 @@ Microsoft Azure Storage 탐색기는 Windows, macOS 및 Linux에서 Azure Storag
 
 인증서 오류는 다음과 같은 두 상황 중 하나에서 발생합니다.
 
-1. 앱이 "투명 프록시"를 통해 연결됩니다. 즉, 회사 서버와 같은 서버가 HTTPS 트래픽을 가로 채고 해독한 다음 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
+1. 앱이 "투명 프록시"를 통해 연결됩니다. 즉, 회사 서버와 같은 서버가 HTTPS 트래픽을 가로 채고 해독한 다음, 자체 서명된 인증서를 사용하여 암호화하는 것을 의미합니다.
 2. 수신한 HTTPS 메시지에 자체 서명된 SSL 인증서를 삽입하는 응용 프로그램을 실행하고 있습니다. 인증서 삽입을 수행하는 응용 프로그램에는 바이러스 백신, 네트워크 트래픽 검사 소프트웨어 등이 포함됩니다.
 
 Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 발견하면, 수신된 HTTPS 메시지가 변경된 것인지 더 이상은 알 수 없습니다. 자체 서명된 인증서의 복사본이 있으면 다음 단계를 통해 Storage 탐색기가 이를 신뢰하게 할 수 있습니다.
@@ -60,17 +60,35 @@ Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 �
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
-로그인할 수 없는 경우 다음 문제 해결 방법을 시도해 봅니다.
+### <a name="reauthentication-loop-or-upn-change"></a>재인증 루프 또는 UPN 변경
+재인증 루프에 있거나 계정 중 한 계정의 UPN을 변경한 경우 다음을 수행하세요.
+1. 모든 계정을 제거한 다음, Storage 탐색기를 닫습니다
+2. 컴퓨터에서 .IdentityService 폴더를 삭제합니다. Windows에서 폴더는 `C:\users\<username>\AppData\Local`에 있습니다. Mac 및 Linux의 경우 사용자 디렉토리의 루트에서 폴더를 찾을 수 있습니다.
+3. Mac 또는 Linux를 사용하는 경우 OS의 키 저장소에서 Microsoft.Developer.IdentityService 항목을 삭제해야 합니다. Mac의 경우 키 저장소가 "Gnome 키 집합" 응용 프로그램입니다. Linux의 경우 일반적으로 응용 프로그램은 "키링"으로 불리는데 이름은 배포에 따라 다를 수 있습니다.
 
-* macOS에서 "인증 대기 중..." 대화 상자 위에 로그인 창이 나타나지 않으면 [이러한 조치](#Resetting-the-Mac-Keychain)를 시도해 보세요.
+## <a name="mac-keychain-errors"></a>Mac 키 집합 오류
+macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 유발하는 상태가 될 수 있습니다. 키 집합의 이러한 상태를 해제하려면 다음 조치를 시도해 보세요.
+1. Storage 탐색기를 닫습니다.
+2. 키 집합을 엽니다(**cmd+space**, keychain 입력, enter 키 누름).
+3. "로그인" 키 집합을 선택합니다.
+4. 자물쇠 아이콘을 클릭하여 키 집합을 잠급니다(완료되면 자물쇠가 잠긴 모양으로 바뀌며 열려 있는 앱에 따라 몇 초 정도 걸릴 수 있음).
+
+    ![이미지](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+
+5. Storage 탐색기를 시작합니다.
+6. "서비스 허브가 키 집합에 액세스하려고 합니다" 같은 팝업 메시지가 나타납니다. 그럴 때 Mac 관리자 계정의 암호를 입력하고 **항상 허용**(또는 **항상 허용**을 사용할 수 경우 **허용**)을 클릭합니다.
+7. 로그인을 시도합니다.
+
+### <a name="general-sign-in-troubleshooting-steps"></a>일반적인 로그인 문제 해결 단계
+* macOS에서 "인증 대기 중..." 대화 상자 위에 로그인 창이 나타나지 않으면 [이러한 조치](#Mac-Keychain-Errors)를 시도해 보세요.
 * Storage 탐색기 다시 시작
 * 인증 창이 비어 있는 경우 1분 이상 기다렸다가 인증 대화 상자를 닫습니다.
 * 컴퓨터와 Storage 탐색기에 대해 프록시와 인증서 설정이 올바르게 구성되었는지 확인합니다.
-* Windows를 사용 중이며 같은 컴퓨터와 로그인에서 Visual Studio 2017에 대한 액세스 권한이 있는 경우 Visual Studio 2017에 로그인해 봅니다.
+* Windows를 사용 중이며 같은 컴퓨터와 로그인에서 Visual Studio 2017에 대한 액세스 권한이 있는 경우 Visual Studio 2017에 로그인해 봅니다. Visual Studio 2017에 성공적인 로그인 후 Storage 탐색기를 열고 계정 패널에서 계정을 확인할 수 있어야 합니다. 
 
 이러한 방법으로 문제를 해결하지 못한 경우 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)합니다.
 
-## <a name="unable-to-retrieve-subscriptions"></a>구독을 검색할 수 없음
+### <a name="missing-subscriptions-and-broken-tenants"></a>누락된 구독 및 손상된 테넌트
 
 성공적으로 로그인한 후 구독을 검색할 수 없는 경우 다음 단계에 따라 문제를 해결합니다.
 
@@ -78,7 +96,7 @@ Storage 탐색기가 자체 서명된 또는 신뢰할 수 없는 인증서를 �
 * 올바른 Azure 환경(Azure, Azure China, Azure Germany, Azure US Government 또는 사용자 지정 환경)을 사용하여 로그인했는지 확인합니다.
 * 프록시 뒤에 있는 경우 Storage 탐색기 프록시를 제대로 구성했는지 확인합니다.
 * 계정을 제거하고 다시 추가해 봅니다.
-* Storage 탐색기가 구독을 로드하는 동안 개발자 도구 콘솔(도움말 > 개발자 도구 설정/해제)을 살펴봅니다. 오류 메시지(빨간색 텍스트) 또는 "테넌트에 대해 구독을 로드할 수 없음" 텍스트가 포함된 메시지가 있는지 찾아봅니다. 우려되는 메시지가 있으면 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)합니다.
+* "자세한 정보" 링크가 있는 경우 실패하는 테넌트에 대해 어떤 오류 메시지가 보고되는지 찾아보고 참조하세요. 확인한 오류 메시지로 무엇을 할지 확실하지 않은 경우 자유롭게 [GitHub에서 문제를 제기](https://github.com/Microsoft/AzureStorageExplorer/issues)하세요.
 
 ## <a name="cannot-remove-attached-account-or-storage-resource"></a>연결된 계정 또는 저장소 리소스를 제거할 수 없음
 
@@ -155,19 +173,6 @@ Ubuntu 16.04 이외의 다른 Linux 배포판의 경우 몇 가지 종속성을 
 * 최신 GCC
 
 배포판에 따라 다른 패키지를 설치해야 할 수 있습니다. Storage 탐색기 [릴리스 정보](https://go.microsoft.com/fwlink/?LinkId=838275&clcid=0x409)는 일부 배포판에 대한 특정 단계를 포함합니다.
-
-## <a name="resetting-the-mac-keychain"></a>Mac 키 집합 다시 설정
-macOS 키 집합은 Storage 탐색기의 인증 라이브러리에서 문제를 유발하는 상태가 될 수 있습니다. 키 집합의 이러한 상태를 해제하려면 다음 조치를 시도해 보세요.
-1. Storage 탐색기를 닫습니다.
-2. 키 집합을 엽니다(**cmd+space**, keychain 입력, enter 키 누름).
-3. "로그인" 키 집합을 선택합니다.
-4. 자물쇠 아이콘을 클릭하여 키 집합을 잠급니다(완료되면 자물쇠가 잠긴 모양으로 바뀌며 열려 있는 앱에 따라 몇 초 정도 걸릴 수 있음).
-
-    ![이미지](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
-
-5. Storage 탐색기를 시작합니다.
-6. "서비스 허브가 키 집합에 액세스하려고 합니다"와 같은 팝업 창이 표시됩니다. 그러면 Mac 관리자 계정 암호를 입력하고 **항상 허용**을 클릭합니다(**항상 허용**을 사용할 수 없는 경우 **허용** 클릭).
-7. 로그인을 시도합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

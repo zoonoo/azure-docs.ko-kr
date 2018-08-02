@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83d5b89422a0181c06dbfe3b2bd8975ef7214b9d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f6d49ffa59ed53c0a1966a4132fd5fe1689a13ce
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193260"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247352"
 ---
 # <a name="azure-automation-dsc-overview"></a>Azure Automation DSC 개요
 
@@ -27,7 +27,7 @@ Azure Automation DSC는 Azure 외부에서 DSC를 사용하는 것보다 몇 가
 
 ### <a name="built-in-pull-server"></a>기본 제공 끌어오기 서버
 
-Azure Automation에서는 대상 노드가 구성을 자동으로 수신하고 원하는 상태를 따르며 규정 준수를 다시 보고하도록 [DSC 끌어오기 서버](https://msdn.microsoft.com/powershell/dsc/pullserver)를 제공합니다.
+Azure Automation에서는 대상 노드가 구성을 자동으로 수신하고 원하는 상태를 따르며 규정 준수를 다시 보고하도록 [Windows 기능 DSC-Service](/powershell/dsc/pullserver)와 유사한 DSC 끌어오기 서버를 제공합니다.
 Azure Automation에 있는 기본 제공 끌어오기 서버는 자체 끌어오기 서버를 설정하고 유지 관리할 필요가 없습니다.
 Azure Automation은 클라우드 또는 온-프레미스에서 가상 또는 실제 Windows 또는 Linux 컴퓨터를 대상으로 할 수 있습니다.
 

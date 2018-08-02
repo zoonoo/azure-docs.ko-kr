@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7d9b8a740c331a73ac66398be801ba3878312969
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969081"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248318"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD Node.js 웹앱 시작
 여기서는 Passport를 통해 다음 작업을 수행합니다.
@@ -62,7 +62,10 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 
 6. 등록 후에는 Azure AD가 사용자 앱에 고유한 응용 프로그램 ID를 할당합니다. 이 값은 다음 섹션에서 필요하므로 응용 프로그램 페이지에서 복사해 둡니다.
 7. 응용 프로그램에 대한 **설정** -> **속성** 페이지에서 앱 ID URI를 업데이트합니다. **앱 ID URI** 는 응용 프로그램의 고유 식별자입니다. 규칙은 `https://<tenant-domain>/<app-name>` 형식(예: `https://contoso.onmicrosoft.com/my-first-aad-app`)을 사용하는 것입니다.
-8. 비밀 키를 만들려면 [웹 API에 액세스할 수 있는 응용 프로그램 자격 증명 또는 권한을 추가하려면](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)의 4단계를 따릅니다.
+
+8. 응용 프로그램에 대한 **설정** -> **회신 URL** 페이지에서 5단계의 로그온 URL에 추가된 URL을 추가하고 저장을 클릭합니다.
+
+9. 비밀 키를 만들려면 [웹 API에 액세스할 수 있는 응용 프로그램 자격 증명 또는 권한을 추가하려면](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#to-add-application-credentials-or-permissions-to-access-web-apis)의 4단계를 따릅니다.
 
    > [!IMPORTANT]
    > 응용 프로그램 키 값을 복사합니다. 이것은 `clientSecret`에 대한 값으로, 아래 **3단계**에서 필요합니다. 
@@ -91,7 +94,7 @@ Passport는 Node.js에 대한 인증 미들웨어입니다. 유연한 모듈식 
 
   * `clientID`는 등록 포털에서 앱에 할당된 **응용 프로그램 ID**입니다.
 
-  * `returnURL`은 포털에서 입력한 **리디렉션 URI**입니다.
+  * `returnURL`은 포털에서 입력한 **회신 URL**입니다.
 
   * `clientSecret` 는 포털에서 생성한 비밀입니다.
 
@@ -382,7 +385,7 @@ Passport는 모든 전략 작성자가 준수하는 유사한 패턴을 모든 �
     <% } %>
     ```
 
-5. 레이아웃을 추가하여 모양을 개선합니다. 루트 디렉터리 아래에 '/views/layout.ejs' 뷰를 만듭니다.
+5. 레이아웃을 추가하여 모양을 개선합니다. 루트 디렉터리 아래에 `/views/layout.ejs` 뷰를 만듭니다.
 
     ```HTML
 

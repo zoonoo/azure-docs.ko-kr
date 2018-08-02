@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/16/2018
 ms.topic: conceptual
+ms.date: 07/20/2018
 manager: carmonm
-ms.openlocfilehash: 4493f9da0de12fbdfffdf0f4da0dd581ac3b589f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 907bb9b998012a5b907c041b3eba061036289cc1
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195559"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186988"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드
 
@@ -24,9 +24,8 @@ ms.locfileid: "34195559"
 
 Azure Automation DSC를 다양한 컴퓨터의 관리에 사용할 수 있습니다.
 
-* Azure 가상 머신(기본)
-* Azure 가상 머신
-* AWS(Amazon Web Services) 가상 머신
+* Azure 가상 머신(클래식 및 Azure Resource Manager 배포 모델 모두에서 배포됨)
+* Amazon Web Services(AWS) EC2 인스턴스 
 * 온-프레미스나 Azure/AWS 이외의 클라우드에 있는 실제/가상 Windows 컴퓨터
 * 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
 

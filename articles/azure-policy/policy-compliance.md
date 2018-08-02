@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d36ecb18811901fb781e151c06badc0697c2d769
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659857"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39250286"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -224,14 +224,13 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 정책 이벤트를 쿼리하는 방법에 대한 자세한 내용은 [정책 이벤트](/rest/api/policy-insights/policyevents) 참조 문서를 참조합니다.
 
-### <a name="azure-powershell-preview"></a>Azure PowerShell(미리 보기)
+### <a name="azure-powershell"></a>Azure PowerShell
 
-Policy용 Azure PowerShell 모듈은 아직 최종본이 아니지만 현재 PowerShell 갤러리에서 [미리 보기 릴리스](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights)로 사용할 수 있습니다.
-PowerShellGet이 적어도 1.6.0 버전(시험판 항목을 지원하는 데 필요)인 경우 `Install-Module`을 사용하여 미리 보기 버전을 다운로드할 수 있습니다(최신 [Azure PowerShell](/powershell/azure/install-azurerm-ps)이 설치되었는지 확인).
+Policy용 Azure PowerShell 모듈은 PowerShell 갤러리에서 [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights)로 사용할 수 있습니다. PowerShellGet을 사용하면 `Install-Module -Name AzureRM.PolicyInsights`(최신 [Azure PowerShell](/powershell/azure/install-azurerm-ps)이 설치되어 있어야 함)를 사용하여 모듈을 설치할 수 있습니다.
 
 ```powershell
-# Download preview from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights -AllowPrerelease
+# Install from PowerShell Gallery via PowerShellGet
+Install-Module -Name AzureRM.PolicyInsights
 
 # Import the downloaded module
 Import-Module AzureRM.PolicyInsights
@@ -240,7 +239,7 @@ Import-Module AzureRM.PolicyInsights
 Connect-AzureRmAccount
 ```
 
-미리 보기 모듈에는 세 개의 cmdlet이 있습니다.
+모듈에는 세 개의 cmdlet이 있습니다.
 
 - `Get-AzureRmPolicyStateSummary`
 - `Get-AzureRmPolicyState`

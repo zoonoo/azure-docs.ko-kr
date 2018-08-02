@@ -5,19 +5,21 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/06/2018
+ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5e8d8947643494e06faaabb5335c52df5908303e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902992"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248099"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
 Azure Monitor는 Azure 환경의 모든 모니터링 데이터에 액세스할 수 있는 단일 파이프라인을 제공하므로 파트너 SIEM 및 모니터링 도구를 쉽게 설정하여 해당 데이터를 사용할 수 있습니다. 이 문서에서는 외부 도구에서 수집할 수 있는 단일 Event Hubs 네임스페이스 또는 이벤트 허브로 보내기 위해 Azure 환경에서 여러 계층의 데이터를 설정하는 과정을 안내합니다.
+
+> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>이벤트 허브에 어떤 데이터를 보낼 수 있나요? 
 
@@ -27,8 +29,9 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
   - [Application Insights SDK](../application-insights/app-insights-overview.md)와 같은 SDK를 사용하여 코드를 계측합니다.
   - 응용 프로그램이 실행되고 있는 컴퓨터에서 새 응용 프로그램 로그를 수신 대기하는 모니터링 에이전트(예: [Windows Azure 진단 에이전트](./azure-diagnostics.md) 또는 [Linux Azure 진단 에이전트](../virtual-machines/linux/diagnostic-extension.md))를 실행합니다.
 - **게스트 OS 모니터링 데이터:** 응용 프로그램이 실행되고 있는 운영 체제에 대한 데이터입니다. 게스트 OS 모니터링 데이터의 예로 Linux syslog 또는 Windows 시스템 이벤트가 있습니다. 이러한 유형의 데이터를 수집하려면 [Windows Azure 진단 에이전트](./azure-diagnostics.md) 또는 [Linux Azure 진단 에이전트](../virtual-machines/linux/diagnostic-extension.md)와 같은 에이전트를 설치해야 합니다.
-- **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 가상 머신과 같은 일부 Azure 리소스 종류의 경우, Azure 서비스 내부에서 모니터링할 게스트 OS 및 응용 프로그램이 있습니다. 네트워크 보안 그룹과 같은 다른 Azure 리소스의 경우, 해당 리소스에서 실행되는 게스트 OS 또는 해당 응용 프로그램이 없으므로 리소스 모니터링 데이터가 사용할 수 있는 가장 높은 수준의 데이터입니다. 이 데이터는 [리소스 진단 설정](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings)을 사용하여 수집할 수 있습니다.
-- **Azure 플랫폼 모니터링 데이터:** Azure 구독 또는 테넌트의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. 플랫폼 모니터링 데이터의 예로 서비스 상태 데이터 및 Active Directory 감사를 포함한 [활동 로그](./monitoring-overview-activity-logs.md)가 있습니다. 이 데이터도 진단 설정을 사용하여 수집할 수 있습니다.
+- **Azure 리소스 모니터링 데이터:** Azure 리소스의 작업에 대한 데이터입니다. 가상 머신과 같은 일부 Azure 리소스 종류의 경우, Azure 서비스 내부에서 모니터링할 게스트 OS 및 응용 프로그램이 있습니다. 네트워크 보안 그룹과 같은 다른 Azure 리소스의 경우, 해당 리소스에서 실행되는 게스트 OS 또는 해당 응용 프로그램이 없으므로 리소스 모니터링 데이터가 사용할 수 있는 가장 높은 수준의 데이터입니다. 이 데이터는 [리소스 진단 설정](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)을 사용하여 수집할 수 있습니다.
+- **Azure 구독 모니터링 데이터:** Azure 구독의 운영 및 관리에 대한 데이터와 Azure 자체의 상태 및 작업에 대한 데이터입니다. [활동 로그](./monitoring-overview-activity-logs.md)에는 서비스 상태 문제 및 Azure Resource Manager 감사 등, 대부분의 구독 모니터링 데이터를 포함합니다. 로그 프로필을 사용하여 이 데이터를 수집할 수 있습니다.
+- **Azure 테넌트 모니터링 데이터:** Azure Active Directory 등, 테넌트 수준 Azure 서비스의 작업에 대한 데이터입니다. Azure Active Directory 감사 및 로그인은 테넌트 모니터링 데이터의 예입니다. 이 데이터는 테넌트 진단 설정을 사용하여 수집할 수 있습니다.
 
 모든 계층의 데이터는 이벤트 허브로 보낼 수 있으며, 그런 다음 이 이벤트 허브에서 파트너 도구로 끌어올 수 있습니다. 다음 섹션에서는 각 계층의 데이터를 이벤트 허브로 스트리밍하도록 구성하는 방법에 대해 설명합니다. 이러한 단계에서는 모니터링할 자산이 해당 계층에 이미 있다고 가정합니다.
 
@@ -45,11 +48,17 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
 
 [Azure Event Hubs FAQ](../event-hubs/event-hubs-faq.md)도 참조하세요.
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Azure 플랫폼 모니터링 데이터를 이벤트 허브로 스트리밍하도록 설정하려면 어떻게 해야 할까요?
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Azure 테넌트 모니터링 데이터를 이벤트 허브로 스트리밍하도록 설정하려면 어떻게 해야 할까요?
 
-Azure 플랫폼 모니터링 데이터는 다음 두 가지 주요 원본에서 제공됩니다.
-1. [Azure 활동 로그](./monitoring-overview-activity-logs.md): Resource Manager의 만들기, 업데이트 및 삭제 작업, 구독의 리소스에 영향을 줄 수 있는 [Azure 서비스 상태](../service-health/service-health-overview.md)의 변경 내용, [리소스 상태](../service-health/resource-health-overview.md) 전환 및 기타 여러 유형의 구독 수준 이벤트가 포함되어 있습니다. [이 문서에서는 Azure 활동 로그에 나타나는 모든 범주의 이벤트에 대해 자세히 설명합니다](./monitoring-activity-log-schema.md).
-2. [Azure Active Directory 보고](../active-directory/active-directory-reporting-azure-portal.md): 로그인 활동 및 특정 테넌트 내의 변경 감사 내역에 대한 기록이 포함되어 있습니다. Azure Active Directory 데이터는 아직 이벤트 허브로 스트리밍할 수 없습니다.
+Azure 테넌트 모니터링 데이터는 현재 Azure Active Directory에만 사용할 수 있습니다. 로그인 활동 및 특정 테넌트 내의 변경 감사 내역에 대한 기록이 포함되어 있는 [Azure Active Directory 보고](../active-directory/active-directory-reporting-azure-portal.md)의 데이터를 사용할 수 있습니다.
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory 데이터를 이벤트 허브로 스트리밍
+
+Azure Active Directory 로그에서 Event Hubs 네임스페이스로 데이터를 보내려면 AAD 테넌트에서 테넌트 진단 설정을 설정할 수 있습니다. [이 가이드에 따라](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) 테넌트 진단 설정을 설정합니다.
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Azure 구독 모니터링 데이터를 이벤트 허브로 스트리밍하도록 설정하려면 어떻게 해야 할까요?
+
+Azure 구독 모니터링 데이터는 [Azure 활동 로그](./monitoring-overview-activity-logs.md)에서 사용할 수 있습니다. 여기에는 Resource Manager의 만들기, 업데이트 및 삭제 작업, 구독의 리소스에 영향을 줄 수 있는 [Azure 서비스 상태](../service-health/service-health-overview.md)의 변경 내용, [리소스 상태](../service-health/resource-health-overview.md) 전환 및 기타 여러 유형의 구독 수준 이벤트가 포함되어 있습니다. [이 문서에서는 Azure 활동 로그에 나타나는 모든 범주의 이벤트에 대해 자세히 설명합니다](./monitoring-activity-log-schema.md).
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Azure 활동 로그 데이터를 이벤트 허브로 스트리밍
 

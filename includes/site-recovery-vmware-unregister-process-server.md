@@ -19,4 +19,4 @@
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. 그러면 시스템에서 프로세스 서버의 세부 정보를 제거합니다.
+4. 프로세스 서버가 성공적으로 제거되면 **<서버 이름>(서버 IP 주소) 등록을 취소했습니다** 메시지가 표시됩니다.

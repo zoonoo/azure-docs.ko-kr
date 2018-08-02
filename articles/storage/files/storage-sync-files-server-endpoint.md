@@ -1,5 +1,5 @@
 ---
-title: Azure File Sync(미리 보기) 서버 엔드포인트 추가/제거 | Microsoft Docs
+title: Azure File Sync 서버 엔드포인트 추가/제거 | Microsoft Docs
 description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
 services: storage
 documentationcenter: ''
@@ -12,27 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 93331dd936a6d7b30ca18743d2079900421b2620
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: c8da3f501d03a05ef5490197d4fd38ada01a4997
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738482"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158442"
 ---
-# <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Azure File Sync(미리 보기) 서버 엔드포인트 추가/제거
-Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
+# <a name="addremove-an-azure-file-sync-server-endpoint"></a>Azure File Sync 서버 엔드포인트 추가/제거
+Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
 
 *서버 엔드포인트*는 서버 볼륨 또는 볼륨의 루트에 있는 폴더와 같이, *등록된 서버*의 특정 위치를 나타냅니다. 해당 네임스페이스가 겹치지만 않으면 여러 서버 엔드포인트가 같은 볼륨에 있을 수 있습니다(예: F:\sync1 및 F:\sync2). 각 서버 엔드포인트에 대해 개별적으로 클라우드 계층화 정책을 구성할 수 있습니다. 기존 파일 집합이 있는 서버 위치를 동기화 그룹에 서버 엔드포인트로 추가하는 경우 해당 파일은 동기화 그룹의 다른 엔드포인트에 이미 있는 다른 파일에 병합됩니다.
 
-종단 간 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+종단 간 Azure File Sync를 배포하는 방법에 대한 자세한 내용은 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 서버 엔드포인트를 만들려면 먼저 다음 조건이 충족되는지 확인해야 합니다. 
-- 서버에 Azure 파일 동기화 에이전트가 설치되고 등록되어 있습니다. Azure 파일 동기화 에이전트를 설치하기 위한 지침은 [Azure 파일 동기화(미리 보기)에서 서버 등록/등록 취소](storage-sync-files-server-registration.md) 문서를 참조하세요. 
-- 저장소 동기화 서비스가 배포되었는지 확인합니다. 저장소 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요. 
-- 동기화 그룹을 배포했는지 확인합니다. [동기화 그룹을 만드는](storage-sync-files-deployment-guide.md#create-a-sync-group) 방법을 알아보세요.
+- 서버에 Azure 파일 동기화 에이전트가 설치되고 등록되어 있습니다. Azure File Sync 에이전트를 설치하기 위한 지침은 [Azure File Sync에서 서버 등록/등록 취소](storage-sync-files-server-registration.md) 문서를 참조하세요. 
+- 저장소 동기화 서비스가 배포되었는지 확인합니다. 저장소 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요. 
+- 동기화 그룹을 배포했는지 확인합니다. [동기화 그룹을 만드는](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint) 방법을 알아보세요.
 - 서버가 인터넷에 연결되어 있고 Azure가 액세스 가능한지 확인합니다. 서버와 서비스 간의 모든 통신에 포트 443을 사용합니다.
 
 ## <a name="add-a-server-endpoint"></a>서버 엔드포인트 추가
@@ -74,5 +74,5 @@ Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
     ![동기화 그룹에서 서버 엔드포인트 제거](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## <a name="next-steps"></a>다음 단계
-- [Azure 파일 동기화(미리 보기)에서 서버 등록/등록 취소](storage-sync-files-server-registration.md)
+- [Azure File Sync에 서버 등록/등록 취소](storage-sync-files-server-registration.md)
 - [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

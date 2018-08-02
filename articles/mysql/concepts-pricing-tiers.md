@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 07/11/2018
-ms.openlocfilehash: 547839234e15455f3e268bad4d92972ea1f47e4c
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 70891e4c1425badb43dac66ada9c0b3a43b8fb0d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971940"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173676"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -24,7 +24,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |:---|:----------|:--------------------|:---------------------|
 | 계산 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32 |2, 4, 8, 16 |
-| vCore 메모리 | 2 GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10 GB |
 | 저장소 크기 | 5GB-1TB | 5GB-4TB | 5GB-4TB |
 | 저장소 유형 | Azure Standard Storage | Azure Premium Storage | Azure Premium Storage |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
@@ -94,6 +94,8 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 여유 저장 공간 용량이 프로비전된 저장소의 5% 또는 5GB 미만 중에서 더 작은 용량이 되면 서버는 읽기 전용으로 표시됩니다. 예를 들어 100GB의 저장소를 프로비전하고 실제 활용이 95GB를 넘어서는 경우 서버는 읽기 전용으로 표시됩니다. 또는 5GB 저장소를 프로비전하는 경우 서버는 여유 저장 공간이 250MB 미만이 되면 읽기 전용으로 표시됩니다.  
 
 서비스가 서버를 읽기 전용으로 만들려고 하는 동안 모든 새 쓰기 트랜잭션 요청은 차단되고 기존 활성 트랜잭션은 계속 실행됩니다. 서버가 읽기 전용으로 설정되면 모든 후속 쓰기 작업 및 트랜잭션 커밋은 실패합니다. 읽기 쿼리는 중단 없이 계속 작동합니다. 프로비전된 저장소를 늘린 후 서버는 다시 쓰기 트랜잭션을 허용할 준비를 갖춥니다.
+
+서버 저장소가 임계값에 근접하는 경우 읽기 전용 상태로 들어가는 것을 방지할 수 있도록 알림 경고를 설정하는 것이 좋습니다. 자세한 내용은 [경고 설정 방법](howto-alert-on-metric.md)에 관한 설명서를 참조하세요.
 
 ## <a name="backup"></a>Backup
 

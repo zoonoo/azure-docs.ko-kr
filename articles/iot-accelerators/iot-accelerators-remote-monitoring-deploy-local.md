@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f723d716a652e64527310a499d6b06a6cf6bc6f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 21bc8c27a44c940279b0c5bdcdbe04e579dc4bfa
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627234"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188663"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>로컬에 원격 모니터링 솔루션 가속기 배포
 
@@ -84,7 +84,7 @@ pcs login
 
 ### <a name="run-a-local-deployment"></a>로컬 배포 실행
 
-다음 명령을 사용하여 로컬 배포를 시작합니다. 필요한 azure 리소스를 만들고 환경 변수를 teh 콘솔에 출력합니다. 
+다음 명령을 사용하여 로컬 배포를 시작합니다. 이렇게 하면 필요한 Azure 리소스를 만들고 환경 변수를 콘솔에 출력하게 됩니다. 
 
 ```cmd/pcs
 pcs -s local
@@ -134,6 +134,6 @@ docker-compose up
 > * 솔루션 가속기 배포
 > * 솔루션 가속기에 로그인
 
-원격 모니터링 솔루션을 배포했으면 다음 단계는 [솔루션 대시보드의 기능을 탐색](iot-accelerators-remote-monitoring-deploy.md)하는 것입니다.
+원격 모니터링 솔루션을 배포했으면 다음 단계는 [솔루션 대시보드의 기능을 탐색](quickstart-remote-monitoring-deploy.md)하는 것입니다.
 
 <!-- Next tutorials in the sequence -->

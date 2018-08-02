@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 3825183fa7e8ca15a86935b5b96ff8d25d7bef14
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070886"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173053"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>한 Azure 지역에서 다른 지역으로 복제를 위한 지원 매트릭스
 
@@ -26,35 +26,22 @@ ms.locfileid: "39070886"
 
 **사용자 인터페이스** |  **지원됨/지원되지 않음**
 --- | ---
-**Azure 포털** | 지원됨
-**클래식 포털** | 지원되지 않음
+**Azure Portal** | 지원됨
 **PowerShell** | [PowerShell을 사용한 Azure 간 복제](azure-to-azure-powershell.md)
 **REST API** | 현재 지원되지 않음
 **CLI** | 현재 지원되지 않음
 
 
-## <a name="resource-move-support"></a>리소스 이동 지원
+## <a name="resource-support"></a>리소스 지원
 
-**리소스 이동 유형** | **지원됨/지원되지 않음** | **설명**  
+**리소스 이동 유형** | **세부 정보** 
 --- | --- | ---
-**리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음 |리소스 그룹 간에 Recovery Services 자격 증명 모음을 이동할 수 없습니다.
-**리소스 그룹 간에 Compute, Storage 및 Network 이동** | 지원되지 않음 |복제를 사용하도록 설정한 후 가상 머신(또는 저장소 및 네트워크와 같은 연결된 구성 요소)를 이동하는 경우 해당 가상 머신에 대해 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
+**리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음<br/><br/> 리소스 그룹 간에 복구 서비스 자격 증명 모음을 이동할 수 없습니다.
+**리소스 그룹 간에 계산/저장소/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> 복제 후 VM 또는 저장소/네트워크와 같은 관련 구성 요소를 이동하는 경우 복제를 해제하고 VM에 복제를 사용하도록 다시 설정해야 합니다.
+**재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 지원되지 않습니다.
+**구독 간 VM 마이그레이션** | 지원되지 않습니다.
+**동일한 지역 내에서 VM 마이그레이션** | 지원되지 않습니다.
 
-
-
-## <a name="support-for-deployment-models"></a>배포 모델 지원
-
-**배포 모델** | **지원됨/지원되지 않음** | **설명**  
---- | --- | ---
-**클래식** | 지원됨 | 클래식 가상 머신은 복제한 후 클래식 가상 머신으로 복구할 수만 있습니다. Resource Manager 가상 컴퓨터로는 복구할 수 없습니다. 클래식 VM을 가상 네트워크 없이 Azure 지역에 직접 배포하는 경우 이는 지원되지 않습니다.
-**리소스 관리자** | 지원됨 |
-
->[!NOTE]
->
-> 1. 재해 복구 시나리오의 다른 구독 간에 Azure 가상 머신을 복제하는 것은 지원되지 않습니다.
-> 2. Azure 구독에서 가상 머신을 마이그레이션하도록 지원되지 않습니다.
-> 3. 동일한 지역 내에서 가상 머신을 마이그레이션하도록 지원되지 않습니다.
-> 4. 클래식 배포 모델에서 Resource Manager 배포 모델로 Azure 가상 머신을 마이그레이션하도록 지원되지 않습니다.
 
 ## <a name="support-for-replicated-machine-os-versions"></a>복제된 컴퓨터 운영 체제 버전에 대한 지원
 
@@ -138,13 +125,20 @@ SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.17 | SP1 3.12.49-11-default에�
 유럽 | 영국 서부, 영국 남부, 북유럽, 유럽 서부, 프랑스 중부, 프랑스 남부
 아시아 | 인도 남부, 인도 중부, 동남 아시아, 동아시아, 일본 동부, 일본 서부, 한국 중부, 한국 남부
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부
-Azure Government    | 미국 정부 버지니아, 미국 정부 아이오와, 미국 정부 애리조나, 미국 정부 텍사스, 미국 정부 동부, 미국 정부 중부
+Azure Government    | 미국 버지니아 주 정부, 미국 아이오와 주 정부, 미국 애리조나 주 정부, 미국 텍사스 주 정부, US DoD 동부, US DoD 중부
 독일 | 독일 중부, 독일 북동부
 중국 | 중국 동부, 중국 북부
 
 >[!NOTE]
 >
 > 브라질 남부 지역의 경우 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2 및 미국 중북부 지역 중 하나로만 복제 및 장애 조치(failover)하고 장애 복구(failback)할 수 있습니다.
+
+## <a name="support-for-vmdisk-management"></a>VM/디스크 관리 지원
+
+**작업** | **세부 정보**
+-- | ---
+복제된 VM에서 디스크 크기 조정 | 지원됨
+복제된 VM에 디스크 추가 | 지원되지 않습니다. VM에 복제를 사용하지 않도록 설정하고, 디스크를 추가한 다음, 복제를 다시 사용하도록 설정해야 합니다.
 
 
 ## <a name="support-for-compute-configuration"></a>Compute 구성 지원

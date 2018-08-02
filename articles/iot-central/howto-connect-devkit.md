@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 99d69c7e49179a7849e274c830d539833da33786
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049455"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205462"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 MXChip IoT DevKit 장치 연결
 
@@ -26,76 +26,38 @@ ms.locfileid: "39049455"
 1. **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](howto-create-application.md)를 참조하세요.
 1. DevKit 장치. DevKit 장치를 구매하려면 [MXChip IoT DevKit](http://mxchip.com/az3166)를 방문하세요.
 
-**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **MXChip** 장치가 포함됩니다.
 
-### <a name="measurements"></a>측정값
+## <a name="sample-devkits-application"></a>**샘플 Devkits** 응용 프로그램
 
-#### <a name="telemetry"></a>원격 분석 
+**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **MXChip** 장치가 포함됩니다. 
 
-| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
-#### <a name="states"></a>상태 
-
-| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 장치 상태   | 녹색  | 주황색  | 빨강    | 
-
-#### <a name="events"></a>이벤트 
-
-| Name             | 표시 이름      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | 단추 B 누름  | 
+- 장치에 대한 측정값 **습도**, **온도**, **압력**, **Magnometer**(X, Y, Z 축을 따라 측정됨), **Accelorometer**(X, Y, Z 축을 따라 측정됨) 및 **Gyroscope**(X, Y, Z 축을 따라 측정됨)를 포함하는 원격 분석입니다.
+- **장치 상태**에 대한 예제 측정을 포함하는 상태입니다.
+- **단추 B 누름** 이벤트를 사용하여 이벤트 측정을 제공합니다. 
+- **전압**, **현재**, **팬 속도** 및 **IR** 토글을 보여주는 설정입니다.
+- 위치 속성이자 **제조 일자** 클라우드 속성인 **다이 번호** 및 **장치 위치**라는 장치 속성을 포함하는 속성입니다. 
 
 
-
-### <a name="settings"></a>설정
-
-숫자 설정
-
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
-| 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-설정 전환
-
-| 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
-
-### <a name="properties"></a>properties
-
-| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
-| --------------- | ------------ | ---------- | --------- |
-| 장치 속성 | 다이 번호   | dieNumber  | number    |
-| 장치 속성 | 장치 위치   | location  | location    |
-| 텍스트            | 제조 일자     | manufacturedIn   | 해당 없음       |
+구성에 대한 자세한 내용은 [MXChip 장치 템플릿 세부 정보](howto-connect-devkit.md#mxchip-device-template-details) 참조
 
 
-### <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 장치 추가
 
 Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
 
-## <a name="prepare-the-devkit-device"></a>DevKit 장치 준비
+### <a name="prepare-the-devkit-device"></a>DevKit 장치 준비
 
 > [!NOTE]
 > 이전에 장치를 사용했고 WiFi 자격 증명을 저장했으며 다른 WiFi 네트워크, 연결 문자열 또는 원격 분석 측정값을 사용하도록 장치를 다시 구성하려면 보드의 **A** 및 **B** 단추를 동시에 누릅니다. 이 방법이 작동하지 않으면 **재설정** 단추를 눌러 다시 시도합니다.
 
-DevKit 장치를 준비하려면:
+#### <a name="before-you-start-configuring-the-device"></a>장치 구성을 시작하기 전에 다음을 수행합니다.
+1. IoT Central **샘플 Devkits**에서 `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device`(오른쪽 위)로 이동 
+2. 기본 연결 문자열을 복사합니다.
+3. DevKit 장치를 준비할 때 일시적으로 인터넷 연결이 끊어지므로 연결 문자열을 저장해야 합니다. 
+
+
+#### <a name="to-prepare-the-devkit-device"></a>DevKit 장치를 준비하려면:
+
 
 1. GitHub의 [릴리스](https://github.com/Azure/iot-central-firmware/releases) 페이지에서 MXChip의 최신 사전 빌드 Azure IoT Central 펌웨어를 다운로드합니다. 릴리스 페이지의 다운로드 파일 이름은 `AZ3166-IoT-Central-X.X.X.bin` 형식입니다.
 
@@ -113,7 +75,7 @@ DevKit 장치를 준비하려면:
     ```
 
     > [!NOTE]
-    > 화면에 다른 내용이 표시되면 장치의 **재설정** 단추를 누릅니다. 
+    > 화면이 다른 요소를 표시하는 경우 장치를 다시 부팅하려면 장치에서 **A** 및 **B** 단추를 동시에 누릅니다. 
 
 1. 이제 장치가 AP(액세스 지점) 모드에 있습니다. 컴퓨터 또는 모바일 장치에서 이 WiFi 액세스 지점에 연결할 수 있습니다.
 
@@ -125,10 +87,9 @@ DevKit 장치를 준비하려면:
 
     웹 페이지에서 다음을 추가합니다. 
     - WiFi 네트워크 이름 
-    - WiFi 네트워크 암호 
+    - WiFi 네트워크 암호
     - LCD 장치에 표시된 PIN 코드 
-    - 장치의 연결 문자열. 
-      오른쪽 위에서 \@ `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` 연결 문자열을 찾을 수 있습니다. 
+    - 단계를 수행하여 이미 저장했어야 할 장치의 연결 문자열입니다. `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device`(오른쪽 위)에서 해당 연결 문자열을 찾을 수 있습니다.
     - 사용 가능한 모든 원격 분석 측정값을 선택합니다. 
 
 1. **장치 구성**을 선택하면 이 페이지가 표시됩니다.
@@ -206,6 +167,66 @@ Azure IoT Central 응용 프로그램으로 속성 값이 보고되는 원리를
 **iotHubClient.cpp** 원본 파일의 코드는 [C용 Microsoft Azure IoT SDK 및 라이브러리](https://github.com/Azure/azure-iot-sdk-c)의 함수를 사용하여 IoT Hub와 상호 작용합니다.
 
 샘플 코드를 수정하고, 빌드하고, 장치에 업로드하는 방법은 `AZ3166` 폴더에 있는 **readme.md** 파일을 참조하세요.
+
+## <a name="mxchip-device-template-details"></a>MXChip 장치 템플릿 세부 정보 
+
+샘플 Devkits 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 MXChip 장치가 포함됩니다.
+
+### <a name="measurements"></a>측정값
+
+#### <a name="telemetry"></a>원격 분석 
+
+| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidity       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+
+#### <a name="states"></a>상태 
+| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
+| ------------- | -------------- | ------ | ------- | ------ | 
+| DeviceState   | 장치 상태   | 녹색  | 주황색  | 빨강    | 
+
+#### <a name="events"></a>이벤트 
+| Name             | 표시 이름      | 
+| ---------------- | ----------------- | 
+| ButtonBPressed   | 단추 B 누름  | 
+
+### <a name="settings"></a>설정
+
+숫자 설정
+
+| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
+| 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+설정 전환
+
+| 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
+
+### <a name="properties"></a>properties
+
+| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| --------------- | ------------ | ---------- | --------- |
+| 장치 속성 | 다이 번호   | dieNumber  | number    |
+| 장치 속성 | 장치 위치   | location  | location    |
+| 텍스트            | 제조 일자     | manufacturedIn   | 해당 없음       |
+
+
 
 ## <a name="next-steps"></a>다음 단계
 

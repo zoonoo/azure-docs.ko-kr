@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9795beca93ab4dbbeb1e0e99a50952ea23ca1568
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005488"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172316"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -28,11 +28,11 @@ ms.locfileid: "39005488"
 
 |  | 등록 단계 | 기간 | 세부 정보 |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Microsoft 파트너 네트워크에 등록 | 15분 | [Microsoft 파트너 네트워크에 등록](#register-in-microsoft-partner-network) |  
-| 2 | Microsoft 계정 만들기 <ul>(Azure Marketplace 거래 제품에 필요함, 다른 사용자에 대한 권장)</ul> | 15분 | [Microsoft ID 만들기](#create-a-microsoft-id) |  
-| 3 | 마켓플레이스 등록 양식 제출 | 15분 | [Marketplace 추천 양식 제출](#submit-the-marketplace-nomination-form) |  
-| 4 |  Cloud 파트너 포털에 로그인 | 1-3일 | [Cloud 파트너 포털에 로그인](#sign-into-cloud-partner-portal) |  
-| 5 | Microsoft 개발자 센터(개발자 센터)에 등록(Azure Marketplace 거래 제품용) | 5-10일 | [개발자 센터에 등록](#register-in-dev-center) |  
+| 1 | Microsoft 파트너 네트워크에 등록 | 15분 | [Microsoft 파트너 네트워크에 등록](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Microsoft 계정 만들기 <ul>(Azure Marketplace 거래 제품에 필요함, 다른 사용자에 대한 권장)</ul> | 15분 | [Microsoft ID 만들기](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | 마켓플레이스 등록 양식 제출 | 15분 | [Marketplace 추천 양식 제출](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Cloud 파트너 포털에 로그인 | 1-3일 | [Cloud 파트너 포털에 로그인](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Microsoft 개발자 센터(개발자 센터)에 등록(Azure Marketplace 거래 제품용) | 5-10일 | [개발자 센터에 등록](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Microsoft 파트너 네트워크에 등록  
@@ -65,7 +65,7 @@ Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 장�
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. 마켓플레이스 등록 양식 제출  
 | 15분 |  
-이 간략한 등록 양식을 완료하여 마켓플레이스 게시자가 됩니다. 이 양식에 제출되는 정보는 마켓플레이스 제품을 만들고, 게시 및 관리할 수 있도록 하는 Cloud 파트너 포털의 게시자 계정을 만드는 데 사용됩니다.
+이 간략한 [등록 양식](https://azuremarketplace.microsoft.com/en-us/sell/signup)을 완료하면 마켓플레이스 게시자가 됩니다. 이 양식에 제출되는 정보는 마켓플레이스 제품을 만들고, 게시 및 관리할 수 있도록 하는 Cloud 파트너 포털의 게시자 계정을 만드는 데 사용됩니다.
 
 다음 정보를 포함하여 제공합니다.
 *   Microsoft 파트너 네트워크 ID([파트너 센터](https://partnercenter.microsoft.com/partner/home) 또는 [파트너 멤버 자격 센터](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx)에서 조회할 수 있음)를 포함하는 조직에 대한 세부 정보
@@ -99,7 +99,7 @@ Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 장�
 >$99의 개발자 센터 등록 요금을 면제 받으려면 마켓플레이스 등록 양식을 완료하고 프로모션 코드를 포함하는 메일을 받습니다. 
 
 >[!Important]
->Microsoft 개발자 센터 계정을 만들기 전에 중복 계정을 방지하도록 조직에 개발자 센터 계정이 없는지 확인합니다. 자세한 내용은 [개발자 센터에 등록하는 방법](https://review.docs.microsoft.com/en-us/azure/marketplace/become-publisher?branch=pr-en-us-44571#how-to-register-in-dev-center) 섹션을 참조하세요.
+>Microsoft 개발자 센터 계정을 만들기 전에 중복 계정을 방지하도록 조직에 개발자 센터 계정이 없는지 확인합니다. 자세한 내용은 [개발자 센터에 등록하는 방법](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) 섹션을 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

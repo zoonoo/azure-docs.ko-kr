@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: e955973008f1ba3900deb691426d0409440ad08a
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917730"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214730"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 통과 인증: 미리 보기 인증 에이전트 업그레이드
 
@@ -51,7 +51,7 @@ ms.locfileid: "37917730"
 
 1. 온-프레미스 서버에서 **제어판 -> 프로그램 -> 프로그램 및 기능**으로 이동합니다.
 2. “**Microsoft Azure AD Connect 인증 에이전트**”에 대한 항목이 있는 경우 이 서버에 대해 어떤 조치도 취할 필요가 없습니다.
-3. “**Microsoft Azure AD 응용 프로그램 프록시 커넥터**” 버전 1.5.132.0 이하에 대한 항목이 있는 경우 서버를 수동으로 업그레이드해야 합니다.
+3. “**Microsoft Azure AD 응용 프로그램 프록시 커넥터**”에 대한 항목이 있는 경우 이 서버에서 수동으로 업그레이드해야 합니다.
 
 ![인증 에이전트의 미리 보기 버전](./media/active-directory-aadconnect-pass-through-authentication/pta6.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "37917730"
 업그레이드하기 전에 다음 항목이 준비되었는지 확인합니다.
 
 1. **클라우드 전용 전역 관리자 계정 만들기**: 통과 인증 에이전트가 제대로 작동하지 않는 비상 상황에서는 사용할 클라우드 전용 전역 관리자 계정이 없다면 업그레이드하지 마세요. [클라우드 전용 전역 관리자 계정 추가](../active-directory-users-create-azure-portal.md)에 대해 자세히 알아봅니다. 이 단계를 수행하는 것이 중요하며 테넌트가 잠기지 않도록 합니다.
-2.  **고가용성 보장**: 이전에 완료되지 않은 경우, 로그인 요청에 대해 고가용성을 제공하기 위해 [지침](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability)에 따라 두 번째 독립 실행형 인증 에이전트를 설치합니다.
+2.  **고가용성 보장**: 이전에 완료되지 않은 경우, 로그인 요청에 대해 고가용성을 제공하기 위해 [지침](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability)에 따라 두 번째 독립 실행형 인증 에이전트를 설치합니다.
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Azure AD Connect 서버에서 인증 에이전트 업그레이드
 

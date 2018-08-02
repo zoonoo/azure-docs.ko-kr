@@ -1,5 +1,5 @@
 ---
-title: Azure File Sync(미리 보기)로 등록된 서버 관리 | Microsoft Docs
+title: Azure File Sync에 등록된 서버 관리 | Microsoft Docs
 description: Azure 파일 동기화 저장소 동기화 서비스에서 Windows Server를 등록 및 등록 취소하는 방법을 알아봅니다.
 services: storage
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 7385e8b84668facf8bf44f569a611e7dcdba9a1e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: fde4f7eeb07dff1e44edcabec390ae2921ecf832
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738295"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39160929"
 ---
-# <a name="manage-registered-servers-with-azure-file-sync-preview"></a>Azure File Sync(미리 보기)로 등록된 서버 관리
-Azure File Sync(미리 보기)를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure 파일에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
+# <a name="manage-registered-servers-with-azure-file-sync"></a>Azure File Sync에 등록된 서버 관리
+Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. 이 작업은 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환하여 수행합니다. Windows Server에서 사용할 수 있는 아무 프로토콜이나 사용하여 데이터를 로컬로(SMB, NFS 및 FTPS 포함) 액세스할 수 있으며 세계 전역에 걸쳐 필요한 만큼 캐시를 보유할 수 있습니다.
 
-다음 문서에서는 저장소 동기화 서비스를 사용하여 서버를 등록하고 관리하는 방법을 보여 줍니다. 종단 간 Azure 파일 동기화를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+다음 문서에서는 저장소 동기화 서비스를 사용하여 서버를 등록하고 관리하는 방법을 보여 줍니다. 종단 간 Azure File Sync를 배포하는 방법에 대한 자세한 내용은 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>저장소 동기화 서비스로 서버 등록/등록 취소
 Azure File Sync를 사용하여 서버를 등록하면 Windows Server와 Azure 간에 트러스트 관계가 설정됩니다. 그런 다음 이 관계를 사용하여 Azure 파일 공유(*클라우드 엔드포인트*라고도 함)와 동기화해야 하는 특정 폴더를 나타내는 *서버 엔드포인트*를 서버에 만들 수 있습니다. 
@@ -33,7 +33,7 @@ Azure File Sync를 사용하여 서버를 등록하면 Windows Server와 Azure �
 저장소 동기화 서비스를 사용하여 서버를 등록하려면 먼저 필요한 필수 구성 요소를 갖춘 서버를 준비해야 합니다.
 
 * 서버에서 지원되는 Windows Server 버전을 실행해야 합니다. 자세한 내용은 [지원되는 Windows Server 버전](storage-sync-files-planning.md#supported-versions-of-windows-server)을 참조하세요.
-* 저장소 동기화 서비스가 배포되었는지 확인합니다. 저장소 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure 파일 동기화(미리 보기)를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
+* 저장소 동기화 서비스가 배포되었는지 확인합니다. 저장소 동기화 서비스를 배포하는 방법에 대한 자세한 내용은 [Azure File Sync를 배포하는 방법](storage-sync-files-deployment-guide.md)을 참조하세요.
 * 서버가 인터넷에 연결되어 있고 Azure가 액세스 가능한지 확인합니다.
 * 서버 관리자 UI를 사용하여 관리자에 대한 IE 고급 보안 구성을 사용하지 않도록 설정합니다.
     
@@ -194,6 +194,6 @@ Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -I
 Azure File Sync가 Windows Server 가상화 호스트에서 실행되는 가상 머신에 호스팅되는 경우 저장소 QoS(저장소 서비스 품질)를 사용하여 저장소 IO 사용을 제어할 수 있습니다. 저장소 QoS 정책은 최대(또는 위에서 StorageSyncNetwork 제한이 적용되는 방식과 같은 제한) 또는 최소(또는 예약) 중 하나로 설정할 수 있습니다. 최대 대신 최소를 설정하면 다른 워크로드에서 사용하지 않는 경우 Azure File Sync에서 사용 가능한 저장소 대역폭을 사용하도록 버스트할 수 있습니다. 자세한 내용은 [저장소 서비스 품질](https://docs.microsoft.com/windows-server/storage/storage-qos/storage-qos-overview)을 참조하세요.
 
 ## <a name="see-also"></a>참고 항목
-- [Azure File Sync(미리 보기) 배포 계획](storage-sync-files-planning.md)
-- [Azure File Sync(미리 보기) 배포](storage-sync-files-deployment-guide.md) 
-- [Azure 파일 동기화(미리 보기) 문제 해결](storage-sync-files-troubleshoot.md)
+- [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)
+- [Azure File Sync 배포](storage-sync-files-deployment-guide.md) 
+- [Azure File Sync 문제 해결](storage-sync-files-troubleshoot.md)

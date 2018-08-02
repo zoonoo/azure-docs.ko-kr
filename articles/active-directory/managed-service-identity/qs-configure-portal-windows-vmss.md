@@ -1,6 +1,6 @@
 ---
-title: Azure Portal을 사용하여 Azure 가상 머신 확장 집합에서 MSI 구성
-description: Azure Portal을 사용하여 Azure VMSS에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침입니다.
+title: Azure Portal을 사용하여 Azure 가상 머신 확장 집합에서 관리 서비스 ID 구성
+description: Azure Portal을 사용하여 Azure VMSS에서 관리 서비스 ID를 구성하기 위한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8779600f2c85a8bb309f7b2a8874608170de8877
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 93c532cf2864db28b580303ecefec8b6dbed65f6
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035244"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257762"
 ---
-# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-msi-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신 확장 집합 MSI(관리 서비스 ID) 구성
+# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신 확장 집합 관리 서비스 ID 구성
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,9 +34,10 @@ ms.locfileid: "39035244"
 
 ## <a name="prerequisites"></a>필수 조건
 
-
 - 관리 서비스 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
+- 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
+    - [Virtual Machine 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): 가상 머신 확장 집합에서 시스템이 할당한 관리 ID를 사용하도록 설정하고 제거합니다.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합 생성 시 관리 서비스 ID
 
@@ -44,7 +45,7 @@ ms.locfileid: "39035244"
 
 - [Azure Portal에서 가상 머신 확장 집합 만들기](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-이어서 다음 섹션으로 진행하여 가상 머신 확장 집합에서 MSI를 사용하도록 설정하는 방법에 대해 자세히 알아봅니다.
+그런 후에 다음 섹션으로 진행하여 가상 머신 확장 집합에서 관리 서비스 ID를 사용하도록 설정하는 방법에 대한 자세한 내용을 확인하세요.
 
 ## <a name="enable-managed-service-identity-on-an-existing-azure-vmms"></a>기존 Azure VMMS에서 관리 서비스 ID를 사용하도록 설정
 
@@ -60,7 +61,7 @@ ms.locfileid: "39035244"
 
 ## <a name="remove-managed-service-identity-from-an-azure-virtual-machine-scale-set"></a>Azure 가상 머신 확장 집합에서 관리 서비스 ID 제거
 
-MSI가 더 이상 필요하지 않은 가상 머신 확장 집합이 있는 경우 다음을 수행합니다.
+관리 서비스 ID가 더 이상 필요하지 않은 가상 머신 확장 집합이 있는 경우 다음을 수행합니다.
 
 1. 가상 머신 확장 집합을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 또한 계정이 가상 머신 확장 집합에 대한 쓰기 권한을 부여하는 역할에 속하는지 확인합니다.
 
@@ -76,6 +77,6 @@ MSI가 더 이상 필요하지 않은 가상 머신 확장 집합이 있는 경�
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal을 사용하여 Azure 가상 머신 확장 집합 MSI [액세스 권한을 다른 Azure 리소스에](howto-assign-access-portal.md) 부여합니다.
+- Azure Portal을 사용하여 Azure 가상 머신 확장 집합 관리 서비스 ID [액세스 권한을 다른 Azure 리소스에](howto-assign-access-portal.md) 부여합니다.
 
 다음 설명 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.

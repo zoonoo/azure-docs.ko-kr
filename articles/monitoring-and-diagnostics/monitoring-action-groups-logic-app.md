@@ -1,21 +1,21 @@
 ---
-title: Azure Monitor 경고 및 작업 그룹을 사용하여 복잡한 작업을 트리거하는 방법
+title: Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 description: Azure Monitor 경고를 처리하기 위해 논리 앱 작업을 만드는 방법에 대해 알아봅니다.
 author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 07/18/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 51d47b87f898aa65fe4ee76c312240a50d45231d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 034e708b79bbdf15d7fa628f388402998f49c0d9
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049190"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39161509"
 ---
-# <a name="create-a-logic-app-action"></a>논리 앱 작업 만들기
+# <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
 이 문서에서는 경고가 발생한 경우 Microsoft Teams에 대화를 만들도록 논리 앱을 설정하고 트리거하는 방법을 보여 줍니다.
 
@@ -290,6 +290,9 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
        ![“메트릭 경고 false 조건 게시 작업”](media/monitoring-action-groups/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
 
 - 15단계는 동일합니다. 지침을 따라 논리 앱을 저장하고 작업 그룹을 업데이트합니다.
+
+## <a name="calling-other-applications-besides-microsoft-teams"></a>Microsoft Teams 외에 다른 응용 프로그램 호출
+Logic Apps는 방대한 응용 프로그램 및 데이터베이스에서 작업을 트리거할 수 있는 다양한 커넥터를 제공합니다. Slack, SQL Server, Oracle, Salesforce 등을 예로 들 수 있습니다. 커넥터에 대한 자세한 내용은 [논리 앱 커넥터](../connectors/apis-list.md)를 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 활동 로그 경고의 개요](monitoring-overview-alerts.md)를 확인하고 경고를 받는 방법에 대해 알아보세요.  

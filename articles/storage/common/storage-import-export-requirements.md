@@ -6,14 +6,14 @@ manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 4c6e22f50f4550cb4a6e25960bcc13a4d92e9819
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825070"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188673"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -56,7 +56,7 @@ Azure Import/Export 서비스는 다음과 같은 Azure 저장소 계정을 지�
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어 
 
-Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디스크 및 지원되는 SATA 커넥터가 필요합니다.
+Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디스크가 필요합니다.
 
 ### <a name="supported-disks"></a>지원되는 디스크
 
@@ -73,18 +73,9 @@ Azure Import/Export 서비스의 경우 데이터를 복사할 지원되는 디�
 - 최대 10개의 HDD/SSD.
 - 모든 규모의 HDD/SSD 혼합.
 
-다수의 드라이브가 여러 작업에 분산될 수 있으며, 만들 수 있는 작업 수에 대한 제한은 없습니다. 
+다수의 드라이브가 여러 작업에 분산될 수 있으며, 만들 수 있는 작업 수에 대한 제한은 없습니다. 가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다.
 
-가져오기 작업의 경우 드라이브의 첫 번째 데이터 볼륨만 처리됩니다. 데이터 볼륨은 NTFS로 포맷되어 있어야 합니다.
-
-### <a name="supported-external-usb-adaptors"></a>지원되는 외부 USB 어댑터
-
-하드 드라이브를 준비하고 WAImportExport 도구를 사용하여 데이터를 복사하는 경우, 다음 외부 USB 어댑터(기성품)를 사용할 수 있습니다. 
-- Anker 68UPSATAA-02BU
-- Anker 68UPSHHDS-BU
-- Startech SATADOCK22UE
-- Orico 6628SUS3-C-BK(6628 시리즈)
-- Thermaltake BlacX Hot-Swap SATA 외부 하드 드라이브 도킹 스테이션(USB 2.0 및 eSATA)
+하드 드라이브를 준비하고 WAImportExport 도구를 사용하여 데이터를 복사하는 경우, 외부 USB 어댑터를 사용할 수 있습니다. 대부분의 기성품 USB 3.0 이상 어댑터가 작동해야 합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

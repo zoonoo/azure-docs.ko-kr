@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058095"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257905"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>Azure AD PIM에서 이메일 알림
 
@@ -32,7 +32,7 @@ Azure AD PIM(Privileged Identity Management)에서 주요 이벤트가 발생할
 - 권한 있는 역할이 할당된 경우
 - Azure AD PIM이 사용되도록 설정된 경우
 
-2018년 7월 말부터는 PIM을 통해 보낸 이메일 알림에는 새로운 보낸 사람 이메일 주소 및 새로운 시각적 디자인이 포함됩니다. 이 업데이트는 Azure AD용 PIM 및 Azure 리소스용 PIM 모두에 영향을 줍니다. 이전에 이메일 알림을 트리거한 모든 이벤트는 계속 이메일을 보냅니다. 이 업데이트는 전적으로 기능을 변경하지 않는 시각적 개체 변경 내용입니다.
+2018년 7월 말부터는 PIM을 통해 보낸 이메일 알림에는 새로운 보낸 사람 이메일 주소 및 새로운 시각적 디자인이 포함됩니다. 이 업데이트는 Azure AD용 PIM 및 Azure 리소스용 PIM 모두에 영향을 줍니다. 이전에 이메일 알림을 트리거한 모든 이벤트는 계속 이메일을 보냅니다. 일부 이메일에서는 대상으로 지정된 정보를 제공하는 콘텐츠를 업데이트했습니다.
 
 ## <a name="sender-email-address"></a>보낸 사람 이메일 주소
 
@@ -45,6 +45,12 @@ Azure AD PIM(Privileged Identity Management)에서 주요 이벤트가 발생할
 
 - 이메일 주소: **azureadnotifications@microsoft.com**
 - 표시 이름: Microsoft Azure AD 알림 서비스
+
+## <a name="email-subject-line"></a>이메일 제목 줄
+
+2018년 7월 말부터 Azure AD 및 Azure 리소스 역할 모두에 대한 이메일 알림의 제목 줄에는 **PIM** 접두사가 포함됩니다. 예를 들면 다음과 같습니다.
+
+- PIM: Alain Charon에게는 Backup 읽기 권한자 역할이 할당되었습니다.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>Azure AD 역할에 대한 PIM 이메일
 

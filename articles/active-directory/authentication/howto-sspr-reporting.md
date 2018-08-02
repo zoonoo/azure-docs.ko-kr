@@ -4,18 +4,18 @@ description: Azure AD 셀프 서비스 암호 재설정 이벤트에 대한 보�
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e2c4c59e52f277358027f5d228fdf43822822992
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044531"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258799"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -54,6 +54,10 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 6. 이 보기를 암호 재설정 관련 이벤트로만 필터링하려면 창 위쪽의 **필터** 단추를 선택합니다.
 7. **필터** 메뉴에서 **범주** 드롭다운 목록을 선택하고, **셀프 서비스 암호 관리** 범주 유형으로 변경합니다.
 8. 필요에 따라 관심 있는 특정 **활동**을 선택하여 목록을 추가로 필터링합니다.
+
+### <a name="converged-registration-preview"></a>등록 수렴(미리 보기)
+
+수렴된 등록의 공개 미리 보기에 참여하는 경우 감사 로그에서 사용자 작업에 관한 정보를 **인증 방법** 범주 아래에서 찾을 수 있습니다.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Azure Portal의 보고서 열 설명
 

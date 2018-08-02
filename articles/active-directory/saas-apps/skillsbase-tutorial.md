@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 84aac0017496c50f0006fd6e184537e4c14f10c7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e11ba8ca9c4ad17b2ade909bb474ad2d1fcf4410
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057615"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>자습서: Skills Base와 Azure Active Directory 통합
 
@@ -110,7 +110,7 @@ Skills Base에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
     **로그온 URL** 텍스트 상자에서 다음 패턴으로 URL을 입력합니다. `https://app.skills-base.com/o/<customer-unique-key>`
 
     > [!NOTE] 
-    > 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Skills Base 클라이언트 지원 팀](mailto:support@skills-base.com)에 문의하세요.
+    > Skills Base 응용 프로그램에서 로그온 URL을 가져올 수 있습니다. 관리자로 로그인하여 관리자-> 설정-> 인스턴스 세부 사항 -> 바로 가기 링크로 이동하세요. 로그온 URL을 복사하여 위의 텍스트 상자에 붙여넣습니다.
 
 4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
@@ -141,7 +141,6 @@ Skills Base에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 
     나. **저장**을 클릭합니다.
     
-
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션의 목적은 Azure Portal에서 Britta Simon이라는 테스트 사용자를 만드는 것입니다.
@@ -179,7 +178,7 @@ Skills Base에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다
 이 섹션은 Skills Base에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Skills Base는 적시에 프로비전을 지원하며 기본적으로 사용하도록 설정합니다. 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Skills Base에 액세스하는 동안 만들어질 수 있습니다.
 
 >[!Note]
->사용자를 수동으로 만들어야 하는 경우, [Skills Base 클라이언트 지원 팀](mailto:support@skills-base.com)에 문의하세요.
+>사용자를 수동으로 만들어야 하는 경우 [여기](http://wiki.skills-base.net/index.php?title=Adding_people_and_enabling_them_to_log_in)의 지침을 따릅니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 

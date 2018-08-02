@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 06179d42d2904a4d82f466be0719768f9f010858
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1ae7286bb08379b12f3e5b35e97a5f9538c605f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868561"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238151"
 ---
 # <a name="azure-active-directory-reporting"></a>Azure Active Directory 보고
 
@@ -38,7 +38,6 @@ Azure Active Directory 보고 기능을 사용하면 환경이 작동하는 방�
 - 작업 보고서
 
 ![보고](./media/active-directory-reporting-azure-portal/01.png)
-
 
 
 ## <a name="security-reports"></a>보안 보고서

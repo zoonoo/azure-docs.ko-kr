@@ -10,18 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: e93b241c79a50380f4ef1538dfbf7615232e6c49
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: ffd13f5077ca91537d8397c1940521f475133a03
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096512"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248875"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
 Azure Cosmos DB ODBC 드라이버를 사용하면 SQL Server Integration Services, Power BI Desktop 및 Tableau와 같은 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결할 수 있으므로 해당 솔루션에서 Azure Cosmos DB 데이터 시각화를 분석하고 만들 수 있습니다.
 
 Azure Cosmos DB ODBC 드라이버는 ODBC 3.8 규격으로, ANSI SQL-92 구문을 지원합니다. 이 드라이버는 Azure Cosmos DB에서 데이터를 다시 정규화하는 데 도움이 되는 다양한 기능을 제공합니다. 이 드라이버를 사용하여 Azure Cosmos DB의 데이터를 테이블 및 뷰로 나타낼 수 있습니다. 이 드라이버를 사용하면 테이블 및 뷰에 대해 쿼리별 그룹화, 삽입, 업데이트 및 삭제 등의 SQL 작업을 수행할 수 있습니다.
+
+> [!NOTE]
+> Azure Cosmos DB와 ODBC 드라이버 연결은 현재 Azure Cosmos DB SQL API 계정에서만 지원됩니다.
 
 ## <a name="why-do-i-need-to-normalize-my-data"></a>데이터를 정규화해야 하는 이유는 무엇인가요?
 Azure Cosmos DB는 스키마 없는 데이터베이스이기 때문에 응용 프로그램이 즉석에서 해당 데이터 모델을 반복할 수 있고 엄격한 스키마로 국한되지 않으므로 앱을 빠르게 개발할 수 있습니다. 단일 Azure Cosmos DB 데이터베이스에 다양한 구조의 JSON 문서가 포함될 수 있습니다. 이러한 특징은 신속한 응용 프로그램 개발에 유용하지만 데이터 분석 및 BI 도구를 사용하여 데이터 보고서를 분석하고 만들려는 경우 데이터를 평면화하고 특정 스키마를 따르도록 할 필요가 있습니다.

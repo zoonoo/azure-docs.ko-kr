@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 3204329dc7c9efe2b0ba0ae05d17bc93d51620b4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923471"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171986"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Azure로의 Hyper-V 복제용 지원 행렬
 
@@ -48,22 +48,27 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#failed-over-azure
 게스트 운영 체제 | Azure에서 지원하는 모든 게스트 OS.<br/><br/> Windows Server 2016 Nano Server는 지원되지 않습니다.
 
 
+## <a name="vmdisk-management"></a>VM/디스크 관리
 
+**작업** | **세부 정보**
+--- | ---
+복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고, 변경 작업을 수행하고, VM에 복제를 다시 사용하도록 설정.
+복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고, 변경 작업을 수행하고, VM에 복제를 다시 사용하도록 설정.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 네트워크 구성
 
 **구성 요소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-호스트 네트워크: NIC 팀 | 예
-호스트 네트워크: VLAN | 예
-호스트 네트워크: IPv4 | 예
+호스트 네트워크: NIC 팀 | yes
+호스트 네트워크: VLAN | yes
+호스트 네트워크: IPv4 | yes
 호스트 네트워크: IPv6 | 아니오
 게스트 VM 네트워크: NIC 팀 | 아니오
-게스트 VM 네트워크: IPv4 | 예
+게스트 VM 네트워크: IPv4 | yes
 게스트 VM 네트워크: IPv6 | 아니오
-게스트 VM 네트워크: 고정 IP(Windows) | 예
+게스트 VM 네트워크: 고정 IP(Windows) | yes
 게스트 VM 네트워크: 고정 IP(Linux) | 아니오
-게스트 VM 네트워크: 다중 NIC | 예
+게스트 VM 네트워크: 다중 NIC | yes
 
 
 
@@ -71,15 +76,15 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#failed-over-azure
 
 **구성 요소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-Azure ExpressRoute | 예 | 예
-ILB | 예 | 예
-ELB | 예 | 예
-Azure Traffic Manager | 예 | 예
-다중 NIC | 예 | 예
-예약된 IP | 예 | 예
-IPv4 | 예 | 예
-원본 IP 주소 유지 | 예 | 예
-Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | 예 | 예
+Azure ExpressRoute | yes | yes
+ILB | yes | yes
+ELB | yes | yes
+Azure Traffic Manager | yes | yes
+다중 NIC | yes | yes
+예약된 IP | yes | yes
+IPv4 | yes | yes
+원본 IP 주소 유지 | yes | yes
+Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | yes | yes
 가속 네트워킹 | 아니오 | 아니오
 
 
@@ -88,18 +93,18 @@ Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | �
 **Storage** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- | ---
 NFS | 해당 없음 | 해당 없음
-SMB 3.0 | 예 | 예
-SAN(ISCSI) | 예 | 예
-다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | 예 | 예
+SMB 3.0 | yes | yes
+SAN(ISCSI) | yes | yes
+다중 경로(MPIO). 테스트에 사용된 소프트웨어:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | yes | yes
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 저장소
 
 **Storage** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 VMDK | 해당 없음 | 해당 없음
-VHD/VHDX | 예 | 예
-2세대 VM | 예 | 예
-EFI/UEFI| 예 | 예
+VHD/VHDX | yes | yes
+2세대 VM | yes | yes
+EFI/UEFI| yes | yes
 공유 클러스터 디스크 | 아니오 | 아니오
 암호화된 디스크 | 아니오 | 아니오
 NFS | 해당 없음 | 해당 없음
@@ -107,25 +112,25 @@ SMB 3.0 | 아니오 | 아니오
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
-디스크: 4K 논리/512바이트 물리 섹터 | 예 |  예
-스트라이프 디스크 포함 볼륨 1TB 이상<br/><br/> 논리 볼륨 관리(LVM) | 예 | 예
-저장소 공간 | 예 | 예
+디스크: 4K 논리/512바이트 물리 섹터 | yes |  yes
+스트라이프 디스크 포함 볼륨 1TB 이상<br/><br/> 논리 볼륨 관리(LVM) | yes | yes
+저장소 공간 | yes | yes
 디스크 핫 추가/제거 | 아니오 | 아니오
-디스크 제외 | 예 | 예
-다중 경로(MPIO) | 예 | 예
+디스크 제외 | yes | yes
+다중 경로(MPIO) | yes | yes
 
 ## <a name="azure-storage"></a>Azure Storage
 
 **구성 요소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-로컬 중복 저장소 | 예 | 예
-지역 중복 저장소 | 예 | 예
-읽기 액세스 지역 중복 저장소 | 예 | 예
+로컬 중복 저장소 | yes | yes
+지역 중복 저장소 | yes | yes
+읽기 액세스 지역 중복 저장소 | yes | yes
 쿨 저장소 | 아니오 | 아니오
 핫 저장소| 아니오 | 아니오
 블록 Blob | 아니오 | 아니오
-미사용 암호화(SSE)| 예 | 예
-Premium Storage | 예 | 예
+미사용 암호화(SSE)| yes | yes
+Premium Storage | yes | yes
 Import/Export 서비스 | 아니오 | 아니오
 대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니오 | 아니오
 
@@ -134,8 +139,8 @@ Import/Export 서비스 | 아니오 | 아니오
 
 **기능** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
-가용성 집합 | 예 | 예
-HUB | 예 | 예  
+가용성 집합 | yes | yes
+HUB | yes | yes  
 관리 디스크 | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음 | 예, 장애 조치(failover)용<br/><br/> 관리 디스크 장애 복구(failback)는 지원되지 않음
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항

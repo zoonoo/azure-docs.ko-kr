@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 58f363c522f3e5abe6bf49a2aebafe4e953e00df
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628592"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205139"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Azure IoT Central 응용 프로그램에 Raspberry Pi 연결(C#)
 
@@ -29,53 +29,24 @@ ms.locfileid: "34628592"
 * **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](howto-create-application.md)를 참조하세요.
 * Raspbian 운영 체제를 실행하는 Raspberry Pi 장치.
 
-**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다.
 
-### <a name="telemetry-measurements"></a>원격 분석 측정값
+## <a name="sample-devkits-application"></a>**샘플 Devkits** 응용 프로그램
 
-| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다. 
 
-### <a name="settings"></a>설정
+- 장치에 대한 측정값 **습도**, **온도**, **압력**, **Magnometer**(X, Y, Z 축을 따라 측정됨), **Accelorometer**(X, Y, Z 축을 따라 측정됨) 및 **Gyroscope**(X, Y, Z 축을 따라 측정됨)를 포함하는 원격 분석입니다.
+- **전압**, **현재**, **팬 속도** 및 **IR** 토글을 보여주는 설정입니다.
+- 장치 속성 **다이 번호** 및 **위치** 클라우드 속성을 포함하는 속성입니다.
 
-숫자 설정
 
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
-| 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+장치 템플릿 구성에 대한 자세한 내용은 [Raspberry PI 장치 템플릿 세부 정보](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details) 참조
 
-설정 전환
 
-| 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
-
-### <a name="properties"></a>properties
-
-| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
-| --------------- | ------------ | ---------- | --------- |
-| 장치 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | location   | 해당 없음       |
-
-### <a name="add-a-real-device"></a>실제 장치 추가
+## <a name="add-a-real-device"></a>실제 장치 추가
 
 Azure IoT Central 응용 프로그램에서 **Raspberry Pi** 장치 템플릿으로 실제 장치를 추가하고 장치 연결 문자열을 기록해 둡니다. 자세한 내용은 [Azure IoT Central 응용 프로그램에 실제 장치 추가](tutorial-add-device.md)를 참조하세요.
 
-## <a name="create-your-net-application"></a>.NET 응용 프로그램 만들기
+### <a name="create-your-net-application"></a>.NET 응용 프로그램 만들기
 
 데스크톱 컴퓨터에서 장치 응용 프로그램을 만들고 테스트합니다.
 
@@ -335,6 +306,51 @@ Visual Studio Code를 사용하여 다음 단계를 완료할 수 있습니다. 
     다음 스크린샷은 설정 변경 내용을 수신하는 Raspberry Pi를 보여줍니다.
 
     ![설정 변경 내용을 수신하는 Raspberry Pi](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+
+
+## <a name="raspberry-pi-device-template-details"></a>Raspberry PI 장치 템플릿 세부 정보
+
+**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Raspberry Pi** 장치가 포함됩니다.
+
+### <a name="telemetry-measurements"></a>원격 분석 측정값
+
+| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidity       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+### <a name="settings"></a>설정
+
+숫자 설정
+
+| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
+| 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+설정 전환
+
+| 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
+
+### <a name="properties"></a>properties
+
+| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| --------------- | ------------ | ---------- | --------- |
+| 장치 속성 | 다이 번호   | dieNumber  | number    |
+| 텍스트            | 위치     | location   | 해당 없음       |
 
 ## <a name="next-steps"></a>다음 단계
 

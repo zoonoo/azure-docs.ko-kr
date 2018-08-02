@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: wesmc
-ms.openlocfilehash: db488f759752880a47a78dfeec13b14f65bd503c
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 6733891213f15e9ceaf08ef7fb50380db47a695f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910090"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259197"
 ---
 # <a name="import-and-export-data-in-azure-redis-cache"></a>Azure Redis Cache에서 데이터 가져오기 및 내보내기
 Import/Export는 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Redis Cache 데이터베이스(RDB) 스냅숏을 가져오고 내보내는 방식으로, Azure Redis Cache로 데이터를 가져오고 Azure Redis Cache의 데이터를 내보낼 수 있는 Azure Redis Cache 데이터 관리 작업입니다. 
@@ -117,7 +117,7 @@ Import/Export는 프리미엄 가격 책정 계층에서만 사용할 수 있습
 예, Azure Redis Cache 인스턴스에서 내보낸 데이터를 가져오는 것 외에, Linux, Windows, 또는 Amazon Web Services 같은 클라우드 공급자를 비롯한 모든 환경 또는 클라우드에서 실행되는 Redis 서버의 RDB 파일을 가져올 수 있습니다. 이렇게 하려면, 원하는 Redis 서버의 RDB 파일을 Azure Storage 계정의 페이지 또는 블록 Blob으로 업로드한 다음, 프리미엄 Azure Redis Cache 인스턴스로 가져옵니다. 예를 들어, 프로덕션 캐시의 데이터를 내보내서 마이그레이션 또는 테스트를 위한 스테이징 환경의 일부로 사용되는 캐시로 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> 페이지 Blob을 사용할 때 Azure Redis Cache 이외의 Redis 서버에서 내보낸 데이터를 성공적으로 가져오려면 페이지 Blob 크기가 512바이트 경계에 맞아야 합니다. 필요한 바이트 패딩을 수행하는 샘플 코드는 [샘플 페이지 Blog 업로드](https://github.com/JimRoberts-MS/SamplePageBlobUpload)(영문)를 참조하세요.
+> 페이지 Blob을 사용할 때 Azure Redis Cache 이외의 Redis 서버에서 내보낸 데이터를 성공적으로 가져오려면 페이지 Blob 크기가 512바이트 경계에 맞아야 합니다. 필요한 바이트 패딩을 수행하는 샘플 코드는 [샘플 페이지 Blob 업로드](https://github.com/JimRoberts-MS/SamplePageBlobUpload)를 참조하세요.
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: e5f6f423697d90e889ebde2cd203891e34278b3c
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.openlocfilehash: b41fc5c41b2e0d1e5d5ba3e39c7f6063cf57c6c2
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984574"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205785"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>Azure Redis Cache 문제를 해결하는 방법
 이 문서에서는 다음 범주의 Azure Redis Cache 문제를 해결하는 것에 대한 지침을 제공합니다.
@@ -249,7 +249,7 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
       retryTimeoutInMilliseconds="3000" />
 
 
-1. `Used Memory RSS`와 `Used Memory`를 [모니터링](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)하여Azure Redis Cache 서버의 메모리 사용량을 확인합니다. 제거 정책이 구현되었다면, `Used_Memory` 가 캐시 크기에 도달할 때 Redis는 제거 키를 작동합니다. 이상적으로 `Used Memory RSS`는 `Used memory`보다 약간만 높아야 합니다. 큰 차이는 메모리 조각화 (내부 또는 외부)가 심함을 의미합니다. `Used Memory RSS`가 `Used Memory`보다 작다면 운영 체제가 캐시 메모리의 일부를 스왑했음을 의미합니다. 이 스왑이 발생하는 경우 일부 상당한 대기 시간을 예상할 수 있습니다. Redis는 할당이 메모리 페이지에 매핑되는 방법을 제어하지 않기 때문에 높은 `Used Memory RSS` 은 흔히 메모리 사용량에서 스파이크의 결과로 나타납니다. Redis가 메모리를 놓아주면, 메모리는 할당자에게 돌아가고, 할당자는 메모리를 시스템에 돌려주거나 그러지 않을 수 있습니다. 운영 체제가 보고하는 `Used Memory` 값과 메모리 소비량 사이에 차이가 있을 수 있습니다. Redis가 메모리를 사용되고 사용하고 놓아줬지만 시스템으로 돌려지지 않았습니다. 메모리 문제를 완화하려면 다음 방법들을 수행할 수 있습니다.
+1. `Used Memory RSS`와 `Used Memory`를 [모니터링](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)하여Azure Redis Cache 서버의 메모리 사용량을 확인합니다. 제거 정책이 구현되었다면, `Used_Memory` 가 캐시 크기에 도달할 때 Redis는 제거 키를 작동합니다. 이상적으로 `Used Memory RSS`는 `Used memory`보다 약간만 높아야 합니다. 큰 차이는 메모리 조각화(내부 또는 외부)가 심함을 의미합니다. `Used Memory RSS`가 `Used Memory`보다 작다면 운영 체제가 캐시 메모리의 일부를 스왑했음을 의미합니다. 이 스왑이 발생하는 경우 일부 상당한 대기 시간을 예상할 수 있습니다. Redis는 할당이 메모리 페이지에 매핑되는 방법을 제어하지 않기 때문에 높은 `Used Memory RSS` 은 흔히 메모리 사용량에서 스파이크의 결과로 나타납니다. Redis가 메모리를 놓아주면, 메모리는 할당자에게 돌아가고, 할당자는 메모리를 시스템에 돌려주거나 그러지 않을 수 있습니다. 운영 체제가 보고하는 `Used Memory` 값과 메모리 소비량 사이에 차이가 있을 수 있습니다. Redis가 메모리를 사용되고 사용하고 놓아줬지만 시스템으로 돌려지지 않았습니다. 메모리 문제를 완화하려면 다음 방법들을 수행할 수 있습니다.
    
    * 캐시를 더 큰 크기로 업그레이드하여 시스템에서 메모리 제한을 겪지 않도록 합니다.
    * 키에 만료 시간을 설정하여 이전 값이 사전에 제거되게 합니다.
@@ -258,7 +258,8 @@ StackExchange.Redis는 기본값이 1000ms인 동기 작업에 대해 `synctimeo
    자세한 내용은 [서버 쪽의 메모리 부족](#memory-pressure-on-the-server)을 참조하세요.
 
 ## <a name="additional-information"></a>추가 정보
-* [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
+* 
+  [어떤 Redis Cache 제품 및 크기를 사용해야 하나요?](cache-faq.md#what-redis-cache-offering-and-size-should-i-use)
 * [내 캐시의 성능을 어떻게 벤치마크 및 테스트할 수 있나요?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [어떻게 Redis 명령을 실행할 수 있나요?](cache-faq.md#how-can-i-run-redis-commands)
 * [Azure Redis Cache를 모니터링하는 방법](cache-how-to-monitor.md)

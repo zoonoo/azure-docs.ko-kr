@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436708"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258001"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 Event Hubs로 스트림
 다음을 수행하여 모든 응용 프로그램에 거의 실시간으로 [Azure 활동 로그](monitoring-overview-activity-logs.md)를 스트리밍할 수 있습니다.
@@ -34,7 +34,7 @@ Event Hubs 네임스페이스가 없는 경우 먼저 만들어야 합니다. �
 
 공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. 현재, Event Hubs로 스트리밍하려면 **관리**, **보내기** 및 **수신** 권한이 필요합니다. Azure Portal에서 Event Hubs 네임스페이스에 대한 **구성** 탭 아래에서 Event Hubs 네임스페이스에 대한 공유 액세스 정책을 만들거나 수정할 수 있습니다. 
 
-스트리밍을 포함할 활동 로그의 로그 프로필을 업데이트하려면 변경하는 사용자에게 Event Hubs 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다. 설정을 구성하는 사용자에게 두 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있는 한, Event Hubs 네임스페이스가 로그를 내보내는 구독과 동일한 구독이 아니어도 됩니다.
+스트리밍을 포함할 활동 로그의 로그 프로필을 업데이트하려면 변경하는 사용자에게 Event Hubs 권한 부여 규칙에 대한 ListKey 권한이 있어야 합니다. 설정을 구성하는 사용자에게 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있다면 Event Hubs 네임스페이스가 로그를 내보내는 구독과 동일한 구독에 위치하지 않아도 됩니다. 구독은 모두 동일한 AAD 테넌트에 위치합니다.
 
 ### <a name="via-the-azure-portal"></a>Azure Portal을 통해
 1. 포털 왼쪽에 있는 **모든 서비스** 검색을 사용하여 **활동 로그** 섹션으로 이동합니다.
@@ -53,8 +53,9 @@ Event Hubs 네임스페이스가 없는 경우 먼저 만들어야 합니다. �
    > **모든 지역** 이외의 지역을 선택하면 수신해야 하는 중요 이벤트가 누락될 수 있습니다. 활동 로그는 글로벌(비지역) 로그이므로 대부분의 이벤트에는 연결된 지역이 없습니다. 
    >
 
-4. **저장**을 선택하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
-5. 여러 구독이 있는 경우 이 작업을 반복하고 모든 데이터를 동일한 Event Hub로 보냅니다.
+4. **Azure Event Hubs** 옵션을 클릭하고, 로그를 보내야 하는 Event Hubs 네임스페이스를 선택한 다음, **확인**을 클릭합니다.
+5. **저장**을 선택하여 이러한 설정을 저장합니다. 해당 설정이 구독에 즉시 적용됩니다.
+6. 여러 구독이 있는 경우 이 작업을 반복하고 모든 데이터를 동일한 Event Hub로 보냅니다.
 
 ### <a name="via-powershell-cmdlets"></a>PowerShell cmdlet을 통해
 로그 프로필이 이미 있으면 먼저 기존 로그 프로필을 제거한 다음, 새 로그 프로필을 생성해야 합니다.

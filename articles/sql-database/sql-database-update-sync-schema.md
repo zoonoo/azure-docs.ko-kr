@@ -10,12 +10,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: a39e060708514fdca11a5d89858486b442a18309
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: cc1c9c9385d34f317ff911d131058b9210065edf
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019590"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237046"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화
 
@@ -24,7 +24,7 @@ SQL 데이터 동기화를 사용하면 Azure SQL Database와 온-프레미스 S
 이 문서에서는 스키마 변경을 모든 SQL 데이터 동기화 엔드포인트에 자동으로 복제하는 솔루션을 소개합니다.
 1. 이 솔루션은 DDL 트리거를 사용하여 스키마 변경 내용을 추적합니다.
 2. 트리거는 스키마 변경 명령을 추적 테이블에 삽입합니다.
-3. 이 추적 테이블 테이블은 데이터 동기화 서비스를 사용하여 모든 엔드포인트에 동기화됩니다.
+3. 이 추적 테이블은 데이터 동기화 서비스를 사용하여 모든 엔드포인트에 동기화됩니다.
 4. 삽입 후 DML 트리거는 다른 엔드포인트에서 스키마 변경 내용을 적용하는 데 사용됩니다.
 
 이 문서에서는 스키마 변경의 예로 ALTER TABLE을 사용하지만 이 솔루션은 다른 유형의 스키마 변경에도 사용할 수 있습니다.

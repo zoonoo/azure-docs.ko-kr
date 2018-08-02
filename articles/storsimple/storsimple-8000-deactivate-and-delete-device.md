@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2017
+ms.date: 07/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a2b764e76cd1987c83e7be38d365c1dfa8513db9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108461"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214791"
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>StorSimple 장치 비활성화 및 삭제
 
@@ -109,8 +109,8 @@ StorSimple Cloud Appliance를 포털에서 비활성화하면 가상 컴퓨터 �
 비활성화하면 다음 작업이 진행됩니다.
 
 * StorSimple Cloud Appliance가 서비스에서 제거됩니다.
-* StorSimple Cloud Appliance의 가상 컴퓨터가 삭제됩니다.
-* OS 디스크 및 StorSimple Cloud Appliance에 대해 만든 데이터 디스크가 제거됩니다.
+* StorSimple Cloud Appliance의 가상 머신이 삭제됩니다.
+* OS 디스크 및 StorSimple Cloud Appliance에 대해 만든 데이터 디스크가 유지됩니다. 이러한 엔터티를 사용하지 않는 경우 수동으로 삭제해야 합니다.
 * 프로비전 중 만든 호스티드 서비스 및 Virtual Network는 유지됩니다. 이러한 엔터티를 사용하지 않는 경우 수동으로 삭제해야 합니다.
 * StorSimple Cloud Appliance에서 만든 클라우드 스냅숏은 유지됩니다.
 

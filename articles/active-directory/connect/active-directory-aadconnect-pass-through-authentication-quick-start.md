@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2018
+ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fc98f15303f23937d58131de971d5c60017c9034
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917713"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214985"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -29,9 +29,9 @@ ms.locfileid: "37917713"
 Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-프레미스와 클라우드 기반 응용 프로그램 둘 다에서 동일한 암호로 로그인할 수 있습니다. 통과 인증은 사용자의 암호를 온-프레미스 Active Directory와 직접 비교하여 유효성을 검사하고 사용자를 로그인합니다.
 
 >[!IMPORTANT]
->미리 보기 버전을 통해 이 기능을 사용하는 경우 [Azure Active Directory 통과 인증: 미리 보기 인증 에이전트 업그레이드](./active-directory-aadconnect-pass-through-authentication-upgrade-preview-authentication-agents.md)에 제공된 지침을 사용하여 이전 버전의 인증 에이전트를 업데이트해야 합니다.
+>AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 경우 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx)에 게시된 자세한 배포 가이드를 따르는 것이 좋습니다.
 
-통과 인증을 배포하려면 다음 지침을 따릅니다.
+통과 인증을 테넌트에 배포하려면 다음 지침을 따릅니다.
 
 ## <a name="step-1-check-the-prerequisites"></a>1단계: 필수 구성 요소 확인
 
@@ -50,7 +50,11 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
 
-3. 독립 실행형 인증 에이전트를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 추가 서버를 찾습니다. 인증 에이전트 버전이 1.5.193.0 이상이어야 합니다. 이 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
+3. 독립 실행형 인증 에이전트를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 하나 이상의 추가 서버를 찾습니다. 이러한 추가 서버는 로그인 요청의 고가용성을 보장하기 위해 필요합니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
+
+    >[!IMPORTANT]
+    >프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 12개로 지정된 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
+
 4. 서버와 Azure AD 사이에 방화벽이 있는 경우 다음 항목을 구성합니다.
    - 인증 에이전트가 다음 포트를 통해 Azure AD에 대한 *아웃바운드* 요청을 만들 수 있는지 확인합니다.
    
@@ -62,32 +66,14 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
     방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이나 프록시에서 DNS 허용 목록을 허용하면 **\*.msappproxy.net** 및 **\*.servicebus.windows.net**에 대한 연결을 허용 목록에 추가합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com**에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
-   - 인증서 유효성 검사를 위해 **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** 및 **www.microsoft.com:80** URL을 차단 해제합니다. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용됩니다. URL 차단이 이미 해제되어 있을 수도 있습니다.
+   - 인증서 유효성 검사를 위해 **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80** 및 **www.microsoft.com:80** URL을 차단 해제합니다. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
 
-## <a name="step-2-enable-exchange-activesync-support-optional"></a>2단계: Exchange ActiveSync 지원 활성화(선택 사항)
-
-Exchange ActiveSync 지원을 활성화하려면 다음 지침을 따릅니다.
-
-1. [Exchange PowerShell](https://technet.microsoft.com/library/mt587043(v=exchg.150).aspx)을 사용하여 다음 명령을 실행합니다.
-```
-Get-OrganizationConfig | fl per*
-```
-
-2. `PerTenantSwitchToESTSEnabled` 설정 값을 확인합니다. 값이 **true**이면 테넌트가 올바르게 구성된 것입니다. 일반적으로 대부분의 고객이 이 경우에 해당합니다. 값이 **false**인 경우 다음 명령을 실행합니다.
-```
-Set-OrganizationConfig -PerTenantSwitchToESTSEnabled:$true
-```
-
-3. `PerTenantSwitchToESTSEnabled` 설정 값이 이제 **true**로 설정되었는지 확인합니다. 한 시간을 기다린 후 다음 단계로 넘어갑니다.
-
-이 단계를 진행하는 동안 문제가 발생하면 [문제 해결 가이드](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#exchange-activesync-configuration-issues)를 참조하세요.
-
-## <a name="step-3-enable-the-feature"></a>3단계: 기능 활성화
+## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
 [Azure AD Connect](active-directory-aadconnect.md)를 통해 통과 인증을 사용하도록 설정합니다.
 
 >[!IMPORTANT]
->Azure AD Connect 주 서버나 준비 서버에서 통과 인증을 사용하도록 설정할 수 있습니다. 주 서버에서 설정해야 합니다.
+>Azure AD Connect 주 서버나 준비 서버에서 통과 인증을 사용하도록 설정할 수 있습니다. 주 서버에서 사용하도록 설정하는 것이 좋습니다.
 
 Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](active-directory-aadconnect-get-started-custom.md)를 선택합니다. **사용자 로그인** 페이지에서 **통과 인증**을 **로그온 방법**으로 선택합니다. 성공적으로 완료되면 통과 인증 에이전트가 Azure AD Connect와 동일한 서버에 설치됩니다. 또한 테넌트에서 통과 인증 기능이 사용됩니다.
 
@@ -98,9 +84,9 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 ![Azure AD Connect: 사용자 로그인 변경](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 
 >[!IMPORTANT]
->통과 인증은 테넌트 수준 기능입니다. 기능을 켜면 테넌트의 _모든_ 관리되는 도메인에서 사용자 로그인에 영향을 줍니다. AD FS(Active Directory Federation Services)에서 통과 인증으로 전환하는 경우 적어도 12시간 이상 기다린 후 AD FS 인프라를 종료해야 합니다. 이 대기 시간은 전환하는 동안 사용자가 Exchange ActiveSync에 계속 로그인할 수 있도록 유지하기 위한 시간입니다.
+>통과 인증은 테넌트 수준 기능입니다. 기능을 켜면 테넌트의 _모든_ 관리되는 도메인에서 사용자 로그인에 영향을 줍니다. AD FS(Active Directory Federation Services)에서 통과 인증으로 전환하는 경우 적어도 12시간 이상 기다린 후 AD FS 인프라를 종료해야 합니다. 이 대기 시간은 전환하는 동안 사용자가 Exchange ActiveSync에 계속 로그인할 수 있도록 유지하기 위한 시간입니다. AD FS에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 도움말은 [여기](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx)에 게시된 자세한 배포 가이드를 확인합니다.
 
-## <a name="step-4-test-the-feature"></a>4단계: 기능 테스트
+## <a name="step-3-test-the-feature"></a>3단계: 기능 테스트
 
 다음 지침에 따라 통과 인증을 올바르게 설정했는지 확인합니다.
 
@@ -116,9 +102,12 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 이 단계에서는 테넌트에 있는 모든 관리되는 도메인의 사용자가 통과 인증을 사용하여 로그인할 수 있습니다. 하지만 페더레이션된 도메인의 사용자는 AD FS 또는 이전에 구성한 다른 페더레이션 공급자를 사용하여 계속 로그인합니다. 도메인을 페더레이션된 도메인에서 관리되는 도메인으로 전환하면 해당 도메인의 모든 사용자가 자동으로 통과 인증을 사용하여 로그인하기 시작합니다. 통과 인증 기능은 클라우드 전용 사용자에게 영향을 주지 않습니다.
 
-## <a name="step-5-ensure-high-availability"></a>5단계: 고가용성 보장
+## <a name="step-4-ensure-high-availability"></a>4단계: 고가용성 보장
 
-프로덕션 환경에 통과 인증을 배포하려는 경우 하나 이상의 독립 실행형 인증 에이전트를 설치해야 합니다. 이러한 인증 에이전트를 Azure AD Connect를 실행하는 서버 _이외의_ 서버에 설치합니다. 이렇게 설치하면 사용자 로그인 요청에 대해 고가용성이 제공됩니다.
+프로덕션 환경에 통과 인증을 배포하려는 경우 독립 실행형 인증 에이전트를 추가 설치해야 합니다. 이러한 인증 에이전트를 Azure AD Connect를 실행하는 서버 _이외의_ 서버에 설치합니다. 이렇게 설치하면 사용자 로그인 요청에 대해 고가용성이 제공됩니다.
+
+>[!IMPORTANT]
+>프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 12개로 지정된 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
 
 다음 지침에 따라 인증 에이전트 소프트웨어를 다운로드합니다.
 
@@ -132,7 +121,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 ![Azure Active Directory 관리 센터 - 에이전트 다운로드 창](./media/active-directory-aadconnect-pass-through-authentication/pta10.png)
 
 >[!NOTE]
->[여기](https://aka.ms/getauthagent)에서 인증 에이전트 소프트웨어를 직접 다운로드할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의합니다.
+>[인증 에이전트 소프트웨어를 직접 다운로드](https://aka.ms/getauthagent)할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의합니다.
 
 독립 실행형 인증 에이전트를 배포하는 방법에는 다음 두 가지가 있습니다.
 
@@ -152,6 +141,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>다음 단계
+- [AD FS에서 통과 인증으로 마이그레이션](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [현재 제한 사항](active-directory-aadconnect-pass-through-authentication-current-limitations.md): 현재 통과 인증이 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [기술 심층 분석](active-directory-aadconnect-pass-through-authentication-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.

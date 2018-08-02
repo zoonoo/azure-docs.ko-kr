@@ -1,6 +1,6 @@
 ---
-title: Azure Portal을 사용하여 Azure VM에서 MSI를 구성하는 방법
-description: Azure Portal을 사용하여 Azure VM에서 MSI(관리 서비스 ID)를 구성하기 위한 단계별 지침을 제공합니다.
+title: Azure Portal을 사용하여 Azure VM에서 관리 서비스 ID를 구성하는 방법
+description: Azure Portal을 사용하여 Azure VM에서 관리 서비스 ID를 구성하기 위한 단계별 지침을 제공합니다.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 27ecb00bddb41ae45e790a54702c058ff3f1d24b
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035944"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213268"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-the-azure-portal"></a>Azure Portal을 사용하여 VM MSI(관리 서비스 ID) 구성
+# <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Azure Portal을 사용하여 VM 관리 서비스 ID 구성
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -36,6 +36,8 @@ ms.locfileid: "39035944"
 
 - 관리 서비스 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
+- 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
+    - [Virtual Machine 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): Azure VM에서 시스템이 할당한 ID를 사용하도록 설정하고 제거합니다.
 
 ## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Azure VM 생성 시 관리 서비스 ID
 
@@ -50,14 +52,14 @@ ms.locfileid: "39035944"
 
 원래 시스템 할당 ID 없이 프로비전된 VM에 시스템 할당 ID를 사용하도록 설정하려면:
 
-1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”.
+1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 원하는 가상 머신으로 이동하여 "구성" 페이지를 선택합니다.
 
 3. "관리 서비스 ID"에서 "예"를 선택하여 VM에서 시스템 할당 ID를 사용하도록 설정한 다음, **저장**을 클릭합니다. 이 작업을 완료하려면 60초 이상 걸릴 수 있습니다.
 
-    > [!NOTE]
-    > VM에 사용자 할당 ID를 추가하는 작업은 현재 Azure Portal을 통해 지원되지 않습니다.
+   > [!NOTE]
+   > VM에 사용자 할당 ID를 추가하는 작업은 현재 Azure Portal을 통해 지원되지 않습니다.
 
    ![구성 페이지 스크린샷](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,7 +67,7 @@ ms.locfileid: "39035944"
 
 시스템 할당 ID가 더 이상 필요하지 않은 가상 머신이 있는 경우:
 
-1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 또한 계정이 VM에 대한 쓰기 권한을 부여하는 역할에 속해야 합니다. 예, “Virtual Machine 참여자”.
+1. VM을 포함하는 Azure 구독과 연결된 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 2. 원하는 가상 머신으로 이동하여 "구성" 페이지를 선택합니다.
 
@@ -82,5 +84,5 @@ ms.locfileid: "39035944"
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure Portal을 사용하여 Azure VM MSI에 [다른 Azure 리소스 액세스 권한](howto-assign-access-portal.md)을 제공합니다.
+- Azure Portal을 사용하여 [다른 Azure 리소스에 대한 액세스 권한](howto-assign-access-portal.md)을 Azure VM의 관리 서비스 ID에 제공합니다.
 

@@ -1,31 +1,31 @@
 ---
-title: 셀프 서비스 암호 재설정 정책 - Azure Active Directory
-description: Azure AD 셀프 서비스 암호 재설정 정책 옵션
+title: Azure AD 셀프 서비스 암호 재설정 정책
+description: Azure AD 셀프 서비스 암호 재설정 정책 옵션 구성
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: article
-ms.date: 01/11/2018
+ms.topic: conceptual
+ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a851b3842e44dbb81ef80bacde645ebafdb48d86
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054763"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162051"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
 이 문서에서는 Azure AD(Azure Active Directory) 테넌트에 저장된 사용자 계정과 관련된 암호 정책 및 복잡성 요구 사항에 대해 설명합니다.
 
-## <a name="administrator-password-policy-differences"></a>관리자 암호 정책 차이점
+## <a name="administrator-reset-policy-differences"></a>관리자 재설정 정책의 차이점
 
-Microsoft에서는 Azure 관리자 역할에 강력한 기본 *두 게이트* 암호 재설정 정책을 적용합니다. 
+**Microsoft는 Azure 관리자 역할에 대한 강력한 기본 *2게이트* 암호 재설정 정책 적용** 이 정책은 개발자가 사용자에 대해 정의한 정책과 다를 수 있으며 변경이 불가능합니다. 항상 Azure 관리자 역할이 할당되지 않은 사용자로 암호 재설정 기능을 테스트해야 합니다.
 
-두 게이트 정책을 사용할 경우 관리자는 보안 질문을 사용할 수 없습니다.
+2게이트 정책을 사용할 경우 **관리자는 보안 질문을 사용할 수 없습니다**.
 
  두 게이트 정책은 전자 메일 주소 *및* 전화 번호 등, 두 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 두 게이트 정책이 적용됩니다.
 
@@ -49,7 +49,7 @@ Microsoft에서는 Azure 관리자 역할에 강력한 기본 *두 게이트* �
   * 응용 프로그램 프록시 서비스 관리자
   * CRM 서비스 관리자
   * Power BI 서비스 관리자
-  
+
 * 평가판 구독에서 30일이 경과한 경우
 
   또는
@@ -61,18 +61,18 @@ Microsoft에서는 Azure 관리자 역할에 강력한 기본 *두 게이트* �
 * Azure AD Connect가 온-프레미스 디렉터리에서 ID를 동기화하는 경우
 
 ### <a name="exceptions"></a>예외
+
 한 게이트 정책은 전자 메일 주소 *또는* 전화 번호 등, 한 가지 인증 데이터를 요구합니다. 다음과 같은 경우에 한 게이트 정책이 적용됩니다.
 
 * 평가판 구독의 처음 30일 이내인 경우
 
   또는
 
-* 베니티 도메인이 없는 경우(*.onmicrosoft.com) 
+* 베니티 도메인이 없는 경우(*.onmicrosoft.com)
 
-  and 
+  and
 
   Azure AD Connect가 ID를 동기화하지 않는 경우
-
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>모든 사용자 계정에 적용되는 UserPrincipalName 정책
 
@@ -109,13 +109,13 @@ Microsoft 클라우드 서비스의 전역 관리자는 Windows PowerShell용 Mi
 > [!NOTE]
 > 디렉터리 동기화를 통해 동기화되지 않는 사용자 계정의 암호만 만료되지 않도록 구성할 수 있습니다. 디렉터리 동기화에 대한 자세한 내용은 [Azure AD와 AD 연결](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)을 참조하세요.
 >
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>PowerShell을 사용하여 암호 정책 설정 또는 확인
 
 시작하려면 [Azure AD PowerShell 모듈을 다운로드하고 설치](https://docs.microsoft.com/powershell/module/Azuread/?view=azureadps-2.0)해야 합니다. 설치를 완료한 후에는 다음 단계를 사용하여 각 필드를 구성합니다.
 
-### <a name="how-to-check-the-expiration-policy-for-a-password"></a>암호에 대한 만료 정책 확인 방법
+### <a name="check-the-expiration-policy-for-a-password"></a>암호에 대한 만료 정책 확인
+
 1. 회사 관리자 자격 증명을 사용하여 Windows PowerShell에 연결합니다.
 2. 다음 중 하나의 명령을 실행합니다.
 

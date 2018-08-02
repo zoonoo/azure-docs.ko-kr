@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: c36a9798718c37fba889323830b76cf8201785cf
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261902"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205751"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 Windows IoT Core 장치 연결
 
@@ -26,31 +26,17 @@ ms.locfileid: "35261902"
 1. **샘플 Devkits** 응용 프로그램 템플릿으로 만든 Azure IoT Central 응용 프로그램. 자세한 내용은 [Azure IoT Central 응용 프로그램 만들기](howto-create-application.md)를 참조하세요.
 2. Windows 10 IoT Core 운영 체제를 실행하는 장치. 이 연습에서는 Raspberry Pi를 사용합니다.
 
-**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Windows IoT Core** 장치가 포함됩니다.
 
-### <a name="telemetry-measurements"></a>원격 분석 측정값
+## <a name="sample-devkits-application"></a>**샘플 Devkits** 응용 프로그램
 
-| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
+**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Windows IoT Core** 장치가 포함됩니다. 
 
-### <a name="settings"></a>설정
-
-숫자 설정
-
-| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+- 장치에 대한 측정값 **습도**, **온도** 및 **압력**을 포함하는 원격 분석입니다. 
+- **팬 속도**를 보여주는 설정입니다.
+- 장치 속성 **다이 번호** 및 **위치** 클라우드 속성을 포함하는 속성입니다.
 
 
-### <a name="properties"></a>properties
-
-| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
-| --------------- | ------------ | ---------- | --------- |
-| 장치 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | location   | 해당 없음       |
+장치 템플릿 구성에 대한 자세한 내용은 [Windows IoT Core 장치 템플릿 세부 정보](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details) 참조
 
 ## <a name="add-a-real-device"></a>실제 장치 추가
 
@@ -106,3 +92,31 @@ Azure IoT Central에서, Raspberry Pi에서 실행되는 코드가 응용 프로
 
 > [!NOTE]
 > 개발 환경에 **git**이 설치되지 않은 경우 [https://git-scm.com/download](https://git-scm.com/download)에서 다운로드할 수 있습니다.
+
+## <a name="windows-iot-core-device-template-details"></a>Windows IoT Core 장치 템플릿 세부 정보
+
+**샘플 Devkits** 응용 프로그램 템플릿으로 만든 응용 프로그램에는 다음과 같은 특징을 가진 **Windows IoT Core** 장치가 포함됩니다.
+
+### <a name="telemetry-measurements"></a>원격 분석 측정값
+
+| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidity       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+
+### <a name="settings"></a>설정
+
+숫자 설정
+
+| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+
+### <a name="properties"></a>properties
+
+| type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| --------------- | ------------ | ---------- | --------- |
+| 장치 속성 | 다이 번호   | dieNumber  | number    |
+| 텍스트            | 위치     | location   | 해당 없음       |

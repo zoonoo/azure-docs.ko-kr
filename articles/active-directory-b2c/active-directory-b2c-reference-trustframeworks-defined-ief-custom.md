@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4eee1f2c9ca37227ca2cea0ef5e2ff25f6fad828
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443412"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185782"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Azure AD B2C ID 경험 프레임워크에서 보안 프레임워크 정의
 
@@ -90,7 +90,7 @@ Azure AD B2C ID 경험 프레임워크를 활용하는 사용자 지정 정책�
 
 - 참가자 간에 네트워크 통신을 설정하기 위한 메타데이터. 이 메타데이터는 트랜잭션 중에 기술 프로필과 함께 신뢰 당사자와 다른 커뮤니티 참가자 간의 "실시간" 상호 운용성을 연결하는 데 사용됩니다.
 
-- 있는 경우 프로토콜 변환(예: SAML, OAuth2, WS-Federation 및 OpenID Connect)
+- 있는 경우 프로토콜 변환(예: SAML 2.0, OAuth2, WS-Federation 및 OpenID Connect)
 
 - 인증 요구 사항
 

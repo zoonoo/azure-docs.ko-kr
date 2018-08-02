@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 84baf01ce6eeed8dc569d7a856189aefba788126
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 246943b7e3df955394a6a79f9b3130633fe4ec50
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096478"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186616"
 ---
 # <a name="continuous-deployment-with-jenkins-and-azure-kubernetes-service"></a>Jenkins 및 Azure Kubernetes Service를 사용한 연속 배포
 
@@ -149,6 +149,9 @@ azure-vote-front   10.0.34.242   13.90.150.118   80:30676/TCP   2m
 
 다음 명령을 실행하여 스크립트를 다운로드하고 실행합니다. 아래 URL을 사용하여 스크립트의 내용을 살펴볼 수도 있습니다.
 
+> [!WARNING]
+> 이 샘플 스크립트는 Azure VM에서 실행되는 Jenkins 환경을 신속하게 프로비전하기 위한 데모 용도입니다. Azure 사용자 지정 스크립트 확장을 사용하여 VM을 구성한 다음, 필요한 자격 증명을 표시할 수 있습니다. *~/.kube/config*는 Jenkins VM에 복사됩니다.
+
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
 sh azure-jenkins.sh
@@ -263,12 +266,11 @@ kubectl set image deployment/azure-vote-front azure-vote-front=$WEB_IMAGE_NAME -
 다음으로, 모든 커밋에서 새 빌드가 트리거되도록 응용 프로그램 리포지토리를 Jenkins 빌드 서버로 연결합니다.
 
 1. 포크된 GitHub 리포지토리로 이동합니다.
-2. **설정**을 선택한 다음 왼쪽에 있는 **통합 및 서비스**를 선택합니다.
-3. **서비스 추가**를 선택하고 필터 상자에 `Jenkins (GitHub plugin)`를 입력하고 플러그인을 선택합니다.
-4. Jenkins 연결 URL에 `http://<publicIp:8080>/github-webhook/`을 입력합니다. 여기서 `publicIp`는 Jenkins 서버의 IP 주소입니다. 후행 슬래시(/)를 포함해야 합니다.
-5. 서비스 추가를 선택합니다.
+2. **설정**을 선택한 다음, 왼쪽에 있는 **웹후크**를 선택합니다.
+3. **웹후크 추가**를 선택합니다. *Payload URL*에 `http://<publicIp:8080>/github-webhook/`를 입력합니다. 여기서 `publicIp`는 Jenkins 서버의 IP 주소입니다. 후행 슬래시(/)를 포함해야 합니다. 콘텐츠 형식에 대한 다른 기본값을 그대로 두고 *푸시* 이벤트를 트리거합니다.
+4. **웹후크 추가**를 선택합니다.
 
-![GitHub 웹후크](media/aks-jenkins/webhook.png)
+    ![GitHub 웹후크](media/aks-jenkins/webhook.png)
 
 ## <a name="test-cicd-process-end-to-end"></a>CI/CD 프로세스 종단 간 테스트
 

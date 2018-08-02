@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8aebe6bef536840722d9b07c846687eaf6d195db
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1963c2f45bc37741a6d00c8dae985bfa5237ce7f
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051072"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259231"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory 통합
 
@@ -153,7 +153,7 @@ ServiceNow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다�
 
 9. **ServiceNow**를 자동으로 구성하려면 다음 단계를 따르세요.
 
-    a. Azure Portal의 **ServiceNow** Signle-Sign On 페이지로 돌아갑니다.
+    a. Azure Portal의 **ServiceNow** Single-Sign On 페이지로 돌아갑니다.
 
     나. ServiceNow에 대해 한 번 클릭으로 구성할 수 있는 서비스가 제공됩니다. 즉, Azure AD가 SAML 기반 인증을 위해 ServiceNow를 자동으로 구성합니다. 이 서비스를 사용하도록 설정하려면 **ServiceNow 구성** 섹션으로 이동한 다음 **ServiceNow 구성**을 클릭하여 로그온 구성 창을 엽니다.
 

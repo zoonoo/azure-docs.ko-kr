@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2017
 ms.author: robb
 ms.component: metrics
-ms.openlocfilehash: 878ba004e7572ad78f574c15fd76c8868b281117
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 44daf6461a062e75435ec6f70fbc3cf10327e799
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262259"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213047"
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Microsoft Azure의 메트릭 개요
 모든 Azure 서비스는 서비스의 상태, 성능, 가용성 및 사용량을 모니터링할 수 있게 해주는 주요 메트릭을 추적합니다. Azure 포털에서 이러한 메트릭을 볼 수 있으며, [REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx) 또는 [.NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor)를 사용하여 프로그래밍 방식으로 전체 메트릭 집합에 액세스할 수도 있습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "35262259"
 
 1. 블레이드 맨 위에 있는 **...** 메뉴에서 **타일 추가**를 클릭합니다.  
     ![메뉴 추가](./media/insights-how-to-customize-monitoring/Insights_AddMenu.png)
-2. 그런 다음 ![갤러리](./media/insights-how-to-customize-monitoring/Insights_Gallery.png) 화면 오른쪽에 있는 **갤러리**에서 차트를 선택할 수 있습니다.
+2. 그런 다음, ![갤러리](./media/insights-how-to-customize-monitoring/Insights_Gallery.png) 화면 오른쪽에 있는 **갤러리**에서 차트를 선택할 수 있습니다.
 3. 원하는 메트릭이 표시되지 않는 경우 언제든지 미리 설정된 메트릭 중 하나를 추가하고 차트를 **편집** 하여 필요한 메트릭을 표시할 수 있습니다.
 
 ## <a name="monitoring-usage-quotas"></a>사용 할당량 모니터링
