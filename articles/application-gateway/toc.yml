@@ -71,6 +71,8 @@
           href: create-ssl-portal.md
         - name: Azure PowerShell을 사용하여 SSL 종료
           href: tutorial-ssl-powershell.md
+        - name: Azure PowerShell을 사용하여 종단 간 SSL 종료
+          href: application-gateway-end-to-end-ssl-powershell.md
         - name: 인증서 갱신
           href: renew-certificates.md
         - name: SSL 정책 구성

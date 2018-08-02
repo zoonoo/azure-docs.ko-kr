@@ -219,7 +219,7 @@
           href: luis-how-to-manage-keys.md
         - name: 버전 관리
           href: luis-how-to-manage-versions.md
-        - name: 다른 작성자와 공동 작업
+        - name: 작성자 및 공동 작업자 관리
           href: luis-how-to-collaborate.md
         - name: 작성 키 관리
           href: luis-how-to-account-settings.md

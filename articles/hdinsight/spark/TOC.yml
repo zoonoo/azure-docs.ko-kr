@@ -319,6 +319,8 @@
       items:
         - name: Spark 작업 디버그
           href: apache-spark-job-debugging.md
+        - name: 작업 그래프를 통해 Spark 작업 디버그
+          href: apache-azure-spark-history-server.md
         - name: IntelliJ를 사용하여 Spark 작업 디버깅
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결

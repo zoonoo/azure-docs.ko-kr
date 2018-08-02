@@ -149,6 +149,8 @@
           href: functions-run-local.md
         - name: IntelliJ IDEA 개발
           href: functions-create-maven-intellij.md
+        - name: Eclipse 개발
+          href: functions-create-maven-eclipse.md
         - name: 연결 관리
           href: manage-connections.md
         - name: 오류 처리

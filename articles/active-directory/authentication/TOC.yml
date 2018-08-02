@@ -25,6 +25,8 @@
   items:
     - name: 인증 방법
       href: concept-authentication-methods.md
+    - name: 등록 수렴
+      href: concept-registration-mfa-sspr-converged.md
     - name: 셀프 서비스 암호 재설정
       items:
         - name: 암호 재설정 작동 방법
