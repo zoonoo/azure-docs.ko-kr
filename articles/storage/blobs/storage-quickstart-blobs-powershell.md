@@ -3,18 +3,17 @@ title: Azure 빠른 시작 - Azure PowerShell을 사용하여 개체 저장소�
 description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure PowerShell을 사용합니다. 그런 다음, PowerShell을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 2ae0fee410c93911546e5cbeef1378e6f7ebbc39
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b482379c05133dcf58e54bd01f38f0c3cee95e8d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205200"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398596"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 BLOB 업로드, 다운로드 및 나열
 

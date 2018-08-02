@@ -3,17 +3,17 @@ title: Azure Storage에서 정적 웹 사이트 호스팅(미리 보기) | Micro
 description: Azure Storage는 이제 최신 웹 응용 프로그램 호스팅에 비용 효율적이고 확장 가능한 솔루션을 제공하는 정적 웹 사이트 호스팅을 제공합니다(미리 보기).
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/18
 ms.author: mihauss
-ms.openlocfilehash: df1661b5fe7a2c0e37deef5259d6b5842ed6ee5e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: blobs
+ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131612"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397478"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Azure Storage에서 정적 웹 사이트 호스팅(미리 보기)
 Azure Storage는 이제 Azure에서 비용 효율적이고 확장 가능한 최신 웹 응용 프로그램을 배포할 수 있도록 하는 정적 웹 사이트를 호스팅을 제공합니다(미리 보기). 정적 웹 사이트에서 웹 페이지는 정적 콘텐츠 및 JavaScript 또는 기타 클라이언트 쪽 코드를 포함합니다. 반면 동적 웹 사이트는 서버 쪽 코드에 따라 다르며 [Azure Web Apps](/app-service/app-service-web-overview.md)를 사용하여 호스팅할 수 있습니다.

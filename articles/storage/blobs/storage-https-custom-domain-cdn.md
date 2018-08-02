@@ -2,24 +2,18 @@
 title: Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스
 description: Azure CDN을 Blob Storage와 통합하여 HTTPS를 통한 사용자 지정 도메인으로 Blob에 액세스하는 하는 방법에 알아봅니다.
 services: storage
-documentationcenter: ''
 author: michaelhauss
-manager: vamshik
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: mihauss
-ms.openlocfilehash: b3b1b5064e51b68bb64cb8c4dbec6075705795d6
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: blobs
+ms.openlocfilehash: 7c4acc7d0832442b94735619ea3a01cb319da993
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025411"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398258"
 ---
 # <a name="using-the-azure-cdn-to-access-blobs-with-custom-domains-over-https"></a>Azure CDN을 사용하여 HTTPS를 통한 사용자 지정 도메인으로 Blob 액세스
 이제 Azure CDN(Content Delivery Network)은 사용자 지정 도메인 이름에 대한 HTTPS를 지원합니다. 이 기능을 활용하여 HTTPS를 통한 사용자 지정 도메인을 사용하여 저장소 Blob에 액세스할 수 있습니다. 이렇게 하려면 먼저 Blob 또는 웹 엔드포인트에서 Azure CDN을 사용하도록 설정하고 CDN을 사용자 지정 도메인 이름으로 매핑해야 합니다. 이러한 단계를 수행하면 사용자 지정 도메인에 대해 HTTPS를 사용하도록 설정하는 것은 한 번 클릭, 완전한 인증서 관리를 통해 간소화되며 이 모든 것을 일반 CDN 가격 책정에 비용을 추가할 필요 없이 수행할 수 있습니다.

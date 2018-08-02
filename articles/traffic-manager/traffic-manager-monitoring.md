@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6d07bd333e4d1663e37a840975cde2d9c73cec9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211721"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398838"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Traffic Manager 끝점 모니터링
 
@@ -91,7 +91,7 @@ Traffic Manager 프로필 및 끝점을 사용하거나 사용하지 않도록 �
 | --- | --- | --- | --- |
 | 사용 안 함 |&lt;일부&gt; 또는 정의된 끝점이 없는 프로필 |사용 안 함 |프로필이 사용되지 않도록 설정되었습니다. |
 | 사용 |하나 이상의 끝점 상태가 Degraded입니다. |성능 저하됨 |끝점에 주의가 필요한지 확인하려면 개별 끝점 상태 값을 검토합니다. |
-| 사용 |하나 이상의 끝점 상태가 Online입니다. Degraded 상태의 끝점이 없습니다. |온라인 |서비스가 트래픽을 허용합니다. 별도의 작업이 필요하지 않습니다. |
+| 사용 |하나 이상의 끝점 상태가 Online입니다. Degraded 상태의 끝점이 없습니다. |온라인 |서비스가 트래픽을 허용합니다. 추가적인 조치가 필요하지 않습니다. |
 | 사용 |하나 이상의 끝점 상태가 “CheckingEndpoint”입니다. Online 또는 Degraded 상태인 끝점이 없습니다. |CheckingEndpoints |이러한 전환 상태는 프로필을 만들거나 사용하도록 설정하면 발생합니다. 처음으로 끝점 상태가 검사됩니다. |
 | 사용 |프로필의 모든 끝점 상태는 Disabled 또는 Stopped이거나 프로필에 정의된 끝점이 없습니다. |비활성 |끝점이 활성 상태가 아니지만 프로필은 여전히 Enabled입니다. |
 
@@ -156,7 +156,7 @@ Traffic Manager는 비정상 끝점을 포함하는 모든 끝점의 상태를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)
+[Traffic Manager 작동 방식](traffic-manager-how-it-works.md)
 
 Traffic Manager가 지원하는 [트래픽 라우팅 방법](traffic-manager-routing-methods.md) 에 대해 자세히 알아봅니다.
 

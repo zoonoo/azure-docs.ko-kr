@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8eb42a60045304416ec6aa1099a84b1e264c692d
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: bbfbf351b8976f4140b6dd98a9a54ba982c3d865
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33206510"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399400"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>재해 복구 및 지역 배포
 
@@ -50,7 +50,7 @@ Azure의 계산 인프라가 실패하면 함수 앱을 사용하지 못할 수 
 - 이 시나리오에서는 계산 인프라의 작동 중단을 다루지만, 저장소 계정이 계속해서 함수 앱에 대한 단일 실패 지점이 될 수 있습니다. 저장소가 작동 중단되면 응용 프로그램 가동이 중지됩니다.
 - 함수 앱이 장애 조치(Failover)되면 여러 지역에 걸쳐 해당 저장소 계정에 액세스하게 되므로 대기 시간이 증가합니다.
 - 다른 지역에 있는 저장소 서비스에 액세스하게 되면 네트워크 송신 트래픽으로 인해 더 높은 비용이 발생합니다.
-- 이 시나리오는 Traffic Manager에 따라 달라집니다. [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)을 고려한다면 약간의 시간이 경과된 후에, 지속형 함수를 사용하는 클라이언트 응용 프로그램이 Traffic Manager에서 함수 앱 주소를 다시 쿼리해야 할 필요가 발생할 수 있습니다. 
+- 이 시나리오는 Traffic Manager에 따라 달라집니다. [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)을 고려한다면 약간의 시간이 경과된 후에, 지속형 함수를 사용하는 클라이언트 응용 프로그램이 Traffic Manager에서 함수 앱 주소를 다시 쿼리해야 할 필요가 발생할 수 있습니다. 
 
 
 ## <a name="scenario-2---load-balanced-compute-with-regional-storage"></a>시나리오 2 - 지역 저장소에서 계산 부하 분산

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126578"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284730"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>자습서: Service Fabric Mesh 웹 응용 프로그램 배포
 
@@ -46,7 +46,7 @@ ASP.NET 웹 프런트 엔드 및 ASP.NET Core 웹 API 백 엔드 서비스가 �
 
 이 자습서를 시작하기 전에:
 
-* Azure 구독이 아직 없으면 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다.
+* Azure 구독이 아직 없으면 시작하기 전에 [무료 계정을 만들](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 수 있습니다.
 
 * Service Fabric 런타임, SDK, Docker 및 Visual Studio 2017 설치가 포함된 [개발 환경을 설정](service-fabric-mesh-howto-setup-developer-environment-sdk.md)했는지 확인합니다.
 
@@ -74,7 +74,7 @@ Azure 계정과 구독을 선택합니다. **위치**를 선택합니다. 이 �
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-resource-group-dialog.png)
 
-다시 돌아간 **Service Fabric 응용 프로그램 게시** 대화 상자의 **Azure Container Registry** 아래에서 **\<새 컨테이너 레지스트리 만들기...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다(이 자습서에서는 **미국 동부** 사용). 드롭다운에서 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 선택합니다. **SKU**를 **기본**으로 설정한 다음, **만들기**를 눌러 게시 대화 상자로 돌아갑니다.
+**Service Fabric 응용 프로그램 게시** 대화 상자로 돌아간 다음, **Azure Container Registry**에서 **\<새 컨테이너 레지스트리 만들기...>** 를 선택합니다. **컨테이너 레지스트리 만들기** 대화 상자에서 **컨테이너 레지스트리 이름**에 대해 고유한 이름을 사용합니다. **위치**를 지정합니다(이 자습서에서는 **미국 동부** 사용). 드롭다운에서 이전 단계에서 만든 **리소스 그룹**(예: **sfmeshTutorial1RG**)을 선택합니다. **SKU**를 **기본**으로 설정한 다음, **만들기**를 눌러 게시 대화 상자로 돌아갑니다.
 
 ![Visual Studio의 Service Fabric Mesh 새 리소스 그룹 대화 상자](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-new-container-registry-dialog.png)
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 웹 브라우저를 열고, URL로 이동하여 Azure에서 실행되는 웹 사이트를 확인합니다.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI 설정 
+나머지 단계에서는 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용할 수 있습니다. 다음 [지침](service-fabric-mesh-howto-setup-cli.md)에 따라 Azure Service Fabric Mesh CLI 확장 모듈을 설치합니다.
 
-나머지 단계에서는 Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용할 수 있습니다.
-
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서 Azure CLI 버전 2.0.35 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 최신 버전의 CLI를 설치하거나 업그레이드하려면 [Azure CLI 2.0 설치][azure-cli-install]를 참조하세요.
-
-## <a name="install-the-az-mesh-cli"></a>az mesh cli 설치
-CLI 프롬프트에서
-
-1) Azure Service Fabric Mesh CLI 모듈의 이전 설치를 제거합니다.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Azure Service Fabric Mesh CLI 확장 모듈을 설치합니다. 미리 보기의 경우 Azure Service Fabric Mesh CLI는 Azure CLI에 대한 확장으로 작성되었지만, 공개 미리 보기에서는 Azure CLI의 일부로 제공됩니다.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>응용 프로그램 배포 상태 확인
 

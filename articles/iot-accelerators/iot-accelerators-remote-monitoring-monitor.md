@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d31ea1fe579e5ac7a846c1c0d03012d70be9884d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159351"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284492"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>자습서: IoT 장치 모니터링
 
@@ -33,7 +33,7 @@ ms.locfileid: "39159351"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="choose-the-devices-to-display"></a>표시할 장치 선택
 
@@ -93,7 +93,7 @@ truck-02의 경우 모든 경고가 정상적인 화물 온도보다 높다는 �
 
 경고의 시간 범위를 설정하고 표시할 장치를 제어하는 필터와 동일한 필터가 KPI가 집계되는 방식을 결정합니다. 기본적으로 패널은 지난 1시간에 걸쳐 집계된 KPI를 표시합니다.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

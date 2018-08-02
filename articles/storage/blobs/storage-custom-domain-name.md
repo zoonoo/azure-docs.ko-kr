@@ -3,17 +3,17 @@ title: Azure Storage 계정에 대한 사용자 지정 도메인 이름 구성 |
 description: Azure Portal을 사용하여 고유한 CNAME(정식 이름)을 Azure Storage 계정의 Blob 또는 웹 엔드포인트에 매핑합니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: tamram
-ms.openlocfilehash: 2f4267c25dfd31e6f1d5ae3a832be06b5ef6c828
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: blobs
+ms.openlocfilehash: 5fd823e9105157f8292d5a9554850b0f4338a392
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017923"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398855"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure Storage 계정에 대한 사용자 지정 도메인 이름 구성
 

@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apipm
-ms.openlocfilehash: 03d785898398cb0bcd7b43e8d7feab705bce4b34
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9f4a4ed4a8771f32a4d66aed2457a43abb92a63
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598473"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39295332"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 ## <a name="about-this-list"></a>다음 목록 정보
 API를 가져올 때 성공하기 위해 먼저 해결해야 하는 몇 가지 제한 사항이나 문제가 있을 수 있습니다. 이 문서에서는 이러한 내용을 API의 가져오기 형식별로 구성하여 설명합니다.
 
 ## <a name="open-api"> </a>OpenAPI/Swagger
-OpenAPI 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 디자이너를 사용하거나(Design - Front End - OpenAPI Specification Editor) <a href="http://www.swagger.io">Swagger Editor</a>와 같은 타사 도구를 사용하여 유효성을 검사해야 합니다.
+OpenAPI 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 디자이너를 사용하거나(Design - Front End - OpenAPI Specification Editor) <a href="http://editor.swagger.io">Swagger Editor</a>와 같은 타사 도구를 사용하여 유효성을 검사해야 합니다.
 
 * OpenAPI에 대해 JSON 형식만 지원됩니다.
 * 경로와 쿼리 간에 필수 매개 변수 이름은 고유해야 합니다. OpenAPI에서는 매개 변수 이름이 위치(예: 경로), 쿼리, 헤더 안에서만 고유하면 됩니다.  그러나 API Management에서는 경로와 쿼리 매개 변수 모두를 사용하여 작업을 구분할 수 있습니다(OpenAPI에서 지원하지 않는 기능). 따라서 전체 URL 템플릿 안에서 매개 변수 이름이 고유해야 합니다.
@@ -36,7 +36,7 @@ OpenAPI 문서를 가져오는 중 오류를 수신하면 Azure Portal에서 디
 * 사용자 지정 확장명은 가져오기 시 무시되고 내보내기에 대해 저장되거나 보존되지 않습니다.
 
 > [!IMPORTANT]
-> OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://blogs.msdn.microsoft.com/apimanagement/2018/03/28/important-changes-to-openapi-import-and-export/)를 참조하세요.
+> OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)를 참조하세요.
 
 ## <a name="wsdl"> </a>WSDL
 SOAP 통과 API를 생성하는 데 WSDL 파일이 사용되며 SOAP-to-REST API의 백 엔드로 사용됩니다.

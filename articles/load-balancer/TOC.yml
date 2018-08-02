@@ -40,7 +40,7 @@
   items:
     - name: 부하 분산 장치 표준이란?
       href: load-balancer-standard-overview.md
-    - name: 부하 분산 장치 프로브
+    - name: 상태 프로브
       href: load-balancer-custom-probe-overview.md
     - name: 고가용성 포트
       href: load-balancer-ha-ports-overview.md

@@ -16,12 +16,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
 ms.author: victorh
-ms.openlocfilehash: 2f5ff425eadc4572f5e109f503c57969ab310f6b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 39fe23d7289dc78736dd5a85d4100af82b1d7b4a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171809"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398218"
 ---
 # <a name="how-azure-dns-works-with-other-azure-services"></a>다른 Azure 서비스와 함께 Azure DNS가 작동하는 방법
 
@@ -36,7 +36,7 @@ Azure DNS는 호스팅된 DNS 관리 및 이름 확인 서비스입니다. 이�
 | --- | --- | --- |
 | Application Gateway |[프런트 엔드 공용 IP](dns-custom-domain.md#public-ip-address) |DNS A 또는 CNAME 레코드를 만들 수 있습니다. |
 | Load Balancer |[프런트 엔드 공용 IP](dns-custom-domain.md#public-ip-address)  |DNS A 또는 CNAME 레코드를 만들 수 있습니다. 부하 분산 장치는 동적으로 할당된 IPv6 공용 IP 주소를 가질 수 있습니다. 따라서 IPv6 주소에 대한 CNAME 레코드를 만들어야 합니다. |
-| Traffic Manager |공용 이름 |Traffic Manager 프로필에 할당된 trafficmanager.net 이름에 매핑하는 CNAME을 만들 수 있습니다. 자세한 내용은 [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#traffic-manager-example)을 참조하세요. |
+| Traffic Manager |공용 이름 |Traffic Manager 프로필에 할당된 trafficmanager.net 이름에 매핑하는 CNAME을 만들 수 있습니다. 자세한 내용은 [Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)을 참조하세요. |
 | 클라우드 서비스 |[공용 IP](dns-custom-domain.md#public-ip-address) |정적으로 할당된 IP 주소의 경우 DNS A 레코드를 만들 수 있습니다. 동적으로 할당된 IP 주소의 경우 *cloudapp.net* 이름에 매핑하는 CNAME 레코드를 만들어야 합니다.|
 | App Service | [외부 IP](dns-custom-domain.md#app-service-web-apps) |외부 IP 주소의 경우 DNS A 레코드를 만들 수 있습니다. 그렇지 않으면 azurewebsites.net 이름에 매핑하는 CNAME 레코드를 만들어야 합니다. 자세한 내용은 [Azure 앱에 사용자 지정 도메인 이름 매핑](../app-service/app-service-web-tutorial-custom-domain.md) |
 | 리소스 관리자 VM |[공용 IP](dns-custom-domain.md#public-ip-address) |리소스 관리자 VM은 공용 IP 주소를 가질 수 있습니다. 공용 IP 주소가 있는 VM은 부하 분산 장치 뒤에 올 수도 있습니다. 공용 주소에 대한 DNS A 또는 CNAME 레코드를 만들 수 있습니다. 이 사용자 지정 이름은 부하 분산 장치의 VIP를 우회하는 데 사용할 수 있습니다. |

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 792712e3e529d77ff20a7603b5fbf028ca60f8c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 115511d15bc2366e49f6b3d1b89b513ea0ee5e90
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23112691"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398031"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 끝점
-Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 응용 프로그램 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 응용 프로그램 배포를 Traffic Manager에서 '끝점'으로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 끝점을 선택합니다. Traffic Manager는 현재 끝점 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)을 참조하세요.
+Microsoft Azure Traffic Manager를 사용하면 다른 데이터 센터에서 실행 중인 응용 프로그램 배포에 네트워크 트래픽을 분산하는 방법을 제어할 수 있습니다. 각 응용 프로그램 배포를 Traffic Manager에서 '끝점'으로 구성합니다. Traffic Manager는 DNS 요청을 받으면 DNS 응답에서 반환할 사용 가능한 끝점을 선택합니다. Traffic Manager는 현재 끝점 상태와 트래픽 라우팅 메서드에 근거하여 선택합니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)을 참조하세요.
 
 Traffic Manager에서 지원되는 끝점에는 세 가지 종류가 있습니다.
 * **Azure 끝점**은 Azure에서 호스팅되는 서비스에 사용됩니다.
@@ -38,7 +38,7 @@ Traffic Manager에서 지원되는 끝점에는 세 가지 종류가 있습니�
 Azure 끝점은 Traffic Manager에서 Azure 기반 서비스에 사용됩니다. 다음과 같은 Azure 리소스 유형이 지원됩니다.
 
 * '클래식' IaaS VM 및 PaaS 클라우드 서비스.
-* 웹앱
+* Web Apps
 * PublicIPAddress 리소스(직접 또는 Azure Load Balancer를 통해 VM에 연결할 수 있음) publicIpAddress에는 Traffic Manager 프로필에서 사용되도록 지정된 DNS 이름이 있어야 합니다.
 
 PublicIPAddress 리소스는 Azure Resource Manager 리소스입니다. 클래식 배포 모델에는 존재하지 않습니다. 따라서 Traffic Manager의 Azure Resource Manager 환경에서만 지원됩니다. 다른 끝점 유형은 리소스 관리자 및 클래식 배포 모델을 통해 지원됩니다.
@@ -59,9 +59,9 @@ Azure 끝점을 사용하는 경우 Traffic Manager는 '클래식' IaaS VM, 클�
 
 중첩 끝점은 유연한 트래픽 라우팅 체계를 만들고 더 크고, 복잡한 배포에 대한 요구 사항을 지원하기 위해 Traffic Manager 프로필을 결합합니다. 중첩 끝점을 사용하면 'child' 프로필이 'parent' 프로필에 끝점으로 추가됩니다. 자식 및 부모 프로필 모두 다른 중첩 프로필을 포함하여 모든 유형의 다른 끝점을 포함할 수 있습니다. 자세한 내용은 [중첩 Traffic Manager 프로필](traffic-manager-nested-profiles.md)을 참조하세요.
 
-## <a name="web-apps-as-endpoints"></a>끝점으로 웹앱
+## <a name="web-apps-as-endpoints"></a>끝점으로 Web Apps
 
-Traffic Manager에서 끝점으로 웹앱을 구성하는 경우 몇 가지 추가 고려 사항이 적용됩니다.
+Traffic Manager에서 끝점으로 Web Apps를 구성하는 경우 몇 가지 추가 고려 사항이 적용됩니다.
 
 1. '표준' SKU 이상에서의 Web Apps만 Traffic Manager와 함께 사용할 수 있습니다. 더 낮은 SKU의 웹앱을 추가하려는 시도는 실패합니다. 기존 웹앱의 SKU를 다운그레이드하면 Traffic Manager는 해당 웹앱에 더 이상 트래픽을 전송하지 않게 됩니다.
 2. 끝점에서 HTTP 요청을 받으면 요청의 '호스트' 헤더를 사용하여 요청을 처리해야 하는 웹앱을 결정합니다. 호스트 헤더는 요청을 시작하는 데 사용된 DNS 이름을 포함합니다(예: 'contosoapp.azurewebsites.net'). 웹앱에 다른 DNS 이름을 사용하려면 DNS 이름은 앱에 대한 사용자 지정 도메인 이름으로 등록되어야 합니다. Azure 끝점으로 Web App 끝점을 추가하면 Traffic Manager 프로필 DNS 이름은 앱에 대해 자동으로 등록됩니다. 이 등록은 끝점이 삭제될 때 자동으로 제거됩니다.
@@ -74,7 +74,7 @@ Traffic Manager에서 끝점 비활성화는 유지 관리 모드이거나 다�
 끝점은 리소스 관리자 및 클래식 배포 모델 모두에서 지원되는 Traffic Manager 포털, PowerShell, CLI 또는 REST API를 통해 활성화 및 비활성화될 수 있습니다.
 
 > [!NOTE]
-> Azure 끝점을 해제해도 Azure의 배포 상태에는 영향을 주지 않습니다. Azure 서비스(예: VM 또는 웹앱)는 실행 상태를 유지하고 Traffic Manager에서 비활성화되었을 때에도 트래픽을 수신할 수 있습니다. 트래픽은 Traffic Manager 프로필 DNS 이름을 통해서가 아닌 해당 서비스 인스턴스로 직접 보내질 수 있습니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)을 참조하세요.
+> Azure 끝점을 해제해도 Azure의 배포 상태에는 영향을 주지 않습니다. Azure 서비스(예: VM 또는 웹앱)는 실행 상태를 유지하고 Traffic Manager에서 비활성화되었을 때에도 트래픽을 수신할 수 있습니다. 트래픽은 Traffic Manager 프로필 DNS 이름을 통해서가 아닌 해당 서비스 인스턴스로 직접 보내질 수 있습니다. 자세한 내용은 [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)을 참조하세요.
 
 트래픽을 받는 각 끝점의 현재 자격은 다음 요인에 따라 다릅니다.
 
@@ -92,6 +92,6 @@ Traffic Manager에서 끝점 비활성화는 유지 관리 모드이거나 다�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Traffic Manager 작동 방식](traffic-manager-how-traffic-manager-works.md)에 대해 알아봅니다.
+* [Traffic Manager 작동 방식](traffic-manager-how-it-works.md)에 대해 알아봅니다.
 * Traffic Manager [끝점 모니터링 및 자동 장애 조치(failover)](traffic-manager-monitoring.md)에 대해 알아봅니다.
 * Traffic Manager [트래픽 라우팅 방법](traffic-manager-routing-methods.md)에 대해 알아봅니다.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036924"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399180"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036924"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>Traffic Manager가 사용하는 IP 주소는 어떻게 되나요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 전송합니다. 그러면 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 전송합니다. 그러면 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다.
 
 따라서 Traffic Manager는 클라이언트가 연결할 끝점 또는 IP 주소를 제공하지 않습니다. 서비스에 고정 IP 주소가 필요한 경우 Traffic Manager가 아니라 서비스에서 구성해야 합니다.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Traffic Manager를 사용하여 라우팅할 수 있는 트래픽 유형은 무엇입니까?
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)의 설명처럼 Traffic Manager 엔드포인트는 Azure 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스가 될 수 있습니다. 따라서 Traffic Manager는 공용 인터넷에서 발생한 트래픽을 인터넷에 연결된 엔드포인트 집합으로 라우팅할 수 있습니다. 개인 네트워크 내부에 엔드포인트(예: [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) 내부 버전)가 있거나 사용자가 그러한 내부 네트워크에서 DNS 요청을 수행하는 경우, 이러한 트래픽에는 Traffic Manager를 사용할 수 없습니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)의 설명처럼 Traffic Manager 엔드포인트는 Azure 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스가 될 수 있습니다. 따라서 Traffic Manager는 공용 인터넷에서 발생한 트래픽을 인터넷에 연결된 엔드포인트 집합으로 라우팅할 수 있습니다. 개인 네트워크 내부에 엔드포인트(예: [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer) 내부 버전)가 있거나 사용자가 그러한 내부 네트워크에서 DNS 요청을 수행하는 경우, 이러한 트래픽에는 Traffic Manager를 사용할 수 없습니다.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager는 '고정' 세션을 지원하나요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다. 따라서 Traffic Manager는 클라이언트와 서비스 간에 HTTP 트래픽을 표시하지 않습니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다. 따라서 Traffic Manager는 클라이언트와 서비스 간에 HTTP 트래픽을 표시하지 않습니다.
 
 또한 Traffic Manager에서 수신하는 DNS 쿼리의 원본 IP 주소는 클라이언트가 아니라 재귀 DNS 서비스에 속합니다. 따라서 Traffic Manager에는 개별 클라이언트를 추적할 방법이 없으므로 '고정' 세션을 구현할 수 없습니다. 이 제한은 모든 DNS 기반 트래픽 관리 시스템에 공통적으로 적용되며, Traffic Manager에 특정되지 않습니다.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Traffic Manager를 사용할 때 HTTP 오류가 나타나는 이유는 무엇인가요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다. Traffic Manager는 클라이언트와 서버 간에 HTTP 트래픽을 표시하지 않습니다. 따라서 표시된 모든 HTTP 오류는 응용 프로그램에서 가져온 것이어야 합니다. 클라이언트를 응용 프로그램에 연결하는 경우 모든 DNS 확인 단계를 완료합니다. Traffic Manager가 응용 프로그램 트래픽 흐름에 있는 모든 상호 작용을 포함합니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트를 적절한 서비스 끝점으로 보내기 위해 DNS 응답을 사용합니다. 그러면 클라이언트는 Traffic Manager를 통해서가 아니라 직접 서비스 끝점에 연결합니다. Traffic Manager는 클라이언트와 서버 간에 HTTP 트래픽을 표시하지 않습니다. 따라서 표시된 모든 HTTP 오류는 응용 프로그램에서 가져온 것이어야 합니다. 클라이언트를 응용 프로그램에 연결하는 경우 모든 DNS 확인 단계를 완료합니다. Traffic Manager가 응용 프로그램 트래픽 흐름에 있는 모든 상호 작용을 포함합니다.
 
 따라서 추가 조사는 응용 프로그램에 중점을 두어야 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "39036924"
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Traffic Manager를 사용할 때 성능 영향은 무엇인가요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트가 서비스 끝점에 직접 연결되므로 연결이 설정된 후 Traffic Manager를 사용하면 성능 영향이 발생하지 않습니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. 클라이언트가 서비스 끝점에 직접 연결되므로 연결이 설정된 후 Traffic Manager를 사용하면 성능 영향이 발생하지 않습니다.
 
 Traffic Manager는 DNS 수준에서 응용 프로그램과 통합하므로 추가 DNS 조회를 DNS 확인 체인에 삽입해야 합니다. DNS 확인 시간에 대한 Traffic Manager의 영향은 최소입니다. Traffic Manager는 이름 서버의 글로벌 네트워크를 사용하며 DNS 쿼리가 사용 가능한 가장 가까운 이름 서버로 라우팅되도록 [애니캐스트](https://en.wikipedia.org/wiki/Anycast) 네트워킹을 사용합니다. 또한 DNS 응답의 캐싱은 Traffic Manager를 사용하여 발생한 추가 DNS 대기 시간이 세션 중 일부에만 적용되는 것을 의미합니다.
 
@@ -59,7 +59,7 @@ Traffic Manager는 DNS 수준에서 응용 프로그램과 통합하므로 추�
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Traffic Manager에는 어떤 응용 프로그램 프로토콜을 사용할 수 있나요?
 
-[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. DNS 조회가 완료되면 클라이언트는 Traffic Manager를 통해서가 아닌 응용 프로그램 끝점에 직접 연결됩니다. 따라서 이 연결에서는 모든 응용 프로그램 프로토콜을 사용할 수 있습니다. TCP를 모니터링 프로토콜로 선택하면 응용 프로그램 프로토콜을 사용하지 않고 Traffic Manager의 끝점 상태 모니터링을 수행할 수 있습니다. 응용 프로그램 프로토콜을 사용하여 상태가 확인되도록 선택한 경우 끝점이 HTTP 또는 HTTPS GET 요청에 응답할 수 있어야 합니다.
+[Traffic Manager 작동 방식](../traffic-manager/traffic-manager-how-it-works.md)에서 설명했듯이 Traffic Manager는 DNS 수준에서 작동합니다. DNS 조회가 완료되면 클라이언트는 Traffic Manager를 통해서가 아닌 응용 프로그램 끝점에 직접 연결됩니다. 따라서 이 연결에서는 모든 응용 프로그램 프로토콜을 사용할 수 있습니다. TCP를 모니터링 프로토콜로 선택하면 응용 프로그램 프로토콜을 사용하지 않고 Traffic Manager의 끝점 상태 모니터링을 수행할 수 있습니다. 응용 프로그램 프로토콜을 사용하여 상태가 확인되도록 선택한 경우 끝점이 HTTP 또는 HTTPS GET 요청에 응답할 수 있어야 합니다.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>'naked' 도메인 이름으로 Traffic Manager를 사용할 수 있나요?
 

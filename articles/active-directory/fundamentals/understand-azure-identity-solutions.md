@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056939"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398367"
 ---
 # <a name="understand-azure-identity-solutions"></a>Azure ID 솔루션 이해
 Microsoft Azure AD(Azure Active Directory)는 디렉터리 서비스, ID 관리 및 응용 프로그램 액세스 관리를 제공하는 ID 및 액세스 관리 클라우드 솔루션입니다. Azure AD는 [Azure AD 응용 프로그램 갤러리](https://azure.microsoft.com/marketplace/active-directory/all/)에 있는 수천 개의 사전 통합된 상용 및 사용자 지정 앱에 대해 신속하게 [SSO(single sign-on)를 사용](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso)합니다. 이러한 앱은 대부분 Office 365, Salesforce.com, Box, ServiceNow 및 Workday와 같이 이미 사용하고 있는 앱들입니다.
@@ -103,7 +103,7 @@ Microsoft Azure에서는 온-프레미스나 클라우드 또는 양쪽 어딘�
 |조직이 온-프레미스 Windows Server Active Directory에 대규모로 투자했지만 ID를 클라우드로 확장하려고 합니다.| 가장 널리 사용되는 Azure ID 솔루션은 [하이브리드 ID](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview)입니다. 이미 온-프레미스 AD DS에 투자한 경우 Azure AD Connect를 사용하여 ID를 클라우드로 쉽게 확장할 수 있습니다.|
 |클라우드에서 비즈니스가 시작되었지만 온-프레미스 ID 솔루션에는 투자하지 않았습니다.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)는 온-프레미스에 투자하지 않은 클라우드 전용 비즈니스에 적합합니다.|
 |앱 개발 및 테스트를 위한 온-프레미스 ID 요구를 충족하는 간단한 Azure VM 구성 및 제어가 필요합니다.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)는 간단한 Azure VM 구성 컨트롤에서 AD DS를 사용하거나 레거시 디렉터리 인식 온-프레미스 응용 프로그램을 개발하거나 클라우드로 마이그레이션하는 경우에 적합합니다.|  
-|사용자는 Azure에서 적은 수의 가상 머신을 지원해야 하지만 회사는 여전히 과도하게 온-프레미스 Active Directory(AD DS)에 투자하고 있습니다.|[DIY AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx)를 사용하여 적은 수의 가상 머신을 지원하고 온-프레미스 AD DS에 대해 대규모로 투자해야 하는 경우 Azure VM을 사용합니다. |
+|사용자는 Azure에서 적은 수의 가상 머신을 지원해야 하지만 회사는 여전히 과도하게 온-프레미스 Active Directory(AD DS)에 투자하고 있습니다.|[DIY AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options)를 사용하여 적은 수의 가상 머신을 지원하고 온-프레미스 AD DS에 대해 대규모로 투자해야 하는 경우 Azure VM을 사용합니다. |
 
 ## <a name="where-can-i-learn-more"></a>자세한 내용을 알아보려면 어떤 정보를 참조해야 하나요?
 Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소스를 온라인으로 제공합니다. 다음은 시작에 대한 기사 목록입니다.
@@ -126,5 +126,3 @@ Azure AD에 대한 자세한 내용을 알아볼 수 있도록 수많은 리소�
 [Azure 하이브리드 ID 솔루션에 대한 자세한 정보](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [개념 환경의 Azure 증명에 대한 자세한 정보](https://aka.ms/aad-poc)
-
-[프로덕션에서 Azure AD 배포](https://aka.ms/aad-onboard)

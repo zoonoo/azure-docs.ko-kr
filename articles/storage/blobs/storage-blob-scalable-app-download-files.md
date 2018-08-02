@@ -2,22 +2,20 @@
 title: Azure Storage에서 대량의 임의 데이터 다운로드 | Microsoft Docs
 description: Azure SDK를 사용하여 Azure Storage 계정에서 대량의 임의 데이터를 다운로드하는 방법에 대해 알아봅니다.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 21186d3a2fd7d33cd78db3c3e45ff69240e7310d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: blobs
+ms.openlocfilehash: d71d09dde45897ad171109f6e091ae29c7cb91c2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30237382"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397291"
 ---
 # <a name="download-large-amounts-of-random-data-from-azure-storage"></a>Azure Storage에서 대량의 임의 데이터 다운로드
 

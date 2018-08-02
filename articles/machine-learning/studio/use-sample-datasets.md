@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 725b7e1e37ffca38cf439cc62b053f13dfd6397d
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 7a90a8f05082e2c0731f9f112d3e56ecaf4ea55b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903033"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398804"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets
@@ -333,7 +333,7 @@ NIDDK(National Institute of Diabetes and Digestive and Kidney Diseases) 데이�
 <tr>
   <td>날씨 데이터 집합</td>
   <td>
-NOAA에서 제공한 시간별 지상 기상 관측(<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">201304부터 201310까지의 병합된 데이터</a>).
+NOAA에서 제공한 시간별 지상 기상 관측(<a href="http://az754797.vo.msecnd.net/data/WeatherDataset.csv">201304부터 201310까지의 병합된 데이터</a>).
 <p></p>
 기상 데이터는 2013년 4월-10월 기간에 공항 기상 관측소에서 수행된 관측을 포함합니다. Azure Machine Learning Studio로 업로드하기 전에 데이터 집합이 다음과 같이 처리됩니다.
 <ul>
