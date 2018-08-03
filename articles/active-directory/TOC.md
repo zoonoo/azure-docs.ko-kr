@@ -102,11 +102,13 @@
 ### [모든 그룹 보기](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [SaaS 앱에 대한 그룹 액세스 추가](users-groups-roles/groups-saasapps.md)
 ### [삭제된 Office 365 그룹 복원](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### 고급 규칙 만들기
-#### [Azure Portal](users-groups-roles/groups-dynamic-membership.md)
+### [그룹 설정 관리](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [셀프 서비스 그룹 설정](users-groups-roles/groups-self-service-management.md)
-### [문제 해결](users-groups-roles/groups-troubleshooting.md)
+### 동적 그룹
+#### [동적 그룹 만들기](users-groups-roles/groups-create-rule.md)
+#### [규칙 구문 및 속성](users-groups-roles/groups-dynamic-membership.md)
+#### [그룹 멤버 자격 형식 변경](users-groups-roles/groups-change-type.md)
+#### [문제 해결](users-groups-roles/groups-troubleshooting.md)
 
 ## [보고서 관리](active-directory-reporting-azure-portal.md)
 ### [로그인 활동](active-directory-reporting-activity-sign-ins.md)

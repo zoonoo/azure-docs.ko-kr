@@ -2,19 +2,19 @@
 title: Azure에서 LUIS 앱을 사용하여 지역화 지원 | Microsoft Docs
 description: LUIS가 지원하는 언어에 대해 알아봅니다.
 services: cognitive-services
-author: cahann
-manager: hsalama
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/04/2017
-ms.author: cahann
-ms.openlocfilehash: 1eabc01ee07f8791680738a156471e3efe2c44ff
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: d2c479445aabe05013470724c623978402abeb9d
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35383291"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248420"
 ---
 # <a name="culture-specific-understanding-in-luis-apps"></a>LUIS 앱의 문화권 관련 이해
 
@@ -59,7 +59,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
      - です는 だ와 같지 않습니다. 
 
 ### <a name="text-analytics-support-notes"></a>**Text Analytics 지원 노트
-하위 문화권에는 포르투갈어만 지원됩니다. `pt-PT` 및 `pt-BR`. 다른 모든 문화권은 기본 문화권 수준에서 지원됩니다. Text Analytics [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)에 대해 자세히 알아봅니다. 
+Text Analytics에는 keyPhrase 미리 빌드된 엔터티 및 감정 분석이 포함되어 있습니다. 하위 문화권에는 포르투갈어만 지원됩니다. `pt-PT` 및 `pt-BR`. 다른 모든 문화권은 기본 문화권 수준에서 지원됩니다. Text Analytics [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)에 대해 자세히 알아봅니다. 
 
 ### <a name="speech-api-supported-languages"></a>Speech API 지원되는 언어
 Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode)를 참조하세요.

@@ -2,19 +2,19 @@
 title: Language Understanding(LUIS) API 서비스 용어집 | Microsoft Docs
 description: 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 7cfcc5b907b28a877bea57ea869e17f01aae00cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f6606a3a09698f236f9ebe2c21ec784ca84bb149
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265390"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225509"
 ---
 # <a name="glossary"></a>용어
 
@@ -72,7 +72,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="endpoint"></a>끝점
 
-[LUIS 끝점](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 끝점 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[게시](publishapp.md)** 페이지에 있는 리소스 및 키 테이블에서 끝점을 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 끝점 URL을 가져올 수 있습니다.
+[LUIS 끝점](https://aka.ms/luis-endpoint-apis) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 끝점 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[게시](luis-how-to-publish-app.md)** 페이지에 있는 리소스 및 키 테이블에서 끝점을 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 끝점 URL을 가져올 수 있습니다.
 
 예제 끝점이 다음과 같이 표시됩니다.
 
@@ -82,7 +82,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 |--|--|
 |region| [게시된 지역](luis-reference-regions.md#publishing-regions) |
 |appID | LUIS 앱 ID |
-|subscriptionID | Azure Portal에서 생성된 LUIS 구독 키 |
+|subscriptionID | Azure Portal에서 생성된 LUIS 끝점(구독) 키 |
 |q | 발화 |
 |timezoneOffset| minutes|
 
@@ -92,15 +92,15 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="f-measure"></a>F 측정값
 
-[일괄 테스트][batch-testing]에서 테스트 정확도의 측정값입니다.
+[일괄 테스트](luis-interactive-test.md#batch-testing)에서 테스트 정확도의 측정값입니다.
 
 ## <a name="false-negative"></a>가음성(TN)
 
-[일괄 테스트][batch-testing]에서 데이터 요소가 앱이 대상 의도/엔터티가 없음을 잘못 예측한 발화를 나타냅니다.
+[일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 없음을 잘못 예측한 발언을 나타냅니다.
 
 ## <a name="false-positive"></a>가양성(TP)
 
-[일괄 테스트][batch-testing]에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발화를 나타냅니다.
+[일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 잘못 예측한 발언을 나타냅니다.
 
 ## <a name="features"></a>기능
 
@@ -135,10 +135,10 @@ LUIS 앱은 [의도](#intent), [엔터티](#entity) 및 레이블이 지정된 [
 
 ## <a name="prebuilt-entity"></a>미리 빌드된 엔터티
 
-[미리 빌드된 엔터티](pre-builtentities.md)는 LUIS가 번호, URL 및 메일과 같은 일반적인 정보 유형에 제공하는 엔터티입니다. 미리 빌드된 엔터티를 응용 프로그램에 추가하도록 선택합니다. 
+[미리 빌드된 엔터티](luis-prebuilt-entities.md)는 LUIS가 번호, URL 및 메일과 같은 일반적인 정보 유형에 제공하는 엔터티입니다. 미리 빌드된 엔터티를 응용 프로그램에 추가하도록 선택합니다. 
 
 ## <a name="precision"></a>정밀도
-[일괄 테스트][batch-testing]에서 정밀도(긍정적 예측 값이라고도 함)는 검색된 발화 중에 관련된 발화의 일부입니다.
+[일괄 테스트](luis-interactive-test.md#batch-testing)에서 정밀도(긍정적 예측 값이라고도 함)는 검색된 발언 중에 관련된 발언의 일부입니다.
 
 ## <a name="programmatic-key"></a>프로그래밍 방식 키
 
@@ -153,7 +153,7 @@ LUIS 앱은 [의도](#intent), [엔터티](#entity) 및 레이블이 지정된 [
 LUIS 할당량은 [Azure 구독 계층](https://aka.ms/luis-price-tier)의 제한 사항입니다. LUIS 할당량은 초당 요청 수(HTTP 상태 429) 및 월별 총 요청 수(HTTP 상태 403)를 통해 제한할 수 있습니다. 
 
 ## <a name="recall"></a>재현율
-[일괄 테스트][batch-testing]에서 재현율(민감도라고도 함)은 LUIS가 일반화하는 기능입니다. 
+[일괄 테스트](luis-interactive-test.md#batch-testing)에서 재현율(민감도라고도 함)은 LUIS가 일반화하는 기능입니다. 
 
 ## <a name="semantic-dictionary"></a>의미 체계 사전
 의미 체계 사전은 구문 목록 페이지와 목록 엔터티 페이지에서 제공됩니다. 의미 체계 사전은 현재 범위를 기반으로 단어 제안을 제공합니다.
@@ -163,11 +163,11 @@ LUIS 할당량은 [Azure 구독 계층](https://aka.ms/luis-price-tier)의 제�
 
 ## <a name="speech-priming"></a>음성 초기화
 
-음성 초기화를 사용하면 LUIS 모델을 통해 Speech Service를 초기화할 수 있습니다. [음성 초기화 사용](publishapp.md#enable-speech-priming)을 참조하세요.
+음성 초기화를 사용하면 LUIS 모델을 통해 Speech Service를 초기화할 수 있습니다. [음성 초기화 사용](luis-how-to-publish-app.md#enable-speech-priming)을 참조하세요.
 
 ## <a name="spelling-correction"></a>맞춤법 교정
 
-게시 페이지에서 [Bing Spell Checker](publishapp.md#enable-bing-spell-checker)를 사용하여 예측 전에 발화에서 맞춤법이 잘못된 단어를 교정할 수 있습니다. 
+게시 페이지에서 [Bing Spell Checker](luis-how-to-publish-app.md#enable-bing-spell-checker)를 사용하여 예측 전에 발화에서 맞춤법이 잘못된 단어를 교정할 수 있습니다. 
 
 ## <a name="starter-key"></a>시작 키
 
@@ -175,11 +175,11 @@ LUIS 할당량은 [Azure 구독 계층](https://aka.ms/luis-price-tier)의 제�
 
 ## <a name="subscription-key"></a>구독 키
 
-구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 구독 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**앱 게시** 페이지](publishapp.md) 아래쪽에 있는 끝점 URL 내부에서 현재 구독 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다. 
+구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 끝점 키가 있는 경우 작성 키 대신 모든 끝점 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**앱 게시** 페이지](luis-how-to-publish-app.md) 아래쪽에 있는 끝점 URL 내부에서 현재 끝점 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다. 
 
 ## <a name="test"></a>테스트
 
-LUIS 앱 [테스트](interactive-test.md#test-your-app)는 LUIS에 발화를 전달하고 JSON 결과를 확인하는 것을 의미합니다.
+LUIS 앱 [테스트](luis-interactive-test.md#test-your-app)는 LUIS에 발화를 전달하고 JSON 결과를 확인하는 것을 의미합니다.
 
 ## <a name="timezoneoffset"></a>표준 시간대 오프셋
 
@@ -196,11 +196,11 @@ LUIS 앱 [테스트](interactive-test.md#test-your-app)는 LUIS에 발화를 전
 
 ## <a name="true-negative"></a>참 부정(TN)
 
-[일괄 테스트][batch-testing]에서 데이터 요소가 앱이 대상 의도/엔터티가 없음을 올바르게 예측한 발화를 나타냅니다.
+[일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 없음을 올바르게 예측한 발언을 나타냅니다.
 
 ## <a name="true-positive"></a>참 긍정(TP)
 
-[일괄 테스트][batch-testing]에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 올바르게 예측한 발화를 나타냅니다.
+[일괄 테스트](luis-interactive-test.md#batch-testing)에서 데이터 요소가 앱이 대상 의도/엔터티가 있음을 올바르게 예측한 발언을 나타냅니다.
 
 ## <a name="utterance"></a>발화
 
@@ -209,5 +209,3 @@ LUIS 앱 [테스트](interactive-test.md#test-your-app)는 LUIS에 발화를 전
 ## <a name="version"></a>버전
 
 LUIS [버전](luis-how-to-manage-versions.md)은 LUIS 앱 ID 및 게시된 끝점과 연결된 특정 데이터 모델입니다. 모든 LUIS 앱에는 하나 이상의 버전이 있습니다.
-
-[batch-testing]: https://docs.microsoft.com/azure/cognitive-services/luis/interactive-test#batch-testing

@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 48fc234e15ce3b9172d766f6fae11b51a017ce70
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d9391cc486dc868a1a291ccc7095291cddd3e4c
+ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35382955"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37858462"
 ---
 # <a name="call-bing-custom-search-endpoint-nodejs"></a>Bing Custom Search 엔드포인트 호출(Node.js)
 
@@ -34,12 +34,16 @@ ms.locfileid: "35382955"
 Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합니다.
 
 1. 코드 폴더를 만듭니다.
+
 2. 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
+
 3. **요청** 노드 모듈을 설치합니다.
     <pre>
     npm install request
     </pre>
+    
 4. BingCustomSearch.js 파일을 만들고 다음 코드를 파일에 복사합니다.
+
 5. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 해당 키 및 구성 ID로 바꿉니다(1단계 참조).
 
     ``` javascript

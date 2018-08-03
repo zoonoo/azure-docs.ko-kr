@@ -9,22 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a25c2b7ea7fdfcc6bcaa10baff3a5ae14ae9753b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37044823"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39112876"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
 통합 Speech Service의 REST API는 [Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech)(이전의 Bing Speech Service)가 제공하는 API와 비슷합니다. 끝점은 이전 Speech Service에서 사용되는 끝점과 다릅니다.
 
-## <a name="speech-to-text"></a>음성 텍스트 변환
+## <a name="speech-to-text"></a>음성을 텍스트로 변환
 
 Speech to Text API에서는 사용되는 끝점만 이전 Speech Service의 Speech Recognition API와 다릅니다. 새 끝점은 아래 표에 나와 있습니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 그 외에 Speech to Text API는 이전 Speech API에 대한 [REST API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest)와 비슷합니다.
 
@@ -55,7 +55,7 @@ ko-KR  | 영어 | Male   | “Microsoft Server Speech Text to Speech Voice(en-US
 
 다음은 통합된 Speech service Text to Speech API에 대한 REST 끝점입니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 이전 Speech API에 대한 [REST API 설명서](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput)를 참조할 때는 이러한 차이점에 유의하세요.
 
@@ -63,7 +63,7 @@ ko-KR  | 영어 | Male   | “Microsoft Server Speech Text to Speech Voice(en-US
 
 Speech Service의 REST API에 요청을 보내려면 액세스 토큰이 필요합니다. 아래 표와 같이 국가별 Speech Service `issueToken` 끝점에 구독 키를 제공하여 토큰을 획득합니다. 사용자 구독 지역과 일치하는 끝점을 사용하세요.
 
-[!include[](includes/endpoints-token-service.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 각 액세스 토큰은 10분 동안 유효합니다. 원할 경우, 모든 Speech REST API 요청 직전을 비롯하여 언제든지 새 토큰을 획득할 수 있습니다. 그러나 네트워크 트래픽 및 대기 시간을 최소화하려면 9분 동안 동일한 토큰을 사용하는 것이 좋습니다.
 
@@ -265,5 +265,7 @@ Connection: Keep-Alive
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [음성 모델을 사용자 지정하는 방법 확인](how-to-customize-speech-models.md)
+- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [언어 모델 사용자 지정](how-to-customize-language-model.md)
+

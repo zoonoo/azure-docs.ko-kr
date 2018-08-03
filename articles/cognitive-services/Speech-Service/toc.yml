@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Speech Service API 설명서
+- name: Speech Service 및 SDK 설명서
   href: index.yml
 - name: 개요
   items:
     - name: 음성 시나리오
       href: speech-scenarios.md
-    - name: Speech Service란?
-      href: overview.md
       expanded: true
+    - name: Speech Service
+      href: overview.md
     - name: 음성 SDK
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'
@@ -107,7 +107,7 @@
       displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
 - name: 개념
   items:
-    - name: 음성을 텍스트로 변환
+    - name: 음성 텍스트 변환
       href: speech-to-text.md
       displayName: 'recognize speech, speech recognition, speech to text, stt'
     - name: 텍스트에서 음성 변환

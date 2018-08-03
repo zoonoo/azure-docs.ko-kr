@@ -2,25 +2,25 @@
 title: LUIS 앱 테스트 - Azure | Microsoft Docs
 description: Language Understanding(LUIS)을 사용하여 응용 프로그램을 지속적으로 개선하고 해당 언어의 이해를 향상합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8c702d2adbadd2736eed05c7580e8aabf69affbf
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266331"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224350"
 ---
 # <a name="testing-in-luis"></a>LUIS에서 테스트
 
 테스트는 LUIS에 샘플 발화를 제공하고 LUIS에서 인식한 의도 및 엔터티의 응답을 가져오는 프로세스입니다. 
 
-한 번에 발화 하나씩 대화형으로 LUIS를 [테스트](interactive-test.md)하거나 발화의 [일괄 처리](luis-concept-batch-test.md)를 제공할 수 있습니다. 테스트를 사용하여 현재 [활성](luis-concept-version.md#active-version) 모델을 게시된 모델과 비교합니다. 
+한 번에 발화 하나씩 대화형으로 LUIS를 [테스트](luis-interactive-test.md)하거나 발화의 [일괄 처리](luis-concept-batch-test.md)를 제공할 수 있습니다. 테스트를 사용하여 현재 [활성](luis-concept-version.md#active-version) 모델을 게시된 모델과 비교합니다. 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -35,7 +35,7 @@ ms.locfileid: "36266331"
 한 번에 둘 이상의 발화를 테스트하는 경우, [일괄 테스트](luis-concept-batch-test.md)를 참조하세요.
 
 ## <a name="endpoint-testing"></a>끝점 테스트
-최대 두 개의 앱 버전과 함께 [끝점](luis-glossary.md#endpoint)을 사용하여 테스트할 수 있습니다. **프로덕션** 끝점으로 설정된 기본 또는 라이브 버전 앱을 사용하여 두 번째 버전을 **스테이징** 끝점에 추가합니다. 이 접근법은 세 개의 발화 버전인 [LUIS][LUIS] 웹 사이트 [테스트] 창의 현재 모델 및 두 개의 다른 끝점에 있는 두 개의 버전을 제공합니다. 
+최대 두 개의 앱 버전과 함께 [끝점](luis-glossary.md#endpoint)을 사용하여 테스트할 수 있습니다. **프로덕션** 끝점으로 설정된 기본 또는 라이브 버전 앱을 사용하여 두 번째 버전을 **스테이징** 끝점에 추가합니다. 이 접근법은 세 개의 발화 버전인 [LUIS](luis-reference-regions.md) 웹 사이트 [테스트] 창의 현재 모델 및 두 개의 다른 끝점에 있는 두 개의 버전을 제공합니다. 
 
 모든 끝점 테스트에서는 사용 할당량을 계산합니다. 
 
@@ -43,9 +43,9 @@ ms.locfileid: "36266331"
 끝점에서 테스트할 때 발화를 기록하지 않으려면 `logging=false` 쿼리 문자열 구성을 사용해야 합니다.
 
 ## <a name="where-to-find-utterances"></a>발화를 찾을 수 있는 위치
-LUIS는 [LUIS][LUIS] 웹 사이트 **앱** 목록 페이지 및 LUIS [작성 API](https://aka.ms/luis-authoring-apis)에서 다운로드할 수 있는 쿼리 로그에 모든 기록된 발화를 저장합니다. 
+LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트 **앱** 목록 페이지 및 LUIS [작성 API](https://aka.ms/luis-authoring-apis)에서 다운로드할 수 있는 쿼리 로그에 모든 기록된 발화를 저장합니다. 
 
-LUIS가 확신하지 않는 모든 발화는 []LUIS[LUIS] 웹 사이트의 **[끝점 발화 검토](label-suggested-utterances.md)** 페이지에 나열됩니다. 
+LUIS가 확신하지 않는 모든 발언은 [LUIS](luis-reference-regions.md) 웹 사이트의 **[끝점 발언 검토](luis-how-to-review-endoint-utt.md)** 페이지에 나열됩니다. 
 
 ![끝점 발화 검토](./media/luis-concept-test/review-endpoint-utterances.png)
  
@@ -57,6 +57,4 @@ LUIS가 확신하지 않는 모든 발화는 []LUIS[LUIS] 웹 사이트의 **[�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 발화 [테스트](interactive-test.md)에 대해 자세히 알아봅니다.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+* 발화 [테스트](luis-interactive-test.md)에 대해 자세히 알아봅니다.

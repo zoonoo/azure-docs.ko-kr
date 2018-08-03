@@ -10,22 +10,22 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 77cc998227d996a6e52b1b5629204da5dc735ede
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376175"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171479"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Conversation Learner 봇을 배포하는 방법
 
 이 문서에서는 로컬 또는 Azure에 Conversation Learner 봇을 배포하는 방법을 설명합니다.
 
-## <a name="prerequisite-determine-the-application-id"></a>필수 조건: 응용 프로그램 ID 확인 
+## <a name="prerequisite-determine-the-model-id"></a>필수 조건: 모델 ID 확인 
 
-Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 Conversation Learner 응용 프로그램 ID(예: Conversation Learner 클라우드의 Machine Learning 모델 ID)를 설정해야 합니다.  반면, Conversation Learner UI를 통해 봇을 실행하는 경우 UI가 응용 프로그램 ID를 선택합니다.  
+Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 Conversation Learner 모델 ID(예: Conversation Learner 클라우드의 Machine Learning 모델 ID)를 설정해야 합니다.  반면, Conversation Learner UI를 통해 봇을 실행하는 경우 UI가 모델 ID를 선택합니다.  
 
-다음은 응용 프로그램 ID를 가져오는 방법입니다.
+다음은 모델 ID를 가져오는 방법입니다.
 
 1. 봇과 Conversation Learner UI를 시작합니다.  전체 지침은 빠른 시작 가이드를 참조하세요. 요약하면 다음과 같습니다.
 
@@ -47,11 +47,11 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 
 2. 브라우저에서 http://localhost:5050을 엽니다. 
 
-3. ID를 가져올 Conversation Learner 응용 프로그램을 클릭합니다.
+3. ID를 가져올 Conversation Learner 모델을 클릭합니다.
 
 4. 왼쪽의 탐색 모음에서 “설정”을 클릭합니다.
 
-5. “앱 ID” GUID가 페이지 맨 위에 표시됩니다.
+5. “모델 ID” GUID가 페이지 맨 위에 표시됩니다.
 
 ## <a name="option-1-deploying-a-conversation-learner-bot-to-run-locally"></a>옵션 1: 로컬에서 실행할 Conversation Learner 봇 배포
 
@@ -62,7 +62,7 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
 로컬에서 봇을 실행하는 경우 응용 프로그램 ID를 봇의 `.env` 파일에 추가합니다.
 
     ```
-    CONVERSATION_LEARNER_APP_ID=<YOUR_APP_ID>
+    CONVERSATION_LEARNER_MODEL_ID=<YOUR_MODEL_ID>
     ```
 
 그런 다음, 봇을 시작합니다.
@@ -116,8 +116,8 @@ Conversation Learner UI 외부에서 봇을 실행하려면 봇에서 사용할 
         환경 변수 | 값
         --- | --- 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
-        CONVERSATION_LEARNER_APP_ID      | Conversation Learner UI에서 앱 “설정” 아래에 있는 응용 프로그램 ID GUID
-        LUIS_AUTHORING_KEY               | 이 앱에 대한 LUIS 작성 키
+        CONVERSATION_LEARNER_MODEL_ID      | Conversation Learner UI에서 모델 “설정” 아래에 있는 응용 프로그램 ID GUID
+        LUIS_AUTHORING_KEY               | 이 모델에 대한 LUIS 작성 키
     
     4. 페이지 맨 위에서 “저장”을 클릭합니다.
     5. 왼쪽에서 “빌드” 탐색 항목을 엽니다.

@@ -47,8 +47,34 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
+      items:
+        - name: 사용자 지정 항목 만들기
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Azure 구독에 가입
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Blob 저장소 구독
+          href: scripts/event-grid-cli-blob.md
+        - name: 사용자 지정 항목 구독
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: 리소스 그룹 구독
+          href: scripts/event-grid-cli-resource-group.md
+        - name: 리소스 그룹에 대한 이벤트 구독 및 필터링
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: 사용자 지정 항목 만들기
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Azure 구독에 가입
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Blob 저장소 구독
+          href: scripts/event-grid-powershell-blob.md
+        - name: 사용자 지정 항목 구독
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: 리소스 그룹 구독
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: 리소스 그룹에 대한 이벤트 구독 및 필터링
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: 리소스 관리자 템플릿
       href: template-samples.md
     - name: 코드 샘플
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
-    - name: 이벤트 전달 관리
+    - name: 배달 못한 편지 및 다시 시도
       href: manage-event-delivery.md
     - name: 이벤트 전달 모니터링
       href: monitor-event-delivery.md

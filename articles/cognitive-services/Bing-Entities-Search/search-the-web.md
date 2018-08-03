@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: f1b87c07d5b56307fd6b3fc68999598aeab6eb82
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 275430bc6ee8f935978243e61f68713974648189
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377423"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39008113"
 ---
 # <a name="what-is-bing-entity-search"></a>Bing Entity Search란?
 
@@ -45,6 +45,8 @@ Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장�
 ## <a name="the-response"></a>응답
 
 응답에는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#searchresponse) 개체가 포함됩니다. Bing에서 관련된 엔터티 또는 장소를 찾은 경우 개체에 `entities` 필드, `places` 필드 또는 둘 다가 포함됩니다. 찾지 못한 경우에는 응답 개체에 필드가 포함되지 않습니다.
+> [!NOTE]
+> 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
 `entities` 필드는 [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity) 개체 목록을 포함하는 [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer) 개체입니다(`value` 필드 참조). 목록에는 단일 기준 엔터티, 여러 명확성 엔터티 또는 둘 다가 포함될 수 있습니다. 
 
@@ -189,6 +191,8 @@ Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장�
     "Restaurant"]
 }, ...
 ```
+> [!NOTE]
+> 엔터티 응답은 여러 지역/국가를 지원하지만 위치 응답은 미국 비즈니스 위치만 지원합니다. 
 
 *주변 식당* 등의 로컬 인식 엔터티 쿼리에서 정확한 결과를 제공하려면 사용자 위치가 필요합니다. 요청은 항상 X-Search-Location 및 X-MSEdge-ClientIP 헤더를 사용하여 사용자 위치를 지정해야 합니다. Bing은 사용자 위치가 쿼리에 도움이 된다고 판단할 경우 [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#querycontext)의 `askUserForLocation` 필드를 **true**로 설정합니다. 
 

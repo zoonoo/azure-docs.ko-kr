@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 엔터티 검색 콜백을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 엔터티 검색 콜백을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 엔터티 검색 콜백을 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 엔터티 검색 콜백을 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,19 +10,23 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: e41ea5930ff0c8395d0c93aa42e224ebfc894ba8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f168018a23d03ffb957da2dd1f67881420a21208
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376255"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171106"
 ---
 # <a name="how-to-use-entity-detection-callback"></a>엔터티 검색 콜백을 사용하는 방법
 
 이 자습서에서는 엔터티 검색 콜백 보여주며, 엔터티를 확인하기 위한 일반적인 패턴을 보여줍니다.
 
+## <a name="video"></a>비디오
+
+[![자습서 10 미리 보기](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+
 ## <a name="requirements"></a>요구 사항
-이 자습서를 수행하려면 "tutorialEntityDetectionCallback" 봇이 실행 중이어야 합니다.
+이 자습서를 수행하려면 `tutorialEntityDetectionCallback` 봇이 실행 중이어야 합니다.
 
     npm run tutorial-entity-detection
 
@@ -31,21 +35,21 @@ ms.locfileid: "35376255"
 
 ### <a name="open-the-demo"></a>데모 열기
 
-앱 목록에서 Tutorial-10-EntityDetenctionCallback을 클릭합니다. 
+모델 목록에서 Tutorial-10-EntityDetectionCallback을 클릭합니다. 
 
 ### <a name="entities"></a>엔터티
 
-응용 프로그램에 세 개의 엔터티를 정의했습니다.
+모델에는 세 가지 엔터티가 정의됩니다.
 
 ![](../media/tutorial10_entities.PNG)
 
 1. City는 사용자가 텍스트 입력으로 제공하는 사용자 지정 엔터티입니다.
-2. CityUnknown는 프로그래밍 엔터티입니다. 이 항목은 시스템에 의해 채워집니다. 시스템이 어느 도시인지 알지 못하는 경우 사용자 입력을 복사합니다.
-3. CityResolved는 시스템에서 알 수 있는 도시입니다. 도시의 정식 이름을 사용합니다(예: "빅 애플"을 "뉴욕"으로 확인).
+2. CityUnknown는 프로그래밍 엔터티입니다. 이 엔터티는 시스템에 의해 채워집니다. 시스템이 어느 도시인지 알지 못하는 경우 사용자 입력을 복사합니다.
+3. CityResolved는 시스템에서 알 수 있는 도시입니다. 이 엔터티는 도시의 정식 이름을 사용합니다(예: "빅 애플"을 "뉴욕"으로 확인).
 
 ### <a name="actions"></a>작업
 
-세 가지 작업을 만들었습니다. 
+세 가지 작업이 모델에 정의됩니다.
 
 ![](../media/tutorial10_actions.PNG)
 
@@ -72,9 +76,9 @@ ms.locfileid: "35376255"
 2. '안녕하세요'를 입력합니다.
 3. 작업에 점수 지정을 클릭하고 '어느 도시를 선택하시겠습니까?'를 선택합니다.
 2. '뉴욕'을 입력합니다.
-    - City 엔터티로 인식되었습니다.
+    - 이 텍스트는 City 엔터티로 인식되었습니다.
 5. 작업에 점수 지정을 클릭합니다.
-    - City 및 CityResolved가 채워졌습니다.
+    - `City` 및 `CityResolved`가 채워졌습니다.
 6. '$City를 선택하셨습니다. $CityResolved로 확인합니다.'를 선택합니다.
 7. 학습 완료를 클릭합니다.
 
@@ -84,9 +88,9 @@ ms.locfileid: "35376255"
 2. '안녕하세요'를 입력합니다.
 3. 작업에 점수 지정을 클릭하고 '어느 도시를 선택하시겠습니까?'를 선택합니다.
 2. '빅 애플'을 입력합니다.
-    - City 엔터티로 인식되었습니다.
+    - 이 텍스트는 City 엔터티로 인식되었습니다.
 5. 작업에 점수 지정을 클릭합니다.
-    - CityResolved가 실행되는 코드의 결과를 보여줍니다.
+    - `CityResolved`는 코드 실행의 결과를 보여 줍니다.
 6. '$City를 선택하셨습니다. $CityResolved로 확인합니다.'를 선택합니다.
 7. 학습 완료를 클릭합니다.
 
@@ -101,7 +105,7 @@ ms.locfileid: "35376255"
 6. '$CityUknown, 이 도시를 모릅니다. '어느 도시를 선택하시겠습니까?'를 선택합니다.
 7. '뉴욕'을 입력합니다.
 8. 작업에 점수 지정을 클릭합니다.
-    - CityUknown을 지우고 CityResolved를 채웁니다.
+    - `CityUknown`이 지워졌고 `CityResolved`가 채워졌습니다.
 6. '$City를 선택하셨습니다. $CityResolved로 확인합니다.'를 선택합니다.
 7. 학습 완료를 클릭합니다.
 

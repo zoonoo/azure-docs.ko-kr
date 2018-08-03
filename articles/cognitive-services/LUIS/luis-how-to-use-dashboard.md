@@ -2,19 +2,19 @@
 title: LUIS 앱용 응용 프로그램 대시보드 | Microsoft Docs
 description: 한눈에 앱을 모니터링할 수 있는 시각화된 보고 도구인 응용 프로그램 대시보드에 대해 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4e117aa734c551f76c3602f81e3e2ebc6aa9f337
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: diberry
+ms.openlocfilehash: 518227d9f4165a08fafefa357de255d97c710f61
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35383003"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224503"
 ---
 # <a name="application-dashboard"></a>응용 프로그램 대시보드
 앱 대시보드를 사용하면 한눈에 앱을 모니터링할 수 있습니다. **내 앱** 페이지에서 응용 프로그램 이름을 클릭하여 앱을 열고 맨 위 패널에서 **대시보드**를 선택하면 **대시보드**가 표시됩니다. 
@@ -69,7 +69,7 @@ At the top of the **Dashboard** page, a contextual notification bar constantly d
 2. 목록에서 기간을 선택한 다음, 뒤로 화살표 ![뒤로 화살표](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 를 클릭하여 차트를 표시합니다.
 
 ### <a name="key-usage"></a>키 사용
-응용 프로그램의 등록 키에서 사용된 적중 횟수입니다. 구독 키에 대한 자세한 내용은 [LUIS의 키](luis-concept-keys.md)를 참조하세요. 
+응용 프로그램의 끝점 키에서 사용된 적중 횟수입니다. 끝점 키에 대한 자세한 내용은 [LUIS의 키](luis-concept-keys.md)를 참조하세요. 
   
 ## <a name="intent-breakdown"></a>의도 분석
 **의도 분석**은 레이블이 지정된 발화 수 또는 끝점 적중 횟수에 따른 의도 분석을 표시합니다. 이 요약 그래프는 앱에서 각 의도의 상대적 중요성을 보여 줍니다. 마우스 포인터로 슬라이스를 가리키면 의도 이름 및 레이블이 지정된 발화 수/끝점 적중 횟수의 합계 중 의도가 나타내는 비율이 표시됩니다. 

@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: SMTP 배너 검사를 위한 PTR 구성
           href: create-ptr-for-smtp-service.md
+        - name: 가상 어플라이언스에 대한 문제 해결 검사 목록
+          href: virtual-network-troubleshoot-nva.md
     - name: 클래식
       items:
         - name: 가상 네트워크 만들기 및 관리

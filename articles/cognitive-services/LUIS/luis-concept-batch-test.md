@@ -2,19 +2,19 @@
 title: LUIS 앱 일괄 처리 테스트 - Azure | Microsoft Docs
 description: 일괄 처리 테스트를 사용하여 응용 프로그램을 지속적으로 개선하고 해당 언어에 대한 이해를 향상합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 3803df32d6431b8413e8df0837ed62b2e4344cdc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 07/06/2018
+ms.author: diberry
+ms.openlocfilehash: bba3f2ff942fbe5dffc9b694990964e4e3078dbe
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35375359"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222656"
 ---
 # <a name="batch-testing-in-luis"></a>LUIS의 일괄 처리 테스트
 
@@ -34,14 +34,99 @@ ms.locfileid: "35375359"
 
 *중복은 먼저 토큰화된 일치가 아니라 정확한 문자열 일치로 간주됩니다. 
 
+## <a name="entities-allowed-in-batch-tests"></a>일괄 테스트에서 허용되는 엔터티
+엔터티에는 간단한 계층적 부모 및 복합 요소가 포함됩니다. 이러한 형식의 모든 엔터티는 일괄 처리 파일에 해당 엔터티가 없더라도 일괄 테스트 엔터티 필터에 표시됩니다.
+
+
 <a name="json-file-with-no-duplicates"></a>
 <a name="example-batch-file"></a>
 ## <a name="batch-file-format"></a>배치 파일 형식
 배치 파일은 발언으로 구성됩니다. 각 발언에는 감지될 것으로 예상하는 모든 [Machine Learning 엔터티](luis-concept-entity-types.md#types-of-entities)와 함께 예상된 의도 예측이 있어야 합니다. 
 
-예제 배치 파일은 다음과 같습니다.
+다음은 적절한 구문을 포함하는 일괄 처리 파일의 예입니다.
 
-   [!code-json[Valid batch test](~/samples-luis/documentation-samples/batch-testing/travel-agent-1.json)]
+```JSON
+[
+  {
+    "text": "Are there any janitorial jobs currently open?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  },
+  {
+    "text": "I would like a fullstack typescript programming with azure job",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 15,
+            "endPos": 46
+        }
+    ]
+  },
+  {
+    "text": "Is there a database position open in Los Colinas?",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 11,
+            "endPos": 18
+        }
+    ]
+  },
+  {
+    "text": "Please find database jobs open today in Seattle",
+    "intent": "GetJobInformation",
+    "entities": 
+    [
+        {
+            "entity": "Job",
+            "startPos": 12,
+            "endPos": 19
+        }
+    ]
+  }
+]
+```
+
+## <a name="batch-syntax-template"></a>일괄 처리 구문 템플릿
+
+다음 템플릿을 사용하여 일괄 처리 파일을 시작합니다.
+
+```JSON
+[
+  {
+    "text": "example utterance goes here",
+    "intent": "intent name goes here",
+    "entities": 
+    [
+        {
+            "entity": "entity name 1 goes here",
+            "startPos": 14,
+            "endPos": 23
+        },
+        {
+            "entity": "entity name 2 goes here",
+            "startPos": 14,
+            "endPos": 23
+        }
+    ]
+  }
+]
+```
+
+일괄 처리 파일은 **startPos** 및 **endPos** 속성을 사용하여 엔터티의 시작과 끝을 나타냅니다. 값은 0부터 시작하고 공백으로 시작하거나 끝나면 안 됩니다. 
+
+이 파일은 startIndex 및 endIndex 속성을 사용하는 쿼리 로그와 다릅니다. 
 
 
 ## <a name="common-errors-importing-a-batch"></a>배치를 가져오는 중 발생하는 일반적인 오류
@@ -49,6 +134,7 @@ ms.locfileid: "35375359"
 
 > * 1,000개 발언 초과
 > * 엔터티 속성이 없는 발언 JSON 개체
+> * 단어에 여러 엔터티로 레이블이 지정됨
 
 ## <a name="batch-test-state"></a>일괄 처리 테스트 상태
 LUIS는 각 데이터 집합의 마지막 테스트 상태를 추적합니다. 여기에는 크기(일괄 처리의 발언 수), 마지막 실행 날짜, 마지막 결과(성공적으로 예측된 발언 수)가 포함됩니다.
@@ -75,4 +161,4 @@ LUIS는 각 데이터 집합의 마지막 테스트 상태를 추적합니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [일괄 처리 테스트](luis-how-to-batch-test.md) 방법을 알아봅니다.
+* [일괄 테스트](luis-how-to-batch-test.md) 방법 알아보기

@@ -3,27 +3,27 @@ title: Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드 | Mi
 titleSuffix: Azure
 description: LUIS 작성 API를 사용하여 CSV 형식의 기존 데이터에서 프로그래밍 방식으로 LUIS 앱을 빌드하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: DeniseMak
-manager: rstand
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
-ms.author: v-geberr
-ms.openlocfilehash: 09c9d4da835b7b30fd132770f9d13b33fa80a3f5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268314"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238508"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
-LUIS는 [LUIS][LUIS] 웹 사이트에서 수행하는 모든 작업을 수행하는 프로그래밍 방식의 API를 제공합니다. 따라서 기존 데이터가 있는 경우 시간을 절약할 수 있으며 직접 정보를 입력할 때보다 더 빠르게 프로그래밍 방식으로 LUIS 앱을 만들 수 있습니다. 
+LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모든 작업을 수행하는 프로그래밍 방식의 API를 제공합니다. 따라서 기존 데이터가 있는 경우 시간을 절약할 수 있으며 직접 정보를 입력할 때보다 더 빠르게 프로그래밍 방식으로 LUIS 앱을 만들 수 있습니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [LUIS][LUIS] 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-concept-keys.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
+* [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-concept-keys.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
 * Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * 이 자습서는 가상 회사의 사용자 요청 로그 파일에 대한 CSV에서 시작합니다. [여기](https://github.com/Microsoft/LUIS-Samples/blob/master/examples/build-app-programmatically-csv/IoT.csv)에서 다운로드하세요.
 * NPM을 사용하는 최신 Node.js를 설치합니다. [여기](https://nodejs.org/en/download/)에서 다운로드하세요.
@@ -111,7 +111,7 @@ LUIS 앱에서 엔터티 및 의도를 정의했으면 발화를 추가할 수 �
 ````
 
 ### <a name="change-configuration-settings"></a>구성 설정 변경
-이 응용 프로그램을 사용하려면 index.js 파일의 값을 고유한 구독 키로 변경하고 앱에 지정할 이름을 제공해야 합니다. 앱의 문화권을 설정하거나 버전 번호를 변경할 수도 있습니다.
+이 응용 프로그램을 사용하려면 index.js 파일의 값을 고유한 끝점 키로 변경하고 앱에 지정할 이름을 제공해야 합니다. 앱의 문화권을 설정하거나 버전 번호를 변경할 수도 있습니다.
 
 index.js 파일을 열고 파일의 맨 위에서 이러한 값을 변경하세요.
 
@@ -163,7 +163,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>LUIS 앱 열기
-스크립트가 완료되면 [LUIS][LUIS]에 로그인하여 **내 앱**에서 직접 만든 LUIS 앱을 볼 수 있습니다. **TurnOn**, **TurnOff** 및 **None** 의도에서 추가한 발화를 확인할 수 있습니다.
+스크립트가 완료되면 [LUIS](luis-reference-regions.md)에 로그인하여 **내 앱**에서 직접 만든 LUIS 앱을 볼 수 있습니다. **TurnOn**, **TurnOff** 및 **None** 의도에서 추가한 발화를 확인할 수 있습니다.
 
 ![TurnOn 의도](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 
@@ -171,7 +171,7 @@ upload done
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [LUIS 웹 사이트에서 앱 테스트 및 학습](interactive-test.md)
+> [LUIS 웹 사이트에서 앱 테스트 및 학습](luis-interactive-test.md)
 
 ## <a name="additional-resources"></a>추가 리소스
 
@@ -179,7 +179,4 @@ upload done
 - [앱 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
 - [의도 추가](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
 - [엔터티 추가](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [발화 추가](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
-
+- [발화 추가](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)

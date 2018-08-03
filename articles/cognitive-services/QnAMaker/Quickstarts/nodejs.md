@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 79723a914fd41b0197b4d59a6a83304e233d3f64
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301539"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37868177"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Microsoft QnA Maker API와 Node.js의 빠른 시작 
 <a name="HOLTop"></a>
@@ -38,7 +38,7 @@ ms.locfileid: "36301539"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)가 필요합니다.
+이 코드를 실행하려면 [Node.js 6](https://nodejs.org/en/download/)이 필요합니다.
 
 **Microsoft QnA Maker API**를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)의 유료 구독 키가 필요합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "36301539"
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -207,7 +207,7 @@ create_kb (path, content, function (result) {
 
 **기술 자료 만들기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -246,7 +246,7 @@ create_kb (path, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -407,7 +407,7 @@ update_kb (path, content, function (result) {
 
 **기술 자료 업데이트 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -447,7 +447,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -541,7 +541,7 @@ publish_kb (path, '', function (result) {
 
 **기술 자료 게시 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -559,7 +559,7 @@ publish_kb (path, '', function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -674,7 +674,7 @@ replace_kb (path, content, function (result) {
 
 **기술 자료 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -692,7 +692,7 @@ replace_kb (path, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -780,7 +780,7 @@ get_qna (path, function (result) {
 
 **기술 자료 다운로드 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -924,7 +924,7 @@ get_answers (method, content, function (result) {
 
 **답변 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -954,7 +954,7 @@ get_answers (method, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1039,7 +1039,7 @@ get_kb (path, function (result) {
 
 **기술 자료 세부 정보 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1069,7 +1069,7 @@ get_kb (path, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1151,7 +1151,7 @@ get_kbs (path, function (result) {
 
 **사용자에 대한 기술 자료 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1197,7 +1197,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1291,7 +1291,7 @@ delete_kb (path, '', function (result) {
 
 **기술 자료 삭제 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1309,7 +1309,7 @@ delete_kb (path, '', function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1391,7 +1391,7 @@ get_keys (path, function (result) {
 
 **끝점 키 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1410,7 +1410,7 @@ get_keys (path, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1517,7 +1517,7 @@ refresh_keys (path, content, function (result) {
 
 **끝점 키 새로 고침 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1536,7 +1536,7 @@ refresh_keys (path, content, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1618,7 +1618,7 @@ get_alterations (path, function (result) {
 
 **단어 변경 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1643,7 +1643,7 @@ get_alterations (path, function (result) {
 
 1. 즐겨 찾는 IDE에 새 Node.js 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```nodejs
@@ -1747,7 +1747,7 @@ put_alterations (path, content, function (result) {
 
 **단어 변경 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {

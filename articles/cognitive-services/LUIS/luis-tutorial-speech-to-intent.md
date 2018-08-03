@@ -3,19 +3,19 @@ title: LUIS에서 Speech C# SDK 사용 - Azure | Microsoft Docs
 titleSuffix: Azure
 description: Speech C# SDK 샘플을 사용하여 마이크에 말하고 LUIS 의도 및 엔터티 예측을 반환합니다.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: v-geberr;
-ms.openlocfilehash: b681598f953d217ca636fb5c0adc3de4ddbebd60
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.author: diberry;
+ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031790"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247718"
 ---
 # <a name="integrate-speech-service"></a>Speech Service 통합
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)를 사용하면 단일 요청을 통해 오디오를 수신하고 LUIS 예측 JSON 개체를 반환할 수 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "37031790"
 Azure Portal에서 LUIS(**Language Understanding**) 키를 [만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). 
 
 ## <a name="import-human-resources-luis-app"></a>Human Resources LUIS 앱 가져오기
-이 문서의 의도 및 발언은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 리포지토리에서 사용할 수 있는 Human Resources LUIS 앱에서 가져온 것입니다. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) 파일을 다운로드하고 *.json 확장명으로 저장한 후 LUIS로 [가져옵니다](create-new-app.md#import-new-app). 
+이 문서의 의도 및 발언은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 리포지토리에서 사용할 수 있는 Human Resources LUIS 앱에서 가져온 것입니다. [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/HumanResources.json) 파일을 다운로드하고 *.json 확장명으로 저장한 후 LUIS로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 
 
 이 앱에는 Human Resources 도메인과 관련된 의도, 엔터티 및 발언이 있습니다. 발언 예제는 다음과 같습니다.
 
@@ -120,7 +120,7 @@ Recognition done. Your Choice:
 Speech SDK가 전체 LUIS 응답을 반환합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS HumanResources 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 3개 점 메뉴(...)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+더 이상 필요하지 않은 경우 LUIS HumanResources 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 샘플 코드 사용이 완료되면 LUIS-Samples 디렉터리를 삭제해야 합니다.
 

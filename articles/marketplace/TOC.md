@@ -8,7 +8,7 @@
 #### [Azure Marketplace에 대한 청구 옵션](./billing-options-azure-marketplace.md)  
 #### [Azure 파트너 고객 사용량 특성](./azure-partner-customer-usage-attribution.md)
 
-### 상점 [AppSource와 Azure Marketplace 비교](./comparing-appsource-azure-marketplace.md)  
+### [상점](./comparing-appsource-azure-marketplace.md)  
 
 ### [솔루션에 대한 게시 옵션 확인](./determine-your-listing-type.md)  
 
@@ -25,6 +25,6 @@
 ### [마켓플레이스를 통한 비즈니스 성장](./grow-your-business-with-azure-marketplace.md)  
 #### [기본 설정 솔루션](./preferred-solutions.md) 
 
-### 지원 [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)  
+### [Azure Marketplace 및 AppSource 지원](./support-azure-marketplace.md)  
 
 ## [클라우드 파트너 포털](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  

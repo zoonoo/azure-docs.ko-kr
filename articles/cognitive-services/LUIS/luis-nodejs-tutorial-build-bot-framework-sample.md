@@ -2,19 +2,19 @@
 title: Azure에서 Node.js용 Bot Builder SDK를 사용하여 봇과 LUIS 통합 | Microsoft Docs
 description: Bot Framework를 사용하여 LUIS 응용 프로그램과 통합된 봇을 빌드합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/06/2018
-ms.author: v-geberr
-ms.openlocfilehash: 5d9b78977457f818b964adb16ebb5e9e5872aa2c
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 6d6937105b11d94138b51660dc9f3c5e682e19bc
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264976"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224078"
 ---
 # <a name="integrate-luis-with-a-bot-using-the-bot-builder-sdk-for-nodejs"></a>Node.js용 Bot Builder SDK를 사용하여 봇과 LUIS 통합
 
@@ -70,7 +70,7 @@ ms.locfileid: "36264976"
 
 3. 위쪽 탐색 모음에서 웹앱 봇 이름 `homeautomationluisbot`을 선택합니다. 
 
-4. 드롭다운 목록에서 **Kudu 콘솔**을 선택합니다.
+4. 드롭다운 목록에서 **Kudu 콘솔 열기**를 선택합니다.
 
 5. 새 브라우저 창이 열립니다. 콘솔에서 다음 명령을 입력합니다.
 
@@ -235,7 +235,7 @@ Azure Portal에서 **웹 채팅에서 테스트**를 선택하여 봇을 테스�
    ![웹 채팅에서 HomeAutomation 봇 테스트](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> 봇이 항상 올바른 의도나 엔터티를 인식하지는 않는다는 것을 알게 되면 더 많은 예제 발화를 제공하여 학습시키는 방식으로 LUIS 앱 성능을 개선합니다. 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/interactive-test)를 참조하세요.
+> 봇이 항상 올바른 의도나 엔터티를 인식하지는 않는다는 것을 알게 되면 더 많은 예제 발화를 제공하여 학습시키는 방식으로 LUIS 앱 성능을 개선합니다. 봇의 코드를 수정하지 않고 LUIS 앱을 다시 학습시킬 수 있습니다. [예제 발화 추가](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) 및 [LUIS 앱 학습 및 테스트](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test)를 참조하세요.
 
 ## <a name="learn-more-about-bot-framework"></a>Bot Framework에 대해 자세히 알아보기
 [Bot Framework](https://dev.botframework.com/)와 [3.x](https://github.com/Microsoft/BotBuilder) 및 [4.x](https://github.com/Microsoft/botbuilder-js) SDK에 대해 자세히 알아봅니다.

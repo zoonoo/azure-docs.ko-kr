@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 01bbf4ca19b0fb702aa76d5149fb0e38389fe455
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
+ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054826"
+ms.lasthandoff: 07/02/2018
+ms.locfileid: "37346447"
 ---
 # <a name="batch-transcription"></a>일괄 처리 기록
 
@@ -40,7 +40,7 @@ wav |  스테레오  |
 
 스테레오 오디오 스트림의 경우 일괄 처리 기록은 기록 동안 왼쪽 및 오른쪽 채널을 분할합니다. 결과를 포함하는 2개의 JSON 파일이 각각 단일 채널에서 만들어집니다. 말하기 기준 타임스탬프를 사용하여 개발자는 순서가 지정된 최종 기록을 만들 수 있습니다. 다음 JSON 샘플에서는 채널의 출력을 보여 줍니다.
 
-    ```
+```json
        {
         "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
         "resultsUrls": {
@@ -53,10 +53,10 @@ wav |  스테레오  |
         "status": "Succeeded",
         "locale": "en-US"
     },
-    ```
+```
 
 > [!NOTE]
-> Batch Transcription API는 기록, 해당 상태 및 관련 결과를 요청하기 위해 REST 서비스를 사용합니다. 이 API는 .NET을 기준으로 하며 외부 종속성이 없습니다. 다음 섹션에서는 사용 방법을 설명합니다.
+> Batch Transcription API는 기록, 해당 상태 및 관련 결과를 요청하기 위해 REST 서비스를 사용합니다. 이 API는 어떤 언어로도 사용 가능합니다. 다음 섹션에서는 사용 방법을 설명합니다.
 
 ## <a name="authorization-token"></a>권한 부여 토큰
 
@@ -77,7 +77,24 @@ wav |  스테레오  |
 
 ## <a name="sample-code"></a>샘플 코드
 
-API를 사용하는 것은 매우 간단합니다. 아래 샘플 코드는 구독 키 및 API 키로 사용자 지정해야 합니다.
+API를 사용하는 것은 매우 간단합니다. 아래의 샘플 코드는 구독 키 및 API 키로 사용자 지정해야 합니다. 그래야 개발자가 다음 코드 조각에 표시되는 것처럼 전달자 토큰을 얻을 수 있습니다.
+
+```cs
+    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+        {
+            var client = new HttpClient();
+            client.Timeout = TimeSpan.FromMinutes(25);
+            client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
+
+            var tokenProviderPath = "/oauth/ctoken";
+            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
+
+            return new CrisClient(client);
+        }
+```
+
+이 토큰을 가져오면 개발자는 기록이 필요한 오디오 파일을 가리키는 SAS URI를 지정해야 합니다. 코드의 나머지 부분은 단순히 상태를 반복하면서 결과를 표시합니다.
 
 ```cs
    static async Task TranscribeAsync()
@@ -93,7 +110,7 @@ API를 사용하는 것은 매우 간단합니다. 아래 샘플 코드는 구�
             var newLocation = 
                 await client.PostTranscriptionAsync(
                     "<selected locale i.e. en-us>", // Locale 
-                    "<your subscripition key>", // Subscription Key
+                    "<your subscription key>", // Subscription Key
                     new Uri("<SAS URI to your file>")).ConfigureAwait(false);
 
             var transcription = await client.GetTranscriptionAsync(newLocation).ConfigureAwait(false);
@@ -139,7 +156,7 @@ API를 사용하는 것은 매우 간단합니다. 아래 샘플 코드는 구�
 > 위의 코드 조각에서 언급된 등록 키는 Azure Portal에서 만드는 Speech(Preview) 리소스의 키입니다. 사용자 지정 Custom Speech 리소스에서 가져온 키는 작동하지 않습니다.
 
 
-오디오 게시 및 기록 상태 수신에 대한 비동기 설정을 확인합니다. 만든 클라이언트는 NET Http 클라이언트입니다. 오디오 파일 세부 정보를 전송하기 위한 `PostTranscriptions` 메서드와, 결과를 수신하기 위한 `GetTranscriptions` 메서드가 있습니다. `PostTranscriptions`는 핸들을 반환하며 `GetTranscriptions` 메서드는 이 핸들을 사용하여 기록 상태를 가져오기 위한 핸들을 만듭니다.
+오디오 게시 및 기록 상태 수신에 대한 비동기 설정을 확인합니다. 만든 클라이언트는 .NET Http 클라이언트입니다. 오디오 파일 세부 정보를 전송하기 위한 `PostTranscriptions` 메서드와, 결과를 수신하기 위한 `GetTranscriptions` 메서드가 있습니다. `PostTranscriptions`는 핸들을 반환하며 `GetTranscriptions` 메서드는 이 핸들을 사용하여 기록 상태를 가져오기 위한 핸들을 만듭니다.
 
 현재 샘플 코드는 어떤 사용자 지정 모델도 지정하지 않습니다. 이 서비스는 파일을 기록하기 위해 기준 모델을 사용합니다. 사용자는 모델을 지정하려는 경우 음향 및 언어 모델에 대해 동일한 방법으로 modelID를 제공할 수 있습니다. 
 
@@ -161,4 +178,4 @@ API를 사용하는 것은 매우 간단합니다. 아래 샘플 코드는 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)

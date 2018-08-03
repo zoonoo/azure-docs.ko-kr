@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 무효화할 수 있는 엔터티를 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 무효화할 수 있는 엔터티를 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 무효화할 수 있는 엔터티를 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 무효화할 수 있는 엔터티를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d65376c9c43ee1407468f3e8bf3e058048bd556
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376318"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171404"
 ---
-# <a name="how-to-use-negatable-entities-with-a-conversation-learner-application"></a>Conversation Learner 응용 프로그램에서 무효화할 수 있는 엔터티를 사용하는 방법
+# <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Conversation Learner 모델에서 무효화할 수 있는 엔터티를 사용하는 방법
 
 이 자습서에서는 엔터티의 "무효화할 수 있는" 속성을 설명합니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 5 미리 보기](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -37,9 +41,9 @@ ms.locfileid: "35376318"
 
 ## <a name="steps"></a>단계
 
-### <a name="create-the-application"></a>응용 프로그램 만들기
+### <a name="create-the-model"></a>모델 만들기
 
-1. Web UI에서 새 앱을 클릭합니다.
+1. Web UI에서 새 모델을 클릭합니다.
 2. 이름에 NegatableEntity를 입력합니다. 그런 다음, 만들기를 클릭합니다.
 
 ### <a name="create-an-entity"></a>엔터티 만들기
@@ -47,7 +51,7 @@ ms.locfileid: "35376318"
 1. 엔터티, 새 엔터티를 차례로 클릭합니다.
 2. 엔터티 이름에 이름을 입력합니다.
 3. 무효화할 수 있음을 선택합니다.
-    - 이 사용자가 엔터티에 값을 제공할 수 있거나 엔터티의 값이 *아님*을 나타냅니다. 후자의 경우 이렇게 하면 엔터티의 일치하는 값을 삭제합니다.
+    - 이 속성은 사용자가 엔터티에 값을 제공할 수 있거나 엔터티의 값이 *아님*을 나타냅니다. 후자의 경우 이렇게 하면 엔터티의 일치하는 값을 삭제합니다.
 3. 만들기를 클릭합니다.
 
 ![](../media/tutorial5_entities.PNG)
@@ -62,7 +66,7 @@ ms.locfileid: "35376318"
 그런 다음, 두 번째 작업을 만듭니다.
 
 1. 작업, 새 작업을 차례로 클릭하여 두 번째 작업을 만듭니다.
-3. 응답에 '이름을 압니다. $name입니다.'를 입력합니다.
+3. 응답에 '이름을 압니다. $name입니다.'를 선택합니다.
 4. 만들기 클릭
 
 이제 두 가지 작업이 있습니다.
@@ -74,10 +78,10 @@ ms.locfileid: "35376318"
 1. 학습 대화 상자, 새 학습 대화 상자를 차례로 클릭합니다.
 2. '안녕하세요'를 입력합니다.
 3. 작업에 점수 지정을 클릭하고 '이름을 알지 못합니다.'를 선택합니다.
-    - 유효한 작업이기 때문에 100% 점수를 얻습니다.
+    - 유일한 유효 작업이므로 점수는 100%입니다.
 2. '내 이름은 david입니다.'를 입력합니다.
 3. 'david'를 선택하고 레이블을 '+이름'으로 지정합니다.
-    - '+이름' 및 '-이름'이라는 '이름'의 두 가지 인스턴스가 있습니다.  +는 해당 값을 제공한다는 의미입니다. -는 값이 아닌 시스템을 알려준다는 의미입니다.
+    - '이름'은 '+이름' 및 '-이름'의 두 인스턴스로 존재합니다.  (+) 더하기는 값을 추가하거나 덮어씁니다. (-) 빼기는 값을 제거합니다.
 5. 작업에 점수 지정을 클릭합니다.
     - 이제 이름 값이 봇의 메모리에 있습니다.
     - '이름을 알고 있습니다. $name입니다.'만을 사용할 수 있습니다. 
@@ -86,7 +90,7 @@ ms.locfileid: "35376318"
 무효화할 수 있는 엔터티를 지우겠습니다.
 
 7. '내 이름은 david가 아닙니다.'를 입력합니다.
-    - 이전 패턴을 기반으로 'not'을 이름으로 선택합니다. 잘못되었습니다.
+    - 이전 패턴을 기반으로 'not'을 이름으로 선택합니다. 이 레이블은 올바르지 않습니다.
 2. 'not', 빨간색 x를 차례로 클릭합니다. 
 3. 'david'를 클릭합니다.
     - 이제 이름 엔터티의 값이 아니라고 통신하는 음수 엔터티입니다.

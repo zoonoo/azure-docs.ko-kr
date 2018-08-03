@@ -2,19 +2,19 @@
 title: LUIS의 데이터 변경 개념 이해 - Azure | Microsoft Docs
 description: Language Understanding(LUIS)에서 예측 전에 데이터를 변경하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/26/2018
-ms.author: v-geberr
-ms.openlocfilehash: 4fb1a5542bb56bd853984e66198ebfbd189451f8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: d8421114bb5a7416ad2523fe9b0353f03f672619
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266868"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223986"
 ---
 # <a name="data-alterations"></a>데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 
@@ -22,7 +22,7 @@ LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 
 ## <a name="correct-spelling-errors-in-utterance"></a>발화에서 맞춤법 오류 수정
 LUIS는 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)을 사용하여 발화의 맞춤법 오류를 수정합니다. LUIS에는 해당 서비스와 연관된 키가 필요합니다. 키를 만든 다음, [끝점](https://aka.ms/luis-endpoint-apis)에서 쿼리 문자열 매개 변수로 키를 추가합니다. 
 
-**테스트** 패널에서 [키를 입력](interactive-test.md#view-bing-spell-check-corrections-in-test-panel)하여 맞춤법 오류를 수정할 수도 있습니다. 키는 브라우저에서 테스트 패널에 대한 세션 변수로 유지됩니다. 맞춤법을 수정하려는 각 브라우저 세션에서 테스트 패널에 키를 추가합니다. 
+**테스트** 패널에서 [키를 입력](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)하여 맞춤법 오류를 수정할 수도 있습니다. 키는 브라우저에서 테스트 패널에 대한 세션 변수로 유지됩니다. 맞춤법을 수정하려는 각 브라우저 세션에서 테스트 패널에 키를 추가합니다. 
 
 테스트 패널 및 끝점에서의 키 사용은 [키 사용](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) 할당량에 포함됩니다. LUIS는 텍스트 길이에 대한 Bing Spell Check 제한을 구현합니다. 
 
@@ -31,7 +31,7 @@ LUIS는 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive
 |매개 변수|값|
 |--|--|
 |`spellCheck`|부울|
-|`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 구독 키|
+|`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 끝점 키|
 
 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 오류를 검색하면 원래 발화와 수정된 발화가 끝점의 예측과 함께 반환됩니다.
 
@@ -89,5 +89,3 @@ int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 
 > [!div class="nextstepaction"]
 > [이 자습서에서 맞춤법 오류 수정](luis-tutorial-bing-spellcheck.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

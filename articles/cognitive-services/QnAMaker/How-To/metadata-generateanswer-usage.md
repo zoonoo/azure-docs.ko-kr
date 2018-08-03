@@ -9,12 +9,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: pchoudh
-ms.openlocfilehash: 94e3632884d7033971ff1c45b455afb9a09ee798
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 82e3ee460309f293c9bd7eadebe139f85e241f71
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35383237"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113354"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>메타데이터 및 GenerateAnswer API 사용
 
@@ -57,7 +57,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
     - **QnAMaker 엔드포인트**(문자열): Azure 구독에 배포된 엔드포인트의 호스트 이름입니다.
 - **요청 헤더**
     - **콘텐츠 형식**(문자열): API로 전송되는 본문의 미디어 형식입니다.
-    - **권한 부여**(문자열): 엔드포인트 키입니다.
+    - **권한 부여**(문자열): 끝점 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).
 - **요청 본문**
     - **질문**(문자열): 기술 자료에 대해 쿼리할 사용자 질문입니다.
     - **top**(선택 사항, 정수): 출력에 포함할 순위에 오른 결과의 수입니다. 기본값은 1입니다.
@@ -82,6 +82,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
     - **답변** - 사용자 쿼리에 대한 답변 목록으로, 순위 점수 기준 내림차순으로 정렬됩니다.
         - **점수**: 0~100 사이의 순위 점수입니다.
         - **질문**: 사용자가 제공한 질문입니다.
+        - **답변**: 질문에 대한 답변입니다.
         - **원본**: 기술 자료에서 답변을 추출하거나 저장한 원본 이름입니다.
         - **메타데이터**: 답변과 연결된 메타데이터입니다.
             - 이름: 메타데이터 이름입니다. (문자열, 최대 길이: 100자, 필수)

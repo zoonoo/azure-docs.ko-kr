@@ -1,7 +1,7 @@
 ---
-title: 미리 빌드된 엔터티를 Conversation Learner 응용 프로그램에 추가하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: 미리 빌드된 엔터티를 Conversation Learner 모델에 추가하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: 미리 빌드된 엔터티를 Conversation Learner 응용 프로그램에 추가하는 방법을 알아봅니다.
+description: 미리 빌드된 엔터티를 Conversation Learner 모델에 추가하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f014464419bfac39a9e57e679fcd28a737e9ebdb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377679"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171370"
 ---
 # <a name="how-to-add-pre-built-entities"></a>미리 빌드된 엔터티를 추가하는 방법
-이 자습서에서는 미리 빌드된 엔터티를 Conversation Learner 응용 프로그램에 추가하는 방법을 보여 줍니다.
+이 자습서에서는 미리 빌드된 엔터티를 Conversation Learner 모델에 추가하는 방법을 보여 줍니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 7 미리 보기](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -31,9 +35,9 @@ ms.locfileid: "35377679"
 
 ## <a name="steps"></a>단계
 
-### <a name="create-the-application"></a>응용 프로그램 만들기
+### <a name="create-the-model"></a>모델 만들기
 
-1. Web UI에서 새 앱을 클릭합니다.
+1. Web UI에서 새 모델을 클릭합니다.
 2. 이름에 BuiltInEntities를 입력합니다. 그런 후 만들기를 클릭합니다.
 
 ### <a name="create-an-entity"></a>엔터티 만들기
@@ -45,7 +49,7 @@ ms.locfileid: "35377679"
 
 ![](../media/tutorial7_entities.PNG)
 
-### <a name="create-two-actions"></a>두 작업 만들기
+### <a name="create-two-actions"></a>두 가지 작업 만들기
 
 1. 작업, 새 작업을 차례로 클릭합니다.
 2. 응답에 'The date is $luis-datetimev2'를 입력합니다.

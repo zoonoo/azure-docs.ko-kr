@@ -2,19 +2,19 @@
 title: LUIS에서 반환된 예측 점수 이해 - Azure | Microsoft Docs
 description: LUIS에서 예측 점수가 의미하는 내용 알아보기
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 31c101a23892df8599b8cdc0f67647fefb969490
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265991"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224589"
 ---
 # <a name="prediction-score"></a>예측 점수
 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "36265991"
 |0.01|낮은 신뢰도|
 |0|확실한 불일치|
 
-발화에 낮은 신뢰도 점수가 반환되면 LUIS는 [LUIS][LUIS] 웹 사이트 **의도** 페이지에서 빨간색 윤곽선이 있는 식별된 **레이블이 지정된 의도**를 사용하여 해당 발화를 강조 표시합니다. 
+발언의 신뢰도 점수가 낮으면 LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트 **의도** 페이지에서 빨간색 윤곽선이 있는 식별된 **레이블이 지정된 의도**를 사용하여 해당 발언을 강조 표시합니다. 
 
 ![점수 불일치](./media/luis-concept-score/score-discrepancy.png)
 
@@ -58,8 +58,9 @@ ms.locfileid: "36265991"
 
 챗봇에 의도의 신뢰도를 나타내는 특정 LUIS 점수가 필요한 경우에는 상위 두 의도 간 점수 차이를 사용해야 합니다. 이렇게 하면 학습에서 변형 유연성이 제공됩니다. 
 
+## <a name="punctuation"></a>문장 부호
+문장 부호는 LUIS에서 별도 토큰입니다. 끝에 마침표가 포함된 발언과 포함되지 않은 발언은 별도의 두 발언이며 두 가지 다른 예측이 이루어질 수 있습니다. 모델이 [예제 발언](luis-concept-utterance.md)(문장 부호를 포함하거나 포함하지 않음) 또는 [patterns}(luis-concept-patterns.md)(특수 구문 `I am applying for the {Job} position[.]`을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 LUIS 앱에 엔터티를 추가하는 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

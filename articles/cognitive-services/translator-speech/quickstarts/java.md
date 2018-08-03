@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 447164bd8d786fbfc46dff878b77f11a286bcfb8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b06ee0c37d52f81db1a3bad6907690619002ef7c
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373830"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205506"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Java를 사용한 Microsoft Translator Speech API 빠른 시작 
 <a name="HOLTop"></a>
@@ -23,11 +23,20 @@ ms.locfileid: "35373830"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨찾기가 있으면 Java IDE를 사용할 수 있지만, 텍스트 편집기로도 충분합니다.
+이 코드를 컴파일하고 실행하려면 [JDK 7 또는 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)이 필요합니다. 즐겨찾기가 있는 경우 Java IDE를 사용할 수 있지만 텍스트 편집기로 충분합니다.
 
-[javax.websocket-api-1.1.jar](http://central.maven.org/maven2/javax/websocket/javax.websocket-api/1.1/) 및 [tyrus-standalone-client-1.9.jar](http://repo1.maven.org/maven2/org/glassfish/tyrus/bundles/tyrus-standalone-client/1.9/) 파일이 필요합니다.
+다음 파일이 필요합니다.
+- [javax.websocket-api-1.1.jar(이상)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)
+- [jetty-http-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http)
+- [jetty-io-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io)
+- [jetty-util-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util)
+- [websocket-api-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api)
+- [websocket-client-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client)
+- [websocket-common-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common)
+- [javax-websocket-client-impl-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
+- [jetty-client-9.4.11.v20180605.jar(이상)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 이러한 .wav 파일은 [Translator Text Speak API](http://docs.microsofttranslator.com/text-translate.html#!/default/get_Speak)에서 가져올 수 있습니다.
+아래 코드에서 컴파일하는 실행 파일과 동일한 폴더에 "speak.wav"라는 .wav 파일이 필요합니다. 이 .wav 파일은 표준 PCM, 16비트, 16kHz, 모노 형식이어야 합니다. 이러한 .wav 파일은 [Text to Speech API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech)에서 가져올 수 있습니다.
 
 **Microsoft Translator Speech API**와 함께 [Cognitive Services API 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 있어야 합니다. [Azure 대시보드](https://portal.azure.com/#create/Microsoft.CognitiveServices)에서 유료 구독 키가 필요합니다.
 
@@ -37,7 +46,7 @@ ms.locfileid: "35373830"
 
 1. 즐겨찾는 IDE에서 새 Java 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 Config.java:
@@ -78,6 +87,14 @@ import javax.websocket.OnMessage;
 import javax.websocket.OnOpen;
 import javax.websocket.Session;
 import javax.websocket.WebSocketContainer;
+
+import org.eclipse.jetty.client.*;
+import org.eclipse.jetty.http.*;
+import org.eclipse.jetty.io.*;
+import org.eclipse.jetty.util.*;
+import org.eclipse.jetty.websocket.api.*;
+import org.eclipse.jetty.websocket.client.io.*;
+import org.eclipse.jetty.websocket.common.scopes.*;
 
 /* Useful reference links:
     https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html
@@ -162,9 +179,10 @@ See:
             OutputStream stream = this.session.getBasicRemote().getSendStream();
             stream.write (message);
 /* Make sure the audio file is followed by silence.
- * This lets the service know that the audio input is finished. */
+ * This lets the service know that the audio file is finished.
+ * At 32 bytes per millisecond, this is 10 seconds of silence. */
             System.out.println ("Sending silence.");
-            byte silence[] = new byte[3200000];
+            byte silence[] = new byte[320000];
             stream.write (silence);
             stream.flush();
         } catch (Exception e) {
@@ -176,6 +194,8 @@ See:
         try {
             System.out.println("Connecting.");
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+/* The response message might exceed the default max message size of 65536. */
+            container.setDefaultMaxBinaryMessageBufferSize(131072);
 /* Some code samples show container.connectToServer as returning a Session, but this seems to be false. */
             container.connectToServer(this, new URI(uri));
         } catch (Exception e) {
@@ -198,17 +218,33 @@ Speak.java:
 
 ```java
 /*
-Download javax.websocket-api-1.1.jar from:
+Download javax.websocket-api-1.1.jar (or newer) from:
     http://central.maven.org/maven2/javax/websocket/javax.websocket-api/1.1/
-Download tyrus-standalone-client-1.9.jar from:
-    http://repo1.maven.org/maven2/org/glassfish/tyrus/bundles/tyrus-standalone-client/1.9/
+Download jetty-http-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-http
+Download jetty-io-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-io
+Download jetty-util-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-util
+Download websocket-api-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-api
+Download websocket-client-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-client
+Download websocket-common-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/websocket-common
+Download javax-websocket-client-impl-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl
+Download jetty-client-9.4.11.v20180605.jar (or newer) from:
+    https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client
 
 Compile and run with:
     javac Config.java -cp .;javax.websocket-api-1.1.jar
-    javac Client.java -cp .;javax.websocket-api-1.1.jar;tyrus-standalone-client-1.9.jar
-    javac Speak.java
-    java -cp .;javax.websocket-api-1.1.jar;tyrus-standalone-client-1.9.jar Speak
+    javac Client.java -cp .;javax.websocket-api-1.1.jar;javax-websocket-client-impl-9.4.11.v20180605.jar;websocket-common-9.4.11.v20180605.jar;jetty-util-9.4.11.v20180605.jar;jetty-io-9.4.11.v20180605.jar;websocket-api-9.4.11.v20180605.jar;websocket-client-9.4.11.v20180605.jar;jetty-client-9.4.11.v20180605.jar;jetty-http-9.4.11.v20180605.jar
+    javac Speak.java -cp .;javax.websocket-api-1.1.jar;javax-websocket-client-impl-9.4.11.v20180605.jar;websocket-common-9.4.11.v20180605.jar;jetty-util-9.4.11.v20180605.jar;jetty-io-9.4.11.v20180605.jar;websocket-api-9.4.11.v20180605.jar;websocket-client-9.4.11.v20180605.jar;jetty-client-9.4.11.v20180605.jar;jetty-http-9.4.11.v20180605.jar
+    java -cp .;javax.websocket-api-1.1.jar;javax-websocket-client-impl-9.4.11.v20180605.jar;websocket-common-9.4.11.v20180605.jar;jetty-util-9.4.11.v20180605.jar;jetty-io-9.4.11.v20180605.jar;websocket-api-9.4.11.v20180605.jar;websocket-client-9.4.11.v20180605.jar;jetty-client-9.4.11.v20180605.jar;jetty-http-9.4.11.v20180605.jar Speak
 */
+
+import java.lang.Thread;
 
 public class Speak {
     public static void main(String[] args) {
@@ -216,7 +252,8 @@ public class Speak {
             Client client = new Client ();
             client.Connect ();
             // Wait for the reply.
-            System.out.println ("Press any key to exit the application at any time.");
+            Thread.sleep (5000);
+            System.out.println ("Press Enter to exit the application at any time.");
             System.in.read();
         }
         catch (Exception e) {

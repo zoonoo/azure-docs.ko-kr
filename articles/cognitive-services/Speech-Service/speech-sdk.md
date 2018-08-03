@@ -8,28 +8,22 @@ manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: b9b7b8af5ce3d75788fd2c4f5e0309b5ca561a8f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
+ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382871"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39113395"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Cognitive Services 음성 SDK 정보
 
 Cognitive Services 음성 SDK(소프트웨어 개발 키트)에서는 소프트웨어 개발을 용이하게 하기 위해 음성 서비스의 기능에 대한 응용 프로그램 기본 액세스를 제공합니다. 현재 SDK에서는 **음성 텍스트 변환**, **음성 번역** 및 **의도 인식**에 대한 액세스 권한을 제공합니다.
 
-표에서는 현재 지원되는 프로그래밍 언어 및 운영 체제를 보여줍니다.
+[!include[Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
-|지원되는 운영 체제|프로그래밍 언어|
-|-|-|
-|Windows|C/C++, C#|
-|Linux|C/C++|
-|장치|Java\*|
-
-\* *Java SDK는 [음성 장치 SDK](speech-devices-sdk.md)에 포함됩니다.*
+[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 ## <a name="get-the-windows-sdk"></a>Windows SDK 가져오기
 
@@ -51,7 +45,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 |path|설명|
 |-|-|
-|`license.md`|라이선스|
+|`license.md`|License|
 |`third-party-notices.md`|타사 알림|
 |`include`|C 및 C++용 헤더 파일|
 |`lib/x64`|응용 프로그램과 연결할 기본 x64 라이브러리|
@@ -61,9 +55,25 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 ## <a name="get-the-java-sdk"></a>Java SDK 가져오기
 
-Java SDK는 [음성 장치 SDK](speech-devices-sdk.md)에 포함됩니다.
+Android용 Java SDK는 사용에 필요한 Android 권한 뿐만 아니라 필요한 라이브러리를 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
+`https://csspeechstorage.blob.core.windows.net/maven/`의 Maven 리포지토리에서 패키지 `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`로 호스트됩니다.
+Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이 변경합니다.
+
+* 프로젝트 수준의 `build.gradle` 파일에서 `repository` 섹션에 다음을 추가합니다.
+
+  ```text
+  maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
+  ```
+
+* 모듈 수준의 `build.gradle` 파일에서 `dependencies` 섹션에 다음을 추가합니다.
+
+  ```text
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:0.5.0'
+  ```
+
+Java SDK는 [Speech Devices SDK](speech-devices-sdk.md)에도 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-windows.md)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

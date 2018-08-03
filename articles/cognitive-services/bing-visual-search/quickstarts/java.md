@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 8160302faa373d69b65afe6b68a8efb44442850d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 41e0855b126ca6e54d0a487a88fe59a0be6f72f6
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377742"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071998"
 ---
 # <a name="your-first-bing-visual-search-query-in-java"></a>Java의 첫 번째 Bing Visual Search 쿼리
 
@@ -147,6 +147,7 @@ public class UploadImage2 {
 ## <a name="next-steps"></a>다음 단계
 
 [인사이트 토큰을 사용하여 이미지에 대한 중요 정보 얻기](../use-insights-token.md)  
+[Bing Visual Search 이미지 업로드 자습서](../tutorial-visual-search-image-upload.md)
 [Bing Visual Search 단일 페이지 앱 자습서](../tutorial-bing-visual-search-single-page-app.md)  
 [Bing Visual Search 개요](../overview.md)  
 [사용해보기](https://aka.ms/bingvisualsearchtryforfree)  

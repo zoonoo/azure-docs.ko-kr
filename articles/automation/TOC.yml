@@ -147,7 +147,7 @@
           href: automation-dsc-cd-chocolatey.md
         - name: OMS Log Analytics에 Azure Automation DSC 보고 데이터 전달
           href: automation-dsc-diagnostics.md
-    - name: 자산 관리
+    - name: 공유 리소스 관리
       items:
         - name: 인증서
           href: automation-certificates.md

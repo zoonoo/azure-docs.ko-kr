@@ -1,7 +1,7 @@
 ---
-title: 데모 Conversation Learner 응용 프로그램, 암호 재설정 - Microsoft Cognitive Services | Microsoft Docs
+title: 데모 Conversation Learner 모델, 암호 재설정 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: 데모 Conversation Learner 응용 프로그램을 만드는 방법을 알아봅니다.
+description: 데모 Conversation Learner 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,17 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 24d61787a79ee1a1a9737c417aa966cc8fd75930
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376222"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170636"
 ---
 # <a name="demo-password-reset"></a>데모: 암호 재설정
 이 데모에서는 암호 재설정에 도움이 되는 간단한 기술 지원 봇을 보여 줍니다. 
 
 Conversation Learner가 도메인 외부 클래스를 포함하여 특수한 대화 흐름, 다중 턴 시퀀스를 어떻게 학습할 수 있는지를 보여 줍니다. 이 데모에서는 코드 또는 엔터티를 사용하지 않습니다.
+
+## <a name="video"></a>비디오
+
+[![데모 암호 미리 보기](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 암호 재설정 봇이 실행 중이어야 합니다.
@@ -29,7 +33,7 @@ Conversation Learner가 도메인 외부 클래스를 포함하여 특수한 대
 
 ### <a name="open-the-demo"></a>데모 열기
 
-Web UI의 앱 목록에서 자습서 데모 암호 재설정을 클릭합니다. 
+Web UI의 모델 목록에서 자습서 데모 암호 재설정을 클릭합니다. 
 
 ### <a name="actions"></a>작업
 

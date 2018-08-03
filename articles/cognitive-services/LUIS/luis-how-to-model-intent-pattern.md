@@ -3,19 +3,19 @@ title: LUIS 앱에서 패턴 템플릿 추가 | Microsoft Docs
 titleSuffix: Azure
 description: LUIS(Language Understanding) 응용 프로그램에서 패턴 템플릿을 추가하여 예측 정확도를 향상시키는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/08/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 9dd23fd5f8a0024f127b71160899d10042037a66
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: diberry;
+ms.openlocfilehash: bf1931355fd873eaeac6c313b70717dfa99814c6
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346011"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222599"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>패턴을 추가하여 예측 정확도를 개선하는 방법
 LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patterns.md)을 사용하여 단어 순서 및 단어 선택에 패턴을 노출하는 발화에 대한 예측 정확도를 개선합니다. 패턴은 [엔터티](luis-concept-entity-types.md) 및 해당 역할을 사용하여 특정 패턴 구문을 통해 데이터를 추출합니다. 
@@ -57,7 +57,7 @@ LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patte
 <!-- TBD: should I be able to click on the magnifying glass again to close the search box? It doesn't reset the list. -->
 
 ## <a name="edit-a-pattern"></a>패턴 편집
-1. 패턴을 편집하려면 해당 패턴 줄의 오른쪽 끝에 있는 세 개의 점(...) 아이콘을 선택하고 **편집**을 선택합니다. 
+1. 패턴을 편집하려면 해당 패턴 줄의 오른쪽 끝에 있는 줄임표(***...***) 단추를 선택하고 **편집**을 선택합니다. 
 
     ![패턴 행의 편집 메뉴 항목 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-three-dots.png) 
 
@@ -79,7 +79,7 @@ LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patte
 
 ## <a name="delete-a-single-pattern"></a>단일 패턴 삭제
 
-1. 패턴을 삭제하려면 해당 패턴 줄의 오른쪽 끝에 있는 세 개의 점(...) 아이콘을 선택하고 **삭제**를 선택합니다. 
+1. 패턴을 삭제하려면 해당 패턴 줄의 오른쪽 끝에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. 
 
     ![발화 삭제 스크린샷](./media/luis-how-to-model-intent-pattern/patterns-three-dots-ddl.png)
 
@@ -123,7 +123,7 @@ LUIS 앱이 끝점 발화를 수신한 후 패턴의 [개념](luis-concept-patte
 ## <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>의도 또는 엔터티 페이지의 기존 발화에서 패턴 추가
 **의도** 또는 **엔터티** 페이지의 기존 발화에서 패턴을 만들 수 있습니다. 의도 또는 엔터티 페이지의 모든 발화가 목록에 표시되고 오른쪽 열에서 **편집**, **삭제** 및 **패턴으로 추가**와 같은 발화 수준 옵션에 액세스할 수 있습니다.
 
-1. 선택한 발화 행에서 발화 오른쪽에 있는 세 개의 점(...)을 선택하고 **패턴으로 추가**를 선택합니다.
+1. 선택한 발언 행에서 발언 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **패턴으로 추가**를 선택합니다.
 
     [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "옵션 메뉴에서 패턴 추가가 강조 표시된 발화 테이블의 스크린샷")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 

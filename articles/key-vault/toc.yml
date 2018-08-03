@@ -6,15 +6,15 @@
       href: key-vault-overview.md
 - name: 빠른 시작
   items:
-    - name: Key Vault 만들기 - CLI
+    - name: 비밀 설정 및 검색 - CLI
       href: quick-create-cli.md
-    - name: Key Vault 만들기 - PowerShell
+    - name: 비밀 설정 및 검색 - PowerShell
       href: quick-create-powershell.md
-    - name: Key Vault 만들기 - Portal
+    - name: 비밀 설정 및 검색 - 포털
       href: quick-create-portal.md
-    - name: Key Vault에서 읽기 - .NET
+    - name: 비밀 설정 및 검색 - .NET
       href: quick-create-net.md
-    - name: Key Vault에서 읽기 - Node.js
+    - name: 비밀 설정 및 검색 - Node.js
       href: quick-create-node.md
 - name: 자습서
   items:
@@ -82,6 +82,8 @@
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: 파이썬
       href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST (영문)
+      href: /rest/api/keyvault
     - name: 개발
       items:
         - name: 개발자용 빠른 시작 동영상
@@ -143,3 +145,5 @@
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 제품 사용자 의견
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

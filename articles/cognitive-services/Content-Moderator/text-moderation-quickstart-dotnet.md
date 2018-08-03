@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 238d086e87b0e52f0887af5c4db58e8f72796b49
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374486"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39049884"
 ---
 # <a name="moderate-text-using-net"></a>.NET을 사용하여 텍스트 조정
 
@@ -117,9 +117,9 @@ Program.cs의 **Program** 클래스에 다음 정적 필드를 추가합니다.
     }
 
 > [!NOTE]
-> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외가 throw됩니다.
+> Content Moderator 서비스 키에는 RPS(초당 요청 수) 속도 제한이 있으며, 제한을 초과하는 경우 SDK에서 429 오류 코드로 예외를 throw합니다.
 >
-> 체험 계층 키에는 하나의 RPS 속도 제한이 있습니다.
+> 무료 계층 키를 사용하는 경우 요청 비율이 초당 하나의 요청으로 제한됩니다.
 
 ## <a name="run-the-program-and-review-the-output"></a>프로그램 실행 및 출력 검토
 

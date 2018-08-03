@@ -1,7 +1,7 @@
 ---
-title: Node.js를 사용하여 Conversation Learner 응용 프로그램을 만드는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: Node.js를 사용하여 Conversation Learner 모델을 만드는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Node.js를 사용하여 Conversation Learner 응용 프로그램을 만드는 방법을 알아봅니다.
+description: Node.js를 사용하여 Conversation Learner 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a3a51aa86a30b060c8dc4113da69462904d7df54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 68ff9c5402c3fa409999e9933a6c1f7bf6d5a089
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377678"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39172333"
 ---
-# <a name="create-a-conversation-learner-application-using-nodejs"></a>Node.js를 사용하여 Conversation Learner 응용 프로그램 만들기
+# <a name="create-a-conversation-learner-model-using-nodejs"></a>Node.js를 사용하여 Conversation Learner 모델 만들기
 
-Conversation Learner는 봇 빌드의 복잡성을 줄여줍니다. 직접 작성한 코드 및 기계 학습을 통해 봇 작성에 필요한 코드 양을 줄이도록 하는 하이브리드 개발 워크플로를 허용합니다. 응용 프로그램의 고정된 특정 부분(예: 사용자가 로그인되어 있는지 확인 또는 저장소 재고를 확인하기 위한 API 요청 수행)은 여전히 코딩할 수 있습니다. 그러나 도메인 전문가나 개발자가 제공한 예제 대화 상자에서 기타 상태 변경 및 작업 선택 항목을 학습할 수 있습니다.
+Conversation Learner는 봇 빌드의 복잡성을 줄여줍니다. 직접 작성한 코드 및 기계 학습을 통해 봇 작성에 필요한 코드 양을 줄이도록 하는 하이브리드 개발 워크플로를 허용합니다. 모델의 고정된 특정 부분(예: 사용자가 로그인되어 있는지 확인 또는 저장소 재고를 확인하기 위한 API 요청 수행)은 여전히 코딩할 수 있습니다. 그러나 도메인 전문가나 개발자가 제공한 예제 대화 상자에서 기타 상태 변경 및 작업 선택 항목을 학습할 수 있습니다.
 
 ## <a name="invitation-required"></a>초대 필요
 
@@ -96,7 +96,7 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
 
 위의 지침에서는 비어 있는 일반 봇을 시작했습니다.  대신, 자습서나 데모 봇을 실행하려면
 
-1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:5050/home의 앱 목록으로 돌아갑니다.
+1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:5050/home의 모델 목록으로 돌아갑니다.
     
 2. 다른 봇이 실행되고 있는 경우(예: `npm start` 또는 `npm run demo-pizza`) 중지합니다.  UI 프로세스를 중지하거나 웹 브라우저를 닫을 필요는 없습니다.
 
@@ -123,7 +123,7 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>백 엔드 코드를 포함하는 봇 만들기
 
-1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:5050/home의 앱 목록으로 돌아갑니다.
+1. Conversation Learner 웹 UI가 열려 있는 경우 http://localhost:5050/home의 모델 목록으로 돌아갑니다.
     
 2. 봇이 실행 중인 경우(예: `npm run demo-pizza`) 중지합니다.  UI 프로세스를 중지하거나 웹 브라우저를 닫을 필요는 없습니다.
 
@@ -138,7 +138,7 @@ Project Conversation Learner는 봇에 추가하는 SDK와 SDK가 기계 학습�
 
 5. Chrome에서 Conversation Learner 웹 UI로 아직 전환하지 않은 경우 http://localhost:5050/home을 로드하여 전환합니다. 
 
-6. Ui에서 새 Conversation Learner 응용 프로그램을 만들고 학습을 시작합니다.
+6. Ui에서 새 Conversation Learner 모델을 만들고 학습을 시작합니다.
 
 7. `cl-bot-01/src/app.ts`에서 코드를 변경하려면 2단계부터 시작해서 위 단계를 반복합니다.
 

@@ -7,36 +7,39 @@ manager: wolmfa61
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: a201cc043f673e2285ea48950804d97b96f881ed
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 11360d163fdba057d373d091d46903cde7789a8b
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054944"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39071422"
 ---
-# <a name="regions-and-endpoints-of-the-speech-service"></a>Speech 서비스 지역 및 엔드포인트
+# <a name="regions-of-the-speech-service"></a>Speech 서비스의 지역
 
-> [!NOTE]
-> [Speech SDK](speech-sdk.md)의 지역 이름은 아래 엔드포인트 도메인의 첫 부분과 일치합니다.
-> 예를 들어, Speech SDK에서 미국 지역을 지정하려면 `westus`를 사용합니다.
+Speech 서비스는 여러 다른 지역에서 사용할 수 있습니다.
+구독을 만들 때 필요에 따라 사용 가능한 영역을 선택할 수 있습니다.
 
-## <a name="speech-to-text"></a>음성 텍스트 변환
+구독을 사용하는 경우 선택한 지역을 고려해야 합니다.
 
-[!include[](includes/endpoints-speech-to-text.md)]
+## <a name="rest-api"></a>REST API
 
-## <a name="text-to-speech"></a>텍스트에서 음성 변환
+REST API를 사용하여 적절한 지역별 끝점을 선택합니다.
+자세한 내용은 [REST API](rest-apis.md)를 참조하세요.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+## <a name="speech-sdk"></a>음성 SDK
 
-## <a name="authentication"></a>인증
+[Speech SDK](speech-sdk.md)에서 지역을 문자열로 지정합니다(예를 들어, C#용 Speech SDK에서 [SpeechFactory.FromSubscription](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechfactory.fromsubscription)에 대한 매개 변수로 지정).
 
-[!include[](includes/endpoints-token-service.md)]
+아래 표에는 **음성 인식** 및 **번역** 서비스를 사용할 수 있는 지역이 나와 있습니다.
 
-인증 토큰 가져오기 및 새로 고침에 대한 자세한 내용은 [여기](rest-apis.md#authentication)를 참조하세요.
+지역| Speech SDK의 지역 매개 변수 값
+-|-
+미국 서부| `westus`
+동아시아| `eastasia`
+북유럽| `northeurope`
 
-## <a name="language-understanding-speech-sdk-only"></a>언어 이해(Speech SDK만 해당)
-
-Language Understanding 서비스의 지역 목록은 [여기](/azure/cognitive-services/luis/luis-reference-regions)에 있습니다.
-Speech SDK에서 엔드포인트 도메인 이름의 처음 부분으로 이 지역을 지정합니다(예: `westus`).
+Speech SDK를 통해 **의도 인식**에 사용할 수 있는 지역은 [Language Understanding 서비스 지역 페이지](/azure/cognitive-services/luis/luis-reference-regions)에 표시됩니다.
+나열된 각 게시 지역에서 해당 Speech SDK 지역 매개 변수는 끝점 도메인 이름의 첫 번째 부분으로 결정됩니다.
+예를 들어, `westus`를 사용하여 미국 서부 게시 지역을 지정합니다.

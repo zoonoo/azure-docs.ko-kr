@@ -1,124 +1,115 @@
 ---
-title: 복잡한 데이터를 추출하는 복합 엔터티 만들기 - Azure | Microsoft Docs
+title: 복잡한 데이터를 추출하는 복합 엔터티 만들기 자습서 - Azure | Microsoft Docs
 description: LUIS 앱에서 복합 엔터티를 만들어 다른 형식의 엔터티 데이터를 추출하는 방법에 대해 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 03/28/2018
-ms.author: v-geberr
-ms.openlocfilehash: cb581ee60dea2b0810332933455a03a8b68e16ea
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/09/2018
+ms.author: diberry
+ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264388"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238100"
 ---
-# <a name="use-composite-entity-to-extract-complex-data"></a>복합 엔터티를 사용하여 복잡한 데이터 추출
-이 간단한 앱에는 두 개의 [의도](luis-concept-intent.md)와 여러 개의 엔터티가 포함됩니다. 이 앱의 목적은 ‘금요일에 시애틀에서 카이로로 가는 티켓 1매’와 같은 항공편을 예약하고 예약의 모든 세부 정보를 단일 조각의 데이터로 반환하는 것입니다. 
+# <a name="tutorial-6-add-composite-entity"></a>자습서: 6. 복합 엔터티 추가 
+이 자습서에서는 복합 엔터티를 추가하여 추출된 데이터를 포함 엔터티로 그룹화합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
+<!-- green checkmark -->
 > [!div class="checklist"]
-* 미리 빌드된 엔터티 datetimeV2 및 number 추가
-* 복합 엔터티 만들기
-* LUIS 쿼리 및 복합 엔터티 데이터 수신
+> * 복합 엔터티 이해 
+> * 복합 엔터티를 추가하여 데이터 추출
+> * 앱 학습 및 게시
+> * 앱의 엔드포인트를 쿼리하여 LUIS JSON 응답 확인
 
 ## <a name="before-you-begin"></a>시작하기 전에
-* **[계층 구조 빠른 시작](luis-tutorial-composite-entity.md)** 의 LUIS 앱. 
+[계층적 엔터티](luis-quickstart-intent-and-hier-entity.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github 리포지토리에 있습니다.
 
-> [!Tip]
-> 아직 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
+원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `composite`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다.  
 
 ## <a name="composite-entity-is-a-logical-grouping"></a>복합 엔터티는 논리 그룹임 
-엔터티의 목적은 발화에서 텍스트 부분을 찾고 분류하기 위한 것입니다. [복합](luis-concept-entity-types.md) 엔터티는 컨텍스트에서 학습된 기타 엔터티 형식으로 구성됩니다. 항공편 예약을 사용하는 이 여행 앱의 경우, 여러 가지 정보(예: 날짜, 위치 및 좌석 수)가 있습니다. 
+복합 엔터티의 용도는 관련된 엔터티를 부모 범주 엔터티로 그룹화하것는 입니다. 복합이 만들어지기 전에 정보가 개별 엔터티로 존재합니다. 계층 구조 엔터티와 유사하지만 더 많은 형식의 엔터티를 포함할 수 있습니다. 
 
-복합이 만들어지기 전에 정보가 개별 엔터티로 존재합니다. 개별 엔터티를 논리적으로 그룹화하고 이 논리 그룹이 챗봇 또는 기타 LUIS 사용 응용 프로그램에 유용할 경우 복합 엔터티를 만듭니다. 
+ 개별 엔터티를 논리적으로 그룹화하고 이 논리 그룹이 클라이언트 응용 프로그램에 유용할 경우 복합 엔터티를 만듭니다. 
 
-사용자의 간단한 예제 발화는 다음과 같습니다.
+이 앱에서 직원 이름은 **Employee** 목록 엔터티에 정의되고 이름, 이메일 주소, 회사 전화 내선 번호, 휴대폰 번호 및 미국 연방 세금 ID의 동의어를 포함합니다. 
 
-```
-Book a flight to London for next Monday
-2 tickets from Dallas to Dublin this weekend
-Reserve a seat from New York to Paris on the first of April
-```
+**MoveEmployee** 의도는 직원에게 한 건물에서 다른 건물의 사무실로 이전할 것을 요청하는 예제 발언을 포함합니다. 사무실 이름은 숫자 "1234", "13245"이지만 건물 이름은 알파벳 문자 "A", "B" 등으로 표시됩니다. 
+
+**MoveEmployee** 의도의 예제 발언에는 다음이 포함됩니다.
+
+|예제 발화|
+|--|
+|Move John W . Smith to a-2345|
+|내일 x12345에서 h-1234로 이동|
  
-복합 엔터티가 좌석 수, 출발지 위치, 도착지 위치 및 날짜와 일치합니다. 
+이전 요청에는 적어도 직원(동의어 사용), 목적지 건물 및 사무실 위치가 포함되어야 합니다. 또한 요청에는 이전 날짜 뿐만 아니라 원래 사무실도 포함될 수 있습니다. 
 
-## <a name="what-luis-does"></a>LUIS에서 수행하는 작업
-발화의 의도 및 엔터티가 식별되고, [추출되고](luis-concept-data-extraction.md#list-entity-data), [엔드포인트](https://aka.ms/luis-endpoint-apis)의 JSON에서 반환되면 LUIS가 수행됩니다. 호출 응용 프로그램 또는 챗봇에서 해당 JSON 응답을 사용하고, 응용 프로그램 또는 챗봇에서 수행하도록 설계된 방식으로 요청을 수행합니다. 
+끝점에서 추출된 데이터는 이 정보를 포함하며 `RequestEmployeeMove` 복합 엔터티에 반환해야 합니다. 
 
-## <a name="add-prebuilt-entities-number-and-datetimev2"></a>미리 빌드된 엔터티 number 및 datetimeV2 추가
-1. [LUIS][LUIS] 웹 사이트의 앱 목록에서 `MyTravelApp` 앱을 선택합니다.
+## <a name="create-composite-entity"></a>복합 엔터티 만들기
+1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
 
-2. 앱이 열리면 **엔터티** 왼쪽 탐색 링크를 선택합니다.
+    [ ![오른쪽 위의 탐색 모음에서 강조 표시된 빌드가 있는 LUIS 앱의 스크린샷](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
 
-    ![엔터티 단추 선택](./media/luis-tutorial-composite-entity/intents-page-select-entities.png)    
+2. **의도** 페이지에서 **MoveEmployee** 의도를 선택합니다. 
 
-3. **미리 빌드된 엔터티 관리**를 선택합니다.
+    [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "'MoveEmployee' 의도가 강조 표시된 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
-    ![엔터티 단추 선택](./media/luis-tutorial-composite-entity/manage-prebuilt-entities-button.png)
+3. 도구 모음에서 돋보기 아이콘을 선택하여 발언 목록을 필터링합니다. 
 
-4. 팝업 상자에서 **number** 및 **datetimeV2**를 선택합니다.
+    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "돋보기 단추가 강조 표시된 'MoveEmployee' 의도의 LUIS 스크린샷")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
-    ![엔터티 단추 선택](./media/luis-tutorial-composite-entity/prebuilt-entity-ddl.png)
+4. 필터 입력란에 `tomorrow`를 입력하여 발언 `shift x12345 to h-1234 tomorrow`를 찾습니다.
 
-5. 새 엔터티를 추출하려면 맨 위 탐색 모음에서 **학습**을 선택합니다.
+    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "'tomorrow' 필터가 강조 표시된 'MoveEmployee' 의도의 LUIS 스크린샷")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
-    ![학습 단추 선택](./media/luis-tutorial-composite-entity/train.png)
+    다른 방법은 **엔터티 필터**를 선택한 후 목록에서 **datetimeV2**를 선택하여 datetimeV2를 기준으로 엔터티를 필터링하는 것입니다. 
 
-## <a name="use-existing-intent-to-create-composite-entity"></a>기존 의도를 사용하여 복합 엔터티를 만듭니다.
-1. 왼쪽 탐색에서 **의도**를 선택합니다. 
+5. 첫 번째 엔터티 `Employee`를 선택한 후 팝업 메뉴 목록에서 **복합 엔터티에 래핑**을 선택합니다. 
 
-    ![의도 선택 페이지](./media/luis-tutorial-composite-entity/intents-from-entities-page.png)
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "복합 요소에서 첫 번째 엔터티 선택이 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
-2. **의도** 목록에서 `BookFlight`를 선택합니다.  
 
-    ![목록에서 BookFlight 의도 선택](./media/luis-tutorial-composite-entity/intent-page-with-prebuilt-entities-labeled.png)
+6. 그런 다음, 발언에서 마지막 엔터티 `datetimeV2`를 즉시 선택합니다. 선택한 단어 아래에 복합 엔터티를 나타내는 녹색 막대가 그려집니다. 팝업 메뉴에서 복합 이름 `RequestEmployeeMove`를 입력하고 팝업 메뉴에서 **새 복합 요소 만들기**를 선택합니다. 
 
-    number 및 datetimeV2 미리 빌드된 엔터티는 발화에서 레이블이 지정됩니다.
+    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "복합 요소에서 마지막 엔터티 선택 및 엔터티 만들기가 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
-3. 발화 `book 2 flights from seattle to cairo next monday`의 경우, 파란색 `number` 엔터티를 선택한 다음, 목록에서 **복합 엔터티로 래핑**을 선택합니다. 단어 아래 녹색 선은 커서가 오른쪽으로 이동할 때 커서를 따라 복합 엔터티를 나타냅니다. 그런 다음, 오른쪽으로 이동하여 마지막 미리 빌드된 엔터티 `datetimeV2`를 선택한 다음, 팝업 창의 텍스트 상자에 `FlightReservation`을 입력하고 **새 복합 만들기**를 선택합니다. 
+7. **What type of entity do you want to create?**(만들려는 엔터티 형식을 선택하세요.)에서는 필요한 거의 모든 필드가 목록에 표시됩니다. 원래 위치만 없습니다. **자식 엔터티 추가**를 선택하고 기존 엔터티 목록에서 **Locations::Origin**을 선택한 후 **완료**를 선택합니다. 
 
-    ![의도 페이지에서 복합 엔터티 만들기](./media/luis-tutorial-composite-entity/create-new-composite.png)
+  ![팝업 창에서 다른 엔터티를 추가하는 'MoveEmployee' 의도의 LUIS 스크린샷](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
-4. 복합 엔터티 자식을 확인할 수 있는 팝업 대화 상자가 표시됩니다. **완료**를 선택합니다.
+8. 도구 모음에 있는 돋보기를 선택하여 필터를 제거합니다. 
 
-    ![의도 페이지에서 복합 엔터티 만들기](./media/luis-tutorial-composite-entity/validate-composite-entity.png)
+## <a name="label-example-utterances-with-composite-entity"></a>복합 엔터티를 사용하여 예제 발언에 레이블 지정
+1. 각 예제 발언에서 복합 요소로 지정되어야 하는 맨 왼쪽 엔터티를 선택합니다. 그런 후 **복합 엔터티에 래핑**을 선택합니다.
 
-## <a name="wrap-the-entities-in-the-composite-entity"></a>복합 엔터티로 엔터티 래핑
-복합 엔터티가 만들어지면 복합 엔터티의 나머지 발화에 레이블을 지정합니다. 구문을 복합 엔터티로 래핑하려면 맨 왼쪽 단어를 선택하고, 표시되는 목록에서 **복합 엔터티로 래핑**을 선택한 다음, 맨 오른쪽 단어를 선택하고, 명명된 복합 엔터티 `FlightReservation`을 선택합니다. 이는 다음 단계로 구분된 빠르고 원활한 선택 단계입니다.
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "복합 요소에서 첫 번째 엔터티 선택이 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
-1. 발화 `schedule 4 seats from paris to london for april 1`에서 number 미리 빌드된 엔터티로 4를 선택합니다.
+2. 복합 엔터티에서 마지막 단어를 선택한 다음, 팝업 메뉴에서 **RequestEmployeeMove**를 선택합니다. 
 
-    ![맨 왼쪽 단어 선택](./media/luis-tutorial-composite-entity/wrap-composite-step-1.png)
+    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "복합 요소에서 마지막 엔터티 선택이 강조 표시된 'MoveEmployee' 의도의 LUIS의 스크린 샷")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
-2. 표시되는 목록에서 **복합 엔터티로 래핑**을 선택합니다.
+3. 의도의 모든 발언에 복합 엔터티 레이블이 지정되었는지 확인합니다. 
 
-    ![목록에서 래핑 선택](./media/luis-tutorial-composite-entity/wrap-composite-step-2.png)
-
-3. 맨 오른쪽 단어를 선택합니다. 구문 아래에 복합 엔터티를 나타내는 녹색 선이 표시됩니다.
-
-    ![맨 오른쪽 단어 선택](./media/luis-tutorial-composite-entity/wrap-composite-step-3.png)
-
-4. 표시되는 목록에서 복합 이름 `FlightReservation`을 선택합니다.
-
-    ![명명된 복합 엔터티 선택](./media/luis-tutorial-composite-entity/wrap-composite-step-4.png)
-
-    마지막 발화의 경우, 동일한 지침을 사용하여 복합 엔터티로 `London` 및 `tomorrow`를 래핑합니다. 
+    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "모든 발언에 레이블이 지정된 'MoveEmployee'의 LUIS 스크린샷")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용을 인식하지 못합니다. 
+LUIS는 앱이 학습될 때까지 새 복합 엔터티를 인식하지 못합니다. 
 
 1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
 
-    ![앱 학습](./media/luis-tutorial-composite-entity/train-button.png)
+    ![앱 학습](./media/luis-tutorial-composite-entity/hr-train-button.png)
 
 2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
 
-    ![학습 성공](./media/luis-tutorial-composite-entity/trained.png)
+    ![학습 성공](./media/luis-tutorial-composite-entity/hr-trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 챗봇 또는 다른 응용 프로그램에서 LUIS 예측을 얻으려면 앱을 게시해야 합니다. 
@@ -127,127 +118,202 @@ LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용�
 
 2. 프로덕션 슬롯과 **게시** 단추를 선택합니다.
 
-    ![앱 게시](./media/luis-tutorial-composite-entity/publish-to-production.png)
+    ![앱 게시](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
 
 3. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
+## <a name="query-the-endpoint"></a>끝점 쿼리 
 1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 끝점 URL이 표시된 다른 브라우저 창이 열립니다. 
 
-    ![끝점 URL 선택](./media/luis-tutorial-composite-entity/publish-select-endpoint.png)
+    ![끝점 URL 선택](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
 
-2. 주소의 URL 끝으로 이동하고 `reserve 3 seats from London to Cairo on Sunday`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`, 발화 쿼리입니다. 이 발화는 레이블이 있는 발화와 같지 않으므로 좋은 테스트이므로 추출된 계층적 엔터티와 함께 `BookFlight` 의도를 반환해야 합니다.
+2. 주소의 URL 끝으로 이동하고 `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`, 발화 쿼리입니다. 
 
-```
+    이 테스트는 복합 요소가 올바르게 추출되었는지 확인하기 위한 것이므로 테스트에 기존의 샘플 발언이나 새 발언이 포함될 수 있습니다. 복합 엔터티에 모든 자식 엔터티를 포함하면 테스트 효과가 좋습니다.
+
+```JSON
 {
-  "query": "reserve 3 seats from London to Cairo on Sunday",
+  "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
   "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.999999046
+    "intent": "MoveEmployee",
+    "score": 0.9959525
   },
   "intents": [
     {
-      "intent": "BookFlight",
-      "score": 0.999999046
+      "intent": "MoveEmployee",
+      "score": 0.9959525
+    },
+    {
+      "intent": "GetJobInformation",
+      "score": 0.009858314
+    },
+    {
+      "intent": "ApplyForJob",
+      "score": 0.00728598563
+    },
+    {
+      "intent": "FindForm",
+      "score": 0.0058053555
+    },
+    {
+      "intent": "Utilities.StartOver",
+      "score": 0.005371796
+    },
+    {
+      "intent": "Utilities.Help",
+      "score": 0.00266987388
     },
     {
       "intent": "None",
-      "score": 0.227036044
+      "score": 0.00123299169
+    },
+    {
+      "intent": "Utilities.Cancel",
+      "score": 0.00116407464
+    },
+    {
+      "intent": "Utilities.Confirm",
+      "score": 0.00102653319
+    },
+    {
+      "intent": "Utilities.Stop",
+      "score": 0.0006628214
     }
   ],
   "entities": [
     {
-      "entity": "sunday",
-      "type": "builtin.datetimeV2.date",
-      "startIndex": 40,
-      "endIndex": 45,
+      "entity": "march 3 2 p.m",
+      "type": "builtin.datetimeV2.datetime",
+      "startIndex": 41,
+      "endIndex": 54,
       "resolution": {
         "values": [
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-03-25"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2018-03-03 14:00:00"
           },
           {
-            "timex": "XXXX-WXX-7",
-            "type": "date",
-            "value": "2018-04-01"
+            "timex": "XXXX-03-03T14",
+            "type": "datetime",
+            "value": "2019-03-03 14:00:00"
           }
         ]
       }
     },
     {
-      "entity": "3 seats from london to cairo on sunday",
-      "type": "flightreservation",
-      "startIndex": 8,
-      "endIndex": 45,
-      "score": 0.6892485
+      "entity": "jill jones",
+      "type": "Employee",
+      "startIndex": 5,
+      "endIndex": 14,
+      "resolution": {
+        "values": [
+          "Employee-45612"
+        ]
+      }
     },
     {
-      "entity": "cairo",
-      "type": "Location::Destination",
+      "entity": "z - 2345",
+      "type": "Locations::Destination",
       "startIndex": 31,
-      "endIndex": 35,
-      "score": 0.557570755
+      "endIndex": 36,
+      "score": 0.9690751
     },
     {
-      "entity": "london",
-      "type": "Location::Origin",
+      "entity": "a - 1234",
+      "type": "Locations::Origin",
       "startIndex": 21,
       "endIndex": 26,
-      "score": 0.8933808
+      "score": 0.9713137
+    },
+    {
+      "entity": "-1234",
+      "type": "builtin.number",
+      "startIndex": 22,
+      "endIndex": 26,
+      "resolution": {
+        "value": "-1234"
+      }
+    },
+    {
+      "entity": "-2345",
+      "type": "builtin.number",
+      "startIndex": 32,
+      "endIndex": 36,
+      "resolution": {
+        "value": "-2345"
+      }
     },
     {
       "entity": "3",
       "type": "builtin.number",
-      "startIndex": 8,
-      "endIndex": 8,
+      "startIndex": 47,
+      "endIndex": 47,
       "resolution": {
         "value": "3"
       }
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 50,
+      "endIndex": 50,
+      "resolution": {
+        "value": "2"
+      }
+    },
+    {
+      "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+      "type": "requestemployeemove",
+      "startIndex": 5,
+      "endIndex": 54,
+      "score": 0.4027723
     }
   ],
   "compositeEntities": [
     {
-      "parentType": "flightreservation",
-      "value": "3 seats from london to cairo on sunday",
+      "parentType": "requestemployeemove",
+      "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
       "children": [
         {
-          "type": "builtin.datetimeV2.date",
-          "value": "sunday"
+          "type": "builtin.datetimeV2.datetime",
+          "value": "march 3 2 p.m"
         },
         {
-          "type": "Location::Destination",
-          "value": "cairo"
+          "type": "Locations::Destination",
+          "value": "z - 2345"
         },
         {
-          "type": "builtin.number",
-          "value": "3"
+          "type": "Employee",
+          "value": "jill jones"
         },
         {
-          "type": "Location::Origin",
-          "value": "london"
+          "type": "Locations::Origin",
+          "value": "a - 1234"
         }
       ]
     }
-  ]
+  ],
+  "sentimentAnalysis": {
+    "label": "neutral",
+    "score": 0.5
+  }
 }
 ```
 
-이 발화는 추출된 데이터와 함께 **flightreservation** 개체를 포함하는 복합 엔터티 배열을 반환합니다.  
+이 발언은 복합 엔터티 배열을 반환합니다. 각 엔터티에는 형식 및 값이 지정됩니다. 각 자식 엔터티를 보다 정확하게 찾으려면 복합 배열 항목의 형식 및 값을 조합해서 엔터티 배열에서 해당 항목을 찾습니다.  
 
 ## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
-이 앱에서는 단지 2개의 의도와 복합 엔터티를 사용하여 자연어 쿼리 의도를 확인하고 추출된 데이터를 반환했습니다. 
+이 앱에서는 자연어 쿼리 의도를 확인하고 추출된 데이터를 명명된 그룹으로 반환했습니다. 
 
-챗봇에는 이제 `BookFlight` 기본 작업 및 발화에서 찾은 예약 정보를 결정하는 데 충분한 정보가 있습니다. 
+챗봇에는 이제 기본 작업 및 발언의 관련 세부 사항을 확인하기 위한 충분한 정보가 있습니다. 
 
 ## <a name="where-is-this-luis-data-used"></a>이 LUIS 데이터가 사용되는 위치는? 
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 다음 단계를 수행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식으로 작동하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
+## <a name="clean-up-resources"></a>리소스 정리
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
 ## <a name="next-steps"></a>다음 단계
-
-[엔터티에 대해 자세히 알아봅니다](luis-concept-entity-types.md). 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [!div class="nextstepaction"] 
+> [구 목록을 사용하여 단순 엔터티를 추가하는 방법 알아보기](luis-quickstart-primary-and-secondary-data.md)  

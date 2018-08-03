@@ -2,19 +2,19 @@
 title: LUIS 앱 일괄 테스트 - Azure | Microsoft Docs
 description: Language Understanding(LUIS) 일괄 테스트를 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: v-geberr
-ms.openlocfilehash: 822fb1e2d5b13941527d242e8501b423bd6b81cb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265516"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223584"
 ---
 # <a name="batch-testing"></a>일괄 테스트
  일괄 테스트는 현재 학습된 모델의 포괄적인 테스트로, LUIS에서 성능을 측정할 수 있습니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "36265516"
 
     ![일괄 테스트 링크](./media/luis-how-to-batch-test/batch-testing-link.png)
 
-2. **데이터 집합 가져오기**를 선택합니다. **새 데이터 집합 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발화를 포함하는 [JSON](luis-concept-batch-test.md#batch-file-format) 파일을 찾습니다.
+2. **데이터 집합 가져오기**를 선택합니다. **새 데이터 집합 가져오기** 대화 상자가 표시됩니다. **파일 선택**을 선택하고 테스트할 *1,000개 이하* 발언을 포함하는 올바른 [JSON 형식](luis-concept-batch-test.md#batch-file-format)의 JSON 파일을 찾습니다.
 
     ![데이터 집합 파일 가져오기](./media/luis-how-to-batch-test/batchtest-importset.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "36265516"
 4. **완료**를 선택합니다. 데이터 집합 파일이 추가됩니다.
 
 ## <a name="run-rename-export-or-delete-dataset"></a>데이터 집합 실행, 이름 바꾸기, 내보내기 또는 삭제
-데이터 집합을 실행하거나, 이름을 바꾸거나, 내보내거나 삭제하려면 데이터 집합 행 끝에 있는 세 개의 점(**...**)을 사용합니다.
+데이터 집합을 실행하거나, 이름을 바꾸거나, 내보내거나 삭제하려면 데이터 집합 행 끝에 있는 줄임표(***...***) 단추를 사용합니다.
 
 ![데이터 집합 작업](./media/luis-how-to-batch-test/batch-testing-options.png)
 
@@ -82,13 +82,6 @@ The filtering panel on the right side of the screen displays a list of all inten
  
 ![시각화된 일괄 테스트 결과](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
-<!--
-## Investigate false sections
-Data points on the **[False Positive][false-positive]** and **[False Negative][false-negative]** sections indicate errors, which should be investigated. If all data points are on the **[True Positive][true-positive]** and **[True Negative][true-negative]** sections, then your application's performance is perfect on this dataset.
-
-
-The graph indicates [F-measure][f-measure], [recall][recall], and [precision][precision].  
--->
 ## <a name="view-single-point-utterance-data"></a>단일 지점 발화 데이터 보기
 차트에서 데이터 요소를 마우스로 가리키면 해당 예측의 확신도 점수가 표시됩니다. 데이터 요소를 선택하여 페이지 아래쪽의 발화 목록에서 해당 발화를 검색합니다. 
 
@@ -112,16 +105,7 @@ The graph indicates [F-measure][f-measure], [recall][recall], and [precision][pr
 
 테스트에서 LUIS 앱이 올바른 의도와 엔터티를 인식하지 못하는 것으로 나타나면 추가 발화에 레이블을 지정하거나 기능을 추가하여 LUIS 앱의 성능을 개선할 수 있습니다. 
 
-* [LUIS로 제안된 발화에 레이블 지정](Label-Suggested-Utterances.md) 
+* [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endoint-utt.md) 
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md) 
 * [이 자습서를 통해 일괄 테스트 이해](luis-tutorial-batch-testing.md)
 * [일괄 테스트 개념 알아보기](luis-concept-batch-test.md).
-
-[true-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-positive
-[true-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#true-negative
-[false-positive]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-positive
-[false-negative]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#false-negative
-[f-measure]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#f-measure
-[recall]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#recall
-[precision]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-glossary#precision
-

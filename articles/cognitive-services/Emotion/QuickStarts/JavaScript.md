@@ -9,12 +9,12 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: anroth
-ms.openlocfilehash: 2578b0212f9b4a6483402074d7c9eff73e51ca6b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb9cc2335582c4ec75ec45635e519346d65d7e08
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374095"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072095"
 ---
 # <a name="emotion-api-javascript-quick-start"></a>Emotion API JavaScript 빠른 시작
 
@@ -36,7 +36,7 @@ ms.locfileid: "35374095"
 
 ![API 구독 키](../Images/keys.png)
 
-사용하려는 이미지의 위치로 요청 본문을 변경합니다. 샘플을 실행하려면 파일을 브라우저로 끌어서 놓습니다.
+요청 본문을 사용하려는 이미지의 위치로 변경합니다. 샘플을 실행하려면 파일을 브라우저로 끌어서 놓습니다.
 
 ```html
 <!DOCTYPE html>

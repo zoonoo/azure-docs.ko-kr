@@ -1,6 +1,6 @@
 ---
-title: Azure의 Bing Custom Search API에 대해 지원되는 국가 및 언어 | Microsoft Docs
-description: Bing Custom Search API에서 지원하는 국가 및 언어를 확인합니다.
+title: Azure의 Bing Custom Search API에 대해 지원되는 국가/지역 및 언어 | Microsoft Docs
+description: Bing Custom Search API에서 지원하는 국가/지역 및 언어를 확인합니다.
 services: cognitive-services
 author: mikedodaro
 manager: ronakshah
@@ -9,26 +9,26 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: v-gedod
-ms.openlocfilehash: 7ff309f9b789662c4ebd791dffaa2bc2e440763e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7009991ddd0bc8fd9fc68eaab57585b752db1fc1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35374750"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006498"
 ---
-# <a name="bing-custom-search-countries-and-languages"></a>Bing Custom Search 국가 및 언어
+# <a name="bing-custom-search-countriesregions-and-languages"></a>Bing Custom Search 국가/지역 및 언어
 
-Bing Custom Search API는 수십 개의 국가를 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가도 많습니다. 
+Bing Custom Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 
 
 선택 사항이지만, 요청에서 결과를 가져올 지역/국가를 식별하는 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#mkt) 쿼리 매개 변수를 지정해야 합니다. 선택적 쿼리 매개 변수 목록은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)를 참조하세요.
 
-`cc` 쿼리 매개 변수를 사용하여 국가를 지정할 수 있습니다. 국가를 지정하는 경우 `Accept-Language` 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가마다 다르며, **지역/국가** 표에서 각 국가에 대해 제공됩니다.
+`cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가/지역마다 다르며, **지역/국가** 표에서 각 국가/지역에 대해 제공됩니다.
 
 `Accept-Language` 헤더 및 `setLang` 쿼리 매개 변수는 함께 사용할 수 없으므로 둘 다 지정하면 안 됩니다. 자세한 내용은 [Accept-Language](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#acceptlanguage)를 참조하세요.
 
 ## <a name="countries"></a>국가
 
-|국가|코드|
+|국가/지역|코드|
 |-------|----|
 |아르헨티나|AR|
 |오스트레일리아|AU|
@@ -68,9 +68,9 @@ Bing Custom Search API는 수십 개의 국가를 지원하며, 이 중에는 �
 |미국|US|
 
 
-## <a name="markets"></a>지역/국가
+## <a name="markets"></a>시장
 
-|국가|언어|지역/국가 코드|
+|국가/지역|언어|시장 코드|
 |-------|--------|-----------|
 |아르헨티나|스페인어|es-AR|
 |오스트레일리아|영어|en-AU|

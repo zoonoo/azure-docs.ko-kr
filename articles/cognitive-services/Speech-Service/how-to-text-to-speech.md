@@ -10,22 +10,22 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 6c358b5a40b1d8e91c2e1af5eb493b13604cf82e
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045061"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213336"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>Speech Service에서 "텍스트에서 음성 변환" 사용
 
 Speech Service는 간단한 HTTP 요청을 통해 텍스트에서 음성 변환 기능을 제공합니다. 적절한 끝점에 읽혀지도록 텍스트를 POST하면 이 서비스가 합성 음성을 포함하는 오디오 파일(`.wav`)을 반환합니다. 그러면 응용 프로그램은 이 오디오를 적절히 사용할 수 있습니다.
 
-텍스트를 음성으로 변환에 대한 POST 요청 본문은 일반 텍스트(ASCII 또는 UTF8) 또는 [SSML](speech-synthesis-markup.md) 문서일 수 있습니다. 일반 텍스트 요청은 기본 음성으로 읽혀집니다. 대부분의 경우 SSML 본문을 사용하려고 할 수 있습니다. HTTP 요청에는 권한 부여 토큰이 포함되어야 합니다. 
+텍스트를 음성으로 변환에 대한 POST 요청 본문은 일반 텍스트(ASCII 또는 UTF8) 또는 [SSML](speech-synthesis-markup.md) 문서일 수 있습니다. 일반 텍스트 요청은 기본 음성으로 읽혀집니다. 대부분의 경우 SSML 본문을 사용하려고 할 수 있습니다. HTTP 요청에는 [권한 부여](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication) 토큰이 포함되어야 합니다. 
 
 국가별 텍스트 음성 변환 끝점은 다음과 같습니다. 구독에 적합한 끝점을 사용하세요.
 
-[!include[](includes/endpoints-text-to-speech.md)]
+[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ## <a name="specify-a-voice"></a>음성 지정
 
@@ -95,5 +95,7 @@ Text to Speech REST API에 대한 자세한 내용은 [REST API](rest-apis.md#te
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-- [C#에서 음성 인식](quickstart-csharp-windows.md)
+- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [C++에서 음성 인식](quickstart-cpp-windows.md)
+- [C#에서 음성 인식](quickstart-csharp-dotnet-windows.md)
+- [Java에서 음성 인식](quickstart-java-android.md)

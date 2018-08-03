@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 API 호출을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 API 호출을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 API 호출을 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 API 호출을 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: ec752cbadfac7a47e08ed7b0ffe8bb475969fac5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1d4013d736d8cfcb75874bc0c86d20b86ab4dd62
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376278"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39215842"
 ---
-# <a name="how-to-add-api-calls-to-a-conversation-learner-application"></a>Conversation Learner 응용 프로그램에 API 호출을 추가하는 방법
+# <a name="how-to-add-api-calls-to-a-conversation-learner-model"></a>Conversation Learner 모델에 API 호출을 추가하는 방법
 
-이 자습서는 응용 프로그램에 API 호출을 추가하는 방법을 보여 줍니다. API 호출은 봇에서 정의 및 작성하고 Conversation Learner가 호출할 수 있는 함수입니다.
+이 자습서는 모델에 API 호출을 추가하는 방법을 보여 줍니다. API 호출은 봇에서 정의 및 작성하고 Conversation Learner가 호출할 수 있는 함수입니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 12 미리 보기](http://aka.ms/cl-tutorial-12-preview)](http://aka.ms/blis-tutorial-12)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 “tutorialAPICalls.ts” 봇이 실행 중이어야 합니다.
@@ -34,11 +38,11 @@ ms.locfileid: "35376278"
 
 ### <a name="open-the-demo"></a>데모 열기
 
-Web UI의 앱 목록에서 Tutorial-12-APICalls를 클릭합니다. 
+Web UI의 모델 목록에서 Tutorial-12-APICalls를 클릭합니다. 
 
 ### <a name="entities"></a>엔터티
 
-응용 프로그램에서 number라는 엔터티 하나를 정의했습니다.
+모델에서 number라는 엔터티 하나를 정의했습니다.
 
 ![](../media/tutorial12_entities.PNG)
 
@@ -81,7 +85,7 @@ API 옆의 새로 고침 단추는 봇을 중지하고 API를 변경하려는 �
 4. ‘8’을 입력합니다. 그런 다음, Score Actions(작업에 점수 지정)를 클릭합니다.
 4. ‘Multiply $number 12’를 선택합니다. 곱하기 결과를 확인합니다.
 5. ‘Clear Entities’(엔터티 지우기)를 선택합니다.
-    - 숫자 엔터티의 값이 지워졌는지 확인합니다.
+    - `number` 엔터티의 값이 지워졌습니다.
 3. ‘What number to do you want to multiply by 12?’를 클릭하여 선택합니다.
 4. 테스트 완료를 클릭합니다.
 

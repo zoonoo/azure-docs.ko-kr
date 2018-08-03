@@ -10,12 +10,12 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 95f10d8ea7ebe1d40d45231a8ea40df81543fe8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa563d89b1834f5be952f13c31a2451d809709b1
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377239"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39006532"
 ---
 # <a name="what-is-bing-visual-search-api"></a>Bing Visual Search API란?
 
@@ -71,7 +71,7 @@ Visual Search에 이미지 토큰 또는 URL을 전송하는 경우 다음은 PO
 }
 ```
 
-`imageInfo` 개체에는 `url` 및 `imageInsightsToken` 필드 중 하나만 포함되어야 합니다. `url` 필드를 인터넷에서 액세스 가능한 이미지의 URL로 설정합니다. 지원되는 최대 이미지 크기는 1MB입니다.
+`imageInfo` 개체에는 `url` 또는 `imageInsightsToken` 필드 중 하나만 포함되어야 합니다. `url` 필드를 인터넷에서 액세스 가능한 이미지의 URL로 설정합니다. 지원되는 최대 이미지 크기는 1MB입니다.
 
 `imageInsightsToken`을 인사이트 토큰으로 설정해야 합니다. 인사이트 토큰을 가져오려면 Bing Image API를 호출합니다. 응답에는 `Image` 개체 목록이 포함됩니다. 각 `Image` 개체에는 토큰을 포함하는 `imageInsightsToken` 필드가 포함됩니다.
 
@@ -147,7 +147,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고, `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. Content-Type 헤더는 일반적으로 사용되는 모든 이미지 MIME 형식으로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 
+로컬 이미지를 업로드하는 경우 다음은 POST 본문에 포함해야 하는 양식 데이터를 보여 줍니다. 양식 데이터에는 Content-Disposition 헤더가 포함되어야 합니다. 해당 `name` 매개 변수를 "image"로 설정해야 하고, `filename` 매개 변수를 임의의 문자열 매개 변수로 설정할 수 있습니다. Content-Type 헤더는 일반적으로 사용되는 모든 이미지 MIME 형식으로 설정할 수 있습니다. 양식의 콘텐츠는 이미지의 이진입니다. 업로드할 수는 최대 이미지 크기는 1MB입니다. 가장 큰 너비 또는 높이는 1,500픽셀 미만이어야 합니다.
 
 
 ```
@@ -400,7 +400,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
     }
 ```
 
-이미지에 사람, 장소 또는 사물과 같은 인식된 엔터티가 포함된 경우 태그 중 하나에는 Entity 인사이트가 포함될 수 있습니다. 다음 예제와 같이 기타 정보가 엔터티에 포함될 수도 있습니다.
+이미지에 사람, 장소 또는 사물과 같은 인식된 엔터티가 포함된 경우 태그 중 하나에는 Entity 인사이트가 포함될 수 있습니다. 
 
 ```json
     {
@@ -428,29 +428,6 @@ Content-Disposition: form-data; name="knowledgeRequest"
           "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
           "displayName" : "Statue of Liberty",
           "actionType" : "Entity",
-        },
-        {
-          "_type" : "ImageModuleAction",
-          "actionType" : "Trivia",
-          "data" : {
-            "value" : [
-              {
-                "name" : "Where was the cornerstone of the statue of liberty laid",
-                "text" : "<the answer>",
-                "hostPageUrl" : "http:\/\/contoso.com\/history\/...",
-              },
-              {
-                "name" : "Why Is the Statue of Liberty Green",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/why-statue-of-liberty-is-green",
-              },
-              {
-                "name" : "What is the Statue of Liberty made of",
-                "text" : "<the answer>",
-                "hostPageUrl" : "https:\/\/www.contoso.com\/art-literature\/statue-liberty-made",
-              }
-            ]
-          }
         }
       ]
     }

@@ -1,7 +1,7 @@
 ---
-title: “Hello World” Conversation Learner 응용 프로그램을 만드는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: “Hello World” Conversation Learner 모델을 만드는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: “Hello World” Conversation Learner 응용 프로그램을 만드는 방법을 알아봅니다.
+description: “Hello World” Conversation Learner 모델을 만드는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 30026285ac6dda45d2f5e3718aae741b928cf242
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 70b8f25bd699cbdb069892d65bf766ef3953f59d
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376359"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170874"
 ---
-# <a name="how-to-create-a-hello-world-application-with-conversation-learner"></a>Conversation Learner에서 “Hello World” 응용 프로그램을 만드는 방법
+# <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Conversation Learner에서 “Hello World” 모델을 만드는 방법
 
 이 자습서는 작업 만들기, 대화형 학습, 최종 사용자로부터 기록된 대화 수정을 포함하여 Conversation Learner로 시작하는 방법을 보여 줍니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 1 미리 보기](http://aka.ms/cl-tutorial-01-preview)](http://aka.ms/blis-tutorial-01)
+
 
 ## <a name="requirements"></a>요구 사항
 아직 완료하지 않은 경우, 먼저 LUIS 작성 키를 사용하여 `.env` 파일 만들기를 비롯한 모든 설정 단계가 완료되었는지 확인합니다.  자세한 내용은 [빠른 시작](https://github.com/Microsoft/ConversationLearner-Samples)을 참조하세요.
@@ -32,14 +37,14 @@ ms.locfileid: "35376359"
 
 Web UI의 홈페이지에서 시작합니다.
 
-### <a name="create-the-app"></a>앱 만들기
-1. 새 앱을 클릭합니다.
+### <a name="create-the-model"></a>모델 만들기
+1. 새 모델을 클릭합니다.
 2. 이름 필드에 Hello World를 입력합니다.
 3. 만들기 클릭
 
 ### <a name="create-an-action"></a>작업 만들기
 
-1. Hello World 앱을 클릭하여 시작합니다.
+1. Hello World 모델을 클릭하여 시작합니다.
 2. 작업, 새 작업을 차례로 클릭합니다.
     - 작업은 Conversation Learner가 사용자에게 반환하는 텍스트 메시지, API 호출 또는 카드일 수 있습니다.
 3. 응답에 ‘Hello World!’를 입력합니다.

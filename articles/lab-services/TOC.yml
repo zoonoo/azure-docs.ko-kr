@@ -61,6 +61,8 @@
           href: devtest-lab-create-lab.md
         - name: 랩에서 VM 만들기
           href: devtest-lab-create-first-vm.md
+        - name: 랩에서 랩 또는 VM 삭제
+          href: devtest-lab-delete-lab-vm.md
         - name: 랩에 대한 정책 설정
           href: devtest-lab-get-started-with-lab-policies.md
         - name: Azure Key Vault에 암호 저장

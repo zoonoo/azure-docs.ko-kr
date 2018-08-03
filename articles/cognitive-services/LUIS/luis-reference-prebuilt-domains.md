@@ -3,29 +3,29 @@ title: 미리 작성된 도메인 참조 - Azure | Microsoft Docs
 titleSuffix: Azure
 description: LUIS(Language Understanding Intelligent Services)에서 미리 작성된 의도 및 엔터티 컬렉션에 해당하는 미리 작성된 도메인에 대한 참조입니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 14c53bd25913922a0cd7cc438ad0fbe8b4663dd1
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: diberry
+ms.openlocfilehash: 36e527f9afdce58475ca4c3c6e54ce393c48c983
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061967"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238899"
 ---
 # <a name="prebuilt-domain-reference"></a>미리 작성된 도메인 참조
 이 참조는 LUIS에서 제공하는 의도 및 엔터티의 미리 작성된 컬렉션에 해당하는 [미리 작성된 도메인](luis-how-to-use-prebuilt-domains.md)에 대한 정보를 제공합니다.
 
-반대로, [사용자 지정 도메인](create-new-app.md)은 의도 및 모델 없이 시작합니다. 사용자 지정 모델에 미리 작성된 도메인 의도 및 엔터티를 추가할 수 있습니다.
+반대로, [사용자 지정 도메인](luis-how-to-start-new-app.md)은 의도 및 모델 없이 시작합니다. 사용자 지정 모델에 미리 작성된 도메인 의도 및 엔터티를 추가할 수 있습니다.
 
 ## <a name="list-of-prebuilt-domains"></a>미리 작성된 도메인 목록
 LUIS는 20가지의 미리 작성된 도메인을 제공합니다. 
 
-| 미리 작성된 도메인 | 설명 | 지원되는 언어 |
+| 미리 빌드된 도메인 | 설명 | 지원되는 언어 |
 | ---------------- |-----------------------|:------:|
 | Calendar | Calendar 도메인은 약속을 추가, 삭제 또는 편집하고, 참가자 가용성을 확인하고, 일정 이벤트에 대한 정보를 찾기 위한 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
 | Camera | Camera 도메인은 사진을 촬영하고, 비디오를 녹화하고, 비디오를 응용 프로그램으로 브로드캐스트하기 위한 의도 및 엔터티를 제공합니다.| ko-KR |
@@ -36,10 +36,10 @@ LUIS는 20가지의 미리 작성된 도메인을 제공합니다.
 | 게임 | 멀티플레이 게임의 게임 파티와 관련된 요청 처리| ko-KR |
 | HomeAutomation | 조명 및 어플라이언스와 같은 스마트 홈 장치 제어| ko-KR<br/> zh-CN |
 | MovieTickets | 영화관의 영화 티켓 예약| ko-KR |
-| Music | 뮤직 플레이어에서 음악 재생| ko-KR<br/> zh-CN |
+| 음악 | 뮤직 플레이어에서 음악 재생| ko-KR<br/> zh-CN |
 | 참고 | Note 도메인은 메모 생성, 편집 및 찾기와 관련된 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
 | OnDevice | OnDevice 도메인은 장치 제어와 관련된 의도 및 엔터티를 제공합니다.| ko-KR<br/> zh-CN |
-| Places  | 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리| ko-KR<br/> zh-CN |
+| 장소  | 회사, 기관, 식당, 공용 공간 및 주소와 같은 장소 관련 쿼리 처리| ko-KR<br/> zh-CN |
 | 미리 알림 | 미리 알림 생성, 편집 및 찾기와 관련된 요청 처리| ko-KR<br/> zh-CN |
 | RestaurantReservation | 식당 예약에 대한 관리 요청 처리| ko-KR<br/> zh-CN |
 | Taxi | 택시 예약 처리| ko-KR<br/> zh-CN |
@@ -102,7 +102,7 @@ Communication 도메인은 전자 메일, 메시지 및 전화 통화와 관련�
 | AssignContactNickname| 연락처에 애칭을 할당합니다.|Isaac을 아빠로 변경 <br/>Jim의 애칭 편집<br/>Patti Owens에 애칭 추가|
 | CallVoiceMail| 사용자의 음성 메일에 연결합니다.|내 음성 사서함 상자에 연결 <br/>음성 사서함<br/>음성 사서함 연결|
 | CheckIMStatus| Skype에서 연락처의 상태를 확인합니다.|Jim의 온라인 상태가 자리 비움으로 설정되어 있나요? <br/>Carol과 채팅할 수 있나요?|
-| Confirm| 작업을 확인합니다.|예<br/>확인<br/>좋습니다.<br/>이 전자 메일을 보내려고 합니다.<br/>|
+| Confirm| 작업을 확인합니다.|yes<br/>확인<br/>좋습니다.<br/>이 전자 메일을 보내려고 합니다.<br/>|
 | Dial| 전화 통화를 합니다.|Jim에게 전화하기<br/>311 번호를 누르세요.<br/>|
 | FindContact| 연락처 정보를 이름으로 찾습니다.|Carol의 번호 찾기<br/>Carol의 번호 표시<br/>|
 | FindSpeedDial| 전화 번호를 설정할 단축번호와 단축번호를 설정할 전화 번호를 찾습니다.|내 다이얼 번호 5는 무엇인가요?<br/>설정된 단축번호가 있나요?<br/>941-5555-333의 다이얼 번호는 무엇인가요?|
@@ -154,7 +154,7 @@ Entertainment 도메인은 영화, 음악, 게임 및 TV 쇼 검색과 관련된
 | ContentRating | 영화에 대한 G 또는 R과 같은 미디어 콘텐츠 등급입니다.|어린이 비디오입니다.<br/>PG 등급입니다.|
 | Genre | 영화, 게임, 앱 또는 노래의 장르입니다.|코미디<br/>드라마<br/>오락용|
 | 키워드| 특성을 지정하는 제네릭 검색 키워드는 좀 더 구체적인 미디어 슬롯에 존재하지 않습니다.|사운드 트랙<br/>문리버<br/>Amelia Earhart|
-| 언어 | 영화에 대한 G 또는 R과 같은 미디어 콘텐츠 등급입니다.|프랑스어<br/>영어<br/>한국어|
+| 언어 | 영화 또는 노래의 음성 언어와 같이 미디어에서 사용되는 언어입니다.|프랑스어<br/>영어<br/>한국어|
 | MediaFormat | 미디어 형식을 지정하는 추가적인 특별 기술 유형입니다.|HD 동영상<br/>3D 동영상<br/>다운로드 가능|
 | MediaSource | 미디어 획득을 위한 스토어 또는 마켓플레이스입니다.|Netflix<br/>Prime|
 | MediaSubTypes| 영화 및 게임보다 작은 미디어 유형입니다.|데모<br/>Dlc<br/>트레일러|
@@ -234,7 +234,7 @@ HomeAutomation 도메인은 조명 및 어플라이언스와 같은 스마트 �
 | 엔터티 이름 | 설명 | 예 |
 | ---------------- |-----------------------|----|
 | 장치 | 켜거나 끌 수 있는 장치 유형입니다.|커피 메이커<br/>자동 온도 조절기<br/>조명|
-| 작업 | 장치의 설정 상태입니다.|lock<br/>열기<br/>on<br/>끄기|
+| 작업 | 장치의 설정 상태입니다.|lock<br/>open<br/>on<br/>끄기|
 | 공간 | 장치가 있는 위치 또는 방입니다.|거실<br/>침실<br/>주방|
 
 ## <a name="movietickets"></a>MovieTickets 
@@ -444,7 +444,7 @@ restart|
 | RouteAvoidanceCriteria | 특정 경로를 피하는 기준(예: 사고, 건설 또는 통행료) | 통행료 <br/>건설<br/>Route 11|
 | ServiceProvided | 회사 또는 장소가 제공하는 서비스(예: 헤어컷, 제설기, 경치)입니다. | 헤어컷<br/>정비<br/>배관공|
 | TransportationCompany | 전송 공급업체의 이름입니다.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | 교통 유형입니다.|버스<br/>교육<br/>Driving|
+| TransportationType | 교통 유형입니다.|버스<br/>학습<br/>Driving|
 
 ## <a name="reminder"></a>미리 알림 
 reminder 도메인은 미리 알림 생성, 편집 및 찾기에 대한 의도 및 엔터티를 제공합니다.
@@ -525,7 +525,7 @@ Cancel my Uber
 | PlaceName | 현지 회사, 식당, 공공 명소 또는 기관의 이름입니다. |중앙 공원<br/>세이프웨이<br/>월마트|
 | PlaceType| 택시 예약을 요청할 장소 유형입니다.|식당<br/>Opera<br/>영화관|
 | TransportationCompany | 전송 공급업체의 이름입니다.|Amtrak<br/>Acela<br/>Greyhound|
-| TransportationType | 교통 유형입니다.|버스<br/>교육<br/>Driving|
+| TransportationType | 교통 유형입니다.|버스<br/>학습<br/>Driving|
 
 ## <a name="translate"></a>번역 
 Translate 도메인은 텍스트를 대상 언어로 번역하는 것과 관련된 의도 및 엔터티를 제공합니다.

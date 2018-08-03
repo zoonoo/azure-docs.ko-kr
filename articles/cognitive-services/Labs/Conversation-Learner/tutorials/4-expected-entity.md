@@ -1,7 +1,7 @@
 ---
 title: Conversation Learner 작업의 "예상 엔터티" 속성을 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 작업의 "예상 엔터티" 속성을 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델의 "예상 엔터티" 속성을 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 83911eba8112cf356af8c4cd562a87f746fbabc5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376303"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39170911"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>작업의 "예상 엔터티" 속성을 사용하는 방법
 
 이 자습서에서는 작업의 "예상 엔터티" 필드를 설명합니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 4 미리 보기](http://aka.ms/cl-tutorial-04-preview)](http://aka.ms/blis-tutorial-04)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -37,9 +41,9 @@ ms.locfileid: "35376303"
 
 ## <a name="steps"></a>단계
 
-### <a name="create-the-application"></a>응용 프로그램 만들기
+### <a name="create-the-model"></a>모델 만들기
 
-1. Web UI에서 새 앱을 클릭합니다.
+1. Web UI에서 새 모델을 클릭합니다.
 2. 이름에 ExpectedEntities를 입력합니다. 그런 다음, 만들기를 클릭합니다.
 
 ### <a name="create-an-entity"></a>엔터티 만들기
@@ -48,7 +52,8 @@ ms.locfileid: "35376303"
 2. 엔터티 이름에 이름을 입력합니다.
 3. 만들기 클릭
 
-엔터티 형식은 '사용자 지정'으로, 엔터티를 학습할 수 있음을 의미합니다.  동작을 조정할 수 없는 미리 빌드된 엔터티도 있습니다. 이러한 엔터티는 다른 자습서에서 설명합니다.
+> [!NOTE]
+> 엔터티 형식은 '사용자 지정'입니다. 이 값은 엔터티를 학습할 수 있음을 의미합니다.  동작을 조정할 수 없는 미리 빌드된 엔터티도 있습니다.  이러한 엔터티는 [사전 빌드 엔터티 자습서](./7-built-in-entities.md)에서 설명합니다.
 
 ![](../media/tutorial4_entities.PNG)
 
@@ -57,7 +62,7 @@ ms.locfileid: "35376303"
 1. 작업, 새 작업을 차례로 클릭합니다.
 2. 응답에서 '이름은 무엇인가요?'를 입력합니다.
 3. 예상 엔터티에서 $name을 입력합니다. 저장을 클릭합니다.
-    - 즉, 질문을 하면 사용자 응답에는 엔터티가 검색되지 않습니다. 봇은 사용자의 응답 전체가 이 엔터티임을 가정해야 합니다.
+    - 이 값은 질문을 할 경우 사용자 응답에서 엔터티가 검색되지 않음을 의미합니다. 봇은 사용자의 응답 전체가 이 엔터티라고 가정해야 합니다.
 2. 작업, 새 작업을 차례로 클릭하여 두 번째 작업을 만듭니다.
 3. 응답에 '안녕하세요 $name'을 입력합니다.
     - 엔터티가 실격 엔터티로 자동으로 추가됩니다. 
@@ -85,19 +90,19 @@ ms.locfileid: "35376303"
 
 1. 새 학습 대화를 클릭합니다.
 2. '내 이름은 david입니다.'를 입력합니다.
-    - 전에 이 단어를 확인했기 때문에 david를 이름 엔터티로 식별합니다.
+    - 모델은 전에 이 단어를 확인했기 때문에 david를 이름 엔터티로 식별합니다.
 2. 작업에 점수 지정을 클릭합니다.
 3. '안녕하세요 $name'을 선택합니다.
 4. '내 이름은 susan입니다.'를 입력합니다.
-    - 이 패턴을 이미 확인했으므로 susan을 이름으로 식별합니다.
+    - 모델은 이 패턴을 이미 확인했으므로 susan을 이름으로 식별합니다.
 2. 작업에 점수 지정을 클릭합니다.
 2. '안녕하세요 susan'을 선택합니다.
 3. 학습 완료를 클릭합니다.
 
-"예상 엔터티" 추론이 트리거되지만 정확하지 않는 경우 및 수정할 수 있는 방법의 두 가지 예제는 다음과 같습니다.
+다음 예제에서 "예상 엔터티" 추론이 트리거되지만 올바르지 않습니다. 그런 후 수정 방법이 제공됩니다.
 
 1. 'jose라고 합니다.'를 입력합니다.
-    - 이름을 엔터티로 인식하지 못합니다.
+    - 모델은 이름을 엔터티로 인식하지 못합니다.
 2. jose를 클릭하고 이름을 선택합니다.
 3. 작업에 점수 지정을 클릭합니다.
 4. 안녕하세요 $name을 선택합니다.

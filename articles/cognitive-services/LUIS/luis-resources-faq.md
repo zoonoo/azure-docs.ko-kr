@@ -1,20 +1,20 @@
 ---
 title: Azure의 LUIS(Language Understanding) FAQ(질문과 대답) | Microsoft Docs
 description: LUIS(Language Understanding)에 대한 FAQ(질문과 대답)에 대해 알아봅니다.
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: fd63ffd312e3ac17a6376eb3c9bef8f1978e3935
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333618"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239120"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding FAQ
 
@@ -53,21 +53,25 @@ ms.locfileid: "36333618"
 ### <a name="should-variations-of-an-example-utterance-include-punctuation"></a>예제 발언 변형에 문장 부호가 포함되어야 하나요? 
 의도에 다른 변형을 예제 발언으로 추가하거나 문장 부호를 [무시하는 구문](luis-concept-patterns.md#pattern-syntax)을 사용하여 예제 발언 패턴을 추가합니다. 
 
+### <a name="does-luis-currently-support-cortana"></a>LUIS는 현재 Cortana를 지원하나요?
+
+Cortana의 미리 빌드된 앱은 2017년부터 더 이상 사용되지 않습니다. 따라서 더 이상 지원되지 않습니다. 
+
 ## <a name="luis-endpoint"></a>LUIS 끝점
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>LUIS가 쿼리 주변 또는 단어 중간에 공백을 추가하는 이유는 무엇인가요?
 LUIS는 [문화권](luis-supported-languages.md#tokenization)에 따라 발언을 [토큰화](luis-glossary.md#token)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>LUIS 끝점 키를 만들고 할당하려면 어떻게 해야 하나요?
-Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [끝점 키를 만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). **[게시](publishapp.md)** 페이지에서 [키를 할당](Manage-keys.md#assign-endpoint-key)합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 끝점에 대한 HTTP 요청을 [새 끝점 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
+Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [끝점 키를 만듭니다](luis-how-to-azure-subscription.md#create-luis-endpoint-key). **[게시](luis-how-to-publish-app.md)** 페이지에서 [키를 할당](luis-how-to-manage-keys.md#assign-endpoint-key)합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 끝점에 대한 HTTP 요청을 [새 끝점 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS 점수는 어떻게 해석할 수 있나요? 
 시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 점수를 높일 수 있습니다.
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>내 앱의 대시보드에서 끝점 적중이 표시되지 않는 이유는 무엇인가요?
-앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 구독 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다. 
+앱의 대시보드에 표시되는 총 끝점 적중은 주기적으로 업데이트되지만 Azure Portal의 LUIS 끝점 키와 연결된 메트릭은 좀 더 자주 업데이트됩니다. 
 
-대시보드에서 업데이트된 끝점 적중이 표시되지 않으면 Azure Portal에 로그인하고 LUIS 구독 키와 연결된 리소스를 찾은 후 **메트릭**을 열어 **총 호출** 메트릭을 선택합니다. 구독 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
+대시보드에서 업데이트된 끝점 적중이 표시되지 않으면 Azure Portal에 로그인하고 LUIS 끝점 키와 연결된 리소스를 찾은 후 **메트릭**을 열어 **총 호출** 메트릭을 선택합니다. 끝점 키가 둘 이상의 LUIS 앱에 사용되는 경우 Azure Portal의 메트릭은 해당 메트릭을 사용하는 모든 LUIS 앱의 집계된 호출 수를 나타냅니다.
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>내 LUIS 앱이 어제도 작동했으나 오늘 403 오류가 발생하고 있습니다. 앱을 변경한 적도 없었습니다. 이 문제를 어떻게 해결하나요? 
 다음은 LUIS 끝점 키 만들고 앱에 할당하기 위한 다음 FAQ의 [지침](#how-do-i-create-and-assign-a-luis-endpoint-key)입니다. 그런 후 끝점에 대한 HTTP 요청을 [새 끝점 키를 사용하도록](luis-concept-keys.md#use-endpoint-key-in-query) 변경해야 합니다.
@@ -115,8 +119,9 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 ![Azure Portal의 테넌트 ID](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
-### <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>앱의 게시 페이지에 앱에 할당한 것보다 더 많은 구독 키가 있는 이유는 무엇인가요? 
-각 LUIS 앱에는 작성/시작 키가 있습니다. GA 시간 프레임 동안 만든 LUIS 구독 키는 앱에 추가했는지에 관계없이 게시 페이지에 표시됩니다. GA 마이그레이션을 좀 더 쉽게 진행하기 위해 이렇게 구현되었습니다. 새 LUIS 구독 키는 게시 페이지에 표시되지 않습니다. 
+<a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>앱의 게시 페이지에 앱에 할당한 것보다 더 많은 끝점 키가 있는 이유는 무엇인가요? 
+각 LUIS 앱에는 작성/시작 키가 있습니다. GA 시간 프레임 동안 만든 LUIS 끝점 키는 앱에 추가했는지에 관계없이 게시 페이지에 표시됩니다. GA 마이그레이션을 좀 더 쉽게 진행하기 위해 이렇게 구현되었습니다. 새 LUIS 끝점 키는 게시 페이지에 표시되지 않습니다. 
 
 ## <a name="app-management"></a>앱 관리
 
@@ -153,7 +158,7 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 ## <a name="app-notification"></a>앱 알림
 
 ### <a name="why-did-i-get-an-email-saying-im-almost-out-of-quota"></a>할당량이 거의 초과되려고 한다는 전자 메일이 수신되는 이유는 무엇인가요?
-작성/시작 키는 매월 1,000개의 끝점 쿼리만 허용합니다. LUIS 구독 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 응용 프로그램에서 끝점 쿼리를 만드는 경우 해당 위치에서 LUIS 끝점을 변경해야 합니다. 
+작성/시작 키는 매월 1,000개의 끝점 쿼리만 허용합니다. LUIS 끝점 키(무료 또는 유료)를 만들고 끝점 쿼리를 만들 때 해당 키를 사용합니다. 봇이나 다른 클라이언트 응용 프로그램에서 끝점 쿼리를 만드는 경우 해당 위치에서 LUIS 끝점을 변경해야 합니다. 
 
 ## <a name="integrating-luis"></a>LUIS 통합
 
@@ -167,7 +172,7 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 
 ## <a name="luis-service"></a>LUIS 서비스 
 
-### <a name="is-luis-available-on-premise-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS를 사용할 수 있나요?
+### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS를 사용할 수 있나요?
 아니요. 
 
 ## <a name="changes-to-the-docs"></a>문서 변경 내용
@@ -182,7 +187,7 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 |[Node.js](luis-tutorial-node-import-utterances-csv.md)를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드|
 |[복합 엔터티](luis-tutorial-composite-entity.md)를 사용하여 그룹화된 데이터 추출|
 |Node.js를 사용하여 증가된 엔터티 검색을 위해 [목록 엔터티](luis-tutorial-list-entity.md) 추가|
-|[구 목록](luis-tutorial-interchangeable-phrase-list.md), [패턴](luis-tutorial-pattern.md) 및 [일괄 처리 테스트](luis-tutorial-batch-testing.md)로 예측 정확도 향상|
+|[구 목록](luis-quickstart-primary-and-secondary-data.md), [패턴](luis-tutorial-pattern.md) 및 [일괄 처리 테스트](luis-tutorial-batch-testing.md)로 예측 정확도 향상|
 |Bing Spell Check API v7을 사용한 [올바른 맞춤법](luis-tutorial-batch-testing.md)
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Build 2018 Conference에서 Language Understanding 기능이나 데모에 대해 들어보았으나 어떻게 지칭하는지 기억이 나지 않습니다. 
@@ -193,7 +198,7 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 |--|--|
 |향상된 기능|[정규식](luis-concept-data-extraction.md##regular-expression-entity-data) 엔터티 및 [핵심 구](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) 엔터티
 |패턴|패턴 [개념](luis-concept-patterns.md), [자습서](luis-tutorial-pattern.md), [방법](luis-how-to-model-intent-pattern.md)<br>예외에 대한 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 포함하는 [Patterns.Any](luis-concept-entity-types.md) 엔터티<br>[역할](luis-concept-roles.md) 개념|
-|통합|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)과 [감정 분석](publishapp.md#enable-sentiment-analysis) 통합<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech)에 [Speech SDK](https://aka.ms/SpeechSDK)와 [음성 초기화](publishapp.md#enable-speech-priming) 통합|
+|통합|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)과 [감정 분석](luis-how-to-publish-app.md#enable-sentiment-analysis) 통합<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech)에 [Speech SDK](https://aka.ms/SpeechSDK)와 [음성 초기화](luis-how-to-publish-app.md#enable-speech-priming) 통합|
 |Dispatch 도구|[BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools)의 일부로서, 봇에서의 더 나은 의도 인식을 위해 여러 LUIS 및 QnA Maker 앱을 단일 LUIS 앱에 결합하기 위한 Dispatch 명령줄 [도구](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)
 
 추가적인 작성 [API 경로](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)가 포함되었습니다. 
@@ -212,5 +217,3 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 LUIS에 대한 자세한 내용은 다음 리소스를 참조하세요.
 * [LUIS로 태그가 지정된 스택 오버플로 질문](https://stackoverflow.com/questions/tagged/luis)
 * [MSDN LUIS(Language Understanding Intelligent Services) 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS) 
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

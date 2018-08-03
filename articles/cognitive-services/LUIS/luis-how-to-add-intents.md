@@ -2,19 +2,19 @@
 title: LUIS 응용 프로그램에서 의도 추가 | Microsoft Docs
 description: LUIS(Language Understanding)를 사용하여 앱이 사용자 요청을 이해하고 적절하게 대응하는 데 도움이 되는 의도를 추가합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
+ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: f004a0a1726ca6c513e2cb4c137f82ae40e31a01
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344330"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225889"
 ---
 # <a name="manage-intents"></a>의도 관리 
 LUIS 앱에 [의도](luis-concept-intent.md)를 추가하여 동일한 의도가 포함된 질문 또는 명령 그룹을 식별합니다. 
@@ -66,7 +66,7 @@ LUIS 왼쪽 패널의 **의도**에서 사용할 수 있는 **의도** 페이지
 >[!NOTE]
 >LUIS는 모든 발화를 소문자로 변환합니다.
 
-![발화가 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+![발언이 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
 현재 의도에 대한 발화 목록에 발화가 추가됩니다. 발화가 추가되면 발화 내의 [모든 엔터티에 레이블을 지정](luis-how-to-add-example-utterances.md)하고 앱을 [학습](luis-how-to-train.md)시킵니다. 
 
@@ -75,9 +75,9 @@ LUIS 왼쪽 패널의 **의도**에서 사용할 수 있는 **의도** 페이지
 
 ## <a name="edit-an-utterance-on-intent-page"></a>의도 페이지에서 발화 편집
 
-발화를 편집하려면 해당 발화 줄의 오른쪽 끝에 있는 세 개의 점(...) 아이콘을 선택하고 **편집**을 선택합니다. 텍스트를 수정한 다음, 키보드에서 Enter 키를 누릅니다.
+발언을 편집하려면 해당 발언 줄의 오른쪽 끝에 있는 줄임표(***...***) 단추를 선택하고 **편집**을 선택합니다. 텍스트를 수정한 다음, 키보드에서 Enter 키를 누릅니다.
 
-![세 개의 점 아이콘이 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/edit-utterance.png) 
+![줄임표 단추가 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/edit-utterance.png) 
 
 ## <a name="reassign-utterances-on-intent-page"></a>의도 페이지에서 발화 다시 할당
 하나 이상의 발화를 다른 의도에 다시 할당하여 해당 발화의 의도를 변경할 수 있습니다. 
@@ -92,7 +92,7 @@ LUIS 왼쪽 패널의 **의도**에서 사용할 수 있는 **의도** 페이지
 
 ## <a name="delete-utterances-on-intent-page"></a>의도 페이지에서 발화 삭제
 
-발화를 삭제하려면 해당 발화 줄의 오른쪽 끝에 있는 세 개의 점(...) 아이콘을 선택하고 **삭제**를 선택합니다. 발화가 목록 및 LUIS 앱에서 제거됩니다.
+발언을 삭제하려면 해당 발언 줄의 오른쪽 끝에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. 발화가 목록 및 LUIS 앱에서 제거됩니다.
 
 ![삭제 옵션이 강조 표시된 의도 세부 정보 페이지의 스크린샷](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
 

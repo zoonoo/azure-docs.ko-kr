@@ -2,19 +2,19 @@
 title: Azure에서 LUIS 앱의 엔터티 형식 이해 | Microsoft Docs
 description: LUIS(Language Understanding Intelligent Service) 앱에서 엔터티(응용 프로그램 도메인의 키 데이터)를 추가합니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/22/2018
-ms.author: v-geberr
-ms.openlocfilehash: ccb7269109309355e2af95f6fb2aa060c1998b22
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.date: 06/28/2018
+ms.author: diberry
+ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36286021"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226614"
 ---
 # <a name="entities-in-luis"></a>LUIS의 엔터티
 
@@ -65,19 +65,19 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 
 | Name | 레이블 지정 가능 | 설명 |
 | -- |--|--|
-| **미리 빌드된** <br/>[사용자 지정](#prebuilt)| |  **정의**<br>일반 개념을 나타내는 기본 제공 유형입니다. <br><br>**목록**<br/>핵심 구 번호, 서수, 온도, 차원, 비용, 연령, 백분율, 메일, URL, 전화 번호 및 핵심 구. <br><br>미리 빌드된 엔터티 이름은 예약되어 있습니다. <br><br>응용 프로그램에 추가되는 모든 미리 빌드된 엔터티는 [끝점](luis-glossary.md#endpoint) 쿼리에서 반환됩니다. 자세한 내용은 [미리 빌드된 엔터티](./Pre-builtEntities.md)를 참조하세요. <br/><br/>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#prebuilt-entity-data)|
+| **미리 빌드된** <br/>[사용자 지정](#prebuilt)| |  **정의**<br>일반 개념을 나타내는 기본 제공 유형입니다. <br><br>**목록**<br/>핵심 구 번호, 서수, 온도, 차원, 비용, 연령, 백분율, 메일, URL, 전화 번호 및 핵심 구. <br><br>미리 빌드된 엔터티 이름은 예약되어 있습니다. <br><br>응용 프로그램에 추가되는 모든 미리 빌드된 엔터티는 [끝점](luis-glossary.md#endpoint) 쿼리에서 반환됩니다. 자세한 내용은 [미리 빌드된 엔터티](./luis-prebuilt-entities.md)를 참조하세요. <br/><br/>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#prebuilt-entity-data)|
 |<!-- added week of 3/21/08 --> **정규식**<br/>[RegEx](#regex)||**정의**<br>서식이 지정된 원시 발화 텍스트에 대한 사용자 지정 정규식입니다. 대/소문자를 무시하고 문화적 변형을 무시합니다.  <br><br>이 엔터티는 항상 일관된 변형으로 일관되게 서식을 지정하는 단어나 구에 적합합니다.<br><br>정규식 일치는 맞춤법 검사 변경 후에 적용됩니다. <br><br>많은 대괄호를 사용하는 경우처럼 정규식이 너무 복잡한 경우, 모델에 식을 추가할 수 없습니다. <br><br>**예제**<br>`kb[0-9]{6,}`은 kb123456과 일치합니다.<br/><br/>[빠른 시작](luis-quickstart-intents-regex-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md)|
 | **간단** <br/>[기계 학습](#machine-learned) | ✔ | **정의**<br>단순 엔터티는 단일 개념을 설명하고 기계 학습 컨텍스트에서 학습되는 일반 엔터티입니다. 컨텍스트에는 단어 선택, 단어 배치 및 발화 길이가 포함됩니다.<br/><br/>일관되게 서식을 지정하지는 않지만 동일한 항목을 나타내는 단어나 구에 적합한 엔터티입니다. <br/><br/>[빠른 시작](luis-quickstart-primary-and-secondary-data.md)<br/>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#simple-entity-data)|  
-| **목록** <br/>[정확한 일치](#exact-match)|| **정의**<br>목록 엔터티는 시스템의 동의어와 함께 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. <br><br>각 목록 엔터티에는 하나 이상의 형식이 있을 수 있습니다. 동일한 개념을 나타내는 방법의 알려진 변형 집합에 가장 적합합니다.<br/><br/>LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. [의미 체계 사전](luis-glossary.md#semantic-dictionary)을 사용하여 현재 목록을 기반으로 새 단어에 대한 추천을 찾습니다.<br/><br>동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 끝점 쿼리에서 반환됩니다. <br/><br/>[빠른 시작](luis-quickstart-intent-and-list-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#list-entity-data)| 
+| **목록** <br/>[정확한 일치](#exact-match)|| **정의**<br>목록 엔터티는 시스템의 동의어와 함께 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. <br><br>각 목록 엔터티에는 하나 이상의 형식이 있을 수 있습니다. 동일한 개념을 나타내는 방법의 알려진 변형 집합에 가장 적합합니다.<br/><br/>LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다.<br/><br>동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 끝점 쿼리에서 반환됩니다. <br/><br/>[빠른 시작](luis-quickstart-intent-and-list-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[혼합](#mixed) | ✔|**정의**<br>Patterns.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해 패턴의 템플릿 발화에서만 사용되는 가변 길이 자리 표시자입니다.  <br><br>**예제**<br>발화에서 제목을 기준으로 도서를 검색하는 경우, pattern.any는 전체 제목을 추출합니다. pattern.any를 사용하는 템플릿 발화는 `Who wrote {BookTitle}[?]`입니다.<br/><br/>[자습서](luis-tutorial-pattern.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#composite-entity-data)|  
-| **복합** <br/>[기계 학습](#machine-learned) | ✔|**정의**<br>복합 엔터티는 미리 빌드된 엔터티와 같은 다른 엔터티와 단순 엔터티로 구성됩니다. 개별 엔터티가 전체 엔터티를 형성합니다. 목록 엔터티는 복합 엔터티에서 허용되지 않습니다. <br><br>**예제**<br>PlaneTicketOrder라는 복합 엔터티에는 미리 빌드된 `number` 및 `ToLocation` 자식 엔터티가 있을 수 있습니다. <br/><br/>[자습서](luis-tutorial-composite-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#composite-entity-data)|  
-| **계층적** <br/>[기계 학습](#machine-learned) |✔ | **정의**<br>계층적 엔터티는 컨텍스트에 따라 학습된 엔터티의 범주입니다.<br><br>**예제**<br>`Location`이라는 계층적 엔터티에 `ToLocation` 및 `FromLocation` 자식이 있을 경우 각 자식은 발화 내의 **컨텍스트**에 따라 확인할 수 있습니다. `Book 2 tickets from Seattle to New York` 발화에서 `ToLocation` 및 `FromLocation`은 주위의 단어를 기반으로 컨텍스트에 따라 달라집니다. <br/><br/>**사용하지 않는 경우**<br>컨텍스트에 관계없이 자식에 대해 정확하게 일치하는 텍스트가 있는 엔터티를 찾는 경우, 목록 엔터티를 사용해야 합니다. 다른 엔터티 형식과의 부모-자식 관계를 찾는 경우 복합 엔터티를 사용해야 합니다.<br/><br/>[빠른 시작](luis-quickstart-intent-and-hier-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#hierarchical-entity-data)|
+| **복합** <br/>[기계 학습](#machine-learned) | ✔|**정의**<br>복합 엔터티는 미리 빌드된 엔터티, 단순, 정규식, 목록, 계층 구조 등의 다른 엔터티로 구성됩니다. 개별 엔터티가 전체 엔터티를 형성합니다. 목록 엔터티는 복합 엔터티에서 허용되지 않습니다. <br><br>**예제**<br>PlaneTicketOrder라는 복합 엔터티에는 미리 빌드된 `number` 및 `ToLocation` 자식 엔터티가 있을 수 있습니다. <br/><br/>[자습서](luis-tutorial-composite-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#composite-entity-data)|  
+| **계층적** <br/>[기계 학습](#machine-learned) |✔ | **정의**<br>계층 구조 엔터티는 컨텍스트에 따라 학습된 단순 엔터티의 범주입니다.<br><br>**예제**<br>`Location`이라는 계층적 엔터티에 `ToLocation` 및 `FromLocation` 자식이 있을 경우 각 자식은 발화 내의 **컨텍스트**에 따라 확인할 수 있습니다. `Book 2 tickets from Seattle to New York` 발화에서 `ToLocation` 및 `FromLocation`은 주위의 단어를 기반으로 컨텍스트에 따라 달라집니다. <br/><br/>**사용하지 않는 경우**<br>컨텍스트에 관계없이 자식에 대해 정확하게 일치하는 텍스트가 있는 엔터티를 찾는 경우, 목록 엔터티를 사용해야 합니다. 다른 엔터티 형식과의 부모-자식 관계를 찾는 경우 복합 엔터티를 사용해야 합니다.<br/><br/>[빠른 시작](luis-quickstart-intent-and-hier-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>
 **미리 빌드된** 엔터티는 LUIS에서 제공하는 사용자 지정 엔터티입니다. 이러한 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 지원되는 문화권에 대한 /Specs 디렉터리에 많은 [예제](https://github.com/Microsoft/Recognizers-Text/tree/master/Specs)가 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다. 
 
 <a name="machine-learned"></a>
-**기계 학습** 엔터티는 [끝점 쿼리](luis-concept-test.md#endpoint-testing)를 통해 테스트하고 [끝점 발화를 검토](label-suggested-utterances.md)할 대 가장 적합합니다. 
+**기계 학습** 엔터티는 [끝점 쿼리](luis-concept-test.md#endpoint-testing)를 통해 테스트하고 [끝점 발화를 검토](luis-how-to-review-endoint-utt.md)할 대 가장 적합합니다. 
 
 <a name="regex"></a>
 **정규식 엔터티**는 사용자가 엔터티 정의의 일부로 제공하는 정규식으로 정의됩니다. 
@@ -90,6 +90,9 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 
 ## <a name="entity-limits"></a>엔터티 제한
 모델에 추가할 수 있는 각 엔터티 형식의 수를 파악하려면 [제한](luis-boundaries.md#model-boundaries)을 검토하세요.
+
+## <a name="entity-roles"></a>엔터티 역할
+엔터티 [역할](luis-concept-roles.md)은 패턴에서만 사용됩니다. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>복합 및 계층적 엔터티
 복합 엔터티 및 계층적 엔터티에는 둘 다 부모-자식 관계가 있으며 기계 학습됩니다. 기계 학습을 사용하면 LUIS는 다양한 컨텍스트(단어의 배열)를 기반으로 하여 엔터티를 이해할 수 있습니다. 복합 엔터티는 다양한 엔터티 형식을 자식으로 허용하므로 보다 유연합니다. 계층적 엔터티의 자식은 단순 엔터티뿐입니다. 
@@ -194,7 +197,7 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 
 LUIS는 기계 학습되지 않고 LUIS 앱에서 고정된 값 목록을 지정할 수 있도록 하는 목록 엔터티 형식도 제공합니다. 목록 엔터티 형식의 제한을 검토하려면 [LUIS 경계](luis-boundaries.md) 참조를 참조하세요. 
 
-계층적, 복합 및 목록 엔터티를 고려하고 있는데 제한보다 더 많이 필요한 경우, 지원 담당자에게 문의하세요. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS][LUIS] 웹 사이트로 이동한 다음, **지원**을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
+계층적, 복합 및 목록 엔터티를 고려하고 있는데 제한보다 더 많이 필요한 경우, 지원 담당자에게 문의하세요. 이렇게 하려면 시스템에 대한 자세한 정보를 수집하고 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트로 이동한 다음, **지원**을 선택하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
 
 ## <a name="best-practices"></a>모범 사례
 
@@ -213,5 +216,3 @@ LUIS는 기계 학습되지 않고 LUIS 앱에서 고정된 값 목록을 지정
 좋은 [발화](luis-concept-utterance.md)에 대한 개념을 알아보세요. 
 
 LUIS 앱에 엔터티를 추가하는 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

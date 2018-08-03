@@ -2,19 +2,19 @@
 title: LUIS의 버전 지정 이해 - Azure | Microsoft Docs
 description: 버전을 사용하여 Language Understanding(LUIS)에서 변경 내용을 관리하는 방법 알아보기
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/13/2018
-ms.author: v-geberr
-ms.openlocfilehash: dabe7def2766770b686be3c43d4af4f331dd9577
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 17abe383d3074d636605c3b1b91927f89f7dd896
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266076"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225730"
 ---
 # <a name="versions"></a>버전
 [버전](luis-how-to-manage-versions.md)을 사용하여 동일한 앱의 여러 가지 모델을 만듭니다. 
@@ -26,7 +26,7 @@ ms.locfileid: "36266076"
 초기 버전(0.1)은 기본 활성 버전입니다. 
 
 ## <a name="active-version"></a>활성 버전
-활성으로 [버전을 설정](luis-how-to-manage-versions.md#set-active-version)하는 것은 버전이 현재 [LUIS][LUIS] 웹 사이트에서 편집 및 테스트됨을 의미합니다. 버전을 활성으로 설정하여 해당 데이터에 액세스하고, 업데이트하고, 해당 버전을 테스트 및 게시합니다.
+활성으로 [버전을 설정](luis-how-to-manage-versions.md#set-active-version)하는 것은 버전이 현재 [LUIS](luis-reference-regions.md) 웹 사이트에서 편집 및 테스트됨을 의미합니다. 버전을 활성으로 설정하여 해당 데이터에 액세스하고, 업데이트하고, 해당 버전을 테스트 및 게시합니다.
 
 현재 활성 버전의 이름이 앱 이름 뒤의 왼쪽 위 패널에 표시됩니다. 
 
@@ -52,7 +52,7 @@ LUIS 앱을 백업하려면 **[설정](luis-how-to-manage-versions.md)** 페이�
 설정 페이지의 버전 목록에서 활성 버전을 제외한 모든 버전을 삭제할 수 있습니다. 
 
 ## <a name="version-availability-at-the-endpoint"></a>끝점의 버전 가용성
-학습된 버전은 앱 [끝점](luis-glossary.md#endpoint)에서 자동으로 제공되지 않습니다. 앱 끝점에서 사용할 수 있으려면 버전을 [게시](PublishApp.md)하거나 다시 게시해야 합니다. **스테이징** 및 **프로덕션**에 게시하면 끝점에서 사용 가능한 최대 두 개의 앱 버전이 제공됩니다. 끝점에서 사용할 수 있는 추가 앱 버전이 필요한 경우, 버전을 내보내고 새 앱으로 다시 가져와야 합니다. 새 앱에는 다른 앱 ID가 포함됩니다.
+학습된 버전은 앱 [끝점](luis-glossary.md#endpoint)에서 자동으로 제공되지 않습니다. 앱 끝점에서 사용할 수 있으려면 버전을 [게시](luis-how-to-publish-app.md)하거나 다시 게시해야 합니다. **스테이징** 및 **프로덕션**에 게시하면 끝점에서 사용 가능한 최대 두 개의 앱 버전이 제공됩니다. 끝점에서 사용할 수 있는 추가 앱 버전이 필요한 경우, 버전을 내보내고 새 앱으로 다시 가져와야 합니다. 새 앱에는 다른 앱 ID가 포함됩니다.
 
 ## <a name="collaborators"></a>협력자
 소유자 및 모든 [협력자](luis-how-to-collaborate.md)가 모든 앱 버전의 전체 액세스 권한을 가집니다.
@@ -62,5 +62,3 @@ LUIS 앱을 백업하려면 **[설정](luis-how-to-manage-versions.md)** 페이�
 앱 설정 페이지에서 [버전 관리](luis-how-to-manage-versions.md)를 추가하는 방법을 참조하세요. 
 
 [의도](luis-concept-intent.md)를 모델로 디자인하는 방법에 대해 알아봅니다.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

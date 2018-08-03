@@ -9,12 +9,12 @@ ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: add5322dde89f3e3f44fddc1e3c63eb2f91013a8
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.openlocfilehash: c0d02a0f586857f6dd303fc98407da71b2addb9b
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36301749"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37869122"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Microsoft QnA Maker API와 Python의 빠른 시작 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ ms.locfileid: "36301749"
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -146,7 +146,7 @@ while False == done:
 
 **기술 자료 만들기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -185,7 +185,7 @@ while False == done:
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -286,7 +286,7 @@ while False == done:
 
 **기술 자료 업데이트 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -326,7 +326,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -375,7 +375,7 @@ print (pretty_print(result))
 
 **기술 자료 게시 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -393,7 +393,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -463,7 +463,7 @@ print (pretty_print(result))
 
 **기술 자료 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -481,7 +481,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -527,7 +527,7 @@ print (pretty_print(result))
 
 **기술 자료 다운로드 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -628,7 +628,7 @@ print (pretty_print(result))
 
 **답변 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -658,7 +658,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -701,7 +701,7 @@ print (pretty_print(result))
 
 **기술 자료 세부 정보 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -731,7 +731,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -771,7 +771,7 @@ print (pretty_print(result))
 
 **사용자에 대한 기술 자료 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -817,7 +817,7 @@ Press any key to continue.
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -866,7 +866,7 @@ print (pretty_print(result))
 
 **기술 자료 삭제 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -884,7 +884,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -924,7 +924,7 @@ print (pretty_print(result))
 
 **끝점 키 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -943,7 +943,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -992,7 +992,7 @@ print (pretty_print(result))
 
 **끝점 키 새로 고침 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1011,7 +1011,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -1051,7 +1051,7 @@ print (pretty_print(result))
 
 **단어 변경 가져오기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {
@@ -1076,7 +1076,7 @@ print (pretty_print(result))
 
 1. 즐겨 찾는 IDE에 새 Python 프로젝트를 만듭니다.
 2. 아래 제공된 코드를 추가합니다.
-3. `key` 값을 구독에 대해 유효한 액세스 키로 바꿉니다.
+3. `key` 값을 구독에 유효한 액세스 키로 바꿉니다.
 4. 프로그램을 실행합니다.
 
 ```python
@@ -1135,7 +1135,7 @@ print (pretty_print(result))
 
 **단어 변경 바꾸기 응답**
 
-성공한 응답은 다음 예와 같이 JSON으로 반환됩니다. 
+성공한 응답은 다음 예제와 같이 JSON으로 반환됩니다. 
 
 ```json
 {

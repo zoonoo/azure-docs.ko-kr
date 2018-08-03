@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5a90f298e80ec4ca1b17e2d3aa4079aebcd38a83
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35377855"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069577"
 ---
 # <a name="supported-languages-for-speech-service"></a>Speech Service에 대해 지원되는 언어
 
@@ -25,13 +25,18 @@ Speech Service 기능마다 다른 언어가 지원됩니다. 다음 표에서�
 
 Microsoft Speech Recognition API는 다음 언어를 지원합니다. 
 
-| 코드 | 언어 | 코드 | 언어 |
-|-----|-----|-----|-----|
-| ar-EG | 아랍어(이집트), 현대 표준 | It-IT | 이탈리아어(이탈리아) |
-| de-DE | 독일어(독일) | ja-JP | 일본어(일본) |
-| ko-KR | 영어(미국) | pt-BR | 포르투갈어(브라질) |
-| es-ES | 스페인어(스페인) | ru-RU | 러시아어(러시아) |
-| fr-FR | 프랑스어(프랑스) | zh-CN | 중국어(북경어, 간체) |
+  코드 | 언어 | 음향 적응 | 언어 적응 | 발음 적응
+ ------|----------|---------------------|---------------------|-------------------------
+ ar-EG | 아랍어(이집트), 현대 표준 | 아니오 | 예 | 아니오
+ It-IT | 이탈리아어(이탈리아) | 아니오 | 예 | 아니오 
+ de-DE | 독일어(독일) | 아니오 | 예 | 예
+ ja-JP | 일본어(일본) | 아니오 | 예 | 아니오
+ ko-KR | 영어(미국) | 예 | 예 | 예
+ pt-BR | 포르투갈어(브라질) | 아니오 | 예 | 아니오
+ es-ES | 스페인어(스페인) | 아니오 | 예 | 아니오
+ ru-RU | 러시아어(러시아) | 아니오 | 예 | 아니오
+ fr-FR | 프랑스어(프랑스) | 아니오 | 예 | 아니오
+ zh-CN | 중국어(북경어, 간체) | 아니오 | 예 | 아니오
 
 ## <a name="text-to-speech"></a>텍스트에서 음성 변환
 
@@ -217,5 +222,5 @@ zh-TW | 중국어(대만)|Female | “Microsoft Server Speech Text to Speech Voi
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-windows.md)
+* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

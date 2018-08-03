@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 분기 및 실행 취소 작업을 사용하는 방법 - Microsoft Cognitive Services| Microsoft Docs
+title: Conversation Learner 모델에서 분기 및 실행 취소 작업을 사용하는 방법 - Microsoft Cognitive Services| Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 분기 및 실행 취소 작업을 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 분기 및 실행 취소 작업을 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,16 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 724a9e47267e0bd7417130efe54c609ac7a465fb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 05140693026e21a73b756ed0ea7bc9936bef067e
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376271"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173301"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>분기 및 실행 취소 작업을 사용하는 방법
 이 자습서에서는 실행 취소 및 분기 작업을 설명합니다.
+
 
 ## <a name="details"></a>세부 정보
 - 실행 취소: 개발자가 사용자 입력 또는 작업 선택을 "실행 취소"할 수 있습니다. 내부적으로 "실행 취소"는 실제로 새 대화 상자를 만들고 이전 단계까지 다시 수행합니다.  즉, 대화 상자에서 엔터티 검색 콜백 및 API 호출을 다시 호출합니다.
@@ -33,7 +34,7 @@ ms.locfileid: "35376271"
 
 ### <a name="open-the-demo"></a>데모 열기
 
-Web UI의 앱 목록에서 TutorialDemo 피자 주문을 클릭합니다. 
+Web UI의 모델 목록에서 TutorialDemo 피자 주문을 클릭합니다. 
 
 피자 주문 데모에 대한 자세한 내용은 피자 주문 자습서를 참조하세요.
 
@@ -73,7 +74,7 @@ Web UI의 앱 목록에서 TutorialDemo 피자 주문을 클릭합니다.
 1. 학습 대화 상자, '새 주문'을 차례로 클릭하고 기존 대화 상자를 엽니다. 
 2. 대화 상자에서 마지막 '아니요'를 클릭합니다(아래 스크린샷 참조).
 3. 분기를 클릭합니다.
-    - '아니요'를 제거하고 해당 시점까지 전체 대화 상자가 새로운 대화 상자에 복사됩니다. 
+    - '아니요'가 제거되고 해당 시점까지 전체 대화 상자가 새로운 대화 상자에 복사됩니다. 
     - 그러면 이 지점에서 새 "분기"를 탐색하기 위해 위의 순서를 다시 입력할 필요가 없습니다.
 1. '예'를 입력합니다.
 2. 작업에 점수 지정을 클릭합니다.

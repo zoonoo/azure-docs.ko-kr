@@ -10,16 +10,16 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: c0bf51ab86e2ba99aeb859ea415e1afd355a86f2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a0ced7076c566c819f9e3f7abc5e2fa3930fa0b3
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376398"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004304"
 ---
 # <a name="default-insights-tag"></a>기본 인사이트 태그
 
-기본 인사이트 태그는 `displayName` 필드가 빈 문자열로 설정된 태그입니다. 다음 예제는 가능한 기본 인사이트(작업) 목록을 보여 줍니다.
+기본 인사이트 태그는 `displayName` 필드가 빈 문자열로 설정된 태그입니다. 다음 예제는 가능한 기본 인사이트(작업) 목록을 보여 줍니다. 응답에 포함되는 작업 목록은 이미지에 따라 달라집니다. 또한 각 작업에 대한 속성 목록도 이미지에 따라 달라지므로 사용하기 전에 해당 속성이 있는지 확인합니다.
 
 ```json
 {
@@ -344,6 +344,9 @@ ProductVisualSearch 인사이트는 시각적으로 원본 이미지에 표시�
                 "shoppingSourcesCount" : 1,
                 "recipeSourcesCount" : 0,
                 "aggregateOffer" : {
+                  "name":"4-Piece Kitchen Package with...",
+                  "priceCurrency":"USD",
+                  "lowPrice":2756,
                   "offers" : [
                     {
                       "name" : "4-Piece Kitchen Package with...",
@@ -360,7 +363,8 @@ ProductVisualSearch 인사이트는 시각적으로 원본 이미지에 표시�
                       "availability" : "InStock",
                       "lastUpdated" : "2018-02-20T00:00:00.0000000"
                     }
-                  ]
+                  ],
+                  "offerCount":1
                 },
                 "pagesIncludingCount" : 4,
                 "availableSizesCount" : 2

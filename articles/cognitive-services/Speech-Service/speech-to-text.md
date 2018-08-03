@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2eee1c6f9158f128ed5ffe575f8f498f1d3eb5e9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ed00377db80849a8355ccc895db12d006bea642
+ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35382913"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069930"
 ---
 # <a name="about-the-speech-to-text-api"></a>Speech to Text API 정보
 
@@ -25,13 +25,13 @@ ms.locfileid: "35382913"
 
 - Cortana, Office 및 기타 Microsoft 제품에서 사용하는 것과 동일한 Microsoft의 고급 음성 인식 기술
 
-- 실시간 연속 인식. **Speech to Text**를 사용하여 오디오를 실시간으로 텍스트로 기록할 수 있습니다. 또한 지금까지 인식된 단어의 중간 결과도 수신할 수 있습니다. 이 서비스는 음성의 끝을 자동으로 인식합니다. 사용자는 대문자 표시 및 문장 부호, 욕설 마스킹 및 텍스트 정규화와 같은 추가 형식 지정 옵션을 선택할 수도 있습니다.
+- 실시간 연속 인식. **Speech to Text**를 사용하여 오디오를 실시간으로 텍스트로 기록할 수 있습니다. 또한 지금까지 인식된 단어의 중간 결과도 수신할 수 있습니다. 이 서비스는 음성의 끝을 자동으로 인식합니다. 사용자는 대문자 표시 및 문장 부호, 욕설 마스킹 및 역 텍스트 정규화와 같은 추가 형식 지정 옵션을 선택할 수도 있습니다.
 
 - 대화형, 대화 및 받아쓰기 시나리오에 최적화된 **음성 텍스트 변환** 결과. 
 
-- 여러 언어로 나타낸 다양한 음성 언어 지원. 각 인식 모드에서 지원되는 언어의 전체 목록은 [지원되는 언어](supported-languages.md#speech-to-text)를 참조하세요.
+- 여러 음성 언어 및 언어 지원. 각 인식 모드에서 지원되는 언어의 전체 목록은 [지원되는 언어](supported-languages.md#speech-to-text)를 참조하세요.
 
-- 사용자 지정된 언어 및 음향 모델: 응용 프로그램을 사용자가 말하는 방식, 말하는 환경 및 전문 어휘로 조정할 수 있습니다.
+- 사용자 지정된 언어 및 음향 모델: 응용 프로그램을 사용자의 전문 영역 어휘, 말하는 환경 및 말하는 방식에 맞게 조정할 수 있습니다.
 
 - 자연어 이해 LUIS([Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/))와 통합하여 음성에서 의도 및 엔터티를 파생할 수 있습니다. 사용자는 앱 어휘를 알 필요가 없지만 원하는 내용을 자신만의 단어로 설명할 수 있습니다.
 
@@ -50,5 +50,5 @@ ms.locfileid: "35382913"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-windows.md)
+* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)

@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 대화 상자를 기록하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 대화를 기록하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 대화 상자를 기록하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 대화를 기록하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,16 +10,20 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 477545c48aeca05d56fdae28ac65a8f381a482fe
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376382"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171438"
 ---
-# <a name="how-to-log-dialogs-in-a-conversation-learner-application"></a>Conversation Learner 응용 프로그램에서 대화 상자를 기록하는 방법
+# <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Conversation Learner 모델에서 대화를 기록하는 방법
 
 이 자습서에서는 Conversation Learner 인터페이스 내에서 최종 사용자 테스트를 수행하는 방법, 대화 상자를 기록하는 방법 및 모델을 개선하기 위해 기록된 대화 상자를 수정하는 방법을 보여줍니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 9 미리 보기](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
 
 ## <a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -31,9 +35,9 @@ ms.locfileid: "35376382"
 
 ## <a name="steps"></a>단계
 
-### <a name="create-the-application"></a>응용 프로그램 만들기
+### <a name="create-the-model"></a>모델 만들기
 
-1. Web UI에서 새 앱을 클릭합니다.
+1. Web UI에서 새 모델을 클릭합니다.
 2. 이름에 LogDialogs를 입력합니다. 그런 다음, 만들기를 클릭합니다.
 
 ### <a name="create-an-entity"></a>엔터티 만들기

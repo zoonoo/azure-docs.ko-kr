@@ -1,7 +1,7 @@
 ---
-title: Conversation Learner 응용 프로그램에서 다중값 엔터티를 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
+title: Conversation Learner 모델에서 다중값 엔터티를 사용하는 방법 - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
-description: Conversation Learner 응용 프로그램에서 다중값 엔터티를 사용하는 방법을 알아봅니다.
+description: Conversation Learner 모델에서 다중값 엔터티를 사용하는 방법을 알아봅니다.
 services: cognitive-services
 author: v-jaswel
 manager: nolachar
@@ -10,15 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 865b50747b2c9574b5f88d4902bea9e4c8e0e032
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376239"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39173104"
 ---
-# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-application"></a>Conversation Learner 응용 프로그램에서 다중값 엔터티를 사용하는 방법
+# <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Conversation Learner 모델에서 다중값 엔터티를 사용하는 방법
 이 자습서는 엔터티의 “다중값” 속성을 보여 줍니다.
+
+## <a name="video"></a>비디오
+
+[![자습서 6 미리 보기](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
 ##<a name="requirements"></a>요구 사항
 이 자습서를 수행하려면 일반 자습서 봇이 실행 중이어야 합니다.
@@ -32,9 +36,9 @@ ms.locfileid: "35376239"
 
 ## <a name="steps"></a>단계
 
-### <a name="create-the-application"></a>응용 프로그램 만들기
+### <a name="create-the-model"></a>모델 만들기
 
-1. Web UI에서 새 앱을 클릭합니다.
+1. Web UI에서 새 모델을 클릭합니다.
 2. 이름에 MultiValueEntities를 입력합니다. 만들기를 클릭합니다.
 
 ### <a name="create-an-entity"></a>엔터티 만들기
@@ -68,14 +72,14 @@ ms.locfileid: "35376239"
 
 ### <a name="train-the-bot"></a>봇 학습
 
-1. Train Dialogs(학습 대화), New Train Dialog(새 학습 대화)를 차례로 클릭합니다.
+1. 학습 대화 상자, 새 학습 대화 상자를 차례로 클릭합니다.
 2. ‘hello’를 입력합니다.
 3. Score Actions(작업에 점수 지정)를 클릭하고 ‘What toppings do you want?’를 선택합니다.
 2. ‘mushrooms and cheese’를 입력합니다. 
     - 0개, 1개 또는 2개 이상의 엔터티에 레이블을 지정할 수 있습니다.
 3. ‘mushrooms’를 클릭하고 Toppings를 선택합니다.
 4. ‘cheese’를 클릭하고 Toppings를 선택합니다.
-5. Score Actions(작업에 점수 지정)를 클릭합니다.
+5. 작업에 점수 지정을 클릭합니다.
     - 이제 두 값이 Toppings 엔터티에 표시됩니다. 
 6. ‘Here are your toppings: $Toppings’를 선택합니다.
 
@@ -83,8 +87,8 @@ ms.locfileid: "35376239"
 
 7. ‘add peppers’를 입력합니다.
     - 엔터티 검색 아래에서 ‘peppers’를 클릭하고 Toppings를 선택합니다.
-3. Score Actions(작업에 점수 지정)를 클릭합니다.
-    - 이제 peppers가 Toppings에 추가 값으로 표시됩니다.
+3. 작업에 점수 지정을 클릭합니다.
+    - 이제 ‘peppers’가 Toppings에 추가 값으로 표시됩니다.
 6. ‘Here are your toppings: $Toppings’를 선택합니다.
 
 토핑을 제거하고 새 토핑을 추가하겠습니다.
@@ -92,7 +96,7 @@ ms.locfileid: "35376239"
 2. ‘remove peppers and add sausage’를 입력합니다.
 1. ‘peppers’를 클릭하고 빨간색 x를 클릭하여 제거합니다.
 2. ‘peppers’를 클릭하고 ‘-Toppings’를 선택합니다.
-3. Score Actions(작업에 점수 지정)를 클릭합니다.
+3. 작업에 점수 지정을 클릭합니다.
     - ‘peppers’가 삭제되었으며 ‘sausage’가 추가되었습니다.
 6. ‘Here are your toppings: $Toppings’를 선택합니다.
 
@@ -100,7 +104,7 @@ ms.locfileid: "35376239"
 
 6. ‘remove mushrooms, remove cheese, and remove sausage’를 입력합니다.
 7. 세 토핑을 각각 클릭하고 ‘-Toppings’를 선택합니다.
-7. Score Actions(작업에 점수 지정)를 클릭합니다.
+7. 작업에 점수 지정을 클릭합니다.
     - 모든 토핑이 지워집니다.
 2. ‘What toppings do you want?’를 선택합니다.
 3. 학습 완료를 클릭합니다.

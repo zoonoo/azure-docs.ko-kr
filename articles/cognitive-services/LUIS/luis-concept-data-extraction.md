@@ -2,19 +2,19 @@
 title: LUIS의 데이터 추출 개념 이해 - Azure | Microsoft Docs
 description: Language Understanding(LUIS)에서 추출할 수 있는 데이터 형식 알아보기
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr;
-ms.openlocfilehash: 28fde09fa9291fbcd64ce4542a008f48dd0018d1
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265255"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225685"
 ---
 # <a name="data-extraction"></a>데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 응용 프로그램 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다.
@@ -26,9 +26,9 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
 
-`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 끝점 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 구독 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
+`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 끝점 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 끝점 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
 
-**HTTPS 응답**에는 스테이징 또는 프로덕션 끝점의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 끝점 URL은 [LUIS][LUIS] 웹 사이트 **게시** 페이지에 있습니다. 
+**HTTPS 응답**에는 스테이징 또는 프로덕션 끝점의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 끝점 URL은 [LUIS](luis-reference-regions.md) 웹 사이트 **게시** 페이지에 있습니다. 
 
 ## <a name="data-from-intents"></a>의도의 데이터
 기본 데이터는 상위 점수 **의도 이름**입니다. `MyStore` [빠른 시작](luis-quickstart-intents-only.md)을 사용할 경우 끝점 응답은 다음과 같습니다.
@@ -201,7 +201,7 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 
 `book 2 tickets to paris`
 
-`2`(number)와 `paris`(ToLocation) 사이에 엔터티에 속하지 않는 단어가 있음을 알 수 있습니다. [LUIS][LUIS] 웹 사이트의 레이블이 지정된 발화에서 사용된 녹색 밑줄은 복합 엔터티를 나타냅니다.
+`2`(number)와 `paris`(ToLocation) 사이에 엔터티에 속하지 않는 단어가 있음을 알 수 있습니다. [LUIS](luis-reference-regions.md) 웹 사이트의 레이블이 지정된 발언에서 사용된 녹색 밑줄은 복합 엔터티를 나타냅니다.
 
 ![복합 엔터티](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -426,13 +426,13 @@ LUIS는 게시된 [끝점](luis-glossary.md#endpoint)의 데이터를 제공합�
 이름은 거의 문자와 단어의 조합일 수 있기 때문에 발화에서 이름을 가져오는 것은 어렵습니다. 추출할 이름의 유형에 따라 몇 가지 옵션이 있습니다. 이러한 옵션은 규칙이 아니라 지침입니다. 
 
 ### <a name="names-of-people"></a>사용자의 이름
-사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 이름 및 성과 함께 계층적 엔터티를 사용하거나 이름 및 성의 역할과 함께 단순 엔터티를 사용합니다. 발화의 다양한 부분, 다양한 길이의 발화 및 None 의도를 포함하는 모든 의도에 걸쳐 있는 발화에서 이름과 성을 사용하는 예제를 제공해야 합니다. 정기적으로 끝점 발화를 [검토](label-suggested-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
+사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 이름 및 성과 함께 계층적 엔터티를 사용하거나 이름 및 성의 역할과 함께 단순 엔터티를 사용합니다. 발화의 다양한 부분, 다양한 길이의 발화 및 None 의도를 포함하는 모든 의도에 걸쳐 있는 발화에서 이름과 성을 사용하는 예제를 제공해야 합니다. 정기적으로 끝점 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
 
 ### <a name="names-of-places"></a>위치 이름
-위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 앱이 알려진 위치 집합을 사용할 경우, 목록 엔터티를 사용하는 것이 좋습니다. 모든 위치 이름을 찾아야 하는 경우, 단순 엔터티를 만들고 다양한 예제를 제공합니다. 위치 이름의 구문 목록을 추가하여 앱에서 위치 이름이 표시되는 모양을 보완합니다. 정기적으로 끝점 발화를 [검토](label-suggested-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
+위치 이름은 구/군/시, 지방, 시/도 및 국가 등으로 설정되고 인식됩니다. 앱이 알려진 위치 집합을 사용할 경우, 목록 엔터티를 사용하는 것이 좋습니다. 모든 위치 이름을 찾아야 하는 경우, 단순 엔터티를 만들고 다양한 예제를 제공합니다. 위치 이름의 구문 목록을 추가하여 앱에서 위치 이름이 표시되는 모양을 보완합니다. 정기적으로 끝점 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이는 가장 어려운 유형의 데이터 추출입니다. 단순 엔터티로 시작하고 구문 목록을 추가합니다. 정기적으로 끝점 발화를 [검토](label-suggested-utterances.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이는 가장 어려운 유형의 데이터 추출입니다. 단순 엔터티로 시작하고 구문 목록을 추가합니다. 정기적으로 끝점 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다. 
 
 ## <a name="pattern-roles-data"></a>패턴 역할 데이터
 역할은 엔터티의 컨텍스트 차이입니다. 
@@ -710,5 +710,3 @@ LUIS 끝점은 여러 엔터티에서 동일한 데이터를 검색할 수 있�
 ## <a name="next-steps"></a>다음 단계
 
 LUIS 앱에 엔터티를 추가하는 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

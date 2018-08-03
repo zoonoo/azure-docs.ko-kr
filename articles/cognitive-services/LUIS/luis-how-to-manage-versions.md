@@ -2,19 +2,19 @@
 title: Azure에서 LUIS 앱의 버전 관리 | Microsoft Docs
 description: LUIS(Language Understanding) 응용 프로그램의 버전을 관리하는 방법을 알아봅니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 03/29/2017
-ms.author: v-geberr
-ms.openlocfilehash: 672f7991be0fc236e39daf7d1ce1d6080b31815b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: diberry
+ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373166"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39226597"
 ---
 # <a name="manage-versions"></a>버전 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "35373166"
 **설정** 페이지를 사용하면 버전 및 공동 작업자를 비롯한 전체 앱에 대한 설정을 구성할 수 있습니다. 
 
 ## <a name="clone-a-version"></a>버전 복제
-1. **설정** 페이지에서 앱 설정 및 공동 작업자 섹션 다음에 복제하려는 버전의 행을 찾습니다. 오른쪽 끝에 세 개의 점(...)를 선택합니다. 
+1. **설정** 페이지에서 앱 설정 및 공동 작업자 섹션 다음에 복제하려는 버전의 행을 찾습니다. 맨 오른쪽에 있는 줄임표(***...***) 단추를 선택합니다. 
 
     ![버전 행 속성](./media/luis-how-to-manage-versions/version-section.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "35373166"
  > 앞에 나온 이미지에 표시된 대로 게시된 버전은 게시된 슬롯의 유형(프로덕션(녹색), 준비(빨강) 및 둘 다(검정색))을 나타내는 색으로 표시된 항목으로 연결됩니다. 교육 및 게시 날짜는 각 버전에 대해 표시됩니다.
 
 ## <a name="set-active-version"></a>활성 버전 설정
-1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 세 개의 점(...)을 선택합니다.
+1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 줄임표(***...***) 단추를 선택합니다.
 
 2. 팝업 목록에서 **활성 상태로 설정**을 선택합니다.
 
@@ -82,14 +82,14 @@ JSON 파일로 버전을 내보낼 수 있습니다.
 
 **버전을 내보내려면 다음을 수행합니다.**
 
-1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 세 개의 점(...)을 선택합니다.
+1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 줄임표(***...***) 단추를 선택합니다.
 
 2. 작업의 팝업 목록에서 **내보내기**를 선택하고 파일을 저장하려는 위치를 선택합니다.
 
 ## <a name="delete-a-version"></a>버전 삭제
 버전을 삭제할 수 있지만 앱의 버전을 하나 이상 유지해야 합니다. 활성 버전을 제외한 모든 버전을 삭제할 수 있습니다. 
 
-1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 세 개의 점(...)을 선택합니다.
+1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 줄임표(***...***) 단추를 선택합니다.
 
 2. 작업의 팝업 목록에서 **삭제**를 선택하고 파일을 저장하려는 위치를 선택합니다.
 
@@ -99,7 +99,7 @@ JSON 파일로 버전을 내보낼 수 있습니다.
 ## <a name="rename-a-version"></a>버전 이름 바꾸기
 사용 중이 아닌 이름으로 버전 이름을 바꿀 수 있습니다.  
 
-1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 세 개의 점(...)을 선택합니다.
+1. **설정** 페이지의 **버전** 목록에서 맨 오른쪽에 줄임표(***...***) 단추를 선택합니다.
 
 2. 작업의 팝업 목록에서 **이름 바꾸기**를 선택합니다.
 

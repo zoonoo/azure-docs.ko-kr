@@ -3,19 +3,19 @@ title: LUIS 미리 빌드된 엔터티 datetimeV2 참조 - Azure | Microsoft Doc
 titleSuffix: Azure
 description: 이 아티클에는 LUIS(Language Understanding)의 datetimeV2 미리 작성된 엔터티가 포함됩니다.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 06/20/2018
-ms.author: v-geberr
-ms.openlocfilehash: 261f6f27c39c280efdcd070888d735374a473c85
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.author: diberry
+ms.openlocfilehash: 13f62e98a33aac51eae86d5ce1b802d4701ef3f6
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36321575"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39236774"
 ---
 # <a name="datetimev2-entity"></a>datetimeV2 엔터티
 
@@ -74,7 +74,7 @@ datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 * datetimeV2 값이 모호한 경우 배열에는 두 개의 요소가 포함됩니다. 특정 연도, 시간 또는 시간 범위가 부족하면 모호성에 포함됩니다. 예제는 [모호한 날짜](#ambiguous-dates)를 참조하세요. 오전 또는 오후에 대한 시간이 모호한 경우 모든 값이 포함됩니다.
 * 발언에 모호성이 있는 두 개의 요소가 있으면 배열에는 4개의 요소가 포함됩니다. 이 모호성에는 다음이 있는 요소가 포함됩니다.
   * 연도 측면에서 모호한 날짜 또는 날짜 범위
-  * 오전  또는 오후 측면에서 모호한 시간 또는 시간 범위 예: 4월 3일 3시
+  * 오전 또는 오후 측면에서 모호한 시간 또는 시간 범위 예: 4월 3일 3시
 
 `values` 배열의 각 요소에는 다음 필드가 있을 수 있습니다. 
 
@@ -190,7 +190,7 @@ datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
   ]
 ```
 ## <a name="ambiguous-time"></a>모호한 시간
-시간 또는 시간 범위가 모호한 경우 값 배열에는 두 개의 시간 요소가 포함됩니다. 시간이 모호한 경우 값에는 오전 및 오후  시간이 모두 포함됩니다.
+시간 또는 시간 범위가 모호한 경우 값 배열에는 두 개의 시간 요소가 포함됩니다. 시간이 모호한 경우 값에는 오전 및 오후 시간이 모두 포함됩니다.
 
 ## <a name="time-range-resolution-example"></a>시간 범위 해결 방법 예제
 
@@ -219,7 +219,7 @@ datetimeV2는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 ## <a name="deprecated-prebuilt-datetime"></a>미리 작성된 날짜/시간 사용되지 않음
 
-`datetime` 미리 작성된 엔터티는 사용되지 않으며 [`datetimeV2`](#builtindatetimev2)로 바꿉니다. 
+`datetime` 미리 빌드된 엔터티는 더 이상 사용되지 않으며 **datetimeV2**로 바뀌었습니다. 
 
 LUIS 앱에서 `datetime`을 `datetimeV2`로 바꾸려면 다음 단계를 완료합니다.
 

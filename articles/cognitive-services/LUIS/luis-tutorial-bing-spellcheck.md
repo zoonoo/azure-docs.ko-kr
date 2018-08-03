@@ -3,19 +3,19 @@ title: LUIS 쿼리에 Bing Spell Check API v7 추가 | Microsoft Docs
 titleSuffix: Azure
 description: LUIS 끝점 쿼리에 Bing Spell Check API V7을 추가하여 발화에서 맞춤법이 틀린 단어를 수정합니다.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 340fb34c234a12f93fcfc3182ac3fd44fce324fe
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.author: diberry
+ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35383297"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39239154"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
@@ -26,8 +26,9 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 
 ![무료 키 만들기](./media/luis-tutorial-bing-spellcheck/free-key.png)
 
-## <a name="create-subscription-key"></a>구독 키 만들기
-무료 키가 만료되면 구독 키를 만듭니다.
+<a name"create-subscription-key"></a>
+## <a name="create-endpoint-key"></a>끝점 키 만들기
+무료 키가 만료되면 끝점 키를 만듭니다.
 
 1. [Azure 포털](https://portal.azure.com) 에 로그인합니다. 
 
@@ -56,7 +57,7 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 10. 첫 번째 키를 복사합니다. 두 키 중 하나만 필요합니다. 
 
 ## <a name="using-the-key-in-luis-test-panel"></a>LUIS 테스트 패널에서 키 사용
-LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [테스트 패널](train-test.md#view-bing-spell-check-corrections-in-test-panel)에 있습니다. 키는 LUIS에 저장되는 것이 아니라 세션 변수입니다. 테스트 패널에서 Bing Spell Check API v7 서비스를 발화에 적용하려고 할 때마다 키를 설정해야 합니다. 키 설정에 대해서는 테스트 패널의 [지침](train-test.md#view-bing-spell-check-corrections-in-test-panel)을 참조하세요.
+LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [테스트 패널](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)에 있습니다. 키는 LUIS에 저장되는 것이 아니라 세션 변수입니다. 테스트 패널에서 Bing Spell Check API v7 서비스를 발화에 적용하려고 할 때마다 키를 설정해야 합니다. 키 설정에 대해서는 테스트 패널의 [지침](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)을 참조하세요.
 
 ## <a name="adding-the-key-to-the-endpoint-url"></a>끝점 URL에 키 추가
 맞춤법 교정을 적용하려는 각 쿼리에 대한 쿼리 문자열 매개 변수에 전달되는 키가 끝점 쿼리에 필요합니다. LUIS를 호출하는 챗봇을 사용하거나 LUIS 끝점 API를 직접 호출할 수 있습니다. 끝점을 호출하는 방법에 상관없이 각각의 모든 호출은 맞춤법 교정이 올바르게 작동하는 데 필요한 정보를 포함해야 합니다.
@@ -90,7 +91,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
 Bing Spell Check API v7 서비스를 사용하지 않으려면 LUIS에서 맞춤법 및 오타를 학습할 수 있도록 맞춤법 오류가 있는 발화에 레이블을 지정할 수 있습니다. 이 옵션은 맞춤법 검사기를 사용하는 것보다 더 많은 레이블 지정 작업이 필요합니다.
 
 ## <a name="publishing-page"></a>게시 페이지
-[게시](publishapp.md) 페이지에는 **Bing Spell Checker 사용** 확인란이 있습니다. 이는 키를 만들고 끝점 URL이 변경되는 방식을 이해할 수 있는 편리한 기능입니다. 각 발화에 대해 맞춤법을 교정하려면 올바른 끝점 매개 변수를 사용해야 합니다. 
+[게시](luis-how-to-publish-app.md) 페이지에는 **Bing Spell Checker 사용** 확인란이 있습니다. 이는 키를 만들고 끝점 URL이 변경되는 방식을 이해할 수 있는 편리한 기능입니다. 각 발화에 대해 맞춤법을 교정하려면 올바른 끝점 매개 변수를 사용해야 합니다. 
 
 > [!div class="nextstepaction"]
 > [예제 발화에 대해 자세히 알아보기](luis-how-to-add-example-utterances.md)

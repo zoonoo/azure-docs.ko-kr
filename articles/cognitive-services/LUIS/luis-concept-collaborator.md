@@ -2,19 +2,19 @@
 title: LUIS 앱 공동 작업 이해 - Azure | Microsoft Docs
 description: LUIS 앱에는 단일 소유자 및 선택적 협력자가 필요합니다.
 services: cognitive-services
-author: v-geberr
-manager: kamran.iqbal
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-geberr
-ms.openlocfilehash: 51b3958f83cd110ace27f6ee42571c05843f5aa2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.author: diberry
+ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265068"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39222675"
 ---
 # <a name="collaborating"></a>공동 작업
 
@@ -24,6 +24,8 @@ LUIS는 사용자 그룹이 앱을 작성할 수 있는 공동 작업을 제공�
 LUIS 계정은 단일 [Microsoft Live](https://login.live.com/) 계정과 연결됩니다. 각 LUIS 계정에는 계정이 액세스할 수 있는 모든 LUIS 앱을 작성하는 데 사용할 체험 [작성 키](luis-concept-keys.md#authoring-key)가 제공됩니다. 
 
 LUIS 계정에는 여러 LUIS 앱이 포함될 수 있습니다.
+
+Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Directory 테넌트 사용자](luis-how-to-account-settings.md#azure-active-directory-tenant-user)를 참조하세요. 
 
 ## <a name="luis-app-owner"></a>LUIS 앱 소유자
 앱을 만드는 계정은 소유자입니다. 각 앱에는 단일 소유자가 있습니다. 소유자는 앱 **[설정](luis-how-to-collaborate.md)** 에 나열됩니다. 이 계정은 앱을 삭제할 수 있습니다. 또한 끝점 할당량이 매월 제한의 75%에 도달하면 메일을 수신합니다. 
@@ -37,7 +39,7 @@ LUIS는 소유권 이전을 제공하지 않지만, 모든 협력자는 앱을 �
 협력자와 여러 앱을 공유하려면 각 앱에 협력자의 메일이 추가되어야 합니다. 
 
 ## <a name="managing-multiple-authors"></a>여러 작성자 관리
-[LUIS][LUIS] 웹 사이트는 현재 트랜잭션 수준 작성을 제공하지 않습니다. 작성자가 기본 버전에서 독립 버전 작업을 수행하도록 허용할 수 있습니다. 다음 섹션에서 두 가지 방법을 설명합니다.
+[LUIS](luis-reference-regions.md#luis-website) 웹 사이트는 현재 트랜잭션 수준 작성을 제공하지 않습니다. 작성자가 기본 버전에서 독립 버전 작업을 수행하도록 허용할 수 있습니다. 다음 섹션에서 두 가지 방법을 설명합니다.
 
 ### <a name="manage-multiple-versions-inside-the-same-app"></a>동일한 앱 내부에서 여러 버전 관리
 먼저 각 작성자에 기본 버전에서 [복제](luis-how-to-manage-versions.md#clone-a-version)합니다. 
@@ -60,6 +62,3 @@ LUIS는 소유권 이전을 제공하지 않지만, 모든 협력자는 앱을 �
 LUIS 앱에서 협력자를 관리하는 방법을 알아보려면 [앱 설정](luis-how-to-collaborate.md)을 참조하세요.
 
 작성 API와 함께 [Add email to access list](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58fcccdd5aca2f08a4104342)(메일을 추가하여 목록에 액세스)를 참조하세요.
-
-[luis-reference-prebuilt-domains]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-domains
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

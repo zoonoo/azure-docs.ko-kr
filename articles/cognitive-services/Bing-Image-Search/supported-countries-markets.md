@@ -1,6 +1,6 @@
 ---
-title: Azure의 Bing Image Search API에 대해 지원되는 국가 및 언어 | Microsoft Docs
-description: Bing Image Search API에서 지원하는 국가 및 언어를 확인합니다.
+title: Azure의 Bing Image Search API에 대해 지원되는 국가/지역 및 언어 | Microsoft Docs
+description: Bing Image Search API에서 지원하는 국가/지역 및 언어를 확인합니다.
 services: cognitive-services
 author: v-jerkin
 manager: jhubbard
@@ -9,20 +9,20 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: v-jerkin
-ms.openlocfilehash: d0d33ee714ba5cd1ce4e846b96c04f755933bee1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 97e2bed509146172c10aa9ac2658b99ed7610fcc
+ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35376895"
+ms.lasthandoff: 07/13/2018
+ms.locfileid: "39004441"
 ---
-# <a name="bing-image-search-countries-and-languages"></a>Bing Image Search 국가 및 언어
+# <a name="bing-image-search-countriesregions-and-languages"></a>Bing Image Search 국가/지역 및 언어
 
-Bing Image Search API는 수십 개의 국가를 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가도 많습니다. 쿼리를 통한 국가 지정은 해당 국가의 관심 분야에 따라 검색 결과를 구체화하는 데 주로 사용됩니다. 또한 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
+Bing Image Search API는 수십 개의 국가/지역을 지원하며, 이 중에는 둘 이상의 언어를 사용하는 국가/지역도 많습니다. 쿼리를 통한 국가/지역 지정은 해당 국가/지역의 관심 분야에 따라 검색 결과를 구체화하는 데 주로 사용됩니다. 또한 결과는 Bing에 대한 링크를 포함할 수 있으며 이러한 링크는 지정된 국가/지역 또는 언어에 따라 Bing 사용자 경험을 지역화할 수 있습니다.
 
-국가 및 언어를 지정하려면 `mkt`(지역/국가) 쿼리 매개 변수를 아래 **지역/국가** 표의 코드로 설정합니다. 지역/국가는 국가와 언어를 둘 다 지정합니다. 사용자가 표시 텍스트를 다른 언어로 보려는 경우 `setLang` 쿼리 매개 변수를 해당 언어 코드로 설정합니다.
+국가/지역 및 언어를 지정하려면 `mkt`(지역/국가) 쿼리 매개 변수를 아래 **지역/국가** 표의 코드로 설정합니다. 지역/국가는 국가/지역과 언어를 둘 다 지정합니다. 사용자가 표시 텍스트를 다른 언어로 보려는 경우 `setLang` 쿼리 매개 변수를 해당 언어 코드로 설정합니다.
 
-또는 `cc` 쿼리 매개 변수를 사용하여 국가를 지정할 수 있습니다. 국가를 지정하는 경우 `Accept-Language` HTTP 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가마다 다르며, 지역/국가 표에서 각 국가에 대해 제공됩니다.
+또는 `cc` 쿼리 매개 변수를 사용하여 국가/지역을 지정할 수 있습니다. 국가/지역을 지정하는 경우 `Accept-Language` HTTP 헤더를 사용하여 언어 코드도 하나 이상 지정해야 합니다. 지원되는 언어는 국가/지역마다 다르며, 지역/국가 표에서 각 국가/지역에 대해 제공됩니다.
 
 > [!NOTE]
 > 현재, Trending Images API는 다음 지역/국가만 지원합니다.
@@ -33,7 +33,7 @@ Bing Image Search API는 수십 개의 국가를 지원하며, 이 중에는 둘
 
 ## <a name="countries"></a>국가
 
-|국가|코드|
+|국가/지역|코드|
 |-------|----|
 |아르헨티나|AR|
 |오스트레일리아|AU|
@@ -73,9 +73,9 @@ Bing Image Search API는 수십 개의 국가를 지원하며, 이 중에는 둘
 |미국|US|
 
 
-## <a name="markets"></a>지역/국가
+## <a name="markets"></a>시장
 
-|국가|언어|지역/국가 코드|
+|국가/지역|언어|시장 코드|
 |-------|--------|-----------|
 |아르헨티나|스페인어|es-AR|
 |오스트레일리아|영어|en-AU|
