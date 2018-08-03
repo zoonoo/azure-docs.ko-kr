@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgo
-ms.openlocfilehash: 82a8da5897d811f80dd18cc199cb31f810a5a438
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5af8380accc23a62baf04b842430e692fdff3692
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399790"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443555"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Azure Stack에 대 한 Red Hat 기반 가상 머신 준비
 
@@ -47,16 +47,16 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
 1. Hyper-V 관리자에서 가상 머신을 선택합니다.
 
-2. **연결** 을 클릭하여 가상 머신의 콘솔 창을 엽니다.
+1. **연결** 을 클릭하여 가상 머신의 콘솔 창을 엽니다.
 
-3. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
+1. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-4. 만들기 또는 편집을 `/etc/sysconfig/network-scripts/ifcfg-eth0` 파일 및 필요에 따라 다음 텍스트를 추가 합니다.
+1. 만들기 또는 편집을 `/etc/sysconfig/network-scripts/ifcfg-eth0` 파일 및 필요에 따라 다음 텍스트를 추가 합니다.
 
     ```sh
     DEVICE=eth0
@@ -69,19 +69,19 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     NM_CONTROLLED=no
     ```
 
-5. 다음 명령을 실행 하 여 네트워크 서비스 부팅 시 시작 해야 합니다.
+1. 다음 명령을 실행 하 여 네트워크 서비스 부팅 시 시작 해야 합니다.
 
     ```sh
     # sudo systemctl enable network
     ```
 
-6. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
+1. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
     ```sh
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-7. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -95,32 +95,32 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     rhgb quiet crashkernel=auto
     ```
 
-8. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
+1. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
     ```sh
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-9. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이것이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
+1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이것이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
 
     ```sh
     ClientAliveInterval 180
     ```
 
-10. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
+1. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-11. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
     ```sh
     # sudo yum install WALinuxAgent
     # sudo systemctl enable waagent.service
     ```
 
-12. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
+1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
     Azure Linux 에이전트는 Azure에서 가상 머신을 프로비전한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크 및 가상 컴퓨터 프로 비전을 해제 하는 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
@@ -132,15 +132,15 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-13. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
+1. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
 
     ```sh
     # sudo subscription-manager unregister
     ```
 
-14. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
+1. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
 
-15. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     ```sh
     # sudo waagent -force -deprovision
@@ -148,15 +148,15 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     # logout
     ```
 
-16. Hyper-V 관리자에서 **작업** > **종료**를 클릭합니다.
+1. Hyper-V 관리자에서 **작업** > **종료**를 클릭합니다.
 
-17. CONVERT-VHD PowerShell 명령 또는 Hyper-v 관리자 "편집 디스크" 기능을 사용 하 여 VHD 고정 크기 VHD를 변환 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1. CONVERT-VHD PowerShell 명령 또는 Hyper-v 관리자 "편집 디스크" 기능을 사용 하 여 VHD 고정 크기 VHD를 변환 합니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>KVM에서 RedHat 기반 가상 머신 준비
 
 1. Red Hat 웹 사이트에서 RHEL 7의 KVM 이미지를 다운로드합니다. 이 절차에서는 RHEL 7을 예제로 사용합니다.
 
-2. 루트 암호를 설정합니다.
+1. 루트 암호를 설정합니다.
 
     암호화된 암호를 생성하고 명령 출력을 복사합니다.
 
@@ -177,16 +177,16 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
    루트 사용자의 두 번째 필드를 “!!”에서 암호화된 암호로 변경합니다.
 
-3. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2**로 설정하고 가상 네트워크 인터페이스 장치 모델을 **virtio**로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
+1. qcow2 이미지에서 KVM에 가상 머신을 만듭니다. 디스크 형식을 **qcow2**로 설정하고 가상 네트워크 인터페이스 장치 모델을 **virtio**로 설정합니다. 그 후 가상 머신을 시작하고 루트로 로그인합니다.
 
-4. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
+1. 파일 `/etc/sysconfig/network`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-5. 파일 `/etc/sysconfig/network-scripts/ifcfg-eth0`를 만들거나 편집하고 다음 텍스트를 추가합니다.
+1. 파일 `/etc/sysconfig/network-scripts/ifcfg-eth0`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
     ```sh
     DEVICE=eth0
@@ -199,19 +199,19 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     NM_CONTROLLED=no
     ```
 
-6. 다음 명령을 실행 하 여 네트워크 서비스 부팅 시 시작 해야 합니다.
+1. 다음 명령을 실행 하 여 네트워크 서비스 부팅 시 시작 해야 합니다.
 
     ```sh
     # sudo systemctl enable network
     ```
 
-7. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
+1. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
     ```sh
     # subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-8. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 구성을 수행 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 된 `GRUB_CMDLINE_LINUX` 매개 변수. 예: 
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이 구성을 수행 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 된 `GRUB_CMDLINE_LINUX` 매개 변수. 예: 
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -225,13 +225,13 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     rhgb quiet crashkernel=auto
     ```
 
-9. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
+1. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
     ```sh
     # grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. Hyper-V 모듈을 initramfs에 추가합니다.
+1. Hyper-V 모듈을 initramfs에 추가합니다.
 
     `/etc/dracut.conf` 을 편집하고 콘텐츠를 추가합니다.
 
@@ -245,13 +245,13 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     # dracut -f -v
     ```
 
-11. Cloud-Init을 제거합니다.
+1. Cloud-Init을 제거합니다.
 
     ```sh
     # yum remove cloud-init
     ```
 
-12. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
+1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다.
 
     ```sh
     # systemctl enable sshd
@@ -264,13 +264,13 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     ClientAliveInterval 180
     ```
 
-13. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
+1. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-14. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
     ```sh
     # yum install WALinuxAgent
@@ -282,7 +282,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     # systemctl enable waagent.service
     ```
 
-15. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
+1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
     Azure Linux 에이전트는 Azure에서 가상 머신을 프로비전한 후에 가상 머신에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크 및 가상 컴퓨터 프로 비전을 해제 하는 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
@@ -294,15 +294,15 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-16. 다음 명령을 실행하여 (필요한 경우) 구독에 대한 등록을 해제합니다.
+1. 다음 명령을 실행하여 (필요한 경우) 구독에 대한 등록을 해제합니다.
 
     ```sh
     # subscription-manager unregister
     ```
 
-17. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
+1. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
 
-18. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     ```sh
     # sudo waagent -force -deprovision
@@ -310,9 +310,9 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     # logout
     ```
 
-19. KVM의 가상 머신을 종료합니다.
+1. KVM의 가상 머신을 종료합니다.
 
-20. qcow2 이미지를 VHD 형식으로 변환합니다.
+1. qcow2 이미지를 VHD 형식으로 변환합니다.
 
     > [!NOTE]
     > VHD 형식이 잘못 지정되는 qemu-img 버전 >=2.2.1에 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. qemu-img 2.2.0 이하 버전을 사용하거나 2.6 이상으로 업데이트하는 것이 좋습니다. 참조: https://bugs.launchpad.net/qemu/+bug/1490611
@@ -362,7 +362,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     HOSTNAME=localhost.localdomain
     ```
 
-2. 파일 `/etc/sysconfig/network-scripts/ifcfg-eth0`를 만들거나 편집하고 다음 텍스트를 추가합니다.
+1. 파일 `/etc/sysconfig/network-scripts/ifcfg-eth0`를 만들거나 편집하고 다음 텍스트를 추가합니다.
 
     ```sh
     DEVICE=eth0
@@ -375,19 +375,19 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     NM_CONTROLLED=no
     ```
 
-3. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
+1. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.
 
     ```sh
     # sudo chkconfig network on
     ```
 
-4. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
+1. RHEL 리포지토리에서 패키지 설치를 사용하도록 다음 명령을 실행하여 Red Hat 구독을 등록합니다.
 
     ```sh
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-5. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
+1. Azure용 커널 매개 변수를 추가로 포함하려면 grub 구성에서 커널 부팅 줄을 수정합니다. 이렇게 수정 하려면 엽니다 `/etc/default/grub` 텍스트 편집기에서 수정 하 고는 `GRUB_CMDLINE_LINUX` 매개 변수입니다. 예: 
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -401,13 +401,13 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     모든 로그를 직렬 포트로 보내려는 클라우드 환경에서는 그래픽 및 자동 부팅 기능이 효율적이지 않습니다. 원할 경우 `crashkernel` 옵션은 구성된 상태로 둘 수 있습니다. 이 매개 변수는 가상 컴퓨터의 사용 가능한 메모리 양을 128MB 이상 줄입니다. 이 방식은 좀 더 작은 가상 컴퓨터 크기에서는 문제가 될 수도 있습니다.
 
-6. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
+1. `/etc/default/grub`편집을 완료한 후에 다음 명령을 실행하여 grub 구성을 다시 빌드합니다.
 
     ```sh
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-7. Hyper-V 모듈을 initramfs에 추가합니다.
+1. Hyper-V 모듈을 initramfs에 추가합니다.
 
     `/etc/dracut.conf`를 편집하고 콘텐츠를 추가합니다.
 
@@ -421,26 +421,26 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     # dracut -f -v
     ```
 
-8. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이 설정이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
+1. SSH 서버가 설치되어 부팅 시 시작되도록 구성되어 있는지 확인합니다. 이 설정이 일반적으로 기본값입니다. 다음 줄을 포함하도록 `/etc/ssh/sshd_config` 을 수정합니다.
 
     ```sh
     ClientAliveInterval 180
     ```
 
-9. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
+1. WALinuxAgent 패키지 `WALinuxAgent-<version>`은 Red Hat 기타 리포지토리에 푸시되었습니다. 다음 명령을 실행하여 기타 리포지토리를 사용합니다.
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-10. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
+1. 다음 명령을 실행하여 Azure Linux 에이전트를 설치합니다.
 
     ```sh
     # sudo yum install WALinuxAgent
     # sudo systemctl enable waagent.service
     ```
 
-11. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
+1. 운영 체제 디스크에 스왑 공간을 만들지 마세요.
 
     Azure Linux 에이전트는 Azure에서 가상 컴퓨터를 프로비전한 후에 가상 컴퓨터에 연결된 로컬 리소스 디스크를 사용하여 자동으로 스왑 공간을 구성할 수 있습니다. 로컬 리소스 디스크는 임시 디스크이며 가상 머신의 프로비전을 해제할 때 비워질 수 있습니다. Azure Linux 에이전트를 설치한 후에(이전 단계 참조) `/etc/waagent.conf`에서 다음 매개 변수를 적절하게 수정합니다.
 
@@ -452,15 +452,15 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-12. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
+1. 구독에 대한 등록을 해제하려면 다음 명령을 실행합니다.
 
     ```sh
     # sudo subscription-manager unregister
     ```
 
-13. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
+1. 엔터프라이즈 인증 기관을 사용 하 여 배포 된 시스템을 사용 하는 경우 RHEL 가상 머신에 Azure Stack 루트 인증서를 신뢰 하지 않게 됩니다. 신뢰할 수 있는 루트 저장소에 배치 해야 합니다. 참조 [신뢰할 수 있는 추가 루트 인증서를 서버](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html)합니다.
 
-14. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
+1. 다음 명령을 실행하여 가상 머신의 프로비전을 해제하고 Azure에서 프로비전할 준비를 합니다.
 
     ```sh
     # sudo waagent -force -deprovision
@@ -468,7 +468,7 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     # logout
     ```
 
-15. 가상 머신을 종료하고 VMDK 파일을 VHD 형식으로 변환합니다.
+1. 가상 머신을 종료하고 VMDK 파일을 VHD 형식으로 변환합니다.
 
     > [!NOTE]
     > VHD 형식이 잘못 지정되는 qemu-img 버전 >=2.2.1에 알려진 버그가 있습니다. 이 문제는 QEMU 2.6에서 해결되었습니다. qemu-img 2.2.0 이하 버전을 사용하거나 2.6 이상으로 업데이트하는 것이 좋습니다. 참조: <https://bugs.launchpad.net/qemu/+bug/1490611.>
@@ -626,11 +626,11 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
     %end
     ```
 
-2. 설치 시스템에서 액세스할 수 있는 위치에 kickstart 파일을 배치합니다.
+1. 설치 시스템에서 액세스할 수 있는 위치에 kickstart 파일을 배치합니다.
 
-3. Hyper-V 관리자에서 새 가상 머신을 만듭니다. **가상 하드 디스크 연결** 페이지에서 **나중에 가상 하드 디스크 연결**을 선택하고 새 Virtual Machine 마법사를 완료합니다.
+1. Hyper-V 관리자에서 새 가상 머신을 만듭니다. **가상 하드 디스크 연결** 페이지에서 **나중에 가상 하드 디스크 연결**을 선택하고 새 Virtual Machine 마법사를 완료합니다.
 
-4. 가상 머신 설정을 엽니다.
+1. 가상 머신 설정을 엽니다.
 
     a. 새 가상 하드 디스크를 가상 머신에 연결합니다. **VHD 형식** 및 **고정된 크기**를 선택하도록 합니다.
 
@@ -638,11 +638,11 @@ Red Hat Enterprise Linux 지원 정보를 참조 하세요 [Red Hat 및 Azure St
 
     다. CD에서 부팅하도록 BIOS를 설정합니다.
 
-5. 가상 머신을 시작합니다. 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
+1. 가상 머신을 시작합니다. 설치 가이드가 나타나면 **Tab** 키를 눌러서 부팅 옵션을 구성합니다.
 
-6. 부팅 옵션 마지막에 `inst.ks=<the location of the kickstart file>` 을 입력하고 **Enter**키를 누릅니다.
+1. 부팅 옵션 마지막에 `inst.ks=<the location of the kickstart file>` 을 입력하고 **Enter**키를 누릅니다.
 
-7. 설치가 완료될 때까지 기다립니다. 완료 되 면 가상 머신은 자동으로 종료 됩니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
+1. 설치가 완료될 때까지 기다립니다. 완료 되 면 가상 머신은 자동으로 종료 됩니다. 이제 Linux VHD를 Azure에 업로드할 수 있습니다.
 
 ## <a name="known-issues"></a>알려진 문제
 

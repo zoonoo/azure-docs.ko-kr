@@ -1,21 +1,20 @@
 ---
-title: Speech Service(미리 보기)란? | Microsoft Docs
+title: Speech Service(미리 보기)란?
 description: Microsoft Cognitive Services의 일부인 Speech Service는 이전에 개별적으로 사용할 수 있었던 Bing Speech(음성 인식 및 텍스트 음성 변환으로 구성), Custom Speech 및 Speech Translation과 같은 여러 가지 Azure 음성 서비스를 통합합니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fc6ef4ccbe6e392b991bd375afcc63a54f58db02
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989338"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285462"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Speech Service(미리 보기)란?
 
@@ -38,8 +37,8 @@ Speech Service는 두 가지 방법으로 사용할 수 있습니다. [SDK](spee
 
 |<br>방법|음성<br>to Text|Text to<br>음성|음성<br>Translation|<br>설명|
 |-|-|-|-|-|
-|[SDK](speech-sdk.md)|예|아니오|예|개발을 단순화하는 특정 프로그래밍 언어의 라이브러리입니다.|
-|[REST](rest-apis.md)|예|예|아니오|응용 프로그램에 음성을 쉽게 추가할 수 있는 단순한 HTTP 기반 API입니다.|
+|[SDK](speech-sdk.md)|yes|아니요|yes|개발을 단순화하는 특정 프로그래밍 언어의 라이브러리입니다.|
+|[REST](rest-apis.md)|yes|yes|아니요|응용 프로그램에 음성을 쉽게 추가할 수 있는 단순한 HTTP 기반 API입니다.|
 
 ## <a name="speech-to-text"></a>Speech to Text
 

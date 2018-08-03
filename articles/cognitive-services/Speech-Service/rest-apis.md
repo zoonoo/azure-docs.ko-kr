@@ -1,20 +1,19 @@
 ---
-title: Speech Service REST API | Microsoft Docs
+title: Speech Service REST API
 description: Speech Service의 REST API에 대한 참조입니다.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112876"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283072"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API
 
@@ -266,6 +265,6 @@ Connection: Keep-Alive
 ## <a name="next-steps"></a>다음 단계
 
 - [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)
 

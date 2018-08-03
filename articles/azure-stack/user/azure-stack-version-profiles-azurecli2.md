@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866861"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436712"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>Azure Stack에서 Azure CLI 2.0을 사용 하 여 API 버전 프로필 사용
 
@@ -38,7 +38,7 @@ Azure CLI 및 컴퓨터에 설치 된 기타 종속 된 라이브러리의 버�
 
 1. Azure Stack CA 루트 인증서를 가져오는 [귀하가 Azure Stack 운영자](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) 신뢰 하 고 있습니다. Azure Stack CA 루트 인증서를 신뢰 하려면 기존 Python 인증서를 추가 합니다.
 
-2. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 해야 합니다 [pip](https://pip.pypa.io) 하며 [로](https://pypi.org/project/certifi/) 모듈을 설치 합니다. Bash 프롬프트에서 다음 Python 명령에 사용할 수 있습니다.
+1. 컴퓨터에 인증서 위치를 찾습니다. 위치는 Python 설치에 따라 달라질 수 있습니다. 해야 합니다 [pip](https://pip.pypa.io) 하며 [로](https://pypi.org/project/certifi/) 모듈을 설치 합니다. Bash 프롬프트에서 다음 Python 명령에 사용할 수 있습니다.
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ sudo cat /var/lib/waagent/Certificates.pem >> ~/<yourpath>/cacert.pem
 
 1. 설정 해야 합니다 [Azure Stack에 VPN 연결](azure-stack-connect-azure-stack.md)합니다.
 
-2. Azure Stack 연산자에서 가져온 PEM 인증서를 복사 하 고 (PATH_TO_PEM_FILE) 파일의 위치를 기록해 둡니다.
+1. Azure Stack 연산자에서 가져온 PEM 인증서를 복사 하 고 (PATH_TO_PEM_FILE) 파일의 위치를 기록해 둡니다.
 
-3. 끝 개발 워크스테이션의 운영 체제에 따라 다음 명령을 실행 합니다.
+1. 끝 개발 워크스테이션의 운영 체제에 따라 다음 명령을 실행 합니다.
 
 #### <a name="linux"></a>Linux
 
@@ -140,7 +140,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. 다음 명령을 사용 하 여 활성 환경을 설정 합니다.
+1. 다음 명령을 사용 하 여 활성 환경을 설정 합니다.
 
    a. 에 대 한 합니다 *클라우드 관리* 환경에서 사용 하 여:
 
@@ -156,14 +156,14 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
         -n AzureStackUser
       ```
 
-3. Azure Stack 특정 API 버전 프로필을 사용 하도록 사용자의 환경 구성을 업데이트 합니다. 구성 값을 업데이트 하려면 다음 명령을 실행 합니다.
+1. Azure Stack 특정 API 버전 프로필을 사용 하도록 사용자의 환경 구성을 업데이트 합니다. 구성 값을 업데이트 하려면 다음 명령을 실행 합니다.
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
+1. 사용 하 여 Azure Stack 환경에 로그인 합니다 `az login` 명령입니다. 로그인 할 수 있습니다 Azure Stack 환경에 사용자 또는으로 [서비스 주체](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects)합니다. 
 
    * 으로 로그인을 *사용자*: username 및 password 내에서 직접 지정할 수 있습니다는 `az login` 명령을 선택 하거나 브라우저를 사용 하 여 인증 합니다. 사용자 계정에 multi-factor authentication 사용 하는 경우에 후자를 수행 해야 합니다.
 

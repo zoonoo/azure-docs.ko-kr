@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969115"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440354"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Azure Stack에서 Service Fabric 클러스터 배포
 
@@ -39,9 +39,9 @@ Service Fabric을 사용 하 여 작업에 대 한 자세한 내용은 참조 �
     > [!NOTE]  
     > X.509 서버 인증서는 자체 서명 된 인증서 내부 테스트용으로 사용할 수 있습니다. 자체 서명 된 인증서는 클러스터의 FQDN과 일치 필요가 없습니다.
 
-2.  **관리 클라이언트 인증서** 클라이언트는 자체 서명 될 수 있는 Service Fabric 클러스터에 인증 하는 인증서입니다. 참조 [요구 사항](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) 이 클라이언트 인증서 만들기에 대 한 합니다.
+1.  **관리 클라이언트 인증서** 클라이언트는 자체 서명 될 수 있는 Service Fabric 클러스터에 인증 하는 인증서입니다. 참조 [요구 사항](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) 이 클라이언트 인증서 만들기에 대 한 합니다.
 
-3.  **Azure Stack Marketplace에서 다음 항목을 사용할 수 있어야 합니다.**
+1.  **Azure Stack Marketplace에서 다음 항목을 사용할 수 있어야 합니다.**
      - **Windows Server 2016** – 템플릿은 Windows Server 2016 이미지를 사용 하 여 클러스터를 만듭니다.  
      - **고객 스크립트 확장** -Microsoft에서 가상 머신 확장 합니다.  
      - **PowerShell 필요한 구성 단계** -Microsoft에서 가상 머신 확장 합니다.
@@ -124,15 +124,15 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
 
    ![Service Fabric 클러스터를 선택 합니다.](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. 각 페이지에 대 한 같은 *기본 사항*, 배포 양식을 작성 하세요. 값의 잘 모를 경우 기본값을 사용 합니다. 선택 **확인** 다음 페이지로 이동 합니다.
+1. 각 페이지에 대 한 같은 *기본 사항*, 배포 양식을 작성 하세요. 값의 잘 모를 경우 기본값을 사용 합니다. 선택 **확인** 다음 페이지로 이동 합니다.
 
    ![기본 사항](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
-3. 에 *네트워크 설정을* 페이지를 열려면 응용 프로그램에 대 한 특정 포트를 지정할 수 있습니다.
+1. 에 *네트워크 설정을* 페이지를 열려면 응용 프로그램에 대 한 특정 포트를 지정할 수 있습니다.
 
    ![네트워크 설정](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. 에 *보안* 페이지에서 가져온 값을 추가 합니다 [Azure key Vault 만들기](#add-a-secret-to-key-vault) 및 암호를 업로드 합니다.
+1. 에 *보안* 페이지에서 가져온 값을 추가 합니다 [Azure key Vault 만들기](#add-a-secret-to-key-vault) 및 암호를 업로드 합니다.
 
    에 대 한는 *관리 클라이언트 인증서 지문이*, 지문을 입력 합니다 *관리 클라이언트 인증서*합니다. (참조를 [필수 구성 요소](#prerequisites).)
    
@@ -145,7 +145,7 @@ Service Fabric 클러스터를 배포 하려면 올바른 KeyVault를 지정 해
 
    ![보안](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-5. 마법사를 완료 하 고 선택한 **만들기** Service Fabric 클러스터를 배포 합니다.
+1. 마법사를 완료 하 고 선택한 **만들기** Service Fabric 클러스터를 배포 합니다.
 
 
 
@@ -169,7 +169,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
     d. 에 *인증서 저장소* 페이지에서 **개인**, 한 다음 마법사를 완료 합니다.  
        ![인증서 저장소](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
-2. Service Fabric 클러스터의 FQDN을 찾으려면:  
+1. Service Fabric 클러스터의 FQDN을 찾으려면:  
 
     a. 클러스터에 Service Fabric과 사용 하 여 연결 된 리소스 그룹을 찾아서 이동 합니다 *공용 IP 주소* 리소스입니다. 열려는 공용 IP 주소와 연결 된 개체를 선택 합니다 *공용 IP 주소* 블레이드입니다.  
 
@@ -179,12 +179,12 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
       ![DNS 이름](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
-3. 클라이언트 연결 끝점 및 Service Fabric Explorer에 대 한 URL을 찾으려면, 템플릿 배포의 결과 검토 합니다.
+1. 클라이언트 연결 끝점 및 Service Fabric Explorer에 대 한 URL을 찾으려면, 템플릿 배포의 결과 검토 합니다.
 
-4. 브라우저에서 https://로 이동*FQDN*: 19080 합니다. 바꿉니다 *FQDN* 2 단계에서 Service Fabric 클러스터의 FQDN을 사용 하 여 합니다.   
+1. 브라우저에서 https://로 이동*FQDN*: 19080 합니다. 바꿉니다 *FQDN* 2 단계에서 Service Fabric 클러스터의 FQDN을 사용 하 여 합니다.   
    자체 서명 된 인증서를 사용한 경우에 연결이 안전 하지 않다는 경고가 얻게 됩니다. 웹 사이트를 계속 하려면 선택 **자세한 정보**를 차례로 **웹 페이지로 이동**합니다. 
 
-5. 사이트에 인증에 사용할 인증서를 선택 해야 합니다. 선택 **더 많은 선택 사항**를 적절 한 인증서를 선택 하 고 클릭 **확인** Service Fabric Explorer에 연결 합니다. 
+1. 사이트에 인증에 사용할 인증서를 선택 해야 합니다. 선택 **더 많은 선택 사항**를 적절 한 인증서를 선택 하 고 클릭 **확인** Service Fabric Explorer에 연결 합니다. 
 
    ![인증](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -194,7 +194,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
 1. 설치 합니다 *Microsoft Azure Service Fabric SDK* 에서 [Windows에서 개발 환경 준비](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) Azure Service Fabric 설명서에서.  
 
-2. 설치를 완료 한 후에 서비스 패브릭 cmdlet은 PowerShell에서 액세스할 수 있는지 확인 하도록 시스템 환경 변수를 구성 합니다.  
+1. 설치를 완료 한 후에 서비스 패브릭 cmdlet은 PowerShell에서 액세스할 수 있는지 확인 하도록 시스템 환경 변수를 구성 합니다.  
     
     a. 로 이동 **Control Panel** > **시스템 및 보안** > **System**를 선택한 후 **고급 시스템 설정**.  
     
@@ -206,7 +206,7 @@ Service Fabric Explorer 또는 Service Fabric PowerShell을 사용 하 여 Servi
 
       ![환경 변수 목록](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 
-3. 환경 변수의 순서를 변경한 후 PowerShell을 다시 시작 하 고 Service Fabric 클러스터에 액세스 하려면 다음 PowerShell 스크립트를 실행 하십시오.
+1. 환경 변수의 순서를 변경한 후 PowerShell을 다시 시작 하 고 Service Fabric 클러스터에 액세스 하려면 다음 PowerShell 스크립트를 실행 하십시오.
 
    ````PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric

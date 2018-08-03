@@ -1,21 +1,20 @@
 ---
-title: Cognitive Services 음성 SDK 정보 | Microsoft Docs
+title: Cognitive Services 음성 SDK 정보
 description: 음성 서비스에 사용할 수 있는 SDK의 개요입니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ed523493f456e65f7aa5d3ad33914e3e52cd7044
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113395"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326062"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Cognitive Services 음성 SDK 정보
 
@@ -25,11 +24,13 @@ Cognitive Services 음성 SDK(소프트웨어 개발 키트)에서는 소프트�
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="get-the-windows-sdk"></a>Windows SDK 가져오기
+## <a name="get-the-sdk"></a>SDK 가져오기
+
+### <a name="get-the-windows-sdk"></a>Windows SDK 가져오기
 
 음성 SDK의 Windows 버전에는 32비트 및 64비트 C/C++ 클라이언트 라이브러리뿐만 아니라 C#과 함께 사용할 관리되는 (.NET) 라이브러리가 포함되어 있습니다. SDK는 NuGet을 사용하여 Visual Studio에서 설치할 수 있습니다. `Microsoft.CognitiveServices.Speech`를 검색하기만 하면 됩니다.
 
-## <a name="get-the-linux-sdk"></a>Linux SDK 가져오기
+### <a name="get-the-linux-sdk"></a>Linux SDK 가져오기
 
 다음 셸 명령을 실행하여 필수 컴파일러 및 라이브러리가 있는지 확인합니다.
 
@@ -53,7 +54,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 응용 프로그램을 만들려면 개발 환경에 필수 이진 파일(및 라이브러리)를 복사하고 이동하고 필요에 따라 빌드 프로세스에 포함합니다.
 
-## <a name="get-the-java-sdk"></a>Java SDK 가져오기
+### <a name="get-the-java-sdk"></a>Java SDK 가져오기
 
 Android용 Java SDK는 사용에 필요한 Android 권한 뿐만 아니라 필요한 라이브러리를 포함하는 [AAR(Android 라이브러리)](https://developer.android.com/studio/projects/android-library)로 패키지됩니다.
 `https://csspeechstorage.blob.core.windows.net/maven/`의 Maven 리포지토리에서 패키지 `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`로 호스트됩니다.
@@ -72,6 +73,8 @@ Android Studio 프로젝트의 패키지를 사용하는 경우 다음과 같이
   ```
 
 Java SDK는 [Speech Devices SDK](speech-devices-sdk.md)에도 포함됩니다.
+
+[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
