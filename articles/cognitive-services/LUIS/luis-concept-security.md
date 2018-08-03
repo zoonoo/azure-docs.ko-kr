@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 13b769a0b5a940e0f3dd5f2e0cc3567d9879ee0d
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223782"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397246"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>작성 및 끝점 사용자 액세스
 작성 액세스는 소유자 및 협력자가 사용할 수 있습니다. 개인 앱의 경우 소유자 및 협력자는 끝점 액세스를 사용할 수 있습니다. 공용 앱의 경우 LUIS 계정을 소유하고 공용 앱 ID를 가진 모든 사용자가 끝점 액세스를 사용할 수 있습니다. 
@@ -62,7 +62,7 @@ LUIS를 쿼리하기 위한 끝점에 대한 액세스는 **설정** 페이지�
 ## <a name="microsoft-user-accounts"></a>Microsoft 사용자 계정
 작성자 및 협력자는 게시 페이지에서 LUIS에 키를 추가할 수 있습니다. Azure Portal에서 LUIS 키를 만드는 Microsoft 사용자 계정은 앱 소유자 또는 앱 협력자여야 합니다. 
 
-Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Directory 테넌트 사용자](luis-how-to-account-settings.md#azure-active-directory-tenant-user)를 참조하세요. 
+Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Directory 테넌트 사용자](luis-how-to-collaborate.md#azure-active-directory-tenant-user)를 참조하세요. 
 
 <!--
 ### Individual consent

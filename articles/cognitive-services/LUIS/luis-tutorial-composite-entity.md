@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: d14041e895bdf70544f7e956c76f91992a2df991
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 9c84afc231ff4b086e76f50702870e30da7add6e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238100"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364905"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>자습서: 6. 복합 엔터티 추가 
 이 자습서에서는 복합 엔터티를 추가하여 추출된 데이터를 포함 엔터티로 그룹화합니다.
@@ -27,6 +27,8 @@ ms.locfileid: "39238100"
 > * 복합 엔터티를 추가하여 데이터 추출
 > * 앱 학습 및 게시
 > * 앱의 엔드포인트를 쿼리하여 LUIS JSON 응답 확인
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [계층적 엔터티](luis-quickstart-intent-and-hier-entity.md) 자습서의 인사 관리 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json) Github 리포지토리에 있습니다.
@@ -56,11 +58,7 @@ ms.locfileid: "39238100"
 ## <a name="create-composite-entity"></a>복합 엔터티 만들기
 1. 인사 관리 앱이 LUIS의 **빌드** 섹션에 있는지 확인합니다. 오른쪽 위의 메뉴 표시줄에서 **빌드**를 선택하여 이 섹션으로 변경할 수 있습니다. 
 
-    [ ![오른쪽 위의 탐색 모음에서 강조 표시된 빌드가 있는 LUIS 앱의 스크린샷](./media/luis-tutorial-composite-entity/hr-first-image.png)](./media/luis-tutorial-composite-entity/hr-first-image.png#lightbox)
-
 2. **의도** 페이지에서 **MoveEmployee** 의도를 선택합니다. 
-
-    [![](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png "'MoveEmployee' 의도가 강조 표시된 LUIS의 스크린샷")](media/luis-tutorial-composite-entity/hr-intents-moveemployee.png#lightbox)
 
 3. 도구 모음에서 돋보기 아이콘을 선택하여 발언 목록을 필터링합니다. 
 
@@ -83,7 +81,7 @@ ms.locfileid: "39238100"
 
 7. **What type of entity do you want to create?**(만들려는 엔터티 형식을 선택하세요.)에서는 필요한 거의 모든 필드가 목록에 표시됩니다. 원래 위치만 없습니다. **자식 엔터티 추가**를 선택하고 기존 엔터티 목록에서 **Locations::Origin**을 선택한 후 **완료**를 선택합니다. 
 
-  ![팝업 창에서 다른 엔터티를 추가하는 'MoveEmployee' 의도의 LUIS 스크린샷](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
+    ![팝업 창에서 다른 엔터티를 추가하는 'MoveEmployee' 의도의 LUIS 스크린샷](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. 도구 모음에 있는 돋보기를 선택하여 필터를 제거합니다. 
 
@@ -103,205 +101,191 @@ ms.locfileid: "39238100"
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 LUIS는 앱이 학습될 때까지 새 복합 엔터티를 인식하지 못합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
-
-    ![앱 학습](./media/luis-tutorial-composite-entity/hr-train-button.png)
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
-
-    ![학습 성공](./media/luis-tutorial-composite-entity/hr-trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
-챗봇 또는 다른 응용 프로그램에서 LUIS 예측을 얻으려면 앱을 게시해야 합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택합니다. 
-
-2. 프로덕션 슬롯과 **게시** 단추를 선택합니다.
-
-    ![앱 게시](./media/luis-tutorial-composite-entity/hr-publish-to-production.png)
-
-3. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint"></a>끝점 쿼리 
-1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 끝점 URL이 표시된 다른 브라우저 창이 열립니다. 
 
-    ![끝점 URL 선택](./media/luis-tutorial-composite-entity/hr-publish-select-endpoint.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `Move Jill Jones from a-1234 to z-2345 on March 3 2 p.m.`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`, 발화 쿼리입니다. 
 
     이 테스트는 복합 요소가 올바르게 추출되었는지 확인하기 위한 것이므로 테스트에 기존의 샘플 발언이나 새 발언이 포함될 수 있습니다. 복합 엔터티에 모든 자식 엔터티를 포함하면 테스트 효과가 좋습니다.
 
-```JSON
-{
-  "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
-  "topScoringIntent": {
-    "intent": "MoveEmployee",
-    "score": 0.9959525
-  },
-  "intents": [
+    ```JSON
     {
-      "intent": "MoveEmployee",
-      "score": 0.9959525
-    },
-    {
-      "intent": "GetJobInformation",
-      "score": 0.009858314
-    },
-    {
-      "intent": "ApplyForJob",
-      "score": 0.00728598563
-    },
-    {
-      "intent": "FindForm",
-      "score": 0.0058053555
-    },
-    {
-      "intent": "Utilities.StartOver",
-      "score": 0.005371796
-    },
-    {
-      "intent": "Utilities.Help",
-      "score": 0.00266987388
-    },
-    {
-      "intent": "None",
-      "score": 0.00123299169
-    },
-    {
-      "intent": "Utilities.Cancel",
-      "score": 0.00116407464
-    },
-    {
-      "intent": "Utilities.Confirm",
-      "score": 0.00102653319
-    },
-    {
-      "intent": "Utilities.Stop",
-      "score": 0.0006628214
-    }
-  ],
-  "entities": [
-    {
-      "entity": "march 3 2 p.m",
-      "type": "builtin.datetimeV2.datetime",
-      "startIndex": 41,
-      "endIndex": 54,
-      "resolution": {
-        "values": [
-          {
-            "timex": "XXXX-03-03T14",
-            "type": "datetime",
-            "value": "2018-03-03 14:00:00"
-          },
-          {
-            "timex": "XXXX-03-03T14",
-            "type": "datetime",
-            "value": "2019-03-03 14:00:00"
-          }
-        ]
-      }
-    },
-    {
-      "entity": "jill jones",
-      "type": "Employee",
-      "startIndex": 5,
-      "endIndex": 14,
-      "resolution": {
-        "values": [
-          "Employee-45612"
-        ]
-      }
-    },
-    {
-      "entity": "z - 2345",
-      "type": "Locations::Destination",
-      "startIndex": 31,
-      "endIndex": 36,
-      "score": 0.9690751
-    },
-    {
-      "entity": "a - 1234",
-      "type": "Locations::Origin",
-      "startIndex": 21,
-      "endIndex": 26,
-      "score": 0.9713137
-    },
-    {
-      "entity": "-1234",
-      "type": "builtin.number",
-      "startIndex": 22,
-      "endIndex": 26,
-      "resolution": {
-        "value": "-1234"
-      }
-    },
-    {
-      "entity": "-2345",
-      "type": "builtin.number",
-      "startIndex": 32,
-      "endIndex": 36,
-      "resolution": {
-        "value": "-2345"
-      }
-    },
-    {
-      "entity": "3",
-      "type": "builtin.number",
-      "startIndex": 47,
-      "endIndex": 47,
-      "resolution": {
-        "value": "3"
-      }
-    },
-    {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 50,
-      "endIndex": 50,
-      "resolution": {
-        "value": "2"
-      }
-    },
-    {
-      "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-      "type": "requestemployeemove",
-      "startIndex": 5,
-      "endIndex": 54,
-      "score": 0.4027723
-    }
-  ],
-  "compositeEntities": [
-    {
-      "parentType": "requestemployeemove",
-      "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-      "children": [
+      "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
+      "topScoringIntent": {
+        "intent": "MoveEmployee",
+        "score": 0.9959525
+      },
+      "intents": [
         {
-          "type": "builtin.datetimeV2.datetime",
-          "value": "march 3 2 p.m"
+          "intent": "MoveEmployee",
+          "score": 0.9959525
         },
         {
-          "type": "Locations::Destination",
-          "value": "z - 2345"
+          "intent": "GetJobInformation",
+          "score": 0.009858314
         },
         {
-          "type": "Employee",
-          "value": "jill jones"
+          "intent": "ApplyForJob",
+          "score": 0.00728598563
         },
         {
-          "type": "Locations::Origin",
-          "value": "a - 1234"
+          "intent": "FindForm",
+          "score": 0.0058053555
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.005371796
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.00266987388
+        },
+        {
+          "intent": "None",
+          "score": 0.00123299169
+        },
+        {
+          "intent": "Utilities.Cancel",
+          "score": 0.00116407464
+        },
+        {
+          "intent": "Utilities.Confirm",
+          "score": 0.00102653319
+        },
+        {
+          "intent": "Utilities.Stop",
+          "score": 0.0006628214
         }
-      ]
+      ],
+      "entities": [
+        {
+          "entity": "march 3 2 p.m",
+          "type": "builtin.datetimeV2.datetime",
+          "startIndex": 41,
+          "endIndex": 54,
+          "resolution": {
+            "values": [
+              {
+                "timex": "XXXX-03-03T14",
+                "type": "datetime",
+                "value": "2018-03-03 14:00:00"
+              },
+              {
+                "timex": "XXXX-03-03T14",
+                "type": "datetime",
+                "value": "2019-03-03 14:00:00"
+              }
+            ]
+          }
+        },
+        {
+          "entity": "jill jones",
+          "type": "Employee",
+          "startIndex": 5,
+          "endIndex": 14,
+          "resolution": {
+            "values": [
+              "Employee-45612"
+            ]
+          }
+        },
+        {
+          "entity": "z - 2345",
+          "type": "Locations::Destination",
+          "startIndex": 31,
+          "endIndex": 36,
+          "score": 0.9690751
+        },
+        {
+          "entity": "a - 1234",
+          "type": "Locations::Origin",
+          "startIndex": 21,
+          "endIndex": 26,
+          "score": 0.9713137
+        },
+        {
+          "entity": "-1234",
+          "type": "builtin.number",
+          "startIndex": 22,
+          "endIndex": 26,
+          "resolution": {
+            "value": "-1234"
+          }
+        },
+        {
+          "entity": "-2345",
+          "type": "builtin.number",
+          "startIndex": 32,
+          "endIndex": 36,
+          "resolution": {
+            "value": "-2345"
+          }
+        },
+        {
+          "entity": "3",
+          "type": "builtin.number",
+          "startIndex": 47,
+          "endIndex": 47,
+          "resolution": {
+            "value": "3"
+          }
+        },
+        {
+          "entity": "2",
+          "type": "builtin.number",
+          "startIndex": 50,
+          "endIndex": 50,
+          "resolution": {
+            "value": "2"
+          }
+        },
+        {
+          "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "type": "requestemployeemove",
+          "startIndex": 5,
+          "endIndex": 54,
+          "score": 0.4027723
+        }
+      ],
+      "compositeEntities": [
+        {
+          "parentType": "requestemployeemove",
+          "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+          "children": [
+            {
+              "type": "builtin.datetimeV2.datetime",
+              "value": "march 3 2 p.m"
+            },
+            {
+              "type": "Locations::Destination",
+              "value": "z - 2345"
+            },
+            {
+              "type": "Employee",
+              "value": "jill jones"
+            },
+            {
+              "type": "Locations::Origin",
+              "value": "a - 1234"
+            }
+          ]
+        }
+      ],
+      "sentimentAnalysis": {
+        "label": "neutral",
+        "score": 0.5
+      }
     }
-  ],
-  "sentimentAnalysis": {
-    "label": "neutral",
-    "score": 0.5
-  }
-}
-```
+    ```
 
-이 발언은 복합 엔터티 배열을 반환합니다. 각 엔터티에는 형식 및 값이 지정됩니다. 각 자식 엔터티를 보다 정확하게 찾으려면 복합 배열 항목의 형식 및 값을 조합해서 엔터티 배열에서 해당 항목을 찾습니다.  
+  이 발언은 복합 엔터티 배열을 반환합니다. 각 엔터티에는 형식 및 값이 지정됩니다. 각 자식 엔터티를 보다 정확하게 찾으려면 복합 배열 항목의 형식 및 값을 조합해서 엔터티 배열에서 해당 항목을 찾습니다.  
 
 ## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
 이 앱에서는 자연어 쿼리 의도를 확인하고 추출된 데이터를 명명된 그룹으로 반환했습니다. 
@@ -312,7 +296,8 @@ LUIS는 앱이 학습될 때까지 새 복합 엔터티를 인식하지 못합�
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 다음 단계를 수행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식으로 작동하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 

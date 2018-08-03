@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226614"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282282"
 ---
 # <a name="entities-in-luis"></a>LUIS의 엔터티
 
@@ -70,7 +70,7 @@ LUIS는 미리 빌드된 엔터티, 사용자 지정 기계 학습 엔터티, �
 | **간단** <br/>[기계 학습](#machine-learned) | ✔ | **정의**<br>단순 엔터티는 단일 개념을 설명하고 기계 학습 컨텍스트에서 학습되는 일반 엔터티입니다. 컨텍스트에는 단어 선택, 단어 배치 및 발화 길이가 포함됩니다.<br/><br/>일관되게 서식을 지정하지는 않지만 동일한 항목을 나타내는 단어나 구에 적합한 엔터티입니다. <br/><br/>[빠른 시작](luis-quickstart-primary-and-secondary-data.md)<br/>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#simple-entity-data)|  
 | **목록** <br/>[정확한 일치](#exact-match)|| **정의**<br>목록 엔터티는 시스템의 동의어와 함께 관련 단어의 고정된 폐쇄형 집합을 나타냅니다. <br><br>각 목록 엔터티에는 하나 이상의 형식이 있을 수 있습니다. 동일한 개념을 나타내는 방법의 알려진 변형 집합에 가장 적합합니다.<br/><br/>LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다.<br/><br>동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 끝점 쿼리에서 반환됩니다. <br/><br/>[빠른 시작](luis-quickstart-intent-and-list-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[혼합](#mixed) | ✔|**정의**<br>Patterns.any는 엔터티가 시작되고 끝나는 위치를 표시하기 위해 패턴의 템플릿 발화에서만 사용되는 가변 길이 자리 표시자입니다.  <br><br>**예제**<br>발화에서 제목을 기준으로 도서를 검색하는 경우, pattern.any는 전체 제목을 추출합니다. pattern.any를 사용하는 템플릿 발화는 `Who wrote {BookTitle}[?]`입니다.<br/><br/>[자습서](luis-tutorial-pattern.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#composite-entity-data)|  
-| **복합** <br/>[기계 학습](#machine-learned) | ✔|**정의**<br>복합 엔터티는 미리 빌드된 엔터티, 단순, 정규식, 목록, 계층 구조 등의 다른 엔터티로 구성됩니다. 개별 엔터티가 전체 엔터티를 형성합니다. 목록 엔터티는 복합 엔터티에서 허용되지 않습니다. <br><br>**예제**<br>PlaneTicketOrder라는 복합 엔터티에는 미리 빌드된 `number` 및 `ToLocation` 자식 엔터티가 있을 수 있습니다. <br/><br/>[자습서](luis-tutorial-composite-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#composite-entity-data)|  
+| **복합** <br/>[기계 학습](#machine-learned) | ✔|**정의**<br>복합 엔터티는 미리 빌드된 엔터티, 단순, 정규식, 목록, 계층 구조 등의 다른 엔터티로 구성됩니다. 개별 엔터티가 전체 엔터티를 형성합니다. <br><br>**예제**<br>PlaneTicketOrder라는 복합 엔터티에는 미리 빌드된 `number` 및 `ToLocation` 자식 엔터티가 있을 수 있습니다. <br/><br/>[자습서](luis-tutorial-composite-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#composite-entity-data)|  
 | **계층적** <br/>[기계 학습](#machine-learned) |✔ | **정의**<br>계층 구조 엔터티는 컨텍스트에 따라 학습된 단순 엔터티의 범주입니다.<br><br>**예제**<br>`Location`이라는 계층적 엔터티에 `ToLocation` 및 `FromLocation` 자식이 있을 경우 각 자식은 발화 내의 **컨텍스트**에 따라 확인할 수 있습니다. `Book 2 tickets from Seattle to New York` 발화에서 `ToLocation` 및 `FromLocation`은 주위의 단어를 기반으로 컨텍스트에 따라 달라집니다. <br/><br/>**사용하지 않는 경우**<br>컨텍스트에 관계없이 자식에 대해 정확하게 일치하는 텍스트가 있는 엔터티를 찾는 경우, 목록 엔터티를 사용해야 합니다. 다른 엔터티 형식과의 부모-자식 관계를 찾는 경우 복합 엔터티를 사용해야 합니다.<br/><br/>[빠른 시작](luis-quickstart-intent-and-hier-entity.md)<br>[엔터티에 대한 예제 응답](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>

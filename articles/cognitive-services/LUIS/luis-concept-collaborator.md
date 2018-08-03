@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: 684507b58e5ac766e9b42d3aa53cb0867a131a93
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222675"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399574"
 ---
 # <a name="collaborating"></a>공동 작업
 
@@ -25,7 +25,7 @@ LUIS 계정은 단일 [Microsoft Live](https://login.live.com/) 계정과 연결
 
 LUIS 계정에는 여러 LUIS 앱이 포함될 수 있습니다.
 
-Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Directory 테넌트 사용자](luis-how-to-account-settings.md#azure-active-directory-tenant-user)를 참조하세요. 
+Active Directory 사용자 계정에 자세히 알아보려면 [Azure Active Directory 테넌트 사용자](luis-how-to-collaborate.md#azure-active-directory-tenant-user)를 참조하세요. 
 
 ## <a name="luis-app-owner"></a>LUIS 앱 소유자
 앱을 만드는 계정은 소유자입니다. 각 앱에는 단일 소유자가 있습니다. 소유자는 앱 **[설정](luis-how-to-collaborate.md)** 에 나열됩니다. 이 계정은 앱을 삭제할 수 있습니다. 또한 끝점 할당량이 매월 제한의 75%에 도달하면 메일을 수신합니다. 

@@ -9,12 +9,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: zhouwang
-ms.openlocfilehash: 56c41fd7f6a00d80bc6bccd61894654e057e926e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
+ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35373814"
+ms.lasthandoff: 07/14/2018
+ms.locfileid: "39040541"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>JavaScript에서 Speech Recognition API 시작
 
@@ -48,7 +48,7 @@ Speech API는 Cognitive Services의 일부입니다. [Cognitive Services 구독]
 git clone https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript
 ```
 
-TypeScript 소스를 컴파일하고, 단일 JavaScript 파일에 번들로 포함시킵니다(browserfy)([npm](https://www.npmjs.com/)이 컴퓨터에 설치되어 있어야 함). 복제된 리포지토리의 루트로 변경하고, 다음 명령을 실행합니다.
+TypeScript 소스를 컴파일하고, 단일 JavaScript 파일에 번들로 포함시킵니다([npm](https://www.npmjs.com/)이 컴퓨터에 설치되어 있어야 함). 복제된 리포지토리의 루트로 변경하고, 다음 명령을 실행합니다.
 
 ```
 cd SpeechToText-WebSockets-Javascript && npm run bundle
