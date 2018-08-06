@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 7db35731a7a95a1ba327445a2044050c28fafb4c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 323b0118d4635b141b2a0f3fb2692d082929c201
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224207"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495478"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -694,7 +694,7 @@ Azure DevOps 프로젝트</a>
                                         <li>
                                             <a href="/azure/firewall/">
                                                 <img src="media/index/azure_firewall.svg" alt="" />
-                                                <p>Azure 방화벽</p>
+                                                <p>Azure Firewall</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1044,6 +1044,12 @@ Azure DevOps 프로젝트</a>
                                             <a href="/azure/storage/files/storage-files-introduction/">
                                                 <img src="media/index/logo_azure-storage-file.svg" alt="" />
                                                 <p>File Storage</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/databox/">
+                                                <img src="media/index/Service-icon.png" alt="" />
+                                                <p>Data Box</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2155,7 +2161,7 @@ Azure DevOps 프로젝트</a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure 방화벽</h3>
+                                                    <h3>Azure Firewall</h3>
                                                     <p>고가용성 및 확장성 있는 클라우드 기반 네트워크 보안 서비스</p>
                                                 </div>
                                             </div>
@@ -2237,7 +2243,7 @@ Azure DevOps 프로젝트</a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
-                                                    <p>확장성이 매우 뛰어나고 안전한 Data Lake Storage</p>
+                                                    <p>Blob 저장소가 통합된, 확장성이 매우 뛰어나고 안전한 Data Lake Storage</p>
                                                 </div>
                                             </div>
                                         </div>

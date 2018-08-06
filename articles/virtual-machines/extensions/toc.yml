@@ -38,7 +38,9 @@
           href: custom-script-windows.md
         - name: Azure Service Management(클래식)
           href: custom-script-classic.md
-    - name: 진단
+    - name: Windows용 IaaS 맬웨어 방지
+      href: iaas-antimalware-windows.md
+    - name: VM 스냅숏
       items:
         - name: Linux
           href: vmsnapshot-linux.md

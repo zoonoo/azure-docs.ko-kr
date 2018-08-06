@@ -156,22 +156,27 @@
 
 ## 장치 관리
 ### [개요](devices/overview.md)
-### [Azure Portal 사용](devices/device-management-azure-portal.md)
-### [Azure AD 조인 계획](devices/azureadjoin-plan.md)
-### [FAQ](devices/faq.md)
-### 작업
-#### [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](devices/hybrid-azuread-join-plan.md)
-#### [관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성](devices/hybrid-azuread-join-managed-domains.md)
-#### [페더레이션된 도메인용 하이브리드 Azure Active Directory 조인 구성](devices/hybrid-azuread-join-federated-domains.md)
-#### [장치의 하이브리드 Azure AD 조인을 제어하는 방법](devices/hybrid-azuread-join-control.md)
+
+### 빠른 시작
 #### [Azure AD 등록 Windows 10 장치 설정](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [Azure AD 가입 장치 설정](user-help/device-management-azuread-joined-devices-setup.md)
-#### [하이브리드 Azure AD 가입 장치 설정](devices/hybrid-azuread-join-manual-steps.md)
-#### [온-프레미스 배포](active-directory-device-registration-on-premises-setup.md)
-#### [Windows 10 첫 실행 경험 중 Azure AD 조인](devices/azuread-joined-devices-frx.md)
-### 문제 해결
-#### [하이브리드 Azure AD 가입 Windows 10 및 Windows Server 2016 장치](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [하이브리드 Azure AD 가입 레거시 Windows 장치](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### 자습서
+#### [관리되는 도메인용 하이브리드 AD 조인 구성](devices/hybrid-azuread-join-managed-domains.md)
+#### [페더레이션된 도메인용 하이브리드 AD 조인 구성](devices/hybrid-azuread-join-federated-domains.md)
+#### [수동으로 하이브리드 Azure AD 조인 구성](devices/hybrid-azuread-join-manual-steps.md)
+#### [Windows 10 첫 실행 경험 중 Azure AD 조인 구성](devices/azuread-joined-devices-frx.md)
+
+### 방법 가이드
+#### [Azure AD 조인 계획](devices/azureadjoin-plan.md)
+#### [하이브리드 Azure AD 조인 구현 계획](devices/hybrid-azuread-join-plan.md)
+#### [장치의 하이브리드 Azure AD 조인 제어](devices/hybrid-azuread-join-control.md)
+#### [하이브리드 Azure AD 조인 Windows 현재 장치 문제 해결](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [하이브리드 Azure AD 조인 레거시 Windows 장치 문제 해결](devices/troubleshoot-hybrid-join-windows-legacy.md)
+
+### 개념
+### [Azure Portal을 사용하여 장치 관리](devices/device-management-azure-portal.md)
+### [FAQ](devices/faq.md)
 
 ## 앱 관리
 ### [개요](manage-apps/what-is-application-management.md)
@@ -472,6 +477,7 @@
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
 # 리소스
+## [Azure AD 배포 계획](./fundamentals/active-directory-deployment-plans.md)
 ## [Azure 피드백 포럼](https://feedback.azure.com/forums/169401-azure-active-directory)
 ## [Azure 로드맵](https://azure.microsoft.com/roadmap/?category=security-identity)
 ## [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)

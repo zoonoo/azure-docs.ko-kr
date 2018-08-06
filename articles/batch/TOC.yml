@@ -91,8 +91,6 @@
           href: batch-task-dependencies.md
         - name: 작업 실행을 위한 사용자 계정
           href: batch-user-accounts.md
-        - name: 코드 없이 Batch 작업 실행
-          href: batch-cli-templates.md
     - name: 작업 및 태스크 출력 유지
       href: batch-task-output.md
       items:
@@ -123,10 +121,13 @@
           href: batch-efficient-list-queries.md
     - name: 스크립팅 도구 사용
       items:
-        - name: PowerShell cmdlet 사용
+        - name: Azure PowerShell 사용
           href: batch-powershell-cmdlets-get-started.md
         - name: Azure CLI 사용
           href: batch-cli-get-started.md
+          items:
+            - name: Batch CLI 템플릿 사용
+              href: batch-cli-templates.md
     - name: Batch Node.js SDK 사용
       href: batch-nodejs-get-started.md
 - name: 참고 자료

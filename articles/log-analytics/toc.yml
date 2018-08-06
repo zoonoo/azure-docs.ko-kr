@@ -9,9 +9,9 @@
   items:
     - name: 수집 - Azure VM
       href: log-analytics-quick-collect-azurevm.md
-    - name: 수집 - Linux 컴퓨터
+    - name: 수집 - 하이브리드 Linux 컴퓨터
       href: log-analytics-quick-collect-linux-computer.md
-    - name: 수집 - Windows 컴퓨터
+    - name: 수집 - 하이브리드 Windows 컴퓨터
       href: log-analytics-quick-collect-windows-computer.md
 - name: 자습서
   items:

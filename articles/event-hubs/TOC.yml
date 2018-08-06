@@ -4,7 +4,7 @@
   items:
     - name: Event Hubs란?
       href: event-hubs-about.md
-    - name: Apache Kafka용 Event Hubs
+    - name: Apache Kafka용 Event Hubs(미리 보기)
       href: event-hubs-for-kafka-ecosystem-overview.md
     - name: Event Hubs 캡처
       href: event-hubs-capture-overview.md
