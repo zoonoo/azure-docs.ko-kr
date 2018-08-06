@@ -6,17 +6,17 @@ ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/15/2018
+ms.date: 07/31/2018
 ms.topic: quickstart
 ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: a35c46bd67a157416844c4054b75f993304298b4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 92f4fb57e3bd1f3ee61625256d661980d6a11275
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300755"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367133"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로 만들기 및 자동화 - Visual Studio
 
@@ -39,7 +39,8 @@ Azure Logic Apps을 처음 사용하며 단지 기본 개념만 필요한 경우
   * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 또는 Visual Studio 2015 - Community Edition 이상</a>. 
   이 빠른 시작에서는 무료로 제공되는 Visual Studio Community 2017을 사용합니다.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK(2.9.1 이상)</a> 및 <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">.NET용 Microsoft Azure SDK(2.9.1 이상)</a> 및 <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>. 
+  <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>에 대해 자세히 알아보세요.
 
   * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Visual Studio 2017용 Azure Logic Apps 도구</a> 또는 <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 버전</a>
   
@@ -50,7 +51,7 @@ Azure Logic Apps을 처음 사용하며 단지 기본 개념만 필요한 경우
 
 * 포함된 논리 앱 디자이너를 사용하는 동안 웹에 액세스
 
-  디자이너는 Azure에서 리소스를 만들고 논리 앱의 커넥터에서 속성 및 데이터를 읽기 위해 인터넷 연결을 필요로 합니다. 
+  디자이너가 Azure에서 리소스를 만들고 논리 앱의 커넥터에서 속성 및 데이터를 읽기 위해서는 인터넷 연결이 필요합니다. 
   예를 들어, Dynamics CRM Online 커넥터를 사용하는 경우 디자이너는 사용 가능한 사용자 지정 및 기본 속성에 대한 CRM 인스턴스를 확인합니다.
 
 ## <a name="create-azure-resource-group-project"></a>Azure 리소스 그룹 프로젝트 만들기
@@ -107,7 +108,7 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 
 다음으로, 새 RSS 피드 항목이 나타나면 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 추가합니다. 모든 논리 앱은 특정 조건을 충족할 경우 발행하는 트리거로 시작해야 합니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 실행하는 논리 앱 인스턴스를 만듭니다.
 
-1. Logic App 디자이너에서 검색 상자에 "rss"를 입력합니다. **RSS - 피드 항목이 게시되는 경우** 트리거를 선택합니다.
+1. Logic App 디자이너에서 검색 상자에 "rss"를 입력합니다. 이 트리거를 선택할 시기: **피드 항목이 게시되는 경우**
 
    ![트리거 및 작업을 추가하여 논리 앱 빌드](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -129,7 +130,7 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 
 논리 앱을 실행하기 전에 먼저 몇 단계가 걸리는 Visual Studio에서 Azure에 앱을 배포합니다.
 
-1. 프로젝트 바로 가기 메뉴의 솔루션 탐색기에서 **배포** > **새로 만들기...** 를 선택합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
+1. 프로젝트 바로 가기 메뉴의 솔루션 탐색기에서 **배포** > **새로 만들기**를 선택합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
    ![논리 앱 배포 만들기](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
@@ -166,9 +167,10 @@ Azure 리소스 그룹 프로젝트를 만든 후 **빈 논리 앱** 템플릿�
 
 1. 논리 앱을 만드는 데 사용된 동일한 계정으로 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>에 로그인합니다. 
 
-2. Azure 기본 메뉴에서 **리소스 그룹**을 선택합니다. 논리 앱에 대한 리소스 그룹을 선택합니다.
+2. Azure 기본 메뉴에서 **리소스 그룹**을 선택합니다.
+논리 앱의 리소스 그룹을 선택하고 **개요**를 선택합니다.
 
-3. **리소스 그룹 삭제**를 선택합니다. 리소스 그룹 이름을 입력하여 확인하고, **삭제**를 선택합니다.
+3. **개요** 페이지에서 **리소스 그룹 삭제**를 선택합니다. 리소스 그룹 이름을 입력하여 확인하고, **삭제**를 선택합니다.
 
    !["리소스 그룹" > "개요" > "리소스 그룹 삭제"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
 

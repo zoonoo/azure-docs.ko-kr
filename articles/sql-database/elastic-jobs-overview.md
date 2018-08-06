@@ -6,14 +6,14 @@ author: srinia
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 06/14/2018
+ms.date: 07/26/2018
 ms.author: srinia
-ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972165"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309047"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Elastic Database 작업을 사용하여 데이터베이스 그룹 관리
 
@@ -106,11 +106,25 @@ ms.locfileid: "38972165"
 > [!TIP]
 > 작업 실행 시 *동적 열거형*은 서버 또는 풀을 포함하는 대상 그룹에서 데이터베이스의 집합을 다시 평가합니다. 동적 열거형은 **작업 실행 시 서버나 풀에 존재하는 모든 데이터베이스에서 작업이 실행되는지** 확인합니다. 런타임 시 데이터베이스 목록의 재평가는 풀 또는 서버 멤버 자격이 자주 변경되는 시나리오에 특히 유용합니다.
 
-
 풀 및 단일 데이터베이스는 그룹에서 제외되거나 포함되는 것으로 지정할 수 있습니다. 이렇게 하면 데이터베이스의 모든 조합을 사용하여 대상 그룹을 만들 수 있습니다. 예를 들어 대상 그룹에 서버를 추가할 수 있지만 탄력적 풀에서 특정 데이터베이스를 제외합니다(또는 전체 풀을 제외).
 
 대상 그룹은 여러 지역 및 여러 구독에서 데이터베이스를 포함할 수 있습니다. 지역 간 실행은 동일한 지역 내 실행보다 더 많은 대기 시간이 필요합니다.
 
+다음 예제에서는 작업 실행 시 여러 대상 그룹 정의를 동적으로 열거하여 작업에서 실행할 데이터베이스를 결정하는 원리를 보여줍니다.
+
+![대상 그룹 예제](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+**예제 1**은 개별 데이터베이스 목록으로 구성되는 대상 그룹을 보여줍니다. 이 대상 그룹을 사용하여 작업 단계가 실행되면 작업 단계의 동작은 각 데이터베이스에서 실행됩니다.<br>
+**예제 2**는 Azure SQL Server를 대상으로 포함하는 대상 그룹을 보여줍니다. 이 대상 그룹을 사용하여 작업 단계가 실행되면 현재 서버에 있는 데이터베이스 목록을 확인하기 위해 서버가 동적으로 열거됩니다. 작업 단계의 동작은 각 데이터베이스에서 실행됩니다.<br>
+**예제 3**은 *예제 2*와 비슷한 대상 그룹을 보여주지만, 개별 데이터베이스가 제외됩니다. 제외된 데이터베이스에서 작업 단계의 동작이 실행되지 *않습니다*.<br>
+**예제 4**는 탄력적 풀을 대상으로 포함하는 대상 그룹을 보여줍니다. *예제 2*와 비슷하게, 풀에 있는 데이터베이스 목록을 확인하기 위해 런타임에 풀이 동적으로 열거됩니다.
+<br><br>
+
+
+![대상 그룹 예제](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+**예제 5** 및 *예제 6*은 포함 및 제외 규칙을 사용하여 Azure SQL Server, 탄력적 풀, 데이터베이스를 결합할 수 있는 고급 시나리오를 보여줍니다.<br>
+**예제 7**은 분할된 데이터베이스 맵의 분할된 데이터베이스를 런타임에도 평가할 수 있음을 보여줍니다.
 
 ### <a name="job"></a>작업
 

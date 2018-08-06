@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure IoT Edge 장치에 ASA 작업 배포 | Microsoft Docs
-description: Edge 장치에 Azure Stream Analytics를 모듈로 배포합니다.
+description: 이 자습서에서는 Iot Edge 장치에 Azure Stream Analytics를 모듈로 배포합니다.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540175"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413878"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포 - 미리 보기
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
 많은 IoT 솔루션에서는 분석 서비스를 사용하여 IoT 장치에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 얻습니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics][azure-stream] 논리를 가져와서 장치 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
 
@@ -36,10 +36,19 @@ ASA(Azure Stream Analytics)는 클라우드 및 IoT Edge 장치 둘 다에서 �
 >[!NOTE]
 >IoT Edge용 Azure Stream Analytics 모듈은 [공개 미리 보기](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)로 있습니다.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>필수 조건
 
-* IoT 허브
-* [Windows][lnk-quickstart-win] 또는 [Linux][lnk-quickstart-lin]용 빠른 시작에서 만들고 구성한 IoT Edge 장치 
+Azure IoT Edge 장치:
+
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+* Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
+
+클라우드 리소스:
+
+* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 만들기
 

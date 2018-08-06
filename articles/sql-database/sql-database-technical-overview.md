@@ -7,18 +7,27 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8e5518e0a2be98cc080a76cdf0697d6812ab22f8
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092106"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413385"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란? 
 
-SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 [단일 SQL 데이터베이스](sql-database-servers-databases.md) 및 [탄력적 풀](sql-database-elastic-pool.md)을 포함할 수 있는 논리 서버와 시스템 및 사용자 데이터베이스를 포함하는 [관리되는 인스턴스](sql-database-managed-instance.md)(공개 미리 보기)를 제공합니다. SQL Database는 서로 다른 두 구매 모델 내에서 동적으로 확장 가능한 성능을 제공합니다([vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)). 또한 SQL Database는 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](sql-database-in-memory.md)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다. 
+SQL Database는 관계형 데이터, 공간, JSON 및 XML과 같은 구조를 지원하는 Microsoft Azure의 범용 관계형 데이터베이스 관리 서비스입니다. SQL Database는 서로 다른 두 구매 모델 내에서 동적으로 확장 가능한 성능을 제공합니다([vCore 기반 구매 모델](sql-database-service-tiers-vcore.md) 및 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)). 또한 SQL Database는 고도의 분석 및 보고를 위한 [columnstore 인덱스](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) 및 고도의 트랜잭션 처리를 위한 [메모리 내 OLTP](sql-database-in-memory.md)와 같은 옵션을 제공합니다. Microsoft에서는 SQL 코드 베이스를 모두 원활하게 패치하고 업데이트하며 기본 인프라의 모든 관리를 추상화합니다. 
+
+Azure SQL Database는 Azure SQL 데이터베이스에 다음과 같은 옵션을 제공합니다.
+- 논리 서버를 통해 관리되고 고유한 리소스 집합이 있는 단일 데이터베이스 
+- 논리 서버를 통해 관리되고 공유 리소스 집합이 있는 [탄력적 풀](sql-database-elastic-pool.md)의 풀링된 데이터베이스
+- 시스템 및 사용자 데이터베이스를 포함하고 리소스 집합을 공유하는 [관리되는 인스턴스](sql-database-managed-instance.md)라고도 하는(공개 미리 보기에서) 데이터베이스 컬렉션의 일부
+
+다음 일러스트레이션은 이러한 배포 옵션을 보여줍니다.
+
+![배포 옵션](./media/sql-database-technical-overview/deployment-options.png) 
 
 SQL Database는 해당 코드 베이스를 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation)과 공유합니다. Microsoft의 클라우드 우선 전략을 사용하여 SQL Server의 최신 기능을 SQL Database에 먼저 릴리스한 다음 SQL Server 자체에 릴리스합니다. 이 방법은 패치 기능 또는 업그레이드에 대한 오버헤드 없이 수백만 개의 데이터베이스에 대해 테스트된 이러한 새로운 기능을 사용하여 최신 SQL Server 기능을 제공합니다. 별도로 공지된 새로운 기능에 대한 내용은 다음을 참조하세요.
 

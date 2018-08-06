@@ -1,22 +1,19 @@
 ---
-title: Jenkins를 사용하여 Azure에 웹앱 배포 | Microsoft Docs
+title: Jenkins를 사용하여 Azure에 웹앱 배포
 description: Jenkins 및 Docker를 사용하여 Java 웹앱에 대해 GitHub에서 Azure App Service로 지속적인 통합을 설정합니다.
-author: rloutlaw
-manager: douge
-ms.service: jenkins
-ms.search.scope: ''
-ms.devlang: java
-ms.topic: article
-ms.workload: web
-ms.date: 08/02/2017
-ms.author: routlaw
-ms.custom: Jenkins, devcenter
-ms.openlocfilehash: b2606acba341d4cfbc16314048e134fa30ff8606
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: e880d84c3ae0fd23c11bb9b30733544bd5f28872
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29853002"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389945"
 ---
 # <a name="set-up-continuous-integration-and-deployment-to-azure-app-service-with-jenkins"></a>Jenkins를 사용하여 Azure App Service로 지속적인 통합 및 배포 설정
 
@@ -74,8 +71,8 @@ ms.locfileid: "29853002"
     ![GitHub에서 포크](media/jenkins-java-quickstart/fork_github_repo.png)
 1. Jenkins 웹 콘솔에서 **새 항목**을 선택하고, 이름을 **MyJavaApp**으로 지정하고, **프리스타일 프로젝트**를 선택한 다음, **확인**을 선택합니다.   
     ![새 Jenkins 프리스타일 프로젝트](media/jenkins-java-quickstart/jenkins_freestyle.png)
-2. **일반** 섹션에서 **GitHub** 프로젝트를 선택하고 https://github.com/raisa/gs-spring-boot-docker와 같은 포크된 리포지토리 URL을 입력합니다.
-3. **소스 코드 관리** 섹션에서 **Git**을 선택하고, https://github.com/raisa/gs-spring-boot-docker.git와 같은 포크된 리포지토리 `.git` URL을 입력합니다.
+2. **일반** 섹션에서 **GitHub 프로젝트**를 선택하고 https://github.com/raisa/gs-spring-boot-docker와 같은 포크된 리포지토리 URL을 입력합니다.
+3. **소스 코드 관리** 섹션에서 **Git**을 선택하고 https://github.com/raisa/gs-spring-boot-docker.git과 같은 포크된 리포지토리 `.git` URL을 입력합니다.
 4. **트리거 빌드**에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 5. **빌드** 섹션에서 **빌드 단계 추가**를 선택하고 **최상위 Maven 대상 호출**을 선택합니다. **목표** 필드에 `package`를 입력합니다.
 6. **저장**을 선택합니다. 프로젝트 페이지에서 **지금 빌드**를 선택하여 작업을 테스트할 수 있습니다.
@@ -167,7 +164,7 @@ ms.locfileid: "29853002"
 ## <a name="deploy-the-app-from-github"></a>GitHub에서 앱 배포
 
 1. Jenkins 프로젝트에서 **지금 빌드**를 선택하여 샘플 앱을 Azure에 배포합니다.
-2. 빌드가 완료되면 앱이 Azure에서 게시 URL(예: http://myjavaapp.azurewebsites.net )에 나타납니다.   
+2. 빌드가 완료되면 앱이 Azure에서 게시 URL(예: http://myjavaapp.azurewebsites.net)에 나타납니다.   
    ![Azure에서 배포된 앱 보기](media/jenkins-java-quickstart/hello_docker_world_unedited.png)
 
 ## <a name="push-changes-and-redeploy"></a>변경 내용 푸시 및 재배포
@@ -180,9 +177,12 @@ ms.locfileid: "29853002"
     ```
 3. 리포지토리의 `master` 분기의 새 커밋에 의해 트리거된 새 빌드가 Jenkins에서 시작됩니다. 완료되면 Azure에서 앱을 다시 로드합니다.     
       ![Azure에서 배포된 앱 보기](media/jenkins-java-quickstart/hello_docker_world.png)
-  
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
+
+Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure VM을 빌드 에이전트로 사용](/azure/jenkins/jenkins-azure-vm-agents)
-- [Azure CLI로 작업 및 파이프라인의 리소스 관리](/azure/jenkins/execute-cli-jenkins-pipeline)
- 
+> [!div class="nextstepaction"]
+> [Azure VM을 빌드 에이전트로 사용](/azure/jenkins/jenkins-azure-vm-agents)

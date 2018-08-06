@@ -1,181 +1,292 @@
 ---
-title: Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스 | Microsoft Docs
-description: Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스합니다.
+title: Windows에서 Azure 파일 공유 사용 | Microsoft Docs
+description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하는 방법을 알아봅니다.
 services: storage
 documentationcenter: na
 author: RenaShahMSFT
 manager: aungoo
-editor: tysonn
+editor: tamram
 ms.assetid: ''
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 04/11/2018
+ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: e283619c7e634a1fbba5940e5c8545b0ee4de3d1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39392270"
 ---
-# <a name="mount-an-azure-file-share-and-access-the-share-in-windows"></a>Azure 파일 공유를 탑재하고 Windows에서 공유에 액세스
-[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에 탑재할 수 있습니다. 이 문서에서는 세 가지 방법, 즉 파일 탐색기 UI, PowerShell 및 명령 프롬프트를 사용하여 Windows에 Azure File 공유를 탑재합니다. 
+# <a name="use-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
+[Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows 및 Windows Server에서 매끄럽게 사용할 수 있습니다. 이 문서에서는 Windows 및 Windows Server에서 Azure 파일 공유를 사용할 때의 고려 사항을 설명합니다.
 
-온-프레미스 또는 다른 Azure 지역에서 호스팅되는 Azure 지역의 외부에 Azure 파일 공유를 탑재하려면 OS에서 SMB 3.0을 지원해야 합니다. 
+온-프레미스 또는 다른 Azure 지역처럼 호스팅되는 Azure 지역 외부에서 Azure 파일 공유를 사용하려면 OS가 SMB 3.0을 지원해야 합니다. 
 
-Azure VM 또는 온-프레미스에서 실행되는 Windows 설치에서 Azure File 공유를 탑재할 수 있습니다. 다음 표에서는 각 환경에서 탑재 파일 공유를 지원하는 OS 버전을 보여줍니다.
+Azure VM 또는 온-프레미스에서 실행되는 Windows에서 Azure 파일 공유를 사용할 수 있습니다. 다음 표는 각 환경에서 파일 공유를 지원하는 OS 버전을 보여줍니다.
 
 | Windows 버전        | SMB 버전 | Azure VM에 탑재 가능 | 온-프레미스에 탑재 가능 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 반기 채널<sup>1</sup> | SMB 3.0 | 예 | 예 |
-| Windows 10<sup>2</sup>  | SMB 3.0 | 예 | 예 |
-| Windows Server 2016    | SMB 3.0     | 예                   | 예                  |
-| Windows 8.1            | SMB 3.0     | 예                   | 예                  |
-| Windows Server 2012 R2 | SMB 3.0     | 예                   | 예                  |
-| Windows Server 2012    | SMB 3.0     | 예                   | 예                  |
-| Windows 7              | SMB 2.1     | 예                   | 아니요                   |
-| Windows Server 2008 R2 | SMB 2.1     | 예                   | 아니오                   |
+| Windows Server 2019(미리 보기)<sup>1</sup> | SMB 3.0 | yes | yes |
+| Windows 10<sup>2</sup> | SMB 3.0 | yes | yes |
+| Windows Server 반기 채널<sup>3</sup> | SMB 3.0 | yes | yes |
+| Windows Server 2016    | SMB 3.0     | yes                   | yes                  |
+| Windows 8.1            | SMB 3.0     | yes                   | yes                  |
+| Windows Server 2012 R2 | SMB 3.0     | yes                   | yes                  |
+| Windows Server 2012    | SMB 3.0     | yes                   | yes                  |
+| Windows 7              | SMB 2.1     | yes                   | 아니요                   |
+| Windows Server 2008 R2 | SMB 2.1     | yes                   | 아니요                   |
 
-<sup>1</sup>Windows Server 버전 1709  
-<sup>2</sup>Windows 10 버전 1507, 1607, 1703 및 1709
+<sup>1</sup>Windows Server 2019는 [Windows Server 참가자 프로그램](https://insider.windows.com/for-business-getting-started-server/)을 통해 미리 보기로 제공됩니다. Windows Server 2019는 아직 프로덕션 용도로 지원되지 않지만, Azure 파일 공유에 연결할 때 [Windows 문제 해결 가이드](storage-troubleshoot-windows-file-connection-problems.md)에 없는 문제가 발생할 경우 저희에게 알려 주십시오.  
+<sup>2</sup>Windows 10 버전 1507, 1607, 1703, 1709 및 1803.  
+<sup>3</sup>Windows Server 버전 1709 및 1803.
 
 > [!Note]  
 > 사용자의 Windows 버전에 대해 가장 최근의 KB를 선택하는 것이 좋습니다.
 
-## <a name="aprerequisites-for-mounting-azure-file-share-with-windows"></a></a>Windows에 Azure 파일 공유를 탑재하기 위한 필수 구성 요소 
-* **Storage 계정 이름**: Azure 파일 공유를 탑재하려면 Storage 계정의 이름이 필요합니다.
+## <a name="prerequisites"></a>필수 조건 
+* **Storage 계정 이름**: Azure 파일 공유를 탑재하려면 저장소 계정의 이름이 필요합니다.
 
-* **Storage 계정 키**: Azure File 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
+* **Storage 계정 키**: Azure 파일 공유를 탑재하려면 기본(또는 보조) 저장소 키가 필요합니다. SAS 키는 현재 탑재를 지원하지 않습니다.
 
-* **445 포트가 열려 있는지 확인**: Azure Files는 SMB 프로토콜을 사용합니다. SMB는 445 TCP 포트를 통해 통신합니다. 클라이언트 컴퓨터에서 방화벽이 445 TCP 포트를 차단하고 있지 않은지 확인합니다. Portqry를 사용하여 TCP 포트 445가 열려 있는지 여부를 확인할 수 있습니다. TCP 포트 445가 필터링됨으로 표시되는 경우 TCP 포트가 차단됩니다. 다음은 예제 쿼리입니다.
+* **445 포트가 열려 있는지 확인**: SMB 프로토콜은 TCP 포트 445가 열려 있어야 하며, 445 포트가 닫혀 있으면 연결이 실패합니다. `Test-NetConnection` cmdlet을 사용하여 방화벽이 포트 445를 차단하는지 확인할 수 있습니다. 다음 PowerShell 코드는 AzureRM PowerShell 모듈이 설치된 것으로 가정합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-azurerm-ps)를 참조하세요. 잊지 말고 `<your-storage-account-name>` 및 `<your-resoure-group-name>`을 저장소 계정과 관련된 이름으로 바꿔야 합니다.
 
-    `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
+    ```PowerShell
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
 
-    TCP 포트 445가 네트워크 경로를 따라 규칙을 통해 차단될 경우 다음 출력이 표시됩니다.
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
-    `TCP port 445 (Microsoft-ds service): FILTERED`
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    ```
 
-    Portqry 사용 방법에 대한 자세한 내용은 [Portqry.exe 명령줄 유틸리티에 대한 설명](https://support.microsoft.com/help/310099)을 참조하세요.
+    연결되면 다음 출력이 표시됩니다.
 
+    ```
+    ComputerName     : <storage-account-host-name>
+    RemoteAddress    : <storage-account-ip-address>
+    RemotePort       : 445
+    InterfaceAlias   : <your-network-interface>
+    SourceAddress    : <your-ip-address>
+    TcpTestSucceeded : True
+    ```
 
-## <a name="persisting-connections-across-reboots"></a>다시 부팅 시 연결 유지
-### <a name="cmdkey"></a>CmdKey
-영구 연결을 설정하는 가장 쉬운 방법은 “CmdKey” 명령줄 유틸리티를 사용하여 창에 저장소 계정 자격 증명을 저장하는 것입니다. 다음은 VM으로 저장소 계정 자격 증명을 유지하는 예제 명령줄입니다.
+    > [!Note]  
+    > 위의 명령은 저장소 계정의 현재 IP 주소를 반환합니다. 이 IP 주소가 동일하게 유지된다는 보장이 없으며, 언제든지 변경될 수 있습니다. 이 IP 주소를 스크립트로 또는 방화벽 구성으로 하드 코딩하지 마세요. 
+
+## <a name="using-an-azure-file-share-with-windows"></a>Windows에서 Azure 파일 공유 사용
+Windows에서 Azure 파일 공유를 사용하려면 Azure 파일 공유를 탑재하거나(드라이브 문자 또는 탑재 지점 경로에 할당한다는 의미) [UNC 경로](https://msdn.microsoft.com/library/windows/desktop/aa365247.aspx)를 통해 액세스해야 합니다. 
+
+Windows Server, Linux Samba 서버 또는 NAS 장치에 호스트되는 공유처럼 여러분이 기존에 상호 작용하던 다른 SMB 공유와는 달리, Azure 파일 공유는 현재 AD(Active Directory) 또는 AAD(Azure Active Directory)에 Kerberos 인증을 지원하지 않습니다. 현재 이 기능을 [개발 중](https://feedback.azure.com/forums/217298-storage/suggestions/6078420-acl-s-for-azurefiles)입니다. 그 대신, Azure 파일 공유를 포함하는 저장소 계정의 저장소 계정 키를 사용하여 Azure 파일 공유에 액세스해야 합니다. 저장소 계정 키는 사용자가 액세스하는 파일 공유 내 모든 파일 및 폴더와 저장소 계정에 포함된 모든 파일 공유 및 다른 저장소 리소스(BLOB, 큐, 테이블 등)에 대한 관리자 권한을 포함하여 저장소 계정의 관리자 키입니다. 이 정도로는 워크로드에 충분하지 않은 경우 [Azure File Sync](storage-files-planning.md#data-access-method)는 AAD 기반 Kerberos 인증 및 ACL 지원이 공개적으로 제공될 때까지 부족한 Kerberos 인증 및 ACL 지원을 해결합니다.
+
+SMB 파일 공유를 기대하는 LOB 응용 프로그램을 Azure로 전환하는 일반적인 패턴은 Azure VM에서 전용 Windows 파일 서버를 실행하는 대신 Azure 파일 공유를 사용하는 것입니다. Azure 파일 공유를 사용하도록 기간 업무 앱을 마이그레이션할 때 고려해야 하는 중요한 사항 중 하나로, 많은 기간 업무 앱은 VM 관리 계정이 아니라 시스템 권한이 제한된 전용 서비스 계정 하에서 실행됩니다. 따라서 관리 계정이 아닌 서비스 계정의 Azure 파일 공유에 대한 자격 증명을 탑재/저장해야 합니다.
+
+### <a name="persisting-azure-file-share-credentials-in-windows"></a>Windows에서 Azure 파일 공유 자격 증명 유지  
+[cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) 유틸리티를 사용하면 저장소 계정 자격 증명을 Windows 내에 저장할 수 있습니다. 즉, UNC 경로를 통해 Azure 파일 공유에 액세스하려고 시도하거나 Azure 파일 공유를 탑재하려고 시도할 때 자격 증명을 지정할 필요가 없습니다. 저장소 계정의 자격 증명을 저장하려면 다음 PowerShell 명령을 실행하고, `<your-storage-account-name>` 및 `<your-resoure-group-name>`을 적절하게 바꿉니다.
+
+```PowerShell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+# The cmdkey utility is a command-line (rather than PowerShell) tool. We use Invoke-Expression to allow us to 
+# consume the appropriate values from the storage account variables. The value given to the add parameter of the
+# cmdkey utility is the host address for the storage account, <storage-account>.file.core.windows.net for Azure 
+# Public Regions. $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign 
+# clouds or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+Invoke-Expression -Command "cmdkey /add:$([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) " + `
+    "/user:AZURE\$($storageAccount.StorageAccountName) /pass:$($storageAccountKeys[0].Value)"
 ```
-C:\>cmdkey /add:<yourstorageaccountname>.file.core.windows.net /user:<domainname>\<yourstorageaccountname> /pass:<YourStorageAccountKeyWhichEndsIn==>
-```
-> [!Note]
-> Domainname은 여기에서 “AZURE”가 됩니다.
 
-또한 CmdKey에서 저장한 자격 증명을 나열할 수 있습니다.
+list 매개 변수를 사용하여 cmdkey 유틸리티가 저장소 계정의 자격 증명을 저장했는지 확인할 수 있습니다.
 
+```PowerShell
+cmdkey /list
 ```
-C:\>cmdkey /list
-```
-다음과 같은 결과가 표시됩니다.
+
+Azure 파일 공유의 자격 증명이 성공적으로 저장된 경우 예상되는 출력은 다음과 같습니다(목록에 추가 키가 저장될 수 있음).
 
 ```
 Currently stored credentials:
 
-Target: Domain:target=<yourstorageaccountname>.file.core.windows.net
+Target: Domain:target=<storage-account-host-name>
 Type: Domain Password
-User: AZURE\<yourstorageaccountname>
+User: AZURE\<your-storage-account-name>
 ```
-자격 증명이 지속되면 더 이상 공유에 연결할 때 자격 증명을 제공할 필요가 없습니다. 대신 모든 자격 증명을 지정하지 않고 연결할 수 있습니다.
 
-## <a name="mount-the-azure-file-share-with-file-explorer"></a>파일 탐색기를 통해 Azure 파일 공유 탑재
+이제 추가 자격 증명을 입력하지 않고도 공유를 탑재하거나 액세스할 수 있습니다.
+
+#### <a name="advanced-cmdkey-scenarios"></a>고급 cmdkey 시나리오
+cmdkey와 관련하여 고려해야 할 두 가지 시나리오가 더 있습니다. 하나는 서비스 계정 같은 다른 사용자의 계정을 머신에 저장하는 것이고, 다른 하나는 PowerShell 원격을 사용하여 원격 머신에 자격 증명을 저장하는 것입니다.
+
+다른 사용자의 자격 증명을 머신에 저장하는 방법은 매우 간단합니다. 계정에 로그인할 때 다음 PowerShell 명령을 실행하기만 하면 됩니다.
+
+```PowerShell
+$password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
+Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
+```
+
+서비스 계정(또는 사용자 계정)의 사용자 컨텍스트에서 새 PowerShell 창이 열립니다. 그러면 [위](#persisting-azure-file-share-credentials-in-windows)에 설명된 대로 cmdkey 유틸리티를 사용할 수 있습니다.
+
+하지만 PowerShell 원격을 사용하여 원격 머신에 자격 증명을 저장하는 것은 불가능합니다. cmdkey는 추가의 경우에도 사용자가 PowerShell 원격을 통해 로그인 할 때 저장된 자격 증명에 액세스하는 것을 허용하지 않기 때문입니다. [원격 데스크톱](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windows)을 사용하여 머신에 로그인하는 것이 좋습니다.
+
+### <a name="mount-the-azure-file-share-with-powershell"></a>PowerShell을 사용하여 Azure 파일 공유 탑재
+일반(즉, 관리자 권한이 아닌) PowerShell 세션에서 다음 명령을 실행하여 Azure 파일 공유를 탑재합니다. `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>` 및 `<desired-drive-letter>`를 적절한 정보로 바꿉니다.
+
+```PowerShell
+$resourceGroupName = "<your-resource-group-name>"
+$storageAccountName = "<your-storage-account-name>"
+$fileShareName = "<your-file-share-name>"
+
+# These commands require you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+# already logged in.
+$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$storageAccountKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $resourceGroupName -Name $storageAccountName
+$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object { 
+    $_.Name -eq $fileShareName -and $_.IsSnapshot -eq $false
+}
+
+if ($fileShare -eq $null) {
+    throw [System.Exception]::new("Azure file share not found")
+}
+
+# The value given to the root parameter of the New-PSDrive cmdlet is the host address for the storage account, 
+# <storage-account>.file.core.windows.net for Azure Public Regions. $fileShare.StorageUri.PrimaryUri.Host is 
+# used because non-Public Azure regions, such as soverign clouds or Azure Stack deployments, will have different 
+# hosts for Azure file shares (and other storage resources).
+$password = ConvertTo-SecureString -String $storageAccountKeys[0].Value -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential -ArgumentList "AZURE\$($storageAccount.StorageAccountName)", $password
+New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($fileShare.StorageUri.PrimaryUri.Host)\$($fileShare.Name)" -Credential $credential -Persist
+```
+
+> [!Note]  
+> `New-PSDrive` cmdlet에서 `-Persist` 옵션을 사용하면 자격 증명이 저장되는 경우 부팅 시에만 파일 공유를 다시 탑재할 수 있습니다. [앞에서 설명한 대로](#persisting-azure-file-share-credentials-in-windows) cmdkey를 사용하여 자격 증명을 저장할 수 있습니다. 
+
+원하는 경우 다음 PowerShell cmdlet을 사용하여 Azure 파일 공유를 분리할 수 있습니다.
+
+```PowerShell
+Remove-PSDrive -Name <desired-drive-letter>
+```
+
+### <a name="mount-the-azure-file-share-with-file-explorer"></a>파일 탐색기를 통해 Azure 파일 공유 탑재
 > [!Note]  
 > 다음 지침은 Windows 10에서 보여 주는 것이며, 이전 릴리스와 다를 수 있습니다. 
 
-1. **파일 탐색기를 엽니다**. 이 작업은 [시작] 메뉴에서 열거나 Win+E 바로 가기 키를 눌러 수행할 수 있습니다.
+1. 파일 탐색기를 엽니다. [시작] 메뉴에서 열거나 Win+E 바로 가기 키를 눌러서 열 수 있습니다.
 
-2. **창 왼쪽에 있는 "이 PC" 항목으로 이동합니다. 이렇게 하면 리본에서 사용할 수 있는 메뉴가 변경됩니다. [컴퓨터] 메뉴 아래에서 "네트워크 드라이브 연결"을 선택합니다**.
+2. 창 왼쪽에 있는 **이 PC** 항목으로 이동합니다. 이렇게 하면 리본에서 사용할 수 있는 메뉴가 변경됩니다. [컴퓨터] 메뉴 아래에서 **네트워크 드라이브 연결**을 선택합니다.
     
     !["네트워크 드라이브 연결" 드롭다운 메뉴의 스크린샷](./media/storage-how-to-use-files-windows/1_MountOnWindows10.png)
 
-3. **Azure Portal의 "연결" 창에서 UNC 경로를 복사합니다.** 
+3. Azure Portal의 **연결** 창에서 UNC 경로를 복사합니다. 
 
     ![Azure Files 연결 창의 UNC 경로](./media/storage-how-to-use-files-windows/portal_netuse_connect.png)
 
-4. **드라이브 문자를 선택하고 UNC 경로를 입력합니다.** 
+4. 드라이브 문자를 선택하고 UNC 경로를 입력합니다. 
     
     !["네트워크 드라이브 연결" 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/2_MountOnWindows10.png)
 
-5. **사용자 이름으로 `Azure\`가 앞에 붙은 Storage 계정 이름을 사용하고, 암호로 Storage 계정 키를 사용합니다.**
+5. 사용자 이름으로 `AZURE\`가 앞에 붙은 Storage 계정 이름을 사용하고, 암호로 Storage 계정 키를 사용합니다.
     
     ![네트워크 자격 증명 대화 상자의 스크린샷](./media/storage-how-to-use-files-windows/3_MountOnWindows10.png)
 
-6. **Azure 파일 공유를 원하는 대로 사용합니다**.
+6. Azure 파일 공유를 원하는 대로 사용합니다.
     
     ![현재 탑재된 Azure 파일 공유](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
-7. **Azure 파일 공유를 분리(또는 연결 해제)할 준비가 되면 파일 탐색기의 "네트워크 위치" 아래에서 공유 항목을 마우스 오른쪽 단추로 클릭하고 "연결 해제"를 선택하여 Azure 파일 공유를 탑재 해제할 수 있습니다**.
+7. Azure 파일 공유를 분리할 준비가 되면 파일 탐색기의 **네트워크 위치** 아래에서 공유 항목을 마우스 오른쪽 단추로 클릭하고 **연결 해제**를 선택하여 Azure 파일 공유를 탑재 해제할 수 있습니다.
 
-## <a name="mount-the-azure-file-share-with-powershell"></a>PowerShell을 통해 Azure 파일 공유 탑재
-1. **다음 명령을 사용하여 Azure 파일 공유를 탑재합니다**. `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>`를 적절한 정보로 바꿉니다.
+## <a name="securing-windowswindows-server"></a>Windows/Windows Server 보안
+Windows에서 Azure 파일 공유를 탑재하려면 포트 445에 액세스할 수 있어야 합니다. 많은 조직에서 SMB 1에 내재된 보안 위험 때문에 포트 445를 차단합니다. CIFS(Common Internet File System)라고도 하는 SMB 1은 Windows 및 Windows Server에 포함된 레거시 파일 시스템 프로토콜입니다. SMB 1은 오래 되고 비효율적이며, 무엇보다도 안전하지 않은 프로토콜입니다. 좋은 소식은, Azure Files는 SMB 1을 지원하지 않습니다. 그리고 모든 지원되는 Windows 및 Windows Server 버전은 SMB 1을 제거하거나 사용하지 않도록 설정할 수 있습니다. 항상 프로덕션 환경에서 Azure 파일 공유를 사용하기 전에 SMB 1 클라이언트 및 서버를 Windows에서 제거하거나 사용하지 않도록 설정할 것을 [강력하게 권장합니다](https://aka.ms/stopusingsmb1).
 
-    ```PowerShell
-    $acctKey = ConvertTo-SecureString -String "<storage-account-key>" -AsPlainText -Force
-    $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "Azure\<storage-account-name>", $acctKey
-    New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\<storage-account-name>.file.core.windows.net\<share-name>" -Credential $credential
-    ```
+다음 표에서는 각 Windows 버전의 SMB 1 상태에 대한 자세한 정보를 제공합니다.
 
-2. **Azure 파일 공유를 원하는 대로 사용합니다**.
+| Windows 버전                           | SMB 1 기본 상태 | 해제/제거 방법       | 
+|-------------------------------------------|----------------------|-----------------------------|
+| Windows Server 2019(미리 보기)             | 사용 안 함             | Windows 기능을 사용하여 제거 |
+| Windows Server 버전 1709+            | 사용 안 함             | Windows 기능을 사용하여 제거 |
+| Windows 10 버전 1709+                | 사용 안 함             | Windows 기능을 사용하여 제거 |
+| Windows Server 2016                       | 사용              | Windows 기능을 사용하여 제거 |
+| Windows 10 버전 1507, 1607, 1703 | 사용              | Windows 기능을 사용하여 제거 |
+| Windows Server 2012 R2                    | 사용              | Windows 기능을 사용하여 제거 | 
+| Windows 8.1                               | 사용              | Windows 기능을 사용하여 제거 | 
+| Windows Server 2012                       | 사용              | 레지스트리를 사용하여 해제       | 
+| Windows Server 2008 R2                    | 사용              | 레지스트리를 사용하여 해제       |
+| Windows 7                                 | 사용              | 레지스트리를 사용하여 해제       | 
 
-3. **완료되면 다음 명령을 사용하여 Azure 파일 공유를 연결 해제합니다**.
+### <a name="auditing-smb-1-usage"></a>SMB 1 사용 감사
+> Windows Server 2019(미리 보기), Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows 10(버전 1507, 1607, 1703, 1709 및 1803), Windows Server 2012 R2, Windows 8.1에 적용
 
-    ```PowerShell
-    Remove-PSDrive -Name <desired-drive-letter>
-    ```
-
-> [!Note]  
-> Azure 파일 공유를 탑재하는 동안 나머지 OS에서 볼 수 있도록 `New-PSDrive`에서 `-Persist` 매개 변수를 사용할 수 있습니다.
-
-## <a name="mount-the-azure-file-share-with-command-prompt"></a>명령 프롬프트를 통해 Azure 파일 공유 탑재
-1. **다음 명령을 사용하여 Azure 파일 공유를 탑재합니다**. `<storage-account-name>`, `<share-name>`, `<storage-account-key>`, `<desired-drive-letter>`를 적절한 정보로 바꿉니다.
-
-    ```
-    net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
-    ```
-
-2. **Azure 파일 공유를 원하는 대로 사용합니다**.
-
-3. **완료되면 다음 명령을 사용하여 Azure 파일 공유를 연결 해제합니다**.
-
-    ```
-    net use <desired-drive-letter>: /delete
-    ```
+환경에서 SMB 1을 제거하기 전에, SMB 1 사용을 감사하여 변경 때문에 손상되는 클라이언트가 있는지 확인할 수 있습니다. SMB 1을 사용하여 SMB 공유에 대한 요청이 만들어지는 경우 `Applications and Services Logs > Microsoft > Windows > SMBServer > Audit` 아래의 이벤트 로그에 감사 이벤트가 기록됩니다. 
 
 > [!Note]  
-> Windows에서 자격 증명을 유지하여 다시 부팅할 때 Azure 파일 공유가 자동으로 다시 연결되도록 구성할 수 있습니다. 자격 증명을 유지하기 위한 명령은 다음과 같습니다.
->   ```
->   cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>
->   ```
+> Windows Server 2012 R2 및 Windows 8.1에서 감사를 지원하려면 [KB4022720](https://support.microsoft.com/help/4022720/windows-8-1-windows-server-2012-r2-update-kb4022720) 이상을 설치해야 합니다.
+
+감사를 사용하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
+
+```PowerShell
+Set-SmbServerConfiguration –AuditSmb1Access $true
+```
+
+### <a name="removing-smb-1-from-windows-server"></a>Windows Server에서 SMB 1 제거
+> Windows Server 2019(미리 보기), Windows Server 반기 채널(버전 1709 및 1803), Windows Server 2016, Windows Server 2012 R2에 적용
+
+Windows Server 인스턴스에서 SMB 1을 제거하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
+
+```PowerShell
+Remove-WindowsFeature -Name FS-SMB1
+```
+
+제거 프로세스를 완료하려면 서버를 다시 시작합니다. 
+
+> [!Note]  
+> Windows 10 및 Windows Server 버전 1709부터는 SMB 1이 기본적으로 설치되지 않으며 SMB 1 클라이언트 및 SMB 1 서버에 대한 별도의 Windows 기능이 있습니다. 두 SMB 1 서버(`FS-SMB1-SERVER`) 및 SMB 1 클라이언트(`FS-SMB1-CLIENT`)를 설치하지 않는 것이 좋습니다.
+
+### <a name="removing-smb-1-from-windows-client"></a>Windows 클라이언트에서 SMB 1 제거
+> Windows 10(버전 1507, 1607, 1703, 1709, 1803) 및 Windows 8.1에 적용
+
+Windows 클라이언트에서 SMB 1을 제거하려면 관리자 권한 PowerShell 세션에서 다음 cmdlet을 실행합니다.
+
+```PowerShell
+Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
+```
+
+제거 프로세스를 완료하려면 PC를 다시 시작합니다.
+
+### <a name="disabling-smb-1-on-legacy-versions-of-windowswindows-server"></a>레거시 버전의 Windows/Windows Server에서 SMB 1을 사용하지 않도록 설정
+> Windows Server 2012, Windows Server 2008 R2, Windows 7에 적용
+
+레거시 버전의 Windows/Windows Server에서 SMB 1을 완전히 제거할 수는 없지만 레지스트리를 통해 사용하지 않도록 설정할 수 있습니다. SMB 1을 사용하지 않도록 설정하려면 `HKEY_LOCAL_MACHINE > SYSTEM > CurrentControlSet > Services > LanmanServer > Parameters` 아래에서 값이 `0`이고 유형이 `SMB1`인 새 레지스트리 키 `DWORD`을 만듭니다.
+
+다음 PowerShell cmdlet을 사용하면 쉽게 처리할 수 있습니다.
+
+```PowerShell
+Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
+```
+
+이 레지스트리 키를 만든 후 서버를 다시 시작해야만 SMB 1이 사용하지 않도록 설정됩니다.
+
+### <a name="smb-resources"></a>SMB 리소스
+- [SMB 1 사용 중지](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [SMB 1 제품 클리어링 하우스](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [DSCEA를 사용하여 환경의 SMB 1 검색](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [그룹 정책을 통해 SMB 1을 사용하지 않도록 설정](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>다음 단계
-Azure Files에 대한 자세한 내용은 다음 링크를 참조합니다.
-
+Azure Files에 대한 자세한 내용은 다음 링크를 참조하세요.
+- [Azure 파일 배포에 대한 계획](storage-files-planning.md)
 * [FAQ](../storage-files-faq.md)
 * [Windows에서 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)      
-
-### <a name="conceptual-articles-and-videos"></a>개념 문서 및 비디오
-* [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)(Azure Files: Windows 및 Linux를 위한 원활한 클라우드 SMB 파일 시스템)
-* [Linux에서 Azure Files 사용 방법](../storage-how-to-use-files-linux.md)
-
-### <a name="tooling-support-for-azure-files"></a>Azure Files의 도구 지원
-* [Microsoft Azure Storage와 함께 AzCopy를 사용하는 방법](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
-* [Azure Storage에서 Azure CLI 사용](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Azure Files 문제 해결 - Windows](storage-troubleshoot-windows-file-connection-problems.md)
-* [Azure Files 문제 해결 - Linux](storage-troubleshoot-linux-file-connection-problems.md)
-
-### <a name="blog-posts"></a>블로그 게시물
-* [Azure Files는 현재 일반 공급됩니다.](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Azure Files 내부 구조](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Microsoft Azure 파일 서비스 소개](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
-* [Azure 파일로 데이터 마이그레이션(영문)](https://azure.microsoft.com/blog/migrating-data-to-microsoft-azure-files/)
-
-### <a name="reference"></a>참고 자료
-* [Storage Client Library for .NET 참조](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [파일 서비스 REST API 참조](http://msdn.microsoft.com/library/azure/dn167006.aspx)

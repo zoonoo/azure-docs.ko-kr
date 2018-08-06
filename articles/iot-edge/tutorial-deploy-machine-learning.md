@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge를 사용하여 Azure Machine Learning 배포 | Microsoft Docs
-description: Azure Machine Learning을 Edge 장치에 모듈로 배포
+description: 이 자습서에서는 Azure Machine Learning을 Edge 장치에 모듈로 배포합니다.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173508"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413076"
 ---
-# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning을 IoT Edge 모듈로 배포 - 미리 보기
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
 비즈니스 논리를 직접 IoT Edge 장치에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 장치가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure ML에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md)를 참조하세요.
 
@@ -33,15 +33,23 @@ ms.locfileid: "39173508"
 >[!NOTE]
 >Azure IoT Edge의 Azure Machine Learning 모듈은 공개 미리 보기로 있습니다. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서 작성한 Machine Learning 모듈을 테스트하려면 IoT Edge 장치가 필요합니다. [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)용 빠른 시작에서 구성한 장치를 사용할 수 있습니다. 
+Azure IoT Edge 장치:
 
-Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+* Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
 
-개발 컴퓨터에 다음 필수 구성 요소가 있어야 합니다. 
+클라우드 리소스:
+
+* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+
+개발 리소스:
 * Azure Machine Learning 계정입니다. [Azure Machine Learning 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
-* 머신에 있는 Azure ML용 모델 관리. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](../machine-learning/desktop-workbench/deployment-setup-configuration.md)의 지침을 따릅니다. 배포 설정 과정에서 가능하다면 클러스터 대신 로컬 단계를 선택하는 것이 좋습니다.
+* Azure ML용 모델 관리. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](../machine-learning/desktop-workbench/deployment-setup-configuration.md)의 지침을 따릅니다. 배포 설정 과정에서 가능하다면 클러스터 대신 로컬 단계를 선택하는 것이 좋습니다.
 
 ### <a name="disable-process-identification"></a>프로세스 식별 사용 안 함
 
@@ -108,7 +116,7 @@ az ml service create realtime --model-file model.pkl -f iot_score.py -n machinel
 4. **로그인 서버**, **사용자 이름** 및 **암호**를 복사합니다.  Edge 장치에서 레지스트리에 액세스하려면 이러한 항목이 필요합니다.
 5. **리포지토리** 선택
 6. **machinelearningmodule** 선택
-7. 이제 컨테이너의 전체 이미지 경로가 있습니다. 다음 섹션에서 사용하기 위해 이 이미지 경로를 적어둡니다. 다음과 같이 표시됩니다. **<registry_name>.azureacr.io/machinelearningmodule:1**
+7. 이제 컨테이너의 전체 이미지 경로가 있습니다. 다음 섹션에서 사용하기 위해 이 이미지 경로를 적어둡니다. **<registry_name>.azurecr.io/machinelearningmodule:1**처럼 표시됩니다.
 
 ## <a name="deploy-to-your-device"></a>새 장치에 배포
 

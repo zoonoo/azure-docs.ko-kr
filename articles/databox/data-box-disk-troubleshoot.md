@@ -1,6 +1,6 @@
 ---
 title: Azure Data Box Disk 문제 해결 | Microsoft Docs
-description: Azure Data Box Disk에서 문제를 확인하는 방법을 설명합니다.
+description: Azure Data Box Disk에서 발견된 문제 해결 방법을 설명합니다.
 services: databox
 documentationcenter: NA
 author: alkohli
@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090778"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362663"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Azure Data Box Disk에서 문제 해결(미리 보기)
 
 이 아티클은 미리 보기 릴리스를 실행하는 Microsoft Azure Data Box에 적용됩니다. 이 아티클에서는 Data Box 및 Data Box Disk에서 수행할 수 있는 복잡한 워크플로 및 관리 작업 중 일부를 설명합니다. 
 
-Data Box 서비스 UI(포털 UI라고 함) 및 장치에 대한 로컬 웹 UI를 사용하여 Data Box를 관리할 수 있습니다. Data Box Disk는 Azure Portal을 통해서만 관리될 수 있습니다. 이 아티클은 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure Portal을 사용하여 주문을 관리하고, 장치를 관리하고, 터미널 단계로 진행될 때 주문의 상태를 추적합니다.
+Azure Portal을 통해 Data Box Disk를 관리할 수 있습니다. 이 아티클은 Azure Portal을 사용하여 수행할 수 있는 작업에 중점을 둡니다. Azure Portal을 사용하여 주문을 관리하고, 장치를 관리하고, 완료 단계가 진행될 때 주문 상태를 추적합니다.
 
 이 문서에는 다음 자습서가 포함되어 있습니다.
 

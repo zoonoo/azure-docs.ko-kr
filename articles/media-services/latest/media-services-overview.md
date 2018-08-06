@@ -16,12 +16,12 @@ ms.workload: media
 ms.date: 07/14/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: ad3b8755615332249ac00f43a2d0cc5fa13a7233
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113287"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325934"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Azure Media Services v3란?
 
@@ -117,21 +117,22 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
 
 ## <a name="how-can-i-get-started-with-v3"></a>v3는 어떻게 시작하나요?
 
-개발자인 경우 Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다. [여기](https://github.com/Azure-Samples/media-services-v3-rest-postman)에서 REST Postman 예제를 찾을 수 있습니다. [Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)를 사용할 수도 있습니다.
+개발자인 경우 Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) 또는 REST API와 상호 작용할 수 있도록 하는 클라이언트 라이브러리를 사용하여 사용자 지정 미디어 워크플로를 손쉽게 만들고, 관리하고 유지할 수 있습니다.  
+
+Media Services는 기본 설정된 언어/기술에 대한 SDK를 생성하는 데 사용할 수있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media)을 제공합니다.  
 
 Microsoft는 다음 클라이언트 라이브러리를 생성하고 지원합니다. 
 
-|클라이언트 라이브러리|샘플|
-|---|---|
-|[Azure CLI SDK](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)|[Azure CLI 샘플](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)|
-|[.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)|[.NET 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)|
-|[.NET Core SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)(**.NET CLI** 탭 선택)|[.NET Core 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)|
-|[Java SDK](https://docs.microsoft.com/java/api/mediaservices/management?view=azure-java-stable)||
-|[Node.js SDK](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/index?view=azure-node-latest)|[Node.js 샘플](https://github.com/Azure-Samples/media-services-v3-node-tutorials)|
-|[Python SDK](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)||
-|[SDK로 이동](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)||
-
-Media Services는 기본 설정된 언어/기술에 대한 SDK를 생성하는 데 사용할 수있는 [Swagger 파일](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media)을 제공합니다.  
+|API 참조|SDK/도구|예|
+|---|---|---|---|
+|[REST 참조](https://aka.ms/ams-v3-rest-ref)|[REST SDK](https://aka.ms/ams-v3-rest-sdk)|[REST Postman 예제](https://github.com/Azure-Samples/media-services-v3-rest-postman)<br/>[Azure Resource Manager 기반 REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)|
+|[Azure CLI 참조](https://aka.ms/ams-v3-cli-ref)|[Azure CLI](https://aka.ms/ams-v3-cli)|[Azure CLI 예제](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)||
+|[.NET 참조](https://aka.ms/ams-v3-dotnet-ref)|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials)||
+||[.NET Core SDK](https://aka.ms/ams-v3-dotnet-sdk)(**.NET CLI** 탭 선택)|[.NET Core 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials)||
+|[Java 참조](https://aka.ms/ams-v3-java-ref)|[Java SDK](https://aka.ms/ams-v3-java-sdk)||
+|[Node.js 예제](https://aka.ms/ams-v3-nodejs-ref)|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)|[Node.js 샘플](https://github.com/Azure-Samples/media-services-v3-node-tutorials)||
+|[Python 예제](https://aka.ms/ams-v3-python-ref)|[Python SDK](https://aka.ms/ams-v3-python-sdk)||
+|[참조로 이동](https://aka.ms/ams-v3-go-ref)|[SDK로 이동](https://aka.ms/ams-v3-go-sdk)||
 
 ## <a name="next-steps"></a>다음 단계
 

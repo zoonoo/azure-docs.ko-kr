@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 02ce774f30cd03b7520f482196629bf4b7ec9ae5
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: c6ae2aa46ae17c4ef995211b02112e1c05e2ec2f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318571"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344480"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  
@@ -28,8 +28,8 @@ ms.locfileid: "36318571"
 Azure App Service Environment는 Azure App Service 앱을 매우 높은 확장성으로 안전하게 실행하기 위해 완전히 격리된 전용 환경을 제공하는 Azure App Service 기능입니다. 이 기능은 다음을 호스트할 수 있습니다.
 
 * Windows 웹앱
-* Linux 웹앱(미리 보기)
-* Docker 컨테이너(미리 보기)
+* Linux 웹앱 
+* Docker 컨테이너
 * 모바일 앱
 * Functions
 

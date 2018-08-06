@@ -1,22 +1,19 @@
 ---
 title: Azure VM 에이전트를 통해 Jenkins 배포의 크기를 조정합니다.
 description: Jenkins Azure VM 에이전트 플러그 인과 함께 Azure Virtual Machines를 사용하여 Jenkins 파이프라인에 추가 용량을 추가합니다.
-services: multiple
-documentationcenter: ''
-author: rloutlaw
-manager: justhe
-ms.service: multiple
-ms.workload: multiple
-ms.topic: article
-ms.date: 8/25/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 4d45ed14be499ed927f1433e134a029066146eea
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: tutorial
+ms.author: tarcher
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: 7f3facbc1bca51061d49ca99778c60d58c525144
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29392643"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391277"
 ---
 # <a name="scale-your-jenkins-deployments-to-meet-demand-with-azure-vm-agents"></a>Azure VM 에이전트를 통해 요구 사항을 충족하도록 Jenkins 배포의 비율 크기 조정
 
@@ -142,6 +139,10 @@ Azure VM 에이전트를 정의하는 데 사용할 템플릿을 구성합니다
 3. 빌드가 완료되면 **콘솔 출력**으로 이동합니다. 해당 빌드가 Azure 에이전트에서 원격으로 수행되었음이 표시됩니다.
 
 ![콘솔 출력](./media/jenkins-azure-vm-agents/console-output.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
+
+Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

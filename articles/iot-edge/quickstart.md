@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1437c3552a7af5d5474cf3bdaabe95d5415af603
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091816"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414214"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -36,21 +36,9 @@ ms.locfileid: "39091816"
 
 활성 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][lnk-account]을 만드세요.
 
-## <a name="prerequisites"></a>필수 조건
-
-이 빠른 시작은 Windows 컴퓨터 또는 가상 머신을 IoT Edge 장치에 사용 설정합니다. 가상 머신에서 Windows를 실행하는 경우 [중첩된 가상화][lnk-nested]를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요. 
-
-IoT Edge 장치에 대해 사용하고 있는 컴퓨터에서 다음 필수 구성 요소를 준비시킵니다.
-
-1. 지원되는 Windows 버전을 사용하고 있는지 확인합니다.
-   * Windows 10 이상
-   * Windows Server 2016 이상
-2. [Windows용 Docker][lnk-docker]를 설치하고, 지금 실행 중인지 확인합니다.
-3. [Linux 컨테이너](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)를 사용하여 Docker 구성
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-이 빠른 시작에서 많은 단계를 완료하려면 Azure CLI를 사용합니다. Azure IoT에는 추가 기능을 사용하도록 설정하는 확장이 있습니다. 
+이 빠른 시작에서는 Azure CLI를 사용하여 많은 단계를 수행하고, Azure IoT에는 추가 기능을 사용할 수 있게 하는 확장이 있습니다. 
 
 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 
@@ -58,24 +46,40 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="create-an-iot-hub"></a>IoT Hub 만들기
+## <a name="prerequisites"></a>필수 조건
 
-Azure Portal에서 IoT Hub를 만들어 빠른 시작을 시작합니다.
-![IoT Hub 만들기][3]
+클라우드 리소스: 
 
-이 빠른 시작에는 무료 수준의 IoT Hub가 작동합니다. 이전에 IoT Hub를 사용했고 이미 만든 체험 허브가 있으면 해당 IoT 허브를 사용할 수 있습니다. 구독마다 하나의 무료 IoT Hub만 가질 수 있습니다. 
-
-1. Azure Cloud Shell에서 리소스 그룹을 만듭니다. 다음 코드는 **미국 서부** 지역에 **IoTEdgeResources**라는 리소스 그룹을 만듭니다. 빠른 시작 및 자습서의 모든 리소스를 한 그룹에 배치하면 함께 관리할 수 있습니다. 
+* 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-1. 새 리소스 그룹에 IoT Hub를 만듭니다. 다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브의 고유한 이름으로 바꿉니다.
+IoT Edge 장치 역할을 하는 Windows 컴퓨터 또는 가상 머신입니다. 
+
+* 지원되는 Windows 버전을 사용하세요.
+   * Windows 10 이상
+   * Windows Server 2016 이상
+* 가상 머신인 경우 [중첩된 가상화][lnk-nested]를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요. 
+* [Windows용 Docker][lnk-docker]를 설치하고, 지금 실행 중인지 확인합니다.
+* [Linux 컨테이너](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)를 사용하여 Docker 구성
+
+## <a name="create-an-iot-hub"></a>IoT Hub 만들기
+
+Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합니다. 
+
+![IoT Hub 만들기][3]
+
+이 빠른 시작에는 무료 수준의 IoT Hub가 작동합니다. 이전에 IoT Hub를 사용했고 이미 만든 체험 허브가 있으면 해당 IoT 허브를 사용할 수 있습니다. 구독마다 하나의 무료 IoT Hub만 가질 수 있습니다. 
+
+다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브의 고유한 이름으로 바꿉니다.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
+
+   구독에 이미 한 개의 무료 허브가 있기 때문에 오류가 발생하는 경우 SKU를 **S1**으로 변경합니다. 
 
 ## <a name="register-an-iot-edge-device"></a>IoT Edge 장치 등록
 
@@ -206,7 +210,13 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. **Moby 컨테이너 런타임 설정** 섹션을 찾아 **네트워크**에 대한 값이 `nat`로 설정되어 있는지 확인합니다.
+8. **Moby 컨테이너 런타임 설정** 섹션을 찾아 **네트워크** 값의 주석이 제거되었고 **azure-iot-edge**로 설정되었는지 확인합니다.
+
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
 
 9. 구성 파일을 저장합니다. 
 
@@ -237,7 +247,8 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. IoT Edge 장치에서 실행되는 모든 모듈을 봅니다. 서비스를 처음 시작했으므로 **edgeAgent** 모듈이 실행되는 것을 확인해야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 장치에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다. 

@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 사용하여 Azure 방화벽 배포 및 구성
+title: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Firewall을 배포하고 구성하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145321"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358949"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -88,6 +88,9 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
     방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
 11. **주소 범위**에 **10.0.1.0/24**를 입력합니다.
 12. 다른 기본 설정을 사용한 다음, **만들기**를 클릭합니다.
+
+> [!NOTE]
+> AzureFirewallSubnet 서브넷의 최소 크기는/25입니다.
 
 ### <a name="create-additional-subnets"></a>추가 서브넷 만들기
 
@@ -172,6 +175,9 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 4. 배포가 완료되면 **Test-FW-RG** 리소스 그룹으로 이동하고 **Test-FW01** 방화벽을 클릭합니다.
 6. 개인 IP 주소를 참고합니다. 기본 경로를 만들 때 나중에 사용할 수 있습니다.
 
+> [!NOTE]
+> 공용 IP 주소는 표준 SKU 형식이어야 합니다.
+
 [//]: # (방화벽에 대한 개인 IP를 확인해야 합니다.)
 
 ## <a name="create-a-default-route"></a>기본 경로 만들기
@@ -233,7 +239,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 4. **동작**에 대해 **허용**을 선택합니다.
 
 6. **규칙** 아래에서 **이름**에 **AllowDNS**를 입력합니다.
-8. **프로토콜**의 경우 **TCP**를 선택합니다.
+8. **프로토콜**로 **UDP**를 선택합니다.
 9. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
 10. 대상 주소에 **209.244.0.3,209.244.0.4**를 입력합니다.
 11. **대상 포트**에 **53**을 입력합니다.

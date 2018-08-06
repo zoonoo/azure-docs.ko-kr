@@ -3,17 +3,17 @@ title: Azure 빠른 시작 - Azure Portal을 사용하여 개체 저장소에 Bl
 description: 이 빠른 시작에서는 개체(Blob) 저장소에서 Azure Portal을 사용합니다. 그런 다음, Azure Portal을 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: 1468aa0f12a05b71e3b997e1850d345a492308f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f281532260cfc895ecea56666260a1df1fb0c0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400504"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 BLOB 업로드, 다운로드 및 나열
 
@@ -21,7 +21,7 @@ ms.lasthandoff: 04/16/2018
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 6b25712d660c26f2e7206b361c443b8f97aad361
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867616"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391334"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Log Analytics 로그 검색을 사용하여 수집한 데이터를 보고 분석합니다.
 
@@ -43,7 +43,7 @@ Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인�
 로그 검색 포털을 열어서 시작합니다.   
 
 1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에 **모니터**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **모니터**를 선택합니다.
-2. 모니터 탐색 메뉴에서 **Log Analytics**를 선택한 다음, 작업 영역 선택
+2. 모니터 탐색 메뉴에서 **Log Analytics**를 선택한 다음, 작업 영역을 선택합니다.
 
 ## <a name="create-a-simple-search"></a>단순 검색 만들기
 사용할 데이터를 가장 빠르게 검색할 수 있는 방법은 테이블의 모든 레코드를 반환하는 단순 쿼리를 사용하는 것입니다.  Windows 또는 Linux 클라이언트가 작업 영역에 연결되어 있으면 Event(Windows) 또는 Syslog(Linux) 테이블에 데이터가 포함되어 있습니다.

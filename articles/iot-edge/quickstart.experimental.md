@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 28d50ac3a4c080062c12c11977eebb61b0e52eed
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115588"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412538"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -179,8 +179,14 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. **Moby 컨테이너 런타임 설정** 섹션을 찾아 **네트워크**에 대한 값이 `nat`로 설정되어 있는지 확인합니다.
+8. **Moby 컨테이너 런타임 설정** 섹션을 찾아 **네트워크** 값의 주석이 제거되었고 **azure-iot-edge**로 설정되었는지 확인합니다.
 
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
+   
 9. 구성 파일을 저장합니다. 
 
 10. PowerShell에서 IoT Edge 서비스를 다시 시작합니다.
@@ -210,7 +216,8 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. IoT Edge 장치에서 실행되는 모든 모듈을 봅니다. 서비스를 처음 시작했으므로 **edgeAgent** 모듈이 실행되는 것을 확인해야 합니다. edgeAgent 모듈은 기본적으로 실행되며, 장치에 배포하는 추가 모듈을 설치하고 시작하는 데 도움이 됩니다. 

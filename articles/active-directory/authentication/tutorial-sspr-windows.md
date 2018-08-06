@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e4e94567cf978631be52a3304b47b68f61ac3fff
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161166"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413753"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -115,6 +115,8 @@ Hyper-V를 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 
 원격 데스크톱을 사용하여 이 기능을 테스트할 때에는 "암호 재설정" 링크가 표시되지 않습니다.
 
 * 현재 원격 데스크톱에서는 암호 재설정이 지원되지 않습니다.
+
+레지스트리 키 또는 그룹 정책을 사용하여 Windows 잠금 화면을 사용하지 않도록 설정하면 **암호 재설정**을 사용할 수 없습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

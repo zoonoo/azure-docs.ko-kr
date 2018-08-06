@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2293390684a8dcdf5f32bbae8f04fe7317d389e2
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c94479ca523f0097c8fbf94729f3a255ffc0c2bf
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258968"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413224"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>자습서: C# IoT Edge 모듈 개발 및 시뮬레이트된 장치에 배포
 
@@ -29,18 +29,26 @@ ms.locfileid: "39258968"
 
 이 자습서에서 만드는 IoT Edge 모듈은 장치에서 생성한 온도 데이터를 필터링합니다. 온도가 지정된 임계값을 초과하는 경우에만 메시지 업스트림을 전송합니다. Edge에서 이 유형의 분석은 클라우드로 전송되고 저장되는 데이터 양을 줄이는 데 유용합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)용 빠른 시작에서 만든 Azure IoT Edge 장치
-* IoT Edge 장치에 대한 기본 키 연결 문자열입니다.  
+Azure IoT Edge 장치:
+
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+
+클라우드 리소스:
+
+* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+
+개발 리소스:
+
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * Visual Studio Code에 대한 [Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-* 개발 머신의 [Docker CE](https://docs.docker.com/install/) 
+* [Docker CE](https://docs.docker.com/install/)
 
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
@@ -104,16 +112,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
        public int humidity {get; set;}         
     }
     ```
-
-8. **Init** 메서드는 사용할 모듈에 대한 통신 프로토콜을 선언합니다. MQTT 설정을 AMPQ 설정으로 바꿉니다. 
-
-   ```csharp
-   // MqttTransportSettings mqttSetting = new MqttTransportSettings(TransportType.Mqtt_Tcp_Only);
-   // ITransportSettings[] settings = { mqttSetting };
-
-   AmqpTransportSettings amqpSetting = new AmqpTransportSettings(TransportType.Amqp_Tcp_Only);
-   ITransportSettings[] settings = {amqpSetting};
-   ```
 
 8. **Init** 메서드에서 코드는 **ModuleClient** 개체를 만들고 구성합니다. 이 개체를 사용하면 메시지를 주고받기 위해 로컬 Azure IoT Edge 런타임에 모듈을 연결할 수 있습니다. **Init** 메서드에 사용된 연결 문자열이 IoT Edge 런타임에 의해 모듈에 제공됩니다. **ModuleClient**를 만든 후 코드는 모듈 쌍의 원하는 속성에서 **temperatureThreshold** 값을 읽습니다. 코드는 **input1** 엔드포인트를 통해 IoT Edge 허브에서 메시지를 수신하는 콜백을 등록합니다. **SetInputMessageHandlerAsync** 메서드를 새 메서드로 바꾸고, 업데이트에 대한 **SetDesiredPropertyUpdateCallbackAsync** 메서드를 원하는 속성에 추가합니다. 이 변경을 수행하려면 **Init** 메서드의 마지막 줄을 다음 코드로 바꾸세요.
 

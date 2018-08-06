@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 06/13/2018
+ms.date: 07/31/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 8b9f53b34b75f9827e4976681a78f873b812ad96
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c84b14eb3eaf59e2bb01913c8c3addc02ab0e5db
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055120"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363643"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>빠른 시작: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -26,13 +26,11 @@ ms.locfileid: "39055120"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.27 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서는 Azure CLI 버전 2.0.43 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다.
-
-리소스 그룹을 만들 때 위치를 지정하라는 메시지가 표시되며 이 곳이 Azure에서 리소스가 유지되는 곳입니다.
+[az group create][az-group-create] 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포되고 관리되는 논리 그룹입니다. 리소스 그룹을 만들 때 위치를 지정하라는 메시지가 나타납니다. 이 위치는 Azure에서 리소스가 실행되는 위치입니다.
 
 다음 예제에서는 *eastus* 위치에 *myAKSCluster*라는 리소스 그룹을 만듭니다.
 
@@ -57,10 +55,10 @@ az group create --name myAKSCluster --location eastus
 
 ## <a name="create-aks-cluster"></a>AKS 클러스터 만들기
 
-[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. AKS 클러스터를 배포할 때 컨테이너 상태 모니터링 솔루션도 사용할 수 있습니다. 컨테이너 상태 모니터링 솔루션을 사용하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service 상태 모니터링][aks-monitor]을 참조하세요.
+[az aks create][az-aks-create] 명령을 사용하여 AKS 클러스터를 만듭니다. 다음 예제에서는 하나의 노드가 있는 *myAKSCluster*라는 클러스터를 만듭니다. 컨테이너 상태 모니터링은 *--enable-addons monitoring* 매개 변수를 사용하여 설정할 수도 있습니다. 컨테이너 상태 모니터링 솔루션을 사용하는 방법에 대한 자세한 내용은 [Azure Kubernetes Service 상태 모니터링][aks-monitor]을 참조하세요.
 
 ```azurecli-interactive
-az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --generate-ssh-keys
+az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 --enable-addons monitoring --generate-ssh-keys
 ```
 
 몇 분 후 명령이 완료되고 클러스터에 대해 JSON 형식 정보가 반환됩니다.
@@ -69,20 +67,20 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --node-count 1 -
 
 Kubernetes 클러스터를 관리하려면 [kubectl][kubectl] Kubernetes 명령줄 클라이언트를 사용합니다.
 
-Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습니다. kubectl을 로컬로 설치하려면 [az aks install-cli][az-aks-install-cli] 명령을 사용합니다.
+Azure Cloud Shell을 사용하는 경우 `kubectl`이 이미 설치되어 있습니다. kubectl을 로컬로 설치하려면 [az aks install-cli][az-aks-install-cli] 명령을 사용합니다.
 
 
 ```azurecli
 az aks install-cli
 ```
 
-Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다. 이 단계에서는 자격 증명을 다운로드하고 Kubernetes CLI가 자격 증명을 사용하도록 구성합니다.
+Kubernetes 클러스터에 연결하도록 `kubectl`을 구성하려면 [az aks get-credentials][az-aks-get-credentials] 명령을 사용합니다. 이 단계에서는 자격 증명을 다운로드하고 Kubernetes CLI가 자격 증명을 사용하도록 구성합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
 ```
 
-클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다. 표시되기 까지 몇 분이 걸릴 수 있습니다.
+클러스터에 대한 연결을 확인하려면 [kubectl get][kubectl-get] 명령을 사용하여 클러스터 노드 목록을 반환합니다. 노드가 표시될 때까지 몇 분 정도 걸릴 수 있습니다.
 
 ```azurecli-interactive
 kubectl get nodes
@@ -97,7 +95,7 @@ k8s-myAKSCluster-36346190-0   Ready     agent     2m        v1.7.7
 
 ## <a name="run-the-application"></a>응용 프로그램 실행
 
-Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. Azure Vote Python 응용 프로그램과 Redis 인스턴스 각각에 대한 두 개의 [Kubernetes 배포][kubernetes-deployment]를 포함합니다. 또한 두 개의 [Kubernetes Services][kubernetes-service], Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 응용 프로그램에 액세스하기 위한 외부 서비스가 만들어집니다.
+Kubernetes 매니페스트 파일은 어떤 컨테이너 이미지가 실행되는지 등과 같은 클러스터에 대해 원하는 상태를 정의합니다. 이 예제에서는 Azure Vote 응용 프로그램을 실행하는 데 필요한 모든 개체를 만드는 데 매니페스트를 사용합니다. 이 매니페스트는 Azure Vote Python 응용 프로그램과 Redis 인스턴스 각각에 대한 두 개의 [Kubernetes 배포][kubernetes-deployment]를 포함합니다. 또한 두 개의 [Kubernetes Services][kubernetes-service], Redis 인스턴스에 대한 내부 서비스, 인터넷에서 Azure Vote 응용 프로그램에 액세스하기 위한 외부 서비스가 만들어집니다.
 
 `azure-vote.yaml`이라는 파일을 만들고 다음 YAML 코드에 복사합니다. Azure Cloud Shell에서 작업하고 있는 경우 이 파일은 가상 또는 실제 시스템에서 작업하고 있는 것처럼 vi 또는 Nano를 사용하여 만들 수 있습니다.
 
@@ -204,6 +202,24 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![Azure Vote로 이동하는 이미지](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
+## <a name="monitor-health-and-logs"></a>상태 및 로그 모니터링
+
+AKS 클러스터가 생성될 때 클러스터 노드와 Pod의 상태 메트릭을 캡처하기 위해 모니터링이 설정되었습니다. 이 상태 메트릭은 Azure Portal에서 사용할 수 있습니다. 컨테이너 상태 모니터링에 대한 자세한 내용은 [Azure Kubernetes Service 상태 모니터링][aks-monitor]을 참조하세요.
+
+Azure Vote Pod의 현재 상태, 작동 시간 및 리소스 사용량을 보려면 다음 단계를 완료하세요.
+
+1. 웹 브라우저를 열고 Azure Portal [https://portal.azure.com][azure-portal]로 이동합니다.
+1. *myResourceGroup* 같은 리소스 그룹을 선택하고, *myAKSCluster* 같은 AKS 클러스터를 선택합니다. 
+1. **컨테이너 상태 모니터링** > **기본** 네임스페이스 > **컨테이너**를 차례로 선택합니다.
+
+다음 예제처럼 이 데이터로 Azure Portal을 채우는 데 몇 분 정도 걸릴 수 있습니다.
+
+![AKS 클러스터 1 만들기](media/kubernetes-walkthrough/view-container-health.png)
+
+`azure-vote-front` Pod에 대한 로그를 보려면 컨테이너 목록의 오른쪽에서 **로그 보기** 링크를 선택합니다. 이러한 로그는 컨테이너의 *stdout* 및 *stderr* 스트림을 포함합니다.
+
+![AKS 클러스터 1 만들기](media/kubernetes-walkthrough/view-container-logs.png)
+
 ## <a name="delete-cluster"></a>클러스터 삭제
 
 클러스터가 더 이상 필요하지 않은 경우 [az group delete][az-group-delete] 명령을 사용하여 리소스 그룹, 컨테이너 서비스 및 모든 관련 리소스를 제거합니다.
@@ -250,3 +266,4 @@ AKS에 대해 자세히 알아보고 배포 예제에 대한 전체 코드를 �
 [az-group-delete]: /cli/azure/group#az_group_delete
 [azure-cli-install]: /cli/azure/install-azure-cli
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
+[azure-portal]: https://portal.azure.com

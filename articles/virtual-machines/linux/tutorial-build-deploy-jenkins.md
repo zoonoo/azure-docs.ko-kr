@@ -1,25 +1,24 @@
 ---
 title: 자습서 - Team Services를 사용하여 Jenkins에서 Azure VM으로 CI/CD | Microsoft Docs
 description: 이 자습서에서는 Jenkins를 사용하여 Node.js 앱을 Visual Studio Team Services 또는 Microsoft Team Foundation Server의 Release Management에서 Azure VM으로 CI(연속 통합) 및 CD(연속 배포)를 설정하는 방법을 알아봅니다.
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903454"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390598"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>자습서: Jenkins 및 Visual Studio Team Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 
@@ -169,6 +168,10 @@ Team Services에서 릴리스 정의를 만들려면 다음을 수행합니다.
 6. 소스 Git 리포지토리로 이동하여 app/views/index.jade 파일의 **h1** 제목 내용을 변경된 텍스트로 수정합니다.
 7. 변경 내용을 커밋합니다.
 8. 몇 분 후에 Team Services 또는 Team Foundation Server의 **릴리스** 페이지에서 만든 새 릴리스가 표시됩니다. 릴리스를 열어 배포가 진행되는지 확인합니다. 축하합니다!
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
+
+Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 

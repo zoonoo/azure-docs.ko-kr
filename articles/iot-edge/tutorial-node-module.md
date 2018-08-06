@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cdcd30ea29c5c7066a6ae05f64b5bf0720572599
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9ab441bdd30e7598dacfec8dd74702aef0299e1b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299209"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413493"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>자습서: Node.js IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포
 
@@ -29,15 +29,25 @@ ms.locfileid: "38299209"
 
 이 자습서에서 만드는 IoT Edge 모듈은 장치에서 생성된 온도 데이터를 필터링합니다. 온도가 지정된 임계값을 초과하는 경우에만 메시지 업스트림을 전송합니다. 에지에서 이 유형의 분석은 클라우드로 전송되고 저장되는 데이터 양을 줄이는 데 유용합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free)을 만듭니다.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)용 빠른 시작에서 만든 Azure IoT Edge 장치
+Azure IoT Edge 장치:
+
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+* Azure Machine Learning 모듈은 ARM 프로세서를 지원하지 않습니다.
+
+클라우드 리소스:
+
+* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+
+개발 리소스:
+
 * [Visual Studio Code](https://code.visualstudio.com/) 
-* [Visual Studio Code에 대한 Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* Visual Studio Code가 있는 동일한 컴퓨터의 [Docker](https://docs.docker.com/engine/installation/). 이 자습서에서는 CE(Community Edition)로 충분합니다. 
-* [Node.js 및 npm](https://nodejs.org). npm은 Node.js와 함께 배포됩니다. 즉 Node.js를 다운로드하면 npm도 자동으로 컴퓨터에 설치됩니다.
+* Visual Studio Code에 대한 [Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
+* [Docker CE](https://docs.docker.com/engine/installation/). 
+* [Node.js 및 npm](https://nodejs.org). npm 패키지는 Node.js와 함께 배포됩니다. 즉 Node.js를 다운로드하면 npm도 자동으로 컴퓨터에 설치됩니다.
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 이 자습서에서는 VS Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  

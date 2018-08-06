@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005818"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413017"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>빠른 시작: Linux x64 장치에 첫 번째 IoT Edge 모듈 배포
 
@@ -43,18 +43,18 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서는 IoT Edge 장치로 Linux 컴퓨터를 사용합니다. 테스트에 사용할 수 있는 계정이 없는 경우 Azure CLI를 사용하여 만들 수 있습니다. 
+클라우드 리소스: 
 
-새 리소스 그룹을 만듭니다. 쉽게 관리하기 위해 이 빠른 시작에서 만든 다른 Azure 리소스에 대한 이 리소스 그룹을 사용할 수 있습니다.  
+* 이 빠른 시작에서 사용하는 모든 리소스를 관리하는 리소스 그룹입니다. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-가상 머신을 만듭니다. IoT Edge를 테스트하려면 아주 큰 가상 머신이 필요 없습니다. **B1ms** 같은 크기면 충분합니다.
+* IoT Edge 장치 역할을 하는 Linux 가상 머신입니다. 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,18 +62,13 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
-Azure Portal에서 IoT Hub를 만들어 빠른 시작을 시작합니다.
+Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합니다. 
+
 ![IoT Hub 만들기][3]
 
 이 빠른 시작에는 무료 수준의 IoT Hub가 작동합니다. 이전에 IoT Hub를 사용했고 이미 만든 체험 허브가 있으면 해당 IoT 허브를 사용할 수 있습니다. 구독마다 하나의 무료 IoT Hub만 가질 수 있습니다. 
 
-1. Azure 클라우드 셸에서 필수 구성 요소의 일부로 리소스 그룹을 만들지 않은 경우 리소스 그룹을 만듭니다. 빠른 시작 및 자습서의 모든 리소스를 한 그룹에 배치하면 함께 관리할 수 있습니다. 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. 새 리소스 그룹에 IoT Hub를 만듭니다. 다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브의 고유한 이름으로 바꿉니다.
+다음 코드는 **IoTEdgeResources** 리소스 그룹에서 무료 **F1** 허브를 만듭니다. *{hub_name}* 을 IoT 허브의 고유한 이름으로 바꿉니다.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 

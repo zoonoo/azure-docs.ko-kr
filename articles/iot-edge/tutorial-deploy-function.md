@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Edge를 사용하여 Azure 함수 배포 | Microsoft Docs
-description: Azure 함수를 모듈로 Edge 장치에 배포합니다.
+description: 이 자습서에서는 Azure 함수를 Edge 장치에 모듈로 배포합니다.
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f3ba0ccb1cb8961344b605e7ec386b6d6692262
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d37e08f58986a1318e6b379d2efeb71bc58d4583
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006880"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413744"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>자습서: IoT Edge 모듈로 Azure 함수 배포(미리 보기)
 
@@ -35,14 +35,21 @@ ms.locfileid: "39006880"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서 빌드한 함수 모듈을 테스트하려면 IoT Edge 장치가 필요합니다. [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md) 빠른 시작에서 구성한 장치를 사용할 수 있습니다.
+Azure IoT Edge 장치:
 
-개발 머신에 다음 필수 구성 요소가 있어야 합니다. 
+* [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)의 빠른 시작에 설명된 단계에 따라 개발 머신 또는 가상 머신을 Edge 장치로 사용할 수 있습니다.
+
+클라우드 리소스:
+
+* Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+
+개발 리소스:
+
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [C# for Visual Studio Code(OmniSharp 제공) 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * Visual Studio Code에 대한 [Azure IoT Edge 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
-* 개발 머신의 [Docker CE](https://docs.docker.com/install/) 
+* [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>컨테이너 레지스트리 만들기
 이 자습서에서는 VS Code용 Azure IoT Edge 확장을 사용하여 모듈을 빌드하고 파일에서 **컨테이너 이미지**를 만듭니다. 그런 후 이미지를 저장하고 관리하는 **레지스트리**에 이 이미지를 푸시합니다. 마지막으로 IoT Edge 장치에서 실행되도록 레지스트리의 이미지를 배포합니다.  

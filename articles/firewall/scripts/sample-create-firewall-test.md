@@ -8,14 +8,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: ffc9d3c15f045079585ea2aeceab278cf0349041
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: daf847ea9a6b6310afbc8eca7f662065fe75ade6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991911"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397185"
 ---
-# <a name="create-an-azure-firewall-test-environment"></a>Azure 방화벽 테스트 환경 만들기
+# <a name="create-an-azure-firewall-test-environment"></a>Azure Firewall 테스트 환경 만들기
 
 [!INCLUDE [firewall-preview-notice](../../../includes/firewall-preview-notice.md)]
 
@@ -80,6 +80,11 @@ Remove-AzureRmResourceGroup -Name AzfwSampleScriptEastUS -Force
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | VM 구성을 만듭니다. 이 구성은 VM 이름, 운영 체제 및 관리자 자격 증명 등의 정보를 포함합니다. 이 구성은 VM을 만드는 중에 사용됩니다. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | 가상 머신을 만듭니다. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 리소스 그룹 및 포함된 모든 리소스를 제거합니다. |
+|New-AzureRmFirewall| 새 Azure Firewall을 만듭니다.|
+|Get-AzureRmFirewall|Azure Firewall 개체를 가져옵니다.|
+|New-AzureRmFirewallApplicationRule|새 Azure Firewall 응용 프로그램 규칙을 만듭니다.|
+|Set-AzureRmFirewall|Azure Firewall 개체의 변경 내용을 커밋합니다.|
+
 
 ## <a name="next-steps"></a>다음 단계
 

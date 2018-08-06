@@ -1,21 +1,19 @@
 ---
 title: Azure에서 Jenkins 서버 만들기
 description: Jenkins 솔루션 템플릿에서 Azure Linux 가상 머신에 Jenkins를 설치하고 샘플 Java 응용 프로그램을 빌드합니다.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
-ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635461"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390431"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure Portal에서 Azure Linux VM에 Jenkins 서버 만들기
 
@@ -88,6 +86,10 @@ Jenkins 콘솔에서 **Create new jobs**(새 작업 만들기)를 선택하고 �
 ![작업 영역으로 이동하여 빌드에서 JAR 파일 가져오기](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 `complete/build/libs`로 이동하여 `gs-spring-boot-0.1.0.jar`이 있으면 빌드가 성공한 것입니다. 이제 Azure에서 Jenkins 서버로 고유한 프로젝트를 빌드할 준비가 되었습니다.
+
+## <a name="troubleshooting-the-jenkins-solution-template"></a>Jenkins 솔루션 템플릿 문제 해결
+
+Jenkins 솔루션 템플릿에서 버그가 발생하면 [Jenkins GitHub 리포지토리](https://github.com/azure/jenkins/issues)에서 문제를 제출하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

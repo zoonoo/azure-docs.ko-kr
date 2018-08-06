@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063428"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324309"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -35,9 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="set-aside-storage-account-configuration"></a>저장소 계정 구성을 보관합니다.
 
-이 자습서에서는 저장소 계정 이름과 액세스 키에 대한 액세스 권한이 있어야 합니다. Azure Portal에서 **모든 서비스**를 선택하고 *저장소*를 필터링합니다. **저장소 계정**을 선택하고 이 자습서에 대해 만든 계정을 찾습니다.
-
-**개요**에서 저장소 계정의 이름을 텍스트 편집기에 복사합니다. 그런 다음, **액세스 키**를 선택하고, 나중에 나오는 명령에 두 개의 값이 모두 필요하므로 **key1**에 대한 값을 텍스트 편집기에 복사합니다.
+> [!IMPORTANT]
+> 이 자습서에서는 저장소 계정 이름과 액세스 키에 대한 액세스 권한이 있어야 합니다. Azure Portal에서 **모든 서비스**를 선택하고 *저장소*를 필터링합니다. **저장소 계정**을 선택하고 이 자습서에 대해 만든 계정을 찾습니다.
+>
+> **개요**에서 저장소 계정의 **이름**을 텍스트 편집기에 복사합니다. 다음으로, **액세스 키**를 선택하고 **key1**의 값을 텍스트 편집기에 복사합니다. 나중에 나오는 명령에 두 값이 모두 필요합니다.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
@@ -105,7 +106,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     **만들기**를 선택합니다.
 
-4. 첫 번째 셀에 다음 코드를 입력하고, 자리 표시자 값을 계정 이름, 키 및 파일 시스템 이름으로 바꿉니다.
+4. 다음 코드에서 **ACCOUNT_NAME** 및 **ACCOUNT_KEY** 텍스트를 이 빠른 시작의 앞부분에서 보관해 둔 값으로 바꿉니다. 또한 **FILE_SYSTEM_NAME** 텍스트를 원하는 파일 시스템 이름으로 바꿉니다. 그리고 첫 번째 셀에 코드를 입력합니다.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -122,17 +123,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 섹션을 시작하기 전에 다음 필수 구성 요소를 완료해야 합니다.
 
-* [Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)에서 **small_radio_json.json**을 다운로드합니다.
-* **AzCopy 버전 10**을 사용하여 만든 Azure Blob 저장소 계정 및 파일 시스템에 샘플 JSON 파일을 업로드합니다.
+노트북 셀에 다음 코드를 입력합니다.
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy 버전 10은 고객을 미리 볼 수만 있습니다.
+셀에서 `Shift` + `Enter` 키를 눌러 코드를 실행합니다.
+
+이제 이 아래에 있는 새 셀에서, 다음 코드를 입력합니다(**FILE_SYSTEM** 및 **ACCOUNT_NAME**을 앞에서 사용한 값으로 변경).
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+셀에서 `Shift` + `Enter` 키를 눌러 코드를 실행합니다.
 
 ## <a name="run-a-spark-sql-job"></a>Spark SQL 작업 실행
 
@@ -180,7 +181,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     - **값**을 **수준**으로 설정합니다.
     - **집계**를 **COUNT**로 설정합니다.
 
-6. **Apply**를 클릭합니다.
+6. **적용**을 클릭합니다.
 
 7. 출력은 다음 스크린샷에 표시된 것처럼 시각적인 표시를 보여줍니다.
 

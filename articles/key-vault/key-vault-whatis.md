@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: barclayn
-ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226716"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282999"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -37,6 +37,8 @@ Azure Key Vault는 비밀을 안전하게 저장하고 액세스하기 위한 �
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** 는 지정된 테넌트에 대한 Azure AD 서비스입니다. 각 디렉터리에는 하나 이상의 도메인이 있습니다. 디렉터리는 연결된 여러 구독을 가질 수 있지만 오직 하나의 테넌트만을 가질 수 있습니다. 
 - **Azure 테넌트 ID** - Azure 구독 내에서 Azure Active Directory를 식별하는 고유한 방법입니다. 
 - **관리 서비스 ID** - Azure Key Vault는 자격 증명과 기타 키 및 비밀을 안전하게 저장하는 방법을 제공하지만 이러한 자격 증명/키/비밀을 검색하려면 코드가 Key Vault에 인증해야 합니다. MSI(관리 서비스 ID)를 사용하면 Azure AD(Azure Active Directory)에서 자동으로 관리되는 ID를 Azure 서비스에 제공함으로써 이 문제를 보다 간편하게 해결할 수 있습니다. 이 ID를 사용하면 Azure AD 인증을 지원하는 Key Vault 또는 모든 서비스에 인증할 수 있으므로 코드에 어떤 자격 증명도 포함할 필요가 없습니다. MSI에 대해 자세히 알아보려면 [여기](../active-directory/managed-service-identity/overview.md)를 참조하세요.
+
+    ![MSI 그래픽](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>주요 자격 증명 모음 역할
 

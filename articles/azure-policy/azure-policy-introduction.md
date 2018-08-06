@@ -4,17 +4,17 @@ description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249871"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364431"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -126,11 +126,11 @@ Azure Policy의 각 개체 형식에 대한 최대 수가 있습니다. _범위_
 | 범위 | 정책 정의 | 250 |
 | 범위 | 이니셔티브 정의 | 100 |
 | 테넌트 | 이니셔티브 정의 | 1000 |
-| 범위 | 정책 할당 | 100 |
+| 범위 | 정책/이니셔티브 할당 | 100 |
 | 정책 정의 | 매개 변수 | 20 |
 | 이니셔티브 정의 | 정책 | 100 |
 | 이니셔티브 정의 | 매개 변수 | 100 |
-| 정책 할당 | 제외(notScopes) | 100 |
+| 정책/이니셔티브 할당 | 제외(notScopes) | 100 |
 | 정책 규칙 | 중첩된 조건부 | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>정책 관리에 대한 권장 사항
