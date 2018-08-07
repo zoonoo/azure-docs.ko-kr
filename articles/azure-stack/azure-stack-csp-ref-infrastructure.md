@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: e38f0a5e8aa911a168ee7f648692c31ecb44d4dd
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5a38f504a881662c19fe881058622392cf1bced0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090611"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576358"
 ---
 ## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>클라우드 서비스 공급자에 대 한 보고 인프라 사용
 
@@ -65,5 +65,5 @@ Azure 서비스와 동일한 방식으로 전자 상거래 및 파트너 센터�
 
 ## <a name="next-steps"></a>다음 단계
 
- - CSP 프로그램에 대 한 자세한 내용은 참조 하세요 [클라우드 솔루션 공급자 프로그램](https://partnercenter.microsoft.com/en-us/partner/programs)합니다.
+ - CSP 프로그램에 대 한 자세한 내용은 참조 하세요 [클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/solutions/microsoft-cloud-solutions)합니다.
  - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](azure-stack-billing-and-chargeback.md)합니다.
