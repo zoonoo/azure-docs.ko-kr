@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 42ffdbf117b3f522e27e6e46628231ddb8221018
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051630"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326176"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -59,12 +59,12 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | type 속성은 **AzureSqlDW**로 설정해야 합니다. | 예 |
-| connectionString | Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| 형식 | type 속성은 **AzureSqlDW**로 설정해야 합니다. | yes |
+| connectionString | Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -213,8 +213,8 @@ Azure SQL Data Warehouse에서 데이터를 복사하려면 데이터 집합의 
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | 예 |
-| tableName | 연결된 서비스가 참조하는 Azure SQL Data Warehouse 인스턴스의 테이블 또는 뷰 이름입니다. | 예 |
+| 형식 | 데이터 집합의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | yes |
+| tableName | 연결된 서비스가 참조하는 Azure SQL Data Warehouse 인스턴스의 테이블 또는 뷰 이름입니다. | yes |
 
 #### <a name="dataset-properties-example"></a>데이터 집합 속성 예제
 
@@ -245,10 +245,10 @@ Azure SQL Data Warehouse에서 데이터를 복사하려면 복사 작업 원본
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **type** 속성을 **SqlDWSource**로 설정해야 합니다. | 예 |
-| SqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오 |
-| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니오 |
-| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니오 |
+| 형식 | 복사 작업 원본의 **type** 속성을 **SqlDWSource**로 설정해야 합니다. | yes |
+| SqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니요 |
+| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니요 |
+| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
 
 ### <a name="points-to-note"></a>주의할 사항
 
@@ -349,16 +349,16 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 **type** 속성은 **SqlDWSink**로 설정해야 합니다. | 예 |
-| allowPolyBase | BULKINSERT 메커니즘 대신 PolyBase(해당하는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다. 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다.  | 아니오 |
-| polyBaseSettings | **allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니오 |
-| rejectValue | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. |아니오 |
-| rejectType | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 아니오 |
+| 형식 | 복사 작업 싱크의 **type** 속성은 **SqlDWSink**로 설정해야 합니다. | yes |
+| allowPolyBase | BULKINSERT 메커니즘 대신 PolyBase(해당하는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다. 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다.  | 아니요 |
+| polyBaseSettings | **allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니요 |
+| rejectValue | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. |아니요 |
+| rejectType | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 아니요 |
 | rejectSampleValue | PolyBase가 거부된 행의 백분율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2 등입니다. | **rejectType**이 **percentage**인 경우 예 |
-| useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니오 |
+| useTypeDefault | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요 |
 | writeBatchSize | 버퍼 크기가 **writeBatchSize**에 도달하면 SQL 테이블에 데이터를 삽입합니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. | 아니요. 기본값은 10000입니다. |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니오 |
-| preCopyScript | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니오 | (#repeatability-during-copy). | 쿼리 문입니다. | 아니오 |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니요 |
+| preCopyScript | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니요 | (#repeatability-during-copy). | 쿼리 문입니다. | 아니요 |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse 싱크 예제
 
@@ -401,9 +401,9 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
 2. **입력 데이터 집합** 유형은 **AzureBlob** 또는 **AzureDataLakeStoreFile**입니다. `type` 속성 아래의 형식 유형은 다음 구성을 사용하는 **OrcFormat**, **ParquetFormat** 또는 **TextFormat**입니다.
 
    1. `rowDelimiter`는 **\n**이어야 합니다.
-   2. `nullValue`가 **빈 문자열**("")으로 설정되어 있거나 `treatEmptyAsNull`이 **true**로 설정되어 있습니다.
+   2. `nullValue`는 **빈 문자열**("")로 설정되거나 기본값으로 남아 있고, `treatEmptyAsNull`은 false로 설정되지 않습니다.
    3. `encodingName`이 기본값인 **utf-8**로 설정되어 있습니다.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader` 및 `skipLineCount`가 지정되지 않았습니다.
+   4. `escapeChar`, `quoteChar` 및 `skipLineCount`는 지정되지 않습니다. PolyBase 지원은 ADF에서 `firstRowAsHeader`로 구성될 수 있는 머리글 행을 건너뜁니다.
    5. `compression`은 **no compression**, **GZip** 또는 **Deflate**일 수 있습니다.
 
     ```json
@@ -414,7 +414,8 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
            "columnDelimiter": "<any delimiter>",
            "rowDelimiter": "\n",
            "nullValue": "",
-           "encodingName": "utf-8"
+           "encodingName": "utf-8",
+           "firstRowAsHeader": <any>
        },
        "compression": {
            "type": "GZip",
@@ -422,9 +423,6 @@ SQL Data Warehouse PolyBase는 Azure Blob 및 Azure Data Lake Store를 직접 �
        }
     },
     ```
-
-3. 파이프라인에서 복사 작업에 대한 **BlobSource** 또는 **AzureDataLakeStore** 아래에 `skipHeaderLineCount` 설정이 없습니다.
-4. 파이프라인에서 복사 작업에 대한 **SqlDWSink** 아래에 `sliceIdentifierColumnName` 설정이 없습니다. PolyBase는 한 번의 실행으로 모든 데이터가 업데이트되거나 아무것도 업데이트되지 않도록 합니다. **반복성**을 얻으려면 `sqlWriterCleanupScript`를 사용합니다.
 
 ```json
 "activities":[

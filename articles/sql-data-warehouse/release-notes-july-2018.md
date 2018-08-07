@@ -7,19 +7,33 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/23/2018
+ms.date: 07/27/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5f4d39c6aa1a5c2c30e84fbf26535fe3ee7799a6
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: b410722ff444c19572f61996c4a4d059ae831f5f
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216739"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326084"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 7월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 7월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
 
+## <a name="lightning-fast-query-performance"></a>매우 빠른 쿼리 성능
+[Azure SQL Data Warehouse](https://aka.ms/sqldw)는 셔플 작업을 개선하는 Instant Data Access의 도입으로 새로운 성능 벤치 마크를 설정합니다. Instant Data Access는 SQL Server 원시 데이터 작업에 직접 SQL Server를 사용하여 데이터 이동 작업의 오버헤드를 줄입니다. 데이터 이동을 위해 SQL Server 엔진이 직접 통합됨에 따라 SQL Data Warehouse는 이제 널리 인정받고 있는 업계 표준인 [TPC Benchmark™ H(TPC-H)](http://www.tpc.org/tpch/)에서 파생된 워크로드를 사용하면서 **Amazon Redshift보다 67% 더 빨라졌습니다**.
+
+![Azure SQL Data Warehouse는 Amazon Redshift보다 빠르고 저렴합니다.](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
+<sub>출처: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+
+[Gigaom Research](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) 보고서에는 런타임 성능 외에 특정 워크로드의 USD 비용을 수치화한 가격 대 성능비 측정값도 나와 있습니다. SQL Data Warehouse는 30TB 워크로드에서 Redshift보다 **23% 이상의 비용**이 들었습니다. 컴퓨팅 성능을 유연하게 확장하고 워크로드를 일시 중지했다가 다시 시작하는 SQL Data Warehouse의 기능 덕분에 고객은 서비스를 사용할 때만 요금을 지불하여 비용을 훨씬 더 절감할 수 있습니다.
+![Azure SQL Data Warehouse는 Amazon Redshift보다 빠르고 저렴합니다.](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
+<sub>출처: [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+
+###<a name="query-concurrency"></a>쿼리 동시성
+또한 SQL Data Warehouse는 조직 전체에서 데이터에 액세스할 수 있게 보장합니다. Microsoft는 더 많은 사용자가 동일한 데이터베이스를 쿼리하고 다른 요청으로 인해 차단되지 않도록 128개의 동시 쿼리를 지원할 수 있게 서비스를 개선했습니다. 이에 비해 Amazon Redshift는 최대 동시 쿼리를 50개로 제한하여, 조직 내 데이터 액세스를 제한합니다.
+
+SQL Data Warehouse는 저장소와 계산이 분리된 고유한 아키텍처를 기반으로 가격 상승 없이 이러한 쿼리 성능 및 쿼리 동시성 향상을 제공합니다.
 
 ## <a name="finer-granularity-for-cross-region-and-server-restores"></a>지역 및 서버 간 복원을 위한 보다 자세한 세분성
 이제 24시간마다 진행되는 지역 중복 백업을 선택하는 대신, 임의 복원 지점을 사용하여 지역 및 서버 간에 복원을 수행할 수 있습니다. 지역 및 서버 간 복원은 사용자 정의 또는 자동 복원 지점 둘 다에서 지원되며, 추가 데이터 보호를 위한 보다 자세한 세분성을 지원합니다. 사용 가능한 복원 지점이 더 많이 있는 경우 지역 간에 복원을 수행할 때 데이터 웨어하우스의 논리적 일관성이 보장될 수 있습니다.
@@ -59,3 +73,72 @@ parameter_ordinal | name | suggested_system_type_id | suggested_system_type_name
 --------------------------------------------------------------------------------
 1                 | @id  | 56                       | int
 ```
+## <a name="sprefreshsqlmodule"></a>SP_REFRESHSQLMODULE
+The [sp_refreshsqlmodule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-refreshsqlmodule-transact-sql) 저장 프로시저는 기본 개체 변경으로 인해 기본 메타데이터가 만료된 경우 데이터베이스 개체의 메타데이터를 업데이트합니다. 뷰의 기본 테이블이 변경된 후 뷰가 다시 생성되지 않은 경우에 이러한 작업이 수행됩니다. 따라서 사용자는 종속 개체를 삭제하고 다시 만드는 단계를 생략할 수 있습니다.
+
+아래 예제에서는 기본 테이블이 변경되어 만료된 뷰를 보여 줍니다. 첫 번째 열 변경(1을 Mollie로)의 경우 데이터는 올바르지만 열 이름이 유효하지 않고, 두 번째 열은 없다는 것을 알 수 있습니다. 
+```sql
+CREATE TABLE base_table (Id INT);
+GO
+
+INSERT INTO base_table (Id) VALUES (1);
+GO
+
+CREATE VIEW base_view AS SELECT * FROM base_table;
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----
+-- 1
+
+DROP TABLE base_table;
+GO
+
+CREATE TABLE base_table (fname VARCHAR(10), lname VARCHAR(10));
+GO
+
+INSERT INTO base_table (fname, lname) VALUES ('Mollie', 'Gallegos');
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----------
+-- Mollie
+
+EXEC sp_refreshsqlmodule @Name = 'base_view';
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- fname     | lname
+-- ---------- ----------
+-- Mollie    | Gallegos
+```
+
+## <a name="next-steps"></a>다음 단계
+SQL 데이터 웨어하우스에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][create a SQL Data Warehouse]에 대해 신속히 알아봅니다. Azure를 처음 사용하는 경우 새 용어를 발견하면 [Azure 용어집][Azure glossary]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL Data Warehouse 리소스를 살펴봅니다.  
+
+* [고객 성공 사례]
+* [블로그]
+* [기능 요청]
+* [비디오]
+* [고객 자문 팀 블로그]
+* [Stack Overflow 포럼]
+* [Twitter]
+
+
+[블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[고객 성공 사례]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md
