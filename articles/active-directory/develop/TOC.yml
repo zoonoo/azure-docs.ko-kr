@@ -6,7 +6,7 @@
     - name: 인증 기본 사항
       href: authentication-scenarios.md
     - name: 앱 형식
-      href: 'active-directory-authentication-scenarios.md#application-types-and-scenarios'
+      href: 'authentication-scenarios.md#application-types-and-scenarios'
 - name: 시작
   items:
     - name: 모바일 및 데스크톱 앱
@@ -22,7 +22,7 @@
         - name: .NET(Xamarin)
           href: quickstart-v1-xamarin.md
         - name: OAuth 2.0
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
     - name: 웹 앱
       items:
         - name: 개요
@@ -38,13 +38,13 @@
         - name: NodeJS
           href: quickstart-v1-openid-connect-code.md
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
     - name: 단일 페이지 앱
       items:
         - name: 개요
           href: 'active-directory-authentication-scenarios.md#single-page-application-spa'
         - name: Angular JS
-          href: active-directory-devquickstarts-angular.md
+          href: quickstart-v1-angularjs-spa.md
         - name: JavaScript
           href: 'https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi'
     - name: Web API
@@ -52,35 +52,35 @@
         - name: 개요
           href: 'active-directory-authentication-scenarios.md#web-application-to-web-api'
         - name: ASP.NET
-          href: active-directory-devquickstarts-webapi-dotnet.md
+          href: quickstart-v1-dotnet-webapi.md
         - name: NodeJS
-          href: active-directory-devquickstarts-webapi-nodejs.md
+          href: quickstart-v1-nodejs-webapi.md
     - name: 서비스-서비스
       items:
         - name: 개요
           href: 'active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api'
         - name: .NET
-          href: 'active-directory-code-samples.md#server-or-daemon-application-to-web-api'
+          href: 'sample-v1-code.md#server-or-daemon-application-to-web-api'
         - name: OAuth 2.0 클라이언트 자격 증명
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
 - name: 가이드
   items:
     - name: 응용 프로그램 등록
       href: quickstart-v1-integrate-apps-with-azure-ad.md
     - name: 다중 테넌트 앱
-      href: active-directory-devhowto-multi-tenant-overview.md
+      href: howto-convert-app-to-be-multi-tenant.md
     - name: 조건부 액세스
-      href: active-directory-conditional-access-developer.md
+      href: conditional-access-dev-guide.md
     - name: 권한
-      href: active-directory-permissions.md
+      href: v1-permissions-and-consent.md
     - name: OAuth 및 OpenID Connect
       items:
         - name: OpenID Connect 프로토콜
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: OAuth 2.0 인증 코드 부여
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: OAuth 2.0 암시적 허용
-          href: active-directory-dev-understanding-oauth2-implicit-grant.md
+          href: v1-oauth2-implicit-grant-flow.md
     - name: SAML 2.0
       href: active-directory-saml-protocol-reference.md
       items:
@@ -89,23 +89,23 @@
         - name: 클레임 사용자 지정
           href: active-directory-saml-claims-customization.md
         - name: SAML 기반 SSO 디버그
-          href: active-directory-saml-debugging.md
+          href: howto-v1-debug-saml-sso-issues.md
         - name: Single Sign-On SAML 프로토콜
-          href: active-directory-single-sign-on-protocol-reference.md
+          href: single-sign-on-saml-protocol.md
         - name: Single Sign-Out SAML 프로토콜
-          href: active-directory-single-sign-out-protocol-reference.md
+          href: single-sign-out-saml-protocol.md
     - name: 테넌트 만들기
       href: quickstart-create-new-tenant.md
     - name: 서비스 및 개인정보처리방침 약관
-      href: active-directory-app-terms-service-privacy-statement.md
+      href: howto-add-terms-of-service-privacy-statement.md
     - name: 브랜딩 지침
-      href: active-directory-branding-guidelines.md
+      href: howto-add-branding-in-azure-ad-apps.md
     - name: 모바일 및 데스크톱 SSO
       items:
         - name: Android에서 SSO 사용
-          href: active-directory-sso-android.md
+          href: howto-v1-enable-sso-on-android.md
         - name: iOS에서 SSO 사용
-          href: active-directory-sso-ios.md
+          href: howto-v1-enable-sso-on-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: SCIM으로 사용자 프로비전
@@ -148,32 +148,32 @@
     - name: 인증 라이브러리(ADAL)
       href: active-directory-authentication-libraries.md
     - name: 시나리오별 코드 샘플
-      href: active-directory-code-samples.md
+      href: sample-v1-code.md
     - name: 용어
       href: active-directory-dev-glossary.md
     - name: 인증 프로토콜
       href: active-directory-authentication-protocols.md
       items:
         - name: OpenID Connect
-          href: active-directory-protocols-openid-connect-code.md
+          href: v1-protocols-openid-connect-code.md
         - name: Oauth
-          href: active-directory-protocols-oauth-code.md
+          href: v1-protocols-oauth-code.md
         - name: 서비스-서비스 호출
-          href: active-directory-protocols-oauth-service-to-service.md
+          href: v1-oauth2-client-creds-grant-flow.md
         - name: On-Behalf-Of 흐름
-          href: active-directory-protocols-oauth-on-behalf-of.md
+          href: v1-oauth2-on-behalf-of-flow.md
         - name: 지원되는 토큰 및 클레임 유형
-          href: active-directory-token-and-claims.md
+          href: v1-id-and-access-tokens.md
         - name: 응용 프로그램 선택 사항 및 사용자 지정 클레임 구성
           href: active-directory-optional-claims.md
         - name: 서명 키 롤오버
           href: active-directory-signing-key-rollover.md
         - name: 페더레이션 메타데이터
-          href: active-directory-federation-metadata.md
+          href: azure-ad-federation-metadata.md
         - name: 인증서 자격 증명
           href: active-directory-certificate-credentials.md
     - name: 응용 프로그램 개체
-      href: active-directory-application-objects.md
+      href: app-objects-and-service-principals.md
       items:
         - name: 앱 및 Azure AD
           href: active-directory-how-applications-are-added.md
@@ -193,7 +193,7 @@
         - name: 제한 사항
           href: active-directory-v2-limitations.md
         - name: v1-v2 비교
-          href: active-directory-v2-compare.md
+          href: azure-ad-endpoint-comparison.md
     - name: 시작
       items:
         - name: 모바일 및 데스크톱 앱
@@ -241,28 +241,28 @@
         - name: 인증 라이브러리
           href: active-directory-v2-libraries.md
         - name: 시나리오별 v2.0 코드 샘플
-          href: active-directory-v2-code-samples.md
+          href: sample-v2-code.md
         - name: v2.0 인증 프로토콜
           href: active-directory-v2-protocols.md
           items:
             - name: OpenID Connect
-              href: active-directory-v2-protocols-oidc.md
+              href: v2-protocols-oidc.md
             - name: OAuth 2.0 인증 코드 부여
-              href: active-directory-v2-protocols-oauth-code.md
+              href: v2-oauth2-auth-code-flow.md
             - name: OAuth 2.0 암시적 허용
-              href: active-directory-v2-protocols-implicit.md
+              href: v2-oauth2-implicit-grant-flow.md
             - name: OAuth 2.0 클라이언트 자격 증명 부여
-              href: active-directory-v2-protocols-oauth-client-creds.md
+              href: v2-oauth2-client-creds-grant-flow.md
             - name: OAuth 2.0 On-Behalf-Of 흐름
-              href: active-directory-v2-protocols-oauth-on-behalf-of.md
+              href: v2-oauth2-on-behalf-of-flow.md
             - name: 인증서 자격 증명
               href: active-directory-certificate-credentials.md
             - name: Oauth 2.0 샘플 코드
               href: active-directory-protocols-oauth-get-jwt-token.md
         - name: 토큰
-          href: active-directory-v2-tokens.md
+          href: v2-id-and-access-tokens.md
         - name: 범위 및 동의
-          href: active-directory-v2-scopes.md
+          href: v2-permissions-and-consent.md
 - name: 리소스
   items:
     - name: 도움말 보기

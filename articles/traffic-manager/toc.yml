@@ -7,7 +7,7 @@
 - name: 빠른 시작
   items:
     - name: Traffic Manager 프로필 만들기
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: 자습서
   items:
     - name: 엔드포인트의 지리적 위치에 따라 트래픽 라우팅
