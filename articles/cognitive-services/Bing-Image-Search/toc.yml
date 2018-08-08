@@ -47,8 +47,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
 - name: 방법 가이드
   items:
-    - name: 결과 사용 및 표시
-      href: UseAndDisplayRequirements.md
     - name: 이미지 인사이트 가져오기
       href: image-insights.md
     - name: .gif 이미지 가져오기
@@ -91,5 +89,7 @@
       href: image-search-endpoint.md
     - name: 지원되는 국가 및 마켓
       href: supported-countries-markets.md
+    - name: 사용 및 표시 요구 사항
+      href: UseAndDisplayRequirements.md
     - name: Bing Image Search API에 대한 분석
       href: bing-image-stats.md

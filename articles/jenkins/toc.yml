@@ -9,6 +9,7 @@
   items:
     - name: Jenkins 서버 만들기
       href: /azure/jenkins/install-jenkins-solution-template
+      maintainContext: true
 - name: 자습서
   items:
     - name: App Service에 대한 CI/CD

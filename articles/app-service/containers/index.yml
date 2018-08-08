@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 22994d46cff55d82738e8fc7ff7d65b027e65e0b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617040"
 documentType: LandingData
 title: Linux의 App Service 설명서
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/05/2017
   ms.author: cfowler
-  ms.openlocfilehash: 7113b3fce7d9263d3292bf3cb245ec07b7d2831f
-  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39172605"
 sections:
 - title: 5분 빠른 시작
   items:
@@ -98,10 +98,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB를 사용하는 .NET Core</a> 또는 <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB를 사용하는 Node.js</a>로 응용 프로그램 만들기
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 응용 프로그램에 매핑</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">기존 SSL 인증서를 응용 프로그램에 바인딩</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">응용 프로그램에 CDN 추가</a>
+    - html: <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">Azure SQL DB를 사용하는 .NET Core</a> 또는 <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">MongoDB를 사용하는 Node.js</a>로 응용 프로그램 만들기
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">기존 사용자 지정 도메인을 응용 프로그램에 매핑</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">기존 SSL 인증서를 응용 프로그램에 바인딩</a>
+    - html: <a href="/azure/cdn/cdn-add-to-web-app">응용 프로그램에 CDN 추가</a>
 - title: 샘플
   items:
   - type: paragraph

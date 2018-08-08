@@ -103,9 +103,9 @@
     - name: 모바일 및 데스크톱 SSO
       items:
         - name: Android에서 SSO 사용
-          href: howto-v1-enable-sso-on-android.md
+          href: howto-v1-enable-sso-android.md
         - name: iOS에서 SSO 사용
-          href: howto-v1-enable-sso-on-ios.md
+          href: howto-v1-enable-sso-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: SCIM으로 사용자 프로비전
@@ -116,9 +116,9 @@
         - name: AAD Graph 시작
           href: active-directory-graph-api-quickstart.md
     - name: AppSource 인증
-      href: active-directory-devhowto-appsource-certified.md
+      href: howto-get-appsource-certified.md
     - name: Azure AD 앱 갤러리
-      href: active-directory-app-gallery-listing.md
+      href: howto-app-gallery-listing.md
     - name: Office 365 판매자 대시보드
       href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
     - name: Visual Studio 사용
@@ -150,7 +150,7 @@
     - name: 시나리오별 코드 샘플
       href: sample-v1-code.md
     - name: 용어
-      href: active-directory-dev-glossary.md
+      href: developer-glossary.md
     - name: 인증 프로토콜
       href: active-directory-authentication-protocols.md
       items:
@@ -178,7 +178,7 @@
         - name: 앱 및 Azure AD
           href: active-directory-how-applications-are-added.md
     - name: 응용 프로그램 매니페스트.
-      href: active-directory-application-manifest.md
+      href: reference-app-manifest.md
     - name: 토큰 수명
       href: ../active-directory-configurable-token-lifetimes.md
     - name: 서비스 제한
@@ -189,7 +189,7 @@
       href: active-directory-appmodel-v2-overview.md
       items:
         - name: 앱 형식
-          href: active-directory-v2-flows.md
+          href: v2-app-types.md
         - name: 제한 사항
           href: active-directory-v2-limitations.md
         - name: v1-v2 비교
@@ -239,7 +239,7 @@
     - name: 참고 자료
       items:
         - name: 인증 라이브러리
-          href: active-directory-v2-libraries.md
+          href: reference-v2-libraries.md
         - name: 시나리오별 v2.0 코드 샘플
           href: sample-v2-code.md
         - name: v2.0 인증 프로토콜
@@ -266,7 +266,7 @@
 - name: 리소스
   items:
     - name: 도움말 보기
-      href: active-directory-develop-help-support.md
+      href: developer-support-help-options.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: 요금 계산기
