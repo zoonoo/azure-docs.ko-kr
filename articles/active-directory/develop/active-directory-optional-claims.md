@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036754"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265067"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD의 선택적 클레임(미리 보기)
 
@@ -41,8 +41,8 @@ ms.locfileid: "39036754"
 
 | 계정 유형 | V1.0 끝점                      | V2.0 끝점  |
 |--------------|------------------------------------|----------------|
-| MSA          | 해당 없음 - 대신 RPS 티켓이 사용됩니다. | 지원 예정 |
-| AAD          | 지원됨                          | 지원됨      |
+| 개인 Microsoft 계정  | 해당 없음 - 대신 RPS 티켓이 사용됩니다. | 지원 예정 |
+| Azure AD 계정          | 지원됨                          | 지원됨      |
 
 ## <a name="standard-optional-claims-set"></a>표준 선택적 클레임 집합
 기본적으로 응용 프로그램에서 사용할 수 있는 선택적 클레임의 집합은 아래와 같습니다.  응용 프로그램에 대한 선택적 사용자 지정 클레임을 추가하려면 아래의 [디렉터리 확장](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)을 참조하세요. 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 894b403b59624b6c42ce947169e9c9ac30ec76b9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785852"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39368631"
 ---
 # <a name="scaling-media-processing-overview"></a>미디어 처리 크기 조정 개요
 이 페이지에서는 미디어 처리의 크기를 조정하는 방법과 이유에 대해 간략하게 설명합니다. 
@@ -35,7 +35,8 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 | 시나리오 | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | 대상 사용 사례 |단일 비트 전송률 인코딩 <br/>SD 이하 해상도의 파일, 시간이 중요하지 않은 인코딩, 저가형 비디오. |단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>SD 및 HD 인코딩에서 모두 일반적으로 사용됨 |단일 비트 전송률 및 다중 비트 전송률 인코딩.<br/>Full HD 및 4K 해상도 비디오. 시간이 중요하며 소요 시간이 짧은 인코딩 |
-| 벤치마크 |[입력 파일: 길이 5분/640x360p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>같은 해상도에서 단일 비트 전송률 MP4 파일로 인코딩할 때 약 11분이 걸립니다. |[입력 파일: 길이 5분/1280x720p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>"H264 단일 비트 전송률 720p" 사전 설정을 사용하여 인코딩할 때 약 5분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 720p" 사전 설정을 사용하여 인코딩할 때 약 11분 30초가 걸립니다. |[입력 파일: 길이 5분/1920x1080p/초당 29.97프레임](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>"H264 단일 비트 전송률 1080p" 사전 설정을 사용하여 인코딩할 때 약 2.7분이 걸립니다.<br/><br/>"H264 단일 비트 전송률 1080p" 사전 설정을 사용하여 Encoding할 때 약 5.7분이 걸립니다. |
+| 벤치마크 |같은 해상도에서 단일 비트 전송률 MP4 파일로 인코딩할 때 약 11분이 걸립니다. |"H264 단일 비트 전송률 720p" 사전 설정을 사용하여 인코딩할 때 약 5분이 걸립니다.<br/><br/>"H264 다중 비트 전송률 720p" 사전 설정을 사용하여 인코딩할 때 약 11분 30초가 걸립니다. |"H264 단일 비트 전송률 1080p" 사전 설정을 사용하여 인코딩할 때 약 2.7분이 걸립니다.<br/><br/>"H264 단일 비트 전송률 1080p" 사전 설정을 사용하여 Encoding할 때 약 5.7분이 걸립니다. |
+
 
 ## <a name="considerations"></a>고려 사항
 > [!IMPORTANT]
@@ -43,7 +44,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 > 
 > 
 
-* 예약된 단위는 Azure Media Indexer를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다.  그러나 인코딩과 달리 인덱싱 작업은 예약 단위가 더 빠르게 실행되어도 더 빨리 처리되지 않습니다.
+* Media Services v3 또는 Video Indexer에 의해 트리거되는 오디오 분석 및 비디오 분석 작업의 경우 S3 단위 유형이 권장됩니다.
 * 공유 풀을 사용 중이어서 예약 단위가 없는 경우에는 인코딩 작업의 성능이 S1 RU와 동일해집니다. 그러나 작업이 대기된 상태로 유지될 수 있는 시간의 상한은 없으며 언제든지 작업은 최대 하나만 실행됩니다.
 
 ## <a name="billing"></a>결제

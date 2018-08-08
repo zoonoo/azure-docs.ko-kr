@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347910"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389826"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -93,7 +93,8 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 | --- | --- |
 | **입력 별칭** | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 | **구독** | IoT Hub 리소스가 있는 구독을 선택합니다. | 
-| **IoT 허브** | 입력으로 사용할 IoT Hub의 이름입니다. |
+| 
+  **IoT Hub** | 입력으로 사용할 IoT Hub의 이름입니다. |
 | **끝점** | IoT Hub에 대한 엔드포인트입니다.|
 | **공유 액세스 정책 이름** | IoT Hub에 대한 액세스를 제공하는 공유 액세스 정책입니다. 각 공유 액세스 정책에는 이름, 사용자가 설정한 사용 권한 및 액세스 키가 있습니다. |
 | **공유 액세스 정책 키** | IoT Hub에 대한 액세스를 인증하는 데 사용되는 공유 액세스 키입니다.  IoT Hub 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
@@ -108,7 +109,7 @@ IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리
 | 자산 | 설명 |
 | --- | --- |
 | **EventProcessedUtcTime** | 이벤트가 처리되는 날짜 및 시간입니다. |
-| **EventEnqueuedUtcTime** | IoT 허브에서 이벤트를 받은 날짜 및 시간입니다. |
+| **EventEnqueuedUtcTime** | IoT Hub에서 이벤트를 받은 날짜 및 시간입니다. |
 | **PartitionId** | 입력 어댑터의 0부터 시작하는 파티션 ID입니다. |
 | **IoTHub.MessageId** | IoT Hub에서 양방향 통신을 상호 연결하는 데 사용되는 ID입니다. |
 | **IoTHub.CorrelationId** | IoT Hub에서 메시지 응답 및 피드백에 사용되는 ID입니다. |
@@ -123,7 +124,7 @@ IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리
 
 로그 처리는 Stream Analytics와 함께 Blob Storage 입력을 사용하기 위해 일반적으로 사용되는 시나리오입니다. 이 시나리오에서는 시스템에서 원격 분석 데이터 파일이 캡처되고 유의미한 데이터를 추출하기 위해 구문 분석 및 처리되어야 합니다.
 
-Stream Analytics에서 Blob Storage 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 타임스탬프로 `BlobLastModifiedUtcTime`입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다.
+Stream Analytics에서 Blob Storage 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 타임스탬프로 `BlobLastModifiedUtcTime`입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) 키워드를 사용해야 합니다. Stream Analytics 작업은 Blob 파일을 사용할 수 있는 경우 1초 간격으로 Azure Blob 저장소 입력에서 데이터를 가져옵니다. Blob 파일을 사용할 수 없는 경우 최대 시간 지연 시간 90초 동안 지수 백오프가 발생합니다.
 
 CSV 형식의 입력은 데이터 집합용 필드를 정의하기 위해 헤더 행이 *필요*하며, 모든 헤드 행 필드는 고유해야 합니다.
 
