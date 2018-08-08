@@ -10,25 +10,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: afd1944006a08811075e8af8b1a641d00ee3c352
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112817"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390139"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [Hadoop 스트리밍](transform-data-using-hadoop-streaming.md)
-> * [Spark](transform-data-using-spark.md)
+> * [HDInsight 스트리밍](transform-data-using-hadoop-streaming.md)
+> * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [저장 프로시저](transform-data-using-stored-procedure.md)
 > * [데이터 레이크 분석 U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Databricks Notebook](transform-data-databricks-notebook.md)
+> * [Databricks Jar](transform-data-databricks-jar.md)
+> * [Databricks Python](transform-data-databricks-python.md)
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>개요
@@ -63,6 +66,18 @@ Data Factory 파이프라인에서 SQL Server 저장 프로시저 작업을 사�
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>Data Lake Analytics U-SQL 작업
 Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 대해 U-SQL 스크립트를 실행합니다. 자세한 내용은 [Data Analytics U-SQL 작업](transform-data-using-data-lake-analytics.md) 문서를 참조하세요. 
+
+## <a name="databricks-notebook-activity"></a>Databricks Notebook 활동
+
+Data Factory 파이프라인의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Databricks Notebook을 실행하여 데이터 변환](transform-data-databricks-notebook.md)을 참조하세요.
+
+## <a name="databricks-jar-activity"></a>Databricks Jar 활동
+
+Data Factory 파이프라인의 Azure Databricks Jar 활동은 Azure Databricks 클러스터에서 Spark Jar를 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Azure Databricks에서 Jar 활동을 실행하여 데이터 변환](transform-data-databricks-jar.md)을 참조하세요.
+
+## <a name="databricks-python-activity"></a>Databricks Python 활동
+
+Data Factory 파이프라인의 Azure Databricks Python 활동은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Azure Databricks에서 Python 활동을 실행하여 데이터 변환](transform-data-databricks-python.md)을 참조하세요.
 
 ## <a name="custom-activity"></a>사용자 지정 작업
 Data Factory에서 지원되지 않는 방식으로 데이터를 변환해야 하는 경우 고유의 데이터 이동 논리가 포함된 사용자 지정 작업을 만들어서 파이프라인에 해당 작업을 사용할 수 있습니다. Azure Batch 서비스 또는 Azure HDInsight 클러스터를 사용하여 실행되도록 사용자 지정 .NET 작업을 구성할 수 있습니다. 자세한 내용은 [사용자 지정 작업 사용](transform-data-using-dotnet-custom-activity.md) 문서를 참조하세요. 

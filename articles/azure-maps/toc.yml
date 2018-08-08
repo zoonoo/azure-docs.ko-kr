@@ -40,6 +40,8 @@
       items:
         - name: 계정 및 키 관리
           href: how-to-manage-account-keys.md
+        - name: 사용 메트릭 보기
+          href: how-to-view-api-usage.md
     - name: REST API에서 지도 데이터 가져오기
       items:
         - name: 주소 검색

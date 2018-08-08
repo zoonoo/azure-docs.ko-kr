@@ -47,8 +47,6 @@
   items:
     - name: Azure 코드 샘플
       href: 'https://azure.microsoft.com/resources/samples/?service=search'
-    - name: GitHub 샘플
-      href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: 개념
   items:
     - name: 인지 검색(미리 보기)
@@ -73,6 +71,8 @@
           href: cognitive-search-create-custom-skill-example.md
         - name: 문제 해결 팁
           href: cognitive-search-concept-troubleshooting.md
+        - name: 문서 링크
+          href: cognitive-search-resources-documentation.md
     - name: 계획
       items:
         - name: 계층 선택
@@ -175,7 +175,7 @@
               href: search-indexer-field-mappings.md
     - name: 데이터 검색
       items:
-        - name: 쿼리 기본 사항
+        - name: 기본 사항
           href: search-query-overview.md
         - name: 검색 탐색기(포털)
           href: search-explorer.md
@@ -215,6 +215,10 @@
           href: search-traffic-analytics.md
 - name: 참고 자료
   items:
+    - name: Azure CLI
+      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview'
     - name: .NET
       href: /dotnet/api/?term=microsoft.azure.search
     - name: .NET(관리)
@@ -250,35 +254,27 @@
           href: cognitive-search-skill-shaper.md
 - name: 리소스
   items:
-    - name: FAQ - 질문과 대답
+    - name: Azure 커뮤니티 지원
+      href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-search'
+    - name: 데모 사이트
+      items:
+        - name: 재무 파일 데모
+          href: 'http://wolterskluwereap.azurewebsites.net/'
+        - name: JFK 파일 데모
+          href: 'http://aka.ms/jfkfiles'
+        - name: 작업 목록 앱
+          href: 'http://aka.ms/azjobsdemo'
+        - name: 검색 분석기 데모
+          href: 'http://alice.unearth.ai/'
+        - name: 사용 사례 검색
+          href: 'https://searchsamples.azurewebsites.net/'
+    - name: FAQ
       href: search-faq-frequently-asked-questions.md
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=search'
-    - name: 인지 검색 설명서
-      href: cognitive-search-resources-documentation.md
-    - name: 코스웨어 및 자습서
-      items:
-        - name: 비디오 및 자습서
-          href: search-video-demo-tutorial-list.md
-        - name: Virtual Academy
-          href: 'https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382'
-    - name: 데모 사이트
-      items:
-        - name: 검색 분석기 데모
-          href: 'http://alice.unearth.ai/'
-        - name: 라이브 데모 앱
-          href: 'https://searchsamples.azurewebsites.net/'
-        - name: 작업 목록 앱
-          href: 'http://aka.ms/azjobsdemo'
-    - name: 파트너 및 커뮤니티
-      items:
-        - name: Azure Search MSDN 포럼
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch'
-        - name: 스택 오버플로
-          href: 'http://stackoverflow.com/questions/tagged/azure-search'
-        - name: '블로그: 관계형 데이터 모델링'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx'
-        - name: '블로그: 다단계 패싱'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx'
+    - name: 동영상
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

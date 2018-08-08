@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295399"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263234"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Azure AD Connect 연결 문제 해결
 이 문서는 Azure AD Connect와 Azure AD 간 연결의 작동 방식 및 연결 문제 해결 방법을 설명합니다. 이러한 문제는 프록시 서버 환경에서 발생할 가능성이 가장 높습니다.
@@ -52,7 +52,7 @@ Azure AD Connect는 인증에 최신 인증을 사용합니다(ADAL 라이브러
 | \*.microsoftonline.com |HTTPS/443 |Azure AD 디렉터리를 구성하고 데이터 가져오거나 내보내는 데 사용됩니다. |
 
 ## <a name="errors-in-the-wizard"></a>마법사 오류
-설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account)으로 변경합니다. 프록시 구성은 전역으로 적용되므로 문제가 있는 경우 해당 내용이 마법사의 **Azure AD에 연결** 페이지에 나올 것입니다.
+설치 마법사는 두 개의 서로 다른 보안 컨텍스트를 사용합니다. **Azure AD에 연결** 페이지에서 현재 로그인된 사용자를 사용합니다. **구성** 페이지에서 [동기화 엔진에 대한 서비스를 실행하는 계정](active-directory-aadconnect-accounts-permissions.md#adsync-service-account)으로 변경합니다. 프록시 구성은 전역으로 적용되므로 문제가 있는 경우 해당 내용이 마법사의 **Azure AD에 연결** 페이지에 나올 것입니다.
 
 다음 문제는 설치 마법사에서 발생하는 가장 일반적인 오류입니다.
 
@@ -161,28 +161,28 @@ Azure AD 디렉터리를 찾거나 해결할 수 없습니다. 확인되지 않�
 ### <a name="user-password-expired"></a>사용자 암호가 만료되었습니다
 자격 증명이 만료되었습니다. 암호를 변경합니다.
 
-### <a name="authorizationfailure"></a>AuthorizationFailure
-알 수 없는 문제
+### <a name="authorization-failure"></a>권한 부여 실패
+Azure AD에서 사용자에게 작업을 수행하도록 권한을 부여하지 못했습니다.
 
 ### <a name="authentication-cancelled"></a>인증이 취소되었습니다
 MFA(Multi-Factor Authentication) 시도를 취소했습니다.
 
-### <a name="connecttomsonline"></a>ConnectToMSOnline
+### <a name="connect-to-ms-online-failed"></a>MS 온라인 연결 실패
 인증에 성공했지만 Azure AD PowerShell에 인증 문제가 있습니다.
 
-### <a name="azurerolemissing"></a>AzureRoleMissing
-인증이 성공했습니다. 전역 관리자가 아닙니다.
+### <a name="azure-ad-global-admin-role-needed"></a>Azure AD 전역 관리자 역할 필요
+사용자가 인증되었습니다. 그러나 사용자에게 전역 관리자 역할이 할당되지 않습니다. 이것이 사용자에게 [전역 관리자 역할을 할당하는 방법](../users-groups-roles/directory-assign-admin-roles.md)입니다. 
 
-### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management 사용
 인증이 성공했습니다. Privileged Identity Management를 사용하며 현재 전역 관리자가 아닙니다. 자세한 내용은 [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md)를 참조하세요.
 
-### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
+### <a name="company-information-unavailable"></a>회사 정보를 사용할 수 없음
 인증이 성공했습니다. Azure AD에서 회사 정보를 검색할 수 없습니다.
 
-### <a name="retrievedomains"></a>RetrieveDomains
+### <a name="domain-information-unavailable"></a>도메인 정보를 사용할 수 없음
 인증이 성공했습니다. Azure AD에서 도메인 정보를 검색할 수 없습니다.
 
-### <a name="unexpected-exception"></a>예기치 않은 예외
+### <a name="unspecified-authentication-failure"></a>지정되지 않은 인증 오류
 설치 마법사에서 예기치 않은 오류로 표시됩니다. **학교 또는 조직 계정**이 아닌 **Microsoft 계정**을 사용하려고 하면 발생할 수 있습니다.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>이전 릴리스에 대한 문제 해결 단계입니다.

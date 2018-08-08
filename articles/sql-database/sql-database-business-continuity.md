@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092293"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263149"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Azure SQL Database의 비즈니스 연속성 개요
 
@@ -33,7 +33,7 @@ SQL Database는 자동화된 백업 및 선택적 데이터베이스 복제를 �
 | --- | --- | --- | --- |--- |--- |
 | 백업에서 특정 시점 복원 |7일 이내의 모든 복원 지점 |35일 이내의 모든 복원 지점 |35일 이내의 모든 복원 지점 |구성된 기간 이내의 모든 복원 지점(최대 35일)|구성된 기간 이내의 모든 복원 지점(최대 35일)|
 | 지리적으로 복제된 백업에서 지역 복원 |ERT < 12시간, RPO < 1시간 |ERT < 12시간, RPO < 1시간 |ERT < 12시간, RPO < 1시간 |ERT < 12시간, RPO < 1시간|ERT < 12시간, RPO < 1시간|
-| Azure Backup 자격 증명 모음에서 복원 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주|ERT < 12시간, RPO < 1주|
+| SQL 장기 보존에서 복원 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주 |ERT < 12시간, RPO < 1주|ERT < 12시간, RPO < 1주|
 | 활성 지역 복제 |ERT < 30초, RPO < 5초 |ERT < 30초, RPO < 5초 |ERT < 30초, RPO < 5초 |ERT < 30초, RPO < 5초|ERT < 30초, RPO < 5초|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>지정 시간 복원을 사용하여 데이터베이스 복구
@@ -102,7 +102,7 @@ Azure 포털 또는 PowerShell을 사용하여 삭제된 데이터베이스를 �
 
 ### <a name="restore-backups-from-long-term-retention"></a>장기 보존에서 백업 복원
 
-자동화된 백업에 대한 현재 보존 기간 외에 데이터 손실이 발생 하고 장기 보존에 대한 데이터베이스를 구성하는 경우 LTR 저장소의 전체 백업에서 새 데이터베이스로 복원할 수 있습니다. 이 시점에서 원본 데이터베이스를 복원된 데이터베이스로 바꾸거나 복원된 데이터베이스에서 필요한 데이터를 원본 데이터베이스로 복사할 수 있습니다. 이전 버전의 주요 응용 프로그램 업그레이드하기 전에 데이터베이스를 검색해야 할 경우 감사자 또는 법적 순서의 요청을 충족한다면 Azure Backup Vault에 저장된 전체 백업을 사용하여 데이터베이스를 만들 수 있습니다.  자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
+자동화된 백업에 대한 현재 보존 기간 이외에서 데이터 손실이 발생했으며 Azure Blob 저장소를 사용하여 장기 보존을 위해 데이터베이스를 구성한 경우 Azure Blob 저장소의 전체 백업에서 새 데이터베이스로 복원할 수 있습니다. 이 시점에서 원본 데이터베이스를 복원된 데이터베이스로 바꾸거나 복원된 데이터베이스에서 필요한 데이터를 원본 데이터베이스로 복사할 수 있습니다. 이전 버전의 주요 응용 프로그램 업그레이드하기 전에 데이터베이스를 검색해야 할 경우 감사자 또는 법적 순서의 요청을 충족한다면 Azure Blob 저장소에 저장된 전체 백업을 사용하여 데이터베이스를 만들 수 있습니다.  자세한 내용은 [장기 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Azure 지역 데이터 센터 가동 중단 상태에서 다른 지역으로 데이터베이스 복구
 <!-- Explain this scenario -->

@@ -39,6 +39,8 @@
       items:
         - name: 개요
           href: content-protection-overview.md
+        - name: 액세스 제어를 포함한 다중 DRM 시스템
+          href: design-multi-drm-system-with-access-control.md
     - name: Encoding
       items:
         - name: 개요

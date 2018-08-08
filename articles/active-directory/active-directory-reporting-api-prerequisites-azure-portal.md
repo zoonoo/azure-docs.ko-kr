@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d842b1af74c1b276f367e0ff15703880f7560aa
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: a9dc30f1d303c6849ed016d0bc81ce1bf3d3d9d5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36224789"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390622"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API에 액세스하기 위한 필수 구성 요소
 
@@ -42,7 +42,7 @@ reporting API에 액세스하도록 준비하려면 다음을 수행해야 합�
 
 API를 통해 보고 데이터에 액세스하려면 다음 역할 중 하나를 할당받아야 합니다.
 
-- 보안 판독기
+- 보안 읽기 권한자
 
 - 보안 관리자
 
@@ -230,9 +230,7 @@ Reporting API에 대한 호출을 구성하는 경우 이 값이 필요합니다
 
 ## <a name="next-steps"></a>다음 단계
 
-- [인증서와 함께 Azure Active Directory reporting API를 사용하여 데이터 가져오기](active-directory-reporting-api-with-certificates.md).
-
-- [reporting API의 첫 인상 살펴보기](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [고유의 솔루션 만들기](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [인증서와 함께 Azure Active Directory reporting API를 사용하여 데이터 가져오기](active-directory-reporting-api-with-certificates.md).
+* [reporting API의 첫 인상 살펴보기](active-directory-reporting-api-getting-started-azure-portal.md)
+* [감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [로그인 활동 보고서 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)

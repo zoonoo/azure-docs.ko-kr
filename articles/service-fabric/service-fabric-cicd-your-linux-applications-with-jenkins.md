@@ -4,22 +4,20 @@ description: Jenkins를 사용한 Service Fabric Linux 응용 프로그램 연�
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: timlt
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+manager: jpconnock
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972251"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390180"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins를 사용하여 Linux 응용 프로그램 빌드 및 배포
 Jenkins는 앱의 연속 통합 및 배포를 위한 인기 있는 도구입니다. Jenkins를 사용하여 Azure Service Fabric 응용 프로그램을 빌드하고 배포하는 방법은 다음과 같습니다.
@@ -325,6 +323,10 @@ Jenkins를 설정한 후 다음 섹션, [Jenkins 작업 만들기 및 구성](#c
 11. **응용 프로그램 구성** 아래에서 **응용 프로그램 이름**, **응용 프로그램 유형** 및 (상대)**응용 프로그램 매니페스트 경로** 필드를 구성합니다.
     ![Service Fabric Jenkins 빌드 후 작업 Azure 자격 증명 구성](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. **Verify Configuration**을 클릭합니다. 성공적으로 확인되면 **저장**을 클릭합니다. 이제 Jenkins 작업 파이프라인이 완전히 구성되었습니다. [다음 단계](#next-steps)를 계속 진행하여 배포를 테스트합니다.
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Jenkins 플러그 인 문제 해결
+
+Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues.jenkins-ci.org/)에서 특정 구성 요소에 대한 문제를 제출해 주세요.
 
 ## <a name="next-steps"></a>다음 단계
 이제 GitHub 및 Jenkins가 구성되었습니다. 리포지토리 https://github.com/Azure-Samples/service-fabric-java-getting-started의 포크에 있는 `reliable-services-actor-sample/Actors/ActorCounter` 프로젝트에서 몇 가지 샘플을 변경하는 것을 고려하세요. 원격 `master` 분기(또는 사용하도록 구성된 분기)에 변경 내용을 푸시합니다. 사용자가 구성한 Jenkins 작업 `MyJob`이 트리거됩니다. 그러면 GitHub에서 변경 내용을 가져오고, 해당 내용을 빌드하고, 빌드 후 작업에서 지정한 클러스터로 응용 프로그램을 배포합니다.  

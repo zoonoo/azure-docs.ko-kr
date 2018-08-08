@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 81a404a19dc1604f0aa87ef86883d0c18edac5cd
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224890"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262951"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화
 Azure AD Premium 또는 EMS(Enterprise Mobility + Security) 라이선스를 사용하는 모든 조직에서 Enterprise State Roaming을 사용할 수 있습니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품 페이지](https://azure.microsoft.com/services/active-directory)를 참조하세요.
@@ -56,7 +56,7 @@ Enterprise State Roaming 데이터는 Azure Active Directory 인스턴스에 설
 
 1. [Azure AD 관리 센터](https://aad.portal.azure.com/)에 로그인합니다.
 
-2. **Azure Active Directory** &gt; **사용자 및 그룹** &gt; **모든 사용자**를 선택합니다.
+2. **Azure Active Directory** &gt; **사용자** &gt; **모든 사용자**를 선택합니다.
 
 3. 사용자를 선택한 다음 **장치**를 선택합니다.
 

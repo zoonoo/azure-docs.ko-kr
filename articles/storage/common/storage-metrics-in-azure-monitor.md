@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/05/2017
 ms.author: fryu
-ms.openlocfilehash: dd11dd9edd5a90f6f541b56263cea4c4c76225bd
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f67fdbde243a7087496a075581e3f1d0040ade58
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249141"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263609"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -380,12 +380,12 @@ Azure Storage는 Azure Monitor에서 다음과 같은 트랜잭션 메트릭을 
 
 | 메트릭 이름 | 설명 |
 | ------------------- | ----------------- |
-| 트랜잭션 | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: ResponseType, GeoType, ApiName([정의](#metrics-dimensions))<br/> 값 예: 1024 |
-| 수신 | 수신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| 송신 | 송신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| SuccessServerLatency | Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 시간입니다. 이 값은 SuccessE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| SuccessE2ELatency | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
-| 가용성 | 저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 총 청구 가능 요청 값을 적용 가능한 요청 수(예기치 않은 오류를 발생시킨 요청 포함)로 나누어서 계산합니다. 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다. <br/><br/> 단위: % <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName([정의](#metrics-dimensions)) <br/> 값 예: 99.99 |
+| 트랜잭션 | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 요청 수입니다. 이 수는 성공 및 실패 요청뿐만 아니라 오류를 발생시킨 요청도 포함합니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: ResponseType, GeoType, ApiName 및 Authentication([정의](#metrics-dimensions))<br/> 값 예: 1024 |
+| 수신 | 수신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 수신뿐만 아니라 Azure 내의 수신도 포함합니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| 송신 | 송신 데이터 양입니다. 이 수는 외부 클라이언트에서 Azure Storage로 송신뿐만 아니라 Azure 내의 송신도 포함합니다. 따라서 이 수는 청구 가능한 송신을 반영하지 않습니다. <br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| SuccessServerLatency | Azure Storage에서 성공적인 요청을 처리하는 데 사용한 평균 시간입니다. 이 값은 SuccessE2ELatency에 지정된 네트워크 대기 시간을 포함하지 않습니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| SuccessE2ELatency | 저장소 서비스 또는 지정된 API 작업에 대해 제기된 성공적인 요청의 평균 종단 간 대기 시간입니다. 이 값은 Azure Storage 내에서 요청을 읽고 응답을 보내고 응답 확인을 수신하는 데 필요한 처리 시간을 포함합니다. <br/><br/> 단위: 밀리초 <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 1024 |
+| 가용성 | 저장소 서비스 또는 지정된 API 작업에 대한 가용성 백분율입니다. 가용성은 총 청구 가능 요청 값을 적용 가능한 요청 수(예기치 않은 오류를 발생시킨 요청 포함)로 나누어서 계산합니다. 모든 예기치 않은 오류는 저장소 서비스 또는 지정된 API 작업에 대한 가용성을 감소시킵니다. <br/><br/> 단위: % <br/> 집계 형식: 평균 <br/> 적용 가능한 차원: GeoType, ApiName 및 Authentication([정의](#metrics-dimensions)) <br/> 값 예: 99.99 |
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
@@ -397,6 +397,7 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | ResponseType | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>ServerOtherError: 설명한 것을 제외하고 모든 다른 서버 쪽 오류 </li> <li> ServerBusyError: HTTP 503 상태 코드를 반환한 인증된 요청입니다. </li> <li> ServerTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li> AuthorizationError: 무단 데이터 액세스 또는 인증 실패로 인해 실패한 인증된 요청입니다. </li> <li> NetworkError: 네트워크 오류로 인해 실패한 인증된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li> <li>    ClientThrottlingError: 클라이언트 쪽 제한 오류입니다. </li> <li> ClientTimeoutError: HTTP 500 상태 코드를 반환한 시간 초과된 인증된 요청입니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 저장소 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다. </li> <li> ClientOtherError: 설명한 것을 제외하고 모든 다른 클라이언트 쪽 오류입니다. </li> <li> Success: 성공적인 요청|
 | GeoType | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값은 기본 및 보조를 포함합니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
 | ApiName | 작업 이름입니다. 예:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)를 참조하세요. |
+| 인증 | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>AccountKey: 트랜잭션이 저장소 계정 키를 사용하여 인증됩니다.</li> <li>SAS: 트랜잭션이 공유 액세스 서명을 사용하여 인증됩니다.</li> <li>OAuth: 트랜잭션이 OAuth 액세스 토큰을 사용하여 인증됩니다.</li> <li>Anonymous: 트랜잭션이 익명으로 요청됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>AnonymousPreflight: 트랜잭션이 실행 전 요청입니다.</li> |
 
 메트릭 지원 차원의 경우 해당 메트릭 값을 보려면 차원 값을 지정해야 합니다. 예를 들어 성공적인 응답에 대한 **트랜잭션** 값을 조사하는 경우 **성공**을 포함한 **ResponseType** 차원을 필터링해야 합니다. 또는 블록 Blob에 대한 **BlobCount** 값을 조사하는 경우 **BlockBlob**을 포함한 **BlobType** 차원을 필터링해야 합니다.
 

@@ -1,27 +1,23 @@
 ---
-title: BizTalk Services에 BizTalk 서버 EDI 솔루션 마이그레이션 기술 가이드 | Microsoft Docs
-description: 'MABS(Microsoft Azure BizTalk Services)에 EDI를 마이그레이션 '
+title: BizTalk Server EDI 솔루션을 BizTalk Services로 마이그레이션 | Microsoft Docs
+description: Microsoft BizTalk Server EDI 솔루션을 MABS(Microsoft Azure BizTalk Services)로 마이그레이션하는 방법을 알아봅니다.
 services: biztalk-services
-documentationcenter: na
-author: MandiOhlinger
-manager: anneta
-editor: ''
-ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jonfancey
+ms.author: jonfan
+manager: jeconnoc
 ms.topic: article
-ms.date: 11/07/2016
-ms.author: mandia
-ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.date: 07/31/2018
+ms.reviewer: jonfan, LADocs
+ms.suite: integration
+ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860081"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365590"
 ---
-# <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Services에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Services에 BizTalk Server EDI 솔루션 마이그레이션: 기술 가이드
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -32,9 +28,9 @@ ms.locfileid: "37860081"
 Microsoft Azure BizTalk Services를 사용하여 작성 – 2014년 2월 릴리스.
 
 ## <a name="introduction"></a>소개
-EDI (전자 데이터 교환)은 기업간에 전자적으로 데이터를 교환하는 가장 널리 퍼진 방법 중 하나이며 기업간 또는 B2B 트랜잭션이라는 용어로도 사용됩니다. BizTalk Server은 BizTalk Sever의 최초 릴리스 때부터 수 십 년 동안 EDI 지원을 하였습니다. BizTalk Services를 사용하여 Microsoft는 Microsoft Azure Platform에서 EDI 솔루션을 계속지원합니다. B2B 트랜잭션은 대부분 조직 외부에 대한 것이며, 따라서 클라우드 플랫폼에서 구현된 경우 보다 쉽게 구현할 수 있습니다. Microsoft Azure는 BizTalk Services를 통해 이 기능을 제공합니다.
+EDI (전자 데이터 교환)은 기업간에 전자적으로 데이터를 교환하는 가장 널리 퍼진 방법 중 하나이며 기업간 또는 B2B 트랜잭션이라는 용어로도 사용됩니다. BizTalk Server는 BizTalk Sever가 처음 릴리스된 이래로 10년 넘게 EDI를 지원해왔습니다. BizTalk Services를 사용하여 Microsoft는 Microsoft Azure Platform에서 EDI 솔루션을 계속지원합니다. B2B 트랜잭션은 대부분 조직 외부에 대한 것이며, 따라서 클라우드 플랫폼에서 구현된 경우 보다 쉽게 구현할 수 있습니다. Microsoft Azure는 BizTalk Services를 통해 이 기능을 제공합니다.
 
-일부 고객은 BizTalk Services를 새로운 EDI 솔루션을 위한 "최적의" 플랫폼으로 보지만, 많은 고객은 현재 BizTalk Server EDI 솔루션을 Azure에 마이그레이션하기를 원합니다. BizTalk Services EDI는 BizTalk Server EDI 아키텍처(거래 파트너, 엔터티, 규약)와 동일한 주요 엔터티에 기반을 둔 아키텍처로 설계되었으며, BizTalk Server EDI 아키텍처를 BizTalk Services로 마이그레이션할 수 있습니다.
+일부 고객은 BizTalk Services를 새로운 EDI 솔루션을 위한 "최적의" 플랫폼으로 보고 있지만, 많은 고객들은 최신 BizTalk Server EDI 솔루션을 사용하고 있으며 이 버전을 Azure로 마이그레이션하려고 할 수 있습니다. BizTalk Services EDI는 BizTalk Server EDI 아키텍처(거래 파트너, 엔터티, 규약)와 동일한 주요 엔터티에 기반을 둔 아키텍처로 설계되었으며, BizTalk Server EDI 아키텍처를 BizTalk Services로 마이그레이션할 수 있습니다.
 
 이 문서에서는 BizTalk Server EDI를 BizTalk Services에 마이그레이션 하는 데 관련된 차이점 중 일부에 대해 설명합니다. 이 문서에서는 BizTalk Server EDI 처리 및 거래 파트너 규약에 대한 실무 지식이 있다고 가정 합니다. BizTalk Server EDI에 대한 자세한 내용은 [BizTalk Server를 사용하여 거래 파트너 관리](https://msdn.microsoft.com/library/bb259970.aspx)를 참조하세요.
 
@@ -76,7 +72,7 @@ BizTalk Server EDI에서 파이프라인은 응용 프로그램에서 필요에 
 
 사용자 지정 코드 및/또는 거래 업체 규약이 메시지를 수신하기 전 또는 규약이 메시지를 처리하고 Service Bus 끝점으로 라우팅 후 메시징 큐 및 항목 Service Bus를 사용하여 게시/구독 흐름을 삽입할 수 있습니다.
 
-메시지 흐름 패턴에 대해서는 이 토픽의 **시나리오/메시지 흐름** 을 참조하세요.
+메시지 흐름 패턴에 대해서는 이 문서의 **시나리오/메시지 흐름**을 참조하세요.
 
 ## <a name="agreements"></a>규약
 EDI 처리에 사용되는 BizTalk Server 2010 거래 파트너 규약에 익숙한 경우 BizTalk Services 거래 파트너 규약이 친숙해 보일 것입니다. 대부분의 규약 설정은 동일하고 동일한 용어를 사용합니다. 일부 경우, 계약 설정은 BizTalk Server에서 동일한 설정에 비해 훨씬 간단합니다. Microsoft Azure BizTalk Services는 x12, EDIFACT 및 AS2 전송을 지원합니다.
@@ -118,10 +114,7 @@ BizTalk Server EDI 처리에는 "대체 계약"의 개념이 있습니다.  BizT
 ### <a name="routing-to-multiple-destinations"></a>여러 대상으로 라우팅
 현재 상태에서 BizTalk Services 브리지는 게시-구동 모델을 사용하여 여러 대상에 메시지 라우팅을 지원하지 않습니다. 대신 BizTalk Services 브리지에서 둘 이상의 끝점에서 메시지를 수신하는 여러 구독을 가질 수 있는 Service Bus 토픽에 메시지를 라우팅할 수 있습니다.
 
-## <a name="conclusion"></a>결론
-Microsoft Azure BizTalk Services는 많은 기능을 추가하기 위해 중요 시점에 정기적으로 업데이트됩니다. 각 업데이트를 통해 BizTalk Services 및 다른 Azure 기술을 사용하여 종단간 솔루션을 만드는 것을 쉽게 만들기 위해 향상된 기능을 지원합니다.
-
 ## <a name="see-also"></a>참고 항목
-[Azure로 엔터프라이즈 응용 프로그램 개발](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[Azure의 LOB 솔루션](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 07/18/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136607"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262850"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -71,7 +71,7 @@ PITR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../s
 자세한 내용은 [지정 시간 복원](sql-database-recovery-using-backups.md#point-in-time-restore)을 참조하세요.
 
 ### <a name="backups-for-long-term-retention"></a>장기 보존에 대한 백업
-SQL Database는 전체 백업의 LTR(장기 보존)을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하면 매주 전체 백업이 다른 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 저장소 사용량은 선택한 백업 빈도 및 보존 기간에 따라 다릅니다. [LTR 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database)를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 
+SQL Database는 Azure Blob 저장소에서 전체 백업의 LTR(장기 보존)을 최대 10년 동안 구성하는 옵션을 제공합니다. LTR 정책을 사용하면 매주 전체 백업이 다른 RA-GRS 저장소 컨테이너로 자동으로 복사됩니다. 서로 다른 준수 요구 사항을 충족하려면 주별, 월별 및/또는 연도별 백업에 대해 다른 보존 기간을 선택할 수 있습니다. 저장소 사용량은 선택한 백업 빈도 및 보존 기간에 따라 다릅니다. [LTR 가격 계산기](https://azure.microsoft.com/pricing/calculator/?service=sql-database)를 사용하여 LTR 저장소 비용을 추정할 수 있습니다. 
 
 PITR과 마찬가질 LTR 백업은 지역 중복 백업이며 [Azure Storage 지역 간 복제](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)로 보호됩니다.
 
@@ -133,5 +133,5 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 - 데이터베이스 백업은 실수로 손상되거나 삭제되지 않도록 데이터를 보호해 주기 때문에 비즈니스 연속성 및 재해 복구 전략의 필수적인 부분입니다. 다른 Azure SQL Database 비즈니스 연속성 솔루션에 대해 알아보려면 [비즈니스 연속성 개요](sql-database-business-continuity.md)를 참조하세요.
 - Azure Portal을 사용하여 지정 시간으로 복원하려면 [Azure Portal을 사용하여 지정 시간으로 데이터베이스 복원](sql-database-recovery-using-backups.md)을 참조하세요.
 - PowerShell을 사용하여 지정 시간으로 복원하려면 [PowerShell을 사용하여 지정 시간으로 데이터베이스 복원](scripts/sql-database-restore-database-powershell.md)을 참조하세요.
-- Azure Portal을 사용하여 Azure Recovery Services에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
-- PowerShell을 사용하여 Azure Recovery Services에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
+- Azure Portal을 사용하여 Azure Blob 저장소에서 자동화된 백업을 장기 보존에서 구성, 관리 및 복원하려면 [Azure Portal을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.
+- PowerShell을 사용하여 Azure Blob 저장소의 장기 보존된 자동화된 백업에서 구성, 관리 및 복원하려면 [PowerShell을 사용하여 장기 백업 보존 관리](sql-database-long-term-backup-retention-configure.md)를 참조하세요.

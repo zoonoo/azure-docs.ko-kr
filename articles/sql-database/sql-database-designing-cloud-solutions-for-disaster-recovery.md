@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 사용하여 항상 사용 가능한 서비스 디자인 | Microsoft Docs
+title: Azure SQL Database를 사용하여 전역 사용 가능 서비스 디자인 | Microsoft Docs
 description: Azure SQL Database를 사용하여 항상 사용 가능한 서비스를 위한 응용 프로그램 디자인에 대해 알아봅니다.
 keywords: 클라우드 재해 복구, 재해 복구 솔루션, 앱 데이터 백업, 지역에서 복제, 무중단 업무 방식 계획
 services: sql-database
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092616"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264657"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 항상 사용 가능한 서비스 디자인
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역 사용 가능 서비스 디자인
 
-Azure SQL Database에서 항상 사용 가능한 서비스를 빌드하고 배포하는 경우 [장애 조치 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하여 지역 오류 및 심각한 서비스 중단에 대한 복원 기능을 제공합니다. 또한 보조 데이터베이스로 신속히 복구할 수 있습니다. 이 문서에서는 일반적인 응용 프로그램 패턴에 초점을 맞추고 각 옵션의 이점 및 장단점을 설명합니다. 탄력적 풀의 활성 지역 복제에 대한 자세한 내용은 [탄력적 풀 재해 복구 전략](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)을 참조하세요.
+Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경우 [장애 조치(Failover) 그룹 및 활성 지역 복제](sql-database-geo-replication-overview.md)를 사용하여 지역 오류 및 심각한 서비스 중단에 대한 복원 기능을 제공합니다. 동일한 기능을 사용하여 데이터에 로컬로 액세스하도록 최적화된 전역 분산 응용 프로그램을 만들 수 있습니다. 이 문서에서는 일반적인 응용 프로그램 패턴에 초점을 맞추고 각 옵션의 이점 및 장단점을 설명합니다. 
 
 > [!NOTE]
 > 프리미엄 또는 중요 비즈니스용 데이터베이스 및 탄력적 풀을 사용하는 경우, 영역 중복 배포 구성으로 변환하여 지역 중단 시 탄력적으로 복원할 수 있습니다. [영역 중복 데이터베이스](sql-database-high-availability.md)를 참조하세요.  

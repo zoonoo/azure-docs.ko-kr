@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: d916191ec6b475f9a19a48c62d69e4c8990a2d4c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9524d471388e69166191b6197fb295532b068092
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264428"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390557"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API 연습
 이 문서에서는 [Microsoft Azure Monitor REST API 참조](https://msdn.microsoft.com/library/azure/dn931943.aspx)를 사용할 수 있도록 인증을 수행하는 방법을 살펴봅니다.         
@@ -231,7 +231,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
+**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&resultType=metadata&api-version=*{apiVersion}*
 
 예를 들어 지정된 시간 범위 동안 GeoType dimension = 'Primary'인 'API Name dimension'에 대해 내보내진 차원의 값 목록을 검색하기 위해 요청은 다음과 같을 수 있습니다.
 
@@ -302,7 +302,7 @@ Invoke-RestMethod -Uri $request `
 
 **메서드**: GET
 
-**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metric=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
+**Request URI**: https://management.azure.com/subscriptions/*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?metricnames=*{metric}*&timespan=*{starttime/endtime}*&$filter=*{filter}*&interval=*{timeGrain}*&aggregation=*{aggreation}*&api-version=*{apiVersion}*
 
 예를 들어 GeotType이 'Primary'였던 5분 범위 동안 'Transactions' 수에 의한 내림차순 값에서 상위 3개의 API를 검색하기 위해 요청은 다음과 같습니다.
 

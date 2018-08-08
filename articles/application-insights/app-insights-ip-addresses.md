@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96fbac6ae09e8b6611ff615ba1f95fc1a084f89
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 724cdb82f601805ffd93f1afd0c27983cc1ef96b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205734"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389476"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에 사용된 IP 주소
 [Azure Application Insights](app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -28,12 +28,17 @@ ms.locfileid: "39205734"
 > 
 > 
 
+> [!TIP]
+> 즐겨 찾는 RSS/ATOM 판독기에 https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/application-insights/app-insights-ip-addresses.md.atom을 추가하여 최신 변경의 알림을 받을 수 있게 이 페이지를 RSS 피드로 구독합니다.
+> 
+> 
+
 ## <a name="outgoing-ports"></a>발신 포트
 Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 보낼 수 있도록 서버 방화벽에서 일부 나가는 포트를 열어야 합니다.
 
 | 목적 | URL | IP | 포트 |
 | --- | --- | --- | --- |
-| 원격 분석 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
+| 원격 분석 |dc.services.visualstudio.com<br/>dc.applicationinsights.microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74 | 443 |
 | 라이브 메트릭 스트림 |rt.services.visualstudio.com<br/>rt.applicationinsights.microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>상태 모니터

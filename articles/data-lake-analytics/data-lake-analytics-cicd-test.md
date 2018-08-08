@@ -14,39 +14,41 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/03/2018
 ms.author: yanacai
-ms.openlocfilehash: bfb314348caf1d5bf83c940c0bce79e87d6d2593
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: fa5c113541452a93c25adc7c14bdaa6994434c71
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37890808"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365863"
 ---
-# <a name="how-to-test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics 코드를 테스트하는 방법
+# <a name="test-your-azure-data-lake-analytics-code"></a>Azure Data Lake Analytics 코드 테스트
 
-Azure Data Lake는 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 데이터를 처리할 수 있도록 하는 언어로 U-SQL을 제공합니다. 이 문서에서는 U-SQL 및 확장 C# UDO(사용자 정의 연산자) 코드에 대해 테스트 사례를 만드는 방법을 알아봅니다.
+Azure Data Lake는 선언적 SQL을 명령적 C#에 결합하여 규모에 관계 없이 데이터를 처리할 수 있도록 하는 U-SQL 언어를 제공합니다. 이 문서에서는 U-SQL 및 확장 C# UDO(사용자 정의 연산자) 코드에 대해 테스트 사례를 만드는 방법을 알아봅니다.
 
 ## <a name="test-u-sql-scripts"></a>U-SQL 스크립트 테스트
 
-U-SQL 스크립트는 실행 코드로 컴파일되고 최적화된 후, 클라우드의 컴퓨터 또는 로컬 컴퓨터에서 실행됩니다. 컴파일 및 최적화 프로세스는 전체 U-SQL 스크립트를 통째로 실행되도록 처리합니다. 모든 문에 대해 기존의 "단위 테스트"를 수행할 수는 없습니다. 그러나 U-SQL 테스트 SDK 및 로컬 실행 SDK를 사용하여 스크립트 수준 테스트를 수행할 수 있습니다.
+U-SQL 스크립트는 실행 코드로 컴파일되고 최적화되어 클라우드의 컴퓨터 또는 로컬 컴퓨터에서 실행됩니다. 컴파일 및 최적화 프로세스는 전체 U-SQL 스크립트를 통째로 처리합니다. 모든 문에 대해 기존의 "단위 테스트"를 수행할 수는 없습니다. 그러나 U-SQL 테스트 SDK 및 로컬 실행 SDK를 사용하여 스크립트 수준 테스트를 수행할 수 있습니다.
 
 ### <a name="create-test-cases-for-u-sql-script"></a>U-SQL 스크립트에 대한 테스트 사례 만들기
 
-Azure Data Lake Tools for Visual Studio는 U-SQL 스크립트 테스트 사례를 만드는 데 도움이 되는 유용한 환경을 제공합니다.
+Azure Data Lake Tools for Visual Studio를 사용하면 U-SQL 스크립트 테스트 사례를 만들 수 있습니다.
 
 1.  솔루션 탐색기에서 U-SQL 스크립트를 마우스 오른쪽 단추로 클릭한 다음, **단위 테스트 만들기**를 선택합니다.
-2.  새 테스트 프로젝트를 만들거나 기존 테스트 프로젝트에 테스트 사례를 삽입하도록 구성합니다.
+2.  새 테스트 프로젝트를 만들거나 기존 테스트 프로젝트에 테스트 사례를 삽입합니다.
 
-    ![Data Lake Tools for Visual Studio에서 u-sql 테스트 프로젝트 만들기](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project.png) 
+    ![Data Lake Tools for Visual Studio -- U-SQL 테스트 프로젝트 만들기](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project.png) 
 
-    ![Data Lake Tools for Visual Studio에서 u-sql 테스트 프로젝트 구성 만들기](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project-configure.png) 
+    ![Data Lake Tools for Visual Studio -- U-SQL 테스트 프로젝트 구성 만들기](./media/data-lake-analytics-cicd-test/data-lake-tools-create-usql-test-project-configure.png) 
 
-### <a name="manage-test-data-source"></a>테스트 데이터 원본 관리
+### <a name="manage-the-test-data-source"></a>테스트 데이터 원본 관리
 
-U-SQL 스크립트를 테스트하는 경우 테스트 입력 파일이 필요합니다. U-SQL 프로젝트 속성에서 **테스트 데이터 원본**을 구성하여 이러한 테스트 데이터를 관리할 수 있습니다. U-SQL 테스트 SDK에서 `Initialize()` 인터페이스를 호출할 때 임시 로컬 데이터 루트 폴더가 테스트 프로젝트의 작업 디렉터리 아래에 생성되고, 테스트 데이터 원본 폴더의 모든 파일 및 하위 폴더(및 하위 폴더 아래에 있는 파일)가 U-SQL 스크립트 테스트 사례를 실행하기 전에 임시 로컬 데이터 루트 폴더에 복사됩니다. 세미콜론으로 테스트 데이터 폴더 경로를 분리하여 더 많은 테스트 데이터 원본 폴더를 추가할 수 있습니다.
+U-SQL 스크립트를 테스트하는 경우 입력 파일을 테스트해야 합니다. U-SQL 프로젝트 속성에서 **테스트 데이터 원본**을 구성하여 이러한 테스트 데이터를 관리할 수 있습니다. 
 
-![Data Lake Tools for Visual Studio에서 프로젝트 테스트 데이터 원본 구성](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
+U-SQL 테스트 SDK에서 `Initialize()` 인터페이스를 호출할 때 임시 로컬 데이터 루트 폴더가 테스트 프로젝트의 작업 디렉터리 아래에 생성되고, 테스트 데이터 원본 폴더의 모든 파일 및 하위 폴더(및 하위 폴더 아래에 있는 파일)가 U-SQL 스크립트 테스트 사례를 실행하기 전에 임시 로컬 데이터 루트 폴더에 복사됩니다. 세미콜론으로 테스트 데이터 폴더 경로를 분리하여 더 많은 테스트 데이터 원본 폴더를 추가할 수 있습니다.
 
-### <a name="manage-database-environment-for-test"></a>테스트를 위한 데이터베이스 환경 관리
+![Data Lake Tools for Visual Studio -- 프로젝트 테스트 데이터 원본 구성](./media/data-lake-analytics-cicd-test/data-lake-tools-configure-project-test-data-source.png)
+
+### <a name="manage-the-database-environment-for-testing"></a>테스트를 위한 데이터베이스 환경 관리
 
 U-SQL 스크립트가 U-SQL 데이터베이스 개체를 사용하거나 이 개체로 쿼리를 수행하는 경우(예: 저장 프로시저 호출) U-SQL 테스트 사례를 실행하기 전에 데이터베이스 환경을 초기화해야 합니다. U-SQL 테스트 SDK의 `Initialize()` 인터페이스는 U-SQL 프로젝트에서 참조하는 모든 데이터베이스를 테스트 프로젝트의 작업 디렉터리에 있는 임시 로컬 데이터 루트 폴더에 배포하도록 도와줍니다. 
 
@@ -54,11 +56,11 @@ U-SQL 스크립트가 U-SQL 데이터베이스 개체를 사용하거나 이 개
 
 ### <a name="verify-test-results"></a>테스트 결과 확인
 
-`Run()` 인터페이스는 작업 실행 결과를 반환합니다. 0은 성공을, 1은 실패를 의미합니다. 또한 C# 어설션 함수를 사용하여 출력을 확인할 수도 있습니다. 
+`Run()` 인터페이스는 작업 실행 결과를 반환합니다. 0은 성공, 1은 실패를 의미합니다. 또한 C# 어설션 함수를 사용하여 출력을 확인할 수도 있습니다. 
 
-### <a name="execute-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
+### <a name="run-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
 
-U-SQL 스크립트 테스트 프로젝트는 C# 단위 테스트 프레임워크에서 빌드됩니다. 프로젝트를 빌드한 후, **테스트 탐색기 > 재생 목록**을 통해 또는 .cs 파일을 마우스 오른쪽 단추로 클릭한 후 **테스트 실행**을 선택하여 모든 테스트 사례를 실행할 수 있습니다.
+U-SQL 스크립트 테스트 프로젝트는 C# 단위 테스트 프레임워크에서 빌드됩니다. 프로젝트를 빌드한 후 **테스트 탐색기 > 재생 목록**을 통해 모든 테스트 사례를 실행할 수 있습니다. 또는 .cs 파일을 마우스 오른쪽 단추로 클릭하고 **테스트 실행**을 선택합니다.
 
 ## <a name="test-c-udos"></a>C# UDO 테스트
 
@@ -66,9 +68,9 @@ U-SQL 스크립트 테스트 프로젝트는 C# 단위 테스트 프레임워크
 
 C# 단위 테스트 프레임워크를 사용하여 C# UDO(사용자 정의 연산자)를 테스트할 수 있습니다. UDO를 테스트할 때 해당 **IRowset** 개체를 입력으로 준비해야 합니다.
 
-IRowset을 만드는 방법에는 다음 두 가지가 있습니다.
+IRowset 개체를 만드는 방법에는 다음 두 가지가 있습니다.
 
-1.  파일에서 데이터를 로드하여 IRowset 만들기
+- 파일에서 데이터를 로드하여 IRowset 만들기
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -84,7 +86,7 @@ IRowset을 만드는 방법에는 다음 두 가지가 있습니다.
     IRowset rowset = UnitTestHelper.GetRowsetFromFile(@"processor.txt", schema, output.AsReadOnly(), discardAdditionalColumns: true, rowDelimiter: null, columnSeparator: '\t');
     ```
 
-2.  데이터 컬렉션의 데이터를 사용하여 IRowset 만들기
+- 데이터 컬렉션의 데이터를 사용하여 IRowset 만들기
 
     ```csharp
     //Schema: "a:int, b:int"
@@ -107,15 +109,15 @@ IRowset을 만드는 방법에는 다음 두 가지가 있습니다.
 
 ### <a name="verify-test-results"></a>테스트 결과 확인
 
-UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 행 집합 값 확인을 통해 결과를 확인할 수 있습니다. 샘플 코드는 Visual Studio의 **파일 > 새로 만들기 > 프로젝트**를 통해 U-SQL C# UDO 단위 테스트 샘플에 포함될 수 있습니다.
+UDO 함수를 호출한 후 C# 어설션 함수를 사용하여 스키마 및 행 집합 값 확인을 통해 결과를 확인할 수 있습니다. Visual Studio의 **파일 > 새로 만들기 > 프로젝트**를 통해 U-SQL C# UDO 단위 테스트 샘플 프로젝트에서 샘플 코드를 사용할 수 있습니다.
 
-### <a name="execute-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
+### <a name="run-test-cases-in-visual-studio"></a>Visual Studio에서 테스트 사례 실행
 
 테스트 프로젝트를 빌드한 후, **테스트 탐색기 > 재생 목록**을 통해 또는 .cs 파일을 마우스 오른쪽 단추로 클릭한 후 **테스트 실행**을 선택하여 모든 테스트 사례를 실행할 수 있습니다.
 
 ## <a name="run-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service에서 테스트 사례 실행
 
-**U-SQL 스크립트 테스트 프로젝트** 및 **C# UDO 테스트 프로젝트** 둘 다 C# 단위 테스트 프로젝트를 상속합니다. Visual Studio Team Service의 [Visual Studio 테스트 작업](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts)은 이러한 테스트 사례를 실행할 수 있습니다. 
+**U-SQL 스크립트 테스트 프로젝트** 및 **C# UDO 테스트 프로젝트** 둘 다 C# 단위 테스트 프로젝트를 상속합니다. Visual Studio Team Services의 [Visual Studio 테스트 작업](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts)은 이러한 테스트 사례를 실행할 수 있습니다. 
 
 ### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service에서 U-SQL 테스트 사례 실행
 
@@ -123,23 +125,23 @@ U-SQL 테스트의 경우 빌드 컴퓨터에 `CPPSDK`를 로드하고 USqlScrip
 
 **CPPSDK란?**
 
-CPPSDK는 Microsoft Visual C++ 14 및 Windows SDK 10.0.10240.0(U-SQL 런타임에서 필요한 환경임)이 포함된 패키지입니다. Azure Data Lake Tools for Visual Studio 설치 폴더 아래에 이 패키지를 가져올 수 있습니다.
+CPPSDK는 Microsoft Visual C++ 14 및 Windows SDK 10.0.10240.0을 포함하는 패키지입니다. U-SQL 런타임에 필요한 환경입니다. Azure Data Lake Tools for Visual Studio 설치 폴더 아래에 이 패키지를 가져올 수 있습니다.
 
 - Visual Studio 2015의 경우 `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK` 아래에 있습니다.
 - Visual Studio 2017의 경우 `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK` 아래에 있습니다.
 
-**Visual Studio Team Service 빌드 에이전트에서 CPPSDK를 준비하는 방법**
+**Visual Studio Team Service 빌드 에이전트에서 CPPSDK 준비**
 
-Visual Studio Team Service에서 이 CPPSDK 종속성을 준비하기 위한 일반적인 방법은 다음과 같습니다.
+Visual Studio Team Service에서 CPPSDK 종속성을 준비하기 위한 가장 일반적인 방법은 다음과 같습니다.
 
-1.  CPPSDK 라이브러리를 포함하는 폴더를 zip으로 압축합니다.
-2.  zip 파일을 원본 제어 시스템으로 체크 인합니다. (Zip 파일은 CPPSDK 폴더 아래에 있는 모든 라이브러리를 체크 인하도록 할 수 있습니다. 그렇지 않은 경우 일부 파일이 ".gitignore"에 의해 무시됩니다.)
-3.  빌드 파이프라인에서 zip 파일의 압축을 풉니다.
+1.  CPPSDK 라이브러리가 포함된 폴더를 zip으로 압축합니다.
+2.  zip 파일을 원본 제어 시스템으로 체크 인합니다. (.zip 파일은 CPPSDK 폴더 아래에 있는 모든 라이브러리를 체크 인하여 일부 파일이 ".gitignore"에 의해 무시되지 않도록 합니다.)   
+3.  빌드 파이프라인에서 .zip 파일의 압축을 풉니다.
 4.  `USqlScriptTestRunner`가 빌드 컴퓨터에서 압축을 푼 이 폴더를 가리키도록 합니다.
 
-### <a name="run-c-udo-test-cases-in-visual-studio-team-service"></a>Visual Studio Team Service에서 C# UDO 테스트 사례 실행
+### <a name="run-c-udo-test-cases-in-visual-studio-team-services"></a>Visual Studio Team Services에서 C# UDO 테스트 사례 실행
 
-C# UDO 테스트의 경우, UDO에 필요한 아래 어셈블리를 참조해야 합니다. [Nuget 패키지 Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/)를 통해 참조하는 경우 빌드 파이프라인에 NuGet 복원 태스크를 추가해야 합니다.
+C# UDO 테스트의 경우, UDO에 필요한 다음 어셈블리를 참조해야 합니다. [Nuget 패키지 Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/)를 통해 참조하는 경우 빌드 파이프라인에 NuGet 복원 태스크를 추가해야 합니다.
 
 * Microsoft.Analytics.Interfaces
 * Microsoft.Analytics.Types

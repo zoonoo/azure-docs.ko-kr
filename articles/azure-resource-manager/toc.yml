@@ -16,7 +16,6 @@
     - name: 템플릿 만들기 - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: 자습서
-  expanded: true
   items:
     - name: 암호화된 저장소 계정 만들기
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -52,10 +51,12 @@
               href: resource-manager-templates-outputs.md
         - name: 연결된 템플릿 및 중첩된 템플릿
           href: resource-group-linked-templates.md
-        - name: 리소스 간 종속성 정의
+        - name: 리소스 종속성
           href: resource-group-define-dependencies.md
         - name: 여러 인스턴스 만들기
           href: resource-group-create-multiple.md
+        - name: 템플릿에 리소스 그룹 만들기
+          href: create-resource-group-in-template.md
         - name: 리소스 업데이트
           href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: 배포

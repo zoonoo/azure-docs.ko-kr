@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126510"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390299"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -172,7 +172,7 @@ Hybrid Runbook Worker의 작업은 Azure 샌드박스에서 실행될 때보다 
 다음 예제에서는 Runbook에 서명하는 데 사용할 수 있는 자체 서명된 인증서를 만듭니다. 샘플은 인증서를 만들고 내보냅니다. 나중에 인증서를 Hybrid Runbook Worker로 가져옵니다. 지문도 반환되며, 나중에 인증서를 참조하는 데 사용됩니다.
 
 ```powershell
-# Create a self signed runbook that can be used for code signing
+# Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
                                         -KeyAlgorithm RSA `
@@ -211,7 +211,7 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 ### <a name="sign-your-runbooks-using-the-certificate"></a>인증서를 사용하여 Runbook에 서명
 
-Hybrid Runbook Worker가 서명된 Runbook만 사용하도록 구성되어 있습니다. Hybrid Runbook Worker에서 사용할 Runbook에 서명해야 합니다. 다음 샘플 PowerShell을 사용하여 Runbook에 서명합니다.
+Hybrid Runbook Worker가 서명에 Runbook만 사용하도록 구성된 경우, Hybrid Runbook Worker에서 사용할 수 있는 Runbook에 서명해야 합니다. 다음 샘플 PowerShell을 사용하여 Runbook에 서명합니다.
 
 ```powershell
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 8032fd2a0150597c55178648511c80233e63a911
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a5ab49beed79a8ea3a7ded0848c09acad27a5fb1
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054729"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390540"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Visual Studio Code용 Azure IoT Edge를 사용하여 Node.js 모듈 개발 및 디버그
 
@@ -84,7 +84,8 @@ VS Code는 입력한 정보를 사용하여 IoT Edge 솔루션을 만들고 새 
 
 각 모듈 폴더에는 서로 다른 컨테이너 유형에 사용되는 여러 Docker 파일이 있습니다. **.debug** 확장명으로 끝나는 이러한 파일을 사용하여 테스트할 모듈을 빌드할 수 있습니다. 현재, C# 모듈은 linux-amd64 컨테이너의 디버깅만 지원합니다.
 
-1. VS Code에서 `deployment.template.json` 파일로 이동합니다. **deployment.template.json**에서 Node.js 모듈의 createOptions를 아래 내용으로 바꾸고 이 파일을 저장합니다. 
+1. VS Code에서 `deployment.template.json` 파일로 이동합니다. 끝에 **.debug**를 추가하여 모듈 이미지 URL을 업데이트합니다.
+2. **deployment.template.json**에서 Node.js 모듈의 createOptions를 아래 내용으로 바꾸고 이 파일을 저장합니다. 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```

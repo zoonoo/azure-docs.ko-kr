@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/12/2017
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1a6fe4fc7fd5f47bfd4bc4d9168f76c31c78b47b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 20c43669b9da24cea4b0b552a86ec7d5a77dc5a7
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34592479"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264514"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: 이전 버전에서 최신 버전으로 업그레이드
 이 항목에서는 Azure Active Directory(Azure AD) Connect 설치를 최신 릴리스로 업그레이드하는 데 사용할 수 있는 여러 가지 방법을 설명합니다. Azure AD Connect 릴리스를 최신 상태로 유지하는 것이 좋습니다. [스윙 마이그레이션](#swing-migration) 섹션에 설명된 단계는 상당한 구성 변경을 수행하는 경우에도 사용할 수 있습니다.
@@ -130,6 +130,38 @@ PowerShell을 사용하여 만든 사용자 지정 동기화 규칙을 이동할
    > 가능한 한 빨리 필수 동기화 단계를 실행해야 합니다. Synchronization Service Manager를 사용하여 수동으로 이 단계를 실행하거나, ADSyncSchedulerConnectorOverride cmdlet을 사용하여 재정의를 다시 추가할 수 있습니다.
 
 임의 커넥터에서 전체 가져오기 및 전체 동기화 둘 다에 대해 재정의를 추가하려면 다음 cmdlet을 실행합니다. `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+
+## <a name="troubleshooting"></a>문제 해결
+다음 섹션에는 Azure AD Connect 업그레이드 문제가 발생할 때 사용할 수 있는 문제 해결 정보가 포함되어 있습니다.
+
+### <a name="azure-active-directory-connector-missing-error-during-azure-ad-connect-upgrade"></a>Azure AD Connect 업그레이드 동안 Azure Active Directory Connector 누락 오류 발생
+
+이전 버전에서 Azure AD Connect를 업그레이드할 때 업그레이드 시작 시 다음 오류가 발생할 수 있습니다. 
+
+![오류](./media/active-directory-aadconnect-upgrade-previous-version/error1.png)
+
+이 오류는 식별자가 b891884f-051e-4a83-95af-2544101c9083인 Azure Active Directory Connect가 현재 Azure AD Connect 구성에 없기 때문에 발생합니다. 이러한 경우인지 확인하려면 PowerShell 창을 열고 Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`를 실행합니다.
+
+```
+PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
+Get-ADSyncConnector : Operation failed because the specified MA could not be found.
+At line:1 char:1
++ Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ReadError: (Microsoft.Ident...ConnectorCmdlet:GetADSyncConnectorCmdlet) [Get-ADSyncConne
+   ctor], ConnectorNotFoundException
+    + FullyQualifiedErrorId : Operation failed because the specified MA could not be found.,Microsoft.IdentityManageme
+   nt.PowerShell.Cmdlet.GetADSyncConnectorCmdlet
+
+```
+
+이 PowerShell Cmdlet은 오류 **지정된 MA를 찾을 수 없습니다.** 를 보고합니다.
+
+이러한 문제가 발생하는 이유는 현재 Azure AD Connect 구성에 대한 업그레이드가 지원되지 않기 때문입니다. 
+
+새 버전의 Azure AD Connect를 설치하려면 Azure AD Connect 마법사를 닫고, 기존 Azure AD Connect를 제거한 후 최신 Azure AD Connect를 새로 설치합니다.
+
+
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](active-directory-aadconnect.md)에 대해 자세히 알아봅니다.

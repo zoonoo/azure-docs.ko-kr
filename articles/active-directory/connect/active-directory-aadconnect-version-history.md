@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049520"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390156"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -36,6 +36,45 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](./active-directory-aadconnect-accounts-permissions.md#upgrade)을 참조하세요.
 
 다운로드 | [Azure AD Connect 다운로드](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>릴리스 상태
+
+2018년 7월 20일: 자동 업그레이드를 위해 릴리스되었습니다. 다운로드용 릴리스는 곧 제공될 예정입니다.
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+- Azure AD Connect의 Ping Federate 통합은 현재 일반 공급됩니다. [Ping Federate를 사용하여 Azure AD를 페더레이션하는 방법에 대해 자세히 알아보기](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Azure AD Connect는 이제 업데이트가 수행될 때마다 AD FS에서 Azure AD 트러스트의 백업을 만들고, 필요한 경우 쉽게 복원할 수 있도록 별도 파일에 저장합니다. [Azure AD Connect의 새로운 기능 및 Azure AD 트러스트 관리에 대해 자세히 알아보기](https://aka.ms/fedtrustinaadconnect)
+- 새 문제 해결 도구는 기본 전자 메일 주소 변경 및 전체 주소 목록에서 계정 숨기기와 관련된 문제를 해결하는 데 도움이 됩니다.
+- Azure AD Connect는 최신 SQL Server 2012 Native Client를 포함하도록 업데이트되었습니다.
+- "사용자 로그인 변경" 작업에서 사용자 로그인을 암호 해시 동기화 또는 통과 인증 태스크로 전환하면 기본적으로 Seamless Single Sign-On 확인란이 사용되도록 설정됩니다.
+- Windows Server Essentials 2019에 대한 지원이 추가되었습니다.
+- Azure AD Connect Health 에이전트가 최신 버전인 3.1.7.0으로 업데이트되었습니다.
+- 업그레이드하는 동안, 설치 관리자가 기본 동기화 규칙에 대한 변경을 감지하면 수정된 규칙을 덮어쓰기 전에 관리자에게 경고가 표시됩니다. 따라서 사용자는 수정 작업을 수행하고 나중에 다시 시작할 수 있습니다. 이전 동작: 기본 제공 규칙을 수정한 후에 수동 업그레이드를 수행할 경우 사용자에게 경고하지 않고 해당 규칙이 덮어쓰여지며, 알림 없이 동기화 스케줄러가 사용되지 않도록 설정되었습니다. 새 동작: 사용자가 수정된 기본 제공 동기화 규칙을 덮어쓰기 전에 경고가 표시됩니다. 사용자는 업그레이드 프로세스를 중지한 후 나중에 수정 작업 후에 다시 시작하도록 선택할 수 있습니다.
+- FIPS 준수 문제가 보다 잘 처리되며, FIPS 준수 환경에서 MD5 해시 생성을 위한 오류 메시지와 이 문제에 대한 해결 방법을 제공하는 설명서에 대한 링크가 제공됩니다.
+- 이제 페더레이션에 대한 별도 하위 그룹 아래에 포함되는 마법사에서 페더레이션 작업을 개선하도록 UI가 업데이트되었습니다. 
+- 모든 페더레이션 추가 작업은 이제 편리한 사용을 위해 단일 하위 메뉴 아래에 그룹화됩니다.
+- 새로운 AD 권한 기능으로 새로 수정된 ADSyncConfig Posh 모듈(AdSyncConfig.psm1)이 이전 ADSyncPrep.psm1(곧 사용되지 않을 수 있음)에서 전환되었습니다.
+
+### <a name="fixed-issues"></a>해결된 문제 
+
+- .Net 4.7.2로 업그레이드한 후 AAD Connect 서버가 높은 CPU 사용량을 표시하는 버그가 수정되었습니다.
+- 자동으로 해결된 SQL 교착 상태 문제에 대한 오류 메시지를 간헐적으로 생성하는 버그가 수정되었습니다.
+- 동기화 규칙 편집기 및 Sync Service Manager에 대한 몇 가지 접근성 문제가 수정되었습니다.  
+- Azure AD Connect가 레지스트리 설정 정보를 가져올 수 없는 버그가 수정되었습니다.
+- 사용자가 마법사에서 앞/뒤로 이동할 때 문제를 생성하는 버그가 수정되었습니다.
+- 마법사의 잘못된 다중 스레드 처리로 인한 오류를 발생하지 못하게 하는 버그가 수정되었습니다.
+- 보안 그룹을 확인할 때 그룹 동기화 필터링 페이지에 LDAP 오류가 발생하는 경우 Azure AD Connect는 이제 예외를 고화질로 그대로 반환합니다.  조회 예외에 대한 근본 원인을 여전히 알 수 없으며 다른 버그에 의해 해결됩니다.
+-  STK 및 NGC 키(WHfB의 User/Device 개체에 대한 msDS-KeyCredentialLink 특성)에 대한 권한이 올바르게 설정되지 않는 버그가 수정되었습니다.     
+- 'Set-ADSyncRestrictedPermissions’가 제대로 호출되지 않는 버그가 수정되었습니다.
+-  AADConnect 설치 마법사의 그룹 쓰기 저장(writeback)에 대한 권한 부여 지원이 추가됩니다.
+- 암호 해시 동기화에서 AD FS로 로그인 방법을 변경할 경우 암호 해시 동기화가 사용되지 않도록 설정되지 않았습니다.
+- AD FS 구성에서 IPv6 주소에 대한 확인이 추가되었습니다.
+- 기존 구성이 있음을 알리도록 알림 메시지가 업데이트되었습니다.
+- 장치 쓰기 저장(writeback) 기능이 신뢰할 수 없는 포리스트에 있는 컨테이너를 검색하지 못했습니다. 이 기능은 더 나은 오류 메시지와 해당 설명서에 대한 링크를 제공하도록 업데이트되었습니다.
+- OU를 선택 취소한 후 OU에 해당하는 동기화/쓰기 저장(writeback)을 선택 취소하면 동기화 오류가 생성됩니다. 좀 더 이해하기 쉬운 오류 메시지를 만들도록 변경되었습니다.
 
 ## <a name="118190"></a>1.1.819.0
 

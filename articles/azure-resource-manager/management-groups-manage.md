@@ -10,24 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fab26fec44b671a9f779b114c1521bc8142d9427
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488381"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389401"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
 관리 그룹은 여러 구독에서 액세스, 정책 및 규정 준수를 관리하는 데 도움이 되는 컨테이너입니다. 이러한 컨테이너를 변경하고 삭제하고 관리하여 [Azure Policy](../azure-policy/azure-policy-introduction.md) 및 [Azure RBAC(역할 기반 액세스 제어)](../role-based-access-control/overview.md)에서 사용할 수 있는 계층 구조를 유지할 수 있습니다. 관리 그룹에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](management-groups-overview.md)을 참조하세요.
 
-관리 그룹 기능은 공개 미리 보기에서 사용할 수 있습니다. 관리 그룹 사용을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인하거나 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available) 또는 [REST API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview)를 사용하여 관리 그룹을 관리할 수 있습니다.
-
 관리 그룹을 변경하려면 관리 그룹에 대해 소유자 또는 참가자 역할이 있어야 합니다. 보유하고 있는 사용 권한을 보려면 관리 그룹을 선택하고 **IAM**을 선택합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../role-based-access-control/overview.md)를 참조하세요.
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>관리 그룹의 이름 변경
 
@@ -80,6 +78,7 @@ az account management-group update --name Contoso --display-name "Contoso Group"
 3. 삭제하려는 관리 그룹을 선택합니다.
 4. **삭제**를 선택합니다.
     - 아이콘이 사용되지 않도록 설정되면 아이콘 위로 마우스 선택기를 가져가면 이유가 표시됩니다.
+
     ![그룹 삭제](media/management-groups/delete.png)
 5. 관리 그룹을 삭제할 것인지 확인하는 창이 열립니다.
 

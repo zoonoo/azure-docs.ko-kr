@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 권장 사항 관리 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLan
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2018
+ms.date: 07/31/2018
 ms.author: terrylan
-ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006617"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367109"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
 이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -95,7 +95,7 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 | [취약점 평가 설치되지 않음](security-center-vulnerability-assessment-recommendations.md) |VM에 취약점 평가 솔루션을 설치하는 것이 좋습니다. |
 | [취약점 해결](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |VM에 설치된 취약점 평가 솔루션에 감지되는 시스템 및 응용 프로그램 취약점을 볼 수 있습니다. |
 | [Azure Storage 계정에 암호화 사용](security-center-enable-encryption-for-storage-account.md) | 미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하도록 권장합니다. SSE(Storage 서비스 암호화)는 Azure Storage에 기록되는 데이터를 암호화하고 검색 전 해독하는 방식으로 작동합니다. SSE는 현재 Azure Blob service에만 사용할 수 있으며 블록 blob, 페이지 blob 및 추가 blob에 사용할 수 있습니다. 자세한 내용을 알아보려면 [미사용 데이터에 대한 Storage 서비스 암호화](../storage/common/storage-service-encryption.md)를 참조하세요.</br>SSE는 Resource Manager 저장소 계정에만 지원됩니다. |
-| [적응형 응용 프로그램 제어 사용](security-center-adaptive-application.md) | Windows VM에서 적응형 응용 프로그램 제어를 적용하는 것이 좋습니다. 이 기능은 미리 보기로 제공되며 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
+| [적응형 응용 프로그램 제어 사용](security-center-adaptive-application.md) | Windows VM에서 적응형 응용 프로그램 제어를 적용하는 것이 좋습니다. 이 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요. |
 | App Service에 HTTPS를 통해서만 액세스 가능 | HTTPS만을 통해 App Service의 액세스를 제한하는 것이 좋습니다. |
 | 웹 응용 프로그램에 대해 웹 소켓이 사용되지 않도록 설정됨| 웹 응용 프로그램 내에서 웹 소켓 사용을 주의 깊게 검토하는 것이 좋습니다.  웹 소켓 프로토콜은 다양한 유형의 보안 위협에 취약합니다. |
 | 웹 응용 프로그램에 대한 사용자 지정 도메인 사용 | 사용자 지정 도메인을 사용하여 피싱 및 기타 DNS 관련 공격 같은 일반적인 공격에서 웹 응용 프로그램을 보호하는 것이 좋습니다. |

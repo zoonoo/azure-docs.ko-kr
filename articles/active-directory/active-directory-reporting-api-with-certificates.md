@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 44ec19721ba59898915f6547231fb586cb44eb30
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928909"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389755"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -85,10 +85,9 @@ MS Graph API에 대한 액세스 토큰을 가져오려면 MSCloudIdUtils PowerS
 
 ## <a name="next-steps"></a>다음 단계
 
-- [reporting API의 첫 인상 살펴보기](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [고유의 솔루션 만들기](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [reporting API의 첫 인상 살펴보기](active-directory-reporting-api-getting-started-azure-portal.md)
+* [감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [로그인 활동 보고서 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 

@@ -1,21 +1,21 @@
 ---
-title: Azure Container Instances에서 컨테이너 작업 실행
+title: 다시 시작 정책을 사용하여 Azure Container Instances에서 컨테이너 작업 실행
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
 services: container-instances
 author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/16/2017
+ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: 3bbe3e891423b6ad62a1d1093daef304206f3d76
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: dd411ff38411c71cce2a8a63cc453c34e665a385
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167132"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262738"
 ---
-# <a name="run-a-containerized-task-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 작업 실행
+# <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
 Azure Container Instances에서는 컨테이너를 배포하는 것이 쉽고 빠르기 때문에 컨테이너 인스턴스에서 빌드, 테스트 및 이미지 렌더링과 같은 일회성 작업을 실행하기 위한 강력한 플랫폼을 제공합니다.
 
@@ -77,7 +77,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력
+출력:
 
 ```bash
 [('the', 990),
@@ -123,7 +123,7 @@ az container create \
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-출력
+출력:
 
 ```bash
 [('CLAUDIUS', 120),
@@ -157,7 +157,7 @@ az container create \
 az container logs --resource-group myResourceGroup --name mycontainer3
 ```
 
-출력
+출력:
 
 ```bash
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

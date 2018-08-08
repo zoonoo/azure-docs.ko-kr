@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 7a61fa9df5b5232c11f4a546ec5f050461c88e88
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72091d592475e41f254ef7c3882e3d3fee0c491b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211143"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389534"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric에서 신뢰할 수 있는 컬렉션에 대한 지침 및 권장 사항
 이 섹션에서는 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용하기 위한 지침을 제공합니다. 목표는 사용자에게 일반적인 문제가 발생하지 않도록 방지하는 것입니다.
@@ -49,6 +49,7 @@ ms.locfileid: "34211143"
 * 보조에서 읽기 작업은 쿼럼 커밋되지 않는 버전을 읽을 수 있습니다.
   즉, 단일 보조에서 읽은 데이터 버전은 거짓 처리될 수 있습니다.
   주에서 읽은 내용은 항상 안정적이며 거짓 처리될 수 없습니다.
+* 응용 프로그램에서 유지되는 데이터의 보안/개인 정보 보호는 사용자가 결정하게 되며, 저장소 관리에서 제공하는 보호 기능이 적용됩니다. 운영 체제 디스크 암호화는 미사용 데이터를 보호하는 데 사용될 수 있습니다.  
 
 ### <a name="next-steps"></a>다음 단계
 * [신뢰할 수 있는 컬렉션 작업](service-fabric-work-with-reliable-collections.md)

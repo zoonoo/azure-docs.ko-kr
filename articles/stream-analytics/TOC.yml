@@ -46,8 +46,8 @@
       href: stream-analytics-compatibility-level.md
     - name: 일반적인 쿼리 패턴
       href: stream-analytics-stream-analytics-query-patterns.md
-    - name: JSON 및 AVRO에서 복잡한 데이터 형식 작업
-      href: 'https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics'
+    - name: JSON 및 AVRO 데이터 구문 분석
+      href: stream-analytics-parsing-json.md
     - name: 이벤트 순서 고려 사항
       href: stream-analytics-out-of-order-and-late-events.md
     - name: 검사점 및 재생

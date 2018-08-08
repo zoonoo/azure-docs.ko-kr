@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971784"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364168"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 
@@ -24,6 +24,12 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
 쿼리 디자인은 이벤트 데이터를 한 입력 스트림에서 다른 출력 데이터 저장소로 이동하는 간단한 통과 논리를 표현할 수 있습니다. 또는 TollApp 샘플처럼 풍부한 패턴 일치 및 임시 분석을 수행하여 다양한 시간 범위의 집계를 계산할 수 있습니다. 여러 입력의 데이터를 조인하여 스트리밍 이벤트를 결합하고, 정적 참조 데이터를 조회하여 이벤트 값을 보강할 수 있습니다. 또한 여러 출력에 데이터를 쓸 수 있습니다.
 
 이 문서에서는 실제 시나리오에 따른 몇 가지 일반적인 쿼리 패턴에 대한 솔루션을 간략하게 설명합니다. 이 작업은 진행 중이며 새 패턴이 지속적으로 업데이트됩니다.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>JSON 및 AVRO에서 복잡한 데이터 형식 작업 
+Azure Stream Analytics는 CSV, JSON 및 Avro 데이터 형식의 이벤트 처리를 지원합니다.
+JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복합 형식을 포함할 수 있습니다. 이러한 복합 데이터 형식을 사용하려면 [JSON 및 AVRO에서 복합 데이터 형식 사용](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics) 페이지를 참조하세요.
+
 
 ## <a name="query-example-convert-data-types"></a>쿼리 예제: 데이터 형식 변환
 **설명**: 입력 스트림의 속성 형식을 정의합니다.

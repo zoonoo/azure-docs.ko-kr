@@ -3,27 +3,26 @@ title: Azure Disk Encryption FAQ | Microsoft Docs
 description: 이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure Disk Encryption에 대한 질문과 대답을 제공합니다.
 services: security
 documentationcenter: na
-author: DevTiw
-manager: avibm
-editor: barclayn
+author: mestew
+manager: MBaldwin
 ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2018
-ms.author: barclayn
-ms.openlocfilehash: aa2278e7d32147d75b8ca0241a39a9fed6df41c8
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.date: 07/30/2018
+ms.author: mstewart
+ms.openlocfilehash: 98b8883a5ab0096102ab7daf90b5b2791a6f7e41
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36266885"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389578"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption FAQ
 
-이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure Disk Encryption에 대한 FAQ(질문과 대답)를 제공합니다. 이 서비스에 대한 자세한 내용은 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)을 참조하세요.
+이 문서에서는 Windows 및 Linux IaaS VM용 Microsoft Azure Disk Encryption에 대한 FAQ(질문과 대답)를 제공합니다. 이 서비스에 대한 자세한 내용은 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](azure-security-disk-encryption-overview.md)을 참조하세요.
 
 ## <a name="where-is-azure-disk-encryption-in-general-availability-ga"></a>GA(일반 공급)에서 Azure Disk Encryption은 어디에 있나요?
 
@@ -31,17 +30,18 @@ Windows 및 Linux IaaS VM용 Azure Disk Encryption은 모든 Azure 공용 지역
 
 ## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Azure Disk Encryption에서 사용할 수 있는 사용자 환경은 무엇인가요?
 
-Azure Disk Encryption GA에서는 Azure Resource Manager 템플릿, Azure PowerShell 및 Azure CLI를 지원합니다. 이렇게 하면 많은 유연성을 제공합니다. IaaS VM에 대한 디스크 암호화를 사용하기 위한 세 가지 옵션이 있습니다. Azure Disk Encryption에서 사용할 수 있는 사용자 환경 및 단계별 지침에 대한 자세한 내용은 [Azure Disk Encryption 배포 시나리오 및 환경](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences)을 참조하세요.
+Azure Disk Encryption GA에서는 Azure Resource Manager 템플릿, Azure PowerShell 및 Azure CLI를 지원합니다. 여러 사용자 환경이 유연성을 제공합니다. IaaS VM에 대한 디스크 암호화를 사용하기 위한 세 가지 옵션이 있습니다. Azure Disk Encryption에서 사용할 수 있는 사용자 환경 및 단계별 지침에 대한 자세한 내용은 [Windows용 Azure Disk Encryption 사용](azure-security-disk-encryption-windows.md) 및 [Linux용 Azure Disk Encryption 사용](azure-security-disk-encryption-linux.md)을 참조하세요.
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Azure Disk Encryption 비용은 얼마인가요?
 
 Azure Disk Encryption을 사용한 VM 디스크 암호화에는 요금이 청구되지 않으나, Azure Key Vault 사용과 관련된 요금은 청구됩니다. Azure Key Vault 요금에 대한 자세한 내용은 [Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 페이지를 참조하세요.
 
+
 ## <a name="which-virtual-machine-tiers-does-azure-disk-encryption-support"></a>Azure Disk Encryption에서 지원하는 가상 머신 계층은 무엇인가요?
 
 Azure Disk Encryption은 [A, D, DS, G, GS 및 F](https://azure.microsoft.com/pricing/details/virtual-machines/) 시리즈 IaaS VM을 포함하여 표준 계층 VM에서 사용할 수 있습니다. 프리미엄 저장소가 있는 VM에 사용할 수도 있습니다. 기본 계층 VM에서는 사용할 수 없습니다.
 
-## <a name="what-linux-distributions-does-azure-disk-encryption-support"></a>Azure Disk Encryption은 어떤 Linux 배포판을 지원하나요?
+## <a name="bkmk_LinuxOSSupport"></a> Azure Disk Encryption은 어떤 Linux 배포판을 지원하나요?
 
 Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 지원됩니다.
 
@@ -71,11 +71,12 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 | SLES | 우선 순위: 11-SP4 | 데이터 디스크  |
 | SLES | 11 SP4 | 데이터 디스크  |
 
-*__ADE는 데이터 디스크의 RHEL에 대해 지원됩니다. 현재 ADE 구현은 OS 디스크와 호환되지만 현재는 공동 지원되지 않습니다. Microsoft와 Red Hat은 공동 지원되는 솔루션을 개발 중입니다. 그 때까지는 [여기](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)서 Linux OS 디스크 암호화에 대한 ADE 백서를 참조하시기 바랍니다.__
+
+*__ADE는 데이터 디스크의 RHEL에 대해 지원됩니다. 현재 ADE 구현은 OS 디스크와 호환되지만 현재는 공동 지원되지 않습니다. Microsoft와 Red Hat은 공동 지원되는 솔루션을 개발 중입니다. 그 때까지는 [Linux용 Azure Disk Encryption](azure-security-disk-encryption-linux.md) 문서__를 참조할 수 있습니다.
 
 ## <a name="how-can-i-start-using-azure-disk-encryption"></a>Azure Disk Encryption을 사용하기 시작하려면 어떻게 해야 하나요?
 
-시작하려면 [Windows 및 Linux IaaS VM용 Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) 백서를 참조하세요.
+시작하려면 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)를 읽어보세요.
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>Azure Disk Encryption을 사용하여 부팅 볼륨과 데이터 볼륨을 모두 암호화할 수 있나요?
 
@@ -83,23 +84,23 @@ Azure Disk Encryption은 다음과 같은 Linux 서버 배포 및 버전에서 �
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok-capability"></a>Azure Disk Encryption에서 BYOK(Bring Your Own Key) 기능을 가져올 수 있나요?
 
-네, 사용자 고유의 키 암호화 키를 제공할 수 있습니다. 이러한 키는 Azure Disk Encryption에 대한 키 저장소인 Azure Key Vault에서 보호됩니다. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 배포 시나리오 및 환경](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences)을 참조하세요.
+네, 사용자 고유의 키 암호화 키를 제공할 수 있습니다. 이러한 키는 Azure Disk Encryption에 대한 키 저장소인 Azure Key Vault에서 보호됩니다. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites.md)를 참조하세요.
 
 ## <a name="can-i-use-an-azure-created-key-encryption-key"></a>Azure에서 만든 키 암호화 키를 사용할 수 있나요?
 
-예, Azure Key Vault를 사용하여 Azure Disk Encryption을 사용하기 위한 키 암호화 키를 생성할 수 있습니다. 이러한 키는 Azure Disk Encryption에 대한 키 저장소인 Azure Key Vault에서 보호됩니다. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 배포 시나리오 및 환경](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences)을 참조하세요.
+예, Azure Key Vault를 사용하여 Azure Disk Encryption을 사용하기 위한 키 암호화 키를 생성할 수 있습니다. 이러한 키는 Azure Disk Encryption에 대한 키 저장소인 Azure Key Vault에서 보호됩니다. 키 암호화 키에 대한 자세한 내용은 [Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites.md)를 참조하세요.
 
 ## <a name="can-i-use-an-on-premises-key-management-service-or-hsm-to-safeguard-the-encryption-keys"></a>온-프레미스 키 관리 서비스 또는 HSM을 사용하여 암호화 키를 보호할 수 있나요?
 
-온-프레미스 키 관리 서비스 또는 HSM은 Azure Disk Encryption을 통해 암호화 키를 보호하는 데 사용할 수 없습니다. Azure Key Vault 서비스만 사용하여 암호화 키를 보호할 수 있습니다. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 배포 시나리오 및 환경](azure-security-disk-encryption.md#disk-encryption-deployment-scenarios-and-user-experiences)을 참조하세요.
+온-프레미스 키 관리 서비스 또는 HSM은 Azure Disk Encryption을 통해 암호화 키를 보호하는 데 사용할 수 없습니다. Azure Key Vault 서비스만 사용하여 암호화 키를 보호할 수 있습니다. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 필수 구성 요소, 배포 시나리오 및 환경](azure-security-disk-encryption-prerequisites.md)을 참조하세요.
 
 ## <a name="what-are-the-prerequisites-to-configure-azure-disk-encryption"></a>Azure Disk Encryption을 구성하기 위한 필수 구성 요소는 무엇인가요?
 
-필수 구성 요소 PowerShell 스크립트가 있습니다. 이 스크립트를 사용하여 Azure Active Directory 응용 프로그램을 만들거나 새 키 자격 증명 모음을 만들거나, 디스크 암호화 액세스에 대한 기존 키 자격 증명 모음을 설정하여 암호화를 사용하도록 설정하고 비밀과 키를 보호합니다. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 필수 구성 요소, 배포 시나리오 및 환경](azure-security-disk-encryption.md#prerequisites)을 참조하세요.
+Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. Azure Active Directory 응용 프로그램을 만들거나 새 Key Vault를 만들거나, 디스크 암호화 액세스에 대한 기존 Key Vault를 설정하여 암호화를 사용하도록 설정하고 비밀과 키를 보호하려면 [Azure Disk Encryption 필수 구성 요소](azure-security-disk-encryption-prerequisites.md) 문서를 참조하세요. 키 암호화 키 지원 시나리오에 대한 자세한 내용은 [Azure Disk Encryption 개요](azure-security-disk-encryption-overview.md)를 참조하세요.
 
 ## <a name="where-can-i-get-more-information-on-how-to-use-powershell-for-configuring-azure-disk-encryption"></a>PowerShell을 사용하여 Azure Disk Encryption을 구성하는 방법에 대한 자세한 정보는 어디서 얻을 수 있나요?
 
-Azure Disk Encryption 기본 작업을 수행하는 방법과 고급 시나리오에 대한 몇 가지 훌륭한 아티클이 있습니다. 기본 작업은 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 1부](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/)를 참조하세요. 고급 시나리오는 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 2부](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/)를 참조하세요.
+Azure Disk Encryption 기본 작업을 수행하는 방법과 고급 시나리오에 대한 몇 가지 유용한 문서가 있습니다. 기본 작업은 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 1부](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/16/explore-azure-disk-encryption-with-azure-powershell/)를 참조하세요. 고급 시나리오는 [Azure PowerShell를 사용하여 Azure Disk Encryption 탐색 - 2부](https://blogs.msdn.microsoft.com/azuresecurity/2015/11/21/explore-azure-disk-encryption-with-azure-powershell-part-2/)를 참조하세요.
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Azure Disk Encryption에서 지원하는 Azure PowerShell 버전은 무엇인가요?
 
@@ -110,7 +111,7 @@ Azure Disk Encryption 기본 작업을 수행하는 방법과 고급 시나리�
 
 ## <a name="can-i-apply-azure-disk-encryption-on-my-custom-linux-image"></a>사용자 지정 Linux 이미지에 Azure Disk Encryption을 적용할 수 있나요?
 
-사용자 지정 Linux 이미지에는 Azure Disk Encryption을 적용할 수 없습니다. 이전에 언급한 지원 배포판에 대한 Linux 갤러리 이미지만 지원합니다. 현재 사용자 지정 Linux 이미지는 지원하지 않습니다.
+사용자 지정 Linux 이미지에는 Azure Disk Encryption을 적용할 수 없습니다. 이전에 언급한 지원 배포판에 대한 Linux 갤러리 이미지만 지원합니다. 사용자 지정 Linux 이미지는 현재 지원되지 않습니다.
 
 ## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>yum 업데이트를 사용하는 Linux Red Hat VM에 업데이트를 적용할 수 있나요?
 
@@ -120,11 +121,11 @@ Azure Disk Encryption 기본 작업을 수행하는 방법과 고급 시나리�
 
 Linux에서 최상의 결과를 얻기 위해 다음 워크플로가 권장됩니다.
 * 원하는 OS 배포판 및 버전에 해당하는 수정되지 않은 주식 갤러리 이미지에서 시작
-* 암호화되는 탑재된 드라이브를 백업합니다.  오류가 발생한 경우, 예를 들어 암호화가 완료되기 전에 VM을 다시 부팅하는 경우 복구를 허용합니다.
+* 암호화되는 탑재된 드라이브를 백업합니다.  암호화가 완료되기 전에 VM이 다시 부팅되는 경우처럼 오류가 발생한 경우, 복구가 허용됩니다.
 * 암호화(VM 특성 및 연결된 데이터 디스크의 크기에 따라 여러 시간 또는 심지어 며칠이 걸릴 수 있음)
 * 필요에 따라 소프트웨어를 사용자 지정하고 이미지에 추가합니다.
 
-이 워크플로가 가능하지 않은 경우 플랫폼 저장소 계정 계층에서 SSE([저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)) 사용은 dm-crypt를 사용하는 전체 디스크 암호화에 대한 대안이 될 수 있습니다.
+이 워크플로가 가능하지 않은 경우 플랫폼 저장소 계정 계층에서 SSE([저장소 서비스 암호화](../storage/common/storage-service-encryption.md)) 사용은 dm-crypt를 사용하는 전체 디스크 암호화에 대한 대안이 될 수 있습니다.
 
 ## <a name="what-is-the-disk-bek-volume-or-mntazurebekdisk"></a>디스크 "Bek Volume" 또는 "/mnt/azure_bek_disk"란 무엇인가요?
 

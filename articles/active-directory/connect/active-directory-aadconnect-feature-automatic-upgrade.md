@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089964"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263949"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: 자동 업그레이드
 이 기능은 빌드 [1.1.105.0(2016년 2월에 발표됨)](active-directory-aadconnect-version-history.md#111050)에서 도입되었습니다.  이 기능은 [빌드 1.1.561](active-directory-aadconnect-version-history.md#115610)에서 업데이트되었고 이제 이전에 지원되지 않던 추가 시나리오를 지원합니다.
@@ -95,8 +95,8 @@ Azure AD에 연결이 확인되면, 이벤트 로그를 살펴볼 차례입니�
 | UpgradeNotSupportedInvalidPersistedState |설치가 Express 설정 또는 DirSync 업그레이드가 아닙니다. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |메타버스에 10만 개가 넘는 개체가 있습니다. |
 | UpgradeNotSupportedMultiForestSetup |둘 이상의 포리스트에 연결되어 있습니다. 빠른 설치는 하나의 포리스트에만 연결합니다. |
-| UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |
-| UpgradeNotSupportedNonMsolAccount |[AD Connector 계정](active-directory-aadconnect-accounts-permissions.md#active-directory-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
+| UpgradeNotSupportedNonLocalDbInstall |SQL Server Express LocalDB 데이터베이스를 사용하고 있지 않습니다. |d
+| UpgradeNotSupportedNonMsolAccount |[AD DS Connector 계정](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account)이 더 이상 기본 MSOL_ 계정이 아닙니다. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | AAD Connect를 설치한 경우 로그온 방법을 선택할 때 *구성 안 함*을 선택합니다. | 
 | UpgradeNotSupportedPtaSignInMethod | 로그인 방법으로 통과 인증을 선택했습니다. |
 | UpgradeNotSupportedStagingModeEnabled |서버가 [준비 모드](active-directory-aadconnectsync-operations.md#staging-mode)로 설정되어 있습니다. |

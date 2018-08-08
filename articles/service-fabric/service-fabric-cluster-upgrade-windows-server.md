@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 20526c1ddd55671f815dc39b3e03c4f9b2f91788
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9c2534644a0627bac9765621691cbba6ffccfe35
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208654"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391314"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Windows Server에서 독립 실행형 Azure Service Fabric 클러스터 업그레이드 
 > [!div class="op_single_selector"]
@@ -83,7 +83,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     다음과 유사한 결과가 표시됩니다.
 
     ![Service Fabric 버전 가져오기][getfabversions]
-3. [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx) Windows PowerShell 명령을 사용하여 사용 가능한 버전으로 클러스터 업그레이드를 시작합니다.
+3. [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade) Windows PowerShell 명령을 사용하여 사용 가능한 버전으로 클러스터 업그레이드를 시작합니다.
 
     ```Powershell
 
@@ -101,9 +101,9 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Get-ServiceFabricClusterUpgrade
     ```
 
-    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx)에 대한 설명서를 참조하세요.
+    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade)에 대한 설명서를 참조하세요.
 
-롤백을 일으킨 문제를 수정한 후 이전과 동일한 단계에 따라 업그레이드를 다시 시작합니다.
+    롤백을 일으킨 문제를 수정한 후 이전과 동일한 단계에 따라 업그레이드를 다시 시작합니다.
 
 ### <a name="upgrade-clusters-that-have-no-connectivity-to-download-the-latest-code-and-configuration"></a>최신 코드와 구성을 다운로드하도록 *연결되지 않은* 클러스터 업그레이드
 클러스터 노드가 인터넷을 통해 [Microsoft 다운로드 센터](http://download.microsoft.com)에 연결되어 있지 않으면 이러한 단계를 사용하여 클러스터를 지원되는 버전으로 업그레이드합니다.
@@ -121,7 +121,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
         "fabricClusterAutoupgradeEnabled": false,
 
-자세한 사용 방법은 [Start-ServiceFabricClusterConfigurationUpgrade PowerShell 명령](https://msdn.microsoft.com/library/mt788302.aspx)을 참조하세요. 구성 업그레이드를 시작하기 전에 JSON에서 'clusterConfigurationVersion'을 업데이트해야 합니다.
+자세한 사용 방법은 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell 명령을 참조하세요. 구성 업그레이드를 시작하기 전에 JSON에서 'clusterConfigurationVersion'을 업데이트해야 합니다.
 
 ```powershell
 
@@ -131,7 +131,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 #### <a name="cluster-upgrade-workflow"></a>클러스터 업그레이드 워크플로
 
-1. 클러스터의 노드 중 하나에서 Get-ServiceFabricClusterUpgrade를 실행하고 TargetCodeVersion을 적어둡니다.
+1. 클러스터의 노드 중 하나에서 [Get-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclusterupgrade)를 실행하고 *TargetCodeVersion*을 적어둡니다.
 
 2. 인터넷에 연결된 컴퓨터에서 다음을 실행하여 현재 버전과 호환 가능한 모든 업그레이드 버전을 나열하고, 연결된 다운로드 링크에서 해당 패키지를 다운로드합니다.
 
@@ -182,9 +182,9 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Get-ServiceFabricClusterUpgrade
     ```
 
-    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](https://msdn.microsoft.com/library/mt125872.aspx)에 대한 설명서를 참조하세요.
+    클러스터 상태 정책이 충족되지 않으면 업그레이드가 롤백됩니다. Start-ServiceFabricClusterUpgrade 명령에 대한 사용자 지정 상태 정책을 지정하려면 [Start-ServiceFabricClusterUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterupgrade)에 대한 설명서를 참조하세요.
 
-롤백을 일으킨 문제를 수정한 후 이전과 동일한 단계에 따라 업그레이드를 다시 시작합니다.
+    롤백을 일으킨 문제를 수정한 후 이전과 동일한 단계에 따라 업그레이드를 다시 시작합니다.
 
 
 ## <a name="upgrade-the-cluster-configuration"></a>클러스터 구성 업그레이드
@@ -205,7 +205,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 
 끝점, 클러스터 이름, 노드 IP 등의 일부 구성은 업그레이드할 수 없습니다. 새 클러스터 구성 JSON은 이전 JSON과 비교하여 테스트되었으며, 문제가 있으면 PowerShell 창에서 오류가 throw됩니다.
 
-클러스터 구성 업그레이드를 업그레이드하려면 Start-ServiceFabricClusterConfigurationUpgrade를 실행합니다. 업그레이드 도메인으로 구성 업그레이드가 처리됩니다.
+클러스터 구성을 업그레이드하려면 [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade)를 실행합니다. 업그레이드 도메인으로 구성 업그레이드가 처리됩니다.
 
 ```powershell
 

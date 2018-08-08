@@ -171,12 +171,13 @@
 #### [Azure AD 조인 계획](devices/azureadjoin-plan.md)
 #### [하이브리드 Azure AD 조인 구현 계획](devices/hybrid-azuread-join-plan.md)
 #### [장치의 하이브리드 Azure AD 조인 제어](devices/hybrid-azuread-join-control.md)
+#### [Azure AD 가입 장치에 로컬 관리자 할당](devices/assign-local-admin.md)
 #### [하이브리드 Azure AD 조인 Windows 현재 장치 문제 해결](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [하이브리드 Azure AD 조인 레거시 Windows 장치 문제 해결](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### 개념
-### [Azure Portal을 사용하여 장치 관리](devices/device-management-azure-portal.md)
-### [FAQ](devices/faq.md)
+#### [Azure Portal을 사용하여 장치 관리](devices/device-management-azure-portal.md)
+#### [FAQ](devices/faq.md)
 
 ## 앱 관리
 ### [개요](manage-apps/what-is-application-management.md)
@@ -403,30 +404,30 @@
 ### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
 #### [시작](active-directory-conditional-access-azure-portal-get-started.md)
 #### 빠른 시작
-##### [클라우드 앱 MFA별 구성](active-directory-conditional-access-app-based-mfa.md)
-##### [허용할 사용 약관 필요](active-directory-conditional-access-tou.md)
-##### [세션 위험이 감지되면 액세스 차단](active-directory-conditional-access-app-sign-in-risk.md)
+##### [클라우드 앱 MFA별 구성](conditional-access/app-based-mfa.md)
+##### [허용할 사용 약관 필요](conditional-access/require-tou.md)
+##### [세션 위험이 감지되면 액세스 차단](conditional-access/app-sign-in-risk.md)
 #### 자습서
-##### [클래식 MFA 정책 마이그레이션](active-directory-conditional-access-migration-mfa.md)
+##### [클래식 MFA 정책 마이그레이션](conditional-access/policy-migration-mfa.md)
 #### 개념
-##### [기준 보호](active-directory-conditional-access-baseline-protection.md)
-##### [조건](active-directory-conditional-access-conditions.md)
-##### [위치 조건](active-directory-conditional-access-locations.md)
-##### [컨트롤](active-directory-conditional-access-controls.md)
-##### [가상 도구](active-directory-conditional-access-whatif.md)
+##### [기준 보호](conditional-access/baseline-protection.md)
+##### [조건](conditional-access/conditions.md)
+##### [위치 조건](conditional-access/location-condition.md)
+##### [컨트롤](conditional-access/controls.md)
+##### [가상 도구](conditional-access/what-if-tool.md)
 ##### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### 방법 가이드
-##### [모범 사례](active-directory-conditional-access-best-practices.md)
+##### [모범 사례](conditional-access/best-practices.md)
 ##### [신뢰할 수 없는 네트워크의 액세스 시도에 대한 조건부 액세스 정책 구성](active-directory-conditional-access-untrusted-networks.md)
 ##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
 ##### [앱 기반 조건부 액세스 설정](active-directory-conditional-access-mam.md)
 ##### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)
-##### [클래식 정책 마이그레이션](active-directory-conditional-access-migration.md)
+##### [클래식 정책 마이그레이션](conditional-access/policy-migration.md)
 ##### [VPN 연결 설정](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
 ##### [재구성](active-directory-conditional-access-device-remediation.md)
 #### [기술 참조](active-directory-conditional-access-technical-reference.md)
-#### [FAQ](active-directory-conditional-faqs.md)
+#### [FAQ](conditional-access/faqs.md)
 
 ### 인증서 기반 인증
 #### [Android](active-directory-certificate-based-authentication-android.md)

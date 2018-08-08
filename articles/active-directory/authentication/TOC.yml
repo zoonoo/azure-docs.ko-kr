@@ -176,6 +176,8 @@
               href: howto-mfa-nps-extension-errors.md
     - name: 문제 해결
       items:
+        - name: 등록 수렴 사용 안 함
+          href: howto-registration-mfa-sspr-converged-troubleshoot.md
         - name: SSPR 문제 해결
           href: active-directory-passwords-troubleshoot.md
         - name: SSPR FAQ

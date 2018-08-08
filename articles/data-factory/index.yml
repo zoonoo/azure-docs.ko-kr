@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2bce3a11d3f9b88b9e6e054e022ddbf1a5573453
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578265"
 documentType: LandingData
 title: Azure Data Factory 설명서
 metadata:
@@ -11,30 +17,24 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/08/2017
+  ms.date: 08/06/2018
   ms.author: douglasl
-  ms.openlocfilehash: 624b2f0968776115f35698710cdc930a9a824922
-  ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37047203"
 abstract:
-  description: 클라우드 데이터 통합 서비스인 Data Factory를 사용하여 자동화된 데이터 파이프라인에 데이터 저장소, 이동 및 처리 서비스를 구성하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 데이터 파이프라인을 설정하고 관리할 뿐만 아니라 분석을 위해 데이터를 이동하고 변환하는 방법을 보여 줍니다. <p>Data Factory V1 서비스를 사용하는 경우 <a href=/azure/data-factory/v1/data-factory-introduction>V1 설명서</a>를 참조하세요.</p>
+  description: 클라우드 데이터 통합 서비스인 Data Factory를 사용하여 자동화된 데이터 파이프라인에 데이터 저장소, 이동 및 처리 서비스를 구성하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 데이터 파이프라인을 설정하고 관리하는 방법 및 분석을 위해 데이터를 이동하고 변환하는 방법을 보여줍니다. <p>Data Factory V1 서비스를 사용하는 경우 <a href=/azure/data-factory/v1/data-factory-introduction>V1 설명서</a>를 참조하세요.</p>
   aside:
     image:
       alt: 
       height: 110
       src: media/index/video.png
       width: 250
-    title: Azure Data Factory용 시각적 빌드 파이프라인(19:31)
-    href: https://azure.microsoft.com/en-us/resources/videos/azure-friday-visually-build-pipelines-for-azure-data-factory-v2
+    title: 클라우드의 최신 데이터 통합에 대한 새로운 기능(1:19:22)
+    href: https://channel9.msdn.com/Events/Build/2018/BRK2204/player
     width: 250
 sections:
 - title: 5분 빠른 시작
   items:
   - type: paragraph
-    text: 다음을 사용하여 데이터 팩터리를 만드는 방법을 알아봅니다.
+    text: 다음 빠른 시작 중 하나를 사용하여 데이터를 이동하고 처리하도록 Data Factory 파이프라인을 만드는 방법을 알아봅니다.
   - type: list
     style: icon48
     items:
@@ -71,16 +71,16 @@ sections:
   - type: paragraph
     text: 데이터 팩터리를 만들고 모니터링하는 방법을 알아봅니다.
   - type: list
-    style: ordered
+    style: unordered
     items:
-    - html: SSIS 패키지를 Azure에 배포 - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
     - html: 클라우드에 데이터 복사 - <a href="/azure/data-factory/tutorial-copy-data-tool">데이터 복사 도구</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
     - html: 클라우드에 온-프레미스 데이터 복사 - <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">데이터 복사 도구 | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
     - html: 데이터를 대량으로 복사 - <a href="/azure/data-factory/tutorial-bulk-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
     - html: 데이터를 증분식으로 복사 - <a href="/azure/data-factory/tutorial-incremental-copy-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
     - html: Spark를 사용하여 클라우드의 데이터 변환 - <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
     - html: 가상 네트워크의 데이터 변환 - <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
-    - html: 제어 흐름 - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
+    - html: 분기 및 연결 추가 - <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
+    - html: Azure에서 SSIS 패키지 실행 - <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
 - title: 샘플
   items:
   - type: paragraph
