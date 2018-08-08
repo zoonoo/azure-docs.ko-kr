@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3176a3a4acc6e9ca486d409d861f2ed0e63473ec
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf2d1af66cc3ecc35dafe3bcd43bf10399d71641
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056507"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346718"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Visual Studio Code를 사용하여 Azure IoT Edge용 Azure Functions 개발 및 배포
 
@@ -23,7 +23,7 @@ ms.locfileid: "39056507"
 이 아티클에서는 사용자가 Windows 또는 Linux를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. IoT Edge 장치는 다른 물리적 장치일 수 있습니다. 또는 개발 머신에서 IoT Edge 장치를 시뮬레이션할 수 있습니다.
 
 > [!NOTE]
-> 이 디버깅 아티클에서는 모듈 컨테이너에서 프로세스를 연결하고 VS Code로 디버그하는 방법을 설명합니다. Linux amd64 컨테이너에서만 C# 모듈을 디버그할 수 있습니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다. 
+> 이 디버깅 아티클에서는 모듈 컨테이너에서 프로세스를 연결하고 VS Code로 디버그하는 방법을 설명합니다. C# 함수는 Linux amd64 컨테이너에서만 디버그할 수 있습니다. Visual Studio Code의 디버깅 기능에 익숙하지 않은 경우, [디버깅](https://code.visualstudio.com/Docs/editor/debugging)에 대해 읽어 보시기 바랍니다. 
 
 이 문서에서는 Visual Studio Code를 주 개발 도구로 사용합니다. VS Code를 설치합니다. 그런 다음, 필요한 확장을 추가합니다. 
 
@@ -71,7 +71,7 @@ VS Code는 입력한 정보를 사용하고, Azure Functions 프로젝트로 IoT
 
 * **deployment.template.json** 파일은 테스트에 사용할 수 있는 데이터를 시뮬레이션하는 샘플 **tempSensor** 모듈과 함께 새 모듈을 나열합니다. 배포 매니페스트 작동 방식에 대한 자세한 내용은 [배포 매니페스트를 사용하여 모듈을 배포하고 경로를 설정하는 방법 알아보기](module-composition.md)를 참조하세요.
 
-## <a name="devlop-your-module"></a>모듈 개발
+## <a name="develop-your-module"></a>모듈 개발
 
 솔루션과 함께 제공되는 기본 Azure Function 코드는 **모듈** > **\<모듈 이름\>** > **EdgeHubTrigger-Csharp** > **run.csx**에 위치합니다. 모듈 및 deployment.template.json 파일은 솔루션을 빌드하고, 컨테이너 레지스트리에 푸시하고, 장치에 배포하여 코드를 변경하지 않고 테스트를 시작하도록 설정됩니다. 모듈은 단순히 원본에서 입력을 가져오고(이 경우에 데이터를 시뮬레이션하는 tempSensor 모듈) IoT Hub로 파이핑하도록 빌드됩니다. 
 

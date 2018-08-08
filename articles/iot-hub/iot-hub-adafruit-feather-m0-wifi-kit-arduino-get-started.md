@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 46763cbc53f70e25810a9849b71429a315a6fb7d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: c9d786651198eeffd839f52b3d3c8e6c1a1168c4
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185366"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345423"
 ---
 # <a name="connect-adafruit-feather-m0-wifi-to-azure-iot-hub-in-the-cloud"></a>Adafruit Feather M0 WiFi를 클라우드의 Azure IoT Hub에 연결
+
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
 ![BME280, Feather M0 WiFi 및 IoT Hub 간의 연결](media/iot-hub-adafruit-feather-m0-wifi-get-started/1_connection-m0-feather-m0-iot-hub.png)
@@ -61,6 +62,7 @@ ms.locfileid: "39185366"
 [!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## <a name="connect-feather-m0-wifi-with-the-sensor-and-your-computer"></a>Feather M0 WiFi를 센서와 컴퓨터에 연결
+
 이 섹션에서는 센서를 보드에 연결합니다. 그런 다음 장치를 나중에 사용할 컴퓨터에 연결합니다.
 
 ### <a name="connect-a-dht22-temperature-and-humidity-sensor-to-feather-m0-wifi"></a>Feather M0 WiFi에 DHT22 온도 및 습도 센서 연결
@@ -74,7 +76,7 @@ ms.locfileid: "39185366"
 
 
 | 시작(센서)           | 끝(보드)            | 케이블 색   |
-| -----------------------  | ---------------------- | ------------: |
+| -----------------------  | ---------------------- | ------------- |
 | VDD(27A 핀)            | 3V(3A 핀)            | 빨간색 케이블     |
 | GND(29A 핀)            | GND(6A 핀)           | 검은색 케이블   |
 | SCK(30A 핀)            | SCK(12A 핀)          | 노란색 케이블  |
@@ -83,8 +85,6 @@ ms.locfileid: "39185366"
 | CS(33A 핀)             | GPIO 5(15J 핀)       | 주황색 케이블  |
 
 자세한 내용은 [Adafruit BME280 Humidity + Barometric Pressure + Temperature Sensor Breakout](https://learn.adafruit.com/adafruit-bme280-humidity-barometric-pressure-temperature-sensor-breakout/wiring-and-test?view=all)(Adafruit BME280 습도 + 기압 + 온도 센서 혁신 세션) 및 [Adafruit Feather M0 WiFi pinouts](https://learn.adafruit.com/adafruit-feather-m0-wifi-atwinc1500/pinouts)(Adafruit Feather M0 WiFi 핀 배열)를 참조하세요.
-
-
 
 이제 Feather M0 WiFi를 작동 센서와 연결해야 합니다.
 
@@ -136,6 +136,7 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
 1. 명령 프롬프트 또는 터미널 창을 엽니다.
 
 2. 응용 프로그램 예제를 저장하려는 폴더로 이동합니다.
+
 3. 다음 명령 실행:
 
    ```bash
@@ -151,21 +152,21 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
    ![Arduino IDE에서 샘플 응용 프로그램 열기](media/iot-hub-adafruit-feather-m0-wifi-get-started/6_arduino-ide-open-sample-app.png)
 
 
-1. **파일** > **기본 설정**(Windows/Linux) 또는 **Arduino** > **환경설정**(Mac)을 클릭하고 아래 링크를 복사하여 Arduino IDE 기본 설정의 **Additional Boards Manager URLs**(추가 보드 관리자 URL) 옵션에 붙여넣습니다.
+3. **파일** > **기본 설정**(Windows/Linux) 또는 **Arduino** > **환경설정**(Mac)을 클릭하고 아래 링크를 복사하여 Arduino IDE 기본 설정의 **Additional Boards Manager URLs**(추가 보드 관리자 URL) 옵션에 붙여넣습니다.
    
    ```
    https://adafruit.github.io/arduino-board-index/package_adafruit_index.json
    ```
 
-1. **도구** > **보드** > **보드 관리자**를 클릭한 다음 `Arduino SAMD Boards` 버전 `1.6.2` 이상을 설치합니다. 
+4. **도구** > **보드** > **보드 관리자**를 클릭한 다음 `Arduino SAMD Boards` 버전 `1.6.2` 이상을 설치합니다. 
 
-1. 그런 다음 같은 창에서 `Adafruit SAMD Boards` 패키지를 설치하여 보드 파일 정의를 추가합니다.
+5. 그런 다음 같은 창에서 `Adafruit SAMD Boards` 패키지를 설치하여 보드 파일 정의를 추가합니다.
 
    ![esp8266 패키지가 설치됨](media/iot-hub-adafruit-feather-m0-wifi-get-started/7_arduino-ide-package-url.png)
 
-4. **도구** > **보드** > **Adafruit M0 WiFi**를 클릭합니다.
+6. **도구** > **보드** > **Adafruit M0 WiFi**를 클릭합니다.
 
-5. 드라이버를 설치합니다(Windows만 해당). Feather M0 WiFi를 연결하면 드라이버를 설치해야 할 수 있습니다. [웹 페이지의 다운로드 링크](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe)를 클릭하여 드라이버 설치 관리자를 다운로드합니다. 단계에 따라 원하는 드라이버를 설치합니다.
+7. 드라이버를 설치합니다(Windows만 해당). Feather M0 WiFi를 연결하면 드라이버를 설치해야 할 수 있습니다. [웹 페이지의 다운로드 링크](https://github.com/adafruit/Adafruit_Windows_Drivers/releases/download/1.1/adafruit_drivers.exe)를 클릭하여 드라이버 설치 관리자를 다운로드합니다. 단계에 따라 원하는 드라이버를 설치합니다.
 
 ### <a name="install-necessary-libraries"></a>필요한 라이브러리 설치
 
@@ -182,7 +183,7 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
    * `Adafruit BME280 Library`
    * `Adafruit Unified Sensor`
 
-3. 수동으로 `Adafruit_WINC1500`을 설치합니다. [이 웹 사이트](https://github.com/adafruit/Adafruit_WINC1500)로 이동하고 **Clone or download**(복제 또는 다운로드) > **Download ZIP**(ZIP 다운로드)을 클릭합니다. 그런 다음 Arduino IDE에서 **Sketch**(스케치) > **Include Library**(라이브러리 포함) > **Add .zip Library**(.zip 라이브러리 추가)로 이동하고 zip 파일을 추가합니다.
+3. 수동으로 `Adafruit_WINC1500`을 설치합니다. [Adafruit_WINC1500 웹 페이지](https://github.com/adafruit/Adafruit_WINC1500)로 이동하고 **복제 또는 다운로드** > **ZIP 다운로드**를 클릭합니다. 그런 다음 Arduino IDE에서 **Sketch**(스케치) > **Include Library**(라이브러리 포함) > **Add .zip Library**(.zip 라이브러리 추가)로 이동하고 zip 파일을 추가합니다.
 
 ### <a name="use-the-sample-application-if-you-dont-have-a-real-bme280-sensor"></a>실제 BME280 센서가 없는 경우 응용 프로그램 예제 사용
 
@@ -195,9 +196,10 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
    ```c
    define SIMULATED_DATA true
    ```
+
    ![시뮬레이션된 데이터를 사용하도록 샘플 응용 프로그램 구성](media/iot-hub-adafruit-feather-m0-wifi-get-started/8_arduino-ide-configure-app-use-simulated-data.png)
 
-3. `Control-s`로 파일을 저장합니다.
+3. `Control-s`를 클릭하여 파일을 저장합니다.
 
 ### <a name="deploy-the-sample-application-to-feather-m0-wifi"></a>Feather M0 WiFi에 샘플 응용 프로그램 배포
 
@@ -212,7 +214,9 @@ Ubuntu를 사용하는 경우 Feather M0 WiFi의 USB 포트에서 작동할 권�
 1. Arduino IDE에서 **도구** > **직렬 모니터**를 클릭합니다.
 
 2. 직렬 모니터 창의 오른쪽 아래 모서리에서 왼쪽에 있는 드롭다운 목록에서 **No line ending**(줄 끝 없음)을 선택합니다.
+
 3. 오른쪽에 있는 드롭다운 목록에서 **115200 baud**(115200보드)를 선택합니다.
+
 4. 위쪽에 있는 입력 상자에 다음 정보를 입력하고(제공하라는 메시지가 표시되는 경우) **Send**(보내기)를 클릭합니다.
 
    * Wi-Fi SSID

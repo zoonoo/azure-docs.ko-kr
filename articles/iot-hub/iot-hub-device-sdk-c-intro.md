@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: yizhon
-ms.openlocfilehash: 78cd8b2d6afe98e34c33ed3c841c8023d9dab764
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4f8ad67fafa20fd9adce62e8beb619999203ef62
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34635273"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346664"
 ---
 # <a name="azure-iot-device-sdk-for-c"></a>C용 Azure IoT 장치 SDK
 
@@ -70,9 +70,10 @@ C 용 Azure IoT 장치 SDK에서 샘플을 실행하려면 먼저 Azure 구독�
 IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 있습니다.
 
 * [장치 탐색기](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer)라는 Windows 응용 프로그램
+* [Azure IoT Toolkit](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)라는 플랫폼 간 Visual Studio Code 확장
 * [Azure CLI 2.0에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)이라고 하는 플랫폼 간 Python CLI 도구
 
-이 자습서에서는 그래픽 *장치 탐색기* 도구를 사용합니다. 또한 CLI 도구를 사용하려면 *Azure CLI 2.0에 대한 IoT 확장* 도구를 사용할 수도 있습니다.
+이 자습서에서는 그래픽 *장치 탐색기* 도구를 사용합니다. VS Code에서 개발하는 경우 *VS Code용 Azure IoT Toolkit 확장*을 사용할 수 있습니다. 또한 CLI 도구를 사용하려면 *Azure CLI 2.0에 대한 IoT 확장* 도구를 사용할 수도 있습니다.
 
 장치 탐색기 도구는 Azure IoT 서비스 라이브러리를 사용하여 IoT Hub에서 장치 추가를 포함하여 다양한 기능을 수행합니다. 장치 탐색기 도구를 사용하여 장치를 추가하면 장치에 대한 연결 문자열을 얻습니다. 이 연결 문자열은 샘플 응용 프로그램을 실행하는 데 필요합니다.
 
@@ -84,7 +85,7 @@ IoT Hub를 관리하는 데 도움이 되는 몇 가지 오픈 소스 도구가 
 
   ![](media/iot-hub-device-sdk-c-intro/03-DeviceExplorer.PNG)
 
-첫 번째 필드에 **IoT Hub 연결 문자열**을 입력하고 **업데이트**를 클릭합니다. 이 단계에서는 IoT Hub와 통신할 수 있도록 도구를 구성합니다.
+첫 번째 필드에 **IoT Hub 연결 문자열**을 입력하고 **업데이트**를 클릭합니다. 이 단계에서는 IoT Hub와 통신할 수 있도록 도구를 구성합니다. **연결 문자열**은 **IoT Hub Service** > **설정** > **공유 액세스 정책** > **iothubowner**에서 찾을 수 있습니다.
 
 IoT Hub 연결 문자열이 구성되었으면 **관리** 탭을 클릭합니다.
 
@@ -102,7 +103,7 @@ IoT Hub 연결 문자열이 구성되었으면 **관리** 탭을 클릭합니다
 
 **선택한 장치에 대한 연결 문자열 복사**를 선택하면 장치 연결 문자열이 클립보드에 복사됩니다. 장치 연결 문자열의 복사본을 보관하세요. 다음 섹션에서 설명하는 샘플 응용 프로그램을 실행할 때 필요합니다.
 
-위 단계를 완료하면 일부 코드를 실행할 준비가 된 것입니다. 두 샘플에는 주요 원본 파일의 맨 위에 연결 문자열을 입력할 수 있는 상수가 포함되어 있습니다. 예를 들어 **iothub\_client\_sample\_amqp** 응용 프로그램의 해당 줄은 다음과 같습니다.
+위 단계를 완료하면 일부 코드를 실행할 준비가 된 것입니다. 대부분의 샘플에는 주요 원본 파일의 맨 위에 연결 문자열을 입력할 수 있는 상수가 포함되어 있습니다. 예를 들어 **iothub\_client\_sample\_amqp** 응용 프로그램의 해당 줄은 다음과 같습니다.
 
 ```c
 static const char* connectionString = "[device connection string]";

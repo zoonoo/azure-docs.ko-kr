@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ff2968f8e2fa9a705817b020f2daa6582d78029c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fd43c62f1a291a59d5d373437a49b263d6af4cb3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225305"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345891"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Azure Lab Services의 랩 계정 관리 
 Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩의 컨테이너입니다. 관리자는 Azure Lab Services를 사용하여 랩 계정을 설정하고 계정에 랩을 만들 수 있는 랩 소유자에게 액세스 권한을 제공합니다. 이 문서는 랩 계정을 만들거나, 모든 랩 계정을 보거나, 랩 계정을 삭제하는 방법을 설명합니다.
@@ -55,11 +55,17 @@ Azure Lab Services에서 랩 계정은 강의실 랩과 같은 관리되는 랩�
     ![랩 작성자 역할에 사용자 추가](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>랩 소유자에 사용할 수 있는 Marketplace 이미지 지정
-이 세션에서는 랩 소유자가 클래스룸 랩을 만드는 데 사용할 수 있는 Marketplace 이미지를 지정합니다. 
+랩 계정 소유자는 랩 작성자가 랩 계정에서 랩을 만들 때 사용할 수 있는 Marketplace 이미지를 지정할 수 있습니다. 
 
 1. 왼쪽 메뉴에서 **Marketplace 이미지**를 선택합니다. 기본적으로 이미지의 전체 목록이 표시됩니다(사용 및 사용 안 함으로 설정된 이미지 모두 포함). 맨 위의 드롭다운 목록에서 **Enabled only**(사용으로 설정된 이미지만)/**Disabled only**(사용 안 함으로 설정된 이미지만) 옵션을 선택하여 사용/사용 안 함으로 설정된 이미지만 표시하도록 목록을 필터링할 수 있습니다. 
-
+    
     ![Marketplace 이미지 페이지](../media/tutorial-setup-lab-account/marketplace-images-page.png)
+
+    다음 조건을 만족하는 Marketplace 이미지만 목록에 표시됩니다.
+        
+    - 단일 VM을 만듭니다.
+    - Azure Resource Manager를 사용하여 VM을 프로비전합니다.
+    - 추가 라이선스 플랜을 구입하지 않아도 됩니다.
 2. 사용하도록 설정된 Marketplace 이미지를 **사용하지 않도록 설정**하려면 다음 작업 중 하나를 수행합니다. 
     1. 마지막 열에서 **...(줄임표)** 를 선택하고, **이미지 사용 안 함**을 선택합니다. 
 

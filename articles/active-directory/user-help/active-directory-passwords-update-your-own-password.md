@@ -1,27 +1,24 @@
 ---
-title: 암호 재설정 - Azure AD | Microsoft Docs
+title: 암호 재설정 - Azure Active Directory | Microsoft Docs
 description: 셀프 서비스 암호 재설정을 사용하여 회사 또는 학교 사용자 계정에 대한 액세스 권한 다시 얻기
 services: active-directory
-keywords: ''
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
+ms.component: user-help
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.custom: end-user
-ms.openlocfilehash: cf26ba4048f4bd7a7ca3f1f2c456e3f2ec7d3b99
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 05a4961938f8a4f7d14c9dbf5041a2d02257b476
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058105"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345874"
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 

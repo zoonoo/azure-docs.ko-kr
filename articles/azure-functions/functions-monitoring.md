@@ -2,7 +2,7 @@
 title: Azure Functions 모니터링
 description: Azure Application Insights를 Azure Functions와 함께 사용하여 함수 실행을 모니터링하는 방법을 알아봅니다.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,18 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
-ms.author: tdykstra
-ms.openlocfilehash: cbdb4691bac01843a451c988e09d77dd10f97461
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: glenga
+ms.openlocfilehash: ba820c594b5afb34c050c74de30300b0dfc8c3a6
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344058"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions 모니터링
 
 ## <a name="overview"></a>개요 
 
-[Azure Functions](functions-overview.md)는 함수를 모니터링할 수 있도록 [Azure Application Insights](../application-insights/app-insights-overview.md)와 기본적으로 통합됩니다. 이 문서에서는 Application Insights에 원격 분석 데이터를 보내도록 Functions를 구성하는 방법을 보여줍니다.
+
+  [Azure Functions](functions-overview.md)는 함수를 모니터링할 수 있도록 [Azure Application Insights](../application-insights/app-insights-overview.md)와 기본적으로 통합됩니다. 이 문서에서는 Application Insights에 원격 분석 데이터를 보내도록 Functions를 구성하는 방법을 보여줍니다.
 
 ![Application Insights 메트릭 탐색기](media/functions-monitoring/metrics-explorer.png)
 
@@ -222,7 +224,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
       "categoryLevels": {
         "Host.Results": "Error",
         "Function": "Error",
-        "Host.Aggregator": "Information"
+        "Host.Aggregator": "Trace"
       }
     }
   }
@@ -232,7 +234,7 @@ Azure Functions 로거에는 모든 로그와 함께 *로그 수준*도 포함�
 이 예제에서는 다음 규칙을 설정합니다.
 
 1. 범주가 "Host.Results" 또는 "Function"인 로그의 경우 `Error` 수준 이상만 Application Insights로 보냅니다. `Warning` 수준 이하 로그는 무시됩니다.
-2. 범주가 Host. Aggregator인 로그의 경우 `Information` 수준 이상만 Application Insights로 보냅니다. `Debug` 수준 이하 로그는 무시됩니다.
+2. 범주 Host.Aggregator를 사용한 로그의 경우 모든 로그를 Application Insights로 보냅니다. `Trace` 로그 수준은 `Verbose`를 호출하는 일부 로거와 동일하지만, *host.json* 파일의 `Trace`를 사용합니다.
 3. 그 외의 로그는 `Information` 수준 이상만 Application Insights로 보냅니다.
 
 *host.json*의 범주 값은 같은 값으로 시작하는 모든 범주에 대한 로깅을 제어합니다. 예를 들어 *host.json*의 "Host"는 "Host.General", "Host.Executor", "Host.Results" 등에 대한 로깅을 제어합니다.
@@ -558,7 +560,7 @@ Azure CLI 2.0의 경우 다음 명령을 사용하여 로그인하고, 구독을
 az login
 az account list
 az account set <subscriptionNameOrId>
-az appservice web log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <resource group name> --name <function app name>
 ```
 
 Azure PowerShell의 경우 다음 명령을 사용하여 Azure 계정을 추가하고, 구독을 선택하고, 로그 파일을 스트리밍합니다.

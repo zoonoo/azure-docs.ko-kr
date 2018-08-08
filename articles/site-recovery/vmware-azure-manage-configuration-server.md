@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df5b2ecce2a5c9d7c263ee0acc3a49b859b93f7f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916913"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346123"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>VMware VM에 대해 구성 서버 관리
 
@@ -75,104 +75,108 @@ OVF(Open Virtualization Format) 템플릿은 단일 네트워크 어댑터를 �
   5. **자격 증명 모음 등록** 탭에서 **찾아보기**를 선택하고 다운로드한 자격 증명 모음 자격 증명 파일을 찾습니다.
   6. 필요한 경우 프록시 서버 세부 정보를 제공합니다. 그런 다음 **등록**을 선택합니다.
   7. 관리자 PowerShell 명령 창을 열고 다음 명령을 실행합니다.
-
-      ```
+   ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
-      ```
+   ```
 
-## <a name="upgrade-the-configuration-server"></a>구성 서버 업그레이드
+      >[!NOTE] 
+      >구성 서버에서 스케일 아웃 프로세스 서버로 **최신 인증서를 끌어오려면** *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>” --registermt* 명령을 실행합니다.
 
-구성 서버를 업데이트하려면 업데이트 롤업을 실행합니다. 업데이트는 N-4 버전까지 적용할 수 있습니다. 예: 
+  8. 마지막으로 다음 명령을 실행하여 obengine을 다시 시작합니다.
+  ```
+          net stop obengine
+          net start obengine
 
-- 9.7, 9.8, 9.9 또는 9.10을 실행 중인 경우 9.11로 바로 업그레이드할 수 있습니다.
-- 9.6 이하를 실행 중이고 9.11로 업그레이드하려는 경우 먼저 9.7 버전으로 업그레이드한 후 9.11로 업그레이드해야 합니다.
+## Upgrade the configuration server
 
-모든 버전의 구성 서버로 업그레이드할 수 있는 업데이트 롤업 링크가 [wiki 업데이트 페이지](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)에 제공됩니다.
+You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
 
-다음과 같이 서버를 업그레이드합니다.
+- If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
+- If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-1. 자격 증명 모음에서 **관리** > **Site Recovery 인프라** > **구성 서버**로 이동합니다.
-2. 업데이트를 사용할 수 있는 경우 **에이전트 버전** > 열에 링크가 표시됩니다.
-    ![업데이트](./media/vmware-azure-manage-configuration-server/update2.png)
-3. 업데이트 설치 관리자 파일을 구성 서버에 다운로드합니다.
+Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
-    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update1.png)
+Upgrade the server as follows:
 
-4. 두 번 클릭하여 설치 관리자를 실행합니다.
-5. 설치 관리자는 컴퓨터에서 실행 중인 현재 버전을 검색합니다. **예**를 클릭하여 업그레이드를 시작합니다.
-6. 업그레이드가 완료되면 서버 구성의 유효성을 검사합니다.
+1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+2. If an update is available, a link appears in the **Agent Version** > column.
+    ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
+3. Download the update installer file to the configuration server.
 
-    ![주 지역에서](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
+
+4. Double-click to run the installer.
+5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
+6. When the upgrade completes the server configuration validates.
+
+    ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
     
-7. **마침**을 클릭하여 설치 관리자를 닫습니다.
+7. Click **Finish** to close the installer.
 
-## <a name="delete-or-unregister-a-configuration-server"></a>구성 서버 삭제 또는 등록 취소
+## Delete or unregister a configuration server
 
-1. 구성 서버의 모든 VM에 대해 [보호를 사용하지 않습니다](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. 구성 서버에서 모든 복제 정책을 [연결 해제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 및 [삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)합니다.
-3. 구성 서버에 연결된 모든 vCenter 서버/vSphere 호스트를 [삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)합니다.
-4. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 엽니다.
-5. 제거하려는 구성 서버를 선택합니다. 그런 다음, **세부 정보** 페이지에서 **삭제**를 선택합니다.
+1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
+2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.
+3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenter servers/vSphere hosts that are associated with the configuration server.
+4. In the vault, open **Site Recovery Infrastructure** > **Configuration Servers**.
+5. Select the configuration server that you want to remove. Then, on the **Details** page, select **Delete**.
 
-    ![구성 서버 삭제](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
+    ![Delete configuration server](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
    
 
-### <a name="delete-with-powershell"></a>Powershell로 관리
+### Delete with PowerShell
 
-필요에 따라 PowerShell을 사용하여 구성 서버를 삭제할 수 있습니다.
+You can optionally delete the configuration server by using PowerShell.
 
-1. Azure PowerShell 모듈을 [설치](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0)합니다.
-2. 다음 명령을 사용하여 Azure 계정에 로그인합니다.
+1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
+2. Sign in to your Azure account by using this command:
     
     `Connect-AzureRmAccount`
-3. 자격 증명 모음 구독을 선택합니다.
+3. Select the vault subscription.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  자격 증명 모음 컨텍스트를 설정합니다.
+3.  Set the vault context.
     
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault> Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```
-4. 구성 서버를 검색합니다.
+4. Retrieve the configuration server.
 
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
-6. 구성 서버를 삭제합니다.
+6. Delete the configuration server.
 
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> 구성 서버의 강제 삭제를 위해서는 Remove-AzureRmSiteRecoveryFabric에 **-Force** 옵션을 사용할 수 있습니다.
+> You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
  
-## <a name="generate-configuration-server-passphrase"></a>구성 서버 암호 생성
+## Generate configuration server Passphrase
 
-1. 구성 서버에 로그인한 후 관리자로 명령 프롬프트 창을 엽니다.
-2. 디렉터리를 bin 폴더로 변경하려면 **cd %ProgramData%\ASR\home\svsystems\bin** 명령을 실행합니다.
-3. 암호 파일을 생성하려면 **genpassphrase.exe -v > MobSvc.passphrase**를 실행합니다.
-4. 암호는 **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**에 있는 파일에 저장됩니다.
+1. Sign in to your configuration server, and then open a command prompt window as an administrator.
+2. To change the directory to the bin folder, execute the command **cd %ProgramData%\ASR\home\svsystems\bin**
+3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## <a name="renew-ssl-certificates"></a>SSL 인증서 갱신
+## Renew SSL certificates
 
-구성 서버에는 기본 제공 웹 서버가 있습니다. 이 서버는 Mobility Service, 프로세스 서버 및 마스터 대상 서버의 작업을 오케스트레이션합니다. 웹 서버는 SSL 인증서를 사용하여 클라이언트를 인증합니다. 인증서는 3년 후에 만료되며 언제든지 갱신할 수 있습니다.
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
 
-### <a name="check-expiry"></a>만료 확인
+### Check expiry
 
-2016년 5월 이전의 구성 서버 배포의 경우, 인증서 만료가 1년으로 설정되었습니다. 인증서가 곧 만료될 예정인 경우 다음이 발생합니다.
+For configuration server deployments before May 2016, certificate expiry was set to one year. If you have a certificate that is going to expire, the following occurs:
 
-- 만료 날짜가 2개월 이내로 남은 경우 서비스는 포털을 통해 및 전자 메일로 알림을 전송하기 시작합니다(Site Recovery 알림을 구독한 경우).
-- 알림 배너가 자격 증명 모음 리소스 페이지에 나타납니다. 자세한 내용은 배너를 선택합니다.
-- **지금 업그레이드** 단추가 표시되면 작업 환경의 일부 구성 요소가 아직 9.4.xxxx.x 이상 버전으로 업그레이드되지 않았음을 의미합니다. 인증서를 갱신하기 전에 구성 요소를 업그레이드합니다. 이전 버전에서는 갱신할 수 없습니다.
+- When the expiry date is two months or less, the service starts sending notifications in the portal, and by email (if you subscribed to Site Recovery notifications).
+- A notification banner appears on the vault resource page. For more information, select the banner.
+- If you see an **Upgrade Now** button, it indicates that some components in your environment haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade the components before you renew the certificate. You can't renew on older versions.
 
-### <a name="renew-the-certificate"></a>인증서 갱신
+### Renew the certificate
 
-1. 자격 증명 모음에서 **Site Recovery 인프라** > **구성 서버**를 엽니다. 원하는 구성 서버를 선택합니다.
-2. 만료 날짜가 **구성 서버 상태** 아래에 표시됩니다.
-3. **인증서 갱신**을 선택합니다. 
+1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**. Select the required configuration server.
+2. The expiry date appears under **Configuration Server health**.
+3. Select **Renew Certificates**. 
 
 
-## <a name="next-steps"></a>다음 단계
+## Next steps
 
-Azure에 대한 [VMware VM](vmware-azure-tutorial.md)의 재해 복구를 설정하기 위한 자습서를 검토하세요.
+Review the tutorials for setting up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.

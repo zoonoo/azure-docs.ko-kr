@@ -4,17 +4,17 @@ description: Azure Policy 평가 및 효과는 준수를 결정합니다. 준수
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39250286"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343555"
 ---
 # <a name="getting-compliance-data"></a>준수 데이터 가져오기
 
@@ -35,7 +35,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 - 정책 또는 이니셔티브는 범위에 새로 할당됩니다. 이 경우에 할당이 정의된 범위에 적용되는 데 30분 정도가 걸립니다. 기능이 적용되면 새로 할당된 정책이나 이니셔티브에 대해 또는 정책이나 이니셔티브에서 사용하는 효과에 따라 해당 범위 내에서 리소스에 대한 평가 주기가 시작되고 리소스가 호환되거나 호환되지 않음으로 표시됩니다. 광범위한 리소스 범위에 대해 평가된 큰 정책 또는 이니셔티브는 시간이 걸릴 수 있습니다. 따라서 평가 주기가 완료되는 시기를 미리 정의하지 않습니다. 작업이 완료되면 업데이트된 준수 결과는 포털 및 SDK에서 지원됩니다.
 - 범위에 새로 할당된 정책 또는 이니셔티브는 업데이트됩니다. 이 시나리오에 대한 평가 주기 및 타이밍은 범위에 대한 새 할당과 동일합니다.
-- 리소스는 Resource Manager, REST, Azure CLI 또는 Azure PowerShell을 통해 할당된 범위에 배포됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다.
+- 리소스는 Resource Manager, REST, Azure CLI 또는 Azure PowerShell을 통해 할당된 범위에 배포됩니다. 이 시나리오에서 효과 이벤트(추가, 감사, 거부, 배포) 및 개별 리소스에 대한 호환 상태 정보는 약 15분 후에 포털 및 SDK에서 사용할 수 있습니다. 이 이벤트는 다른 리소스에 대한 평가로 이어지지 않습니다.
 - 표준 준수 평가 주기입니다. 24시간마다 한 번씩 할당은 자동으로 다시 계산됩니다. 광범위한 리소스 범위에 대해 평가된 큰 정책 또는 이니셔티브는 시간이 걸릴 수 있습니다. 따라서 평가 주기가 완료되는 시기를 미리 정의하지 않습니다. 작업이 완료되면 업데이트된 준수 결과는 포털 및 SDK에서 지원됩니다.
 
 ## <a name="how-compliance-works"></a>준수 작동 방식
@@ -51,8 +51,6 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
-
-리소스가 비준수로 플래그 지정되는 방법을 더 잘 이해하려면 위에서 만든 정책 할당 예제를 사용합시다.
 
 예를 들어, 공용 네트워크에 노출되는 일부 저장소 계정(빨간색으로 강조 표시됨)이 있는 리소스 그룹이 ContosoRG라고 가정해 보겠습니다.
 

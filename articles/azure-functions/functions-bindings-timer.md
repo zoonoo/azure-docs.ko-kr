@@ -3,7 +3,7 @@ title: Azure Functions의 타이머 트리거
 description: Azure Functions에서 타이머 트리거를 사용하는 방법을 파악합니다.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,14 +15,14 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 02/27/2017
-ms.author: tdykstra
+ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: a4895c0c58d1cdb0430b7418ba24dd85157ecdd3
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308162"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345245"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -205,7 +205,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWr
 
 ## <a name="cron-expressions"></a>CRON 식 
 
-Azure Functions 타이머 트리거의 CRON 식에는 다음과 같은 6개의 필드가 포함됩니다. 
+Azure Functions는 [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리를 사용하여 CRON 식을 해석합니다. CRON 식에는 6개의 필드가 포함됩니다.
 
 `{second} {minute} {hour} {day} {month} {day-of-week}`
 
@@ -219,7 +219,12 @@ Azure Functions 타이머 트리거의 CRON 식에는 다음과 같은 6개의 �
 |값 집합(`,` 연산자)|<nobr>"5,8,10 * * * * *"</nobr>|hh:mm:05,hh:mm:08 및 hh:mm:10에서 hh:mm은 매시간의 매분임(분당 3번)|
 |간격 값(`/` 연산자)|<nobr>"0 */5 * * * *"</nobr>|hh:05:00, hh:10:00, hh:15:00부터 hh:55:00까지에서 hh는 매시간임(시간당 12번)|
 
-월 또는 일을 지정하려면 숫자 값 대신 3자 약어를 사용할 수 있습니다. 예를 들어 1월에는 Jan을 사용하고 일요일에는 Sun을 사용합니다.
+월 또는 요일을 지정하려면 숫자 값, 이름 또는 이름 약어를 사용할 수 있습니다.
+
+* 요일의 경우 숫자 값은 0에서 6까지이며 0은 Sunday로 시작합니다.
+* 이름은 영어입니다. 예: `Monday`, `January`.
+* 이름은 대/소문자를 구분하지 않습니다.
+* 이름은 축약될 수 있습니다. 약어 길이는 글자 세 개가 좋습니다.  예: `Mon`, `Jan`. 
 
 ### <a name="cron-examples"></a>CRON 예제
 
@@ -227,13 +232,13 @@ Azure Functions에서 타이머 트리거를 사용할 수 있는 CRON 식의 �
 
 |예|트리거될 때  |
 |---------|---------|
-|"0 */5 * * * *"|5분마다 한 번|
-|"0 0 * * * *"|1시간이 시작할 때마다 한 번|
-|"0 0 */2 * * *"|2시간마다 한 번|
-|"0 0 9-17 * * *"|오전 9시에서 오후 5시까지 1시간마다 한 번|
-|"0 30 9 * * *"|매일 오전 9시 30분|
-|"0 30 9 * * 1-5"|평일 오전 9:30|
-
+|`"0 */5 * * * *"`|5분마다 한 번|
+|`"0 0 * * * *"`|1시간이 시작할 때마다 한 번|
+|`"0 0 */2 * * *"`|2시간마다 한 번|
+|`"0 0 9-17 * * *"`|오전 9시에서 오후 5시까지 1시간마다 한 번|
+|`"0 30 9 * * *"`|매일 오전 9시 30분|
+|`"0 30 9 * * 1-5"`|평일 오전 9:30|
+|`"0 30 9 * Jan Mon"`|1월 매주 월요일 오전 9:30|
 >[!NOTE]   
 >온라인으로 CRON 식 예제를 찾을 수 있지만 그 중 대부분은 `{second}` 필드를 생략합니다. 이들 중 하나를 복사하는 경우 누락된 `{second}` 필드를 추가합니다. 일반적으로 해당 필드에 별표가 아닌 0을 사용합니다.
 
@@ -246,13 +251,13 @@ CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)
 예를 들어 *동부 표준시*는 UTC-05:00입니다. 타이머 트리거를 매일 오전 10시 EST에 발생하도록 하려면 UTC 표준 시간대를 반영하는 다음과 같은 CRON 식을 사용합니다.
 
 ```json
-"schedule": "0 0 15 * * *",
+"schedule": "0 0 15 * * *"
 ``` 
 
 또는 `WEBSITE_TIME_ZONE`이라는 함수 앱에 앱 설정을 만들고, 값을 **동부 표준시**로 설정합니다.  그런 다음, 다음 CRON 식을 사용합니다. 
 
 ```json
-"schedule": "0 0 10 * * *",
+"schedule": "0 0 10 * * *"
 ``` 
 
 ## <a name="timespan"></a>timespan

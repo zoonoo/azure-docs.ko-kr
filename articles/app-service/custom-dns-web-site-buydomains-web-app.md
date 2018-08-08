@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 16a6d8e34bdec6e597c5f04faf421d387a877bff
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 48e0e68794e83739835d97aa8a2b26516c660357
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714887"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345194"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Azure Web Apps에 대한 사용자 지정 도메인 이름 구입
 
@@ -68,7 +68,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**Apply**를 클릭합니다.
+**적용**을 클릭합니다.
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -77,6 +77,9 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 ![크기 조정 작업 확인](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
 ## <a name="buy-the-domain"></a>도메인 구입
+
+### <a name="pricing-information"></a>가격 정보
+Azure App Service 도메인에 대한 가격 책정 정보는 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/)를 방문하여 App Service 도메인까지 아래로 스크롤하세요.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 [클래식 포털](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.

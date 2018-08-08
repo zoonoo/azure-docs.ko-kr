@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046943"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>자습서: Azure Active Directory와 Jamf Pro 통합
 
@@ -139,7 +139,21 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Jamf Pro 구성](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. **Single Sign-On** 섹션에서 **ID 공급자**까지 아래로 스크롤하여 다음 단계를 수행합니다.
+10. **Single Sign-On** 페이지에서 다음 단계를 수행합니다.
+
+    ![Jamf Pro 단일](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. **Jamf Pro 서버**를 선택하여 Single Sign-On 액세스를 사용하도록 설정합니다.
+
+    나. **모든 사용자에 바이패스 허용**을 선택하면 사용자가 인증을 위한 ID 공급자 로그인 페이지로 리디렉션되지 않지만, 대신 Jamf Pro에 직접 로그인할 수 있습니다. 사용자가 ID 공급자를 통해 Jamf Pro에 액세스하려고 시도하는 경우 IdP에서 시작한 SSO 인증 및 권한 부여가 발생합니다.
+
+    다. **사용자 매핑: SAML**에 대해 **NameID** 옵션을 선택합니다. 기본적으로 이 설정은 **NameID**로 설정되어 있지만 사용자 지정 특성을 정의할 수도 있습니다.
+
+    d. **사용자 매핑: JAMF PRO**에 대해 **이메일**을 선택합니다. Jamf Pro는 사용자 및 그룹에 의한 방법으로 IdP에서 보낸 SAML 특성을 매핑합니다. 사용자가 Jamf Pro에 액세스하려고 시도할 때 Jamf Pro는 기본적으로 ID 공급자로부터 사용자에 대한 정보를 가져와서 Jamf Pro 사용자 계정과 대조해 봅니다. 들어오는 사용자 계정이 Jamf Pro에 존재하지 않으면 그룹 이름 일치가 발생합니다.
+
+    e. `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` 값을 **그룹 특성 이름** 텍스트 상자에 붙여넣습니다.
+ 
+11. 같은 페이지에서 **Single Sign-On** 섹션의 **ID 공급자**까지 아래로 스크롤하여 다음 단계를 수행합니다.
 
     ![Jamf Pro 구성](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -152,7 +166,7 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     d. **엔터티 ID** 값을 복사하고 Azure Portal의 **Jamf Pro 도메인 및 URL** 섹션에 있는 **식별자(엔터티 ID)** 텍스트 상자에 붙여넣습니다.
 
     >[!NOTE]
-    > 여기서 `aadsso`는 하위 도메인 부분입니다(즉, 참조 목적을 위한 것임). 이 값을 사용하여 Azure Portal의 **Jamf Pro 도메인 및 URL** 섹션에서 로그온 URL 및 회신 URL을 완료합니다.
+    > 여기서 흐릿한 값은 하위 도메인 부분입니다. 이 값을 사용하여 Azure Portal의 **Jamf Pro 도메인 및 URL** 섹션에서 로그온 URL 및 회신 URL을 완료합니다.
 
     e. **저장**을 클릭합니다.
 

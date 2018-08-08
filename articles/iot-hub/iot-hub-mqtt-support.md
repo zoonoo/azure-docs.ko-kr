@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: f335ffae153893a39312326738ee4188c3756ff4
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 19a129ec4646f13f1bd095dffd423f3b90bb32a7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185478"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345463"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -79,7 +79,14 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
 
   SAS 토큰을 생성하는 방법에 대한 자세한 내용은 [IoT Hub 보안 토큰 사용][lnk-sas-tokens]의 장치 섹션을 참조하세요.
 
-  테스트할 때 [장치 탐색기][lnk-device-explorer] 도구 또는 플랫폼 간 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
+  테스트할 때 플랫폼 간 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 또는 [Device Explorer][lnk-device-explorer]를 사용하여 복사한 후 자체 코드에 붙여넣을 수 있는 SAS 토큰을 빠르게 생성할 수도 있습니다.
+
+Azure IoT Toolkit의 경우
+
+  1. Visual Studio Code의 왼쪽 아래 모퉁이에 있는 **AZURE IOT HUB 장치** 탭을 확장합니다.
+  2. 장치를 마우스 오른쪽 단추로 클릭하고 **장치에 대한 SAS 토큰 생성**을 선택합니다.
+  3. **만료 시간**을 설정하고 'Enter' 키를 누릅니다.
+  4. SAS 토큰이 생성되어 클립보드에 복사됩니다.
 
 장치 탐색기의 경우
 
@@ -95,13 +102,6 @@ MQTT 프로토콜을 지원하는 [장치 SDK][lnk-device-sdks]는 Java, Node.js
      이 토큰에서 MQTT를 사용하여 연결할 때 **암호** 필드에서와 같이 사용하는 부분은 다음과 같습니다.
 
      `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
-     
-Azure IoT Toolkit의 경우
-
-  1. Visual Studio Code의 왼쪽 아래 모퉁이에 있는 **AZURE IOT HUB 장치** 탭을 확장합니다.
-  2. 장치를 마우스 오른쪽 단추로 클릭하고 **장치에 대한 SAS 토큰 생성**을 선택합니다.
-  3. **만료 시간**을 설정하고 'Enter' 키를 누릅니다.
-  4. SAS 토큰이 생성되어 클립보드에 복사됩니다.
 
 MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채널의 이벤트를 발행합니다. 이 이벤트에에는 연결 문제 해결에 도움이 되는 추가 정보가 있습니다.
 

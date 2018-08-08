@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859203"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343162"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Azure Cosmos DB로 자동 온라인 백업 및 복원
 Azure Cosmos DB는 자동으로 모든 데이터의 백업을 정기적으로 수행합니다. 자동 백업은 데이터베이스 작업의 성능이나 가용성에 영향을 주지 않고 수행됩니다. 모든 백업은 다른 저장소 서비스에 개별적으로 저장되고 이러한 백업은 지역 재해에 대한 복원을 위해 전역적으로 복제됩니다. 자동 백업은 Cosmos DB 컨테이너를 실수로 삭제했다가 나중에 데이터 복구 또는 재해 복구 솔루션이 필요한 시나리오를 위한 것입니다.  
@@ -50,7 +50,7 @@ Cosmos DB 내에 저장된 데이터와 달리 자동 백업은 Azure Blob Stora
 SQL API의 경우 사용자 고유의 스냅숏을 유지하려는 경우 Azure Cosmos DB [데이터 마이그레이션 도구](import-data.md#export-to-json-file)에서 JSON으로 내보내기 옵션을 사용하여 추가 백업을 예약할 수 있습니다.
 
 > [!NOTE]
-> "데이터베이스 수준에서 컨테이너의 집합에 대한 처리량을 프로비전"하는 경우 복원은 전체 데이터베이스 계정 수준에서 발생한다는 것을 기억하세요. 이 새 기능을 사용하는 경우 컨테이너 - 컬렉션/테이블/그래프를 실수로 삭제한 경우 8시간 이내에 지원 팀에 연락해야 합니다. 
+> "데이터베이스 수준에서 컨테이너의 집합에 대한 처리량을 프로비전"하는 경우 복원은 전체 데이터베이스 계정 수준에서 발생한다는 것을 기억하세요. 컨테이너를 실수로 삭제한 경우 8시간 이내에 지원 팀에 연락해야 합니다. 8시간 이내에 지원 팀에 연락하지 않으면 데이터를 복원할 수 없습니다. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>온라인 백업에서 데이터베이스 복원
