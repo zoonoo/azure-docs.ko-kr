@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: 0bfb06add64f5f1cd6ccfb772f604ab588bb1baf
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950409"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414704"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace 컨설팅 서비스
 Azure Marketplace의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표를 제공합니다. Azure Marketplace는 Microsoft 시스템 통합자(SI) 파트너의 컨설팅 서비스 솔루션 목록을 지원합니다. 
@@ -31,17 +31,17 @@ Azure Marketplace의 컨설팅 서비스는 Microsoft 파트너에게 고객과 
 
 |         |Azure Marketplace  |AppSource |
 |---------|---------|---------|
-|대상   |IT 전문가 및 클라우드 개발자|비즈니스 사용자/기간 업무 의사 결정자|
+|**대상**   |**IT 전문가 및 클라우드 개발자**|**비즈니스 사용자/LOB(기간 업무) 의사 결정자**|
 |솔루션 연관성     |Azure용으로 또는 Azure에서 빌드된 기술 앱|D365, Power BI, O365, Azure를 활용/확장하는 비즈니스 앱. (추가 기능 또는 추가 항목 완성 앱)|
 |게시 옵션     |나에게 연락, 체험, 거래 또는 컨설팅 서비스|나에게 연락, 체험 또는 컨설팅 서비스|
 |제품 환경 내      |Azure 관리 포털|Dynamics 365, Office 365, Office 클라이언트 앱| 
 |기타      |Azure Stack을 통한 온-프레미스 게시|Dynamics 및 Power BI용 컨설팅 서비스|
 
->[!Note]
->Azure Marketplace의 컨설팅 서비스는 *Azure 기술 솔루션 및 서비스*에 중점을 두고 기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다.
-
-
 Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스 제품은 AppSource에 나열할 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)을 참조하세요. 
+
+>[!Note]
+>Azure Marketplace의 컨설팅 서비스는 *Azure 기술 솔루션 및 서비스*에 중점을 두고 **기술직 종사자에 맞게 조정된 솔루션을 활용해야 합니다. **
+
 
 >[!TIP]
 >이 정보는 Azure Marketplace 서비스에만 해당합니다. Azure Marketplace 상점에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Azure"를 선택하여 이러한 옵션을 선택합니다. AppSource에 게시하려면 Cloud 파트너 포털의 "기본 제품" 드롭다운 메뉴에서 "Dynamics 365", "Power BI" 또는 "Power Apps"를 선택하여 이 옵션을 선택합니다.
@@ -59,7 +59,7 @@ Microsoft Dynamics 365, Office 365 및 Power BI를 기반으로 하는 서비스
 자세한 내용은 [Microsoft 파트너 네트워크를 통한 역량](https://partner.microsoft.com/en-US/membership/competencies)을 참조하세요. 
  
 
-SI 파트너는 다음 18개 국가에 대한 컨설팅 서비스 제품을 제출할 수 있습니다. 
+**SI 파트너는 다음 18개 국가에 대한 컨설팅 서비스 제품을 제출할 수 있습니다.**
 
 |적격 국가 |  |  |
 |---------|---------|---------|
@@ -70,7 +70,7 @@ SI 파트너는 다음 18개 국가에 대한 컨설팅 서비스 제품을 제�
 |핀란드     |멕시코         |영국         |
 |프랑스     |네덜란드         |미국         |
 
-Azure Marketplace 컨설팅 서비스는 오스트레일리아, 캐나다, 영국 및 미국에서 가장 먼저 출시됩니다. 그 외 국가의 카탈로그는 파트너가 유의미한 수의 경쟁력 있는 엄선된 서비스 제품을 제출하여 Microsoft의 승인을 받은 후에 게시됩니다.
+Azure Marketplace 컨설팅 서비스의 시작은 특정한 지리적 지역에서 진행됩니다. 첫 번째 시작 지역은 미국, 캐나다, 영국 및 오스트레일리아입니다. 그 외 국가의 카탈로그는 파트너가 유의미한 수의 경쟁력 있는 엄선된 서비스 제품을 제출하여 Microsoft의 승인을 받은 후에 게시됩니다.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Azure Marketplace에서 컨설팅 서비스를 등록하는 방법
 먼저 [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup)에서 컨설팅 서비스를 등록합니다. 게시자는 [Marketplace에서 게시자 되기](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher)에서 등록 요구 사항의 전체 검사 목록을 참조할 수 있습니다. 
@@ -121,7 +121,7 @@ Azure Marketplace에 컨설팅 서비스 제품을 나열하려면 다음 단계
 * **개념 증명:** 솔루션이 고객의 요구 사항을 충족하는지 확인하기 위한 제한된 범위 구현입니다. 
 * **워크샵**: 고객의 시설에서 수행되는 대화형 참여입니다. 고객의 데이터 또는 환경을 기반으로 하는 교육, 브리핑, 평가 또는 데모가 포함될 수 있습니다. 
 
-참고: *브리핑* 서비스 유형을 제외한 컨설팅 서비스는 직접(고객의 위치 또는 파트너의 시설에서 온사이트로) 또는 가상으로(전화 회의, 웹 회의 또는 원격 구현을 통해) 제공할 수 있습니다. 브리핑은 직접 제공해야 합니다.
+**참고:** *브리핑* 서비스 유형을 제외한 컨설팅 서비스는 직접(고객의 위치 또는 파트너의 시설에서 온사이트로) 또는 가상으로(전화 회의, 웹 회의 또는 원격 구현을 통해) 제공할 수 있습니다. 브리핑은 직접 제공해야 합니다.
 
 위에 나열된 필수 요소를 구성한 경우, 콘텐츠 검토 팀에서는 사용자의 제품 설명이 대상 사용자를 위해 충분한 정보를 포함하고 완전한지 검사합니다. 
 
@@ -144,11 +144,11 @@ Azure Marketplace에 컨설팅 서비스 제품을 나열하려면 다음 단계
 
 |제품 유형  |필수 |권장  |
 |---------|---------|---------|
-|평가    |   여러 날 또는 여러 주 평가를 위한 자세한 주제를 포함하고 고객이 기대할 수 있는 결과물 결정      |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
-|요약 정보    |   객이 기대할 수 있는 결과물을 결정합니다. 요약 정보도 직접 제공해야 합니다. 가상 서비스를 제공하는 경우 다른 제품 유형을 선택하세요.    |  상위 검색 엔진 최적화 키워드로 제품 요약 최적화       |
-|구현    |  여러 날 또는 여러 주 구현에 대한 자세한 주제를 포함하고 고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트 결정       |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
-|개념 증명    |    고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트를 결정합니다.     | 상위 검색 엔진 최적화 키워드로 제품 요약 최적화        |
-|워크샵    |   선택한 제공 기간에 따라, 매일, 매주 또는 매월 자세한 주제를 포함합니다. 워크샵에서 다룰 학습 목적 또는 기타 결과물 결정     |   상위 검색 엔진 최적화 키워드로 제품 요약 최적화      |
+|**평가**    |   여러 날 또는 여러 주 평가를 위한 자세한 주제를 포함하고 고객이 기대할 수 있는 결과물 결정      |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
+|**요약 정보**    |   객이 기대할 수 있는 결과물을 결정합니다. 요약 정보도 직접 제공해야 합니다. 가상 서비스를 제공하는 경우 다른 제품 유형을 선택하세요.    |  상위 검색 엔진 최적화 키워드로 제품 요약 최적화       |
+|**구현**    |  여러 날 또는 여러 주 구현에 대한 자세한 주제를 포함하고 고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트 결정       |    상위 검색 엔진 최적화 키워드로 제품 요약 최적화     |
+|**개념 증명**    |    고객이 계약의 결과로 기대할 수 있는 엔지니어링 변경, 기술 아티팩트 또는 기타 아티팩트를 결정합니다.     | 상위 검색 엔진 최적화 키워드로 제품 요약 최적화        |
+|**워크샵**    |   선택한 제공 기간에 따라, 매일, 매주 또는 매월 자세한 주제를 포함합니다. 워크샵에서 다룰 학습 목적 또는 기타 결과물 결정     |   상위 검색 엔진 최적화 키워드로 제품 요약 최적화      |
 
 Cloud 파트너 포털 내에서 [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown)을 사용하여 목록에 서식을 추가할 수 있습니다. 이것은 목록을 정리하는 데 도움이 되는 간단한 디자인 언어입니다. 
 
@@ -160,3 +160,12 @@ Cloud 파트너 포털 내에서 [Markdown](https://docs.microsoft.com/en-us/con
 *   제목 다음에 줄 바꿈
 *   ** = bold (No space)(예: **No Space**) •   제품 요약을 기울임꼴로 표시 •   Agenda 및 Deliverables는 제목임
 
+## <a name="next-steps"></a>다음 단계
+
+아직 수행하지 않았다면 
+
+- Marketplace에서 [등록](https://azuremarketplace.microsoft.com/sell)
+
+등록하고 Cloud 파트너 포털에서 작업 중이라면 
+
+- 제품을 만들거나 완료하기 위해 [Cloud 파트너 포털에 로그인](https://cloudpartner.azure.com)

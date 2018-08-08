@@ -1,20 +1,19 @@
 ---
-title: Azure Batch Transcription API | Azure Microsoft Docs
+title: Azure Batch Transcription API
 description: 샘플
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 9dd7479ae95f74123d9b762e42ec95e8dbf25818
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f21973855ceb3a257627c147490ac50465c54020
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346447"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281942"
 ---
 # <a name="batch-transcription"></a>일괄 처리 기록
 
@@ -178,4 +177,4 @@ API를 사용하는 것은 매우 간단합니다. 아래의 샘플 코드는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)

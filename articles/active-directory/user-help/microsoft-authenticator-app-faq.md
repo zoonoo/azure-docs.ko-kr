@@ -1,123 +1,60 @@
 ---
-title: Microsoft Authenticator 앱 관련 도움말 - Azure AD | Microsoft Docs
+title: Microsoft Authenticator 앱 도움말 - Azure Active Directory | Microsoft Docs
 description: Microsoft Authentication 앱 및 Azure Multi-Factor Authentication과 관련된 질문과 대답 목록을 제공합니다.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
-ms.service: multi-factor-authentication
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
-ms.openlocfilehash: d86bc84653e38a9b64a336b8ce9ed7e657129e8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c2071e662b50e57189e048b028fd5359482c817f
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058165"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358652"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator 앱 FAQ
 
-이 문서에서는 Microsoft Authenticator 앱에 대한 일반적인 질문에 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요. 앱의 특정 기능인 [휴대폰 FAQ를 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)에 대한 다른 FAQ도 검토할 수 있습니다.
+이 문서에서는 Microsoft Authenticator 앱에 대한 일반적인 질문에 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요. 휴대폰 로그인 프로세스에 대한 자세한 정보를 보려면 [휴대폰으로 로그인 FAQ](microsoft-authenticator-app-phone-signin-faq.md)를 참조하세요.
 
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. Microsoft Authenticator 앱은 [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) 및 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)에서 사용할 수 있습니다.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
-
-### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요?
-
-Microsoft Authenticator는 계정을 추가할 때 만든 계정 정보를 저장합니다. Authenticator를 사용할 때 디버깅 목적으로 진단 로그가 생성되고, Microsoft에서 예기치 못한 문제를 진단하는 데 도움이 되는 유용한 데이터가 저장됩니다. **도움말** > **로그 보내기** > **로그 보기**를 열어 로그 데이터에 액세스할 수 있습니다.
-
-계정 타일을 삭제하여 데이터를 삭제할 수 있습니다. 계정 타일을 삭제하면 로그를 포함하여 응용 프로그램에서 사용되는 모든 계정 정보가 삭제됩니다. 
-
-Microsoft에서 데이터를 사용하는 방법에 대한 자세한 내용은 https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted에서 확인할 수 있습니다.
-
-### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>앱에서 코드란 무엇인가요? 숫자가 계속 카운트다운되는 이유는 무엇인가요?
-
-Microsoft Authenticator 앱을 열면 각각 6자리 또는 8자리 숫자를 추가한 계정이 표시됩니다. 30초 타이머가 카운트다운되는 것을 볼 수 있습니다.
-
-이러한 코드는 계정에 로그인할 때 사용됩니다. 사용자 이름 및 암호를 입력하려면 확인 코드를 입력하라는 메시지가 표시될 수 있습니다. Microsoft Authenticator 앱을 열고 현재 표시 중인 코드를 복사합니다. 로그인 페이지에 해당 코드를 입력하여 완료합니다.
-
-코드가 30초마다 변경되기 때문에 동일한 코드를 두 번 사용하지 않도록 합니다. 기억하기로 되어 있는 암호와 다릅니다. 이는 휴대폰에 액세스할 수 있는 사람만 확인 코드를 안다는 점에서 착안하였습니다.
-
-코드는 인터넷 또는 데이터가 필요 없으므로 로그인하기 위해 전화 서비스를 이용하는 것에 대해 걱정할 필요가 없습니다. 앱을 닫으면 백그라운드에서 계속 실행되지 않으므로 배터리가 소모되지 않습니다. 앱을 닫고 다음에 로그인할 때까지 무시할 수 있습니다.  
-
-### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>앱이 열려 있을 때만 알림을 받게 됩니다. 앱이 열려 있지 않으면 어떤 알림도 수신되지 않습니다.
-
-벨 소리를 켜져 있지만 알림이 수신될 때 소음이나 진동을 발생하지 않으면 앱 설정을 확인하세요. 알림에서 소리 또는 진동을 사용하도록 앱을 설정합니다.
-
-알림이 전혀 수신되지 않으면 다음과 같은 경우인지 확인합니다.
-
-- 휴대폰이 방해 금지 또는 자동 모드인가요? 해당 모드에서는 앱이 알림을 보낼 수 없습니다.
-- 다른 앱에서 알림을 받을 수 있나요? 받을 수 없으면 휴대폰의 네트워크 연결이나 Android 또는 Apple의 알림 채널에 문제가 있는 것일 수 있습니다. 휴대폰 설정에서 첫 번째 옵션은 해결할 수 있지만 두 번째 옵션의 경우는 서비스 공급자에게 도움을 요청해야 할 수도 있습니다.
-- 앱에서 일부 계정에 대해서만 알림을 받을 수 있고 다른 계정의 알림은 받을 수 없나요? 그렇다면 앱에서 문제가 있는 계정을 제거하고 다시 추가하여 푸시 알림을 사용하도록 설정합니다.
-
-이러한 문제 해결 권장 방법을 시도해도 문제가 계속 되는 경우 문제 진단을 위해 로그를 보내주세요. 앱 설정으로 이동한 다음 **도움말 및 피드백** 및 **로그 보내기**를 선택합니다. 그런 다음 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 어떤 문제가 표시되고 있는지, 지금까지 시도한 단계에 대해 알려주세요.
-
-### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>인증 코드에 Microsoft Authenticator 응용 프로그램을 이미 사용하고 있습니다. 원 클릭 푸시 알림으로 전환하려면 어떻게 해야 하나요?
-푸시 알림을 통한 로그인 승인은 Google 또는 Facebook 같은 타사 계정이 아닌 개인 Microsoft 계정이나 회사 및 학교 Microsoft 계정에만 사용할 수 있습니다. 회사 또는 학교 Microsoft 계정을 갖고 있는 경우 조직에서 이 옵션을 사용하지 않도록 설정할 수 있습니다.
-
-개인 계정으로 Microsoft 계정을 사용하고 있으며 푸시 알림으로 전환하려는 경우 계정을 다시 추가해야 합니다. 장치를 계정에 다시 등록하고 푸시 알림을 설정합니다.  
-
-조직에서는 회사 또는 학교 계정에 Microsoft Authenticator를 사용하는 경우 원 클릭 알림 허용 여부를 결정합니다.
-
-### <a name="do-one-click-push-notifications-work-for-non-microsoft-accounts"></a>Microsoft 이외의 계정에서도 원 클릭 푸시 알림이 작동하나요?
-아니요. 푸시 알림은 Microsoft 계정 및 Azure Active Directory 계정에만 작동합니다. 회사 또는 학교에서 Azure AD 계정을 사용하는 경우 이 기능을 사용하지 않도록 설정할 수 있습니다.  
-
-### <a name="i-got-a-new-device-or-restored-my-device-from-a-backup-how-do-i-set-up-my-accounts-in-the-microsoft-authenticator-app-again"></a>새 장치가 생겼습니다/백업으로 장치를 복원했습니다. Microsoft Authenticator 앱에서 내 계정을 다시 설정하려면 어떻게 해야 하나요?
-iOS 장치를 실행하고, **자동 백업**을 켰고, 기존 장치에 계정 백업을 만든 경우 해당 백업을 사용하여 새 장치에 계정 자격 증명을 복구할 수 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구](microsoft-authenticator-app-backup-and-recovery.md) 문서를 참조하세요. 
-
-### <a name="i-lost-my-device-or-moved-on-to-a-new-device-how-do-i-make-sure-notifications-dont-continue-to-go-to-my-old-device"></a>장치를 잃어버렸습니다/새 장치로 이동했습니다. 알림이 계속해서 기존 장치로 이동하지 않게 하려면 어떻게 해야 하나요?  
-새 iOS 장치에 Microsoft Authenticator 앱을 추가해도 기존 장치에서 앱이 자동으로 제거되지 않습니다. 기존 장치에서 앱을 삭제하는 것만으로는 충분하지 않습니다. 기존 장치에서 앱을 삭제하고, Microsoft 또는 소속 조직에 기존 장치를 제거하고 계정에서 등록을 취소해 달라고 요청해야 합니다.
-- **개인 Microsoft 계정을 사용하여 장치에서 앱을 제거하려면:** [계정 보안](https://account.microsoft.com/security) 페이지의 2단계 확인 영역으로 이동하여 기존 장치의 확인 기능을 끕니다.  
-- **회사 또는 학교 Microsoft 계정을 사용하여 장치에서 앱을 제거하려면:** [MyApps](https://myapps.microsoft.com/) 페이지의 2단계 확인 영역 또는 소속 조직의 사용자 지정 포털로 이동하여 기존 장치의 확인 기능을 끕니다. 
-
-
-
-### <a name="how-do-i-remove-an-account-from-the-app"></a>앱에서 계정을 제거하려면 어떻게 해야 하나요?
-* iOS: 메인 화면에서 계정 타일을 지웁니다. **삭제**를 선택합니다.
-* Windows Phone: 메인 화면에서 메뉴 단추를 선택한 다음 **계정을 편집**합니다. 계정 이름 옆에 있는 **X**를 누릅니다.
-* Android: 메인 화면에서 메뉴 단추를 선택한 다음 **계정을 편집**합니다. 계정 이름 옆에 있는 **X**를 누릅니다.
-
-조직에 등록된 장치가 있는 경우 계정을 제거하도록 추가 단계를 완료해야 합니다. 이러한 장치에서 Microsoft Authenticator 앱은 장치 관리자는 자동으로 등록됩니다. 앱을 완전히 제거하려면 먼저 앱 설정에서 앱 등록을 취소해야 합니다.
-
-### <a name="why-does-the-app-request-so-many-permissions"></a>앱이 너무 많은 권한을 요청하는 이유는 무엇인가요?
-요청할 수 있는 권한의 전체 목록 및 앱에서 사용되는 방식은 다음과 같습니다. 표시되는 특정 사용 권한은 사용하는 휴대폰의 종류에 따라 달라 집니다.
-
-* **카메라**: 회사 계정, 학교 계정 또는 Microsoft 이외의 계정을 추가할 때 QR 코드를 검사하는 데 사용됩니다.
-* **연락처 및 휴대폰**: 개인 Microsoft 계정으로 로그인할 때 휴대폰에서 기존 계정을 찾아 프로세스를 단순화하는 데 사용됩니다.
-* **SMS**: 전화 번호와 레코드의 숫자와 일치하는지 확인하는 데 사용됩니다. 사용자가 개인 Microsoft 계정을 사용하여 처음으로 로그인하면  앱을 다운로드한 휴대폰으로 6-8자리 확인 코드가 포함된 문자 메시지가 전송됩니다. 사용자에게 이 코드를 찾아 앱에 입력하라고 요청하는 대신, 문자 메시지에서 자동으로 코드가 검색됩니다.
-* **다른 앱을 통해 가져오기**: 사용자의 ID를 확인하는 알림은 실행 중일 수 있는 다른 앱에도 표시됩니다.
-* **인터넷의 데이터 수신**: 알림을 보내기 위해 이 사용 권한이 필요합니다.
-* **휴대폰 절전 모드 전환 방지**: 장치를 조직에 등록하면 조직에서는 휴대폰에서 이 정책을 변경할 수 있습니다.
-* **진동 제어**: ID를 인증하는 알림을 수신할 때마다 진동을 울릴지 여부를 선택할 수 있습니다.
-* **지문 하드웨어 사용**: 일부 회사 및 학교 계정에는 ID를 인증할 때마다 추가 PIN이 필요합니다. 프로세스를 보다 쉽게 수행하려면 PIN을 입력하는 대신 지문을 사용할 수 있습니다.
-* **네트워크 연결 보기**: Microsoft 계정을 추가할 때 앱에는 네트워크/인터넷 연결이 필요합니다.
-* **저장소의 내용 읽기**: 앱 설정을 통해 기술 문제를 보고하는 경우에만 이 사용 권한을 사용하게 됩니다. 저장소의 일부 정보를 수집하여 문제를 진단합니다.
-* **전체 네트워크 액세스**: ID를 인증하는 알림을 보내는 데 이 사용 권한이 필요합니다.
-* **시작 시 실행**: 전화를 다시 시작하는 경우 이 사용 권한을 사용하면 ID를 인증하는 알림을 계속 수신할 수 있습니다.
-
-### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Microsoft Authenticator 앱에서 사용자가 장치를 잠금 해제하지 않아도 요청을 승인할 수 있도록 허용하는 이유는 무엇인가요?
-
-사용자가 휴대폰을 갖고 있는지만 증명하면 되므로 확인 요청을 승인하도록 장치의 잠금을 해제할 필요가 없습니다. 2단계 인증은 두 가지를 요구합니다. 하나는 사용자가 알고 있는 것이고, 다른 하나는 사용자가 갖고 있는 것입니다. 사용자가 알고 있는 것은 암호입니다. 사용자가 갖고 있는 것은 휴대폰(Microsoft Authenticator 앱을 통해 설정하고 MFA 증명으로 등록된)입니다. 따라서 휴대폰을 갖고 있고 요청을 승인하면 인증의 두 번째 요소에 대한 조건을 충족합니다.
-
-### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>계정 목록에서 잠금 아이콘은 무엇을 의미하나요?
-
-자물쇠 아이콘은 장치가 Azure AD 및 계정에 등록되어 있음을 나타냅니다. iOS에 대한 장치 등록은 Microsoft Intune 등록 중에 발생합니다.
+|질문|해결 방법|
+|--------|--------|
+|Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요?| Microsoft Authenticator 앱은 계정을 추가할 때 사용자가 입력하는 계정 정보를 저장합니다. 이 앱을 사용할 때 디버깅 목적으로 진단 로그가 생성되고, Microsoft에서 예기치 못한 문제를 진단하는 데 도움이 되는 데이터만 저장됩니다. 앱을 열고, **도움말**을 선택하고, **로그 보내기**를 선택한 다음, **로그 보기** 단추를 선택합니다.<br><br>**계정** 화면에서 계정 타일을 삭제하여 로그 파일을 비롯한 모든 데이터를 삭제할 수 있습니다. Microsoft에서 데이터를 사용하는 방법에 대한 자세한 내용은 [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/HomePage.)을 참조하세요.|
+|앱에서 코드란 무엇인가요?|Microsoft Authenticator 앱을 열면 추가한 계정이 타일로 표시되고 각각 6자리 또는 8자리 숫자가 붙어 있습니다.<br><br>이러한 코드는 사용자 신원을 확인하는 용도로 사용됩니다. 사용자 이름 및 암호를 사용하여 로그인한 후 계정과 같은 타일에 있는 확인 코드를 입력합니다. 예를 들어 Alain이 Contoso 계정에 로그인하는 하는 경우 확인 코드 427303을 사용합니다.<br><br>![앱의 계정 화면](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
+|코드 옆에 있는 숫자가 계속 카운트다운되는 이유는 무엇인가요?|활성 확인 코드 옆에 30초 타이머가 카운트다운되는 것을 볼 수 있습니다. 이 타이머는 같은 코드를 두 번 사용하여 로그인하는 일이 없도록 방지하기 위한 것입니다. 암호와는 달리, 이 숫자를 기억할 필요가 없습니다. 휴대폰에 액세스할 수 있는 사람만이 확인 코드를 알 수 있다는 점에 착안하였습니다.|
+|계정 타일이 회색으로 표시되는 이유는 무엇인가요?|일부 조직에서는 Microsoft Authenticator 앱을 Single Sign-On과 함께 사용하여 조직의 리소스를 보호할 것을 요구합니다. 이 경우 계정이 2단계 인증에 사용되지 않고 회색 또는 비활성 상태로 표시됩니다. 이러한 종류의 계정을 일반적으로 "브로커" 계정이라고 부릅니다.|
+|각 아이콘의 의미는 무엇입니까?|![휴대폰 키 아이콘](./media/microsoft-authenticator-app-faq/icon.png)<br>휴대폰 키 아이콘은 암호 없는 휴대폰 로그인을 사용할 수 있도록 계정이 업그레이드되었다는 의미입니다. Authenticator 앱의 모든 개인 Microsoft 계정과 단일 회사 또는 학교 계정에 설정할 수 있습니다. 휴대폰 로그인에 대한 자세한 내용은 [암호가 아닌 휴대폰을 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)을 참조하세요.<br><br>![잠금 아이콘](./media/microsoft-authenticator-app-faq/lock.png)<br>잠금 아이콘은 회사 또는 학교 계정이 조직에 등록되었다는 의미입니다. 조직에서는 파일 및 앱 같은 보안 리소스에 어떤 장치가 액세스하는지 파악하고, 가능하다면 조건부 액세스를 설정하여 보안 리소스에 대한 부적절한 액세스 위험을 줄이기 위해 사용자에게 장치 등록을 요구할 수 있습니다.|
+|장치 등록이란?|조직에서는 파일 및 앱 같은 보안 리소스에 어떤 장치가 액세스하는지 파악하고, 가능하다면 조건부 액세스를 설정하여 보안 리소스에 대한 부적절한 액세스 위험을 줄이기 위해 사용자에게 장치 등록을 요구할 수 있습니다. **설정**을 사용하여 장치 등록을 취소할 수 있지만, Outlook의 이메일과 OneDrive의 파일에 액세스할 수 없게 될 수 있고 휴대폰 로그인 기능을 잃게 됩니다.|
+|확인 코드를 가져와서 사용하려면 인터넷 또는 네트워크에 연결되어야 합니까?|인터넷 또는 데이터에 연결되지 않아도 코드를 사용할 수 있으므로 전화 서비스에 로그인할 필요가 없습니다. 또한 앱을 닫는 즉시 앱 실행이 중지되므로 배터리가 소모되지 않습니다.|
+|앱이 열려 있을 때만 알림을 받습니다. 앱이 닫히면 알림이 오지 않습니다.|벨 소리가 켜져 있어도 알림이 도착할 때 경고가 울리지 않으면 앱 설정을 확인하세요. 알림이 도착할 때 소리를 내거나 진동이 울리도록 앱을 설정해야 합니다. 알림이 전혀 수신되지 않으면 다음 사항을 확인합니다.<ul><li>휴대폰이 방해 금지 또는 자동 모드인가요? 이 모드에서는 앱이 알림을 보내지 않을 수 있습니다.</li><li>다른 앱에서 알림을 받을 수 있나요? 받을 수 없으면 휴대폰의 네트워크 연결 문제이거나 Android 또는 Apple의 알림 채널에 문제가 있는 것일 수 있습니다. 휴대폰 설정을 통해 네트워크 연결을 확인할 수 있지만, Android 또는 Apple 알림 채널 문제를 해결하려면 서비스 공급자에게 문의해야 할 수도 있습니다.</li><li>앱에서 일부 계정의 알림을 받을 수 있고 나머지 계정의 알림을 받을 수 없나요? 그렇다면 앱에서 문제가 있는 계정을 제거했다가 다시 추가하고 알림을 허용한 다음, 문제가 해결되었는지 확인하세요.</li></ul>이러한 단계를 모두 시도한 후에도 문제가 지속되면 로그 파일을 보내주세요. 앱을 열고, **도움말**로 이동한 다음, **로그 보내기**를 선택합니다. 그런 다음, [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 어떤 문제가 표시되고 있는지, 지금까지 시도한 단계에 대해 알려주세요.|
+|앱에서 확인 코드를 사용하고 있는데, 푸시 알림으로 전환하려면 어떻게 해야 하나요?|회사/학교 계정(관리자가 설정한 경우) 또는 개인 Microsoft 계정에서 푸시 알림을 설정할 수 있지만, Google 또는 Facebook 같은 타사 계정에는 알림이 작동하지 않습니다.<br><br>개인 계정을 알림으로 전환하려면 장치를 계정에 다시 등록하고 푸시 알림을 설정해야 합니다.<br><br>회사 또는 학교 계정에 원 클릭 알림을 허용할 것인지 여부는 조직에서 결정하며, 조직에서 이 기능을 끌 수 있습니다.|
+|Microsoft 이외의 계정에서도 알림이 작동하나요?|아니요. 알림은 Microsoft 계정 및 Azure Active Directory 계정에만 작동합니다. 회사 또는 학교에서 Azure AD 계정을 사용하는 경우 회사 또는 학교에서 이 기능을 끌 수 있습니다.|
+|새 장치가 생겼습니다/백업으로 장치를 복원했습니다. Microsoft Authenticator 앱에서 내 계정을 다시 설정하려면 어떻게 해야 하나요?|iOS 장치를 실행하고, **자동 백업**을 켰고, 기존 장치에 계정 백업을 만든 경우 해당 백업을 사용하여 새 장치에 계정 자격 증명을 복구할 수 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구](microsoft-authenticator-app-backup-and-recovery.md) 문서를 참조하세요.|
+|장치를 잃어버렸습니다/새 장치로 이동했습니다. 알림이 계속해서 기존 장치로 이동하지 않게 하려면 어떻게 해야 하나요?|새 iOS 장치에 Microsoft Authenticator 앱을 추가해도 기존 장치에서 앱이 자동으로 제거되지 않습니다. 기존 장치에서 앱을 삭제하는 것만으로는 충분하지 않습니다. 기존 장치에서 앱을 삭제하고, Microsoft 또는 소속 조직에 기존 장치를 제거하고 계정에서 등록을 취소해 달라고 요청해야 합니다.<ul><li>**개인 Microsoft 계정을 사용하여 장치에서 앱을 제거하려면:** [계정 보안](https://account.microsoft.com/security) 페이지의 2단계 확인 영역으로 이동하여 기존 장치의 확인 기능을 끕니다.</li><li>**회사 또는 학교 Microsoft 계정을 사용하여 장치에서 앱을 제거하려면:** [MyApps](https://myapps.microsoft.com/) 페이지의 2단계 확인 영역 또는 소속 조직의 사용자 지정 포털로 이동하여 기존 장치의 확인 기능을 끕니다.</li></ul>|
+|앱에서 계정을 제거하려면 어떻게 해야 하나요?|<ul><li>**iOS.** 메인 화면에서 메뉴 단추를 선택하고 **계정 편집**을 선택합니다. 계정 이름 옆의 빨간색 아이콘을 탭하고 **계정 제거**를 탭합니다.</li><li>**Windows Phone.** 메인 화면에서 메뉴 단추를 선택하고 **계정 편집**을 선택합니다. 계정 이름 옆에 있는 **X**를 누릅니다.</li><li>**Android.** 메인 화면에서 메뉴 단추를 선택하고 **계정 편집**을 선택합니다. 계정 이름 옆에 있는 **X**를 누릅니다.</li></ul>조직에 등록된 장치가 있는 경우 계정을 제거하도록 추가 단계를 완료해야 합니다. 이러한 장치에서 Microsoft Authenticator 앱은 장치 관리자는 자동으로 등록됩니다. 앱을 완전히 제거하려면 먼저 앱 설정에서 앱 등록을 취소해야 합니다.|
+|앱이 너무 많은 권한을 요청하는 이유는 무엇인가요?|요청할 수 있는 권한의 전체 목록 및 앱에서 사용되는 방식은 다음과 같습니다. 표시되는 특정 사용 권한은 사용하는 휴대폰의 종류에 따라 달라 집니다.<ul><li>**카메라.** 회사 계정, 학교 계정 또는 Microsoft 이외의 계정을 추가할 때 QR 코드를 검사하는 데 사용됩니다.</li><li>**연락처 및 휴대폰.** 개인 Microsoft 계정으로 로그인할 때 휴대폰에서 기존 계정을 찾아 프로세스를 단순화하는 데 사용됩니다.</li><li>**SMS.** 전화 번호와 레코드의 숫자와 일치하는지 확인하는 데 사용됩니다. 사용자가 개인 Microsoft 계정을 사용하여 처음으로 로그인하면 앱을 다운로드한 휴대폰으로 6-8자리 확인 코드가 포함된 문자 메시지가 전송됩니다. 사용자에게 이 코드를 찾아 앱에 입력하라고 요청하는 대신, 문자 메시지에서 자동으로 코드가 검색됩니다.</li><li>**다른 앱을 통해 가져오기.** 사용자의 ID를 확인하는 알림은 실행 중일 수 있는 다른 앱에도 표시됩니다.</li><li>**인터넷의 데이터 수신.** 알림을 보내기 위해 이 사용 권한이 필요합니다.</li><li>**휴대폰 절전 모드 전환 방지.** 장치를 조직에 등록하면 조직에서는 휴대폰에서 이 정책을 변경할 수 있습니다.</li><li>**진동 제어.** ID를 인증하는 알림을 수신할 때마다 진동을 울릴지 여부를 선택할 수 있습니다.</li><li>**지문 하드웨어 사용.** 일부 회사 및 학교 계정에는 ID를 인증할 때마다 추가 PIN이 필요합니다. 프로세스를 보다 쉽게 수행하려면 PIN을 입력하는 대신 지문을 사용할 수 있습니다.</li><li> **네트워크 연결 보기.** Microsoft 계정을 추가할 때 앱에는 네트워크/인터넷 연결이 필요합니다.</li><li>**저장소의 내용 읽기.** 앱 설정을 통해 기술 문제를 보고하는 경우에만 이 사용 권한을 사용하게 됩니다. 저장소의 일부 정보를 수집하여 문제를 진단합니다.</li><li>**전체 네트워크 액세스.** ID를 인증하는 알림을 보내는 데 이 사용 권한이 필요합니다.</li><li>**시작 시 실행.** 전화를 다시 시작하는 경우 이 사용 권한을 사용하면 ID를 인증하는 알림을 계속 수신할 수 있습니다.</li></ul>|
+|Microsoft Authenticator 앱에서 사용자가 장치를 잠금 해제하지 않아도 요청을 승인할 수 있도록 허용하는 이유는 무엇인가요?|사용자가 휴대폰을 갖고 있는지만 증명하면 되므로 확인 요청을 승인하도록 장치의 잠금을 해제할 필요가 없습니다. 2단계 인증은 두 가지를 요구합니다. 하나는 사용자가 알고 있는 것이고, 다른 하나는 사용자가 갖고 있는 것입니다. 사용자가 알고 있는 것은 암호입니다. 사용자가 갖고 있는 것은 휴대폰(Microsoft Authenticator 앱을 통해 설정하고 MFA 증명으로 등록된)입니다. 따라서 휴대폰을 갖고 있고 요청을 승인하면 인증의 두 번째 요소에 대한 조건을 충족합니다.|
+|Apple Watch에서 Microsoft Authenticator 앱을 열 때 모든 계정이 표시되지 않는 이유는 무엇인가요?|Microsoft Authenticator 앱은 Apple Watch 도우미 앱에서 Microsoft 개인 계정 또는 회사/학교 계정을 사용하는 것만 지원합니다. Google 또는 Facebook 같은 다른 계정의 경우 확인 코드를 보려면 휴대폰에서 Authenticator 앱을 열어야 합니다.|
+|Apple Watch에서 알림을 승인 또는 거부할 수 없는 이유는 무엇인가요?|먼저 iPhone에서 Microsoft Authenticator 앱을 버전 6.0.0 이상으로 업그레이드 했는지 확인합니다. 그 후 Apple Watch에서 Microsoft Authenticator 도우미 앱을 열고 아래에 **설정** 단추가 있는 계정을 찾습니다. 이러한 계정에 대한 알림을 승인하려면 이 설정 프로세스를 완료해야 합니다.|
+|**Apple Watch에서 Microsoft Authenticator 도우미 앱을 사용하는 동안 휴대폰과 통신할 수 없음** 오류가 발생하는 이유는 무엇입니까?|휴대폰과 Apple Watch가 서로 통신할 수 없는 경우 다음 조치를 시도할 수 있습니다.<ol><li>Microsoft Authenticator 휴대폰 앱을 강제로 종료하여 iPhone에서 다시 엽니다.</li><li>Apple Watch 도우미 앱을 강제로 종료합니다.<ol><li> Watch에서 Microsoft Authenticator 도우미 앱을 엽니다.</li><li>**종료** 화면이 나타날 때까지 옆면의 단추를 길게 누릅니다.</li><li>옆면의 단추를 놓고 Digital Crown을 길게 눌러 활성 앱을 강제로 종료합니다.</li></ol></li><li>휴대폰과 Watch에서 Bluetooth와 Wi-Fi를 모두 껐다가 다시 켭니다.</li><li>iPhone 및 Watch를 다시 시작합니다.</li></ol>|
+|Apple Watch용 Microsoft Authenticator 도우미 앱이 동기화되지 않거나 Watch에 표시되지 않는 이유는 무엇인가요?|앱이 Watch에 표시되지 않는 경우 다음 방법을 시도합니다. <ol><li>Watch가 watchOS 4.0 이상을 실행 중인지 확인합니다.</li><li>Watch를 다시 동기화합니다.</li></ol>|
+|Apple Watch 도우미 앱이 충돌했습니다. 크래시 로그를 보내서 조사할 수 있나요? |먼저 분석 정보를 Microsoft와 공유하도록 선택했는지 확인합니다. TestFlight 사용자인 경우 이미 등록되어 있습니다. 아닌 경우 **설정 > 개인 정보 > 분석**으로 이동하여 **iPhone 및 Watch 분석 공유** 및 **앱 개발자와 공유** 옵션을 모두 선택합니다.<br><br>등록을 마친 후 크래시를 재현하면 자동으로 크래시 로그가 Microsoft로 전송됩니다. 하지만 크래시를 재현할 수 없는 경우 로그 파일을 수동으로 복사해서 보내주시면 됩니다.<ol><li>휴대폰에서 Watch 앱을 열고 **설정 > 일반**으로 이동한 다음, **Watch 분석 복사**를 클릭합니다.</li><li>**설정 > 개인 정보 > 분석 > 분석 데이터** 아래에서 해당 크래시를 찾은 다음, 전체 텍스트를 수동으로 복사합니다.</li><li>휴대폰에서 Microsoft Authenticator 앱을 열고, 앞에서 복사한 텍스트를 **로그 보내기** 페이지의 **앱 개발자와 공유** 텍스트 상자에 붙여넣습니다.</li></ol>|
 
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="contact-us"></a>문의처
-궁금한 내용에 대한 답변이 여기에 없으면 직접 질문을 남겨주세요. [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 질문을 게시하고, 커뮤니티의 도움을 받고, 이 페이지에 의견을 남기세요.
+-   휴대폰 로그인에 대한 추가 질문이 있으면 [암호가 아닌 휴대폰을 사용하여 로그인](microsoft-authenticator-app-phone-signin-faq.md)을 참조하세요.
 
+-   2단계 인증에 대해 더 자세히 알아보려면 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md)을 참조하세요.
 
-### <a name="related-topics"></a>관련된 항목
-* Microsoft 계정에 대한 [2단계 인증 정보](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)
-* 회사 또는 학교 계정에 [2단계 인증 문제](multi-factor-authentication-end-user-troubleshoot.md)가 있나요?
-* [Microsoft Authenticator를 사용하여 휴대폰에서 로그인합니다.](microsoft-authenticator-app-phone-signin-faq.md)
+-   보안 정보에 대해 더 자세히 알아보려면 [보안 정보 관리](security-info-manage-settings.md)를 참조하세요.
+
+- 궁금한 내용에 대한 답변이 여기에 없으면 직접 질문을 남겨주세요. [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하여 질문을 게시하고, 커뮤니티의 도움을 받고, 이 페이지에 의견을 남기세요.

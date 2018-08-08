@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239120"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390197"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding FAQ
 
@@ -147,6 +147,12 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 * **끝점 발언 검토** 페이지에서 LUIS가 제안하는 사용자 발언 목록에 있는 발언을 삭제할 수 있습니다. 이 목록에서 발언을 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
 * 계정을 삭제하면 모든 앱과 예제 발언 및 로그가 함께 삭제됩니다. 데이터는 영구적으로 삭제하기 전에 60일 동안 서버에 유지됩니다.
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft는 자체적인 목적(예: LUIS 또는 Microsoft를 일반적으로 향상시키기 위해)을 위해 LUIS 앱 데이터에 액세스하나요? 
+
+아니요. LUIS 앱의 데이터 모델은 LUIS에서 플랫폼으로 LUIS를 향상시키기 위해 사용되거나 Microsoft에서 어떤 방식으로도 사용되지 않습니다. 각 앱의 데이터는 분리되며 사용자와 협력자만 소유합니다. 
+
+[사용자 개인 정보](luis-reference-gdpr.md), [추가적인 보안 규정 준수](luis-concept-security.md#security-compliance) 및 [데이터 저장소](luis-concept-data-storage.md)에 대해 자세히 알아보세요.
+
 ## <a name="language-and-translation-support"></a>언어 및 번역 지원 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>앱이 한 언어로 되어 있고 다른 언어로 병렬 앱을 만들려고 합니다. 이렇게 하는 가장 쉬운 방법은 무엇인가요?
@@ -175,20 +181,6 @@ LUIS 템플릿을 선택하고 템플릿 창에서 **선택** 단추를 선택�
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>온-프레미스 또는 사설 클라우드에서 LUIS를 사용할 수 있나요?
 아니요. 
 
-## <a name="changes-to-the-docs"></a>문서 변경 내용
-
-### <a name="where-did-the-tutorials-go"></a>자습서는 어디로 이동되었나요? 
-이전에 자습서 섹션에 제공되던 문서가 이제 문서의 방법 섹션에 제공됩니다. 
-
-|자습서|
-|--|
-|[C#](luis-csharp-tutorial-build-bot-framework-sample.md) 및 [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)를 사용하여 봇과 LUIS 통합|
-|[C#](luis-tutorial-bot-csharp-appinsights.md) 및 [Node.js](luis-tutorial-function-appinsights.md)를 사용하여 봇에 Application Insights 추가|
-|[Node.js](luis-tutorial-node-import-utterances-csv.md)를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드|
-|[복합 엔터티](luis-tutorial-composite-entity.md)를 사용하여 그룹화된 데이터 추출|
-|Node.js를 사용하여 증가된 엔터티 검색을 위해 [목록 엔터티](luis-tutorial-list-entity.md) 추가|
-|[구 목록](luis-quickstart-primary-and-secondary-data.md), [패턴](luis-tutorial-pattern.md) 및 [일괄 처리 테스트](luis-tutorial-batch-testing.md)로 예측 정확도 향상|
-|Bing Spell Check API v7을 사용한 [올바른 맞춤법](luis-tutorial-batch-testing.md)
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Build 2018 Conference에서 Language Understanding 기능이나 데모에 대해 들어보았으나 어떻게 지칭하는지 기억이 나지 않습니다. 
 
@@ -198,7 +190,7 @@ Build 2018 Conference에서는 다음 기능이 발표되었습니다.
 |--|--|
 |향상된 기능|[정규식](luis-concept-data-extraction.md##regular-expression-entity-data) 엔터티 및 [핵심 구](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) 엔터티
 |패턴|패턴 [개념](luis-concept-patterns.md), [자습서](luis-tutorial-pattern.md), [방법](luis-how-to-model-intent-pattern.md)<br>예외에 대한 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 포함하는 [Patterns.Any](luis-concept-entity-types.md) 엔터티<br>[역할](luis-concept-roles.md) 개념|
-|통합|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)과 [감정 분석](luis-how-to-publish-app.md#enable-sentiment-analysis) 통합<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech)에 [Speech SDK](https://aka.ms/SpeechSDK)와 [음성 초기화](luis-how-to-publish-app.md#enable-speech-priming) 통합|
+|통합|[텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)과 [감정 분석](luis-how-to-publish-app.md#enable-sentiment-analysis) 통합<br>[Speech](https://docs.microsoft.com/azure/cognitive-services/speech)에 [Speech SDK](https://aka.ms/SpeechSDK)와 음성 초기화 통합|
 |Dispatch 도구|[BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools)의 일부로서, 봇에서의 더 나은 의도 인식을 위해 여러 LUIS 및 QnA Maker 앱을 단일 LUIS 앱에 결합하기 위한 Dispatch 명령줄 [도구](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)
 
 추가적인 작성 [API 경로](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)가 포함되었습니다. 

@@ -1,24 +1,23 @@
 ---
-title: Azure의 음성 텍스트 변환 서비스에 대한 질문과 대답 | Microsoft Docs
+title: Azure의 Speech to Text 서비스에 대한 질문과 대답
 description: 다음은 음성 텍스트 변환에 대해 가장 자주 묻는 질문에 대한 답변입니다.
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 543e8d6fb68a351dfe75c962debaf15eeb080a3f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223890"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281833"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
-여기 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우에는 [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive)와 [UserVoice](https://cognitive.uservoice.com/)에서 Custom Speech Service 커뮤니티에 문의해 보세요.
+이 FAQ에서 질문에 대한 답변을 찾을 수 없는 경우 [여기](support.md)에서 다른 지원 옵션을 확인하세요.
 
 ## <a name="general"></a>일반
 

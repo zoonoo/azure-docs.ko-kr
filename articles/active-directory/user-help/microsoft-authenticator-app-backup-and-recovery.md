@@ -1,25 +1,22 @@
 ---
-title: Microsoft Authenticator 앱을 사용하여 백업 및 복구 - Azure AD | Microsoft Docs
+title: Microsoft Authenticator 앱을 사용하여 백업 및 복구 - Azure Active Directory | Microsoft Docs
 description: Microsoft Authenticator 앱을 사용하여 계정 자격 증명을 백업 및 복구하는 방법을 알아봅니다.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
-ms.openlocfilehash: a9c950ecafd2eb5f3aed1bee3707f57be6ec3b62
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39058555"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358123"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -51,12 +48,12 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>계정 자격 증명을 새 장치에 복구
 정보를 백업할 때 사용한 것과 동일한 Microsoft 복구 계정을 사용하여 iCloud 계정으로 계정 자격 증명을 복구할 수 있습니다.
 
-**정보를 복구하려면**
+### <a name="to-recover-your-information"></a>정보를 복구하려면
 1.  iOS 장치에서 Microsoft Authenticator 앱을 열고 화면 아래쪽에서 **복구 시작**을 선택합니다.
 
     ![복구 시작을 클릭하는 위치를 보여주는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
 
-2.  백업 프로세스에서 사용한 것과 동일한 개인 Microsoft 계정을 사용하여 복구 계정으로 로그인합니다.
+2.  백업 프로세스에서 사용한 것과 동일한 개인 Microsoft 계정을 사용하여 복구 계정에 로그인합니다.
 
     계정 자격 증명이 새 장치에 복구됩니다.
 
@@ -67,7 +64,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 개인 Microsoft 계정의 경우 대체 이메일 또는 전화 번호와 함께 암호를 입력하여 신분을 증명할 수 있습니다. 회사 또는 학교 계정의 경우 계정 공급자가 제공한 QR 코드를 검사해야 합니다.
 
-**개인 계정에 대한 추가 확인을 제공하려면**
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>개인 계정에 대한 추가 확인을 제공하려면
 1.  Microsoft Authenticator 앱의 **계정** 화면에서 복구하려는 계정 옆에 있는 드롭다운 화살표를 선택합니다.
 
     ![연결된 드롭다운 화살표가 있는 사용 가능한 계정을 보여주는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -76,7 +73,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
     ![로그인 정보를 입력할 수 있는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**회사 또는 학교 계정에 대한 추가 확인을 제공하려면**
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>회사 또는 학교 계정에 대한 추가 확인을 제공하려면
 1.  Microsoft Authenticator 앱의 **계정** 화면에서 복구하려는 계정 옆에 있는 드롭다운 화살표를 선택합니다.
 
     ![연결된 드롭다운 화살표가 있는 사용 가능한 계정을 보여주는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -86,7 +83,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
     ![QR 코드를 검사할 수 있는 Microsoft Authenticator 앱](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >QR 코드를 가져오는 방법에 대한 자세한 내용은 [Microsoft Authenticator 앱 시작](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) 문서를 참조하세요.
+    >QR 코드를 가져오는 방법에 대한 자세한 내용은 [Microsoft Authenticator 앱 시작 문서의 계정을 추가하는 방법 섹션](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app)을 참조하세요.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>백업 및 복구 문제 해결
 백업을 사용할 수 없는 몇 가지 이유가 있습니다.

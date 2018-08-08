@@ -8,18 +8,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ff571035c9360730546732205f34d75ace38fbff
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091996"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414319"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>관리되는 인스턴스(미리 보기)란?
 
-Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Database의 새 기능으로 SQL Server 온-프레미스(Enterprise Edition)와 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 기본 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. 관리되는 인스턴스를 사용하면 기존 SQL Server 고객은 응용 프로그램 및 데이터베이스 변경을 최소화하고 온-프레미스 응용 프로그램을 클라우드로 이동할 수 있습니다. 뿐만 아니라 관리되는 인스턴스는 관리 오버헤드와 TCO를 대폭 줄이는 모든 PaaS 기능(자동 패치 및 버전 업데이트, 백업, 고가용성)을 유지합니다.
+Azure SQL Database 관리되는 인스턴스(미리 보기)는 Azure SQL Database의 새 기능으로 SQL Server 온-프레미스(Enterprise Edition)와 거의 100% 호환되며, 일반적인 보안 문제를 해결하는 기본 [VNet(가상 네트워크)](../virtual-network/virtual-networks-overview.md) 구현과 온-프레미스 SQL Server 고객이 편리하게 사용할 수 있는 [비즈니스 모델](https://azure.microsoft.com/pricing/details/sql-database/)을 제공합니다. 관리되는 인스턴스를 사용하면 기존 SQL Server 고객은 응용 프로그램 및 데이터베이스 변경을 최소화하고 온-프레미스 응용 프로그램을 클라우드로 이동할 수 있습니다. 뿐만 아니라 Managed Instance는 관리 오버헤드와 TCO를 대폭 줄이는 모든 PaaS 기능(자동 패치 및 버전 업데이트, 백업, 고가용성)을 유지합니다.
 
 > [!IMPORTANT]
 > 관리되는 인스턴스를 현재 사용할 수 있는 지역 목록은 [Azure SQL Database 관리되는 인스턴스를 사용해 완벽히 관리되는 서비스로 데이터베이스 마이그레이션](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/)을 참조하세요.
@@ -120,13 +120,13 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 | 예상 저장소 IOPS | 데이터 파일당 500-7500 IOPS(데이터 파일에 따라 다름). [Premium Storage](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes) 보기 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
 | 데이터베이스당 로그 파일(로그) 수 | 1 | 
-| 관리되는 자동 백업 | 예 |
+| 관리되는 자동 백업 | yes |
 | HA | 원격 저장소 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md) 기반 |
-| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
-| 자동 소프트웨어 패치 | 예 |
-| VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니오 |
-| 포털 지원 | 예|
+| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | yes |
+| 자동 소프트웨어 패치 | yes |
+| VNet - Azure Resource Manager 배포 | yes |
+| VNet - 클래식 배포 모델 | 아니요 |
+| 포털 지원 | yes|
 |||
 
 
@@ -140,25 +140,26 @@ Managed Instance는 두 개의 서비스 계층에서 사용할 수 있습니다
 
 다음 목록에서는 중요 비즈니스용 서비스 계층의 주요 특징을 설명합니다. 
 -   최고의 성능과 HA 요구 사항을 가진 대부분의 비즈니스 응용 프로그램용으로 설계됨 
--   초고속 SSD 저장소(4세대의 최대 1TB 및 5세대의 최대 4TB)와 함께 제공됨 - 인스턴스당 최대 100개 데이터베이스 지원 
+-   초고속 SSD 저장소(4세대의 최대 1TB 및 5세대의 최대 4TB)와 함께 제공됨
+-   인스턴스당 최대 100개 데이터베이스 지원 
 
 |기능 | 설명|
 |---|---|
-| vCore 수* | 8, 16, 24개(4세대)<br>8, 16, 24, 32, 40, 64, 80(5세대)|
+| vCore 수* | 8, 16, 24, 32(4세대)<br>8, 16, 24, 32, 40, 64, 80(5세대)|
 | SQL Server 버전/빌드 | SQL Server(최신 버전 사용 가능) |
 | 추가 기능 | [메모리 내 OLTP](sql-database-in-memory.md)<br> 1개의 추가 읽기 전용 복제본([읽기 확장](sql-database-read-scale-out.md))
 | 최소 저장소 크기 | 32GB |
-| 최대 저장소 크기 | 4세대: 1TB(모든 vCore 크기<br> 5세대:<ul><li>8, 16개 vCore의 경우 1TB</li><li>24개 vCore의 경우 2TB</li><li>40, 60, 80개 vCore의 경우 4TB</ul>|
+| 최대 저장소 크기 | 4세대: 1TB(모든 vCore 크기<br> 5세대:<ul><li>8, 16개 vCore의 경우 1TB</li><li>24개 vCore의 경우 2TB</li><li>32, 40, 64, 80개 vCore의 경우 4TB</ul>|
 | 데이터베이스당 최대 저장소 | 인스턴스당 최대 저장소 크기에 따라 결정됨 |
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 | 
 | 데이터베이스당 로그 파일(로그) 수 | 1 | 
-| 관리되는 자동 백업 | 예 |
+| 관리되는 자동 백업 | yes |
 | HA | [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) 및 [Azure Service Fabric](../service-fabric/service-fabric-overview.md)을 기반으로 함 |
-| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | 예 |
-| 자동 소프트웨어 패치 | 예 |
-| VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니오 |
-| 포털 지원 | 예|
+| 기본 제공 인스턴스/데이터베이스 모니터링 및 메트릭 | yes |
+| 자동 소프트웨어 패치 | yes |
+| VNet - Azure Resource Manager 배포 | yes |
+| VNet - 클래식 배포 모델 | 아니요 |
+| 포털 지원 | yes|
 |||
 
 ## <a name="advanced-security-and-compliance"></a>고급 보안 및 규정 준수 

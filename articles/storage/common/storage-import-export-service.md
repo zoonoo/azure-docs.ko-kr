@@ -8,18 +8,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248779"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364528"
 ---
 # <a name="what-is-azure-importexport-service"></a>Azure Import/Export 서비스란?
 
-Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소 및 Azure Files로 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크에 있는 데이터를 Azure Blob 저장소 또는 Azure Files로 가져올 수 있습니다. 
+Azure Import/Export 서비스를 사용하면 하드 디스크 드라이브를 Azure 데이터 센터에 발송하여 많은 양의 데이터를 안전하게 Azure Blob 저장소 및 Azure Files로 가져올 수 있습니다. 이 서비스를 사용하여 데이터를 Azure Blob 저장소에서 디스크 드라이브로 전송하고 온-프레미스 사이트로 발송할 수도 있습니다. 하나 이상의 디스크 드라이브에 있는 데이터를 Azure Blob Storage 또는 Azure Files로 가져올 수 있습니다. 
 
-Azure Import/Export 서비스를 사용하려면 사용자 고유의 디스크를 제공해야 합니다. Microsoft에서 제공하는 디스크를 사용하여 데이터를 전송하려는 경우 Azure Data Box Disk를 사용하여 Azure로 데이터를 가져올 수 있습니다. Microsoft는 주문당 40TB 용량의 암호화된 SSD(solid-state disk)를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크를 구성하고, USB 3.0 연결을 통해 디스크에 데이터를 복사하고, Azure에 다시 디스크를 제공할 수 있습니다. 자세한 내용은 [Azure Data Box Disk 개요](https://docs.microsoft.com/azure/databox/data-box-disk-overview)로 이동합니다.
+자신의 디스크 드라이브를 제공하고 Azure Import/Export 서비스로 데이터를 전송합니다. Microsoft에서 제공하는 디스크 드라이브를 사용할 수도 있습니다. 
+
+Microsoft에서 제공하는 디스크 드라이브를 사용하여 데이터를 전송하려는 경우 [Azure Data Box Disk](../../databox/data-box-disk-overview.md)를 사용하여 Azure로 데이터를 가져올 수 있습니다. Microsoft는 주문당 총 40TB 용량의 암호화된 SSD(solid-state disk) 드라이브를 5개까지 지역 이동 통신 사업자를 통해 데이터 센터에 제공합니다. 신속하게 디스크 드라이브를 구성하고, USB 3.0 연결을 통해 디스크 드라이브에 데이터를 복사하고, Azure에 다시 디스크 드라이브를 제공할 수 있습니다. 자세한 내용은 [Azure Data Box Disk 개요](../../databox/data-box-disk-overview.md)로 이동합니다.
 
 ## <a name="azure-importexport-usecases"></a>Azure Import/Export 사용 사례
 
@@ -34,23 +36,23 @@ Azure Import/Export 서비스를 사용하려면 사용자 고유의 디스크�
 
 Import/Export 서비스는 다음 구성 요소를 사용합니다.
 
-- **Import/Export**서비스: Azure Portal에서 사용할 수 있는 이 서비스는 가져오기 및 내보내기 작업만을 들고 추적하는 데 도움이 됩니다.  
+- **Import/Export 서비스**: Azure Portal에서 사용할 수 있는 이 서비스는 데이터 가져오기(업로드) 및 내보내기(다운로드) 작업을 만들고 추적하는 데 도움이 됩니다.  
 
 - **WAImportExport 도구**: 이 도구는 다음 작업을 수행하는 명령줄 도구입니다. 
-    - 가져오기용으로 발송할 드라이브를 준비합니다.
+    - 가져오기용으로 발송할 디스크 드라이브를 준비합니다.
     - 드라이브에 데이터를 편리하게 복사할 수 있도록 합니다.
     - Bitlocker를 사용하여 드라이브의 데이터를 암호화합니다.
     - 가져오기 생성 동안 사용되는 드라이브 저널 파일을 생성합니다.
     - 내보내기 작업에 필요한 드라이브 수를 식별하는 데 도움이 됩니다.
+    
+> [!NOTE]
+> WAImportExport 도구는 버전 1 및 버전 2의 두 버전으로 사용할 수 있습니다. 다음이 권장됩니다.
+> - Azure Blob 저장소로 가져오기/내보내기를 수행하는 경우 버전 1 
+> - Azure 파일로 데이터를 가져오는 경우 버전 2
+>
+> WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 특정 운영 체제 버전을 확인하려면 [Azure Import/Export 요구 사항](storage-import-export-requirements.md#supported-operating-systems)을 참조하세요.
 
-    이 도구는 버전 1 및 버전 2의 두 버전으로 사용할 수 있습니다. 다음이 권장됩니다.
-
-    - Azure Blob 저장소로 가져오기/내보내기를 수행하는 경우 버전 1 
-    - Azure 파일로 데이터를 가져오는 경우 버전 2
-
-    WAImportExport 도구는 64비트 Windows 운영 체제에서만 호환됩니다. 지원되는 특정 운영 체제 버전을 확인하려면 [Azure Import/Export 요구 사항](storage-import-export-requirements.md#supported-operating-systems)을 참조하세요.
-
-- **디스크**: SSD(반도체 드라이브) 또는 HDD(하드 디스크 드라이브)를 Azure 데이터 센터로 발송할 수 있습니다. 가져오기 작업을 만들 때는 사용자 데이터가 포함된 디스크 드라이브를 발송합니다. 내보내기 작업을 만들 때는 Azure 데이터 센터로 빈 드라이브를 발송합니다. 특정 디스크 유형에 대해 알아보려면 [지원되는 디스크 유형](storage-import-export-requirements.md#supported-hardware)을 참조하세요.
+- **디스크 드라이브**: SSD(반도체 드라이브) 또는 HDD(하드 디스크 드라이브)를 Azure 데이터 센터로 발송할 수 있습니다. 가져오기 작업을 만들 때는 사용자 데이터가 포함된 디스크 드라이브를 발송합니다. 내보내기 작업을 만들 때는 Azure 데이터 센터로 빈 드라이브를 발송합니다. 특정 디스크 유형에 대해 알아보려면 [지원되는 디스크 유형](storage-import-export-requirements.md#supported-hardware)을 참조하세요.
 
 ## <a name="how-does-importexport-work"></a>Import/Export 작업 작동 방식
 
@@ -58,18 +60,12 @@ Azure Import/Export 서비스를 사용하면 작업을 만들어 Azure Blob 및
 
 작업은 내보내기 또는 가져오기 작업일 수 있습니다. 가져오기 작업을 사용하면 Azure Blob 또는 Azure Files로 데이터를 가져올 수 있고, 내보내기 작업을 사용하면 Azure Blob에서 파일을 내보낼 수 있습니다. 가져오기 작업의 경우 사용자 데이터가 포함된 드라이브를 발송합니다. 내보내기 작업을 만들 때는 Azure 데이터 센터로 빈 드라이브를 발송합니다. 각 경우에 작업당 최대 10개의 디스크 드라이브를 발송할 수 있습니다.
 
-> [!IMPORTANT]
-> Azure Files로는 데이터를 내보낼 수 없습니다.
-
-이 섹션에서는 가져오기 및 내보내기 작업에 관련된 단계를 개략적으로 설명합니다. 
-
-
 ### <a name="inside-an-import-job"></a>가져오기 작업 내부
 
 가져오기 작업은 개략적으로 다음 단계를 포함합니다.
 
 1. Azure Storage의 데이터에 대해 가져올 데이터, 필요한 드라이브 수, 대상 blob 위치를 결정합니다.
-2. WAImportExport 도구를 사용하여 데이터를 드라이브에 복사합니다. BitLocker로 디스크를 암호화합니다.
+2. WAImportExport 도구를 사용하여 데이터를 드라이브에 복사합니다. BitLocker로 디스크 드라이브를 암호화합니다.
 3. Azure Portal에서 대상 저장소 계정에 가져오기 작업을 만듭니다. 드라이브 저널 파일을 업로드합니다.
 4. 드라이브를 다시 발송하기 위한 반송 주소 및 운송업체 계정 번호를 제공합니다.
 5. 작업을 만드는 동안 제공된 배송지 주소로 디스크 드라이브를 발송합니다.

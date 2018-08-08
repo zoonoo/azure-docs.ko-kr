@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215148"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414244"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure File Sync 배포
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -83,7 +83,7 @@ Azure File Sync 에이전트는 Windows Server가 Azure 파일 공유와 동기�
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 에이전트를 다운로드할 수 있습니다. 다운로드가 완료되면 MSI 패키지를 두 번 클릭하여 Azure File Sync 에이전트 설치를 시작합니다.
 
 > [!Important]  
-> 장애 조치(Failover) 클러스터에서 Azure File Sync를 사용하려는 경우 Azure File Sync 에이전트를 클러스터의 모든 노드에 설치해야 합니다.
+> 장애 조치(Failover) 클러스터에서 Azure File Sync를 사용하려는 경우 Azure File Sync 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure File Sync에서 작동하도록 클러스터의 각 노드를 등록해야 합니다.
 
 다음을 수행하는 것이 좋습니다.
 - 문제 해결 및 서버 유지 관리를 간소화하려면 기본 설치 경로(C:\Program Files\Azure\StorageSyncAgent)를 유지하세요.
@@ -93,6 +93,9 @@ Azure File Sync 에이전트 설치를 마치면 서버 등록 UI가 자동으�
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 다음 PowerShell 코드를 실행하여 사용하는 OS에 맞는 Azure File Sync 에이전트 버전을 다운로드하고 시스템에 설치합니다.
+
+> [!Important]  
+> 장애 조치(Failover) 클러스터에서 Azure File Sync를 사용하려는 경우 Azure File Sync 에이전트를 클러스터의 모든 노드에 설치해야 합니다. Azure File Sync에서 작동하도록 클러스터의 각 노드를 등록해야 합니다.
 
 ```PowerShell
 # Gather the OS version

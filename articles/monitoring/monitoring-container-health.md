@@ -3,7 +3,7 @@ title: AKS(Azure Kubernetes Service) 상태 모니터링(미리 보기) | Micros
 description: 이 문서에서는 AKS 컨테이너의 성능을 쉽게 검토하여 호스트된 Kubernetes 환경의 사용률을 빠르게 파악하는 방법을 설명합니다.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2018
+ms.date: 07/30/2018
 ms.author: magoedte
-ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249100"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366099"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>AKS(Azure Kubernetes Service) 컨테이너 상태 모니터링(미리 보기)
 
@@ -39,7 +39,7 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 
 - 새 또는 기존 AKS 클러스터.
 - Linux용 컨테이너화된 OMS 에이전트 microsoft/oms:ciprod04202018 이상의 버전. 버전 번호는 *mmddyyyy* 형식의 날짜로 표시됩니다. 에이전트는 컨테이너 상태를 온보딩하는 동안 자동으로 설치됩니다. 
-- Log Analytics 작업 영역. 새 AKS 클러스터에 대한 모니터링을 사용하도록 설정할 때 만들거나 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)나 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 만들거나 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md)에서 만들 수 있습니다.
+- Log Analytics 작업 영역. 새 AKS 클러스터 모니터링을 사용하도록 설정할 때 만들거나 온보드 환경에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 영역을 만들도록 할 수 있습니다. 직접 만들려면 [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md)를 통해 만들거나 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)을 통해 만들거나 [Azure Portal](../log-analytics/log-analytics-quick-create-workspace.md)에서 만들 수 있습니다.
 - 컨테이너 모니터링을 사용하도록 설정하기 위한 Log Analytics 기여자 역할. Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한 자세한 내용은 [작업 영역 관리](../log-analytics/log-analytics-manage-access.md)를 참조하세요.
 
 ## <a name="components"></a>구성 요소 
@@ -47,14 +47,20 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 성능을 모니터링하는 기능은 컨테이너화된 Linux용 OMS 에이전트에 의존합니다. 이를 통해 클러스터의 모든 노드에서 성능 및 이벤트 데이터를 수집합니다. 이 에이전트는 컨테이너 모니터링을 사용하도록 설정한 후에 지정된 Log Analytics 작업 영역에 자동으로 배포되고 등록됩니다. 
 
 >[!NOTE] 
->AKS 클러스터를 이미 배포한 경우, 이 문서의 뒷부분에 설명된 대로, 제공된 Azure Resource Manager 템플릿을 사용하여 모니터링을 사용하도록 설정할 수 있습니다. `kubectl`을 사용하여 에이전트를 업그레이드, 삭제, 다시 배포 또는 배포할 수 없습니다. 
+>AKS 클러스터를 이미 배포한 경우, 이 문서의 뒷부분에 설명된 대로, Azure CLI 또는 제공된 Azure Resource Manager 템플릿을 사용하여 모니터링을 사용하도록 설정할 수 있습니다. `kubectl`을 사용하여 에이전트를 업그레이드, 삭제, 다시 배포 또는 배포할 수 없습니다. 
 >
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>새 클러스터에 대해 컨테이너 상태 모니터링 사용
-배포하는 동안 Azure Portal에서 새 AKS 클러스터의 모니터링을 사용하도록 설정할 수 있습니다. 빠른 시작 문서 [AKS(Azure Kubernetes Service) 클러스터 배포](../aks/kubernetes-walkthrough-portal.md)의 단계를 따르세요. **모니터링** 페이지에서 **모니터링 사용** 옵션에 대해 **예**를 선택한 다음, 기존 Log Analytics 작업 영역을 선택하거나 새로 만듭니다. 
+배포하는 동안 Azure Portal에서 또는 Azure CLI를 사용하여 새 AKS 클러스터의 모니터링을 사용하도록 설정할 수 있습니다. 포털에서 사용하도록 설정하려면 빠른 시작 문서 [AKS(Azure Kubernetes Service) 클러스터 배포](../aks/kubernetes-walkthrough-portal.md)의 단계를 따르세요. **모니터링** 페이지에서 **모니터링 사용** 옵션에 대해 **예**를 선택한 다음, 기존 Log Analytics 작업 영역을 선택하거나 새로 만듭니다. 
+
+Azure CLI로 만든 새로운 AKS 클러스터에 대한 모니터링을 활성화하려면 [AKS 클러스터 만들기](../aks/kubernetes-walkthrough.md#create-aks-cluster) 섹션 아래 빠른 시작 문서의 단계를 수행하세요.  
+
+>[!NOTE]
+>Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.27 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+>
 
 모니터링을 사용하도록 설정하고 모든 구성 작업이 성공적으로 완료되면 다음 두 가지 방법 중 하나로 클러스터의 성능을 모니터링할 수 있습니다.
 
@@ -66,7 +72,20 @@ Docker 및 Windows 컨테이너 호스트를 모니터링하고 관리하여 구
 모니터링을 사용하도록 설정한 후 약 15분 후에 클러스터에 대한 운영 데이터를 볼 수 있습니다. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>관리되는 기존 클러스터에 대해 컨테이너 상태 모니터링 사용
-PowerShell cmdlet `New-AzureRmResourceGroupDeployment` 또는 Azure CLI를 사용하여 Azure Portal에서 또는 제공된 Azure Resource Manager 템플릿을 통해 이미 배포된 AKS 클러스터의 모니터링을 사용하도록 설정할 수 있습니다. 
+이미 배포된 AKS 클러스터의 모니터링은 Azure CLI를 사용하여 사용하도록 설정하거나 포털에서 사용하도록 설정하거나 제공된 Azure Resource Manager 템플릿으로 PowerShell cmdlet `New-AzureRmResourceGroupDeployment`를 사용하여 사용하도록 설정할 수 있습니다. 
+
+### <a name="enable-monitoring-using-azure-cli"></a>Azure CLI를 사용하여 모니터링을 사용하도록 설정
+다음 단계에서는 Azure CLI를 사용하여 AKS 클러스터의 모니터링을 사용하도록 설정합니다. 이 예제에서는 기존 작업 영역을 미리 만들거나 지정할 필요가 없습니다. 이 명령은 해당 지역에서 AKS 클러스터 구독의 기본 리소스 그룹에 기본 작업 공간이 아직 없는 경우 기본 작업 공간을 만들어서 프로세스를 간소화합니다.  만들어진 기본 작업 영역은 *DefaultWorkspace-<GUID>-<Region>* 의 형식과 유사합니다.  
+
+```azurecli
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+```
+
+출력은 다음과 유사합니다.
+
+```azurecli
+provisioningState       : Succeeded
+```
 
 ### <a name="enable-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링을 사용하도록 설정
 Azure Portal에서 AKS 컨테이너에 대한 모니터링을 사용하도록 설정하려면 다음 단계를 수행합니다.
@@ -297,6 +316,26 @@ User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
+
+## <a name="view-configuration-with-cli"></a>CLI로 구성 보기
+`aks show` 명령을 사용하면 솔루션을 사용하도록 설정되어 있는지 여부, Log Analytics 작업 영역 resourceID, 클러스터에 대한 요약 정보와 같은 세부 정보를 얻을 수 있습니다.  
+
+```azurecli
+az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
+```
+
+몇 분 후 명령이 완료되면 솔루션에 대한 JSON 형식 정보가 반환됩니다.  명령의 결과에는 모니터링 추가 항목 프로필이 표시되며 다음 예제 출력과 유사합니다.
+
+```
+"addonProfiles": {
+    "omsagent": {
+      "config": {
+        "logAnalyticsWorkspaceResourceID": "/subscriptions/<WorkspaceSubscription>/resourceGroups/<DefaultWorkspaceRG>/providers/Microsoft.OperationalInsights/workspaces/<defaultWorkspaceName>"
+      },
+      "enabled": true
+    }
+  }
+```
 
 ## <a name="view-performance-utilization"></a>성능 사용률 보기
 컨테이너 상태를 열면 페이지에는 즉시 전체 클러스터의 성능 사용률이 표시됩니다. AKS 클러스터에 대한 정보 보기는 다음 네 가지 관점으로 구성됩니다.

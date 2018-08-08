@@ -3,8 +3,8 @@ title: 마켓플레이스에서 상점의 게시자 되기 | Azure
 description: 이 문서에서는 마켓플레이스에서 게시자가 되는 방법에 대해 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
-author: jm-aditi-ms
-manager: pabutler
+author: ellacroi
+manager: nunoc
 editor: ''
 ms.assetid: ''
 ms.service: marketplace
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: fb3f307642dc6f4607a626e0b320949306129759
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172316"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412018"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>클라우드 Marketplace 게시자 되기
 
@@ -103,8 +103,8 @@ Microsoft 계정(예: *@outlook.com 또는 @live.com*)은 많은 Microsoft 장�
 
 
 ## <a name="next-steps"></a>다음 단계
-* 마켓플레이스 상점에 대해 알아보기: AppSource 및 Azure Marketplace
-*   Marketplace용 제품 확인
+* 마켓플레이스 상점에 대해 알아보기: [AppSource와 Azure Marketplace 비교](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [솔루션에 대한 열거 유형 결정](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
 
  
 ---  

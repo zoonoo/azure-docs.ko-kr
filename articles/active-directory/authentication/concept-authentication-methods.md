@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248347"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414527"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -198,3 +198,5 @@ Microsoft Authenticator 앱 또는 타사 앱을 소프트웨어 토큰으로 �
 [조직에 대해 셀프 서비스 암호 재설정을 사용하도록 설정](quickstart-sspr.md)
 
 [조직에 Azure Multi-Factor Authentication을 사용하도록 설정](howto-mfa-getstarted.md)
+
+[최종 사용자 인증 방법 구성 설명서](https://aka.ms/securityinfoguide)

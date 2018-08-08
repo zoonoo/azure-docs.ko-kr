@@ -13,18 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: 72fb594265e69eb1dc16cb29ad4df6acb3a87720
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: cb31bb91c80e4d5dd032b009b40d8e3fc435e0c8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34663630"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359462"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>AD 테넌트에 응용 프로그램 등록
 먼저, 응용 프로그램을 Azure AD(Azure Active Directory) 테넌트에 등록해야 합니다. 그러면 응용 프로그램에 대한 응용 프로그램 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
 
 * [Azure Portal](https://portal.azure.com)에 로그인합니다.
-* 페이지의 오른쪽 위 모서리에 있는 사용자 계정을 클릭하여 Azure AD 테넌트를 선택합니다.
+* 페이지 오른쪽 위 모서리에서 계정을 클릭하고, **디렉터리 전환** 탐색을 클릭한 다음, 적절한 테넌트를 선택하여 Azure AD 테넌트를 선택합니다. 
+  * 계정에 하나의 Azure AD 테넌트만 있거나 이미 적절한 Azure AD 테넌트를 선택한 경우 이 단계를 건너뛰세요.
 * 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
 * **앱 등록**을 클릭하고 **새 응용 프로그램 등록**을 클릭합니다.
 * 프롬프트에 따라 새 응용 프로그램을 만듭니다. 이 자습서에서는 웹 응용 프로그램이든지 네이티브 응용 프로그램이든지 상관 없지만 웹 응용 프로그램 또는 네이티브 응용 프로그램에 대한 특정 예제가 필요한 경우 [빠른 시작](../articles/active-directory/develop/active-directory-developers-guide.md)을 확인하세요.

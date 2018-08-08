@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ac9070e328ef867a0b0e8d7d81f5147a50357928
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 603a6e2f3ce744d792ad9c9be20622c65a37dda3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126411"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414609"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>단일 데이터베이스에 대한 Azure SQL Database vCore 기반 구매 모델 한도
 
@@ -22,9 +22,13 @@ ms.locfileid: "39126411"
 
 DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제한](sql-database-dtu-resource-limits.md)을 참조하세요.
 
+> [!IMPORTANT]
+> 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
+
+
 ## <a name="single-database-storage-sizes-and-performance-levels"></a>단일 데이터베이스: 저장소 크기 및 성능 수준
 
-다음 표에서는 각 서비스 계층과 성능 수준에서 단일 데이터베이스에 대해 사용할 수 있는 리소스를 나타냅니다. [Azure Portal](sql-database-servers-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-servers-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-servers-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-servers-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 또는 [REST API](sql-database-servers-databases-manage.md#rest-api-manage-logical-servers-and-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 성능 수준 및 저장소 용량을 설정할 수 있습니다.
+다음 표에서는 각 서비스 계층과 성능 수준에서 단일 데이터베이스에 대해 사용할 수 있는 리소스를 나타냅니다. [Azure Portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) 또는 [REST API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases)를 사용하여 단일 데이터베이스에 대한 서비스 계층, 성능 수준 및 저장소 용량을 설정할 수 있습니다.
 
 ### <a name="general-purpose-service-tier"></a>범용 서비스 계층
 
@@ -34,7 +38,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|4|8|16|24|
 |메모리(GB)|7|14|28|56|112|168|
-|Columnstore 지원 여부|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |저장소 유형|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
@@ -56,7 +60,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |하드웨어 세대|5|5|5|5|5|5|5|
 |vCore 수|2|4|8|16|24|32|40|80|
 |메모리(GB)|11|22|44|88|132|176|220|440|
-|Columnstore 지원 여부|예|예|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
 |저장소 유형|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|프리미엄(원격) 저장소|
 |IO 대기 시간(근사치)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|5-7ms(쓰기)<br>5-10ms(읽기)|
@@ -80,7 +84,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |하드웨어 세대|4|4|4|4|4|4|
 |vCore 수|1|2|4|8|16|24|
 |메모리(GB)|7|14|28|56|112|168|
-|Columnstore 지원 여부|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|1|2|4|8|20|36|
 |저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |최대 데이터 크기(GB)|1024|1024|1024|1024|1024|1024|
@@ -92,7 +96,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |허용되는 최대 세션 수|30000|30000|30000|30000|30000|30000|
 |복제본 수|3|3|3|3|3|3|
 |다중 AZ|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|해당 없음|
-|읽기 확장|예|예|예|예|예|예|
+|읽기 확장|yes|예|예|예|예|yes|
 |포함되는 백업 저장소|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|DB 크기의 1배|
 |||
 
@@ -102,7 +106,7 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 |하드웨어 세대|5|5|5|5|5|5|5|5|
 |vCore 수|2|4|8|16|24|32|40|80|
 |메모리(GB)|11|22|44|88|132|176|220|440|
-|Columnstore 지원 여부|예|예|예|예|예|예|예|예|
+|Columnstore 지원 여부|yes|예|예|예|예|예|예|yes|
 |메모리 내 OLTP 저장소(GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |저장소 유형|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|로컬 SSD|
 |IO 대기 시간(근사치)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|1-2ms(쓰기)<br>1-2ms(읽기)|

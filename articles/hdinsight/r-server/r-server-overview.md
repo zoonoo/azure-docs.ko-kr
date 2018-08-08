@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: 9633a7df1cb72f3e9e5ee79be0c332565e7e8f2a
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c952d64229102f99dde393bc9a6efda45fc1c717
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054105"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358854"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 ML Services 및 오픈 소스 기능 소개
 
@@ -106,7 +106,7 @@ Azure Machine Learning을 사용하여 점수를 매기려면 [AzureML](https://
 
 ### <a name="score-on-premises"></a>온-프레미스 점수 매기기
 
-모델을 만든 후 온-프레미스에서 점수를 매기려면 R에서 모델을 serialize하여 다운로드하고 deserialize한 다음 새 데이터의 점수 매기기에 사용합니다. 앞서 [HDInsight에서 점수 매기기](#scoring-in-hdinsight)에서 설명한 접근 방식을 사용하거나 [DeployR](https://deployr.revolutionanalytics.com/)을 사용하여 새 데이터의 점수를 매길 수 있습니다.
+모델을 만든 후 온-프레미스에서 점수를 매기려면 R에서 모델을 serialize하여 다운로드하고 deserialize한 다음 새 데이터의 점수 매기기에 사용합니다. [HDInsight에서 점수 매기기](#scoring-in-hdinsight)에서 설명한 접근 방식을 사용하여 또는 [웹 서비스](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services)를 사용하여 새 데이터의 점수를 매길 수 있습니다.
 
 ## <a name="maintain-the-cluster"></a>클러스터 유지 관리
 

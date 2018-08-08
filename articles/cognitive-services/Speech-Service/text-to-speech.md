@@ -1,21 +1,20 @@
 ---
-title: Text to Speech 정보 | Microsoft Docs
+title: Text to Speech 정보
 description: Text to Speech의 기능 개요입니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: e3543c2056934372a2795bd50f340432ceec3b6d
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d111a9f852b849df15dbd056a7210fac82cee190
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257949"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324258"
 ---
 # <a name="about-the-text-to-speech-api"></a>Text to Speech API 정보
 
@@ -42,4 +41,4 @@ Microsoft **Text-to-Speech** 서비스는 45개 이상의 언어 및 로캘로 7
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)
+* [REST API를 통해 음성을 합성하는 방법 알아보기](how-to-text-to-speech.md)

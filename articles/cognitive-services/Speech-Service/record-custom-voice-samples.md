@@ -1,21 +1,20 @@
 ---
-title: 사용자 지정 음성을 만들기 위해 음성 샘플을 녹음하는 방법 | Microsoft Docs
+title: 사용자 지정 음성을 만들기 위해 음성 샘플을 녹음하는 방법
 titleSuffix: Microsoft Cognitive Services
 description: 강력한 스크립트를 준비하고 적절한 성우를 고용한 후 전문적으로 녹음하여 프로덕션 품질의 사용자 지정 음성을 만듭니다.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 1afab3b7c128abdf97c3a16fc493935bab5cfd4c
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072268"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284169"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>사용자 지정 음성에 대한 음성 샘플을 녹음하는 방법
 

@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 9ad1d9e1543c3d9a74025fb23bd1767478b53b4b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238457"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365881"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>자습서: 패턴을 사용하여 앱 개선
 
@@ -23,32 +23,34 @@ ms.locfileid: "39238457"
 
 > [!div class="checklist"]
 * 패턴이 앱에 도움이 되는지 식별하는 방법
-* 패턴을 만드는 방법 
+* 패턴을 만드는 방법
 * 패턴 예측 개선 사항을 확인하는 방법
 
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md) 계정이 필요합니다.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
 [일괄 테스트](luis-tutorial-batch-testing.md) 자습서의 Human Resources 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub 리포지토리에 있습니다.
 
 원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `patterns`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
 
 ## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>패턴을 사용하면 더 적은 예제로 LUIS에 일반 발화를 학습시킬 수 있습니다.
+
 Human Resource 도메인의 특성 때문에 조직에서 직원 관계를 묻는 몇 가지 일반적인 방법이 있습니다. 예: 
 
-```
-Who does Jill Jones report to?
-Who reports to Jill Jones? 
-```
+|발언|
+|--|
+|Who does Jill Jones report to?|
+|Who reports to Jill Jones?|
 
 이러한 발화가 너무 가까워서 많은 발화 예제를 제공하지 않고는 각각의 컨텍스트 고유성을 확인하기가 어렵습니다. 의도 패턴을 추가하면 LUIS는 많은 발화 예제를 제공하지 않고도 의도의 일반적인 발화 패턴을 학습합니다. 
 
 이 의도의 예제 템플릿 발화는 다음과 같습니다.
 
-```
-Who does {Employee} report to?
-Who reports to {Employee}? 
-```
+|예제 템플릿 발언|
+|--|
+|Who does {Employee} report to?|
+|Who reports to {Employee}?|
 
 패턴은 엔터티 및 무시 가능한 텍스트를 식별하는 구문을 포함하는 템플릿 발언 예제를 통해 제공됩니다. 패턴은 정규식 일치 및 기계 학습의 조합입니다.  의도 발언과 함께 템플릿 발언 예제는 의도에 맞는 발언을 LUIS가 더 잘 이해하도록 합니다.
 
@@ -59,9 +61,10 @@ Who reports to {Employee}?
 [목록 엔터티 자습서](luis-quickstart-intent-and-list-entity.md)에서 직원이 생성되었다는 사실을 기억하세요.
 
 ## <a name="create-new-intents-and-their-utterances"></a>새 의도 및 해당 발언 만들기
+
 두 개의 새로운 의도 `OrgChart-Manager` 및 `OrgChart-Reports`를 추가합니다. LUIS가 클라이언트 앱에 예측을 반환하면, 의도 이름을 클라이언트 앱에서 함수 이름으로 사용할 수 있으며 Employee 엔터티는 해당 함수의 매개 변수로 사용할 수 있습니다.
 
-```
+```Javascript
 OrgChart-Manager(employee){
     ///
 }
@@ -85,7 +88,7 @@ OrgChart-Manager(employee){
     |Who does Jill Jones directly report to?|
     |Who is Jill Jones supervisor?|
 
-    [![](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "의도에 새 발언을 추가하는 LUIS 스크린샷")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![의도에 새 발언을 추가하는 LUIS 스크린샷](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "의도에 새 발언을 추가하는 LUIS 스크린샷")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     의도의 발언에서 Employee 엔터티 대신 keyPhrase 엔터티가 레이블로 지정되더라도 걱정하지 마세요. 두 엔터티 모두 테스트 창 및 끝점에서 올바르게 예측됩니다. 
 
@@ -106,35 +109,20 @@ OrgChart-Manager(employee){
     |Who does Jill Jones supervise?|
 
 ## <a name="caution-about-example-utterance-quantity"></a>예제 발언 수에 대한 주의 사항
+
 이러한 의도에서 예제 발언의 수가 LUIS를 제대로 학습시키는 데 충분하지 않습니다. 실제 앱에서 각 의도에는 다양한 단어 선택 사항 및 발언 길이를 갖는 15개 이상의 발언이 필요합니다. 이러한 몇 가지 발언은 패턴을 강조 표시하기 위해 특별히 선택된 것입니다. 
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-새 의도 및 발언은 학습을 요구합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
-
-    ![학습 단추 이미지](./media/luis-tutorial-pattern/hr-train-button.png)
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
-
-    ![성공 알림 표시줄 이미지](./media/luis-tutorial-pattern/hr-trained-inline.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
-챗봇 또는 다른 응용 프로그램에서 LUIS 예측을 얻으려면 앱을 게시해야 합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택합니다. 
-
-2. 프로덕션 슬롯과 **게시** 단추를 선택합니다.
-
-    [ ![프로덕션 슬롯에 게시 단추가 강조 표시된 게시 페이지의 스크린샷](./media/luis-tutorial-pattern/hr-publish-to-production.png)](./media/luis-tutorial-pattern/hr-publish-to-production.png#lightbox)
-
-3. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>다른 발화를 사용하여 엔드포인트 쿼리
-1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 끝점 URL이 표시된 다른 브라우저 창이 열립니다. 
 
-    [ ![끝점 URL이 강조 표시된 게시 페이지의 스크린샷](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png)](./media/luis-tutorial-pattern/hr-publish-select-endpoint.png#lightbox)
-
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
@@ -225,6 +213,8 @@ OrgChart-Manager(employee){
 
 패턴을 사용하면 올바른 의도 점수가 훨씬 높은 백분율 값을 가지고 다음으로 가장 높은 점수보다 훨씬 높게 만들 수 있습니다. 
 
+두 번째 브라우저 창을 열어 둡니다. 자습서에서 나중에 다시 사용합니다. 
+
 ## <a name="add-the-template-utterances"></a>템플릿 발화 추가
 
 1. 위쪽 메뉴에서 **빌드**를 선택합니다.
@@ -243,16 +233,14 @@ OrgChart-Manager(employee){
     |Who is the boss of {Employee}[?]|
 
     `{Employee}` 구문은 템플릿 발화 내의 엔터티 위치 및 엔터티 형식을 표시합니다. 
-    
+
     역할이 있는 엔터티는 역할 이름을 포함하는 구문을 사용하며, [역할에 대한 별도 자습서](luis-tutorial-pattern-roles.md)에서 설명됩니다. 
 
     선택적 구문 `[]`은 선택적인 단어 또는 문장 부호에 표시를 합니다. LUIS는 대괄호로 묶인 선택적 텍스트는 무시하고 발언을 일치시킵니다.
 
     템플릿 발언을 입력할 때 왼쪽 중괄호 `{`를 입력하면 LUIS는 엔터티를 채우는 데 도움을 줍니다.
 
-    [ ![의도의 템플릿 발언 입력 스크린샷](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
-
-
+    [![의도에 대한 템플릿 발언을 입력하는 스크린샷](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
 4. **OrgChart-Reports** 의도를 선택하고 다음 템플릿 발언을 한 번에 하나씩 입력하고 각 템플릿 발언을 입력한 후에는 Enter 키를 누릅니다.
 
@@ -269,7 +257,7 @@ OrgChart-Manager(employee){
 
 1. 앱을 학습하고 다시 게시합니다.
 
-2. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 끝점 URL이 표시된 다른 브라우저 창이 열립니다. 
+2. 엔드포인트 URL 탭으로 브라우저 탭을 다시 전환합니다.
 
 3. 주소의 URL 끝으로 이동하고 `Who is the boss of Jill Jones?`를 발언으로 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
@@ -357,10 +345,86 @@ OrgChart-Manager(employee){
     }
     ```
 
-이제 의도 예측이 훨씬 더 높아집니다. 
+이제 의도 예측이 훨씬 더 높아집니다.
+
+## <a name="working-with-optional-text-and-prebuilt-entities"></a>선택적 텍스트 및 미리 작성된 엔터티 사용
+
+이 자습서의 이전 패턴 템플릿 발언에는 문자 s의 소유격 `'s` 사용 및 물음표 `?` 사용과 같은 몇 가지 선택적 텍스트가 있었습니다. 엔드포인트 발언이 관리자 및 인사부 담당자가 기록 데이터와 함께 향후 계획된 사내 직원 이동을 찾고 있는 것을 보여 준다고 가정합니다.
+
+예제 발언은 다음과 같습니다.
+
+|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|:--|:--|
+|OrgChart-Manager|`Who was Jill Jones manager on March 3?`|
+|OrgChart-Manager|`Who is Jill Jones manager now?`|
+|OrgChart-Manager|`Who will be Jill Jones manager in a month?`|
+|OrgChart-Manager|`Who will be Jill Jones manager on March 3?`|
+
+이 예제 각각에 올바른 예측을 위해 LUIS에 필요한 동사 시제 `was`, `is`, `will be`는 물론 날짜 `March 3`, `now` 및 `in a month`가 사용되었습니다. 마지막 두 가지 예제에는 `in`과 `on`을 제외하고 거의 동일한 텍스트가 사용되었습니다.
+
+예제 템플릿 발언:
+|의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+|:--|:--|
+|OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
+|OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+대괄호 `[]`의 선택적 구문을 사용하면 템플릿 발언에 선택적 텍스트를 쉽게 추가할 수 있고 두 번째 수준 `[[]]`까지 중첩할 수 있으며 엔터티 또는 텍스트를 포함할 수 있습니다.
+
+**질문: 마지막 두 개 예제 발언이 하나의 발언 예제로 결합될 수 있는 이유는 무엇인가요?** 패턴 템플릿은 OR 구문을 지원하지 않습니다. `in` 버전과 `on` 버전을 모두 catch하려면 각각이 별도의 템플릿 예제여야 합니다.
+
+**질문: 각 템플릿 발언의 첫 글자인 `w`가 모두 소문자인 이유가 무엇인가요? 필요에 따라 대문자나 소문자가 되어야 하지 않나요?** 클라이언트 응용 프로그램이 쿼리 엔드포인트에 제출한 발언은 소문자로 변환됩니다. 템플릿 발언은 대문자나 소문자일 수 있으며 엔드포인트 발언도 마찬가지입니다. 비교는 항상 소문자로 변환한 후 수행됩니다.
+
+**질문: March 3이 예측된 경우 템플릿 발언의 미리 작성된 번호 부분이 숫자 `3`과 날짜 `March 3` 모두로 예측되지 않는 이유가 무엇인가요?** 템플릿 발언은 날짜를 컨텍스트에 따라 문자 그대로 `March 3`으로 사용하거나 `in a month`로 추상화하여 사용합니다. 날짜에는 숫자가 포함될 수 있지만 숫자가 반드시 날짜로 보이지는 아닙니다. 예측 JSON 결과로 반환하려는 유형을 가장 잘 나타내는 엔터티를 항상 사용하십시오.  
+
+**질문: `Who will {Employee}['s] manager be on March 3?`와 같이 표현이 부족한 발언의 경우는 어떤가요?** `will`과 `be`가 구분되는 경우와 같이 문법적으로 다른 동사 시제는 새로운 템플릿 발언이 되어야 합니다. 기존 템플릿 발언은 일치하지 않습니다. 발언의 의도는 변경되지 않았지만 발언의 단어 배치가 변경되었습니다. 이러한 변화는 LUIS의 예측에 영향을 미칩니다.
+
+**기억해야 할 사항: 엔터티를 먼저 찾은 다음, 패턴을 일치시킵니다.**
+
+## <a name="edit-the-existing-pattern-template-utterance"></a>기존 패턴 템플릿 발언 편집
+
+1. LUIS 웹 사이트의 최상위 메뉴에서 **빌드**를 선택한 다음, 왼쪽 메뉴에서 **패턴**을 선택합니다. 
+
+2. 기존 템플릿 발언 `Who is {Employee}['s] manager[?]`를 찾아서 오른쪽의 줄임표(***...***)를 선택합니다. 
+
+3. 팝업 메뉴에서 **편집** 을 선택합니다. 
+
+4. 템플릿 발언을 `who is {Employee}['s] manager [[on]{datetimeV2}?]]`로 변경합니다.
+
+## <a name="add-new-pattern-template-utterances"></a>새 패턴 템플릿 발언 추가
+
+1. **빌드**의 **패턴** 섹션에서 몇 가지 패턴 템플릿 발언을 새로 추가합니다. 의도 드롭 다운 메뉴에서 **OrgChart-Manager**를 선택하고 다음 템플릿 발언을 각각 입력합니다.
+
+    |의도|선택적 텍스트와 미리 작성된 엔터티가 있는 예제 발언|
+    |--|--|
+    |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+    |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+2. 앱을 학습합니다.
+
+3. 패널의 맨 위에서 **테스트**를 선택하여 테스트 패널을 엽니다. 
+
+4. 몇 가지 테스트 발언을 입력하여 패턴이 일치하는지 의도 점수가 상당히 높은지 확인합니다. 
+
+    첫 번째 발언을 입력한 다음, 모든 예측 결과를 볼 수 있도록 결과 아래에서 **검사**를 선택합니다.
+
+    |발화|
+    |--|
+    |Who will be Jill Jones manager|
+    |who will be jill jones's manager|
+    |Who will be Jill Jones's manager?|
+    |who will be Jill jones manager on March 3|
+    |Who will be Jill Jones manager next Month|
+    |Who will be Jill Jones manager in a month?|
+
+모든 발언의 내부에서 엔터티를 찾았으므로 동일한 패턴과 일치하며 예측 점수가 높습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

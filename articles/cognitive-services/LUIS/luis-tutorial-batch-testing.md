@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: diberry
-ms.openlocfilehash: 0e1f5d29917ba381d4767faffb65847cd2ff210f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237811"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358379"
 ---
 # <a name="improve-app-with-batch-test"></a>일괄 테스트로 앱 개선
 
@@ -31,9 +31,10 @@ ms.locfileid: "39237811"
 * 오류 수정 
 * 다시 일괄 테스트
 
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md#luis-website) 계정이 필요합니다.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
 [끝점 발언 검토](luis-tutorial-review-endpoint-utterances.md) 자습서의 Human Resources 앱이 없으면 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json) Github 리포지토리에 있습니다.
 
 원래의 인사 관리 앱을 유지하려면 [설정](luis-how-to-manage-versions.md#clone-a-version) 페이지에서 버전을 복제하고 해당 이름을 `batchtest`로 지정합니다. 복제는 원래 버전에 영향을 주지 않고도 다양한 LUIS 기능을 사용할 수 있는 좋은 방법입니다. 
@@ -41,6 +42,7 @@ ms.locfileid: "39237811"
 앱을 학습합니다.
 
 ## <a name="purpose-of-batch-testing"></a>일괄 테스트의 목적
+
 일괄 테스트를 사용하면 레이블이 지정된 발언 및 엔터티의 알려진 집합을 사용하여 학습된 활성 모델의 상태가 유효한지 확인할 수 있습니다. JSON 형식의 일괄 처리 파일에서 발언을 추가하고, 발언 내에서 예측해야 하느 엔터티 레이블을 설정합니다. 
 
 <!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> 이 자습서 이외에서 앱을 사용할 경우 의도에 이미 추가된 예제 발언을 사용하지 *않도록* 합니다. 예제 발언을 기준으로 일괄 테스트 발언을 확인하려면 앱을 [내보냅니다](luis-how-to-start-new-app.md#export-app). 앱 예제 발언을 일괄 테스트 발언과 비교합니다. 
@@ -52,6 +54,7 @@ ms.locfileid: "39237811"
 * 허용되는 엔터티 형식: 기계 학습된 단순, 계층 구조(부모만) 및 복합 엔터티만. 일괄 테스트는 기계 학습된 의도 및 엔터티에만 유용합니다.
 
 ## <a name="create-a-batch-file-with-utterances"></a>발언을 사용하여 일괄 처리 파일 만들기
+
 1. [VSCode](https://code.visualstudio.com/)와 같은 텍스트 편집기에서 `HumanResources-jobs-batch.json`을 만듭니다. 
 
 2. JSON 형식의 일괄 처리 파일에서 테스트에서 예측할 **의도**가 포함된 발언을 추가합니다. 
@@ -62,15 +65,13 @@ ms.locfileid: "39237811"
 
 1. 맨 위 탐색 모음에서 **테스트**를 선택합니다. 
 
-    [ ![오른쪽 위의 탐색 모음에서 테스트가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-first-image.png)](./media/luis-tutorial-batch-testing/hr-first-image.png#lightbox)
-
 2. 오른쪽 패널에서 **Batch testing panel**(일괄 테스트 패널)을 선택합니다. 
 
-    [ ![일괄 테스트 패널이 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
+    [![일괄 테스트 패널이 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png)](./media/luis-tutorial-batch-testing/hr-batch-testing-panel-link.png#lightbox)
 
 3. **데이터 집합 가져오기**를 선택합니다.
 
-    [ ![데이터 집합 가져오기가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
+    [![데이터 집합 가져오기가 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
 4. `HumanResources-jobs-batch.json` 파일의 파일 시스템 위치를 선택합니다.
 
@@ -80,15 +81,14 @@ ms.locfileid: "39237811"
 
 6. **실행** 단추를 선택합니다. 테스트가 완료될 때까지 기다립니다.
 
-    [ ![실행이 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. **See results**(결과 보기)를 선택합니다.
 
 8. 그래프 및 범례에서 결과를 검토합니다.
 
-    [ ![일괄 테스트 결과가 표시되는 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
+    [![일괄 테스트 결과가 표시되는 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png)](./media/luis-tutorial-batch-testing/hr-intents-only-results-1.png#lightbox)
 
 ## <a name="review-batch-results"></a>일괄 처리 결과 검토
+
 일괄 처리 차트는 결과의 사분면으로 표시됩니다. 차트의 오른쪽이 필터입니다. 기본적으로 필터는 목록의 첫 번째 의도로 설정됩니다. 필터에는 모든 의도와 단순, 계층 구조(부모만) 및 복합 엔터티만 포함합니다. [차트의 섹션](luis-concept-batch-test.md#batch-test-results) 또는 차트 내의 한 점을 선택하면 차트 아래에 관련된 발언이 표시됩니다. 
 
 차트 위로 마우스를 가져간 후 마우스 휠로 차트의 발언을 확대하거나 축소할 수 있습니다. 차트에 많은 점이 밀집되어 있을 때 이렇게 하면 편리합니다. 
@@ -96,6 +96,7 @@ ms.locfileid: "39237811"
 차트는 사분면으로 구분되며 그중 두 개의 섹션이 빨간색으로 표시됩니다. **이러한 섹션에 집중해야 합니다**. 
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation 테스트 결과
+
 필터에 표시되는 **GetJobInformation** 테스트 결과는 4개 예측 중 2개가 성공적이었음을 보여 줍니다. 1사분면 위에서 이름 **False positive**를 선택하고 차트 아래에서 발언을 확인합니다. 
 
 ![LUIS 일괄 테스트 발언](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
@@ -109,6 +110,7 @@ ms.locfileid: "39237811"
 **False positive** 섹션의 위쪽 점에 해당하는 발언은 `Can I apply for any database jobs with this resume?` 및 `Can I apply for any database jobs with this resume?`입니다. 첫 번째 발언의 경우 단어 `resume`이 **ApplyForJob**에서만 사용되었습니다. 두 번째 발언의 경우 단어 `apply`가 **ApplyForJob** 의도에서만 사용되었습니다.
 
 ## <a name="fix-the-app-based-on-batch-results"></a>일괄 처리 결과를 기반으로 앱 수정
+
 이 섹션의 목적은 앱을 수정하여 **GetJobInformation**에 대해 모든 발언이 올바르게 예측되도록 하는 것입니다. 
 
 간단해 보이는 해결 방법은 올바른 의도에 이러한 일괄 처리 파일 발언을 추가하는 것입니다. 그렇지만 원하는 방식이 아닐 것입니다. 이러한 발언을 예제로 추가하지 않으면서 LUIS에서 발언이 올바르게 예측되도록 할 것입니다. 
@@ -118,13 +120,10 @@ ms.locfileid: "39237811"
 첫 번째 해결 방법은 **GetJobInformation**에 발언을 더 추가하는 것입니다. 두 번째 해결 방법은 `resume` 및 `apply`와 같은 단어의 가중치를 **ApplyForJob** 의도에 맞게 줄이는 것입니다. 
 
 ### <a name="add-more-utterances-to-getjobinformation"></a>**GetJobInformation**에 발언을 더 추가
+
 1. 위쪽 탐색 패널에서 **테스트** 단추를 선택하여 일괄 테스트 패널을 닫습니다. 
 
-    [ ![테스트 단추가 강조 표시된 LUIS의 스크린샷](./media/luis-tutorial-batch-testing/hr-close-test-panel.png)](./media/luis-tutorial-batch-testing/hr-close-test-panel.png#lightbox)
-
 2. 의도 목록에서 **GetJobInformation**을 선택합니다. 
-
-    [ ![테스트 단추가 강조 표시된 LUIS의 스크린샷](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png)](./media/luis-tutorial-batch-testing/hr-select-intent-to-fix-1.png#lightbox)
 
 3. 길이, 단어 선택 및 단어 배열이 다른 발언을 더 추가하고 용어 `resume`, `c.v.` 및 `apply`도 포함해야 합니다.
 
@@ -151,6 +150,7 @@ ms.locfileid: "39237811"
 4. 오른쪽 상단 탐색 영역에서 **학습**을 선택하여 앱을 학습합니다.
 
 ## <a name="verify-the-fix-worked"></a>수정되었는지 확인
+
 일괄 테스트의 발언이 올바르게 예측되는지 확인하려면 일괄 테스트를 다시 실행합니다.
 
 1. 맨 위 탐색 모음에서 **테스트**를 선택합니다. 일괄 처리 결과가 계속 열려 있으면 **목록으로 돌아가기**를 선택합니다.  
@@ -162,6 +162,7 @@ ms.locfileid: "39237811"
     ![일괄 처리 결과 단추가 강조 표시된 LUIS의 스크린샷](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
 
 ## <a name="create-batch-file-with-entities"></a>엔터티를 사용하여 일괄 처리 파일 만들기 
+
 일괄 테스트에서 엔터티를 확인하려면 일괄 처리 JSON 파일에서 엔터티에 레이블이 지정되어 있어야 합니다. 기계 학습 엔터티인 단순, 계층 구조(부모만) 및 복합 엔터티만 사용됩니다. 기계 학습되지 않은 엔터티는 정규식 또는 명시적인 텍스트 일치를 통해 항상 확인되므로 추가할 필요가 없습니다.
 
 전체 단어에 대한 엔터티 변형([토큰](luis-glossary.md#token)) 개수는 예측 품질에 영향을 줄 수 있습니다. 레이블이 지정된 발언과 함께 의도에 제공된 학습 데이터에 다양한 길이의 엔터티가 포함되는지 확인합니다. 
@@ -177,7 +178,7 @@ ms.locfileid: "39237811"
 
    [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
-<!--TBD: when will the patterns fix be in for batch testing? -->
+
 ## <a name="run-the-batch-with-entities"></a>엔터티를 사용하여 일괄 처리 실행
 
 1. 맨 위 탐색 모음에서 **테스트**를 선택합니다. 
@@ -192,11 +193,10 @@ ms.locfileid: "39237811"
 
 6. **실행** 단추를 선택합니다. 테스트가 완료될 때까지 기다립니다.
 
-    [ ![실행이 강조 표시된 LUIS 앱의 스크린샷](./media/luis-tutorial-batch-testing/hr-run-button.png)](./media/luis-tutorial-batch-testing/hr-run-button.png#lightbox)
-
 7. **See results**(결과 보기)를 선택합니다.
 
 ## <a name="review-entity-batch-results"></a>엔터티 일괄 처리 결과 검토
+
 모든 의도가 올바르게 예측된 차트가 열립니다. 오른쪽 필터에서 아래로 스크롤하여 잘못된 엔터티 예측을 찾습니다. 
 
 1. 필터에서 **Job** 엔터티를 선택합니다.
@@ -207,11 +207,12 @@ ms.locfileid: "39237811"
 
 2. 차트의 3사분면에서 **False Negative**를 선택합니다. 그런 다음, control + E 키보드 조합을 사용하여 토큰 보기로 전환합니다. 
 
-    [ ![엔터티 예측의 토큰 보기](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
+    [![엔터티 예측의 토큰 보기](./media/luis-tutorial-batch-testing/token-view-entities.png)](./media/luis-tutorial-batch-testing/token-view-entities.png#lightbox)
     
     차트 아래의 발언을 검토하면 작업 이름에 `SQL`이 포함될 경우 일관된 오류가 나타납니다. 예제 발언과 Job 구 목록을 검토할 경우 SQL은 한 번만 사용되고 더 큰 작업 이름 `sql/oracle database administrator`의 일부에 불과한 것을 알 수 있습니다.
 
 ## <a name="fix-the-app-based-on-entity-batch-results"></a>엔터티 일괄 처리 결과를 기준으로 앱 수정
+
 앱을 수정하려면 LUIS에서 SQL 작업 변형을 올바르게 판단해야 합니다. 이러한 수정에는 몇 가지 옵션이 있습니다. 
 
 * 몇 가지 예제 발언을 명시적으로 추가합니다. 이러한 발언은 SQL을 사용하고 해당 단어에 Job 엔터티 레이블을 지정합니다. 
@@ -222,11 +223,12 @@ ms.locfileid: "39237811"
 엔터티가 올바르게 예측되기 전에 [패턴](luis-concept-patterns.md)을 추가하면 문제가 해결되지 않습니다. 패턴의 모든 엔터티가 검색될 때까지 패턴이 일치되지 못하기 때문입니다. 
 
 ## <a name="what-has-this-tutorial-accomplished"></a>이 자습서에서 수행한 작업은 무엇입니까?
+
 일괄 처리에서 오류를 찾고 모델을 수정하여 앱 예측 정확도가 크게 개선되었습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표 **...** 를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
+더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표 **...** 를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

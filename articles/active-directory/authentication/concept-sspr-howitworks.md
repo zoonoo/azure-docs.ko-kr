@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248222"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413106"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>작동 방식: Azure AD SSPR(셀프 서비스 암호 재설정)
 
@@ -50,6 +50,7 @@ SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요? 인터페�
        * 인증 방법이 구성되어 있지 않으면 관리자에게 문의하여 암호를 다시 설정하도록 사용자에게 요구합니다.
      * 정책에 두 방법만 필요한 경우 관리자 정책에서 사용하도록 설정된 두 인증 방법에 대해 정의된 적절한 데이터가 사용자에게 있는지 확인합니다.
        * 인증 방법이 구성되어 있지 않으면 관리자에게 문의하여 암호를 다시 설정하도록 사용자에게 요구합니다.
+     * Azure 관리자 역할이 사용자에게 할당된 경우에는 강력한 두 게이트 암호 정책이 적용됩니다. 이 정책에 대한 자세한 내용은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences) 섹션에서 찾을 수 있습니다.
    * 사용자의 암호가 온-프레미스에서 관리되는지(페더레이션, 통과 인증 또는 암호 해시 동기화) 여부를 확인합니다.
      * 쓰기 저장이 배포되어 있고 사용자의 암호가 온-프레미스에서 관리되는 경우 사용자가 인증을 진행하고 암호를 다시 설정할 수 있습니다.
      * 쓰기 저장이 배포되어 있지 않고 사용자의 암호가 온-프레미스에서 관리되는 경우 관리자에게 문의하여 암호를 다시 설정하도록 사용자에게 요구합니다.
@@ -68,6 +69,9 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 사용자는 관리자가 사용하도록 설정한 인증 방법으로 데이터를 표시하는 경우에만 자신의 암호를 재설정할 수 있습니다.
 
+> [!WARNING]
+> Azure 관리자 역할이 할당된 계정은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences) 섹션에 정의된 메서드를 사용해야 합니다.
+
 ![인증][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>필수 인증 방법의 수
@@ -80,13 +84,16 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 #### <a name="mobile-app-and-sspr-preview"></a>모바일 앱 및 SSPR(미리 보기)
 
-Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법으로 사용할 경우 사용자는 다음에 유의해야 합니다. 재설정에 한 가지 방법만 필요한 경우 셀프 서비스 암호 재설정을 위해 사용자에게 제공되는 유일한 옵션은 확인 코드입니다.  두 방법이 필수인 경우 다른 활성화된 방법과 함께 **알림** 또는 **확인** 코드를 사용하여 재설정할 수 있습니다.
+Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법으로 사용할 경우 다음 사항에 유의해야 합니다.
+
+* 관리자가 하나의 방법으로 암호를 재설정하도록 요구하는 경우 사용 가능한 유일한 옵션은 인증 코드입니다.
+* 관리자가 두 가지 방법으로 암호를 재설정하도록 요구하는 경우, 사용자는 다른 활성화된 방법과 함께 **알림** 또는 **확인 코드**를 사용하여 재설정할 수 있습니다.
 
 | 재설정에 필요한 방법 수  | 1 | 2 |
 | :---: | :---: | :---: |
 | 모바일 앱 기능 사용 가능 | 코드 | 코드 또는 알림 |
 
-사용자에게는 셀프 서비스 암호 재설정 등록을 위해 모바일 앱을 등록하는 옵션이 없습니다. 대신에 사용자는 aka.ms/mfasetup에서 또는 aka.ms/setupsecurityinfo의 보안 정보 등록 미리 보기에서 자신의 모바일 앱을 등록할 수 있습니다.  
+사용자에게는 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)에서 셀프 서비스 암호 재설정 등록을 위해 모바일 앱을 등록할 수 있는 옵션이 없습니다. 사용자는 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에서 또는 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)의 새로운 보안 정보 등록 미리 보기에서 자신의 모바일 앱을 등록할 수 있습니다.
 
 ### <a name="change-authentication-methods"></a>인증 방법 변경
 

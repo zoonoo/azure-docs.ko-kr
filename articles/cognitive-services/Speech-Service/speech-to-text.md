@@ -1,21 +1,20 @@
 ---
-title: Speech to Text 정보 | Microsoft Docs
+title: Speech to Text 정보
 description: Speech to Text API의 기능 개요입니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 2ed00377db80849a8355ccc895db12d006bea642
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069930"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325339"
 ---
 # <a name="about-the-speech-to-text-api"></a>Speech to Text API 정보
 
@@ -41,14 +40,15 @@ ms.locfileid: "39069930"
 
 | 사용 사례 | REST (영문) | SDK |
 |-----|-----|-----|----|
-| 명령과 같은 짧은 발언을 기록합니다(길이 15초 미만). 임시 결과는 없음 | 예 | 예 |
-| 좀 더 긴 발언을 기록합니다(15초 초과). | 아니오 | 예 |
-| 선택적 중간 결과를 포함하여 스트리밍 오디오 기록 | 아니오 | 예 |
-| LUIS를 통해 화자의 의도 이해 | 아니요\* | 예 |
+| 명령과 같은 짧은 발언을 기록합니다(길이 15초 미만). 임시 결과는 없음 | yes | yes |
+| 좀 더 긴 발언을 기록합니다(15초 초과). | 아니요 | yes |
+| 선택적 중간 결과를 포함하여 스트리밍 오디오 기록 | 아니요 | yes |
+| LUIS를 통해 화자의 의도 이해 | 아니요\* | yes |
 
 \* *LUIS 의도 및 엔터티는 별도의 LUIS 구독을 사용하여 파생시킬 수 있습니다. 이 구독에서 SDK는 LUIS를 호출하고, 음성 기록 뿐만 아니라 엔터티 및 의도를 제공할 수 있습니다. REST API를 사용하면 LUIS 구독을 통해 LUIS를 직접 호출하고 의도 및 엔터티를 파생할 수 있습니다.*
 
 ## <a name="next-steps"></a>다음 단계
 
 * [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)
+* [빠른 시작: C#에서 음성 인식](quickstart-csharp-dotnet-windows.md)
+* [C#에서 음성 의도를 인식하는 방법 알아보기](how-to-recognize-intents-from-speech-csharp.md)

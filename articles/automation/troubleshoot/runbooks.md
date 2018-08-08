@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237600"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413861"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -94,6 +94,26 @@ Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Dire
 Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../azure-resource-manager/resource-group-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../azure-resource-manager/resource-group-authenticate-service-principal.md)을 참조하세요.
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Runbook을 사용할 때 발생하는 일반적인 오류
+
+### <a name="task-was-cancelled"></a>시나리오: 다음 오류로 인해 Runbook이 실패합니다. 작업이 취소됨
+
+#### <a name="issue"></a>문제
+
+다음 예제와 비슷한 오류가 발생하여 Runbook이 실패합니다.
+
+```
+Exception: A task was canceled.
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 오래된 Azure 모듈을 사용하여 발생할 수 있습니다.
+
+#### <a name="resolution"></a>해결 방법
+
+이 오류는 Azure 모듈을 최신 버전으로 업데이트하여 해결할 수 있습니다.
+
+Automation 계정에서 **모듈**을 클릭하고 **Azure 모듈 업데이트**를 클릭합니다. 업데이트에는 약 15분이 소요되며 완료되면 실패한 Runbook을 다시 실행합니다.
 
 ### <a name="not-recognized-as-cmdlet"></a>시나리오: 누락된 cmdlet으로 인해 Runbook이 실패합니다.
 

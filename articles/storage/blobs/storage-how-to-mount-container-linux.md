@@ -2,20 +2,17 @@
 title: Azure Blob 저장소를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
 description: Linux에 FUSE가 있는 Azure Blob 저장소 컨테이너를 탑재합니다.
 services: storage
-documentationcenter: linux
 author: seguler
-manager: jahogg
 ms.service: storage
-ms.devlang: bash
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: seguler
-ms.openlocfilehash: 1098eef15b559c30ef436d8e13bbe02bddb78649
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 9964aa4d263e0b75eb59b4e1434a9b3f0aac6ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34072095"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400186"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
@@ -79,7 +76,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
 ### <a name="use-an-ssd-for-temporary-path"></a>임시 경로로 SSD 사용
-Azure에서는 VM에서 사용할 수 있는 임시 디스크(SSD)를 사용하여 blobfuse에 대기 시간이 짧은 버퍼를 제공할 수 있습니다. Ubuntu 배포에서는 이 임시 디스크가 '/mnt'에 탑재되는 반면, RedHat 및 CentOS 배포에서는 '/mnt/resource/'에 탑재됩니다.
+Azure에서는 VM에서 사용할 수 있는 임시 디스크(SSD)를 사용하여 blobfuse에 대기 시간이 짧은 버퍼를 제공할 수 있습니다. Ubuntu 배포에서는 이 임시 디스크가 '/mnt'에 탑재되는 반면, Red Hat 및 CentOS 배포에서는 '/mnt/resource/'에 탑재됩니다.
 
 사용자가 임시 경로에 액세스할 수 있는지 확인합니다.
 ```bash

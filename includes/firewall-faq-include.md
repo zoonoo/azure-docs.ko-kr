@@ -5,17 +5,17 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1db5f0a62a21d040949c9f4e4c42f80c86e76506
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163864"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361426"
 ---
-### <a name="what-is-azure-firewall"></a>Azure 방화벽이란?
+### <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
 Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다. 고가용성 및 무제한 클라우드 확장성이 내장되어 있는 서비스 형태의 완전한 상태 저장 방화벽입니다. 구독 및 가상 네트워크 전반에 걸쳐 응용 프로그램 및 네트워크 연결 정책을 중앙에서 만들고, 적용하고 기록할 수 있습니다. Azure Firewall은 현재 공개 미리 보기로 제공됩니다.
 
@@ -66,7 +66,7 @@ Azure Firewall은 방화벽 로그를 살펴보고 분석할 수 있도록 Azure
 
 ### <a name="how-does-azure-firewall-work-relative-to-existing-like-nvas-in-the-marketplace"></a>NVA 같은 마켓플레이스의 기존 서비스와 비교할 때 Azure Firewall은 어떻게 작동하나요?
 
-Azure Firewall은 특정 고객 시나리오를 해결할 수 있는 기본 방화벽 서비스입니다. Microsoft는 고객이 타사 NVA와 Azure Firewall을 혼합해서 사용할 것으로 예상하며, 파트너와 함께 여러 기회에 도전하고 있습니다. 
+Azure Firewall은 특정 고객 시나리오를 해결할 수 있는 기본 방화벽 서비스입니다. 타사 NVA와 Azure Firewall이 혼합되어있을 것으로 예상됩니다. 함께 잘 작동하는 것이 가장 중요합니다.
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Application Gateway WAF와 Azure Firewall의 차이점은 무엇인가요?
 
@@ -74,7 +74,7 @@ WAF(웹 응용 프로그램 방화벽)는 일반적인 악용 및 취약점으�
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsg-and-azure-firewall"></a>NSG(네트워크 보안 그룹)와 Azure Firewall의 차이점은 무엇입니까?
 
-Azure Firewall 서비스는 기존 네트워크 보안 그룹 기능을 보완하고 함께 작동하여 향상된 심층 네트워크 보안을 제공합니다. NSG는 각 구독의 가상 네트워크 내 리소스에 대한 트래픽을 제한하는 분산 네트워크 레이어 트래픽 필터링을 제공합니다.  Azure Firewall은 상태를 저장하는 서비스 형태의 완전한 중앙 집중식 네트워크 방화벽으로, 다양한 구독 및 VNet(가상 네트워크)에 네트워크 및 응용 프로그램 수준의 보호를 제공합니다. 
+Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완하고 함께 작동하여 향상된 심층 네트워크 보안을 제공합니다. NSG는 각 구독의 가상 네트워크 내 리소스에 대한 트래픽을 제한하는 분산 네트워크 레이어 트래픽 필터링을 제공합니다.  Azure Firewall은 상태를 저장하는 서비스 형태의 완전한 중앙 집중식 네트워크 방화벽으로, 다양한 구독 및 VNet(가상 네트워크)에 네트워크 및 응용 프로그램 수준의 보호를 제공합니다. 
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>서비스 엔드포인트를 사용하여 Azure Firewall을 설정하려면 어떻게 해야 하나요?
 
@@ -84,4 +84,5 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 * Azure Firewall의 제한은 1000TB/방화벽/월입니다. 
 * 중앙 VNET에서 실행되는 Azure Firewall은 VNET 피어링 제한인 최대 50개 스포크 VNET으로 제한됩니다.  
-* Azure Firewall은 전역 피어링과 함께 사용할 수 없으므로 고객은 지역당 하나 이상의 방화벽이 필요합니다.
+* Azure Firewall은 글로벌 피어링으로 작동하지 않으므로 고객은 지역당 최소 하나의 방화벽 배포가 필요합니다.
+* Azure Firewall은 10,000개의 응용 프로그램 규칙과 10,000개의 네트워크 규칙을 지원합니다.

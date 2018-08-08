@@ -8,23 +8,36 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: afc48a36b8c26bde4d86ff6277bb2c511d14bace
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091867"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413657"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>클라우드 SQL Server 옵션 선택: Azure SQL(PaaS) 데이터베이스 또는 Azure VM의 SQL Server(IaaS)
 
 Azure에서 SQL Server 워크로드가 호스트된 인프라(IaaS)에서 실행 중이거나 호스트된 서비스([PaaS](https://azure.microsoft.com/overview/what-is-paas/))로 실행 중일 수 있습니다.
 
-* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): 최신 응용 프로그램 개발에 최적화된 SQL Server Enterprise Edition을 기반으로 하는 SQL 데이터베이스 엔진입니다. Azure SQL Database는 호스트된 서비스로 두 가지 SQL 버전인 논리 서버와 [Azure SQL Database 관리되는 인스턴스(미리 보기)](sql-database-managed-instance.md)를 제공합니다. 두 버전 모두에서 Azure SQL Database는 기본 제공 인텔리전스 및 관리와 같은, SQL Server에서 사용할 수 없는 추가 기능을 제공합니다. 첫 번째 버전에서는 [단일 데이터베이스](sql-database-servers-databases.md)를 포함하는 논리 서버가 있을 수 있으며, 서버를 [탄력적 풀](sql-database-elastic-pool.md)로 그룹화하여 리소스를 공유하고 비용을 줄일 수 있습니다. 단일 데이터베이스 및 풀링된 데이터베이스를 포함하는 Azure SQL Database 논리 서버는 SQL Server의 데이터베이스 범위 기능을 대부분 제공합니다. Azure SQL Database 관리되는 인스턴스에서 Azure SQL Database는 데이터베이스 및 추가 인스턴스 범위 기능에 대한 공유 리소스를 제공합니다. Azure SQL Database 관리되는 인스턴스는 데이터베이스 변경 없이 또는 최소한의 변경으로 데이터베이스 마이그레이션을 지원합니다.
-* [Azure Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/): Azure에서 실행 중인 Windows Server 또는 Linux VM(Virtual Machines)의 클라우드에 설치되고 호스트된 SQL Server로, IaaS(infrastructure as a service)라고도 합니다. Azure Virtual Machines의 SQL Server는 데이터베이스 변경 없이 온-프레미스 SQL Server 데이터베이스 및 응용 프로그램을 마이그레이션하는 좋은 옵션입니다. 모든 최신 버전의 SQL Server를 IaaS 가상 머신에 설치할 수 있습니다. SQL Database와의 가장 중요한 차이점은 SQL Server VM에서는 데이터베이스 엔진을 완전히 제어할 수 있다는 것입니다. 유지 관리/패치가 시작되는 시기를 선택하고, 더 적은 로그로 더 빠르게 로드되도록 복구 모델을 단순 또는 대량 로그로 변경하고, 필요한 경우, 엔진을 일시 중지 또는 시작하고, SQL Server 데이터베이스 엔진을 완전히 사용자 지정할 수 있습니다. 이러한 추가 제어 기능과 더불어 가상 머신을 관리해야 하는 책임도 추가됩니다.
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): 최신 응용 프로그램 개발에 최적화된 SQL Server Enterprise Edition을 기반으로 하는 SQL 데이터베이스 엔진입니다. Azure SQL Database는 여러 가지 배포 옵션을 제공합니다.
+  - 단일 데이터베이스를 [논리 서버](sql-database-logical-servers.md)에 배포할 수 있습니다.
+  - [논리 서버](sql-database-logical-servers.md)의 [탄력적 풀](sql-database-elastic-pool.md)에 배포하여 리소스를 공유하고 비용을 줄일 수 있습니다. 
 
-각 옵션이 Microsoft 데이터 플랫폼에 얼마나 적합한지 알아보고 비즈니스 요구 사항에 적합한 옵션을 찾는 데 도움이 됩니다. 비용 절감이 우선이든 관리 최소화가 무엇보다 중요하든 이 문서에서는 가장 관심 있는 비즈니스 요구 사항에 대해 어떤 접근 방식이 결과를 가져오는지 결정하도록 도울 수 있습니다.
+      > [!NOTE]
+      > 단일 데이터베이스 및 풀링된 데이터베이스를 포함하는 Azure SQL Database는 SQL Server의 데이터베이스 범위 기능을 대부분 제공합니다.
+
+      다음 그림에서는 이러한 배포 옵션을 보여줍니다.
+
+      ![배포 옵션](./media/sql-database-technical-overview/deployment-options.png) 
+  - [Azure SQL Database Managed Instance(미리 보기)](sql-database-managed-instance.md)에 배포할 수 있습니다. 
+
+      > [!NOTE]
+      > 두 버전 모두에서 Azure SQL Database는 기본 제공 인텔리전스 및 관리와 같은, SQL Server에서 사용할 수 없는 추가 기능을 제공합니다. 첫 번째 버전의 경우 Azure SQL Database Managed Instance에서 Azure SQL Database는 데이터베이스 및 추가 인스턴스 범위 기능에 대한 공유 리소스를 제공합니다. Azure SQL Database 관리되는 인스턴스는 데이터베이스 변경 없이 또는 최소한의 변경으로 데이터베이스 마이그레이션을 지원합니다.
+- [Azure Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/): Azure에서 실행 중인 Windows Server 또는 Linux VM(Virtual Machines)의 클라우드에 설치되고 호스트된 SQL Server로, IaaS(infrastructure as a service)라고도 합니다. Azure Virtual Machines의 SQL Server는 데이터베이스 변경 없이 온-프레미스 SQL Server 데이터베이스 및 응용 프로그램을 마이그레이션하는 좋은 옵션입니다. 모든 최신 버전의 SQL Server를 IaaS 가상 머신에 설치할 수 있습니다. SQL Database와의 가장 중요한 차이점은 SQL Server VM에서는 데이터베이스 엔진을 완전히 제어할 수 있다는 것입니다. 유지 관리/패치가 시작되는 시기를 선택하고, 더 적은 로그로 더 빠르게 로드되도록 복구 모델을 단순 또는 대량 로그로 변경하고, 필요한 경우, 엔진을 일시 중지 또는 시작하고, SQL Server 데이터베이스 엔진을 완전히 사용자 지정할 수 있습니다. 이러한 추가 제어 기능과 더불어 가상 머신을 관리해야 하는 책임도 추가됩니다.
+
+각 배포 옵션이 Microsoft 데이터 플랫폼에 얼마나 적합한지 알아보고 비즈니스 요구 사항에 적합한 옵션을 찾는 데 도움이 됩니다. 비용 절감이 우선이든 관리 최소화가 무엇보다 중요하든 이 문서에서는 가장 관심 있는 비즈니스 요구 사항에 대해 어떤 접근 방식이 결과를 가져오는지 결정하도록 도울 수 있습니다.
 
 ## <a name="microsofts-sql-data-platform"></a>Microsoft SQL 데이터 플랫폼
 
@@ -45,7 +58,7 @@ Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 
 
 ## <a name="a-closer-look-at-azure-sql-database-and-sql-server-on-azure-vms"></a>Azure SQL Database 및 Azure VM의 SQL Server에서 자세히 보기
 
-**Azure SQL Database**는 *PaaS(Platform as a Service)* 산업 범주에 해당하는, Azure 클라우드에 호스트된 관계형 DBaaS(Database as a Service)입니다. [SQL 데이터베이스](sql-database-technical-overview.md) 는 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어 및 소프트웨어를 기반으로 구축됩니다. SQL Database를 통해 SQL Server의 광범위한 구성이 필요한 기본 제공 기능을 사용할 수 있습니다. SQL Database를 사용할 경우 추가 성능에 맞게 중단 없이 강화 및 확장하는 옵션을 통해 사용량에 따라 지불합니다. 리소스 공유에 대해 [단일 데이터베이스](sql-database-servers-databases.md) 및 [탄력적 풀](sql-database-elastic-pool.md)을 둘 다 지원하는 Azure SQL Database는 클라우드에서 새 응용 프로그램을 개발하는 데 이상적인 환경입니다. [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)로 사용자 라이선스를 가져올 수도 있습니다. 또한 이 옵션은 Azure SQL Database의 모든 PaaS 혜택을 제공하지만 이전에 SQL VM에서만 사용할 수 있었던 기능을 추가합니다. 여기에는 기본 가상 네트워크(VNet) 및 온-프레미스 SQL Server와의 거의 100% 호환성이 포함됩니다. [관리되는 인스턴스](sql-database-managed-instance.md)는 최소 변경으로 온-프레미스 데이터베이스를 Azure로 마이그레이션하는 데 이상적입니다. 
+**Azure SQL Database**는 *PaaS(Platform as a Service)* 산업 범주에 해당하는, Azure 클라우드에 호스트된 관계형 DBaaS(Database as a Service)입니다. [SQL 데이터베이스](sql-database-technical-overview.md) 는 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어 및 소프트웨어를 기반으로 구축됩니다. SQL Database를 통해 SQL Server의 광범위한 구성이 필요한 기본 제공 기능을 사용할 수 있습니다. SQL Database를 사용할 경우 추가 성능에 맞게 중단 없이 강화 및 확장하는 옵션을 통해 사용량에 따라 지불합니다. Azure SQL Database는 클라우드에서 새 응용 프로그램을 개발하는 데 이상적인 환경입니다. [Azure SQL Database 관리되는 인스턴스](sql-database-managed-instance.md)로 사용자 라이선스를 가져올 수도 있습니다. 또한 이 옵션은 Azure SQL Database의 모든 PaaS 혜택을 제공하지만 이전에 SQL VM에서만 사용할 수 있었던 기능을 추가합니다. 여기에는 기본 가상 네트워크(VNet) 및 온-프레미스 SQL Server와의 거의 100% 호환성이 포함됩니다. [관리되는 인스턴스](sql-database-managed-instance.md)는 최소 변경으로 온-프레미스 데이터베이스를 Azure로 마이그레이션하는 데 이상적입니다. 
 
 **Azure VM(Virtual Machines)의 SQL Server** 는 업계 범주에 속하는 *IaaS(Infrastructure as a service)* 산업 부분으로 분류되며 클라우드의 Virtual Machines 내에서 SQL Server를 실행할 수 있도록 지원합니다. [SQL Server 가상 머신](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)은 Microsoft에서 소유, 호스팅 및 유지 관리하는 표준화된 하드웨어에서도 실행됩니다. VM에서 SQL Server를 사용하는 경우 SQL Server 이미지에 이미 포함된 SQL Server 라이선스에 종량제를 사용하거나 기존 라이선스를 쉽게 사용할 수 있습니다. 필요에 따라 VM을 중지하거나 다시 시작할 수도 있습니다.
 

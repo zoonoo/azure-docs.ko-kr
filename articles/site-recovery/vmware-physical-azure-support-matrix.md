@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: raynew
-ms.openlocfilehash: 516cb69042e923a46168c7655dc3e3010d9557e6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173795"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413606"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
@@ -62,7 +62,7 @@ Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드�
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
 Windows 운영 체제 | 64비트 Windows Server 2016(Server Core, 데스크톱 환경 포함 서버), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 SP1 이상 </br></br>  [SP2 이상을 사용하는 Windows Server 2008 - 32비트 및 64비트](migrate-tutorial-windows-server-2008.md)(마이그레이션만 해당) </br></br> Windows 2016 Nano Server는 지원되지 않습니다.
-Linux 운영 체제 | Red Hat Enterprise Linux: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.5 <br/><br/>CentOS: 5.2 ~ 5.11, 6.1 ~ 6.9, 7.0 ~ 7.5 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (지원되는 커널 버전)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/></br>* *복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.*
+Linux 운영 체제 | Red Hat Enterprise Linux: 5.2~5.11<b>\*\*</b>, 6.1~6.9<b>\*\*</b>, 7.0~7.5 <br/><br/>CentOS: 5.2~5.11<b>\*\*</b>, 6.1~6.9<b>\*\*</b>, 7.0~7.5 <br/><br/>Ubuntu 14.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버[(지원되는 커널 버전)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[(지원되는 커널 버전)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (지원되는 커널 버전)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5(Red Hat 호환 커널 또는 UEK3(Unbreakable Enterprise Kernel Release 3) 실행) <br/><br/></br>* *복제된 머신을 SUSE Linux Enterprise Server 11 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 업그레이드 후에 다시 사용하도록 설정합니다.*</br></br><b>\*\*</b> *Azure의 Linux 및 오픈 소스 기술에 대한 지원을 이해하려면 [Azure의 Linux 가상 머신에 대한 지원](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)을 참조하세요. Azure Site Recovery를 사용하면 Azure에서 Linux 서버를 장애 조치(failover)하고 실행할 수 있지만 Linux 공급업체가 수명 끝에 도달하지 않은 배포 버전으로만 지원을 제한할 수 있습니다.*
 
 
 >[!NOTE]
@@ -156,7 +156,7 @@ Azure Traffic Manager | yes
 IPv4 | yes
 원본 IP 주소 유지 | yes
 Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | yes
-가속 네트워킹 | 아니오
+가속 네트워킹 | 아니요
 
 ## <a name="storage"></a>Storage
 **구성 요소** | **지원됨**
@@ -168,19 +168,19 @@ Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | y
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 VMDK | yes
 게스트/서버 EFI/UEFI| 부분(Windows Server 2012 이상 VMware 가상 머신에서만 Azure로 마이그레이션) </br></br> 표 끝에 있는 메모를 참조하세요.
-게스트/서버 공유 클러스터 디스크 | 아니오
-게스트/서버 암호화된 디스크 | 아니오
-게스트/서버 NFS | 아니오
-게스트/서버 SMB 3.0 | 아니오
+게스트/서버 공유 클러스터 디스크 | 아니요
+게스트/서버 암호화된 디스크 | 아니요
+게스트/서버 NFS | 아니요
+게스트/서버 SMB 3.0 | 아니요
 게스트/서버 RDM | yes<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | yes<br/><br/>최대 4,095GB
 4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | yes
 4K 논리적 및 512바이트 물리적 섹터 크기 포함 게스트/서버 디스크 | yes
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br><br/>논리 볼륨 관리(LVM)| yes
-게스트/서버 - 저장소 공간 | 아니오
-게스트/서버 디스크 핫 추가/제거 | 아니오
+게스트/서버 - 저장소 공간 | 아니요
+게스트/서버 디스크 핫 추가/제거 | 아니요
 게스트/서버 - 디스크 제외 | yes
-게스트/서버 다중 경로(MPIO) | 아니오
+게스트/서버 다중 경로(MPIO) | 아니요
 
 > [!NOTE]
 > Windows Server 2012 이상을 실행하는 UEFI 부팅 VMware 가상 머신을 Azure로 마이그레이션할 수 있습니다. 다음 제한 사항이 적용됩니다.
@@ -197,14 +197,14 @@ Azure Virtual Network 서비스 끝점<br/> (Azure Storage 방화벽 없음) | y
 로컬 중복 저장소 | yes
 지역 중복 저장소 | yes
 읽기 액세스 지역 중복 저장소 | yes
-쿨 저장소 | 아니오
-핫 저장소| 아니오
-블록 Blob | 아니오
+쿨 저장소 | 아니요
+핫 저장소| 아니요
+블록 Blob | 아니요
 휴지 상태의 암호화(Storage 서비스 암호화)| yes
 Premium Storage | yes
-Import/Export 서비스 | 아니오
-대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니오
-범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니오
+Import/Export 서비스 | 아니요
+대상 저장소/캐시 저장소(복제 데이터 저장에 사용됨) 계정에 구성된 가상 네트워크용 Azure Storage 방화벽 | 아니요
+범용 v2 저장소 계정(핫 및 쿨 계층 모두) | 아니요
 
 ## <a name="azure-compute"></a>Azure Compute
 
@@ -237,8 +237,8 @@ VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으�
 
 **작업** | **지원됨**
 --- | ---
-리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니오
-저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니오
+리소스 그룹 간 자격 증명 모음 이동<br/><br/> 구독 내 및 구독 간 | 아니요
+저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요
 
 
 ## <a name="mobility-service"></a>Mobility Service

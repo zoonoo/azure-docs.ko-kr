@@ -1,21 +1,20 @@
 ---
-title: Azure Cognitive Services, Cognitive Services Speech SDK API 설명서 - 자습서, API 참조 | Microsoft Docs
+title: Azure Cognitive Services, Cognitive Services Speech SDK API 설명서 - 자습서, API 참조
 description: Cognitive Services Speech SDK를 사용하여 앱을 만들고 개발하는 방법 알아보기
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: wolfma
-ms.openlocfilehash: c2b06ed4c31dc585111000266e57888f490938ec
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: df6224208e93f4a332247440933b3a4d11c1bb43
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258978"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283034"
 ---
 # <a name="shipping-an-application"></a>응용 프로그램 전달
 

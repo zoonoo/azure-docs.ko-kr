@@ -1,21 +1,20 @@
 ---
-title: Speech Service 체험해 보기 | Microsoft Docs
+title: Speech Service 체험해 보기
 description: Speech Service를 체험해 보는 방법을 알아봅니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 3feef04694336d9173b419285a96fcaef543e18f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff9a258d42f25ded82545909cdeade119548148e
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "35383387"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325210"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service 체험해 보기
 
@@ -130,10 +129,8 @@ Azure 계정에 Speech Service 리소스를 추가하려면 다음 단계를 따
 
 ## <a name="next-steps"></a>다음 단계
 
-SDK 및 일부 샘플 코드를 다운로드하여 Speech Service를 경험합니다.
+10분 빠른 시작 중 하나를 수행하거나 SDK 샘플을 확인합니다.
 
 > [!div class="nextstepaction"]
-> [Speech SDK](speech-sdk.md)
-
-> [!div class="nextstepaction"]
-> [샘플 코드](samples.md)
+> [빠른 시작: C#에서 음성 인식](quickstart-csharp-dotnet-windows.md)
+> [음성 SDK 샘플](speech-sdk.md#get-the-samples)

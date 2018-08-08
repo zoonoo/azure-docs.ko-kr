@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159682"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390673"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Azure Active Directory reporting API 시작하기
 
@@ -43,8 +43,6 @@ reporting API에 액세스하려면, 스크립트를 사용하여 API에 액세�
 3. 권한 부여
 4. 구성 설정 수집
 
-
- 
 자세한 지침은 [Azure Active Directory reporting API에 액세스하기 위한 전제 조건](active-directory-reporting-api-prerequisites-azure-portal.md)을 참조하세요.
 
 ## <a name="apis-with-graph-explorer"></a>Graph 탐색기가 있는 API
@@ -55,9 +53,9 @@ reporting API에 액세스하려면, 스크립트를 사용하여 API에 액세�
 
 ![권한 수정 UI](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>권장 사항 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>인증서를 사용하여 Azure AD Reporting API에 액세스 
 
-사용자 개입 없이 보고 데이터를 검색하려는 경우에는 Azure AD Reporting API를 인증서와 함께 사용하는 것이 좋습니다.
+사용자 개입 없이 보고 데이터를 검색하려는 경우 인증서와 함께 Azure AD Reporting API를 사용하는 것이 좋습니다.
 
 자세한 지침은 [인증서와 함께 Azure AD Reporting API를 사용하여 데이터 가져오기](active-directory-reporting-api-with-certificates.md)를 참조하세요.
 
@@ -67,17 +65,13 @@ reporting API에 액세스하려면, 스크립트를 사용하여 API에 액세�
 reporting API의 첫 인상 살펴보기:
    
    - [감사 API에 대한 샘플 사용](active-directory-reporting-api-audit-samples.md) 
- 
    - [로그인 활동 보고서 API에 대한 샘플 사용](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>사용자 지정  
+## <a name="next-steps"></a>다음 단계
 
-고유의 솔루션 만들기: 
-   
-   - [감사 API 참조 사용](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [로그인 활동 보고서 API 참조 사용](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [로그인 활동 보고서 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Azure AD Reporting API의 오류 문제 해결](active-directory-reporting-troubleshoot-graph-api.md)
 
 

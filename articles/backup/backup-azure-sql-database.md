@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249083"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364379"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -258,7 +258,7 @@ Azure Backup은 SQL Server 인스턴스에서 모든 데이터베이스를 검�
 
     ![VM 및 데이터베이스 선택](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>SQL Server 데이터베이스에 대한 백업 구성 
+## <a name="configure-backup-for-sql-server-databases"></a>SQL Server 데이터베이스에 대한 백업 구성
 
 Azure Backup은 SQL Server 데이터베이스를 보호하고 백업 작업을 관리하는 관리 서비스를 제공합니다. 관리 및 모니터링 기능은 Recovery Services 자격 증명 모음에 따라 달라집니다. 
 
@@ -317,6 +317,9 @@ SQL 데이터베이스에 대한 보호를 구성하려면:
 
 8. **백업 정책 선택** 드롭다운 목록 상자에서 백업 정책을 선택하고 **확인**을 선택합니다. 백업 정책을 만드는 방법에 대한 자세한 내용은 [백업 정책 정의](backup-azure-sql-database.md#define-a-backup-policy)를 참조하세요.
 
+   > [!NOTE]
+   > 미리 보기 중에는 백업 정책을 편집할 수 없습니다. 목록에 있는 정책과 다른 정책을 원할 경우 해당 정책을 만들어야 합니다. 새 백업 정책 만들기에 대한 자세한 내용은 [백업 정책 정의](backup-azure-sql-database.md#define-a-backup-policy) 섹션을 참조하세요.
+
     ![목록에서 백업 정책 선택](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     **백업 정책** 메뉴의 **백업 정책 선택** 드롭다운 목록 상자에서 다음을 수행할 수 있습니다. 
@@ -345,21 +348,28 @@ SQL 데이터베이스에 대한 보호를 구성하려면:
 * 차등 백업: 차등 백업은 가장 최근에 수행한 이전 전체 데이터 백업을 기반으로 합니다. 차등 백업은 전체 백업 이후 변경된 데이터만 캡처합니다. 많으면, 하루에 하나의 차등 백업을 트리거할 수 있습니다. 전체 백업과 차등 백업을 같은 날에 구성할 수 없습니다.
 * 트랜잭션 로그 백업: 로그 백업을 사용하면 특정 시간(초 단위)까지의 특정 시점 복원이 가능합니다. 많으면, 15분마다 트랜잭션 로그 백업을 구성할 수 있습니다.
 
-정책은 Recovery Services 자격 증명 모음 수준에서 만들어집니다. 다수의 자격 증명 모음은 자격 증명 모음은 동일한 백업 정책을 사용할 수 있지만 자격 증명 모음마다 백업 정책을 적용해야 합니다. 백업 정책을 만드는 경우, 매일 전체 백업이 기본값입니다. 차등 백업을 추가할 수 있지만 전체 백업이 매주 발생하도록 구성하는 경우에만 가능합니다. 다음 절차에서는 Azure 가상 머신에서 SQL 서버 인스턴스에 대한 백업 정책을 만드는 방법에 대해 설명합니다.
+정책은 Recovery Services 자격 증명 모음 수준에서 만들어집니다. 다수의 자격 증명 모음은 자격 증명 모음은 동일한 백업 정책을 사용할 수 있지만 자격 증명 모음마다 백업 정책을 적용해야 합니다. 백업 정책을 만드는 경우, 매일 전체 백업이 기본값입니다. 차등 백업을 추가할 수 있지만 전체 백업이 매주 발생하도록 구성하는 경우에만 가능합니다. 다음 절차에서는 Azure 가상 머신에서 SQL 서버 인스턴스에 대한 백업 정책을 만드는 방법에 대해 설명합니다. 
 
+> [!NOTE]
+> 미리 보기에서는 백업 정책을 편집할 수 없습니다. 대신 원하는 세부 정보로 새 정책을 만들어야 합니다.  
+ 
 백업 정책을 만들려면:
 
-1. **백업 정책** 메뉴의 **백업 정책 선택** 드롭다운 목록 상자에서 **새로 만들기**를 선택합니다.
+1. SQL 데이터베이스를 보호하는 Recovery Services 자격 증명 모음에서 **백업 정책**을 클릭한 다음, **추가**를 클릭합니다. 
 
-   ![새 백업 정책 만들기](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![새 백업 정책 만들기 대화 상자 열기](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    **백업 정책** 메뉴에 새 SQL Server 백업 정책에 필요한 필드가 표시됩니다.
+   **추가** 메뉴가 나타납니다.
 
-   ![새 백업 정책 필드](./media/backup-azure-sql-database/blank-new-policy.png)
+2. **추가** 메뉴에서 **SQL Server in Azure VM**(Azure VM의 SQL Server)을 클릭합니다.
 
-2. **정책 이름** 상자에 이름을 입력합니다.
+   ![새 백업 정책에 대한 정책 유형 선택](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. 전체 백업은 필수입니다. 전체 백업의 기본값을 그대로 사용하거나 **전체 백업**을 선택하여 정책을 편집합니다.
+   SQL Server in Azure VM(Azure VM의 SQL Server)을 선택하면 정책 유형이 정의되고 백업 정책 메뉴가 열립니다. **백업 정책** 메뉴에 새 SQL Server 백업 정책에 필요한 필드가 표시됩니다.
+
+3. **정책 이름**에 새 정책의 이름을 입력합니다.
+
+4. 전체 백업은 필수입니다. **전체 백업** 옵션은 해제할 수 없습니다. **전체 백업**을 클릭하여 정책을 확인하고 편집합니다. 백업 정책을 변경하지 않더라도 정책 세부 정보를 확인해야 합니다.
 
     ![새 백업 정책 필드](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ SQL 데이터베이스에 대한 보호를 구성하려면:
 
    ![매주 간격 설정](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. 기본적으로 모든 **보존 범위** 옵션(매일, 매주, 매월 및 매년)이 선택됩니다. 원치 않는 보존 범위 제한이 있으면 선택을 취소합니다. 사용할 간격을 설정합니다. **전체 백업 정책** 메뉴에서 **확인**을 클릭하여 설정을 적용합니다.
+5. 기본적으로 모든 **보존 범위** 옵션(매일, 매주, 매월 및 매년)이 선택됩니다. 원치 않는 보존 범위 제한이 있으면 선택을 취소합니다. 사용할 간격을 설정합니다. **전체 백업 정책** 메뉴에서 **확인**을 클릭하여 설정을 적용합니다.
 
    ![보존 범위 간격 설정](./media/backup-azure-sql-database/retention-range-interval.png)
 
     복구 지점은 보존 범위를 기반으로 보존 태그가 지정됩니다. 예를 들어, 매일, 전체 백업을 선택하면 매일 하나의 전체 백업만 트리거됩니다. 주별 보존 범위 및 매주 보존 설정을 기반으로 특정 날짜에 대한 백업에 태그가 지정되어 유지됩니다. 매월 및 매년 보존 범위도 유사한 방식으로 작동합니다.
 
-5. 차등 백업 정책을 추가하려면 **차등 백업**을 선택합니다. **차등 백업 정책** 메뉴가 열립니다. 
+6. 차등 백업 정책을 추가하려면 **차등 백업**을 선택합니다. **차등 백업 정책** 메뉴가 열립니다. 
 
    ![차등 백업 정책 메뉴 열기](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,30 +401,32 @@ SQL 데이터베이스에 대한 보호를 구성하려면:
 
     **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
 
-6. 트랜잭션 로그 백업 정책을 추가하려면 **로그 백업**을 선택합니다. **로그 백업** 메뉴가 열립니다.
+7. 트랜잭션 로그 백업 정책을 추가하려면 **로그 백업**을 선택합니다. **로그 백업** 메뉴가 열립니다.
 
     **로그 백업** 메뉴에서 **사용**을 선택한 다음, 빈도 및 보존 컨트롤을 설정합니다. 로그 백업은 최소 15분 간격으로 수행할 수 있으며 최대 35일 동안 보존할 수 있습니다. **확인**을 선택하여 정책을 저장하고 주 **백업 정책** 메뉴로 돌아갑니다.
 
    ![로그 백업 정책 편집](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. **백업 정책** 메뉴에서 **SQL 백업 압축**을 사용할지 여부를 선택합니다. 압축은 기본적으로 사용하지 않도록 설정되어 있습니다.
+8. **백업 정책** 메뉴에서 **SQL 백업 압축**을 사용할지 여부를 선택합니다. 압축은 기본적으로 사용하지 않도록 설정되어 있습니다.
 
     백 엔드에서, Azure Backup은 SQL 네이티브 백업 압축을 사용합니다.
 
-8. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다. 
+9. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다. 
 
    ![새 백업 정책 적용](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>SQL 데이터베이스 복원
-
 Azure Backup은 트랜잭션 로그 백업을 사용하여 개별 데이터베이스를 특정 날짜나 시간(초 단위까지)으로 복원하는 기능을 제공합니다. Azure Backup은 복원 시간을 기준으로 데이터를 복원하는 데 필요한 전체, 차등 및 로그 백업 체인을 자동으로 결정합니다.
 
 특정한 전체 또는 차등 백업을 선택하여 특정 시간보다는 특정 복구 지점으로 복원할 수 있습니다.
- > [!Note]
- > “마스터” 데이터베이스의 복원을 트리거하기 전에 시작 옵션 `-m AzureWorkloadBackup`을 사용하여 단일 사용자 모드로 SQL Server 인스턴스를 시작합니다. `-m` 옵션의 인수는 클라이언트의 이름입니다. 이 클라이언트만 연결을 열 수 있습니다. 모든 시스템 데이터베이스(모델, 마스터, msdb)에 대해 복원을 트리거하기 전에 SQL 에이전트 서비스를 중지합니다. 이러한 데이터베이스에 대한 연결을 도용하려고 하는 응용 프로그램을 닫습니다.
->
 
-데이터베이스를 복원하려면
+### <a name="pre-requisite-before-triggering-a-restore"></a>복원을 트리거하기 전 필수 구성 요소
+
+1. 동일한 Azure 지역의 SQL Server 인스턴스에 데이터베이스를 복원할 수 있습니다. 대상 서버를 원본과 동일한 Recovery Services 자격 증명 모음에 등록해야 합니다.  
+2. TDE 암호화된 데이터베이스를 다른 SQL Server로 복원하려면, 먼저 [여기](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017)에 설명된 단계에 따라 인증서를 대상 서버에 복원합니다.
+3. “마스터” 데이터베이스의 복원을 트리거하기 전에 시작 옵션 `-m AzureWorkloadBackup`을 사용하여 단일 사용자 모드로 SQL Server 인스턴스를 시작합니다. `-m` 옵션의 인수는 클라이언트의 이름입니다. 이 클라이언트만 연결을 열 수 있습니다. 모든 시스템 데이터베이스(모델, 마스터, msdb)에 대해 복원을 트리거하기 전에 SQL 에이전트 서비스를 중지합니다. 이러한 데이터베이스에 대한 연결을 도용하려고 하는 응용 프로그램을 닫습니다.
+
+### <a name="steps-to-restore-a-database"></a>데이터베이스를 복원하는 단계:
 
 1. SQL 가상 머신에 등록된 Recovery Services 자격 증명 모음을 엽니다.
 

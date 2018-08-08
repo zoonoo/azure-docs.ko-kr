@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224589"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358106"
 ---
 # <a name="prediction-score"></a>예측 점수
 예측 점수는 예측 결과에 대한 LUIS의 신뢰도를 나타냅니다. 
@@ -36,6 +36,8 @@ ms.locfileid: "39224589"
 모든 발화 예측은 상위 점수 의도를 반환합니다. 이는 예측 점수의 수치 비교입니다. 상위 두 개의 점수는 서로 차이가 매우 작을 수 있습니다. LUIS는 점수 반환 외에는 이 근접성을 표시하지 않습니다.  
 
 상위 점수의 근접성이 우려된다면 모든 의도의 점수를 반환해야 합니다. 단어 선택 및 정렬을 통해 차이를 나타내는 두 개의 의도에 발화를 추가하거나, 챗봇과 같은 LUIS 호출 응용 프로그램이 두 개의 상위 의도를 처리하는 방법을 프로그래밍 방식으로 선택하도록 할 수 있습니다. 
+
+점수가 너무 가깝게 매겨진 두 가지 의도는 비결정적 학습으로 인해 반전될 수 있습니다. 최고 점수가 두 번째로 높은 점수가 될 수 있고 두 번째로 높은 점수가 최고 점수가 될 수 있습니다. 이를 방지하려면 두 가지 의도를 구분하는 상황 및 단어를 선택하여 해당 발언의 최고 두 가지 의도 각각에 대해 예제 발언을 추가합니다. 두 가지 의도에는 동일한 수의 예제 발언이 있어야 합니다. 학습으로 인한 반전을 방지할 수 있는 일반적인 분리 기준은 15%의 점수 차이입니다.
 
 ## <a name="return-prediction-score-for-all-intents"></a>모든 의도의 예측 점수 반환
 테스트 또는 끝점 결과에는 모든 의도가 포함될 수 있습니다. 이 구성은 [끝점](https://aka.ms/v1-endpoint-api-docs)에서 `verbose=true` 쿼리 문자열 이름/값 쌍을 사용하여 설정됩니다. 

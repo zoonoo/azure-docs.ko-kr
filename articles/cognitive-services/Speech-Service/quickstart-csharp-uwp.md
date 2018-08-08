@@ -1,23 +1,24 @@
 ---
-title: '빠른 시작: Cognitive Services Speech SDK를 사용하여 UWP의 C#에서 음성 인식 | Microsoft Docs'
+title: '빠른 시작: Cognitive Services Speech SDK를 사용하여 UWP 앱에서 C#으로 음성 인식'
 titleSuffix: Microsoft Cognitive Services
 description: Cognitive Services Speech SDK를 사용하여 UWP 앱에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 751736a4333932a68775589dddeb82ef6fa6f398
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 549a8fd29cf1f986da0af1ae49dbf0e5335603bd
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258211"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325703"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 UWP 앱에서 음성 인식
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 UWP(유니버설 Windows 플랫폼) 응용 프로그램을 만드는 방법을 설명합니다.
 응용 프로그램은 [Microsoft Cognitive Services Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017로 빌드되었습니다.
@@ -116,6 +117,6 @@ ms.locfileid: "39258211"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [음성 번역](how-to-translate-speech.md)
+- [음성 번역](how-to-translate-speech-csharp.md)
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

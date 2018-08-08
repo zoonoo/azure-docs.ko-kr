@@ -1,21 +1,20 @@
 ---
-title: Speech Service 지원되는 언어 - Microsoft Cognitive Services | Microsoft Docs
+title: Speech Service 지원되는 언어 - Microsoft Cognitive Services
 description: Speech Service에서 지원되는 언어 목록입니다.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 06350decd9d9f15db7226b6f2c3580feb49a59d1
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2a768846958f73ace22971f2f2ca8f886c9df252
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069577"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282159"
 ---
 # <a name="supported-languages-for-speech-service"></a>Speech Service에 대해 지원되는 언어
 
@@ -27,16 +26,16 @@ Microsoft Speech Recognition API는 다음 언어를 지원합니다.
 
   코드 | 언어 | 음향 적응 | 언어 적응 | 발음 적응
  ------|----------|---------------------|---------------------|-------------------------
- ar-EG | 아랍어(이집트), 현대 표준 | 아니오 | 예 | 아니오
- It-IT | 이탈리아어(이탈리아) | 아니오 | 예 | 아니오 
- de-DE | 독일어(독일) | 아니오 | 예 | 예
- ja-JP | 일본어(일본) | 아니오 | 예 | 아니오
- ko-KR | 영어(미국) | 예 | 예 | 예
- pt-BR | 포르투갈어(브라질) | 아니오 | 예 | 아니오
- es-ES | 스페인어(스페인) | 아니오 | 예 | 아니오
- ru-RU | 러시아어(러시아) | 아니오 | 예 | 아니오
- fr-FR | 프랑스어(프랑스) | 아니오 | 예 | 아니오
- zh-CN | 중국어(북경어, 간체) | 아니오 | 예 | 아니오
+ ar-EG | 아랍어(이집트), 현대 표준 | 아니요 | yes | 아니요
+ It-IT | 이탈리아어(이탈리아) | 아니요 | yes | 아니요 
+ de-DE | 독일어(독일) | 아니요 | 예 | yes
+ ja-JP | 일본어(일본) | 아니요 | yes | 아니요
+ ko-KR | 영어(미국) | yes | 예 | yes
+ pt-BR | 포르투갈어(브라질) | 아니요 | yes | 아니요
+ es-ES | 스페인어(스페인) | 아니요 | yes | 아니요
+ ru-RU | 러시아어(러시아) | 아니요 | yes | 아니요
+ fr-FR | 프랑스어(프랑스) | 아니요 | yes | 아니요
+ zh-CN | 중국어(북경어, 간체) | 아니요 | yes | 아니요
 
 ## <a name="text-to-speech"></a>텍스트에서 음성 변환
 

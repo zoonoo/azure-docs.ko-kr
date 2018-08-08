@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236927"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412113"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Azure SQL Database 리소스 제한 개요 
 
@@ -28,10 +28,12 @@ ms.locfileid: "39236927"
 | 모든 지역에서 구독당 서버의 기본 수 | 20 |
 | 모든 지역에서 구독당 서버의 최대 수 | 200 |
 | 서버당 DTU/eDTU 할당량 | 54,000 |
+| 서버당 vCore 할당량 | 540 |
+| 서버당 최대 풀 | DTU 또는 vCore 수로 제한 |
 |||
 
 > [!NOTE]
-> 기본 양보다 더 많은 DTU/eDTU 할당량 또는 더 많은 서버를 얻으려면 문제 유형 "할당량"을 사용하여 구독을 위한 Azure Portal에서 새 지원 요청을 제출할 수 있습니다. 서버당 DTU/eDTU 할당량 및 데이터베이스 제한은 서버당 탄력적 풀의 수를 제한합니다. 
+> 기본 양보다 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 더 많은 서버를 얻으려면 문제 유형 "할당량"을 사용하여 구독을 위한 Azure Portal에서 새 지원 요청을 제출할 수 있습니다. 서버당 DTU/eDTU 할당량 및 데이터베이스 제한은 서버당 탄력적 풀의 수를 제한합니다. 
 
 > [!IMPORTANT]
 > 데이터베이스 수가 서버당 제한에 근접하면 다음이 발생할 수 있습니다.
@@ -56,6 +58,7 @@ ms.locfileid: "39236927"
 
 - 데이터베이스 또는 탄력적 풀의 최대 크기를 늘리거나 더 많은 저장소를 추가합니다. [단일 데이터베이스 리소스 확장](sql-database-single-database-scale.md) 및 [탄력적 풀 리소스 확장](sql-database-elastic-pool-scale.md)을 참조하세요.
 - 데이터베이스가 탄력적 풀에 속하는 경우 데이터베이스를 풀 외부로 이동하여 저장소 공간이 다른 데이터베이스와 공유되지 않도록 할 수 있습니다.
+- 데이터베이스를 축소하여 사용하지 않는 공간을 회수합니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
 ### <a name="sessions-and-workers-requests"></a>세션 및 작업자(요청) 
 

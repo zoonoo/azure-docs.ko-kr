@@ -1,23 +1,24 @@
 ---
-title: '빠른 시작: Cognitive Services Speech SDK를 사용하여 Windows .NET Framework의 C#에서 음성 인식 | Microsoft Docs'
+title: '빠른 시작: Cognitive Services Speech SDK를 사용하여 Windows .NET Framework의 C#에서 음성 인식'
 titleSuffix: Microsoft Cognitive Services
 description: Cognitive Services Speech SDK를 사용하여 Windows .NET Framework의 C#에서 음성을 인식하는 방법 알아보기
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259030"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325193"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows .NET Framework의 C#에서 음성을 인식하는 방법 알아보기
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 이 문서에서는 Cognitive Services Speech SDK를 사용하여 Windows .NET Framework에서 음성을 텍스트로 변환하는 C# 콘솔 응용 프로그램을 만드는 방법을 설명합니다.
 응용 프로그램은 [Microsoft Cognitive Services Speech SDK NuGet 패키지](https://aka.ms/csspeech/nuget) 및 Microsoft Visual Studio 2017로 빌드되었습니다.
@@ -104,6 +105,6 @@ ms.locfileid: "39259030"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [음성 번역](how-to-translate-speech.md)
+- [음성 번역](how-to-translate-speech-csharp.md)
 - [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

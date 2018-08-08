@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 백업 및 재해 복구; 백업 서비스
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605827"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412954"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -33,8 +33,11 @@ ms.locfileid: "34605827"
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 서버 간에 데이터를 어떻게 격리할 수 있나요?<br/>
 동일한 자격 증명 모음에 등록된 모든 서버는 *동일한 암호를 사용*하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직의 다른 서버에서 백업 데이터를 격리하고 싶은 서버가 있는 경우 해당 서버에 대해 지정된 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>구독 간에 내 백업 데이터 또는 자격 증명 모음을 “마이그레이션”할 수 있나요? <br/>
-번호 자격 증명 모음은 구독 수준에서 만들어지며 생성된 후에는 다른 구독에 다시 할당할 수 없습니다.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>구독 간에 내 자격 증명 모음을 마이그레이션할 수 있나요? <br/>
+아니요. 자격 증명 모음은 구독 수준에서 만들어지며 다른 구독에 다시 할당할 수 없습니다.
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>백업 데이터를 다른 자격 증명 모음에 마이그레이션할 수 있나요? <br/>
+아니요. 자격 증명 모음에 저장된 백업 데이터는 다른 자격 증명 모음으로 옮길 수 없습니다.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services 자격 증명 모음은 Resource Manager에 기반합니다. Backup 자격 증명 모음도 계속 지원되나요? <br/>
 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다. Backup 자격 증명 모음을 Recovery Services 자격 증명 모음으로 변환하지 않은 경우 Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변환되었습니다. 
@@ -60,7 +63,7 @@ Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변�
 예.
 
 ### <a name="can-i-register-my-dpm-server-to-multiple-vaults-br"></a>여러 자격 증명 모음에 DPM 서버를 등록할 수 있나요? <br/>
-번호 DPM 또는 MABS 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
+아니요. DPM 또는 MABS 서버는 하나의 자격 증명 모음에만 등록할 수 있습니다.
 
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>지원되는 System Center Data Protection Manager의 버전은 무엇인가요?
 
@@ -74,11 +77,11 @@ System Center DPM(Data Protection Manager)용 최신 업데이트 롤업(UR)에 
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Azure Stack에서 DPM을 사용하여 앱을 백업할 수 있나요?
 
-번호 Azure Backup을 사용하여 Azure Stack을 보호할 수 있지만 Azure Backup은 DPM을 사용하여 Azure Stack에 있는 앱을 백업하는 기능은 지원하지 않습니다.
+아니요. Azure Backup을 사용하여 Azure Stack을 보호할 수 있지만 Azure Backup은 DPM을 사용하여 Azure Stack에 있는 앱을 백업하는 기능은 지원하지 않습니다.
 
 ## <a name="how-azure-backup-works"></a>Azure Backup 작동 방식
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>백업이 시작된 후 백업 작업을 취소하면 전송된 백업 데이터가 삭제되나요? <br/>
-번호 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다. Azure Backup은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다. 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다. 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
+아니요. 백업 작업이 취소되기 전에 자격 증명 모음으로 전송된 모든 데이터는 자격 증명 모음에 유지됩니다. Azure Backup은 백업하는 동안 백업 데이터에 검사점을 간혹 추가하는 검사점 메커니즘을 사용합니다. 백업 데이터에 검사점이 있기 때문에 다음 백업 프로세스에서는 파일의 무결성을 유효성 검사할 수 있습니다. 다음 백업 작업은 이전에 백업한 데이터에 대해 증분됩니다. 증분 백업은 새 데이터 또는 변경된 데이터만 전송하므로 대역폭의 사용률을 개선합니다.
 
 Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 무시됩니다. 다음 백업 작업은 마지막으로 성공한 백업 작업에서 증분 데이터를 전송합니다.
 
@@ -147,7 +150,7 @@ Recovery Services 자격 증명 모음에 백업할 수 있는 데이터의 양�
 예, Azure Backup 보존 구조를 사용하여 사용자의 요구 사항에 따라 유연하게 보존 정책을 정의할 수 있습니다.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>오후 6시에 "백업을 예약"하고 다른 시간에 "보존 정책"을 지정할 수 있나요?<br/>
-번호 보존 정책은 백업 지점에만 적용할 수 있습니다. 다음 이미지에서는 보존 정책이 오전 12시와 오후 6시에 수행되는 백업에 지정됩니다. <br/>
+아니요. 보존 정책은 백업 지점에만 적용할 수 있습니다. 다음 이미지에서는 보존 정책이 오전 12시와 오후 6시에 수행되는 백업에 지정됩니다. <br/>
 
 ![Backup 일정 및 보존](./media/backup-azure-backup-faq/Schedule.png)
 <br/>
@@ -165,7 +168,7 @@ Recovery Services 자격 증명 모음에 백업할 수 있는 데이터의 양�
 Azure Backup에서 수행할 수 있는 복구 횟수에는 제한이 없습니다.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure-br"></a>데이터를 복원할 때 Azure의 송신 트래픽에 대해 요금을 납부하나요? <br/>
-번호 복구는 무료이며 송신 트래픽에 요금이 부과되지는 않습니다.
+아니요. 복구는 무료이며 송신 트래픽에 요금이 부과되지는 않습니다.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>백업 정책을 변경하면 어떻게 되나요?
 새 정책을 적용하면 새 정책의 일정 및 보존을 따릅니다. 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다. 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 결과적으로 삭제됩니다.
