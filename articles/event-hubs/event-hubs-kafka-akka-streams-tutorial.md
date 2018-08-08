@@ -1,5 +1,5 @@
 ---
-title: Kafka 에코시스템용 Azure Event Hubs에서 Akka Streams 사용 | Microsoft Docs
+title: Apache Kafka용 Azure Event Hubs에서 Akka Streams 사용 | Microsoft Docs
 description: Akka Streams를 Kafka 지원 이벤트 허브에 연결합니다.
 services: event-hubs
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 06/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 9db27340a2210ea0be0564b15241952477e592ba
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: f6671e05c53b8be2e06eb969adc8a4d5736aff37
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303183"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284454"
 ---
-# <a name="using-akka-streams-with-event-hubs-for-kafka-ecosystem"></a>Kafka 에코시스템용 Event Hubs에서 Akka Streams 사용
+# <a name="using-akka-streams-with-event-hubs-for-apache-kafka"></a>Apache Kafka용 Event Hubs에서 Akka Streams 사용
 
 Apache Kafka를 사용하는 주요 이점 중 하나는 연결할 수 있는 프레임워크의 에코시스템입니다. Kafka 지원 Event Hubs는 Kafka의 유연성과 Azure 에코시스템의 확장성, 일관성 및 지원을 결합합니다.
 
-이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Akka Streams를 Kafka 지원 이벤트 허브에 연결하는 방법을 보여 줍니다. Kafka 에코시스템용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
+이 자습서에서는 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행하지 않고 Akka Streams를 Kafka 지원 이벤트 허브에 연결하는 방법을 보여 줍니다. Apache Kafka용 Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -134,6 +134,6 @@ Akka Streams에 대한 자세한 내용은 [Akka Streams Kafka 가이드](https:
 ## <a name="next-steps"></a>다음 단계
 
 * [Event Hubs에 대해 알아봅니다](event-hubs-what-is-event-hubs.md).
-* [Kafka 에코시스템용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
+* [Kafka용 Event Hubs에 대해 알아보기](event-hubs-for-kafka-ecosystem-overview.md)
 * [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330)를 사용하여 [온-프레미스 Kafka에서 클라우드의 Kafka 지원 Event Hubs로 이벤트를 스트림합니다.](event-hubs-kafka-mirror-maker-tutorial.md)
 * [네이티브 Kafka 응용 프로그램](event-hubs-quickstart-kafka-enabled-event-hubs.md) 또는 [Apache Flink](event-hubs-kafka-flink-tutorial.md)를 사용하여 Kafka 지원 Event Hubs에 스트림하는 방법을 알아봅니다.

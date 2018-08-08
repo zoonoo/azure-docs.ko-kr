@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0bdd798f9bc8fdaef54abd721a986c607c6323a5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a43febf1e78f80451b6aeed19e095b2c313d3216
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628558"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284856"
 ---
 # <a name="how-to-administer-your-application"></a>응용 프로그램을 관리하는 방법
 
@@ -55,6 +55,25 @@ Microsoft Azure IoT Central 응용 프로그램을 만든 후에는 Azure IoT Ce
 ## <a name="change-the-application-image"></a>응용 프로그램 이미지 변경
 
 Azure IoT Central 응용 프로그램에서 이미지를 사용하는 방법에 대한 자세한 내용은 [이미지를 준비하여 Azure IoT Central 응용 프로그램에 업로드](howto-prepare-images.md)를 참조하세요.
+
+## <a name="copy-an-application"></a>응용 프로그램 복사
+
+모든 장치 인스턴스, 장치 데이터 기록 및 사용자 데이터를 제외한 모든 응용 프로그램의 복사본을 만들 수 있습니다. 복사본은 요금이 청구되는 유료 응용 프로그램입니다. 다른 응용 프로그램을 복사하여 평가판 응용 프로그램을 만들 수 없습니다.
+
+응용 프로그램을 복사하려면 **응용 프로그램 설정** 페이지로 이동하여 **복사** 단추를 클릭합니다.
+
+![응용 프로그램 설정 페이지](media\howto-administer\appCopy1.png)
+
+**복사** 단추를 클릭하면 복사하여 생성될 새 응용 프로그램에 대한 이름, URL, AAD 디렉터리, 구독 및 Azure 지역을 선택할 수 있는 대화 상자가 열립니다. 이러한 필드 각각에 대한 값을 선택한 다음, **복사** 단추를 클릭하여 진행 여부를 확인합니다. [응용 프로그램 만드는 방법](howto-create-application.md)에 대한 문서에서 해당 값의 입력 내용에 대해 자세히 알아볼 수 있습니다.
+
+![응용 프로그램 설정 페이지](media\howto-administer\appCopy2.png)
+
+앱 복사 작업이 성공하면 **응용 프로그램 설정** 페이지에 표시되는 링크를 클릭하여 응용 프로그램을 복사함으로써 생성된 새 응용 프로그램으로 이동할 수 있습니다.
+
+![응용 프로그램 설정 페이지](media\howto-administer\appCopy3.png)
+
+> [!Note]
+> 응용 프로그램 복사는 규칙 또는 작업의 정의를 복사하게 됩니다. 그러나 원래 앱에 대한 액세스 권한이 있는 사용자는 복사한 앱에 복사되지 않으므로 사용자가 필수 구성 요소인 이메일 등의 작업에 사용자를 수동으로 추가해야 합니다.
 
 ## <a name="delete-an-application"></a>응용 프로그램 삭제
 

@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205343"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398004"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Azure VM 백업 스택 V2로 업그레이드
 
@@ -107,7 +107,7 @@ V2로 업그레이드하는 경우, 현재 백업에는 영향을 주지 않으�
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>스택 v2로 업그레이드하면 프리미엄 저장소 계정 스냅숏 한도가 10TB 증가하나요?
 
-관리되지 않는 디스크에 대한 프리미엄 저장소 계정의 10TB 스냅숏 한도에 대해 v2 스택 수의 일부로 생성된 스냅숏입니다. 
+아니요, 저장소 계정당 총 스냅숏 한도는 여전히 10TB입니다. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium Storage 계정에서 빠른 복구 지점에 대해 만든 스냅숏이 10TB 스냅숏 한도에 포함되나요?
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159293"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307911"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 응용 프로그램 성능 FAQ
 
@@ -158,7 +158,7 @@ PowerShell cmdlet을 사용하여 App Service Web Apps를 관리 및 유지 관�
 
 자세한 내용은 [Azure App Service에서 웹앱 구성](web-sites-configure.md)을 참조하세요.
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>240초 후 요청 시간이 초과되는 이유는 무엇인가요?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>230초 후 요청 시간이 초과되는 이유는 무엇인가요?
 
 Azure Load Balancer에는 4분의 기본 유휴 시간 제한 설정이 있습니다. 이 설정은 일반적으로 웹 요청에 대한 합리적인 응답 시간 제한입니다. 웹앱에 백그라운드 처리가 필요한 경우 Azure WebJobs를 사용하는 것이 좋습니다. Azure 웹앱은 WebJobs를 호출하고 백그라운드 처리가 완료되면 알림을 받을 수 있습니다. 큐 및 트리거를 포함하여 WebJobs를 사용하기 위한 여러 방법 중에서 선택할 수 있습니다.
 

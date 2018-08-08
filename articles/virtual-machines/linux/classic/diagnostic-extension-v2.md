@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 13d7594c15959661f3f9c3ab2165739719beac07
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "32193051"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308224"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>Linux 진단 확장을 사용하여 Linux VM의 성능 및 진단 데이터 모니터링
 
@@ -89,7 +89,7 @@ Azure Portal에서 직접 시스템 및 성능 데이터를 보고 구성하려�
         "storageAccountKey" : "the key of the account"
     }
 
-2단계. **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2* --private-config-path PrivateConfig.json**을 실행합니다.
+2단계. **azure vm extension set vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**을 실행합니다.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>시나리오 2. 성능 모니터 메트릭 사용자 지정
 

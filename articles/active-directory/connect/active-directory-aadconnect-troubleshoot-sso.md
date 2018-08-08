@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259299"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284873"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On 문제 해결
 
@@ -76,7 +76,7 @@ ms.locfileid: "39259299"
 - Azure AD Connect에서 Seamless SSO 기능을 사용할 수 있는지 확인합니다. 차단된 포트 등과 같은 이유로 기능을 사용할 수 없으면 모든 [필수 구성 요소](active-directory-aadconnect-sso-quick-start.md#step-1-check-the-prerequisites)가 제대로 갖추어져 있는지 확인합니다.
 - 테넌트에서 [Azure AD Join](../active-directory-azureadjoin-overview.md) 및 Seamless SSO를 둘 다 사용하도록 설정한 경우에는 Azure AD Join의 문제는 아닌지 확인합니다. 장치가 Azure AD에 등록되고 도메인에 가입된 경우 Azure AD Join의 SSO가 Seamless SSO보다 우선합니다. Azure AD Join의 SSO를 사용하면 "Windows에 연결됨"이라는 로그인 타일이 표시됩니다.
 - Azure AD URL( https://autologon.microsoftazuread-sso.com) )이 사용자의 인트라넷 영역 설정에 속하는지 확인합니다.
-- 회사 장치가 Active Directory 도메인에 조인되어 있는지 확인합니다.
+- 회사 장치가 Active Directory 도메인에 조인되어 있는지 확인합니다. Seamless SSO가 작동하려면 장치가 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
 - 사용자가 Active Directory 도메인 계정을 통해 장치에 로그온되어 있는지 확인합니다.
 - Seamless SSO가 설정된 Active Directory 포리스트에 사용자의 계정이 있는지 확인합니다.
 - 장치가 회사 네트워크에 연결되어 있는지 확인합니다.
@@ -120,8 +120,8 @@ ms.locfileid: "39259299"
 
 1. `$creds = Get-Credential`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
->[!NOTE]
->의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
+    >[!NOTE]
+    >의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
 
 2. `Disable-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 이 특정 Active Directory 포리스트에 대한 온-프레미스 도메인 컨트롤러에서 `AZUREADSSOACCT` 컴퓨터 계정을 제거합니다.
 3. 기능을 설정한 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
@@ -129,12 +129,10 @@ ms.locfileid: "39259299"
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>4단계: 각 Active Directory 포리스트에 대한 Seamless SSO 사용 설정
 
 1. `Enable-AzureADSSOForest`를 호출합니다. 메시지가 표시되면 원하는 Active Directory 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
-
->[!NOTE]
->의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
-
+   >[!NOTE]
+   >의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
 2. 기능을 설정하려는 각 Active Directory 포리스트에 대해 앞의 단계를 반복합니다.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>5단계. 테넌트에서 기능 활성화
 
-테넌트에서 기능을 설정하려면 `Enable-AzureADSSO`를 호출하고 `Enable:` 프롬프트에서 **true**를 입력합니다.
+테넌트에서 기능을 켜려면 `Enable-AzureADSSO -Enable $true`를 호출하세요.

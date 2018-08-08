@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2be5ddd51140563efc44b1c1a4c84502bf491020
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215325"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399076"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 마이그레이션: Azure로 마이그레이션하기 위한 온-프레미스 워크로드 평가
 
@@ -24,7 +24,7 @@ ms.locfileid: "39215325"
 --- | --- | ---
 [문서 1: 개요](contoso-migration-overview.md) | 시리즈에서 사용되는 Contoso의 마이그레이션 전략, 문서 시리즈 및 샘플 앱에 대해 간략히 설명합니다. | 사용 가능
 [문서 2: Azure 인프라 배포](contoso-migration-infrastructure.md) | Contoso에서 마이그레이션을 위해 온-프레미스 인프라와 Azure 인프라를 준비합니다. 이 시리즈의 모든 마이그레이션 관련 문서에서 동일한 인프라가 사용됩니다. | 사용 가능
-문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가 | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱의 평가를 실행합니다. Contoso에서 [Azure Migrate](migrate-overview.md) 서비스를 사용하여 앱 VM을 평가하고, [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 이 문서의 내용:
+문서 3: Azure로 마이그레이션할 온-프레미스 리소스 평가 | Contoso가 VMware에서 실행되는 온-프레미스 2계층 SmartHotel 앱의 평가를 실행합니다. Contoso에서 [Azure Migrate](migrate-overview.md) 서비스를 사용하여 앱 VM을 평가하고, [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)를 사용하여 앱 SQL Server 데이터베이스를 평가합니다. | 이 문서의 내용
 [문서 4: Azure VM 및 SQL Database Managed Instance에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso가 온-프레미스 SmartHotel 앱을 Azure로 리프트 앤 시프트 방식으로 마이그레이션합니다. Contoso에서 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview)를 사용하여 앱 프런트 엔드 VM을 마이그레이션하고, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)를 사용하여 앱 데이터베이스를 Azure SQL Database Managed Instance로 마이그레이션합니다. | 사용 가능
 [문서 5: 앱을 Azure VM에 다시 호스트](contoso-migration-rehost-vm.md) | Contoso에서 Site Recovery 서비스를 사용하여 SmartHotel 앱 VM을 Azure VM으로 마이그레이션합니다. | 사용 가능
 [문서 6: Azure VM 및 SQL Server AlwaysOn 가용성 그룹에서 앱 다시 호스트](contoso-migration-rehost-vm-sql-ag.md) | Contoso가 SmartHotel 앱을 마이그레이션합니다. Contoso에서 Site Recovery를 사용하여 앱 VM을 마이그레이션하고, Database Migration Service를 사용하여 앱 데이터베이스를 AlwaysOn 가용성 그룹으로 보호되는 SQL Server 클러스터로 마이그레이션합니다. | 사용 가능
@@ -123,8 +123,10 @@ Contoso 및 다른 사용자는 평가를 위해 다음 필수 조건을 충족�
 - 온-프레미스 VMware VM 두 대 이상(그 중 하나는 SQL Server 데이터베이스 실행).
 - 각 VM에 Azure Migrate 에이전트를 설치할 권한.
 - VM이 인터넷에 직접 연결되어야 합니다.  
-        - 인터넷 액세스를 [필요한 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)로 제한할 수 있습니다.  
-        - VM에 인터넷 연결이 없는 경우 Azure Log Analytics [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)가 설치되어야 합니다.
+        
+- 인터넷 액세스는 [필수 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)로 제한할 수 있습니다.  
+
+- VM에 인터넷 연결이 없는 경우 Azure Log Analytics [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)가 설치되어야 합니다.
 - SQL Server 인스턴스를 실행하는 VM의 FQDN(데이터베이스 평가용).
 - SQL Server VM에서 실행되는 Windows 방화벽은 1433 TCP 포트(기본값)에서 외부 연결을 허용해야 합니다. 이 설정을 통해 Data Migration Assistant를 연결할 수 있습니다.
 

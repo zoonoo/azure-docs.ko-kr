@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 08/01/2018
 ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 30df312e349bd6f6ebd1f38141075382be2522a2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874655"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397987"
 ---
 # <a name="managed-service-identity-preview"></a>관리 서비스 ID(미리 보기)
 
@@ -63,7 +63,7 @@ Azure 플랫폼은 MSI를 통해 이 런타임 ID를 관리합니다. ID 자체 
 
 ### <a name="run-the-app"></a>앱 실행
 
-이제 만든 ASP.NET 응용 프로그램의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity)에서 웹 응용 프로그램 코드를 사용할 수도 있습니다.
+이제 만든 ASP.NET 응용 프로그램의 기본 페이지를 수정합니다. [이 GitHub 리포지토리](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet)의 웹 응용 프로그램 코드를 사용할 수 있습니다.  
 
 Default.aspx 페이지가 방문 페이지입니다. 코드는 Default.aspx.cs 파일에서 찾을 수 있습니다. 그 결과 몇 가지 입력 필드와 메시지를 보내거나 받기 위해 Service Bus에 연결되는 **전송** 및 **수신** 단추가 있는 최소 웹 응용 프로그램이 생성됩니다.
 
@@ -74,8 +74,12 @@ Default.aspx 페이지가 방문 페이지입니다. 코드는 Default.aspx.cs �
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 메시지를 보내거나 받으려면 만든 엔터티의 이름과 네임스페이스의 이름을 입력한 후 **전송** 또는 **수신**을 클릭합니다.
- 
-관리 서비스 ID는 Azure 환경 및 구성한 App Service 배포에서만 작동합니다. 또한 관리 서비스 ID는 현재 App Service 배포 슬롯에서 작동하지 않습니다.
+
+
+> [!NOTE]
+> - 관리 서비스 ID는 Azure 환경, App 서비스, Azure VM 및 확장 집합 내에서만 작동합니다. .NET 응용 프로그램의 경우 Service Bus NuGet 패키지에서 사용되는 Microsoft.Azure.Services.AppAuthentication 라이브러리는 이 프로토콜에 대한 추상화를 제공하고 로컬 개발 환경을 지원합니다. 또한 이 라이브러리를 통해 개발 머신에서 Visual Studio, Azure CLI 2.0 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 코드를 로컬로 테스트할 수 있습니다. 이 라이브러리를 통한 로컬 개발 옵션에 대한 자세한 내용은 [.NET을 사용하여 Azure Key Vault에 대한 서비스 간 인증](../key-vault/service-to-service-authentication.md)을 참조하세요.  
+> 
+> - 현재 관리 서비스 ID는 App Service 배포 슬롯에서 작동하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

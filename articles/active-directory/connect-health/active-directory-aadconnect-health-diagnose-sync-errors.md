@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: 4a6e0924492c26c9bad4ed0af207ad9764c3cc5c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 3659572f46ae82d39a6c53246db2b6a536be32c8
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831900"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282944"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>중복된 특성 동기화 오류 진단 및 수정
 
@@ -127,6 +127,12 @@ Azure Portal에서 몇 가지 단계를 수행하여 수정 가능한 시나리�
 
 위의 단계를 수행한 후에는 사용자가 기존 개체에 대 한 링크인 원래 리소스에 액세스할 수 있습니다. 목록 보기의 **진단 상태** 값이 **동기화 보류 중**으로 업데이트됩니다. 동기화 오류는 그 다음 동기화 후에 해결됩니다. Connect Health는 해결된 동기화 오류를 더 이상 목록 보기에 표시하지 않습니다.
 
+## <a name="failures-and-error-messages"></a>오류 및 오류 메시지
+**충돌하는 특성이 있는 사용자는 Azure Active Directory에서 일시 삭제됩니다. 다시 시도하기 전에 사용자가 영구 삭제됐는지 확인합니다.**  
+수정을 적용하기 전에 Azure AD에서 충돌하는 특성이 있는 사용자를 정리해야 합니다. 해당 수정을 다시 시도 하기 전에 [Azure AD에서 사용자를 영구 삭제하는 방법](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore)을 확인합니다. 사용자는 일시 삭제된 상태에서 30일이 지나면 자동으로 영구 삭제됩니다. 
+
+**원본 앵커에서 테넌트의 클라우드 기반 사용자로 업데이트하는 것은 지원되지 않습니다.**  
+Azure AD의 클라우드 기반 사용자에게는 원본 앵커가 없어야 합니다. 이 경우에 원본 앵커의 업데이트는 지원되지 않습니다. 온-프레미스에서 수동 수정이 필요합니다. 
 
 ## <a name="faq"></a>FAQ
 **Q.** **수정 적용** 실행이 실패하면 어떻게 되나요?  

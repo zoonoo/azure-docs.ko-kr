@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: victorh
-ms.openlocfilehash: 989ecf209dc5093b5e4c73f01f9e382fc1ad21e8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295531"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399146"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -92,6 +92,8 @@ Application Gateway는 인스턴스당 하나의 개인 IP 주소를 사용하�
 **Q. Application Gateway에서 x-forwarded-for 헤더를 지원하나요?**
 
 예, Application Gateway는 백 엔드로 전달되는 요청에 x-forwarded-for, x-forwarded-proto 및 x-forwarded-port 헤더를 삽입합니다. x-forwarded-for 헤더의 형식은 쉼표로 구분된 IP:Port 목록입니다. x-forwarded-proto 에 대해 유효한 값은 http 또는 https입니다. X-forwarded-port는 Application Gateway에서 요청이 도달한 포트를 지정합니다.
+
+또한 Application Gateway는 요청이 도착한 원래 호스트 헤더가 포함된 X-Original-Host 헤더를 삽입합니다. 이 헤더는 트래픽을 백 엔드로 라우팅하기 전에 들어오는 호스트 헤더가 수정되는 Azure Website 통합과 같은 시나리오에서 유용합니다.
 
 **Q. Application Gateway를 배포하는 데 얼마의 시간이 걸리나요? Application Gateway가 업데이트되어도 여전히 작동하나요?**
 

@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: d0d72694fe2d88e257a8684dc37a250bc0ad7f3f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 7acf18c4624373dff8994a1996e9082770b90270
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970992"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283690"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
 
@@ -106,9 +106,9 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
     통과 인증에 추가하여 암호 해시 동기화를 배포했을 때의 또 다른 이점은 더 이상 기본 인증 방법을 사용할 수 없을 때 백업 인증 방법으로 작동한다는 점입니다.
 
-* **고려 사항**. 암호 해시 동기화를 통과 인증에 대한 백업 인증 방법으로 사용하는 경우 에이전트에서 사용자 자격 증명의 유효성을 검사할 수 없으면 암호 해시 동기화에 대한 장애 조치(failover)가 자동으로 수행되지 않습니다. 이 경우 Azure AD Connect를 사용하여 수동으로 로그온 방법을 전환해야 합니다. 
+* **고려 사항**. 특정 온-프레미스 오류 때문에 에이전트에서 사용자 자격 증명의 유효성을 검사할 수 없는 경우 암호 해시 동기화를 통과 인증에 대한 백업 인증 방법으로 사용할 수 있습니다. 암호 해시 동기화에 대한 장애 조치(failover)는 자동으로 발생하지 않으므로 수동으로 로그인 방법을 전환하려면 Azure AD Connect를 사용해야 합니다. 
 
-    통과 인증에서는 최신 인증을 사용하거나 ActiveSync, POP3 및 IMAP4와 같은 특정 Exchange Online 프로토콜을 사용하는 클라우드 앱만 지원합니다. 예를 들어 Microsoft Office 2013 이상에서는 최신 인증을 지원하지만 이전 버전은 지원하지 않습니다. Office 앱 지원에 대한 자세한 내용은 [업데이트된 Office 365 최신 인증](https://blogs.office.com/en-us/2015/11/19/updated-office-365-modern-authentication-public-preview/)을 참조하세요. 대체 ID 지원을 포함하여 통과 인증에 대한 기타 고려 사항은 [질문과 대답](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)을 참조하세요.
+    대체 ID 지원을 포함하여 통과 인증에 대한 기타 고려 사항은 [질문과 대답](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)을 참조하세요.
 
 배포 단계에 대해서는 [통과 인증 구현](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication)을 참조하세요.
 
@@ -161,9 +161,9 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |인증은 어디서 수행되나요?|클라우드|클라우드에서 온-프레미스 인증 에이전트와 보안 암호 확인을 교환한 후|온-프레미스|
 |프로비저닝 시스템(Azure AD Connect) 이외의 온-프레미스 서버 요구 사항은 무엇인가요?|없음|각 추가 인증 에이전트마다 서버 1개|둘 이상의 AD FS 서버<br><br>경계/DMZ 네트워크에 둘 이상의 WAP 서버|
 |프로비저닝 시스템 이외의 온-프레미스 인터넷 및 네트워킹 요구 사항은 무엇인가요?|없음|인증 에이전트를 실행하는 서버의[아웃바운드 인터넷 액세스](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start)|경계에 있는 WAP 서버에 대한 [인바운드 인터넷 액세스](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>경계에 있는 WAP 서버에서 AD FS 서버로의 인바운드 네트워크 액세스<br><br>네트워크 부하 분산|
-|SSL 인증서 요구 사항이 있나요?|아니오|아니요|예|
+|SSL 인증서 요구 사항이 있나요?|아니요|아니요|yes|
 |상태 모니터링 솔루션이 있나요?|필요하지 않음|[Azure Active Directory 관리 센터](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication)에서 제공한 에이전트 상태|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs)|
-|사용자가 회사 네트워크 내의 도메인 가입 장치에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)의 경우 예|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)의 경우 예|예|
+|사용자가 회사 네트워크 내의 도메인 가입 장치에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)의 경우 예|[원활한 SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)의 경우 예|yes|
 |지원되는 로그인 유형은 무엇인가요?|UserPrincipalName + 암호<br><br>[원활한 SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom)|UserPrincipalName + 암호<br><br>[원활한 SSO](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso)를 사용하는 Windows 통합 인증<br><br>[대체 로그인 ID](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-faq)|UserPrincipalName + 암호<br><br>sAMAccountName + 암호<br><br>Windows 통합 인증<br><br>[인증서 및 스마트 카드 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |비즈니스용 Windows Hello가 지원되나요?|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Intune을 사용하는 인증서 신뢰 모델](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Intune을 사용하는 인증서 신뢰 모델](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[인증서 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |다단계 인증 옵션은 무엇인가요?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA 서버](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[타사 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)|

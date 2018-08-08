@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444269"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399093"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 설정 및 가져오기
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>컨테이너 집합에 대해 또는 데이터베이스 수준에서 처리량 설정
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>데이터베이스 수준에서 컨테이너 집합에 대한 처리량 설정
 
 다음은 SQL API의 .NET SDK를 사용하여 컨테이너 집합에서 초당 100,000개 요청 단위를 프로비저닝하기 위한 코드 조각입니다.
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>MongoDB API의 GetLastRequestStatistics 명령을 사용하여 처리량 가져오기
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API 포털 메트릭을 사용하여 처리량 가져오기
+
+MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추정하는 가장 간단한 방법은 [Azure Portal](https://portal.azure.com) 메트릭을 사용하는 것입니다. *요청 수* 및 *요청 요금* 차트에서 각 작업에서 사용하는 요청 단위 수와 서로 상대적으로 사용하는 요청 단위 수를 추정할 수 있습니다.
+
+![MongoDB API 포털 메트릭][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
+컨테이너 또는 컨테이너 집합에 대한 프로비전된 처리량을 초과하는 응용 프로그램의 경우 사용률이 프로비전된 처리량 비율 아래로 떨어질 때까지 비율이 제한됩니다. 비율 제한이 발생하면 백 엔드는 `16500` 오류 코드 - `Too Many Requests`으로 요청을 종료합니다. 기본적으로 MongoDB API는 `Too Many Requests` 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. `Too Many Requests` 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 논리를 추가하거나 [컨테이너에 대해 프로비전된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
+
+## <a id="GetLastRequestStatistics"></a>MongoDB API의 GetLastRequestStatistics 명령을 사용하여 요청 비용 가져오기
 
 MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사용자 지정 명령인 *getLastRequestStatistics*를 지원합니다.
 
@@ -254,14 +263,19 @@ MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사�
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>MongoDB API 포털 메트릭을 사용하여 처리량 가져오기
+## <a id="RequestchargeGraphAPI"></a>Gremlin API 계정에 대한 요청 비용 가져오기 
 
-MongoDB API 데이터베이스에 대한 요청 단위 요금을 적절히 추정하는 가장 간단한 방법은 [Azure Portal](https://portal.azure.com) 메트릭을 사용하는 것입니다. *요청 수* 및 *요청 요금* 차트에서 각 작업에서 사용하는 요청 단위 수와 서로 상대적으로 사용하는 요청 단위 수를 추정할 수 있습니다.
+다음은 Gremlin.Net 라이브러리를 사용하여 Gremlin API 계정에 대한 요청 비용을 가져오는 방법에 대한 샘플입니다. 
 
-![MongoDB API 포털 메트릭][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> MongoDB API에서 예약된 처리량 제한 초과
-컨테이너 또는 컨테이너 집합에 대한 프로비전된 처리량을 초과하는 응용 프로그램의 경우 사용률이 프로비전된 처리량 비율 아래로 떨어질 때까지 비율이 제한됩니다. 비율 제한이 발생하면 백 엔드는 `16500` 오류 코드 - `Too Many Requests`으로 요청을 종료합니다. 기본적으로 MongoDB API는 `Too Many Requests` 오류 코드를 반환하기 전에 재시도를 최대 10번까지 자동으로 수행합니다. `Too Many Requests` 오류 코드가 자주 발생하면 응용 프로그램의 오류 처리 루틴에서 재시도 논리를 추가하거나 [컨테이너에 대해 프로비전된 처리량을 늘리는 방법](set-throughput.md)을 고려해 볼 수 있습니다.
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+위의 메서드 외에도 요청 단위 계산에 "x-ms-total-request-charge" 헤더를 사용할 수도 있습니다.
+
 
 ## <a name="throughput-faq"></a>처리량 FAQ
 

@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004849"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283098"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
-[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 사용하면 쉽게 [랩에 VM을 만들고 추가](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm)할 수 있습니다. 이 포털은 한 번에 하나씩 VM을 만드는 데 적합합니다. 그러나 환경에서 여러 VM을 포함하는 경우 각 VM을 개별적으로 만들어야 합니다. 다중 계층 웹앱 또는 SharePoint 팜과 같은 시나리오의 경우 한 번에 여러 VM을 만들 수 있는 메커니즘이 필요합니다. Azure Resource Manager 템플릿을 사용하면 Azure 솔루션의 인프라와 구성을 정의하고 여러 VM을 일관된 상태로 반복적으로 배포할 수 있습니다. 이 기능은 다음과 같은 이점을 제공합니다.
+[Azure Portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)을 사용하면 쉽게 [랩에 한 번에 하나의 VM을 추가](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm)할 수 있습니다. 그러나 환경에서 여러 VM을 포함하는 경우 각 VM을 개별적으로 만들어야 합니다. 다중 계층 웹앱 또는 SharePoint 팜과 같은 시나리오의 경우 한 번에 여러 VM을 만들 수 있는 메커니즘이 필요합니다. Azure Resource Manager 템플릿을 사용하면 Azure 솔루션의 인프라와 구성을 정의하고 여러 VM을 일관된 상태로 반복적으로 배포할 수 있습니다. 이 기능은 다음과 같은 이점을 제공합니다.
 
 - Azure Resource Manager 템플릿은 소스 제어 리포지토리(GitHub 또는 Team Services Git)에서 직접 로드됩니다.
 - 일단 구성되면 사용자가 Azure Portal에서 다른 유형의 [VM 자료](./devtest-lab-comparing-vm-base-image-types.md)를 처리하는 것처럼 Azure Resource Manager 템플릿을 선택하여 환경을 만들 수 있습니다.
@@ -43,6 +43,8 @@ ms.locfileid: "39004849"
 
 코드 기반 인프라와 코드 기반 구성을 사용하는 모범 사례 중 하나인 환경 템플릿은 소스 제어에서 관리해야 합니다. Azure DevTest Labs에서는 이 사례를 따르고 GitHub 또는 VSTS Git 리포지토리에서 직접 Azure Resource Manager 템플릿을 모두 로드합니다. 결과적으로, Resource Manager 템플릿은 테스트 환경에서 프로덕션 환경까지 전체 릴리스 주기에서 사용될 수 있습니다.
 
+[공용 GitHub 리포지토리](https://github.com/Azure/azure-devtestlab/tree/master/Environments)에서 DevTest Labs 팀이 만든 템플릿을 확인하세요. 이 공용 리포지토리에서 직접 사용하거나 필요에 맞게 사용자 지정할 수 있으며 다른 사용자가 공유한 템플릿을 볼 수 있습니다. 템플릿을 만든 후 이를 다른 사용자와 공유하려면 이 리포지토리에 저장합니다. 클라우드에서 환경을 설정하는 데 사용될 수 있는 템플릿으로 사용자 고유의 Git 리포지토리를 설정할 수 있습니다. 
+
 리포지토리에 Azure Resource Manager 템플릿을 구성하는 따라야 할 몇 가지 규칙이 있습니다.
 
 - 마스터 템플릿 파일의 이름은 `azuredeploy.json`으로 지정해야 합니다. 
@@ -50,18 +52,18 @@ ms.locfileid: "39004849"
     ![주요 Azure Resource Manager 템플릿 파일](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - 매개 변수 파일에 정의한 매개 변수 값을 사용하려면 매개 변수 파일의 이름을 `azuredeploy.parameters.json`으로 지정해야 합니다.
-- DevTest Labs에서 중첩된 템플릿을 자동으로 관리할 수 있도록 매개 변수 `_artifactsLocation` 및 `_artifactsLocationSasToken`을 사용하여 parametersLink URI 값을 생성합니다. 자세한 내용은 [Azure DevTest Labs에서 테스트 환경에 대해 더 쉽게 중첩된 Resource Manager 템플릿 배포를 만드는 방법](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/)을 참조하세요.
+- DevTest Labs에서 중첩된 템플릿을 자동으로 관리할 수 있도록 매개 변수 `_artifactsLocation` 및 `_artifactsLocationSasToken`을 사용하여 parametersLink URI 값을 생성합니다. 자세한 내용은 [Azure DevTest Labs에서 테스트 환경에 대해 중첩된 Resource Manager 템플릿 배포를 더 쉽게 하는 방법](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/)을 참조하세요.
 - 템플릿 표시 이름과 설명을 지정하기 위해 메타데이터를 정의할 수 있습니다. 이 메타데이터는 `metadata.json`이라는 파일에 있어야 합니다. 다음 예제 메타데이터 파일에서는 표시 이름과 설명을 지정하는 방법을 보여 줍니다. 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 다음 단계는 Azure Portal을 사용하여 랩에 리포지토리를 추가하는 과정을 안내합니다. 
 
@@ -150,7 +152,7 @@ DevTest Labs에서 Resource Manager 템플릿을 사용하는 경우 이러한 �
 
 - Resource Manager 템플릿을 배포할 때 대부분의 정책이 평가되지 않습니다.
 
-   예를 들어 사용자가 5개의 VM만 만들 수 있음을 지정하는 랩 정책을 가질 수 있습니다. 그러나 사용자가 수십 개의 VM을 만드는 Resource Manager 템플릿을 배포하는 경우 허용됩니다. 평가되지 않는 정책은 다음과 같습니다.
+   예를 들어 사용자가 5개의 VM만 만들 수 있음을 지정하는 랩 정책을 가질 수 있습니다. 그러나 사용자는 수십 개의 VM을 만드는 Resource Manager 템플릿을 배포할 수 있습니다. 평가되지 않는 정책은 다음과 같습니다.
 
    - 사용자당 VM 수
    - 랩 사용자당 프리미엄 VM 수

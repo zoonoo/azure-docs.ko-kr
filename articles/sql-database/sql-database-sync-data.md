@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 81616522f479175dc58188bd6acc4db4f9007756
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 042db9bcadb470b2dc5e0095072e4ca06747ec5d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069389"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283627"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -117,7 +117,9 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   테이블에는 기본 키가 없는 ID 열이 있을 수 없습니다.
 
--   기본 키는 날짜/시간 데이터 형식을 가질 수 없습니다.
+-   기본 키에는 sql_variant, binary, varbinary, image, xml 같은 데이터 형식이 있을 수 없습니다. 
+
+-   지원되는 전체 자릿수가 보조 키에만 해당하므로 time, datetime, datetime2, datetimeoffset 같은 데이터 형식을 기본 키로 사용하는 경우 주의하세요.
 
 -   개체(데이터베이스, 테이블 및 열) 이름에는 인쇄 가능한 문자 마침표(.), 왼쪽 대괄호([) 또는 오른쪽 대괄호(])를 사용할 수 없습니다.
 
@@ -131,7 +133,7 @@ SQL 데이터 동기화는 여러 SQL Database 및 SQL Server 인스턴스 간�
 
 -   XMLSchemaCollection(XML 지원)
 
--   Cursor, Timestamp, Hierarchyid
+-   Cursor, RowVersion, Timestamp, Hierarchyid
 
 #### <a name="unsupported-column-types"></a>지원되지 않는 열 형식
 

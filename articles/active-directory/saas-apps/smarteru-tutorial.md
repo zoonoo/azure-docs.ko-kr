@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041282"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>자습서: SmarterU와 Azure Active Directory 통합
 
@@ -126,11 +126,11 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
 7. 위쪽의 도구 모음에서 **계정 설정**을 클릭합니다.
    
-    ![계정 설정](./media/smarteru-tutorial/IC777326.png "계정 설정")
+    ![계정 설정](./media/smarteru-tutorial/accountsettings.png)
 
 8. 계정 구성 페이지에서 다음 단계를 수행합니다.
    
-    ![외부 권한 부여](./media/smarteru-tutorial/IC777327.png "외부 권한 부여") 
+    ![외부 기관](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. **외부 권한 부여를 사용하도록 설정**을 선택합니다.
   
@@ -138,11 +138,13 @@ SmarterU에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
   
       다. **사용자 기본 로그인** 섹션에서 **SmarterU** 탭을 선택합니다.
   
-      d. **Okta 사용**을 선택합니다.
+      d. **SAML 사용**을 선택합니다.
   
-      e. 다운로드한 메타데이터 파일의 내용을 복사한 다음 **Okta 메타데이터** 텍스트 상자에 붙여넣습니다.
+      e. 다운로드한 메타데이터 파일의 내용을 복사한 다음, **IdP 메타데이터** 텍스트 상자에 붙여넣습니다.
+      
+      f. **식별자 특성/클레임**을 선택합니다.
   
-      f. **저장**을 클릭합니다.
+      g. **저장**을 클릭합니다.
 
 > [!TIP]
 > 이제 앱을 설정하는 동안 [Azure Portal](https://portal.azure.com) 내에서 이러한 지침의 간결한 버전을 읽을 수 있습니다.  **Active Directory > 엔터프라이즈 응용 프로그램** 섹션에서 이 앱을 추가한 후에는 **Single Sign-On** 탭을 클릭하고 맨 아래에 있는 **구성** 섹션을 통해 포함된 설명서에 액세스하면 됩니다. 포함된 설명서 기능에 대한 자세한 내용은 [Azure AD 포함된 설명서]( https://go.microsoft.com/fwlink/?linkid=845985)에서 확인할 수 있습니다.
@@ -193,7 +195,7 @@ SmarterU의 경우 프로비전은 수동 작업입니다.
 
 3. 사용자 섹션에서 다음 단계를 수행합니다.
    
-    ![새 사용자](./media/smarteru-tutorial/IC777329.png "새 사용자")  
+    ![새 사용자](./media/smarteru-tutorial/adduser.png)  
 
     a. **+사용자**를 클릭합니다.
     

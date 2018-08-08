@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/23/2018
 ms.author: bsiva
-ms.openlocfilehash: 552a0d131f630db7b3a73293d330377ee350d2a9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6e5946f3f9dcf1c7d941054c844adcf683b485ab
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214621"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308646"
 ---
-# <a name="migrate-servers-running-windows-server-2008-2008-r2-to-azure"></a>Windows Server 2008, 2008 R2를 실행하는 서버에서 Azure로 마이그레이션
+# <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Windows Server 2008을 실행하는 서버에서 Azure로 마이그레이션
 
 이 자습서에서는 Azure Site Recovery를 사용하여 Windows Server 2008 또는 2008 R2를 실행하는 온-프레미스 서버에서 Azure로 마이그레이션하는 방법을 보여줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

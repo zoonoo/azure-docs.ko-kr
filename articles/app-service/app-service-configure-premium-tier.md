@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 07/25/2018
 ms.author: cephalin
-ms.openlocfilehash: 4c157ed905b7dc48c886b26987c164ef9a47f3c3
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 04996e772c2989be89ce551bfa45c57154de7b2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34714564"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307792"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Azure App Service에 대한 PremiumV2 계층 구성
 
@@ -28,21 +28,19 @@ ms.locfileid: "34714564"
 
 ## <a name="prerequisites"></a>필수 조건
 
-웹앱을 **PremiumV2**로 강화하려면 Azure App Service에 **PremiumV2**보다 낮은 가격 책정 계층에서 실행되는 웹앱이 있어야 합니다.
+웹앱을 **PremiumV2**로 강화하려면 Azure App Service에 **PremiumV2**보다 낮은 가격 책정 계층에서 실행되는 Web App이 있어야 하며, Web App은 PremiumV2를 지원하는 App Service 배포에서 실행돼야 합니다.
 
 <a name="availability"></a>
 
 ## <a name="premiumv2-availability"></a>PremiumV2 가용성
 
-PremiumV2 계층은 현재 _Windows_의 App Service에서만 사용할 수 있습니다. Linux 컨테이너는 아직 지원되지 않습니다.
+**PremiumV2** 계층은 현재 _Windows_ 및 _Linux_의 App Service에서 사용할 수 있습니다.
 
-PremiumV2는 이미 대부분의 Azure 지역에서 사용할 수 있으며 점점 늘어나고 있습니다. 해당 지역에서 사용할 수 있는지 확인하려면 [Azure Cloud Shell](../cloud-shell/overview.md)에서 다음 Azure CLI 명령을 실행합니다.
+**PremiumV2**는 대부분 Azure 지역에서 사용할 수 있습니다. 해당 지역에서 사용할 수 있는지 확인하려면 [Azure Cloud Shell](../cloud-shell/overview.md)에서 다음 Azure CLI 명령을 실행합니다.
 
 ```azurecli-interactive
 az appservice list-locations --sku P1V2
 ```
-
-앱을 만들거나 App Service 계획을 만드는 동안 오류가 발생하는 경우에는 선택한 지역에 **PremiumV2**를 사용할 수 없을 가능성이 큽니다.
 
 <a name="create"></a>
 
@@ -57,11 +55,11 @@ App Service 앱의 가격 책정 계층은 해당 앱이 실행되는 [App Servi
 ![](media/app-service-configure-premium-tier/scale-up-tier-select.png)
 
 > [!IMPORTANT] 
-> **P1V2**, **P2V2** 및 **P3V2**가 옵션으로 표시되지 않는 경우는 선택한 지역에서 **PremiumV2**를 사용할 수 없거나 **PremiumV2**를 지원하지 않는 Linux App Service 계획을 구성 중인 경우입니다.
+> **P1V2**, **P2V2** 및 **P3V2**가 옵션으로 표시되지 않거나, 해당 옵션이 회색으로 표시되는 경우 **PremiumV2**는 App Service 계획을 포함하는 기본 App Service 배포에서 사용할 수 없습니다. 자세한 내용은 [지원되지 않는 리소스 그룹 및 지역 조합에서 강화](#unsupported)를 참조합니다.
 
 ## <a name="scale-up-an-existing-app-to-premiumv2-tier"></a>기존 앱을 PremiumV2 계층으로 강화
 
-기존 앱을 **PremiumV2** 계층으로 확장하기 전에 해당 지역에서 **PremiumV2**를 사용할 수 있는지 확인합니다. 자세한 내용은 [PremiumV2 가용성](#availability)을 참조하세요. 해당 계층을 사용할 수 없는 지역의 경우 [지원되지 않는 지역에서 강화](#unsupported)를 참조하세요.
+기존 앱을 **PremiumV2** 계층으로 확장하기 전에 **PremiumV2**를 사용할 수 있는지 확인합니다. 자세한 내용은 [PremiumV2 가용성](#availability)을 참조하세요. 사용할 수 없는 경우 [지원되지 않는 리소스 그룹 및 지역 조합에서 강화](#unsupported)를 참조합니다.
 
 호스팅 환경에 따라 강화하는 데 추가 단계가 필요할 수 있습니다. 
 
@@ -81,32 +79,20 @@ App Service 앱 페이지의 왼쪽 탐색 영역에서 **강화(App Service 계
 
 ### <a name="if-you-get-an-error"></a>오류가 발생한 경우
 
-일부 App Service 계획은 PremiumV2 계층으로 강화할 수 없습니다. 강화 작업에 오류가 발생하는 경우 앱에 대한 새 App Service 계획이 필요합니다.
-
-기존 App Service 앱과 같은 지역 및 리소스 그룹에서 _Windows_ App Service 계획을 만듭니다. **PremiumV2** 계층으로 설정하려면 [PremiumV2 계층에서 앱 만들기](#create)의 단계를 수행합니다. 원하는 경우 기존 App Service 계획과 같은 확장 구성(인스턴스 수, 자동 크기 조정 등)을 사용합니다.
-
-App Service 앱 페이지를 다시 엽니다. App Service의 왼쪽 탐색에서 **App Service 계획 변경**을 선택합니다.
-
-![](media/app-service-configure-premium-tier/change-plan.png)
-
-본인이 만든 App Service 계획을 선택합니다.
-
-![](media/app-service-configure-premium-tier/select-plan.png)
-
-변경 작업이 완료되면 앱이 **PremiumV2** 계층에서 실행됩니다.
+일부 App Service 계획은 기본 App Service 배포가 PremiumV2를 지원하지 않는 경우 PremiumV2 계층을 강화할 수 없습니다.  자세한 내용은 [지원되지 않는 리소스 그룹 및 지역 조합에서 강화](#unsupported)를 참조합니다.
 
 <a name="unsupported"></a>
 
-## <a name="scale-up-from-an-unsupported-region"></a>지원되지 않는 지역에서 강화
+## <a name="scale-up-from-an-unsupported-resource-group-and-region-combination"></a>지원되지 않는 리소스 그룹 및 지역 조합에서 강화
 
-앱이 아직 **PremiumV2**를 사용할 수 없는 지역에서 실행되는 경우 앱을 다른 지역으로 이동하여 **PremiumV2**를 활용할 수 있습니다. 다음 두 가지 옵션을 사용할 수 있습니다.
+앱이 **PremiumV2**를 사용할 수 없는 App Service 배포에서 실행되거나 앱이 현재 **PremiumV2**를 지원하지 않는 지역에서 실행되는 경우 **PremiumV2**를 이용하려면 앱을 다시 배포해야 합니다.  다음 두 가지 옵션을 사용할 수 있습니다.
 
-- 새 **PremiumV2** 계획에서 앱을 만든 다음 응용 프로그램 코드를 다시 배포합니다. **PremiumV2** 계층으로 설정하려면 [PremiumV2 계층에서 앱 만들기](#create)의 단계를 수행합니다. 원하는 경우 기존 App Service 계획과 같은 확장 구성(인스턴스 수, 자동 크기 조정 등)을 사용합니다.
-- 앱이 이미 **프리미엄** 계층에서 실행되는 경우에는 모든 앱 설정, 연결 문자열 및 배포 구성과 함께 앱을 복제할 수 있습니다.
+- **새** 리소스 그룹을 만든 다음, **새** 리소스 그룹에서 **새** 웹앱 및 App Service 계획을 만들어 생성 프로세스 동안 원하는 Azure 지역을 선택합니다.  새 App Service 계획을 만들 때 **PremiumV2** 계획을 선택**해야 합니다**.  이렇게 하면 리소스 그룹, App Service 계획 및 Azure 지역의 조합이 결국 **PremiumV2**를 지원하는 App Service 배포에서 생성되는 App Service 계획이 되어야 합니다.  그런 다음, 새로 만든 앱 및 App Service 계획에 응용 프로그램 코드를 다시 배포합니다. 필요한 경우 이후 **PremiumV2**에서 App Service 계획을 축소하여 비용을 절약할 수 있으며 **PremiumV2**를 사용하여 나중에 다시 성공적으로 확장할 수도 있습니다.
+- 앱이 이미 기존 **프리미엄** 계층에서 실행되는 경우에는 모든 앱 설정, 연결 문자열 및 배포 구성과 함께 앱을 **PremiumV2**를 사용하는 App Service 계획에 복제할 수 있습니다.
 
     ![](media/app-service-configure-premium-tier/clone-app.png)
 
-    **앱 복제** 페이지에서 원하는 지역에 App Service 계획을 만들고 원하는 설정을 지정하여 복제할 수 있습니다.
+    **앱 복제** 페이지에서 원하는 지역에서 **PremiumV2**를 사용하여 App Service 계획을 만들고 복제하려는 앱 설정 및 구성을 지정할 수 있습니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 

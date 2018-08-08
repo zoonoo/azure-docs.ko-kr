@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238950"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309156"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>서비스 패브릭 클러스터 설정 및 패브릭 업그레이드 정책 사용자 지정
 이 문서에서는 Service Fabric 클러스터에 대한 다양한 패브릭 설정 및 패브릭 업그레이드 정책을 사용자 지정하는 방법을 설명합니다. [Azure portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 사용자 지정할 수 있습니다.
@@ -59,11 +59,11 @@ ms.locfileid: "39238950"
 ## <a name="applicationgatewayhttp"></a>ApplicationGateway/Http
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|string, 기본값: "None"|공용| 서버 인증서의 유효성을 검사하지 않습니다. 요청이 성공합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록에 대한 ServiceCertificateThumbprints 구성을 참조합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 주체 이름 및 발급자 지문에 대한 ServiceCommonNameAndIssuer 구성을 참조합니다. |
+|ApplicationCertificateValidationPolicy|string, 기본값: "None"|공용| 서버 인증서의 유효성을 검사하지 않습니다. 요청이 성공합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록에 대한 ServiceCertificateThumbprints 구성을 참조합니다. 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 주체 이름 및 발급자 지문에 대한 ServiceCommonNameAndIssuer 구성을 참조합니다. 자세한 정보는 [역방향 프록시 보안 연결](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)을 참조하세요. |
 |BodyChunkSize |uint, 기본값: 16384 |동적| 본문을 읽는 데 사용되는 청크의 크기(바이트)를 지정합니다. |
 |CrlCheckingFlag|uint, 기본값: 0x40000000 |동적| 응용 프로그램/서비스 인증서 체인 유효성 검사에 대한 플래그입니다. 예: CRL 확인 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 0으로 설정하면 CRL 확인이 해제됩니다. 지원되는 전체 값 목록은 CertGetCertificateChain의 dwFlags에서 문서화되어 있습니다(http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx).  |
 |DefaultHttpRequestTimeout |시간(초). 기본값은 120입니다. |동적|시간 간격은 초 단위로 지정합니다.  http 앱 게이트웨이에서 처리 중인 http 요청에 대한 기본 요청 시간 제한을 지정합니다. |
-|ForwardClientCertificate|bool, 기본값: FALSE|동적|false로 설정된 경우 역방향 프록시는 클라이언트 인증서에 대해 요청하지 않습니다. true로 설정된 경우 역방향 프록시는 SSL 핸드셰이크 중 클라이언트 인증서에 대해 요청하며 X-Client-Certificate라는 헤더의 서비스에 base64로 인코딩된 PEM 형식의 문자열을 전달합니다. 서비스는 인증서 데이터를 검사한 후 적절한 상태 코드로 요청에 실패할 수 있습니다. true이고 클라이언트가 인증서를 제시하지 않으면 역방향 프록시는 빈 헤더를 전달하고 서비스에서 처리하도록 합니다. 역방향 프록시는 투명한 계층처럼 작동합니다.|
+|ForwardClientCertificate|bool, 기본값: FALSE|동적|false로 설정된 경우 역방향 프록시는 클라이언트 인증서에 대해 요청하지 않습니다. true로 설정된 경우 역방향 프록시는 SSL 핸드셰이크 중 클라이언트 인증서에 대해 요청하며 X-Client-Certificate라는 헤더의 서비스에 base64로 인코딩된 PEM 형식의 문자열을 전달합니다. 서비스는 인증서 데이터를 검사한 후 적절한 상태 코드로 요청에 실패할 수 있습니다. true이고 클라이언트가 인증서를 제시하지 않으면 역방향 프록시는 빈 헤더를 전달하고 서비스에서 처리하도록 합니다. 역방향 프록시는 투명한 계층처럼 작동합니다. 자세한 정보는 [클라이언트 인증서 인증 설정](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)을 참조하세요. |
 |GatewayAuthCredentialType |string, 기본값: "None" |공용| http 앱 게이트웨이 끝점에서 사용할 보안 자격 증명의 유형을 나타냅니다. 유효한 값: "None/X509" |
 |GatewayX509CertificateFindType |string, 기본값: "FindByThumbprint" |동적| GatewayX509CertificateStoreName에 지정한 저장소에서 인증서를 검색하는 방법을 나타냅니다. 지원되는 값: FindByThumbprint, FindBySubjectName |
 |GatewayX509CertificateFindValue | string, 기본값: "" |동적| http 앱 게이트웨이 인증서를 찾는 데 사용되는 검색 필터 값. 이 인증서는 https 끝점에서 구성되며, 서비스에서 필요한 경우 앱 ID를 확인하는 데 사용할 수도 있습니다. FindValue를 먼저 조회하고, 이 FindValue가 없으면 FindValueSecondary를 조회합니다. |
@@ -75,13 +75,13 @@ ms.locfileid: "39238950"
 |NumberOfParallelOperations | Uint, 기본값: 5000 |공용|http 서버 큐에 게시할 읽기 수. HttpGateway에서 충족할 수 있는 동시 요청 수를 제어합니다. |
 |RemoveServiceResponseHeaders|string, 기본값: "Date; Server"|공용|클라이언트에 전달하기 전에 서비스 응답에서 제거될 세미콜론/쉼표로 구분된 응답 헤더 목록입니다. 이 값을 빈 문자열로 설정하면 현재 서비스에서 반환된 모든 헤더를 있는 그대로 전달합니다. 예: Date와 Server를 덮어쓰지 않음 |
 |ResolveServiceBackoffInterval |time(초), 기본값: 5 |동적|시간 간격은 초 단위로 지정합니다.  실패한 서비스 확인 작업을 다시 시도하기 전의 기본 백오프 간격을 지정합니다. |
-|SecureOnlyMode|bool, 기본값: FALSE|동적| SecureOnlyMode: true: 역방향 프록시에서 보안 끝점을 게시하는 서비스에만 전달합니다. false: 역방향 프록시에서 보안/비보안 끝점에 요청을 전달할 수 있습니다.  |
-|ServiceCertificateThumbprints|string, 기본값: ""|동적|역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록입니다.  |
+|SecureOnlyMode|bool, 기본값: FALSE|동적| SecureOnlyMode: true: 역방향 프록시에서 보안 끝점을 게시하는 서비스에만 전달합니다. false: 역방향 프록시에서 보안/비보안 끝점에 요청을 전달할 수 있습니다. 자세한 정보는 [역방향 프록시 엔드포인트 선택 논리](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints)를 참조하세요.  |
+|ServiceCertificateThumbprints|string, 기본값: ""|동적|역방향 프록시에서 신뢰할 수 있는 원격 인증서의 쉼표로 구분된 지문 목록입니다. 자세한 정보는 [역방향 프록시 보안 연결](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)을 참조하세요. |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>ApplicationGateway/Http/ServiceCommonNameAndIssuer
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적| 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 주체 이름 및 발급자 지문입니다.|
+|PropertyGroup|X509NameMap, 기본값: None|동적| 역방향 프록시에서 신뢰할 수 있는 원격 인증서의 주체 이름 및 발급자 지문입니다. 자세한 정보는 [역방향 프록시 보안 연결](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)을 참조하세요. |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -624,7 +624,7 @@ ms.locfileid: "39238950"
 ## <a name="securityadminclientx509names"></a>Security/AdminClientX509Names
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적| |
+|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 관리자 클라이언트 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 관리자 클라이언트 인증서의 직접 발급자가 목록에 있어야 합니다. |
 
 ## <a name="securityclientaccess"></a>보안/ClientAccess
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -730,7 +730,7 @@ ms.locfileid: "39238950"
 ## <a name="securityclientx509names"></a>Security/ClientX509Names
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적| |
+|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 클라이언트 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 클라이언트 인증서의 직접 발급자가 목록에 있어야 합니다.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Security/ClusterCertificateIssuerStores
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -740,7 +740,7 @@ ms.locfileid: "39238950"
 ## <a name="securityclusterx509names"></a>Security/ClusterX509Names
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적| |
+|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 클러스터 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 클러스터 인증서의 직접 발급자가 목록에 있어야 합니다.|
 
 ## <a name="securityservercertificateissuerstores"></a>Security/ServerCertificateIssuerStores
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
@@ -750,7 +750,7 @@ ms.locfileid: "39238950"
 ## <a name="securityserverx509names"></a>Security/ServerX509Names
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, 기본값: None|동적| |
+|PropertyGroup|X509NameMap, 기본값: None|동적|"Name" 및 "Value" 쌍의 목록입니다. 각 "Name"은 주체 일반 이름 또는 서버 작업에 대해 권한이 있는 X509 인증서의 DnsName입니다. 지정된 “Name”의 경우 “Value”는 발급자 고정을 위해 쉼표로 구분된 인증서 지문 목록입니다. 비어있지 않은 경우 서버 인증서의 직접 발급자가 목록에 있어야 합니다.|
 
 ## <a name="setup"></a>설정
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |

@@ -4,15 +4,15 @@ description: Collector 어플라이언스에 대한 개요 및 구성 방법을 
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 07/27/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 8cc5863489c58a0603d8aa464911031a22dba8f3
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951042"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308462"
 ---
 # <a name="collector-appliance"></a>Collector 어플라이언스
 
@@ -188,7 +188,7 @@ Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 �
 
 다시 한 번의 OVA를 다운로드하지 않고 수집기를 최신 버전으로 업그레이드할 수 있습니다.
 
-1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/upgrade_9_11)(버전 1.0.9.11)를 다운로드합니다.
+1. 최신 [업그레이드 패키지](https://aka.ms/migrate/col/upgrade_9_13)(버전 1.0.9.13)를 다운로드합니다.
 2. 다운로드한 핫픽스가 안전한지 확인하려면 관리자 권한 명령 창을 열고 다음 명령을 실행하여 Zip 파일에 대한 해시를 생성합니다. 생성된 해시는 특정 버전에 대해 언급된 해시와 일치해야 합니다.
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
@@ -199,6 +199,16 @@ Collector는 컴퓨터 데이터를 검색하여 프로젝트로 보내기만 �
 5. Setup.ps1 단추를 마우스 오른쪽 단추로 클릭하고 PowerShell과 함께 실행을 선택하고 화면의 지시를 따라 업데이트를 설치합니다.
 
 ### <a name="list-of-updates"></a>업데이트 목록
+
+#### <a name="upgrade-to-version-10913"></a>버전 1.0.9.13으로 업그레이드
+
+업그레이드 [패키지 1.0.9.13](https://aka.ms/migrate/col/upgrade_9_13)에 대한 해시 값
+
+**알고리즘** | **해시 값**
+--- | ---
+MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
+SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
+SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
 #### <a name="upgrade-to-version-10911"></a>버전 1.0.9.11로 업그레이드
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090880"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283103"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Azure API Management에서 서비스 백업 및 복원을 사용하여 재해 복구를 구현하는 방법
 
@@ -76,6 +76,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
 7. 새로 추가된 응용 프로그램 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
 8. **선택**을 누릅니다.
+9. **사용 권한 부여**를 클릭합니다.
 
 ### <a name="configuring-your-app"></a>앱 구성
 
@@ -92,7 +93,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -123,6 +124,8 @@ namespace GetTokenResourceManagerRequests
 
 ## <a name="calling-the-backup-and-restore-operations"></a>백업 및 복원 작업 호출
 
+REST API는 [API Management 서비스 - 백업](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) 및 [API Management 서비스 - 복원](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore)입니다.
+
 다음 섹션에서 설명한 "백업 및 복원 작업"을 호출하기 전에 REST 호출에 대한 권한 부여 요청 헤더를 설정합니다.
 
 ```csharp
@@ -132,24 +135,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"> </a>API Management 서비스 백업
 API Management 서비스를 백업하려면 다음 HTTP 요청을 실행합니다.
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 설명:
 
 * `subscriptionId` - 백업할 API Management 서비스를 포함하는 구독의 ID입니다.
 * `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 * `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
-* `api-version` - `2014-02-14`(으)로 대체
+* `api-version` - `2018-06-01-preview`(으)로 대체
 
 요청 본문에서 대상 Azure 저장소 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 `Content-Type` 요청 헤더의 값을 `application/json`으로 설정합니다.
@@ -168,24 +174,26 @@ Backup은 오랫동안 실행되는 작업으로, 완료되려면 몇 분이 걸
 ### <a name="step2"></a>API Management 서비스 복원
 이전에 만든 백업에서 API Management 서비스를 복원하려면 다음 HTTP 요청을 실행합니다.
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 설명:
 
 * `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 * `resourceGroupName` - 'Api-Default-{service-region}' 형식의 문자열입니다. 여기서 `service-region`은 백업을 복원할 API Management 서비스가 호스트되는 Azure 지역(예: `North-Central-US`)을 식별합니다.
 * `serviceName` - 백업을 복원할 API Management 서비스를 만들 때 지정한 이름입니다.
-* `api-version` - `2014-02-14`(으)로 대체
+* `api-version` - `2018-06-01-preview`(으)로 대체
 
 요청 본문에서 백업 파일 위치(즉, Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름)를 지정합니다.
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 `Content-Type` 요청 헤더의 값을 `application/json`으로 설정합니다.

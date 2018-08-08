@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7ffcf5e3c7e6f0cb3d344b7d148b6024e8469eff
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249192"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263012"
 ---
 # <a name="assessment-calculations"></a>평가 계산
 
@@ -38,11 +38,11 @@ Azure Migrate는 온-프레미스 VM의 다음 속성을 검토하여 Azure에�
 
 **속성** | **세부 정보** | **Azure 준비 상태**
 --- | --- | ---
-**부팅 유형** | Azure는 부팅 유형이 BIOS인 VM을 지원하지만 UEFI인 VM은 지원하지 않습니다. | 부팅 유형이 UEFI인 경우 조건부로 Azure를 사용할 수 있습니다.
-**코어 수** | 컴퓨터의 코어 수는 Azure VM에서 지원되는 최대 코어 수(32)와 같거나 작아야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 쾌적 인자가 평가 설정에 지정되어 있는 경우 사용된 코어 수와 쾌적 인자를 곱합니다.<br/><br/> 성능 기록이 없으면 Azure Migrate는 쾌적 인자를 적용하지 않고 할당된 코어 수를 사용합니다. | 코어 수가 32보다 크면 준비되지 않은 것입니다.
-**메모리** | 컴퓨터 메모리 크기는 Azure VM에 허용되는 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)와 같거나 작아야 합니다. [자세히 알아보기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기와 비교합니다. 쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 메모리 크기가 448GB보다 크면 준비되지 않은 것입니다.
-**저장소 디스크** | 할당된 디스크 크기는 4TB(4,096GB) 이하여야 합니다.<br/><br/> 컴퓨터에 연결되는 디스크의 수는 OS 디스크를 포함하여 65개 이하여야 합니다. | 디스크 크기가 4TB보다 크거나 컴퓨터에 연결된 디스크 수가 65개를 초과하면 준비되지 않은 것입니다.
-**네트워킹** | 컴퓨터에는 32개 이하의 NIC가 연결되어야 합니다. | 컴퓨터에 있는 NIC 수가 32개를 초과하면 준비되지 않은 것입니다.
+**부팅 유형** | Azure는 부팅 유형이 BIOS인 VM을 지원하지만 UEFI인 VM은 지원하지 않습니다. | 부팅 유형이 UEFI인 경우 조건부 준비 완료입니다.
+**코어 수** | 컴퓨터의 코어 수는 Azure VM에서 지원되는 최대 코어 수(32)와 같거나 작아야 합니다.<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 코어 수와 비교합니다. 쾌적 인자가 평가 설정에 지정되어 있는 경우 사용된 코어 수와 쾌적 인자를 곱합니다.<br/><br/> 성능 기록이 없으면 Azure Migrate는 쾌적 인자를 적용하지 않고 할당된 코어 수를 사용합니다. | 제한보다 작거나 같은 경우 준비 완료입니다.
+**메모리** | 컴퓨터 메모리 크기는 Azure VM에 허용되는 최대 메모리 크기(Azure M 시리즈 Standard_M128m&nbsp;<sup>2</sup>에서 3892GB)와 같거나 작아야 합니다. [자세히 알아보기](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes-memory.md#m-series).<br/><br/> 성능 기록을 사용할 수 있으면 Azure Migrate는 사용된 메모리 크기와 비교합니다. 쾌적 인자가 지정되어 있는 경우 사용된 메모리 크기와 쾌적 인자를 곱합니다.<br/><br/> 기록이 없으면 쾌적 인자를 적용하지 않고 할당된 메모리 크기를 사용합니다.<br/><br/> | 제한 내에 있는 경우 준비 완료입니다.
+**저장소 디스크** | 할당된 디스크 크기는 4TB(4,096GB) 이하여야 합니다.<br/><br/> 컴퓨터에 연결되는 디스크의 수는 OS 디스크를 포함하여 65개 이하여야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
+**네트워킹** | 컴퓨터에는 32개 이하의 NIC가 연결되어야 합니다. | 제한 내에 있는 경우 준비 완료입니다.
 
 ### <a name="guest-operating-system"></a>게스트 운영 체제
 Azure Migrate는 VM 속성과 함께 온-프레미스 VM의 게스트 OS도 확인하여 Azure에서 VM을 실행할 수 있는지 여부를 식별합니다.
@@ -65,7 +65,7 @@ Windows 클라이언트 7, 8, 10 | Azure에서 Visual Studio 구독만 지원합
 Windows Vista, XP Professional | 이러한 운영 체제는 지원 날짜가 종료되었으며, Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 OS를 업그레이드하는 것이 좋습니다.
 Linux | Azure는 이러한 [Linux 운영 체제](../virtual-machines/linux/endorsed-distros.md)를 보증합니다. 다른 Linux 운영 체제도 Azure에서 부팅될 수 있지만, Azure로 마이그레이션하기 전에 OS를 보증된 버전으로 업그레이드하는 것이 좋습니다. | 버전이 보증되면 Azure 준비 완료입니다.<br/><br/>버전이 보증되지 않으면 조건부 준비 완료입니다.
 기타 운영 체제<br/><br/> 예: Oracle Solaris, Apple Mac OS, FreeBSD 등 | Azure는 이러한 운영 체제를 보증하지 않습니다. Azure에서 컴퓨터가 부팅되더라도 Azure가 OS 지원을 제공하지 않습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 지원되는 OS를 설치하는 것이 좋습니다.  
-vCenter Server에서 *기타*로 지정된 OS | 이 경우 Azure Migrate가 OS를 식별할 수 없습니다. | 준비 상태 알 수 없음입니다. VM 내부에서 실행 중인 OS가 Azure에서 지원되는지 확인합니다.
+vCenter Server에서 **기타**로 지정된 OS | 이 경우 Azure Migrate가 OS를 식별할 수 없습니다. | 준비 상태 알 수 없음입니다. VM 내부에서 실행 중인 OS가 Azure에서 지원되는지 확인합니다.
 32비트 운영 체제 | Azure에서 컴퓨터가 부팅되더라도 Azure가 전체 지원을 제공하지 않을 수 있습니다. | 조건부 Azure 준비 완료의 경우 Azure로 마이그레이션하기 전에 컴퓨터의 OS를 32비트 OS에서 64비트 OS로 업그레이드하는 것이 좋습니다.
 
 ## <a name="sizing"></a>크기 조정

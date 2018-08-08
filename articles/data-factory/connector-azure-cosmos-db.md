@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37052769"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325356"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 복사
 
@@ -51,9 +51,9 @@ Azure Cosmos DB 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **CosmosDb**로 설정해야 합니다. | 예 |
-| connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. 아래 샘플과 같이 연결 문자열에 데이터베이스 정보를 지정해야 합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니오 |
+| 형식 | 형식 속성은 **CosmosDb**로 설정해야 합니다. | yes |
+| connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다. 아래 샘플과 같이 연결 문자열에 데이터베이스 정보를 지정해야 합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 개인 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
 
@@ -84,8 +84,8 @@ Azure Cosmos DB 간 데이터를 복사하려면 데이터 집합의 type 속성
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 type 속성을 **DocumentDbCollection**으로 설정해야 합니다. |예 |
-| collectionName |Cosmos DB 문서 컬렉션의 이름입니다. |예 |
+| 형식 | 데이터 집합의 type 속성을 **DocumentDbCollection**으로 설정해야 합니다. |yes |
+| collectionName |Cosmos DB 문서 컬렉션의 이름입니다. |yes |
 
 **예제:**
 
@@ -122,8 +122,8 @@ Azure Cosmos DB에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 type 속성을 **DocumentDbCollectionSource**로 설정해야 합니다. |예 |
-| 쿼리 |데이터를 읽는 Cosmos DB 쿼리를 지정합니다.<br/><br/>예제: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니오 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| 형식 | 복사 작업 원본의 type 속성을 **DocumentDbCollectionSource**로 설정해야 합니다. |yes |
+| 쿼리 |데이터를 읽는 Cosmos DB 쿼리를 지정합니다.<br/><br/>예제: `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |문서가 중첩되고 결과 집합을 평면화하는 방법을 나타내는 특수 문자<br/><br/>예를 들어, Cosmos DB 쿼리가 중첩된 결과 `"Name": {"First": "John"}`을 반환하는 경우 복사 작업은 nestedSeparator가 점인 경우 "John"이라는 값으로 "Name.First"로 열 이름을 식별합니다. |아니요(기본값: 점 `.`) |
 
 **예제:**
@@ -164,7 +164,9 @@ Azure Cosmos DB로 데이터를 복사하려면 복사 작업의 싱크 형식�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 형식 속성을 **DocumentDbCollectionSink**로 설정해야 합니다. |예 |
+| 형식 | 복사 작업 싱크의 형식 속성을 **DocumentDbCollectionSink**로 설정해야 합니다. |yes |
+| writeBehavior |Cosmos DB에 데이터를 작성하는 방법을 설명합니다. 허용되는 값은 `insert` 및 `upsert`입니다.<br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다. 원래 문서에서 또는 열 매핑으로 지정되지 않은 경우 ADF는 문서에 대한 ID를 자동으로 생성합니다. 이는 upsert가 예상대로 작동하도록 문서에 "ID"가 있는지 확인해야 한다는 의미입니다. |아니요(기본값: 삽입) |
+| writeBatchSize | Data Factory는 [Cosmos DB 대량 실행기](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Cosmos DB에 데이터를 작성합니다. "writeBatchSize"는 매번 라이브러리에 제공하는 문서의 크기를 제어합니다. writeBatchSize를 증가시켜 성능을 향상시킬 수 있습니다. |아니요 |
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>예를 들어, 출력 데이터 집합 구조에서 `Name.First`는 nestedSeparator가 점인 경우 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다. `"Name": {"First": "[value maps to this column from source]"}` |아니요(기본값: 점 `.`) |
 
 **예제:**
@@ -191,7 +193,8 @@ Azure Cosmos DB로 데이터를 복사하려면 복사 작업의 싱크 형식�
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

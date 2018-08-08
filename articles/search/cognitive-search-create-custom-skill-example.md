@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37343249"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307996"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>예제: Translator Text API를 사용하여 사용자 지정 기술 만들기
 
@@ -244,6 +244,13 @@ POST https://localhost:7071/api/Translate
 
 1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동한 다음, 게시한 Translate Function을 찾습니다. **관리** 섹션 아래에 호스트 키가 표시됩니다. ‘기본’ 호스트 키의 **복사** 아이콘을 선택합니다.  
 
+## <a name="update-ssl-settings"></a>SSL 설정 업데이트
+
+2018년 6월 30일 후에 만들어진 모든 Azure Functions는 현재 사용자 지정 기술과 호환되지 않는 TLS 1.0을 사용하지 않습니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 리소스 그룹으로 이동한 다음, 게시한 Translate Function을 찾습니다. **플랫폼 기능** 섹션 아래에 SSL이 표시되어야 합니다.
+
+1. SSL을 선택한 후 **최소 TLS 버전**을 1.0으로 변경해야 합니다. TLS 1.2 함수는 아직 사용자 지정 기술로 지원되지 않습니다.
 
 ## <a name="test-the-function-in-azure"></a>Azure에서 함수 테스트
 

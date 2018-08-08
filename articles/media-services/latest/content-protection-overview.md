@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/25/2018
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1568ea3431f18b7a7a020d34d803f883904e18b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115233"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399756"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
 
@@ -30,7 +30,7 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 저장, 처�
 
 &#42; *동적 암호화는 AES-128 "암호화되지 않은 키", CBCS 및 CENC를 지원합니다. 자세한 내용은 [여기](#streaming-protocols-and-encryption-types)에서 지원 매트릭스를 참조하세요.*
 
-이 문서에서는 Media Services를 사용한 콘텐츠 보호를 이해하는 것과 관련된 개념 및 용어를 설명합니다. 문서는 또한 콘텐츠를 보호하는 방법을 설명하는 문서에 대한 링크를 제공합니다. 
+이 문서에서는 Media Services를 사용한 콘텐츠 보호를 이해하는 것과 관련된 개념 및 용어를 설명합니다. 또한 이 문서에는 [FAQ](#faq) 섹션이 있으며, 콘텐츠를 보호하는 방법을 보여 주는 문서에 대한 링크가 제공됩니다. 
 
 ## <a name="main-components-of-the-content-protection-system"></a>콘텐츠 보호 시스템의 기본 구성 요소
 
@@ -125,6 +125,65 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
 
 토큰 제한 정책을 구성하는 경우 기본 확인 키, 발급자 및 대상 매개 변수를 지정해야 합니다. 기본 확인 키에는 토큰 서명에 사용된 키가 포함됩니다. 발급자는 토큰을 발급하는 보안 토큰 서비스입니다. 때로 범위라고도 하는 대상은 토큰의 의도 또는 토큰에서 접근을 인증하는 대상 리소스를 설명합니다. Media Services 키 배달 서비스는 이러한 토큰의 값이 템플릿 파일에 있는 값과 일치하는지 확인합니다.
 
+## <a name="a-idfaqfrequently-asked-questions"></a><a id="faq"/>질문과 대답
+
+### <a name="question"></a>질문
+
+AMS(Azure Media Services) v3를 사용하여 다중 DRM(PlayReady, Widevine 및 FairPlay) 시스템을 구현하고 AMS 라이선스/키 배달 서비스를 사용하려면 어떻게 할까요?
+
+### <a name="answer"></a>응답
+
+종단 간 시나리오의 경우 [이 코드 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)를 참조하세요. 
+
+예제에서는 다음을 수행하는 방법을 보여 줍니다.
+
+1. ContentKeyPolicies를 만들고 구성합니다.
+
+  샘플에는 [PlayReady](playready-license-template-overview.md), [Widevine](widevine-license-template-overview.md) 및 [FairPlay](fairplay-license-overview.md) 라이선스를 구성하는 함수가 포함되어 있습니다.
+
+    ```
+    ContentKeyPolicyPlayReadyConfiguration playReadyConfig = ConfigurePlayReadyLicenseTemplate();
+    ContentKeyPolicyWidevineConfiguration widevineConfig = ConfigureWidevineLicenseTempate();
+    ContentKeyPolicyFairPlayConfiguration fairPlayConfig = ConfigureFairPlayPolicyOptions();
+    ```
+
+2. 암호화된 자산을 스트림하도록 구성된 StreamingLocator를 만듭니다. 
+
+  이 예제에서는 envelope 및 cenc 암호화를 지원하고 StreamingLocator에 두 개의 콘텐츠 키를 설정하는 **StreamingPolicyName**을 **PredefinedStreamingPolicy.SecureStreaming**으로 설정합니다. 
+
+  또한 FairPlay를 사용하여 암호화하려면 **StreamingPolicyName**을 **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**로 설정합니다.
+
+3. 테스트 토큰을 만듭니다.
+
+  **GetTokenAsync** 메서드에서 테스트 토큰을 만드는 방법을 보여 줍니다.
+  
+4. 스트리밍 URL을 작성합니다.
+
+  **GetDASHStreamingUrlAsync** 메서드에서 스트리밍 URL을 작성하는 방법을 보여 줍니다. 이 경우 URL은 **DASH** 콘텐츠를 스트림합니다.
+
+### <a name="question"></a>질문
+
+라이선스 또는 키를 요청하는 데 사용하기 전에 JWT 토큰을 가져올 수 있는 방법과 위치는 어떻게 되나요?
+
+### <a name="answer"></a>응답
+
+1. 프로덕션 환경의 경우 HTTPS 요청 시 JWT 토큰을 발급하는 STS(보안 토큰 서비스)(웹 서비스)가 있어야 합니다. 테스트를 위해 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs)에 정의된 **GetTokenAsync** 메서드에 표시된 코드를 사용할 수 있습니다.
+2. 사용자가 인증되면 플레이어에서 이러한 토큰에 대해 STS에 요청하고 토큰의 값으로 할당해야 합니다. [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용할 수 있습니다.
+
+* 대칭 및 비대칭 키를 사용하여 STS를 실행하는 예제는 [http://aka.ms/jwt](http://aka.ms/jwt)를 참조하세요. 
+* 이러한 JWT 토큰을 사용하는 Azure Media Player를 기반으로 하는 플레이어의 예제는 [http://aka.ms/amtest](http://aka.ms/amtest)를 참조하세요("player_settings" 링크를 펼쳐 토큰 입력을 확인함).
+
+### <a name="question"></a>질문
+
+AES 암호화를 사용하여 비디오를 스트림할 수 있도록 요청에 권한을 부여하려면 어떻게 할까요?
+
+### <a name="answer"></a>응답
+
+올바른 방법은 다음과 같이 STS(보안 토큰 서비스)를 활용하는 것입니다.
+
+STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미엄 사용자", "기본 사용자", "평가판 사용자")을 추가합니다. JWT에서 서로 다른 클레임을 사용하면 사용자가 각각의 콘텐츠를 볼 수 있습니다. 물론 ContentKeyPolicyRestriction에는 서로 다른 콘텐츠/자산에 해당하는 RequiredClaims가 있습니다.
+
+[이 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)과 같이 Azure Media Services API를 사용하여 라이선스/키 배달을 구성하고 자산을 암호화합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

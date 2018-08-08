@@ -12,12 +12,12 @@ documentationcenter: ''
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7717c026b4c09f47159fe62640f9a2eedf409d30
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d321e82560f7676f77ed9161c1bce0304b7d5914
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247684"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397110"
 ---
 # <a name="how-to-manage-connectivity-and-reliable-messaging-using-azure-iot-hub-device-sdks"></a>Azure IoT Hub 장치 SDK를 사용하여 연결 및 신뢰할 수 있는 메시징을 관리하는 방법
 
@@ -116,3 +116,4 @@ Azure IoT Hub 장치 SDK는 Azure IoT Hub에 연결하고 메시지를 전송/�
 - [C용 IoT 장치 SDK 사용](.\iot-hub-device-sdk-c-intro.md)
 - [제한된 장치에 대한 개발](.\iot-hub-devguide-develop-for-constrained-devices.md)
 - [모바일 장치용 개발](.\iot-hub-how-to-develop-for-mobile-devices.md)
+- [장치 연결 끊김 문제 해결](iot-hub-troubleshoot-connectivity.md)

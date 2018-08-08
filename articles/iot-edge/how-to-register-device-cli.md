@@ -4,17 +4,17 @@ description: Azure CLI 2.0용 IoT 확장을 사용하여 새 IoT Edge 장치 등
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 05/30/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6935dfe5b32364e402017cd3005ab17969ce1ce
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 451f4df31cd1c520b14227829923f72fe80c38c3
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035324"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325499"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 새 Azure IoT Edge 장치 등록
 
@@ -63,7 +63,7 @@ IoT Edge 장치로 등록된 모든 장치에서는 **capabilities.iotEdge** 속
    az iot hub device-identity show-connection-string --device-id [device id] --hub-name [hub name] 
    ```
 
-장치 ID 매개 변수는 대소문자를 구분합니다. 
+장치 ID 매개 변수는 대소문자를 구분합니다. 연결 문자열 앞뒤의 따옴표를 복사하지 마세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

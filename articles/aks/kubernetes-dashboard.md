@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091141"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307928"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하여 Kubernetes 대시보드에 액세스
 
@@ -38,12 +38,14 @@ az aks browse --resource-group myResourceGroup --name myAKSCluster
 
 ### <a name="for-rbac-enabled-clusters"></a>RBAC 지원 클러스터의 경우
 
-AKS 클러스터에서 RBAC를 사용하는 경우, 대시보드에 올바르게 액세스하려면 먼저 *ClusterRoleBinding*을 만들어야 합니다. 바인딩을 만들려면 다음 예제와 같이 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 명령을 사용합니다. 
+AKS 클러스터에서 RBAC를 사용하는 경우, 대시보드에 올바르게 액세스하려면 먼저 *ClusterRoleBinding*을 만들어야 합니다. 기본적으로 Kubernetes 대시보드는 최소한의 읽기 권한을 사용하여 배포되고 RBAC 액세스 오류를 표시합니다. Kubernetes 대시보드는 액세스 수준을 확인하는 사용자 제공 자격 증명을 현재 지원하지 않으며, 대신 서비스 계정에 부여된 역할을 사용합니다. 클러스터 관리자는 *kubernetes 대시보드* 서비스 계정에 대한 추가 액세스 권한을 부여하도록 선택할 수 있지만 이는 권한 상승에 대한 벡터일 수 있습니다. 또한 더 세분화된 수준의 액세스를 제공하려면 Azure Active Directory 인증을 통합할 수 있습니다.
+
+바인딩을 만들려면 다음 예제와 같이 [kubectl create clusterrolebinding][kubectl-create-clusterrolebinding] 명령을 사용합니다. 
 
 > [!WARNING]
 > 이 샘플 바인딩은 추가 인증 구성 요소를 적용하지 않으므로 사용이 안전하지 않을 수 있습니다. Kubernetes 대시보드는 URL 액세스 권한을 가진 모든 사용자에게 열립니다. Kubernetes 대시보드를 공개적으로 공개하지 마세요.
 >
-> 전달자 토큰 또는 사용자 이름/암호와 같은 메커니즘을 사용하여 대시보드에 액세스할 수 있는 사용자와 사용자가 가진 권한을 제어할 수 있습니다. 이를 통해 대시보드를 더 안전하게 사용할 수 있습니다. 다른 인증 방법 사용에 대한 자세한 내용은 [액세스 제어][dashboard-authentication]에 대한 Kubernetes 대시보드 wiki를 참조하세요.
+> 다른 인증 방법 사용에 대한 자세한 내용은 [액세스 제어][dashboard-authentication]에 대한 Kubernetes 대시보드 wiki를 참조하세요.
 
 ```console
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard

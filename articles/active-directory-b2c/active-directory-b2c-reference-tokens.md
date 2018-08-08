@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adb78f04c0fd5ba175bb31c9a81ad58b3b03fb42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447322"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309029"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: 토큰 참조
 
@@ -72,7 +72,7 @@ ID 토큰에 있는 클레임은 특정 순서로 반환되지 않습니다. 또
 
 | Name | 클레임 | 예제 값 | 설명 |
 | --- | --- | --- | --- |
-| 대상 |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |대상 클레임은 토큰의 의도된 수신자를 식별합니다. Azure AD B2C의 경우 대상은 앱 등록 포털에서 앱에 할당된 앱의 응용 프로그램 ID입니다. 앱은 이 값의 유효성을 검사하고 일치하지 않을 경우 토큰을 거부해야 합니다. |
+| 대상 |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |대상 클레임은 토큰의 의도된 수신자를 식별합니다. Azure AD B2C의 경우 대상은 앱 등록 포털에서 앱에 할당된 앱의 응용 프로그램 ID입니다. 앱은 이 값의 유효성을 검사하고 일치하지 않을 경우 토큰을 거부해야 합니다. 대상은 리소스와 동의어입니다. |
 | 발급자 |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |이 클레임은 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 또한 사용자가 인증하는 Azure AD 디렉터리도 식별합니다. 앱에서 발급자 클레임의 유효성을 검사하여 Azure Active Directory v2.0 끝점에서 제공한 토큰인지 확인해야 합니다. |
 | 발급 시간 |`iat` |`1438535543` |이 클레임은 epoch 시간으로 표시된, 토큰이 발급된 시간입니다. |
 | 만료 시간 |`exp` |`1438539443` |만료 시간 클레임은 epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. 앱은 이 클레임을 사용하여 토큰 수명의 유효성을 확인해야 합니다. |

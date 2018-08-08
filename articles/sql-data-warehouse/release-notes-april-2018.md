@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: ae3d4c3e732024baae29f75fda6f6e821af701a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aabda90deb9634ef456f1006bccb69375f63fc97
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630346"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39323996"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Azure SQL Data Warehouse의 새로운 기능 2018년 4월
 Azure SQL Data Warehouse는 지속적으로 개선 사항을 수신합니다. 이 문서에서는 2018년 4월에 도입된 새로운 기능과 변경 사항에 대해 설명합니다.
@@ -55,3 +55,25 @@ The number of literals in the query is beyond the limit. Please rewrite your que
 
 ## <a name="removed-the-syspdwdatabasemappings-view-behavior-change"></a>제거된 SYS.PDW_DATABASE_MAPPINGS 보기(동작 변경 내용)
 이 `sys.pdw_database_mappings` 보기는 SQL Data Warehouse에서 사용되지 않습니다. 이전에 이 보기의 SELECT는 결과를 반환하지 않았습니다. 보기가 제거되었습니다. 
+
+## <a name="next-steps"></a>다음 단계
+SQL Data Warehouse에 대한 내용을 파악했으므로 [SQL Data Warehouse 만들기][create a SQL Data Warehouse]에 대해 신속히 알아봅니다. Azure를 처음 사용하는 경우 새 용어를 발견하면 [Azure 용어집][Azure glossary]을 유용하게 사용할 수 있습니다. 또는 그 밖의 SQL Data Warehouse 리소스를 살펴봅니다.  
+
+* [고객 성공 사례]
+* [블로그]
+* [기능 요청]
+* [비디오]
+* [고객 자문 팀 블로그]
+* [Stack Overflow 포럼]
+* [Twitter]
+
+
+[블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[고객 성공 사례]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow 포럼]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[비디오]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

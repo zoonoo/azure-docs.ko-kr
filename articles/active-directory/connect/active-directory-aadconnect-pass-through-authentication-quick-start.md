@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 280d62f127c333ff195e921de380721170fd6a96
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214985"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308612"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -45,7 +45,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 ### <a name="in-your-on-premises-environment"></a>온-프레미스 환경에서
 
 1. Azure AD Connect를 실행할 수 있도록 Windows Server 2012 R2 이상을 실행 중인 서버를 찾습니다. 암호의 유효성을 검사해야 하는 사용자와 동일한 Active Directory 포리스트에 서버를 추가합니다.
-2. 이전 단계에서 찾은 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.644.0 이상인지 확인합니다.
+2. 이전 단계에서 찾은 서버에 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)를 설치합니다. Azure AD Connect가 이미 실행되고 있는 경우 버전이 1.1.750.0 이상인지 확인합니다.
 
     >[!NOTE]
     >Azure AD Connect 버전 1.1.557.0, 1.1.558.0, 1.1.561.0 및 1.1.614.0에는 암호 해시 동기화와 관련된 문제가 있습니다. 암호 해시 동기화를 통과 인증과 함께 사용하지 _않으려는_ 경우 [Azure AD Connect 릴리스 정보](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470)를 참조하세요.
@@ -73,7 +73,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
 [Azure AD Connect](active-directory-aadconnect.md)를 통해 통과 인증을 사용하도록 설정합니다.
 
 >[!IMPORTANT]
->Azure AD Connect 주 서버나 준비 서버에서 통과 인증을 사용하도록 설정할 수 있습니다. 주 서버에서 사용하도록 설정하는 것이 좋습니다.
+>Azure AD Connect 주 서버나 준비 서버에서 통과 인증을 사용하도록 설정할 수 있습니다. 주 서버에서 사용하도록 설정하는 것이 좋습니다. 향후 Azure AD Connect 준비 서버를 설정 하는 경우 로그인 옵션으로 통과 인증을 계속 선택**해야 합니다**. 그러나 다른 옵션을 선택하면 테넌트에서 통과 인증을 **사용하지 않도록 설정하고** 주 서버에서 설정을 재정의하게 됩니다.
 
 Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](active-directory-aadconnect-get-started-custom.md)를 선택합니다. **사용자 로그인** 페이지에서 **통과 인증**을 **로그온 방법**으로 선택합니다. 성공적으로 완료되면 통과 인증 에이전트가 Azure AD Connect와 동일한 서버에 설치됩니다. 또한 테넌트에서 통과 인증 기능이 사용됩니다.
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346028"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309064"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅 
 Azure SQL Database는 모니터링 편의를 위해 메트릭 및 진단 로그를 내보낼 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
@@ -267,6 +267,8 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |탄력적 풀|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 용량 한도, XTP 저장소 백분율을 포함합니다. |
 |||
 
+### <a name="logs"></a>로그
+
 ### <a name="query-store-runtime-statistics"></a>쿼리 저장소 런타임 통계
 
 |자산|설명|
@@ -460,6 +462,57 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 |resource_owner_type_s|잠금 소유자.|
 |blocked_process_filtered_s|차단된 프로세스 보고서 XML.|
 |duration_d|잠금 기간(밀리초).|
+
+### <a name="deadlocks-dataset"></a>교착 상태 데이터 집합
+
+|자산|설명|
+|---|---|
+|TenantId|테넌트 ID|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC] |로그가 기록된 때의 타임스탬프|
+|type|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: 교착 상태|
+|OperationName|작업의 이름입니다. 항상: DeadlockEvent|
+|리소스|리소스의 이름입니다.|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우)|
+|DatabaseName_s|데이터베이스 이름 |
+|ResourceId|리소스 URI |
+|deadlock_xml_s|교착 상태 보고서 XML.|
+
+### <a name="automatic-tuning-dataset"></a>자동 조정 데이터 집합
+
+|자산|설명|
+|---|---|
+|TenantId|테넌트 ID|
+|SourceSystem|항상: Azure|
+|TimeGenerated [UTC]|로그가 기록된 때의 타임스탬프|
+|type|항상: AzureDiagnostics|
+|ResourceProvider|리소스 공급자의 이름. 항상: MICROSOFT.SQL|
+|Category|범주 이름. 항상: AutomaticTuning|
+|리소스|리소스의 이름입니다.|
+|ResourceType|리소스 형식 이름. 항상: SERVERS/DATABASES|
+|SubscriptionId|데이터베이스가 속한 구독 GUID|
+|ResourceGroup|데이터베이스가 속한 리소스 그룹의 이름|
+|LogicalServerName_s|데이터베이스가 속한 서버의 이름|
+|LogicalDatabaseName_s|데이터베이스 이름|
+|ElasticPoolName_s|데이터베이스가 속한 탄력적 풀의 이름의 이름(있는 경우)|
+|DatabaseName_s|데이터베이스 이름|
+|ResourceId|리소스 URI |
+|RecommendationHash_s|자동 조정 권장 사항의 고유 해시.|
+|OptionName_s|자동 조정 작업.|
+|Schema_s|데이터베이스 스키마.|
+|Table_s|영향을 받는 테이블.|
+|IndexName_s|인덱스 이름.|
+|IndexColumns_s|열 이름.|
+|IncludedColumns_s|포함된 열.|
+|EstimatedImpact_s|자동 조정 권장 사항 JSON의 예상되는 영향.|
+|Event_s|자동 조정 이벤트의 형식.|
+|Timestamp_t|마지막으로 업데이트한 타임스탬프.|
 
 ### <a name="intelligent-insights-dataset"></a>Intelligent Insights 데이터 집합
 [Intelligent Insights 로그 형식에 대해 자세히 알아봅니다.](sql-database-intelligent-insights-use-diagnostics-log.md)

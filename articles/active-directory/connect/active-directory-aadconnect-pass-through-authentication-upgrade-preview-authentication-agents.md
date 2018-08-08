@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f3460d22354a944a14c814c372cacf6839dc7bb7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214730"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325431"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory 통과 인증: 미리 보기 인증 에이전트 업그레이드
 
@@ -68,7 +68,7 @@ ms.locfileid: "39214730"
 
 1. **Azure AD Connect 업그레이드**: 이 [문서](./active-directory-aadconnect-upgrade-previous-version.md)에 따라 최신 Azure AD Connect 버전으로 업그레이드합니다.
 2. **인증 에이전트의 미리 보기 버전 제거**: [이 PowerShell 스크립트](https://aka.ms/rmpreviewagent)를 다운로드하여 서버에서 관리자 권한으로 실행합니다.
-3. **인증 에이전트의 최신 버전(버전 1.5.193.0 이상) 다운로드**: 테넌트의 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다. **Azure Active Directory -> Azure AD Connect -> 통과 인증 -> 에이전트 다운로드**를 선택합니다. [서비스 약관](https://aka.ms/authagenteula)에 동의하고 인증 에이전트의 최신 버전을 다운로드합니다. [여기](https://aka.ms/getauthagent)에서 인증 에이전트를 다운로드할 수도 있습니다.
+3. **인증 에이전트의 최신 버전(버전 1.5.389.0 이상) 다운로드**: 테넌트의 글로벌 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다. **Azure Active Directory -> Azure AD Connect -> 통과 인증 -> 에이전트 다운로드**를 선택합니다. [서비스 약관](https://aka.ms/authagenteula)에 동의하고 인증 에이전트의 최신 버전을 다운로드합니다. [여기](https://aka.ms/getauthagent)에서 인증 에이전트를 다운로드할 수도 있습니다.
 4. **인증 에이전트의 최신 버전 설치**: 3단계에서 다운로드한 실행 파일을 실행합니다. 메시지가 표시되면 테넌트의 전역 관리자 자격 증명을 입력합니다.
 5. **최신 버전이 설치되었는지 확인**: 이전에 설명한 것처럼 **제어판 -> 프로그램 -> 프로그램 및 기능**으로 이동하여 “**Microsoft Azure AD Connect 인증 에이전트**”에 대한 항목이 있는지 확인합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "39214730"
 다음 단계에 따라 다른 서버에서 인증 에이전트를 업그레이드합니다(여기서는 Azure AD Connect가 설치되지 않음).
 
 1. **인증 에이전트의 미리 보기 버전 제거**: [이 PowerShell 스크립트](https://aka.ms/rmpreviewagent)를 다운로드하여 서버에서 관리자 권한으로 실행합니다.
-2. **인증 에이전트의 최신 버전(버전 1.5.193.0 이상) 다운로드**: 테넌트의 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다. **Azure Active Directory -> Azure AD Connect -> 통과 인증 -> 에이전트 다운로드**를 선택합니다. 서비스 약관에 동의하고 최신 버전을 다운로드합니다.
+2. **인증 에이전트의 최신 버전(버전 1.5.389.0 이상) 다운로드**: 테넌트의 글로벌 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다. **Azure Active Directory -> Azure AD Connect -> 통과 인증 -> 에이전트 다운로드**를 선택합니다. 서비스 약관에 동의하고 최신 버전을 다운로드합니다.
 3. **인증 에이전트의 최신 버전 설치**: 2단계에서 다운로드한 실행 파일을 실행합니다. 메시지가 표시되면 테넌트의 전역 관리자 자격 증명을 입력합니다.
 4. **최신 버전이 설치되었는지 확인**: 이전에 설명한 것처럼 **제어판 -> 프로그램 -> 프로그램 및 기능**으로 이동하여 **Microsoft Azure AD Connect 인증 에이전트**라는 항목이 있는지 확인합니다.
 

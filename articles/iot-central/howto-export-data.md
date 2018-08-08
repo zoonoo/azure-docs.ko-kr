@@ -8,12 +8,12 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 6d35e3cfefcefef0b4ff40364cbdab92d486b769
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5b9564dfe40f292d289ee9ed680e816771d0b0ed
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011461"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282877"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IoT Central에서 데이터 내보내기
 
@@ -584,4 +584,7 @@ function load(filePath) {
 
 ## <a name="next-steps"></a>다음 단계
 
-장치 탐색기에서 [장치를 관리하는](howto-manage-devices.md) 방법을 알아봅니다. 
+이제 데이터를 내보내는 방법을 파악했으므로 다음과 같이 다음 단계를 제안합니다.
+
+> [!div class="nextstepaction"]
+> [Power BI에서 데이터 시각화하는 방법](howto-connect-powerbi.md)

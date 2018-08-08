@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902948"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325458"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>토큰 획득을 위해 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
@@ -49,6 +49,7 @@ ms.locfileid: "37902948"
 |  |  |
 | -------------- | -------------------- |
 | [HTTP를 사용하여 토큰 가져오기](#get-a-token-using-http) | MSI 토큰 끝점에 대한 프로토콜 세부 정보 |
+| [.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 토큰 가져오기](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | .NET 클라이언트에서 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하는 예
 | [C#을 사용하여 토큰 가져오기](#get-a-token-using-c) | C# 클라이언트에서 MSI REST 끝점을 사용하는 예제 |
 | [Go를 사용하여 토큰 가져오기](#get-a-token-using-go) | Go 클라이언트에서 MSI REST 끝점을 사용하는 예제 |
 | [Azure PowerShell을 사용하여 토큰 가져오기](#get-a-token-using-azure-powershell) | PowerShell 클라이언트에서 MSI REST 끝점을 사용하는 예제 |
@@ -73,7 +74,9 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `http://169.254.169.254/metadata/identity/oauth2/token` | 인스턴스 메타데이터 서비스의 MSI 엔드포인트입니다. |
 | `api-version`  | IMDS 엔드포인트의 API 버전을 나타내는 쿼리 문자열 매개 변수입니다. API 버전 `2018-02-01` 이상을 사용하세요. |
 | `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 또한 발급된 토큰의 `aud` (대상) 클레임에서 표시됩니다. 이 예제에서는 Azure Resource Manager에 액세스할 수 있는 토큰을 요청합니다. 여기에는 https://management.azure.com/이라는 앱 ID URI가 포함됩니다. |
-| `Metadata` | SSRF(서버 쪽 요청 위조) 공격에 대한 완화 수단으로 MSI에서 HTTP 요청 헤더 필드가 필요합니다. 이 값은 모두 소문자이며 "true"로 설정되어야 합니다.
+| `Metadata` | SSRF(서버 쪽 요청 위조) 공격에 대한 완화 수단으로 MSI에서 HTTP 요청 헤더 필드가 필요합니다. 이 값은 모두 소문자이며 "true"로 설정되어야 합니다. |
+| `object_id` | (선택 사항) 토큰을 원하는 관리 ID의 object_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
+| `client_id` | (선택 사항) 토큰을 원하는 관리 ID의 client_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
 
 MSI(관리 서비스 ID) VM 확장 엔드포인트를 사용하는 요청 샘플 *(사용되지 않음)*:
 
@@ -87,7 +90,9 @@ Metadata: true
 | `GET` | HTTP 동사는 끝점에서 데이터를 검색한다는 것을 나타냅니다. 이 경우에는 OAuth 액세스 토큰입니다. | 
 | `http://localhost:50342/oauth2/token` | MSI 끝점에서 50342는 기본 포트이며 구성 가능합니다. |
 | `resource` | 쿼리 문자열 매개 변수는 대상 리소스의 앱 ID URI를 나타냅니다. 또한 발급된 토큰의 `aud` (대상) 클레임에서 표시됩니다. 이 예제에서는 Azure Resource Manager에 액세스할 수 있는 토큰을 요청합니다. 여기에는 https://management.azure.com/이라는 앱 ID URI가 포함됩니다. |
-| `Metadata` | SSRF(서버 쪽 요청 위조) 공격에 대한 완화 수단으로 MSI에서 HTTP 요청 헤더 필드가 필요합니다. 이 값은 모두 소문자이며 "true"로 설정되어야 합니다.
+| `Metadata` | SSRF(서버 쪽 요청 위조) 공격에 대한 완화 수단으로 MSI에서 HTTP 요청 헤더 필드가 필요합니다. 이 값은 모두 소문자이며 "true"로 설정되어야 합니다.|
+| `object_id` | (선택 사항) 토큰을 원하는 관리 ID의 object_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
+| `client_id` | (선택 사항) 토큰을 원하는 관리 ID의 client_id를 나타내는 쿼리 문자열 매개 변수입니다. VM에 여러 사용자 할당 관리 ID가 있는 경우 필수입니다.|
 
 
 샘플 응답:
@@ -115,6 +120,26 @@ Content-Type: application/json
 | `not_before` | 액세스 토큰이 적용되고 허용될 수 있는 시간 범위입니다. 날짜는 "1970-01-01T0:0:0Z UTC"부터 시간(초)으로 표시됩니다(토큰의 `nbf` 클레임에 해당함). |
 | `resource` | 액세스 토큰이 요청되는 리소스는 요청의 `resource` 쿼리 문자열 매개 변수와 일치합니다. |
 | `token_type` | 토큰의 형식은 "전달자" 액세스 토큰입니다. 즉, 리소스가 이 토큰의 전달자에 액세스 권한을 제공할 수 있습니다. |
+
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리를 사용하여 토큰 가져오기
+
+.NET 응용 프로그램 및 함수의 경우 관리되는 서비스 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+
+1. 응용 프로그램에 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet 패키지의 참조를 추가합니다.
+
+2.  응용 프로그램에 다음 코드를 추가합니다.
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+    
+Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조](/azure/key-vault/service-to-service-authentication) 및 [MSI .NET이 포함된 App Service 및 KeyVault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)를 참조하세요.
 
 ## <a name="get-a-token-using-c"></a>C#을 사용하여 토큰 가져오기
 

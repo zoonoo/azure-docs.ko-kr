@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136658"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398957"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Azure Active Directory 사용 약관 기능
 Azure AD 사용 약관은 조직이 최종 사용자에게 정보를 제공하는 데 사용할 수 있는 간단한 방법을 제공합니다. 이 프레젠테이션은 사용자가 법률 또는 규정 준수 요구 사항에 대한 관련 고지 사항을 볼 수 있게 해줍니다. 이 문서는 Azure AD 사용 약관을 시작하는 방법을 설명합니다.
@@ -138,6 +138,42 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 1. 여기서 사용자가 동의한 사용 약관을 검토할 수 있습니다. 
 
+## <a name="edit-terms-of-use-details"></a>사용 약관 세부 정보 편집
+사용 약관 세부 정보 중 일부는 편집할 수 있지만 기존 문서는 수정할 수 없습니다. 다음 절차에서는 세부 정보를 편집하는 방법에 대해 설명합니다.
+
+1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
+
+1. 편집하려는 사용 약관을 선택합니다.
+
+1. **사용 약관 편집**을 클릭합니다.
+
+1. [사용 약관 편집] 창에서 이름을 변경하거나, 이름을 표시하거나, 사용자가 값을 확장하도록 요구합니다.
+
+    ![TOU 추가](media/active-directory-tou/edit-tou.png)
+
+1. **저장**을 클릭하여 변경 내용을 저장합니다.
+
+    변경 내용이 저장되면 사용자는 새 약관을 다시 동의해야 합니다.
+
+## <a name="add-a-terms-of-use-language"></a>사용 약관 언어 추가
+다음 절차에서는 사용 약관 언어를 추가하는 방법에 대해 설명합니다.
+
+1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
+
+1. 편집하려는 사용 약관을 선택합니다.
+
+1. 세부 정보 창에서 **언어** 탭을 클릭합니다.
+
+    ![TOU 추가](media/active-directory-tou/languages-tou.png)
+
+1. **언어 추가**를 클릭합니다.
+
+1. [사용 약관 언어 추가] 창에서 지역화된 PDF를 업로드하고 언어를 선택합니다.
+
+    ![TOU 추가](media/active-directory-tou/language-add-tou.png)
+
+1. **추가**를 클릭하여 언어를 추가합니다.
+
 ## <a name="delete-terms-of-use"></a>사용 약관 삭제
 다음 절차에 따라 이전 사용 약관을 삭제할 수 있습니다.
 
@@ -175,8 +211,11 @@ A: 사용 약관 보고서에 있는, 사용 약관에 동의/거부한 사용�
 **Q: 사용 약관 보고서와 Azure AD 감사 로그에 표시되는 동의 수가 다른 이유는 무엇인가요?**</br>
 A: 사용 약관 보고서는 사용 약관의 수명 기간 동안 저장되는 반면, Azure AD 감사 로그는 30일 동안 저장됩니다. 또한 사용 약관 보고서에는 사용자의 현재 동의 상태만 표시됩니다. 예를 들어, 사용자가 거부한 후 동의할 경우, 사용 약관 보고서에는 해당 사용자의 동의만 표시됩니다. 기록을 확인해야 하는 경우, Azure AD 감사 로그를 사용할 수 있습니다.
 
-**Q: 사용 약관 조건을 변경한 경우, 사용자가 다시 동의해야 하나요?**</br>
-A: 예, 관리자는 사용 약관 조건을 변경할 수 있으며 사용자에게 새 조건에 대한 재동의를 요구할 수 있습니다.
+**Q: 사용 약관에 대한 세부 정보를 편집하는 경우 사용자가 다시 동의해야 하나요?**</br>
+A: 예, 관리자가 사용 약관의 세부 정보를 편집하면 사용자가 새 사용 약관에 다시 동의해야 합니다.
+
+**Q: 기존 사용 약관 문서는 업데이트할 수 있나요?**</br>
+A: 기존 사용 약관 문서는 현재 업데이트할 수 없습니다. 사용 약관 문서를 변경하려면 새 사용 약관 인스턴스를 만들어야 합니다.
 
 **Q: 사용 약관 PDF 문서에 하이퍼링크가 있는 경우, 최종 사용자가 하이퍼링크를 클릭할 수 있나요?**</br>
 A: PDF는 기본적으로 JPEG로 렌더링되므로 하이퍼링크를 클릭할 수 없습니다. 사용자는 **보는 데 문제가 있나요? 여기를 클릭하세요.** 를 선택하여 하이퍼링크가 지원되는 네이티브 PDF를 렌더링할 수 있습니다.

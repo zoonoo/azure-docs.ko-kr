@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441576"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282249"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>포털을 사용하여 리소스에 액세스할 수 있는 Azure Active Directory 응용 프로그램 및 서비스 주체 만들기
 
-리소스를 액세스하거나 수정해야 하는 코드가 있는 경우 Azure AD(Active Directory) 응용 프로그램을 설정합니다. AD 응용 프로그램에 필수 사용 권한을 할당합니다. 고유한 사용 권한이 아닌 앱 ID에 대한 사용 권한을 할당할 수 있기 때문에 이 방법은 고유한 자격 증명을 사용하여 앱을 실행하는 것이 좋습니다. 일반적으로 이러한 권한은 정확히 앱 실행에 필요한 것으로 제한됩니다.
+리소스를 액세스하거나 수정해야 하는 코드가 있는 경우 Azure AD(Active Directory) 응용 프로그램을 설정합니다. AD 응용 프로그램에 필수 사용 권한을 할당할 수 있습니다. 고유한 사용 권한이 아닌 앱 ID에 대한 사용 권한을 할당할 수 있기 때문에 이 방법은 고유한 자격 증명을 사용하여 앱을 실행하는 것이 좋습니다. 일반적으로 이러한 권한은 정확히 앱 실행에 필요한 것으로 제한됩니다.
 
 이 문서에서는 포털을 통해 이러한 단계를 수행하는 방법을 보여 줍니다. 여기서는 응용 프로그램을 하나의 조직 내에서만 실행하게 되는 단일 테넌트 응용 프로그램을 중점적으로 다룹니다. 일반적으로 단일 조직 내에서 실행되는 LOB(기간 업무) 응용 프로그램에 대해 단일 테넌트 응용 프로그램을 사용하게 됩니다.
 
@@ -156,7 +156,7 @@ Azure 구독 권한을 확인하려면
 
    ![추가 선택](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. 응용 프로그램에 할당할 역할을 선택합니다. 다음 이미지에서는 **읽기 권한자** 역할을 보여 줍니다.
+1. 응용 프로그램에 할당할 역할을 선택합니다. 응용 프로그램이 **다시 부팅**, **시작** 및 **중지** 인스턴스 같은 작업을 실행하게 하려면 **기여자** 역할을 선택해야 합니다. 다음 이미지에서는 **읽기 권한자** 역할을 보여 줍니다.
 
    ![역할 선택](./media/resource-group-create-service-principal-portal/select-role.png)
 

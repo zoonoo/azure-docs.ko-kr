@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092072"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308816"
 ---
 # <a name="sql-database-faq"></a>SQL Database FAQ
 
@@ -90,7 +90,7 @@ DTU 기반 모델을 사용하는 기존 SQL Database 응용 프로그램의 경
 PITR에 대한 백업 보존 기간은 7-35일로 구성할 수 있습니다. 백업 저장소는 최대 데이터 크기와 동일한 저장소 용량을 초과하는 경우 실제 저장소 사용량에 따라 별도로 요금이 청구됩니다. 미리 보기에서 PITR 보존 기간은 기본적으로 7일로 설정됩니다. 대부분의 경우 최대 데이터 크기는 7일간의 백업 저장에 충분합니다.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>계산에 대해 하드웨어 세대를 선택하도록 허용하는 이유는 무엇인가요?
-응용 프로그램의 요구 사항과 거의 일치하는 성능 구성을 선택할 수 있도록 최대한의 유연성을 제공할 필요가 있기 때문입니다. 위의 표에서는 4세대와 5세대의 차이점을 보여 줍니다. 특히 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산 리소스를 훨씬 더 강화할 수 있습니다. 이러한 차이를 투명하게 하여 응용 프로그램에 가장 적합한 가격 대비 성능 비율을 달성할 수 있게 하려고 합니다.
+응용 프로그램의 요구 사항과 거의 일치하는 성능 구성을 선택할 수 있도록 최대한의 유연성을 제공할 필요가 있기 때문입니다. 4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 계산 리소스를 훨씬 더 강화할 수 있습니다. 자세한 내용은 [vCore 구매 모델](sql-database-service-tiers-vcore.md) 참조
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>DTU 기반 데이터베이스에서 vCore 기반 서비스 계층으로 변환하려면 응용 프로그램을 오프라인으로 전환해야 하나요? 
 새 서비스 계층에서는 데이터베이스를 표준 서비스 계층에서 프리미엄 서비스 계층으로 업그레이드하거나 그 반대로 업그레이드하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공합니다. 이 변환은 Azure Portal, PowerShell, Azure CLI, T-SQL 또는 REST API를 사용하여 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.

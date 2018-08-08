@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e8f6b30bb7cbe82159e86fa48721afce3f9477d8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4de24608ba9db174f343bf0d78029913e4b7868f
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591500"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325686"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Office 365 및 Azure Active Directory에 대한 페더레이션 인증서 갱신
 ## <a name="overview"></a>개요
@@ -69,13 +69,19 @@ AD FS 서버에서 PowerShell을 엽니다. AutoCertificateRollover 값을 True�
 >AD FS 2.0을 사용하는 경우 Add-Pssnapin 먼저 Microsoft.Adfs.Powershell을 실행합니다.
 
 ### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>2단계: AD FS와 Azure AD가 동기화되었는지 확인
-AD FS 서버에서 Azure AD PowerShell 프롬프트를 열고 Azure AD에 연결합니다.
+AD FS 서버에서 MSOnline PowerShell 프롬프트를 열고 Azure AD에 연결합니다.
 
 > [!NOTE]
-> Azure AD PowerShell을 [여기](https://technet.microsoft.com/library/jj151815.aspx)에서 다운로드할 수 있습니다.
->
+> MSOL-Cmdlets은 MSOnline PowerShell 모듈에 포함됩니다.
+> MSOnline PowerShell 모듈을 직접 PowerShell 갤러리에서 다운로드할 수 있습니다.
+> 
 >
 
+    Install-Module MSOnline
+
+MSOnline PowerShell 모듈을 사용하여 Azure AD에 연결합니다.
+
+    Import-Module MSOnline
     Connect-MsolService
 
 AD FS에서 구성된 인증서 및 지정된 도메인에 대한 Azure AD 트러스트 속성을 확인합니다.
@@ -91,9 +97,9 @@ Get-MsolFederationProperty 또는 Get-AdfsCertificate 중 하나의 출력에서
 
 | AutoCertificateRollover | Azure AD와 동기화된 인증서 | 페더레이션 메타데이터는 공개적으로 액세스할 수 있습니다. | 유효성 검사 | 조치 |
 |:---:|:---:|:---:|:---:|:---:|
-| 예 |예 |예 |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
-| 예 |아니오 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
-| 아니오 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| yes |예 |yes |- |어떤 조치도 필요하지 않습니다. [자동으로 토큰 서명 인증서 갱신](#autorenew)을 참조하세요. |
+| yes |아니요 |- |15일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
+| 아니요 |- |- |30일 이내 |즉시 갱신합니다. [수동으로 토큰 서명 인증서 갱신](#manualrenew)을 참조하세요. |
 
 \[-] 중요하지 않습니다.
 

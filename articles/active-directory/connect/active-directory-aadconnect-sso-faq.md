@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258495"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283226"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: FAQ(질문과 대답)
 
@@ -94,10 +94,8 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
 1. `$creds = Get-Credential`를 호출합니다. 메시지가 표시되면 의도한 AD 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
->[!NOTE]
->의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
-
-UPN을 사용하여 변환 
+    >[!NOTE]
+    >의도된 AD 포리스트를 찾기 위해 도메인 관리자의 사용자 이름을 사용합니다. 해당 항목은 UPN(사용자 계정 이름)(johndoe@contoso.com) 형식이나 도메인 정규화 SAM 계정 이름(contoso\johndoe 또는 contoso.com\johndoe) 형식으로 제공됩니다. 도메인 정규화 SAM 계정 이름을 사용하는 경우 사용자 이름의 도메인 부분을 사용하여 [DNS를 사용하는 도메인 관리자의 도메인 컨트롤러를 찾습니다](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). 대신 UPN을 사용하는 경우 적절한 도메인 컨트롤러를 찾기 전에 [도메인 정규화 SAM 계정 이름으로 변환](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa)합니다.
 
 2. `Update-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 이 특정 AD 포리스트에서 `AZUREADSSOACC` 컴퓨터 계정에 대한 Kerberos 암호 해독 키를 업데이트하고 Azure AD에서 키를 업데이트 합니다.
 3. 기능을 설정한 각 AD 포리스트에 대해 위의 단계를 반복합니다.
@@ -107,17 +105,36 @@ UPN을 사용하여 변환
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Seamless SSO를 사용하지 않으려면 어떻게 해야 하나요?
 
-Seamless SSO는 Azure AD Connect를 통해 사용하지 않도록 설정할 수 있습니다.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>1단계. 테넌트에서 기능 사용 안 함
 
-Azure AD Connect를 실행하고 “사용자 로그인 페이지 변경”(Change user sign-in page)을 선택하고 “다음”을 클릭합니다. 그런 다음 “Single Sign-On 사용” 옵션의 선택을 취소합니다. 마법사를 계속 진행합니다. 마법사를 완료하면 테넌트에서 SSO Seamless를 사용하지 않도록 설정됩니다.
+#### <a name="option-a-disable-using-azure-ad-connect"></a>옵션 A: Azure AD Connect를 사용하여 사용하지 않도록 설정
 
-그러나 화면에 다음과 같은 메시지가 표시됩니다.
+1. Azure AD Connect를 실행하고 **사용자 로그인 페이지 변경**을 선택하고 **다음**을 클릭합니다.
+2. **Single Sign-On 사용** 옵션의 선택을 취소합니다. 마법사를 계속 진행합니다.
+
+마법사를 완료하면 테넌트에서 Seamless SSO를 사용하지 않도록 설정됩니다. 그러나 다음과 같은 메시지가 화면에 표시됩니다.
 
 “Single Sign-On을 이제 사용하지 않도록 설정했습니다. 하지만 정리를 완료하기 위해 수행할 추가 수동 단계가 남아 있습니다. 자세한 정보”
 
-이 과정을 완료하려면 Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 수동 단계를 따릅니다.
+정리 과정을 완료하려면 Azure AD Connect를 실행 중인 온-프레미스 서버에서 2단계 및 3단계를 따릅니다.
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>1단계. Seamless SSO가 사용하도록 설정된 AD 포리스트 목록을 가져옵니다.
+#### <a name="option-b-disable-using-powershell"></a>옵션 B: PowerShell을 사용하여 사용하지 않도록 설정
+
+Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 실행합니다.
+
+1. 먼저 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드하여 설치합니다.
+2. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
+3. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
+4. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
+5. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
+6. `Enable-AzureADSSO -Enable $false`를 호출합니다.
+
+>[!IMPORTANT]
+>PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정하면 Azure AD Connect의 상태를 변경하지 않습니다. Seamless SSO는 **사용자 로그인 변경** 페이지에서 사용하도록 설정된 것으로 표시됩니다.
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>2단계. Seamless SSO가 사용하도록 설정된 AD 포리스트 목록을 가져옵니다.
+
+Azure AD Connect를 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래 1-5단계를 따릅니다. 대신 PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 6단계로 이동합니다.
 
 1. 먼저 [Microsoft Online Services 로그인 도우미](http://go.microsoft.com/fwlink/?LinkID=286152)를 다운로드하여 설치합니다.
 2. 그런 다음 [Windows PowerShell 용 64비트 Azure Active Directory 모듈](http://go.microsoft.com/fwlink/p/?linkid=236297)을 다운로드하고 설치합니다.
@@ -126,7 +143,7 @@ Azure AD Connect를 실행하고 “사용자 로그인 페이지 변경”(Chan
 5. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
 6. `Get-AzureADSSOStatus`를 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>2단계. 나열된 각 AD 포리스트에서 `AZUREADSSOACCT` 컴퓨터 계정을 수동으로 삭제합니다.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>3단계. 나열된 각 AD 포리스트에서 `AZUREADSSOACCT` 컴퓨터 계정을 수동으로 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

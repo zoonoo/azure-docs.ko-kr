@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237182"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397529"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric의 DNS 서비스
 DNS 서비스는 DNS 프로토콜을 통해 다른 서비스를 검색하기 위해 클러스터에서 사용할 수 있는 선택적 시스템 서비스입니다. 
@@ -159,7 +159,7 @@ Visual Studio 또는 원하는 편집기에서 프로젝트를 연 다음 Applic
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>상태 저장 서비스 파티션에서 DNS 쿼리 만들기
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[미리 보기] 상태 저장 서비스 파티션에서 DNS 쿼리 만들기
 Service Fabric 버전 6.3부터 Service Fabric DNS 서비스는 서비스 파티션에 대한 쿼리를 지원합니다.
 
 DNS 쿼리에 사용될 파티션의 경우 다음과 같은 명명 제한이 적용됩니다.
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>알려진 문제
+* Service Fabric 버전 6.3 이상에서는 DNS 이름에 하이픈이 포함된 서비스 이름에 대한 DNS 조회에 문제가 있습니다. 자세한 내용은 이 [GitHub 문제](https://github.com/Azure/service-fabric-issues/issues/1197)를 추적하세요. 이 문제에 대한 수정은 다음 6.3 업데이트에서 제공될 예정입니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [서비스와 연결 및 통신](service-fabric-connect-and-communicate-with-services.md)에서 클러스터 내의 서비스 통신에 대해 자세히 알아봅니다.

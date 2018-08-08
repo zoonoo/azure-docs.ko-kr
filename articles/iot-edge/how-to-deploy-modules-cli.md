@@ -4,17 +4,17 @@ description: Azure CLI 2.0용 IoT 확장을 사용하여 IoT Edge 장치에 모�
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/08/2018
+ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 98a4be02188f7e0462979792a6061d535a64a18d
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29c11139a2c773db2d26bf44984ad4dc72f2d870
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095977"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324608"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli-20"></a>Azure CLI 2.0을 사용하여 Azure IoT Edge 모듈 배포
 
@@ -35,13 +35,13 @@ ms.locfileid: "37095977"
 
 배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. 배포 매니페스트의 작동 방식 및 생성 방법에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
 
-Azure CLI 2.0을 사용하여 모듈을 배포하려면 배포 매니페스트를 로컬에 .txt 파일로 저장합니다. 명령을 실행하여 장치에 구성을 적용할 때 다음 섹션에서 파일 경로를 사용합니다. 
+Azure CLI 2.0을 사용하여 모듈을 배포하려면 배포 매니페스트를 로컬에 .json 파일로 저장합니다. 명령을 실행하여 장치에 구성을 적용할 때 다음 섹션에서 파일 경로를 사용합니다. 
 
 예를 들어 한 개의 모듈이 있는 기본 배포 매니페스트의 예제는 다음과 같습니다.
 
    ```json
    {
-     "moduleContent": {
+     "modulesContent": {
        "$edgeAgent": {
          "properties.desired": {
            "schemaVersion": "1.0",
@@ -50,13 +50,8 @@ Azure CLI 2.0을 사용하여 모듈을 배포하려면 배포 매니페스트�
              "settings": {
                "minDockerVersion": "v1.25",
                "loggingOptions": "",
-               "registryCredentials": {
-                 "registryName": {
-                   "username": "",
-                   "password": "",
-                   "address": ""
-                 }
-               }
+               "registryCredentials": {}
+             }
            },
            "systemModules": {
              "edgeAgent": {
@@ -112,6 +107,8 @@ Azure CLI 2.0을 사용하여 모듈을 배포하려면 배포 매니페스트�
 
 모듈 정보를 사용하여 구성한 배포 매니페스트를 적용하여 장치에 모듈을 배포합니다. 
 
+배포 매니페스트가 저장된 폴더로 디렉터리를 변경합니다. VS Code IoT Edge 템플릿 중 하나를 사용한 경우 솔루션 디렉터리의 **config** 폴더에서 `deployment.json` 파일을 사용합니다. `deployment.template.json` 파일을 사용하지 마세요. 
+
 다음 명령을 사용하여 IoT Edge 장치에 구성을 적용합니다.
 
    ```cli
@@ -119,6 +116,8 @@ Azure CLI 2.0을 사용하여 모듈을 배포하려면 배포 매니페스트�
    ```
 
 장치 ID 매개 변수는 대소문자를 구분합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다. 
+
+   ![모듈 설정](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>장치에서 모듈 보기
 

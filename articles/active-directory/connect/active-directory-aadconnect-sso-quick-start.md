@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259122"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325390"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -49,7 +49,7 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
     
 * **최신 인증 사용하도록 설정**: 이 기능에 대한 테넌트에서 [최신 인증](https://aka.ms/modernauthga)을 사용하도록 설정해야 합니다.
 
-* **최신 버전의 Office 365 클라이언트 사용**: Office 365 클라이언트(Outlook, Word, Excel 등)를 사용하여 자동 로그온 환경을 가져오려면 버전 16.0.8730.xxxx 이상이 필요합니다.
+* **최신 버전의 Office 365 클라이언트 사용**: Office 365 클라이언트(Outlook, Word, Excel 등)를 사용하여 자동 로그온 환경을 가져오려면 버전 16.0.8730.xxxx 이상을 사용해야 합니다.
 
 ## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
@@ -80,6 +80,9 @@ Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **�
 4. **Seamless Single Sign-On** 기능이 **설정**으로 표시되는지 확인합니다.
 
 ![Azure Portal: Azure AD Connect 창](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> Seamless SSO는 각 AD 포리스트의 온-프레미스 AD(Active Directory)에 Azure AD를 나타내는 `AZUREADSSOACC`라는 컴퓨터 계정을 만듭니다. 기능이 작동하려면 이 컴퓨터 계정이 필요합니다. 다른 컴퓨터 계정이 저장된 OU(조직 단위)로 `AZUREADSSOACC` 컴퓨터 계정을 이동하여 동일한 방식으로 관리되고 삭제되지 않도록 합니다.
 
 ## <a name="step-3-roll-out-the-feature"></a>3단계: 기능 배포
 
@@ -194,7 +197,7 @@ Firefox 및 Microsoft Edge 브라우저의 개인 검색 모드에서는 Seamles
 
 특정 사용자에 대한 기능을 테스트하려면 다음 조건이 제대로 갖추어져 있는지 확인합니다.
   - 사용자가 회사 장치에 로그인합니다.
-  - 장치가 Active Directory 도메인에 가입되어 있습니다.
+  - 장치가 Active Directory 도메인에 가입되어 있습니다. 장치가 [Azure AD 조인](../active-directory-azureadjoin-overview.md)될 필요는 _없습니다_.
   - 장치가 회사의 유선/무선 네트워크 또는 원격 액세스 연결(예: VPN 연결)을 통해 DC(도메인 컨트롤러)에 직접 연결되어 있습니다.
   - 그룹 정책을 통해 해당 사용자에게 [기능을 롤아웃](##step-3-roll-out-the-feature)했습니다.
 

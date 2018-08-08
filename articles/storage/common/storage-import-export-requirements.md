@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188673"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308057"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export에 대한 시스템 요구 사항
 
@@ -30,13 +30,12 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>지원되는 저장소 계정
 
-Azure Import/Export 서비스는 다음과 같은 Azure 저장소 계정을 지원합니다.
-- 클래식
+Azure Import/Export 서비스는 다음과 같은 [Azure 저장소 계정](storage-account-options.md)을 지원합니다.
+- 범용 v1 저장소 계정(클래식 또는 Azure Resource Manager 모두)
 - Blob Storage 계정
-- 범용 v1 저장소 계정입니다. 
+- 범용 v2 저장소 계정
 
 각 작업은 하나의 저장소 계정에서만 데이터 전송에 사용될 수 있습니다. 다시 말해, 하나의 가져오기/내보내기 작업이 여러 저장소 계정에서 사용될 수 없습니다. 새 Storage 계정 만들기에 대한 자세한 내용은 [Storage 계정을 만드는 방법](storage-create-storage-account.md#create-a-storage-account)(영문)을 참조하세요.
 
@@ -48,10 +47,10 @@ Azure Import/Export 서비스는 다음과 같은 Azure 저장소 계정을 지�
 다음 저장소 유형 목록은 Azure Import/Export 서비스를 지원합니다.
 
 
-|작업  |Storage  |지원됨  |지원되지 않음  |
+|작업  |저장소 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob 저장소. <br>블록 Blob, 페이지 Blob 지원됨. <br> Azure Files 지원됨.       |         |
-|내보내기     |   Azure Blob 저장소. <br>블록 Blob, 페이지 Blob 및 추가 Blob 지원됨.       | Azure Files 지원되지 않음.        |
+|가져오기     |  Azure Blob 저장소 <br><br> Azure 파일 저장소       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Azure Blob 저장소       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어 

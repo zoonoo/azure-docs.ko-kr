@@ -5,6 +5,7 @@ documentationcenter: ''
 author: deguhath
 manager: cgronlun
 editor: cgronlun
+services: machine-learning
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: deguhath
-ms.openlocfilehash: aaa965c507faba344ca717a76b3fb3a0a01fa0ee
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838571"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308190"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 프로젝트 계획
 
@@ -55,9 +56,13 @@ Microsoft Project에 대한 액세스 권한이 없는 경우 동일한 데이�
 
 이러한 서식 파일의 사용에 따른 모든 책임은 사용자에게 있습니다. [일반적인 고지 사항](https://www.gnu.org/licenses/gpl-3.0.en.html)이 적용됩니다.
 
+## <a name="repository-template"></a>리포지토리 템플릿
+
+이 [프로젝트 템플릿 리포지토리](https://github.com/Azure/Azure-TDSP-ProjectTemplate)를 사용하여 프로젝트 실행 및 공동 작업을 효율적으로 지원합니다. 이 리포지토리에서는 고유한 TDSP 프로젝트에 대해 사용할 수 있는 표준화된 디렉터리 구조 및 문서 템플릿을 제공합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 [데이터 과학 프로젝트의 기민한 개발](agile-development.md) 이 문서는 Team Data Science Process를 사용하여 프로젝트 팀 내에서 체계적이고 버전이 관리되는 공동 작업 방식으로 데이터 과학 프로젝트를 실행하는 방법을 설명합니다.
 
-**특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 항목에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
+**특정 시나리오**에 대한 프로세스의 모든 단계를 보여 주는 연습도 제공됩니다. 이러한 단계는 [예제 연습](walkthroughs.md) 자료에서 미리 보기 설명과 함께 나열되고 연결되어 있습니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 응용 프로그램을 만드는 방법을 보여 줍니다. 
 

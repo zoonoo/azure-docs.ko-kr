@@ -1,26 +1,22 @@
 ---
-title: Virtual Network로 HDInsight 확장 - Azure | Microsoft Docs
+title: Virtual Network로 HDInsight 확장 - Azure
 description: Azure Virtual Network를 사용하여 HDInsight 다른 클라우드 리소스 또는 데이터 센터에서 리소스에 연결하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+ms.author: jasonh
+manager: kfile
 ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 02/21/2018
-ms.author: larryfr
-ms.openlocfilehash: 842746561b74860e674fbaa298c78bb0ac58bd68
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/26/2018
+ms.openlocfilehash: bcfbe3b8ff198f9905fe6f36b18a9474cf987bba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112136"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284638"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure Virtual Network를 사용하여 Azure HDInsight 확장
 
@@ -290,6 +286,7 @@ HDInsight는 여러 포트에서 서비스를 공개합니다. 가상 어플라�
     | 독일 | 독일 중부 | 51.4.146.68</br>51.4.146.80 | 443 | 인바운드 |
     | &nbsp; | 독일 북동부 | 51.5.150.132</br>51.5.144.101 | 443 | 인바운드 |
     | 인도 | 인도 중부 | 52.172.153.209</br>52.172.152.49 | 443 | 인바운드 |
+    | &nbsp; | 인도 남부 | 104.211.223.67<br/>104.211.216.210 | 443 | 인바운드 |
     | 일본 | 일본 동부 | 13.78.125.90</br>13.78.89.60 | 443 | 인바운드 |
     | &nbsp; | 일본 서부 | 40.74.125.69</br>138.91.29.150 | 443 | 인바운드 |
     | 한국 | 한국 중부 | 52.231.39.142</br>52.231.36.209 | 433 | 인바운드 |

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161833"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308878"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>미리 보기: Azure AD 암호 보호 배포
 
@@ -56,7 +56,7 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
 
 1. Azure AD 암호 보호 프록시 서비스를 호스팅할 서버를 하나 이상 선택합니다.
    * 이러한 각 서비스는 단일 포리스트에 대한 암호 정책만 제공할 수 있으며, 호스트 컴퓨터는 해당 포리스트의 도메인(루트 및 자식 모두 동일하게 지원됨)에 조인되어야 합니다. Azure AD 암호 보호 프록시 서비스에서 임무를 수행하려면 포리스트의 각 도메인에 있는 하나 이상의 DC와 Azure AD 암호 보호 프록시 호스트 컴퓨터 간에 네트워크 연결이 있어야 합니다.
-   * 테스트를 위해 Azure AD 암호 보호 프록시 서비스를 도메인 컨트롤러에 설치하고 실행할 수 있지만 인터넷 연결이 필요합니다.
+   * 테스트를 위해 Azure AD 암호 보호 프록시 서비스를 도메인 컨트롤러에 설치하고 실행할 수 있지만 도메인 컨트롤러에는 인터넷 연결이 필요합니다.
 
    > [!NOTE]
    > 공개 미리 보기에서는 포리스트당 최대 2개의 프록시 서버를 지원합니다.
@@ -110,6 +110,9 @@ Azure AD 암호 보호에 필요한 두 가지 설치 관리자가 있으며, [M
 
    > [!NOTE]
    > Active Directory 포리스트 등록은 포리스트 수명 중의 일회성 단계로 요구됩니다. 포리스트에서 실행되는 도메인 컨트롤러 에이전트는 이 시점부터 필요한 다른 유지 관리를 자동으로 수행합니다. 일단 지정된 포리스트에 대해 성공하면 `Register-AzureADPasswordProtectionForest`의 추가 호출이 계속 성공하지만 필요한 것은 아닙니다.
+
+   > [!NOTE]
+   > `Register-AzureADPasswordProtectionForest`가 최소 Windows Server 2012 이상에서 성공하려면 도메인 컨트롤러를 프록시 서버의 도메인에서 사용할 수 있어야 합니다. 그러나 이 단계 전에 DC 에이전트 소프트웨어가 모든 도메인 컨트롤러에 설치돼야 한다는 요구 사항은 없습니다.
 
 6. 옵션: Azure AD 암호 보호 프록시 서비스가 특정 포트에서 수신 대기하도록 구성합니다.
    * TCP를 통한 RPC는 도메인 컨트롤러의 Azure AD 암호 보호 DC 에이전트 소프트웨어에서 Azure AD 암호 보호 프록시 서비스와 통신하는 데 사용됩니다. 기본적으로 Azure AD 암호 보호 암호 정책 프록시 서비스는 사용 가능한 모든 동적 RPC 엔드포인트에서 수신 대기합니다. 네트워킹 토폴로지 또는 방화벽 요구 사항에 따라 필요한 경우 특정 TCP 포트에서 수신 대기하도록 서비스를 대신 구성할 수 있습니다.
