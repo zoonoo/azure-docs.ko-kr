@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265067"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597976"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Azure AD의 선택적 클레임(미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "39265067"
 > [!Note]
 > 이 기능은 현재 공개 미리 보기로 제공되고 있습니다. 변경 내용을 되돌리거나 제거할 준비를 해야 합니다. 이 기능은 공개 미리 보기 동안 모든 Azure AD 구독에서 사용할 수 있습니다. 그러나 기능이 일반 공급되면 일부 기능에는 Azure AD Premium 구독이 필요할 수도 있습니다.
 
-표준 클레임 목록과 토큰에 사용되는 방법을 보려면 [Azure AD에서 발급하는 토큰 기본 사항](active-directory-token-and-claims.md)을 참조하세요. 
+표준 클레임 목록과 토큰에 사용되는 방법을 보려면 [Azure AD에서 발급하는 토큰 기본 사항](v1-id-and-access-tokens.md)을 참조하세요. 
 
 [v2.0 Azure AD 끝점](active-directory-appmodel-v2-overview.md)의 목표 중 하나는 클라이언트의 최적 성능을 보장하기 위해 토큰 크기를 좀 더 작게 유지하는 것입니다.  따라서, 이전에 액세스 및 ID 토큰에 포함되어 있던 일부 클레임이 v 2.0 토큰에는 더 이상 존재하지 않으며, 응용 프로그램 기준으로 특수하게 요청되어야 합니다.  
 
@@ -126,7 +126,7 @@ ms.locfileid: "39265067"
 
 ## <a name="configuring-optional-claims"></a>선택적 클레임 구성
 
-응용 프로그램 매니페스트를 수정하여 응용 프로그램에 대한 선택적 클레임을 구성할 수 있습니다(아래 예제 참조). 자세한 내용은 [Azure AD 응용 프로그램 매니페스트 이해 문서](active-directory-application-manifest.md)를 참조하세요.
+응용 프로그램 매니페스트를 수정하여 응용 프로그램에 대한 선택적 클레임을 구성할 수 있습니다(아래 예제 참조). 자세한 내용은 [Azure AD 응용 프로그램 매니페스트 이해 문서](reference-app-manifest.md)를 참조하세요.
 
 **샘플 스키마:**
 
@@ -247,4 +247,4 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
 
 ## <a name="related-content"></a>관련 콘텐츠
-* Azure AD에서 제공하는 [표준 클레임](active-directory-token-and-claims.md)에 대해 알아봅니다. 
+* Azure AD에서 제공하는 [표준 클레임](v1-id-and-access-tokens.md)에 대해 알아봅니다. 

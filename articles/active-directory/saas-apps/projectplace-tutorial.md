@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.openlocfilehash: 0ad1c1e66ac0719889760d4685607bd6e5f39f1f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4bbe1fc855dfaf637f5893fff795f47b50bd80c6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046072"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-projectplace"></a>자습서: Projectplace와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ Projectplace와 Azure AD 통합을 구성하려면 다음 항목이 필요합니
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Projectplace 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-projectplace-from-the-gallery"></a>갤러리에서 Projectplace 추가
 Projectplace의 Azure AD 통합을 구성하려면 갤러리의 Projectplace를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,19 +63,19 @@ Projectplace의 Azure AD 통합을 구성하려면 갤러리의 Projectplace를 
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![응용 프로그램][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![응용 프로그램][3]
 
-4. 검색 상자에 **Projectplace**를 입력합니다.
+1. 검색 상자에 **Projectplace**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/projectplace-tutorial/tutorial_projectplace_search.png)
 
-5. 결과 패널에서 **Projectplace**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Projectplace**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/projectplace-tutorial/tutorial_projectplace_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Projectplace에서 Azure AD의 **사용자 이름** 값을 **Username** 값으�
 Projectplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[Projectplace 테스트 사용자 만들기](#creating-a-projectplace-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Projectplace에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[Projectplace 테스트 사용자 만들기](#creating-a-projectplace-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Projectplace에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,11 +104,11 @@ Projectplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_samlbase.png)
 
-3. **Projectplace 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **Projectplace 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_url.png)
 
@@ -117,15 +117,15 @@ Projectplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 얻으려면 [Projectplace 클라이언트 지원 팀](https://success.planview.com/Projectplace/Support)에 문의하세요. 
  
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_general_400.png)
 
-7. **Projectplace** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Projectplace 지원 팀](https://success.planview.com/Projectplace/Support)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+1. **Projectplace** 쪽에서 Single Sign-On을 구성하려면 다운로드한 **메타데이터 XML**을 [Projectplace 지원 팀](https://success.planview.com/Projectplace/Support)에 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 >[!NOTE]
 >Single Sign-On 구성을 [Projectplace 지원 팀](https://success.planview.com/Projectplace/Support)에서 수행할 수 있습니다. 구성이 완료되는 즉시 알림을 받아볼 수 있습니다.
@@ -144,15 +144,15 @@ Projectplace에서 Azure AD Single Sign-On을 구성하고 테스트하려면 �
 
     ![Azure AD 테스트 사용자 만들기](./media/projectplace-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/projectplace-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/projectplace-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/projectplace-tutorial/create_aaduser_04.png) 
 
@@ -172,15 +172,15 @@ Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Proje
 
 1. **Projectplace** 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. **사람**으로 이동한 다음 **멤버**를 클릭합니다.
+1. **사람**으로 이동한 다음 **멤버**를 클릭합니다.
    
     ![사람](./media/projectplace-tutorial/ic790228.png "사람")
 
-3. **멤버 추가**를 클릭합니다.
+1. **멤버 추가**를 클릭합니다.
    
     ![멤버 추가](./media/projectplace-tutorial/ic790232.png "멤버 추가")
 
-4. **멤버 추가** 섹션에서 다음 단계를 수행합니다.
+1. **멤버 추가** 섹션에서 다음 단계를 수행합니다.
    
     ![새 멤버](./media/projectplace-tutorial/ic790233.png "새 멤버")
    
@@ -205,23 +205,23 @@ Azure AD 사용자가 Projectplace에 로그인할 수 있도록 하려면 Proje
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Projectplace**를 선택합니다.
+1. 응용 프로그램 목록에서 **Projectplace**를 선택합니다.
 
     ![Configure Single Sign-On](./media/projectplace-tutorial/tutorial_projectplace_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

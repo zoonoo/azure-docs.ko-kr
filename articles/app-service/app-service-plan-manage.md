@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 1dfe8a903e19ff524a1c4a0228e6aefcbe9ff183
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29117683"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449362"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Azure에서 App Service 계획 관리
 
 [Azure App Service 계획](azure-web-sites-web-hosting-plans-in-depth-overview.md)은 App Service 앱이 실행해야 하는 리소스를 제공합니다. 이 가이드에서는 App Service 계획의 관리 방법을 보여 줍니다.
 
-## <a name="create-an-app-service-plan"></a>App Service 계획 만들기
+## <a name="create-an-app-service-plan"></a>App Service 플랜 만들기
 
 > [!TIP]
 > App Service 환경이 있는 경우 [App Service 환경에서 App Service 계획 만들기](environment/app-service-web-how-to-create-a-web-app-in-an-ase.md#createplan)를 참조하세요.
@@ -35,7 +35,7 @@ ms.locfileid: "29117683"
 
 1. [Azure Portal](https://portal.azure.com)에서 **새로 만들기** > **웹+모바일**을 선택하고 **웹앱** 또는 다른 App Service 앱 종류를 선택합니다.
 
-2. 기존 App Service 계획을 선택하거나 새 앱에 대한 계획을 만듭니다.
+1. 기존 App Service 계획을 선택하거나 새 앱에 대한 계획을 만듭니다.
 
    ![Azure Portal에서 앱을 만듭니다.][createWebApp]
 
@@ -59,13 +59,13 @@ ms.locfileid: "29117683"
 
 1. [Azure Portal](https://portal.azure.com)에서 이동하려는 앱을 찾습니다.
 
-2. 메뉴에서 **App Service 계획** 섹션을 찾아봅니다.
+1. 메뉴에서 **App Service 계획** 섹션을 찾아봅니다.
 
-3. **App Service 계획 변경**을 선택하면 **App Service 계획** 선택기가 열립니다.
+1. **App Service 계획 변경**을 선택하면 **App Service 계획** 선택기가 열립니다.
 
    ![App Service 계획 선택기입니다.][change] 
 
-4. **App Service 계획** 선택기에서 이 앱을 이동할 기존 계획을 선택합니다.   
+1. **App Service 계획** 선택기에서 이 앱을 이동할 기존 계획을 선택합니다.   
 
 > [!IMPORTANT]
 > **App Service 계획 선택** 페이지는 다음 기준으로 필터링됩니다. 

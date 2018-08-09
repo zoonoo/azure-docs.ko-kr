@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 094958911435b899773ef4ee11176f538a4c8fe0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399127"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577335"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>마켓플레이스에서 비즈니스 성장 
 AppSource 또는 Azure Marketplace에 제품을 게시한 후 Microsoft와 함께 GTM(출시) 활동을 수행하기 위한 실행 패드로 목록을 사용할 수 있습니다. 예를 들어 트래픽을 Marketplace 제품으로 안내하고 Marketplace 잠재 고객을 육성하는 것은 비즈니스 성장을 가속화하는 좋은 방법입니다. 
@@ -33,7 +33,7 @@ AppSource 또는 Azure Marketplace에 제품을 게시한 후 Microsoft와 함�
 ### <a name="storefront-offer-details"></a>상점 제품 세부 정보
 | 상점 설정 | 모범 사례 |
 |:--- |:--- |  
-| 제품 이름 | 강력한 제목을 입력합니다.<br>앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수 있습니다.<br><br>다음과 같이 컨설팅 서비스 목록에 대한 일단의 제목 형식을 따릅니다.<br>[제품 이름]: [기간] [제품 유형](예: *Contoso: 2주 구현*)<br><br>브랜드 지침을 준수합니다.<br>Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 [Microsoft 상표 및 브랜드 지침](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) 및 기타 관련 제품별 지침을 따릅니다. |
+| 제품 이름 | 강력한 제목을 입력합니다.<br>앱 이름은 고객이 받는 핵심 가치를 전달해야 합니다. 앱 제목에 검색 키워드가 포함되면 검색 엔진 결과에서 앱의 순위를 높일 수 있습니다.<br><br>다음과 같이 컨설팅 서비스 목록에 대한 일단의 제목 형식을 따릅니다.<br>[제품 이름]: [기간] [제품 유형](예: *Contoso: 2주 구현*)<br><br>브랜드 지침을 준수합니다.<br>Microsoft 상표와 Microsoft, 소프트웨어, 제품 및 서비스의 이름을 언급하는 경우 [Microsoft 상표 및 브랜드 지침](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) 및 기타 관련 제품별 지침을 따릅니다. |
 | 제품 설명 | 다음과 같이 명확한 제품 설명을 제공합니다.<br>설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다. 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요. 제품을 판매하는 특징과 기능에 의존하지 않습니다. 대신, 전달하는 가치에 중점을 둡니다. 산업별 어휘 또는 혜택 기반 단어를 최대한 많이 사용합니다.<br><br>가치 제안의 핵심 구성 요소에 포함되어야 하는 정보는 다음과 같습니다.<ul><li>제품 설명</li><li>제품의 혜택을 받는 사용자 유형</li><li>제품에서 처리하는 고객의 요구 사항 또는 불만 사항</li></ul> |
 
 ### <a name="storefront-listing-details"></a>상점 목록 세부 정보

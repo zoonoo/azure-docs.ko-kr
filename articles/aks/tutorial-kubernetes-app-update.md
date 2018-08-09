@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 97d8c4bd179edc59d97914f86e2aa139681e739a
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2fcb2f5041b97b7e267f55340bf0cb0b8d2f457b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101033"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449386"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 응용 프로그램 업데이트
 
@@ -76,7 +76,7 @@ http://localhost:8080으로 이동하여 업데이트된 응용 프로그램을 
 
 `azure-vote-front` 이미지에 컨테이너 레지스트리의 loginServer로 태그를 지정합니다.
 
-[az acr list](/cli/azure/acr#az_acr_list) 명령을 사용하여 로그인 서버 이름을 가져옵니다.
+[az acr list](/cli/azure/acr#az-acr-list) 명령을 사용하여 로그인 서버 이름을 가져옵니다.
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -102,7 +102,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 kubectl get pod
 ```
 
-출력
+출력:
 
 ```
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -131,7 +131,7 @@ kubectl set image deployment azure-vote-front azure-vote-front=<acrLoginServer>/
 kubectl get pod
 ```
 
-출력
+출력:
 
 ```
 NAME                               READY     STATUS        RESTARTS   AGE
@@ -178,4 +178,4 @@ IP 주소로 이동하여 업데이트된 응용 프로그램을 확인합니다
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
-[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az_acr_login
+[az-acr-login]: https://docs.microsoft.com/cli/azure/acr#az-acr-login

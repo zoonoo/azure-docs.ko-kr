@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: ca4ed4444cd753c0fe22c6596dfd34d033b7b0cf
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237005"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527367"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>자습서: pattern.any 엔터티를 사용하여 앱 개선
 
@@ -26,7 +26,7 @@ ms.locfileid: "39237005"
 * pattern.any를 사용하는 패턴 만들기
 * 예측 개선 여부를 확인하는 방법
 
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md) 계정이 필요합니다.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [패턴 역할](luis-tutorial-pattern-roles.md) 자습서의 Human Resources 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub 리포지토리에 있습니다.
@@ -106,8 +106,9 @@ Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패�
 
 4. keyPhrase 엔터티를 제거한 경우 앱에 다시 추가합니다. 
 
-5. 앱을 학습합니다.
+## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>자유 형식 데이터 추출의 새 패턴 테스트
 1. 위쪽 막대에서 **테스트**를 선택하여 테스트 패널을 엽니다. 
@@ -123,7 +124,8 @@ Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패�
 4. 위쪽 탐색에서 **테스트** 단추를 선택하여 테스트 패널을 닫습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

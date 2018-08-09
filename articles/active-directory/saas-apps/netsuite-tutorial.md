@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: jeedes
-ms.openlocfilehash: 5a20af1130d50209b29ad44195c14f30cba30c43
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 511fdcf587d16a59ff2bb11dfc55504b2218a569
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051856"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>자습서: NetSuite와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ NetSuite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 NetSuite 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-netsuite-from-the-gallery"></a>갤러리에서 NetSuite 추가
 NetSuite를 Azure AD에 통합하도록 구성하려면 갤러리에서 NetSuite를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,15 +63,15 @@ NetSuite를 Azure AD에 통합하도록 구성하려면 갤러리에서 NetSuite
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![응용 프로그램][2]
 
-3. 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![응용 프로그램][3]
 
-4. 검색 상자에 **NetSuite**를 입력하고 결과 패널에서 **NetSuite**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **NetSuite**를 입력하고 결과 패널에서 **NetSuite**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 NetSuite](./media/netsuite-tutorial/tutorial_netsuite_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 NetSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[NetSuite 테스트 사용자 만들기](#creating-a-netsuite-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 NetSuite에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[NetSuite 테스트 사용자 만들기](#creating-a-netsuite-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 NetSuite에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -100,11 +100,11 @@ NetSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/tutorial_NetSuite_samlbase.png)
 
-3. **NetSuite 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **NetSuite 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/tutorial_NetSuite_url.png)
 
@@ -125,45 +125,45 @@ NetSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL로 값을 업데이트하세요. 이러한 값을 얻으려면 [NetSuite 지원 팀](http://www.NetSuite.com/portal/services/support.shtml)에 문의하세요.
 
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 XML 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/tutorial_NetSuite_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/tutorial_general_400.png)
 
-6. **NetSuite 구성** 섹션에서 **NetSuite 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **NetSuite 구성** 섹션에서 **NetSuite 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/tutorial_NetSuite_configure.png)
 
-7. 브라우저에서 새 탭을 열고 관리자 권한으로 NetSuite 회사 사이트에 로그인합니다.
+1. 브라우저에서 새 탭을 열고 관리자 권한으로 NetSuite 회사 사이트에 로그인합니다.
 
-8. 페이지의 맨 위에 있는 도구 모음에서 **설정**을 클릭한 다음, **회사**로 이동하고, **기능 사용**을 클릭합니다.
+1. 페이지의 맨 위에 있는 도구 모음에서 **설정**을 클릭한 다음, **회사**로 이동하고, **기능 사용**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-9. 페이지의 가운데에 있는 도구 모음에서 **SuiteCloud**를 클릭합니다.
+1. 페이지의 가운데에 있는 도구 모음에서 **SuiteCloud**를 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-10. **인증 관리** 섹션 아래에서 **SAML Single Sign-On**을 선택하여 NetSuite에서 SAML Single Sign-On 옵션을 사용하도록 설정합니다.
+1. **인증 관리** 섹션 아래에서 **SAML Single Sign-On**을 선택하여 NetSuite에서 SAML Single Sign-On 옵션을 사용하도록 설정합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-11. 페이지의 위쪽에 있는 도구 모음에서 **설정**을 클릭합니다.
+1. 페이지의 위쪽에 있는 도구 모음에서 **설정**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-setup.png)
 
-12. **설정 작업** 목록에서 **통합**을 클릭합니다.
+1. **설정 작업** 목록에서 **통합**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-integration.png)
 
-13. **인증 관리** 섹션에서 **SAML Single Sign-On**을 클릭합니다.
+1. **인증 관리** 섹션에서 **SAML Single Sign-On**을 클릭합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-saml.png)
 
-14. **SAML 설정** 페이지의 **NetSuite 구성** 섹션에서 다음 단계를 수행합니다.
+1. **SAML 설정** 페이지의 **NetSuite 구성** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-saml-setup.png)
   
@@ -173,11 +173,11 @@ NetSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     다. **제출**을 클릭합니다.
 
-15. Azure AD에서 **기타 모든 사용자 특성 보기 및 편집** 확인란을 클릭하고 특성을 추가합니다.
+1. Azure AD에서 **기타 모든 사용자 특성 보기 및 편집** 확인란을 클릭하고 특성을 추가합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-attributes.png)
 
-16. **특성 이름** 필드에 `account`을(를) 입력합니다. **특성 값** 필드에 NetSuite 계정 ID를 입력합니다. 이 값은 상수이며 계정에 따라 변경됩니다. 사용자의 계정 ID를 찾는 방법에 대한 지침은 아래에 포함되어 있습니다.
+1. **특성 이름** 필드에 `account`을(를) 입력합니다. **특성 값** 필드에 NetSuite 계정 ID를 입력합니다. 이 값은 상수이며 계정에 따라 변경됩니다. 사용자의 계정 ID를 찾는 방법에 대한 지침은 아래에 포함되어 있습니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/ns-add-attribute.png)
 
@@ -191,7 +191,7 @@ NetSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     다. NetSuite 계정에서 복사한 **계정 ID**를 Azure AD의 **특성 값** 필드에 붙여넣습니다. 
 
-17. 사용자가 NetSuite에 Single Sign-On을 수행하려면 먼저 NetSuite에 적절한 권한을 할당해야 합니다. 이러한 사용 권한을 할당하려면 아래 지침을 따릅니다.
+1. 사용자가 NetSuite에 Single Sign-On을 수행하려면 먼저 NetSuite에 적절한 권한을 할당해야 합니다. 이러한 사용 권한을 할당하려면 아래 지침을 따릅니다.
 
     a. 위쪽 탐색 메뉴에서 **설정**을 클릭합니다.
 
@@ -246,15 +246,15 @@ NetSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Azure AD 테스트 사용자 만들기](./media/NetSuite-tutorial/create_aaduser_01.png) 
 
-2.  사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1.  사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/NetSuite-tutorial/create_aaduser_02.png) 
 
-3. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
+1. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/NetSuite-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/NetSuite-tutorial/create_aaduser_04.png) 
 
@@ -284,23 +284,23 @@ NetSuite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **NetSuite**를 선택합니다.
+1. 응용 프로그램 목록에서 **NetSuite**를 선택합니다.
 
     ![Configure Single Sign-On](./media/NetSuite-tutorial/tutorial_NetSuite_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

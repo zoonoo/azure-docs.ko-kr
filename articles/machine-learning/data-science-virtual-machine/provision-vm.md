@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: gokuma
-ms.openlocfilehash: 445b18dee9efa9561ba1274ef59a9a426332d745
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b749d8a904bc40eba3346cc03d9274236380c80d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31594052"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450293"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Azure에서 Windows 데이터 과학 Virtual Machine 프로비전
 Microsoft 데이터 과학 Virtual Machine은 데이터 분석 및 기계 학습에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치 및 구성된 Microsoft Azure VM(가상 머신) 이미지입니다. 포함된 도구는 다음과 같습니다.
@@ -45,8 +45,8 @@ Microsoft 데이터 과학 Virtual Machine은 데이터 분석 및 기계 학습
 데이터 과학을 수행하려면 일련의 작업에 대해 다음 작업을 반복합니다.
 
 1. 데이터 찾기, 로드 및 전처리
-2. 모델 빌드 및 테스트
-3. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
+1. 모델 빌드 및 테스트
+1. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
 
 데이터 과학자는 다양한 도구를 사용하여 이러한 작업을 완료합니다. 소프트웨어의 적합한 버전을 찾고 다운로드하여 설치하는 데 소비되는 시간이 상당히 걸릴 수 있습니다. Microsoft 데이터 과학 Virtual Machine은 몇 가지 인기 있는 도구가 미리 설치되고 구성된 상태로 Azure에 프로비정될 수 있는 사용 가능 이미지를 제공하여 이러한 부담을 덜어줄 수 있습니다. 
 
@@ -55,7 +55,7 @@ Microsoft 데이터 과학 Virtual Machine은 분석 프로젝트를 빠르게 �
 이 데이터 과학 VM 이미지에 대한 소프트웨어 요금은 부과되지 않습니다. 프로비전하는 가상 머신의 크기에 따른 Azure 사용 비용만 지불하면 됩니다. 계산 비용에 대한 자세한 내용은 [데이터 과학 Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice) 페이지의 가격 책정 세부 정보 섹션에 나와 있습니다. 
 
 ## <a name="other-versions-of-the-data-science-virtual-machine"></a>다른 버전의 데이터 과학 Virtual Machine
-[Ubuntu](dsvm-ubuntu-intro.md) 이미지도 비슷한 많은 도구 및 몇 가지 추가적인 심층 학습 프레임워크와 함께 사용할 수 있습니다. [CentOS](linux-dsvm-intro.md) 이미지도 사용할 수 있습니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있지만 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)의 데이터 과학 가상 컴퓨터도 제공됩니다.  그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
+[Ubuntu](dsvm-ubuntu-intro.md) 이미지도 비슷한 많은 도구 및 몇 가지 추가적인 심층 학습 프레임워크와 함께 사용할 수 있습니다. [CentOS](linux-dsvm-intro.md) 이미지도 사용할 수 있습니다. 몇 가지 도구는 Windows Server 2016 버전에서만 사용할 수 있지만 [Windows Server 2012 버전](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm)의 데이터 과학 가상 머신도 제공됩니다.  그렇지 않은 경우 이 문서는 Windows Server 2012 버전에도 적용됩니다.
 
 ## <a name="prerequisites"></a>필수 조건
 Microsoft 데이터 과학 Virtual Machine을 만들려면 먼저 다음이 있어야 합니다.
@@ -67,23 +67,23 @@ Microsoft 데이터 과학 Virtual Machine을 만들려면 먼저 다음이 있�
 Microsoft 데이터 과학 Virtual Machine의 인스턴스를 만들려면 다음 단계를 따르세요.
 
 1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016)에서 가상 머신 목록으로 이동합니다.
-2. 마법사로 이동하려면 아래에 있는 **만들기** 단추를 선택합니다.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
-3. Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사에는 이 그림의 오른쪽에 열거된 **4단계** 각각에 대한 **입력**이 필요합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
+1. 마법사로 이동하려면 아래에 있는 **만들기** 단추를 선택합니다.![configure-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png)
+1. Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사에는 이 그림의 오른쪽에 열거된 **4단계** 각각에 대한 **입력**이 필요합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
    
    1. **기본 사항**
       
       1. **이름**: 만들려는 데이터 과학 서버 이름
-      2. **VM 디스크 유형**: SSD 또는 HDD 중 선택합니다. NC_v1 GPU 인스턴스(NVidia Tesla K80 기반)의 경우 디스크 유형으로 **HDD**를 선택합니다. 
-      3. **사용자 이름**: 관리자 계정 로그인 ID
-      4. **암호**: 관리자 계정 암호
-      5. **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다.
-      6. **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
-      7. **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다.
-   2. **크기**: 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. "모두 보기"를 선택하면 보다 다양한 VM 크기를 선택할 수 있습니다.
-   3. **설정**:
+      1. **VM 디스크 유형**: SSD 또는 HDD 중 선택합니다. NC_v1 GPU 인스턴스(NVidia Tesla K80 기반)의 경우 디스크 유형으로 **HDD**를 선택합니다. 
+      1. **사용자 이름**: 관리자 계정 로그인 ID
+      1. **암호**: 관리자 계정 암호
+      1. **구독**: 둘 이상의 구독을 보유한 경우, 컴퓨터를 만들고 요금을 청구할 구독 하나를 선택합니다.
+      1. **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
+      1. **위치**: 가장 적합한 데이터 센터를 선택합니다. 이는 대개 대부분의 데이터가 저장되어 있거나 네트워크에 가장 빠르게 액세스하기 위해 물리적 위치와 가장 가까이 있는 데이터 센터입니다.
+   1. **크기**: 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. "모두 보기"를 선택하면 보다 다양한 VM 크기를 선택할 수 있습니다.
+   1. **설정**:
       
       1. **Managed Disks 사용**: Azure가 VM용 디스크를 관리하도록 하려면 관리를 선택합니다.  그렇지 않으면 새 또는 기존 저장소 계정을 지정해야 합니다. 
-      2. **기타 매개 변수**: 일반적으로 기본값을 사용합니다. 기본값 이외의 값을 사용하려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
+      1. **기타 매개 변수**: 일반적으로 기본값을 사용합니다. 기본값 이외의 값을 사용하려면 정보 링크를 가리켜 특정 필드에 대한 도움말을 확인합니다.
     a. **요약**: 입력한 모든 정보가 올바른지 확인하고 **만들기**를 클릭합니다. **참고**: VM은 **크기** 단계에서 선택한 서버 크기에 대한 계산 이외에 추가 요금이 발생하지 않습니다. 
 
 > [!NOTE]
@@ -112,7 +112,7 @@ Python을 사용하여 개발하는 경우를 위해, Anaconda Python 배포 2.7
 > 
 > 
 
-Anaconda Python 3.6은 C:\Anaconda 아래에 설치되어 있으며 Anaconda Python 2.7은 c:\Anaconda\envs\python2 아래에 설치되어 있습니다. 자세한 단계는 [PTVS 설명서](/visualstudio/python/python-environments.md#selecting-and-installing-python-interpreters) 를 참조하세요. 
+Anaconda Python 3.6은 C:\Anaconda 아래에 설치되어 있으며 Anaconda Python 2.7은 c:\Anaconda\envs\python2 아래에 설치되어 있습니다. 자세한 단계는 [PTVS 설명서](/visualstudio/python/installing-python-interpreters.md) 를 참조하세요. 
 
 ### <a name="jupyter-notebook"></a>Jupyter 노트북
 Anaconda 배포는 코드 및 분석을 공유하는 환경인 Jupyter 노트북도 제공됩니다. Jupyter 노트북 서버는 Python 2.7, Python 3.x, PySpark, Julia 및 R 커널로 미리 구성되었습니다. Jupyter 서버를 시작하고 브라우저를 실행하여 노트북 서버에 액세스하는 "Jupyter Notebook"이라는 바탕 화면 아이콘이 있습니다. 

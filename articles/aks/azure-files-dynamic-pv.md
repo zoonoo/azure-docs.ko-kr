@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 84500791887194884e1ec7d15ddfbc169ba22517
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: bac80e354a4d629bfbfc8207b9fed7c69c765839
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098348"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429270"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Azure Files가 포함된 영구적 볼륨
 
@@ -206,11 +206,11 @@ Azure Files를 사용하는 Kubernetes 영구적 볼륨에 대해 자세히 알�
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az_group_create
-[az-group-list]: /cli/azure/group#az_group_list
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-list]: /cli/azure/group#az-group-list
 [az-resource-show]: /cli/azure/resource#az-resource-show
-[az-storage-account-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
-[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
+[az-storage-account-create]: /cli/azure/storage/account#az-storage-account-create
+[az-storage-create]: /cli/azure/storage/account#az-storage-account-create
+[az-storage-key-list]: /cli/azure/storage/account/keys#az-storage-account-keys-list
+[az-storage-share-create]: /cli/azure/storage/share#az-storage-share-create
 [mount-options]: #mount-options

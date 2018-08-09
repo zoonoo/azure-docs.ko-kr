@@ -2,24 +2,19 @@
 title: Microsoft Azure Storage에서 동시성 관리
 description: Blob, 큐, 테이블 및 파일 서비스의 동시성을 관리하는 방법에 대해 알아봅니다.
 services: storage
-documentationcenter: ''
 author: jasontang501
-manager: tadb
-editor: tysonn
-ms.assetid: cc6429c4-23ee-46e3-b22d-50dd68bd4680
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.component: common
+ms.openlocfilehash: 9c36347db2d1678e79e5ad80cda491f77850c4a6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23060188"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525242"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Microsoft Azure Storage에서 동시성 관리
 ## <a name="overview"></a>개요
@@ -91,15 +86,15 @@ Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-Non
 
 | 작업 | 컨테이너 ETag 값 반환 | 추가 헤더 수락 |
 |:--- |:--- |:--- |
-| 컨테이너 만들기 |예 |아니요 |
-| 컨테이너 속성 가져오기 |예 |아니요 |
-| 컨테이너 메타데이터 가져오기 |예 |아니오 |
-| 컨테이너 메타데이터 설정 |예 |예 |
-| 컨테이너 ACL 가져오기 |예 |아니요 |
-| 컨테이너 ACL 설정 |예 |예(*) |
-| 컨테이너 삭제 |아니요 |예 |
-| 컨테이너 임대 |예 |예 |
-| Blob 나열 |아니오 |아니오 |
+| 컨테이너 만들기 |yes |아니요 |
+| 컨테이너 속성 가져오기 |yes |아니요 |
+| 컨테이너 메타데이터 가져오기 |yes |아니요 |
+| 컨테이너 메타데이터 설정 |yes |yes |
+| 컨테이너 ACL 가져오기 |yes |아니요 |
+| 컨테이너 ACL 설정 |yes |예(*) |
+| 컨테이너 삭제 |아니요 |yes |
+| 컨테이너 임대 |yes |yes |
+| Blob 나열 |아니요 |아니요 |
 
 (*) SetContainerACL이 정의하는 권한은 캐시되며 이러한 권한에 대한 업데이트가 전파되려면 30초가 걸립니다. 이 시간 동안에는 업데이트의 일관성이 보장되지 않습니다.  
 
@@ -107,22 +102,22 @@ Storage 서비스는 **If-Modified-Since**, **If-Unmodified-Since** 및 **If-Non
 
 | 작업 | ETag 값 반환 | 추가 헤더 수락 |
 |:--- |:--- |:--- |
-| Blob 배치 |예 |예 |
-| Blob 가져오기 |예 |예 |
-| Blob 속성 가져오기 |예 |예 |
-| Blob 속성 설정 |예 |예 |
-| Blob 메타데이터 가져오기 |예 |예 |
-| Blob 메타데이터 설정 |예 |예 |
-| Blob 임대(*) |예 |예 |
-| Blob 스냅숏 |예 |예 |
-| Blob 복사 |예 |예(원본 및 대상 Blob의 경우) |
-| Blob 복사 중단 |아니오 |아니요 |
-| Blob 삭제 |아니오 |예 |
-| 블록 배치 |아니오 |아니오 |
-| 블록 목록 배치 |예 |예 |
-| 블록 목록 가져오기 |예 |아니요 |
-| 페이지 가져오기 |예 |예 |
-| 페이지 범위 가져오기 |예 |예 |
+| Blob 배치 |yes |yes |
+| Blob 가져오기 |yes |yes |
+| Blob 속성 가져오기 |yes |yes |
+| Blob 속성 설정 |yes |yes |
+| Blob 메타데이터 가져오기 |yes |yes |
+| Blob 메타데이터 설정 |yes |yes |
+| Blob 임대(*) |yes |yes |
+| Blob 스냅숏 |yes |yes |
+| Blob 복사 |yes |예(원본 및 대상 Blob의 경우) |
+| Blob 복사 중단 |아니요 |아니요 |
+| Blob 삭제 |아니요 |yes |
+| 블록 배치 |아니요 |아니요 |
+| 블록 목록 배치 |yes |yes |
+| 블록 목록 가져오기 |yes |아니요 |
+| 페이지 가져오기 |yes |yes |
+| 페이지 범위 가져오기 |yes |yes |
 
 (*) Blob 임대에서는 Blob의 ETag가 변경되지 않습니다.  
 
@@ -242,13 +237,13 @@ customer.ETag = "*";
 
 | 작업 | ETag 값 반환 | If-Match 요청 헤더 필요 여부 |
 |:--- |:--- |:--- |
-| 엔터티 쿼리 |예 |아니요 |
-| 엔터티 삽입 |예 |아니오 |
-| 엔터티 업데이트 |예 |예 |
-| 엔터티 병합 |예 |예 |
-| 엔터티 삭제 |아니요 |예 |
-| 엔터티 삽입 또는 바꾸기 |예 |아니오 |
-| 엔터티 삽입 또는 병합 |예 |아니오 |
+| 엔터티 쿼리 |yes |아니요 |
+| 엔터티 삽입 |yes |아니요 |
+| 엔터티 업데이트 |yes |yes |
+| 엔터티 병합 |yes |yes |
+| 엔터티 삭제 |아니요 |yes |
+| 엔터티 삽입 또는 바꾸기 |yes |아니요 |
+| 엔터티 삽입 또는 병합 |yes |아니요 |
 
 **엔터티 삽입 또는 바꾸기**와 **엔터티 삽입 또는 병합** 작업에서는 테이블 서비스에 ETag 값을 보내지 않으므로 동시성 검사를 수행하지 *않습니다*.  
 

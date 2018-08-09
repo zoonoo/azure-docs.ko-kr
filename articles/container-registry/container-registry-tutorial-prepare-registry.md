@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450031"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>자습서: 지역 복제 Azure Container Registry 준비
 
@@ -31,7 +32,7 @@ Azure Container Registry는 네트워크를 배포에 가깝게 유지할 수 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 자습서에는 Azure CLI(버전 2.0.31 이상)의 로컬 설치가 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+이 자습서에는 Azure CLI(버전 2.0.31 이상)의 로컬 설치가 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 컨테이너, 컨테이너 이미지 및 기본 Docker CLI 명령과 같은 핵심 Docker 개념에 익숙해야 합니다. 컨테이너 기본 사항에 대한 입문서는 [Docker 시작]( https://docs.docker.com/get-started/)을 참조하세요.
 
@@ -89,7 +90,7 @@ Azure Portal에서 새 컨테이너 레지스트리로 이동하여 **서비스*
 
 지역에서 복제를 구성했으니 이제 컨테이너 이미지를 작성한 다음 레지스트리로 푸시합니다. 이미지를 푸시하기 전에 우선 ACR 인스턴스에 로그인해야 합니다.
 
-[az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) 명령을 사용하여 인증하고 레지스트리에 대한 자격 증명을 캐시합니다. `<acrName>`을 앞에서 만든 레지스트리 이름으로 바꿉니다.
+[az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) 명령을 사용하여 인증하고 레지스트리에 대한 자격 증명을 캐시합니다. `<acrName>`을 앞에서 만든 레지스트리 이름으로 바꿉니다.
 
 ```azurecli
 az acr login --name <acrName>
@@ -152,7 +153,7 @@ ENTRYPOINT ["dotnet", "AcrHelloworld.dll"]
 az acr show --name <acrName> --query "{acrLoginServer:loginServer}" --output table
 ```
 
-출력
+출력:
 
 ```bash
 AcrLoginServer

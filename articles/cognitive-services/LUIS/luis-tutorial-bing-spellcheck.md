@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239154"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525225"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
@@ -30,7 +30,7 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 ## <a name="create-endpoint-key"></a>끝점 키 만들기
 무료 키가 만료되면 끝점 키를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 2. 왼쪽 위 모서리에 있는 **리소스 만들기**를 선택합니다.
 
@@ -64,7 +64,7 @@ LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [�
 
 끝점 URL에는 올바르게 전달해야 하는 여러 값이 있습니다. Bing Spell Check API v7 키는 이러한 값 중 하나입니다. **spellCheck** 매개 변수를 true로 설정하고 **bing-spell-check-subscription-key** 값을 키 값으로 설정해야 합니다.
 
-https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>LUIS에 맞춤법이 틀린 발화 보내기
 1. 웹 브라우저에서 앞의 문자열을 복사하고 `region`, `appId`, `luisKey` 및 `bingKey`를 고유한 값으로 바꿉니다. 게시 [지역](luis-reference-regions.md)과 다른 경우 끝점 지역을 사용해야 합니다.

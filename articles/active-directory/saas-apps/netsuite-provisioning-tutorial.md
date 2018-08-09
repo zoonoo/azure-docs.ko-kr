@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: c98781112db7cd91bdeebdaab461afd1f0ec3fbc
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 3dac2b1c90f6555abc71a52d75f8d58958d978c7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226627"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449506"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Netsuite 구성
 
@@ -60,33 +60,33 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory > 엔터프라이즈 앱 > 모든 응용 프로그램** 섹션으로 이동합니다.
 
-2. 이미 Netsuite에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Netsuite의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Netsuite**를 검색합니다. 검색 결과에서 Netsuite를 선택하고 응용 프로그램 목록에 추가합니다.
+1. 이미 Netsuite에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 Netsuite의 인스턴스를 검색합니다. 그러지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Netsuite**를 검색합니다. 검색 결과에서 Netsuite를 선택하고 응용 프로그램 목록에 추가합니다.
 
-3. Netsuite의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
+1. Netsuite의 인스턴스를 선택한 다음 **프로비전** 탭을 선택합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다. 
+1. **프로비전 모드**를 **자동**으로 설정합니다. 
 
     ![프로비전](./media/netsuite-provisioning-tutorial/provisioning.png)
 
-5. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
+1. **관리자 자격 증명** 섹션에서 다음 구성 설정을 제공합니다.
    
     a. **관리자 사용자 이름** 텍스트 상자에서 Netsuite.com에서 할당된 **시스템 관리자** 프로필을 가진 Netsuite 계정 이름을 입력합니다.
    
     나. **관리자 암호** 텍스트 상자에 이 계정의 암호를 입력합니다.
       
-6. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Netsuite 앱에 연결할 수 있는지 확인합니다.
+1. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Netsuite 앱에 연결할 수 있는지 확인합니다.
 
-7. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
+1. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 확인란을 선택합니다.
 
-8. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
-9. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to Netsuite**(Azure Active Directory 사용자를 Netsuite에 동기화)를 선택합니다.
+1. [매핑] 섹션에서 **Synchronize Azure Active Directory Users to Netsuite**(Azure Active Directory 사용자를 Netsuite에 동기화)를 선택합니다.
 
-10. **특성 매핑** 섹션에서 Azure AD에서 Netsuite로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Netsuite의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
+1. **특성 매핑** 섹션에서 Azure AD에서 Netsuite로 동기화되는 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Netsuite의 사용자 계정을 일치시키는 데 사용됩니다. 저장 단추를 선택하여 변경 내용을 커밋합니다.
 
-11. Netsuite에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 [설정] 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. Netsuite에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 [설정] 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-12. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
 [사용자 및 그룹] 섹션에서 Netsuite에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 클릭하여 Netsuite 앱의 프로비전 서비스에서 수행한 모든 작업을 설명하는 프로비전 활동 로그를 확인할 수 있습니다.
 

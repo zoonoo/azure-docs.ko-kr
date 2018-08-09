@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/27/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2445713aa5d6a839950ca0fe9567133c06d1ffa
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 554991c7c0f11a095a11ae24dbb693a1a3ba50fd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062244"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430123"
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Azure의 SAP HANA 큰 인스턴스 고가용성 및 재해 복구 
 
@@ -169,12 +169,12 @@ Azure(큰 인스턴스)의 SAP HANA는 SAP HANA 데이터 및 로그 볼륨에 �
 
 HANA 대규모 인스턴스를 사용하여 저장소 스냅숏을 설정하려면 다음과 같은 단계를 수행합니다.
 1. Perl이 HANA 큰 인스턴스 서버의 Linux 운영 체제에 설치되어 있는지 확인합니다.
-2. /etc/ssh/ssh\_config를 수정하여 _MACs hmac-sha1_ 줄을 추가합니다.
-3. 적용할 수 있는 경우 실행하는 SAP HANA 인스턴스마다 마스터 노드에서 SAP HANA 백업 사용자 계정을 만듭니다.
-4. 모든 SAP HANA 큰 인스턴스 서버에 SAP HANA HDB 클라이언트를 설치합니다.
-5. 각 지역의 첫 번째 SAP HANA 큰 인스턴스 서버에서 스냅숏 생성을 제어하는 기본 저장소 인프라에 액세스하기 위한 공개 키를 만듭니다.
-6. [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts)의 스크립트 및 구성 파일을 SAP HANA 설치의 **hdbsql** 위치에 복사합니다.
-7. 적절한 고객 사양에 필요한 대로 *HANABackupDetails.txt* 파일을 수정합니다.
+1. /etc/ssh/ssh\_config를 수정하여 _MACs hmac-sha1_ 줄을 추가합니다.
+1. 적용할 수 있는 경우 실행하는 SAP HANA 인스턴스마다 마스터 노드에서 SAP HANA 백업 사용자 계정을 만듭니다.
+1. 모든 SAP HANA 큰 인스턴스 서버에 SAP HANA HDB 클라이언트를 설치합니다.
+1. 각 지역의 첫 번째 SAP HANA 큰 인스턴스 서버에서 스냅숏 생성을 제어하는 기본 저장소 인프라에 액세스하기 위한 공개 키를 만듭니다.
+1. [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts)의 스크립트 및 구성 파일을 SAP HANA 설치의 **hdbsql** 위치에 복사합니다.
+1. 적절한 고객 사양에 필요한 대로 *HANABackupDetails.txt* 파일을 수정합니다.
 
 [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts)에서 최신 스냅숏 스크립트와 설명서를 다운로드하세요. 
 
@@ -384,7 +384,7 @@ SAP HANA 규모 확장 구성이 있는 경우 마스터 HANA 인스턴스에서
 
    HANA 큰 인스턴스 단위를 핸드오버할 때 저장소 사용자 이름과 저장소 IP 주소가 둘 다 제공되었습니다.
 
-2. 테스트 스크립트를 실행합니다.
+1. 테스트 스크립트를 실행합니다.
    ```
     ./testStorageSnapshotConnection.pl
    ```
@@ -488,8 +488,8 @@ For snapshot of the volume storing the boot LUN
 `azure_hana_backup.pl` 스크립트를 실행하면 다음 세 가지 단계에서 저장소 스냅숏이 만들어집니다.
 
 1. SAP HANA 스냅숏을 실행
-2. 저장소 스냅숏을 실행
-3. 저장소 스냅숏을 실행하기 전에 만든 SAP HANA 스냅숏을 제거
+1. 저장소 스냅숏을 실행
+1. 저장소 스냅숏을 실행하기 전에 만든 SAP HANA 스냅숏을 제거
 
 스크립트를 실행하려면 복사된 HDB 실행 파일 폴더에서 호출합니다. 
 
@@ -701,44 +701,44 @@ HANA Backup ID:
 
 1. 복원할 스냅숏을 결정합니다. 달리 지시가 없는 경우 hana/data 볼륨만 복원됩니다. 
 
-2. HANA 인스턴스를 종료합니다.
+1. HANA 인스턴스를 종료합니다.
 
  ![HANA 인스턴스를 종료합니다.](./media/hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
-3. 각 HANA 데이터베이스 노드에서 데이터 볼륨을 분리합니다. 데이터 볼륨이 운영 체제에 계속 탑재되는 경우 스냅숏 복원이 실패합니다.
+1. 각 HANA 데이터베이스 노드에서 데이터 볼륨을 분리합니다. 데이터 볼륨이 운영 체제에 계속 탑재되는 경우 스냅숏 복원이 실패합니다.
  ![각 HANA 데이터베이스 노드에서 데이터 볼륨 분리](./media/hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
-4. Azure 지원 요청을 열어서 특정 스냅숏의 복원에 대한 지침을 포함합니다.
+1. Azure 지원 요청을 열어서 특정 스냅숏의 복원에 대한 지침을 포함합니다.
 
  - 복원 중: Azure Service Management의 SAP HANA에서 전화 회의에 참여하여 올바른 저장소 스냅숏이 복원될 수 있도록 조정, 검증 및 확인을 수행할 것을 요청할 수 있습니다. 
 
  - 복원한 후에 Azure의 SAP HANA Service Management에서는 저장소 스냅숏이 복원된 시기를 알립니다.
 
-5. 복원 프로세스가 완료되면 모든 데이터 볼륨을 다시 탑재합니다.
+1. 복원 프로세스가 완료되면 모든 데이터 볼륨을 다시 탑재합니다.
 
  ![모든 데이터 볼륨 다시 탑재](./media/hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
-6. SAP HANA Studio를 통해 HANA DB에 다시 연결하는 경우 자동으로 표시되지 않으면 SAP HANA Studio 내에서 복구 옵션을 선택합니다. 다음 예제에서는 최신 HANA 스냅숏에 대한 복원을 보여 줍니다. 저장소 스냅숏에는 하나의 HANA 스냅숏이 포함됩니다. 가장 최근의 저장소 스냅숏으로 복원하는 경우 가장 최근의 HANA 스냅숏이어야 합니다. (이전 저장소 스냅숏으로 복원하는 경우 저장소 스냅숏이 만들어진 시간에 따라 HANA 스냅숏을 찾아야 합니다.)
+1. SAP HANA Studio를 통해 HANA DB에 다시 연결하는 경우 자동으로 표시되지 않으면 SAP HANA Studio 내에서 복구 옵션을 선택합니다. 다음 예제에서는 최신 HANA 스냅숏에 대한 복원을 보여 줍니다. 저장소 스냅숏에는 하나의 HANA 스냅숏이 포함됩니다. 가장 최근의 저장소 스냅숏으로 복원하는 경우 가장 최근의 HANA 스냅숏이어야 합니다. (이전 저장소 스냅숏으로 복원하는 경우 저장소 스냅숏이 만들어진 시간에 따라 HANA 스냅숏을 찾아야 합니다.)
 
  ![SAP HANA Studio 내에서 복구 옵션 선택](./media/hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
-7. **특정 데이터 백업이나 저장소 스냅숏으로 데이터베이스 복구**를 선택합니다.
+1. **특정 데이터 백업이나 저장소 스냅숏으로 데이터베이스 복구**를 선택합니다.
 
  ![복구 유형 지정 창](./media/hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
-8. **카탈로그 없이 백업 지정**을 선택합니다.
+1. **카탈로그 없이 백업 지정**을 선택합니다.
 
  ![백업 위치 지정 창](./media/hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
-9. **대상 형식** 목록에서 **스냅숏**을 선택합니다.
+1. **대상 형식** 목록에서 **스냅숏**을 선택합니다.
 
  ![복구할 백업 지정 창](./media/hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
-10. **마침**을 선택하여 복구 프로세스를 시작합니다.
+1. **마침**을 선택하여 복구 프로세스를 시작합니다.
 
  ![“마침”을 선택하여 복구 프로세스를 시작](./media/hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
-11. HANA 데이터베이스는 저장소 스냅숏이 포함된 HANA 스냅숏으로 복원되고 복구됩니다.
+1. HANA 데이터베이스는 저장소 스냅숏이 포함된 HANA 스냅숏으로 복원되고 복구됩니다.
 
  ![HANA 데이터베이스는 HANA 스냅숏으로 복원되고 복구됩니다.](./media/hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
@@ -751,23 +751,23 @@ HANA Backup ID:
 
 1. [가장 최근 HANA 스냅숏으로 복구](#recovering-to-the-most-recent-hana-snapshot)에서 1-6단계를 완료합니다.
 
-2. **가장 최근 상태로 데이터베이스 복구**를 선택합니다.
+1. **가장 최근 상태로 데이터베이스 복구**를 선택합니다.
 
  !["가장 최근 상태로 데이터베이스 복구"를 선택합니다.](./media/hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
-3. 가장 최근인 HANA 로그 백업의 위치를 지정합니다. 위치에 HANA 스냅숏에서 가장 최근 상태까지 모든 HANA 트랜잭션 로그 백업이 포함되어야 합니다.
+1. 가장 최근인 HANA 로그 백업의 위치를 지정합니다. 위치에 HANA 스냅숏에서 가장 최근 상태까지 모든 HANA 트랜잭션 로그 백업이 포함되어야 합니다.
 
  ![가장 최근인 HANA 로그 백업의 위치를 지정합니다.](./media/hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
 
-4. 데이터베이스를 복구하는 기본으로 백업을 선택합니다. 이 예제에서 스크린샷의 HANA 스냅숏은 저장소 스냅숏이 포함되었던 HANA 스냅숏입니다. 
+1. 데이터베이스를 복구하는 기본으로 백업을 선택합니다. 이 예제에서 스크린샷의 HANA 스냅숏은 저장소 스냅숏이 포함되었던 HANA 스냅숏입니다. 
 
  ![데이터베이스를 복구하는 기본으로 백업을 선택합니다.](./media/hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
-5. 델타가 HANA 스냅숏 시간과 가장 최근의 상태 간에 존재하지 않는 경우 **델타 Backup 사용** 확인란의 선택을 취소합니다.
+1. 델타가 HANA 스냅숏 시간과 가장 최근의 상태 간에 존재하지 않는 경우 **델타 Backup 사용** 확인란의 선택을 취소합니다.
 
  ![델타가 존재하지 않는 경우 "델타 Backup 사용" 확인란의 선택을 취소합니다](./media/hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
-6. 요약 화면에서 **마침**을 선택하여 복원 절차를 시작합니다.
+1. 요약 화면에서 **마침**을 선택하여 복원 절차를 시작합니다.
 
  ![요약 페이지에서 "마침"을 클릭합니다.](./media/hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
@@ -775,21 +775,21 @@ HANA Backup ID:
 저장소 스냅숏에 포함된 HANA 스냅숏과 HANA 스냅숏 지정 시점 복구보다 이후인 스냅숏 간의 지정 시점으로 복구하려면 다음 단계를 수행합니다.
 
 1. 복구하려는 시간에서 HANA 스냅숏의 모든 트랜잭션 로그 백업이 있는지 확인합니다.
-2. [가장 최근 상태로 복구](#recovering-to-the-most-recent-state)에서 프로시저를 시작합니다.
-3. 프로시저의 2단계에 있는 **복구 유형 지정** 창에서 **데이터베이스를 다음 지정 시점으로 복구**를 선택한 다음, 해당 시점을 지정합니다. 
-4. 3-6단계를 완료합니다.
+1. [가장 최근 상태로 복구](#recovering-to-the-most-recent-state)에서 프로시저를 시작합니다.
+1. 프로시저의 2단계에 있는 **복구 유형 지정** 창에서 **데이터베이스를 다음 지정 시점으로 복구**를 선택한 다음, 해당 시점을 지정합니다. 
+1. 3-6단계를 완료합니다.
 
 ### <a name="monitor-the-execution-of-snapshots"></a>스냅숏의 실행 모니터링
 
 HANA 대규모 인스턴스의 저장소 스냅숏을 사용하려면 해당 스냅숏의 실행도 모니터링해야 합니다. 저장소 스냅숏을 실행하는 스크립트는 파일에 출력을 작성한 다음, Perl 스크립트와 동일한 위치에 저장합니다. 각 저장소 스냅숏에 대해 별도 파일을 기록합니다. 각 파일의 출력은 스냅숏 스크립트가 실행되는 다양한 단계를 표시합니다.
 
 1. 스냅숏을 만들어야 하는 볼륨을 찾습니다.
-2. 이 볼륨에서 생성한 스냅숏을 찾습니다.
-3. 기존의 최종 스냅숏을 삭제하여 지정한 스냅숏 개수와 일치시킵니다.
-4. SAP HANA 스냅숏을 만듭니다.
-5. 볼륨에 대한 저장소 스냅숏을 만듭니다.
-6. SAP HANA 스냅숏을 삭제합니다.
-7. 가장 최근의 스냅숏 이름을 **.0**으로 변경합니다.
+1. 이 볼륨에서 생성한 스냅숏을 찾습니다.
+1. 기존의 최종 스냅숏을 삭제하여 지정한 스냅숏 개수와 일치시킵니다.
+1. SAP HANA 스냅숏을 만듭니다.
+1. 볼륨에 대한 저장소 스냅숏을 만듭니다.
+1. SAP HANA 스냅숏을 삭제합니다.
+1. 가장 최근의 스냅숏 이름을 **.0**으로 변경합니다.
 
 스크립트 기능의 가장 중요한 부분은 다음 부분으로 식별됩니다.
 ```
@@ -884,10 +884,10 @@ HANA 대규모 인스턴스는 서로 다른 Azure 지역의 HANA 대규모 인�
 재해 복구 사례에서 RPO를 향상시키려면 HANA 트랜잭션 로그 백업을 Azure의 SAP HANA(대규모 인스턴스)에서 다른 Azure 지역에 복사할 수 있습니다. 이와 같이 RPO를 더 감소하기 위해서는 다음과 같은 단계를 수행합니다.
 
 1. HANA 트랜잭션 로그를 가능한 한 자주 /hana/logbackups에 백업합니다.
-2. rsync를 사용하여 트랜잭션 로그 백업을 NFS 공유 호스팅 Azure 가상 머신에 복사합니다. VM은 Azure 프로덕션 지역과 DR 지역의 Azure 가상 네트워크에 있습니다. 프로덕션 HANA 큰 인스턴스를 Azure에 연결하는 회로에 두 Azure 가상 네트워크를 연결해야 합니다. [HANA 큰 인스턴스를 사용한 재해 복구의 네트워크 고려 사항](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances) 섹션의 그래픽을 참조하세요. 
-3. 해당 지역의 트랜잭션 로그 백업을 VM이 연결된 NFS에서 내보낸 저장소에 유지합니다.
-4. 재해 장애 조치(failover)의 경우 /hana/logbackups 볼륨에서 찾은 트랜잭션 로그 백업을 최근에 재해 복구 사이트의 NFS 공유에 생성한 트랜잭션 로그 백업으로 보완합니다. 
-5. 트랜잭션 로그 백업을 시작하여 DR 영역에 저장할 수 있는 최신 백업으로 복원합니다.
+1. rsync를 사용하여 트랜잭션 로그 백업을 NFS 공유 호스팅 Azure 가상 머신에 복사합니다. VM은 Azure 프로덕션 지역과 DR 지역의 Azure 가상 네트워크에 있습니다. 프로덕션 HANA 큰 인스턴스를 Azure에 연결하는 회로에 두 Azure 가상 네트워크를 연결해야 합니다. [HANA 큰 인스턴스를 사용한 재해 복구의 네트워크 고려 사항](#Network-considerations-for-disaster recovery-with-HANA-Large-Instances) 섹션의 그래픽을 참조하세요. 
+1. 해당 지역의 트랜잭션 로그 백업을 VM이 연결된 NFS에서 내보낸 저장소에 유지합니다.
+1. 재해 장애 조치(failover)의 경우 /hana/logbackups 볼륨에서 찾은 트랜잭션 로그 백업을 최근에 재해 복구 사이트의 NFS 공유에 생성한 트랜잭션 로그 백업으로 보완합니다. 
+1. 트랜잭션 로그 백업을 시작하여 DR 영역에 저장할 수 있는 최신 백업으로 복원합니다.
 
 HANA 큰 인스턴스 작업에서 복제 관계 설정을 확인하고 실행 스토리지 스냅숏 백업을 시작하면 데이터 복제가 시작됩니다.
 
@@ -909,15 +909,15 @@ DR 사이트로 장애 조치(failover)할 때 고려할 두 가지 경우가 �
 최신 복제된 저장소 스냅숏을 복원하려면 다음 단계를 수행합니다. 
 
 1. 실행 중인 HANA 대규모 인스턴스의 재해 복구 단위에서 HANA의 비프로덕션 인스턴스를 종료합니다. 유휴 HANA 프로덕션 인스턴스가 미리 설치되어 있기 때문입니다.
-2. 실행 중인 SAP HANA 프로세스가 없는지 확인해야 합니다. 이것을 확인하려면 다음 명령을 사용합니다. `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList` 출력에는 **hdbdaemon** 프로세스가 중지된 상태로 표시되고, 실행 중이거나 시작된 상태의 다른 HANA 프로세스는 표시되지 않습니다.
-3. DR 사이트 HANA 대규모 인스턴스 단위에서 *azure_hana_dr_failover.pl* 스크립트를 실행합니다. 스크립트에서 복원할 SAP HANA SID를 묻는 메시지가 표시됩니다. 요청되면 복제되었으며 DR 사이트의 HANA 대규모 인스턴스 단위에 있는 *HANABackupCustomerDetails.txt* 파일에서 유지 관리되는 하나 또는 유일한 SAP HANA SID를 입력합니다. 
+1. 실행 중인 SAP HANA 프로세스가 없는지 확인해야 합니다. 이것을 확인하려면 다음 명령을 사용합니다. `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList` 출력에는 **hdbdaemon** 프로세스가 중지된 상태로 표시되고, 실행 중이거나 시작된 상태의 다른 HANA 프로세스는 표시되지 않습니다.
+1. DR 사이트 HANA 대규모 인스턴스 단위에서 *azure_hana_dr_failover.pl* 스크립트를 실행합니다. 스크립트에서 복원할 SAP HANA SID를 묻는 메시지가 표시됩니다. 요청되면 복제되었으며 DR 사이트의 HANA 대규모 인스턴스 단위에 있는 *HANABackupCustomerDetails.txt* 파일에서 유지 관리되는 하나 또는 유일한 SAP HANA SID를 입력합니다. 
 
       여러 SAP HANA 인스턴스를 장애 조치하려는 경우 스크립트를 여러 번 실행해야 합니다. 요청된 경우 장애 조치하고 복원하려는 SAP HANA SID를 입력합니다. 완료 시 스크립트에서 HANA 대규모 인스턴스 단위에 추가된 볼륨의 탑재 지점 목록을 표시합니다. 이 목록에는 복원된 DR 볼륨도 포함됩니다.
 
-4. Linux 운영 체제 명령을 사용하여 복원된 재해 복구 볼륨을 재해 복구 사이트의 HANA 대규모 인스턴스 단위에 탑재합니다. 
-6. 유휴 SAP HANA 프로덕션 인스턴스를 시작합니다.
-7. RPO 시간을 줄이기 위해 트랜잭션 로그 백업 로그를 복사하도록 선택한 경우 해당 트랜잭션 로그 백업을 새로 탑재된 DR/hana/logbackups 디렉터리에 병합해야 합니다. 기존 백업을 덮어쓰지 마십시오. 저장소 스냅숏의 최신 복제를 사용하여 복제되지 않은 최신 백업만 복사합니다.
-8. DR Azure 지역의 /hana/shared/PRD 볼륨에 복제된 스냅숏에서 단일 파일을 복원할 수도 있습니다. 
+1. Linux 운영 체제 명령을 사용하여 복원된 재해 복구 볼륨을 재해 복구 사이트의 HANA 대규모 인스턴스 단위에 탑재합니다. 
+1. 유휴 SAP HANA 프로덕션 인스턴스를 시작합니다.
+1. RPO 시간을 줄이기 위해 트랜잭션 로그 백업 로그를 복사하도록 선택한 경우 해당 트랜잭션 로그 백업을 새로 탑재된 DR/hana/logbackups 디렉터리에 병합해야 합니다. 기존 백업을 덮어쓰지 마십시오. 저장소 스냅숏의 최신 복제를 사용하여 복제되지 않은 최신 백업만 복사합니다.
+1. DR Azure 지역의 /hana/shared/PRD 볼륨에 복제된 스냅숏에서 단일 파일을 복원할 수도 있습니다. 
 
 실제 복제 관계에 영향을 주지 않고 DR 장애 조치(failover)를 테스트할 수 있습니다. 테스트 장애 조치를 수행하려면 위의 1, 2단계를 수행한 다음, 3단계를 계속 진행합니다.
 
@@ -935,10 +935,10 @@ DR 사이트 HANA 대규모 인스턴스 단위에서 **azure_hana_test_dr_failo
    >[!NOTE]
    >몇 시간 전에 삭제한 일부 데이터를 복구하기 위해 장애 조치(failover)하고 DR 볼륨을 이전 스냅숏으로 설정해야 하는 경우 이 프로시저가 적용됩니다. 
 
-4. 실행 중인 HANA 대규모 인스턴스의 재해 복구 단위에서 HANA의 비프로덕션 인스턴스를 종료합니다. 유휴 HANA 프로덕션 인스턴스가 미리 설치되어 있기 때문입니다.
-5. 실행 중인 SAP HANA 프로세스가 없는지 확인해야 합니다. 이것을 확인하려면 다음 명령을 사용합니다. `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList` 출력에는 **hdbdaemon** 프로세스가 중지된 상태로 표시되고, 실행 중이거나 시작된 상태의 다른 HANA 프로세스는 표시되지 않습니다.
-6. 재해 복구 사이트를 복원하려는 스냅숏 이름 또는 SAP HANA 백업 ID를 결정합니다. 실제 재해 복구의 경우 이 스냅숏이 일반적으로 최신 스냅숏입니다. 손실된 데이터를 복구해야 하는 경우 이전 스냅숏을 선택하십시오.
-7. 우선 순위가 높은 지원 요청을 통해 Azure 지원에 문의합니다. DR 사이트에서 해당 스냅숏(스냅숏의 이름 및 날짜를 포함) 또는 HANA 백업 ID의 복원을 요청합니다. 기본값은 작업 쪽에서 /hana/data 볼륨만 복원하는 것입니다. /hana/logbackups 볼륨도 필요하면 구체적으로 명시해야 합니다. */hana/shared 볼륨을 복원하지 마십시오.* 대신 PRD에서 /hana/shared 볼륨을 다시 탑재한 후에 **.snapshot** 디렉터리 및 해당 하위 디렉터리에서 특정 파일(예: global.ini)를 선택해야 합니다. 
+1. 실행 중인 HANA 대규모 인스턴스의 재해 복구 단위에서 HANA의 비프로덕션 인스턴스를 종료합니다. 유휴 HANA 프로덕션 인스턴스가 미리 설치되어 있기 때문입니다.
+1. 실행 중인 SAP HANA 프로세스가 없는지 확인해야 합니다. 이것을 확인하려면 다음 명령을 사용합니다. `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList` 출력에는 **hdbdaemon** 프로세스가 중지된 상태로 표시되고, 실행 중이거나 시작된 상태의 다른 HANA 프로세스는 표시되지 않습니다.
+1. 재해 복구 사이트를 복원하려는 스냅숏 이름 또는 SAP HANA 백업 ID를 결정합니다. 실제 재해 복구의 경우 이 스냅숏이 일반적으로 최신 스냅숏입니다. 손실된 데이터를 복구해야 하는 경우 이전 스냅숏을 선택하십시오.
+1. 우선 순위가 높은 지원 요청을 통해 Azure 지원에 문의합니다. DR 사이트에서 해당 스냅숏(스냅숏의 이름 및 날짜를 포함) 또는 HANA 백업 ID의 복원을 요청합니다. 기본값은 작업 쪽에서 /hana/data 볼륨만 복원하는 것입니다. /hana/logbackups 볼륨도 필요하면 구체적으로 명시해야 합니다. */hana/shared 볼륨을 복원하지 마십시오.* 대신 PRD에서 /hana/shared 볼륨을 다시 탑재한 후에 **.snapshot** 디렉터리 및 해당 하위 디렉터리에서 특정 파일(예: global.ini)를 선택해야 합니다. 
 
    작업 쪽에서 다음 단계가 수행됩니다.
 
@@ -948,26 +948,26 @@ DR 사이트 HANA 대규모 인스턴스 단위에서 **azure_hana_test_dr_failo
    
    다. 복원 후에는 재해 복구 볼륨을 재해 복구 지역의 HANA 대규모 인스턴스 단위에 탑재할 수 있습니다.
       
-8. 재해 복구 볼륨을 재해 복구 사이트의 HANA 대규모 인스턴스 단위에 탑재하십시오. 
-9. 유휴 SAP HANA 프로덕션 인스턴스를 시작합니다.
-10. RPO 시간을 줄이기 위해 트랜잭션 로그 백업 로그를 복사하도록 선택한 경우 해당 트랜잭션 로그 백업을 새로 탑재된 DR/hana/logbackups 디렉터리에 병합해야 합니다. 기존 백업을 덮어쓰지 마십시오. 저장소 스냅숏의 최신 복제를 사용하여 복제되지 않은 최신 백업만 복사합니다.
-11. DR Azure 지역의 /hana/shared/PRD 볼륨에 복제된 스냅숏에서 단일 파일을 복원할 수도 있습니다.
+1. 재해 복구 볼륨을 재해 복구 사이트의 HANA 대규모 인스턴스 단위에 탑재하십시오. 
+1. 유휴 SAP HANA 프로덕션 인스턴스를 시작합니다.
+1. RPO 시간을 줄이기 위해 트랜잭션 로그 백업 로그를 복사하도록 선택한 경우 해당 트랜잭션 로그 백업을 새로 탑재된 DR/hana/logbackups 디렉터리에 병합해야 합니다. 기존 백업을 덮어쓰지 마십시오. 저장소 스냅숏의 최신 복제를 사용하여 복제되지 않은 최신 백업만 복사합니다.
+1. DR Azure 지역의 /hana/shared/PRD 볼륨에 복제된 스냅숏에서 단일 파일을 복원할 수도 있습니다.
 
 단계의 다음 시퀀스에서는 복원된 저장소 스냅숏 및 사용 가능한 트랜잭션 로그 백업에 따라 SAP HANA 프로덕션 인스턴스가 복구됩니다.
 
 1. SAP HANA Studio를 사용하여 백업 위치를 **/hana/logbackups**로 변경합니다.
    ![DR 복구를 위한 백업 위치 변경](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-2. SAP HANA는 백업 파일 위치를 검색하고, 가장 최근 트랜잭션 로그 백업을 복원할 것을 제안합니다. 아래와 같은 화면이 표시될 때까지 검사하는 데 몇 분 정도가 소요될 수 있습니다. ![DR 복구를 위한 트랜잭션 로그 백업 목록](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA는 백업 파일 위치를 검색하고, 가장 최근 트랜잭션 로그 백업을 복원할 것을 제안합니다. 아래와 같은 화면이 표시될 때까지 검사하는 데 몇 분 정도가 소요될 수 있습니다. ![DR 복구를 위한 트랜잭션 로그 백업 목록](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
-3. 일부 기본 설정을 조정합니다.
+1. 일부 기본 설정을 조정합니다.
 
       - **델타 백업 사용** 선택을 취소합니다.
       - **로그 영역 초기화**를 선택합니다.
 
    ![로그 영역 초기화 설정](./media/hana-overview-high-availability-disaster-recovery/initialize_log_dr3.PNG)
 
-4. **마침**을 선택합니다.
+1. **마침**을 선택합니다.
 
    ![DR 복원 완료](./media/hana-overview-high-availability-disaster-recovery/finish_dr4.PNG)
 
@@ -984,11 +984,11 @@ DR에서 프로덕션 사이트로 장애 복구(Failback)할 수 있습니다. 
 수행할 단계의 시퀀스입니다.
 
 1. Azure 운영 팀의 SAP HANA는 프로덕션 상태를 나타내는 재해 복구 저장소 볼륨에서 프로덕션 저장소 볼륨을 동기화하는 트리거를 가져옵니다. 이 상태에서 프로덕션 사이트에 있는 HANA 큰 인스턴스 단위가 종료됩니다.
-2. Azure 운영 팀의 SAP HANA는 복제를 모니터링하고 사용자에게 알리기 전에 인식해야 합니다.
-3. 재해 복구 사이트에서 프로덕션 HANA 인스턴스를 사용하는 응용 프로그램을 종료합니다. 그런 다음, HANA 트랜잭션 로그 백업을 수행합니다. 다음으로 재해 복구 사이트의 HANA 대규모 인스턴스 단위에서 실행되는 HANA 인스턴스를 중지합니다.
-4. 재해 복구 사이트의 HANA 대규모 인스턴스 단위에서 실행 중인 HANA 인스턴스가 종료된 후에 운영 팀은 수동으로 디스크 볼륨을 다시 동기화합니다.
-5. Azure 운영 팀의 SAP HANA가 프로덕션 사이트에서 HANA 큰 인스턴스 단위를 다시 시작한 후 사용자에게 전달합니다. HANA 대규모 인스턴스 단위의 시작 시간에 SAP HANA 인스턴스가 종료된 상태인지 확인합니다.
-6. 이전에 재해 복구 사이트로 장애 조치(failover)를 수행할 때와 동일한 데이터베이스 복원 단계를 수행합니다.
+1. Azure 운영 팀의 SAP HANA는 복제를 모니터링하고 사용자에게 알리기 전에 인식해야 합니다.
+1. 재해 복구 사이트에서 프로덕션 HANA 인스턴스를 사용하는 응용 프로그램을 종료합니다. 그런 다음, HANA 트랜잭션 로그 백업을 수행합니다. 다음으로 재해 복구 사이트의 HANA 대규모 인스턴스 단위에서 실행되는 HANA 인스턴스를 중지합니다.
+1. 재해 복구 사이트의 HANA 대규모 인스턴스 단위에서 실행 중인 HANA 인스턴스가 종료된 후에 운영 팀은 수동으로 디스크 볼륨을 다시 동기화합니다.
+1. Azure 운영 팀의 SAP HANA가 프로덕션 사이트에서 HANA 큰 인스턴스 단위를 다시 시작한 후 사용자에게 전달합니다. HANA 대규모 인스턴스 단위의 시작 시간에 SAP HANA 인스턴스가 종료된 상태인지 확인합니다.
+1. 이전에 재해 복구 사이트로 장애 조치(failover)를 수행할 때와 동일한 데이터베이스 복원 단계를 수행합니다.
 
 ### <a name="monitor-disaster-recovery-replication"></a>재해 복구 복제 모니터링
 

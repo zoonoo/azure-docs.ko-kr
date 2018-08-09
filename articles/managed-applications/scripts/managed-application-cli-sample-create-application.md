@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3090284a89cfeb1fe8b6446e55e2731e1155167f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 9939bfb08031b3062fd65fbdeed908a09e5e124c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847219"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432228"
 ---
 # <a name="deploy-a-managed-application-for-service-catalog-with-azure-cli"></a>Azure CLI를 사용하여 서비스 카탈로그에 대한 관리되는 응용 프로그램 배포
 
@@ -39,7 +39,7 @@ ms.locfileid: "29847219"
 
 | 명령 | 메모 |
 |---|---|
-| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_create) | 관리되는 응용 프로그램을 만듭니다. 템플릿에 대한 정의 ID 및 매개 변수를 제공합니다. |
+| [az managedapp create](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-create) | 관리되는 응용 프로그램을 만듭니다. 템플릿에 대한 정의 ID 및 매개 변수를 제공합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

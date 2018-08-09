@@ -2,23 +2,19 @@
 title: HDFS 호환 가능 Azure Storage에서 데이터 쿼리 - Azure HDInsight
 description: Azure Storage 및 Azure Data Lake Store에서 데이터를 쿼리하고 분석을 위해 결과를 저장하는 방법을 알아봅니다.
 services: hdinsight,storage
-tags: azure-portal
-author: mumian
-ms.author: jgao
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1d2e65f2-16de-449e-915f-3ffbc230f815
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
 ms.topic: get-started-article
 ms.date: 05/14/2018
-ms.openlocfilehash: 13787620ca889beea74c96b8fa922287b88442f4
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bccaf00537dd1455e1364ceb2b5ca152b12f218c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237726"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598234"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -36,9 +32,9 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 저장�
 > | Storage 계정 유형 | 저장소 계층 | HDInsight에서 지원됨 |
 > | ------- | ------- | ------- |
 > | 범용 Storage 계정 | Standard | __예__ |
-> | &nbsp; | Premium | 아니오 |
-> | Blob Storage 계정 | 핫 | 아니오 |
-> | &nbsp; | 쿨 | 아니오 |
+> | &nbsp; | Premium | 아니요 |
+> | Blob Storage 계정 | 핫 | 아니요 |
+> | &nbsp; | 쿨 | 아니요 |
 
 기본 Blob 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 저장소 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 응용 프로그램 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 

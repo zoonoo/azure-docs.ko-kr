@@ -2,24 +2,18 @@
 title: Azure Import/Export 로그 파일 형식 | Microsoft Docs
 description: Import/Export 서비스 작업에 대한 단계를 실행할 때 만든 로그 파일의 형식에 대해 알아보기
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 38cc16bd-ad55-4625-9a85-e1726c35fd1b
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 16234ccaf13ce1d85cfd207ed4734e683070faa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: b842a80762989c34ae278a397cc49c088ff77fb2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23060008"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525521"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export 서비스 로그 파일 형식
 Microsoft Azure Import/Export 서비스가 드라이브에서 가져오기 작업 또는 내보내기 작업의 일부로 작업을 수행하는 경우 로그는 해당 작업과 연결된 저장소 계정의 블록 Blob에 작성됩니다.  
@@ -39,8 +33,8 @@ Import/Export 서비스에서 기록할 수 있는 로그에는 두 가지가 �
   
 |인증 방법|`ImportExportStatesPath`요소의 값|로그 Blob의 위치|  
 |---------------------------|----------------------------------------------|---------------------------|  
-|저장소 계정 키|기본값|`waimportexport`라는 컨테이너가 기본 컨테이너입니다. 예:<br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
-|저장소 계정 키|사용자 지정 값|사용자가 명명한 컨테이너 예:<br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
+|Storage 계정 키|기본값|`waimportexport`라는 컨테이너가 기본 컨테이너입니다. 예: <br /><br /> `https://myaccount.blob.core.windows.net/waimportexport`|  
+|Storage 계정 키|사용자 지정 값|사용자가 명명한 컨테이너 예: <br /><br /> `https://myaccount.blob.core.windows.net/mylogcontainer`|  
 |컨테이너 SAS|기본값|기본 이름인 `waimportexport`라는 가상 디렉터리는 SAS에 지정된 컨테이너 아래에 있습니다.<br /><br /> 예를 들어 작업에 대해 지정된 SAS가 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`인 경우 로그 위치는 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`입니다.|  
 |컨테이너 SAS|사용자 지정 값|사용자가 명명한 가상 디렉터리는 SAS에 지정된 컨테이너 아래에 있습니다.<br /><br /> 예를 들어 작업에 대해 지정된 SAS가 `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`이고 지정된 가상 디렉터리 이름이 `mylogblobs`인 경우 로그 위치는 `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`입니다.|  
   
@@ -107,19 +101,19 @@ properties-status ::=
 
 다음 테이블에서는 로그 파일의 요소에 대해 설명합니다.  
   
-|XML 요소|형식|설명|  
+|XML 요소|type|설명|  
 |-----------------|----------|-----------------|  
 |`DriveLog`|XML 요소|드라이브 로그를 나타냅니다.|  
 |`Version`|특성, 문자열|로그 형식의 버전입니다.|  
 |`DriveId`|문자열|드라이브의 하드웨어 일련 번호입니다.|  
 |`Status`|문자열|처리 중인 드라이브의 상태입니다. 자세한 내용은 아래 `Drive Status Codes` 테이블을 참조하세요.|  
 |`Blob`|중첩 XML 요소|Blob을 나타냅니다.|  
-|`Blob/BlobPath`|string|Blob의 URI입니다.|  
-|`Blob/FilePath`|string|드라이브의 파일에 대한 상대 경로입니다.|  
-|`Blob/Snapshot`|DateTime|내보내기 작업에 대한 Blob의 스냅숏 버전입니다.|  
-|`Blob/Length`|Integer|바이트 단위인 Blob의 총 길이입니다.|  
-|`Blob/LastModified`|DateTime|내보내기 작업에 대해 Blob를 마지막으로 수정한 날짜/시간입니다.|  
-|`Blob/ImportDisposition`|string|가져오기 작업에 대한 Blob의 가져오기 처리입니다.|  
+|`Blob/BlobPath`|문자열|Blob의 URI입니다.|  
+|`Blob/FilePath`|문자열|드라이브의 파일에 대한 상대 경로입니다.|  
+|`Blob/Snapshot`|Datetime|내보내기 작업에 대한 Blob의 스냅숏 버전입니다.|  
+|`Blob/Length`|정수 |바이트 단위인 Blob의 총 길이입니다.|  
+|`Blob/LastModified`|Datetime|내보내기 작업에 대해 Blob를 마지막으로 수정한 날짜/시간입니다.|  
+|`Blob/ImportDisposition`|문자열|가져오기 작업에 대한 Blob의 가져오기 처리입니다.|  
 |`Blob/ImportDisposition/@Status`|특성, 문자열|가져오기 처리의 상태입니다.|  
 |`PageRangeList`|중첩 XML 요소|페이지 Blob에 대한 페이지 범위 목록을 나타냅니다.|  
 |`PageRange`|XML 요소|페이지 범위를 나타냅니다.|  
@@ -138,15 +132,15 @@ properties-status ::=
 |`Metadata/@Status`|특성, 문자열|Blob 메타데이터를 처리하는 상태입니다.|  
 |`Metadata/GlobalPath`|문자열|전역 메타데이터 파일에 대한 상대 경로입니다.|  
 |`Metadata/GlobalPath/@Hash`|특성, 문자열|전역 메타데이터 파일의 Base16 인코딩 MD5 해시입니다.|  
-|`Metadata/Path`|string|메타데이터 파일에 대한 상대 경로입니다.|  
+|`Metadata/Path`|문자열|메타데이터 파일에 대한 상대 경로입니다.|  
 |`Metadata/Path/@Hash`|특성, 문자열|메타데이터 파일의 Base16 인코딩 MD5 해시입니다.|  
 |`Properties`|중첩 XML 요소|Blob 속성을 나타냅니다.|  
 |`Properties/@Status`|특성, 문자열|Blob 속성을 처리하는 상태입니다(예: 파일을 찾을 수 없음, 완료됨).|  
-|`Properties/GlobalPath`|string|전역 속성 파일에 대한 상대 경로입니다.|  
+|`Properties/GlobalPath`|문자열|전역 속성 파일에 대한 상대 경로입니다.|  
 |`Properties/GlobalPath/@Hash`|특성, 문자열|전역 속성 파일의 Base16 인코딩 MD5 해시입니다.|  
-|`Properties/Path`|string|속성 파일에 대한 상대 경로입니다.|  
+|`Properties/Path`|문자열|속성 파일에 대한 상대 경로입니다.|  
 |`Properties/Path/@Hash`|특성, 문자열|속성 파일의 Base16 인코딩 MD5 해시입니다.|  
-|`Blob/Status`|string|Blob을 처리하는 상태입니다.|  
+|`Blob/Status`|문자열|Blob을 처리하는 상태입니다.|  
   
 # <a name="drive-status-codes"></a>드라이브 상태 코드  
 다음 테이블에서는 드라이브를 처리하는 상태 코드를 나열합니다.  

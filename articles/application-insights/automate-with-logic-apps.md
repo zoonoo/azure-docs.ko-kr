@@ -1,22 +1,23 @@
 ---
-title: "Logic Apps를 사용하여 Azure Application Insights 프로세스를 자동화합니다."
-description: "논리 앱에 Application Insights 커넥터를 추가하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다."
+title: Logic Apps를 사용하여 Azure Application Insights 프로세스를 자동화합니다.
+description: 논리 앱에 Application Insights 커넥터를 추가하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450443"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Logic Apps를 사용하여 Application Insights 프로세스 자동화
 
@@ -32,7 +33,7 @@ ms.lasthandoff: 02/21/2018
 
 ### <a name="step-1-create-a-logic-app"></a>1단계: 논리 앱 만들기
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스 만들기**를 클릭하고 **웹 + 모바일**을 선택한 다음, **논리 앱**을 선택합니다.
+1. **리소스 만들기**를 클릭하고 **웹 + 모바일**을 선택한 다음, **논리 앱**을 선택합니다.
 
     ![새 논리 앱 창](./media/automate-with-logic-apps/logicapp1.png)
 
@@ -41,16 +42,16 @@ ms.lasthandoff: 02/21/2018
 
     ![논리 앱 디자이너 창](./media/automate-with-logic-apps/logicapp2.png)
 
-2. **빈도** 상자에서 **일**을 선택하고 **간격** 상자에 **1**을 입력합니다.
+1. **빈도** 상자에서 **일**을 선택하고 **간격** 상자에 **1**을 입력합니다.
 
     ![논리 앱 디자이너 "되풀이" 창](./media/automate-with-logic-apps/step2b.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>3단계: Application Insights 작업 추가
 1. **새 단계**를 클릭한 다음 **작업 추가**를 클릭합니다.
 
-2. **작업 선택** 검색 상자에서 **Azure Application Insights**를 입력합니다.
+1. **작업 선택** 검색 상자에서 **Azure Application Insights**를 입력합니다.
 
-3. **작업**에서 **Azure Application Insights – Analytics 쿼리 시각화 미리 보기**를 클릭합니다.
+1. **작업**에서 **Azure Application Insights – Analytics 쿼리 시각화 미리 보기**를 클릭합니다.
 
     ![논리 앱 디자이너 "작업 선택" 창](./media/automate-with-logic-apps/flow2.png)
 
@@ -82,7 +83,7 @@ ms.lasthandoff: 02/21/2018
     | evaluate autocluster()
     ```
 
-2. **차트 종류** 상자에서 **Html 테이블**을 선택합니다.
+1. **차트 종류** 상자에서 **Html 테이블**을 선택합니다.
 
     ![Analytics 쿼리 구성 창](./media/automate-with-logic-apps/flow4.png)
 
@@ -90,13 +91,13 @@ ms.lasthandoff: 02/21/2018
 
 1. **새 단계**를 클릭한 다음 **작업 추가**를 선택합니다.
 
-2. 검색 상자에 **Office 365 Outlook**을 입력합니다.
+1. 검색 상자에 **Office 365 Outlook**을 입력합니다.
 
-3. **Office 365 Outlook - 이메일 보내기**를 클릭합니다.
+1. **Office 365 Outlook - 이메일 보내기**를 클릭합니다.
 
     ![Office 365 Outlook 선택](./media/automate-with-logic-apps/flow2b.png)
 
-4. **이메일 보내기** 창에서 다음을 수행합니다.
+1. **이메일 보내기** 창에서 다음을 수행합니다.
 
    a. 받는 사람의 이메일 주소를 입력합니다.
 
@@ -108,7 +109,7 @@ ms.lasthandoff: 02/21/2018
 
       ![Office 365 Outlook 구성](./media/automate-with-logic-apps/flow5.png)
 
-5. 동적 콘텐츠 메뉴에서 다음을 수행합니다.
+1. 동적 콘텐츠 메뉴에서 다음을 수행합니다.
 
     a. **첨부 파일 이름**을 선택합니다.
 

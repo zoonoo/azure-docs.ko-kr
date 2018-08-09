@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 478c6dcaa6afd67742df91366021c6186fc1427e
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098535"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429885"
 ---
 # <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>Kubernetes Pod 및 Kubernetes 인프라 크기 조정
 
@@ -45,7 +45,7 @@ ms.locfileid: "37098535"
 kubectl get pods
 ```
 
-출력
+출력:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -65,7 +65,7 @@ kubectl scale --replicas=5 deployment/azure-vote-front
 kubectl get pods
 ```
 
-출력
+출력:
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -104,7 +104,7 @@ kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
 kubectl get hpa
 ```
 
-출력
+출력:
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE
@@ -115,7 +115,7 @@ Azure Vote 앱에 최소 부하를 적용한 상태로 몇 분이 지나면 Pod 
 
 ## <a name="scale-the-agents"></a>에이전트 크기 조정
 
-이전 자습서에서 기본 명령을 사용하여 Kubernetes 클러스터를 만든 경우 이 클러스터에는 세 개의 에이전트 노드가 있습니다. 클러스터에 대한 컨테이너 워크로드를 더 늘리거나 줄일 계획인 경우 수동으로 에이전트 수를 조정할 수 있습니다. [az acs scale](/cli/azure/acs#az_acs_scale) 명령을 사용하고 `--new-agent-count` 매개 변수로 에이전트 수를 지정합니다.
+이전 자습서에서 기본 명령을 사용하여 Kubernetes 클러스터를 만든 경우 이 클러스터에는 세 개의 에이전트 노드가 있습니다. 클러스터에 대한 컨테이너 워크로드를 더 늘리거나 줄일 계획인 경우 수동으로 에이전트 수를 조정할 수 있습니다. [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용하고 `--new-agent-count` 매개 변수로 에이전트 수를 지정합니다.
 
 다음 예제에서는 *myK8sCluster*라는 Kubernetes 클러스터의 에이전트 노드 수를 4개로 늘립니다. 이 명령은 완료되는 데 2~3분이 걸립니다.
 

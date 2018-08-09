@@ -2,23 +2,18 @@
 title: Azure CLI를 사용하여 Azure 파일 공유 관리
 description: Azure CLI를 사용하여 Azure Files를 관리하는 방법을 알아봅니다.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: ebf8605a0f4686a69f89adf0c36d072f12d3c750
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701821"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525259"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Azure CLI를 사용하여 Azure 파일 공유 관리
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft의 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 문서에서는 Azure CLI를 사용하여 Azure 파일 공유 작업의 기본 사항을 안내합니다. 방법 배우기: 
@@ -31,7 +26,7 @@ ms.locfileid: "38701821"
 > * 파일 다운로드
 > * 공유 스냅숏 만들기 및 사용
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 42ac1cc7dd50f46ada263089437740e680928e70
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325458"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596055"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>토큰 획득을 위해 Azure VM MSI(관리 서비스 ID)를 사용하는 방법 
 
@@ -44,7 +44,7 @@ ms.locfileid: "39325458"
 
 ## <a name="overview"></a>개요
 
-클라이언트 응용 프로그램은 지정된 리소스에 액세스하기 위해 관리 서비스 ID [앱 전용 액세스 토큰](../develop/active-directory-dev-glossary.md#access-token)을 요청할 수 있습니다. 토큰은 [MSI 서비스 주체에 기반](overview.md#how-does-it-work)합니다. 따라서 고유한 서비스 주체 하에서 액세스 토큰을 가져오기 위해 클라이언트를 등록하지 않아도 됩니다. 토큰은 [서비스 간 호출 요청 클라이언트 자격 증명](../develop/active-directory-protocols-oauth-service-to-service.md)에서 전달자 토큰으로 사용하기에 적합합니다.
+클라이언트 응용 프로그램은 지정된 리소스에 액세스하기 위해 관리 서비스 ID [앱 전용 액세스 토큰](../develop/developer-glossary.md#access-token)을 요청할 수 있습니다. 토큰은 [MSI 서비스 주체에 기반](overview.md#how-does-it-work)합니다. 따라서 고유한 서비스 주체 하에서 액세스 토큰을 가져오기 위해 클라이언트를 등록하지 않아도 됩니다. 토큰은 [서비스 간 호출 요청 클라이언트 자격 증명](../develop/v1-oauth2-client-creds-grant-flow.md)에서 전달자 토큰으로 사용하기에 적합합니다.
 
 |  |  |
 | -------------- | -------------------- |

@@ -2,23 +2,18 @@
 title: Azure File Sync 문제 해결 | Microsoft Docs
 description: Azure File Sync와 관련된 일반적인 문제를 해결합니다.
 services: storage
-documentationcenter: ''
 author: jeffpatt24
-manager: aungoo
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
-ms.openlocfilehash: ad82cde2dc6048c5a87766b21bd38ed3fbc6bd39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.component: files
+ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173284"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526745"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -251,7 +246,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure File Sync는 24시간
 | **HRESULT** | 0x800704c7 |
 | **HRESULT(10진)** | -2147023673 | 
 | **오류 문자열** | ERROR_CANCELLED |
-| **재구성 필요** | 아니오 |
+| **재구성 필요** | 아니요 |
 
 서버 다시 시작 또는 업데이트 중, VSS 스냅숏 등의 다양한 이유로 동기화 세션이 실패할 수 있습니다. 이 오류는 후속 조치가 필요한 것처럼 보이지만, 여러 시간 동안 유지되지 않는 이상 무시해도 됩니다.
 
@@ -271,7 +266,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure File Sync는 24시간
 | **HRESULT** | 0x80c8004c |
 | **HRESULT(10진)** | -2134376372 |
 | **오류 문자열** | ECS_E_USER_REQUEST_THROTTLED |
-| **재구성 필요** | 아니오 |
+| **재구성 필요** | 아니요 |
 
 아무 조치도 필요 없습니다. 서버가 다시 시도합니다. 이 오류가 몇 시간 동안 지속되면 지원 요청을 만드세요.
 
@@ -387,7 +382,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c80219 |
 | **HRESULT(10진)** | -2134375911 |
 | **오류 문자열** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **재구성 필요** | 아니오 |
+| **재구성 필요** | 아니요 |
 
 일반적으로 이 오류는 저절로 해결되며, 다음과 같은 경우에 발생할 수 있습니다.
 
@@ -473,7 +468,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c8300f |
 | **HRESULT(10진)** | -2134364145 |
 | **오류 문자열** | ECS_E_REPLICA_NOT_READY |
-| **재구성 필요** | 아니오 |
+| **재구성 필요** | 아니요 |
 
 이 오류는 Azure 파일 공유에서 직접 변경된 내용이 있고 변경 내용 검색이 진행 중인 경우에 발생합니다. 변경 내용 검색이 완료되면 동기화가 시작됩니다.
 
@@ -518,7 +513,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c8004b |
 | **HRESULT(10진)** | -2134376373 |
 | **오류 문자열** | ECS_E_SERVICE_UNAVAILABLE |
-| **재구성 필요** | 아니오 |
+| **재구성 필요** | 아니요 |
 
 이 오류는 Azure File Sync 서비스를 사용할 수 없기 때문에 발생합니다. 이 오류는 Azure File Sync 서비스가 재개되면 자동으로 해결됩니다.
 
@@ -528,7 +523,7 @@ Azure 파일 공유가 삭제된 경우 새 파일 공유를 만든 후 동기�
 | **HRESULT** | 0x80c8020e |
 | **HRESULT(10진)** | -2134375922 |
 | **오류 문자열** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **재구성 필요** | 아니오 |
+| **재구성 필요** | 아니요 |
 
 이 오류는 동기화 데이터베이스에 내부 문제가 있어서 발생합니다. 이 오류는 Azure File Sync가 동기화를 다시 시도하면 자동으로 해결됩니다. 이 문제가 오래 지속되는 경우 지원 요청을 만드시면 이 문제를 해결할 수 있도록 연락을 드리겠습니다.
 

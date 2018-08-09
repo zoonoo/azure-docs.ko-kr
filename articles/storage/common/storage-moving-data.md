@@ -2,24 +2,18 @@
 title: Azure에서 클라우드 저장소 내부/외부로 대량의 데이터 이동 | Microsoft Docs
 description: Azure Storage 내부/외부로 데이터를 이동하는 다양한 방법에 대한 개요입니다.
 services: storage
-documentationcenter: ''
 author: JarrettRenshaw
-manager: msmets
-editor: tysonn
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: common
+ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984598"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525538"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Azure Storage의 데이터 이동
 온-프레미스 데이터를 Azure Storage로(또는 그 반대로) 이동하는 여러 방법이 있습니다. 가장 적합한 방법은 시나리오에 따라 달라집니다. 이 문서에서는 다양한 시나리오 그리고 각 시나리오에 적합한 방법을 신속하게 살펴보겠습니다.
@@ -31,7 +25,7 @@ Azure Storage는 .NET, iOS, Java, Android, UWP(Universal Windows Platform), Xama
 
 자세한 내용은 [Azure Blob Storage 시작](../blobs/storage-dotnet-how-to-use-blobs.md) 을 참조하세요.
 
-또한 Azure 내부/외부로 데이터를 복사할 때 고성능을 보장하도록 설계된 라이브러리인 [Azure Storage 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) 도 제공됩니다. 자세한 내용은 데이터 이동 라이브러리 [설명서](https://github.com/Azure/azure-storage-net-data-movement) 를 참조하세요. 
+또한 Azure 내부/외부로 데이터를 복사할 때 고성능을 보장하도록 설계된 라이브러리인 [Azure Storage 데이터 이동 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement)도 제공됩니다. 자세한 내용은 데이터 이동 라이브러리 [설명서](https://github.com/Azure/azure-storage-net-data-movement) 를 참조하세요. 
 
 ## <a name="quickly-viewinginteracting-with-your-data"></a>신속하게 데이터 보기/상호 작용
 간편하게 Azure Storage 데이터를 살펴보고 데이터를 업로드 및 다운로드할 수 있는 기능을 원하신다면 Azure Storage 탐색기를 사용해 보세요.

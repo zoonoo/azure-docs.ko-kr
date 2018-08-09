@@ -3,19 +3,18 @@ title: AzCopy를 사용하여 Azure Storage로 온-프레미스 데이터 마이
 description: AzCopy를 사용하여 Blob, 테이블 및 파일 콘텐츠 간 데이터를 마이그레이션하거나 복사합니다. 로컬 저장소에서 Azure Storage로 데이터를 쉽게 마이그레이션합니다.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.component: common
+ms.openlocfilehash: f5b678f9936a6d405c06ff085a802fcd76328ebe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205326"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525657"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>AzCopy를 사용하여 클라우드로 온-프레미스 데이터 마이그레이션
 

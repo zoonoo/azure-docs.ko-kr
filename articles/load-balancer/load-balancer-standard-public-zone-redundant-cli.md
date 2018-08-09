@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
 ms.author: kumud
-ms.openlocfilehash: e469311609909e3453015702fca7d015a4e72398
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: dbefe5324acb699abb0e06b8f3f464a91a6fa2e2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34273969"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431133"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Azure CLI를 사용하여 모든 가용성 영역에 VM 부하 분산
 
@@ -39,7 +39,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에�
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 다음 예제에서는 *westeurope* 위치에 *myResourceGroupSLB*라는 리소스 그룹을 만듭니다.
 
@@ -69,7 +69,7 @@ az network public-ip create \
 - 트래픽이 VM에 분산되는 방법을 정의하는 부하 분산 장치 규칙
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
-[az network lb create](/cli/azure/network/lb#az_network_lb_create)를 사용하여 Standard 부하 분산 장치를 만듭니다. 다음 예제에서는 *myLoadBalancer*라는 부하 분산 장치를 만들고 *myPublicIP* 주소를 프런트 엔드 IP 구성에 할당합니다.
+[az network lb create](/cli/azure/network/lb#az-network-lb-create)를 사용하여 Standard 부하 분산 장치를 만듭니다. 다음 예제에서는 *myLoadBalancer*라는 부하 분산 장치를 만들고 *myPublicIP* 주소를 프런트 엔드 IP 구성에 할당합니다.
 
 ```azurecli-interactive
 az network lb create \
@@ -83,7 +83,7 @@ az network lb create \
 
 ## <a name="create-health-probe-on-port-80"></a>포트 80에서 상태 프로브 만들기
 
-상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. az network lb probe create를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. TCP 상태 프로브를 만들려면 [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create)를 사용합니다. 다음 예제에서는 *myHealthProbe*라는 상태 프로브를 만듭니다.
+상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. az network lb probe create를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. TCP 상태 프로브를 만들려면 [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create)를 사용합니다. 다음 예제에서는 *myHealthProbe*라는 상태 프로브를 만듭니다.
 
 ```azurecli-interactive
 az network lb probe create \
@@ -95,7 +95,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>포트 80에 대해 부하 분산 장치 규칙 만들기
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create)를 사용하여 *myFrontEndPool* 프런트 엔드 풀에서 80 포트를 수신 대기하고, 마찬가지로 80 포트를 통해 *myBackEndPool* 백 엔드 주소 풀에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb* 부하 분산 장치 규칙을 만듭니다.
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 *myFrontEndPool* 프런트 엔드 풀에서 80 포트를 수신 대기하고, 마찬가지로 80 포트를 통해 *myBackEndPool* 백 엔드 주소 풀에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb* 부하 분산 장치 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -115,7 +115,7 @@ az network lb rule create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)를 사용하여 myResourceGroup에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 myResourceGroup에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
 
 
 ```azurecli-interactive
@@ -128,7 +128,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[az network nsg create](/cli/azure/network/nsg#az_network_nsg_create)를 사용하여 이름이 *myNetworkSecurityGroup*인 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
+[az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 이름이 *myNetworkSecurityGroup*인 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
 
 ```azurecli-interactive
 az network nsg create \
@@ -136,7 +136,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create)로 포트 80에 대해 이름이 *myNetworkSecurityGroupRule*인 네트워크 보안 그룹을 만듭니다.
+[az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)로 포트 80에 대해 이름이 *myNetworkSecurityGroupRule*인 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -153,7 +153,7 @@ az network nsg rule create \
 --priority 200
 ```
 ### <a name="create-nics"></a>NIC 만들기
-[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 3개의 가상 NIC를 만들고 공용 IP 주소 및 네트워크 보안 그룹에 연결합니다. 다음 예제에서는 6개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩) 언제든지 추가 가상 NIC 및 VM을 만든 후 부하 분산 장치에 추가할 수 있습니다.
+[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 3개의 가상 NIC를 만들고 공용 IP 주소 및 네트워크 보안 그룹에 연결합니다. 다음 예제에서는 6개의 가상 NIC를 만듭니다. (다음 단계에서 앱에 대해 만드는 각 VM에 대해 가상 NIC 하나씩) 언제든지 추가 가상 NIC 및 VM을 만든 후 부하 분산 장치에 추가할 수 있습니다.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -217,7 +217,7 @@ runcmd:
 ```
 
 ### <a name="create-the-zonal-virtual-machines"></a>영역별 가상 머신 만들기
-영역 1, 영역 2, 영역 3에서 [az vm create](/cli/azure/vm#az_vm_create)로 VM을 만듭니다. 다음 예제에서는 각 영역에서 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
+영역 1, 영역 2, 영역 3에서 [az vm create](/cli/azure/vm#az-vm-create)로 VM을 만듭니다. 다음 예제에서는 각 영역에서 VM을 만들고 SSH 키가 아직 없으면 생성합니다.
 
 *westeurope* 위치의 각 영역(1영역, 2영역 및 3영역)에서 VM을 만듭니다.
 
@@ -235,7 +235,7 @@ done
 ```
 ## <a name="test-the-load-balancer"></a>부하 분산 장치 테스트
 
-[az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 
+[az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용하여 부하 분산 장치의 공용 IP 주소를 가져옵니다. 
 
 ```azurecli-interactive
   az network public-ip show \

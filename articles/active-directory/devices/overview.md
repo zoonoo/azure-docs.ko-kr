@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 151aa2f8065c7232284c560ff515afab40ae7f5c
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415766"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597696"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Azure Active Directory의 장치 관리 소개
 
@@ -32,7 +32,7 @@ ms.locfileid: "39415766"
 
 장치를 통해 사용자가 회사 자산에 액세스하게 됩니다. IT 관리자로써 회사 자산을 보호하기 위해 이러한 장치를 제어할 수 있어야 합니다. 이 기능을 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 사용자가 액세스할 수 있습니다. 
 
-장치 관리는 [장치 기반 조건부 액세스](../active-directory-conditional-access-policy-connected-applications.md)의 토대이기도 합니다. 장치 기반 조건부 액세스를 사용할 경우 관리 장치를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.   
+장치 관리는 [장치 기반 조건부 액세스](../conditional-access/require-managed-devices.md)의 토대이기도 합니다. 장치 기반 조건부 액세스를 사용할 경우 관리 장치를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.   
 
 이 문서에서는 Azure Active Directory에서 장치 관리가 작동되는 방식을 설명합니다.
 
@@ -178,7 +178,7 @@ thumb의 규칙으로 인해 다음을 사용해야 합니다.
 
 - Azure Portal에서 장치를 관리하는 방법에 대한 개요를 보려면 [Azure Portal을 사용하여 장치 관리](device-management-azure-portal.md)를 참조하세요.
 
-- 장치 기반 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 구성](../active-directory-conditional-access-policy-connected-applications.md)을 참조하세요.
+- 장치 기반 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 구성](../conditional-access/require-managed-devices.md)을 참조하세요.
 
 - 설정:
     - Azure Active Directory Windows 10 장치를 설정하려면 [Azure Active Directory 등록 Windows 10 장치를 구성하는 방법](../user-help/device-management-azuread-registered-devices-windows10-setup.md) 참조

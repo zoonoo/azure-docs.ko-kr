@@ -3,17 +3,17 @@ title: Azure Storage 소개 - Azure의 클라우드 저장소 | Microsoft Docs
 description: Azure Storage는 Microsoft의 클라우드 저장소 솔루션입니다. Azure Storage는 고가용성, 보안, 지속형, 확장성이 뛰어난 중복된 데이터 개체에 대한 저장소를 제공합니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
-ms.openlocfilehash: e6a3ff22d6224ff0accdf39ad098505626659688
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.component: common
+ms.openlocfilehash: 5e9d105e0824eac6052f4ea3f99a09c19a668294
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238253"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525572"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 

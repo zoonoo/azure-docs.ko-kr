@@ -2,23 +2,18 @@
 title: Azure Data Lake Storage Gen2 미리 보기 소개
 description: Azure Data Lake Storage Gen2 미리 보기에 대한 개요 제공
 services: storage
-documentationcenter: ''
 author: jamesbak
-manager: jahogg
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0631b1d0c8da925858f0b7fb1d778cb1161eb737
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061527"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525385"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 미리 보기 소개
 

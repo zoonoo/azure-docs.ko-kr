@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: markgal
-ms.openlocfilehash: 52ca7cf4a04ace2a43f15433c05a2db26bde3602
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 872bfc0027fd5b69bb42f391c036f7116789f529
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605596"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431150"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Azure Portal을 사용하여 가상 머신 복원
 정의된 간격으로 데이터의 스냅숏을 찍어 데이터를 보호합니다. 이러한 스냅숏은 복구 지점이라고 하며 Recovery Services 자격 증명 모음에 저장됩니다. VM(가상 머신)을 복구하거나 다시 빌드해야 하는 경우 저장된 복구 지점 중 하나에서 VM을 복원할 수 있습니다. 복구 지점을 복원할 때 다음을 수행할 수 있습니다.
@@ -39,34 +39,34 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 ## <a name="select-a-restore-point-for-restore"></a>복원을 위해 복원 지점 선택
 1. [Azure Portal](http://portal.azure.com/)에 로그인합니다.
 
-2. Azure 메뉴에서 **찾아보기**를 선택합니다. 이 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
+1. Azure 메뉴에서 **찾아보기**를 선택합니다. 이 서비스 목록에서 **Recovery Services**를 입력합니다. 서비스 목록은 입력하는 항목에 조정됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
 
     ![Recovery Services 자격 증명 모음](./media/backup-azure-arm-restore-vms/open-recovery-services-vault.png)
 
     구독에서 자격 증명 모음의 목록이 표시됩니다.
 
     ![Recovery Services 자격 증명 모음 목록](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-3. 목록에서 복원하려는 VM과 연결된 자격 증명 모음을 선택합니다. 자격 증명 모음을 선택하면 해당 대시보드가 열립니다.
+1. 목록에서 복원하려는 VM과 연결된 자격 증명 모음을 선택합니다. 자격 증명 모음을 선택하면 해당 대시보드가 열립니다.
 
     ![Recovery Services 자격 증명 모음](./media/backup-azure-arm-restore-vms/select-vault-open-vault-blade.png)
-4. 자격 증명 모음 대시보드의 **백업 항목** 타일에서 **Azure Virtual Machines**를 선택합니다.
+1. 자격 증명 모음 대시보드의 **백업 항목** 타일에서 **Azure Virtual Machines**를 선택합니다.
 
     ![자격 증명 모음 대시보드](./media/backup-azure-arm-restore-vms/vault-dashboard.png)
 
     **백업 항목** 블레이드가 열리고 Azure VM 목록을 표시합니다.
 
     ![자격 증명 모음의 VM 목록](./media/backup-azure-arm-restore-vms/list-of-vms-in-vault.png)
-5. 목록에서 VM을 선택하여 대시보드를 엽니다. **복원 지점** 타일을 포함하는 모니터링 영역에 VM 대시보드가 열립니다.
+1. 목록에서 VM을 선택하여 대시보드를 엽니다. **복원 지점** 타일을 포함하는 모니터링 영역에 VM 대시보드가 열립니다.
 
     ![복원 지점](./media/backup-azure-arm-restore-vms/vm-blade.png)
-6. VM 대시보드 메뉴에서 **복원**을 선택합니다.
+1. VM 대시보드 메뉴에서 **복원**을 선택합니다.
 
     ![복원 단추](./media/backup-azure-arm-restore-vms/vm-blade-menu-restore.png)
 
     **복원** 블레이드가 열립니다.
 
     ![복원 블레이드](./media/backup-azure-arm-restore-vms/restore-blade.png)
-7. **복원** 블레이드에서 **복원 지점**을 선택합니다. **복원 지점 선택** 블레이드가 열립니다.
+1. **복원** 블레이드에서 **복원 지점**을 선택합니다. **복원 지점 선택** 블레이드가 열립니다.
 
     ![복원 지점 선택](./media/backup-azure-arm-restore-vms/recovery-point-selector.png)
 
@@ -79,13 +79,13 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
      * 파일 시스템 일관성 복원 지점
      * 모든 복원 지점
 
-8. 복원 지점을 선택하고 **확인**을 선택합니다.
+1. 복원 지점을 선택하고 **확인**을 선택합니다.
 
     ![복원 지점 옵션](./media/backup-azure-arm-restore-vms/select-recovery-point.png)
 
     **복원** 블레이드에 복원 지점이 설정된 것이 표시됩니다
 
-9. 아직 수행하지 않은 경우 **복원** 블레이드로 이동합니다. [복원 지점이 선택](#select-a-restore-point-for-restore)되었는지 확인하고 **구성 복원**을 선택합니다. **구성 복원** 블레이드가 열립니다.
+1. 아직 수행하지 않은 경우 **복원** 블레이드로 이동합니다. [복원 지점이 선택](#select-a-restore-point-for-restore)되었는지 확인하고 **구성 복원**을 선택합니다. **구성 복원** 블레이드가 열립니다.
 
 ## <a name="choose-a-vm-restore-configuration"></a>VM 복원 구성 선택
 복원 지점을 선택한 후 VM 복원 구성을 선택합니다. 복원된 VM을 구성하려면 Azure Portal 또는 PowerShell을 사용할 수 있습니다.
@@ -93,7 +93,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 1. 아직 수행하지 않은 경우 **복원** 블레이드로 이동합니다. [복원 지점이 선택](#select-a-restore-point-for-restore)되었는지 확인하고 **구성 복원**을 선택합니다. **구성 복원** 블레이드가 열립니다.
 
     ![복원 구성 마법사](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard-recovery-type.png)
-2. **복원 구성** 블레이드에는 다음 두 가지 옵션이 있습니다.
+1. **복원 구성** 블레이드에는 다음 두 가지 옵션이 있습니다.
 
    * **가상 컴퓨터 만들기**
 
@@ -127,7 +127,7 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
     >
     >
 
-2. **복원 구성** 블레이드에서 **확인**을 선택하여 복원 구성을 완료합니다. **복원** 블레이드에서 **복원**을 선택하여 복원 작업을 트리거합니다.
+1. **복원 구성** 블레이드에서 **확인**을 선택하여 복원 구성을 완료합니다. **복원** 블레이드에서 **복원**을 선택하여 복원 작업을 트리거합니다.
 
 ## <a name="restore-backed-up-disks"></a>백업된 디스크 복원
 **복원 구성** 블레이드에 있는 것과는 다른 백업된 디스크에서 만들려는 VM을 사용자 지정하려면 **복원 형식**의 값으로 **복원 디스크**를 선택합니다. 이렇게 선택하면 백업 디스크를 복사할 저장소 계정을 요청합니다. 저장소 계정을 선택할 경우 복구 서비스 자격 증명 모음과 동일한 위치를 공유하는 계정을 선택합니다. 영역이 중복된 저장소 계정은 지원되지 않습니다. 복구 서비스 자격 증명 모음과 동일한 위치에 있는 저장소 계정이 없는 경우 복원 작업을 시작하기 전에 계정을 만들어야 합니다. 저장소 계정의 복제 유형이 괄호 안에 표시됩니다.
@@ -156,9 +156,9 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
     구독에서 자격 증명 모음의 목록이 표시됩니다.
 
     ![Recovery Services 자격 증명 모음 목록](./media/backup-azure-arm-restore-vms/list-of-rs-vaults.png)
-2. 목록에서 복원한 VM과 연결된 자격 증명 모음을 선택합니다. 자격 증명 모음을 선택하면 해당 대시보드가 열립니다.
+1. 목록에서 복원한 VM과 연결된 자격 증명 모음을 선택합니다. 자격 증명 모음을 선택하면 해당 대시보드가 열립니다.
 
-3. **백업 작업** 타일의 자격 증명 모음 대시보드에서 **Azure Virtual Machines**를 선택하여 자격 증명 모음에 연결된 작업을 표시합니다.
+1. **백업 작업** 타일의 자격 증명 모음 대시보드에서 **Azure Virtual Machines**를 선택하여 자격 증명 모음에 연결된 작업을 표시합니다.
 
     ![자격 증명 모음 대시보드](./media/backup-azure-arm-restore-vms/vault-dashboard-jobs.png)
 
@@ -178,15 +178,15 @@ VM 백업에서 VM 또는 모든 디스크를 복원하는 작업은 다음과 �
 
 1. 작업에 해당하는 복원 작업 세부 정보로 이동합니다.
 
-2. **복원 작업 세부 정보** 화면에서 **배포 템플릿** 단추를 클릭하여 템플릿 배포를 시작합니다. 
+1. **복원 작업 세부 정보** 화면에서 **배포 템플릿** 단추를 클릭하여 템플릿 배포를 시작합니다. 
 
      ![복원 작업 드릴 다운](./media/backup-azure-arm-restore-vms/restore-job-drill-down.png)
    
-3. 사용자 지정 배포를 위해 **배포 템플릿** 블레이드에서 템플릿 배포를 사용하여 [템플릿을 편집하고 배포하거나 배포](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)하기 전에 [템플릿을 작성](../azure-resource-manager/resource-group-authoring-templates.md)하여 사용자 지정을 추가합니다. 
+1. 사용자 지정 배포를 위해 **배포 템플릿** 블레이드에서 템플릿 배포를 사용하여 [템플릿을 편집하고 배포하거나 배포](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template)하기 전에 [템플릿을 작성](../azure-resource-manager/resource-group-authoring-templates.md)하여 사용자 지정을 추가합니다. 
 
    ![템플릿 배포 로드](./media/backup-azure-arm-restore-vms/loading-template.png)
    
-4. 필수 값을 입력한 후에 **약관**에 동의하고 **구매**를 선택합니다.
+1. 필수 값을 입력한 후에 **약관**에 동의하고 **구매**를 선택합니다.
 
    ![템플릿 배포 제출](./media/backup-azure-arm-restore-vms/submitting-template.png)
 
@@ -233,7 +233,7 @@ Azure Portal에서 또는 PowerShell을 사용하여 다른 VM과 마찬가지�
 
 1. [PowerShell](backup-azure-vms-automation.md#restore-an-azure-vm)을 사용하여 Recovery Services 자격 증명 모음에서 디스크를 복원합니다.
 
-2. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중 예약된 IP에 필요한 VM 구성을 만듭니다. 이것을 원하는 구성을 갖는 VM을 만드는 데 사용합니다.
+1. PowerShell cmdlet을 사용하여 부하 분산 장치/다중 NIC/다중 예약된 IP에 필요한 VM 구성을 만듭니다. 이것을 원하는 구성을 갖는 VM을 만드는 데 사용합니다.
 
    a. [내부 부하 분산 장치](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/)가 있는 클라우드 서비스에서 VM을 만듭니다.
 
