@@ -4,18 +4,18 @@ description: 이 문서에서는 IoT Hub에 연결된 이벤트 원본을 Time S
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/21/2017
-ms.openlocfilehash: 1cc8518e84bd9fe7a1f03a2f5d6ccdbac8fb78e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b6beecbf64cee925f62ac4c82919926fcb79940a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330597"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627375"
 ---
 # <a name="how-to-add-an-iot-hub-event-source-to-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본을 추가하는 방법
 이 문서에서는 Azure Portal을 사용하여 IoT Hub에서 데이터를 읽는 이벤트 원본을 Time Series Insights 환경에 추가하는 방법을 다룹니다.
@@ -93,7 +93,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면 다음 단계를 수행합니
 
 11. 새 이벤트 원본을 추가하려면 **만들기**를 선택합니다.
 
-   ![만들기 클릭](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
+   ![만들기 클릭 ](media/time-series-insights-how-to-add-an-event-source-iothub/4-create-button.png)
 
    이벤트 원본이 생성되면 Time Series Insights가 자동으로 데이터를 환경으로 스트리밍하기 시작합니다.
 

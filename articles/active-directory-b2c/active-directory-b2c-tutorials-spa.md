@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712524"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591570"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 앱으로 계정을 인증하도록 설정
 
@@ -39,7 +39,7 @@ ms.locfileid: "34712524"
 
 ## <a name="register-single-page-app"></a>단일 페이지 앱 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 테넌트에 [등록](../active-directory/develop/active-directory-dev-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id)가 만들어집니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 받으려면 먼저 응용 프로그램을 테넌트에 [등록](../active-directory/develop/developer-glossary.md#application-registration)해야 합니다. 앱을 등록하면 테넌트에서 앱에 대한 [응용 프로그램 ID](../active-directory/develop/developer-glossary.md#application-id-client-id)가 만들어집니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -56,10 +56,10 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | 내 샘플 단일 페이지 앱 | 소비자에게 앱을 설명하는 **이름**을 입력합니다. | 
-    | **웹앱/웹 API 포함** | 예 | 단일 페이지 앱에 대해 **예**를 선택합니다. |
-    | **암시적 흐름 허용** | 예 | 앱에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
+    | **웹앱/웹 API 포함** | yes | 단일 페이지 앱에 대해 **예**를 선택합니다. |
+    | **암시적 흐름 허용** | yes | 앱에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `http://localhost:6420` | 회신 URL은 Azure AD B2C에서 앱이 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서의 샘플은 로컬에서 실행되고(로컬 호스트) 6420 포트에서 수신 대기합니다. |
-    | **네이티브 클라이언트 포함** | 아니오 | 이 앱은 단일 페이지 앱이지만 네이티브 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    | **네이티브 클라이언트 포함** | 아니요 | 이 앱은 단일 페이지 앱이지만 네이티브 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
 3. **만들기** 를 클릭하여 앱을 등록합니다.
 
@@ -88,7 +88,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
     | **Name** | SiUpIn | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **B2C_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**B2C_1_SiUpIn**)을 사용합니다. | 
     | **ID 공급자** | 이메일 등록 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
     | **등록 특성** | 표시 이름 및 우편 번호 | 등록 시 사용자로부터 수집할 특성을 선택합니다. |
-    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
+    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 새 사용자, 사용자의 개체 ID | [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
 2. **만들기**를 클릭하여 정책을 만듭니다. 
 
@@ -105,7 +105,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
     | **Name** | SiPe | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **B2C_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**B2C_1_SiPe**)을 사용합니다. | 
     | **ID 공급자** | 로컬 계정 로그인 | ID 공급자는 사용자를 고유하게 식별하는 데 사용됩니다. |
     | **프로필 특성** | 표시 이름 및 우편 번호 | 사용자가 프로필 편집 시 수정할 수 있는 특성을 선택합니다. |
-    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
+    | **응용 프로그램 클레임** | 표시 이름, 우편 번호, 사용자의 개체 ID | 프로필을 성공적으로 편집한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
 2. **만들기**를 클릭하여 정책을 만듭니다. 
 
@@ -121,7 +121,7 @@ Azure AD B2C 정책은 사용자 워크플로를 정의합니다. 예를 들어 
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | SSPR | 정책에 대한 **이름**을 입력합니다. 정책 이름 앞에 **B2C_1_** 이 붙습니다. 샘플 코드에서는 전체 정책 이름(**B2C_1_SSPR**)을 사용합니다. | 
     | **ID 공급자** | 이메일 주소를 사용하여 암호 재설정 | 사용자를 고유하게 식별하는 데 사용되는 ID 공급자입니다. |
-    | **응용 프로그램 클레임** | 사용자의 개체 ID | 암호를 성공적으로 다시 설정한 후에 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/active-directory-dev-glossary.md#claim)을 선택합니다. |
+    | **응용 프로그램 클레임** | 사용자의 개체 ID | 암호를 성공적으로 다시 설정한 후에 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)에 포함하려는 [클레임](../active-directory/develop/developer-glossary.md#claim)을 선택합니다. |
 
 2. **만들기**를 클릭하여 정책을 만듭니다. 
 

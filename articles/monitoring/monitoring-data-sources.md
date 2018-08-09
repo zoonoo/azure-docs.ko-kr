@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036526"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627460"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Azure의 모니터링 데이터 원본
 이 문서에서는 Azure 리소스 및 리소스에서 실행되는 응용 프로그램의 성능과 상태를 모니터링할 수 있는 데이터를 설명합니다.  [Azure에서 모니터링 데이터 수집](monitoring-data-collection.md)에서 설명한 도구를 사용하여 이 데이터 수집 및 분석
@@ -42,7 +42,7 @@ Azure Portal의 해당 페이지에서 특정 리소스에 대한 활동 로그�
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory 감사 로그
-[Azure Active Directory 보고](../active-directory/active-directory-reporting-azure-portal.md)는 로그인 활동 및 특정 테넌트 내의 변경 감사 내역에 대한 기록을 포함합니다. Azure Active Directory 및 [Azure Active Directory 보고 API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md)를 통해서만 액세스할 수 있으므로 현재는 Azure Active Directory 감사 데이터를 다른 모니터링 데이터와 결합할 수 없습니다.
+[Azure Active Directory 보고](../active-directory/reports-monitoring/overview-reports.md)는 로그인 활동 및 특정 테넌트 내의 변경 감사 내역에 대한 기록을 포함합니다. Azure Active Directory 및 [Azure Active Directory 보고 API](../active-directory/reports-monitoring/concept-reporting-api.md)를 통해서만 액세스할 수 있으므로 현재는 Azure Active Directory 감사 데이터를 다른 모니터링 데이터와 결합할 수 없습니다.
 
 
 ## <a name="azure-services"></a>Azure 서비스

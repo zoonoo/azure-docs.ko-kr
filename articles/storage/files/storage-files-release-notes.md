@@ -3,17 +3,17 @@ title: Azure File Sync 에이전트에 대한 릴리스 정보 | Microsoft Docs
 description: Azure File Sync 에이전트에 대한 릴리스 정보
 services: storage
 author: wmgries
-manager: aungoo
 ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 7422300ffe315e0a12812c38f9b823a125eaf344
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.component: files
+ms.openlocfilehash: 69cd7774c92cf1c213f8522dffeb02be6c024acb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144791"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525140"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure File Sync 에이전트에 대한 릴리스 정보
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.

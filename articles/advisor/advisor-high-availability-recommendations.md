@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: ea8d8d0adbc7cf5a8dfb6e9af51257b9d2ba8db2
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 297a213fe4219b834187f977e3281eb939352f60
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264085"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594436"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor 고가용성 권장 사항
 
@@ -66,14 +66,6 @@ Azure 문제가 영향을 미칠 때 알림을 받도록 Azure Service Health �
 근접 라우팅에 대해 구성된 Traffic Manger 프로필의 모든 엔드포인트가 같은 지역에 있는 경우 다른 지역의 사용자는 연결 지연을 경험할 수 있습니다. 엔드포인트를 다른 지역에 추가하거나 다른 지역으로 이동하면 한 지역의 모든 엔드포인트가 실패하는 경우 가용성을 더 높일 수 있습니다. Advisor는 근접 라우팅에 대해 구성되었으며 모든 엔드포인트가 같은 지역에 있는 Traffic Manager를 식별하고 다른 Azure 지역에 엔드포인트를 추가하거나 이동하도록 권장합니다.
 
 Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트래픽은 정의된 지역에 따라 엔드포인트로 라우팅됩니다. 한 지역이 실패하면 미리 정의된 장애 조치(failover)가 없습니다. 자역 그룹화가 “모두(세계)”로 구성된 엔드포인트가 있으면 트래픽 폐기를 방지하고 서비스 가용성을 높입니다. Advisor는 지역 그룹화가 “모두(세계)”로 구성된 엔드포인트가 없으며 지리적 라우팅 대상으로 구성된 Traffic Manager를 식별하고 구성을 변경하도록 권장합니다.
-
-## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>쿼리 성능을 향상시키려면 SQL 데이터 웨어하우스 테이블에서 데이터 기울이기 제거
-
-데이터 기울이기는 워크 로드를 실행하는 경우 불필요한 데이터 이동이나 리소스 병목 현상을 일으킬 수 있습니다. Advisor는 15%를 초과한 배포 데이터 기울이기를 감지하면 데이터를 다시 배포하고 테이블 배포 키를 다시 선택하도록 권고합니다. 기울이기 식별 및 제거에 대한 자세한 정보는 [기울이기 문제 해결](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice)을 참조합니다.
-
-## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>쿼리 성능을 향상시키려면 SQL 데이터 웨어하우스 테이블에서 오래된 테이블 통계 업데이트 또는 만들기
-
-Advisor는 최신 [테이블 통계](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)가 없는 테이블을 식별하고 테이블 통계를 만들거나 업데이트할 것을 권고합니다. SQL 데이터 웨어하우스 쿼리 최적화 프로그램은 최신 통계를 사용하여 쿼리 결과의 행 수 또는 카디널리티를 예상하며, 이를 통해 쿼리 최적화 프로그램이 가장 빠른 성능에 대한 고품질 쿼리 계획을 만들 수 있습니다.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
 

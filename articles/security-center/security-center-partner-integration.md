@@ -12,14 +12,14 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 08/07/2018
 ms.author: terrylan
-ms.openlocfilehash: 594588bfaf328c687bb43f2d958ff928a521c5ab
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: b0e674eb161af41a848f0456a033d615293a9947
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888935"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622792"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -34,27 +34,22 @@ Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게
 
 현재 통합 보안 솔루션에는 다음이 포함됩니다.
 
-- 엔드포인트 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 및 [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection))
+- 엔드포인트 보호([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 및 [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection))
 - 웹 응용 프로그램 방화벽([Barracuda](https://www.barracuda.com/products/webapplicationfirewall), [F5](https://support.f5.com/kb/en-us/products/big-ip_asm/manuals/product/bigip-ve-web-application-firewall-microsoft-azure-12-0-0.html), [Imperva](https://www.imperva.com/Products/WebApplicationFirewall-WAF), [Fortinet](https://www.fortinet.com/products.html) 및 [Azure Application Gateway](https://azure.microsoft.com/blog/azure-web-application-firewall-waf-generally-available/))
 - 차세대 방화벽([Check Point](https://www.checkpoint.com/products/vsec-microsoft-azure/), [Barracuda](https://campus.barracuda.com/product/nextgenfirewallf/article/NGF/AzureDeployment/), [Fortinet](http://docs.fortinet.com/d/fortigate-fortios-handbook-the-complete-guide-to-fortios-5.2), [Cisco](http://www.cisco.com/c/en/us/td/docs/security/firepower/quick_start/azure/ftdv-azure-qsg.html) 및 [Palo Alto Networks](https://www.paloaltonetworks.com/products))
 - 취약점 평가([Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) 및 [Rapid7](https://www.rapid7.com/products/insightvm/))
-
-> [!NOTE]
-> Rapid7은 미리 보기 상태입니다.
->
->
 
 끝점 보호 통합 환경은 솔루션에 따라 다를 수 있습니다. 다음 표에는 각 솔루션의 환경에 대한 자세한 정보가 나와 있습니다.
 
 | 끝점 보호               | 플랫폼                             | Security Center 설치 | Security Center 검색 |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | 예                       |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | 예                       |
-| Trend Micro - 모든 버전         | Windows Server 제품군                 | 아니오                           | 예                       |
-| Symantec v12.1.1100+              | Windows Server 제품군                 | 아니오                           | 예                       |
-| McAfee v10+                       | Windows Server 제품군                 | 아니오                           | 예                       |
-| Kaspersky                         | Windows Server 제품군                 | 아니오                           | 아니오                        |
-| Sophos                            | Windows Server 제품군                 | 아니오                           | 아니오                        |
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)                  | Windows Server 2016                   | 아니오, OS에 기본 제공           | yes                       |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2 | 확장을 통해                | yes                       |
+| Trend Micro - 모든 버전         | Windows Server 제품군                 | 아니요                           | yes                       |
+| Symantec v12.1.1100+              | Windows Server 제품군                 | 아니요                           | yes                       |
+| McAfee v10+                       | Windows Server 제품군                 | 아니요                           | yes                       |
+| Kaspersky                         | Windows Server 제품군                 | 아니요                           | 아니요                        |
+| Sophos                            | Windows Server 제품군                 | 아니요                           | 아니요                        |
 
 
 

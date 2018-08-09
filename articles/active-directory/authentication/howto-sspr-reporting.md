@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258799"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627528"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -40,7 +40,7 @@ ms.locfileid: "39258799"
 
 ## <a name="power-bi-content-pack"></a>Power BI 콘텐츠 팩
 
-Power BI 사용자의 경우 Azure AD용 콘텐츠 팩에 SSPR에 대한 사용하기 쉬운 보고 기능이 포함되어 있습니다. 콘텐츠 팩을 사용하고 배포하는 방법에 대한 자세한 내용은 [Azure Active Directory Power BI 콘텐츠 팩 사용 방법](../active-directory-reporting-power-bi-content-pack-how-to.md)을 참조하세요. 콘텐츠 팩을 사용하면 자신의 대시보드를 만들어서 조직의 다른 사람들과 공유할 수 있습니다.
+Power BI 사용자의 경우 Azure AD용 콘텐츠 팩에 SSPR에 대한 사용하기 쉬운 보고 기능이 포함되어 있습니다. 콘텐츠 팩을 사용하고 배포하는 방법에 대한 자세한 내용은 [Azure Active Directory Power BI 콘텐츠 팩 사용 방법](../reports-monitoring/howto-power-bi-content-pack.md)을 참조하세요. 콘텐츠 팩을 사용하면 자신의 대시보드를 만들어서 조직의 다른 사람들과 공유할 수 있습니다.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Azure Portal에서 암호 관리 보고서를 보는 방법
 

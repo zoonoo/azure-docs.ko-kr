@@ -17,21 +17,21 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4fbde5306efb2de5cfe3ffd0a49b9e24a7b67e8c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003961"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590752"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>v2.0 끝점을 사용해야 하나요?
 
-Azure AD(Azure Active Directory)와 통합되는 응용 프로그램을 빌드할 때 v2.0 끝점 및 인증 프로토콜이 사용자 요구를 충족할지 결정해야 합니다. Azure AD의 원래 엔드포인트는 완벽하게 지원되며 v2.0보다 더 풍부한 기능을 갖추고 있습니다. 그러나 v2.0 끝점은 개발자에게 [상당한 혜택을 소개](active-directory-v2-compare.md)합니다.
+Azure AD(Azure Active Directory)와 통합되는 응용 프로그램을 빌드할 때 v2.0 끝점 및 인증 프로토콜이 사용자 요구를 충족할지 결정해야 합니다. Azure AD의 원래 엔드포인트는 완벽하게 지원되며 v2.0보다 더 풍부한 기능을 갖추고 있습니다. 그러나 v2.0 끝점은 개발자에게 [상당한 혜택을 소개](azure-ad-endpoint-comparison.md)합니다.
 
 다음은 현 시점에서 개발자를 위한 간단한 권장 사항입니다.
 
 * 응용 프로그램에서 개인 Microsoft 계정을 지원해야 하는 경우 v2.0 끝점을 사용하세요. 그러나 그 전에 이 문서에 설명된 제한 사항을 이해해야 합니다.
-* 응용 프로그램에서 Microsoft 회사 및 학교 계정만 지원해야 하는 경우 v2.0 끝점을 사용하지 마세요. 그 대신 [Azure AD 개발자 가이드](active-directory-developers-guide.md)를 참조하세요.
+* 응용 프로그램에서 Microsoft 회사 및 학교 계정만 지원해야 하는 경우 v2.0 끝점을 사용하지 마세요. 그 대신 [Azure AD 개발자 가이드](azure-ad-developers-guide.md)를 참조하세요.
 
 v2.0 엔드포인트가 좀 더 발전하면 여기에 나열된 제한 사항이 사라질 것이므로 v2.0 엔드포인트 외에는 신경 쓸 필요가 없게 될 것입니다. 그 전까지는 이 문서를 사용하여 v2.0 엔드포인트가 본인에게 적합한지 확인하세요. v2.0 끝점의 현재 상태를 반영하도록 이 문서를 계속 업데이트할 예정이므로 다시 확인하여 v2.0 기능에 대한 요구 사항을 다시 평가하세요.
 
@@ -39,11 +39,11 @@ v2.0 끝점을 사용하지 않는 기존 Azure AD 앱이 있는 경우 처음�
 
 ## <a name="restrictions-on-app-types"></a>앱 형식에 대한 제한 사항
 
-다음 유형의 앱은 v2.0 끝점에서 현재 지원되지 않습니다. 지원되는 앱 형식에 대한 설명은 [Azure Active Directory v2.0 끝점에 대한 앱 형식](active-directory-v2-flows.md)을 참조하세요.
+다음 유형의 앱은 v2.0 끝점에서 현재 지원되지 않습니다. 지원되는 앱 형식에 대한 설명은 [Azure Active Directory v2.0 끝점에 대한 앱 형식](v2-app-types.md)을 참조하세요.
 
 ### <a name="standalone-web-apis"></a>독립 실행형 Web API
 
-v2.0 끝점을 사용하여 [OAuth 2.0으로 보안이 유지되는 Web API를 빌드](active-directory-v2-flows.md#web-apis)할 수 있습니다 그러나 해당 Web API는 동일한 응용 프로그램 ID를 가진 응용 프로그램에서만 토큰을 받을 수 있습니다. 다른 응용 프로그램 ID를 가진 클라이언트에서는 Web API에 액세스할 수 없습니다. 이 클라이언트는 Web API에 대한 권한을 요청하거나 얻을 수 없습니다.
+v2.0 끝점을 사용하여 [OAuth 2.0으로 보안이 유지되는 Web API를 빌드](v2-app-types.md#web-apis)할 수 있습니다 그러나 해당 Web API는 동일한 응용 프로그램 ID를 가진 응용 프로그램에서만 토큰을 받을 수 있습니다. 다른 응용 프로그램 ID를 가진 클라이언트에서는 Web API에 액세스할 수 없습니다. 이 클라이언트는 Web API에 대한 권한을 요청하거나 얻을 수 없습니다.
 
 동일한 응용 프로그램 ID를 가진 클라이언트의 토큰을 수락하는 Web API를 빌드하는 방법을 확인하려면 [시작](active-directory-appmodel-v2-overview.md#getting-started) 섹션에서 v2.0 엔드포인트 Web API 샘플을 참조하세요.
 
@@ -91,16 +91,16 @@ v2.0 끝점을 사용하여 [OAuth 2.0으로 보안이 유지되는 Web API를 �
 
 또한 특정 응용 프로그램에 대해 20개의 회신 URL만 있습니다.
 
-응용 프로그램 등록 포털에 앱을 등록하는 방법을 알아보려면 [v2.0 끝점을 사용하여 앱을 등록하는 방법](active-directory-v2-app-registration.md)을 참조하세요.
+응용 프로그램 등록 포털에 앱을 등록하는 방법을 알아보려면 [v2.0 끝점을 사용하여 앱을 등록하는 방법](quickstart-v2-register-an-app.md)을 참조하세요.
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>라이브러리 및 SDK에 대한 제한 사항
 
 현재 v2.0 끝점에 대한 라이브러리 지원은 제한적입니다. 프로덕션 응용 프로그램에서 v2.0 끝점을 사용하려는 경우 다음 옵션이 있습니다.
 
 * 웹 응용 프로그램을 작성하는 경우 Microsoft 일반 공급 서버 쪽 미들웨어를 안전하게 사용하여 로그인 및 토큰 유효성 검사를 수행할 수 있습니다. 여기에는 ASP.NET용 OWIN Open ID Connect 미들웨어 및 Node.js Passport 플러그 인이 포함됩니다. Microsoft 미들웨어를 사용하는 코드 샘플은 [시작](active-directory-appmodel-v2-overview.md#getting-started) 섹션을 참조하세요.
-* 데스크톱 또는 모바일 응용 프로그램을 작성하는 경우 미리 보기 MSAL(Microsoft 인증 라이브러리) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 프로덕션 지원 미리 보기이므로 프로덕션 응용 프로그램에서 안전하게 사용할 수 있습니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](active-directory-v2-libraries.md)에서 확인할 수 있습니다.
+* 데스크톱 또는 모바일 응용 프로그램을 작성하는 경우 미리 보기 MSAL(Microsoft 인증 라이브러리) 중 하나를 사용할 수 있습니다. 이러한 라이브러리는 프로덕션 지원 미리 보기이므로 프로덕션 응용 프로그램에서 안전하게 사용할 수 있습니다. 미리 보기 조건 및 사용 가능한 라이브러리에 대한 자세한 내용은 [인증 라이브러리 참조](reference-v2-libraries.md)에서 확인할 수 있습니다.
 * Microsoft 라이브러리가 적용되지 않는 플랫폼의 경우 응용 프로그램 코드에서 프로토콜 메시지를 직접 전송 및 수신하여 v2.0 끝점과 통합할 수 있습니다. v2.0 OpenID Connect 및 OAuth 프로토콜은 [명시적으로 문서화](active-directory-v2-protocols.md)되어 있어 이러한 통합을 수행하는 데 도움이 됩니다.
-* 마지막으로, v2.0 끝점과 통합하는 데 오픈 소스 Open ID Connect 및 OAuth 라이브러리를 사용할 수 있습니다. v2.0 프로토콜은 크게 변경되지 않고 다양한 오픈 소스 프로토콜 라이브러리와 호환되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [Open ID Connect](http://openid.net/connect/) 및 [OAuth 2.0](http://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 자세한 내용은 [Active Directory v2.0 및 인증 라이브러리](active-directory-v2-libraries.md)와 v2.0 끝점으로 테스트한 오픈 소스 클라이언트 라이브러리 및 샘플 목록을 참조하세요.
+* 마지막으로, v2.0 끝점과 통합하는 데 오픈 소스 Open ID Connect 및 OAuth 라이브러리를 사용할 수 있습니다. v2.0 프로토콜은 크게 변경되지 않고 다양한 오픈 소스 프로토콜 라이브러리와 호환되어야 합니다. 이러한 라이브러리의 사용 가능 여부는 언어 및 플랫폼마다 다릅니다. [Open ID Connect](http://openid.net/connect/) 및 [OAuth 2.0](http://oauth.net/2/) 웹 사이트는 주요 구현 목록을 유지 관리합니다. 자세한 내용은 [Active Directory v2.0 및 인증 라이브러리](reference-v2-libraries.md)와 v2.0 끝점으로 테스트한 오픈 소스 클라이언트 라이브러리 및 샘플 목록을 참조하세요.
 
 ## <a name="restrictions-on-protocols"></a>프로토콜에 대한 제한 사항
 

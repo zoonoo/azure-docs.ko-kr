@@ -1,25 +1,20 @@
 ---
-title: Azure HDInsight에서 Hive 쿼리를 최적화 | Microsoft Docs
+title: Azure HDInsight에서 Hive 쿼리를 최적화
 description: HDInsight에서 Hadoop에 대한 Hive 쿼리를 최적화하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d6174c08-06aa-42ac-8e9b-8b8718d9978e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: e844b4f1e9898347da6af589dbfe41bf2ad3ab69
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 5142f2d2c3828a5311a67ac4a7e5abd3cc434801
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199897"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594678"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>Azure HDInsight에서 Hive 쿼리를 최적화
 

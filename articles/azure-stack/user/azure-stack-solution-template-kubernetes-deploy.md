@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: edcea5f0a4b95725bf766632731f461334e829a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fb7716ff1b5ce661dff55c3a8dac90a062fad53
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420141"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630785"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Azure Stack에 Kubernetes 클러스터 배포
 
@@ -27,6 +27,7 @@ ms.locfileid: "39420141"
 
 > [!Note]  
 > Azure Stack에서 Azure 컨테이너 서비스 (ACS) Kubernetes 비공개 미리 보기입니다. 귀하가 Azure Stack 운영자는이 문서의 지침을 수행 하는 데 필요한 Kubernetes Marketplace 항목에 대 한 액세스를 요청 해야 합니다.
+<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
 
 다음 문서를 배포 하 고 조정 된 단일 작업에서 Kubernetes에 대 한 리소스를 프로 비전 하는 Azure Resource Manager 솔루션 템플릿을 사용 하 여 살펴봅니다. 필요한 Azure Stack 설치에 대 한 필요한 정보를 수집 하려면 템플릿을 생성을을 클라우드에 배포 합니다.
 

@@ -3,25 +3,20 @@ title: Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 미리 보�
 description: Azure Data Lake Storage Gen2 미리 보기의 데이터를 쿼리하고 분석 결과를 저장하는 방법을 알아봅니다.
 keywords: HDFS, 구조적 데이터, 비구조적 데이터, Data Lake Store, Hadoop 입력, Hadoop 출력, Hadoop 저장소, HDFS 입력, HDFS 출력, HDFS 저장소, WASB Azure
 services: hdinsight,storage
-documentationcenter: ''
 tags: azure-portal
 author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e4e72d3c5b6b9c96de6a8faafccfcc39fe3c37b8
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136692"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528511"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 미리 보기 사용
 

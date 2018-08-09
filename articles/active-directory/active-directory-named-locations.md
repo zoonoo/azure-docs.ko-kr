@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f739917b201d5255716d22930d7c4bd9e6602f37
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224520"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627494"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Azure Active Directory의 명명된 위치 구성
 
 명명된 위치를 사용하여 조직에 신뢰할 수 있는 IP 주소 범위 레이블을 지정할 수 있습니다. Microsoft Azure Active Directory는 다음 상황에서 명명된 위치를 사용합니다.
 
-- 보고되는 거짓 긍정의 수를 줄이기 위한 [위험 이벤트](active-directory-reporting-risk-events.md) 검색.  
+- 보고되는 거짓 긍정의 수를 줄이기 위한 [위험 이벤트](reports-monitoring/concept-risk-events.md) 검색.  
 
-- [위치 기반 조건부 액세스](active-directory-conditional-access-locations.md).
+- [위치 기반 조건부 액세스](conditional-access/location-condition.md).
 
 
 이 문서에서는 명명된 위치를 환경에 구성할 수 있는 방법을 설명합니다.
@@ -97,8 +97,8 @@ ms.locfileid: "39224520"
 
 - [Azure Active Directory의 조건부 액세스](active-directory-conditional-access-azure-portal.md).
 
-- [Azure Active Directory 조건부 액세스의 위치 조건](active-directory-conditional-access-locations.md)
+- [Azure Active Directory 조건부 액세스의 위치 조건](conditional-access/location-condition.md)
 
-- [Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md).
+- [Azure Active Directory 위험 이벤트](reports-monitoring/concept-risk-events.md).
 
-- [Azure Active Directory 포털의 위험한 로그인 보고서](active-directory-reporting-security-risky-sign-ins.md).  
+- [Azure Active Directory 포털의 위험한 로그인 보고서](reports-monitoring/concept-risky-sign-ins.md).  

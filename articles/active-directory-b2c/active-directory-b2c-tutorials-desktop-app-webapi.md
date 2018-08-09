@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 01c13b214d40fba278ce788047e2b158adc20287
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34711599"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594783"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API로의 액세스 권한 부여
 
@@ -39,7 +39,7 @@ ms.locfileid: "34711599"
 
 ## <a name="register-web-api"></a>웹 API 등록
 
-Azure Active Directory에서 [액세스 토큰](../active-directory/develop/active-directory-dev-glossary.md#access-token)을 제공하는 [클라이언트 응용 프로그램](../active-directory/develop/active-directory-dev-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/active-directory-dev-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/active-directory-dev-glossary.md#application-object)가 테넌트에 설정됩니다. 
+Azure Active Directory에서 [액세스 토큰](../active-directory/develop/developer-glossary.md#access-token)을 제공하는 [클라이언트 응용 프로그램](../active-directory/develop/developer-glossary.md#client-application)을 통해 [보호된 리소스 요청](../active-directory/develop/developer-glossary.md#resource-server)을 수락하고 이에 응답하려면, 먼저 웹 API 리소스를 테넌트에 등록해야 합니다. 등록하면 [응용 프로그램 및 서비스 사용자 개체](../active-directory/develop/developer-glossary.md#application-object)가 테넌트에 설정됩니다. 
 
 Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -56,11 +56,11 @@ Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azur
     | 설정      | 제안 값  | 설명                                        |
     | ------------ | ------- | -------------------------------------------------- |
     | **Name** | 내 샘플 Node.js Web API | 개발자에게 웹 API를 설명하는 **이름**을 입력합니다. |
-    | **웹앱/웹 API 포함** | 예 | 웹 API에 **예**를 선택합니다. |
-    | **암시적 흐름 허용** | 예 | API에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
+    | **웹앱/웹 API 포함** | yes | 웹 API에 **예**를 선택합니다. |
+    | **암시적 흐름 허용** | yes | API에서 [OpenID Connect 로그인](active-directory-b2c-reference-oidc.md)을 사용하므로 **예**를 선택합니다. |
     | **회신 URL** | `http://localhost:5000` | 회신 URL은 Azure AD B2C에서 API가 요청한 토큰을 반환하는 엔드포인트입니다. 이 자습서에서는 샘플 웹 API가 로컬(로컬 호스트)에서 실행되고 5000 포트에서 수신 대기합니다. |
-    | **앱 ID URI** | demoapi | URI는 테넌트에서 API를 고유하게 식별합니다. 이 설정을 사용하면 테넌트별로 여러 API를 등록할 수 있습니다. [범위](../active-directory/develop/active-directory-dev-glossary.md#scopes)는 보호된 API 리소스에 대한 액세스를 제어하고 앱 ID URI별로 정의됩니다. |
-    | **네이티브 클라이언트** | 아니오 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
+    | **앱 ID URI** | demoapi | URI는 테넌트에서 API를 고유하게 식별합니다. 이 설정을 사용하면 테넌트별로 여러 API를 등록할 수 있습니다. [범위](../active-directory/develop/developer-glossary.md#scopes)는 보호된 API 리소스에 대한 액세스를 제어하고 앱 ID URI별로 정의됩니다. |
+    | **네이티브 클라이언트** | 아니요 | 이는 웹 API이지만 기본 클라이언트가 아니기 때문에 [아니요]를 선택합니다. |
     
 3. **만들기**를 클릭하여 API를 등록합니다.
 
@@ -74,7 +74,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 ## <a name="define-and-configure-scopes"></a>범위 정의 및 구성
 
-[범위](../active-directory/develop/active-directory-dev-glossary.md#scopes)는 보호된 리소스에 대한 액세스를 제어하는 방법을 제공합니다. 범위는 웹 API에서 범위 기반 액세스 제어를 구현하는 데 사용됩니다. 예를 들어 일부 사용자는 읽기 및 쓰기 권한을 모두 가질 수 있지만, 다른 사용자는 읽기 전용 권한을 가질 수 있습니다. 이 자습서에서는 웹 API에 대한 읽기 및 쓰기 권한을 정의합니다.
+[범위](../active-directory/develop/developer-glossary.md#scopes)는 보호된 리소스에 대한 액세스를 제어하는 방법을 제공합니다. 범위는 웹 API에서 범위 기반 액세스 제어를 구현하는 데 사용됩니다. 예를 들어 일부 사용자는 읽기 및 쓰기 권한을 모두 가질 수 있지만, 다른 사용자는 읽기 전용 권한을 가질 수 있습니다. 이 자습서에서는 웹 API에 대한 읽기 및 쓰기 권한을 정의합니다.
 
 ### <a name="define-scopes-for-the-web-api"></a>웹 API에 대한 범위 정의
 
@@ -110,7 +110,7 @@ Azure AD B2C를 사용하여 웹 API를 등록하면 트러스트 관계가 정�
 
 5. **확인**을 클릭합니다.
 
-**내 샘플 WPF 앱**은 보호되는 **내 샘플 Node.js Web API**를 호출하도록 등록되었습니다. 사용자는 Azure AD B2C로 [인증](../active-directory/develop/active-directory-dev-glossary.md#authentication)하여 WPF 데스크톱 앱을 사용합니다. 데스크톱 앱은 Azure AD B2C에서 [권한 부여](../active-directory/develop/active-directory-dev-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
+**내 샘플 WPF 앱**은 보호되는 **내 샘플 Node.js Web API**를 호출하도록 등록되었습니다. 사용자는 Azure AD B2C로 [인증](../active-directory/develop/developer-glossary.md#authentication)하여 WPF 데스크톱 앱을 사용합니다. 데스크톱 앱은 Azure AD B2C에서 [권한 부여](../active-directory/develop/developer-glossary.md#authorization-grant)를 받아 보호되는 웹 API에 액세스합니다.
 
 ## <a name="update-web-api-code"></a>웹 API 코드 업데이트
 

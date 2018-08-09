@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258289"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627647"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Active Directory 통과 인증: 현재 제한 사항
 
@@ -42,7 +42,7 @@ ms.locfileid: "39258289"
 
 다음 시나리오는 지원되지 _않습니다_.
 
-- [자격 증명이 손실된](../active-directory-reporting-risk-events.md#leaked-credentials) 사용자 검색
+- [자격 증명이 손실된](../reports-monitoring/concept-risk-events.md#leaked-credentials) 사용자 검색
 - Azure AD Domain Services를 사용하려면 테넌트에서 암호 해시 동기화를 사용하도록 설정해야 합니다. 따라서 통과 인증_만_ 사용하는 테넌트는 Azure AD Domain Services가 필요한 시나리오에서 사용할 수 없습니다.
 - 통과 인증은 [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)와 통합되지 않습니다.
 

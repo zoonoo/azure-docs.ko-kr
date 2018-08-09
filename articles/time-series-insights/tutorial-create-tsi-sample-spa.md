@@ -5,13 +5,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
-ms.openlocfilehash: 4442a724cf3e37d5e7271d9c29f99138ab1faa5f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295833"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626758"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>자습서: Azure Time Series Insights 단일 페이지 웹앱 만들기
 
@@ -42,11 +43,11 @@ ms.locfileid: "36295833"
 응용 프로그램을 빌드하기 전에 응용 프로그램을 Azure AD에 등록해야 합니다. 응용 프로그램을 등록하면 응용 프로그램의 ID가 구성되므로 Single Sign-On에 OAuth 지원을 사용할 수 있습니다. OAuth를 사용하려면 SPA가 "암시적" 권한 부여를 사용해야 하며, 이 부분은 응용 프로그램 매니페스트에서 업데이트하겠습니다. 응용 프로그램 매니페스트는 응용 프로그램 ID 구성의 JSON 표현입니다. 
 
 1. Azure 구독 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.  
-2. 왼쪽 창에서 **Azure Active Directory** 리소스를 선택하고, **앱 등록**을 선택하고, **+ 새 응용 프로그램 등록**을 선택합니다.  
+1. 왼쪽 창에서 **Azure Active Directory** 리소스를 선택하고, **앱 등록**을 선택하고, **+ 새 응용 프로그램 등록**을 선택합니다.  
    
    ![Azure Portal Azure AD 응용 프로그램 등록](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-3. **만들기** 페이지에서 필수 매개 변수를 입력합니다.
+1. **만들기** 페이지에서 필수 매개 변수를 입력합니다.
    
    매개 변수|설명
    ---|---
@@ -58,27 +59,27 @@ ms.locfileid: "36295833"
 
    ![Azure Portal Azure AD 응용 프로그램 등록 - 만들기](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. 리소스 응용 프로그램은 다른 응용 프로그램에서 사용할 수 있는 REST API를 제공하며, Azure AD에 등록됩니다. API는 "범위"를 노출하여 클라이언트 응용 프로그램에 대한 세밀한/안전한 액세스를 제공합니다. 응용 프로그램에서 "Azure Time Series Insights" API를 호출하므로 런타임에 권한을 요청할/생성할 API 및 범위를 지정해야 합니다. **설정**, **필수 권한**, **+ 추가**를 차례로 선택합니다.
+1. 리소스 응용 프로그램은 다른 응용 프로그램에서 사용할 수 있는 REST API를 제공하며, Azure AD에 등록됩니다. API는 "범위"를 노출하여 클라이언트 응용 프로그램에 대한 세밀한/안전한 액세스를 제공합니다. 응용 프로그램에서 "Azure Time Series Insights" API를 호출하므로 런타임에 권한을 요청할/생성할 API 및 범위를 지정해야 합니다. **설정**, **필수 권한**, **+ 추가**를 차례로 선택합니다.
 
    ![Azure Portal Azure AD 권한 추가](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. **API 액세스 추가** 페이지에서 **1 API 선택**을 클릭하여 TSI API를 지정합니다. **API 선택** 페이지에서 검색 필드에 "azure 시간"을 입력합니다. 결과 목록에서 "Azure Time Series Insights" API를 선택한 다음, **선택**을 클릭합니다. 
+1. **API 액세스 추가** 페이지에서 **1 API 선택**을 클릭하여 TSI API를 지정합니다. **API 선택** 페이지에서 검색 필드에 "azure 시간"을 입력합니다. 결과 목록에서 "Azure Time Series Insights" API를 선택한 다음, **선택**을 클릭합니다. 
 
    ![Azure Portal Azure AD 권한 추가 - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. 이제 API에 대한 범위를 지정합니다. 다시 **API 액세스 추가** 페이지에서 **2 권한 선택**을 클릭합니다. **액세스 사용** 페이지에서 "Azure Time Series Insights 서비스 액세스" 범위를 선택합니다. **선택**을 클릭하면 **API 액세스 추가** 페이지로 돌아갈 것입니다. **완료**를 클릭합니다.
+1. 이제 API에 대한 범위를 지정합니다. 다시 **API 액세스 추가** 페이지에서 **2 권한 선택**을 클릭합니다. **액세스 사용** 페이지에서 "Azure Time Series Insights 서비스 액세스" 범위를 선택합니다. **선택**을 클릭하면 **API 액세스 추가** 페이지로 돌아갈 것입니다. **완료**를 클릭합니다.
 
    ![Azure Portal Azure AD 권한 추가 - 범위](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. **필수 권한** 페이지로 돌아가면 이제 "Azure Time Series Insights" API가 나열됩니다. 또한 모든 사용자의 API 및 범위에 액세스할 수 있도록 응용 프로그램의 권한을 사전 동의해야 합니다. 맨 위에서 **권한 부여** 단추를 클릭하고 **예**를 선택합니다.
+1. **필수 권한** 페이지로 돌아가면 이제 "Azure Time Series Insights" API가 나열됩니다. 또한 모든 사용자의 API 및 범위에 액세스할 수 있도록 응용 프로그램의 권한을 사전 동의해야 합니다. 맨 위에서 **권한 부여** 단추를 클릭하고 **예**를 선택합니다.
 
    ![Azure Portal Azure AD 필수 권한 - 동의](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. 앞서 언급했듯이, 응용 프로그램 매니페스트도 업데이트해야 합니다. 이동 경로 탐색에서 응용 프로그램 이름을 클릭하여 **등록된 앱** 페이지로 돌아갑니다. **매니페스트**를 선택하고, `oauth2AllowImplicitFlow` 속성을 `true`로 변경한 다음, **저장**을 클릭합니다.
+1. 앞서 언급했듯이, 응용 프로그램 매니페스트도 업데이트해야 합니다. 이동 경로 탐색에서 응용 프로그램 이름을 클릭하여 **등록된 앱** 페이지로 돌아갑니다. **매니페스트**를 선택하고, `oauth2AllowImplicitFlow` 속성을 `true`로 변경한 다음, **저장**을 클릭합니다.
 
    ![Azure Portal Azure AD 매니페스트 업데이트](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-9. 마지막으로, 이동 경로 탐색을 클릭하여 다시 **등록된 앱** 페이지로 돌아간 다음, 응용 프로그램의 **홈페이지** URL 및 **응용 프로그램 ID** 속성을 복사합니다. 이러한 속성은 이후 단계에서 사용됩니다.
+1. 마지막으로, 이동 경로 탐색을 클릭하여 다시 **등록된 앱** 페이지로 돌아간 다음, 응용 프로그램의 **홈페이지** URL 및 **응용 프로그램 ID** 속성을 복사합니다. 이러한 속성은 이후 단계에서 사용됩니다.
 
    ![Azure Portal Azure AD 속성](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -92,15 +93,15 @@ ms.locfileid: "36295833"
    - 페이지의 **index.html** HTML 및 JavaScript https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** CSS 스타일시트: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Visual Studio를 시작하고 로그인하여 웹 응용 프로그램에 대한 프로젝트를 만듭니다. **파일** 메뉴에서 **열기**, **웹 사이트** 옵션을 선택합니다. **웹 사이트 열기** 대화 상자에서 HTML 및 CSS 파일을 저장한 작업 디렉터리를 선택한 다음, **열기**를 클릭합니다.
+1. Visual Studio를 시작하고 로그인하여 웹 응용 프로그램에 대한 프로젝트를 만듭니다. **파일** 메뉴에서 **열기**, **웹 사이트** 옵션을 선택합니다. **웹 사이트 열기** 대화 상자에서 HTML 및 CSS 파일을 저장한 작업 디렉터리를 선택한 다음, **열기**를 클릭합니다.
 
    ![VS - 파일 웹 사이트 열기](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. Visual Studio **보기** 메뉴에서 **솔루션 탐색기**를 엽니다. HTML 및 CSS 파일을 포함하는 웹 사이트 프로젝트(지구 아이콘)가 들어 있는 새 솔루션이 보일 것입니다.
+1. Visual Studio **보기** 메뉴에서 **솔루션 탐색기**를 엽니다. HTML 및 CSS 파일을 포함하는 웹 사이트 프로젝트(지구 아이콘)가 들어 있는 새 솔루션이 보일 것입니다.
 
    ![VS - 솔루션 탐색기 새 솔루션](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. 응용 프로그램을 게시하려면 **index.html**에서 JavaScript 코드 부분을 업데이트해야 합니다. 
+1. 응용 프로그램을 게시하려면 **index.html**에서 JavaScript 코드 부분을 업데이트해야 합니다. 
 
    a. 첫째, `<head>` 요소에서 JavaScript 및 스타일 시트 파일 참조 경로를 변경합니다. Visual Studio 솔루션에서 **index.html** 파일을 열고 다음 JavaScript 코드 줄을 찾습니다. "프로덕션 리소스 링크" 아래에서 세 줄의 주석 처리를 제거하고, "개발 리소스 링크" 아래에서 세 줄을 주석으로 처리합니다.
    
@@ -133,7 +134,7 @@ ms.locfileid: "36295833"
 
    다. 편집을 마쳤으면 **index.html**을 저장합니다.
 
-5. 이제 웹 응용 프로그램을 Azure 구독에 Azure App Service로 게시합니다.  
+1. 이제 웹 응용 프로그램을 Azure 구독에 Azure App Service로 게시합니다.  
 
    > [!NOTE]
    > 다음 대화 상자의 여러 필드가 Azure 구독의 데이터로 채워집니다. 따라서 각 대화 상자가 완전히 로드될 때까지 몇 초 정도 걸릴 수 있으며, 그 후 계속 진행할 수 있습니다.  
@@ -187,7 +188,7 @@ ms.locfileid: "36295833"
 Azure Portal의 왼쪽 메뉴에서:
 
 1. **리소스 그룹** 아이콘을 클릭한 다음, TSI 환경용으로 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음 **삭제**를 클릭합니다. 
-2. **리소스 그룹** 아이콘을 클릭한 다음, 장치 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음, **삭제**를 클릭합니다. 
+1. **리소스 그룹** 아이콘을 클릭한 다음, 장치 시뮬레이션 솔루션 가속기에서 만든 리소스 그룹을 선택합니다. 페이지 맨 위에서 **리소스 그룹 삭제**를 클릭하고, 리소스 그룹의 이름을 입력한 다음, **삭제**를 클릭합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

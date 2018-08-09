@@ -2,22 +2,19 @@
 title: 도메인 가입 Azure HDInsight 클러스터를 사용한 Hadoop 보안 소개
 description: 도메인 가입 Azure HDInsight 클러스터가 엔터프라이즈 보안의 네 가지 핵심 요소를 지원하는 방법을 알아봅니다.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: 6f2c41aff8aaa389a8f2288cbb445e1ba2e7fd14
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e697b0ffe7cde65cd47a2f1b1db5b544b6dc1d3c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112539"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595633"
 ---
 # <a name="an-introduction-to-hadoop-security-with-domain-joined-hdinsight-clusters"></a>도메인 조인 HDInsight 클러스터 소개를 사용한 Hadoop 보안 소개
 
@@ -32,7 +29,7 @@ Active Directory 도메인에 가입된 HDInsight 클러스터를 만들 수 있
 
 기업 보안에는 네 가지 주요 요소인 경계 보안, 인증, 권한 부여 및 암호화가 포함됩니다.
 
-![엔터프라이즈 보안의 네 가지 핵심 요소를 고려한 도메인 가입 HDInsight 클러스터의 이점](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png)에서도 확인할 수 있습니다.
+![엔터프라이즈 보안의 네 가지 핵심 요소를 고려한 도메인 가입 HDInsight 클러스터의 이점](./media/apache-domain-joined-introduction/hdinsight-domain-joined-four-pillars.png).
 
 ## <a name="perimeter-security"></a>경계 보안
 HDInsight의 경계 보안은 가상 네트워크와 Azure VPN Gateway 서비스를 통해 수행됩니다. 기업 관리자는 가상 네트워크 내에서 HDInsight 클러스터를 만들고 네트워크 보안 그룹(방화벽 규칙)을 사용하여 가상 네트워크에 대한 액세스를 제한할 수 있습니다. 인바운드 방화벽 규칙에 정의된 IP 주소만이 HDInsight 클러스터와 통신할 수 있게 됩니다. 이 구성은 경계 보안을 제공합니다.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: f119c2803148d68c9c08cbc6a61a3c8733bc1da4
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 66bab9f4b5099099039aa0f60cd86ef23e73cd1f
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090359"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715688"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>사용량 및 클라우드 서비스 공급자로 Azure Stack에 대 한 청구를 관리 합니다. 
 
@@ -82,5 +82,5 @@ Azure Stack 등록을 호출 하는 기능을 사용 합니다. 등록은 Azure�
 
 ## <a name="next-steps"></a>다음 단계
 
- - CSP 프로그램에 대 한 자세한 내용은 참조 하세요 [클라우드 솔루션 공급자 프로그램](https://partnercenter.microsoft.com/en-us/partner/programs)합니다.
+ - CSP 프로그램에 대 한 자세한 내용은 참조 하세요 [클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/solutions/microsoft-cloud-solutions)합니다.
  - Azure Stack에서 리소스 사용 정보를 검색 하는 방법에 대 한 자세한 내용은 참조 하세요 [사용 및 Azure Stack에서 청구](azure-stack-billing-and-chargeback.md)합니다.

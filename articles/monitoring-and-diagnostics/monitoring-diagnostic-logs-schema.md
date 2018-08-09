@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a075b60c525fc3883f4464f19a8964fb64ce15a0
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248794"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627715"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 진단 로그에 대해 지원되는 서비스, 스키마 및 범주
 
@@ -47,7 +47,7 @@ ms.locfileid: "39248794"
 
 | 서비스 | 스키마 및 문서 |
 | --- | --- |
-| Azure Active Directory | [개요](../active-directory/reporting-azure-monitor-diagnostics-overview.md), [감사 로그 스키마](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md) 및 [로그인 스키마](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
+| Azure Active Directory | [개요](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [감사 로그 스키마](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) 및 [로그인 스키마](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [API 관리 진단 로그](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Application Gateway |[Application Gateway에 대한 진단 로깅](../application-gateway/application-gateway-diagnostics.md) |

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224299"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593964"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench 배포
 
@@ -51,7 +51,7 @@ Azure Blockchain Workbench를 배포하기 전에는 몇 가지 필수 구성 �
 Blockchain Workbench 배포에는 Azure AD 응용 프로그램의 등록이 필요합니다. Azure AD(Azure Active Directory) 테넌트에서 앱을 등록해야 합니다. 기존 테넌트를 사용하거나 새 테넌트를 만들 수 있습니다. 기존 Azure AD 테넌트를 사용하는 경우 Azure AD 테넌트 내에서 응용 프로그램을 등록하고 Graph API 권한을 부여할 수 있는 충분한 권한이 필요합니다. 기존 Azure AD 테넌트에 충분한 권한이 없는 경우 새 테넌트를 만듭니다. 
 
 > [!IMPORTANT]
-> Workbench는 Azure AD 응용 프로그램을 등록하는 데 사용 중인 것과 동일한 테넌트에 배포될 필요가 없습니다. Workbench는 리소스를 배포할 수 있는 충분한 권한이 있는 테넌트에 배포되어야 합니다. Azure AD 테넌트에 대한 자세한 내용은 [Active Directory 테넌트를 가져오는 방법](../active-directory/develop/active-directory-howto-tenant.md) 및 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/active-directory-integrating-applications.md)을 참조하세요.
+> Workbench는 Azure AD 응용 프로그램을 등록하는 데 사용 중인 것과 동일한 테넌트에 배포될 필요가 없습니다. Workbench는 리소스를 배포할 수 있는 충분한 권한이 있는 테넌트에 배포되어야 합니다. Azure AD 테넌트에 대한 자세한 내용은 [Active Directory 테넌트를 가져오는 방법](../active-directory/develop/quickstart-create-new-tenant.md) 및 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 오른쪽 위 모서리에서 사용자의 계정을 선택하고 원하는 Azure AD 테넌트로 전환합니다. 테넌트는 Workbench가 배포되는 구독의 구독 관리자 테넌트에 있어야 하며, 사용자에게 응용 프로그램을 등록할 수 있는 충분한 권한이 있어야 합니다.
@@ -73,7 +73,7 @@ Blockchain Workbench 배포에는 Azure AD 응용 프로그램의 등록이 필�
 
 ### <a name="modify-application-manifest"></a>응용 프로그램 매니페스트 수정
 
-다음으로 Blockchain Workbench 관리자를 지정하려면 Azure AD 내에서 응용 프로그램 역할을 사용하도록 응용 프로그램 매니페스트를 수정해야 합니다.  응용 프로그램 매니페스트에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](../active-directory/develop/active-directory-application-manifest.md)를 참조하세요.
+다음으로 Blockchain Workbench 관리자를 지정하려면 Azure AD 내에서 응용 프로그램 역할을 사용하도록 응용 프로그램 매니페스트를 수정해야 합니다.  응용 프로그램 매니페스트에 대한 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](../active-directory/develop/reference-app-manifest.md)를 참조하세요.
 
 1. 등록한 응용 프로그램에 대해 등록된 응용 프로그램 세부 정보 창에서 **매니페스트**를 선택합니다.
 2. GUID를 생성합니다. PowerShell 명령 [guid] :: NewGuid () 또는 New-GUID cmdlet을 사용하여 GUID를 생성할 수 있습니다. 다른 옵션은 GUID 생성기 웹 사이트를 사용하는 것입니다.

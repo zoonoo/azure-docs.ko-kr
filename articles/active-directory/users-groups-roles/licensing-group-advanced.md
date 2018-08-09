@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867327"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627392"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Azure Active Directory에서 라이선스 관리를 위해 그룹을 사용하는 경우 시나리오, 제한 사항 및 알려진 문제
 
@@ -146,13 +146,13 @@ PowerShell 스크립트를 사용하여 사용자가 라이선스를 직접 할�
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>감사 로그를 사용하여 그룹 기반 라이선스 작업 모니터링
 
-[Azure AD 감사 로그](./../active-directory-reporting-activity-audit-logs.md#audit-logs)를 사용하여 다음을 비롯한 그룹 기반 라이선스와 관련된 모든 작업을 확인할 수 있습니다.
+[Azure AD 감사 로그](../reports-monitoring/concept-audit-logs.md#audit-logs)를 사용하여 다음을 비롯한 그룹 기반 라이선스와 관련된 모든 작업을 확인할 수 있습니다.
 - 그룹에 대한 라이선스를 변경한 사용자
 - 시스템에서 그룹 라이선스 변경 처리를 시작한 시점 및 종료한 시점
 - 그룹 라이선스 할당의 결과로 사용자에게 이뤄진 라이선스 변경
 
 >[!NOTE]
-> 감사 로그는 포털의 Azure Active Directory 섹션에 있는 대부분의 블레이드에서 제공됩니다. 사용자가 액세스하는 위치에 따라 블레이드 컨텍스트와 관련된 작업을 표시하도록 필터를 미리 적용할 수 있습니다. 예상한 결과가 표시되지 않는 경우 [필터링 옵션](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs)을 검토하거나 [**Azure Active Directory > 작업 > 감사 로그**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit)에서 필터링되지 않은 감사 로그에 액세스합니다.
+> 감사 로그는 포털의 Azure Active Directory 섹션에 있는 대부분의 블레이드에서 제공됩니다. 사용자가 액세스하는 위치에 따라 블레이드 컨텍스트와 관련된 작업을 표시하도록 필터를 미리 적용할 수 있습니다. 예상한 결과가 표시되지 않는 경우 [필터링 옵션](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs)을 검토하거나 [**Azure Active Directory > 작업 > 감사 로그**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit)에서 필터링되지 않은 감사 로그에 액세스합니다.
 
 ### <a name="find-out-who-modified-a-group-license"></a>라이선스 그룹을 수정한 사용자 확인
 
