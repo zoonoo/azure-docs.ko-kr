@@ -1,20 +1,19 @@
 ---
-title: Azure Cognitive Services 음성 시나리오 | Azure Microsoft Docs
+title: Azure Cognitive Services 음성 시나리오
 description: 시나리오
 services: cognitive-services
 author: PanosPeriorellis
-manager: onano
 ms.service: cognitive-services
 ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 9e6be3608f5aa5ec5d68e6bbefff6da6c23c62fd
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 3ec5fede8b4e196a2f7573b4c2f202d589a55f32
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247957"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282671"
 ---
 # <a name="speech-scenarios"></a>음성 시나리오
 

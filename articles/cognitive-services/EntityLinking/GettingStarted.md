@@ -54,7 +54,7 @@ Cognitive Services의 Entity Linking은 NuGet.org 패키지로 릴리스되며 �
  ![프로젝트에 포함된 nuget 라이브러리](./Images/NugetLibraryInProject.png)
  
 ### <a name="step-4-add-an-input-and-output-text-block-to-your-apps-xaml">4단계: 앱의 XAML에 입력 및 출력 텍스트 블록 추가</a>
-**솔루션 탐색기**에서 ** MainPage.xaml **로 이동한 다음, 파일을 두 번 클릭하면 새 창에서 열립니다. 편의를 위해 **디자이너** 탭에서 **XAML** 단추를 두 번 클릭할 수 있습니다. 그러면 **비주얼 디자이너**가 숨겨지고 코드 보기에 대한 모든 공간이 예약됩니다.
+**솔루션 탐색기**에서 **MainPage.xaml**로 이동한 다음, 파일을 두 번 클릭하면 새 창에서 열립니다. 편의를 위해 **디자이너** 탭에서 **XAML** 단추를 두 번 클릭할 수 있습니다. 그러면 **비주얼 디자이너**가 숨겨지고 코드 보기에 대한 모든 공간이 예약됩니다.
 
  ![프로젝트에 포함된 nuget 라이브러리](./Images/UWPMainPage.png)
  

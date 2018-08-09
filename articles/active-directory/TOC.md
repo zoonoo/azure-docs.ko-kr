@@ -401,10 +401,10 @@
 ### [액세스 검토 결과 검색](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## ID 보안
-### [조건부 액세스](active-directory-conditional-access-azure-portal.md)
-#### [시작](active-directory-conditional-access-azure-portal-get-started.md)
+### 조건부 액세스
+#### [개요](conditional-access/overview.md)
 #### 빠른 시작
-##### [클라우드 앱 MFA별 구성](conditional-access/app-based-mfa.md)
+##### [특정 앱에 대해 MFA 요구](conditional-access/app-based-mfa.md)
 ##### [허용할 사용 약관 필요](conditional-access/require-tou.md)
 ##### [세션 위험이 감지되면 액세스 차단](conditional-access/app-sign-in-risk.md)
 #### 자습서
@@ -418,15 +418,16 @@
 ##### [Office 365 서비스에 대한 장치 정책 이해](active-directory-conditional-access-device-policies.md)
 #### 방법 가이드
 ##### [모범 사례](conditional-access/best-practices.md)
-##### [신뢰할 수 없는 네트워크의 액세스 시도에 대한 조건부 액세스 정책 구성](active-directory-conditional-access-untrusted-networks.md)
-##### [장치 기반 조건부 액세스 설정](active-directory-conditional-access-policy-connected-applications.md)
-##### [앱 기반 조건부 액세스 설정](active-directory-conditional-access-mam.md)
-##### [사용자 및 앱에 대한 사용 약관 제공](active-directory-tou.md)
+##### [신뢰할 수 없는 네트워크에서 액세스 시도에 대해 MFA 요구](conditional-access/untrusted-networks.md)
+##### [관리되는 장치 필요](conditional-access/require-managed-devices.md)
+##### [승인된 클라이언트 앱 필요](conditional-access/app-based-conditional-access.md)
+##### [사용자 및 앱에 대한 사용 약관 필요](active-directory-tou.md)
 ##### [클래식 정책 마이그레이션](conditional-access/policy-migration.md)
 ##### [VPN 연결 설정](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint 및 Exchange Online 설정](active-directory-conditional-access-no-modern-authentication.md)
 ##### [재구성](active-directory-conditional-access-device-remediation.md)
-#### [기술 참조](active-directory-conditional-access-technical-reference.md)
+#### [참조](conditional-access/technical-reference.md)
+##### [기술 참조](conditional-access/technical-reference.md)
 #### [FAQ](conditional-access/faqs.md)
 
 ### 인증서 기반 인증
