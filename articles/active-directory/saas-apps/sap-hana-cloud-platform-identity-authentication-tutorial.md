@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 97e77fdbb352e1fcf66044f48e17cb19a8aa2e1d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 266c9523f45294899e3cddbe782cbc54846eb119
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042149"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422310"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>자습서: SAP Cloud Platform Identity Authentication과 Azure Active Directory 통합
 
@@ -53,7 +53,7 @@ SAP Cloud Platform Identity Authentication과 Azure AD의 통합을 구성하려
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SAP Cloud Platform Identity Authentication 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 본격적으로 세부적인 기술 정보를 살펴보기에 앞서 먼저 여기서 다루는 개념을 이해해야 합니다. SAP Cloud Platform Identity Authentication 및 Active Directory Federation Services를 이용하면 SAP Cloud Platform Identity Authentication으로 보호되는 SAP 응용 프로그램과 서비스를 이용하여 (IdP로 사용되는) Azure AD로 보호되는 응용 프로그램과 서비스에서 SSO를 구현할 수 있습니다.
 
@@ -84,17 +84,17 @@ SAP Cloud Platform Identity Authentication을 Azure AD에 통합하려면 갤러
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 새로 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
+1. 새 응용 프로그램을 새로 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 선택합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **SAP Cloud Platform Identity Authentication**을 입력합니다. 
+1. 검색 상자에 **SAP Cloud Platform Identity Authentication**을 입력합니다. 
 
-5. 결과 패널에서 **SAP Cloud Platform Identity Authentication**을 선택하고 **추가** 단추를 선택합니다.
+1. 결과 패널에서 **SAP Cloud Platform Identity Authentication**을 선택하고 **추가** 단추를 선택합니다.
 
     ![결과 목록에서 SAP Cloud Platform Identity Authentication](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_addfromgallery.png)
 
@@ -109,10 +109,10 @@ SAP Cloud Platform Identity Authentication의 **Username** 값에 Azure AD의 **
 SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 사항을 완료합니다.
 
 1. [Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on) - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. [Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user) - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. [SAP Cloud Platform Identity Authentication 테스트 사용자 만들기](#create-an-sap-cloud-platform-identity-authentication-test-user) - Azure AD의 Britta Simon 사용자와 연결된 SAP Cloud Platform Identity Authentication 사용자를 만듭니다.
-4. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. [Single Sign-On 테스트](#test-single-sign-on) - 구성이 작동하는지 확인합니다.
+1. [Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user) - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. [SAP Cloud Platform Identity Authentication 테스트 사용자 만들기](#create-an-sap-cloud-platform-identity-authentication-test-user) - Azure AD의 Britta Simon 사용자와 연결된 SAP Cloud Platform Identity Authentication 사용자를 만듭니다.
+1. [Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user) - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. [Single Sign-On 테스트](#test-single-sign-on) - 구성이 작동하는지 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -124,11 +124,11 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자의 **SAML 기반 로그온**에서 **모드**를 선택하여 Single Sign-On을 활성화합니다.
+1. **Single Sign-On** 대화 상자의 **SAML 기반 로그온**에서 **모드**를 선택하여 Single Sign-On을 활성화합니다.
  
     ![Single Sign-On 대화 상자](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_samlbase.png)
 
-3. **IDP** 시작 모드로 응용 프로그램을 구성하려면 **SAP Cloud Platform Identity Authentication 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.  
+1. **IDP** 시작 모드로 응용 프로그램을 구성하려면 **SAP Cloud Platform Identity Authentication 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.  
 
     ![SAP Cloud Platform Identity Authentication 도메인 및 URL Single Sign-On이 설정된 구독](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url.png)
 
@@ -139,7 +139,7 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이 값을 얻으려면 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요. 식별자 값을 모르는 경우 SAP Cloud Platform Identity Authentication 설명서의 [Tenant SAML 2.0 구성](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html) 관련 내용을 참조하세요.
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택합니다.
+1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 선택합니다.
 
     ![SAP Cloud Platform Identity Authentication 도메인 및 URL Single Sign-On이 설정된 구독](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_url1.png)
 
@@ -148,15 +148,15 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트하세요. 해당 비즈니스 응용 프로그램 로그온 URL을 사용하세요. 궁금한 점은 [SAP Cloud Platform Identity Authentication 클라이언트 지원 팀](https://cloudplatform.sap.com/capabilities/security/trustcenter.html)에 문의하세요.
 
-5. **SAML 서명 인증서** 섹션 아래에서 **메타데이터 XML**을 선택합니다. 그런 다음 메타데이터 파일을 컴퓨터에 저장합니다.
+1. **SAML 서명 인증서** 섹션 아래에서 **메타데이터 XML**을 선택합니다. 그런 다음 메타데이터 파일을 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_certificate.png)
 
-6. SAP Cloud Platform Identity Authentication 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다. 다음 스크린샷은 이 형식의 예를 보여줍니다. 
+1. SAP Cloud Platform Identity Authentication 응용 프로그램은 특정 형식의 SAML 어설션이 필요합니다. 응용 프로그램 통합 페이지의 **사용자 특성** 섹션에서 특성 값을 관리할 수 있습니다. 다음 스크린샷은 이 형식의 예를 보여줍니다. 
 
     ![Single Sign-On 구성](./media/sap-hana-cloud-platform-identity-authentication-tutorial/attribute.png)
 
-7. SAP 응용 프로그램에서 **firstName**과 같은 특성이 필요한 경우 **사용자 특성** 섹션에 **firstName** 특성을 추가합니다. 이 옵션은 **SAML 토큰 특성** 대화 상자의 **Single Sign-On** 대화 상자에서 확인할 수 있습니다.
+1. SAP 응용 프로그램에서 **firstName**과 같은 특성이 필요한 경우 **사용자 특성** 섹션에 **firstName** 특성을 추가합니다. 이 옵션은 **SAML 토큰 특성** 대화 상자의 **Single Sign-On** 대화 상자에서 확인할 수 있습니다.
 
     a. **특성 추가** 대화 상자를 열려면 **특성 추가**를 선택합니다. 
     
@@ -170,25 +170,25 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
     
     d. **확인**을 선택합니다.
 
-8. **저장** 단추를 선택합니다.
+1. **저장** 단추를 선택합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_general_400.png)
 
-9. **SAP Cloud Platform Identity Authentication 구성** 섹션에서 **SAP Cloud Platform Identity Authentication 구성**을 선택하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **SAP Cloud Platform Identity Authentication 구성** 섹션에서 **SAP Cloud Platform Identity Authentication 구성**을 선택하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![SAP Cloud Platform Identity Authentication 구성](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_configure.png) 
 
-10. 응용 프로그램에 대해 SSO를 구성하려면 SAP Cloud Platform Identity Authentication 관리 콘솔로 이동합니다. URL 패턴은 다음과 같습니다. `https://<tenant-id>.accounts.ondemand.com/admin` [Microsoft Azure AD와 통합](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html)에서 SAP Cloud Platform Identity Authentication 설명서를 참조하세요. 
+1. 응용 프로그램에 대해 SSO를 구성하려면 SAP Cloud Platform Identity Authentication 관리 콘솔로 이동합니다. URL 패턴은 다음과 같습니다. `https://<tenant-id>.accounts.ondemand.com/admin` [Microsoft Azure AD와 통합](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html)에서 SAP Cloud Platform Identity Authentication 설명서를 참조하세요. 
 
-11. Azure Portal에서 **저장** 단추를 선택합니다.
+1. Azure Portal에서 **저장** 단추를 선택합니다.
 
-12. 다른 SAP 응용 프로그램에 SSO를 추가하고 활성화하려는 경우에만 다음 단계를 계속합니다. **갤러리에서 SAP Cloud Platform Identity Authentication 추가** 섹션의 단계를 반복합니다.
+1. 다른 SAP 응용 프로그램에 SSO를 추가하고 활성화하려는 경우에만 다음 단계를 계속합니다. **갤러리에서 SAP Cloud Platform Identity Authentication 추가** 섹션의 단계를 반복합니다.
 
-13. Azure Portal의 **SAP Cloud Platform Identity Authentication** 응용 프로그램 통합 페이지에서 **연결된 로그온**을 선택합니다.
+1. Azure Portal의 **SAP Cloud Platform Identity Authentication** 응용 프로그램 통합 페이지에서 **연결된 로그온**을 선택합니다.
 
     ![연결된 로그온 구성](./media/sap-hana-cloud-platform-identity-authentication-tutorial/linked_sign_on.png)
 
-14. 구성을 저장합니다.
+1. 구성을 저장합니다.
 
 >[!NOTE] 
 >새 응용 프로그램은 이전 SAP 응용 프로그램의 Single Sign-On 구성을 사용합니다. SAP Cloud Platform Identity Authentication 관리 콘솔에서 동일한 회사 ID 공급자를 사용했는지 확인합니다.
@@ -209,15 +209,15 @@ SAP Cloud Platform Identity Authentication에서 Azure AD Single Sign-On을 구�
 
     ![Azure Active Directory 단추](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_01.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 선택합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 선택합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 선택합니다.
 
     ![추가 단추](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_03.png)
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/sap-hana-cloud-platform-identity-authentication-tutorial/create_aaduser_04.png)
 
@@ -251,23 +251,23 @@ SAP Cloud Platform Identity Authentication에서 ID 페더레이션을 사용 �
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **SAP Cloud Platform Identity Authentication**을 선택합니다.
+1. 응용 프로그램 목록에서 **SAP Cloud Platform Identity Authentication**을 선택합니다.
 
     ![응용 프로그램 목록에서 SAP Cloud Platform Identity Authentication 링크](./media/sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sapcpia_app.png)  
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 선택합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가** 단추를 선택합니다. **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 선택합니다. **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c027aa3d980d22e60c24db68aceb49fbef59d101
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046181"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>자습서: Azure Active Directory와 Perception United States(비 UltiPro) 통합
 
@@ -53,7 +53,7 @@ Perception United States(비 UltiPro)와의 Azure AD 통합을 구성하려면 �
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Perception United States(비 UltiPro) 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-perception-united-states-non-ultipro-from-the-gallery"></a>갤러리에서 Perception United States(비 UltiPro) 추가
 Perception United States(비 UltiPro)의 Azure AD 통합을 구성하려면 갤러리의 Perception United States(비 UltiPro)를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -64,15 +64,15 @@ Perception United States(비 UltiPro)의 Azure AD 통합을 구성하려면 갤�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **Perception United States(비 UltiPro)** 를 입력하고 결과 패널에서 **Perception United States(비 UltiPro)** 를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Perception United States(비 UltiPro)** 를 입력하고 결과 패널에서 **Perception United States(비 UltiPro)** 를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Perception United States(비 UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Perception United States(비 UltiPro)에서 Azure AD의 **사용자 이름** 값
 Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Perception United States(비 UltiPro) 테스트 사용자 만들기](#create-a-perception-united-states-non-ultipro-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Perception United States(비 UltiPro)에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Perception United States(비 UltiPro) 테스트 사용자 만들기](#create-a-perception-united-states-non-ultipro-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Perception United States(비 UltiPro)에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -102,11 +102,11 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_samlbase.png)
 
-3. **Perception United States(비 UltiPro) 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **Perception United States(비 UltiPro) 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Perception United States(비 UltiPro) 도메인 및 URL Single Sign-On 정보](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_url.png)
 
@@ -117,15 +117,15 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 자습서 뒷부분에 설명된 실제 회신 URL로 값을 업데이트하게 됩니다.
  
-4. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/perceptionunitedstates-tutorial/tutorial_general_400.png)
 
-6. **Perception United States(비 UltiPro) 구성** 섹션에서 **Perception United States(비 UltiPro) 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID**를 복사합니다.
+1. **Perception United States(비 UltiPro) 구성** 섹션에서 **Perception United States(비 UltiPro) 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **SAML 엔터티 ID**를 복사합니다.
 
     a. **Perception United States(비 UltiPro)** 응용 프로그램이 URI 인코딩이 되려면 복사한 **SAML 엔터티 ID** 값이 필요합니다. uri 인코딩 값을 가져오려면 **http://www.url-encode-decode.com/** 링크를 사용합니다.
 
@@ -137,13 +137,13 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     ![Perception United States(비 UltiPro) 구성](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_configure.png) 
 
-7. 다른 웹 브라우저 창에서 Perception United States(비 UltiPro) 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Perception United States(비 UltiPro) 회사 사이트에 관리자로 로그인합니다.
 
-8. 주 도구 모음에서 **계정 설정**을 클릭합니다.
+1. 주 도구 모음에서 **계정 설정**을 클릭합니다.
 
     ![Perception United States(비 UltiPro) 사용자](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
-9. **계정 설정** 페이지에서 다음 단계를 수행합니다.
+1. **계정 설정** 페이지에서 다음 단계를 수행합니다.
 
     ![Perception United States(비 UltiPro) 사용자](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
@@ -155,7 +155,7 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     d. **SAML 2.0**으로 **SSO ID 공급자**를 선택합니다.
 
-10. **SSO 구성** 페이지에서 다음 단계를 수행합니다.
+1. **SSO 구성** 페이지에서 다음 단계를 수행합니다.
 
     ![Perception United States(비 UltiPro) SSO 구성](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
@@ -187,15 +187,15 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     ![Azure Active Directory 단추](./media/perceptionunitedstates-tutorial/create_aaduser_01.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/perceptionunitedstates-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![추가 단추](./media/perceptionunitedstates-tutorial/create_aaduser_03.png)
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/perceptionunitedstates-tutorial/create_aaduser_04.png)
 
@@ -223,23 +223,23 @@ Perception United States(비 UltiPro)에서 Azure AD Single Sign-On을 구성하
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Perception United States(비 UltiPro)** 를 선택합니다.
+1. 응용 프로그램 목록에서 **Perception United States(비 UltiPro)** 를 선택합니다.
 
     ![응용 프로그램 목록의 Perception United States(비 UltiPro) 링크](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_app.png)  
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -2,18 +2,18 @@
 title: Azure Import/Export를 사용하여 Azure Files로 데이터 전송 | Microsoft Docs
 description: Azure Portal에서 가져오기 작업을 만들어 Azure Files로 데이터를 전송하는 방법에 대해 알아봅니다.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f48097fa1ece66dd9e20a7a7939ac43cb0f48b4
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.component: common
+ms.openlocfilehash: d6626b0c27f28f382d0189251fe90879020a69bf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113480"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523634"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export 서비스를 사용하여 Azure Files로 데이터 가져오기
 

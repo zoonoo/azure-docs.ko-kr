@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917475"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428533"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery Deployment Planner의 비용 예측 보고서 
 
@@ -105,7 +105,7 @@ VM을 수동으로 추가하려면:
 
 1. **행 삽입**을 선택하여 **시작** 및 **끝** 행 사이에 새 행을 삽입합니다.
 
-2. 이 구성과 일치하는 대략적인 VM 크기 및 VM 수에 따라 다음 열을 채웁니다. 
+1. 이 구성과 일치하는 대략적인 VM 크기 및 VM 수에 따라 다음 열을 채웁니다. 
 
     a. **VM 수**
 
@@ -125,9 +125,9 @@ VM을 수동으로 추가하려면:
 
     i. **AHUB(Azure Hybrid Use Benefit)**
 
-3. **연간 DR 드릴 횟수**, **각 DR 드릴 기간(일)**, **데이터 중복성** 및 **Azure 하이브리드 사용 혜택**에 대해 **모든 항목에 적용**을 선택하여 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
+1. **연간 DR 드릴 횟수**, **각 DR 드릴 기간(일)**, **데이터 중복성** 및 **Azure 하이브리드 사용 혜택**에 대해 **모든 항목에 적용**을 선택하여 테이블의 모든 VM에 동일한 값을 적용할 수 있습니다.
 
-4. **비용 다시 계산**을 선택하여 비용을 업데이트합니다.
+1. **비용 다시 계산**을 선택하여 비용을 업데이트합니다.
 
 **VM 이름**: VM의 이름입니다.
 

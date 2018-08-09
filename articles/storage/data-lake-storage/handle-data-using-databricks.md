@@ -3,19 +3,18 @@ title: Azure Databricks를 사용하여 추출, 로드 및 전송 작업을 수�
 description: Azure Data Lake Storage Gen2 미리 보기에서 Azure Databricks로 데이터를 추출하고, 데이터를 변환한 다음, Azure SQL Data Warehouse에 데이터를 로드하는 방법을 알아봅니다.
 services: azure-databricks
 author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 10aad06d4ac8d76dc023648e8d6c0366bff859e6
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: dcc0cb6d761fde5af16dbc86c674e2fc00dad58a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344710"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522291"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -32,14 +31,14 @@ ms.locfileid: "37344710"
 > * Azure Databricks에 Spark 클러스터 만들기
 > * Azure Data Lake Storage Gen2 지원 계정 만들기
 > * Azure Data Lake Storage Gen2에 데이터 업로드
-> * Azure Databricks에 노트북 만들기
+> * Azure Databricks에 Notebook 만들기
 > * Data Lake Storage Gen2에서 데이터 추출
 > * Azure Databricks에서 데이터 변환
 > * Azure SQL Data Warehouse에 데이터 로드
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -49,7 +48,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Azure Databricks 작업 영역 만들기
 
@@ -65,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 제공합니다.
 
-    |속성  |설명  |
+    |자산  |설명  |
     |---------|---------|
     |**작업 영역 이름**     | Databricks 작업 영역에 대한 이름을 제공합니다.        |
     |**구독**     | 드롭다운에서 Azure 구독을 선택합니다.        |

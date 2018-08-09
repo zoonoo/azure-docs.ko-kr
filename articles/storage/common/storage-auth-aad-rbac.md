@@ -3,17 +3,17 @@ title: RBAC를 사용하여 Azure Storage 컨테이너 및 큐에 대한 액세�
 description: RBAC(역할 기반 액세스 제어)를 사용하여 사용자, 그룹, 응용 프로그램 서비스 사용자 또는 관리 서비스 ID에 Azure Storage 데이터에 대한 액세스 권한을 할당합니다. Azure Storage는 컨테이너 및 큐에 대한 액세스 권한에 기본 제공 및 사용자 지정 역할을 지원합니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cee319c4fb158e95b4a6d996f846038f0654dd32
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.component: common
+ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969156"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520931"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>RBAC를 사용하여 Azure Storage 데이터에 대한 액세스 권한 관리(미리 보기)
 

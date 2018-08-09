@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: iainfou
-ms.openlocfilehash: 0466f416568b2a1a82e264a8508697fc9de87287
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2730ab1d909ead0431f0dd7fd0061d3080834296
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952481"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443735"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Virtual Kubelet 사용
 
@@ -77,16 +77,16 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 | 인수: | 설명 | 필수 |
 |---|---|:---:|
-| `--connector-name` | ACI 커넥터의 이름입니다.| 예 |
-| `--name` `-n` | 관리되는 클러스터의 이름입니다. | 예 |
-| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | 예 |
-| `--os-type` | 컨테이너 인스턴스 운영 체제 형식입니다. 허용되는 값: Linux 및 Windows 모두입니다. 기본값: Linux입니다. | 아니오 |
-| `--aci-resource-group` | ACI 컨테이너 그룹을 만들 리소스 그룹입니다. | 아니오 |
-| `--location` `-l` | ACI 컨테이너 그룹을 만들 위치입니다. | 아니오 |
-| `--service-principal` | Azure API에 대한 인증에 사용되는 서비스 사용자입니다. | 아니오 |
-| `--client-secret` | 서비스 사용자와 연결된 암호입니다. | 아니오 |
-| `--chart-url` | ACI 커넥터를 설치하는 Helm 차트의 URL입니다. | 아니오 |
-| `--image-tag` | Virtual Kubelet 컨테이너 이미지의 이미지 태그입니다. | 아니오 |
+| `--connector-name` | ACI 커넥터의 이름입니다.| yes |
+| `--name` `-n` | 관리되는 클러스터의 이름입니다. | yes |
+| `--resource-group` `-g` | 리소스 그룹의 이름입니다. | yes |
+| `--os-type` | 컨테이너 인스턴스 운영 체제 형식입니다. 허용되는 값: Linux 및 Windows 모두입니다. 기본값: Linux입니다. | 아니요 |
+| `--aci-resource-group` | ACI 컨테이너 그룹을 만들 리소스 그룹입니다. | 아니요 |
+| `--location` `-l` | ACI 컨테이너 그룹을 만들 위치입니다. | 아니요 |
+| `--service-principal` | Azure API에 대한 인증에 사용되는 서비스 사용자입니다. | 아니요 |
+| `--client-secret` | 서비스 사용자와 연결된 암호입니다. | 아니요 |
+| `--chart-url` | ACI 커넥터를 설치하는 Helm 차트의 URL입니다. | 아니요 |
+| `--image-tag` | Virtual Kubelet 컨테이너 이미지의 이미지 태그입니다. | 아니요 |
 
 ## <a name="validate-virtual-kubelet"></a>Virtual Kubelet 유효성 검사
 
@@ -204,7 +204,7 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
-[az-container-list]: /cli/azure/aks#az_aks_list
+[az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
 
 <!-- LINKS - external -->

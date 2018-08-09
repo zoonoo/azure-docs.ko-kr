@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237828"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524147"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>자습서: 패턴 역할을 사용하여 앱 개선
 
@@ -27,7 +27,7 @@ ms.locfileid: "39237828"
 * 역할과 함께 단순 엔터티를 사용하여 발언에 대한 패턴 만들기
 * 패턴 예측 개선 사항을 확인하는 방법
 
-이 문서에서는 LUIS 앱을 작성하기 위해 체험 [LUIS](luis-reference-regions.md) 계정이 필요합니다.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>시작하기 전에
 [패턴](luis-tutorial-pattern.md) 자습서의 Human Resources 앱이 없는 경우 JSON을 [LUIS](luis-reference-regions.md#luis-website) 웹 사이트의 새 앱으로 [가져옵니다](luis-how-to-start-new-app.md#import-new-app). 가져올 앱은 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub 리포지토리에 있습니다.
@@ -80,7 +80,7 @@ ms.locfileid: "39237828"
 
 3. **새 엔터티 만들기**를 선택합니다.
 
-4. 팝업 창에서 `NewEmployee`를 **단순** 엔터티로 입력합니다.
+4. 팝업 창에서 `NewEmployee`을 **단순** 엔터티로 입력합니다.
 
 5. **새 엔터티 만들기**를 선택합니다.
 
@@ -125,25 +125,18 @@ ms.locfileid: "39237828"
     keyPhrase 엔터티를 제거한 경우 지금 앱에 다시 추가합니다.
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-새 의도 및 발언은 학습을 요구합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
-챗봇 또는 다른 응용 프로그램에서 LUIS 예측을 얻으려면 앱을 게시해야 합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **게시** 단추를 선택합니다. 
-
-2. 프로덕션 슬롯과 **게시** 단추를 선택합니다.
-
-3. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>패턴 없이 끝점 쿼리
-1. **게시** 페이지의 아래쪽에서 **엔드포인트** 링크를 선택합니다. 그러면 주소 표시줄에 엔드포인트 URL이 있는 다른 브라우저 창이 열립니다. 
 
-2. 주소의 URL 끝으로 이동하고 `Move Wayne Berry from Miami to Mount Vernon`을 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+
+2. 주소의 URL 끝으로 이동하고 `Move Wayne Berry from Miami to Mount Vernon`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 발언 **쿼리**를 나타내는 `q`입니다. 
 
     ```JSON
     {
@@ -388,7 +381,8 @@ ms.locfileid: "39237828"
 이제 의도 점수는 훨씬 더 높고 역할 이름은 엔터티 응답의 일부입니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 8c3224a392e7e130b62e36019a1d180c6826d0ed
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332214"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427655"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Asana 구성
 
@@ -61,15 +61,15 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 응용 프로그램** 섹션으로 이동합니다.
 
-2. Single Sign-On을 위해 Asana를 이미 구성한 경우 검색 필드를 사용하여 Asana의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Asana**를 검색합니다. 검색 결과에서 **Asana**를 선택하고 응용 프로그램의 목록에 추가합니다.
+1. Single Sign-On을 위해 Asana를 이미 구성한 경우 검색 필드를 사용하여 Asana의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Asana**를 검색합니다. 검색 결과에서 **Asana**를 선택하고 응용 프로그램의 목록에 추가합니다.
 
-3. Asana 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
+1. Asana 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+1. **프로비전 모드**를 **자동**으로 설정합니다.
 
     ![Asana 프로비전](./media/asana-provisioning-tutorial/asanaazureprovisioning.png)
 
-5. **관리자 자격 증명** 섹션에서 다음 지침에 따라 토큰을 생성하여 **비밀 토큰**에 입력합니다.
+1. **관리자 자격 증명** 섹션에서 다음 지침에 따라 토큰을 생성하여 **비밀 토큰**에 입력합니다.
 
     a. 관리자 계정을 사용하여 [Asana](https://app.asana.com)에 로그인합니다.
 
@@ -81,19 +81,19 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
     e. **이름** 및 **정보**와 프로필 사진을 필요에 따라 업데이트합니다. **토큰**의 토큰을 복사하고 **변경 내용 저장**에서 선택합니다.
 
-6. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 Asana 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 Asana 계정에 관리자 권한이 있는지 확인하고 **연결 테스트** 단계를 다시 시도합니다.
+1. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 Asana 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 Asana 계정에 관리자 권한이 있는지 확인하고 **연결 테스트** 단계를 다시 시도합니다.
 
-7. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
+1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
 
-8. **저장**을 선택합니다. 
+1. **저장**을 선택합니다. 
 
-9. **매핑** 섹션에서 **Azure Active Directory 사용자를 Asana에 동기화**를 선택합니다.
+1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Asana에 동기화**를 선택합니다.
 
-10. **특성 매핑** 섹션에서 Azure AD에서 Asana로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Asana의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
+1. **특성 매핑** 섹션에서 Azure AD에서 Asana로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Asana의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
 
-11. Asana에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. Asana에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-12. **저장**을 선택합니다. 
+1. **저장**을 선택합니다. 
 
 이제 **사용자** 섹션에서 Asana에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인합니다. 감사 로그에서는 Asana 앱에서 프로비전 서비스가 수행하는 모든 작업을 설명합니다.
 

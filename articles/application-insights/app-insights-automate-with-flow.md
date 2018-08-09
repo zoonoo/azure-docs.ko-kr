@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: c92b50ee78c100a531a2973181251444b3810967
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293776"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424554"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 
@@ -35,19 +35,19 @@ ms.locfileid: "35293776"
 
 ### <a name="step-1-create-a-flow"></a>1단계: 흐름 만들기
 1. [Microsoft Flow](http://flow.microsoft.com)에 로그인한 다음 **My Flows**(내 흐름)를 선택합니다.
-2. **빈 곳에서 흐름 만들기**를 클릭합니다.
+1. **빈 곳에서 흐름 만들기**를 클릭합니다.
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>2단계: 흐름에 대한 트리거 만들기
 1. **일정**을 선택한 다음, **일정 - 되풀이**를 선택합니다.
-2. **빈도** 상자에서 **일**을 선택하고 **간격** 상자에 **1**을 입력합니다.
+1. **빈도** 상자에서 **일**을 선택하고 **간격** 상자에 **1**을 입력합니다.
 
     ![Microsoft Flow 트리거 대화 상자](./media/app-insights-automate-with-flow/flow1.png)
 
 
 ### <a name="step-3-add-an-application-insights-action"></a>3단계: Application Insights 작업 추가
 1. **새 단계**를 클릭한 다음 **작업 추가**를 클릭합니다.
-2. **Azure Application Insights**를 검색합니다.
-3. **Azure Application Insights – Analytics 쿼리 시각화 미리 보기**를 클릭합니다.
+1. **Azure Application Insights**를 검색합니다.
+1. **Azure Application Insights – Analytics 쿼리 시각화 미리 보기**를 클릭합니다.
 
     ![Analytics 쿼리 실행 창](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -84,12 +84,12 @@ ms.locfileid: "35293776"
 ### <a name="step-6-configure-the-flow-to-send-email"></a>6단계: 메일을 보내도록 흐름 구성
 
 1. **새 단계**를 클릭한 다음 **작업 추가**를 클릭합니다.
-2. **Office 365 Outlook**을 검색합니다.
-3. **Office 365 Outlook – 메일 보내기**를 클릭합니다.
+1. **Office 365 Outlook**을 검색합니다.
+1. **Office 365 Outlook – 메일 보내기**를 클릭합니다.
 
     ![Office 365 Outlook 선택 창](./media/app-insights-automate-with-flow/flow2b.png)
 
-4. **메일 보내기** 창에서 다음을 수행합니다.
+1. **메일 보내기** 창에서 다음을 수행합니다.
 
    a. 받는 사람의 이메일 주소를 입력합니다.
 
@@ -101,7 +101,7 @@ ms.locfileid: "35293776"
 
     ![Office 365 Outlook 구성](./media/app-insights-automate-with-flow/flow5.png)
 
-5. 동적 콘텐츠 메뉴에서 다음을 수행합니다.
+1. 동적 콘텐츠 메뉴에서 다음을 수행합니다.
 
     a. **첨부 파일 이름**을 선택합니다.
 

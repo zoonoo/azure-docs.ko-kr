@@ -2,24 +2,18 @@
 title: Azure Storage 메트릭 마이그레이션 | Microsoft Docs
 description: Azure Monitor에 의해 관리되는 새 메트릭으로 이전 메트릭을 마이그레이션하는 방법에 알아봅니다.
 services: storage
-documentationcenter: na
 author: fhryo-msft
-manager: cbrooks
-editor: fhryo-msft
-ms.assetid: ''
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 03/30/2018
 ms.author: fryu
-ms.openlocfilehash: 9586d0c2b61fe97106378ec684c28be9143b5194
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.component: common
+ms.openlocfilehash: fc11e29b03df617c4b5bb6f4fbb43cd478001d42
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969387"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521424"
 ---
 # <a name="azure-storage-metrics-migration"></a>Azure Storage 메트릭 마이그레이션
 

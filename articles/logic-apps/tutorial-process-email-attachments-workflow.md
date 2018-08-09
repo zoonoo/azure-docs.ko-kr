@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126371"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429423"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Azure Logic Apps로 이메일 및 첨부 파일 처리
 
@@ -82,7 +82,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       ![저장소 계정 이름과 키를 복사 및 저장](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   저장소 계정의 액세스 키를 가져오려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list)를 사용할 수도 있습니다. 
+   저장소 계정의 액세스 키를 가져오려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list)를 사용할 수도 있습니다. 
 
 3. 이메일 첨부 파일에 대한 Blob 저장소 컨테이너를 만듭니다.
    
@@ -100,7 +100,7 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       ![완료된 저장소 컨테이너](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create)를 사용할 수도 있습니다. 
+   저장소 컨테이너를 만들려면 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) 또는 [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create)를 사용할 수도 있습니다. 
 
 다음으로, Storage 탐색기를 저장소 계정에 연결합니다.
 
@@ -274,8 +274,8 @@ Azure 계정 자격 증명을 사용하여 <a href="https://portal.azure.com" ta
 
       | 설정 | 값 | 설명 | 
       | ------- | ----- | ----------- | 
-      | **첨부 파일 있음** | 예 | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지는 않으며, 새 메시지만 확인하여 제목 필터와 일치하는 이메일만 처리합니다. | 
-      | **첨부 파일 포함** | 예 | 첨부 파일을 확인하는 데서 그치지 않고 첨부 파일을 워크플로의 입력으로 가져옵니다. | 
+      | **첨부 파일 있음** | yes | 첨부 파일이 있는 이메일만 받습니다. <p>**참고:** 이 트리거는 계정에서 이메일을 제거하지는 않으며, 새 메시지만 확인하여 제목 필터와 일치하는 이메일만 처리합니다. | 
+      | **첨부 파일 포함** | yes | 첨부 파일을 확인하는 데서 그치지 않고 첨부 파일을 워크플로의 입력으로 가져옵니다. | 
       | **제목 필터** | ```Business Analyst 2 #423501``` | 이메일 제목에서 찾을 텍스트 | 
       |  |  |  | 
 

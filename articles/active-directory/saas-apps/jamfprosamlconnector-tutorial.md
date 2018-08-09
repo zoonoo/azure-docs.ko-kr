@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 94b8b935728110cd5dd07b2066e8320274e3b082
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346337"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428420"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>자습서: Azure Active Directory와 Jamf Pro 통합
 
@@ -53,7 +53,7 @@ Azure AD와 Jamf Pro의 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Jamf Pro 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-jamf-pro-from-the-gallery"></a>갤러리에서 Jamf Pro 추가
 Azure AD에 Jamf Pro의 통합을 구성하려면 갤러리의 Jamf Pro를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -64,15 +64,15 @@ Azure AD에 Jamf Pro의 통합을 구성하려면 갤러리의 Jamf Pro를 관�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **Jamf Pro**를 입력하고 결과 패널에서 **Jamf Pro**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Jamf Pro**를 입력하고 결과 패널에서 **Jamf Pro**를 선택한 다음, **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Jamf Pro](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Jamf Pro 테스트 사용자 만들기](#create-a-jamf-pro-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Jamf Pro에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Jamf Pro 테스트 사용자 만들기](#create-a-jamf-pro-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Jamf Pro에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -100,11 +100,11 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_samlbase.png)
 
-3. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **Jamf Pro 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **Jamf Pro 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Jamf Pro 도메인 및 URL Single Sign-On 정보](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url.png)
 
@@ -112,7 +112,7 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<subdomain>.jamfcloud.com/saml/SSO`
 
-4. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 응용 프로그램을 구성하려면 **고급 URL 설정 표시**를 확인하고 다음 단계를 수행합니다.
 
     ![Jamf Pro 도메인 및 URL Single Sign-On 정보](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_url1.png)
 
@@ -121,25 +121,25 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 자습서의 뒷부분에 설명하는 실제 식별자 값을 Jamf Pro 포털의 **Single Sign On** 섹션에서 가져옵니다. 실제 **하위 도메인** 값을 식별자 값에서 추출하여 해당 **하위 도메인** 정보를 로그온 URL 및 회신 URL에서 사용할 수 있습니다.
 
-5. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
+1. **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사하고 메모장에 붙여넣습니다.
 
     ![인증서 다운로드 링크](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_certificate.png) 
 
-6. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/jamfprosamlconnector-tutorial/tutorial_general_400.png)
     
-7. 다른 웹 브라우저 창에서 Jamf Pro 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Jamf Pro 회사 사이트에 관리자로 로그인합니다.
 
-8. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘**을 클릭합니다.
+1. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘**을 클릭합니다.
 
     ![Jamf Pro 구성](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-9. **Single Sign-On**을 클릭합니다.
+1. **Single Sign-On**을 클릭합니다.
 
     ![Jamf Pro 구성](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. **Single Sign-On** 페이지에서 다음 단계를 수행합니다.
+1. **Single Sign-On** 페이지에서 다음 단계를 수행합니다.
 
     ![Jamf Pro 단일](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
@@ -153,7 +153,7 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     e. `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` 값을 **그룹 특성 이름** 텍스트 상자에 붙여넣습니다.
  
-11. 같은 페이지에서 **Single Sign-On** 섹션의 **ID 공급자**까지 아래로 스크롤하여 다음 단계를 수행합니다.
+1. 같은 페이지에서 **Single Sign-On** 섹션의 **ID 공급자**까지 아래로 스크롤하여 다음 단계를 수행합니다.
 
     ![Jamf Pro 구성](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -182,15 +182,15 @@ Jamf Pro에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Azure Active Directory 단추](./media/jamfprosamlconnector-tutorial/create_aaduser_01.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/jamfprosamlconnector-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![추가 단추](./media/jamfprosamlconnector-tutorial/create_aaduser_03.png)
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/jamfprosamlconnector-tutorial/create_aaduser_04.png)
 
@@ -210,23 +210,23 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 하려면 Jamf Pro�
 
 1. Jamf Pro 회사 사이트에 관리자 권한으로 로그인합니다.
 
-2. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘**을 클릭합니다.
+1. 페이지의 오른쪽 위 모서리에 있는 **설정 아이콘**을 클릭합니다.
 
     ![직원 추가](./media/jamfprosamlconnector-tutorial/configure1.png)
 
-3. **Jamf Pro 사용자 계정 및 그룹**을 클릭합니다.
+1. **Jamf Pro 사용자 계정 및 그룹**을 클릭합니다.
 
     ![직원 추가](./media/jamfprosamlconnector-tutorial/user1.png)
 
-4. **새로 만들기**를 클릭합니다.
+1. **새로 만들기**를 클릭합니다.
 
     ![직원 추가](./media/jamfprosamlconnector-tutorial/user2.png)
 
-5. **Standard 계정 만들기**를 선택합니다.
+1. **Standard 계정 만들기**를 선택합니다.
 
     ![직원 추가](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. **새 계정** 대화 상자에서 다음 단계를 수행합니다.
+1. **새 계정** 대화 상자에서 다음 단계를 수행합니다.
 
     ![직원 추가](./media/jamfprosamlconnector-tutorial/user4.png)
 
@@ -256,23 +256,23 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 하려면 Jamf Pro�
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Jamf Pro**를 선택합니다.
+1. 응용 프로그램 목록에서 **Jamf Pro**를 선택합니다.
 
     ![응용 프로그램 목록의 Jamf Pro 링크](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_app.png)  
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

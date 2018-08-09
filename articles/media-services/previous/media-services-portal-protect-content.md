@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 8603716d30e1061ca9d600f2c053e90ff50c2433
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785882"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423552"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Azure Portal을 사용하여 콘텐츠 보호 정책 구성
  Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 저장, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 128비트 암호화 키를 사용하여 AES(Advanced Encryption Standard)로 동적 암호화된 콘텐츠를 배달할 수 있습니다. PlayReady 및/또는 Widevine DRM(디지털 권한 관리)과 Apple FairPlay를 사용하여 일반적인 암호화(CENC)와 함께 사용할 수도 있습니다. 
@@ -33,7 +33,7 @@ Media Services는 DRM 라이선스 및 AES 암호화되지 않은 키를 인증�
 
 1. [포털](https://portal.azure.com/)에서 Media Services 계정을 선택합니다.
 
-2. **설정** > **Content Protection**을 선택합니다.
+1. **설정** > **Content Protection**을 선택합니다.
 
     ![콘텐츠 보호](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -110,11 +110,11 @@ FairPlay 암호화를 사용하도록 설정하려면 **FairPlay 구성**을 선
     
     e. **HLS만 사용하는 FairPlay** - FairPlay의 HLS 스트림을 동적으로 암호화합니다.
 
-2. FairPlay 암호화를 사용하도록 설정하려면 **콘텐츠 보호 전역 설정** 블레이드에서 **FairPlay 구성**을 선택합니다. 그런 후 **앱 인증서**를 선택하고 **응용 프로그램 암호 키**를 입력합니다.
+1. FairPlay 암호화를 사용하도록 설정하려면 **콘텐츠 보호 전역 설정** 블레이드에서 **FairPlay 구성**을 선택합니다. 그런 후 **앱 인증서**를 선택하고 **응용 프로그램 암호 키**를 입력합니다.
 
     ![암호화 형식](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-3. 암호화를 선택한 후 **적용**을 선택합니다.
+1. 암호화를 선택한 후 **적용**을 선택합니다.
 
 >[!NOTE] 
 >Safari에서 AES 암호화 HLS를 재생하려는 경우 [Encrypted HLS in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)(Safari의 암호화된 HLS) 블로그 게시물을 참조하세요.

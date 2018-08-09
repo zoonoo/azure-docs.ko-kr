@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: areddish
 ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36301083"
 ---
 # <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Custom Vision API를 사용하여 C&#35;에서 개체 검색 프로젝트 빌드 
@@ -31,7 +31,7 @@ Computer Vision API를 사용하여 개체 검색 프로젝트를 만드는 기�
 
 ## <a name="get-the-training-and-prediction-keys"></a>학습 및 예측 키 가져오기
 
-이 예제에서 사용된 키를 가져오려면 [Custom Vision 웹 페이지](https://customvision.ai)로 가서 오른쪽 위에 있는 __톱니 바퀴 아이콘__을 선택합니다. __계정__ 섹션에서 __학습 키__ 및 __예측 키__ 필드의 값을 복사합니다.
+이 예제에서 사용된 키를 가져오려면 [Custom Vision 웹 페이지](https://customvision.ai)로 가서 오른쪽 위에 있는 __기어 아이콘__을 선택합니다. __계정__ 섹션에서 __학습 키__ 및 __예측 키__ 필드의 값을 복사합니다.
 
 ![키 UI의 이미지](./media/csharp-tutorial/training-prediction-keys.png)
 

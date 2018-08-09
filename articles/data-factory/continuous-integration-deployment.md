@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364548"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448444"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Azure Data Factory에서 연속 통합 및 배포
 
@@ -53,15 +53,15 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
 1.  모든 개발자가 파이프라인, 데이터 집합 등과 같은 Data Factory 리소스를 작성할 수 있는 VSTS를 사용하여 개발 Data Factory를 설정합니다.
 
-2.  그런 다음, 개발자는 파이프라인 등의 리소스를 수정할 수 있습니다. 수정하는 경우 **디버그**를 선택하여 가장 최근 변경 내용을 사용하여 파이프라인을 실행하는 방법을 확인할 수 있습니다.
+1.  그런 다음, 개발자는 파이프라인 등의 리소스를 수정할 수 있습니다. 수정하는 경우 **디버그**를 선택하여 가장 최근 변경 내용을 사용하여 파이프라인을 실행하는 방법을 확인할 수 있습니다.
 
-3.  개발자가 해당 변경 내용을 충족하면 해당 분기에서 마스터 분기(또는 공동 작업 분기)로 끌어오기 요청을 만들어서 피어에서 해당 변경 내용을 검토할 수 있습니다.
+1.  개발자가 해당 변경 내용을 충족하면 해당 분기에서 마스터 분기(또는 공동 작업 분기)로 끌어오기 요청을 만들어서 피어에서 해당 변경 내용을 검토할 수 있습니다.
 
-4.  변경 내용이 마스터 분기에 있다면 **게시**를 선택하여 개발 팩터리에 게시할 수 있습니다.
+1.  변경 내용이 마스터 분기에 있다면 **게시**를 선택하여 개발 팩터리에 게시할 수 있습니다.
 
-5.  팀에서 테스트 팩터리 및 프로덕션 팩터리로 변경 내용의 수준을 올릴 준비가 되면 마스터 분기 또는 다른 분기(해당 마스터 분기가 라이브 개발 Data Factory를 백업하는 경우)에서 Resource Manager 템플릿을 내보낼 수 있습니다.
+1.  팀에서 테스트 팩터리 및 프로덕션 팩터리로 변경 내용의 수준을 올릴 준비가 되면 마스터 분기 또는 다른 분기(해당 마스터 분기가 라이브 개발 Data Factory를 백업하는 경우)에서 Resource Manager 템플릿을 내보낼 수 있습니다.
 
-6.  내보낸 Resource Manager 템플릿은 테스트 팩터리 및 프로덕션 팩터리에 다른 매개 변수 파일을 사용하여 배포될 수 있습니다.
+1.  내보낸 Resource Manager 템플릿은 테스트 팩터리 및 프로덕션 팩터리에 다른 매개 변수 파일을 사용하여 배포될 수 있습니다.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>VSTS 릴리스를 사용하여 연속 통합 자동화
 
@@ -81,19 +81,19 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
 1.  Data Factory를 사용하여 구성된 것과 동일한 프로젝트에서 VSTS 페이지로 이동합니다.
 
-2.  상단 메뉴 **빌드 및 릴리스**&gt;**릴리스**&gt;**릴리스 정의 만들기**를 클릭합니다.
+1.  상단 메뉴 **빌드 및 릴리스**&gt;**릴리스**&gt;**릴리스 정의 만들기**를 클릭합니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  **빈 프로세스** 템플릿을 선택합니다.
+1.  **빈 프로세스** 템플릿을 선택합니다.
 
-4.  환경의 이름을 입력합니다.
+1.  환경의 이름을 입력합니다.
 
-5.  Git 아티팩트를 추가하고 Data Factory를 사용하여 구성된 동일한 리포지토리를 선택합니다. 최신 기본 버전을 사용하여 `adf_publish`를 기본 분기로 선택합니다.
+1.  Git 아티팩트를 추가하고 Data Factory를 사용하여 구성된 동일한 리포지토리를 선택합니다. 최신 기본 버전을 사용하여 `adf_publish`를 기본 분기로 선택합니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Azure Resource Manager 배포 작업을 추가합니다.
+1.  Azure Resource Manager 배포 작업을 추가합니다.
 
     a.  새 작업을 만들고, **Azure 리소스 그룹 배포**를 검색하고, 추가합니다.
 
@@ -109,9 +109,9 @@ Data Factory UI에서 VSTS GIT 통합을 사용하도록 설정한 후에 사용
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  릴리스 정의를 저장합니다.
+1.  릴리스 정의를 저장합니다.
 
-9.  이 릴리스 정의에서 새 릴리스를 만듭니다.
+1.  이 릴리스 정의에서 새 릴리스를 만듭니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Azure Resource Manager 템플릿에 전달하는 비밀이 있는 경우 VSTS �
 
     -   매개 변수 파일은 게시 분기에 포함되어야 합니다.
 
-2.  이전 섹션에 설명된 Azure Resource Manager 배포 전에 [Azure Key Vault 작업](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)을 추가합니다.
+1.  이전 섹션에 설명된 Azure Resource Manager 배포 전에 [Azure Key Vault 작업](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault)을 추가합니다.
 
     -   **작업** 탭을 선택하고, 새 작업을 만들고, **Azure Key Vault**를 검색하고 추가합니다.
 
@@ -160,9 +160,9 @@ Azure Key Vault 작업은 액세스 거부 오류를 표시하며 처음으로 �
 
 1.  VSTS 릴리스의 작업 탭에서 **Azure PowerShell**을 검색하고 추가합니다.
 
-2.  **Azure Resource Manager**를 연결 형식으로 선택하고 구독을 선택합니다.
+1.  **Azure Resource Manager**를 연결 형식으로 선택하고 구독을 선택합니다.
 
-3.  **인라인 스크립트**를 스크립트 형식으로 선택한 다음, 코드를 제공합니다. 다음 예제에서는 트리거를 중지합니다.
+1.  **인라인 스크립트**를 스크립트 형식으로 선택한 다음, 코드를 제공합니다. 다음 예제에서는 트리거를 중지합니다.
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

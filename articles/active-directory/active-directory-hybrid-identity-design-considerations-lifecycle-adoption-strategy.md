@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 911e65719bff0a86e3280482296bbb320fd30377
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: fb52949bf5616c8639caa1f3fab860597648ec89
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801833"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504593"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>하이브리드 ID 수명 주기 채택 전략 결정
 이 작업에서 하이브리드 ID 솔루션에 대한 ID 관리 전략을 정의하여 [하이브리드 ID 관리 작업 확인](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)에 정의된 비즈니스 요구 사항을 충족합니다.
@@ -59,7 +59,7 @@ Azure AD RBAC를 사용하면 회사는 개인이 Azure Portal에 액세스하�
 ## <a name="license-management"></a>라이선스 관리
 Azure AD에서 라이선스 그룹 기반 관리는 관리자가 보안 그룹에 사용자를 할당하도록 하고 Azure AD는 자동으로 그룹의 모든 멤버에게 라이선스를 할당합니다. 사용자가 이후에 추가되거나 그룹에서 제거되는 경우 라이선스가 자동으로 할당되거나 적절하게 제거됩니다.
 
-온-프레미스 AD에서 동기화하고 또는 Azure AD에서 관리한 그룹을 사용할 수 있습니다. Azure AD premium 셀프서비스 그룹 관리와 쌍을 맞추어 적절한 의사 결정권자에 게 라이선스 할당을 쉽게 위임할 수 있습니다. 라이선스 충돌 및 누락 위치 데이터와 같은 문제는 자동으로 분류될 수 있습니다.
+온-프레미스 AD에서 동기화하고 또는 Azure AD에서 관리한 그룹을 사용할 수 있습니다. Azure AD premium 셀프서비스 그룹 관리와 쌍을 맞추어 적절한 의사 결정권자에 게 라이선스 할당을 쉽게 위임할 수 있습니다. 라이선스 충돌 및 누락  위치 데이터와 같은 문제는 자동으로 분류될 수 있습니다.
 
 ## <a name="self-regulating-user-administration"></a>자동 조절 사용자 관리
 조직이 모든 내부 조직 전반의 리소스를 프로비전하기 시작하면 사용자 관리 기능을 자동으로 규제하도록 구현합니다. 조직의 경계를 넘어 사용자를 프로비전하는 장점 및 혜택을 알 수 있습니다. 이 환경에서 사용자의 상태 변경은 조직의 경계 및 지역을 넘어 액세스에 자동으로 반영됩니다. 프로비전 비용을 줄일 수 있으며 액세스 및 승인 프로세스를 간소화할 수 있습니다. 구현하면 조직에서 종단간 액세스 관리에 대한 역할 기반 액세스 제어를 구현하는 잠재력을 완전히 인식하게 됩니다. 사용자 프로비전의 관리에 대한 자동화된 절차를 통해 관리 비용을 줄일 수 있습니다. 보안 정책을 자동으로 적용하여 보안을 향상하고 대형 사용자 모집단에 대한 사용자 수명 주기 관리 및 리소스 프로비전을 효율적으로 중앙 집중화시킬 수 있습니다.
@@ -73,7 +73,7 @@ Azure AD에서 라이선스 그룹 기반 관리는 관리자가 보안 그룹�
 
 ## <a name="integration-with-other-3rd-party-providers"></a>다른 타사 공급 업체와 통합
 
-Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 single-sign on를 제공하고 응용 프로그램 액세스 보안을 강화합니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](../active-directory/develop/active-directory-integrating-applications.md)을 참조하세요.
+Azure Active Directory는 수천 개의 SaaS 응용 프로그램 및 온-프레미스 웹 응용 프로그램에 single-sign on를 제공하고 응용 프로그램 액세스 보안을 강화합니다. 자세한 내용은 [Azure Active Directory와 응용 프로그램 통합](develop/quickstart-v1-integrate-apps-with-azure-ad.md)을 참조하세요.
 
 ## <a name="define-synchronization-management"></a>동기화 관리 정의
 Azure AD와 온-프레미스 디렉터리를 통합하면 온-프레미스 및 클라우드 리소스 모두에 액세스하기 위한 일반적인 ID를 제공하므로 사용자가 더 생산성을 높일 수 있습니다. 이러한 통합을 통해 사용자와 조직은 다음과 같은 이점을 얻을 수 있습니다.

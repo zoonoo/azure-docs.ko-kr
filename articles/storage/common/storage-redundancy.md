@@ -3,17 +3,17 @@ title: Azure Storage에서 데이터 복제 | Microsoft Docs
 description: Microsoft Azure Storage 계정의 데이터는 내구성 및 고가용성을 위해 복제됩니다. 복제 옵션에는 LRS(로컬 중복 저장소), ZRS(영역 중복 저장소), GRS(지역 중복 저장소) 및 RA-GRS(읽기 액세스 지역 중복 저장소)가 포함됩니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 01/21/2018
 ms.author: tamram
-ms.openlocfilehash: 6c2c6979d56eb19ff2ba4fb647c7c51e52e51ac6
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.component: common
+ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34076217"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523763"
 ---
 # <a name="azure-storage-replication"></a>Azure Storage 복제
 
@@ -34,10 +34,10 @@ Microsoft Azure Storage 계정 데이터는 항상 내구성 및 고가용성을
 
 | 시나리오                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| 데이터 센터 내에서 노드를 사용할 수 없음                                                                 | 예                             | 예                              | 예                                  | 예                                  |
-| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아니오                              | 예                              | 예                                  | 예                                  |
-| 전체 지역 가동 중단                                                                                     | 아니오                              | 아니요                               | 예                                  | 예                                  |
-| 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아니오                              | 아니요                               | 아니요                                   | 예                                  |
+| 데이터 센터 내에서 노드를 사용할 수 없음                                                                 | yes                             | 예                              | 예                                  | yes                                  |
+| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아니요                              | 예                              | 예                                  | yes                                  |
+| 전체 지역 가동 중단                                                                                     | 아니요                              | 아니요                               | 예                                  | yes                                  |
+| 지역 전체가 사용할 수 없는 우 데이터(원격 지역 복제 지역의)에 대한 읽기 권한 | 아니요                              | 아니요                               | 아니요                                   | yes                                  |
 | 지정된 한 해 동안 ___의 개체 내구성을 제공하도록 설계되었습니다.                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 지원되는 저장소 계정 형식                                                                   | GPv1, GPv2, Blob                | GPv2                             | GPv1, GPv2, Blob                     | GPv1, GPv2, Blob                     |
 

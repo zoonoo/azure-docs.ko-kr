@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e7135e620ab799131f772c16f6799ed80be312e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 93c61f0b9b923f84b2c84d2db4456442e2f9fb27
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195865"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444507"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure Automation 통합 모듈
 PowerShell은 Azure Automation의 기본 기술입니다. Azure Automation은 PowerShell을 기반으로 하기 때문에 PowerShell 모듈은 Azure Automation의 확장성에 대한 키입니다. 이 문서에서는 "통합 모듈"이라고 하는 PowerShell 모듈에서 Azure Automation을 만드는 세부 정보 및 Azure Automation 내에서 통합 모듈로 작동하도록 고유한 PowerShell 모듈을 만드는 모범 사례를 안내합니다. 
@@ -102,7 +102,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
     }
     ```
    <br> 이 정보를 제공하면 PowerShell 콘솔에서 **Get-Help** cmdlet을 사용하는 도움말을 보여 줄 뿐만 아니라 Azure Automation 내에서 이 도움말 기능을 노출할 수도 있습니다.  예를 들어, runbook을 작성하는 동안 활동을 삽입하는 경우입니다. "자세한 도움말 보기"를 클릭하면 Azure Automation에 액세스하는 데 사용하는 웹 브라우저의 다른 탭에서 도움말 URI가 열립니다.<br>![통합 모듈 도움말](media/automation-integration-modules/automation-integration-module-activitydesc.png)
-2. 원격 시스템에 대해 모듈을 실행하는 경우
+1. 원격 시스템에 대해 모듈을 실행하는 경우
 
     a. 해당 원격 시스템 즉, 파일 연결 형식에 연결하는 데 필요한 정보를 정의하는 통합 모듈 메타데이터 파일을 포함해야 합니다.  
     나. 모듈의 각 cmdlet은 매개 변수로 연결 개체(해당 연결 형식의 인스턴스)를 포함해야 합니다.  
@@ -157,8 +157,8 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
     }
     ```
    <br>
-3. 모듈에서 모든 cmdlet에 대한 출력 형식을 정의합니다. cmdlet에 대한 출력 형식을 정의하면 디자인 타임 IntelliSense에서 작성 중에 사용하기 위한 cmdlet의 출력 속성을 확인할 수 있습니다. Automation runbook 그래픽을 작성하는 동안 특히 유용하며 이 경우 디자인 타임 지식은 모듈을 사용하는 쉬운 사용자 환경의 키입니다.<br><br> ![그래픽 Runbook 출력 형식](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> PowerShell ISE에서 cmdlet의 출력을 실행하지 않는 "사전 입력" 기능과 비슷합니다.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
-4. 모듈의 Cmdlet은 매개 변수에 복잡한 개체 유형을 사용하지 않아야 합니다. PowerShell 워크플로는 복합 형식을 역직렬화된 형태로 저장한다는 점에서 PowerShell과 다릅니다. 기본 형식은 기본 요소로 유지되지만 복합 형식은 역직렬화된 버전으로 변환되며 이는 기본적으로 속성 모음입니다. 예를 들어 runbook(또는 문제에 대한 PowerShell 워크플로)에서 **Get-Process** cmdlet을 사용하는 경우 예상된 [System.Diagnostic.Process] 형식이 아닌 [Deserialized.System.Diagnostic.Process] 형식의 개체를 반환합니다. 이 형식에는 역직렬화된 형식으로 동일한 속성이 포함되지만 메서드는 포함되지 않습니다. 이 값을 cmdlet에 대한 매개 변수로 전달하려는 경우 cmdlet에서 이 매개 변수에 대한 [System.Diagnostic.Process] 값이 필요하면 다음 오류가 표시됩니다. *'프로세스' 매개 변수에서 인수 변환을 처리할 수 없습니다. 오류: "Deserialized.System.Diagnostics.Process" 형식의 "System.Diagnostics.Process(CcmExec)" 값을 "System.Diagnostics.Process" 형식으로 변환할 수 없습니다.*   예상된 [System.Diagnostic.Process] 형식 및 지정된 [Deserialized.System.Diagnostic.Process] 형식 간의 형식이 일치하지 않기 때문입니다. 이 문제를 해결하는 방법은 모듈의 cmdlet이 매개 변수에 복합 형식을 사용하지 않도록 하는 것입니다. 작업을 수행하는 잘못된 방법은 다음과 같습니다.
+1. 모듈에서 모든 cmdlet에 대한 출력 형식을 정의합니다. cmdlet에 대한 출력 형식을 정의하면 디자인 타임 IntelliSense에서 작성 중에 사용하기 위한 cmdlet의 출력 속성을 확인할 수 있습니다. Automation runbook 그래픽을 작성하는 동안 특히 유용하며 이 경우 디자인 타임 지식은 모듈을 사용하는 쉬운 사용자 환경의 키입니다.<br><br> ![그래픽 Runbook 출력 형식](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> PowerShell ISE에서 cmdlet의 출력을 실행하지 않는 "사전 입력" 기능과 비슷합니다.<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
+1. 모듈의 Cmdlet은 매개 변수에 복잡한 개체 유형을 사용하지 않아야 합니다. PowerShell 워크플로는 복합 형식을 역직렬화된 형태로 저장한다는 점에서 PowerShell과 다릅니다. 기본 형식은 기본 요소로 유지되지만 복합 형식은 역직렬화된 버전으로 변환되며 이는 기본적으로 속성 모음입니다. 예를 들어 runbook(또는 문제에 대한 PowerShell 워크플로)에서 **Get-Process** cmdlet을 사용하는 경우 예상된 [System.Diagnostic.Process] 형식이 아닌 [Deserialized.System.Diagnostic.Process] 형식의 개체를 반환합니다. 이 형식에는 역직렬화된 형식으로 동일한 속성이 포함되지만 메서드는 포함되지 않습니다. 이 값을 cmdlet에 대한 매개 변수로 전달하려는 경우 cmdlet에서 이 매개 변수에 대한 [System.Diagnostic.Process] 값이 필요하면 다음 오류가 표시됩니다. *'프로세스' 매개 변수에서 인수 변환을 처리할 수 없습니다. 오류: "Deserialized.System.Diagnostics.Process" 형식의 "System.Diagnostics.Process(CcmExec)" 값을 "System.Diagnostics.Process" 형식으로 변환할 수 없습니다.*   예상된 [System.Diagnostic.Process] 형식 및 지정된 [Deserialized.System.Diagnostic.Process] 형식 간의 형식이 일치하지 않기 때문입니다. 이 문제를 해결하는 방법은 모듈의 cmdlet이 매개 변수에 복합 형식을 사용하지 않도록 하는 것입니다. 작업을 수행하는 잘못된 방법은 다음과 같습니다.
    
     ```
     function Get-ProcessDescription {
@@ -183,7 +183,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
     ```
    <br>
    Runbook의 연결 자산은 복합 형식인 hashtable이며 이러한 hashtable은 캐스트 예외 없이 해당 –Connection 매개 변수에 대한 cmdlet에 전달될 수 있습니다. 기술적으로 일부 PowerShell 형식은 직렬화된 형식에서 역직렬화된 형식으로 제대로 캐스팅할 수 있으며 따라서 역직렬화되지 않은 형식을 허용하는 매개 변수에 대한 cmdlet에 전달될 수 있습니다. Hashtable은 다음 중 하나입니다. 모듈 작성자가 정의한 형식이 올바르게 역직렬화되는 방식으로 구현될 수 있지만 고려해야 할 장단점이 있습니다. 형식에는 기본 생성자, 모든 공용 속성 및 는 PSTypeConverter가 있어야 합니다. 그러나 모듈 작성자가 소유하지 않은 미리 정의된 형식의 경우 "수정"할 방법이 없습니다. 따라서 매개 변수 모두에 대한 복합 형식을 방지하는 것이 좋습니다. Runbook 작성 팁: 어떤 이유로든 cmdlet이 복합 형식 매개 변수를 사용해야 하거나 사용자가 복합 형식 매개 변수가 필요한 다른 사람의 모듈을 사용하는 경우 로컬 PowerShell의 PowerShell 워크플로 runbook 및 PowerShell 워크플로 해결 방법은 복합 형식을 생성하는 cmdlet 및 동일한 InlineScript 작업에서 복합 형식을 사용하는 cmdlet을 래핑하는 것입니다. InlineScript가 해당 콘텐츠를 PowerShell 워크플로 대신 PowerShell으로 실행하기 때문에 복합 형식을 생성하는 cmdlet에서는 역직렬화된 복합 형식이 아닌 올바른 형식을 생성합니다.
-5. 모듈의 모든 cmdlet을 상태 비저장으로 만듭니다. PowerShell 워크플로는 다른 세션에서 워크플로 호출하는 모든 cmdlet을 실행합니다. 즉, 동일한 모듈의 다른 cmdlet에서 생성/수정된 세션 상태에 의존하는 cmdlet은 PowerShell 워크플로 runbook에서 작동하지 않습니다.  다음은 수행해서는 안되는 작업의 예제입니다.
+1. 모듈의 모든 cmdlet을 상태 비저장으로 만듭니다. PowerShell 워크플로는 다른 세션에서 워크플로 호출하는 모든 cmdlet을 실행합니다. 즉, 동일한 모듈의 다른 cmdlet에서 생성/수정된 세션 상태에 의존하는 cmdlet은 PowerShell 워크플로 runbook에서 작동하지 않습니다.  다음은 수행해서는 안되는 작업의 예제입니다.
    
     ```
     $globalNum = 0
@@ -201,7 +201,7 @@ Azure 관리를 즉시 자동화하기 시작할 수 있도록 Azure Automation�
     }
     ```
    <br>
-6. 모듈은 Xcopy 가능 패키지에 완전히 포함되어야 합니다. runbook을 실행해야 하는 경우 Azure Automation 모듈이 Automation 샌드박스에 분산되어 있기 때문에 실행 중인 호스트와 독립적으로 작동해야 합니다. 즉, 모듈 패키지를 압축하고 동일하거나 최신 PowerShell 버전인 다른 호스트에 이동하며 해당 호스트의 PowerShell 환경으로 가져오는 경우 정상적으로 작동할 수 있도록 해야 합니다. 이를 위해서 모듈은 모듈 폴더(Azure Automation으로 가져올 때 압축된 폴더) 외부의 파일 또는 호스트의 고유한 레지스트리 설정(제품의 설정으로 설정됨)에 의존해서 안됩니다. 이 모범 사례를 따르지 않으면 모듈은 Azure Automation에서 사용할 수 없습니다.  
+1. 모듈은 Xcopy 가능 패키지에 완전히 포함되어야 합니다. runbook을 실행해야 하는 경우 Azure Automation 모듈이 Automation 샌드박스에 분산되어 있기 때문에 실행 중인 호스트와 독립적으로 작동해야 합니다. 즉, 모듈 패키지를 압축하고 동일하거나 최신 PowerShell 버전인 다른 호스트에 이동하며 해당 호스트의 PowerShell 환경으로 가져오는 경우 정상적으로 작동할 수 있도록 해야 합니다. 이를 위해서 모듈은 모듈 폴더(Azure Automation으로 가져올 때 압축된 폴더) 외부의 파일 또는 호스트의 고유한 레지스트리 설정(제품의 설정으로 설정됨)에 의존해서 안됩니다. 이 모범 사례를 따르지 않으면 모듈은 Azure Automation에서 사용할 수 없습니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 11/23/2017
 ms.author: suhuruli
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 83cd90babaa5bcb396f792c7e933d38b3911cebb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: cedc13cb18440eee32e333d395494043e2eca9d1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970359"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442516"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-application-to-service-fabric"></a>빠른 시작: Service Fabric에 Java Spring Boot 응용 프로그램 배포
 
@@ -48,13 +48,13 @@ Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 �
     
     나. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
 
-2. [Git 설치](https://git-scm.com/)
-3. Yeoman 설치
+1. [Git 설치](https://git-scm.com/)
+1. Yeoman 설치
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
 
     나. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-4. Java 환경 설정
+1. Java 환경 설정
 
     a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
     
@@ -78,11 +78,11 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 ## <a name="package-the-spring-boot-application"></a>Spring Boot 응용 프로그램 패키지 
 1. 클론의 `gs-spring-boot` 디렉터리 내에서 `yo azuresfguest` 명령을 실행합니다. 
 
-2. 각 프롬프트에 다음 세부 정보를 입력합니다.
+1. 각 프롬프트에 다음 세부 정보를 입력합니다.
 
     ![Yeoman 항목](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
 
-3. `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 폴더에 `entryPoint.sh`라는 파일을 만듭니다. `entryPoint.sh` 파일에 다음을 추가합니다. 
+1. `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 폴더에 `entryPoint.sh`라는 파일을 만듭니다. `entryPoint.sh` 파일에 다음을 추가합니다. 
 
     ```bash
     #!/bin/bash
@@ -91,7 +91,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-4. `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` 파일의 **엔드포인트** 리소스
+1. `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` 파일의 **엔드포인트** 리소스
 
     ```xml 
         <Resources>
@@ -150,19 +150,19 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     
     ![로컬 클러스터 정상](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
 
-2. `gs-spring-boot/SpringServiceFabric` 폴더로 이동합니다.
-3. 다음 명령을 실행하여 로컬 클러스터에 연결합니다.
+1. `gs-spring-boot/SpringServiceFabric` 폴더로 이동합니다.
+1. 다음 명령을 실행하여 로컬 클러스터에 연결합니다.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-4. `install.sh` 스크립트를 실행합니다.
+1. `install.sh` 스크립트를 실행합니다.
 
     ```bash
     ./install.sh
     ```
 
-5. 즐겨찾는 웹 브라우저를 열고 **http://localhost:8080**에 액세스하여 응용 프로그램에 액세스합니다.
+1. 즐겨찾는 웹 브라우저를 열고 **http://localhost:8080**에 액세스하여 응용 프로그램에 액세스합니다.
 
     ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
@@ -213,18 +213,18 @@ Service Fabric Explorer를 사용하려면 파티 클러스터 웹 사이트에�
 응용 프로그램과 클러스터가 준비되면 명령줄에서 클러스터에 직접 배포할 수 있습니다.
 
 1. `gs-spring-boot/SpringServiceFabric` 폴더로 이동합니다.
-2. 다음 명령을 실행하여 Azure 클러스터에 연결합니다.
+1. 다음 명령을 실행하여 Azure 클러스터에 연결합니다.
 
     ```bash
     sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
     ```
-3. `install.sh` 스크립트를 실행합니다.
+1. `install.sh` 스크립트를 실행합니다.
 
     ```bash
     ./install.sh
     ```
 
-4. 웹 브라우저를 열고 **http://\<ConnectionIPOrUrl>:8080**에 액세스하여 응용 프로그램에 액세스합니다.
+1. 웹 브라우저를 열고 **http://\<ConnectionIPOrUrl>:8080**에 액세스하여 응용 프로그램에 액세스합니다.
 
     ![응용 프로그램 프런트 엔드](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
 
@@ -239,13 +239,13 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음을 수행합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
-2. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표(...)를 클릭하고 **서비스 크기 조정**을 선택합니다.
+1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드 옆에 있는 줄임표(...)를 클릭하고 **서비스 크기 조정**을 선택합니다.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
 
     이제 서비스의 인스턴스 수를 조정하도록 선택할 수 있습니다.
 
-3. 숫자를 **3**으로 변경하고 **Scale Service**를 클릭합니다.
+1. 숫자를 **3**으로 변경하고 **Scale Service**를 클릭합니다.
 
     명령줄을 사용하여 서비스의 크기를 조정하는 다른 방법은 다음과 같습니다.
 
@@ -257,7 +257,7 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
     sfctl service update --service-id 'SpringServiceFabric~SpringGettingStarted' --instance-count 3 --stateless 
     ``` 
 
-4. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
+1. 트리 뷰에서 **fabric:/SpringServiceFabric/SpringGettingStarted** 노드를 클릭하고 파티션 노드(GUID로 표현됨)를 확장합니다.
 
     ![Service Fabric Explorer Scale Service 완료](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
 
@@ -270,10 +270,10 @@ Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고
 서비스 장애 조치를 보여 주기 위해 Service Fabric Explorer를 사용하여 노드 다시 시작을 시뮬레이션합니다. 서비스의 인스턴스 하나만 실행되고 있는지 확인합니다.
 
 1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `http://localhost:19080`
-2. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표(...)를 클릭하고 노드를 다시 시작합니다.
+1. 서비스의 인스턴스를 실행하는 노드 옆에 있는 줄임표(...)를 클릭하고 노드를 다시 시작합니다.
 
     ![Service Fabric Explorer 다시 시작 노드](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
-3. 서비스의 인스턴스가 다른 노드로 이동되고, 응용 프로그램에서 가동 중지 시간이 발생하지 않습니다.
+1. 서비스의 인스턴스가 다른 노드로 이동되고, 응용 프로그램에서 가동 중지 시간이 발생하지 않습니다.
 
     ![Service Fabric Explorer 다시 시작 노드 성공](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
 

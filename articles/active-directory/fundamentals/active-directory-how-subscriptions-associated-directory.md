@@ -14,12 +14,12 @@ ms.date: 12/12/2017
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: bcae3f51e2245928c8110d06f3514177d57ac883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449217"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503314"
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Azure Active Directory에 Azure 구독을 연결하거나 추가하는 방법
 
@@ -59,7 +59,7 @@ ms.locfileid: "37449217"
 
 ## <a name="next-steps"></a>다음 단계
 
-* 새 Azure AD 디렉터리를 무료로 만드는 방법에 대해 자세히 알아보려면 [Azure Active Directory 테넌트를 얻는 방법](../develop/active-directory-howto-tenant.md)을 참조하세요.
+* 새 Azure AD 디렉터리를 무료로 만드는 방법에 대해 자세히 알아보려면 [Azure Active Directory 테넌트를 얻는 방법](../develop/quickstart-create-new-tenant.md)을 참조하세요.
 * Azure 구독에 대한 청구 소유권 이전에 대해 자세히 알아보려면 [Azure 구독의 소유권을 다른 계정으로 이전](../../billing/billing-subscription-transfer.md)을 참조하세요.
 * Microsoft Azure에서 리소스 액세스를 제어하는 방법을 자세히 알아보려면 [Azure에서 리소스 액세스 이해](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Azure AD에서 역할을 할당하는 방법에 대한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](../users-groups-roles/directory-assign-admin-roles.md)

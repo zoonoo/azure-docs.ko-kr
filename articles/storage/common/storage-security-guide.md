@@ -3,17 +3,17 @@ title: Azure Storage 보안 가이드 | Microsoft Docs
 description: RBAC, Storage 서비스 암호화, 클라이언트 쪽 암호화, SMB 3.0 및 Azure 디스크 암호화를 비롯하여 Azure Storage 보안을 유지하는 다양한 방법을 자세히 설명합니다.
 services: storage
 author: craigshoemaker
-manager: twooley
 ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
-ms.openlocfilehash: 3c45375a46ee7896509f061828720bcf465aded7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.component: common
+ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342473"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522204"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 

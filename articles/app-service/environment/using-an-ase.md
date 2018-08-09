@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355307"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446853"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -51,20 +51,20 @@ ASE에서 웹앱을 만들려면:
 
 1. **리소스 만들기** > **웹 + 모바일** > **웹앱**을 선택합니다.
 
-2. 웹앱의 이름을 입력합니다. ASE에서 이미 App Service 계획을 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
+1. 웹앱의 이름을 입력합니다. ASE에서 이미 App Service 계획을 선택한 경우 앱의 도메인 이름에 ASE의 도메인 이름이 반영됩니다.
 
     ![웹앱 이름 선택][1]
 
-3. 구독을 선택합니다.
+1. 구독을 선택합니다.
 
-4. 새 리소스 그룹의 이름을 입력하거나 **기존 항목 사용**을 선택하고 드롭다운 목록에서 이름을 선택합니다.
+1. 새 리소스 그룹의 이름을 입력하거나 **기존 항목 사용**을 선택하고 드롭다운 목록에서 이름을 선택합니다.
 
-5. OS를 선택합니다. 
+1. OS를 선택합니다. 
 
     * ASE에서 Linux 앱을 호스트하는 것은 새로운 미리 보기 기능이므로, 현재 프로덕션 워크로드를 실행 중인 ASE에는 Linux 앱을 추가하지 않는 것이 좋습니다. 
     * ASE에 Linux 앱을 추가하게 되면 ASE도 미리 보기 모드가 됩니다. 
 
-5. ASE에서 기존 App Service 계획을 선택하거나 다음 단계를 통해 새 App Service 계획을 만듭니다.
+1. ASE에서 기존 App Service 계획을 선택하거나 다음 단계를 통해 새 App Service 계획을 만듭니다.
 
     a. **새로 만들기**를 선택합니다.
 
@@ -82,7 +82,7 @@ ASE에서 웹앱을 만들려면:
     > Linux 웹앱 및 Windows 웹앱은 동일한 App Service 계획에는 있을 수 없지만 동일한 App Service 환경에는 있을 수 있습니다. 
     >
 
-6. **만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 
 ## <a name="how-scale-works"></a>확장이 작동하는 방식 ##
 
@@ -160,7 +160,7 @@ ASE를 삭제하려면 다음을 수행합니다.
 
 1. **App Service Environment** 블레이드 위쪽의 **삭제**를 사용합니다. 
 
-2. ASE의 이름을 입력하여 ASE 삭제를 확인합니다. ASE를 삭제하면 해당 ASE 내의 콘텐츠도 모두 삭제됩니다. 
+1. ASE의 이름을 입력하여 ASE 삭제를 확인합니다. ASE를 삭제하면 해당 ASE 내의 콘텐츠도 모두 삭제됩니다. 
 
     ![ASE 삭제][3]
 

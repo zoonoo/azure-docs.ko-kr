@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 1cd82f7ffa9360dbc35f9c9d790df34355d9dd1a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e1a72c428425c73ff0446fc0d41b1b18333c3e3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035716"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423891"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>서비스 알림에 대한 활동 로그 경고 만들기
 ## <a name="overview"></a>개요
@@ -43,32 +43,32 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
     !["서비스 상태" 서비스](./media/monitoring-activity-log-alerts-on-service-notifications/home-servicehealth.png)
 
-2. **경고** 섹션에서 **상태 경고**를 선택합니다.
+1. **경고** 섹션에서 **상태 경고**를 선택합니다.
 
     !["상태 경고" 탭](./media/monitoring-activity-log-alerts-on-service-notifications/alerts-blades-sh.png)
 
-3. **서비스 상태 경고 만들기**를 선택하고 필드를 입력합니다.
+1. **서비스 상태 경고 만들기**를 선택하고 필드를 입력합니다.
 
     !["서비스 상태 경고 만들기" 명령](./media/monitoring-activity-log-alerts-on-service-notifications/service-health-alert.png)
 
-4. 경고를 받을 **구독**, **서비스** 및 **영역**을 선택합니다.
+1. 경고를 받을 **구독**, **서비스** 및 **영역**을 선택합니다.
 
     ![“활동 로그 경고 추가” 대화 상자](./media/monitoring-activity-log-alerts-on-service-notifications/activity-log-alert-new-ux.png)
 
 > [!NOTE]
 > 이 구독은 활동 로그 경고를 저장하는 데 사용됩니다. 경고 리소스가 이 구독에 배포되고 이에 대한 활동 로그에서 이벤트를 모니터링합니다.
 
-5. 경고를 받을 **이벤트 형식**(*서비스 문제*, *계획 된 유지 관리*, *상태 공지*)을 선택합니다. 
+1. 경고를 받을 **이벤트 형식**(*서비스 문제*, *계획 된 유지 관리*, *상태 공지*)을 선택합니다. 
 
-6. **경고 규칙 이름** 및 **설명**을 입력하여 경고 세부 정보를 정의합니다.
+1. **경고 규칙 이름** 및 **설명**을 입력하여 경고 세부 정보를 정의합니다.
 
-7. 경고를 저장할 **리소스 그룹**을 선택합니다.
+1. 경고를 저장할 **리소스 그룹**을 선택합니다.
 
-8. **새 작업 그룹**을 선택하여 새 작업 그룹을 만듭니다. **작업 그룹 이름** 상자에 이름을 입력하고 **짧은 이름** 상자에 이름을 입력합니다. 약식 이름은 이 경고가 발생할 때 전송된 알림에서 참조됩니다.
+1. **새 작업 그룹**을 선택하여 새 작업 그룹을 만듭니다. **작업 그룹 이름** 상자에 이름을 입력하고 **짧은 이름** 상자에 이름을 입력합니다. 약식 이름은 이 경고가 발생할 때 전송된 알림에서 참조됩니다.
 
     ![새 작업 그룹 만들기](./media/monitoring-activity-log-alerts-on-service-notifications/action-group-creation.png)
 
-9. 받는 사람에 대한 다음 항목을 제공하여 받는 사람 목록을 정의합니다.
+1. 받는 사람에 대한 다음 항목을 제공하여 받는 사람 목록을 정의합니다.
 
     a. **이름**: 받는 사람의 이름, 별칭 또는 식별자를 입력합니다.
 
@@ -76,7 +76,7 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
     다. **세부 정보**: 선택한 작업 유형에 따라 전화 번호, 메일 주소, 웹후크 URI 등을 입력합니다.
 
-10. **확인**을 선택하여 작업 그룹을 만든 다음, **경고 규칙 만들기**를 선택하여 경고를 완성합니다.
+1. **확인**을 선택하여 작업 그룹을 만든 다음, **경고 규칙 만들기**를 선택하여 경고를 완성합니다.
 
 몇 분 이내에 경고가 활성화되고 만들 때 지정한 조건에 따라 트리거를 시작합니다.
 
@@ -91,9 +91,9 @@ Azure 리소스 관리자 템플릿을 사용하여 서비스 상태 알림 경�
 
 1. 이전 섹션의 1-7단계를 수행하여 서비스 상태 알림을 만듭니다. 
 
-2. **작업 그룹 정의** 아래에서 **작업 그룹 선택** 단추를 클릭합니다. 적절한 작업 그룹을 선택합니다.
+1. **작업 그룹 정의** 아래에서 **작업 그룹 선택** 단추를 클릭합니다. 적절한 작업 그룹을 선택합니다.
 
-3. **추가**를 선택하여 작업 그룹을 추가한 다음, **경고 규칙 만들기**를 선택하여 경고를 완성합니다.
+1. **추가**를 선택하여 작업 그룹을 추가한 다음, **경고 규칙 만들기**를 선택하여 경고를 완성합니다.
 
 몇 분 이내에 경고가 활성화되고 만들 때 지정한 조건에 따라 트리거를 시작합니다.
 

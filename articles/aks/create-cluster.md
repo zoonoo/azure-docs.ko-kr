@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 304f3807a70179e4aab2ede80dc08a1aa85a2e51
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098909"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440476"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 만들기
 
@@ -69,5 +69,5 @@ az aks create --resource-group myResourceGroup --name myAKSCluster
 Azure Portal에서 AKS 클러스터를 배포하는 방법에 대한 지침은 AKS(Azure Kubernetes Service) [Azure Portal 빠른 시작][aks-portal-quickstart]을 참조하세요.
 
 <!-- LINKS - internal -->
-[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az_aks_create
+[az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-portal-quickstart]: kubernetes-walkthrough-portal.md

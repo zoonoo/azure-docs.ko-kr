@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: mazha
-ms.openlocfilehash: ec5470587454a35bc7606a3518d61bd3491d653b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fc74d7fdd082cf497b7cabf30d96509ebe8b6b68
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765544"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426024"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Azure CDN에서 웹 콘텐츠의 만료 관리
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 1. Azure Portal에서 CDN 프로필을 선택한 다음, 웹 서버용 끝점을 선택합니다.
 
-2. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
+1. 설정 아래의 왼쪽 창에서 **캐싱 규칙**을 선택합니다.
 
    ![CDN 캐싱 규칙 단추](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-rules-btn.png)
 
@@ -60,13 +60,13 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
 1. **전역 캐싱 규칙**에서 **쿼리 문자열 캐시 동작**을 **쿼리 문자열 무시**로 설정하고 **캐싱 동작**을 **재정의**로 설정합니다.
       
-2. **캐시 만료 기간**은 **초** 상자에 3600초를 입력하거나 **시간** 상자에 1시간을 입력합니다. 
+1. **캐시 만료 기간**은 **초** 상자에 3600초를 입력하거나 **시간** 상자에 1시간을 입력합니다. 
 
    ![CDN 전역 캐싱 규칙 예](./media/cdn-manage-expiration-of-cloud-service-content/cdn-global-caching-rules-example.png)
 
    해당 전역 캐싱 규칙은 1시간의 캐시 기간을 설정하고 끝점에 대한 모든 요청에 영향을 줍니다. 끝점에서 지정한 원본 서버가 보낸 `Cache-Control` 또는 `Expires` HTTP 헤더를 재정의합니다.   
 
-3. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 **사용자 지정 캐싱 규칙을 사용하여 웹 서버 파일의 Cache-Control 헤더를 설정하려면:**
 
@@ -80,7 +80,7 @@ TTL(time-to-live)이 경과할 때까지 원본 웹 서버에서 공개적으로
 
     첫 번째 사용자 지정 캐싱 규칙은 끝점에서 지정한 원본 서버의 `/webfolder1`폴더 내 모든 파일에 대해 4시간의 캐시 기간을 설정합니다. 두 번째 규칙은 `file1.txt` 파일을 위한 첫 번째 규칙을 재정의하고 이에 대해 2시간의 캐시 기간을 설정합니다.
 
-2. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>구성 파일을 사용하여 Cache-Control 헤더 설정
@@ -113,10 +113,10 @@ ASP.NET 응용 프로그램의 경우 .NET API의 **HttpResponse.Cache** 속성�
 
 ASP.NET에서 프로그래밍 방식으로 콘텐츠를 캐시하려면 다음 단계를 따릅니다.
    1. `HttpCacheability`를 `Public`으로 설정하여 콘텐츠를 캐시 가능하게 표시합니다. 
-   2. 다음 `HttpCachePolicy` 메서드 중 하나를 호출하여 캐시 유효성 검사기를 설정합니다.
+   1. 다음 `HttpCachePolicy` 메서드 중 하나를 호출하여 캐시 유효성 검사기를 설정합니다.
       - `Last-Modified` 헤더의 타임스탬프 값을 설정하려면 `SetLastModified`를 호출합니다.
       - `ETag` 헤더의 값을 설정하려면 `SetETag`를 호출합니다.
-   3. 필요에 따라 `SetExpires`를 호출하여 캐시 만료 시간을 지정하여 `Expires` 헤더의 값을 설정합니다. 그렇지 않은 경우 이 문서의 앞 부분에서 설명한 기본 캐시 추론이 적용됩니다.
+   1. 필요에 따라 `SetExpires`를 호출하여 캐시 만료 시간을 지정하여 `Expires` 헤더의 값을 설정합니다. 그렇지 않은 경우 이 문서의 앞 부분에서 설명한 기본 캐시 추론이 적용됩니다.
 
 예를 들어 1시간 동안의 콘텐츠를 캐시하려면 다음 C# 코드를 추가합니다.  
 

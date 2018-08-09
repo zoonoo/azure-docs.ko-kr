@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 019d05cfb0339341e541e6fb3327568e8639bcda
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9ec165253898ec77da2c7ae0e98cab578e773094
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230137"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429168"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>자습서: Azure Active Directory와 Origami 통합
 
@@ -52,7 +52,7 @@ Origami와의 Azure AD 통합을 구성하려면 다음 항목이 필요합니�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Origami 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-origami-from-the-gallery"></a>갤러리에서 Origami 추가
 Origami의 Azure AD 통합을 구성하려면 갤러리의 Origami를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,19 +63,19 @@ Origami의 Azure AD 통합을 구성하려면 갤러리의 Origami를 관리되�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![응용 프로그램][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![응용 프로그램][3]
 
-4. 검색 상자에 **Origami**를 입력합니다.
+1. 검색 상자에 **Origami**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/origami-tutorial/tutorial_origami_search.png)
 
-5. 결과 패널에서 **Origami**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Origami**를 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/origami-tutorial/tutorial_origami_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Origami에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할
 Origami에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[Origami 테스트 사용자 만들기](#creating-an-origami-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Origami에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[Origami 테스트 사용자 만들기](#creating-an-origami-test-user)** - Britta Simon의 Azure AD 표현과 연결되는 대응 사용자를 Origami에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,11 +104,11 @@ Origami에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_samlbase.png)
 
-3. **Origami 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **Origami 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_url.png)
 
@@ -117,25 +117,25 @@ Origami에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE] 
     > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 값을 얻으려면 [Origami 클라이언트 지원 팀](https://wordpress.org/support/theme/origami)에 문의하세요. 
  
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_general_400.png)
 
-6. **Origami 구성** 섹션에서 **Origami 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **Origami 구성** 섹션에서 **Origami 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_configure.png) 
 
-7. 관리자 권한이 있는 Origami 계정으로 로그인합니다.
+1. 관리자 권한이 있는 Origami 계정으로 로그인합니다.
 
-8. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
+1. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_51.png)
 
-9. Single Sign-On 설정 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. Single Sign-On 설정 대화 상자 페이지에서 다음 단계를 수행합니다.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_531.png)
 
@@ -164,15 +164,15 @@ Origami에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Azure AD 테스트 사용자 만들기](./media/origami-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/origami-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/origami-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/origami-tutorial/create_aaduser_04.png) 
 
@@ -190,19 +190,19 @@ Origami에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 1. 관리자 권한이 있는 Origami 계정으로 로그인합니다.
 
-2. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
+1. 위쪽의 메뉴에서 **관리자**를 클릭합니다.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_51.png)
 
-3. **사용자 및 보안** 대화 상자에서 **사용자**를 클릭합니다.
+1. **사용자 및 보안** 대화 상자에서 **사용자**를 클릭합니다.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_54.png)
 
-4. **새 사용자 추가**를 클릭합니다.
+1. **새 사용자 추가**를 클릭합니다.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_55.png)
 
-5. 새 사용자 추가 대화 상자에서 다음 단계를 수행합니다.
+1. 새 사용자 추가 대화 상자에서 다음 단계를 수행합니다.
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_56.png)
 
@@ -220,7 +220,7 @@ Origami에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_57.png)
 
-6. 사용자에게 **사용자 역할** 및 **클라이언트 액세스**를 할당합니다. 
+1. 사용자에게 **사용자 역할** 및 **클라이언트 액세스**를 할당합니다. 
    
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_58.png)
 
@@ -236,23 +236,23 @@ Origami에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Origami**를 선택합니다.
+1. 응용 프로그램 목록에서 **Origami**를 선택합니다.
 
     ![Configure Single Sign-On](./media/origami-tutorial/tutorial_origami_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
-ms.openlocfilehash: 31aea1d19ed6da856bb5fc634a919819513cb6b2
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 749b554b8cf99ce849e0e3ab7b3a9478d8705e54
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30833587"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422997"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
 
@@ -64,7 +64,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
 1. Azure Portal에서 **새로 만들기** > **네트워크** > **Application Gateway**로 이동합니다.
 
-2. **기본 사항** 영역에서 다음을 수행합니다.
+1. **기본 사항** 영역에서 다음을 수행합니다.
 
    a. **이름**에 Application Gateway의 이름을 입력합니다.
 
@@ -78,7 +78,7 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    ![새 Application Gateway 만들기 기본 사항][2]
 
-3. **설정** 영역에서 다음을 수행합니다.
+1. **설정** 영역에서 다음을 수행합니다.
 
    a. **가상 네트워크**에 대해 App Service Environment 가상 네트워크를 선택합니다.
 
@@ -94,25 +94,25 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    ![새 Application Gateway 만들기 설정][3]
     
-4. **요약** 섹션에서 설정을 검토하고 **확인**을 선택합니다. Application Gateway에서 설정을 완료하는 데 30분 정도 걸릴 수 있습니다.  
+1. **요약** 섹션에서 설정을 검토하고 **확인**을 선택합니다. Application Gateway에서 설정을 완료하는 데 30분 정도 걸릴 수 있습니다.  
 
-5. Application Gateway에서 설정을 완료하면 Application Gateway 포털로 이동합니다. **백 엔드 풀**을 선택합니다. ILB App Service Environment에 대한 ILB 주소를 추가합니다.
+1. Application Gateway에서 설정을 완료하면 Application Gateway 포털로 이동합니다. **백 엔드 풀**을 선택합니다. ILB App Service Environment에 대한 ILB 주소를 추가합니다.
 
    ![백 엔드 풀 구성][4]
 
-6. 백 엔드 풀 구성 프로세스가 완료되면 **상태 프로브**를 선택합니다. 앱에 사용하려는 도메인 이름에 대한 상태 프로브를 만듭니다. 
+1. 백 엔드 풀 구성 프로세스가 완료되면 **상태 프로브**를 선택합니다. 앱에 사용하려는 도메인 이름에 대한 상태 프로브를 만듭니다. 
 
    ![상태 프로브 구성][5]
     
-7. 상태 프로브 구성 프로세스가 완료되면 **HTTP 설정**을 선택합니다. 기존 설정을 편집하고, **사용자 지정 프로브 사용**을 선택한 후 구성한 프로브를 선택합니다.
+1. 상태 프로브 구성 프로세스가 완료되면 **HTTP 설정**을 선택합니다. 기존 설정을 편집하고, **사용자 지정 프로브 사용**을 선택한 후 구성한 프로브를 선택합니다.
 
    ![HTTP 설정 구성][6]
     
-8. Application Gateway의 **개요** 섹션으로 이동한 후 Application Gateway에서 사용하는 공용 IP 주소를 복사합니다. 해당 IP 주소를 앱 도메인 이름에 대한 A 레코드로 설정하거나 CNAME 레코드에서 해당 주소의 DNS 이름을 사용합니다. 공용 IP 주소를 선택하고, Application Gateway **개요** 섹션의 링크에서 복사하는 대신 공용 IP 주소 UI에서 복사하는 것이 더 쉽습니다. 
+1. Application Gateway의 **개요** 섹션으로 이동한 후 Application Gateway에서 사용하는 공용 IP 주소를 복사합니다. 해당 IP 주소를 앱 도메인 이름에 대한 A 레코드로 설정하거나 CNAME 레코드에서 해당 주소의 DNS 이름을 사용합니다. 공용 IP 주소를 선택하고, Application Gateway **개요** 섹션의 링크에서 복사하는 대신 공용 IP 주소 UI에서 복사하는 것이 더 쉽습니다. 
 
    ![Application Gateway 포털][7]
 
-9. ILB App Service Environment에서 앱에 대한 사용자 지정 도메인 이름을 설정합니다. 포털에서 앱으로 이동하고 **설정** 아래에서 **사용자 지정 도메인**을 선택합니다.
+1. ILB App Service Environment에서 앱에 대한 사용자 지정 도메인 이름을 설정합니다. 포털에서 앱으로 이동하고 **설정** 아래에서 **사용자 지정 도메인**을 선택합니다.
 
    ![앱에 사용자 지정 도메인 이름 설정][8]
 

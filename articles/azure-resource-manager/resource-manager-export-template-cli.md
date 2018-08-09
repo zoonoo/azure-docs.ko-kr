@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d73142931a5cfa84cb24df7a85c799a0f508385
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d4a1a687700badc550d37bf74f6a7e1680388897
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358832"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440318"
 ---
 # <a name="export-azure-resource-manager-templates-with-azure-cli"></a>Azure CLI를 사용하여 Azure Resource Manager 템플릿 내보내기
 
@@ -45,7 +45,7 @@ az group deployment create \
 
 ## <a name="save-template-from-deployment-history"></a>배포 기록에서 템플릿 저장
 
-[az group deployment export](/cli/azure/group/deployment#az_group_deployment_export) 명령을 사용하여 배포 기록에서 템플릿을 검색할 수 있습니다. 다음 예제에서는 이전에 배포하는 템플릿을 저장합니다.
+[az group deployment export](/cli/azure/group/deployment#az-group-deployment-export) 명령을 사용하여 배포 기록에서 템플릿을 검색할 수 있습니다. 다음 예제에서는 이전에 배포하는 템플릿을 저장합니다.
 
 ```azurecli
 az group deployment export --name NewStorage --resource-group ExampleGroup
@@ -56,7 +56,7 @@ az group deployment export --name NewStorage --resource-group ExampleGroup
 
 ## <a name="export-resource-group-as-template"></a>리소스 그룹을 템플릿으로 내보내기
 
-배포 기록에서 템플릿을 검색하지 않고 [az group export](/cli/azure/group#az_group_export) 명령을 사용하여 리소스 그룹의 현재 상태를 나타내는 템플릿을 검색할 수 있습니다. 이 명령은 리소스 그룹을 많이 변경했으며 모든 변경 내용을 나타내는 기존 템플릿이 없는 경우에 사용합니다. 동일한 리소스 그룹에 다시 배포하는 데 사용할 수 있는 리소스 그룹의 스냅숏으로 사용됩니다. 다른 솔루션에 내보낸 템플릿을 사용하려면 대폭 수정해야 합니다.
+배포 기록에서 템플릿을 검색하지 않고 [az group export](/cli/azure/group#az-group-export) 명령을 사용하여 리소스 그룹의 현재 상태를 나타내는 템플릿을 검색할 수 있습니다. 이 명령은 리소스 그룹을 많이 변경했으며 모든 변경 내용을 나타내는 기존 템플릿이 없는 경우에 사용합니다. 동일한 리소스 그룹에 다시 배포하는 데 사용할 수 있는 리소스 그룹의 스냅숏으로 사용됩니다. 다른 솔루션에 내보낸 템플릿을 사용하려면 대폭 수정해야 합니다.
 
 ```azurecli
 az group export --name ExampleGroup

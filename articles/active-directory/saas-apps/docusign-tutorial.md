@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 05ec113db5fbdc0f2ea7d1f176c9be654f53a946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5d8aef1edf4d7a02686db48d3e788e4f9493c398
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053345"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448488"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>자습서: DocuSign와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ DocuSign과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 DocuSign 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-docusign-from-the-gallery"></a>갤러리에서 DocuSign 추가
 DocuSign의 Azure AD 통합을 구성하려면 갤러리의 DocuSign을 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,19 +63,19 @@ DocuSign의 Azure AD 통합을 구성하려면 갤러리의 DocuSign을 관리�
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![응용 프로그램][2]
     
-3. 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![응용 프로그램][3]
 
-4. 검색 상자에 **DocuSign**을 입력합니다.
+1. 검색 상자에 **DocuSign**을 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/docusign-tutorial/tutorial_docusign_search.png)
 
-5. 결과 패널에서 **DocuSign**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **DocuSign**을 선택하고 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Single Sign-On이 작동하려면 Azure AD에서 Azure AD 사용자에 해당하
 DocuSign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[DocuSign 테스트 사용자 만들기](#creating-a-docusign-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 DocuSign에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[DocuSign 테스트 사용자 만들기](#creating-a-docusign-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 DocuSign에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,40 +104,40 @@ DocuSign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_samlbase.png)
 
-3. **SAML 서명 인증서** 섹션에서 **인증서(Base 64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **인증서(Base 64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
 
-4. Azure Portal의 **DocuSign 구성** 섹션에서 **DocuSign 구성**을 클릭하여 로그온 구성 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. Azure Portal의 **DocuSign 구성** 섹션에서 **DocuSign 구성**을 클릭하여 로그온 구성 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML 엔터티 ID 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
     
     ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_configure.png)
 
-5. 다른 웹 브라우저 창에서 **DocuSign 관리 포털**에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 **DocuSign 관리 포털**에 관리자로 로그인합니다.
 
-6. 왼쪽 탐색 메뉴에서 **도메인**을 클릭합니다.
+1. 왼쪽 탐색 메뉴에서 **도메인**을 클릭합니다.
    
     ![Single Sign-On 구성][51]
 
-7. 오른쪽 창에서 **도메인 클레임**을 클릭합니다.
+1. 오른쪽 창에서 **도메인 클레임**을 클릭합니다.
    
     ![Single Sign-On 구성][52]
 
-8. **도메인 클레임** 대화 상자의 **도메인 이름** 텍스트 상자에 회사 도메인을 입력한 다음 **클레임**을 클릭합니다. 도메인을 확인하고 상태가 활성인지 확인합니다.
+1. **도메인 클레임** 대화 상자의 **도메인 이름** 텍스트 상자에 회사 도메인을 입력한 다음 **클레임**을 클릭합니다. 도메인을 확인하고 상태가 활성인지 확인합니다.
    
     ![Single Sign-On 구성][53]
 
-9. 왼쪽 메뉴에서 **ID 공급자**  
+1. 왼쪽 메뉴에서 **ID 공급자**  
    
     ![Single Sign-On 구성][54]
-10. 오른쪽 창에서 **ID 공급자 추가**를 클릭합니다. 
+1. 오른쪽 창에서 **ID 공급자 추가**를 클릭합니다. 
    
     ![Single Sign-On 구성][55]
 
-11. **ID 공급자 설정** 페이지에서 다음 단계를 수행합니다.
+1. **ID 공급자 설정** 페이지에서 다음 단계를 수행합니다.
    
     ![Single Sign-On 구성][56]
 
@@ -155,24 +155,24 @@ DocuSign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     g. **로그아웃 요청 보내기**로 **GET**을 선택합니다.
 
-12. **사용자 지정 특성 매핑** 섹션에서 Azure AD 클레임을 사용하여 매핑하려는 필드를 선택합니다. 이 예제의 **emailaddress** 클레임은 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 값에 매핑됩니다. 이는 Azure AD의 메일 클레임에 대한 기본 클레임 이름입니다. 
+1. **사용자 지정 특성 매핑** 섹션에서 Azure AD 클레임을 사용하여 매핑하려는 필드를 선택합니다. 이 예제의 **emailaddress** 클레임은 **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** 값에 매핑됩니다. 이는 Azure AD의 메일 클레임에 대한 기본 클레임 이름입니다. 
    
     > [!NOTE]
     > 적절한 **사용자 ID**를 사용하여 Azure AD에서 DocuSign 사용자 매핑으로 사용자를 매핑합니다. 적절한 필드를 선택하고 조직 설정에 따라 적절한 값을 입력합니다.
           
     ![Single Sign-On 구성][57]
 
-13. **ID 공급자 인증서** 섹션에서 **인증서 추가**를 클릭하고 Azure AD 포털에서 다운로드한 인증서를 업로드합니다.   
+1. **ID 공급자 인증서** 섹션에서 **인증서 추가**를 클릭하고 Azure AD 포털에서 다운로드한 인증서를 업로드합니다.   
    
     ![Single Sign-On 구성][58]
 
-14. **저장**을 클릭합니다.
+1. **저장**을 클릭합니다.
 
-15. **ID 공급자** 섹션에서 **작업**을 클릭한 다음 **끝점**을 클릭합니다.   
+1. **ID 공급자** 섹션에서 **작업**을 클릭한 다음 **끝점**을 클릭합니다.   
    
     ![Single Sign-On 구성][59]
  
-16. **DocuSign 관리자 포털**의 **SAML 2.0 끝점 보기** 섹션에서 다음 단계를 수행합니다.
+1. **DocuSign 관리자 포털**의 **SAML 2.0 끝점 보기** 섹션에서 다음 단계를 수행합니다.
    
     ![Single Sign-On 구성][60]
    
@@ -184,7 +184,7 @@ DocuSign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
       
     다.  페이지 맨 아래에 있는 **닫기**
     
-17. Azure Portal에서 **저장**을 클릭합니다.
+1. Azure Portal에서 **저장**을 클릭합니다.
     
     ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_general_400.png)
 
@@ -202,15 +202,15 @@ DocuSign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![Azure AD 테스트 사용자 만들기](./media/docusign-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/docusign-tutorial/create_aaduser_02.png) 
 
-3. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
+1. 대화 상자 위쪽에서 **추가**를 클릭하여 **사용자** 대화 상자를 엽니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/docusign-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/docusign-tutorial/create_aaduser_04.png) 
 
@@ -238,23 +238,23 @@ DocuSign에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **DocuSign**을 선택합니다.
+1. 응용 프로그램 목록에서 **DocuSign**을 선택합니다.
 
     ![Configure Single Sign-On](./media/docusign-tutorial/tutorial_docusign_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

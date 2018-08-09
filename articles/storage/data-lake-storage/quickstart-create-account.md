@@ -3,19 +3,18 @@ title: Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기 | M
 description: Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 Data Lake Storage Gen2 미리 보기에 액세스할 수 있는 새 저장소 계정을 빨리 만드는 방법을 알아봅니다.
 services: storage
 author: jamesbak
-manager: twooley
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: cf98d3097128a0f8934fc114bc37a517df118234
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 9d60b85051ff6e24c64f074ccd4fad055ba47ae8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085391"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523583"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>빠른 시작: Azure Data Lake Storage Gen2 미리 보기 저장소 계정 만들기
 
@@ -68,7 +67,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Azure Portal을 사용하여 계정 만들기
 
-[Azure 포털](https://portal.azure.com) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -211,7 +210,7 @@ az storage account create \
     --location westus2 \
     --sku Standard_LRS \
     --kind StorageV2 \
-    --Enable-hierarchical-namespace true
+    --hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>리소스 정리

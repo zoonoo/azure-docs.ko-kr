@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: b69cc226ca5b4f48747b033e0da5e7f991be112e
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915469"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426754"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -76,9 +76,9 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
     나. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅숏을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
 
-2. Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위] 내의 VM에 제한됩니다(https://www.microsoft.com/download/details.aspx?id=41653).
+1. Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위] 내의 VM에 제한됩니다(https://www.microsoft.com/download/details.aspx?id=41653).
  
-3. 새 구성을 사용하고 VM이 Azure IP 범위에서 연결된다고 확인되며 여전히 Azure RHUI에 연결할 수 없으면 Microsoft 또는 Red Hat을 사용하여 지원 사례를 정리합니다.
+1. 새 구성을 사용하고 VM이 Azure IP 범위에서 연결된다고 확인되며 여전히 Azure RHUI에 연결할 수 없으면 Microsoft 또는 Red Hat을 사용하여 지원 사례를 정리합니다.
 
 ### <a name="manual-update-procedure-to-use-the-azure-rhui-servers"></a>Azure RHUI 서버를 사용하기 위한 수동 업데이트 절차
 이 절차는 참조용으로만 제공됩니다. RHEL PAYG 이미지에 Azure RHUI에 연결하기 위한 올바른 구성이 이미 있습니다. Azure RHUI 서버를 사용하도록 구성을 수동으로 업데이트하려면 다음 단계를 따릅니다.
@@ -89,13 +89,13 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
    curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
    ```
 
-2. 다운로드한 키의 유효성을 확인합니다.
+1. 다운로드한 키의 유효성을 확인합니다.
 
    ```bash
    gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
    ```
 
-3. 출력을 확인한 후 `keyid` 및 `user ID packet`을 확인합니다.
+1. 출력을 확인한 후 `keyid` 및 `user ID packet`을 확인합니다.
 
    ```bash
    Version: GnuPG v1.4.7 (GNU/Linux)
@@ -119,14 +119,14 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
            data: [2047 bits]
    ```
 
-4. 공개 키를 설치합니다.
+1. 공개 키를 설치합니다.
 
    ```bash
    sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
    sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
    ```
 
-5. 클라이언트 RPM 패키지 관리자(RPM)를 다운로드, 확인 및 설치합니다.
+1. 클라이언트 RPM 패키지 관리자(RPM)를 다운로드, 확인 및 설치합니다.
     
     >[!NOTE]
     >패키지 버전이 변경됩니다. Azure RHUI에 수동으로 연결하는 경우 갤러리에서 최신 이미지를 프로비전하여 각 RHEL 제품군에 대한 최신 버전의 클라이언트 패키지를 찾을 수 있습니다.
@@ -165,7 +165,7 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
     sudo rpm -U azureclient.rpm
     ```
 
-6. 완료되면 VM에서 Azure RHUI에 액세스할 수 있는지 확인합니다.
+1. 완료되면 VM에서 Azure RHUI에 액세스할 수 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Marketplace PAYG 이미지에서 Red Hat Enterprise Linux VM을 만들고 Azure 호스티드 RHUI를 활용하려면 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/)로 이동합니다. 

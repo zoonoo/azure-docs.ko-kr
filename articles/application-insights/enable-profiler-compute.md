@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950674"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424027"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Azure VM, Service Fabric 및 Azure Cloud Services에서 Application Insights Profiler 사용
 
@@ -44,11 +44,11 @@ Profiler를 완전히 활성화하려면 세 위치에서 구성을 변경해야
 
 1. [새 Application Insights 리소스를 만들](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource)거나 기존 Application Insights 리소스를 선택합니다. 
 
-2. Application Insights 리소스로 이동한 다음, 계측 키를 복사합니다.
+1. Application Insights 리소스로 이동한 다음, 계측 키를 복사합니다.
 
    ![계측 키의 위치](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Profiler에 대한 Application Insights 인스턴스 설정을 마치려면 Profiler 사용에 설명된 단계를 완료합니다. 이 단계는 앱 서비스 리소스에만 해당되므로 웹앱을 연결할 필요가 없습니다. **Profiler 구성** 창에 Profiler가 활성화되어 있는지 확인합니다.
+1. Profiler에 대한 Application Insights 인스턴스 설정을 마치려면 Profiler 사용에 설명된 단계를 완료합니다. 이 단계는 앱 서비스 리소스에만 해당되므로 웹앱을 연결할 필요가 없습니다. **Profiler 구성** 창에 Profiler가 활성화되어 있는지 확인합니다.
 
 
 ## <a name="set-up-the-application-source-code"></a>응용 프로그램 소스 코드 설정
@@ -74,7 +74,7 @@ Profiler를 완전히 활성화하려면 세 위치에서 구성을 변경해야
         ```
       이 전역 계측 키 구성에 대한 자세한 내용은 [Application Insights를 통해 Service Fabric 사용](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md)을 참조하세요.  
 
-  2. 계측하려는 코드 조각의 경우 다음 예와 같이 `StartOperation<RequestTelemetry>` **USING** 문을 추가합니다.
+  1. 계측하려는 코드 조각의 경우 다음 예와 같이 `StartOperation<RequestTelemetry>` **USING** 문을 추가합니다.
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -143,7 +143,7 @@ Profiler 및 응용 프로그램을 실행하는 환경은 가상 머신, 가상
 환경을 설정하려면 다음을 수행합니다.
 1. [.NET framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상이 사용 중인지 확인하려면 배포된 OS가 `Windows Server 2012 R2` 이상인지 확인하는 것으로 충분합니다.
 
-2. 배포 템플릿 파일에서 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 확장명을 검색한 다음, 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다. `ApplicationInsightsProfiler` 속성 값을 고유한 Application Insights 계측 키로 바꿉니다.  
+1. 배포 템플릿 파일에서 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) 확장명을 검색한 다음, 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다. `ApplicationInsightsProfiler` 속성 값을 고유한 Application Insights 계측 키로 바꿉니다.  
 
       ```json
       "SinksConfig": {
@@ -165,13 +165,13 @@ Profiler 및 응용 프로그램을 실행하는 환경은 가상 머신, 가상
 
 1. [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 이상을 사용 중인지 확인하려면 해당 *ServiceConfiguration.\*.cscfg* 파일에 "5" 이상의 `osFamily` 값이 있는지 확인하는 것으로 충분합니다.
 
-2. 응용 프로그램 역할에 대한 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
+1. 응용 프로그램 역할에 대한 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
 
    ![진단 구성 파일의 위치](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
    파일을 찾을 수 없는 경우 Azure Cloud Services 프로젝트에서 진단 확장을 사용하도록 설정하는 방법을 알아보려면 [Azure Cloud Services 및 가상 머신에 대한 진단 설정](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them)을 참조하세요.
 
-3. 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다.  
+1. 다음 `SinksConfig` 섹션을 `WadCfg`의 자식 요소로 추가합니다.  
 
       ```xml
       <WadCfg>
@@ -212,7 +212,7 @@ Profiler 및 응용 프로그램을 실행하는 환경은 가상 머신, 가상
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. 원하는 응용 프로그램이 [IIS](https://www.microsoft.com/web/downloads/platform.aspx)를 통해 실행 중인 경우에는 다음을 수행하여 `IIS Http Tracing` Windows 기능을 활성화합니다.  
+1. 원하는 응용 프로그램이 [IIS](https://www.microsoft.com/web/downloads/platform.aspx)를 통해 실행 중인 경우에는 다음을 수행하여 `IIS Http Tracing` Windows 기능을 활성화합니다.  
 
    a. 환경에 대한 원격 액세스를 설정한 다음, [Windows 기능 추가]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) 창을 사용하거나 PowerShell에서 (관리자로서) 다음 명령을 실행합니다.  
 

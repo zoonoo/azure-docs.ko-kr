@@ -3,18 +3,17 @@ title: Azure Data Lake Storage Gen1 고객에 대한 지침 | Microsoft Docs
 description: Azure Data Lake Storage Gen2 미리 보기에서는 Data Lake Storage Gen1에서 지원되는 Hadoop 호환 가능 파일 시스템 외에도 데이터 계층, 수명 관리 및 강화된 네트워크 보안을 비롯한 기본 Blob Storage 기능을 제공합니다.
 services: storage
 author: roygara
-manager: twooley
 ms.topic: article
 ms.author: rogarana
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 786abbc10f21b137c328f10c5cbd20dce7653957
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: d247c2e96a45f0f6fceb64d4f3f274549c83ea66
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035622"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522427"
 ---
 # <a name="guidance-for-azure-data-lake-storage-gen1-customers"></a>Azure Data Lake Storage Gen1 고객에 대한 지침
 

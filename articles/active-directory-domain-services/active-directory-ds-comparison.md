@@ -12,22 +12,23 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 550354ceab3026cfd724cd77c3266b22682e4431
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: acb125ef807193e79e45bca7e217efe3ffb31698
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212574"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505953"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Azure AD Domain Services가 사용 사례에 적합한지 결정하는 방법
 Azure AD Domain Services를 사용하면 Azure에서 ID 인프라 유지 관리에 대해 걱정할 필요없이 Azure 인프라 서비스에서 워크로드를 배포할 수 있습니다. 이 관리되는 서비스는 고유한 서비스에 배포하고 관리하는 일반적인 Windows Server Active Directory 배포와 다릅니다. 서비스는 쉽게 배포할 수 있으며 자동화된 상태 모니터링 및 업데이트 관리를 제공합니다. 서비스를 지속적으로 개발하여 일반적인 배포 시나리오에 대한 지원을 추가할 예정입니다.
 
 Azure AD Domain Services를 사용할 것인지를 결정하려면 다음 자료를 읽어보는 것이 좋습니다.
 
-* [Azure AD Domain Services에서 제공하는 기능](active-directory-ds-features.md)목록을 봅니다.
+* 
+  [Azure AD Domain Services에서 제공하는 기능](active-directory-ds-features.md)목록을 봅니다.
 * 일반적인 [Azure AD Domain Services용 배포 시나리오](active-directory-ds-scenarios.md)를 검토합니다.
 * 마지막으로 [Azure AD Domain Services를 자체 AD 옵션과 비교](active-directory-ds-comparison.md#compare-azure-ad-domain-services-to-diy-ad-domain-in-azure)합니다.
 

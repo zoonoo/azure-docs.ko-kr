@@ -2,18 +2,18 @@
 title: Azure Import/Export의 상태 보기 | Microsoft Docs
 description: Import/Export 작업 및 사용되는 드라이브의 상태를 확인하는 방법을 알아봅니다.
 author: alkohli
-manager: jeconnoc
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 176cbf190b6442682a222eb4f24b6583fb87a46b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: common
+ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660328"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521526"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Azure Import/Export의 상태 보기
 

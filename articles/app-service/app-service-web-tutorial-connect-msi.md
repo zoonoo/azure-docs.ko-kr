@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461540"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445564"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>자습서: 관리되는 서비스 ID를 사용하여 SQL Database 연결 보호
 
@@ -48,7 +48,7 @@ ms.locfileid: "38461540"
 
 ## <a name="enable-managed-service-identity"></a>관리되는 서비스 ID 사용
 
-Azure 앱에 대한 서비스 ID를 사용하려면 Cloud Shell에서 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) 명령을 사용합니다. 다음 명령에서 *\<app_name>* 을 바꿉니다.
+Azure 앱에 대한 서비스 ID를 사용하려면 Cloud Shell에서 [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) 명령을 사용합니다. 다음 명령에서 *\<app_name>* 을 바꿉니다.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>ID에 데이터베이스 액세스 권한 부여
 
-다음으로 Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) 명령을 사용하여 앱의 서비스 ID에 데이터베이스 액세스 권한을 부여합니다. 다음 명령에서 *\<server_name>* 및 <principalid_from_last_step>을 바꿉니다. *\<admin_user>* 에 관리자 이름을 입력합니다.
+다음으로 Cloud Shell에서 [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) 명령을 사용하여 앱의 서비스 ID에 데이터베이스 액세스 권한을 부여합니다. 다음 명령에서 *\<server_name>* 및 <principalid_from_last_step>을 바꿉니다. *\<admin_user>* 에 관리자 이름을 입력합니다.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ az sql server ad-admin create --resource-group myResourceGroup --server-name <se
 
 ## <a name="modify-connection-string"></a>연결 문자열 수정
 
-Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 사용하여 앱에 대해 이전에 설정한 연결을 수정합니다. 다음 명령에서 *\<app name>* 을 해당 앱 이름으로 바꾸고 *\<server_name>* 및 *\<db_name>* 을 해당 SQL Database 이름으로 바꿉니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 사용하여 앱에 대해 이전에 설정한 연결을 수정합니다. 다음 명령에서 *\<app name>* 을 해당 앱 이름으로 바꾸고 *\<server_name>* 및 *\<db_name>* 을 해당 SQL Database 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure

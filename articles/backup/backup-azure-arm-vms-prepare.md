@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/21/2018
 ms.author: markgal
-ms.openlocfilehash: 06898877a4f13182230c6d5fb12544f90525d84d
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 40a83b93443ebe1482f89a114505a1ba27b93bd2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36960171"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445746"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Resource Manager 배포 가상 머신을 백업하기 위한 환경 준비
 
@@ -69,29 +69,29 @@ Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백�
 Recovery Services 자격 증명 모음을 만들려면:
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. **허브** 메뉴에서 **찾아보기**를 선택한 다음 **Recovery Services**를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**을 선택합니다.
+1. **허브** 메뉴에서 **찾아보기**를 선택한 다음 **Recovery Services**를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**을 선택합니다.
 
     ![상자에 입력 및 결과에서 "Recovery Services 자격 증명 모음" 선택](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
 
     Recovery Services 자격 증명 모음의 목록이 표시됩니다.
-3. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 선택합니다.
+1. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 선택합니다.
 
     ![Recovery Services 자격 증명 모음 만들기 2단계](./media/backup-azure-arm-vms-prepare/rs-vault-menu.png)
 
     **Recovery Services 자격 증명 모음** 창이 열립니다. **이름**, **구독**, **리소스 그룹** 및 **위치**에 대한 정보를 제공하라는 메시지가 표시됩니다.
 
     !["Recovery Services 자격 증명 모음" 창](./media/backup-azure-arm-vms-prepare/rs-vault-attributes.png)
-4. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 2~50자 문자의 이름을 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
-5. **구독**을 선택하여 사용 가능한 구독 목록을 볼 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 회사 또는 학교 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
-6. **리소스 그룹**을 선택하여 사용 가능한 리소스 그룹 목록을 표시하거나 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다. 리소스 그룹에 대한 전체 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
-7. **위치**를 선택하여 자격 증명 모음에 대한 지리적 지역을 선택합니다. 자격 증명 모음은 *반드시* 보호하려는 가상 머신과 동일한 지역에 있어야 합니다.
+1. **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 대해 고유해야 합니다. 2~50자 문자의 이름을 입력합니다. 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
+1. **구독**을 선택하여 사용 가능한 구독 목록을 볼 수 있습니다. 사용할 구독을 잘 모르는 경우 기본(또는 제안된) 구독을 사용합니다. 회사 또는 학교 계정이 여러 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
+1. **리소스 그룹**을 선택하여 사용 가능한 리소스 그룹 목록을 표시하거나 **새로 만들기**를 선택하여 새 리소스 그룹을 만듭니다. 리소스 그룹에 대한 전체 내용은 [Azure Resource Manager 개요](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
+1. **위치**를 선택하여 자격 증명 모음에 대한 지리적 지역을 선택합니다. 자격 증명 모음은 *반드시* 보호하려는 가상 머신과 동일한 지역에 있어야 합니다.
 
    > [!IMPORTANT]
    > VM이 있는 위치를 정확히 알지 못하는 경우 자격 증명 모음 만들기 대화 상자를 닫고 포털에서 가상 머신의 목록으로 이동합니다. 가상 머신이 여러 지역에 있으면 각 지역에 Recovery Services 자격 증명 모음을 만들어야 합니다. 첫 번째 위치에서 다음 위치로 이동하기 전에 자격 증명 모음을 만듭니다. 백업 데이터를 저장할 저장소 계정을 지정하지 않아도 됩니다. Recovery Services 자격 증명 모음 및 Azure Backup 서비스는 이를 자동으로 처리합니다.
    >
    >
 
-8. **만들기**를 선택합니다. Recovery Services 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다. 자격 증명 모음이 표시되지 않으면 **새로 고침**을 선택합니다.
+1. **만들기**를 선택합니다. Recovery Services 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다. 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다. 자격 증명 모음이 생성되면 Recovery Services 자격 증명 모음 목록에 표시됩니다. 자격 증명 모음이 표시되지 않으면 **새로 고침**을 선택합니다.
 
     ![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
@@ -107,13 +107,13 @@ Recovery Services 자격 증명 모음을 만들려면:
 
    ![백업 자격 증명 모음 목록에서 사용자의 자격 증명 모음을 선택합니다.](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
 
-2. **설정** 창에서 세로 슬라이더를 사용하여 **관리** 섹션으로 아래로 스크롤하고 **백업 인프라**를 선택합니다. **일반** 섹션에서 **백업 구성**을 선택합니다. **백업 구성** 창에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다.
+1. **설정** 창에서 세로 슬라이더를 사용하여 **관리** 섹션으로 아래로 스크롤하고 **백업 인프라**를 선택합니다. **일반** 섹션에서 **백업 구성**을 선택합니다. **백업 구성** 창에서 자격 증명 모음에 대한 저장소 복제 옵션을 선택합니다. 기본적으로 사용자 자격 증명 모음에는 지역 중복 저장소가 있습니다.
 
    ![백업 자격 증명 모음 목록](./media/backup-azure-arm-vms-prepare/full-blade.png)
 
    Azure를 기본 백업 저장소 끝점으로 사용하는 경우 계속해서 지역 중복 저장소를 사용합니다. Azure를 주가 아닌 백업 저장소 끝점으로 사용하는 경우 로컬 중복 저장소를 선택합니다. 저장소 옵션에 대한 자세한 내용은 [Azure Storage 복제 개요](../storage/common/storage-redundancy.md)를 참조하세요.
 
-3. 저장소 복제 형식을 변경한 경우 **저장**을 선택합니다.
+1. 저장소 복제 형식을 변경한 경우 **저장**을 선택합니다.
     
 자격 증명 모음에 대한 저장소 옵션을 선택하면 자격 증명 모음이 있는 VM에 연결할 준비가 됩니다. 연결을 시작하려면 Azure 가상 머신을 검색하고 등록해야 합니다.
 
@@ -135,20 +135,20 @@ Recovery Services 자격 증명 모음에 가상 머신을 등록하기 전에 �
       선택한 자격 증명 모음의 **설정** 창 및 자격 증명 모음 대시보드가 열립니다.
 
       ![설정 창 및 자격 증명 모음 대시보드](./media/backup-azure-arm-vms-prepare/new-vault-settings-blade.png)
-2. 자격 증명 모음 대시보드 메뉴에서 **백업**을 선택합니다.
+1. 자격 증명 모음 대시보드 메뉴에서 **백업**을 선택합니다.
 
    ![백업 단추](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
    **백업** 및 **백업 목표** 창이 열립니다.
 
-3. **백업 목표** 창에서 **Where is your workload running?**(워크로드 실행 위치)을 **Azure**로 설정하고, **What do you want to backup?**(백업할 항목)을 **가상 머신**으로 설정합니다. 그런 다음 **확인**을 선택합니다.
+1. **백업 목표** 창에서 **Where is your workload running?**(워크로드 실행 위치)을 **Azure**로 설정하고, **What do you want to backup?**(백업할 항목)을 **가상 머신**으로 설정합니다. 그런 다음 **확인**을 선택합니다.
 
    ![백업 및 백업 목표 창](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
    이 단계에서는 VM 확장을 자격 증명 모음에 등록합니다. **백업 목표** 창이 닫히고 **백업 정책** 창이 열립니다.
 
    !["백업" 및 "백업 정책" 창](./media/backup-azure-arm-vms-prepare/select-backup-goal-2.png)
-4. **백업 정책** 창에서 자격 증명 모음에 적용할 백업 정책을 선택합니다.
+1. **백업 정책** 창에서 자격 증명 모음에 적용할 백업 정책을 선택합니다.
 
    ![백업 정책 선택](./media/backup-azure-arm-vms-prepare/setting-rs-backup-policy-new.png)
 
@@ -156,13 +156,13 @@ Recovery Services 자격 증명 모음에 가상 머신을 등록하기 전에 �
     **확인**을 선택하여 백업 정책을 자격 증명 모음과 연결합니다.
 
    **백업 정책** 창이 닫히고 **가상 머신 선택** 창이 열립니다.
-5. **가상 머신 선택** 창에서 지정된 정책과 연결할 가상 머신을 선택하고 **확인**을 선택합니다.
+1. **가상 머신 선택** 창에서 지정된 정책과 연결할 가상 머신을 선택하고 **확인**을 선택합니다.
 
    !["가상 머신 선택" 창](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
    선택한 가상 머신의 유효성이 검사됩니다. 예상되는 가상 머신이 표시되지 않으면 가상 머신이 Recovery Services 자격 증명 모음과 동일한 Azure 지역에 있는지 확인합니다. 그래도 가상 머신이 표시되지 않으면 다른 자격 증명 모음으로 아직 보호되지 않았는지 확인합니다. 자격 증명 모음 대시보드에는 Recovery Services 자격 증명 모음이 있는 지역이 표시됩니다.
 
-6. 자격 증명 모음의 모든 설정을 정의했으므로 **백업** 창에서 **백업 사용**을 선택합니다. 이 단계에서는 정책을 자격 증명 모음 및 VM에 배포합니다. 이 단계에서는 가상 머신의 초기 복구 지점을 만들지 않습니다.
+1. 자격 증명 모음의 모든 설정을 정의했으므로 **백업** 창에서 **백업 사용**을 선택합니다. 이 단계에서는 정책을 자격 증명 모음 및 VM에 배포합니다. 이 단계에서는 가상 머신의 초기 복구 지점을 만들지 않습니다.
 
    !["백업 사용" 단추](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
@@ -241,15 +241,15 @@ VM을 백업할 때 VM의 백업 확장이 HTTPS API를 사용하여 Azure Stora
 이 절차는 로컬 시스템 계정에 대한 프록시 서버 구성을 설정합니다.
 
 1. [PsExec](https://technet.microsoft.com/sysinternals/bb897553)을 다운로드합니다.
-2. 관리자 권한 프롬프트에서 다음 명령을 실행하여 Internet Explorer를 엽니다.
+1. 관리자 권한 프롬프트에서 다음 명령을 실행하여 Internet Explorer를 엽니다.
 
     ```
     psexec -i -s "c:\Program Files\Internet Explorer\iexplore.exe"
     ```
 
-3. Internet Explorer에서 **도구** > **인터넷 옵션** > **연결** > **LAN 설정**으로 이동합니다.
-4. 시스템 계정에 대한 프록시 설정을 확인합니다. 프록시 IP 및 포트를 설정합니다.
-5. Internet Explorer를 닫습니다.
+1. Internet Explorer에서 **도구** > **인터넷 옵션** > **연결** > **LAN 설정**으로 이동합니다.
+1. 시스템 계정에 대한 프록시 설정을 확인합니다. 프록시 IP 및 포트를 설정합니다.
+1. Internet Explorer를 닫습니다.
 
 다음 스크립트는 시스템 수준의 프록시 구성을 설정하고 나가는 HTTP 또는 HTTPS 트래픽에 사용합니다. 현재 사용자 계정(로컬 시스템 계정이 아닌)으로 프록시 서버를 설정한 경우에는, 이 스크립트를 사용하여 SYSTEMACCOUNT에 적용합니다.
 
@@ -283,10 +283,10 @@ HttpProxy.Port=<proxy port>
 
 #### <a name="step-2-allow-incoming-connections-on-the-proxy-server"></a>2단계: 프록시 서버에서 들어오는 연결 허용
 1. 프록시 서버에서 Windows 방화벽을 엽니다. 방화벽에 액세스하는 가장 쉬운 방법은 **고급 보안이 포함된 Windows 방화벽**을 검색하는 것입니다.
-2. **고급 보안이 포함된 Windows 방화벽** 대화 상자에서 **인바운드 규칙**을 마우스 오른쪽 단추로 클릭하고 **새 규칙**을 선택합니다.
-3. 새 인바운드 규칙 마법사의 **규칙 형식** 페이지에서 **사용자 지정** 옵션을 선택하고 **다음**을 선택합니다.
-4. **프로그램** 페이지에서 **모든 프로그램**을 선택하고 **다음**을 선택합니다.
-5. **프로토콜 및 포트** 페이지에서 다음 정보를 입력하고 **다음**을 선택합니다.
+1. **고급 보안이 포함된 Windows 방화벽** 대화 상자에서 **인바운드 규칙**을 마우스 오른쪽 단추로 클릭하고 **새 규칙**을 선택합니다.
+1. 새 인바운드 규칙 마법사의 **규칙 형식** 페이지에서 **사용자 지정** 옵션을 선택하고 **다음**을 선택합니다.
+1. **프로그램** 페이지에서 **모든 프로그램**을 선택하고 **다음**을 선택합니다.
+1. **프로토콜 및 포트** 페이지에서 다음 정보를 입력하고 **다음**을 선택합니다.
    * **프로토콜 형식**에서 **TCP**를 선택합니다.
    * **로컬 포트**에서 **특정 포트**를 선택합니다. 다음 상자에서 구성된 프록시 포트 번호를 지정합니다.
    * **원격 포트**에서 **모든 포트**를 선택합니다.

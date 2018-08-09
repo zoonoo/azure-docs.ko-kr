@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: bradsev
-ms.openlocfilehash: 18465463e924c10ddc35d619992655773e12cc82
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179710"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422378"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Azure에서 Linux(Ubuntu)용 데이터 과학 Virtual Machine 프로비전
 
@@ -63,8 +63,8 @@ Linux용 데이터 과학 Virtual Machine에는 다음을 포함하여 데이터
 데이터 과학을 수행하려면 일련의 작업에 대해 다음 작업을 반복합니다.
 
 1. 데이터 찾기, 로드 및 전처리
-2. 모델 빌드 및 테스트
-3. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
+1. 모델 빌드 및 테스트
+1. 지능형 응용 프로그램에서 사용하기 위해 모델 배포
 
 데이터 과학자는 다양한 도구를 사용하여 이러한 태스크를 완료합니다. 소프트웨어의 적합한 버전을 찾은 다음 다운로드하여 컴파일하고 설치하는 데 시간이 상당히 걸릴 수 있습니다.
 
@@ -82,8 +82,8 @@ Linux용 데이터 과학 Virtual Machine을 만들려면 먼저 Azure 구독이
 Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
 
 1. [Azure 포털](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu)에서 가상 머신 목록으로 이동합니다.
-2. 아래의 **만들기**를 클릭하여 마법사를 실행합니다.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-3. 다음 섹션에서는 Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사의 각 단계(위 그림의 오른쪽에 열거되어 있음)에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
+1. 아래의 **만들기**를 클릭하여 마법사를 실행합니다.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. 다음 섹션에서는 Microsoft 데이터 과학 Virtual Machine을 만드는 데 사용되는 마법사의 각 단계(위 그림의 오른쪽에 열거되어 있음)에 필요한 내용을 입력합니다. 다음은 이러한 각 단계를 구성하는 데 필요한 입력입니다.
    
    a. **기본 사항**:
    
@@ -118,8 +118,8 @@ Linux용 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는
 
 세 가지 메서드를 사용하여 Ubuntu DSVM에 액세스할 수 있습니다.
 1. 터미널 세션에 대한 SSH
-2. 그래픽 세션에 대한 X2Go
-3. Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
+1. 그래픽 세션에 대한 X2Go
+1. Jupyter 노트북에 대한 JupyterHub 및 JupyterLab
 
 ### <a name="ssh"></a>SSH
 
@@ -134,7 +134,7 @@ VM을 만든 후 SSH를 사용하여 해당 VM에 로그인할 수 있습니다.
 Linux VM은 이미 X2Go 서버에 프로비전되어 있어 클라이언트 연결을 사용할 수 있습니다. Linux VM 그래픽 데스크톱에 연결하려면 클라이언트에서 다음 절차를 완료합니다.
 
 1. 사용 중인 클라이언트 플랫폼용 X2Go 클라이언트를 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)에서 다운로드하여 설치합니다.    
-2. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
+1. X2Go 클라이언트를 실행하고 **새 세션**을 선택합니다. 여러 탭이 있는 구성 창이 열립니다. 다음 구성 매개 변수를 입력합니다.
    * **세션 탭**:
      * **호스트**: Linux 데이터 과학 VM의 호스트 이름 또는 프로그램 IP 주소입니다.
      * **로그인**: Linux VM의 사용자 이름입니다.
@@ -147,7 +147,7 @@ X2Go 클라이언트를 통해 XFCE 그래픽 데스크톱 또는 SSH 클라이�
 
 ### <a name="jupyterhub-and-jupyterlab"></a>JupyterHub 및 JupyterLab
 
-Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https://your-vm-ip:8000 으로 이동하고, VM을 만들고 로그인하는 데 사용한 사용자 이름 및 암호를 입력합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
+Ubuntu DSVM은 [JupyterHub](https://github.com/jupyterhub/jupyterhub), 다중 사용자 Jupyter 서버를 실행합니다. 연결하려면 랩톱 또는 데스크톱에서 https://your-vm-ip:8000으로 이동하고, VM을 만들고 로그인하는 데 사용한 사용자 이름 및 암호를 입력합니다. 다양한 샘플 노트북을 사용하여 찾아보고 체험할 수 있습니다.
 
 Jupyter 노트북의 차세대 JupyterLab 및 JupyterHub도 제공됩니다. 액세스하려면 JupyterHub에 로그인한 다음, https://your-vm-ip:8000/lab URL로 이동합니다. /etc/jupyterhub/jupyterhub_config.py에 이 줄을 추가하여 기본 노트북 서버로 JupyterLab을 설정할 수 있습니다.
 
@@ -416,16 +416,16 @@ Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중�
 > 
 
 1. **실행**을 클릭합니다.
-2. 예제 날씨 데이터 집합을 사용할지 묻는 팝업 대화 상자가 표시됩니다. **예** 를 클릭하여 예제를 로드합니다.
-3. **모델** 탭을 클릭합니다.
-4. **실행** 을 클릭하여 의사 결정 트리를 빌드합니다.
-5. **그리기** 를 클릭하여 의사 결정 트리를 표시합니다.
-6. **포리스트** 라디오 단추를 클릭하고 **실행**을 클릭하여 임의 포리스트를 빌드합니다.
-7. **평가** 탭을 클릭합니다.
-8. **위험** 라디오 단추를 클릭하고 **실행**을 클릭하여 두 개의 위험(누적) 성능 도표를 표시합니다.
-9. **로그** 탭을 클릭하여 위 작업에 해당하는 generate R 코드를 표시합니다.
+1. 예제 날씨 데이터 집합을 사용할지 묻는 팝업 대화 상자가 표시됩니다. **예** 를 클릭하여 예제를 로드합니다.
+1. **모델** 탭을 클릭합니다.
+1. **실행** 을 클릭하여 의사 결정 트리를 빌드합니다.
+1. **그리기** 를 클릭하여 의사 결정 트리를 표시합니다.
+1. **포리스트** 라디오 단추를 클릭하고 **실행**을 클릭하여 임의 포리스트를 빌드합니다.
+1. **평가** 탭을 클릭합니다.
+1. **위험** 라디오 단추를 클릭하고 **실행**을 클릭하여 두 개의 위험(누적) 성능 도표를 표시합니다.
+1. **로그** 탭을 클릭하여 위 작업에 해당하는 generate R 코드를 표시합니다.
    현재 Rattle 릴리스의 버그로 인해, 로그 텍스트의 *Export this log ...* 앞에 *#* 문자를 삽입해야 합니다.
-10. **내보내기** 단추를 클릭하여 R 스크립트 파일 *weather_script.R*을 홈 폴더에 저장합니다.
+1. **내보내기** 단추를 클릭하여 R 스크립트 파일 *weather_script.R*을 홈 폴더에 저장합니다.
 
 이제 Rattle 및 R을 종료할 수 있습니다. 그러면 생성된 R 스크립트를 수정할 수도 있고, 언제든지 그대로 사용하여 Rattle UI 내에서 실행한 모든 작업을 반복할 수도 있습니다. 특히 R 초보자의 경우 이 손쉬운 방법을 사용하면 그래픽 인터페이스에서 분석 및 기계 학습을 신속하게 수행하는 동시에 R에서 코드를 자동으로 생성하여 수정 및/또는 학습할 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: nini
 ms.component: na
-ms.openlocfilehash: 8296f0756aef7180efa777795cb361e653c0e4e3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 9bc1f7d9eab73a086e664dcc520ecf26befbbf0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128016"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432894"
 ---
 # <a name="assess-service-fabric-applications-and-micro-services-with-the-azure-portal"></a>Azure Portal에서 Service Fabric 응용 프로그램 및 마이크로 서비스 평가
 
@@ -39,15 +39,15 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 솔루션을 시작하려면 Service Fabric 클러스터를 Log Analytics 작업 영역에 연결해야 합니다. 세 가지 시나리오를 고려해야 합니다.
 
 1. Service Fabric 클러스터를 배포하지 않은 경우 ***Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계에 따라 새 클러스터를 배포하고 Log Analytics에 보고하도록 구성합니다.
-2. Service Fabric 클러스터의 보안과 같은 다른 관리 솔루션을 사용하기 위해 호스트에서 성능 카운터를 수집해야 하는 경우, ***VM 확장이 설치된 Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계를 따릅니다.
-3. Service Fabric 클러스터를 이미 배포했고 Log Analytics에 연결하려는 경우 ***기존 저장소 계정을 Log Analytics에 추가***의 단계를 따릅니다.
+1. Service Fabric 클러스터의 보안과 같은 다른 관리 솔루션을 사용하기 위해 호스트에서 성능 카운터를 수집해야 하는 경우, ***VM 확장이 설치된 Log Analytics 작업 영역에 연결된 Service Fabric 클러스터 배포***의 단계를 따릅니다.
+1. Service Fabric 클러스터를 이미 배포했고 Log Analytics에 연결하려는 경우 ***기존 저장소 계정을 Log Analytics에 추가***의 단계를 따릅니다.
 
 ## <a name="deploy-a-service-fabric-cluster-connected-to-a-log-analytics-workspace"></a>Log Analytics 작업 영역에 연결된 Service Fabric 클러스터를 배포합니다.
 이 템플릿은 다음을 수행합니다.
 
 1. Log Analytics 작업 영역에 이미 연결된 Azure Service Fabric 클러스터를 배포합니다. 템플릿을 배포하는 동안 새 작업 영역을 만들 수 있는 옵션이 제공되거나 기존의 Log Analytics 작업 영역의 이름을 입력합니다.
-2. 진단 저장소 계정을 Log Analytics 작업 영역에 추가합니다.
-3. Log Analytics 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정합니다.
+1. 진단 저장소 계정을 Log Analytics 작업 영역에 추가합니다.
+1. Log Analytics 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정합니다.
 
 [![Azure에 배포](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-oms%2F%2Fazuredeploy.json)
 
@@ -66,9 +66,9 @@ Service Fabric 솔루션은 Azure WAD 테이블에서 이 데이터를 수집하
 이 템플릿은 다음을 수행합니다.
 
 1. Log Analytics 작업 영역에 이미 연결된 Azure Service Fabric 클러스터를 배포합니다. 새 작업 영역을 만들거나 기존 작업 영역을 사용할 수 있습니다.
-2. 진단 저장소 계정을 Log Analytics 작업 영역에 추가합니다.
-3. Log Analytics 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정합니다.
-4. Service Fabric 클러스터의 각 가상 머신 확장 집합에 MMA 에이전트 확장을 설치합니다. MMA 에이전트가 설치되면 노드에 대한 성능 메트릭을 볼 수 있습니다.
+1. 진단 저장소 계정을 Log Analytics 작업 영역에 추가합니다.
+1. Log Analytics 작업 영역에서 Service Fabric 솔루션을 사용하도록 설정합니다.
+1. Service Fabric 클러스터의 각 가상 머신 확장 집합에 MMA 에이전트 확장을 설치합니다. MMA 에이전트가 설치되면 노드에 대한 성능 메트릭을 볼 수 있습니다.
 
 [![Azure에 배포](./media/log-analytics-service-fabric/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fservice-fabric-vmss-oms%2F%2Fazuredeploy.json)
 

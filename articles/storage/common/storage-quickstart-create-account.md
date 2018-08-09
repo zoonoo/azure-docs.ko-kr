@@ -3,18 +3,18 @@ title: Azure 빠른 시작 - 저장소 계정 만들기 | Microsoft Docs
 description: Azure Portal, Azure PowerShell 또는 Azure CLI를 사용하여 새 저장소 계정을 만드는 방법을 간단히 알아봅니다.
 services: storage
 author: tamram
-manager: twooley
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: tamram
-ms.openlocfilehash: 92215c759cd51ce429708ec54b17722c486b7ca6
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.component: common
+ms.openlocfilehash: 91e98f74fd6cd88533a5090a383897eaa0e60648
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856531"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524023"
 ---
 # <a name="create-a-storage-account"></a>저장소 계정 만들기
 
@@ -62,7 +62,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 빠른
 
 # <a name="portaltabportal"></a>[포털](#tab/portal)
 
-[Azure 포털](https://portal.azure.com) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 

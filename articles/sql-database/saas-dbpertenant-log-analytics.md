@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
 ms.reviewer: billgib
-ms.openlocfilehash: 38adf3dd2be0770dd815644ece452a82bc98baf9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3ca2f811ff0ac81ea70ec0b22d7429cdc5604171
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645320"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420185"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>다중 테넌트 SQL Database SaaS 앱을 사용하여 Log Analytics 설정 및 사용
 
@@ -46,13 +46,13 @@ Log Analytics 작업 영역 및 분석 솔루션은 Azure Portal과 Operations M
 ### <a name="create-performance-diagnostic-data-by-simulating-a-workload-on-your-tenants"></a>테넌트에서 워크로드를 시뮬레이션하여 성능 진단 데이터 만들기 
 
 1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서에서 몇 가지 부하 생성 시나리오를 실행할 수도 있으므로 이 스크립트를 계속 열어 둡니다.
-2. 더욱 유용한 모니터링 컨텍스트를 만들기 위해 일군의 테넌트를 프로비전합니다(아직 수행하지 않은 경우). 이 작업에는 몇 분이 소요됩니다.
+1. 더욱 유용한 모니터링 컨텍스트를 만들기 위해 일군의 테넌트를 프로비전합니다(아직 수행하지 않은 경우). 이 작업에는 몇 분이 소요됩니다.
 
    a. **$DemoScenario = 1**, _테넌트의 배치 프로비전_을 설정합니다.
 
    나. F5 키를 눌러 스크립트를 실행하여 추가로 17개의 테넌트를 배포합니다.
 
-3. 이제 로드 생성기를 시작하여 모든 테넌트에서 시뮬레이션된 로드를 실행합니다.
+1. 이제 로드 생성기를 시작하여 모든 테넌트에서 시뮬레이션된 로드를 실행합니다.
 
     a. **$DemoScenario = 2**, _Generate normal intensity load (approx. 30 DTU)_ 를 설정합니다.
 
@@ -67,7 +67,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 응용
 Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics는 Log Analytics 작업 영역에서 로그 데이터, 원격 분석 및 메트릭을 수집합니다. Log Analytics 작업 영역은 Azure의 다른 리소스와 마찬가지로 생성이 필요합니다. 작업 영역을 자신이 모니터링하는 응용 프로그램과 동일한 리소스 그룹에서 만들 필요는 없습니다. 대부분의 경우 이렇게 하는 것이 적합합니다. Wingtip Tickets 앱의 경우 하나의 리소스 그룹을 사용하면 작업 영역이 응용 프로그램과 함께 삭제되도록 할 수 있습니다.
 
 1. PowerShell ISE에서 *..\\WingtipTicketsSaaS-MultiTenantDb-master\\Learning Modules\\Performance Monitoring and Management\\Log Analytics\\Demo-LogAnalytics.ps1*을 엽니다.
-2. 스크립트를 실행하려면 F5 키를 누릅니다.
+1. 스크립트를 실행하려면 F5 키를 누릅니다.
 
 이제 Azure Portal에서 또는 Operations Management Suite 포털에서 Log Analytics를 열 수 있습니다. Log Analytics 작업 영역에서 원격 분석을 수집하여 표시하는 데는 몇 분 정도 시간이 걸립니다. 시스템의 데이터 수집 시간이 길어질수록 더 유용한 데이터가 수집됩니다. 
 
@@ -80,38 +80,38 @@ Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics
 
    ![Log Analytics 열기](media/saas-dbpertenant-log-analytics/log-analytics-open.png)
 
-2. 이름이 _wtploganalytics-&lt;user&gt;_ 인 작업 영역을 선택합니다.
+1. 이름이 _wtploganalytics-&lt;user&gt;_ 인 작업 영역을 선택합니다.
 
-3. **개요**를 선택하여 Azure Portal에서 Log Analytics를 엽니다.
+1. **개요**를 선택하여 Azure Portal에서 Log Analytics를 엽니다.
 
    ![개요](media/saas-dbpertenant-log-analytics/click-overview.png)
 
     > [!IMPORTANT]
     > 솔루션이 활성화되려면 몇 분 정도 소요될 수 있습니다. 
 
-4. **Azure SQL 분석** 타일을 선택하여 엽니다.
+1. **Azure SQL 분석** 타일을 선택하여 엽니다.
 
     ![개요 타일](media/saas-dbpertenant-log-analytics/overview.png)
 
-5. 이 솔루션의 보기는 가로로 스크롤됩니다. 하단에 자체 스크롤 막대가 있습니다. 필요한 경우 페이지를 새로 고칩니다.
+1. 이 솔루션의 보기는 가로로 스크롤됩니다. 하단에 자체 스크롤 막대가 있습니다. 필요한 경우 페이지를 새로 고칩니다.
 
-6. 요약 페이지를 살펴보려면 타일이나 개별 데이터베이스를 선택하여 드릴 다운 탐색기를 엽니다.
+1. 요약 페이지를 살펴보려면 타일이나 개별 데이터베이스를 선택하여 드릴 다운 탐색기를 엽니다.
 
     ![Log Analytics 대시보드](media/saas-dbpertenant-log-analytics/log-analytics-overview.png)
 
-7. 필터 설정을 변경하여 시간 범위를 수정합니다. 이 자습서에서는 **마지막 1시간**을 선택합니다.
+1. 필터 설정을 변경하여 시간 범위를 수정합니다. 이 자습서에서는 **마지막 1시간**을 선택합니다.
 
     ![시간 필터](media/saas-dbpertenant-log-analytics/log-analytics-time-filter.png)
 
-8. 데이터베이스를 하나 선택하여 해당 데이터베이스의 쿼리 사용률과 메트릭을 살펴봅니다.
+1. 데이터베이스를 하나 선택하여 해당 데이터베이스의 쿼리 사용률과 메트릭을 살펴봅니다.
 
     ![데이터베이스 분석](media/saas-dbpertenant-log-analytics/log-analytics-database.png)
 
-9. 사용률 메트릭을 보려면 분석 페이지를 오른쪽으로 스크롤합니다.
+1. 사용률 메트릭을 보려면 분석 페이지를 오른쪽으로 스크롤합니다.
  
      ![데이터베이스 메트릭](media/saas-dbpertenant-log-analytics/log-analytics-database-metrics.png)
 
-10. 분석 페이지를 왼쪽으로 스크롤하고, **리소스 정보** 목록에 있는 서버 타일을 선택합니다.  
+1. 분석 페이지를 왼쪽으로 스크롤하고, **리소스 정보** 목록에 있는 서버 타일을 선택합니다.  
 
     ![리소스 정보 목록](media/saas-dbpertenant-log-analytics/log-analytics-resource-info.png)
 
@@ -119,12 +119,12 @@ Log Analytics는 구성이 필요한 별도의 서비스입니다. Log Analytics
 
     ![풀과 데이터베이스가 있는 서버](media/saas-dbpertenant-log-analytics/log-analytics-server.png)
 
-11. 풀을 선택합니다. 풀 페이지에서 오른쪽으로 스크롤하여 풀 메트릭을 봅니다. 
+1. 풀을 선택합니다. 풀 페이지에서 오른쪽으로 스크롤하여 풀 메트릭을 봅니다. 
 
     ![풀 메트릭](media/saas-dbpertenant-log-analytics/log-analytics-pool-metrics.png)
 
 
-12. Log Analytics 작업 영역으로 돌아가서 **OMS 포털**을 선택하여 작업 영역을 엽니다.
+1. Log Analytics 작업 영역으로 돌아가서 **OMS 포털**을 선택하여 작업 영역을 엽니다.
 
     ![Operations Management Suite 포털 타일](media/saas-dbpertenant-log-analytics/log-analytics-workspace-oms-portal.png)
 

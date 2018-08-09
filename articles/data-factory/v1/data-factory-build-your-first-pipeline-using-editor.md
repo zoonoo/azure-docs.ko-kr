@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d6d6282c3e997a41a27fb65ed7c06fd1bc7916f2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048410"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444663"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 첫 번째 데이터 팩터리 빌드
 > [!div class="op_single_selector"]
@@ -56,11 +56,11 @@ ms.locfileid: "37048410"
 
 1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
-2. **새로 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
+1. **새로 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다.
 
    ![블레이드 만들기](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-3. **새 데이터 팩터리** 블레이드에서 **이름**에 **GetStartedDF**를 입력합니다.
+1. **새 데이터 팩터리** 블레이드에서 **이름**에 **GetStartedDF**를 입력합니다.
 
    ![새 데이터 팩터리 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -70,25 +70,25 @@ ms.locfileid: "37048410"
    > 데이터 팩터리의 이름은 나중에 DNS 이름으로 등록되므로 공개적으로 표시될 수도 있습니다.
    >
    >
-4. **구독**에서 데이터 팩터리를 만들려는 위치의 Azure 구독을 선택합니다.
+1. **구독**에서 데이터 팩터리를 만들려는 위치의 Azure 구독을 선택합니다.
 
-5. 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다. 이 자습서의 경우 **ADFGetStartedRG**라는 이름의 리소스 그룹을 만듭니다.
+1. 기존 리소스 그룹을 선택하거나 리소스 그룹을 만듭니다. 이 자습서의 경우 **ADFGetStartedRG**라는 이름의 리소스 그룹을 만듭니다.
 
-6. **위치**에서 데이터 팩터리의 위치를 선택합니다. Data Factory 서비스에서 지원하는 지역만 드롭다운 목록에 표시됩니다.
+1. **위치**에서 데이터 팩터리의 위치를 선택합니다. Data Factory 서비스에서 지원하는 지역만 드롭다운 목록에 표시됩니다.
 
-7. **대시보드에 고정** 확인란을 선택합니다.
+1. **대시보드에 고정** 확인란을 선택합니다.
 
-8. **만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 
    > [!IMPORTANT]
    > Data Factory 인스턴스를 만들려면 구독/리소스 그룹 수준에서 [Data Factory 참가자](../../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할의 구성원이어야 합니다.
    >
    >
-9. 대시보드에서 **Data Factory 배포 중** 상태의 다음과 같은 타일이 표시됩니다.    
+1. 대시보드에서 **Data Factory 배포 중** 상태의 다음과 같은 타일이 표시됩니다.    
 
    ![Data Factory 배포 중 상태](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. 데이터 팩터리가 만들어지면 **데이터 팩터리** 페이지가 표시되며, 여기에 데이터 팩터리의 내용이 표시됩니다.     
+1. 데이터 팩터리가 만들어지면 **데이터 팩터리** 페이지가 표시되며, 여기에 데이터 팩터리의 내용이 표시됩니다.     
 
     ![데이터 팩터리 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -104,17 +104,17 @@ ms.locfileid: "37048410"
 
    ![작성 및 배포 타일](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-2. **새 데이터 저장소**, **Azure Storage**를 차례로 선택합니다.
+1. **새 데이터 저장소**, **Azure Storage**를 차례로 선택합니다.
 
    ![새 데이터 저장소 블레이드](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
-3. 편집기에 Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
+1. 편집기에 Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
    ![Storage 연결된 서비스](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. **account name**을 저장소 계정 이름으로 바꿉니다. **account key**를 저장소 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)에서 저장소 액세스 키의 보기, 복사 및 재생성 방법을 참조하세요.
+1. **account name**을 저장소 계정 이름으로 바꿉니다. **account key**를 저장소 계정의 액세스 키로 바꿉니다. 저장소 액세스 키를 가져오는 방법은 [저장소 계정 관리](../../storage/common/storage-create-storage-account.md#manage-your-storage-account)에서 저장소 액세스 키의 보기, 복사 및 재생성 방법을 참조하세요.
 
-5. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
+1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
     ![배포 단추](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
@@ -129,7 +129,7 @@ ms.locfileid: "37048410"
 
     ![새 계산](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-2. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각은 주문형 HDInsight 클러스터를 만드는 데 사용되는 속성을 설명합니다.
+1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각은 주문형 HDInsight 클러스터를 만드는 데 사용되는 속성을 설명합니다.
 
     ```JSON
     {
@@ -167,11 +167,11 @@ ms.locfileid: "37048410"
 
      자세한 내용은 [주문형 HDInsight 연결된 서비스](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 참조하세요.
 
-3. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
+1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
     ![배포 옵션](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
-4. 왼쪽의 트리 뷰에서 **AzureStorageLinkedService** 및 **HDInsightOnDemandLinkedService**가 모두 표시되는지 확인합니다.
+1. 왼쪽의 트리 뷰에서 **AzureStorageLinkedService** 및 **HDInsightOnDemandLinkedService**가 모두 표시되는지 확인합니다.
 
     ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
@@ -183,7 +183,7 @@ ms.locfileid: "37048410"
 
     ![새 데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-2. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 파이프라인의 활동에 대한 입력 데이터를 나타내는 **AzureBlobInput**이라는 데이터 집합을 만듭니다. 또한 입력 데이터가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 있도록 지정합니다.
+1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 파이프라인의 활동에 대한 입력 데이터를 나타내는 **AzureBlobInput**이라는 데이터 집합을 만듭니다. 또한 입력 데이터가 **adfgetstarted**라는 Blob 컨테이너 및 **inputdata**라는 폴더에 있도록 지정합니다.
 
     ```JSON
     {
@@ -223,14 +223,14 @@ ms.locfileid: "37048410"
 
     이러한 JSON 속성에 대한 자세한 내용은 [Azure Blob 커넥터](data-factory-azure-blob-connector.md#dataset-properties)를 참조하세요.
 
-3. 명령 모음에서 **배포**를 선택하여 새로 만든 데이터 집합을 배포합니다. 왼쪽의 트리 뷰에서 데이터 집합을 표시합니다.
+1. 명령 모음에서 **배포**를 선택하여 새로 만든 데이터 집합을 배포합니다. 왼쪽의 트리 뷰에서 데이터 집합을 표시합니다.
 
 ### <a name="create-the-output-dataset"></a>출력 데이터 집합 만들기
 이제 Blob Storage에 저장된 출력 데이터를 나타내는 출력 데이터 집합을 만듭니다.
 
 1. 데이터 팩터리 편집기에서 **자세히** > **새 데이터 집합** > **Azure Blob 저장소**를 차례로 선택합니다.
 
-2. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성되는 데이터의 구조를 지정합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **availability** 섹션에서는 출력 데이터 집합을 매일 생성하도록 지정합니다.
+1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다. JSON 코드 조각에서 **AzureBlobOutput**이라는 데이터 집합을 만들고 Hive 스크립트에 의해 생성되는 데이터의 구조를 지정합니다. 또한 결과가 **adfgetstarted**라는 Blob 컨테이너와 **partitioneddata**라는 폴더에 저장되도록 지정합니다. **availability** 섹션에서는 출력 데이터 집합을 매일 생성하도록 지정합니다.
 
     ```JSON
     {
@@ -254,9 +254,9 @@ ms.locfileid: "37048410"
     ```
     이러한 속성에 대한 설명은 “입력 데이터 집합 만들기” 섹션을 참조하세요. Data Factory 서비스에서 데이터 집합이 생성되므로 출력 데이터 집합에서 외부 속성을 설정하지 않습니다.
 
-3. 명령 모음에서 **배포**를 선택하여 새로 만든 데이터 집합을 배포합니다.
+1. 명령 모음에서 **배포**를 선택하여 새로 만든 데이터 집합을 배포합니다.
 
-4. 데이터 집합이 성공적으로 만들어졌는지 확인합니다.
+1. 데이터 집합이 성공적으로 만들어졌는지 확인합니다.
 
     ![연결된 서비스와 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
@@ -267,7 +267,7 @@ ms.locfileid: "37048410"
 
     ![새 파이프라인 옵션](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-2. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다.
+1. 다음 코드 조각을 복사하여 Draft-1 창에 붙여넣습니다.
 
    > [!IMPORTANT]
    > **storageaccountname**을 JSON 코드 조각의 저장소 계정 이름으로 바꿉니다.
@@ -333,7 +333,7 @@ ms.locfileid: "37048410"
    > 예제에서 사용되는 JSON 속성에 대한 자세한 내용은 [Data Factory의 파이프라인 및 활동](data-factory-create-pipelines.md)에서 “파이프라인 JSON” 섹션을 참조하세요.
    >
    >
-3. 다음을 확인합니다.
+1. 다음을 확인합니다.
 
    a. **input.log** 파일은 Blob Storage에서 **adfgetstarted** 컨테이너의 **inputdata** 폴더에 있습니다.
 
@@ -341,9 +341,9 @@ ms.locfileid: "37048410"
 
    다. **storageaccountname**을 파이프라인 JSON의 저장소 계정 이름으로 변경했습니다.
 
-4. 명령 모음에서 **배포**를 선택하여 파이프라인을 배포합니다. **시작** 및 **종료** 시간이 과거로 설정되고 **isPaused**가 **false**로 설정되었기 때문에 파이프라인(파이프라인의 작업)은 배포한 후에 즉시 실행됩니다.
+1. 명령 모음에서 **배포**를 선택하여 파이프라인을 배포합니다. **시작** 및 **종료** 시간이 과거로 설정되고 **isPaused**가 **false**로 설정되었기 때문에 파이프라인(파이프라인의 작업)은 배포한 후에 즉시 실행됩니다.
 
-5. 트리 뷰에 파이프라인이 표시되는지 확인합니다.
+1. 트리 뷰에 파이프라인이 표시되는지 확인합니다.
 
     ![파이프라인과 트리 뷰](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 
@@ -355,31 +355,31 @@ ms.locfileid: "37048410"
 
     ![다이어그램 타일](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
-2. **다이어그램** 보기에 이 자습서에서 사용된 파이프라인 및 데이터 집합의 개요가 표시됩니다.
+1. **다이어그램** 보기에 이 자습서에서 사용된 파이프라인 및 데이터 집합의 개요가 표시됩니다.
 
     ![다이어그램 뷰](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-3. 파이프라인의 모든 작업을 보려면 다이어그램에서 파이프라인을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 선택합니다.
+1. 파이프라인의 모든 작업을 보려면 다이어그램에서 파이프라인을 마우스 오른쪽 단추로 클릭하고 **파이프라인 열기**를 선택합니다.
 
     ![파이프라인 열기 메뉴](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
-4. 파이프라인에서 **Hive 작업**이 표시되는지 확인합니다.
+1. 파이프라인에서 **Hive 작업**이 표시되는지 확인합니다.
 
     ![파이프라인 보기 열기](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
     이전 보기로 돌아가려면 맨 위의 메뉴에서 **데이터 팩터리**를 선택합니다.
 
-5. **다이어그램** 보기에서 **AzureBlobInput** 데이터 집합을 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 **Ready** 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 기다려도 표시되지 않는 경우 오른쪽 컨테이너(**adfgetstarted**) 및 폴더(**inputdata**)에 배치된 입력 파일(**input.log**)이 있는지 확인합니다.
+1. **다이어그램** 보기에서 **AzureBlobInput** 데이터 집합을 두 번 클릭합니다. 조각이 **준비** 상태인지 확인합니다. 조각이 **Ready** 상태로 표시되려면 몇 분이 걸릴 수 있습니다. 잠시 기다려도 표시되지 않는 경우 오른쪽 컨테이너(**adfgetstarted**) 및 폴더(**inputdata**)에 배치된 입력 파일(**input.log**)이 있는지 확인합니다.
 
    ![준비 상태인 입력 조각](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-6. **AzureBlobInput** 블레이드를 닫습니다.
+1. **AzureBlobInput** 블레이드를 닫습니다.
 
-7. **다이어그램** 보기에서 **AzureBlobOutput** 데이터 집합을 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
+1. **다이어그램** 보기에서 **AzureBlobOutput** 데이터 집합을 두 번 클릭합니다. 현재 처리 중인 조각이 표시됩니다.
 
    ![진행 중인 데이터 집합 처리](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-8. 처리가 완료된 후 조각이 **준비** 상태로 표시됩니다.
+1. 처리가 완료된 후 조각이 **준비** 상태로 표시됩니다.
 
    ![준비 상태인 데이터 집합](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -388,15 +388,15 @@ ms.locfileid: "37048410"
    >
    >
 
-9. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
+1. 조각이 **준비** 상태에 있으면 출력 데이터에 대한 Blob Storage의 **adfgetstarted** 컨테이너에 있는 **partitioneddata** 폴더를 확인합니다.  
 
    ![출력 데이터](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-10. 조각을 선택하여 **데이터 조각** 블레이드에서 자세한 내용을 확인합니다.
+1. 조각을 선택하여 **데이터 조각** 블레이드에서 자세한 내용을 확인합니다.
 
     ![데이터 조각 정보](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-11. **활동 실행** 목록에서 활동 실행을 선택하여 항목에 대한 자세한 내용을 확인합니다. (이 시나리오에서는 Hive 작업입니다.) 정보가 **활동 실행 세부 정보** 블레이드에 표시됩니다.   
+1. **활동 실행** 목록에서 활동 실행을 선택하여 항목에 대한 자세한 내용을 확인합니다. (이 시나리오에서는 Hive 작업입니다.) 정보가 **활동 실행 세부 정보** 블레이드에 표시됩니다.   
 
     ![활동 실행 세부 정보 창](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -415,11 +415,11 @@ ms.locfileid: "37048410"
 
     ![타일 모니터링 및 관리](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-2. 응용 프로그램 모니터링 및 관리에서 **시작 시간** 및 **종료 시간**을 파이프라인 시작 및 종료 시간에 맞게 변경합니다. **적용**을 선택합니다.
+1. 응용 프로그램 모니터링 및 관리에서 **시작 시간** 및 **종료 시간**을 파이프라인 시작 및 종료 시간에 맞게 변경합니다. **적용**을 선택합니다.
 
     ![앱 모니터링 및 관리](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 
-3. 자세한 내용을 보려면 **활동 창** 목록에서 활동 창을 선택합니다.
+1. 자세한 내용을 보려면 **활동 창** 목록에서 활동 창을 선택합니다.
 
     ![활동 기간 목록](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 

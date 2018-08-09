@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/1/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 63216d56fb3acbb954086fbf026441e69073621e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 091a097fc9fafd5bdc6a2521f4fa2a1b6b77ba4c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263068"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422556"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 ## <a name="overview"></a>개요 ##
@@ -33,21 +33,21 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 1. [포털](https://portal.azure.com)에서 **모니터**를 선택합니다. **모니터** 블레이드는 모든 모니터링 설정 및 데이터를 하나의 뷰에 통합합니다.
 
     ![“모니터링” 서비스](./media/monitoring-action-groups/home-monitor.png)
-2. **설정** 섹션에서 **작업 그룹**을 선택합니다.
+1. **설정** 섹션에서 **작업 그룹**을 선택합니다.
 
     ![“작업 그룹” 탭](./media/monitoring-action-groups/action-groups-blade.png)
-3. **작업 그룹 추가**를 선택하고 필드를 입력합니다.
+1. **작업 그룹 추가**를 선택하고 필드를 입력합니다.
 
     ![“작업 그룹 추가” 명령](./media/monitoring-action-groups/add-action-group.png)
-4. **작업 그룹 이름** 상자에 이름을 입력하고 **약식 이름** 상자에 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
+1. **작업 그룹 이름** 상자에 이름을 입력하고 **약식 이름** 상자에 이름을 입력합니다. 약식 이름은 이 그룹을 사용하여 알림을 보내는 경우 전체 작업 그룹 이름 대신 사용됩니다.
 
       ![“작업 그룹 추가” 대화 상자](./media/monitoring-action-groups/action-group-define.png)
 
-5. **구독** 상자가 현재 구독으로 자동으로 채워집니다. 이 구독은 작업 그룹이 저장되는 위치입니다.
+1. **구독** 상자가 현재 구독으로 자동으로 채워집니다. 이 구독은 작업 그룹이 저장되는 위치입니다.
 
-6. 작업 그룹이 저장되는 **리소스 그룹**을 선택합니다.
+1. 작업 그룹이 저장되는 **리소스 그룹**을 선택합니다.
 
-7. 각 작업에 대해 다음 정보를 제공하여 작업 목록을 정의합니다.
+1. 각 작업에 대해 다음 정보를 제공하여 작업 목록을 정의합니다.
 
     a. **이름**: 이 작업에 대한 고유 식별자를 입력합니다.
 
@@ -55,7 +55,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
     다. **세부 정보**: 작업 유형에 따라 전화 번호, 이메일 주소, 웹후크 URI, Azure 앱, ITSM 연결 또는 Automation Runbook을 입력합니다. ITSM 작업의 경우 **작업 항목** 및 ITSM 도구에 필요한 다른 필드를 추가로 지정합니다.
 
-8. **확인**을 선택하여 작업 그룹을 만듭니다.
+1. **확인**을 선택하여 작업 그룹을 만듭니다.
 
 ## <a name="action-specific-information"></a>작업별 정보
 <dl>

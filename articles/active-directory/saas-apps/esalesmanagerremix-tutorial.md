@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 235ba5fd1365ed8b400edce3db22420369540cce
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d96fd1eacc98e88dc8578b259781cc661cf85933
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052672"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442832"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Azure Active Directory와 E Sales Manager Remix 통합
 
@@ -64,15 +64,15 @@ E Sales Manager Remix와의 Azure AD 통합을 구성하려면 다음을 수행�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
     !["엔터프라이즈 응용 프로그램" 창][2]
     
-3. 새 응용 프로그램을 추가하려면 창 위쪽에 있는 **새 응용 프로그램**을 선택합니다.
+1. 새 응용 프로그램을 추가하려면 창 위쪽에 있는 **새 응용 프로그램**을 선택합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **E Sales Manager Remix**를 입력하고 결과 목록에서 **E Sales Manager Remix**를 선택한 후 **추가**를 선택합니다.
+1. 검색 상자에 **E Sales Manager Remix**를 입력하고 결과 목록에서 **E Sales Manager Remix**를 선택한 후 **추가**를 선택합니다.
 
     ![결과 목록의 E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -92,11 +92,11 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     ![“Single Sign-On” 링크][4]
 
-2. **Single Sign-On** 창의 **Single Sign-On 모드** 상자에서 **SAML 기반 로그온**을 선택합니다.
+1. **Single Sign-On** 창의 **Single Sign-On 모드** 상자에서 **SAML 기반 로그온**을 선택합니다.
  
     ![“Single Sign-On” 창](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_samlbase.png)
 
-3. **E Sales Manager Remix 도메인 및 URL**에서 다음을 수행합니다.
+1. **E Sales Manager Remix 도메인 및 URL**에서 다음을 수행합니다.
 
     ![E Sales Manager Remix 도메인 및 URL Single Sign-On 정보](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
@@ -109,47 +109,47 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트합니다. 값을 얻으려면 [E Sales Manager Remix 고객 지원 팀](mailto:esupport@softbrain.co.jp)에 문의하세요.
 
-4. **SAML 서명 인증서** 아래에서 **인증서(Base64)** 를 선택한 후 사용자의 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 아래에서 **인증서(Base64)** 를 선택한 후 사용자의 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서(Base64) 다운로드 링크](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_certificate.png) 
 
-5. **기타 모든 사용자 특성 보기 및 편집** 확인란을 선택하고 **emailaddress** 특성을 선택합니다.
+1. **기타 모든 사용자 특성 보기 및 편집** 확인란을 선택하고 **emailaddress** 특성을 선택합니다.
     
     ![사용자 특성 창](./media/esalesmanagerremix-tutorial/configure1.png)
 
     **특성 편집** 창이 열립니다.
 
-6. **Namespace** 및 **Name** 값을 복사합니다. *\<Namespace>/\<Name>* 패턴으로 값을 생성하고 이 자습서의 뒷부분에서 사용할 수 있게 저장합니다.
+1. **Namespace** 및 **Name** 값을 복사합니다. *\<Namespace>/\<Name>* 패턴으로 값을 생성하고 이 자습서의 뒷부분에서 사용할 수 있게 저장합니다.
 
     ![특성 편집 창](./media/esalesmanagerremix-tutorial/configure2.png)
 
-7. **E Sales Manager Remix 구성**에서 **E Sales Manager Remix 구성**을 선택합니다.
+1. **E Sales Manager Remix 구성**에서 **E Sales Manager Remix 구성**을 선택합니다.
 
     ![E Sales Manager Remix 구성](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     **로그온 구성** 창이 열립니다.
 
-8. **빠른 참조** 섹션에서 로그아웃 URL 및 SAML Single Sign-On 서비스 URL을 복사합니다.
+1. **빠른 참조** 섹션에서 로그아웃 URL 및 SAML Single Sign-On 서비스 URL을 복사합니다.
 
-9. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
     ![저장 단추](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
-10. E Sales Manager Remix 응용 프로그램에 관리자로 로그인합니다.
+1. E Sales Manager Remix 응용 프로그램에 관리자로 로그인합니다.
 
-11. 오른쪽 상단에서 **관리자 메뉴**를 선택합니다.
+1. 오른쪽 상단에서 **관리자 메뉴**를 선택합니다.
 
     !["관리자 메뉴" 명령](./media/esalesmanagerremix-tutorial/configure4.png)
 
-12. 왼쪽 창에서 **시스템 설정** > **외부 시스템 협력**을 선택합니다.
+1. 왼쪽 창에서 **시스템 설정** > **외부 시스템 협력**을 선택합니다.
 
     ![“시스템 설정” 및 “외부 시스템 협력” 링크](./media/esalesmanagerremix-tutorial/configure5.png)
     
-13. **외부 시스템 협력** 창에서 **SAML**을 선택합니다.
+1. **외부 시스템 협력** 창에서 **SAML**을 선택합니다.
 
     !["외부 시스템 협력" 창](./media/esalesmanagerremix-tutorial/configure6.png)
 
-14. **SAML 인증 설정**에서 다음을 수행합니다.
+1. **SAML 인증 설정**에서 다음을 수행합니다.
 
     !["SAML 인증 설정" 섹션](./media/esalesmanagerremix-tutorial/configure3.png)
     
@@ -183,17 +183,17 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     ![Azure Active Directory 링크](./media/paloaltoadmin-tutorial/create_aaduser_01.png)
 
-2. 현재 사용자 목록을 표시하려면 **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+1. 현재 사용자 목록을 표시하려면 **사용자 및 그룹** > **모든 사용자**를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/paloaltoadmin-tutorial/create_aaduser_02.png)
 
-3. **모든 사용자** 창 상단에서 **추가**를 선택합니다.
+1. **모든 사용자** 창 상단에서 **추가**를 선택합니다.
 
     ![추가 단추](./media/paloaltoadmin-tutorial/create_aaduser_03.png)
     
     **사용자** 창이 열립니다.
 
-4. **사용자** 창에서 다음을 수행합니다.
+1. **사용자** 창에서 다음을 수행합니다.
 
     ![사용자 창](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
@@ -209,15 +209,15 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
 1. E Sales Manager Remix 응용 프로그램에 관리자로 로그온합니다.
 
-2. 오른쪽 상단 메뉴에서 **관리자 메뉴**를 선택합니다.
+1. 오른쪽 상단 메뉴에서 **관리자 메뉴**를 선택합니다.
 
     ![E Sales Manager Remix 구성](./media/esalesmanagerremix-tutorial/configure4.png)
 
-3. **회사 설정** > **부서 및 직원 유지 관리** 및 **등록된 직원**을 선택합니다.
+1. **회사 설정** > **부서 및 직원 유지 관리** 및 **등록된 직원**을 선택합니다.
 
     !["등록된 직원" 탭](./media/esalesmanagerremix-tutorial/user1.png)
 
-4. **새 직원 등록** 섹션에서 다음을 수행합니다.
+1. **새 직원 등록** 섹션에서 다음을 수행합니다.
     
     !["새 직원 등록" 섹션](./media/esalesmanagerremix-tutorial/user2.png)
 
@@ -229,7 +229,7 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     d. **등록**을 선택합니다.
 
-5. 나중에 관리자 권한으로 로그인하려면 관리자 권한이 있는 사용자로 로그인하고 오른쪽 상단에 있는 **관리자 메뉴**를 선택합니다.
+1. 나중에 관리자 권한으로 로그인하려면 관리자 권한이 있는 사용자로 로그인하고 오른쪽 상단에 있는 **관리자 메뉴**를 선택합니다.
 
     !["관리자 메뉴" 명령](./media/esalesmanagerremix-tutorial/configure4.png)
 
@@ -243,23 +243,23 @@ E Sales Manager Remix에서 Azure AD Single Sign-On을 구성하고 테스트하
 
     !["엔터프라이즈 응용 프로그램" 및 "모든 응용 프로그램" 링크][201] 
 
-2. **응용 프로그램** 목록에서 **E Sales Manager Remix**를 선택합니다.
+1. **응용 프로그램** 목록에서 **E Sales Manager Remix**를 선택합니다.
 
     ![E Sales Manager Remix 링크](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_app.png)  
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+1. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가**를 선택한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
+1. **추가**를 선택한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 창의 **사용자 목록**에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 창의 **사용자 목록**에서 **Britta Simon**을 선택합니다.
 
-6. **선택** 단추를 선택합니다.
+1. **선택** 단추를 선택합니다.
 
-7. **할당 추가** 창에서 **할당**을 선택합니다.
+1. **할당 추가** 창에서 **할당**을 선택합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

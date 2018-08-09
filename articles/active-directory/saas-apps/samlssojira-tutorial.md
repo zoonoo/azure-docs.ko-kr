@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 05a91e66d046bb7869179175c3a7d0b13b1942e4
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 6ae8256f3485d49d42efeb2927a6838252a1aeee
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042193"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>자습서: SAML SSO for Jira by resolution GmbH와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ SAML SSO for Jira by resolution GmbH와 Azure AD를 통합하도록 구성하려
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 SAML SSO for Jira by resolution GmbH 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-saml-sso-for-jira-by-resolution-gmbh-from-the-gallery"></a>갤러리에서 SAML SSO for Jira by resolution GmbH 추가
 Azure AD에 SAML SSO for Jira by resolution GmbH를 통합하도록 구성하려면 갤러리에서 관리되는 SaaS 앱 목록으로 SAML SSO for Jira by resolution GmbH를 추가해야 합니다.
@@ -63,19 +63,19 @@ Azure AD에 SAML SSO for Jira by resolution GmbH를 통합하도록 구성하려
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![응용 프로그램][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![응용 프로그램][3]
 
-4. 검색 상자에서 **SAML SSO for Jira by resolution GmbH**를 입력합니다.
+1. 검색 상자에서 **SAML SSO for Jira by resolution GmbH**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/tutorial_samlssojira_search.png)
 
-5. 결과 창에서 **SAML SSO for Jira by resolution GmbH**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 창에서 **SAML SSO for Jira by resolution GmbH**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/tutorial_samlssojira_addfromgallery.png)
 
@@ -89,10 +89,10 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD의 **사용자 이름** 값�
 SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[SAML SSO for Jira by resolution GmbH 테스트 사용자 만들기](#creating-a-saml-sso-for-jira-by-resolution-gmbh-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SAML SSO for Jira by resolution GmbH에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[SAML SSO for Jira by resolution GmbH 테스트 사용자 만들기](#creating-a-saml-sso-for-jira-by-resolution-gmbh-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 SAML SSO for Jira by resolution GmbH에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,11 +104,11 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_samlbase.png)
 
-3. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **SAML SSO for Jira by resolution GmbH 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **IDP** 시작 모드에서 응용 프로그램을 구성하려면 **SAML SSO for Jira by resolution GmbH 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_url_1.png)
 
@@ -116,7 +116,7 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
 
     나. **회신 URL** 텍스트 상자에 다음 패턴으로 URL을 입력합니다.`https://<server-base-url>/plugins/servlet/samlsso`
 
-4. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 응용 프로그램을 구성하려면:
+1. **고급 URL 설정 표시**를 선택합니다. **SP** 시작 모드에서 응용 프로그램을 구성하려면:
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_url_2.png)
 
@@ -125,47 +125,47 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [SAML SSO for Jira by resolution GmbH 지원 팀](https://www.resolution.de/go/support)에 문의하세요. 
 
-5. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **메타데이터 XML**을 클릭한 후 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_certificate.png) 
 
-6. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_general_400.png)
     
-7. 다른 웹 브라우저 창에서 **SAML SSO for Jira by resolution GmbH 관리 포털**에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 **SAML SSO for Jira by resolution GmbH 관리 포털**에 관리자로 로그인합니다.
 
-8. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
+1. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon1.png)
 
-9. [관리자 액세스] 페이지로 리디렉션됩니다. **암호**를 입력하고 **확인** 단추를 클릭합니다.
+1. [관리자 액세스] 페이지로 리디렉션됩니다. **암호**를 입력하고 **확인** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon2.png)
 
-10. [추가 기능] 탭 섹션에서 **새 추가 기능 찾기**를 클릭합니다. **SAML Single Sign On(SSO) for JIRA**를 검색하고 **설치** 단추를 클릭하여 새 SAML 플러그 인을 설치합니다.
+1. [추가 기능] 탭 섹션에서 **새 추가 기능 찾기**를 클릭합니다. **SAML Single Sign On(SSO) for JIRA**를 검색하고 **설치** 단추를 클릭하여 새 SAML 플러그 인을 설치합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon7.png)
 
-11. 플러그 인 설치가 시작됩니다. **닫기**를 클릭합니다.
+1. 플러그 인 설치가 시작됩니다. **닫기**를 클릭합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon8.png)
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon9.png)
 
-12. **관리**를 클릭합니다.
+1.  **관리**를 클릭합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon10.png)
     
-13. **구성**을 클릭하여 새 플러그 인을 구성합니다.
+1. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon11.png)
 
-14. **SAML SingleSignOn 플러그인 구성** 페이지에서 **새 IdP 추가** 단추를 클릭하여 ID 공급자의 설정을 구성합니다.
+1. **SAML SingleSignOn 플러그인 구성** 페이지에서 **새 IdP 추가** 단추를 클릭하여 ID 공급자의 설정을 구성합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon4.png)
 
-15. **SAML ID 공급자 설정** 페이지에서 다음 단계를 수행합니다.
+1. **SAML ID 공급자 설정** 페이지에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5a.png)
  
@@ -177,11 +177,11 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
     
     d. **다음**을 클릭합니다.
     
-16. **ID 공급자 구성** 페이지에서 **다음** 단추를클릭합니다.
+1. **ID 공급자 구성** 페이지에서 **다음** 단추를클릭합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5b.png)
 
-17. **SAML IdP 메타데이터 가져오기** 페이지에서 다음 단계를 수행합니다.
+1. **SAML IdP 메타데이터 가져오기** 페이지에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5c.png)
 
@@ -193,19 +193,19 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
     
     d. **다음** 단추를 클릭합니다.
     
-18. **사용자 ID 특성 및 변환** 페이지에서 **다음** 단추를 클릭합니다.
+1. **사용자 ID 특성 및 변환** 페이지에서 **다음** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon5d.png)
     
-19. **사용자 만들기 및 업데이트** 페이지에서 **저장 및 다음**을 클릭하여 설정을 저장합니다.   
+1. **사용자 만들기 및 업데이트** 페이지에서 **저장 및 다음**을 클릭하여 설정을 저장합니다.    
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6a.png)
     
-20. **설정 테스트** 페이지에서 **테스트 건너뛰기 및 수동으로 구성**을 클릭하여 사용자 테스트를 한 번 건너뜁니다. 다음 섹션에서 수행되며 Azure Portal에서 몇 가지 설명이 필요합니다. 
+1. **설정 테스트** 페이지에서 **테스트 건너뛰기 및 수동으로 구성**을 클릭하여 사용자 테스트를 한 번 건너뜁니다. 다음 섹션에서 수행되며 Azure Portal에서 몇 가지 설명이 필요합니다. 
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6b.png)
     
-21. **테스트 건너뛰기의 의미...**  내용이 담긴 대화 상자가 표시되면 **확인**을 클릭합니다.
+1. **테스트 건너뛰기의 의미...**  내용이 담긴 대화 상자가 표시되면 **확인**을 클릭합니다.
     
     ![Configure Single Sign-On](./media/samlssojira-tutorial/addon6c.png)
 
@@ -224,15 +224,15 @@ SAML SSO for Jira by resolution GmbH에서 Azure AD Single Sign-On을 구성하�
 
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/samlssojira-tutorial/create_aaduser_04.png) 
 
@@ -253,19 +253,19 @@ SAML SSO for Jira by resolution GmbH에서 프로비전은 수동 작업입니�
 
 1. SAML SSO for Jira by resolution GmbH 회사 사이트에 관리자로 로그인합니다.
 
-2. 마우스로 선 위를 가리키고 **사용자 관리**를 클릭합니다.
+1. 마우스로 선 위를 가리키고 **사용자 관리**를 클릭합니다.
 
     ![직원 추가](./media/samlssojira-tutorial/user1.png) 
 
-3. 리디렉션된 [관리자 액세스] 페이지에서 **암호**를 입력하고 **확인** 단추를 클릭합니다.
+1. 리디렉션된 [관리자 액세스] 페이지에서 **암호**를 입력하고 **확인** 단추를 클릭합니다.
 
     ![직원 추가](./media/samlssojira-tutorial/user2.png) 
 
-4. **사용자 관리** 탭 섹션 아래에서  **사용자 만들기**를 클릭합니다.
+1. **사용자 관리** 탭 섹션 아래에서  **사용자 만들기**를 클릭합니다.
 
     ![직원 추가](./media/samlssojira-tutorial/user3.png) 
 
-5. **“새 사용자 만들기”** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **“새 사용자 만들기”** 대화 상자 페이지에서 다음 단계를 수행합니다.
 
     ![직원 추가](./media/samlssojira-tutorial/user4.png) 
 
@@ -291,23 +291,23 @@ SAML SSO for Jira by resolution GmbH에서 프로비전은 수동 작업입니�
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **SAML SSO for Jira by resolution GmbH**를 선택합니다.
+1. 응용 프로그램 목록에서 **SAML SSO for Jira by resolution GmbH**를 선택합니다.
 
     ![Configure Single Sign-On](./media/samlssojira-tutorial/tutorial_samlssojira_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/19/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 6d9562697c8135ba4b92b1bbf304a41af8c426c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c5cc20b4f20e3a4f746ab15aa5f139c8e7201a2c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36220386"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447169"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
@@ -61,15 +61,15 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 응용 프로그램** 섹션으로 이동합니다.
 
-2. Single Sign-On을 위해 Pingboard를 이미 구성한 경우 검색 필드를 사용하여 Pingboard 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Pingboard**를 검색합니다. 검색 결과에서 **Pingboard**를 선택하여 응용 프로그램 목록에 추가합니다.
+1. Single Sign-On을 위해 Pingboard를 이미 구성한 경우 검색 필드를 사용하여 Pingboard 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **Pingboard**를 검색합니다. 검색 결과에서 **Pingboard**를 선택하여 응용 프로그램 목록에 추가합니다.
 
-3. Pingboard 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
+1. Pingboard 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-4. **프로비전 모드**를 **자동**으로 설정합니다.
+1. **프로비전 모드**를 **자동**으로 설정합니다.
 
     ![Pingboard 프로비전](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
     
-5. **관리자 자격 증명** 섹션에서 다음 단계를 수행합니다.
+1. **관리자 자격 증명** 섹션에서 다음 단계를 수행합니다.
 
     a. **테넌트 URL**에 `https://your_domain.pingboard.com/scim/v2`를 입력하고 your_domain을 실제 도메인으로 바꿉니다.
 
@@ -81,19 +81,19 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
     e. **OAuth 전달자 토큰**에서 토큰을 복사하여 **암호 토큰**에 입력합니다.
 
-6. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 Pingboard 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 Pingboard 계정에 관리자 권한이 있는지 확인하고 **연결 테스트** 단계를 다시 시도합니다.
+1. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 Pingboard 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 Pingboard 계정에 관리자 권한이 있는지 확인하고 **연결 테스트** 단계를 다시 시도합니다.
 
-7. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
+1. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 메일**에 입력합니다. 아래 확인란을 선택합니다.
 
-8. **저장**을 선택합니다. 
+1. **저장**을 선택합니다. 
 
-9. **매핑** 섹션에서 **Azure Active Directory 사용자를 Pingboard에 동기화**를 선택합니다.
+1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Pingboard에 동기화**를 선택합니다.
 
-10. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
+1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../active-directory-saas-customizing-attribute-mappings.md)을 참조하세요.
 
-11. Pingboard에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. Pingboard에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-12. **저장**을 선택하여 Pingboard에 할당된 사용자의 초기 동기화를 시작합니다.
+1. **저장**을 선택하여 Pingboard에 할당된 사용자의 초기 동기화를 시작합니다.
 
 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인합니다. 로그는 Pingboard 앱에서 프로비전 서비스가 수행하는 모든 작업을 설명합니다.
 

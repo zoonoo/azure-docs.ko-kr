@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 28c217430dcbc8ee17998742c31888e06dddf96f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5b7f2f1bd1872f78377a0d16567ca4df8f8d0968
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902149"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440680"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service 자습서 - DC/OS 관리
 
@@ -34,7 +34,7 @@ DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 �
 
 ## <a name="create-dcos-cluster"></a>DC/OS 클러스터 만들기
 
-먼저 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
+먼저 [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 
 
 다음 예제에서는 *westeurope* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
@@ -42,7 +42,7 @@ DC/OS는 컨테이너화된 최신 응용 프로그램 실행을 위한 분산 �
 az group create --name myResourceGroup --location westeurope
 ```
 
-다음으로 [az acs create](/cli/azure/acs#az_acs_create) 명령을 사용하여 DC/OS 클러스터를 만듭니다.
+다음으로 [az acs create](/cli/azure/acs#az-acs-create) 명령을 사용하여 DC/OS 클러스터를 만듭니다.
 
 다음 예제에서는 *myDCOSCluster*라는 DC/OS 클러스터를 만들고 SSH 키가 없는 경우 이 키를 만듭니다. 특정 키 집합을 사용하려면 `--ssh-key-value` 옵션을 사용합니다.  
 
@@ -240,13 +240,13 @@ az network public-ip list --resource-group myResourceGroup --query "[?contains(n
 
 이전의 예에서 응용 프로그램은 여러 인스턴스로 확장되었습니다. 더 많거나 적은 계산 수용작업량을 제공하도록 DC/OS 인프라를 확장할 수도 있습니다. 그러려면 [az acs scale]() 명령을 사용합니다. 
 
-DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az_acs_show) 명령을 사용합니다.
+DC/OS 에이전트의 현재 수를 보려면 [az acs show](/cli/azure/acs#az-acs-show) 명령을 사용합니다.
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-개수를 5로 늘리려면 [az acs scale](/cli/azure/acs#az_acs_scale) 명령을 사용합니다. 
+개수를 5로 늘리려면 [az acs scale](/cli/azure/acs#az-acs-scale) 명령을 사용합니다. 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -254,7 +254,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>DC/OS 클러스터 삭제
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, DC/OS 클러스터 및 모든 관련된 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, DC/OS 클러스터 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait

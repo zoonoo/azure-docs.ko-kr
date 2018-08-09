@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: glenga
-ms.openlocfilehash: 318a39e244f0fca3a1b2d8531dd9197a15400e02
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 155062a702d45683be9009a366b4e5fcaf80335f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205360"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425795"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
@@ -198,7 +198,7 @@ Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방�
 
 * [Azure Portal 사용](functions-how-to-use-azure-function-app-settings.md#settings)
 * [`--publish-local-settings` Azure Functions 핵심 도구의 게시 옵션](functions-run-local.md#publish) 사용
-* [Azure CLI 사용](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 
+* [Azure CLI 사용](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 
 
 ## <a name="next-steps"></a>다음 단계
 

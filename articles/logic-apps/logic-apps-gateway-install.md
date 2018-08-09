@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.reviewer: yshoukry, LADocs
 ms.suite: integration
-ms.openlocfilehash: 09e3879ed91a0e9c6d27940cae53f3e3f0397d7b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145209"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503651"
 ---
 # <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -84,7 +84,7 @@ Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 기타
   > [!TIP]
   > Office 365 서비스에 등록하고 실제 회사 이메일을 제공하지 않은 경우 로그인 주소는 예제 `username@domain.onmicrosoft.com`과 같을 수 있습니다. 
   >
-  > [Visual Studio Standard 구독](https://visualstudio.microsoft.com/vs/pricing/)이 있는 Microsoft 계정을 사용하려는 경우 먼저 Microsoft 계정을 사용하여 [Azure Active Directory에서 디렉터리(테넌트)를 만들거나](../active-directory/develop/active-directory-howto-tenant.md) 기본 디렉터리를 사용합니다. 
+  > [Visual Studio Standard 구독](https://visualstudio.microsoft.com/vs/pricing/)이 있는 Microsoft 계정을 사용하려는 경우 먼저 Microsoft 계정을 사용하여 [Azure Active Directory에서 디렉터리(테넌트)를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용합니다. 
   > 암호가 있는 사용자를 디렉터리를 추가한 다음 해당 사용자에게 구독에 대한 액세스 권한을 제공합니다. 
   > 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/05/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 66dcebb702695a6601f6ed17b85a04d5bb4e01f6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: c8eab17a5c635560d9a5274eb038845238968e02
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100046"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439938"
 ---
 # <a name="delete-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 삭제
 
@@ -46,4 +46,4 @@ Azure Portal에서 AKS(Azure Kubernetes Service) 리소스가 포함된 리소�
 ![AKS 클러스터 포털 삭제](media/container-service-delete-cluster/delete-aks-portal.png)
 
 <!-- LINKS - internal -->
-[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az_aks_delete
+[az-aks-delete]: /cli/azure/aks?view=azure-cli-latest#az-aks-delete

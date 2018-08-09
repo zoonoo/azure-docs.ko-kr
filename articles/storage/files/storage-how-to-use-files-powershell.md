@@ -2,23 +2,18 @@
 title: Azure PowerShell을 사용하여 Azure 파일 공유 관리
 description: Azure PowerShell을 사용하여 Azure 파일 공유를 관리하는 방법을 알아봅니다.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 8fcc654b7f5068037ec0818e19d8dff09bc07537
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: a69e8946c050cc69411f843b07e907a119c6edea
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635091"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522932"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure 파일 공유 관리 
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 Windows, Linux 및 macOS에 탑재할 수 있습니다. 이 가이드에서는 PowerShell을 사용하여 Azure 파일 공유로 작업하는 기본 사항을 설명합니다. 이 문서에서는 다음 방법을 알아봅니다.
@@ -31,7 +26,7 @@ ms.locfileid: "38635091"
 > * 파일 다운로드
 > * 공유 스냅숏 만들기 및 사용
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만들 수 있습니다.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 

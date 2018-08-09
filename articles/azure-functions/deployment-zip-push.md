@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/29/2018
 ms.author: glenga
-ms.openlocfilehash: 91c16ad5a6bf8babffc0b83d801626932688631e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 3ff02816cdd5641cdcd78a12206b80be6d518373
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34699957"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423711"
 ---
 # <a name="zip-push-deployment-for-azure-functions"></a>Azure Functions에 대한 Zip 푸시 배포 
 이 문서에서는 .zip(압축) 파일에서 Azure에 함수 앱 프로젝트 파일을 배포하는 방법을 설명합니다. Azure CLI를 사용하고 REST API를 사용하여 푸시 배포를 수행하는 방법을 알아봅니다. 
@@ -73,7 +73,7 @@ GitHub 리포지토리에서도 .zip 파일을 다운로드할 수 있습니다.
 
 ## <a name="cli"></a>Azure CLI를 사용하여 배포
 
-Azure CLI를 사용하여 푸시 배포를 트리거할 수 있습니다. [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az_functionapp_deployment_source_config_zip) 명령을 사용하여 함수 앱에 .zip 파일을 푸시 배포합니다. 이 명령을 사용하려면 Azure CLI 버전 2.0.21 이상을 사용해야 합니다. 사용 중인 Azure CLI 버전을 확인하려면 `az --version` 명령을 사용합니다.
+Azure CLI를 사용하여 푸시 배포를 트리거할 수 있습니다. [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) 명령을 사용하여 함수 앱에 .zip 파일을 푸시 배포합니다. 이 명령을 사용하려면 Azure CLI 버전 2.0.21 이상을 사용해야 합니다. 사용 중인 Azure CLI 버전을 확인하려면 `az --version` 명령을 사용합니다.
 
 다음 명령에서 `<zip_file_path>` 자리 표시자를 .zip 파일 위치의 경로로 바꿉니다. 또한 `<app_name>`을 함수 앱의 고유 이름으로 바꿉니다. 
 

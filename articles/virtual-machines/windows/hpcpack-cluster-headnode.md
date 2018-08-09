@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: acd4cd44dd35a5b1755d9456f683076567d62165
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 70c1d95f704315ee6a481367188e2bb620916702
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915262"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428959"
 ---
 # <a name="create-the-head-node-of-an-hpc-pack-cluster-in-an-azure-vm-with-a-marketplace-image"></a>Marketplace 이미지를 사용하여 Azure VM에 HPC 팩 클러스터의 헤드 노드 만들기
 Azure Marketplace 및 Azure Portal에서 [Microsoft HPC 팩 2012 R2 가상 머신 이미지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)를 사용하여 HPC 클러스터의 헤드 노드를 만드는 방법을 보여 줍니다. 이 HPC 팩 VM 이미지는 HPC 팩 2012 R2 업데이트 3이 미리 설치된 Windows Server 2012 R2 Datacenter를 기준으로 합니다. Azure에서 HPC 팩의 개념 증명 배포에 대해 이 헤드 노드를 사용합니다. 그런 다음 계산 노드를 HPC 워크로드를 실행하는 클러스터에 추가할 수 있습니다.
@@ -45,22 +45,22 @@ Azure Marketplace 및 Azure Portal에서 [Microsoft HPC 팩 2012 R2 가상 머�
 다음은 Azure 포털에서 Resource Manager 배포 모델을 사용하여 HPC Pack 헤드 노드용 Azure VM을 만들기 위한 자세한 단계입니다. 
 
 1. 별도 도메인 컨트롤러 VM으로 Azure에 새 Active Directory 포리스트를 만들려는 경우 [Resource Manager 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/active-directory-new-domain-ha-2-dc)을 사용하는 방법이 있습니다. 간단한 개념 증명 배포의 경우 이 단계를 생략하고 헤드 노드 VM 자체를 도메인 컨트롤러로 구성해도 됩니다. 이 옵션은 이 문서의 뒷부분에서 설명합니다.
-2. Azure Marketplace에서 [Windows Server 2012 R2의 HPC Pack 2012 R2 페이지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)에서 **Virtual Machine 만들기**를 클릭합니다. 
-3. 포털의 **Windows Server 2012 R2에 있는 HPC 팩 2012 R2** 페이지에서 **Resource Manager** 배포 모델을 선택한 다음 **만들기**를 클릭합니다.
+1. Azure Marketplace에서 [Windows Server 2012 R2의 HPC Pack 2012 R2 페이지](https://azure.microsoft.com/marketplace/partners/microsoft/hpcpack2012r2onwindowsserver2012r2/)에서 **Virtual Machine 만들기**를 클릭합니다. 
+1. 포털의 **Windows Server 2012 R2에 있는 HPC 팩 2012 R2** 페이지에서 **Resource Manager** 배포 모델을 선택한 다음 **만들기**를 클릭합니다.
    
     ![HPC 팩 이미지][marketplace]
-4. 포털을 사용하여 설정을 구성하고 VM을 만듭니다. Azure를 처음 접하는 경우 자습서 [Azure 포털에서 Windows 가상 머신 만들기](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 따르세요. 개념 증명 배포의 경우 일반적으로 기본 설정 또는 권장 설정을 적용할 수 있습니다.
+1. 포털을 사용하여 설정을 구성하고 VM을 만듭니다. Azure를 처음 접하는 경우 자습서 [Azure 포털에서 Windows 가상 머신 만들기](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 따르세요. 개념 증명 배포의 경우 일반적으로 기본 설정 또는 권장 설정을 적용할 수 있습니다.
    
    > [!NOTE]
    > Azure에서 기존 Active Directory 도메인에 헤드 노드를 가입하려는 경우 VM을 만들 때 해당 도메인에 대한 가상 네트워크를 지정해야 합니다.
    > 
    > 
-5. VM을 만든 다음 VM이 실행되면 원격 데스크톱을 사용하여 [VM에 연결합니다](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . 
-6. 다음 옵션 중 하나를 선택하여 Active Directory 도메인 포리스트에 VM을 조인합니다.
+1. VM을 만든 다음 VM이 실행되면 원격 데스크톱을 사용하여 [VM에 연결합니다](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . 
+1. 다음 옵션 중 하나를 선택하여 Active Directory 도메인 포리스트에 VM을 조인합니다.
    
    * 기존 도메인 포리스트가 있는 Azure 가상 네트워크에 VM을 만든 경우 표준 서버 관리자 또는 Windows PowerShell 도구를 사용하여 포리스트에 VM을 연결합니다. 그런 다음 다시 시작합니다.
    * 기존 도메인 포리스트가 없는 새 가상 네트워크에 VM을 만든 경우 VM을 도메인 컨트롤러로 승격합니다. 표준 단계를 사용하여 헤드 노드에 Active Directory Domain Services 역할을 설치하고 구성합니다. 자세한 단계를 보려면 [새 Windows Server 2012 Active Directory 포리스트 설치](https://technet.microsoft.com/library/jj574166.aspx)를 참조하세요.
-7. VM이 실행되고 Active Directory 포리스트에 연결되면 다음과 같이 HPC Pack 서비스를 시작합니다.
+1. VM이 실행되고 Active Directory 포리스트에 연결되면 다음과 같이 HPC Pack 서비스를 시작합니다.
    
     a. 로컬 관리자 그룹의 구성원인 도메인 계정을 사용하여 헤드 노드 VM에 연결합니다. 예를 들어 헤드 노드 VM을 만들 때 설정한 관리자 계정을 사용합니다.
    

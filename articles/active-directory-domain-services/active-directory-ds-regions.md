@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.openlocfilehash: 8026e83dfa115bc7ec381603a048ecb2a03d0a19
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 934a96bf4fd6747dc2273e0f9a57161eb5394ede
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36218285"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502753"
 ---
 # <a name="azure-ad-domain-services---supported-regions"></a>Azure AD Domain Services - 지원되는 지역
 Azure AD Domain Services를 사용할 수 있는 지역을 알아보려면 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services/)를 참조하세요.

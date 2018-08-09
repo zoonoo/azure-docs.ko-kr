@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: rogarana
-ms.openlocfilehash: 8b3a4d7feccc3af55415f54473ae1a2588ad5672
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 96d50260663f00f5ae2e9b2e0495c91ecb5da4b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936890"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421191"
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법
 Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가상 하드 디스크 크기는 일반적으로 30GB입니다. [데이터 디스크를 추가](add-disk.md)하여 추가 저장소 공간을 제공할 수 있으나, 기존 데이터 디스크를 확장할 수도 있습니다. 이 문서에서는 Azure CLI 2.0을 사용하여 Linux VM에서 Managed Disks를 확장하는 방법을 설명합니다. 
@@ -43,7 +43,7 @@ Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가
     > [!NOTE]
     > VM 할당을 취소하여 가상 하드 디스크를 확장해야 합니다. `az vm stop`은 계산 리소스를 릴리스하지 않습니다. 계산 리소스를 릴리스하려면 `az vm deallocate`을 사용합니다.
 
-2. 이제 [az disk list](/cli/azure/disk#az_disk_list)를 사용하여 리소스 그룹에서 Managed Disks 목록을 봅니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*의 Managed Disks 목록을 표시합니다.
+1. 이제 [az disk list](/cli/azure/disk#az_disk_list)를 사용하여 리소스 그룹에서 Managed Disks 목록을 봅니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*의 Managed Disks 목록을 표시합니다.
 
     ```azurecli
     az disk list \
@@ -64,7 +64,7 @@ Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가
     > [!NOTE]
     > Managed Disk를 확장하면 업데이트된 크기는 가장 가까운 Managed Disk 크기에 매핑됩니다. 사용 가능한 Managed Disk 크기 및 계층의 테이블은 [Azure Managed Disks 개요 - 가격 책정 및 청구](../windows/managed-disks-overview.md#pricing-and-billing)를 참조하세요.
 
-3. [az vm start](/cli/azure/vm#az_vm_start)를 사용하여 VM을 시작합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 시작합니다.
+1. [az vm start](/cli/azure/vm#az_vm_start)를 사용하여 VM을 시작합니다. 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 시작합니다.
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
@@ -80,7 +80,7 @@ Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-2. 확장된 디스크를 사용하려면 기본 파티션 및 파일 시스템을 확장해야 합니다.
+1. 확장된 디스크를 사용하려면 기본 파티션 및 파일 시스템을 확장해야 합니다.
 
     a. 이미 탑재되어 있는 경우 디스크를 분리합니다.
 
@@ -121,25 +121,25 @@ Azure에서 Linux VM(가상 머신)에서 OS(운영 체제)에 대한 기본 가
 
     d. 끝내려면 `quit`를 입력합니다.
 
-3. 파티션 크기를 조정했으면 `e2fsck`를 사용하여 파티션 일관성을 확인합니다.
+1. 파티션 크기를 조정했으면 `e2fsck`를 사용하여 파티션 일관성을 확인합니다.
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-4. 이제 파일 시스템 크기를 `resize2fs`로 조정합니다.
+1. 이제 파일 시스템 크기를 `resize2fs`로 조정합니다.
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-5. `/datadrive`와 같이 파티션을 원하는 위치로 탑재합니다.
+1. `/datadrive`와 같이 파티션을 원하는 위치로 탑재합니다.
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-6. OS 디스크 크기를 조정했는지 확인하려면 `df -h`을 사용합니다. 다음 예제 출력에서는 데이터 드라이브(*/dev/sdc1*)가 200GB임을 보여 줍니다.
+1. OS 디스크 크기를 조정했는지 확인하려면 `df -h`을 사용합니다. 다음 예제 출력에서는 데이터 드라이브(*/dev/sdc1*)가 200GB임을 보여 줍니다.
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on

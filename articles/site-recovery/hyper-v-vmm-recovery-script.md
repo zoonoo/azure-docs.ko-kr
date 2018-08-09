@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 71991347ffaf036065aae9e1a93b7eb83a14b15c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 0b2bb17c85f76498e11ea3f007d55d7488f249cf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917341"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426890"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 
@@ -52,9 +52,9 @@ ms.locfileid: "37917341"
   
   1. 레지스트리 편집기를 열고 **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**으로 이동합니다.
 
-  2. **ScriptLibraryPath**의 값을 **\\\libserver2.contoso.com\share\\**로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
+  1. **ScriptLibraryPath**의 값을 **\\\libserver2.contoso.com\share\\**로 변경합니다. 전체 FQDN을 지정합니다. 공유 위치에 대한 사용 권한을 제공합니다. 이것은 공유의 루트 노드입니다. 루트 노드를 확인하려면 VMM에서 라이브러리의 루트 노드로 이동합니다. 이때 열리는 경로가 경로의 루트입니다. 이 경로를 변수에 사용해야 합니다.
 
-  3. VMM 서비스 계정과 동일한 사용자 권한 수준을 갖는 사용자 계정으로 스크립트를 테스트합니다. 이렇게 하면 스크립트를 독립형 테스트 환경에서 실행할 때도 복구 계획과 동일한 환경으로 테스트할 수 있습니다. VMM 서버에서 실행 정책을 다음과 같이 우회로 설정합니다.
+  1. VMM 서비스 계정과 동일한 사용자 권한 수준을 갖는 사용자 계정으로 스크립트를 테스트합니다. 이렇게 하면 스크립트를 독립형 테스트 환경에서 실행할 때도 복구 계획과 동일한 환경으로 테스트할 수 있습니다. VMM 서버에서 실행 정책을 다음과 같이 우회로 설정합니다.
 
      a. **64비트 Windows PowerShell** 콘솔을 권리자 권한으로 엽니다.
      
@@ -68,19 +68,19 @@ ms.locfileid: "37917341"
 VMM 소스 사이트가 있다면 VMM 서버에서 스크립트를 생성할 수 있습니다. 그런 다음, 복구 계획에 스크립트를 추가하면 됩니다.
 
 1. 라이브러리 공유에서 새 폴더를 만듭니다. 예: \<VMM 서버 이름>\MSSCVMMLibrary\RPScripts. 폴더를 VMM 서버의 소스와 대상에 배치합니다.
-2. 스크립트를 작성합니다. 여기서는 스크립트의 이름을 RPScript라고 지정하겠습니다. 스크립트가 예상대로 작동하는지 확인합니다.
-3. 스크립트를 소스 및 대상 VMM 서버의 \<VMM 서버 이름>\MSSCVMMLibrary 폴더에 배치합니다.
+1. 스크립트를 작성합니다. 여기서는 스크립트의 이름을 RPScript라고 지정하겠습니다. 스크립트가 예상대로 작동하는지 확인합니다.
+1. 스크립트를 소스 및 대상 VMM 서버의 \<VMM 서버 이름>\MSSCVMMLibrary 폴더에 배치합니다.
 
 ## <a name="add-the-script-to-a-recovery-plan"></a>복구 계획에 스크립트 추가
 
 복구 계획에 VM 또는 복제 그룹을 추가하고 계획을 생성했으면 그룹에 스크립트를 추가합니다.
 
 1. 복구 계획을 엽니다.
-2. **단계** 목록에서 항목을 하나 선택합니다. 그런 다음, **스크립트**와 **수동 작업** 중 하나를 선택합니다.
-3. 스크립트 또는 작업을 선택한 항목의 앞에 추가할 것인지 뒤에 추가할 것인지 지정합니다. 스크립트를 위나 아래로 이동하려면 **위로 이동** 및 **아래로 이동** 단추를 선택합니다.
-4. VMM 스크립트를 추가하면 **VMM 스크립트에 대한 장애 조치**를 선택합니다. **스크립트 경로**에 공유의 상대 경로를 입력합니다. 예: **\RPScripts\RPScript.PS1**.
-5. Azure Automation Runbook을 추가하는 경우에는 Runbook이 있는 Automation 계정을 지정합니다. 그런 다음, 사용하려는 Azure Runbook 스크립트를 선택합니다.
-6. 스크립트가 예상대로 작동하는지 확인하려면 복구 계획의 장애 조치(failover)를 테스트합니다.
+1. **단계** 목록에서 항목을 하나 선택합니다. 그런 다음, **스크립트**와 **수동 작업** 중 하나를 선택합니다.
+1. 스크립트 또는 작업을 선택한 항목의 앞에 추가할 것인지 뒤에 추가할 것인지 지정합니다. 스크립트를 위나 아래로 이동하려면 **위로 이동** 및 **아래로 이동** 단추를 선택합니다.
+1. VMM 스크립트를 추가하면 **VMM 스크립트에 대한 장애 조치**를 선택합니다. **스크립트 경로**에 공유의 상대 경로를 입력합니다. 예: **\RPScripts\RPScript.PS1**.
+1. Azure Automation Runbook을 추가하는 경우에는 Runbook이 있는 Automation 계정을 지정합니다. 그런 다음, 사용하려는 Azure Runbook 스크립트를 선택합니다.
+1. 스크립트가 예상대로 작동하는지 확인하려면 복구 계획의 장애 조치(failover)를 테스트합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

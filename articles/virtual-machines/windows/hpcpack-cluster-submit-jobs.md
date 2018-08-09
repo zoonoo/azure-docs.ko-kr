@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036492"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421137"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>온-프레미스 컴퓨터에서 Azure에 배포된 HPC 팩 클러스터로 HPC 작업 제출
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -47,34 +47,34 @@ HTTPS를 통해 클러스터로 작업을 제출하도록 REST 인터페이스�
 **웹 구성 요소를 설치하려면**
 
 1. 클러스터 관리자의 자격 증명을 사용하여 헤드 노드 VM에 연결합니다.
-2. HPC 팩 설치 폴더에서 헤드 노드에 HpcWebComponents.msi를 실행합니다.
-3. 마법사의 단계를 따라 웹 구성 요소 설치
+1. HPC 팩 설치 폴더에서 헤드 노드에 HpcWebComponents.msi를 실행합니다.
+1. 마법사의 단계를 따라 웹 구성 요소 설치
 
 **웹 구성 요소를 구성하려면**
 
 1. 헤드 노드에서 관리자 권한으로 HPC PowerShell을 시작합니다.
-2. 디렉터리를 구성 스크립트의 위치로 변경하려면 다음 명령을 입력합니다.
+1. 디렉터리를 구성 스크립트의 위치로 변경하려면 다음 명령을 입력합니다.
    
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-3. REST 인터페이스를 구성하고 HPC 웹 서비스를 시작하려면 다음 명령을 입력합니다.
+1. REST 인터페이스를 구성하고 HPC 웹 서비스를 시작하려면 다음 명령을 입력합니다.
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
-4. 인증서를 선택하라는 메시지가 표시되면 헤드 노드의 공용 DNS 이름에 해당하는 인증서를 선택합니다. 예를 들어 클래식 배포 모델을 사용하여 헤드 노드 VM을 배포하는 경우 인증서 이름은 CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net 형식입니다. Resource Manager 배포 모델을 사용하는 경우 인증서 이름은 CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com 형식입니다.
+1. 인증서를 선택하라는 메시지가 표시되면 헤드 노드의 공용 DNS 이름에 해당하는 인증서를 선택합니다. 예를 들어 클래식 배포 모델을 사용하여 헤드 노드 VM을 배포하는 경우 인증서 이름은 CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net 형식입니다. Resource Manager 배포 모델을 사용하는 경우 인증서 이름은 CN=&lt;*HeadNodeDnsName*&gt;.&lt;*region*&gt;.cloudapp.azure.com 형식입니다.
    
    > [!NOTE]
    > 나중에 온-프레미스 컴퓨터에서 헤드 노드로 작업을 제출할 때 이 인증서를 선택합니다. Active Directory 도메인에 있는 헤드 노드의 컴퓨터 이름(예: CN=*MyHPCHeadNode.HpcAzure.local*)에 해당하는 인증서를 선택 또는 구성하지 마십시오.
    > 
    > 
-5. 작업 제출을 위해 웹 포털을 구성하려면 다음 명령을 입력합니다.
+1. 작업 제출을 위해 웹 포털을 구성하려면 다음 명령을 입력합니다.
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. 스크립트가 완료되면 다음 명령을 입력하여 HPC 작업 Scheduler 서비스를 중지했다 다시 시작합니다.
+1. 스크립트가 완료되면 다음 명령을 입력하여 HPC 작업 Scheduler 서비스를 중지했다 다시 시작합니다.
    
     ```powershell
     net stop hpcscheduler
@@ -89,18 +89,18 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 **헤드 노드에서 인증서를 내보내려면**
 
 1. 헤드 노드에서 로컬 컴퓨터 계정의 Microsoft Management Console에 인증서 스냅인을 추가합니다. 스냅인을 추가하는 단계는 [MMC에 인증서 스냅인 추가](https://technet.microsoft.com/library/cc754431.aspx)를 참조하세요.
-2. 콘솔 트리에서 **인증서 - 로컬 컴퓨터** > **개인**을 확장한 다음 **인증서**를 클릭합니다.
-3. [1단계: 헤드 노드에 웹 구성 요소 설치 및 구성](#step-1-install-and-configure-the-web-components-on-the-head-node)에서 HPC Pack 웹 구성 요소에 구성한 인증서를 찾습니다(예: CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
-4. 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **내보내기**를 클릭합니다.
-5. 인증서 내보내기 마법사에서 **다음**을 클릭하고 **아니요, 개인 키를 내보내지 않습니다.** 를 선택합니다.
-6. 마법사의 나머지 단계를 따라 인증서를 DER 인코딩 이진 X.509(.CER) 형식으로 내보냅니다.
+1. 콘솔 트리에서 **인증서 - 로컬 컴퓨터** > **개인**을 확장한 다음 **인증서**를 클릭합니다.
+1. [1단계: 헤드 노드에 웹 구성 요소 설치 및 구성](#step-1-install-and-configure-the-web-components-on-the-head-node)에서 HPC Pack 웹 구성 요소에 구성한 인증서를 찾습니다(예: CN=&lt;*HeadNodeDnsName*&gt;.cloudapp.net).
+1. 인증서를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **내보내기**를 클릭합니다.
+1. 인증서 내보내기 마법사에서 **다음**을 클릭하고 **아니요, 개인 키를 내보내지 않습니다.** 를 선택합니다.
+1. 마법사의 나머지 단계를 따라 인증서를 DER 인코딩 이진 X.509(.CER) 형식으로 내보냅니다.
 
 **클라이언트 컴퓨터로 인증서를 가져오려면**
 
 1. 헤드 노드에서 클라이언트 컴퓨터의 폴더로 내보낸 인증서를 복사합니다.
-2. 클라이언트 컴퓨터에서 certmgr.msc를 실행합니다.
-3. 인증서 관리자에서 **인증서 - 현재 사용자** > **신뢰할 수 있는 루트 인증 기관**을 확장한 후 **인증서**를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **가져오기**를 클릭합니다.
-4. 인증서 가져오기 마법사에서 **다음** 을 클릭하고 헤드 노드에서 신뢰할 수 있는 루트 인증 기관 저장소로 내보낸 인증서를 가져오는 단계를 따릅니다.
+1. 클라이언트 컴퓨터에서 certmgr.msc를 실행합니다.
+1. 인증서 관리자에서 **인증서 - 현재 사용자** > **신뢰할 수 있는 루트 인증 기관**을 확장한 후 **인증서**를 마우스 오른쪽 단추로 클릭하고 **모든 작업** > **가져오기**를 클릭합니다.
+1. 인증서 가져오기 마법사에서 **다음** 을 클릭하고 헤드 노드에서 신뢰할 수 있는 루트 인증 기관 저장소로 내보낸 인증서를 가져오는 단계를 따릅니다.
 
 > [!TIP]
 > 클라이언트 컴퓨터가 헤드 노드의 인증 기관을 인식할 수 없기 때문에 보안 경고가 표시될 수 있습니다. 테스트 목적으로 이 경고를 무시하고 인증서 가져오기를 완료할 수 있습니다.
@@ -113,7 +113,7 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
 **클라이언트 컴퓨터에서 작업 제출 명령을 실행하려면**
 
 1. HPC Pack 클라이언트 유틸리티가 설치되어 있는 클라이언트 컴퓨터에서 명령 프롬프트를 시작합니다.
-2. 샘플 명령을 입력합니다. 예를 들어, 클러스터의 모든 작업을 나열하려면, 헤드 노드의 전체 DNS 이름에 따라서 다음 중 하나와 유사한 명령을 입력합니다.
+1. 샘플 명령을 입력합니다. 예를 들어, 클러스터의 모든 작업을 나열하려면, 헤드 노드의 전체 DNS 이름에 따라서 다음 중 하나와 유사한 명령을 입력합니다.
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -129,7 +129,7 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
    > 스케줄러 URL에 IP 주소가 아닌 헤드 노드의 전체 DNS 이름을 사용합니다. IP 주소를 지정할 경우 "서버 인증서에 유효한 신뢰 체인이 있거나 서버 인증서를 신뢰할 수 있는 루트 저장소에 저장해야 합니다."와 유사한 오류가 표시됩니다.
    > 
    > 
-3. 메시지가 표시되면 구성해 놓은 HPC 클러스터 관리자 또는 다른 클러스터 사용자의 사용자 이름(&lt;DomainName&gt;\\&lt;UserName&gt; 형식)과 암호를 입력합니다. 추가 작업에 대해 자격 증명을 저장할 수도 있습니다.
+1. 메시지가 표시되면 구성해 놓은 HPC 클러스터 관리자 또는 다른 클러스터 사용자의 사용자 이름(&lt;DomainName&gt;\\&lt;UserName&gt; 형식)과 암호를 입력합니다. 추가 작업에 대해 자격 증명을 저장할 수도 있습니다.
    
     작업 목록이 나타납니다.
 
@@ -142,8 +142,8 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
     나. **Windows 자격 증명** > **일반 자격 증명 추가**를 클릭합니다.
    
     다. 구성한 클러스터 관리자 또는 다른 클러스터 사용자의 인터넷 주소(예: https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler 또는 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com/HpcScheduler)와 사용자 이름(&lt;도메인 이름&gt;\\&lt;사용자 이름&gt;) 및 암호를 지정합니다.
-2. 클라이언트 컴퓨터에서 HPC 작업 관리자를 시작합니다.
-3. **헤드 노드 선택** 대화 상자에서 Azure 헤드 노드의 URL을 입력합니다(예: https://&lt;HeadNodeDnsName&gt;.cloudapp.net 또는 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
+1. 클라이언트 컴퓨터에서 HPC 작업 관리자를 시작합니다.
+1. **헤드 노드 선택** 대화 상자에서 Azure 헤드 노드의 URL을 입력합니다(예: https://&lt;HeadNodeDnsName&gt;.cloudapp.net 또는 https://&lt;HeadNodeDnsName&gt;.&lt;region&gt;.cloudapp.azure.com).
    
     HPC 작업 관리자가 열리고 헤드 노드의 작업 목록이 표시됩니다.
 
@@ -160,13 +160,13 @@ HPC 팩 클라이언트 도구를 사용하여 헤드 노드 VM으로 작업을 
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. 보안 대화 상자가 나타나면 HPC 클러스터 관리자의 도메인 자격 증명을 입력합니다. (다른 역할의 다른 클러스터 사용자를 추가할 수도 있습니다. [클러스터 사용자 관리](https://technet.microsoft.com/library/ff919335.aspx)를 참조하세요.)
+1. 보안 대화 상자가 나타나면 HPC 클러스터 관리자의 도메인 자격 증명을 입력합니다. (다른 역할의 다른 클러스터 사용자를 추가할 수도 있습니다. [클러스터 사용자 관리](https://technet.microsoft.com/library/ff919335.aspx)를 참조하세요.)
    
     웹 포털이 작업 목록 보기로 열립니다.
-3. 클러스터에서 "Hello World" 문자열을 반환하는 샘플 작업을 제출하려면 왼쪽 탐색 창에서 **새 작업** 을 클릭합니다.
-4. **새 작업** 페이지의 **제출 페이지에서**에서 **HelloWorld**를 클릭합니다. 작업 제출 페이지가 나타납니다.
-5. **Submit**를 클릭합니다. 메시지가 표시되면 HPC 클러스터 관리자의 도메인 자격 증명을 입력합니다. 작업이 제출되고 **내 작업** 페이지에 작업 ID가 나타납니다.
-6. 제출한 작업의 결과를 보려면 작업 ID를 클릭한 다음 **작업 보기**를 클릭하여(**출력**에서) 명령 출력을 확인합니다.
+1. 클러스터에서 "Hello World" 문자열을 반환하는 샘플 작업을 제출하려면 왼쪽 탐색 창에서 **새 작업** 을 클릭합니다.
+1. **새 작업** 페이지의 **제출 페이지에서**에서 **HelloWorld**를 클릭합니다. 작업 제출 페이지가 나타납니다.
+1. **Submit**를 클릭합니다. 메시지가 표시되면 HPC 클러스터 관리자의 도메인 자격 증명을 입력합니다. 작업이 제출되고 **내 작업** 페이지에 작업 ID가 나타납니다.
+1. 제출한 작업의 결과를 보려면 작업 ID를 클릭한 다음 **작업 보기**를 클릭하여(**출력**에서) 명령 출력을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [HPC 팩 REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)를 사용해도 Azure 클러스터에 작업을 제출할 수 있습니다.

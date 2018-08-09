@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 4c685e03e5b7532f50d1eee1590eebedfba2b7c2
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212907"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445692"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -71,18 +71,18 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
    
     ![[보안]을 선택합니다.][10]
 
-2. **보안** 페이지에서 **API 참조**를 선택합니다.
+1. **보안** 페이지에서 **API 참조**를 선택합니다.
    
     ![[API 참조]를 선택합니다.][15]
 
-3. **API 액세스 사용**을 선택합니다.
+1. **API 액세스 사용**을 선택합니다.
    
     ![[API 참조]를 선택합니다.][16]
 
     > [!IMPORTANT]
     > G Suite로 프로비전하려는 모든 사용자에 대해 Azure Active Directory에서 해당 사용자 이름을 사용자 지정 도메인에 연결 *해야* 합니다. 예를 들면 bob@contoso.onmicrosoft.com과 같은 사용자 이름은 G Suite에서 허용되지 않습니다. 반면에 bob@contoso.com은 허용됩니다. Azure AD에서 해당 속성을 편집하여 기존 사용자의 도메인을 변경할 수 있습니다. Azure Active Directory 및 G Suite 모두에 대한 사용자 지정 도메인을 설정하는 방법에 대한 지침이 다음 단계에 포함되어 있습니다.
       
-4. Azure Active Directory에 사용자 지정 도메인 이름을 아직 추가하지 않은 경우에는 다음 단계를 수행합니다.
+1. Azure Active Directory에 사용자 지정 도메인 이름을 아직 추가하지 않은 경우에는 다음 단계를 수행합니다.
   
     a. [Azure Portal](https://portal.azure.com)의 왼쪽 탐색 창에서 **Active Directory**를 선택합니다. 디렉터리 목록에서 해당 디렉터리를 선택합니다. 
 
@@ -108,7 +108,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
     사용자 프로비저닝을 위해서는 사용자 지정 도메인이 원본 Azure AD의 도메인 이름과 일치해야 합니다. 일치하지 않으면 특성 매핑 사용자 지정을 구현하여 이 문제를 해결할 수 있습니다.
 
 
-5. Azure AD에서 모든 도메인을 확인했으므로 Google Apps에서 다시 확인해야 합니다. Google에 아직 등록되지 않은 각 도메인에 대해 다음 단계를 수행합니다.
+1. Azure AD에서 모든 도메인을 확인했으므로 Google Apps에서 다시 확인해야 합니다. Google에 아직 등록되지 않은 각 도메인에 대해 다음 단계를 수행합니다.
    
     a. [Google Apps 관리 콘솔](http://admin.google.com/)에서 **도메인**을 선택합니다.
      
@@ -129,46 +129,46 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
      > [!WARNING]
      > G Suite 테넌트의 주 도메인을 변경하고 Azure AD로 Single Sign-On을 이미 구성한 경우 [2단계: Single Sign-On 사용](#step-two-enable-single-sign-on)의 3번 항목을 반복해야 합니다.
        
-6. [Google Apps 관리 콘솔](http://admin.google.com/)에서 **관리자 역할**을 선택합니다.
+1. [Google Apps 관리 콘솔](http://admin.google.com/)에서 **관리자 역할**을 선택합니다.
    
      ![Google Apps 선택][26]
 
-7. 사용자 프로비전을 관리하는 데 사용할 관리자 계정을 결정합니다. 해당 계정의 **관리자 역할**에서 해당 역할에 대한 **권한**을 편집합니다. 이 계정을 프로비전에 사용할 수 있도록 모든 **관리자 API 권한**이 사용하도록 설정되어 있는지 확인합니다.
+1. 사용자 프로비전을 관리하는 데 사용할 관리자 계정을 결정합니다. 해당 계정의 **관리자 역할**에서 해당 역할에 대한 **권한**을 편집합니다. 이 계정을 프로비전에 사용할 수 있도록 모든 **관리자 API 권한**이 사용하도록 설정되어 있는지 확인합니다.
    
      ![Google Apps 선택][27]
    
     > [!NOTE]
     > 프로덕션 환경을 구성하는 경우 특별히 이 단계를 위해 G Suite에 관리자 계정을 만드는 것이 가장 좋습니다. 이러한 계정에는 필요한 API 권한이 있는 계정과 연결된 관리자 역할이 있어야 합니다.
      
-8. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 응용 프로그램** 섹션으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** > **엔터프라이즈 앱** > **모든 응용 프로그램** 섹션으로 이동합니다.
 
-9. 이미 G Suite에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 G Suite의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **G Suite** 또는 **Google Apps**를 검색합니다. 검색 결과에서 앱을 선택하고 응용 프로그램 목록에 추가합니다.
+1. 이미 G Suite에 Single Sign-On을 구성한 경우 검색 필드를 사용하여 G Suite의 인스턴스를 검색합니다. 그렇지 않은 경우 **추가**를 선택하고 응용 프로그램 갤러리에서 **G Suite** 또는 **Google Apps**를 검색합니다. 검색 결과에서 앱을 선택하고 응용 프로그램 목록에 추가합니다.
 
-10. G Suite 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
+1. G Suite 인스턴스를 선택한 다음, **프로비전** 탭을 선택합니다.
 
-11. **프로비전 모드**를 **자동**으로 설정합니다. 
+1. **프로비전 모드**를 **자동**으로 설정합니다. 
 
      ![프로비전](./media/google-apps-provisioning-tutorial/provisioning.png)
 
-12. **관리자 자격 증명** 섹션에서 **권한 부여**를 선택합니다. 그러면 새 브라우저 창에서 Google 권한 부여 대화 상자가 열립니다.
+1. **관리자 자격 증명** 섹션에서 **권한 부여**를 선택합니다. 그러면 새 브라우저 창에서 Google 권한 부여 대화 상자가 열립니다.
 
-13. Azure Active Directory에 G Suite 테넌트를 변경할 권한을 제공할 것인지 확인합니다. **수락**을 선택합니다.
+1. Azure Active Directory에 G Suite 테넌트를 변경할 권한을 제공할 것인지 확인합니다. **수락**을 선택합니다.
     
      ![사용 권한을 확인합니다.][28]
 
-14. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 G Suite 계정에 팀 관리자 권한이 있는지 확인합니다. 그런 다음 **권한 부여** 단계를 다시 시도합니다.
+1. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 G Suite 계정에 팀 관리자 권한이 있는지 확인합니다. 그런 다음 **권한 부여** 단계를 다시 시도합니다.
 
-15. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력합니다. 그런 다음 확인란을 선택합니다.
+1. 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 **알림 메일** 필드에 입력합니다. 그런 다음 확인란을 선택합니다.
 
-16. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
-17. **매핑** 섹션에서 **Synchronize Azure Active Directory Users to Google Apps(Azure Active Directory 사용자를 Google Apps에 동기화)** 를 선택합니다.
+1. **매핑** 섹션에서 **Synchronize Azure Active Directory Users to Google Apps(Azure Active Directory 사용자를 Google Apps에 동기화)** 를 선택합니다.
 
-18. **특성 매핑** 섹션에서 Azure AD에서 G Suite로 동기화되는 사용자 특성을 검토합니다. **일치** 속성인 특성은 업데이트 작업 시 G Suite의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
+1. **특성 매핑** 섹션에서 Azure AD에서 G Suite로 동기화되는 사용자 특성을 검토합니다. **일치** 속성인 특성은 업데이트 작업 시 G Suite의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
 
-19. G Suite에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정**에서 **프로비전 상태**를 **켜기**로 변경합니다.
+1. G Suite에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정**에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-20. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 이 프로세스는 사용자 및 그룹 섹션에서 G Suite에 할당된 사용자 또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 차후 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인할 수 있습니다. 이러한 로그는 앱에서 프로비전 서비스가 수행하는 모든 조치를 설명합니다.
 

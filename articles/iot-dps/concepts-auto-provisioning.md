@@ -1,19 +1,19 @@
 ---
 title: IoT Hub Device Provisioning Service - 자동 프로비전 개념
 description: 이 문서에서는 IoT Device Provisioning Service, IoT Hub 및 클라이언트 SDK를 사용하여 장치 자동 프로비전 단계에 대한 개념적 개요를 제공합니다.
-author: BryanLa
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/01/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: a5ac8b6116eebb400c12d50de010b93bded268ff
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736409"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521281"
 ---
 # <a name="auto-provisioning-concepts"></a>자동 프로비전 개념
 

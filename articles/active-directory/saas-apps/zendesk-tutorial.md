@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: e5ef74329e2adb6f3b8b60f547231a245a03b1fe
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9b467fa966c2a785677f47faaa4bb8bd3ed238e2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050598"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서:Azure Active Directory와 Zendesk 통합
 
@@ -53,7 +53,7 @@ Zendesk와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Zendesk 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-zendesk-from-the-gallery"></a>갤러리에서 Zendesk 추가
 Zendesk의 Azure AD 통합을 구성하려면 갤러리의 Zendesk를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -64,15 +64,15 @@ Zendesk의 Azure AD 통합을 구성하려면 갤러리의 Zendesk를 관리되�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **Zendesk**를 입력하고 결과 패널에서 **Zendesk**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **Zendesk**를 입력하고 결과 패널에서 **Zendesk**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 Zendesk](./media/zendesk-tutorial/tutorial_zendesk_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Zendesk에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할
 Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[Zendesk 테스트 사용자 만들기](#create-a-zendesk-test-user)** - Azure AD의 Britta Simon 사용자에 연결된 Zendesk 사용자를 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[Zendesk 테스트 사용자 만들기](#create-a-zendesk-test-user)** - Azure AD의 Britta Simon 사용자에 연결된 Zendesk 사용자를 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -102,11 +102,11 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Single Sign-On 대화 상자](./media/zendesk-tutorial/tutorial_zendesk_samlbase.png)
 
-3. **Zendesk 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **Zendesk 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Zendesk 도메인 및 URL Single Sign-On 정보](./media/zendesk-tutorial/tutorial_zendesk_url.png)
 
@@ -117,11 +117,11 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [Zendesk 클라이언트 지원 팀](https://support.zendesk.com/hc/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise)에 문의하세요.
 
-4. **SAML 서명 인증서** 섹션에서 인증서의 **지문** 값을 복사합니다.
+1. **SAML 서명 인증서** 섹션에서 인증서의 **지문** 값을 복사합니다.
 
     ![인증서 다운로드 링크](./media/zendesk-tutorial/tutorial_zendesk_certificate.png)
 
-5. Zendesk에는 특정 형식의 SAML 어설션이 필요합니다. 필수 SAML 특성은 없지만 필요에 따라 다음 단계를 수행하여 **사용자 특성** 섹션에서 특성을 추가할 수 있습니다. 
+1. Zendesk에는 특정 형식의 SAML 어설션이 필요합니다. 필수 SAML 특성은 없지만 필요에 따라 다음 단계를 수행하여 **사용자 특성** 섹션에서 특성을 추가할 수 있습니다. 
 
      ![Configure Single Sign-On](./media/zendesk-tutorial/tutorial_zendesk_attributes1.png)
 
@@ -140,21 +140,21 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE]
     > 기본적으로 Azure AD에 없는 특성을 추가하려면 확장 특성을 사용합니다. **Zendesk**에서 허용하는 전체 SAML 특성 목록을 가져오려면 [User attributes that can be set in SAML](https://support.zendesk.com/hc/en-us/articles/203663676-Using-SAML-for-single-sign-on-Professional-and-Enterprise-)(SAML에서 설정할 수 있는 사용자 특성)을 클릭하세요.
 
-6. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/zendesk-tutorial/tutorial_general_400.png)
 
-7. **Zendesk 구성** 섹션에서 **Zendesk 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **Zendesk 구성** 섹션에서 **Zendesk 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Zendesk 구성](./media/zendesk-tutorial/tutorial_zendesk_configure.png) 
 
-8. 다른 웹 브라우저 창에서 관리자 권한으로 Zendesk 회사 사이트에 로그인합니다.
+1. 다른 웹 브라우저 창에서 관리자 권한으로 Zendesk 회사 사이트에 로그인합니다.
 
-9. **Admin**을 클릭합니다.
+1. **Admin**을 클릭합니다.
 
-10. **설정**을 클릭하고 왼쪽 탐색 창에서 **보안**을 클릭합니다.
+1. **설정**을 클릭하고 왼쪽 탐색 창에서 **보안**을 클릭합니다.
 
-11. **보안** 페이지에서 다음 단계를 수행합니다. 
+1. **보안** 페이지에서 다음 단계를 수행합니다. 
 
      ![보안](./media/zendesk-tutorial/ic773089.png "보안")
 
@@ -184,15 +184,15 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Azure Active Directory 단추](./media/zendesk-tutorial/create_aaduser_01.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/zendesk-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![추가 단추](./media/zendesk-tutorial/create_aaduser_03.png)
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/zendesk-tutorial/create_aaduser_04.png)
 
@@ -215,12 +215,12 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
 1. **Zendesk** 테넌트에 로그인합니다.
 
-2. **고객 목록** 탭을 선택합니다.
+1. **고객 목록** 탭을 선택합니다.
 
-3. **사용자** 탭을 선택하고 **추가**를 클릭합니다.
+1. **사용자** 탭을 선택하고 **추가**를 클릭합니다.
 
     ![사용자 추가](./media/zendesk-tutorial/ic773632.png "사용자 추가")
-4. 프로비전하려는 기존 Azure AD 계정의 **이름**과 **메일**을 입력하고 **저장**을 클릭합니다.
+1. 프로비전하려는 기존 Azure AD 계정의 **이름**과 **메일**을 입력하고 **저장**을 클릭합니다.
 
     ![새 사용자](./media/zendesk-tutorial/ic773633.png "새 사용자")
 
@@ -239,23 +239,23 @@ Zendesk에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201]
 
-2. 응용 프로그램 목록에서 **Zendesk**를 선택합니다.
+1. 응용 프로그램 목록에서 **Zendesk**를 선택합니다.
 
     ![응용 프로그램 목록의 Zendesk 링크](./media/zendesk-tutorial/tutorial_zendesk_app.png)
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

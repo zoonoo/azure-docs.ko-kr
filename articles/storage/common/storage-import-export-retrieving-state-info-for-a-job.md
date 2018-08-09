@@ -2,24 +2,18 @@
 title: Azure Import/Export 작업의 상태 정보 검색 | Microsoft Docs
 description: Microsoft Azure Import/Export 서비스 작업에 대한 상태 정보를 얻는 방법에 대해 알아봅니다.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 22d7e5f0-94da-49b4-a1ac-dd4c14a423c2
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 76b2f73442261da4c791aaae8532d7a0dbbb6d95
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23059908"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520609"
 ---
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Import/Export 작업에 대한 상태 정보 검색
 [작업 가져오기](/rest/api/storageimportexport/jobs#Jobs_Get)(Get Job) 작업을 호출하여 가져오기 및 내보내기 작업에 대한 정보를 검색할 수 있습니다. 반환되는 정보는 다음과 같습니다.
@@ -55,7 +49,7 @@ ms.locfileid: "23059908"
 
 다음 표에서는 각 작업 상태에서 발생할 수 있는 오류와 오류 발생시 작업에 미치는 영향을 설명합니다.
 
-|작업 상태|이벤트|해결 방법/다음 단계|
+|작업 상태|행사|해결 방법/다음 단계|
 |---------------|-----------|------------------------------|
 |`Creating or Undefined`|한 작업에 대한 드라이브가 하나 이상 도착했지만 작업이 `Shipping` 상태가 아니거나 작업 레코드가 서비스에 없습니다.|Import/Export 서비스 운영 팀은 작업을 진행하는 데 필요한 정보로 해당 작업을 만들거나 업데이트하도록 고객에게 연락하려고 시도합니다.<br /><br /> 운영 팀이 2주 이내에 고객에게 연락할 수 없는 경우에는 드라이브를 반환하려고 시도합니다.<br /><br /> 드라이브를 반환할 수 없고 고객에게 연락할 수 없는 경우 드라이브는 90일 후에 안전하게 소멸됩니다.<br /><br /> 작업은 상태를 `Shipping`으로 업데이트할 때까지 처리되지 않습니다.|
 |`Shipping`|작업 패키지가 2주 이상 도착하지 않았습니다.|운영 팀이 고객에게 누락된 패키지를 알립니다. 고객의 응답에 따라 운영 팀은 패키지 도착을 기다리거나 작업을 취소할 간격을 연장합니다.<br /><br /> 고객이 30일 이내에 연락할 수 없거나 응답하지 않는 경우 운영 팀은 작업을 `Shipping` 상태에서 `Closed` 상태로 직접 전환하는 작업을 시작합니다.|
@@ -82,7 +76,7 @@ ms.locfileid: "23059908"
 
 다음 표에서는 드라이브 오류 상태 및 각 상태에 대해 수행하는 작업을 설명합니다.
 
-|드라이브 상태|이벤트|해결 방법/다음 단계|
+|드라이브 상태|행사|해결 방법/다음 단계|
 |-----------------|-----------|-----------------------------|
 |`NeverReceived`|작업 운송물의 일부로 받지 못하여 `NeverReceived`로 표시된 드라이브가 다른 운송을 통해 도착했습니다.|운영 팀이 드라이브를 `Received` 상태로 전환합니다.|
 |`N/A`|작업에 포함되지 않은 드라이브가 다른 작업의 일부로 데이터 센터에 도착했습니다.|드라이브가 추가 드라이브로 표시되며 원래 패키지와 관련된 작업이 완료되면 고객에게 반송됩니다.|
