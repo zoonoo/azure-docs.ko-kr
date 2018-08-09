@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9c196ec92fc7997617fa464d676dc93ca9fe84f0
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029096"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576324"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
@@ -51,13 +51,13 @@ IoT Edge 모듈 이미지에는 IoT Edge 런타임의 관리, 보안 및 통신 
 모듈 쌍은 모듈 정보와 구성 속성을 저장하는 JSON 문서입니다. 이 개념은 IoT Hub의 [장치 쌍][lnk-device-twin] 개념과 유사합니다. 모듈 쌍의 구조는 장치 쌍과 정확하게 같습니다. 두 유형의 쌍과 상호 작용하는 데 사용되는 API도 같습니다. 이 둘의 유일한 차이점은 클라이언트 SDK를 인스턴스화하는 데 사용되는 ID입니다. 
 
 ```csharp
-// Create a DeviceClient object. This DeviceClient will act on behalf of a 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
 // module since it is created with a module’s connection string instead 
 // of a device connection string. 
-DeviceClient client = new DeviceClient.CreateFromConnectionString(moduleConnectionString, settings); 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
 await client.OpenAsync(); 
  
-// Get the model twin 
+// Get the module twin 
 Twin twin = await client.GetTwinAsync(); 
 ```
 
@@ -70,7 +70,7 @@ IoT Edge 모듈은 다음 요구 사항이 충족되는 한 확장된 기간 동
 * **메시지 TTL(Time to Live)이 만료되지 않았습니다**. 메시지 TTL에 대한 기본값은 2시간이지만 IoT Edge 허브 설정의 저장소 및 착신 구성에서 높거나 낮게 변경될 수 있습니다. 
 * **모듈은 오프라인일 때 IoT Edge 허브로 재인증할 필요가 없습니다**. 모듈은 IoT 허브와 활성 연결이 있는 Edge 허브로만 인증될 수 있습니다. 어떠한 이유로 다시 시작된 경우 모듈은 다시 인증되어야 합니다. 모듈은 해당 SAS 토큰이 만료된 후에도 Edge 허브에 메시지를 여전히 보낼 수 있습니다. 연결이 다시 시작되면 Edge 허브는 모듈에서 새 토큰을 요청하고 IoT 허브로 유효성을 검사합니다. 성공한 경우 Edge 허브는 모듈의 토큰이 만료된 동안 전송된 메시지이더라도 저장한 모듈 메시지를 전달합니다. 
 * **오프라인 동안 메시지를 전송한 모듈은 연결이 다시 시작될 때 여전히 작동 중입니다**. IoT Hub에 재연결 시 Edge 허브는 모듈 메시지를 전달하기 전에 새 모듈 토큰의 유효성을 검사해야 합니다(이전 토큰이 만료된 경우). 모듈에서 새 토큰을 제공할 수 없는 경우 Edge 허브는 모듈의 저장된 메시지에서 역할을 수행할 수 없습니다. 
-* **Edge 허브에는 메시지를 저장할 디스크 공간이 있습니다**. 기본적으로 메시지는 Edge 허브 컨테이너의 파일 시스템에 저장됩니다. 메시지를 대신 저장할 탑재된 볼륨을 지정하는 구성 옵션이 있습니다. 두 경우에서 IoT 허브에 지연된 전송에 대한 메시지를 저장할 수 있는 공간이 있어야 합니다.  
+* **Edge 허브에는 메시지를 저장할 디스크 공간이 있습니다**. 기본적으로 메시지는 Edge 허브 컨테이너의 파일 시스템에 저장됩니다. 메시지를 대신 저장할 탑재된 볼륨을 지정하는 구성 옵션이 있습니다. 두 경우에서 IoT Hub에 지연된 전송에 대한 메시지를 저장할 수 있는 공간이 있어야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
  - [Azure IoT Edge 런타임 및 해당 아키텍처 이해][lnk-runtime]

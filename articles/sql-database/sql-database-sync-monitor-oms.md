@@ -9,12 +9,12 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3bad71834d11b640bbc3577bf67c10357fad36dc
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025412"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618313"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Log Analytics를 사용하여 SQL 데이터 동기화 모니터링 
 
@@ -201,8 +201,6 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 -   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 

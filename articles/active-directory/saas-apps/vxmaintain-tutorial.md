@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6362bcb701b444c8cd71b270222ce4f87b4cc2e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055861"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>자습서: Azure Active Directory와 vxMaintain 통합
 
@@ -65,19 +65,19 @@ vxMaintain의 Azure AD 통합을 구성하려면 갤러리의 vxMaintain을 관�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
     !["엔터프라이즈 응용 프로그램" 창][2]
     
-3. 응용 프로그램을 추가하려면 **모든 응용 프로그램** 대화 상자에서 **새 응용 프로그램**을 선택합니다.
+1. 응용 프로그램을 추가하려면 **모든 응용 프로그램** 대화 상자에서 **새 응용 프로그램**을 선택합니다.
 
     !["새 응용 프로그램" 단추][3]
 
-4. 검색 상자에 **vxMaintain**을 입력합니다.
+1. 검색 상자에 **vxMaintain**을 입력합니다.
 
     !["Single Sign-On 모드" 드롭다운 목록](./media/vxmaintain-tutorial/tutorial_vxmaintain_search.png)
 
-5. 결과 목록에서 **vxMaintain**을 선택한 다음 **추가**를 선택합니다.
+1. 결과 목록에서 **vxMaintain**을 선택한 다음 **추가**를 선택합니다.
 
     ![vxMaintain 링크](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
@@ -98,11 +98,11 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     !["Single Sign-On" 명령][4]
 
-2. SSO를 사용하도록 설정하려면 **Single Sign-On 모드** 드롭다운 목록에서 **SAML 기반 로그온**을 선택합니다.
+1. SSO를 사용하도록 설정하려면 **Single Sign-On 모드** 드롭다운 목록에서 **SAML 기반 로그온**을 선택합니다.
  
     !["SAML 기반 로그온" 명령](./media/vxmaintain-tutorial/tutorial_vxmaintain_samlbase.png)
 
-3. **vxMaintain 도메인 및 URL** 아래에서 다음을 수행합니다.
+1. **vxMaintain 도메인 및 URL** 아래에서 다음을 수행합니다.
 
     ![vxMaintain 도메인 및 URL 섹션](./media/vxmaintain-tutorial/tutorial_vxmaintain_url.png)
 
@@ -113,15 +113,15 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
     > [!NOTE] 
     > 위의 값은 실제가 아닙니다. 실제 식별자 및 회신 URL로 해당 항목을 업데이트합니다. 값을 가져오려면 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 문의하세요.
  
-4. **SAML 서명 인증서** 아래에서 **메타데이터 XML**을 선택한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
+1. **SAML 서명 인증서** 아래에서 **메타데이터 XML**을 선택한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
 
     !["SAML 서명 인증서" 섹션](./media/vxmaintain-tutorial/tutorial_vxmaintain_certificate.png) 
 
-5. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
     ![저장 단추](./media/vxmaintain-tutorial/tutorial_general_400.png)
 
-6. **vxMaintain** SSO를 구성하려면 다운로드한 **메타데이터 XML** 파일을 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 보냅니다.
+1. **vxMaintain** SSO를 구성하려면 다운로드한 **메타데이터 XML** 파일을 [vxMaintain 지원 팀](https://www.hubspot.com/company/contact)에 보냅니다.
 
 > [!TIP]
 > 앱을 설정할 때 [Azure Portal](https://portal.azure.com)에서 이전 지침의 간결한 버전을 읽을 수 있습니다. **Active Directory** > **엔터프라이즈 응용 프로그램** 섹션에서 앱을 추가한 후 **Single Sign-On** 탭을 선택한 다음 **구성** 섹션에서 포함된 설명서에 액세스합니다. 
@@ -138,16 +138,16 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     !["Azure Active Directory" 단추](./media/vxmaintain-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹** > **모든 사용자**로 이동합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹** > **모든 사용자**로 이동합니다.
     
     !["모든 사용자" 링크](./media/vxmaintain-tutorial/create_aaduser_02.png)  
     **모든 사용자** 대화 상자가 열립니다. 
 
-3. **사용자** 대화 상자를 열려면 **추가**를 선택합니다.
+1. **사용자** 대화 상자를 열려면 **추가**를 선택합니다.
  
     ![추가 단추](./media/vxmaintain-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자에서 다음을 수행합니다.
+1. **사용자** 대화 상자에서 다음을 수행합니다.
  
     ![사용자 대화 상자](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
@@ -173,21 +173,21 @@ vxMaintain을 사용하여 Azure AD SSO를 구성하고 테스트하려면 다�
 
     !["모든 응용 프로그램" 링크][201] 
 
-2. **응용 프로그램** 목록에서 **vxMaintain**을 선택합니다.
+1. **응용 프로그램** 목록에서 **vxMaintain**을 선택합니다.
 
     ![vxMaintain 링크](./media/vxmaintain-tutorial/tutorial_vxmaintain_app.png) 
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+1. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     !["사용자 및 그룹" 링크][202] 
 
-4. **추가**를 선택한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
+1. **추가**를 선택한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
 
     !["사용자 및 그룹" 링크][203]
 
-5. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **Britta Simon**을 선택한 다음 **선택** 단추를 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 **사용자** 목록에서 **Britta Simon**을 선택한 다음 **선택** 단추를 선택합니다.
 
-7. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
+1. **할당 추가** 대화 상자에서 **할당**을 선택합니다.
     
 ### <a name="test-your-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 테스트
 

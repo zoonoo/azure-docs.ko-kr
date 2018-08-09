@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100299"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435325"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB 데이터 가져오기 
 
@@ -36,7 +36,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 > * mongoimport를 사용하여 MongoDB 데이터 가져오기
 > * mongorestore를 사용하여 MongoDB 데이터 가져오기
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 처리량 늘리기: 데이터 마이그레이션 기간은 개별 컬렉션 또는 컬렉션 집합에 대해 설정한 처리량에 따라 다릅니다. 대량 데이터 마이그레이션의 경우 처리량을 늘려야 합니다. 마이그레이션을 완료한 후에는 비용을 절약하기 위해 처리량을 줄이세요. [Azure Portal](https://portal.azure.com)에서 처리량을 늘리는 방법에 대한 자세한 내용은 [Azure Cosmos DB의 성능 수준 및 가격 책정 계층](performance-levels.md)을 참조하세요.
 
@@ -45,8 +45,8 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>연결 문자열 정보(호스트, 포트, 사용자 이름 및 암호) 찾기
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 창에서 **Azure Cosmos DB** 항목을 클릭합니다.
-2. **구독** 창에서 계정 이름을 선택합니다.
-3. **연결 문자열** 블레이드에서 **연결 문자열**을 클릭합니다.
+1. **구독** 창에서 계정 이름을 선택합니다.
+1. **연결 문자열** 블레이드에서 **연결 문자열**을 클릭합니다.
 
    오른쪽 창에는 계정에 성공적으로 연결하는 데 필요한 모든 정보가 포함되어 있습니다.
 
@@ -102,15 +102,15 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
         }
         ```
 
-2. 단일 문서 쓰기에 대해 대략적인 RU 요금 계산:
+1. 단일 문서 쓰기에 대해 대략적인 RU 요금 계산:
 
     a. MongoDB 셸에서 Azure Cosmos DB MongoDB 데이터베이스에 연결합니다. [Azure Cosmos DB에 MongoDB 응용 프로그램 연결](connect-mongodb-account.md)에서 지침을 찾을 수 있습니다.
     
-    b. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
+    나. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
-    c. ```db.runCommand({getLastRequestStatistics: 1})```를 실행하고 다음과 같은 응답을 수신합니다.
+    다. ```db.runCommand({getLastRequestStatistics: 1})```를 실행하고 다음과 같은 응답을 수신합니다.
      
         ```
         globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1})
@@ -125,19 +125,19 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
         
     d. 요청 요금을 기록해 둡니다.
     
-3. 컴퓨터에서 Azure Cosmos DB 클라우드 서비스까지의 대기 시간을 확인합니다.
+1. 컴퓨터에서 Azure Cosmos DB 클라우드 서비스까지의 대기 시간을 확인합니다.
     
     a. 다음 명령을 사용하여 MongoDB 셸에서 자세한 로깅 정보를 표시합니다. ```setVerboseShell(true)```
     
-    b. 데이터베이스에 대해 간단한 쿼리를 실행합니다. ```db.coll.find().limit(1)``` 다음과 같은 응답을 수신합니다.
+    나. 데이터베이스에 대해 간단한 쿼리를 실행합니다. ```db.coll.find().limit(1)``` 다음과 같은 응답을 수신합니다.
 
         ```
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. 마이그레이션 이전에 삽입된 문서를 제거하여 중복된 문서가 없도록 합니다. 다음 명령을 사용하여 문서를 제거할 수 있습니다. ```db.coll.remove({})```
+1. 마이그레이션 이전에 삽입된 문서를 제거하여 중복된 문서가 없도록 합니다. 다음 명령을 사용하여 문서를 제거할 수 있습니다. ```db.coll.remove({})```
 
-5. 대략적인 *batchSize* 및 *numInsertionWorkers* 값을 계산합니다.
+1. 대략적인 *batchSize* 및 *numInsertionWorkers* 값을 계산합니다.
 
     * *batchSize*에 대해 프로비전된 총 RU를 3단계의 단일 문서 쓰기에서 사용한 RU로 나눕니다.
     
@@ -147,7 +147,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
     
     * *numInsertionWorkers*의 경우 *numInsertionWorkers =  (프로비전된 처리량 * 초 단위 대기 시간)/(배치 크기 * 단일 쓰기에 사용한 RU)* 수식을 사용합니다.
         
-    |속성|값|
+    |자산|값|
     |--------|-----|
     |batchSize| 24 |
     |프로비전된 RU | 10000 |
@@ -155,9 +155,9 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
     |1개 문서 쓰기에 대해 청구된 RU | 10RU |
     |numInsertionWorkers | ? |
     
-    *numInsertionWorkers = (10000 RUs x 0.1 s) / (24 x 10 RUs) = 4.1666*
+    *numInsertionWorkers = (10000 RU x 0.1s) / (24 x 10 RU) = 4.1666*
 
-6. 최종 마이그레이션 명령을 실행합니다.
+1. 최종 마이그레이션 명령을 실행합니다.
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

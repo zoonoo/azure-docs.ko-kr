@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283098"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433173"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿으로 다중 VM 환경 및 PaaS 리소스 만들기
 
@@ -136,7 +136,7 @@ Resource Manager 템플릿을 저장하고 요구에 맞게 사용자 지정한 
 - [Resource Manager 템플릿 및 Azure CLI를 사용하여 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)에서는 Resource Manager 템플릿과 함께 Azure CLI를 사용하여 Azure에 리소스를 배포하는 방법을 설명합니다.
 
 > [!NOTE]
-> 랩 소유자 권한을 가진 사용자만 Azure PowerShell을 사용하여 Resource Manager 템플릿에서 VM을 만들 수 있습니다. Resource Manager 템플릿을 사용하여 VM 생성을 자동화하려고 하는데 사용자 권한만 있는 경우 [CLI의 **az lab vm create** 명령](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create)을 사용할 수 있습니다.
+> 랩 소유자 권한을 가진 사용자만 Azure PowerShell을 사용하여 Resource Manager 템플릿에서 VM을 만들 수 있습니다. Resource Manager 템플릿을 사용하여 VM 생성을 자동화하려고 하는데 사용자 권한만 있는 경우 [CLI의 **az lab vm create** 명령](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create)을 사용할 수 있습니다.
 
 ### <a name="general-limitations"></a>일반적인 제한 사항 
 

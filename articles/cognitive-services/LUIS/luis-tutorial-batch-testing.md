@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de33b4618eb31707d324098e894682dd254c8ee4
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: e907a1f5ad8e75e018149e53ae0c2f9faff10a89
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358379"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493108"
 ---
 # <a name="improve-app-with-batch-test"></a>일괄 테스트로 앱 개선
 
@@ -228,7 +228,7 @@ ms.locfileid: "39358379"
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표 **...** 를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

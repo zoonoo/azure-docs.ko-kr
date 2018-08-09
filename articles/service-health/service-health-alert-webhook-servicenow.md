@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 867a8c0b478df9d2b7690b8b914ded7c42558583
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 1f5984f8f28832c33d3a5a844fde72e7286ad251
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30178871"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433792"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>ServiceNow를 사용하여 서비스 상태 경고 구성
 
@@ -26,27 +26,27 @@ ms.locfileid: "30178871"
 ## <a name="creating-a-scripted-rest-api-in-servicenow"></a>ServiceNow에서 스크립팅된 REST API 만들기
 1.  [ServiceNow](https://www.servicenow.com/) 계정에 등록하고 로그인했는지 확인합니다.
 
-2.  ServiceNow에서 **시스템 웹 서비스** 섹션으로 이동하여 **스크립팅된 REST API**를 선택합니다.
+1.  ServiceNow에서 **시스템 웹 서비스** 섹션으로 이동하여 **스크립팅된 REST API**를 선택합니다.
 
     ![ServiceNow에서 "스크립팅된 웹 서비스" 섹션](./media/webhook-alerts/servicenow-sws-section.png)
 
-3.  **새로 만들기**를 선택하여 스크립팅된 새 REST 서비스를 만듭니다.
+1.  **새로 만들기**를 선택하여 스크립팅된 새 REST 서비스를 만듭니다.
  
     ![ServiceNow에서 "스크립팅된 새 REST API" 단추](./media/webhook-alerts/servicenow-new-button.png)
 
-4.  REST API에 **이름**을 추가하고 **API ID**를 `azureservicehealth`로 설정합니다.
+1.  REST API에 **이름**을 추가하고 **API ID**를 `azureservicehealth`로 설정합니다.
 
-5.  **제출**을 선택합니다.
+1.  **제출**을 선택합니다.
 
     ![ServiceNow에서 "REST API 설정"](./media/webhook-alerts/servicenow-restapi-settings.png)
 
-6.  만든 REST API를 선택하고 **리소스** 탭에서 **새로 만들기**를 선택합니다.
+1.  만든 REST API를 선택하고 **리소스** 탭에서 **새로 만들기**를 선택합니다.
 
     ![ServiceNow에서 "리소스 탭"](./media/webhook-alerts/servicenow-resources-tab.png)
 
-7.  새 리소스 `event`의 **이름**을 지정하고 **HTTP 메서드**를 `POST`로 변경합니다.
+1.  새 리소스 `event`의 **이름**을 지정하고 **HTTP 메서드**를 `POST`로 변경합니다.
 
-8.  **스크립트** 섹션에서 다음 JavaScript 코드를 추가합니다.
+1.  **스크립트** 섹션에서 다음 JavaScript 코드를 추가합니다.
 
     >[!NOTE]
     >아래 스크립트에서 `<secret>`,`<group>` 및 `<email>` 값을 업데이트해야 합니다.
@@ -139,15 +139,15 @@ ms.locfileid: "30178871"
     })(request, response);
     ```
 
-9.  보안 탭에서 **인증 필요**를 선택 취소하고 **제출**을 선택합니다. 대신 설정한 `<secret>`로 이 API를 보호합니다.
+1.  보안 탭에서 **인증 필요**를 선택 취소하고 **제출**을 선택합니다. 대신 설정한 `<secret>`로 이 API를 보호합니다.
 
     ![ServiceNow에서 "인증 필요" 확인란](./media/webhook-alerts/servicenow-resource-settings.png)
 
-10.  다시 스크립팅된 REST API 섹션에서 새 REST API의 **기본 API 경로**를 찾아야 합니다.
+1.  다시 스크립팅된 REST API 섹션에서 새 REST API의 **기본 API 경로**를 찾아야 합니다.
 
      ![ServiceNow에서 "기본 API 경로"](./media/webhook-alerts/servicenow-base-api-path.png)
 
-11.  전체 통합 URL은 다음과 같습니다.
+1.  전체 통합 URL은 다음과 같습니다.
         
          https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
@@ -156,7 +156,7 @@ ms.locfileid: "30178871"
 ### <a name="for-a-new-action-group"></a>새 작업 그룹의 경우:
 1. [이 문서](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)의 1~8단계를 수행하여 새 작업 그룹으로 경고를 만듭니다.
 
-2. **작업** 목록에서 다음을 정의합니다.
+1. **작업** 목록에서 다음을 정의합니다.
 
     a. **작업 유형:** *웹후크*
 
@@ -164,16 +164,16 @@ ms.locfileid: "30178871"
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
-3. 경고 만들기가 완료되면 **저장**을 선택합니다.
+1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
 ### <a name="for-an-existing-action-group"></a>기존 작업 그룹의 경우:
 1. [Azure Portal](https://portal.azure.com/)에서 **모니터**를 선택합니다.
 
-2. **설정** 섹션에서 **작업 그룹**을 선택합니다.
+1. **설정** 섹션에서 **작업 그룹**을 선택합니다.
 
-3. 편집하려는 작업 그룹을 찾아 선택합니다.
+1. 편집하려는 작업 그룹을 찾아 선택합니다.
 
-4. **작업** 목록에 다음을 추가합니다.
+1. **작업** 목록에 다음을 추가합니다.
 
     a. **작업 유형:** *웹후크*
 
@@ -181,12 +181,12 @@ ms.locfileid: "30178871"
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
-5. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
+1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
 1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
 
-2. 다음과 같이 HTTP POST 요청을 만듭니다.
+1. 다음과 같이 HTTP POST 요청을 만듭니다.
 
     ```
     POST        https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
@@ -195,9 +195,9 @@ ms.locfileid: "30178871"
 
     BODY        <service health payload>
     ```
-3. "인시던트가 생성되었습니다" 메시지와 함께 `200 OK` 응답이 표시됩니다.
+1. "인시던트가 생성되었습니다" 메시지와 함께 `200 OK` 응답이 표시됩니다.
 
-4. [ServiceNow](https://www.servicenow.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
+1. [ServiceNow](https://www.servicenow.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.

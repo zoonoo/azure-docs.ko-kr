@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5686266774603413fc255c53a0d1ad30f9baa8eb
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173863"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433445"
 ---
 # <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Web App for Containers에 Python 웹앱 배포
 
@@ -96,7 +96,7 @@ docker push <dockerhub_id>/flask-quickstart
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
 
-[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. *\<app name>* 을 전역적으로 고유한 앱 이름으로 바꾸고, *\<dockerhub_id>* 를 Docker 허브 ID로 바꿉니다.
+[az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 [웹앱](../app-service-web-overview.md)을 만듭니다. *\<app name>* 을 전역적으로 고유한 앱 이름으로 바꾸고, *\<dockerhub_id>* 를 Docker 허브 ID로 바꿉니다.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
@@ -125,7 +125,7 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 
 _Dockerfile_에 지정된 대로, 컨테이너는 포트 8000에서 수신 대기합니다. App Service가 요청을 올바른 포트에 라우팅하도록 *WEBSITES_PORT* 앱 설정을 지정해야 합니다.
 
-Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 명령을 실행합니다.
+Cloud Shell에서 [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 명령을 실행합니다.
 
 
 ```azurecli-interactive

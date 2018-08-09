@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/27/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 53f8f9ea5b3fea20202dd5aaa001a789d66f5a11
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d5b92681b9677db085b3c271c37490154d781d84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282741"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494313"
 ---
 # <a name="tutorial-8-add-keyphrase-entity"></a>자습서: 8. keyPhrase 엔터티 추가 
 이 자습서에서는 발화에서 핵심 주제를 추출하는 방법을 보여 주는 앱을 사용합니다.
@@ -71,15 +71,8 @@ keyPhrase 미리 빌드된 엔터티를 추가하여 발언에서 주제 문제�
     [ ![발화에서 keyPhrases 레이블이 지정된 Utilities.Confirm 의도의 스크린샷](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png)](./media/luis-quickstart-intent-and-key-phrase/hr-keyphrase-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-새 `keyphrase` 버전의 앱을 학습해야 합니다.  
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
-
-    ![앱 학습](./media/luis-quickstart-intent-and-key-phrase/train-button.png)
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
-
-    ![학습 성공](./media/luis-quickstart-intent-and-key-phrase/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>엔드포인트에 앱 게시
 
@@ -190,7 +183,8 @@ keyPhrase 엔터티 검색이 포함된 이 앱은 자연어 쿼리 의도를 �
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램은 발언에서 topScoringIntent 결과 및 keyPhrase 데이터를 사용하여 다음 단계를 진행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

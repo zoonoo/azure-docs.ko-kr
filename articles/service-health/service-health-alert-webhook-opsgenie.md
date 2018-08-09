@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6b8017f62dd895219f1d2cdac40f0efdf2db6c93
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6e9d44c4b64e41b04c40d0c511a638e539752da4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179347"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435029"
 ---
 # <a name="configure-service-health-alerts-with-opsgenie"></a>OpsGenie를 사용하여 서비스 상태 경고 구성
 
@@ -28,29 +28,29 @@ ms.locfileid: "30179347"
 ## <a name="creating-a-service-health-integration-url-in-opsgenie"></a>OpsGenie에서 서비스 상태 통합 URL 만들기
 1.  [OpsGenie](https://www.opsgenie.com/) 계정에 등록하고 로그인했는지 확인합니다.
 
-2.  OpsGenie에서 **통합** 섹션으로 이동합니다.
+1.  OpsGenie에서 **통합** 섹션으로 이동합니다.
 
     ![OpsGenie에서 "통합" 섹션](./media/webhook-alerts/opsgenie-integrations-section.png)
 
-3.  **Azure 서비스 상태** 통합 단추를 선택합니다.
+1.  **Azure 서비스 상태** 통합 단추를 선택합니다.
 
     ![OpsGenie에서 "Azure 서비스 상태 단추"](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
 
-4.  경고의 **이름**을 지정하고 **팀에 할당됨** 필드를 지정합니다.
+1.  경고의 **이름**을 지정하고 **팀에 할당됨** 필드를 지정합니다.
 
-5.  **받는 사람**, **사용** 및 **알림 표시 안 함**과 같은 다른 필드를 작성합니다.
+1.  **받는 사람**, **사용** 및 **알림 표시 안 함**과 같은 다른 필드를 작성합니다.
 
-6.  끝에 `apiKey`가 이미 추가된 **통합 URL**을 복사 및 저장합니다.
+1.  끝에 `apiKey`가 이미 추가된 **통합 URL**을 복사 및 저장합니다.
 
     ![OpsGenie에서 "통합 URL"](./media/webhook-alerts/opsgenie-integration-url.png)
 
-7.  **통합 저장**을 선택합니다.
+1.  **통합 저장**을 선택합니다.
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>Azure Portal에서 OpsGenie를 사용하여 경고 만들기
 ### <a name="for-a-new-action-group"></a>새 작업 그룹의 경우:
 1. [Azure Portal을 사용하여 새 작업 그룹에 대한 서비스 상태 알림의 경고 만들기](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)에서 1단계부터 8단계까지 수행합니다.
 
-2. **작업** 목록에서 다음을 정의합니다.
+1. **작업** 목록에서 다음을 정의합니다.
 
     a. **작업 유형:** *웹후크*
 
@@ -58,16 +58,16 @@ ms.locfileid: "30179347"
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
-3. 경고 만들기가 완료되면 **저장**을 선택합니다.
+1. 경고 만들기가 완료되면 **저장**을 선택합니다.
 
 ### <a name="for-an-existing-action-group"></a>기존 작업 그룹의 경우:
 1. [Azure Portal](https://portal.azure.com/)에서 **모니터**를 선택합니다.
 
-2. **설정** 섹션에서 **작업 그룹**을 선택합니다.
+1. **설정** 섹션에서 **작업 그룹**을 선택합니다.
 
-3. 편집하려는 작업 그룹을 찾아 선택합니다.
+1. 편집하려는 작업 그룹을 찾아 선택합니다.
 
-4. **작업** 목록에 다음을 추가합니다.
+1. **작업** 목록에 다음을 추가합니다.
 
     a. **작업 유형:** *웹후크*
 
@@ -75,12 +75,12 @@ ms.locfileid: "30179347"
 
     다. **이름:** 웹후크의 이름, 별칭 또는 식별자입니다.
 
-5. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
+1. 작업 그룹 업데이트가 완료되면 **저장**을 선택합니다.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>HTTP POST 요청을 통해 웹후크 통합 테스트
 1. 보낼 서비스 상태 페이로드를 만듭니다. [Azure 활동 로그 경고에 대한 웹후크](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)에서 예제 서비스 상태 웹후크 페이로드를 찾을 수 있습니다.
 
-2. 다음과 같이 HTTP POST 요청을 만듭니다.
+1. 다음과 같이 HTTP POST 요청을 만듭니다.
 
     ```
     POST        https://api.opsgenie.com/v1/json/azureservicehealth?apiKey=<APIKEY>
@@ -89,9 +89,9 @@ ms.locfileid: "30179347"
 
     BODY        <service health payload>
     ```
-3. 상태 메시지 "성공"과 함께 `200 OK` 응답이 표시됩니다.
+1. 상태 메시지 "성공"과 함께 `200 OK` 응답이 표시됩니다.
 
-4. [OpsGenie](https://www.opsgenie.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
+1. [OpsGenie](https://www.opsgenie.com/)로 이동하여 통합이 성공적으로 설정되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [기존 문제 관리 시스템에 대한 웹후크 알림 구성](service-health-alert-webhook-guide.md) 방법에 대해 알아봅니다.

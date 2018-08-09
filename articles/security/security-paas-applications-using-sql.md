@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 054a3987cfd67fbd558fe9d4b482aac3d9b467fd
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ee606540bef47b11ad8fd9e820af2f5b51d47b0b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114680"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493024"
 ---
 # <a name="securing-paas-databases-in-azure"></a>Azure에서 PaaS 데이터베이스 보안 유지
 
@@ -42,7 +42,7 @@ Azure SQL Database는 다음 두 가지 인증 유형 중 하나를 사용하도
 
 - **Azure Active Directory 인증**은 Azure Active Directory에서 관리하는 ID를 사용하며, 관리되는 도메인과 통합된 도메인에서 지원됩니다. Azure Active Directory 인증을 사용하려면 Azure AD 사용자와 그룹을 관리할 수 있는 "Azure AD 관리자"라는 다른 서버 관리자를 만들어야 합니다. 이 관리자는 일반 서버 관리자가 할 수 있는 모든 작업을 수행할 수도 있습니다.
 
-[Azure Active Directory 인증](../active-directory/develop/active-directory-authentication-scenarios.md)은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure SQL Database 및 SQL Data Warehouse에 연결하는 메커니즘입니다. Azure AD는 SQL Server 인증에 대한 대안을 제공하므로 데이터베이스 서버에서 사용자 ID의 확산을 중지할 수 있습니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.  
+[Azure Active Directory 인증](../active-directory/develop/authentication-scenarios.md)은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure SQL Database 및 SQL Data Warehouse에 연결하는 메커니즘입니다. Azure AD는 SQL Server 인증에 대한 대안을 제공하므로 데이터베이스 서버에서 사용자 ID의 확산을 중지할 수 있습니다. Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 한 곳에서 집중적으로 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다.  
 
 SQL 인증 대신 Azure AD 인증을 사용하는 이점은 다음과 같습니다.
 

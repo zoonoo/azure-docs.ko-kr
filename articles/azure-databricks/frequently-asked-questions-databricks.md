@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cd231a6baad74cd88d82b219e2e58e9252187ff5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3ba235c60480c38a21ee3264c54b4a4dcdea340
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599000"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434604"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks에 대한 질문과 대답
 
@@ -34,8 +34,8 @@ ms.locfileid: "34599000"
 
 다음 단계를 수행하세요.
 1. Azure AD(Active Directory)에서 서비스 주체를 프로비전하고 해당 키를 기록합니다.
-2. Data Lake Store의 서비스 주체에게 필요한 권한을 할당합니다.
-3. Data Lake Store의 파일에 액세스하려면 Notebook에서 서비스 주체 자격 증명을 사용합니다.
+1. Data Lake Store의 서비스 주체에게 필요한 권한을 할당합니다.
+1. Data Lake Store의 파일에 액세스하려면 Notebook에서 서비스 주체 자격 증명을 사용합니다.
 
 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)을 참조하세요.
 
@@ -52,8 +52,8 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
 #### <a name="solution"></a>해결 방법
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
-3. 리소스 공급자 목록에서 **Microsoft.Databricks**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
+1. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
+1. 리소스 공급자 목록에서 **Microsoft.Databricks**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
 
 
 ### <a name="issue-your-account-email-does-not-have-the-owner-or-contributor-role-on-the-databricks-workspace-resource-in-the-azure-portal"></a>문제: {메일} 계정에는 Azure Portal의 Databricks 작업 영역 리소스에 소유자 또는 참가자 역할이 없습니다.
@@ -107,8 +107,8 @@ Azure 오류 코드: MissingSubscriptionRegistration Azure 오류 메시지: 구
 #### <a name="solution"></a>해결 방법
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
-2. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
-3. 리소스 공급자 목록에서 **Microsoft.Compute**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
+1. **구독**을 선택하고 사용 중인 구독을 선택한 다음 **리소스 공급자**를 선택합니다. 
+1. 리소스 공급자 목록에서 **Microsoft.Compute**를 찾아 **등록**을 선택합니다. 구독의 참가자 또는 소유자 역할이 할당된 사용자만 리소스 공급자를 등록할 수 있습니다.
 
 자세한 방법은 [리소스 공급자 및 유형](../azure-resource-manager/resource-manager-supported-services.md)을 참조하세요.
 

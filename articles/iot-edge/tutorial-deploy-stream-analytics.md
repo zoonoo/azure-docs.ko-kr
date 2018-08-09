@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413878"
+ms.locfileid: "39435685"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포(미리 보기)
 
@@ -60,7 +60,7 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 
 1. Azure Portal에서 **리소스 만들기**로 이동한 후 검색 상자에 **저장소 계정**을 입력하고 **저장소 계정 - Blob, 파일, 테이블, 큐**를 선택합니다.
 
-2. **저장소 계정 만들기** 창에 저장소 계정의 이름을 입력하고, IoT Hub가 저장된 위치와 동일한 위치를 선택하고, IoT Hub와 동일한 리소스 그룹을 선택한 다음, **만들기**를 선택합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
+1. **저장소 계정 만들기** 창에 저장소 계정의 이름을 입력하고, IoT Hub가 저장된 위치와 동일한 위치를 선택하고, IoT Hub와 동일한 리소스 그룹을 선택한 다음, **만들기**를 선택합니다. 나중에 사용할 수 있게 이름을 적어둡니다.
 
     ![저장소 계정 만들기][1]
 
@@ -69,40 +69,40 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 
 1. Azure Portal에서 **리소스 만들기** > **사물 인터넷**으로 이동한 후 **Stream Analytics 작업**을 선택합니다.
 
-2. **새 Stream Analytics 작업** 창에서 다음 단계를 수행합니다.
+1. **새 Stream Analytics 작업** 창에서 다음 단계를 수행합니다.
 
    1. **작업 이름** 상자에 작업 이름을 입력합니다.
    
-   2. IoT 허브와 동일한 **리소스 그룹**과 **위치**를 사용합니다. 
+   1. IoT 허브와 동일한 **리소스 그룹**과 **위치**를 사용합니다. 
 
       > [!NOTE]
       > 현재 IoT Edge의 Azure Stream Analytics 작업은 미국 서부 2 지역에서 지원되지 않습니다. 
 
-   3. **호스팅 환경** 아래에서 **에지**를 선택합니다.
+   1. **호스팅 환경** 아래에서 **에지**를 선택합니다.
     
-3. **만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 
-4. 만든 작업의 **작업 토폴로지** 아래에서 **입력**을 엽니다.
+1. 만든 작업의 **작업 토폴로지** 아래에서 **입력**을 엽니다.
 
    ![Azure Stream Analytics 입력](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-5. **스트림 입력 추가**를 선택하고 **Edge Hub**를 선택합니다.
+1. **스트림 입력 추가**를 선택하고 **Edge Hub**를 선택합니다.
 
-6. **새 입력** 창에 입력 별칭으로 **온도**를 입력합니다. 
+1. **새 입력** 창에 입력 별칭으로 **온도**를 입력합니다. 
 
-7. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
-8. **작업 토폴로지**에서 **출력**을 엽니다.
+1. **작업 토폴로지**에서 **출력**을 엽니다.
 
    ![Azure Stream Analytics 출력](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-9. **추가**를 선택하고 **Edge Hub**를 선택합니다.
+1. **추가**를 선택하고 **Edge Hub**를 선택합니다.
 
-10. **새 출력** 창에서 출력 별칭으로 **경고**를 입력합니다. 
+1. **새 출력** 창에서 출력 별칭으로 **경고**를 입력합니다. 
 
-11. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
-12. **작업 토폴로지** 아래에서 **쿼리**를 선택한 다음, 기본 텍스트를 30초 시간 범위에서 평균 컴퓨터 온도가 70도에 도달하면 경고를 만드는 다음 쿼리로 바꿉니다.
+1. **작업 토폴로지** 아래에서 **쿼리**를 선택한 다음, 기본 텍스트를 30초 시간 범위에서 평균 컴퓨터 온도가 70도에 도달하면 경고를 만드는 다음 쿼리로 바꿉니다.
 
     ```sql
     SELECT  
@@ -115,15 +115,15 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
     HAVING Avg(machine.temperature) > 70
     ```
 
-13. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
-14. **구성** 아래에서 **IoT Edge 설정**을 선택합니다.
+1. **구성** 아래에서 **IoT Edge 설정**을 선택합니다.
 
-15. 드롭다운 메뉴에서 **저장소 계정**을 선택합니다.
+1. 드롭다운 메뉴에서 **저장소 계정**을 선택합니다.
 
-16. **컨테이너** 필드에 대해 **새로 만들기**를 선택하고 저장소 컨테이너에 대한 이름을 제공합니다. 
+1. **컨테이너** 필드에 대해 **새로 만들기**를 선택하고 저장소 컨테이너에 대한 이름을 제공합니다. 
 
-17. **저장**을 선택합니다. 
+1. **저장**을 선택합니다. 
 
 
 ## <a name="deploy-the-job"></a>작업 배포
@@ -132,25 +132,25 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 
 1. Azure Portal의 IoT 허브에서 **IoT Edge**로 이동한 다음, IoT Edge 장치의 세부 정보 페이지를 엽니다.
 
-2. **모듈 설정**을 선택합니다.  
+1. **모듈 설정**을 선택합니다.  
 
    이전에 이 장치에 tempSensor 모듈을 배포한 경우 자동으로 입력될 수 있습니다. 그렇지 않은 경우 다음 단계에 따라 모듈을 추가합니다.
 
    1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
-   2. 이름으로 **tempSensor**를 입력합니다.
-   3. 이미지 URI에 대해 **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**을 입력합니다. 
-   4. 다른 설정은 변경하지 말고 그대로 둡니다.
-   5. **저장**을 선택합니다.
+   1. 이름으로 **tempSensor**를 입력합니다.
+   1. 이미지 URI에 대해 **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0**을 입력합니다. 
+   1. 다른 설정은 변경하지 말고 그대로 둡니다.
+   1. **저장**을 선택합니다.
 
-3. 다음 단계에 따라 Azure Stream Analytics Edge 작업을 추가합니다.
+1. 다음 단계에 따라 Azure Stream Analytics Edge 작업을 추가합니다.
 
    1. **추가**를 클릭하고 **Azure Stream Analytics 모듈**을 선택합니다.
-   2. 구독 및 사용자가 만든 Azure Stream Analytics Edge 작업을 선택합니다. 
-   3. **저장**을 선택합니다.
+   1. 구독 및 사용자가 만든 Azure Stream Analytics Edge 작업을 선택합니다. 
+   1. **저장**을 선택합니다.
 
-4. **다음**을 선택합니다.
+1. **다음**을 선택합니다.
 
-5. **경로**의 기본값을 다음 코드로 바꿉니다. _{moduleName}_ 을 Azure Stream Analytics 모듈의 이름으로 업데이트합니다. 모듈의 이름은 만든 작업과 동일한 이름이어야 합니다. 
+1. **경로**의 기본값을 다음 코드로 바꿉니다. _{moduleName}_ 을 Azure Stream Analytics 모듈의 이름으로 업데이트합니다. 모듈의 이름은 만든 작업과 동일한 이름이어야 합니다. 
 
     ```json
     {
@@ -163,11 +163,11 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
     }
     ```
 
-6. **다음**을 선택합니다.
+1. **다음**을 선택합니다.
 
-7. **배포 검토** 단계에서 **제출**을 선택합니다.
+1. **배포 검토** 단계에서 **제출**을 선택합니다.
 
-8. 장치 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다.  
+1. 장치 세부 정보 페이지로 돌아가서 **새로 고침**을 선택합니다.  
 
     IoT Edge 에이전트 모듈 및 IoT Edge Hub와 함께 실행되는 새로운 Stream Analytics 모듈이 표시됩니다.
 
@@ -185,7 +185,7 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 <!--
    ![Docker output][8]
 -->
-2. 모든 시스템 로그 및 메트릭 데이터를 봅니다. Stream Analytics 모듈 이름을 사용합니다.
+1. 모든 시스템 로그 및 메트릭 데이터를 봅니다. Stream Analytics 모듈 이름을 사용합니다.
 
    ```cmd/sh
    iotedge logs -f {moduleName}  
@@ -210,7 +210,7 @@ Azure Stream Analytics 작업에서 작업 출력에 대한 엔드포인트 역�
 IoT Hub만 삭제하려면 허브 이름과 리소스 그룹 이름을 사용하여 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
@@ -218,14 +218,14 @@ az iot hub delete --name MyIoTHub --resource-group TestResources
 
 1. [Azure 포털](https://portal.azure.com) 에 로그인하고 **리소스 그룹**을 클릭합니다.
 
-2. **이름을 기준으로 필터링...** 텍스트 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다. 
+1. **이름을 기준으로 필터링...** 텍스트 상자에 IoT Hub가 들어 있는 리소스 그룹의 이름을 입력합니다. 
 
-3. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
+1. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
 <!--
    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 -->
-4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 클릭합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+1. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 클릭합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

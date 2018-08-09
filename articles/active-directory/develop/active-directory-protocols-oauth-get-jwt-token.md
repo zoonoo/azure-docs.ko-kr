@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: routlaw
 ms.custom: aaddev
-ms.openlocfilehash: cbc86eb6d13034fb3154ed8e9d021064f1d15ece
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: eb26101229ad60abae7a8a84f8dfa496488e84ba
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39267109"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579006"
 ---
 # <a name="request-an-access-token-using-oauth-20-to-access-web-apis-and-applications-secured-by-azure-active-directory"></a>액세스 토큰을 요청하고 OAuth 2.0을 사용하여 Azure Active Directory로 보호되는 Web API 및 응용 프로그램에 액세스
 
@@ -54,7 +54,7 @@ POST https://{tenant}/oauth2/v2.0/token?client_id={client-id}
 | tenant        | 필수              | 요청의 경로에 있는 `{tenant}` 값을 사용하여 응용 프로그램에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.                                                                                                                                                   |
 | client_id     | 필수              | 등록 포털([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList))에서 앱에 할당한 응용 프로그램 ID입니다.                                                                                                                                                                                                                             |
 | grant_type    | 필수              | 인증 코드 흐름에 대한 `authorization_code` 여야 합니다.                                                                                                                                                                                                                                                                                                                                                                            |
-| scope         | 필수              | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 `/authorize` 호출의 범위와 동일하거나 이 범위에 속해야 합니다. 이 요청에 지정된 범위가 여러 리소스 서버에 걸쳐 있는 경우 v2.0 끝점은 첫 번째 범위에 지정된 리소스에 대한 토큰을 반환합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](active-directory-v2-scopes.md)를 참조하세요. |
+| scope         | 필수              | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 `/authorize` 호출의 범위와 동일하거나 이 범위에 속해야 합니다. 이 요청에 지정된 범위가 여러 리소스 서버에 걸쳐 있는 경우 v2.0 끝점은 첫 번째 범위에 지정된 리소스에 대한 토큰을 반환합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |
 | 코드          | 필수              | `/authorize` 호출에서 얻은 authorization_code입니다.                                                                                                                                                                                                                                                                                                                                                                |
 | redirect_uri  | 필수              | authorization_code를 획득하는 데 사용된 값과 동일한 redirect_uri 값입니다.                                                                                                                                                                                                                                                                                                                                                             |
 | client_secret | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 응용 프로그램 암호입니다. 장치에 client_secret을 안정적으로 저장할 수 없으므로 네이티브 앱에서는 사용하지 마세요. 서버 쪽에서 client_secret을 안전하게 저장할 수 있는 웹앱과 Web API에 필요합니다.  클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다.                                                                                 |
@@ -79,8 +79,8 @@ POST https://{tenant}/oauth2/v2.0/token?client_id={client-id}
 | token_type    | 토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다.                                                                                                                                                                                                                                                                                                                                                                           |
 | expires_in    | 액세스 토큰이 유효한 기간(초)입니다.                                                                                                                                                                                                                                                                                                                                                                                                       |
 | scope         | access_token이 유효한 범위입니다.                                                                                                                                                                                                                                                                                                                                                                                                         |
-| refresh_token | OAuth 2.0 새로 고침 토큰입니다. 앱은 현재 액세스 토큰이 만료된 후 이 토큰을 사용하여 추가 액세스 토큰을 획득할 수 있습니다. refresh_token은 수명이 길며, 오랜 시간 동안 리소스에 대한 액세스를 유지하는 데 사용할 수 있습니다. 자세한 내용은 [v2.0 토큰 참조](active-directory-v2-tokens.md)를 참조하세요. <br> **참고:** `offline_access` 범위가 요청된 경우에만 제공됩니다.                                               |
-| id_token      | 서명되지 않은 JWT(JSON 웹 토큰)입니다. 앱은 이 토큰의 세그먼트를 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있지만 권한 부여 또는 보안 경계에 대해 의존해서는 안 됩니다. id_token에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](active-directory-v2-tokens.md)를 참조하세요. <br> **참고:** `openid` 범위가 요청된 경우에만 제공됩니다. |
+| refresh_token | OAuth 2.0 새로 고침 토큰입니다. 앱은 현재 액세스 토큰이 만료된 후 이 토큰을 사용하여 추가 액세스 토큰을 획득할 수 있습니다. refresh_token은 수명이 길며, 오랜 시간 동안 리소스에 대한 액세스를 유지하는 데 사용할 수 있습니다. 자세한 내용은 [v2.0 토큰 참조](v2-id-and-access-tokens.md)를 참조하세요. <br> **참고:** `offline_access` 범위가 요청된 경우에만 제공됩니다.                                               |
+| id_token      | 서명되지 않은 JWT(JSON 웹 토큰)입니다. 앱은 이 토큰의 세그먼트를 디코드하여 로그인한 사용자에 대한 정보를 요청할 수 있습니다. 앱은 값을 캐시하고 표시할 수 있지만 권한 부여 또는 보안 경계에 대해 의존해서는 안 됩니다. id_token에 대한 자세한 내용은 [v2.0 끝점 토큰 참조](v2-id-and-access-tokens.md)를 참조하세요. <br> **참고:** `openid` 범위가 요청된 경우에만 제공됩니다. |
 
 
 

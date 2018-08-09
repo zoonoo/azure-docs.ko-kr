@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3ead2fe01c932c76a83e989d8908de4c9bfa541b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0c6c1d48d0a78781528b08b3c1d1e9438bf865ee
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506423"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617356"
 ---
 # <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management의 액세스 검토를 시작하는 방법
 사용자가 더 이상 필요 없는 권한 있는 액세스를 가진 경우 "오래된" 역할 할당이 됩니다. 이러한 오래된 역할 할당과 관련된 위험을 줄이기 위해 권한 있는 역할 관리자 또는 전역 관리자는 정기적으로 액세스 검토를 생성하여 사용자에게 부여된 역할을 검토하도록 관리자에게 요청해야 합니다. 이 문서에서 Azure AD PIM(Privileged Identity Management)에서 액세스 검토를 시작하는 단계를 설명합니다.

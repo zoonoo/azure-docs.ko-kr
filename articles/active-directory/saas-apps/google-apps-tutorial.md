@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2018
 ms.author: jeedes
-ms.openlocfilehash: c8ec2b8e312b9bedbd19cb203c0a59177c7fd6a5
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8001f2d38ac80bb6c67419faa54bf834531f0332
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265015"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>자습서: Azure Active Directory와 G Suite 통합
 
@@ -56,19 +56,19 @@ G Suite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
     A: 예. Google Cloud Platform과 Google Apps는 동일한 인증 플랫폼을 공유합니다. 따라서 GCP 통합을 수행하려면 Google Apps로 SSO를 구성해야 합니다.
 
 
-2. **Q: Chromebooks 및 기타 크롬 장치는 Azure AD Single Sign-On과 호환되나요?**
+1. **Q: Chromebooks 및 기타 크롬 장치는 Azure AD Single Sign-On과 호환되나요?**
    
     A: 예, 사용자는 Azure AD 자격 증명을 사용하여 Chromebook 장치에 로그인할 수 있습니다. 사용자가 자격 증명을 두 번 입력해야 하는 이유는 이 [G Suite 지원 문서](https://support.google.com/chrome/a/answer/6060880)를 참조하세요.
 
-3. **Q: Single Sign-On을 사용하도록 설정한 경우 사용자가 자신의 Azure AD 자격 증명을 사용하여 Google 클래스룸, GMail, Google 드라이브, YouTube 등과 같은 Google 제품에 로그인할 수 있나요?**
+1. **Q: Single Sign-On을 사용하도록 설정한 경우 사용자가 자신의 Azure AD 자격 증명을 사용하여 Google 클래스룸, GMail, Google 드라이브, YouTube 등과 같은 Google 제품에 로그인할 수 있나요?**
    
     A: 예. 조직에 대해 어떤 [G Suite](https://support.google.com/a/answer/182442?hl=en&ref_topic=1227583)를 사용하도록 설정할지 또는 사용하지 않도록 설정할지에 따라 다릅니다.
 
-4. **Q: 내 G Suite 사용자의 일부에 대해서에 Single Sign-On을 사용하도록 설정할 수 있나요?**
+1. **Q: 내 G Suite 사용자의 일부에 대해서에 Single Sign-On을 사용하도록 설정할 수 있나요?**
    
     A: 아니요. Single Sign-On을 켜는 즉시 모든 G Suite 사용자가 Azure AD 자격 증명으로 인증해야 합니다. G Suite는 여러 ID 공급자를 지원하지 않으므로 G Suite 환경의 ID 공급자는 Azure AD 또는 Google 중 하나가 될 수 있지만 동시에 둘 다가 될 수는 없습니다.
 
-5. **Q: 사용자가 Windows를 통해 로그인한 경우 암호 입력을 요청하는 메시지가 표시되지 않고 G Suite에 자동으로 인증되나요?**
+1. **Q: 사용자가 Windows를 통해 로그인한 경우 암호 입력을 요청하는 메시지가 표시되지 않고 G Suite에 자동으로 인증되나요?**
    
     A: 이 시나리오에는 두 가지 옵션을 사용할 수 있습니다. 첫째, [Azure Active Directory 조인](../device-management-introduction.md)을 통해 Windows 10 장치에 로그인할 수 있습니다. 또는 [AD FS(Active Directory Federation Services)](../connect/active-directory-aadconnect-user-signin.md) 배포를 통해 Azure AD에 Single Sign-On을 사용할 수 있도록 설정한 온-프레미스 Active Directory에 도메인 가입한 Windows 장치에 로그인할 수 있습니다. 두 가지 옵션 모두 Azure AD와 G Suite 간에 Single Sign-On을 사용하도록 설정하려면 다음 자습서의 단계를 수행해야 합니다.
 
@@ -76,7 +76,7 @@ G Suite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 G Suite 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-g-suite-from-the-gallery"></a>갤러리에서 G Suite 추가
 G Suite의 Azure AD 통합을 구성하려면 갤러리의 G Suite를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -87,15 +87,15 @@ G Suite의 Azure AD 통합을 구성하려면 갤러리의 G Suite를 관리되�
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![엔터프라이즈 응용 프로그램 블레이드][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![새 응용 프로그램 단추][3]
 
-4. 검색 상자에 **G Suite**를 입력하고 결과 패널에서 **G Suite**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 검색 상자에 **G Suite**를 입력하고 결과 패널에서 **G Suite**를 선택한 후 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![결과 목록의 G Suite](./media/google-apps-tutorial/tutorial_googleapps_addfromgallery.png)
 
@@ -110,10 +110,10 @@ G Suite에서 Azure AD의 **사용자 이름** 값을 **Username** 값으로 할
 G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Azure AD Single Sign-On 구성](#configure-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
-3. **[G Suite 테스트 사용자 만들기](#create-a-g-suite-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 G Suite에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On을 테스트하는 데 사용합니다.
+1. **[G Suite 테스트 사용자 만들기](#create-a-g-suite-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 G Suite에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#test-single-sign-on)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -125,11 +125,11 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Single Sign-On 구성 링크][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
 
     ![Single Sign-On 대화 상자](./media/google-apps-tutorial/tutorial_googleapps_samlbase.png)
 
-3. **G Suite 도메인 및 URL** 섹션에서 **Gmail**에 대해 구성하려는 경우 다음 단계를 수행합니다.
+1. **G Suite 도메인 및 URL** 섹션에서 **Gmail**에 대해 구성하려는 경우 다음 단계를 수행합니다.
 
     ![G Suite 도메인 및 URL Single Sign-On 정보](./media/google-apps-tutorial/tutorial_googleapps_urlgmail.png)
 
@@ -146,7 +146,7 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [G Suite 클라이언트 지원 팀](https://www.google.com/contact/)에 문의하세요.
 
-4. **G Suite 도메인 및 URL** 섹션에서 **Google Cloud Platform**에 대해 구성하려면 다음 단계를 수행합니다.
+1. **G Suite 도메인 및 URL** 섹션에서 **Google Cloud Platform**에 대해 구성하려면 다음 단계를 수행합니다.
 
     ![G Suite 도메인 및 URL Single Sign-On 정보](./media/google-apps-tutorial/tutorial_googleapps_url1.png)
 
@@ -163,29 +163,29 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. 이러한 값을 얻으려면 [G Suite 클라이언트 지원 팀](https://www.google.com/contact/)에 문의하세요. 
 
-5. **SAML 서명 인증서** 섹션에서 **인증서**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **인증서**를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/google-apps-tutorial/tutorial_googleapps_certificate.png) 
 
-6. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/google-apps-tutorial/tutorial_general_400.png)
 
-7. **G Suite 구성** 섹션에서 **G Suite 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML Single Sign-On 서비스 URL 및 암호 변경 URL**을 복사합니다.
+1. **G Suite 구성** 섹션에서 **G Suite 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL, SAML Single Sign-On 서비스 URL 및 암호 변경 URL**을 복사합니다.
 
     ![G Suite 구성](./media/google-apps-tutorial/tutorial_googleapps_configure.png) 
 
-8. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [G Suite 관리 콘솔](http://admin.google.com/) 에 로그인합니다.
+1. 브라우저에서 새 탭을 열고 관리자 계정을 사용하여 [G Suite 관리 콘솔](http://admin.google.com/) 에 로그인합니다.
 
-9. **보안**을 클릭합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
+1. **보안**을 클릭합니다. 링크가 보이지 않으면 화면 아래쪽에 있는 **기타 컨트롤** 메뉴에 숨겨져 있을 수 있습니다.
    
     ![보안을 클릭합니다.][10]
 
-10. **보안** 페이지에서 **SSO(Single Sign-On) 설정**을 클릭합니다.
+1. **보안** 페이지에서 **SSO(Single Sign-On) 설정**을 클릭합니다.
    
     ![SSO를 클릭합니다.][11]
 
-11. 다음 구성을 변경합니다.
+1. 다음 구성을 변경합니다.
    
     ![SSL 구성][12]
    
@@ -219,15 +219,15 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![Azure Active Directory 단추](./media/google-apps-tutorial/create_aaduser_01.png)
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/google-apps-tutorial/create_aaduser_02.png)
 
-3. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 **모든 사용자** 대화 상자 위쪽에서 **추가**를 클릭합니다.
 
     ![추가 단추](./media/google-apps-tutorial/create_aaduser_03.png)
 
-4. **사용자** 대화 상자에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자에서 다음 단계를 수행합니다.
 
     ![사용자 대화 상자](./media/google-apps-tutorial/create_aaduser_04.png)
 
@@ -258,23 +258,23 @@ G Suite에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **G Suite**를 선택합니다.
+1. 응용 프로그램 목록에서 **G Suite**를 선택합니다.
 
     ![응용 프로그램 목록의 G Suite 링크](./media/google-apps-tutorial/tutorial_googleapps_app.png)  
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

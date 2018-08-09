@@ -11,12 +11,12 @@ ms.service: functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: cfowler
-ms.openlocfilehash: c5de0b1384958bc8553aa3722ad6a5829b69ab12
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fab67b503d060c8c01b5a3692c8a07b24c425c78
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488702"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437409"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image-preview"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기(미리 보기)
 
@@ -161,7 +161,7 @@ Functions에 대한 Linux 호스팅은 현재 소비 계획에서 지원되지 �
 
 ## <a name="create-and-deploy-the-custom-image"></a>사용자 지정 이미지 만들기 및 배포
 
-함수 앱은 함수 실행을 호스팅합니다. [az functionapp create](/cli/azure/functionapp#az_functionapp_create) 명령을 사용하여 Docker 허브 이미지에서 함수 앱을 만듭니다. 
+함수 앱은 함수 실행을 호스팅합니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Docker 허브 이미지에서 함수 앱을 만듭니다. 
 
 다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 저장소 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<app_name>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 이전과 마찬가지로 `<docker-id>`는 사용자의 Docker 계정 이름입니다.
 
@@ -196,7 +196,7 @@ _deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅
 
 함수에는 기본 저장소 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 개인 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env) 또는 이와 동등한 것을 사용하여 Dockerfile에서 이러한 응용 프로그램 설정을 환경 변수로 대신 설정해야 합니다. 
 
-이 경우 `<storage_account>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_set) 명령으로 이 응용 프로그램 설정을 추가합니다.
+이 경우 `<storage_account>`는 만든 기본 저장소 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 응용 프로그램 설정을 추가합니다.
 
 ```azurecli-interactive
 storageConnectionString=$(az storage account show-connection-string \

@@ -3,7 +3,7 @@ title: Azure WebJobs SDK 시작
 description: 이벤트 구동 백그라운드 처리를 위한 WebJobs SDK에 대해 간략히 소개합니다. Azure 서비스 및 타사 서비스에서 데이터에 액세스하는 방법을 알아봅니다.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 68377ffd53d5f2b99ddc08386529a40dda12e1b2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.author: glenga
+ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901554"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577308"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -63,9 +63,9 @@ public static void Run(
 
 1. Visual Studio에서 **파일 -> 새 프로젝트**를 차례로 선택합니다.
 
-2. **클래식 Windows 데스크톱 > 콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
+1. **클래식 Windows 데스크톱 > 콘솔 앱(.NET Framework)** 을 차례로 선택합니다.
 
-3. *WebJobsSDKSample* 프로젝트의 이름을 지정한 다음, **확인**을 선택합니다.
+1. *WebJobsSDKSample* 프로젝트의 이름을 지정한 다음, **확인**을 선택합니다.
 
    ![새 프로젝트 대화 상자](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -121,13 +121,13 @@ WebJobs SDK 프로젝트에 로그인하기 위한 몇 가지 옵션이 있습�
    Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
    ``` 
 
-2. *Program.cs*에 `using` 문을 추가합니다.
+1. *Program.cs*에 `using` 문을 추가합니다.
 
    ```cs
    using Microsoft.Extensions.Logging;
    ```
 
-3. `Main` 메서드에서 `JobHost`를 만들기 전에 `JobHostConfiguration`을 업데이트하는 코드를 추가합니다.
+1. `Main` 메서드에서 `JobHost`를 만들기 전에 `JobHostConfiguration`을 업데이트하는 코드를 추가합니다.
  
    ```
    config.DashboardConnectionString = "";
@@ -190,9 +190,9 @@ WebJobs SDK 프로젝트에 로그인하기 위한 몇 가지 옵션이 있습�
 
    ![Storage 계정 만들기 메뉴](./media/webjobs-sdk-get-started/create-storage-account-menu.png)
 
-2. **Storage 계정 만들기** 대화 상자에서 Storage 계정에 대한 고유한 이름을 입력합니다.
+1. **Storage 계정 만들기** 대화 상자에서 Storage 계정에 대한 고유한 이름을 입력합니다.
 
-3. App Service 앱을 만든 지역과 동일한**지역** 또는 가까운 지역을 선택합니다.
+1. App Service 앱을 만든 지역과 동일한**지역** 또는 가까운 지역을 선택합니다.
 
 1. **만들기**를 선택합니다.
 
@@ -202,7 +202,7 @@ WebJobs SDK 프로젝트에 로그인하기 위한 몇 가지 옵션이 있습�
 
    ![연결 문자열 줄임표](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
-2. 연결 문자열을 복사하고, 이 값을 쉽게 다시 복사할 수 있는 특정 위치에 저장합니다.
+1. 연결 문자열을 복사하고, 이 값을 쉽게 다시 복사할 수 있는 특정 위치에 저장합니다.
 
    ![연결 문자열 복사](./media/webjobs-sdk-get-started/copy-key.png)
 
@@ -218,7 +218,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
    </connectionStrings>
    ```
 
-2. *{저장소 연결 문자열}* 을 앞에서 복사한 연결 문자열로 바꿉니다.
+1. *{저장소 연결 문자열}* 을 앞에서 복사한 연결 문자열로 바꿉니다.
 
    나중에 Azure에서 App Service 앱을 구성할 때 이 연결 문자열을 다시 사용합니다.
 
@@ -243,27 +243,27 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
    `ServicePointManager` 설정에 대한 경고 메시지가 표시될 수 있습니다. 이 프로젝트에서 수행할 테스트의 경우 경고를 무시할 수 있습니다. 경고에 대한 자세한 내용은 [WebJobs SDK를 사용하는 방법](webjobs-sdk-how-to.md#jobhost-servicepointmanager-settings)을 참조하세요.
 
-2. 콘솔 창을 닫습니다.
+1. 콘솔 창을 닫습니다.
 
 1. **서버 탐색기**에서 새 저장소 계정에 대한 노드를 펼친 다음, **큐**를 마우스 오른쪽 단추로 클릭합니다. 
 
-2. **큐 만들기**를 선택합니다. 
+1. **큐 만들기**를 선택합니다. 
 
-3. 큐에 대한 이름으로 *queue*를 입력한 다음, **확인**을 선택합니다.
+1. 큐에 대한 이름으로 *queue*를 입력한 다음, **확인**을 선택합니다.
 
    ![큐 만들기](./media/webjobs-sdk-get-started/create-queue.png)
 
-4. 새 큐에 대한 노드를 마우스 오른쪽 단추로 클릭한 다음, **큐 보기**를 선택합니다.
+1. 새 큐에 대한 노드를 마우스 오른쪽 단추로 클릭한 다음, **큐 보기**를 선택합니다.
 
-5. **메시지 추가** 아이콘을 선택합니다.
+1. **메시지 추가** 아이콘을 선택합니다.
 
    ![큐 만들기](./media/webjobs-sdk-get-started/create-queue-message.png)
 
-6. **메시지 추가** 대화 상자에서 *Hello World!* 를 **메시지 텍스트**로 입력한 다음, **확인**을 선택합니다.
+1. **메시지 추가** 대화 상자에서 *Hello World!* 를 **메시지 텍스트**로 입력한 다음, **확인**을 선택합니다.
 
    ![큐 만들기](./media/webjobs-sdk-get-started/hello-world-text.png)
 
-7. 프로젝트를 다시 실행합니다.
+1. 프로젝트를 다시 실행합니다.
 
    `ProcessQueueMessage` 함수에서 `QueueTrigger` 특성을 사용했으므로 WeJobs SDK 런타임은 시작할 때 큐 메시지를 수신 대기합니다. *queue*라는 큐에서 새 큐 메시지를 찾아 함수를 호출합니다.
 
@@ -288,7 +288,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
    Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=ebcb275d-0d7c-4293-a1af-93e0804b9e49)
    ```
 
-8. 콘솔 창을 닫습니다.
+1. 콘솔 창을 닫습니다.
 
 ## <a name="add-application-insights-logging"></a>Application Insights 로깅 추가
 
@@ -304,9 +304,9 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. 사용할 수 있는 App Service 앱이 아직 없는 경우 [하나를 만듭니다](app-service-web-get-started-dotnet-framework.md).
 
-2. 사용할 수 있는 Application Insights 리소스가 아직 없는 경우 [하나를 만듭니다](../application-insights/app-insights-create-new-resource.md). **응용 프로그램 종류**를 **일반**으로 설정하고, **계측 키 복사**를 수행하는 섹션을 건너뜁니다.
+1. 사용할 수 있는 Application Insights 리소스가 아직 없는 경우 [하나를 만듭니다](../application-insights/app-insights-create-new-resource.md). **응용 프로그램 종류**를 **일반**으로 설정하고, **계측 키 복사**를 수행하는 섹션을 건너뜁니다.
 
-3. 사용하려는 Application Insights 리소스가 이미 있는 경우 [계측 키를 복사합니다](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
+1. 사용하려는 Application Insights 리소스가 이미 있는 경우 [계측 키를 복사합니다](../application-insights/app-insights-create-new-resource.md#copy-the-instrumentation-key).
 
 ### <a name="configure-app-settings"></a>앱 설정 구성 
 
@@ -314,23 +314,23 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. App Service 앱이 있는 리소스 그룹을 펼친 다음, App Service 앱을 마우스 오른쪽 단추로 클릭합니다.
 
-3. **설정 보기**를 선택합니다.
+1. **설정 보기**를 선택합니다.
 
-4. **연결 문자열** 상자에서 다음 항목을 추가합니다.
+1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
    |Name  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
    |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
    
-6. **응용 프로그램 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
+1. **응용 프로그램 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
    |Name  |값  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
-2. *{계측 키}* 를 사용 중인 Application Insights 리소스의 계측 키로 바꿉니다.
+1. *{계측 키}* 를 사용 중인 Application Insights 리소스의 계측 키로 바꿉니다.
 
-2. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 1. 연결 문자열 컬렉션 바로 뒤에 있는 *App.config* 파일에 다음 XML을 추가합니다.
 
@@ -340,11 +340,11 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
    </appSettings>
    ```
 
-2. *{계측 키}* 를 사용 중인 Application Insights 리소스의 계측 키로 바꿉니다.
+1. *{계측 키}* 를 사용 중인 Application Insights 리소스의 계측 키로 바꿉니다.
 
    이 데이터가 *App.config* 파일에 추가되면 프로젝트를 로컬로 실행할 때 Application Insights 연결을 테스트할 수 있습니다. 
 
-3. 변경 내용을 저장합니다.
+1. 변경 내용을 저장합니다.
 
 ### <a name="add-application-insights-logging-provider"></a>Application Insights 로깅 공급자 추가
 
@@ -364,13 +364,13 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
    Install-Package System.Configuration.ConfigurationManager -version 4.4.1
    ``` 
 
-2. *Program.cs*를 열고, 구성 관리자에 대한 `using` 문을 추가합니다.
+1. *Program.cs*를 열고, 구성 관리자에 대한 `using` 문을 추가합니다.
 
    ```csharp
    using System.Configuration;
    ```
 
-2. `Main` 메서드의 코드를 다음 코드로 바꿉니다.
+1. `Main` 메서드의 코드를 다음 코드로 바꿉니다.
 
    ```csharp
    using (var loggerFactory = new LoggerFactory())
@@ -406,7 +406,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. [Azure Portal](https://portal.azure.com/)을 열고, Application Insights 리소스로 이동합니다.
 
-2. **검색**을 선택합니다.
+1. **검색**을 선택합니다.
 
    ![검색 선택](./media/webjobs-sdk-get-started/select-search.png)
 
@@ -414,7 +414,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
    ![Application Insights의 로그](./media/webjobs-sdk-get-started/logs-in-ai.png)
 
-3. 콘솔 창을 닫습니다.
+1. 콘솔 창을 닫습니다.
 
 ## <a name="deploy-as-a-webjob"></a>WebJob으로 배포
 
@@ -444,7 +444,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. *Hello Azure!* 를 입력하는 것을 제외하고는 [이전](#trigger-the-function)과 동일한 방식으로 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
 
-7. Visual Studio에서 **큐** 페이지를 새로 고치고, Azure App Service에서 실행되는 함수에서 이를 처리했으므로 새 메시지가 표시되지 않습니다.
+1. Visual Studio에서 **큐** 페이지를 새로 고치고, Azure App Service에서 실행되는 함수에서 이를 처리했으므로 새 메시지가 표시되지 않습니다.
 
    > [!TIP]
    > Azure에서 테스트하는 경우 [개발 모드](webjobs-sdk-how-to.md#jobhost-development-settings)를 사용하여 큐 트리거 함수를 즉시 호출하고 [큐 폴링 지수 백오프](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm)로 인한 지연을 방지하도록 합니다.
@@ -453,7 +453,7 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
 1. [Azure Portal](https://portal.azure.com/)을 열고, Application Insights 리소스로 이동합니다.
 
-2. **검색**을 선택합니다.
+1. **검색**을 선택합니다.
 
 1. *Hello Azure!* 메시지가 표시되지 않으면 몇 분 동안 정기적으로 **새로 고침**을 선택합니다.
 
@@ -477,19 +477,19 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
    이 코드에서 `queueTrigger`는 런타임에 다른 값으로 확인되는 [바인딩 식](../azure-functions/functions-triggers-bindings.md#binding-expressions-and-patterns)입니다.  런타임에 큐 메시지의 내용이 있습니다.
 
-2. `using`을 추가합니다.
+1. `using`을 추가합니다.
 
    ```cs
    using System.IO;
    ```
 
-3. 저장소 계정에 Blob 컨테이너를 만듭니다.
+1. 저장소 계정에 Blob 컨테이너를 만듭니다.
 
    a. **서버 탐색기**에서 저장소 계정에 대한 노드를 펼치고, **Blob**을 마우스 오른쪽 단추로 클릭한 다음, **Blob 컨테이너 만들기**를 선택합니다.
 
    나. **Blob 컨테이너 만들기** 대화 상자에서 *container*를 컨테이너 이름으로 입력한 다음, **확인**을 클릭합니다.
 
-4. *Program.cs* 파일을 Blob 컨테이너에 업로드합니다. (여기서는 이 파일이 예제로 사용되며, 모든 텍스트 파일을 업로드하고, 파일 이름이 포함된 큐 메시지를 만들 수 있습니다.)
+1. *Program.cs* 파일을 Blob 컨테이너에 업로드합니다. (여기서는 이 파일이 예제로 사용되며, 모든 텍스트 파일을 업로드하고, 파일 이름이 포함된 큐 메시지를 만들 수 있습니다.)
 
    a. **서버 탐색기**에서 방금 만든 컨테이너에 대한 노드를 두 번 클릭합니다.
 
@@ -499,11 +499,11 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
 
    다. *Program.cs*를 찾아 선택한 다음, **확인**을 선택합니다.
 
-5. 메시지 텍스트로 *Program.cs*가 포함된 큐 메시지를 앞에서 만든 큐에 만듭니다.
+1. 메시지 텍스트로 *Program.cs*가 포함된 큐 메시지를 앞에서 만든 큐에 만듭니다.
 
    ![Program.cs 큐 메시지](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
 
-6. 프로젝트를 실행합니다.
+1. 프로젝트를 실행합니다.
 
    큐 메시지는 함수를 트리거하여 Blob을 읽고 해당 길이를 로깅합니다. 콘솔 출력은 다음과 같습니다.
 
@@ -535,9 +535,9 @@ WebJobs SDK는 앱 설정 컬렉션에서 Storage 연결 문자열을 찾습니�
    }
    ```
 
-5. 메시지 텍스트로 *Program.cs*가 포함된 또 다른 큐 메시지를 만듭니다.
+1. 메시지 텍스트로 *Program.cs*가 포함된 또 다른 큐 메시지를 만듭니다.
 
-6. 프로젝트를 실행합니다.
+1. 프로젝트를 실행합니다.
 
    큐 메시지는 함수를 트리거하여 Blob을 읽고, 해당 길이를 로깅하고, 새 Blob을 만듭니다. 콘솔 출력은 동일하지만, Blob 컨테이너 창으로 이동하여 **새로 고침**을 선택하면 *copy-Program.cs*라는 새 Blob이 표시됩니다.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 1d1b21897975717db7b733e33b7700bc76e3e065
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046550"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495301"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Azure Monitor를 사용하여 데이터 팩터리 경고 및 모니터링
 클라우드 응용 프로그램은 이동하는 부분이 많아 복잡합니다. 모니터링은 응용 프로그램을 유지하고 정상 상태에서 실행할 수 있는 데이터를 제공합니다. 또한 잠재적 문제를 방지하거나 지난 문제를 해결할 수 있습니다. 또한 응용 프로그램에 대해 깊이 이해하는 데 모니터링 데이터를 사용할 수 있습니다. 이러한 정보를 사용하면 응용 프로그램 성능 또는 유지 관리 편의성을 향상시키거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화할 수 있습니다.
@@ -62,7 +62,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 * `{api-version}`을 `2016-09-01`로 바꿉니다.
 * `{resource-id}`를 진단 설정을 편집하려는 리소스에 대한 리소스 ID로 바꿉니다. 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-portal.md)를 참조하세요.
 * `Content-Type` 헤더를 `application/json`으로 설정합니다.
-* 권한 부여 헤더를 Azure Active Directory에서 가져온 JSON 웹 토큰으로 설정합니다. 자세한 내용은 [요청 인증](../active-directory/develop/active-directory-authentication-scenarios.md)을 참조하세요.
+* 권한 부여 헤더를 Azure Active Directory에서 가져온 JSON 웹 토큰으로 설정합니다. 자세한 내용은 [요청 인증](../active-directory/develop/authentication-scenarios.md)을 참조하세요.
 
 **본문**
 ```json

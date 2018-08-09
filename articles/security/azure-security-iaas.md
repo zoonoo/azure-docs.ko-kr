@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723775"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618600"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 
@@ -188,7 +188,7 @@ Security Compliance Manager를 사용하여 두 가지 방법으로 컴퓨터의
 
 프로덕션 환경과는 별도로 호스트되는 환경의 경우 가상 머신 및 클라우드 서비스를 보호하는 데 사용할 수 있는 맬웨어 방지 확장이 있습니다. 이 확장은 [Azure Security Center](../security-center/security-center-intro.md)에 통합됩니다.
 
-[Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고, 제외 이벤트 컬렉션 및 [PowerShell 지원](https://msdn.microsoft.com/library/dn771715.aspx)과 같은 기능이 포함됩니다.
+[Microsoft 맬웨어 방지 프로그램](azure-security-antimalware.md)에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고, 제외 이벤트 컬렉션 및 [PowerShell 지원](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension)과 같은 기능이 포함됩니다.
 
 ![Azure 맬웨어 방지](./media/azure-security-iaas/azantimalware.png)
 

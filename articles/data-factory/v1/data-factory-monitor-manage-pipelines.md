@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0db357194aa4bd4d01b1d445cb407d983214b32b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 843b92c20b2ec930ce67659802a4287328a08650
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054132"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618872"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -289,7 +289,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 ![오류 수정 및 유효성 검사](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
 ### <a name="use-azure-powershell"></a>Azure PowerShell 사용
-**Set-AzureRmDataFactorySliceStatus** cmdlet을 사용하여 실패를 다시 실행할 수 있습니다. cmdlet에 대한 구문 및 기타 세부 정보는 [Set-AzureRmDataFactorySliceStatus](https://msdn.microsoft.com/library/mt603522.aspx) 항목을 참조하세요.
+**Set-AzureRmDataFactorySliceStatus** cmdlet을 사용하여 실패를 다시 실행할 수 있습니다. cmdlet에 대한 구문 및 기타 세부 정보는 [Set-AzureRmDataFactorySliceStatus](https://docs.microsoft.com/powershell/module/azurerm.datafactories/set-azurermdatafactoryslicestatus) 항목을 참조하세요.
 
 **예제:**
 

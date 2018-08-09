@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: d7b832659272f01b6e939150fa89626620d5eab7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6e7de0a7b580c0028982895487117ab98d0cd612
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153561"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503454"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web Apps에서 PHP 구성
 
@@ -102,7 +102,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI 2.0�
 
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 웹앱에 앱 설정을 추가합니다.
 1. Kudu Console(http://&lt;site-name&gt;.scm.azurewebsite.net)을 사용하여 `d:\home\site\ini` 디렉터리에 `settings.ini` 파일을 만듭니다.
-1. php.ini 파일에서 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` 설정이 `*.crt` 파일을 가리키고 'wincache.maxfilesize' 설정을 512K로 설정하려면 `settings.ini` 파일에 다음 텍스트를 포함합니다.
+1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `settings.ini` 파일에 추가합니다. 예를 들어 `curl.cainfo` 설정이 `*.crt` 파일을 가리키고 'wincache.maxfilesize' 설정을 512K로 설정하려면 `settings.ini` 파일에 다음 텍스트를 포함합니다.
 
         ; Example Settings
         curl.cainfo="%ProgramFiles(x86)%\Git\bin\curl-ca-bundle.crt"
@@ -119,7 +119,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI 2.0�
 1. `.dll` 확장 파일을 `ext` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 웹앱에 앱 설정을 추가합니다.
 1. `d:\home\site\ini`에 `extensions.ini`라는 `ini` 파일을 만듭니다.
-1. php.ini 파일에서 사용한 것과 동일한 구문을 사용하여 구성 설정을 `extensions.ini` 파일에 추가합니다. 예를 들어 MongoDB 및 XDebug 확장을 사용하려면 `extensions.ini` 파일에 다음 텍스트를 포함합니다.
+1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `extensions.ini` 파일에 추가합니다. 예를 들어 MongoDB 및 XDebug 확장을 사용하려면 `extensions.ini` 파일에 다음 텍스트를 포함합니다.
 
         ; Enable Extensions
         extension=d:\home\site\ext\php_mongo.dll

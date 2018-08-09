@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 06/29/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: ee504f805c536ba9a6186514206546c3df1f0f1a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 544f5210adbea6791f9224a1e2be0743ce9995d5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127716"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434149"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Azure CLI 및 Event Grid를 사용하여 Azure Relay 하이브리드 연결로 사용자 지정 이벤트 라우팅
 
@@ -29,7 +29,7 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. Azure R
 
 Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해야 합니다. 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컬렉션입니다.
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. 
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
 다음 예제에서는 *westus2* 위치에 *gridResourceGroup*이라는 리소스 그룹을 만듭니다.
 

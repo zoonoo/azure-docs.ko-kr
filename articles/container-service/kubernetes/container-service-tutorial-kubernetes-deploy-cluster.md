@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 29a5cc67ab4d515809d00e5f0b4277f95bfb08e6
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100179"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434427"
 ---
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Azure Container Service에서 Kubernetes 클러스터 배포
 
@@ -35,7 +35,7 @@ Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제�
 
 ## <a name="create-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 
-[az acs create](/cli/azure/acs#az_acs_create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 
+[az acs create](/cli/azure/acs#az-acs-create) 명령을 사용하여 Azure Container Service에서 Kubernetes 클러스터를 만듭니다. 
 
 다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myK8sCluster` 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서](./container-service-tutorial-kubernetes-prepare-acr.md)에서 만든 것입니다.
 
@@ -43,7 +43,7 @@ Kubernetes는 컨테이너화된 응용 프로그램용 분산 플랫폼을 제�
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
-제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#az_acs_create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
+제한 평가판과 같이 Azure 구독의 Azure 리소스 액세스 권한이 제한되는 경우도 있습니다. 사용 가능한 코어 제한으로 인해 배포가 실패하는 경우 [az acs create](/cli/azure/acs#az-acs-create) 명령에 `--agent-count 1`을 추가하여 기본 에이전트 수를 줄이세요. 
 
 몇 분 후 배포가 완료되고 json 형식의 ACS 배포 관련 정보가 반환됩니다.
 
@@ -75,7 +75,7 @@ az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SC
 kubectl get nodes
 ```
 
-출력
+출력:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION

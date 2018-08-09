@@ -4,24 +4,25 @@ description: Azure AD Connect의 Azure AD 신뢰 처리 운영에 대한 세부 
 keywords: AD FS, ADFS, AD FS 관리, AAD Connect, Connect, Azure AD, 신뢰, AAD, 클레임, 클레임, 클레임 규칙, 발급, 변환, 규칙, 백업, 복원
 services: active-directory
 documentationcenter: ''
-author: anandyadavmsft
-manager: samueld
-editor: ''
+ms.reviewer: anandyadavmsft
+manager: mtillman
+ms.component: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
-ms.author: anandy
+ms.date: 07/28/2018
+ms.author: billmath
+author: billmath
 ms.custom: ''
-ms.openlocfilehash: 0d7483bbdb06e68e85bae58a70970b9bc0a3b1f8
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: a037414f16c3986370557f389328d36788e2c292
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330672"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494828"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Azure AD Connect를 사용하여 Azure AD로 AD FS 신뢰 관리
 

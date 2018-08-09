@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2621c4e3ef3425f5a44d78ed5ceb529110c18f4c
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365125"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618362"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 앱에 원격으로 액세스하는 경우 보안 고려 사항
 
@@ -46,7 +46,7 @@ Azure AD 응용 프로그램 프록시는 모든 인증에 Azure AD STS(보안 �
 
 네트워크 연결이 설정되기 전에 다양한 정책 제어를 적용합니다.
 
-[조건부 액세스](../active-directory-conditional-access-azure-portal-get-started.md)를 사용하면 백 엔드 응용 프로그램에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
+[조건부 액세스](../conditional-access/overview.md)를 사용하면 백 엔드 응용 프로그램에 액세스할 수 있는 트래픽에 대한 제한을 정의할 수 있습니다. 위치, 인증 강도 및 사용자 위험 프로필에 따라 로그인을 제한하는 정책을 사항을 만들 수 있습니다.
 
 또한 조건부 액세스를 사용하여 Multi-Factor Authentication 정책을 구성하고 사용자 인증에 또 다른 보안 계층을 추가할 수 있습니다. 
 

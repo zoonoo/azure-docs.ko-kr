@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: a614dadae40fcfc28eba85e5943f60a38653224b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233906"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435545"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Azure App Service에 대한 로컬 Git 배포
 
@@ -53,13 +53,13 @@ Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정�
 
 ### <a name="enable-local-git-with-kudu"></a>Kudu로 로컬 Git을 사용하도록 설정
 
-Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git)을 실행합니다.
+Kudu 빌드 서버로 앱에 대한 로컬 Git 배포를 사용하도록 설정하려면 Cloud Shell에서 [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git)을 실행합니다.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-대신 Git 지원 앱을 만들려면 `--deployment-local-git` 매개 변수를 사용하여 Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create)를 실행합니다.
+대신 Git 지원 앱을 만들려면 `--deployment-local-git` 매개 변수를 사용하여 Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)를 실행합니다.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git

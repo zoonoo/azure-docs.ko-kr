@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 57c4d9ccc64c9644c3d333fad1262c997aeff5d1
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bda52acc12aad3cad20143c319f557f11d760c42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624664"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435155"
 ---
 # <a name="use-azure-data-lake-store-to-capture-data-from-event-hubs"></a>Azure Data Lake Store를 사용하여 Event Hubs에서 데이터 캡처
 
@@ -39,11 +39,11 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
     ![Data Lake Store 데이터 탐색기](./media/data-lake-store-archive-eventhub-capture/data-lake-store-open-data-explorer.png "Data Lake Store 데이터 탐색기")
 
-2.  **새 폴더**를 클릭하고 데이터를 캡처할 폴더의 이름을 입력합니다.
+1.  **새 폴더**를 클릭하고 데이터를 캡처할 폴더의 이름을 입력합니다.
 
     ![Data Lake Store에 새 폴더 만들기](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-new-folder.png "Data Lake Store에 새 폴더 만들기")
 
-3. Data Lake Store의 루트에서 사용 권한을 할당합니다. 
+1. Data Lake Store의 루트에서 사용 권한을 할당합니다. 
 
     a. **데이터 탐색기**를 클릭하고 Data Lake Store 계정의 루트를 선택한 후 **액세스**를 클릭합니다.
 
@@ -64,7 +64,7 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
     **확인**을 클릭합니다.
 
-4. 데이터를 캡처하려는 Data Lake Store 계정 아래의 폴더에 대해 권한을 할당합니다.
+1. 데이터를 캡처하려는 Data Lake Store 계정 아래의 폴더에 대해 권한을 할당합니다.
 
     a. **데이터 탐색기**를 클릭하고 Data Lake Store 계정에서 폴더를 선택하고 **액세스**를 클릭합니다.
 
@@ -86,11 +86,11 @@ Azure Data Lake Store를 사용하여 Azure Event Hubs에서 받은 데이터를
 
 이 섹션에서는 Event Hubs 네임스페이스 내에 Event Hubs를 만듭니다. 또한 Azure Data Lake Store 계정에 데이터를 캡처하도록 이벤트 허브를 구성합니다. 이 섹션에서는 Event Hubs 네임스페이스를 이미 만들었다고 가정합니다.
 
-2. Event Hubs 네임스페이스의 **개요** 창에서 **+ 이벤트 허브**를 클릭합니다.
+1. Event Hubs 네임스페이스의 **개요** 창에서 **+ 이벤트 허브**를 클릭합니다.
 
     ![이벤트 허브 만들기](./media/data-lake-store-archive-eventhub-capture/data-lake-store-create-event-hub.png "이벤트 허브 만들기")
 
-3. Data Lake Store에 데이터를 캡처하도록 Event Hubs를 구성하려면 다음 값을 제공하세요.
+1. Data Lake Store에 데이터를 캡처하도록 Event Hubs를 구성하려면 다음 값을 제공하세요.
 
     ![이벤트 허브 만들기](./media/data-lake-store-archive-eventhub-capture/data-lake-store-configure-eventhub.png "이벤트 허브 만들기")
 

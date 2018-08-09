@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0f6713b9b8704e813ab1fd77ab1cf4e71e7f6670
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235432"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434682"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Azure CLI를 사용하여 DevTest Labs에서 가상 머신 만들기 및 관리
 이 빠른 시작은 랩에서 개발 컴퓨터를 만들고, 시작하고, 연결하고, 업데이트하고, 정리하는 과정을 안내합니다. 
@@ -38,7 +38,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 > **랩의 리소스 그룹** 이름을 --resource-group 매개 변수에 지정합니다.
 >
 
-수식을 사용하여 VM을 만들려는 경우 [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create)에서 --formula 매개 변수를 사용합니다.
+수식을 사용하여 VM을 만들려는 경우 [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create)에서 --formula 매개 변수를 사용합니다.
 
 
 VM을 사용할 수 있는지 확인합니다.

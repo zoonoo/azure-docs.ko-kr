@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 578fdb5593e75e3584e81d73d7643162f7af5cbc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358141"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494376"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>자습서: 1. 사용자 지정 도메인으로 앱 빌드
 이 자습서에서는 **의도**를 사용하여 사용자가 앱에 제출한 발화(텍스트)를 기초로 사용자의 _의도_를 판단하는 방법을 보여 주는 앱을 만듭니다. 마치면 클라우드에서 실행되는 LUIS 엔드포인트를 갖게 됩니다.
@@ -84,19 +84,15 @@ ms.locfileid: "39358141"
     챗봇과 같은 LUIS 호출 응용 프로그램에서 LUIS가 발화에 대해 **없음** 의도를 반환하는 경우, 봇에서 사용자가 대화를 종료하려는지 물어볼 수 있습니다. 사용자가 종료하지 않으려고 하는 경우, 챗봇에서 대화를 계속하기 위해 더 많은 지침을 제공할 수도 있습니다. 
 
 ## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다. 
 
-    ![학습 단추](./media/luis-quickstart-intents-only/train-button.png)
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
-
-    ![학습 완료 상태 표시줄](./media/luis-quickstart-intents-only/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>엔드포인트에 앱 게시
 
 [!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>GetJobInformation 의도의 쿼리 엔드포인트
+
 1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. 주소의 URL 끝으로 이동하고 `I'm looking for a job with Natual Language Processing`를 입력합니다. 마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 이 발화는 4단계의 에제 발화와 전혀 다르므로 테스트에 적합하며 최고 점수 의도로 `GetJobInformation` 의도를 반환하게 됩니다. 
@@ -189,7 +185,8 @@ JSON 결과는 최고 점수 매기기 의도를 식별합니다. 모든 점수�
 LUIS는 이 요청을 통해 수행됩니다. 챗봇 같은 호출 응용 프로그램은 topScoringIntent 결과를 취하고, 정보를 찾아(LUIS에 저장되지 않음) 질문에 답하거나 대화를 종료할 수 있습니다. 이것은 봇 또는 호출 응용 프로그에 대한 프로그램 방식의 옵션입니다. LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 그러려면 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

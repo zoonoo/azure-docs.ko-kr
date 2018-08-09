@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 3848f317fd6d760961756f132edf9cbcb5f431ee
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181973"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620232"
 ---
 # <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>최신 Azure Search 서비스 REST API 버전으로 업그레이드
 [Azure Search 서비스 REST API](https://docs.microsoft.com/rest/api/searchservice/)의 이전 버전을 사용하는 경우 이 문서를 통해 최신 일반 공급 API 버전, 2017-11-11을 사용하기 위해 응용 프로그램을 업그레이드할 수 있습니다.
@@ -31,7 +31,7 @@ REST API의 2017-11-11 버전에는 이전 버전에서 변경된 몇 가지가 
 
 * [동의어](search-synonyms.md) 새 동의어 기능을 사용하면 동의어를 정의하고 쿼리의 범위를 확장할 수 있습니다.
 * [텍스트 Blob의 효율적인 인덱싱을 위한 지원](https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#IndexingPlainText) Azure Blob 인덱서에 대한 새 `text` 구문 분석 모드는 인덱싱 성능을 크게 향상시킵니다.
-* [서비스 통계 API](https://aka.ms/azure-search-stats) 이 새로운 API를 사용하여 Azure Search의 현재 사용량 및 리소스의 한도를 봅니다.
+* [서비스 통계 API](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics) 이 새로운 API를 사용하여 Azure Search의 현재 사용량 및 리소스의 한도를 봅니다.
 
 <a name="UpgradeSteps"></a>
 

@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054640"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495342"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ Azure Active Directory는 클라우드 응용 프로그램에 대해 엔터프�
 여러 가지 방법으로 응용 프로그램을 Azure AD와 통합할 수 있습니다. 응용 프로그램에 맞게 이 시나리오를 활용하세요.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>응용 프로그램에 로그인하기 위한 방법으로 Azure AD 지원
-**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 응용 프로그램에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 되며 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 응용 프로그램에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](active-directory-authentication-scenarios.md)에 대해 자세히 알아보세요.
+**로그인 충돌을 줄이고 지원 비용을 절감합니다.** Azure AD를 사용하여 응용 프로그램에 로그인하면 사용자는 이름 및 암호를 기억하지 않아도 되며 개발자는 저장하고 보호할 암호가 줄어듭니다. 잊어버린 암호 재설정을 처리하지 않으므로 상당히 효율적입니다. Azure AD에서는 Office 365, Microsoft Azure 등과 같이 전 세계에서 인기가 많은 다양한 클라우드 응용 프로그램에 로그인할 수 있도록 지원합니다. 약 500만 개의 조직에서 4억 3천 만명 이상이 사용 중이므로 사용자가 이미 Azure AD에 로그인되어 있을 가능성이 높습니다. [Azure AD 로그인 지원 추가](authentication-scenarios.md)에 대해 자세히 알아보세요.
 
 **응용 프로그램 등록을 단순화합니다.**  응용 프로그램을 등록하는 동안 등록 양식을 사전에 입력하거나 완전히 제거할 수 있도록 Azure AD가 사용자에 대한 필수 정보를 보낼 수 있습니다. 사용자는 소셜 미디어 및 모바일 응용 프로그램에서 본 것과 비슷한 친숙한 동의 환경을 통해 자신의 Azure AD 계정을 사용하여 응용 프로그램을 등록할 수 있습니다. 모든 사용자는 IT 담당자의 도움 없이 Azure AD와 통합된 응용 프로그램을 등록 및 로그인할 수 있습니다. [Azure AD 계정 로그인을 위해 응용 프로그램 등록](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)에 대해 자세히 알아보세요.
 
@@ -81,7 +81,7 @@ Azure AD와 통합하면 추가 코드를 작성할 필요가 없다는 이점�
 **Azure AD는 전 세계 데이터 센터에 배포되어 24시간 내내 관리 및 모니터링됩니다.**  Azure AD는 Microsoft Azure 및 Office 365의 ID 관리 시스템이며 전 세계 28곳의 데이터 센터에 배포됩니다. 디렉터리 데이터는 3개 이상의 데이터 센터에 복제되어야 합니다. 전역 부하 분산 장치는 사용자가 자신의 데이터가 들어 있는 Azure AD의 가장 근접한 복사본에 액세스하도록 하며 문제가 감지되면 요청을 다른 데이터 센터로 자동으로 다시 라우팅합니다.
 
 ## <a name="next-steps"></a>다음 단계
-[코드 작성 시작하기](active-directory-developers-guide.md#get-started).
+[코드 작성 시작하기](azure-ad-developers-guide.md#get-started).
 
-[Azure AD를 사용한 사용자 로그인](active-directory-authentication-scenarios.md)
+[Azure AD를 사용한 사용자 로그인](authentication-scenarios.md)
 

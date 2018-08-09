@@ -17,16 +17,16 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 49561434688806b3959824f87d1c81e07d7a7559
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238708"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578673"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>응용 프로그램 인증을 위한 인증서 자격 증명
 
-Azure AD(Azure Active Directory)를 사용하면 응용 프로그램에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1.0](active-directory-protocols-oauth-service-to-service.md), [v2.0](active-directory-v2-protocols-oauth-client-creds.md)) 및 On-Behalf-Of 흐름([v1.0](active-directory-protocols-oauth-on-behalf-of.md), [v2.0](active-directory-v2-protocols-oauth-on-behalf-of.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
+Azure AD(Azure Active Directory)를 사용하면 응용 프로그램에서(예: OAuth 2.0 클라이언트 자격 증명 부여 흐름([v1.0](v1-oauth2-client-creds-grant-flow.md), [v2.0](v2-oauth2-client-creds-grant-flow.md)) 및 On-Behalf-Of 흐름([v1.0](v1-oauth2-on-behalf-of-flow.md), [v2.0](v2-oauth2-on-behalf-of-flow.md))에서) 인증을 위해 자체의 자격 증명을 사용할 수 있습니다.
 
 응용 프로그램이 인증에 사용할 수 있는 자격 증명의 한 가지 형태는 응용 프로그램에서 소유한 인증서로 서명된 JWT(JSON Web Token) 어설션입니다.
 

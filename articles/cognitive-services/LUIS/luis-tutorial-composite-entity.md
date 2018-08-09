@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9c84afc231ff4b086e76f50702870e30da7add6e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5f11409ff49830be97d9a13a0ab7f033d9cc1041
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364905"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494468"
 ---
 # <a name="tutorial-6-add-composite-entity"></a>자습서: 6. 복합 엔터티 추가 
 이 자습서에서는 복합 엔터티를 추가하여 추출된 데이터를 포함 엔터티로 그룹화합니다.
@@ -99,7 +99,6 @@ ms.locfileid: "39364905"
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "모든 발언에 레이블이 지정된 'MoveEmployee'의 LUIS 스크린샷")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-LUIS는 앱이 학습될 때까지 새 복합 엔터티를 인식하지 못합니다. 
 
 [!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 

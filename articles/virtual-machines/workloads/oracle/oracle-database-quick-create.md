@@ -3,7 +3,7 @@ title: Azure VM에서 Oracle 데이터베이스 만들기 | Microsoft Docs
 description: Azure 환경에서 Oracle Database 12c 데이터베이스를 신속하게 가동하고 실행합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: rickstercdn
+author: romitgirdhar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/17/2017
-ms.author: rclaus
-ms.openlocfilehash: 8ff463b89b395947a66db6d067b6ba32281087ba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: 62f7c22bb2db933ff1e11c96aac8c02c8d19cd58
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38688069"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492931"
 ---
 # <a name="create-an-oracle-database-in-an-azure-vm"></a>Azure VM에서 Oracle 데이터베이스 만들기
 
 이 가이드에서는 Oracle 12c 데이터베이스를 만들기 위해 Azure CLI를 사용하여 [Oracle 마켓플레이스 갤러리 이미지](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleDatabase12102EnterpriseEdition?tab=Overview)에서 Azure 가상 머신을 배포하는 방법에 대해 자세히 설명합니다. 서버가 배포된 후 Oracle 데이터베이스를 구성하려면 SSH를 통해 연결합니다. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
 

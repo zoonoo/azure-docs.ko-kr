@@ -17,12 +17,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318423"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579421"
 ---
 # <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Azure Active Directory의 엔터프라이즈 응용 프로그램에 SAML 토큰에서 발급된 클레임 사용자 지정
 오늘날 Azure Active Directory는 사용자 지정 응용 프로그램뿐만 아니라 Azure AD 앱 갤러리에서 미리 통합된 응용 프로그램 모두를 포함하여 대부분의 엔터프라이즈 응용 프로그램에서 단일 로그인을 지원합니다. 사용자가 SAML 2.0 프로토콜을 사용하여 Azure AD를 통해 응용 프로그램을 인증하면 Azure AD는 (HTTP POST를 통해) 응용 프로그램에 토큰을 보냅니다. 그런 다음 응용 프로그램이 토큰의 유효성을 검사하고 사용하여 사용자 이름과 암호를 묻는 대신 사용자를 로그인합니다. 이러한 SAML 토큰에는 "클레임"이라고 알려진 사용자에 대한 정보가 포함되어 있습니다.
@@ -131,7 +131,7 @@ SAML에는 몇 가지 제한된 클레임이 있습니다. 이러한 클레임�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스](../active-directory-apps-index.md)
 * [Azure Active Directory 응용 프로그램 갤러리에 있지 않은 응용 프로그램에 Single Sign-On 구성](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md)
+* [SAML 기반 Single Sign-On 문제 해결](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

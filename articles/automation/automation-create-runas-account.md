@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a29379492f4ffd662244c3e42de321f47be13d9f
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2b0f2b864c5c29e9804239d06afdf23708e52828
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436978"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579615"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>실행 계정으로 Automation 계정 인증 업데이트 
 다음과 같은 경우 Azure Portal에서 기존 Automation 계정을 업데이트하거나 PowerShell을 사용할 수 있습니다.
@@ -289,5 +289,5 @@ Azure Portal에서 **구독**을 선택하고 Automation Account의 구독을 �
 리소스 그룹에 서비스 주체를 추가하려면 Azure Portal에서 리소스 그룹을 선택하고 **액세스 제어(IAM)** 를 선택합니다. **추가**를 선택하면 **권한 추가** 페이지가 열립니다. **역할**에 **참가자**를 선택합니다. **선택** 텍스트 상자에 실행 계정에 대한 서비스 주체의 이름을 입력하고 목록에서 선택합니다. **저장**을 클릭하여 변경 내용을 저장합니다. Azure Automation 실행 서비스 주체 액세스를 부여할 리소스 그룹에 대해 이 작업을 수행합니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조하세요.
+* 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 * 인증서 및 Azure 서비스에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](../cloud-services/cloud-services-certs-create.md)를 참조하세요.

@@ -15,19 +15,20 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2cdc58a827f696d62e6240b90202ee04ce371d07
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191954"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426856"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB(MySQL) 클러스터: Azure 자습서
 > [!IMPORTANT]
 > Azure에는 리소스를 만들고 사용하기 위한 별도의 두 가지 배포 모델, 즉 [Azure Resource Manager](../../../resource-manager-deployment-model.md)와 클래식 모델이 있습니다. 이 문서에서는 클래식 배포 모델에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
 
 > [!NOTE]
-> Azure Marketplace에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 새로운 이 서비스는 Azure Resource Manager에 MariaDB Galera 클러스터를 자동으로 배포합니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/)에서 이 서비스를 사용해야 합니다.
+> Azure Marketplace에 MariaDB 엔터프라이즈 클러스터가 출시되었습니다. 새로운 이 서비스는 Azure Resource Manager에 MariaDB Galera 클러스터를 자동으로 배포합니다. 
+  [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/)에서 이 서비스를 사용해야 합니다.
 >
 >
 
@@ -45,7 +46,7 @@ ms.locfileid: "32191954"
 ![시스템 아키텍처](./media/mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> 이 항목에서는 [Azure CLI](../../../cli-install-nodejs.md) 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용할 수 있는 명령에 대한 참조가 필요하면 [Azure CLI 명령 참조](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요. 또한 [인증에 사용할 SSH 키를 만들고] pem 파일 위치를 적어 두어야 합니다.
+> 이 항목에서는 [Azure CLI](../../../cli-install-nodejs.md) 도구를 사용하므로 도구를 다운로드하고 지침에 따라 Azure 구독에 연결해야 합니다. Azure CLI에서 사용할 수 있는 명령에 대한 참조가 필요하면 [Azure CLI 명령 참조](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요. 또한 [인증에 사용할 SSH 키 만들기] pem 파일 위치를 적어 두어야 합니다.
 >
 >
 
@@ -54,32 +55,32 @@ ms.locfileid: "32191954"
 1. 리소스를 포함할 선호도 그룹을 만듭니다.
 
         azure account affinity-group create mariadbcluster --location "North Europe" --label "MariaDB Cluster"
-2. 가상 네트워크를 만듭니다.
+1. 가상 네트워크를 만듭니다.
 
         azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
-3. 모든 디스크를 호스팅할 저장소 계정을 만듭니다. 20,000 IOPS 저장소 계정 한도를 초과하지 않도록 동일한 저장소 계정에 자주 사용되는 디스크를 40개 이상 배치하지 않도록 합니다. 여기서는 한도보다 훨씬 작으므로 간단하게 동일한 계정에 모든 것을 저장하겠습니다.
+1. 모든 디스크를 호스팅할 저장소 계정을 만듭니다. 20,000 IOPS 저장소 계정 한도를 초과하지 않도록 동일한 저장소 계정에 자주 사용되는 디스크를 40개 이상 배치하지 않도록 합니다. 여기서는 한도보다 훨씬 작으므로 간단하게 동일한 계정에 모든 것을 저장하겠습니다.
 
         azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
-4. CentOS 7 가상 머신 이미지의 이름을 찾습니다.
+1. CentOS 7 가상 머신 이미지의 이름을 찾습니다.
 
         azure vm image list | findstr CentOS
    출력은 `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`과 같습니다.
 
    다음 단계에서 해당 이름을 사용합니다.
-5. VM 템플릿을 만들고 생성된 .pem SSH 키를 저장한 경로로 /path/to/key.pem을 바꿉니다.
+1. VM 템플릿을 만들고 생성된 .pem SSH 키를 저장한 경로로 /path/to/key.pem을 바꿉니다.
 
         azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
-6. RAID 구성에서 사용할 VM에 4개의 500GB 데이터 디스크를 연결합니다.
+1. RAID 구성에서 사용할 VM에 4개의 500GB 데이터 디스크를 연결합니다.
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
-7. SSH를 사용하여 mariadbhatemplate.cloudapp.net:22에서 만든 템플릿 VM에 로그인하고 개인 키를 사용하여 연결합니다.
+1. SSH를 사용하여 mariadbhatemplate.cloudapp.net:22에서 만든 템플릿 VM에 로그인하고 개인 키를 사용하여 연결합니다.
 
 ### <a name="software"></a>소프트웨어
 1. 루트를 가져옵니다.
 
         sudo su
 
-2. RAID 지원을 설치합니다.
+1. RAID 지원을 설치합니다.
 
     a. mdadm을 설치합니다.
 
@@ -106,7 +107,7 @@ ms.locfileid: "32191954"
 
               mount /mnt/data
 
-3. MariaDB를 설치합니다.
+1. MariaDB를 설치합니다.
 
     a. MariaDB.repo 파일을 만듭니다.
 
@@ -126,7 +127,7 @@ ms.locfileid: "32191954"
 
            yum install MariaDB-Galera-server MariaDB-client galera
 
-4. MySQL 데이터 디렉터리를 RAID 블록 장치로 이동합니다.
+1. MySQL 데이터 디렉터리를 RAID 블록 장치로 이동합니다.
 
     a. 현재 MySQL 디렉터리를 새 위치에 복사하고 이전 디렉터리를 제거합니다.
 
@@ -140,12 +141,12 @@ ms.locfileid: "32191954"
 
            ln -s /mnt/data/mysql /var/lib/mysql
 
-5. [SELinux는 클러스터 작업을 방해](http://galeracluster.com/documentation-webpages/configuration.html#selinux)하기 때문에 현재 세션에서 사용하지 않도록 설정해야 합니다. `/etc/selinux/config`를 편집하여 이후의 다시 시작에서 사용하지 않도록 설정합니다.
+1. [SELinux는 클러스터 작업을 방해](http://galeracluster.com/documentation-webpages/configuration.html#selinux)하기 때문에 현재 세션에서 사용하지 않도록 설정해야 합니다. `/etc/selinux/config`를 편집하여 이후의 다시 시작에서 사용하지 않도록 설정합니다.
 
             setenforce 0
 
             then editing `/etc/selinux/config` to set `SELINUX=permissive`
-6. MySQL 실행의 유효성을 검사합니다.
+1. MySQL 실행의 유효성을 검사합니다.
 
    a. MySQL을 시작합니다.
 
@@ -162,7 +163,7 @@ ms.locfileid: "32191954"
    d. MySQL을 중지합니다.
 
             service mysql stop
-7. 구성 자리 표시자를 만듭니다.
+1. 구성 자리 표시자를 만듭니다.
 
    a. MySQL 구성을 편집하여 클러스터 설정에 대한 자리 표시자를 만듭니다. 지금은 **`<Variables>`** 를 바꾸거나 주석을 제거하지 마세요. 이 템플릿에서 VM을 만든 후에 그렇게 됩니다.
 
@@ -183,7 +184,7 @@ ms.locfileid: "32191954"
            #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
            #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
-8. CentOS 7에서 FirewallD를 사용하여 방화벽에서 필요한 포트를 엽니다.
+1. CentOS 7에서 FirewallD를 사용하여 방화벽에서 필요한 포트를 엽니다.
 
    * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
    * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
@@ -191,7 +192,7 @@ ms.locfileid: "32191954"
    * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
    * 방화벽 다시 로드: `firewall-cmd --reload`
 
-9. 성능에 대해 시스템을 최적화합니다. 자세한 내용은 [성능 조정 전략](optimize-mysql.md)을 참조하세요.
+1. 성능에 대해 시스템을 최적화합니다. 자세한 내용은 [성능 조정 전략](optimize-mysql.md)을 참조하세요.
 
    a. MySQL 구성 파일을 다시 편집합니다.
 
@@ -210,12 +211,12 @@ ms.locfileid: "32191954"
            innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
            innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
            query_cache_size = 0
-10. MySQL을 중지하고, 시작할 때 MySQL 서비스가 실행되지 않도록 설정하여 노드를 추가할 때 클러스터가 중단되지 않게 하고, 컴퓨터 프로비전을 해제합니다.
+1. MySQL을 중지하고, 시작할 때 MySQL 서비스가 실행되지 않도록 설정하여 노드를 추가할 때 클러스터가 중단되지 않게 하고, 컴퓨터 프로비전을 해제합니다.
 
         service mysql stop
         chkconfig mysql off
         waagent -deprovision
-11. 포털을 통해 VM을 캡처합니다. (현재 [Azure CLI 도구 문제 #1268](https://github.com/Azure/azure-xplat-cli/issues/1268)(영문)에서는 Azure CLI 도구로 캡처한 이미지가 연결된 데이터 디스크를 캡처하지 않는다는 사실을 설명하고 있습니다.)
+1. 포털을 통해 VM을 캡처합니다. (현재 [Azure CLI 도구 문제 #1268](https://github.com/Azure/azure-xplat-cli/issues/1268)(영문)에서는 Azure CLI 도구로 캡처한 이미지가 연결된 데이터 디스크를 캡처하지 않는다는 사실을 설명하고 있습니다.)
 
     a. 포털을 통해 컴퓨터를 종료합니다.
 
@@ -251,7 +252,7 @@ ms.locfileid: "32191954"
         --ssh 22
         --vm-name mariadb1
         mariadbha mariadb-galera-image azureuser
-2. mariadbha 클라우드 서비스에 연결하여 두 개의 가상 머신을 추가로 만듭니다. VM 이름과 SSH 포트를 동일한 클라우드 서비스의 다른 VM과 충돌하지 않는 고유한 포트로 변경합니다.
+1. mariadbha 클라우드 서비스에 연결하여 두 개의 가상 머신을 추가로 만듭니다. VM 이름과 SSH 포트를 동일한 클라우드 서비스의 다른 VM과 충돌하지 않는 고유한 포트로 변경합니다.
 
         azure vm create
         --virtual-network-name mariadbvnet
@@ -275,20 +276,20 @@ ms.locfileid: "32191954"
         --ssh 24
         --vm-name mariadb3
         --connect mariadbha mariadb-galera-image azureuser
-3. 다음 단계를 위해 세 개 VM 각각의 내부 IP 주소를 가져와야 합니다.
+1. 다음 단계를 위해 세 개 VM 각각의 내부 IP 주소를 가져와야 합니다.
 
     ![IP 주소 가져오기](./media/mariadb-mysql-cluster/IP.png)
-4. SSH를 사용하여 세 개 VM에 로그인하고 각각의 구성 파일을 편집합니다.
+1. SSH를 사용하여 세 개 VM에 로그인하고 각각의 구성 파일을 편집합니다.
 
         sudo vi /etc/my.cnf.d/server.cnf
 
     줄의 시작 부분에서 **#** 을 제거하여 **`wsrep_cluster_name`** 및 **`wsrep_cluster_address`** 의 주석을 제거합니다.
     또한 **`wsrep_node_address`** 의 **`<ServerIP>`** 및 **`wsrep_node_name`** 의 **`<NodeName>`** 을 각각 VM의 IP 주소와 이름으로 바꾸고 해당 줄의 주석도 제거합니다.
-5. MariaDB1에서 클러스터를 시작하고 시작 시 실행되도록 합니다.
+1. MariaDB1에서 클러스터를 시작하고 시작 시 실행되도록 합니다.
 
         sudo service mysql bootstrap
         chkconfig mysql on
-6. MariaDB2 및 MariaDB3에서 MySQL을 시작하고 시작 시 실행되도록 합니다.
+1. MariaDB2 및 MariaDB3에서 MySQL을 시작하고 시작 시 실행되도록 합니다.
 
         sudo service mysql start
         chkconfig mysql on
@@ -363,5 +364,5 @@ CLI에서 부하 분산 장치 프로브 간격을 15초로 설정합니다. 이
 <!--Link references-->
 [Galera]:http://galeracluster.com/products/
 [MariaDBs]:https://mariadb.org/en/about/
-[인증에 사용할 SSH 키를 만들고]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[인증에 사용할 SSH 키 만들기]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2017
 ms.author: ambapat
-ms.openlocfilehash: a3493c9e9ef6a5bafd832510f42f33cc3f07f088
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 8bc2355c5df73d2469cab63bfbf783624228b341
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070382"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576970"
 ---
 # <a name="secure-your-key-vault"></a>키 자격 증명 모음 보안
 Azure Key Vault는 클라우드 응용 프로그램에 대한 암호화 키와 암호(예: 인증서, 연결 문자열, 암호)를 보호하는 클라우드 서비스입니다. 이 데이터는 민감하고 업무상 중요하기 때문에 권한이 부여된 응용 프로그램과 사용자만 키 자격 증명 모음에 액세스할 수 있도록 키 자격 증명 모음에 대한 액세스를 보호해야 합니다. 이 문서에서는 키 자격 증명 모음 액세스 모델의 개요를 제공하고, 인증 및 권한 부여에 대해 설명한 다음 예제를 사용하여 클라우드 응용 프로그램의 키 자격 증명 모음에 대한 액세스를 보호하는 방법을 설명합니다.
@@ -47,7 +47,7 @@ Azure 구독에 키 자격 증명 모음을 만들 때 해당 구독의 Azure Ac
 * **사용자 + 앱 액세스** - 대개 로그인한 사용자를 대신하여 키 자격 증명 모음에 액세스하는 응용 프로그램에서 사용하는 방법입니다. Azure PowerShell과 Azure Portal은 이러한 액세스 유형의 예입니다. 사용자에게 액세스 권한을 부여하는 방법은 두 가지가 있습니다. 하나는 모든 응용 프로그램에서 키 자격 증명 모음에 액세스할 수 있도록 사용자에게 액세스 권한을 부여하는 것이며, 다른 하나는 특정 응용 프로그램(복합 ID라고도 함)을 사용하는 경우에만 사용자에게 키 자격 증명 모음에 대한 액세스 권한을 부여하는 것입니다. 
 * **앱 전용 액세스** - 데몬 서비스, 백그라운드 작업 등을 실행하는 응용 프로그램에서 사용하는 방법입니다. 키 자격 증명 모음에 대한 액세스 권한이 응용 프로그램의 ID에 부여됩니다.
 
-두 유형의 응용 프로그램 모두에서 [지원되는 인증 방법](../active-directory/active-directory-authentication-scenarios.md) 중 하나를 사용하여 Azure Active Directory를 통해 인증하고 토큰을 가져옵니다. 응용 프로그램 유형에 따라 사용되는 인증 방법이 다릅니다. 그런 다음 응용 프로그램에서 이 토큰을 사용하고 REST API 요청을 키 자격 증명 모음에 보냅니다. 관리 평면 액세스의 경우 요청은 Azure Resource Manager 끝점을 통해 라우팅됩니다. 데이터 평면에 액세스하는 경우 응용 프로그램에서 키 자격 증명 모음에 직접 통신합니다. 자세한 내용은 [전체 인증 흐름](../active-directory/active-directory-protocols-oauth-code.md)을 참조하십시오. 
+두 유형의 응용 프로그램 모두에서 [지원되는 인증 방법](../active-directory/develop/authentication-scenarios.md) 중 하나를 사용하여 Azure Active Directory를 통해 인증하고 토큰을 가져옵니다. 응용 프로그램 유형에 따라 사용되는 인증 방법이 다릅니다. 그런 다음 응용 프로그램에서 이 토큰을 사용하고 REST API 요청을 키 자격 증명 모음에 보냅니다. 관리 평면 액세스의 경우 요청은 Azure Resource Manager 끝점을 통해 라우팅됩니다. 데이터 평면에 액세스하는 경우 응용 프로그램에서 키 자격 증명 모음에 직접 통신합니다. 자세한 내용은 [전체 인증 흐름](../active-directory/develop/v1-protocols-oauth-code.md)을 참조하십시오. 
 
 응용 프로그램에서 토큰을 요청하는 리소스 이름은 응용 프로그램에서 관리 평면과 데이터 평면 중 어느 것에 액세스하는지에 따라 다릅니다. 따라서 리소스 이름은 Azure 환경에 따라 뒷부분의 표에서 설명하는 관리 평면 또는 데이터 평면 끝점 중 하나입니다.
 
@@ -223,7 +223,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * [Ignite를 사용한 Microsoft Azure에 대한 역할 기반 Access Control](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
   
   2015 MS Ignite 회의와 관련해서 Channel 9에 게시된 비디오에 대한 링크입니다. 이 세션에서는 Azure의 액세스 관리 및 보고 기능에 대해 논의하고 Azure Active Directory를 사용하여 Azure 구독에 대한 액세스의 보안을 유지하는 모범 사례를 알아봅니다.
-* [OAuth 2.0 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여](../active-directory/active-directory-protocols-oauth-code.md)
+* [OAuth 2.0 및 Azure Active Directory를 사용하여 웹 응용 프로그램에 대한 액세스 권한 부여](../active-directory/develop/v1-protocols-oauth-code.md)
   
   이 문서에서는 Azure Active Directory로 인증하기 위한 OAuth 2.0 흐름 전체에 대해 설명합니다.
 * [키 자격 증명 모음 관리 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)
@@ -238,7 +238,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzureR
 * [암호 액세스 제어](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
   
   키 액세스 제어 참조 문서에 대한 링크입니다.
-* PowerShell을 사용하여 키 자격 증명 모음 액세스 정책 [설정](https://msdn.microsoft.com/library/mt603625.aspx) 및 [제거](https://msdn.microsoft.com/library/mt619427.aspx)
+* PowerShell을 사용하여 키 자격 증명 모음 액세스 정책 [설정](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) 및 [제거](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Remove-AzureRmKeyVaultAccessPolicy)
   
   키 자격 증명 모음 액세스 정책을 관리하는 PowerShell cmdlet 참조 문서에 대한 링크입니다.
 

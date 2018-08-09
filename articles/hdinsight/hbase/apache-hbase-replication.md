@@ -1,23 +1,20 @@
 ---
-title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정 | Microsoft Docs
+title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951124"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600308"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 HBase 클러스터 복제 설정
 
@@ -108,7 +105,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 바인딩을 설치하려면 두 DNS 가상 머신의 공용 IP 주소를 찾아야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)을 엽니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다.
 2. **리소스 그룹 > [리소스 그룹 이름] > [vnet1DNS]** 를 선택하여 DNS 가상 머신을 엽니다.  리소스 그룹 이름은 마지막 절차에서 만든 이름입니다. 기본 DNS 가상 머신 이름은 *vnet1DNS* 및 *vnet2NDS*입니다.
 3. **속성**을 선택하여 가상 네트워크의 속성 페이지를 엽니다.
 4. **공용 IP 주소**를 적어 두고 **개인 IP 주소**를 확인합니다.  개인 IP 주소는 vnet1DNS에 대해 **10.1.0.4**이고 vnet2DNS에 대해 **10.2.0.4**여야 합니다.  

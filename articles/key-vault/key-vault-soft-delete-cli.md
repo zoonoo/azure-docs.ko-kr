@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: alleonar
-ms.openlocfilehash: a9b80cae69c4e5852341385b98fcccc86d7959e9
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: b25d3d7bd5348d4e4ae5dc33362a9d0a2504236e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927977"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578605"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -104,7 +104,7 @@ az keyvault list-deleted
 Key Vault를 복구하려면 Key Vault 이름, 리소스 그룹 및 위치를 지정해야 합니다. 삭제된 Key Vault의 위치 및 리소스 그룹은 Key Vault 복구 프로세스에서 필요하므로 적어 둡니다.
 
 ```azurecli
-az keyvault recover --location westus --name ContosoVault
+az keyvault recover --location westus --resource-group ContosoRG --name ContosoVault
 ```
 
 Key Vault를 복구하면 결과는 Key Vault의 원본 리소스 ID 사용하는 새 리소스입니다. Key Vault가 존재했던 리소스 그룹을 제거한 경우에는 동일한 이름을 사용하는 새 리소스 그룹을 만들어야 Key Vault를 복구할 수 있습니다.

@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e7976cf0574952fdafbdc8b40db47af3a5420fd5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368821"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577189"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>응용 프로그램 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -140,7 +140,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>선택 사항 - 사용자 지정 필드를 보내도록 GraphAPI 업데이트
 
-Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](./../develop/active-directory-token-and-claims.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 응용 프로그램의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
+Azure AD에서 인증에 대해 전송하는 보안 토큰의 목록은 [Azure AD 토큰 참조](../develop/v1-id-and-access-tokens.md)를 참조하세요. 다른 토큰을 전송하는 사용자 지정 클레임이 필요한 경우 Graph 탐색기 또는 Azure Portal에서 응용 프로그램의 매니페스트를 사용하여 앱 필드 *acceptMappedClaims*를 **True**로 설정합니다.    
 
 이 예에서는 Graph Explorer를 사용합니다.
 

@@ -1,25 +1,20 @@
 ---
-title: HDInsight의 Kafka로 Azure Kubernetes Service 사용 | Microsoft Docs
+title: HDInsight의 Kafka로 Azure Kubernetes Service 사용
 description: AKS(Azure Kubernetes Service)에서 호스트되는 컨테이너 이미지에서 HDInsight의 Kafka를 사용하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/07/2018
-ms.author: larryfr
-ms.openlocfilehash: f54039a0e702aa3c789363969120e000760f6ef5
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 339213654341b76cf4245240989cd59c7c041b0f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33885964"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621248"
 ---
 # <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>HDInsight의 Kafka로 Azure Kubernetes Service 사용
 

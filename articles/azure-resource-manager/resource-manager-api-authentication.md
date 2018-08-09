@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 58309977c93864d52a3217919ac8d7fa9152a968
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036849"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576905"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Resource Manager 인증 API를 사용하여 구독에 액세스
 ## <a name="introduction"></a>소개
@@ -106,14 +106,14 @@ Resource Manager를 호출하는 데 사용할 수 있는 토큰을 요청하기
 ## <a name="get-user--app-access-token"></a>사용자 + 앱 액세스 토큰 가져오기
 응용 프로그램이 OAuth 2.0 권한 부여 요청을 사용하여 사용자를 Azure AD로 리디렉션하여 사용자의 자격 증명을 인증하고 권한 부여 코드를 돌려 줍니다. 응용 프로그램은 권한 부여 코드를 사용하여 Resource Manager에 대한 액세스 토큰을 가져옵니다. [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) 메서드는 권한 부여 요청을 생성합니다.
 
-이 문서는 사용자를 인증하는 REST API 요청을 보여 줍니다. 또한 코드에서 인증을 수행하도록 도우미 라이브러리를 사용할 수도 있습니다. 이러한 라이브러리에 대한 자세한 내용은 [Azure Active Directory 인증 라이브러리](../active-directory/active-directory-authentication-libraries.md)를 참조하세요. 응용 프로그램에서 ID 관리를 통합하는 지침은 [Azure Active Directory 개발자 가이드](../active-directory/active-directory-developers-guide.md)를 참조하세요.
+이 문서는 사용자를 인증하는 REST API 요청을 보여 줍니다. 또한 코드에서 인증을 수행하도록 도우미 라이브러리를 사용할 수도 있습니다. 이러한 라이브러리에 대한 자세한 내용은 [Azure Active Directory 인증 라이브러리](../active-directory/active-directory-authentication-libraries.md)를 참조하세요. 응용 프로그램에서 ID 관리를 통합하는 지침은 [Azure Active Directory 개발자 가이드](../active-directory/develop/azure-ad-developers-guide.md)를 참조하세요.
 
 ### <a name="auth-request-oauth-20"></a>인증 요청(OAuth 2.0)
 Azure AD 권한 부여 끝점에 대한 Open ID Connect/OAuth2.0 권한 부여 요청을 실행합니다.
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 요청](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) 문서에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 요청](../active-directory/develop/v1-protocols-oauth-code.md#request-an-authorization-code) 문서에서 설명합니다.
 
 다음 예제에서는 OAuth2.0 권한 부여를 요청하는 방법을 보여 줍니다.
 
@@ -126,7 +126,7 @@ Azure AD는 사용자를 인증하고 필요한 경우 사용자에게 앱 사�
 ### <a name="auth-request-open-id-connect"></a>인증 요청(Open ID Connect)
 사용자를 대신하여 Azure Resource Manager에 액세스할 뿐만 아니라 사용자가 자신의 Azure AD 계정을 사용하여 응용 프로그램에 로그인할 수 있도록 하려면 Open ID Connect 권한 부여 요청을 실행합니다. 또한 Open ID Connect를 사용하면 응용 프로그램이 Azure AD로부터 앱에서 사용자를 로그인하는 데 사용할 수 있는 id_token을 받습니다.
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [로그인 요청 보내기](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) 문서에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [로그인 요청 보내기](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request) 문서에서 설명합니다.
 
 Open ID Connect 요청 예제:
 
@@ -143,7 +143,7 @@ Open ID Connect 응답 예제:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 사용](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) 문서에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [인증 코드 사용](../active-directory/develop/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) 문서에서 설명합니다.
 
 다음 예제에서는 암호 자격 증명을 사용하여 코드 부여 토큰에 대한 요청을 보여 줍니다.
 
@@ -154,7 +154,7 @@ Open ID Connect 응답 예제:
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 응용 프로그램의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 토큰에 대한 클레임 형식은 [JWT 토큰 클레임](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims)에 나옵니다. 참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
+인증서 자격 증명을 사용하여 작업할 때 JSON 웹 토큰(JWT)을 만들고 응용 프로그램의 인증서 자격 증명의 개인 키를 사용하여 서명합니다(RSA SHA256). 토큰에 대한 클레임 형식은 [JWT 토큰 클레임](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims)에 나옵니다. 참고로 클라이언트 어설션 JWT 토큰에 서명하는 방법은 [Active Directory 인증 라이브러리(.NET) 코드](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) 를 참조하세요.
 
 클라이언트 인증에 대한 자세한 내용은 [Open ID Connect 사양](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) 을 참조하세요.
 
@@ -178,7 +178,7 @@ Open ID Connect 응답 예제:
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-새로 고침 요청에 사용할 매개 변수는 [액세스 토큰 새로 고침](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens)에서 설명합니다.
+새로 고침 요청에 사용할 매개 변수는 [액세스 토큰 새로 고침](../active-directory/develop/v1-protocols-oauth-code.md#refreshing-the-access-tokens)에서 설명합니다.
 
 다음 예제에서는 새로 고침 토큰을 사용하는 방법을 보여 줍니다.
 
@@ -235,7 +235,7 @@ ASP.NET MVC 샘플 앱의 [UserCanManagerAccessForSubscription](https://github.c
 
 ASP.net MVC 샘플 응용 프로그램의 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 메서드는 Active Directory Authentication Library for .NET을 사용하여 Graph API에 대한 앱 전용 액세스 토큰을 가져옵니다.
 
-이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [액세스 토큰 요청](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) 문서에서 설명합니다.
+이 요청에 사용할 수 있는 쿼리 문자열 매개 변수는 [액세스 토큰 요청](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#request-an-access-token) 문서에서 설명합니다.
 
 클라이언트 자격 증명 부여 토큰에 대한 요청 예제:
 
@@ -303,15 +303,15 @@ ASP.net MVC 샘플 앱의 [GetRoleId](https://github.com/dushyantgill/VipSwapper
 
 | 역할 | GUID |
 | --- | --- |
-| 판독기 |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+| 읽기 권한자 |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 | 참가자 |b24988ac-6180-42a0-ab88-20f7382dd24c |
-| Virtual Machine 기여자 |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+| 가상 머신 참가자 |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Virtual Network 참여자 |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 | Storage 계정 참여자 |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
-| 웹 사이트 기여자 |de139f84-1756-47ae-9be6-808fbbe84772 |
-| 웹 계획 기여자 |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+| 웹 사이트 참가자 |de139f84-1756-47ae-9be6-808fbbe84772 |
+| 웹 계획 참가자 |2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 | SQL Server 참여자 |6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
-| SQL DB 기여자 |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+| SQL DB 참가자 |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>응용 프로그램에 RBAC 역할 할당
 응용 프로그램의 [Resource Manager 역할 할당 만들기](https://docs.microsoft.com/rest/api/authorization/roleassignments) API를 사용하여 서비스 주체에 적절한 RBAC 역할을 할당하기 위해 필요한 모든 것을 가졌습니다.

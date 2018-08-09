@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: glenga
-ms.openlocfilehash: 6fc84642050f4b7acfa2e3c5b4518135d6a97171
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 3efc09f93cf8b3e65d595c87d0cf25691386d6e2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29843394"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434767"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
@@ -75,7 +75,7 @@ az functionapp config appsettings set --name <function_app> \
 ```
 이 코드에서 `<function_app>`을 함수 앱 이름으로 바꿉니다. 또한 `<my_resource_group>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. `<version>`을 1.x 런타임의 유효한 버전 또는 버전 2.0의 `beta`로 바꿉니다. 
 
-앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az_login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
+앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

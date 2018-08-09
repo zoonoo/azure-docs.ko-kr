@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: 0d9c757925b26e9f46afbd075184f853efa25dc3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f442dfb7e8f207e8c72d901eca99899c0f830652
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598359"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439098"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>CLI 예제: Azure Batch에서 Windows 풀 만들기 및 관리
 
@@ -47,15 +47,15 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Batch 계정을 만듭니다. |
-| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다. |
-| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_create) | 계산 노드 풀을 만듭니다.  |
-| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_set) | 풀의 속성을 업데이트합니다.  |
-| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_enable) | 풀에서 자동 확장을 사용하고 수식을 적용합니다.  |
-| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az_batch_pool_show) | 풀의 속성을 표시합니다.  |
-| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az_batch_pool_autoscale_disable) | 풀에서 자동 확장을 사용하지 않습니다. |
-| [az group delete](/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Batch 계정을 만듭니다. |
+| [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az-batch-account-login) | 추가 CLI 상호 작용을 위해 지정된 Batch 계정에 대해 인증합니다. |
+| [az batch pool create](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-create) | 계산 노드 풀을 만듭니다.  |
+| [az batch pool set](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-set) | 풀의 속성을 업데이트합니다.  |
+| [az batch pool autoscale enable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-enable) | 풀에서 자동 확장을 사용하고 수식을 적용합니다.  |
+| [az batch pool show](https://docs.microsoft.com/cli/azure/batch/pool#az-batch-pool-show) | 풀의 속성을 표시합니다.  |
+| [az batch pool autoscale disable](https://docs.microsoft.com/cli/azure/batch/pool/autoscale#az-batch-pool-autoscale-disable) | 풀에서 자동 확장을 사용하지 않습니다. |
+| [az group delete](/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

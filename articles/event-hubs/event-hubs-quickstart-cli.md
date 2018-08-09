@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: sethm
-ms.openlocfilehash: 77acad8bd0a7ada13979db539b138e03d42dc031
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132188"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425955"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Azure 빠른 시작 - Azure CLI 및 Java를 사용한 이벤트 스트림 처리
 
@@ -294,5 +294,5 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 
 [계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
-[az group create]: /cli/azure/group#az_group_create
+[az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054882"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621534"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 관리를 위한 문서 인덱스
 이 페이지는 Azure AD(Azure Active Directory)에서 다양한 응용 프로그램 관련 기능에 대해 작성된 모든 문서의 전체 목록을 제공합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "39054882"
 
 | 기능 영역 |  |
 |:---:| --- |
-| 페더레이션된 Single Sign-On |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
+| 페더레이션된 Single Sign-On |[SAML 기반 Single Sign-On 문제 해결](develop/howto-v1-debug-saml-sso-issues.md) |
 | 암호 기반 Single Sign-On |[Internet Explorer용 액세스 패널 확장 문제 해결](active-directory-saas-ie-troubleshooting.md) |
 | 응용 프로그램 프록시 |[앱 프록시 문제 해결 가이드](manage-apps/application-proxy-troubleshoot.md) |
 | 온-프레미스 AD 및 Azure AD 간의 Single Sign-On |[암호 해시 동기화 문제 해결](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[비밀번호 쓰기 저장 문제 해결](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -54,10 +54,10 @@ Single Sign-On을 사용하면 사용자가 하나의 자격 증명 집합을 �
 | 문서 가이드 |  |
 |:---:| --- |
 | 페더레이션 및 다른 형식의 로그온 소개 |[Azure AD로 Single Sign-On](manage-apps/what-is-single-sign-on.md) |
-| Single Sign-On 구성 단계로 단순하게 Azure AD와 사전 통합된 수천 개의 SaaS 앱 |[Azure AD 응용 프로그램 갤러리 시작](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[페더레이션을 지원하는 사전 통합된 앱의 전체 목록](saas-apps/tutorial-list.md)<br /><br />[Azure AD 앱 갤러리에 앱을 추가하는 방법](active-directory-app-gallery-listing.md) |
+| Single Sign-On 구성 단계로 단순하게 Azure AD와 사전 통합된 수천 개의 SaaS 앱 |[Azure AD 응용 프로그램 갤러리 시작](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[페더레이션을 지원하는 사전 통합된 앱의 전체 목록](saas-apps/tutorial-list.md)<br /><br />[Azure AD 앱 갤러리에 앱을 추가하는 방법](develop/howto-app-gallery-listing.md) |
 | [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md) 등과 같이 앱에 Single Sign-On을 구성하는 방법에 대한 150개 이상의 앱 자습서 |[Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](saas-apps/tutorial-list.md) |
 | Single Sign-On 구성을 수동으로 설정하고 사용자 지정하는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 없는 앱에 대한 Single Sign-On을 구성하는 방법](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[사전 통합된 앱에 대해 SAML 토큰에서 발급된 클레임을 사용자 지정하는 방법](active-directory-saml-claims-customization.md) |
-| SAML 프로토콜을 사용하는 페더레이션된 앱에 대한 문제 해결 가이드 |[SAML 기반 Single Sign-On 문제 해결](active-directory-saml-debugging.md) |
+| SAML 프로토콜을 사용하는 페더레이션된 앱에 대한 문제 해결 가이드 |[SAML 기반 Single Sign-On 문제 해결](develop/howto-v1-debug-saml-sso-issues.md) |
 | 앱 인증서의 만료 날짜를 구성하는 방법 및 인증서를 갱신하는 방법 |[Azure Active Directory에서 페더레이션된 Single Sign-On에 대한 인증서 관리](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 페더레이션된 Single Sign-On은 사용자 당 최대 열 개의 앱에서 Azure AD의 모든 버전에 사용할 수 있습니다. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) 은 응용 프로그램을 무제한 지원합니다. 조직에 [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) 또는 [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/)이 있는 경우 [그룹을 사용하여 페더레이션된 응용 프로그램에 액세스 권한을 할당](#managing-access-to-applications)할 수 있습니다.
@@ -109,7 +109,7 @@ Azure AD Connect는 [모든 버전의 Azure Active Directory](https://azure.micr
 | 문서 가이드 |  |
 |:---:| --- |
 | Azure AD, Office365 및 Intune에 제공되는 조건부 액세스 기능 소개 |[조건부 액세스를 사용한 위험 관리](active-directory-conditional-access-azure-portal.md) |
-| 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 |[SaaS 앱에 대한 조건부 액세스](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| 다음 형식의 리소스에 조건부 액세스를 사용하는 방법 |[SaaS 앱에 대한 조건부 액세스](conditional-access/app-based-conditional-access.md)<br /><br />[Office 365 서비스에 대한 조건부 액세스](active-directory-conditional-access-device-policies.md)<br /><br />[온-프레미스 응용 프로그램에 대한 조건부 액세스](active-directory-conditional-access-azure-portal.md)<br /><br />[Azure AD 앱 프록시를 통해 게시된 온-프레미스 응용 프로그램에 대한 조건부 액세스](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | 장치 기반 조건부 액세스 정책을 사용하기 위해 Azure Active Directory로 장치를 등록하는 방법 |[Azure Active Directory 장치 등록 개요](active-directory-conditional-access-device-registration-overview.md)<br /><br />[도메인에 가입된 Windows 장치에 대한 자동 장치 등록을 사용하도록 설정하는 방법](active-directory-conditional-access-automatic-device-registration.md)<br />- [Windows 8.1 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md)<br />- [Windows 7 장치에 대한 단계](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | 2단계 확인에 Microsoft Authenticator 앱을 사용하는 방법 |[Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
@@ -143,8 +143,8 @@ Dropbox, Salesforce, ServiceNow 등과 같은 SaaS 응용 프로그램의 사용
 
 | 문서 가이드 |  |
 |:---:| --- |
-| Azure AD와 앱 통합에 대한 IT 전문가 및 응용 프로그램 개발자를 위한 지침 |[Azure AD용 응용 프로그램 개발을 위한 IT 전문가 가이드](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory에 대한 개발자의 가이드](active-directory-developers-guide.md) |
-| 응용 프로그램이 Azure AD 앱 갤러리에 공급 업체를 추가할 수 있는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](active-directory-app-gallery-listing.md) |
+| Azure AD와 앱 통합에 대한 IT 전문가 및 응용 프로그램 개발자를 위한 지침 |[Azure AD용 응용 프로그램 개발을 위한 IT 전문가 가이드](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[Azure Active Directory에 대한 개발자의 가이드](develop/azure-ad-developers-guide.md) |
+| 응용 프로그램이 Azure AD 앱 갤러리에 공급 업체를 추가할 수 있는 방법 |[Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](develop/howto-app-gallery-listing.md) |
 | Azure Active Directory를 사용하여 개발된 응용 프로그램에 대한 액세스를 관리하는 방법 |[개발된 응용 프로그램에 대한 사용자 할당을 사용하도록 설정하는 방법](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[앱에 사용자 할당](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[앱에 그룹 할당](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 소비자 지향 응용 프로그램을 개발하는 경우 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 를 사용하는 데 관심이 있을 수 있으므로 고유의 ID 시스템을 개발하여 사용자를 관리하지 않아도 됩니다. [자세히 알아봅니다](../active-directory-b2c/active-directory-b2c-overview.md).

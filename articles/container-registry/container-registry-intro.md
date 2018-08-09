@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/08/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: 883da7d1487922f5cd986a67d7a7bded78ea3759
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 394297e87ef03541725aad0689f11bca17c05ed9
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634372"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576303"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 개인 Docker 컨테이너 레지스트리 소개
 
@@ -39,7 +39,7 @@ Azure Container Registry에서 다양한 배포 대상으로 이미지 끌어오
 
 * **레지스트리** - Azure 구독 내에서 하나 이상의 컨테이너 레지스트리를 만듭니다. 레지스트리는 세 개의 SKU, [기본, 표준 및 프리미엄](container-registry-skus.md)에서 사용할 수 있으며 각각은 webhook 통합, Azure Active Directory와 리포지토리 인증 및 삭제 기능을 지원합니다. 컨테이너 이미지의 네트워크에 가까운 로컬 저장소의 장점을 활용하려면 배포와 동일한 Azure 위치에 레지스트리를 만듭니다. 고급 복제 및 컨테이너 이미지 배포 시나리오에 대해 프리미엄 등록의 [지역에서 복제](container-registry-geo-replication.md) 기능을 사용합니다. 정규화된 레지스트리 이름의 형식은 `myregistry.azurecr.io`입니다.
 
-  컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure Active Directory에서 지원하는 [서비스주체](../active-directory/active-directory-application-objects.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. 레지스트리로 인증하려면 표준 `docker login` 명령을 실행합니다.
+  컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure Active Directory에서 지원하는 [서비스주체](../active-directory/develop/app-objects-and-service-principals.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. 레지스트리로 인증하려면 표준 `docker login` 명령을 실행합니다.
 
 * **리포지토리** - 레지스트리는 컨테이너 이미지 그룹인 하나 이상의 리포지토리를 포함합니다. Azure Container Registry는 다단계 리포지토리 네임스페이스를 지원합니다. 다단계 네임스페이스를 통해 특정 앱과 관련된 이미지 컬렉션 또는 특정 배포 또는 작업 팀에 대한 앱 컬렉션을 그룹화할 수 있습니다. 예: 
 

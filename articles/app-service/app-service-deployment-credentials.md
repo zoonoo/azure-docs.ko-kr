@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "27778550"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436151"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](app-service-deploy-local-git.md) 및 [FTP/S 배포](app-service-deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이들은 Azure Active Directory 자격 증명과 동일하지 않습니다.
@@ -46,7 +46,7 @@ ms.locfileid: "27778550"
 1. [Azure Portal](https://portal.azure.com)에서 App Service> **&lt;any_app>** > **배포 자격 증명**을 차례로 클릭합니다.
 
     > [!NOTE]
-    > 포털에서 배포 자격 증명 페이지에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
+    > 포털에서 배포 자격 증명 페이지에 액세스하려면 앱이 하나 이상 있어야 합니다. 그러나 [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set)를 사용하면 기존 앱 없이 사용자 수준 자격 증명을 구성할 수 있습니다.
 
 2. 사용자 이름과 암호를 구성한 다음 **저장**을 클릭합니다.
 

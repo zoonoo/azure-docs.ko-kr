@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: ambapat
-ms.openlocfilehash: 91c042ebda9e7a2eba4835abc079568e1ed2e537
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 06cc3aa1b21b4d0ed0d4a6f0362ac1d95518a97c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725509"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576120"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>구독 이동 후에 주요 자격 증명 모음 테넌트 ID 변경
 ### <a name="q-my-subscription-was-moved-from-tenant-a-to-tenant-b-how-do-i-change-the-tenant-id-for-my-existing-key-vault-and-set-correct-acls-for-principals-in-tenant-b"></a>Q: 내 구독이 테넌트 A에서 테넌트 B로 이동했습니다. 내 기존 주요 자격 증명 모음에 대한 테넌트 ID를 변경하고 테넌트 B에서 주체에 대한 올바른 ACL을 설정하려면 어떻게 해야 하나요?
@@ -42,7 +42,7 @@ Set-AzureRmResource -ResourceId $vaultResourceId -Properties $vault.Properties
 
 이동 전에 이 자격 증명 모음이 테넌트 A였기 때문에 **(Get-AzureRmContext).Tenant.TenantId**가 테넌트 B인 반면 **$vault.Properties.TenantId**의 원래 값이 테넌트 A입니다.
 
-이제 자격 증명 모음이 올바른 테넌트 ID와 연결되고 오래된 액세스 정책 항목이 삭제되므로 새 액세스 정책 항목을 [Set-AzureRmKeyVaultAccessPolicy](https://msdn.microsoft.com/library/mt603625.aspx)로 설정합니다.
+이제 자격 증명 모음이 올바른 테넌트 ID와 연결되고 오래된 액세스 정책 항목이 삭제되므로 새 액세스 정책 항목을 [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy)로 설정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Key Vault에 대한 질문이 있으면 [Azure Key Vault 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault)으로 이동하세요.

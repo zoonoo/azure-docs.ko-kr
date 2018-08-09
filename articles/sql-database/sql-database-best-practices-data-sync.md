@@ -8,12 +8,12 @@ ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445163"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620803"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 데이터 동기화의 모범 사례 
 
@@ -219,7 +219,6 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음 항목을 참조하
 -   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:  
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 SQL Database에 대한 자세한 내용은 다음 항목을 참조하세요.
 

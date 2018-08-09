@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: sethm
-ms.openlocfilehash: 9c38f74cd4499fad1feaadb6c1bbc99da791ebd6
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888370"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502139"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 역할 기반 액세스 제어(미리 보기)
 
@@ -57,7 +57,7 @@ Azure AD RBAC를 사용하는 응용 프로그램은 SAS 규칙 및 키 또는 �
 
 응용 프로그램 예제는 콘솔 응용 프로그램이므로 네이티브 응용 프로그램을 등록하고 **Microsoft.EventHub**에 대한 API 사용 권한을 “필요한 권한” 집합에 추가해야 합니다. 네이티브 응용 프로그램은 ID 역할을 하는 Azure AD의 **리디렉션 URI**가 필요합니다. URI가 네트워크 대상일 필요는 없습니다. 이 예제의 경우 샘플 코드가 이미 해당 URI를 사용하므로 `http://eventhubs.microsoft.com`을 사용합니다.
 
-자세한 등록 단계는 [이 자습서](../active-directory/develop/active-directory-integrating-applications.md)에 설명되어 있습니다. **네이티브** 앱을 등록하는 단계를 수행한 다음, **Microsoft.EventHub** API를 필요한 권한에 추가하는 업데이트 지시를 수행합니다. 단계를 수행하면서 **TenantId** 및 **ApplicationId**를 기록해 두어야 합니다. 이러한 값은 응용 프로그램을 실행하는 데 필요합니다.
+자세한 등록 단계는 [이 자습서](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)에 설명되어 있습니다. **네이티브** 앱을 등록하는 단계를 수행한 다음, **Microsoft.EventHub** API를 필요한 권한에 추가하는 업데이트 지시를 수행합니다. 단계를 수행하면서 **TenantId** 및 **ApplicationId**를 기록해 두어야 합니다. 이러한 값은 응용 프로그램을 실행하는 데 필요합니다.
 
 ### <a name="run-the-app"></a>앱 실행
 

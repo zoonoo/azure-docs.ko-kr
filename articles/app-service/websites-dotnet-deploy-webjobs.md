@@ -3,7 +3,7 @@ title: Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure
 description: Visual Studio를 사용하여 Azure App Service에 Azure WebJobs를 개발하고 배포하는 방법에 대해 알아봅니다.
 services: app-service
 documentationcenter: ''
-author: tdykstra
+author: ggailey777
 manager: erikre
 editor: jimbe
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: babe190c0865f5be4aeecb40ca48b52673c6920e
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: ccbf1241012fbac184de2fb0109dab4b5e618a52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30161526"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579122"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 

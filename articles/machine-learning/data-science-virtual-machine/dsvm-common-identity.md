@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: d6235f3a425481a13e627d683bb4c3943b473b40
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36311077"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436304"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>Data Science Virtual Machine에서 일반적인 ID 설정
 
@@ -60,12 +60,12 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
     
    h. 사용자가 로그인할 수 있도록 새 사용자에게 생성된 암호를 안전하게 배포합니다.
 
-2. Azure AD DS 인스턴스를 만듭니다. [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 아티클의 지침을 따릅니다(작업 1~작업5). Azure AD DS의 암호가 동기화되도록 Active Directory에서 기존 사용자 암호를 업데이트해야 합니다. 또한 이 아티클의 작업 4에서 설명한 대로 Azure AD DS에 DNS를 추가해야 합니다. 
+1. Azure AD DS 인스턴스를 만듭니다. [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) 아티클의 지침을 따릅니다(작업 1~작업5). Azure AD DS의 암호가 동기화되도록 Active Directory에서 기존 사용자 암호를 업데이트해야 합니다. 또한 이 아티클의 작업 4에서 설명한 대로 Azure AD DS에 DNS를 추가해야 합니다. 
 
-3. 이전 단계의 작업 2에서 만든 가상 네트워크에 별도 DSVM 서브넷을 만듭니다.
-4. DSVM 서브넷에 하나 이상의 Data Science VM 인스턴스를 만듭니다. 
-5. [지침](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm )에 따라 Active Directory에 DSVM을 추가합니다. 
-6. 홈 또는 Notebook 디렉터리를 호스트하는 Azure Files 공유를 탑재하여 모든 컴퓨터에 작업 영역을 탑재합니다. (긴밀한 파일 수준의 사용 권한이 필요한 경우 하나 이상의 VM에서 실행되는 NFS가 필요합니다.)
+1. 이전 단계의 작업 2에서 만든 가상 네트워크에 별도 DSVM 서브넷을 만듭니다.
+1. DSVM 서브넷에 하나 이상의 Data Science VM 인스턴스를 만듭니다. 
+1. [지침](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm )에 따라 Active Directory에 DSVM을 추가합니다. 
+1. 홈 또는 Notebook 디렉터리를 호스트하는 Azure Files 공유를 탑재하여 모든 컴퓨터에 작업 영역을 탑재합니다. (긴밀한 파일 수준의 사용 권한이 필요한 경우 하나 이상의 VM에서 실행되는 NFS가 필요합니다.)
 
    a. [Azure Files 공유 만들기](../../storage/files/storage-how-to-create-file-share.md)
     
@@ -74,8 +74,8 @@ Azure AD DS를 사용하면 Azure에서 완전히 관리되는 서비스를 제�
    ```
    sudo mount -t cifs //[STORAGEACCT].file.core.windows.net/workspace [Your mount point] -o vers=3.0,username=[STORAGEACCT],password=[Access Key or SAS],dir_mode=0777,file_mode=0777,sec=ntlmssp
    ```
-7. 예를 들어 /data/workspace에 Azure Files 공유를 탑재했다고 가정합니다. 이제 공유에서 사용자 각각에 대한 디렉터리를 만듭니다(/data/workspace/user1, /data/workspace/user2 등). 각 사용자의 작업 영역에 `notebooks` 디렉터리를 만듭니다. 
-8. `$HOME/userx/notebooks/remote`에서 `notebooks`에 대한 기호 링크를 만듭니다.   
+1. 예를 들어 /data/workspace에 Azure Files 공유를 탑재했다고 가정합니다. 이제 공유에서 사용자 각각에 대한 디렉터리를 만듭니다(/data/workspace/user1, /data/workspace/user2 등). 각 사용자의 작업 영역에 `notebooks` 디렉터리를 만듭니다. 
+1. `$HOME/userx/notebooks/remote`에서 `notebooks`에 대한 기호 링크를 만듭니다.   
 
 이제 Azure에서 호스트되는 Active Directory 인스턴스에 사용자가 생성됩니다. 사용자는 Active Directory 자격 증명을 사용하여 Azure AD DS에 조인된 모든 DSVM(SSH 또는 JupyterHub)에 로그인할 수 있습니다. 사용자 작업 영역이 Azure Files 공유에 위치하기 때문에 사용자가 JupyterHub를 사용하는 경우 모든 DSVM에서 Notebook 및 기타 작업에 대한 액세스 권한을 갖습니다. 
 

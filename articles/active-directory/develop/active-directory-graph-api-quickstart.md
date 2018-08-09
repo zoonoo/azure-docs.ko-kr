@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: d4e06c7332c12ed26afbf71d1b307c6a6fb2a55b
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 3298b39fc92f6e5867900ed151149ff936e2733c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34156877"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492632"
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Azure AD Graph API 빠른 시작
 Azure AD(Active Directory) Graph API는 OData REST API 끝점을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 응용 프로그램은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 응용 프로그램 시나리오에 대한 자세한 내용은 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [Azure AD Graph API 필수 조건](https://msdn.microsoft.com/library/hh974476.aspx)을 참조하세요. 
@@ -79,7 +79,7 @@ Azure AD Graph Explorer의 다음 기능 및 제한 사항을 확인합니다.
 
 아래 예제에서는 Fiddler Web Debugger를 사용하여 Azure AD 디렉터리에 새 보안 그룹 'MyTestGroup'을 만듭니다.
 
-**액세스 토큰 얻기**: Azure AD Graph에 액세스하려면 클라이언트가 먼저 Azure AD에 인증해야 합니다. 자세한 내용은 [Azure AD의 인증 시나리오](active-directory-authentication-scenarios.md)를 참조하세요.
+**액세스 토큰 얻기**: Azure AD Graph에 액세스하려면 클라이언트가 먼저 Azure AD에 인증해야 합니다. 자세한 내용은 [Azure AD의 인증 시나리오](authentication-scenarios.md)를 참조하세요.
 
 **쿼리 작성 및 실행**: 다음 단계를 완료합니다.
 

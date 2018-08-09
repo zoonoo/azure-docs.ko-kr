@@ -3,16 +3,17 @@ title: Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결�
 description: 사용할 기술을 결정할 수 있도록 Azure에서 데이터를 저장 및 액세스하는 여러 방법에 대해 알아봅니다.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
-ms.openlocfilehash: ded0884ff83cc214d78f65fed8cefa646f11d952
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.component: common
+ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/30/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530086"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Azure Blob, Azure 파일 또는 Azure 디스크를 사용할 시기 결정
 
@@ -57,7 +58,7 @@ Azure 파일은 Azure 디스크를 보완합니다. 디스크는 한 번에 하�
 |-|-|-|  
 |**특성**|**Azure 디스크**|**Azure 파일**|  
 |범위|단일 가상 머신에 배타적으로 적용|여러 가상 머신 간에 공유 액세스|  
-|스냅숏 및 복사|예|아니오|  
+|스냅숏 및 복사|yes|yes|  
 |구성|가상 컴퓨터 시작 시 연결됨|가상 컴퓨터가 시작된 후 연결됨|  
 |인증|기본 제공|net use로 설정|  
 |정리|자동|설명서|  

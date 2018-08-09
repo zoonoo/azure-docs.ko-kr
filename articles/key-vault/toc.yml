@@ -44,30 +44,24 @@
       href: key-vault-ovw-throttling.md
 - name: 방법 가이드
   items:
-    - name: 관리
-      items:
-        - name: Azure Key Vault 로깅
-          href: key-vault-logging.md
-        - name: 방화벽 뒤에 액세스
-          href: key-vault-access-behind-firewall.md
-        - name: 가용성 및 중복성
-          href: key-vault-disaster-recovery-guidance.md
-        - name: 테넌트 ID 변경
-          href: key-vault-subscription-move-fix.md
-        - name: Azure CLI를 사용하여 만들기 및 관리
-          href: key-vault-manage-with-cli2.md
-        - name: CLI로 Key Vault 일시 삭제 사용
-          href: key-vault-soft-delete-cli.md
-        - name: Azure PowerShell로 Key Vault 일시 삭제 사용
-          href: key-vault-soft-delete-powershell.md
-        - name: 그룹을 사용하여 액세스 권한 부여
-          href: key-vault-group-permissions-for-apps.md
-        - name: 키 자격 증명 모음 보안
-          href: key-vault-secure-your-key-vault.md
-    - name: 자동화
-      items:
-        - name: Azure Automation
-          href: automation-manage-key-vault.md
+    - name: Azure Key Vault 로깅
+      href: key-vault-logging.md
+    - name: 방화벽 뒤에 액세스
+      href: key-vault-access-behind-firewall.md
+    - name: 가용성 및 중복성
+      href: key-vault-disaster-recovery-guidance.md
+    - name: 테넌트 ID 변경
+      href: key-vault-subscription-move-fix.md
+    - name: Azure CLI를 사용하여 만들기 및 관리
+      href: key-vault-manage-with-cli2.md
+    - name: CLI로 Key Vault 일시 삭제 사용
+      href: key-vault-soft-delete-cli.md
+    - name: Azure PowerShell로 Key Vault 일시 삭제 사용
+      href: key-vault-soft-delete-powershell.md
+    - name: 그룹을 사용하여 액세스 권한 부여
+      href: key-vault-group-permissions-for-apps.md
+    - name: 키 자격 증명 모음 보안
+      href: key-vault-secure-your-key-vault.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

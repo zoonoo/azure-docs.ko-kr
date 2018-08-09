@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: 8305a447ac75cf4c72a332910c9c4c90c1d8eac6
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061440"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578833"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>App Service 및 Azure Functions에서 Azure 관리 서비스 ID를 사용하는 방법
 
@@ -56,7 +56,7 @@ Azure CLI를 사용하여 관리되는 서비스 ID를 설정하려면 기존 �
 
 다음 단계는 웹앱을 만들고 CLI를 사용하여 ID를 할당하는 과정을 안내합니다.
 
-1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az_login)을 사용하여 먼저 Azure에 로그인합니다. 응용 프로그램을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
+1. Azure CLI를 로컬 콘솔에서 사용하는 경우 [az login](/cli/azure/reference-index#az-login)을 사용하여 먼저 Azure에 로그인합니다. 응용 프로그램을 배포하려는 Azure 구독과 연결된 계정을 사용합니다.
 
     ```azurecli-interactive
     az login
@@ -202,7 +202,7 @@ Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자
 > |token_type|토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요.|
 
 
-이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response)과 동일합니다.
+이 응답은 [AAD 서비스 간 액세스 토큰 요청에 대한 응답](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response)과 동일합니다.
 
 > [!NOTE] 
 > 환경 변수는 프로세스가 처음 시작될 때 설정되므로 응용 프로그램에 대해 관리되는 서비스 ID를 활성화한 후에는 코드에 `MSI_ENDPOINT` 및 `MSI_SECRET`를 사용하기 위해 응용 프로그램을 다시 시작하거나 코드를 재배포해야 할 수 있습니다.

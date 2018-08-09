@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 45057a23d54f42a4f5b165fc3eb50c001ce92e8d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a774d491de4ca1dfdb96181ff13fa644a061cd65
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069171"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434217"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL을 기반으로 웹 트래픽 라우팅
 
@@ -35,7 +35,7 @@ Azure CLI를 사용하여 응용 프로그램 액세스에 사용되는 URL을 �
 
 원하는 경우 [Azure PowerShell](tutorial-url-route-powershell.md)을 사용하여 이 자습서를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기 
 
-[az network vnet create](/cli/azure/network/vnet#az_net)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가합니다. [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/network/vnet#az-net)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가합니다. [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ az network application-gateway create \
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>이미지와 비디오 백 엔드 풀 및 포트 추가
 
-[az network application-gateway address-pool create](/cli/azure/application-gateway#az_network_application_gateway_address-pool_create)를 사용하여 응용 프로그램 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가합니다. [az network application-gateway frontend-port create](/cli/azure/application-gateway#az_network_application_gateway_frontend_port_create)를 사용하여 풀에 프런트 엔드 포트를 추가합니다. 
+[az network application-gateway address-pool create](/cli/azure/application-gateway#az-network_application_gateway_address-pool_create)를 사용하여 응용 프로그램 게이트웨이에 *imagesBackendPool* 및 *videoBackendPool*이라는 백 엔드 풀을 추가합니다. [az network application-gateway frontend-port create](/cli/azure/application-gateway#az-network_application_gateway_frontend_port_create)를 사용하여 풀에 프런트 엔드 포트를 추가합니다. 
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -128,7 +128,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-backend-listener"></a>백 엔드 수신기 추가
 
-[az network application-gateway http-listener create](/cli/azure/application-gateway#az_network_application_gateway_http_listener_create)를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener*라는 백 엔드 수신기를 추가합니다.
+[az network application-gateway http-listener create](/cli/azure/application-gateway#az-network_application_gateway_http_listener_create)를 사용하여 트래픽을 라우팅하는 데 필요한 *backendListener*라는 백 엔드 수신기를 추가합니다.
 
 
 ```azurecli-interactive
@@ -142,7 +142,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-url-path-map"></a>URL 경로 맵 추가
 
-URL 경로 맵은 특정 URL이 특정 백 엔드 풀로 라우팅되도록 보장합니다. [az network application-gateway url-path-map create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_create) 및 [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az_network_application_gateway_url_path_map_rule_create)를 사용하여 *imagePathRule* 및 *videoPathRule*이라는 URL 경로 맵을 만듭니다.
+URL 경로 맵은 특정 URL이 특정 백 엔드 풀로 라우팅되도록 보장합니다. [az network application-gateway url-path-map create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_create) 및 [az network application-gateway url-path-map rule create](/cli/azure/application-gateway#az-network_application_gateway_url_path_map_rule_create)를 사용하여 *imagePathRule* 및 *videoPathRule*이라는 URL 경로 맵을 만듭니다.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -167,7 +167,7 @@ az network application-gateway url-path-map rule create \
 
 ### <a name="add-routing-rule"></a>라우팅 규칙 추가
 
-라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. [az network application-gateway rule create](/cli/azure/application-gateway#az_network_application_gateway_rule_create)를 사용하여 *rule2*라는 규칙을 추가합니다.
+라우팅 규칙은 URL 맵을 만든 수신기에 연결합니다. [az network application-gateway rule create](/cli/azure/application-gateway#az-network_application_gateway_rule_create)를 사용하여 *rule2*라는 규칙을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -234,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
 
-응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* 또는 *http://40.121.222.19:8080/video/test.htm*.
+응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* 또는 *http://40.121.222.19:8080/video/test.htm*.
 
 ```azurecli-interactive
 az network public-ip show \

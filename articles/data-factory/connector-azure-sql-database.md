@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 5287a1d1f09a7057590b455c14aa7f70128ad7fa
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e5ecd3ab5133150368be935d8208a3e93a713df3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053644"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435831"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -53,12 +53,12 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | 예 |
-| connectionString | Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| 형식 | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | yes |
+| connectionString | Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | servicePrincipalId | 응용 프로그램의 클라이언트 ID를 지정합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | servicePrincipalKey | 응용 프로그램의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | tenant | 응용 프로그램이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 개인 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -99,21 +99,21 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
     - 응용 프로그램 키
     - 테넌트 ID
 
-2. 아직 완료하지 않은 경우, Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹이어야 하지만 서비스 주체일 수는 없습니다. 이 단계가 수행되면, 이후 단계에서 Azure AD ID를 사용하여 서비스 주체에 대한 포함된 데이터베이스 사용자를 만들 수 있습니다.
+1. 아직 완료하지 않은 경우, Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹이어야 하지만 서비스 주체일 수는 없습니다. 이 단계가 수행되면, 이후 단계에서 Azure AD ID를 사용하여 서비스 주체에 대한 포함된 데이터베이스 사용자를 만들 수 있습니다.
 
-3. 서비스 주체에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터베이스에 연결합니다. 다음 T-SQL을 실행합니다. 
+1. 서비스 주체에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터베이스에 연결합니다. 다음 T-SQL을 실행합니다. 
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행합니다.
+1. 일반적으로 SQL 사용자나 기타 사용자에 대해 수행하듯이 **서비스 주체에 필요한 권한을 부여**합니다. 다음 코드를 실행합니다.
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. Azure Data Factory에서 **Azure SQL Database 연결된 서비스를 구성**합니다.
+1. Azure Data Factory에서 **Azure SQL Database 연결된 서비스를 구성**합니다.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>서비스 주체 인증을 사용하는 연결된 서비스 예제
@@ -159,21 +159,21 @@ MSI 기반 Azure AD 응용 프로그램 토큰 인증을 사용하려면 다음 
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. 아직 완료하지 않은 경우, Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. MSI가 있는 그룹에 관리자 역할을 부여하는 경우, 3단계와 4단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
+1. 아직 완료하지 않은 경우, Azure Portal에서 Azure SQL Server에 대한 **[Azure Active Directory 관리자를 프로비전](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** 합니다. Azure AD 관리자는 Azure AD 사용자 또는 Azure AD 그룹일 수 있습니다. MSI가 있는 그룹에 관리자 역할을 부여하는 경우, 3단계와 4단계를 건너뜁니다. 관리자는 데이터베이스에 대한 모든 권한을 갖습니다.
 
-3. Azure AD 그룹에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터베이스에 연결합니다. 다음 T-SQL을 실행합니다. 
+1. Azure AD 그룹에 대한 **[포함된 데이터베이스 사용자를 만듭니다](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**. 최소한 ALTER ANY USER 권한이 있는 Azure AD ID를 사용하여 SSMS 등의 도구를 통해 데이터를 복사하려는 데이터베이스에 연결합니다. 다음 T-SQL을 실행합니다. 
     
     ```sql
     CREATE USER [your AAD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. 일반적으로 SQL 사용자 및 기타 사용자에 대해 수행하듯이 **Azure AD 그룹에 필요한 권한을 부여**합니다. 예를 들어, 다음 코드를 실행합니다.
+1. 일반적으로 SQL 사용자 및 기타 사용자에 대해 수행하듯이 **Azure AD 그룹에 필요한 권한을 부여**합니다. 예를 들어, 다음 코드를 실행합니다.
 
     ```sql
     EXEC sp_addrolemember [role name], [your AAD group name];
     ```
 
-5. Azure Data Factory에서 **Azure SQL Database 연결된 서비스를 구성**합니다.
+1. Azure Data Factory에서 **Azure SQL Database 연결된 서비스를 구성**합니다.
 
 #### <a name="linked-service-example-that-uses-msi-authentication"></a>MSI 인증을 사용하는 연결된 서비스 예제
 
@@ -204,8 +204,8 @@ Azure SQL Database에서 데이터를 복사하려면 데이터 집합의 **type
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 데이터 집합의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | 예 |
-| tableName | 연결된 서비스가 참조하는 Azure SQL Database 인스턴스의 테이블 또는 뷰 이름입니다. | 예 |
+| 형식 | 데이터 집합의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | yes |
+| tableName | 연결된 서비스가 참조하는 Azure SQL Database 인스턴스의 테이블 또는 뷰 이름입니다. | yes |
 
 #### <a name="dataset-properties-example"></a>데이터 집합 속성 예제
 
@@ -236,10 +236,10 @@ Azure SQL Database에서 데이터를 복사하려면 복사 작업 원본의 **
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 **type** 속성을 **SqlSource**로 설정해야 합니다. | 예 |
-| SqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오 |
-| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니오 |
-| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니오 |
+| 형식 | 복사 작업 원본의 **type** 속성을 **SqlSource**로 설정해야 합니다. | yes |
+| SqlReaderQuery | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니요 |
+| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니요 |
+| storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
 
 ### <a name="points-to-note"></a>주의할 사항
 
@@ -340,13 +340,13 @@ Azure SQL Database에 데이터를 복사하려면 복사 작업 싱크의 **typ
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 싱크의 **type** 속성은 **SqlSink**로 설정해야 합니다. | 예 |
+| 형식 | 복사 작업 싱크의 **type** 속성은 **SqlSink**로 설정해야 합니다. | yes |
 | writeBatchSize | 버퍼 크기가 **writeBatchSize**에 도달하면 SQL 테이블에 데이터를 삽입합니다.<br/> 허용되는 값은 **정수**(행 수)입니다. | 아니요. 기본값은 10000입니다. |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니오 |
-| preCopyScript | Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니오 |
-| sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 예를 들어, 고유한 비즈니스 논리를 사용하여 upsert(업데이트/삽입) 또는 변환을 수행한다고 가정합니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 관련이 없는 작업의 경우, `preCopyScript` 속성을 사용합니다. 이러한 작업의 예로 삭제와 자르기가 있습니다. | 아니오 |
-| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니오 |
-| sqlWriterTableType | 저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 볼 수 있습니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 아니오 |
+| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다.<br/> 허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니요 |
+| preCopyScript | Azure SQL Database에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 복사 실행당 한 번만 호출됩니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니요 |
+| sqlWriterStoredProcedureName | 원본 데이터를 대상 테이블에 적용하는 방법을 정의하는 저장 프로시저의 이름입니다. 예를 들어, 고유한 비즈니스 논리를 사용하여 upsert(업데이트/삽입) 또는 변환을 수행한다고 가정합니다. <br/><br/>이 저장 프로시저는 **배치마다 호출**됩니다. 한 번만 실행되고 원본 데이터와 관련이 없는 작업의 경우, `preCopyScript` 속성을 사용합니다. 이러한 작업의 예로 삭제와 자르기가 있습니다. | 아니요 |
+| storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
+| sqlWriterTableType | 저장 프로시저에 사용할 테이블 형식 이름을 지정합니다. 복사 작업을 사용하면 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 볼 수 있습니다. 그러면 저장 프로시저 코드가 복사되는 데이터를 기존 데이터와 병합할 수 있습니다. | 아니요 |
 
 > [!TIP]
 > 데이터를 Azure SQL Database로 복사하는 경우, 복사 작업은 기본적으로 싱크 테이블에 데이터를 추가합니다. upsert(업데이트/삽입) 또는 추가 비즈니스 논리를 수행하려면 **SqlSink**에서 저장 프로시저를 사용합니다. 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoking-stored-procedure-for-sql-sink)을 참조하세요.

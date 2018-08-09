@@ -1,25 +1,20 @@
 ---
-title: Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용 | Microsoft Docs
+title: Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 description: Azure IoT Hub를 통해 HDInsight에서 Apache Kafka를 사용하는 방법에 대해 알아봅니다. Kafka 연결 Azure IoT Hub 프로젝트는 Kafka에 대한 원본 및 싱크 커넥터를 제공합니다. 원본 커넥터는 IoT Hub에서 데이터를 읽을 수 있으며 싱크 커넥터는 IoT Hub에 기록합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/15/2018
-ms.author: larryfr
-ms.openlocfilehash: 33fdb5b099efc40fec94a860b21cda75ced44fe9
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: c540e110a12e981aee992348445cd1032ba0ba77
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267304"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618336"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Azure IoT Hub를 통해 HDInsight에서 Apache Kafka 사용
 

@@ -1,24 +1,20 @@
 ---
-title: "Java를 사용한 Azure Storage 샘플 | Microsoft Docs"
-description: "Azure 저장소에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. Java 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다."
+title: Java를 사용한 Azure Storage 샘플 | Microsoft Docs
+description: Azure Storage에 대한 샘플 코드 및 응용 프로그램을 확인하고 다운로드하여 실행합니다. Java 저장소 클라이언트 라이브러리를 사용하여 BLOB, 큐, 테이블 및 파일에 대한 예제 시작을 검색합니다.
 services: storage
-documentationcenter: na
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: 
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.openlocfilehash: fd27e1ac9a773e7b0f5245aa74acdb0521cd098c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: bdc25a7aeff88d058eaf3fddf6cec023edff3b9e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530317"
 ---
 # <a name="azure-storage-samples-using-java"></a>Java를 사용한 Azure Storage 샘플
 
@@ -205,14 +201,14 @@ ms.lasthandoff: 10/11/2017
 
 Azure Storage 클라이언트 라이브러리를 설치하고 시작하는 방법에 대한 지침은 찾고 있는 경우 다음 가이드를 확인해 보세요.
 
-* [Java에서 Azure Blob Service 시작](../blobs/storage-java-how-to-use-blob-storage.md)
-* [Java에서 Azure Queue Service 시작](../storage-java-how-to-use-queue-storage.md)
+* [Java에서 Azure Blob Service 시작](../blobs/storage-quickstart-blobs-java.md)
+* [Java에서 Azure Queue Service 시작](../queues/storage-java-how-to-use-queue-storage.md)
 * [Java에서 Azure Table Service 시작](../../cosmos-db/table-storage-how-to-use-java.md)
-* [Java에서 Azure File Service 시작](../storage-java-how-to-use-file-storage.md)
+* [Java에서 Azure File Service 시작](../files/storage-java-how-to-use-file-storage.md)
 
 ## <a name="next-steps"></a>다음 단계
 
 다른 언어용 샘플에 대한 정보:
 
-* .NET: [.NET을 사용한 Azure Storage 샘플](../storage-samples-dotnet.md)
-* 다른 모든 언어: [Azure Storage 샘플](../storage-samples.md)
+* .NET: [.NET을 사용한 Azure Storage 샘플](storage-samples-dotnet.md)
+* 다른 모든 언어: [Azure Storage 샘플](storage-samples.md)

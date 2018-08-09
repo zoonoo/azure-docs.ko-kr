@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 292540100096b26a652094cb0ea8d8f585961a22
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473752"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422436"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -50,7 +50,7 @@ Mobile Apps Node.js SDK는 두 개의 데이터베이스 드라이버를 지원�
 1. 명령 창 또는 PowerShell 창에서 프로젝트의 디렉터리를 만듭니다.
 
         mkdir basicapp
-2. `npm init`를 실행하여 패키지 구조를 초기화합니다.
+1. `npm init`를 실행하여 패키지 구조를 초기화합니다.
 
         cd basicapp
         npm init
@@ -58,10 +58,10 @@ Mobile Apps Node.js SDK는 두 개의 데이터베이스 드라이버를 지원�
    `npm init` 명령은 프로젝트를 초기화하기 위해 몇 가지 질문을 합니다. 예제 출력을 참조하세요.
 
    ![Npm init 출력][0]
-3. npm 리포지토리에서 `express` 및 `azure-mobile-apps` 라이브러리를 설치합니다.
+1. npm 리포지토리에서 `express` 및 `azure-mobile-apps` 라이브러리를 설치합니다.
 
         npm install --save express azure-mobile-apps
-4. app.js 파일을 만들어서 기본 모바일 서버를 구현합니다.
+1. app.js 파일을 만들어서 기본 모바일 서버를 구현합니다.
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -94,18 +94,18 @@ Mobile Apps Node.js SDK는 두 개의 데이터베이스 드라이버를 지원�
 Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 확장이 필요합니다. 시작하려면 [Visual Studio용 Node.js Tools 1.1]을 설치합니다. 설치를 완료하면 Express 4.x 응용 프로그램을 만듭니다.
 
 1. **새 프로젝트** 대화를 엽니다(**파일** > **새로 만들기** > **프로젝트**에서).
-2. **템플릿** > **JavaScript** > **Node.js**으로 확장합니다.
-3. **기본 Azure Node.js Express 4 응용 프로그램**을 선택합니다.
-4. 프로젝트 이름을 입력합니다. **확인**을 선택합니다.
+1. **템플릿** > **JavaScript** > **Node.js**으로 확장합니다.
+1. **기본 Azure Node.js Express 4 응용 프로그램**을 선택합니다.
+1. 프로젝트 이름을 입력합니다. **확인**을 선택합니다.
 
    ![Visual Studio 2015 새 프로젝트][1]
-5. 마우스 오른쪽 단추로 **npm** 노드를 클릭하고 **새 npm 패키지 설치**를 선택합니다.
-6. 첫 번째 Node.js 응용 프로그램을 만든 후 npm 카탈로그를 새로 고쳐야 할 수 있습니다. 필요한 경우 **새로 고침**을 선택합니다.
-7. 검색 상자에 **azure-mobile-apps** 를 입력합니다. **azure-mobile-apps 2.0.0** 패키지를 선택한 다음, **패키지 설치**를 선택합니다.
+1. 마우스 오른쪽 단추로 **npm** 노드를 클릭하고 **새 npm 패키지 설치**를 선택합니다.
+1. 첫 번째 Node.js 응용 프로그램을 만든 후 npm 카탈로그를 새로 고쳐야 할 수 있습니다. 필요한 경우 **새로 고침**을 선택합니다.
+1. 검색 상자에 **azure-mobile-apps** 를 입력합니다. **azure-mobile-apps 2.0.0** 패키지를 선택한 다음, **패키지 설치**를 선택합니다.
 
    ![새 npm 패키지 설치][2]
-8. **닫기**를 선택합니다.
-9. app.js 파일을 열고 Mobile Apps SDK에 대한 지원을 추가합니다. 라이브러리 `require` 문의 맨 아래 6줄에 다음 코드를 추가합니다.
+1. **닫기**를 선택합니다.
+1. app.js 파일을 열고 Mobile Apps SDK에 대한 지원을 추가합니다. 라이브러리 `require` 문의 맨 아래 6줄에 다음 코드를 추가합니다.
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -120,7 +120,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
         app.use(mobile);
 
    파일을 저장합니다.
-10. 응용 프로그램을 로컬로 실행하거나(API가 http://localhost:3000) 에서 제공됨) Azure에 게시합니다.
+1. 응용 프로그램을 로컬로 실행하거나(API가 http://localhost:3000) 에서 제공됨) Azure에 게시합니다.
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
 [Azure Portal]에서 바로 Mobile Apps 백 엔드를 만들 수 있습니다. 다음 단계를 완료하거나 [모바일 앱 만들기](app-service-mobile-ios-get-started.md) 자습서에 따라 클라이언트 및 서버를 함께 만들 수 있습니다. 자습서는 이러한 지침의 단순화된 버전을 포함하고 있으며 개념 증명 프로젝트에 가장 적합합니다.
@@ -136,13 +136,13 @@ Visual Studio 2015는 IDE 내에서 Node.js 응용 프로그램 개발하도록 
 다음 절차에서는 Git 리포지토리를 사용하여 빠른 시작 프로젝트 코드를 다운로드합니다.
 
 1. 아직 수행하지 않았다면 Git을 설치합니다. Git를 설치하는 데 필요한 단계는 운영 체제마다 다릅니다. 운영 체제별 배포 및 설치 지침은 [Git 설치](http://git-scm.com/book/en/Getting-Started-Installing-Git)를 참조하세요.
-2. [리포지토리 준비](../app-service/app-service-deploy-local-git.md#prepare-your-repository)를 참조하여 백 엔드 사이트에 Git 리포지토리를 사용할 수 있습니다. 배포 사용자 이름 및 암호를 기록해 둡니다.
-3. Mobile Apps 백 엔드에 대한 창에서 **Git 복제 URL** 설정을 적어 둡니다.
-4. Git 복제 URL을 사용하여 `git clone` 명령을 실행합니다. 다음 예제와 같이 필요한 경우 암호를 입력합니다.
+1. [리포지토리 준비](../app-service/app-service-deploy-local-git.md#prepare-your-repository)를 참조하여 백 엔드 사이트에 Git 리포지토리를 사용할 수 있습니다. 배포 사용자 이름 및 암호를 기록해 둡니다.
+1. Mobile Apps 백 엔드에 대한 창에서 **Git 복제 URL** 설정을 적어 둡니다.
+1. Git 복제 URL을 사용하여 `git clone` 명령을 실행합니다. 다음 예제와 같이 필요한 경우 암호를 입력합니다.
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. 로컬 디렉터리를 찾고(앞의 예제에서는 `/todolist`), 프로젝트 파일이 다운로드되었는지 확인합니다. `/tables` 디렉터리에서 todoitem.json 파일을 찾습니다. 이 파일은 테이블의 사용 권한을 정의합니다. 또한 동일한 디렉터리에서 todoitem.js 파일을 찾습니다. 테이블에 대한 CRUD 작업 스크립트를 정의합니다.
-6. 프로젝트 파일을 변경한 후에 다음 명령을 실행하여 다음 사이트에 변경 내용을 추가, 커밋한 다음, 업로드합니다.
+1. 로컬 디렉터리를 찾고(앞의 예제에서는 `/todolist`), 프로젝트 파일이 다운로드되었는지 확인합니다. `/tables` 디렉터리에서 todoitem.json 파일을 찾습니다. 이 파일은 테이블의 사용 권한을 정의합니다. 또한 동일한 디렉터리에서 todoitem.js 파일을 찾습니다. 테이블에 대한 CRUD 작업 스크립트를 정의합니다.
+1. 프로젝트 파일을 변경한 후에 다음 명령을 실행하여 다음 사이트에 변경 내용을 추가, 커밋한 다음, 업로드합니다.
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -252,7 +252,7 @@ Mobile Apps Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Server 
 >
 
 1. [Microsoft SQL Server 2014 Express]를 다운로드하고 설치합니다. Tools Edition을 사용하여 SQL Server 2014 Express를 설치하도록 합니다. 64비트를 지원하도록 명시적으로 요구하지 않는 한 32비트 버전이 실행할 때 메모리를 적게 사용합니다.
-2. SQL Server 2014 구성 관리자를 실행합니다.
+1. SQL Server 2014 구성 관리자를 실행합니다.
 
    a. 트리 메뉴에서 **SQL Server 네트워크 구성** 노드를 확장합니다.
 
@@ -275,25 +275,25 @@ Mobile Apps Node.js SDK는 [mssql Node.js 패키지]를 사용하여 SQL Server 
    i. 마우스 오른쪽 단추로 **SQL Server (SQLEXPRESS)** 를 클릭하고 **다시 시작**을 선택합니다.
 
    j. SQL Server 2014 구성 관리자를 닫습니다.
-3. SQL Server 2014 Management Studio를 실행하고 로컬 SQL Server Express 인스턴스에 연결합니다.
+1. SQL Server 2014 Management Studio를 실행하고 로컬 SQL Server Express 인스턴스에 연결합니다.
 
    1. 개체 탐색기에서 마우스 오른쪽 단추로 인스턴스를 클릭하고 **속성**을 선택합니다.
-   2. **보안** 페이지를 선택합니다.
-   3. **SQL Server 및 Windows 인증 모드**를 선택하도록 합니다.
-   4. **확인**을 선택합니다.
+   1. **보안** 페이지를 선택합니다.
+   1. **SQL Server 및 Windows 인증 모드**를 선택하도록 합니다.
+   1. **확인**을 선택합니다.
 
       ![SQL Server Express 인증 구성][4]
-   5. 개체 탐색기에서 **보안** > **로그인**을 확장합니다.
-   6. 마우스 오른쪽 단추로 **로그인**을 클릭하고 **새 로그인**을 선택합니다.
-   7. 로그인 이름을 입력합니다. **SQL Server 인증**을 선택합니다. 암호를 입력한 다음, 동일한 암호를 **암호 확인**에 입력합니다. 암호는 Windows 복잡성 요구 사항을 충족해야 합니다.
-   8. **확인**을 선택합니다.
+   1. 개체 탐색기에서 **보안** > **로그인**을 확장합니다.
+   1. 마우스 오른쪽 단추로 **로그인**을 클릭하고 **새 로그인**을 선택합니다.
+   1. 로그인 이름을 입력합니다. **SQL Server 인증**을 선택합니다. 암호를 입력한 다음, 동일한 암호를 **암호 확인**에 입력합니다. 암호는 Windows 복잡성 요구 사항을 충족해야 합니다.
+   1. **확인**을 선택합니다.
 
       ![SQL Server Express에 새 사용자 추가][5]
-   9. 새 로그인을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
-   10. **서버 역할** 페이지를 선택합니다.
-   11. **dbcreator** 서버 역할에 대한 확인란을 선택합니다.
-   12. **확인**을 선택합니다.
-   13. SQL Server 2015 Management Studio를 닫습니다.
+   1. 새 로그인을 마우스 오른쪽 단추로 클릭하고 **속성**을 선택합니다.
+   1. **서버 역할** 페이지를 선택합니다.
+   1. **dbcreator** 서버 역할에 대한 확인란을 선택합니다.
+   1. **확인**을 선택합니다.
+   1. SQL Server 2015 Management Studio를 닫습니다.
 
 사용자 이름 및 선택한 암호를 기록하도록 합니다. 데이터베이스 요구 사항에 따라 추가 서버 역할 또는 사용 권한을 할당해야 합니다.
 
@@ -348,13 +348,13 @@ azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일�
 앱 설정을 지정하려면:
 
 1. [Azure Portal]에 로그인합니다.
-2. **모든 리소스** 또는 **App Services**를 선택한 다음, 모바일 앱의 이름을 선택합니다.
-3. **설정** 창이 기본적으로 열립니다. 열리지 않으면 **설정**을 선택합니다.
-4. **일반** 메뉴에서 **응용 프로그램 설정**을 선택합니다.
-5. **앱 설정** 섹션으로 스크롤합니다.
-6. 앱 설정이 이미 있는 경우 앱 설정 값을 선택하여 값을 편집합니다.
+1. **모든 리소스** 또는 **App Services**를 선택한 다음, 모바일 앱의 이름을 선택합니다.
+1. **설정** 창이 기본적으로 열립니다. 열리지 않으면 **설정**을 선택합니다.
+1. **일반** 메뉴에서 **응용 프로그램 설정**을 선택합니다.
+1. **앱 설정** 섹션으로 스크롤합니다.
+1. 앱 설정이 이미 있는 경우 앱 설정 값을 선택하여 값을 편집합니다.
    앱 설정이 존재하지 않는 경우 **키** 상자에 앱 설정을 입력하고 **값** 상자에 값을 입력합니다.
-8. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 대부분의 앱은 설정 변경 후 서비스를 다시 시작해야 합니다.
 
@@ -364,9 +364,9 @@ azureMobile.js 파일에서 대부분의 설정은 [Azure Portal]에서 동일�
 Azure SQL Database를 데이터 저장소로 사용하면 모든 Azure App Service 응용 프로그램 형식에 걸쳐 동일합니다. 아직 수행하지 않은 경우 다음 단계에 따라 Mobile Apps 백 엔드를 만듭니다.
 
 1. [Azure Portal]에 로그인합니다.
-2. 창의 왼쪽 위에서 **+새로 만들기** 단추 > **웹 + 모바일** > **모바일 앱**을 선택한 다음, Mobile Apps 백 엔드에 대한 이름을 입력합니다.
-3. **리소스 그룹** 상자에 앱과 동일한 이름을 입력합니다.
-4. 기본 App Service 계획이 선택됩니다. App Service 계획을 변경하려면:
+1. 창의 왼쪽 위에서 **+새로 만들기** 단추 > **웹 + 모바일** > **모바일 앱**을 선택한 다음, Mobile Apps 백 엔드에 대한 이름을 입력합니다.
+1. **리소스 그룹** 상자에 앱과 동일한 이름을 입력합니다.
+1. 기본 App Service 계획이 선택됩니다. App Service 계획을 변경하려면:
 
    a. **App Service 계획** > **+새로 만들기**를 선택합니다. 
    
@@ -377,7 +377,7 @@ Azure SQL Database를 데이터 저장소로 사용하면 모든 Azure App Servi
    d. **선택** 단추를 클릭합니다. 
    
    e. **App Service 계획** 창으로 돌아가서 **확인**을 선택합니다.
-5. **만들기**를 선택합니다. 
+1. **만들기**를 선택합니다. 
 
 Mobile Apps 백 엔드를 프로비저닝하는 데 몇 분 정도 걸릴 수 있습니다. Mobile Apps 백 엔드가 프로비전되면 포털에서 Mobile Apps 백 엔드에 대한 **설정** 창이 열립니다.
 
@@ -389,13 +389,13 @@ Mobile Apps 백 엔드에 기존 SQL 데이터베이스를 연결하거나 새 S
 >
 
 1. 새 Mobile Apps 백 엔드에서 **설정** > **모바일 앱** > **데이터** > **+추가**를 선택합니다.
-2. **데이터 연결 추가** 창에서 **SQL Database - 필요한 설정 구성** > **새 데이터베이스를 만들기**를 선택합니다. **이름** 상자에 새 데이터베이스 이름을 입력합니다.
-3. **서버**를 선택합니다. **새 서버** 창에서 **서버 이름** 상자에 고유한 서버 이름을 입력하고 적절한 서버 관리자 로그인 및 암호를 입력합니다. **Azure 서비스의 서버 액세스 허용**이 선택되어 있는지 확인합니다. **확인**을 선택합니다.
+1. **데이터 연결 추가** 창에서 **SQL Database - 필요한 설정 구성** > **새 데이터베이스를 만들기**를 선택합니다. **이름** 상자에 새 데이터베이스 이름을 입력합니다.
+1. **서버**를 선택합니다. **새 서버** 창에서 **서버 이름** 상자에 고유한 서버 이름을 입력하고 적절한 서버 관리자 로그인 및 암호를 입력합니다. **Azure 서비스의 서버 액세스 허용**이 선택되어 있는지 확인합니다. **확인**을 선택합니다.
 
    ![Azure SQL 데이터베이스 만들기][6]
-4. **새 데이터베이스** 창에서 **확인**을 선택합니다.
-5. **데이터 연결 추가** 창으로 돌아가서 **연결 문자열**을 선택하고, 데이터베이스를 만들 때 입력한 로그인 및 암호를 입력합니다. 기존 데이터베이스를 사용하는 경우 해당 데이터베이스에 대한 로그인 자격 증명을 입력합니다. **확인**을 선택합니다.
-6. **데이터 연결 추가** 창으로 다시 돌아가서 **확인**을 선택하여 데이터베이스를 만듭니다.
+1. **새 데이터베이스** 창에서 **확인**을 선택합니다.
+1. **데이터 연결 추가** 창으로 돌아가서 **연결 문자열**을 선택하고, 데이터베이스를 만들 때 입력한 로그인 및 암호를 입력합니다. 기존 데이터베이스를 사용하는 경우 해당 데이터베이스에 대한 로그인 자격 증명을 입력합니다. **확인**을 선택합니다.
+1. **데이터 연결 추가** 창으로 다시 돌아가서 **확인**을 선택하여 데이터베이스를 만듭니다.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
@@ -693,8 +693,8 @@ Mobile Apps는 수많은 모든 주요 플랫폼의 장치에 대상 푸시 알�
 사용자 지정 API는 거의 동일한 방식으로 테이블 API로 정의됩니다.
 
 1. `api` 디렉터리를 만듭니다.
-2. `api` 디렉터리에서 API 정의 JavaScript 파일을 만듭니다.
-3. 가져오기 메서드를 사용하여 `api` 디렉터리를 가져옵니다.
+1. `api` 디렉터리에서 API 정의 JavaScript 파일을 만듭니다.
+1. 가져오기 메서드를 사용하여 `api` 디렉터리를 가져옵니다.
 
 다음은 이전에 사용된 기본 앱 샘플에 따른 프로토타입 API 정의입니다.
 
@@ -857,7 +857,7 @@ Azure Portal을 사용하여 로컬 컴퓨터에 프로젝트를 다운로드하
 1. Mobile Apps 백 엔드에 대한 창에서 **모든 설정** > **쉬운 테이블** 또는 **쉬운 API**를 선택합니다. 테이블 또는 API를 선택한 다음, **스크립트 편집**을 선택합니다. 스크립트 파일이 App Service 편집기에서 열립니다.
 
    ![App Service 편집기](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-2. 온라인 편집기에서 코드 파일의 내용을 변경합니다. 변경 내용은 입력할 때 자동으로 저장됩니다.
+1. 온라인 편집기에서 코드 파일의 내용을 변경합니다. 변경 내용은 입력할 때 자동으로 저장됩니다.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

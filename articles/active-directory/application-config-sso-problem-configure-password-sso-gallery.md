@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: dc362c89f7bc83c4848c0e857173db1ea2639bc4
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 01b77fc2521c221594a38b3731694115adf82e2c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362843"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600808"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 응용 프로그램에 대해 암호 Single Sign-On을 구성할 때 발생하는 문제
 
@@ -31,7 +31,7 @@ ms.locfileid: "39362843"
 
 Microsoft에는 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 이러한 통합이 올바르게 작동하지 않는 경우에는 가능한 신속하게 해결할 수 있도록 지원 사례를 엽니다.
 
-**이 응용 프로그램의 공급업체와 연락된 경우** Microsoft에서 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위해 작업할 수 있도록 알려주세요. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](./develop/active-directory-app-gallery-listing.md)로 보내 주시면 됩니다.
+**이 응용 프로그램의 공급업체와 연락된 경우** Microsoft에서 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위해 작업할 수 있도록 알려주세요. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>자격 증명을 입력하고 제출했지만 페이지에 자격 증명이 잘못되었다고 표시됨
 
@@ -59,7 +59,7 @@ Microsoft에는 통합이 중단되었을 때 자동으로 검색할 기술이 �
 
 Microsoft에는 응용 프로그램 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 통합이 올바로 작동하지 않는 경우 최대한 신속하게 해결하도록 지원 사례를 열 수 있습니다. 
 
-또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](./develop/active-directory-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>Chrome 및 Firefox에서는 확장이 작동하지만 Internet Explorer에서는 작동하지 않음
 
@@ -73,7 +73,7 @@ Microsoft에는 응용 프로그램 통합이 중단되었을 때 자동으로 �
 
    * 이런 상황은 브라우저 버전, 컴퓨터 속도, 방문한 사이트에 따라 달라질 수 있습니다. 그런 경우는 특정 응용 프로그램의 통합을 수정할 수 있도록 지원 팀에 문의해 주세요.
 
-또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](./develop/active-directory-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>응용 프로그램의 로그인 페이지가 최근에 변경되었거나 추가 필드가 필요한지 확인
 
@@ -81,7 +81,7 @@ Microsoft에는 응용 프로그램 통합이 중단되었을 때 자동으로 �
 
 Microsoft에는 응용 프로그램 통합이 중단되었을 때 자동으로 검색할 기술이 있지만 문제를 즉시 발견하지 못하거나 해결할 때까지 시간이 걸릴 수 있습니다. 통합이 올바로 작동하지 않는 경우 최대한 신속하게 해결하도록 지원 사례를 열 수 있습니다. 
 
-또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](./develop/active-directory-app-gallery-listing.md)로 보내 주시면 됩니다.
+또한 **이 응용 프로그램의 공급업체와 연락된 경우는 응용 프로그램을 Azure Active Directory와 기본적으로 통합하기 위한 작업을 함께 진행할 수 있도록** **Microsoft로 보내 주세요**. 공급업체에서 작업을 시작할 수 있도록 [Azure Active Directory 응용 프로그램 갤러리에 응용 프로그램 나열](develop/howto-app-gallery-listing.md)로 보내 주시면 됩니다.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장을 설치하는 방법
 

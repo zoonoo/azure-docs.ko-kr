@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 87d97b078927800e4e90c39a70e2acc7163a4c84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308972"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493050"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>자습서: 7. 단순 엔터티 및 문구 목록 추가
 이 자습서에서는 **단순** 엔터티를 사용하여 발화에서 기계 학습 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.
@@ -126,15 +126,8 @@ ms.locfileid: "39308972"
     다른 발화 예제가 있지만 직무 단어는 포함되어 있지 않습니다.
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용을 인식하지 못합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
-
-    ![학습 단추 선택](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
-
-    ![학습 성공 알림](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
@@ -367,7 +360,8 @@ LUIS-Samples Github 리포지토리에서 [jobs-phrase-list.csv](https://github.
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 타사 API를 통해 메시지를 보낼 수 있습니다. 봇 또는 호출 응용 프로그램에 대한 다른 프로그래밍 옵션이 있는 경우 LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 왼쪽 위 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -17,15 +17,15 @@ ms.date: 07/21/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 26984244c0ffa5e665394e903ba95b0487f214a8
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 067924294838459c866a0603ab092d139f1e6331
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316912"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579234"
 ---
 # <a name="how-azure-active-directory-uses-the-saml-protocol"></a>Azure Active Directory에서 SAML 프로토콜을 사용하는 방법
-Azure AD(Azure Active Directory)는 SAML 2.0 프로토콜을 사용하여 응용 프로그램에서 사용자에게 Single Sign-On 환경을 제공할 수 있도록 합니다. Azure AD의 [Single Sign-On](active-directory-single-sign-on-protocol-reference.md) 및 [Single Sign-Out](active-directory-single-sign-out-protocol-reference.md) SAML 프로필은 ID 공급자 서비스에서 SAML 어설션, 프로토콜 및 바인딩이 사용되는 방법을 설명합니다.
+Azure AD(Azure Active Directory)는 SAML 2.0 프로토콜을 사용하여 응용 프로그램에서 사용자에게 Single Sign-On 환경을 제공할 수 있도록 합니다. Azure AD의 [Single Sign-On](single-sign-on-saml-protocol.md) 및 [Single Sign-Out](single-sign-out-saml-protocol.md) SAML 프로필은 ID 공급자 서비스에서 SAML 어설션, 프로토콜 및 바인딩이 사용되는 방법을 설명합니다.
 
 SAML 프로토콜에는 자신에 대한 정보를 교환하기 위해 ID 공급자(Azure AD)와 서비스 공급자(응용 프로그램)가 필요합니다.
 
@@ -39,4 +39,4 @@ Azure Active Directory는 테넌트별 및 공통(테넌트 독립적) single si
 
 * 테넌트 독립적 엔드포인트는 `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. 이 엔드포인트 주소에는 테넌트 도메인 이름 또는 ID 대신 **common**이 나타납니다.
 
-Azure AD에서 게시하는 페더레이션 메타데이터 문서에 대한 자세한 내용은 [페더레이션 메타데이터](active-directory-federation-metadata.md)를 참조하세요.
+Azure AD에서 게시하는 페더레이션 메타데이터 문서에 대한 자세한 내용은 [페더레이션 메타데이터](azure-ad-federation-metadata.md)를 참조하세요.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: ae670eca3d655e16ddf55da2e2538ba96b7e0115
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126054"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494211"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>서비스 패브릭 클러스터 용량 계획 고려 사항
 프로덕션 배포의 경우 용량 계획은 중요한 단계입니다. 다음은 해당 프로세스의 일부로 고려해야 하는 항목 중 일부입니다.
@@ -62,7 +62,7 @@ Service Fabric 시스템 서비스(예: 클러스터 관리자 서비스 또는 
 * 주 노드 유형에 대한 **최소 VM 크기**는 선택한 **내구성 계층**에 따라 결정됩니다. 기본 내구성 계층은 브론즈입니다. 자세한 내용은 [클러스터의 내구성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)을 참조하세요.  
 * 주 노드 유형에 대한 **최소 VM 수**는 선택한 **안정성 계층**에 따라 결정됩니다. 기본 안정성 계층은 실버입니다. 자세한 내용은 [클러스터의 안정성 특성](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)을 참조하세요.  
 
-Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정의](https://docs.microsoft.com/en-us/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 아래의 `isPrimary` 특성으로 구성됩니다.
+Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정의](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object) 아래의 `isPrimary` 특성으로 구성됩니다.
 
 ### <a name="non-primary-node-type"></a>주가 아닌 노드 유형
 
@@ -109,11 +109,7 @@ Azure Resource Manager 템플릿에서 주 노드 형식은 [노드 형식 정�
 - 클러스터와 응용 프로그램을 항상 정상 상태로 유지하고, 응용 프로그램이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-lifecycle.md)(예: 빌드의 복제본에 문제가 있을 경우)에 제때에 응답하는지 확인하세요.
 - VM SKU를 변경하는 보다 안전한 방법 채택(강화/규모 축소): 가상 머신 확장 집합의 VM SKU를 변경하는 작업은 기본적으로 안전하지 않으므로 가능하면 수행하지 않아야 합니다. 일반적인 문제를 방지하기 위해 수행할 수 있는 프로세스는 다음과 같습니다.
     - **주 노드 형식이 아닐 경우:**: 새 가상 머신 확장 집합을 생성하고, 새로운 가상 머신 확장 집합/노드 형식을 포함하도록 서비스 배치 제약 조건을 수정한 후 이전의 가상 머신 확장 집합 인스턴스 수를 한 번에 한 노드씩 0으로 줄이는 것이 좋습니다(노드 제거로 인한 클러스터 안정성 저하를 방지하기 위함).
-    - **주 노드 형식일 경우:** 주 노드 형식의 VM SKU를 변경하지 않는 것이 좋습니다. 주 노드 유형 SKU 변경은 지원되지 않습니다. 새 SKU를 만드는 이유가 용량 때문이라면 다른 인스턴스를 더 추가하는 것이 좋습니다. 이것이 불가능한 경우 새 클러스터를 만들고 구 클러스터에서 [응용 프로그램 상태를 복원합니다](service-fabric-reliable-services-backup-restore.md)(해당하는 경우). 시스템 서비스 상태를 복원할 필요는 없습니다. 응용 프로그램을 새 클러스터에 배포하면 다시 만들어집니다. 클러스터에서 상태 비저장 응용 프로그램을 실행한 경우에만 응용 프로그램을 새 클러스터에 배포하기만 하면 되며 복원은 필요하지 않습니다. 지원되지 않는 방식으로 VM SKU를 변경하려는 경우 가상 머신 확장 집합 모델 정의를 수정하여 새 SKU를 반영합니다. 클러스터에 한 노드 형식만 있다면 모든 상태 저장 응용 프로그램이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-lifecycle.md)(예: 빌드의 복제본에 문제가 있을 경우)에 제때 응답하는지, 서비스 복제본 다시 빌드 기간이 5분 미만(실버 내구성 수준일 경우)인지 확인하세요. 
-
-    > [!WARNING]
-    > 실버 지속성 이상으로 실행되지 않는 가상 머신 확장 집합에 대한 VM SKU 크기를 변경하는 것은 권장되지 않습니다. VM SKU 크기 변경은 데이터 파괴적 내부 인프라 작업입니다. 적어도 이러한 변경을 지연하거나 모니터링하는 기능이 없으면 이러한 작업으로 인해 상태 저장 서비스에 대해 데이터 손실이 발생하거나 상태 비저장 워크로드의 경우에도 예기치 못한 다른 작동 문제가 발생할 수 있습니다. 
-    > 
+    - **주 노드 형식일 경우:** 주 노드 형식의 VM SKU를 변경하지 않는 것이 좋습니다. 주 노드 유형 SKU 변경은 지원되지 않습니다. 새 SKU를 만드는 이유가 용량 때문이라면 다른 인스턴스를 더 추가하는 것이 좋습니다. 이것이 불가능한 경우 새 클러스터를 만들고 구 클러스터에서 [응용 프로그램 상태를 복원합니다](service-fabric-reliable-services-backup-restore.md)(해당하는 경우). 시스템 서비스 상태를 복원할 필요는 없습니다. 응용 프로그램을 새 클러스터에 배포하면 다시 만들어집니다. 클러스터에서 상태 비저장 응용 프로그램을 실행한 경우에만 응용 프로그램을 새 클러스터에 배포하기만 하면 되며 복원은 필요하지 않습니다. 지원되지 않는 방식으로 VM SKU를 변경하려는 경우 가상 머신 확장 집합 모델 정의를 수정하여 새 SKU를 반영합니다. 클러스터에 한 노드 형식만 있다면 모든 상태 저장 응용 프로그램이 모든 [서비스 복제본 수명 주기 이벤트](service-fabric-reliable-services-lifecycle.md)(예: 빌드의 복제본에 문제가 있을 경우)에 제때 응답하는지, 서비스 복제본 재빌드 시간이 5분 미만(Silver 내구성 수준일 경우)인지 확인하세요. 
     
 - 골드 또는 실버 내구성 수준이 활성화된 가상 머신 확장 집합의 노드 수는 최소 5개로 유지합니다.
 - 내구성 수준이 실버 또는 골드인 각 VM 확장 집합은 Service Fabric 클러스터에서 고유한 노드 형식에 매핑되어야 합니다. 여러 VM 확장 집합을 단일 노드 형식에 매핑하면 Service Fabric 클러스터와 Azure 인프라 간의 조정이 제대로 작동하지 않습니다.

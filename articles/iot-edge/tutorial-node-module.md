@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 9ab441bdd30e7598dacfec8dd74702aef0299e1b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6922262856d6fba97349377d5d1b18b75638d88f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413493"
+ms.locfileid: "39436814"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>자습서: Node.js IoT Edge 모듈을 개발하여 시뮬레이션된 장치에 배포
 
@@ -233,7 +233,7 @@ VS Code 통합 터미널에서 실행되는 `docker build` 명령에서 태그�
 IoT Hub만 삭제하려면 허브 이름과 리소스 그룹 이름을 사용하여 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

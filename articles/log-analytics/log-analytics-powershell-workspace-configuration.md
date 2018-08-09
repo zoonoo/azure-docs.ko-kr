@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
 ms.component: na
-ms.openlocfilehash: 375ae9a82af4a1f8a86b529b597ed479388e66dc
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6dcf3a5b26dc3c7e69721b2abb8a7d58767866d6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129339"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579054"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>PowerShell을 사용하여 Log Analytics 관리
-[Log Analytics PowerShell cmdlet](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
+[Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/)을 사용하여 명령줄에서 또는 스크립트의 일부로 Log Analytics의 다양한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
 
 * 작업 영역 만들기
 * 솔루션 추가 또는 제거
@@ -37,7 +37,7 @@ ms.locfileid: "37129339"
 * Azure 가상 머신에 Log Analytics 에이전트 추가
 * Azure 진단을 사용하여 수집된 데이터를 인덱싱하도록 Log Analytics 구성
 
-이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) 를 참조할 수 있습니다.
+이 문서에서는 PowerShell에서 수행할 수 있는 몇 가지 기능을 보여 주는 두 가지 코드 샘플을 제공합니다.  다른 기능에 대해서는 [Log Analytics PowerShell Cmdlet 참조](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 를 참조할 수 있습니다.
 
 > [!NOTE]
 > Log Analytics는 이전에 Operational Insights라고 했기 때문에 cmdlet에서는 Operational Insights라고 합니다.
@@ -193,24 +193,24 @@ New-AzureRmOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGr
 
 | 리소스 종류 | 로그 | 메트릭 |
 | --- | --- | --- |
-| Application Gateway    | 예 | 예 |
-| Automation 계정     | 예 | |
-| Batch 계정          | 예 | 예 |
-| Data Lake Analytics     | 예 | | 
-| Data Lake Store         | 예 | |
-| 탄력적인 SQL 풀        |     | 예 |
-| 이벤트 허브 네임스페이스     |     | 예 |
-| IoT Hub                |     | 예 |
-| Key Vault               | 예 | |
-| Load Balancer          | 예 | |
-| Logic Apps              | 예 | 예 |
-| 네트워크 보안 그룹 | 예 | |
-| Redis Cache             |     | 예 |
-| Search 서비스         | 예 | 예 |
-| Service Bus 네임스페이스   |     | 예 |
-| SQL(v12)               |     | 예 |
-| 웹 사이트               |     | 예 |
-| 웹 서버 팜        |     | 예 |
+| Application Gateway    | yes | yes |
+| Automation 계정     | yes | |
+| Batch 계정          | yes | yes |
+| Data Lake Analytics     | yes | | 
+| Data Lake Store         | yes | |
+| 탄력적인 SQL 풀        |     | yes |
+| 이벤트 허브 네임스페이스     |     | yes |
+| IoT Hub                |     | yes |
+| Key Vault               | yes | |
+| Load Balancer          | yes | |
+| Logic Apps              | yes | yes |
+| 네트워크 보안 그룹 | yes | |
+| Redis Cache             |     | yes |
+| Search 서비스         | yes | yes |
+| Service Bus 네임스페이스   |     | yes |
+| SQL(v12)               |     | yes |
+| 웹 사이트               |     | yes |
+| 웹 서버 팜        |     | yes |
 
 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md)을 참조하세요.
 
@@ -266,5 +266,5 @@ Remove-AzureRmOperationalInsightsStorageInsight -ResourceGroupName $workspace.Re
 
 
 ## <a name="next-steps"></a>다음 단계
-* [Log Analytics PowerShell Cmdlet 검토](https://msdn.microsoft.com/library/mt188224\(v=azure.300\).aspx) 를 참조하세요.
+* [Log Analytics PowerShell Cmdlet 검토](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) 를 참조하세요.
 

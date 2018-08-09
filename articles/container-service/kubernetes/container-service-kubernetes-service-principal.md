@@ -9,21 +9,21 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 84215daac950f602c815e1ffc5ae6dd5269d9bdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167115"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576922"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Container Service에서 Kubernetes 클러스터에 대한 Azure AD 서비스 주체 설정
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작용하기 위해 [Azure Active Directory 서비스 주체](../../active-directory/develop/active-directory-application-objects.md)를 요구합니다. 서비스 주체는 [사용자 정의 경로](../../virtual-network/virtual-networks-udr-overview.md) 및 [계층 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 같은 리소스를 동적으로 관리하는 데 필요합니다.
+Azure Container Service에서 Kubernetes 클러스터는 Azure API와 상호 작용하기 위해 [Azure Active Directory 서비스 주체](../../active-directory/develop/app-objects-and-service-principals.md)를 요구합니다. 서비스 주체는 [사용자 정의 경로](../../virtual-network/virtual-networks-udr-overview.md) 및 [계층 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)와 같은 리소스를 동적으로 관리하는 데 필요합니다.
 
 
-이 문서에서는 Kubernetes 클러스터에 대한 서비스 주체를 설정하기 위한 다양한 옵션을 보여 줍니다. 예를 들어 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 설정한 경우 [`az acs create`](/cli/azure/acs#az_acs_create) 명령을 실행하여 Kubernetes 클러스터와 서비스 주체를 동시에 만들 수 있습니다 .
+이 문서에서는 Kubernetes 클러스터에 대한 서비스 주체를 설정하기 위한 다양한 옵션을 보여 줍니다. 예를 들어 [Azure CLI 2.0](/cli/azure/install-az-cli2)을 설치하고 설정한 경우 [`az acs create`](/cli/azure/acs#az-acs-create) 명령을 실행하여 Kubernetes 클러스터와 서비스 주체를 동시에 만들 수 있습니다 .
 
 
 ## <a name="requirements-for-the-service-principal"></a>서비스 주체에 대한 요구 사항
@@ -96,7 +96,7 @@ Kubernetes 클러스터를 만들 때 기존 서비스 주체의 **클라이언�
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>옵션 2: `az acs create`를 사용하여 클러스터를 만들 때 서비스 주체 생성
 
-[`az acs create`](/cli/azure/acs#az_acs_create) 명령을 실행하여 Kubernetes 클러스터를 만드는 경우 자동으로 서비스 주체를 생성하는 옵션이 있습니다.
+[`az acs create`](/cli/azure/acs#az-acs-create) 명령을 실행하여 Kubernetes 클러스터를 만드는 경우 자동으로 서비스 주체를 생성하는 옵션이 있습니다.
 
 다른 Kubernetes 클러스터 만들기 옵션과 마찬가지로 `az acs create`를 실행할 때 기존 서비스 주체에 대한 매개 변수를 지정할 수 있습니다. 그러나 이러한 매개 변수를 생략하면 Container Service에서 사용할 수 있도록 Azure CLI에서 하나의 서비스 주체를 자동으로 만듭니다. 이는 배포 중에 투명하게 발생합니다.
 
@@ -132,7 +132,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 서비스 주체를 만들 때 `--years` 매개 변수를 사용하여 사용자 지정 유효 기간을 지정하지 않으면 해당 자격 증명이 생성된 후 1년 동안 유효합니다. 자격 증명이 만료되면 클러스터 노드가 **NotReady** 상태가 됩니다.
 
-서비스 주체의 만료 날짜를 확인하려면 [az ad app show](/cli/azure/ad/app#az_ad_app_show) 명령을 `--debug` 매개 변수와 함께 실행하고 출력 아래쪽에서 `passwordCredentials`의 `endDate` 값을 찾습니다.
+서비스 주체의 만료 날짜를 확인하려면 [az ad app show](/cli/azure/ad/app#az-ad-app-show) 명령을 `--debug` 매개 변수와 함께 실행하고 출력 아래쪽에서 `passwordCredentials`의 `endDate` 값을 찾습니다.
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -146,13 +146,13 @@ az ad app show --id <appId> --debug
 ...
 ```
 
-서비스 주체 자격 증명이 만료된 경우 [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) 명령을 사용하여 자격 증명을 업데이트합니다.
+서비스 주체 자격 증명이 만료된 경우 [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) 명령을 사용하여 자격 증명을 업데이트합니다.
 
 ```azurecli
 az ad sp reset-credentials --name <appId>
 ```
 
-출력
+출력:
 
 ```json
 {

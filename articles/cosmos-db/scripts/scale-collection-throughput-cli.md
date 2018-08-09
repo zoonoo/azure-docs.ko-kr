@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/23/2018
 ms.author: sngun
-ms.openlocfilehash: c29428d95a825f71a494fa70746ce742248764d7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d830d8150066acd17cbfca6a05156b33ade240a2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38310054"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437817"
 ---
 # <a name="scale-azure-cosmos-db-container-throughput-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB 컨테이너 처리량 확장
 
@@ -65,9 +65,9 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Azure Cosmos DB 계정을 업그레이드합니다. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-update) | Azure Cosmos DB 계정을 업그레이드합니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

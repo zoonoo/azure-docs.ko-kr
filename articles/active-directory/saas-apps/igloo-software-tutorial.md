@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: acec9379661226dc53607aa9fd12197a193166e0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d49a08c6f57f5248f17539cd9d0467d132f7a63d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042409"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447410"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>자습서: Igloo Software와 Azure Active Directory 통합
 
@@ -52,7 +52,7 @@ Igloo Software와의 Azure AD 통합을 구성하려면 다음 항목이 필요�
 이 자습서에서는 테스트 환경에서 Azure AD Single Sign-On을 테스트 합니다. 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Igloo Software 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="adding-igloo-software-from-the-gallery"></a>갤러리에서 Igloo Software 추가
 Igloo Software의 Azure AD 통합을 구성하려면 갤러리의 Igloo Software를 관리되는 SaaS 앱 목록에 추가해야 합니다.
@@ -63,19 +63,19 @@ Igloo Software의 Azure AD 통합을 구성하려면 갤러리의 Igloo Software
 
     ![Active Directory][1]
 
-2. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
+1. **엔터프라이즈 응용 프로그램**으로 이동합니다. 그런 후 **모든 응용 프로그램**으로 이동합니다.
 
     ![응용 프로그램][2]
     
-3. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
+1. 새 응용 프로그램을 추가하려면 대화 상자 맨 위 있는 **새 응용 프로그램** 단추를 클릭합니다.
 
     ![응용 프로그램][3]
 
-4. 검색 상자에 **Igloo Software**를 입력합니다.
+1. 검색 상자에 **Igloo Software**를 입력합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/igloo-software-tutorial/tutorial_igloosoftware_search.png)
 
-5. 결과 패널에서 **Igloo Software**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
+1. 결과 패널에서 **Igloo Software**를 선택한 다음 **추가** 단추를 클릭하여 응용 프로그램을 추가합니다.
 
     ![Azure AD 테스트 사용자 만들기](./media/igloo-software-tutorial/tutorial_igloosoftware_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Igloo Software에서 Azure AD의 **사용자 이름** 값을 **Username** 값으
 Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 구성 요소를 완료해야 합니다.
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
-3. **[Igloo Software 테스트 사용자 만들기](#creating-an-igloo-software-test-user)** - Britta Simon의 Azure AD 사용자 표현과 연결되는 대응 사용자를 Igloo Software에 만듭니다.
-4. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
+1. **[Azure AD 테스트 사용자 만들기](#creating-an-azure-ad-test-user)** - Britta Simon으로 Azure AD Single Sign-On 테스트하는 데 사용합니다.
+1. **[Igloo Software 테스트 사용자 만들기](#creating-an-igloo-software-test-user)** - Britta Simon의 Azure AD 사용자 표현과 연결되는 대응 사용자를 Igloo Software에 만듭니다.
+1. **[Azure AD 테스트 사용자 할당](#assigning-the-azure-ad-test-user)** - Britta Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
+1. **[Single Sign-On 테스트](#testing-single-sign-on)** - 구성이 작동하는지 확인합니다.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성
 
@@ -104,11 +104,11 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Configure Single Sign-On][4]
 
-2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
+1. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
  
     ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_samlbase.png)
 
-3. **Igloo Software 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
+1. **Igloo Software 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_url.png)
     
@@ -121,33 +121,33 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 이러한 값을 실제 식별자, 회신 URL 및 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [Igloo Software 클라이언트 지원 팀](https://www.igloosoftware.com/services/support)에 문의하세요. 
 
-4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
+1. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_certificate.png) 
 
-5. **저장** 단추를 클릭합니다.
+1. **저장** 단추를 클릭합니다.
 
     ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_general_400.png)
     
-6. **Igloo Software 구성** 섹션에서 **Igloo Software 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
+1. **Igloo Software 구성** 섹션에서 **Igloo Software 구성**을 클릭하여 **로그온 구성** 창을 엽니다. **빠른 참조 섹션**에서 **로그아웃 URL 및 SAML Single Sign-On 서비스 URL**을 복사합니다.
 
     ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_configure.png) 
 
-7. 다른 웹 브라우저 창에서 Igloo Software 회사 사이트에 관리자로 로그인합니다.
+1. 다른 웹 브라우저 창에서 Igloo Software 회사 사이트에 관리자로 로그인합니다.
 
-8. **제어판**으로 이동합니다.
+1. **제어판**으로 이동합니다.
    
      ![제어판](./media/igloo-software-tutorial/ic799949.png "제어판")
 
-9. **멤버 자격** 탭을 클릭하고 **로그인 설정**을 클릭합니다.
+1. **멤버 자격** 탭을 클릭하고 **로그인 설정**을 클릭합니다.
    
     ![로그인 설정](./media/igloo-software-tutorial/ic783968.png "로그인 설정")
 
-10. SAML 구성 섹션에서 **SAML 인증 구성**을 클릭합니다.
+1. SAML 구성 섹션에서 **SAML 인증 구성**을 클릭합니다.
    
     ![SAML 구성](./media/igloo-software-tutorial/ic783969.png "SAML 구성")
    
-11. **일반 구성** 섹션에서 다음 단계를 수행합니다.
+1. **일반 구성** 섹션에서 다음 단계를 수행합니다.
    
     ![일반 구성](./media/igloo-software-tutorial/ic783970.png "일반 구성")
 
@@ -161,7 +161,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
    
     e. Azure Portal에서 다운로드한 **base-64**로 인코딩된 인증서를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음, **공용 인증서** 텍스트 상자에 붙여넣습니다.
     
-12. **응답 및 인증 구성**에서 다음 단계를 수행합니다.
+1. **응답 및 인증 구성**에서 다음 단계를 수행합니다.
     
     ![응답 및 인증 구성](./media/igloo-software-tutorial/IC783971.png "응답 및 인증 구성")
   
@@ -175,7 +175,7 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
       e. **성 특성** 텍스트 상자에 **surname**을 입력합니다.
 
-13. 다음 단계를 수행하여 구성을 완료합니다.
+1. 다음 단계를 수행하여 구성을 완료합니다.
     
     ![로그인할 때 사용자 만들기](./media/igloo-software-tutorial/IC783972.png "로그인할 때 사용자 만들기") 
 
@@ -199,15 +199,15 @@ Igloo Software에서 Azure AD Single Sign-On을 구성하고 테스트하려면 
 
     ![Azure AD 테스트 사용자 만들기](./media/igloo-software-tutorial/create_aaduser_01.png) 
 
-2. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
+1. 사용자 목록을 표시하려면 **사용자 및 그룹**으로 이동한 후 **모든 사용자**를 클릭합니다.
     
     ![Azure AD 테스트 사용자 만들기](./media/igloo-software-tutorial/create_aaduser_02.png) 
 
-3. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
+1. **사용자** 대화 상자를 열려면 대화 상자 위쪽에서 **추가**를 클릭합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/igloo-software-tutorial/create_aaduser_03.png) 
 
-4. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
+1. **사용자** 대화 상자 페이지에서 다음 단계를 수행합니다.
  
     ![Azure AD 테스트 사용자 만들기](./media/igloo-software-tutorial/create_aaduser_04.png) 
 
@@ -237,23 +237,23 @@ Igloo Software를 프로비저닝하는 사용자를 구성할 작업 항목이 
 
     ![사용자 할당][201] 
 
-2. 응용 프로그램 목록에서 **Igloo Software**를 선택합니다.
+1. 응용 프로그램 목록에서 **Igloo Software**를 선택합니다.
 
     ![Configure Single Sign-On](./media/igloo-software-tutorial/tutorial_igloosoftware_app.png) 
 
-3. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
+1. 왼쪽 메뉴에서 **사용자 및 그룹**을 클릭합니다.
 
     ![사용자 할당][202] 
 
-4. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
+1. **추가** 단추를 클릭합니다. 그런 후 **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
     ![사용자 할당][203]
 
-5. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **Britta Simon**을 선택합니다.
 
-6. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자에서 **선택** 단추를 클릭합니다.
 
-7. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
     
 ### <a name="testing-single-sign-on"></a>Single Sign-On 테스트
 

@@ -9,12 +9,12 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ae5644a62b794dc8d6ace52f21a452fa70027d39
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f57db00894dab80f96f45111331d47a173520ced
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029563"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576001"
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Windows IoT Core에 IoT Edge 런타임 설치 - 미리 보기
 
@@ -52,7 +52,7 @@ IoT Edge 보안 디먼을 설치하고 [이 문서][lnk-install-windows-on-windo
 이제 IoT Edge 런타임을 실행하는 장치가 있으므로 [대규모 IoT Edge 모듈 배포 및 모니터링][lnk-deploy]을 수행하는 방법을 알아봅니다.
 
 <!--Links-->
-[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md#download-the-edge-daemon-package-and-install
+[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md
 [lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
 [lnk-deploy]: how-to-deploy-monitor.md
 [lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows

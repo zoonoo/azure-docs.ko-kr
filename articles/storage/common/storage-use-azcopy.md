@@ -2,24 +2,18 @@
 title: Windows에서 AzCopy 사용하여 Azure Storage로 데이터 복사 또는 이동 | Microsoft Docs
 description: Windows에서 AzCopy 유틸리티를 사용하여 Blob, 테이블 및 파일 콘텐츠에서 데이터를 이동하거나 복사합니다. 로컬 파일에서 Azure Storage로 데이터를 복사하거나, Storage 계정 내에서 데이터를 복사하거나, Storage 계정 간에 데이터를 복사합니다. 데이터를 Azure Storage로 손쉽게 마이그레이션할 수 있습니다.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: seguler
-ms.openlocfilehash: 430979cf197138a9e239eba74e50e9f97d96cbf6
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.component: common
+ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34757607"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530597"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Windows에서 AzCopy를 사용하여 데이터 전송
 AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터를 Microsoft Azure Blob, File 및 Table Storage에 복사하거나 이들 저장소에서 복사하기 위한 명령줄 유틸리티입니다. 파일 시스템과 저장소 계정 간 또는 저장소 계정 간에 데이터를 복사할 수 있습니다.  
@@ -29,7 +23,7 @@ AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터�
 ## <a name="download-and-install-azcopy-on-windows"></a>Windows에서 AzCopy 다운로드 및 설치
 
 ### <a name="latest-preview-version-v800"></a>최신 미리 보기 버전(v8.0.0)
-[Windows에서 AzCopy의 최신 미리 보기 버전](http://aka.ms/downloadazcopypr)을 다운로드합니다. 이 미리 보기 버전은 뛰어난 성능 개선을 제공하고 설치에서 .NET Core를 패키징합니다.
+[Windows에서 AzCopy의 최신 미리 보기 버전](https://aka.ms/downloadazcopypr)을 다운로드합니다. 이 미리 보기 버전은 뛰어난 성능 개선을 제공하고 설치에서 .NET Core를 패키징합니다.
 
 #### <a name="azcopy-on-windows-80-preview-release-notes"></a>Windows의 AzCopy 8.0 미리 보기 릴리스 정보
 - Table service는 최신 버전에서 더 이상 지원되지 않습니다. 테이블 내보내기 기능을 사용하는 경우 안정적 버전을 다운로드합니다.
@@ -37,7 +31,7 @@ AzCopy는 최적의 성능을 내는 간단한 명령을 사용하여 데이터�
 - 업로드 및 다운로드 시나리오 모두에 대한 뛰어난 성능 개선
 
 ### <a name="latest-stable-version-v710"></a>안정적인 최신 버전(v7.1.0)
-[Windows에서 AzCopy의 안정적인 최신 버전](http://aka.ms/downloadazcopy)을 다운로드합니다.
+[Windows에서 AzCopy의 안정적인 최신 버전](https://aka.ms/downloadazcopy)을 다운로드합니다.
 
 ### <a name="post-installation-step"></a>설치 후 단계
 

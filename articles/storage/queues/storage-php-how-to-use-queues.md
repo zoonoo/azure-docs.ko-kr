@@ -1,25 +1,21 @@
 ---
 title: Python에서 큐 저장소를 사용하는 방법 | Microsoft Docs
 description: Azure 큐 저장소를 사용하여 큐를 작성 및 삭제하고 메시지를 삽입하고 가져오고 삭제하는 방법을 알아봅니다. 샘플은 PHP로 작성되었습니다.
-documentationcenter: php
 services: storage
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 7582b208-4851-4489-a74a-bb952569f55b
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
-ms.openlocfilehash: 737054aefa684b3fc486c860253c69afbb6eaf0c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: queues
+ms.openlocfilehash: 7ab755972760d5f262e00ca4aaf284c8d2847460
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295809"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528285"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>PHP에서 큐 저장소를 사용하는 방법
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

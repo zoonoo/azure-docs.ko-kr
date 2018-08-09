@@ -3,7 +3,7 @@ title: Azure에서 Oracle 데이터베이스 설계 및 구현 | Microsoft Docs
 description: Azure 환경에서 Oracle 데이터베이스를 설계하고 구현합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: romitgirdhar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 6/22/2017
-ms.author: rclaus
-ms.openlocfilehash: 2661c386ea747fc75b67df9a67c7e62ac8c4fea4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: d4c0bbdfb1afcef33727ba4b5b432c5de79168d4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658141"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495223"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Azure에서 Oracle 데이터베이스 설계 및 구현
 
@@ -146,7 +146,8 @@ VM을 선택한 후에는 해당 VM에 대한 ACU에 주의해야 합니다. 요
 
 ### <a name="disk-types-and-configurations"></a>디스크 형식 및 구성
 
-- *기본 OS 디스크*: 이러한 디스크 유형은 영구 데이터 및 캐싱을 제공합니다. 시작 시 OS 액세스에 최적화되며, 트랜잭션 또는 데이터 웨어하우스(분석) 워크로드용으로는 설계되지 않았습니다.
+- 
+  *기본 OS 디스크*: 이러한 디스크 유형은 영구 데이터 및 캐싱을 제공합니다. 시작 시 OS 액세스에 최적화되며, 트랜잭션 또는 데이터 웨어하우스(분석) 워크로드용으로는 설계되지 않았습니다.
 
 - *비관리 디스크*: 이러한 디스크 유형을 사용하면 VM 디스크에 해당하는 VHD(가상 하드 디스크) 파일을 저장하는 저장소 계정을 관리할 수 있습니다. VHD 파일은 Azure Storage 계정에 페이지 Blob으로 저장됩니다.
 

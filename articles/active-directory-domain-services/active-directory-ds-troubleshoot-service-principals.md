@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 716be5b7f35ad1d163e99e92ec65dc906743803c
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219199"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579547"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>관리되는 도메인에 대한 잘못된 서비스 주체 구성 문제 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "36219199"
 
 **경고 메시지:** *Azure AD Domain Services가 제대로 작동하는 데 필요한 서비스 주체가 Azure AD 디렉터리에서 삭제되었습니다. 이 구성은 관리되는 도메인을 모니터링, 관리, 패치, 동기화하는 Microsoft의 기능에 영향을 줍니다.*
 
-[서비스 주체](../active-directory/develop/active-directory-application-objects.md)는 Microsoft에서 관리되는 도메인을 관리, 업데이트 및 유지 관리하는 데 사용하는 응용 프로그램입니다. 이러한 서비스 주체가 삭제되면 Microsoft에서 도메인을 서비스하지 못하게 됩니다.
+[서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)는 Microsoft에서 관리되는 도메인을 관리, 업데이트 및 유지 관리하는 데 사용하는 응용 프로그램입니다. 이러한 서비스 주체가 삭제되면 Microsoft에서 도메인을 서비스하지 못하게 됩니다.
 
 
 ## <a name="check-for-missing-service-principals"></a>누락된 서비스 주체에 대한 확인

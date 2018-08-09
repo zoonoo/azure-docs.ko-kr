@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887432"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528632"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의
 주어진 리소스에 대해 해당 리소스를 배포하기 전에 존재해야 하는 다른 리소스가 있을 수 있습니다. 예를 들어 SQL 데이터베이스를 배포하려면 SQL Server가 있어야 합니다. 하나의 리소스를 다른 리소스에 종속된 것으로 표시하여 이 관계를 정의합니다. 종속성은 **dependsOn** 요소를 사용하거나 **reference** 함수를 사용하여 정의합니다. 
@@ -108,7 +108,7 @@ resources 속성을 사용하면 정의되는 리소스에 관련된 자식 리�
 ```
 
 ## <a name="reference-and-list-functions"></a>reference 및 list 함수
-[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. [list* 함수](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list)는 목록 작업에서 리소스에 대한 값을 반환합니다.  참조 및 목록 식은 참조된 리소스가 동일한 템플릿에 배포되고 해당 이름(리소스 ID 아님)에 따라 참조되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 리소스 ID를 reference 또는 list 함수로 전달하는 경우 암시적 참조가 생성되지 않습니다.
+[reference 함수](resource-group-template-functions-resource.md#reference) 를 사용하면 식을 다른 JSON 이름 및 값 쌍 또는 런타임 리소스에서 해당 값을 파생시키는 식을 작성할 수 있습니다. [list* 함수](resource-group-template-functions-resource.md#list)는 목록 작업에서 리소스에 대한 값을 반환합니다.  참조 및 목록 식은 참조된 리소스가 동일한 템플릿에 배포되고 해당 이름(리소스 ID 아님)에 따라 참조되는 경우 한 리소스가 다른 리소스에 종속되도록 암시적으로 선언합니다. 리소스 ID를 reference 또는 list 함수로 전달하는 경우 암시적 참조가 생성되지 않습니다.
 
 reference 함수의 일반 형식은 다음과 같습니다.
 

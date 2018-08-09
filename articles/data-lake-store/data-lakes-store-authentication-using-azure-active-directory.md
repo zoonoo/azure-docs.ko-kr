@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: bee65fbdc65807ac33ae425ed9d87dbf0c246d9d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7db48b03a6f34655917c82702c12dbc9bc4c987a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625290"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494180"
 ---
 # <a name="authentication-with-data-lake-store-using-azure-active-directory"></a>Azure Active Directory를 사용하여 Data Lake Store 인증
 
@@ -45,7 +45,7 @@ Azure Data Lake Store는 인증을 위해 Azure Active Directory를 사용합니
 <i>* <b>✔\*</b> 기호를 클릭합니다. 이 기호는 연결입니다.</i><br>
 <i>** MFA는 Multi-Factor Authentication을 의미</i>
 
-인증에 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory의 인증 시나리오](../active-directory/develop/active-directory-authentication-scenarios.md)를 참조하세요.
+인증에 Azure Active Directory를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory의 인증 시나리오](../active-directory/develop/authentication-scenarios.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

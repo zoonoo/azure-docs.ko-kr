@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: 109de9fb78ae3abfc09a37c6b8cb38c554f7613c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 6ddc1e8f7520135092eefbcbf2b4a2b3f1026e66
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784519"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494716"
 ---
 # <a name="get-started-with-azure-active-directory-webapi-projects"></a>Azure Active Directory 시작(WebApi 프로젝트)
 
@@ -35,5 +35,5 @@ ms.locfileid: "31784519"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory 인증 시나리오](active-directory-authentication-scenarios.md)
-- [ASP.NET 웹앱에 Microsoft에 로그인 추가](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Azure Active Directory 인증 시나리오](authentication-scenarios.md)
+- [ASP.NET 웹앱에 Microsoft에 로그인 추가](quickstart-v1-aspnet-webapp.md)

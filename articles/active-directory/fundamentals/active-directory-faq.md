@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: e304242718478cae2670372a06abe07f926fbed2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 787178b2c1582729249fcf549356fa7445f5ecbe
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054746"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494967"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory FAQ
 Azure Active Directory(Azure AD)는 ID, 액세스 관리 및 보안의 모든 측면에 걸쳐있는 포괄적인 IDaaS(Identity as a Service) 솔루션입니다.
@@ -185,7 +185,7 @@ Azure AD 계정의 경우 다음 중 하나를 사용하여 관리자가 암호�
 
 자세한 내용은 다음을 참조하세요.
 
-* [Azure AD의 인증 시나리오](../develop/active-directory-authentication-scenarios.md)
+* [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)
 * [Active Directory 인증 프로토콜](https://msdn.microsoft.com/library/azure/dn151124.aspx)
 * [Azure Active Directory에서 Single Sign-On이 작동하는 방식](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
 

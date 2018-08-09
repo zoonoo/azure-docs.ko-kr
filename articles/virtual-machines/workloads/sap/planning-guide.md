@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f1c2b028521983081ba5f276789af9701b568b7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972471"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619093"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Azure VM 이미지로 사용하기 위해 온-프레미스 네트워크에서 �
 * Windows의 *sysprep* 또는 Linux의 *waagent -deprovision*을 사용하여 VM 일반화 - [Sysprep 기술 참조](https://technet.microsoft.com/library/cc766049.aspx)(Windows) 또는 [Linux 가상 머신을 캡처하여 Resource Manager 템플릿으로 사용하는 방법][capture-image-linux-step-2-create-vm-image] 참조
 * Powershell 또는 Azure CLI를 사용하여 VHD 업로드
 * (선택 사항) PowerShell, Azure CLI 또는 Azure Portal을 사용하여 VHD에서 관리 디스크 이미지 만들기
-* [이 예제 JSON 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json)에 표시된 대로 이미지 VHD를 참조하는 JSON 템플릿을 사용하거나, [이 예제 JSON 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-from-user-image/azuredeploy.json)에 표시된 대로 관리 디스크 이미지를 사용하여 VM 배포
+* [이 예제 JSON 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json)에 표시된 대로 이미지 VHD를 참조하는 JSON 템플릿을 사용하거나, [이 예제 JSON 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json)에 표시된 대로 관리 디스크 이미지를 사용하여 VM 배포
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>온-프레미스에 VHD 또는 관리 디스크 다운로드
 Azure Infrastructure as a Services는 VHD 및 SAP 시스템을 업로드만 할 수 있는 단방향 경로가 아닙니다. Azure에서 온-프레미스 환경으로도 SAP 시스템을 다시 이동할 수 있습니다.
@@ -1156,8 +1156,8 @@ Azure Portal에서는 이 작업을 수행할 수 없습니다. Azure PowerShell
 
 PS cmdlet 논리의 기본 흐름은 다음과 같습니다.
 
-* *New-AzureStorageContext*를 사용하여 **원본** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://msdn.microsoft.com/library/dn806380.aspx> 참조
-* *New-AzureStorageContext*를 사용하여 **대상** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://msdn.microsoft.com/library/dn806380.aspx> 참조
+* *New-AzureStorageContext*를 사용하여 **원본** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext> 참조
+* *New-AzureStorageContext*를 사용하여 **대상** Storage 계정의 Storage 계정 컨텍스트 만들기 - <https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext> 참조
 * 복사 시작
 
 ```powershell

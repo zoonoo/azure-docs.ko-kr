@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e3fe033de05ed42d221795159461048790e1cec8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059205"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493305"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure Identity Management 및 액세스 제어 보안 모범 사례
 
@@ -133,7 +133,7 @@ Azure AD에 대한 인증을 아웃소싱하는 응용 프로그램을 등록하
 
 앱 액세스에 ID 제어를 적용하지 않고 앱을 ID 관리 시스템과 안전하게 통합하는 방법을 개발자에게 안내하지 않는 조직은 [OWASP(Open Web Application Security Project) Top 10에 기술된 약한 인증 및 세션 관리](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet)와 같은 기밀 도난 유형의 공격에 더 취약할 수 있습니다.
 
-SaaS 앱의 인증 시나리오에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](../active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
+SaaS 앱의 인증 시나리오에 대한 자세한 내용은 [Azure AD에 대한 인증 시나리오](../active-directory/develop/authentication-scenarios.md)를 참조하세요.
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>의심스러운 활동을 적극적으로 모니터링
 

@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 929598f9b2d7c3bd4b7c96158486c019d6afc281
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1d70e6468b8f9944df04e41a6fffb719e0cb8a04
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988775"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435308"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>무서버 코드 실행을 위한 함수 앱 만들기
 
@@ -49,9 +49,9 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Azure Storage 계정을 만듭니다. |
-| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | 함수 앱을 만듭니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Azure Storage 계정을 만듭니다. |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | 함수 앱을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

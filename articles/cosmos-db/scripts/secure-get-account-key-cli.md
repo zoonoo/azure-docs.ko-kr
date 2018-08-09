@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: accd4209276425dc7c7f24e921d14d903fc03f2d
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: abed8ed9b1a587f6a9a086c4774230e1109b2254
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794907"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433344"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Cosmos DB의 계정 키 가져오기
 
@@ -47,10 +47,10 @@ az group delete --name myResourceGroup
 
 | 명령 | 메모 |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_update) | Azure Cosmos DB 계정을 업그레이드합니다. |
-| [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#az_cosmosdb_list_keys) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
-| [az group delete](https://docs.microsoft.com/cli/azure/group#az_group_delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
+| [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
+| [az cosmosdb update](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-update) | Azure Cosmos DB 계정을 업그레이드합니다. |
+| [az cosmosdb list-keys](https://docs.microsoft.com/cli/azure/cosmosdb#az-cosmosdb-list-keys) | SQL Database를 호스팅하는 논리 서버를 만듭니다. |
+| [az group delete](https://docs.microsoft.com/cli/azure/group#az-group-delete) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

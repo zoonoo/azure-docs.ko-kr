@@ -2,24 +2,18 @@
 title: Azure 파일의 공유 스냅숏 개요 | Microsoft Docs
 description: 공유 스냅숏은 공유를 백업하는 방법으로 특정 시점에 생성된 Azure 파일 공유의 읽기 전용 버전입니다.
 services: storage
-documentationcenter: .net
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
-ms.openlocfilehash: af113ae76d81c82ff6c4ced1569aa16f3a9ee27c
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.component: files
+ms.openlocfilehash: f98817802478853e8d176223a9a9a3081531897f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064481"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528377"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Azure 파일의 공유 스냅숏 개요 
 Azure 파일은 파일 공유의 공유 스냅숏을 생성하는 기능을 제공합니다. 공유 스냅숏은 특정 시점의 공유 상태를 캡처합니다. 이 문서에서는 공유 스냅숏이 제공하는 기능 및 사용자 지정 사용 사례에 이를 용할 수 있는 방법을 설명합니다.

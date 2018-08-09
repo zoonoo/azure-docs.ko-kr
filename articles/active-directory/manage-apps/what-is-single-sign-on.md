@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4ad1416f79b8cf9c03904da5f9efc1d1aae475d9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364033"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494128"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 액세스 및 Single Sign-On이란 무엇입니까?
 Single Sign-On이란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는데 필요한 모든 응용 프로그램 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 응용 프로그램에 액세스할 수 있습니다.
@@ -112,7 +112,7 @@ Azure AD에서 사용자가 삭제되거나 사용자 정보가 변경되면 변
 * **사용 중이지만 목록에 없는 앱 추가** - Azure Portal 내에 있는 앱 갤러리에서 사용자 지정 범주를 사용하여, 조직에서 사용 중이지만 목록에 없는 응용 프로그램을 연결합니다. SAML 2.0을 페더레이션된 앱으로 지원하는 모든 응용 프로그램 또는 HTML 기반 로그인 페이지가 암호 SSO 앱으로 있는 모든 응용 프로그램을 추가할 수 있습니다. 자세한 내용은 [고유한 응용 프로그램 추가](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)에 대한 이 문서를 참조하세요.
 * **개발 중인 고유한 앱 추가** - 사용자가 직접 응용 프로그램을 개발한 경우 Azure AD 개발자 설명서의 지침에 따라 페더레이션된 Single Sign-On 또는 프로비저닝을 구현할 수 있습니다. 이러한 응용 프로그램은 Azure AD Graph API를 사용할 수 있습니다. 자세한 내용은 다음 리소스를 참조하세요. 
   
-  * [Azure AD의 인증 시나리오](../active-directory-authentication-scenarios.md)
+  * [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)

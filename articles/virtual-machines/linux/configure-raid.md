@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
-ms.openlocfilehash: d6e831692da37645e264c6674f1ba54bb16d25d4
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 2376ade49b990ff22683a14ecd4ae6b4dda356c3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911760"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434546"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux에서 소프트웨어 RAID 구성
 Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 장치로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
@@ -62,13 +62,13 @@ zypper install mdadm
                     sectors (command 'u').
     ```
 
-2. 프롬프트에서 'n'을 눌러 새로운( **n**ew) 파티션을 만듭니다.
+1. 프롬프트에서 'n'을 눌러 새로운( **n**ew) 파티션을 만듭니다.
 
     ```bash
     Command (m for help): n
     ```
 
-3. 'p'를 눌러 주( **p**rimary) 파티션을 만듭니다.
+1. 'p'를 눌러 주( **p**rimary) 파티션을 만듭니다.
 
     ```bash 
     Command action
@@ -76,27 +76,27 @@ zypper install mdadm
             p   primary partition (1-4)
     ```
 
-4. '1'을 눌러 파티션 번호 1을 선택합니다.
+1. '1'을 눌러 파티션 번호 1을 선택합니다.
 
     ```bash
     Partition number (1-4): 1
     ```
 
-5. 새 파티션의 시작 지점을 선택하거나 `<enter>` 키를 눌러 드라이브의 가용 공간 시작 부분에 파티션을 배치하는 기본값을 적용할 수 있습니다.
+1. 새 파티션의 시작 지점을 선택하거나 `<enter>` 키를 눌러 드라이브의 가용 공간 시작 부분에 파티션을 배치하는 기본값을 적용할 수 있습니다.
 
     ```bash   
     First cylinder (1-1305, default 1):
     Using default value 1
     ```
 
-6. 파티션 크기를 선택합니다. 예를 들어 10기가바이트 파티션을 만들려면 '+10G'를 입력합니다. 또는 `<enter>` 키를 눌러 범위가 전체 드라이브인 단일 파티션을 만듭니다.
+1. 파티션 크기를 선택합니다. 예를 들어 10기가바이트 파티션을 만들려면 '+10G'를 입력합니다. 또는 `<enter>` 키를 눌러 범위가 전체 드라이브인 단일 파티션을 만듭니다.
 
     ```bash   
     Last cylinder, +cylinders or +size{K,M,G} (1-1305, default 1305): 
     Using default value 1305
     ```
 
-7. 그런 다음, 파티션의 ID 및 유형( **t**ype)을 기본 ID '83'(Linux)에서 ID 'fd'(Linux raid auto)로 변경합니다.
+1. 그런 다음, 파티션의 ID 및 유형( **t**ype)을 기본 ID '83'(Linux)에서 ID 'fd'(Linux raid auto)로 변경합니다.
 
     ```bash  
     Command (m for help): t
@@ -104,7 +104,7 @@ zypper install mdadm
     Hex code (type L to list codes): fd
     ```
 
-8. 마지막으로, 드라이브에 파티션 테이블을 쓰고 fdisk를 종료합니다.
+1. 마지막으로, 드라이브에 파티션 테이블을 쓰고 fdisk를 종료합니다.
 
     ```bash   
     Command (m for help): w
@@ -119,7 +119,7 @@ zypper install mdadm
         /dev/sdc1 /dev/sdd1 /dev/sde1
     ```
 
-2. 새 RAID 장치에서 파일 시스템 만들기
+1. 새 RAID 장치에서 파일 시스템 만들기
    
     a. **CentOS, Oracle Linux, SLES 12, openSUSE 및 Ubuntu**
 
@@ -154,7 +154,7 @@ zypper install mdadm
     ```bash
     sudo mkdir /data
     ```
-2. /etc/fstab를 편집할 때는 파일 시스템을 참조하는 데 장치 이름 대신 **UUID** 를 사용해야 합니다.  `blkid` 유틸리티를 사용하여 새 파일 시스템의 UUID를 확인합니다.
+1. /etc/fstab를 편집할 때는 파일 시스템을 참조하는 데 장치 이름 대신 **UUID** 를 사용해야 합니다.  `blkid` 유틸리티를 사용하여 새 파일 시스템의 UUID를 확인합니다.
 
     ```bash   
     sudo /sbin/blkid
@@ -162,7 +162,7 @@ zypper install mdadm
     /dev/md127: UUID="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" TYPE="ext4"
     ```
 
-3. 텍스트 편집기에서 /etc/fstab을 열고 예를 들어 다음과 같이 새 파일 시스템에 항목을 추가합니다.
+1. 텍스트 편집기에서 /etc/fstab을 열고 예를 들어 다음과 같이 새 파일 시스템에 항목을 추가합니다.
 
     ```bash   
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults  0  2
@@ -176,7 +176,7 @@ zypper install mdadm
    
     그런 다음, /etc/fstab를 저장하고 닫습니다.
 
-4. /etc/fstab 항목이 올바른지 테스트합니다.
+1. /etc/fstab 항목이 올바른지 테스트합니다.
 
     ```bash  
     sudo mount -a
@@ -192,7 +192,7 @@ zypper install mdadm
     /dev/md127 on /data type ext4 (rw)
     ```
 
-5. (선택 사항) Failsafe 부팅 매개 변수
+1. (선택 사항) Failsafe 부팅 매개 변수
    
     **fstab 구성**
    

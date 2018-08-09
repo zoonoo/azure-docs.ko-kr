@@ -17,12 +17,12 @@ ms.workload: database
 ms.date: 01/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ee491ab02305b858241ba5ddc2ec7651b7802be0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: c121204e054618eef1435e64c28d959c0fe50ea9
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024765"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617907"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트
 
@@ -104,8 +104,6 @@ SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 -   SQL Data Sync 구성 방법을 보여주는 전체 PowerShell 예제:
     -   [PowerShell을 사용하여 여러 Azure SQL Database 간 동기화](sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](sql-database-sync-data-between-azure-onprem.md)
-
--   [SQL 데이터 동기화 REST API 설명서 다운로드](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 

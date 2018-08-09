@@ -3,7 +3,7 @@ title: Azure WebJobs SDK 사용 방법
 description: WebJobs SDK에 대한 코드 작성 방법을 알아봅니다. Azure 서비스 및 타사 서비스의 데이터에 액세스하는 이벤트 중심 백그라운드 처리 작업을 만듭니다.
 services: app-service\web, storage
 documentationcenter: .net
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 ms.service: app-service-web
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
-ms.author: tdykstra
-ms.openlocfilehash: 08272ba7d828f744336723f25b482bf06b9e43dc
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.author: glenga
+ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234653"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577014"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 

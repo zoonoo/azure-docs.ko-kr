@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: f44532f0b0c0927c7b06c7e92a4839c5ce762f6e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 0b374e92a1e1d9828bc8c095e29e1dfdfd13275b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196783"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492914"
 ---
 # <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Azure Data Lake Store와 Azure Blob Storage 비교
 이 문서의 테이블은 빅 데이터 처리의 일부 주요 측면을 따라 Azure Data Lake Store와 Azure Blob Storage 간의 차이점을 요약합니다. Azure Blob Storage는 다양한 저장소 시나리오를 위해 설계된 확장성 있는 범용 개체 저장소입니다. Azure Data Lake Store는 빅 데이터 분석 워크로드에 대해 최적화된 하이퍼 스케일 리포지토리입니다.
@@ -30,8 +30,8 @@ ms.locfileid: "34196783"
 | 구조 |계층적 파일 시스템 |단일 구조 네임스페이스를 가진 개체 저장소 |
 | API |HTTPS를 통한 REST API |HTTP/HTTPS를 통한 REST API |
 | 서버 쪽 API |[WebHDFS 호환 REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
-| Hadoop 파일 시스템 클라이언트 |예 |예 |
-| 데이터 작업 - 인증 |[Azure Active Directory ID](../active-directory/active-directory-authentication-scenarios.md) |공유 비밀 기반 - [계정 액세스 키](../storage/common/storage-create-storage-account.md#manage-your-storage-account) 및 [공유 액세스 서명 키](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Hadoop 파일 시스템 클라이언트 |yes |yes |
+| 데이터 작업 - 인증 |[Azure Active Directory ID](../active-directory/develop/authentication-scenarios.md) |공유 비밀 기반 - [계정 액세스 키](../storage/common/storage-create-storage-account.md#manage-your-storage-account) 및 [공유 액세스 서명 키](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | 데이터 작업 - 인증 프로토콜 |OAuth 2.0. 호출은 Azure Active Directory가 발급한 유효한 JWT(JSON Web Token)를 포함해야 함 |해시 기반 메시지 인증 코드(HMAC)입니다. 호출은 HTTP 요청 일부를 통해 Base64 인코딩된 SHA-256 해시를 포함해야 합니다. |
 | 데이터 작업 - 인증 |POSIX Access Control 목록(ACL)입니다.  Azure Active Directory ID를 기반으로 하는 ACL은 파일 및 폴더 수준에서 설정할 수 있습니다. |계정 수준 인증의 경우 - [계정 액세스 키](../storage/common/storage-create-storage-account.md#manage-your-storage-account) 사용.<br>계정, 컨테이너 또는 Blob 권한 부여의 경우 - [공유 액세스 서명 키](../storage/common/storage-dotnet-shared-access-signature-part-1.md) 사용. |
 | 데이터 작업 - 감사 |사용 가능. 자세한 내용은 [여기](data-lake-store-diagnostic-logs.md) 를 참조하세요. |사용 가능 |

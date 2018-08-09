@@ -1,24 +1,20 @@
 ---
-title: Azure HDInsight를 사용한 Storm 문제 해결 | Microsoft Docs
+title: Azure HDInsight를 사용한 Storm 문제 해결
 description: Azure HDInsight에서 Apache Storm을 사용할 때 제기되는 일반적인 질문에 답합니다.
 keywords: Azure HDInsight, Storm, FAQ, 문제 해결 가이드, 일반적인 문제
-services: Azure HDInsight
-documentationcenter: na
-author: raviperi
-manager: ''
-editor: ''
-ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
+services: hdinsight
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
-ms.date: 11/2/2017
+author: raviperi
 ms.author: raviperi
-ms.openlocfilehash: 46f07a1512435fd8ad5cae4df1858f948fe017e1
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 11/2/2017
+ms.openlocfilehash: 313cade8a6d840f41c7912cbea87cc989d5b76fa
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409877"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620687"
 ---
 # <a name="troubleshoot-storm-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Storm 문제 해결
 
@@ -37,7 +33,7 @@ Apache Ambari에서 Apache Storm 페이로드를 사용할 때의 주요 문제 
 
 https://\<클러스터 DNS 이름\>/stormui
 
-예:
+예제:
 
  https://stormcluster.azurehdinsight.net/stormui
 

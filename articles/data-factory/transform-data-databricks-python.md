@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: fa19ff6e6293e1d5d082ee40d55b456500fcb1ad
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 17a8e6f6d6d374c6f8620ecb525727e6fee8c4b9
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075561"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501880"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks에서 Python 작업을 실행하여 데이터 변환
 
 [Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Python 작업은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](transform-data.md) 문서에서 작성합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+
+11분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## <a name="databricks-python-activity-definition"></a>Databricks Python 작업 정의
 
@@ -61,13 +65,13 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 
 |자산|설명|필수|
 |---|---|---|
-|이름|파이프라인의 작업 이름입니다.|예|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니오|
-|형식|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예|
-|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.|예|
-|pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|예|
-|매개 변수|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니오|
-|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아니오|
+|이름|파이프라인의 작업 이름입니다.|yes|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
+|형식|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|yes|
+|linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은 [연결된 Compute Services](compute-linked-services.md) 문서를 참조하세요.|yes|
+|pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|yes|
+|매개 변수|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니요|
+|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아니요|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리
 

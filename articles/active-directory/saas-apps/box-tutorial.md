@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: c15894f8cd559a08a1d75e2ac29cc0da0fc9e963
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: f5aa724e9848c9794eef093aef15b0aaed9cae97
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226581"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435763"
 ---
 # <a name="integrate-azure-active-directory-with-box"></a>Box와 Azure Active Directory 통합
 
@@ -55,7 +55,7 @@ Box와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 이 자습서에 설명된 시나리오는 다음 두 가지 주요 구성 요소로 이루어져 있습니다.
 
 1. 갤러리에서 Box 추가
-2. Azure AD Single Sign-on 구성 및 테스트
+1. Azure AD Single Sign-on 구성 및 테스트
 
 ## <a name="add-box-from-the-gallery"></a>갤러리에서 Box 추가
 Box와 Azure AD를 통합하도록 구성하려면 다음을 수행하여 갤러리에서 Box를 관리되는 SaaS 앱 목록에 추가합니다.
@@ -64,15 +64,15 @@ Box와 Azure AD를 통합하도록 구성하려면 다음을 수행하여 갤러
 
     ![Azure Active Directory 단추][1]
 
-2. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
+1. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램**을 선택합니다.
 
     !["엔터프라이즈 응용 프로그램" 창][2]
     
-3. 새 응용 프로그램을 추가하려면 이 창의 맨 위쪽에 있는 **새 응용 프로그램** 단추를 선택합니다.
+1. 새 응용 프로그램을 추가하려면 창의 맨 위쪽에 있는 **새 응용 프로그램** 단추를 선택합니다.
 
     !["새 응용 프로그램" 단추][3]
 
-4. 검색 상자에 **Box**를 입력하고, 결과 목록에서 **Box**를 선택한 다음, **추가**를 선택합니다.
+1. 검색 상자에 **Box**를 입력하고, 결과 목록에서 **Box**를 선택한 다음, **추가**를 선택합니다.
 
     ![결과 목록의 Box](./media/box-tutorial/tutorial_box_search.png)
 ### <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
@@ -93,11 +93,11 @@ Box에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 5개
 
     ![“Single Sign-On” 링크][4]
 
-2. **Single Sign-On** 창의 **Single Sign-On 모드** 상자에서 **SAML 기반 로그온**을 선택합니다.
+1. **Single Sign-On** 창의 **Single Sign-On 모드** 상자에서 **SAML 기반 로그온**을 선택합니다.
  
     ![“Single Sign-On” 창](./media/box-tutorial/tutorial_box_samlbase.png)
 
-3. **Box 도메인 및 URL** 아래에서 다음을 수행합니다.
+1. **Box 도메인 및 URL** 아래에서 다음을 수행합니다.
 
     !["Box 도메인 및 URL" Single Sign-On 정보](./media/box-tutorial/url3.png)
 
@@ -106,17 +106,17 @@ Box에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 5개
     나. **식별자** 텍스트 상자에 **box.net**을 입력합니다.
      
     > [!NOTE] 
-    > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트합니다. 값을 가져오려면 [Box 클라이언트 지원 팀](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)에 문의하세요. 
+    > 위의 값은 실제가 아닙니다. 이러한 값을 실제 로그온 URL 및 식별자로 업데이트하세요. 값을 가져오려면 [Box 클라이언트 지원 팀](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)에 문의하세요. 
 
-4. **SAML 서명 인증서** 아래에서 **메타데이터 XML**을 선택한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
+1. **SAML 서명 인증서** 아래에서 **메타데이터 XML**을 선택한 다음 컴퓨터에 메타데이터 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/box-tutorial/tutorial_box_certificate.png) 
 
-5. **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
     ![Single Sign-On 구성 저장 단추](./media/box-tutorial/tutorial_general_400.png)
     
-6. 응용 프로그램에 대한 SSO를 구성하려면 [사용자 고유의 SSO 설정](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)의 절차에 따릅니다.
+1. 응용 프로그램에 대한 SSO를 구성하려면 [사용자 고유의 SSO 설정](https://community.box.com/t5/How-to-Guides-for-Admins/Setting-Up-Single-Sign-On-SSO-for-your-Enterprise/ta-p/1263#ssoonyourown)의 절차에 따릅니다.
 
 > [!NOTE] 
 > Box 계정에 SSO를 사용하도록 설정할 수 없는 경우 [Box 클라이언트 지원 팀](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire)에 연락해서 다운로드한 XML 파일을 제공해야 합니다.
@@ -135,17 +135,17 @@ Box에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 5개
 
     ![Azure Active Directory 링크](./media/box-tutorial/create_aaduser_01.png)
 
-2. 현재 사용자 목록을 표시하려면 **사용자 및 그룹** > **모든 사용자**를 선택합니다.
+1. 현재 사용자 목록을 표시하려면 **사용자 및 그룹** > **모든 사용자**를 선택합니다.
 
     !["사용자 및 그룹" 및 "모든 사용자" 링크](./media/box-tutorial/create_aaduser_02.png)
 
-3. **모든 사용자** 창 상단에서 **추가**를 선택합니다.
+1. **모든 사용자** 창 상단에서 **추가**를 선택합니다.
 
     ![추가 단추](./media/box-tutorial/create_aaduser_03.png)
 
     **사용자** 창이 열립니다.
 
-4. **사용자** 창에서 다음을 수행합니다.
+1. **사용자** 창에서 다음을 수행합니다.
 
     ![사용자 창](./media/box-tutorial/create_aaduser_04.png)
 
@@ -171,23 +171,23 @@ Box에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 5개
 
     !["엔터프라이즈 응용 프로그램" 및 "모든 응용 프로그램" 링크][201] 
 
-2. **응용 프로그램** 목록에서 **Box**를 선택합니다.
+1. **응용 프로그램** 목록에서 **Box**를 선택합니다.
 
     ![Box 링크](./media/box-tutorial/tutorial_box_app.png)  
 
-3. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
+1. 왼쪽 창에서 **사용자 및 그룹**을 선택합니다.
 
     !["사용자 및 그룹" 링크][202]
 
-4. **추가**를 선택한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
+1. **추가**를 선택한 다음 **할당 추가** 창에서 **사용자 및 그룹**을 선택합니다.
 
     ![할당 추가 창][203]
 
-5. **사용자 및 그룹** 창의 **사용자 목록**에서 **Britta Simon**을 선택합니다.
+1. **사용자 및 그룹** 창의 **사용자 목록**에서 **Britta Simon**을 선택합니다.
 
-6. **선택** 단추를 선택합니다.
+1. **선택** 단추를 선택합니다.
 
-7. **할당 추가** 창에서 **할당**을 선택합니다.
+1. **할당 추가** 창에서 **할당**을 선택합니다.
     
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

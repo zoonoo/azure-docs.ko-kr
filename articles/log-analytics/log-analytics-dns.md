@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a6f63fac85008425f473f431ae85d04f62eed667
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 56ad633807a59eaa7ae75dc334aa630fb3bf94a3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37127594"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436729"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -44,10 +44,10 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](log-analytics-windows-agent.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](log-analytics-linux-agents.md) | 아니오 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Operations Management Suite로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Operations Management Suite 리포지토리로 전달됩니다. |
-| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니오 | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Windows 에이전트](log-analytics-windows-agent.md) | yes | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Linux 에이전트](log-analytics-linux-agents.md) | 아니요 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](log-analytics-om-agents.md) | yes | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Operations Management Suite로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Operations Management Suite 리포지토리로 전달됩니다. |
+| [Azure 저장소 계정](log-analytics-azure-storage.md) | 아니요 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
@@ -133,11 +133,11 @@ Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에
 
 1. 클라이언트가 업데이트하려고 하는 이름에 대해 권한이 있는 영역을 찾습니다.
 
-2. 해당 영역의 인벤토리 정보를 확인하기 위한 솔루션을 사용합니다.
+1. 해당 영역의 인벤토리 정보를 확인하기 위한 솔루션을 사용합니다.
 
-3. 영역에 대한 동적 업데이트가 사용되도록 설정되어 있는지 확인합니다.
+1. 영역에 대한 동적 업데이트가 사용되도록 설정되어 있는지 확인합니다.
 
-4. 영역이 보안 동적 업데이트에 대해 구성되어 있는지 여부를 확인합니다.
+1. 영역이 보안 동적 업데이트에 대해 구성되어 있는지 여부를 확인합니다.
 
     ![동적 DNS 등록 블레이드](./media/log-analytics-dns/dynamic-dns-reg-blade.png)
 
@@ -177,7 +177,7 @@ Operations Manager 관리 그룹이 Operations Management Suite 작업 영역에
 
     다. 구성 변경에 대한 로그 데이터를 보려면 왼쪽의 패싯 컨트롤에서 **하위 유형** 필터로 **ConfigurationChange**를 선택합니다. 선택한 기간에 대한 모든 구성 변경 이벤트를 나열하는 테이블이 표시됩니다.
 
-2. **검색 쿼리 상자**에 `DnsInventory`를 입력하여 솔루션에서 관리되는 DNS 서버에 대한 모든 DNS 인벤토리 관련 데이터를 표시합니다. 결과에는 DNS 서버, DNS 영역 및 리소스 레코드에 대한 로그 데이터가 표시됩니다.
+1. **검색 쿼리 상자**에 `DnsInventory`를 입력하여 솔루션에서 관리되는 DNS 서버에 대한 모든 DNS 인벤토리 관련 데이터를 표시합니다. 결과에는 DNS 서버, DNS 영역 및 리소스 레코드에 대한 로그 데이터가 표시됩니다.
 
     ![DnsInventory 로그 검색](./media/log-analytics-dns/log-search-dnsinventory.png)
 

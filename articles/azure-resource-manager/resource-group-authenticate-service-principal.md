@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3dc62ba21458cc91d1858e11e7abbb6e96b0d5dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: aec79655dde48a18891776f40c51aa5a5c859ef8
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358951"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577267"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -214,5 +214,5 @@ Get-AzureRmADApplication -DisplayName exampleapp | New-AzureRmADAppCredential `
 ## <a name="next-steps"></a>다음 단계
 * 암호를 사용하여 서비스 주체를 설정하려면 [Azure PowerShell을 사용하여 Azure 서비스 주체 만들기](/powershell/azure/create-azure-service-principal-azureps)를 참조하세요.
 * 리소스 관리를 위해 Azure에 응용 프로그램을 통합하는 자세한 단계를 보려면 [Azure Resource Manager API를 사용한 권한 부여 개발자 가이드](resource-manager-api-authentication.md)를 참조하세요.
-* 응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조하세요. 
-* Azure Active Directory 인증에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../active-directory/active-directory-authentication-scenarios.md)를 참조하세요.
+* 응용 프로그램 및 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요. 
+* Azure Active Directory 인증에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../active-directory/develop/authentication-scenarios.md)를 참조하세요.

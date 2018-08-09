@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 747189c7cab2c76c6695bdb8e13f77532adc46d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 96f4ecb433277c747ddb1d1dc977bd609f93d5ff
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216076"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578588"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Site Recovery 모니터링 및 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "39216076"
 
 2.  이 대시보드는 자격 증명 모음에 대한 모든 모니터링 정보를 단일 위치에 통합합니다. 이 대시보드에서 다른 영역으로 드릴다운할 수 있습니다. 
 
-    ![Site Recovery 대시보드](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png)에서도 확인할 수 있습니다.
+    ![Site Recovery 대시보드](./media/site-recovery-monitor-and-troubleshoot/site-recovery-overview-page.png).
 
 3. **복제된 항목**에서 **모두 보기**를 클릭하여 자격 증명 모음에 있는 모든 서버를 확인합니다.
 4. 각 섹션에서 상태 정보를 클릭하여 드릴다운합니다. **인프라 보기**에서 복제하는 컴퓨터의 유형별로 모니터링 정보를 정렬할 수 있습니다.
@@ -88,7 +88,7 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 - 확인된 오류 아이콘이 있는 빨간색 선은 연결에 영향을 미치는 하나 이상의 오류 증상이 있음을 나타냅니다.
 -  오류 아이콘 위를 마우스 포인터로 가리키면 오류 및 영향을 받는 엔터티의 수가 표시됩니다. 영향을 받는 엔터티의 필터링된 목록에 대한 아이콘을 클릭합니다.
 
-    ![Site Recovery 인프라 보기(vault)]Re(./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
+    ![Site Recovery 인프라 보기(자격 증명 모음)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
 
 ## <a name="tips-for-monitoring-the-infrastructure"></a>인프라 모니터링 팁
 
@@ -98,12 +98,12 @@ Warning | 복제에 영향을 줄 수 있는 하나 이상의 경고 증상이 �
 
     **시나리오** | **State**  | **보기 사용 가능 여부**
     --- |--- | ---
-    **온-프레미스 사이트 간 복제** | 모든 상태 | 아니오 
+    **온-프레미스 사이트 간 복제** | 모든 상태 | 아니요 
     **Azure 지역 간 Azure VM 복제**  | 복제가 사용되도록 설정됨/초기 복제 진행 중 | yes
-    **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니오   
+    **Azure 지역 간 Azure VM 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요   
     **Azure로 VMware 복제** | 복제가 사용되도록 설정됨/초기 복제 진행 중 | yes     
-    **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니오      
-    **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니오
+    **Azure로 VMware 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요      
+    **Azure로 Hyper-V 복제** | 장애 조치(Failover)/장애 복구(Failback)됨 | 아니요
 
 - 단일 복제 컴퓨터에 대해 인프라 보기를 보려면 자격 증명 모음 메뉴에서 **복제된 항목**을 클릭하고 서버를 선택합니다.  
 

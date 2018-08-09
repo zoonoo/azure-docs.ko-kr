@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: b8d0a8026c140545a5029d2772fdcbc5090e7b00
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363588"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494060"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 응용 프로그램에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -261,6 +261,6 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>다음 단계
-- Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/active-directory-authentication-scenarios.md)를 참조하세요.
+- Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.
 - 사용자 Single Sign-On에 대한 자세한 내용은 [Azure Active Directory로 응용 프로그램 액세스 및 Single Sign-On](configure-single-sign-on-portal.md)을 참조하세요.
-- 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](../develop/active-directory-developers-guide.md)를 참조하세요.
+- 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](../develop/azure-ad-developers-guide.md)를 참조하세요.

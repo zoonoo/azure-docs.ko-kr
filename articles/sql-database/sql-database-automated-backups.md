@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262850"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620133"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>자동 SQL Database 백업에 대한 자세한 정보
 
@@ -26,7 +26,7 @@ SQL Database는 데이터베이스 백업을 자동으로 만들고 Azure RA-GRS
 
 ## <a name="what-is-a-sql-database-backup"></a>SQL Database 백업이란?
 
-SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 목적으로 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](http://msdn.microsoft.com/library/ms175526.aspx) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 트랜잭션 로그 백업은 일반적으로 5~10분마다 발생하고 데이터베이스 작업량과 성능 수준에 따라 빈도가 결정되며, 차등 백업은 일반적으로 12시간마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
+SQL Database는 SQL Server 기술을 사용하여 PITR(지정 시간 복원)의 목적으로 [전체](https://msdn.microsoft.com/library/ms186289.aspx), [차등](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server) 및 [트랜잭션 로그](https://msdn.microsoft.com/library/ms191429.aspx) 백업을 만듭니다. 트랜잭션 로그 백업은 일반적으로 5~10분마다 발생하고 데이터베이스 작업량과 성능 수준에 따라 빈도가 결정되며, 차등 백업은 일반적으로 12시간마다 발생합니다. 전체 및 차등 백업을 사용하는 트랜잭션 로그 백업을 통해 데이터베이스를 호스트하는 동일한 서버로 특정 시점에 대해 데이터베이스를 복원할 수 있습니다. 사용자가 데이터베이스를 복원할 때 서비스에서는 전체, 차등, 트랜잭션 로그 백업 중 무엇을 복원해야 하는지 파악합니다.
 
 
 이러한 백업을 사용하여 다음을 수행할 수 있습니다.

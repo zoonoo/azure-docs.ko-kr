@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358294"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492826"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>자습서: 3. 정규식 엔터티 추가
 이 자습서에서는 **정규식** 엔터티를 사용하여 발화에서 형식이 일관되게 지정된 데이터를 추출하는 방법을 보여 주는 앱을 만듭니다.
@@ -110,15 +110,8 @@ HRF는 인사 관리 양식을 나타냅니다.
     엔터티는 기계 학습 엔터티가 아니므로 레이블이 발화에 적용되고 만들어지는 즉시 LUIS 웹 사이트에 표시됩니다.
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-정규식 엔터티에는 학습이 필요하지 않지만, 새 의도와 발화에는 학습이 필요합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
-
-    ![학습 단추 이미지](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
-
-    ![성공 알림 표시줄 이미지](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
@@ -237,7 +230,8 @@ HRF는 인사 관리 양식을 나타냅니다.
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 양식 번호를 사용하여 타사 API를 검색할 수 있습니다. LUIS는 이러한 작업을 수행하지 않습니다. LUIS는 사용자의 의도가 무엇인지 결정하고 해당 의도에 대한 데이터를 추출합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 상단 왼쪽 메뉴에서 **내 앱**을 선택합니다. 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***)를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

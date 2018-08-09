@@ -2,20 +2,20 @@
 title: 인바운드 IP 주소 변경 준비하는 방법 - Azure
 description: 인바운드 IP 주소를 변경하려는 경우 앱이 변경 후 작업을 계속할 수 있도록 수행할 작업에 대해 알아봅니다.
 services: app-service\web
-author: tdykstra
+author: cephalin
 manager: cfowler
 editor: ''
 ms.service: app-service-web
 ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
-ms.author: tdykstra
-ms.openlocfilehash: 5d30357e5308de0224590703bb5e68fbe73b882b
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.author: cephalin
+ms.openlocfilehash: 28741e858b0c938ec8b2b2ff983106c6b08e18fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343440"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578221"
 ---
 # <a name="how-to-prepare-for-an-inbound-ip-address-change"></a>인바운드 IP 주소 변경 준비하는 방법
 

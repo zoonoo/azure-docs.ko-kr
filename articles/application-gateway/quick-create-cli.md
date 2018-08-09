@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99c3975c6ab2c7a20dfbab519dae575a2a61465f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 282f6d965ea85b25f1eada1a63897734c6c7b298
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160361"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435267"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure CLI
 
@@ -34,7 +34,7 @@ CLI를 로컬로 설치하여 사용하려면 이 빠른 시작에서 Azure CLI 
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-항상 리소스 그룹에 리소스를 만들어야 합니다. [az group create](/cli/azure/group#az_group_create)를 사용하여 리소스 그룹을 만듭니다. 
+항상 리소스 그룹에 리소스를 만들어야 합니다. [az group create](/cli/azure/group#az-group-create)를 사용하여 리소스 그룹을 만듭니다. 
 
 다음 예제에서는 *eastus* 위치에 *myResourceGroupAG*라는 리소스 그룹을 만듭니다.
 
@@ -46,7 +46,7 @@ az group create --name myResourceGroupAG --location eastus
 
 응용 프로그램 게이트웨이가 다른 리소스와 통신할 수 있도록 가상 네트워크를 만들어야 합니다. 응용 프로그램 게이트웨이를 만드는 동시에 가상 네트워크를 만들 수 있습니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 응용 프로그램 게이트웨이용이고, 다른 하나는 가상 머신용입니다. 
 
-[az network vnet create](/cli/azure/vnet#az_vnet_create)를 사용하여 가상 네트워크 및 서브넷을 만듭니다. [az network public-ip create](/cli/azure/public-ip#az_public_ip_create)를 사용하여 공용 IP 주소를 만듭니다.
+[az network vnet create](/cli/azure/vnet#az-vnet-create)를 사용하여 가상 네트워크 및 서브넷을 만듭니다. [az network public-ip create](/cli/azure/public-ip#az-public-ip-create)를 사용하여 공용 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -118,7 +118,7 @@ runcmd:
   - nodejs index.js
 ```
 
-[az network nic create](/cli/azure/network/nic#az_network_nic_create)를 사용하여 네트워크 인터페이스를 만듭니다. [az vm create](/cli/azure/vm#az_vm_create)를 사용하여 가상 머신을 만듭니다.
+[az network nic create](/cli/azure/network/nic#az-network-nic-create)를 사용하여 네트워크 인터페이스를 만듭니다. [az vm create](/cli/azure/vm#az-vm-create)를 사용하여 가상 머신을 만듭니다.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -140,7 +140,7 @@ done
 
 ## <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-[az network application-gateway create](/cli/azure/application-gateway#az_application_gateway_create)를 사용하여 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 네트워크 인터페이스의 개인 IP 주소는 응용 프로그램 게이트웨이의 백 엔드 풀에 서버로 추가됩니다.
+[az network application-gateway create](/cli/azure/application-gateway#az-application-gateway-create)를 사용하여 응용 프로그램 게이트웨이를 만듭니다. Azure CLI를 사용하여 응용 프로그램 게이트웨이를 만들 때 용량, sku, HTTP 설정 등의 구성 정보를 지정합니다. 네트워크 인터페이스의 개인 IP 주소는 응용 프로그램 게이트웨이의 백 엔드 풀에 서버로 추가됩니다.
 
 ```azurecli-interactive
 address1=$(az network nic show --name myNic1 --resource-group myResourceGroupAG | grep "\"privateIpAddress\":" | grep -oE '[^ ]+$' | tr -d '",')
@@ -168,7 +168,7 @@ az network application-gateway create \
 
 ## <a name="test-the-application-gateway"></a>응용 프로그램 게이트웨이 테스트
 
-응용 프로그램 게이트웨이를 만들기 위해 반드시 NGINX를 설치해야 하는 것은 아니지만, 이 빠른 시작에서는 응용 프로그램 게이트웨이가 성공적으로 생성되었는지 확인하기 위해 설치했습니다. 응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
+응용 프로그램 게이트웨이를 만들기 위해 반드시 NGINX를 설치해야 하는 것은 아니지만, 이 빠른 시작에서는 응용 프로그램 게이트웨이가 성공적으로 생성되었는지 확인하기 위해 설치했습니다. 응용 프로그램 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
 
 ```azurepowershell-interactive
 az network public-ip show \
@@ -184,7 +184,7 @@ az network public-ip show \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-먼저 응용 프로그램 게이트웨이로 만든 리소스를 탐색한 다음, 더 이상 필요 없으면 [az group delete](/cli/azure/group#az_group_delete) 명령을 사용하여 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
+먼저 응용 프로그램 게이트웨이로 만든 리소스를 탐색한 다음, 더 이상 필요 없으면 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 응용 프로그램 게이트웨이 및 모든 관련 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG

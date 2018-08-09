@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 825f34d174c37c2ee5d4187048f7a31fbaeef226
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7926944f329665af2df287d120bd9f4a8ee78380
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215932"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433938"
 ---
 # <a name="configure-managed-identity-on-an-azure-vm-using-rest-api-calls"></a>REST API 호출을 사용하여 Azure VM에서 관리 ID 구성
 
@@ -37,8 +37,8 @@ ms.locfileid: "39215932"
 - 관리 서비스 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 - 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
-    - [Virtual Machine 참가자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): VM을 만들고, Azure VM에서 시스템 및/또는 사용자가 할당한 관리 ID를 사용하도록 설정하고 제거합니다.
-    - [관리 ID 참가자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할: 사용자 할당 ID를 만듭니다.
+    - [Virtual Machine 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): VM을 만들고, Azure VM에서 시스템 및/또는 사용자가 할당한 관리 ID를 사용하도록 설정하고 제거합니다.
+    - [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할: 사용자 할당 ID를 만듭니다.
     - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할: VM으로 사용자 할당 ID를 할당하거나 VM에서 사용자 할당 ID를 제거합니다.
 - Windows를 사용하는 경우, [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about)을 설치하거나 Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다.
 - [Linux용 Windows 하위 시스템](https://msdn.microsoft.com/commandline/wsl/about) 또는 [Linux 배포 OS](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)를 사용하는 경우, [Azure CLI 로컬 콘솔](/azure/install-azure-cli)을 설치합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "39215932"
 
 시스템 할당 ID를 사용할 수 있는 Azure VM을 만들려면 VM을 만들고 액세스 토큰을 검색하여 CURL을 통해 시스템 할당 ID 유형 값으로 Resource Manager 끝점을 호출해야 합니다.
 
-1. [az group create](/cli/azure/group/#az_group_create)를 사용하여 VM 및 관련 리소스를 포함하고 배포하는 데 사용할 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
+1. [az group create](/cli/azure/group/#az-group-create)를 사용하여 VM 및 관련 리소스를 포함하고 배포하는 데 사용할 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md#terminology)을 만듭니다. 대신 사용하려는 리소스 그룹이 이미 있다면 이 단계를 건너뛰어도 됩니다.
 
    ```azurecli-interactive 
    az group create --name myResourceGroup --location westus

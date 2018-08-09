@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238423"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618899"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 서버 쪽 프로그래밍: 저장 프로시저, 데이터베이스 트리거 및 UDF
 
@@ -394,7 +394,7 @@ client.replaceDocumentAsync(docToReplace.self,
 사전 트리거와 마찬가지로 사후 트리거는 문서 작업과 연결되며 입력 매개 변수를 사용하지 않습니다. 작업이 완료된 **후에** 실행되며 클라이언트에 전송된 응답 메시지에 액세스할 수 있습니다.   
 
 다음 예제는 사후 트리거 작동을 보여 줍니다.
-```
+```javascript
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -434,7 +434,7 @@ var updateMetadataTrigger = {
 
 ```
 다음 샘플에 표시된 대로 트리거를 등록할 수 있습니다.
-```
+```javascript
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -844,4 +844,3 @@ foreach (Book book in client.CreateDocumentQuery(UriFactory.CreateDocumentCollec
 * [안전하고 이식 가능한 데이터베이스 확장성](http://dl.acm.org/citation.cfm?id=276339) 
 * [서비스 지향 데이터베이스 아키텍처](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Microsoft SQL server에서 .NET 런타임 호스팅](http://dl.acm.org/citation.cfm?id=1007669)
-

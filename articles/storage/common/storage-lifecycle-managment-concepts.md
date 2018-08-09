@@ -3,18 +3,17 @@ title: Azure Storage 수명 주기 관리
 description: 오래된 데이터를 핫에서 쿨로 전환하고 계층을 보관하는 수명 주기 정책 규칙을 만드는 방법을 알아봅니다.
 services: storage
 author: yzheng-msft
-manager: jwillis
 ms.service: storage
-ms.workload: storage
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
-ms.openlocfilehash: ec314925635d34baa7b3edeeb397805964b6353d
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413130"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528446"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Azure Blob Storage 수명 주기 관리(미리 보기)
 
@@ -59,11 +58,11 @@ Get-AzureRmProviderFeature -FeatureName DLM -ProviderNamespace Microsoft.Storage
 
 요청을 제출하려면: 
 ```cli
-az feature register –-namespace Microsoft.Storage –-name DLM
+az feature register --namespace Microsoft.Storage --name DLM
 ```
 다음 명령을 사용하여 등록 승인 상태를 확인할 수 있습니다.
 ```cli
--az feature show –-namespace Microsoft.Storage –-name DLM
+az feature show --namespace Microsoft.Storage --name DLM
 ```
 기능이 승인되고 적절하게 등록되면 "등록됨" 상태가 반환됩니다. 
 

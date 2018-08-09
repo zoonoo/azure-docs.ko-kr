@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 백업 자격 증명 모음, Windows 서버 백업, Windows 백업
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/5/2018
+ms.date: 8/5/2018
 ms.author: markgal
-ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606260"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619958"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Azure로 Windows Server 또는 클라이언트 백업
 이 문서는 Resource Manager 배포 모델을 사용하여 Azure Backup이 포함된 Azure에 Windows 서버(또는 Windows 클라이언트) 파일 및 폴더를 백업하는 방법을 설명합니다.

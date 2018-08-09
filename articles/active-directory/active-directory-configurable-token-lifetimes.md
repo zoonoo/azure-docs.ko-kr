@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: 95a3c1d3effe6d4b73354fb3ef871aeb7767bfb4
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 0c4edb4fbf7271331affb2559018e53480aa7a85
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36228572"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577165"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(공개 미리 보기)
 Azure AD(Azure Active Directory)에서 발급한 토큰의 수명을 지정할 수 있습니다. 조직의 모든 앱, 다중 테넌트(다중 조직) 응용 프로그램 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성할 수 있습니다.
@@ -49,7 +49,7 @@ Azure AD에서 정책 개체는 개별 응용 프로그램 또는 조직의 모�
 클라이언트는 액세스 토큰을 사용하여 보호된 리소스에 액세스합니다. 액세스 토큰은 사용자, 클라이언트 및 리소스의 특정 조합에만 사용할 수 있습니다. 액세스 토큰은 해지될 수 없으며 만료될 때까지 유효합니다. 액세스 토큰을 획득한 악의적인 행위자는 수명 범위 동안 이를 사용할 수 있습니다. 액세스 토큰의 수명을 조정하는 것은 시스템 성능을 개선하는 것과 사용자 계정이 비활성화된 후 클라이언트에서 액세스를 유지하는 기간을 늘리는 것 간의 절충 작업입니다. 시스템 성능을 개선하려면 클라이언트에서 새 액세스 토큰을 획득해야 하는 횟수를 줄이면 됩니다.  기본값은 1시간입니다. 1시간 후 클라이언트는 새로 고침 토큰을 사용하여 새로운 새로 고침 토큰을 획득(보통 자동으로)하고 토큰에 액세스해야 합니다. 
 
 ### <a name="refresh-tokens"></a>새로 고침 토큰
-클라이언트가 보호된 리소스에 액세스하기 위해 액세스 토큰을 획득할 때 새로 고침 토큰도 받습니다. 새로 고침 토큰은 현재 액세스 토큰이 만료된 경우 새 액세스/새로 고침 토큰 쌍을 얻는 데 사용됩니다. 새로 고침 토큰은 사용자와 클라이언트 조합에 바인딩됩니다. 새로 고침 토큰은 [언제든지 해지 가능](develop/active-directory-token-and-claims.md#token-revocation)하며 사용될 때마다 토큰의 유효성이 검사됩니다.  
+클라이언트가 보호된 리소스에 액세스하기 위해 액세스 토큰을 획득할 때 새로 고침 토큰도 받습니다. 새로 고침 토큰은 현재 액세스 토큰이 만료된 경우 새 액세스/새로 고침 토큰 쌍을 얻는 데 사용됩니다. 새로 고침 토큰은 사용자와 클라이언트 조합에 바인딩됩니다. 새로 고침 토큰은 [언제든지 해지 가능](develop/v1-id-and-access-tokens.md#token-revocation)하며 사용될 때마다 토큰의 유효성이 검사됩니다.  
 
 새로 고침 토큰을 사용할 수 있는 기간에 영향을 미치기 때문에 비밀 클라이언트와 공용 클라이언트를 구분하는 것이 중요합니다. 다양한 유형의 클라이언트에 대한 자세한 내용은 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1)를 참조하세요.
 
@@ -106,7 +106,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 * 서비스 주체 또는 조직에 명시적으로 할당된 정책이 없는 경우 응용 프로그램에 할당된 정책이 적용됩니다.
 * 서비스 주체, 조직 또는 응용 프로그램 개체에 할당된 정책이 없는 경우 기본값이 적용됩니다. [구성 가능한 토큰 수명 속성](#configurable-token-lifetime-properties)의 테이블을 참조하세요.
 
-응용 프로그램 개체와 서비스 주체 간의 관계에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](active-directory-application-objects.md)를 참조하세요.
+응용 프로그램 개체와 서비스 주체 간의 관계에 대한 자세한 내용은 [Azure Active Directory의 응용 프로그램 및 서비스 주체 개체](develop/app-objects-and-service-principals.md)를 참조하세요.
 
 토큰의 유효성은 토큰이 사용되는 시점에 평가됩니다. 액세스하는 응용 프로그램에 대한 우선 순위가 가장 높은 정책이 적용됩니다.
 
@@ -203,7 +203,7 @@ Azure AD는 두 종류의 SSO 세션 토큰을 사용합니다. 하나는 영구
 * 고급 정책 관리
 
 ### <a name="prerequisites"></a>필수 조건
-다음 예제에서는 앱, 서비스 주체 및 조직 전체에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제해 보겠습니다. Azure AD을 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](active-directory-howto-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.  
+다음 예제에서는 앱, 서비스 주체 및 조직 전체에 대한 정책을 만들고, 업데이트하고, 연결하고, 삭제해 보겠습니다. Azure AD을 처음 접하는 분들은 [Azure AD 테넌트를 가져오는 방법](develop/quickstart-create-new-tenant.md)을 살펴본 후 예제를 진행하는 것이 좋습니다.  
 
 시작하려면 다음 단계 중 하나를 수행합니다.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: e606ff09c3b3a867170b783e69879d609b69c11d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075588"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493730"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Azure Media Services를 사용하여 액세스 제어가 포함된 콘텐츠 보호 시스템 설계
 
@@ -225,7 +225,7 @@ ASP.NET MVC 플레이어 앱에 대해 Azure AD를 설정하는 방법에 대한
 
 Azure AD에 대한 내용:
 
-* [Azure Active Directory 개발자 가이드](../../active-directory/active-directory-developers-guide.md)에서 개발자 정보를 찾을 수 있습니다.
+* [Azure Active Directory 개발자 가이드](../../active-directory/develop/azure-ad-developers-guide.md)에서 개발자 정보를 찾을 수 있습니다.
 * [Azure AD 테넌트 디렉터리 관리](../../active-directory/fundamentals/active-directory-administer.md)에서 관리자 정보를 찾을 수 있습니다.
 
 ### <a name="some-issues-in-implementation"></a>구현에 대한 몇 가지 문제
@@ -312,9 +312,9 @@ Azure AD가 JWT를 생성한 후, 플레이어가 확인을 위해 JWT를 Media 
 키는 언제든지 롤오버될 수 있으므로 페더레이션 메타데이터 문서에는 사용 가능한 공개 키가 항상 두 개 이상 있습니다. Media Services 라이선스 배달에서는 문서에 지정된 아무 키나 사용할 수 있습니다. 하나의 키가 곧 롤오버되고 다른 키가 대체될 수 있기 때문입니다.
 
 ### <a name="where-is-the-access-token"></a>액세스 토큰 위치
-웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
+웹앱에서 [OAuth 2.0 클라이언트 자격 증명 권한을 사용한 응용 프로그램 ID](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api)로 API 앱을 호출하는 방식을 살펴보면 인증 흐름은 다음과 같습니다.
 
-* 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application)을 참조하세요.
+* 사용자가 웹 응용 프로그램에서 Azure AD에 로그인합니다. 자세한 내용은 [웹 브라우저-웹 응용 프로그램](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application)을 참조하세요.
 * Azure AD 권한 부여 끝점은 사용자 에이전트를 인증 코드와 함께 클라이언트 응용 프로그램으로 리디렉션합니다. 사용자 에이전트는 인증 코드를 클라이언트 응용 프로그램의 리디렉션 URI로 반환합니다.
 * 웹 응용 프로그램이 웹 API에 인증하고 원하는 리소스를 검색할 수 있도록 액세스 토큰을 획득해야 합니다. Azure AD의 토큰 끝점에 요청하여 자격 증명, 클라이언트 ID, 웹 API의 응용 프로그램 ID URI를 제공합니다. 사용자가 동의했음을 증명하는 인증 코드를 표시합니다.
 * Azure AD가 응용 프로그램을 인증하고 웹 API를 호출하는 데 사용되는 JWT 액세스 토큰을 반환합니다.

@@ -17,21 +17,21 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316962"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577233"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>응용 프로그램을 Azure AD에 추가하는 방법 및 이유
 
 Azure AD에는 응용 프로그램의 두 가지 표현이 있습니다. 
-* [응용 프로그램 개체](active-directory-application-objects.md#application-object) - 응용 프로그램의 정의로 간주될 수 있습니다([예외](#notes-and-exceptions)가 있음).
-* [서비스 주체](active-directory-application-objects.md#service-principal-object) - 응용 프로그램의 인스턴스로 간주될 수 있습니다. 서비스 주체는 일반적으로 응용 프로그램 개체를 참조하며, 하나의 응용 프로그램 개체는 전체 디렉터리에서 여러 서비스 주체에 의해 참조될 수 있습니다.
+* [응용 프로그램 개체](app-objects-and-service-principals.md#application-object) - 응용 프로그램의 정의로 간주될 수 있습니다([예외](#notes-and-exceptions)가 있음).
+* [서비스 주체](app-objects-and-service-principals.md#service-principal-object) - 응용 프로그램의 인스턴스로 간주될 수 있습니다. 서비스 주체는 일반적으로 응용 프로그램 개체를 참조하며, 하나의 응용 프로그램 개체는 전체 디렉터리에서 여러 서비스 주체에 의해 참조될 수 있습니다.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>응용 프로그램 개체란 무엇이며 어디에서 생겨날까요?
-Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) 환경을 통해 [응용 프로그램 개체](active-directory-application-objects.md#application-object)를 관리할 수 있습니다. 응용 프로그램 개체는 Azure AD에 대한 응용 프로그램을 설명하며, 응용 프로그램의 정의로 간주되어 서비스에서 해당 설정에 따라 응용 프로그램에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 응용 프로그램인 경우에도 응용 프로그램 개체는 홈 디렉터리에만 있습니다. 응용 프로그램 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
+Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) 환경을 통해 [응용 프로그램 개체](app-objects-and-service-principals.md#application-object)를 관리할 수 있습니다. 응용 프로그램 개체는 Azure AD에 대한 응용 프로그램을 설명하며, 응용 프로그램의 정의로 간주되어 서비스에서 해당 설정에 따라 응용 프로그램에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 응용 프로그램인 경우에도 응용 프로그램 개체는 홈 디렉터리에만 있습니다. 응용 프로그램 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
 * 이름, 로고 및 게시자
 * 회신 URL
 * 비밀(응용 프로그램을 인증하는 데 사용되는 대칭 및/또는 비대칭 키)
@@ -50,7 +50,7 @@ Azure Portal에서 [앱 등록](https://portal.azure.com/#blade/Microsoft_AAD_IA
 * Azure의 다양한 개발자 환경 및 개발자 센터의 API 탐색기 환경을 포함한 기타 여러 가지 방법
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>서비스 주체란 무엇이며 어디에서 생겨날까요?
-Azure Portal에서 [엔터프라이즈 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 환경을 통해 [서비스 주체](active-directory-application-objects.md#service-principal-object)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 응용 프로그램을 관리하며, 디렉터리에 있는 응용 프로그램의 인스턴스로 간주될 수 있습니다. 주어진 응용 프로그램의 경우 “home” 디렉터리에 등록된 응용 프로그램 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 응용 프로그램의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
+Azure Portal에서 [엔터프라이즈 응용 프로그램](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 환경을 통해 [서비스 주체](app-objects-and-service-principals.md#service-principal-object)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 응용 프로그램을 관리하며, 디렉터리에 있는 응용 프로그램의 인스턴스로 간주될 수 있습니다. 주어진 응용 프로그램의 경우 “home” 디렉터리에 등록된 응용 프로그램 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 응용 프로그램의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
 
 서비스 주체는 다음을 포함할 수 있습니다.
 
