@@ -25,21 +25,29 @@
       href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
     - name: 지출 한도 이해
       href: billing-spending-limit.md
-    - name: 예약 VM 인스턴스로 비용 절감
+    - name: Azure 예약을 사용하여 저장
       items:
-        - name: 예약 인스턴스란?
+        - name: Azure 예약이란?
           href: billing-save-compute-costs-reservations.md
-        - name: 예약 인스턴스 구입
-          href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: 예약 구입
+          items:
+            - name: 가상 머신
+              href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+            - name: SQL Database
+              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: 할인 적용 방식
-          href: billing-understand-vm-reservation-charges.md
+          items:
+            - name: 예약 VM 인스턴스
+              href: billing-understand-vm-reservation-charges.md
+            - name: SQL Database 예약된 용량
+              href: billing-understand-reservation-charges.md
         - name: 소프트웨어 비용 미포함
           href: billing-reserved-instance-windows-software-costs.md
         - name: 종량제의 사용량
           href: billing-understand-reserved-instance-usage.md
         - name: 기업용 사용량
           href: billing-understand-reserved-instance-usage-ea.md
-        - name: 예약 인스턴스 관리
+        - name: Azure 예약 관리
           href: billing-manage-reserved-vm-instance.md
 - name: 계정 관리
   items:

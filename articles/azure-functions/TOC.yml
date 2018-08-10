@@ -171,6 +171,8 @@
           href: functions-how-to-use-azure-function-app-settings.md
         - name: 런타임 버전 설정
           href: set-runtime-version.md
+        - name: 기능 사용 안 함
+          href: disable-function.md
     - name: 모니터
       href: functions-monitoring.md
     - name: 통합

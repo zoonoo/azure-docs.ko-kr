@@ -32,6 +32,8 @@
       maintainContext: true
     - name: 클라우드 일관성을 위한 템플릿
       href: templates-cloud-consistency.md
+    - name: 배포 모드
+      href: deployment-modes.md
 - name: 방법
   items:
     - name: 템플릿 만들기

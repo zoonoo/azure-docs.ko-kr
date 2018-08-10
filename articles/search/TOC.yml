@@ -27,13 +27,13 @@
           href: search-import-data-rest-api.md
         - name: 검색
           href: search-query-rest-api.md
-        - name: REST 클라이언트로 테스트
+        - name: Postman 또는 Fiddler를 사용한 내보내기
           href: search-fiddler.md
 - name: 자습서
   items:
     - name: 기본 제공 도구 사용
       href: search-get-started-portal.md
-    - name: 인식 검색 개발
+    - name: Cognitive Search API 알아보기
       href: cognitive-search-tutorial-blob.md
     - name: Azure Blob 인덱싱
       href: search-semi-structured-data.md
@@ -143,12 +143,12 @@
           href: search-synonyms.md
     - name: 인덱싱 데이터
       items:
-        - name: 푸시 및 풀 인덱싱
+        - name: 데이터 로드
           href: search-what-is-data-import.md
-        - name: 가져오기 마법사(포털)
-          href: search-import-data-portal.md
         - name: 인덱스 다시 작성
           href: search-howto-reindex.md
+        - name: 가져오기 마법사(포털)
+          href: search-import-data-portal.md
         - name: 큰 데이터 집합 인덱싱
           href: search-howto-large-index.md
         - name: 동시 업데이트 처리
@@ -175,13 +175,13 @@
               href: search-indexer-field-mappings.md
     - name: 데이터 검색
       items:
-        - name: 기본 사항
+        - name: 쿼리 형식/컴퍼지션
           href: search-query-overview.md
         - name: 검색 탐색기(포털)
           href: search-explorer.md
-        - name: 간단한 구문의 예제
+        - name: 간단한 구문 예제
           href: search-query-simple-examples.md
-        - name: 전체 구문의 예제
+        - name: 전체 구문 예제
           href: search-query-lucene-examples.md
         - name: 쿼리 참조
           items:

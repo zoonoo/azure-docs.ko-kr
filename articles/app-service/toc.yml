@@ -25,6 +25,8 @@
       href: app-service-web-get-started-java.md
     - name: 정적 HTML 사이트 만들기
       href: app-service-web-get-started-html.md
+    - name: 사용자 지정 Windows 컨테이너 실행
+      href: app-service-web-get-started-windows-container.md
 - name: 자습서
   items:
     - name: DB를 사용한 앱

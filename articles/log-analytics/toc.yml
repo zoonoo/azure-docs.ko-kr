@@ -110,9 +110,17 @@
     - name: 쿼리 데이터
       items:
         - name: 언어 설명서
-          href: 'https://docs.loganalytics.io'
-        - name: 레거시 언어에서 전환
-          href: log-analytics-log-search-transition.md
+          items:
+            - name: 레거시 언어에서 전환
+              href: log-analytics-log-search-transition.md
+            - name: Analytics 포털 시작
+              href: query-language/get-started-analytics-portal.md
+            - name: 쿼리 시작
+              href: query-language/get-started-queries.md
+            - name: 검색 쿼리
+              href: query-language/search-queries.md
+            - name: 언어 참조
+              href: 'https://docs.loganalytics.io'
         - name: 교차 리소스 검색
           href: log-analytics-cross-workspace-search.md
         - name: 검색 결과에서 작업 수행

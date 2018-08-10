@@ -131,13 +131,13 @@
           href: automation-linux-hrw-install.md
         - name: Hybrid Runbook Worker에서 Runbook 실행
           href: automation-hrw-run-runbooks.md
-    - name: 배포 구성 관리(DSC)
+    - name: 상태 구성
       items:
-        - name: DSC(필요한 상태 구성) 개요
+        - name: 상태 구성 개요
           href: automation-dsc-overview.md
         - name: 시작
           href: automation-dsc-getting-started.md
-        - name: 원하는 상태로 서버 구성 및 Azure Automation을 사용하여 드리프트 관리
+        - name: 원하는 상태로 서버 구성 및 상태 구성을 사용하여 드리프트 관리
           href: tutorial-configure-servers-desired-state.md
         - name: 관리를 위한 컴퓨터 탑재
           href: automation-dsc-onboarding.md
@@ -145,7 +145,7 @@
           href: automation-dsc-compile.md
         - name: Chocolatey를 사용하여 연속 배포
           href: automation-dsc-cd-chocolatey.md
-        - name: OMS Log Analytics에 Azure Automation DSC 보고 데이터 전달
+        - name: Log Analytics에 데이터를 보고하여 상태 구성 전달
           href: automation-dsc-diagnostics.md
     - name: 공유 리소스 관리
       items:

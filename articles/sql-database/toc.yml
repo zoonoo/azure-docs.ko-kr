@@ -56,11 +56,11 @@
       href: sql-database-security-tutorial.md
     - name: 5 - 지역 분산 데이터베이스 구현
       href: sql-database-implement-geo-distributed-database.md
-    - name: 6 - 관리되는 인스턴스 만들기
+    - name: 6 - Managed Instance 만들기
       href: sql-database-managed-instance-create-tutorial-portal.md
-    - name: 7 - 관리되는 인스턴스에 백업 복원
+    - name: 7 - Managed Instance에 백업 복원
       href: sql-database-managed-instance-restore-from-backup-tutorial.md
-    - name: 8 - DMS를 사용하여 관리되는 인스턴스로 마이그레이션
+    - name: 8 - DMS를 사용하여 Managed Instance로 마이그레이션
       href: ../dms/tutorial-sql-server-to-managed-instance.md
     - name: 9 - Azure SQL 데이터 동기화 설정
       href: sql-database-get-started-sql-data-sync.md
@@ -84,6 +84,8 @@
           href: sql-database-service-tiers-dtu.md
         - name: 리소스 한계
           href: sql-database-resource-limits.md
+        - name: 예약된 용량 선불
+          href: sql-database-reserved-capacity.md
     - name: 논리 서버
       items:
         - name: 만들기 및 관리
@@ -182,7 +184,7 @@
               href: sql-vulnerability-assessment.md
             - name: 위협 감지 - SQL Database
               href: sql-database-threat-detection.md
-            - name: 위협 감지 - 관리되는 인스턴스
+            - name: 위협 감지 - Managed Instance
               href: sql-database-managed-instance-threat-detection.md
         - name: 방화벽 규칙
           items:
@@ -214,7 +216,7 @@
           items:
             - name: '감사 - 서버, 풀 및 데이터베이스'
               href: sql-database-auditing.md
-            - name: 감사 - 관리되는 인스턴스
+            - name: 감사 - Managed Instance
               href: sql-database-managed-instance-auditing.md
             - name: 테이블 감사(사용되지 않음)
               href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
@@ -402,9 +404,9 @@
       items:
         - name: SQL Database로 마이그레이션
           href: sql-database-cloud-migrate.md
-        - name: 관리되는 인스턴스로 마이그레이션
+        - name: Managed Instance로 마이그레이션
           href: sql-database-managed-instance-migrate.md
-        - name: 관리되는 인스턴스로 TDE 인증서 마이그레이션
+        - name: Managed Instance로 TDE 인증서 마이그레이션
           href: sql-database-managed-instance-migrate-tde-certificate.md
         - name: 마이그레이션 후 SQL Database 관리
           href: sql-database-manage-after-migration.md

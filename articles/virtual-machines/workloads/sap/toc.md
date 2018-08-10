@@ -63,6 +63,7 @@
 ##### [단일 Azure 지역 내 Azure의 SAP HANA 가용성](sap-hana-availability-one-region.md)
 ##### [Azure 지역 간 Azure의 SAP HANA 가용성](sap-hana-availability-across-regions.md)
 ## [SAP 재해 복구를 위한 Azure Site Recovery](../../../site-recovery/site-recovery-workload.md#protect-sap)
+## [Azure용 SAP LaMa 커넥터](lama-installation.md)
 # AAD SAP ID 통합 및 Single-Sign-On
 ## [SAP 클라우드와 통합](../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 ## [AAD와 SAP 클라우드 플랫폼 ID 인증 통합](../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)

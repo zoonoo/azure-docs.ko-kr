@@ -96,6 +96,8 @@
           href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
         - name: 작업 모니터링 - Azure .Net SDK
           href: stream-analytics-monitor-jobs.md
+        - name: 작업 모니터링 - Visual Studio
+          href: stream-analytics-monitor-jobs-use-vs.md
     - name: 확장
       items:
         - name: 스트리밍 단위로 크기 조정
@@ -117,8 +119,10 @@
       items:
         - name: 도구 설치
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: 클라우드 작업 개발
-          href: stream-analytics-tools-for-visual-studio.md
+        - name: 로컬로 작업 테스트
+          href: stream-analytics-vs-tools-local-run.md
+        - name: Visual Studio에서 작업 보기
+          href: stream-analytics-vs-tools.md
         - name: 에지 작업 개발
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: CI/CD 파이프라인 설정

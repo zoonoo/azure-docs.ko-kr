@@ -88,6 +88,8 @@
           href: iot-accelerators-time-series-insights.md
         - name: Data Lake를 사용하여 원격 분석 수행
           href: iot-accelerators-integrate-data-lake.md
+        - name: 역할 기반 액세스 제어 구성
+          href: iot-accelerators-remote-monitoring-rbac.md
     - name: 원격 모니터링(이전 버전)
       items:
         - name: 미리 구성된 솔루션이란?

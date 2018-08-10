@@ -43,3 +43,9 @@
       href: 'https://registry.terraform.io/modules/Azure'
     - name: Terraform 참조
       href: 'http://aka.ms/terraform'
+- name: 리소스
+  items:
+    - name: Azure 및 Terraform
+      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'

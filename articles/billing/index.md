@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285851"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626185"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 청구 및 비용 관리 설명서
 
@@ -101,8 +101,8 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
                         <p>
                         <a href="/azure/billing/billing-manage-access">요금 청구에 대한 액세스 권한 부여</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">청구서로 지불</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">예약 인스턴스 관리</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">예약 인스턴스 사용량</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Azure 예약 관리</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Azure 예약의 사용량</a>
                         </p>
                     </div>
                 </div>
@@ -131,11 +131,12 @@ Azure 청구를 이해하고 사용량 및 비용을 모니터링하며 계정 �
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>예약 VM 인스턴스로 비용 절감</h3>
+                        <h3>Azure 예약을 사용하여 저장</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">예약 인스턴스란?</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">예약 인스턴스 구입</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">할인 적용 방식</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Azure 예약이란?</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Reserved VM Instance 구입</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">SQL Database 예약된 용량 구입</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">VM 할인 적용 방식</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">소프트웨어 비용 미포함</a>
                         </p>
                     </div>

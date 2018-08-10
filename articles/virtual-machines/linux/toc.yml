@@ -228,9 +228,9 @@
           href: metrics-vm-usage-rest.md
     - name: 비용 관리
       items:
-        - name: VM 선불 - 예약된 인스턴스
+        - name: VM 선불 - Azure 예약
           href: prepay-reserved-vm-instances.md
-        - name: 예약 인스턴스란?
+        - name: Azure 예약이란?
           href: ../../billing/billing-save-compute-costs-reservations.md
         - name: VM 인스턴스 크기 유연성
           href: reserved-vm-instance-size-flexibility.md
