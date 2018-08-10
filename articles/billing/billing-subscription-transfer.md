@@ -14,19 +14,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 110e2f611ba8bfc42fe17de6aa4487683db4a414
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 44e4bedd747c5a0010058efee595402448f6a30b
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069879"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39507154"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 소유권을 다른 계정으로 양도
 
-구독을 계정 센터의 다른 사용자로 변환하여 계정 관리자를 변경하고 구독 청구 소유권을 전달합니다. 구독을 다른 제품으로 변경하려면 [Azure 구독을 다른 제품으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
+구독을 계정 센터의 다른 사용자로 변환하여 계정 관리자를 변경하고 구독 청구 소유권을 전달합니다. 구독을 다른 제안으로 변경하려면 [Azure 구독을 다른 제안으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
 > [!IMPORTANT]
 > 
@@ -44,7 +44,7 @@ ms.locfileid: "34069879"
 
 1. [지원되는 제품 목록](#supported)과 함께 **제품** 및 **제품 ID**를 확인하여 구독이 셀프 서비스 양도에 해당되는지 확인합니다.
 
-   ![계정 센터에서 구독의 제품 ID 확인](./media/billing-subscription-transfer/image0.png)
+   ![계정 센터에서 구독의 제안 ID 확인](./media/billing-subscription-transfer/image0.png)
 1. **구독 이전**을 클릭합니다.
 
    ![Azure 계정 구독 탭](./media/billing-subscription-transfer/image1.png)
@@ -86,7 +86,7 @@ ms.locfileid: "34069879"
 
 ## <a name="whats-supported"></a>지원되는 내용:
 
-셀프 서비스 구독 양도는 다음 표에 나열된 제품 또는 구독 유형에 사용할 수 있습니다. 현재 평가판 또는 [AIO(Azure in Open)](https://azure.microsoft.com/offers/ms-azr-0111p/) 구독을 전송할 수 없습니다. 해결 방법을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요. [스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) 또는 지원 플랜과 같은 다른 구독을 전송하려면 [고객 지원팀에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+셀프 서비스 구독 양도는 다음 표에 나열된 제안 또는 구독 유형에 사용할 수 있습니다. 현재 평가판 또는 [AIO(Azure in Open)](https://azure.microsoft.com/offers/ms-azr-0111p/) 구독을 전송할 수 없습니다. 해결 방법을 보려면 [새 리소스 그룹 또는 구독으로 리소스 이동](../azure-resource-manager/resource-group-move-resources.md)을 참조하세요. [스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) 또는 지원 플랜과 같은 다른 구독을 전송하려면 [고객 지원팀에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 | 제품 이름                                                                             | 제품 번호 |
 |----------------------------------------------------------------------------------------|--------------|
@@ -116,11 +116,11 @@ ms.locfileid: "34069879"
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>모든 것이 양도되나요? 양도 항목에 리소스 그룹, VM, 디스크 및 기타 실행 중인 서비스가 포함되나요?
 
-VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도됩니다. 그러나 설정한 [관리자 역할](billing-add-change-azure-subscription-administrator.md) 및 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 정책은 다른 디렉터리 간에 양도되지 않습니다. 또한 [앱 등록](../active-directory//develop/active-directory-integrating-applications.md) 및 다른 테넌트 관련 서비스는 양도되지 않습니다.
+VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도됩니다. 그러나 설정한 [관리자 역할](billing-add-change-azure-subscription-administrator.md) 및 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md) 정책은 다른 디렉터리 간에 양도되지 않습니다. 또한 [앱 등록](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 및 다른 테넌트 관련 서비스는 양도되지 않습니다.
 
 ### <a id="no-button"></a> "구독 양도" 단추가 보이지 않는 이유는 무엇인가요?
 
-아쉽게도 셀프 서비스 구독 양도는 해당 제품 또는 국가에 사용할 수 없습니다. 구독을 양도하려면 [지원에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+아쉽게도 셀프 서비스 구독 양도는 해당 제안 또는 국가에 사용할 수 없습니다. 구독을 양도하려면 [지원에 문의하세요](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?
 
@@ -155,7 +155,7 @@ VM, 디스크, 웹 사이트 등 모든 리소스가 새 소유자에게 양도�
 
 ### <a name="can-the-offer-be-changed-during-a-transfer"></a>양도하는 동안 제품을 변경할 수 있습니까?
 
-제품을 동일하게 유지해야 합니다. 제품을 변경하려면 [Azure 구독을 다른 제품으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
+제품을 동일하게 유지해야 합니다. 제안을 변경하려면 [Azure 구독을 다른 제안으로 전환](billing-how-to-switch-azure-offer.md)을 참조하세요.
 
 ### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>다른 국가에서 사용자 계정에 대 한 구독을 양도할 수 있습니까?
 
