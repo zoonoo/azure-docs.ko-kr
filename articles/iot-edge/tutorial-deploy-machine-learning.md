@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 28b963922b423bb776aa97e9b76392bc484ddcd6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413076"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627810"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -46,9 +46,10 @@ Azure IoT Edge 장치:
 클라우드 리소스:
 
 * Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure Machine Learning 계정입니다. [Azure Machine Learning 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
 
 개발 리소스:
-* Azure Machine Learning 계정입니다. [Azure Machine Learning 계정 만들기 및 Azure Machine Learning Workbench 설치](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts)의 지침을 따릅니다. 이 자습서에 사용하기 위해 워크벤치 응용 프로그램을 설치할 필요는 없습니다. 
+
 * Azure ML용 모델 관리. 환경을 설정하고 계정을 만들려면 [모델 관리 설정](../machine-learning/desktop-workbench/deployment-setup-configuration.md)의 지침을 따릅니다. 배포 설정 과정에서 가능하다면 클러스터 대신 로컬 단계를 선택하는 것이 좋습니다.
 
 ### <a name="disable-process-identification"></a>프로세스 식별 사용 안 함
@@ -56,7 +57,7 @@ Azure IoT Edge 장치:
 >[!NOTE]
 >
 > 미리 보기로 있는 동안 Azure Machine Learning은 IoT Edge에서 기본적으로 사용하도록 설정된 프로세스 식별 보안 기능을 지원하지 않습니다. 
-> 이를 사용하지 않도록 설정하는 단계는 다음과 같습니다. 그러나 프로덕션 환경에서 사용하는 경우 이러한 단계는 적합하지 않습니다. Windows Edge 런타임 설치 단계에서 이 단계를 이미 완료했으므로 Linux에서만 이 단계를 수행하면 됩니다.
+> 이를 사용하지 않도록 설정하는 단계는 다음과 같습니다. 그러나 프로덕션 환경에서 사용하는 경우 이러한 단계는 적합하지 않습니다. Windows Edge 런타임 설치 시 이 단계를 이미 완료했으므로 Linux에서만 이 단계를 수행하면 됩니다.
 
 IoT Edge 장치에서 프로세스 식별을 사용하지 않도록 설정하려면 IoT Edge 디먼 구성의 **연결** 섹션에서 **workload_uri** 및 **management_uri**의 IP 주소와 포트를 입력해야 합니다.
 
@@ -93,7 +94,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>Azure ML 컨테이너 만들기
 이 섹션에서는 학습된 모델 파일을 다운로드하고 이를 Azure ML 컨테이너로 변환합니다.
 
-Azure ML용 모듈 관리를 실행하는 컴퓨터에서, GitHub에 있는 Azure ML IoT Toolkit의 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 및 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)을 다운로드하고 저장합니다. 이 파일은 Iot Edge 장치에 배포할 학습된 기계 학습 모델을 정의합니다.
+Azure ML용 모듈 관리를 실행하는 머신에서, GitHub에 있는 Azure ML IoT Toolkit의 [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) 및 [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl)을 다운로드하고 저장합니다. 이 파일은 Iot Edge 장치에 배포할 학습된 기계 학습 모델을 정의합니다.
 
 학습된 모델을 사용하여 IoT Edge 장치에 배포할 수 있는 컨테이너를 만듭니다. 다음과 같은 작업에 다음 명령을 사용합니다.
 
@@ -187,7 +188,7 @@ Linux 장치에서 이러한 명령을 수행하는 경우 승격된 권한에 �
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>IoT 허브에 도착한 데이터 보기
 
-[IoT Hub 탐색기 도구](https://github.com/azure/iothub-explorer) 또는 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT 허브에서 받는 장치-클라우드 메시지를 볼 수 있습니다.
+[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub가 받는 장치-클라우드 메시지를 볼 수 있습니다.
 
 다음 단계에서는 IoT 허브에 도착한 장치-클라우드 메시지를 모니터링하도록 Visual Studio Code를 설정하는 방법을 보여 줍니다. 
 
@@ -220,7 +221,7 @@ Linux 장치에서 이러한 명령을 수행하는 경우 승격된 권한에 �
 IoT Hub만 삭제하려면 허브 이름과 리소스 그룹 이름을 사용하여 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

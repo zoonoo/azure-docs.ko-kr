@@ -1,24 +1,20 @@
 ---
-title: '자습서: Apache Kafka Streams API 사용 - Azure HDInsight | Microsoft Docs'
+title: '자습서: Apache Kafka Streams API 사용 - Azure HDInsight '
 description: HDInsight의 Kafka에서 Apache Kafka Streams API를 사용하는 방법에 대해 알아봅니다. 이 API를 사용하면 Kafka에서 토픽 간 스트림 처리를 수행할 수 있습니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/17/2018
-ms.author: larryfr
-ms.openlocfilehash: 5391d6ae101a97e9b62215621267e591b2a995f5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d285575802dd830247533420154f6f5e868272a2
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626397"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621048"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>자습서: Apache Kafka Streams API
 
@@ -225,7 +221,7 @@ public class Stream
 2. `test` 토픽으로 레코드를 보내려면 다음 명령을 사용하여 생산자 응용 프로그램을 시작합니다.
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. 생산자가 완료되면 다음 명령을 사용하여 `wordcounts` 토픽에 저장된 정보를 확인합니다.

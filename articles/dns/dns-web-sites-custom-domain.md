@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b39c2c672869bb446e58134a85130d10491fe047
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39204945"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621116"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-an-a-record-and-txt-record"></a>A 레코드 및 TXT 레코드 만들기
 
-A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 웹앱 IPv4 주소를 사용하여 "@"을 A 레코드로 할당합니다. @은 일반적으로 루트 도메인을 나타냅니다.
+A 레코드는 이름을 해당 IP 주소에 매핑하는 데 사용됩니다. 다음 예제에서는 웹앱 IPv4 주소를 사용하여 "\@"을 A 레코드로 할당합니다. \@은 일반적으로 루트 도메인을 나타냅니다.
 
 ### <a name="get-the-ipv4-address"></a>IPv4 주소 가져오기
 

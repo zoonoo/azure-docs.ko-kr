@@ -1,25 +1,19 @@
 ---
-title: Apache Kafka 시작 - Azure HDInsight 빠른 시작 | Microsoft Docs
+title: Apache Kafka 시작 - Azure HDInsight 빠른 시작
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Kafka 토픽, 구독자 및 소비자에 대해서도 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: dhgoelmsft
-manager: jhubbard
-ms.assetid: 43585abf-bec1-4322-adde-6db21de98d7f
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: mvc,hdinsightactive
-ms.devlang: ''
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 776705281a1909cbeee657f7915d4c83ec8bbabe
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c8ec39c6962c4044810d0ae65d2736043bdd4d72
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342156"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620215"
 ---
 # <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>빠른 시작: HDInsight 클러스터에서 Kafka 만들기
 
@@ -64,7 +58,7 @@ HDInsight 클러스터에 Kafka를 만들려면 다음 단계를 수행합니다
     | 설정 | 값 |
     | --- | --- |
     | 클러스터 이름 | HDInsight 클러스터에 사용할 고유한 이름입니다. |
-    | 구독 | 사용 중인 구독을 선택합니다. |
+    | 구독 | 구독을 선택합니다. |
     
     __클러스터 유형__을 선택하여 **클러스터 구성**을 표시합니다.
 

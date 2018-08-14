@@ -4,17 +4,17 @@ description: 시뮬레이트된 에지 장치에서 분석을 실행하여 Azure
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/24/2018
+ms.date: 08/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1437c3552a7af5d5474cf3bdaabe95d5415af603
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b54a326fc648a443897a6e39c823d9c097cf1d3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414214"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626385"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -56,14 +56,13 @@ Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다.
    az group create --name IoTEdgeResources --location westus
    ```
 
-IoT Edge 장치 역할을 하는 Windows 컴퓨터 또는 가상 머신입니다. 
+IoT Edge 장치: 
 
-* 지원되는 Windows 버전을 사용하세요.
+* IoT Edge 장치 역할을 하는 Windows 컴퓨터 또는 가상 머신입니다. 지원되는 Windows 버전을 사용하세요.
    * Windows 10 이상
    * Windows Server 2016 이상
 * 가상 머신인 경우 [중첩된 가상화][lnk-nested]를 사용하도록 설정하고 최소 2GB 메모리를 할당하세요. 
 * [Windows용 Docker][lnk-docker]를 설치하고, 지금 실행 중인지 확인합니다.
-* [Linux 컨테이너](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)를 사용하여 Docker 구성
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -86,7 +85,9 @@ Azure CLI를 사용하여 IoT Hub를 만들어서 이 빠른 시작을 시작합
 새로 만든 IoT Hub에 IoT Edge 장치를 등록합니다.
 ![장치 등록][4]
 
-IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 만듭니다. IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, 처음부터 IoT Edge 장치로 선언합니다. 
+IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 만듭니다. 장치 ID는 클라우드에 있으며, 사용자는 고유한 장치 연결 문자열을 사용하여 물리적 장치를 장치 ID에 연결합니다. 
+
+IoT Edge 장치는 일반적인 IoT 장치와 다르게 작동하며 다른 방식으로 관리될 수 있으므로, 처음부터 IoT Edge 장치로 선언합니다. 
 
 1. Azure Cloud Shell에서 다음 명령을 입력하여 **myEdgeDevice**라는 장치를 허브에 만듭니다.
 
@@ -104,129 +105,31 @@ IoT Hub와 통신할 수 있도록, 시뮬레이트된 장치의 장치 ID를 �
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>IoT Edge 런타임 설치 및 시작
 
-IoT Edge 장치에 Azure IoT Edge 런타임을 설치하고 시작합니다. 
+IoT Edge 장치에 Azure IoT Edge 런타임을 설치하고 장치 연결 문자열을 사용하여 구성합니다. 
 ![장치 등록][5]
 
 IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 요소가 있습니다. **IoT Edge 보안 디먼**은 Edge 장치가 부팅되고 IoT Edge 에이전트를 시작하여 장치를 부트스트랩할 때마다 시작됩니다. **IoT Edge 에이전트**는 IoT Edge 허브를 포함하여 IoT Edge 장치에서 모듈을 쉽게 배포하고 모니터링할 수 있습니다. **IoT Edge 허브**는 IoT Edge 장치의 모듈 간 통신과 장치와 IoT Hub 간의 통신을 관리합니다. 
 
->[!NOTE]
->이 섹션의 설치 단계는 설치 스크립트를 개발하는 현재로서는 수동입니다. 
+런타임을 설치하는 동안 장치 연결 문자열을 요청하라는 메시지가 나타납니다. Azure CLI에서 검색한 문자열을 사용합니다. 이 문자열은 물리적 장치를 Azure의 IoT Edge 장치 ID에 연결합니다. 
 
 이 섹션의 지침은 Linux 컨테이너를 사용하여 IoT Edge 런타임을 구성합니다. Windows 컨테이너를 사용하려는 경우 [Windows 컨테이너를 사용하려면 Windows에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-windows-with-windows.md)를 참조하세요.
 
+IoT Edge 장치로 작동하도록 준비한 Windows 머신 또는 VM에서 다음 단계를 완료합니다. 
+
 ### <a name="download-and-install-the-iot-edge-service"></a>IoT Edge 서비스 다운로드 및 설치
+
+PowerShell을 사용하여 IoT Edge 런타임을 다운로드하여 설치합니다. IoT Hub에서 검색한 장치 연결 문자열을 사용하여 장치를 구성합니다. 
 
 1. IoT Edge 장치에서 관리자 권한으로 PowerShell을 실행합니다.
 
-2. IoT Edge 서비스 패키지를 다운로드합니다.
+2. IoT Edge 서비스를 장치에 다운로드하여 설치합니다. 
 
    ```powershell
-   Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-   Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-   Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-   rmdir C:\ProgramData\iotedge\iotedged-windows
-   $sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
-   $path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
-   Set-ItemProperty -Path $sysenv -Name Path -Value $path
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Install-SecurityDaemon -Manual -ContainerOs Linux
    ```
 
-3. vcruntime을 설치합니다.
-
-  ```powershell
-  Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
-  .\vc_redist.exe /quiet /norestart
-  ```
-
-4. IoT Edge 서비스를 만들고 시작합니다.
-
-   ```powershell
-   New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
-   Start-Service iotedge
-   ```
-
-5. IoT Edge 서비스가 사용하는 포트에 대해 방화벽 예외를 추가합니다.
-
-   ```powershell
-   New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
-   ```
-
-6. **iotedge.reg**라는 새 파일을 만들어 텍스트 편집기에서 엽니다. 
-
-7. 다음 콘텐츠를 추가하고 파일을 저장합니다. 
-
-   ```input
-   Windows Registry Editor Version 5.00
-   [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
-   "CustomSource"=dword:00000001
-   "EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
-   "TypesSupported"=dword:00000007
-   ```
-
-8. 파일 탐색기에서 파일로 이동하고 두 번 클릭하여 Windows Registry로 변경 내용을 가져옵니다. 
-
-### <a name="configure-the-iot-edge-runtime"></a>IoT Edge 런타임 구성 
-
-새 장치를 등록할 때 복사한 IoT Edge 장치 연결 문자열로 런타임을 구성합니다. 그런 다음, 런타임 네트워크를 구성합니다. 
-
-1. `C:\ProgramData\iotedge\config.yaml`에 있는 IoT Edge 구성 파일을 엽니다. 이 파일이 보호되므로 관리자 권한으로 메모장 같은 텍스트 편집기를 실행한 다음, 편집기를 사용하여 파일을 엽니다. 
-
-2. **프로비전** 섹션을 찾아 IoT Edge 장치 세부 정보에서 복사한 문자열로 **device_connection_string**의 값을 업데이트합니다. 
-
-3. 관리자 PowerShell 창에서 IoT Edge 장치에 대한 호스트 이름을 검색하고 출력을 복사합니다. 
-
-   ```powershell
-   hostname
-   ```
-
-4. 구성 파일에서 **Edge 장치 호스트 이름** 섹션을 찾습니다. PowerShell에서 복사한 호스트 이름으로 **호스트 이름** 값을 업데이트합니다.
-
-3. 관리자 PowerShell 창에서 IoT Edge 장치에 대한 IP 주소를 검색합니다. 
-
-   ```powershell
-   ipconfig
-   ```
-
-4. 출력의 **vEthernet(DockerNAT)** 섹션에서 **IPv4 주소**에 대한 값을 복사합니다. 
-
-5. *\<ip_address\>* 를 IoT Edge 장치에 대한 IP 주소로 바꾸면서 **IOTEDGE_HOST**라는 환경 변수를 만듭니다. 
-
-   ```powershell
-   [Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<ip_address>:15580")
-   ```
-
-6. `config.yaml` 파일에서 **연결 설정** 섹션을 찾습니다. 이전 섹션에서 연 포트 및 IP 주소를 사용하여 **management_uri** 및 **workload_uri** 값을 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 DockerNAT IP 주소로 바꿉니다. 
-
-   ```yaml
-   connect: 
-     management_uri: "http://<GATEWAY_ADDRESS>:15580"
-     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
-   ```
-
-7. **설정 수신** 섹션을 찾아 **management_uri** 및 **workload_uri**에 대해 동일한 값을 추가합니다. 
-
-   ```yaml
-   listen:
-     management_uri: "http://<GATEWAY_ADDRESS>:15580"
-     workload_uri: "http://<GATEWAY_ADDRESS>:15581"
-   ```
-
-8. **Moby 컨테이너 런타임 설정** 섹션을 찾아 **네트워크** 값의 주석이 제거되었고 **azure-iot-edge**로 설정되었는지 확인합니다.
-
-   ```yaml
-   moby_runtime:
-     docker_uri: "npipe://./pipe/docker_engine"
-     network: "azure-iot-edge"
-   ```
-
-9. 구성 파일을 저장합니다. 
-
-10. PowerShell에서 IoT Edge 서비스를 다시 시작합니다.
-
-   ```powershell
-   Stop-Service iotedge -NoWait
-   sleep 5
-   Start-Service iotedge
-   ```
+3. **DeviceConnectionString**을 요청하는 메시지가 표시되면 이전 섹션에서 복사한 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요. 
 
 ### <a name="view-the-iot-edge-runtime-status"></a>IoT Edge 런타임 상태 보기
 
@@ -259,6 +162,8 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 세 가지 구성 
 
    ![장치에서 하나의 모듈 보기](./media/quickstart/iotedge-list-1.png)
 
+IoT Edge 장치가 구성되었습니다. 클라우드 배포 모듈을 실행할 준비가 완료된 것입니다. 
+
 ## <a name="deploy-a-module"></a>모듈 배포
 
 클라우드에서 Azure IoT Edge 장치를 관리하여 원격 분석 데이터를 IoT Hub로 보낼 모듈을 배포합니다.
@@ -286,7 +191,7 @@ iotedge logs tempSensor -f
 
   ![모듈의 데이터 보기](./media/quickstart/iotedge-logs.png)
 
-[Visual Studio Code에 대해 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 또는 [IoT Hub 탐색기 도구][lnk-iothub-explorer]를 사용하여 IoT Hub에서 받는 메시지를 볼 수 있습니다. 
+[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub에서 받는 메시지를 볼 수 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -321,8 +226,8 @@ IoT Edge 자습서로 계속 진행하려면 이 빠른 시작에서 등록하�
 IoT Edge 런타임을 제거합니다.
 
    ```powershell
-   cmd /c sc delete iotedge
-   rm -r c:\programdata\iotedge
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Uninstall-SecurityDaemon
    ```
 
 IoT Edge 런타임을 제거하면 만든 컨테이너는 중지되지만 장치에는 계속 남아 있습니다. 모든 컨테이너를 봅니다.
@@ -360,11 +265,8 @@ Azure IoT Edge가 이러한 데이터를 통해 비즈니스 통찰력을 얻는
 
 <!-- Links -->
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
 [lnk-nested]: https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 
-<!-- Anchor links -->
-[anchor-register]: #register-an-iot-edge-device

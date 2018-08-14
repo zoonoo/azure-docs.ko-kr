@@ -1,27 +1,21 @@
 ---
-title: HDInsight의 Apache Storm에서 Storm-starter예제 - Azure | Microsoft Docs
+title: HDInsight의 Apache Storm에서 Storm-starter예제 - Azure
 description: HDInsight에서 Apache Storm 및 storm-starter 예제를 사용하여 빅 데이터 분석 및 데이터 처리를 수행하는 방법을 알아봅니다.
 keywords: storm-starter, apache storm 예제
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: d710dcac-35d1-4c27-a8d6-acaf8146b485
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: java
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 02/27/2018
-ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: a5abce003849258cf02616dc34b15597b3c6ea19
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 3c874e296f984355800868eb530c52fa9fcc0104
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099384"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620191"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>storm-starter 예제를 사용하여 HDInsight의 Apache Storm 시작
 
@@ -32,13 +26,13 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [Windows에서 HDInsight 사용 중지](../hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
-* **SSH 및 SCP 사용 경험** 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* **SSH 및 SCP 사용 경험**. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="create-a-storm-cluster"></a>Storm 클러스터 만들기
 
@@ -71,7 +65,7 @@ Apache Storm은 데이터 스트림 처리용 확장 가능한 분산형 실시�
 
     ![클러스터 유형 선택](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-cluster-type.png)
 
-4. 클러스터 유형을 선택한 후 __선택__ 단추를 사용하여 클러스터 유형을 설정합니다. 다음으로 __다음__ 단추를 사용하여 기본 구성을 완료합니다.
+4. 클러스터 유형을 선택한 후 __선택__ 단추를 사용하여 클러스터 유형을 설정합니다. 그 다음, __다음__ 단추를 사용하여 기본 구성을 완료합니다.
 
 5. **저장소** 섹션에서 저장소 계정을 선택하거나 만듭니다. 이 문서의 단계에서는 이 섹션의 다른 필드를 기본값으로 둡니다. __다음__ 단추를 사용하여 저장소 구성을 저장합니다. Data Lake Storage Gen2를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
 
@@ -124,7 +118,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 2. **토폴로지 요약**의 **이름** 열에서 **wordcount** 항목을 선택합니다. 토폴로지에 대한 정보가 표시됩니다.
 
-    ![storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드](./media/apache-storm-tutorial-get-started-linux/topology-summary.png)
+    ![storm-starter WordCount 토폴로지 정보가 있는 Storm 대시보드.](./media/apache-storm-tutorial-get-started-linux/topology-summary.png)
 
     이 페이지에서는 다음 정보를 제공합니다.
 
@@ -151,7 +145,7 @@ Storm UI를 사용하여 토폴로지를 모니터링하려면 다음 단계를 
 
 3. 이 페이지의 **Spouts** 또는 **Bolts** 섹션에서 항목을 선택합니다. 선택한 구성 요소에 대한 정보가 표시됩니다.
 
-    ![선택한 구성 요소에 대한 정보가 있는 스톰 대시보드](./media/apache-storm-tutorial-get-started-linux/component-summary.png)
+    ![선택한 구성 요소에 대한 정보가 있는 스톰 대시보드.](./media/apache-storm-tutorial-get-started-linux/component-summary.png)
 
     이 페이지에는 다음 정보가 표시됩니다.
 

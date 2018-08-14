@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903478"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627205"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Azure Batch AI란?
 Batch AI는 데이터 과학자 및 AI 연구원이 GPU를 지원하는 VM을 포함하여 Azure 가상 머신 클러스터에서 AI 및 기타 기계 학습 모델을 교육할 수 있게 해주는 관리 서비스입니다. 사용자가 작업의 요구 사항, 입력을 찾고 출력을 저장하는 위치를 설명하면 나머지는 Batch AI가 처리합니다.  
@@ -40,7 +40,7 @@ Batch AI는 AI 교육 및 테스트에 특화된 리소스 관리 및 작업 예
 * GPU 또는 CPU를 사용하여 VM 클러스터를 자동 또는 수동으로 크기 조정 
 * VM 간 및 원격 액세스에 대한 SSH 통신 구성 
 * [Microsoft CNTK(Cognitive Toolkit)](https://github.com/Microsoft/CNTK), [TensorFlow](https://www.tensorflow.org/) 및 [Chainer](https://chainer.org/) 같은 인기 있는 도구 키트에 최적화된 구성을 사용하여 심층 학습 또는 기계 학습 프레임워크 지원 
-* 클러스터를 공유하고 우선 순위가 낮은 VM 및 예약된 인스턴스를 활용하는 우선 순위 기반 작업 큐  
+* 클러스터를 공유하고 우선 순위가 낮은 VM 및 Azure 예약을 활용하는 우선 순위 기반 작업 큐  
 * Azure 파일 및 관리 NFS 서버를 포함한 유연한 저장소 옵션 
 * 원격 파일 공유를 VM 및 선택적 컨테이너에 탑재 
 * 작업 상태를 제공하고 VM 오류 시 다시 시작 
