@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: d1315753baf08cc80fda5811bd43bf59609781b7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: fe41728b6f08ba767dbcb40d0595b9f7cdc79615
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216026"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420202"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -47,6 +47,9 @@ ms.locfileid: "39216026"
     7. **저장**을 선택합니다.
 
         ![클래스룸 랩 만들기](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+1. 랩이 만들어지면 **내 랩으로 이동**을 선택합니다. 
+
+    ![내 랩으로 이동](../media/tutorial-setup-classroom-lab/go-to-my-lab.png)
 1. 랩의 **대시보드**가 표시됩니다. 
     
     ![클래스룸 랩 대시보드](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)

@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/22/2018
+ms.date: 08/01/2018
 ms.author: shvija
-ms.openlocfilehash: d339ad79eb632f1e6fa91b1fca56488c3ae67d86
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: c5cec92094a2e76d02487adff43abf040aedfe0e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435350"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425812"
 ---
 # <a name="what-is-azure-event-hubs"></a>Azure Event Hubs 정의
 
@@ -38,25 +38,13 @@ Event Hubs는 다음과 같은 일반적인 시나리오에 사용됩니다.
 
 Event Hubs는 이벤트 파이프라인의 "현관" 역할을 하며, 솔루션 아키텍처에서는 *이벤트 수집기*라고 부르기도 합니다. 이벤트 ingestor는 이러한 이벤트에서 이벤트 스트림의 프로덕션을 분리하는 이벤트 게시자와 이벤트 소비자 간에 작용하는 구성 요소 또는 서비스입니다. Event Hubs는 통합 스트리밍 플랫폼에 시간 보존 버퍼를 제공하며, 이벤트 소비자로부터 이벤트 생산자를 분리합니다. 
 
-## <a name="key-features"></a>주요 기능
-
-Event Hubs는 메시지 스트림 처리 기능을 제공하지만 기존 엔터프라이즈 메시지와 다른 특징을 가지고 있습니다. Event Hubs 기능은 높은 처리량 및 이벤트 처리 시나리오를 중심으로 구축됩니다. Event Hubs에는 다음과 같은 [주요 구성 요소](event-hubs-features.md)가 포함되어 있습니다.
-
-- **이벤트 생산자**: 이벤트 허브에 데이터를 보내는 엔터티입니다. 이벤트 게시자는 HTTPS 또는 AMQP 1.0 또는 Apache Kafka 1.0 이상을 사용하여 이벤트를 게시할 수 있습니다.
-- **파티션**: 각 소비자는 메시지 스트림의 특정 하위 집합 또는 파티션만 읽습니다.
-- **소비자 그룹**: 전체 이벤트 허브의 보기(상태, 위치 또는 오프셋)입니다. 소비자 그룹은 여러 소비 응용 프로그램을 사용하여 이벤트 스트림의 별도 보기가 있으며 자신의 속도 및 자신의 오프셋으로 독립적으로 스트림을 읽을 수 있습니다.
-- **처리량 단위**: Event Hubs의 처리량 용량을 제어하는 미리 구입한 용량 단위입니다.
-- **이벤트 수신기**: 이벤트 허브에서 이벤트 데이터를 읽는 엔터티입니다. 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다.
-
-다음 그림에서는 아키텍처를 처리하는 Event Hubs 스트림을 보여 줍니다.
-
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+다음 섹션에서는 Azure Event Hubs 서비스의 주요 기능을 설명합니다. 
 
 ## <a name="fully-managed-paas"></a>완전히 관리되는 PaaS 
 
 이벤트 허브는 구성 또는 관리 오버헤드가 거의 없는 관리형 서비스이므로 비즈니스 솔루션에 집중할 수 있습니다. [Apache Kafka 에코시스템을 위한 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)는 클러스터를 관리, 구성 또는 실행할 필요가 없는 PaaS Kafka 환경을 제공합니다.
 
-## <a name="real-time-and-batching"></a>실시간 일괄 처리
+## <a name="support-for-real-time-and-batch-processing"></a>실시간 일괄 처리 지원
 
 스트림을 실시간으로 수집, 버퍼, 저장 및 처리하여 실행 가능한 인사이트를 얻을 수 있습니다. Event Hubs는 [분할된 소비자 모델](event-hubs-features.md#partitions)을 사용하여 여러 응용 프로그램이 스트림을 동시에 처리할 수 있도록 지원하며, 처리 속도를 사용자가 제어할 수 있습니다.
 
@@ -73,6 +61,21 @@ Event Hubs를 사용하여 메가바이트 단위로 데이터 스트림을 시�
 [Apache Kafka 에코시스템을 위한 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)를 사용하면 클러스터를 관리할 필요 없이 [Apache Kafka(1.0 이상)](https://kafka.apache.org/) 클라이언트 및 응용 프로그램이 Event Hubs와 통신합니다.
  
 방대한 에코시스템이 다양한 [언어(.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs)로 제공되므로 Event Hubs에서 간편하게 스트림 처리를 시작할 수 있습니다. 지원되는 모든 클라이언트 언어는 하위 수준 통합을 제공합니다.
+
+## <a name="key-architecture-components"></a>주요 아키텍처 구성 요소
+
+Event Hubs는 메시지 스트림 처리 기능을 제공하지만 기존 엔터프라이즈 메시지와 다른 특징을 가지고 있습니다. Event Hubs 기능은 높은 처리량 및 이벤트 처리 시나리오를 중심으로 구축됩니다. Event Hubs에는 다음과 같은 [주요 구성 요소](event-hubs-features.md)가 포함되어 있습니다.
+
+- **이벤트 생산자**: 이벤트 허브에 데이터를 보내는 엔터티입니다. 이벤트 게시자는 HTTPS 또는 AMQP 1.0 또는 Apache Kafka 1.0 이상을 사용하여 이벤트를 게시할 수 있습니다.
+- **파티션**: 각 소비자는 메시지 스트림의 특정 하위 집합 또는 파티션만 읽습니다.
+- **소비자 그룹**: 전체 이벤트 허브의 보기(상태, 위치 또는 오프셋)입니다. 소비자 그룹은 여러 소비 응용 프로그램을 사용하여 이벤트 스트림의 별도 보기가 있으며 자신의 속도 및 자신의 오프셋으로 독립적으로 스트림을 읽을 수 있습니다.
+- **처리량 단위**: Event Hubs의 처리량 용량을 제어하는 미리 구입한 용량 단위입니다.
+- **이벤트 수신기**: 이벤트 허브에서 이벤트 데이터를 읽는 엔터티입니다. 모든 Event Hubs 소비자는 AMQP 1.0 세션을 통해 연결되며, 사용 가능한 상태가 되면 이 세션을 통해 이벤트가 전달됩니다.
+
+다음 그림에서는 아키텍처를 처리하는 Event Hubs 스트림을 보여 줍니다.
+
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
+
 
 ## <a name="next-steps"></a>다음 단계
 
