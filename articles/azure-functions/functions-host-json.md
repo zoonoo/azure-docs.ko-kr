@@ -23,7 +23,7 @@ ms.locfileid: "39345517"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Azure Functions에 대한 host.json 참조
 
-*host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에는 사용 가능한 설정이 나열되어 있습니다. JSON 스키마는 http://json.schemastore.org/host에 있습니다.
+*host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에는 사용 가능한 설정이 나열되어 있습니다. JSON 스키마는 http://json.schemastore.org/host 에 있습니다.
 
 [앱 설정](functions-app-settings.md) 및 [local.settings.json](functions-run-local.md#local-settings-file) 파일에는 다른 전역 구성 옵션이 있습니다.
 
