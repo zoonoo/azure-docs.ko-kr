@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics를 사용하여 온-프레미스 Windows 컴퓨터에서 데이터 수집 | Microsoft Docs
-description: Azure 외부의 컴퓨터에서 실행되는 Windows에 대해 Log Analytics 에이전트를 배포하고 Log Analytics로 데이터의 수집을 활성화하는 방법을 알아봅니다.
+title: 하이브리드 Windows 컴퓨터용 Azure Log Analytics 에이전트 구성 | Microsoft Docs
+description: Azure 외부의 컴퓨터에서 실행되는 Windows용 Log Analytics 에이전트를 배포하고 Log Analytics로 데이터 수집을 활성화하는 방법을 알아봅니다.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -12,29 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/02/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: b3c3e020a685147411fc784c41d9eca8b7dd8db0
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91a656b055dbe882bdd5e5c208cc5d8955c74041
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130996"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480442"
 ---
-# <a name="collect-data-from-windows-computers-hosted-in-your-environment"></a>사용자 환경에서 호스팅되는 Windows 컴퓨터에서 데이터 수집
-[Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 물리적 또는 가상 Windows 컴퓨터 및 사용자 환경의 다른 리소스의 데이터를 단일 저장소로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Windows 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Windows VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
+# <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>하이브리드 환경에서 Windows 컴퓨터용 Log Analytics 에이전트 구성
+[Azure Log Analytics](log-analytics-overview.md)는 상세한 분석 및 상관 관계 파악을 위해 데이터 센터나 다른 클라우드 환경의 물리적 또는 가상 Windows 컴퓨터를 단일 리포지토리로 직접 수집할 수 있습니다.  이 빠른 시작 가이드에서는 몇 가지 간단한 단계로 Windows 컴퓨터에서 데이터를 구성 및 수집하는 방법을 보여 줍니다.  Azure Windows VM의 경우 다음 항목 [Azure Virtual Machines에 대한 데이터 수집](log-analytics-quick-collect-azurevm.md)을 참조하세요.  
 
 지원되는 구성을 이해하려면 [지원되는 Windows 운영 체제](log-analytics-concept-hybrid.md#supported-windows-operating-systems) 및 [네트워크 방화벽 구성](log-analytics-concept-hybrid.md#network-firewall-requirements)을 검토합니다.
  
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="log-in-to-azure-portal"></a>Azure Portal에 로그인
 Azure Portal([https://portal.azure.com](https://portal.azure.com))에 로그인합니다. 
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
-1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure 포털](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics**를 선택합니다.<br><br> ![Azure Portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
 2. **만들기**를 클릭하고 다음 항목에 대한 옵션을 선택합니다.
 
   * 새 **OMS 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 

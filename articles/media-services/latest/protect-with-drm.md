@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116770"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528173"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>DRM 동적 암호화 및 라이선스 배달 서비스 사용
 
@@ -65,6 +65,7 @@ Azure Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](ht
 자습서를 완료하는 데 필요한 조건은 다음과 같습니다.
 
 * [콘텐츠 보호 개요](content-protection-overview.md) 문서를 검토합니다.
+* [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md) 검토
 * Visual Studio Code 또는 Visual Studio 설치
 * [이 빠른 시작](create-account-cli-quickstart.md)에서 설명된 대로 새로운 Azure Media Services 계정을 만듭니다.
 * [액세스 API](access-api-cli-how-to.md)를 수행하여 Media Services API를 사용하는 데 필요한 자격 증명 가져오기

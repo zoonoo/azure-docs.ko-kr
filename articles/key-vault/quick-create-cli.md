@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 - Key Vault CLI 만들기 | Microsoft Docs
-description: CLI를 사용하여 Azure Key Vault를 만드는 방법을 보여주는 빠른 시작
+title: Azure 빠른 시작 - Azure CLI를 사용하여 Key Vault에서 비밀을 설정하고 검색 | Microsoft Docs
+description: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dc69d472e38bcc39de35204c26068a98e0549601
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067659"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480921"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>빠른 시작: CLI를 사용하여 Azure Key Vault 만들기
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
 Azure Key Vault는 보안 비밀 저장소로 작동하는 클라우드 서비스입니다. 키, 암호, 인증서 및 기타 비밀을 안전하게 저장할 수 있습니다. Key Vault에 대한 자세한 내용을 보려면 [개요](key-vault-overview.md)를 살펴보세요. Azure CLI는 명령 또는 스크립트를 사용하여 Azure 리소스를 만들고 관리하는 데 사용됩니다. 이 빠른 시작에서는 Key Vault를 만듭니다. 이 작업을 완료하면 비밀을 저장할 수 있습니다.
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 08/06/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
 manager: dougeby
-ms.openlocfilehash: b71d737f99a82508f9769f89d8172aa02bec817b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e97ac06d5740a793d5f811e1a7ac01fef1a32806
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542035"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578061"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
@@ -43,13 +43,13 @@ CSP 파트너인 사용자는 Azure Cost Management에 등록할 수 있습니�
 3. **Cost Management** 페이지에서 **Cost Management로 이동**을 클릭하여 새 창에 Cloudyn 등록 페이지를 엽니다.
 4. Cloudyn 포털 평가판 등록 페이지에서 회사 이름을 입력하고 **Microsoft CSP 파트너 프로그램 관리자**를 선택하고 **다음**을 클릭합니다.  
 5. **응용 프로그램 ID**, **상거래 ID**, **응용 프로그램 비밀 키**를 입력하고 **기본 가격 책정 계획**을 선택합니다. 정보가 없는 경우 기본 관리자 계정을 사용하여 [https://partnercenter.microsoft.com](https://partnercenter.microsoft.com)에서 파트너 센터 포털에 로그인하고 다음 단계를 수행합니다.
-  1. **대시보드** > **계정 설정** > **앱 관리**로 이동합니다.
+  1. **대시보드**로 이동하고, **설정** 기호를 클릭하고, **파트너 설정**을 클릭하고, **앱 관리**를 클릭합니다.
   2. 이전에 Web App을 만든 경우 이 단계를 건너뜁니다. 그렇지 않으면 **Web App** 섹션에서 **새 웹앱 추가**를 클릭합니다.
   3. 웹 응용 프로그램에서 **앱 ID** GUID를 복사합니다.
   4. 웹 응용 프로그램에서 **상거래 ID** GUID를 복사합니다.
   5. 필요에 따라 키 유효 기간을 한 해 또는 두 해로 선택합니다. **키 추가**를 선택하고 비밀 키 값을 복사하고 저장합니다.  
     ![CSP 파트너 센터](./media/quick-register-csp/csp-partner-center.png)
-  6. 등록 페이지로 돌아가서 정보를 붙여 넣습니다.  
+  6. Cloudyn 등록 페이지로 돌아가서 정보를 붙여넣습니다.  
       ![CSP 계정 자격 증명](./media/quick-register-csp/csp-reg.png)
 6. 사용 약관에 동의한 다음 정보의 유효성을 검사합니다. **다음**을 클릭하여 Cloudyn에서 Azure 리소스 데이터를 수집할 권한을 부여합니다. 수집되는 데이터에는 구독의 사용량, 성능, 청구 및 태그 데이터가 포함됩니다.  
 7. **기타 관련자 초대**에서 이메일 주소를 입력하여 사용자를 추가할 수 있습니다. 완료되면 **다음**을 클릭합니다. 모든 청구 데이터가 Cloudyn에 추가되려면 2시간 정도 소요됩니다.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358949"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480886"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -45,7 +45,7 @@ Azure Firewall에는 아웃바운드 액세스를 제어하는 두 가지 규칙
 
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [firewall-preview-notice](../../includes/firewall-preview-notice.md)]
 
@@ -166,7 +166,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
    |리소스 그룹     |**기존 항목 사용**: Test-FW-RG |
    |위치     |전에 사용한 동일한 위치 선택|
    |가상 네트워크 선택     |**기존 항목 사용**: Test-FW-VN|
-   |공용 IP 주소     |새로 만들기|
+   |공용 IP 주소     |**새로 만듭니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|
 
 2. **검토 + 만들기**를 클릭합니다.
 3. 요약을 검토한 다음, **만들기**를 클릭하여 방화벽을 만듭니다.
@@ -175,10 +175,6 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 4. 배포가 완료되면 **Test-FW-RG** 리소스 그룹으로 이동하고 **Test-FW01** 방화벽을 클릭합니다.
 6. 개인 IP 주소를 참고합니다. 기본 경로를 만들 때 나중에 사용할 수 있습니다.
 
-> [!NOTE]
-> 공용 IP 주소는 표준 SKU 형식이어야 합니다.
-
-[//]: # (방화벽에 대한 개인 IP를 확인해야 합니다.)
 
 ## <a name="create-a-default-route"></a>기본 경로 만들기
 
@@ -279,7 +275,7 @@ Azure Firewall 문서의 예제에서는 이미 Azure Firewall 공개 미리 보
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 모든 방화벽 관련 리소스를 삭제하려면 **Test-FW-RG** 리소스 그룹을 삭제합니다.
+다음 자습서를 위해 방화벽 리소스를 그대로 두어도 되고, 더 이상 필요하지 않은 경우 **Test-FW-RG** 리소스 그룹을 삭제하여 모든 방화벽 관련 리소스를 삭제해도 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

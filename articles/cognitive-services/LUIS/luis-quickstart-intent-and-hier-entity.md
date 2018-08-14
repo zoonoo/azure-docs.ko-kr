@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 41f74ff00e4fad751d4a2b7ae96ebb048bbcdfcd
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345361"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492701"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>자습서: 5. 계층적 엔터티 추가
 이 자습서에서는 컨텍스트에 따라 관련 데이터 부분을 찾는 방법을 보여 주는 앱을 만듭니다. 
@@ -119,15 +119,8 @@ LUIS는 발언의 원래 위치와 대상 위치에 레이블을 지정하여 �
     ![number가 선택된 미리 빌드된 엔터티 대화 상자의 스크린샷](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
-LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용을 인식하지 못합니다. 
 
-1. LUIS 웹 사이트의 오른쪽 위에서 **학습** 단추를 선택합니다.
-
-    ![앱 학습](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 학습이 완료됩니다.
-
-    ![학습 성공](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
@@ -242,6 +235,10 @@ LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용�
 
 `a-1234` 같은 이 예제의 위치는 문자 하나 또는 두 개 뒤에 대시를 붙이고 그 뒤에 일련의 4자리 또는 5자리 숫자를 붙이는 특정 형식을 따릅니다. 이 데이터를 각 위치에 대한 역할이 있는 정규식 엔터티로 설명할 수 있습니다. 역할은 패턴에 사용할 수 있습니다. 이러한 발언을 기반으로 패턴을 만든 다음, 위치 형식에 대한 정규식 만들어 패턴에 추가할 수 있습니다. <!-- Go to this tutorial to see how that is done -->
 
+## <a name="patterns-with-roles"></a>역할을 사용하는 패턴
+
+[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+
 ## <a name="what-has-this-luis-app-accomplished"></a>이 LUIS 앱에서 수행한 작업은?
 이 앱은 고작 몇 개의 의도와 계층적 엔터티를 사용하여 자연어 쿼리 의도를 확인하고 추출된 데이터를 반환했습니다. 
 
@@ -251,7 +248,8 @@ LUIS는 학습될 때까지 의도와 엔터티(모델)에 대한 변경 내용�
 LUIS는 이 요청을 통해 수행됩니다. 챗봇과 같은 호출 응용 프로그램에서는 topScoringIntent 결과와 엔터티의 데이터를 사용하여 다음 단계를 수행할 수 있습니다. LUIS는 봇 또는 호출 응용 프로그램에 대해 프로그래밍 방식으로 작동하지 않습니다. LUIS는 사용자의 의도가 무엇인지만 결정합니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
-더 이상 필요하지 않은 경우 LUIS 앱을 삭제합니다. 이렇게 하려면 앱 목록에서 앱 이름 오른쪽에 있는 줄임표(***...***) 단추를 선택하고 **삭제**를 선택합니다. **앱을 삭제하시겠습니까?** 팝업 대화 상자에서 **확인**을 선택합니다.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"] 

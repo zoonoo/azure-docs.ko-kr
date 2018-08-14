@@ -1,25 +1,21 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Hadoop 및 Hive 시작 | Microsoft Docs'
+title: '빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Hadoop 및 Hive 시작 '
 description: Azure Portal을 사용하여 HDInsight 클러스터를 만들고 Hive로 데이터를 쿼리하는 방법에 대해 알아봅니다.
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: nitinme
-ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 67fa5debac4039bf3ae9c3ef62418f033e2fa9c2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097899"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598972"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Hadoop 및 Hive 시작
 
@@ -47,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     다음 값을 입력하거나 선택합니다.
     
-    |속성  |설명  |
+    |자산  |설명  |
     |---------|---------|
     |**클러스터 이름**     | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
     |**구독**     |  Azure 구독을 선택합니다. |
@@ -107,7 +103,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="run-hive-queries"></a>Hive 쿼리 실행
 
-[Apache Hive](hdinsight-use-hive.md)는 HDInsight에서 사용되는 가장 인기 있는 구성 요소입니다. HDInsight에서 Hive 작업을 실행하는 방법은 여러 가지가 있습니다. 이 자습서에서는 포털에서 Ambari Hive 뷰를 사용합니다. Hive 작업을 제출하는 다른 방법은 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
+[Apache Hive](hdinsight-use-hive.md) 는 HDInsight에서 사용되는 가장 인기 있는 구성 요소입니다. HDInsight에서 Hive 작업을 실행하는 방법은 여러 가지가 있습니다. 이 자습서에서는 포털에서 Ambari Hive 뷰를 사용합니다. Hive 작업을 제출하는 다른 방법은 [HDInsight에서 Hive 사용](hdinsight-use-hive.md)을 참조하세요.
 
 1. 이전 스크린샷에서 Ambari를 열려면 **클러스터 대시보드**를 선택합니다.  **https://&lt;ClusterName>.azurehdinsight.net**으로 이동할 수도 있습니다. 여기서 &lt;ClusterName>은 이전 섹션에서 만든 클러스터입니다.
 

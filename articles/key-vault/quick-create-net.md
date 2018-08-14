@@ -1,6 +1,6 @@
 ---
-title: Azure 빠른 시작 - Key Vault에서 비밀을 읽도록 Azure 웹 응용 프로그램 구성 | Microsoft Docs
-description: Key Vault에서 비밀을 읽도록 ASP.Net Core 응용 프로그램을 구성하는 방법을 보여주는 빠른 시작
+title: Azure 빠른 시작 - Key Vault에서 비밀을 설정하고 검색하도록 Azure 웹 응용 프로그램 구성 | Microsoft Docs
+description: Key Vault에서 비밀을 설정하고 검색하도록 ASP.Net core 응용 프로그램 구성하는 방법을 보여주는 빠른 시작
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247828"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480205"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>빠른 시작: .NET 웹앱의 Key Vault에서 비밀 설정 및 읽기
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>빠른 시작: .NET 웹앱을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
 이 빠른 시작에서는 관리되는 서비스 ID를 사용하여 Key Vault에서 정보를 읽는 Azure 웹 응용 프로그램을 만드는 단계를 살펴봅니다. 다음 방법에 대해 알아봅니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "39247828"
 
 * 모든 플랫폼:
   * [여기](https://git-scm.com/downloads)에서 GIT를 다운로드하세요.
-  * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+  * Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
   * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) Azure CLI 버전 2.0.4 이상이 필요합니다. Windows, Mac 및 Linux에 사용 가능합니다.
 
 ## <a name="login-to-azure"></a>Azure에 로그인
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-[az group create](/cli/azure/group#az_group_create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
+[az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다.
 
 리소스 그룹 이름을 선택하고 자리 표시자를 입력하세요.
 다음 예에서는 *eastus* 위치에 *<YourResourceGroupName>* 이라는 리소스 그룹을 만듭니다.

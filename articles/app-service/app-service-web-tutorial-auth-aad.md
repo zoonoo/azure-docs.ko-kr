@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: 4bdb182d93b842bf94e75672b1d7b4cf4f6da253
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31589155"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599628"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 종단 간 사용자 인증 및 권한 부여
 
@@ -241,7 +241,7 @@ AD 응용 프로그램의 관리 페이지에서 **응용 프로그램 ID**를 �
 
 프런트 엔드 앱과 동일한 단계를 따르지만 마지막 단계는 건너뜁니다. 프런트 엔드 앱에는 **응용 프로그램 ID**가 필요하지 않습니다. **Azure Active Directory 설정** 페이지를 열어둡니다.
 
-원하는 경우 `http://<front_end_app_name>.azurewebsites.net`으로 이동합니다. 이제 로그인 페이지로 연결됩니다. 로그인 후에도 백 엔드 앱의 데이터에 여전히 액세스할 수 없습니다. 다음 세 가지를 수행해야 하기 때문입니다.
+원하는 경우 `http://<front_end_app_name>.azurewebsites.net`으로 이동합니다. 이제 보안 로그인 페이지로 연결됩니다. 로그인 후에도 백 엔드 앱의 데이터에 여전히 액세스할 수 없습니다. 다음 세 가지를 수행해야 하기 때문입니다.
 
 - 프런트 엔드에 백 엔드 액세스 권한 부여
 - 사용 가능한 토큰을 반환하도록 App Service 구성
@@ -322,7 +322,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-`http://<front_end_app_name>.azurewebsites.net`에 다시 로그인합니다. 사용자 데이터 사용 규약 페이지에서 **동의**를 클릭합니다.
+`https://<front_end_app_name>.azurewebsites.net`에 다시 로그인합니다. 사용자 데이터 사용 규약 페이지에서 **동의**를 클릭합니다.
 
 이제 이전과 같이 백 엔드 앱에서 데이터를 만들고, 읽고, 업데이트하고 삭제할 수 있습니다. 유일한 차이점은 이제 두 앱이 App Service 인증 및 권한 부여로 보호된다는 점입니다(서비스 간 호출 포함).
 
@@ -340,7 +340,7 @@ git push frontend master
 
 ### <a name="configure-cors"></a>CORS 구성
 
-Cloud Shell에서 [`az resource update`](/cli/azure/resource#az_resource_update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _\<back\_end\_app\_name>_ 및 _\<front\_end\_app\_name>_ 자리 표시자를 바꿉니다.
+Cloud Shell에서 [`az resource update`](/cli/azure/resource#az-resource-update) 명령을 사용하여 CORS를 클라이언트 URL로 사용하도록 설정합니다. _\<back\_end\_app\_name>_ 및 _\<front\_end\_app\_name>_ 자리 표시자를 바꿉니다.
 
 ```azurecli-interactive
 az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
@@ -352,7 +352,7 @@ az resource update --name web --resource-group myAuthResourceGroup --namespace M
 
 로컬 리포지토리에서 _wwwroot/index.html_을 엽니다.
 
-51번 줄에서 `apiEndpoint` 변수를 백 엔드 앱의 URL(`http://<back_end_app_name>.azurewebsites.net`)로 설정합니다. _\<back\_end\_app\_name>_ 을 App Service의 앱 이름으로 바꿉니다.
+51번 줄에서 `apiEndpoint` 변수를 백 엔드 앱의 URL(`https://<back_end_app_name>.azurewebsites.net`)로 설정합니다. _\<back\_end\_app\_name>_ 을 App Service의 앱 이름으로 바꿉니다.
 
 로컬 리포지토리에서 _wwwroot/app/scripts/todoListSvc.js_를 열고 `apiEndpoint`가 모든 API 호출 앞에 추가되었는지 확인합니다. 이제 Angular.js 앱에서 백 엔드 API를 호출합니다. 
 
@@ -406,9 +406,13 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-`http://<front_end_app_name>.azurewebsites.net`으로 다시 이동합니다. 이제 Angular.js 앱에서 직접 백 엔드 앱에서 데이터를 만들고, 읽고, 업데이트하고 삭제할 수 있습니다.
+`https://<front_end_app_name>.azurewebsites.net`으로 다시 이동합니다. 이제 Angular.js 앱에서 직접 백 엔드 앱에서 데이터를 만들고, 읽고, 업데이트하고 삭제할 수 있습니다.
 
 축하합니다! 이제 클라이언트 코드가 인증된 사용자 대신 백 엔드 데이터에 액세스할 수 있습니다.
+
+## <a name="when-access-tokens-expire"></a>액세스 토큰이 만료되는 시기
+
+액세스 토큰은 일정 시간 후에 만료됩니다. 사용자에게 앱 재인증을 요구하지 않고 액세스 토큰을 새로 고치는 방법은 [액세스 토큰 새로 고침](app-service-authentication-how-to.md#refresh-access-tokens)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

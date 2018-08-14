@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 28d50ac3a4c080062c12c11977eebb61b0e52eed
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 1a45841564b0c985662e6d2db320111fa27d1e92
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412538"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578180"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>빠른 시작: Azure Portal에서 Windows 장치(미리 보기)로 첫 번째 IoT Edge 모듈을 배포합니다.
 
@@ -255,7 +255,7 @@ iotedge logs tempSensor -f
 
   ![모듈의 데이터 보기](./media/quickstart/iotedge-logs.png)
 
-[Visual Studio Code에 대해 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 또는 [IoT Hub 탐색기 도구][lnk-iothub-explorer]를 사용하여 IoT Hub에서 받는 메시지를 볼 수 있습니다. 
+[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 IoT Hub에서 받는 메시지를 볼 수 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -330,6 +330,5 @@ Azure IoT Edge가 이러한 데이터를 통해 비즈니스 통찰력을 얻는
 [lnk-docker]: https://docs.docker.com/docker-for-windows/install/ 
 [lnk-python]: https://www.python.org/downloads/
 [lnk-docker-containers]: https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10#2-switch-to-windows-containers
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-install-iotcore]: how-to-install-iot-core.md
 [lnk-account]: https://azure.microsoft.com/free

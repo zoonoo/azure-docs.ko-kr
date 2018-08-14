@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227293"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528329"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>빠른 시작: Azure AD에서 로그인 페이지에 회사 브랜딩 추가
 혼동을 피하기 위해 대부분의 회사는 관리하는 모든 웹 사이트 및 서비스에 일관된 모양과 느낌을 적용하고자 합니다. Azure AD(Active Directory)는 회사 로고 및 사용자 지정 색 구성표를 포함하도록 로그인 페이지의 외관을 사용자 지정하는 방식으로 이 기능을 제공합니다. 로그인 페이지는 Azure AD를 ID 공급자로 사용하는 Office 365와 같은 웹 기반 응용 프로그램에 로그인할 경우에 표시됩니다. 자격 증명을 입력하려면 이 페이지와 상호 작용합니다.
@@ -71,7 +71,7 @@ ms.locfileid: "39227293"
 ### <a name="square-logo-image"></a>사각형 로고 이미지
 설명 | 제약 조건 | 권장 사항
 ------- | ------- | ----------
-이 이미지는 새 Enterprise Windows 10 PC에 설치하는 동안 나타납니다. 새 작업 PC를 설정할 때 직원에게 컨텍스트를 제공합니다. 이미지는 다른 Windows 10 환경의 암호 항목 페이지에서 자신의 작업 장치를 배포하기 위해 [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97)을 사용하는 테넌트에 대해 표시됩니다. | 투명 PNG(기본 설정) 또는 JPG<br>이미지 크기: 240 x 240 픽셀<br>파일 크기: &lt; 10KB | 여기에서 조직의 로고를 사용합니다.<br> 투명 이미지를 사용합니다.<br>배경이 흰색이 된다고 가정하지 마십시오.<br>이미지의 로고에 안쪽 여백을 추가하지 마십시오. 그렇지 않으면 로고가 불균형적으로 작게 보입니다.
+이 이미지는 새 Enterprise Windows 10 PC에 설치하는 동안 나타납니다. 새 작업 PC를 설정할 때 직원에게 컨텍스트를 제공합니다. 이미지는 다른 Windows 10 환경의 암호 항목 페이지에서 자신의 작업 장치를 배포하기 위해 [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97)을 사용하는 테넌트에 대해 표시됩니다.<br>이 사각형 로고는 Windows 인증에만 독점적으로 사용됩니다. 어두운 테마 버전은 사용 중지되었으며 더 이상 어느 곳에도 사용되지 않습니다. | 투명 PNG(기본 설정) 또는 JPG<br>이미지 크기: 240 x 240 픽셀<br>파일 크기: &lt; 10KB | 여기에서 조직의 로고를 사용합니다.<br> 투명 이미지를 사용합니다.<br>배경이 흰색이 된다고 가정하지 마십시오.<br>이미지의 로고에 안쪽 여백을 추가하지 마십시오. 그렇지 않으면 로고가 불균형적으로 작게 보입니다.
 
 ### <a name="show-option-to-remain-signed-in"></a>로그인 상태를 유지하는 옵션 표시
 설명 | 제약 조건 | 권장 사항
