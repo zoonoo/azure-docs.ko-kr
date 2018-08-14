@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: afab1b868f3fc4cdb9d88dea301df9750f55d355
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 3b69556c45709629e73aced374db276844e41120
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084456"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618379"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 작업이 성공하면 성공 전자 메일로 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 보내려고 합니다. 복사 작업이 실패하면 실패 전자 메일로 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 보내려고 합니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
@@ -93,8 +93,9 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 응용 프로그램을 �
     using Microsoft.Azure.Management.DataFactory;
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    ```
 
-2. Add these static variables to the **Program class**. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+2. 이러한 정적 변수를 **프로그램 클래스**에 추가합니다. 자리 표시자를 사용자의 고유 값으로 바꿉니다. Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 데이터 팩터리에서 사용되는 데이터 저장소(Azure Storage, Azure SQL Database 등) 및 계산(HDInsight 등)은 다른 지역에 있을 수 있습니다.
 
     ```csharp
         // Set variables
