@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 939c8d203382d76c1b163eb68143f3fff78d71d3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e23d3c39c6fd4e69f03ab0f2c11c9b523307b788
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413041"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715144"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Windows용 가상 머신 확장 및 기능
 
@@ -135,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzureRmVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzureRmVMExtension 참조](https://msdn.microsoft.com/library/mt603745.aspx)를 참조하세요.
+`Set-AzureRmVMExtension` 명령을 사용하여 VM 확장을 시작할 수 있습니다. 자세한 내용은 [Set-AzureRmVMExtension 참조](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension)를 참조하세요.
 
 
 ### <a name="azure-portal"></a>Azure portal

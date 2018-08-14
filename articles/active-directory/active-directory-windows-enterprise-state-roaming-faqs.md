@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224333"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630759"
 ---
 # <a name="settings-and-data-roaming-faq"></a>설정 및 데이터 로밍 FAQ
 이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
@@ -99,7 +99,7 @@ Windows 10의 2015년 11월 이후 릴리스에서 엔터프라이즈 상태 로
 ## <a name="who-owns-the-data-thats-being-roamed"></a>로밍되는 데이터를 소유한 사람은 누구인가요?
 엔터프라이즈는 엔터프라이즈 상태 로밍을 통해 로밍되는 데이터를 소유합니다. 데이터는 Azure 데이터 센터에 저장됩니다. 모든 사용자 데이터는 Azure Information Protection의 Azure Rights Management 서비스를 사용하여 클라우드에서 전송 중 및 대기 중에 암호화됩니다. 이는 사용자 자격 증명 같은 민감한 특정 데이터만 장치에서 내보내기 전에 암호화하는 Microsoft 계정 기반 설정 동기화에 비해 향상된 기능입니다.
 
-Microsoft는 고객 데이터를 보호하기 위해 최선을 다하고 있습니다. 엔터프라이즈 사용자의 설정 데이터는 Windows 10 장치에서 나오기 전에 Azure Rights Management 서비스를 통해 자동으로 암호화되므로 다른 사용자가 이 데이터를 읽을 수 없습니다. 조직에서 Azure Rights Management 서비스에 대한 유료 구독을 보유한 경우 문서 추적 및 해제, 민감한 정보가 포함된 이메일 자동 보호, 사용자 고유 키(BYOK("Bring Your Own Key" 솔루션)라고도 함) 관리 등 다른 보호 기능을 사용할 수 있습니다. 이러한 기능 및 이 보호 서비스의 작동 방식에 대한 자세한 내용은 [Azure Rights Management란](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection)을 참조하세요.
+Microsoft는 고객 데이터를 보호하기 위해 최선을 다하고 있습니다. 엔터프라이즈 사용자의 설정 데이터는 Windows 10 장치에서 나오기 전에 Azure Rights Management 서비스를 통해 자동으로 암호화되므로 다른 사용자가 이 데이터를 읽을 수 없습니다. 조직에서 Azure Rights Management 서비스에 대한 유료 구독을 보유한 경우 문서 추적 및 해제, 민감한 정보가 포함된 이메일 자동 보호, 사용자 고유 키(BYOK("Bring Your Own Key" 솔루션)라고도 함) 관리 등 다른 보호 기능을 사용할 수 있습니다. 이러한 기능 및 이 보호 서비스의 작동 방식에 대한 자세한 내용은 [Azure Rights Management란](/azure/information-protection/what-is-information-protection)을 참조하세요.
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>특정 앱 또는 설정에 대한 동기화를 관리할 수 있나요?
 Windows 10에는 개별 응용 프로그램의 로밍을 비활성화하는 MDM 또는 그룹 정책 설정이 없습니다. 테넌트 관리자는 관리되는 장치의 모든 앱에 대해 앱 데이터 동기화를 비활성화할 수 있지만 앱당 또는 앱 내부 수준에서 더욱 정교하게 제어하는 방법은 없습니다.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103432"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628650"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: 발급자 이름 및 발급자 키
 
@@ -27,7 +27,7 @@ ms.locfileid: "24103432"
 
 Azure BizTalk Services는 Service Bus 발급자 이름 및 발급자 키와 Access Control 발급자 이름 및 발급자 키를 사용합니다. 구체적으로 살펴보면 다음과 같습니다.
 
-| 작업 | 발급자 이름 및 발급자 키 |
+| Task | 발급자 이름 및 발급자 키 |
 | --- | --- |
 | Visual Studio에서 응용 프로그램 배포 |Access Control 발급자 이름 및 발급자 키 |
 | Azure BizTalk Services 포털 구성 |Access Control 발급자 이름 및 발급자 키 |
@@ -71,7 +71,7 @@ Access Control 발급자 이름 및 발급자 키는 다음에 사용됩니다.
 발급자 이름 = SharedSecretIssuer  
 발급자 키 = SharedSecretKey
 
-[New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx) cmdlet에 대한 추가 정보 
+[New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace) cmdlet에 대한 추가 정보 
 
 ## <a name="service-bus-issuer-name-and-issuer-key"></a>Service Bus 발급자 이름 및 발급자 키
 Service Bus 발급자 이름 및 발급자 키는 BizTalk 어댑터 서비스에 사용됩니다. Visual Studio의 BizTalk Services 프로젝트에서 BizTalk 어댑터 서비스를 사용하여 온-프레미스 LOB(기간 업무) 시스템에 연결합니다. 연결하려면 LOB 릴레이를 만들고 LOB 시스템 세부 정보를 입력합니다. 이 작업을 수행할 때에도 Service Bus 발급자 이름 및 발급자 키를 입력합니다.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 17b03ee9521ddf1980e27ee9a63d2ba74ea6e6b7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249158"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629687"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Azure 진단 로그 보관
 
@@ -75,11 +75,11 @@ Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-
 | 자산 | 필수 | 설명 |
 | --- | --- | --- |
 | ResourceId |yes |진단 설정을 설정하려는 리소스의 리소스 ID입니다. |
-| StorageAccountId |아니오 |진단 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-| 범주 |아니오 |활성화할 로그 범주의 쉼표로 구분된 목록입니다. |
+| StorageAccountId |아니요 |진단 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+| 범주 |아니요 |활성화할 로그 범주의 쉼표로 구분된 목록입니다. |
 | 사용 |yes |이 리소스에 대한 진단 활성화 여부를 나타내는 부울입니다. |
-| RetentionEnabled |아니오 |이 리소스에 대한 보존 정책 활성화 여부를 나타내는 부울입니다. |
-| RetentionInDays |아니오 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한 저장합니다. |
+| RetentionEnabled |아니요 |이 리소스에 대한 보존 정책 활성화 여부를 나타내는 부울입니다. |
+| RetentionInDays |아니요 |이벤트를 유지해야 하는 일 수는 1에서 2147483647 사이입니다. 0 값은 로그를 무기한 저장합니다. |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli-20"></a>Azure CLI 2.0을 통한 진단 로그 보관
 
@@ -163,5 +163,5 @@ PT1H.json 파일 내에서 각 이벤트는 이 형식에 따라 "레코드" 배
 
 * [분석을 위한 Blob 다운로드](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Event Hubs 네임스페이스로 진단 로그 스트림](monitoring-stream-diagnostic-logs-to-event-hubs.md)
-* [Azure Monitor를 사용하여 Azure Active Directory 로그 보관](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
+* [Azure Monitor를 사용하여 Azure Active Directory 로그 보관](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)

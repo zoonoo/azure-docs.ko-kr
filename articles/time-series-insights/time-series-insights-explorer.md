@@ -4,19 +4,19 @@ description: 이 문서에서는 웹 브라우저에서 Azure Time Series Insigh
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: kfile
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: d3b8973e8798e5b1f32d9e882db8a06ad7486ed8
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295341"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629143"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 이 문서에서는 Time Series Insights 탐색기 웹앱의 다양한 기능과 옵션을 살펴봅니다. 웹 브라우저에서 Time Series Insights 탐색기를 사용하여 데이터를 시각화할 수 있습니다.

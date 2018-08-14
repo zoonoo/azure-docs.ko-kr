@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358669"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628837"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에서 보고서
 
@@ -50,7 +50,7 @@ Azure Multi-Factor Authentication은 사용자 및 사용자의 조직에서 Azu
 - MFA 챌린지를 완료할 수 없었던 사용자가 얼마나 되나요?
 - 최종 사용자가 겪은 일반적인 MFA 문제는 무엇인가요?
 
-이 데이터는 [Azure Portal](https://portal.azure.com) 및 [보고서 API](../active-directory-reporting-api-getting-started-azure-portal.md)를 통해 제공됩니다.
+이 데이터는 [Azure Portal](https://portal.azure.com) 및 [보고서 API](../reports-monitoring/concept-reporting-api.md)를 통해 제공됩니다.
 
 ![클라우드](./media/howto-mfa-reporting/sign-in-report.png)
 

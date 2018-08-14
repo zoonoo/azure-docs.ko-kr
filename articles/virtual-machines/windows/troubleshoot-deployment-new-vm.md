@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fff29f6cfed4989386ca5bbd12184dce525add76
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 3d406d6d8f6432b3555e34876854147c4945f7a8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2018
-ms.locfileid: "27580374"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39632814"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Azure에서 새 Windows VM 생성 시 배포 문제 해결
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -54,7 +54,7 @@ VM 배포 문제 및 질문은 [Azure에서 Windows 가상 컴퓨터 배포 문�
 
 **해결 방법**
 
-이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzureRmVhd를 사용하여 원본 VHD를 업로드](https://msdn.microsoft.com/library/mt603554.aspx)합니다(온-프레미스에 있는). 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
+이 두 가지 오류를 모두 해결하려면, OS와 같은 설정(일반화/특수화)으로, [Add-AzureRmVhd를 사용하여 원본 VHD를 업로드](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd)합니다(온-프레미스에 있는). 일반화된 것으로 업로드하려면, 먼저 sysprep을 실행해야 합니다.
 
 **캡처 오류:**
 

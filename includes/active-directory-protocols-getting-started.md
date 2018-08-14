@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: priyamo
-ms.openlocfilehash: cb31bb91c80e4d5dd032b009b40d8e3fc435e0c8
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 5a4f08718175dd7ef369d801807e6c8e1ff28fd9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359462"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39485694"
 ---
 ## <a name="register-your-application-with-your-ad-tenant"></a>AD 테넌트에 응용 프로그램 등록
 먼저, 응용 프로그램을 Azure AD(Azure Active Directory) 테넌트에 등록해야 합니다. 그러면 응용 프로그램에 대한 응용 프로그램 ID가 제공되며 토큰을 수신하는 데 사용할 수 있습니다.
@@ -28,7 +28,7 @@ ms.locfileid: "39359462"
   * 계정에 하나의 Azure AD 테넌트만 있거나 이미 적절한 Azure AD 테넌트를 선택한 경우 이 단계를 건너뛰세요.
 * 왼쪽 탐색 창에서 **Azure Active Directory**를 클릭합니다.
 * **앱 등록**을 클릭하고 **새 응용 프로그램 등록**을 클릭합니다.
-* 프롬프트에 따라 새 응용 프로그램을 만듭니다. 이 자습서에서는 웹 응용 프로그램이든지 네이티브 응용 프로그램이든지 상관 없지만 웹 응용 프로그램 또는 네이티브 응용 프로그램에 대한 특정 예제가 필요한 경우 [빠른 시작](../articles/active-directory/develop/active-directory-developers-guide.md)을 확인하세요.
+* 프롬프트에 따라 새 응용 프로그램을 만듭니다. 이 자습서에서는 웹 응용 프로그램이든지 네이티브 응용 프로그램이든지 상관 없지만 웹 응용 프로그램 또는 네이티브 응용 프로그램에 대한 특정 예제가 필요한 경우 [빠른 시작](../articles/active-directory/develop/azure-ad-developers-guide.md)을 확인하세요.
   * 웹 응용 프로그램의 경우 사용자가 로그인할 수 있는 앱의 기본 URL인 **로그인 URL**을 제공합니다(예: `http://localhost:12345`).
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * 네이티브 응용 프로그램의 경우 Azure AD에서 토큰 응답을 반환하는 데 사용할 **리디렉션 URI**를 제공합니다. 응용 프로그램에 고유하게 해당되는 값을 입력합니다(예: `http://MyFirstAADApp`

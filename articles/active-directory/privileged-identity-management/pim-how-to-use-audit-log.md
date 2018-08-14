@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ca6bb987c0f977746a8359dfd40cf7a3d643950a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 922658f75a0d00998072c7bd8f2160e9db27f318
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38506353"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627793"
 ---
 # <a name="using-the-audit-log-in-pim"></a>PIM에서 감사 로그 사용
-Azure Privileged Identity Management(PIM) 감사 로그를 사용하여 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다. 테넌트에서 관리자, 최종 사용자 및 동기화 작업을 비롯한 활동의 전체 감사 기록을 보려는 경우 [Azure Active Directory 액세스 및 사용 보고서](../active-directory-reporting-azure-portal.md)
+Azure Privileged Identity Management(PIM) 감사 로그를 사용하여 지정된 기간 내의 모든 사용자 할당 및 활성화를 볼 수 있습니다. 테넌트에서 관리자, 최종 사용자 및 동기화 작업을 비롯한 활동의 전체 감사 기록을 보려는 경우 [Azure Active Directory 액세스 및 사용 보고서](../reports-monitoring/overview-reports.md)
 
 ## <a name="navigate-to-the-audit-log"></a>감사 로그로 이동
 [Azure Portal](https://portal.azure.com) 대시보드에서 **Azure AD Privileged Identity Management** 앱을 선택합니다. 여기에서 PIM 대시보드에 **권한 있는 역할 관리** > **감사 기록**을 클릭하여 감사 로그에 액세스합니다.

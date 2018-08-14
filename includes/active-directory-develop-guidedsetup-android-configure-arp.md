@@ -1,4 +1,3 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>앱에 응용 프로그램의 등록 정보 추가
 
 이 단계에서는 프로젝트에 클라이언트 ID를 추가해야 합니다.

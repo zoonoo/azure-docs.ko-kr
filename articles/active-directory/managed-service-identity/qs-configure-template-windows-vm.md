@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 15a743f524c58e56247ec46fee27611b33595bad
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 79b499f8063e5c15f76d89182955cbd90fb1039f
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258697"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629313"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>템플릿을 사용하여 VM 관리 서비스 ID 구성
 
@@ -33,7 +33,7 @@ ms.locfileid: "39258697"
 
 - 관리 서비스 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 ID의 차이점](overview.md#how-does-it-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
-- 이 아티클의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
+- 이 문서의 관리 작업을 수행하려면 계정에 다음과 같은 역할이 할당되어야 합니다.
     - [Virtual Machine 기여자](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor): VM을 만들고, Azure VM에서 시스템 및/또는 사용자가 할당한 관리 ID를 사용하도록 설정하고 제거합니다.
     - [관리 ID 기여자](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) 역할: 사용자 할당 ID를 만듭니다.
     - [관리 ID 운영자](/azure/role-based-access-control/built-in-roles#managed-identity-operator) 역할: VM으로 사용자 할당 ID를 할당하거나 VM에서 사용자 할당 ID를 제거합니다.
@@ -47,7 +47,7 @@ Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resour
    - 로컬 [JSON 편집기(예: VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md)를 사용하는 경우 PowerShell 또는 CLI를 사용하여 템플릿을 업로드하고 배포합니다.
    - Visual Studio [Azure 리소스 그룹 프로젝트](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)를 사용하여 템플릿을 만들고 배포합니다.  
 
-선택한 옵션에 관계 없이 초기 배포 및 재배포 시 템플릿 구문은 동일합니다. 새 VM이나 기본 VM에서 시스템 또는 사용자 할당 ID를 사용하도록 설정하는 작업은 동일한 방식으로 수행됩니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments)를 수행합니다.
+선택한 옵션에 관계 없이 초기 배포 및 재배포 시 템플릿 구문은 동일합니다. 새 VM이나 기본 VM에서 시스템 또는 사용자 할당 ID를 사용하도록 설정하는 작업은 동일한 방식으로 수행됩니다. 또한 기본적으로 Azure Resource Manager는 배포에 대해 [증분 업데이트](../../azure-resource-manager/deployment-modes.md)를 수행합니다.
 
 ## <a name="system-assigned-identity"></a>시스템 할당 ID
 
@@ -191,7 +191,7 @@ VM에서 시스템 할당 ID를 사용하도록 설정한 후 해당 VM이 만�
         "identity": {
             "type": "userAssigned",
             "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
             ]
         },
     ```

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 81a07fdfe1c862bc30fb9d567db9a393c0610990
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: ac3133ac093d578c89d24bddd1cc0a7c9588c2fd
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32179557"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715001"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Visual Studio Team Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 응용 프로그램을 배포하는 전체 CI/CD 파이프라인
 
@@ -31,13 +31,13 @@ Visual Studio Team Services를 사용하여 Docker Swarm 클러스터에서 이 
 여기에서는 단계에 대해 간략히 설명합니다.
 
 1. 코드 변경 내용을 소스 코드 리포지토리로 커밋합니다(여기에서는 GitHub). 
-2. GitHub은 Visual Studio Team Services에서 빌드를 트리거합니다. 
-3. Visual Studio Team Services는 최신 버전의 원본을 가져오고 응용 프로그램을 작성하는 모든 이미지를 빌드합니다. 
-4. Visual Studio Team Services는 Azure 컨테이너 레지스트리 서비스를 사용하여 만든 Docker 레지스트리에 이미지를 각각 푸시합니다. 
-5. Visual Studio Team Services는 새 릴리스를 트리거합니다. 
-6. 릴리스는 Azure Container Service 클러스터 노드에서 SSH를 사용하는 마스터 명령을 실행합니다. 
-7. 클러스터의 Docker Swarm은 이미지의 최신 버전을 가져옵니다. 
-8. Docker 작성을 사용하여 새 버전의 응용 프로그램을 배포합니다. 
+1. GitHub은 Visual Studio Team Services에서 빌드를 트리거합니다. 
+1. Visual Studio Team Services는 최신 버전의 원본을 가져오고 응용 프로그램을 작성하는 모든 이미지를 빌드합니다. 
+1. Visual Studio Team Services는 Azure 컨테이너 레지스트리 서비스를 사용하여 만든 Docker 레지스트리에 이미지를 각각 푸시합니다. 
+1. Visual Studio Team Services는 새 릴리스를 트리거합니다. 
+1. 릴리스는 Azure Container Service 클러스터 노드에서 SSH를 사용하는 마스터 명령을 실행합니다. 
+1. 클러스터의 Docker Swarm은 이미지의 최신 버전을 가져옵니다. 
+1. Docker 작성을 사용하여 새 버전의 응용 프로그램을 배포합니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,7 +46,7 @@ Visual Studio Team Services를 사용하여 Docker Swarm 클러스터에서 이 
 - [Azure 컨테이너 서비스에서 Swarm 클러스터 만들기](container-service-deployment.md)
 - [Azure 컨테이너 서비스에서 Swarm 클러스터에 연결](../container-service-connect.md)
 - [Azure 컨테이너 레지스트리 만들기](../../container-registry/container-registry-get-started-portal.md)
-- [Visual Studio Team Services 계정 및 팀 프로젝트 만들기](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Visual Studio Team Services 계정 및 팀 프로젝트 만들기](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [GitHub 계정에 GitHub 리포지토리 포크](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
@@ -81,11 +81,11 @@ VSTS 프로젝트와 GitHub 계정 간에 연결을 설정합니다.
 
     ![Visual Studio Team Services - 외부 연결](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
 
-2. 왼쪽에서 **새 서비스 끝점** > **GitHub**을 클릭합니다.
+1. 왼쪽에서 **새 서비스 끝점** > **GitHub**을 클릭합니다.
 
     ![Visual Studio Team Services - GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
-3. VSTS를 인증하여 GitHub 계정으로 작업하려면 **인증**을 클릭하고 열린 창에서 절차를 따릅니다.
+1. VSTS를 인증하여 GitHub 계정으로 작업하려면 **인증**을 클릭하고 열린 창에서 절차를 따릅니다.
 
     ![Visual Studio Team Services - GitHub 인증](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-authorize.png)
 
@@ -95,11 +95,11 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 
 1. Visual Studio Team Services 프로젝트의 **서비스** 설정에서 **Docker 레지스트리** 유형의 서비스 끝점을 추가합니다. 
 
-2. 열린 팝업에서 Azure 컨테이너 레지스트리의 URL 및 자격 증명을 입력합니다.
+1. 열린 팝업에서 Azure 컨테이너 레지스트리의 URL 및 자격 증명을 입력합니다.
 
     ![Visual Studio Team Services - Docker 레지스트리](./media/container-service-docker-swarm-setup-ci-cd/vsts-registry.png)
 
-3. Docker Swarm 클러스터의 경우 **SSH** 형식의 끝점을 추가합니다. 그런 다음 Swarm 클러스터의 SSH 연결 정보를 입력합니다.
+1. Docker Swarm 클러스터의 경우 **SSH** 형식의 끝점을 추가합니다. 그런 다음 Swarm 클러스터의 SSH 연결 정보를 입력합니다.
 
     ![Visual Studio Team Services - SSH](./media/container-service-docker-swarm-setup-ci-cd/vsts-ssh.png)
 
@@ -113,19 +113,19 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 
 1. 빌드 정의를 만들려면 Visual Studio Team Services 프로젝트에 연결하고 **빌드 및 릴리스**를 클릭합니다. 
 
-2. **빌드 정의** 섹션에서 **+ 새로 만들기**를 클릭합니다. **비어 있는** 템플릿을 선택합니다.
+1. **빌드 정의** 섹션에서 **+ 새로 만들기**를 클릭합니다. **비어 있는** 템플릿을 선택합니다.
 
     ![Visual Studio Team Services - 새 빌드 정의](./media/container-service-docker-swarm-setup-ci-cd/create-build-vsts.png)
 
-3. GitHub 리포지토리 원본을 사용하여 새 빌드를 구성하고 **연속 통합**을 확인한 다음 Linux 에이전트를 등록한 에이전트 큐를 선택합니다. **만들기**를 클릭하여 빌드 정의를 만듭니다.
+1. GitHub 리포지토리 원본을 사용하여 새 빌드를 구성하고 **연속 통합**을 확인한 다음 Linux 에이전트를 등록한 에이전트 큐를 선택합니다. **만들기**를 클릭하여 빌드 정의를 만듭니다.
 
     ![Visual Studio Team Services - 빌드 정의 만들기](./media/container-service-docker-swarm-setup-ci-cd/vsts-create-build-github.png)
 
-4. **빌드 정의** 페이지에서 먼저 **리포지토리** 탭을 열고 빌드를 구성하여 필수 구성 요소에서 만든 MyShop 프로젝트의 포크를 사용합니다. *acs-docs*을 **기본 분기**로 선택해야 합니다.
+1. **빌드 정의** 페이지에서 먼저 **리포지토리** 탭을 열고 빌드를 구성하여 필수 구성 요소에서 만든 MyShop 프로젝트의 포크를 사용합니다. *acs-docs*을 **기본 분기**로 선택해야 합니다.
 
     ![Visual Studio Team Services - 빌드 리포지토리 구성](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-repo-conf.png)
 
-5. **트리거** 탭에서 각 커밋 후에 트리거될 빌드를 구성합니다. **연속 통합** 및 **Batch 변경 내용**을 선택합니다.
+1. **트리거** 탭에서 각 커밋 후에 트리거될 빌드를 구성합니다. **연속 통합** 및 **Batch 변경 내용**을 선택합니다.
 
     ![Visual Studio Team Services - 빌드 트리거 구성](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
 
@@ -144,7 +144,7 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
 
     ![Visual Studio Team Services - 빌드 단계 추가](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-add-task.png)
 
-2. 각 이미지의 경우 `docker build` 명령을 사용하는 하나의 단계를 구성합니다.
+1. 각 이미지의 경우 `docker build` 명령을 사용하는 하나의 단계를 구성합니다.
 
     ![Visual Studio Team Services - Docker 빌드](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
 
@@ -152,23 +152,23 @@ CI/CD 파이프라인에 도달하기 전에 Azure의 컨테이너 레지스트�
     
     이전 화면에 표시된 대로 Azure 컨테이너 레지스트리의 URI로 이미지 이름을 시작합니다. (빌드 변수를 사용하여 이 예제의 빌드 식별자와 같은 이미지의 태그를 매개 변수화할 수 있습니다.)
 
-3. 각 이미지의 경우 `docker push` 명령을 사용하는 두 번째 단계를 구성합니다.
+1. 각 이미지의 경우 `docker push` 명령을 사용하는 두 번째 단계를 구성합니다.
 
     ![Visual Studio Team Services - Docker 푸시](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-push.png)
 
     푸시 작업의 경우 **이미지 푸시** 작업인 Azure 컨테이너 레지스트리를 선택하고 이전 단계에서 기본 설치되어 있는 **이미지 이름**을 입력합니다.
 
-4. 5개의 이미지 각각에 대한 빌드 및 푸시 단계를 구성한 후에 빌드 워크플로에서 두 개 이상의 단계를 추가합니다.
+1. 5개의 이미지 각각에 대한 빌드 및 푸시 단계를 구성한 후에 빌드 워크플로에서 두 개 이상의 단계를 추가합니다.
 
     a. bash 스크립트를 사용하여 docker-compose.yml 파일에서 *BuildNumber* 발생을 현재 빌드 ID로 바꾸는 명령줄 작업입니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
 
     ![Visual Studio Team Services - 작성 파일 업데이트](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
 
-    나. 릴리스에서 사용할 수 있도록 빌드 아티팩트인 업데이트된 작성 파일을 삭제하는 작업입니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
+    b. 릴리스에서 사용할 수 있도록 빌드 아티팩트인 업데이트된 작성 파일을 삭제하는 작업입니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
 
     ![Visual Studio Team Services - 작성 파일 게시](./media/container-service-docker-swarm-setup-ci-cd/vsts-publish-compose.png) 
 
-5. **저장**을 클릭하여 빌드 정의의 이름을 지정합니다.
+1. **저장**을 클릭하여 빌드 정의의 이름을 지정합니다.
 
 ## <a name="step-3-create-the-release-definition"></a>3단계: 릴리스 정의 만들기
 
@@ -180,11 +180,11 @@ Visual Studio Team Services를 사용하면 [환경에서 릴리스를 관리](h
 
 1. 릴리스 정의를 만들려면 **릴리스** > **+ 릴리스**를 클릭합니다.
 
-2. 아티팩트 원본을 구성하려면 **아티팩트** > **아티팩트 원본 연결**을 클릭합니다. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 정의를 연결합니다. 이 작업을 수행하여 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
+1. 아티팩트 원본을 구성하려면 **아티팩트** > **아티팩트 원본 연결**을 클릭합니다. 여기에서는 이전 단계에서 정의한 빌드에 이 새로운 릴리스 정의를 연결합니다. 이 작업을 수행하여 docker-compose.yml 파일을 릴리스 프로세스에서 사용할 수 있습니다.
 
     ![Visual Studio Team Services - 릴리스 아티팩트](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
-3. 릴리스 트리거를 구성하려면 **트리거**를 클릭하고 **연속 배포**를 선택합니다. 동일한 아티팩트 원본에 트리거를 설정합니다. 이 설정을 통해 빌드가 성공적으로 완료되는 즉시 새 릴리스가 시작될 수 있습니다.
+1. 릴리스 트리거를 구성하려면 **트리거**를 클릭하고 **연속 배포**를 선택합니다. 동일한 아티팩트 원본에 트리거를 설정합니다. 이 설정을 통해 빌드가 성공적으로 완료되는 즉시 새 릴리스가 시작될 수 있습니다.
 
     ![Visual Studio Team Services - 릴리스 트리거](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-trigger.png) 
 
@@ -196,7 +196,7 @@ Visual Studio Team Services를 사용하면 [환경에서 릴리스를 관리](h
 
     ![Visual Studio Team Services - 릴리스 SCP](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-scp.png)
 
-2. bash 명령을 실행하는 두 번째 작업을 구성하여 마스터 노드에서 `docker` 및 `docker-compose` 명령을 실행합니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
+1. bash 명령을 실행하는 두 번째 작업을 구성하여 마스터 노드에서 `docker` 및 `docker-compose` 명령을 실행합니다. 자세한 내용은 다음과 같은 화면을 참조하세요.
 
     ![Visual Studio Team Services - 릴리스 Bash](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-bash.png)
 
@@ -210,7 +210,7 @@ Visual Studio Team Services를 사용하면 [환경에서 릴리스를 관리](h
     >[!IMPORTANT]
     > 이전 화면에 표시된 대로 **STDERR에 실패** 확인란을 해제된 채로 둡니다. `docker-compose`이 표준 오류 출력에서 컨테이너가 중지 또는 삭제됩니다와 같은 여러 진단 메시지를 인쇄하기 때문에 중요한 설정입니다. 확인란을 선택하면 모든 작업이 정상적으로 작동하는 경우에도 Visual Studio Team Services는 릴리스 중에 오류가 발생했다고 보고합니다.
     >
-3. 새 릴리스 정의를 저장합니다.
+1. 새 릴리스 정의를 저장합니다.
 
 
 >[!NOTE]

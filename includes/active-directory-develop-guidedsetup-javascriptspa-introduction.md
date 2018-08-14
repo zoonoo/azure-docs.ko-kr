@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: cfbf4dc08ccea95f99216f6cc82c1ee56d65768a
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: f70e0bcb68f059618f9b398a00e23498a10df23e
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943354"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39582829"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 응용 프로그램)에서 Microsoft Graph API 호출
 
@@ -47,6 +47,6 @@ ms.locfileid: "36943354"
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|JavaScript용 Microsoft 인증 라이브러리 미리 보기|
 
 > [!NOTE]
-> *msal.js*는 *Azure Active Directory v2 끝점*을 대상으로 하며 이를 통해 개인, 학교 및 회사 계정으로 로그인하여 토큰을 획득할 수 있습니다. *Azure Active Directory v2 끝점*에는 [몇 가지 제한 사항](..\articles\active-directory\develop\active-directory-v2-limitations.md)이 있습니다. 학교 및 회사 계정에만 관심이 있는 경우 *adal.js* 및 *V1 끝점*을 사용합니다. v1 및 v2 끝점 간의 차이점을 이해하려면 [v1-v2 비교](..\articles\active-directory\develop\active-directory-v2-compare.md)를 읽어보세요.
+> *msal.js*는 *Azure Active Directory v2 끝점*을 대상으로 하며 이를 통해 개인, 학교 및 회사 계정으로 로그인하여 토큰을 획득할 수 있습니다. *Azure Active Directory v2 끝점*에는 [몇 가지 제한 사항](..\articles\active-directory\develop\active-directory-v2-limitations.md)이 있습니다. 학교 및 회사 계정에만 관심이 있는 경우 *adal.js* 및 *V1 끝점*을 사용합니다. v1 및 v2 끝점 간의 차이점을 이해하려면 [v1-v2 비교](../articles/active-directory/develop/azure-ad-endpoint-comparison.md)를 읽어보세요.
 
 <!--end-collapse-->

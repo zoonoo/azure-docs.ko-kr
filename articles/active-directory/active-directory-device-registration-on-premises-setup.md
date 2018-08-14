@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390350"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629075"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 온-프레미스 조건부 액세스 설정
 사용자가 Azure AD(Azure Active Directory) 장치 등록 서비스에 자신의 개인 장치를 작업 공간에 연결하도록 요구하면 해당 장치가 조직에 알려진 것으로 표시될 수 있습니다. 다음은 Windows Server 2012 R2에서 AD FS(Active Directory Federation Services)를 사용하여 온-프레미스 응용 프로그램에 대한 조건부 액세스를 사용하도록 설정하는 단계별 가이드입니다.
@@ -165,7 +165,7 @@ Azure Active Directory 장치 등록은 iOS 장치에 대한 공중파 프로필
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Azure Active Directory 장치 등록을 사용하여 Windows 7 장치 연결
 Windows 7 도메인 가입 장치를 등록하려면 [장치 등록 소프트웨어 패키지](https://www.microsoft.com/download/details.aspx?id=53554)를 배포해야 합니다.
 
-패키지를 사용하는 방법에 대한 지침은 [비 Windows 10 컴퓨터용 Windows Installer 패키지](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers)를 참조하십시오.
+패키지를 사용하는 방법에 대한 지침은 [비 Windows 10 컴퓨터용 Windows Installer 패키지](devices/hybrid-azuread-join-control.md#control-windows-down-level-devices)를 참조하십시오.
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>등록된 장치가 Active Directory에 쓰기 저장되었는지 확인
 LDP.exe 또는 ADSI 편집을 사용하여 장치 개체가 Active Directory에 쓰기 저장되었는지 확인할 수 있습니다. 둘 다 Active Directory 관리자 도구에서 사용할 수 있습니다.

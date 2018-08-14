@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258187"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627919"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>이벤트 허브로 Azure 진단 로그 스트림
 포털에서 기본 제공되는 “Event Hubs로 내보내기” 옵션을 사용하거나 Azure PowerShell cmdlet 또는 Azure CLI 2.0을 통해 진단 설정에서 이벤트 허브 권한 부여 규칙 ID를 사용하도록 설정하여 **[Azure 진단 로그](monitoring-overview-of-diagnostic-logs.md)** 를 거의 실시간으로 응용 프로그램에 스트리밍할 수 있습니다.
@@ -195,6 +195,6 @@ Windows Azure 진단 에이전트를 사용하여 Compute 리소스에서 진단
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Monitor를 사용하여 Azure Active Directory 로그 스트리밍](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
+* [Azure Monitor를 사용하여 Azure Active Directory 로그 스트리밍](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 * [Azure 진단 로그에 대해 자세히 알아보기](monitoring-overview-of-diagnostic-logs.md)
 * [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

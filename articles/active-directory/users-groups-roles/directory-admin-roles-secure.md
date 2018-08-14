@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239954"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627936"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -380,7 +380,7 @@ Office 365를 사용하는 경우
 
 4. [Azure 지원 요청을 열어](../../azure-supportability/how-to-create-azure-support-request.md) Microsoft로부터 도움을 받습니다.
 
-5. [Azure AD 로그인 보고서](../active-directory-reporting-azure-portal.md)를 확인합니다. 이벤트가 발생하는 시점과 보고서에 포함되는 시점 사이에 지연이 있을 수 있습니다.
+5. [Azure AD 로그인 보고서](../reports-monitoring/overview-reports.md)를 확인합니다. 이벤트가 발생하는 시점과 보고서에 포함되는 시점 사이에 지연이 있을 수 있습니다.
 
 6. 하이브리드 환경의 경우 페더레이션되고 AD FS 서버를 사용할 수 없으면 일시적으로 페더레이션 인증에서 암호 해시 동기화를 사용하도록 전환해야 할 수 있습니다. 이렇게 하면 AD FS 서버를 사용할 수 있을 때까지 도메인 페더레이션을 관리 인증으로 되돌립니다.
 

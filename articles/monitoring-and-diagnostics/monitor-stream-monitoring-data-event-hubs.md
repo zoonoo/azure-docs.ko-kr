@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389612"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628174"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>이벤트 허브로 Azure 모니터링 데이터를 스트리밍하여 외부 도구에서 사용
 
@@ -50,11 +50,11 @@ Azure 환경에서 모니터링 데이터에는 여러 '계층'이 있으며, �
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Azure 테넌트 모니터링 데이터를 이벤트 허브로 스트리밍하도록 설정하려면 어떻게 해야 할까요?
 
-Azure 테넌트 모니터링 데이터는 현재 Azure Active Directory에만 사용할 수 있습니다. 로그인 활동 및 특정 테넌트 내의 변경 감사 내역에 대한 기록이 포함되어 있는 [Azure Active Directory 보고](../active-directory/active-directory-reporting-azure-portal.md)의 데이터를 사용할 수 있습니다.
+Azure 테넌트 모니터링 데이터는 현재 Azure Active Directory에만 사용할 수 있습니다. 로그인 활동 및 특정 테넌트 내의 변경 감사 내역에 대한 기록이 포함되어 있는 [Azure Active Directory 보고](../active-directory/reports-monitoring/overview-reports.md)의 데이터를 사용할 수 있습니다.
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory 데이터를 이벤트 허브로 스트리밍
 
-Azure Active Directory 로그에서 Event Hubs 네임스페이스로 데이터를 보내려면 AAD 테넌트에서 테넌트 진단 설정을 설정할 수 있습니다. [이 가이드에 따라](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) 테넌트 진단 설정을 설정합니다.
+Azure Active Directory 로그에서 Event Hubs 네임스페이스로 데이터를 보내려면 AAD 테넌트에서 테넌트 진단 설정을 설정할 수 있습니다. [이 가이드에 따라](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) 테넌트 진단 설정을 설정합니다.
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Azure 구독 모니터링 데이터를 이벤트 허브로 스트리밍하도록 설정하려면 어떻게 해야 할까요?
 

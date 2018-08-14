@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399920"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629653"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>하이브리드 Azure Active Directory 조인 구현을 계획하는 방법
 
@@ -96,6 +96,13 @@ Windows 데스크톱 운영 체제를 실행하는 장치의 경우 지원되는
 VM(Virtual Machine) 스냅숏을 사용하여 추가 VM을 만드는 경우 하이브리드 Azure AD 조인에 대해 구성되지 않은 VM 스냅숏을 사용해야 합니다.
 
 사용자 프로필 로밍 또는 자격 증명 로밍에 대해 구성된 장치에는 Windows 하위 수준 장치의 등록이 지원되지 않습니다. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
+
+- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**. 
+ 
+- Seamless Single Sign On이 설정되지 않은 Azure AD 통과 인증을 사용할 경우 Windows 하위 수준 장치 등록이 지원되지 **않습니다**.
+
+- 로밍 프로필을 사용하는 장치에 대해서는 Windows 하위 수준 장치 등록이 지원되지 **않습니다**. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
+
 
 DC(도메인 컨트롤러) 역할을 실행하는 Windows Server의 등록은 지원되지 않습니다.
 

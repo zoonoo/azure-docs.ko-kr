@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: e773435d89a511e6f1f369cc3fd5dc6f06507e45
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34808760"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630406"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -106,7 +106,7 @@ App Service Certificate는 Azure 리소스로 간주합니다. 이 인증서는 
 
 ## <a name="why-do-i-see-the-message-partially-succeeded-when-i-try-to-back-up-my-web-app"></a>내 웹앱을 백업하려고 할 때 “부분적으로 성공” 메시지가 표시되는 이유는 무엇인가요?
 
-백업 실패의 일반적인 원인은 응용 프로그램에서 일부 파일을 사용하고 있다는 것입니다. 백업을 수행하는 동안 사용 중인 파일이 잠깁니다. 이로 인해 이러한 파일이 백업되지 않아 “부분적으로 성공” 상태가 될 수 있습니다. 백업 프로세스에서 파일을 제외하면 이 문제가 발생하지 않을 수 있습니다. 필요한 항목만 백업하도록 선택할 수 있습니다. 자세한 내용은 [Backup just the important parts of your site with Azure web apps](http://www.zainrizvi.io/2015/06/05/creating-partial-backups-of-your-site-with-azure-web-apps/)(Azure Web Apps를 사용하여 사이트의 중요한 부분만 백업)를 참조하세요.
+백업 실패의 일반적인 원인은 응용 프로그램에서 일부 파일을 사용하고 있다는 것입니다. 백업을 수행하는 동안 사용 중인 파일이 잠깁니다. 이로 인해 이러한 파일이 백업되지 않아 “부분적으로 성공” 상태가 될 수 있습니다. 백업 프로세스에서 파일을 제외하면 이 문제가 발생하지 않을 수 있습니다. 필요한 항목만 백업하도록 선택할 수 있습니다. 자세한 내용은 [Backup just the important parts of your site with Azure web apps](http://zainrizvi.io/blog/creating-partial-backups-of-your-site-with-azure-web-apps/)(Azure Web Apps를 사용하여 사이트의 중요한 부분만 백업)를 참조하세요.
 
 ## <a name="how-do-i-remove-a-header-from-the-http-response"></a>HTTP 응답에서 헤더를 어떻게 제거할 수 있나요?
 
@@ -288,7 +288,7 @@ App Service의 인증 및 권한 부여에 대한 자세한 문서는 다양한 
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>기본 *.azurewebsites.net 도메인을 내 Azure 웹앱의 사용자 지정 도메인으로 리디렉션하려면 어떻게 하나요?
 
-Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가하지만 사용자가 기본 *.azurewebsites.net 도메인에 액세스할 수 없게 하려면 기본 URL을 리디렉션하면 됩니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](http://www.zainrizvi.io/2016/04/07/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
+Azure에서 Web Apps를 사용하여 새 웹 사이트를 만들 경우 기본 *사이트 이름*.azurewebsites.net 도메인이 사이트에 할당됩니다. 사용자 지정 호스트 이름을 사이트에 추가하지만 사용자가 기본 *.azurewebsites.net 도메인에 액세스할 수 없게 하려면 기본 URL을 리디렉션하면 됩니다. 웹 사이트의 기본 도메인에서 사용자 지정 도메인으로 모든 트래픽을 리디렉션하는 방법을 알아보려면 [Redirect the default domain to your custom domain in Azure web apps](http://zainrizvi.io/blog/block-default-azure-websites-domain/)(Azure Web Apps에서 사용자 지정 도메인으로 기본 도메인 리디렉션)를 참조하세요.
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>App Service에 어떤 .NET 버전이 설치되어 있는지 확인하려면 어떻게 하나요?
 
