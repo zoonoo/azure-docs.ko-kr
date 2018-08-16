@@ -378,7 +378,7 @@ ms.locfileid: "33835800"
 
 1. **AppBackend** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
-2. **Microsoft Azure App Service**를 게시 대상으로 선택한 다음, [게시]를 선택합니다. App Service 만들기 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
+2. **Microsoft Azure App Service**를 게시 대상으로 선택한 다음, \*\*[게시]를 선택합니다. App Service 만들기 창이 열립니다. 여기에서 Azure에서 ASP.NET 웹앱을 실행하는 데 필요한 모든 Azure 리소스를 만들 수 있습니다.
 
     ![Microsoft Azure App Service 타일][B15]
 

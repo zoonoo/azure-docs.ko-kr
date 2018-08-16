@@ -73,7 +73,7 @@ U-SQL 스크립트를 로컬로 실행하면 컴파일 중에 현재 실행 중�
 | | |\_ScopeCodeGenEngine\_.*|컴파일러 출력|생성된 네이티브 코드|
 | | |참조된 어셈블리|어셈블리 참조|참조된 어셈블리 파일|
 | | |deployed_resources|리소스 배포|리소스 배포 파일|
-| | |xxxxxxxx.xxx[1..n]\_\*.*|실행 로그|실행 단계에 대한 로그|
+| | |xxxxxxxx.xxx[1..n]\_\*.\*|실행 로그|실행 단계에 대한 로그|
 
 
 ## <a name="use-the-sdk-from-the-command-line"></a>명령줄에서 SDK 사용
