@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 05/21/2018
+ms.date: 08/02/2018
 ms.author: alkohli
-ms.openlocfilehash: 524a587c4547808162b36ff9aa6c08b362465b0b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 78ed53e5e2f5d04943e6c32ddfedf037cb9e1f73
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651208"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480957"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>StorSimple 가상 배열 소개
 
@@ -76,8 +76,8 @@ StorSimple은 응용 프로그램을 수정하지 않고 사용자와 서버를 
 
 |시나리오     |워크로드     |지원됨      |제한               |
 |-------------|-------------|---------------|---------------------------|
-|ROBO  |파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
-|클라우드 보관  |보관 파일 공유     |예      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
+|원격 사무실/지사(ROBO)  |파일 공유     |yes      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
+|클라우드 보관  |보관 파일 공유     |yes      |[파일 서버의 최대 제한](storsimple-ova-limits.md)을 참조하세요.<br></br>[지원되는 SMB 버전에 대한 시스템 요구 사항](storsimple-ova-system-requirements.md).| 모든 버전     |
 
 StorSimple 가상 배열은 자주 액세스되지 않는 데이터에 가장 적합합니다. 가상 배열에는 성능 향상을 위한 로컬 캐시가 있지만 사용자는 장치가 저장소의 가장 낮은 계층(클라우드)에서 파일을 서비스한다고 가정해야 합니다. 각 가상 배열은 약 100Mbps로 Azure 저장소에 쓰고 읽을 수 있습니다. 해당 링크는 장치에 들어오는 모든 요청 간에 공유되며 아래 다이어그램에 나와 있는 것처럼 병목 상태가 될 수 있습니다.
 

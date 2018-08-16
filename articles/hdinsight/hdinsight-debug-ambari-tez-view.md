@@ -1,24 +1,20 @@
 ---
-title: HDInsight에서 Ambari Tez 보기 사용 - Azure | Microsoft Docs
+title: HDInsight로 Ambari Tez 뷰 사용 - Azure
 description: Ambari Tez 뷰를 사용하여 HDInsight에서 Tez 작업을 디버깅하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 98874377f31a435e7dd9736410c123ef623928d0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: de8e40081f92ade236c0c6f3b8d12a77ab13a82a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401593"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594256"
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>HDInsight에서 Ambari 뷰를 사용하여 Tez 작업 디버깅
 

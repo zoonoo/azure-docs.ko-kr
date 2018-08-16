@@ -1,25 +1,20 @@
 ---
-title: 게시된 응용 프로그램 설치 - StreamSets 데이터 수집기 - Azure HDInsight | Microsoft Docs
+title: 게시된 응용 프로그램 설치 - StreamSets 데이터 수집기 - Azure HDInsight
 description: StreamSets 데이터 수집기 타사 Hadoop 응용 프로그램을 설치하고 사용합니다.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: e433de82576f8b943988881ed0b6673c0dccd77e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c0b458b19abb707305ca609fbd5bfac63c92567e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401026"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591230"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>게시된 응용 프로그램 설치 - StreamSets 데이터 수집기
 

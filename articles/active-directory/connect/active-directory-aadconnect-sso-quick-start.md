@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/01/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325390"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522184"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory Seamless Single Sign-On: 빠른 시작
 
@@ -57,9 +57,12 @@ Seamless SSO를 배포하려면 다음 단계를 수행합니다.
 
 Azure AD Connect를 새로 설치하는 경우 [사용자 지정 설치 경로](active-directory-aadconnect-get-started-custom.md)를 선택합니다. **사용자 로그인** 페이지에서 **Single Sign-On 사용** 옵션을 선택합니다.
 
+>[!NOTE]
+> Sign On 메서드가 **암호 해시 동기화** 또는 **통과 인증**인 경우만 선택에 대해 옵션을 사용할 수 있습니다.
+
 ![Azure AD Connect: 사용자 로그인](./media/active-directory-aadconnect-sso/sso8.png)
 
-Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **사용자 로그인 변경** 페이지를 선택하고 **다음**을 선택합니다.
+Azure AD Connect가 이미 설치되어 있는 경우 Azure AD Connect에서 **사용자 로그인 변경** 페이지를 선택하고 **다음**을 선택합니다. Azure AD Connect 버전 1.1.880.0 이상을 사용하는 경우 **Single Sign On 사용** 옵션이 기본적으로 선택됩니다. 이전 버전의 Azure AD Connect를 사용하는 경우 **Single Sign On 사용** 옵션을 선택합니다.
 
 ![Azure AD Connect: 사용자 로그인 변경](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

@@ -1,24 +1,18 @@
 ---
-title: Azure HDInsight를 사용한 Spark 문제 해결 | Microsoft Docs
+title: Azure HDInsight의 Spark 문제 해결
 description: Apache Spark 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
-keywords: Azure HDInsight, Spark, FAQ, 문제 해결 가이드, 일반적인 문제, 응용 프로그램 구성, Ambari
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
+services: hdinsight
+ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: 15fe5e6d2acdb8d782342b21f5db81443c44843d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 7c7f89864d9394ff4527f9a0354b9276f7c01c49
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164536"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591740"
 ---
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 Spark 문제 해결
 

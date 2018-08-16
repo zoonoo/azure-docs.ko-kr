@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 889762ae0b401438f25546738268c584ddd58389
-ms.sourcegitcommit: 15bfce02b334b67aedd634fa864efb4849fc5ee2
+ms.openlocfilehash: 88bf82805ba46abf79b7899e0428a83485062302
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35382956"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504970"
 ---
 # <a name="call-bing-custom-search-endpoint-python"></a>Bing Custom Search 엔드포인트 호출(Python)
 
@@ -34,13 +34,18 @@ ms.locfileid: "35382956"
 Bing Custom Search 엔드포인트를 호출하려면 다음 단계를 수행합니다.
 
 1. 코드 폴더를 만듭니다.
+
 2. 관리자 명령 프롬프트 또는 터미널에서, 방금 만든 폴더로 이동합니다.
+
 3. **요청** python 모듈을 설치합니다.
+
     <pre>
     pip install pipenv
     pipenv install requests
     </pre>
+    
 7. BingCustomSearch.py 파일을 만들고 다음 코드를 파일에 복사합니다.
+
 8. **YOUR-SUBSCRIPTION-KEY** 및 **YOUR-CUSTOM-CONFIG-ID**를 해당 키 및 구성 ID로 바꿉니다(1단계 참조).
 
     ``` Python

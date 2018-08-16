@@ -6,14 +6,14 @@ author: Christina-Kang
 manager: timlt
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 0c5509d323f14a6bb62f465fa23584ca927e0e61
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 370c8521127ffc28cc1b604c217544bccc82d705
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763360"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495947"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -25,7 +25,7 @@ Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔�
 
 설치하기 전에 환경에 Python과 pip가 모두 설치되어 있는지 확인합니다. 자세한 내용은 [pip 빠른 시작 설명서(영문)](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서(영문)](https://wiki.python.org/moin/BeginnersGuide/Download)를 참조하세요.
 
-CLI는 Python 버전 2.7, 3.5, 3.6을 지원합니다. Python 2.7 지원이 끝나기 때문에 Python 3.6이 권장된 버전입니다.
+CLI는 Python 버전 2.7, 3.5, 3.6, 3.7을 지원합니다. Python 2.7의 지원이 곧 끝나기 때문에 Python 3.x가 권장되는 버전입니다.
 
 ### <a name="service-fabric-target-runtime"></a>Service Fabric 대상 런타임
 
@@ -33,7 +33,8 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 | CLI 버전   | 지원되는 런타임 버전 |
 |---------------|---------------------------|
-| 최신(~=5)  | 최신(~=6.2)            |
+| 최신(~=6)  | 최신(~=6.3)            |
+| 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
 | 3.0.0         | 6.0                       |
 | 1.1.0         | 5.6, 5.7                  |
@@ -56,11 +57,11 @@ Service Fabric CLI 릴리스에 대한 자세한 내용은 [GitHub 설명서](ht
 
 Windows 10, Windows Server 2016 및 Windows Server 2012 R2의 경우 표준 공식 설치 지침을 사용합니다. 또한 Python 설치 관리자는 기본적으로 pip를 설치합니다.
 
-1. 공식 [Python 다운로드 페이지](https://www.python.org/downloads/)로 이동하여 Python 3.6의 최신 릴리스를 다운로드합니다.
+1. 공식 [Python 다운로드 페이지](https://www.python.org/downloads/)로 이동하여 Python 3.7의 최신 릴리스를 다운로드합니다.
 
 2. 설치 관리자를 시작합니다.
 
-3. 프롬프트의 아래쪽에 있는 **PATH에 Python 3.6 추가**를 선택합니다.
+3. 프롬프트의 아래쪽에 있는 **PATH에 Python 3.7 추가**를 선택합니다.
 
 4. **지금 설치**를 선택하고 설치를 완료합니다.
 
@@ -113,7 +114,7 @@ sudo pip3 install sfctl
 
 ### <a name="red-hat-enterprise-linux-74-service-fabric-preview-support"></a>Red Hat Enterprise Linux 7.4(Service Fabric 미리 보기 지원)
 
-Redhat에서 Service Fabric CLI를 설치하려면 다음 명령을 실행합니다.
+Red Hat에 Service Fabric CLI를 설치하려면 다음 명령을 실행합니다.
 
 ```bash
 sudo yum install -y python34
@@ -133,7 +134,7 @@ MacOS의 경우 [HomeBrew 패키지 관리자](https://brew.sh)를 사용하는 
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-그런 다음 터미널에서 다음 명령을 실행하여 Python 3.6, pip 및 Service Fabric CLI를 설치합니다.
+그런 다음, 터미널에서 다음 명령을 실행하여 Python 3.7, pip 및 Service Fabric CLI를 설치합니다.
 
 ```bash
 brew install python3

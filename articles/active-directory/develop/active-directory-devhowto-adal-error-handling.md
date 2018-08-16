@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: 27315262ff64b640acc3af16a26fc3887d852a00
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34157640"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593046"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -44,8 +44,8 @@ AcquireTokenSilent는 최종 사용자가 UI(사용자 인터페이스)를 보�
 
 ### <a name="application-scenarios"></a>응용 프로그램 시나리오
 
-- [네이티브 클라이언트](active-directory-dev-glossary.md#native-client) 응용 프로그램(iOS, Android, .NET 데스크톱 또는 Xamarin)
-- [리소스](active-directory-dev-glossary.md#resource-server)(.NET)를 호출하는 [웹 클라이언트](active-directory-dev-glossary.md#web-client) 응용 프로그램
+- [네이티브 클라이언트](developer-glossary.md#native-client) 응용 프로그램(iOS, Android, .NET 데스크톱 또는 Xamarin)
+- [리소스](developer-glossary.md#resource-server)(.NET)를 호출하는 [웹 클라이언트](developer-glossary.md#web-client) 응용 프로그램
 
 ### <a name="error-cases-and-actionable-steps"></a>오류 사례 및 실행 가능한 단계
 
@@ -586,12 +586,7 @@ window.Logging = {
 아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
 [![로그인 단추][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links -->
-[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
-[AAD-Integrating-Apps]: ./active-directory-integrating-applications.md
-[AZURE-portal]: https://portal.azure.com
+<!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.com
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

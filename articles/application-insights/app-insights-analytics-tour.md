@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335284"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579258"
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Application Insights의 Analytics 둘러보기
 [분석](app-insights-analytics.md)은 [Application Insights](app-insights-overview.md)의 강력한 검색 기능입니다. 다음 페이지에서는 Log Analytics 쿼리 언어에 대해 설명합니다.
@@ -226,7 +226,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 
 ### <a name="convert-to-local-time"></a>현지 시간으로 변환
 
-타임스탬프는 항상 UTC 기준입니다. 따라서 미국 태평양 연안에 있으며 계절이 겨울이면 다음과 같이 나타낼 수 있습니다.
+타임스탬프는 항상 UTC 기준입니다. 따라서 미국 태평양 연안에 있으며 계절이 겨울이면 현지 시간은 UTC에서 -8시간이며, 다음과 같이 나타낼 수 있습니다.
 
 ```AIQL
 
@@ -461,7 +461,7 @@ where 절에서 `timestamp`를 언급하는 쿼리를 작성하여 시간 범위
 ## <a name="join"></a>Join
 요청 및 예외를 비롯한 일부 테이블에 액세스할 수 있습니다.
 
-실패 응답을 반환하는 요청과 관련된 예외를 찾으려면 `session_Id`에 대해 테이블을 조인할 수 있습니다.
+실패 응답을 반환하는 요청과 관련된 예외를 찾으려면 `operation_Id`에 대해 테이블을 조인할 수 있습니다.
 
 ```AIQL
 

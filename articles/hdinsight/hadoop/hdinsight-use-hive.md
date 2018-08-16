@@ -1,26 +1,21 @@
 ---
-title: Apache Hive 및 HiveQL이란? - Azure HDInsight | Microsoft Docs
+title: Apache Hive 및 HiveQL이란 - Azure HDInsight
 description: Apache Hive는 Hadoop용 데이터 웨어하우스 시스템입니다. Transact-SQL과 유사하게 HiveQL을 사용하여 Hive에 저장된 데이터를 쿼리할 수 있습니다. 이 문서에서는 Azure HDInsight와 함께 Hive 및 HiveQL을 사용하는 방법에 알아봅니다.
 keywords: hiveql,what is hive,hadoop hiveql,how to use hive,learn hive,what is hive
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: e418411cc6b681e304cc1ba66f0c815ad0d4db64
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0ca968c0412396852e531af3b37f6675e0b519db
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34069712"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596663"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
 

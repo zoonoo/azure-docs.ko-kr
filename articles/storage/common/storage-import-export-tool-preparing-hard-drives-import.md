@@ -2,24 +2,18 @@
 title: Azure Import/Export 가져오기 작업을 위한 하드 드라이브 준비 | Microsoft Docs
 description: WAImportExport 도구로 하드 드라이브를 준비하여 Azure Import/Export 서비스의 가져오기 작업을 만드는 방법에 대해 알아봅니다.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 2854822907e818297c8d2f74cab48b0afa0d646c
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.component: common
+ms.openlocfilehash: 9d8509e97ad83dd636f0a1b1892a2fa67c69e0b7
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23469242"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521798"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>가져오기 작업을 위한 하드 드라이브 준비
 
@@ -32,7 +26,7 @@ WAImportExport 도구는 [Microsoft Azure Import/Export 서비스](../storage-im
 - **컴퓨터 구성**
   - Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제
   - .NET Framework 4가 설치되어 있어야 합니다. .Net Framework가 컴퓨터에 설치되어 있는지 확인하는 방법은 [FAQ](#faq)를 참조하세요.
-- **저장소 계정 키** - 저장소 계정의 계정 키가 하나 이상 필요합니다.
+- **Storage 계정 키** - Storage 계정의 계정 키가 하나 이상 필요합니다.
 
 ### <a name="preparing-disk-for-import-job"></a>가져오기 작업을 위한 디스크 준비
 
@@ -42,11 +36,11 @@ WAImportExport 도구는 [Microsoft Azure Import/Export 서비스](../storage-im
 
 ### <a name="repairing-a-partially-failed-import-job"></a>부분적으로 실패한 가져오기 작업 복구
 
-- **복사 로그 파일** - Azure Import/Export 서비스에서 저장소 계정과 디스크 간에 데이터를 복사할 때 생성됩니다. 대상 저장소 계정에 있습니다.
+- **복사 로그 파일** - Azure Import/Export 서비스에서 Storage 계정과 디스크 간에 데이터를 복사할 때 생성됩니다. 대상 저장소 계정에 있습니다.
 
 ### <a name="repairing-a-partially-failed-export-job"></a>부분적으로 실패한 내보내기 작업 복구
 
-- **복사 로그 파일** - Azure Import/Export 서비스에서 저장소 계정과 디스크 간에 데이터를 복사할 때 생성됩니다. 원본 저장소 계정에 있습니다.
+- **복사 로그 파일** - Azure Import/Export 서비스에서 Storage 계정과 디스크 간에 데이터를 복사할 때 생성됩니다. 원본 저장소 계정에 있습니다.
 - **매니페스트 파일** - [선택 사항] Microsoft에서 반환하여 내보낸 드라이브에 있습니다.
 
 ## <a name="download-and-install-waimportexport"></a>WAImportExport 다운로드 및 설치
@@ -85,7 +79,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | 필드 | 설명 |
 | --- | --- |
 | BasePath | **[필수]**<br/>이 매개 변수 값은 데이터를 가져올 수 있는 원본의 위치를 나타냅니다. 도구는 이 경로 아래에 있는 모든 데이터를 재귀적으로 복사합니다.<br><br/>**허용되는 값**: 로컬 컴퓨터 또는 유효한 공유 경로의 유효한 경로여야 하며 사용자가 액세스할 수 있어야 합니다. 디렉터리 경로는 절대 경로(상대 경로 아님)이어야 합니다. 경로가 "\\"로 끝나는 경우 디렉터리를 나타내고 "\\"로 끝나지 않는 경로는 파일을 나타냅니다.<br/>이 필드에는 정규식을 사용할 수 없습니다. 경로에 공백이 있으면 "" 안에 경로를 넣습니다.<br><br/>**예제**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
-| DstBlobPathOrPrefix | **[필수]**<br/> Microsoft Azure 저장소 계정의 대상 가상 디렉터리에 대한 경로입니다. 가상 디렉터리가 이미 있거나 없을 수도 있습니다. 없는 경우 Import/Export 서비스에서 하나의 가상 디렉터리를 만듭니다.<br/><br/>대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다. 컨테이너 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요. 루트를 지정하는 경우에만 소스의 디렉터리 구조가 대상 Blob 컨테이너에 복제됩니다. 소스의 디렉터리 구조가 아닌 다른 디렉터리 구조를 사용하는 경우 CSV에서 여러 행을 매핑합니다.<br/><br/>music/70s/와 같이 컨테이너 또는 Blob 접두사를 지정할 수 있습니다. 대상 디렉터리는 컨테이너 이름과 "/"(슬래시)로 시작해야 하며 선택적으로 "/"로 끝나는 가상 Blob 디렉터리를 포함할 수도 있습니다.<br/><br/>대상 컨테이너가 루트 컨테이너인 경우 슬래시를 포함하여 $root/로 루트 컨테이너를 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob에는 이름에 "/"를 포함할 수 없으므로 대상 디렉터리가 루트 컨테이너인 경우 원본 디렉터리의 모든 하위 디렉터리는 복사되지 않습니다.<br/><br/>**예제**<br/>대상 Blob 경로가 https://mystorageaccount.blob.core.windows.net/video인 경우 이 필드의 값은 video/입니다.  |
+| DstBlobPathOrPrefix | **[필수]**<br/> Microsoft Azure 저장소 계정의 대상 가상 디렉터리에 대한 경로입니다. 가상 디렉터리가 이미 있거나 없을 수도 있습니다. 없는 경우 Import/Export 서비스에서 하나의 가상 디렉터리를 만듭니다.<br/><br/>대상 가상 디렉터리 또는 BLOB를 지정할 때는 유효한 컨테이너 이름을 사용해야 합니다. 컨테이너 이름은 소문자여야 합니다. 컨테이너 명명 규칙에 대해서는 [컨테이너, Blob, 메타데이터의 명명 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)(영문)를 참조하세요. 루트를 지정하는 경우에만 소스의 디렉터리 구조가 대상 Blob 컨테이너에 복제됩니다. 소스의 디렉터리 구조가 아닌 다른 디렉터리 구조를 사용하는 경우 CSV에서 여러 행을 매핑합니다.<br/><br/>music/70s/와 같이 컨테이너 또는 Blob 접두사를 지정할 수 있습니다. 대상 디렉터리는 컨테이너 이름과 "/"(슬래시)로 시작해야 하며 선택적으로 "/"로 끝나는 가상 Blob 디렉터리를 포함할 수도 있습니다.<br/><br/>대상 컨테이너가 루트 컨테이너인 경우 슬래시를 포함하여 $root/로 루트 컨테이너를 명시적으로 지정해야 합니다. 루트 컨테이너 아래의 Blob에는 이름에 "/"를 포함할 수 없으므로 대상 디렉터리가 루트 컨테이너인 경우 원본 디렉터리의 모든 하위 디렉터리는 복사되지 않습니다.<br/><br/>**예제**<br/>대상 Blob 경로가 https://mystorageaccount.blob.core.windows.net/video이면 이 필드의 값은 video/일 수 있습니다.  |
 | BlobType | **[선택]** block &#124; page<br/>현재 Import/Export 서비스는 두 가지 종류의 Blob을 지원합니다. 페이지 Blob과 블록 Blob은 기본적으로 모든 파일을 블록 Blob으로 가져옵니다. 그리고 \*.vhd\* 및 .vhdx는 페이지 Blob으로 가져오게 됩니다. 블록 Blob 및 페이지 Blob에 허용되는 크기는 제한됩니다. 자세한 내용은 [저장소 확장성 목표](storage-scalability-targets.md)를 참조하세요.  |
 | Disposition | **[선택]** rename &#124; no-overwrite &#124; overwrite <br/> 이 필드는 가져오기 중, 즉 디스크에서 저장소 계정으로 데이터를 업로드할 때의 복사 동작을 지정합니다. 디스크에서 저장소 계정으로 데이터를 업로드할 때 사용 가능한 옵션은 이름 바꾸기, 덮어쓰기, 덮어쓰지 않기입니다. 아무 것도 지정하지 않는 경우 기본값으로 "이름 바꾸기"를 사용합니다. <br/><br/>**이름 바꾸기**: 이름이 같은 개체가 있으면 대상에 복사본을 만듭니다.<br/>overwrite: 파일을 새 파일로 덮어씁니다. 마지막으로 수정된 파일이 우선합니다.<br/>**no-overwrite**: 이미 파일이 있는 경우 파일 쓰기를 건너뜁니다.|
 | MetadataFile | **[선택]** <br/>이 필드의 값은 개체의 메타데이터를 보존해야 하거나 사용자 지정 메타데이터를 제공해야 하는 경우 제공할 수 있는 메타데이터 파일입니다. 대상 Blob에 대한 메타데이터 파일의 경로입니다. 자세한 내용은 [Import/Export 서비스의 메타데이터 및 속성 파일 형식](../storage-import-export-file-format-metadata-and-properties.md)을 참조하세요. |
@@ -208,7 +202,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 | 매개 변수 | 설명 |
 | --- | --- |
 |     /j:&lt;JournalFile&gt;  | **필수**<br/> 저널 파일의 경로입니다. 저널 파일은 일단의 드라이브를 추적하고 이러한 드라이브를 준비하는 진행 상태를 기록합니다. 저널 파일은 항상 지정해야 합니다.  |
-|     /logdir:&lt;LogDirectory&gt;  | **옵션**. 로그 디렉터리입니다.<br/> 일부 임시 파일뿐만 아니라 자세한 로그 파일도 이 디렉터리에 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다. 로그 디렉터리는 동일한 저널 파일에 대해 한 번만 지정할 수 있습니다.  |
+|     /logdir:&lt;LogDirectory&gt;  | **선택 사항**입니다. 로그 디렉터리입니다.<br/> 일부 임시 파일뿐만 아니라 자세한 로그 파일도 이 디렉터리에 기록됩니다. 지정하지 않으면 현재 디렉터리가 로그 디렉터리로 사용됩니다. 로그 디렉터리는 동일한 저널 파일에 대해 한 번만 지정할 수 있습니다.  |
 |     /id:&lt;SessionId&gt;  | **필수**<br/> 세션 ID는 복사 세션을 식별하는 데 사용됩니다. 중단된 복사 세션의 정확한 복구를 위해 사용됩니다.  |
 |     /ResumeSession  | 선택 사항입니다. 마지막 복사 세션이 비정상적으로 종료된 경우 이 매개 변수를 지정하여 해당 세션을 다시 시작할 수 있습니다.   |
 |     /AbortSession  | 선택 사항입니다. 마지막 복사 세션이 비정상적으로 종료된 경우 이 매개 변수를 지정하여 해당 세션을 중단할 수 있습니다.  |
@@ -220,11 +214,11 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /d:&lt;TargetDirectories&gt; | **필수입니다**. RepairImport 및 RepairExport에만 적용됩니다. RepairImport의 경우 세미콜론으로 하나 이상 구분된 디렉터리를 복구합니다. RepairExport의 경우 디렉터리 하나만 복구합니다(예: 드라이브의 루트 디렉터리).  |
 |     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **필수** RepairImport 및 RepairExport에만 적용됩니다. 드라이브 복사 로그 파일(자세한 정보 또는 오류)의 경로입니다.  |
 |     /ManifestFile:&lt;DriveManifestFile&gt; | **필수** RepairExport에만 적용됩니다.<br/> 드라이브 매니페스트 파일의 경로입니다.  |
-|     /PathMapFile:&lt;DrivePathMapFile&gt; | **옵션**. RepairImport에만 적용됩니다.<br/> 실제 파일의 위치(탭 구분 형식)와 드라이브 루트에 상대적인 파일 경로의 매핑을 포함하고 있는 파일의 경로입니다. 처음에 지정되면 빈 대상이 포함된 파일의 경로로 채워집니다. 즉 대상이 TargetDirectories에 없거나 액세스가 거부되었거나 잘못된 이름으로 되어 있거나 여러 디렉터리에 있음을 의미합니다. 정확한 대상 경로를 포함하도록 경로 매핑 파일을 수동으로 편집하고 도구에서 파일 경로를 정확하게 해석하도록 다시 지정할 수 있습니다.  |
+|     /PathMapFile:&lt;DrivePathMapFile&gt; | **선택 사항**입니다. RepairImport에만 적용됩니다.<br/> 실제 파일의 위치(탭 구분 형식)와 드라이브 루트에 상대적인 파일 경로의 매핑을 포함하고 있는 파일의 경로입니다. 처음에 지정되면 빈 대상이 포함된 파일의 경로로 채워집니다. 즉 대상이 TargetDirectories에 없거나 액세스가 거부되었거나 잘못된 이름으로 되어 있거나 여러 디렉터리에 있음을 의미합니다. 정확한 대상 경로를 포함하도록 경로 매핑 파일을 수동으로 편집하고 도구에서 파일 경로를 정확하게 해석하도록 다시 지정할 수 있습니다.  |
 |     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **필수입니다**. PreviewExport에만 적용됩니다.<br/> 내보낼 Blob에 대한 Blob 경로 또는 Blob 경로 접두사 목록을 포함하고 있는 XML 파일의 경로입니다. 파일 형식은 Import/Export 서비스 REST API의 작업 배치(Put Job) 작업에서 사용되는 Blob 목록 Blob 형식과 동일합니다.  |
 |     /DriveSize:&lt;DriveSize&gt; | **필수입니다**. PreviewExport에만 적용됩니다.<br/>  내보내기에 사용할 드라이브 크기입니다. 예: 500GB, 1.5TB 참고: 1GB = 1,000,000,000바이트 1TB = 1,000,000,000,000바이트  |
 |     /DataSet:&lt;dataset.csv&gt; | **필수**<br/> 대상 드라이브에 복사할 디렉터리 목록 및/또는 파일 목록을 포함하고 있는 CSV 파일입니다.  |
-|     /silentmode  | **옵션**.<br/> 지정하지 않으면 드라이브 요구 사항을 알려주며 계속하려면 사용자의 확인이 필요합니다.  |
+|     /silentmode  | **선택 사항**입니다.<br/> 지정하지 않으면 드라이브 요구 사항을 알려주며 계속하려면 사용자의 확인이 필요합니다.  |
 
 ## <a name="tool-output"></a>도구 출력
 
@@ -315,7 +309,7 @@ WAImportExport 도구는 Microsoft Azure Import/Export 서비스에서 사용할
 
 #### <a name="where-can-i-find-previous-version-of-waimportexport-tool"></a>이전 버전의 WAImportExport 도구는 어디서 찾을 수 있습니까?
 
-WAImportExport 도구에는 WAImportExport V1 도구의 모든 기능이 있습니다. WAImportExport 도구를 사용하면 여러 소스를 지정하고 여러 드라이브에 쓸 수 있습니다. 또한 하나의 CSV 파일에서 데이터를 복사해야 하는 여러 원본 위치를 쉽게 관리할 수 있습니다. 그러나 SAS 지원이 필요하거나 단일 원본을 단일 디스크에 복사하려면 [WAImportExport V1 도구를 다운로드](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)하면 됩니다. WAImportExport V1 사용에 대한 도움말은 [WAImportExport V1 참조](storage-import-export-tool-how-to-v1.md)(영문)를 참조하세요.
+WAImportExport 도구에는 WAImportExport V1 도구의 모든 기능이 있습니다. WAImportExport 도구를 사용하면 여러 소스를 지정하고 여러 드라이브에 쓸 수 있습니다. 또한 하나의 CSV 파일에서 데이터를 복사해야 하는 여러 원본 위치를 쉽게 관리할 수 있습니다. 그러나 SAS 지원이 필요하거나 단일 원본을 단일 디스크에 복사하려면 [WAImportExport V1 도구를 다운로드](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409)할 수 있습니다. WAImportExport V1 사용과 관련된 도움말은 [WAImportExport V1 참조](storage-import-export-tool-how-to-v1.md)를 참조하세요.
 
 #### <a name="what-is-a-session-id"></a>세션 ID란?
 

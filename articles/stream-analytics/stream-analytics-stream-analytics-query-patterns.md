@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364168"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578894"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>일반적인 Stream Analytics 사용 패턴에 대한 쿼리 예제
 
@@ -27,8 +27,7 @@ Azure Stream Analytics에서 쿼리는 SQL 방식 쿼리 언어로 표현됩니�
 
 ## <a name="work-with-complex-data-types-in-json-and-avro"></a>JSON 및 AVRO에서 복잡한 데이터 형식 작업 
 Azure Stream Analytics는 CSV, JSON 및 Avro 데이터 형식의 이벤트 처리를 지원합니다.
-JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복합 형식을 포함할 수 있습니다. 이러한 복합 데이터 형식을 사용하려면 [JSON 및 AVRO에서 복합 데이터 형식 사용](
-https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics) 페이지를 참조하세요.
+JSON 및 Avro는 둘 다 중첩된 개체(레코드) 또는 배열과 같은 복합 형식을 포함할 수 있습니다. 이러한 복잡한 데이터 형식으로 작업하기 위해 [JSON 구문 분석 및 AVRO 데이터](stream-analytics-parsing-json.md) 문서를 참조하세요.
 
 
 ## <a name="query-example-convert-data-types"></a>쿼리 예제: 데이터 형식 변환
@@ -632,7 +631,7 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ## <a name="next-steps"></a>다음 단계
 * [Azure Stream Analytics 소개](stream-analytics-introduction.md)
 * [Azure Stream Analytics 사용 시작](stream-analytics-real-time-fraud-detection.md)
-* [Azure  Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
-* [Azure  Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics 작업 규모 지정](stream-analytics-scale-jobs.md)
+* [Azure Stream Analytics 쿼리 언어 참조](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Azure Stream Analytics 관리 REST API 참조](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

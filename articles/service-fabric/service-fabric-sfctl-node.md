@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: fb8a310a131938e95f3d21b3962dbbd1944a57ed
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e68a258c8e323b62f85219648c011ce1e661ee0d
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763428"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494541"
 ---
 # <a name="sfctl-node"></a>sfctl node
 클러스터를 형성하는 노드를 관리합니다.
@@ -111,7 +111,7 @@ Microsoft Azure Service 패브릭 노드의 상태를 가져옵니다. 상태에
 ## <a name="sfctl-node-info"></a>sfctl node info
 Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다. 응답에는 이름, 상태, ID, 상태, 작동 `시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
+응답에는 이름, 상태, ID, 상태, 작동 `시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
 
 ### <a name="arguments"></a>인수
 
@@ -133,13 +133,14 @@ Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보
 ## <a name="sfctl-node-list"></a>sfctl node list
 Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다.
 
-Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다. 응답에는 이름, 상태, ID, 상태, 작동 `시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
+응답에는 이름, 상태, ID, 상태, 작동 `시간 및 노드에 대한 기타 세부 정보가 포함됩니다.
 
 ### <a name="arguments"></a>인수
 
 |인수|설명|
 | --- | --- |
 | --continuation-token | 연속 토큰 매개 변수는 다음 결과 집합을 얻는 데 사용됩니다. 공백 값이 아닌 연속 토큰은 시스템의 결과가 단일 응답에 맞지 않는 경우 API의 응답에 포함됩니다. 이 값이 다음 API 호출에 전달되면 API는 다음 결과 집합을 반환합니다. 결과가 더 이상 없으면 연속 토큰에 값이 포함되지 않습니다. 이 매개 변수의 값은 URL 인코딩이 되지 말아야 합니다. |
+| --max-results | 페이징된 쿼리의 일부로 반환될 결과의 최대 수입니다. 이 매개 변수는 반환되는 결과 수에 상한값을 정의합니다. 반환되는 결과는 구성에 정의된 최대 메시지 크기 제한에 따라 메시지에 맞지 않는 경우 지정된 최대의 결과보다 작을 수 있습니다. 이 매개 변수가 0이거나 지정되지 않은 경우 페이징된 쿼리는 반환 메시지에 맞는 가능한 많은 결과를 포함합니다. |
 | --node-status-filter | NodeStatus에 따라 노드를 필터링할 수 있습니다. 지정한 필터 값과 일치하는 노드만 반환됩니다. 필터 값은 다음 중 하나일 수 있습니다.  기본값\: 기본값입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
@@ -178,7 +179,7 @@ Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.
 ## <a name="sfctl-node-remove-state"></a>sfctl node remove-state
 노드의 지속된 상태가 영구적으로 제거되거나 손실되었음을 Microsoft Azure Service Fabric에 알립니다.
 
-노드의 지속된 상태가 영구적으로 제거되거나 손실되었음을 Microsoft Azure Service Fabric에 알립니다.  해당 노드의 지속된 상태를 복구할 수 없다는 것을 의미합니다. 일반적으로 하드 디스크가 초기화 정리되거나 하드 디스크의 작동이 중단하는 경우에 발생합니다. 이 작업을 성공시키려면 노드는 중단되어야 합니다. 이 작업을 사용하면 Service Fabric에서 해당 노드의 복제본이 더 이상 존재하지 않으며, Service Fabric에서 해당 복제본이 다시 작동하기를 기다리는 것을 중지해야 함을 알 수 있습니다. 노드의 상태가 제거되지 않고 노드가 해당 상태 그대로 다시 작동할 수 있는 경우 이 cmdlet을 실행하지 마십시오.
+해당 노드의 지속된 상태를 복구할 수 없다는 것을 의미합니다. 일반적으로 하드 디스크가 초기화 정리되거나 하드 디스크의 작동이 중단하는 경우에 발생합니다. 이 작업을 성공시키려면 노드는 중단되어야 합니다. 이 작업을 사용하면 Service Fabric에서 해당 노드의 복제본이 더 이상 존재하지 않으며, Service Fabric에서 해당 복제본이 다시 작동하기를 기다리는 것을 중지해야 함을 알 수 있습니다. 노드의 상태가 제거되지 않고 노드가 해당 상태 그대로 다시 작동할 수 있는 경우 이 cmdlet을 실행하지 마십시오.
 
 ### <a name="arguments"></a>인수
 
@@ -299,6 +300,7 @@ StartNodeTransition을 사용하여 시작된 작업의 진행률을 가져옵�
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

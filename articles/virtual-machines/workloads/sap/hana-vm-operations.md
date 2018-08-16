@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59db39e4d8cc68f8c7b63b347980044f06b4522a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344412"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521985"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Azure에서 SAP HANA 인프라 구성 및 작업
 이 문서에서는 Azure VM(Virtual Machines)에 배포된 SAP HANA 시스템 운영 및 Azure 인프라 구성을 위한 지침을 제공합니다. 또한 M128s VM SKU용 SAP HANA 스케일 아웃을 위한 구성 정보가 포함됩니다. 이 문서는 다음 내용을 포함하는 표준 SAP 설명서를 대체하기 위한 것이 아닙니다.
@@ -81,9 +81,9 @@ IOPS 및 저장소 처리량에서 저장소 유형 및 해당 SLA의 목록을 
 
 온-프레미스용 SAP HANA 어플라이언스를 구입했다면 한해 I/O 하위 시스템 및 해당 기능에 대해 걱정할 필요가 없었습니다. SAP HANA에 대한 최소 저장소 요구 사항을 충족하는 것은 어플라이언스 공급업체의 몫이었기 때문입니다. 자체적으로 Azure 인프라를 빌드하는 동안에는 그러한 요구 사항 몇 가지에 대해 알아야 합니다. 또한 다음 섹션에 제안된 구성 요구 사항을 이해해야 합니다. 또는 SAP HANA를 실행하려는 Virtual Machines를 구성하는 경우입니다. 요청되는 특성의 일부는 다음을 수행해야 합니다.
 
-- 최소 1MB I/O 크기로 250MB/초의 **/hana/log**에서 볼륨 읽기/쓰기 활성화
-- 16MB 및 64MB I/O 크기의 **/hana/data**에 대한 최소 400MB/초의 읽기 작업 활성화
-- 16MB 및 64MB I/O 크기의 **/hana/data**에 대한 최소 250MB/초의 쓰기 작업 활성화
+- **/hana/log**에서 1MB I/O 크기 및 최소 250MB/초의 읽기/쓰기 볼륨을 사용하도록 설정합니다.
+- 16MB 및 64MB I/O 크기의 **/hana/data**에 대해 최소 400MB/초의 읽기 작업을 사용하도록 설정합니다.
+- 16MB 및 64MB I/O 크기의 **/hana/data**에 대해 최소 250MB/초의 쓰기 작업을 사용하도록 설정합니다.
 
 낮은 저장소 대기 시간을 지정하는 것은 메모리 내 데이터를 유지하는 SAP HANA와 같은 DBMS 시스템에 중요합니다. 저장소에서 중요한 경로는 일반적으로 DBMS 시스템의 트랜잭션 로그 쓰기입니다. 그러나 쓰기 저장점 또는 충돌 복구 후 메모리 내 데이터 로드와 같은 작업도 중요할 수 있습니다. 따라서 **/hana/data** 및 **/hana/log** 볼륨에는 Azure Premium Disk를 활용하는 것이 필수입니다. SAP에서의 필요에 따라 **/hana/log** 및 **/hana/data**의 최소 처리량을 달성하기 위해 여러 Azure Premium Storage 디스크에 대한 MDADM 또는 LVM을 사용하여 RAID 0을 빌드해야 합니다. 또한 **/hana/data** 및 **/hana/log** 볼륨으로 RAID 볼륨을 사용합니다. RAID 0에 대한 스트라이프 크기로 다음을 사용하는 것이 좋습니다.
 
@@ -289,7 +289,7 @@ SAP HANA 스케일 아웃에 대한 VM 노드의 기본 구성은 다음과 같�
 
 약 2TB 메모리의 SAP HANA 스케일 아웃 인증 M128s Azure VM을 사용한다고 가정하면 SAP 권장 사항은 다음과 같이 요약할 수 있습니다.
 
-- 1개의 마스터 노드 및 최대 4개의 작업자 노드에서 **/hana/shared** 볼륨은 2TB 크기가 되어야 합니다. 
+- 1개 마스터 노드 및 최대 4개 작업자 노드의 경우 **/hana/shared** 볼륨의 크기는 2TB여야 합니다. 
 - 1개의 마스터 노드와 5 및 8개의 작업자 노드에서 **/hana/shared**는 4TB여야 합니다. 
 - 1개의 마스터 노드와 9 ~ 12개의 작업자 노드에서 **/hana/shared**에 대해 6TB 크기가 필요합니다. 
 - 1개의 마스터 노드와 12 및 15개의 작업자 노드 사이를 사용하는 경우 8TB 크기의 **/hana/shared** 볼륨을 제공해야 합니다.
@@ -347,10 +347,112 @@ Azure VM 인프라가 배포되고 다른 모든 준비 작업이 완료되면 �
 - SAP의 설명서에 따라 SAP HANA 마스터 노드 설치
 - **설치 후에는 global.ini 파일을 변경하고 ‘basepath_shared = no’ 매개 변수를 global.ini에 추가해야 합니다**. 이 매개 변수는 노드 간 ‘공유’ **/hana/data** 및 **/hana/log** 볼륨 없이 스케일 아웃에서 실행되도록 SAP HANA를 활성화합니다. 자세한 내용은 [SAP 정보 #2080991](https://launchpad.support.sap.com/#/notes/2080991)에 설명되어 있습니다.
 - global.ini 매개 변수를 변경한 후 SAP HANA 인스턴스 다시 시작
-- 추가 작업자 노드를 추가합니다. <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>도 참조하세요. 설치하는 동안 또는 사용 후에 SAP HANA 노드 내 통신을 위한 내부 네트워크를 지정합니다(예: 로컬 hdblcm). 자세한 내용은 [SAP 정보 #2183363](https://launchpad.support.sap.com/#/notes/2183363)을 참조하세요. 
+- 추가 작업자 노드를 추가합니다. <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>도 참조하세요. 예를 들어 설치 중 또는 나중에 로컬 hdblcm을 사용하여 SAP HANA 노드 간 통신을 위한 내부 네트워크를 지정합니다. 자세한 내용은 [SAP 정보 #2183363](https://launchpad.support.sap.com/#/notes/2183363)을 참조하세요. 
 
 이 설치 루틴에 따라 설치한 스케일 아웃 구성은 **hana/data** 및 **/hana/log** 실행에 공유되지 않은 디스크를 사용하게 됩니다. 반면 **/hana/shared** 볼륨은 고가용성 NFS 공유에 위치하게 됩니다.
-  
+
+
+## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>Azure 가상 머신에 대한 SAP HANA Dynamic Tiering 2.0
+
+Microsoft Azure에서는 Azure M 시리즈 VM에 대한 SAP HANA 인증 외에도 SAP HANA Dynamic Tiering 2.0을 지원합니다(아래의 SAP HANA Dynamic Tiering 설명서 링크 참조). 예를 들어 Azure Virtual Machine 내에서 SAP HANA Cockpit을 통해 제품을 설치하거나 운영하는 데에는 차이가 없지만 공식적인 Azure 지원에 필수적인 몇 가지 중요한 항목이 있습니다. 이러한 중요 사항은 아래에 설명되어 있습니다. 이 문서 전체에서 "DT 2.0"이라는 약어가 Dynamic Tiering 2.0이라는 전체 이름 대신 사용됩니다.
+
+SAP HANA Dynamic Tiering 2.0은 SAP BW 또는 S4HANA에서 지원되지 않습니다. 주요 사용 사례는 현재 원시 HANA 응용 프로그램입니다.
+
+
+### <a name="overview"></a>개요
+
+아래 그림에서는 Microsoft Azure의 DT 2.0 지원에 대한 개요를 제공합니다. 여기서 공식 인증을 준수하기 위해 따라야 하는 일단의 필수 요구 사항은 다음과 같습니다.
+
+- DT 2.0은 전용 Azure VM에 설치해야 합니다. SAP HANA가 실행되는 동일한 VM에서 실행되지 않을 수 있습니다.
+- SAP HANA 및 DT 2.0 VM은 동일한 Azure Vnet 내에 배포해야 합니다.
+- Azure 가속 네트워킹을 사용하도록 설정된 SAP HANA 및 DT 2.0 VM을 배포해야 합니다.
+- DT 2.0 VM에 대한 저장소 유형은 Azure Premium Storage여야 합니다.
+- DT 2.0 VM에 여러 Azure 디스크를 연결해야 합니다.
+- Azure 디스크에서 스트라이핑을 사용하여 소프트웨어 RAID/스트라이프 볼륨을 만들어야 합니다(lvm 또는 mdadm을 통해).
+
+자세한 내용은 다음 섹션에서 설명합니다.
+
+![SAP HANA DT 2.0 아키텍처 개요](media/hana-vm-operations/hana-dt-20.PNG)
+
+
+
+### <a name="dedicated-azure-vm-for-sap-hana-dt-20"></a>SAP HANA DT 2.0 전용 Azure VM
+
+Azure IaaS에서 DT 2.0은 전용 VM에서만 지원됩니다. HANA 인스턴스가 실행되는 동일한 Azure VM에서 DT 2.0을 실행할 수 없습니다. 처음에는 다음 두 가지 VM 유형을 사용하여 SAP HANA DT 2.0을 실행할 수 있습니다.
+
+M64-32ms, E32sv3 
+
+VM 유형에 대한 설명은 [여기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)를 참조하세요.
+
+비용을 절감하기 위해 "웜" 데이터를 오프로드하는 DT 2.0의 기본 개념을 고려하여 해당 VM 크기를 사용하는 것이 좋습니다. 가능한 조합과 관련하여 엄격한 규칙은 없습니다. 이 조합은 특정 고객 워크로드에 따라 다릅니다.
+
+권장되는 구성은 다음과 같습니다.
+
+| SAP HANA VM 유형 | DT 2.0 VM 유형 |
+| --- | --- | 
+| M128ms | M64-32ms |
+| M128s | M64-32ms |
+| M64ms | E32sv3 |
+| M64s | E32sv3 |
+
+
+SAP HANA 인증 M 시리즈 VM과 지원되는 DT 2.0 VM(M64-32ms, E32sv3)의 모든 조합은 가능합니다.
+
+
+### <a name="azure-networking-and-sap-hana-dt-20"></a>Azure 네트워킹 및 SAP HANA DT 2.0
+
+전용 VM에 DT 2.0을 설치하려면 DT 2.0 VM과 SAP HANA VM 간의 네트워크 처리량이 10GB 이상이어야 합니다. 따라서 반드시 모든 VM을 동일한 Azure Vnet에 배치하고 Azure 가속 네트워킹을 사용하도록 설정해야 합니다.
+
+Azure 가속 네트워킹에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)를 참조하세요.
+
+### <a name="vm-storage-for-sap-hana-dt-20"></a>SAP HANA DT 2.0용 VM 저장소
+
+DT 2.0 모범 사례 지침에 따라 디스크 IO 처리량은 물리적 코어당 50MB/초 이상이어야 합니다. DT 2.0에 지원되는 두 가지 Azure VM 유형에 대한 사양을 살펴보면 VM에 대한 최대 디스크 IO 처리량 한도가 표시되어 있습니다.
+
+- E32sv3: 물리적 코어당 48MB/초의 속도를 의미하는 768MB/초(캐시되지 않음)
+- M64-32ms: 물리적 코어당 62.5MB/초의 속도를 의미하는 1,000MB/초(캐시되지 않음)
+
+DT 2.0 VM에 여러 Azure 디스크를 연결하고 OS 수준에서 소프트웨어 RAID(스트라이핑)를 만들어 VM당 최대 디스크 처리량 한도를 달성해야 합니다. 이와 관련하여 단일 Azure 디스크는 최대 VM 한도에 도달하는 처리량을 제공할 수 없습니다. DT 2.0을 실행하려면 Azure Premium Storage가 필수적입니다. 
+
+- 사용 가능한 Azure 디스크 유형에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) 찾을 수 있습니다.
+- mdadm을 통해 소프트웨어 RAID를 만드는 방법에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid) 찾을 수 있습니다.
+- 최대 처리량에 적합한 스트라이프 볼륨을 만들도록 LVM을 구성하는 방법에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm) 찾을 수 있습니다.
+
+크기 요구 사항에 따라 VM의 최대 처리량에 도달할 수 있는 다양한 옵션이 있습니다. 여기에는 VM 처리량 상한을 달성하도록 각 DT 2.0 VM 유형에 적용할 수 있는 데이터 볼륨 디스크 구성이 있습니다. E32sv3 VM은 더 작은 워크로드에 대한 항목 수준으로 간주되어야 합니다. 이 경우 속도가 충분히 빠르지 않아 VM의 크기를 M64-32ms로 조정해야 할 수도 있습니다.
+M64-32ms VM에는 많은 메모리가 있으므로 특히 읽기 집약적인 워크로드의 경우 IO 로드가 한도에 도달하지 못할 수 있습니다. 따라서 스트라이프 세트에서 적은 수의 디스크가 고객 특정 워크로드에 따라 충분할 수도 있습니다. 그러나 만일의 경우에 대비하여 아래의 디스크 구성이 최대 처리량을 보장하기 위해 선택되었습니다.
+
+
+| VM SKU | 디스크 구성 1 | 디스크 구성 2 | 디스크 구성 3 | 디스크 구성 4 | 디스크 구성 5 | 
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| M64-32ms | 4 x P50 -> 16TB | 4 x P40 -> 8TB | 5 x P30 -> 5TB | 7 x P20 -> 3.5TB | 8 x P15 -> 2TB | 
+| E32sv3 | 3 x P50 -> 12TB | 3 x P40 -> 6TB | 4 x P30 -> 4TB | 5 x P20 -> 2.5TB | 6 x P15 -> 1.5TB | 
+
+
+특히 워크로드가 읽기 집약적인 경우 데이터베이스 소프트웨어의 데이터 볼륨에 대한 권장 사항에 따라 IO 성능을 높여 Azure 호스트 캐시를 "read-only(읽기 전용)"로 설정할 수 있습니다. 반면에 트랜잭션 로그의 경우 Azure 호스트 디스크 캐시는 "none"이어야 합니다. 
+
+로그 볼륨의 크기와 관련하여 권장되는 시작점은 데이터 크기의 15%로 추론됩니다. 로그 볼륨은 비용 및 처리량 요구 사항에 따라 다양한 Azure 디스크 유형을 사용하여 만들 수 있습니다. 또한 로그 볼륨의 경우 높은 처리량이 기본 설정이며, M64-32ms의 경우 WA(Write Accelerator)를 사용하는 것이 매우 좋습니다(SAP HANA의 경우 필수). 이렇게 하면 트랜잭션 로그에 대한 최적 디스크 쓰기 대기 시간을 제공합니다(M 시리즈에서만 사용 가능). VM 유형별 최대 디스크 수와 같이 고려해야 할 몇 가지 항목도 있습니다. WA에 대한 자세한 내용은 [여기서](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 찾을 수 있습니다.
+
+
+로그 볼륨의 크기 조정에 대한 몇 가지 예는 다음과 같습니다.
+
+| 데이터 볼륨 크기 및 디스크 유형 | 로그 볼륨 및 디스크 유형 구성 1 | 로그 볼륨 및 디스크 유형 구성 2 |
+| --- | --- | --- |
+| 4 x P50 -> 16TB | 5 x P20 -> 2.5TB | 3 x P30 -> 3TB |
+| 6 x P15 -> 1.5TB | 4 x P6 -> 256GB | 1 x P15 -> 256GB |
+
+
+SAP HANA 스케일 아웃과 마찬가지로, /hana/shared 디렉터리는 SAP HANA VM과 DT 2.0 VM 간에 공유해야 합니다. 고가용성 NFS 서버 역할을 하는 전용 VM을 사용하는 SAP HANA 스케일 아웃과 동일한 아키텍처를 사용하는 것이 좋습니다. 공유 백업 볼륨을 제공하기 위해 동일한 설계를 사용할 수 있습니다. 그러나 HA가 필요한지, 아니면 백업 서버로 작동할 수 있을 만큼 충분한 저장소 용량을 갖춘 전용 VM만 사용하는 것으로도 충분한지는 고객에게 달려 있습니다.
+
+
+
+### <a name="links-to-dt-20-documentation"></a>DT 2.0 설명서에 대한 링크 
+
+- [SAP HANA Dynamic Tiering 설치 및 업데이트 가이드](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
+- [SAP HANA Dynamic Tiering 자습서 및 리소스](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [향상된 SAP HANA 2.0 SPS 02 Dynamic Tiering 기능](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
+
+
 
 
 ## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Azure VM에서 SAP HANA를 배포하기 위한 작업

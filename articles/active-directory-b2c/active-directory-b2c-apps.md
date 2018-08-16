@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f4b45c743c0efa1c9df665018b28a8b4ffb76f73
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238406"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480515"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Azure Active Directory B2C에 사용할 수 있는 응용 프로그램 유형
 
@@ -60,7 +60,13 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 웹 응용 프로그램에서 [정책](active-directory-b2c-reference-policies.md)의 각 실행에서는 이러한 수준 높은 단계를 수행합니다.
 
-![웹앱 스윔 레인 이미지](./media/active-directory-b2c-apps/webapp.png)
+1. 사용자가 웹 응용 프로그램으로 이동합니다.
+2. 웹 응용 프로그램에서 사용자를 Azure AD B2C로 리디렉션하여 실행할 정책을 나타냅니다.
+3. 사용자가 정책을 완성합니다.
+4. Azure AD B2C에서 `id_token`을 브라우저에 반환합니다.
+5. `id_token`이 리디렉션 URI에 게시됩니다.
+6. `id_token`의 유효성이 검사되고 세션 쿠키가 설정됩니다.
+7. 보안 페이지가 사용자에게 반환됩니다.
 
 Azure AD에서 수신한 공개 서명 키를 사용하여 `id_token` 의 유효성을 확인하는 것으로 사용자의 ID를 충분히 확인할 수 있습니다. 또한 후속 페이지 요청에서 사용자를 식별하는 데 사용할 수 있는 세션 쿠키도 설정합니다.
 
@@ -89,7 +95,15 @@ Accept: application/json
 
 Web API는 웹 응용 프로그램, 데스크톱 및 모바일 응용 프로그램, 단일 페이지 응용 프로그램, 서버 쪽 데몬 및 다른 Web API까지 포함하여 많은 유형의 클라이언트에서 토큰을 받을 수 있습니다. 다음은 Web API를 호출하는 웹 응용 프로그램에 대한 전체 흐름을 보여주는 예입니다.
 
-![웹앱 Web API 스윔 레인 이미지](./media/active-directory-b2c-apps/webapi.png)
+1. 웹 응용 프로그램에서 정책을 실행하고, 사용자는 사용자 환경을 완료합니다.
+2. Azure AD B2C에서 `access_token`과 권한 부여 코드를 브라우저에 반환합니다.
+3. 브라우저에서 `access_token` 및 권한 부여 코드를 리디렉션 URI에 게시합니다.
+4. 웹 서버에서 `access token`의 유효성을 검사하고 세션 쿠키를 설정합니다.
+5. `access_token`이 권한 부여 코드, 응용 프로그램 클라이언트 ID 및 자격 증명을 사용하여 Azure AD B2C에 제공됩니다.
+6. `access_token` 및 `refresh_token`이 웹 서버에 반환됩니다.
+7. 웹 API가 권한 부여 헤더에서 `access_token`을 사용하여 호출됩니다.
+8. 웹 API에서 토큰의 유효성을 검사합니다.
+9. 보안 데이터가 웹 서버에 반환됩니다.
 
 권한 부여 코드, 새로 고침 토큰 및 토큰을 가져오는 단계에 대한 자세한 내용은 [OAuth 2.0 프로토콜](active-directory-b2c-reference-oauth-code.md)을 참조하세요.
 
@@ -105,8 +119,6 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 > Azure AD B2C는 현재 응용 프로그램 자체의 백 엔드 웹 서비스에 액세스하는 데 사용되는 토큰만을 지원합니다. 예를 들어, 전체 응용 프로그램이 iOS 응용 프로그램, Android 응용 프로그램 및 백 엔드 Web API를 포함할 수 있습니다. 이 아키텍처를 완전히 지원합니다. iOS 응용 프로그램이 OAuth 2.0 액세스 토큰을 사용하여 파트너 Web API에 액세스하는 작업은 현재 지원되지 않습니다. 전체 응용 프로그램의 모든 구성 요소는 단일 응용 프로그램 ID를 공유해야 합니다.
 >
 >
-
-![네이티브 앱 스윔 레인 이미지](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>현재 제한 사항
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: ee8ff1acbaf5d97d62d6811e8e8abc86017b32fe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fc74613e00adc459f7a7b0a16c6f773fe4bf601d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632614"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593658"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
 
@@ -57,7 +57,7 @@ IoT(사물 인터넷) 시스템은 종종 간헐적이거나, 품질이 낮거�
 ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
-> "오류: AZ3166: 알 수 없는 패키지" 오류 메시지가 표시될 수 있습니다. 보드 패키지 인덱스가 올바르게 새로 고쳐지지 않으면 이 오류가 발생합니다. 이 오류를 해결하려면 이 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)를 참조합니다.
+> "오류: AZ3166: 알 수 없는 패키지" 오류 메시지가 표시될 수 있습니다. 보드 패키지 인덱스가 올바르게 새로 고쳐지지 않으면 이 오류가 발생합니다. 이 오류를 해결하려면 [IoT DevKit FAQ의 개발 섹션](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development)을 참조하세요.
 
 ## <a name="test-the-project"></a>프로젝트 테스트
 
@@ -75,15 +75,15 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
-문제가 발생하면 [FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의해주세요.
+문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의해주세요.
 
 * [Gitter.im](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [Stackoverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>참고 항목
 
-* [클라우드의 Azure IoT Hub에 IoT DevKit AZ3166 연결]({{"/docs/getting-started/" | absolute_url }})
-* [흔들기, 흔들어서 트윗 찾기]({{"/docs/projects/shake-shake/" | absolute_url }})
+* [클라우드의 Azure IoT Hub에 IoT DevKit AZ3166 연결](iot-hub-arduino-iot-devkit-az3166-get-started.md)
+* [흔들기, 흔들어서 트윗 찾기](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)
 
 ## <a name="next-steps"></a>다음 단계
 

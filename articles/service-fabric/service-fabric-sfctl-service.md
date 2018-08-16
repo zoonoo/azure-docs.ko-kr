@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: e027bb7f61d19fc274f7eddd8f28e9e6dac099ce
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763547"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494577"
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "34763547"
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
+| --service-id [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -153,7 +153,7 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
+| --service-id [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --force-remove | 정상적인 종료 시퀀스를 거치지 않고 강제로 Service Fabric 응용 프로그램이나 서비스를 제거합니다. 이 매개 변수는 복제본을 정상적으로 종료하지 못하게 하는 서비스 코드의 문제로 인해 삭제 시간이 초과되는 응용 프로그램이나 서비스를 강제로 삭제하는 데 사용할 수 있습니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
@@ -225,7 +225,7 @@ Service Fabric 클러스터의 노드에 배포된 응용 프로그램의 서비
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
+| --service-id [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -274,7 +274,7 @@ Service Fabric 노드에 배포한 컨테이너에 대한 컨테이너 로그를
 
 |인수|설명|
 | --- | --- |
-| --service-id          [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
+| --service-id          [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --exclude-health-statistics | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔터티 수를 보여줍니다. |
 | --partitions-health-state-filter | 상태에 따라 서비스 상태 쿼리의 결과로 반환된 파티션 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 파티션만 반환됩니다. 모든 파티션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 파티션의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
@@ -300,7 +300,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 |인수|설명|
 | --- | --- |
 | --application-id [필수] | 응용 프로그램의 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 응용 프로그램의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 응용 프로그램 이름이 “fabric\:/myapp/app1”인 경우 응용 프로그램 ID가 6.0 이상에서는 “myapp\~app1”이고 이전 버전에서는 “myapp/app1”입니다. |
-| --service-id     [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
+| --service-id     [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -372,7 +372,7 @@ Service Fabric 응용 프로그램에 속하는 특정 서비스에 대한 정�
 | --app-type-version      [필수] | 해당하는 요청된 서비스 매니페스트에 대한 응용 프로그램 매니페스트의 버전입니다. |
 | --node-name             [필수] | 노드의 이름입니다. |
 | --service-manifest-name [필수] | 다운로드할 패키지와 연결된 서비스 매니페스트의 이름입니다. |
-| --share-policy | 공유 정책의 JSON 인코딩된 목록입니다. 각 공유 정책 요소는 '이름' 및 '범위'로 구성됩니다. 이름은 공유할 코드, 구성 또는 데이터 패키지의 이름에 해당합니다. 범위는 'None', 'All', 'Code', 'Config' 또는 'Data'일 수 있습니다. |
+| --share-policy | 공유 정책의 JSON 인코딩된 목록입니다. 각 공유 정책 요소는 '이름' 및 '범위'로 구성됩니다. 이름은 공유할 코드, 구성 또는 데이터 패키지의 이름에 해당합니다. 범위는 'None', 'All', 'Code', 'Config' 또는 'Data' 중 하나일 수 있습니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -466,7 +466,7 @@ Service Fabric 노드에 배포된 서비스 패키지 목록을 가져옵니다
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
+| --service-id [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -518,7 +518,7 @@ Service Fabric 서비스 파티션을 확인하여 서비스 복제본의 끝점
 
 |인수|설명|
 | --- | --- |
-| --service-id [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
+| --service-id [필수] | 서비스 id입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 "fabric\:/myapp/app1/svc1"이면 서비스 ID는 6.0 이상에서는 "myapp\~app1\~svc1"이고 이전 버전에서는 "myapp/app1/svc1"입니다. |
 | --partition-key-type | 파티션의 키 유형입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 이 매개 변수가 필요합니다. 가능한 값은 다음과 같습니다. - None(1) - PartitionKeyValue 매개 변수가 지정되지 않았음을 나타냅니다. 파티션 구성표가 싱글톤인 파티션에 유효합니다. 기본값입니다. 값은 1입니다. - Int64Range(2) - PartitionKeyValue 매개 변수가 int64 파티션 키임을 나타냅니다. 파티션 구성표가 Int64Range인 파티션에 유효합니다. 값은 2입니다. - Named(3) - PartitionKeyValue 매개 변수가 파티션의 이름임을 나타냅니다. 파티션 구성표가 Named인 파티션에 유효합니다. 값은 3입니다. |
 | --partition-key-value | 파티션 키입니다. 서비스의 파티션 구성표가 Int64Range 또는 Named인 경우 필요합니다. |
 | --previous-rsp-version | 이전에 수신한 응답의 버전 필드 값입니다. 이전에 얻은 결과가 오래되었다는 것을 사용자가 아는 경우에 필요합니다. |
@@ -564,22 +564,22 @@ Service Fabric 클러스터에 프로비저닝된 응용 프로그램 유형에�
 
 |인수|설명|
 | --- | --- |
-| --service-id   [필수] | 서비스의 ID입니다. 이 ID는 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 'fabric\:/myapp/app1/svc1'이면 서비스 ID는 6.0 이상에서는 'myapp\~app1\~svc1'이고 이전 버전에서는 'myapp/app1/svc1'입니다. |
+| --service-id   [필수] | 서비스 id입니다. 일반적으로 'fabric\:' URI 스키마가 없는 서비스의 전체 이름입니다. 버전 6.0에서 시작하며, 계층적 이름이 "\~" 문자로 구분됩니다. 예를 들어 서비스 이름이 'fabric\:/myapp/app1/svc1'이면 서비스 ID는 6.0 이상에서는 'myapp\~app1\~svc1'이고 이전 버전에서는 'myapp/app1/svc1'입니다. |
 | --constraints | 문자열 형태의 배치 제약 조건입니다. 배치 제약 조건은 노드 속성에 대한 부울 식이며 서비스 요구 사항을 기반으로 특정 노드에 대한 서비스 제한을 허용합니다. 예를 들어, NodeType이 파란색인 노드에 서비스를 배치하려면 "NodeColor == blue"를 지정합니다. |
 | --correlated-service | 상관 관계를 지정할 대상 서비스의 이름입니다. |
 | --correlation | 맞춤 선호도를 사용하여 서비스를 기존 서비스와 상호 연결합니다. |
 | --instance-count | 인스턴스 수입니다. 상태 비저장 서비스에만 적용됩니다. |
 | --load-metrics | 노드에서 부하를 분산할 때 사용되는 메트릭의 JSON 인코딩된 목록입니다. |
-| --min-replica-set-size | 숫자로 된 최소 복제본 세트 크기입니다. 이 집합 크기는 상태 저장 서비스에만 적용됩니다. |
+| --min-replica-set-size | 숫자로 된 최소 복제본 세트 크기입니다. 상태 저장 서비스에만 적용됩니다. |
 | --move-cost | 서비스에 대한 이동 비용을 지정합니다. 가능한 값\: 'Zero', 'Low', 'Medium', 'High'. |
 | --placement-policy-list | 서비스에 대한 배치 정책 및 연결된 도메인 이름의 JSON 인코딩된 목록입니다. 정책은 다음 중 하나 이상일 수 있습니다.\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
-| --quorum-loss-wait | 파티션이 쿼럼 손실 상태가 될 수 있는 최대 지속 시간(초)입니다. 이 기간은 상태 저장 서비스에만 적용됩니다. |
-| --replica-restart-wait | 복제본이 다운된 시점과 새 복제본이 생성되는 시점 사이의 간격(초)입니다. 이 기간은 상태 저장 서비스에만 적용됩니다. |
+| --quorum-loss-wait | 파티션이 쿼럼 손실 상태가 될 수 있는 최대 지속 시간(초)입니다. 상태 저장 서비스에만 적용됩니다. |
+| --replica-restart-wait | 복제본이 다운된 시점과 새 복제본이 생성되는 시점 사이의 간격(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --scaling-policies | 이 서비스에 대한 크기 조정 정책의 JSON 인코딩된 목록입니다. |
-| --stand-by-replica-keep | StandBy 복제본이 제거되기 전 유지되는 최대 기간(초)입니다. 이 기간은 상태 저장 서비스에만 적용됩니다. |
+| --stand-by-replica-keep | StandBy 복제본이 제거되기 전 유지되는 최대 기간(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --stateful | 대상 서비스가 상태 저장 서비스임을 나타냅니다. |
 | --stateless | 대상 서비스가 상태 비저장 서비스임을 나타냅니다. |
-| --target-replica-set-size | 숫자로 된 대상 복제본 세트 크기입니다. 이 집합 크기는 상태 저장 서비스에만 적용됩니다. |
+| --target-replica-set-size | 숫자로 된 대상 복제본 세트 크기입니다. 상태 저장 서비스에만 적용됩니다. |
 | --timeout -t | 서버 시간 제한(초).  기본값\: 60. |
 
 ### <a name="global-arguments"></a>전역 인수
@@ -591,6 +591,7 @@ Service Fabric 클러스터에 프로비저닝된 응용 프로그램 유형에�
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

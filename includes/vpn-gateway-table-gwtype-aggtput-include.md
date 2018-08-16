@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 08/02/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fad9b990b6ff1021efdaf8aadeb1e19d8a55871d
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4cbbb64489acf23c1248e35269e1441dd2a6878e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137990"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39514038"
 ---
 |**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br>연결** | **집계<br>처리량 벤치마크** |
 |---       | ---                             | ---                    | ---                         |
@@ -24,7 +24,7 @@ ms.locfileid: "39137990"
 
 * (*) S2S VPN 터널이 30개 넘게 필요한 경우 [가상 WAN](../articles/virtual-wan/virtual-wan-about.md)을 사용해야 합니다.
 
-* (\*\*) 추가 연결이 필요한 경우 지원에 문의하세요.
+* (**) 추가 연결이 필요한 경우 지원에 문의하세요. 이는 IKEv2에만 적용되며 SSTP에 대한 연결 수를 늘릴 수 없습니다.
 
 * 집계 처리량 벤치마크는 단일 게이트웨이를 통해 집계된 여러 터널의 측정값을 기반으로 합니다. 인터넷 트래픽 조건 및 응용 프로그램 동작으로 인해 처리량이 보장되지 않습니다.
 

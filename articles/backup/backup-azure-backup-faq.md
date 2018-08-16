@@ -7,14 +7,14 @@ manager: carmonm
 keywords: 백업 및 재해 복구; 백업 서비스
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412954"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493871"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Azure Backup 서비스에 대한 질문
 이 문서에서는 Azure Backup 구성 요소에 대한 일반적인 질문과 대답을 제공합니다. 대답 중 일부에는 포괄적인 정보를 포함하는 문서에 대한 링크가 있습니다. **의견**(오른쪽)을 클릭하여 Azure Backup에 대한 질문을 할 수 있습니다. 의견은 이 문서의 하단에 나타납니다. Livefyre 계정은 메모가 필수입니다. 또한 [토론 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)에 Azure Backup 서비스에 대한 질문도 게시할 수 있습니다.
@@ -29,6 +29,9 @@ ms.locfileid: "39412954"
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>각 자격 증명 모음에 대해 등록할 수 있는 서버/컴퓨터 수에 제한이 있나요? <br/>
 자격 증명 모음당 최대 1000대의 Azure 가상 머신을 등록할 수 있습니다. MAB Agent를 사용하면 자격 증명 모음당 최대 50대의 MAB Agent를 등록할 수 있습니다. 또한 자격 증명 모음에 50대의 MAB 서버/DPM 서버를 등록할 수 있습니다.
+
+### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>REST API를 사용하여 자격 증명 모음에서 보호된 항목의 크기를 쿼리할 수 있나요? <br/>
+예. [사용량 - 자격 증명 모음별 목록](https://t.co/2lgIrIaF0J) 문서는 Recovery Services 자격 증명 모음에서 얻을 수 있는 정보를 나열합니다.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>내 조직에 하나의 자격 증명 모음이 있는 경우 데이터를 복원할 때 서버 간에 데이터를 어떻게 격리할 수 있나요?<br/>
 동일한 자격 증명 모음에 등록된 모든 서버는 *동일한 암호를 사용*하는 다른 서버에서 백업된 데이터를 복구할 수 있습니다. 조직의 다른 서버에서 백업 데이터를 격리하고 싶은 서버가 있는 경우 해당 서버에 대해 지정된 암호를 사용합니다. 예를 들어 인사부 서버가 첫 번째 암호화 암호를 사용하고, 회계 서버가 두 번째, 저장소 서버가 세 번째 암호화 암호를 사용할 수 있습니다.
@@ -57,6 +60,8 @@ Backup 자격 증명 모음은 Recovery Services 자격 증명 모음으로 변�
 
 예. VMware vCenter 및 ESXi를 Azure에 백업하는 데 Azure Backup Server를 사용할 수 있습니다. 지원되는 VMware 버전에 대 한 자세한 내용은 [Azure Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)를 참조하세요. 단계별 지침은 [Azure Backup Server를 사용하여 VMware 서버 백업](backup-azure-backup-server-vmware.md)을 참조하세요.
 
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>DPM 또는 Azure Backup Server에서 온-프레미스 VMware/Hyper-V 클러스터 전체를 복구하려면 별도 라이선스가 필요하나요?<br/>
+VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다. System Center 고객인 경우 DPM을 사용하여 VMware VM을 보호합니다. System Center 고객이 아닌 경우에는 Azure Backup Server(종량제)를 사용하여 VMware VM을 보호할 수 있습니다.
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup Server 및 System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Azure Backup 서버를 사용하여 물리적 서버에 대한 BMR(완전 복구) 백업을 만들 수 있나요? <br/>
@@ -90,6 +95,9 @@ Azure VM에 대한 백업 작업을 취소하면 모든 전송된 데이터는 �
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Recovery Services 자격 증명 모음에 전송된 데이터가 백업한 데이터의 크기보다 작은 이유는 무엇인가요?<br/>
  Azure Backup 에이전트 또는 SCDPM 또는 Azure Backup 서버에서 백업된 모든 데이터를 전송하기 전에 압축하고 암호화합니다. 압축 및 암호화를 적용하면 Recovery Services 자격 증명 모음에 있는 데이터 크기가 30-40% 줄어듭니다.
+
+### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vaultbr"></a>자격 증명 모음의 복구 지점에서 개별 파일을 삭제할 수 있나요?<br/>
+아니요. Azure Backup은 저장된 백업에서 개별 항목의 삭제나 제거를 지원하지 않습니다.
 
 ## <a name="what-can-i-back-up"></a>어떤 것을 백업할 수 있나요?
 ### <a name="which-operating-systems-does-azure-backup-support-br"></a>Azure Backup에서 지원하는 운영 체제는 무엇인가요? <br/>

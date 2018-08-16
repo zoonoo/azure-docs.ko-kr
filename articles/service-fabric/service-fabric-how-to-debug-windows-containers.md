@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
 ms.author: mikhegn
-ms.openlocfilehash: 437c38a8e674fcdf06e26a7191ceecef9d901470
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968323"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523430"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>방법: Visual Studio 2017을 사용하여 Azure Service Fabric에서 Windows 컨테이너 디버깅
 
@@ -34,20 +34,20 @@ Visual Studio 2017 업데이트 7(15.7)에서는 컨테이너의 .NET 응용 프
 
 1. 다음 단계로 계속 진행하기 전에 Window용 Docker 서비스가 실행되고 있는지 확인합니다.
 
-1. 컨테이너 간에 DNS 확인을 지원하려면 컴퓨터 이름을 사용하여 로컬 개발 클러스터를 설정해야 합니다.
+1. 컨테이너 간에 DNS 확인을 지원하려면 컴퓨터 이름을 사용하여 로컬 개발 클러스터를 설정해야 합니다. 또한 이러한 단계는 역방향 프록시를 통해 서비스에 주소를 지정하려는 경우 필요합니다.
     1. PowerShell을 관리자 권한으로 엽니다.
-    1. SDK 클러스터 설치 폴더(일반적으로 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`)로 이동합니다.
-    1. `-UseMachineName` 매개 변수를 사용하여 `DevClusterSetup.ps1` 스크립트를 실행합니다.
+    2. SDK 클러스터 설치 폴더(일반적으로 `C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup`)로 이동합니다.
+    3. `-UseMachineName` 매개 변수를 사용하여 `DevClusterSetup.ps1` 스크립트를 실행합니다.
 
-    ``` PowerShell
-      C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
-    ```
+       ``` PowerShell
+         C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1 -UseMachineName
+       ```
 
     > [!NOTE]
     > `-CreateOneNodeCluster`를 사용하여 단일 노드 클러스터를 설정할 수 있습니다. 기본적으로 5개 로컬 노드 클러스터를 만듭니다.
     >
 
-    Service Fabric의 DNS 서비스에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice)를 참조하세요.
+    Service Fabric의 DNS 서비스에 대한 자세한 내용은 [Azure Service Fabric의 DNS 서비스](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice)를 참조하세요. 컨테이너에서 실행되는 서비스에서 Service Fabric 역방향 프록시 사용 방법에 대한 자세한 정보는 [컨테이너에서 실행되는 서비스에 대한 역방향 프록시 특별 처리](service-fabric-reverseproxy.md#special-handling-for-services-running-in-containers)를 참조하세요.
 
 ### <a name="known-limitations-when-debugging-containers-in-service-fabric"></a>Service Fabric에서 컨테이너를 디버그할 때 알려진 제한 사항
 

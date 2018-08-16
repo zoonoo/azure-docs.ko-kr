@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e791051fb82197a770bff05f636159c638e3b9a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9700a76284e2ee2a652ae0dbcbaa2885ab515f79
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627854"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596558"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기 사용자 지정
 
@@ -34,6 +34,8 @@ UI를 변경하기 위해 복사본을 로컬로 실행할 수 있습니다. 로
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
+
+    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
 
 1. Azure Portal 또는 [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 사용하여 가상 머신의 이름 및 공용 IP 주소를 찾습니다. 예: 
 
@@ -461,5 +463,5 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 원격 모니터링 솔루션 가속기에 대한 자세한 개념 정보는 [원격 모니터링 아키텍처](iot-accelerators-remote-monitoring-sample-walkthrough.md)를 참조하세요.
 
-원격 모니터링 솔루션 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)를 참조하세요.
-<!-- Next tutorials in the sequence -->
+원격 모니터링 솔루션 사용자 지정에 대한 자세한 내용은 [마이크로 서비스 사용자 지정 및 재배포](iot-accelerators-microservices-example.md)
+<!-- Next tutorials in the sequence -->를 참조하세요.

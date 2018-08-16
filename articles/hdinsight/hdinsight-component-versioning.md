@@ -1,26 +1,21 @@
 ---
-title: Hadoop 구성 요소 및 버전 - Azure HDInsight | Microsoft Docs
+title: Hadoop 구성 요소 및 버전 - Azure HDInsight
 description: HDInsight의 Hadoop 구성 요소 및 버전과 Hortonworks Data Platform의 이 클라우드 배포판에서 사용할 수 있는 서비스 수준에 대해 알아봅니다.
 keywords: hadoop 버전, hadoop 에코시스템 구성 요소, hadoop 구성 요소, hadoop 버전을 확인하는 방법
 services: hdinsight
-editor: cgronlun
-manager: asadk
+editor: jasonwhowell
 author: kkampf
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 02f730aaf9f47da564d459577a31377ef63207a4
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a11d8d8ab255a3e0a6adff3d488bcdaf0716f35e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390639"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594997"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Hadoop 구성 요소 및 버전은 무엇인가요?
 

@@ -4,16 +4,16 @@ description: Windows 컴퓨터에서 시뮬레이트된 장치를 사용하여 D
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307946"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576205"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전
 
@@ -58,6 +58,8 @@ DPS에서 등록을 만들 때 **초기 장치 쌍 상태**를 선언할 기회�
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 
+이전 섹션을 완료한 후 새 장치가 IoT Hub에 IoT Edge 장치로 표시됩니다. 이제 IoT Edge 런타임을 장치에 설치해야 합니다. 
+
 IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 해당 구성 요소는 컨테이너에서 실행되며, Edge에서 코드를 실행할 수 있도록 장치에 추가 컨테이너의 배포를 허용합니다. Windows를 실행하는 장치에서 Windows 컨테이너 또는 Linux 컨테이너를 사용하도록 선택할 수 있습니다. 사용하려는 컨테이너의 유형을 선택하고 단계를 수행합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다. 
 
 지침에 따라 이전 섹션에서 시뮬레이트된 TPM이 실행되는 장치에서 IoT Edge 런타임을 설치합니다. 
@@ -67,30 +69,9 @@ IoT Edge 런타임은 모든 IoT Edge 장치에 배포되며, 해당 구성 요�
 * [Windows 컨테이너](how-to-install-iot-edge-windows-with-windows.md)
 * [Linux 컨테이너](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>TPM 환경 변수 만들기
-
-시뮬레이트된 장치를 실행하는 컴퓨터에서 **iotedge** 서비스 레지스트리를 수정하여 환경 변수를 설정합니다.
-
-1. **시작** 메뉴에서 **regedit**을 엽니다. 
-2. **컴퓨터\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**로 이동합니다. 
-3. **편집** > **새로 만들기** > **다중 문자열 값**을 선택합니다. 
-4. 이름 **Environment**를 입력합니다. 
-5. 새 변수를 두 번 클릭하고 값 데이터를 **IOTEDGE_USE_TPM_DEVICE=ON**으로 설정합니다. 
-6. **확인**을 클릭하여 변경 내용을 저장합니다. 
-
-## <a name="restart-the-iot-edge-runtime"></a>IoT Edge 런타임 다시 시작
-
-장치에서 한 모든 구성 변경을 선택하도록 IoT Edge 런타임을 다시 시작합니다. 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
 
-런타임이 성공적으로 시작된 경우 IoT Hub로 이동하여 새 장치가 자동으로 프로비전되고 IoT Edge 모듈을 실행할 준비가 되었는지 확인할 수 있습니다. 
+런타임이 성공적으로 시작한 경우 IoT Hub로 이동하고 장치에 IoT Edge 모듈 배포를 시작할 수 있습니다. 장치에서 다음 명령을 사용하여 런타임이 성공적으로 설치되고 시작되는지 확인합니다.  
 
 IoT Edge 서비스의 상태를 확인합니다.
 

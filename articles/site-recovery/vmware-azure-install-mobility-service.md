@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37919090"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527000"
 ---
 # <a name="install-the-mobility-service"></a>모바일 서비스 설치 
 
@@ -26,7 +26,8 @@ Site Recovery 모바일 서비스는 Azure에 복제하려는 VMware VM 및 실�
 
 
 >[!IMPORTANT]
-> 9.7.0.0 버전부터 Mobility Service 설치 관리자는 Windows VM에 사용 가능한 최신 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)도 설치합니다. 컴퓨터가 Azure로 장애 조치되는 경우에는 VM 확장 사용에 대한 에이전트 설치 필수 조건을 충족합니다.
+> 9.7.0.0 버전부터 Mobility Service 설치 관리자는 **Windows VM**에 사용 가능한 최신 [Azure VM 에이전트](../virtual-machines/extensions/features-windows.md#azure-vm-agent)도 설치합니다. 컴퓨터가 Azure로 장애 조치되는 경우에는 VM 확장 사용에 대한 에이전트 설치 필수 조건을 충족합니다.
+> </br>**Linux VM**에서 WALinuxAgent는 수동으로 설치해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 서버에 모바일 서비스를 수동으로 설치하기 전에 이러한 필수 조건 단계를 완료합니다.
@@ -42,11 +43,14 @@ Site Recovery 모바일 서비스는 Azure에 복제하려는 VMware VM 및 실�
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>모바일 서비스 설치 관리자와 운영 체제 매핑
 
+호환되는 Mobility Service 패키지를 사용하여 운영 체제 버전 목록을 보려면 [VMware 가상 머신 및 물리적 서버에 대한 지원되는 운영 체제](vmware-physical-azure-support-matrix.md#replicated-machines) 목록을 참조합니다.
+
 | 설치 관리자 파일 템플릿 이름| 운영 체제 |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1(64비트) </br> Windows Server 2012(64비트) </br> Windows Server 2012 R2(64비트) </br> Windows Server 2016(64비트) |
-|Microsoft-ASR\_UA\*RHEL6-64*release.tar.gz| Red Hat Enterprise Linux(RHEL) 6.4, 6.5, 6.6, 6.7, 6.8, 6.9(64비트 전용) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6.8, 6.9(64비트 전용) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux(RHEL) 7.1, 7.2, 7.3(64비트 전용) </br> CentOS 7.0, 7.1, 7.2, 7.3(64비트 전용) |
+|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (64비트 전용) </br> CentOS 6.*(64비트 전용) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux(RHEL) 7.*(64비트 전용) </br> CentOS 7.* (64비트 전용) |
+|Microsoft-ASR\_UA\*SLES12-64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1,SP2,SP3(64비트 전용)|
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3(64비트만 해당)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4(64비트만 해당)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5(64비트만 해당)|
@@ -54,7 +58,6 @@ Site Recovery 모바일 서비스는 Azure에 복제하려는 VMware VM 및 실�
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS 서버(64비트 전용)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7(64비트 전용)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8(64비트 전용)|
-
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>GUI를 사용하여 수동으로 모바일 서비스 설치
 

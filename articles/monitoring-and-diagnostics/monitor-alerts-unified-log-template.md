@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263204"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441445"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 로그 경고 만들기
 이 문서에서는 [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) 및 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)를 통해 [Azure Resource Manager 템플릿](..//azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure의 규모에서 프로그래밍 방식으로 [로그 경고](monitor-alerts-unified-log.md)를 관리하는 방법을 보여줍니다. 현재 Azure Alerts는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md)와 [Azure Application Insights](../application-insights/app-insights-analytics-tour.md)에서 쿼리에 대한 로그 경고를 지원합니다.
@@ -27,7 +27,7 @@ Log Analytics API를 실행하고 [OMS 포털에서 경고](..//log-analytics/lo
 ### <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 Log Analytics에 대한 로그 경고는 일정한 간격으로 저장된 검색을 실행하는 경고 규칙에 의해 만들어집니다. 쿼리 결과가 지정된 기준과 일치하면 경고 레코드가 생성되고 하나 이상의 작업이 실행됩니다. 
 
-[로그 분석 저장된 검색](../log-analytics/log-analytics-log-searches.md) 및 [로그 분석 경고](../log-analytics/log-analytics-alerts.md)에 대한 리소스 템플릿은 설명서의 Log Analytics 섹션에서 사용할 수 있습니다. 설명 목적의 샘플 및 스키마 세부 내용을 포함하는 [Log Analytics 저장된 검색 및 경고 추가](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)에 대해 자세히 알아봅니다.
+로그 분석 저장된 검색 및 로그 분석 경고에 대한 리소스 템플릿은 설명서의 Log Analytics 섹션에서 사용할 수 있습니다. 자세한 정보는 설명 목적의 샘플 및 스키마 세부 내용을 포함하는 [Log Analytics 저장된 검색 및 경고 추가](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md)를 참조하세요.
 
 ### <a name="using-resource-template-via-apipowershell"></a>API/Powershell을 통해 리소스 템플릿 사용
 Log Analytics Alert REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 따라서 API는 PowerShell 명령줄에서 액세스할 수 있으며 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 결과를 사용하게 됩니다.

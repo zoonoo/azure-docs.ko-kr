@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247281"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576188"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Resource Manager 배포 모델을 사용하여 Windows 서버 또는 Windows 클라이언트 컴퓨터로 파일 복원
 
@@ -51,6 +51,8 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
 4. **복구 모드 선택** 창에서 **개별 파일 및 폴더**를 선택하고 **다음**을 클릭합니다.
 
     ![파일 찾아보기](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> *개별 파일 및 폴더*를 복원하는 옵션에는 .NET Framework 4.5.2 이상이 필요합니다. *개별 파일 및 폴더* 옵션이 표시되지 않는 경우 .NET Framework를 4.5.2 이상 버전으로 업그레이드하고 다시 시도해야 합니다.
 
 5. **볼륨 및 날짜 선택** 창에서 복원할 파일 및/또는 폴더가 들어있는 볼륨을 선택합니다.
 
@@ -67,7 +69,7 @@ Azure Portal에서는 Recovery Services 자격 증명 모음을 통해 즉시 �
     ![복구 옵션](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. Windows 탐색기에서 복원할 파일 및/또는 폴더를 복사하여 서버 또는 컴퓨터의 로컬 위치에 붙여 넣습니다. 복구 볼륨에서 직접 파일을 열거나 스트리밍하여 올바른 버전이 복구되었는지 확인할 수 있습니다.
+8. Windows 탐색기에서 복원할 파일 및/또는 폴더를 복사하여 서버 또는 컴퓨터의 로컬 위치에 붙여 넣습니다. 복구 볼륨에서 직접 파일을 열거나 스트리밍하여 올바른 버전을 복구하는지 확인할 수 있습니다.
 
     ![탑재된 볼륨의 파일 및 폴더를 복사하여 로컬 위치에 붙여 넣기](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

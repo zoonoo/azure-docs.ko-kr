@@ -4,21 +4,19 @@ description: 부모 리소스 사용 시 발생하는 오류를 해결하는 방
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/13/2017
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: c996a644f206051cb58522065f87f95a4058cdee
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 3042ea1a523f12ae0311545a1b9bc67306f266dd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34357778"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447305"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>부모 리소스 오류 해결
 
@@ -35,7 +33,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>원인
 
-한 리소스가 다른 리소스의 자식인 경우 자식 리소스를 만들기 전에 부모 리소스가 있어야 합니다. 자식 리소스의 이름에 부모 이름이 포함됩니다. 예를 들어 SQL Database는 다음과 같이 정의될 수 있습니다.
+한 리소스가 다른 리소스의 자식인 경우 자식 리소스를 만들기 전에 부모 리소스가 있어야 합니다. 자식 리소스의 이름은 부모 리소스와의 연결을 정의합니다. 자식 리소스의 이름은 `<parent-resource-name>/<child-resource-name>` 형식으로 돼 있습니다. 예를 들어 SQL Database는 다음과 같이 정의될 수 있습니다.
 
 ```json
 {
@@ -44,16 +42,48 @@ Message=Can not perform requested operation on nested resource. Parent resource 
   ...
 ```
 
-그러나 서버에 대한 종속성을 지정하지 않으면 서버가 배포되기 전에 데이터베이스 배포가 먼저 시작될 수 있습니다.
+동일한 템플릿으로 서버 및 데이터베이스를 배포하지만 서버에 대한 종속성을 지정하지 않는 경우 서버가 배포되기 전에 데이터베이스 배포가 먼저 시작될 수 있습니다. 
+
+부모 리소스가 이미 존재하고 동일한 템플릿으로 배포되지 않는 경우 Resource Manager가 부모와 자식 리소스를 연결할 수 없을 때 오류가 발생합니다. 자식 리소스가 올바른 형식이 아니거나 자식 리소스가 부모 리소스용 리소스 그룹과 다른 리소스 그룹에 배포되는 경우 오류가 발생할 수 있습니다.
 
 ## <a name="solution"></a>해결 방법
 
-이 오류를 해결하려면 종속성을 포함하세요.
+부모 및 자식 리소스가 동일한 템플릿으로 배포될 경우 이 오류를 해결하려면 종속성을 포함합니다.
 
 ```json
 "dependsOn": [
     "[variables('databaseServerName')]"
 ]
+```
+
+이전에 부모 리소스를 다른 템플릿으로 배포한 경우 이 오류를 해결하려면 종속성을 설정하지 않습니다. 대신, 동일한 리소스 그룹에 자식 리소스를 배포하고 부모 리소스의 이름을 제공합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sqlServerName": {
+            "type": "string"
+        },
+        "databaseName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2014-04-01",
+            "type": "Microsoft.Sql/servers/databases",
+            "location": "[resourceGroup().location]",
+            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "edition": "Basic"
+            }
+        }
+    ],
+    "outputs": {}
+}
 ```
 
 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스를 배포하는 순서 정의](resource-group-define-dependencies.md)를 참조하세요.

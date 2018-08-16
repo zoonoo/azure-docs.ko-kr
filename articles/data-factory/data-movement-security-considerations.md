@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342405"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493973"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,6 +58,9 @@ Azure 규정 준수 및 Azure의 자체 인프라 보안 방법에 관심이 있
 
 > [!NOTE]
 > Azure SQL Database와 Azure SQL Data Warehouse에 대한 모든 연결은 항상 데이터를 데이터베이스로/에서 전송하는 중에 암호화(SSL/TLS)가 필요합니다. JSON을 사용하여 파이프라인을 작성하는 동안 암호화 속성을 추가하고 연결 문자열에서 **true**로 설정합니다. Azure Storage의 경우 연결 문자열에 **HTTPS**를 사용할 수 있습니다.
+
+> [!NOTE]
+> 사용된 TLS 버전은 1.2입니다.
 
 ### <a name="data-encryption-at-rest"></a>휴지 상태의 암호화
 일부 데이터 저장소가 미사용 데이터 암호화를 지원합니다. 이러한 데이터 저장소에 데이터 암호화 메커니즘을 사용하는 것이 좋습니다. 

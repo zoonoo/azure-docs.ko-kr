@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: b15fff6e868bfac973f9d2a7277f0fac1e29d845
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36940023"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505612"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -78,7 +78,7 @@ Azure Active Directory의 [동적으로 금지된 암호](https://docs.microsoft
 
 ### <a name="implement-ad-fs-extranet-lockout"></a>AD FS 엑스트라넷 잠금 구현
 
-Azure AD에 직접 인증하도록 응용 프로그램을 구성하는 조직은 [Azure AD 스마트 잠금](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)의 이점을 활용합니다. AD FS를 사용하는 경우 AD FS [엑스트라넷 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)을 구현합니다. 엑스트라넷 잠금은 사용자가 Active Directory에서 잠기는 것을 방지하면서 AD FS를 대상으로 하는 무차별 암호 대입 공격으로부터 보호합니다.
+Azure AD에 직접 인증하도록 응용 프로그램을 구성하는 조직은 [Azure AD 스마트 잠금](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)의 이점을 활용합니다. Windows Server 2012 R2에서 AD FS를 사용하는 경우 AD FS [엑스트라넷 잠금 보호](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)를 구현합니다. Windows Server 2016에서 AD FS를 사용하는 경우 [엑스트라넷 스마트 잠금](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016)을 구현합니다. AD FS 스마트 엑스트라넷 잠금은 AD FS를 대상으로 하는 무차별 암호 대입 공격으로부터 사용자를 보호하면서 사용자가 Active Directory에서 잠기지 않도록 방지합니다.
 
 ### <a name="take-advantage-of-intrinsically-secure-easier-to-use-credentials"></a>본질적으로 안전하며 사용이 더 용이한 자격 증명의 이점 활용
 

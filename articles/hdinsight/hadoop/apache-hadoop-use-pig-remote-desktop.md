@@ -1,25 +1,20 @@
 ---
-title: HDInsight에서 원격 데스크톱과 Hadoop Hive 사용 - Azure | Microsoft Docs
+title: HDInsight에서 원격 데스크톱과 Hadoop Hive 사용 - Azure
 description: Windows 기반 HDInsight Hadoop 클러스터에 대한 원격 데스크톱 연결을 통해 Pig 명령을 사용하여 Pig Latin 문을 실행하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e034a286-de0f-465f-8bf1-3d085ca6abed
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: f293aab67fb5e952dc32e20a6370d45cded682b5
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5aec07a5ebbbb56abcbaebbddc5579cf4d076b4d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "35762000"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590669"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>원격 데스크탑 연결에서 Pig 작업 실행
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]

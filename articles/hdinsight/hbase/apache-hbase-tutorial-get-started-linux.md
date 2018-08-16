@@ -1,25 +1,21 @@
 ---
-title: HDInsight에서 HBase 예제 시작 - Azure | Microsoft Docs
+title: HDInsight에서 HBase 예제 시작 - Azure
 description: 이 Apache HBase 예제에 따라 HDInsight에서 hadoop 사용을 시작합니다. HBase 셸에서 테이블을 만들고 Hive를 사용하여 쿼리합니다.
 keywords: hbasecommand, hbase 예제
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 4d6a2658-6b19-4268-95ee-822890f5a33a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: a77724bd5ed14bf8eb91bf64a1837ce7106edd06
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: jasonh
+ms.openlocfilehash: 4baee16d3a28a77700f7e134a55f6ebfd607869a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867898"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595269"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight에서 Apache HBase 예제 시작
 

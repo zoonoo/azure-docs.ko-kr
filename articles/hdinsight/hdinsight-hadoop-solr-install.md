@@ -1,25 +1,20 @@
 ---
-title: 스크립트 작업을 사용하여 Hadoop 클러스터에 Solr 설치- Azure | Microsoft Docs
+title: 스크립트 작업을 사용하여 Hadoop 클러스터에 Solr 설치- Azure
 description: 스크립트 작업을 사용하여 Solr로 HDInsight 클러스터를 사용자 지정하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b1e6f338-8ac1-4b38-bbb5-2f7388b9de3b
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: nitinme
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6445bcdc361bcda3beb6abcb6196fecc9c6c0024
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: d9c2742081ec83a52f7029814acd7b04a2f0fdb7
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952878"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595667"
 ---
 # <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>Windows 기반 HDInsight 클러스터에서 Solr 설치 및 사용
 

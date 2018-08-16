@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: e9d1e348ccdccfc72a8e60d70dda1c939c2393af
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004774"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525555"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -43,7 +43,7 @@ ms.locfileid: "39004774"
 | 쌍(장치 및 모듈) 읽기<sup>1</sup> | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
 | 쌍 업데이트(장치 및 모듈)<sup>1</sup> | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
 | 작업(Job) 작업<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위(5000/분/단위) |
-| 장치 단위 작업 연산 처리량<sup>1</sup> | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
+| 작업 장치 연산<sup>1</sup> <br/> (쌍 업데이트, 직접 메서드 호출) | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
 | 구성 및 에지 배포<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) |
 
 

@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be1b35d2e7dc3d3e2efab825f318983e2943b0d2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5fbdccf4e14ce1201b21f0490e9c890c77c3e2f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194362"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577758"
 ---
 # <a name="manage-azure-automation-account"></a>Azure Automation 계정 관리
 Automation 계정 만료되기 전인 어떤 시점에서 인증서를 갱신해야 합니다. 실행 계정이 손상되었다고 생각하시면 삭제하고 다시 만들 수 있습니다. 이 섹션에서는 이러한 작업을 수행하는 방법을 설명합니다.
 
-## <a name="self-signed-certificate-renewal"></a>자체 서명된 인증서 갱신
+## <a name="cert-renewal"></a>자체 서명된 인증서 갱신
 실행 계정에 만든 자체 서명된 인증서는 생성 날짜로부터 1년이 되는 날에 만료됩니다. 만료되기 전에 언제든지 갱신할 수 있습니다. 인증서를 갱신하면 큐에 대기하거나 활발하게 실행 중이며 실행 계정으로 인증되는 모든 Runbook이 부정적인 영향을 받지 않도록 현재 유효한 인증서가 보존됩니다. 인증서는 만료 날짜까지 유효합니다.
 
 > [!NOTE]
@@ -72,11 +72,11 @@ Automation 계정 만료되기 전인 어떤 시점에서 인증서를 갱신해
 
 실행 계정을 선택하면 계정 **속성** 창은 다음과 같은 오류 메시지를 표시합니다.
 
-![불완전 실행 계정 구성 경고 메시지](media/automation-manage-account/automation-account-runas-incomplete-config-msg.png)에서도 확인할 수 있습니다.
+![불완전 실행 계정 구성 경고 메시지](media/automation-manage-account/automation-account-runas-incomplete-config-msg.png).
 
 계정을 삭제하고 다시 만들어서 이러한 실행 계정 문제를 신속하게 해결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/active-directory-application-objects.md)를 참조합니다.
+* 서비스 주체에 대한 자세한 내용은 [응용 프로그램 개체 및 서비스 주체 개체](../active-directory/develop/app-objects-and-service-principals.md)를 참조합니다.
 * Azure Automation의 역할 기반 Access Control에 대한 자세한 내용은 [Azure Automation에서 역할 기반 Access Control](automation-role-based-access-control.md)을 참조하세요.
 * 인증서 및 Azure 서비스에 대한 자세한 내용은 [Azure Cloud Services 인증서 개요](../cloud-services/cloud-services-certs-create.md)를 참조하세요.

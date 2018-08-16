@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/03/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5a93a21c3884d742479bdd30417a846942cb1ed1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308612"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524093"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -62,6 +62,7 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
     | --- | --- |
     | **80** | SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
     | **443** | 서비스와의 모든 아웃바운드 통신 처리 |
+    | **8080**(선택 사항) | 인증 에이전트는 포트 443을 사용할 수 없는 경우 포트 8080을 통해 10분마다 해당 상태를 보고합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
    
     방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이나 프록시에서 DNS 허용 목록을 허용하면 **\*.msappproxy.net** 및 **\*.servicebus.windows.net**에 대한 연결을 허용 목록에 추가합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.

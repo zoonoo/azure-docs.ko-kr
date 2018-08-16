@@ -2,23 +2,19 @@
 title: Azure Portal에서 저장소 메트릭 사용 | Microsoft Docs
 description: Blob, 큐, 테이블 및 파일 서비스의 저장소 메트릭을 활성화하는 방법에 대해 알아봅니다.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 0caa4eff80877ad4bf8d501a276e82922b1a84c7
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: a12f2f3775808edb2045be5a1d955280f515ff7d
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530427"
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Azure Storage 메트릭 사용 및 메트릭 데이터 보기
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -115,8 +111,8 @@ Storage 계정을 모니터링하도록 저장소 분석 메트릭을 구성하�
 
 > [!NOTE]
 > [Microsoft Azure Storage Explorer](http://storageexplorer.com/) 버전 0.8.0부터 분석 및 메트릭 테이블을 보고 다운로드할 수 있습니다.
-> 
-> 
+>
+>
 
 프로그래밍 방식으로 분석 테이블에 액세스하기 위해서는 저장소 계정의 모든 테이블을 나열하면 분석 테이블은 표시되지 않음에 유의하십시오. 테이블 이름을 쿼리하려면 이름을 통해 직접 액세스하거나 .NET 클라이언트 라이브러리에서 [CloudAnalyticsClient API](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.analytics.cloudanalyticsclient.aspx) 를 사용할 수 있습니다.
 
@@ -135,7 +131,7 @@ Storage 계정을 모니터링하도록 저장소 분석 메트릭을 구성하�
 
 [저장소 분석 메트릭 테이블 스키마](https://msdn.microsoft.com/library/azure/hh343264.aspx)에서 이러한 테이블의 스키마에 대한 전체 세부 정보를 확인할 수 있습니다. 아래의 샘플 행에는 사용 가능한 열 중 일부만 나와 있습니다. 그러나 Storage 메트릭에서 이러한 메트릭을 저장하는 방식과 관련한 몇 가지 중요한 기능을 확인할 수 있습니다.
 
-| PartitionKey | RowKey | 타임 스탬프 | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | Availability | AverageE2ELatency | AverageServerLatency | PercentSuccess |
+| PartitionKey | RowKey | 타임 스탬프 | TotalRequests | TotalBillableRequests | TotalIngress | TotalEgress | 가용성 | AverageE2ELatency | AverageServerLatency | PercentSuccess |
 | --- |:---:| ---:| --- | --- | --- | --- | --- | --- | --- | --- |
 | 20140522T1100 |user;All |2014-05-22T11:01:16.7650250Z |7 |7 |4003 |46801 |100 |104.4286 |6.857143 |100 |
 | 20140522T1100 |user;QueryEntities |2014-05-22T11:01:16.7640250Z |5 |5 |2694 |45951 |100 |143.8 |7.8 |100 |
@@ -148,6 +144,8 @@ Storage 계정을 모니터링하도록 저장소 분석 메트릭을 구성하�
 * 요청 형식은 all(이 경우 요약 줄)이거나 QueryEntity 또는 UpdateEntity 등의 특정 API를 식별합니다.
 
 위의 샘플 데이터는 오전 11시부터 1분 동안의 모든 레코드를 표시하므로 QueryEntities 요청의 수 + QueryEntity 요청의 수 + UpdateEntity 요청의 수 = 7입니다. 이 합계가 user:All 행에 표시됩니다. 마찬가지로 ((143.8 * 5) + 3 + 9)/7을 계산하여 user:All 행에 평균 종단 간 대기 시간인 104.4286을 표시할 수 있습니다.
+
+**Blob 시간별 메트릭 설정**은 **Blob 용량 메트릭**($MetricsCapacityBlob) 및 **시간별 Blob 트랜잭션 메트릭**($MetricsHourPrimaryTransactionsBlob) 모두에 적용됩니다. 둘은 함께 활성화되거나 비활성화되고 동일한 보존 정책을 사용합니다.
 
 ## <a name="metrics-alerts"></a>메트릭 알림
 Storage 메트릭이 Storage 서비스 동작의 중요한 변경 내용을 자동으로 알릴 수 있도록 [Azure Portal](https://portal.azure.com)에서 경고를 설정하는 것을 고려해야 합니다. 저장소 탐색기 도구를 사용하여 이 메트릭 데이터를 구분된 형식에서 다운로드하려면 Microsoft Excel을 사용하여 데이터를 분석할 수 있습니다. 사용 가능한 저장소 탐색기 도구의 목록은 [Azure Storage Client Tools](storage-explorers.md)를 참조하세요. 저장소 계정 메뉴 창에서 **모니터링** 아래에서 액세스할 수 있는 **경고 규칙** 창에서 알림을 구성할 수 있습니다.

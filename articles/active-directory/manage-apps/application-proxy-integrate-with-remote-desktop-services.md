@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 61ac0d823322b919952b7ea426c447e070a09fc1
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363199"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480424"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용하여 원격 데스크톱 게시
 
@@ -64,14 +64,14 @@ RDS 배포에서 RD 웹 역할 및 RD 게이트웨이 역할은 인터넷 연결
 ### <a name="publish-the-rd-host-endpoint"></a>RD 호스트 끝점 게시
 
 1. 다음 값을 사용하여 [새 응용 프로그램 프록시 응용 프로그램을 게시](application-proxy-publish-azure-portal.md)합니다.
-   - 내부 URL: https://\<rdhost\>.com/, 여기서 \<rdhost\>는 RD 웹 및 RD 게이트웨이에서 공유하는 공통 루트입니다.
+   - 내부 URL: `https://\<rdhost\>.com/`, 여기서 `\<rdhost\>`는 RD 웹과 RD 게이트웨이에서 공유하는 공통 루트입니다.
    - 외부 URL: 이 필드는 응용 프로그램 이름에 따라 자동으로 채워지지만 수정할 수 있습니다. 사용자는 RDS에 액세스하면 이 URL로 이동합니다.
    - 사전 인증 방법: Azure Active Directory
    - URL 헤더 변환: 아니요
 2. 게시된 RD 응용 프로그램에 사용자를 할당합니다. 모든 사용자가 RDS에도 액세스할 수 있는지 확인합니다.
 3. 응용 프로그램에 대한 Single Sign-On 방법을 **Azure AD Single Sign-On 사용 안 함**으로 유지합니다. 사용자에게는 Azure AD 및 RD 웹에 대해 한 번씩 인증하도록 요청되지만 RD 게이트웨이에 대한 Single Sign-On이 제공됩니다.
 4. **Azure Active Directory** > **앱 등록** > *응용 프로그램* > **설정**으로 이동합니다.
-5. **속성**을 선택하고 **홈페이지 URL** 필드를 업데이트하여 RD 웹 끝점(예: https://\<rdhost\>.com/RDWeb)을 가리킵니다.
+5. **속성**을 선택하고, RD 웹 엔드포인트(예: `https://\<rdhost\>.com/RDWeb`)를 가리키도록 **홈페이지 URL** 필드를 업데이트합니다.
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>응용 프로그램 프록시에 대한 직접 RDS 트래픽
 

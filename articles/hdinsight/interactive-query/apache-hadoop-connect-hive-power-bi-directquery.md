@@ -1,25 +1,21 @@
 ---
-title: Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화 | Microsoft Docs
+title: Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화
 description: Microsoft Power BI를 사용하여 Azure HDInsight에서 처리한 대화형 쿼리 Hive 데이터를 시각화하는 방법에 대해 알아봅니다.
 keywords: hdinsight,hadoop,hive,대화형 쿼리,대화형 hive,LLAP,directquery
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive,
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
+ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: jgao
-ms.openlocfilehash: b8da1f17b9e477caf9031cf94ee14f3a181e247e
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4dcfcb5e70b9eb6626be1f3528781a8c5b1bd5c4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407965"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593029"
 ---
 # <a name="visualize-interactive-query-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Azure HDInsight에서 직접 쿼리를 사용하여 Microsoft Power BI에서 대화형 쿼리 Hive 데이터 시각화
 

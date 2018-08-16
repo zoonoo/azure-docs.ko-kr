@@ -1,25 +1,20 @@
 ---
-title: 외부 메타데이터 저장소 사용 - Azure HDInsight | Microsoft Docs
+title: 외부 메타데이터 저장소 사용 - Azure HDInsight
 description: HDInsight 클러스터로 외부 메타데이터 저장소를 사용합니다.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-tags: azure-portal
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 2eadee1a8695450e2219031ea1a65ee3624f26b5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fb1401578237a92a6f164ec98e8dbcdbbb88be38
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202563"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595401"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -74,7 +69,7 @@ Azure Portal 또는 Ambari 구성(Hive > Advanced)에서 사용자 지정 metast
 
 - 가능한 경우 사용자 지정 metastore를 사용합니다. 이를 통해 계산 리소스(실행 중인 클러스터)와 metastore에 저장된 메타데이터를 구분할 수 있습니다.
 - 50 DTU 및 250GB의 저장소를 제공하는 S2 계층으로 시작합니다. 병목 상태가 발생하는 경우 데이터베이스를 확장할 수 있습니다.
-- 특정 HDInsight 클러스터 버전에 대해 만든 metastore는 여러 가지 HDInsight 클러스터 버전 간에 공유할 수 없습니다. 여러 가지 Hive 버전에서는 다양한 스키마를 사용합니다. 예를 들어 Hive 1.2와 Hive 2.1 클러스터 모두와 metastore를 공유할 수 없습니다.
+- 특정 HDInsight 클러스터 버전에 대해 만들어진 metastore가 여러 HDInsight 클러스터 버전 간에 공유되지 않도록 합니다. 여러 가지 Hive 버전에서는 다양한 스키마를 사용합니다. 예를 들어 Hive 1.2와 Hive 2.1 클러스터 모두와 metastore를 공유할 수 없습니다.
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Log Analytics와 같은 Azure SQL Database 모니터링 도구를 사용하여 성능 및 가용성 확인을 위해 metastore를 모니터링합니다.

@@ -13,24 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 0558a5647267dda26890ba3a6dc1af326fae94f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308166"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502443"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>역방향 프록시를 사용하여 보안 서비스 연결
 
-이 문서에서는 역방향 프록시와 서비스 간에 보안 연결을 설정하여 종단 간 보안 채널을 사용하도록 설정하는 방법에 대해 설명합니다.
+이 문서에서는 역방향 프록시와 서비스 간에 보안 연결을 설정하여 종단 간 보안 채널을 사용하도록 설정하는 방법에 대해 설명합니다. 역방향 프록시에 대한 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요.
 
-보안 서비스에 연결하는 것은 역방향 프록시가 HTTPS에서 수신하도록 구성된 경우에만 지원됩니다. 이 문서의 나머지 부분에서는 이 구성을 전제로 합니다.
-Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabric의 역방향 프록시](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy)를 참조하세요.
+보안 서비스에 연결하는 것은 역방향 프록시가 HTTPS에서 수신하도록 구성된 경우에만 지원됩니다. 이 문서에서는 이러한 경우를 가정합니다.
+Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabric의 역방향 프록시 설정](service-fabric-reverseproxy-setup.md)을 참조하세요.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>역방향 프록시와 서비스 간의 안전한 연결 설정 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>서비스를 인증하는 역방향 프록시:
-역방향 프록시는 해당 인증서를 사용하여 자체적으로 서비스를 식별하며 **클러스터** [리소스 종류 섹션](../azure-resource-manager/resource-group-authoring-templates.md)의 ***reverseProxyCertificate*** 속성에서 지정됩니다. 서비스는 역방향 프록시에서 제공한 인증서를 확인하기 위한 논리를 구현할 수 있습니다. 이 서비스는 허용된 클라이언트 인증서 세부 정보를 구성 패키지의 구성 설정으로 지정할 수 있습니다. 이는 런타임 시 읽을 수 있으며 역방향 프록시에서 제공한 인증서의 유효성을 검사하는 데 사용됩니다. 구성 설정을 추가하려면 [응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요. 
+역방향 프록시는 해당 인증서를 사용하여 서비스에 대해 역방향 프록시 자체를 식별합니다. Azure 클러스터의 경우 인증서는 Resource Manager 템플릿의 [**Microsoft.ServiceFabric/clusters**](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [리소스 유형 섹션](../azure-resource-manager/resource-group-authoring-templates.md)에서 ***reverseProxyCertificate*** 속성을 사용하여 지정됩니다. 독립 실행형 클러스터의 경우 인증서는 ClusterConfig.json의 **보안** 섹션에서 ***ReverseProxyCertificate*** 또는 ***ReverseProxyCertificateCommonNames*** 속성 중 하나를 사용하여 지정됩니다. 자세한 내용은 [독립 실행형 클러스터에서 역방향 프록시 사용](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters)을 참조하세요. 
+
+서비스는 역방향 프록시에서 제공한 인증서를 확인하기 위한 논리를 구현할 수 있습니다. 이 서비스는 허용된 클라이언트 인증서 세부 정보를 구성 패키지의 구성 설정으로 지정할 수 있습니다. 이는 런타임 시 읽을 수 있으며 역방향 프록시에서 제공한 인증서의 유효성을 검사하는 데 사용됩니다. 구성 설정을 추가하려면 [응용 프로그램 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>서비스에서 제공한 인증서를 통해 서비스의 ID를 확인하는 역방향 프록시:
 역방향 프록시는 서비스에서 제공하는 인증서의 서버 인증서 유효성 검사를 수행하기 위해 None, ServiceCommonNameAndIssuer 및 ServiceCertificateThumbprints 정책 중 하나를 지원합니다.
@@ -193,6 +195,7 @@ SSL 종료는 역방향 프록시에서 발생하며 모든 클라이언트 인�
 
 
 ## <a name="next-steps"></a>다음 단계
+* [클러스터에서 역방향 프록시를 설정 및 구성합니다](service-fabric-reverseproxy-setup.md).
 * 다른 서비스 인증서 유효성 검사 옵션을 사용하여 보안 역방향 프록시를 구성하려면 [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)(보안 서비스에 연결하도록 역방향 프록시 구성)에서 Azure Resource Manager 템플릿 샘플을 참조하세요.
 * [GitHub의 샘플 프로젝트](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)에서 서비스 간 HTTP 통신의 예제를 참조하세요.
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)

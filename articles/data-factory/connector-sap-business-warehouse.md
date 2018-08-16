@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9934e9757b5def444afb39d110e490aa6516521f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045078"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590333"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Business Warehouse에서 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -42,10 +42,12 @@ SAP Business Warehouse에서 지원되는 모든 싱크 데이터 저장소로 �
 이 SAP Business Warehouse 커넥터를 사용 하려면 다음을 수행해야 합니다.
 
 - 자체 호스팅 Integration Runtime을 설정합니다. 자세한 내용은 [자체 호스팅 Integration Runtime](create-self-hosted-integration-runtime.md)을 참조하세요.
-- 통합 런타임 컴퓨터에 **SAP NetWeaver 라이브러리**를 설치합니다. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361**을 검색합니다. 통합 런타임 설치와 일치하는 **64-비트** SAP NetWeaver 라이브러리를 선택해야 합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
+- 통합 런타임 컴퓨터에 **SAP NetWeaver 라이브러리**를 설치합니다. SAP Netweaver 라이브러리는 SAP 관리자를 통해 구하거나 [SAP 소프트웨어 다운로드 센터](https://support.sap.com/swdc)에서 바로 구할 수 있습니다. 최신 버전에 대한 다운로드 위치를 찾으려면 **SAP Note #1025361**을 검색합니다. Integration Runtime 설치와 일치하는 **64-비트** SAP NetWeaver 라이브러리를 선택해야 합니다. 그런 다음 SAP Note에 따라 SAP NetWeaver RFC SDK에 포함된 모든 파일을 설치합니다. SAP NetWeaver 라이브러리는 SAP Client Tools 설치에도 포함됩니다.
 
-> [!TIP]
-> NetWeaver RFC SDK에서 추출된 dll을 system32 폴더에 넣습니다.
+>[!TIP]
+>SAP BW에 대한 연결 문제를 해결하려면 다음을 확인합니다.
+>- NetWeaver RFC SDK에서 추출된 모든 종속성 라이브러리는 %windir%\system32 폴더에 적용됩니다. 일반적으로 icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll이 포함 됩니다.
+>- SAP 서버에 연결하는 데 사용되는 필요한 포트는 자체 호스팅 IR 머신에서 활성화되며, 일반적으로 3300 및 3201 포트입니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -59,13 +61,13 @@ SAP BW(Business Warehouse) 연결된 서비스에 다음 속성이 지원됩니�
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 형식 속성은 **SapBw**로 설정해야 합니다. | 예 |
-| 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
-| systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
-| clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
-| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
-| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+| 형식 | 형식 속성은 **SapBw**로 설정해야 합니다. | yes |
+| 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | yes |
+| systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | yes |
+| clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | yes |
+| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | yes |
+| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |yes |
 
 **예제:**
 
@@ -124,8 +126,8 @@ SAP BW에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Re
 
 | 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | 예 |
-| 쿼리 | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | 예 |
+| 형식 | 복사 작업 원본의 형식 속성을 **RelationalSource**로 설정해야 합니다. | yes |
+| 쿼리 | SAP BW 인스턴스에서 데이터를 읽을 MDX 쿼리를 지정합니다. | yes |
 
 **예제:**
 

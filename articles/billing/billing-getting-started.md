@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: e4db9911697a4d79032b7a6358db642112a5a54e
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062175"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528268"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -65,7 +65,8 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 
 ### <a name="spending-limit"></a> 지출 한도가 설정되어 있는지 확인
 
-크레딧을 사용하는 구독이 있는 경우 기본적으로 지출 한도가 켜져 있습니다. 이러한 방식으로 모든 크레딧을 지출하면 신용 카드에 요금이 청구되지 않습니다. [전체 Azure 제품 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요.
+크레딧을 사용하는 구독이 있는 경우 기본적으로 지출 한도가 켜져 있습니다. 이러한 방식으로 모든 크레딧을 지출하면 신용 카드에 요금이 청구되지 않습니다. 
+  [전체 Azure 제품 목록 및 지출 한도 가용성](https://azure.microsoft.com/support/legal/offer-details/)을 참조하세요.
 
 그러나 지출 한도에 도달하면 서비스는 사용되지 않도록 설정됩니다. 즉, VM이 할당 취소됩니다. 서비스 가동 중지를 방지하려면 지출 한도를 해제해야 합니다. 초과분이 파일의 신용 카드에 부과됩니다. 
 
@@ -121,7 +122,7 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 
 ### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>Azure Advisor 권장 지침 설정 및 확인
 
-[Azure Advisor](../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 주는 미리 보기 기능입니다. Azure Portal에서 이 기능을 켭니다.
+[Azure Advisor](../advisor/advisor-overview.md)는 사용량이 낮은 리소스를 식별하여 비용을 절감하는 데 도움을 주는 기능입니다. Azure Portal에서 Advisor를 방문합니다.
 
 ![Azure Portal의 Azure Advisor 단추 스크린 샷](./media/billing-getting-started/advisor-button.PNG)
 

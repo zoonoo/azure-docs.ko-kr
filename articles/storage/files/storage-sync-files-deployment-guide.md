@@ -2,24 +2,18 @@
 title: Azure File Sync 배포 | Microsoft Docs
 description: Azure File Sync를 배포하는 방법을 처음부터 끝까지 알아봅니다.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
-ms.assetid: 297f3a14-6b3a-48b0-9da4-db5907827fb5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: files
+ms.openlocfilehash: b84de7475c54d2bc35dcc10b0bbfb0c1839c5631
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414244"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522138"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure File Sync 배포
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -249,7 +243,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 ---
 
 ## <a name="create-a-sync-group-and-a-cloud-endpoint"></a>동기화 그룹 및 클라우드 엔드포인트 만들기
-동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나 이상의 클라우드 끝점과 하나 이상의 서버 끝점을 포함해야 합니다. 서버 엔드포인트는 등록된 서버의 경로를 나타냅니다. 한 서버가 여러 동기화 그룹에서 서버 엔드포인트를 가질 수 있습니다. 원하는 동기화 토폴로지를 적절하게 설명하는 데 필요한 만큼 동기화 그룹을 만들 수 있습니다.
+동기화 그룹은 파일 집합에 대한 동기화 토폴로지를 정의합니다. 동기화 그룹 내 엔드포인트는 서로 동기화된 상태를 유지합니다. 동기화 그룹은 Azure 파일 공유를 나타내는 하나의 클라우드 엔드포인트와 하나 이상의 서버 엔드포인트를 포함해야 합니다. 서버 엔드포인트는 등록된 서버의 경로를 나타냅니다. 한 서버가 여러 동기화 그룹에서 서버 엔드포인트를 가질 수 있습니다. 원하는 동기화 토폴로지를 적절하게 설명하는 데 필요한 만큼 동기화 그룹을 만들 수 있습니다.
 
 클라우드 엔드포인트는 Azure 파일 공유에 대한 포인터입니다. 모든 서버 엔드포인트는 클라우드 엔드포인트와 동기화되어 클라우드 엔드포인트를 허브로 만듭니다. Azure 파일 공유에 대한 저장소 계정은 저장소 동기화 서비스와 동일한 영역에 있어야 합니다. Azure 파일 공유 전체가 동기화되지만, 한 가지 예외가 있습니다. NTFS 볼륨의 숨겨진 "시스템 볼륨 정보" 폴더와 비슷한 특수 폴더가 프로비전됩니다. 이 디렉터리를 ".SystemShareInformation"이라고 부릅니다. 이 디렉터리에는 다른 엔드포인트와 동기화되지 않는 중요한 동기화 메타데이터가 포함되어 있습니다. 이 디렉터리를 사용하거나 삭제하지 마세요!
 

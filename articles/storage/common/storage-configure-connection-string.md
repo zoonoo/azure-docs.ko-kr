@@ -1,25 +1,19 @@
 ---
 title: Azure Storage에 대한 연결 문자열 구성 | Microsoft Docs
-description: Azure Storage 계정에 대한연결 문자열을 구성합니다. 연결 문자열에는 런타임 시 응용 프로그램에서 저장소 계정에 액세스하는 것을 인증하는 데 필요한 정보가 포함되어 있습니다.
+description: Azure Storage 계정에 대한연결 문자열을 구성합니다. 연결 문자열에는 런타임 시 응용 프로그램에서 저장소 계정에 액세스 권한을 부여하는 데 필요한 정보가 포함되어 있습니다.
 services: storage
-documentationcenter: ''
 author: craigshoemaker
-manager: jeconnoc
-editor: tysonn
-ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: dee0fd68ccaf80ff6e44ee10fa24bb19e220d0d5
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 1c6ba727bf9c19b5da0d0d0313377d5d4ad1e2ac
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30240832"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530467"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Azure Storage 연결 문자열 구성
 
@@ -32,7 +26,7 @@ ms.locfileid: "30240832"
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 ## <a name="storing-your-connection-string"></a>사용자의 연결 문자열 저장
-Azure Storage에 대해 만들어진 요청을 인증하려면 런타임에 응용 프로그램이 연결 문자열에 액세스해야 합니다. 연결 문자열을 저장하기 위한 여러 가지 옵션이 있습니다.
+Azure Storage에 대해 만들어진 요청 권한을 부여하려면 런타임에 응용 프로그램이 연결 문자열에 액세스해야 합니다. 연결 문자열을 저장하기 위한 여러 가지 옵션이 있습니다.
 
 * 데스크톱 또는 장치에서 실행 중인 응용 프로그램의 경우 연결 문자열을 **app.config** 또는 **web.config** 파일에 저장할 수 있습니다. 이러한 파일의 **AppSettings** 섹션에 연결 문자열을 추가합니다.
 * Azure 클라우드 서비스에서 실행 중인 응용 프로그램의 경우, 연결 문자열을 [Azure 서비스 구성 스키마(.cscfg) 파일](https://msdn.microsoft.com/library/ee758710.aspx)에 저장할 수 있습니다. 연결 문자열을 서비스 구성 파일의 **ConfigurationSettings** 섹션에 추가합니다.

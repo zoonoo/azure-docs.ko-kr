@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 600068113fec0549f3993ac57c1daa93577c6be6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399756"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521757"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요
 
@@ -192,6 +192,6 @@ STS에서 사용자 프로필에 따라 서로 다른 클레임(예: "프리미�
   * [AES 암호화로 보호](protect-with-aes128.md)
   * [DRM으로 보호](protect-with-drm.md)
 
-추가 정보는 [DRM 참조 디자인 및 구현](../previous/media-services-cenc-with-multidrm-access-control.md)에 있을 수 있음
+추가 정보는 [액세스 제어가 포함된 다중 DRM 콘텐츠 보호 시스템 설계](design-multi-drm-system-with-access-control.md)에서 찾을 수 있습니다.
 
 

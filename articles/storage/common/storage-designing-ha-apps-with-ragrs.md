@@ -2,24 +2,19 @@
 title: Azure RA-GRS(Read-Access Geo Redundant Storage)를 사용하여 항상 사용 가능한 응용 프로그램 설계 | Microsoft Docs
 description: Azure RA-GRS 저장소를 사용하여 가동 중단을 처리할 만큼 유연하면서 항상 사용 가능한 응용 프로그램을 설계하는 방법입니다.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.openlocfilehash: f7f3f2d99e5582a1bcb672cc176258dfff9c3217
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.component: common
+ms.openlocfilehash: afcda23faf4e9f0999442fa91d3c016e446c04db
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322933"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524545"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>RA-GRS를 사용하여 항상 사용 가능한 응용 프로그램 설계
 
@@ -27,7 +22,9 @@ Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 
 
 [!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-이 문서에서는 GRS 및 RA-GRS에 초점을 맞춥니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대해 읽기 액세스를 갖는다는 점을 제외하면 GRS와 동일합니다. 다양한 Azure Storage 중복 옵션에 대한 자세한 내용은 [Azure Storage 복제](https://docs.microsoft.com/azure/storage/storage-redundancy)를 참조하세요. 복제 문서는 주 지역과 보조 지역의 페어링도 보여줍니다.
+이 문서에서는 GRS 및 RA-GRS에 초점을 맞춥니다. GRS를 사용하면 세 개의 데이터 복사본이 저장소 계정을 설정할 때 선택된 주 지역에 유지됩니다. 세 개의 추가 복사본은 Azure에서 지정된 보조 지역에 비동기적으로 유지됩니다. RA-GRS는 보조 복사본에 대한 읽기 권한을 사용하여 지역 중복 저장소를 제공합니다.
+
+보조 지역과 쌍을 이루는 주 지역에 대한 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조합니다.
 
 이 문서에는 코드 조각이 포함되어 있고 끝 부분에는 다운로드하여 실행할 수 있는 전체 샘플에 대한 링크가 있습니다.
 

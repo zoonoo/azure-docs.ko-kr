@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 07c0347793f6541a3e047f3f357d0d1b05dc3bca
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136184"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501970"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 Azure Service Fabric Mesh는 개발자가 가상 머신, 저장소 또는 네트워킹을 관리하지 않고 마이크로 서비스 응용 프로그램을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에는 일반적인 질문에 대한 답변이 있습니다.
@@ -83,7 +83,7 @@ Mesh 미리 보기에 응용 프로그램 또는 컨테이너를 배포하기 �
 
 Windows 10에서 Service Fabric 개발 클러스터를 실행하는 경우와 관련해서 다른 알려진 DNS 문제가 있는 경우, [Windows 컨테이너 디버그](/azure/service-fabric/service-fabric-how-to-debug-windows-containers)를 참조하세요.
 
-**CLI 모듈을 사용할 때 다음 오류가 표시됩니다. ImportError: cannot import name ‘sdk_no_wait’(ImportError: ‘sdk_no_wait’ 이름을 가져올 수 없습니다.)**
+**CLI 모듈을 사용할 때 다음 오류가 표시됩니다. ImportError: cannot import name ‘sdk_no_wait’(ImportError: ‘sdk_no_wait’ 이름을 가져올 수 없습니다)**
 
 2.0.30 이전의 CLI 버전을 사용하는 경우, 이 오류가 표시될 수 있습니다.
 

@@ -1,33 +1,35 @@
 ---
 title: 미사용 데이터에 대한 Azure Storage 서비스 암호화 | Microsoft Docs
-description: Azure Storage 서비스 암호화 기능을 사용하여 데이터를 저장할 때 서비스 쪽에서 Azure Blob Storage를 암호화하고 데이터를 검색할 때 암호 해독합니다.
+description: Azure 저장소 서비스 암호화 기능을 사용하여 서비스 쪽에서 데이터를 저장할 때 Azure Managed Disks, Azure Blob 저장소, Azure Files, Azure Queue 저장소 및 Azure Table 저장소를 암호화하고, 데이터를 검색할 때 암호를 해독합니다.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: common
+ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412358"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520727"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>미사용 데이터에 대한 Azure Storage 서비스 암호화
-미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 통해 Azure 저장소 플랫폼은 데이터를 자동으로 암호화한 후 Azure Blob Storage, Azure Files 또는 Azure Queue Storage에 보관하고, 검색 전에 암호를 해독합니다. Storage 서비스 암호화의 암호화, 미사용 데이터의 암호화, 암호 해독, 키 관리는 완전히 투명한 방식으로 처리됩니다. Azure 저장소 플랫폼에 쓴 모든 데이터는 가장 강력한 블록 암호화 기술 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 통해 암호화됩니다.
+미사용 데이터에 대한 Azure Storage 서비스 암호화를 사용하면 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호할 수 있습니다. 이 기능을 사용하면 Azure 저장소 플랫폼에서 데이터를 자동으로 암호화한 후에 Azure Managed Disks, Azure Blob 저장소, Azure Files 또는 Azure Queue 저장소에 보관하고, 데이터를 검색하기 전에 암호를 해독합니다. Storage 서비스 암호화의 암호화, 미사용 데이터의 암호화, 암호 해독, 키 관리는 완전히 투명한 방식으로 처리됩니다. Azure 저장소 플랫폼에 쓴 모든 데이터는 가장 강력한 블록 암호화 기술 중 하나인 256비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 통해 암호화됩니다.
 
 Storage 서비스 암호화는 모든 신규 및 기존 저장소 계정에 대해 사용되도록 설정되며 비활성화할 수 없습니다. 사용자 데이터는 기본적으로 보호되므로 Storage 서비스 암호화를 활용하기 위해 코드 또는 응용 프로그램을 수정할 필요가 없습니다.
 
 이 기능은 다음의 데이터를 자동으로 암호화합니다.
 
-- Azure Blob Storage, Azure Files, Azure Queue Storage, Azure Table Storage.  
+- Azure 저장소 서비스:
+    - Azure Managed Disks
+    - Azure Blob 저장소
+    - Azure 파일
+    - Azure Queue 저장소
+    - Azure Table 저장소  
 - 두 성능 계층(Standard 및 Premium)
 - 두 배포 모델(Azure Resource Manager 및 클래식)
-
-> [!Note]  
-> [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)에는 저장소 서비스 암호화를 사용할 수 있습니다. OS 수준에서 암호화를 사용하는 것이 좋습니다. 예를 들어 [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md)은 Windows에서 업계 표준 [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview)를 사용하고 Linux에서 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 KeyVault와 통합된 암호화를 제공합니다.
 
 저장소 서비스 암호화는 Azure 저장소 서비스의 성능에 영향을 주지 않습니다.
 
@@ -55,13 +57,10 @@ Storage 서비스 암호화의 설정을 보려면 [Azure Portal](https://portal
 추가 비용은 없습니다.
 
 **나만의 암호화 키를 사용할 수 있나요?**  
-예. 사용자 고유의 암호화 키를 사용할 수 있습니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](storage-service-encryption-customer-managed-keys.md)를 참조하세요.
+예, Azure Blob 저장소 및 Azure Files의 경우 사용자 고유의 암호화 키를 사용할 수 있습니다. 고객이 관리하는 키는 현재 Azure Managed Disks에서 지원되지 않습니다. 자세한 내용은 [Azure Key Vault의 고객 관리 키를 사용하는 Storage 서비스 암호화](storage-service-encryption-customer-managed-keys.md)를 참조하세요.
 
 **암호화 키에 대한 액세스를 해지할 수 있나요?**  
 예, Azure Key Vault에서 [자신만의 암호화 키를 사용](storage-service-encryption-customer-managed-keys.md)하는 경우 가능합니다.
-
-**Azure Managed Disks에 저장소 서비스 암호화를 사용할 수 있나요?**  
-아니요, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md)에는 저장소 서비스 암호화를 사용할 수 없습니다. OS 수준에서 암호화를 사용하는 것이 좋습니다. 예를 들어 [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md)은 Windows에서 업계 표준 [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview)를 사용하고 Linux에서 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)를 사용하여 KeyVault와 통합된 암호화를 제공합니다.
 
 **저장소 서비스 암호화가 Azure Disk Encryption과 어떻게 다른가요?**  
 Azure Disk Encryption은 BitLocker, DM-Crypt와 같은 OS 기반 솔루션과 Azure KeyVault 간의 통합을 제공합니다. 저장소 서비스 암호화는 기본적으로 가상 머신 아래 Azure 저장소 플랫폼 계층에서 암호화를 제공합니다.

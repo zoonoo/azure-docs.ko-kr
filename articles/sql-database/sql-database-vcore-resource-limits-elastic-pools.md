@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7e00e84e5165296bcad83c515fc2af315954be
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414445"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495512"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>탄력적 풀에 대한 Azure SQL Database vCore 기반 구매 모델 제한
 
@@ -148,4 +148,5 @@ DTU 기반 구매 모델 제한의 경우 [SQL Database DTU 기반 리소스 제
 ## <a name="next-steps"></a>다음 단계
 
 - 자주 묻는 질문에 대한 답변은 [SQL Database FAQ](sql-database-faq.md)를 참조하세요.
+- 서버 및 구독 수준에서 제한에 대한 자세한 내용은 [Azure SQL Database 리소스 제한 개요](sql-database-resource-limits.md)를 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.

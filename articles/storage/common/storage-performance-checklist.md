@@ -2,24 +2,18 @@
 title: Azure Storage 성능 및 확장성 검사 목록 | Microsoft Docs
 description: 성능이 뛰어난 응용 프로그램 개발 시 Azure Storage에서 사용하기 위한 검증된 작업 방식에 대한 검사 목록.
 services: storage
-documentationcenter: ''
 author: roygara
-manager: jeconnoc
-editor: tysonn
-ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.openlocfilehash: 945289a172270eea56625287baf437fd4b70c7f3
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.component: common
+ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30246222"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530462"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Microsoft Azure Storage 성능 및 확장성 검사 목록
 ## <a name="overview"></a>개요
@@ -83,7 +77,7 @@ Azure Storage를 사용하는 모든 응용 프로그램 개발자는 시간을 
 | &nbsp; | 큐 |대량 검색 |[단일 "Get" 작업으로 여러 메시지를 검색합니까?](#subheading42) |
 | &nbsp; | 큐 |폴링 빈도 |[응용 프로그램의 체감 대기 시간을 단축할 수 있을 만큼 자주 폴링을 수행하고 있습니까?](#subheading43) |
 | &nbsp; | 큐 |메시지 업데이트 |[오류 발생 시 전체 메시지를 다시 처리하지 않아도 되도록 UpdateMessage를 사용하여 메시지 처리 진행률을 저장하고 있습니까?](#subheading44) |
-| &nbsp; | 큐 |건축 |[장기 실행 작업을 중요 경로 외부에서만 실행하고 독립적으로 확장함으로써 큐를 통해 전체 응용 프로그램의 확장성을 높이고 있습니까?](#subheading45) |
+| &nbsp; | 큐 |아키텍처 |[장기 실행 작업을 중요 경로 외부에서만 실행하고 독립적으로 확장함으로써 큐를 통해 전체 응용 프로그램의 확장성을 높이고 있습니까?](#subheading45) |
 
 ## <a name="allservices"></a>모든 서비스
 이 섹션에서는 모든 Azure Storage 서비스(Blob, 테이블, 큐 또는 파일) 사용 시 적용되는 검증된 작업 방식에 대해 설명합니다.  
@@ -146,7 +140,7 @@ API 호출은 중요한 작업이기는 하지만 응용 프로그램의 실제 
 Azure CDN에 대한 자세한 내용은 [Azure CDN](https://azure.microsoft.com/services/cdn/)을 참조하세요.  
 
 ### <a name="subheading6"></a>SAS 및 CORS 사용
-사용자의 웹 브라우저나 휴대폰 앱에서 JavaScript와 같은 코드가 Azure Storage의 데이터에 액세스하도록 권한을 부여해야 하는 경우 사용할 수 있는 방법 중 하나는 웹 역할에서 응용 프로그램을 프록시로 사용하는 것입니다. 즉, 사용자의 장치는 웹 역할에 인증하고 웹 역할은 다시 저장소 서비스에 인증합니다. 이러한 방식을 사용하면 안전하지 않은 장치에서 저장소 계정 키가 노출되는 상황을 방지할 수 있습니다. 그러나 사용자의 장치와 저장소 서비스 간에 전송되는 모든 데이터가 웹 역할을 통과해야 하므로 이 방식을 사용하는 경우 웹 역할에 큰 오버헤드가 발생합니다. SAS(공유 액세스 서명)를 경우에 따라 CORS(크로스-원본 자원 공유) 헤더와 함께 사용하면 저장소 서비스에 대해 웹 역할을 프록시로 사용하지 않아도 됩니다. SAS를 사용하는 경우 제한된 액세스 토큰을 통해 사용자 장치가 저장소 서비스에 직접 요청을 하도록 허용할 수 있습니다. 예를 들어 사용자가 응용 프로그램에 사진을 업로드하려는 경우 웹 역할이 이후 30분 동안 특정 Blob 또는 컨테이너에 대한 쓰기 권한을 부여하는 SAS 토큰을 생성한 다음 사용자 장치로 전송할 수 있습니다. 30분이 지나면 SAS 토큰은 만료됩니다.
+사용자의 웹 브라우저나 휴대폰 앱에서 JavaScript와 같은 코드가 Azure Storage의 데이터에 액세스하도록 권한을 부여해야 하는 경우 사용할 수 있는 방법 중 하나는 웹 역할에서 응용 프로그램을 프록시로 사용하는 것입니다. 즉, 사용자의 장치는 웹 역할에 인증하고 웹 역할은 다시 저장소 리소스에 액세스 권한을 부여합니다. 이러한 방식을 사용하면 안전하지 않은 장치에서 저장소 계정 키가 노출되는 상황을 방지할 수 있습니다. 그러나 사용자의 장치와 저장소 서비스 간에 전송되는 모든 데이터가 웹 역할을 통과해야 하므로 이 방식을 사용하는 경우 웹 역할에 큰 오버헤드가 발생합니다. SAS(공유 액세스 서명)를 경우에 따라 CORS(크로스-원본 자원 공유) 헤더와 함께 사용하면 저장소 서비스에 대해 웹 역할을 프록시로 사용하지 않아도 됩니다. SAS를 사용하는 경우 제한된 액세스 토큰을 통해 사용자 장치가 저장소 서비스에 직접 요청을 하도록 허용할 수 있습니다. 예를 들어 사용자가 응용 프로그램에 사진을 업로드하려는 경우 웹 역할이 이후 30분 동안 특정 Blob 또는 컨테이너에 대한 쓰기 권한을 부여하는 SAS 토큰을 생성한 다음 사용자 장치로 전송할 수 있습니다. 30분이 지나면 SAS 토큰은 만료됩니다.
 
 일반적으로 브라우저는 특정 도메인의 웹 사이트에서 호스트하는 페이지의 JavaScript가 다른 도메인에 대해 “PUT”과 같은 특정 작업을 수행하도록 허용하지 않습니다. 예를 들어 “contosomarketing.cloudapp.net”에서 웹 역할을 호스트하는 경우 클라이언트 쪽 JavaScript를 사용해 “contosoproducts.blob.core.windows.net”에서 저장소 계정에 Blob을 업로드하려고 하면 브라우저의 “동일 원본 정책”으로 인해 해당 작업이 차단됩니다. CORS는 대상 도메인(여기서는 저장소 계정)이 원본 도메인(여기서는 웹 역할)에서 생성되는 요청을 신뢰함을 브라우저에 전달할 수 있도록 하는 브라우저 기능입니다.  
 
@@ -248,7 +242,7 @@ Blob의 목표 처리량에 대한 자세한 내용은 [Azure Storage 확장성 
 Azure Storage 팀은 여러 저장소 계정으로/계정에서/계정 간에 많은 Blob을 대량으로 전송하는 데 사용할 수 있는 명령줄 도구인 "AzCopy"를 공개했습니다.  이 도구는 이러한 시나리오용으로 최적화되어 있으며 높은 전송 속도를 제공할 수 있습니다.  대량 업로드, 다운로드 및 복사 시나리오에는 이 도구를 사용하는 것이 좋습니다. 이 도구에 대해 자세히 알아보고 도구를 다운로드하려면 [AzCopy 명령줄 유틸리티로 데이터 전송](storage-use-azcopy.md)을 참조하세요.  
 
 #### <a name="subheading19"></a>Azure Import/Export 서비스
-1TB가 넘는 매우 많은 양의 데이터에 대해 Azure 저장소에서는 Import/Export 서비스를 제공합니다. 이 서비스를 사용하는 경우 하드 드라이브를 배송하여 Blob Storage에서 데이터를 업로드하고 다운로드할 수 있습니다.  데이터를 하드 드라이브에 저장한 다음 업로드용으로 Microsoft에 보내거나 데이터 다운로드를 위해 빈 하드 드라이브를 Microsoft에 보낼 수 있습니다.  자세한 내용은 [Microsoft Azure Import/Export Service를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.  네트워크를 통해 많은 양의 데이터를 업로드/다운로드하는 것보다 이 서비스를 사용하는 것이 훨씬 더 효율적일 수 있습니다.  
+1TB가 초과하는 매우 많은 양의 데이터에 대해 Azure 저장소에서는 Import/Export 서비스를 제공합니다. 이 서비스를 사용하는 경우 하드 드라이브를 배송하여 Blob Storage에서 데이터를 업로드하고 다운로드할 수 있습니다.  데이터를 하드 드라이브에 저장한 다음 업로드용으로 Microsoft에 보내거나 데이터 다운로드를 위해 빈 하드 드라이브를 Microsoft에 보낼 수 있습니다.  자세한 내용은 [Microsoft Azure Import/Export Service를 사용하여 Blob Storage에 데이터 전송](../storage-import-export-service.md)을 참조하세요.  네트워크를 통해 많은 양의 데이터를 업로드/다운로드하는 것보다 이 서비스를 사용하는 것이 훨씬 더 효율적일 수 있습니다.  
 
 ### <a name="subheading20"></a>메타데이터 사용
 Blob 서비스는 HEAD 요청을 지원하며, 여기에는 Blob 관련 메타데이터가 포함될 수 있습니다. 예를 들어 응용 프로그램은 사진에서 EXIF 데이터를 추출해야 하는 경우 사진을 검색해 데이터를 추출할 수 있습니다. 대역폭을 줄이고 성능을 개선하려면 응용 프로그램이 사진을 업로드할 때 Blob의 메타데이터에 EXIF 데이터를 저장하면 됩니다. 그런 다음 HEAD 요청만 사용하여 메타데이터에서 EXIF 데이터를 검색함으로써, Blob을 읽을 때마다 EXIF 데이터를 추출하는 데 필요한 상당한 대역폭과 처리 시간을 줄일 수 있습니다. Blob의 전체 데이터가 아닌 메타데이터만 필요한 시나리오에서는 이러한 방식이 유용합니다.  메타데이터는 Blob당 8KB만 저장할 수 있으므로(이보다 많은 메타데이터를 저장하려는 요청은 Blob 서비스에서 허용되지 않음) 메타데이터 크기가 8KB를 초과하면 이 방식을 사용할 수 없습니다.  

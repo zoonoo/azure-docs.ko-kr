@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399076"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422327"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 마이그레이션: Azure로 마이그레이션하기 위한 온-프레미스 워크로드 평가
 
@@ -99,7 +99,7 @@ Contoso는 마이그레이션 평가를 위해 Microsoft 도구를 사용합니�
 - Contoso는 전형적인 기업 조직을 나타내는 가상의 이름입니다.
 - Contoso에는 온-프레미스 데이터 센터(**contoso-datacenter**)와 온-프레미스 도메인 컨트롤러(**CONTOSODC1**, **CONTOSODC2**)가 있습니다.
 - VMware VM은 6.5 버전을 실행하는 VMware ESXi 호스트(**contosohost1**, **contosohost2**)에 있습니다.
-- VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**vcenter**)를 통해 관리됩니다.
+- VMware 환경은 VM에서 실행되는 vCenter Server 6.5(**vcenter.contoso.com**)에서 관리됩니다.
 - SmartHotel 여행 앱의 특징은 다음과 같습니다.
     - 앱이 두 개의 VMware VM(**WEBVM** 및 **SQLVM**)에 걸쳐 계층화되어 있습니다.
     - VM은 VMware ESXi 호스트 **contosohost1.contoso.com**에 있습니다.
@@ -123,10 +123,8 @@ Contoso 및 다른 사용자는 평가를 위해 다음 필수 조건을 충족�
 - 온-프레미스 VMware VM 두 대 이상(그 중 하나는 SQL Server 데이터베이스 실행).
 - 각 VM에 Azure Migrate 에이전트를 설치할 권한.
 - VM이 인터넷에 직접 연결되어야 합니다.  
-        
-- 인터넷 액세스는 [필수 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)로 제한할 수 있습니다.  
-
-- VM에 인터넷 연결이 없는 경우 Azure Log Analytics [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)가 설치되어야 합니다.
+        - 인터넷 액세스를 [필요한 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)로 제한할 수 있습니다.  
+        - VM에 인터넷 연결이 없는 경우 Azure Log Analytics [OMS 게이트웨이](../log-analytics/log-analytics-oms-gateway.md)를 설치하고, 이를 통해 에이전트 트래픽을 전달해야 합니다.
 - SQL Server 인스턴스를 실행하는 VM의 FQDN(데이터베이스 평가용).
 - SQL Server VM에서 실행되는 Windows 방화벽은 1433 TCP 포트(기본값)에서 외부 연결을 허용해야 합니다. 이 설정을 통해 Data Migration Assistant를 연결할 수 있습니다.
 
@@ -297,7 +295,7 @@ VM을 배포하기 전에 Contoso는 OVA 파일이 안전한지 확인합니다.
 
 ### <a name="create-the-collector-appliance"></a>수집기 어플라이언스 만들기
 
-이제 Contoso는 다운로드한 파일을 vCenter Server 인스턴스로 가져와서 구성 서버 VM을 프로비전할 수 있습니다.
+이제 Contoso는 다운로드한 파일을 vCenter Server 인스턴스로 가져오고, 수집기 어플라이언스 VM을 프로비전할 수 있습니다.
 
 1. Contoso는 vSphere Client 콘솔에서 **파일** > **OVF 템플릿 배포**를 차례로 선택합니다.
 
@@ -353,7 +351,7 @@ VM을 배포하기 전에 Contoso는 OVA 파일이 안전한지 확인합니다.
 
 ## <a name="step-5-prepare-for-dependency-analysis"></a>5단계: 종속성 분석 준비
 
-액세스하려는 VM 간의 종속성을 확인하려면 Contoso에서 앱 VM에 에이전트를 다운로드하여 설치합니다. Contoso는 Windows 및 Linux용 앱에 대한 모든 VM에 에이전트를 설치합니다.
+평가하려는 VM 간의 종속성을 확인하려면 Contoso에서 앱 VM에 에이전트를 다운로드하여 설치합니다. Contoso는 Windows 및 Linux용 앱에 대한 모든 VM에 에이전트를 설치합니다.
 
 ### <a name="take-a-snapshot"></a>스냅숏 만들기
 

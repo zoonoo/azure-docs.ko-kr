@@ -1,26 +1,21 @@
 ---
-title: Hadoop, Spark, Kafka, HBase 또는 ML Services에 대한 클러스터 설정 - Azure HDInsight | Microsoft Docs
+title: Hadoop, Spark, Kafka, HBase 또는 ML Services에 대한 클러스터 설정 - Azure HDInsight
 description: 브라우저, Azure CLI, Azure PowerShell, REST 또는 SDK에서 HDInsight용 Hadoop, Kafka, Spark, HBase, ML Services 또는 Storm 클러스터를 설정합니다.
 keywords: hadoop 클러스터 설정, kafka 클러스터 설정, spark 클러스터 설정, hadoop에서 클러스터란
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 23a01938-3fe5-4e2e-8e8b-3368e1bbe2ca
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: eddbd3f171cee9df9ff306368df47501ff9dcfca
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.author: jasonh
+ms.openlocfilehash: 0cb3840c0ce40e062b4de0b7bbd5c9e324d6081f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051596"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595844"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Hadoop, Spark, Kafka 등으로 HDInsight에서 클러스터를 설정
 
@@ -57,7 +52,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 * [리소스 그룹 이름](#resource-group-name)
 * [클러스터 유형 및 구성](#cluster-types) 
 * [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-username)
-* [위치](#location)
+* [위치](#location):
 
 > [!IMPORTANT]
 > Linux는 HDInsight 버전 3.4 이상에서 사용되는 유일한 운영 체제입니다. 자세한 내용은 [HDInsight 3.3 사용 중지](hdinsight-component-versioning.md#hdinsight-windows-retirement)를 참조하세요.

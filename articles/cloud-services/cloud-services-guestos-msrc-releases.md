@@ -12,17 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/6/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 440f988744a99d4857c6b9fa58f52e0f1eef1a3f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902166"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522308"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 도입된 특정 [제품군][family-explain] 설명에 업데이트가 항상 수행됩니다.
+
+
+## <a name="july-guest-os"></a>게스트 OS 7월
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+| Rel 18-07 | [4338814] |Windows 10 보안 |5.21 |2018년 7월 10일 |
+| Rel 18-07 | [4338823] |Windows 보안 전용 |2.76 |2018년 7월 10일 |
+| Rel 18-07 | [4338820] |Windows 보안 전용 |3.63 |2018년 7월 10일 |
+| Rel 18-07 | [4338824] |Windows 보안 전용 |4.56 |2018년 7월 10일 |
+| Rel 18-07 | [4345459] |보안 롤업 새로 고침 |2.76 |2018년 7월 10일 |
+| Rel 18-07 | [4345425] |보안 롤업 새로 고침 |3.63 |2018년 7월 10일 |
+| Rel 18-07 | [4345424] |보안 롤업 새로 고침 |4.56 |2018년 7월 10일 |
+| Rel 18-07 | [4345418] |보안 롤업 새로 고침 |5.21 |2018년 7월 10일 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x 보안 |2.76 |2018년 7월 10일 |
+| Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x, 4.5x 보안 |3.63 |2018년 7월 10일 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x, 4.5x 보안 |4.56|2018년 7월 10일 |
+| Rel 18-07 | [4338832] |깜박임 |3.63, 4.76, 5.21 |2018년 7월 10일 |
+| Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |2018년 7월 10일 |
+| 해당 없음 | [4284826] |6월 비보안 롤업 |2.76 |2018년 6월 12일 |
+| 해당 없음 | [4284855] |6월 비보안 롤업 |3.63 |2018년 6월 12일 |
+| 해당 없음 | [4284815] |6월 비보안 롤업 |4.56 |2018년 6월 12일 |
 
 ## <a name="june-guest-os"></a>게스트 OS 6월
 | 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -674,6 +695,28 @@ ms.locfileid: "37902166"
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 
+
+
+[4338814]: http://support.microsoft.com/kb/4338814
+[4338823]: http://support.microsoft.com/kb/4338823
+[4338820]: http://support.microsoft.com/kb/4338820
+[4338824]: http://support.microsoft.com/kb/4338824
+[4345459]: http://support.microsoft.com/kb/4345459
+[4345425]: http://support.microsoft.com/kb/4345425
+[4345424]: http://support.microsoft.com/kb/4345424
+[4345418]: http://support.microsoft.com/kb/4345418
+[4338612]: http://support.microsoft.com/kb/4338612
+[4338602]: http://support.microsoft.com/kb/4338602
+[4338601]: http://support.microsoft.com/kb/4338601
+[4338604]: http://support.microsoft.com/kb/4338604
+[4338613]: http://support.microsoft.com/kb/4338613
+[4338600]: http://support.microsoft.com/kb/4338600
+[4338605]: http://support.microsoft.com/kb/4338605
+[4338832]: http://support.microsoft.com/kb/4338832
+[4284826]: http://support.microsoft.com/kb/4284826
+[4284855]: http://support.microsoft.com/kb/4284855
+[4284815]: http://support.microsoft.com/kb/4284815
+[4339093]: http://support.microsoft.com/kb/4339093
 
 [4284880]: http://support.microsoft.com/kb/4284880
 [4284867]: http://support.microsoft.com/kb/4284867

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: e1b11d637eec54d43c9f1212936d94b2d7396c97
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34615124"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480559"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>TTL(Time To Live)을 사용하여 자동으로 Azure Cosmos DB 컬렉션의 데이터 만료
 응용 프로그램은 방대한 양의 데이터을 생성하고 저장할 수 있습니다. 컴퓨터에서 생성한 이벤트 데이터, 로그 및 사용자 세션 정보와 같은 이 데이터 중 일부는 한정된 기간에만 사용할 수 있습니다. 데이터가 응용 프로그램의 요구를 넘게 되면 이 데이터를 삭제하고 응용 프로그램의 저장소 요구를 줄이는 것이 안전합니다.
@@ -48,7 +48,17 @@ TTL 기능은 컬렉션 수준 및 문서 수준 등 두 가지 수준으로 TTL
 | 문서에서 TTL = n |문서 수준에서 아무 것도 재정의하지 않습니다. 문서에서 TTL은 시스템에 의해 해석되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 간격 -1을 상속하며 만료되지 않습니다. |TTL = n인 문서는 간격 n(초) 후에 만료됩니다. 다른 문서는 컬렉션에서 "n" 간격을 상속합니다. |
 
 ## <a name="configuring-ttl"></a>TTL 구성
-기본적으로 TTL(Time To Live)은 모든 Cosmos DB 컬렉션 및 문서에서 사용되지 않습니다. TTL은 프로그래밍 방식으로 또는 Azure Portal의 해당 컬렉션에 대한 **설정**에서 설정할 수 있습니다. 
+기본적으로 TTL(Time To Live)은 모든 Cosmos DB 컬렉션 및 문서에서 사용되지 않습니다. TTL은 프로그래밍 방식으로 설정하거나 Azure Portal을 사용하여 설정할 수 있습니다. Azure Portal에서 TTL을 구성하려면 다음 단계를 사용합니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cosmos DB 계정으로 이동합니다.  
+
+2. TTL 값을 설정하려는 컬렉션으로 이동하고, **크기 조정 및 설정** 창을 엽니다. TTL은 기본적으로 **off**로 설정되어 있습니다. 이 값을 **on(기본값 없음)** 또는 **on**으로 변경할 수 있습니다.
+
+   **off** - 문서가 자동으로 삭제되지 않습니다.  
+   **on(기본값 없음)** - TTL 값을 "-1"(무한)로 설정합니다. 이는 문서가 기본적으로 만료되지 않음을 의미합니다.  
+   **on** - 문서가 마지막으로 수정되고 "n"초 후에 만료됩니다.  
+
+   ![TTL 설정](./media/time-to-live/set-ttl-in-portal.png)
 
 ## <a name="enabling-ttl"></a>TTL 사용
 컬렉션 또는 컬렉션 내 문서에서 TTL을 사용하려면 컬렉션의 DefaultTTL 속성을 -1 또는 0이 아닌 양수로 설정해야 합니다. DefaultTTL을 -1로 설정하면 기본적으로 컬렉션에 있는 모든 문서가 계속 존재하지만 Cosmos DB 서비스는 이 기본값을 재정의한 문서에 대해 이 컬렉션을 모니터링해야 합니다.

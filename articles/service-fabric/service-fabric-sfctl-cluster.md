@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 60f3f74778f0fb32677c3b87b3140131ccd37bea
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763632"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494246"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -38,6 +38,7 @@ Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
 | recover-system | 현재 쿼럼 손실에 걸린 시스템 서비스를 복구하고자 시도해야 함을 Service Fabric 클러스터에 나타냅니다. |
 | report-health | Service Fabric 클러스터 대한 상태 보고서를 보냅니다. |
 | 선택 | Service Fabric 클러스터 끝점에 연결합니다. |
+| show-connection | 이 sfctl 인스턴스가 연결된 Service Fabric 클러스터를 보여줍니다. |
 | unprovision | Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다. |
 | 업그레이드 | Service Fabric 클러스터의 코드 또는 구성 버전 업그레이드를 시작합니다. |
 | upgrade-resume | 클러스터 업그레이드를 다음 업그레이드 도메인으로 이동합니다. |
@@ -92,7 +93,7 @@ Service Fabric 클러스터에 프로비전되는 패브릭 구성 버전의 목
 ## <a name="sfctl-cluster-health"></a>sfctl cluster health
 Service Fabric 클러스터의 상태를 가져옵니다.
 
-Service Fabric 클러스터의 상태를 가져옵니다. 상태에 따라 클러스터에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 마찬가지로, 집계된 상태에 따라 반환된 노드 및 응용 프로그램 컬렉션을 필터링할 NodesHealthStateFilter 및 ApplicationsHealthStateFilter를 사용합니다.
+상태에 따라 클러스터에 보고된 상태 이벤트의 컬렉션을 필터링하려면 EventsHealthStateFilter를 사용합니다. 마찬가지로, 집계된 상태에 따라 반환된 노드 및 응용 프로그램 컬렉션을 필터링할 NodesHealthStateFilter 및 ApplicationsHealthStateFilter를 사용합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -141,7 +142,7 @@ Service Fabric 클러스터 매니페스트를 가져옵니다. 클러스터 매
 
 다음 API는 CancelOperation: StartDataLoss, StartQuorumLoss, StartPartitionRestart, StartNodeTransition을 사용하여 취소될 수 있는 오류 작업을 시작합니다. force가 false인 경우 지정된 사용자로 인한 작업이 정상적으로 중지되며 정리됩니다.  force가 true인 경우 명령이 중단되며, 일부 내부 상태가 남아 있을 수 있습니다.  force를 true로 지정하는 것은 주의해서 사용해야 합니다. force가 true로 설정된 이 API를 호출하는 것은 이 API가 force가 false로 먼저 설정된 동일한 테스트 명령에서 호출될 때까지 또는 테스트 명령에 이미 OperationState.RollingBack의 OperationState가 있는 한 허용되지 않습니다. 
 
-설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다. 테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 
+ 설명\: OperationState.RollingBack은 시스템이 명령 실행으로 인해 발생된 내부 시스템 상태를 정리함을 의미합니다. 테스트 명령이 데이터 손실을 발생시킨 경우 데이터를 복원하지 않습니다.  예를 들어 StartDataLoss를 호출한 다음, 이 API를 호출하는 경우 시스템은 명령 실행에서의 내부 상태만을 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 대상 파티션의 데이터를 복원하지 않습니다. 
 
 > [!NOTE]
 > 이 API가 force==true로 호출된 경우 내부 상태는 남아 있을 수 있습니다.
@@ -287,10 +288,23 @@ Service Fabric 클러스터 끝점에 연결합니다.
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
 
+## <a name="sfctl-cluster-show-connection"></a>sfctl cluster show-connection
+이 sfctl 인스턴스가 연결된 Service Fabric 클러스터를 보여줍니다.
+
+### <a name="global-arguments"></a>전역 인수
+
+|인수|설명|
+| --- | --- |
+| --debug | 모든 디버그 로그를 표시하기 위해 로깅의 자세한 정도를 늘립니다. |
+| --help -h | 이 도움말 메시지 및 종료를 표시합니다. |
+| --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 ## <a name="sfctl-cluster-unprovision"></a>sfctl cluster unprovision
 Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다.
 
-Service Fabric 클러스터의 코드 또는 구성 패키지를 프로 비전합니다. 코드 및 구성을 개별적으로 프로비전 해제하도록 지원합니다.
+코드 및 구성을 개별적으로 프로비전 해제하도록 지원합니다.
 
 ### <a name="arguments"></a>인수
 
@@ -450,8 +464,6 @@ Service Fabric 클러스터의 업그레이드 매개 변수를 업데이트합�
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
-
-
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

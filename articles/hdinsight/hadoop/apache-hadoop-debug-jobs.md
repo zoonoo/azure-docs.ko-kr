@@ -1,25 +1,20 @@
 ---
-title: 'HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure | Microsoft Docs'
+title: 'HDInsight에서 Hadoop 디버그: 로그 보기 및 오류 메시지 해석 - Azure '
 description: PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다.
 services: hdinsight
-tags: azure-portal
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 author: ashishthaps
-documentationcenter: ''
-ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 8952e1381d81d153a170f35dd3cfd3f60cd4f73a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 00d09619db11ea0026f5386048f1c10a8f831948
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31404759"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592784"
 ---
 # <a name="analyze-hadoop-logs"></a>Hadoop 로그 분석
 
@@ -83,7 +78,7 @@ HDInsight 클러스터를 만들 때 6개 테이블은 기본 테이블 저장�
 7. **확인** 을 클릭하여 데이터를 가져옵니다.
 8. **TraceLevel**, 역할 및 **ComponentName** 열을 선택한 다음 리본 메뉴에서 **그룹별** 컨트롤을 클릭합니다.
 9. 그룹별 대화 상자에서 **확인** 을 클릭합니다.
-10. **적용 및 닫기**를 클릭합니다.
+10. ** 적용 및 닫기**를 클릭합니다.
 
 이제 Excel을 사용하여 필요에 따라 필터링하고 정렬할 수 있습니다. 문제가 발생할 때 문제를 드릴 다운하기 위해 다른 열(예: 메시지)을 포함하려하지만 위에서 설명한 열을 선택하고 그룹화하면 Hadoop 서비스를 사용하여 발생하는 사항에 훌륭한 그림을 제공합니다. Setuplog 및 hadoopinstalllog 테이블에 동일한 개념을 적용할 수 있습니다.
 

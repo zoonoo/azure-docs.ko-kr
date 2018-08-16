@@ -14,24 +14,27 @@ ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 5d6254efbb6051bf4fcd01abd4fbf858b0211319
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399943"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505514"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 할당
 
 Azure AD(Azure Active Directory)를 사용하여 다른 기능을 담당하도록 별도의 관리자를 지정할 수 있습니다. 관리자는 Azure AD 포털에서 사용자 추가 또는 변경, 관리 역할 할당, 사용자 암호 재설정, 사용자 라이선스 관리 및 도메인 이름 관리와 같은 작업을 수행하도록 지정할 수 있습니다.
 
 ## <a name="details-about-the-global-administrator-role"></a>전역 관리자 역할에 대한 세부 정보
+
 전역 관리자는 모든 관리 기능에 액세스할 수 있습니다. 기본적으로 Azure 구독에 등록하는 사람에게는 디렉터리에 대한 전역 관리자 역할이 할당됩니다. 전역 관리자만 다른 관리자 역할을 할당할 수 있습니다.
 
 ## <a name="assign-or-remove-administrator-roles"></a>관리자 역할 할당 또는 제거
+
 Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법에 대한 내용은 [Azure Active Directory에서 관리자 역할에 사용자 할당](../fundamentals/active-directory-users-assign-role-azure-portal.md)을 참조하세요.
 
 ## <a name="available-roles"></a>사용 가능한 역할
+
 다음과 같은 관리자 역할을 사용할 수 있습니다.
 
 * **[응용 프로그램 관리자](#application-administrator)**: 이 역할의 사용자는 엔터프라이즈 응용 프로그램, 응용 프로그램 등록 및 응용 프로그램 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 또한 이 역할은 위임된 권한 및 Microsoft Graph와 Azure AD Graph를 제외한 응용 프로그램 사용 권한에 동의하는 기능을 부여합니다. 이 역할의 구성원은 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가되지 않습니다.
@@ -48,13 +51,13 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
   > [!NOTE]
   > Azure에서 Exchange ActiveSync 조건부 액세스 정책을 배포하려면 사용자도 글로벌 관리자여야 합니다.
   
-* **[장치 관리자](#device-administrators)**: 이 역할의 사용자는 Azure Active Directory에 연결된 모든 Windows 10 장치의 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 장치 개체를 관리하는 기능이 없습니다.
+* **[장치 관리자](#device-administrators)**: 이 역할은 [장치 설정](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/)에서 추가 로컬 관리자로만 할당할 수 있습니다. 이 역할을 가진 사용자가 Azure Active Directory에 가입된 모든 Windows 10 장치에서 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 장치 개체를 관리하는 기능이 없습니다. 
 
-* **[디렉터리 읽기 권한자](#directory-readers)**: [동의 프레임워크](../develop/active-directory-integrating-applications.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
+* **[디렉터리 읽기 권한자](#directory-readers)**: [동의 프레임워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
 
 * **[디렉터리 동기화 계정](#directory-synchronization-accounts)**: 사용하지 않도록 합니다. 이 역할은 Azure AD Connect 서비스에 자동으로 할당되고 다른 사용에 적합하거나 지원되지 않습니다.
 
-* **[디렉터리 작성자](#directory-writers)**: [동의 프레임워크](../develop/active-directory-integrating-applications.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
+* **[디렉터리 작성자](#directory-writers)**: [동의 프레임워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)를 지원하지 않는 응용 프로그램에 할당될 레거시 역할입니다. 모든 사용자에게 할당되면 안 됩니다.
 
 * **[Dynamics 365 서비스 관리자/CRM 서비스 관리자](#dynamics-365-service-administrator)**: 서비스가 있는 경우 이 역할의 사용자는 Microsoft Dynamics 365 Online 내에서 글로벌 권한을 가지며, 지원 티켓을 관리하고 서비스 상태를 모니터링할 수 있습니다. 자세한 내용은 [서비스 관리 역할을 사용하여 테넌트 관리](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant)를 참조하세요.
 
@@ -353,15 +356,13 @@ Azure AD 및 Office 365에서 준수 구성 및 보고서를 읽고 관리할 �
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Azure Active Directory에서 ConditionalAccessPolicys.Owners 속성을 업데이트합니다. |
 
 ### <a name="device-administrators"></a>장치 관리자
-이 역할의 구성원은 Azure AD에서 조인한 장치의 로컬 관리자 그룹에 추가됩니다.
+
+이 역할을 가진 사용자가 Azure Active Directory에 가입된 모든 Windows 10 장치에서 로컬 컴퓨터 관리자가 됩니다. Azure Active Directory의 장치 개체를 관리하는 기능이 없습니다.
 
   > [!NOTE]
   > 이 역할은 [사용자 역할](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions)에서 추가 권한을 상속합니다.
   >
   >
-
-| **Actions** | **설명** |
-| --- | --- |
 
 ### <a name="directory-readers"></a>디렉터리 읽기 권한자
 기본 디렉터리 정보를 읽을 수 있습니다. 응용 프로그램에 대한 액세스 권한을 부여하는 작업은 다음과 같습니다.

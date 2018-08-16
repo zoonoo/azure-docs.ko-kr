@@ -1,25 +1,20 @@
 ---
-title: PowerShell 및 Azure HDInsight를 사용하여 Sqoop 작업 실행 | Microsoft Docs
+title: PowerShell 및 Azure HDInsight를 사용하여 Sqoop 작업 실행
 description: 워크스테이션에서 Azure PowerShell을 사용하여 Hadoop 클러스터와 Azure SQL 데이터베이스 간에 Sqoop 가져오기 및 내보내기를 실행하는 방법을 알아봅니다.
-editor: cgronlun
-manager: jhubbard
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: bbb6f53a-e019-4d01-92bd-92c208c760b6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 138e295bd81a4446568d92171d952b3b0a0374a2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 114b818b15d071e4aca2e64363aa3c5895820ece
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202410"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593454"
 ---
 # <a name="run-sqoop-jobs-by-using-azure-powershell-for-hadoop-in-hdinsight"></a>HDInsight에서 Hadoop용 Azure PowerShell을 사용하여 Sqoop 작업 실행
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]

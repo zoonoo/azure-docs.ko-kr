@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d8835bd97b489a730a040e86748c668963c7196
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 9c0c1ba9dd343baa453f10ad82c0cc8b8e69da7b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187726"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596157"
 ---
 # <a name="create-a-new-simulated-device"></a>시뮬레이션된 새 장치 만들기
 
@@ -140,6 +140,8 @@ ms.locfileid: "39187726"
     ```sh
     az network nsg rule list --nsg-name YOUR-NETWORK-SECURITY-GROUP -o table
     ```
+
+    테스트 및 개발하는 동안 SSH 액세스만 활성화해야 합니다. SSH를 활성화하는 경우 [가능한 한 빨리 비활성화해야 합니다](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
 
 1. 가상 머신 암호를 알고 있는 암호로 변경하려면 다음 명령을 실행합니다. 이전에 적어 두었던 가상 머신의 이름 및 선택한 암호를 사용합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD SSPR 및 MFA에 대한 등록 수렴
-description: Azure AD Multi-Factor Authenticaiton 및 셀프 서비스 암호 재설정 등록
+title: Azure AD SSPR 및 MFA에 대한 등록 수렴(공개 미리 보기)
+description: Azure AD Multi-Factor Authenticaiton 및 셀프 서비스 암호 재설정 등록(공개 미리 보기)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415656"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492895"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴(공개 미리 보기)
 
 지금까지는 사용자가 두 개의 다른 포털에서 Azure MFA(Multi-Factor Authentication) 및 SSPR(셀프 서비스 암호 재설정)에 대한 인증 방법을 등록해야 했습니다. Azure MFA와 SSPR 모두에서 유사한 방법이 사용되기 때문에 많은 사용자가 혼란을 겪었고 두 포털 모두에 등록하지 않았습니다. 이러한 차이로 인해 일부 사용자는 Azure MFA 또는 SSPR을 필요할 때 사용할 수 없어서 기술 지원팀에 전화를 하기도 하면서 사용자에게 많은 불편을 초래했습니다. 이제는 사용자가 한 번 등록하면 Azure MFA와 SSPR의 이점을 모두 누릴 수 있으며, 이러한 기능을 위해 인증 방법을 두 번 등록할 필요가 없습니다.  
 
@@ -71,10 +71,12 @@ MFA 또는 SSPR 정책에 활성화된 방법을 기반으로 표시되는 인�
 ## <a name="known-issues"></a>알려진 문제
 
 **사용자가 문자 메시지를 사용하여 전화를 등록하면 기본 MFA 방식이 전화 통화로 설정됩니다.**
-   * 일부 사용자는 문자 메시지를 사용하여 전화 번호를 등록한 후 기본 MFA 방법이 전화 통화로 설정된 것을 알 수 있습니다. 사용자는 다음 지침에 따라 기본 방법을 변경하여 이 문제를 해결할 수 있습니다. 
+
+   * 일부 사용자는 문자 메시지를 사용하여 전화 번호를 등록한 후 기본 MFA 방법이 전화 통화로 설정된 것을 알 수 있습니다. 사용자는 [보안 정보 관리(미리 보기)](../user-help/security-info-manage-settings.md#change-your-info) 문서에 있는 지침에 따라 해당 기본 메서드를 변경하여 이 문제를 해결할 수 있습니다.
 
 **관리자가 기본 방법을 사용하지 않도록 설정한 후 사용자가 새 등록 환경에 액세스할 수 없습니다.**
-   * 사용자가 이전에 등록한 기본 MFA 방법을 관리자가 사용하지 않도록 설정한 경우 일부 사용자가 새 등록 환경에 액세스하지 못할 수 있습니다. 다음은 예제 시나리오입니다. 
+
+   * 사용자가 이전에 등록한 기본 MFA 방법을 관리자가 사용하지 않도록 설정한 경우 일부 사용자가 새 등록 환경에 액세스하지 못할 수 있습니다. 다음은 예제 시나리오입니다.
       1. 사용자가 이전에 전화 번호를 등록했고 전화 통화를 기본 방법으로 설정했습니다.
       2. 관리자가 테넌트에 대한 MFA 방법으로 전화 통화를 사용하지 않도록 설정했습니다.
       3. 사용자가 테넌트 SSPR 정책을 충족하기 위한 추가 방법을 등록해야 하기 때문에 로그인 중에 등록하라는 메시지가 표시됩니다.

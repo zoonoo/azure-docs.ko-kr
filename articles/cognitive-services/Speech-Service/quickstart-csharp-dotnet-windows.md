@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325193"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578163"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Windows .NET Framework의 C#에서 음성을 인식하는 방법 알아보기
 
@@ -48,7 +48,7 @@ ms.locfileid: "39325193"
 
     ![Microsoft.CognitiveServices.Speech NuGet 패키지 설치](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "Nuget 패키지 설치")
 
-1. 나타나는 대화 상자에서 라이선스에 동의합니다.
+1. 표시된 라이선스에 동의합니다.
 
     ![라이선스에 동의](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "라이선스에 동의")
 
@@ -76,7 +76,7 @@ ms.locfileid: "39325193"
 
 ## <a name="add-the-sample-code"></a>샘플 코드 추가
 
-1. Visual Studio 프로젝트에서 `Program.cs`를 열고 이 파일의 모든 코드를 다음으로 바꿉니다.
+1. `Program.cs`를 열고 모든 코드를 다음으로 바꿉니다.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 

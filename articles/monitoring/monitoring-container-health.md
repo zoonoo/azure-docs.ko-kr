@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/30/2018
+ms.date: 08/06/2018
 ms.author: magoedte
-ms.openlocfilehash: f84452af9c2c731d69d5805961266c46351a7687
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366099"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521934"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>AKS(Azure Kubernetes Service) 컨테이너 상태 모니터링(미리 보기)
 
@@ -356,6 +356,12 @@ az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
 - **노드 수**: Kubernetes의 노드 수 및 상태입니다. 표시되는 클러스터 노드의 상태는 *모두*, *준비됨* 및 *준비되지 않음*이고 차트 위의 선택기에서 개별적이거나 결합되어 필터링될 수 있습니다. 
 - **작업 Pod 수**: Kubernetes의 Pod 수 및 상태입니다. 표시되는 Pod의 상태는 *모두*, *보류 중*, *실행 중* 및 *알 수 없음*이고 차트 위의 선택기에서 개별적이거나 결합되어 필터링될 수 있습니다. 
 
+**노드**, **컨트롤러** 및 **컨테이너** 탭으로 전환하면 속성 창이 페이지의 오른쪽에 자동으로 표시됩니다.  Kubernetes 개체를 구성하기 위해 정의한 레이블을 포함하여 선택한 항목의 속성을 보여 줍니다.  창을 표시하거나 숨기려면 창에서 **>>** 링크를 클릭합니다.  
+
+![Kubernetes 큐브 뷰 속성 창 예제](./media/monitoring-container-health/perspectives-preview-pane-01.png)
+
+계층 구조에서 개체를 펼치면 선택한 개체에 따라 속성 창이 업데이트됩니다. 이 창에서 창 위쪽의 **Kubernetes 이벤트 로그 보기** 링크를 클릭하여 미리 정의된 로그 검색을 통해 Kubernetes 이벤트를 볼 수도 있습니다. Kubernetes 로그 데이터를 보는 방법에 대한 자세한 내용은 [로그를 검색하여 데이터 분석](#search-logs-to-analyze-data)을 참조하세요.
+
 **노드** 탭으로 전환하면 행 계층 구조는 클러스터의 노드로 시작하는 Kubernetes 개체 모델을 따릅니다. 노드를 확장하면 노드에서 실행 중인 하나 이상의 창을 볼 수 있습니다. 하나 이상의 컨테이너가 Pod로 그룹화된 경우 계층 구조에서 마지막 행으로 표시됩니다. 호스트에 프로세서 또는 메모리 부족 문제가 있는 경우 호스트에서 실행 중인 Pod와 관련되지 않은 워크로드의 수를 볼 수도 있습니다.
 
 ![성능 보기의 Kubernetes 노드 계층 예제](./media/monitoring-container-health/container-health-nodes-view.png)
@@ -481,9 +487,9 @@ az aks show -g <resoourceGroupofAKSCluster> -n <nameofAksCluster>
 ## <a name="search-logs-to-analyze-data"></a>로그를 검색하여 데이터 분석
 Log Analytics에서는 현재 클러스터 구성이 최적 상태로 실행되고 있는지를 파악하는 데 도움이 되도록 추세를 찾아보거나, 병목 상태를 진단하거나, 예측하거나 데이터 간 상관 관계를 파악할 수 있습니다. 미리 정의된 로그 검색을 즉시 사용하거나, 원하는 방식으로 정보를 반환하도록 사용자 지정할 수 있습니다. 
 
-컨트롤러 또는 컨테이너를 확장하면 맨 오른쪽에 있는 **로그 보기** 옵션을 선택하여 작업 영역에서 데이터를 대화형으로 분석할 수 있습니다. 사용자가 있던 Azure Portal 페이지 위에 **로그 검색** 페이지가 나타납니다.
+미리 보기 창에서 **Kubernetes 이벤트 로그 보기** 또는 **컨테이너 로그 보기** 옵션을 선택하여 작업 영역에서 데이터에 대한 대화형 분석을 수행할 수 있습니다. 사용자가 있던 Azure Portal 페이지의 오른쪽에 **로그 검색** 페이지가 나타납니다.
 
-![Log Analytics에서 데이터 분석](./media/monitoring-container-health/container-health-view-logs.png)   
+![Log Analytics에서 데이터 분석](./media/monitoring-container-health/container-health-log-search-example.png)   
 
 Log Analytics에 전달되는 컨테이너 로그 출력은 STDOUT 및 STDERR입니다. 컨테이너 상태는 AKS(Azure-managed Kubernetes)를 모니터링하고 이로 인해 생성되는 데이터 양이 많으므로 Kube 시스템은 오늘 수집되지 않습니다. 
 

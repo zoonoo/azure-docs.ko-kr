@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215359"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579700"
 ---
 # <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB FAQ
 ## <a name="azure-cosmos-db-fundamentals"></a>Azure DB Cosmos 기본 사항
@@ -448,7 +448,7 @@ Azure Cosmos DB는 SLA 기반 시스템으로, 대기 시간, 처리량, 가용�
 
 ## <a name="develop-against-the-graph-api"></a>Graph API에 대해 개발
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Azure Cosmos DB에 Graph API의 기능을 적용하려면 어떻게 해야 하나요?
-확장 라이브러리를 사용하여 Graph API 기능을 적용할 수 있습니다. 이 라이브러리를 Microsoft Azure Graph라고 하며 NuGet에서 사용할 수 있습니다. 
+확장 라이브러리를 사용하여 Graph API 기능을 적용할 수 있습니다. 이 라이브러리를 Microsoft Azure Graph라고 하며 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs)에서 사용할 수 있습니다. 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>이는 Gremlin 그래프 통과 언어를 지원하는 것과 같습니다. 더 많은 형식의 쿼리를 추가할 계획이 있나요?
 예, 향후에 쿼리를 위한 다른 메커니즘을 추가할 계획입니다. 

@@ -1,25 +1,21 @@
 ---
-title: Virtual Network에 HBase 클러스터 만들기 - Azure | Microsoft Docs
+title: Virtual Network에 HBase 클러스터 만들기 - Azure
 description: Azure HDInsight에서 HBase 사용 시작 Azure Virtual Network에 HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.
 keywords: ''
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: edcfa47eee0f085bad415be0d9b112bbc33c3eca
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 33aba330735c53499a472f7e90d350c4edd54c41
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521608"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592910"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Azure Virtual Network의 HDInsight에서 HBase 클러스터 만들기
 [Azure Virtual Network][1]에서 Azure HDInsight HBase 클러스터를 만드는 방법을 알아봅니다.

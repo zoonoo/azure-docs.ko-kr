@@ -2,24 +2,19 @@
 title: Windows에서 Azure Files 문제 해결 | Microsoft Docs
 description: Windows에서 Azure Files 문제 해결
 services: storage
-documentationcenter: ''
-author: wmgries
-manager: aungoo
-editor: tamram
+author: jeffpatt24
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 18f594586aa95afaa01bfda712dfc23c8aad3a36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.component: files
+ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738550"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39530437"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -98,7 +93,7 @@ IT 부서와 협력하여 [Azure IP 범위](https://www.microsoft.com/download/d
 
 Azure File 서비스에 파일을 전송하려고 하면 성능 저하가 발생할 수 있습니다.
 
-- 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MB를 사용하는 것이 좋습니다.
+- 최소 I/O 크기에 대한 특정 요구 사항이 없을 경우 최적 성능을 위해 I/O 크기로 1MiB를 사용하는 것이 좋습니다.
 -   쓰기를 사용하여 확장 중인 파일의 최종 크기를 알고 파일에 아직 기록되지 않은 꼬리에 0이 포함될 때 소프트웨어에 호환성 문제가 발생하지 않는다면 모든 쓰기를 확장 쓰기로 설정하는 대신 파일 크기를 미리 설정합니다.
 -   copy 메서드를 다음과 같이 올바르게 사용합니다.
     -   두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 사용합니다.

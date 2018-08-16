@@ -2,24 +2,18 @@
 title: Azure Storage 모니터링, 진단 및 문제 해결 | Microsoft Docs
 description: 저장소 분석, 클라이언트 쪽 로깅 기타 타사 도구 등의 기능을 사용하여 Azure Storage 관련 문제를 파악, 진단 및 해결합니다.
 services: storage
-documentationcenter: ''
 author: fhryo-msft
-manager: jahogg
-editor: tysonn
-ms.assetid: d1e87d98-c763-4caa-ba20-2cf85f853303
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.openlocfilehash: b89071048594e1e11efb321da3d0b48005824b46
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.component: common
+ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29740666"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528717"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage 모니터링, 진단 및 문제 해결
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -76,8 +70,8 @@ Azure Storage 응용 프로그램에서 종단간 문제 해결 실습 가이드
   * [Linux에서 Azure Files 문제 해결](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [부록]
   * [부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]
-  * [부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]
-  * [부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]
+  * [부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]
+  * [부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]
   * [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]
   * [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]
 
@@ -378,9 +372,9 @@ queueServicePoint.UseNagleAlgorithm = false;
 #### <a name="investigating-network-latency-issues"></a>네트워크 대기 시간 문제 조사
 일반적으로 네트워크에서 발생하는 긴 종단 간 대기 시간의 원인은 일시적인 상태 때문입니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 일시적인 네트워크 문제와 영구적인 네트워크 문제(예: 패킷 삭제)를 모두 조사해야 합니다.
 
-Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
 
-Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]"를 참조하세요.
 
 ### <a name="metrics-show-low-AverageE2ELatency-and-low-AverageServerLatency"></a>메트릭에서 AverageE2ELatency 및 AverageServerLatency는 낮게 표시되는데 클라이언트의 대기 시간이 길어짐
 이 시나리오에서는 저장소 요청이 저장소 서비스에 도착할 때까지의 대기 시간이 길어지는 경우로 인한 가능성이 가장 높습니다. 클라이언트의 요청이 Blob 서비스에 정상적인 속도로 도착하지 않는 원인을 조사해야 합니다.
@@ -395,9 +389,9 @@ Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하�
 
 클라이언트에 문제가 없으면 패킷 손실 등의 네트워크 문제 가능성을 조사해야 합니다. Wireshark 또는 Microsoft Message Analyzer와 같은 도구를 사용하여 네트워크 문제를 조사할 수 있습니다.
 
-Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Wireshark를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
 
-Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Microsoft 메시지 분석기를 사용하여 네트워크 문제를 해결하는 방법에 대한 자세한 내용은 "[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]"를 참조하세요.
 
 ### <a name="metrics-show-high-AverageServerLatency"></a>메트릭에서 AverageServerLatency가 높게 표시됨
 Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되는 경우 저장소 로깅 로그를 사용하여 같은 Blob 또는 Blob 집합에 대해 요청이 반복되는지 여부를 확인해야 합니다. Blob 업로드 요청의 경우 클라이언트에서 사용 중인 블록 크기를 조사해야 합니다. 예를 들어 블록 크기가 64K보다 작은 경우 읽기도 64K 청크보다 작지 않으면 오버헤드가 발생합니다. 또한 여러 클라이언트가 같은 Blob에 병렬로 블록을 업로드하고 있는지도 조사해야 합니다. 요청 수가 급증하여 초당 확장성 목표가 초과되지 않는지 분당 메트릭도 확인해야 합니다. “[메트릭에서 PercentTimeoutError가 증가하는 것으로 표시됨]”을 참조하세요.
@@ -475,7 +469,7 @@ Blob 다운로드 요청에 대해 **AverageServerLatency**가 높게 표시되�
 | 원본 | 자세한 정도 | 자세한 정도 | 클라이언트 요청 ID | 작업 텍스트 |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab-… |위치 모드 PrimaryOnly에 대해 위치 Primary로 작업을 시작하는 중입니다. |
-| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp;sr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14에 대한 동기 요청을 시작하는 중입니다. |
+| Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&ampsr=c&amp;si=mypolicy&amp;sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&amp;api-version=2014-02-14에 대한 동기 요청을 시작하는 중입니다. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 기다리는 중입니다. |
 | Microsoft.WindowsAzure.Storage |Warning |2 |85d077ab -… |응답을 기다리는 동안 throw 된 예외: 원격 서버가 오류를 반환했습니다: (403) 사용할 수 없음. |
 | Microsoft.WindowsAzure.Storage |정보 |3 |85d077ab -… |응답을 받았습니다. 상태 코드 = 403, 요청 ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
@@ -706,9 +700,9 @@ sqllocaldb create v11.0
 
 Fiddler 사용에 대한 자세한 내용은 “[부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]”를 참조하세요.
 
-Wireshark 사용에 대한 자세한 내용은 "[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
+Wireshark 사용에 대한 자세한 내용은 "[부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]"를 참조하세요.
 
-Microsoft Message Analyzer 사용에 대한 자세한 내용은[부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]를 참조하세요.
+Microsoft Message Analyzer 사용에 대한 자세한 내용은[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]를 참조하세요.
 
 ## <a name="appendices"></a>부록
 부록에서는 Azure Storage 및 기타 서비스의 문제를 진단 및 해결할 때 유용할 수 있는 여러 가지 도구에 대해 설명합니다. 이러한 도구는 Azure Storage에 포함되지는 않으며, 타사 제품도 있습니다. 그러므로 이 부록에서 설명하는 도구에는 Microsoft Azure 또는 Azure Storage에 적용될 수 있는 지원 규약이 적용되지 않기 때문에 평가 프로세스의 일환으로 이러한 도구의 공급자가 제공하는 라이선스 및 지원 옵션을 확인해야 합니다.
@@ -868,8 +862,8 @@ Blob Storage에서 다운로드한 저장소 로깅 데이터를 Excel로 가져
 
 [부록]: #appendices
 [부록1: Fiddler를 사용하여 HTTP 및 HTTPS 트래픽 캡처]: #appendix-1
-[부록 2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
-[부록3 : Microsoft 메시지 분석기를 사용하여 네트워크 트래픽 캡처]: #appendix-3
+[부록2: Wireshark를 사용하여 네트워크 트래픽 캡처]: #appendix-2
+[부록3; Microsoft Message Analyzer를 사용하여 네트워크 트래픽 캡처를 참조하세요.]: #appendix-3
 [부록4; Excel을 사용하여 메트릭 및 로그 데이터 보기]: #appendix-4
 [부록5: Visual Studio Team Services용 Application Insights를 사용한 모니터링]: #appendix-5
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/04/2018
+ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f51103045f6a0cac1b1ed4f32200eaf7bef9cf24
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1328ce8c306188c32bce5385f58f118a63c08deb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34193879"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426536"
 ---
 # <a name="how-to-unlink-your-automation-account-from-a-log-analytics-workspace"></a>Log Analytics에서 Automation 계정 연결을 해제하는 방법
 
@@ -24,7 +24,7 @@ Azure Automation은 Log Analytics와 통합되어 모든 Automation 계정의 ru
 * [변경 내용 추적](../log-analytics/log-analytics-change-tracking.md)
 * [작업이 없는 동안 VM 시작/중지](automation-solution-vm-management.md)
 
-Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정할 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 항목을 검토하여 제거에 필요한 단계를 이해하세요.
+Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정할 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다.  계속하기 전에 앞에서 언급한 솔루션을 제거해야 합니다. 그러지 않으면 이 프로세스가 계속 진행되지 않습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
 
 이러한 솔루션을 제거한 후에 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 
@@ -33,13 +33,11 @@ Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정�
 
 ## <a name="unlink-workspace"></a>작업 영역 연결 해제
 
-1. Azure Portal에서 Automation 계정을 열고 Automation 계정 페이지에서 왼쪽의 **관련된 리소스** 섹션 아래의 **작업 영역 연결 해제**를 선택합니다.
-
-   ![작업 영역 연결 해제 옵션](media/automation-unlink-from-log-analytics/automation-unlink-workspace-option.png)
+1. Azure Portal에서 Automation 계정을 열고 Automation 계정 페이지에서 왼쪽의 **관련된 리소스** 섹션 아래의 **연결된 작업 영역**을 선택합니다.
 
 1. 작업 영역 연결 해제 페이지에서 **작업 영역 연결 해제**를 클릭합니다.
 
-   ![작업 영역 연결 해제 페이지](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png)에서도 확인할 수 있습니다.
+   ![작업 영역 연결 해제 페이지](media/automation-unlink-from-log-analytics/automation-unlink-workspace-blade.png).
 
    계속할지 묻는 메시지가 나타납니다.
 
@@ -47,9 +45,9 @@ Automation 계정을 Log Analytics에 더 이상 통합하지 않기로 결정�
 
 업데이트 관리 솔루션을 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 
-* 업데이트 일정.  각 일정에는 사용자가 만든 업데이트 배포와 일치하는 이름이 지정됩니다.
+* 업데이트 일정 - 각 일정에는 사용자가 만든 업데이트 배포와 일치하는 이름이 지정됩니다.
 
-* 솔루션에 대해 생성된 Hybrid Worker 그룹.  각 그룹에는 machine1.contoso.com_9ceb8108-26 c 9-4051-b6b3-227600d715c8과 비슷하게 이름이 지정됩니다.
+* 솔루션용으로 만든 Hybrid Worker 그룹 - 각 그룹에는 machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8과 비슷하게 이름이 지정됩니다.
 
 작업이 없는 동안 VM 시작/중지를 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 

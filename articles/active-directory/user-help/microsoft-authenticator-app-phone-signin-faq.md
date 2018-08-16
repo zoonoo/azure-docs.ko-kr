@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358635"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528428"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>암호가 아닌 휴대폰을 사용하여 로그인
 
@@ -70,7 +70,7 @@ Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인�
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>휴대폰 로그인을 사용하여 개인 계정에 로그인하려면
 
-1.  개인 Microsoft 계정 로그인 페이지로 이동한 다음, 암호를 입력하는 대신 **앱을 대신 사용** 링크를 선택합니다.
+1.  개인 Microsoft 계정 로그인 페이지로 이동한 다음, 암호를 입력하는 대신 **Microsoft Authenticator 앱을 대신 사용** 링크를 선택합니다.
 
     Microsoft는 사용자의 휴대폰에 알림을 보냅니다. 
 

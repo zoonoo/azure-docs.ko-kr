@@ -1,24 +1,20 @@
 ---
-title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight | Microsoft Docs
+title: 딥 다이브 분석 - 고급 분석 - Azure HDInsight
 description: 고급 분석에서 알고리즘을 사용하여 빅 데이터를 처리하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: a6db6b7f1a0e81867a1db75ed3b31a38a8dbdeb0
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ad1c96d1d1578489ae16b61e67a73f02cd461e0e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213540"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591910"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -67,8 +63,7 @@ HDInsight에는 고급 분석 워크플로에 대한 몇 가지 기계 학습 �
 
 ### <a name="machine-learning-and-spark"></a>Machine Learning 및 Spark
 
-
-  [HDInsight Spark](../spark/apache-spark-overview.md)는 Azure에서 호스팅되는 [Spark](http://spark.apache.org/) 제품으로, 메모리 내 처리를 사용하여 빅 데이터 분석을 향상시키는 통합형 오픈 소스 병렬 데이터 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. 
+[HDInsight Spark](../spark/apache-spark-overview.md)는 Azure에서 호스팅되는 [Spark](http://spark.apache.org/) 제품으로, 메모리 내 처리를 사용하여 빅 데이터 분석을 향상시키는 통합형 오픈 소스 병렬 데이터 처리 프레임워크입니다. 속도, 간편한 사용 및 정교한 분석을 위해 Spark 처리 엔진이 빌드되었습니다. Spark는 메모리 내 분산형 계산 기능을 지원하여 기계 학습 및 그래프 계산에 사용된 반복 알고리즘에 적합합니다. 
 
 이 분산 환경에 알고리즘 모델링 기능을 제공하는 확장성 있는 세 가지 기계 학습 라이브러리가 있습니다.
 

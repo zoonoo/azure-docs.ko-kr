@@ -8,19 +8,23 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971723"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440432"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Azure Monitor의 로그 경고 - 경고 
-이 아티클에서는 로그 경고의 세부 정보를 제공합니다. 즉, 새 [Azure 경고](monitoring-overview-unified-alerts.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 경고의 기준으로 Azure의 분석 플랫폼을 사용할 수 있도록 합니다. 로그를 사용하는 메트릭 경고에 대한 자세한 내용은 [거의 실시간 메트릭 경고](monitoring-near-real-time-metric-alerts.md)를 참조하세요.
+이 아티클에서는 로그 경고의 세부 정보를 제공합니다. 즉, 새 [Azure 경고](monitoring-overview-unified-alerts.md) 내에서 지원되는 경고 형식 중 하나이며 사용자가 경고의 기준으로 Azure의 분석 플랫폼을 사용할 수 있도록 합니다.
 
 
-로그 경고는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 또는 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)에 대해 만든 로그 검색 규칙으로 이루어집니다.
+로그 경고는 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 또는 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)에 대해 만든 로그 검색 규칙으로 이루어집니다. 로그 경고에 대한 가격 책정 세부 정보는 [Azure Monitor 가격 책정](https://azure.microsoft.com/en-us/pricing/details/monitor/) 페이지에서 사용할 수 있습니다. Azure 청구서에서 로그 경고는 다음을 사용하여 `microsoft.insights/scheduledqueryrules` 형식으로 표현됩니다.
+- 리소스 그룹 및 경고 속성과 함께 정확한 경고 이름으로 표시된 Application Insights의 로그 경고
+- 리소스 그룹 및 경고 속성과 함께 경고 이름을 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`로 표시한 Log Analytics의 로그 경고
 
+    > [!NOTE]
+    > Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다. `<, >, %, &, \, ?, /` 같이 잘못된 문자가 사용된 경우 청구서에서 `_`로 바꿉니다.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>로그 검색 경고 규칙 - 정의 및 형식
 
@@ -104,7 +108,7 @@ ms.locfileid: "38971723"
 - Azure 리소스 관리자 템플릿
 
 ### <a name="azure-portal"></a>Azure portal
-[새 Azure 경고](monitoring-overview-unified-alerts.md)가 도입된 이후 이제 사용자는 단일 위치 및 유사한 단계에서 Azure Portal에 있는 모든 형식의 경고를 관리할 수 있습니다. [새 Azure 경고 사용](monitor-alerts-unified-usage.md)에 대해 자세히 알아봅니다.
+[새 Azure 경고](monitoring-overview-unified-alerts.md)가 도입된 이후 이제 사용자는 단일 위치에서 그리고 사용량에 대해 비슷한 단계를 사용하여 Azure Portal에 있는 모든 형식의 경고를 관리할 수 있습니다. [새 Azure 경고 사용](monitor-alerts-unified-usage.md)에 대해 자세히 알아봅니다.
 
 또한 사용자는 Azure에서 선택한 Analytics 플랫폼으로 해당 쿼리를 완전하게 수행한 다음, *쿼리를 저장하여 경고에서 사용할 수 있게 가져올 수* 있습니다. 수행할 단계는 다음과 같습니다.
 - *Application Insights의 경우*: Analytics 포털로 이동하고, 쿼리 및 해당 결과가 유효한지 검사합니다. 그런 후 고유한 이름을 사용하여 *공유 쿼리*에 저장합니다.
@@ -131,7 +135,7 @@ ms.locfileid: "38971723"
  
 
 ## <a name="next-steps"></a>다음 단계
-* [Azure의 로그 경고](monitor-alerts-unified-log-webhook.md)를 이해합니다.
+* [Azure의 로그 경고에서 웹후크](monitor-alerts-unified-log-webhook.md)를 이해합니다.
 * [Azure 경고](monitoring-overview-unified-alerts.md)에 대해 알아봅니다.
 * [Application Insights](../application-insights/app-insights-analytics.md)에 대해 자세히 알아봅니다.
 * [Log Analytics](../log-analytics/log-analytics-overview.md)에 대해 자세히 알아보기    

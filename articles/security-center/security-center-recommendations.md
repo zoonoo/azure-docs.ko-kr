@@ -3,7 +3,7 @@ title: Azure Security Center에서 보안 권장 사항 관리 | Microsoft Docs
 description: 이 문서에서는 Azure Security Center의 권장 사항이 Azure 리소스를 보호하고 보안 정책을 준수하는 데 어떤 도움이 되는지 알아봅니다.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367109"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522240"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Azure Security Center에서 보안 권장 사항 관리
 이 문서에서는 Azure Security Center의 권장 사항을 사용하여 Azure 리소스를 보호하는 데 도움이 되는 방법을 안내합니다.
@@ -50,6 +50,8 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 각 권장 사항에 대한 세부 정보를 보려면 **개요**에서 **권장 사항** 타일을 선택합니다. **권장 사항**이 열립니다.
 
 ![필터 권장 사항][2]
+
+권장 사항을 필터링할 수 있습니다. 권장 사항을 필터링하려면 **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
 
 권장 사항은 각 줄이 한 가지 특정 권장을 나타내는 표 형식으로 표시됩니다. 이 테이블의 열은 다음과 같습니다.
 
@@ -124,13 +126,6 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 | 구독에서 소유자 권한이 있는 외부 계정 제거 | 모니터링되지 않는 액세스를 방지하려면 소유자 권한이 있는 외부 계정을 구독에서 제거하는 것이 좋습니다. |
 | 구독에서 더 이상 사용되지 않는 계정 제거 | 구독에서 더 이상 사용되지 않는 계정을 제거하는 것이 좋습니다. |
 | 구독에서 더 이상 사용되지 않는 소유자 권한이 있는 계정 제거 | 구독에서 더 이상 사용되지 않는 소유자 권한이 있는 계정을 제거하는 것이 좋습니다. |
-필터링을 수행하고 권장 사항을 해제할 수 있습니다.
-
-1. **권장 사항** 블레이드에서 **필터**를 선택합니다. **필터** 블레이드가 열리면 확인하려는 심각도 및 상태 값을 선택합니다.
-
-2. 권장 사항이 적용하기에 적절하지 않다고 생각되면 권장 사항을 해제하고 보기에서 필터링합니다. 권장 사항을 해제하는 두 가지 방법이 있습니다. 한 가지 방법은 항목을 마우스 오른쪽 단추로 클릭한 다음 **해제**를 선택하는 것입니다. 다른 방법은 마우스 포인터로 항목을 가리키고 오른쪽에 나타나는 점 세 개를 클릭한 다음 **해제**를 선택하는 것입니다. **필터**를 클릭하고 **해제됨**을 선택하면 해제된 권장 사항을 볼 수 있습니다.
-
-    ![권장 사항 해제][3]
 
 ### <a name="apply-recommendations"></a>권장 사항 적용
 모든 권장 사항을 검토한 후에 가장 먼저 적용해야 할 권장 사항을 결정합니다. 심각도 등급을 기본 매개 변수로 사용하여 가장 먼저 적용해야 할 권장 사항을 평가하는 것이 좋습니다.
@@ -150,4 +145,3 @@ Security Center에서는 Azure 리소스의 보안 상태를 주기적으로 분
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/30/2018
+ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364379"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433568"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Azure에 SQL Server 데이터베이스 백업
 
@@ -47,6 +47,8 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 - [분산형 가용성 그룹의 백업](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017)에는 제한 사항이 있습니다.
 - SQL Server Always On FCI(장애 조치(failover) 클러스터 인스턴스)가 지원되지 않습니다.
 - Azure Portal을 사용하여 SQL Server 데이터베이스를 보호하도록 Azure Backup을 구성합니다. Azure PowerShell, Azure CLI 및 REST API는 현재 지원되지 않습니다.
+
+지원되는/지원되지 않는 시나리오에 대한 자세한 내용은 [FAQ 섹션](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq)을 참조하세요.
 
 ## <a name="support-for-azure-geos"></a>Azure 지역에 대한 지원
 
@@ -432,7 +434,7 @@ Azure Backup은 트랜잭션 로그 백업을 사용하여 개별 데이터베�
 
 2. **Recovery Services 자격 증명 모음** 대시보드의 **사용량**에서 **백업 항목**을 선택하여 **백업 항목** 메뉴를 엽니다.
 
-    ![백업 항목 메뉴 열기](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png)에서도 확인할 수 있습니다.
+    ![백업 항목 메뉴 열기](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
 3. **백업 항목** 메뉴의 **백업 관리 유형**에서 **SQL in Azure VM**(Azure VM의 SQL)을 선택합니다. 
 
@@ -709,7 +711,7 @@ SQL Server 데이터베이스에 대한 보호를 중지하면 Azure Backup에 �
 
 2. **Recovery Services 자격 증명 모음** 대시보드의 **사용량**에서 **백업 항목**을 선택하여 **백업 항목** 메뉴를 엽니다.
 
-    ![백업 항목 메뉴 열기](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png)에서도 확인할 수 있습니다.
+    ![백업 항목 메뉴 열기](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
 3. **백업 항목** 메뉴의 **백업 관리 유형**에서 **SQL in Azure VM**(Azure VM의 SQL)을 선택합니다. 
 

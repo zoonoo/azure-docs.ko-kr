@@ -1,25 +1,20 @@
 ---
-title: Azure HDInsight에 타사 Hadoop 응용 프로그램 설치 | Microsoft Docs
+title: Azure HDInsight에 타사 Hadoop 응용 프로그램 설치
 description: Azure HDInsight에 타사 Hadoop 응용 프로그램을 설치하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: eaf5904d-41e2-4a5f-8bec-9dde069039c2
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 3ad112544a703a9b6ec37fa07cbd6df6976d5e26
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: c4d8f6fb1804ff48899ebb96d4c4248f337b56ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201917"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591978"
 ---
 # <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>Azure HDInsight에 타사 Hadoop 응용 프로그램 설치
 
@@ -32,7 +27,7 @@ HDInsight 응용 프로그램은 HDInsight 클러스터에 사용자가 설치�
 * **AtScale 인텔리전스 플랫폼**은 HDInsight 클러스터를 확장 OLAP 서버로 전환합니다. Microsoft Excel, PowerBI, Tableau 소프트웨어에서 QlikView까지 응용 프로그램을 통해 BI 도구를 사용하여 대화형으로 수십억 개의 데이터 행을 쿼리할 수 있습니다.
 * **HDInsight용 Cask CDAP**은 데이터 응용 프로그램 및 Data Lake에 대한 프로덕션 시간을 80%까지 줄일 수 있는 첫 번째 빅 데이터용 통합 플랫폼을 제공합니다. 이 응용 프로그램은 표준 HBase 3.4 클러스터만을 지원합니다.
 * **HDInsight의 DATAIKU DDS**를 사용하면 데이터 전문가가 원시 데이터를 영향력이 강한 비즈니스 예측으로 변환하는 매우 특정한 서비스를 프로토타입, 빌드 및 배포할 수 있습니다.
-* **HDInsight용 H2O Artificial Intelligence(베타)** H2O Sparkling Water는 GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection 및 Autoencoders 등의 분산 알고리즘을 지원합니다.
+* **HDInsight에 대한 H2O 인공 지능(베타)** H2O Sparkling Water는 다음 분산된 알고리즘을 지원합니다. GLM, Naïve Bayes, Distributed Random Forest, Gradient Boosting Machine, Deep Neural Networks, Deep learning, K-means, PCA, Generalized Low Rank Models, Anomaly Detection 및 Autoencoders
 * **Kyligence Analytics Platform** KAP(Kyligence Analytics Platform)는 Apache Kylin 및 Apache Hadoop 기반의 엔터프라이즈 지원 데이터 웨어하우스입니다. 대규모 데이터 집합에 대해 1초 미만의 쿼리 대기 시간을 제공하고, 비즈니스 사용자 및 분석가를 위해 데이터 분석을 간소화합니다. 
 * **Paxata 셀프 서비스 데이터 준비**
 * **KNIME Spark Executor용 Spark 작업 서버** KNIME Spark Executor용 Spark 작업 서버는 KNIME Analytics Platform을 HDInsight 클러스터에 연결하는 데 사용됩니다.

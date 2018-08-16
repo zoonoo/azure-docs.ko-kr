@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 39ecf568c5c41c0007b358670af755be1dd5d99e
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 2f2da5b38ab39e3636ff0ac09ac2c5515e02b0c1
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34763241"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492338"
 ---
 # <a name="sfctl-store"></a>sfctl store
 클러스터 이미지 저장소에서 기본 파일 수준 작업을 수행합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "34763241"
 ## <a name="sfctl-store-delete"></a>sfctl store delete
 기존 이미지 저장소 콘텐츠를 삭제합니다.
 
-지정된 이미지 저장소 상대 경로 내에서 발견되는 기존 이미지 저장소 콘텐츠를 삭제합니다. 이 명령은 업로드된 응용 프로그램 패키지가 프로비저닝된 후에 이를 삭제하는 데 사용할 수 있습니다.
+지정된 이미지 저장소 상대 경로 내에서 발견되는 기존 이미지 저장소 콘텐츠를 삭제합니다. 업로드된 응용 프로그램 패키지가 프로비저닝된 후에 해당 패키지를 삭제하는 데 사용할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -96,6 +96,7 @@ ms.locfileid: "34763241"
 | --output -o | 출력 형식.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
 | --query | JMESPath 쿼리 문자열. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그에 --debug을 사용합니다. |
+
 
 ## <a name="next-steps"></a>다음 단계
 - Service Fabric CLI [설정](service-fabric-cli.md)

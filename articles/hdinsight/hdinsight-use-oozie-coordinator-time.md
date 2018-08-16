@@ -1,26 +1,21 @@
 ---
-title: HDInsight에서 시간 기준 Hadoop Oozie 코디네이터 사용 | Microsoft Docs
+title: HDInsight에서 시간 기준 Hadoop Oozie 코디네이터 사용
 description: 빅데이터 서비스인 HDInsight에서 시간 기준 Hadoop Oozie 코디네이터를 사용하는 방법을 알아봅니다. 또한 Oozie 워크플로와 코디네이터를 정의하고 작업을 제출하는 방법도 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00c3a395-d51a-44ff-af2d-1f116c4b1c83
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/04/2017
-ms.author: jgao
 ROBOTS: NOINDEX
-ms.openlocfilehash: c5819d39bf3ab7c0f4af32171aadea56e4f6a241
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 61d2e03fad5303f6f66633536b2acc8b1fe300cc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063530"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597279"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>HDInsight에서 Hadoop과 함께 시간 기준 Oozie 코디네이터를 사용하여 워크플로 정의 및 작업 조정
 이 문서에서는 워크플로 및 코디네이터를 정의하는 방법, 시간을 기준으로 코디네이터 작업을 트리거하는 방법을 알아봅니다. 이 문서를 시작하기 전에 [HDInsight에서 Oozie 사용][hdinsight-use-oozie]을 확인하는 것이 도움이 됩니다. Oozie 외에도 Azure 데이터 팩터리를 사용하여 작업을 예약할 수도 있습니다. Azure 데이터 팩터리를 알아보려면 [데이터 팩터리에서 Pig 및 Hive 사용](../data-factory/transform-data.md)을 참조하세요.
@@ -263,7 +258,7 @@ Azure PowerShell 스크립트를 실행하여 다음을 수행합니다.
 HDInsight는 데이터 저장소로 Azure Blob 저장소를 사용합니다. wasb://는 Azure Blob Storage에서 Microsoft의 HDFS(Hadoop 분산 파일 시스템)를 구현합니다. 자세한 내용은 [HDInsight와 함께 Azure Blob Storage 사용][hdinsight-storage]을 참조하십시오.
 
 HDInsight 클러스터를 프로비전할 때 Azure Blob 저장소 계정 및 이 계정에서 오는 특정 컨테이너가 HDFS의 경우와 같이 기본 파일 시스템으로 지정됩니다. 프로비전 프로세스에서는 이 저장소 계정 외에도 동일하거나 다른 Azure 구독의 저장소 계정을 추가할 수 있습니다. 저장소 계정 추가에 대한 지침은 [HDInsight 클러스터 프로비전][hdinsight-provision]을 참조하세요. 이 자습서에 사용된 Azure PowerShell 스크립트를 간소화하려면 모든 파일이 */tutorials/useoozie*에 있는 기본 파일 시스템 컨테이너에 저장되어야 합니다. 기본적으로 이 컨테이너 이름은 HDInsight 클러스터 이름과 동일합니다.
-구문은 다음과 같습니다:
+구문은 다음과 같습니다.
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 

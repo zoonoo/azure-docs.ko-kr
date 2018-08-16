@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226026"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505531"
 ---
 # <a name="plan-your-luis-app"></a>LUIS 앱 계획
 
@@ -65,7 +65,7 @@ LUIS는 `Number`와 같은 일반적인 형식에 대해 [미리 빌드된 엔�
 
 ![Number 미리 빌드된 엔터티](./media/luis-plan-your-app/number-entity.png)
 
-끝점 JSON 쿼리 응답에서 정규식 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#prebuilt-entity-data)을 참조하세요. 
+엔드포인트 JSON 쿼리 응답에서 미리 빌드된 엔터티를 추출하는 방법에 대해 자세히 알아보려면 [데이터 추출](luis-concept-data-extraction.md#prebuilt-entity-data)을 참조하세요. 
 
 ### <a name="list-entity"></a>목록 엔터티 
 목록 엔터티는 명시적으로 지정된 값 목록입니다. 각 값은 하나 이상의 동의어로 구성됩니다. 여행 앱에서는 목록 엔터티를 만들어 공항 이름을 나타낼 수 있습니다.

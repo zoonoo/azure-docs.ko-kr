@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 304476e2d6862fbb6a859ae6fefe96d177b1111b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f20e102ee1d100ea02da53fe460b56f8f8390418
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264258"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426696"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 경고를 만들](monitor-alerts-unified-usage.md) 때 하나 이상의 작업을 수행하도록 선택적으로 [작업 그룹 사용을 구성](monitoring-action-groups.md)할 수 있습니다.  이 문서에서는 사용 가능한 다양한 웹후크 작업 및 사용자 지정 JSON 기반 웹후크 구성에 대해 설명합니다.
@@ -53,6 +53,8 @@ ms.locfileid: "35264258"
 | 응용 프로그램 UI |#applicationid |Application Insight 앱의 ID입니다. |
 | 구독 ID |#subscriptionid |Application Insights에서 사용되는 Azure 구독의 ID입니다. 
 
+> [!NOTE]
+> LinkToSearchResults는 분석 섹션에서 보기 위해 URL의 SearchQuery, 검색 간격 시작 시간 및 검색 간격 종료 시간 같은 매개 변수를 Azure Portal에 전달합니다. Azure Portal에는 2,000자라는 URI 크기 제한이 있으며 매개 변수 값이 해당 제한을 초과하는 경우 문서가 열립니다. 사용자는 세부 정보를 수동으로 입력하여 Analytics 포털에서 결과를 보거나, [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 또는 [Log Analytics REST API](https://dev.loganalytics.io/reference)를 사용하여 결과를 프로그래밍 방식으로 검색할 수 있습니다. 
 
 예를 들어 *text*라는 단일 매개변수를 포함하는 다음과 같은 사용자 지정 페이로드를 지정할 수 있습니다.  이 웹후크가 호출하는 서비스는 이 매개 변수를 예상합니다.
 

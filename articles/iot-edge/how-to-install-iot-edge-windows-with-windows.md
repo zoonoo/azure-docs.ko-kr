@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.author: kgremban
-ms.openlocfilehash: 5fc1163f590b2408fca913e35e57f014424b225c
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 39e0de6b378ed61ab375c6468b58c8c4a87b5fb9
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308401"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39575967"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-windows-containers"></a>Windows 컨테이너에서 사용하기 위해 Windows에 Azure IoT Edge 런타임 설치
 
@@ -36,160 +36,49 @@ Azure IoT Edge 및 Windows 컨테이너는 다음에서 사용할 수 있습니�
 
 Azure IoT Edge는 [OCI 호환][lnk-oci] 컨테이너 런타임(예: Docker)을 사용합니다. 개발 및 테스트에는 [Windows용 Docker][lnk-docker-for-windows]를 사용할 수 있습니다. 
 
-**Windows용 Docker가 [Windows 컨테이너를 사용하도록 구성][lnk-docker-config]되어 있는지 확인합니다.**
+Windows용 Docker가 [Windows 컨테이너를 사용하도록][lnk-docker-config] 구성합니다.
 
 ## <a name="install-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 설치
 
 >[!NOTE]
 >Azure IoT Edge 소프트웨어 패키지에는 패키지(LICENSE 디렉터리)에 있는 사용 조건이 적용됩니다. 패키지를 사용하기 전에 사용 조건을 읽어보시기 바랍니다. 패키지를 설치 및 사용하면 이러한 사용 조건에 동의하게 됩니다. 사용 조건에 동의하지 않는 경우, 패키지를 사용하지 마세요.
 
-### <a name="download-the-edge-daemon-package-and-install"></a>Edge 디먼 패키지 다운로드 및 설치
+IoT Hub에서 제공하는 장치 연결 문자열을 사용하여 단일 IoT Edge 장치를 수동으로 프로비전할 수 있습니다. 또는 Device Provisioning Service를 사용하여 자동으로 장치를 프로비전할 수 있습니다. 이는 많은 장치를 프로비전할 때 유용합니다. 프로비전 선택 사항에 따라 적절한 설치 스크립트를 선택합니다. 
 
-관리자 PowerShell 창에서 다음 명령을 실행합니다.
+### <a name="install-and-manually-provision"></a>설치 및 수동으로 프로비전
 
-```powershell
-Invoke-WebRequest https://aka.ms/iotedged-windows-latest -o .\iotedged-windows.zip
-Expand-Archive .\iotedged-windows.zip C:\ProgramData\iotedge -f
-Move-Item c:\ProgramData\iotedge\iotedged-windows\* C:\ProgramData\iotedge\ -Force
-rmdir C:\ProgramData\iotedge\iotedged-windows
-$sysenv = "HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment"
-$path = (Get-ItemProperty -Path $sysenv -Name Path).Path + ";C:\ProgramData\iotedge"
-Set-ItemProperty -Path $sysenv -Name Path -Value $path
-```
+1. [새 Azure IoT Edge 장치 등록][lnk-dcs]의 단계를 따라 장치를 등록하고 장치 연결 문자열을 검색합니다. 
 
-다음을 사용하여 vcruntime을 설치합니다. IoT Core Edge 장치에서는 이 단계를 건너뛰어도 됩니다.
+2. IoT Edge 장치에서 관리자 권한으로 PowerShell을 실행합니다. 
 
-```powershell
-Invoke-WebRequest -useb https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe -o vc_redist.exe
-.\vc_redist.exe /quiet /norestart
- ```
+3. IoT Edge 런타임을 다운로드 및 설치합니다. 
 
-**iotedge** 서비스를 만들고 시작합니다.
-
-```powershell
-New-Service -Name "iotedge" -BinaryPathName "C:\ProgramData\iotedge\iotedged.exe -c C:\ProgramData\iotedge\config.yaml"
-Start-Service iotedge
-```
-
-서비스가 사용하는 포트에 대해 방화벽 예외를 추가합니다.
-
-```powershell
-New-NetFirewallRule -DisplayName "iotedged allow inbound 15580,15581" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 15580-15581 -Program "C:\programdata\iotedge\iotedged.exe" -InterfaceType Any
-```
-
-다음 콘텐츠를 사용하여 **iotedge.reg** 파일을 만들고, 파일을 두 번 클릭하거나 `reg import iotedge.reg` 명령을 사용하여 Windows 레지스트리로 가져옵니다.
-
-```
-Windows Registry Editor Version 5.00
-
-[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
-"CustomSource"=dword:00000001
-"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
-"TypesSupported"=dword:00000007
-```
-
-## <a name="configure-the-azure-iot-edge-security-daemon"></a>Azure IoT Edge 보안 디먼 구성
-
-디먼은 `C:\ProgramData\iotedge\config.yaml`에 있는 구성 파일을 사용하여 구성할 수 있습니다.
-
-에지 장치는 [장치 연결 문자열을 사용하여 수동으로][lnk-dcs] 또는 [Device Provisioning Service를 통해 자동으로][lnk-dps] 구성할 수 있습니다.
-
-* 수동 구성의 경우, **수동** 프로비전 모드의 주석 처리를 제거합니다. **device_connection_string**의 값을 IoT Edge 장치의 연결 문자열로 업데이트합니다.
-
-   ```yaml
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-  
-   # provisioning: 
-   #   source: "dps"
-   #   global_endpoint: "https://global.azure-devices-provisioning.net"
-   #   scope_id: "{scope_id}"
-   #   registration_id: "{registration_id}"
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Install-SecurityDaemon -Manual -ContainerOs Windows
    ```
 
-* 자동 구성의 경우 **dps** 프로비전 모드의 주석 처리를 제거합니다. **scope_id** 및 **registration_id**의 값을 IoT Hub DPS 인스턴스 및 TPM이 있는 IoT Edge 장치의 값으로 업데이트합니다. 
+4. **DeviceConnectionString**을 요청하는 메시지가 표시되면 IoT Hub에서 검색한 연결 문자열을 입력합니다. 연결 문자열 옆에 따옴표를 포함하지 마세요. 
 
-   ```yaml
-   # provisioning:
-   #   source: "manual"
-   #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-  
-   provisioning: 
-     source: "dps"
-     global_endpoint: "https://global.azure-devices-provisioning.net"
-     scope_id: "{scope_id}"
-     registration_id: "{registration_id}"
+### <a name="install-and-automatically-provision"></a>설치 및 자동으로 프로비전
+
+1. [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전][lnk-dps]의 단계를 따라 Device Provisioning Service를 설정하고 해당 **범위 ID**를 검색하고, TPM 장치를 시뮬레이션하고 해당 **등록 ID**를 검색한 다음, 개별 등록을 만듭니다. 장치가 IoT Hub에 등록되면 설치를 계속합니다.  
+
+   >[!TIP]
+   >설치 및 테스트를 수행하는 동안 TPM 시뮬레이터를 실행하는 창을 열린 상태로 유지합니다. 
+
+2. IoT Edge 장치에서 관리자 권한으로 PowerShell을 실행합니다. 
+
+3. IoT Edge 런타임을 다운로드 및 설치합니다. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Install-SecurityDaemon -Dps -ContainerOs Windows
    ```
 
-PowerShell에서 `hostname` 명령을 사용하여 에지 장치의 이름을 가져온 다음, 구성 yaml에서 **hostname:** 의 값으로 설정합니다. 예: 
-
-```yaml
-  ###############################################################################
-  # Edge device hostname
-  ###############################################################################
-  #
-  # Configures the environment variable 'IOTEDGE_GATEWAYHOSTNAME' injected into
-  # modules.
-  #
-  ###############################################################################
-
-  hostname: "edgedevice-1"
-```
-
-그런 다음, 구성의 **connect:** 및 **listen:** 섹션에서 **workload_uri** 및 **management_uri**에 대한 IP 주소와 포트를 제공합니다.
-
-IP 주소를 검색하려면 PowerShell 창에서 `ipconfig`를 입력하고, 다음 예제와 같이 **vEthernet(nat)** 인터페이스의 IP 주소를 복사합니다(시스템의 IP 주소가 다를 수 있음).  
-
-![nat][img-nat]
-
-구성 파일의 **connect:** 섹션에서 **workload_uri** 및 **management_uri**를 업데이트합니다. **\<GATEWAY_ADDRESS\>** 를 복사한 vEthernet IP 주소로 바꿉니다.
-
-```yaml
-connect:
-  management_uri: "http://<GATEWAY_ADDRESS>:15580"
-  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
-```
-
-**listen:** 섹션에 동일한 주소를 입력합니다.
-
-```yaml
-listen:
-  management_uri: "http://<GATEWAY_ADDRESS>:15580"
-  workload_uri: "http://<GATEWAY_ADDRESS>:15581"
-```
-
-PowerShell 창에서 **management_uri** 주소를 사용하여 **IOTEDGE_HOST** 환경 변수를 만듭니다.
-
-```powershell
-[Environment]::SetEnvironmentVariable("IOTEDGE_HOST", "http://<GATEWAY_ADDRESS>:15580")
-```
-
-다시 부팅 사이에 환경 변수를 그대로 유지합니다.
-
-```powershell
-SETX /M IOTEDGE_HOST "http://<GATEWAY_ADDRESS>:15580"
-```
-
-마지막으로, **moby_runtime:** 아래에서 **network:** 설정의 주석 처리가 제거되고 **nat**로 설정되었는지 확인합니다.
-
-```yaml
-moby_runtime:
-  docker_uri: "npipe://./pipe/docker_engine"
-  network: "nat"
-```
-
-구성 파일을 저장하고 서비스를 다시 시작합니다.
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
+4. 메시지가 표시되면 프로비저닝 서비스 및 장치에 대한 **ScopeID** 및 **RegistrationID**를 제공합니다. 
 
 ## <a name="verify-successful-installation"></a>성공적인 설치 확인
-
-이전 섹션의 **수동 구성** 단계를 사용한 경우 IoT Edge 런타임을 장치에 성공적으로 프로비전하고 실행해야 합니다. **자동 구성** 단계를 사용한 경우 사용자를 대신하여 런타임에서 장치를 IoT 허브에 등록할 수 있도록 몇 가지 추가 단계를 수행해야 합니다. 다음 단계는 [Windows에서 시뮬레이션된 TPM 에지 장치 만들기 및 프로비전](how-to-auto-provision-simulated-device-windows.md#create-a-tpm-environment-variable)을 참조하세요.
 
 다음과 같은 방법으로 IoT Edge 서비스의 상태를 확인할 수 있습니다. 
 
@@ -219,6 +108,8 @@ iotedge list
 
 ## <a name="next-steps"></a>다음 단계
 
+설치된 런타임을 사용하여 IoT Edge 장치를 프로비전했으므로 [IoT Edge 모듈을 배포][lnk-modules]할 수 있습니다.
+
 Edge 런타임을 제대로 설치하는 데 문제가 있는 경우, [문제 해결][lnk-trouble] 페이지를 확인하세요.
 
 
@@ -234,4 +125,4 @@ Edge 런타임을 제대로 설치하는 데 문제가 있는 경우, [문제 �
 [lnk-trouble]: troubleshoot.md
 [lnk-docker-for-windows]: https://www.docker.com/docker-windows
 [lnk-iot-core]: how-to-install-iot-core.md
-
+[lnk-modules]: how-to-deploy-modules-portal.md

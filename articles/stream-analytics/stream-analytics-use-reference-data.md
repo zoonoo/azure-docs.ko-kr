@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: f87337d51b86f6b1eb053c1b618a2fc0696a9eb2
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114510"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480532"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Stream Analytics에서 조회에 대한 참조 데이터 사용
 참조 데이터(조회 테이블이라고도 함)는 정적이거나 느리게 변경되는 특성을 지닌 한정된 데이터 집합으로, 데이터 스트림을 조회하거나 상관 관계를 지정하는 데 사용됩니다. Azure Stream Analytics는 메모리에서 참조 데이터를 로드하여 대기 시간이 짧은 스트림 프로세스를 달성합니다. Azure Stream Analytics 작업에서 참조 데이터를 사용하려면 일반적으로 쿼리에서 [참조 데이터 조인](https://msdn.microsoft.com/library/azure/dn949258.aspx)을 사용합니다. Stream Analytics에서는 참조 데이터에 대한 저장소 계층으로 Azure Blob Storage를 사용하고 Azure Data Factory를 통해 참조 데이터로 사용하기 위해 참조 데이터를 [개수에 관계 없이 클라우드 기반 및 온-프레미스 데이터 저장소](../data-factory/copy-activity-overview.md)형태로 Azure Blob Storage로 변환 및/또는 복사할 수 있습니다. 참조 데이터는 BLOB 이름에서 지정한 날짜/시간의 오름차순에 따라 BLOB의 시퀀스(입력 구성에서 정의)로 모델링됩니다. 시퀀스의 마지막 BLOB에서 지정한 것보다 **이후인** 날짜/시간을 사용하여 시퀀스의 마지막에 추가하는 것**만** 지원됩니다.
@@ -46,8 +46,13 @@ Stream Analytics는 **최대 300MB 크기**의 참조 데이터를 지원합니�
 |이벤트 직렬화 형식   | 쿼리가 예상대로 작동하는지 확인하려면 Stream Analytics은 들어오는 데이터 스트림으로 사용 중인 직렬화 형식을 알고 있어야 합니다. 참조 데이터에 대해 지원되는 형식은 CSV 및 JSON입니다.  |
 |Encoding   | 지금은 지원되는 인코딩 형식이 UTF-8뿐입니다.  |
 
+## <a name="static-reference-data"></a>정적 참조 데이터
+참조 데이터가 변경될 필요가 없으면 입력 구성에 정적 경로를 지정하여 정적 참조 데이터에 대한 지원을 사용하도록 설정할 수 있습니다. Azure Stream Analytics는 지정된 경로에서 Blob을 선택합니다. {date} 및 {time} 대체 토큰이 필요하지 않습니다. 참조 데이터는 Stream Analytics에서 변경할 수 없습니다. 따라서 정적 참조 데이터 Blob을 덮어쓰지 않는 것이 좋습니다.
+
 ## <a name="generating-reference-data-on-a-schedule"></a>일정에 따라 참조 데이터 생성
 참조 데이터가 느리게 변경되는 데이터 집합인 경우 {date} 및 {time} 대체 토큰을 사용하여 입력 구성의 경로 패턴을 지정하여 참조 데이터 새로 고침 지원을 사용하도록 설정할 수 있습니다. Stream Analytics이 이 경로 패턴에 따라 업데이트된 참조 데이터 정의를 선택합니다. 예를 들어 날짜 형식 **“YYYY-MM-DD”** 및 시간 형식 **“HH-mm”** 의 `sample/{date}/{time}/products.csv` 패턴은 UTC 표준 시간대 2015년 4월 16일 오후 5시 30분에 Stream Analytics에서 업데이트된 Blob `sample/2015-04-16/17-30/products.csv`을 선택하도록 지시합니다.
+
+Azure Stream Analytics는 1분 간격으로 새로 고친 참조 데이터 Blob을 자동으로 검색합니다.
 
 > [!NOTE]
 > 현재 Stream Analytics 작업은 컴퓨터 시간이 Blob 이름에 인코딩된 시간으로 진행하는 경우에만 Blob 새로 고침을 찾습니다. 예를 들어 작업은 가능한 빨리 `sample/2015-04-16/17-30/products.csv`를 찾지만 표준 시간대 2015년 4월 16일 오후 5시 30분보다 이르지 않습니다. 마지막으로 검색된 것보다 이전에 인코딩된 시간으로 Blob을 찾지 *않습니다* .
@@ -63,8 +68,12 @@ Stream Analytics는 **최대 300MB 크기**의 참조 데이터를 지원합니�
 Stream Analytics에서 참조 데이터 정의를 업데이트하는 데 필요한 업데이트된 Blob을 만드는 작업을 오케스트레이션하는 데 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)를 사용할 수 있습니다. 데이터 팩터리는 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 기반의 데이터 통합 서비스입니다. 데이터 팩터리는 [많은 수의 클라우드 기반 및 온-프레미스 데이터 저장소 연결](../data-factory/copy-activity-overview.md) 을 지원하고 사용자가 지정한 정기적인 일정으로 데이터를 쉽게 이동할 수 있도록 지원합니다. 미리 정의된 일정에 따라 새로 고쳐지는 Stream Analytics를 위한 참조 데이터를 생성하는 데이터 팩터리 파이프라인 설정 방법에 대한 단계별 지침과 자세한 내용은 이 [GitHub 샘플](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs)을 확인하세요.
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>참조 데이터 새로고침 팁
-1. 참조 데이터 BLOB를 덮어쓰면 Stream Analytics이 해당 BLOB를 다시 로드하지 않으며 경우에 따라 작업이 실패할 수 있습니다. 참조 데이터를 변경할 때는 작업 입력에서 정의된 것과 동일한 컨테이너 및 경로 패턴을 사용하여 새 BLOB를 추가하고 시퀀스의 마지막 BLOB에서 지정한 것보다 **나중인** 날짜/시간을 사용하는 것이 좋습니다.
-2. 참조 데이터 Blob은 Blob의 “마지막 수정" 시간 순서가 **아니라** {date} 및 {time}을 대체하여 Blob 이름에 지정한 날짜와 시간으로만 순서가 지정됩니다.
+1. 참조 데이터 Blob은 변경할 수 없으므로 덮어쓰지 않습니다.
+2. 참조 데이터를 새로 고치는 데 권장되는 방법은 다음과 같습니다.
+    * 경로 패턴에 {date}/{time}을 사용합니다.
+    * 작업 입력에 정의된 동일한 컨테이너와 경로 패턴을 사용하여 새 Blob을 추가합니다.
+    * 시퀀스의 마지막 Blob에서 지정된 날짜/시간보다 **큰** 날짜/시간을 사용합니다.
+3. 참조 데이터 Blob은 Blob의 “마지막 수정" 시간 순서가 **아니라** {date} 및 {time}을 대체하여 Blob 이름에 지정한 날짜와 시간으로만 순서가 지정됩니다.
 3. 많은 수의 BLOB을 표시하지 않으려면 더 이상 처리 작업이 수행되지 않는 아주 오래된 BLOB을 삭제합니다. 재시작 같은 일부 시나리오에서는 ASA가 소량을 다시 처리해야 할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

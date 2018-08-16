@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797848"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594365"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -34,31 +34,24 @@ ms.locfileid: "34797848"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK 다운로드**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**API 설명서**</td><td>[Node.js API 참조 설명서](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**SDK 설치 지침**</td><td>[설치 지침](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**SDK에 참여**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**샘플**</td><td>[Node.js 코드 샘플](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**시작 자습서**</td><td>[Node.js SDK 시작](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**웹앱 자습서**</td><td>[Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**현재 지원되는 플랫폼**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|리소스  |링크  |
+|---------|---------|
+|SDK 다운로드  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|API 설명서  |  [JavaScript SDK 참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|SDK 설치 지침  |  [설치 지침](https://github.com/Azure/azure-cosmos-js#installation)
+|SDK에 참여 | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| 샘플 | [Node.js 코드 샘플](sql-api-nodejs-samples-preview.md)
+| 시작 자습서 | [JavaScript SDK 시작](sql-api-nodejs-get-started-preview.md)
+| 웹앱 자습서 | [Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드](sql-api-nodejs-application-preview.md)
+| 현재 지원되는 플랫폼 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK 버전 2.0.0 이상이 필요합니다.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* 공개 미리 보기용 JavaScript SDK 버전 2.0.0의 RC1
+* 관련 데이터베이스, 컨테이너 및 항목 클래스에 분할된 최상위 CosmosClient 및 메서드가 있는 새로운 개체 모델 
+* [프라미스](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises)에 대한 지원 
+* TypeScript로 변환된 SDK
 
 ### <a name="1.14.4"/>1.14.4</a>
 * npm 설명서가 수정되었습니다.
@@ -201,6 +194,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
+| [2.0.0-3(RC)](#2.0.0-3) |2018년 8월 2일 |--- |
 | [1.14.4](#1.14.4) |2018년 5월 3일 |--- |
 | [1.14.3](#1.14.3) |2018년 5월 3일 |--- |
 | [1.14.2](#1.14.2) |2017년 12월 21일 |--- |

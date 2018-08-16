@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 4fbcfe4198f2655f77b1a61c86092e3ac727ab31
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115724"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590594"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 장치 게이트웨이를 통해 Modbus TCP 장치 연결
 
@@ -35,7 +35,7 @@ Modbus TCP 또는 RTU 프로토콜을 사용하는 IoT 장치를 Azure IoT Hub�
 Modbus 게이트웨이 기능을 테스트하려는 경우 사용할 수 있는 샘플 모듈은 Microsoft에 있습니다. 이 샘플 모듈을 사용하려면 [솔루션 실행](#run-the-solution) 섹션으로 이동하고 다음을 이미지 URI로 입력합니다. 
 
 ```URL
-microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
+mcr.microsoft.com/azureiotedge/modbus:1.0
 ```
 
 사용자 고유의 모듈을 만들고 환경에 맞게 사용자 지정하려는 경우 GitHub의 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 오픈 소스 프로젝트가 있습니다. 해당 프로젝트의 지침에 따라 사용자 고유의 컨테이너 이미지를 만듭니다. 사용자 고유의 컨테이너 이미지를 만드는 경우 컨테이너 이미지를 레지스트리에 게시하고 장치에 사용자 지정 모듈을 배포하기 위한 지침은 [C# IoT Edge 모듈 개발 및 배포](tutorial-csharp-module.md)를 참조하세요. 
@@ -48,7 +48,7 @@ microsoft/azureiotedge-modbus-tcp:GA-preview-amd64
 4. Modbus 모듈을 추가합니다.
    1. **추가**를 클릭하고 **IoT Edge 모듈**을 선택합니다.
    2. **이름** 필드에 "modbus"를 입력합니다.
-   3. **이미지** 필드에 샘플 컨테이너의 이미지 URI(`microsoft/azureiotedge-modbus-tcp:GA-preview-amd64`)를 입력합니다.
+   3. **이미지** 필드에 샘플 컨테이너의 이미지 URI(`mcr.microsoft.com/azureiotedge/modbus:1.0`)를 입력합니다.
    4. **사용** 상자를 선택하여 모듈 쌍의 desired 속성을 업데이트합니다.
    5. 텍스트 상자에 다음 JSON을 복사합니다. **SlaveConnection**의 값을 Modbus 장치의 IPv4 주소로 변경합니다.
 
@@ -96,7 +96,7 @@ Modbus 모듈을 통해 들어오는 데이터를 봅니다.
 docker logs -f modbus
 ```
 
-또한 [IoT Hub 탐색기 도구](https://github.com/azure/iothub-explorer) 또는 [Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 장치에서 보내는 원격 분석을 볼 수도 있습니다. 
+[Visual Studio Code용 Azure IoT Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)을 사용하여 장치에서 보내는 원격 분석을 볼 수도 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

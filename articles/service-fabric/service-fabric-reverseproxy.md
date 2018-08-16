@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: bec2e443b920a1f163b7b328197d3688d207ed35
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 521a7b90b971ff3ba867945a4713b1f6dc8dbebc
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309122"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503522"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric의 역방향 프록시
 Azure Service Fabric에 기본 제공되는 역방향 프록시는 Service Fabric 클러스터 탐색에서 마이크로 서비스의 실행을 지원하고 http 끝점이 있는 타 서비스와 통신합니다.
@@ -146,184 +146,23 @@ Service Fabric 역방향 프록시는 서비스 주소의 다시 확인을 시�
 
 이 HTTP 응답 헤더는 요청한 리소스가 존재하지 않는 일반적인 HTTP 404 상황을 나타내며, 역방향 프록시는 서비스 주소를 다시 확인하려고 시도하지 않습니다.
 
-## <a name="setup-and-configuration"></a>설정 및 구성
+## <a name="special-handling-for-services-running-in-containers"></a>컨테이너에서 실행되는 서비스에 대한 특수 처리
 
-### <a name="enable-reverse-proxy-via-azure-portal"></a>Azure Portal을 통해 역방향 프록시 사용
+컨테이너 내에서 실행되는 서비스의 경우 다음 코드에서처럼 [역방향 프록시 URL](#uri-format-for-addressing-services-by-using-the-reverse-proxy)을 생성하는 환경 변수 `Fabric_NodeIPOrFQDN`을 사용할 수 있습니다.
 
-Azure Portal은 새 Service Fabric 클러스터를 만드는 동안 역방향 프록시를 사용하는 옵션을 제공합니다.
-**Service Fabric 클러스터 만들기**, 2단계: 클러스터 구성, 노드 유형 구성에서 "역방향 프록시 사용"으로 확인란을 선택합니다.
-보안 역방향 프록시를 구성하기 위해 SSL 인증서는 3단계: 보안, 클러스터 보안 설정 구성에서 지정되고, "역방향 프록시에 대한 SSL 인증서 포함" 확인란을 선택하고, 인증서 세부 정보를 입력하면 됩니다.
-
-### <a name="enable-reverse-proxy-via-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 통해 역방향 프록시 사용
-
-[Azure Resource Manager 템플릿](service-fabric-cluster-creation-via-arm.md)을 사용하여 클러스터에 대해 Service Fabric의 역방향 프록시를 사용하도록 설정할 수 있습니다.
-
-인증서로 보안 역방향 프록시를 구성하고 인증서 롤오버를 처리하기 위한 Azure Resource Manager 템플릿 샘플에 대해서는 [보안 클러스터에서 HTTPS 역방향 프록시 구성](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster)을 참조하세요.
-
-먼저 배포하려는 클러스터에 대한 템플릿을 가져옵니다. 예제 템플릿을 사용하거나 사용자 지정 Resource Manager 템플릿을 만들 수 있습니다. 그런 후 다음 단계를 사용하여 역방향 프록시를 사용하도록 설정할 수 있습니다.
-
-1. 템플릿의 [매개 변수 섹션](../azure-resource-manager/resource-group-authoring-templates.md) 에서 역방향 프록시에 대한 포트를 정의합니다.
-
-    ```json
-    "SFReverseProxyPort": {
-        "type": "int",
-        "defaultValue": 19081,
-        "metadata": {
-            "description": "Endpoint for Service Fabric Reverse proxy"
-        }
-    },
-    ```
-2. **클러스터** [리소스 형식 섹션](../azure-resource-manager/resource-group-authoring-templates.md)에서 각 nodetype 개체에 대한 포트를 지정합니다.
-
-    포트는 reverseProxyEndpointPort라는 매개 변수 이름으로 식별됩니다.
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        ...
-       "nodeTypes": [
-          {
-           ...
-           "reverseProxyEndpointPort": "[parameters('SFReverseProxyPort')]",
-           ...
-          },
-        ...
-        ],
-        ...
-    }
-    ```
-3. Azure 클러스터 외부에서 역방향 프록시 주소를 지정하려면 1단계에서 지정한 포트에 대해 Azure Load Balancer 규칙을 설정합니다.
-
-    ```json
-    {
-        "apiVersion": "[variables('lbApiVersion')]",
-        "type": "Microsoft.Network/loadBalancers",
-        ...
-        ...
-        "loadBalancingRules": [
-            ...
-            {
-                "name": "LBSFReverseProxyRule",
-                "properties": {
-                    "backendAddressPool": {
-                        "id": "[variables('lbPoolID0')]"
-                    },
-                    "backendPort": "[parameters('SFReverseProxyPort')]",
-                    "enableFloatingIP": "false",
-                    "frontendIPConfiguration": {
-                        "id": "[variables('lbIPConfig0')]"
-                    },
-                    "frontendPort": "[parameters('SFReverseProxyPort')]",
-                    "idleTimeoutInMinutes": "5",
-                    "probe": {
-                        "id": "[concat(variables('lbID0'),'/probes/SFReverseProxyProbe')]"
-                    },
-                    "protocol": "tcp"
-                }
-            }
-        ],
-        "probes": [
-            ...
-            {
-                "name": "SFReverseProxyProbe",
-                "properties": {
-                    "intervalInSeconds": 5,
-                    "numberOfProbes": 2,
-                    "port":     "[parameters('SFReverseProxyPort')]",
-                    "protocol": "tcp"
-                }
-            }  
-        ]
-    }
-    ```
-4. 역방향 프록시에 대한 포트에서 SSL 인증서를 구성하려면 **클러스터** [리소스 형식 섹션](../resource-group-authoring-templates.md)에서 해당 인증서를 ***reverseProxyCertificate*** 속성에 추가합니다.
-
-    ```json
-    {
-        "apiVersion": "2016-09-01",
-        "type": "Microsoft.ServiceFabric/clusters",
-        "name": "[parameters('clusterName')]",
-        "location": "[parameters('clusterLocation')]",
-        "dependsOn": [
-            "[concat('Microsoft.Storage/storageAccounts/', parameters('supportLogStorageAccountName'))]"
-        ],
-        "properties": {
-            ...
-            "reverseProxyCertificate": {
-                "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                "x509StoreName": "[parameters('sfReverseProxyCertificateStoreName')]"
-            },
-            ...
-            "clusterState": "Default",
-        }
-    }
-    ```
-
-### <a name="supporting-a-reverse-proxy-certificate-thats-different-from-the-cluster-certificate"></a>클러스터 인증서와 다른 역방향 프록시 인증서 지원
- 역방향 프록시 인증서가 클러스터를 보호하는 인증서와 다른 경우 이전에 지정한 인증서를 가상 머신에 설치하고 ACL(액세스 제어 목록)에 추가하여 Service Fabric에서 액세스할 수 있게 합니다. 이 작업은 **virtualMachineScaleSets** [리소스 형식 섹션](../resource-group-authoring-templates.md)에서 수행할 수 있습니다. 설치의 경우 해당 인증서를 osProfile에 추가합니다. 템플릿의 확장 섹션은 ACL의 인증서를 업데이트할 수 있습니다.
-
-  ```json
-  {
-    "apiVersion": "[variables('vmssApiVersion')]",
-    "type": "Microsoft.Compute/virtualMachineScaleSets",
-    ....
-      "osProfile": {
-          "adminPassword": "[parameters('adminPassword')]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "computernamePrefix": "[parameters('vmNodeType0Name')]",
-          "secrets": [
-            {
-              "sourceVault": {
-                "id": "[parameters('sfReverseProxySourceVaultValue')]"
-              },
-              "vaultCertificates": [
-                {
-                  "certificateStore": "[parameters('sfReverseProxyCertificateStoreValue')]",
-                  "certificateUrl": "[parameters('sfReverseProxyCertificateUrlValue')]"
-                }
-              ]
-            }
-          ]
-        }
-   ....
-   "extensions": [
-          {
-              "name": "[concat(parameters('vmNodeType0Name'),'_ServiceFabricNode')]",
-              "properties": {
-                      "type": "ServiceFabricNode",
-                      "autoUpgradeMinorVersion": false,
-                      ...
-                      "publisher": "Microsoft.Azure.ServiceFabric",
-                      "settings": {
-                        "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
-                        "nodeTypeRef": "[parameters('vmNodeType0Name')]",
-                        "dataPath": "D:\\\\SvcFab",
-                        "durabilityLevel": "Bronze",
-                        "testExtension": true,
-                        "reverseProxyCertificate": {
-                          "thumbprint": "[parameters('sfReverseProxyCertificateThumbprint')]",
-                          "x509StoreName": "[parameters('sfReverseProxyCertificateStoreValue')]"
-                        },
-                  },
-                  "typeHandlerVersion": "1.0"
-              }
-          },
-      ]
-    }
-  ```
-> [!NOTE]
-> 클러스터 인증서와 다른 인증서를 사용하여 기존 클러스터에서 역방향 프록시를 사용하도록 설정하는 경우 먼저 역방향 프록시를 사용하도록 설정하기 전에 클러스터에 역방향 프록시 인증서를 설치하고 ACL을 업데이트합니다. 배포를 시작하여 1-4 단계를 통해 역방향 프록시를 사용하도록 설정하기 전에 위에서 언급한 설정을 사용하여 [Azure Resource Manager 템플릿](service-fabric-cluster-creation-via-arm.md) 배포를 완료합니다.
+```csharp
+    var fqdn = Environment.GetEnvironmentVariable("Fabric_NodeIPOrFQDN");
+    var serviceUrl = $"http://{fqdn}:19081/DockerSFApp/UserApiContainer";
+```
+로컬 클러스터의 경우 `Fabric_NodeIPOrFQDN`은 기본적으로 "localhost"로 설정됩니다. 매개 변수 `-UseMachineName`을 사용하여 로컬 클러스터를 시작하여 컨테이너가 노드에서 실행되는 역방향 프록시에 연결될 수 있는지 확인합니다. 자세한 내용은 [컨테이너를 디버그하도록 개발자 환경 구성](service-fabric-how-to-debug-windows-containers.md#configure-your-developer-environment-to-debug-containers)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+* [클러스터에서 역방향 프록시를 설정 및 구성합니다](service-fabric-reverseproxy-setup.md).
+* [역방향 프록시를 사용하여 보안 HTTP 서비스에 전달 설정](service-fabric-reverseproxy-configure-secure-communication.md)
 * [GitHub의 샘플 프로젝트](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)에서 서비스 간 HTTP 통신의 예제를 참조하세요.
-* [역방향 프록시를 사용하여 보안 HTTP 서비스에 전달](service-fabric-reverseproxy-configure-secure-communication.md)
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [Reliable Services를 사용한 WCF 통신](service-fabric-reliable-services-communication-wcf.md)
-* 추가적인 역방향 프록시 구성 옵션은 [Service Fabric 클러스터 설정 사용자 지정](service-fabric-cluster-fabric-settings.md)의 응용 프로그램 게이트웨이/HTTP 섹션을 참조하세요.
 
 [0]: ./media/service-fabric-reverseproxy/external-communication.png
 [1]: ./media/service-fabric-reverseproxy/internal-communication.png

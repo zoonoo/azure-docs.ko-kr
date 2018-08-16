@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036771"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493675"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 연결 아키텍처 
 
@@ -51,7 +51,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 **프록시*
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Azure SQL Database를 사용하여 서비스 엔드포인트를 사용하는 경우 정책은 기본적으로 **리디렉션**됩니다. 따라서 Vnet 내부에서 연결을 사용하도록 설정하려면 단지 게이트웨이 IP가 아니라 모든 Azure SQL Database IP 주소로 아웃바운드할 수 있어야 합니다. 이는 NSG(네트워크 보안 그룹) 서비스 태그의 도움으로 완료될 수 있습니다. 게이트웨이 IP로만 아웃바운드를 허용하려면 설정을 **프록시**로 변경하세요.
+> Azure SQL Database를 사용하여 서비스 엔드포인트를 사용하는 경우 정책은 기본적으로 **프록시**입니다. Vnet 내에서 연결을 사용하도록 설정하려면 아래 목록에 지정된 Azure SQL Database 게이트웨이 IP 주소에 아웃바운드 연결을 허용합니다. 서비스 엔드포인트를 사용하는 경우 더 나은 성능을 사용하도록 설정하려면 연결 정책이 **리디렉션**되도록 변경하는 것이 좋습니다. 연결 정책이 **리디렉션**되도록 변경하는 경우 NSG에서 아래에 나열된 Azure SQLDB 게이트웨이 IP에 아웃바운드를 허용하는 것으로 충분하지 않으면 모든 Azure SQLDB IP에 아웃바운드를 허용해야 합니다. NSG(네트워크 보안 그룹) 서비스 태그의 도움을 받아 수행할 수 있습니다. 자세한 내용은 [서비스 태그](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags)를 참조하세요.
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 

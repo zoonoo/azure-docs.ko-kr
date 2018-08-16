@@ -1,25 +1,20 @@
 ---
-title: Azure Portal을 사용하여 Windows 기반 HDInsight의 Hadoop 클러스터 관리 | Microsoft Docs
+title: Azure Portal을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 관리
 description: HDInsight 서비스를 관리하는 방법에 대해 알아봅니다. HDInsight 클러스터를 만들고 대화형 JavaScript 콘솔을 열고 Hadoop 명령 콘솔을 여는 방법에 대해 설명합니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9295a988-bd88-453a-8c8b-55fa103bf39c
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78541feda8c82be143f91fdde88eac179cf0b1a5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a4cbc0c14d0f6c505b391becf33c56dd95bfc251
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405367"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592223"
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight의 Windows 기반 Hadoop 클러스터 관리
 
@@ -83,11 +78,12 @@ HDInsight는 다양한 Hadoop 구성 요소에서 작동합니다. 검증되어 
 
    * 메뉴를 사용자 지정하려면 메뉴의 아무 곳이나 마우스 오른쪽 단추로 클릭한 후 **사용자 지정**을 클릭합니다.
    * **설정** 및 **모든 설정**: 클러스터의 **설정** 블레이드를 표시하여 자세한 구성 정보에 액세스할 수 있도록 합니다.
-   * **대시보드**, **클러스터 대시보드** 및 **URL: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다. -** 보안 셸\*\*: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
+   * **대시보드**, **클러스터 대시보드** 및 **URL**: 이러한 항목을 통해 Linux 기반 클러스터용 Ambari 웹인 클러스터 대시보드에 액세스할 수 있습니다.
+   * **보안 셸**: SSH(보안 셸) 연결을 사용하여 클러스터에 연결하는 지침을 보여 줍니다.
    * **클러스터 크기 조정**: 이 클러스터의 작업자 노드 수를 변경할 수 있습니다.
    * **삭제**: 클러스터를 삭제합니다.
    * **빠른 시작**: HDInsight를 사용하여 시작하는 데 도움이 되는 정보를 표시합니다.
-   * **사용자: Azure 구독의 다른 사용자를 위해 이 클러스터의 *포털 관리* 권한을 설정할 수 있습니다.
+   * **사용자**: Azure 구독의 다른 사용자를 위해 이 클러스터의 *포털 관리* 권한을 설정할 수 있습니다.
 
      > [!IMPORTANT]
      > 이는 *오직* Azure 포털에서 이 클러스터에 대한 액세스 및 권한에만 영향을 미치며, HDInsight 클러스터에 연결하거나 작업을 제출할 수 있는 사용자에게는 영향을 미치지 않습니다.

@@ -14,14 +14,18 @@ ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 1a8ccc818cafac4867cb533c83f297af61a21836
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: b9fb32f4f014f8e0fb67b558a2806d74edaac56c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309105"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576018"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
+
+> [!NOTE]
+> 이 문서는 별도로 명시된 곳을 제외하고 Azure 공용 클라우드 및 정부 클라우드 모두에 적용됩니다.
+
 Log Analytics 고객에게 반복적으로 듣는 한 피드백은 단일 사용자 환경이 온-프레미스와 Azure 워크로드를 모니터링 및 관리해야 한다는 것입니다. Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위한 대시보드, 리소스를 찾기 위한 지능형 검색, 리소스 관리를 위한 태그 지정 같은 기능을 통해 다양한 관리 환경을 제공합니다. 모니터링 및 관리 워크플로를 간소화하고 통합하기 위해 Azure Portal에 OMS 포털 기능을 추가하기 시작했습니다. OMS 포털 기능 대부분이 이제 Azure Portal에 포함되었음을 알리게 되어 기쁩니다. 사실, 트래픽 분석 같은 새 기능 중 일부는 Azure Portal에서만 사용할 수 있습니다. 아직 Azure Portal로 이동하는 과정에 있는 몇몇 솔루션을 포함해 남은 격차가 별로 없습니다. 이러한 기능을 사용하지 않는 경우 Azure Portal 등을 사용하여 OMS 포털에서 하던 모든 것을 수행할 수 있습니다. 아직 그렇게 하지 않은 경우 지금 Azure Portal의 사용을 시작하는 것이 좋습니다! 
 
 2018년 8월까지 두 포털 간에 나머지 격차를 줄일 예정입니다. 고객의 의견에 따라 OMS 포털 종료를 위한 타임라인을 전달하겠습니다. Azure Portal로 이동하게 돼 기쁘며 이 전환이 쉬울 것이라 예상합니다. 그러나 변경은 어려우며 중단될 수 있음을 이해합니다. 모든 질문, 피드백 또는 **LAUpgradeFeedback@microsoft.com**에 대한 우려를 보냅니다. 이 문서의 나머지 부분에서는 주요 시나리오, 현재 격차 및 이 전환에 대한 로드맵을 살펴봅니다. 
@@ -60,7 +64,11 @@ Log Analytics 고객에게 반복적으로 듣는 한 피드백은 단일 사용
 
 
 ## <a name="what-should-i-do-now"></a>이제 어떻게 해야 하나요?  
-Azure Portal로 전환 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](../log-analytics/log-analytics-oms-portal-faq.md)을 참조하세요. [위에서 설명한 격차](#current-known-gaps)가 사용자 환경에 적용되지 않는 경우 기본 환경으로 Azure Portal을 사용하는 것을 고려해야 합니다. 모든 피드백, 질문 또는 LAUpgradeFeedback@microsoft.com에 대한 우려를 보냅니다.
+Azure Portal로 전환 방법에 대한 자세한 내용은 [Log Analytics 사용자를 위한 OMS 포털에서 Azure Portal로 전환에 대한 일반적인 질문](../log-analytics/log-analytics-oms-portal-faq.md)을 참조하세요. [위에서 설명한 격차](#current-known-gaps)가 사용자 환경에 적용되지 않는 경우 기본 환경으로 Azure Portal을 사용하는 것을 고려해야 합니다. 모든 피드백, 질문 또는 **LAUpgradeFeedback@microsoft.com**에 대한 우려를 보냅니다.
+
+대부분의 기능은 마이그레이션을 수행하지 않고 계속해서 작동합니다. 제한 사항은 아래에 나열되어 있습니다.
+
+- 업데이트 관리 솔루션 전환에 대한 세부 정보는 [OMS 업데이트 배포를 Azure로 마이그레이션](../automation/migrate-oms-update-deployments.md)을 참조하세요. 
 
 ## <a name="new-workspaces"></a>새 작업 영역
 7월 29일부터 OMS 포털을 사용하여 더 이상 새 작업 영역을 만들 수 없습니다. Azure Portal에서 새 작업 영역을 만들려면 [Azure Portal에서 Log Analytics 작업 영역 만들기](log-analytics-quick-create-workspace.md)의 지침을 따릅니다.
@@ -70,7 +78,7 @@ Azure Portal로 전환 방법에 대한 자세한 내용은 [Log Analytics 사�
 ### <a name="alert-extension"></a>경고 확장  
 
 > [!NOTE]
-> 경고는 이제 Azure Portal로 완전히 확장되었습니다. OMS 포털에서 기존 경고 규칙을 볼 수 있지만 Azure Portal에서는 관리만 할 수 있습니다.
+> 경고는 이제 공용 클라우드에 대한 Azure Portal로 완전히 확장되었습니다. OMS 포털에서 기존 경고 규칙을 볼 수 있지만 Azure Portal에서는 관리만 할 수 있습니다. Azure Portal로 경고의 확장은 Azure 정부 클라우드에 대해 2018년 10월에 시작합니다.
 
 경고는 [Azure Portal로 확장](../monitoring-and-diagnostics/monitoring-alerts-extend.md)되는 과정에 있습니다. 완료되면 경고에 대한 관리 작업은 Azure Portal에서만 사용할 수 있습니다. 기존 경고는 계속 OMS 포털에 나열됩니다. Log Analytics 경고 REST API 또는 Log Analytics 경고 리소스 템플릿을 사용하여 프로그래밍 방식으로 경고에 액세스하는 경우 API 호출, Azure Resource Manager 템플릿 및 PowerShell 명령에서 작업 대신 작업 그룹을 사용해야 합니다.
 
