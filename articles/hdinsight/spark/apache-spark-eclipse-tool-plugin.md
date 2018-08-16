@@ -1,23 +1,20 @@
 ---
-title: 'Eclipse용 Azure 도구 키트: HDInsight Spark용 Scala 응용 프로그램 만들기 | Microsoft Docs'
+title: 'Eclipse용 Azure 도구 키트: HDInsight Spark용 Scala 응용 프로그램 만들기 '
 description: Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 Eclipse IDE에서 직접 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: f6c79550-5803-4e13-b541-e86c4abb420b
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 6b1198e4cea4cae62881464ddbddd56c84275909
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 6ddfb7c23e05ea9528a462901fd87faade7371a7
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952793"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622272"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Eclipse용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -56,17 +53,17 @@ Eclipse를 열면 HDInsight Tools는 Scala 플러그 인을 설치했는지 여�
 1. Eclipse IDE를 시작하고 Azure 탐색기를 엽니다. **창** 메뉴에서 **보기 표시**를 선택한 다음 **기타**를 선택합니다. 열린 대화 상자에서 **Azure**를 확장하고 **Azure 탐색기**를 선택한 다음 **확인**을 선택합니다.
 
    ![보기 표시 대화 상자](./media/apache-spark-eclipse-tool-plugin/view-explorer-1.png)
-2. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 **로그인**을 선택합니다.
-3. **Azure 로그인** 대화 상자에서 인증 모드를 선택하고 **로그인**을 선택하고 Azure 자격 증명을 입력합니다.
+1. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 **로그인**을 선택합니다.
+1. **Azure 로그인** 대화 상자에서 인증 모드를 선택하고 **로그인**을 선택하고 Azure 자격 증명을 입력합니다.
    
    ![Azure 로그인 대화 상자](./media/apache-spark-eclipse-tool-plugin/view-explorer-2.png)
-4. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. **선택**을 클릭하여 대화 상자를 닫습니다.
+1. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. **선택**을 클릭하여 대화 상자를 닫습니다.
 
    ![구독 선택 대화 상자](./media/apache-spark-eclipse-tool-plugin/Select-Subscriptions.png)
-5. **Azure 탐색기** 탭에서 **HDInsight**를 확장하여 구독에서 HDInsight Spark 클러스터를 표시합니다.
+1. **Azure 탐색기** 탭에서 **HDInsight**를 확장하여 구독에서 HDInsight Spark 클러스터를 표시합니다.
    
    ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-eclipse-tool-plugin/view-explorer-3.png)
-6. 클러스터 이름 노드를 더 확장하여 클러스터와 연결된 리소스(예: 저장소 계정)를 표시할 수 있습니다.
+1. 클러스터 이름 노드를 더 확장하여 클러스터와 연결된 리소스(예: 저장소 계정)를 표시할 수 있습니다.
    
    ![클러스터 이름을 확장하여 리소스 표시](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
@@ -77,7 +74,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
    ![클러스터 연결 상황에 맞는 메뉴](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
-2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 저장소 계정, 저장소 키를 입력한 다음, 저장소 탐색기의 저장소 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
+1. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력한 다음, 확인 단추를 클릭하여 클러스터에 연결합니다. 선택적으로 저장소 계정, 저장소 키를 입력한 다음, 저장소 탐색기의 저장소 컨테이너를 선택하여 왼쪽 트리 뷰에서 작업합니다.
    
    ![클러스터 연결 대화 상자](./media/apache-spark-eclipse-tool-plugin/link-cluster-dialog.png)
    
@@ -85,11 +82,11 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 저장소 키, 사용자 이름 및 암호를 사용합니다.
    > ![Eclipse의 저장소 탐색기](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
-3. 입력 정보가 올바르면 확인 단추를 클릭한 후 **HDInsight** 노드에 연결된 클러스터가 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
+1. 입력 정보가 올바르면 확인 단추를 클릭한 후 **HDInsight** 노드에 연결된 클러스터가 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
 
    ![연결된 클러스터](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
-4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
+1. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
    
    ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
@@ -97,31 +94,31 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 ## <a name="set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에 Spark Scala 프로젝트 설정
 
 1. Eclipse IDE 작업 영역에서 **파일**을 선택하고 **새로 만들기**를 선택한 후 **프로젝트**를 선택합니다. 
-2. 새 프로젝트 마법사에서 **HDInsight**를 확장하고 **HDInsight의 Spark(Scala)** 를 선택한 후 **다음**을 선택합니다.
+1. 새 프로젝트 마법사에서 **HDInsight**를 확장하고 **HDInsight의 Spark(Scala)** 를 선택한 후 **다음**을 선택합니다.
 
    ![HDInsight의 Spark(Scala) 프로젝트 선택](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-2.png)
-3. Scala 프로젝트 생성 마법사는 Scala 플러그 인이 설치되어 있는지 여부를 자동으로 검색합니다. **확인**을 선택하여 Scala 플러그 인 다운로드를 계속 진행한 후 지침에 따라 Eclipse를 다시 시작합니다.
+1. Scala 프로젝트 생성 마법사는 Scala 플러그 인이 설치되어 있는지 여부를 자동으로 검색합니다. **확인**을 선택하여 Scala 플러그 인 다운로드를 계속 진행한 후 지침에 따라 Eclipse를 다시 시작합니다.
 
    ![Scala 확인](./media/apache-spark-eclipse-tool-plugin/auto-install-scala-2.png)
-4. **새 HDInsight Scala 프로젝트** 대화 상자에서 다음 값을 입력한 후 **다음**을 선택합니다.
+1. **새 HDInsight Scala 프로젝트** 대화 상자에서 다음 값을 입력한 후 **다음**을 선택합니다.
    * 프로젝트의 이름을 입력합니다.
    * **JRE** 영역에서 **JRE 실행 환경 사용**을 **JavaSE-1.7** 이상으로 설정해야 합니다.
    * **Spark 라이브러리** 영역에서 **Maven을 사용하여 Spark SDK 구성** 옵션을 선택할 수 있습니다.  이 도구는 Spark SDK 및 Scala SDK에 대해 적합한 버전을 통합합니다. **Spark SDK를 수동으로 추가** 옵션을 선택하고 수동으로 Spark SDK를 다운로드하여 추가할 수 있습니다.
 
    ![새 HDInsight Scala 프로젝트 대화 상자](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. 다음 대화 상자에서 **마침**을 선택합니다. 
+1. 다음 대화 상자에서 **마침**을 선택합니다. 
    
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>HDInsight Spark 클러스터에 대한 Scala 응용 프로그램 만들기
 
 1. Eclipse IDE의 패키지 탐색기에서 앞서 만든 프로젝트를 확장하고 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **기타**를 선택합니다.
-2. **마법사 선택** 대화 상자에서 **Scala 마법사**를 확장하고 **Scala 개체**, **다음**을 차례로 선택합니다.
+1. **마법사 선택** 대화 상자에서 **Scala 마법사**를 확장하고 **Scala 개체**, **다음**을 차례로 선택합니다.
    
    ![마법사 대화 상자 선택](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-1.png)
-3. **새 파일 만들기** 대화 상자에서 개체 이름을 입력한 다음 **마침**을 선택합니다.
+1. **새 파일 만들기** 대화 상자에서 개체 이름을 입력한 다음 **마침**을 선택합니다.
    
    ![새 파일 대화 상자 만들기](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-2.png)
-4. 텍스트 편집기에 다음 코드를 붙여 넣습니다.
+1. 텍스트 편집기에 다음 코드를 붙여 넣습니다.
    
         import org.apache.spark.SparkConf
         import org.apache.spark.SparkContext
@@ -139,7 +136,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
             rdd1.saveAsTextFile("wasb:///HVACOut")
           }        
         }
-5. HDInsight Spark 클러스터에서 응용 프로그램 실행:
+1. HDInsight Spark 클러스터에서 응용 프로그램 실행:
    
    a. 패키지 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 응용 프로그램 제출**을 선택합니다.        
    나. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
@@ -150,7 +147,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
       * 이 예제의 응용 프로그램 코드에는 명령줄 인수가 필요하지 않고 JAR 또는 파일을 참조하지 않으므로 나머지 텍스트 상자를 비워둘 수 있습니다.
         
       ![Spark 제출 대화 상자](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-3.png)
-6. **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. **Spark 제출** 창에서 빨간색 단추를 선택하여 응용 프로그램을 중지할 수 있습니다. 구형 아이콘(이미지에 파란색 상자로 표시됨)을 선택하여 특정 응용 프로그램을 실행하는 로그를 볼 수도 있습니다.
+1. **Spark 제출** 탭에 진행 상태가 표시되기 시작합니다. **Spark 제출** 창에서 빨간색 단추를 선택하여 응용 프로그램을 중지할 수 있습니다. 구형 아이콘(이미지에 파란색 상자로 표시됨)을 선택하여 특정 응용 프로그램을 실행하는 로그를 볼 수도 있습니다.
       
    ![Spark 제출 창](./media/apache-spark-eclipse-tool-plugin/create-scala-proj-4.png)
 
@@ -163,11 +160,11 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 
    ![작업 보기 노드](./media/apache-spark-eclipse-tool-plugin/job-view-node.png)
 
-2. **작업** 노드를 선택합니다. Java 버전이 **1.8**보다 낮으면 HDInsight Tools가 자동으로 **E(fx)clipse** 플러그인 설치를 미리 알립니다. **확인**을 선택하여 계속 진행한 다음 마법사에 따라 Eclipse Marketplace에서  Eclipse를 설치하고 다시 시작합니다. 
+1. **작업** 노드를 선택합니다. Java 버전이 **1.8**보다 낮으면 HDInsight Tools가 자동으로 **E(fx)clipse** 플러그인 설치를 미리 알립니다. **확인**을 선택하여 계속 진행한 다음 마법사에 따라 Eclipse Marketplace에서  Eclipse를 설치하고 다시 시작합니다. 
 
    ![E(fx)clipse 설치](./media/apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
-3. **작업** 노드에서 작업 보기를 엽니다. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 선택합니다.
+1. **작업** 노드에서 작업 보기를 엽니다. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 선택합니다.
 
    ![응용 프로그램 세부 정보](./media/apache-spark-eclipse-tool-plugin/view-job-logs.png)
 
@@ -185,24 +182,24 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 
 ### <a name="access-the-storage-container-for-the-cluster"></a>클러스터에 대한 저장소 컨테이너 액세스
 1. Azure 탐색기에서 **HDInsight** 루트 노드를 확장하여 사용할 수 있는 HDInsight Spark 클러스터의 목록을 표시합니다.
-2. 클러스터 이름을 확장하여 클러스터에 대한 저장소 계정 및 기본 저장소 컨테이너를 표시합니다.
+1. 클러스터 이름을 확장하여 클러스터에 대한 저장소 계정 및 기본 저장소 컨테이너를 표시합니다.
    
    ![Storage 계정 및 기본 저장소 컨테이너](./media/apache-spark-eclipse-tool-plugin/view-explorer-5.png)
-3. 클러스터와 연결된 저장소 컨테이너 이름을 선택합니다. 오른쪽 창에서 **HVACOut** 폴더를 두 번 클릭합니다. **파트-** 파일 중 하나를 열어 응용 프로그램의 출력을 표시합니다.
+1. 클러스터와 연결된 저장소 컨테이너 이름을 선택합니다. 오른쪽 창에서 **HVACOut** 폴더를 두 번 클릭합니다. **파트-** 파일 중 하나를 열어 응용 프로그램의 출력을 표시합니다.
 
 ### <a name="access-the-spark-history-server"></a>Spark 기록 서버 액세스
 1. Azure 탐색기에서 Spark 클러스터 이름을 마우스 오른쪽 단추로 클릭한 다음 **Spark 기록 UI 열기**를 선택합니다. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 이러한 항목은 클러스터를 프로비전하는 동안 지정한 것입니다.
-2. Spark 기록 서버 대시보드에서 응용 프로그램 이름을 사용하여 방금 실행을 마친 응용 프로그램을 찾을 수 있습니다. 위의 코드에서 `val conf = new SparkConf().setAppName("MyClusterApp")`을 사용하여 응용 프로그램 이름을 설정합니다. 따라서 Spark 응용 프로그램의 이름은 **MyClusterApp**입니다.
+1. Spark 기록 서버 대시보드에서 응용 프로그램 이름을 사용하여 방금 실행을 마친 응용 프로그램을 찾을 수 있습니다. 위의 코드에서 `val conf = new SparkConf().setAppName("MyClusterApp")`을 사용하여 응용 프로그램 이름을 설정합니다. 따라서 Spark 응용 프로그램의 이름은 **MyClusterApp**입니다.
 
 ### <a name="start-the-ambari-portal"></a>Ambari 포털 시작
 1. Azure 탐색기에서 Spark 클러스터 이름을 마우스 오른쪽 단추로 클릭한 다음 **클러스터 관리 포털(Ambari) 열기**를 선택합니다. 
-2. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 이러한 항목은 클러스터를 프로비전하는 동안 지정한 것입니다.
+1. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 이러한 항목은 클러스터를 프로비전하는 동안 지정한 것입니다.
 
 ### <a name="manage-azure-subscriptions"></a>Azure 구독 관리
 기본적으로 Eclipse용 Azure 도구 키트의 HDInsight Tool에는 모든 Azure 구독의 Spark 클러스터가 나열됩니다. 필요한 경우 클러스터에 액세스하려는 구독을 지정할 수 있습니다. 
 
 1. Azure 탐색기에서 **Azure** 루트 노드를 마우스 오른쪽 단추로 클릭한 다음 **구독 관리**를 선택합니다. 
-2. 대화 상자에서 액세스하지 않으려는 구독의 확인란 선택을 취소하고 **닫기**를 선택합니다. Azure 구독에서 로그아웃하려는 경우 **로그아웃**을 선택할 수도 있습니다.
+1. 대화 상자에서 액세스하지 않으려는 구독의 확인란 선택을 취소하고 **닫기**를 선택합니다. Azure 구독에서 로그아웃하려는 경우 **로그아웃**을 선택할 수도 있습니다.
 
 ## <a name="run-a-spark-scala-application-locally"></a>로컬로 Spark Scala 응용 프로그램 실행
 Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 워크스테이션에서 Spark Scala 응용 프로그램을 로컬로 실행할 수 있습니다. 일반적으로 이러한 응용 프로그램은 저장소 컨테이너와 같은 클러스터 리소스에 액세스할 필요가 없으므로 로컬로 실행하고 테스트할 수 있습니다.
@@ -220,13 +217,13 @@ Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행하는 �
 
    ![새 프로젝트 대화 상자](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
    
-2. 프로젝트 세부 정보를 제공하려면 이전의 [HDInsight Spark 클러스터용 Spark Scala 프로젝트 설정](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster) 섹션의 3-6단계를 따릅니다.
+1. 프로젝트 세부 정보를 제공하려면 이전의 [HDInsight Spark 클러스터용 Spark Scala 프로젝트 설정](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster) 섹션의 3-6단계를 따릅니다.
 
-3. 템플릿은 컴퓨터에서 로컬로 실행할 수 있는 샘플 코드(**LogQuery**)를 **src** 폴더 아래에 추가합니다.
+1. 템플릿은 컴퓨터에서 로컬로 실행할 수 있는 샘플 코드(**LogQuery**)를 **src** 폴더 아래에 추가합니다.
    
    ![LogQuery 위치](./media/apache-spark-eclipse-tool-plugin/local-app.png)
    
-4. **LogQuery** 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **다음으로 실행**을 가리킨 다음 **1 Scala 응용 프로그램**을 선택합니다. **콘솔** 탭에 다음과 같은 출력이 표시됩니다.
+1. **LogQuery** 응용 프로그램을 마우스 오른쪽 단추로 클릭하고 **다음으로 실행**을 가리킨 다음 **1 Scala 응용 프로그램**을 선택합니다. **콘솔** 탭에 다음과 같은 출력이 표시됩니다.
    
    ![Spark 응용 프로그램 로컬 실행 결과](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 

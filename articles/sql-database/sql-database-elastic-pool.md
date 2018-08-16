@@ -6,16 +6,17 @@ services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.subservice: elastic-pool
 ms.custom: DBs & servers
 ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326101"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003742"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL Database를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -72,7 +73,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 * 각 데이터베이스의 최고 사용률이 시간 내에 여러 지점에서 발생합니다.
 * eDTU는 많은 데이터베이스 간에 공유됩니다.
 
-풀의 가격은 풀 eDTU의 함수입니다. 풀의 eDTU 단가는 단일 데이터베이스의 DTU 단가보다 1.5배 높지만, **풀 eDTU는 많은 데이터베이스에서 공유할 수 있으며 필요한 전체 eDTU가 더 적습니다**. 가격 책정 및 eDTU 공유에서의 이러한 차이가 풀이 제공할 수 있는 가격 절감 가능성의 기초가 됩니다.
+풀의 가격은 풀 eDTU의 함수입니다. 풀의 eDTU 단가는 단일 데이터베이스에 대한 DTU 단가보다 1.5배지만, **많은 데이터베이스가 풀 eDTU를 공유할 수 있고 필요한 전체 eDTU가 적습니다**. 가격 책정 및 eDTU 공유에서의 이러한 차이가 풀이 제공할 수 있는 가격 절감 가능성의 기초가 됩니다.
 
 데이터베이스 수 및 데이터베이스 사용에 관련된 다음 규칙은 풀이 단일 데이터베이스에 대한 성능 수준을 사용하는 데 비해 비용 절감을 제공하는 데 도움이 됩니다.
 

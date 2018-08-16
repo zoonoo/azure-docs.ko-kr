@@ -1,26 +1,21 @@
 ---
-title: HDInsight에서 Hadoop MapReduce 예제 실행 - Azure | Microsoft Docs
+title: HDInsight에서 Hadoop MapReduce 예제 실행 - Azure
 description: HDInsight에 포함된 jar 파일의 MapReduce 샘플을 사용하여 시작하세요. SSH를 통해 클러스터에 연결한 다음 Hadoop 명령을 사용하여 샘플 작업을 실행합니다.
 keywords: hadoop 예제 jar,hadoop 예제 jar,hadoop mapreduce 예제,mapreduce 예제
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: e1d2a0b9-1659-4fab-921e-4a8990cbb30a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 14f860d64c482ac7ef74512aea4850821d30132c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: b29fb56f6ce244811aef924bb947a8b8ee8e4da4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202308"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597306"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>HDInsight에 포함된 MapReduce 예제 실행
 

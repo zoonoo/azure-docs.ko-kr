@@ -1,24 +1,18 @@
 ---
-title: Azure HDInsight를 사용한 HDFS 문제 해결 | Microsoft Docs
+title: Azure HDInsight의 HDFS 문제 해결
 description: HDFS 및 Azure HDInsight 작업에 대한 일반적인 질문에 답합니다.
-keywords: Azure HDInsight HDFS, FAQ, 문제 해결 가이드, 일반적인 질문
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: 4C33828F-2982-47F0-B858-C32FFF634D9E
+services: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: e63dbf8feb941aef3d3c76439f55527da0388b85
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f458a1b7156b2cc00a4b088ef98d12526378d827
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406656"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600832"
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Azure HDInsight를 사용한 HDFS 문제 해결
 
@@ -44,7 +38,7 @@ HDInsight 클러스터 내에서 Azure Blob Storage 또는 Azure Data Lake Store
 
 2. 다음 예제 응용 프로그램과 같이 소스 코드에서 URI `hdfs://mycluster/`를 그대로 사용합니다.
 
-    ```csharp
+    ```Java
     import java.io.IOException;
     import java.net.URI;
     import org.apache.commons.io.IOUtils;

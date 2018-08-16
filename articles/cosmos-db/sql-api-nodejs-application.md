@@ -11,17 +11,18 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543857"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628157"
 ---
 # <a name="_Toc395783175"></a>Azure Cosmos DB를 사용하여 Node.js 웹 응용 프로그램 빌드
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js - v2.0 미리 보기](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -41,7 +42,7 @@ ms.locfileid: "38543857"
 
 이 문서의 지침을 따르기 전에 다음이 있는지 확인해야 합니다.
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+* Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
@@ -62,15 +63,21 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 1. Node.js 명령 프롬프트와 같이 줄겨찾는 터미널을 엽니다.
 2. 새 응용 프로그램을 저장하려는 디렉터리로 이동합니다.
 3. Express 생성기를 사용해서 **todo**라는 새로운 응용 프로그램을 생성합니다.
-   
-        express todo
+
+   ```bash
+   express todo
+   ```
 4. 새 **todo** 디렉터리를 열고 종속성을 설치합니다.
-   
-        cd todo
-        npm install
+
+   ```bash
+    cd todo
+    npm install
+   ```
 5. 새 응용 프로그램을 실행합니다.
-   
-        npm start
+
+   ```bash
+   npm start
+   ```
 6. 브라우저에서 [http://localhost:3000](http://localhost:3000)으로 이동하여 새 응용 프로그램을 확인할 수 있습니다.
    
     ![Node.js 알아보기 - 브라우저 창에 표시된 Hello World 응용 프로그램의 스크린샷](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -81,11 +88,15 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
 **package.json** 파일은 프로젝트 루트에 생성되는 파일 중 하나입니다. 이 파일에는 Node.js 응용 프로그램에 필요한 추가 모듈의 목록이 들어 있습니다. 나중에 이 응용 프로그램을 Azure Websites에 배포할 때, 응용 프로그램을 지원하기 위해 Azure에 설치해야 할 모듈을 결정하는 데 이 파일을 사용합니다. 이 자습서를 위해 패키지 두 개를 더 설치해야 합니다.
 
 1. 다시 터미널에서 npm을 통해 **async** 모듈을 설치합니다.
-   
-        npm install async --save
+
+   ```bash
+   npm install async --save
+   ```
 2. npm을 통해 **documentdb** 모듈을 설치합니다. 이 모듈에서 중요한 모든 Azure Cosmos DB 기능이 수행됩니다.
-   
-        npm install documentdb --save
+
+   ```bash
+   npm install documentdb --save
+   ```
 
 ## <a name="_Toc395783180"></a>4단계: 노드 응용 프로그램에서 Azure Cosmos DB 서비스 사용
 초기 설정 및 구성이 모두 완료되었으므로 이제 Azure Cosmos DB를 사용하여 일부 코드를 작성하겠습니다.
@@ -377,7 +388,7 @@ Azure Cosmos DB 계정을 만들어 시작해 보겠습니다. 계정이 있거�
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. 이 코드는 사용할 구성 파일을 정의하고, 이 파일의 값을 곧 사용할 몇 가지 변수로 읽어들입니다.
 4. **app.js** 파일에서 다음 두 줄을

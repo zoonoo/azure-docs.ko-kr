@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 설명서
 description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 응용 프로그램을 관리하는 방법을 알아봅니다. 설명서, 샘플 코드, 자습서 등을 가져옵니다.
-ms.openlocfilehash: c7f46f9b22bd3696b7d281815687cca2b90b22b3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 103d09b1a71239948c730f8dba47253741bbaa9c
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070064"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038587"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -3150,10 +3150,10 @@ ms.locfileid: "34070064"
                                                     <a href="https://pypi.python.org/pypi/azure">Python SDK 가져오기</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">시작</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API 참조</a>
+                                                    <a href="https://docs.microsoft.com/python/azure/?view=azure-python">API 참조</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/resources/samples/?platform=python">샘플 받기</a>
@@ -3427,7 +3427,7 @@ ms.locfileid: "34070064"
                                                     <a href="/dotnet/articles/core/docker/visual-studio-tools-for-docker">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Visual Studio용 다운로드 </a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=Click2CloudInc.Click2CloudDockerExtensionForVisualStudio2017">Visual Studio용 다운로드 </a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Visual Studio Code용 다운로드 </a>
@@ -3502,13 +3502,13 @@ ms.locfileid: "34070064"
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python">Python 도구</a>
+                                                    <a href="http://aka.ms/ptvs">Python 도구</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Visual Studio 시작</a>
+                                                    <a href="http://aka.ms/ptvsdocs">Visual Studio 시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Visual Studio Code 시작</a>
+                                                    <a href="https://code.visualstudio.com/docs/python/python-tutorial">Visual Studio Code 시작</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f3f827958c0c5d71846d8f0d4184ef88b7f0a932
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 229ca187f98fd4c7e085c994b5896ae4a6a50748
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527406"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038382"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>PowerShell을 사용하여 Azure 독립 클라우드에서 Storage 관리
 
@@ -35,7 +35,7 @@ ms.locfileid: "39527406"
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 
-[Get-AzureEnvironment](/powershell/module/azure/Get-AzureRmEnvironment) cmdlet을 실행하여 사용 가능한 Azure 환경을 확인합니다.
+[Get-AzureEnvironment](/powershell/module/servicemanagement/azure/Get-AzureRmEnvironment) cmdlet을 실행하여 사용 가능한 Azure 환경을 확인합니다.
    
 ```powershell
 Get-AzureRmEnvironment

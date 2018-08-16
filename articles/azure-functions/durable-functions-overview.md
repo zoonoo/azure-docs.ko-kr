@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115400"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627409"
 ---
 # <a name="durable-functions-overview"></a>지속성 함수 개요
 
@@ -44,7 +44,7 @@ ms.locfileid: "39115400"
 
 지속성 함수를 사용하면 코드에서 이 패턴을 간결하게 구현할 수 있습니다.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 스크립트
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> C#에서 미리 컴파일된 지속성 함수를 작성하는 것과 앞에서 나온 C# 스크립트 샘플을 작성하는 것 사이에는 미묘한 차이가 있습니다. 미리 컴파일된 C# 함수는 각 특성을 사용하여 지속성 매개 변수를 데코레이팅해야 합니다. `DurableOrchestrationContext` 매개 변수에 대한 `[OrchestrationTrigger]` 특성을 예로 들 수 있습니다. 매개 변수가 제대로 데코레이팅되지 않으면 런타임이 변수를 함수에 삽입할 수 없게 되어 오류가 발생합니다. [샘플](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples)에서 더 많은 예제를 볼 수 있습니다.
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript(Functions v2만 해당)
 
@@ -88,7 +90,7 @@ module.exports = df(function*(ctx) {
 
 일반 함수를 사용하면 함수에서 여러 메시지를 큐에 보내도록 하여 팬아웃/팬인을 수행할 수 있습니다. 그러나 다시 팬인하는 것은 훨씬 더 어렵습니다. 큐 트리거 함수가 종료되고 함수 출력을 저장하는 시기를 추적하기 위한 코드를 작성해야 합니다. 지속성 함수 확장에서는 비교적 간단한 코드로 이 패턴을 처리합니다.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 스크립트
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ public static async Task<HttpResponseMessage> Run(
 
 지속성 함수를 사용하면, 임의의 엔드포인트를 관찰하는 여러 모니터를 몇 줄의 코드로 작성할 수 있습니다. 모니터는 일정 조건이 충족되면 실행을 끝내거나 [DurableOrchestrationClient](durable-functions-instance-management.md)에 의해 종료될 수 있으며 대기 간격은 일부 조건(예: 지수 백오프)에 따라 변경될 수 있습니다. 다음 코드는 기본 모니터를 구현합니다.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 스크립트
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ module.exports = df(function*(ctx) {
 
 이 패턴은 오케스트레이터 함수를 사용하여 구현할 수 있습니다. 오케스트레이터는 [지속성 타이머](durable-functions-timers.md)를 사용하여 승인을 요청하고 시간이 초과된 경우 에스컬레이션합니다. 이 경우 [외부 이벤트](durable-functions-external-events.md)를 기다릴 것입니다. 이 이벤트는 어떤 인간 상호 작용으로 생성된 알림입니다.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C# 스크립트
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)

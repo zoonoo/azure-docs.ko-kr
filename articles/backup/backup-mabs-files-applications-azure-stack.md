@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: 2fb3bad56de781dd81d4c5f82b734c9420c75dee
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36751707"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617118"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Azure Stack에서 파일 백업
 Azure Backup을 사용하여 Azure Stack의 파일 및 응용 프로그램을 보호(또는 백업)합니다. 파일 및 응용 프로그램을 백업하려면 Microsoft Azure Backup Server를 Azure Stack에서 실행되는 가상 머신으로 설치합니다. 동일한 가상 네트워크의 Azure Stack 서버에서 파일을 보호할 수 있습니다. Azure Backup Server를 설치하면 Azure 디스크를 추가하여 단기 백업 데이터에 사용할 수 있는 로컬 저장소를 증가시킵니다. Azure Backup Server는 장기 보존을 위해 Azure Storage를 사용합니다.
@@ -27,7 +27,7 @@ Azure Backup을 사용하여 Azure Stack의 파일 및 응용 프로그램을 �
 
 ## <a name="back-up-files-and-folders-in-azure-stack-vms-to-azure"></a>Azure Stack VM의 파일 및 폴더를 Azure에 백업
 
-Azure Stack VM 가상 머신에서 파일을 보호하도록 Azure Backup Server를 구성하려면 Azure Backup Server 콘솔을 엽니다. 콘솔을 사용하여 보호 그룹을 구성하고 가상 머신의 데이터를 보호할 것입니다.
+Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를 구성하려면 Azure Backup Server 콘솔을 엽니다. 콘솔을 사용하여 보호 그룹을 구성하고 가상 머신의 데이터를 보호할 것입니다.
 
 1. Azure Backup Server 콘솔에서 **보호**를 클릭하고 도구 모음에서 **새로 만들기**를 클릭하여 **새 보호 그룹 만들기** 마법사를 엽니다.
 
@@ -90,15 +90,13 @@ Azure Stack VM 가상 머신에서 파일을 보호하도록 Azure Backup Server
 
 13. **요약**에서 설정을 검토합니다. **그룹 만들기**를 클릭하면 초기 데이터 복제가 발생합니다. 데이터 복제가 완료되면 **상태** 페이지에서 보호 그룹 상태가 **정상**으로 표시됩니다. 초기 백업 작업은 보호 그룹 설정에 따라 수행됩니다.
 
-대답이 필요한 질문: Azure Stack 단기 디스크 저장소로 사용할 디스크 저장소를 어떻게 확장하십니까? 단기 디스크 저장소를 설명하는 어떤 지침을 호출해야 합니까?
-
 ## <a name="recover-file-data"></a>파일 데이터 복구
 
 Azure Backup Server 콘솔을 사용하여 가상 머신에 데이터를 복구합니다.
 
 1. Azure Backup Server의 탐색 모음에서 **복구**를 클릭하고 복구할 데이터를 탐색합니다. 결과 창에서 데이터를 선택합니다.
 
-2. 복구 지점 선택의 달력에서 굵게 표시된 날짜는 사용 가능한 복구 지점을 나타냅니다. 복구 지점을 복구할 날짜를 선택합니다.
+2. 복구 지점 선택의 달력에서 굵게 표시된 날짜는 사용 가능한 복구 지점을 나타냅니다. 복구할 날짜를 선택합니다.
 
 3. **복구 가능한 항목** 창에서 복구하려는 항목을 선택합니다.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e9bf671ab6f14f95d5d707c3c3521b1d1c6e15ca
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 341b5f5aea5211963f35ecf64d1af61dc8e760b3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598935"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038467"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Azure Automation의 자격 증명 자산
 
@@ -31,10 +31,10 @@ Automation 자격 증명 자산은 사용자 이름과 암호 등의 보안 자�
 
 | Cmdlet | 설명 |
 |:--- |:--- |
-| [Get-AzureAutomationCredential](/powershell/module/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |자격 증명 자산에 대한 정보를 검색합니다. **Get-AutomationPSCredential** 활동에서는 자격 증명 자체만 검색할 수 있습니다. |
-| [New-AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |새 Automation 자격 증명을 만듭니다. |
-| [Remove- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Automation 자격 증명을 제거합니다. |
-| [Set- AzureAutomationCredential](/powershell/module/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |기존 Automation 자격 증명에 대한 속성을 설정합니다. |
+| [Get-AzureAutomationCredential](/powershell/module/servicemanagement/azure/get-azureautomationcredential?view=azuresmps-3.7.0) |자격 증명 자산에 대한 정보를 검색합니다. **Get-AutomationPSCredential** 활동에서는 자격 증명 자체만 검색할 수 있습니다. |
+| [New-AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |새 Automation 자격 증명을 만듭니다. |
+| [Remove- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |Automation 자격 증명을 제거합니다. |
+| [Set- AzureAutomationCredential](/powershell/module/servicemanagement/azure/new-azureautomationcredential?view=azuresmps-3.7.0) |기존 Automation 자격 증명에 대한 속성을 설정합니다. |
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell cmdlet
 

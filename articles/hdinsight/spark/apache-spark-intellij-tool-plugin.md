@@ -1,23 +1,20 @@
 ---
-title: 'IntelliJ용 Azure 도구 키트: HDInsight 클러스터용 Spark 응용 프로그램 만들기 | Microsoft Docs'
+title: 'Azure Toolkit for IntelliJ: HDInsight 클러스터용 Spark 응용 프로그램 만들기 '
 description: IntelliJ용 Azure 도구 키트를 사용하여 Scala로 작성된 Spark 응용 프로그램을 개발한 후 HDInsight Spark 클러스터로 제출합니다.
 services: hdinsight
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 73304272-6c8b-482e-af7c-cd25d95dab4d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/25/2017
 ms.author: maxluk
-ms.openlocfilehash: a537fc044361ab90a198a528d382a0f85cad5d0a
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c3442a95bed4f589ca8f939767bb0d0581095927
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952354"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618428"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-create-spark-applications-for-an-hdinsight-cluster"></a>IntelliJ용 Azure 도구 키트를 사용하여 HDInsight 클러스터용 Spark 응용 프로그램 만들기
 
@@ -52,21 +49,21 @@ IntelliJ 플러그 인용 Azure 도구 키트를 사용하여 Scala로 작성된
        
    ![Azure 탐색기 링크](./media/apache-spark-intellij-tool-plugin/show-azure-explorer.png)
 
-2. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 **로그인**을 선택합니다.
+1. **Azure** 노드를 마우스 오른쪽 단추로 클릭한 다음 **로그인**을 선택합니다.
 
-3. **Azure 로그인** 대화 상자에서 **로그인**을 선택하고 Azure 자격 증명을 입력합니다.
+1. **Azure 로그인** 대화 상자에서 **로그인**을 선택하고 Azure 자격 증명을 입력합니다.
 
     ![Azure 로그인 대화 상자](./media/apache-spark-intellij-tool-plugin/view-explorer-2.png)
 
-4. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. **선택** 단추를 선택합니다.
+1. 로그인하고 나면 **구독 선택** 대화 상자에 자격 증명과 연결된 모든 Azure 구독의 목록이 표시됩니다. **선택** 단추를 선택합니다.
 
     ![구독 선택 대화 상자](./media/apache-spark-intellij-tool-plugin/Select-Subscriptions.png)
 
-5. **Azure 탐색기** 탭에서 **HDInsight**를 확장하여 구독에 포함된 HDInsight Spark 클러스터를 표시합니다.
+1. **Azure 탐색기** 탭에서 **HDInsight**를 확장하여 구독에 포함된 HDInsight Spark 클러스터를 표시합니다.
    
     ![Azure 탐색기의 HDInsight Spark 클러스터](./media/apache-spark-intellij-tool-plugin/view-explorer-3.png)
 
-6. 클러스터와 연결된 리소스(예: 저장소 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
+1. 클러스터와 연결된 리소스(예: 저장소 계정)를 표시하려면 클러스터 이름 노드를 더 확장할 수 있습니다.
    
     ![확장된 클러스터-이름 노드](./media/apache-spark-intellij-tool-plugin/view-explorer-4.png)
 
@@ -78,7 +75,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
    ![클러스터 연결 상황에 맞는 메뉴](./media/apache-spark-intellij-tool-plugin/link-a-cluster-context-menu.png)
 
 
-2. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력합니다. 인증에 실패하면 사용자 이름과 암호를 확인해야 합니다. 필요에 따라 저장소 계정, 저장소 키를 추가한 다음, 저장소 컨테이너에서 컨테이너를 선택합니다. 저장소 정보는 왼쪽 트리의 저장소 탐색기용입니다.
+1. **클러스터 이름**, **사용자 이름** 및 **암호**를 입력합니다. 인증에 실패하면 사용자 이름과 암호를 확인해야 합니다. 필요에 따라 저장소 계정, 저장소 키를 추가한 다음, 저장소 컨테이너에서 컨테이너를 선택합니다. 저장소 정보는 왼쪽 트리의 저장소 탐색기용입니다.
    
    ![클러스터 연결 대화 상자](./media/apache-spark-intellij-tool-plugin/link-a-cluster-dialog.png)
 
@@ -87,11 +84,11 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
    > ![IntelliJ의 저장소 탐색기](./media/apache-spark-intellij-tool-plugin/storage-explorer-in-IntelliJ.png)
 
    
-3. 입력 정보가 올바르면 Linked 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
+1. 입력 정보가 올바르면 Linked 클러스터가 **HDInsight** 노드에 표시됩니다. 이제 응용 프로그램을 연결된 클러스터에 제출할 수 있습니다.
 
    ![연결된 클러스터](./media/apache-spark-intellij-tool-plugin/linked-cluster.png)
 
-4. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
+1. **Azure Explorer**에서 클러스터 연결을 해제할 수도 있습니다.
    
    ![연결되지 않은 클러스터](./media/apache-spark-intellij-tool-plugin/unlink.png)
 
@@ -108,17 +105,17 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
 
     ![새 프로젝트 대화 상자](./media/apache-spark-intellij-tool-plugin/create-hdi-scala-app.png)
 
-2. **다음**을 선택합니다.
+1. **다음**을 선택합니다.
 
-3. Scala 프로젝트 생성 마법사는 Scala 플러그 인이 설치되어 있는지 여부를 자동으로 검색합니다. **설치**를 선택합니다.
+1. Scala 프로젝트 생성 마법사는 Scala 플러그 인이 설치되어 있는지 여부를 자동으로 검색합니다. **설치**를 선택합니다.
 
    ![Scala 플러그 인 검사](./media/apache-spark-intellij-tool-plugin/Scala-Plugin-check-Reminder.PNG) 
 
-4. Scala 플러그 인을 다운로드하려면 **확인**을 선택합니다. 지침에 따라 IntelliJ를 다시 시작합니다. 
+1. Scala 플러그 인을 다운로드하려면 **확인**을 선택합니다. 지침에 따라 IntelliJ를 다시 시작합니다. 
 
    ![Scala 플러그 인 설치 대화 상자](./media/apache-spark-intellij-tool-plugin/Choose-Scala-Plugin.PNG)
 
-5. **새 프로젝트** 창에서 다음을 수행합니다.  
+1. **새 프로젝트** 창에서 다음을 수행합니다.  
 
     ![Spark SDK 선택](./media/apache-spark-intellij-tool-plugin/hdi-new-project.png)
 
@@ -128,9 +125,9 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
 
    다. **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
 
-6. **마침**을 선택합니다.
+1. **마침**을 선택합니다.
 
-7. Spark 프로젝트가 자동으로 아티팩트를 만듭니다. 이 아티팩트를 보려면 다음을 수행합니다.
+1. Spark 프로젝트가 자동으로 아티팩트를 만듭니다. 이 아티팩트를 보려면 다음을 수행합니다.
 
    a. **파일** 메뉴에서 **프로젝트 구조**를 선택합니다.
 
@@ -138,7 +135,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
 
       ![대화 상자의 아티팩트 정보](./media/apache-spark-intellij-tool-plugin/default-artifact.png)
       
-8. 다음을 수행하여 응용 프로그램 소스 코드를 추가합니다.
+1. 다음을 수행하여 응용 프로그램 소스 코드를 추가합니다.
 
    a. 프로젝트 탐색기에서 **src**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 가리킨 다음 **Scala 클래스**를 선택합니다.
       
@@ -168,7 +165,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 HDInsight 클러스터를 
     
         }
 
-9. 다음을 수행하여 HDInsight Spark 클러스터에서 응용 프로그램을 실행합니다.
+1. 다음을 수행하여 HDInsight Spark 클러스터에서 응용 프로그램을 실행합니다.
 
    a. 프로젝트 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 응용 프로그램 제출**을 선택합니다.
       
@@ -207,47 +204,47 @@ IntelliJ용 Azure 도구 키트를 사용하여 다양한 작업을 수행할 �
 
     ![작업 보기 노드](./media/apache-spark-intellij-tool-plugin/job-view-node.png)
 
-2. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 선택합니다.
+1. 오른쪽 창의 **Spark 작업 보기** 탭에는 클러스터에서 실행된 모든 응용 프로그램이 표시됩니다. 자세한 내용을 보려면 원하는 응용 프로그램 이름을 선택합니다.
 
     ![응용 프로그램 세부 정보](./media/apache-spark-intellij-tool-plugin/view-job-logs.png)
     >참고
     >
 
-3. 실행 중인 기본 작업 정보를 표시하려면 작업 그래프 위로 마우스를 가져갑니다. 모든 작업이 생성하는 단계 그래프 및 정보를 보려면 작업 그래프에서 노드를 선택합니다.
+1. 실행 중인 기본 작업 정보를 표시하려면 작업 그래프 위로 마우스를 가져갑니다. 모든 작업이 생성하는 단계 그래프 및 정보를 보려면 작업 그래프에서 노드를 선택합니다.
 
     ![작업 단계 세부 정보](./media/apache-spark-intellij-tool-plugin/Job-graph-stage-info.png)
 
-4. *드라이버 Stderr*, *드라이버 Stdout* 및 *디렉터리 정보*와 같은 자주 사용되는 로그를 보려면 **로그** 탭을 선택합니다.
+1. *드라이버 Stderr*, *드라이버 Stdout* 및 *디렉터리 정보*와 같은 자주 사용되는 로그를 보려면 **로그** 탭을 선택합니다.
 
     ![로그 세부 정보](./media/apache-spark-intellij-tool-plugin/Job-log-info.png)
 
-5. 창 맨 위에 있는 링크를 클릭하여 Spark 기록 UI 및 YARN UI(응용 프로그램 수준)를 볼 수도 있습니다.
+1. 창 맨 위에 있는 링크를 클릭하여 Spark 기록 UI 및 YARN UI(응용 프로그램 수준)를 볼 수도 있습니다.
 
 ### <a name="access-the-spark-history-server"></a>Spark 기록 서버 액세스
 1. Azure 탐색기에서 **HDInsight**를 확장하고, 마우스 오른쪽 단추로 Spark 클러스터 이름을 클릭한 다음 **Spark 기록 UI 열기**를 선택합니다. 
 
-2. 메시지가 나타나면 클러스터를 설정할 때 지정한 클러스터의 관리자 자격 증명을 입력합니다.
+1. 메시지가 나타나면 클러스터를 설정할 때 지정한 클러스터의 관리자 자격 증명을 입력합니다.
 
-3. Spark 기록 서버 대시보드에서 응용 프로그램 이름을 사용하여 방금 실행을 마친 응용 프로그램을 찾을 수 있습니다. 위의 코드에서 `val conf = new SparkConf().setAppName("MyClusterApp")`을 사용하여 응용 프로그램 이름을 설정합니다. 따라서 Spark 응용 프로그램 이름은 **MyClusterApp**입니다.
+1. Spark 기록 서버 대시보드에서 응용 프로그램 이름을 사용하여 방금 실행을 마친 응용 프로그램을 찾을 수 있습니다. 위의 코드에서 `val conf = new SparkConf().setAppName("MyClusterApp")`을 사용하여 응용 프로그램 이름을 설정합니다. 따라서 Spark 응용 프로그램 이름은 **MyClusterApp**입니다.
 
 ### <a name="start-the-ambari-portal"></a>Ambari 포털 시작
 1. Azure 탐색기에서 **HDInsight**를 확장하고, 마우스 오른쪽 단추로 Spark 클러스터 이름을 클릭한 다음 **클러스터 관리 포털(Ambari) 열기**를 선택합니다. 
 
-2. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 클러스터 설치 프로세스 동안 이러한 자격 증명을 지정했을 것입니다.
+1. 메시지가 표시되면 클러스터에 대한 관리자 자격 증명을 입력합니다. 클러스터 설치 프로세스 동안 이러한 자격 증명을 지정했을 것입니다.
 
 ### <a name="manage-azure-subscriptions"></a>Azure 구독 관리
 기본적으로 IntelliJ용 Azure 도구 키트에는 모든 Azure 구독의 Spark 클러스터가 나열됩니다. 필요한 경우 액세스하려는 구독을 지정할 수 있습니다. 
 
 1. Azure 탐색기에서 **Azure** 루트 노드를 마우스 오른쪽 단추로 클릭한 다음 **구독 관리**를 선택합니다. 
 
-2. 대화 상자에서 액세스하지 않으려는 구독 옆의 확인란을 선택 취소하고 **닫기**를 선택합니다. Azure 구독에서 로그아웃하려는 경우 **로그아웃**을 선택할 수도 있습니다.
+1. 대화 상자에서 액세스하지 않으려는 구독 옆의 확인란을 선택 취소하고 **닫기**를 선택합니다. Azure 구독에서 로그아웃하려는 경우 **로그아웃**을 선택할 수도 있습니다.
 
 ## <a name="convert-existing-intellij-idea-applications-to-use-azure-toolkit-for-intellij"></a>IntelliJ용 Azure 도구 키트를 사용하도록 기존 IntelliJ IDEA 응용 프로그램 변환
 IntelliJ IDEA에서 만든 기존 Spark Scala 응용 프로그램을 IntelliJ용 Azure 도구 키트와 호환되도록 변환할 수 있습니다. 이렇게 하면 플러그 인을 사용하여 HDInsight Spark 클러스터에 응용 프로그램을 제출할 수 있습니다.
 
 1. IntelliJ IDEA를 통해 만들어진 기존 Spark Scala 응용 프로그램의 경우 관련된 .iml 파일을 엽니다.
 
-2. 루트 수준에 다음과 같은 **module** 요소가 표시됩니다.
+1. 루트 수준에 다음과 같은 **module** 요소가 표시됩니다.
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
 
@@ -255,7 +252,7 @@ IntelliJ IDEA에서 만든 기존 Spark Scala 응용 프로그램을 IntelliJ용
    
         <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4" UniqueKey="HDInsightTool">
 
-3. 변경 내용을 저장합니다. 이제 응용 프로그램이 IntelliJ용 Azure 도구 키트와 호환됩니다. 프로젝트 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 응용 프로그램 제출** 옵션이 표시됩니다.
+1. 변경 내용을 저장합니다. 이제 응용 프로그램이 IntelliJ용 Azure 도구 키트와 호환됩니다. 프로젝트 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭하여 이 테스트를 수행할 수 있습니다. 이제 팝업 메뉴에 **HDInsight에 Spark 응용 프로그램 제출** 옵션이 표시됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

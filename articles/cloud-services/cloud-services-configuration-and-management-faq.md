@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 5b8c7e8880f7e467b1b5a305cc7381e6499571f5
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 30a23010f326189ffd5886407d70e357abb9c53e
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238624"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038499"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -126,7 +126,7 @@ $cert = New-SelfSignedCertificate -DnsName yourdomain.cloudapp.net -CertStoreLoc
 $password = ConvertTo-SecureString -String "your-password" -Force -AsPlainText
 Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $password
 ```
-Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/azure/new-azuredeployment?view=azuresmps-4.0.0)를 사용하여 각 위치 값을 설정할 수 있습니다.
+Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있는 기능이 곧 제공됩니다. [New-AzureDeployment](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-4.0.0)를 사용하여 각 위치 값을 설정할 수 있습니다.
 
 인스턴스 수준에서 메트릭을 모니터링할 수 있습니다. 추가 모니터링 기능은 [클라우드 서비스를 모니터링하는 방법](cloud-services-how-to-monitor.md)에서 제공합니다.
 
@@ -295,7 +295,7 @@ Azure에서는 %approot% 드라이브에 아무 것도 작성하지 않습니다
 시작 작업에서 PowerShell 스크립트를 사용하여 맬웨어 방지 확장을 사용하도록 설정할 수 있습니다. 다음 문서에 나온 단계를 따라 구현합니다. 
  
 - [PowerShell 시작 작업 만들기](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
-- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/Azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
+- [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
 맬웨어 방지 배포 시나리오 및 포털에서 활성화하는 방법에 대한 자세한 내용은 [맬웨어 방지 배포 시나리오](../security/azure-security-antimalware.md#antimalware-deployment-scenarios)를 참조하세요.
 

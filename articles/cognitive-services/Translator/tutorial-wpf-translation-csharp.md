@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214920"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716375"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>자습서: C&#35;을 사용하여 Translator Text에 대한 WPF 응용 프로그램 작성
 
@@ -666,9 +666,9 @@ private async void TranslateButton_Click(object sender, EventArgs e)
 `X-ClientTraceId`라는 HTTP 헤더는 선택 사항입니다. 값은 GUID여야 합니다. 클라이언트가 제공하는 추적 ID는 요청이 예상대로 작동하지 않을 경우 요청을 추적하는 데 유용합니다. 그러나 유용하려면 클라이언트가 X-ClientTraceID 값을 기록해야 합니다. 클라이언트 추적 ID와 요청 날짜는 발생할 수 있는 문제를 Microsoft에서 진단하는 데 도움이 됩니다.
 
 > [!NOTE]
-> 이 자습서에서는 Microsoft Translator 서비스에 대해 중점적으로 설명하므로 `DetectLanguage()` 및 `CorrectSpelling()` 메서드는 자세히 다루지 않습니다. 텍스트 분석 및 Bing Spell Check 서비스는 XML이 아닌 JSON으로 응답을 제공하며, 텍스트 분석에서는 요청도 JSON 형식으로 지정해야 합니다. 여기에서 설명한 메서드와의 코드 차이점은 이러한 특성으로 대부분 설명됩니다.
+> 이 자습서에서는 Microsoft Translator 서비스에 대해 중점적으로 설명하므로 `DetectLanguage()` 및 `CorrectSpelling()` 메서드는 자세히 다루지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Text API 참조](http://docs.microsofttranslator.com/text-translate.html)
+> [Microsoft Translator Text API 참조](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

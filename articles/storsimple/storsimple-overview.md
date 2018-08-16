@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.openlocfilehash: b0d6a797e4fe84ce2cb969d001ff96177f6ac641
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 946b5a568d98367daec0244968b962618f22ae76
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097049"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038510"
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>StorSimple 8000 시리즈: 하이브리드 클라우드 저장소 솔루션
 ## <a name="overview"></a>개요
@@ -57,7 +57,7 @@ Microsoft Azure StorSimple 솔루션에는 다음 구성 요소가 포함됩니�
 * **StorSimple Cloud Appliance** – StorSimple 가상 어플라이언스라고도 하며, 물리적 하이브리드 저장 장치의 아키텍처와 대부분의 기능을 복제하는 StorSimple 장치의 소프트웨어 버전입니다. StorSimple Cloud Appliance는 Azure 가상 컴퓨터의 단일 노드에서 실행됩니다. Azure 프리미엄 저장소를 활용하는 프리미엄 가상 장치는 업데이트 2 이상에서 사용할 수 있습니다.
 * **StorSimple 장치 관리자 서비스** – 단일 웹 인터페이스에서 StorSimple 장치 또는 StorSimple Cloud Appliance를 관리할 수 있는 Azure Portal의 확장입니다. StorSimple 장치 관리자 서비스를 사용하여 서비스를 만들고 관리하고, 장치를 보고 관리하고, 경고를 보고, 볼륨을 관리하고 백업 정책 및 백업 카탈로그를 보고 관리할 수 있습니다.
 * **StorSimple용 Windows PowerShell** – StorSimple 장치를 관리하는 데 사용할 수 있는 명령줄 인터페이스입니다. StorSimple용 Windows PowerShell에는 StorSimple 장치를 등록하고, 장치에서 네트워크 인터페이스를 구성하고 특정 형식의 업데이트를 설치하고, 지원 세션에 액세스하여 장치 문제를 해결하고 장치 상태를 변경할 수 있는 기능이 있습니다. 직렬 콘솔에 연결하거나 Windows PowerShell 원격 기능을 사용하여 StorSimple용 Windows PowerShell에 액세스할 수 있습니다.
-* **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/azure/?view=azuresmps-3.7.0#azure)를 참조하세요.
+* **Azure PowerShell StorSimple cmdlet** – 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0#azure)를 참조하세요.
 * **StorSimple 스냅숏 관리자** – 볼륨 그룹 및 Windows 볼륨 섀도 복사본 서비스를 사용하여 응용 프로그램에 일관된 백업을 생성하는 MMC 스냅인입니다. 또한 백업 일정 및 복제를 만들거나 볼륨을 복원하려면 StorSimple 스냅숏 관리자를 사용할 수 있습니다.
 * **SharePoint용 StorSimple 어댑터** – SharePoint 중앙 관리 포털에서 StorSimple 저장소를 볼 수 있고 관리할 수 있도록 하면서 SharePoint 서버 팜으로 Microsoft Azure StorSimple 저장소 및 데이터 보호를 투명하게 확장하는 도구입니다.
 
@@ -126,7 +126,7 @@ StorSimple용 Windows PowerShell은 Microsoft Azure StorSimple 서비스 만들�
 자세한 내용은 [StorSimple용 Windows PowerShell을 사용하여 장치 관리](storsimple-8000-windows-powershell-administration.md)로 이동합니다.
 
 ## <a name="azure-powershell-storsimple-cmdlets"></a>Azure PowerShell StorSimple cmdlet
-Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/azure/?view=azuresmps-3.7.0)를 참조하세요.
+Azure PowerShell StorSimple cmdlet은 명령줄에서 서비스 수준 작업 및 마이그레이션 작업을 자동화할 수 있도록 하는 Windows PowerShell cmdlet 모음입니다. StorSimple용 Azure PowerShell cmdlet에 대한 자세한 내용은 [cmdlet 참조](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)를 참조하세요.
 
 ## <a name="storsimple-snapshot-manager"></a>StorSimple 스냅숏 관리자
 StorSimple 스냅숏 관리자는 로컬 및 클라우드 데이터의 일관된 지정 시간 백업 복사본을 만드는 데 사용할 수 있는 Microsoft Management Console(MMC) 스냅인입니다. 스냅인은 Windows Server 기반 호스트에서 실행됩니다. StorSimple 스냅숏 관리자를 사용하여 다음을 수행할 수 있습니다.
@@ -207,10 +207,10 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 | 시나리오 | 워크로드 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 공동 작업 |파일 공유 |예 | |모든 버전 |
-| 공동 작업 |분산 파일 공유 |예 | |모든 버전 |
+| 공동 작업 |파일 공유 |yes | |모든 버전 |
+| 공동 작업 |분산 파일 공유 |yes | |모든 버전 |
 | 공동 작업 |SharePoint |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
-| 보관 |단순 파일 보관 |예 | |모든 버전 |
+| 보관 |단순 파일 보관 |yes | |모든 버전 |
 | 가상화 |가상 머신 |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 데이터베이스 |SQL |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |업데이트 2 이상 |
 | 비디오 감시 |비디오 감시 |예* |StorSimple 장치가 이 작업에만 전용으로 사용될 때 지원됩니다. |업데이트 2 이상 |
@@ -234,7 +234,7 @@ Microsoft Azure StorSimple은 중복 제거 및 데이터 압축을 사용하여
 
 | 시나리오 | 워크로드 | 지원됨 | 제한 | 버전 |
 | --- | --- | --- | --- | --- |
-| 일반 |Express 경로 |예 | |모든 버전 |
+| 일반 |Express 경로 |yes | |모든 버전 |
 | 일반 |DataCore FC |예* |DataCore SANsymphony 지원 |모든 버전 |
 | 일반 |DFSR |예* |로컬 고정 볼륨에 대해서만 지원됩니다. |모든 버전 |
 | 일반 |인덱싱 |예* |계층화된 볼륨의 경우 메타데이터만 인덱싱만 지원됩니다(데이터 없음).<br>로컬 고정 볼륨의 경우 전체 인덱싱이 지원됩니다. |모든 버전 |

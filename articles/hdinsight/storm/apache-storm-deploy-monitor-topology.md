@@ -1,25 +1,20 @@
 ---
-title: HDInsight | Microsoft Docs에서 Apache Storm 토폴로지 배포 및 관리
-description: HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다.
+title: HDInsight에서 Apache Storm 토폴로지 배포 및 관리
+description: Windows 기반 HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 5e542072-f014-42aa-82d6-2694a76df520
 ms.service: hdinsight
-ms.devlang: java
+author: jasonwhowell
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 55c92e6408522b8a96a37dbedd99d929af1e49fb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 1ad1d6662d276039ae1e01e49c60fc06682cb54a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31414986"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622819"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>Windows 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 

@@ -3,19 +3,19 @@ title: 데이터베이스 보안 - Azure Cosmos DB | Microsoft Docs
 description: Azure Cosmos DB에서 데이터에 대해 데이터베이스 보호 및 데이터 보안을 제공하는 방법을 알아봅니다.
 keywords: nosql 데이터베이스 보안, 정보 보안, 데이터 보안, 데이터베이스 암호화, 데이터베이스 보호, 보안 정책, 보안 테스트
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: c9ef406ecab0d88468c9f7ff290669cfbbae1856
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: rafats
+ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860183"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038451"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 데이터베이스 보안
 
@@ -47,6 +47,7 @@ ms.locfileid: "37860183"
 - 공격에 대응
 - 지오-펜스 데이터가 데이터 관리 제한을 준수하는 기능
 - 보호된 데이터 센터에서 서버의 물리적 보호
+- 인증서
 
 명백해 보일지 모르지만, 최근의 [대규모 데이터베이스 침해](http://thehackernews.com/2017/01/mongodb-database-security.html)는 다음과 같은 요구 사항의 간단하지만 민감한 중요성을 상기시켜 줍니다.
 - 최신 상태로 유지되는 패치된 서버
@@ -79,7 +80,7 @@ ms.locfileid: "37860183"
 |휴지 상태의 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](.\database-encryption-at-rest.md)를 참조하세요.|
 |패치된 서버|관리되는 데이터베이스인 Azure Cosmos DB를 사용하면 직접 서버를 관리하고 패치를 적용하지 않아도 자동으로 처리됩니다.|
 |강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> SSL 및 HMAC 비밀 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
-|보안 및 데이터 보호 인증서|Azure Cosmos DB에는 [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [EUMC(European Model Clauses)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) 및 [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) 인증이 있습니다. 기타 인증서는 현재 작업 중입니다.|
+|보안 및 데이터 보호 인증서|가장 최신의 인증서 목록의 경우 모든 인증서가 포함된(Cosmos 검색) 최신(Azure Compliance 문서)[https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942]와 더불어 전체(Azure Compliance 사이트)[https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings]를 참조하세요. 더 중점적인 내용은 SOCS 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPPAA, FedRAMP High 및 기타를 포함한 2018년 4월 25일 게시물(Azure #CosmosDB: 보안, 개인, 준수)[https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/]를 확인하세요.
 
 다음 스크린샷은 Azure Portal에서 액세스 제어(IAM)를 사용하는 Active Directory 통합(RBAC)을 보여 줍니다. ![Azure Portal에서 액세스 제어(IAM) - 데이터베이스 보안 설명](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

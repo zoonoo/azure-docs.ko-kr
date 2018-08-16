@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968622"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627443"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Azure와 Cloud Foundry 통합
 
@@ -81,8 +81,8 @@ Azure Log Analytics Nozzle은 [Cloud Foundry Loggregator Firehose](https://docs.
 #### <a name="managed-standard-disk"></a>관리되는 표준 디스크 
 프리미엄 디스크는 프로덕션에서 신뢰할 수 있는 성능에 대해 권장했습니다.  [관리 디스크](https://azure.microsoft.com/services/managed-disks/)에서 표준 저장소는 다른 성능과 유사한 안정성을 제공할 수도 있습니다. 개발/테스트 또는 중요하지 않은 환경과 같은 성능에 민감하지 않은 환경의 경우 관리되는 표준 디스크는 저렴한 비용으로 다른 옵션을 제공합니다.  
 ### <a name="cost-saving-in-general"></a>일반적인 비용 절감 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>예약 인스턴스를 사용하여 상당한 VM 비용 절감: 
-현재 환경이 일반적으로 무기한으로 가동되더라도 모든 CF VM은 "요청 시" 가격 책정을 사용하여 요금이 청구됩니다. 이제 1년 또는 3년의 VM 용량을 예약하고 45-65%를 할인받을 수 있습니다. 할인은 환경을 변경하지 않고 청구 시스템에 적용됩니다. 자세한 내용은 [예약 인스턴스 작동 방식](https://azure.microsoft.com/pricing/reserved-vm-instances/)을 참조하세요. 
+#### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Azure 예약으로 VM 비용 대폭 절감: 
+현재 환경이 일반적으로 무기한으로 가동되더라도 모든 CF VM은 "요청 시" 가격 책정을 사용하여 요금이 청구됩니다. 이제 1년 또는 3년의 VM 용량을 예약하고 45-65%를 할인받을 수 있습니다. 할인은 환경을 변경하지 않고 청구 시스템에 적용됩니다. 자세한 내용은 [Azure 예약의 작동 원리](https://azure.microsoft.com/pricing/reserved-vm-instances/)를 참조하세요. 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>더 작은 크기의 프리미엄 디스크 관리: 
 관리 디스크가 더 작은 디스크 크기를 지원합니다(예: 프리미엄 및 표준 디스크 모두에 P4(32GB) 및 P6(64GB)). 워크로드가 작은 경우 표준 프리미엄 디스크에서 관리되는 프리미엄 디스크로 마이그레이션하면 비용을 절약할 수 있습니다.
 #### <a name="utilizing-azure-first-party-services"></a>Azure 자사 서비스 활용: 

@@ -1,25 +1,20 @@
 ---
-title: 스크립트 작업을 사용하여 Linux 기반 HDInsight에 Solr 설치 - Azure | Microsoft Docs
+title: 스크립트 작업을 사용하여 Linux 기반 HDInsight에 Solr 설치 - Azure
 description: 스크립트 작업을 사용하여 Linux 기반 HDInsight Hadoop 클러스터에 Solr를 설치하는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: cc93ed5c-a358-456a-91a4-f179185c0e98
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 77d3964dd54d63db58c63b567ebbe7e529473999
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 35a7410a5a30e248069ba31ad4213eff58680dcc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201563"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597772"
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>HDInsight Hadoop 클러스터에서 Solr 설치 및 사용
 
@@ -118,7 +113,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
     curl "http://localhost:8983/solr/collection1/select?q=*%3A*&wt=json&indent=true"
     ```
 
-    이 명령은 **\*:\*** (쿼리 문자열에서 \*%3A\* 로 인코딩)와 일치하는 모든 문서에 대해 **collection1** 을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
+    이 명령은 **\*:\***(쿼리 문자열에서 \*%3A\*로 인코딩)와 일치하는 모든 문서에 대해 **collection1**을 검색합니다. 다음 JSON 문서는 응답의 예제입니다.
 
             "response": {
                 "numFound": 2,
@@ -174,7 +169,7 @@ Solr이 설치된 클러스터를 만들려면 [HDInsight 클러스터 만들기
 
 ### <a name="using-the-solr-dashboard"></a>Solr 대시보드 사용
 
-Solr 대시보드는  웹 브라우저를 통해 Solr로 작업할 수 있는 웹 UI입니다. Solr 대시보드는 HDInsight 클러스터에서 인터넷에 직접 드러나지 않지만 SSH 터널을 사용하여 액세스할 수 있습니다. SSH 터널 사용에 대한 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
+Solr 대시보드는 웹 브라우저를 통해 Solr로 작업할 수 있는 웹 UI입니다. Solr 대시보드는 HDInsight 클러스터에서 인터넷에 직접 드러나지 않지만 SSH 터널을 사용하여 액세스할 수 있습니다. SSH 터널 사용에 대한 자세한 내용은 [HDInsight와 SSH 터널 사용](hdinsight-linux-ambari-ssh-tunnel.md) 문서를 참조하세요.
 
 SSH 터널을 설정하면 다음 단계를 수행하여 Solr 대시보드를 사용합니다.
 

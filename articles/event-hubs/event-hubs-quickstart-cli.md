@@ -2,26 +2,26 @@
 title: Azure 빠른 시작 - Azure CLI를 사용한 이벤트 스트림 처리 | Microsoft Docs
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 이벤트 스트림을 처리하는 방법을 알아봅니다.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: shvija
+ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425955"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004568"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Azure 빠른 시작 - Azure CLI 및 Java를 사용한 이벤트 스트림 처리
 
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하고 처리할 수 있는 확장성이 뛰어난 데이터 스트리밍 플랫폼 및 수집 서비스입니다. 이 빠른 시작에서는 Azure CLI를 사용하여 Event Hubs 리소스를 만든 다음, Java 코드를 사용하여 이벤트 허브에서 이벤트 스트림을 송수신하는 방법을 보여 줍니다.
 
-이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정][]을 만드세요.
+이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -292,7 +292,7 @@ public void onEvents(PartitionContext context, Iterable<EventData> events) throw
 > [!div class="nextstepaction"]
 > [Event Hubs 데이터 스트림에서 잘못된 데이터 시각화](event-hubs-tutorial-visualize-anomalies.md)
 
-[계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

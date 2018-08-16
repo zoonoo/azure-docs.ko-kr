@@ -10,14 +10,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602120"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622639"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -26,7 +26,9 @@ ms.locfileid: "38602120"
 | 런타임 | 상태 |
 |---------|---------|
 |1.x|일반 공급(GA)|
-|2.x|미리 보기|
+|2.x|미리 보기<sup>*</sup>|
+
+<sup>*</sup>버전 2.x에서 주요 변경 알림을 비롯한 중요한 업데이트를 받으려면 [Azure App Service 알림](https://github.com/Azure/app-service-announcements/issues) 리포지토리를 확인하세요.
 
 > [!NOTE] 
 > 이 문서에서는 클라우드 서비스 Azure Functions를 참조합니다. Azure Functions를 온-프레미스로 실행할 수 있는 제품에 대한 자세한 내용은 [Azure Functions 런타임 개요](functions-runtime-overview.md)를 참조하세요.

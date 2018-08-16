@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919712"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621082"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>컴퓨터 종속성 매핑을 사용하여 컴퓨터 그룹화
 
@@ -55,7 +55,7 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-종속성 에이전트에서 지원하는 운영 체제에 대해 [자세히 알아보세요](../monitoring/monitoring-service-map-configure.md#supported-operating-systems).
+[Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) 운영 체제에 대한 종속성 에이전트 지원에 대해 자세히 알아보세요.
 
 스크립트를 사용하여 종속성 에이전트를 설치하는 방법에 대해 [자세히 알아봅니다](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples).
 

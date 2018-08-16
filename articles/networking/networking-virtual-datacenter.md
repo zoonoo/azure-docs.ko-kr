@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc3f334771c11d6917e15628557adfb59051f0f6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445384"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621024"
 ---
 # <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure 가상 데이터 센터: 네트워크 측면
 **Microsoft Azure**: 더 빠른 이동, 비용 절감, 온-프레미스 앱 및 데이터 통합
@@ -266,7 +266,7 @@ vDC에서는 NSG 로그, 특히 다음 정보를 추적하는 것이 중요합�
 
 모든 로그는 감사, 정적 분석 또는 백업 목적으로 Azure Storage 계정에 저장될 수 있습니다. 로그가 Azure Storage 계정에 저장되면 고객은 다양한 유형의 프레임워크를 사용하여 이 데이터를 검색, 준비, 분석, 시각화한 후 클라우드 리소스의 상태를 보고할 수 있습니다.
 
-대기업은 온-프레미스 시스템을 모니터링하기 위한 표준 프레임워크를 이미 구입했을 것이며 클라우드 배포에서 생성된 로그를 통합하도록 이러한 프레임워크를 확장할 수 있습니다. 모든 로깅을 클라우드에서 유지하려는 조직의 경우 [Log Analytics][LogAnalytics]가 적절합니다. Log Analytics는 클라우드 기반 서비스로 구현되므로 인프라 서비스에 대한 최소한의 투자로 빠르게 실행할 수 있습니다. 또한 Log Analytics는 System Center Operations Manger와 같은 System Center 구성 요소와 통합하여 기존 관리 투자를 클라우드로 확장할 수 있습니다.
+대기업은 온-프레미스 시스템을 모니터링하기 위한 표준 프레임워크를 이미 구입했을 것이며 클라우드 배포에서 생성된 로그를 통합하도록 이러한 프레임워크를 확장할 수 있습니다. 모든 로깅을 클라우드에 유지하려는 조직의 경우 [Log Analytics][../log-analytics/log-analytics-overview .md]가 적절합니다. Log Analytics는 클라우드 기반 서비스로 구현되므로 인프라 서비스에 대한 최소한의 투자로 빠르게 실행할 수 있습니다. 또한 Log Analytics는 System Center Operations Manger와 같은 System Center 구성 요소와 통합하여 기존 관리 투자를 클라우드로 확장할 수 있습니다.
 
 Log Analytics는 운영 체제, 응용 프로그램, 인프라 클라우드 구성 요소에서 생성된 로그 및 성능 데이터를 수집하고, 상호 연관 짓고, 검색하고, 실행하는 데 도움이 되는Azure의 서비스입니다. 이 기능은 통합된 검색 및 사용자 지정 대시보드를 사용하여 vDC의 모든 작업과 관련된 모든 레코드를 분석함으로써 실시간으로 전반적인 작업을 이해할 수 있도록 합니다.
 

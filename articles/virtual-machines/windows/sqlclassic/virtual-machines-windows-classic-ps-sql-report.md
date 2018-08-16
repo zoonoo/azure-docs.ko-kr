@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: edfae3a56bc13e4c41a1676bfc0f4e8cf4cd9d30
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c688de79c985eda9b0898d0f7d989de58f7dbc71
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425081"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038531"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>PowerShell을 사용하여 기본 모드 보고서 서버로 Azure VM 만들기
 > [!IMPORTANT] 
@@ -40,7 +40,7 @@ ms.locfileid: "31425081"
   * 코어 할당량을 늘리려면 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의하세요. VM 크기 정보는 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 * **Windows PowerShell 스크립팅**: 이 항목에서는 Windows PowerShell의 기본 작동 지식이 있다고 가정합니다. Windows PowerShell을 사용하는 방법에 대한 자세한 내용은 다음을 참조하세요.
   
-  * [Windows Server에서 Windows PowerShell 시작](https://technet.microsoft.com/library/hh847814.aspx)
+  * [Windows Server에서 Windows PowerShell 시작](https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell)
   * [Windows PowerShell 시작](https://technet.microsoft.com/library/hh857337.aspx)
 
 ## <a name="step-1-provision-an-azure-virtual-machine"></a>1단계: Azure Virtual Machine 프로비전
@@ -586,7 +586,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
   
   * [Microsoft SQL Server Data Tools - Visual Studio 2013용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=42313)
   * [Microsoft SQL Server Data Tools - Visual Studio 2012용 비즈니스 인텔리전스](https://www.microsoft.com/download/details.aspx?id=36843)
-  * [SSDT-BI(SQL Server Data Tools 및 SQL Server Business Intelligence)](http://curah.microsoft.com/30004/sql-server-data-tools-ssdt-and-sql-server-business-intelligence)
+  * [SSDT-BI(SQL Server Data Tools 및 SQL Server Business Intelligence)](https://docs.microsoft.com/sql/ssdt/previous-releases-of-sql-server-data-tools-ssdt-and-ssdt-bi)
 * **SQL Server Data Tools: 원격**: 로컬 컴퓨터에서 SQL Server Data Tools로 Reporting Services 보고서가 포함된 Reporting Services 프로젝트를 만듭니다. 웹 서비스 URL에 연결하도록 프로젝트를 구성합니다.
   
     ![SSRS 프로젝트의 SSDT 프로젝트 속성](./media/virtual-machines-windows-classic-ps-sql-report/IC650114.gif)
@@ -598,7 +598,7 @@ HTTPS에 대해 443 이외의 개인 포트를 구성한 경우 다음 스크립
 
 ## <a name="more-information"></a>추가 정보
 ### <a name="resources"></a>리소스
-* SQL Server Business Intelligence 및 SharePoint 2013의 단일 서버 배포와 관련된 유사한 내용은 [Windows PowerShell을 사용하여 SQL Server BI 및 SharePoint 2013에서 Azure VM 만들기](https://msdn.microsoft.com/library/azure/dn385843.aspx)를 참조하세요.
+* SQL Server Business Intelligence 및 SharePoint 2013의 단일 서버 배포와 관련된 유사한 내용은 [Windows PowerShell을 사용하여 SQL Server BI 및 SharePoint 2013에서 Azure VM 만들기](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/)를 참조하세요.
 * SQL Server Business Intelligence 및 SharePoint 2013의 다중 서버 배포와 관련된 유사한 내용은 [Azure Virtual Machines에서 SQL Server Business Intelligence 배포](https://msdn.microsoft.com/library/dn321998.aspx)를 참조하세요.
 * Azure Virtual Machines에서 SQL Server Business Intelligence 배포와 관련된 일반 정보는 [Azure Virtual Machines에서 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)를 참조하세요.
 * Azure 계산 요금의 비용에 대한 자세한 내용은 [Azure 가격 책정 계산기](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)의 Virtual Machines 탭을 참조하세요.

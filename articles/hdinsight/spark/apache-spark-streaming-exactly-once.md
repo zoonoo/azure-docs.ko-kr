@@ -1,25 +1,19 @@
 ---
-title: 이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기 - Azure HDInsight | Microsoft Docs
+title: 이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기 - Azure HDInsight
 description: 이벤트를 오직 한 번만 처리하도록 Spark 스트리밍을 설정하는 방법.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: ramoha
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.author: ramoha
-ms.openlocfilehash: 48b1d3811f3a8f6190c58e9646ab0d820859fc21
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164865"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618824"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Spark 스트리밍 작업 만들기
 

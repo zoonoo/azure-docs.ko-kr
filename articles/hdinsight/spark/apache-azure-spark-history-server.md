@@ -1,24 +1,20 @@
 ---
-title: 확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단 - Azure HDInsight | Microsoft Docs
+title: 확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단 - Azure HDInsight
 description: 확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단 - Azure HDInsight.
 services: hdinsight
-author: jejiang
-manager: DJ
-editor: Jenny Jiang
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: ''
-ms.topic: article
-ms.date: 07/12/2018
+author: jejiang
 ms.author: jejiang
-ms.openlocfilehash: 61e857b01f75cb30e3d213703bd8ee8014d902d6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+editor: jasonwhowell
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.topic: conceptual
+ms.date: 07/12/2018
+ms.openlocfilehash: df196286297c7f8961e58d2196554b00d0281c18
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309628"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622340"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>확장된 Spark 기록 서버를 사용하여 Spark 응용 프로그램 디버그 및 진단
 

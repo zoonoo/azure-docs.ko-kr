@@ -1,26 +1,22 @@
 ---
-title: Linux 기반 HDInsight에서 Apache Storm 토폴로지 배포 및 관리 | Microsoft Docs
+title: Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리
 description: Linux 기반 HDInsight에서 Storm 대시보드를 사용하여 Apache Storm 토폴로지를 배포, 모니터링 및 관리하는 방법에 대해 배웁니다. Visual Studio용 Hadoop 도구를 사용합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 35086e62-d6d8-4ccf-8cae-00073464a1e1
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 53433e6a677a2576a11209075f397bb5f246b875
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: cf3de9899cdefd5761bb31f64bcb537b12eb4df3
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129288"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619467"
 ---
-# <a name="deploy-and-manage-apache-storm-topologies-on-hdinsight"></a>HDInsight에서 Apache Storm 토폴로지 배포 및 관리
+# <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Storm 토폴로지 배포 및 관리 
 
 이 문서에서는 HDInsight 클러스터의 Storm에서 실행되는 Storm 토폴로지의 모니터링 및 관리에 관한 기본 사항을 알아봅니다.
 

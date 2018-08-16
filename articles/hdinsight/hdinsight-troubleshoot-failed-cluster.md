@@ -1,25 +1,20 @@
 ---
-title: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결 - Azure HDInsight | Microsoft Docs
+title: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결 - Azure HDInsight
 description: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 진단 및 해결
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.author: ashishth
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: ashishth
-ms.openlocfilehash: bd026169062788fa7587cb6357b3764fbfdb24fb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fd8b9348d923bce321e335468b846bd2df001309
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415914"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600781"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
 

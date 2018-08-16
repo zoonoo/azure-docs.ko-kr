@@ -3,7 +3,7 @@ title: 템플릿을 사용하여 Azure Event Hubs 네임스페이스 및 소비�
 description: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/30/2018
-ms.author: sethm
-ms.openlocfilehash: 4b4dc5be9697bb96aec658fccbdf13b299e79e9e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: shvija
+ms.openlocfilehash: 2edcb89c6468896c2e878f61ed8330917037c3eb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38309854"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002921"
 ---
 # <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기
 

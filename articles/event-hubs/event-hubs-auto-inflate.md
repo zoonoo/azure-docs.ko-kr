@@ -3,7 +3,7 @@ title: Azure Event Hubs 처리량 단위 자동 확장 | Microsoft Docs
 description: 처리량 단위를 자동으로 확장하려면 네임스페이스에서 자동 확장을 사용합니다.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: 32f99b43a37277e70d209f1f315dcb398c2b5931
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434643"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004795"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Azure Event Hubs 처리량 단위 자동 확장
 

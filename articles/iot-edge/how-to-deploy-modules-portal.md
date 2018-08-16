@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4082189d451f670c1ae3f76b8ec785d8bd0518b3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 83f199c49209210ec577017534f93e36d05bd70a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035402"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620368"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -44,17 +44,17 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 1. 페이지의 **레지스트리 설정** 섹션에서는 모듈 이미지를 포함하는 개인 컨테이너 레지스트리에 액세스할 수 있는 자격 증명을 제공합니다. 
 2. 페이지의 **배포 모듈** 섹션에서는 **추가**를 선택합니다. 
-3. 드롭다운 목록에서 모듈 형식을 선택합니다. 
+3. 드롭다운 목록에서 모듈 형식을 살펴봅니다. 
    * **IoT Edge 모듈** - 기본 옵션입니다.
    * **Azure Stream Analytics 모듈** - Azure Stream Analytics 워크로드에서 생성된 모듈만 해당합니다. 
-
-4. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예:  
+4. **IoT Edge 모듈**을 선택합니다.
+5. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예:  
    * **이름** - tempSensor
    * **이미지 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-5. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
-6. **저장**을 선택합니다.
-7. 2-6단계를 반복하여 배포에 모듈을 추가합니다. 
-8. **다음**을 선택하여 경로 섹션을 계속합니다.
+6. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
+7. **저장**을 선택합니다.
+8. 2-6단계를 반복하여 배포에 모듈을 추가합니다. 
+9. **다음**을 선택하여 경로 섹션을 계속합니다.
 
 ### <a name="specify-routes"></a>경로 지정
 

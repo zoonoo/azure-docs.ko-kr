@@ -1,25 +1,21 @@
 ---
-title: Python 구성 요소를 사용하는 Apache Storm - Azure HDInsight | Microsoft Docs
+title: Python 구성 요소를 사용하는 Apache Storm - Azure HDInsight
 description: Python 구성 요소를 사용하는 Apache Storm 토폴로지를 만드는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 keywords: apache storm python
-ms.assetid: edd0ec4f-664d-4266-910c-6ecc94172ad8
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: larryfr
-ms.openlocfilehash: 9137e509ff352bdcb7a74b652b5c7c7edef2d7ea
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: jasonh
+ms.openlocfilehash: 8c26bfc85c70addebd5e68fad7769faa63e07bea
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131163"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39623020"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>HDInsight에서 Python을 사용하여 Apache Storm 토폴로지 개발
 

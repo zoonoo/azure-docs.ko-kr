@@ -1,24 +1,20 @@
 ---
-title: Azure HDInsight의 ML Services 소개 | Microsoft Docs
+title: Azure HDInsight의 ML 서비스 소개
 description: HDInsight의 ML Services를 사용하여 빅 데이터 분석용 응용 프로그램을 만드는 방법에 대해 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 6dc21bf5-4429-435f-a0fb-eea856e0ea96
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: c952d64229102f99dde393bc9a6efda45fc1c717
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: c36277cdf20f9247a13c22f56281fd5aaae16120
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358854"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620027"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight의 ML Services 및 오픈 소스 기능 소개
 

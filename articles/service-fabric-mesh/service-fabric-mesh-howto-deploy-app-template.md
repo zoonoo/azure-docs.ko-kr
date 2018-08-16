@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ''
 ms.service: service-fabric-mesh
 ms.devlang: azure-cli
-ms.topic: conceputal
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8d813669f2f44fd64db669e9750e3bc064c7f916
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 356e8019f9a4a64cb1c1c113d0f44990aa4e0f95
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090336"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038558"
 ---
 # <a name="deploy-a-service-fabric-mesh-application-to-service-fabric-mesh-using-a-template"></a>템플릿을 사용하여 Service Fabric Mesh에 Service Fabric Mesh 응용 프로그램 배포
 이 문서에서는 템플릿을 사용하여 Service Fabric Mesh에 .NET Core 응용 프로그램을 배포하는 방법을 보여 줍니다. 완료하면 투표 결과를 클러스터의 백 엔드 서비스에 저장하는 ASP.NET Core 웹 프런트 엔드가 있는 투표 응용 프로그램이 생깁니다. 프런트 엔드는 DNS를 사용하여 백 엔드 서비스의 주소를 확인합니다.

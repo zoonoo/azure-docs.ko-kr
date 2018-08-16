@@ -3,25 +3,25 @@ title: Azure 빠른 시작 - Azure Portal을 사용한 이벤트 스트림 처�
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 이벤트 스트림을 처리하는 방법을 알아봅니다.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132443"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004313"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Azure 빠른 시작 - Azure Portal 및 .NET을 사용한 이벤트 스트림 처리
 
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하고 처리할 수 있는 확장성이 뛰어난 데이터 스트리밍 플랫폼 및 수집 서비스입니다. 이 빠른 시작에서는 [Azure Portal](https://portal.azure.com)을 사용하여 이벤트 허브를 만든 다음, .NET Standard SDK를 사용하여 이벤트 허브에서 송수신하는 방법을 보여 줍니다.
 
-이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정][]을 만드세요.
+이 빠른 시작을 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -173,7 +173,7 @@ Event Hubs 네임스페이스는 정규화된 도메인 이름으로 참조되�
 > [!div class="nextstepaction"]
 > [Event Hubs 데이터 스트림에서 잘못된 데이터 시각화](event-hubs-tutorial-visualize-anomalies.md)
 
-[계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure Portal]: https://portal.azure.com/
 [1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-portal/resource-groups2.png

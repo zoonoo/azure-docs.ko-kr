@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 06/20/2018
+ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9ba9bc993832350f6b6ce1c642e2dc852731b6f0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029965"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39720928"
 ---
 <a name="virtual-networking-limits-classic"></a>다음 제한은 구독당 클래식 배포 모델을 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -37,31 +37,37 @@ ms.locfileid: "39029965"
 #### <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한 - Azure Resource Manager
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
+> [!NOTE]
+> 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. **최대 제한** 열이 없는 경우는 리소스에 조정 가능한 제한이 없습니다. 이러한 제한이 이전의 지원으로 증가하고 아래와 같이 업데이트된 제한을 확인하지 않으려는 경우 [무료로 온라인 고객 지원 요청을 열](../articles/azure-resource-manager/resource-manager-quota-errors.md) 수 있습니다.
+
+| 리소스 | 기본 제한 | 
+| --- | --- |
+| 가상 네트워크 |1000 |
+| 가상 네트워크당 서브넷 |3000 |
+| Virtual Network당 가상 네트워크 피어링 |100 |
+| 가상 네트워크당 DNS 서버 |25 |
+| 가상 네트워크당 개인 IP 주소 |65536 |
+| 네트워크 인터페이스당 개인 IP 주소 |256 |
+| 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500K |
+| 네트워크 인터페이스(NIC) |24000 |
+| 네트워크 보안 그룹(NSG) |5,000 |
+| NSG당 NSG 규칙 |1000 |
+| 보안 그룹에서 원본이나 대상에 지정된 IP 주소 및 범위 |4000 |
+| 응용 프로그램 보안 그룹 |3000 |
+| IP 구성당, NIC당 응용 프로그램 보안 그룹 |20 |
+| 응용 프로그램 보안 그룹당 IP 구성 |4000 |
+| 네트워크 보안 그룹의 모든 보안 규칙 내에서 지정할 수 있는 응용 프로그램 보안 그룹 |100 |
+| 사용자 정의 경로 테이블 |200 |
+| 경로 테이블당 사용자 정의 경로 |400 |
+| VPN Gateway당 지점 및 사이트 간 루트 인증서 |20 |
+
+#### <a name="publicip-address"></a>공용 IP 주소 구분
+
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| 가상 네트워크 |50 |1000 |
-| 가상 네트워크당 서브넷 |1000 |10000 |
-| Virtual Network당 가상 네트워크 피어링 |50** |100 |
-| 가상 네트워크당 DNS 서버 |9 |25 |
-| 가상 네트워크당 개인 IP 주소 |16384** |16384 |
-| 네트워크 인터페이스당 개인 IP 주소 |256 |256 |
-| 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500K |500K |
-| 네트워크 인터페이스(NIC) |24000** |24000 |
-| 네트워크 보안 그룹(NSG) |100 |5,000 |
-| NSG당 NSG 규칙 |1000** |1000 |
-| 보안 그룹에서 원본이나 대상에 지정된 IP 주소 및 범위 |2000 |4000 |
-| 응용 프로그램 보안 그룹 |500 |3000 |
-| IP 구성당, NIC당 응용 프로그램 보안 그룹 |10 |20 |
-| 응용 프로그램 보안 그룹당 IP 구성 |1000 |4000 |
-| 네트워크 보안 그룹의 모든 보안 규칙 내에서 지정할 수 있는 응용 프로그램 보안 그룹 |50 |100 |
-| 사용자 정의 경로 테이블 |100 |200 |
-| 경로 테이블당 사용자 정의 경로 |400** |400 |
-| 공용 IP 주소 - 동적 |(기본) 60 |지원에 문의 |
-| 공용 IP 주소 - 고정 |(기본)20 |지원에 문의 |
-| 공용 IP 주소 - 고정 |(표준)20 |지원에 문의 |
-| VPN Gateway당 지점 및 사이트 간 루트 인증서 |20 |20 |
-
-** 이 업데이트된 기본값 제한은 이전에 지원을 통해 한도를 높이지 않은 구독에 적용됩니다. 이러한 제한이 이전의 지원으로 증가하고 새 기본값으로 업데이트하려는 경우 [무료로 온라인 고객 지원 요청 개설](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+| 공용 IP 주소 - 동적 |(기본)200 |지원에 문의 |
+| 공용 IP 주소 - 고정 |(기본)200 |지원에 문의 |
+| 공용 IP 주소 - 고정 |(표준)200 |지원에 문의 |
 
 #### <a name="load-balancer"></a>부하 분산 장치 제한
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.

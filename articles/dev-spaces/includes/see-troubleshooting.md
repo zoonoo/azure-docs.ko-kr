@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 72b516936d5bf0c182953c3b802d8c3db287f105
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: a4c0acd20cc97efd8c235db6f4c47779f12959cd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38728902"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40129278"
 ---
 > [!Note]
 > **의문 사항이 있으면** 언제든지 [문제 해결](../troubleshooting.md) 섹션을 참조하거나 이 페이지에 의견을 게시하세요.

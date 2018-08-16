@@ -2,20 +2,20 @@
 title: 올바른 분할 키를 선택하여 다중 지역 쓰기 및 읽기 수행 | Microsoft Docs
 description: 분할 키를 선택하여 Azure Cosmos DB로 여러 지리적 지역에서 로컬 읽기 및 쓰기가 가능한 응용 프로그램 아키텍처를 디자인하는 방법을 알아봅니다.
 services: cosmos-db
-author: SnehaGunda
+author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 06/6/2018
-ms.author: sngun
+ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18f036a259bbec98382927ad1d9e8f654b56850b
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 3d38b7cd7d1f28f706e94782602926abc8fc11e3
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850364"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038435"
 ---
 # <a name="perform-multi-region-writes-and-reads-by-choosing-the-right-partitioning-key"></a>올바른 분할 키를 선택하여 다중 지역 쓰기 및 읽기 수행
 

@@ -3,7 +3,7 @@ title: Azure Event Hubs와 Apache Spark 통합 | Microsoft Docs
 description: Apache Spark와 통합하여 Event Hubs를 통해 구조적 스트리밍을 사용하도록 설정합니다.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
-ms.author: sethm
-ms.openlocfilehash: 9f1cf75fdea1dd7f5842c2efdaeca663d611065c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: shvija
+ms.openlocfilehash: 301770d8950d820ddace6e47eac8cab5950b7ac8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626924"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004585"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Azure Event Hubs와 Apache Spark 통합
 

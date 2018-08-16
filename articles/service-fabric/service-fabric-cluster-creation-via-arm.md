@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
-ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ccdea2833a24aa9e2bdf4fadd12b19d78b40f999
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444364"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038518"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -341,6 +341,9 @@ Service Fabric 클러스터로 Azure AD를 구성하는 데 포함되는 일부 
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> 국가별 클라우드(Azure Government, Azure 중국, Azure 독일)의 경우 `-Location` 매개 변수를 지정해야 합니다.
+
 PowerShell 명령 `Get-AzureSubscription`을 실행하여 TenantId를 찾을 수 있습니다. 이 명령을 실행하면 모든 구독에 대한 TenantId가 표시됩니다.
 
 ClusterName은 스크립트로 만든 Azure AD 응용 프로그램에 접두사를 지정하는 데 사용됩니다. 실제 클러스터 이름과 정확히 일치할 필요는 없습니다. 단순히 Azure AD 아티팩트를, 함께 사용할 Service Fabric 패브릭 클러스터에 쉽게 매핑하기 위한 것입니다.
@@ -370,6 +373,9 @@ Azure AD 테넌트에 대한 관리자 권한이 있는 계정으로 로그인�
 Service Fabric 클러스터 Resource Manager 템플릿을 사용자 지정 작성하려는 사용자를 위한 섹션입니다. 템플릿이 있다면 다시 돌아가서 PowerShell 또는 CLI 모듈을 사용하여 배포합니다. 
 
 샘플 Resource Manager 템플릿은 [GitHub의 Azure 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates)에서 사용할 수 있습니다. 이러한 템플릿은 클러스터 템플릿의 시작점으로 사용할 수 있습니다.
+
+> [!NOTE]
+> 국가별 클라우드(Azure Government, Azure 중국, Azure 독일)의 경우 다음 `fabricSettings`(`AADLoginEndpoint`, `AADTokenEndpointFormat` 및 `AADCertEndpointFormat`)를 ARM 템플릿에 추가해야 합니다.
 
 ### <a name="create-the-resource-manager-template"></a>리소스 관리자 템플릿 만들기
 이 가이드에서는 [5 노드 보안 클러스터][service-fabric-secure-cluster-5-node-1-nodetype] 예제 템플릿과 템플릿 매개 변수를 사용합니다. `azuredeploy.json`와 `azuredeploy.parameters.json`을 컴퓨터에 다운로드하고 선호하는 텍스트 편집기로 두 파일을 엽니다.
@@ -675,7 +681,7 @@ Service Fabric 클러스터에 연결하려면 다음 PowerShell 명령 예제�
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-Connect-ServiceFabricCluster cmdlet에 대해 알아보려면 [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx)를 참조하세요.
+Connect-ServiceFabricCluster cmdlet에 대해 알아보려면 [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster)를 참조하세요.
 
 ### <a name="can-i-reuse-the-same-azure-ad-tenant-in-multiple-clusters"></a>여러 클러스터에서 동일한 Azure AD테넌트를 다시 사용할 수 있나요?
 예. 그렇지만 Service Fabric Explorer의 URL을 클러스터(웹) 응용 프로그램에 추가해야 합니다. 그러지 않으면 Service Fabric Explorer가 작동하지 않습니다.
@@ -694,7 +700,7 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인�
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
+[active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
@@ -714,4 +720,3 @@ FabricClient와 FabricGateway는 상호 인증을 수행합니다. Azure AD 인�
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-

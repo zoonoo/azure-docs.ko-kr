@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325356"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600339"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Cosmos DB 간 데이터 복사
 
@@ -35,9 +35,9 @@ Azure Cosmos DB에서 모든 지원되는 싱크 데이터 저장소로 또는 �
 특히 이 Azure Cosmos DB 커넥터는 다음을 지원합니다.
 
 - Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction)
-- JSON 문서를 있는 그대로 가져오기/내보내기 또는 표 형식 데이터 집합(예: SQL 데이터베이스, CSV 파일 등) 간 데이터 복사
+- JSON 문서를 있는 그대로 가져오기/내보내기 또는 표 형식 데이터 집합(예: SQL 데이터베이스, CSV 파일 등) 간 데이터 복사 JSON 파일 또는 다른 Cosmos DB 컬렉션 간 있는 그대로 문서를 복사하려면 [JSON 문서 Import/Export](#importexport-json-documents)를 참조하세요.
 
-JSON 파일 또는 다른 Cosmos DB 컬렉션 간 있는 그대로 문서를 복사하려면 [JSON 문서 Import/Export](#importexport-json-documents)를 참조하세요.
+Data Factory는 Cosmos DB에 최상의 성능을 제공하기 위해 [Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)와 통합됩니다.
 
 ## <a name="getting-started"></a>시작
 
@@ -166,7 +166,7 @@ Azure Cosmos DB로 데이터를 복사하려면 복사 작업의 싱크 형식�
 |:--- |:--- |:--- |
 | 형식 | 복사 작업 싱크의 형식 속성을 **DocumentDbCollectionSink**로 설정해야 합니다. |yes |
 | writeBehavior |Cosmos DB에 데이터를 작성하는 방법을 설명합니다. 허용되는 값은 `insert` 및 `upsert`입니다.<br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다. 원래 문서에서 또는 열 매핑으로 지정되지 않은 경우 ADF는 문서에 대한 ID를 자동으로 생성합니다. 이는 upsert가 예상대로 작동하도록 문서에 "ID"가 있는지 확인해야 한다는 의미입니다. |아니요(기본값: 삽입) |
-| writeBatchSize | Data Factory는 [Cosmos DB 대량 실행기](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Cosmos DB에 데이터를 작성합니다. "writeBatchSize"는 매번 라이브러리에 제공하는 문서의 크기를 제어합니다. writeBatchSize를 증가시켜 성능을 향상시킬 수 있습니다. |아니요 |
+| writeBatchSize | Data Factory는 [Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Cosmos DB에 데이터를 작성합니다. "writeBatchSize"는 매번 라이브러리에 제공하는 문서의 크기를 제어합니다. writeBatchSize를 증가시켜 성능을 향상시킬 수 있습니다. |아니요, 기본값은 10,000입니다. |
 | nestingSeparator |중첩된 해당 문서를 나타내는 원본 열 이름에 특수 문자가 필요합니다. <br/><br/>예를 들어, 출력 데이터 집합 구조에서 `Name.First`는 nestedSeparator가 점인 경우 Cosmos DB 문서에서 다음 JSON 구조를 생성합니다. `"Name": {"First": "[value maps to this column from source]"}` |아니요(기본값: 점 `.`) |
 
 **예제:**

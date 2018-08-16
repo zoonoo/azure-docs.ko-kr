@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: raynew
-ms.openlocfilehash: a91543dcea1fb9fb6a33b5a7bc3892a2bac7b241
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215786"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622901"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>그룹 종속성 매핑을 사용하여 그룹 구체화
 
@@ -56,7 +56,7 @@ Linux 컴퓨터에 에이전트를 설치하려면
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-종속성 에이전트에서 지원하는 운영 체제에 대해 [자세히 알아보세요](../monitoring/monitoring-service-map-configure.md#supported-operating-systems). 
+[Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) 및 [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) 운영 체제에 대한 종속성 에이전트 지원에 대해 자세히 알아보세요.
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>종속성 시각화를 기반으로 그룹 구체화
 그룹의 모든 시스템에 에이전트를 설치했으면 아래 단계에 따라 그룹의 종속성을 시각화하고 그룹을 구체화할 수 있습니다.

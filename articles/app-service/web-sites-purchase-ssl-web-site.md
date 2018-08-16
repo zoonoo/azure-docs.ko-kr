@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807461"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627147"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Azure App Service에 대한 SSL 인증서 구입 및 구성
 
 이 자습서에서는 **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)** 에 대한 SSL 인증서를 구매하여 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)에 안전하게 저장하고 사용자 지정 도메인과 연결하여 웹앱의 보안을 유지하는 방법을 보여 줍니다.
 
-## <a name="step-1---log-in-to-azure"></a>1단계 - Azure에 로그인
+## <a name="step-1---sign-in-to-azure"></a>1단계 - Azure에 로그인
 
-http://portal.azure.com에서 Azure Portal에 로그인
+http://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>2단계 - SSL 인증서 주문하기
 
@@ -38,7 +38,7 @@ http://portal.azure.com에서 Azure Portal에 로그인
 SSL 인증서에 친숙한 **이름** 및 **도메인 이름**을 입력합니다.
 
 > [!NOTE]
-> 이 단계는 구매 프로세스의 가장 중요한 부분 중 하나입니다. 이 인증서로 보호하려면 올바른 호스트 이름(사용자 지정 도메인)을 입력 해야 합니다. **마세요** . 
+> 이 단계는 구매 프로세스의 가장 중요한 부분 중 하나입니다. 이 인증서로 보호하려면 올바른 호스트 이름(사용자 지정 도메인)을 입력 해야 합니다. 호스트 이름에 접두어 WWW를 붙이지 **마세요**. 
 >
 
 **구독**, **리소스 그룹** 및 **인증서 SKU**를 선택합니다.
@@ -78,7 +78,7 @@ SSL 인증서 구입을 완료했으면 [App Service Certificate](https://portal
 
 기본 도메인 확인 방법을 선택합니다. 
 
-App Service Certificate에서는 도메인 확인 방법으로 App Service, 도메인, 메일 및 수동 확인을 지원합니다. 이러한 확인 유형은 [고급 섹션](#advanced)에 자세히 설명되어 있습니다.
+App Service Certificate에서는 도메인 확인 방법으로 App Service, 도메인 및 수동 확인을 지원합니다. 이러한 확인 유형은 [고급 섹션](#advanced)에 자세히 설명되어 있습니다.
 
 > [!NOTE]
 > **App Service 확인**은 확인하려는 도메인이 동일한 구독의 App Service 앱에 이미 매핑된 경우 가장 편리한 옵션입니다. App Service 앱이 도메인 소유권을 이미 확인했다는 사실을 활용합니다.
@@ -135,16 +135,7 @@ App Service Certificate에서는 도메인 확인 방법으로 App Service, 도�
 
 ### <a name="verifying-domain-ownership"></a>도메인 소유권 확인
 
-App Service Certificate에서는 도메인 확인 방법으로 메일 확인 및 수동 확인도 지원합니다.
-
-#### <a name="mail-verification"></a>메일 확인
-
-확인 전자 메일이 이 사용자 지정 도메인과 연결된 전자 메일 주소로 이미 전송되었습니다.
-메일 확인 단계를 완료하려면 메일을 열고 확인 링크를 클릭합니다.
-
-![메일 확인 이미지 삽입](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-확인 전자 메일을 다시 전송해야 하는 경우 **전자 메일 다시 보내기** 단추를 클릭합니다.
+App Service Certificate는 도메인 확인 방법으로 도메인 확인 및 수동 확인을 지원합니다.
 
 #### <a name="domain-verification"></a>도메인 확인
 
@@ -199,11 +190,11 @@ IP 기반 SSL 바인딩을 구성하면 앱에 전용 IP 주소가 할당됩니�
 
 ## <a name="renew-the-certificate"></a>인증서 갱신
 
-언제든지 인증서의 자동 갱신을 켜려면 인증서 관리 페이지에서 **자동 갱신 설정**을 클릭합니다. **켜기**를 선택하고 **저장**을 클릭합니다.
+언제든지 인증서의 자동 갱신을 켜려면 인증서 관리 페이지에서 **자동 갱신 설정**을 클릭합니다. **켜기**를 선택하고 **저장**을 클릭합니다. 자동 갱신을 켜 놓으면 인증서가 만료 90일 전에 자동으로 갱신됩니다.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-인증서를 수동으로 갱신하려면 **수동 갱신**을 대신 클릭합니다.
+인증서를 수동으로 갱신하려면 **수동 갱신**을 대신 클릭합니다. 만료 60일 전에 인증서를 자동으로 갱신하도록 요청할 수 있습니다.
 
 > [!NOTE]
 > 갱신된 인증서는 수동으로 갱신했는지 또는 자동으로 갱신했는지 여부에 따라 앱에 자동으로 바인딩되지 않습니다. 앱에 바인딩하려면 [인증서 갱신](./app-service-web-tutorial-custom-ssl.md#renew-certificates)을 참조하세요. 

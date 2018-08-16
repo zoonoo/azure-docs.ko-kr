@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 28f5ac882051250903fc2f45def95eb65d1b1ce3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635541"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626875"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -48,6 +48,7 @@ NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 �
 * 서유럽
 * 미국 중서부
 * 미국 동부
+* 일본 동부
 * 동남아시아
 * 오스트레일리아 동남부
 * 영국 남부

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdbcfca64c2e680dfdf8feefe1bafdefb84981f4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 975b3d30f242b877512312f8a5a030bde9349287
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125823"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003650"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Azure에서 Log Analytics 서비스에 Windows 컴퓨터 연결
 
@@ -154,7 +154,7 @@ Windows용 Microsoft Monitoring Agent를 설치하기 전에 Log Analytics 작�
     ```
 
 4. Automation 계정으로 [MMAgent.ps1 구성 스크립트를 가져옵니다](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation). 
-5. 구성에 [Windows 컴퓨터 또는 노드를 할당](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-dsc)합니다. 15분 이내에 노드가 구성을 점검하고 에이전트가 노드로 푸시됩니다.
+5. 구성에 [Windows 컴퓨터 또는 노드를 할당](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration)합니다. 15분 이내에 노드가 구성을 점검하고 에이전트가 노드로 푸시됩니다.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Log Analytics에 대한 에이전트 연결 확인
 

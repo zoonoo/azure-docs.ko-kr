@@ -2,19 +2,19 @@
 title: Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화 | Microsoft Docs
 description: 자습서 - Microsoft Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132711"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004116"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs로 보내는 실시간 이벤트에서 데이터 변칙 시각화
 
@@ -30,7 +30,7 @@ Azure Event Hubs에서는 Azure Stream Analytics를 사용하여 들어오는 �
 > * 이러한 트랜잭션을 처리하는 Stream Analytics 작업 구성
 > * Power BI 시각화를 구성하여 결과 표시
 
-이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정][]을 만드세요.
+이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정을 만드세요][].
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -382,4 +382,4 @@ Azure Event Hubs에 대해 자세히 알아보려면 다음 문서를 진행하�
 > [!div class="nextstepaction"]
 > [.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작](event-hubs-dotnet-standard-getstarted-send.md)
 
-[계정]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

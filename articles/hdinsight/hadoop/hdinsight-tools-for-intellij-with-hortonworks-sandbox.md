@@ -1,26 +1,21 @@
 ---
-title: Hortonworks 샌드박스에서 IntelliJ용 Azure 도구 키트 사용 | Microsoft Docs
+title: Hortonworks 샌드박스에서 Azure Toolkit for IntelliJ 사용
 description: Hortonworks 샌드박스에서 IntelliJ용 Azure 도구 키트의 HDInsight Tools 사용 방법을 알아봅니다.
 keywords: hadoop 도구,hive 쿼리,intellij,hortonworks 샌드박스,intellij용 azure 도구 키트
-services: HDInsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: b587cc9b-a41a-49ac-998f-b54d6c0bdfe0
+services: hdinsight
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 59251287f7597955fe22700cc96527b9476753c1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: ff0c41e620819da008a7a587bf245328a7239271
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202546"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600230"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>Hortonworks 샌드박스에서 IntelliJ용 HDInsight Tools 사용
 

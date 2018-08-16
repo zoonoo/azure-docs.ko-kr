@@ -2,61 +2,60 @@
 title: Azure SQL Database 파일 공간 관리| Microsoft Docs
 description: 이 페이지에서는 Azure SQL Database에서 파일 공간을 관리하는 방법을 설명하고 데이터베이스를 축소해야 하는지 결정하는 방법은 물론 데이터베이스 축소 작업을 수행하는 방법을 위한 코드 샘플을 제공합니다.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 1ecc0ce08ef42f5f5935bca29e8269be2ea142f0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39416006"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003861"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Azure SQL Database에서 파일 공간 관리리
-
-이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 고객이 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
+이 문서에서는 Azure SQL Database의 다양한 종류의 저장소 공간을 설명하고 데이터베이스 및 탄력적 풀에 할당된 파일 공간을 명시적으로 관리해야 하는 경우 취할 수 있는 단계를 설명합니다.
 
 ## <a name="overview"></a>개요
 
-Azure SQL Database에서 Azure Portal 및 다음 API에 표시되는 저장소 크기 메트릭은 데이터베이스 및 탄력적 풀의 사용된 데이터 페이지 수를 측정합니다.
+Azure SQL Database에서 Azure Portal 및 다음 API에 표시되는 대부분의 저장소 공간 메트릭은 데이터베이스 및 탄력적 풀의 사용된 데이터 페이지 수를 측정합니다.
 - PowerShell [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric)를 포함한 Azure Resource Manager 기반 메트릭 API
 - T-SQL: [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-데이터베이스에 대한 기본 데이터 파일의 공간 할당이 데이터 파일에서 사용된 데이터 페이지의 수보다 커지는 워크로드 패턴이 있습니다. 이런 시나리오는 사용된 공간이 증가한 다음, 데이터가 삭제되는 경우 발생합니다. 데이터가 삭제되는 경우, 할당되어 있는 파일 공간은 자동으로 회수되지 않습니다. 이런 시나리오에서 데이터베이스나 풀에 할당된 공간이 데이터베이스에 설정된(또는 지원되는) 최대 한도를 초과하고, 그 결과, 실제 사용되는 데이터베이스 공간이 최대 공간 한도보다 작은 경우에도 데이터 증가를 막거나 성능 계층 변경을 막게 됩니다. 이런 문제를 완화하려면 데이터베이스에서 할당되었지만 사용되지 않은 공간을 줄이기 위해 데이터베이스를 축소해야 할 수 있습니다.
+데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다.  이는 사용된 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생합니다.  데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.  이러한 시나리오에서는 데이터베이스 또는 풀에 할당된 공간이 지원되는 제한을 초과할 수 있습니다. 데이터 증가를 방지하거나 성능 계층 변경을 방지하고, 완화하기 위해 데이터 파일을 축소합니다.
 
-SQL Database 서비스는 사용되지 않은 할당된 공간을 회수하기 위해 데이터베이스 파일을 자동으로 축소하지 않습니다. 이렇게 하면 데이터베이스 성능에 잠재적인 영향을 미치기 때문입니다. 하지만 [사용되지 않은 할당된 공간 회수](#reclaim-unused-allocated-space)에 설명된 단계를 수행하면 선택한 시간에 데이터베이스의 파일을 축소할 수 있습니다. 
+SQL DB 서비스는 사용되지 않은 할당된 공간을 회수하기 위해 데이터 파일을 자동으로 축소하지 않습니다. 이렇게 하면 데이터베이스 성능에 잠재적인 영향을 미치기 때문입니다.  하지만 고객이 [사용되지 않은 할당된 공간 회수](#reclaim-unused-allocated-space)에 설명된 단계를 수행하기로 선택하면 셀프 서비스를 통해 데이터의 파일을 축소할 수 있습니다. 
 
 > [!NOTE]
-> 데이터 파일과 달리 SQL Database 서비스는 로그 파일을 자동으로 축소합니다. 이 작업은 데이터베이스 성능에 영향을 미치지 않기 때문입니다.
+> 데이터 파일과 달리 SQL Database 서비스는 로그 파일을 자동으로 축소합니다. 이 작업은 데이터베이스 성능에 영향을 미치지 않기 때문입니다. 
 
-## <a name="understanding-the-types-of-storage-space-for-a-database"></a>데이터베이스의 저장소 공간 유형 이해
+## <a name="understanding-types-of-storage-space-for-a-database"></a>데이터베이스의 저장소 공간 유형 이해
 
-파일 공간을 관리하려면 단일 데이터베이스와 탄력적 풀 모두의 데이터베이스 저장소와 관련된 다음 용어를 이해해야 합니다.
+다음 저장소 공간 수량을 이해하는 것은 데이터베이스의 파일 공간을 관리하는 데 중요합니다.
 
-|저장소 공간 용어|정의|설명|
+|데이터베이스 수량|정의|설명|
 |---|---|---|
-|**사용된 데이터 공간**|8KB 페이지에 데이터베이스 데이터를 저장하는 데 사용된 공간의 크기입니다.|일반적으로 사용된 공간은 삽입(삭제) 시 증가(감소)합합니다. 작업 및 조각화와 관련된 데이터의 크기 및 패턴에 따라 삽입 또는 삭제 시 사용된 공간이 변경되지 않는 경우가 있습니다. 예를 들어 모든 데이터 페이지에서 하나의 행을 삭제한다고 해서 사용된 공간이 반드시 감소하지는 않습니다.|
-|**할당된 공간**|데이터베이스 데이터 저장에 사용할 수 있는 형식화된 파일의 크기입니다.|할당된 공간은 자동으로 증가하지만 삭제 후에는 감소하지 않습니다. 이 동작은 공간을 다시 형식화할 필요가 없기 때문에 향후 삽입이 더 빨라질 수 있습니다.|
-|**할당되었지만 사용되지 않은 공간**|데이터베이스에 할당된 사용되지 않은 데이터 파일의 크기입니다.|이 양은 할당된 공간의 크기와 사용된 공간의 크기의 차이이며 데이터베이스 파일을 축소하여 회수할 수 있는 최대 공간 크기를 나타냅니다.|
-|**최대 크기**|데이터베이스에 사용할 수 있는 최대 데이터 공간의 크기입니다.|할당된 데이터 공간은 데이터 최대 크기를 초과할 수 없습니다.|
+|**사용된 데이터 공간**|8KB 페이지에 데이터베이스 데이터를 저장하는 데 사용된 공간의 크기입니다.|일반적으로 사용된 공간은 삽입(삭제) 시 증가(감소)합니다. 작업 및 조각화와 관련된 데이터의 크기 및 패턴에 따라 삽입 또는 삭제 시 사용된 공간이 변경되지 않는 경우가 있습니다. 예를 들어 모든 데이터 페이지에서 하나의 행을 삭제한다고 해서 사용된 공간이 반드시 감소하지는 않습니다.|
+|**할당된 데이터 공간**|데이터베이스 데이터 저장에 사용할 수 있는 형식화된 파일 공간의 크기입니다.|할당된 공간의 크기는 자동으로 증가하지만 삭제 후에는 감소하지 않습니다. 이 동작은 공간을 다시 형식화할 필요가 없기 때문에 향후 삽입이 더 빨라질 수 있습니다.|
+|**할당되었지만 사용되지 않은 데이터 공간**|할당된 데이터 공간의 크기와 사용된 데이터 공간 간의 차이입니다.|이 수량은 데이터베이스 데이터 파일을 축소하면 회수할 수 있는 사용 가능한 공간의 최대 크기를 나타냅니다.|
+|**데이터 최대 크기**|데이터베이스 데이터 저장에 사용할 수 있는 최대 공간의 크기입니다.|할당된 데이터 공간 크기는 데이터 최대 크기를 초과할 수 없습니다.|
 ||||
 
-다음 다이어그램에서는 저장소 공간 유형 간의 관계를 보여줍니다.
+다음 다이어그램에서는 데이터베이스에 대한 여러 저장소 공간 유형 간의 관계를 보여 줍니다.
 
-![저장소 공간 유형 및 관계](./media/sql-database-file-space-management/storage-types.png)
+![저장소 공간 유형 및 관계](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>저장소 공간 정보를 데이터베이스에 쿼리
 
-회수하려는 개별 데이터에 대해 할당되었지만 사용되지 않는 데이터 공간이 있는지 확인하려면 다음 쿼리를 사용합니다.
+데이터베이스에 대한 저장소 공간 수량을 확인하려면 다음 쿼리를 사용할 수 있습니다.  
 
 ### <a name="database-data-space-used"></a>사용된 데이터베이스 데이터 공간
-다음 쿼리를 수정하여 MB 단위로 사용되는 데이터베이스 데이터 공간의 크기를 반환합니다.
+다음 쿼리를 수정하여 사용된 데이터베이스 데이터 공간의 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
 -- Connect to master
@@ -67,8 +66,8 @@ WHERE database_name = 'db1'
 ORDER BY end_time DESC
 ```
 
-### <a name="database-data-allocated-and-allocated-space-unused"></a>할당된 데이터베이스 데이터 및 할당된 사용되지 않는 공간
-다음 쿼리를 수정하여 할당된 데이터베이스 데이터 크기 및 할당된 사용되지 않는 공간을 반환합니다.
+### <a name="database-data-space-allocated-and-unused-allocated-space"></a>할당된 데이터베이스 데이터 공간 및 사용되지 않은 공간
+다음 쿼리를 사용하여 할당된 데이터베이스 데이터 공간 크기 및 할당된 사용되지 않은 공간 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
 -- Connect to database
@@ -80,8 +79,8 @@ GROUP BY type_desc
 HAVING type_desc = 'ROWS'
 ```
  
-### <a name="database-max-size"></a>데이터베이스 최대 크기
-다음 쿼리를 수정하여 데이터베이스 최대 크기를 바이트 단위로 반환합니다.
+### <a name="database-data-max-size"></a>데이터베이스 데이터 최대 크기
+다음 쿼리를 수정하여 데이터베이스 데이터 최대 크기를 반환합니다.  쿼리 결과의 단위는 바이트입니다.
 
 ```sql
 -- Connect to database
@@ -89,12 +88,24 @@ HAVING type_desc = 'ROWS'
 SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 ```
 
+## <a name="understanding-types-of-storage-space-for-an-elastic-pool"></a>탄력적 풀을 위한 저장소 공간 유형 이해
+
+다음 저장소 공간 수량을 이해하는 것은 탄력적 풀의 파일 공간을 관리하는 데 중요합니다.
+
+|탄력적 풀 수량|정의|설명|
+|---|---|---|
+|**사용된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 사용되는 데이터 공간의 합계입니다.||
+|**할당된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 합계입니다.||
+|**할당되었지만 사용되지 않은 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 크기와 사용된 데이터 공간 간의 차이입니다.|이 수량은 데이터베이스 데이터 파일을 축소하면 회수할 수 있는 탄력적 풀에 대해 할당된 공간의 최대 크기를 나타냅니다.|
+|**데이터 최대 크기**|해당 데이터베이스 모두에 대해 탄력적 풀에서 사용할 수 있는 최대 데이터 공간의 크기입니다.|탄력적 풀에 할당된 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  초과하는 경우에는 사용되지 않은 할당된 공간은 데이터베이스 데이터 파일을 축소하여 회수할 수 있습니다.|
+||||
+
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>저장소 공간 정보를 탄력적 풀에 쿼리
 
-회수하려는 풀링된 데이터베이스 및 탄력적 풀에 할당되었지만 사용되지 않는 데이터 공간이 있는지 확인하려면 다음 쿼리를 사용합니다.
+탄력적 풀에 대한 저장소 공간 수량을 확인하려면 다음 쿼리를 사용할 수 있습니다.  
 
 ### <a name="elastic-pool-data-space-used"></a>사용되는 탄력적 풀 데이터 공간
-다음 쿼리를 수정하여 MB 단위로 사용되는 탄력적 풀 데이터 공간의 크기를 반환합니다.
+다음 쿼리를 수정하여 사용된 탄력적 풀 데이터 공간의 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
 -- Connect to master
@@ -105,11 +116,11 @@ WHERE elastic_pool_name = 'ep1'
 ORDER BY end_time DESC
 ```
 
-### <a name="elastic-pool-data-allocated-and-allocated-space-unused"></a>할당된 탄력적 풀 데이터 및 할당된 사용되지 않는 공간
+### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>할당된 탄력적 풀 데이터 공간 및 사용되지 않은 공간
 
-다음 PowerShell 스크립트를 수정하여 탄력적 풀의 각 데이터베이스에 대해 할당된 사용되지 않는 공간과 할당된 전체 공간이 나열된 테이블을 반환합니다. 테이블에는 할당된 사용되지 않는 공간이 가장 큰 데이터베이스에서 할당된 사용되지 않는 공간이 가장 작은 데이터베이스 순서로 정렬됩니다.  
+다음 PowerShell 스크립트를 수정하여 탄력적 풀의 각 데이터베이스에 대해 할당된 공간 및 사용되지 않은 할당된 공간이 나열된 테이블을 반환합니다. 테이블에는 데이터베이스가 사용되지 않은 할당된 공간이 가장 큰 것에서 사용되지 않은 할당된 공간이 가장 작은 순서로 정렬됩니다.  쿼리 결과의 단위는 MB입니다.  
 
-풀의 각 데이터베이스에 할당된 공간을 확인하는 쿼리 결과를 함께 추가하여 할당된 탄력적 풀 공간을 확인할 수 있습니다. 할당된 탄력적 풀 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  
+풀의 각 데이터베이스에 할당된 공간을 확인하는 쿼리 결과를 함께 추가하여 탄력적 풀에 대한 할당된 총 공간을 확인할 수 있습니다. 할당된 탄력적 풀 공간은 탄력적 풀 최대 크기를 초과할 수 없습니다.  
 
 ```powershell
 # Resource group name
@@ -160,9 +171,9 @@ Write-Output $databaseStorageMetrics | Sort `
 
 ![탄력적 풀에 할당된 공간 및 사용되지 않는 할당된 공간 예](./media/sql-database-file-space-management/elastic-pool-allocated-unused.png)
 
-### <a name="elastic-pool-max-size"></a>탄력적 풀 최대 크기
+### <a name="elastic-pool-data-max-size"></a>탄력적 풀 데이터 최대 크기
 
-다음 T-SQL 쿼리를 사용하여 탄력적 데이터베이스 최대 크기를 MB 단위로 반환합니다.
+다음 T-SQL 쿼리를 수정하여 탄력적 풀 데이터 최대 크기를 반환합니다.  쿼리 결과의 단위는 MB입니다.
 
 ```sql
 -- Connect to master
@@ -175,19 +186,14 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>사용되지 않는 할당된 공간 회수
 
-회수하려는 사용되지 않는 할당된 공간이 있다는 것이 확인되면 다음 명령을 사용하여 할당된 데이터베이스 공간을 축소합니다. 
-
-> [!IMPORTANT]
-> 탄력적 풀에 있는 데이터베이스에 대해, 할당된 사용되지 않는 공간이 가장 큰 데이터베이스를 먼저 축소하여 파일 공간을 가장 빠르게 회수해야 합니다.  
-
-다음 명령을 사용하여 지정된 데이터베이스에 있는 모든 데이터 파일을 축소합니다.
+사용되지 않은 할당된 공간을 회수하기 위해 데이터베이스를 확인하고 나면, 다음 명령을 수정하여 각 데이터베이스에 대한 데이터 파일을 축소합니다.
 
 ```sql
 -- Shrink database data space allocated.
-DBCC SHRINKDATABASE (N'<database_name>')
+DBCC SHRINKDATABASE (N'db1')
 ```
 
-이 명령에 대한 자세한 내용은 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)를 참조하세요.
+이 명령에 대한 자세한 내용은 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)를 참조하세요. 
 
 > [!IMPORTANT] 
 > 데이터베이스 데이터 파일이 축소된 후에는 인덱스가 조각화되어 성능 최적화 효과가 없을 수 있으므로 데이터베이스 인덱스를 다시 작성하는 것이 좋습니다. 이런 문제가 발생하면 인덱스를 다시 작성해야 합니다. 조각화 및 인덱스 다시 작성에 대한 자세한 내용은 [인덱스 재구성 및 다시 작성](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)을 참조하세요.

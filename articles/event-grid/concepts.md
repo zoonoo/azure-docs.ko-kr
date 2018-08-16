@@ -3,17 +3,16 @@ title: Azure Event Grid 개념
 description: Azure Event Grid 및 해당 개념을 설명합니다. Event Grid의 몇 가지 주요 구성 요소를 정의합니다.
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: abc1302f0317c8d5ecdc7ddaf8ca6d3a9e82b582
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626038"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621204"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid의 개념
 
@@ -72,6 +71,10 @@ Event Grid는 토픽 구독 및 게시에 대한 보안을 제공합니다. 구�
 ## <a name="event-delivery"></a>이벤트 전달
 
 Event Grid에서 이벤트가 구독자의 끝점에서 수신되었는지 확인할 수 없는 경우 이벤트를 다시 배달합니다. 자세한 내용은 [Event Grid 메시지 배달 및 재시도](delivery-and-retry.md)를 참조하세요.
+
+## <a name="batching"></a>일괄 처리
+
+사용자 지정 토픽을 사용하는 경우 이벤트를 항상 배열에 게시해야 합니다. 처리량이 적은 시나리오를 위한 일괄 처리로 사용할 수 있지만, 볼륨이 큰 사용 사례인 경우 효율을 높일 수 있도록 게시마다 여러 이벤트를 일괄 처리하는 것이 좋습니다. 일괄 처리의 최대 크기는 1MB입니다. 각 이벤트도 64KB를 넘으면 안 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

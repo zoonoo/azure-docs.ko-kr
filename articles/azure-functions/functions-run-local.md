@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126217"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618617"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -33,9 +33,9 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 + [버전 1.x](#v1): GA(일반 공급) 상태인 1.x 버전의 런타임을 지원합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://docs.npmjs.com/getting-started/what-is-npm)에서 설치됩니다. 이 버전을 사용하면 공식적으로 지원되지 않는 실험적 언어로 함수를 만들 수 있습니다. 자세한 내용은 [Azure Functions에서 지원되는 언어](supported-languages.md)를 참조하세요.
 
-+ [버전 2.x](#v2): 런타임 버전 2.x를 지원합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 지원합니다. 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다. 2.x 런타임과 같이 이 버전의 핵심 도구는 현재 미리 보기 상태입니다.
++ [버전 2.x](#v2): [런타임 버전 2.x](functions-versions.md)를 지원합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 지원합니다. 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다. 2.x 런타임과 같이 이 버전의 핵심 도구는 현재 미리 보기 상태입니다. 
 
-언급이 없는 경우 이 아티클의 예제는 2.x 버전용입니다.
+언급이 없는 경우 이 아티클의 예제는 2.x 버전용입니다. 버전 2.x에서 주요 변경 알림을 비롯한 중요한 업데이트를 받으려면 [Azure App Service 알림](https://github.com/Azure/app-service-announcements/issues) 리포지토리를 확인하세요.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 

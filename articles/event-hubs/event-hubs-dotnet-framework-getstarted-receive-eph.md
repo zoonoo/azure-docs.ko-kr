@@ -3,7 +3,7 @@ title: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신 | 
 description: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트를 수신하려면 이 자습서를 따르세요.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: c4974bd3-2a79-48a1-aa3b-8ee2d6655b28
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: 4f74b0f90795362d3e509fdbd33e5f358227f147
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: 8fbce92c8c703b86d86367f83329cfa853bc5e4d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436874"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003504"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-the-net-framework"></a>.NET Framework를 사용하여 Azure Event Hubs에서 이벤트 수신
 
@@ -46,13 +46,13 @@ Azure Event Hubs는 연결된 장치 및 응용 프로그램에서 많은 양의
 
 [이벤트 프로세서 호스트][EventProcessorHost]를 사용하려면 [Azure Storage 계정][Azure Storage account]이 있어야 합니다.
 
-1. [Azure Portal][Azure portal]에 로그인하고 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
+1. [Azure Portal][Azure portal]에 로그온하고 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
 
-2. **저장소**를 클릭한 다음 **Storage 계정**을 클릭합니다.
+2. **저장소**를 클릭한 다음, **저장소 계정**을 클릭합니다.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage1.png)
 
-3. **저장소 계정 만들기** 창에서 저장소 계정의 이름을 입력합니다. 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다. 그런 다음 **Create**를 클릭합니다.
+3. **저장소 계정 만들기** 창에서 저장소 계정의 이름을 입력합니다. 리소스를 만들 Azure 구독, 리소스 그룹 및 위치를 선택합니다. 그런 다음, **만들기**를 클릭합니다.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 

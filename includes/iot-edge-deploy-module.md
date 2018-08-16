@@ -5,15 +5,15 @@ services: iot-edge
 author: kgremban
 ms.service: iot-edge
 ms.topic: include
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: 3e7fcde204966e5a6a8154ab307807652cfa0419
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 06e2be14cf7592edf373b6f679ac5d9ff3c87269
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37086214"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40161459"
 ---
 Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치에 모듈을 배포할 수 있다는 것입니다. IoT Edge 모듈은 컨테이너로 구현되는 실행 가능한 패키지입니다. 이 섹션에서는 시뮬레이트된 장치에 대한 원격 분석을 생성하는 모듈을 배포합니다. 
 
@@ -33,7 +33,7 @@ Azure IoT Edge의 주요 기능 중 하나는 클라우드에서 IoT Edge 장치
    ```json
    {
        "routes": {
-           "route": "FROM /* INTO $upstream"
+           "route": "FROM /messages/* INTO $upstream"
        }
    }
    ```

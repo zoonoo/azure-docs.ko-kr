@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37907046"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40026767"
 ---
 범용 VM 크기는 적당한 CPU 대 메모리 비율을 제공합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. 이 문서에서는 이 그룹화에서 크기에 대한 저장소 처리량 뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다. 
 
@@ -21,7 +21,7 @@ ms.locfileid: "37907046"
 
 - 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈 CPU는 D 시리즈 CPU보다 약 35% 빠릅니다. 최신 출시된 Intel Xeon® E5-2673 v3 2.4GHz(Haswell) 또는 E5-2673 v4 2.3GHz(Broadwell) 프로세서를 기반으로 하며, Intel Turbo Boost Technology 2.0과 함께 사용하면 최대 3.1GHz까지 확장할 수 있습니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
-- Dv3 시리즈는 Dv2 시리즈와 동일한 프로세서를 사용하지만 하이퍼 스레드 구성이며, 대부분의 범용 워크로드에 대해 더 나은 가치를 제공하고 Dv3을 다른 대부분 클라우드의 범용 VM과 맞춥니다.  하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(~ 3.5GiB/vCPU에서 4GiB/vCPU로).  Dv3은 더 이상 D/Dv2 제품군의 높은 메모리 VM 크기를 가지지 않으며, 새로운 Ev3 제품군으로 이동되었습니다.
+- Dv3 시리즈는 하이퍼 스레드 구성에서 2.4 GHz Intel Xeon® E5-2673 v3 기능(Haswell) 프로세서 또는 최신 2.3 GHz Intel XEON® E5-2673 v4(Broadwell) 프로세서를 갖추고 대부분의 범용 워크로드에 더 나은 가치를 제공합니다.  하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(~ 3.5GiB/vCPU에서 4GiB/vCPU로).  Dv3은 더 이상 D/Dv2 제품군의 높은 메모리 VM 크기를 가지지 않으며, 새로운 Ev3 제품군으로 이동되었습니다.
 
 
 ## <a name="b-series"></a>B 시리즈

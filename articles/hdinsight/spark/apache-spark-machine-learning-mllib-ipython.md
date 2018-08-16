@@ -1,26 +1,21 @@
 ---
-title: HDInsight의 Spark MLlib에서 Machine Learning 예제 - Azure | Microsoft Docs
+title: HDInsight의 Spark MLlib를 사용한 Machine Learning 예제 - Azure
 description: 로지스틱 회귀를 통해 분류를 사용하여 데이터 집합을 분석하는 Machine Learning 앱을 만드는 데 Spark MLlib를 사용하는 방법에 대해 알아봅니다.
 keywords: Spark Machine Learning, Spark Machine Learning 예제
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c0fd4baa-946d-4e03-ad2c-a03491bd90c8
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jgao
-ms.openlocfilehash: 1fc89f2181a5b9fb6b6c5a26d974b016fa1926a6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.author: jasonh
+ms.openlocfilehash: 068d5ee7200f9597da11c0a2850ef4941f4ea900
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34361338"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619535"
 ---
 # <a name="use-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Spark MLlib을 사용하여 Machine Learning 응용 프로그램 빌드 및 데이터 집합 분석
 

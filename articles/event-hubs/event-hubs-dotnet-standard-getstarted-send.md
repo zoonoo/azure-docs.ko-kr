@@ -3,7 +3,7 @@ title: .NET Standard를 사용하여 Azure Event Hubs로 이벤트 전송 | Micr
 description: .NET Standard를 사용하여 Event Hubs로 이벤트 전송 시작
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/01/2018
-ms.author: sethm
-ms.openlocfilehash: 3dba92467dfaf377236a25f48899a8a53c587a82
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 0f18ed663eff9199aa32597566db905cef912a71
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130976"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004714"
 ---
 # <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작
 

@@ -3,7 +3,7 @@ title: Azure Event Hubs 캡처 연습 | Microsoft Docs
 description: Azure Python SDK를 통해 Event Hubs 캡처 기능을 사용하는 방법을 보여 주는 샘플입니다.
 services: event-hubs
 documentationcenter: ''
-author: djrosanova
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: bdff820c-5b38-4054-a06a-d1de207f01f6
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
-ms.author: sethm
-ms.openlocfilehash: 97cadbde2ddedade1a8688f1380b9ff9194613e7
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: shvija
+ms.openlocfilehash: b38e64891ce1065290d46f0fae2d22e151e03e4d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28016460"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005617"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>Event Hubs 캡처 연습: Python
 

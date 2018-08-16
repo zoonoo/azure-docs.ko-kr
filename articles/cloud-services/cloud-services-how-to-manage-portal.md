@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3e4520df5c1ca8477abf5a9c4b4e7e124bb38282
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005760"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038579"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Azure Portal에서 Cloud Services 관리
 Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습니다.
@@ -83,7 +83,7 @@ Azure Portal의 **Cloud Services** 영역에서 다음을 수행할 수 있습�
 
 - 프로덕션 슬롯에 정적 IP 주소를 사용하려는 경우에는 스테이징 슬롯에 대해서도 하나를 예비해 두어야 합니다. 그러지 않으면 교체가 실패합니다.
 
-- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 **개요** 블레이드에서 인스턴스의 상태를 확인할 수 있습니다. 또는 Windows PowerShell에서 [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) 명령을 사용할 수 있습니다.
+- 역할의 모든 인스턴스는 교체를 수행하기 전에 실행해야 합니다. Azure Portal의 **개요** 블레이드에서 인스턴스의 상태를 확인할 수 있습니다. 또는 Windows PowerShell에서 [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) 명령을 사용할 수 있습니다.
 
 게스트 OS 업데이트 및 서비스 복구 작업으로 인해 배포 교환이 실패할 수도 있습니다. 자세한 내용은 [클라우드 서비스 배포 문제 해결](cloud-services-troubleshoot-deployment-problems.md)을 참조하세요.
 

@@ -1,25 +1,20 @@
 ---
-title: Jupyter를 로컬로 설치하고 Azure HDInsight Spark 클러스터에 연결 | Microsoft Docs
-description: 컴퓨터에 로컬로 Jupyter 노트북을 설치하고 Azure HDInsight에서 Apache Spark 클러스터에 연결하는 방법을 알아봅니다.
+title: Jupyter를 로컬로 설치하고 Azure HDInsight에서 Spark에 연결
+description: 컴퓨터에서 로컬로 Jupyter 노트북을 설치하고 Apache Spark 클러스터에 연결하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 48593bdf-4122-4f2e-a8ec-fdc009e47c16
 ms.service: hdinsight
+author: jasonwhowell
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: eea61586054f34142d77f16333fe70a66d95d529
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 5e1a089f24a3223220b703bd4225e2750c7cae72
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528361"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619246"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -44,7 +39,7 @@ HDInsight 클러스터의 Jupyter Notebook에 사용할 수 있는 사용자 지
 Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. Python 및 Jupyter 둘 다 [Anaconda 배포](https://www.continuum.io/downloads)의 일부로 사용할 수 있습니다. Anaconda를 설치할 때 Python 배포를 설치하게 됩니다. Anaconda를 설치한 후 적절한 명령을 실행하여 Jupyter 설치를 추가합니다.
 
 1. 사용하는 플랫폼용 [Anaconda 설치 관리자](https://www.continuum.io/downloads) 를 다운로드하고 설치 프로그램을 실행합니다. 설치 마법사를 실행하는 동안 PATH 변수에 Anaconda를 추가하는 옵션을 선택해야 합니다.
-2. 다음 명령을 실행하여 Jupyter를 설치합니다.
+1. 다음 명령을 실행하여 Jupyter를 설치합니다.
 
         conda install jupyter
 
@@ -73,8 +68,8 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
         import os
         print(os.path.expanduser('~'))
 
-2. 홈 디렉터리로 이동하고 **.sparkmagic** 폴더가 아직 없는 경우 새로 만듭니다.
-3. 이 폴더에 **config.json** 이라는 파일을 만들고 그 안에 다음 JSON 코드 조각을 추가합니다.
+1. 홈 디렉터리로 이동하고 **.sparkmagic** 폴더가 아직 없는 경우 새로 만듭니다.
+1. 이 폴더에 **config.json** 이라는 파일을 만들고 그 안에 다음 JSON 코드 조각을 추가합니다.
 
         {
           "kernel_python_credentials" : {
@@ -89,9 +84,9 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
           }
         }
 
-4. **{USERNAME}**, **{CLUSTERDNSNAME}** 및 **{BASE64ENCODEDPASSWORD}** 를 적합한 값으로 바꿉니다. 즐겨 사용하는 프로그래밍 언어 또는 온라인의 다양한 유틸리티를 사용하여 실제 암호에 대한 base64 인코딩 암호를 생성할 수 있습니다.
+1. **{USERNAME}**, **{CLUSTERDNSNAME}** 및 **{BASE64ENCODEDPASSWORD}** 를 적합한 값으로 바꿉니다. 즐겨 사용하는 프로그래밍 언어 또는 온라인의 다양한 유틸리티를 사용하여 실제 암호에 대한 base64 인코딩 암호를 생성할 수 있습니다.
 
-5. `config.json`에서 올바른 하트 비트 설정을 구성합니다. `kernel_python_credentials` 및 이전에 추가한 `kernel_scala_credentials` 조각과 같은 수준에서 이러한 설정을 추가해야 합니다. 하트비트 설정을 추가하는 방법 및 추가할 위치에 대한 예제를 보려면 [샘플 config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)을 참조하세요.
+1. `config.json`에서 올바른 하트 비트 설정을 구성합니다. `kernel_python_credentials` 및 이전에 추가한 `kernel_scala_credentials` 조각과 같은 수준에서 이러한 설정을 추가해야 합니다. 하트비트 설정을 추가하는 방법 및 추가할 위치에 대한 예제를 보려면 [샘플 config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)을 참조하세요.
 
     * `sparkmagic 0.2.3`(v3.4 클러스터)의 경우 다음을 포함합니다.
 
@@ -108,11 +103,11 @@ Spark Magic, PySpark 및 Spark 커널을 설치 하는 방법에 대한 지침�
     >[!TIP]
     >세션이 유출되지 않도록 하트 비트가 전송됩니다. 컴퓨터가 절전 모드로 전환되거나 종료되면, 하트비트가 전송되지 않으므로 세션이 삭제됩니다. 클러스터 v3.4의 경우, 이 동작을 사용하지 않도록 설정하려면 Ambari UI에서 Livy 구성 `livy.server.interactive.heartbeat.timeout`를 `0`로 설정할 수 있습니다. 클러스터 v 3.5의 경우, 위의 3.5 구성을 설정하지 않으면 세션이 삭제되지 않습니다.
 
-6. Jupyter를 시작합니다. 명령 프롬프트에서 다음 명령을 사용합니다.
+1. Jupyter를 시작합니다. 명령 프롬프트에서 다음 명령을 사용합니다.
 
         jupyter notebook
 
-7. Jupyter 노트북을 사용하여 클러스터에 연결할 수 있는지와 커널에서 사용 가능한 Spark Magic을 사용할 수 있는지 확인합니다. 다음 단계를 수행합니다.
+1. Jupyter 노트북을 사용하여 클러스터에 연결할 수 있는지와 커널에서 사용 가능한 Spark Magic을 사용할 수 있는지 확인합니다. 다음 단계를 수행합니다.
 
     a. 새 Notebook을 만듭니다. 오른쪽 구석에서 **새로 만들기**를 클릭합니다. 기본 커널 **Python2**와 설치하는 두 개의 새 커널 **PySpark** 및 **Spark**가 표시되어야 합니다. **PySpark**를 클릭합니다.
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2018
+ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fdde8cbec7fc249eecfcc0c1682bb5eed94c1585
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 460a52f240f6b3723f93e81a11a8cd1ccc6c30c9
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050492"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626696"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>자습서: Ziflow와 Azure Active Directory 통합
 
@@ -101,20 +101,20 @@ Ziflow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     ![Single Sign-On 구성 링크][4]
 
 2. **Single Sign-On** 대화 상자에서 **모드**를 **SAML 기반 로그온**으로 선택하여 Single Sign-On을 사용하도록 설정합니다.
- 
+
     ![Single Sign-On 대화 상자](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
 
 3. **Ziflow 도메인 및 URL** 섹션에서 다음 단계를 수행합니다.
 
     ![Ziflow 도메인 및 URL Single Sign-On 정보](./media/ziflow-tutorial/tutorial_ziflow_url.png)
 
-    a. **로그온 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://<subdomain>.ziflow.io/#/login-sso/<Unique ID>`
+    a. **로그온 URL** 텍스트 상자에서 다음과 같은 패턴을 사용하여 URL을 입력합니다. `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    나. **식별자** 텍스트 상자에서 `urn:auth0:ziflow-production:<Unique ID>` 패턴을 사용하여 URL을 입력합니다.
+    나. **식별자** 텍스트 상자에서 `urn:auth0:ziflow-production:<UniqueID>` 패턴을 사용하여 URL을 입력합니다.
 
-    > [!NOTE] 
-    > 위의 값은 실제가 아닙니다. 식별자 및 로그온 URL의 고유한 ID 값을 자습서 뒷부분에 설명된 실제 값으로 업데이트하게 됩니다. 로그온 URL의 하위 도메인 값에 대해서는 [Ziflow 지원 팀](mailto:support@ziflow.com)에 문의하세요.
-    
+    > [!NOTE]
+    > 위의 값은 실제가 아닙니다. 식별자 및 로그온 URL의 고유한 ID 값을 자습서 뒷부분에 설명된 실제 값으로 업데이트하게 됩니다.
+
 4. **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 클릭한 후 컴퓨터에 인증서 파일을 저장합니다.
 
     ![인증서 다운로드 링크](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
@@ -128,7 +128,6 @@ Ziflow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
     ![Ziflow 구성](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
 
 7. 다른 웹 브라우저 창에서 Ziflow에 보안 관리자로 로그인합니다.
-
 
 8. 오른쪽 위 모서리에서 Avatar를 클릭한 다음 **계정 관리**를 클릭합니다.
 
@@ -144,7 +143,7 @@ Ziflow에서 Azure AD Single Sign-On을 구성하고 테스트하려면 다음 �
 
     a. **유형**으로 **SAML2.0**을 선택합니다.
 
-    b.Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+    나. Azure Portal에서 복사한 **SAML Single Sign-On 서비스 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
 
     다. Azure Portal에서 다운로드한 base 64 인코딩 인증서를 **X509 서명 인증서**에 업로드합니다.
 

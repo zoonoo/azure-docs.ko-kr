@@ -1,24 +1,20 @@
 ---
-title: 성능을 위한 Spark 작업 최적화 - Azure HDInsight | Microsoft Docs
+title: 성능을 위한 Spark 작업 최적화 - Azure HDInsight
 description: 최상의 Spark 클러스터 성능을 얻기 위한 일반적인 전략을 보여 줍니다.
 services: hdinsight
-documentationcenter: ''
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/11/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: f35ed98efb26dfa0d75a57ca3646f567a7949dae
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/11/2018
+ms.openlocfilehash: 7d542a4fe8c63bb44e073f3af05aed926fc4ba81
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164369"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619552"
 ---
 # <a name="optimize-spark-jobs"></a>Spark 작업 최적화
 
@@ -64,9 +60,9 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 
 | 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Standard** | 예 | 임시 클러스터 |
-| Azure Data Lake Store | **adl:**//url/ | **보다 빠름** | 예 | 임시 클러스터 |
-| 로컬 HDFS | **hdfs:**//url/ | **가장 빠름** | 아니오 | 대화형 24/7 클러스터 |
+| Azure Blob Storage | **wasb:**//url/ | **Standard** | yes | 임시 클러스터 |
+| Azure Data Lake Store | **adl:**//url/ | **보다 빠름** | yes | 임시 클러스터 |
+| 로컬 HDFS | **hdfs:**//url/ | **가장 빠름** | 아니요 | 대화형 24/7 클러스터 |
 
 ## <a name="use-the-cache"></a>캐시 사용
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368681"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622173"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>장치의 하이브리드 Azure AD 조인을 제어하는 방법
 
@@ -110,6 +110,9 @@ GPO **도메인에 가입된 컴퓨터를 장치로 등록**을 배포하여 장
     
 
 사용자가 선택한 위치에 이 클라이언트 설정을 연결해야 합니다. 예를 들어, 조직의 모든 Windows 최신 장치에 대해 이 클라이언트 설정을 구성하려면 클라이언트 설정을 해당 도메인에 연결합니다. 제어되는 배포를 수행하려면 클라이언트 설정을 조직 구성 단위 또는 보안 그룹에 속하는 도메인 가입 Windows 최신 장치로 구성할 수 있습니다.
+
+> [!Important]
+> 위의 구성은 기존의 도메인 가입 Windows 10 장치를 처리하지만, 새로운 도메인 가입 Windows 10 장치의 그룹 정책 실제 응용 프로그램 또는 Configuration Manager 설정의 잠재적 지연 때문에 새로운 도메인 가입 장치가 계속해서 하이브리드 Azure AD 조인을 완료하려고 시도할 가능성이 있습니다. 이를 방지하려면 이전에 하이브리드 Azure AD이 조인된 적이 없고 위의 그룹 정책 설정 또는 Configuration Manager 클라이언트 설정이 이미 적용된 장치에서 새 sysprep 이미지(프로비전 방법의 예제로 사용된)를 만드는 것이 좋습니다. 또한 조직의 도메인을 조인하는 새 컴퓨터를 프로비전하는 데 새 이미지를 사용해야 합니다. 
 
 ## <a name="control-windows-down-level-devices"></a>Windows 하위 수준 장치 제어
 

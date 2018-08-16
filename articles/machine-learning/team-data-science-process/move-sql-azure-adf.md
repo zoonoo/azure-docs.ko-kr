@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: e9f6de3d4f4f731c2e727889bef1aef129cb00bf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2d4ddc91911b9481c9bd21346c3c06325edf1afd
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838104"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038483"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 SQL Server에서 SQL Azure로 데이터 이동
 이 토픽에서는 ADF(Azure Data Factory)를 사용하여 Azure Blob Storage를 통해 온-프레미스 SQL Server Database에서 SQL Azure Database로 데이터를 이동하는 방법을 보여 줍니다.
@@ -46,7 +46,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 * Azure Blob Storage 계정에서 Azure SQL Database로 데이터 복사
 
 > [!NOTE]
-> 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)을 인용하고 새롭게 구성하였으며 해당하는 경우 해당 항목의 관련 섹션에 대한 참조를 제공합니다.
+> 여기에 나오는 단계는 ADF 팀이 제공한 더 자세한 자습서 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)을 인용하고 새롭게 구성하였으며 해당하는 경우 해당 항목의 관련 섹션에 대한 참조를 제공합니다.
 >
 >
 
@@ -69,7 +69,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 자신의 데이터 집합에 여기에 제공된 절차를 도입하거나 NYC Taxi 데이터 집합을 사용하여 설명된 대로 단계를 따릅니다. NYC Taxi 데이터 집합을 온-프레미스 SQL Server 데이터베이스에 업로드하려면 [SQL Server Database로 대량 데이터 가져오기](sql-walkthrough.md#dbload)에 설명된 절차를 따릅니다. 이러한 지침은 Azure Virtual Machine의 SQL Server에 대한 내용이지만 온-프레미스 SQL Server로 업로드하는 절차는 동일합니다.
 
 ## <a name="create-adf"></a> Azure 데이터 팩터리 만들기
-[Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
+[Azure Portal](https://portal.azure.com/)에서 새 Azure Data Factory 및 리소스 그룹을 만들기 위한 지침은 [Azure Data Factory 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory)에서 제공됩니다. 새 ADF 인스턴스의 이름은 *adfdsp*이고 생성된 리소스 그룹은 *adfdsprg*입니다.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>데이터 관리 게이트웨이 설치 및 구성
 온-프레미스 SQL Server와 작업하도록 Azure Data Factory의 파이프라인을 활성화하려면 데이터 팩터리에 대해 연결된 서비스로 추가해야 합니다. 온-프레미스 SQL Server에 대한 연결된 서비스를 만들려면 다음을 수행해야 합니다.
@@ -79,7 +79,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 
 데이터 관리 게이트웨이는 호스팅되는 컴퓨터에서 원본 및 싱크 데이터를 직렬화 및 역직렬화합니다.
 
-데이터 관리 게이트웨이에 대한 설치 지침 및 세부 정보에 대한 내용은 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
+데이터 관리 게이트웨이에 대한 설치 지침 및 세부 정보에 대한 내용은 [데이터 관리 게이트웨이 클라우드를 사용하여 온-프레미스 원본과 클라우드 간에 데이터 이동](../../data-factory/tutorial-hybrid-copy-portal.md)
 
 ## <a name="adflinkedservices"></a>데이터 리소스에 연결할 연결된 서비스 만들기
 연결된 서비스는 Azure 데이터 팩터리가 데이터 리소스에 연결하기 위해 필요한 정보를 정의합니다. 이 시나리오에는 연결된 서비스가 필요한 3개의 리소스가 있습니다.
@@ -88,14 +88,14 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 2. Azure Blob Storage
 3. Azure SQL 데이터베이스
 
-연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services)에 제공됩니다.
+연결된 서비스를 만들기 위한 단계별 절차가 [연결된 서비스 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)에 제공됩니다.
 
 
 ## <a name="adf-tables"></a>데이터 집합에 액세스하는 방법을 지정하는 테이블 정의 및 만들기
-다음 스크립트 기반 프로시저로 데이터 집합의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 집합](../../data-factory/v1/data-factory-create-datasets.md)을 참조하세요.
+다음 스크립트 기반 프로시저로 데이터 집합의 구조, 위치 및 가용성을 지정하는 테이블을 만듭니다. 테이블을 정의하는 데 JSON 파일이 사용됩니다. 이러한 파일의 구조에 대한 자세한 내용은 [데이터 집합](../../data-factory/concepts-datasets-linked-services.md)을 참조하세요.
 
 > [!NOTE]
-> [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0)를 참조하세요.
+> [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet을 실행하기 전에 `Add-AzureAccount` cmdlet을 실행하여 명령 실행을 위해 Azure 구독을 선택했는지 확인해야 합니다. 이 cmdlet의 설명서는 [Add-azureaccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0)를 참조하세요.
 >
 >
 
@@ -111,7 +111,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
 3. [SQL Azure 테이블](#adf-table-azure-sql)
 
 > [!NOTE]
-> 이러한 절차에서는 Azure PowerShell을 사용하여 ADF 활동을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [데이터 집합 만들기](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-datasets)를 참조하세요.
+> 이러한 절차에서는 Azure PowerShell을 사용하여 ADF 활동을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [데이터 집합 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)를 참조하세요.
 >
 >
 
@@ -143,7 +143,7 @@ ADF에서는 정기적으로 데이터 이동을 관리하는 간단한 JSON 스
             }
         }
 
-여기서는 열 이름이 포함되지 않았습니다. 여기에 열 이름을 포함하여 열 이름을 sub-select할 수 있습니다(자세한 내용은 [ADF 설명서](../../data-factory/v1/data-factory-data-movement-activities.md) 항목 참조).
+여기서는 열 이름이 포함되지 않았습니다. 여기에 열 이름을 포함하여 열 이름을 sub-select할 수 있습니다(자세한 내용은 [ADF 설명서](../../data-factory/copy-activity-overview.md) 항목 참조).
 
 테이블의 JSON 정의를 *onpremtabledef.json* 파일로 복사하고 알려진 위치에 저장합니다(여기서는 *C:\temp\onpremtabledef.json*으로 간주). 다음 Azure PowerShell cmdlet을 사용하여 ADF에 테이블을 만듭니다.
 
@@ -218,7 +218,7 @@ SQL Azure 출력에 대한 테이블 정의가 다음과 같습니다(이 스키
 * 또한 파이프라인이 매일 정기적으로 실행되도록 파이프라인의 주기성을 설정하고 작업에 대한 기본 실행 시간을 사용합니다(오전 12시 UTC).
 
 > [!NOTE]
-> 다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline)를 참조하세요.
+> 다음 절차에서는 Azure PowerShell을 사용하여 ADF 파이프라인을 정의하고 만듭니다. 그러나 이러한 작업은 Azure 포털을 사용해서도 수행할 수 있습니다. 자세한 내용은 [파이프라인 만들기](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)를 참조하세요.
 >
 >
 

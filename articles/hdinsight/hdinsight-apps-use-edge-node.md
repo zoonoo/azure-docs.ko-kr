@@ -1,25 +1,20 @@
 ---
-title: HDInsight의 Hadoop 클러스터에서 빈 에지 노드 사용 - Azure | Microsoft Docs
+title: HDInsight의 Hadoop 클러스터에서 빈 에지 노드 사용 - Azure
 description: 클라이언트로 사용할 수 있는 HDInsight 클러스터에 빈 에지 노드를 추가한 다음 HDInsight 응용 프로그램을 테스트/호스트하는 방법입니다.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: cdc7d1b4-15d7-4d4d-a13f-c7d3a694b4fb
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jgao
-ms.openlocfilehash: 95ffc033a442fcf6074998398104ccb01e7a01a7
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 225b08e2d83bfb8bdd102924ecf85c89aa48c217
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32170274"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598200"
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>HDInsight의 Hadoop 클러스터에서 빈 에지 노드 사용
 

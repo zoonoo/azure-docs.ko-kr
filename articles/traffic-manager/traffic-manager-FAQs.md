@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399180"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038515"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager FAQ(질문과 대답)
 
@@ -286,7 +286,7 @@ Azure Resource Manager에서는 모든 리소스 그룹에서 '위치'를 지정
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>각 끝점의 현재 상태를 확인하려면 어떻게 해야 하나요?
 
-각 끝점의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://msdn.microsoft.com/library/mt125941.aspx) 및 [크로스 플랫폼 Azure CLI](../cli-install-nodejs.md)를 통해서도 사용할 수 있습니다.
+각 끝점의 현재 상태 모니터링 상태 및 전체 프로필은 Azure 포털에 표시됩니다. 이 정보는 Traffic Manager [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager) 및 [크로스 플랫폼 Azure CLI](../cli-install-nodejs.md)를 통해서도 사용할 수 있습니다.
 
 Azure Monitor를 사용하여 엔드포인트의 상태를 추적하고 이에 대한 시각적 표현을 볼 수도 있습니다. Azure Monitor에 대한 자세한 내용은 [Azure Monitoring 설명서](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics)를 참조하세요.
 

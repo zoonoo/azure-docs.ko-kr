@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435696"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038459"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -42,7 +42,7 @@ Automation 연결 자산은 외부 서비스 또는 runbook의 응용 프로그�
 
 |활동|설명|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
+|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|사용할 연결을 가져옵니다. 연결의 속성이 있는 해시 테이블을 반환합니다.|
 
 >[!NOTE] 
 >**Get-AutomationConnection**의 -Name 매개 변수에 변수를 사용하면 안 됩니다. 변수를 사용하는 경우 runbook 또는 DSC 구성과 설계 시의 연결 자산 간의 종속성을 검색하기가 어려워질 수 있기 때문입니다.

@@ -1,25 +1,20 @@
 ---
-title: Apache Kafka에 대한 Log Analytics - Azure HDInsight | Microsoft Docs
+title: Apache Kafka에 대한 Log Analytics - Azure HDInsight
 description: Log Analytics를 사용하여 Azure HDInsight의 Apache Kafka 클러스터에서 로그를 분석하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 9f366631ced4392831ad9ed97898a88b3290cd22
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 06/15/2018
+ms.openlocfilehash: 9421217383f390630687d8416512401487ad3f7e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772265"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621391"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
@@ -40,7 +35,7 @@ Log Analytics for HDInsight를 사용하도록 설정하는 단계는 모든 HDI
     >
     > * HDInsight 클러스터 이름.
     > * Log Analytics에 대한 작업 영역 ID. Log Analytics 작업 영역에서 작업 영역 ID를 찾을 수 있습니다.
-    > * Log Analytics 연결의 기본 키. 기본 키를 찾으려면 Log Analytics 인스턴스를 선택한 다음, __OMS 포털__을 선택합니다. OMS 포털에서 __설정__, __연결된 원본__, __Linux 서버__를 차례로 선택합니다.
+    > * Log Analytics 연결의 기본 키. 기본 키를 찾으려면 Azure Portal에서 작업 영역을 열고, 왼쪽 메뉴에서 __고급 설정__을 선택합니다. 고급 설정에서 __연결된 원본__>__Linux 서버__를 선택합니다.
 
 
 > [!IMPORTANT]

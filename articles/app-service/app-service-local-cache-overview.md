@@ -1,10 +1,10 @@
 ---
 title: Azure App Service 로컬 캐시 개요 | Microsoft Docs
-description: 이 문서에서는 Azure 앱 서비스 로컬 캐시 기능을 사용하도록 설정하고, 크기를 조정하고, 상태를 쿼리하는 방법을 설명합니다.
+description: 이 문서에서는 Azure App Service 로컬 캐시 기능을 사용하도록 설정하고, 크기를 조정하고, 상태를 쿼리하는 방법을 설명합니다.
 services: app-service
 documentationcenter: app-service
-author: SyntaxC4
-manager: yochayk
+author: cephalin
+manager: jpconnock
 editor: ''
 tags: optional
 keywords: ''
@@ -15,43 +15,47 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
-ms.author: cfowler
-ms.openlocfilehash: 75f2dcb80514105ed663ba1fe5f7adccc05af1fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: cephalin
+ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22985948"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597733"
 ---
-# <a name="azure-app-service-local-cache-overview"></a>Azure 앱 서비스 로컬 캐시 개요
-Azure 웹앱의 콘텐츠는 Azure 저장소에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
+# <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
-* 콘텐츠는 웹앱의 여러 VM(가상 컴퓨터) 인스턴스 간에 공유됩니다.
+> [!NOTE]
+> 로컬 캐시는 [Linux의 App Service](containers/app-service-linux-intro.md)와 같은 컨테이너화된 App Service 앱에서 지원되지 않습니다.
+
+Azure 웹앱의 콘텐츠는 Azure Storage에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
+
+* 콘텐츠는 웹앱의 여러 VM(가상 머신) 인스턴스 간에 공유됩니다.
 * 콘텐츠는 영구적이며 웹앱을 실행하여 수정할 수 있습니다.
 * 동일한 공유 콘텐츠 폴더 아래에서 로그 파일 및 진단 데이터 파일을 사용할 수 있습니다.
 * 새 콘텐츠를 직접 게시하면 콘텐츠 폴더가 업데이트됩니다. SCM 웹 사이트 및 실행 중인 웹앱을 통해 동일한 콘텐츠를 즉시 볼 수 있습니다. 일반적으로 ASP.NET과 같은 일부 기술은 몇 가지 파일 변경 내용에 대해 웹앱을 다시 시작하여 최신 콘텐츠를 가져옵니다.
 
 많은 웹앱에서 이러한 기능 중 하나 또는 모두를 사용하지만 일부 웹앱에서는 고가용성으로 실행할 수 있는 읽기 전용 콘텐츠 저장소 성능만 뛰어나면 됩니다. 이러한 앱은 특정 로컬 캐시의 VM 인스턴스 이점을 활용할 수 있습니다.
 
-Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제공합니다. 이 콘텐츠는 사이트 시작 시 비동기적으로 만들어지는 저장소 콘텐츠의 쓰기-삭제(write-but-discard) 캐시입니다. 캐시가 준비되면 캐시된 콘텐츠에 대해 실행되도록 사이트가 전환됩니다. 로컬 캐시에서 실행되는 웹앱은 다음과 같은 이점이 있습니다.
+Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제공합니다. 이 콘텐츠는 사이트 시작 시 비동기적으로 만들어지는 저장소 콘텐츠의 쓰기-삭제(write-but-discard) 캐시입니다. 캐시가 준비되면 캐시된 콘텐츠에 대해 실행되도록 사이트가 전환됩니다. 로컬 캐시에서 실행되는 웹앱은 다음과 같은 이점이 있습니다.
 
-* Azure 저장소의 콘텐츠에 액세스할 때 발생하는 대기 시간의 영향을 받지 않습니다.
-* 콘텐츠 공유를 지원하는 서버에서 발생하는 계획된 업그레이드 또는 계획되지 않은 가동 중지 시간 및 그 밖의 Azure 저장소 중단에 영향을 받지 않습니다.
+* Azure Storage의 콘텐츠에 액세스할 때 발생하는 대기 시간의 영향을 받지 않습니다.
+* 콘텐츠 공유를 지원하는 서버에서 발생하는 계획된 업그레이드 또는 계획되지 않은 가동 중지 시간 및 그 밖의 Azure Storage 중단에 영향을 받지 않습니다.
 * 저장소 공유 변경으로 인해 다시 시작되는 앱이 더 적습니다.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>로컬 캐시가 앱 서비스 동작을 변경하는 방식
+## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>로컬 캐시가 App Service 동작을 변경하는 방식
 * 로컬 캐시는 웹앱의 /site 및 /siteextensions 폴더의 복사본입니다. 웹앱 시작 시 로컬 VM 인스턴스에서 만들어집니다. 웹앱당 로컬 캐시의 크기는 기본적으로 300MB로 제한되지만 최대 2GB로 증가될 수 있습니다.
-* 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 웹앱이 가상 컴퓨터를 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
+* 로컬 캐시는 읽기/쓰기가 가능합니다. 그러나 웹앱이 가상 머신을 이동하거나 다시 시작된 경우 모든 수정 내용이 삭제됩니다. 중요 업무용 데이터를 콘텐츠 저장소에 저장하는 앱에 로컬 캐시를 사용해서는 안 됩니다.
 * 웹앱은 현재와 마찬가지로 로그 파일 및 진단 데이터를 계속 기록할 수 있습니다. 그러나 로그 파일 및 데이터는 VM에 로컬로 저장됩니다. 그런 다음 공유 콘텐츠 저장소에 주기적으로 복사됩니다. 공유 콘텐츠 저장소로의 복사는 최상의 시나리오를 전제로 하기 때문에 VM 인스턴스의 갑작스러운 작동 중단으로 인해 나중 쓰기가 손실될 수 있습니다.
 * 로컬 캐시를 사용하는 웹앱의 경우 LogFiles 및 Data 폴더의 폴더 구조가 변경되었습니다. 이제 저장소 "LogFiles" 및 "Data" 폴더에 "고유 식별자" + 타임스탬프 명명 패턴을 따르는 하위 폴더가 있습니다. 각 하위 폴더는 웹앱을 실행 중이거나 실행한 VM 인스턴스에 해당합니다.  
-* 게시 메커니즘 중 하나를 통해 웹앱에 대한 변경 내용을 게시할 경우 공유 콘텐츠 저장소에 게시됩니다. 이는 게시된 콘텐츠를 영구적으로 유지하기 위해 의도된 것입니다. 웹앱의 로컬 캐시를 새로 고치려면 다시 시작해야 합니다. 지나친 단계인 것 같나요? 수명 주기를 원활하게 하려면 이 문서의 뒷부분에 나오는 정보를 참조하세요.
+* 게시 메커니즘 중 하나를 통해 웹앱에 대한 변경 내용을 게시할 경우 지속형 공유 콘텐츠 저장소에 게시됩니다. 웹앱의 로컬 캐시를 새로 고치려면 다시 시작해야 합니다. 수명 주기를 원활하게 하려면 이 문서의 뒷부분에 나오는 정보를 참조하세요.
 * D:\Home은 로컬 캐시를 가리킵니다. D:\local은 임시 VM 관련 저장소를 계속 가리킵니다.
 * SCM 사이트의 기본 콘텐츠 보기는 공유 콘텐츠 저장소의 기본 콘텐츠 보기로 유지됩니다.
 
-## <a name="enable-local-cache-in-app-service"></a>앱 서비스에서 로컬 캐시 사용
+## <a name="enable-local-cache-in-app-service"></a>App Service에서 로컬 캐시 사용
 로컬 캐시는 예약된 앱 설정 조합을 사용하여 구성됩니다. 다음과 같은 방법으로 이러한 앱 설정을 구성할 수 있습니다.
 
-* [Azure 포털](#Configure-Local-Cache-Portal)
+* [Azure Portal](#Configure-Local-Cache-Portal)
 * [Azure 리소스 관리자](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>방법: Azure 포털을 사용하여 로컬 캐시 구성
@@ -88,7 +92,7 @@ Azure 앱 서비스 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 �
 ## <a name="change-the-size-setting-in-local-cache"></a>로컬 캐시에서 크기 설정 변경
 기본적으로 로컬 캐시 크기는 **300MB**입니다. 여기에는 Site 폴더, 콘텐츠 저장소에서 복사된 SiteExtensions 폴더, 로컬로 만든 모든 로그 및 데이터 폴더가 포함됩니다. 이 한도를 늘리려면 앱 설정 `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용합니다. 웹앱당 최대 **2GB** (2000MB)로 늘릴 수 있습니다.
 
-## <a name="best-practices-for-using-app-service-local-cache"></a>앱 서비스 로컬 캐시 사용에 대한 모범 사례
+## <a name="best-practices-for-using-app-service-local-cache"></a>App Service 로컬 캐시 사용에 대한 모범 사례
 로컬 캐시는 [스테이징 환경](../app-service/web-sites-staged-publishing.md) 기능과 함께 사용하는 것이 좋습니다.
 
 * 값이 `Always`인 *고정* 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`을 **프로덕션** 슬롯에 추가합니다. `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용하는 경우 이것도 프로덕션 슬롯에 고정 설정으로 추가합니다.

@@ -2,19 +2,19 @@
 title: Azure Cosmos DB에 대한 처리량 프로비전 | Microsoft Docs
 description: Azure Cosmos DB 컨테이너, 컬렉션, 그래프 및 테이블에 대해 프로비전된 처리량을 설정하는 방법을 알아봅니다.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600162"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038454"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Azure Cosmos DB 컨테이너 및 데이터베이스에 대한 처리량 설정 및 가져오기
 
@@ -262,20 +262,6 @@ MongoDB API는 지정된 작업에 대한 요청 비용을 검색하는 데 사�
 > 인덱싱된 속성과 크기 및 개수가 완전히 다른 항목 유형이 있는 경우에는 일반 항목의 각 *유형*과 연결된 적용 가능한 작업 요청 단위 요금을 기록합니다.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>Gremlin API 계정에 대한 요청 비용 가져오기 
-
-다음은 Gremlin.Net 라이브러리를 사용하여 Gremlin API 계정에 대한 요청 비용을 가져오는 방법에 대한 샘플입니다. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-위의 메서드 외에도 요청 단위 계산에 "x-ms-total-request-charge" 헤더를 사용할 수도 있습니다.
-
 
 ## <a name="throughput-faq"></a>처리량 FAQ
 

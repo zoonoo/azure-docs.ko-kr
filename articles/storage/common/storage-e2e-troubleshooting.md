@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 7a011bf55f70f3fca9e105613f7e359a2b6071c1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526139"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038526"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Azure Storage 메트릭 및 로깅, AzCopy 및 Message Analyzer를 사용한 종단 간 문제 해결
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -96,7 +96,7 @@ Blob 또는 컨테이너를 찾을 수 없어서 컨테이너 또는 Blob에 대
 
 Azure용 PowerShell을 시작하려면 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 
-1. 다음과 같이 [Add-azureaccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
+1. 다음과 같이 [Add-azureaccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0) cmdlet을 사용하여 PowerShell 창에 Azure 사용자 계정을 추가합니다.
    
     ```powershell
     Add-AzureAccount

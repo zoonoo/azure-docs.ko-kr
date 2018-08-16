@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2371ad00728a47af9e96e8e711aa07cc5170266c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158865"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622323"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>셀프 서비스 암호 재설정을 성공적으로 롤아웃하는 방법
 
@@ -75,12 +75,13 @@ Azure AD(Azure Active Directory) SSPR(셀프 서비스 암호 재설정) 기능�
 
 ## <a name="disable-self-service-password-reset"></a>셀프 서비스 암호 재설정 사용 안 함
 
-조직이 셀프 서비스 암호 재설정을 비활성화하기로 결정한 경우 프로세스는 간단합니다. Azure AD 테넌트를 열고 **암호 재설정** > **속성**으로 이동한 다음 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 아래에서 **없음**을 선택합니다. 사용자는 해당 상태를 유지합니다.
+조직이 셀프 서비스 암호 재설정을 비활성화하기로 결정한 경우 프로세스는 간단합니다. Azure AD 테넌트를 열고 **암호 재설정** > **속성**으로 이동한 다음 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 아래에서 **없음**을 선택합니다. 사용자는 등록된 인증 방법을 나중에 사용할 수 있도록 계속 유지합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
 * [셀프 서비스 암호 재설정 등록](../user-help/active-directory-passwords-reset-register.md)
+* [Azure Multi-Factor Authentication 및 Azure AD 셀프 서비스 암호 재설정에 융합 등록 사용](concept-registration-mfa-sspr-converged.md)
 * [라이선스 관련 질문이 있습니까?](concept-sspr-licensing.md)
 * [SSPR에서 사용하는 데이터는 무엇이며, 사용자에 대해 어떤 데이터를 채워야 합니까?](howto-sspr-authenticationdata.md)
 * [SSPR에서 사용하는 정책 옵션은 무엇입니까?](concept-sspr-policy.md)

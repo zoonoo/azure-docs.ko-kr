@@ -5,16 +5,17 @@ services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
+ms.subservice: single-database
 ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5d8c31ac9857541ff89487a22807b2413c89bae5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: a94c3a4c4b8ffb22b1d75ca064bd3e48a2e50141
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415696"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005681"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 논리 서버 및 단일 데이터베이스 만들기 및 관리 
 
@@ -37,7 +38,7 @@ Azure SQL Database의 리소스 그룹을 미리 만들거나 서버 자체를 �
 > [!IMPORTANT]
 > 데이터베이스의 가격 책정 계층 선택에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 참조하세요.
 
-관리되는 인스턴스를 만들려면 [관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
+Managed Instance를 만들려면 [Managed Instance 만들기](sql-database-managed-instance-create-tutorial-portal.md)를 참조하세요.
 
 ### <a name="manage-an-existing-sql-server"></a>기존 SQL Server 관리
 

@@ -1,25 +1,20 @@
 ---
-title: Spark 설정 구성 - Azure HDInsight | Microsoft Docs
-description: HDInsight 클러스터에 대해 Spark를 구성하는 방법
+title: Spark 설정 구성 - Azure HDInsight
+description: Azure HDInsight 클러스터에 대해 Spark를 구성하는 방법입니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.author: maxluk
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.author: maxluk
-ms.openlocfilehash: db61cc81f51772aa98c034f1bfdf51777cfd68e7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: fb0a70f160df9dc4fdb292e54f41baf4bd296250
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165216"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619586"
 ---
 # <a name="configure-spark-settings"></a>Spark 설정 구성
 

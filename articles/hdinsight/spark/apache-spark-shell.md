@@ -1,25 +1,20 @@
 ---
-title: Azure HDInsight에서 대화형 Spark 셸 사용 | Microsoft Docs
+title: Azure HDInsight에서 대화형 Spark 셸 사용
 description: 대화형 Spark 셸은 한 번에 하나의 Spark 명령을 실행하고 결과를 보기 위한 읽기 실행 인쇄 프로세스를 제공합니다.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/09/2018
+author: maxluk
 ms.author: maxluk
-ms.openlocfilehash: d2b65980516a7ae1857711f2e58d9cd0a8e8ec9a
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 01/09/2018
+ms.openlocfilehash: 454f05f6ec17a42d0f0d3795d490352e5e74783a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34164145"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617509"
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Spark 셸에서 Spark 실행
 
@@ -33,7 +28,7 @@ SSH를 사용하여 클러스터의 주 헤드 노드에 연결하여 HDInsight�
 
 Azure Portal에서 클러스터에 대한 전체 SSH 명령을 얻을 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. HDInsight Spark 클러스터에 대한 창으로 이동합니다.
 3. SSH(Secure Shell)를 선택합니다.
 

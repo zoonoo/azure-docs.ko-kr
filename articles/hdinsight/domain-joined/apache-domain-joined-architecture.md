@@ -1,25 +1,20 @@
 ---
-title: 도메인에 연결된 Azure HDInsight 아키텍처 | Microsoft Docs
+title: 도메인에 연결된 Azure HDInsight 아키텍처
 description: 도메인에 가입된 HDInsight를 계획하는 방법을 알아봅니다.
 services: hdinsight
-documentationcenter: ''
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7dc6847d-10d4-4b5c-9c83-cc513cf91965
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: omidm
-ms.openlocfilehash: 1f51a1fbb38bc27d15b7a45ca4783508d863fee5
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1744a824e3b3fef848ad0513c95b1c6bb21f9fc9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112630"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597578"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Azure 도메인에 가입된 Hadoop 클러스터 계획
 
@@ -50,7 +45,7 @@ HDInsight의 VM(가상 머신)은 제공된 도메인에 가입된 도메인입�
 
 다음 스크린샷은 contoso.com에서 만든 OU를 보여 줍니다. 또한 일부 서비스 사용자 및 머신 보안 주체를 표시합니다.
 
-![도메인 가입 HDInsight 클러스터의 조직 단위](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png)에서도 확인할 수 있습니다.
+![도메인 가입 HDInsight 클러스터의 조직 단위](./media/apache-domain-joined-architecture/hdinsight-domain-joined-ou.png).
 
 ## <a name="set-up-different-domain-controllers"></a>다른 도메인 컨트롤러 설정
 HDInsight는 현재 클러스터가 Kerberos 통신에 사용하는 주 도메인 컨트롤러로 Azure AD DS만 지원합니다. 그러나 이러한 설정을 통해 HDInsight 액세스에 Azure AD DS를 사용하도록 설정하면 다른 복잡한 Active Directory 설정이 가능합니다.
