@@ -25,7 +25,7 @@ ms.locfileid: "35376951"
 
 ### <a name="endpoints"></a>Endpoints
 
-- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: https://api.cognitive.microsoft.com/bing/\*\*v7.0**/Suggestions
+- 엔드포인트의 버전 번호가 v5에서 v7로 변경되었습니다. 예: https://api.cognitive.microsoft.com/bing/\*\*v7.0\*\*/Suggestions
 
 ### <a name="error-response-objects-and-error-codes"></a>오류 응답 개체 및 오류 코드
 
