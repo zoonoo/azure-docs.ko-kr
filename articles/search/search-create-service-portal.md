@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950684"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713930"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>포털에서 Azure Search서비스 만들기
 
@@ -61,7 +61,7 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 
   [Azure Search는 무료, 기본 또는 표준 등 여러 가지 가격 책정 계층에서 현재 제공됩니다](https://azure.microsoft.com/pricing/details/search/). 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
 
-이 연습에서는 서비스에 대한 표준 계층을 선택했습니다.
+표준은 프로덕션 워크로드에서 일반적으로 선택되지만 대부분의 고객은 무료 서비스를 시작합니다.
 
 서비스를 만든 후에 가격 책정 계층을 변경할 수 없습니다. 나중에 상위 또는 하위 계층이 필요한 경우 서비스를 다시 만들어야 합니다.
 

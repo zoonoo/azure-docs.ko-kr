@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574990"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39514027"
 ---
-이 앱을 계속 사용하지 않으려면 다음 단계에 따라 이 빠른 시작에서 만든 리소스를 모두 삭제하세요. 요금은 발생되지 않습니다.
+>[!IMPORTANT]
+>다른 Azure Machine Learning 자습서 및 방법 아티클에 대한 필수 조건으로 만든 리소스를 사용할 수 있습니다. 
 
->[!NOTE]
->이 리소스는 지금 다른 Azure Machine Learning 서비스 자습서를 수행할 때 유용합니다.
+
+여기에서 만든 항목을 사용하지 않으려는 경우 요금이 발생하지 않도록 이 빠른 시작에서 방금 만든 리소스를 삭제합니다.
 
 1. Azure Portal의 맨 왼쪽에서 **리소스 그룹**을 선택합니다.  
  
    ![Azure Portal에서 삭제](./media/aml-delete-resource-group/delete-resources.png)
 
-2. 리소스 그룹 목록에서 만든 리소스 그룹을 선택하고 **리소스 그룹 삭제**를 클릭합니다.
+1. 목록에서 만든 리소스 그룹을 선택합니다.
 
-3. 삭제할 리소스 그룹 이름을 입력한 후 **삭제**를 클릭합니다.
+1. **리소스 그룹 삭제**를 선택합니다.
 
+1. 리소스 그룹 이름을 입력한 다음, **삭제**를 선택합니다.
+
+   "중첩된 리소스를 삭제하기 전에 리소스를 삭제할 수 없습니다."라는 오류가 발생한 경우 중첩된 리소스를 먼저 삭제해야 합니다. 세부 정보는 [이 문제 해결 섹션을 참조하세요](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 

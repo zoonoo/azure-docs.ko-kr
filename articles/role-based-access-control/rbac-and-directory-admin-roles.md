@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/02/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 68127a38e28524b5f093cf0aafb0d0b7bb9ae1b6
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8c00476078d4e16b649296be42795b92ebbfd9c4
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445452"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714097"
 ---
 # <a name="classic-subscription-administrator-roles-vs-azure-rbac-roles-vs-azure-ad-administrator-roles"></a>클래식 구독 관리자 역할 vs. Azure RBAC 역할 vs. Azure AD 관리자 역할
 
@@ -63,7 +63,7 @@ Azure 구독을 사용하여 Azure 리소스에 대한 액세스를 구성할 �
 계정 및 구독은 [Azure 계정 센터](https://account.azure.com/Subscriptions)에서 관리합니다.
 ## <a name="azure-rbac-roles"></a>Azure RBAC 역할
 
-Azure RBAC는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반의 권한 부여 시스템으로, 계산 및 저장소 같은 Azure 리소스에 대한 액세스를 세밀하게 관리할 수 있습니다. Azure RBAC에는 60개 이상의 기본 제공 역할이 포함되어 있습니다. 네 가지 기본 RBAC 역할이 있습니다. 처음 세 개는 모든 리소스 종류에 적용됩니다.
+Azure RBAC는 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 기반의 권한 부여 시스템으로, 계산 및 저장소 같은 Azure 리소스에 대한 액세스를 세밀하게 관리할 수 있습니다. Azure RBAC에는 70개가 넘는 기본 제공 역할이 포함되어 있습니다. 네 가지 기본 RBAC 역할이 있습니다. 처음 세 개는 모든 리소스 종류에 적용됩니다.
 
 | Azure RBAC 역할 | 권한 | 메모 |
 | --- | --- | --- |

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344752"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714454"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)란?
 
@@ -79,16 +79,15 @@ Azure에는 개체 내 데이터에 대한 액세스 권한을 부여할 수 있
 
 *범위*는 액세스가 적용되는 경계입니다. 역할에 할당할 때 범위를 정의하여 허용되는 작업을 추가로 제한할 수 있습니다. 이러한 기능은 누군가를 단일 리소스 그룹에 대해서만 [웹 사이트 기여자](built-in-roles.md#website-contributor)로 지정하려는 경우에 유용합니다.
 
-Azure는 여러 수준(구독, 리소스 그룹 또는 리소스)에서 구독을 지정할 수 있습니다. 범위는 모든 자식이 한 부모만 갖는 부모-자식 관계로 구조화됩니다.
+Azure는 여러 수준([관리 그룹](../azure-resource-manager/management-groups-overview.md), 구독, 리소스 그룹 또는 리소스)에서 구독을 지정할 수 있습니다. 범위는 부모-자식 관계로 구조화되어 있습니다.
 
 ![역할 할당 범위](./media/overview/rbac-scope.png)
 
-부모 범위에서 할당하는 액세스 권한은 자식 범위에서 상속됩니다. 예:
+부모 범위에서 액세스 권한을 부여하는 경우 해당 권한은 자식 범위에 상속됩니다. 예: 
 
+- 관리 그룹 범위에서 [소유자](built-in-roles.md#owner) 역할을 사용자에게 할당하는 경우 해당 사용자는 모든 관리 그룹의 모든 구독에서 모든 항목을 관리할 수 있습니다.
 - 구독 범위에서 그룹에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당하면 해당 그룹의 멤버가 구독의 모든 리소스 그룹 및 리소스를 볼 수 있습니다.
 - 리소스 그룹 범위에서 응용 프로그램에 [기여자](built-in-roles.md#contributor) 역할을 할당하면 해당 응용 프로그램은 해당 리소스 그룹의 모든 리소스 종류를 관리할 수 있지만, 구독의 다른 리소스 그룹을 관리할 수 없습니다.
-
-Azure는 구독보다 위에 있는 [관리 그룹](../azure-resource-manager/management-groups-overview.md)이라고 하는 범위를 포함하고 있으며, 현재는 미리 보기입니다. 관리 그룹은 여러 구독을 관리하는 방법입니다. RBAC의 범위를 지정할 때 관리 그룹을 지정하거나 구독, 리소스 그룹 또는 리소스 계층 구조를 지정할 수 있습니다.
 
 ### <a name="role-assignment"></a>역할 할당
 
