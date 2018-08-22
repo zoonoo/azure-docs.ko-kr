@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399146"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038683"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Application Gateway에 대한 질문과 대답
 
@@ -122,6 +122,12 @@ Application Gateway는 IP 연결이 있는 경우 가상 네트워크 외부 인
 * 아웃바운드 인터넷 연결은 차단할 수 없습니다.
 
 * AzureLoadBalancer 태그의 트래픽을 허용해야 합니다.
+
+**Q. 응용 프로그램 게이트웨이 서브넷에서 사용자 정의 경로가 지원되나요?**
+
+UDR(사용자 정의 경로)은 종단 간 요청/응답 통신을 변경하지 않는 한 응용 프로그램 게이트웨이에서 지원됩니다.
+
+예를 들어 패킷 검사를 위한 방화벽 장비를 가리키도록 응용 프로그램 게이트웨이 서브넷에서 UDR을 설정할 수 있지만 패킷이 원하는 대상 사후 검사에 도달할 수 있는지 확인해야 합니다. 이렇게 하지 않으면 잘못된 상태 프로브 또는 트래픽 라우팅 동작을 초래할 수 있습니다. 여기에는 가상 네트워크에서 ExpressRoute 또는 VPN 게이트웨이를 통해 전파된 학습한 경로 또는 기본 0.0.0.0/0 경로가 포함됩니다.
 
 **Q. Application Gateway에서 한도는 어떻게 되나요? 이러한 한도를 늘릴 수 있나요?**
 

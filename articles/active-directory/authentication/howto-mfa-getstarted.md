@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412415"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716266"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>클라우드 기반 Azure Multi-Factor Authentication 배포
 
@@ -30,7 +30,7 @@ Azure MFA(Azure Multi-Factor Authentication)를 시작하는 프로세스는 간
 
 **조건부 액세스 정책에 따라 사용하도록 설정** - 이 문서에서는 이 방법을 설명합니다. 사용자에게 2단계 인증을 사용하도록 설정하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용하도록 설정하는 방법은 클라우드의 Azure MFA에서만 가능하며, Azure AD의 프리미엄 기능입니다.
 
-Azure AD ID 보호에 따라 사용하도록 설정 - 이 방법은 Azure AD ID 보호 위험 정책을 사용하여 모든 클라우드 응용 프로그램에 대해 로그인 위험이 있을 때만 2단계 인증을 요구합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. 이 방법에 대한 자세한 내용은 [Azure Active Directory ID 보호](../active-directory-identityprotection.md#risky-sign-ins)에서 확인할 수 있습니다.
+Azure AD ID 보호에 따라 사용하도록 설정 - 이 방법은 Azure AD ID 보호 위험 정책을 사용하여 모든 클라우드 응용 프로그램에 대해 로그인 위험이 있을 때만 2단계 인증을 요구합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. 이 방법에 대한 자세한 내용은 [Azure Active Directory ID 보호](../identity-protection/overview.md#risky-sign-ins)에서 확인할 수 있습니다.
 
 사용자 상태를 변경하여 사용하도록 설정 - 2단계 인증을 요구하는 전통적인 방법입니다. 이 방법은 클라우드의 Azure MFA와 Azure MFA Server 둘 다에서 작동합니다. 이 방법을 사용할 경우 사용자는 로그인할 **때마다** 2단계 인증을 수행해야 하며, 조건부 액세스 정책이 무시됩니다. 이 방법에 대한 자세한 내용은 [사용자에 대해 2단계 인증을 요구하는 방법](howto-mfa-userstates.md)에서 찾을 수 있습니다.
 
@@ -109,3 +109,5 @@ Azure Multi-Factor Authentication을 사용하도록 설정하기 전에 조직�
 신뢰할 수 있는 IP, 사용자 지정 음성 메시지 및 사기 행위 경고와 같은 추가 설정을 구성하려면 [Azure Multi-Factor Authentication 설정 구성](howto-mfa-mfasettings.md) 문서를 참조하세요.
 
 Azure Multi-Factor Authentication에 대한 사용자 설정 관리에 대한 내용은 [클라우드에서 Azure Multi-Factor Authentication을 사용하여 사용자 설정 관리](howto-mfa-userdevicesettings.md) 문서에서 확인할 수 있습니다.
+
+[Azure Multi-Factor Authentication 및 Azure AD 셀프 서비스 암호 재설정에 융합 등록 사용](concept-registration-mfa-sspr-converged.md)

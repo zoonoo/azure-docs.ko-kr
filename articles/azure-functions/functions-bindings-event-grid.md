@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344633"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715389"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -279,7 +279,7 @@ Azure Portal을 사용하여 구독을 만드는 방법에 대한 자세한 내�
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create)를 사용합니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 구독을 만들려면 [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create)를 사용합니다.
 
 이 명령에는 함수를 호출하는 끝점 URL이 필요합니다. 다음 예제에서는 URL 패턴을 보여 줍니다.
 
@@ -340,7 +340,7 @@ Event Grid 트리거를 로컬로 테스트하려면 클라우드의 원본에�
 4. [요청을 생성](#generate-a-request)하고 뷰어 앱에서 요청 본문을 복사합니다.
 5. Event Grid 트리거 함수의 localhost URL에 [요청을 수동으로 게시](#manually-post-the-request)합니다.
 
-테스트가 완료되면 끝점을 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI 명령을 사용합니다.
+테스트가 완료되면 끝점을 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
 ### <a name="create-a-viewer-web-app"></a>뷰어 웹앱 만들기
 
@@ -406,7 +406,7 @@ Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 
 5. ngrok 끝점으로 이벤트를 보내는 [Event Grid 구독을 만듭니다](#create-a-subscription).
 6. [이벤트를 트리거](#trigger-an-event)합니다.
 
-테스트가 완료되면 끝점을 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI 명령을 사용합니다.
+테스트가 완료되면 끝점을 업데이트하여 프로덕션 환경에도 동일한 구독을 사용할 수 있습니다. [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI 명령을 사용합니다.
 
 ### <a name="create-an-ngrok-endpoint"></a>ngrok 끝점 만들기
 
@@ -432,7 +432,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Event Grid 구독에 대해 https://{subdomain}.ngrok.io URL을 사용하게 됩니다.
+Event Grid 구독에 대해 `https://{subdomain}.ngrok.io` URL을 사용합니다.
 
 ### <a name="run-the-event-grid-trigger-function"></a>Event Grid 트리거 함수 실행
 
@@ -440,12 +440,16 @@ ngrok URL은 Event Grid에서 특수하게 처리되지 않으므로, 구독이 
 
 ### <a name="create-a-subscription"></a>구독 만들기
 
-다음 패턴을 사용해서 테스트하려는 유형의 Event Grid 구독을 만들고 ngrok 끝점에 제공합니다.
+테스트하려는 유형의 Event Grid 구독을 만들고 ngrok 엔드포인트에 제공합니다.
 
+Functions 1.x에 대해 이 엔드포인트 패턴을 사용합니다.
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Functions 2.x에 대해 이 엔드포인트 패턴을 사용합니다.
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 `functionName` 매개 변수는 `FunctionName` 특성에 지정된 이름이어야 합니다.
 
 다음은 Azure CLI 사용 예입니다.

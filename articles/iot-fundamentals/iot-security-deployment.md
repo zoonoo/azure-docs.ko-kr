@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: dobett
-ms.openlocfilehash: b90d916514e7b5ce566d4823b44d4b4ef575224d
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 00acb08f567dbd50522d0e8a0b7b9a18a6658000
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "35774003"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038614"
 ---
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
@@ -37,6 +37,4 @@ IoT 솔루션 가속기는 이 순서로 다음 암호 그룹을 지원합니다
 
 ## <a name="see-also"></a>참고 항목
 
-IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어][lnk-devguide-security]에서 IoT Hub 보안에 대해 자세히 알아보세요.
-
-[lnk-devguide-security]: /azure/iot-hub/iot-hub-devguide-security.md
+IoT Hub 개발자 가이드의 [IoT Hub에 대한 액세스 제어](../iot-hub/iot-hub-devguide-security.md)에서 IoT Hub 보안에 대해 자세히 알아보세요. 

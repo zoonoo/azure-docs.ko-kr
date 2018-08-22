@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d121f2744292ba64436f0722ae60cc3bc2b8dfa7
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186716"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714131"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>AKS(Azure Kubernetes Service)의 클러스터 Autoscaler - 미리 보기
 
-AKS(Azure Kubernetes Service)는 Azure에서 관리되는 Kubernetes 클러스터를 배포하기 위한 유연한 솔루션을 제공합니다. 리소스 요구가 증가하면서 클러스터 Autoscaler는 설정한 제약 조건에 따른 해당 요구에 맞춰 클러스터가 성장할 수 있게 합니다. 클러스터 Autoscaler(CA)는 보류 중인 Pod에 따라 에이전트 노드 크기를 조정하여 이 작업을 수행합니다. 보류 중인 Pod 또는 빈 노드를 확인하려면 주기적으로 클러스터를 검사하고 가능하면 크기를 늘립니다. 기본적으로 CA는 10초마다 보류 중인 Pod를 검사하고 10분을 초과하는 시간 동안 필요 없으면 노드를 제거합니다. 수평 Pod Autoscaler(HPA)에서 사용하는 경우 HPA는 Pod 복제본 및 리소스를 요구에 따라 업데이트합니다. 이 Pod 크기 조정에 따라 불필요한 노드가 있거나 충분한 노드가 없는 경우 CA가 응답해 새 노드 집합에서 Pod를 예약합니다.
+AKS(Azure Kubernetes Service)는 Azure에서 관리되는 Kubernetes 클러스터를 배포하기 위한 유연한 솔루션을 제공합니다. 리소스 요구가 증가하면서 클러스터 Autoscaler는 설정한 제약 조건에 따른 해당 요구에 맞춰 클러스터가 성장할 수 있게 합니다. 클러스터 Autoscaler(CA)는 보류 중인 Pod에 따라 에이전트 노드 크기를 조정하여 이 작업을 수행합니다. 보류 중인 Pod 또는 빈 노드를 확인하려면 주기적으로 클러스터를 검사하고 가능하면 크기를 늘립니다. 기본적으로 CA는 10초마다 보류 중인 Pod를 검사하고 10분을 초과하는 시간 동안 필요 없으면 노드를 제거합니다. [수평 Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)(HPA)에서 사용하는 경우 HPA는 Pod 복제본 및 리소스를 요구에 따라 업데이트합니다. 이 Pod 크기 조정에 따라 불필요한 노드가 있거나 충분한 노드가 없는 경우 CA가 응답해 새 노드 집합에서 Pod를 예약합니다.
+
+이 문서에서는 에이전트 노드에서 클러스터 Autoscaler를 배포하는 방법을 설명합니다. 그러나 클러스터 Autoscaler는 kube 시스템 네임스페이스에 배포되므로 Autoscaler는 해당 Pod를 실행하는 노드의 크기를 축소하지 않습니다.
 
 > [!IMPORTANT]
 > AKS(Azure Kubernetes Service) 클러스터 Autoscaler 통합은 현재 **미리 보기** 상태입니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
@@ -32,41 +34,70 @@ AKS(Azure Kubernetes Service)는 Azure에서 관리되는 Kubernetes 클러스�
 
 ## <a name="gather-information"></a>정보 수집
 
-다음 목록에서는 Autoscaler 정의에서 제공해야 하는 모든 정보를 보여 줍니다.
+클러스터에서 Autoscaler를 실행하도록 클러스터에 대한 권한을 생성하려면 이 bash 스크립트를 실행합니다.
 
-- *구독 ID*: 이 클러스터에 사용된 구독에 해당하는 ID
-- *리소스 그룹 이름*: 클러스터가 속한 리소스 그룹의 이름 
-- *클러스터 이름*: 클러스터의 이름
-- *클라이언트 ID*: 단계를 생성하는 권한으로 부여한 앱 ID
-- *클라이언트 비밀*: 단계를 생성하는 권한으로 부여한 앱 비밀
-- *테넌트 ID*: 테넌트(계정 소유자)의 ID
-- *노드 리소스 그룹*: 클러스터의 에이전트 노드가 포함된 리소스 그룹의 이름
-- *노드 풀 이름*: 크기를 조정하려는 노드 풀의 이름
-- *최소 노드 수*: 클러스터에 있는 최소 노드 수
-- *최대 노드 수*: 클러스터에 있는 최대 노드 수
-- *VM 유형*: Kubernetes 클러스터를 생성하는 데 사용된 서비스
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-다음을 사용하여 구독 ID를 가져옵니다. 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: cluster-autoscaler-azure
+    namespace: kube-system
+data:
+    ClientID: $CLIENT_ID
+    ClientSecret: $CLIENT_SECRET
+    ResourceGroup: $RESOURCE_GROUP
+    SubscriptionID: $SUBSCRIPTION_ID
+    TenantID: $TENANT_ID
+    VMType: QUtTCg==
+    ClusterName: $CLUSTER_NAME
+    NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-다음 명령을 실행하여 Azure 자격 증명 집합을 생성합니다.
+스크립트의 단계를 따른 후 스크립트는 다음과 같이 비밀의 형태로 세부 사항을 출력합니다.
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-앱 ID, 암호 및 테넌트 ID는 다음 단계의 clientID, clientSecret 및 tenantID입니다.
-
-다음 명령을 실행하여 노드 풀의 이름을 가져옵니다. 
+다음으로 다음 명령을 실행하여 노드 풀의 이름을 가져옵니다. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -81,49 +112,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 그런 다음, 레이블 **agentpool**의 값을 추출합니다. 클러스터의 노드 풀에 대한 기본 이름은 "nodepool1"입니다.
 
-노드 리소스 그룹의 이름을 가져오려면 레이블 **kubernetes.azure.com<span></span>/cluster**의 값을 추출합니다. 노드 리소스 그룹 이름의 형식은 일반적으로 MC_[resource-group]\_[cluster-name]_[location]입니다.
-
-vmType 매개 변수는 사용 중인 서비스, 여기서는 AKS를 가리킵니다.
-
-이제 다음 정보가 있어야 합니다.
-
-- 구독 ID
-- ResourceGroup
-- ClusterName
-- ClientID
-- ClientSecret
-- TenantID
-- NodeResourceGroup
-- VMType
-
-다음으로, base64를 사용하여 이러한 값 모두를 인코딩합니다. 예를 들어 base64로 VMType 값을 인코딩하려면
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## <a name="create-secret"></a>비밀 만들기
-이 데이터를 사용하여 이전 단계에서 찾은 다음 형식의 값을 사용하는 배포에 대한 비밀을 만듭니다.
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+이제 비밀 및 노드 풀을 사용하여 배포 차트를 만들 수 있습니다.
 
 ## <a name="create-a-deployment-chart"></a>배포 차트 만들기
 
@@ -324,10 +313,10 @@ spec:
 실행으로 cluster-autoscaler 배포
 
 ```console
-kubectl create -f cluster-autoscaler-containerservice.yaml
+kubectl create -f aks-cluster-autoscaler.yaml
 ```
 
-클러스터 Autoscaler가 실행되고 있는지 확인하려면 다음 명령을 사용하고 Pod 목록을 확인합니다. Pod에 "cluster-autoscaler" 실행이라는 접두사가 붙은 경우 클러스터 Autoscaler가 배포된 것입니다.
+클러스터 Autoscaler가 실행되고 있는지 확인하려면 다음 명령을 사용하고 Pod 목록을 확인합니다. "cluster-autoscaler"의 접두사로 실행되는 Pod가 있어야 합니다. 이를 확인하는 경우 클러스터 Autoscaler가 배포된 것입니다.
 
 ```console
 kubectl -n kube-system get pods
@@ -338,6 +327,68 @@ kubectl -n kube-system get pods
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## <a name="interpreting-the-cluster-autoscaler-status"></a>클러스터 Autoscaler 상태 해석
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+클러스터 Autoscaler 상태를 통해 두 개의 서로 다른 수준에서 클러스터 Autoscaler의 상태를 볼 수 있습니다. 클러스터 전체 및 각 노드 그룹 내에서 AKS는 현재 하나의 노드 풀만을 지원하므로 이러한 메트릭은 동일합니다.
+
+* 상태는 노드의 전반적인 상태를 나타냅니다. 클러스터 Autoscaler가 클러스터에서 노드를 만들거나 제거하는 데 어려움이 있는 경우 이 상태는 "Unhealthy"로 변경됩니다. 다른 노드의 상태에 대한 분석도 있습니다.
+    * "Ready"는 노드가 Pod를 예약하도록 준비됨을 의미합니다.
+    * "Unready"는 노드가 시작된 후 중단됨을 의미합니다.
+    * "NotStarted"는 노드가 아직 완전히 시작되지 않음을 의미합니다.
+    * "LongNotStarted"는 노드가 적절한 제한 내에서 시작하지 못함을 의미합니다.
+    * "Registered"는 노드가 그룹에 등록됨을 의미합니다.
+    * "Unregistered"는 노드가 클러스터 공급자 측에 있지만 Kubernetes 등록에 실패했음을 의미합니다.
+  
+* ScaleUp을 통해 클러스터가 확장이 클러스터에서 발생해야 함을 결정하는 경우를 확인할 수 있습니다.
+    * 전환은 클러스터에서 노드 수가 변경되거나 노드 상태가 변경되는 경우입니다.
+    * 준비된 노드 수는 사용 가능하고 클러스터에서 준비된 노드 수입니다. 
+    * cloudProviderTarget은 클러스터 Autoscaler에서 클러스터가 해당 워크로드를 처리해야 함을 결정한 노드 수입니다.
+
+* ScaleDown을 통해 규모 축소에 대한 후보가 있는 경우를 확인할 수 있습니다. 
+    * 규모 축소에 대한 후보는 클러스터 Autoscaler에서 해당 워크로드를 처리하는 클러스터의 기능에 영향을 주지 않고 제거할 수 있는 것을 결정한 노드입니다. 
+    * 제공된 시간은 후보 축소 및 해당 마지막 전환 시간에 대해 클러스터에서 확인된 마지막 시간을 표시합니다.
+
+마지막으로 이벤트에서 클러스터 Autoscaler에서 수행한 규모 확대 또는 규모 축소 이벤트, 실패 또는 성공 및 해당 시간을 확인할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

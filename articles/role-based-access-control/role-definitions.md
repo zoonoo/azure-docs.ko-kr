@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116064"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715773"
 ---
 # <a name="understand-role-definitions"></a>역할 정의 이해
 
@@ -214,7 +214,7 @@ Bob의 권한은 [Storage Blob 데이터 기여자(미리 보기)](built-in-role
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes` 속성에서는 역할을 할당할 수 있는 범위(관리 그룹(현재 미리 보기 상태임), 구독, 리소스 그룹 또는 리소스)를 지정합니다. 역할이 필요한 구독 또는 리소스 그룹에만 역할을 할당할 수 있도록 하며, 나머지 구독 또는 리소스 그룹에 대해 혼란스러운 사용자 환경이 아닙니다. 하나 이상의 관리 그룹, 구독, 리소스 그룹 또는 리소스 ID를 사용해야 합니다.
+`AssignableScopes` 속성에서는 역할을 할당할 수 있는 범위(구독, 리소스 그룹 또는 리소스)를 지정합니다. 역할이 필요한 구독 또는 리소스 그룹에만 역할을 할당할 수 있도록 하며, 나머지 구독 또는 리소스 그룹에 대해 혼란스러운 사용자 환경이 아닙니다. 구독, 리소스 그룹 또는 리소스 ID를 적어도 하나 사용해야 합니다.
 
 기본 제공 역할에는 루트 범위(`"/"`)로 설정된 `AssignableScopes`가 있습니다. 루트 범위는 모든 범위에서 역할을 할당에 사용할 수 있음을 나타냅니다. 유효한 할당 가능한 범위의 예는 다음과 같습니다.
 

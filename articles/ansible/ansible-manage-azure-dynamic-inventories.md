@@ -6,14 +6,14 @@ keywords: Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 35033f7a6a0340be4dff5fa0051fd3c5ddb3c0eb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449420"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038523"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible을 사용하여 Azure 동적 인벤토리 관리
 Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *동적 인벤토리*로 인벤토리 정보를 가져오는 데 사용할 수 있습니다. 이 문서에서는 [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md)을 사용하여 두 개의 가상 머신을 만들고, 해당 가상 머신 각각에 태그를 지정하고, 태그가 지정된 가상 머신에 Nginx를 설치하는 Ansible Azure 동적 인벤토리를 구성합니다.
@@ -31,6 +31,9 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 1. [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 엽니다.
 
 1. 이 자습서의 가상 머신을 보관할 Azure 리소스 그룹을 만듭니다.
+
+    > [!IMPORTANT]  
+    > 이 단계에서 만든 Azure 리소스 그룹에는 모두 소문자로 구성된 이름이 있어야 합니다. 그렇지 않으면 동적 인벤토리를 생성하지 못합니다.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -183,7 +186,7 @@ ansible-inventory-test-vm1 | SUCCESS => {
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. [nginx -v](https://nginx.org/en/docs/switches.html) 명령은 일반적으로 Nginx 버전을 출력하는 데 사용됩니다. 그러나 Nginx가 설치되었는지 여부를 확인하는데도 사용할 수 있습니다. `ansible-inventory-test-vm1` 가상 머신에 연결된 상태에서 이를 입력합니다.
+1. `ansible-inventory-test-vm1` 가상 머신에 연결된 상태에서 [nginx -v](https://nginx.org/en/docs/switches.html) 명령을 실행하여 Nginx가 설치되었는지 확인합니다.
 
     ```azurecli-interactive
     nginx -v

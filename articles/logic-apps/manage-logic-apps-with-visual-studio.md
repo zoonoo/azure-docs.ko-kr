@@ -1,30 +1,26 @@
 ---
 title: Visual Studio로 논리 앱 관리 - Azure Logic Apps | Microsoft Docs
 description: Visual Studio 클라우드 탐색기를 사용하여 Logic Apps 및 기타 Azure 자산 관리
-author: ecfan
-manager: jeconnoc
-editor: ''
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.author: estfan; LADocs
-ms.openlocfilehash: b4d7f557923a67ae0c9fc513cd2b4fe7555241be
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: d4de75238e48b8eb955095b5a3823f2fed799fae
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35301119"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038566"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Visual Studio로 논리 앱 관리
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 논리 앱을 만들고, 편집하고, 관리하고, 배포할 수 있지만, 소스 제어에 논리 앱을 추가하고 다른 버전을 게시하고 다른 배포 환경에 대한 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿을 만들려는 경우에도 Visual Studio를 사용할 수 있습니다. Visual Studio 클라우드 탐색기로 다른 Azure 리소스와 함께 논리 앱을 찾고 관리할 수 있습니다. 예를 들어 Azure Portal에서 이미 배포된 논리 앱을 열고, 다운로드하고, 편집하고, 실행하고, 실행 기록을 보고, 해제하고, 설정할 수 있습니다. Visual Studio에서 Azure Logic Apps를 작업하는 데 익숙하지 않다면 [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 참조하세요.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>에서 논리 앱을 만들고, 편집하고, 관리하고, 배포할 수 있지만, 소스 제어에 논리 앱을 추가하고 다양한 버전을 게시하고 다양한 배포 환경에 대한 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) 템플릿을 만들려는 경우에도 Visual Studio를 사용할 수 있습니다. Visual Studio 클라우드 탐색기로 다른 Azure 리소스와 함께 논리 앱을 찾고 관리할 수 있습니다. 예를 들어 Azure Portal에서 이미 배포된 논리 앱을 열고, 다운로드하고, 편집하고, 실행하고, 실행 기록을 보고, 해제하고, 설정할 수 있습니다. Visual Studio에서 Azure Logic Apps를 작업하는 데 익숙하지 않다면 [Visual Studio로 논리 앱 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 참조하세요.
 
 > [!IMPORTANT]
 > Visual Studio에서 논리 앱을 배포하거나 게시하면 Azure Portal에서 해당 앱의 버전을 덮어씁니다. 따라서 Azure Portal에서 변경한 내용을 계속 유지하려면 다음에 Visual Studio에서 배포 또는 게시하기 전에 Azure Portal에서 [Visual Studio를 사용하여 논리 앱을 새로 고침](#refresh)해야 합니다.
@@ -33,7 +29,7 @@ ms.locfileid: "35301119"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">무료 Azure 계정에 등록</a>합니다.
+* Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
 
 * 다음 도구가 없으면 다운로드하여 설치합니다. 
 
@@ -45,11 +41,11 @@ ms.locfileid: "35301119"
   * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Visual Studio 2017용 Azure Logic Apps 도구</a> 또는 <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">Visual Studio 2015 버전</a> 
   
     Visual Studio Marketplace에서 직접 Azure Logic Apps 도구를 다운로드해 설치하거나 <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">Visual Studio 내에서 이 확장을 설치하는 방법</a>을 알아볼 수 있습니다. 
-    설치를 완료하면 Visual Studio를 다시 시작해야 하는지 확인합니다.
+    설치를 완료하면 Visual Studio를 다시 시작하도록 합니다.
 
 * 포함된 Logic Apps 디자이너를 사용하는 동안 웹에 액세스
 
-  디자이너는 Azure에서 리소스를 만들고 논리 앱의 커넥터에서 속성 및 데이터를 읽기 위해 인터넷 연결을 필요로 합니다. 
+  디자이너가 Azure에서 리소스를 만들고 논리 앱의 커넥터에서 속성 및 데이터를 읽기 위해서는 인터넷 연결이 필요합니다. 
   예를 들어, Dynamics CRM Online 커넥터를 사용하는 경우 디자이너는 사용 가능한 사용자 지정 및 기본 속성에 대한 CRM 인스턴스를 확인합니다.
 
 <a name="find-logic-apps-vs"></a>
@@ -161,6 +157,9 @@ Azure에 배포된 논리 앱을 Visual Studio에서 수동으로 트리거할 �
 
 ![논리 앱 사용 안 함](./media/manage-logic-apps-with-visual-studio/disable-logic-app.png)
 
+> [!NOTE]
+> 논리 앱을 사용하지 않도록 설정하면 새 실행이 인스턴스화되지 않습니다. 진행 중 및 보류 중인 모든 실행이 완료될 때까지 계속되며, 완료에 시간이 소요될 수 있습니다. 
+
 논리 앱을 다시 시작할 준비가 되면 논리 앱을 다시 활성화할 수 있습니다. 클라우드 탐색기에서 논리 앱의 바로 가기 메뉴를 열고 **사용**을 선택합니다.
 
 ![논리 앱 사용](./media/manage-logic-apps-with-visual-studio/enable-logic-app.png)
@@ -171,9 +170,12 @@ Azure Portal에서 논리 앱을 삭제하려면 클라우드 탐색기에서 �
 
 ![논리 앱 삭제](./media/manage-logic-apps-with-visual-studio/delete-logic-app.png)
 
+> [!NOTE]
+> 논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다. 모든 진행 중 및 보류 중인 실행이 취소됩니다. 수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다. 
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Visual Studio를 사용하여 배포된 논리 앱을 관리하는 방법을 배웠습니다. 다음으로 배포에 대한 논리 앱 정의 사용자 지정에 대해 알아보겠습니다.
 
 > [!div class="nextstepaction"]
-> [JSON의 작성자 논리 앱 정의](../logic-apps/logic-apps-author-definitions.md)
+> [JSON에서 논리 앱 정의를 작성](../logic-apps/logic-apps-author-definitions.md)

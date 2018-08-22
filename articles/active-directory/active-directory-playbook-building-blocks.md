@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049472"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038686"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory 개념 증명 플레이 북: 문서 블록
 
@@ -41,7 +41,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
-| 유효한 Azure 구독을 통해 정의된 Azure AD 테넌트 | [Azure Active Directory 테넌트를 얻는 방법](active-directory-howto-tenant.md)<br/>**참고:** 이미 Azure AD 프리미엄 라이선스가 포함된 환경이 있는 경우에는 https://aka.ms/accessaad로 이동하여 무제한 구독을 얻을 수 있음 <br/>https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 및 https://technet.microsoft.com/library/dn832618.aspx에 대한 자세한 정보 |
+| 유효한 Azure 구독을 통해 정의된 Azure AD 테넌트 | [Azure Active Directory 테넌트를 얻는 방법](develop/quickstart-create-new-tenant.md)<br/>**참고:** 이미 Azure AD 프리미엄 라이선스가 포함된 환경이 있는 경우에는 https://aka.ms/accessaad로 이동하여 무제한 구독을 얻을 수 있음 <br/>https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ 및 https://technet.microsoft.com/library/dn832618.aspx에 대한 자세한 정보 |
 | 정의 및 확인된 도메인 | [Azure Active Directory에 사용자 지정 도메인 이름 추가](active-directory-domains-add-azure-portal.md)<br/>**참고:** Power BI 등의 일부 작업은 내부적으로 Azure AD 테넌트를 프로비전했을 수 있습니다. 지정된 도메인이 테넌트에 연결되어 있는지 확인하려면 https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration로 이동합니다. 성공적인 응답을 받으면 도메인이 이미 테넌트에 할당된 것이고 인수가 필요할 수 있습니다. 이 경우 Microsoft에 추가 지침을 문의하세요. 인수 옵션에 대한 참고 항목: [Azure의 셀프 서비스 등록이란?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium 또는 EMS 평가판 사용 | [한 달 동안 Azure Active Directory Premium 체험](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Azure AD Premium 또는 EMS 라이선스를 PoC 사용자에게 할당했습니다. | [Azure Active Directory에서 사용자 본인 및 사용자의 사용자 라이선스](active-directory-licensing-get-started-azure-portal.md) |
@@ -159,7 +159,7 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 프로비전이 완료되는 동안 몇 분 정도 기다립니다.  그 사이에 프로비전 보고서를 확인할 수 있습니다. |  |
 | 액세스할 수 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인 | [액세스 패널이란?](user-help/active-directory-saas-access-panel-introduction.md) |
 | 방금 만든 응용 프로그램의 타일을 클릭합니다. 액세스 권한을 확인합니다. |  |
-| 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md) |
+| 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>고려 사항
 
@@ -185,13 +185,13 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 브라우저 확장을 설치합니다. | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
 | 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)|
 | 필수 구성 요소에서 식별된 그룹에게 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 | 액세스할 수 있는 테스트 사용자로 https://myapps.microsoft.com/에 로그인 |  |
 | 방금 만든 응용 프로그램의 타일을 클릭합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 응용 프로그램 자격 증명을 제공합니다. | [액세스 패널이란?: ID 프로비전 없는 암호 기반 SSO](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | 브라우저를 닫고 로그인을 반복합니다. 이때 사용자는 응용 프로그램에 원활하게 액세스할 수 있어야 합니다. |  |
-| 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md) |
+| 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](reports-monitoring/reference-reports-data-retention.md) |
 
 ### <a name="considerations"></a>고려 사항
 
@@ -220,10 +220,10 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | --- | --- |
 | 브라우저 확장을 설치합니다. | [Access Panel Extension for IE](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)(IE용 액세스 패널 확장)<br/>[Access Panel Extension for Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)(Chrome용 액세스 패널 확장)<br/>[Access Panel Extension for Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409)(Firefox용 액세스 패널 확장) |
 | 갤러리에서 응용 프로그램을 구성합니다. | [Azure Active Directory의 새로운 엔터프라이즈 응용 프로그램 관리 기능: 새롭고 개선된 응용 프로그램 갤러리](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| 암호 SSO를 구성합니다. | [새 Azure Portal에서 엔터프라이즈 앱에 대한 Single Sign-On 관리: 암호 기반 로그온](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)|
 | 필수 구성 요소에서 식별된 그룹에게 자격 증명을 할당할 때 앱을 할당합니다. | [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](manage-apps/assign-user-or-group-access-portal.md) |
 | **같은 공유 계정**으로 앱에 액세스하는 서로 다른 사용자로 로그인합니다.  |  |
-| 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](active-directory-reporting-retention.md) |
+| 필요한 경우 응용 프로그램 사용 현황 보고서를 확인할 수 있습니다. 약간의 대기 시간이 있으므로 보고서에 트래픽이 표시될 때까지 잠시 기다려야 합니다. | [Azure Active Directory 포털의 로그인 활동 보고서: 관리되는 응용 프로그램의 사용량](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory 보고서 보존 정책](reports-monitoring/reference-reports-data-retention.md) |
 
 
 ### <a name="considerations"></a>고려 사항
@@ -452,9 +452,9 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | Azure AD 관리 포털: 조건부 액세스 블레이드로 이동합니다. | [Azure AD Management Portal: Conditional Access](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)(Azure AD 관리 포털: 조건부 액세스) |
-| 조건부 액세스 정책을 만듭니다.<br/>- “사용자 및 그룹”에서 PoC 사용자를 대상으로 지정합니다.<br/>- “클라우드 앱”에서 PoC 응용 프로그램을 대상으로 지정합니다.<br/>- “조건” -> “위치”에서 신뢰할 수 있는 위치를 제외한 모든 위치를 대상으로 지정합니다. **참고:** 신뢰할 수 있는 IP는 [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)(MFA 포털)에서 구성됩니다.<br/>- “권한 부여”에서 다단계 인증이 필요합니다. | [Azure Active Directory에서 조건부 액세스 시작: 정책 구성 단계](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| 회사 네트워크 내부에서 응용 프로그램에 액세스합니다. | [Azure Active Directory에서 조건부 액세스 시작: 정책 테스트](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| 공용 네트워크에서 응용 프로그램에 액세스합니다. | [Azure Active Directory에서 조건부 액세스 시작: 정책 테스트](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| 조건부 액세스 정책을 만듭니다.<br/>- “사용자 및 그룹”에서 PoC 사용자를 대상으로 지정합니다.<br/>- “클라우드 앱”에서 PoC 응용 프로그램을 대상으로 지정합니다.<br/>- “조건” -> “위치”에서 신뢰할 수 있는 위치를 제외한 모든 위치를 대상으로 지정합니다. **참고:** 신뢰할 수 있는 IP는 [MFA Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)(MFA 포털)에서 구성됩니다.<br/>- “권한 부여”에서 다단계 인증이 필요합니다. | [조건부 액세스 정책 만들기](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| 회사 네트워크 내부에서 응용 프로그램에 액세스합니다. | [조건부 액세스 정책 테스트](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| 공용 네트워크에서 응용 프로그램에 액세스합니다. | [조건부 액세스 정책 테스트](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### <a name="considerations"></a>고려 사항
 
@@ -500,17 +500,17 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 필수 구성 요소 | 리소스 |
 | --- | --- |
 | Tor 브라우저가 다운로드 및 설치된 장치 | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads)(Tor 브라우저 다운로드) |
-| 로그인을 수행할 POC 사용자 권한 | [Azure Active Directory Identity Protection 플레이 북](active-directory-identityprotection-playbook.md) |
+| 로그인을 수행할 POC 사용자 권한 | [Azure Active Directory ID 보호 플레이 북](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>단계
 
 | 단계 | 리소스 |
 | --- | --- |
 | Tor 브라우저를 엽니다. | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads)(Tor 브라우저 다운로드) |
-| POC 사용자 계정으로 https://myapps.microsoft.com에 로그인 | [Azure Active Directory ID 보호 플레이 북: 위험 이벤트 시뮬레이트](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| POC 사용자 계정으로 https://myapps.microsoft.com에 로그인 | [Azure Active Directory ID 보호 플레이 북: 위험 이벤트 시뮬레이트](identity-protection/playbook.md#simulating-risk-events) |
 | 5~7분 정도 기다립니다. |  |
 | 전역 관리자로 https://portal.azure.com에 로그인하고 ID 보호 블레이드 열기 | https://aka.ms/aadipgetstarted |
-| 위험 이벤트 블레이드를 엽니다. “익명 IP 주소에서 로그인” 아래에 있는 항목을 확인해야 합니다.  | [Azure Active Directory Identity Protection 플레이 북: 위험 이벤트 시뮬레이트](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| 위험 이벤트 블레이드를 엽니다. “익명 IP 주소에서 로그인” 아래에 있는 항목을 확인해야 합니다.  | [Azure Active Directory ID 보호 플레이 북: 위험 이벤트 시뮬레이트](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>고려 사항
 
@@ -534,14 +534,14 @@ Azure AD Premium에서 POC에 필요한 일부 필수 구성 요소는 다음과
 | 단계 | 리소스 |
 | --- | --- |
 | 전역 관리자로 https://portal.azure.com에 로그인하고 ID 보호 블레이드 열기 | https://aka.ms/aadipgetstarted |
-| 다음과 같이 로그인 위험 정책을 사용하도록 설정합니다.<br/>- 할당 대상: POC 사용자<br/>- 조건: 로그인 위험 중간 이상(익명 위치에서 로그인을 중간 위험 수준으로 간주함)<br/>- 컨트롤: MFA 필요 | [Azure Active Directory ID 보호 플레이 북: 로그인 위험](active-directory-identityprotection-playbook.md) |
+| 다음과 같이 로그인 위험 정책을 사용하도록 설정합니다.<br/>- 할당 대상: POC 사용자<br/>- 조건: 로그인 위험 중간 이상(익명 위치에서 로그인을 중간 위험 수준으로 간주함)<br/>- 컨트롤: MFA 필요 | [Azure Active Directory ID 보호 플레이 북: 로그인 위험](identity-protection/playbook.md) |
 | Tor 브라우저를 엽니다. | [Download Tor Browser](https://www.torproject.org/projects/torbrowser.html.en#downloads)(Tor 브라우저 다운로드) |
 | PoC 사용자 계정으로 https://myapps.microsoft.com에 로그인 |  |
-| MFA 챌린지를 확인합니다. | [Azure AD ID 보호를 사용하는 로그인 환경: 위험한 로그인 복구](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| MFA 챌린지를 확인합니다. | [Azure AD ID 보호를 사용하는 로그인 환경: 위험한 로그인 복구](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>고려 사항
 
-이 기능은 Azure AD Premium P2 및/또는 EMS E5에 포함됩니다. 위험 이벤트에 대한 자세한 내용은 [Azure Active Directory 위험 이벤트](active-directory-reporting-risk-events.md)를 참조하세요.
+이 기능은 Azure AD Premium P2 및/또는 EMS E5에 포함됩니다. 위험 이벤트에 대한 자세한 내용은 [Azure Active Directory 위험 이벤트](reports-monitoring/concept-risk-events.md)를 참조하세요.
 
 ## <a name="configuring-certificate-based-authentication"></a>인증 기반 인증서 구성
 

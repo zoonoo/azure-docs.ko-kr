@@ -1,6 +1,6 @@
 ---
 title: Azure Logic Apps에서 플랫 파일 인코딩 또는 디코딩 | Microsoft Docs
-description: Logic Apps에서 엔터프라이즈 통합 팩에 포함된 플랫 파일 인코더 또는 디코더를 사용하는 방법
+description: 논리 앱에서 엔터프라이즈 통합 팩에 포함된 파일 인코더 또는 디코더를 사용하는 방법
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; divswa
-ms.openlocfilehash: 4c8ac7aa3ccafaf14c0399860f3576430dd6ba1a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430001"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038379"
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>플랫 파일을 사용한 엔터프라이즈 통합 개요
 
@@ -35,7 +35,7 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
    
     a. **더하기** 기호를 선택합니다.
    
-    나. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
+    b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
    
     다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
    
@@ -65,7 +65,7 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
    
     a. **더하기** 기호를 선택합니다.
    
-    나. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
+    b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
    
     다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
    

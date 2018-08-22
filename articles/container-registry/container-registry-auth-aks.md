@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205394"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715832"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -72,7 +72,7 @@ echo "Service principal password: $SP_PASSWD"
 
 이제 AKS 클러스터가 컨테이너를 실행할 때 참조하는 Kubernetes [이미지 끌어오기 비밀][image-pull-secret]에 서비스 주체의 자격 증명을 저장할 수 있습니다.
 
-다음 **kubectl** 명령을 사용하여 Kubernetes 비밀을 만듭니다. `<acr-login-server>`를 Azure Container Registry의 정규화된 이름(“acrname.azurecr.io" 형식)으로 바꿉니다. `<service-principal-ID>` 및 `<service-principal-password>`를 이전 스크립트를 실행하여 획득한 값으로 바꿉니다.
+다음 **kubectl** 명령을 사용하여 Kubernetes 비밀을 만듭니다. `<acr-login-server>`를 Azure Container Registry의 정규화된 이름(“acrname.azurecr.io" 형식)으로 바꿉니다. `<service-principal-ID>` 및 `<service-principal-password>`를 이전 스크립트를 실행하여 획득한 값으로 바꿉니다. `<email-address>`를 올바른 형식의 이메일 주소로 바꿉니다.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>

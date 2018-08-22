@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449212"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716147"
 ---
-# <a name="manage-user-access-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 액세스 관리
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
 이 문서에서는 Azure AD(Azure Active Directory) B2C를 사용하여 응용 프로그램에 대한 사용자 액세스를 관리하는 방법에 대해 설명합니다. 응용 프로그램의 액세스 관리에는 다음 항목이 포함됩니다.
 
@@ -27,9 +27,6 @@ ms.locfileid: "37449212"
 - 사용 약관 계약 캡처 및 액세스 제한
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->이 문서는 GDPR 하에서 의무를 지원하는 데 사용할 수 있는 정보를 제공합니다. GDPR에 대한 일반적인 내용은 [Service Trust Portal의 GDPR 섹션](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted)을 참조하세요.
 
 ## <a name="control-minor-access"></a>미성년자 액세스 제어
 
@@ -75,7 +72,7 @@ ms.locfileid: "37449212"
 
     a. 성인으로 간주되기 위해 사용자가 출생한 날짜를 계산합니다. 예를 들어 현재 날짜가 2015년 3월 14일이고 **MinorConsent**가 18인 경우 생년월일은 2000년 3월 14일 이전이어야 합니다.
 
-    나. 최소 생년월일과 실제 생년월일을 비교합니다. 최소 생년월일이 사용자 생년월일 이전이면, 계산은 연령 그룹 계산으로 **Minor**를 반환합니다.
+    b. 최소 생년월일과 실제 생년월일을 비교합니다. 최소 생년월일이 사용자 생년월일 이전이면, 계산은 연령 그룹 계산으로 **Minor**를 반환합니다.
 
 3. **MinorNoConsentRequired** 노드가 country 요소에 있으면, **MinorNoConsentRequired**의 값을 사용하여 2a 및 2b 단계를 반복합니다. 최소 생년월일이 사용자 생년월일 이전이면 2b의 출력은 **MinorNoConsentRequired**를 반환합니다. 
 

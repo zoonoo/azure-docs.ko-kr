@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070569"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716120"
 ---
 # <a name="using-gpus-on-aks"></a>AKS에서 GPU 사용
 
@@ -270,6 +270,64 @@ Adding run metadata for 499
 ```
 $ kubectl delete jobs samples-tf-mnist-demo
 job "samples-tf-mnist-demo" deleted
+```
+
+## <a name="troubleshoot"></a>문제 해결
+
+일부 시나리오에서는 용량에 GPU 리소스가 표시되지 않을 수 있습니다. 예: 클러스터를 Kubernetes 버전 1.10으로 업그레이드하거나 새 Kubernetes 버전 1.10 클러스터를 만든 후 `kubectl describe node <node-name>`를 실행할 때 `Capacity`에서 예상되는 `nvidia.com/gpu` 리소스가 누락됩니다. 
+
+이를 해결하기 위해 다음 daemonset 게시물 프로비전을 적용하거나 업그레이드하면 예약 가능한 리소스로 `nvidia.com/gpu`가 표시됩니다. 
+
+매니페스트를 복사하고 **nvidia-device-plugin-ds.yaml**로 저장합니다. 아래 `image: nvidia/k8s-device-plugin:1.10`의 이미지 태그의 경우 Kubernetes 버전과 일치하도록 태그를 업데이트합니다. 예를 들어 kubernetes 버전 1.11에 태그 `1.11`을 사용합니다.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      containers:
+      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+        accelerator: nvidia
+```
+
+[kubectl apply][kubectl-apply] 명령을 사용하여 daemonset을 만듭니다.
+
+```
+$ kubectl apply -f nvidia-device-plugin-ds.yaml
+daemonset "nvidia-device-plugin" created
 ```
 
 ## <a name="next-steps"></a>다음 단계

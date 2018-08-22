@@ -2,28 +2,23 @@
 title: Azure Event Hubs 관리 라이브러리 | Microsoft Docs
 description: .NET에서 Event Hubs 네임스페이스 및 엔터티 관리
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: 1b158fd3ac3f36b71a76c149e8b6815f576be1c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780976"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007594"
 ---
 # <a name="event-hubs-management-libraries"></a>Event Hubs 관리 라이브러리
 
-Event Hubs 관리 라이브러리는 Event Hubs 네임스페이스 및 엔터티를 동적으로 프로비전할 수 있습니다. 이 동적 특성을 통해 복잡한 배포 및 메시지 시나리오가 가능하며, 어떤 엔터티를 프로비전할 것인지 프로그래밍 방식으로 결정할 수 있습니다. 이러한 라이브러리는 현재 .NET에서 사용할 수 있습니다.
+Azure Event Hubs 관리 라이브러리를 사용하여 Event Hubs 네임스페이스 및 엔터티를 동적으로 프로비전할 수 있습니다. 이 동적 특성을 통해 복잡한 배포 및 메시지 시나리오가 가능하며, 어떤 엔터티를 프로비전할 것인지 프로그래밍 방식으로 결정할 수 있습니다. 이러한 라이브러리는 현재 .NET에서 사용할 수 있습니다.
 
 ## <a name="supported-functionality"></a>지원되는 기능
 

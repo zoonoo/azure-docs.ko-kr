@@ -1,25 +1,20 @@
 ---
-title: Azure Active Directory 사용자를 클러스터와 동기화 - Azure HDInsight | Microsoft Docs
+title: Azure Active Directory 사용자를 클러스터와 동기화 - Azure HDInsight
 description: Azure Active Directory에서 인증된 사용자를 클러스터와 동기화합니다.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 01/19/2018
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: f2deaaa31a4d0e8a91d048b538e9251a8eb9e1b7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 08/19/2018
+ms.openlocfilehash: 05ac13fe849f90e3f0dbc60d5c232f469e1f290d
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409284"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714845"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Azure Active Directory 사용자를 HDInsight 클러스터와 동기화
 
@@ -80,10 +75,10 @@ ms.locfileid: "31409284"
     }
     ```
 
-4. 동기화 상태를 보려면 이전 명령에서 반환된 `href` 값을 사용하여 새 `curl` 명령을 실행합니다.
+4. 동기화 상태를 보려면 새 `curl` 명령을 실행합니다.
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
     
     응답은 다음과 같아야 합니다.

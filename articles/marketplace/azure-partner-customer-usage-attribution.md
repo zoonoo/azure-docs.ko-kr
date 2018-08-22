@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ellacroi
-ms.openlocfilehash: ce862758d97737d16ef26ca7172cad39f8d8336a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 46cd5dbc044cbd0b7e38e5f0d0c8aa1916387a2d
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359535"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038478"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -55,23 +55,8 @@ GUID 추가는 기본 템플릿 파일의 단일 수정 사항입니다.
 
 ## <a name="sample-template-code"></a>샘플 템플릿 코드
 
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // remove all comments from the file when done
-
-```
 
 ## <a name="method-2-azure-resource-manager-apis"></a>방법 2: Azure Resource Manager API
 
@@ -81,6 +66,8 @@ Azure Resource Manager 템플릿을 사용하는 경우, 위의 지침에 따라
 
 **Azure Resource Manager API를 사용하여 배포에 태그를 지정하는 방법:** 이 방법의 경우, API 호출을 디자인할 때 요청의 사용자 에이전트 헤더에 GUID를 포함합니다. 각 제품 또는 SKU에 대해 GUID를 추가해야 합니다.  문자열 형식은 접두사 pid-로 시작하고 파트너 생성 GUID를 포함해야 합니다.   
 
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+
 >[!Note] 
 >사용자 에이전트에 삽입할 GUID 형식: pid-eb7927c8-dd66-43e1-b0cf-c346a422063     // “pid-” 뒤에 GUID를 입력합니다.
 
@@ -88,13 +75,7 @@ Azure Resource Manager 템플릿을 사용하는 경우, 위의 지침에 따라
 
 **Python SDK를 사용한 예제:** Python의 경우, “config” 특성을 사용해야 합니다. UserAgent에만 추가할 수 있습니다. 다음은 예제입니다.
 
-```python
-
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-
-
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
 
 >이 작업은 각 클라이언트에 대해 수행해야 하며, 전역 정적 구성이 없습니다. 클라이언트 팩터리 실행을 선택하여 모든 클라이언트가 이 작업을 수행하도록 할 수도 있습니다. 
 >[추가 참조 정보](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
@@ -123,13 +104,38 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 템플릿 GUID의 모든 등록은 Azure Marketplace CPP(Cloud 파트너 포털)를 통해 수행됩니다. 
 
-지금 [Azure Marketplace](http://aka.ms/listonazuremarketplace)에 신청하여 Cloud 파트너 포털을 액세스하세요.
+1. 지금 [Azure Marketplace](http://aka.ms/listonazuremarketplace)에 신청하여 Cloud 파트너 포털을 액세스하세요.
 
-*   파트너는 [CPP에 프로필이 있어야](https://docs.microsoft.com/azure/marketplace/become-publisher) 하며, Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다. 
-*   한 파트너가 여러 GUID를 등록할 수 있습니다. 
-*   또한 파트너는 Marketplace 이외의 솔루션 템플릿/제품의 GUID를 등록할 수도 있습니다.
+ *  파트너는 [CPP에 프로필이 있어야](https://docs.microsoft.com/azure/marketplace/become-publisher) 하며, Azure Marketplace 또는 AppSource에 제품을 나열하는 것이 좋습니다. 
+ *  한 파트너가 여러 GUID를 등록할 수 있습니다. 
+ *  또한 파트너는 Marketplace 이외의 솔루션 템플릿/제품의 GUID를 등록할 수도 있습니다.
+ 
+2. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인
+3. 포털의 오른쪽 위 모서리에서 계정 아이콘을 클릭한 다음, **게시자 프로필** 클릭
 
-템플릿이나 사용자 에이전트에 GUID를 추가하고 CPP에 GUID를 등록하고 나면 모든 배포가 추적됩니다. 
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-image-for-lu.png)
+
+4. 프로필 페이지에서 **추적 GUID**를 클릭합니다.
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
+
+5. 확장된 필드에서 추적 GUID(“pid-” 접두어 없이 GUID만)를 **추적 GUID** 필드에 입력하고 **사용자 지정 설명** 필드에 제품 이름이나 설명을 입력합니다.
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-login.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example.png)
+
+6. 여러 GUID를 등록하려면 **추적 GUID 추가**를 다시 클릭합니다. 그러면 다른 확장 필드가 열립니다. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-add.png)
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-example-description.png)
+
+7. 편집을 마치고 나면 **저장**을 클릭하여 변경 내용을 저장합니다. 
+
+![](https://github.com/ellacroi/azure-docs-pr/blob/more-lu-images/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-save.png)
+
+
 
 ## <a name="verification-of-guid-deployment"></a>GUID 배포 확인 
 
@@ -204,15 +210,18 @@ SKU(SKU는 제품의 변형임) 등의 더 세분화된 수준에서 GUID를 추
 지원을 받으려면 아래 단계를 따르세요.
  1. [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)에 있는 지원 페이지를 방문합니다.
  2. 사용량 연결 문제의 경우 - 문제 유형으로 **마켓플레이스 온보딩**, 범주로 **기타**를 선택하고 **요청 시작**을 클릭합니다. 
->[!Note]
->Azure Marketplace Cloud 파트너 포털 액세스 문제의 경우 - 문제 유형으로 **마켓플레이스 온보딩**, 범주로 **액세스 문제**를 선택하고 **요청 시작**을 클릭합니다.
- 3. 다음 페이지에서 필수 필드를 작성하고 **계속**을 클릭합니다.
- 4. 다음 페이지에서 자유 텍스트 필드를 작성합니다.  
+
+Azure Marketplace Cloud 파트너 포털 액세스 문제의 경우 - 문제 유형으로 **마켓플레이스 온보딩**, 범주로 **액세스 문제**를 선택하고 **요청 시작**을 클릭합니다.
+
+ ![](https://github.com/ellacroi/azure-docs-pr/blob/last-lu-images-i-hope/articles/marketplace/media/marketplace-publishers-guide/lu-article-incident.png)
  
 
+ 3. 다음 페이지에서 필수 필드를 작성하고 **계속**을 클릭합니다.
+ 4. 다음 페이지에서 자유 텍스트 필드를 작성합니다. **중요**: 인시던트 제목에 **“ISV 사용량 추적”** 을 입력하고, 그 뒤에 있는 큰 자유 텍스트 필드에서 문제를 자세히 설명합니다.  양식의 나머지 부분을 작성하고 **제출**을 클릭합니다. 
  
->[!Important] 
->인시던트 제목에 **“ISV 사용량 추적”** 을 입력하고, 그 뒤에 있는 큰 자유 텍스트 필드에서 문제를 자세히 설명합니다.  양식의 나머지 부분을 작성하고 **제출**을 클릭합니다.
+  ![](https://github.com/qianw211/azure-docs-pr/blob/MyImgAdded-2/articles/marketplace/media/marketplace-publishers-guide/guid-dev-center-help.png)
+
+ 
 
 ## <a name="faqs"></a>FAQ
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c230b08089f22dbd0ea46cdff331f1c8b354ef62
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521825"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038462"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure File Sync를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure File Sync는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -151,7 +151,7 @@ Azure File Sync 에이전트가 설치되어 있는 서버에서 sysprep 사용�
 다음 솔루션은 오프라인 파일 건너뛰기를 지원하는 것으로 알려져 있습니다.
 
 - [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender는 이러한 파일 읽기를 자동으로 건너뜁니다. Defender를 테스트하여 하나의 사소한 문제를 확인했습니다. 즉 기존 동기화 그룹에 서버를 추가하면 800바이트보다 작은 파일이 새 서버에서 회수(다운로드)됩니다. 이러한 파일은 새 서버에 남아 있지만 계층화 크기 요구 사항(64kb 초과)을 충족하지 않으므로 계층화되지 않습니다.
+    - Windows Defender는 오프라인 특성 집합이 있는 파일의 읽기를 자동으로 건너뜁니다. Defender를 테스트하여 하나의 사소한 문제를 확인했습니다. 즉 기존 동기화 그룹에 서버를 추가하면 800바이트보다 작은 파일이 새 서버에서 회수(다운로드)됩니다. 이러한 파일은 새 서버에 남아 있지만 계층화 크기 요구 사항(64kb 초과)을 충족하지 않으므로 계층화되지 않습니다.
 - [SCEP(System Center Endpoint Protection)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP는 Defender와 동일하게 작동합니다(위 참조).
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ Azure File Sync는 다음 지역에서만 사용할 수 있습니다.
 | 오스트레일리아 남동부 | 빅토리아 |
 | 캐나다 중부 | 토론토 |
 | 캐나다 동부 | 퀘벡 시티 |
+| 인도 중부 | 푸네 |
 | 미국 중부 | 아이오와 |
 | 동아시아 | 홍콩 |
 | 미국 동부 | 버지니아 |
 | 미국 동부2 | 버지니아 |
 | 북유럽 | 아일랜드 |
+| 인도 남부 | 첸나이 |
 | 동남아시아 | 싱가포르 |
 | 영국 남부 | 런던 |
 | 영국 서부 | 카디프 |
@@ -216,11 +218,13 @@ Azure 지역의 손실에 대해 보호하려면 Azure File Sync가 [GRS(지역 
 | 오스트레일리아 남동부 | 오스트레일리아 동부     |
 | 캐나다 중부      | 캐나다 동부        |
 | 캐나다 동부         | 캐나다 중부     |
+| 인도 중부       | 인도 남부        |
 | 미국 중부          | 미국 동부 2          |
 | 동아시아           | 동남아시아     |
 | 미국 동부             | 미국 서부            |
 | 미국 동부 2           | 미국 중부         |
 | 북유럽        | 서유럽        |
+| 인도 남부         | 인도 중부      |
 | 동남아시아      | 동아시아          |
 | 영국 남부            | 영국 서부            |
 | 영국 서부             | 영국 남부           |

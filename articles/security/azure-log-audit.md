@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: e4144ca0d87abda3d9f8de47e56af59d0e4af312
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36938369"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038534"
 ---
 # <a name="azure-logging-and-auditing"></a>Azure 로깅 및 감사
 
@@ -60,7 +60,7 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 
 ![활동 로그 다이어그램](./media/azure-log-audit/azure-log-audit-fig1.png)
 
-Azure Portal, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), PowerShell cmdlet 및 [Azure Monitor REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다. 활동 로그에는 19일간의 데이터 보존 기간이 있습니다.
+Azure Portal, [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli), PowerShell cmdlet 및 [Azure Monitor REST API](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)를 사용하여 활동 로그에서 이벤트를 검색할 수 있습니다. 활동 로그에는 90일간의 데이터 보존 기간이 있습니다.
 
 활동 로그 이벤트에 대한 통합 시나리오는 다음과 같습니다.
 
@@ -361,10 +361,10 @@ Log Integration은 현재 Windows 가상 머신의 Azure 활동 로그 및 Windo
 
 | 로그 형식 | JSON(Splunk, ArcSight 및 IBM QRadar)을 지원하는 Log Analytics |
 | :------- | :-------------------------------------------------------- |
-|Azure AD 감사 로그|   예|
-|활동 로그| 예|
-|Security Center 경고 |예|
-|진단 로그(리소스 로그)|  예|
+|Azure AD 감사 로그|   yes|
+|활동 로그| yes|
+|Security Center 경고 |yes|
+|진단 로그(리소스 로그)|  yes|
 |VM 로그|   예(JSON이 아니라 전달된 이벤트를 통해)|
 
 [Azure Log Integration 시작](https://docs.microsoft.com/azure/security/security-azure-log-integration-get-started): 이 자습서에서는 Azure Log Integration을 설치하고, Azure 저장소, Azure 활동 로그, Azure Security Center 경고 및 Azure AD 감사 로그의 로그를 통합하는 방법을 안내합니다.

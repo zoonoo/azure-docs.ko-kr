@@ -3,7 +3,7 @@ title: 로컬 Docker 컨테이너에서 앱 디버깅 | Microsoft Docs
 description: 로컬 Docker 컨테이너에서 실행 중인 앱을 수정하고, 편집 및 새로 고침을 통해 컨테이너를 새로 고치고, 디버깅 중단점을 설정하는 방법을 알아봅니다.
 services: azure-container-service
 documentationcenter: na
-author: mlearned
+author: ghogen
 manager: douge
 editor: ''
 ms.assetid: 480e3062-aae7-48ef-9701-e4f9ea041382
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: 7df8bb2dd61466fd9af6492277d54cf0ffdfeb0b
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 01741ba25ac3a6ab187a08636b7e26ee58dbee90
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781397"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038630"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>로컬 Docker 컨테이너에서 앱 디버깅
 ## <a name="overview"></a>개요
-Visual Studio Tools for Docker는 Linux Docker 컨테이너에서 로컬로 응용 프로그램을 개발하고 유효성을 검사하는 일관된 방법을 제공합니다.
+Visual Studio 2017은 Linux Docker 컨테이너에서 로컬로 응용 프로그램을 개발하고 유효성을 검사하는 일관된 방법을 제공합니다.
 코드를 변경할 때마다 컨테이너를 다시 시작할 필요가 없습니다.
 이 문서에서는 "편집 및 새로 고침" 기능을 사용하여 로컬 Docker 컨테이너에서 ASP.NET Core 웹앱을 시작하고 필요한 내용을 변경한 다음 브라우저를 새로 고쳐 변경 내용을 확인하는 방법을 설명합니다.
 또한 이 문서에서는 디버깅을 위한 중단점 설정 방법도 보여 줍니다.
@@ -36,7 +36,7 @@ Visual Studio Tools for Docker는 Linux Docker 컨테이너에서 로컬로 응�
 ## <a name="prerequisites"></a>필수 조건
 다음과 같은 도구를 설치해야 합니다.
 
-* [최신 버전의 Visual Studio](https://www.visualstudio.com/downloads/)
+* [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 * [Microsoft ASP.NET Core 1.0 SDK](https://go.microsoft.com/fwlink/?LinkID=809122)
 
 로컬에서 Docker 컨테이너를 실행하려면 로컬 Docker 클라이언트가 필요합니다.
@@ -90,13 +90,12 @@ Docker 도구 상자를 사용하는 경우 [Docker 클라이언트를 구성](v
    ![][2]
 
 ## <a name="summary"></a>요약
-[Visual Studio 2015용 Docker 도구](https://aka.ms/DockerToolsForVS)를 사용하여, Docker 컨테이너 내에서 개발하는 프로덕션 현실감과 함께 로컬에서 작업하는 생산성을 얻을 수 있습니다.
+Visual Studio 2017의 Docker 지원을 통해 Docker 컨테이너 내에서 개발하는 프로덕션 현실감과 함께 로컬에서 작업하는 생산성을 얻을 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 [Visual Studio Docker 개발 문제 해결](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Visual Studio, Windows 및 Azure와 함께 Docker에 대해 자세히 알아보기
-* [Visual Studio용 Docker 도구](http://aka.ms/dockertoolsforvs) - 컨테이너에서 .NET Core 코드를 개발함
 * [Visual Studio Team Services용 Docker 도구](http://aka.ms/dockertoolsforvsts) -docker 컨테이너를 빌드하고 배포함
 * [Visual Studio Code용 Docker 도구](http://aka.ms/dockertoolsforvscode) - 향후 제공될 더 많은 E2E 시나리오와 함께, docker 파일을 편집하기 위한 언어 서비스
 * [Windows 컨테이너 정보](http://aka.ms/containers)- Windows Server 및 Nano Server 정보
