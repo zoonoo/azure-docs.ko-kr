@@ -93,9 +93,9 @@ LUIS는 의도의 발화에서 변형을 예측합니다. 전체 의미는 동�
 
 |같은 형식 사용 안 함|다양한 형식 사용|
 |--|--|
-|Buy a ticket to Seattle<br>Buy a ticket to Paris<br>Buy a ticket to Orlando|Buy 1 ticket to Seattle<br>Reserve two seats on the red eye to Paris next Monday<br>I would like to book 3 tickets to Orlando for spring break|
+|시애틀행 항공권 구입<br>파리행 항공권 구입<br>올랜도행 항공권 구입|시애틀행 항공권 1매 구입<br>다음 월요일에 파리행 야간 항공편에서 2석 예약<br>봄 방학을 위해 올란도행 항공권 3매를 예약|
 
-두 번째 열에는 여러 가지 동사(buy, reserve, book), 여러 가지 수량(1, two, 3), 여러 가지 단어 배열이 사용되지만 모두 여행을 위해 항공사 티켓을 구매하려는 동의할 의도를 포함합니다. 
+두 번째 열에는 여러 가지 동사(구입, 예약), 여러 가지 수량(1, 2, 3), 여러 가지 단어 배열이 사용되지만 모두 여행을 위해 항공사 티켓을 구입하려는 동의할 의도를 포함합니다. 
 
 ## <a name="dont-mix-the-definition-of-intents-and-entities"></a>의도 및 엔터티 정의 혼합 안 함
 봇이 수행할 작업의 의도를 만듭니다. 작업을 가능하게 하는 매개 변수로 엔터티를 사용합니다. 
