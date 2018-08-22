@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/30/2018
+ms.date: 8/13/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 5601f8d90f107636d2899a024772dccc8f75b69d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39361426"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "40132361"
 ---
 ### <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -79,6 +79,29 @@ Azure Firewall 서비스는 네트워크 보안 그룹 기능을 보완하고 �
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>서비스 엔드포인트를 사용하여 Azure Firewall을 설정하려면 어떻게 해야 하나요?
 
 PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 사용하는 것이 좋습니다. Azure Firewall 고객은 Azure Firewall 서브넷에서 서비스 엔드포인트를 사용하도록 설정하고, 연결된 스포크 VNET에서 서비스 엔드포인트를 해제하면 서비스 엔드포인트 보안과 모든 트래픽의 중앙 로깅이라는 두 가지 기능의 이점을 모두 누릴 수 있습니다.
+
+### <a name="how-can-i-stop-and-start-azure-firewall"></a>Azure Firewall을 중지하려면 어떻게 하나요?
+
+Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
+
+예: 
+
+```azurepowershell
+# Stop an exisitng firewall
+
+$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
+
+```azurepowershell
+#Start a firewall
+
+$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip = Get-AzureRmPublicIpAddress -Name "Public IP Name" -ResourceGroupName " RG Name"
+$azfw.Allocate($vnet,$publicip)
+Set-AzureRmFirewall -AzureFirewall $azfw
+```
 
 ### <a name="what-are-the-known-service-limits"></a>알려진 서비스 제한 사항은 무엇입니까?
 
