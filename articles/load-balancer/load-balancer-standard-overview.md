@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325254"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005878"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer 표준 개요
 
@@ -64,7 +64,15 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 
 백 엔드 풀을 디자인하는 방법을 고려할 때는 가장 적은 수의 개별 백 엔드 풀 리소스에 맞게 디자인하고, 관리 작업 기간을 추가로 최적화할 수 있습니다.  데이터 평면 성능 또는 크기 조정에는 차이가 없습니다.
 
-## <a name="az"></a> 가용성 영역
+### <a name="probes"></a>상태 프로브
+  
+표준 Load Balancer는 HTTPS 응용 프로그램을 정확하게 모니터링하려면 [HTTPS 상태 프로브](load-balancer-custom-probe-overview.md#httpprobe)(TLS(전송 계층 보안) 래퍼를 사용한 HTTP 프로브)에 대한 지원을 추가합니다.  
+
+또한, 전체 백 엔드 풀에서 [조사](load-balancer-custom-probe-overview.md#probedown)하는 경우 표준 Load Balancer는 설정된 모든 TCP 연결이 지속되도록 허용합니다. (기본 Load Balancer는 모든 인스턴스에 대한 모든 TCP 연결을 종료합니다).
+
+자세한 내용은 [Load Balancer 상태 프로브](load-balancer-custom-probe-overview.md)를 검토합니다.
+
+### <a name="az"></a> 가용성 영역
 
 표준 Load Balancer는 가용성 영역을 사용할 수 있는 지역에서 추가 기능을 지원합니다.  이러한 기능은 모든 표준 Load Balancer 제공 기능에 추가됩니다.  가용성 영역 구성은 공용 및 내부 표준 Load Balancer에 사용할 수 있습니다.
 
@@ -167,7 +175,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>기본에서 표준 SKU로 마이그레이션
 
-1. 새 표준 리소스(Load Balancer 및 필요에 따라 공용 IP)를 만듭니다. 규칙 및 프로브 정의를 다시 작성합니다.
+1. 새 표준 리소스(Load Balancer 및 필요에 따라 공용 IP)를 만듭니다. 규칙 및 프로브 정의를 다시 작성합니다.  전에 443/tcp에 대해 TCP 프로브를 사용한 경우 이 프로브 프로토콜을 HTTPS 프로브로 변경하고 경로를 추가하는 것이 좋습니다.
 
 2. NIC 또는 서브넷에 새 NSG를 만들거나 기존 NSG를 업데이트하여 허용하려는 다른 트래픽 외에도 부하 분산된 트래픽과 프로브를 허용 목록에 추가합니다.
 
@@ -177,7 +185,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>표준에서 기본 SKU로 마이그레이션
 
-1. 새 기본 리소스(Load Balancer 및 필요에 따라 공용 IP)를 만듭니다. 규칙 및 프로브 정의를 다시 작성합니다. 
+1. 새 기본 리소스(Load Balancer 및 필요에 따라 공용 IP)를 만듭니다. 규칙 및 프로브 정의를 다시 작성합니다.  HTTPS 프로브를 443/tcp에 대한 TCP 프로브로 변경합니다. 
 
 2. 모든 VM 인스턴스에서 표준 SKU 리소스(Load Balancer 및 해당되는 경우 공용 IP)를 제거합니다. 가용성 집합의 모든 VM 인스턴스도 제거해야 합니다.
 
@@ -219,6 +227,7 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 ## <a name="next-steps"></a>다음 단계
 
 - [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md) 사용에 대해 자세히 알아보세요.
+- [상태 프로브](load-balancer-custom-probe-overview.md)에 대해 자세히 알아보세요.
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보세요.
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
 - [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)의 진단과 관련된 [지원되는 다차원 메트릭](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)에 대해 자세히 알아보세요.
@@ -227,6 +236,6 @@ Load Balancer 표준은 현재 모든 공용 클라우드 지역에서 사용할
 - [다중 프런트 엔드를 사용하는 Load Balancer](load-balancer-multivip-overview.md)에 대해 자세히 알아보세요.
 - [Virtual Networks](../virtual-network/virtual-networks-overview.md)에 대해 자세히 알아보세요.
 - [네트워크 보안 그룹](../virtual-network/security-overview.md)에 대해 자세히 알아보세요.
-- [VNet 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)에 대해 자세히 알아보세요.
+- [VNet 서비스 엔드포인트](../virtual-network/virtual-network-service-endpoints-overview.md)에 대해 자세히 알아보세요.
 - Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)에 대해 알아보세요.
 - [Load Balancer](load-balancer-overview.md)에 대해 자세히 알아보세요.

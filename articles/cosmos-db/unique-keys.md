@@ -9,14 +9,14 @@ editor: monicar
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/21/2018
+ms.date: 08/08/2018
 ms.author: rafats
-ms.openlocfilehash: d12109efbb157b1e0c15b1a4c0d005fa98c44858
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 796971ff541b62a22a70df4022ab78817e7158e9
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261103"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003320"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB의 고유 키
 
@@ -128,6 +128,9 @@ private static async Task CreateCollectionIfNotExistsAsync(string dataBase, stri
 ## <a name="mongodb-api-sample"></a>MongoDB API 샘플
 
 다음 명령 샘플은 MongoDB API에 대한 사용자 컬렉션의 이름, 성 및 전자 메일 필드에 대한 고유 인덱스를 만드는 방법을 보여 줍니다. 이렇게 하면 컬렉션의 모든 문서에서 세 필드 조합의 고유성이 보장됩니다. MongoDB API 컬렉션의 경우 고유 인덱스는 컬렉션이 생성되었지만 아직 컬렉션을 채우지는 않은 시점에 생성됩니다.
+
+> [!NOTE]
+> MongoDB API 계정에 대한 고유 키 형식은 필드 이름 앞에 백슬래시(/) 문자를 지정할 필요가 경우 SQL API 계정의 키 형식과 다릅니다. 
 
 ```
 db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )

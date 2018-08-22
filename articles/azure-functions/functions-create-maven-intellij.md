@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e926bfb023fe3edfd564aa6389e21f6594bec169
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117063"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002681"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Java 및 IntelliJ를 사용하여 첫 번째 함수 만들기(미리 보기)
 
@@ -74,8 +74,15 @@ Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭�
 함수 테스트를 완료했으면 실행 대화 상자를 닫습니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.
 
 ### <a name="debug-the-function-in-intellij"></a>IntelliJ에서 함수 디버그
+디버그 모드로 함수 호스트를 시작하려면 함수를 실행할 때 인수로 **-DenableDebug**를 추가합니다. 터미널에서 아래 명령줄을 실행하거나 [Maven 목표](https://www.jetbrains.com/help/idea/maven-support.html#run_goal)에서 해당 명령줄을 구성할 수 있습니다. 그런 다음, 함수 호스트가 5005에서 디버그 포트를 엽니다. 
 
-시작한 후 함수 호스트에 연결하여 IntelliJ에서 함수를 디버그할 수 있습니다.  위의 단계를 사용하여 로컬에서 Azure 함수를 실행한 다음, **실행** 메뉴에서 **로컬 프로세스에 연결**을 선택합니다.  포트 5005의 프로세스가 사용 가능으로 표시됩니다.  연결한 후 중단점 적중이 발생하면 함수 앱 내에서 디버그할 수 있습니다.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+IntelliJ에서 디버그하려면 **실행** 메뉴에서 **구성 편집**을 선택합니다. **원격**을 추가하려면 **+** 을 클릭하세요. **이름** 및 **설정**을 채운 다음, **확인**을 클릭하여 구성을 저장합니다. 설치 후 ‘사용자 원격 구성 이름’ **디버깅**을 클릭하거나 **Shift+F9** 키를 눌러 디버깅을 시작합니다.
+
+![IntelliJ에서 함수 디버깅](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 완료되면 디버거 및 실행 중인 프로세스를 중지합니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.
 

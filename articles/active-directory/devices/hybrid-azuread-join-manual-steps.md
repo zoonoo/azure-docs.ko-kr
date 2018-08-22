@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392610"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630622"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>자습서: 하이브리드 Azure Active Directory 조인 장치를 수동으로 구성 
 
-Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [../Azure Active Directory의 장치 관리 소개](../device-management-introduction.md)를 참조하세요.
+Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 준수에 대한 표준을 충족하는 장치에서 사용자 리소스에 액세스할 수 있습니다. 자세한 내용은 [Azure Active Directory의 장치 관리 소개](overview.md)를 참조하세요.
 
 온-프레미스 Active Directory 환경을 사용하고, Azure AD에 도메인 가입 장치를 연결하려는 경우 하이브리드 Azure AD 가입 장치를 구성하여 이를 수행할 수 있습니다. 이 문서에서는 관련 단계를 제공합니다. 
 
@@ -35,40 +35,18 @@ Azure AD(Active Directory)의 장치 관리를 사용하면 보안 및 규정 �
 > Azure AD Connect를 사용하도록 선택한 경우, [시나리오 선택](hybrid-azuread-join-plan.md#select-your-scenario)을 참조하세요. Azure AD Connect를 사용하면 하이브리드 Azure AD 조인 구성을 크게 간소화 할 수 있습니다.
 
 
-## <a name="before-you-begin"></a>시작하기 전에
-
-환경에서 하이브리드 Azure AD 가입 장치 구성을 시작하기 전에 지원되는 시나리오와 제약 조건을 숙지해야 합니다.  
-
-[시스템 준비 도구(Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10))를 사용하는 경우에는 Azure AD에 아직 등록되지 않은 Windows 설치에서 이미지를 만들어야 합니다.
-
-Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 아래에 언급된 구성 단계가 완료되면, 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. **자동 등록 동작을 원하지 않거나 제어된 롤아웃이 필요한 경우에는** 다른 구성 단계를 수행하기 전에 아래 “4단계: 배포 및 롤아웃 제어” 섹션의 지침에 따라 자동 롤아웃을 선별적으로 사용하거나 사용하지 않도록 설정하세요.  
-
-설명의 가독성을 높이기 위해 이 문서에서는 다음 용어를 사용합니다. 
-
-- **Windows 현재 장치** - 이 용어는 Windows 10 또는 Windows Server 2016을 실행하는 도메인에 가입 된 장치를 말합니다.
-- **Windows 하위 수준 장치** - 이 용어는 Windows 10과 Windows Server 2016 중 어떤 것도 실행하지 않는 **지원되는** 도메인에 가입된 Windows 장치를 말합니다.  
-
-### <a name="windows-current-devices"></a>Windows 현재 장치
-
-- Windows 데스크톱 운영 체제를 실행하는 장치의 경우 지원되는 버전은 Windows 10주년 업데이트(버전 1607) 이상입니다. 
-- Windows 현재 장치의 등록은 암호 해시 동기화 구성처럼 페더레이션되지 않은 환경에서 **지원됩니다**.  
-
-
-### <a name="windows-down-level-devices"></a>Windows 하위 수준 장치
-
-- 다음은 지원되는 Windows 하위 수준 장치입니다.
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- Windows 하위 수준 장치 등록은 원활한 Single Sign-On([Azure Active Directory 원활한 Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start))을 통해 페더레이션되지 않은 환경에서 **지원됩니다**. 
-- Seamless Single Sign On이 설정되지 않은 Azure AD 통과 인증을 사용할 경우 Windows 하위 수준 장치 등록이 지원되지 **않습니다**.
-- 로밍 프로필을 사용하는 장치에 대해서는 Windows 하위 수준 장치 등록이 지원되지 **않습니다**. 프로필 또는 설정 로밍을 사용하는 경우 Windows 10을 사용하세요.
-
 
 
 ## <a name="prerequisites"></a>필수 조건
+
+이 자습서에서는 사용자가 다음 항목에 대해 잘 알고 있다고 가정합니다.
+    
+-  [Azure Active Directory의 장치 관리 소개](../device-management-introduction.md)
+    
+-  [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)
+
+-  [장치의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)
+
 
 조직에서 하이브리드 Azure AD 가입 장치를 사용하도록 설정하기 전에 다음을 확인해야 합니다.
 
@@ -114,15 +92,14 @@ Azure AD에 컴퓨터를 등록하려면 조직 네트워크 내에 있는 컴�
 
 | 단계                                      | Windows 현재 및 암호 해시 동기화 | Windows 현재 및 페더레이션 | Windows 하위 수준 |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| 1단계: 서비스 연결 지점 구성 | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
-| 2단계: 클레임 발급 설정           |                                        | ![확인][1]                    | ![확인][1]        |
-| 3단계: 비-Windows 10 장치 활성화      |                                        |                                | ![확인][1]        |
-| 4단계: 배포 및 롤아웃 제어     | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
-| 5단계: 가입 장치 확인          | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
+| 서비스 연결 지점 구성 | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
+| 클레임 발급 설정           |                                        | ![확인][1]                    | ![확인][1]        |
+| 비Windows 10 장치 활성화      |                                        |                                | ![확인][1]        |
+| 가입 장치 확인          | ![확인][1]                            | ![확인][1]                    | ![확인][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>1단계: 서비스 연결 지점 구성
+## <a name="configure-service-connection-point"></a>서비스 연결 지점 구성
 
 SCP(서비스 연결 지점) 개체는 등록 중에 장치가 Azure AD 테넌트 정보를 검색하는 데 사용됩니다. 온-프레미스 AD(Active Directory)에서, 하이브리드 Azure AD 가입 장치에 대한 SCP 개체는 컴퓨터 포리스트의 구성 명명 컨텍스트 파티션에 있어야 합니다. 포리스트당 하나의 구성 명명 컨텍스트가 있습니다. 다중 포리스트 Active Directory 구성에서는 도메인에 가입된 컴퓨터를 포함하고 있는 모든 포리스트에 서비스 연결점이 있어야 합니다.
 
@@ -200,7 +177,7 @@ Windows Server 2008 이전 버전을 실행하는 도메인 컨트롤러의 경�
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>2단계: 클레임 발급 설정
+## <a name="setup-issuance-of-claims"></a>클레임 발급 설정
 
 페더레이션된 Azure AD 구성에서는 장치가 AD FS(Active Directory Federation Services) 또는 타사 온-프레미스 페더레이션 서비스를 사용하여 Azure AD를 인증합니다. 장치는 인증을 통해 Azure DRS(Azure Active Directory Device Registration Service)에 등록하는 액세스 토큰을 가져옵니다.
 
@@ -504,7 +481,7 @@ ImmutableID 클레임(예: 대체 로그인 ID)을 이미 발급 중인 경우 �
 
 - 사용자 계정에 대한 **ImmutableID** 클레임을 이미 발급한 경우 스크립트에서 **$immutableIDAlreadyIssuedforUsers** 값을 **$true**로 설정합니다.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>3단계: Windows 하위 수준 장치 설정
+## <a name="enable-windows-down-level-devices"></a>Windows 하위 수준 장치 설정
 
 도메인에 가입된 장치 중 일부가 Windows 하위 수준 장치인 경우 다음을 수행해야 합니다.
 
@@ -562,64 +539,25 @@ AD FS에서 인증 메서드를 통과하는 발급 변환 규칙을 추가해�
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>4단계: 배포 및 롤아웃 제어
 
-필요한 단계를 완료하면 도메인에 가입된 장치는 Azure AD에 자동으로 가입할 준비가 된 것입니다.
-
-- Windows 10 1주년 업데이트 및 Windows Server 2016을 실행하는 모든 도메인에 가입된 장치는 장치를 다시 시작하거나 사용자가 로그인할 때 자동으로 Azure AD에 등록됩니다. 
-
-- 새 장치는 도메인 가입 작업이 완료된 후 장치를 다시 시작할 때 Azure AD에 등록됩니다.
-
-- 이전에 Azure AD에 등록된 장치(예: Intune)는 “*도메인 가입, AAD 등록*”으로 전환됩니다. 그러나 도메인 및 사용자 활동의 정상 흐름으로 인해 이 프로세스가 모든 장치에서 완료되려면 다소 시간이 걸립니다.
-
-### <a name="remarks"></a>설명
-
-- 그룹 정책 개체 또는 System Center Configuration Manager 클라이언트 설정을 사용하여 Windows 10 및 Windows Server 2016 도메인 가입 컴퓨터의 자동 등록 롤아웃을 제어할 수 있습니다. **이러한 장치가 Azure AD에 자동으로 등록되지 않도록 하거나 등록을 제어**하려면 먼저 모든 장치에 대해 자동 등록을 사용하지 않도록 설정하는 그룹 정책을 롤아웃해야 합니다. 또는 Configuration Manager를 사용하고 있는 경우, 구성 단계를 시작하기 전에 [클라우드 서비스] 아래의 클라이언트 설정 -> [Azure Active Directory에 새 Windows 10 도메인에 연결된 장치를 자동으로 등록]을 “아니요”로 구성해야 합니다. 구성이 끝나고 테스트할 준비가 되면, 테스트 장치, 그리고 선택한 다른 모든 장치에 대해서만 자동 등록을 허용하는 그룹 정책을 롤아웃해야 합니다.
-
-- Windows 하위 수준 컴퓨터를 롤아웃하려면 선택한 컴퓨터에 [Windows Installer 패키지](#windows-installer-packages-for-non-windows-10-computers)를 배포하면 됩니다.
-
-- Windows 8.1 도메인 가입 장치에 그룹 정책 개체를 푸시하면 가입이 시도됩니다. 그러나 [Windows Installer 패키지](#windows-installer-packages-for-non-windows-10-computers)를 사용하여 모든 Windows 하위 수준 장치를 가입하는 것이 좋습니다. 
-
-### <a name="create-a-group-policy-object"></a>그룹 정책 개체 만들기 
-
-Windows 현재 컴퓨터의 롤아웃을 제어하려면 등록하려는 장치에 **도메인 가입 컴퓨터를 장치로 등록** 그룹 정책 개체를 배포해야 합니다. 예를 들어 조직 구성 단위 또는 보안 그룹에 정책을 배포할 수 있습니다.
-
-**정책을 설정하려면:**
-
-1. **서버 관리자**를 열고 `Tools > Group Policy Management`로 이동합니다.
-2. Windows 현재 컴퓨터의 자동 등록을 활성화하려는 도메인에 해당하는 도메인 노드로 이동합니다.
-3. **그룹 정책 개체**를 마우스 오른쪽 단추로 클릭하고 **새로 만들기**를 선택합니다.
-4. 그룹 정책 개체의 이름을 입력합니다. 예를 들어 *하이브리드 Azure AD 가입입니다. 
-5. **확인**을 클릭합니다.
-6. 마우스 오른쪽 단추로 새 그룹 정책 개체를 클릭한 다음 **편집**을 선택합니다.
-7. **컴퓨터 구성** > **정책** > **관리 템플릿** > **Windows 구성 요소** > **장치 등록**으로 이동합니다. 
-8. 마우스 오른쪽 단추로 **도메인 가입 컴퓨터를 장치로 등록**을 클릭한 다음 **편집**을 선택합니다.
-   
-   > [!NOTE]
-   > 이 그룹 정책 템플릿 이름은 이전 버전의 그룹 정책 관리 콘솔에서 변경되었습니다. 이전 버전의 콘솔을 사용하는 경우 `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`으로 이동합니다. 
-
-7. **사용**을 선택하고 **적용**을 클릭합니다. 정책을 통해 이 그룹 정책으로 제어되는 장치를 차단하고 Azure AD에 자동으로 등록되지 않도록 하려면 **사용 안 함**를 선택해야 합니다.
-
-8. **확인**을 클릭합니다.
-9. 그룹 정책 개체를 선택한 위치에 연결합니다. 예를 들어 특정 조직 구성 단위에 연결할 수 있습니다. 또한 Azure AD에 자동으로 가입되는 컴퓨터의 특정 보안 그룹에 연결할 수도 있습니다. 조직의 모든 Windows 10 및 Windows Server 2016 도메인 가입 컴퓨터에 대해 이 정책을 사용하도록 설정하려면 그룹 정책 개체를 해당 도메인에 연결합니다.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>비 Windows 10 컴퓨터용 Windows Installer 패키지
-
-페더레이션된 환경에서 도메인에 가입된 Windows 하위 수준 컴퓨터를 가입하려면 [비-Windows 10 컴퓨터의 Microsoft 작업 공간 연결](https://www.microsoft.com/en-us/download/details.aspx?id=53554) 페이지의 다운로드 센터에서 Windows Installer 패키지(.msi)를 다운로드하여 설치하면 됩니다.
-
-System Center Configuration Manager 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 이 패키지는 *quiet* 매개 변수를 사용하여 표준 자동 설치 옵션을 지원합니다. System Center Configuration Manager Current Branch는 완료된 등록을 추적하는 기능과 같은 이전 버전의 이점이 추가로 제공됩니다. 자세한 내용은 [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager)를 참조하세요.
-
-설치 관리자에서는 사용자 컨텍스트에서 실행되도록 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 통합 Windows 인증을 사용하여 인증한 후 사용자 자격 증명을 사용하여 장치를 Azure AD에 자동으로 가입합니다. 예약된 작업을 보려면 장치에서 **Microsoft** > **작업 공간 연결**, 작업 Scheduler 라이브러리로 이동합니다.
-
-## <a name="step-5-verify-joined-devices"></a>5단계: 가입 장치 확인
+## <a name="verify-joined-devices"></a>가입 장치 확인
 
 [Azure Active Directory PowerShell 모듈](/powershell/azure/install-msonlinev1?view=azureadps-2.0)에서 [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet을 사용하여 조직에 성공적으로 가입된 장치를 확인할 수 있습니다.
 
 이 cmdlet의 출력은 Azure AD로 등록 및 가입된 장치를 보여 줍니다. 모든 장치를 가져오려면 **-All** 매개 변수를 사용한 다음 **deviceTrustType** 속성을 사용하여 장치를 필터링합니다. 도메인에 가입된 장치는 **도메인 가입** 값을 갖습니다.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>구현 문제 해결
+
+도메인 가입 Windows 장치에 대한 하이브리드 Azure AD 조인은 완료할 때 문제가 발생하는 경우 다음을 참조하세요.
+
+- [Windows 최신 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
+- [Windows 하위 수준 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Active Directory의 장치 관리 소개](../device-management-introduction.md)
+* [Azure Active Directory의 장치 관리 소개](overview.md)
 
 
 

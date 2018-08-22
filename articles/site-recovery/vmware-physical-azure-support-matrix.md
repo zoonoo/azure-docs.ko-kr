@@ -6,18 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 08/09/2018
 ms.author: raynew
-ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413606"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004330"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Azure에 VMware 및 물리적 서버 복제를 위한 지원 매트릭스
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 VMware VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.
+
+가장 간단한 배포 시나리오에서 Azure Site Recovery를 사용하여 시작하려면 [자습서](tutorial-prepare-azure.md)를 참조하세요. [여기](vmware-azure-architecture.md)에서 Azure Site Recovery 아키텍처에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="replication-scenario"></a>복제 시나리오
 
@@ -112,7 +114,7 @@ SUSE Linux Enterprise Server 12(SP1,SP2,SP3) | 9.18 | SP1 3.12.49-11-default에�
 **구성 요소** | **지원됨**
 --- | ---
 파일 시스템 | ext3, ext4, XFS.
-볼륨 관리자 | LVM2.
+볼륨 관리자 | LVM2. LVM은 데이터 디스크에 대해서만 지원됩니다. Azure VM에는 단일 OS 디스크만 있습니다.
 반가상화 저장 장치 | 반가상화 드라이버에서 내보낸 장치는 지원되지 않습니다.
 다중 큐 블록 IO 장치 | 지원되지 않습니다.
 HP CCISS 저장소 컨트롤러가 있는 물리적 서버 | 지원되지 않습니다.
@@ -241,12 +243,15 @@ VM 이름 | 1~63자 사이입니다.<br/><br/> 문자, 숫자 및 하이픈으�
 저장소 그룹 간 저장소, 네트워크, Azure VM 이동<br/><br/> 구독 내 및 구독 간 | 아니요
 
 
-## <a name="mobility-service"></a>Mobility Service
+## <a name="download-latest-azure-site-recovery-components"></a>최신 Azure Site Recovery 구성 요소 다운로드
 
-**Name** | **설명** | **최신 버전** | **세부 정보**
+**Name** | **설명** | **최신 버전 다운로드 지침** 
 --- | --- | --- | --- | ---
-Azure Site Recovery 통합 설치 | 온-프레미스 VMware 서버와 Azure 간 통신 조정  <br/><br/> 온-프레미스 VMware 서버에 설치 | 9.12.4653.1(포털에서 사용 가능) | [최신 기능 및 수정](https://aka.ms/latest_asr_updates)
-Mobility Service | 온-프레미스 VMware 서버/물리적 서버 및 Azure/보조 사이트 간 복제 조정<br/><br/> 복제하려는 VMware VM 또는 물리적 서버에 설치 | 9.12.4653.1(포털에서 사용 가능) | [최신 기능 및 수정](https://aka.ms/latest_asr_updates)
+구성 서버 | 온-프레미스 VMware 서버와 Azure 간 통신 조정  <br/><br/> 온-프레미스 VMware 서버에 설치 | 새로 설치는 [여기](vmware-azure-deploy-configuration-server.md)를 클릭합니다. 기존 구성 요소를 최신 버전으로 업그레이드는 [여기](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)를 클릭합니다.
+프로세스 서버|기본적으로 구성 서버에 설치합니다. 복제 데이터를 수신하고, 캐싱, 압축 및 암호화를 사용하여 최적화하며, Azure Storage로 보냅니다. 배포가 늘어나면 프로세스 서버로 실행하는 별도의 프로세스 서버를 추가하여 더 큰 복제 트래픽을 처리할 수 있습니다.| 새로 설치는 [여기](vmware-azure-set-up-process-server-scale.md)를 클릭합니다. 기존 구성 요소를 최신 버전으로 업그레이드는 [여기](vmware-azure-manage-process-server.md#upgrade-a-process-server)를 클릭합니다.
+Mobility Service | 온-프레미스 VMware 서버/물리적 서버 및 Azure/보조 사이트 간 복제 조정<br/><br/> 복제하려는 VMware VM 또는 물리적 서버에 설치 | 새로 설치는 [여기](vmware-azure-install-mobility-service.md)를 클릭합니다. 기존 구성 요소를 최신 버전으로 업그레이드는 [여기](vmware-azure-install-mobility-service.md#update-mobility-service)를 클릭합니다.
+
+최신 기능 및 수정에 대해 알아보려면 [여기](https://aka.ms/latest_asr_updates)를 클릭합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

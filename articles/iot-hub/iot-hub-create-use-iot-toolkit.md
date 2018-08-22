@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: junhan
-ms.openlocfilehash: 71b188443ee48d742b14753cd5526edac493d9e3
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: af31f9375d6a41e13a9122e9730ba9532d3d52c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368621"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003072"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-toolkit-for-visual-studio-code"></a>Visual Studio Code용 Azure IoT Toolkit을 사용하여 IoT Hub 만들기
 
@@ -57,4 +57,5 @@ ms.locfileid: "39368621"
 Visual Studio Code용 Azure IoT Toolkit를 사용하여 IoT Hub를 배포했으므로 다음과 같은 내용을 추가로 알아볼 수 있습니다.
 
 * [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 장치와 IoT Hub 간에 메시지 보내고 받기](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+* [Visual Studio Code용 Azure IoT Toolkit 확장을 사용하여 Azure IoT Hub 장치 관리](iot-hub-device-management-iot-toolkit.md)
 * Azure IoT Toolkit에 대한 [Wiki 페이지](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki)

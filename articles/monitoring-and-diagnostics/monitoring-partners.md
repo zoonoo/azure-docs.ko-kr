@@ -5,27 +5,28 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/15/2018
+ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5d5b2e78755d6800f61e3e4adb1769799d01dad2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b21afecc27f1550cf557305ef069278ed66acaf0
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111526"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005320"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 | 파트너 |  |  |
 | --- | --- | --- |
-| [![파트너 로고][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![파트너 로고][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![파트너 로고][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [**Botmetric**][botmetric-anchor] | [![파트너 로고][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![파트너 로고][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] |
-| [![파트너 로고][cloudmonix-logo]<br/>**CloudHealth**][cloudmonix-anchor] | [![파트너 로고][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![파트너 로고][datadog-logo]<br/>**Datadog**][datadog-anchor] |
-| [![파트너 로고][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![파트너 로고][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![파트너 로고][logicmonitor-logo]<br/>**Logic Monitor**][logicmonitor-anchor] |
-| [![파트너 로고][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![파트너 로고][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![파트너 로고][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![파트너 로고][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![파트너 로고][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![파트너 로고][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
-| [![파트너 로고][signl4-logo]<br/>**SIGNL4**][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [![파트너 로고][splunk-logo]<br/>**Splunk**][splunk-anchor] |
-| [![파트너 로고][sumologic-logo]<br/>**Sumo Logic**][sumologic-anchor] | [![파트너 로고][turbonomic-logo]<br/>**Turbonomic**][turbonomic-anchor] | |
+| [**AlertLogic**<br/>![Partner Logo][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Partner Logo][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![Partner Logo][atlassian-logo]][atlassian-anchor] 
+| [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Partner Logo][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![Partner Logo][cloudhealth-logo]][cloudhealth-anchor] 
+| [**CloudMonix** <br/> ![Partner Logo][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Partner Logo][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Partner Logo][datadog-logo]][datadog-anchor] 
+| [**Dynatrace** <br/> ![Partner Logo][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Partner Logo][grafana-logo]][grafana-anchor] | [**Logic Monitor**<br/>![Partner Logo][logicmonitor-logo]][logicmonitor-anchor] 
+| [**Moogsoft**<br/>![Partner Logo][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Partner Logo][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner Logo][opsgenie-logo]][opsgenie-anchor] 
+| [**PagerDuty**<br/>![Partner Logo][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![Partner Logo][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Partner Logo][sciencelogic-logo]][sciencelogic-anchor] 
+| [**SignalFx**<br/>![Partner Logo][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![Partner Logo][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
+| [**Splunk** <br/> ![Partner Logo][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![Partner Logo][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Partner Logo][turbonomic-logo]][turbonomic-anchor] 
+
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 응용 프로그램 및 Azure 플랫폼 로그를 수집합니다. 또한 Azure Monitor API를 통해 Azure Activity Log를 수집합니다. 이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
@@ -82,21 +83,23 @@ Grafana는 시계열 메트릭 데이터를 시각화할 수 있도록 하는 �
 [설명서로 이동합니다.][grafana-doc]
 
 ## <a name="logic-monitor"></a>Logic Monitor
-LogicMonitor®는 복잡한 IT 인프라에 대한 선행 SaaS 기반, 성능 모니터링 플랫폼입니다. 수천 개의 기술에 대한 보급으로 LogicMonitor는 인프라 및 응용 프로그램 성능에 대한 세부적인 가시성을 제공합니다. LM 클라우드의 포괄적인 Azure 모니터링을 사용하여 사용자는 Azure 클라우드, 온 프레미스 및 하이브리드 클라우드 리소스의 성능을 모두 단일 플랫폼에서 상관 관계를 지정할 수 있습니다. 자동화된 리소스 검색, 기본 제공 모니터링 템플릿, 미리 구성된 경고 임계값 및 사용자 지정 가능한 대시보드는 성공에 필요한 속도, 유연성 및 가시성을 IT에 제공하기 위해 결합됩니다.
+LogicMonitor®는 복잡한 IT 인프라에 대한 선행 SaaS 기반, 성능 모니터링 플랫폼입니다. 수천 개의 기술에 대한 보급으로 LogicMonitor는 인프라 및 응용 프로그램 성능에 대한 세부적인 가시성을 제공합니다. LM 클라우드의 포괄적인 Azure 모니터링을 사용하면 사용자는 Azure 클라우드, 온 프레미스 및 하이브리드 클라우드 리소스의 성능을 모두 단일 플랫폼에서 상관 관계를 지정할 수 있습니다. 자동화된 리소스 검색, 기본 제공 모니터링 템플릿, 미리 구성된 경고 임계값 및 사용자 지정 가능한 대시보드는 성공에 필요한 속도, 유연성 및 가시성을 IT에 제공하기 위해 결합됩니다.
 
 [설명서로 이동합니다.][logicmonitor-doc]
 
 ## <a name="moogsoft"></a>Moogsoft
 Moogsoft AIOps는 민첩한 비즈니스 변환을 가속화합니다.
 
-Microsoft Azure Automation 및 제어 도구는 Azure에 배포된 응용 프로그램 및 마이크로 서비스의 상태에 대한 실시간 창을 제공하고, 빠른 업데이트 관리를 위한 진단 및 Runbook을 조정하는 데 도움을 줍니다.
-기타 타사 도구는 온-프레미스 응용 프로그램 및 인프라 상태에 대한 창을 제공합니다.
+Microsoft Azure Automation and Control 도구는 Azure에 배포된 응용 프로그램 및 마이크로 서비스의 상태에 대한 실시간 창을 제공하고, 빠른 업데이트 관리를 위한 진단 및 Runbook을 조정하는 데 도움을 줍니다. 기타 타사 도구는 온-프레미스 응용 프로그램 및 인프라 상태에 대한 창을 제공합니다.
 
 Moogsoft AIOps는 기존 프로세스 및 조직 구조를 변경하지 않고 업데이트 관리 워크플로로 이벤트를 자동화합니다. 
 
-Azure 부동산에서 실행하면 하이브리드 패브릭에서 모니터링 및 자동화 도구로 통합하여 Moogsoft AIOps는 인시던트에 영향을 주는 응용 프로그램을 적극적으로 감지하고, 상황을 인지할 수 있도록 적절한 리소스를 정적으로 오케스트레이션하고, 고객 환경에 대한 부정적인 영향을 해결하는 평균 시간을 줄입니다. 
+Moogsoft는 하이브리드 패브릭에서 모니터링 및 자동화 도구 통합을 통해 Azure 부동산에서 실행됩니다. Moogsoft AIOps는 인시던트에 영향을 주는 응용 프로그램을 적극적으로 감지하고, 상황을 인지할 수 있도록 적절한 리소스를 동적으로 오케스트레이션하고, 고객 환경에 대한 부정적인 영향을 해결하기 위한 평균 시간을 줄여줍니다. 
 
 [설명서로 이동합니다.][moogsoft-doc]
+
+## <a name="newrelic"></a>NewRelic
+[자세히 알아봅니다][newrelic-doc].
 
 ## <a name="opsgenie"></a>OpsGenie
 OpsGenie는 Azure가 생성한 경고의 디스패처 역할을 합니다. OpsGenie는 호출 일정 및 에스컬레이션을 기초로 알림을 보내야 할 적합한 사람을 판단합니다. 이메일, 문자 메시지(SMS), 전화 또는 푸시 알림을 사용하여 알릴 수 있습니다. Azure는 탐지된 문제에 대해 알림을 생성합니다. OpsGenie는 적합한 사람이 문제를 작업하도록 합니다.
@@ -117,12 +120,12 @@ ScienceLogic은 어디서든지 모든 기술을 관리하는 차세대 IT 서�
 [자세히 알아봅니다][sciencelogic-doc].
 
 ## <a name="signalfx"></a>SignalFx
-SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 기존 포인트 도구를 대체하고 오늘날의 동적 환경에 대한 실시간 가시성을 제공하는 클라우드의 모든 구성 요소 간의 메트릭을 검색하고 수집합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 Azure에 대한 최고 클래스 대시보드, 분석 및 경고를 제공하기 위해 Azure Monitor로 직접 Telegraf, statsD 및 collectd와 같은 오픈 소스 커넥터를 통해 통합합니다.
+SignalFx는 데이터 기반 DevOps에 대한 실시간 운영 인텔리전스의 선두입니다. 서비스는 클라우드의 모든 구성 요소에서 메트릭을 발견하고 수집합니다. 또한 기존 포인트 도구를 대체하고 오늘날의 동적 환경을 실시간으로 볼 수 있게 합니다. 확장성이 매우 뛰어난 SignalFx 플랫폼을 활용하여 SaaS 플랫폼은 아키텍처를 기반으로 하는 컨테이너 및 마이크로 서비스에 최적화되며 강력한 시각화, 자동 관리 경고 및 모든 크기의 조직에 대한 공동 작업 심사 기능을 제공합니다. SignalFx는 최고 클래스 대시보드, 분석 및 경고를 제공하기 위해 Telegraf, statsD 및 collectd와 같은 오픈 소스 커넥터를 통해 또는 직접 Azure Monitor와 통합됩니다.
 
 [설명서로 이동합니다.][signalfx-doc]
 
 ## <a name="signl4"></a>SIGNL4
-SIGNL4 - 운영 팀에 대한 모바일 경고 앱은 적절한 시간에 적절한 사람에게 Azure Monitor의 중요한 경고를 어디든지 푸시, 텍스트 및 음성 호출로 라우팅하는 가장 빠른 방법입니다. SIGNL4는 대기 중인 업무 및 팀의 전환을 관리하고, 배달 및 경고의 소유권을 추적하고 필요한 경우 확대합니다. 팀에 대한 완전한 투명성이 제공됩니다. SIGNL4의 매우 쉬운 REST 웹 후크를 사용하면 모든 Azure 서비스를 어려움 없이 연결할 수 있습니다. SIGNL4를 사용하면 이메일 알림 및 수동 경고에 대한 최고 10배 더 빠른 응답을 볼 수 있습니다.
+SIGNL4 - 운영 팀에 대한 모바일 경고 앱은 적절한 시간에 적절한 사람에게 Azure Monitor의 중요한 경고를 푸시, 텍스트 및 음성 호출로 어디든 라우팅할 수 있는 가장 빠른 방법입니다. SIGNL4는 대기 중인 업무 및 팀의 전환을 관리하고, 배달 및 경고의 소유권을 추적하고 필요한 경우 확대합니다. 팀에 대한 완전한 투명성이 제공됩니다. SIGNL4의 매우 쉬운 REST 웹 후크를 사용하면 모든 Azure 서비스를 어려움 없이 연결할 수 있습니다. SIGNL4를 사용하면 이메일 알림 및 수동 경고에 비해 최고 10배 더 빠른 응답을 볼 수 있습니다.
 
 [설명서로 이동합니다.][signl4-doc]
 
@@ -141,7 +144,7 @@ Sumo Logic은 안전한 클라우드 기반, 컴퓨터 데이터 분석 서비�
 [자세히 알아봅니다][sumologic-doc].
 
 ## <a name="turbonomic"></a>Turbonomic
-Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드 자동화를 제공합니다. Turbonomic은 조직이 응용 프로그램에서 해당 SLA를 전송하는 데 필요한 리소스를 계속해서 얻도록 부동산을 지속적으로 최적화하여 해당 Azure 부동산에서 탄력적이 될 수 있도록 도우며, IaaS 및 PaaS 계층에 대한 계산, 저장소 및 네트워크에 지나지 않도록 합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
+Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic은 조직이 응용 프로그램에서 해당 SLA를 전송하는 데 필요한 리소스를 계속해서 얻도록 부동산을 지속적으로 최적화하여 해당 Azure 부동산에서 탄력적이 될 수 있도록 도우며, IaaS 및 PaaS 계층에 대한 계산, 저장소 및 네트워크에 지나지 않도록 합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
 
 [자세히 알아봅니다][turbonomic-doc].
 
@@ -163,6 +166,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
+[newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
 [logicmonitor-anchor]: #logic-monitor "Logic Monitor"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
@@ -187,6 +191,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
+[newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
@@ -214,6 +219,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure Monitor Grafana 통합."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor 설명서."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft 설명서."
+[newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 설명서."
 [pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty 설명서."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar 설명서."

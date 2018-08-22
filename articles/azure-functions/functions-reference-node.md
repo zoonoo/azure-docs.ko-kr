@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391183"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005478"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-코드가 완료되었음을 런타임에 알립니다. `context.done`을 호출해야 하나 그렇지 않으면 런타임에서 함수가 완료되었음을 알 수 없으므로 실행 시간이 초과됩니다. 
+코드가 완료되었음을 런타임에 알립니다. 사용자 함수가 `async function` 선언(함수 버전 2.x에서 노드 8+를 사용할 수 있음)을 사용하는 경우 `context.done()`을 사용할 필요가 없습니다. `context.done` 콜백을 암시적으로 호출합니다.
+
+함수가 비동기 함수가 아닌 경우 **함수가 완료됐음을 런타임에 알리려면 `context.done`** 을 호출해야 합니다. 실행이 누락된 경우 시간 초과가 발생합니다.
 
 `context.done` 메서드를 사용하면 `context.bindings` 개체의 속성을 덮어쓸 속성의 속성 모음뿐만 아니라 사용자 정의 오류도 런타임에 다시 전달할 수 있습니다.
 

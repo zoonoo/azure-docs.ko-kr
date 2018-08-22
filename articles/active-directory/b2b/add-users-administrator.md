@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6dfa1f247a079bf801f28d1083c86d36a74117c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037227"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004201"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 공동 작업 사용자를 Azure Portal에 추가
 
@@ -40,6 +40,9 @@ B2B 공동 작업 사용자를 디렉터리에 추가하려면 다음 단계를 
 5. **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. 필요에 따라 환영 메시지가 포함됩니다. 예: 
 
    ![새 게스트 사용자의 UI 내 위치 표시](./media/add-users-administrator/InviteGuest.png) 
+
+    > [!NOTE]
+    > 일부 이메일 공급자는 수신함 필터링 등을 돕기 위해 사용자에게 더하기 기호(+) 및 추가 텍스트를 해당 이메일 주소에 추가하도록 허용합니다. 그러나 Azure AD는 현재 이메일 주소에서 더하기 기호를 지원하지 않습니다. 배달 문제를 방지하려면 @ 기호 뒤에 오는 모든 문자 및 더하기 기호를 생략합니다.
 
 6. **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. 
  

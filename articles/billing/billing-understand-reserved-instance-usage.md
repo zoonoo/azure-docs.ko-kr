@@ -1,6 +1,6 @@
 ---
-title: 종량제 구독에서 Azure 예약 인스턴스 사용량 이해 | Microsoft Docs
-description: 종량제 구독에서 Azure Reserved VM Instance의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
+title: 종량제 구독에서 Azure Reservations 사용량 이해 | Microsoft Docs
+description: 종량제 구독에서 Azure Reservations의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 7e303f3e5ce0e618d941be4190f6fadb40f2e09d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064491"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627886"
 ---
-# <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독에서 예약 인스턴스 사용량 이해
+# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>종량제 구독의 Azure Reservations 사용량 이해
 
-[예약 페이지](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)의 ReservationId 및 [Azure Accounts 포털](https://account.azure.com)의 사용량 파일을 사용하여 Azure Reserved VM Instance의 사용량을 이해합니다.
+[예약 페이지](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)의 ReservationId 및 [Azure 계정 포털](https://account.azure.com)의 사용량 파일을 사용하여 예약 사용량을 평가합니다.
 
+기업계약이 있는 고객인 경우 [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)를 참조하세요.
 
->[!NOTE]
->이 문서는 EA 고객에게는 적용되지 않습니다. EA 고객인 경우 [기업 등록에 Reserved Instance 사용량 이해](billing-understand-reserved-instance-usage-ea.md)를 참조하세요. 또한 이 문서는 예약 인스턴스가 단일 구독에 적용된다고 가정합니다. 예약 인스턴스가 둘 이상의 구독에 적용되면 예약 인스턴스 혜택이 여러 사용량 csv 파일에 걸쳐 있을 수 있습니다. 
+이 문서는 예약이 단일 구독에 적용된다고 가정합니다. 예약이 둘 이상의 구독에 적용되면 예약 혜택이 여러 사용량 CSV 파일에 걸쳐 있을 수 있습니다.
 
-다음 섹션에서는 미국 동부 지역에서 Standard_DS1_v2 Windows VM을 실행하고 예약 인스턴스 정보가 다음 표와 같다고 가정합니다.
+## <a name="usage-for-reserved-virtual-machine-instances"></a>Reserved Virtual Machines Instances에 대한 사용량
+
+다음 섹션에서는 미국 동부 지역에서 Standard_DS1_v2 Windows VM을 실행하고 예약 VM 인스턴스 정보가 다음 표와 같다고 가정합니다.
 
 | 필드 | 값 |
 |---| :---: |
@@ -38,35 +40,68 @@ ms.locfileid: "37064491"
 |SKU | Standard_DS1_v2|
 |지역 | eastus |
 
-## <a name="reserved-instance-application"></a>예약 인스턴스 응용 프로그램
+배포된 VM이 예약 특성과 일치하기 때문에 VM의 하드웨어 부분이 포함됩니다. Reserved VM Instance에서 포함되지 않는 Windows 소프트웨어를 확인하려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)을 참조하세요.
 
-배포된 VM이 예약 인스턴스 특성과 일치하기 때문에 VM의 하드웨어 부분이 포함됩니다. Reserved Instance에서 포함되지 않는 Windows 소프트웨어를 확인하려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)으로 이동하세요.
+### <a name="statement-section-of-csv-file-for-vms"></a>VM에 대한 CSV 파일의 명령문 섹션
 
-### <a name="statement-section-of-csv"></a>csv의 문 섹션
-csv의 이 섹션에서는 예약 인스턴스의 총 사용량을 보여줍니다. "Reservation-"이 포함된 미터 하위 범주 필드에 필터를 적용하면 데이터가 다음과 같은 스크린샷처럼 표시됩니다. ![필터링된 예약 인스턴스 사용량 세부 정보 및 요금 스크린샷](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍니다. **“예약-”** 을 포함하는 **요금제 하위 범주** 필드에 필터를 적용합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
 
-예약 - 기본 VM 줄에는 예약 인스턴스에 포함되는 총 시간이 있습니다. 이 줄은 예약 인스턴스에서 포함되기 때문에 $0.00입니다. Reservation-Windows Svr(1 코어) 줄은 Windows 소프트웨어의 비용을 포함합니다.
+![필터링된 예약 사용량 세부 정보 및 비용의 스크린샷](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-### <a name="daily-usage-section-of-csv"></a>csv의 일일 사용량 섹션
-추가 정보를 필터링하고 **예약 ID**를 입력합니다. 다음 스크린샷에서는 예약 인스턴스와 관련된 필드를 보여줍니다. 
+**예약 - 기본 VM** 줄에는 예에 포함되는 총 시간이 있습니다. 이 줄은 예약에 포함되기 때문에 $0.00입니다. **Reservation-Windows Svr(1개 코어)** 줄은 Windows 소프트웨어의 비용을 포함합니다.
+
+### <a name="daily-usage-section-of-csv-file"></a>CSV 파일의 일일 사용량 섹션
+
+**추가 정보**를 필터링하고 **Reservation ID**를 입력합니다. 다음 스크린샷에서는 예약과 관련된 필드를 보여줍니다.
 
 ![일일 사용량 세부 정보 및 요금 스크린샷](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
 
-1. 추가 정보 필드의 **ReservationId**는 VM에 혜택을 적용하는 데 사용된 예약 인스턴스입니다.
-2. ConsumptionMeter는 VM에 대한 미터 ID입니다.
-3. 예약 - 기본 VM 미터 하위 범주 선은 명령문 섹션에 있는 0원인 비용 줄을 나타냅니다. 예약 인스턴스에서 이미 이 VM을 실행하는 비용을 지불했습니다.
-4. 예약 인스턴스에 대한 미터 ID입니다. 이 미터의 비용은 0원입니다. 예약 인스턴스를 정규화하는 VM에서는 비용을 설명하는 csv에 이 MeterId를 저장합니다. 
-5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 미터는 Windows 소프트웨어의 추가 요금을 포함합니다. [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)을 참조하여 D 시리즈 1 코어 VM에 해당하는 미터를 찾습니다. Azure Hybrid Benefit을 사용하면 이 추가 비용이 적용되지 않습니다. 
+1. **추가 정보** 필드의 **ReservationId**는 VM에 적용된 예약입니다.
+2. **ConsumptionMeter**는 VM에 대한 요금제 ID입니다.
+3. **예약 - 기본 VM** **요금제 하위 범주** 줄은 명령문 섹션에 있는 $0인 비용을 나타냅니다. 예약에서 이미 이 VM 실행 비용을 지불했습니다.
+4. **요금제 ID**는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 요금제 ID는 예약 할인을 받을 수 있는 VM에 표시됩니다.
+5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 요금제는 Windows 소프트웨어의 추가 요금을 포함합니다. D 시리즈 1개 코어 VM에 해당하는 요금제를 찾으려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)을 참조하세요. Azure 하이브리드 혜택이 있는 경우 이 추가 비용이 적용되지 않습니다.
+
+## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>SQL Database 예약된 용량 예약에 대한 사용량
+
+다음 섹션에서는 미국 동부 지역에서 SQL Database Gen 4를 실행하고 예약 정보가 다음 표와 같다고 가정합니다.
+
+| 필드 | 값 |
+|---| --- |
+|ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
+|수량 |2|
+|제품| SQL Database Gen 4(2개 코어)|
+|지역 | eastus |
+
+### <a name="statement-section-of-csv-file"></a>CSV 파일의 명령문 섹션
+
+**예약된 인스턴스 사용량** 요금제 이름을 필터링합니다. 다음 스크린샷과 유사한 출력이 표시됩니다.
+
+![SQL Database 예약된 용량에 대한 CSV 파일](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+
+**예약된 인스턴스 사용량** 줄에는 예약에 포함되는 총 코어 시간이 있습니다. 예약에서 비용을 포함하므로 이 줄에 대한 요금은 $0입니다.
+
+### <a name="detail-section-of-csv-file"></a>CSV 파일의 세부 정보 섹션
+
+**추가 정보**를 필터링하고 **Reservation ID**를 입력합니다. 다음 스크린샷은 SQL Database 예약된 용량 예약과 관련된 필드를 보여 줍니다.
+
+![SQL Database 예약된 용량에 대한 CSV 파일](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+
+1. **추가 정보** 필드의 **ReservationId**는 SQL Database 리소스에 적용되는 SQL Database 예약된 용량 예약입니다.
+2. **ConsumptionMeter**는 SQL Database 리소스에 대한 요금제 ID입니다.
+3. **요금제 ID**는 예약 요금제입니다. 이 요금제의 비용은 $0입니다. 예약 할인을 받을 수 있는 모든 SQL Database 리소스는 이 요금제 ID를 CSV 파일로 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
-예약 인스턴스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [Azure Reserved VM Instances란?](billing-save-compute-costs-reservations.md)
+예약에 대해 자세히 알아보려면 다음 문서를 참조하세요.
+
+- [Azure Reservations란?](billing-save-compute-costs-reservations.md)
 - [Azure Reserved VM Instances를 사용하여 Virtual Machines 선불 결제](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Azure에서 예약 인스턴스 관리](billing-manage-reserved-vm-instance.md)
-- [예약 인스턴스 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
-- [기업 등록계약의 예약 인스턴스 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
-- [예약 인스턴스를 포함하지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
+- [Azure SQL Database 예약된 용량을 사용하여 SQL Database 계산 리소스 요금 선결제](../sql-database/sql-database-reserved-capacity.md)
+- [Azure에서 예약 관리](billing-manage-reserved-vm-instance.md)
+- [예약 할인이 적용되는 방식 이해](billing-understand-vm-reservation-charges.md)
+- [엔터프라이즈 등록에서 예약 사용량 이해](billing-understand-reserved-instance-usage-ea.md)
+- [예약에 포함되지 않는 Windows 소프트웨어 비용](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 

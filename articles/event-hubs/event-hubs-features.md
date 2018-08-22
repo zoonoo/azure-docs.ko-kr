@@ -3,7 +3,7 @@ title: Azure Event Hubs 기능 개요 | Microsoft Docs
 description: Azure Event Hubs 기능에 대한 개요 및 세부 정보
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
@@ -11,19 +11,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
-ms.author: sethm
-ms.openlocfilehash: f16f8aa73ecfa3e0a47ce2373a2e28a7a9968ff5
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.author: shvija
+ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248744"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007581"
 ---
 # <a name="event-hubs-features-overview"></a>Event Hubs 기능 개요
 
 Azure Event Hubs는 확장 가능한 처리 서비스로 대량의 이벤트 및 데이터를 수집하여 처리하며, 대기 시간이 낮고 안정성이 우수합니다. 개요는 [Event Hubs란?](event-hubs-what-is-event-hubs.md)을 참조하세요.
 
 이 문서는 [개요](event-hubs-what-is-event-hubs.md) 문서의 정보를 기반으로 하며, Event Hubs 구성 요소 및 기능에 대한 기술 정보와 구현 정보를 제공합니다.
+
+## <a name="namespace"></a>네임스페이스
+Event Hubs 네임스페이스는 [정규화된 도메인 이름](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)으로 참조되는 고유한 범위 지정 컨테이너를 제공하며, 하나 이상의 이벤트 허브 또는 Kafka 항목을 만듭니다. 
 
 ## <a name="event-publishers"></a>이벤트 게시자
 
@@ -114,7 +117,7 @@ Event Hubs의 게시/구독 메커니즘은 *소비자 그룹*을 통해 사용�
 
 *검사점* 은 판독기가 파티션 이벤트 시퀀스 내에서 위치를 표시하거나 커밋하는 프로세스입니다. 검사점은 소비자의 책임으로 소비자 그룹 내에서 파티션별로 발생합니다. 이러한 책임은 각 소비자 그룹에 대해 각 파티션 판독기는 이벤트 스트림의 현재 위치를 추적해야 하며 데이터 스트림이 완료된 것으로 간주되면 서비스를 알릴 수 있다는 것을 의미합니다.
 
-판독기가 파티션에서 연결을 끊은 경우 다시 연결하면 해당 소비자 그룹에서 해당 파티션의 마지막 판독기에서 이전에 제출한 검사점에서 읽기 시작합니다. 판독기가 연결하면, 이 오프셋을 Event Hub로 전달하여 읽기 시작할 위치를 지정합니다. 이러한 방식으로, 서로 다른 컴퓨터에서 실행되는 판독기 간의 장애 조치가 발생하는 경우 복원력을 제공하고 다운스트림 응용 프로그램에서 이벤트를 "완료"로 표시하는 데 검사점을 사용할 수 있습니다. 이 검사점 프로세스에서 더 낮은 오프셋을 지정하면 이전 데이터로 돌아갈 수 있습니다. 이 메커니즘을 통해 검사점을 지정하면 장애 조치 복원력 및 제어된 이벤트 스트림 재생 모두를 사용할 수 있습니다.
+판독기가 파티션에서 연결을 끊은 경우 다시 연결하면 해당 소비자 그룹에서 해당 파티션의 마지막 판독기에서 이전에 제출한 검사점에서 읽기 시작합니다. 판독기가 연결하면, 오프셋을 이벤트 허브로 전달하여 읽기 시작할 위치를 지정합니다. 이러한 방식으로, 서로 다른 컴퓨터에서 실행되는 판독기 간의 장애 조치가 발생하는 경우 복원력을 제공하고 다운스트림 응용 프로그램에서 이벤트를 "완료"로 표시하는 데 검사점을 사용할 수 있습니다. 이 검사점 프로세스에서 더 낮은 오프셋을 지정하면 이전 데이터로 돌아갈 수 있습니다. 이 메커니즘을 통해 검사점을 지정하면 장애 조치 복원력 및 제어된 이벤트 스트림 재생 모두를 사용할 수 있습니다.
 
 ### <a name="common-consumer-tasks"></a>일반 소비자 작업
 
@@ -145,14 +148,14 @@ Event Hubs는 확장성이 뛰어난 병렬 아키텍처를 사용하고 크기�
 
 Event Hubs의 처리량 용량은 *처리량 단위*로 제어됩니다. 처리량 단위는 미리 구입한 용량의 단위입니다. 단일 처리량 단위는 다음 용량을 포함합니다.
 
-* 수신: 초당 최대 1MB 또는 초당 1,000회 이벤트(둘 중 빠른 쪽 적용)
-* 송신: 초당 최대 2MB
+* 수신: 초당 최대 1MB 또는 초당 1,000회 이벤트(둘 중 빠른 쪽 적용).
+* 송신: 초당 최대 2MB 또는 4096개의 이벤트.
 
 구입한 처리량 단위의 용량을 초과하면 수신이 제한되며 [ServerBusyException](/dotnet/api/microsoft.azure.eventhubs.serverbusyexception)이 반환됩니다. 송신은 제한 예외를 생성하지 않지만 구입한 처리량 단위의 용량으로 제한됩니다. 게시 속도 예외를 수신하거나 더 높은 송신을 예상하는 경우 네임스페이스에 대해 구입한 처리량 단위의 수를 확인해야 합니다. [Azure Portal](https://portal.azure.com)에서 네임스페이스의 **크기 조정** 블레이드에서 처리량 단위를 관리할 수 있습니다. [Event Hubs API](event-hubs-api-overview.md)를 사용하여 프로그래밍 방식으로 처리량 단위를 관리할 수도 있습니다.
 
 처리량 단위는 미리 구입하는 방식이며 시간당 요금이 청구됩니다. 구입하면, 처리량 단위는 최소 한시간으로 청구됩니다. Event Hubs 네임스페이스에 대해 최대 20개의 처리량 단위를 구입할 수 있으며, 네임스페이스의 모든 Event Hubs에서 공유할 수 있습니다.
 
-Azure 지원에 문의하면 20개 블록, 최대 100개 처리량 단위로 더 많이 구입할 수 있습니다. 이보다 많은 경우 처리량 단위 100개 블록을 구입할 수 있습니다.
+Azure 지원에 문의하면 20개 블록, 최대 100개 처리량 단위로 더 많은 처리량 단위를 구입할 수 있습니다. 이보다 많은 경우 100개 처리량 단위 블록을 구입할 수 있습니다.
 
 최적의 규모를 달성하려면 처리량 단위와 파티션 간에 균형을 유지하는 것이 좋습니다. 단일 파티션에는 처리량 단위 하나의 최대 크기가 있습니다. 처리량 단위 수는 Event Hub의 파티션 수보다 작거나 동일해야 합니다.
 

@@ -3,27 +3,22 @@ title: Azure Event Hubs .NET Standard API 개요 | Microsoft Docs
 description: .NET Standard API 개요
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: a173f8e4-556c-42b8-b856-838189f7e636
 ms.service: event-hubs
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 855f6e7f401621d7f923d68215ca880c05d38629
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: d44cdf9204ac041a12cecce995efef71272204e6
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26783002"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40007570"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Event Hubs .NET Standard API 개요
 
-이 문서는 핵심 Event Hubs .NET Standard 클라이언트 API 일부를 요약해서 설명합니다. 현재 다음과 같은 두 개의 .NET Standard 클라이언트 라이브러리가 있습니다.
+이 문서는 핵심 Azure Event Hubs[.NET Standard 클라이언트 API](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) 일부를 요약해서 설명합니다. 현재 다음과 같은 Event Hubs에 대한 두 개의 .NET Standard 클라이언트 라이브러리가 있습니다.
 
 * [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): 모든 기본 런타임 작업을 제공합니다.
 * [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): 처리된 이벤트를 추적하는 추가 기능을 추가하며, 이벤트 허브에서 읽는 가장 쉬운 방법입니다.
@@ -37,13 +32,13 @@ ms.locfileid: "26783002"
 [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) 개체는 연결 문자열에서 만들어집니다. 새 클라이언트를 인스턴스화하는 가장 간단한 방법은 다음 예제에 나와 있습니다.
 
 ```csharp
-var eventHubClient = EventHubClient.CreateFromConnectionString("{Event Hubs connection string}");
+var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
 프로그래밍 방식으로 연결 문자열을 편집하려면 [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) 클래스를 사용하고 연결 문자열을 [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_)에 대한 매개 변수로 전달할 수 있습니다.
 
 ```csharp
-var connectionStringBuilder = new EventHubsConnectionStringBuilder("{Event Hubs connection string}")
+var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
 {
     EntityPath = EhEntityPath
 };
@@ -149,7 +144,7 @@ await eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>();
 await eventProcessorHost.UnregisterEventProcessorAsync();
 ```
 
-다음은 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor)의 구현 샘플입니다.
+다음은 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 인터페이스의 구현 샘플입니다.
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -186,6 +181,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 Event Hubs 시나리오에 대한 자세한 내용은 다음 링크를 방문하십시오.
 
 * [Azure Event Hubs 정의](event-hubs-what-is-event-hubs.md)

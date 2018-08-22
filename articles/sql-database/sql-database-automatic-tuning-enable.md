@@ -8,17 +8,20 @@ ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: vvasic
-ms.openlocfilehash: d4d3b7f54c7393b57339ea149e8a79f97891dc20
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646034"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39631098"
 ---
 # <a name="enable-automatic-tuning"></a>자동 조정 사용
 
-Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드의 성능 향상을 위해 수행할 수 있는 작업을 식별하는 자동으로 관리되는 데이터 서비스입니다. 권장 사항을 검토하고 수동으로 적용하거나 Azure SQL Database에서 정정 작업을 자동으로 적용하도록 할 수 있습니다. 이는 **자동 조정 모드**로 알려져 있습니다. 서버 또는 데이터베이스 수준에서 자동 조정을 사용할 수 있습니다.
+Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드의 성능 향상을 위해 수행할 수 있는 작업을 식별하는 자동으로 관리되는 데이터 서비스입니다. 권장 사항을 검토하고 수동으로 적용하거나 Azure SQL Database에서 정정 작업을 자동으로 적용하도록 할 수 있습니다. 이는 **자동 조정 모드**로 알려져 있습니다.
+
+자동 조정은 [Azure Portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) 호출 및 [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) 명령을 통해 서버 또는 데이터베이스 수준에서 사용하도록 설정할 수 있습니다.
 
 ## <a name="enable-automatic-tuning-on-server"></a>서버에서 자동 조정 사용
 서버 수준에서 "Azure 기본값"에서 자동 조정 구성을 상속하거나 구성을 상속하지 않도록 선택할 수 있습니다. Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
@@ -37,7 +40,9 @@ Azure SQL Database 논리 **서버**에서 자동 조정을 사용하려면 Azur
 서버의 자동 조정 옵션은 서버의 모든 데이터베이스에 적용됩니다. 기본적으로 모든 데이터베이스는 부모 서버에서 구성을 상속하지만 이는 각 데이터베이스에 대해 개별적으로 재정의되고 지정될 수 있습니다.
 
 ### <a name="rest-api"></a>REST API
-[REST API를 통해 서버 수준에서 자동 조정을 활성화하는 방법을 자세히 알아보려면 여기를 클릭합니다.](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
+
+서버에서 자동 조정을 활성화하기 위한 REST API 사용에 대해 자세히 알아보고, [SQL Server 자동 조정 업데이트 및 HTTP 메서드 가져오기](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 참조하세요.
+
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>개별 데이터베이스에서 자동 조정 활성화
 
@@ -49,7 +54,8 @@ Azure SQL Database를 통해 각 데이터베이스에서 자동 조정 구성�
 
 ### <a name="azure-portal"></a>Azure portal
 
-**단일 데이터베이스**에서 자동 조정을 사용하려면 Azure Portal에서 데이터베이스로 이동하여 **자동 조정**을 선택합니다.
+
+  **단일 데이터베이스**에서 자동 조정을 사용하려면 Azure Portal에서 데이터베이스로 이동하여 **자동 조정**을 선택합니다.
 
 개별 자동 조정 설정을 각 데이터베이스에 대해 별도로 구성할 수 있습니다. 개별 자동 조정 옵션을 수동으로 구성하거나 서버에서 해당 설정을 상속하는 옵션을 지정할 수 있습니다.
 
@@ -60,7 +66,8 @@ Azure SQL Database를 통해 각 데이터베이스에서 자동 조정 구성�
 원하는 구성을 선택한 후 **적용**을 클릭합니다.
 
 ### <a name="rest-api"></a>Rest API
-[REST API를 통해 단일 데이터베이스에서 자동 조정을 활성화하는 방법을 자세히 알아보려면 여기를 클릭합니다.](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
+
+단일 데이터베이스에서 자동 조정을 활성화하기 위한 REST API 사용에 대해 자세히 알아보고, [SQL Database 자동 조정 업데이트 및 HTTP 메서드 가져오기](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)를 참조하세요.
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -80,12 +87,14 @@ T-SQL을 통해 개별 자동 조정 옵션을 구성하려면 데이터베이�
    
 개별 조정 옵션을 ON으로 설정하면 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 활성화합니다. OFF로 설정하면 마찬가지로 데이터베이스가 상속한 설정을 무시하고 조정 옵션을 비활성화합니다. 기본값이 지정된 자동 조정 옵션은 데이터베이스 수준 자동 조정 설정에서 구성을 상속합니다.  
 
+자동 조정을 구성하기 위한 T-SQL 옵션에 대해 자세히 알아보고, [SQL Database 논리 서버에 대한 ALTER DATABASE SET 옵션(Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)을 참조하세요.
+
 ## <a name="disabled-by-the-system"></a>시스템에서 비활성화됨
 자동 조정은 데이터베이스에서 수행하는 모든 작업을 모니터링하고 일부 경우에서 자동 조정이 데이터베이스에서 제대로 작동할 수 없는지 결정할 수 있습니다. 이 상황에서 조정 옵션은 시스템에서 비활성화됩니다. 쿼리 저장소는 활성화되지 않았거나 특정 데이터베이스에서 읽기 전용 상태에 있기 때문에 대부분의 경우에서 발생합니다.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>이메일 알림 자동 조정 구성
 
-[이메일 알림 자동 조정](sql-database-automatic-tuning-email-notifications.md)을 참조하세요.
+[이메일 알림 자동 조정](sql-database-automatic-tuning-email-notifications.md) 가이드를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * 자동 조정 및 성능을 개선할 수 있는 방법에 대한 자세한 내용은 [자동 조정 문서](sql-database-automatic-tuning.md)를 참조하세요.

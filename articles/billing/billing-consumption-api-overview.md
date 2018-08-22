@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/07/2018
 ms.author: erikre
-ms.openlocfilehash: 69e148089f48ebe04faceff87b08eb3f7127f8a3
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: c37ff7e2f81b3dbca42193777287dae873768e24
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248370"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630503"
 ---
 # <a name="azure-consumption-api-overview"></a>Azure Consumption API 개요 
 
@@ -103,7 +103,7 @@ API에는 다음이 포함됩니다.
 
 ## <a name="reservation-recommendations-api"></a>예약 권장 사항 API
 
-이 API를 사용하여 VM 예약 인스턴스 구매에 대한 권장 사항을 가져옵니다. 권장 사항은 고객이 예상 비용 절감 및 구매 금액을 분석할 수 있도록 설계되었습니다. 
+이 API를 사용하여 Reserved VM Instances 구매에 대한 권장 사항을 가져옵니다. 권장 사항은 고객이 예상 비용 절감 및 구매 금액을 분석할 수 있도록 설계되었습니다. 
 
 API에는 다음이 포함됩니다.
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b9acc829439578f2f86dfbd51164cb3eaf923c2a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368871"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004381"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -49,6 +49,9 @@ Azure AD에 장치를 가져오면 클라우드와 온-프레미스 리소스에
 -  [Azure Active Directory의 장치 관리 소개](../device-management-introduction.md)
     
 -  [하이브리드 Azure Active Directory 조인 구현을 계획하는 방법](hybrid-azuread-join-plan.md)
+
+-  [장치의 하이브리드 Azure AD 조인을 제어하는 방법](hybrid-azuread-join-control.md)
+  
 
 이 문서의 시나리오를 구성하려면 [최신 버전의 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)(1.1.819.0 이상)를 설치해야 합니다. 
  
@@ -101,13 +104,13 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 
     ![장치 옵션](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. **SCP** 페이지에서 SCP에 대한 Azure AD Connect를 원하는 각 포리스트에 대해 다음 단계를 수행하고 **다음**을 클릭합니다. 
+6. **SCP** 페이지에서 Azure AD Connect로 SCP를 구성하려는 각 포리스트에 대해 다음 단계를 수행한 다음, **다음**을 클릭합니다. 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
     a. 포리스트를 선택합니다.
 
-    나. 인증 서비스를 선택합니다.
+    b. 인증 서비스를 선택합니다.
 
     다. **추가**를 클릭하여 엔터프라이즈 관리자 자격 증명을 입력합니다.
 
@@ -156,8 +159,6 @@ Windows 하위 수준 장치의 하이브리드 Azure AD 조인을 성공적으�
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`
 
 또한, 사용자의 로컬 인트라넷 영역에서 **Allow updates to status bar via script**(스크립트를 통해 상태 표시줄 업데이트 허용)을 사용하도록 설정해야 합니다.
@@ -191,14 +192,13 @@ Azure 테넌트에서 장치 등록 상태를 확인하려면 **[Azure Active Di
 
 도메인 가입 Windows 장치에 대한 하이브리드 Azure AD 조인은 완료할 때 문제가 발생하는 경우 다음을 참조하세요.
 
-- [Windows 최신 장치의 하이브리드 Azure AD 조인 문제 해결](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Windows 하위 수준 장치의 하이브리드 Azure AD 조인 문제 해결](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
-
+- [Windows 최신 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-current.md)
+- [Windows 하위 수준 장치의 하이브리드 Azure AD 조인 문제 해결](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [페더레이션된 도메인에 대한 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-federated-domains.md)
-> [수동으로 하이브리드 Azure Active Directory 조인 구성](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [수동으로 하이브리드 Azure Active Directory 조인 구성](hybrid-azuread-join-manual-steps.md)
 

@@ -11,12 +11,12 @@ ms.topic: article
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 61bc081ca3221c0d588b7b7a2d9482d2fc70c0d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247328"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038622"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -63,6 +63,26 @@ Visual Studio에서
 2. **MSBuild 프로젝트 빌드 출력 세부 정보 표시**의 설정을 **세부 내용** 또는 **진단**으로 변경합니다.
 
     ![도구 옵션 대화 상자 스크린샷](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
+
+이 경우 Dev Spaces 서비스에 연결된 공용 URL에 연결을 시도하면 웹 브라우저에 "페이지를 표시할 수 없음" 또는 "이 사이트는 연결할 수 없음" 오류가 표시될 수 있습니다.
+
+### <a name="try"></a>다음을 시도해 보세요.
+
+다음 명령을 사용하여 Dev Spaces 서비스에 연결된 모든 URL을 나열할 수 있습니다.
+
+```cmd
+azds list-uris
+```
+
+URL이 *보류 중* 상태이면 Dev Spaces가 DNS 등록 완료를 대기 중임을 의미합니다. 경우에 따라 이 작업은 몇 분 정도 걸립니다. Dev Spaces는 각 서비스마다 localhost 터널도 엽니다. 이것을 DNS 등록을 대기하는 동안 사용할 수 있습니다.
+
+URL이 5분을 초과하여 *보류 중* 상태로 있으면 공용 엔드포인트 획득을 담당하는 nginx 수신 컨트롤러에 문제가 있는 것일 수 있습니다. 다음 명령을 사용하여 nginx 컨트롤러를 실행하는 Pod를 삭제할 수 있습니다. 자동으로 다시 만들어집니다.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>'필수 도구 및 구성이 누락되었습니다.' 오류
 

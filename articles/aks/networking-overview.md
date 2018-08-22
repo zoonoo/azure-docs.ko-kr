@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216107"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714675"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 네트워크 구성
 
@@ -27,8 +27,7 @@ AKS(Azure Kubernetes Service) 클러스터를 만들 때 두 가지 네트워킹
 
 ## <a name="advanced-networking"></a>고급 네트워킹
 
-
-  **고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다. 고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
+**고급** 네트워킹에서는 구성하는 Azure VNet(Virtual Network)에 Pod가 배치되며, VNet 리소스에 자동으로 연결되고 VNet이 제공하는 풍부한 기능 집합과 통합될 수 있습니다. 고급 네트워킹은 [Azure Portal][portal], Azure CLI 또는 Resource Manager 템플릿을 사용하여 AKS 클러스터를 배포할 때 사용할 수 있습니다.
 
 고급 네트워킹용으로 구성된 AKS 클러스터의 노드는 [Azure CNI(컨테이너 네트워킹 인터페이스)][cni-networking] Kubernetes 플러그 인을 사용합니다.
 
@@ -98,15 +97,14 @@ AKS 클러스터를 만들 때 고급 네트워킹에서 다음 매개 변수를
 
 **서브넷**: 클러스터를 배포하려는 VNet 내의 서브넷입니다. 클러스터에 대해 VNet에 새 서브넷을 만들려는 경우 *새로 만들기*를 선택하고 *서브넷 만들기* 섹션의 단계를 따릅니다.
 
-**Kubernetes 서비스 주소 범위**: *Kubernetes 서비스 주소 범위*는 IP 범위이며 이 주소는 클러스터의 Kubernetes 서비스에 할당됩니다(Kubernetes 서비스에 대한 자세한 내용은 Kubernetes 설명서에서 [서비스][services] 참조).
-
-Kubernetes 서비스 IP 주소 범위:
+**Kubernetes 서비스 주소 범위**: Kubernetes가 클러스터에서 [서비스][services]에 할당하는 가상 IP의 집합입니다. 다음 요구 사항을 충족하는 모든 개인 주소 범위를 사용할 수 있습니다.
 
 * 클러스터의 VNet IP 주소 범위에 속하지 않아야 합니다.
 * 클러스터 VNet이 피어링한 다른 VNet과 겹치지 않아야 합니다.
 * 온-프레미스 IP와 겹치지 않아야 합니다.
+* `169.254.0.0/16`, `172.30.0.0/16` 또는 `172.31.0.0/16` 범위에 속하지 않아야 합니다.
 
-겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 예를 들어 Pod에서 클러스터 외부의 IP에 액세스하고 해당 IP가 서비스 IP인 경우 예측할 수 없는 동작 및 오류가 표시될 수 있습니다.
+기술적으로 클러스터와 동일한 VNet 내에 서비스 주소 범위를 지정할 수 있지만 이는 권장되지 않습니다. 겹치는 IP 범위를 사용한 경우 예측할 수 없는 동작이 발생할 수 있습니다. 자세한 내용은 이 문서의 [FAQ](#frequently-asked-questions) 섹션을 참조하세요. Kubernetes 서비스에 자세한 내용은 Kubernetes 설명서의 [서비스][services]를 참조하세요.
 
 **Kubernetes DNS 서비스 IP 주소**: 클러스터의 DNS 서비스의 IP 주소입니다. 이 주소는 *Kubernetes 서비스 주소 범위*에 속해야 합니다.
 
@@ -155,6 +153,10 @@ Azure Portal의 다음 스크린샷은 AKS 클러스터를 만드는 동안 이�
 * *AKS 클러스터를 만드는 동안 만든 서브넷에 대해 추가 속성을 구성하려면 어떻게 해야 하나요? 예를 들어, 서비스 끝점을 구성한다고 가정해보세요.*
 
   AKS 클러스터를 만드는 동안 만든 VNet과 서브넷에 대한 속성의 전체 목록은 Azure Portal의 표준 VNet 구성 페이지에서 구성할 수 있습니다.
+
+* **Kubernetes 서비스 주소 범위**에 대해 *내 클러스터 VNet 내의 다른 서브넷을 사용할 수 있나요*?
+
+  권장되지 않지만 이 구성은 가능합니다. 서비스 주소 범위는 Kubernetes가 클러스터에서 서비스에 할당하는 VIP(가상 IP)의 집합입니다. Azure 네트워킹은 Kubernetes 클러스터의 서비스 IP 범위를 볼 수 없습니다. 클러스터의 서비스 주소 범위에 대한 가시성 부족으로 인해 서비스 주소 범위와 겹치는 클러스터 VNet에서 나중에 새 서브넷을 만들 수 있습니다. 이러한 중복이 발생하는 경우 Kubernetes는 예기치 않은 동작이나 오류를 일으키는, 서브넷의 다른 리소스에서 이미 사용 중인 IP를 서비스에 할당할 수 있습니다. 클러스터의 VNet 외부에서 주소 범위를 사용하는 것을 확인하여 겹치는 위험을 방지할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

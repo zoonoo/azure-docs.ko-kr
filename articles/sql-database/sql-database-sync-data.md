@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 6bfe2288e239738addb9c97706c5fc1c9b0e72b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617339"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004814"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화
 
@@ -165,7 +165,7 @@ SQL 데이터 동기화 서비스 자체에는 요금이 부과되지 않습니�
 
 ### <a name="what-regions-support-data-sync"></a>데이터 동기화를 지원하는 지역은 어디인가요?
 
-SQL 데이터 동기화는 공용 클라우드가 지원되는 모든 지역에서 이용할 수 있습니다.
+SQL 데이터 동기화는 모든 지역에서 사용할 수 있습니다.
 
 ### <a name="is-a-sql-database-account-required"></a>SQL Database 계정이 필요하나요? 
 

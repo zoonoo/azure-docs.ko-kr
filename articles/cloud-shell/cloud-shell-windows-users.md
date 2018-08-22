@@ -12,43 +12,60 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: 5e318a0f64033aa0c4b306e547c11e1994afa229
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861220"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630389"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>Windows 사용자용 Azure Cloud Shell의 PowerShell
 
-2018년 5월 Azure Cloud Shell의 PowerShell에 대한 변경이 [발표](https://azure.microsoft.com/blog/pscloudshellrefresh/)되었습니다.  Azure Cloud Shell의 PowerShell 환경은 이제 Linux에서 PowerShell Core 6입니다.
-이러한 변경으로 인해 Cloud Shell에 포함된 PowerShell의 몇 가지 측면이 Windows PowerShell 5.1에서 예상되는 것과 다를 수 있습니다.
+2018년 5월 Azure Cloud Shell의 PowerShell에 대한 변경이 [발표](https://azure.microsoft.com/blog/pscloudshellrefresh/)되었습니다.
+Azure Cloud Shell의 PowerShell 환경은 이제 Linux 환경에서 [PowerShell Core 6](https://github.com/powershell/powershell)를 실행합니다.
+이 변경으로 Windows PowerShell 환경에서 예상되는 것과 비교하여 Cloud Shell의 PowerShell 환경에서 몇 가지 차이점이 발생합니다.
 
-## <a name="case-sensitivity"></a>대/소문자 구분
+## <a name="file-system-case-sensitivity"></a>파일 시스템 대/소문자 구분
 
-Windows의 파일 시스템은 대/소문자를 구분하지 않습니다.  Linux의 파일 시스템은 대/소문자를 구분합니다.
-즉, 이전의 `file.txt` 및 `FILE.txt`는 같은 파일로 간주되었으나 이제는 다른 파일로 간주됩니다.
-파일 시스템에서 `tab` 완성 동안 적절한 대/소문자를 사용해야 합니다.  `tab` cmdlet과 같은 PowerShell 특정 환경은 대/소문자를 구분하지 않습니다. 
+파일 시스템은 Windows에서 대/소문자를 구분하지 않는 반면, Linux에서는 대/소문자를 구분합니다.
+이전에 `file.txt` 및 `FILE.txt`는 같은 파일로 간주되었으나 이제는 다른 파일로 간주됩니다.
+파일 시스템에서 `tab-completing` 동안 적절한 대/소문자를 사용해야 합니다.
+`tab-completing` cmdlet 이름, 매개 변수 및 값과 같은 PowerShell 특정 환경은 대/소문자를 구분하지 않습니다.
 
-## <a name="windows-powershell-alias-vs-linux-utilities"></a>Windows PowerShell 별칭 및 Linux 유틸리티
+## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Windows PowerShell 별칭 대 Linux 유틸리티
 
-Linux의 기존 명령(예: `ls`, `sort` 및 `sleep`)은 PowerShell 별칭보다 우선합니다.  다음은 제거된 일반적인 별칭과 해당 명령입니다.  
+일부 기존 PowerShell 별칭에는 `cat`,`ls`, `sort`, `sleep` 등과 같이 기본 제공 Linux 명령과 동일한 이름이 있습니다. PowerShell Core 6에서 기본 제공 Linux 명령과 충돌하는 별칭이 제거되었습니다.
+다음은 제거된 일반적인 별칭과 상응하는 명령입니다.  
 
 |제거된 별칭   |해당 명령   |
 |---|---|
+|`cat`    | `Get-Content` |
+|`curl`   | `Invoke-WebRequest` |
+|`diff`   | `Compare-Object` |
 |`ls`     | `dir` <br> `Get-ChildItem` |
-|`sort`   | `Sort-Object` |
+|`mv`     | `Move-Item`   |
+|`rm`     | `Remove-Item` |
 |`sleep`  | `Start-Sleep` |
+|`sort`   | `Sort-Object` |
+|`wget`   | `Invoke-WebRequest` |
 
-## <a name="persisting-home-vs-homeclouddrive"></a>$home 및 $home\clouddrive 지속
+## <a name="persisting-home"></a>$HOME 유지
 
-스크립트 및 기타 파일을 클라우드 드라이브에 보존하는 경우, 이제 $HOME 디렉터리가 세션이 바뀌어도 지속됩니다.
+이전 사용자는 스크립트 및 다른 파일만 클라우드 드라이브에서 유지할 수 있었습니다.
+이제 사용자의 $HOME 디렉터리도 세션 간에 유지됩니다.
 
 ## <a name="powershell-profile"></a>PowerShell 프로필
 
-기본적으로 PowerShell 프로필은 만들어지지 않습니다.  프로필을 만들려면 `$HOME/.config` 아래에 `PowerShell` 디렉터리를 만듭니다.  `$HOME/.config/PowerShell`에서 `Microsoft.PowerShell_profile.ps1` 이름 아래에 프로필을 만들 수 있습니다.
+기본적으로 사용자의 PowerShell 프로필은 만들어지지 않습니다.
+프로필을 만들려면 `$HOME/.config` 아래에 `PowerShell` 디렉터리를 만듭니다.
+
+```azurepowershell-interactive
+mkdir (Split-Path $profile.CurrentUserAllHosts)
+```
+
+`$HOME/.config/PowerShell`에서 `profile.ps1` 및/또는 `Microsoft.PowerShell_profile.ps1`과 같은 프로필 파일을 만들 수 있습니다.
 
 ## <a name="whats-new-in-powershell-core-6"></a>PowerShell Core 6의 새로운 기능
 

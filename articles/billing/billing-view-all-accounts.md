@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: amberb
-ms.openlocfilehash: 344d4032b59a920630a18f026aa3765fbc69d6d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077738"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630809"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Azure Portal에서 모든 청구 계정 보기  
 
@@ -27,11 +27,11 @@ ms.locfileid: "34077738"
 
 현재 개인 및 기업계약 청구 계정만을 볼 수 있습니다. 기본적으로는 [Cost Management + 청구](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) 페이지에는 개인 결제 계정이 표시됩니다. 그러나 **청구 계정**으로 이동하고 계정을 변경할 수 있습니다.
 
-개인 청구 계정의 경우 [Azure Portal](https://portal.azure.com)에서 사용자의 모든 요금을 관리하고 볼 수 있습니다. 그러나 기업계약 계정의 경우 예약된 인스턴스 구매, 잔고 및 월일 요금을 볼 수 있습니다. 이러한 기업계약 기능은 미리 보기 상태이고 엔터프라이즈 관리자 역할인 경우에만 지원됩니다.
+개인 청구 계정의 경우 [Azure Portal](https://portal.azure.com)에서 사용자의 모든 요금을 관리하고 볼 수 있습니다. 단, 기업계약 계정의 경우 Azure Reservation 구매, 잔고 및 월일 요금만 볼 수 있습니다. 이러한 기업계약 기능은 미리 보기 상태이고 엔터프라이즈 관리자 역할인 경우에만 지원됩니다.
 
 ## <a name="change-billing-account-view"></a>청구 계정 보기 변경 
 
-1.  [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2.  포털의 왼쪽에서 **비용 관리 + 청구**를 선택합니다. 
 

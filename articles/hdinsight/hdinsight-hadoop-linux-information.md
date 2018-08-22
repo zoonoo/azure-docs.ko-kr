@@ -1,25 +1,20 @@
 ---
-title: Linux 기반 HDInsight에서 Hadoop 사용 팁 - Azure | Microsoft Docs
+title: Linux 기반 HDInsight에서 Hadoop 사용 팁 - Azure
 description: Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Linux 기반 HDInsight(Hadoop) 클러스터를 사용하기 위한 구현 팁을 제공합니다.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c41c611c-5798-4c14-81cc-bed1e26b5609
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 3ad7aa01200bf2bf4a63a380b2b883983c8622d6
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.date: 08/09/2018
+ms.openlocfilehash: 85741e91ab074ca45fef79e7e946a74824a1734f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31405394"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "40038555"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
@@ -103,18 +98,21 @@ Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있�
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure Storage 및 Data Lake Store
 
-대부분의 Hadoop 배포판에서 HDFS는 클러스터의 컴퓨터에서 로컬 저장소에 의해 되돌아갑니다. 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 저장소를 사용하면 비용이 많이 들 수 있습니다.
+대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 저장소에 의해 되돌아갑니다. 계산 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 저장소를 사용하면 비용이 많이 들 수 있습니다.
 
-HDInsight는 Azure Storage 또는 Azure Data Lake Store의 Blob을 기본 저장소로 사용합니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
+HDInsight를 사용할 때는 Azure Blob Storage와, 선택적으로 Azure Data Lake Store를 통해 데이터 파일이 확장성 있고 탄력적인 방식으로 클라우드에 저장됩니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 
 * 저렴한 장기 저장소
 * 웹 사이트, 파일 업로드/다운로드 유틸리티, 다양한 언어 SDK 및 웹 브라우저와 같은 외부 서비스에 액세스할 수 있음
+* 대용량 파일 용량과 대규모 확장 가능한 저장소
 
-Azure Storage 계정은 최대 4.75TB까지 저장할 수 있지만 개별 Blob(또는 HDInsight 관점 기준 파일)은 최대 195GB까지만 저장할 수 있습니다. Azure Data Lake Store는 페타바이트 이상의 개별 파일을 수조 개 포함하도록 동적으로 확장할 수 있습니다. 자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)를 참조하세요.
+자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)를 참조하세요.
 
 Azure Storage 또는 Data Lake Store를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 Azure Storage 또는 Data Lake Store 중 어느 것에 저장되어 있든지 다음 명령은 `/example/data` 폴더에 있는 파일을 나열합니다.
 
     hdfs dfs -ls /example/data
+
+HDInsight에서 데이터 저장소 리소스(Azure Blob Storage 및 Azure Data Lake Store)는 컴퓨터 리소스와는 분리됩니다. 따라서 필요에 따라 계산을 수행하는 HDInsight 클러스터를 만들고 나중에 작업이 완료되면 클러스터를 삭제할 수 있습니다. 그 동안 데이터 파일은 클라우드 저장소에서 필요한 시간 동안 안전하게 유지됩니다.
 
 ### <a name="uri-and-scheme"></a>URI 및 구성표
 

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 373a35ea7b93c7717cd251e276be60b14df0920f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4da8ec3bb20f2af2b8172731bbf9f43c302ffa94
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400166"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004752"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Java 및 Eclipse를 사용하여 Azure에서 첫 번째 함수 만들기(미리 보기)
 
@@ -73,7 +73,7 @@ Maven은 이름이 _artifactId_인 새 폴더에 프로젝트 파일을 만듭�
 
 ### <a name="debug-the-function-in-eclipse"></a>Eclipse에서 함수 디버그
 
-이전 단계의 Run As(다음으로 실행) 구성 설정에서 `azure-functions:run`을 `mvn azure-functions:run -DenableDebug`로 변경하고 업데이트된 구성을 실행하여 디버그 모드에서 함수 앱을 시작합니다.
+이전 단계의 **Run As**(다음으로 실행) 구성 설정에서 `azure-functions:run`을 `mvn azure-functions:run -DenableDebug`로 변경하고 업데이트된 구성을 실행하여 디버그 모드로 함수 앱을 시작합니다.
 
 **Run**(실행) 메뉴를 선택하고 **Debug Configurations**(디버그 구성)을 엽니다. **Remote Java Application**(원격 Java 응용 프로그램)을 선택하고 새 항목을 만듭니다. 구성에 이름을 지정하고 설정을 입력합니다. 포트는 함수 호스트에 의해 열린 디버그 포트(기본값: `5005`)와 일치해야 합니다. 설정 후 `Debug`를 클릭하여 디버그를 시작합니다.
 

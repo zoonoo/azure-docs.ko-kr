@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400106"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630965"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob 저장소: 핫, 쿨 및 보관 저장소 계층
 
@@ -71,6 +71,9 @@ Blob 수준 계층화를 사용하면 [Blob 계층 설정](/rest/api/storageserv
 
 > [!NOTE]
 > 보관 저장소 및 Blob 수준 계층화는 블록 Blob만 지원합니다. 또한 스냅숏이 있는 블록 Blob의 계층은 변경할 수 없습니다.
+
+### <a name="blob-lifecycle-management"></a>Blob 수명 주기 관리
+Blob Storage 수명 주기 관리(미리 보기)는 데이터를 최적의 액세스 계층으로 전환하고 수명 주기가 끝나면 데이터를 만료할 수 있는 풍부한 규칙 기반 정책을 제공합니다. [Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)를 참조하여 자세히 알아보세요.  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 수준 계층화 청구
 
@@ -187,6 +190,8 @@ Azure Portal, PowerShell과 CLI 도구 및 .NET, Java, Python과 Node.js 클라�
 ### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>GPv2 Blob 저장소 계정에서 핫, 쿨 및 보관 평가
 
 [지역별 핫, 쿨 및 보관의 가용성 확인](https://azure.microsoft.com/regions/#services)
+
+[Azure Blob Storage 수명 주기 관리](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Azure Storage 메트릭을 활성화하여 현재 Storage 계정의 사용 현황 평가](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
