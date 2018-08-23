@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e1d7a88e5a1a8ab60a01aea6ca42e850ac6e0e3
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424391"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41917596"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>자습서: Azure에서 Java 및 MySQL 웹앱 빌드
 
@@ -140,7 +140,7 @@ az group create --name myResourceGroup --location "North Europe"
 
 Cloud Shell에서 [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) 명령을 사용하여 Azure Database for MySQL에 서버를 만듭니다.
 
-다음 명령에서 *\<mysql_server_name>* 자리 표시자를 고유한 서버 이름으로, *\<admin_user>* 를 사용자 이름으로, *\<admin_password* 자리 표시자를 암호로 대체하세요. 서버 이름은 PostgreSQL 끝점(`https://<mysql_server_name>.mysql.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다.
+다음 명령에서 *\<mysql_server_name>* 자리 표시자를 고유한 서버 이름으로, *\<admin_user>* 를 사용자 이름으로, *\<admin_password* 자리 표시자를 암호로 대체하세요. 서버 이름은 PostgreSQL 엔드포인트(`https://<mysql_server_name>.mysql.database.azure.com`)의 일부로 사용되므로 이름은 Azure의 모든 서버에서 고유해야 합니다.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql_server_name>--location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
@@ -243,7 +243,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ### <a name="create-an-azure-web-app"></a>Azure Web App 만들기
 
-Cloud Shell에서 [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
+Cloud Shell에서 [`az webapp create`](/cli/azure/webapp#az-webapp-create) CLI 명령을 사용하여 `myAppServicePlan` App Service 계획에서 웹앱 정의를 만듭니다. 웹앱 정의는 응용 프로그램에 액세스하는 URL을 제공하고 Azure에 코드를 배포하는 몇 가지 옵션을 구성합니다. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 샘플 앱을 실행하기 전에 Azure에서 만든 Azure MySQL 데이터베이스를 사용하기 위해 웹앱에서 응용 프로그램 설정을 지정합니다. 이러한 속성은 환경 변수로서 웹 응용 프로그램에 노출되며 패키지된 웹앱 내부의 application.properties에 설정된 값을 재정의합니다. 
 
-Cloud Shell에서 CLI의 [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings)를 사용하여 응용 프로그램 설정을 지정합니다.
+Cloud Shell에서 CLI의 [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings)를 사용하여 응용 프로그램 설정을 지정합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP 배포 자격 증명 가져오기 
 FTP, 로컬 Git, GitHub, Visual Studio Team Services 및 BitBucket과 같은 다양한 방법으로 응용 프로그램을 Azure App Service에 배포할 수 있습니다. 이 예에서는 로컬 컴퓨터에 이전에 빌드된 .WAR 파일을 Azure App Service에 배포하는 FTP입니다.
 
-ftp 명령에서 웹앱으로 전달할 자격 증명을 결정하려면 Cloud Shell에서 [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles) 명령을 사용합니다. 
+ftp 명령에서 웹앱으로 전달할 자격 증명을 결정하려면 Cloud Shell에서 [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) 명령을 사용합니다. 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json

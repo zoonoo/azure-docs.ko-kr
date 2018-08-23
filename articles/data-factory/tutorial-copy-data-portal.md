@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: d8e2d6f18ea1c66404ceed475d1522bd631961fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ef61b94a52d88ad2919e5a70fcdcc0a8d7c3f8ec
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444558"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920774"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 이 자습서에서는 Azure Data Factory UI(사용자 인터페이스)를 사용하여 데이터 팩터리를 만듭니다. 데이터 팩터리의 파이프라인은 Azure Blob 저장소에서 SQL 데이터베이스로 데이터를 복사합니다. 이 자습서의 구성 패턴은 파일 기반 데이터 저장소에서 관계형 데이터 저장소로 복사하는 데 적용됩니다. 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "39444558"
 
 ## <a name="prerequisites"></a>필수 조건
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-* **Azure Storage 계정**. Blob 저장소를 *원본* 데이터 저장소로 사용합니다. 저장소 계정이 없는 경우 [Azure 저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+* **Azure Storage 계정**. Blob 저장소를 *원본* 데이터 저장소로 사용합니다. 저장소 계정이 없는 경우 [Azure 저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 *싱크* 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
@@ -76,7 +76,7 @@ ms.locfileid: "39444558"
 
     a. 왼쪽에서 **더 많은 서비스** > **SQL 서버**를 차례로 선택합니다.
 
-    나. 서버를 선택하고 **설정** 아래에서 **방화벽**을 선택합니다.
+    b. 서버를 선택하고 **설정** 아래에서 **방화벽**을 선택합니다.
 
     다. **방화벽 설정** 페이지에서 **Azure 서비스 방문 허용**에 대해 **켜기**를 선택합니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "39444558"
      
     a. **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
-    나. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
+    b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
          
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요. 
 1. **버전**에서 **V2**를 선택합니다.
@@ -190,7 +190,7 @@ ms.locfileid: "39444558"
 
     a. **이름** 아래에서 **AzureSqlDatabaseLinkedService**를 입력합니다.
 
-    나. **서버 이름** 아래에서 SQL Server 인스턴스를 선택합니다.
+    b. **서버 이름** 아래에서 SQL Server 인스턴스를 선택합니다.
 
     다. **데이터베이스 이름** 아래에서 SQL 데이터베이스를 선택합니다.
 
@@ -266,7 +266,7 @@ ms.locfileid: "39444558"
 
     a. **이름** 아래에서 **RunEveryMinute**를 입력합니다.
 
-    나. **종료** 아래에서 **날짜**를 선택합니다.
+    b. **종료** 아래에서 **날짜**를 선택합니다.
 
     다. **종료 날짜/시간** 아래에서 드롭다운 목록을 선택합니다.
 

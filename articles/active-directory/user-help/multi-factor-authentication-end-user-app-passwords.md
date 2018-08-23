@@ -12,16 +12,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343291"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142651"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
-Outlook 2010과 같은 특정 비브라우저 앱은 2단계 인증을 지원하지 않습니다. 따라서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비브라우저 앱과 함께 사용할 수 있습니다.
+Outlook 2010과 같은 특정 비브라우저 앱은 2단계 인증을 지원하지 않습니다. 따라서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비 브라우저 앱과 함께 사용할 수 있습니다.
 
 앱 암호를 사용하는 경우 다음 사항을 고려해야 합니다.
 
@@ -38,7 +38,7 @@ Outlook 2010과 같은 특정 비브라우저 앱은 2단계 인증을 지원하
 
 초기 2단계 인증을 등록하는 동안 앱 암호가 지정됩니다. 둘 이상의 암호가 필요한 경우 2단계 인증을 사용하는 방법에 따라 추가적인 암호를 만들 수 있습니다.
 
-- **Microsoft Azure 계정에서 2단계 인증을 사용합니다.** [Azure Portal](https://portal.azure.com)을 사용하여 앱 암호를 만들고 삭제합니다. 자세한 내용은 [앱 암호 및 2단계 인증](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) 문서를 참조하세요.
+- **Microsoft Azure 계정에서 2단계 인증을 사용합니다.** [Azure Portal](https://portal.azure.com)을 사용하여 앱 암호를 만들고 삭제합니다. 자세한 내용은 [앱 암호 및 2단계 인증](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) 문서를 참조하세요.
 
 - **개인 Microsoft 계정에 2단계 인증을 사용합니다.** Microsoft 계정을 통해 [보안 기본 사항](https://account.microsoft.com/account/) 페이지를 사용하여 앱 암호를 만들고 삭제합니다. 자세한 내용은 [앱 암호 및 2단계 인증](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) 문서를 참조하세요.
 

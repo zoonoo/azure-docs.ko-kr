@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 1b7ce6078fcaedee3d9ed4151063816df937ac0f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1bb7a73213589b09d591e1c8297d9deaec7e075a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055160"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920768"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Data Factory 파이프라인 분기 및 연결 작업
 이 자습서에서는 몇 가지 컨트롤 흐름 기능을 보여 주는 Data Factory 파이프라인을 만듭니다. 이 파이프라인은 Azure Blob Storage의 컨테이너에서 동일한 저장소 계정의 다른 컨테이너로 간단한 복사를 수행합니다. 복사 활동이 성공하면 파이프라인에서 성공적인 복사 작업에 대한 세부 정보(예: 기록된 데이터 양)를 성공 전자 메일에 보냅니다. 복사 활동이 실패하면 파이프라인에서 실패한 복사 작업에 대한 세부 정보(예: 오류 메시지)를 실패 전자 메일에 보냅니다. 자습서 전체에서 매개 변수를 전달하는 방법을 확인할 수 있습니다.
@@ -42,7 +42,7 @@ ms.locfileid: "37055160"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
+* **Azure Storage 계정**. Blob 저장소를 **원본** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure Storage 계정을 만드는 단계는 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **Azure SQL Database**. 데이터베이스를 **싱크** 데이터 저장소로 사용합니다. 아직 없는 경우 Azure SQL Database를 만드는 단계는 [Azure SQL Database 만들기](../sql-database/sql-database-get-started-portal.md) 문서를 참조하세요.
 
 ### <a name="create-blob-table"></a>Blob 테이블 만들기
@@ -58,7 +58,7 @@ ms.locfileid: "37055160"
     2. **adfv2branch** 컨테이너에 **input** 폴더를 만듭니다.
     3. **input.txt** 파일을 컨테이너에 업로드합니다.
 
-## <a name="create-email-workflow-endpoints"></a>전자 메일 워크플로 끝점 만들기
+## <a name="create-email-workflow-endpoints"></a>전자 메일 워크플로 엔드포인트 만들기
 파이프라인에서 전자 메일 보내기를 트리거하려면 [Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 워크플로를 정의합니다. 논리 앱 워크플로를 만드는 방법에 대한 자세한 내용은 [논리 앱을 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 참조하세요. 
 
 ### <a name="success-email-workflow"></a>성공 전자 메일 워크플로 
@@ -216,7 +216,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
     1. 파일 이름에 대해 `@CONCAT(pipeline().RunId, '.txt')`를 입력합니다. 이 식은 파일 이름에 대해 현재 파이프라인 실행의 ID를 사용합니다. 지원되는 시스템 변수 및 식에 대한 목록은 [시스템 변수](control-flow-system-variables.md) 및 [식 언어](control-flow-expression-language-functions.md)를 참조하세요.
 
         ![싱크 데이터 집합 설정](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
-17. 위쪽의 **파이프라인** 탭으로 전환합니다. **활동** 도구 상자에서 **일반**을 펼치고, **웹** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **SendSuccessEmailActivity**로 설정합니다. 웹 작업은 모든 REST 끝점에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다. 
+17. 위쪽의 **파이프라인** 탭으로 전환합니다. **활동** 도구 상자에서 **일반**을 펼치고, **웹** 활동을 파이프라인 디자이너 화면으로 끌어서 놓습니다. 활동 이름을 **SendSuccessEmailActivity**로 설정합니다. 웹 작업은 모든 REST 엔드포인트에 대한 호출을 허용합니다. 작업에 대한 자세한 내용은 [웹 작업](control-flow-web-activity.md)을 참조하세요. 이 파이프라인은 웹 작업을 사용하여 Logic Apps 전자 메일 워크플로를 호출합니다. 
 
    ![첫 번째 웹 활동 끌어서 놓기](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. **일반** 탭에서 **설정** 탭으로 전환하고 다음 단계를 수행합니다. 

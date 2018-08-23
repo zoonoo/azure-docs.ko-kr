@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: eb4a28b5a57d7e301e800cd4ad87c56b7c5df6d2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3217524ccfd03184a93a4e6637696195b3f0bf16
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701838"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42141337"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Azure CLI를 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -36,7 +36,7 @@ ms.locfileid: "38701838"
 * 다른 서브넷에 VM(가상 머신) 배포
 * NVA를 통해 한 서브넷에서 다른 서브넷으로 트래픽 라우팅
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -53,7 +53,7 @@ az group create \
   --location eastus
 ``` 
 
-[az network route-table create](/cli/azure/network/route#az_network_route_table_create)를 사용하여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다. 
+[az network route-table create](/cli/azure/network/route-table#az-network-route-table-create)를 사용하여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다. 
 
 ```azurecli-interactive 
 # Create a route table
@@ -64,7 +64,7 @@ az network route-table create \
 
 ## <a name="create-a-route"></a>경로 만들기
 
-[az network route-table route create](/cli/azure/network/route-table/route#az_network_route_table_route_create)를 사용하여 경로 테이블에 경로를 만듭니다. 
+[az network route-table route create](/cli/azure/network/route-table/route#az-network-route-table-route-create)를 사용하여 경로 테이블에 경로를 만듭니다. 
 
 ```azurecli-interactive
 az network route-table route create \

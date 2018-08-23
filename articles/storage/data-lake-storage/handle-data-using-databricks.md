@@ -2,19 +2,19 @@
 title: Azure Databricks를 사용하여 추출, 로드 및 전송 작업을 수행하는 방법 알아보기
 description: Azure Data Lake Storage Gen2 미리 보기에서 Azure Databricks로 데이터를 추출하고, 데이터를 변환한 다음, Azure SQL Data Warehouse에 데이터를 로드하는 방법을 알아봅니다.
 services: azure-databricks
-author: jamesbak
-ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
+author: jamesbak
+ms.author: jamesbak
+ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: jamesbak
-ms.openlocfilehash: dcc0cb6d761fde5af16dbc86c674e2fc00dad58a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ed8230b76300d6b7fee06761133ebbea779fe3cb
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522291"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918231"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 202ee9da94fc93e7301c29b62dc61ad443685807
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449390"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142653"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 데이터 관리
 
- 이 아티클에서는 [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog)에서 제공하는 작업을 사용하여 Azure AD(Azure Active Directory) B2C에서 사용자 데이터를 관리할 수 있는 방법을 설명합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
+ 이 아티클에서는 [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog)에서 제공하는 작업을 사용하여 Azure AD(Azure Active Directory) B2C에서 사용자 데이터를 관리할 수 있는 방법을 설명합니다. 사용자 데이터를 관리하는 작업에는 감사 로그에서 데이터를 삭제하거나 내보내는 작업이 포함됩니다.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 

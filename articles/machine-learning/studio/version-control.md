@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: 49d1a228132cc220b30091481bb542623b1e222d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ff30afdcfebe51d914d2f7504ab3bf530309c222
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835868"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142823"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning 스튜디오에서 응용 프로그램 수명 주기 관리
 Azure Machine Learning 스튜디오는 Machine Learning 실험을 개발하기 위한 도구로, Azure 클라우드 플랫폼에서 작동합니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양한 자산 버전 관리에서 자동화된 실행 및 배포에 이르는 표준 ALM(응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning 스튜디오에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
@@ -53,7 +53,7 @@ Azure Machine Learning에서 학습된 모델은 iLearner 파일(`.iLearner`)이
 1. 학습 실험을 설정합니다.
 2. 모델 학습 모듈 또는 [모델 하이퍼 매개 변수 조정] 또는 [R 모델 만들기]와 같은 학습된 모델을 생성하는 모듈에 웹 서비스 출력 포트를 추가합니다.
 3. 학습 실험을 실행한 다음 모델 학습 웹 서비스로 배포합니다.
-4. 학습 웹 서비스의 BES 끝점을 호출하고 원하는 iLearner 파일 이름 및 파일이 저장될 Blob Storage 계정 위치를 지정합니다.
+4. 학습 웹 서비스의 BES 엔드포인트를 호출하고 원하는 iLearner 파일 이름 및 파일이 저장될 Blob Storage 계정 위치를 지정합니다.
 5. BES를 호출한 후에 생성된 iLearner 파일을 수집합니다.
 
 [*Download-AmlExperimentNodeOutput*](https://github.com/hning86/azuremlps#download-amlexperimentnodeoutput) PowerShell commandlet을 통해 iLearner 파일을 검색할 수 있습니다. 프로그래밍 방식으로 모델을 다시 학습할 필요 없이 iLearner 파일의 복사본을 가져오려면 이 방법이 더 쉬울 수 있습니다.
@@ -66,21 +66,21 @@ Azure Machine Learning에서 학습된 모델은 iLearner 파일(`.iLearner`)이
 Azure Machine Learning 실험에서 두 종류의 웹 서비스를 배포할 수 있습니다. 클래식 웹 서비스는 작업 영역뿐만 아니라 실험과도 밀접하게 연결되어 있습니다. 새 웹 서비스는 Azure Resource Manager 프레임워크를 활용하고 더 이상 원래 실험 또는 작업 영역과 연결되지 않습니다.
 
 ### <a name="classic-web-service"></a>클래식 웹 서비스
-클래식 웹 서비스의 버전을 관리하려면 웹 서비스 끝점 구문을 활용할 수 있습니다. 일반적인 흐름은 다음과 같습니다.
+클래식 웹 서비스의 버전을 관리하려면 웹 서비스 엔드포인트 구문을 활용할 수 있습니다. 일반적인 흐름은 다음과 같습니다.
 
-1. 예측면 실험에서 기본 끝점을 포함하는 새로운 클래식 웹 서비스를 배포할 수 있습니다.
-2. ep2라는 새 끝점을 만들고 여기서 실험/학습된 모델의 현재 버전을 노출합니다.
+1. 예측면 실험에서 기본 엔드포인트를 포함하는 새로운 클래식 웹 서비스를 배포할 수 있습니다.
+2. ep2라는 새 엔드포인트를 만들고 여기서 실험/학습된 모델의 현재 버전을 노출합니다.
 3. 다시 이동하여 예측 실험 및 학습된 모델을 업데이트합니다.
-4. 예측 실험을 다시 배포하여 기본 끝점을 업데이트할 수 있습니다. 하지만 이 작업은 ep2를 변경하지 않습니다.
-5. ep3라는 추가 끝점을 만들고 여기서 실험 및 학습된 모델의 새 버전을 노출할 수 있습니다.
+4. 예측 실험을 다시 배포하여 기본 엔드포인트를 업데이트할 수 있습니다. 하지만 이 작업은 ep2를 변경하지 않습니다.
+5. ep3라는 추가 엔드포인트를 만들고 여기서 실험 및 학습된 모델의 새 버전을 노출할 수 있습니다.
 6. 필요한 경우 3단계로 돌아갑니다.
 
-시간이 지남에 따라 여러 끝점을 동일한 웹 서비스에서 만들 수 있습니다. 각 끝점은 학습된 모델의 지정 시간 버전을 포함하는 실험의 지정 시간 복사본을 나타냅니다. 그런 다음 호출할 끝점을 결정하는 외부 논리를 사용할 수 있습니다. 즉, 사실상 점수 매기기 실행에 대한 학습된 모델의 버전을 선택하게 됩니다.
+시간이 지남에 따라 여러 엔드포인트를 동일한 웹 서비스에서 만들 수 있습니다. 각 엔드포인트는 학습된 모델의 지정 시간 버전을 포함하는 실험의 지정 시간 복사본을 나타냅니다. 그런 다음 호출할 엔드포인트를 결정하는 외부 논리를 사용할 수 있습니다. 즉, 사실상 점수 매기기 실행에 대한 학습된 모델의 버전을 선택하게 됩니다.
 
 또한 여러 동일한 웹 서비스 엔드포인트를 만든 다음, 비슷한 효과를 달성하기 위해 엔드포인트에 iLearner 파일의 다른 버전을 패치할 수 있습니다. [이 문서](create-models-and-endpoints-with-powershell.md)에서는 이 작업을 수행하는 방법에 대해 자세히 설명합니다.
 
 ### <a name="new-web-service"></a>새 웹 서비스
-새 Azure Resource Manager 기반 웹 서비스를 만들면 끝점 구문은 더 이상 사용할 수 없습니다. 대신 배포된 Resource Manager 기반 웹 서비스의 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet 또는 [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell commandlet을 사용하여 예측 실험의 WSD(웹 서비스 정의) 파일을 JSON 형식으로 생성할 수 있습니다.
+새 Azure Resource Manager 기반 웹 서비스를 만들면 엔드포인트 구문은 더 이상 사용할 수 없습니다. 대신 배포된 Resource Manager 기반 웹 서비스의 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell commandlet 또는 [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) PowerShell commandlet을 사용하여 예측 실험의 WSD(웹 서비스 정의) 파일을 JSON 형식으로 생성할 수 있습니다.
 
 내보낸 WSD 파일이 있고 버전을 제어한 다음 다른 Azure 하위 지역의 다른 웹 서비스 계획에서 WSD를 새 웹 서비스로 배포할 수 있습니다. 적절한 저장소 계정 구성뿐만 아니라 새 웹 서비스 계획 ID를 제공해야 합니다. 다른 iLearner 파일에서 패치하려면 WSD 파일을 수정하고 학습된 모델의 위치 참조를 업데이트하고 새 웹 서비스로 배포할 수 있습니다.
 
@@ -96,7 +96,7 @@ ALM의 중요한 부분은 응용 프로그램의 실행 및 배포 프로세스
 7. 예측 실험에서 [학습 모델을 업데이트](https://github.com/hning86/azuremlps#update-amlexperimentuserasset)합니다.
 8. [예측 실험을 실행](https://github.com/hning86/azuremlps#start-amlexperiment)합니다.
 9. 예측 실험에서 [웹 서비스를 배포](https://github.com/hning86/azuremlps#new-amlwebservice)합니다.
-10. [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 또는 [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) 끝점 웹 서비스를 테스트합니다.
+10. [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 또는 [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) 엔드포인트 웹 서비스를 테스트합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) 모듈을 다운로드하고 ALM 태스크를 자동화하기 시작합니다.

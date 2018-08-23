@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dda35e63c209951547a667c46639dc0f37c87b43
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a19fa124396bf9c9db4a60591b74f5425ce9670b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34593635"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141192"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 동기화: 디렉터리 확장
-디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [Azure AD Graph API 디렉터리 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 또는 [Microsoft Graph](https://graph.microsoft.io/)를 통해 이용할 수 있습니다. 각각 [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) 및 [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer)를 통해 사용할 수 있는 특성을 볼 수 있습니다.
+디렉터리 확장을 사용하면 온-프레미스 Active Directory의 사용자 고유 특성을 사용하여 Azure AD(Active Directory)에서 스키마를 확장할 수 있습니다. 이 기능을 통해 온-프레미스를 계속 관리하는 특성을 이용하는 LOB 앱을 빌드할 수 있습니다. 이러한 특성은 [Azure AD Graph API 디렉터리 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) 또는 [Microsoft Graph](https://graph.microsoft.io/)를 통해 이용할 수 있습니다. 각각 [Azure AD Graph Explorer](https://graphexplorer.azurewebsites.net/) 및 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 통해 사용할 수 있는 특성을 볼 수 있습니다.
 
 현재 이 특성을 이용하는 Office 365 워크로드가 없습니다.
 
@@ -55,12 +55,12 @@ Azure AD Connect를 설치하는 동안 이러한 특성을 사용할 수 있는
 
 ![Azure AD Graph Explorer](./media/active-directory-aadconnectsync-feature-directory-extensions/extension4.png)
 
-또는 Microsoft Graph API를 통해 [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer#)를 사용하여 특성을 쿼리할 수 있습니다.
+또는 Microsoft Graph API를 통해 [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer#)를 사용하여 특성을 쿼리할 수 있습니다.
 
 >[!NOTE]
 > 반환할 특성을 요청해야 합니다. https://graph.microsoft.com/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division처럼 특성을 명시적으로 선택합니다. 
 >
-> 자세한 내용은 [Microsoft Graph: 쿼리 매개 변수 사용](https://developer.microsoft.com/en-us/graph/docs/concepts/query_parameters#select-parameter)을 참조하세요.
+> 자세한 내용은 [Microsoft Graph: 쿼리 매개 변수 사용](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure AD Connect 동기화](active-directory-aadconnectsync-whatis.md) 구성에 대해 자세히 알아봅니다.

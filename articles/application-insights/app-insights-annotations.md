@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036400"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141366"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 [메트릭 탐색기](app-insights-metrics-explorer.md) 차트의 주석은 새 빌드를 배포한 위치 또는 다른 중요한 이벤트를 표시합니다. 릴리스 주석으로 변경 내용이 응용 프로그램의 성능에 영향을 주는지 여부를 쉽게 확인할 수 있습니다. 릴리스 주석은 [Visual Studio Team Services 빌드 시스템](https://docs.microsoft.com/vsts/pipelines/tasks/)에서 자동으로 만들 수 있습니다. [PowerShell에서 만들어](#create-annotations-from-powershell) 원하는 이벤트에 대한 플래그를 지정하는 주석을 만들 수도 있습니다.
@@ -34,7 +34,7 @@ ms.locfileid: "39036400"
 ### <a name="install-the-annotations-extension-one-time"></a>주석 확장 설치(한 번)
 릴리스 주석을 만들려면 Visual Studio Marketplace에서 사용 가능한 여러 Team Service 확장 중 하나를 설치해야 합니다.
 
-1. [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) 프로젝트에 로그인합니다.
+1. [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) 프로젝트에 로그인합니다.
 2. Visual Studio Marketplace의 [릴리스 주석 확장을 가져와서](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations)팀 서비스 계정에 추가합니다.
 
 ![Team Services 웹 페이지의 오른쪽 위에서 Marketplace를 엽니다. Visual Team Services를 선택하고 빌드 및 릴리스에서 자세히 보기를 선택합니다.](./media/app-insights-annotations/10.png)

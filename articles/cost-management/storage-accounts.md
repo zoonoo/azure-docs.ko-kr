@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: carmonm
 ms.custom: ''
-ms.openlocfilehash: e37604e5cd36cfed016ef596060459011ec32d35
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: dab7100c97fab7e086352916ec222ec70a0d0400
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297838"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42147005"
 ---
 # <a name="configure-storage-accounts-for-cost-management"></a>Cost Management를 위해 저장소 계정 구성
 
@@ -27,7 +27,7 @@ Cost Management 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 저장소 
 
 Azure Storage 계정 또는 Amazon 저장소 버킷이 있어야 합니다.
 
-Azure Storage 계정이 없는 경우 만들어야 합니다. Azure Storage 계정 생성에 대한 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요.
+Azure Storage 계정이 없는 경우 만들어야 합니다. Azure Storage 계정 생성에 대한 자세한 내용은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 
 AWS 단순 저장소 서비스(S3) 버킷이 없는 경우 만들어야 합니다. S3 버킷 생성에 대한 자세한 내용은 [버킷 만들기](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)를 참조하세요.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5b7f2f1bd1872f78377a0d16567ca4df8f8d0968
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440680"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41917592"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Azure Container Service 자습서 - DC/OS 관리
 
@@ -72,7 +72,7 @@ sudo ssh -i ~/.ssh/id_rsa -fNL 80:localhost:80 -p 2200 azureuser@$ip
 
 ## <a name="install-dcos-cli"></a>DC/OS CLI 설치
 
-[az acs dcos install-cli](/azure/acs/dcos#install-cli) 명령을 사용하여 DC/OS 클라이언트를 설치합니다. Azure Cloud Shell을 사용하는 경우 DC/OS CLI가 이미 설치되어 있습니다. macOS 또는 Linux에서 Azure CLI를 실행하는 경우 sudo를 사용하여 이 명령을 실행해야 합니다.
+[az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli) 명령을 사용하여 DC/OS 클라이언트를 설치합니다. Azure Cloud Shell을 사용하는 경우 DC/OS CLI가 이미 설치되어 있습니다. macOS 또는 Linux에서 Azure CLI를 실행하는 경우 sudo를 사용하여 이 명령을 실행해야 합니다.
 
 ```azurecli
 az acs dcos install-cli

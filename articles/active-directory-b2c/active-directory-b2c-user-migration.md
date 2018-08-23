@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3416802aea12e84cf827070ff3a50d73725d5ee3
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 7805b238d42201b791e038964985f784fcf8d4ce
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390489"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142990"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 ID 공급자를 Azure AD B2C(Azure Active Directory B2C)로 마이그레이션할 때 사용자 계정도 마이그레이션해야 할 수 있습니다. 이 문서에서는 기존 사용자 계정을 ID 공급자에서 Azure AD B2C로 마이그레이션하는 방법을 설명합니다. 이 문서에서는 규범적인 내용이 아니라 몇 가지 시나리오를 설명하려고 합니다. 개발자는 각 방식의 적합성에 대한 책임이 있습니다.
@@ -188,7 +188,7 @@ JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루�
 
     a. **Azure AD B2C**를 열고 **사용자 및 그룹**을 선택합니다.
 
-    나. 검색 상자에 사용자의 표시 이름을 입력한 다음 사용자 프로필을 확인합니다.
+    b. 검색 상자에 사용자의 표시 이름을 입력한 다음 사용자 프로필을 확인합니다.
 
 * 로그인 이메일 주소로 사용자를 검색하려면 이 응용 프로그램 예제를 사용합니다.
 
@@ -201,7 +201,7 @@ JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루�
     > [!TIP]
     > 다음 명령을 사용하여 표시 이름으로 사용자를 검색할 수도 있습니다. `UserMigration.exe 4 "<Display name>"`
 
-    나. JSON 편집기에서 UserProfile.json 파일을 열어 사용자의 정보를 봅니다.
+    b. JSON 편집기에서 UserProfile.json 파일을 열어 사용자의 정보를 봅니다.
 
     ![UserProfile.json 파일](media/active-directory-b2c-user-migration/pre-migration-get-by-email2.png)
 
@@ -229,7 +229,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 
 3. **지금 실행**을 선택한 다음 정책을 확인합니다.
 
-4. **지금 실행 끝점** 상자에서 URL을 복사한 다음 사용자에게 보냅니다.
+4. **지금 실행 엔드포인트** 상자에서 URL을 복사한 다음 사용자에게 보냅니다.
 
     ![진단 로그 설정](media/active-directory-b2c-user-migration/pre-migration-policy-uri.png)
 
@@ -312,7 +312,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
     </ClaimsProvider>
     ```
 
-앞의 기술 프로필은 하나의 `signInName` 입력 클레임을 정의합니다(전자 메일로 보내기). 로그인 시 클레임은 RESTful 끝점에 전송됩니다.
+앞의 기술 프로필은 하나의 `signInName` 입력 클레임을 정의합니다(전자 메일로 보내기). 로그인 시 클레임은 RESTful 엔드포인트에 전송됩니다.
 
 RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책에 해당 기술 프로필을 호출하도록 지시합니다. XML 코드 조각은 `SelfAsserted-LocalAccountSignin-Email`을 재정의합니다. 해당 항목은 기본 정책에서 정의됩니다. XML 코드 조각은 `LocalAccountUserMigration` 기술 프로필을 가리키는 ReferenceId를 사용하여 `ValidationTechnicalProfile`을 추가합니다.
 
@@ -363,7 +363,7 @@ RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책�
 [사용자 지정 정책 시작][B2C-GetStartedCustom] 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일][UserMigrationSample]이 제공됩니다.
 
 [AD-PasswordPolicies]: https://docs.microsoft.com/azure/active-directory/active-directory-passwords-policy
-[AD-Powershell]: https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2
+[AD-Powershell]: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2
 [AppService-Deploy]: https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs
 [B2C-AppRegister]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-app-registration
 [B2C-GetStarted]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started

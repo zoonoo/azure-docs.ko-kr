@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264998"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142993"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect FAQ
 
@@ -65,7 +65,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 모든 네트워킹 소프트웨어, 물리적 장치 또는 열린 상태로 유지할 수 있는 최대 연결 시간을 제한하는 다른 요소는 Azure AD Connect 클라이언트를 설치한 서버와 Azure Active Directory 간의 연결에 대해 최소 5분(300초)의 임계값을 사용해야 합니다. 이 권장 사항은 이전에 릴리스된 모든 Microsoft ID 동기화 도구에도 적용됩니다.
 
 **Q: SLD(단일 레이블 도메인)가 지원되나요?**  
-이 네트워크 구성에 대해 적극 권장하며([문서 참조](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)) 단일 수준 도메인에 대한 네트워크 구성이 올바르게 작동하는 한 단일 레이블 도메인으로 Azure AD Connect 동기화 사용이 지원됩니다.
+이 네트워크 구성에 대해 적극 권장하며([문서 참조](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)) 단일 수준 도메인에 대한 네트워크 구성이 올바르게 작동하는 한 단일 레이블 도메인으로 Azure AD Connect 동기화 사용이 지원됩니다.
 
 **Q: 비연속 AD 도메인을 갖는 포리스트가 지원되나요?**  
 아니요. Azure AD Connect는 비연속 네임스페이스가 있는 온-프레미스 포리스트를 지원하지 않습니다.
@@ -91,8 +91,8 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q: Azure AD의 userPrincipalName(UPN) 특성이 온-프레미스 UPN과 일치하지 않는 이유는 무엇인가요?**  
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않습니다.](https://support.microsoft.com/en-us/kb/2523192)
-* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 내용이 동기화되지 않습니다.](https://support.microsoft.com/en-us/kb/2669550)
+* [Office 365, Azure 또는 Intune의 사용자 이름이 온-프레미스 UPN 또는 대체 로그인 ID와 일치하지 않습니다.](https://support.microsoft.com/kb/2523192)
+* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 내용이 동기화되지 않습니다.](https://support.microsoft.com/kb/2669550)
 
 [Azure AD Connect 동기화 서비스 기능](active-directory-aadconnectsyncservice-features.md)에서 설명한 대로 동기화 엔진에서 UPN을 업그레이드할 수 있도록 Azure AD를 구성할 수도 있습니다.
 
@@ -134,11 +134,11 @@ PowerShell 스크립트를 실행하려면 [스크립트를 다운로드](https:
 
 수동으로 업그레이드하려면 AADConnect.msi 파일의 최신 버전을 다운로드하고 실행해야 합니다.
  
--  현재 버전이 1.1.750.0 이전인 경우 [최신 버전을 다운로드하여 업그레이드](https://www.microsoft.com/en-us/download/details.aspx?id=47594)합니다.
+-  현재 버전이 1.1.750.0 이전인 경우 [최신 버전을 다운로드하여 업그레이드](https://www.microsoft.com/download/details.aspx?id=47594)합니다.
 - Azure AD Connect 버전이 1.1.750.0 이상이면 추가 작업이 필요하지 않습니다. 이미 자동 업그레이드 수정이 포함된 버전을 사용하고 있습니다. 
 
 **Q: 자동 업그레이드를 다시 활성화하기 위해 최신 버전으로 업그레이드하라는 이메일을 받았습니다. 1.1.654.0 버전을 사용하고 있습니다. 업그레이드해야 하나요?**  
-예, 1.1.750.0 버전 이상으로 업그레이드하거나 최신 자동 업그레이드를 사용하도록 다시 설정해야 합니다. [최신 버전을 다운로드하여 업그레이드하세요](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+예, 1.1.750.0 버전 이상으로 업그레이드하거나 최신 자동 업그레이드를 사용하도록 다시 설정해야 합니다. [최신 버전을 다운로드하여 업그레이드하세요](https://www.microsoft.com/download/details.aspx?id=47594).
 
 **Q: 자동 업그레이드를 다시 활성화하기 위해 최신 버전으로 업그레이드하라는 이메일을 받았습니다. PowerShell을 사용하여 자동 업그레이드를 사용하도록 설정한 경우에도 최신 버전을 설치해야 하나요?**  
 예, 1.1.750.0 버전 이상으로 업그레이드해야 합니다. PowerShell을 사용하여 자동 업그레이드 서비스를 사용하도록 설정하더라도 1.1.750.0 이전 버전에서 발견된 자동 업그레이드 문제가 완화되지 않습니다.
@@ -190,7 +190,7 @@ Office 팀은 Office 포털 업데이트에서 현재 제품 이름을 반영하
 ## <a name="troubleshooting"></a>문제 해결
 **Q: Azure AD Connect에 대한 도움을 받으려면 어떻게 합니까?**
 
-[Microsoft KB(기술 자료) 검색](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Microsoft KB(기술 자료) 검색](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 * KB(기술 자료)에서 Azure AD Connect 지원에 대한 일반적인 고장 수리 문제에 대한 기술 솔루션을 검색하세요.
 

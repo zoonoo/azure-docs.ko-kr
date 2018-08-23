@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c38187221e7cd4e3244199e713f41be0005eb024
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 5b6eefbeb279b76717c775cc220f088612908add
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801884"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142999"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>동기화 중 오류 문제 해결
 ID 데이터가 Windows Server Active Directory(AD DS)로부터 Azure AD(Azure Active Directory)로 동기화되는 중에 오류가 발생할 수 있습니다. 이 문서에서는 여러 동기화 오류 유형, 오류가 발생할 수 있는 몇 가지 상황, 오류를 해결할 수 있는 가능한 방법에 대한 개요를 제공합니다. 이 문서는 일반적인 오류 유형을 다루며 가능한 모든 오류를 포괄하지 못할 수 있습니다.
@@ -105,7 +105,7 @@ InvalidSoftMatch 오류가 발생하는 가장 일반적인 원인은 SourceAnch
 >
 
 #### <a name="related-articles"></a>관련 문서
-* [Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/en-us/kb/2647098)
+* [Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>설명
@@ -163,7 +163,7 @@ AttributeValueMustBeUnique 오류가 발생하는 가장 일반적인 원인은 
 4. 온-프레미스 AD에서 변경할 경우 Azure AD Connect가 오류 수정을 위해 변경을 동기화하게 합니다.
 
 #### <a name="related-articles"></a>관련 문서
--[Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/en-us/kb/2647098)
+-[Office 365에서 디렉터리 동기화를 방해하는 중복 또는 잘못된 특성](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>데이터 유효성 검사 실패
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
@@ -172,7 +172,7 @@ Azure Active Directory는 데이터를 디렉터리에 쓰도록 허용하기 �
 
 #### <a name="scenarios"></a>시나리오
 a. UserPrincipalName 특성 값에 잘못된/지원되지 않는 문자가 있습니다.
-나. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
+b. UserPrincipalName 특성이 필요한 형식을 따르지 않습니다.
 
 #### <a name="how-to-fix-identitydatavalidationfailed-error"></a>IdentityDataValidationFailed 오류 해결 방법
 a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르는지 확인합니다.
@@ -200,7 +200,7 @@ a. UserPrincipalName 특성이 지원되는 문자와 필요한 형식을 따르
 2. 다음 동기화 주기에서 동기화 시도를 허용합니다. 이번에는 동기화에 성공하고 Bob의 UserPrincipalName이 예상대로 bob@fabrikam.com으로 업데이트됩니다.
 
 #### <a name="related-articles"></a>관련 문서
-* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/en-us/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
+* [다른 페더레이션된 도메인을 사용하기 위해 사용자 계정의 UPN을 변경한 후에 Azure Active Directory 동기화 도구에서 변경 사항이 동기화되지 않습니다(영문).](https://support.microsoft.com/help/2669550/changes-aren-t-synced-by-the-azure-active-directory-sync-tool-after-you-change-the-upn-of-a-user-account-to-use-a-different-federated-domain)
 
 ## <a name="largeobject"></a>LargeObject
 ### <a name="description"></a>설명

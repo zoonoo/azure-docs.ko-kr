@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1d19cf6ecc9f2bedb6ceaf6312b247670d965b84
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048552"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142981"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory를 사용하여 온-프레미스 및 클라우드 간에 데이터 복사](../tutorial-hybrid-copy-powershell.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory를 사용하여 온-프레미스 및 클라우드 간에 데이터 복사](../tutorial-hybrid-copy-powershell.md)를 참조하세요.
 
 이 문서에서는 Data Factory를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 통합의 개요를 제공합니다. [데이터 이동 활동](data-factory-data-movement-activities.md) 문서 및 [데이터 집합](data-factory-create-datasets.md)과 [파이프라인](data-factory-create-pipelines.md)과 같은 기타 Data Factory 핵심 개념 문서를 작성합니다.
 
@@ -48,13 +48,13 @@ ms.locfileid: "37048552"
 이 연습을 시작하기 전에 다음 필수 조건이 있어야 합니다.
 
 * **Azure 구독**.  구독이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [무료 평가판](http://azure.microsoft.com/pricing/free-trial/) 문서를 참조하세요.
-* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account) 문서를 참조하세요.
+* **Azure Storage 계정**. 이 자습서에서는 Blob Storage를 **대상/싱크** 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 새로 만드는 단계는 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md) 문서를 참조하세요.
 * **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
 이 단계에서는 Azure Portal을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 만들기**를 클릭하고 **인텔리전스 + 분석** 및 **데이터 팩터리**를 차례로 클릭합니다.
 
    ![새로 만들기->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
@@ -138,7 +138,7 @@ ms.locfileid: "37048552"
     **설정** 탭에서 다음 작업을 수행할 수도 있습니다.
 
    * 게이트웨이에서 사용 중인 인증서를 보거나 내보냅니다.
-   * 게이트웨이에서 사용하는 HTTPS 끝점을 변경합니다.    
+   * 게이트웨이에서 사용하는 HTTPS 엔드포인트를 변경합니다.    
    * 게이트웨이에서 사용할 HTTP 프록시를 설정합니다.     
 9. (선택 사항) 게이트웨이와 관련된 모든 문제를 해결하는 데 사용할 수 있는 자세한 정보 로깅을 활성화하려면 **진단** 탭으로 전환하고 **자세한 정보 로깅 사용** 옵션을 체크합니다. 로깅 정보는 **응용 프로그램 및 서비스 로그** -> **데이터 관리 게이트웨이** 노드 아래의 **이벤트 뷰어**에서 찾을 수 있습니다.
 

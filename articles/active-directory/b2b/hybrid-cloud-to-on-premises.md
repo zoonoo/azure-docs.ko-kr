@@ -6,16 +6,16 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/20/2018
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f34bb9eaa04491dfbef8fac711690d1b19677d89
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34259719"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42146989"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Azure AD의 B2B 사용자에게 온-프레미스 응용 프로그램에 대한 액세스 권한 부여
 
@@ -79,7 +79,7 @@ MIM 2016 서비스 팩 1 및 Microsoft Graph용 MIM 관리 에이전트를 사�
 
 ## <a name="license-considerations"></a>라이선스 고려 사항
 
-온-프레미스 앱에 액세스하는 외부 게스트 사용자를 위한 올바른 CAL(클라이언트 액세스 라이선스)가 있어야 합니다. 자세한 내용은 [클라이언트 액세스 라이선스 및 라이선스 관리](https://www.microsoft.com/en-us/licensing/product-licensing/client-access-license.aspx)의 “외부 커넥터” 섹션을 참조하세요. 특정 라이선스 요구 사항은 Microsoft 담당자 또는 지역 대리점에 문의하세요.
+온-프레미스 앱에 액세스하는 외부 게스트 사용자를 위한 올바른 CAL(클라이언트 액세스 라이선스)가 있어야 합니다. 자세한 내용은 [클라이언트 액세스 라이선스 및 라이선스 관리](https://www.microsoft.com/licensing/product-licensing/client-access-license.aspx)의 “외부 커넥터” 섹션을 참조하세요. 특정 라이선스 요구 사항은 Microsoft 담당자 또는 지역 대리점에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

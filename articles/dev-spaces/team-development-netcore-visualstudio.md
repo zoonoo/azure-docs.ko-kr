@@ -3,6 +3,8 @@ title: .NET Core 및 Visual Studio를 사용하여 Azure Dev Spaces에 대한 �
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
@@ -11,12 +13,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: douge
-ms.openlocfilehash: facf2de40c555ccd79fe73543a85f0b5cc150450
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 1b603db552edd14dab2c86e6b005184eb88e74bb
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247486"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154818"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Azure Dev Spaces로 팀 개발
 

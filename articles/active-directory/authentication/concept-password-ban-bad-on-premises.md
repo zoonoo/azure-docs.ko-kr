@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: ff349c480ca14b4242fb7597751b4eb6acb0ee78
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308479"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42142831"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>미리 보기: Windows Server Active Directory에 Azure AD 암호 보호 강제 적용
 
@@ -37,7 +37,7 @@ Azure AD 암호 보호를 구성하는 소프트웨어 구성 요소는 세 가�
 ## <a name="requirements"></a>요구 사항
 
 * 도메인 컨트롤러를 포함하여 Azure AD 암호 보호 구성 요소가 설치된 모든 컴퓨터에서는 Windows Server 2012 이상을 반드시 실행해야 합니다.
-* 도메인 컨트롤러를 포함하여 Azure AD 암호 보호 구성 요소가 설치된 모든 머신에는 Universal C 런타임이 설치되어야 합니다. 가급적 Windows Update를 통해 머신에 완벽하게 패치를 적용하여 완수합니다. 그렇지 않은 경우 적절한 OS 특정 업데이트 패키지가 설치될 수 있습니다 - [Windows의 Universal C 런타임 업데이트](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows) 참조
+* 도메인 컨트롤러를 포함하여 Azure AD 암호 보호 구성 요소가 설치된 모든 머신에는 Universal C 런타임이 설치되어야 합니다. 가급적 Windows Update를 통해 머신에 완벽하게 패치를 적용하여 완수합니다. 그렇지 않은 경우 적절한 OS 특정 업데이트 패키지가 설치될 수 있습니다 - [Windows의 Universal C 런타임 업데이트](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows) 참조
 * 각 도메인의 하나 이상의 도메인 컨트롤러와 Azure AD 암호 보호 프록시 서비스를 호스팅하는 하나 이상의 서버간에 네트워크 연결이 존재해야 합니다.
 * DC 에이전트 서비스 소프트웨어를 실행하는 모든 Active Directory 도메인은 sysvol 복제에 DFSR을 사용해야 합니다.
 * Azure AD 암호 보호 프록시 서비스를 Azure AD에 등록하기 위한 전역 관리자 계정

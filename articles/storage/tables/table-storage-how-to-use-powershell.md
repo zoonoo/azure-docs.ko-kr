@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: robinsh
-ms.component: tables
-ms.openlocfilehash: 21023dd8adcf5ba623ac1bac3c2dbea0dfe04c36
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.component: cosmosdb-table
+ms.openlocfilehash: 577e6db0caeebb465025da033051dc2bbc9cb804
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524042"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142843"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]

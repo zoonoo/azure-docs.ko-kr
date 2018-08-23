@@ -1,5 +1,5 @@
 ---
-title: Azure Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅 - Powershell | Microsoft Docs
+title: Azure Blob 저장소 이벤트를 사용자 지정 웹 엔드포인트로 라우팅 - Powershell | Microsoft Docs
 description: Azure Event Grid를 사용하여 Blob 저장소 이벤트를 구독합니다.
 services: storage,event-grid
 author: david-stanford
@@ -8,14 +8,14 @@ ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 502f378bd1eddc0a104438037dce50bafd508ad9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262755"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42147007"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Powershell로 Blob 저장소 이벤트를 사용자 지정 웹 끝점으로 라우팅
+# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Powershell로 Blob 저장소 이벤트를 사용자 지정 웹 엔드포인트로 라우팅
 
 Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문서에서는 Azure PowerShell을 사용하여 Blob 저장소 이벤트를 구독하고 이벤트를 트리거하여 결과를 확인합니다. 
 
@@ -36,9 +36,6 @@ Azure Event Grid는 클라우드에 대한 이벤트 서비스입니다. 이 문
 ```powershell
 Connect-AzureRmAccount
 ```
-
-> [!NOTE]
-> Storage 이벤트의 가용성은 Event Grid [가용성](../../event-grid/overview.md)과 연관되어 있으며, Event Grid가 사용 가능하면 다른 지역에서도 사용 가능해집니다.
 
 이 예제에서는 **westus2**를 사용하고, 선택한 항목을 전체적으로 사용할 수 있게 변수에 저장합니다.
 
@@ -80,9 +77,9 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
 $ctx = $storageAccount.Context
 ```
 
-## <a name="create-a-message-endpoint"></a>메시지 끝점 만들기
+## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/dbarkol/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 일반적으로 엔드포인트는 이벤트 데이터를 기반으로 작업을 수행합니다. 이 빠른 시작을 간소화하기 위해 이벤트 메시지를 표시하는 [미리 작성된 웹앱](https://github.com/dbarkol/azure-event-grid-viewer)을 배포합니다. 배포된 솔루션은 App Service 계획, App Service 웹앱 및 GitHub의 소스 코드를 포함합니다.
 
 `<your-site-name>`을 웹앱의 고유한 이름으로 바꿉니다. 웹앱 이름은 DNS 항목의 일부이므로 고유해야 합니다.
 
@@ -122,7 +119,7 @@ New-AzureRmEventGridSubscription `
 
 ## <a name="trigger-an-event-from-blob-storage"></a>Blob 저장소에서 이벤트 트리거
 
-이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 끝점에 어떻게 배포하는지 살펴 보겠습니다. 먼저 컨테이너 및 개체를 만들어 보겠습니다. 그런 다음 컨테이너에 개체를 업로드합니다.
+이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴 보겠습니다. 먼저 컨테이너 및 개체를 만들어 보겠습니다. 그런 다음 컨테이너에 개체를 업로드합니다.
 
 ```powershell
 $containerName = "gridcontainer"
@@ -133,7 +130,7 @@ echo $null >> gridTestFile.txt
 Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Context $ctx -Blob gridTestFile.txt
 ```
 
-이벤트를 트리거했고 Event Grid가 구독할 때 구성한 끝점으로 메시지를 보냈습니다. 웹앱을 확인하여 방금 전송한 이벤트를 봅니다.
+이벤트를 트리거했고 Event Grid가 구독할 때 구성한 엔드포인트로 메시지를 보냈습니다. 웹앱을 확인하여 방금 전송한 이벤트를 봅니다.
 
 ```json
 [{

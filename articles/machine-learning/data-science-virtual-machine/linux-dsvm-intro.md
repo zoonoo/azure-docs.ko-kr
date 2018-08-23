@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: db1d449e5c9f66446f00b637c5550dc9144920ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3883fc71c099718face38c16897040788fe0c6ab
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446768"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246785"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Azure에서 Linux CentOS 데이터 과학 Virtual Machine 프로비전
 
@@ -38,7 +38,7 @@ Linux 데이터 과학 Virtual Machine은 다양한 도구가 미리 설치되�
   * [Cognitive Toolki](https://github.com/Microsoft/CNTK): Microsoft Research의 심화 학습 소프트웨어 도구 키트
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): 온라인, 해시, allreduce, 축소, learning2search, 활성 및 대화형 학습 등의 기술을 지원하는 속성 기계 학습 시스템.
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): 기능이 향상된 빠르고 정확한 트리 구현을 제공하는 도구
-  * [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily): GUI 기반 데이터 탐색 및 모델링을 자동 R 코드 생성과 함께 사용하여 R에서의 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 돕는 도구.
+  * [Rattle](https://togaware.com/rattle/) (R Analytical Tool To Learn Easily): GUI 기반 데이터 탐색 및 모델링을 자동 R 코드 생성과 함께 사용하여 R에서의 데이터 분석 및 기계 학습을 쉽게 시작할 수 있도록 돕는 도구.
 * Java, Python, node.js, Ruby, PHP의 Azure SDK
 * Azure Machine Learning 및 기타 Azure 서비스에서 사용하기 위한 R 및 Python의 라이브러리
 * 개발 도구 및 편집자(RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -63,7 +63,7 @@ Linux 데이터 과학 Virtual Machine을 사용하면 이러한 부담을 상�
 Linux 데이터 과학 Virtual Machine을 만들려면 먼저 다음이 있어야 합니다.
 
 * **Azure 구독**: 다운로드하려면 [Azure 평가판 받기](https://azure.microsoft.com/free/)를 참조하세요.
-* **Azure 저장소 계정**: 계정을 만들려면 [Azure 저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
+* **Azure 저장소 계정**: 계정을 만들려면 [Azure 저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 기존 계정을 사용하지 않으려는 경우에는 VM 만들기 프로세스의 일부분으로 저장소 계정을 만들 수 있습니다.
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>Linux 데이터 과학 Virtual Machine 만들기
 Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 다음과 같습니다.
@@ -81,7 +81,7 @@ Linux 데이터 과학 Virtual Machine의 인스턴스를 만드는 단계는 �
    * **리소스 그룹**: 새 그룹을 만들거나 기존 그룹을 사용할 수 있습니다.
    * **위치**: 가장 적합한 데이터 센터를 선택합니다. 이 위치는 대개 대부분의 데이터가 저장되어 있는 위치이거나 사용자의 실제 위치에 가장 가까운 위치(이 경우 네트워크에 가장 빠르게 액세스할 수 있음)입니다.
    
-   나. **크기**:
+   b. **크기**:
    
    * 기능 요구 사항과 비용 제약 조건에 부합하는 서버 유형 중 하나를 선택합니다. **모두 보기**를 선택하면 더 많은 VM 크기 선택 항목을 확인할 수 있습니다.
    

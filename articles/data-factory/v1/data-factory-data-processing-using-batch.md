@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422419"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42142866"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 집합 처리
 > [!NOTE]
@@ -91,10 +91,10 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습니다. 자세한 내용은 [평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 #### <a name="azure-storage-account"></a>Azure Storage 계정
-저장소 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 샘플 솔루션은 Blob 저장소를 사용합니다.
+저장소 계정을 사용하여 이 자습서에 있는 데이터를 저장합니다. 저장소 계정이 없는 경우 [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)를 참조하세요. 샘플 솔루션은 Blob 저장소를 사용합니다.
 
 #### <a name="azure-batch-account"></a>Azure Batch 계정
-[Azure Portal](http://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet을 사용하여 Batch 계정을 만들 수도 있습니다. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
+[Azure Portal](http://portal.azure.com/)을 사용하여 Batch 계정을 만듭니다. 자세한 내용은 [Batch 계정 만들기 및 관리](../../batch/batch-account-create-portal.md)를 참조하세요. Batch 계정 이름 및 계정 키를 적어둡니다. [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet을 사용하여 Batch 계정을 만들 수도 있습니다. 이 cmdlet 사용 방법에 대한 자세한 지침은 [Batch PowerShell cmdlet 시작](../../batch/batch-powershell-cmdlets-get-started.md)을 참조하세요.
 
 샘플 솔루션은 Batch를 사용하여(간접적으로 Data Factory 파이프라인을 통해) VM의 관리되는 컬렉션인 계산 노드의 풀에서 병렬 방식으로 데이터를 처리합니다.
 
@@ -111,7 +111,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    a. 풀에 대한 ID(**풀 ID**)를 입력합니다. 풀의 ID를 적어둡니다. Data Factory 솔루션을 만들 때 필요합니다.
 
-   나. **운영 체제 제품군** 설정에 **Windows Server 2012 R2**를 지정합니다.
+   b. **운영 체제 제품군** 설정에 **Windows Server 2012 R2**를 지정합니다.
 
    다. **노드 가격 책정 계층**을 선택합니다.
 
@@ -180,7 +180,7 @@ public IDictionary<string, string> Execute(
 
    a. Start Visual Studio 2012/2013/2015.
 
-   나. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
+   b. **파일** > **새로 만들기** > **프로젝트**를 선택합니다.
 
    다. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
 
@@ -528,7 +528,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    a. 왼쪽 메뉴에서 **새로 만들기**를 선택합니다.
 
-   나. **새** 블레이드에서 **데이터 + 분석**을 선택합니다.
+   b. **새** 블레이드에서 **데이터 + 분석**을 선택합니다.
 
    다. **데이터 분석** 블레이드에서 **Data Factory**를 선택합니다.
 
@@ -571,7 +571,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    a. **계정 이름**을 Batch 계정의 이름으로 대체합니다.
 
-   나. **액세스 키**를 Batch 계정의 액세스 키로 대체합니다.
+   b. **액세스 키**를 Batch 계정의 액세스 키로 대체합니다.
 
    다. **poolName** 속성에 대한 풀 ID를 입력합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
 

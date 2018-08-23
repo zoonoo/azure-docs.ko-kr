@@ -11,16 +11,16 @@ ms.service: service-fabric
 ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.workload: azure-vs
 ms.date: 03/26/2018
 ms.author: mikhegn
-ms.custom: mvc, devcenter
-ms.openlocfilehash: f04af62dc555c6c05313b9d0cd7b0231aac7d3aa
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 11e8f34bf409d6c158e84d6f92baaf59ad4a1e94
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110085"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42210804"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>빠른 시작: Service Fabric에 .NET 안정적인 서비스 응용 프로그램 배포
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 복제한 리포지토리에서 **Voting.sln** Visual Studio 솔루션을 엽니다.
 
-기본적으로 응답 응용 프로그램은 포트 8080에서 수신하도록 설정됩니다.  응용 프로그램 포트는 */VotingWeb/PackageRoot/ServiceManifest.xml* 파일에서 설정됩니다.  **끝점** 요소의 **포트** 특성을 업데이트하여 응용 프로그램 포트를 변경할 수 있습니다.  응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 포트가 열려 있고 컴퓨터에서 사용 가능해야 합니다.  응용 프로그램 포트를 변경하는 경우 이 문서 전체에서 "8080"을 새 응용 프로그램 포트 값으로 대체합니다.
+기본적으로 응답 응용 프로그램은 포트 8080에서 수신하도록 설정됩니다.  응용 프로그램 포트는 */VotingWeb/PackageRoot/ServiceManifest.xml* 파일에서 설정됩니다.  **엔드포인트** 요소의 **포트** 특성을 업데이트하여 응용 프로그램 포트를 변경할 수 있습니다.  응용 프로그램을 로컬로 배포하고 실행하려면 응용 프로그램 포트가 열려 있고 컴퓨터에서 사용 가능해야 합니다.  응용 프로그램 포트를 변경하는 경우 이 문서 전체에서 "8080"을 새 응용 프로그램 포트 값으로 대체합니다.
 
 응용 프로그램을 배포하려면 **F5** 키를 누릅니다.
 
@@ -173,7 +173,7 @@ Thumbprint                                Subject
 
 1. 솔루션 탐색기에서 **Voting**을 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다. [게시] 대화 상자가 나타납니다.
 
-2. 파티 클러스터 페이지의 **연결 끝점**을 **연결 끝점** 필드에 복사합니다. 예: `zwin7fh14scd.westus.cloudapp.azure.com:19000` **고급 연결 매개 변수**를 클릭하고, *FindValue* 및 *ServerCertThumbprint* 값이 이전 단계에서 설치한 인증서의 지문과 일치하는지 확인합니다.
+2. 파티 클러스터 페이지의 **연결 엔드포인트**를 **연결 엔드포인트** 필드에 복사합니다. 예: `zwin7fh14scd.westus.cloudapp.azure.com:19000` **고급 연결 매개 변수**를 클릭하고, *FindValue* 및 *ServerCertThumbprint* 값이 이전 단계에서 설치한 인증서의 지문과 일치하는지 확인합니다.
 
     ![[게시] 대화 상자](./media/service-fabric-quickstart-dotnet/publish-app.png)
 

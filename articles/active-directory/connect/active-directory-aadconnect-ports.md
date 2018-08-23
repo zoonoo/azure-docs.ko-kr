@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 317c94abdf14d3d88e07e32ab16769bd1f641438
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 55100d14ab7acbff87a726615ad9fa8b1fe9a3c8
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34591299"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42141393"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>포트 및 프로토콜이 필요한 하이브리드 ID
 다음 문서는 하이브리드 ID 솔루션을 구현하는 포트 및 프로토콜에 대한 기술 참조입니다. 다음 그림을 사용하고 해당 테이블을 참조합니다.
@@ -83,7 +83,7 @@ ms.locfileid: "34591299"
 |HTTP|80|SSL과 같은 보안 유효성 검사에 아웃바운드 HTTP 트래픽을 사용하도록 설정합니다. 커넥터 자동 업데이트 기능이 제대로 작동하는 데도 필요합니다.
 |HTTPS|443| 기능 활성화 및 비활성화, 커넥터 등록, 커넥터 업데이트 다운로드 및 모든 사용자 로그인 요청 처리와 같은 작업을 위해 아웃바운드 HTTPS 트래픽을 사용합니다.
 
-또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다.
+또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다.
 
 ### <a name="table-6b---password-hash-sync-with-sso"></a>테이블 6b - SSO와 암호 해시 동기화
 
@@ -91,10 +91,10 @@ ms.locfileid: "34591299"
 | --- | --- | ---
 |HTTPS|443| SSO 등록(SSO 등록 프로세스에만 필요)을 사용하도록 설정합니다.
 
-또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다. 다시, SSO 등록 프로세스에만 필요합니다.
+또한 Azure AD Connect가 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 직접적인 IP 연결을 생성할 수 있어야 합니다. 다시, SSO 등록 프로세스에만 필요합니다.
 
 ## <a name="table-7a--7b---azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>테이블 7a & 7b - (AD FS/동기화)와 Azure AD에 대한 Azure AD Connect Health 에이전트
-다음 테이블은 Azure AD Connect Health 에이전트와 Azure AD 간의 통신에 필요한 끝점, 포트 및 프로토콜에 대해 설명합니다.
+다음 테이블은 Azure AD Connect Health 에이전트와 Azure AD 간의 통신에 필요한 엔드포인트, 포트 및 프로토콜에 대해 설명합니다.
 
 ### <a name="table-7a---ports-and-protocols-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>테이블 7a - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 포트 및 프로토콜
 이 테이블은 Azure AD Connect Health 에이전트 및 Azure AD 간의 통신에 필요한 다음 아웃바운드 포트와 프로토콜에 대해 설명합니다.  
@@ -104,6 +104,6 @@ ms.locfileid: "34591299"
 | HTTPS |443(TCP/UDP) |아웃바운드 |
 | Azure Service Bus |5671(TCP/UDP) |아웃바운드 |
 
-### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 끝점
-끝점의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements)을 참조하세요.
+### <a name="7b---endpoints-for-azure-ad-connect-health-agent-for-ad-fssync-and-azure-ad"></a>7b - Azure AD Connect Health 에이전트(AD FS/동기화)와 Azure AD에 대한 엔드포인트
+엔드포인트의 목록에 대한 자세한 내용은 [Azure AD Connect Health 에이전트에 대한 요구 사항 섹션](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements)을 참조하세요.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436321"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141369"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -63,7 +63,7 @@ ms.locfileid: "39436321"
     **만들기** 창이 오른쪽에 나타납니다. 여기에 Azure AD 앱 관련 정보를 입력합니다.
 1. 응용 프로그램의 이름을 입력합니다.
 1. 응용 프로그램 형식에서 **웹앱/API**를 선택합니다.
-1. 로그온 URL에서 개발자 포털의 로그온 URL을 입력합니다. 이 예제에서 로그인 URL은 https://apimwithaad.portal.azure-api.net/signin입니다.
+1. 로그온 URL에서 개발자 포털의 로그온 URL을 입력합니다. 이 예제에서 로그인 URL은 `https://apimwithaad.portal.azure-api.net/signin`입니다.
 1. **만들기**를 선택하여 응용 프로그램을 만듭니다.
 1. 앱을 찾으려면 **앱 등록**을 선택하고 이름으로 검색합니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "39436321"
     
     a. `https://<URL of your developer portal>/aadadminconsent`(예: https://contoso.portal.azure-api.net/aadadminconsent)로 이동합니다.
     
-    나. 액세스 권한을 부여하려는 Azure AD 테넌트의 도메인 이름을 입력합니다.
+    b. 액세스 권한을 부여하려는 Azure AD 테넌트의 도메인 이름을 입력합니다.
     
     다. **제출**을 선택합니다. 
     

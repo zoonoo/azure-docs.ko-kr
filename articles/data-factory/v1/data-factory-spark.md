@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440629"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246765"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Azure Data Factory 파이프라인에서 Spark 프로그램 호출
 
@@ -56,7 +56,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 * 만든 HDInsight 연결된 서비스를 참조하는 Spark 작업이 있는 파이프라인을 만듭니다. 이 작업은 이전 단계에서 출력 데이터 집합으로 만든 데이터 집합을 통해 구성됩니다. 출력 데이터 집합은 일정(매시간, 매일)을 구동하는 것입니다. 따라서 작업에서 실제로 출력을 생성하지 않더라도 출력 데이터 집합을 지정해야 합니다.
 
 ### <a name="prerequisites"></a>필수 조건
-1. [저장소 계정 만들기](../../storage/common/storage-create-storage-account.md#create-a-storage-account)의 지침에 따라 범용 저장소 계정을 만듭니다.
+1. [저장소 계정 만들기](../../storage/common/storage-quickstart-create-account.md)의 지침에 따라 범용 저장소 계정을 만듭니다.
 
 1. [HDInsight에서 Spark 클러스터 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)의 지침에 따라 HDInsight에서 Spark 클러스터를 만듭니다. 1단계에서 만든 저장소 계정을 이 클러스터와 연결합니다.
 
@@ -124,7 +124,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
     a. HDInsight Spark 클러스터에 대한 URI를 지정합니다. 예: `https://<sparkclustername>.azurehdinsight.net/`
 
-    나. Spark 클러스터에 액세스할 수 있는 사용자의 이름을 지정합니다.
+    b. Spark 클러스터에 액세스할 수 있는 사용자의 이름을 지정합니다.
 
     다. 사용자의 암호를 지정합니다.
 
@@ -221,7 +221,7 @@ Spark 작업이 포함된 데이터 팩터리 파이프라인을 만드는 일�
 
     a. **type** 속성은 **HDInsightSpark**로 설정됩니다.
 
-    나. **rootPath** 속성은 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예제에서 Blob 저장소는 Spark 클러스터와 연결된 저장소입니다. 파일은 다른 저장소 계정에 업로드할 수 있습니다. 이렇게 하면 Storage 연결된 서비스를 만들어 해당 저장소 계정을 데이터 팩터리에 연결합니다. 그런 다음 연결된 서비스의 이름을 **sparkJobLinkedService** 속성의 값으로 지정합니다. 이 속성과 Spark 작업에서 지원하는 다른 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
+    b. **rootPath** 속성은 **adfspark\\pyFiles**로 설정되며, 여기서 adfspark는 Blob 컨테이너이고, pyFiles는 해당 컨테이너의 파일 폴더입니다. 이 예제에서 Blob 저장소는 Spark 클러스터와 연결된 저장소입니다. 파일은 다른 저장소 계정에 업로드할 수 있습니다. 이렇게 하면 Storage 연결된 서비스를 만들어 해당 저장소 계정을 데이터 팩터리에 연결합니다. 그런 다음 연결된 서비스의 이름을 **sparkJobLinkedService** 속성의 값으로 지정합니다. 이 속성과 Spark 작업에서 지원하는 다른 속성에 대한 자세한 내용은 [Spark 작업 속성](#spark-activity-properties)을 참조하세요.
 
     다. **entryFilePath** 속성은 Python 파일인 **test.py**로 설정됩니다.
 

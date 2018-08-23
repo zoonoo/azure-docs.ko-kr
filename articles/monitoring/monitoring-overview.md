@@ -2,24 +2,22 @@
 title: Azure 응용 프로그램 및 리소스 모니터링 | Microsoft Docs
 description: Azure 서비스 및 응용 프로그램에 대한 전체 모니터링 전략에 작용하는 Microsoft 서비스 및 기능을 대략적으로 설명합니다.
 author: bwren
-manager: carmonm
 editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
+services: azure-monitor
 ms.assetid: 1b962c74-8d36-4778-b816-a893f738f92d
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
-ms.author: robb,bwren
-ms.openlocfilehash: 00ec9364a900510aeadcb68b19b57be528fb9c50
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 08/10/2018
+ms.author: bwren
+ms.openlocfilehash: 878765a1f84e0825e86def2b59310732b22aaacc
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30266929"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42141157"
 ---
 # <a name="monitoring-azure-applications-and-resources"></a>Azure 응용 프로그램 및 리소스 모니터링
 

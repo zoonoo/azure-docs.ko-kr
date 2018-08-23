@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa8cdaf1a21a59a5bb695e3be90382f1e33823a2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4ee3d424d5a2f58a87cd83ca3d6e9b131dc0383c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34590592"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246755"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: 장치 쓰기 저장 사용
 > [!NOTE]
@@ -36,7 +36,7 @@ ms.locfileid: "34590592"
 
 > [!IMPORTANT]
 > <li>장치는 사용자와 동일한 포리스트에 있어야 합니다. 장치가 단일 포리스트에 쓰기 저장해야 하기 때문에 이 기능은 현재 여러 사용자 포리스트에서 배포를 지원하지 않습니다.</li>
-> <li>온-프레미스 Active Directory 포리스트에 하나의 장치 등록 구성 개체를 추가할 수 있습니다. 이 기능은 온-프레미스 Active Directory가 여러 Azure AD 디렉터리에 동기화되는 토폴로지와 호환되지 않습니다.</li>> 
+> <li>온-프레미스 Active Directory 포리스트에 하나의 장치 등록 구성 개체를 추가할 수 있습니다. 이 기능은 온-프레미스 Active Directory가 여러 Azure AD 디렉터리에 동기화되는 토폴로지와 호환되지 않습니다.</li>
 
 ## <a name="part-1-install-azure-ad-connect"></a>1부: Azure AD Connect 설치
 사용자 지정 또는 Express 설정을 사용하여 Azure AD Connect를 설치합니다. Microsoft는 장치 쓰기 저장을 사용하도록 설정하기 전에 모든 사용자 및 그룹을 성공적으로 동기화하고 시작할 것을 권장합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "34590592"
 
     a. **엔터프라이즈 관리자 자격 증명 제공**: 장치를 다시 써야 하는 포리스트에 대한 엔터프라이즈 관리자 자격 증명을 제공하면 Azure AD Connect는 장치 쓰기 저장을 구성하는 동안 자동으로 포리스트를 준비합니다.
 
-    나. **PowerShell 스크립트 다운로드**: Azure AD Connect는 장치 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 장치를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.psq** PowerShell 스크립트를 제공합니다.
+    b. **PowerShell 스크립트 다운로드**: Azure AD Connect는 장치 쓰기 저장에 대한 active directory를 준비할 수 있는 PowerShell 스크립트를 자동으로 생성합니다. Azure AD Connect에서 엔터프라이즈 관리자 자격 증명을 제공할 수 없는 경우 PowerShell 스크립트를 다운로드하면 됩니다. 장치를 다시 써야 하는 포리스트의 엔터프라이즈 관리자에게 다운로드한 **CreateDeviceContainer.psq** PowerShell 스크립트를 제공합니다.
     ![active diretory 포리스트 준비](./media/active-directory-aadconnect-feature-device-writeback/devicecontainercreds.png)
     
     active directory 포리스트를 준비하기 위해 다음 작업이 수행됩니다.

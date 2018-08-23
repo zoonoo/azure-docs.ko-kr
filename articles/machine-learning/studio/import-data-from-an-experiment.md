@@ -4,7 +4,8 @@ description: Azure Machine Learning Studio에서 학습 데이터를 저장하�
 keywords: 데이터 가져오기, 데이터, 데이터 원본, 학습 데이터
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
@@ -15,13 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev
-ms.openlocfilehash: 8279b13270d4bba990e6670acd714be19118e98c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5007657da11cb45c6511780398c5425d14dca900
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834831"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40246808"
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>다른 실험에서 얻은 사용자의 데이터를 Azure Machine Learning Studio로 가져오기
 [!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]

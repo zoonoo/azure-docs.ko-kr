@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2017
+ms.date: 08/15/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1307fc455cacde81cb25ad58c5e99df21f126568
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ca4da794aaa6c96908976400d9a8452f6a644f39
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448257"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42142827"
 ---
 # <a name="azure-active-directory-b2c-sign-in-by-using-salesforce-accounts-via-saml"></a>Azure Active Directory B2C: SAML을 통해 Salesforce 계정을 사용하여 로그인
 
@@ -78,7 +78,7 @@ Azure AD B2C가 Salesforce와 통신하도록 지원하려면 Salesforce 메타�
 ### <a name="get-the-metadata-url"></a>메타데이터 URL 가져오기
 
 1. 연결된 앱의 개요 페이지에서 **관리**를 클릭합니다.
-2. **메타데이터 검색 끝점** 값을 복사하고 저장합니다. 이 문서의 뒷부분에서 사용합니다.
+2. **메타데이터 검색 엔드포인트** 값을 복사하고 저장합니다. 이 문서의 뒷부분에서 사용합니다.
 
 ### <a name="set-up-salesforce-users-to-federate"></a>Salesforce 사용자가 페더레이션하도록 설정
 
@@ -119,7 +119,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 ## <a name="create-the-salesforce-saml-claims-provider-in-your-base-policy"></a>기본 정책에서 Salesforce SAML 클레임 공급자 만들기
 
-사용자가 Salesforce를 사용하여 로그인할 수 있도록 Salesforce를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신할 끝점을 지정해야 합니다. 끝점은 Azure AD B2C에서 사용하는 일련의 *클레임*을 *제공*하여 특정 사용자가 인증했는지 확인합니다. 그렇게 하려면 정책의 확장 파일에서 Salesforce에 대한 `<ClaimsProvider>`를 추가합니다.
+사용자가 Salesforce를 사용하여 로그인할 수 있도록 Salesforce를 클레임 공급자로 정의해야 합니다. 즉, Azure AD B2C가 통신할 엔드포인트를 지정해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 *클레임*을 *제공*하여 특정 사용자가 인증했는지 확인합니다. 그렇게 하려면 정책의 확장 파일에서 Salesforce에 대한 `<ClaimsProvider>`를 추가합니다.
 
 1. 작업 디렉터리에서 확장 파일(TrustFrameworkExtensions.xml)을 엽니다.
 2. `<ClaimsProviders>` 섹션을 찾습니다. 존재하지 않는 경우 루트 노드에 만듭니다.
@@ -150,7 +150,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
             <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="family_name"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="email"/>
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="username"/>
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="externalIdp"/>
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication"/>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="SAMLIdp" />
           </OutputClaims>
           <OutputClaimsTransformations>

@@ -7,16 +7,17 @@ manager: douge
 assetId: a1a10ea1-687a-4ee1-a952-6b24c2fe1a22
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/18/2016
 ms.author: ghogen
-ms.openlocfilehash: 7390e8f463d14f2e74e05263e970665a0199029a
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 3ed3e0829932a6db37b4bd48627b68480f5d7343
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794282"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42147003"
 ---
 # <a name="constructing-filter-strings-for-the-table-designer"></a>테이블 디자이너에 대한 필터 문자열 생성하기
 ## <a name="overview"></a>개요
@@ -30,7 +31,7 @@ WCF Data Services는 [개방형 데이터 프로토콜](http://go.microsoft.com/
 | 논리 연산자 | 설명 | 필터 문자열의 예 |
 | --- | --- | --- |
 | eq |같음 |'Redmond'와 같은 도시 |
-| gt |다음보다 큼 |20보다 큰 가격 |
+| gt |초과 |20보다 큰 가격 |
 | ge |다음보다 크거나 같음 |10보다 크거나 같은 가격 |
 | lt |다음보다 적음 |20보다 적은 가격 |
 | le |다음보다 적거나 같음 |100보다 적거나 같은 가격 |

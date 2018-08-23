@@ -2,21 +2,19 @@
 title: Azure Machine Learning 모델 관리에 대한 개념적 개요 | Microsoft Docs
 description: 이 문서에서는 Azure Machine Learning 모델 관리에 대한 개념을 설명합니다.
 services: machine-learning
-author: nk773
-ms.author: padou
-manager: mwinkle
-ms.reviewer: jasonwhowell, mldocs
+author: hjerezmsft
+ms.author: hjerez
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 6fac3fa0207d942c5a7f5fa438ba8262ea5b7a22
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 041f7147f171514d941555ff2f6144bac2062b06
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832230"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42142854"
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 모델 관리
 
@@ -32,7 +30,7 @@ Azure Machine Learning 모델 관리를 사용하면 기계 학습 워크플로 
 
 Azure Machine Learning 모델 관리는 모델 버전의 레지스트리를 제공합니다. 또한 Machine Learning 컨테이너를 REST API로 패키지하고 배치하도록 자동화된 워크플로를 제공합니다. 모델 및 해당 런타임 종속성은 예측 API를 사용하여 Linux 기반 Docker 컨테이너에 패키지됩니다. 
 
-Azure Machine Learning 계산 환경은 모델을 호스팅하는 확장 가능한 클러스터를 설정하고 관리하는 데 도움이 됩니다. 계산 환경은 Azure Container Services를 기반으로 합니다. Azure Container Services는 다음과 같은 기능이 있는 Machine Learning API를 REST API 끝점으로 자동으로 제공합니다.
+Azure Machine Learning 계산 환경은 모델을 호스팅하는 확장 가능한 클러스터를 설정하고 관리하는 데 도움이 됩니다. 계산 환경은 Azure Container Services를 기반으로 합니다. Azure Container Services는 다음과 같은 기능이 있는 Machine Learning API를 REST API 엔드포인트로 자동으로 제공합니다.
 
 - 인증
 - 부하 분산
@@ -81,7 +79,7 @@ Azure Machine Learning 모델 관리를 사용하면 단일 명령으로 ML 계�
 
 - 규모에서 짧은 대기 시간 예측
 - 부하 분산
-- ML 끝점 자동 크기 조정
+- ML 엔드포인트 자동 크기 조정
 - API 키 권한 부여
 - API Swagger 문서
 
@@ -121,7 +119,7 @@ Azure Machine Learning 모델 관리는 모델을 다시 학습하는 데 사용
 
    구성할 수 있습니다. 기본적으로 단일 복제본당 최대 10개로 설정되지만, 응용 프로그램 요구 사항에 따라 늘리거나 줄일 수 있습니다. 일반적으로 큐에 대기하는 요청 수를 늘리면, 서비스 처리량이 늘어나지만 더 높은 백분위수의 대기 시간도 늘어납니다. 대기 시간을 일관되게 유지하려면 큐를 낮은 값(1-5)으로 설정하고 복제본의 수를 늘려서 처리량을 처리하는 것이 좋습니다. 또한 자동 크기 조정을 사용하도록 설정하여 복제본 수가 부하에 따라 자동으로 조정되도록 할 수 있습니다. 
 
-- **동일한 컴퓨터 또는 클러스터를 여러 웹 서비스 끝점에 사용할 수 있나요?**
+- **동일한 컴퓨터 또는 클러스터를 여러 웹 서비스 엔드포인트에 사용할 수 있나요?**
 
    그렇습니다. 동일한 클러스터에서 서비스/끝점 수의 100배까지 실행할 수 있습니다. 
 

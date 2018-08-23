@@ -1,3 +1,20 @@
+---
+title: 포함 파일
+description: 포함 파일
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: f60c23e34962396d4ea6e030912d1ca3f3e4571b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40258648"
+---
 저장소 계정에는 다음과 같은 두 종류가 있습니다.
 
 ### <a name="general-purpose-storage-accounts"></a>범용 Storage 계정
@@ -25,5 +42,5 @@ Blob Storage 계정에 대한 자세한 내용은 [Azure Blob Storage: 쿨 및 �
 
 저장소 계정을 만들려면 먼저 다양한 Azure 서비스에 대한 액세스 권한을 제공하는 계획인 Azure 구독이 있어야 합니다. [무료 계정](https://azure.microsoft.com/pricing/free-trial/)으로 Azure를 시작할 수 있습니다. 구독 계획을 구매하기로 결정하는 경우 다양한 [구입 옵션](https://azure.microsoft.com/pricing/purchase-options/)중에서 선택할 수 있습니다. [MSDN 구독자](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)는 Azure Storage를 포함한 Azure 서비스에 사용할 수 있는 무료 월별 크레딧을 받습니다. 볼륨 가격에 대한 자세한 내용은 [Azure Storage 가격 책정 ](https://azure.microsoft.com/pricing/details/storage/) 을 참조하세요.
 
-저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) 를 참조하세요. 단일 구독으로 고유하게 명명된 저장소 계정을 200개까지 만들 수 있습니다. Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) 를 참조하세요.
+저장소 계정을 만드는 방법을 알아보려면 [저장소 계정 만들기](../articles/storage/common/storage-quickstart-create-account.md) 를 참조하세요. 단일 구독으로 고유하게 명명된 저장소 계정을 200개까지 만들 수 있습니다. Storage 계정 제한에 대한 자세한 내용은 [Azure Storage 확장성 및 성능 목표](../articles/storage/common/storage-scalability-targets.md) 를 참조하세요.
 
