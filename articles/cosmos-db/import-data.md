@@ -3,21 +3,21 @@ title: Azure Cosmos DB용 데이터베이스 마이그레이션 도구 | Microso
 description: 오픈 소스 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 MongoDB, SQL Server, 테이블 저장소, Amazon DynamoDB, CSV 및 JSON 파일을 비롯한 다양한 원본에서 Azure Cosmos DB로 데이터를 가져오는 방법을 알아봅니다. CSV에서 JSON로 변환합니다.
 keywords: csv에서 json으로, 데이터베이스 마이그레이션 도구, csv에서 json으로 변환
 services: cosmos-db
-author: SnehaGunda
+author: deborahc
 manager: kfile
 editor: monicar
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/30/2018
-ms.author: sngun
+ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: cf14393dddcea44d40ae1fbab831a3fc4c0036f5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 43092a12535ed18a5c91f924e3fdf72ad6d47d7b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592723"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41920357"
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: 데이터 마이그레이션 도구
 
@@ -317,7 +317,7 @@ Azure Cosmos DB에서 가져오는 몇 가지 명령줄 샘플은 다음과 같�
     dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /s.Collection:StoresSub /t:JsonFile /t.File:StoresExport.json /t.Overwrite /t.CollectionThroughput:2500
 
 > [!TIP]
-> 또한 Azure Cosmos DB 데이터 가져오기 도구는 [Azure Cosmos DB 에뮬레이터](local-emulator.md)에서 데이터를 가져오도록 지원합니다. 로컬 에뮬레이터에서 데이터를 가져올 때 끝점을 `https://localhost:<port>`로 설정합니다. 
+> 또한 Azure Cosmos DB 데이터 가져오기 도구는 [Azure Cosmos DB 에뮬레이터](local-emulator.md)에서 데이터를 가져오도록 지원합니다. 로컬 에뮬레이터에서 데이터를 가져올 때 엔드포인트를 `https://localhost:<port>`로 설정합니다. 
 > 
 > 
 

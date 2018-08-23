@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091053"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42022409"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>빠른 시작: Service Fabric Mesh에 Hello World 배포
 
@@ -50,14 +50,14 @@ az group create --name myResourceGroup --location eastus
 ```azurecli-interactive
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{\"location\": {\"value\": \"eastus\"}}" 
 ```
-이전 명령은 [mesh_rp.linux.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json)을 사용하여 Linux를 배포합니다. Windows 응용 프로그램을 배포하려면 [mesh_rp.windows.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json)을 사용합니다. Windows 컨테이너 이미지가 Linux 컨테이너 이미지보다 크므로 배포하는 데 시간이 더 걸릴 수 있습니다.
+이전 명령은 [mesh_rp.linux.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json)을 사용하여 Linux 응용 프로그램을 배포합니다. Windows 응용 프로그램을 배포하려면 [mesh_rp.windows.json 템플릿](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json)을 사용합니다. Windows 컨테이너 이미지가 Linux 컨테이너 이미지보다 크므로 배포하는 데 시간이 더 걸릴 수 있습니다.
 
 잠시 후에 명령은 다음을 반환합니다.
 
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>응용 프로그램 열기
-응용 프로그램이 성공적으로 배포되면 CLI 출력의 서비스 엔드포인트에 대한 공용 IP 주소를 복사합니다.  웹 브라우저에서 IP 주소를 엽니다. Azure Service Fabric Mesh 로고가 있는 웹 페이지가 표시됩니다.
+응용 프로그램이 성공적으로 배포되면 CLI 출력의 서비스 엔드포인트에 대한 공용 IP 주소를 복사합니다. 웹 브라우저에서 IP 주소를 엽니다. Azure Service Fabric Mesh 로고가 있는 웹 페이지가 표시됩니다.
 
 ## <a name="check-the-application-details"></a>응용 프로그램 세부 정보 확인
 `az mesh app show` 명령을 사용하여 응용 프로그램 상태를 확인할 수 있습니다. 이 명령은 수행할 수 있는 유용한 정보를 제공합니다.

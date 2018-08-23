@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0f64bcecadf5979e9983028354c41457771020bd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129288"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166486"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Azure Dev Space에 사용하도록 설정된 Kubernetes 클러스터 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "40129288"
     - **클러스터 세부 정보**: 이름, 영역(현재는 EastUS, Central US, WestEurope, WestUS2, CanadaCentral 또는 CanadaEast를 선택해야 함), 버전 및 AKS 클러스터의 DNS 이름 접두사를 입력합니다.
     - **규모**: AKS 에이전트 노드의 VM 크기 및 노드 수를 선택합니다. Azure Dev Spaces를 시작하는 경우 노드 하나만 있으면 모든 기능을 탐색할 수 있습니다. 노드 수는 클러스터 배포 후 언제든지 쉽게 조정할 수 있습니다. AKS 클러스터를 만든 후에는 VM 크기를 변경할 수 없습니다. 하지만 규모를 확장해야 하는 경우 AKS 클러스터를 배포한 후 간단하게 더 큰 VM이 있는 새 AKS 클러스터를 만들고 Dev Spaces를 사용하여 해당 클러스터를 다시 배포하면 됩니다.
 
-   Kubernetes 버전 1.10.3 이상을 선택해야 합니다.
+   Kubernetes 버전 1.9.6 이상을 선택해야 합니다.
 
    ![Kubernetes 구성 설정](../media/common/Kubernetes-Create-Cluster-2.PNG)
 

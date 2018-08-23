@@ -1,7 +1,7 @@
 ---
-title: Azure SQL Database 관리되는 인스턴스에 백업 복원 | Microsoft Docs
-description: SSMS를 사용하여 Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업을 복원합니다.
-keywords: SQL Database 자습서, SQL Database 관리되는 인스턴스, 백업 복원
+title: Azure SQL Database Managed Instance에 백업 복원 | Microsoft Docs
+description: SSMS를 사용하여 Azure SQL Database Managed Instance에 데이터베이스 백업을 복원합니다.
+keywords: SQL Database 자습서, SQL Database Managed Instance, 백업 복원
 services: sql-database
 author: bonova
 ms.reviewer: carlrab, srbozovi
@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: 1d8db471a3f8ebf9dbcce77b101a2688f2570fd6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 5dd8b1f662f1ae6d6502743c6d976db4b58e962f
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37949887"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918952"
 ---
-# <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리되는 인스턴스에 데이터베이스 백업 복원
+# <a name="restore-a-database-backup-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance에 데이터베이스 백업 복원
 
-이 자습서에서는 Wide World Importers - 표준 백업 파일을 사용하여 Azure Blob 저장소에 저장된 데이터베이스의 백업을 관리되는 인스턴스로 복원하는 방법을 설명합니다. 이 메서드는 가동 중지 시간이 필요합니다. Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 관리되는 인스턴스 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요. 다양한 마이그레이션 방법의 논의는 [SQL Server 인스턴스를 Azure SQL Database 관리되는 인스턴스로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
+이 자습서에서는 Wide World Importers - 표준 백업 파일을 사용하여 Azure Blob Storage에 저장된 데이터베이스의 백업을 Managed Instance로 복원하는 방법을 설명합니다. 이 메서드는 가동 중지 시간이 필요합니다. Azure DMS(Database Migration Service)를 사용하여 마이그레이션하는 방법에 대한 자습서는 [DMS를 사용하여 Managed Instance 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요. 다양한 마이그레이션 방법의 논의는 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요.
 
 > [!div class="checklist"]
 > * Wide World Importers - Standard 백업 파일 다운로드
@@ -29,7 +29,7 @@ ms.locfileid: "37949887"
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 이 자습서: [Azure SQL Database 관리되는 인스턴스 만들기](sql-database-managed-instance-create-tutorial-portal.md)에서 만든 리소스를 해당 시작점으로 사용합니다.
+이 자습서에서는 이 자습서: [Azure SQL Database Managed Instance 만들기](sql-database-managed-instance-get-started.md)에서 만든 리소스를 해당 시작점으로 사용합니다.
 
 ## <a name="download-the-wide-world-importers---standard-backup-file"></a>Wide World Importers - Standard 백업 파일 다운로드
 
@@ -39,7 +39,7 @@ Internet Explorer를 사용하여 URL에 주소 상자에 https://github.com/Mic
 
 ## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure 포털](https://portal.azure.com/#create/Microsoft.SQLManagedInstance) 에 로그인합니다.
+[Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance)에 로그인합니다.
 
 ## <a name="create-azure-storage-account-and-upload-backup-file"></a>Azure 저장소 계정 만들기 및 백업 파일 업로드
 
@@ -118,7 +118,7 @@ Internet Explorer를 사용하여 URL에 주소 상자에 https://github.com/Mic
 
 ## <a name="restore-the-wide-world-importers-database-from-a-backup-file"></a>백업 파일에서 Wide World Importers 데이터베이스 복원
 
-SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 관리되는 인스턴스로 Wide World Importers 데이터베이스를 복원합니다.
+SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 Managed Instance로 Wide World Importers 데이터베이스를 복원합니다.
 
 1. SSMS에서 새 쿼리 창을 엽니다.
 2. 다음 스크립트를 사용하여 SAS 자격 증명을 만듭니다. 저장소 계정 컨테이너 및 SAS 키에 대한 URL을 표시된 대로 제공합니다.
@@ -167,14 +167,15 @@ SSMS를 사용하면 다음 단계를 사용하여 백업 파일에서 관리되
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Wide World Importers - 표준 백업 파일을 사용하여 Azure Blob 저장소에 저장된 데이터베이스의 백업을 관리되는 인스턴스로 복원하는 방법을 알아보았습니다. 다음 방법에 대해 알아보았습니다. 
+이 자습서에서는 Wide World Importers - 표준 백업 파일을 사용하여 Azure Blob Storage에 저장된 데이터베이스의 백업을 Managed Instance로 복원하는 방법을 알아보았습니다. 다음 방법에 대해 알아보았습니다. 
 
 > [!div class="checklist"]
 > * Wide World Importers - Standard 백업 파일 다운로드
 > * Azure 저장소 계정 만들기 및 백업 파일 업로드
 > * 백업 파일에서 Wide World Importers 데이터베이스 복원
 
-DMS를 사용하여 Azure SQL Database 관리되는 인스턴스로 SQL Server를 마이그레이션하는 방법을 알아보려면 다음 자습서로 이동합니다.
+DMS를 사용하여 Azure SQL Database Managed Instance로 SQL Server를 마이그레이션하는 방법을 알아보려면 다음 자습서로 이동합니다.
 
 > [!div class="nextstepaction"]
->[DMS를 사용하여 Azure SQL Database 관리되는 인스턴스로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)
+>
+  [DMS를 사용하여 Azure SQL Database Managed Instance로 SQL Server 마이그레이션](../dms/tutorial-sql-server-to-managed-instance.md)

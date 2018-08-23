@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 06/21/2018
 ms.author: jingwang
-ms.openlocfilehash: f7dd560a40eda2439e88d66771e2e22c90442bfd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6e63973f2545abefc030edc4c6bb6b35c28729f7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421518"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920118"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob 저장소에서 SQL 데이터베이스로 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -38,7 +38,7 @@ ms.locfileid: "39421518"
 ## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure 저장소 계정**: Blob 저장소를 _원본_ 데이터 저장소로 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)의 지침을 참조하세요.
+* **Azure 저장소 계정**: Blob 저장소를 _원본_ 데이터 저장소로 사용합니다. Azure 저장소 계정이 없는 경우 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 * **Azure SQL 데이터베이스**: SQL 데이터베이스를 _싱크_ 데이터 저장소로 사용합니다. SQL 데이터베이스가 없는 경우 [SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 참조하세요.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Blob 및 SQL 테이블 만들기
@@ -76,7 +76,7 @@ ms.locfileid: "39421518"
 
     a. 왼쪽에서 **더 많은 서비스**를 선택한 다음, **SQL 서버**를 선택합니다.
 
-    나. 서버를 선택한 다음, **설정** > **방화벽**을 차례로 선택합니다.
+    b. 서버를 선택한 다음, **설정** > **방화벽**을 차례로 선택합니다.
 
     다. **방화벽 설정** 페이지에서 **Azure 서비스 방문 허용** 옵션을 **켜기**로 설정합니다.
 
@@ -99,7 +99,7 @@ ms.locfileid: "39421518"
      
     a. **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
-    나. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
+    b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
          
     리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.
 
@@ -129,7 +129,7 @@ ms.locfileid: "39421518"
 
     ![새로 연결된 원본 서비스](./media/tutorial-copy-data-tool/new-source-linked-service.png)
 
-    나. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
+    b. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
 
     ![Blob 원본 선택](./media/tutorial-copy-data-tool/select-blob-source.png)
 
@@ -147,7 +147,7 @@ ms.locfileid: "39421518"
 
     ![입력 파일 또는 폴더 선택](./media/tutorial-copy-data-tool/specify-source-path.png)
 
-    나. **다음**을 클릭하여 다음 단계로 이동합니다.
+    b. **다음**을 클릭하여 다음 단계로 이동합니다.
 
 1. **파일 형식 설정** 페이지에서 도구를 통해 열 및 행 구분 기호를 자동으로 검색합니다. **다음**을 선택합니다. 또한 이 페이지에서 데이터를 미리 보고 입력 데이터의 스키마를 볼 수도 있습니다. 
 
@@ -158,7 +158,7 @@ ms.locfileid: "39421518"
 
     ![새로 연결된 싱크 서비스](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    나. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
+    b. 갤러리에서 **Azure Blob Storage**를 선택한 후 **다음**을 선택합니다.
 
     ![Azure SQL DB 선택](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 

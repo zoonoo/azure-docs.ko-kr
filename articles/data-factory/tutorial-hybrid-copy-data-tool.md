@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: hero-article
 ms.date: 01/04/2018
 ms.author: jingwang
-ms.openlocfilehash: e9ace23108b33c1e03db2159dd1da68be8d88e0a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f47582cf9fa1a58295c9d32c480ed894179cd92d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422009"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920773"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob 저장소로 데이터 복사
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -71,7 +71,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
     ```
 
 ### <a name="azure-storage-account"></a>Azure Storage 계정
-이 자습서에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 대상/싱크 데이터 저장소로 사용합니다. 범용 저장소 계정이 없는 경우 새로 만들기 위한 지침은 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md#create-a-storage-account)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 이 Blob 저장소(싱크)로 데이터를 복사합니다. 
+이 자습서에서는 범용 Azure 저장소 계정(특히 Blob 저장소)을 대상/싱크 데이터 저장소로 사용합니다. 범용 저장소 계정이 없는 경우 새로 만들기 위한 지침은 [저장소 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요. 이 자습서에서 만드는 데이터 팩터리의 파이프라인은 온-프레미스 SQL Server 데이터베이스(원본)에서 이 Blob 저장소(싱크)로 데이터를 복사합니다. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>저장소 계정 이름 및 계정 키 가져오기
 이 자습서에서는 저장소 계정의 이름과 키를 사용합니다. 저장소 계정의 이름과 키를 가져오려면 다음 단계를 수행합니다. 
@@ -192,7 +192,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
       a. **이름** 아래에서 **SqlServerLinkedService**를 입력합니다.
 
-      나. **서버 이름** 아래에서 온-프레미스 SQL Server 인스턴스의 이름을 입력합니다.
+      b. **서버 이름** 아래에서 온-프레미스 SQL Server 인스턴스의 이름을 입력합니다.
 
       다. **데이터베이스 이름** 아래에서 온-프레미스 데이터베이스의 이름을 입력합니다.
 
@@ -224,7 +224,7 @@ Data Factory 인스턴스를 만들려면 Azure에 로그인하는 데 사용할
 
      a. **이름****아래에서 **AzureStorageLinkedService**를 입력합니다.
 
-     나. **통합 런타임을 통해 연결**에서 **TutorialIntegrationRuntime**을 선택합니다.
+     b. **통합 런타임을 통해 연결**에서 **TutorialIntegrationRuntime**을 선택합니다.
 
      다. **저장소 계정 이름** 아래의 드롭다운 목록에서 저장소 계정을 선택합니다. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505716"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41918938"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Azure Key Vault 시작
 이 문서는 PowerShell을 사용하여 Azure Key Vault를 시작할 수 있도록 하고 다음 활동을 따르는 과정을 안내합니다.
@@ -28,9 +28,6 @@ ms.locfileid: "39505716"
 - 응용 프로그램이 해당 키 또는 암호를 사용할 수 있는 방법.
 
 Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음 가격 책정 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
-
-> [!NOTE]
-> 이 문서는 Azure 응용 프로그램을 작성하는 방법에 대한 지침을 다루지 않습니다. 이 단계에 대한 [Azure Key Vault 샘플 응용 프로그램](https://www.microsoft.com/download/details.aspx?id=45343)을 사용할 수 있습니다.
 
 플랫폼 간 명령줄 인터페이스 지침은 [이 해당 자습서](key-vault-manage-with-cli2.md)를 참조하세요.
 
@@ -269,7 +266,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalNa
 ## <a id="HSM"></a>하드웨어 보안 모듈(HSM)로 작업함
 추가된 보증을 위해, HSM 경계를 절대로 떠나지 않는 하드웨어 보안 모듈(HSMs)에서 키를 가져오거나 생성할 수 있습니다. HSM은 FIPS 140-2 Level 2 유효성 검사가 적용됩니다. 이 요구 사항이 사용자에게 적용되지 않는 경우, 이 섹션을 건너뛰고 [키 자격 증명 모음 및 연결된 키와 암호 삭제](#delete)로 이동합니다.
 
-이러한 HSM 보호 키를 만들려면 [HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층](https://azure.microsoft.com/pricing/free-trial/)을 사용해야 합니다. 또한 이 기능은 Azure 중국에 사용할 수 없습니다.
+이러한 HSM 보호 키를 만들려면 [HSM 보호 키를 지원하는 Azure Key Vault 프리미엄 서비스 계층](https://azure.microsoft.com/pricing/details/key-vault/)을 사용해야 합니다. 또한 이 기능은 Azure 중국에 사용할 수 없습니다.
 
 주요 자격 증명 모음을 만들 때 **-SKU** 매개 변수를 추가합니다.
 

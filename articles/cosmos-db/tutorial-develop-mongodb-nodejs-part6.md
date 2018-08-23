@@ -10,14 +10,14 @@ ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/17/2018
-ms.author: john.papa
+ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: bceb984a3f309ce1220204abf5f703cc166ddf82
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2daa0232e5707f0931ce05d8f08611ef0b318cc3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248151"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41917620"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>Angular 및 Azure Cosmos DB를 사용하여 MongoDB 앱 만들기 - 6부: 앱에 게시, 배치 및 삭제 함수 추가
 
@@ -80,7 +80,7 @@ ms.locfileid: "39248151"
     };
     ```
 
-4. **routes.js**에서 `get` 라우터 뒤에 `post` 함수에 라우터를 추가합니다. 이 라우터는 한 번에 하나의 Hero를 게시합니다. 이 방식으로 라우터 파일 구조를 지정하면 사용 가능한 모든 API 끝점을 표시하고 **hero.service.js** 파일에 실제 작업만 남겨둡니다.
+4. **routes.js**에서 `get` 라우터 뒤에 `post` 함수에 라우터를 추가합니다. 이 라우터는 한 번에 하나의 Hero를 게시합니다. 이 방식으로 라우터 파일 구조를 지정하면 사용 가능한 모든 API 엔드포인트를 표시하고 **hero.service.js** 파일에 실제 작업만 남겨둡니다.
 
     ```javascript
     router.post('/hero', (req, res) => {

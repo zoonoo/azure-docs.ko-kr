@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: 303c1cfaf2b91712f706c5b78e027bb02739c770
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074369"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41921036"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>자습서: VSTS를 사용하여 CI/CD로 Azure Stream Analytics 작업 배포
 이 자습서에서는 Visual Studio Team Services를 사용하여 Azure Stream Analytics 작업에 대한 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
@@ -32,8 +32,8 @@ ms.locfileid: "39074369"
 
 * Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 및 **Azure 개발** 또는 **데이터 저장소 및 처리** 워크로드를 설치합니다.
-* [Visual Studio에서 Stream Analytics 프로젝트](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs)를 만듭니다.
-* [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) 계정을 만듭니다.
+* [Visual Studio에서 Stream Analytics 프로젝트](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs)를 만듭니다.
+* [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/) 계정을 만듭니다.
 
 ## <a name="configure-nuget-package-dependency"></a>NuGet 패키지 종속성 구성
 임의의 시스템에서 자동 빌드 및 자동 배포를 수행하려면 NuGet 패키지 `Microsoft.Azure.StreamAnalytics.CICD`를 사용해야 합니다. Stream Analytics Visual Studio 프로젝트의 지속적 통합과 배포를 지원하는 MSBuild, 로컬 실행 및 배포 도구를 제공합니다. 자세한 내용은 [Stream Analytics CI/CD 도구](stream-analytics-tools-for-visual-studio-cicd.md)를 참조하세요.

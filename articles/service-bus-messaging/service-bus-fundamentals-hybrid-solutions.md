@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: get-started-article
 ms.date: 05/23/2018
 ms.author: sethm
-ms.openlocfilehash: 994510b415e21288fd38a116f7e77a59ba79af59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bef88f09f182b1bb450ee0e045985ed59d5b5648
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641325"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41924814"
 ---
 # <a name="azure-service-bus"></a>Azure Service Bus
 
@@ -36,7 +36,12 @@ Service Bus는 다중 테넌트 클라우드 서비스로, 여러 사용자가 �
 * *토픽* - *구독*을 사용하는 단방향 통신을 제공합니다. 단일 토픽에는 여러 개의 구독이 있을 수 있습니다. 큐와 마찬가지로 토픽은 브로커 역할을 하지만 각 구독은 필요에 따라 필터를 사용하여 특정 기준과 일치하는 메시지만 수신할 수 있습니다.
 * *릴레이*- 양방향 통신을 제공합니다. 큐 및 토픽과 달리 릴레이는 처리 중인 메시지를 저장하지 않으며, 브로커 역할을 하지 않고 단순히 메시지를 대상 응용 프로그램으로 전달합니다.
 
-큐, 토픽 또는 릴레이를 만들 때 이름을 지정합니다. 이 이름은 네임스페이스 이름과 결합되어 개체의 고유 식별자를 만듭니다. 응용 프로그램은 Service Bus에 이 이름을 제공한 다음 해당 큐, 토픽 또는 릴레이를 사용하여 서로 통신할 수 있습니다. 
+큐, 토픽 또는 릴레이를 만들 때 이름을 지정합니다. 이 이름은 네임스페이스 이름과 결합되어 개체의 고유 식별자를 만듭니다. 응용 프로그램은 Service Bus에 이 이름을 제공한 다음 해당 큐, 토픽 또는 릴레이를 사용하여 서로 통신할 수 있습니다.
+
+ >**예:**   
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;queue-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;topic-name&gt;*  
+     *https://&lt;servicebus-namespace-name&gt;.servicebus.windows.net/&lt;relay-name&gt;*  
 
 릴레이 시나리오에서 이러한 개체를 사용하기 위해 Windows 응용 프로그램은 WCF(Windows Communication Foundation)를 사용할 수 있습니다. 이 서비스는 [WCF 릴레이](../service-bus-relay/relay-what-is-it.md)라고 합니다. 큐와 토픽의 경우 Windows 응용 프로그램이 Service Bus로 정의된 메시지 API를 사용할 수 있습니다. 이러한 개체를 Windows 이외의 응용 프로그램에서 더욱 쉽게 사용할 수 있도록 Microsoft는 Java, Node.js 및 기타 언어용 SDK를 제공합니다. HTTP를 통해 [REST API](/rest/api/servicebus/)를 사용하여 큐 및 토픽에 액세스할 수도 있습니다. 
 
@@ -94,7 +99,7 @@ Service Bus 큐를 사용하여 두 개의 응용 프로그램을 연결한다�
 
 회사 데이터 센터 내부에서 실행되는 두 개의 온-프레미스 응용 프로그램을 연결하려 한다고 가정해 보세요. 각 응용 프로그램은 방화벽 뒤에 있고, 각 데이터 센터에서 NAT(Network Address Translation)를 사용합니다. 방화벽은 몇 개의 포트를 제외한 모든 포트에서 들어오는 데이터를 차단합니다. 또한 NAT가 사용되므로 각 응용 프로그램이 실행되는 컴퓨터에는 데이터 센터 외부에서 직접 연결할 수 있는 고정 IP 주소가 없습니다. 추가 도움이 없으면 공용 인터넷을 통해 이러한 응용 프로그램을 연결하는 데 문제가 있습니다.
 
-Azure Service Bus 릴레이는 도움이 됩니다. 릴레이를 통해 양방향으로 통신하기 위해 각 응용 프로그램은 Service Bus와 아웃바운드 TCP 연결을 설정한 다음 열어 둡니다. 두 응용 프로그램 간의 모든 통신은 이러한 연결을 통해 전송됩니다. 각 연결이 데이터 센터 내부에서 설정되었으므로 새 포트를 열지 않아도 방화벽은 각 응용 프로그램으로 들어오는 트래픽을 허용합니다. 이 방식을 사용할 경우 전체 통신 과정에서 각 응용 프로그램이 클라우드의 일관된 끝점을 사용하므로 NAT 문제도 해결됩니다. 릴레이를 통해 데이터를 교환하면 응용 프로그램에서 통신을 어렵게 만드는 문제를 피할 수 있습니다. 
+Azure Service Bus 릴레이는 도움이 됩니다. 릴레이를 통해 양방향으로 통신하기 위해 각 응용 프로그램은 Service Bus와 아웃바운드 TCP 연결을 설정한 다음 열어 둡니다. 두 응용 프로그램 간의 모든 통신은 이러한 연결을 통해 전송됩니다. 각 연결이 데이터 센터 내부에서 설정되었으므로 새 포트를 열지 않아도 방화벽은 각 응용 프로그램으로 들어오는 트래픽을 허용합니다. 이 방식을 사용할 경우 전체 통신 과정에서 각 응용 프로그램이 클라우드의 일관된 엔드포인트를 사용하므로 NAT 문제도 해결됩니다. 릴레이를 통해 데이터를 교환하면 응용 프로그램에서 통신을 어렵게 만드는 문제를 피할 수 있습니다. 
 
 Service Bus 릴레이를 사용하기 위해 응용 프로그램은 WCF(Windows Communication Foundation)를 사용합니다. Service Bus는 Windows 응용 프로그램이 릴레이를 통해 간단하게 상호 작용할 수 있게 해 주는 WCF 바인딩을 제공합니다. 이미 WCF를 사용하는 응용 프로그램은 일반적으로 이러한 바인딩 중 하나만 지정한 다음 릴레이를 통해 서로 통신할 수 있습니다. 그러나 큐 및 토픽과 달리 Windows가 아닌 응용 프로그램에서 릴레이를 사용할 수는 있지만 이 경우 약간의 프로그래밍이 필요하며 표준 라이브러리가 제공되지 않습니다.
 

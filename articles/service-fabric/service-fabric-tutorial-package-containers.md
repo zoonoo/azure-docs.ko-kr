@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: be4ac20f578dc670a3d9c83124504c37e57ee9bf
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 952550225f2bdd8559d72a9d283993451ae7f60b
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108776"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616346"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 응용 프로그램으로 컨테이너 패키징 및 배포
 
@@ -47,18 +47,18 @@ Service Fabric은 Yeoman 템플릿 생성기를 사용하여 터미널에서 응
 1. 컴퓨터에서 Node.js 및 NPM을 설치합니다. Mac OSX 사용자는 Homebrew 패키지 관리자를 사용해야 합니다
 
     ```bash
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-    sudo apt-get install -y nodejs 
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
+    nvm install node 
     ```
 2. NPM의 컴퓨터에 Yeoman 템플릿 생성기 설치
 
     ```bash
-    sudo npm install -g yo
+    npm install -g yo
     ```
 3. Service Fabric Yeoman 컨테이너 생성기 설치
 
-    ```bash
-    sudo npm install -g generator-azuresfcontainer
+    ```bash 
+    npm install -g generator-azuresfcontainer
     ```
 
 ## <a name="package-a-docker-image-container-with-yeoman"></a>Yeoman에서 Docker 이미지 컨테이너 패키징
@@ -150,7 +150,7 @@ az acr credential show -n <acrName> --query passwords[0].value
 
 ### <a name="configure-communication-port"></a>통신 포트 구성
 
-클라이언트가 서비스와 통신할 수 있도록 HTTP 끝점을 구성합니다. *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* 파일을 열고 **ServiceManifest** 요소에서 끝점 리소스를 선언합니다.  프로토콜, 포트 및 이름을 추가합니다. 이 자습서에서 서비스는 포트 80에서 수신 대기합니다. 다음 코드 조각은 리소스의 *ServiceManifest* 태그 아래에 배치됩니다.
+클라이언트가 서비스와 통신할 수 있도록 HTTP 엔드포인트를 구성합니다. *./TestContainer/azurevotefrontPkg/ServiceManifest.xml* 파일을 열고 **ServiceManifest** 요소에서 엔드포인트 리소스를 선언합니다.  프로토콜, 포트 및 이름을 추가합니다. 이 자습서에서 서비스는 포트 80에서 수신 대기합니다. 다음 코드 조각은 리소스의 *ServiceManifest* 태그 아래에 배치됩니다.
 
 ```xml
 <Resources>
@@ -177,11 +177,11 @@ az acr credential show -n <acrName> --query passwords[0].value
 </Resources>
 ```
 
-**UriScheme**을 입력하면 컨테이너 끝점이 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 백 엔드 서비스의 전체 ServiceManifest.xml 예제 파일을 이 문서의 끝에서 예제로 제공합니다.
+**UriScheme**을 입력하면 컨테이너 엔드포인트가 검색될 수 있도록 Service Fabric Naming 서비스에 자동으로 등록됩니다. 백 엔드 서비스의 전체 ServiceManifest.xml 예제 파일을 이 문서의 끝에서 예제로 제공합니다.
 
 ### <a name="map-container-ports-to-a-service"></a>서비스에 컨테이너 포트 매핑
 
-또한 클러스터에서 컨테이너를 노출하려면 'ApplicationManifest.xml'에서 포트 바인딩을 만들어야 합니다. **PortBinding** 정책은 **ServiceManifest.xml** 파일에서 정의한 **끝점**을 참조합니다. 이러한 끝점에 들어오는 요청은 여기에서 열리고 바인딩된 컨테이너 포트에 매핑됩니다. **ApplicationManifest.xml** 파일에서 다음 코드를 추가하여 끝점에 포트 80 및 6379를 바인딩합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml**을 사용할 수 있습니다.
+또한 클러스터에서 컨테이너를 노출하려면 'ApplicationManifest.xml'에서 포트 바인딩을 만들어야 합니다. **PortBinding** 정책은 **ServiceManifest.xml** 파일에서 정의한 **엔드포인트**를 참조합니다. 이러한 엔드포인트에 들어오는 요청은 여기에서 열리고 바인딩된 컨테이너 포트에 매핑됩니다. **ApplicationManifest.xml** 파일에서 다음 코드를 추가하여 엔드포인트에 포트 80 및 6379를 바인딩합니다. 이 문서의 끝에서 전체 **ApplicationManifest.xml**을 사용할 수 있습니다.
 
 ```xml
 <ContainerHostPolicies CodePackageRef="Code">

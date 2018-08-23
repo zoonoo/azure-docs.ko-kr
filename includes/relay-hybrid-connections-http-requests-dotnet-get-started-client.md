@@ -5,15 +5,15 @@ services: service-bus-relay
 author: clemensv
 ms.service: service-bus-relay
 ms.topic: include
-ms.date: 05/02/2018
+ms.date: 08/16/2018
 ms.author: clemensv
 ms.custom: include file
-ms.openlocfilehash: 4a3f38e1423db0755d8c76f8850e41173d250f43
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: e07d82b8a3aea4f0db0f5a071d78ea360cd611ab
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33904989"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40177256"
 ---
 ### <a name="create-a-console-application"></a>콘솔 응용 프로그램 만들기
 
@@ -36,6 +36,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net.Http;
     using Microsoft.Azure.Relay;
     ```
 2. 상수를 하이브리드 연결 정보의 `Program` 클래스에 추가합니다. 대괄호에 포함된 자리 표시자를 하이브리드 연결을 만들 때 가져온 값으로 바꿉니다. 정규화된 네임스페이스 이름을 사용해야 합니다.
@@ -63,7 +64,7 @@ Visual Studio에서 새 **콘솔 앱(.NET Framework)** 프로젝트를 만듭니
         };
         request.Headers.Add("ServiceBusAuthorization", token);
         var response = await client.SendAsync(request);
-        Console.WriteLine(await response.Content.ReadAsStringAsync());
+        Console.WriteLine(await response.Content.ReadAsStringAsync());        Console.ReadLine();
     }
     ```
 4. `Program` 클래스의 `Main` 메서드에 다음 코드 줄을 추가합니다.

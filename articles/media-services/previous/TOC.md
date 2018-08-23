@@ -30,7 +30,7 @@
 ### 엔터티
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST (영문)](media-services-rest-manage-entities.md)
-### [스트리밍 끝점](media-services-streaming-endpoints-overview.md)
+### [스트리밍 엔드포인트](media-services-streaming-endpoints-overview.md)
 #### [Azure Portal](media-services-portal-manage-streaming-endpoints.md)
 #### [.NET](media-services-dotnet-manage-streaming-endpoints.md)
 ### 저장소
@@ -183,7 +183,7 @@
 ### [미디어 처리](media-services-scale-media-processing-overview.md)
 #### [Azure Portal](media-services-portal-scale-media-processing.md)
 #### [.NET](media-services-dotnet-encoding-units.md)
-### 스트리밍 끝점
+### 스트리밍 엔드포인트
 #### [Azure Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [콘텐츠 배달](media-services-deliver-content-overview.md)
@@ -230,7 +230,7 @@
 # 참고 자료
 ## [코드 샘플](https://azure.microsoft.com/resources/samples/?service=media-services)
 ## [Azure PowerShell(Resource Manager)](/powershell/module/azurerm.media)
-## [Azure PowerShell(서비스 관리)](/powershell/module/azure/?view=azuresmps-3.7.0)
+## [Azure PowerShell(서비스 관리)](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0)
 ## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
 ## [REST](/rest/api/media/mediaservice)
 ## 사양

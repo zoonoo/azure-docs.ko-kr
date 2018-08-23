@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: f6252b09078bcce936fc3102725519e5e433f8c4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 67d514fe6315604016dc10b7dfc8154c3919f914
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38481801"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616546"
 ---
 # <a name="get-started"></a>빠른 시작: Azure PowerShell을 사용하여 표준 Load Balancer 만들기
 이 빠른 시작에서는 Azure PowerShell을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다. 부하 분산 장치를 테스트하려면 Windows 서버를 실행하는 두 VM(가상 머신)을 배포하고 두 VM 사이에 있는 웹앱의 부하를 분산합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer란?](load-balancer-standard-overview.md)을 참조하세요.
@@ -44,10 +44,12 @@ New-AzureRmResourceGroup `
 
 ```azurepowershell-interactive
 $publicIP = New-AzureRmPublicIpAddress `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Location "EastUS" `
-  -AllocationMethod "Dynamic" `
-  -Name "myPublicIP"
+-Name "myPublicIP" `
+-ResourceGroupName "myResourceGroupLB" `
+-Location "EastUS" `
+-Sku "Standard" `
+-AllocationMethod "Static"
+  
 ```
 ## <a name="create-standard-load-balancer"></a>표준 Load Balancer 만들기
  이 섹션에서는 부하 분산 장치에 대해 프런트 엔드 IP 및 백 엔드 주소 풀을 구성한 다음, 기본 Load Balancer를 만듭니다.

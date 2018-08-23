@@ -2,7 +2,7 @@
 title: Cassandra 데이터를 Azure Cosmos DB로 가져오기 | Microsoft Docs
 description: CQL Copy 명령을 사용하여 Cassandra 데이터를 Azure Cosmos DB에 복사하는 방법에 대해 알아봅니다.
 services: cosmos-db
-author: govindk
+author: kanshiG
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: 73c9f1fc26f5cb36cc475a66b67705c6177bebf8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: b53328875f2242faba369dea0df655bc78117009
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37095675"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41918233"
 ---
 # <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Cassandra 데이터 가져오기
 
@@ -50,7 +50,7 @@ ms.locfileid: "37095675"
 Cassandra API에서 사용할 수 있도록 Cassandra 데이터를 Azure Cosmos DB로 가져오려면 다음 지침을 사용하세요.
 
 1. 포털에서 연결 정보를 사용하여 cqhsh에 로그인합니다.
-2. [CQL COPY 명령](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh)을 사용하여 로컬 데이터를 Apache Cassandra API 끝점에 복사합니다. 대기 시간 문제를 최소화하려면 소스 및 대상이 동일한 데이터 센터에 있는지 확인하세요.
+2. [CQL COPY 명령](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh)을 사용하여 로컬 데이터를 Apache Cassandra API 엔드포인트에 복사합니다. 대기 시간 문제를 최소화하려면 소스 및 대상이 동일한 데이터 센터에 있는지 확인하세요.
 
 ### <a name="guide-for-moving-data-with-cqlsh"></a>데이터를 cqlsh로 이동하기 위한 가이드
 

@@ -78,7 +78,7 @@
 ### [Linux에서 Azure 파일 저장소 사용 방법](../../storage/files/storage-how-to-use-files-linux.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Table Storage 시작](../../cosmos-db/table-storage-how-to-use-dotnet.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Queue Storage 시작](../../storage/queues/storage-dotnet-how-to-use-queues.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [저장소 계정을 만드는](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
+### [저장소 계정을 만드는](../../storage/common/storage-quickstart-create-account.md)
 ### [Azure Storage와 함께 Azure PowerShell 사용](../../storage/common/storage-powershell-guide-full.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage에서 Azure CLI 사용.](../../storage/common/storage-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 ### [Azure Storage 클라이언트 도구](../../storage/common/storage-explorers.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

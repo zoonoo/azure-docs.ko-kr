@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: eefb07136215d79b7c351dd4498bfeb79b6833de
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 27f271a20af2bb9910f1cf7d63e6033d78e67b83
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413753"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919561"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>자습서: 로그인 화면에서 Azure AD 암호 재설정
 
@@ -86,8 +86,6 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
 Intune을 사용하여 로그인 화면에 암호 재설정 링크를 사용하도록 설정하기 위한 장치 구성 정책을 만들어서 할당했습니다.
 
 ## <a name="configure-reset-password-link-using-the-registry"></a>레지스트리를 사용하여 암호 재설정 링크 구성
-
-설정 변경을 테스트할 때에는 이 메서드를 사용하는 것이 좋습니다.
 
 1. 관리 자격 증명을 사용하여 Windows PC에 로그인
 2. 관리자 권한으로 **regedit** 실행

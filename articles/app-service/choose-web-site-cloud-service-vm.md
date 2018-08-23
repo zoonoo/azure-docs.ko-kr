@@ -3,9 +3,8 @@ title: Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services �
 description: 웹 응용 프로그램을 호스트하는 데 Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 중에서 선택하는 방법에 대해 알아봅니다.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224958"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022565"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service, Virtual Machines, Service Fabric 및 Cloud Services 비교
-## <a name="overview"></a>개요
+
 Azure는 [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric] 및 [Cloud Services][Cloud Services] 등 웹 사이트를 호스트하는 여러 가지 방법을 제공합니다. 이 문서에서는 각 옵션에 대해 파악하고 웹 응용 프로그램에 적합한 옵션을 선택하는 데 도움이 되는 정보를 제공합니다.
 
 대부분의 웹앱에서는 Azure App Service가 가장 적합합니다. Azure 웹 사이트에서는 배포와 관리 기능이 플랫폼에 통합되고, 높은 트래픽 부하를 처리하기 위해 사이트를 빠르게 확장할 수 있으며, 기본 제공 부하 분산 및 Traffic Manager가 고가용성을 제공합니다. [온라인 마이그레이션 도구][migrate-tool]를 사용하여 기존 사이트를 Azure App Service로 쉽게 이동하거나, 웹 응용 프로그램 갤러리에서 오픈 소스 앱을 사용하거나, 원하는 프레임워크와 도구를 사용하여 새 사이트를 만들 수 있습니다. [WebJobs][WebJobs] 기능을 사용하면 백그라운드 작업 처리 기능을 App Service 웹앱에 쉽게 추가할 수 있습니다.
@@ -58,7 +57,7 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 | TFS를 사용하여 코드 배포 |X |X |X |X | |
 | [Azure Virtual Network](/azure/virtual-network/)를 사용한 네트워크 격리 |X |X |X |X |[Azure Websites Virtual Network 통합](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | [Azure Traffic Manager](/azure/traffic-manager/) 지원 |X |X |X |X | |
-| 통합된 끝점 모니터링 |X |X |X | | |
+| 통합된 엔드포인트 모니터링 |X |X |X | | |
 | 서버에 대한 원격 데스크톱 액세스 | |X |X |X | |
 | 사용자 지정 MSI 설치 | |X |X |X |Service Fabric을 사용하면 모든 실행 파일을 [게스트 실행 파일](../service-fabric/service-fabric-guest-executables-introduction.md)로 호스트하거나 VM에 모든 응용 프로그램을 설치할 수 있습니다. |
 | 시작 작업 정의/실행 기능 | |X |X |X | |
@@ -68,7 +67,8 @@ App Service 또는 Service Fabric에서 실행하려면 기존 응용 프로그�
 아래에는 몇 가지 일반적인 응용 프로그램 시나리오와 권장 사항 및 각 시나리오에 가장 적합한 Azure 웹 호스팅 옵션이 나와 있습니다.
 
 * [온-프레미스 자산과 통합된 비즈니스 응용 프로그램을 실행하기 위한 데이터베이스 백 엔드 및 백그라운드 처리 기능이 있는 웹 프런트 엔드가 필요한 경우](#onprem)
-* [효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우](#corp)
+* 
+  [효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우](#corp)
 * [IIS6 응용 프로그램을 Windows Server 2003에서 실행 중인 경우](#iis6)
 * [작은 비즈니스 소유자가 사이트를 저렴하게 호스트할 방법을 찾고 있지만 미래 성장도 염두에 두고 있는 경우](#smallbusiness)
 * [웹 또는 그래픽 디자이너가 고객을 위해 웹 사이트를 디자인 및 구축하려는 경우](#designer)
@@ -87,7 +87,9 @@ Azure App Service는 복잡한 비즈니스 응용 프로그램에 적합한 솔
 * ISO, SOC2 및 PCI 호환성을 제공할 수 있습니다.
 * Active Directory와 통합할 수 있습니다.
 
-### <a id="corp"></a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우
+### 
+  <a id="corp">
+  </a> 효율적으로 확장 가능하며 전 세계적으로 제공할 수 있는 회사 웹 사이트를 호스트할 안정적인 방법이 필요한 경우
 Azure App Service는 회사 웹 사이트를 호스트하는 데 적합한 솔루션입니다. 전 세계 데이터 센터 네트워크의 요구를 충족하도록 웹앱을 빠르고 쉽게 확장할 수 있습니다. Azure 웹 사이트는 로컬 연결, 내결함성 및 지능형 트래픽 관리 기능을 제공합니다. 이러한 모든 기능이 최고 수준의 관리 도구가 포함된 플랫폼에서 제공되므로 사이트 상태와 사이트 트래픽을 빠르고 쉽게 파악할 수 있습니다. Azure App Service는 웹앱에 대해 999의 SLA를 제공하며 다음 작업을 수행할 수 있게 해줍니다.
 
 * 자동 복구 및 패치되는 클라우드 플랫폼에서 웹 사이트를 안정적으로 실행할 수 있습니다.
@@ -120,7 +122,8 @@ Azure App Service는 처음에 무료로 사용한 후 필요할 때 기능을 �
 * [자동화된 작업][scripting](영문)을 위해 명령줄 도구를 사용할 수 있습니다.
 * [.Net][dotnet], [PHP][PHP], [Node.js][nodejs] 및 [Python][Python] 등의 인기 있는 언어로 작업할 수 있습니다.
 * 매우 높은 기능까지 확장하기 위해 세 가지 확장 수준을 선택할 수 있습니다.
-* [SQL Database][sqldatabase], [Service Bus][servicebus], [저장소][Storage] 등의 다른 Azure 서비스 및 MySQL, MongoDB 등 [Azure 스토어][azurestore]의 파트너 제공 항목과 통합할 수 있습니다.
+* 
+  [SQL Database][sqldatabase], [Service Bus][servicebus], [저장소][Storage] 등의 다른 Azure 서비스 및 MySQL, MongoDB 등 [Azure 스토어][azurestore]의 파트너 제공 항목과 통합할 수 있습니다.
 * Visual Studio, Git, WebMatrix, WebDeploy, TFS, FTP 등의 도구와 통합할 수 있습니다.
 
 ### <a id="multitier"></a>웹 프런트 엔드가 있는 다중 계층 응용 프로그램을 클라우드로 마이그레이션하는 경우
@@ -149,7 +152,7 @@ App Service에서 오픈 소스 프레임워크가 지원되지 않는 경우에
 LOB(기간 업무) 애플리케이션을 만들려는 경우 웹 사이트에 회사 네트워크의 서비스 또는 데이터에 대한 직접 액세스 권한이 필요할 수 있습니다. App Service, 서비스 패브릭 및 Virtual Machines에서 [Azure Virtual Network 서비스](/azure/virtual-network/)를 사용하면 이와 같은 직접 액세스가 가능합니다. App Service에서 [VNET 통합 기능](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/)을 사용하면 Azure 응용 프로그램을 회사 네트워크에서와 같이 실행할 수 있습니다.
 
 ### <a id="mobile"></a>모바일 클라이언트를 위해 REST API 또는 웹 서비스를 호스트하려는 경우
-HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하여 다양한 클라이언트를 지원할 수 있습니다. ASP.NET Web API와 같은 프레임워크는 REST 서비스를 더 쉽게 만들고 소비할 수 있도록 Visual Studio와 통합됩니다.  이러한 서비스는 웹 끝점에서 노출되므로 Azure의 모든 웹 호스팅 기법을 사용하여 이 시나리오를 지원할 수 있습니다. 그러나 REST API를 호스트하는 데 적합한 옵션은 App Service입니다. App Service를 통해 다음 작업을 수행할 수 있습니다.
+HTTP 기반 웹 서비스를 사용하면 모바일 클라이언트를 포함하여 다양한 클라이언트를 지원할 수 있습니다. ASP.NET Web API와 같은 프레임워크는 REST 서비스를 더 쉽게 만들고 소비할 수 있도록 Visual Studio와 통합됩니다.  이러한 서비스는 웹 엔드포인트에서 노출되므로 Azure의 모든 웹 호스팅 기법을 사용하여 이 시나리오를 지원할 수 있습니다. 그러나 REST API를 호스트하는 데 적합한 옵션은 App Service입니다. App Service를 통해 다음 작업을 수행할 수 있습니다.
 
 * [모바일 앱](../app-service-mobile/app-service-mobile-value-prop.md) 또는 API 앱을 빠르게 만들어 전 세계에 분산된 Azure 데이터 센터 중 하나에서 HTTP 웹 서비스를 호스팅할 수 있습니다.
 * 기존 서비스를 마이그레이션하거나 새 서비스를 만들 수 있습니다.

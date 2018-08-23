@@ -4,20 +4,20 @@ description: mongoimport 및 mongorestore를 사용하여 데이터를 MongoDB A
 keywords: mongoimport, mongorestore
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+manager: slyons
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: sngun
+ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ffb15c3a608cb7b7be275913cf9dec84e655334a
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435325"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41917952"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB 데이터 가져오기 
 
@@ -106,7 +106,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
 
     a. MongoDB 셸에서 Azure Cosmos DB MongoDB 데이터베이스에 연결합니다. [Azure Cosmos DB에 MongoDB 응용 프로그램 연결](connect-mongodb-account.md)에서 지침을 찾을 수 있습니다.
     
-    나. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
+    b. MongoDB 셸에서 샘플 문서 중 하나를 사용하여 샘플 삽입 명령을 실행합니다.
     
         ```db.coll.insert({ "playerId": "a067ff", "hashedid": "bb0091", "countryCode": "hk" })```
         
@@ -129,7 +129,7 @@ MongoDB에서 데이터를 가져와 Azure Cosmos DB SQL API에 사용하려는 
     
     a. 다음 명령을 사용하여 MongoDB 셸에서 자세한 로깅 정보를 표시합니다. ```setVerboseShell(true)```
     
-    나. 데이터베이스에 대해 간단한 쿼리를 실행합니다. ```db.coll.find().limit(1)``` 다음과 같은 응답을 수신합니다.
+    b. 데이터베이스에 대해 간단한 쿼리를 실행합니다. ```db.coll.find().limit(1)``` 다음과 같은 응답을 수신합니다.
 
         ```
         Fetched 1 record(s) in 100(ms)

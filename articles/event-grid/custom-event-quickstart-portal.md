@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869146"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022359"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅
 
@@ -41,7 +41,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
    ![시작 단계](./media/custom-event-quickstart-portal/select-create.png)
 
-1. 사용자 지정 항목의 고유한 이름을 입력합니다. DNS 항목으로 표시되기 때문에 토픽 이름은 고유해야 합니다. 이미지에 표시된 이름은 사용하지 마십시오. 대신, 고유한 이름을 만듭니다. [지원되는 영역](overview.md) 중 하나를 선택합니다. 리소스 그룹에 대한 이름을 입력합니다. **만들기**를 선택합니다.
+1. 사용자 지정 항목의 고유한 이름을 입력합니다. DNS 항목으로 표시되기 때문에 토픽 이름은 고유해야 합니다. 이미지에 표시된 이름은 사용하지 마십시오. 대신, 고유한 이름을 만듭니다. 리소스 그룹에 대한 이름을 입력합니다. **만들기**를 선택합니다.
 
    ![Event Grid 항목 값 제공](./media/custom-event-quickstart-portal/create-custom-topic.png)
 
@@ -63,7 +63,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
 ## <a name="create-an-azure-function"></a>Azure Function 만들기
 
-토픽을 구독하기 전에 이벤트 메시지에 대한 끝점을 만들어 보겠습니다. 이 문서에서는 Azure Functions를 사용하여 엔드포인트에 대한 함수 앱을 만듭니다.
+토픽을 구독하기 전에 이벤트 메시지에 대한 엔드포인트를 만들어 보겠습니다. 이 문서에서는 Azure Functions를 사용하여 엔드포인트에 대한 함수 앱을 만듭니다.
 
 1. 함수를 만들려면 **리소스 만들기**를 선택합니다.
 
@@ -115,7 +115,7 @@ Event Grid 항목은 이벤트를 게시하는 사용자 정의 엔드포인트�
 
    ![로그 선택](./media/custom-event-quickstart-portal/select-logs.png)
 
-이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 끝점에 어떻게 배포하는지 살펴 보겠습니다. 이 문서를 간소화하기 위해 Cloud Shell을 사용하여 사용자 지정 항목에 샘플 이벤트 데이터를 보냅니다. 일반적으로 응용 프로그램 또는 Azure 서비스는 이벤트 데이터를 보냅니다.
+이제 이벤트를 트리거하여 Event Grid가 메시지를 사용자 엔드포인트에 어떻게 배포하는지 살펴 보겠습니다. 이 문서를 간소화하기 위해 Cloud Shell을 사용하여 사용자 지정 항목에 샘플 이벤트 데이터를 보냅니다. 일반적으로 응용 프로그램 또는 Azure 서비스는 이벤트 데이터를 보냅니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -180,6 +180,6 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 이제 사용자 지정 항목 및 이벤트 구독을 만드는 방법에 대해 알아보았습니다. 다음으로 어떤 Event Grid가 도움이 되는지 자세히 알아보세요.
 
 - [Event Grid 정보](overview.md)
-- [Blob Storage 이벤트를 사용자 지정 웹 끝점으로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
+- [Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 - [Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링](monitor-virtual-machine-changes-event-grid-logic-app.md)
 - [데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md)

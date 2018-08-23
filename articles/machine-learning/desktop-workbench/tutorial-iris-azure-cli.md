@@ -2,20 +2,20 @@
 title: Azure Machine Learning 미리 보기 기능 - 명령줄 인터페이스에 대한 자습서 | Microsoft Docs
 description: 이 자습서에서는 명령줄 인터페이스에서 종단 간 아이리스 분류를 완료하는 데 필요한 모든 단계를 안내합니다.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: garyericson, jasonwhowell, mldocs
+author: jpe316
+ms.author: jordane
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 05238c27a5654ae24c619b52d769abbf90b940e7
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 10fe861682da6c1d1ac701a565cef11f9b44cd1e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41917638"
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>자습서: 명령줄 인터페이스를 사용하여 아이리스 분류
 Azure Machine Learning 서비스(미리 보기)는 데이터를 준비하고, 실험을 개발하고, 클라우드 범위에서 모델을 배포할 수 있는 전문 데이터 과학자를 위한 종단 간 데이터 과학 및 고급 분석 통합 솔루션입니다.
@@ -91,7 +91,7 @@ $ az account set -s <subscription id or name>
 이 단계에서는 새 실험 계정과 새 작업 영역을 만듭니다. 실험 계정 및 작업 영역에 대한 자세한 내용은 [Azure Machine Learning 개념](overview-general-concepts.md)을 참조하세요.
 
 > [!NOTE]
-> 실험 계정에는 실험 실행 출력을 저장하는 데 사용되는 저장소 계정이 필요합니다. 저장소 계정 이름은 연결되는 URL이 포함되므로 Azure에서 전역적으로 고유해야 합니다. 기존 저장소 계정을 지정하지 않으면 실험 계정 이름이 새 저장소 계정을 만드는 데 사용됩니다. 고유한 이름을 사용했는지 확인합니다. 그렇지 않으면 _"\<storage_account_name>이라는 저장소 계정이 이미 사용되었습니다."_라는 오류 메시지가 표시됩니다. 또는 `--storage` 인수를 사용하여 기존 저장소 계정을 제공할 수 있습니다.
+> 실험 계정에는 실험 실행 출력을 저장하는 데 사용되는 저장소 계정이 필요합니다. 저장소 계정 이름은 연결되는 URL이 포함되므로 Azure에서 전역적으로 고유해야 합니다. 기존 저장소 계정을 지정하지 않으면 실험 계정 이름이 새 저장소 계정을 만드는 데 사용됩니다. 고유한 이름을 사용했는지 확인합니다. 그렇지 않으면 _"\<storage_account_name>이라는 저장소 계정이 이미 사용되었습니다."_ 라는 오류 메시지가 표시됩니다. 또는 `--storage` 인수를 사용하여 기존 저장소 계정을 제공할 수 있습니다.
 
 ```azure-cli
 # create a resource group 
@@ -252,7 +252,7 @@ $ az ml service create realtime -m asset_download/model.pkl -f score_iris.py -r 
 이전 단계의 결과에서 웹 서비스 ID를 사용하여 웹 서비스를 호출하고 테스트합니다. 
 
 ```azure-cli
-# Get web service usage infomration
+# Get web service usage information 
 $ az ml service usage realtime -i <web service id>
 
 # Call the web service with the run command:

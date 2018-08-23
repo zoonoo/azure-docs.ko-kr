@@ -13,12 +13,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: c15cbb632410eb0b6867677d7802960033dfdd44
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a5ede142b7f3dd314d1a6b3eb8f100ec55a4ea4e
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268385"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022940"
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>빠른 시작: Azure Active Directory Premium에 등록
 Azure AD(Azure Active Directory) Premium을 시작하기 위해 라이선스를 구입하고 Azure 구독에 연결할 수 있습니다. 새로운 Azure 구독을 만드는 경우 다음 절에 설명된 대로 라이선싱 계획 및 Azure AD 서비스 액세스도 활성화해야 합니다. 
@@ -46,7 +46,7 @@ Enterprise Mobility + Security(EMS)는 조직이 Azure Active Directory Premium,
 ### <a name="microsoft-volume-licensing"></a>Microsoft 볼륨 라이선스
 Azure Active Directory Premium은 [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)(250개 이상의 라이선스) 또는 [오픈 볼륨 라이선스](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)(5–250개의 라이선스) 프로그램을 통해 사용할 수 있습니다.
 
-[볼륨 라이선스를 통한 구매 방법](https://www.microsoft.com/en-us/Licensing/how-to-buy/how-to-buy.aspx) 페이지에서 볼륨 라이선스 구매 옵션에 대해 자세히 알아볼 수 있습니다.
+[볼륨 라이선스를 통한 구매 방법](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) 페이지에서 볼륨 라이선스 구매 옵션에 대해 자세히 알아볼 수 있습니다.
 
 > [!NOTE]
 > Azure Active Directory Premium 및 Basic 버전은 Azure Active Directory 전 세계 인스턴스를 사용하여 중국의 고객에게 제공됩니다. Azure Active Directory Premium 및 Basic 버전은 현재 중국 21Vianet이 운영하는 Microsoft Azure에서 지원되지 않습니다. 자세한 내용은 [Azure Active Directory 포럼](https://feedback.azure.com/forums/169401-azure-active-directory/)을 통해 문의하세요.

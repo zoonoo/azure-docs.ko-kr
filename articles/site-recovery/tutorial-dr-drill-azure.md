@@ -4,14 +4,14 @@ description: Azure Site Recovery를 사용하여 온-프레미스에서 Azure로
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920174"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41920586"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Azure로 재해 복구 훈련 실행
 
@@ -32,7 +32,7 @@ ms.locfileid: "37920174"
 > * 장애 조치(failover) 후 Azure VM에 연결할 준비
 > * 단일 컴퓨터에 대해 테스트 장애 조치(failover) 실행
 
-이 자습서는 다음을 수행합니다.
+
 
 ## <a name="verify-vm-properties"></a>VM 속성 확인
 

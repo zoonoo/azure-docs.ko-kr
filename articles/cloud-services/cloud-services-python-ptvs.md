@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003645"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41919441"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python Tools for Visual Studio의 Python 웹 및 작업자 역할
 
@@ -42,7 +42,7 @@ Azure는 응용 프로그램을 실행하기 위한 세 가지 컴퓨팅 모델�
 
 > [!NOTE]
 > *간단한 웹 사이트를 빌드하려는 경우*
-> 시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 Azure App Service에서 간단한 Web Apps를 사용하도록 고려합니다. 그러면 웹 사이트가 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다. Azure App Service의 Web Apps 기능 개발을 설명하는 문서는 <a href="/develop/python/">Python 개발자 센터</a>를 참조하세요.
+> 시나리오에 간단한 웹 사이트 프런트 엔드만 포함된 경우 Azure App Service에서 간단한 Web Apps를 사용하도록 고려합니다. 그러면 웹 사이트가 커지고 요구 사항이 변경될 때 클라우드 서비스로 쉽게 업그레이드할 수 있습니다. Azure App Service의 Web Apps 기능 개발을 설명하는 문서는 [Python 개발자 센터](https://azure.microsoft.com/develop/python/)를 참조하세요.
 > <br />
 > 
 > 

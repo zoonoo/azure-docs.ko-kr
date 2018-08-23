@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 797c35bad03c063203e3616740af633b71835a9c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640219"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022561"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Azure ID 관리의 기초
 
@@ -27,7 +27,7 @@ ms.locfileid: "39640219"
 
 Microsoft는 10년 넘게 클라우드 기반 ID를 보호했으며 이제 [Azure AD(Active Directory)](active-directory-whatis.md)를 사용하여 이러한 동일한 보호 시스템을 사용자에게 제공할 수 있습니다. 엔터프라이즈 관리자는 Azure AD를 통해 이전보다 더 우수한 보안 및 관리 기능으로 사용자 및 관리자의 책임을 쉽게 확인할 수 있습니다.
 
-Azure AD Premium은 고급 보호 기능이 있는 클라우드 기반 ID 및 액세스 관리 솔루션으로 모든 앱에 하나의 보안 ID와 ID 보호([Microsoft 인텔리전스 보안 그래프](https://www.microsoft.com/en-us/security/intelligence)로 향상됨) 및 Privileged Identity Management를 사용할 수 있습니다. Azure AD Premium은 다른 모니터링 또는 보고 도구뿐만 아니라 사용자의 ID를 실시간으로 보호할 수 있으며 위험 기반의 적응 액세스 정책을 만들어 조직의 데이터를 보호할 수 있습니다.
+Azure AD Premium은 고급 보호 기능이 있는 클라우드 기반 ID 및 액세스 관리 솔루션으로 모든 앱에 하나의 보안 ID와 ID 보호([Microsoft 인텔리전스 보안 그래프](https://www.microsoft.com/security/intelligence)로 향상됨) 및 Privileged Identity Management를 사용할 수 있습니다. Azure AD Premium은 다른 모니터링 또는 보고 도구뿐만 아니라 사용자의 ID를 실시간으로 보호할 수 있으며 위험 기반의 적응 액세스 정책을 만들어 조직의 데이터를 보호할 수 있습니다.
 
 다음 짧은 비디오에서 Azure AD ID 관리 및 보호에 대한 간략한 개요를 살펴보세요.
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]

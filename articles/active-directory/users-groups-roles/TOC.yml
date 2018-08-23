@@ -4,13 +4,13 @@ items:
 - name: 개요
   items:
   - name: Azure ID 관리
-    href: ../fundamentals/identity-fundamentals.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: /azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context
 - name: 빠른 시작
   items:
   - name: Azure AD에 사용자 추가
-    href: ../fundamentals/add-users-azure-active-directory.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 사용자에게 라이선스 할당
-    href: ../fundamentals/license-users-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 그룹 만료 설정
     href: groups-quickstart-expiration.md
   - name: 그룹 명명 정책 설정
@@ -24,11 +24,11 @@ items:
   - name: Azure AD 관리자 역할 위임
     href: roles-concept-delegation.md
   - name: 그룹 기반 라이선스 기본 사항
-    href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 기본 사용자 사용 권한 비교
-    href: ../fundamentals/users-default-permissions.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Azure 및 Azure AD 관리자 역할
-    href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 서비스 제한 및 제한 사항
     href: directory-service-limits-restrictions.md
   expanded: true
@@ -37,25 +37,25 @@ items:
   - name: 사용자 관리
     items:
     - name: Azure AD에 새 사용자 추가
-      href: ../fundamentals/add-users-azure-active-directory.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 사용자 프로필 관리
-      href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 계정 공유
-      href: ../active-directory-sharing-accounts.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/active-directory-sharing-accounts?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 관리자 역할에 사용자 할당
-      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 삭제한 사용자 복원
-      href: ../fundamentals/active-directory-users-restore.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: B2B 사용자 추가
-      href: ../b2b/what-is-b2b.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: B2B 사용자에게 역할 할당
-      href: ../b2b/add-guest-to-role.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 동적 그룹 및 B2B
-      href: ../b2b/use-dynamic-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 디렉터리 관리
     items:
     - name: 디렉터리 관리
-      href: ../fundamentals/active-directory-administer.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 디렉터리 삭제
       href: directory-delete-howto.md
     - name: 여러 디렉터리
@@ -65,31 +65,31 @@ items:
     - name: 디렉터리 인수
       href: domains-admin-takeover.md
     - name: Azure AD Connect
-      href: ../connect/active-directory-aadconnect.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 회사 브랜딩 구성
-      href: ../fundamentals/customize-branding.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: 그룹 관리
     items:
     - name: 그룹에서 액세스 관리
-      href: ../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Azure Portal에서 그룹 관리
-      href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: PowerShell for Graph(v2) 그룹 관리
       href: groups-settings-v2-cmdlets.md
     - name: PowerShell MSOnline 그룹 관리
       href: groups-settings-cmdlets.md
     - name: 그룹 멤버 관리
-      href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 그룹 소유자 관리
-      href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 그룹에서 그룹 관리
-      href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: SaaS 앱에 대한 그룹 액세스 추가
       href: groups-saasapps.md
     - name: 삭제된 그룹 복원
-      href: ../fundamentals/active-directory-groups-restore-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-groups-restore-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 그룹 설정 관리
-      href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 동적 그룹
       items:
       - name: 동적 그룹 만들기
@@ -105,7 +105,7 @@ items:
   - name: 라이선스 할당
     items:
     - name: 사용자에게 라이선스 할당
-      href: ../fundamentals/license-users-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 그룹에 라이선스 할당
       href: licensing-groups-assign.md
     - name: 그룹 라이선스 문제 해결
@@ -127,7 +127,7 @@ items:
     - name: 역할 멤버 보기
       href: directory-manage-roles-portal.md
     - name: 사용자에게 역할 할당
-      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 관리자 역할 보안
       items:
       - name: 역할 보안 계획
@@ -137,7 +137,7 @@ items:
     - name: 관리 단위
       href: directory-administrative-units.md
     - name: 토큰 수명 구성
-      href: ../active-directory-configurable-token-lifetimes.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/active-directory-configurable-token-lifetimes?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Azure AD와 서비스 통합
     items:
     - name: Azure AD와 LinkedIn 통합
@@ -145,7 +145,7 @@ items:
   - name: 문제 해결
     items:
     - name: Azure AD에 대한 지원
-      href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: 그룹 문제 해결
       href: groups-troubleshooting.md
     - name: 그룹 라이선스 문제 해결
@@ -159,9 +159,9 @@ items:
     href: https://docs.microsoft.com/cli/azure/ad
   - name: Azure AD PowerShell for Graph
     href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
-ms.openlocfilehash: bb524817600d2ab8c41ab5153c0b7865472e9134
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 7a183c30035cbd49087ef12a225fb8b789df6850
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209099"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927159"
