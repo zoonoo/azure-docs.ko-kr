@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 6e7de0a7b580c0028982895487117ab98d0cd612
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 028a8f35b6ffc4b429725e91045e70112f2bdabd
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503454"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42142176"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>Azure App Service Web Apps에서 PHP 구성
 
@@ -189,7 +189,7 @@ App Service가 PHP 프로젝트에 있는 경우 기본적으로 composer.json�
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
+자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
 > [!NOTE]
 > Azure 계정을 등록하기 전에 Azure App Service를 시작하려면 [App Service 체험](https://azure.microsoft.com/try/app-service/)으로 이동합니다. App Service에서 단기 스타터 웹앱을 즉시 만들 수 있습니다. 신용 카드는 필요하지 않으며 약정도 필요하지 않습니다.

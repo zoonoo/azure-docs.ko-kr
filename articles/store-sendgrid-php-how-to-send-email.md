@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 10/30/2014
 ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork; matt.bernier@sendgrid.com
-ms.openlocfilehash: bceec3e85a54eb0e8b542d40ab20536ab41a50f0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 846002264d5f709f7cef6bba67927fc8959a9ccb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718943"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42141769"
 ---
 # <a name="how-to-use-the-sendgrid-email-service-from-php"></a>PHP에서 SendGrid 메일 서비스를 사용하는 방법
 이 가이드에서는 Azure에서 SendGrid 전자 메일 서비스로 일반 프로그래밍 작업을 수행하는 방법을 보여 줍니다. 샘플은 PHP로 작성되었습니다.
@@ -387,7 +387,7 @@ SendGrid 전자 메일 서비스에 관한 기본적인 사항들을 익혔으�
 * SendGrid PHP 라이브러리: <https://github.com/sendgrid/sendgrid-php>
 * Azure 고객을 위한 SendGrid 특별 제공: <https://sendgrid.com/windowsazure.html>
 
-자세한 내용은 [PHP 개발자 센터](/develop/php/)를 참조하세요.
+자세한 내용은 [PHP 개발자 센터](https://azure.microsoft.com/develop/php/)를 참조하세요.
 
 [https://sendgrid.com]: https://sendgrid.com
 [https://sendgrid.com/transactional-email/pricing]: https://sendgrid.com/transactional-email/pricing
